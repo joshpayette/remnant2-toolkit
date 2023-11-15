@@ -5,16 +5,16 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-4">
       <BuildContainer>
-        <Armor variant="helm" />
-        <Armor variant="torso" />
-        <Armor variant="legs" />
-        <Armor variant="gloves" />
-        <Armor variant="relic" />
-        <Armor variant="amulet" />
-        <Armor variant="ring1" />
-        <Armor variant="ring2" />
-        <Armor variant="ring3" />
-        <Armor variant="ring4" />
+        <Armor slot="helm" />
+        <Armor slot="torso" />
+        <Armor slot="legs" />
+        <Armor slot="gloves" />
+        <Armor slot="relic" />
+        <Armor slot="amulet" />
+        <Armor slot="ring1" />
+        <Armor slot="ring2" />
+        <Armor slot="ring3" />
+        <Armor slot="ring4" />
       </BuildContainer>
     </main>
   )

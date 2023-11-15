@@ -1,25 +1,24 @@
 import { cn } from '@/lib/utils'
+import type { ArmorSlot } from '@/data/armor'
 
 interface ArmorProps {
-  variant:
-    | 'helm'
-    | 'torso'
-    | 'legs'
-    | 'gloves'
-    | 'relic'
-    | 'amulet'
-    | 'ring1'
-    | 'ring2'
-    | 'ring3'
-    | 'ring4'
+  slot: ArmorSlot
 }
 
-function Armor({ variant }: ArmorProps) {
-  const baseClasses = 'absolute h-[60px] w-[60px] bg-purple-500'
+function Armor({ slot }: ArmorProps) {
+  const baseClasses =
+    'absolute h-[60px] w-[60px] bg-black  bg-cover bg-no-repeat'
 
-  switch (variant) {
+  switch (slot) {
     case 'helm':
-      return <div className={cn(baseClasses, 'left-[310px] top-[163px]')} />
+      return (
+        <div
+          className={cn(
+            baseClasses,
+            'left-[310px] top-[163px] bg-[url("/armor/academics_hat.png")]',
+          )}
+        />
+      )
     case 'torso':
       return <div className={cn(baseClasses, 'left-[289px] top-[235px]')} />
     case 'legs':
