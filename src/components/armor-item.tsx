@@ -1,11 +1,14 @@
-'use client'
-
-import { Fragment, useState } from 'react'
 import { cn } from '@/lib/utils'
 import Image from 'next/image'
-import ArmorSelect from '@/components/armor-select'
 import type { ArmorSlot, Armor } from '@/data/armor'
 
+/**
+ * Defines the classes for each armor slot,
+ * based on the slot name,
+ * including the absolute positioning
+ * @param slot The slot name
+ * @returns The classes for the slot
+ */
 function getArmorClasses(slot: ArmorSlot): string {
   const baseClasses = 'absolute h-[60px] w-[60px] bg-black'
 
@@ -33,43 +36,37 @@ function getArmorClasses(slot: ArmorSlot): string {
   }
 }
 
-interface ArmorProps {
+interface ArmorItemProps {
+  onClick: () => void
+  selectedArmor: Armor | null
   slot: ArmorSlot
 }
 
-function Armor({ slot }: ArmorProps): JSX.Element {
-  const [modalOpen, setModalOpen] = useState(false)
-  const [selectedArmor, setSelectedArmor] = useState<Armor | null>(null)
-
+export default function ArmorItem({
+  onClick,
+  selectedArmor,
+  slot,
+}: ArmorItemProps) {
   const armorClasses = getArmorClasses(slot)
 
   // return a clickable armorElement that displays a modal to select an armor
   return (
-    <Fragment>
-      <ArmorSelect
-        slot={slot}
-        open={modalOpen}
-        onSelectArmor={(armor) => {
-          setSelectedArmor(armor)
-          setModalOpen(false)
-        }}
-        onClose={() => setModalOpen(false)}
-      />
-      <button type="button" onClick={() => setModalOpen(true)}>
-        <div className={armorClasses}>
-          {selectedArmor && (
-            <Image
-              src={selectedArmor.path}
-              alt={selectedArmor.name}
-              width="60"
-              height="60"
-              className="pointer-events-none object-cover group-hover:opacity-75"
-            />
-          )}
-        </div>
+    <div className={armorClasses}>
+      <button
+        type="button"
+        onClick={onClick}
+        style={{ width: '100%', height: '100%' }}
+      >
+        {selectedArmor && (
+          <Image
+            src={selectedArmor.path}
+            alt={selectedArmor.name}
+            width="60"
+            height="60"
+            className="pointer-events-none object-cover group-hover:opacity-75"
+          />
+        )}
       </button>
-    </Fragment>
+    </div>
   )
 }
-
-export default Armor

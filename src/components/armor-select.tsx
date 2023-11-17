@@ -1,24 +1,21 @@
 import { Fragment } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
-import { armorList } from '@/data/armor'
 import Image from 'next/image'
-import type { ArmorSlot, Armor } from '@/data/armor'
+import type { Armor } from '@/data/armor'
 
 interface ArmorSelectProps {
+  armorList: Armor[]
   onClose: () => void
   onSelectArmor: (armor: Armor) => void
   open: boolean
-  slot: ArmorSlot
 }
 
 function ArmorSelect({
+  armorList,
   onClose,
   onSelectArmor,
   open,
-  slot,
 }: ArmorSelectProps): JSX.Element {
-  const armorForSlot = armorList.filter((a) => a.slot === slot)
-
   return (
     <Transition.Root show={open} as={Fragment}>
       <Dialog as="div" className="relative z-10" onClose={onClose}>
@@ -59,7 +56,7 @@ function ArmorSelect({
                         role="list"
                         className="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-6 lg:grid-cols-4 xl:gap-x-8"
                       >
-                        {armorForSlot.map((armor) => (
+                        {armorList.map((armor) => (
                           <li
                             key={armor.name}
                             className="relative"
