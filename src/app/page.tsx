@@ -8,7 +8,6 @@ import ArmorItem from '@/components/armor-item'
 import { armorList } from '@/data/armor'
 import type { ArmorSlot, Armor } from '@/data/armor'
 import ArmorSelect from '@/components/armor-select'
-import { get } from 'http'
 
 type BuildState = {
   [key in ArmorSlot]: Armor | null
@@ -89,8 +88,10 @@ export default function Home() {
 
   const buildState = getBuildState(searchParams.get('build'))
 
-  // Get a new searchParams string by merging the current
-  // searchParams with a provided key/value pair
+  /**
+   * Get a new searchParams string by merging the current
+   * searchParams with a provided key/value pair
+   */
   const createQueryString = useCallback(
     (name: string, value: string) => {
       const params = new URLSearchParams(searchParams)
@@ -100,7 +101,7 @@ export default function Home() {
     [searchParams],
   )
 
-  // Update the build state by pushing a new route
+  /** Update the build state by pushing a new route */
   const updateBuildState = useCallback(
     (slot: ArmorSlot, armor: Armor | null) => {
       const newBuildState = { ...buildState }
@@ -115,7 +116,7 @@ export default function Home() {
     [buildState, createQueryString, pathname, router],
   )
 
-  // Reset the build state by pushing a new route
+  /** Reset the build state by pushing a new route */
   const resetBuild = useCallback(() => {
     router.push(pathname)
   }, [pathname, router])
