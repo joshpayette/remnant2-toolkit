@@ -8,6 +8,7 @@ import ArmorItem from '@/components/armor-item'
 import { armorList } from '@/data/armor'
 import type { ArmorSlot, Armor } from '@/data/armor'
 import ArmorSelect from '@/components/armor-select'
+import { get } from 'http'
 
 type BuildState = {
   [key in ArmorSlot]: Armor | null
@@ -26,19 +27,15 @@ const initialBuildState: BuildState = {
   ring4: null,
 }
 
-export default function Home() {
-  const [armorSelectOpen, setArmorSelectOpen] = useState<ArmorSlot | null>(null)
-
-  const router = useRouter()
-  const pathname = usePathname()
-  const searchParams = useSearchParams()
-  const buildParam = searchParams.get('build')
-
-  // Need to parse the `build` param from the URL
-  // and set the initial build state
+/**
+ * Parse the build param from the URL and return the build state
+ * @param buildParam The `build` param from the URL
+ * @returns
+ */
+function getBuildState(buildParam: string | null): BuildState {
   let buildState = initialBuildState
   if (buildParam) {
-    const decoded = JSON.parse(
+    const decodedParam = JSON.parse(
       Buffer.from(buildParam, 'base64').toString('utf-8'),
     )
 
@@ -50,7 +47,8 @@ export default function Home() {
       })
       .nullable()
 
-    const parsed = z
+    // Validate the decodedParam against the armorSchema
+    const parsedParam = z
       .object({
         helm: armorSchema,
         torso: armorSchema,
@@ -63,11 +61,11 @@ export default function Home() {
         ring3: armorSchema,
         ring4: armorSchema,
       })
-      .safeParse(decoded)
+      .safeParse(decodedParam)
 
     // If the build param is valid, set the build state
-    if (parsed.success) {
-      const { data } = parsed
+    if (parsedParam.success) {
+      const { data } = parsedParam
       Object.keys(buildState).forEach((key) => {
         const slot = key as ArmorSlot
         const armorForSlot = data[slot]
@@ -76,9 +74,20 @@ export default function Home() {
         }
       })
     } else {
-      console.error('Invalid build param', parsed.error)
+      console.error('Invalid build param', parsedParam.error)
     }
   }
+  return buildState
+}
+
+export default function Home() {
+  const [armorSelectOpen, setArmorSelectOpen] = useState<ArmorSlot | null>(null)
+
+  const router = useRouter()
+  const pathname = usePathname()
+  const searchParams = useSearchParams()
+
+  const buildState = getBuildState(searchParams.get('build'))
 
   // Get a new searchParams string by merging the current
   // searchParams with a provided key/value pair
@@ -90,11 +99,6 @@ export default function Home() {
     },
     [searchParams],
   )
-
-  // Reset the build state by pushing a new route
-  const resetBuild = useCallback(() => {
-    router.push(pathname)
-  }, [pathname, router])
 
   // Update the build state by pushing a new route
   const updateBuildState = useCallback(
@@ -110,6 +114,11 @@ export default function Home() {
     },
     [buildState, createQueryString, pathname, router],
   )
+
+  // Reset the build state by pushing a new route
+  const resetBuild = useCallback(() => {
+    router.push(pathname)
+  }, [pathname, router])
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-4">
