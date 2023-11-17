@@ -1,15 +1,4 @@
-export type ArmorSlot =
-  | 'helm'
-  | 'torso'
-  | 'legs'
-  | 'gloves'
-  | 'relic'
-  | 'amulet'
-  | 'ring1'
-  | 'ring2'
-  | 'ring3'
-  | 'ring4'
-
+/** All the armor in the game */
 export const armorList = [
   {
     slot: 'gloves',
@@ -37,7 +26,23 @@ export const armorList = [
   { slot: 'helm', name: 'Bruiser Helmet', path: '/armor/bruiser_helmet.png' },
 ] as const satisfies { slot: ArmorSlot; name: string; path: string }[]
 
+// The type of the slot of armor
+export type ArmorSlot =
+  | 'helm'
+  | 'torso'
+  | 'legs'
+  | 'gloves'
+  | 'relic'
+  | 'amulet'
+  | 'ring1'
+  | 'ring2'
+  | 'ring3'
+  | 'ring4'
+
+// The type from the list of armor
 type ArmorList = typeof armorList
+
+// The type of a single armor from the list
 export type Armor = ArmorList[number]
 
 // Limit the type of the name to the slot
