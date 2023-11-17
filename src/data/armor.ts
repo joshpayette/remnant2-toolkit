@@ -10,7 +10,7 @@ export type ArmorSlot =
   | 'ring3'
   | 'ring4'
 
-export const armor = [
+export const armorList = [
   {
     slot: 'gloves',
     name: "Academic's Gloves",
@@ -37,9 +37,10 @@ export const armor = [
   { slot: 'helm', name: 'Bruiser Helmet', path: '/armor/bruiser_helmet.png' },
 ] as const satisfies { slot: ArmorSlot; name: string; path: string }[]
 
-type Armor = typeof armor
+type ArmorList = typeof armorList
+export type Armor = ArmorList[number]
 
 // Limit the type of the name to the slot
 export type ArmorName = {
-  [K in ArmorSlot]: Extract<Armor[number], { slot: K }>['name']
+  [K in ArmorSlot]: Extract<Armor, { slot: K }>['name']
 }
