@@ -84,14 +84,7 @@ export const armorList = [
     name: 'Elder Raiment',
     path: '/armor/elder_raiment.png',
   },
-] as const satisfies ArmorItem[]
-
-// The type of a single armor
-interface ArmorItem {
-  slot: ArmorSlot
-  name: string
-  path: string
-}
+] as const satisfies Armor[]
 
 // The type of the slot of armor
 export type ArmorSlot =
@@ -106,11 +99,12 @@ export type ArmorSlot =
   | 'ring3'
   | 'ring4'
 
-// The type from the list of armor
-type ArmorList = typeof armorList
-
-// The type of a single armor from the list
-export type Armor = ArmorList[number]
+// The type of a single armor
+interface Armor {
+  slot: ArmorSlot
+  name: string
+  path: string
+}
 
 // Limit the type of the name to the slot
 export type ArmorName = {
