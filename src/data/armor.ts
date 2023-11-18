@@ -24,7 +24,74 @@ export const armorList = [
     path: '/armor/bandits_trousers.png',
   },
   { slot: 'helm', name: 'Bruiser Helmet', path: '/armor/bruiser_helmet.png' },
-] as const satisfies { slot: ArmorSlot; name: string; path: string }[]
+  {
+    slot: 'helm',
+    name: 'Crown of the Red Prince',
+    path: '/armor/crown_of_the_red_prince.png',
+  },
+  {
+    slot: 'legs',
+    name: 'Cultist Britches',
+    path: '/armor/cultist_britches.png',
+  },
+  {
+    slot: 'torso',
+    name: 'Cultist Duster',
+    path: '/armor/cultist_duster.png',
+  },
+  {
+    slot: 'helm',
+    name: 'Cultist Head',
+    path: '/armor/cultist_head.png',
+  },
+  {
+    slot: 'torso',
+    name: 'Dendroid Chest',
+    path: '/armor/dendroid_chest.png',
+  },
+  {
+    slot: 'gloves',
+    name: 'Dendroid Grips',
+    path: '/armor/dendroid_grips.png',
+  },
+  {
+    slot: 'legs',
+    name: 'Dendroid Leggings',
+    path: '/armor/dendroid_leggings.png',
+  },
+  {
+    slot: 'helm',
+    name: 'Dendroid Mask',
+    path: '/armor/dendroid_mask.png',
+  },
+  {
+    slot: 'gloves',
+    name: 'Elder Gloves',
+    path: '/armor/elder_gloves.png',
+  },
+  {
+    slot: 'helm',
+    name: 'Elder Headdress',
+    path: '/armor/elder_headdress.png',
+  },
+  {
+    slot: 'legs',
+    name: 'Elder Leggings',
+    path: '/armor/elder_leggings.png',
+  },
+  {
+    slot: 'torso',
+    name: 'Elder Raiment',
+    path: '/armor/elder_raiment.png',
+  },
+] as const satisfies ArmorItem[]
+
+// The type of a single armor
+interface ArmorItem {
+  slot: ArmorSlot
+  name: string
+  path: string
+}
 
 // The type of the slot of armor
 export type ArmorSlot =
