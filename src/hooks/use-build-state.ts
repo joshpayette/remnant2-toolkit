@@ -21,15 +21,15 @@ const initialBuildState: BuildState = {
 }
 
 /**
- * Parse the build param from the URL and return the build state
- * @param buildParam The `build` param from the URL
- * @returns
+ * Parse the build param from the URL, validates it, and return the build state
+ * @param encodedBuildParam The `build` param from the URL, encoded as a base64 string
+ * @returns The build state
  */
-function parseBuildState(buildParam: string | null): BuildState {
+function parseBuildState(encodedBuildParam: string | null): BuildState {
   let buildState = initialBuildState
-  if (buildParam) {
+  if (encodedBuildParam) {
     const decodedParam = JSON.parse(
-      Buffer.from(buildParam, 'base64').toString('utf-8'),
+      Buffer.from(encodedBuildParam, 'base64').toString('utf-8'),
     )
 
     const armorSchema = z
@@ -119,7 +119,7 @@ export default function useBuildState() {
 
   return {
     buildState,
-    updateBuildState,
     resetBuildState,
+    updateBuildState,
   }
 }
