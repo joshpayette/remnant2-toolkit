@@ -3,10 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "dev": "npm run build-armor-list && next dev",
+    "build": "npm run build-armor-list && next build",
+    "start": "npm run build-armor-list && next start",
+    "lint": "next lint",
+    "build-armor-list": "ts-node ./scripts/build-armor-list.ts --no-output"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.17",
@@ -28,6 +29,7 @@
     "prettier": "^3.1.0",
     "prettier-plugin-tailwindcss": "^0.5.7",
     "tailwindcss": "^3.3.0",
+    "ts-node": "^10.9.1",
     "typescript": "^5"
   }
 }

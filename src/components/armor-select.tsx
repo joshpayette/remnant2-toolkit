@@ -1,21 +1,28 @@
 import { Fragment } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
-import Image from 'next/image'
-import type { Armor } from '@/data/armor'
+import LoadoutTile from '@/components/loadout-tile'
+import { cn } from '@/lib/utils'
+import type { ArmorItem, LoadoutSlotType, LoadoutItem } from '@/types/index'
 
 interface ArmorSelectProps {
-  armorList: Armor[]
-  onClose: () => void
-  onSelectArmor: (armor: Armor) => void
+  armorList: ArmorItem[]
+  loadoutSlot: LoadoutSlotType | null
   open: boolean
+  onClose: () => void
+  onSelectArmor: (item: LoadoutItem) => void
 }
 
 function ArmorSelect({
   armorList,
+  loadoutSlot,
+  open,
   onClose,
   onSelectArmor,
-  open,
-}: ArmorSelectProps): JSX.Element {
+}: ArmorSelectProps) {
+  if (!loadoutSlot) {
+    return null
+  }
+
   return (
     <Transition.Root show={open} as={Fragment}>
       <Dialog as="div" className="relative z-10" onClose={onClose}>
@@ -42,33 +49,48 @@ function ArmorSelect({
               leaveFrom="opacity-100 translate-y-0 sm:scale-100"
               leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
             >
-              <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-gray-800 px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-sm sm:p-6">
+              <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-gray-800 px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
                 <div>
                   <div className="text-center">
                     <Dialog.Title
                       as="h3"
                       className="mb-5 text-base font-semibold leading-6 text-gray-100"
                     >
-                      Select Armor
+                      Select Item
                     </Dialog.Title>
                     <div className="mt-2">
                       <ul
                         role="list"
-                        className="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-6 lg:grid-cols-4 xl:gap-x-8"
+                        className="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-6 lg:grid-cols-4"
                       >
                         {armorList.map((armor) => (
                           <li
                             key={armor.name}
-                            className="relative"
-                            onClick={() => onSelectArmor(armor)}
+                            onClick={() =>
+                              onSelectArmor({
+                                name: armor.name,
+                                path: armor.path,
+                                slot: loadoutSlot,
+                              })
+                            }
                           >
-                            <div className="aspect-h-7 aspect-w-10 group block w-full overflow-hidden rounded-lg bg-black focus-within:ring-2 focus-within:ring-purple-500 focus-within:ring-offset-2 focus-within:ring-offset-gray-100">
-                              <Image
-                                src={armor.path}
-                                alt={armor.name}
-                                width="60"
-                                height="60"
-                                className="pointer-events-none object-cover group-hover:opacity-75"
+                            <div
+                              className={cn(
+                                'group flex items-center justify-center overflow-hidden rounded-lg bg-black focus-within:ring-2 focus-within:ring-purple-500 focus-within:ring-offset-2 focus-within:ring-offset-gray-100',
+                                armor.slot === 'mainhand' ||
+                                  armor.slot === 'offhand' ||
+                                  armor.slot === 'melee'
+                                  ? 'h-[60px] w-[120px]'
+                                  : 'h-[60px] w-[60px]',
+                              )}
+                            >
+                              <LoadoutTile
+                                item={{
+                                  name: armor.name,
+                                  path: armor.path,
+                                  slot: loadoutSlot,
+                                }}
+                                slot={loadoutSlot}
                               />
                             </div>
                             <p className="pointer-events-none mt-2 block truncate text-sm font-medium text-gray-400">
