@@ -1,5 +1,5 @@
 import { cn } from '@/lib/utils'
-import ArmorTile from '@/components/loadout-tile'
+import ArmorTile from '@/components/LoadoutTile'
 import type { LoadoutItem, LoadoutSlotType } from '@/types/index'
 
 interface LayoutTileButtonProps {

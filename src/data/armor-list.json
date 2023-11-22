@@ -1,5 +1,315 @@
 [
   {
+    "slot": "amulet",
+    "name": "Abrasive Whetstone",
+    "path": "/armor/amulet/abrasive_whetstone.png"
+  },
+  {
+    "slot": "amulet",
+    "name": "Ankh Of Power",
+    "path": "/armor/amulet/ankh_of_power.png"
+  },
+  {
+    "slot": "amulet",
+    "name": "Broken Pocket Watch",
+    "path": "/armor/amulet/broken_pocket_watch.png"
+  },
+  {
+    "slot": "amulet",
+    "name": "Butchers Fetish",
+    "path": "/armor/amulet/butchers_fetish.png"
+  },
+  {
+    "slot": "amulet",
+    "name": "Chains Of Amplification",
+    "path": "/armor/amulet/chains_of_amplification.png"
+  },
+  {
+    "slot": "amulet",
+    "name": "Cleansing Stone",
+    "path": "/armor/amulet/cleansing_stone.png"
+  },
+  {
+    "slot": "amulet",
+    "name": "Core Booster",
+    "path": "/armor/amulet/core_booster.png"
+  },
+  {
+    "slot": "amulet",
+    "name": "Daredevils Charm",
+    "path": "/armor/amulet/daredevils_charm.png"
+  },
+  {
+    "slot": "amulet",
+    "name": "Death Embrace",
+    "path": "/armor/amulet/death_embrace.png"
+  },
+  {
+    "slot": "amulet",
+    "name": "Decayed Margin",
+    "path": "/armor/amulet/decayed_margin.png"
+  },
+  {
+    "slot": "amulet",
+    "name": "Detonation Trigger",
+    "path": "/armor/amulet/detonation_trigger.png"
+  },
+  {
+    "slot": "amulet",
+    "name": "Difference Engine",
+    "path": "/armor/amulet/difference_engine.png"
+  },
+  {
+    "slot": "amulet",
+    "name": "Downward Spiral",
+    "path": "/armor/amulet/downward_spiral.png"
+  },
+  {
+    "slot": "amulet",
+    "name": "Effigy Pendant",
+    "path": "/armor/amulet/effigy_pendant.png"
+  },
+  {
+    "slot": "amulet",
+    "name": "Effluvium Enhancer",
+    "path": "/armor/amulet/effluvium_enhancer.png"
+  },
+  {
+    "slot": "amulet",
+    "name": "Emergency Switch",
+    "path": "/armor/amulet/emergency_switch.png"
+  },
+  {
+    "slot": "amulet",
+    "name": "Energized Neck Coil",
+    "path": "/armor/amulet/energized_neck_coil.png"
+  },
+  {
+    "slot": "amulet",
+    "name": "Energy Diverter",
+    "path": "/armor/amulet/energy_diverter.png"
+  },
+  {
+    "slot": "amulet",
+    "name": "Escalation Protocol",
+    "path": "/armor/amulet/escalation_protocol.png"
+  },
+  {
+    "slot": "amulet",
+    "name": "Full Moon Circlet",
+    "path": "/armor/amulet/full_moon_circlet.png"
+  },
+  {
+    "slot": "amulet",
+    "name": "Golden Ribbon",
+    "path": "/armor/amulet/golden_ribbon.png"
+  },
+  {
+    "slot": "amulet",
+    "name": "Gunfire Security Lanyard",
+    "path": "/armor/amulet/gunfire_security_lanyard.png"
+  },
+  {
+    "slot": "amulet",
+    "name": "Gunslingers Charm",
+    "path": "/armor/amulet/gunslingers_charm.png"
+  },
+  {
+    "slot": "amulet",
+    "name": "Hallowed Egg",
+    "path": "/armor/amulet/hallowed_egg.png"
+  },
+  {
+    "slot": "amulet",
+    "name": "Hyper Conductor",
+    "path": "/armor/amulet/hyper_conductor.png"
+  },
+  {
+    "slot": "amulet",
+    "name": "Indignant Fetish",
+    "path": "/armor/amulet/indignant_fetish.png"
+  },
+  {
+    "slot": "amulet",
+    "name": "Inert Overcharger",
+    "path": "/armor/amulet/inert_overcharger.png"
+  },
+  {
+    "slot": "amulet",
+    "name": "Insulation Driver",
+    "path": "/armor/amulet/insulation_driver.png"
+  },
+  {
+    "slot": "amulet",
+    "name": "Jesters Bell",
+    "path": "/armor/amulet/jesters_bell.png"
+  },
+  {
+    "slot": "amulet",
+    "name": "Kinetic Shield Exchanger",
+    "path": "/armor/amulet/kinetic_shield_exchanger.png"
+  },
+  {
+    "slot": "amulet",
+    "name": "Kuri Kuri Charm",
+    "path": "/armor/amulet/kuri_kuri_charm.png"
+  },
+  {
+    "slot": "amulet",
+    "name": "Laemir Censer",
+    "path": "/armor/amulet/laemir_censer.png"
+  },
+  {
+    "slot": "amulet",
+    "name": "Letos Amulet",
+    "path": "/armor/amulet/letos_amulet.png"
+  },
+  {
+    "slot": "amulet",
+    "name": "Matriarchs Insignia",
+    "path": "/armor/amulet/matriarchs_insignia.png"
+  },
+  {
+    "slot": "amulet",
+    "name": "Navigators Pendant",
+    "path": "/armor/amulet/navigators_pendant.png"
+  },
+  {
+    "slot": "amulet",
+    "name": "Neckbone Necklace",
+    "path": "/armor/amulet/neckbone_necklace.png"
+  },
+  {
+    "slot": "amulet",
+    "name": "Necklace Of Flowing Life",
+    "path": "/armor/amulet/necklace_of_flowing_life.png"
+  },
+  {
+    "slot": "amulet",
+    "name": "Necklace Of Supremacy",
+    "path": "/armor/amulet/necklace_of_supremacy.png"
+  },
+  {
+    "slot": "amulet",
+    "name": "Nightmare Spiral",
+    "path": "/armor/amulet/nightmare_spiral.png"
+  },
+  {
+    "slot": "amulet",
+    "name": "Nightweavers Grudge",
+    "path": "/armor/amulet/nightweavers_grudge.png"
+  },
+  {
+    "slot": "amulet",
+    "name": "Nimues Ribbon",
+    "path": "/armor/amulet/nimues_ribbon.png"
+  },
+  {
+    "slot": "amulet",
+    "name": "One Eyed Joker Idol",
+    "path": "/armor/amulet/one_eyed_joker_idol.png"
+  },
+  {
+    "slot": "amulet",
+    "name": "One True King Sigil",
+    "path": "/armor/amulet/one_true_king_sigil.png"
+  },
+  {
+    "slot": "amulet",
+    "name": "Onyx Pendulum",
+    "path": "/armor/amulet/onyx_pendulum.png"
+  },
+  {
+    "slot": "amulet",
+    "name": "Range Finder",
+    "path": "/armor/amulet/range_finder.png"
+  },
+  {
+    "slot": "amulet",
+    "name": "Ravagers Mark",
+    "path": "/armor/amulet/ravagers_mark.png"
+  },
+  {
+    "slot": "amulet",
+    "name": "Red Doe Sigil",
+    "path": "/armor/amulet/red_doe_sigil.png"
+  },
+  {
+    "slot": "amulet",
+    "name": "Rusted Navigators Pendant",
+    "path": "/armor/amulet/rusted_navigators_pendant.png"
+  },
+  {
+    "slot": "amulet",
+    "name": "Samoflange",
+    "path": "/armor/amulet/samoflange.png"
+  },
+  {
+    "slot": "amulet",
+    "name": "Scavengers Bauble",
+    "path": "/armor/amulet/scavengers_bauble.png"
+  },
+  {
+    "slot": "amulet",
+    "name": "Shaed Bloom Crystal",
+    "path": "/armor/amulet/shaed_bloom_crystal.png"
+  },
+  {
+    "slot": "amulet",
+    "name": "Shock Device",
+    "path": "/armor/amulet/shock_device.png"
+  },
+  {
+    "slot": "amulet",
+    "name": "Silver Ribbon",
+    "path": "/armor/amulet/silver_ribbon.png"
+  },
+  {
+    "slot": "amulet",
+    "name": "Soul Anchor",
+    "path": "/armor/amulet/soul_anchor.png"
+  },
+  {
+    "slot": "amulet",
+    "name": "Spirit Wisp Amulet",
+    "path": "/armor/amulet/spirit_wisp_amulet.png"
+  },
+  {
+    "slot": "amulet",
+    "name": "Stalkers Brand",
+    "path": "/armor/amulet/stalkers_brand.png"
+  },
+  {
+    "slot": "amulet",
+    "name": "Talisman Of The Sun",
+    "path": "/armor/amulet/talisman_of_the_sun.png"
+  },
+  {
+    "slot": "amulet",
+    "name": "Toxic Release Valve",
+    "path": "/armor/amulet/toxic_release_valve.png"
+  },
+  {
+    "slot": "amulet",
+    "name": "Twisted Idol",
+    "path": "/armor/amulet/twisted_idol.png"
+  },
+  {
+    "slot": "amulet",
+    "name": "Vengeance Idol",
+    "path": "/armor/amulet/vengeance_idol.png"
+  },
+  {
+    "slot": "amulet",
+    "name": "Void Idol",
+    "path": "/armor/amulet/void_idol.png"
+  },
+  {
+    "slot": "amulet",
+    "name": "Weightless Weight",
+    "path": "/armor/amulet/weightless_weight.png"
+  },
+  {
     "slot": "gloves",
     "name": "Academics Gloves",
     "path": "/armor/gloves/academics_gloves.png"

@@ -1,6 +1,6 @@
 import { Fragment } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
-import LoadoutTile from '@/components/loadout-tile'
+import LoadoutTile from '@/components/LoadoutTile'
 import { cn } from '@/lib/utils'
 import type { ArmorItem, LoadoutSlotType, LoadoutItem } from '@/types/index'
 

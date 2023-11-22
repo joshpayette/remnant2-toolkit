@@ -2,9 +2,9 @@
 
 import { useState } from 'react'
 import armorList from '@/data/armor-list.json'
-import ALoadoutTileButton from '@/components/loadout-tile-button'
-import ArmorSelect from '@/components/armor-select'
-import useBuildState from '@/hooks/use-build-state'
+import ALoadoutTileButton from '@/components/LoadoutTileButton'
+import ArmorSelect from '@/components/ArmorSelect'
+import useBuildState from '@/hooks/useBuildState'
 import { cn } from '@/lib/utils'
 import type { LoadoutSlotType, LoadoutItem, ArmorItem } from '@/types/index'
 
