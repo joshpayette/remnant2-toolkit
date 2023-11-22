@@ -1,19 +1,19 @@
 'use client'
 
 import { useState } from 'react'
-import armorList from '@/data/armor-list.json'
-import ALoadoutTileButton from '@/components/LoadoutTileButton'
-import ArmorSelect from '@/components/ArmorSelect'
+import armorList from '@/data/item-list.json'
+import LoadoutTileButton from '@/components/LoadoutTileButton'
+import ItemSelect from '@/app/builds/ItemSelect'
 import useBuildState from '@/hooks/useBuildState'
 import { cn } from '@/lib/utils'
-import type { LoadoutSlotType, LoadoutItem, ArmorItem } from '@/types/index'
+import type { LoadoutSlot, LoadoutItem, Item } from '@/types'
 
 /**
- * Filter out the armor list for only the slot we're looking for.
- * Because the loadout has 4 ring slots, but ring armor is classified only as 'ring',
+ * Filter out the item list for only the slot we're looking for.
+ * Because the loadout has 4 ring slots, but the ring item is classified only as 'ring',
  * we need to check in order to display rings.
  */
-function getArmorListForSlot(loadoutSlot: LoadoutSlotType | null): ArmorItem[] {
+function getItemListForSlot(loadoutSlot: LoadoutSlot | null): Item[] {
   const slot =
     loadoutSlot === 'ring1' ||
     loadoutSlot === 'ring2' ||
@@ -24,32 +24,32 @@ function getArmorListForSlot(loadoutSlot: LoadoutSlotType | null): ArmorItem[] {
 
   if (!slot) return []
 
-  const filteredArmorList = armorList.filter(
+  const filteredItemList = armorList.filter(
     (item) => item.slot === slot,
-  ) as ArmorItem[]
-  return filteredArmorList
+  ) as Item[]
+  return filteredItemList
 }
 
 export default function BuildContainer() {
   const { buildState, updateBuildState } = useBuildState()
   /** Tracks which loadout slot was clicked for the armor select modal */
-  const [loadoutSlot, setLoadoutSlot] = useState<LoadoutSlotType | null>(null)
-  const isArmorSelectOpen = Boolean(loadoutSlot)
+  const [loadoutSlot, setLoadoutSlot] = useState<LoadoutSlot | null>(null)
+  const isItemSelectOpen = Boolean(loadoutSlot)
 
-  const armorListForSlot = getArmorListForSlot(loadoutSlot)
+  const itemListForSlot = getItemListForSlot(loadoutSlot)
 
-  function handleSelectArmor(item: LoadoutItem) {
+  function handleSelectItem(item: LoadoutItem) {
     updateBuildState(item.slot, item)
     setLoadoutSlot(null)
   }
 
   return (
     <div>
-      <ArmorSelect
-        armorList={armorListForSlot}
+      <ItemSelect
+        itemList={itemListForSlot}
         loadoutSlot={loadoutSlot}
-        open={isArmorSelectOpen}
-        onSelectArmor={handleSelectArmor}
+        open={isItemSelectOpen}
+        onSelectItem={handleSelectItem}
         onClose={() => setLoadoutSlot(null)}
       />
       <div
@@ -57,72 +57,72 @@ export default function BuildContainer() {
         className={cn('rounded-lg shadow-lg shadow-purple-950')}
       >
         <div className={cn('grid grid-cols-2 gap-1')}>
-          <ALoadoutTileButton
+          <LoadoutTileButton
             item={buildState.helm}
             slot="helm"
             onClick={() => setLoadoutSlot('helm')}
           />
-          <ALoadoutTileButton
+          <LoadoutTileButton
             item={buildState.torso}
             slot="torso"
             onClick={() => setLoadoutSlot('torso')}
           />
-          <ALoadoutTileButton
+          <LoadoutTileButton
             item={buildState.gloves}
             slot="gloves"
             onClick={() => setLoadoutSlot('gloves')}
           />
-          <ALoadoutTileButton
+          <LoadoutTileButton
             item={buildState.legs}
             slot="legs"
             onClick={() => setLoadoutSlot('legs')}
           />
-          <ALoadoutTileButton
+          <LoadoutTileButton
             item={buildState.relic}
             slot="relic"
             onClick={() => setLoadoutSlot('relic')}
           />
-          <ALoadoutTileButton
+          <LoadoutTileButton
             item={buildState.amulet}
             slot="amulet"
             onClick={() => setLoadoutSlot('amulet')}
           />
-          <ALoadoutTileButton
+          <LoadoutTileButton
             item={buildState.ring1}
             slot="ring1"
             onClick={() => setLoadoutSlot('ring1')}
           />
-          <ALoadoutTileButton
+          <LoadoutTileButton
             item={buildState.ring2}
             slot="ring2"
             onClick={() => setLoadoutSlot('ring2')}
           />
-          <ALoadoutTileButton
+          <LoadoutTileButton
             item={buildState.ring3}
             slot="ring3"
             onClick={() => setLoadoutSlot('ring3')}
           />
-          <ALoadoutTileButton
+          <LoadoutTileButton
             item={buildState.ring4}
             slot="ring4"
             onClick={() => setLoadoutSlot('ring4')}
           />
           <div className={cn('col-span-2')}>
-            <ALoadoutTileButton
+            <LoadoutTileButton
               item={buildState.mainhand}
               slot="mainhand"
               onClick={() => setLoadoutSlot('mainhand')}
             />
           </div>
           <div className={cn('col-span-2')}>
-            <ALoadoutTileButton
+            <LoadoutTileButton
               item={buildState.melee}
               slot="melee"
               onClick={() => setLoadoutSlot('melee')}
             />
           </div>
           <div className={cn('col-span-2')}>
-            <ALoadoutTileButton
+            <LoadoutTileButton
               item={buildState.offhand}
               slot="offhand"
               onClick={() => setLoadoutSlot('offhand')}

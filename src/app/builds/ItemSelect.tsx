@@ -2,23 +2,23 @@ import { Fragment } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import LoadoutTile from '@/components/LoadoutTile'
 import { cn } from '@/lib/utils'
-import type { ArmorItem, LoadoutSlotType, LoadoutItem } from '@/types/index'
+import type { Item, LoadoutSlot, LoadoutItem } from '@/types'
 
-interface ArmorSelectProps {
-  armorList: ArmorItem[]
-  loadoutSlot: LoadoutSlotType | null
+interface ItemSelectProps {
+  itemList: Item[]
+  loadoutSlot: LoadoutSlot | null
   open: boolean
   onClose: () => void
-  onSelectArmor: (item: LoadoutItem) => void
+  onSelectItem: (item: LoadoutItem) => void
 }
 
-function ArmorSelect({
-  armorList,
+export default function ItemSelect({
+  itemList,
   loadoutSlot,
   open,
   onClose,
-  onSelectArmor,
-}: ArmorSelectProps) {
+  onSelectItem,
+}: ItemSelectProps) {
   if (!loadoutSlot) {
     return null
   }
@@ -63,13 +63,13 @@ function ArmorSelect({
                         role="list"
                         className="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-6 lg:grid-cols-4"
                       >
-                        {armorList.map((armor) => (
+                        {itemList.map((item) => (
                           <li
-                            key={armor.name}
+                            key={item.name}
                             onClick={() =>
-                              onSelectArmor({
-                                name: armor.name,
-                                path: armor.path,
+                              onSelectItem({
+                                name: item.name,
+                                path: item.path,
                                 slot: loadoutSlot,
                               })
                             }
@@ -77,24 +77,24 @@ function ArmorSelect({
                             <div
                               className={cn(
                                 'group flex items-center justify-center overflow-hidden rounded-lg bg-black focus-within:ring-2 focus-within:ring-purple-500 focus-within:ring-offset-2 focus-within:ring-offset-gray-100',
-                                armor.slot === 'mainhand' ||
-                                  armor.slot === 'offhand' ||
-                                  armor.slot === 'melee'
+                                item.slot === 'mainhand' ||
+                                  item.slot === 'offhand' ||
+                                  item.slot === 'melee'
                                   ? 'h-[60px] w-[120px]'
                                   : 'h-[60px] w-[60px]',
                               )}
                             >
                               <LoadoutTile
                                 item={{
-                                  name: armor.name,
-                                  path: armor.path,
+                                  name: item.name,
+                                  path: item.path,
                                   slot: loadoutSlot,
                                 }}
                                 slot={loadoutSlot}
                               />
                             </div>
                             <p className="pointer-events-none mt-2 block truncate text-sm font-medium text-gray-400">
-                              {armor.name}
+                              {item.name}
                             </p>
                           </li>
                         ))}
@@ -119,5 +119,3 @@ function ArmorSelect({
     </Transition.Root>
   )
 }
-
-export default ArmorSelect

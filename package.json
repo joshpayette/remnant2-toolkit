@@ -3,11 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "npm run build-armor-list && next dev",
-    "build": "npm run build-armor-list && next build",
-    "start": "npm run build-armor-list && next start",
+    "dev": "npm run build-item-list && next dev",
+    "build": "npm run build-item-list && next build",
+    "start": "npm run build-item-list && next start",
     "lint": "next lint",
-    "build-armor-list": "ts-node ./scripts/build-armor-list.ts --no-output"
+    "build-item-list": "ts-node ./scripts/build-item-list.ts --no-output"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.17",

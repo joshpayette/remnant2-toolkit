@@ -7,13 +7,13 @@
 
 import fs from 'fs'
 import path from 'path'
-import type { ArmorItem, ArmorSlotType } from '../types'
+import type { Item, ItemSlot } from '../src/types'
 
-const armorPath = path.join(__dirname, '../public/armor')
-const armorList: ArmorItem[] = []
+const itemPath = path.join(__dirname, '../public/items')
+const itemList: Item[] = []
 
-fs.readdirSync(armorPath).forEach((slot: string) => {
-  fs.readdirSync(path.join(armorPath, slot)).forEach((file: string) => {
+fs.readdirSync(itemPath).forEach((slot: string) => {
+  fs.readdirSync(path.join(itemPath, slot)).forEach((file: string) => {
     const armorName = file
       .replace(/_/g, ' ') // replace underscores with spaces
       .replace(/\.[^/.]+$/, '') // remove file extension
@@ -21,16 +21,16 @@ fs.readdirSync(armorPath).forEach((slot: string) => {
         /\w\S*/g,
         (txt) => txt.charAt(0).toUpperCase() + txt.substring(1).toLowerCase(),
       ) // uppercase the first letter of each word
-    armorList.push({
-      slot: slot as ArmorSlotType,
+    itemList.push({
+      slot: slot as ItemSlot,
       name: armorName,
-      path: `/armor/${slot}/${file}`,
+      path: `/items/${slot}/${file}`,
     })
   })
 })
 
 // Output the armor list to /data/armor.json
 fs.writeFileSync(
-  path.join(__dirname, '../src/data/armor-list.json'),
-  JSON.stringify(armorList, null, 2),
+  path.join(__dirname, '../src/data/item-list.json'),
+  JSON.stringify(itemList, null, 2),
 )

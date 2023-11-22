@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import type { LoadoutItem, LoadoutSlotType } from '@/types/index'
+import type { LoadoutItem, LoadoutSlotType } from '@/types'
 
 interface LoadoutTileProps {
   item: LoadoutItem

@@ -1,9 +1,9 @@
 import Image from 'next/image'
 import { cn } from '@/lib/utils'
-import type { ArmorItem } from '@/types/index'
+import type { Item } from '@/types'
 
 interface CardProps {
-  item: ArmorItem
+  item: Item
   variant?: 'default' | 'blue'
 }
 
@@ -55,7 +55,7 @@ function CardFooter() {
   )
 }
 
-export default function ArmorCard({ item, variant = 'default' }: CardProps) {
+export default function ItemCard({ item, variant = 'default' }: CardProps) {
   return (
     <div className="relative flex w-full flex-col items-center justify-center p-4">
       <CardTitle name={item.name} slot={item.slot} />

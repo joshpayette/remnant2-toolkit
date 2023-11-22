@@ -1,17 +1,17 @@
 'use client'
 
-import ArmorCard from '@/components/ArmorCard'
-import armorList from '@/data/armor-list.json'
-import { ArmorItem } from '@/types/index'
+import ItemCard from '@/app/builds/ItemCard'
+import itemList from '@/data/item-list.json'
+import { Item } from '@/types'
 
 export default function Home() {
-  const item = armorList[0] as ArmorItem
+  const item = itemList[0] as Item
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center p-4">
       {/* <BuildContainer /> */}
       <div className="w-[300px]">
-        <ArmorCard item={item} />
+        <ItemCard item={item} />
       </div>
     </main>
   )

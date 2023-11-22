@@ -1,10 +1,10 @@
 import { useCallback } from 'react'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import { z } from 'zod'
-import type { LoadoutSlotType, LoadoutItem } from '@/types/index'
+import type { LoadoutSlot, LoadoutItem } from '@/types'
 
 type BuildState = {
-  [key in LoadoutSlotType]: LoadoutItem | null
+  [key in LoadoutSlot]: LoadoutItem | null
 }
 
 const initialBuildState: BuildState = {
@@ -22,6 +22,10 @@ const initialBuildState: BuildState = {
   offhand: null,
   melee: null,
   mod: null,
+  archtype1: null,
+  archtype2: null,
+  concoction: null,
+  traits: null,
 }
 
 /**
@@ -46,7 +50,7 @@ export default function useBuildState() {
           Buffer.from(encodedBuildParam, 'base64').toString('utf-8'),
         )
 
-        const armorSchema = z
+        const itemSchema = z
           .object({
             name: z.string(),
             slot: z.string(),
@@ -54,23 +58,27 @@ export default function useBuildState() {
           })
           .nullable()
 
-        // Validate the decodedParam against the armorSchema
+        // Validate the decodedParam against the itemSchema
         const parsedParam = z
           .object({
-            helm: armorSchema,
-            torso: armorSchema,
-            legs: armorSchema,
-            gloves: armorSchema,
-            relic: armorSchema,
-            amulet: armorSchema,
-            ring1: armorSchema,
-            ring2: armorSchema,
-            ring3: armorSchema,
-            ring4: armorSchema,
-            mainhand: armorSchema,
-            offhand: armorSchema,
-            melee: armorSchema,
-            mod: armorSchema,
+            helm: itemSchema,
+            torso: itemSchema,
+            legs: itemSchema,
+            gloves: itemSchema,
+            relic: itemSchema,
+            amulet: itemSchema,
+            ring1: itemSchema,
+            ring2: itemSchema,
+            ring3: itemSchema,
+            ring4: itemSchema,
+            mainhand: itemSchema,
+            offhand: itemSchema,
+            melee: itemSchema,
+            mod: itemSchema,
+            concoction: itemSchema,
+            archtype1: itemSchema,
+            archtype2: itemSchema,
+            traits: itemSchema,
           })
           .safeParse(decodedParam)
 
@@ -78,10 +86,10 @@ export default function useBuildState() {
         if (parsedParam.success) {
           const { data } = parsedParam
           Object.keys(buildState).forEach((key) => {
-            const slot = key as LoadoutSlotType
-            const armorForSlot = data[slot]
-            if (armorForSlot) {
-              buildState = { ...buildState, [slot]: armorForSlot }
+            const slot = key as LoadoutSlot
+            const itemForSlot = data[slot]
+            if (itemForSlot) {
+              buildState = { ...buildState, [slot]: itemForSlot }
             }
           })
         } else {
@@ -104,7 +112,7 @@ export default function useBuildState() {
   )
 
   const updateBuildState = useCallback(
-    (slot: LoadoutSlotType, item: LoadoutItem | null) => {
+    (slot: LoadoutSlot, item: LoadoutItem | null) => {
       const newBuildState = { ...buildState }
       newBuildState[slot] =
         item === null

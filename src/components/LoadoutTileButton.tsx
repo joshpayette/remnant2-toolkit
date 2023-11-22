@@ -1,10 +1,10 @@
 import { cn } from '@/lib/utils'
 import ArmorTile from '@/components/LoadoutTile'
-import type { LoadoutItem, LoadoutSlotType } from '@/types/index'
+import type { LoadoutItem, LoadoutSlot } from '@/types'
 
 interface LayoutTileButtonProps {
   item: LoadoutItem | null
-  slot: LoadoutSlotType
+  slot: LoadoutSlot
   onClick: () => void
 }
 

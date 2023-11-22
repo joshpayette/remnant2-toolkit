@@ -2,1891 +2,1891 @@
   {
     "slot": "amulet",
     "name": "Abrasive Whetstone",
-    "path": "/armor/amulet/abrasive_whetstone.png"
+    "path": "/items/amulet/abrasive_whetstone.png"
   },
   {
     "slot": "amulet",
     "name": "Ankh Of Power",
-    "path": "/armor/amulet/ankh_of_power.png"
+    "path": "/items/amulet/ankh_of_power.png"
   },
   {
     "slot": "amulet",
     "name": "Broken Pocket Watch",
-    "path": "/armor/amulet/broken_pocket_watch.png"
+    "path": "/items/amulet/broken_pocket_watch.png"
   },
   {
     "slot": "amulet",
     "name": "Butchers Fetish",
-    "path": "/armor/amulet/butchers_fetish.png"
+    "path": "/items/amulet/butchers_fetish.png"
   },
   {
     "slot": "amulet",
     "name": "Chains Of Amplification",
-    "path": "/armor/amulet/chains_of_amplification.png"
+    "path": "/items/amulet/chains_of_amplification.png"
   },
   {
     "slot": "amulet",
     "name": "Cleansing Stone",
-    "path": "/armor/amulet/cleansing_stone.png"
+    "path": "/items/amulet/cleansing_stone.png"
   },
   {
     "slot": "amulet",
     "name": "Core Booster",
-    "path": "/armor/amulet/core_booster.png"
+    "path": "/items/amulet/core_booster.png"
   },
   {
     "slot": "amulet",
     "name": "Daredevils Charm",
-    "path": "/armor/amulet/daredevils_charm.png"
+    "path": "/items/amulet/daredevils_charm.png"
   },
   {
     "slot": "amulet",
     "name": "Death Embrace",
-    "path": "/armor/amulet/death_embrace.png"
+    "path": "/items/amulet/death_embrace.png"
   },
   {
     "slot": "amulet",
     "name": "Decayed Margin",
-    "path": "/armor/amulet/decayed_margin.png"
+    "path": "/items/amulet/decayed_margin.png"
   },
   {
     "slot": "amulet",
     "name": "Detonation Trigger",
-    "path": "/armor/amulet/detonation_trigger.png"
+    "path": "/items/amulet/detonation_trigger.png"
   },
   {
     "slot": "amulet",
     "name": "Difference Engine",
-    "path": "/armor/amulet/difference_engine.png"
+    "path": "/items/amulet/difference_engine.png"
   },
   {
     "slot": "amulet",
     "name": "Downward Spiral",
-    "path": "/armor/amulet/downward_spiral.png"
+    "path": "/items/amulet/downward_spiral.png"
   },
   {
     "slot": "amulet",
     "name": "Effigy Pendant",
-    "path": "/armor/amulet/effigy_pendant.png"
+    "path": "/items/amulet/effigy_pendant.png"
   },
   {
     "slot": "amulet",
     "name": "Effluvium Enhancer",
-    "path": "/armor/amulet/effluvium_enhancer.png"
+    "path": "/items/amulet/effluvium_enhancer.png"
   },
   {
     "slot": "amulet",
     "name": "Emergency Switch",
-    "path": "/armor/amulet/emergency_switch.png"
+    "path": "/items/amulet/emergency_switch.png"
   },
   {
     "slot": "amulet",
     "name": "Energized Neck Coil",
-    "path": "/armor/amulet/energized_neck_coil.png"
+    "path": "/items/amulet/energized_neck_coil.png"
   },
   {
     "slot": "amulet",
     "name": "Energy Diverter",
-    "path": "/armor/amulet/energy_diverter.png"
+    "path": "/items/amulet/energy_diverter.png"
   },
   {
     "slot": "amulet",
     "name": "Escalation Protocol",
-    "path": "/armor/amulet/escalation_protocol.png"
+    "path": "/items/amulet/escalation_protocol.png"
   },
   {
     "slot": "amulet",
     "name": "Full Moon Circlet",
-    "path": "/armor/amulet/full_moon_circlet.png"
+    "path": "/items/amulet/full_moon_circlet.png"
   },
   {
     "slot": "amulet",
     "name": "Golden Ribbon",
-    "path": "/armor/amulet/golden_ribbon.png"
+    "path": "/items/amulet/golden_ribbon.png"
   },
   {
     "slot": "amulet",
     "name": "Gunfire Security Lanyard",
-    "path": "/armor/amulet/gunfire_security_lanyard.png"
+    "path": "/items/amulet/gunfire_security_lanyard.png"
   },
   {
     "slot": "amulet",
     "name": "Gunslingers Charm",
-    "path": "/armor/amulet/gunslingers_charm.png"
+    "path": "/items/amulet/gunslingers_charm.png"
   },
   {
     "slot": "amulet",
     "name": "Hallowed Egg",
-    "path": "/armor/amulet/hallowed_egg.png"
+    "path": "/items/amulet/hallowed_egg.png"
   },
   {
     "slot": "amulet",
     "name": "Hyper Conductor",
-    "path": "/armor/amulet/hyper_conductor.png"
+    "path": "/items/amulet/hyper_conductor.png"
   },
   {
     "slot": "amulet",
     "name": "Indignant Fetish",
-    "path": "/armor/amulet/indignant_fetish.png"
+    "path": "/items/amulet/indignant_fetish.png"
   },
   {
     "slot": "amulet",
     "name": "Inert Overcharger",
-    "path": "/armor/amulet/inert_overcharger.png"
+    "path": "/items/amulet/inert_overcharger.png"
   },
   {
     "slot": "amulet",
     "name": "Insulation Driver",
-    "path": "/armor/amulet/insulation_driver.png"
+    "path": "/items/amulet/insulation_driver.png"
   },
   {
     "slot": "amulet",
     "name": "Jesters Bell",
-    "path": "/armor/amulet/jesters_bell.png"
+    "path": "/items/amulet/jesters_bell.png"
   },
   {
     "slot": "amulet",
     "name": "Kinetic Shield Exchanger",
-    "path": "/armor/amulet/kinetic_shield_exchanger.png"
+    "path": "/items/amulet/kinetic_shield_exchanger.png"
   },
   {
     "slot": "amulet",
     "name": "Kuri Kuri Charm",
-    "path": "/armor/amulet/kuri_kuri_charm.png"
+    "path": "/items/amulet/kuri_kuri_charm.png"
   },
   {
     "slot": "amulet",
     "name": "Laemir Censer",
-    "path": "/armor/amulet/laemir_censer.png"
+    "path": "/items/amulet/laemir_censer.png"
   },
   {
     "slot": "amulet",
     "name": "Letos Amulet",
-    "path": "/armor/amulet/letos_amulet.png"
+    "path": "/items/amulet/letos_amulet.png"
   },
   {
     "slot": "amulet",
     "name": "Matriarchs Insignia",
-    "path": "/armor/amulet/matriarchs_insignia.png"
+    "path": "/items/amulet/matriarchs_insignia.png"
   },
   {
     "slot": "amulet",
     "name": "Navigators Pendant",
-    "path": "/armor/amulet/navigators_pendant.png"
+    "path": "/items/amulet/navigators_pendant.png"
   },
   {
     "slot": "amulet",
     "name": "Neckbone Necklace",
-    "path": "/armor/amulet/neckbone_necklace.png"
+    "path": "/items/amulet/neckbone_necklace.png"
   },
   {
     "slot": "amulet",
     "name": "Necklace Of Flowing Life",
-    "path": "/armor/amulet/necklace_of_flowing_life.png"
+    "path": "/items/amulet/necklace_of_flowing_life.png"
   },
   {
     "slot": "amulet",
     "name": "Necklace Of Supremacy",
-    "path": "/armor/amulet/necklace_of_supremacy.png"
+    "path": "/items/amulet/necklace_of_supremacy.png"
   },
   {
     "slot": "amulet",
     "name": "Nightmare Spiral",
-    "path": "/armor/amulet/nightmare_spiral.png"
+    "path": "/items/amulet/nightmare_spiral.png"
   },
   {
     "slot": "amulet",
     "name": "Nightweavers Grudge",
-    "path": "/armor/amulet/nightweavers_grudge.png"
+    "path": "/items/amulet/nightweavers_grudge.png"
   },
   {
     "slot": "amulet",
     "name": "Nimues Ribbon",
-    "path": "/armor/amulet/nimues_ribbon.png"
+    "path": "/items/amulet/nimues_ribbon.png"
   },
   {
     "slot": "amulet",
     "name": "One Eyed Joker Idol",
-    "path": "/armor/amulet/one_eyed_joker_idol.png"
+    "path": "/items/amulet/one_eyed_joker_idol.png"
   },
   {
     "slot": "amulet",
     "name": "One True King Sigil",
-    "path": "/armor/amulet/one_true_king_sigil.png"
+    "path": "/items/amulet/one_true_king_sigil.png"
   },
   {
     "slot": "amulet",
     "name": "Onyx Pendulum",
-    "path": "/armor/amulet/onyx_pendulum.png"
+    "path": "/items/amulet/onyx_pendulum.png"
   },
   {
     "slot": "amulet",
     "name": "Range Finder",
-    "path": "/armor/amulet/range_finder.png"
+    "path": "/items/amulet/range_finder.png"
   },
   {
     "slot": "amulet",
     "name": "Ravagers Mark",
-    "path": "/armor/amulet/ravagers_mark.png"
+    "path": "/items/amulet/ravagers_mark.png"
   },
   {
     "slot": "amulet",
     "name": "Red Doe Sigil",
-    "path": "/armor/amulet/red_doe_sigil.png"
+    "path": "/items/amulet/red_doe_sigil.png"
   },
   {
     "slot": "amulet",
     "name": "Rusted Navigators Pendant",
-    "path": "/armor/amulet/rusted_navigators_pendant.png"
+    "path": "/items/amulet/rusted_navigators_pendant.png"
   },
   {
     "slot": "amulet",
     "name": "Samoflange",
-    "path": "/armor/amulet/samoflange.png"
+    "path": "/items/amulet/samoflange.png"
   },
   {
     "slot": "amulet",
     "name": "Scavengers Bauble",
-    "path": "/armor/amulet/scavengers_bauble.png"
+    "path": "/items/amulet/scavengers_bauble.png"
   },
   {
     "slot": "amulet",
     "name": "Shaed Bloom Crystal",
-    "path": "/armor/amulet/shaed_bloom_crystal.png"
+    "path": "/items/amulet/shaed_bloom_crystal.png"
   },
   {
     "slot": "amulet",
     "name": "Shock Device",
-    "path": "/armor/amulet/shock_device.png"
+    "path": "/items/amulet/shock_device.png"
   },
   {
     "slot": "amulet",
     "name": "Silver Ribbon",
-    "path": "/armor/amulet/silver_ribbon.png"
+    "path": "/items/amulet/silver_ribbon.png"
   },
   {
     "slot": "amulet",
     "name": "Soul Anchor",
-    "path": "/armor/amulet/soul_anchor.png"
+    "path": "/items/amulet/soul_anchor.png"
   },
   {
     "slot": "amulet",
     "name": "Spirit Wisp Amulet",
-    "path": "/armor/amulet/spirit_wisp_amulet.png"
+    "path": "/items/amulet/spirit_wisp_amulet.png"
   },
   {
     "slot": "amulet",
     "name": "Stalkers Brand",
-    "path": "/armor/amulet/stalkers_brand.png"
+    "path": "/items/amulet/stalkers_brand.png"
   },
   {
     "slot": "amulet",
     "name": "Talisman Of The Sun",
-    "path": "/armor/amulet/talisman_of_the_sun.png"
+    "path": "/items/amulet/talisman_of_the_sun.png"
   },
   {
     "slot": "amulet",
     "name": "Toxic Release Valve",
-    "path": "/armor/amulet/toxic_release_valve.png"
+    "path": "/items/amulet/toxic_release_valve.png"
   },
   {
     "slot": "amulet",
     "name": "Twisted Idol",
-    "path": "/armor/amulet/twisted_idol.png"
+    "path": "/items/amulet/twisted_idol.png"
   },
   {
     "slot": "amulet",
     "name": "Vengeance Idol",
-    "path": "/armor/amulet/vengeance_idol.png"
+    "path": "/items/amulet/vengeance_idol.png"
   },
   {
     "slot": "amulet",
     "name": "Void Idol",
-    "path": "/armor/amulet/void_idol.png"
+    "path": "/items/amulet/void_idol.png"
   },
   {
     "slot": "amulet",
     "name": "Weightless Weight",
-    "path": "/armor/amulet/weightless_weight.png"
+    "path": "/items/amulet/weightless_weight.png"
   },
   {
     "slot": "gloves",
     "name": "Academics Gloves",
-    "path": "/armor/gloves/academics_gloves.png"
+    "path": "/items/gloves/academics_gloves.png"
   },
   {
     "slot": "gloves",
     "name": "Bruiser Gloves",
-    "path": "/armor/gloves/bruiser_gloves.png"
+    "path": "/items/gloves/bruiser_gloves.png"
   },
   {
     "slot": "gloves",
     "name": "Dendroid Grips",
-    "path": "/armor/gloves/dendroid_grips.png"
+    "path": "/items/gloves/dendroid_grips.png"
   },
   {
     "slot": "gloves",
     "name": "Elder Gloves",
-    "path": "/armor/gloves/elder_gloves.png"
+    "path": "/items/gloves/elder_gloves.png"
   },
   {
     "slot": "gloves",
     "name": "Fae Royal Vambraces",
-    "path": "/armor/gloves/fae_royal_vambraces.png"
+    "path": "/items/gloves/fae_royal_vambraces.png"
   },
   {
     "slot": "gloves",
     "name": "Field Medic Gloves",
-    "path": "/armor/gloves/field_medic_gloves.png"
+    "path": "/items/gloves/field_medic_gloves.png"
   },
   {
     "slot": "gloves",
     "name": "High Noon Armguards",
-    "path": "/armor/gloves/high_noon_armguards.png"
+    "path": "/items/gloves/high_noon_armguards.png"
   },
   {
     "slot": "gloves",
     "name": "Knotted Gloves",
-    "path": "/armor/gloves/knotted_gloves.png"
+    "path": "/items/gloves/knotted_gloves.png"
   },
   {
     "slot": "gloves",
     "name": "Labyrinth Gauntlets",
-    "path": "/armor/gloves/labyrinth_gauntlets.png"
+    "path": "/items/gloves/labyrinth_gauntlets.png"
   },
   {
     "slot": "gloves",
     "name": "Leto Mark Ii Gloves",
-    "path": "/armor/gloves/leto_mark_ii_gloves.png"
+    "path": "/items/gloves/leto_mark_ii_gloves.png"
   },
   {
     "slot": "gloves",
     "name": "Nightstalker Gloves",
-    "path": "/armor/gloves/nightstalker_gloves.png"
+    "path": "/items/gloves/nightstalker_gloves.png"
   },
   {
     "slot": "gloves",
     "name": "Radiant Bracers",
-    "path": "/armor/gloves/radiant_bracers.png"
+    "path": "/items/gloves/radiant_bracers.png"
   },
   {
     "slot": "gloves",
     "name": "Realmwalker Gloves",
-    "path": "/armor/gloves/realmwalker_gloves.png"
+    "path": "/items/gloves/realmwalker_gloves.png"
   },
   {
     "slot": "gloves",
     "name": "Red Widow Bracers",
-    "path": "/armor/gloves/red_widow_bracers.png"
+    "path": "/items/gloves/red_widow_bracers.png"
   },
   {
     "slot": "gloves",
     "name": "Space Worker Gloves",
-    "path": "/armor/gloves/space_worker_gloves.png"
+    "path": "/items/gloves/space_worker_gloves.png"
   },
   {
     "slot": "gloves",
     "name": "Survivor Gloves",
-    "path": "/armor/gloves/survivor_gloves.png"
+    "path": "/items/gloves/survivor_gloves.png"
   },
   {
     "slot": "gloves",
     "name": "Technician Gloves",
-    "path": "/armor/gloves/technician_gloves.png"
+    "path": "/items/gloves/technician_gloves.png"
   },
   {
     "slot": "gloves",
     "name": "Trainer Bracer",
-    "path": "/armor/gloves/trainer_bracer.png"
+    "path": "/items/gloves/trainer_bracer.png"
   },
   {
     "slot": "gloves",
     "name": "Void Wraps",
-    "path": "/armor/gloves/void_wraps.png"
+    "path": "/items/gloves/void_wraps.png"
   },
   {
     "slot": "helm",
     "name": "Academics Hat",
-    "path": "/armor/helm/academics_hat.png"
+    "path": "/items/helm/academics_hat.png"
   },
   {
     "slot": "helm",
     "name": "Bandits Mask",
-    "path": "/armor/helm/bandits_mask.png"
+    "path": "/items/helm/bandits_mask.png"
   },
   {
     "slot": "helm",
     "name": "Bruiser Helmet",
-    "path": "/armor/helm/bruiser_helmet.png"
+    "path": "/items/helm/bruiser_helmet.png"
   },
   {
     "slot": "helm",
     "name": "Crown Of The Red Prince",
-    "path": "/armor/helm/crown_of_the_red_prince.png"
+    "path": "/items/helm/crown_of_the_red_prince.png"
   },
   {
     "slot": "helm",
     "name": "Cultist Head",
-    "path": "/armor/helm/cultist_head.png"
+    "path": "/items/helm/cultist_head.png"
   },
   {
     "slot": "helm",
     "name": "Dendroid Mask",
-    "path": "/armor/helm/dendroid_mask.png"
+    "path": "/items/helm/dendroid_mask.png"
   },
   {
     "slot": "helm",
     "name": "Elder Headdress",
-    "path": "/armor/helm/elder_headdress.png"
+    "path": "/items/helm/elder_headdress.png"
   },
   {
     "slot": "helm",
     "name": "Fae Royal Headcover",
-    "path": "/armor/helm/fae_royal_headcover.png"
+    "path": "/items/helm/fae_royal_headcover.png"
   },
   {
     "slot": "helm",
     "name": "Field Medic Hat",
-    "path": "/armor/helm/field_medic_hat.png"
+    "path": "/items/helm/field_medic_hat.png"
   },
   {
     "slot": "helm",
     "name": "Field Medic Mask",
-    "path": "/armor/helm/field_medic_mask.png"
+    "path": "/items/helm/field_medic_mask.png"
   },
   {
     "slot": "helm",
     "name": "High Noon Hat",
-    "path": "/armor/helm/high_noon_hat.png"
+    "path": "/items/helm/high_noon_hat.png"
   },
   {
     "slot": "helm",
     "name": "Knotted Helm",
-    "path": "/armor/helm/knotted_helm.png"
+    "path": "/items/helm/knotted_helm.png"
   },
   {
     "slot": "helm",
     "name": "Labyrinth Headplate",
-    "path": "/armor/helm/labyrinth_headplate.png"
+    "path": "/items/helm/labyrinth_headplate.png"
   },
   {
     "slot": "helm",
     "name": "Leto Mark Ii Helmet",
-    "path": "/armor/helm/leto_mark_ii_helmet.png"
+    "path": "/items/helm/leto_mark_ii_helmet.png"
   },
   {
     "slot": "helm",
     "name": "Leto Mark I Helmet",
-    "path": "/armor/helm/leto_mark_i_helmet.png"
+    "path": "/items/helm/leto_mark_i_helmet.png"
   },
   {
     "slot": "helm",
     "name": "Lodestone Crown",
-    "path": "/armor/helm/lodestone_crown.png"
+    "path": "/items/helm/lodestone_crown.png"
   },
   {
     "slot": "helm",
     "name": "Navigators Helm",
-    "path": "/armor/helm/navigators_helm.png"
+    "path": "/items/helm/navigators_helm.png"
   },
   {
     "slot": "helm",
     "name": "Nightstalker Shroud",
-    "path": "/armor/helm/nightstalker_shroud.png"
+    "path": "/items/helm/nightstalker_shroud.png"
   },
   {
     "slot": "helm",
     "name": "Radiant Visage",
-    "path": "/armor/helm/radiant_visage.png"
+    "path": "/items/helm/radiant_visage.png"
   },
   {
     "slot": "helm",
     "name": "Realmwalker Beret",
-    "path": "/armor/helm/realmwalker_beret.png"
+    "path": "/items/helm/realmwalker_beret.png"
   },
   {
     "slot": "helm",
     "name": "Red Widow Headdress",
-    "path": "/armor/helm/red_widow_headdress.png"
+    "path": "/items/helm/red_widow_headdress.png"
   },
   {
     "slot": "helm",
     "name": "Space Worker Mask",
-    "path": "/armor/helm/space_worker_mask.png"
+    "path": "/items/helm/space_worker_mask.png"
   },
   {
     "slot": "helm",
     "name": "Technician Helmet",
-    "path": "/armor/helm/technician_helmet.png"
+    "path": "/items/helm/technician_helmet.png"
   },
   {
     "slot": "helm",
     "name": "Trainer Cap",
-    "path": "/armor/helm/trainer_cap.png"
+    "path": "/items/helm/trainer_cap.png"
   },
   {
     "slot": "helm",
     "name": "Void Skull",
-    "path": "/armor/helm/void_skull.png"
+    "path": "/items/helm/void_skull.png"
   },
   {
     "slot": "legs",
     "name": "Academics Trousers",
-    "path": "/armor/legs/academics_trousers.png"
+    "path": "/items/legs/academics_trousers.png"
   },
   {
     "slot": "legs",
     "name": "Bandits Trousers",
-    "path": "/armor/legs/bandits_trousers.png"
+    "path": "/items/legs/bandits_trousers.png"
   },
   {
     "slot": "legs",
     "name": "Bruiser Boots",
-    "path": "/armor/legs/bruiser_boots.png"
+    "path": "/items/legs/bruiser_boots.png"
   },
   {
     "slot": "legs",
     "name": "Cultist Britches",
-    "path": "/armor/legs/cultist_britches.png"
+    "path": "/items/legs/cultist_britches.png"
   },
   {
     "slot": "legs",
     "name": "Dendroid Leggings",
-    "path": "/armor/legs/dendroid_leggings.png"
+    "path": "/items/legs/dendroid_leggings.png"
   },
   {
     "slot": "legs",
     "name": "Elder Leggings",
-    "path": "/armor/legs/elder_leggings.png"
+    "path": "/items/legs/elder_leggings.png"
   },
   {
     "slot": "legs",
     "name": "Fae Royal Greaves",
-    "path": "/armor/legs/fae_royal_greaves.png"
+    "path": "/items/legs/fae_royal_greaves.png"
   },
   {
     "slot": "legs",
     "name": "Field Medic Trousers",
-    "path": "/armor/legs/field_medic_trousers.png"
+    "path": "/items/legs/field_medic_trousers.png"
   },
   {
     "slot": "legs",
     "name": "High Noon Soles",
-    "path": "/armor/legs/high_noon_soles.png"
+    "path": "/items/legs/high_noon_soles.png"
   },
   {
     "slot": "legs",
     "name": "Knotted Greaves",
-    "path": "/armor/legs/knotted_greaves.png"
+    "path": "/items/legs/knotted_greaves.png"
   },
   {
     "slot": "legs",
     "name": "Labyrinth Treads",
-    "path": "/armor/legs/labyrinth_treads.png"
+    "path": "/items/legs/labyrinth_treads.png"
   },
   {
     "slot": "legs",
     "name": "Leto Mark Ii Leggings",
-    "path": "/armor/legs/leto_mark_ii_leggings.png"
+    "path": "/items/legs/leto_mark_ii_leggings.png"
   },
   {
     "slot": "legs",
     "name": "Leto Mark I Leggings",
-    "path": "/armor/legs/leto_mark_i_leggings.png"
+    "path": "/items/legs/leto_mark_i_leggings.png"
   },
   {
     "slot": "legs",
     "name": "Nightstalker Pants",
-    "path": "/armor/legs/nightstalker_pants.png"
+    "path": "/items/legs/nightstalker_pants.png"
   },
   {
     "slot": "legs",
     "name": "Radiant Greaves",
-    "path": "/armor/legs/radiant_greaves.png"
+    "path": "/items/legs/radiant_greaves.png"
   },
   {
     "slot": "legs",
     "name": "Realmwalker Pantaloons",
-    "path": "/armor/legs/realmwalker_pantaloons.png"
+    "path": "/items/legs/realmwalker_pantaloons.png"
   },
   {
     "slot": "legs",
     "name": "Red Widow Leggings",
-    "path": "/armor/legs/red_widow_leggings.png"
+    "path": "/items/legs/red_widow_leggings.png"
   },
   {
     "slot": "legs",
     "name": "Space Worker Legs",
-    "path": "/armor/legs/space_worker_legs.png"
+    "path": "/items/legs/space_worker_legs.png"
   },
   {
     "slot": "legs",
     "name": "Survivor Leggings",
-    "path": "/armor/legs/survivor_leggings.png"
+    "path": "/items/legs/survivor_leggings.png"
   },
   {
     "slot": "legs",
     "name": "Technician Greaves",
-    "path": "/armor/legs/technician_greaves.png"
+    "path": "/items/legs/technician_greaves.png"
   },
   {
     "slot": "legs",
     "name": "Trainer Workboots",
-    "path": "/armor/legs/trainer_workboots.png"
+    "path": "/items/legs/trainer_workboots.png"
   },
   {
     "slot": "legs",
     "name": "Void Greaves",
-    "path": "/armor/legs/void_greaves.png"
+    "path": "/items/legs/void_greaves.png"
   },
   {
     "slot": "mod",
     "name": "Accelerator",
-    "path": "/armor/mod/accelerator.png"
+    "path": "/items/mod/accelerator.png"
   },
   {
     "slot": "mod",
     "name": "Astral Burst",
-    "path": "/armor/mod/astral_burst.png"
+    "path": "/items/mod/astral_burst.png"
   },
   {
     "slot": "mod",
     "name": "Athibar",
-    "path": "/armor/mod/athibar.png"
+    "path": "/items/mod/athibar.png"
   },
   {
     "slot": "mod",
     "name": "Beta Ray",
-    "path": "/armor/mod/beta_ray.png"
+    "path": "/items/mod/beta_ray.png"
   },
   {
     "slot": "mod",
     "name": "Beyond The Veil",
-    "path": "/armor/mod/beyond_the_veil.png"
+    "path": "/items/mod/beyond_the_veil.png"
   },
   {
     "slot": "mod",
     "name": "Big Bang",
-    "path": "/armor/mod/big_bang.png"
+    "path": "/items/mod/big_bang.png"
   },
   {
     "slot": "mod",
     "name": "Bloodline",
-    "path": "/armor/mod/bloodline.png"
+    "path": "/items/mod/bloodline.png"
   },
   {
     "slot": "mod",
     "name": "Bloodthirst",
-    "path": "/armor/mod/bloodthirst.png"
+    "path": "/items/mod/bloodthirst.png"
   },
   {
     "slot": "mod",
     "name": "Blood Draw",
-    "path": "/armor/mod/blood_draw.png"
+    "path": "/items/mod/blood_draw.png"
   },
   {
     "slot": "mod",
     "name": "Bore",
-    "path": "/armor/mod/bore.png"
+    "path": "/items/mod/bore.png"
   },
   {
     "slot": "mod",
     "name": "Chaos Driver",
-    "path": "/armor/mod/chaos_driver.png"
+    "path": "/items/mod/chaos_driver.png"
   },
   {
     "slot": "mod",
     "name": "Concussive Shot",
-    "path": "/armor/mod/concussive_shot.png"
+    "path": "/items/mod/concussive_shot.png"
   },
   {
     "slot": "mod",
     "name": "Corrosive Rounds",
-    "path": "/armor/mod/corrosive_rounds.png"
+    "path": "/items/mod/corrosive_rounds.png"
   },
   {
     "slot": "mod",
     "name": "Cube Shield",
-    "path": "/armor/mod/cube_shield.png"
+    "path": "/items/mod/cube_shield.png"
   },
   {
     "slot": "mod",
     "name": "Death Sentence",
-    "path": "/armor/mod/death_sentence.png"
+    "path": "/items/mod/death_sentence.png"
   },
   {
     "slot": "mod",
     "name": "Defrag",
-    "path": "/armor/mod/defrag.png"
+    "path": "/items/mod/defrag.png"
   },
   {
     "slot": "mod",
     "name": "Dreadwalker",
-    "path": "/armor/mod/dreadwalker.png"
+    "path": "/items/mod/dreadwalker.png"
   },
   {
     "slot": "mod",
     "name": "Dreamwave",
-    "path": "/armor/mod/dreamwave.png"
+    "path": "/items/mod/dreamwave.png"
   },
   {
     "slot": "mod",
     "name": "Dying",
-    "path": "/armor/mod/dying.png"
+    "path": "/items/mod/dying.png"
   },
   {
     "slot": "mod",
     "name": "Energy Wall",
-    "path": "/armor/mod/energy_wall.png"
+    "path": "/items/mod/energy_wall.png"
   },
   {
     "slot": "mod",
     "name": "Energy Wave",
-    "path": "/armor/mod/energy_wave.png"
+    "path": "/items/mod/energy_wave.png"
   },
   {
     "slot": "mod",
     "name": "Eulogy",
-    "path": "/armor/mod/eulogy.png"
+    "path": "/items/mod/eulogy.png"
   },
   {
     "slot": "mod",
     "name": "Explosive Shot",
-    "path": "/armor/mod/explosive_shot.png"
+    "path": "/items/mod/explosive_shot.png"
   },
   {
     "slot": "mod",
     "name": "Familiar",
-    "path": "/armor/mod/familiar.png"
+    "path": "/items/mod/familiar.png"
   },
   {
     "slot": "mod",
     "name": "Fargazer",
-    "path": "/armor/mod/fargazer.png"
+    "path": "/items/mod/fargazer.png"
   },
   {
     "slot": "mod",
     "name": "Faultline",
-    "path": "/armor/mod/faultline.png"
+    "path": "/items/mod/faultline.png"
   },
   {
     "slot": "mod",
     "name": "Firestorm",
-    "path": "/armor/mod/firestorm.png"
+    "path": "/items/mod/firestorm.png"
   },
   {
     "slot": "mod",
     "name": "Fission Strike",
-    "path": "/armor/mod/fission_strike.png"
+    "path": "/items/mod/fission_strike.png"
   },
   {
     "slot": "mod",
     "name": "Fracture",
-    "path": "/armor/mod/fracture.png"
+    "path": "/items/mod/fracture.png"
   },
   {
     "slot": "mod",
     "name": "Guardians Call",
-    "path": "/armor/mod/guardians_call.png"
+    "path": "/items/mod/guardians_call.png"
   },
   {
     "slot": "mod",
     "name": "Healing Shot",
-    "path": "/armor/mod/healing_shot.png"
+    "path": "/items/mod/healing_shot.png"
   },
   {
     "slot": "mod",
     "name": "Heat Sink",
-    "path": "/armor/mod/heat_sink.png"
+    "path": "/items/mod/heat_sink.png"
   },
   {
     "slot": "mod",
     "name": "Helix",
-    "path": "/armor/mod/helix.png"
+    "path": "/items/mod/helix.png"
   },
   {
     "slot": "mod",
     "name": "Hot Shot",
-    "path": "/armor/mod/hot_shot.png"
+    "path": "/items/mod/hot_shot.png"
   },
   {
     "slot": "mod",
     "name": "Krell Edge",
-    "path": "/armor/mod/krell_edge.png"
+    "path": "/items/mod/krell_edge.png"
   },
   {
     "slot": "mod",
     "name": "Lifeline",
-    "path": "/armor/mod/lifeline.png"
+    "path": "/items/mod/lifeline.png"
   },
   {
     "slot": "mod",
     "name": "Moonlight Barrage",
-    "path": "/armor/mod/moonlight_barrage.png"
+    "path": "/items/mod/moonlight_barrage.png"
   },
   {
     "slot": "mod",
     "name": "Nano Swarm",
-    "path": "/armor/mod/nano_swarm.png"
+    "path": "/items/mod/nano_swarm.png"
   },
   {
     "slot": "mod",
     "name": "Ouroboros",
-    "path": "/armor/mod/ouroboros.png"
+    "path": "/items/mod/ouroboros.png"
   },
   {
     "slot": "mod",
     "name": "Overflow",
-    "path": "/armor/mod/overflow.png"
+    "path": "/items/mod/overflow.png"
   },
   {
     "slot": "mod",
     "name": "Prismatic Driver",
-    "path": "/armor/mod/prismatic_driver.png"
+    "path": "/items/mod/prismatic_driver.png"
   },
   {
     "slot": "mod",
     "name": "Rootlash",
-    "path": "/armor/mod/rootlash.png"
+    "path": "/items/mod/rootlash.png"
   },
   {
     "slot": "mod",
     "name": "Root Blades",
-    "path": "/armor/mod/root_blades.png"
+    "path": "/items/mod/root_blades.png"
   },
   {
     "slot": "mod",
     "name": "Rotted Arrow",
-    "path": "/armor/mod/rotted_arrow.png"
+    "path": "/items/mod/rotted_arrow.png"
   },
   {
     "slot": "mod",
     "name": "Scrap Shot",
-    "path": "/armor/mod/scrap_shot.png"
+    "path": "/items/mod/scrap_shot.png"
   },
   {
     "slot": "mod",
     "name": "Screamer",
-    "path": "/armor/mod/screamer.png"
+    "path": "/items/mod/screamer.png"
   },
   {
     "slot": "mod",
     "name": "Skewer",
-    "path": "/armor/mod/skewer.png"
+    "path": "/items/mod/skewer.png"
   },
   {
     "slot": "mod",
     "name": "Song Of Eafir",
-    "path": "/armor/mod/song_of_eafir.png"
+    "path": "/items/mod/song_of_eafir.png"
   },
   {
     "slot": "mod",
     "name": "Soulbinder",
-    "path": "/armor/mod/soulbinder.png"
+    "path": "/items/mod/soulbinder.png"
   },
   {
     "slot": "mod",
     "name": "Soul Brand",
-    "path": "/armor/mod/soul_brand.png"
+    "path": "/items/mod/soul_brand.png"
   },
   {
     "slot": "mod",
     "name": "Space Crabs",
-    "path": "/armor/mod/space_crabs.png"
+    "path": "/items/mod/space_crabs.png"
   },
   {
     "slot": "mod",
     "name": "Starfall",
-    "path": "/armor/mod/starfall.png"
+    "path": "/items/mod/starfall.png"
   },
   {
     "slot": "mod",
     "name": "Stasis Beam",
-    "path": "/armor/mod/stasis_beam.png"
+    "path": "/items/mod/stasis_beam.png"
   },
   {
     "slot": "mod",
     "name": "Supernova",
-    "path": "/armor/mod/supernova.png"
+    "path": "/items/mod/supernova.png"
   },
   {
     "slot": "mod",
     "name": "Time Lapse",
-    "path": "/armor/mod/time_lapse.png"
+    "path": "/items/mod/time_lapse.png"
   },
   {
     "slot": "mod",
     "name": "Tremor",
-    "path": "/armor/mod/tremor.png"
+    "path": "/items/mod/tremor.png"
   },
   {
     "slot": "mod",
     "name": "Voltaic Rondure",
-    "path": "/armor/mod/voltaic_rondure.png"
+    "path": "/items/mod/voltaic_rondure.png"
   },
   {
     "slot": "mod",
     "name": "Whirlwind",
-    "path": "/armor/mod/whirlwind.png"
+    "path": "/items/mod/whirlwind.png"
   },
   {
     "slot": "mod",
     "name": "Witchfire",
-    "path": "/armor/mod/witchfire.png"
+    "path": "/items/mod/witchfire.png"
   },
   {
     "slot": "relic",
     "name": "Blooming Heart",
-    "path": "/armor/relic/blooming_heart.png"
+    "path": "/items/relic/blooming_heart.png"
   },
   {
     "slot": "relic",
     "name": "Constrained Heart",
-    "path": "/armor/relic/constrained_heart.png"
+    "path": "/items/relic/constrained_heart.png"
   },
   {
     "slot": "relic",
     "name": "Crystal Heart",
-    "path": "/armor/relic/crystal_heart.png"
+    "path": "/items/relic/crystal_heart.png"
   },
   {
     "slot": "relic",
     "name": "Decayed Heart",
-    "path": "/armor/relic/decayed_heart.png"
+    "path": "/items/relic/decayed_heart.png"
   },
   {
     "slot": "relic",
     "name": "Dragon Heart",
-    "path": "/armor/relic/dragon_heart.png"
+    "path": "/items/relic/dragon_heart.png"
   },
   {
     "slot": "relic",
     "name": "Enlarged Heart",
-    "path": "/armor/relic/enlarged_heart.png"
+    "path": "/items/relic/enlarged_heart.png"
   },
   {
     "slot": "relic",
     "name": "Lifeless Heart",
-    "path": "/armor/relic/lifeless_heart.png"
+    "path": "/items/relic/lifeless_heart.png"
   },
   {
     "slot": "relic",
     "name": "Pulsing Heart",
-    "path": "/armor/relic/pulsing_heart.png"
+    "path": "/items/relic/pulsing_heart.png"
   },
   {
     "slot": "relic",
     "name": "Quilted Heart",
-    "path": "/armor/relic/quilted_heart.png"
+    "path": "/items/relic/quilted_heart.png"
   },
   {
     "slot": "relic",
     "name": "Reprocessed Heart",
-    "path": "/armor/relic/reprocessed_heart.png"
+    "path": "/items/relic/reprocessed_heart.png"
   },
   {
     "slot": "relic",
     "name": "Resonating Heart",
-    "path": "/armor/relic/resonating_heart.png"
+    "path": "/items/relic/resonating_heart.png"
   },
   {
     "slot": "relic",
     "name": "Ripened Heart",
-    "path": "/armor/relic/ripened_heart.png"
+    "path": "/items/relic/ripened_heart.png"
   },
   {
     "slot": "relic",
     "name": "Runed Heart",
-    "path": "/armor/relic/runed_heart.png"
+    "path": "/items/relic/runed_heart.png"
   },
   {
     "slot": "relic",
     "name": "Salvaged Heart",
-    "path": "/armor/relic/salvaged_heart.png"
+    "path": "/items/relic/salvaged_heart.png"
   },
   {
     "slot": "relic",
     "name": "Shielded Heart",
-    "path": "/armor/relic/shielded_heart.png"
+    "path": "/items/relic/shielded_heart.png"
   },
   {
     "slot": "relic",
     "name": "Siphon Heart",
-    "path": "/armor/relic/siphon_heart.png"
+    "path": "/items/relic/siphon_heart.png"
   },
   {
     "slot": "relic",
     "name": "Tormented Heart",
-    "path": "/armor/relic/tormented_heart.png"
+    "path": "/items/relic/tormented_heart.png"
   },
   {
     "slot": "relic",
     "name": "Tranquil Heart",
-    "path": "/armor/relic/tranquil_heart.png"
+    "path": "/items/relic/tranquil_heart.png"
   },
   {
     "slot": "relic",
     "name": "Unsullied Heart",
-    "path": "/armor/relic/unsullied_heart.png"
+    "path": "/items/relic/unsullied_heart.png"
   },
   {
     "slot": "relic",
     "name": "Void Heart",
-    "path": "/armor/relic/void_heart.png"
+    "path": "/items/relic/void_heart.png"
   },
   {
     "slot": "ring",
     "name": "Acid Stone",
-    "path": "/armor/ring/acid_stone.png"
+    "path": "/items/ring/acid_stone.png"
   },
   {
     "slot": "ring",
     "name": "Akari War Band",
-    "path": "/armor/ring/akari_war_band.png"
+    "path": "/items/ring/akari_war_band.png"
   },
   {
     "slot": "ring",
     "name": "Alchemy Stone",
-    "path": "/armor/ring/alchemy_stone.png"
+    "path": "/items/ring/alchemy_stone.png"
   },
   {
     "slot": "ring",
     "name": "Alumni Ring",
-    "path": "/armor/ring/alumni_ring.png"
+    "path": "/items/ring/alumni_ring.png"
   },
   {
     "slot": "ring",
     "name": "Amber Moonstone",
-    "path": "/armor/ring/amber_moonstone.png"
+    "path": "/items/ring/amber_moonstone.png"
   },
   {
     "slot": "ring",
     "name": "Anahae Crystal",
-    "path": "/armor/ring/anahae_crystal.png"
+    "path": "/items/ring/anahae_crystal.png"
   },
   {
     "slot": "ring",
     "name": "Anastajias Inspiration",
-    "path": "/armor/ring/anastajias_inspiration.png"
+    "path": "/items/ring/anastajias_inspiration.png"
   },
   {
     "slot": "ring",
     "name": "Archers Crest",
-    "path": "/armor/ring/archers_crest.png"
+    "path": "/items/ring/archers_crest.png"
   },
   {
     "slot": "ring",
     "name": "Assassins Seal",
-    "path": "/armor/ring/assassins_seal.png"
+    "path": "/items/ring/assassins_seal.png"
   },
   {
     "slot": "ring",
     "name": "Band Band",
-    "path": "/armor/ring/band_band.png"
+    "path": "/items/ring/band_band.png"
   },
   {
     "slot": "ring",
     "name": "Band Of Accord",
-    "path": "/armor/ring/band_of_accord.png"
+    "path": "/items/ring/band_of_accord.png"
   },
   {
     "slot": "ring",
     "name": "Berserkers Crest",
-    "path": "/armor/ring/berserkers_crest.png"
+    "path": "/items/ring/berserkers_crest.png"
   },
   {
     "slot": "ring",
     "name": "Bisected Ring",
-    "path": "/armor/ring/bisected_ring.png"
+    "path": "/items/ring/bisected_ring.png"
   },
   {
     "slot": "ring",
     "name": "Blackout Ring",
-    "path": "/armor/ring/blackout_ring.png"
+    "path": "/items/ring/blackout_ring.png"
   },
   {
     "slot": "ring",
     "name": "Black Cat Ring",
-    "path": "/armor/ring/black_cat_ring.png"
+    "path": "/items/ring/black_cat_ring.png"
   },
   {
     "slot": "ring",
     "name": "Black Pawn Stamp",
-    "path": "/armor/ring/black_pawn_stamp.png"
+    "path": "/items/ring/black_pawn_stamp.png"
   },
   {
     "slot": "ring",
     "name": "Blasting Cap Ring",
-    "path": "/armor/ring/blasting_cap_ring.png"
+    "path": "/items/ring/blasting_cap_ring.png"
   },
   {
     "slot": "ring",
     "name": "Blessed Ring",
-    "path": "/armor/ring/blessed_ring.png"
+    "path": "/items/ring/blessed_ring.png"
   },
   {
     "slot": "ring",
     "name": "Blood Jewel",
-    "path": "/armor/ring/blood_jewel.png"
+    "path": "/items/ring/blood_jewel.png"
   },
   {
     "slot": "ring",
     "name": "Blood Tinged Ring",
-    "path": "/armor/ring/blood_tinged_ring.png"
+    "path": "/items/ring/blood_tinged_ring.png"
   },
   {
     "slot": "ring",
     "name": "Booster Ring",
-    "path": "/armor/ring/booster_ring.png"
+    "path": "/items/ring/booster_ring.png"
   },
   {
     "slot": "ring",
     "name": "Braided Thorns",
-    "path": "/armor/ring/braided_thorns.png"
+    "path": "/items/ring/braided_thorns.png"
   },
   {
     "slot": "ring",
     "name": "Bright Steel Ring",
-    "path": "/armor/ring/bright_steel_ring.png"
+    "path": "/items/ring/bright_steel_ring.png"
   },
   {
     "slot": "ring",
     "name": "Burden Of The Audacious",
-    "path": "/armor/ring/burden_of_the_audacious.png"
+    "path": "/items/ring/burden_of_the_audacious.png"
   },
   {
     "slot": "ring",
     "name": "Burden Of The Destroyer",
-    "path": "/armor/ring/burden_of_the_destroyer.png"
+    "path": "/items/ring/burden_of_the_destroyer.png"
   },
   {
     "slot": "ring",
     "name": "Burden Of The Divine",
-    "path": "/armor/ring/burden_of_the_divine.png"
+    "path": "/items/ring/burden_of_the_divine.png"
   },
   {
     "slot": "ring",
     "name": "Burden Of The Follower",
-    "path": "/armor/ring/burden_of_the_follower.png"
+    "path": "/items/ring/burden_of_the_follower.png"
   },
   {
     "slot": "ring",
     "name": "Burden Of The Gambler",
-    "path": "/armor/ring/burden_of_the_gambler.png"
+    "path": "/items/ring/burden_of_the_gambler.png"
   },
   {
     "slot": "ring",
     "name": "Burden Of The Mariner",
-    "path": "/armor/ring/burden_of_the_mariner.png"
+    "path": "/items/ring/burden_of_the_mariner.png"
   },
   {
     "slot": "ring",
     "name": "Burden Of The Rebel",
-    "path": "/armor/ring/burden_of_the_rebel.png"
+    "path": "/items/ring/burden_of_the_rebel.png"
   },
   {
     "slot": "ring",
     "name": "Burden Of The Stargazer",
-    "path": "/armor/ring/burden_of_the_stargazer.png"
+    "path": "/items/ring/burden_of_the_stargazer.png"
   },
   {
     "slot": "ring",
     "name": "Burden Of The Warlock",
-    "path": "/armor/ring/burden_of_the_warlock.png"
+    "path": "/items/ring/burden_of_the_warlock.png"
   },
   {
     "slot": "ring",
     "name": "Captains Insignia",
-    "path": "/armor/ring/captains_insignia.png"
+    "path": "/items/ring/captains_insignia.png"
   },
   {
     "slot": "ring",
     "name": "Catalogers Jewel",
-    "path": "/armor/ring/catalogers_jewel.png"
+    "path": "/items/ring/catalogers_jewel.png"
   },
   {
     "slot": "ring",
     "name": "Celerity Stone",
-    "path": "/armor/ring/celerity_stone.png"
+    "path": "/items/ring/celerity_stone.png"
   },
   {
     "slot": "ring",
     "name": "Compulsion Loop",
-    "path": "/armor/ring/compulsion_loop.png"
+    "path": "/items/ring/compulsion_loop.png"
   },
   {
     "slot": "ring",
     "name": "Conservation Seal",
-    "path": "/armor/ring/conservation_seal.png"
+    "path": "/items/ring/conservation_seal.png"
   },
   {
     "slot": "ring",
     "name": "Constant Variable Ring",
-    "path": "/armor/ring/constant_variable_ring.png"
+    "path": "/items/ring/constant_variable_ring.png"
   },
   {
     "slot": "ring",
     "name": "Constrained Heart",
-    "path": "/armor/ring/constrained_heart.png"
+    "path": "/items/ring/constrained_heart.png"
   },
   {
     "slot": "ring",
     "name": "Dead Kings Memento",
-    "path": "/armor/ring/dead_kings_memento.png"
+    "path": "/items/ring/dead_kings_memento.png"
   },
   {
     "slot": "ring",
     "name": "Deceivers Band",
-    "path": "/armor/ring/deceivers_band.png"
+    "path": "/items/ring/deceivers_band.png"
   },
   {
     "slot": "ring",
     "name": "Deep Pocket Ring",
-    "path": "/armor/ring/deep_pocket_ring.png"
+    "path": "/items/ring/deep_pocket_ring.png"
   },
   {
     "slot": "ring",
     "name": "Defensive Action Loop",
-    "path": "/armor/ring/defensive_action_loop.png"
+    "path": "/items/ring/defensive_action_loop.png"
   },
   {
     "slot": "ring",
     "name": "Dense Silicon Ring",
-    "path": "/armor/ring/dense_silicon_ring.png"
+    "path": "/items/ring/dense_silicon_ring.png"
   },
   {
     "slot": "ring",
     "name": "Devourer Loop",
-    "path": "/armor/ring/devourer_loop.png"
+    "path": "/items/ring/devourer_loop.png"
   },
   {
     "slot": "ring",
     "name": "Drakestone Pearl",
-    "path": "/armor/ring/drakestone_pearl.png"
+    "path": "/items/ring/drakestone_pearl.png"
   },
   {
     "slot": "ring",
     "name": "Dran Memento",
-    "path": "/armor/ring/dran_memento.png"
+    "path": "/items/ring/dran_memento.png"
   },
   {
     "slot": "ring",
     "name": "Dran Scavenger Ring",
-    "path": "/armor/ring/dran_scavenger_ring.png"
+    "path": "/items/ring/dran_scavenger_ring.png"
   },
   {
     "slot": "ring",
     "name": "Dread Font",
-    "path": "/armor/ring/dread_font.png"
+    "path": "/items/ring/dread_font.png"
   },
   {
     "slot": "ring",
     "name": "Drzyr Sniper Sigil",
-    "path": "/armor/ring/drzyr_sniper_sigil.png"
+    "path": "/items/ring/drzyr_sniper_sigil.png"
   },
   {
     "slot": "ring",
     "name": "Dying Ember",
-    "path": "/armor/ring/dying_ember.png"
+    "path": "/items/ring/dying_ember.png"
   },
   {
     "slot": "ring",
     "name": "Embrace Of Shahala",
-    "path": "/armor/ring/embrace_of_shahala.png"
+    "path": "/items/ring/embrace_of_shahala.png"
   },
   {
     "slot": "ring",
     "name": "Encrypted Ring",
-    "path": "/armor/ring/encrypted_ring.png"
+    "path": "/items/ring/encrypted_ring.png"
   },
   {
     "slot": "ring",
     "name": "Endairas Endless Loop",
-    "path": "/armor/ring/endairas_endless_loop.png"
+    "path": "/items/ring/endairas_endless_loop.png"
   },
   {
     "slot": "ring",
     "name": "Enlarged Heart",
-    "path": "/armor/ring/enlarged_heart.png"
+    "path": "/items/ring/enlarged_heart.png"
   },
   {
     "slot": "ring",
     "name": "Excess Coil",
-    "path": "/armor/ring/excess_coil.png"
+    "path": "/items/ring/excess_coil.png"
   },
   {
     "slot": "ring",
     "name": "Faelins Sigil",
-    "path": "/armor/ring/faelins_sigil.png"
+    "path": "/items/ring/faelins_sigil.png"
   },
   {
     "slot": "ring",
     "name": "Faerins Sigil",
-    "path": "/armor/ring/faerins_sigil.png"
+    "path": "/items/ring/faerins_sigil.png"
   },
   {
     "slot": "ring",
     "name": "Fae Bruiser Ring",
-    "path": "/armor/ring/fae_bruiser_ring.png"
+    "path": "/items/ring/fae_bruiser_ring.png"
   },
   {
     "slot": "ring",
     "name": "Fae Hunter Ring",
-    "path": "/armor/ring/fae_hunter_ring.png"
+    "path": "/items/ring/fae_hunter_ring.png"
   },
   {
     "slot": "ring",
     "name": "Fae Protector Signet",
-    "path": "/armor/ring/fae_protector_signet.png"
+    "path": "/items/ring/fae_protector_signet.png"
   },
   {
     "slot": "ring",
     "name": "Fae Shaman Ring",
-    "path": "/armor/ring/fae_shaman_ring.png"
+    "path": "/items/ring/fae_shaman_ring.png"
   },
   {
     "slot": "ring",
     "name": "Fae Warrior Ring",
-    "path": "/armor/ring/fae_warrior_ring.png"
+    "path": "/items/ring/fae_warrior_ring.png"
   },
   {
     "slot": "ring",
     "name": "Feastmasters Signet",
-    "path": "/armor/ring/feastmasters_signet.png"
+    "path": "/items/ring/feastmasters_signet.png"
   },
   {
     "slot": "ring",
     "name": "Feedback Loop",
-    "path": "/armor/ring/feedback_loop.png"
+    "path": "/items/ring/feedback_loop.png"
   },
   {
     "slot": "ring",
     "name": "Fire Stone",
-    "path": "/armor/ring/fire_stone.png"
+    "path": "/items/ring/fire_stone.png"
   },
   {
     "slot": "ring",
     "name": "Flyweights Sting",
-    "path": "/armor/ring/flyweights_sting.png"
+    "path": "/items/ring/flyweights_sting.png"
   },
   {
     "slot": "ring",
     "name": "Focusing Shard",
-    "path": "/armor/ring/focusing_shard.png"
+    "path": "/items/ring/focusing_shard.png"
   },
   {
     "slot": "ring",
     "name": "Frivolous Band",
-    "path": "/armor/ring/frivolous_band.png"
+    "path": "/items/ring/frivolous_band.png"
   },
   {
     "slot": "ring",
     "name": "Galvanized Resupply Band",
-    "path": "/armor/ring/galvanized_resupply_band.png"
+    "path": "/items/ring/galvanized_resupply_band.png"
   },
   {
     "slot": "ring",
     "name": "Game Masters Pride",
-    "path": "/armor/ring/game_masters_pride.png"
+    "path": "/items/ring/game_masters_pride.png"
   },
   {
     "slot": "ring",
     "name": "Generating Band",
-    "path": "/armor/ring/generating_band.png"
+    "path": "/items/ring/generating_band.png"
   },
   {
     "slot": "ring",
     "name": "Grounding Stone",
-    "path": "/armor/ring/grounding_stone.png"
+    "path": "/items/ring/grounding_stone.png"
   },
   {
     "slot": "ring",
     "name": "Guardians Ring",
-    "path": "/armor/ring/guardians_ring.png"
+    "path": "/items/ring/guardians_ring.png"
   },
   {
     "slot": "ring",
     "name": "Gunslingers Ring",
-    "path": "/armor/ring/gunslingers_ring.png"
+    "path": "/items/ring/gunslingers_ring.png"
   },
   {
     "slot": "ring",
     "name": "Hardcore Metal Band",
-    "path": "/armor/ring/hardcore_metal_band.png"
+    "path": "/items/ring/hardcore_metal_band.png"
   },
   {
     "slot": "ring",
     "name": "Hardened Coil",
-    "path": "/armor/ring/hardened_coil.png"
+    "path": "/items/ring/hardened_coil.png"
   },
   {
     "slot": "ring",
     "name": "Haymakers Ring",
-    "path": "/armor/ring/haymakers_ring.png"
+    "path": "/items/ring/haymakers_ring.png"
   },
   {
     "slot": "ring",
     "name": "Heart Of The Wolf",
-    "path": "/armor/ring/heart_of_the_wolf.png"
+    "path": "/items/ring/heart_of_the_wolf.png"
   },
   {
     "slot": "ring",
     "name": "Hex Ward",
-    "path": "/armor/ring/hex_ward.png"
+    "path": "/items/ring/hex_ward.png"
   },
   {
     "slot": "ring",
     "name": "Kinetic Cycle Stone",
-    "path": "/armor/ring/kinetic_cycle_stone.png"
+    "path": "/items/ring/kinetic_cycle_stone.png"
   },
   {
     "slot": "ring",
     "name": "Lithic Signet",
-    "path": "/armor/ring/lithic_signet.png"
+    "path": "/items/ring/lithic_signet.png"
   },
   {
     "slot": "ring",
     "name": "Lodestone Ring",
-    "path": "/armor/ring/lodestone_ring.png"
+    "path": "/items/ring/lodestone_ring.png"
   },
   {
     "slot": "ring",
     "name": "Low Yield Recovery Ring",
-    "path": "/armor/ring/low_yield_recovery_ring.png"
+    "path": "/items/ring/low_yield_recovery_ring.png"
   },
   {
     "slot": "ring",
     "name": "Mechanics Cog",
-    "path": "/armor/ring/mechanics_cog.png"
+    "path": "/items/ring/mechanics_cog.png"
   },
   {
     "slot": "ring",
     "name": "Metal Driver",
-    "path": "/armor/ring/metal_driver.png"
+    "path": "/items/ring/metal_driver.png"
   },
   {
     "slot": "ring",
     "name": "Meteorite Shard Ring",
-    "path": "/armor/ring/meteorite_shard_ring.png"
+    "path": "/items/ring/meteorite_shard_ring.png"
   },
   {
     "slot": "ring",
     "name": "Microcompressor",
-    "path": "/armor/ring/microcompressor.png"
+    "path": "/items/ring/microcompressor.png"
   },
   {
     "slot": "ring",
     "name": "Momentum Driver",
-    "path": "/armor/ring/momentum_driver.png"
+    "path": "/items/ring/momentum_driver.png"
   },
   {
     "slot": "ring",
     "name": "Nightmare Spiral",
-    "path": "/armor/ring/nightmare_spiral.png"
+    "path": "/items/ring/nightmare_spiral.png"
   },
   {
     "slot": "ring",
     "name": "Onyx Pendulum",
-    "path": "/armor/ring/onyx_pendulum.png"
+    "path": "/items/ring/onyx_pendulum.png"
   },
   {
     "slot": "ring",
     "name": "Outcast Ring",
-    "path": "/armor/ring/outcast_ring.png"
+    "path": "/items/ring/outcast_ring.png"
   },
   {
     "slot": "ring",
     "name": "Point Focus Ring",
-    "path": "/armor/ring/point_focus_ring.png"
+    "path": "/items/ring/point_focus_ring.png"
   },
   {
     "slot": "ring",
     "name": "Power Saver",
-    "path": "/armor/ring/power_saver.png"
+    "path": "/items/ring/power_saver.png"
   },
   {
     "slot": "ring",
     "name": "Probability Cord",
-    "path": "/armor/ring/probability_cord.png"
+    "path": "/items/ring/probability_cord.png"
   },
   {
     "slot": "ring",
     "name": "Propulsion Loop",
-    "path": "/armor/ring/propulsion_loop.png"
+    "path": "/items/ring/propulsion_loop.png"
   },
   {
     "slot": "ring",
     "name": "Provisioner Ring",
-    "path": "/armor/ring/provisioner_ring.png"
+    "path": "/items/ring/provisioner_ring.png"
   },
   {
     "slot": "ring",
     "name": "Reaping Stone",
-    "path": "/armor/ring/reaping_stone.png"
+    "path": "/items/ring/reaping_stone.png"
   },
   {
     "slot": "ring",
     "name": "Rerouting Cable",
-    "path": "/armor/ring/rerouting_cable.png"
+    "path": "/items/ring/rerouting_cable.png"
   },
   {
     "slot": "ring",
     "name": "Reserve Boosting Gem",
-    "path": "/armor/ring/reserve_boosting_gem.png"
+    "path": "/items/ring/reserve_boosting_gem.png"
   },
   {
     "slot": "ring",
     "name": "Restriction Cord",
-    "path": "/armor/ring/restriction_cord.png"
+    "path": "/items/ring/restriction_cord.png"
   },
   {
     "slot": "ring",
     "name": "Ring Of Crisis",
-    "path": "/armor/ring/ring_of_crisis.png"
+    "path": "/items/ring/ring_of_crisis.png"
   },
   {
     "slot": "ring",
     "name": "Ring Of Deflection",
-    "path": "/armor/ring/ring_of_deflection.png"
+    "path": "/items/ring/ring_of_deflection.png"
   },
   {
     "slot": "ring",
     "name": "Ring Of Diversion",
-    "path": "/armor/ring/ring_of_diversion.png"
+    "path": "/items/ring/ring_of_diversion.png"
   },
   {
     "slot": "ring",
     "name": "Ring Of Flawed Beauty",
-    "path": "/armor/ring/ring_of_flawed_beauty.png"
+    "path": "/items/ring/ring_of_flawed_beauty.png"
   },
   {
     "slot": "ring",
     "name": "Ring Of Grace",
-    "path": "/armor/ring/ring_of_grace.png"
+    "path": "/items/ring/ring_of_grace.png"
   },
   {
     "slot": "ring",
     "name": "Ring Of Omens",
-    "path": "/armor/ring/ring_of_omens.png"
+    "path": "/items/ring/ring_of_omens.png"
   },
   {
     "slot": "ring",
     "name": "Ring Of Restocking",
-    "path": "/armor/ring/ring_of_restocking.png"
+    "path": "/items/ring/ring_of_restocking.png"
   },
   {
     "slot": "ring",
     "name": "Ring Of Retribution",
-    "path": "/armor/ring/ring_of_retribution.png"
+    "path": "/items/ring/ring_of_retribution.png"
   },
   {
     "slot": "ring",
     "name": "Ring Of The Damned",
-    "path": "/armor/ring/ring_of_the_damned.png"
+    "path": "/items/ring/ring_of_the_damned.png"
   },
   {
     "slot": "ring",
     "name": "Ring Of The Forest Spirit",
-    "path": "/armor/ring/ring_of_the_forest_spirit.png"
+    "path": "/items/ring/ring_of_the_forest_spirit.png"
   },
   {
     "slot": "ring",
     "name": "Ring Of The Robust",
-    "path": "/armor/ring/ring_of_the_robust.png"
+    "path": "/items/ring/ring_of_the_robust.png"
   },
   {
     "slot": "ring",
     "name": "Rock Of Anguish",
-    "path": "/armor/ring/rock_of_anguish.png"
+    "path": "/items/ring/rock_of_anguish.png"
   },
   {
     "slot": "ring",
     "name": "Rotward",
-    "path": "/armor/ring/rotward.png"
+    "path": "/items/ring/rotward.png"
   },
   {
     "slot": "ring",
     "name": "Rusted Heirloom",
-    "path": "/armor/ring/rusted_heirloom.png"
+    "path": "/items/ring/rusted_heirloom.png"
   },
   {
     "slot": "ring",
     "name": "Sagestone",
-    "path": "/armor/ring/sagestone.png"
+    "path": "/items/ring/sagestone.png"
   },
   {
     "slot": "ring",
     "name": "Sapphire Dreamstone",
-    "path": "/armor/ring/sapphire_dreamstone.png"
+    "path": "/items/ring/sapphire_dreamstone.png"
   },
   {
     "slot": "ring",
     "name": "Seal Of The Empress",
-    "path": "/armor/ring/seal_of_the_empress.png"
+    "path": "/items/ring/seal_of_the_empress.png"
   },
   {
     "slot": "ring",
     "name": "Shard Banded Ring",
-    "path": "/armor/ring/shard_banded_ring.png"
+    "path": "/items/ring/shard_banded_ring.png"
   },
   {
     "slot": "ring",
     "name": "Shiny Hog Lure",
-    "path": "/armor/ring/shiny_hog_lure.png"
+    "path": "/items/ring/shiny_hog_lure.png"
   },
   {
     "slot": "ring",
     "name": "Singed Ring",
-    "path": "/armor/ring/singed_ring.png"
+    "path": "/items/ring/singed_ring.png"
   },
   {
     "slot": "ring",
     "name": "Slayers Crest",
-    "path": "/armor/ring/slayers_crest.png"
+    "path": "/items/ring/slayers_crest.png"
   },
   {
     "slot": "ring",
     "name": "Soul Guard",
-    "path": "/armor/ring/soul_guard.png"
+    "path": "/items/ring/soul_guard.png"
   },
   {
     "slot": "ring",
     "name": "Soul Link",
-    "path": "/armor/ring/soul_link.png"
+    "path": "/items/ring/soul_link.png"
   },
   {
     "slot": "ring",
     "name": "Spirit Stone",
-    "path": "/armor/ring/spirit_stone.png"
+    "path": "/items/ring/spirit_stone.png"
   },
   {
     "slot": "ring",
     "name": "Stockpile Charger",
-    "path": "/armor/ring/stockpile_charger.png"
+    "path": "/items/ring/stockpile_charger.png"
   },
   {
     "slot": "ring",
     "name": "Stone Of Balance",
-    "path": "/armor/ring/stone_of_balance.png"
+    "path": "/items/ring/stone_of_balance.png"
   },
   {
     "slot": "ring",
     "name": "Stone Of Continuance",
-    "path": "/armor/ring/stone_of_continuance.png"
+    "path": "/items/ring/stone_of_continuance.png"
   },
   {
     "slot": "ring",
     "name": "Stone Of Expanse",
-    "path": "/armor/ring/stone_of_expanse.png"
+    "path": "/items/ring/stone_of_expanse.png"
   },
   {
     "slot": "ring",
     "name": "Stone Of Malevolence",
-    "path": "/armor/ring/stone_of_malevolence.png"
+    "path": "/items/ring/stone_of_malevolence.png"
   },
   {
     "slot": "ring",
     "name": "Stream Coupler",
-    "path": "/armor/ring/stream_coupler.png"
+    "path": "/items/ring/stream_coupler.png"
   },
   {
     "slot": "ring",
     "name": "Strong Arm Band",
-    "path": "/armor/ring/strong_arm_band.png"
+    "path": "/items/ring/strong_arm_band.png"
   },
   {
     "slot": "ring",
     "name": "Subterfuge Link",
-    "path": "/armor/ring/subterfuge_link.png"
+    "path": "/items/ring/subterfuge_link.png"
   },
   {
     "slot": "ring",
     "name": "Supression Ward",
-    "path": "/armor/ring/supression_ward.png"
+    "path": "/items/ring/supression_ward.png"
   },
   {
     "slot": "ring",
     "name": "Targeting Jewel",
-    "path": "/armor/ring/targeting_jewel.png"
+    "path": "/items/ring/targeting_jewel.png"
   },
   {
     "slot": "ring",
     "name": "Tarnished Ring",
-    "path": "/armor/ring/tarnished_ring.png"
+    "path": "/items/ring/tarnished_ring.png"
   },
   {
     "slot": "ring",
     "name": "Tear Of Kauela",
-    "path": "/armor/ring/tear_of_kauela.png"
+    "path": "/items/ring/tear_of_kauela.png"
   },
   {
     "slot": "ring",
     "name": "Tempest Conduit",
-    "path": "/armor/ring/tempest_conduit.png"
+    "path": "/items/ring/tempest_conduit.png"
   },
   {
     "slot": "ring",
     "name": "Tightly Wound Coil",
-    "path": "/armor/ring/tightly_wound_coil.png"
+    "path": "/items/ring/tightly_wound_coil.png"
   },
   {
     "slot": "ring",
     "name": "Timekeepers Jewel",
-    "path": "/armor/ring/timekeepers_jewel.png"
+    "path": "/items/ring/timekeepers_jewel.png"
   },
   {
     "slot": "ring",
     "name": "Tomb Dwellers Ring",
-    "path": "/armor/ring/tomb_dwellers_ring.png"
+    "path": "/items/ring/tomb_dwellers_ring.png"
   },
   {
     "slot": "ring",
     "name": "Vacuum Seal",
-    "path": "/armor/ring/vacuum_seal.png"
+    "path": "/items/ring/vacuum_seal.png"
   },
   {
     "slot": "ring",
     "name": "Vestige Of Power",
-    "path": "/armor/ring/vestige_of_power.png"
+    "path": "/items/ring/vestige_of_power.png"
   },
   {
     "slot": "ring",
     "name": "Wax Sealed Ring",
-    "path": "/armor/ring/wax_sealed_ring.png"
+    "path": "/items/ring/wax_sealed_ring.png"
   },
   {
     "slot": "ring",
     "name": "White Pawn Stamp",
-    "path": "/armor/ring/white_pawn_stamp.png"
+    "path": "/items/ring/white_pawn_stamp.png"
   },
   {
     "slot": "ring",
     "name": "Wind Hollow Circlet",
-    "path": "/armor/ring/wind_hollow_circlet.png"
+    "path": "/items/ring/wind_hollow_circlet.png"
   },
   {
     "slot": "ring",
     "name": "Worn Admirals Ring",
-    "path": "/armor/ring/worn_admirals_ring.png"
+    "path": "/items/ring/worn_admirals_ring.png"
   },
   {
     "slot": "ring",
     "name": "Zanias Malice",
-    "path": "/armor/ring/zanias_malice.png"
+    "path": "/items/ring/zanias_malice.png"
   },
   {
     "slot": "ring",
     "name": "Zohees Ring",
-    "path": "/armor/ring/zohees_ring.png"
+    "path": "/items/ring/zohees_ring.png"
   },
   {
     "slot": "torso",
     "name": "Academics Overcoat",
-    "path": "/armor/torso/academics_overcoat.png"
+    "path": "/items/torso/academics_overcoat.png"
   },
   {
     "slot": "torso",
     "name": "Bandits Jacket",
-    "path": "/armor/torso/bandits_jacket.png"
+    "path": "/items/torso/bandits_jacket.png"
   },
   {
     "slot": "torso",
     "name": "Bruiser Bodyplate",
-    "path": "/armor/torso/bruiser_bodyplate.png"
+    "path": "/items/torso/bruiser_bodyplate.png"
   },
   {
     "slot": "torso",
     "name": "Cultist Duster",
-    "path": "/armor/torso/cultist_duster.png"
+    "path": "/items/torso/cultist_duster.png"
   },
   {
     "slot": "torso",
     "name": "Dendroid Chest",
-    "path": "/armor/torso/dendroid_chest.png"
+    "path": "/items/torso/dendroid_chest.png"
   },
   {
     "slot": "torso",
     "name": "Elder Raiment",
-    "path": "/armor/torso/elder_raiment.png"
+    "path": "/items/torso/elder_raiment.png"
   },
   {
     "slot": "torso",
     "name": "Fae Royal Bodyplate",
-    "path": "/armor/torso/fae_royal_bodyplate.png"
+    "path": "/items/torso/fae_royal_bodyplate.png"
   },
   {
     "slot": "torso",
     "name": "Field Medic Overcoat",
-    "path": "/armor/torso/field_medic_overcoat.png"
+    "path": "/items/torso/field_medic_overcoat.png"
   },
   {
     "slot": "torso",
     "name": "High Noon Duds",
-    "path": "/armor/torso/high_noon_duds.png"
+    "path": "/items/torso/high_noon_duds.png"
   },
   {
     "slot": "torso",
     "name": "Knotted Cage",
-    "path": "/armor/torso/knotted_cage.png"
+    "path": "/items/torso/knotted_cage.png"
   },
   {
     "slot": "torso",
     "name": "Labyrinth Mantle",
-    "path": "/armor/torso/labyrinth_mantle.png"
+    "path": "/items/torso/labyrinth_mantle.png"
   },
   {
     "slot": "torso",
     "name": "Leto Mark Ii Armor",
-    "path": "/armor/torso/leto_mark_ii_armor.png"
+    "path": "/items/torso/leto_mark_ii_armor.png"
   },
   {
     "slot": "torso",
     "name": "Leto Mark I Armor",
-    "path": "/armor/torso/leto_mark_i_armor.png"
+    "path": "/items/torso/leto_mark_i_armor.png"
   },
   {
     "slot": "torso",
     "name": "Nightstalker Garb",
-    "path": "/armor/torso/nightstalker_garb.png"
+    "path": "/items/torso/nightstalker_garb.png"
   },
   {
     "slot": "torso",
     "name": "Radiant Protector",
-    "path": "/armor/torso/radiant_protector.png"
+    "path": "/items/torso/radiant_protector.png"
   },
   {
     "slot": "torso",
     "name": "Realmwalker Tunic",
-    "path": "/armor/torso/realmwalker_tunic.png"
+    "path": "/items/torso/realmwalker_tunic.png"
   },
   {
     "slot": "torso",
     "name": "Red Widow Raiment",
-    "path": "/armor/torso/red_widow_raiment.png"
+    "path": "/items/torso/red_widow_raiment.png"
   },
   {
     "slot": "torso",
     "name": "Space Worker Body",
-    "path": "/armor/torso/space_worker_body.png"
+    "path": "/items/torso/space_worker_body.png"
   },
   {
     "slot": "torso",
     "name": "Survivor Overcoat",
-    "path": "/armor/torso/survivor_overcoat.png"
+    "path": "/items/torso/survivor_overcoat.png"
   },
   {
     "slot": "torso",
     "name": "Technician Bodyplate",
-    "path": "/armor/torso/technician_bodyplate.png"
+    "path": "/items/torso/technician_bodyplate.png"
   },
   {
     "slot": "torso",
     "name": "Trainer Clothes",
-    "path": "/armor/torso/trainer_clothes.png"
+    "path": "/items/torso/trainer_clothes.png"
   },
   {
     "slot": "torso",
     "name": "Void Carapace",
-    "path": "/armor/torso/void_carapace.png"
+    "path": "/items/torso/void_carapace.png"
   }
 ]
