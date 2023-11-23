@@ -7,13 +7,13 @@
 
 import fs from 'fs'
 import path from 'path'
-import type { Item, ItemSlot } from '../src/types'
+import type { Item, ItemType } from '../src/types'
 
 const itemPath = path.join(__dirname, '../public/items')
 const itemList: Item[] = []
 
-fs.readdirSync(itemPath).forEach((slot: string) => {
-  fs.readdirSync(path.join(itemPath, slot)).forEach((file: string) => {
+fs.readdirSync(itemPath).forEach((type: string) => {
+  fs.readdirSync(path.join(itemPath, type)).forEach((file: string) => {
     const armorName = file
       .replace(/_/g, ' ') // replace underscores with spaces
       .replace(/\.[^/.]+$/, '') // remove file extension
@@ -22,9 +22,9 @@ fs.readdirSync(itemPath).forEach((slot: string) => {
         (txt) => txt.charAt(0).toUpperCase() + txt.substring(1).toLowerCase(),
       ) // uppercase the first letter of each word
     itemList.push({
-      slot: slot as ItemSlot,
+      type: type as ItemType,
       name: armorName,
-      path: `/items/${slot}/${file}`,
+      path: `/items/${type}/${file}`,
     })
   })
 })

@@ -1,12 +1,12 @@
 import { Fragment } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
-import LoadoutTile from '@/components/LoadoutTile'
-import { cn } from '@/lib/utils'
-import type { Item, LoadoutSlot, LoadoutItem } from '@/types'
+import { cn, loadoutItemTypeToItemType } from '@/lib/utils'
+import type { Item, LoadoutItemType, LoadoutItem } from '@/types'
+import ItemCard from './ItemCard'
 
 interface ItemSelectProps {
   itemList: Item[]
-  loadoutSlot: LoadoutSlot | null
+  loadoutSlot: LoadoutItemType | null
   open: boolean
   onClose: () => void
   onSelectItem: (item: LoadoutItem) => void
@@ -22,6 +22,8 @@ export default function ItemSelect({
   if (!loadoutSlot) {
     return null
   }
+
+  const itemType = loadoutItemTypeToItemType(loadoutSlot)
 
   return (
     <Transition.Root show={open} as={Fragment}>
@@ -70,27 +72,31 @@ export default function ItemSelect({
                               onSelectItem({
                                 name: item.name,
                                 path: item.path,
-                                slot: loadoutSlot,
+                                type: loadoutSlot,
                               })
                             }
                           >
                             <div
                               className={cn(
                                 'group flex items-center justify-center overflow-hidden rounded-lg bg-black focus-within:ring-2 focus-within:ring-purple-500 focus-within:ring-offset-2 focus-within:ring-offset-gray-100',
-                                item.slot === 'mainhand' ||
-                                  item.slot === 'offhand' ||
-                                  item.slot === 'melee'
+                                item.type === 'mainhand' ||
+                                  item.type === 'offhand' ||
+                                  item.type === 'melee'
                                   ? 'h-[60px] w-[120px]'
                                   : 'h-[60px] w-[60px]',
                               )}
                             >
-                              <LoadoutTile
+                              <ItemCard
                                 item={{
                                   name: item.name,
                                   path: item.path,
-                                  slot: loadoutSlot,
+                                  type: itemType,
                                 }}
-                                slot={loadoutSlot}
+                                button={
+                                  <button className="btn w-full max-w-sm rounded-md bg-purple-700 p-2 font-bold hover:bg-purple-800">
+                                    Select
+                                  </button>
+                                }
                               />
                             </div>
                             <p className="pointer-events-none mt-2 block truncate text-sm font-medium text-gray-400">

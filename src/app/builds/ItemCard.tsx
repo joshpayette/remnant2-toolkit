@@ -5,16 +5,16 @@ import type { Item } from '@/types'
 interface CardProps {
   item: Item
   variant?: 'default' | 'blue'
+  button?: React.ReactNode
 }
 
-function CardTitle({ name, slot }: { name: string; slot: string }) {
-  // Capitalize first letter of slot
-  const slotCapitalized = slot.charAt(0).toUpperCase() + slot.slice(1)
+function CardTitle({ name, type }: { name: string; type: string }) {
+  const capitalizedType = type.charAt(0).toUpperCase() + type.slice(1)
 
   return (
     <div className="w-full bg-[url('/card-title-bg.jpg')] p-2 text-center">
       <h3 className="text-2xl text-white">{name}</h3>
-      <p className="text-lg text-[#ff9900]">{slotCapitalized}</p>
+      <p className="text-lg text-[#ff9900]">{capitalizedType}</p>
     </div>
   )
 }
@@ -47,19 +47,24 @@ function CardBody({
   )
 }
 
-function CardFooter() {
+function CardFooter({ button }: { button: React.ReactNode }) {
   return (
     <div className="w-full bg-[url('/card-footer-bg.jpg')] p-2 text-center">
-      <p className="text-lg text-white">Footer</p>
+      {button}
     </div>
   )
 }
 
-export default function ItemCard({ item, variant = 'default' }: CardProps) {
+export default function ItemCard({
+  item,
+  button,
+  variant = 'default',
+}: CardProps) {
   return (
     <div className="relative flex w-full flex-col items-center justify-center p-4">
-      <CardTitle name={item.name} slot={item.slot} />
+      <CardTitle name={item.name} type={item.type} />
       <CardBody name={item.name} path={item.path} variant={variant} />
+      {button && <CardFooter button={button} />}
     </div>
   )
 }
