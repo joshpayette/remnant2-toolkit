@@ -12,20 +12,25 @@ type BaseItemType =
   | 'offhand'
   | 'melee'
   | 'mod'
-  | 'concoction'
 
 // The type of a single item category
-export type ItemType = BaseItemType | 'ring' | 'trait' | 'archtype'
+export type ItemType =
+  | BaseItemType
+  | 'archtype'
+  | 'concoction'
+  | 'mutator'
+  | 'relicfragment'
+  | 'ring'
+  | 'trait'
 
 // The type of a single item slot in a loadout
 export type LoadoutItemType =
   | BaseItemType
-  | 'ring1'
-  | 'ring2'
-  | 'ring3'
-  | 'ring4'
-  | 'archtype1'
-  | 'archtype2'
+  | 'archtypes'
+  | 'concoctions'
+  | 'mutators'
+  | 'relicfragments'
+  | 'rings'
   | 'traits'
 
 // The type of a single item stored in the database
@@ -33,6 +38,7 @@ export interface Item {
   type: ItemType
   name: string
   path: string
+  id: string
 }
 
 // The type of a single item stored in a loadout
@@ -44,6 +50,6 @@ export interface LoadoutItem extends Omit<Item, 'type'> {
 export interface Loadout {
   name: string
   items: {
-    [key in LoadoutItemType]: LoadoutItem | LoadoutItem[] | null
+    [key in LoadoutItemType]: LoadoutItem | null | LoadoutItem[] | null[]
   }
 }
