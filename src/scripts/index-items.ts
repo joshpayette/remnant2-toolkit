@@ -9,19 +9,22 @@ import fs from 'fs'
 
 const outputPath = '../data/indexed-items.json'
 
-// assign a unique id to each item
+function generateId(): string {
+  const firstPart = ('000' + (Math.random() * 46656).toString(36)).slice(-3)
+  const secondPart = ('000' + (Math.random() * 46656).toString(36)).slice(-3)
+  return firstPart + secondPart
+}
 
-const indexItems = (items: Item[]) => {
-  return items.map((item, index) => {
-    if (item.id) {
-      return item
+const indexItems = (items: Item[]): Item[] => {
+  return items.map((item) => {
+    // If the item already has an id, return it as is
+    if (item.id) return item
+
+    // Keep generating an id until it is unique
+    let id = generateId()
+    while (items.find((item) => item.id === id)) {
+      id = generateId()
     }
-
-    // I generate the UID from two parts here
-    // to ensure the random number provide enough bits.
-    const firstPart = ('000' + (Math.random() * 46656).toString(36)).slice(-3)
-    const secondPart = ('000' + (Math.random() * 46656).toString(36)).slice(-3)
-    const id = firstPart + secondPart
     return { ...item, id }
   })
 }
