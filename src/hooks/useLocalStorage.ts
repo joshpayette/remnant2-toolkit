@@ -1,5 +1,3 @@
-'use client'
-
 import { useLocalStorage as useLS } from 'usehooks-ts'
 import type { LocalStorage } from '@/types'
 
