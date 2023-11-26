@@ -33,7 +33,7 @@ export default function RootLayout({
                 Remnant II Toolkit
               </span>
             </div>
-            <div className="flex grow items-center justify-start">
+            <div className="mt-4 flex grow items-center justify-start md:mt-0">
               {[
                 { href: '/tracker', label: 'Tracker' },
                 { href: '/builds', label: 'Builds' },
@@ -49,7 +49,9 @@ export default function RootLayout({
             </div>
           </nav>
         </header>
-        {children}
+        <main className="flex min-h-screen flex-col items-center justify-center p-4">
+          {children}
+        </main>
       </body>
     </html>
   )
