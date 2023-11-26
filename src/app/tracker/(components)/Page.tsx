@@ -7,7 +7,7 @@ import TrackerFilters from './Filters'
 import type { Filters } from '../types'
 import ListItems from './ListItems'
 
-export default function Container() {
+export default function Page() {
   const { builds, itemTracker, setItemTracker } = useLocalStorage()
   const { discoveredItemIds } = itemTracker
 
