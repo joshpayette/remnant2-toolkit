@@ -1,18 +1,18 @@
 import type { ChangeEventHandler } from 'react'
 
-interface FilterCheckboxProps {
+interface CheckboxProps {
   id: string
   label: string
   checked?: HTMLInputElement['checked']
   onChange: ChangeEventHandler<HTMLInputElement>
 }
 
-export default function FilterCheckbox({
+export default function Checkbox({
   id,
   label,
   checked,
   onChange,
-}: FilterCheckboxProps) {
+}: CheckboxProps) {
   return (
     <div className="relative flex items-start py-4">
       <div className="min-w-0 flex-1 text-sm leading-6">

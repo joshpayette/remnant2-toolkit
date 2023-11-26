@@ -1,6 +1,6 @@
 import dynamic from 'next/dynamic'
 
-const NoSSR = dynamic(() => import('./(components)/TrackerContainer'), {
+const NoSSR = dynamic(() => import('./(components)/Container'), {
   ssr: false,
 })
 

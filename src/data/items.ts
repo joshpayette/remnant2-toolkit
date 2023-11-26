@@ -3764,3 +3764,7 @@ export const remnantItems: Item[] = [
     id: 'b3rey4',
   },
 ]
+
+export const remnantItemTypes = Array.from(
+  new Set(remnantItems.map((item) => item.type)),
+)
