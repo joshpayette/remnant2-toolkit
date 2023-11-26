@@ -1,10 +1,13 @@
+'use client'
+
 import ItemCard from '@/components/ItemCard'
 import { cn } from '@/lib/utils'
 import { remnantItems } from '@/data/items'
 import { useLocalStorage } from '@/hooks/useLocalStorage'
 import { Fragment, useState } from 'react'
-import FilterCheckbox from './FilterCheckbox'
 import type { Item } from '@/types'
+import TrackerFilters from './TrackerFilters'
+import type { Filters } from './types'
 
 export default function TrackerContainer() {
   const { builds, itemTracker, setItemTracker } = useLocalStorage()
@@ -17,7 +20,7 @@ export default function TrackerContainer() {
     discoveredItemIds.includes(item.id),
   )
 
-  const [filters, setFilters] = useState({
+  const [filters, setFilters] = useState<Filters>({
     undiscovered: true,
     discovered: true,
   })
@@ -45,41 +48,21 @@ export default function TrackerContainer() {
 
   return (
     <Fragment>
-      <div className="rounded border border-purple-700  p-4">
-        <fieldset>
-          <legend className="text-base font-semibold leading-6 text-white">
-            Filters
-          </legend>
-          <div className="grid grid-cols-1 md:grid-cols-2">
-            <div className="mt-4 divide-y divide-purple-400 border-b border-t border-purple-400">
-              <FilterCheckbox
-                key="filter-type-undiscovered"
-                label={`Show undiscovered items`}
-                id={`filter-type-undiscovered`}
-                checked={filters.undiscovered}
-                onClick={() => {
-                  setFilters({
-                    ...filters,
-                    undiscovered: !filters.undiscovered,
-                  })
-                }}
-              />
-              <FilterCheckbox
-                key="filter-type-discovered"
-                label={`Show discovered items`}
-                id={`filter-type-discovered`}
-                checked={filters.discovered}
-                onClick={() => {
-                  setFilters({
-                    ...filters,
-                    discovered: !filters.discovered,
-                  })
-                }}
-              />
-            </div>
-          </div>
-        </fieldset>
-      </div>
+      <TrackerFilters
+        filters={filters}
+        onUndiscoveredClick={() =>
+          setFilters({
+            ...filters,
+            undiscovered: !filters.undiscovered,
+          })
+        }
+        onDiscoveredClick={() =>
+          setFilters({
+            ...filters,
+            discovered: !filters.discovered,
+          })
+        }
+      />
 
       <div className="mt-12">
         {filters.undiscovered && (

@@ -1,15 +1,17 @@
+import type { ChangeEventHandler } from 'react'
+
 interface FilterCheckboxProps {
   id: string
   label: string
   checked?: HTMLInputElement['checked']
-  onClick: () => void
+  onChange: ChangeEventHandler<HTMLInputElement>
 }
 
 export default function FilterCheckbox({
   id,
   label,
   checked,
-  onClick,
+  onChange,
 }: FilterCheckboxProps) {
   return (
     <div className="relative flex items-start py-4">
@@ -25,7 +27,7 @@ export default function FilterCheckbox({
           type="checkbox"
           className="h-4 w-4 rounded border-purple-300 text-purple-600 focus:ring-purple-600"
           checked={checked}
-          onClick={onClick}
+          onChange={onChange}
         />
       </div>
     </div>

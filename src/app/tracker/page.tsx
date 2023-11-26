@@ -1,8 +1,8 @@
-'use client'
-
 import dynamic from 'next/dynamic'
 
-const NoSSR = dynamic(() => import('./TrackerContainer'), { ssr: false })
+const NoSSR = dynamic(() => import('./(components)/TrackerContainer'), {
+  ssr: false,
+})
 
 export default function TrackerPage() {
   return (
