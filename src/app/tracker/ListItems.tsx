@@ -1,9 +1,8 @@
 import { remnantItemTypes } from '@/data/items'
-import type { Filters } from '../types'
+import type { Filters } from './types'
 import { capitalize, cn } from '@/lib/utils'
-import type { Item, ItemType } from '@/types'
+import type { Item } from '@/types'
 import ItemCard from '@/components/ItemCard'
-import { useCallback } from 'react'
 
 interface ListItemsProps {
   filters: Filters
