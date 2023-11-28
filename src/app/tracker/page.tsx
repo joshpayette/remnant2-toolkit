@@ -49,7 +49,7 @@ export default function TrackerPage() {
       <div className="mt-24">
         {filters.undiscovered && (
           <ListItems
-            title="Undiscovered Items"
+            variant="undiscovered"
             filters={filters}
             items={undiscoveredItems}
             onClick={(itemId: string) => {
@@ -64,7 +64,7 @@ export default function TrackerPage() {
         )}
         {filters.discovered && (
           <ListItems
-            title="Discovered Items"
+            variant="discovered"
             filters={filters}
             items={discoveredItems}
             onClick={(itemId: string) => {

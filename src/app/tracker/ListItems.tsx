@@ -7,14 +7,14 @@ import ItemCard from '@/components/ItemCard'
 interface ListItemsProps {
   filters: Filters
   items: Item[]
-  title: string
+  variant: 'undiscovered' | 'discovered'
   onClick: (itemId: string) => void
 }
 
 export default function ListItems({
   filters,
   items,
-  title,
+  variant,
   onClick,
 }: ListItemsProps) {
   const gridTemplate =
@@ -23,7 +23,9 @@ export default function ListItems({
   return (
     <div id="undiscovered-items" className="mb-6">
       <div className="border-b border-purple-700 pb-4">
-        <h1 className="text-2xl font-semibold leading-6 text-white">{title}</h1>
+        <h1 className="text-2xl font-semibold leading-6 text-white">{`${capitalize(
+          variant,
+        )} Items`}</h1>
       </div>
       {remnantItemTypes.map(
         (itemType) =>
@@ -40,7 +42,11 @@ export default function ListItems({
                   .map((item) => (
                     <button
                       key={item.id}
-                      className="grayscale hover:grayscale-0"
+                      className={cn(
+                        variant === 'undiscovered'
+                          ? 'grayscale hover:grayscale-0'
+                          : 'grayscale-0 hover:grayscale',
+                      )}
                       onClick={() => onClick(item.id)}
                     >
                       <ItemCard item={item} />
