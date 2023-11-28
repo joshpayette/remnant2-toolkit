@@ -3,7 +3,6 @@
 import { remnantItems } from '@/data/items'
 import { useLocalStorage } from '@/hooks/useLocalStorage'
 import { Fragment, useState } from 'react'
-import TrackerFilters from './Filters'
 import type { Filters } from './types'
 import ListItems from './ListItems'
 
@@ -41,12 +40,12 @@ export default function TrackerPage() {
 
   return (
     <Fragment>
-      <TrackerFilters
+      {/* <TrackerFilters
         filters={filters}
         onFiltersChange={(newFilters: Filters) => setFilters(newFilters)}
-      />
+      /> */}
 
-      <div className="mt-24">
+      <div className="mt-24 w-full">
         {filters.undiscovered && (
           <ListItems
             variant="undiscovered"

@@ -1,6 +1,7 @@
 import FilterCheckbox from './Checkbox'
 import type { Filters } from './types'
 import { remnantItemTypes } from '@/data/items'
+import { cn } from '@/lib/utils'
 import { Disclosure } from '@headlessui/react'
 import { ChevronUpIcon } from '@heroicons/react/20/solid'
 import { Fragment } from 'react'
@@ -19,9 +20,10 @@ export default function Filters({ filters, onFiltersChange }: FiltersProps) {
             <Disclosure.Button className="flex w-full justify-between rounded-lg bg-purple-500 px-4 py-2 text-left text-sm font-medium text-white hover:bg-purple-700 focus:outline-none focus-visible:ring focus-visible:ring-purple-500/75">
               <span>Filters</span>
               <ChevronUpIcon
-                className={`${
-                  open ? 'rotate-180 transform' : ''
-                } h-5 w-5 text-white`}
+                className={cn(
+                  'h-5 w-5 text-white',
+                  open ? 'rotate-180 transform' : '',
+                )}
               />
             </Disclosure.Button>
             <Disclosure.Panel className="grid grid-cols-1 gap-1 md:grid-cols-2 md:gap-4">
