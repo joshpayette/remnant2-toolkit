@@ -1,10 +1,11 @@
 'use client'
 
-import { Fragment, useState } from 'react'
+import { Fragment, useEffect, useState } from 'react'
 import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import Logo from '../components/Logo'
+import { usePathname } from 'next/navigation'
 
 const navigation = [
   { name: 'Item Tracker', href: '/tracker' },
@@ -12,7 +13,13 @@ const navigation = [
 ]
 
 export default function NavBar() {
+  const pathname = usePathname()
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+
+  // Close the navmenu on route change
+  useEffect(() => {
+    setMobileMenuOpen(false)
+  }, [pathname])
 
   return (
     <Fragment>
