@@ -13,11 +13,11 @@ interface FiltersProps {
 
 export default function Filters({ filters, onFiltersChange }: FiltersProps) {
   return (
-    <div className="fixed bottom-0 left-0 z-40 mx-auto max-h-full w-full max-w-4xl overflow-x-scroll rounded border border-purple-700 bg-black p-4">
+    <div className="fixed bottom-0 left-0 z-40 mx-auto max-h-full w-full overflow-x-scroll rounded border border-green-700 bg-black p-4">
       <Disclosure>
         {({ open }) => (
           <Fragment>
-            <Disclosure.Button className="flex w-full justify-between rounded-lg bg-purple-500 px-4 py-2 text-left text-sm font-medium text-white hover:bg-purple-700 focus:outline-none focus-visible:ring focus-visible:ring-purple-500/75">
+            <Disclosure.Button className="flex w-full justify-between rounded-lg bg-green-500 px-4 py-2 text-left text-sm font-medium text-white hover:bg-green-700 focus:outline-none focus-visible:ring focus-visible:ring-purple-500/75">
               <span>Filters</span>
               <ChevronUpIcon
                 className={cn(
@@ -27,7 +27,7 @@ export default function Filters({ filters, onFiltersChange }: FiltersProps) {
               />
             </Disclosure.Button>
             <Disclosure.Panel className="grid grid-cols-1 gap-1 md:grid-cols-2 md:gap-4">
-              <div className="border-b border-purple-500">
+              <div className="border-b border-green-500">
                 <FilterCheckbox
                   key="filter-type-undiscovered"
                   label={`Show undiscovered items`}
@@ -41,7 +41,7 @@ export default function Filters({ filters, onFiltersChange }: FiltersProps) {
                   }
                 />
               </div>
-              <div className="border-b border-purple-500">
+              <div className="border-b border-green-500">
                 <FilterCheckbox
                   key="filter-type-discovered"
                   label={`Show discovered items`}
@@ -59,7 +59,7 @@ export default function Filters({ filters, onFiltersChange }: FiltersProps) {
                 {remnantItemTypes.map((type) => (
                   <div
                     key={`filter-type-${type}`}
-                    className="border-b border-purple-400"
+                    className="border-b border-green-500"
                   >
                     <FilterCheckbox
                       label={`${type}`}

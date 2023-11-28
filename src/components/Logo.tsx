@@ -6,9 +6,9 @@ export default function Logo() {
       <img
         className="mr-2 h-8 w-auto"
         src="/logo-sm.png"
-        alt="Remnant 2 Toolkit logo, a purple and yellow toolbox."
+        alt="Remnant II Toolkit logo, a purple and yellow toolbox."
       />
-      <span className="text-white">Remnant Toolkit</span>
+      <span className="text-white">Remnant II Toolkit</span>
     </Link>
   )
 }

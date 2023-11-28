@@ -5,9 +5,10 @@ import { useLocalStorage } from '@/hooks/useLocalStorage'
 import { Fragment, useState } from 'react'
 import type { Filters } from './types'
 import ListItems from './ListItems'
+import TrackerFilters from './Filters'
 
 export default function TrackerPage() {
-  const { builds, itemTracker, setItemTracker } = useLocalStorage()
+  const { itemTracker, setItemTracker } = useLocalStorage()
   const { discoveredItemIds } = itemTracker
 
   const undiscoveredItems = remnantItems.filter(
@@ -40,26 +41,28 @@ export default function TrackerPage() {
 
   return (
     <Fragment>
-      {/* <TrackerFilters
+      <TrackerFilters
         filters={filters}
         onFiltersChange={(newFilters: Filters) => setFilters(newFilters)}
-      /> */}
+      />
 
-      <div className="mt-24 w-full">
+      <div className="my-24 w-full">
         {filters.undiscovered && (
-          <ListItems
-            variant="undiscovered"
-            filters={filters}
-            items={undiscoveredItems}
-            onClick={(itemId: string) => {
-              if (discoveredItemIds.includes(itemId)) return
-              const newDiscoveredItemIds = [...discoveredItemIds, itemId]
-              setItemTracker({
-                ...itemTracker,
-                discoveredItemIds: newDiscoveredItemIds,
-              })
-            }}
-          />
+          <div className="mb-12">
+            <ListItems
+              variant="undiscovered"
+              filters={filters}
+              items={undiscoveredItems}
+              onClick={(itemId: string) => {
+                if (discoveredItemIds.includes(itemId)) return
+                const newDiscoveredItemIds = [...discoveredItemIds, itemId]
+                setItemTracker({
+                  ...itemTracker,
+                  discoveredItemIds: newDiscoveredItemIds,
+                })
+              }}
+            />
+          </div>
         )}
         {filters.discovered && (
           <ListItems
