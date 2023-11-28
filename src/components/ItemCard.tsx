@@ -16,7 +16,7 @@ export default function ItemCard({ item, variant = 'default' }: CardProps) {
       </div>
       <div
         className={cn(
-          'relative h-[90px] w-full grow',
+          'relative h-[125px] w-full grow',
           variant === 'default'
             ? "bg-[url('/card-body-bg.jpg')]"
             : "bg-[url('/card-body-bg-blue.jpg')]",

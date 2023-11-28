@@ -29,7 +29,7 @@ export default function ListItems({
     <Disclosure defaultOpen>
       {({ open }) => (
         <Fragment>
-          <Disclosure.Button className="flex w-full justify-between border-b border-purple-700 p-4 hover:border-green-400 focus:outline-none focus-visible:ring focus-visible:ring-green-500/75">
+          <Disclosure.Button className="flex w-full justify-between border-b border-purple-700 p-4 hover:border-green-400 hover:bg-black focus:outline-none focus-visible:ring focus-visible:ring-green-500/75">
             <h1 className="w-full text-2xl font-semibold leading-6 text-white">{`${capitalize(
               variant,
             )} Items`}</h1>
@@ -47,7 +47,7 @@ export default function ListItems({
                   <Disclosure key={itemType} defaultOpen>
                     {({ open }) => (
                       <Fragment>
-                        <Disclosure.Button className="flex w-full justify-start border-b border-purple-700 p-4 text-left hover:border-green-400 focus:outline-none focus-visible:ring focus-visible:ring-green-500/75">
+                        <Disclosure.Button className="flex w-full justify-start border-b border-purple-700 p-4 text-left hover:border-green-400 hover:bg-black focus:outline-none focus-visible:ring focus-visible:ring-green-500/75">
                           <h2 className="w-full text-lg font-semibold leading-6 text-white">
                             {capitalize(itemType)}
                           </h2>
