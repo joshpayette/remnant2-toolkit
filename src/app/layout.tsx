@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import NavBar from './NavBar'
 import './globals.css'
+import FavIcon from './FavIcon'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -19,6 +20,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <header>
+          <FavIcon />
           <NavBar />
         </header>
         <main className="flex min-h-screen w-full flex-col items-center justify-center p-4">
