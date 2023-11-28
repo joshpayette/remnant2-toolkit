@@ -23,13 +23,13 @@ export default function ListItems({
   onClick,
 }: ListItemsProps) {
   const gridTemplate =
-    'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8'
+    'grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4'
 
   return (
     <Disclosure defaultOpen>
       {({ open }) => (
         <Fragment>
-          <Disclosure.Button className="flex w-full justify-between border-b border-purple-700 p-4 hover:bg-purple-700 focus:outline-none focus-visible:ring focus-visible:ring-purple-500/75">
+          <Disclosure.Button className="flex w-full justify-between border-b border-purple-700 p-4 hover:border-green-400 focus:outline-none focus-visible:ring focus-visible:ring-green-500/75">
             <h1 className="w-full text-2xl font-semibold leading-6 text-white">{`${capitalize(
               variant,
             )} Items`}</h1>
@@ -47,7 +47,7 @@ export default function ListItems({
                   <Disclosure key={itemType} defaultOpen>
                     {({ open }) => (
                       <Fragment>
-                        <Disclosure.Button className="flex w-full justify-start border-b border-purple-700 p-4 text-left focus:outline-none focus-visible:ring focus-visible:ring-purple-500/75">
+                        <Disclosure.Button className="flex w-full justify-start border-b border-purple-700 p-4 text-left hover:border-green-400 focus:outline-none focus-visible:ring focus-visible:ring-green-500/75">
                           <h2 className="w-full text-lg font-semibold leading-6 text-white">
                             {capitalize(itemType)}
                           </h2>
@@ -58,16 +58,17 @@ export default function ListItems({
                             )}
                           />
                         </Disclosure.Button>
-                        <Disclosure.Panel className={cn(gridTemplate)}>
+                        <Disclosure.Panel className={cn(gridTemplate, 'py-4')}>
                           {items
                             .filter((item) => item.type === itemType)
                             .map((item) => (
                               <button
                                 key={item.id}
                                 className={cn(
-                                  variant === 'undiscovered'
-                                    ? 'grayscale hover:grayscale-0'
-                                    : 'grayscale-0 hover:grayscale',
+                                  // variant === 'undiscovered'
+                                  //   ? 'grayscale hover:grayscale-0'
+                                  //   : 'grayscale-0 hover:grayscale',
+                                  'border-2 border-transparent hover:border-green-400 focus:outline-none focus-visible:ring focus-visible:ring-green-500/75',
                                 )}
                                 onClick={() => onClick(item.id)}
                               >
