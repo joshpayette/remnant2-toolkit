@@ -89,3 +89,7 @@ export function itemTypeToLoadoutItemType(itemType: ItemType): LoadoutItemType {
 
   return loadoutItemType
 }
+
+export function getArrayOfLength(length: number) {
+  return Array.from(Array(length).keys())
+}
