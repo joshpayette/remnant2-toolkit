@@ -24,10 +24,10 @@ export default function NavBar() {
   return (
     <Fragment>
       <nav
-        className="fixed z-40 mx-auto flex w-full max-w-7xl items-center justify-between bg-background p-6 lg:px-8"
+        className="fixed z-40 mx-auto flex w-full items-center justify-between bg-background p-6 lg:px-8"
         aria-label="Global"
       >
-        <div className="flex">
+        <div className="flex min-w-[300px]">
           <Logo />
         </div>
         <div className="flex lg:hidden">
@@ -40,12 +40,12 @@ export default function NavBar() {
             <Bars3Icon className="h-6 w-6" aria-hidden="true" />
           </button>
         </div>
-        <div className="hidden items-center justify-center lg:flex lg:flex-grow lg:gap-x-12">
+        <div className="hidden items-center justify-start lg:flex lg:w-full lg:flex-grow lg:gap-x-12">
           {navigation.map((item) => (
             <Link
               key={item.name}
               href={item.href}
-              className="text-sm font-semibold leading-6 text-white hover:text-green-400"
+              className="text-lg font-semibold leading-6 text-white hover:text-green-400"
             >
               {item.name}
             </Link>
