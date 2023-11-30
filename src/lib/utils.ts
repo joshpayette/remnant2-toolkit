@@ -14,13 +14,26 @@ export function loadoutItemTypeToItemType(
   loadoutItemType: LoadoutItemType,
 ): ItemType {
   const validType = loadoutItemType
-    .replace('ring1', 'ring')
-    .replace('ring2', 'ring')
-    .replace('ring3', 'ring')
-    .replace('ring4', 'ring')
-    .replace('archtype1', 'archtype')
-    .replace('archtype2', 'archtype')
-    .replace('traits', 'trait')
+    .replace('archtypes', 'archtype')
+    .replace('concoctions', 'concoction')
+    .replace('mods', 'mod')
+    .replace('mutators', 'mutator')
+    .replace('relicfragments', 'relicfragment')
+    .replace('rings', 'ring')
+    .replace('traits', 'trait') as ItemType
 
-  return validType as ItemType
+  return validType
+}
+
+export function itemTypeToLoadoutItemType(itemType: ItemType): LoadoutItemType {
+  const validType = itemType
+    .replace('archtype', 'archtypes')
+    .replace('concoction', 'concoctions')
+    .replace('mod', 'mods')
+    .replace('mutator', 'mutators')
+    .replace('relicfragment', 'relicfragments')
+    .replace('ring', 'rings')
+    .replace('trait', 'traits') as LoadoutItemType
+
+  return validType
 }

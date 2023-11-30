@@ -11,13 +11,13 @@ type BaseItemType =
   | 'mainhand'
   | 'offhand'
   | 'melee'
-  | 'mod'
 
 // The type of a single item category
 export type ItemType =
   | BaseItemType
   | 'archtype'
   | 'concoction'
+  | 'mod'
   | 'mutator'
   | 'relicfragment'
   | 'ring'
@@ -28,6 +28,7 @@ export type LoadoutItemType =
   | BaseItemType
   | 'archtypes'
   | 'concoctions'
+  | 'mods'
   | 'mutators'
   | 'relicfragments'
   | 'rings'
@@ -50,7 +51,7 @@ export interface LoadoutItem extends Omit<Item, 'type'> {
 export interface Loadout {
   name: string
   items: {
-    [key in LoadoutItemType]: LoadoutItem | null | LoadoutItem[] | null[]
+    [key in LoadoutItemType]: LoadoutItem | Array<LoadoutItem | null> | null
   }
 }
 

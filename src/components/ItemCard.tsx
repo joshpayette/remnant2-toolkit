@@ -3,7 +3,7 @@ import { capitalize, cn } from '@/lib/utils'
 import type { Item } from '@/types'
 
 interface CardProps {
-  item: Item
+  item: Item | null
   variant?: 'default' | 'blue'
 }
 
@@ -11,8 +11,10 @@ export default function ItemCard({ item, variant = 'default' }: CardProps) {
   return (
     <div className="relative flex w-full flex-col items-stretch justify-center">
       <div className="h-[64px] w-full bg-[url('/card-title-bg.jpg')] p-2 text-center">
-        <h3 className="text-md text-white">{item.name}</h3>
-        <p className="text-sm text-[#ff9900]">{capitalize(item.type)}</p>
+        <h3 className="text-md text-white">{item?.name}</h3>
+        <p className="text-sm text-[#ff9900]">
+          {item?.type && capitalize(item.type)}
+        </p>
       </div>
       <div
         className={cn(
@@ -22,13 +24,15 @@ export default function ItemCard({ item, variant = 'default' }: CardProps) {
             : "bg-[url('/card-body-bg-blue.jpg')]",
         )}
       >
-        <Image
-          src={item.path}
-          alt={item.name}
-          fill={true}
-          className="pointer-events-none object-contain group-hover:opacity-75"
-          data-testid="item-image"
-        />
+        {item && (
+          <Image
+            src={item.path}
+            alt={item.name}
+            fill={true}
+            className="pointer-events-none object-contain group-hover:opacity-75"
+            data-testid="item-image"
+          />
+        )}
       </div>
     </div>
   )
