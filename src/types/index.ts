@@ -51,7 +51,22 @@ export interface LoadoutItem extends Omit<Item, 'type'> {
 export interface Loadout {
   name: string
   items: {
-    [key in LoadoutItemType]: LoadoutItem | LoadoutItem[] | null
+    helm: LoadoutItem | null
+    torso: LoadoutItem | null
+    legs: LoadoutItem | null
+    gloves: LoadoutItem | null
+    relic: LoadoutItem | null
+    amulet: LoadoutItem | null
+    rings: LoadoutItem[] | null
+    mainhand: LoadoutItem | null
+    offhand: LoadoutItem | null
+    melee: LoadoutItem | null
+    archtypes: LoadoutItem[] | null
+    concoctions: LoadoutItem[] | null
+    mods: LoadoutItem[] | null
+    mutators: LoadoutItem[] | null
+    relicfragments: LoadoutItem[] | null
+    traits: LoadoutItem[] | null
   }
 }
 

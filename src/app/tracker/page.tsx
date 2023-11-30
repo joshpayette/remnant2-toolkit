@@ -4,8 +4,11 @@ import { remnantItems } from '@/data/items'
 import { useLocalStorage } from '@/hooks/useLocalStorage'
 import { Fragment, useState } from 'react'
 import type { Filters } from './types'
-import ListItems from './ListItems'
-import TrackerFilters from './Filters'
+import dynamic from 'next/dynamic'
+
+const NoSSRListItems = dynamic(() => import('./ListItems'), {
+  ssr: false,
+})
 
 export default function TrackerPage() {
   const { itemTracker, setItemTracker } = useLocalStorage()
@@ -41,15 +44,15 @@ export default function TrackerPage() {
 
   return (
     <Fragment>
-      <TrackerFilters
+      {/* <TrackerFilters
         filters={filters}
         onFiltersChange={(newFilters: Filters) => setFilters(newFilters)}
-      />
+      /> */}
 
       <div className="w-full">
         {filters.undiscovered && (
           <div className="mb-12">
-            <ListItems
+            <NoSSRListItems
               variant="undiscovered"
               filters={filters}
               items={undiscoveredItems}
@@ -65,7 +68,7 @@ export default function TrackerPage() {
           </div>
         )}
         {filters.discovered && (
-          <ListItems
+          <NoSSRListItems
             variant="discovered"
             filters={filters}
             items={discoveredItems}

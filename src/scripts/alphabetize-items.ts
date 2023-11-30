@@ -26,8 +26,8 @@ const alphabetizedItems = alphabetizeItems(remnantItems)
 // write the alphabetized items to a json file
 fs.writeFile(outputPath, JSON.stringify(alphabetizedItems), (err: unknown) => {
   if (err) {
-    console.log(err)
+    console.info(err)
   } else {
-    console.log('File written successfully\n')
+    console.info('File written successfully\n')
   }
 })

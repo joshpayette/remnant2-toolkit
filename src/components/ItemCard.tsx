@@ -1,10 +1,10 @@
 import Image from 'next/image'
 import { capitalize, cn } from '@/lib/utils'
-import type { Item, LoadoutItemType } from '@/types'
+import type { Item, ItemType, LoadoutItem } from '@/types'
 
 interface CardProps {
-  item: Item | null
-  type?: LoadoutItemType
+  item: Item | LoadoutItem | LoadoutItem[] | null
+  type?: ItemType
   variant?: 'default' | 'blue'
 }
 
@@ -13,6 +13,10 @@ export default function ItemCard({
   type,
   variant = 'default',
 }: CardProps) {
+  if (Array.isArray(item)) {
+    throw new Error('ItemCard does not support arrays')
+  }
+
   return (
     <div className="relative flex w-full min-w-[150px] flex-col items-stretch justify-center">
       <div className="h-[64px] w-full bg-[url('/card-title-bg.jpg')] p-2 text-center">

@@ -34,8 +34,8 @@ const indexedItems = indexItems(remnantItems)
 // write the indexed items to a json file
 fs.writeFile(outputPath, JSON.stringify(indexedItems), (err: unknown) => {
   if (err) {
-    console.log(err)
+    console.error(err)
   } else {
-    console.log('File written successfully\n')
+    console.info('File written successfully\n')
   }
 })

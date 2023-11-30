@@ -5,6 +5,7 @@ import { remnantItemTypes, remnantItems } from '@/data/items'
 import ItemSelect from '@/components/ItemSelect'
 import {
   cn,
+  getArrayOfLength,
   itemTypeToLoadoutItemType,
   loadoutItemTypeToItemType,
 } from '@/lib/utils'
@@ -25,9 +26,9 @@ const initialLoadout: Loadout = {
     mainhand: null,
     offhand: null,
     melee: null,
-    mods: [],
     archtypes: [],
     concoctions: [],
+    mods: [],
     mutators: [],
     relicfragments: [],
     traits: [],
@@ -44,14 +45,16 @@ function getLoadoutFromQueryString(searchParams: URLSearchParams): Loadout {
       const item = remnantItems.find((i) => i.id === itemId)
       if (!item) return
 
-      if (loadout.items[loadoutItemType]) {
-        ;(loadout.items[loadoutItemType] as LoadoutItem[])[itemIndex] = {
-          ...item,
-          type: loadoutItemType,
-        }
-      } else {
-        loadout.items[loadoutItemType] = { ...item, type: loadoutItemType }
-      }
+      // Check if we have a single or array of items
+      Array.isArray(loadout.items[loadoutItemType])
+        ? ((loadout.items[loadoutItemType] as LoadoutItem[])[itemIndex] = {
+            ...item,
+            type: loadoutItemType,
+          })
+        : ((loadout.items[loadoutItemType] as LoadoutItem) = {
+            ...item,
+            type: loadoutItemType,
+          })
     })
   })
 
@@ -71,7 +74,6 @@ export default function BuildHomePage() {
 
   // Build the loadout from the query string
   const loadout = getLoadoutFromQueryString(searchParams)
-  console.info('loadout', loadout)
 
   // router.push(pathname + '?' + createQueryString('build', buildString))
   const createQueryString = useCallback(
@@ -115,32 +117,15 @@ export default function BuildHomePage() {
           'grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4',
         )}
       >
-        {Object.keys(loadout.items).map((type) => {
-          const loadoutItemType = type as LoadoutItemType
-          if (Array.isArray(loadout.items[loadoutItemType])) {
-            const loadoutItems = loadout.items[loadoutItemType] as LoadoutItem[]
-            return loadoutItems.map((loadoutItem, index) => {
-              const item = remnantItems.find((i) => i.id === loadoutItem?.id)
-              return (
-                <ItemCard
-                  item={item || null}
-                  key={index}
-                  type={loadoutItemType}
-                />
-              )
-            })
-          }
-
-          const loadoutItem = loadout.items[loadoutItemType] as LoadoutItem
-
-          const item = remnantItems.find((i) => i.id === loadoutItem?.id)
-          return (
-            <ItemCard
-              item={item || null}
-              key={loadoutItemType}
-              type={loadoutItemType}
-            />
-          )
+        <ItemCard item={loadout.items.helm} type="helm" />
+        <ItemCard item={loadout.items.torso} type="torso" />
+        <ItemCard item={loadout.items.legs} type="legs" />
+        <ItemCard item={loadout.items.gloves} type="gloves" />
+        <ItemCard item={loadout.items.relic} type="relic" />
+        <ItemCard item={loadout.items.amulet} type="amulet" />
+        {getArrayOfLength(4).map((index) => {
+          const item = loadout.items.rings ? loadout.items.rings[index] : null
+          return <ItemCard key={index} item={item} type="ring" />
         })}
       </div>
     </Fragment>

@@ -23,10 +23,10 @@ export default function ListItems({
   onClick,
 }: ListItemsProps) {
   const gridTemplate =
-    'grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4'
+    'grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-7 gap-4'
 
   return (
-    <Disclosure defaultOpen={variant === 'undiscovered'}>
+    <Disclosure defaultOpen>
       {({ open }) => (
         <Fragment>
           <Disclosure.Button className="flex w-full justify-between border-b border-purple-700 p-4 hover:border-green-400 hover:bg-black focus:outline-none focus-visible:ring focus-visible:ring-green-500/75">
@@ -42,12 +42,9 @@ export default function ListItems({
           </Disclosure.Button>
           <Disclosure.Panel>
             {remnantItemTypes.map(
-              (itemType, index) =>
+              (itemType) =>
                 filters[itemType] && (
-                  <Disclosure
-                    key={itemType}
-                    defaultOpen={variant === 'undiscovered' && index === 0}
-                  >
+                  <Disclosure key={itemType} defaultOpen>
                     {({ open }) => (
                       <Fragment>
                         <Disclosure.Button className="flex w-full justify-start border-b border-purple-700 p-4 text-left hover:border-green-400 hover:bg-black focus:outline-none focus-visible:ring focus-visible:ring-green-500/75">
