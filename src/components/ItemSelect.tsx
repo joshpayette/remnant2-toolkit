@@ -70,8 +70,7 @@ export default function ItemSelect({
                             key={item.name}
                             onClick={() =>
                               onSelectItem({
-                                name: item.name,
-                                path: item.path,
+                                ...item,
                                 type: loadoutSlot,
                               })
                             }
@@ -88,15 +87,9 @@ export default function ItemSelect({
                             >
                               <ItemCard
                                 item={{
-                                  name: item.name,
-                                  path: item.path,
+                                  ...item,
                                   type: itemType,
                                 }}
-                                button={
-                                  <button className="btn w-full max-w-sm rounded-md bg-purple-700 p-2 font-bold hover:bg-purple-800">
-                                    Select
-                                  </button>
-                                }
                               />
                             </div>
                             <p className="pointer-events-none mt-2 block truncate text-sm font-medium text-gray-400">

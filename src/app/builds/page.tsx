@@ -1,6 +1,6 @@
 'use client'
 
-import { useCallback, useState } from 'react'
+import { Fragment, useCallback, useState } from 'react'
 import { remnantItemTypes, remnantItems } from '@/data/items'
 import ItemSelect from '@/components/ItemSelect'
 import {
@@ -21,16 +21,16 @@ const initialLoadout: Loadout = {
     gloves: null,
     relic: null,
     amulet: null,
-    rings: [null, null, null, null],
+    rings: [],
     mainhand: null,
     offhand: null,
     melee: null,
-    mods: [null, null, null],
-    archtypes: [null, null],
-    concoctions: [null, null, null, null, null],
-    mutators: [null, null, null],
-    relicfragments: [null, null, null],
-    traits: [null, null, null, null, null, null, null, null, null, null],
+    mods: [],
+    archtypes: [],
+    concoctions: [],
+    mutators: [],
+    relicfragments: [],
+    traits: [],
   },
 }
 
@@ -101,7 +101,7 @@ export default function BuildHomePage() {
   }
 
   return (
-    <div>
+    <Fragment>
       <ItemSelect
         itemList={itemListForSlot}
         loadoutSlot={loadoutSlot}
@@ -109,28 +109,40 @@ export default function BuildHomePage() {
         onSelectItem={handleSelectItem}
         onClose={() => setLoadoutSlot(null)}
       />
-      <div id="build-container" className={cn('grid grid-cols-5 gap-1')}>
-        {Object.keys(loadout.items).map((loadoutItemType) => {
-          if (
-            Array.isArray(loadout.items[loadoutItemType as LoadoutItemType])
-          ) {
-            const loadoutItems = loadout.items[
-              loadoutItemType as LoadoutItemType
-            ] as LoadoutItem[]
+      <div
+        id="build-container"
+        className={cn(
+          'grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4',
+        )}
+      >
+        {Object.keys(loadout.items).map((type) => {
+          const loadoutItemType = type as LoadoutItemType
+          if (Array.isArray(loadout.items[loadoutItemType])) {
+            const loadoutItems = loadout.items[loadoutItemType] as LoadoutItem[]
             return loadoutItems.map((loadoutItem, index) => {
               const item = remnantItems.find((i) => i.id === loadoutItem?.id)
-              return <ItemCard item={item || null} key={index} />
+              return (
+                <ItemCard
+                  item={item || null}
+                  key={index}
+                  type={loadoutItemType}
+                />
+              )
             })
           }
 
-          const loadoutItem = loadout.items[
-            loadoutItemType as LoadoutItemType
-          ] as LoadoutItem
+          const loadoutItem = loadout.items[loadoutItemType] as LoadoutItem
 
           const item = remnantItems.find((i) => i.id === loadoutItem?.id)
-          return <ItemCard item={item || null} key={loadoutItemType} />
+          return (
+            <ItemCard
+              item={item || null}
+              key={loadoutItemType}
+              type={loadoutItemType}
+            />
+          )
         })}
       </div>
-    </div>
+    </Fragment>
   )
 }

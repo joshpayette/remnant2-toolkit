@@ -51,7 +51,7 @@ export interface LoadoutItem extends Omit<Item, 'type'> {
 export interface Loadout {
   name: string
   items: {
-    [key in LoadoutItemType]: LoadoutItem | Array<LoadoutItem | null> | null
+    [key in LoadoutItemType]: LoadoutItem | LoadoutItem[] | null
   }
 }
 

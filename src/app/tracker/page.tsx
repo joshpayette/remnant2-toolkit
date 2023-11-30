@@ -46,7 +46,7 @@ export default function TrackerPage() {
         onFiltersChange={(newFilters: Filters) => setFilters(newFilters)}
       />
 
-      <div className="my-24 w-full">
+      <div className="w-full">
         {filters.undiscovered && (
           <div className="mb-12">
             <ListItems

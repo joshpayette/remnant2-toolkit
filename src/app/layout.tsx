@@ -23,7 +23,7 @@ export default function RootLayout({
           <FavIcon />
           <NavBar />
         </header>
-        <main className="flex min-h-screen w-full flex-col items-center justify-center p-4">
+        <main className="flex min-h-screen w-full flex-col items-center justify-center p-4 pt-24">
           {children}
         </main>
       </body>
