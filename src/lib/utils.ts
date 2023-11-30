@@ -10,30 +10,82 @@ export function capitalize(string: string) {
   return string.charAt(0).toUpperCase() + string.slice(1)
 }
 
+function isItemType(type: string): type is ItemType {
+  const itemTypes: ItemType[] = [
+    'helm',
+    'torso',
+    'legs',
+    'gloves',
+    'relic',
+    'amulet',
+    'mainhand',
+    'offhand',
+    'melee',
+    'archtype',
+    'concoction',
+    'mod',
+    'mutator',
+    'relicfragment',
+    'ring',
+    'trait',
+  ]
+  return itemTypes.includes(type as ItemType)
+}
+
+function isLoadoutItemType(type: string): type is LoadoutItemType {
+  const loadoutItemTypes: LoadoutItemType[] = [
+    'helm',
+    'torso',
+    'legs',
+    'gloves',
+    'relic',
+    'amulet',
+    'mainhand',
+    'offhand',
+    'melee',
+    'archtypes',
+    'concoctions',
+    'mods',
+    'mutators',
+    'relicfragments',
+    'rings',
+    'traits',
+  ]
+  return loadoutItemTypes.includes(type as LoadoutItemType)
+}
+
 export function loadoutItemTypeToItemType(
   loadoutItemType: LoadoutItemType,
 ): ItemType {
-  const validType = loadoutItemType
+  const itemType = loadoutItemType
     .replace('archtypes', 'archtype')
     .replace('concoctions', 'concoction')
     .replace('mods', 'mod')
     .replace('mutators', 'mutator')
     .replace('relicfragments', 'relicfragment')
     .replace('rings', 'ring')
-    .replace('traits', 'trait') as ItemType
+    .replace('traits', 'trait')
 
-  return validType
+  if (!isItemType(itemType)) {
+    throw new Error(`Invalid loadout item type: ${loadoutItemType}`)
+  }
+
+  return itemType
 }
 
 export function itemTypeToLoadoutItemType(itemType: ItemType): LoadoutItemType {
-  const validType = itemType
+  const loadoutItemType = itemType
     .replace('archtype', 'archtypes')
     .replace('concoction', 'concoctions')
     .replace('mod', 'mods')
     .replace('mutator', 'mutators')
     .replace('relicfragment', 'relicfragments')
     .replace('ring', 'rings')
-    .replace('trait', 'traits') as LoadoutItemType
+    .replace('trait', 'traits')
 
-  return validType
+  if (!isLoadoutItemType(loadoutItemType)) {
+    throw new Error(`Invalid item type: ${itemType}`)
+  }
+
+  return loadoutItemType
 }
