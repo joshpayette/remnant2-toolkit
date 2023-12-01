@@ -5,6 +5,7 @@ import { useLocalStorage } from '@/hooks/useLocalStorage'
 import { Fragment, useState } from 'react'
 import type { Filters } from './types'
 import dynamic from 'next/dynamic'
+import { ItemType } from '@/types'
 
 const ListItems = dynamic(() => import('./ListItems'), {
   ssr: false,
@@ -14,18 +15,21 @@ export default function TrackerPage() {
   const { itemTracker, setItemTracker } = useLocalStorage()
   const { discoveredItemIds } = itemTracker
 
-  const undiscoveredItems = remnantItems.filter(
-    (item) => discoveredItemIds.includes(item.id) === false,
-  )
-  const discoveredItems = remnantItems.filter((item) =>
-    discoveredItemIds.includes(item.id),
-  )
+  const skipItemTypes: ItemType[] = ['concoction', 'consumable']
+
+  const undiscoveredItems = remnantItems
+    .filter((item) => discoveredItemIds.includes(item.id) === false)
+    .filter((item) => skipItemTypes.includes(item.type) === false)
+  const discoveredItems = remnantItems
+    .filter((item) => discoveredItemIds.includes(item.id))
+    .filter((item) => skipItemTypes.includes(item.type) === false)
 
   const [filters, setFilters] = useState<Filters>({
     undiscovered: true,
     discovered: true,
     archtype: true,
     concoction: true,
+    consumable: true,
     mutator: true,
     relicfragment: true,
     ring: true,
@@ -54,6 +58,7 @@ export default function TrackerPage() {
           <div className="mb-12">
             <ListItems
               variant="undiscovered"
+              skipItemTypes={skipItemTypes}
               filters={filters}
               items={undiscoveredItems}
               onClick={(itemId: string) => {
@@ -70,6 +75,7 @@ export default function TrackerPage() {
         {filters.discovered && (
           <ListItems
             variant="discovered"
+            skipItemTypes={skipItemTypes}
             filters={filters}
             items={discoveredItems}
             onClick={(itemId: string) => {
