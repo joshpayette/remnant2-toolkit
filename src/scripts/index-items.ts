@@ -18,7 +18,7 @@ function generateId(): string {
 const indexItems = (items: Item[]): Item[] => {
   return items.map((item) => {
     // If the item already has an id, return it as is
-    if (item.id) return item
+    if (item.id !== '') return item
 
     // Keep generating an id until it is unique
     let id = generateId()

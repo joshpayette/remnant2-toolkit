@@ -6,7 +6,7 @@ import { Fragment, useState } from 'react'
 import type { Filters } from './types'
 import dynamic from 'next/dynamic'
 
-const NoSSRListItems = dynamic(() => import('./ListItems'), {
+const ListItems = dynamic(() => import('./ListItems'), {
   ssr: false,
 })
 
@@ -52,7 +52,7 @@ export default function TrackerPage() {
       <div className="w-full">
         {filters.undiscovered && (
           <div className="mb-12">
-            <NoSSRListItems
+            <ListItems
               variant="undiscovered"
               filters={filters}
               items={undiscoveredItems}
@@ -68,7 +68,7 @@ export default function TrackerPage() {
           </div>
         )}
         {filters.discovered && (
-          <NoSSRListItems
+          <ListItems
             variant="discovered"
             filters={filters}
             items={discoveredItems}

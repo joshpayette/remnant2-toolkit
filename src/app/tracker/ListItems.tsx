@@ -7,7 +7,8 @@ import type { Item } from '@/types'
 import ItemCard from '@/components/ItemCard'
 import { Disclosure } from '@headlessui/react'
 import { ChevronUpIcon } from '@heroicons/react/20/solid'
-import { Fragment, useState } from 'react'
+import { Fragment } from 'react'
+import ItemCardButton from '@/components/ItemCardButton'
 
 interface ListItemsProps {
   filters: Filters
@@ -62,18 +63,11 @@ export default function ListItems({
                           {items
                             .filter((item) => item.type === itemType)
                             .map((item) => (
-                              <button
+                              <ItemCardButton
+                                item={item}
                                 key={item.id}
-                                className={cn(
-                                  // variant === 'undiscovered'
-                                  //   ? 'grayscale hover:grayscale-0'
-                                  //   : 'grayscale-0 hover:grayscale',
-                                  'border-2 border-transparent hover:border-green-400 focus:outline-none focus-visible:ring focus-visible:ring-green-500/75',
-                                )}
                                 onClick={() => onClick(item.id)}
-                              >
-                                <ItemCard item={item} />
-                              </button>
+                              />
                             ))}
                         </Disclosure.Panel>
                       </Fragment>

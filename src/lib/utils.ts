@@ -60,6 +60,7 @@ export function loadoutItemTypeToItemType(
   const itemType = loadoutItemType
     .replace('archtypes', 'archtype')
     .replace('concoctions', 'concoction')
+    .replace('consumables', 'consumable')
     .replace('mods', 'mod')
     .replace('mutators', 'mutator')
     .replace('relicfragments', 'relicfragment')
@@ -77,6 +78,7 @@ export function itemTypeToLoadoutItemType(itemType: ItemType): LoadoutItemType {
   const loadoutItemType = itemType
     .replace('archtype', 'archtypes')
     .replace('concoction', 'concoctions')
+    .replace('consumable', 'consumables')
     .replace('mod', 'mods')
     .replace('mutator', 'mutators')
     .replace('relicfragment', 'relicfragments')

@@ -1,8 +1,10 @@
+'use client'
+
 import { Fragment } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { cn, loadoutItemTypeToItemType } from '@/lib/utils'
 import type { Item, LoadoutItemType, LoadoutItem } from '@/types'
-import ItemCard from './ItemCard'
+import ItemCardButton from './ItemCardButton'
 
 interface ItemSelectProps {
   itemList: Item[]
@@ -51,7 +53,7 @@ export default function ItemSelect({
               leaveFrom="opacity-100 translate-y-0 sm:scale-100"
               leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
             >
-              <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-gray-800 px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+              <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-background px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-md sm:p-6 md:max-w-lg lg:max-w-xl  xl:max-w-4xl">
                 <div>
                   <div className="text-center">
                     <Dialog.Title
@@ -63,38 +65,29 @@ export default function ItemSelect({
                     <div className="mt-2">
                       <ul
                         role="list"
-                        className="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-6 lg:grid-cols-4"
+                        className="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4"
                       >
                         {itemList.map((item) => (
-                          <li
-                            key={item.name}
-                            onClick={() =>
-                              onSelectItem({
-                                ...item,
-                                type: loadoutSlot,
-                              })
-                            }
-                          >
+                          <li key={item.name}>
                             <div
                               className={cn(
-                                'group flex items-center justify-center overflow-hidden rounded-lg bg-black focus-within:ring-2 focus-within:ring-purple-500 focus-within:ring-offset-2 focus-within:ring-offset-gray-100',
-                                item.type === 'mainhand' ||
-                                  item.type === 'offhand' ||
-                                  item.type === 'melee'
-                                  ? 'h-[60px] w-[120px]'
-                                  : 'h-[60px] w-[60px]',
+                                'group flex items-center justify-center overflow-hidden rounded-lg bg-black',
                               )}
                             >
-                              <ItemCard
+                              <ItemCardButton
                                 item={{
                                   ...item,
                                   type: itemType,
                                 }}
+                                onClick={() =>
+                                  onSelectItem({
+                                    ...item,
+                                    type: loadoutSlot,
+                                  })
+                                }
+                                size="sm"
                               />
                             </div>
-                            <p className="pointer-events-none mt-2 block truncate text-sm font-medium text-gray-400">
-                              {item.name}
-                            </p>
                           </li>
                         ))}
                       </ul>

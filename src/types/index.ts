@@ -17,6 +17,7 @@ export type ItemType =
   | BaseItemType
   | 'archtype'
   | 'concoction'
+  | 'consumable'
   | 'mod'
   | 'mutator'
   | 'relicfragment'
@@ -28,6 +29,7 @@ export type LoadoutItemType =
   | BaseItemType
   | 'archtypes'
   | 'concoctions'
+  | 'consumables'
   | 'mods'
   | 'mutators'
   | 'relicfragments'
@@ -63,6 +65,7 @@ export interface Loadout {
     melee: LoadoutItem | null
     archtypes: LoadoutItem[] | null
     concoctions: LoadoutItem[] | null
+    consumables: LoadoutItem[] | null
     mods: LoadoutItem[] | null
     mutators: LoadoutItem[] | null
     relicfragments: LoadoutItem[] | null
