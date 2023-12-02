@@ -58,7 +58,11 @@ export default function ListItems({
                       {capitalize(itemType)}
                     </h2>
                     <span className="text-sm text-gray-400">
-                      {getProgress(items, itemType, isClient)}
+                      {getProgress(
+                        items.filter((i) => i.type === itemType),
+                        itemType,
+                        isClient,
+                      )}
                     </span>
                   </div>
                   <ChevronUpIcon
