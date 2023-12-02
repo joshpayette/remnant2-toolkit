@@ -14,7 +14,7 @@ import dynamic from 'next/dynamic'
 import ItemCardButton from '@/components/ItemCardButton'
 import PageHeader from '@/components/PageHeader'
 
-const ItemSelect = dynamic(() => import('@/components/ItemSelect'), {
+const ItemSelect = dynamic(() => import('@/app/builds/ItemSelect'), {
   ssr: false,
 })
 
