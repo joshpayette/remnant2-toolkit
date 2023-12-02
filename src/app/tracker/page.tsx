@@ -9,6 +9,7 @@ import { ItemType } from '@/types'
 import TrackerFilters from './Filters'
 import ToCsvButton from '@/components/ToCsvButton'
 import { useIsClient } from 'usehooks-ts'
+import PageHeader from '@/components/PageHeader'
 
 const skippedItemTypes: ItemType[] = ['concoction', 'consumable']
 const relevantItems = remnantItems.filter(
@@ -67,19 +68,13 @@ export default function TrackerPage() {
   return (
     <Fragment>
       <div className="flex w-full flex-col items-center justify-center">
-        <div className="mb-4 flex max-w-md flex-col p-4 text-center">
-          <h1 className="w-full text-2xl font-semibold leading-6 text-white">
-            Remnant 2 Item Tracker
-          </h1>
-          <p className="mb-8 w-full text-sm text-gray-400">
-            Discover all the items in Remnant 2
-          </p>
+        <PageHeader title="Remnant 2 Item Tracker">
           <h2>Progress</h2>
-          <span className="mb-8 text-2xl font-bold text-green-400">
+          <span className="mb-12 text-2xl font-bold text-green-400">
             {progress}
           </span>
           <ToCsvButton data={csvItems} filename="remnant2toolkit_tracker" />
-        </div>
+        </PageHeader>
         <TrackerFilters
           filters={filters}
           onFiltersChange={(newFilters: Filters) => {

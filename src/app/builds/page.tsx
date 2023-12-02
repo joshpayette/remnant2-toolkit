@@ -12,6 +12,7 @@ import type { LoadoutItemType, LoadoutItem, Item, Loadout } from '@/types'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import dynamic from 'next/dynamic'
 import ItemCardButton from '@/components/ItemCardButton'
+import PageHeader from '@/components/PageHeader'
 
 const ItemSelect = dynamic(() => import('@/components/ItemSelect'), {
   ssr: false,
@@ -124,6 +125,9 @@ export default function BuildHomePage() {
 
   return (
     <Fragment>
+      <PageHeader title="Remnant 2 Build Tool">
+        <h2 className="text-xl font-bold text-green-400">{loadout.name}</h2>
+      </PageHeader>
       <ItemSelect
         itemList={itemListForSlot}
         loadoutSlot={loadoutItemType}
