@@ -7,6 +7,7 @@ import type { Filters } from './Filters'
 import dynamic from 'next/dynamic'
 import { ItemType } from '@/types'
 import TrackerFilters from './Filters'
+import ToCsvButton from '@/components/ToCsvButton'
 
 const skipItemTypes: ItemType[] = ['concoction', 'consumable']
 const relevantItems = remnantItems.filter(
@@ -33,6 +34,14 @@ export default function TrackerPage() {
     [discoveredItemIds],
   )
 
+  const csvItems = useMemo(() => {
+    return items.map((item) => ({
+      type: item.type,
+      name: item.name,
+      discovered: item.discovered,
+    }))
+  }, [items])
+
   const [filters, setFilters] = useState<Filters>({
     undiscovered: true,
     discovered: true,
@@ -52,6 +61,9 @@ export default function TrackerPage() {
             setFilters(newFilters)
           }}
         />
+        <div className="mb-12 p-4 text-right">
+          <ToCsvButton data={csvItems} filename="remnant2toolkit_tracker" />
+        </div>
         <div className="mb-12 mt-12">
           <ListItems
             filters={filters}
