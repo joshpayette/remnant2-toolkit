@@ -20,7 +20,7 @@ export type ItemType =
   | 'consumable'
   | 'mod'
   | 'mutator'
-  | 'relic fragment'
+  | 'relicfragment'
   | 'ring'
   | 'trait'
 
@@ -32,7 +32,7 @@ export type LoadoutItemType =
   | 'consumables'
   | 'mods'
   | 'mutators'
-  | 'relic fragments'
+  | 'relicfragments'
   | 'rings'
   | 'traits'
 
