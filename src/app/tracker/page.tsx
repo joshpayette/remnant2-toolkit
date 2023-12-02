@@ -68,10 +68,10 @@ export default function TrackerPage() {
     <Fragment>
       <div className="flex w-full flex-col items-center justify-center">
         <div className="mb-4 flex max-w-md flex-col p-4 text-center">
-          <h1 className="w-full text-2xl font-semibold leading-6 text-white">
+          <h1 className="mb-2 w-full text-4xl font-semibold leading-6 text-white">
             Remnant 2 Item Tracker
           </h1>
-          <p className="mb-8 w-full text-sm text-gray-400">
+          <p className="mb-8 w-full text-lg text-gray-400">
             Discover all the items in Remnant 2
           </p>
           <h2>Progress</h2>
