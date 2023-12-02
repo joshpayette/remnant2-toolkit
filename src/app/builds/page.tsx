@@ -125,63 +125,74 @@ export default function BuildHomePage() {
 
   return (
     <Fragment>
-      <PageHeader title="Remnant 2 Build Tool">
-        <h2 className="text-xl font-bold text-green-400">{loadout.name}</h2>
-      </PageHeader>
-      <ItemSelect
-        itemList={itemListForSlot}
-        loadoutSlot={loadoutItemType}
-        open={isItemSelectModalOpen}
-        onSelectItem={handleSelectItem}
-        onClose={() => setLoadoutItemType(null)}
-      />
-      <div
-        id="build-container"
-        className={cn(
-          'grid w-full grid-cols-1 gap-4 sm:max-w-md md:max-w-lg md:grid-cols-2 lg:max-w-xl lg:grid-cols-3  xl:max-w-4xl xl:grid-cols-4',
-        )}
-      >
-        <ItemCardButton
-          item={loadout.items.helm}
-          type="helm"
-          onClick={() => setLoadoutItemType('helm')}
+      <PageHeader title="Remnant 2 Build Tool" />
+      <div className="rounded border-2 border-green-500 bg-black p-4">
+        <h2 className="mb-8 text-center text-4xl font-bold text-green-400">
+          {loadout.name}
+        </h2>
+
+        <ItemSelect
+          itemList={itemListForSlot}
+          loadoutSlot={loadoutItemType}
+          open={isItemSelectModalOpen}
+          onSelectItem={handleSelectItem}
+          onClose={() => setLoadoutItemType(null)}
         />
-        <ItemCardButton
-          item={loadout.items.torso}
-          type="torso"
-          onClick={() => setLoadoutItemType('torso')}
-        />
-        <ItemCardButton
-          item={loadout.items.legs}
-          type="legs"
-          onClick={() => setLoadoutItemType('legs')}
-        />
-        <ItemCardButton
-          item={loadout.items.gloves}
-          type="gloves"
-          onClick={() => setLoadoutItemType('gloves')}
-        />
-        <ItemCardButton
-          item={loadout.items.relic}
-          type="relic"
-          onClick={() => setLoadoutItemType('relic')}
-        />
-        <ItemCardButton
-          item={loadout.items.amulet}
-          type="amulet"
-          onClick={() => setLoadoutItemType('amulet')}
-        />
-        {getArrayOfLength(4).map((index) => {
-          const item = loadout.items.rings ? loadout.items.rings[index] : null
-          return (
-            <ItemCardButton
-              key={index}
-              item={item}
-              type="ring"
-              onClick={() => setLoadoutItemType('rings')}
-            />
-          )
-        })}
+        <div
+          id="build-container"
+          className={cn(
+            'grid w-full grid-cols-1 gap-1 sm:max-w-md md:max-w-2xl md:grid-cols-4',
+          )}
+        >
+          <ItemCardButton
+            item={loadout.items.helm}
+            type="helm"
+            onClick={() => setLoadoutItemType('helm')}
+            size="sm"
+          />
+          <ItemCardButton
+            item={loadout.items.torso}
+            type="torso"
+            onClick={() => setLoadoutItemType('torso')}
+            size="sm"
+          />
+          <ItemCardButton
+            item={loadout.items.legs}
+            type="legs"
+            onClick={() => setLoadoutItemType('legs')}
+            size="sm"
+          />
+          <ItemCardButton
+            item={loadout.items.gloves}
+            type="gloves"
+            onClick={() => setLoadoutItemType('gloves')}
+            size="sm"
+          />
+          <ItemCardButton
+            item={loadout.items.relic}
+            type="relic"
+            onClick={() => setLoadoutItemType('relic')}
+            size="sm"
+          />
+          <ItemCardButton
+            item={loadout.items.amulet}
+            type="amulet"
+            onClick={() => setLoadoutItemType('amulet')}
+            size="sm"
+          />
+          {getArrayOfLength(4).map((index) => {
+            const item = loadout.items.rings ? loadout.items.rings[index] : null
+            return (
+              <ItemCardButton
+                key={index}
+                item={item}
+                type="ring"
+                onClick={() => setLoadoutItemType('rings')}
+                size="sm"
+              />
+            )
+          })}
+        </div>
       </div>
     </Fragment>
   )
