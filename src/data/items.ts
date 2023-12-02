@@ -507,6 +507,12 @@ export const remnantItems: Item[] = [
   },
   {
     type: 'archtype',
+    name: 'Ritualist',
+    path: '/archtype/ritualist.png',
+    id: '1q7z9d',
+  },
+  {
+    type: 'archtype',
     name: 'Summoner',
     path: '/archtype/summoner.png',
     id: 'og0bwx',
@@ -1702,6 +1708,12 @@ export const remnantItems: Item[] = [
   },
   {
     type: 'mod',
+    name: 'Deadpoint',
+    path: '/mod/deadpoint.png',
+    id: 'ysz4fw',
+  },
+  {
+    type: 'mod',
     name: 'Death Sentence',
     path: '/mod/death_sentence.png',
     id: 'wilhsl',
@@ -1790,6 +1802,7 @@ export const remnantItems: Item[] = [
     path: '/mod/loath_the_weak.png',
     id: 'aobtw7',
   },
+  { type: 'mod', name: 'Micronova', path: '/mod/micronova.png', id: '8izb2g' },
   {
     type: 'mod',
     name: 'Moonlight Barrage',
@@ -1831,6 +1844,12 @@ export const remnantItems: Item[] = [
     id: 'hcv400',
   },
   { type: 'mod', name: 'Screamer', path: '/mod/screamer.png', id: '4aeebu' },
+  {
+    type: 'mod',
+    name: 'Shatterstar',
+    path: '/mod/shatterstar.png',
+    id: 'z9e8qq',
+  },
   { type: 'mod', name: 'Skewer', path: '/mod/skewer.png', id: 'cpvech' },
   {
     type: 'mod',
@@ -1856,6 +1875,12 @@ export const remnantItems: Item[] = [
     path: '/mod/space_crabs.png',
     id: '4wd3gm',
   },
+  {
+    type: 'mod',
+    name: 'Spore Shot',
+    path: '/mod/spore_shot.png',
+    id: '9fi67v',
+  },
   { type: 'mod', name: 'Starfall', path: '/mod/starfall.png', id: 'j9wkb3' },
   {
     type: 'mod',
@@ -1878,6 +1903,7 @@ export const remnantItems: Item[] = [
     id: 'wjopwy',
   },
   { type: 'mod', name: 'Whirlwind', path: '/mod/whirlwind.png', id: '2y6xm7' },
+  { type: 'mod', name: 'Windfall', path: '/mod/windfall.png', id: '82v8kz' },
   { type: 'mod', name: 'Witchfire', path: '/mod/witchfire.png', id: 'ggf5qe' },
   {
     type: 'mutator',
@@ -3146,6 +3172,73 @@ export const remnantItems: Item[] = [
     path: '/ring/focusing_shard.png',
     id: 'o7grsg',
   },
+  {
+    type: 'ring',
+    name: 'Frivolous Band',
+    path: '/ring/frivolous_band.png',
+    id: '4j9wo9',
+  },
+  {
+    type: 'ring',
+    name: 'Galvanized Resupply Band',
+    path: '/ring/galvanized_resupply_band.png',
+    id: 'y23znz',
+  },
+  {
+    type: 'ring',
+    name: `Game Master's Pride`,
+    path: '/ring/game_masters_pride.png',
+    id: '4dstmt',
+  },
+  {
+    type: 'ring',
+    name: 'Generating Band',
+    path: '/ring/generating_band.png',
+    id: 'fg8su2',
+  },
+  {
+    type: 'ring',
+    name: 'Grounding Stone',
+    path: '/ring/grounding_stone.png',
+    id: 'o7vaf6',
+  },
+  {
+    type: 'ring',
+    name: `Guardian's Ring`,
+    path: '/ring/guardians_ring.png',
+    id: 'yvo3jd',
+  },
+  {
+    type: 'ring',
+    name: `Gunslinger's Ring`,
+    path: '/ring/gunslingers_ring.png',
+    id: '976r2x',
+  },
+  {
+    type: 'ring',
+    name: 'Hardcore Metal Band',
+    path: '/ring/hardcore_metal_band.png',
+    id: 'f2ooga',
+  },
+  {
+    type: 'ring',
+    name: 'Hardened Coil',
+    path: '/ring/hardened_coil.png',
+    id: 'pvwud6',
+  },
+  {
+    type: 'ring',
+    name: `Haymaker's Ring`,
+    path: '/ring/haymakers_ring.png',
+    id: '8azdr4',
+  },
+  {
+    type: 'ring',
+    name: 'Heart of the Wolf',
+    path: '/ring/heart_of_the_wolf.png',
+    id: 'x74y2q',
+  },
+  { type: 'ring', name: 'Hex Ward', path: '/ring/hex_ward.png', id: 'y45ad6' },
   {
     type: 'ring',
     name: 'Jewel of the Beholden',
