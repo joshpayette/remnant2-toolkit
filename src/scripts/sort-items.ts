@@ -12,13 +12,7 @@ const outputPath = '../data/alphabetized-items.json'
 // sort the array of objects by object.type and object.name alphabetically
 
 const alphabetizeItems = (items: Item[]) => {
-  return items.sort((a, b) => {
-    if (a.type === b.type) {
-      return a.name.localeCompare(b.name)
-    } else {
-      return a.type.localeCompare(b.type)
-    }
-  })
+  return items.sort((a, b) => a.name.localeCompare(b.name))
 }
 
 const alphabetizedItems = alphabetizeItems(remnantItems)
