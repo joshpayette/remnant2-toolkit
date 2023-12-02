@@ -1,6 +1,6 @@
 'use client'
 
-import { Fragment, useCallback, useState } from 'react'
+import { Fragment, useCallback, useMemo, useState } from 'react'
 import { remnantItemTypes, remnantItems } from '@/data/items'
 import {
   cn,
@@ -79,7 +79,10 @@ export default function BuildHomePage() {
   const isItemSelectModalOpen = Boolean(loadoutItemType)
 
   // Build the loadout from the query string
-  const loadout = getLoadoutFromQueryString(searchParams)
+  const loadout = useMemo(
+    () => getLoadoutFromQueryString(searchParams),
+    [searchParams],
+  )
 
   // router.push(pathname + '?' + createQueryString('build', buildString))
   const createQueryString = useCallback(
@@ -101,7 +104,10 @@ export default function BuildHomePage() {
     // return items that match the slot
     return (remnantItems as Item[]).filter((item) => item.type === itemType)
   }
-  const itemListForSlot = getItemListForSlot(loadoutItemType)
+  const itemListForSlot = useMemo(
+    () => getItemListForSlot(loadoutItemType),
+    [loadoutItemType],
+  )
 
   function handleSelectItem(item: LoadoutItem | null) {
     if (!item || !loadoutItemType) return

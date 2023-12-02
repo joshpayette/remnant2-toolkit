@@ -66,6 +66,7 @@ function isLoadoutItemType(type: string): type is LoadoutItemType {
     'melee',
     'archtypes',
     'concoctions',
+    'consumables',
     'mods',
     'mutators',
     'relicfragments',

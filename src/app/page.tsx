@@ -9,7 +9,6 @@ export default function Home() {
 
   return (
     <div>
-      {/* <BuildContainer /> */}
       <div className="w-[300px]">
         <ItemCard item={item} />
       </div>
