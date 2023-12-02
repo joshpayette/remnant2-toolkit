@@ -16,12 +16,12 @@ export default function TrackerFilters({
   onFiltersChange,
 }: FiltersProps) {
   return (
-    <div className="z-40 mx-auto max-h-full w-full max-w-lg overflow-x-scroll rounded border border-green-700 bg-black p-4">
+    <div className="z-40 mx-auto max-h-full w-full max-w-sm overflow-x-scroll rounded border border-green-700 bg-black p-4">
       <Fragment>
         <div className="py-2 text-left text-lg font-medium text-white">
-          <h3>Filters</h3>
+          <h3 className="text-green-400">Filters</h3>
         </div>
-        <div className="grid grid-cols-1 gap-1 md:grid-cols-2 md:gap-4">
+        <div className="grid grid-cols-1 gap-1 placeholder:md:gap-4">
           <div className="border-b border-green-500">
             <FilterCheckbox
               key="filter-type-undiscovered"

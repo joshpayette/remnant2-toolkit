@@ -25,7 +25,7 @@ export default function Checkbox({
           id={id}
           name={id}
           type="checkbox"
-          className="h-4 w-4 rounded border-purple-300 text-purple-600 focus:ring-purple-600"
+          className="h-4 w-4 rounded border-green-300 text-green-600 focus:ring-green-600"
           checked={checked}
           onChange={onChange}
         />
