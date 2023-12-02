@@ -29,7 +29,7 @@ export default function ItemCard({
         className={cn(
           "w-full bg-[url('/card-title-bg.jpg')] p-2 text-center",
           size === 'sm' && 'h-[48px]',
-          size === 'md' && 'h-[64px]',
+          size === 'md' && 'h-[80px]',
           size === 'lg' && 'h-[80px]',
         )}
       >

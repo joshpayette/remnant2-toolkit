@@ -72,11 +72,3 @@ export interface Loadout {
     traits: LoadoutItem[] | null
   }
 }
-
-// The type of the database in LocalStorage
-export interface LocalStorage {
-  tracker: {
-    discoveredItemIds: string[]
-  }
-  builds: string[]
-}
