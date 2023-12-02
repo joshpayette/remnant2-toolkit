@@ -46,7 +46,7 @@ function isItemType(type: string): type is ItemType {
     'concoction',
     'mod',
     'mutator',
-    'relic fragment',
+    'relicfragment',
     'ring',
     'trait',
   ]
@@ -69,7 +69,7 @@ function isLoadoutItemType(type: string): type is LoadoutItemType {
     'consumables',
     'mods',
     'mutators',
-    'relic fragments',
+    'relicfragments',
     'rings',
     'traits',
   ]
@@ -85,7 +85,7 @@ export function loadoutItemTypeToItemType(
     .replace('consumables', 'consumable')
     .replace('mods', 'mod')
     .replace('mutators', 'mutator')
-    .replace('relic fragments', 'relic fragment')
+    .replace('relicfragments', 'relicfragment')
     .replace('rings', 'ring')
     .replace('traits', 'trait')
 
@@ -103,7 +103,7 @@ export function itemTypeToLoadoutItemType(itemType: ItemType): LoadoutItemType {
     .replace('consumable', 'consumables')
     .replace('mod', 'mods')
     .replace('mutator', 'mutators')
-    .replace('relic fragment', 'relic fragments')
+    .replace('relicfragment', 'relicfragments')
     .replace('ring', 'rings')
     .replace('trait', 'traits')
 
