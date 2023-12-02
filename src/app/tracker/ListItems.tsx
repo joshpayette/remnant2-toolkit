@@ -1,12 +1,30 @@
 'use client'
 
-import { Fragment } from 'react'
+import { Fragment, useEffect, useState } from 'react'
 import { Disclosure } from '@headlessui/react'
 import { ChevronUpIcon } from '@heroicons/react/20/solid'
 import { capitalize, cn } from '@/lib/utils'
 import ItemCardButton from '@/components/ItemCardButton'
 import type { Filters } from './Filters'
 import type { Item, ItemType } from '@/types'
+
+function getProgress(
+  items: Array<Item & { discovered: boolean }>,
+  itemType: ItemType,
+  isClient: boolean,
+) {
+  const discoveredCount = items.filter(
+    (item) => item.type === itemType && item.discovered,
+  ).length
+  const discoveredPercent = Math.round(
+    (discoveredCount / items.length) * 100,
+  ).toString()
+  const total = items.filter((item) => item.type === itemType).length
+
+  return isClient
+    ? `${discoveredCount} / ${total} (${discoveredPercent}%)`
+    : 'Calculating...'
+}
 
 interface ListItemsProps {
   filters: Filters
@@ -21,6 +39,12 @@ export default function ListItems({
   itemTypes,
   onClick,
 }: ListItemsProps) {
+  const [isClient, setIsClient] = useState(false)
+
+  useEffect(() => {
+    setIsClient(true)
+  }, [])
+
   const gridTemplate =
     'grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-7 gap-4'
 
@@ -32,9 +56,14 @@ export default function ListItems({
             {({ open }) => (
               <Fragment>
                 <Disclosure.Button className="flex w-full justify-start border-b border-purple-700 p-4 text-left hover:border-green-400 hover:bg-black focus:outline-none focus-visible:ring focus-visible:ring-green-500/75">
-                  <h2 className="w-full text-lg font-semibold leading-6 text-white">
-                    {capitalize(itemType)}
-                  </h2>
+                  <div className="w-full">
+                    <h2 className="text-lg font-semibold">
+                      {capitalize(itemType)}
+                    </h2>
+                    <span className="text-sm text-gray-400">
+                      {getProgress(items, itemType, isClient)}
+                    </span>
+                  </div>
                   <ChevronUpIcon
                     className={cn(
                       'h-5 w-5 text-white',
