@@ -3,7 +3,7 @@ import { capitalize, cn } from '@/lib/utils'
 import type { Item, ItemType, LoadoutItem } from '@/types'
 
 export interface ItemCardProps {
-  item: Item | LoadoutItem | LoadoutItem[] | null
+  item: Item | LoadoutItem | null
   type?: ItemType
   size?: 'sm' | 'md' | 'lg'
   variant?: 'default' | 'blue'
@@ -15,10 +15,6 @@ export default function ItemCard({
   size = 'md',
   variant = 'default',
 }: ItemCardProps) {
-  if (Array.isArray(item)) {
-    throw new Error('ItemCard does not support arrays')
-  }
-
   return (
     <div
       className={cn(
@@ -35,7 +31,7 @@ export default function ItemCard({
       >
         <h3
           className={cn(
-            'text-white',
+            'text-purple-400',
             size === 'sm' && 'text-xs',
             size === 'md' && 'text-md',
             size === 'lg' && 'text-lg',
