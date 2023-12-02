@@ -2,12 +2,13 @@
 
 import { remnantItemTypes, remnantItems } from '@/data/items'
 import { useLocalStorage } from '@/hooks/useLocalStorage'
-import { Fragment, useCallback, useEffect, useMemo, useState } from 'react'
+import { Fragment, useMemo, useState } from 'react'
 import type { Filters } from './Filters'
 import dynamic from 'next/dynamic'
 import { ItemType } from '@/types'
 import TrackerFilters from './Filters'
 import ToCsvButton from '@/components/ToCsvButton'
+import { useIsClient } from 'usehooks-ts'
 
 const skippedItemTypes: ItemType[] = ['concoction', 'consumable']
 const relevantItems = remnantItems.filter(
@@ -22,7 +23,7 @@ const ListItems = dynamic(() => import('./ListItems'), {
 })
 
 export default function TrackerPage() {
-  const [isClient, setIsClient] = useState(false)
+  const isClient = useIsClient()
 
   const { itemTracker, setItemTracker } = useLocalStorage()
   const { discoveredItemIds } = itemTracker
@@ -31,11 +32,6 @@ export default function TrackerPage() {
     undiscovered: true,
     discovered: true,
   })
-
-  // Used for suppressing hydration errors
-  useEffect(() => {
-    setIsClient(true)
-  }, [])
 
   // We need to add the discovered flag to the items based on the discoveredItemIds
   // fetched from localstorage

@@ -1,12 +1,13 @@
 'use client'
 
-import { Fragment, useEffect, useState } from 'react'
+import { Fragment } from 'react'
 import { Disclosure } from '@headlessui/react'
 import { ChevronUpIcon } from '@heroicons/react/20/solid'
 import { capitalize, cn } from '@/lib/utils'
 import ItemCardButton from '@/components/ItemCardButton'
 import type { Filters } from './Filters'
 import type { Item, ItemType } from '@/types'
+import { useIsClient } from 'usehooks-ts'
 
 function getProgress(
   items: Array<Item & { discovered: boolean }>,
@@ -39,11 +40,7 @@ export default function ListItems({
   itemTypes,
   onClick,
 }: ListItemsProps) {
-  const [isClient, setIsClient] = useState(false)
-
-  useEffect(() => {
-    setIsClient(true)
-  }, [])
+  const isClient = useIsClient()
 
   const gridTemplate =
     'grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-7 gap-4'
