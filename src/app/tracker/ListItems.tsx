@@ -45,6 +45,11 @@ export default function ListItems({
   const gridTemplate =
     'grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-7 gap-4'
 
+  const getItemTitle = (itemType: ItemType) => {
+    if (itemType === 'relicfragment') return 'Relic Fragments'
+    return capitalize(itemType)
+  }
+
   return (
     <Fragment>
       <div className="w-full">
@@ -55,7 +60,7 @@ export default function ListItems({
                 <Disclosure.Button className="flex w-full justify-start border-b border-purple-700 p-4 text-left hover:border-green-400 hover:bg-black focus:outline-none focus-visible:ring focus-visible:ring-green-500/75">
                   <div className="w-full">
                     <h2 className="text-lg font-semibold">
-                      {capitalize(itemType)}
+                      {getItemTitle(itemType)}
                     </h2>
                     <span className="text-sm text-gray-400">
                       {getProgress(
