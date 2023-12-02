@@ -6,30 +6,67 @@ export const remnantItems: Item[] = [
     name: 'Abrasive Whetstone',
     path: '/amulet/abrasive_whetstone.png',
     id: '6sqyf9',
+    description:
+      'When attacking a BLEEDING enemy, Crit Chance is increased by 15%and Crit Damage is increased by 30%.',
+    howToGet: 'Can be bought from Cass.',
+    wikiLinks: ['https://remnant2.wiki.fextralife.com/Cass'],
   },
   {
     type: 'amulet',
     name: 'Ankh of Power',
     path: '/amulet/ankh_of_power.png',
     id: 'ca8ada',
+    description:
+      'Grants a 15% increase to all damage. Consuming a Relic doubles the bonus for 15s.',
+    howToGet: 'Can be found in Root Earth - Ashen Wasteland.',
+    wikiLinks: [
+      'https://remnant2.wiki.fextralife.com/Root+Earth',
+      'https://remnant2.wiki.fextralife.com/Ashen+Wasteland',
+    ],
   },
   {
     type: 'amulet',
     name: 'Birthright of the Lost',
     path: '/amulet/birthright_of_the_lost.png',
     id: '41ookr',
+    description: `
+      On perfect dodge, apply EXPOSED on the attacker for 10s.
+      EXPOSED: Target receives up to 24% additional damage from all sources. Expose amount is reduced for each human ally alive.
+    `,
+    howToGet: `
+      Random world drop in Losomn
+      Exclusive to The Awakened King DLC
+    `,
+    wikiLinks: [
+      'https://remnant2.wiki.fextralife.com/Losomn',
+      'https://remnant2.wiki.fextralife.com/The+Awakened+King+DLC',
+    ],
   },
   {
     type: 'amulet',
     name: 'Brewmasters Cork',
     path: '/amulet/brewmasters_cork.png',
     id: '6il3tm',
+    description:
+      'Increases active Concoction limit by 2 and reduces all incoming damage by 2% for each active Concoction',
+    howToGet: `
+      Random world drop in Losomn
+      Exclusive to The Awakened King DLC
+    `,
+    wikiLinks: [
+      'https://remnant2.wiki.fextralife.com/Losomn',
+      'https://remnant2.wiki.fextralife.com/The+Awakened+King+DLC',
+    ],
   },
   {
     type: 'amulet',
     name: 'Broken Pocket Watch',
     path: '/amulet/broken_pocket_watch.png',
     id: 'sap1xm',
+    description:
+      'Increases Stamina Regeneration by 25 and reduces Stamina cost by 50%.',
+    howToGet: 'Can be bought from Cass.',
+    wikiLinks: ['https://remnant2.wiki.fextralife.com/Cass'],
   },
   {
     type: 'amulet',
