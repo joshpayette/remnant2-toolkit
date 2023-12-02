@@ -86,7 +86,7 @@ export default function TrackerPage() {
             setFilters(newFilters)
           }}
         />
-        <div className="mb-12">
+        <div className="my-12 w-full">
           <ListItems
             filters={filters}
             items={items}

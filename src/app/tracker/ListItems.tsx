@@ -47,7 +47,7 @@ export default function ListItems({
 
   return (
     <Fragment>
-      <div>
+      <div className="w-full">
         {itemTypes.map((itemType) => (
           <Disclosure key={itemType} defaultOpen>
             {({ open }) => (
@@ -72,7 +72,7 @@ export default function ListItems({
                     )}
                   />
                 </Disclosure.Button>
-                <Disclosure.Panel className={cn(gridTemplate, 'py-4')}>
+                <Disclosure.Panel className={cn(gridTemplate, 'w-full py-4')}>
                   {items
                     .filter((item) => item.type === itemType)
                     .filter((item) => {
