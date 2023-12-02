@@ -10,6 +10,27 @@ export function capitalize(string: string) {
   return string.charAt(0).toUpperCase() + string.slice(1)
 }
 
+export function getArrayOfLength(length: number) {
+  return Array.from(Array(length).keys())
+}
+
+export function toCsv<T extends {}>(array: T[], filename: string) {
+  // const csvContent =
+  //   'data:text/csv;charset=utf-8,' + array.map((item) => item[key]).join(',')
+  let csvContent = 'data:text/csv;charset=utf-8,'
+  // Add header row with keys
+  csvContent += Object.keys(array[0]).join(',') + '\n'
+  // Add data rows with values
+  csvContent += array.map((item) => Object.values(item).join(',')).join('\n')
+
+  const encodedUri = encodeURI(csvContent)
+  const link = document.createElement('a')
+  link.setAttribute('href', encodedUri)
+  link.setAttribute('download', `${filename}.csv`)
+  document.body.appendChild(link) // Required for FF
+  link.click()
+}
+
 function isItemType(type: string): type is ItemType {
   const itemTypes: ItemType[] = [
     'helm',
@@ -90,8 +111,4 @@ export function itemTypeToLoadoutItemType(itemType: ItemType): LoadoutItemType {
   }
 
   return loadoutItemType
-}
-
-export function getArrayOfLength(length: number) {
-  return Array.from(Array(length).keys())
 }
