@@ -1,4 +1,5 @@
 # TODO
 
+- Need to add Archtype subclasses
 - Finish adding slots to builder
-- Add text output of build
+- Add export of builder to csv
