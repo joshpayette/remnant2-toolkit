@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import { capitalize, cn } from '@/lib/utils'
 import type { Item, ItemType, LoadoutItem } from '@/types'
 
@@ -65,11 +64,10 @@ export default function ItemCard({
           )}
         >
           {item && (
-            <Image
-              src={item.path}
+            <img
+              src={`https://d2sqltdcj8czo5.cloudfront.net/${item.path}`}
               alt={item.name}
-              fill={true}
-              className="pointer-events-none object-contain"
+              className="pointer-events-none w-auto object-contain"
               data-testid="item-image"
             />
           )}
