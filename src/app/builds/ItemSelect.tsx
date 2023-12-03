@@ -4,6 +4,7 @@ import { cn, loadoutItemTypeToItemType } from '@/lib/utils'
 import type { Item, LoadoutItemType, LoadoutItem } from '@/types'
 import ItemCard from '../../components/ItemCard'
 import Dialog from '@/components/Dialog'
+import { CheckCircleIcon } from '@heroicons/react/24/outline'
 
 interface ItemSelectProps {
   itemList: Item[]
@@ -61,20 +62,7 @@ export default function ItemSelect({
                       }
                       className="text-green-400 hover:text-green-200"
                     >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth={1.5}
-                        stroke="currentColor"
-                        className="h-6 w-6"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
-                        />
-                      </svg>
+                      <CheckCircleIcon className="h-6 w-6" />
                     </button>
                   </div>
                 }
