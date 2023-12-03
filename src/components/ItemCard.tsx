@@ -26,7 +26,7 @@ export default function ItemCard({
       >
         <div
           className={cn(
-            "w-full bg-[url('/card-title-bg.jpg')] p-2 text-center",
+            "w-full bg-[url('https://d2sqltdcj8czo5.cloudfront.net/card-title-bg.jpg')] p-2 text-center",
             size === 'sm' && 'h-[48px]',
             size === 'md' && 'h-[80px]',
             size === 'lg' && 'h-[80px]',
@@ -57,8 +57,8 @@ export default function ItemCard({
           className={cn(
             'relative w-full grow',
             variant === 'default'
-              ? "bg-[url('/card-body-bg.jpg')]"
-              : "bg-[url('/card-body-bg-blue.jpg')]",
+              ? "bg-[url('https://d2sqltdcj8czo5.cloudfront.net/card-body-bg.jpg')]"
+              : "bg-[url('https://d2sqltdcj8czo5.cloudfront.net/card-body-bg-blue.jpg')]",
             size === 'sm' && 'h-[64px]',
             size === 'md' && 'h-[128px]',
             size === 'lg' && 'h-[164px]',
@@ -75,7 +75,7 @@ export default function ItemCard({
           )}
         </div>
         {actions && (
-          <div className="flex w-full items-center justify-center bg-[url('/card-footer-bg-darker.jpg')] p-1">
+          <div className="flex w-full items-center justify-center bg-[url('https://d2sqltdcj8czo5.cloudfront.net/card-footer-bg-darker.jpg')] p-1">
             {actions}
           </div>
         )}

@@ -1,4 +1,14 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
+const nextConfig = {
+  images: {
+    // Add my S3 bucket remnant2-toolkit
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'd2sqltdcj8czo5.cloudfront.net',
+      },
+    ],
+  },
+}
 
 module.exports = nextConfig
