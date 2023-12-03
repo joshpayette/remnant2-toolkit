@@ -135,7 +135,7 @@ export default function BuildHomePage() {
   return (
     <Fragment>
       <PageHeader title="Remnant 2 Build Tool" />
-      <div className="rounded border-2 border-green-500 bg-black p-4">
+      <div className="w-full max-w-md rounded border-2 border-green-500 bg-black p-4 md:max-w-2xl">
         <h2 className="mb-8 text-center text-4xl font-bold text-green-400">
           {loadout.name}
         </h2>
@@ -147,47 +147,64 @@ export default function BuildHomePage() {
           onSelectItem={handleSelectItem}
           onClose={() => setSelectedItemType({ type: null })}
         />
+
         <div
           id="build-container"
           className={cn(
-            'grid w-full grid-cols-1 gap-1 sm:max-w-md md:max-w-2xl md:grid-cols-4',
+            'grid w-full max-w-md grid-cols-2 gap-1 sm:grid-cols-3 md:max-w-2xl md:grid-cols-4',
           )}
         >
+          {getArrayOfLength(2).map((index) => {
+            const item = loadout.items.archtypes
+              ? loadout.items.archtypes[index]
+              : null
+            return (
+              <ItemCardButton
+                key={index}
+                item={item}
+                type="archtype"
+                onClick={() =>
+                  setSelectedItemType({ type: 'archtypes', index })
+                }
+                size="sm"
+              />
+            )
+          })}
           <ItemCardButton
             item={loadout.items.helm}
             type="helm"
-            onClick={() => setSelectedItemType({ type: 'helm' })}
             size="sm"
+            onClick={() => setSelectedItemType({ type: 'helm' })}
           />
           <ItemCardButton
             item={loadout.items.torso}
             type="torso"
-            onClick={() => setSelectedItemType({ type: 'torso' })}
             size="sm"
+            onClick={() => setSelectedItemType({ type: 'torso' })}
           />
           <ItemCardButton
             item={loadout.items.legs}
             type="legs"
-            onClick={() => setSelectedItemType({ type: 'legs' })}
             size="sm"
+            onClick={() => setSelectedItemType({ type: 'legs' })}
           />
           <ItemCardButton
             item={loadout.items.gloves}
             type="gloves"
-            onClick={() => setSelectedItemType({ type: 'gloves' })}
             size="sm"
+            onClick={() => setSelectedItemType({ type: 'gloves' })}
           />
           <ItemCardButton
             item={loadout.items.relic}
             type="relic"
-            onClick={() => setSelectedItemType({ type: 'relic' })}
             size="sm"
+            onClick={() => setSelectedItemType({ type: 'relic' })}
           />
           <ItemCardButton
             item={loadout.items.amulet}
             type="amulet"
-            onClick={() => setSelectedItemType({ type: 'amulet' })}
             size="sm"
+            onClick={() => setSelectedItemType({ type: 'amulet' })}
           />
           {getArrayOfLength(4).map((index) => {
             const item = loadout.items.rings ? loadout.items.rings[index] : null
@@ -196,8 +213,8 @@ export default function BuildHomePage() {
                 key={index}
                 item={item}
                 type="ring"
-                onClick={() => setSelectedItemType({ type: 'rings', index })}
                 size="sm"
+                onClick={() => setSelectedItemType({ type: 'rings', index })}
               />
             )
           })}

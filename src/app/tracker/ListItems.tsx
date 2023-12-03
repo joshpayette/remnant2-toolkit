@@ -32,6 +32,7 @@ interface ListItemsProps {
   items: Array<Item & { discovered: boolean }>
   itemTypes: ItemType[]
   onClick: (itemId: string) => void
+  onShowItemInfo: (itemId: string) => void
 }
 
 export default function ListItems({
@@ -39,6 +40,7 @@ export default function ListItems({
   items,
   itemTypes,
   onClick,
+  onShowItemInfo,
 }: ListItemsProps) {
   const isClient = useIsClient()
 
@@ -105,6 +107,25 @@ export default function ListItems({
                           item={item}
                           onClick={() => onClick(item.id)}
                         />
+                        <button
+                          className="flex w-full items-center justify-center bg-[url('/card-footer-bg.jpg')] p-1 text-xs text-white"
+                          onClick={() => onShowItemInfo(item.id)}
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            strokeWidth={1.5}
+                            stroke="currentColor"
+                            className="mr-2 h-6 w-6 text-gray-400 hover:text-white"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z"
+                            />
+                          </svg>
+                        </button>
                       </div>
                     ))}
                 </Disclosure.Panel>

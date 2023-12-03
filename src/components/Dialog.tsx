@@ -2,10 +2,9 @@
 
 import { Fragment } from 'react'
 import { Dialog as BaseDialog, Transition } from '@headlessui/react'
-import { loadoutItemTypeToItemType } from '@/lib/utils'
 
 interface DialogProps {
-  children: React.ReactNode
+  children?: React.ReactNode
   open: boolean
   title: string
   onClose: () => void
