@@ -38,10 +38,13 @@ export type LoadoutItemType =
 
 // The type of a single item stored in the database
 export interface Item {
+  id: string
   type: ItemType
   name: string
   path: string
-  id: string
+  description?: string
+  howToGet?: string
+  wikiLinks?: string[]
 }
 
 // The type of a single item stored in a loadout
