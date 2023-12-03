@@ -1,4 +1,4 @@
 # TODO
 
 - Finish adding slots to builder
-- Build page can probably all be server-side, allowing for sharing and meta tags
+- Add text output of build
