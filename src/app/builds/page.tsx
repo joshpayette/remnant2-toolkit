@@ -11,12 +11,35 @@ import {
 import type { LoadoutItemType, LoadoutItem, Item, Loadout } from '@/types'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import dynamic from 'next/dynamic'
-import ItemCardButton from '@/components/ItemCardButton'
+import ItemCard from '@/components/ItemCard'
 import PageHeader from '@/app/PageHeader'
 
 const ItemSelect = dynamic(() => import('@/app/builds/ItemSelect'), {
   ssr: false,
 })
+
+function SelectButton({ onClick }: { onClick: () => void }) {
+  return (
+    <div className="flex w-full items-center justify-end">
+      <button className="text-green-400 hover:text-green-200" onClick={onClick}>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth={1.5}
+          stroke="currentColor"
+          className="h-4 w-4"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10"
+          />
+        </svg>
+      </button>
+    </div>
+  )
+}
 
 const initialLoadout: Loadout = {
   name: 'My Loadout',
@@ -116,7 +139,6 @@ export default function BuildHomePage() {
     if (Array.isArray(loadout.items[selectedItemType.type])) {
       const items = loadout.items[selectedItemType.type] as LoadoutItem[]
 
-      console.info('selectedItemType', selectedItemType)
       // If no index is set, just add the item to the array
       // otherwise, insert in the specified slot
       if (selectedItemType.index === undefined) {
@@ -169,62 +191,96 @@ export default function BuildHomePage() {
               ? loadout.items.archtypes[index]
               : null
             return (
-              <ItemCardButton
+              <ItemCard
                 key={index}
                 item={item}
                 type="archtype"
-                onClick={() =>
-                  setSelectedItemType({ type: 'archtypes', index })
-                }
                 size="sm"
+                actions={
+                  <SelectButton
+                    onClick={() =>
+                      setSelectedItemType({ type: 'archtypes', index })
+                    }
+                  />
+                }
               />
             )
           })}
-          <ItemCardButton
+          <ItemCard
             item={loadout.items.helm}
             type="helm"
             size="sm"
-            onClick={() => setSelectedItemType({ type: 'helm' })}
+            actions={
+              <SelectButton
+                onClick={() => setSelectedItemType({ type: 'helm' })}
+              />
+            }
           />
-          <ItemCardButton
+          <ItemCard
             item={loadout.items.torso}
             type="torso"
             size="sm"
-            onClick={() => setSelectedItemType({ type: 'torso' })}
+            actions={
+              <SelectButton
+                onClick={() => setSelectedItemType({ type: 'torso' })}
+              />
+            }
           />
-          <ItemCardButton
+          <ItemCard
             item={loadout.items.legs}
             type="legs"
             size="sm"
-            onClick={() => setSelectedItemType({ type: 'legs' })}
+            actions={
+              <SelectButton
+                onClick={() => setSelectedItemType({ type: 'legs' })}
+              />
+            }
           />
-          <ItemCardButton
+          <ItemCard
             item={loadout.items.gloves}
             type="gloves"
             size="sm"
-            onClick={() => setSelectedItemType({ type: 'gloves' })}
+            actions={
+              <SelectButton
+                onClick={() => setSelectedItemType({ type: 'gloves' })}
+              />
+            }
           />
-          <ItemCardButton
+          <ItemCard
             item={loadout.items.relic}
             type="relic"
             size="sm"
-            onClick={() => setSelectedItemType({ type: 'relic' })}
+            actions={
+              <SelectButton
+                onClick={() => setSelectedItemType({ type: 'relic' })}
+              />
+            }
           />
-          <ItemCardButton
+          <ItemCard
             item={loadout.items.amulet}
             type="amulet"
             size="sm"
-            onClick={() => setSelectedItemType({ type: 'amulet' })}
+            actions={
+              <SelectButton
+                onClick={() => setSelectedItemType({ type: 'amulet' })}
+              />
+            }
           />
           {getArrayOfLength(4).map((index) => {
             const item = loadout.items.rings ? loadout.items.rings[index] : null
             return (
-              <ItemCardButton
+              <ItemCard
                 key={index}
                 item={item}
                 type="ring"
                 size="sm"
-                onClick={() => setSelectedItemType({ type: 'rings', index })}
+                actions={
+                  <SelectButton
+                    onClick={() =>
+                      setSelectedItemType({ type: 'rings', index })
+                    }
+                  />
+                }
               />
             )
           })}

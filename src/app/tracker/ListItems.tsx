@@ -1,14 +1,14 @@
 'use client'
 
 import { Fragment } from 'react'
-import { Disclosure } from '@headlessui/react'
+import { Disclosure, Switch } from '@headlessui/react'
 import { ChevronUpIcon } from '@heroicons/react/20/solid'
 import { capitalize, cn } from '@/lib/utils'
-import ItemCardButton from '@/components/ItemCardButton'
 import type { Filters } from './Filters'
 import type { Item, ItemType } from '@/types'
 import { useIsClient } from 'usehooks-ts'
 import { useLocalStorage } from '@/hooks/useLocalStorage'
+import ItemCard from '@/components/ItemCard'
 
 function getProgress(
   items: Array<Item & { discovered: boolean }>,
@@ -124,29 +124,57 @@ export default function ListItems({
                             : 'border-2 border-transparent grayscale',
                         )}
                       >
-                        <ItemCardButton
+                        <ItemCard
                           item={item}
-                          onClick={() => onClick(item.id)}
+                          actions={
+                            <div className="grid w-full grid-cols-2 gap-1">
+                              <div className="flex items-center justify-start">
+                                <button
+                                  className="text-xs text-green-400 hover:text-green-200"
+                                  onClick={() => onShowItemInfo(item.id)}
+                                >
+                                  <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    strokeWidth={1.5}
+                                    stroke="currentColor"
+                                    className="mr-2 h-5 w-5"
+                                  >
+                                    <path
+                                      strokeLinecap="round"
+                                      strokeLinejoin="round"
+                                      d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z"
+                                    />
+                                  </svg>
+                                </button>
+                              </div>
+                              <div className="flex items-center justify-end">
+                                <Switch
+                                  checked={item.discovered}
+                                  onChange={() => onClick(item.id)}
+                                  className={cn(
+                                    item.discovered
+                                      ? 'bg-purple-600'
+                                      : 'bg-gray-200',
+                                    'relative inline-flex h-5 w-10 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2',
+                                  )}
+                                >
+                                  <span className="sr-only">Use setting</span>
+                                  <span
+                                    aria-hidden="true"
+                                    className={cn(
+                                      item.discovered
+                                        ? 'translate-x-5'
+                                        : 'translate-x-0',
+                                      'pointer-events-none inline-block h-4 w-4 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out',
+                                    )}
+                                  />
+                                </Switch>
+                              </div>
+                            </div>
+                          }
                         />
-                        <button
-                          className="flex w-full items-center justify-center bg-[url('/card-footer-bg.jpg')] p-1 text-xs text-white"
-                          onClick={() => onShowItemInfo(item.id)}
-                        >
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            strokeWidth={1.5}
-                            stroke="currentColor"
-                            className="mr-2 h-6 w-6 text-gray-400 hover:text-white"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z"
-                            />
-                          </svg>
-                        </button>
                       </div>
                     ))}
                 </Disclosure.Panel>

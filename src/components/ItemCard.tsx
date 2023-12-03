@@ -3,6 +3,7 @@ import { capitalize, cn } from '@/lib/utils'
 import type { Item, ItemType, LoadoutItem } from '@/types'
 
 export interface ItemCardProps {
+  actions?: React.ReactNode
   item: Item | LoadoutItem | null
   type?: ItemType
   size?: 'sm' | 'md' | 'lg'
@@ -10,6 +11,7 @@ export interface ItemCardProps {
 }
 
 export default function ItemCard({
+  actions,
   item,
   type,
   size = 'md',
@@ -67,11 +69,16 @@ export default function ItemCard({
               src={item.path}
               alt={item.name}
               fill={true}
-              className="pointer-events-none object-contain group-hover:opacity-75"
+              className="pointer-events-none object-contain"
               data-testid="item-image"
             />
           )}
         </div>
+        {actions && (
+          <div className="flex w-full items-center justify-center bg-[url('/card-footer-bg-darker.jpg')] p-1">
+            {actions}
+          </div>
+        )}
       </div>
     </div>
   )
