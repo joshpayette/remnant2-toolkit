@@ -134,7 +134,17 @@ export default function BuildHomePage() {
 
   return (
     <Fragment>
-      <PageHeader title="Remnant 2 Build Tool" />
+      <PageHeader title="Remnant 2 Build Tool">
+        <div
+          id="alert"
+          className="rounded border border-red-500 text-red-500 bg-black p-4"
+        >
+          <p>
+            This tool is a work in progress. It is not yet ready for public
+            consumption.
+          </p>
+        </div>
+      </PageHeader>
       <div className="w-full max-w-md rounded border-2 border-green-500 bg-black p-4 md:max-w-2xl">
         <h2 className="mb-8 text-center text-4xl font-bold text-green-400">
           {loadout.name}

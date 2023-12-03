@@ -1,17 +1,7 @@
-'use client'
-
-import ItemCard from '@/components/ItemCard'
-import { remnantItems } from '@/data/items'
-import { Item } from '@/types'
+import { redirect } from 'next/navigation'
 
 export default function Home() {
-  const item = remnantItems[0] as Item
+  redirect('/tracker')
 
-  return (
-    <div>
-      <div className="w-[300px]">
-        <ItemCard item={item} />
-      </div>
-    </div>
-  )
+  return <h1 className="text-4xl">Redirecting...</h1>
 }

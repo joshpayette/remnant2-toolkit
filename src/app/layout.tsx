@@ -17,7 +17,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  const aClass = 'text-green-400 underline'
+  const aClass = 'text-gray-300 hover:text-green-400 underline'
 
   return (
     <html lang="en">
@@ -26,10 +26,10 @@ export default function RootLayout({
           <FavIcon />
           <NavBar />
         </header>
-        <main className="flex min-h-screen w-full flex-col items-center justify-start p-4 pt-24">
+        <main className="flex w-full flex-col items-center justify-start p-4 pt-24">
           {children}
         </main>
-        <footer className="flex w-full items-center justify-center border-t border-purple-900 bg-black py-4 text-left text-sm text-gray-400">
+        <footer className="mt-12 flex w-full items-center justify-center border-t border-purple-900 bg-black py-4 text-left text-sm text-gray-400">
           <div className="my-4 max-w-2xl gap-2">
             <p className="pb-4">
               Remnant 2 Toolkit is an{' '}
@@ -68,7 +68,7 @@ export default function RootLayout({
               <a
                 href="https://docs.google.com/spreadsheets/d/1hgcUe-PvFnm3QSf3iamtaX3Q8tf_RS_y1fdwS1QHXMU/edit#gid=389923786"
                 target="_blank"
-                className="text-green-400 underline"
+                className={cn(aClass)}
               >
                 Google Sheet
               </a>{' '}

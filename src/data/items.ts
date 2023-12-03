@@ -2205,6 +2205,10 @@ export const remnantItems: Item[] = [
     name: 'Abrasive Whetstone',
     path: '/amulet/abrasive_whetstone.png',
     id: '6sqyf9',
+    description:
+      'When attacking a BLEEDING enemy, Crit Chance is increased by 15% and Crit Damage is increased by 30%.',
+    howToGet: 'Can be bought from Cass.',
+    wikiLinks: ['https://remnant2.wiki.fextralife.com/Cass'],
   },
   {
     type: 'amulet',
