@@ -14,19 +14,17 @@ export default function ItemInfo({ item, open, onClose }: ItemInfoProps) {
 
   return (
     <Dialog open={open} onClose={onClose} title={'Item Info'}>
-      <div className="grid grid-cols-3 gap-2">
-        <Image
-          src={item.path}
-          width={128}
-          height={128}
-          alt={item.name}
-          className="col-span-1"
-        />
+      <div className="grid grid-cols-1 gap-2 sm:grid-cols-3">
+        <div className="flex w-full flex-col items-center justify-center">
+          <Image src={item.path} width={128} height={128} alt={item.name} />
+          <div className="w-full text-center">
+            <h3 className="text-xl font-bold text-purple-500">{item.name}</h3>
+            <p className="mb-2 text-sm text-gray-200">
+              {capitalize(item.type)}
+            </p>
+          </div>
+        </div>
         <div className="col-span-2 flex flex-col items-start justify-start">
-          <h3 className="text-xl font-bold text-purple-500">{item.name}</h3>
-          <p className="mb-2 text-left text-sm text-gray-200">
-            {capitalize(item.type)}
-          </p>
           <h4 className="mt-4 text-left text-sm text-gray-500">Description</h4>
           <p className="text-left text-sm text-gray-300">
             {item.description ?? 'No description available.'}
