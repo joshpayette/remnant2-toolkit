@@ -29,34 +29,31 @@ export default function ItemInfo({ item, open, onClose }: ItemInfoProps) {
           <p className="text-left text-sm text-gray-300">
             {item.description ?? 'No description available.'}
           </p>
-          {item.howToGet && (
-            <div className="flex flex-col items-start justify-start">
-              <h4 className="mt-4 text-left text-sm text-gray-500">
-                How to Get
-              </h4>
-              <p className="text-left text-sm text-gray-300">
-                {item.howToGet ?? 'No instructions found.'}
-              </p>
-            </div>
-          )}
-          {item.wikiLinks && (
-            <div className="flex flex-col items-start justify-start">
-              <h4 className="mt-4 text-left text-sm text-gray-500">
-                Wiki Links
-              </h4>
-              {item.wikiLinks.map((link) => (
-                <a
-                  key={link}
-                  href={link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-left text-sm text-gray-300 underline hover:text-green-400"
-                >
-                  {link}
-                </a>
-              ))}
-            </div>
-          )}
+
+          <div className="flex flex-col items-start justify-start">
+            <h4 className="mt-4 text-left text-sm text-gray-500">How to Get</h4>
+            <p className="text-left text-sm text-gray-300">
+              {item.howToGet ?? 'No instructions found.'}
+            </p>
+          </div>
+          <div className="flex flex-col items-start justify-start">
+            <h4 className="mt-4 text-left text-sm text-gray-500">Wiki Links</h4>
+            {item.wikiLinks?.map((link) => (
+              <a
+                key={link}
+                href={link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-left text-sm text-gray-300 underline hover:text-green-400"
+              >
+                {link}
+              </a>
+            )) ?? (
+              <div className="text-left text-sm text-gray-300">
+                No links found.
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </Dialog>
