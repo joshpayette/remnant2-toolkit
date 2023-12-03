@@ -43,18 +43,6 @@ export default function RootLayout({
               created and managed by Josh Payette.
             </p>
             <hr className="border-gray-900 pb-4" />
-            <p className="pb-4">
-              {`This project was inspired by Robin Kuiper's `}
-              <a
-                href="https://remnant.rkuiper.nl/"
-                target="_blank"
-                className={cn(aClass)}
-              >
-                Remnant 2 Tools
-              </a>
-              .
-            </p>
-            <hr className="border-gray-900 pb-4" />
             <p>
               These tools would not be possible without the{' '}
               <a
@@ -73,6 +61,18 @@ export default function RootLayout({
                 Google Sheet
               </a>{' '}
               compiled by Matthew Whyment.
+            </p>
+            <hr className="border-gray-900 pb-4" />
+            <p className="pb-4">
+              {`This project was inspired by Robin Kuiper's `}
+              <a
+                href="https://remnant.rkuiper.nl/"
+                target="_blank"
+                className={cn(aClass)}
+              >
+                Remnant 2 Tools
+              </a>
+              .
             </p>
           </div>
         </footer>
