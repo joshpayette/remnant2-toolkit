@@ -8,6 +8,7 @@ import ItemCardButton from '@/components/ItemCardButton'
 import type { Filters } from './Filters'
 import type { Item, ItemType } from '@/types'
 import { useIsClient } from 'usehooks-ts'
+import { useLocalStorage } from '@/hooks/useLocalStorage'
 
 function getProgress(
   items: Array<Item & { discovered: boolean }>,
@@ -42,6 +43,9 @@ export default function ListItems({
   onClick,
   onShowItemInfo,
 }: ListItemsProps) {
+  const { itemTracker, setItemTracker } = useLocalStorage()
+  const { collapsedItemTypes } = itemTracker
+
   const isClient = useIsClient()
 
   const gridTemplate =
@@ -52,14 +56,31 @@ export default function ListItems({
     return capitalize(itemType)
   }
 
+  function handleCategoryToggle(itemType: ItemType) {
+    const newCollapsedItemTypes = collapsedItemTypes.includes(itemType)
+      ? collapsedItemTypes.filter((type) => type !== itemType)
+      : [...collapsedItemTypes, itemType]
+
+    setItemTracker({
+      ...itemTracker,
+      collapsedItemTypes: newCollapsedItemTypes,
+    })
+  }
+
   return (
     <Fragment>
       <div className="w-full">
         {itemTypes.map((itemType) => (
-          <Disclosure key={itemType} defaultOpen>
+          <Disclosure
+            key={itemType}
+            defaultOpen={!collapsedItemTypes.includes(itemType)}
+          >
             {({ open }) => (
               <Fragment>
-                <Disclosure.Button className="flex w-full justify-start border-b border-purple-700 p-4 text-left hover:border-green-400 hover:bg-black focus:outline-none focus-visible:ring focus-visible:ring-green-500/75">
+                <Disclosure.Button
+                  onClick={() => handleCategoryToggle(itemType)}
+                  className="flex w-full justify-start border-b border-purple-700 p-4 text-left hover:border-green-400 hover:bg-black focus:outline-none focus-visible:ring focus-visible:ring-green-500/75"
+                >
                   <div className="w-full">
                     <h2 className="text-lg font-semibold">
                       {getItemTitle(itemType)}
