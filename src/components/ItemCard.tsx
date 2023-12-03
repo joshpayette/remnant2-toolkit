@@ -16,60 +16,62 @@ export default function ItemCard({
   variant = 'default',
 }: ItemCardProps) {
   return (
-    <div
-      className={cn(
-        'flex w-full min-w-full flex-col items-center justify-center',
-      )}
-    >
+    <div className="relative w-full min-w-full">
       <div
         className={cn(
-          "w-full bg-[url('/card-title-bg.jpg')] p-2 text-center",
-          size === 'sm' && 'h-[48px]',
-          size === 'md' && 'h-[80px]',
-          size === 'lg' && 'h-[80px]',
+          'flex w-full min-w-full flex-col items-center justify-center',
         )}
       >
-        <h3
+        <div
           className={cn(
-            'text-purple-400',
-            size === 'sm' && 'text-xs',
-            size === 'md' && 'text-md',
-            size === 'lg' && 'text-lg',
+            "w-full bg-[url('/card-title-bg.jpg')] p-2 text-center",
+            size === 'sm' && 'h-[48px]',
+            size === 'md' && 'h-[80px]',
+            size === 'lg' && 'h-[80px]',
           )}
         >
-          {item?.name}
-        </h3>
-        <p
+          <h3
+            className={cn(
+              'text-purple-400',
+              size === 'sm' && 'text-xs',
+              size === 'md' && 'text-md',
+              size === 'lg' && 'text-lg',
+            )}
+          >
+            {item?.name}
+          </h3>
+          <p
+            className={cn(
+              'text-[#ff9900]',
+              size === 'sm' && 'text-xs',
+              size === 'md' && 'text-sm',
+              size === 'lg' && 'text-md',
+            )}
+          >
+            {item?.type ? capitalize(item.type) : capitalize(type ?? '')}
+          </p>
+        </div>
+        <div
           className={cn(
-            'text-[#ff9900]',
-            size === 'sm' && 'text-xs',
-            size === 'md' && 'text-sm',
-            size === 'lg' && 'text-md',
+            'relative w-full grow',
+            variant === 'default'
+              ? "bg-[url('/card-body-bg.jpg')]"
+              : "bg-[url('/card-body-bg-blue.jpg')]",
+            size === 'sm' && 'h-[64px]',
+            size === 'md' && 'h-[128px]',
+            size === 'lg' && 'h-[164px]',
           )}
         >
-          {item?.type ? capitalize(item.type) : capitalize(type ?? '')}
-        </p>
-      </div>
-      <div
-        className={cn(
-          'relative w-full grow',
-          variant === 'default'
-            ? "bg-[url('/card-body-bg.jpg')]"
-            : "bg-[url('/card-body-bg-blue.jpg')]",
-          size === 'sm' && 'h-[96px]',
-          size === 'md' && 'h-[128px]',
-          size === 'lg' && 'h-[164px]',
-        )}
-      >
-        {item && (
-          <Image
-            src={item.path}
-            alt={item.name}
-            fill={true}
-            className="pointer-events-none object-contain group-hover:opacity-75"
-            data-testid="item-image"
-          />
-        )}
+          {item && (
+            <Image
+              src={item.path}
+              alt={item.name}
+              fill={true}
+              className="pointer-events-none object-contain group-hover:opacity-75"
+              data-testid="item-image"
+            />
+          )}
+        </div>
       </div>
     </div>
   )

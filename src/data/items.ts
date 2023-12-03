@@ -6,72 +6,108 @@ export const remnantItems: Item[] = [
     name: 'Alchemist',
     path: '/archtype/alchemist.png',
     id: '67pme7',
+    description:
+      'The ALCHEMIST specializes in powerful buffing Vials and consumable potency.',
+    howToGet:
+      'Approach every sewer drain on the edge of any of the Dran overland areas in Losemn until you get grabbed by a Manticora. Once you load into the new area, defeat the white Manticora',
   },
   {
     type: 'archtype',
     name: 'Archon',
     path: '/archtype/archon.png',
     id: 'og1fvq',
+    description:
+      'The ARCHON is the master of Weapon Mods and Mod Power generation.',
+    howToGet: `To Unlock the Red Door you will need the following. Engram Explorer with skill Fortune Hunter (LV10), Engram Invader with skill Worm Hole (LV5), Armor set Realmwalker, Relic Consumable Void Heart, Leto's Amulet, Amber Moonstone, Black Cat Band, Zanias Malice, Anastasijas Inspiration, Cube Gun, Ford's Scattergun, Labyrinth Staff. With all this the door will open.`,
   },
   {
     type: 'archtype',
     name: 'Challenger',
     path: '/archtype/challenger.png',
     id: 'wm2xsy',
+    description:
+      'The CHALLENGER specializes in close range combat and heightened survivability.',
+    howToGet: `Buy from Reggie at Ward 13 for 1500 Scrap`,
   },
   {
     type: 'archtype',
     name: 'Engineer',
     path: '/archtype/engineer.png',
     id: '98i1ka',
+    description:
+      'The ENGINEER specializes in Heavy Weaponry which can be carried or placed in turret mode.',
+    howToGet: `Found just out of bounds in either of the two overland areas you roll on N'Erud. For an easier time locating this item try using the Explorer Archtype's skill "Fortune Hunter" to highlight the item in the fog.`,
   },
   {
     type: 'archtype',
     name: 'Explorer',
     path: '/archtype/explorer.png',
     id: 'la3vvu',
+    description:
+      'The EXPLORER spcializes in finding valuable items and overall team utility.',
+    howToGet: `Finish a full campaign playthrough`,
   },
   {
     type: 'archtype',
     name: 'Gunslinger',
     path: '/archtype/gunslinger.png',
     id: 'd2qga5',
+    description:
+      'The GUNSLINGER specializes in raw damage, firearm handling, and ammo conservation.',
+    howToGet: `Listen to 20 total Mudtooth stories in Ward 13 after finishing your second world in campaign mode`,
   },
   {
     type: 'archtype',
     name: 'Handler',
     path: '/archtype/handler.png',
     id: 'aazlxe',
+    description:
+      'The HANDLER specializes in teamwork in both solo and cooperative scenarios.',
+    howToGet: `Buy from Mudtooth at Ward 13 for 1500 Scrap`,
   },
   {
     type: 'archtype',
     name: 'Hunter',
     path: '/archtype/hunter.png',
     id: '5tkqdz',
+    description:
+      'The HUNTER specializes in ranged damage, precision shots and marking enemies.',
+    howToGet: `Buy from Brabus at Ward 13 for 1500 Scrap`,
   },
   {
     type: 'archtype',
     name: 'Invader',
     path: '/archtype/invader.png',
     id: '0ipjpk',
+    description: `The INVADER specializes elusiveness nad misdirecting the enemy's focus.`,
+    howToGet: `Use the "Walker's Dream" item and defeat the "Bane" abberation. To get the "Walker's Dream" item use the Dreamcatcher melee weapon on the sleeping walker special enemy (glowing blue) in an area just off the main path between the Corrupted Harbour and Blackened Citadel checkpoint.`,
   },
   {
     type: 'archtype',
     name: 'Medic',
     path: '/archtype/medic.png',
     id: 'd6fvmc',
+    description:
+      'The MEDIC specializes in survivability with enhanced healing and Relic effectiveness.',
+    howToGet: `Buy from Dr. Norah at Ward 13 for 1500 Scrap`,
   },
   {
     type: 'archtype',
     name: 'Ritualist',
     path: '/archtype/ritualist.png',
     id: '1q7z9d',
+    description:
+      'The RITUALIST is a powerful class focusing on status effects and AOE damage, that can make enemies infect their allies with whatever status they are suffering',
+    howToGet: `In Forlorn Coast, there are two interconnected rowboats near the center of the docks area. Using an overhead view on the map, they are hard to miss - their shape is unique. From there you can jump to another boat under the docks. This path leads underground, straight to a ritual performed by a witch elite. The doll is there, behind the ritual. NOTE: If you allow the ritual to complete, you will begin a miniboss fight.`,
   },
   {
     type: 'archtype',
     name: 'Summoner',
     path: '/archtype/summoner.png',
     id: 'og0bwx',
+    description:
+      'The SUMMONER specializes in using Minions to do their bidding and sacrificing them.',
+    howToGet: `Available at the Bloodmoon Altar for 15 Bloodmoon Essence. Acquire Bloodmoon Essence from killing Root Wisps during a bloodmoon (red moon in sky) in any of Yaesha's outside areas`,
   },
   {
     type: 'helm',
@@ -2169,6 +2205,10 @@ export const remnantItems: Item[] = [
     name: 'Abrasive Whetstone',
     path: '/amulet/abrasive_whetstone.png',
     id: '6sqyf9',
+    description:
+      'When attacking a BLEEDING enemy, Crit Chance is increased by 15% and Crit Damage is increased by 30%.',
+    howToGet: 'Can be bought from Cass.',
+    wikiLinks: ['https://remnant2.wiki.fextralife.com/Cass'],
   },
   {
     type: 'amulet',

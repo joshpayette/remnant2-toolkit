@@ -5,10 +5,12 @@ import { useLocalStorage } from '@/hooks/useLocalStorage'
 import { Fragment, useMemo, useState } from 'react'
 import type { Filters } from './Filters'
 import dynamic from 'next/dynamic'
-import { ItemType } from '@/types'
+import { Item, ItemType, LoadoutItem } from '@/types'
 import TrackerFilters from './Filters'
 import ToCsvButton from '@/components/ToCsvButton'
 import { useIsClient } from 'usehooks-ts'
+import PageHeader from '@/components/PageHeader'
+import ItemInfo from '@/components/ItemInfo'
 
 const skippedItemTypes: ItemType[] = ['concoction', 'consumable']
 const relevantItems = remnantItems.filter(
@@ -24,6 +26,11 @@ const ListItems = dynamic(() => import('./ListItems'), {
 
 export default function TrackerPage() {
   const isClient = useIsClient()
+
+  // Tracks the item the user wants info on
+  const [itemInfo, setItemInfo] = useState<Item | LoadoutItem | null>(null)
+  // If the item info is not null, the modal should be open
+  const isShowItemInfoOpen = Boolean(itemInfo)
 
   const { itemTracker, setItemTracker } = useLocalStorage()
   const { discoveredItemIds } = itemTracker
@@ -64,22 +71,26 @@ export default function TrackerPage() {
     ? `${discoveredCount} / ${items.length} (${discoveredPercent}%)`
     : 'Calculating...'
 
+  const handleShowItemInfo = (itemId: string) => {
+    const item = relevantItems.find((item) => item.id === itemId)
+    if (item) setItemInfo(item)
+  }
+
   return (
     <Fragment>
       <div className="flex w-full flex-col items-center justify-center">
-        <div className="mb-4 flex max-w-md flex-col p-4 text-center">
-          <h1 className="w-full text-2xl font-semibold leading-6 text-white">
-            Remnant 2 Item Tracker
-          </h1>
-          <p className="mb-8 w-full text-sm text-gray-400">
-            Discover all the items in Remnant 2
-          </p>
+        <ItemInfo
+          item={itemInfo}
+          open={isShowItemInfoOpen}
+          onClose={() => setItemInfo(null)}
+        />
+        <PageHeader title="Remnant 2 Item Tracker">
           <h2>Progress</h2>
-          <span className="mb-8 text-2xl font-bold text-green-400">
+          <span className="mb-12 text-2xl font-bold text-green-400">
             {progress}
           </span>
           <ToCsvButton data={csvItems} filename="remnant2toolkit_tracker" />
-        </div>
+        </PageHeader>
         <TrackerFilters
           filters={filters}
           onFiltersChange={(newFilters: Filters) => {
@@ -91,6 +102,7 @@ export default function TrackerPage() {
             filters={filters}
             items={items}
             itemTypes={itemTypes}
+            onShowItemInfo={handleShowItemInfo}
             onClick={(itemId: string) => {
               // If the item is already discovered, undiscover it
               if (discoveredItemIds.includes(itemId)) {
