@@ -11,5 +11,8 @@
       ],
       "extends": ["plugin:react-hooks/recommended", "plugin:testing-library/react"]
     }
-  ]
+  ],
+  "rules": {
+    "@next/next/no-img-element": "off"
+  }
 }

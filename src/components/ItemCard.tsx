@@ -54,7 +54,7 @@ export default function ItemCard({
         </div>
         <div
           className={cn(
-            'relative w-full grow',
+            'relative flex w-full grow items-center justify-center',
             variant === 'default'
               ? "bg-[url('https://d2sqltdcj8czo5.cloudfront.net/card-body-bg.jpg')]"
               : "bg-[url('https://d2sqltdcj8czo5.cloudfront.net/card-body-bg-blue.jpg')]",
@@ -67,7 +67,7 @@ export default function ItemCard({
             <img
               src={`https://d2sqltdcj8czo5.cloudfront.net${item.path}`}
               alt={item.name}
-              className="pointer-events-none w-auto object-contain"
+              className="pointer-events-none h-full max-h-full w-auto max-w-full"
               data-testid="item-image"
             />
           )}

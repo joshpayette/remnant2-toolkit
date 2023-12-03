@@ -25,6 +25,7 @@ export default function ItemInfo({ item, open, onClose }: ItemInfoProps) {
             width={128}
             height={128}
             alt={item.name}
+            className="h-full max-h-full w-auto max-w-full"
           />
           <div className="w-full text-center">
             <h3 className="text-xl font-bold text-purple-500">{item.name}</h3>
