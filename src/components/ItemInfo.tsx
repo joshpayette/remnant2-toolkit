@@ -13,7 +13,12 @@ export default function ItemInfo({ item, open, onClose }: ItemInfoProps) {
   if (!item) return null
 
   return (
-    <Dialog open={open} onClose={onClose} title={'Item Info'}>
+    <Dialog
+      open={open}
+      onClose={onClose}
+      title={'Item Info'}
+      maxWidthClass="max-w-2xl"
+    >
       <div className="grid grid-cols-1 gap-2 sm:grid-cols-3">
         <div className="flex w-full flex-col items-center justify-center">
           <Image src={item.path} width={128} height={128} alt={item.name} />
