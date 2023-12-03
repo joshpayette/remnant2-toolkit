@@ -21,7 +21,7 @@ export default function ItemInfo({ item, open, onClose }: ItemInfoProps) {
       <div className="grid grid-cols-1 gap-2 sm:grid-cols-3">
         <div className="flex w-full flex-col items-center justify-center">
           <img
-            src={`https://d2sqltdcj8czo5.cloudfront.net/${item.path}`}
+            src={`https://d2sqltdcj8czo5.cloudfront.net${item.path}`}
             width={128}
             height={128}
             alt={item.name}

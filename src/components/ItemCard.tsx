@@ -65,7 +65,7 @@ export default function ItemCard({
         >
           {item && (
             <img
-              src={`https://d2sqltdcj8czo5.cloudfront.net/${item.path}`}
+              src={`https://d2sqltdcj8czo5.cloudfront.net${item.path}`}
               alt={item.name}
               className="pointer-events-none w-auto object-contain"
               data-testid="item-image"
