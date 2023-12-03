@@ -12,7 +12,7 @@ import type { LoadoutItemType, LoadoutItem, Item, Loadout } from '@/types'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import dynamic from 'next/dynamic'
 import ItemCardButton from '@/components/ItemCardButton'
-import PageHeader from '@/components/PageHeader'
+import PageHeader from '@/app/PageHeader'
 
 const ItemSelect = dynamic(() => import('@/app/builds/ItemSelect'), {
   ssr: false,
@@ -137,7 +137,7 @@ export default function BuildHomePage() {
       <PageHeader title="Remnant 2 Build Tool">
         <div
           id="alert"
-          className="rounded border border-red-500 text-red-500 bg-black p-4"
+          className="rounded border border-red-500 bg-black p-4 text-red-500"
         >
           <p>
             This tool is a work in progress. It is not yet ready for public

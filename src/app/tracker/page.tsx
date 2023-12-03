@@ -9,7 +9,7 @@ import { Item, ItemType, LoadoutItem } from '@/types'
 import TrackerFilters from './Filters'
 import ToCsvButton from '@/components/ToCsvButton'
 import { useIsClient } from 'usehooks-ts'
-import PageHeader from '@/components/PageHeader'
+import PageHeader from '@/app/PageHeader'
 import ItemInfo from '@/components/ItemInfo'
 
 const skippedItemTypes: ItemType[] = ['concoction', 'consumable']
