@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import { type Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import NavBar from './NavBar'
 import './globals.css'
@@ -43,7 +43,7 @@ export default function RootLayout({
               created and managed by Josh Payette.
             </p>
             <hr className="border-gray-900 pb-4" />
-            <p>
+            <p className="pb-4">
               These tools would not be possible without the{' '}
               <a
                 href="https://remnant2.wiki.fextralife.com/Remnant+2+Wiki"
@@ -63,7 +63,7 @@ export default function RootLayout({
               compiled by Matthew Whyment.
             </p>
             <hr className="border-gray-900 pb-4" />
-            <p className="pb-4">
+            <p>
               {`This project was inspired by Robin Kuiper's `}
               <a
                 href="https://remnant.rkuiper.nl/"

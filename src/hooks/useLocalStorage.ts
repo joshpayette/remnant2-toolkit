@@ -1,15 +1,18 @@
+import { ItemType } from '@/types'
 import { useLocalStorage as useLS } from 'usehooks-ts'
 
 // The type of the database in LocalStorage
 interface LocalStorage {
   tracker: {
     discoveredItemIds: string[]
+    collapsedItemTypes: ItemType[]
   }
 }
 
 const initialValue: LocalStorage = {
   tracker: {
     discoveredItemIds: [],
+    collapsedItemTypes: [],
   },
 }
 

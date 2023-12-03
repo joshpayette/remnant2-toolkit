@@ -1,6 +1,5 @@
 # TODO
 
-- Page heading multiline text squishes on mobile
-- Item category collapse/expand status could be in localhost
-- Add closing X to dialog
+- Need to add Archtype subclasses
 - Finish adding slots to builder
+- Add export of builder to csv
