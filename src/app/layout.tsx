@@ -1,16 +1,10 @@
-import { type Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import NavBar from './NavBar'
 import './globals.css'
-import FavIcon from './FavIcon'
 import { cn } from '@/lib/utils'
+export { metadata } from './metadata'
 
 const inter = Inter({ subsets: ['latin'] })
-
-export const metadata: Metadata = {
-  title: 'Remnant II Toolkit',
-  description: 'Utilities for Remnant II',
-}
 
 export default function RootLayout({
   children,
@@ -23,7 +17,6 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <header>
-          <FavIcon />
           <NavBar />
         </header>
         <main className="flex w-full flex-col items-center justify-start p-4 pt-24">
