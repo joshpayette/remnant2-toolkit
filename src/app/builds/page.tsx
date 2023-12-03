@@ -64,7 +64,10 @@ export default function BuildHomePage() {
 
   return (
     <Fragment>
-      <PageHeader title="Remnant 2 Build Tool">
+      <PageHeader
+        title="Remnant 2 Build Tool"
+        subtitle="Create and share Remnant 2 builds"
+      >
         <div
           id="alert"
           className="rounded border border-red-500 bg-black p-4 text-red-500"

@@ -84,7 +84,10 @@ export default function TrackerPage() {
           open={isShowItemInfoOpen}
           onClose={() => setItemInfo(null)}
         />
-        <PageHeader title="Remnant 2 Item Tracker">
+        <PageHeader
+          title="Remnant 2 Item Tracker"
+          subtitle="Discover all the items in Remnant 2"
+        >
           <h2>Progress</h2>
           <span className="mb-12 text-2xl font-bold text-green-400">
             {progress}
