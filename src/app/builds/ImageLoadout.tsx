@@ -15,10 +15,9 @@ function SelectButton({ onClick }: { onClick: () => void }) {
   return (
     <div className="flex w-full items-center justify-end">
       <button
-        className="flex items-center rounded border border-purple-950 bg-purple-800 px-1 py-0.5 text-white  hover:bg-purple-950 hover:text-purple-200"
+        className="flex items-center rounded border border-black bg-gray-950 px-1 py-0.5 text-xs text-white hover:bg-purple-800"
         onClick={onClick}
       >
-        <span className="mr-1 text-xs">Change</span>
         <PencilSquareIcon className="h-4 w-4" />
       </button>
     </div>
@@ -238,6 +237,16 @@ export default function ImageLoadout({ loadout }: ImageLoadoutProps) {
             />
           )
         })}
+        <ItemCard
+          item={loadout.items.mainhand}
+          type="mainhand"
+          size="sm"
+          actions={
+            <SelectButton
+              onClick={() => setSelectedItemType({ type: 'mainhand' })}
+            />
+          }
+        />
       </div>
     </div>
   )

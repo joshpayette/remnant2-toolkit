@@ -60,10 +60,9 @@ export default function ItemSelect({
                           type: loadoutSlot,
                         })
                       }
-                      className="flex items-center rounded border border-purple-950 bg-purple-800 px-1 py-0.5 text-white  hover:bg-purple-950 hover:text-purple-200"
+                      className="flex items-center rounded border border-black bg-gray-950 px-1 py-0.5 text-xs text-white hover:bg-purple-800"
                     >
-                      <span className="mr-1 text-xs">Select</span>
-                      <CheckCircleIcon className="h-4 w-4" />
+                      <CheckCircleIcon className="h-5 w-5" />
                     </button>
                   </div>
                 }
