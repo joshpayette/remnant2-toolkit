@@ -14,7 +14,11 @@ const ItemSelect = dynamic(() => import('@/app/builds/ItemSelect'), {
 function SelectButton({ onClick }: { onClick: () => void }) {
   return (
     <div className="flex w-full items-center justify-end">
-      <button className="text-green-400 hover:text-green-200" onClick={onClick}>
+      <button
+        className="flex items-center rounded border border-purple-950 bg-purple-800 px-1 py-0.5 text-white  hover:bg-purple-950 hover:text-purple-200"
+        onClick={onClick}
+      >
+        <span className="mr-1 text-xs">Change</span>
         <PencilSquareIcon className="h-4 w-4" />
       </button>
     </div>

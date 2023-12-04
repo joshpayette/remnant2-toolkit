@@ -131,20 +131,23 @@ export default function ListItems({
                             <div className="grid w-full grid-cols-2 gap-1">
                               <div className="flex items-center justify-start">
                                 <button
-                                  className="text-xs text-green-400 hover:text-green-200"
+                                  className="text-xs text-purple-400 hover:text-purple-200"
                                   onClick={() => onShowItemInfo(item.id)}
                                 >
-                                  <InformationCircleIcon className="mr-2 h-5 w-5" />
+                                  <InformationCircleIcon className="mr-2 h-6 w-6" />
                                 </button>
                               </div>
                               <div className="flex items-center justify-end">
+                                <span className="mr-1 text-xs text-gray-400">
+                                  Toggle
+                                </span>
                                 <Switch
                                   checked={item.discovered}
                                   onChange={() => onClick(item.id)}
                                   className={cn(
                                     item.discovered
                                       ? 'bg-purple-600'
-                                      : 'bg-gray-200',
+                                      : 'bg-purple-800',
                                     'relative inline-flex h-5 w-10 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2',
                                   )}
                                 >
