@@ -1,6 +1,7 @@
 import { Item, LoadoutItem } from '@/types'
 import Dialog from './Dialog'
 import { capitalize } from '@/lib/utils'
+import Image from 'next/image'
 
 interface ItemInfoProps {
   item: Item | LoadoutItem | null
@@ -20,7 +21,7 @@ export default function ItemInfo({ item, open, onClose }: ItemInfoProps) {
     >
       <div className="grid grid-cols-1 gap-2 sm:grid-cols-3">
         <div className="flex w-full flex-col items-center justify-center">
-          <img
+          <Image
             src={`https://d2sqltdcj8czo5.cloudfront.net${item.path}`}
             width={128}
             height={128}

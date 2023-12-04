@@ -1,5 +1,6 @@
 import { capitalize, cn } from '@/lib/utils'
 import type { Item, ItemType, LoadoutItem } from '@/types'
+import Image from 'next/image'
 
 export interface ItemCardProps {
   actions?: React.ReactNode
@@ -64,11 +65,13 @@ export default function ItemCard({
           )}
         >
           {item && (
-            <img
+            <Image
               src={`https://d2sqltdcj8czo5.cloudfront.net${item.path}`}
               alt={item.name}
               className="pointer-events-none h-full max-h-full w-auto max-w-full"
               data-testid="item-image"
+              width={64}
+              height={64}
             />
           )}
         </div>

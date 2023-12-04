@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    // Add my S3 bucket remnant2-toolkit
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: 'https',
