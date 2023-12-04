@@ -3,9 +3,10 @@ import type { Metadata } from 'next'
 const title = 'Remnant 2 Toolkit'
 const description = 'Item tracking and build utilities for Remnant 2'
 const url = 'https://remnant2toolkit.com'
-const ogImageUrl = 'https://d2sqltdcj8czo5.cloudfront.net/logo.jpg'
+const ogImageUrl = 'logo.jpg'
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://d2sqltdcj8czo5.cloudfront.net'),
   title,
   description,
   manifest: '/site.webmanifest',
