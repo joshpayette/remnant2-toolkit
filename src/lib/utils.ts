@@ -15,8 +15,6 @@ export function getArrayOfLength(length: number) {
 }
 
 export function toCsv<T extends {}>(array: T[], filename: string) {
-  // const csvContent =
-  //   'data:text/csv;charset=utf-8,' + array.map((item) => item[key]).join(',')
   let csvContent = 'data:text/csv;charset=utf-8,'
   // Add header row with keys
   csvContent += Object.keys(array[0]).join(',') + '\n'
@@ -48,6 +46,7 @@ function isItemType(type: string): type is ItemType {
     'mutator',
     'relicfragment',
     'ring',
+    'skill',
     'trait',
   ]
   return itemTypes.includes(type as ItemType)
@@ -71,6 +70,7 @@ function isLoadoutItemType(type: string): type is LoadoutItemType {
     'mutators',
     'relicfragments',
     'rings',
+    'skills',
     'traits',
   ]
   return loadoutItemTypes.includes(type as LoadoutItemType)
@@ -87,6 +87,7 @@ export function loadoutItemTypeToItemType(
     .replace('mutators', 'mutator')
     .replace('relicfragments', 'relicfragment')
     .replace('rings', 'ring')
+    .replace('skills', 'skill')
     .replace('traits', 'trait')
 
   if (!isItemType(itemType)) {
@@ -105,6 +106,7 @@ export function itemTypeToLoadoutItemType(itemType: ItemType): LoadoutItemType {
     .replace('mutator', 'mutators')
     .replace('relicfragment', 'relicfragments')
     .replace('ring', 'rings')
+    .replace('skill', 'skills')
     .replace('trait', 'traits')
 
   if (!isLoadoutItemType(loadoutItemType)) {

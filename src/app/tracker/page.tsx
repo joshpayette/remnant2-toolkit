@@ -12,7 +12,7 @@ import { useIsClient } from 'usehooks-ts'
 import PageHeader from '@/app/PageHeader'
 import ItemInfo from '@/components/ItemInfo'
 
-const skippedItemTypes: ItemType[] = ['concoction', 'consumable']
+const skippedItemTypes: ItemType[] = ['concoction', 'consumable', 'skill']
 const relevantItems = remnantItems.filter(
   (item) => skippedItemTypes.includes(item.type) === false,
 )
@@ -59,6 +59,9 @@ export default function TrackerPage() {
       type: item.type,
       name: item.name,
       discovered: item.discovered,
+      description: item.description || '',
+      howToGet: item.howToGet || '',
+      wikiLinks: item.wikiLinks?.join(', ') || '',
     }))
   }, [items])
 

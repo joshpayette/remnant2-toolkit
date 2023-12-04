@@ -4,4 +4,4 @@
 - Need to add Archtype subclasses
 - Finish adding slots to builder
 - Add export of builder to csv
-- check item tracker exporter to make sure it has item description, etc.
+- Add text next to icons on item cards

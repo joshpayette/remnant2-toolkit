@@ -108,26 +108,56 @@ export default function ImageLoadout({ loadout }: ImageLoadoutProps) {
           'grid w-full max-w-md grid-cols-2 gap-1 sm:grid-cols-3 md:max-w-2xl md:grid-cols-4',
         )}
       >
-        {getArrayOfLength(2).map((index) => {
-          const item = loadout.items.archtypes
-            ? loadout.items.archtypes[index]
-            : null
-          return (
-            <ItemCard
-              key={index}
-              item={item}
-              type="archtype"
-              size="sm"
-              actions={
-                <SelectButton
-                  onClick={() =>
-                    setSelectedItemType({ type: 'archtypes', index })
-                  }
-                />
+        <ItemCard
+          key={0}
+          item={loadout.items.archtypes ? loadout.items.archtypes[0] : null}
+          type="archtype"
+          size="sm"
+          actions={
+            <SelectButton
+              onClick={() =>
+                setSelectedItemType({ type: 'archtypes', index: 0 })
               }
             />
-          )
-        })}
+          }
+        />
+        <ItemCard
+          key={0}
+          item={loadout.items.skills ? loadout.items.skills[0] : null}
+          type="skill"
+          size="sm"
+          actions={
+            <SelectButton
+              onClick={() => setSelectedItemType({ type: 'skills', index: 0 })}
+            />
+          }
+        />
+
+        <ItemCard
+          key={1}
+          item={loadout.items.archtypes ? loadout.items.archtypes[1] : null}
+          type="archtype"
+          size="sm"
+          actions={
+            <SelectButton
+              onClick={() =>
+                setSelectedItemType({ type: 'archtypes', index: 1 })
+              }
+            />
+          }
+        />
+        <ItemCard
+          key={1}
+          item={loadout.items.skills ? loadout.items.skills[1] : null}
+          type="skill"
+          size="sm"
+          actions={
+            <SelectButton
+              onClick={() => setSelectedItemType({ type: 'skills', index: 1 })}
+            />
+          }
+        />
+
         <ItemCard
           item={loadout.items.helm}
           type="helm"

@@ -1,6 +1,6 @@
 // Remnant 2 has a lot of different types of items
 // Because a loadout can have multiple of the same item type,
-// we need to split the definitions into two types:
+// we need to split the definitions into two types
 type BaseItemType =
   | 'helm'
   | 'torso'
@@ -22,6 +22,7 @@ export type ItemType =
   | 'mutator'
   | 'relicfragment'
   | 'ring'
+  | 'skill'
   | 'trait'
 
 // The type of a single item slot in a loadout
@@ -34,6 +35,7 @@ export type LoadoutItemType =
   | 'mutators'
   | 'relicfragments'
   | 'rings'
+  | 'skills'
   | 'traits'
 
 // The type of a single item stored in the database
@@ -67,6 +69,7 @@ export interface Loadout {
     offhand: LoadoutItem | null
     melee: LoadoutItem | null
     archtypes: LoadoutItem[] | null
+    skills: LoadoutItem[] | null
     concoctions: LoadoutItem[] | null
     consumables: LoadoutItem[] | null
     mods: LoadoutItem[] | null

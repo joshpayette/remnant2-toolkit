@@ -1,6 +1,6 @@
 'use client'
 
-import { Fragment, useMemo } from 'react'
+import { Fragment } from 'react'
 import { remnantItemTypes, remnantItems } from '@/data/items'
 import { itemTypeToLoadoutItemType } from '@/lib/utils'
 import type { LoadoutItem, Loadout } from '@/types'
@@ -28,6 +28,7 @@ const initialLoadout: Loadout = {
     mods: [],
     mutators: [],
     relicfragments: [],
+    skills: [],
     traits: [],
   },
 }
