@@ -64,7 +64,7 @@ export default function ImageLoadout({ loadout }: ImageLoadoutProps) {
       const itemIds = items.map((i) => i.id).join(',')
       router.push(
         `${pathname}?${createQueryString(
-          items[selectedItemType.index ?? 0].type,
+          items[selectedItemType.index || 0].type,
           itemIds,
         )}`,
       )

@@ -49,7 +49,7 @@ export default function ItemCard({
               size === 'lg' && 'text-md',
             )}
           >
-            {item?.type ? capitalize(item.type) : capitalize(type ?? '')}
+            {item?.type ? capitalize(item.type) : capitalize(type || '')}
           </p>
         </div>
         <div

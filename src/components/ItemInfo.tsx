@@ -37,13 +37,13 @@ export default function ItemInfo({ item, open, onClose }: ItemInfoProps) {
         <div className="col-span-2 flex flex-col items-start justify-start">
           <h4 className="mt-4 text-left text-sm text-gray-500">Description</h4>
           <p className="text-left text-sm text-gray-300">
-            {item.description ?? 'No description available.'}
+            {item.description || 'No description available.'}
           </p>
 
           <div className="flex flex-col items-start justify-start">
             <h4 className="mt-4 text-left text-sm text-gray-500">How to Get</h4>
             <p className="text-left text-sm text-gray-300">
-              {item.howToGet ?? 'No instructions found.'}
+              {item.howToGet || 'No instructions found.'}
             </p>
           </div>
           <div className="flex flex-col items-start justify-start">
@@ -58,7 +58,7 @@ export default function ItemInfo({ item, open, onClose }: ItemInfoProps) {
               >
                 {link}
               </a>
-            )) ?? (
+            )) || (
               <div className="text-left text-sm text-gray-300">
                 No links found.
               </div>
