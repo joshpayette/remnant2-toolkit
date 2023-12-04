@@ -105,12 +105,7 @@ export default function ImageLoadout({ loadout }: ImageLoadoutProps) {
         onClose={() => setSelectedItemType({ type: null })}
       />
 
-      <div
-        id="build-container"
-        className={cn(
-          'grid w-full max-w-md grid-cols-2 gap-1 sm:grid-cols-3 md:max-w-2xl md:grid-cols-4',
-        )}
-      >
+      <div className="grid w-full max-w-md grid-cols-2 gap-1 sm:grid-cols-3 md:max-w-2xl md:grid-cols-4">
         <ItemCard
           key={0}
           item={loadout.items.archtypes ? loadout.items.archtypes[0] : null}
@@ -160,7 +155,8 @@ export default function ImageLoadout({ loadout }: ImageLoadoutProps) {
             />
           }
         />
-
+      </div>
+      <div className="mt-4 grid w-full max-w-md grid-cols-2 gap-1 sm:grid-cols-3 md:max-w-2xl md:grid-cols-4">
         <ItemCard
           item={loadout.items.helm}
           type="helm"
@@ -237,6 +233,8 @@ export default function ImageLoadout({ loadout }: ImageLoadoutProps) {
             />
           )
         })}
+      </div>
+      <div className="mt-4 grid w-full max-w-md grid-cols-2 gap-1 sm:grid-cols-3 md:max-w-2xl md:grid-cols-4">
         <ItemCard
           item={loadout.items.mainhand}
           type="mainhand"
@@ -244,6 +242,96 @@ export default function ImageLoadout({ loadout }: ImageLoadoutProps) {
           actions={
             <SelectButton
               onClick={() => setSelectedItemType({ type: 'mainhand' })}
+            />
+          }
+        />
+        <ItemCard
+          item={loadout.items.mods ? loadout.items.mods[0] : null}
+          type="mod"
+          size="sm"
+          actions={
+            <SelectButton
+              onClick={() => setSelectedItemType({ type: 'mods', index: 0 })}
+            />
+          }
+        />
+        <ItemCard
+          item={loadout.items.mutators ? loadout.items.mutators[0] : null}
+          type="mutator"
+          size="sm"
+          actions={
+            <SelectButton
+              onClick={() =>
+                setSelectedItemType({ type: 'mutators', index: 0 })
+              }
+            />
+          }
+        />
+      </div>
+      <div className="mt-4 grid w-full max-w-md grid-cols-2 gap-1 sm:grid-cols-3 md:max-w-2xl md:grid-cols-4">
+        <ItemCard
+          item={loadout.items.melee}
+          type="melee"
+          size="sm"
+          actions={
+            <SelectButton
+              onClick={() => setSelectedItemType({ type: 'melee' })}
+            />
+          }
+        />
+        <ItemCard
+          item={loadout.items.mods ? loadout.items.mods[1] : null}
+          type="mod"
+          size="sm"
+          actions={
+            <SelectButton
+              onClick={() => setSelectedItemType({ type: 'mods', index: 1 })}
+            />
+          }
+        />
+        <ItemCard
+          item={loadout.items.mutators ? loadout.items.mutators[1] : null}
+          type="mutator"
+          size="sm"
+          actions={
+            <SelectButton
+              onClick={() =>
+                setSelectedItemType({ type: 'mutators', index: 1 })
+              }
+            />
+          }
+        />
+      </div>
+      <div className="mt-4 grid w-full max-w-md grid-cols-2 gap-1 sm:grid-cols-3 md:max-w-2xl md:grid-cols-4">
+        <ItemCard
+          item={loadout.items.offhand}
+          type="offhand"
+          size="sm"
+          actions={
+            <SelectButton
+              onClick={() => setSelectedItemType({ type: 'offhand' })}
+            />
+          }
+        />
+        <ItemCard
+          item={loadout.items.mods ? loadout.items.mods[2] : null}
+          type="mod"
+          size="sm"
+          actions={
+            <SelectButton
+              onClick={() => setSelectedItemType({ type: 'mods', index: 2 })}
+            />
+          }
+        />
+        <ItemCard
+          item={loadout.items.mutators ? loadout.items.mutators[1] : null}
+          type="mutator"
+          size="sm"
+          actions={
+            <SelectButton
+              onClick={() =>
+                setSelectedItemType({ type: 'mutators', index: 2 })
+              }
             />
           }
         />
