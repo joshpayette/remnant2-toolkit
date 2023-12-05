@@ -107,7 +107,7 @@ export default function ImageLoadout({ loadout }: ImageLoadoutProps) {
 
       <div className="grid w-full max-w-md grid-cols-2 gap-1 sm:grid-cols-3 md:max-w-2xl md:grid-cols-4">
         <ItemCard
-          key={0}
+          key="archtype1"
           item={loadout.items.archtypes ? loadout.items.archtypes[0] : null}
           type="archtype"
           size="sm"
@@ -120,7 +120,7 @@ export default function ImageLoadout({ loadout }: ImageLoadoutProps) {
           }
         />
         <ItemCard
-          key={0}
+          key="skill1"
           item={loadout.items.skills ? loadout.items.skills[0] : null}
           type="skill"
           size="sm"
@@ -132,7 +132,7 @@ export default function ImageLoadout({ loadout }: ImageLoadoutProps) {
         />
 
         <ItemCard
-          key={1}
+          key="archtype2"
           item={loadout.items.archtypes ? loadout.items.archtypes[1] : null}
           type="archtype"
           size="sm"
@@ -145,7 +145,7 @@ export default function ImageLoadout({ loadout }: ImageLoadoutProps) {
           }
         />
         <ItemCard
-          key={1}
+          key="skill2"
           item={loadout.items.skills ? loadout.items.skills[1] : null}
           type="skill"
           size="sm"
@@ -221,7 +221,7 @@ export default function ImageLoadout({ loadout }: ImageLoadoutProps) {
           const item = loadout.items.rings ? loadout.items.rings[index] : null
           return (
             <ItemCard
-              key={index}
+              key={`ring${index + 1}`}
               item={item}
               type="ring"
               size="sm"
