@@ -7,6 +7,7 @@ export interface ItemCardProps {
   item: Item | LoadoutItem | null
   type?: ItemType
   size?: 'sm' | 'md' | 'lg'
+  showFooter?: boolean
   variant?: 'default' | 'blue'
 }
 
@@ -15,6 +16,7 @@ export default function ItemCard({
   item,
   type,
   size = 'md',
+  showFooter = true,
   variant = 'default',
 }: ItemCardProps) {
   return (
@@ -75,7 +77,7 @@ export default function ItemCard({
             />
           )}
         </div>
-        {actions && (
+        {actions && showFooter && (
           <div className="flex w-full items-center justify-center bg-[url('https://d2sqltdcj8czo5.cloudfront.net/card-footer-bg-darker.jpg')] p-1">
             {actions}
           </div>

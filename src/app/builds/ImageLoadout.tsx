@@ -6,6 +6,7 @@ import type { Item, Loadout, LoadoutItem, LoadoutItemType } from '@/types'
 import { useCallback, useMemo, useState } from 'react'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import { remnantItems } from '@/data/items'
+import { Switch } from '@headlessui/react'
 
 const ItemSelect = dynamic(() => import('@/app/builds/ItemSelect'), {
   ssr: false,
@@ -29,19 +30,14 @@ interface ImageLoadoutProps {
 }
 
 export default function ImageLoadout({ loadout }: ImageLoadoutProps) {
+  // Hooks for monitoring the URL query string
   const router = useRouter()
   const pathname = usePathname()
   const searchParams = useSearchParams()
 
-  // Tracks information about the slot the user is selecting an item for
-  const [selectedItemType, setSelectedItemType] = useState<{
-    type: LoadoutItemType | null
-    index?: number
-  }>({ type: null })
-  // If the item type is not null, the modal should be open
-  const isItemSelectModalOpen = Boolean(selectedItemType.type)
-
-  // router.push(pathname + '?' + createQueryString('build', buildString))
+  /**
+   * Used to modify the URL query string
+   */
   const createQueryString = useCallback(
     (name: string, value: string) => {
       const params = new URLSearchParams(searchParams)
@@ -51,23 +47,27 @@ export default function ImageLoadout({ loadout }: ImageLoadoutProps) {
     [searchParams],
   )
 
+  /**
+   * Fires when the user changes an item in the loadout.
+   * It will add the item to the URL query string.
+   */
   function handleSelectItem(item: LoadoutItem | null) {
-    if (!item || !selectedItemType.type) return
+    if (!item || !selectedItemSlot.type) return
 
-    if (Array.isArray(loadout.items[selectedItemType.type])) {
-      const items = loadout.items[selectedItemType.type] as LoadoutItem[]
+    if (Array.isArray(loadout.items[selectedItemSlot.type])) {
+      const items = loadout.items[selectedItemSlot.type] as LoadoutItem[]
 
       // If no index is set, just add the item to the array
       // otherwise, insert in the specified slot
-      if (selectedItemType.index === undefined) {
+      if (selectedItemSlot.index === undefined) {
         items.push(item)
       } else {
-        items[selectedItemType.index] = item
+        items[selectedItemSlot.index] = item
       }
       const itemIds = items.map((i) => i.id).join(',')
       router.push(
         `${pathname}?${createQueryString(
-          items[selectedItemType.index || 0].type,
+          items[selectedItemSlot.index || 0].type,
           itemIds,
         )}`,
         { scroll: false },
@@ -77,7 +77,7 @@ export default function ImageLoadout({ loadout }: ImageLoadoutProps) {
         scroll: false,
       })
     }
-    setSelectedItemType({ type: null })
+    setSelectedItemSlot({ type: null })
   }
 
   /**
@@ -90,34 +90,78 @@ export default function ImageLoadout({ loadout }: ImageLoadoutProps) {
     // return items that match the slot
     return (remnantItems as Item[]).filter((item) => item.type === itemType)
   }
+
+  // Tracks information about the slot the user is selecting an item for
+  const [selectedItemSlot, setSelectedItemSlot] = useState<{
+    type: LoadoutItemType | null
+    index?: number
+  }>({ type: null })
+
+  // If the item type is not null, the modal should be open
+  const isItemSelectModalOpen = Boolean(selectedItemSlot.type)
+
+  // Tracks whether the loadout is editable or not
+  const [editable, setEditable] = useState(false)
+
+  // Filters out the item list for the slot the user clicked.
+  // This info is used to populate the item select modal.
   const itemListForSlot = useMemo(
-    () => getItemListForSlot(selectedItemType.type),
-    [selectedItemType],
+    () => getItemListForSlot(selectedItemSlot.type),
+    [selectedItemSlot],
   )
 
   return (
     <div>
-      <h2 className="mb-8 border-b border-b-green-900 pb-2 text-center text-4xl font-bold text-green-400">
+      <h2 className="mb-2 border-b border-b-green-900 pb-2 text-center text-4xl font-bold text-green-400">
         {loadout.name}
       </h2>
       <ItemSelect
         itemList={itemListForSlot}
-        loadoutSlot={selectedItemType.type}
+        loadoutSlot={selectedItemSlot.type}
         open={isItemSelectModalOpen}
         onSelectItem={handleSelectItem}
-        onClose={() => setSelectedItemType({ type: null })}
+        onClose={() => setSelectedItemSlot({ type: null })}
       />
 
       <div className="grid w-full max-w-md grid-cols-2 gap-1 sm:grid-cols-3 md:max-w-2xl md:grid-cols-4">
+        <Switch.Group as="div" className="col-span-full mb-2 flex items-center">
+          <Switch
+            checked={editable}
+            onChange={setEditable}
+            className={cn(
+              editable ? 'bg-green-600' : 'bg-gray-200',
+              'relative inline-flex h-5 w-10 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-offset-2',
+            )}
+          >
+            <span
+              aria-hidden="true"
+              className={cn(
+                editable ? 'translate-x-5' : 'translate-x-0',
+                'pointer-events-none inline-block h-4 w-4 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out',
+              )}
+            />
+          </Switch>
+          <Switch.Label as="span" className="ml-3 text-sm">
+            <span
+              className={cn(
+                'font-medium',
+                editable ? 'text-green-500' : 'text-gray-500',
+              )}
+            >
+              Editable
+            </span>
+          </Switch.Label>
+        </Switch.Group>
         <ItemCard
           key="archtype1"
           item={loadout.items.archtypes ? loadout.items.archtypes[0] : null}
           type="archtype"
           size="sm"
+          showFooter={editable}
           actions={
             <SelectButton
               onClick={() =>
-                setSelectedItemType({ type: 'archtypes', index: 0 })
+                setSelectedItemSlot({ type: 'archtypes', index: 0 })
               }
             />
           }
@@ -127,9 +171,10 @@ export default function ImageLoadout({ loadout }: ImageLoadoutProps) {
           item={loadout.items.skills ? loadout.items.skills[0] : null}
           type="skill"
           size="sm"
+          showFooter={editable}
           actions={
             <SelectButton
-              onClick={() => setSelectedItemType({ type: 'skills', index: 0 })}
+              onClick={() => setSelectedItemSlot({ type: 'skills', index: 0 })}
             />
           }
         />
@@ -139,10 +184,11 @@ export default function ImageLoadout({ loadout }: ImageLoadoutProps) {
           item={loadout.items.archtypes ? loadout.items.archtypes[1] : null}
           type="archtype"
           size="sm"
+          showFooter={editable}
           actions={
             <SelectButton
               onClick={() =>
-                setSelectedItemType({ type: 'archtypes', index: 1 })
+                setSelectedItemSlot({ type: 'archtypes', index: 1 })
               }
             />
           }
@@ -152,21 +198,23 @@ export default function ImageLoadout({ loadout }: ImageLoadoutProps) {
           item={loadout.items.skills ? loadout.items.skills[1] : null}
           type="skill"
           size="sm"
+          showFooter={editable}
           actions={
             <SelectButton
-              onClick={() => setSelectedItemType({ type: 'skills', index: 1 })}
+              onClick={() => setSelectedItemSlot({ type: 'skills', index: 1 })}
             />
           }
         />
       </div>
-      <div className="mt-4 grid w-full max-w-md grid-cols-2 gap-1 sm:grid-cols-3 md:max-w-2xl md:grid-cols-4">
+      <div className="mt-2 grid w-full max-w-md grid-cols-2 gap-1 sm:grid-cols-3 md:max-w-2xl md:grid-cols-4">
         <ItemCard
           item={loadout.items.helm}
           type="helm"
           size="sm"
+          showFooter={editable}
           actions={
             <SelectButton
-              onClick={() => setSelectedItemType({ type: 'helm' })}
+              onClick={() => setSelectedItemSlot({ type: 'helm' })}
             />
           }
         />
@@ -174,9 +222,10 @@ export default function ImageLoadout({ loadout }: ImageLoadoutProps) {
           item={loadout.items.torso}
           type="torso"
           size="sm"
+          showFooter={editable}
           actions={
             <SelectButton
-              onClick={() => setSelectedItemType({ type: 'torso' })}
+              onClick={() => setSelectedItemSlot({ type: 'torso' })}
             />
           }
         />
@@ -184,9 +233,10 @@ export default function ImageLoadout({ loadout }: ImageLoadoutProps) {
           item={loadout.items.legs}
           type="legs"
           size="sm"
+          showFooter={editable}
           actions={
             <SelectButton
-              onClick={() => setSelectedItemType({ type: 'legs' })}
+              onClick={() => setSelectedItemSlot({ type: 'legs' })}
             />
           }
         />
@@ -194,9 +244,10 @@ export default function ImageLoadout({ loadout }: ImageLoadoutProps) {
           item={loadout.items.gloves}
           type="gloves"
           size="sm"
+          showFooter={editable}
           actions={
             <SelectButton
-              onClick={() => setSelectedItemType({ type: 'gloves' })}
+              onClick={() => setSelectedItemSlot({ type: 'gloves' })}
             />
           }
         />
@@ -204,9 +255,10 @@ export default function ImageLoadout({ loadout }: ImageLoadoutProps) {
           item={loadout.items.relic}
           type="relic"
           size="sm"
+          showFooter={editable}
           actions={
             <SelectButton
-              onClick={() => setSelectedItemType({ type: 'relic' })}
+              onClick={() => setSelectedItemSlot({ type: 'relic' })}
             />
           }
         />
@@ -214,9 +266,10 @@ export default function ImageLoadout({ loadout }: ImageLoadoutProps) {
           item={loadout.items.amulet}
           type="amulet"
           size="sm"
+          showFooter={editable}
           actions={
             <SelectButton
-              onClick={() => setSelectedItemType({ type: 'amulet' })}
+              onClick={() => setSelectedItemSlot({ type: 'amulet' })}
             />
           }
         />
@@ -228,23 +281,25 @@ export default function ImageLoadout({ loadout }: ImageLoadoutProps) {
               item={item}
               type="ring"
               size="sm"
+              showFooter={editable}
               actions={
                 <SelectButton
-                  onClick={() => setSelectedItemType({ type: 'rings', index })}
+                  onClick={() => setSelectedItemSlot({ type: 'rings', index })}
                 />
               }
             />
           )
         })}
       </div>
-      <div className="mt-4 grid w-full max-w-md grid-cols-2 gap-1 sm:grid-cols-3 md:max-w-2xl md:grid-cols-4">
+      <div className="mt-2 grid w-full max-w-md grid-cols-2 gap-1 sm:grid-cols-3 md:max-w-2xl md:grid-cols-4">
         <ItemCard
           item={loadout.items.mainhand}
           type="mainhand"
           size="sm"
+          showFooter={editable}
           actions={
             <SelectButton
-              onClick={() => setSelectedItemType({ type: 'mainhand' })}
+              onClick={() => setSelectedItemSlot({ type: 'mainhand' })}
             />
           }
         />
@@ -252,9 +307,10 @@ export default function ImageLoadout({ loadout }: ImageLoadoutProps) {
           item={loadout.items.mods ? loadout.items.mods[0] : null}
           type="mod"
           size="sm"
+          showFooter={editable}
           actions={
             <SelectButton
-              onClick={() => setSelectedItemType({ type: 'mods', index: 0 })}
+              onClick={() => setSelectedItemSlot({ type: 'mods', index: 0 })}
             />
           }
         />
@@ -262,23 +318,25 @@ export default function ImageLoadout({ loadout }: ImageLoadoutProps) {
           item={loadout.items.mutators ? loadout.items.mutators[0] : null}
           type="mutator"
           size="sm"
+          showFooter={editable}
           actions={
             <SelectButton
               onClick={() =>
-                setSelectedItemType({ type: 'mutators', index: 0 })
+                setSelectedItemSlot({ type: 'mutators', index: 0 })
               }
             />
           }
         />
       </div>
-      <div className="mt-4 grid w-full max-w-md grid-cols-2 gap-1 sm:grid-cols-3 md:max-w-2xl md:grid-cols-4">
+      <div className="mt-2 grid w-full max-w-md grid-cols-2 gap-1 sm:grid-cols-3 md:max-w-2xl md:grid-cols-4">
         <ItemCard
           item={loadout.items.melee}
           type="melee"
           size="sm"
+          showFooter={editable}
           actions={
             <SelectButton
-              onClick={() => setSelectedItemType({ type: 'melee' })}
+              onClick={() => setSelectedItemSlot({ type: 'melee' })}
             />
           }
         />
@@ -286,9 +344,10 @@ export default function ImageLoadout({ loadout }: ImageLoadoutProps) {
           item={loadout.items.mods ? loadout.items.mods[1] : null}
           type="mod"
           size="sm"
+          showFooter={editable}
           actions={
             <SelectButton
-              onClick={() => setSelectedItemType({ type: 'mods', index: 1 })}
+              onClick={() => setSelectedItemSlot({ type: 'mods', index: 1 })}
             />
           }
         />
@@ -296,23 +355,25 @@ export default function ImageLoadout({ loadout }: ImageLoadoutProps) {
           item={loadout.items.mutators ? loadout.items.mutators[1] : null}
           type="mutator"
           size="sm"
+          showFooter={editable}
           actions={
             <SelectButton
               onClick={() =>
-                setSelectedItemType({ type: 'mutators', index: 1 })
+                setSelectedItemSlot({ type: 'mutators', index: 1 })
               }
             />
           }
         />
       </div>
-      <div className="mt-4 grid w-full max-w-md grid-cols-2 gap-1 sm:grid-cols-3 md:max-w-2xl md:grid-cols-4">
+      <div className="mt-2 grid w-full max-w-md grid-cols-2 gap-1 sm:grid-cols-3 md:max-w-2xl md:grid-cols-4">
         <ItemCard
           item={loadout.items.offhand}
           type="offhand"
           size="sm"
+          showFooter={editable}
           actions={
             <SelectButton
-              onClick={() => setSelectedItemType({ type: 'offhand' })}
+              onClick={() => setSelectedItemSlot({ type: 'offhand' })}
             />
           }
         />
@@ -320,9 +381,10 @@ export default function ImageLoadout({ loadout }: ImageLoadoutProps) {
           item={loadout.items.mods ? loadout.items.mods[2] : null}
           type="mod"
           size="sm"
+          showFooter={editable}
           actions={
             <SelectButton
-              onClick={() => setSelectedItemType({ type: 'mods', index: 2 })}
+              onClick={() => setSelectedItemSlot({ type: 'mods', index: 2 })}
             />
           }
         />
@@ -330,10 +392,11 @@ export default function ImageLoadout({ loadout }: ImageLoadoutProps) {
           item={loadout.items.mutators ? loadout.items.mutators[2] : null}
           type="mutator"
           size="sm"
+          showFooter={editable}
           actions={
             <SelectButton
               onClick={() =>
-                setSelectedItemType({ type: 'mutators', index: 2 })
+                setSelectedItemSlot({ type: 'mutators', index: 2 })
               }
             />
           }
