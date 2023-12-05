@@ -64,13 +64,12 @@ export default function ImageLoadout({ loadout }: ImageLoadoutProps) {
         )}`,
         { scroll: false },
       )
-    } else if (loadoutItemOrItems) {
-      const loadoutItem = loadoutItemOrItems
-      if (loadoutItem.id === item.id) return
-      router.push(`${pathname}?${createQueryString(item.type, item.id)}`, {
-        scroll: false,
-      })
     } else {
+      if (loadoutItemOrItems) {
+        const loadoutItem = loadoutItemOrItems
+        if (loadoutItem.id === item.id) return
+      }
+
       router.push(`${pathname}?${createQueryString(item.type, item.id)}`, {
         scroll: false,
       })
