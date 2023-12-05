@@ -61,7 +61,7 @@ export default function Dialog({
               leaveFrom="opacity-100 translate-y-0 sm:scale-100"
               leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
             >
-              <BaseDialog.Panel className="relative w-full transform overflow-hidden border-2 border-green-500 bg-black px-4 pb-4 pt-4 text-left shadow-xl transition-all sm:my-8 sm:p-6">
+              <BaseDialog.Panel className="relative h-full max-h-[600px] w-full transform overflow-y-scroll border-2 border-green-500 bg-black px-4 pb-4 pt-4 text-left shadow-xl transition-all sm:my-8 sm:p-6">
                 <button
                   className="absolute right-0 top-0 p-2 text-white hover:text-green-500"
                   onClick={onClose}
