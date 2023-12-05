@@ -36,6 +36,10 @@ const initialLoadout: Loadout = {
 function getLoadoutFromQueryString(searchParams: URLSearchParams): Loadout {
   const loadout: Loadout = initialLoadout
 
+  // Loadout name
+  const name = searchParams.get('name')
+  loadout.name = name ?? loadout.name
+
   remnantItemTypes.forEach((itemType) => {
     const loadoutItemType = itemTypeToLoadoutItemType(itemType)
     const itemIds = searchParams.get(loadoutItemType)?.split(',')
