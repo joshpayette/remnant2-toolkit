@@ -79,7 +79,7 @@ export default function BuildHomePage() {
           </p>
         </div>
       </PageHeader>
-      <div className="w-full max-w-md rounded border-2 border-green-500 bg-black p-4 md:max-w-2xl">
+      <div className="w-full max-w-xl rounded border-2 border-green-500 bg-black p-4">
         <ImageLoadout loadout={loadout} />
         <TextLoadout loadout={loadout} />
       </div>

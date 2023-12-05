@@ -3,7 +3,7 @@ import ItemCard from '@/components/ItemCard'
 import dynamic from 'next/dynamic'
 import { PencilSquareIcon } from '@heroicons/react/24/outline'
 import type { Item, Loadout, LoadoutItem, LoadoutItemType } from '@/types'
-import { useCallback, useMemo, useState } from 'react'
+import { Fragment, useCallback, useMemo, useState } from 'react'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import { remnantItems } from '@/data/items'
 import { Switch } from '@headlessui/react'
@@ -21,6 +21,14 @@ function SelectButton({ onClick }: { onClick: () => void }) {
       >
         <PencilSquareIcon className="h-4 w-4" />
       </button>
+    </div>
+  )
+}
+
+function CardRow({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="mt-2 grid w-full grid-cols-2 gap-1 sm:grid-cols-3 md:grid-cols-4">
+      {children}
     </div>
   )
 }
@@ -111,20 +119,15 @@ export default function ImageLoadout({ loadout }: ImageLoadoutProps) {
   )
 
   return (
-    <div>
-      <h2 className="mb-2 border-b border-b-green-900 pb-2 text-center text-4xl font-bold text-green-400">
-        {loadout.name}
-      </h2>
-      <ItemSelect
-        itemList={itemListForSlot}
-        loadoutSlot={selectedItemSlot.type}
-        open={isItemSelectModalOpen}
-        onSelectItem={handleSelectItem}
-        onClose={() => setSelectedItemSlot({ type: null })}
-      />
-
-      <div className="grid w-full max-w-md grid-cols-2 gap-1 sm:grid-cols-3 md:max-w-2xl md:grid-cols-4">
-        <Switch.Group as="div" className="col-span-full mb-2 flex items-center">
+    <Fragment>
+      <div className="relative">
+        <h2 className="mb-2 border-b border-b-green-900 pb-2 text-center text-4xl font-bold text-green-400">
+          {loadout.name}
+        </h2>
+        <Switch.Group
+          as="div"
+          className="absolute right-0 top-0 col-span-full mb-2 flex items-center"
+        >
           <Switch
             checked={editable}
             onChange={setEditable}
@@ -152,6 +155,16 @@ export default function ImageLoadout({ loadout }: ImageLoadoutProps) {
             </span>
           </Switch.Label>
         </Switch.Group>
+      </div>
+      <ItemSelect
+        itemList={itemListForSlot}
+        loadoutSlot={selectedItemSlot.type}
+        open={isItemSelectModalOpen}
+        onSelectItem={handleSelectItem}
+        onClose={() => setSelectedItemSlot({ type: null })}
+      />
+
+      <CardRow>
         <ItemCard
           key="archtype1"
           item={loadout.items.archtypes ? loadout.items.archtypes[0] : null}
@@ -205,8 +218,9 @@ export default function ImageLoadout({ loadout }: ImageLoadoutProps) {
             />
           }
         />
-      </div>
-      <div className="mt-2 grid w-full max-w-md grid-cols-2 gap-1 sm:grid-cols-3 md:max-w-2xl md:grid-cols-4">
+      </CardRow>
+
+      <CardRow>
         <ItemCard
           item={loadout.items.helm}
           type="helm"
@@ -290,8 +304,9 @@ export default function ImageLoadout({ loadout }: ImageLoadoutProps) {
             />
           )
         })}
-      </div>
-      <div className="mt-2 grid w-full max-w-md grid-cols-2 gap-1 sm:grid-cols-3 md:max-w-2xl md:grid-cols-4">
+      </CardRow>
+
+      <CardRow>
         <ItemCard
           item={loadout.items.mainhand}
           type="mainhand"
@@ -327,8 +342,9 @@ export default function ImageLoadout({ loadout }: ImageLoadoutProps) {
             />
           }
         />
-      </div>
-      <div className="mt-2 grid w-full max-w-md grid-cols-2 gap-1 sm:grid-cols-3 md:max-w-2xl md:grid-cols-4">
+      </CardRow>
+
+      <CardRow>
         <ItemCard
           item={loadout.items.melee}
           type="melee"
@@ -364,8 +380,9 @@ export default function ImageLoadout({ loadout }: ImageLoadoutProps) {
             />
           }
         />
-      </div>
-      <div className="mt-2 grid w-full max-w-md grid-cols-2 gap-1 sm:grid-cols-3 md:max-w-2xl md:grid-cols-4">
+      </CardRow>
+
+      <CardRow>
         <ItemCard
           item={loadout.items.offhand}
           type="offhand"
@@ -401,7 +418,7 @@ export default function ImageLoadout({ loadout }: ImageLoadoutProps) {
             />
           }
         />
-      </div>
-    </div>
+      </CardRow>
+    </Fragment>
   )
 }

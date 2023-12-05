@@ -29,8 +29,8 @@ export default function ItemCard({
         <div
           className={cn(
             "w-full bg-[url('https://d2sqltdcj8czo5.cloudfront.net/card-title-bg.jpg')] p-2 text-center",
-            size === 'sm' && 'h-[48px]',
-            size === 'md' && 'h-[80px]',
+            size === 'sm' && 'h-[42px]',
+            size === 'md' && 'h-[64px]',
             size === 'lg' && 'h-[80px]',
           )}
         >
@@ -47,7 +47,7 @@ export default function ItemCard({
           <p
             className={cn(
               'text-[#ff9900]',
-              size === 'sm' && 'text-xs',
+              size === 'sm' && 'text-[10px]',
               size === 'md' && 'text-sm',
               size === 'lg' && 'text-md',
             )}
@@ -61,9 +61,9 @@ export default function ItemCard({
             variant === 'default'
               ? "bg-[url('https://d2sqltdcj8czo5.cloudfront.net/card-body-bg.jpg')]"
               : "bg-[url('https://d2sqltdcj8czo5.cloudfront.net/card-body-bg-blue.jpg')]",
-            size === 'sm' && 'h-[64px]',
-            size === 'md' && 'h-[128px]',
-            size === 'lg' && 'h-[164px]',
+            size === 'sm' && 'h-[36px]',
+            size === 'md' && 'h-[96px]',
+            size === 'lg' && 'h-[128px]',
           )}
         >
           {item && (

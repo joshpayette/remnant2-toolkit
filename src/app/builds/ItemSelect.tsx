@@ -50,7 +50,7 @@ export default function ItemSelect({
                   ...item,
                   type: itemType,
                 }}
-                size="sm"
+                size="md"
                 actions={
                   <div className="flex w-full items-center justify-end">
                     <button
