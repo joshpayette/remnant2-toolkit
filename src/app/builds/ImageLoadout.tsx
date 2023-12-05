@@ -1,7 +1,6 @@
-import { cn, getArrayOfLength, loadoutItemTypeToItemType } from '@/lib/utils'
+import { getArrayOfLength, loadoutItemTypeToItemType } from '@/lib/utils'
 import ItemCard from '@/components/ItemCard'
 import dynamic from 'next/dynamic'
-import { PencilSquareIcon } from '@heroicons/react/24/outline'
 import type { Item, Loadout, LoadoutItem, LoadoutItemType } from '@/types'
 import { Fragment, useCallback, useMemo, useState } from 'react'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
@@ -10,19 +9,6 @@ import { remnantItems } from '@/data/items'
 const ItemSelect = dynamic(() => import('@/app/builds/ItemSelect'), {
   ssr: false,
 })
-
-function SelectButton({ onClick }: { onClick: () => void }) {
-  return (
-    <div className="flex w-full items-center justify-end">
-      <button
-        className="flex items-center rounded border border-black bg-gray-950 px-1 py-0.5 text-xs text-white hover:bg-purple-800"
-        onClick={onClick}
-      >
-        <PencilSquareIcon className="h-4 w-4" />
-      </button>
-    </div>
-  )
-}
 
 interface ImageLoadoutProps {
   loadout: Loadout
@@ -56,7 +42,7 @@ export default function ImageLoadout({ loadout }: ImageLoadoutProps) {
     const loadoutItemOrItems = loadout.items[selectedItemSlot.type]
 
     if (Array.isArray(loadoutItemOrItems)) {
-      const loadoutItems = loadoutItemOrItems as LoadoutItem[]
+      const loadoutItems = loadoutItemOrItems
 
       // If no index is set, just add the item to the array
       // otherwise, insert in the specified slot
@@ -78,9 +64,13 @@ export default function ImageLoadout({ loadout }: ImageLoadoutProps) {
         )}`,
         { scroll: false },
       )
-    } else {
-      const loadoutItem = loadoutItemOrItems as LoadoutItem
+    } else if (loadoutItemOrItems) {
+      const loadoutItem = loadoutItemOrItems
       if (loadoutItem.id === item.id) return
+      router.push(`${pathname}?${createQueryString(item.type, item.id)}`, {
+        scroll: false,
+      })
+    } else {
       router.push(`${pathname}?${createQueryString(item.type, item.id)}`, {
         scroll: false,
       })

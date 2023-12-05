@@ -4,7 +4,6 @@ import { cn, loadoutItemTypeToItemType } from '@/lib/utils'
 import type { Item, LoadoutItemType, LoadoutItem } from '@/types'
 import ItemCard from '../../components/ItemCard'
 import Dialog from '@/components/Dialog'
-import { CheckCircleIcon } from '@heroicons/react/24/outline'
 
 interface ItemSelectProps {
   itemList: Item[]
