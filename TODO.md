@@ -1,6 +1,5 @@
 # TODO
 
-- Need to get mods and mutators into text loadout
 - Finish adding slots to builder
 - Add export of builder to csv
 - Make loadout name editable

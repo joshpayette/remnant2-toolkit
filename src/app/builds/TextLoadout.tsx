@@ -10,35 +10,53 @@ interface ItemSectionProps {
 function ItemSection({ loadout, type }: ItemSectionProps) {
   const itemOrItems = loadout.items[type]
 
+  function getItemLabel(): string[] {
+    if (Array.isArray(itemOrItems)) {
+      const labels = itemOrItems?.map((item, index) => {
+        if (!item) return ''
+
+        const { name } = item
+
+        if (type === 'archtypes') {
+          const skill = loadout.items.skills
+            ? loadout.items.skills[index]
+            : null
+          return `${name}, ${skill?.name ?? ''}`
+        }
+
+        return name
+      })
+      return labels
+    }
+
+    if (
+      itemOrItems?.type === 'mainhand' ||
+      itemOrItems?.type === 'offhand' ||
+      itemOrItems?.type === 'melee'
+    ) {
+      let mIndex = 0
+      if (type === 'mainhand') mIndex = 0
+      if (type === 'offhand') mIndex = 1
+      if (type === 'melee') mIndex = 2
+
+      return [
+        `${itemOrItems?.name}, ${
+          loadout.items.mods ? loadout.items.mods[0]?.name : ''
+        }, ${loadout.items.mutators ? loadout.items.mutators[0]?.name : ''}`,
+      ]
+    }
+
+    return [itemOrItems?.name ?? '']
+  }
+
   return (
     <Fragment>
       <div className="mb-2 grid w-full grid-cols-2 gap-2 text-left">
         <h4 className="text-xs font-bold text-green-400">{capitalize(type)}</h4>
         <ul className="text-xs text-gray-400">
-          {Array.isArray(itemOrItems)
-            ? itemOrItems?.map((item, index) => {
-                if (!item) return null
-
-                const { name } = item
-
-                if (type === 'archtypes') {
-                  const skill = loadout.items.skills
-                    ? loadout.items.skills[index]
-                    : null
-                  return (
-                    <li className="mb-1 list-none" key={name}>
-                      {name}, {skill?.name ?? ''}
-                    </li>
-                  )
-                }
-
-                return (
-                  <li className="mb-1 list-none" key={name}>
-                    {name}
-                  </li>
-                )
-              })
-            : itemOrItems?.name || ''}
+          {getItemLabel().map((label) => (
+            <li key={label}>{label}</li>
+          ))}
         </ul>
       </div>
       <div className="mb-2 w-full border-b border-gray-800" />

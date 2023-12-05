@@ -53,25 +53,34 @@ export default function ImageLoadout({ loadout }: ImageLoadoutProps) {
   function handleSelectItem(item: LoadoutItem | null) {
     if (!item || !selectedItemSlot.type) return
 
-    if (Array.isArray(loadout.items[selectedItemSlot.type])) {
-      const items = loadout.items[selectedItemSlot.type] as LoadoutItem[]
+    const loadoutItemOrItems = loadout.items[selectedItemSlot.type]
+
+    if (Array.isArray(loadoutItemOrItems)) {
+      const loadoutItems = loadoutItemOrItems as LoadoutItem[]
 
       // If no index is set, just add the item to the array
       // otherwise, insert in the specified slot
       if (selectedItemSlot.index === undefined) {
-        items.push(item)
+        // If the item is already in the loadout, don't add it again
+        if (!loadoutItems.find((i) => i.id === item.id)) {
+          loadoutItems.push(item)
+        }
       } else {
-        items[selectedItemSlot.index] = item
+        if (!loadoutItems.find((i) => i.id === item.id)) {
+          loadoutItems[selectedItemSlot.index] = item
+        }
       }
-      const itemIds = items.map((i) => i.id).join(',')
+      const itemIds = loadoutItems.map((i) => i.id).join(',')
       router.push(
         `${pathname}?${createQueryString(
-          items[selectedItemSlot.index || 0].type,
+          loadoutItems[selectedItemSlot.index || 0].type,
           itemIds,
         )}`,
         { scroll: false },
       )
     } else {
+      const loadoutItem = loadoutItemOrItems as LoadoutItem
+      if (loadoutItem.id === item.id) return
       router.push(`${pathname}?${createQueryString(item.type, item.id)}`, {
         scroll: false,
       })
