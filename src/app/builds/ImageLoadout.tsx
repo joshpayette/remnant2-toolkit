@@ -324,7 +324,7 @@ export default function ImageLoadout({ loadout }: ImageLoadoutProps) {
           }
         />
         <ItemCard
-          item={loadout.items.mutators ? loadout.items.mutators[1] : null}
+          item={loadout.items.mutators ? loadout.items.mutators[2] : null}
           type="mutator"
           size="sm"
           actions={
