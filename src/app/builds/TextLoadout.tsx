@@ -1,5 +1,5 @@
 import { capitalize } from '@/lib/utils'
-import type { Loadout, LoadoutItem, LoadoutItemType } from '@/types'
+import type { Loadout, LoadoutItemType } from '@/types'
 import { Fragment } from 'react'
 
 interface ItemSectionProps {
@@ -52,8 +52,8 @@ interface TextLoadoutProps {
 
 export default function TextLoadout({ loadout }: TextLoadoutProps) {
   return (
-    <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
-      <h3 className="col-span-2 mb-2 mt-8 border-b border-b-green-900 pb-2 text-left text-2xl font-bold text-green-400">
+    <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3">
+      <h3 className="col-span-full mb-2 mt-8 border-b border-b-green-900 pb-2 text-left text-2xl font-bold text-green-400">
         {loadout.name}
       </h3>
       <div className="flex w-full flex-col items-start justify-start">
@@ -67,6 +67,11 @@ export default function TextLoadout({ loadout }: TextLoadoutProps) {
       <div className="text-left">
         <ItemSection loadout={loadout} type="amulet" />
         <ItemSection loadout={loadout} type="rings" />
+      </div>
+      <div className="text-left">
+        <ItemSection loadout={loadout} type="mainhand" />
+        <ItemSection loadout={loadout} type="offhand" />
+        <ItemSection loadout={loadout} type="melee" />
       </div>
     </div>
   )

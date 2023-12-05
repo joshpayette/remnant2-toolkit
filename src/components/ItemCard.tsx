@@ -61,7 +61,7 @@ export default function ItemCard({
             variant === 'default'
               ? "bg-[url('https://d2sqltdcj8czo5.cloudfront.net/card-body-bg.jpg')]"
               : "bg-[url('https://d2sqltdcj8czo5.cloudfront.net/card-body-bg-blue.jpg')]",
-            size === 'sm' && 'h-[36px]',
+            size === 'sm' && 'h-[64px]',
             size === 'md' && 'h-[96px]',
             size === 'lg' && 'h-[128px]',
           )}

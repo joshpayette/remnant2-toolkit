@@ -109,7 +109,7 @@ export default function ImageLoadout({ loadout }: ImageLoadoutProps) {
   const isItemSelectModalOpen = Boolean(selectedItemSlot.type)
 
   // Tracks whether the loadout is editable or not
-  const [editable, setEditable] = useState(false)
+  const [editable, setEditable] = useState(true)
 
   // Filters out the item list for the slot the user clicked.
   // This info is used to populate the item select modal.
@@ -164,261 +164,288 @@ export default function ImageLoadout({ loadout }: ImageLoadoutProps) {
         onClose={() => setSelectedItemSlot({ type: null })}
       />
 
-      <CardRow>
-        <ItemCard
-          key="archtype1"
-          item={loadout.items.archtypes ? loadout.items.archtypes[0] : null}
-          type="archtype"
-          size="sm"
-          showFooter={editable}
-          actions={
-            <SelectButton
-              onClick={() =>
-                setSelectedItemSlot({ type: 'archtypes', index: 0 })
-              }
-            />
-          }
-        />
-        <ItemCard
-          key="skill1"
-          item={loadout.items.skills ? loadout.items.skills[0] : null}
-          type="skill"
-          size="sm"
-          showFooter={editable}
-          actions={
-            <SelectButton
-              onClick={() => setSelectedItemSlot({ type: 'skills', index: 0 })}
-            />
-          }
-        />
+      <div
+        id="container"
+        className="relative mb-12 grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-3"
+      >
+        <div
+          id="archtypes"
+          className="col-span-full grid grid-cols-2 sm:col-span-1"
+        >
+          <ItemCard
+            key="archtype1"
+            item={loadout.items.archtypes ? loadout.items.archtypes[0] : null}
+            type="archtype"
+            size="sm"
+            showFooter={editable}
+            actions={
+              <SelectButton
+                onClick={() =>
+                  setSelectedItemSlot({ type: 'archtypes', index: 0 })
+                }
+              />
+            }
+          />
+          <ItemCard
+            key="skill1"
+            item={loadout.items.skills ? loadout.items.skills[0] : null}
+            type="skill"
+            size="sm"
+            showFooter={editable}
+            actions={
+              <SelectButton
+                onClick={() =>
+                  setSelectedItemSlot({ type: 'skills', index: 0 })
+                }
+              />
+            }
+          />
 
-        <ItemCard
-          key="archtype2"
-          item={loadout.items.archtypes ? loadout.items.archtypes[1] : null}
-          type="archtype"
-          size="sm"
-          showFooter={editable}
-          actions={
-            <SelectButton
-              onClick={() =>
-                setSelectedItemSlot({ type: 'archtypes', index: 1 })
-              }
-            />
-          }
-        />
-        <ItemCard
-          key="skill2"
-          item={loadout.items.skills ? loadout.items.skills[1] : null}
-          type="skill"
-          size="sm"
-          showFooter={editable}
-          actions={
-            <SelectButton
-              onClick={() => setSelectedItemSlot({ type: 'skills', index: 1 })}
-            />
-          }
-        />
-      </CardRow>
-
-      <CardRow>
-        <ItemCard
-          item={loadout.items.helm}
-          type="helm"
-          size="sm"
-          showFooter={editable}
-          actions={
-            <SelectButton
-              onClick={() => setSelectedItemSlot({ type: 'helm' })}
-            />
-          }
-        />
-        <ItemCard
-          item={loadout.items.torso}
-          type="torso"
-          size="sm"
-          showFooter={editable}
-          actions={
-            <SelectButton
-              onClick={() => setSelectedItemSlot({ type: 'torso' })}
-            />
-          }
-        />
-        <ItemCard
-          item={loadout.items.legs}
-          type="legs"
-          size="sm"
-          showFooter={editable}
-          actions={
-            <SelectButton
-              onClick={() => setSelectedItemSlot({ type: 'legs' })}
-            />
-          }
-        />
-        <ItemCard
-          item={loadout.items.gloves}
-          type="gloves"
-          size="sm"
-          showFooter={editable}
-          actions={
-            <SelectButton
-              onClick={() => setSelectedItemSlot({ type: 'gloves' })}
-            />
-          }
-        />
-        <ItemCard
-          item={loadout.items.relic}
-          type="relic"
-          size="sm"
-          showFooter={editable}
-          actions={
-            <SelectButton
-              onClick={() => setSelectedItemSlot({ type: 'relic' })}
-            />
-          }
-        />
-        <ItemCard
-          item={loadout.items.amulet}
-          type="amulet"
-          size="sm"
-          showFooter={editable}
-          actions={
-            <SelectButton
-              onClick={() => setSelectedItemSlot({ type: 'amulet' })}
-            />
-          }
-        />
-        {getArrayOfLength(4).map((index) => {
-          const item = loadout.items.rings ? loadout.items.rings[index] : null
-          return (
-            <ItemCard
-              key={`ring${index + 1}`}
-              item={item}
-              type="ring"
-              size="sm"
-              showFooter={editable}
-              actions={
-                <SelectButton
-                  onClick={() => setSelectedItemSlot({ type: 'rings', index })}
-                />
-              }
-            />
-          )
-        })}
-      </CardRow>
-
-      <CardRow>
-        <ItemCard
-          item={loadout.items.mainhand}
-          type="mainhand"
-          size="sm"
-          showFooter={editable}
-          actions={
-            <SelectButton
-              onClick={() => setSelectedItemSlot({ type: 'mainhand' })}
-            />
-          }
-        />
-        <ItemCard
-          item={loadout.items.mods ? loadout.items.mods[0] : null}
-          type="mod"
-          size="sm"
-          showFooter={editable}
-          actions={
-            <SelectButton
-              onClick={() => setSelectedItemSlot({ type: 'mods', index: 0 })}
-            />
-          }
-        />
-        <ItemCard
-          item={loadout.items.mutators ? loadout.items.mutators[0] : null}
-          type="mutator"
-          size="sm"
-          showFooter={editable}
-          actions={
-            <SelectButton
-              onClick={() =>
-                setSelectedItemSlot({ type: 'mutators', index: 0 })
-              }
-            />
-          }
-        />
-      </CardRow>
-
-      <CardRow>
-        <ItemCard
-          item={loadout.items.melee}
-          type="melee"
-          size="sm"
-          showFooter={editable}
-          actions={
-            <SelectButton
-              onClick={() => setSelectedItemSlot({ type: 'melee' })}
-            />
-          }
-        />
-        <ItemCard
-          item={loadout.items.mods ? loadout.items.mods[1] : null}
-          type="mod"
-          size="sm"
-          showFooter={editable}
-          actions={
-            <SelectButton
-              onClick={() => setSelectedItemSlot({ type: 'mods', index: 1 })}
-            />
-          }
-        />
-        <ItemCard
-          item={loadout.items.mutators ? loadout.items.mutators[1] : null}
-          type="mutator"
-          size="sm"
-          showFooter={editable}
-          actions={
-            <SelectButton
-              onClick={() =>
-                setSelectedItemSlot({ type: 'mutators', index: 1 })
-              }
-            />
-          }
-        />
-      </CardRow>
-
-      <CardRow>
-        <ItemCard
-          item={loadout.items.offhand}
-          type="offhand"
-          size="sm"
-          showFooter={editable}
-          actions={
-            <SelectButton
-              onClick={() => setSelectedItemSlot({ type: 'offhand' })}
-            />
-          }
-        />
-        <ItemCard
-          item={loadout.items.mods ? loadout.items.mods[2] : null}
-          type="mod"
-          size="sm"
-          showFooter={editable}
-          actions={
-            <SelectButton
-              onClick={() => setSelectedItemSlot({ type: 'mods', index: 2 })}
-            />
-          }
-        />
-        <ItemCard
-          item={loadout.items.mutators ? loadout.items.mutators[2] : null}
-          type="mutator"
-          size="sm"
-          showFooter={editable}
-          actions={
-            <SelectButton
-              onClick={() =>
-                setSelectedItemSlot({ type: 'mutators', index: 2 })
-              }
-            />
-          }
-        />
-      </CardRow>
+          <ItemCard
+            key="archtype2"
+            item={loadout.items.archtypes ? loadout.items.archtypes[1] : null}
+            type="archtype"
+            size="sm"
+            showFooter={editable}
+            actions={
+              <SelectButton
+                onClick={() =>
+                  setSelectedItemSlot({ type: 'archtypes', index: 1 })
+                }
+              />
+            }
+          />
+          <ItemCard
+            key="skill2"
+            item={loadout.items.skills ? loadout.items.skills[1] : null}
+            type="skill"
+            size="sm"
+            showFooter={editable}
+            actions={
+              <SelectButton
+                onClick={() =>
+                  setSelectedItemSlot({ type: 'skills', index: 1 })
+                }
+              />
+            }
+          />
+        </div>
+        <div
+          id="armor"
+          className="col-span-full grid grid-cols-2 sm:col-span-1"
+        >
+          <ItemCard
+            item={loadout.items.helm}
+            type="helm"
+            size="sm"
+            showFooter={editable}
+            actions={
+              <SelectButton
+                onClick={() => setSelectedItemSlot({ type: 'helm' })}
+              />
+            }
+          />
+          <ItemCard
+            item={loadout.items.torso}
+            type="torso"
+            size="sm"
+            showFooter={editable}
+            actions={
+              <SelectButton
+                onClick={() => setSelectedItemSlot({ type: 'torso' })}
+              />
+            }
+          />
+          <ItemCard
+            item={loadout.items.legs}
+            type="legs"
+            size="sm"
+            showFooter={editable}
+            actions={
+              <SelectButton
+                onClick={() => setSelectedItemSlot({ type: 'legs' })}
+              />
+            }
+          />
+          <ItemCard
+            item={loadout.items.gloves}
+            type="gloves"
+            size="sm"
+            showFooter={editable}
+            actions={
+              <SelectButton
+                onClick={() => setSelectedItemSlot({ type: 'gloves' })}
+              />
+            }
+          />
+        </div>
+        <div
+          id="jewelry"
+          className="col-span-full grid grid-cols-2 sm:grid-cols-3 md:col-span-1"
+        >
+          <ItemCard
+            item={loadout.items.relic}
+            type="relic"
+            size="sm"
+            showFooter={editable}
+            actions={
+              <SelectButton
+                onClick={() => setSelectedItemSlot({ type: 'relic' })}
+              />
+            }
+          />
+          <ItemCard
+            item={loadout.items.amulet}
+            type="amulet"
+            size="sm"
+            showFooter={editable}
+            actions={
+              <SelectButton
+                onClick={() => setSelectedItemSlot({ type: 'amulet' })}
+              />
+            }
+          />
+          {getArrayOfLength(4).map((index) => {
+            const item = loadout.items.rings ? loadout.items.rings[index] : null
+            return (
+              <ItemCard
+                key={`ring${index + 1}`}
+                item={item}
+                type="ring"
+                size="sm"
+                showFooter={editable}
+                actions={
+                  <SelectButton
+                    onClick={() =>
+                      setSelectedItemSlot({ type: 'rings', index })
+                    }
+                  />
+                }
+              />
+            )
+          })}
+        </div>
+        <div
+          id="mainhand"
+          className="col-span-full grid grid-cols-2 sm:col-span-1 sm:grid-cols-2"
+        >
+          <ItemCard
+            item={loadout.items.mainhand}
+            type="mainhand"
+            size="sm"
+            showFooter={editable}
+            actions={
+              <SelectButton
+                onClick={() => setSelectedItemSlot({ type: 'mainhand' })}
+              />
+            }
+          />
+          <ItemCard
+            item={loadout.items.mods ? loadout.items.mods[0] : null}
+            type="mod"
+            size="sm"
+            showFooter={editable}
+            actions={
+              <SelectButton
+                onClick={() => setSelectedItemSlot({ type: 'mods', index: 0 })}
+              />
+            }
+          />
+          <ItemCard
+            item={loadout.items.mutators ? loadout.items.mutators[0] : null}
+            type="mutator"
+            size="sm"
+            showFooter={editable}
+            actions={
+              <SelectButton
+                onClick={() =>
+                  setSelectedItemSlot({ type: 'mutators', index: 0 })
+                }
+              />
+            }
+          />
+        </div>
+        <div
+          id="melee"
+          className="col-span-full grid grid-cols-2 sm:col-span-1 sm:grid-cols-2"
+        >
+          <ItemCard
+            item={loadout.items.melee}
+            type="melee"
+            size="sm"
+            showFooter={editable}
+            actions={
+              <SelectButton
+                onClick={() => setSelectedItemSlot({ type: 'melee' })}
+              />
+            }
+          />
+          <ItemCard
+            item={loadout.items.mods ? loadout.items.mods[1] : null}
+            type="mod"
+            size="sm"
+            showFooter={editable}
+            actions={
+              <SelectButton
+                onClick={() => setSelectedItemSlot({ type: 'mods', index: 1 })}
+              />
+            }
+          />
+          <ItemCard
+            item={loadout.items.mutators ? loadout.items.mutators[1] : null}
+            type="mutator"
+            size="sm"
+            showFooter={editable}
+            actions={
+              <SelectButton
+                onClick={() =>
+                  setSelectedItemSlot({ type: 'mutators', index: 1 })
+                }
+              />
+            }
+          />
+        </div>
+        <div
+          id="offhand"
+          className="col-span-full grid grid-cols-2 sm:col-span-1 sm:grid-cols-2"
+        >
+          <ItemCard
+            item={loadout.items.offhand}
+            type="offhand"
+            size="sm"
+            showFooter={editable}
+            actions={
+              <SelectButton
+                onClick={() => setSelectedItemSlot({ type: 'offhand' })}
+              />
+            }
+          />
+          <ItemCard
+            item={loadout.items.mods ? loadout.items.mods[2] : null}
+            type="mod"
+            size="sm"
+            showFooter={editable}
+            actions={
+              <SelectButton
+                onClick={() => setSelectedItemSlot({ type: 'mods', index: 2 })}
+              />
+            }
+          />
+          <ItemCard
+            item={loadout.items.mutators ? loadout.items.mutators[2] : null}
+            type="mutator"
+            size="sm"
+            showFooter={editable}
+            actions={
+              <SelectButton
+                onClick={() =>
+                  setSelectedItemSlot({ type: 'mutators', index: 2 })
+                }
+              />
+            }
+          />
+        </div>
+      </div>
     </Fragment>
   )
 }
