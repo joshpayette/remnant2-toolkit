@@ -70,9 +70,12 @@ export default function ImageLoadout({ loadout }: ImageLoadoutProps) {
           items[selectedItemType.index || 0].type,
           itemIds,
         )}`,
+        { scroll: false },
       )
     } else {
-      router.push(`${pathname}?${createQueryString(item.type, item.id)}`)
+      router.push(`${pathname}?${createQueryString(item.type, item.id)}`, {
+        scroll: false,
+      })
     }
     setSelectedItemType({ type: null })
   }
