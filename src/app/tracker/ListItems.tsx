@@ -127,39 +127,15 @@ export default function ListItems({
                       >
                         <ItemCard
                           item={item}
-                          actions={
-                            <div className="grid w-full grid-cols-2 gap-1">
-                              <div className="flex items-center justify-start">
-                                <button
-                                  className="flex items-center rounded border border-black bg-gray-950  text-xs text-white hover:bg-purple-800"
-                                  onClick={() => onShowItemInfo(item.id)}
-                                >
-                                  <InformationCircleIcon className="h-6 w-6" />
-                                </button>
-                              </div>
-                              <div className="flex items-center justify-end">
-                                <Switch
-                                  checked={item.discovered}
-                                  onChange={() => onClick(item.id)}
-                                  className={cn(
-                                    item.discovered
-                                      ? 'bg-purple-600'
-                                      : 'bg-purple-800',
-                                    'relative inline-flex h-5 w-10 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2',
-                                  )}
-                                >
-                                  <span className="sr-only">Use setting</span>
-                                  <span
-                                    aria-hidden="true"
-                                    className={cn(
-                                      item.discovered
-                                        ? 'translate-x-5'
-                                        : 'translate-x-0',
-                                      'pointer-events-none inline-block h-4 w-4 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out',
-                                    )}
-                                  />
-                                </Switch>
-                              </div>
+                          onClick={() => onClick(item.id)}
+                          footer={
+                            <div className="flex w-full items-center justify-end">
+                              <button
+                                className="flex items-center rounded border border-black bg-gray-950  text-xs text-white hover:bg-purple-800"
+                                onClick={() => onShowItemInfo(item.id)}
+                              >
+                                <InformationCircleIcon className="h-6 w-6" />
+                              </button>
                             </div>
                           }
                         />

@@ -17,7 +17,7 @@ export default function ItemInfo({ item, open, onClose }: ItemInfoProps) {
       open={open}
       onClose={onClose}
       title={'Item Info'}
-      maxWidthClass="max-w-2xl"
+      maxWidthClass="max-w-3xl"
     >
       <div className="grid grid-cols-1 gap-2 sm:grid-cols-3">
         <div className="flex w-full flex-col items-center justify-center">

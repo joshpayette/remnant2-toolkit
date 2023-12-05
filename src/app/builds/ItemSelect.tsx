@@ -51,20 +51,11 @@ export default function ItemSelect({
                   type: itemType,
                 }}
                 size="md"
-                actions={
-                  <div className="flex w-full items-center justify-end">
-                    <button
-                      onClick={() =>
-                        onSelectItem({
-                          ...item,
-                          type: loadoutSlot,
-                        })
-                      }
-                      className="flex items-center rounded border border-black bg-gray-950 px-1 py-0.5 text-xs text-white hover:bg-purple-800"
-                    >
-                      <CheckCircleIcon className="h-5 w-5" />
-                    </button>
-                  </div>
+                onClick={() =>
+                  onSelectItem({
+                    ...item,
+                    type: loadoutSlot,
+                  })
                 }
               />
             </div>
