@@ -1,19 +1,32 @@
 import { clsx, type ClassValue } from 'clsx'
 import { twMerge } from 'tailwind-merge'
-import type { ItemType, LoadoutItemType } from '@/types'
+import type { Item, ItemType, LoadoutItemType } from '@/types'
+import { remnantItems } from '@/data/items'
 
-export function cn(...inputs: ClassValue[]) {
+/**
+ * shadcn utility function combining clsx and tailwind-merge
+ */
+export function cn(...inputs: ClassValue[]): string {
   return twMerge(clsx(inputs))
 }
 
-export function capitalize(string: string) {
+/**
+ * capitalizes the first letter of a string
+ */
+export function capitalize(string: string): string {
   return string.charAt(0).toUpperCase() + string.slice(1)
 }
 
-export function getArrayOfLength(length: number) {
+/**
+ * Generates an array of the specified length
+ */
+export function getArrayOfLength(length: number): number[] {
   return Array.from(Array(length).keys())
 }
 
+/**
+ * Converts an array of objects to a CSV file and starts the download
+ */
 export function toCsv<T extends {}>(array: T[], filename: string) {
   let csvContent = 'data:text/csv;charset=utf-8,'
   // Add header row with keys
@@ -29,6 +42,16 @@ export function toCsv<T extends {}>(array: T[], filename: string) {
   link.click()
 }
 
+/**
+ * Removes dangling comma from the end of a string
+ */
+export function trimTrailingComma(string: string): string {
+  return string.replace(/,\s*$/, '')
+}
+
+/**
+ * Typeguard for ItemType
+ */
 function isItemType(type: string): type is ItemType {
   const itemTypes: ItemType[] = [
     'helm',
@@ -52,6 +75,9 @@ function isItemType(type: string): type is ItemType {
   return itemTypes.includes(type as ItemType)
 }
 
+/**
+ * Typeguard for LoadoutItemType
+ */
 function isLoadoutItemType(type: string): type is LoadoutItemType {
   const loadoutItemTypes: LoadoutItemType[] = [
     'helm',
@@ -76,6 +102,9 @@ function isLoadoutItemType(type: string): type is LoadoutItemType {
   return loadoutItemTypes.includes(type as LoadoutItemType)
 }
 
+/**
+ * Converts LoadoutItemType to ItemType
+ */
 export function loadoutItemTypeToItemType(
   loadoutItemType: LoadoutItemType,
 ): ItemType {
@@ -97,6 +126,9 @@ export function loadoutItemTypeToItemType(
   return itemType
 }
 
+/**
+ * Converts ItemType to LoadoutItemType
+ */
 export function itemTypeToLoadoutItemType(itemType: ItemType): LoadoutItemType {
   const loadoutItemType = itemType
     .replace('archtype', 'archtypes')
@@ -114,4 +146,19 @@ export function itemTypeToLoadoutItemType(itemType: ItemType): LoadoutItemType {
   }
 
   return loadoutItemType
+}
+
+/**
+ * Filter out the item list for a specific loadout slot
+ */
+export function getItemListForSlot(
+  loadoutSlot: LoadoutItemType | null,
+): Item[] {
+  if (!loadoutSlot) return []
+  // convert loadout slot to item type
+  // necessary because of loadout slots like 'archtypes' and 'relicfragments'
+  const itemType = loadoutItemTypeToItemType(loadoutSlot)
+
+  // return items that match the loadout slot
+  return (remnantItems as Item[]).filter((item) => item.type === itemType)
 }

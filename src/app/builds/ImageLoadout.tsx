@@ -1,10 +1,10 @@
-import { getArrayOfLength, loadoutItemTypeToItemType } from '@/lib/utils'
+import { getArrayOfLength, getItemListForSlot } from '@/lib/utils'
 import ItemCard from '@/components/ItemCard'
 import dynamic from 'next/dynamic'
-import type { Item, Loadout, LoadoutItem, LoadoutItemType } from '@/types'
-import { Fragment, useCallback, useMemo, useState } from 'react'
-import { usePathname, useRouter, useSearchParams } from 'next/navigation'
-import { remnantItems } from '@/data/items'
+import type { Loadout, LoadoutItem, LoadoutItemType } from '@/types'
+import { Fragment, useMemo, useState } from 'react'
+import { usePathname, useRouter } from 'next/navigation'
+import useCreateQueryString from '@/hooks/useCreateQueryString'
 
 const ItemSelect = dynamic(() => import('@/app/builds/ItemSelect'), {
   ssr: false,
@@ -63,27 +63,11 @@ function LoadoutName({
   )
 }
 
-interface ImageLoadoutProps {
-  loadout: Loadout
-}
-
-export default function ImageLoadout({ loadout }: ImageLoadoutProps) {
+export default function ImageLoadout({ loadout }: { loadout: Loadout }) {
   // Hooks for monitoring the URL query string
   const router = useRouter()
   const pathname = usePathname()
-  const searchParams = useSearchParams()
-
-  /**
-   * Used to modify the URL query string
-   */
-  const createQueryString = useCallback(
-    (name: string, value: string) => {
-      const params = new URLSearchParams(searchParams)
-      params.set(name, value)
-      return params.toString()
-    },
-    [searchParams],
-  )
+  const createQueryString = useCreateQueryString()
 
   /**
    * Fires when the user changes an item in the loadout.
@@ -101,11 +85,11 @@ export default function ImageLoadout({ loadout }: ImageLoadoutProps) {
       // otherwise, insert in the specified slot
       if (selectedItemSlot.index === undefined) {
         // If the item is already in the loadout, don't add it again
-        if (!loadoutItems.find((i) => i.id === item.id)) {
+        if (!loadoutItems.find((i) => i?.id === item.id)) {
           loadoutItems.push(item)
         }
       } else {
-        if (!loadoutItems.find((i) => i.id === item.id)) {
+        if (!loadoutItems.find((i) => i?.id === item.id)) {
           loadoutItems[selectedItemSlot.index] = item
         }
       }
@@ -130,27 +114,6 @@ export default function ImageLoadout({ loadout }: ImageLoadoutProps) {
     setSelectedItemSlot({ type: null })
   }
 
-  /**
-   * Fires when the user changes the loadout name
-   * It will add the name to the URL query string.
-   */
-  function handleUpdateLoadoutName(name: string) {
-    router.push(`${pathname}?${createQueryString('name', name)}`, {
-      scroll: false,
-    })
-  }
-
-  /**
-   * Filter out the item list for only the slot we're looking for.
-   */
-  function getItemListForSlot(loadoutSlot: LoadoutItemType | null): Item[] {
-    if (!loadoutSlot) return []
-    // convert loadout types like rings -> ring, archtypes -> archtype, etc.
-    const itemType = loadoutItemTypeToItemType(loadoutSlot)
-    // return items that match the slot
-    return (remnantItems as Item[]).filter((item) => item.type === itemType)
-  }
-
   // Tracks information about the slot the user is selecting an item for
   const [selectedItemSlot, setSelectedItemSlot] = useState<{
     type: LoadoutItemType | null
@@ -173,6 +136,16 @@ export default function ImageLoadout({ loadout }: ImageLoadoutProps) {
    * Tracks whether the loadout name is editable or not.
    */
   const [loadoutNameIsEditable, setLoadoutNameIsEditable] = useState(false)
+
+  /**
+   * Fires when the user changes the loadout name
+   * It will add the name to the URL query string.
+   */
+  function handleUpdateLoadoutName(name: string) {
+    router.push(`${pathname}?${createQueryString('name', name)}`, {
+      scroll: false,
+    })
+  }
 
   return (
     <Fragment>
@@ -208,6 +181,9 @@ export default function ImageLoadout({ loadout }: ImageLoadoutProps) {
             type="archtype"
             size="sm"
             onClick={() => setSelectedItemSlot({ type: 'archtypes', index: 0 })}
+            showTypeLabel={Boolean(
+              !(loadout.items.archtypes && loadout.items.archtypes[0]),
+            )}
           />
           <ItemCard
             key="skill1"
@@ -215,6 +191,9 @@ export default function ImageLoadout({ loadout }: ImageLoadoutProps) {
             type="skill"
             size="sm"
             onClick={() => setSelectedItemSlot({ type: 'skills', index: 0 })}
+            showTypeLabel={Boolean(
+              !(loadout.items.skills && loadout.items.skills[0]),
+            )}
           />
 
           <ItemCard
@@ -223,6 +202,9 @@ export default function ImageLoadout({ loadout }: ImageLoadoutProps) {
             type="archtype"
             size="sm"
             onClick={() => setSelectedItemSlot({ type: 'archtypes', index: 1 })}
+            showTypeLabel={Boolean(
+              !(loadout.items.archtypes && loadout.items.archtypes[1]),
+            )}
           />
           <ItemCard
             key="skill2"
@@ -230,6 +212,9 @@ export default function ImageLoadout({ loadout }: ImageLoadoutProps) {
             type="skill"
             size="sm"
             onClick={() => setSelectedItemSlot({ type: 'skills', index: 1 })}
+            showTypeLabel={Boolean(
+              !(loadout.items.skills && loadout.items.skills[1]),
+            )}
           />
         </div>
         <div
@@ -241,24 +226,28 @@ export default function ImageLoadout({ loadout }: ImageLoadoutProps) {
             type="helm"
             size="sm"
             onClick={() => setSelectedItemSlot({ type: 'helm' })}
+            showTypeLabel={Boolean(!loadout.items.helm)}
           />
           <ItemCard
             item={loadout.items.torso}
             type="torso"
             size="sm"
             onClick={() => setSelectedItemSlot({ type: 'torso' })}
+            showTypeLabel={Boolean(!loadout.items.torso)}
           />
           <ItemCard
             item={loadout.items.legs}
             type="legs"
             size="sm"
             onClick={() => setSelectedItemSlot({ type: 'legs' })}
+            showTypeLabel={Boolean(!loadout.items.legs)}
           />
           <ItemCard
             item={loadout.items.gloves}
             type="gloves"
             size="sm"
             onClick={() => setSelectedItemSlot({ type: 'gloves' })}
+            showTypeLabel={Boolean(!loadout.items.gloves)}
           />
         </div>
         <div
@@ -270,22 +259,25 @@ export default function ImageLoadout({ loadout }: ImageLoadoutProps) {
             type="relic"
             size="sm"
             onClick={() => setSelectedItemSlot({ type: 'relic' })}
+            showTypeLabel={Boolean(!loadout.items.relic)}
           />
           <ItemCard
             item={loadout.items.amulet}
             type="amulet"
             size="sm"
             onClick={() => setSelectedItemSlot({ type: 'amulet' })}
+            showTypeLabel={Boolean(!loadout.items.amulet)}
           />
           {getArrayOfLength(4).map((index) => {
             const item = loadout.items.rings ? loadout.items.rings[index] : null
             return (
               <ItemCard
-                key={`ring${index + 1}`}
+                key={`ring${index}`}
                 item={item}
                 type="ring"
                 size="sm"
                 onClick={() => setSelectedItemSlot({ type: 'rings', index })}
+                showTypeLabel={Boolean(!item)}
               />
             )
           })}
