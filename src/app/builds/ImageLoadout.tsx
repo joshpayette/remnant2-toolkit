@@ -1,14 +1,10 @@
-import {
-  getArrayOfLength,
-  getItemListForSlot,
-  loadoutItemTypeToItemType,
-} from '@/lib/utils'
+import { getArrayOfLength, getItemListForSlot } from '@/lib/utils'
 import ItemCard from '@/components/ItemCard'
 import dynamic from 'next/dynamic'
-import type { Item, Loadout, LoadoutItem, LoadoutItemType } from '@/types'
-import { Fragment, useCallback, useMemo, useState } from 'react'
-import { usePathname, useRouter, useSearchParams } from 'next/navigation'
-import { remnantItems } from '@/data/items'
+import type { Loadout, LoadoutItem, LoadoutItemType } from '@/types'
+import { Fragment, useMemo, useState } from 'react'
+import { usePathname, useRouter } from 'next/navigation'
+import useCreateQueryString from '@/hooks/useCreateQueryString'
 
 const ItemSelect = dynamic(() => import('@/app/builds/ItemSelect'), {
   ssr: false,
@@ -67,27 +63,11 @@ function LoadoutName({
   )
 }
 
-interface ImageLoadoutProps {
-  loadout: Loadout
-}
-
-export default function ImageLoadout({ loadout }: ImageLoadoutProps) {
+export default function ImageLoadout({ loadout }: { loadout: Loadout }) {
   // Hooks for monitoring the URL query string
   const router = useRouter()
   const pathname = usePathname()
-  const searchParams = useSearchParams()
-
-  /**
-   * Used to modify the URL query string
-   */
-  const createQueryString = useCallback(
-    (name: string, value: string) => {
-      const params = new URLSearchParams(searchParams)
-      params.set(name, value)
-      return params.toString()
-    },
-    [searchParams],
-  )
+  const createQueryString = useCreateQueryString()
 
   /**
    * Fires when the user changes an item in the loadout.
