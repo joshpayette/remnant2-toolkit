@@ -148,7 +148,7 @@ export default function ImageLoadout({ loadout }: { loadout: Loadout }) {
   }
 
   const isPrimaryArchtypeAlchemist =
-    loadout.items.archtypes && loadout.items.archtypes[0].name === 'Alchemist'
+    loadout.items.archtypes && loadout.items.archtypes[0]?.name === 'Alchemist'
 
   return (
     <Fragment>
@@ -396,6 +396,63 @@ export default function ImageLoadout({ loadout }: { loadout: Loadout }) {
           &nbsp;
         </div>
         <div
+          id="consumables"
+          className="col-span-full grid grid-cols-2 sm:col-span-2 sm:grid-cols-2 md:col-span-2"
+        >
+          <ItemCard
+            item={
+              loadout.items.consumables ? loadout.items.consumables[0] : null
+            }
+            type="consumable"
+            size="sm"
+            onClick={() =>
+              setSelectedItemSlot({ type: 'consumables', index: 0 })
+            }
+            showTypeLabel={Boolean(
+              !(loadout.items.consumables && loadout.items.consumables[0]),
+            )}
+          />
+          <ItemCard
+            item={
+              loadout.items.consumables ? loadout.items.consumables[1] : null
+            }
+            type="consumable"
+            size="sm"
+            onClick={() =>
+              setSelectedItemSlot({ type: 'consumables', index: 1 })
+            }
+            showTypeLabel={Boolean(
+              !(loadout.items.consumables && loadout.items.consumables[1]),
+            )}
+          />
+          <ItemCard
+            item={
+              loadout.items.consumables ? loadout.items.consumables[2] : null
+            }
+            type="consumable"
+            size="sm"
+            onClick={() =>
+              setSelectedItemSlot({ type: 'consumables', index: 2 })
+            }
+            showTypeLabel={Boolean(
+              !(loadout.items.consumables && loadout.items.consumables[2]),
+            )}
+          />
+          <ItemCard
+            item={
+              loadout.items.consumables ? loadout.items.consumables[3] : null
+            }
+            type="consumable"
+            size="sm"
+            onClick={() =>
+              setSelectedItemSlot({ type: 'consumables', index: 3 })
+            }
+            showTypeLabel={Boolean(
+              !(loadout.items.consumables && loadout.items.consumables[3]),
+            )}
+          />
+        </div>
+        <div
           id="concoctions"
           className="col-span-full grid grid-cols-2 sm:col-span-2 sm:grid-cols-2 md:col-span-2"
         >
@@ -461,63 +518,6 @@ export default function ImageLoadout({ loadout }: { loadout: Loadout }) {
               />
             </Fragment>
           )}
-        </div>
-        <div
-          id="consumables"
-          className="col-span-full grid grid-cols-2 sm:col-span-2 sm:grid-cols-2 md:col-span-2"
-        >
-          <ItemCard
-            item={
-              loadout.items.consumables ? loadout.items.consumables[0] : null
-            }
-            type="consumable"
-            size="sm"
-            onClick={() =>
-              setSelectedItemSlot({ type: 'consumables', index: 0 })
-            }
-            showTypeLabel={Boolean(
-              !(loadout.items.consumables && loadout.items.consumables[0]),
-            )}
-          />
-          <ItemCard
-            item={
-              loadout.items.consumables ? loadout.items.consumables[1] : null
-            }
-            type="consumable"
-            size="sm"
-            onClick={() =>
-              setSelectedItemSlot({ type: 'consumables', index: 1 })
-            }
-            showTypeLabel={Boolean(
-              !(loadout.items.consumables && loadout.items.consumables[1]),
-            )}
-          />
-          <ItemCard
-            item={
-              loadout.items.consumables ? loadout.items.consumables[2] : null
-            }
-            type="consumable"
-            size="sm"
-            onClick={() =>
-              setSelectedItemSlot({ type: 'consumables', index: 2 })
-            }
-            showTypeLabel={Boolean(
-              !(loadout.items.consumables && loadout.items.consumables[2]),
-            )}
-          />
-          <ItemCard
-            item={
-              loadout.items.consumables ? loadout.items.consumables[3] : null
-            }
-            type="consumable"
-            size="sm"
-            onClick={() =>
-              setSelectedItemSlot({ type: 'consumables', index: 3 })
-            }
-            showTypeLabel={Boolean(
-              !(loadout.items.consumables && loadout.items.consumables[3]),
-            )}
-          />
         </div>
       </div>
     </Fragment>
