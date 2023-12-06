@@ -1,4 +1,4 @@
-import { capitalize } from '@/lib/utils'
+import { capitalize, cn, trimTrailingComma } from '@/lib/utils'
 import type { Loadout, LoadoutItemType } from '@/types'
 import { Fragment } from 'react'
 
@@ -10,7 +10,7 @@ interface ItemSectionProps {
 function ItemSection({ loadout, type }: ItemSectionProps) {
   const itemOrItems = loadout.items[type]
 
-  function getItemLabel(): string[] {
+  function getTypeLabels(): string[] {
     if (Array.isArray(itemOrItems)) {
       const labels = itemOrItems?.map((item, index) => {
         if (!item) return ''
@@ -21,7 +21,7 @@ function ItemSection({ loadout, type }: ItemSectionProps) {
           const skill = loadout.items.skills
             ? loadout.items.skills[index]
             : null
-          return `${name}, ${skill?.name ?? ''}`
+          return trimTrailingComma(`${name}, ${skill?.name ?? ''}`)
         }
 
         return name
@@ -40,22 +40,33 @@ function ItemSection({ loadout, type }: ItemSectionProps) {
       if (type === 'melee') mIndex = 2
 
       return [
-        `${itemOrItems?.name}, ${
-          loadout.items.mods ? loadout.items.mods[0]?.name : ''
-        }, ${loadout.items.mutators ? loadout.items.mutators[0]?.name : ''}`,
+        trimTrailingComma(
+          `${itemOrItems?.name}, ${
+            loadout.items.mods ? loadout.items.mods[0]?.name ?? '' : ''
+          } ${
+            loadout.items.mutators ? loadout.items.mutators[0]?.name ?? '' : ''
+          }`,
+        ),
       ]
     }
 
     return [itemOrItems?.name ?? '']
   }
 
+  const typeLabels = getTypeLabels()
+
   return (
     <Fragment>
       <div className="mb-2 grid w-full grid-cols-2 gap-2 text-left">
         <h4 className="text-xs font-bold text-green-400">{capitalize(type)}</h4>
         <ul className="text-xs text-gray-400">
-          {getItemLabel().map((label) => (
-            <li key={label}>{label}</li>
+          {typeLabels.map((label) => (
+            <li
+              key={label}
+              className={cn(typeLabels.length <= 1 ? 'list-none' : 'list-disc')}
+            >
+              {label}
+            </li>
           ))}
         </ul>
       </div>
