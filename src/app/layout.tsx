@@ -22,7 +22,7 @@ export default function RootLayout({
         <main className="flex w-full flex-col items-center justify-start p-4 pt-24">
           {children}
         </main>
-        <footer className="mt-12 flex w-full items-center justify-center border-t border-purple-900 bg-black py-4 text-left text-sm text-gray-400">
+        <footer className="mt-12 flex w-full items-center justify-center border-t border-purple-900 bg-black p-4 text-left text-sm text-gray-400">
           <div className="my-4 max-w-2xl gap-2">
             <p className="pb-4">
               Remnant 2 Toolkit is an{' '}
