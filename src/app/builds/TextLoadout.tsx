@@ -2,14 +2,18 @@ import { capitalize, cn, trimTrailingComma } from '@/lib/utils'
 import type { Loadout, LoadoutItemType } from '@/types'
 import { Fragment } from 'react'
 
-interface ItemSectionProps {
+function ItemSection({
+  loadout,
+  type,
+}: {
   loadout: Loadout
   type: LoadoutItemType
-}
-
-function ItemSection({ loadout, type }: ItemSectionProps) {
+}) {
   const itemOrItems = loadout.items[type]
 
+  /**
+   * Outputs the item name, plus any additional info like mods, mutators, etc.
+   */
   function getTypeLabels(): string[] {
     if (Array.isArray(itemOrItems)) {
       const labels = itemOrItems?.map((item, index) => {
@@ -36,15 +40,17 @@ function ItemSection({ loadout, type }: ItemSectionProps) {
     ) {
       let mIndex = 0
       if (type === 'mainhand') mIndex = 0
-      if (type === 'offhand') mIndex = 1
-      if (type === 'melee') mIndex = 2
+      if (type === 'melee') mIndex = 1
+      if (type === 'offhand') mIndex = 2
 
       return [
         trimTrailingComma(
           `${itemOrItems?.name}, ${
-            loadout.items.mods ? loadout.items.mods[0]?.name ?? '' : ''
-          } ${
-            loadout.items.mutators ? loadout.items.mutators[0]?.name ?? '' : ''
+            loadout.items.mods ? loadout.items.mods[mIndex]?.name ?? '' : ''
+          }, ${
+            loadout.items.mutators
+              ? loadout.items.mutators[mIndex]?.name ?? ''
+              : ''
           }`,
         ),
       ]
@@ -81,7 +87,7 @@ interface TextLoadoutProps {
 
 export default function TextLoadout({ loadout }: TextLoadoutProps) {
   return (
-    <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3">
+    <div className="grid grid-cols-1 gap-0 sm:grid-cols-2 sm:gap-8 md:grid-cols-3">
       <h3 className="col-span-full mb-2 mt-8 border-b border-b-green-900 pb-2 text-left text-2xl font-bold text-green-400">
         {loadout.name}
       </h3>
@@ -92,15 +98,19 @@ export default function TextLoadout({ loadout }: TextLoadoutProps) {
         <ItemSection loadout={loadout} type="legs" />
         <ItemSection loadout={loadout} type="gloves" />
         <ItemSection loadout={loadout} type="relic" />
+        <ItemSection loadout={loadout} type="relicfragments" />
       </div>
       <div className="text-left">
         <ItemSection loadout={loadout} type="amulet" />
         <ItemSection loadout={loadout} type="rings" />
+        <ItemSection loadout={loadout} type="mainhand" />
+        <ItemSection loadout={loadout} type="melee" />
+        <ItemSection loadout={loadout} type="offhand" />
       </div>
       <div className="text-left">
-        <ItemSection loadout={loadout} type="mainhand" />
-        <ItemSection loadout={loadout} type="offhand" />
-        <ItemSection loadout={loadout} type="melee" />
+        <ItemSection loadout={loadout} type="concoctions" />
+        <ItemSection loadout={loadout} type="consumables" />
+        <ItemSection loadout={loadout} type="traits" />
       </div>
     </div>
   )
