@@ -1530,12 +1530,6 @@ export const remnantItems: Item[] = [
   },
   {
     type: 'melee',
-    name: 'Gas Giant',
-    path: '/melee/gas_giant.png',
-    id: 'vrieyb',
-  },
-  {
-    type: 'melee',
     name: 'Godsplitter',
     path: '/melee/godsplitter.png',
     id: 'a23oaa',
