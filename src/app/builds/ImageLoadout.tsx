@@ -169,7 +169,7 @@ export default function ImageLoadout({ loadout }: { loadout: Loadout }) {
 
       <div
         id="container"
-        className="relative mb-12 grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-3"
+        className="relative mb-12 grid grid-cols-1 gap-8 sm:grid-cols-4 sm:gap-2 md:grid-cols-3"
       >
         <div
           id="archtypes"
@@ -291,18 +291,25 @@ export default function ImageLoadout({ loadout }: { loadout: Loadout }) {
             type="mainhand"
             size="sm"
             onClick={() => setSelectedItemSlot({ type: 'mainhand' })}
+            showTypeLabel={Boolean(!loadout.items.mainhand)}
           />
           <ItemCard
             item={loadout.items.mods ? loadout.items.mods[0] : null}
             type="mod"
             size="sm"
             onClick={() => setSelectedItemSlot({ type: 'mods', index: 0 })}
+            showTypeLabel={Boolean(
+              !(loadout.items.mods && loadout.items.mods[0]),
+            )}
           />
           <ItemCard
             item={loadout.items.mutators ? loadout.items.mutators[0] : null}
             type="mutator"
             size="sm"
             onClick={() => setSelectedItemSlot({ type: 'mutators', index: 0 })}
+            showTypeLabel={Boolean(
+              !(loadout.items.mutators && loadout.items.mutators[0]),
+            )}
           />
         </div>
         <div
@@ -314,18 +321,25 @@ export default function ImageLoadout({ loadout }: { loadout: Loadout }) {
             type="melee"
             size="sm"
             onClick={() => setSelectedItemSlot({ type: 'melee' })}
+            showTypeLabel={Boolean(!loadout.items.melee)}
           />
           <ItemCard
             item={loadout.items.mods ? loadout.items.mods[1] : null}
             type="mod"
             size="sm"
             onClick={() => setSelectedItemSlot({ type: 'mods', index: 1 })}
+            showTypeLabel={Boolean(
+              !(loadout.items.mods && loadout.items.mods[1]),
+            )}
           />
           <ItemCard
             item={loadout.items.mutators ? loadout.items.mutators[1] : null}
             type="mutator"
             size="sm"
             onClick={() => setSelectedItemSlot({ type: 'mutators', index: 1 })}
+            showTypeLabel={Boolean(
+              !(loadout.items.mutators && loadout.items.mutators[1]),
+            )}
           />
         </div>
         <div
@@ -337,18 +351,25 @@ export default function ImageLoadout({ loadout }: { loadout: Loadout }) {
             type="offhand"
             size="sm"
             onClick={() => setSelectedItemSlot({ type: 'offhand' })}
+            showTypeLabel={Boolean(!loadout.items.offhand)}
           />
           <ItemCard
             item={loadout.items.mods ? loadout.items.mods[2] : null}
             type="mod"
             size="sm"
             onClick={() => setSelectedItemSlot({ type: 'mods', index: 2 })}
+            showTypeLabel={Boolean(
+              !(loadout.items.mods && loadout.items.mods[2]),
+            )}
           />
           <ItemCard
             item={loadout.items.mutators ? loadout.items.mutators[2] : null}
             type="mutator"
             size="sm"
             onClick={() => setSelectedItemSlot({ type: 'mutators', index: 2 })}
+            showTypeLabel={Boolean(
+              !(loadout.items.mutators && loadout.items.mutators[2]),
+            )}
           />
         </div>
       </div>
