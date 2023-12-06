@@ -1,4 +1,8 @@
-import { getArrayOfLength, loadoutItemTypeToItemType } from '@/lib/utils'
+import {
+  getArrayOfLength,
+  getItemListForSlot,
+  loadoutItemTypeToItemType,
+} from '@/lib/utils'
 import ItemCard from '@/components/ItemCard'
 import dynamic from 'next/dynamic'
 import type { Item, Loadout, LoadoutItem, LoadoutItemType } from '@/types'
@@ -130,27 +134,6 @@ export default function ImageLoadout({ loadout }: ImageLoadoutProps) {
     setSelectedItemSlot({ type: null })
   }
 
-  /**
-   * Fires when the user changes the loadout name
-   * It will add the name to the URL query string.
-   */
-  function handleUpdateLoadoutName(name: string) {
-    router.push(`${pathname}?${createQueryString('name', name)}`, {
-      scroll: false,
-    })
-  }
-
-  /**
-   * Filter out the item list for only the slot we're looking for.
-   */
-  function getItemListForSlot(loadoutSlot: LoadoutItemType | null): Item[] {
-    if (!loadoutSlot) return []
-    // convert loadout types like rings -> ring, archtypes -> archtype, etc.
-    const itemType = loadoutItemTypeToItemType(loadoutSlot)
-    // return items that match the slot
-    return (remnantItems as Item[]).filter((item) => item.type === itemType)
-  }
-
   // Tracks information about the slot the user is selecting an item for
   const [selectedItemSlot, setSelectedItemSlot] = useState<{
     type: LoadoutItemType | null
@@ -173,6 +156,16 @@ export default function ImageLoadout({ loadout }: ImageLoadoutProps) {
    * Tracks whether the loadout name is editable or not.
    */
   const [loadoutNameIsEditable, setLoadoutNameIsEditable] = useState(false)
+
+  /**
+   * Fires when the user changes the loadout name
+   * It will add the name to the URL query string.
+   */
+  function handleUpdateLoadoutName(name: string) {
+    router.push(`${pathname}?${createQueryString('name', name)}`, {
+      scroll: false,
+    })
+  }
 
   return (
     <Fragment>
