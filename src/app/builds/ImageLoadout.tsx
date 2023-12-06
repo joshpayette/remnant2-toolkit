@@ -85,11 +85,11 @@ export default function ImageLoadout({ loadout }: { loadout: Loadout }) {
       // otherwise, insert in the specified slot
       if (selectedItemSlot.index === undefined) {
         // If the item is already in the loadout, don't add it again
-        if (!loadoutItems.find((i) => i.id === item.id)) {
+        if (!loadoutItems.find((i) => i?.id === item.id)) {
           loadoutItems.push(item)
         }
       } else {
-        if (!loadoutItems.find((i) => i.id === item.id)) {
+        if (!loadoutItems.find((i) => i?.id === item.id)) {
           loadoutItems[selectedItemSlot.index] = item
         }
       }
@@ -181,6 +181,9 @@ export default function ImageLoadout({ loadout }: { loadout: Loadout }) {
             type="archtype"
             size="sm"
             onClick={() => setSelectedItemSlot({ type: 'archtypes', index: 0 })}
+            showTypeLabel={Boolean(
+              !(loadout.items.archtypes && loadout.items.archtypes[0]),
+            )}
           />
           <ItemCard
             key="skill1"
@@ -188,6 +191,9 @@ export default function ImageLoadout({ loadout }: { loadout: Loadout }) {
             type="skill"
             size="sm"
             onClick={() => setSelectedItemSlot({ type: 'skills', index: 0 })}
+            showTypeLabel={Boolean(
+              !(loadout.items.skills && loadout.items.skills[0]),
+            )}
           />
 
           <ItemCard
@@ -196,6 +202,9 @@ export default function ImageLoadout({ loadout }: { loadout: Loadout }) {
             type="archtype"
             size="sm"
             onClick={() => setSelectedItemSlot({ type: 'archtypes', index: 1 })}
+            showTypeLabel={Boolean(
+              !(loadout.items.archtypes && loadout.items.archtypes[1]),
+            )}
           />
           <ItemCard
             key="skill2"
@@ -203,6 +212,9 @@ export default function ImageLoadout({ loadout }: { loadout: Loadout }) {
             type="skill"
             size="sm"
             onClick={() => setSelectedItemSlot({ type: 'skills', index: 1 })}
+            showTypeLabel={Boolean(
+              !(loadout.items.skills && loadout.items.skills[1]),
+            )}
           />
         </div>
         <div
@@ -214,24 +226,28 @@ export default function ImageLoadout({ loadout }: { loadout: Loadout }) {
             type="helm"
             size="sm"
             onClick={() => setSelectedItemSlot({ type: 'helm' })}
+            showTypeLabel={Boolean(!loadout.items.helm)}
           />
           <ItemCard
             item={loadout.items.torso}
             type="torso"
             size="sm"
             onClick={() => setSelectedItemSlot({ type: 'torso' })}
+            showTypeLabel={Boolean(!loadout.items.torso)}
           />
           <ItemCard
             item={loadout.items.legs}
             type="legs"
             size="sm"
             onClick={() => setSelectedItemSlot({ type: 'legs' })}
+            showTypeLabel={Boolean(!loadout.items.legs)}
           />
           <ItemCard
             item={loadout.items.gloves}
             type="gloves"
             size="sm"
             onClick={() => setSelectedItemSlot({ type: 'gloves' })}
+            showTypeLabel={Boolean(!loadout.items.gloves)}
           />
         </div>
         <div
@@ -243,22 +259,25 @@ export default function ImageLoadout({ loadout }: { loadout: Loadout }) {
             type="relic"
             size="sm"
             onClick={() => setSelectedItemSlot({ type: 'relic' })}
+            showTypeLabel={Boolean(!loadout.items.relic)}
           />
           <ItemCard
             item={loadout.items.amulet}
             type="amulet"
             size="sm"
             onClick={() => setSelectedItemSlot({ type: 'amulet' })}
+            showTypeLabel={Boolean(!loadout.items.amulet)}
           />
           {getArrayOfLength(4).map((index) => {
             const item = loadout.items.rings ? loadout.items.rings[index] : null
             return (
               <ItemCard
-                key={`ring${index + 1}`}
+                key={`ring${index}`}
                 item={item}
                 type="ring"
                 size="sm"
                 onClick={() => setSelectedItemSlot({ type: 'rings', index })}
+                showTypeLabel={Boolean(!item)}
               />
             )
           })}

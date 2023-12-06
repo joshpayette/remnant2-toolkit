@@ -56,6 +56,7 @@ export default function ItemSelect({
                     type: loadoutSlot,
                   })
                 }
+                showTypeLabel={false}
               />
             </div>
           </li>

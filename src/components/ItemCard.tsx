@@ -5,8 +5,9 @@ import Image from 'next/image'
 export interface ItemCardProps {
   footer?: React.ReactNode
   item: Item | LoadoutItem | null
-  type?: ItemType
+  showTypeLabel?: boolean
   size?: 'sm' | 'md' | 'lg'
+  type?: ItemType
   variant?: 'default' | 'blue'
   onClick?: () => void
 }
@@ -46,10 +47,11 @@ function CardImage({
 }
 
 export default function ItemCard({
-  item,
-  type,
-  size = 'md',
   footer,
+  item,
+  showTypeLabel = true,
+  size = 'md',
+  type,
   variant = 'default',
   onClick,
 }: ItemCardProps) {
@@ -78,16 +80,18 @@ export default function ItemCard({
           >
             {item?.name}
           </h3>
-          <p
-            className={cn(
-              'text-[#ff9900]',
-              size === 'sm' && 'text-[10px]',
-              size === 'md' && 'text-sm',
-              size === 'lg' && 'text-md',
-            )}
-          >
-            {item?.type ? capitalize(item.type) : capitalize(type || '')}
-          </p>
+          {showTypeLabel && (
+            <p
+              className={cn(
+                'text-[#ff9900]',
+                size === 'sm' && 'text-[10px]',
+                size === 'md' && 'text-sm',
+                size === 'lg' && 'text-md',
+              )}
+            >
+              {item?.type ? capitalize(item.type) : capitalize(type || '')}
+            </p>
+          )}
         </div>
         {onClick ? (
           <button
