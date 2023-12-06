@@ -36,15 +36,17 @@ function ItemSection({ loadout, type }: ItemSectionProps) {
     ) {
       let mIndex = 0
       if (type === 'mainhand') mIndex = 0
-      if (type === 'offhand') mIndex = 1
-      if (type === 'melee') mIndex = 2
+      if (type === 'melee') mIndex = 1
+      if (type === 'offhand') mIndex = 2
 
       return [
         trimTrailingComma(
           `${itemOrItems?.name}, ${
-            loadout.items.mods ? loadout.items.mods[0]?.name ?? '' : ''
-          } ${
-            loadout.items.mutators ? loadout.items.mutators[0]?.name ?? '' : ''
+            loadout.items.mods ? loadout.items.mods[mIndex]?.name ?? '' : ''
+          }, ${
+            loadout.items.mutators
+              ? loadout.items.mutators[mIndex]?.name ?? ''
+              : ''
           }`,
         ),
       ]
@@ -99,8 +101,8 @@ export default function TextLoadout({ loadout }: TextLoadoutProps) {
       </div>
       <div className="text-left">
         <ItemSection loadout={loadout} type="mainhand" />
-        <ItemSection loadout={loadout} type="offhand" />
         <ItemSection loadout={loadout} type="melee" />
+        <ItemSection loadout={loadout} type="offhand" />
       </div>
     </div>
   )
