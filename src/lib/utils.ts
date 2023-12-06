@@ -43,6 +43,13 @@ export function toCsv<T extends {}>(array: T[], filename: string) {
 }
 
 /**
+ * Removes dangling comma from the end of a string
+ */
+export function trimTrailingComma(string: string): string {
+  return string.replace(/,\s*$/, '')
+}
+
+/**
  * Typeguard for ItemType
  */
 function isItemType(type: string): type is ItemType {
