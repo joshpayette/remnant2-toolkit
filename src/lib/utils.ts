@@ -65,6 +65,7 @@ function isItemType(type: string): type is ItemType {
     'melee',
     'archtype',
     'concoction',
+    'consumable',
     'mod',
     'mutator',
     'relicfragment',

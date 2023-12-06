@@ -4246,22 +4246,3 @@ export const remnantItems: Item[] = [
 export const remnantItemTypes = Array.from(
   new Set(remnantItems.map((item) => item.type)),
 )
-
-export const archtypeSkills = {
-  challenger: ['War Stomp', 'Juggernaut', 'Rampage'],
-  handler: ['Guard Dog', 'Support Dog', 'Attack Dog'],
-  medic: ['Wellspring', 'Healing Shield', 'Redemption'],
-  hunter: [`Hunter's Mark`, `Hunter's Focus`, `Hunter's Shroud`],
-  alchemist: ['Vial: Stone Mist', 'Vial: Frenzy Dust', 'Vial: Elixir of Life'],
-  archon: ['Reality Rune', 'Chaos Gate', 'Havoc Form'],
-  engineer: [
-    'Heavy Weapon: Vulcan',
-    'Heavy Weapon: Flamethrower',
-    'Heavy Weapon: Impact Cannon',
-  ],
-  explorer: ['Plainswalker', 'Gold Digger', 'Fortune Hunter'],
-  gunslinger: ['Quick Draw', 'Sidewinder', 'Bulletstorm'],
-  invader: ['Void Cloak', 'Worm Hole', 'Reboot'],
-  summoner: ['Minion: Hollow', 'Minion: Flyer', 'Minion: Reaver'],
-  ritualist: ['Eruption', 'Miasma', 'Death Wish'],
-} as const
