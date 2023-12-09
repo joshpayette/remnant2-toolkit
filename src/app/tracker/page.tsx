@@ -3,10 +3,10 @@
 import { remnantItemCategories, remnantItems } from '@/data'
 import { useLocalStorage } from '@/hooks/useLocalStorage'
 import { Fragment, useMemo, useState } from 'react'
-import type { Filters } from './Filters'
+import type { Filters } from './(components)/Filters'
 import dynamic from 'next/dynamic'
 import { type Item, type ItemCategory } from '@/types'
-import TrackerFilters from './Filters'
+import TrackerFilters from './(components)/Filters'
 import ToCsvButton from '@/components/ToCsvButton'
 import { useIsClient } from 'usehooks-ts'
 import PageHeader from '@/app/PageHeader'
@@ -24,7 +24,7 @@ const itemCategories = remnantItemCategories.filter(
   (category) => skippedItemCategories.includes(category) === false,
 )
 
-const ListItems = dynamic(() => import('./ListItems'), {
+const ListItems = dynamic(() => import('./(components)/ListItems'), {
   ssr: false,
 })
 

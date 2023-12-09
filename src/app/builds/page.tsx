@@ -3,7 +3,7 @@
 import { Fragment, useState } from 'react'
 import { useSearchParams } from 'next/navigation'
 import PageHeader from '@/app/PageHeader'
-import ImageBuild from './ImageBuild'
+import ImageBuild from './(components)/ImageBuild'
 import useQueryString from '@/hooks/useQueryString'
 import { cn } from '@/lib/utils'
 

@@ -5,95 +5,17 @@ import useQueryString from '@/hooks/useQueryString'
 import { type Item, type ItemCategory } from '@/types'
 import { remnantItems } from '@/data'
 import Image from 'next/image'
-import { cn, getArrayOfLength } from '@/lib/utils'
+import { getArrayOfLength } from '@/lib/utils'
+import BuildName from './BuildName'
+import BuildButton from './BuildButton'
 
-const ItemSelect = dynamic(() => import('@/app/builds/ItemSelect'), {
-  ssr: false,
-})
-
-function BuildName({
-  editable,
-  name,
-  onClick,
-  onClose,
-}: {
-  editable: boolean
-  name: string
-  onClick: () => void
-  onClose: (newBuildName: string) => void
-}) {
-  const [newName, setNewName] = useState(name)
-
-  return (
-    <div className="relative mb-4 flex w-full flex-col items-center justify-center gap-2 border-b border-b-green-900 pb-2">
-      {editable ? (
-        <Fragment>
-          <input
-            type="text"
-            name="buildname"
-            id="buildname"
-            value={newName}
-            className="block w-full max-w-xl rounded-md border-0 bg-black py-1.5 text-center text-xl text-green-500 shadow-sm ring-1 ring-inset ring-green-300 placeholder:text-green-400 focus:ring-2 focus:ring-inset focus:ring-green-600 sm:leading-6"
-            placeholder="Build Name"
-            onChange={(e) => setNewName(e.target.value)}
-          />
-          <div>
-            <button
-              onClick={() => onClose(newName)}
-              className="mr-2 rounded-md bg-green-500 px-4 py-2 text-sm font-bold text-white hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
-            >
-              Save
-            </button>
-            <button
-              onClick={() => onClose(name)}
-              className="rounded-md bg-red-500 px-4 py-2 text-sm font-bold text-white hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
-            >
-              Cancel
-            </button>
-          </div>
-        </Fragment>
-      ) : (
-        <button
-          onClick={onClick}
-          className="mb-2 text-center text-4xl font-bold text-green-400"
-        >
-          <h2>{name}</h2>
-        </button>
-      )}
-    </div>
-  )
-}
-
-function BuildButton({
-  onClick,
-  children,
-  itemName,
-  showLabels,
-}: {
-  onClick: () => void
-  children: React.ReactNode
-  itemName: string | null
-  showLabels: boolean
-}) {
-  return (
-    <button
-      onClick={onClick}
-      className={`mb-4 h-auto min-h-[64px] w-[64px] gap-2 bg-[url('https://${process.env.NEXT_PUBLIC_IMAGE_URL}/card-body-bg.jpg')] flex flex-col items-center justify-center border-2 border-transparent hover:border-purple-500`}
-    >
-      {children}
-      {showLabels && (
-        <div
-          className={cn(
-            'p-1 text-[10px] text-white',
-            itemName && 'bg-purple-950',
-          )}
-        >
-          {itemName}
-        </div>
-      )}
-    </button>
-  )
-}
+// Prevents hydration errors with the ItemSelect modal
+const ItemSelect = dynamic(
+  () => import('@/app/builds/(components)/ItemSelect'),
+  {
+    ssr: false,
+  },
+)
 
 export default function ImageBuild({
   build,
@@ -113,60 +35,65 @@ export default function ImageBuild({
 
   /**
    * Fires when the user changes an item in the build.
-   * It will add the item to the URL query string.
+   *
+   * If the item is null, the item is removed from the build
+   * and from the query string.
+   *
+   * If the item is not null, the item is added to the build
+   * and the query string is updated.
    */
-  function handleSelectItem(item: Item | null) {
-    if (!item || !selectedItemSlot.category) return
+  function handleSelectItem(selectedItem: Item | null) {
+    if (!selectedItemSlot.category) return
+
+    if (!selectedItem) {
+      updateQueryString(selectedItemSlot.category, '')
+      return
+    }
 
     const buildItemOrItems = build.items[selectedItemSlot.category]
 
     if (Array.isArray(buildItemOrItems)) {
       const buildItems = buildItemOrItems
 
-      // If no index is set, just add the item to the array
-      // otherwise, insert in the specified slot
-      if (selectedItemSlot.index === undefined) {
-        // If the item is already in the build, don't add it again
-        if (!buildItems.find((i) => i?.id === item.id)) {
-          buildItems.push(item)
-        }
-      } else {
-        if (!buildItems.find((i) => i?.id === item.id)) {
-          buildItems[selectedItemSlot.index] = item
-        }
-      }
-      const itemIds = buildItems.map((i) => i.id)
-      updateQueryString(
-        buildItems[selectedItemSlot.index || 0].category,
-        itemIds,
+      const itemAlreadyInBuild = buildItems.find(
+        (i) => i?.id === selectedItem.id,
       )
-    } else {
-      if (buildItemOrItems) {
-        const buildItem = buildItemOrItems
-        if (buildItem.id === item.id) return
-      }
+      if (itemAlreadyInBuild) return
 
-      updateQueryString(item.category, item.id)
+      /** Used to add the new item to the array of items for this slot */
+      const newBuildItems = [...buildItems]
+
+      const specifiedIndex = selectedItemSlot.index
+      const itemIndexSpecified = specifiedIndex !== undefined
+
+      itemIndexSpecified
+        ? (newBuildItems[specifiedIndex] = selectedItem)
+        : newBuildItems.push(selectedItem)
+
+      const newItemIds = newBuildItems.map((i) => i.id)
+      updateQueryString(selectedItem.category, newItemIds)
+    } else {
+      const buildItem = buildItemOrItems
+
+      const itemAlreadyInBuild = buildItem?.id === selectedItem.id
+      if (itemAlreadyInBuild) return
+
+      updateQueryString(selectedItem.category, selectedItem.id)
     }
+
     setSelectedItemSlot({ category: null })
   }
 
-  // If the item category is not null, the modal should be open
+  /** If the item category is null, modal is closed */
   const isItemSelectModalOpen = Boolean(selectedItemSlot.category)
 
-  /**
-   * Tracks whether the build name is editable or not.
-   */
+  //Tracks whether the build name is editable or not.
   const [buildNameIsEditable, setBuildNameIsEditable] = useState(false)
 
   /**
-   * Fires when the user changes the build name
-   * It will add the name to the URL query string.
+   * Returns a list of items that match the selected slot
+   * This is passed to the ItemSelect modal to display the correct items
    */
-  function handleUpdateBuildName(name: string) {
-    updateQueryString('name', name)
-  }
-
   const itemListForSlot = useMemo(() => {
     if (!selectedItemSlot.category) return []
     // return items that match the loadout slot
@@ -181,8 +108,7 @@ export default function ImageBuild({
         editable={buildNameIsEditable}
         onClick={() => setBuildNameIsEditable(true)}
         onClose={(newBuildName: string) => {
-          build.name = newBuildName
-          handleUpdateBuildName(newBuildName)
+          updateQueryString('name', newBuildName)
           setBuildNameIsEditable(false)
         }}
         name={build.name}
