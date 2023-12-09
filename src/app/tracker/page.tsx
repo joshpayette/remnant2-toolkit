@@ -1,26 +1,30 @@
 'use client'
 
-import { remnantItemTypes, remnantItems } from '@/data/items'
+import { remnantItemCategories, remnantItems } from '@/data'
 import { useLocalStorage } from '@/hooks/useLocalStorage'
 import { Fragment, useMemo, useState } from 'react'
-import type { Filters } from './Filters'
+import type { Filters } from './(components)/Filters'
 import dynamic from 'next/dynamic'
-import { Item, ItemType, LoadoutItem } from '@/types'
-import TrackerFilters from './Filters'
+import { type Item, type ItemCategory } from '@/types'
+import TrackerFilters from './(components)/Filters'
 import ToCsvButton from '@/components/ToCsvButton'
 import { useIsClient } from 'usehooks-ts'
 import PageHeader from '@/app/PageHeader'
 import ItemInfo from '@/components/ItemInfo'
 
-const skippedItemTypes: ItemType[] = ['concoction', 'consumable', 'skill']
-const relevantItems = remnantItems.filter(
-  (item) => skippedItemTypes.includes(item.type) === false,
+const skippedItemCategories: ItemCategory[] = [
+  'concoction',
+  'consumable',
+  'skill',
+]
+const itemList = remnantItems.filter(
+  (item) => skippedItemCategories.includes(item.category) === false,
 )
-const itemTypes = remnantItemTypes.filter(
-  (item) => skippedItemTypes.includes(item) === false,
+const itemCategories = remnantItemCategories.filter(
+  (category) => skippedItemCategories.includes(category) === false,
 )
 
-const ListItems = dynamic(() => import('./ListItems'), {
+const ListItems = dynamic(() => import('./(components)/ListItems'), {
   ssr: false,
 })
 
@@ -28,8 +32,8 @@ export default function TrackerPage() {
   const isClient = useIsClient()
 
   // Tracks the item the user wants info on
-  const [itemInfo, setItemInfo] = useState<Item | LoadoutItem | null>(null)
-  // If the item info is not null, the modal should be open
+  const [itemInfo, setItemInfo] = useState<Item | null>(null)
+  // If the item info is defined, the modal should be open
   const isShowItemInfoOpen = Boolean(itemInfo)
 
   const { itemTracker, setItemTracker } = useLocalStorage()
@@ -44,7 +48,7 @@ export default function TrackerPage() {
   // fetched from localstorage
   const items = useMemo(
     () =>
-      relevantItems.map((item) => ({
+      itemList.map((item) => ({
         ...item,
         discovered: discoveredItemIds.includes(item.id),
       })),
@@ -56,12 +60,12 @@ export default function TrackerPage() {
   // generate the build urls, but that's not a priority right now.
   const csvItems = useMemo(() => {
     return items.map((item) => ({
-      type: item.type,
       name: item.name,
+      category: item.category,
       discovered: item.discovered,
-      description: item.description || '',
-      howToGet: item.howToGet || '',
-      wikiLinks: item.wikiLinks?.join(', ') || '',
+      description: item.description?.replaceAll(',', ' ') || '',
+      howToGet: item.howToGet?.replaceAll(',', ' ') || '',
+      wikiLinks: item.wikiLinks?.join('; ') || '',
     }))
   }, [items])
 
@@ -75,7 +79,7 @@ export default function TrackerPage() {
     : 'Calculating...'
 
   const handleShowItemInfo = (itemId: string) => {
-    const item = relevantItems.find((item) => item.id === itemId)
+    const item = itemList.find((item) => item.id === itemId)
     if (item) setItemInfo(item)
   }
 
@@ -107,7 +111,7 @@ export default function TrackerPage() {
           <ListItems
             filters={filters}
             items={items}
-            itemTypes={itemTypes}
+            itemCategories={itemCategories}
             onShowItemInfo={handleShowItemInfo}
             onClick={(itemId: string) => {
               // If the item is already discovered, undiscover it

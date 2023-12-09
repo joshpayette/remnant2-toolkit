@@ -1,4 +1,4 @@
-import type { ChangeEventHandler } from 'react'
+import { type ChangeEventHandler } from 'react'
 
 interface CheckboxProps {
   id: string
