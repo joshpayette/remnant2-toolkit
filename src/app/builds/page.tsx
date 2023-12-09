@@ -30,13 +30,10 @@ export default function BuildHomePage() {
           </p>
         </div>
       </PageHeader>
-      <div className="flex w-full max-w-xl items-start justify-center gap-2 ">
-        <div className="w-full grow rounded border-2 border-green-500 bg-black p-4">
-          <ImageBuild build={build} showLabels={showLabels} />
-        </div>
+      <div className="flex w-full max-w-xl flex-col items-start justify-center gap-2 sm:flex-row-reverse">
         <div
           id="actions-column"
-          className="flex w-[100px] flex-col justify-between"
+          className="flex min-w-full flex-col justify-between sm:min-w-[100px]"
         >
           <div id="actions">
             <button
@@ -73,6 +70,9 @@ export default function BuildHomePage() {
               </span>
             </button>
           </div>
+        </div>
+        <div className="w-full grow rounded border-2 border-green-500 bg-black p-4">
+          <ImageBuild build={build} showLabels={showLabels} />
         </div>
       </div>
     </Fragment>
