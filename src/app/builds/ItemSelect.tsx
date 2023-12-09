@@ -1,63 +1,53 @@
 'use client'
 
-import { cn, loadoutItemTypeToItemType } from '@/lib/utils'
-import type { Item, LoadoutItemType, LoadoutItem } from '@/types'
-import ItemCard from '../../components/ItemCard'
+import { cn } from '@/lib/utils'
+import { type Item, ItemCategory } from '@/types'
 import Dialog from '@/components/Dialog'
-
-interface ItemSelectProps {
-  itemList: Item[]
-  loadoutSlot: LoadoutItemType | null
-  open: boolean
-  onClose: () => void
-  onSelectItem: (item: LoadoutItem) => void
-}
+import Image from 'next/image'
 
 export default function ItemSelect({
   itemList,
-  loadoutSlot,
+  buildSlot,
   open,
   onClose,
   onSelectItem,
-}: ItemSelectProps) {
-  if (!loadoutSlot) {
+}: {
+  itemList: Item[]
+  buildSlot: ItemCategory | null
+  open: boolean
+  onClose: () => void
+  onSelectItem: (item: Item) => void
+}) {
+  if (!buildSlot) {
     return null
   }
-
-  const itemType = loadoutItemTypeToItemType(loadoutSlot)
 
   return (
     <Dialog
       open={open}
       onClose={onClose}
-      title={`Select ${itemType}`}
+      title={`Select ${buildSlot}`}
       maxWidthClass="max-w-6xl"
     >
       <ul
         role="list"
-        className="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6"
+        className="flex flex-wrap items-center justify-start gap-2"
       >
         {itemList.map((item) => (
           <li key={item.name}>
-            <div
-              className={cn(
-                'group flex items-center justify-center overflow-hidden bg-black',
-              )}
-            >
-              <ItemCard
-                item={{
-                  ...item,
-                  type: itemType,
-                }}
-                size="md"
-                onClick={() =>
-                  onSelectItem({
-                    ...item,
-                    type: loadoutSlot,
-                  })
-                }
-                showTypeLabel={false}
-              />
+            <div className={cn('group overflow-hidden bg-black')}>
+              <button
+                className={`h-[64px] w-[64px] bg-[url('https://${process.env.NEXT_PUBLIC_IMAGE_URL}/card-body-bg.jpg')] relative h-full w-full rounded-md border-2 border-transparent bg-black hover:border-purple-500`}
+                onClick={() => onSelectItem(item)}
+              >
+                <Image
+                  src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}${item.imagePath}`}
+                  width={64}
+                  height={64}
+                  alt={item.name}
+                  className=""
+                />
+              </button>
             </div>
           </li>
         ))}

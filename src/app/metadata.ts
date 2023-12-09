@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import { type Metadata } from 'next'
 
 const title = 'Remnant 2 Toolkit'
 const description = 'Item tracking and build utilities for Remnant 2'
