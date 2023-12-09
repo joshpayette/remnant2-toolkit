@@ -31,24 +31,27 @@ export default function ItemSelect({
     >
       <ul
         role="list"
-        className="flex flex-wrap items-center justify-start gap-2"
+        className="flex flex-wrap items-stretch justify-start gap-2"
       >
         {itemList.map((item) => (
-          <li key={item.name}>
-            <div className={cn('group overflow-hidden bg-black')}>
-              <button
-                className={`h-[64px] w-[64px] bg-[url('https://${process.env.NEXT_PUBLIC_IMAGE_URL}/card-body-bg.jpg')] relative h-full w-full rounded-md border-2 border-transparent bg-black hover:border-purple-500`}
-                onClick={() => onSelectItem(item)}
-              >
-                <Image
-                  src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}${item.imagePath}`}
-                  width={64}
-                  height={64}
-                  alt={item.name}
-                  className=""
-                />
-              </button>
-            </div>
+          <li key={item.name} className="mb-4 min-h-[70px] w-[70px]">
+            <button
+              className={cn(
+                'flex h-full w-full flex-1 flex-col items-start justify-center gap-2 border-2 border-transparent bg-black hover:border-purple-500',
+                `bg-[url('https://${process.env.NEXT_PUBLIC_IMAGE_URL}/card-body-bg.jpg')]`,
+              )}
+              onClick={() => onSelectItem(item)}
+            >
+              <Image
+                src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}${item.imagePath}`}
+                width={64}
+                height={64}
+                alt={item.name}
+              />
+              <div className="flex h-full w-full items-center justify-center bg-purple-950 p-1 text-[10px] text-white">
+                {item.name}
+              </div>
+            </button>
           </li>
         ))}
       </ul>
