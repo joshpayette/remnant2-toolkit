@@ -14,7 +14,7 @@ export default function BuildButton({
   return (
     <button
       onClick={onClick}
-      className={`mb-4 h-auto min-h-[64px] w-[64px] gap-2 bg-[url('https://${process.env.NEXT_PUBLIC_IMAGE_URL}/card-body-bg.jpg')] flex flex-col items-center justify-center border-2 border-transparent hover:border-purple-500`}
+      className={`mb-4 h-auto min-h-[64px] w-[64px] gap-2 bg-[url('https://${process.env.NEXT_PUBLIC_IMAGE_URL}/card-body-bg.jpg')] flex flex-col items-center justify-center border-2 border-gray-700 hover:border-purple-500`}
     >
       {children}
       {showLabels && (
