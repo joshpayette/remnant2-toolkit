@@ -6,13 +6,24 @@ import PageHeader from '@/app/PageHeader'
 import ImageBuild from './(components)/ImageBuild'
 import useQueryString from '@/hooks/useQueryString'
 import { cn } from '@/lib/utils'
+import { useLocalStorage } from '@/hooks/useLocalStorage'
 
 export default function BuildHomePage() {
   const searchParams = useSearchParams()
   const { parseQueryString } = useQueryString()
   const build = parseQueryString(searchParams)
 
-  const [showLabels, setShowLabels] = useState(true)
+  const { builder, setBuilder } = useLocalStorage()
+
+  const [showLabels, setShowLabels] = useState(builder.showLabels)
+
+  function toggleShowLabels() {
+    setShowLabels(!showLabels)
+    setBuilder({
+      ...builder,
+      showLabels: !showLabels,
+    })
+  }
 
   return (
     <Fragment>
@@ -37,14 +48,14 @@ export default function BuildHomePage() {
         >
           <div id="actions">
             <button
-              id="cshow-labels-button"
+              id="show-labels-button"
               className={cn(
                 'flex flex-col items-center rounded border px-4 py-2 font-bold text-white hover:bg-green-700',
                 showLabels
                   ? 'border-transparent bg-green-500'
                   : 'border-green-500 bg-black',
               )}
-              onClick={() => setShowLabels(!showLabels)}
+              onClick={toggleShowLabels}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"

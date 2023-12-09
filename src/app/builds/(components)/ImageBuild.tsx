@@ -104,15 +104,6 @@ export default function ImageBuild({
 
   return (
     <Fragment>
-      <BuildName
-        editable={buildNameIsEditable}
-        onClick={() => setBuildNameIsEditable(true)}
-        onClose={(newBuildName: string) => {
-          updateQueryString('name', newBuildName)
-          setBuildNameIsEditable(false)
-        }}
-        name={build.name}
-      />
       <ItemSelect
         open={isItemSelectModalOpen}
         onClose={() => setSelectedItemSlot({ category: null })}
@@ -120,7 +111,10 @@ export default function ImageBuild({
         itemList={itemListForSlot}
         buildSlot={selectedItemSlot.category}
       />
-      <div id="build-container" className="flex w-full">
+      <div
+        id="build-container"
+        className="flex w-full items-start justify-between gap-4"
+      >
         <div id="left-column" className="flex-none">
           <BuildButton
             onClick={() => {
@@ -214,7 +208,15 @@ export default function ImageBuild({
           </BuildButton>
         </div>
         <div id="center-column" className="w-full grow">
-          &nbsp;
+          <BuildName
+            editable={buildNameIsEditable}
+            onClick={() => setBuildNameIsEditable(true)}
+            onClose={(newBuildName: string) => {
+              updateQueryString('name', newBuildName)
+              setBuildNameIsEditable(false)
+            }}
+            name={build.name}
+          />
         </div>
         <div id="right-column" className="flex-none">
           <BuildButton
