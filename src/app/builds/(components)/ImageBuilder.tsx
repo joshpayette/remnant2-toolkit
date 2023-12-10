@@ -7,7 +7,7 @@ import { remnantItems } from '@/data'
 import Image from 'next/image'
 import { getArrayOfLength } from '@/lib/utils'
 import BuildName from './BuildName'
-import BuildButton from './BuildButton'
+import ImageBuilderButton from './ImageBuilderButton'
 
 // Prevents hydration errors with the ItemSelect modal
 const ItemSelect = dynamic(
@@ -17,7 +17,7 @@ const ItemSelect = dynamic(
   },
 )
 
-export default function ImageBuild({
+export default function ImageBuilder({
   build,
   showLabels,
 }: {
@@ -144,194 +144,106 @@ export default function ImageBuild({
         className="flex w-full items-start justify-between gap-4"
       >
         <div id="left-column" className="flex-none">
-          <BuildButton
+          <ImageBuilderButton
+            item={build.items.helm}
+            showLabels={showLabels}
             onClick={() => {
               setSelectedItemSlot({
                 category: 'helm',
               })
             }}
-            itemName={build.items.helm?.name || null}
+          />
+          <ImageBuilderButton
+            item={build.items.torso}
             showLabels={showLabels}
-          >
-            {build.items.helm && (
-              <Image
-                src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}${build.items.helm.imagePath}`}
-                alt={`${build.items.helm?.name} icon`}
-                width={50}
-                height={50}
-              />
-            )}
-          </BuildButton>
-          <BuildButton
             onClick={() => {
               setSelectedItemSlot({
                 category: 'torso',
               })
             }}
-            itemName={build.items.torso?.name || null}
+          />
+          <ImageBuilderButton
+            item={build.items.legs}
             showLabels={showLabels}
-          >
-            {build.items.torso && (
-              <Image
-                src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}${build.items.torso.imagePath}`}
-                alt={`${build.items.torso?.name} icon`}
-                width={50}
-                height={50}
-              />
-            )}
-          </BuildButton>
-          <BuildButton
             onClick={() => {
               setSelectedItemSlot({
                 category: 'legs',
               })
             }}
-            itemName={build.items.legs?.name || null}
+          />
+          <ImageBuilderButton
+            item={build.items.gloves}
             showLabels={showLabels}
-          >
-            {build.items.legs && (
-              <Image
-                src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}${build.items.legs.imagePath}`}
-                alt={`${build.items.legs?.name} icon`}
-                width={50}
-                height={50}
-              />
-            )}
-          </BuildButton>
-          <BuildButton
             onClick={() => {
               setSelectedItemSlot({
                 category: 'gloves',
               })
             }}
-            itemName={build.items.gloves?.name || null}
-            showLabels={showLabels}
-          >
-            {build.items.gloves && (
-              <Image
-                src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}${build.items.gloves.imagePath}`}
-                alt={`${build.items.gloves?.name} icon`}
-                width={50}
-                height={50}
-              />
-            )}
-          </BuildButton>
+          />
           <div id="relic-container" className="flex items-start justify-start">
-            <BuildButton
+            <ImageBuilderButton
+              item={build.items.relic}
+              showLabels={showLabels}
               onClick={() => {
                 setSelectedItemSlot({
                   category: 'relic',
                 })
               }}
-              itemName={build.items.relic?.name || null}
-              showLabels={showLabels}
-            >
-              {build.items.relic && (
-                <Image
-                  src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}${build.items.relic.imagePath}`}
-                  alt={`${build.items.relic?.name} icon`}
-                  width={50}
-                  height={50}
-                />
-              )}
-            </BuildButton>
+            />
             <div
               id="relic-fragment-container"
               className="flex flex-col items-start justify-start"
             >
-              <BuildButton
+              <ImageBuilderButton
+                showLabels={showLabels}
+                size="sm"
+                item={build.items.relicfragment[0]}
                 onClick={() => {
                   setSelectedItemSlot({
                     category: 'relicfragment',
                     index: 0,
                   })
                 }}
-                itemName={
-                  build.items.relicfragment &&
-                  build.items.relicfragment[0]?.name
-                }
+              />
+              <ImageBuilderButton
+                item={build.items.relicfragment[1]}
                 showLabels={showLabels}
                 size="sm"
-              >
-                {build.items.relicfragment && build.items.relicfragment[0] && (
-                  <Image
-                    src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}${build.items.relicfragment[0].imagePath}`}
-                    alt={`${build.items.relicfragment[0].name} icon`}
-                    width={22}
-                    height={22}
-                  />
-                )}
-              </BuildButton>
-              <BuildButton
                 onClick={() => {
                   setSelectedItemSlot({
                     category: 'relicfragment',
                     index: 1,
                   })
                 }}
-                itemName={
-                  build.items.relicfragment &&
-                  build.items.relicfragment[1]?.name
-                }
+              />
+              <ImageBuilderButton
+                item={build.items.relicfragment[2]}
                 showLabels={showLabels}
                 size="sm"
-              >
-                {build.items.relicfragment && build.items.relicfragment[1] && (
-                  <Image
-                    src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}${build.items.relicfragment[1].imagePath}`}
-                    alt={`${build.items.relicfragment[1].name} icon`}
-                    width={22}
-                    height={22}
-                  />
-                )}
-              </BuildButton>
-              <BuildButton
                 onClick={() => {
                   setSelectedItemSlot({
                     category: 'relicfragment',
                     index: 2,
                   })
                 }}
-                itemName={
-                  build.items.relicfragment &&
-                  build.items.relicfragment[2]?.name
-                }
-                showLabels={showLabels}
-                size="sm"
-              >
-                {build.items.relicfragment && build.items.relicfragment[2] && (
-                  <Image
-                    src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}${build.items.relicfragment[2].imagePath}`}
-                    alt={`${build.items.relicfragment[2].name} icon`}
-                    width={22}
-                    height={22}
-                  />
-                )}
-              </BuildButton>
+              />
             </div>
           </div>
         </div>
         <div id="right-column" className="flex-none">
-          <BuildButton
+          <ImageBuilderButton
+            item={build.items.amulet}
+            showLabels={showLabels}
             onClick={() => {
               setSelectedItemSlot({
                 category: 'amulet',
               })
             }}
-            itemName={build.items.amulet?.name || null}
-            showLabels={showLabels}
-          >
-            {build.items.amulet && (
-              <Image
-                src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}${build.items.amulet.imagePath}`}
-                alt={`${build.items.amulet?.name} icon`}
-                width={50}
-                height={50}
-              />
-            )}
-          </BuildButton>
+          />
           {getArrayOfLength(4).map((ringIndex) => (
-            <BuildButton
+            <ImageBuilderButton
+              showLabels={showLabels}
+              item={build.items.ring[ringIndex]}
               key={`ring-${ringIndex}`}
               onClick={() => {
                 setSelectedItemSlot({
@@ -339,49 +251,55 @@ export default function ImageBuild({
                   index: ringIndex,
                 })
               }}
-              showLabels={showLabels}
-              itemName={build.items.ring && build.items.ring[ringIndex]?.name}
-            >
-              {build.items.ring && build.items.ring[ringIndex] && (
-                <Image
-                  src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}${build.items.ring[ringIndex].imagePath}`}
-                  alt={`${build.items.ring[ringIndex].name} icon`}
-                  width={50}
-                  height={50}
-                />
-              )}
-            </BuildButton>
+            />
           ))}
         </div>
       </div>
       <div
         id="guns-row"
-        className="flex w-full flex-row items-center justify-between gap-2 overflow-x-scroll"
+        className="flex w-full flex-row items-start justify-start gap-2 overflow-x-scroll"
       >
         {getArrayOfLength(3).map((weaponIndex) => (
-          <BuildButton
+          <div
             key={`gun-${weaponIndex}`}
-            onClick={() => {
-              setSelectedItemSlot({
-                category: 'weapon',
-                index: weaponIndex,
-              })
-            }}
-            showLabels={showLabels}
-            itemName={
-              build.items.weapon && build.items.weapon[weaponIndex]?.name
-            }
-            size="wide"
+            className="flex flex-col items-start justify-stretch"
           >
-            {build.items.weapon && build.items.weapon[weaponIndex] && (
-              <Image
-                src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}${build.items.weapon[weaponIndex].imagePath}`}
-                alt={`${build.items.weapon[weaponIndex].name} icon`}
-                width={120}
-                height={66}
+            <ImageBuilderButton
+              showLabels={showLabels}
+              item={build.items.weapon[weaponIndex]}
+              size="wide"
+              onClick={() => {
+                setSelectedItemSlot({
+                  category: 'weapon',
+                  index: weaponIndex,
+                })
+              }}
+            />
+            <div className="flex grow flex-row items-start justify-center gap-4">
+              <ImageBuilderButton
+                showLabels={showLabels}
+                item={build.items.mod[weaponIndex]}
+                size="md"
+                onClick={() => {
+                  setSelectedItemSlot({
+                    category: 'mod',
+                    index: weaponIndex,
+                  })
+                }}
               />
-            )}
-          </BuildButton>
+              <ImageBuilderButton
+                item={build.items.mutator[weaponIndex]}
+                showLabels={showLabels}
+                size="md"
+                onClick={() => {
+                  setSelectedItemSlot({
+                    category: 'mutator',
+                    index: weaponIndex,
+                  })
+                }}
+              />
+            </div>
+          </div>
         ))}
       </div>
     </Fragment>

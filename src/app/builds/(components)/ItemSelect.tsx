@@ -1,10 +1,9 @@
 'use client'
 
-import { cn } from '@/lib/utils'
 import { type Item, ItemCategory } from '@/types'
 import Dialog from '@/components/Dialog'
 import Image from 'next/image'
-import BuildButton from './BuildButton'
+import ImageBuilderButton from './ImageBuilderButton'
 
 export default function ItemSelect({
   itemList,
@@ -36,19 +35,12 @@ export default function ItemSelect({
       >
         {itemList.map((item) => (
           <li key={item.name} className="mr-2 min-h-[70px] w-[90px]">
-            <BuildButton
-              onClick={() => onSelectItem(item)}
-              itemName={item.name}
+            <ImageBuilderButton
+              item={item}
               showLabels={true}
               size="lg"
-            >
-              <Image
-                src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}${item.imagePath}`}
-                width={64}
-                height={64}
-                alt={item.name}
-              />
-            </BuildButton>
+              onClick={() => onSelectItem(item)}
+            />
           </li>
         ))}
       </ul>
