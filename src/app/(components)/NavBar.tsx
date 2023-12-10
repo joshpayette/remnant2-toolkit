@@ -4,7 +4,7 @@ import { Fragment, useEffect, useState } from 'react'
 import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
-import Logo from '../components/Logo'
+import Logo from '@/app/(components)/Logo'
 import { usePathname } from 'next/navigation'
 
 const navigation = [

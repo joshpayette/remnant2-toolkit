@@ -7,10 +7,10 @@ import type { Filters } from './(components)/Filters'
 import dynamic from 'next/dynamic'
 import { type Item, type ItemCategory } from '@/types'
 import TrackerFilters from './(components)/Filters'
-import ToCsvButton from '@/components/ToCsvButton'
+import ToCsvButton from '@/app/(components)/ToCsvButton'
 import { useIsClient } from 'usehooks-ts'
-import PageHeader from '@/app/PageHeader'
-import ItemInfo from '@/components/ItemInfo'
+import PageHeader from '@/app/(components)/PageHeader'
+import ItemInfo from '@/app/(components)/ItemInfo'
 
 const skippedItemCategories: ItemCategory[] = [
   'concoction',

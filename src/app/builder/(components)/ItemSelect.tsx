@@ -1,7 +1,7 @@
 'use client'
 
 import { type Item, ItemCategory } from '@/types'
-import Dialog from '@/components/Dialog'
+import Dialog from '@/app/(components)/Dialog'
 import Image from 'next/image'
 import ImageBuilderButton from './ImageBuilderButton'
 

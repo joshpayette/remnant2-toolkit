@@ -223,9 +223,10 @@ export default function ImageBuilder({
             </div>
           </div>
         </div>
+
         <div
           id="center-column"
-          className="flex h-[375px] max-h-[375px] grow items-start justify-start overflow-y-scroll"
+          className="flex h-[375px] max-h-[375px] grow flex-col items-start justify-start overflow-y-scroll"
         >
           <BuildName
             editable={buildNameIsEditable}
@@ -237,7 +238,71 @@ export default function ImageBuilder({
             name={build.name}
             showLabels={showLabels}
           />
+
+          <div id="archtype-container" className="flex flex-row gap-2">
+            {getArrayOfLength(2).map((archtypeIndex) => (
+              <Fragment key={`archtype-${archtypeIndex}`}>
+                <ImageBuilderButton
+                  item={build.items.archtype[archtypeIndex]}
+                  showLabels={showLabels}
+                  onClick={() => {
+                    setSelectedItemSlot({
+                      category: 'archtype',
+                      index: archtypeIndex,
+                    })
+                  }}
+                />
+                <ImageBuilderButton
+                  item={build.items.skill[archtypeIndex]}
+                  showLabels={showLabels}
+                  onClick={() => {
+                    setSelectedItemSlot({
+                      category: 'skill',
+                      index: archtypeIndex,
+                    })
+                  }}
+                />
+              </Fragment>
+            ))}
+          </div>
+
+          <div id="concoction-container" className="flex flex-row gap-2">
+            <ImageBuilderButton
+              item={build.items.concoction[0]}
+              showLabels={showLabels}
+              onClick={() => {
+                setSelectedItemSlot({
+                  category: 'concoction',
+                  index: 0,
+                })
+              }}
+            />
+            {getArrayOfLength(3).map((index) => {
+              // Skip the first concoction, since it's already been rendered
+              const concoctionIndex = index + 1
+
+              // Skip the concoctions if the build is not an alchemist
+              const isPrimaryAlchemist =
+                build.items.archtype[0]?.name?.toLowerCase() === 'alchemist'
+              if (!isPrimaryAlchemist) return null
+
+              return (
+                <ImageBuilderButton
+                  key={`concoction-${concoctionIndex}`}
+                  item={build.items.concoction[concoctionIndex]}
+                  showLabels={showLabels}
+                  onClick={() => {
+                    setSelectedItemSlot({
+                      category: 'concoction',
+                      index: concoctionIndex,
+                    })
+                  }}
+                />
+              )
+            })}
+          </div>
         </div>
+
         <div id="right-column" className="flex-none">
           <ImageBuilderButton
             item={build.items.amulet}

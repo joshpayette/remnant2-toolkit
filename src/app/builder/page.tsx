@@ -2,7 +2,7 @@
 
 import { Fragment, useState } from 'react'
 import { useSearchParams } from 'next/navigation'
-import PageHeader from '@/app/PageHeader'
+import PageHeader from '@/app/(components)/PageHeader'
 import ImageBuilder from './(components)/ImageBuilder'
 import useQueryString from '@/hooks/useQueryString'
 import { cn } from '@/lib/utils'
