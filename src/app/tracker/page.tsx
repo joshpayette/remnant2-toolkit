@@ -11,6 +11,7 @@ import ToCsvButton from '@/app/(components)/ToCsvButton'
 import { useIsClient } from 'usehooks-ts'
 import PageHeader from '@/app/(components)/PageHeader'
 import ItemInfo from '@/app/(components)/ItemInfo'
+import { itemToCsvItem } from '@/lib/utils'
 
 const skippedItemCategories: ItemCategory[] = [
   'concoction',
@@ -59,14 +60,13 @@ export default function TrackerPage() {
   // We could maybe provide the ids as well, in case users wanted to dynamically
   // generate the build urls, but that's not a priority right now.
   const csvItems = useMemo(() => {
-    return items.map((item) => ({
-      name: item.name,
-      category: item.category,
-      discovered: item.discovered,
-      description: item.description?.replaceAll(',', ' ') || '',
-      howToGet: item.howToGet?.replaceAll(',', ' ') || '',
-      wikiLinks: item.wikiLinks?.join('; ') || '',
-    }))
+    return items.map((item) => {
+      const csvItem = itemToCsvItem(item)
+      return {
+        ...csvItem,
+        discovered: item.discovered,
+      }
+    })
   }, [items])
 
   // Provider the tracker progress

@@ -5,8 +5,10 @@ import { useSearchParams } from 'next/navigation'
 import PageHeader from '@/app/(components)/PageHeader'
 import ImageBuilder from './(components)/ImageBuilder'
 import useQueryString from '@/hooks/useQueryString'
-import { cn } from '@/lib/utils'
+import { cn, itemToCsvItem } from '@/lib/utils'
 import { useLocalStorage } from '@/hooks/useLocalStorage'
+import ToCsvButton from '../(components)/ToCsvButton'
+import { remnantItemCategories } from '@/data'
 
 export default function BuildHomePage() {
   const searchParams = useSearchParams()
@@ -24,6 +26,26 @@ export default function BuildHomePage() {
       showLabels: !showLabels,
     })
   }
+
+  // We need to convert the build.items object into an array of items to pass to the ToCsvButton
+  const csvBuildData = remnantItemCategories
+    .map((category) => {
+      const itemOrItems = build.items[category]
+
+      if (!itemOrItems)
+        return {
+          name: '',
+          category,
+          description: '',
+          howToGet: '',
+          wikiLinks: '',
+        }
+
+      return Array.isArray(itemOrItems)
+        ? itemOrItems.map((item) => itemToCsvItem(item))
+        : itemToCsvItem(itemOrItems)
+    })
+    .flat()
 
   return (
     <Fragment>
@@ -46,7 +68,7 @@ export default function BuildHomePage() {
           id="actions-column"
           className="flex min-w-full flex-col justify-between sm:min-w-[100px]"
         >
-          <div id="actions">
+          <div id="actions" className="flex flex-col gap-2">
             <button
               id="show-labels-button"
               className={cn(
@@ -80,6 +102,10 @@ export default function BuildHomePage() {
                 {showLabels ? 'Hide Labels' : 'Show Labels'}
               </span>
             </button>
+            <ToCsvButton
+              data={csvBuildData}
+              filename={`remnant2_builder_${build.name}`}
+            />
           </div>
         </div>
         <div className="w-full grow rounded border-2 border-green-500 bg-black p-4">

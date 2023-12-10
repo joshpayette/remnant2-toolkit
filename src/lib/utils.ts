@@ -1,3 +1,4 @@
+import { type CsvItem, type Item } from '@/types'
 import { clsx, type ClassValue } from 'clsx'
 import { twMerge } from 'tailwind-merge'
 
@@ -38,6 +39,19 @@ export function toCsv<T extends {}>(array: T[], filename: string) {
   link.setAttribute('download', `${filename}.csv`)
   document.body.appendChild(link) // Required for FF
   link.click()
+}
+
+/**
+ * Converts an Item to a CSV item for export
+ */
+export function itemToCsvItem(item: Item): CsvItem {
+  return {
+    name: item.name,
+    category: item.category,
+    description: item.description?.replaceAll(',', ' ') || '',
+    howToGet: item.howToGet?.replaceAll(',', ' ') || '',
+    wikiLinks: item.wikiLinks?.join('; ') || '',
+  }
 }
 
 /**

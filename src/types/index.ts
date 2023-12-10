@@ -49,6 +49,14 @@ export interface WeaponItem extends BaseItem {
 
 export type Item = BaseItem | WeaponItem
 
+export interface CsvItem {
+  name: string
+  category: ItemCategory
+  description: string
+  howToGet: string
+  wikiLinks: string
+}
+
 // Used for the build page
 export interface Build {
   name: string
