@@ -5,7 +5,7 @@ import useQueryString from '@/hooks/useQueryString'
 import { type Item, type ItemCategory } from '@/types'
 import { remnantItems } from '@/data'
 import Image from 'next/image'
-import { getArrayOfLength } from '@/lib/utils'
+import { cn, getArrayOfLength } from '@/lib/utils'
 import BuildName from './BuildName'
 import ImageBuilderButton from './ImageBuilderButton'
 
@@ -295,7 +295,12 @@ export default function ImageBuilder({
 
         <div
           id="center-column"
-          className="flex h-[290px] max-h-[290px] grow flex-col items-start justify-start overflow-y-scroll sm:h-[375px] sm:max-h-[375px]"
+          className={cn(
+            'flex h-[290px] max-h-[290px] grow flex-col items-start justify-start overflow-y-scroll',
+            showLabels
+              ? 'sm:h-[425px] sm:max-h-[425px]'
+              : 'sm:h-[375px] sm:max-h-[375px]',
+          )}
         >
           <BuildName
             editable={buildNameIsEditable}
@@ -375,6 +380,22 @@ export default function ImageBuilder({
                 />
               )
             })}
+          </div>
+
+          <div id="consumable-container" className="flex flex-row flex-wrap">
+            {getArrayOfLength(4).map((consumableIndex) => (
+              <ImageBuilderButton
+                key={`consumable-${consumableIndex}`}
+                item={build.items.consumable[consumableIndex]}
+                showLabels={showLabels}
+                onClick={() => {
+                  setSelectedItemSlot({
+                    category: 'consumable',
+                    index: consumableIndex,
+                  })
+                }}
+              />
+            ))}
           </div>
         </div>
 
