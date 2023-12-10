@@ -9,7 +9,7 @@ import { usePathname } from 'next/navigation'
 
 const navigation = [
   { name: 'Item Tracker', href: '/tracker' },
-  { name: 'Builds', href: '/builds' },
+  { name: 'Builder', href: '/builder' },
 ]
 
 export default function NavBar() {

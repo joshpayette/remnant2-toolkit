@@ -11,7 +11,7 @@ import ImageBuilderButton from './ImageBuilderButton'
 
 // Prevents hydration errors with the ItemSelect modal
 const ItemSelect = dynamic(
-  () => import('@/app/builds/(components)/ItemSelect'),
+  () => import('@/app/builder/(components)/ItemSelect'),
   {
     ssr: false,
   },
@@ -129,16 +129,6 @@ export default function ImageBuilder({
         buildSlot={selectedItemSlot.category}
       />
 
-      <BuildName
-        editable={buildNameIsEditable}
-        onClick={() => setBuildNameIsEditable(true)}
-        onClose={(newBuildName: string) => {
-          updateQueryString('name', newBuildName)
-          setBuildNameIsEditable(false)
-        }}
-        name={build.name}
-      />
-
       <div
         id="build-container"
         className="flex w-full items-start justify-between gap-4"
@@ -180,7 +170,10 @@ export default function ImageBuilder({
               })
             }}
           />
-          <div id="relic-container" className="flex items-start justify-start">
+          <div
+            id="relic-container"
+            className="relative flex items-start justify-start"
+          >
             <ImageBuilderButton
               item={build.items.relic}
               showLabels={showLabels}
@@ -192,7 +185,7 @@ export default function ImageBuilder({
             />
             <div
               id="relic-fragment-container"
-              className="flex flex-col items-start justify-start"
+              className="absolute left-[66px] top-0 flex w-[160px] flex-col items-start justify-start"
             >
               <ImageBuilderButton
                 showLabels={showLabels}
@@ -229,6 +222,21 @@ export default function ImageBuilder({
               />
             </div>
           </div>
+        </div>
+        <div
+          id="center-column"
+          className="flex h-[375px] max-h-[375px] grow items-start justify-start overflow-y-scroll"
+        >
+          <BuildName
+            editable={buildNameIsEditable}
+            onClick={() => setBuildNameIsEditable(true)}
+            onClose={(newBuildName: string) => {
+              updateQueryString('name', newBuildName)
+              setBuildNameIsEditable(false)
+            }}
+            name={build.name}
+            showLabels={showLabels}
+          />
         </div>
         <div id="right-column" className="flex-none">
           <ImageBuilderButton
