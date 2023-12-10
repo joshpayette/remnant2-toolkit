@@ -18,7 +18,7 @@ const initialValue: LocalStorage = {
     collapsedCategories: [],
   },
   builder: {
-    showLabels: true,
+    showLabels: false,
   },
 }
 
