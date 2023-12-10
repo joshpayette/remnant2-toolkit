@@ -24,7 +24,7 @@ export default function NavBar() {
   return (
     <Fragment>
       <nav
-        className="fixed z-40 mx-auto flex w-full items-center justify-between bg-background p-6 lg:px-8"
+        className="z-40 mx-auto flex w-full items-center justify-between bg-background p-6 lg:px-8"
         aria-label="Global"
       >
         <div className="flex min-w-[300px]">
