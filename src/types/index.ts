@@ -33,12 +33,12 @@ interface BaseItem {
   howToGet?: string
   wikiLinks?: string[]
   imagePath: string
+  linkedItems?: LinkedItems
 }
 
 export interface WeaponItem extends BaseItem {
   category: 'weapon'
   type: 'long gun' | 'melee' | 'hand gun'
-  linkedItems: LinkedItems
   // if it has a permanent mod slot
   hasMod?: boolean
   // if it has a permanent mutator slot
