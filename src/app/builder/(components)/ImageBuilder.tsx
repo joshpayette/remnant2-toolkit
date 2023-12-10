@@ -226,7 +226,7 @@ export default function ImageBuilder({
 
         <div
           id="center-column"
-          className="flex h-[375px] max-h-[375px] grow flex-col items-start justify-start overflow-y-scroll"
+          className="flex h-[290px] max-h-[290px] grow flex-col items-start justify-start overflow-y-scroll sm:h-[375px] sm:max-h-[375px]"
         >
           <BuildName
             editable={buildNameIsEditable}
@@ -239,7 +239,10 @@ export default function ImageBuilder({
             showLabels={showLabels}
           />
 
-          <div id="archtype-container" className="flex flex-row gap-2">
+          <div
+            id="archtype-container"
+            className="flex flex-row flex-wrap gap-2"
+          >
             {getArrayOfLength(2).map((archtypeIndex) => (
               <Fragment key={`archtype-${archtypeIndex}`}>
                 <ImageBuilderButton
@@ -266,7 +269,10 @@ export default function ImageBuilder({
             ))}
           </div>
 
-          <div id="concoction-container" className="flex flex-row gap-2">
+          <div
+            id="concoction-container"
+            className="flex flex-row flex-wrap gap-2"
+          >
             <ImageBuilderButton
               item={build.items.concoction[0]}
               showLabels={showLabels}
