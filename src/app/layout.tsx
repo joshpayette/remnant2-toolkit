@@ -24,7 +24,7 @@ export default function RootLayout({
           <header>
             <NavBar />
           </header>
-          <main className="flex w-full flex-col items-center justify-start p-4 pt-24">
+          <main className="flex w-full flex-col items-center justify-start p-4">
             {children}
           </main>
         </div>

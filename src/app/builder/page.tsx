@@ -3,7 +3,7 @@
 import { Fragment, useState } from 'react'
 import { useSearchParams } from 'next/navigation'
 import PageHeader from '@/app/PageHeader'
-import ImageBuild from './(components)/ImageBuild'
+import ImageBuilder from './(components)/ImageBuilder'
 import useQueryString from '@/hooks/useQueryString'
 import { cn } from '@/lib/utils'
 import { useLocalStorage } from '@/hooks/useLocalStorage'
@@ -83,7 +83,7 @@ export default function BuildHomePage() {
           </div>
         </div>
         <div className="w-full grow rounded border-2 border-green-500 bg-black p-4">
-          <ImageBuild build={build} showLabels={showLabels} />
+          <ImageBuilder build={build} showLabels={showLabels} />
         </div>
       </div>
     </Fragment>
