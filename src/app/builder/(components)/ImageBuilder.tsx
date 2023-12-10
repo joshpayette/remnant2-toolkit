@@ -1,6 +1,6 @@
 import dynamic from 'next/dynamic'
 import { WeaponItem, type Build } from '@/types'
-import { Fragment, useMemo, useState } from 'react'
+import { Fragment, useCallback, useMemo, useState } from 'react'
 import useQueryString from '@/hooks/useQueryString'
 import { type Item, type ItemCategory } from '@/types'
 import { remnantItems } from '@/data'
@@ -16,6 +16,87 @@ const ItemSelect = dynamic(
     ssr: false,
   },
 )
+
+/**
+ * Returns a list of items that match the selected slot
+ * Takes into account the build's current items and the selected slot
+ * This is passed to the ItemSelect modal to display the correct items
+ */
+function getItemListForSlot(
+  build: Build,
+  selectedItemSlot: {
+    category: ItemCategory | null
+    index?: number
+  },
+) {
+  if (!selectedItemSlot.category) return []
+
+  // If the selected slot is a weapon, then limit the
+  // weapons based on the corresponding weapon type
+  if (selectedItemSlot.category === 'weapon') {
+    let type: WeaponItem['type']
+    switch (selectedItemSlot.index) {
+      case 0:
+        type = 'long gun'
+        break
+      case 1:
+        type = 'melee'
+        break
+      case 2:
+        type = 'hand gun'
+        break
+    }
+
+    return (remnantItems as WeaponItem[]).filter((item) => item.type === type)
+  }
+
+  // If the selected slot is a skill, try to limit
+  // skills based on the corresponding archtype
+  if (selectedItemSlot.category === 'skill') {
+    const allItems = (remnantItems as Item[]).filter(
+      (item) => item.category === 'skill',
+    )
+
+    if (selectedItemSlot.index === undefined) return allItems
+
+    const archtype =
+      build.items.archtype[selectedItemSlot.index]?.name.toLowerCase()
+
+    if (!archtype) return allItems
+
+    const itemsForArchtype = allItems.filter(
+      (item) => item.linkedItems?.archtype?.name.toLowerCase() === archtype,
+    )
+
+    return itemsForArchtype
+  }
+
+  // If the selected slot is an archtype, try to limit
+  // the archtypes based on the corresponding skill
+  if (selectedItemSlot.category === 'archtype') {
+    const allItems = (remnantItems as Item[]).filter(
+      (item) => item.category === 'archtype',
+    )
+
+    if (selectedItemSlot.index === undefined) return allItems
+
+    const skill = build.items.skill[selectedItemSlot.index]?.name.toLowerCase()
+
+    if (!skill) return allItems
+
+    const itemsForSkill = allItems.filter(
+      (item) =>
+        item.linkedItems?.skills?.some((s) => s.name.toLowerCase() === skill),
+    )
+
+    return itemsForSkill
+  }
+
+  // If we got this far, then return all items for the selected slot
+  return (remnantItems as Item[]).filter(
+    (item) => item.category === selectedItemSlot.category,
+  )
+}
 
 export default function ImageBuilder({
   build,
@@ -42,47 +123,55 @@ export default function ImageBuilder({
    * If the item is not null, the item is added to the build
    * and the query string is updated.
    */
-  function handleSelectItem(selectedItem: Item | null) {
-    if (!selectedItemSlot.category) return
+  const handleSelectItem = useCallback(
+    (selectedItem: Item | null) => {
+      if (!selectedItemSlot.category) return
 
-    if (!selectedItem) {
-      updateQueryString(selectedItemSlot.category, '')
-      return
-    }
+      if (!selectedItem) {
+        updateQueryString(selectedItemSlot.category, '')
+        return
+      }
 
-    const buildItemOrItems = build.items[selectedItemSlot.category]
+      const buildItemOrItems = build.items[selectedItemSlot.category]
 
-    if (Array.isArray(buildItemOrItems)) {
-      const buildItems = buildItemOrItems
+      if (Array.isArray(buildItemOrItems)) {
+        const buildItems = buildItemOrItems
 
-      const itemAlreadyInBuild = buildItems.find(
-        (i) => i?.id === selectedItem.id,
-      )
-      if (itemAlreadyInBuild) return
+        const itemAlreadyInBuild = buildItems.find(
+          (i) => i?.id === selectedItem.id,
+        )
+        if (itemAlreadyInBuild) return
 
-      /** Used to add the new item to the array of items for this slot */
-      const newBuildItems = [...buildItems]
+        /** Used to add the new item to the array of items for this slot */
+        const newBuildItems = [...buildItems]
 
-      const specifiedIndex = selectedItemSlot.index
-      const itemIndexSpecified = specifiedIndex !== undefined
+        const specifiedIndex = selectedItemSlot.index
+        const itemIndexSpecified = specifiedIndex !== undefined
 
-      itemIndexSpecified
-        ? (newBuildItems[specifiedIndex] = selectedItem)
-        : newBuildItems.push(selectedItem)
+        itemIndexSpecified
+          ? (newBuildItems[specifiedIndex] = selectedItem)
+          : newBuildItems.push(selectedItem)
 
-      const newItemIds = newBuildItems.map((i) => i.id)
-      updateQueryString(selectedItem.category, newItemIds)
-    } else {
-      const buildItem = buildItemOrItems
+        const newItemIds = newBuildItems.map((i) => i.id)
+        updateQueryString(selectedItem.category, newItemIds)
+      } else {
+        const buildItem = buildItemOrItems
 
-      const itemAlreadyInBuild = buildItem?.id === selectedItem.id
-      if (itemAlreadyInBuild) return
+        const itemAlreadyInBuild = buildItem?.id === selectedItem.id
+        if (itemAlreadyInBuild) return
 
-      updateQueryString(selectedItem.category, selectedItem.id)
-    }
+        updateQueryString(selectedItem.category, selectedItem.id)
+      }
 
-    setSelectedItemSlot({ category: null })
-  }
+      setSelectedItemSlot({ category: null })
+    },
+    [
+      build.items,
+      selectedItemSlot.category,
+      selectedItemSlot.index,
+      updateQueryString,
+    ],
+  )
 
   /** If the item category is null, modal is closed */
   const isItemSelectModalOpen = Boolean(selectedItemSlot.category)
@@ -94,30 +183,10 @@ export default function ImageBuilder({
    * Returns a list of items that match the selected slot
    * This is passed to the ItemSelect modal to display the correct items
    */
-  const itemListForSlot = useMemo(() => {
-    if (!selectedItemSlot.category) return []
-
-    if (selectedItemSlot.category === 'weapon') {
-      let type: WeaponItem['type']
-      switch (selectedItemSlot.index) {
-        case 0:
-          type = 'long gun'
-          break
-        case 1:
-          type = 'melee'
-          break
-        case 2:
-          type = 'hand gun'
-          break
-      }
-
-      return (remnantItems as WeaponItem[]).filter((item) => item.type === type)
-    }
-
-    return (remnantItems as Item[]).filter(
-      (item) => item.category === selectedItemSlot.category,
-    )
-  }, [selectedItemSlot])
+  const itemListForSlot = useMemo(
+    () => getItemListForSlot(build, selectedItemSlot),
+    [selectedItemSlot, build],
+  )
 
   return (
     <Fragment>

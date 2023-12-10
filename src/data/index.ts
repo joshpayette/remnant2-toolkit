@@ -14,6 +14,11 @@ export const remnantItems: Item[] = [
       trait: {
         name: 'Potency',
       },
+      skills: [
+        { name: 'Vial: Stone Mist' },
+        { name: 'Vial: Frenzy Dust' },
+        { name: 'Vial: Elixir of Life' },
+      ],
     },
   },
   {
@@ -28,6 +33,11 @@ export const remnantItems: Item[] = [
       trait: {
         name: 'Flash Caster',
       },
+      skills: [
+        { name: 'Reality Rune' },
+        { name: 'Chaos Gate' },
+        { name: 'Havoc Form' },
+      ],
     },
   },
   {
@@ -42,6 +52,11 @@ export const remnantItems: Item[] = [
       trait: {
         name: 'Strong Back',
       },
+      skills: [
+        { name: 'War Stomp' },
+        { name: 'Juggernaut' },
+        { name: 'Rampage' },
+      ],
     },
   },
   {
@@ -56,6 +71,11 @@ export const remnantItems: Item[] = [
       trait: {
         name: 'Fortify',
       },
+      skills: [
+        { name: 'Heavy Weapon: Vulcan' },
+        { name: 'Heavy Weapon: Flamethrower' },
+        { name: 'Heavy Weapon: Impact Cannon' },
+      ],
     },
   },
   {
@@ -70,6 +90,11 @@ export const remnantItems: Item[] = [
       trait: {
         name: 'Swiftness',
       },
+      skills: [
+        { name: 'Plainswalker' },
+        { name: 'Gold Digger' },
+        { name: 'Fortune Hunter' },
+      ],
     },
   },
   {
@@ -84,6 +109,11 @@ export const remnantItems: Item[] = [
       trait: {
         name: 'Ammo Reserves',
       },
+      skills: [
+        { name: 'Quick Draw' },
+        { name: 'Sidewinder' },
+        { name: 'Bulletstorm' },
+      ],
     },
   },
   {
@@ -98,6 +128,11 @@ export const remnantItems: Item[] = [
       trait: {
         name: 'Kinship',
       },
+      skills: [
+        { name: 'Guard Dog' },
+        { name: 'Support Dog' },
+        { name: 'Attack Dog' },
+      ],
     },
   },
   {
@@ -112,6 +147,11 @@ export const remnantItems: Item[] = [
       trait: {
         name: 'Longshot',
       },
+      skills: [
+        { name: `Hunter's Mark` },
+        { name: `Hunter's Focus` },
+        { name: `Hunter's Shroud` },
+      ],
     },
   },
   {
@@ -125,6 +165,11 @@ export const remnantItems: Item[] = [
       trait: {
         name: 'Untouchable',
       },
+      skills: [
+        { name: 'Void Cloak' },
+        { name: 'Worm Hole' },
+        { name: 'Reboot' },
+      ],
     },
   },
   {
@@ -139,6 +184,11 @@ export const remnantItems: Item[] = [
       trait: {
         name: 'Triage',
       },
+      skills: [
+        { name: 'Wellspring' },
+        { name: 'Healing Shield' },
+        { name: 'Redemption' },
+      ],
     },
   },
   {
@@ -153,6 +203,11 @@ export const remnantItems: Item[] = [
       trait: {
         name: 'Affliction',
       },
+      skills: [
+        { name: 'Eruption' },
+        { name: 'Miasma' },
+        { name: 'Death Wish' },
+      ],
     },
   },
   {
@@ -167,6 +222,11 @@ export const remnantItems: Item[] = [
       trait: {
         name: 'Regrowth',
       },
+      skills: [
+        { name: 'Minion: Hollow' },
+        { name: 'Minion: Flyer' },
+        { name: 'Minion: Reaver' },
+      ]
     },
   },
   {
@@ -174,216 +234,396 @@ export const remnantItems: Item[] = [
     name: 'War Stomp',
     imagePath: '/skill/war_stomp.png',
     id: 'qnz5iw',
+    linkedItems: {
+      archtype: {
+        name: 'Challenger',
+      },
+    },
   },
   {
     category: 'skill',
     name: 'Juggernaut',
     imagePath: '/skill/juggernaut.png',
     id: 'p7x9pq',
+    linkedItems: {
+      archtype: {
+        name: 'Challenger',
+      },
+    },
   },
   {
     category: 'skill',
     name: 'Rampage',
     imagePath: '/skill/rampage.png',
     id: 'wyw9r4',
+    linkedItems: {
+      archtype: {
+        name: 'Challenger',
+      },
+    },
   },
   {
     category: 'skill',
     name: 'Guard Dog',
     imagePath: '/skill/guard_dog.png',
     id: 'gpr2fw',
+    linkedItems: {
+      archtype: {
+        name: 'Handler',
+      },
+    },
   },
   {
     category: 'skill',
     name: 'Support Dog',
     imagePath: '/skill/support_dog.png',
     id: 'jz6x2w',
+    linkedItems: {
+      archtype: {
+        name: 'Handler',
+      },
+    },
   },
   {
     category: 'skill',
     name: 'Attack Dog',
     imagePath: '/skill/attack_dog.png',
     id: '8trtzh',
+    linkedItems: {
+      archtype: {
+        name: 'Handler',
+      },
+    },
   },
   {
     category: 'skill',
     name: 'Wellspring',
     imagePath: '/skill/wellspring.png',
     id: '7vtxrx',
+    linkedItems: {
+      archtype: {
+        name: 'Medic',
+      },
+    },
   },
   {
     category: 'skill',
     name: 'Healing Shield',
     imagePath: '/skill/healing_shield.png',
     id: '8pu6y2',
+    linkedItems: {
+      archtype: {
+        name: 'Medic',
+      },
+    },
   },
   {
     category: 'skill',
     name: 'Redemption',
     imagePath: '/skill/redemption.png',
     id: 'zs77cb',
+    linkedItems: {
+      archtype: {
+        name: 'Medic',
+      },
+    },
   },
   {
     category: 'skill',
     name: `Hunter's Mark`,
     imagePath: '/skill/hunters_mark.png',
     id: 'jg82hi',
+    linkedItems: {
+      archtype: {
+        name: 'Hunter',
+      },
+    },
   },
   {
     category: 'skill',
     name: `Hunter's Focus`,
     imagePath: '/skill/hunters_focus.png',
     id: '5jh6qr',
+    linkedItems: {
+      archtype: {
+        name: 'Hunter',
+      },
+    },
   },
   {
     category: 'skill',
     name: `Hunter's Shroud`,
     imagePath: '/skill/hunters_shroud.png',
     id: 'ufkx9q',
+    linkedItems: {
+      archtype: {
+        name: 'Hunter',
+      },
+    },
   },
   {
     category: 'skill',
     name: 'Vial: Stone Mist',
     imagePath: '/skill/vial_stone_mist.png',
     id: 'y7ia9t',
+    linkedItems: {
+      archtype: {
+        name: 'Alchemist',
+      },
+    },
   },
   {
     category: 'skill',
     name: 'Vial: Frenzy Dust',
     imagePath: '/skill/vial_frenzy_dust.png',
     id: 'xsniv3',
+    linkedItems: {
+      archtype: {
+        name: 'Alchemist',
+      },
+    },
   },
   {
     category: 'skill',
     name: 'Vial: Elixir of Life',
     imagePath: '/skill/vial_elixir_of_life.png',
     id: '76554i',
+    linkedItems: {
+      archtype: {
+        name: 'Alchemist',
+      },
+    },
   },
   {
     category: 'skill',
     name: 'Reality Rune',
     imagePath: '/skill/reality_rune.png',
     id: 'i3ddi7',
+    linkedItems: {
+      archtype: {
+        name: 'Archon',
+      },
+    },
   },
   {
     category: 'skill',
     name: 'Chaos Gate',
     imagePath: '/skill/chaos_gate.png',
     id: '9w7c5j',
+    linkedItems: {
+      archtype: {
+        name: 'Archon',
+      },
+    },
   },
   {
     category: 'skill',
     name: 'Havoc Form',
     imagePath: '/skill/havoc_form.png',
     id: 'y72au6',
+    linkedItems: {
+      archtype: {
+        name: 'Archon',
+      },
+    },
   },
   {
     category: 'skill',
     name: 'Heavy Weapon: Vulcan',
     imagePath: '/skill/heavy_weapon_vulcan.png',
     id: 'pgmn4v',
+    linkedItems: {
+      archtype: {
+        name: 'Engineer',
+      },
+    },
   },
   {
     category: 'skill',
     name: 'Heavy Weapon: Flamethrower',
     imagePath: '/skill/heavy_weapon_flamethrower.png',
     id: '6fk8ea',
+    linkedItems: {
+      archtype: {
+        name: 'Engineer',
+      },
+    },
   },
   {
     category: 'skill',
     name: 'Heavy Weapon: Impact Cannon',
     imagePath: '/skill/heavy_weapon_impact_cannon.png',
     id: 'ki92op',
+    linkedItems: {
+      archtype: {
+        name: 'Engineer',
+      },
+    },
   },
   {
     category: 'skill',
     name: 'Void Cloak',
     imagePath: '/skill/void_cloak.png',
     id: 'hvcxo8',
+    linkedItems: {
+      archtype: {
+        name: 'Invader',
+      },
+    },
   },
   {
     category: 'skill',
     name: 'Worm Hole',
     imagePath: '/skill/worm_hole.png',
     id: 'y9oqq6',
+    linkedItems: {
+      archtype: {
+        name: 'Invader',
+      },
+    },
   },
   {
     category: 'skill',
     name: 'Reboot',
     imagePath: '/skill/reboot.png',
     id: 'xx6sib',
+    linkedItems: {
+      archtype: {
+        name: 'Invader',
+      },
+    },
   },
   {
     category: 'skill',
     name: 'Plainswalker',
     imagePath: '/skill/plainswalker.png',
     id: 'a585sp',
+    linkedItems: {
+      archtype: {
+        name: 'Explorer',
+      },
+    },
   },
   {
     category: 'skill',
     name: 'Gold Digger',
     imagePath: '/skill/gold_digger.png',
     id: 'a2cik2',
+    linkedItems: {
+      archtype: {
+        name: 'Explorer',
+      },
+    },
   },
   {
     category: 'skill',
     name: 'Fortune Hunter',
     imagePath: '/skill/fortune_hunter.png',
     id: 'dajt58',
+    linkedItems: {
+      archtype: {
+        name: 'Explorer',
+      },
+    },
   },
   {
     category: 'skill',
     name: 'Quick Draw',
     imagePath: '/skill/quick_draw.png',
     id: 'qdxjt7',
+    linkedItems: {
+      archtype: {
+        name: 'Gunslinger',
+      },
+    },
   },
   {
     category: 'skill',
     name: 'Sidewinder',
     imagePath: '/skill/sidewinder.png',
     id: 'jn34u8',
+    linkedItems: {
+      archtype: {
+        name: 'Gunslinger',
+      },
+    },
   },
   {
     category: 'skill',
     name: 'Bulletstorm',
     imagePath: '/skill/bulletstorm.png',
     id: 'xpqq62',
+    linkedItems: {
+      archtype: {
+        name: 'Gunslinger',
+      },
+    },
   },
   {
     category: 'skill',
     name: 'Minion: Hollow',
     imagePath: '/skill/minion_hollow.png',
     id: 'kk4yre',
+    linkedItems: {
+      archtype: {
+        name: 'Summoner',
+      },
+    },
   },
   {
     category: 'skill',
     name: 'Minion: Flyer',
     imagePath: '/skill/minion_flyer.png',
     id: 'o7pvqx',
+    linkedItems: {
+      archtype: {
+        name: 'Summoner',
+      },
+    },
   },
   {
     category: 'skill',
     name: 'Minion: Reaver',
     imagePath: '/skill/minion_reaver.png',
     id: 'gs8zdv',
+    linkedItems: {
+      archtype: {
+        name: 'Summoner',
+      },
+    },
   },
   {
     category: 'skill',
     name: 'Eruption',
     imagePath: '/skill/eruption.png',
     id: 'amqa83',
+    linkedItems: {
+      archtype: {
+        name: 'Ritualist',
+      },
+    },
   },
   {
     category: 'skill',
     name: 'Miasma',
     imagePath: '/skill/miasma.png',
     id: '3er3og',
+    linkedItems: {
+      archtype: {
+        name: 'Ritualist',
+      },
+    },
   },
   {
     category: 'skill',
     name: 'Death Wish',
     imagePath: '/skill/death_wish.png',
     id: 'ux5f9v',
+    linkedItems: {
+      archtype: {
+        name: 'Ritualist',
+      },
+    },
   },
   {
     category: 'helm',

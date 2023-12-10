@@ -20,9 +20,11 @@ export type ItemCategory =
 // such as mods to guns,
 // skills to archtypes, etc.
 type LinkedItems = Partial<{
-  [key in 'mod' | 'mutator' | 'trait' | 'skill']: {
-    name: string
-  }
+  archtype: { name: string }
+  skills: Array<{ name: string }>
+  weapon: { name: string }
+  mod: { name: string }
+  trait: { name: string }
 }>
 
 interface BaseItem {
