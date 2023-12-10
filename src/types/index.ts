@@ -35,7 +35,8 @@ interface BaseItem {
   imagePath: string
 }
 
-interface WeaponItem extends BaseItem {
+export interface WeaponItem extends BaseItem {
+  category: 'weapon'
   type: 'long gun' | 'melee' | 'hand gun'
   linkedItems: LinkedItems
   // if it has a permanent mod slot
@@ -56,7 +57,7 @@ export interface Build {
     gloves: Item | null
     relic: Item | null
     amulet: Item | null
-    weapon: Item[]
+    weapon: WeaponItem[]
     ring: Item[]
     archtype: Item[]
     skill: Item[]

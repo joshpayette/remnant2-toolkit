@@ -1,5 +1,5 @@
 import dynamic from 'next/dynamic'
-import { type Build } from '@/types'
+import { WeaponItem, type Build } from '@/types'
 import { Fragment, useMemo, useState } from 'react'
 import useQueryString from '@/hooks/useQueryString'
 import { type Item, type ItemCategory } from '@/types'
@@ -96,7 +96,24 @@ export default function ImageBuild({
    */
   const itemListForSlot = useMemo(() => {
     if (!selectedItemSlot.category) return []
-    // return items that match the loadout slot
+
+    if (selectedItemSlot.category === 'weapon') {
+      let type: WeaponItem['type']
+      switch (selectedItemSlot.index) {
+        case 0:
+          type = 'long gun'
+          break
+        case 1:
+          type = 'melee'
+          break
+        case 2:
+          type = 'hand gun'
+          break
+      }
+
+      return (remnantItems as WeaponItem[]).filter((item) => item.type === type)
+    }
+
     return (remnantItems as Item[]).filter(
       (item) => item.category === selectedItemSlot.category,
     )
@@ -336,6 +353,36 @@ export default function ImageBuild({
             </BuildButton>
           ))}
         </div>
+      </div>
+      <div
+        id="guns-row"
+        className="flex w-full flex-row items-center justify-between gap-2 overflow-x-scroll"
+      >
+        {getArrayOfLength(3).map((weaponIndex) => (
+          <BuildButton
+            key={`gun-${weaponIndex}`}
+            onClick={() => {
+              setSelectedItemSlot({
+                category: 'weapon',
+                index: weaponIndex,
+              })
+            }}
+            showLabels={showLabels}
+            itemName={
+              build.items.weapon && build.items.weapon[weaponIndex]?.name
+            }
+            size="wide"
+          >
+            {build.items.weapon && build.items.weapon[weaponIndex] && (
+              <Image
+                src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}${build.items.weapon[weaponIndex].imagePath}`}
+                alt={`${build.items.weapon[weaponIndex].name} icon`}
+                width={120}
+                height={66}
+              />
+            )}
+          </BuildButton>
+        ))}
       </div>
     </Fragment>
   )
