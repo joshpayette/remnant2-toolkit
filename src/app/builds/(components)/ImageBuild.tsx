@@ -111,6 +111,17 @@ export default function ImageBuild({
         itemList={itemListForSlot}
         buildSlot={selectedItemSlot.category}
       />
+
+      <BuildName
+        editable={buildNameIsEditable}
+        onClick={() => setBuildNameIsEditable(true)}
+        onClose={(newBuildName: string) => {
+          updateQueryString('name', newBuildName)
+          setBuildNameIsEditable(false)
+        }}
+        name={build.name}
+      />
+
       <div
         id="build-container"
         className="flex w-full items-start justify-between gap-4"
@@ -188,35 +199,100 @@ export default function ImageBuild({
               />
             )}
           </BuildButton>
-          <BuildButton
-            onClick={() => {
-              setSelectedItemSlot({
-                category: 'relic',
-              })
-            }}
-            itemName={build.items.relic?.name || null}
-            showLabels={showLabels}
-          >
-            {build.items.relic && (
-              <Image
-                src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}${build.items.relic.imagePath}`}
-                alt={`${build.items.relic?.name} icon`}
-                width={50}
-                height={50}
-              />
-            )}
-          </BuildButton>
-        </div>
-        <div id="center-column" className="w-full grow">
-          <BuildName
-            editable={buildNameIsEditable}
-            onClick={() => setBuildNameIsEditable(true)}
-            onClose={(newBuildName: string) => {
-              updateQueryString('name', newBuildName)
-              setBuildNameIsEditable(false)
-            }}
-            name={build.name}
-          />
+          <div id="relic-container" className="flex items-start justify-start">
+            <BuildButton
+              onClick={() => {
+                setSelectedItemSlot({
+                  category: 'relic',
+                })
+              }}
+              itemName={build.items.relic?.name || null}
+              showLabels={showLabels}
+            >
+              {build.items.relic && (
+                <Image
+                  src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}${build.items.relic.imagePath}`}
+                  alt={`${build.items.relic?.name} icon`}
+                  width={50}
+                  height={50}
+                />
+              )}
+            </BuildButton>
+            <div
+              id="relic-fragment-container"
+              className="flex flex-col items-start justify-start"
+            >
+              <BuildButton
+                onClick={() => {
+                  setSelectedItemSlot({
+                    category: 'relicfragment',
+                    index: 0,
+                  })
+                }}
+                itemName={
+                  build.items.relicfragment &&
+                  build.items.relicfragment[0]?.name
+                }
+                showLabels={showLabels}
+                size="sm"
+              >
+                {build.items.relicfragment && build.items.relicfragment[0] && (
+                  <Image
+                    src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}${build.items.relicfragment[0].imagePath}`}
+                    alt={`${build.items.relicfragment[0].name} icon`}
+                    width={22}
+                    height={22}
+                  />
+                )}
+              </BuildButton>
+              <BuildButton
+                onClick={() => {
+                  setSelectedItemSlot({
+                    category: 'relicfragment',
+                    index: 1,
+                  })
+                }}
+                itemName={
+                  build.items.relicfragment &&
+                  build.items.relicfragment[1]?.name
+                }
+                showLabels={showLabels}
+                size="sm"
+              >
+                {build.items.relicfragment && build.items.relicfragment[1] && (
+                  <Image
+                    src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}${build.items.relicfragment[1].imagePath}`}
+                    alt={`${build.items.relicfragment[1].name} icon`}
+                    width={22}
+                    height={22}
+                  />
+                )}
+              </BuildButton>
+              <BuildButton
+                onClick={() => {
+                  setSelectedItemSlot({
+                    category: 'relicfragment',
+                    index: 2,
+                  })
+                }}
+                itemName={
+                  build.items.relicfragment &&
+                  build.items.relicfragment[2]?.name
+                }
+                showLabels={showLabels}
+                size="sm"
+              >
+                {build.items.relicfragment && build.items.relicfragment[2] && (
+                  <Image
+                    src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}${build.items.relicfragment[2].imagePath}`}
+                    alt={`${build.items.relicfragment[2].name} icon`}
+                    width={22}
+                    height={22}
+                  />
+                )}
+              </BuildButton>
+            </div>
+          </div>
         </div>
         <div id="right-column" className="flex-none">
           <BuildButton
