@@ -23,6 +23,21 @@ function getItemListForSlot(
 ) {
   if (!selectedItemSlot.category) return []
 
+  // Remove items that are already in the build
+  const unequippedItems = remnantItems.filter((item) => {
+    const buildItemOrItems = build.items[item.category]
+
+    if (!buildItemOrItems) return true
+
+    if (Array.isArray(buildItemOrItems)) {
+      const buildItems = buildItemOrItems
+      return !buildItems.find((i) => i?.id === item.id)
+    } else {
+      const buildItem = buildItemOrItems
+      return buildItem?.id !== item.id
+    }
+  })
+
   // If the selected slot is a weapon, then limit the
   // weapons based on the corresponding weapon type
   if (selectedItemSlot.category === 'weapon') {
@@ -39,13 +54,15 @@ function getItemListForSlot(
         break
     }
 
-    return (remnantItems as WeaponItem[]).filter((item) => item.type === type)
+    return (unequippedItems as WeaponItem[]).filter(
+      (item) => item.type === type,
+    )
   }
 
   // If the selected slot is a skill, try to limit
   // skills based on the corresponding archtype
   if (selectedItemSlot.category === 'skill') {
-    const allItems = (remnantItems as Item[]).filter(
+    const allItems = (unequippedItems as Item[]).filter(
       (item) => item.category === 'skill',
     )
 
@@ -66,7 +83,7 @@ function getItemListForSlot(
   // If the selected slot is an archtype, try to limit
   // the archtypes based on the corresponding skill
   if (selectedItemSlot.category === 'archtype') {
-    const allItems = (remnantItems as Item[]).filter(
+    const allItems = (unequippedItems as Item[]).filter(
       (item) => item.category === 'archtype',
     )
 
@@ -85,7 +102,7 @@ function getItemListForSlot(
   }
 
   // If we got this far, then return all items for the selected slot
-  return (remnantItems as Item[]).filter(
+  return (unequippedItems as Item[]).filter(
     (item) => item.category === selectedItemSlot.category,
   )
 }

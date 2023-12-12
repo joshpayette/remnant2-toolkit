@@ -1,7 +1,6 @@
 # TODO
 
 - Add trait total, limit to 85
-- Limit item select items to remove those already in build
 - Add filter to ItemSelect
 - Add share button to copy and paste URL for builder
 - Finish linking items, like guns to their mods, and
