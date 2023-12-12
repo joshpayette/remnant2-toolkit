@@ -11,6 +11,7 @@ import ToCsvButton from '../(components)/ToCsvButton'
 import { remnantItemCategories } from '@/data'
 import { TraitItem } from '@/types'
 import { useIsClient } from 'usehooks-ts'
+import copy from 'clipboard-copy'
 
 export default function BuildHomePage() {
   const isClient = useIsClient()
@@ -138,6 +139,16 @@ export default function BuildHomePage() {
               <span className="text-sm">
                 {showControls ? 'Hide Controls' : 'Show Controls'}
               </span>
+            </button>
+
+            <button
+              className="flex flex-col items-center rounded border border-purple-500 px-4 py-2 text-sm font-bold text-white hover:bg-purple-700"
+              onClick={() => {
+                copy(window.location.href)
+                alert('Copied to clipboard!')
+              }}
+            >
+              Copy Build URL
             </button>
 
             <ToCsvButton

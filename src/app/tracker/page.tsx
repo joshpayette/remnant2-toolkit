@@ -92,10 +92,9 @@ export default function TrackerPage() {
           subtitle="Discover all the items in Remnant 2"
         >
           <h2>Progress</h2>
-          <span className="mb-12 text-2xl font-bold text-green-400">
+          <span className="mb-4 text-2xl font-bold text-green-400">
             {progress}
           </span>
-          <ToCsvButton data={csvItems} filename="remnant2toolkit_tracker" />
         </PageHeader>
         <TrackerFilters
           filters={filters}
@@ -104,6 +103,9 @@ export default function TrackerPage() {
           }}
         />
         <div className="my-12 w-full">
+          <div className="mb-4 ml-auto flex max-w-[200px] items-end justify-end">
+            <ToCsvButton data={csvItems} filename="remnant2toolkit_tracker" />
+          </div>
           <ListItems
             filters={filters}
             items={items}

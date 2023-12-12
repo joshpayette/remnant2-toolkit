@@ -12,7 +12,7 @@ export default function ToCsvButton({ data, filename }: ToCsvProps) {
 
   return (
     <button
-      className="button rounded bg-purple-700 p-2 text-sm hover:bg-purple-600 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-opacity-50"
+      className="flex flex-col items-center rounded border border-purple-500 px-4 py-2 text-sm font-bold text-white hover:bg-purple-700"
       onClick={handleClick}
     >
       Export to CSV
