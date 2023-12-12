@@ -1,6 +1,5 @@
-import dynamic from 'next/dynamic'
-import { WeaponItem, type Build, TraitItem } from '@/types'
-import { Fragment, useCallback, useEffect, useMemo, useState } from 'react'
+import { WeaponItem, type Build } from '@/types'
+import { Fragment, useCallback, useMemo, useState } from 'react'
 import useQueryString from '@/hooks/useQueryString'
 import { type Item, type ItemCategory } from '@/types'
 import { remnantItems } from '@/data'
@@ -8,15 +7,7 @@ import { cn, getArrayOfLength } from '@/lib/utils'
 import BuildName from './BuildName'
 import ImageBuilderButton from './ImageBuilderButton'
 import TraitItemSelect from './TraitItemSelect'
-import { set } from 'zod'
-
-// Prevents hydration errors with the ItemSelect modal
-const ItemSelect = dynamic(
-  () => import('@/app/builder/(components)/ItemSelect'),
-  {
-    ssr: false,
-  },
-)
+import ItemSelect from './ItemSelect'
 
 /**
  * Returns a list of items that match the selected slot

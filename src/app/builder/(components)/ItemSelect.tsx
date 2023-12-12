@@ -3,6 +3,7 @@
 import { type Item, ItemCategory } from '@/types'
 import Dialog from '@/app/(components)/Dialog'
 import ImageBuilderButton from './ImageBuilderButton'
+import { useIsClient } from 'usehooks-ts'
 
 export default function ItemSelect({
   itemList,
@@ -17,7 +18,13 @@ export default function ItemSelect({
   onClose: () => void
   onSelectItem: (item: Item | null) => void
 }) {
+  const isClient = useIsClient()
+
   if (!buildSlot) {
+    return null
+  }
+
+  if (!isClient) {
     return null
   }
 

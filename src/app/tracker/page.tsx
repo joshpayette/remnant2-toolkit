@@ -4,7 +4,6 @@ import { remnantItemCategories, remnantItems } from '@/data'
 import { useLocalStorage } from '@/hooks/useLocalStorage'
 import { Fragment, useMemo, useState } from 'react'
 import type { Filters } from './(components)/Filters'
-import dynamic from 'next/dynamic'
 import { type Item, type ItemCategory } from '@/types'
 import TrackerFilters from './(components)/Filters'
 import ToCsvButton from '@/app/(components)/ToCsvButton'
@@ -12,6 +11,7 @@ import { useIsClient } from 'usehooks-ts'
 import PageHeader from '@/app/(components)/PageHeader'
 import ItemInfo from '@/app/(components)/ItemInfo'
 import { itemToCsvItem } from '@/lib/utils'
+import ListItems from './(components)/ListItems'
 
 const skippedItemCategories: ItemCategory[] = [
   'concoction',
@@ -24,10 +24,6 @@ const itemList = remnantItems.filter(
 const itemCategories = remnantItemCategories.filter(
   (category) => skippedItemCategories.includes(category) === false,
 )
-
-const ListItems = dynamic(() => import('./(components)/ListItems'), {
-  ssr: false,
-})
 
 export default function TrackerPage() {
   const isClient = useIsClient()
