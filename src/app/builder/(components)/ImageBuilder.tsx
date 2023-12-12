@@ -62,18 +62,18 @@ function getItemListForSlot(
   // If the selected slot is a skill, try to limit
   // skills based on the corresponding archtype
   if (selectedItemSlot.category === 'skill') {
-    const allItems = (unequippedItems as Item[]).filter(
+    const skillItems = (unequippedItems as Item[]).filter(
       (item) => item.category === 'skill',
     )
 
-    if (selectedItemSlot.index === undefined) return allItems
+    if (selectedItemSlot.index === undefined) return skillItems
 
     const archtype =
       build.items.archtype[selectedItemSlot.index]?.name.toLowerCase()
 
-    if (!archtype) return allItems
+    if (!archtype) return skillItems
 
-    const itemsForArchtype = allItems.filter(
+    const itemsForArchtype = skillItems.filter(
       (item) => item.linkedItems?.archtype?.name.toLowerCase() === archtype,
     )
 
@@ -83,17 +83,17 @@ function getItemListForSlot(
   // If the selected slot is an archtype, try to limit
   // the archtypes based on the corresponding skill
   if (selectedItemSlot.category === 'archtype') {
-    const allItems = (unequippedItems as Item[]).filter(
+    const archtypeItems = (unequippedItems as Item[]).filter(
       (item) => item.category === 'archtype',
     )
 
-    if (selectedItemSlot.index === undefined) return allItems
+    if (selectedItemSlot.index === undefined) return archtypeItems
 
     const skill = build.items.skill[selectedItemSlot.index]?.name.toLowerCase()
 
-    if (!skill) return allItems
+    if (!skill) return archtypeItems
 
-    const itemsForSkill = allItems.filter(
+    const itemsForSkill = archtypeItems.filter(
       (item) =>
         item.linkedItems?.skills?.some((s) => s.name.toLowerCase() === skill),
     )
