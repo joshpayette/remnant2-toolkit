@@ -94,18 +94,23 @@ export default function useQueryString() {
             itemIndex
           ]
 
+          let validAmount = amount ? parseInt(amount) : 1
+          if (isNaN(validAmount)) validAmount = 1
+          if (validAmount < 1) validAmount = 1
+          if (validAmount > 10) validAmount = 10
+
           if (!buildItem) {
             return ((build.items[itemCategory] as TraitItem[])[itemIndex] = {
               ...item,
               category: itemCategory,
-              amount: amount ? parseInt(amount) : 1,
+              amount: validAmount,
             })
           }
 
           return ((build.items[itemCategory] as TraitItem[])[itemIndex] = {
             ...buildItem,
             category: itemCategory,
-            amount: amount ? parseInt(amount) : 1,
+            amount: validAmount,
           })
         }
 
