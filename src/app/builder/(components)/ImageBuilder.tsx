@@ -387,7 +387,7 @@ export default function ImageBuilder({
 
           <div
             id="concoction-container"
-            className="flex flex-row flex-wrap gap-4"
+            className="flex flex-row flex-wrap gap-2"
           >
             <ImageBuilderButton
               item={build.items.concoction[0]}
