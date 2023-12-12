@@ -75,11 +75,10 @@ export default function ImageBuilderButton({
         )}
       </button>
 
-      {showLabels && (
+      {showLabels && item?.name && (
         <div
           className={cn(
-            'flex items-center justify-center text-center text-[10px] text-white',
-            item?.name && 'bg-purple-950',
+            'flex items-center justify-center bg-purple-950 text-center text-[10px] text-white',
             size === 'sm' &&
               'min-h-[22px] min-w-[22px] border border-black px-1',
             size === 'md' && 'min-h-[40px] w-[66px] p-1',

@@ -309,9 +309,8 @@ export default function ImageBuilder({
           id="center-column"
           className={cn(
             'relative ml-[13px] flex h-[290px] max-h-[290px] flex-col items-start justify-start overflow-y-scroll',
-            showLabels
-              ? 'sm:h-[425px] sm:max-h-[425px]'
-              : 'sm:h-[375px] sm:max-h-[375px]',
+
+            'sm:h-[375px] sm:max-h-[375px]',
           )}
         >
           <div
