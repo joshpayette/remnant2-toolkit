@@ -2,7 +2,6 @@
 
 import { type Item, ItemCategory } from '@/types'
 import Dialog from '@/app/(components)/Dialog'
-import Image from 'next/image'
 import ImageBuilderButton from './ImageBuilderButton'
 
 export default function ItemSelect({
@@ -16,7 +15,7 @@ export default function ItemSelect({
   buildSlot: ItemCategory | null
   open: boolean
   onClose: () => void
-  onSelectItem: (item: Item) => void
+  onSelectItem: (item: Item | null) => void
 }) {
   if (!buildSlot) {
     return null
@@ -33,6 +32,19 @@ export default function ItemSelect({
         role="list"
         className="flex flex-wrap items-start justify-center gap-4"
       >
+        <li id="clear-item" className="mr-2 min-h-[70px] w-[90px]">
+          <ImageBuilderButton
+            item={{
+              name: 'Clear Slot',
+              category: buildSlot,
+              id: buildSlot,
+              imagePath: '/cancel-icon.png',
+            }}
+            showLabels={true}
+            size="lg"
+            onClick={() => onSelectItem(null)}
+          />
+        </li>
         {itemList.map((item) => (
           <li key={item.name} className="mr-2 min-h-[70px] w-[90px]">
             <ImageBuilderButton

@@ -1,6 +1,5 @@
 # TODO
 
-- Add ability to clear build slot
 - Add trait total, limit to 85
 - Limit item select items to remove those already in build
 - Add filter to ItemSelect

@@ -130,6 +130,7 @@ export default function ImageBuilder({
 
       if (!selectedItem) {
         updateQueryString(selectedItemSlot.category, '')
+        setSelectedItemSlot({ category: null })
         return
       }
 
