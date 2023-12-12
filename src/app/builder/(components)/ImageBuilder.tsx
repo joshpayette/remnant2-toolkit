@@ -206,6 +206,7 @@ export default function ImageBuilder({
       if (itemAlreadyInBuild) return
 
       updateQueryString(selectedItem.category, selectedItem.id)
+      setSelectedItemSlot({ category: null })
     },
     [
       build.items,
