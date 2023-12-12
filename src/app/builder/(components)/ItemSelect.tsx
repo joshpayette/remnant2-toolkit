@@ -41,12 +41,7 @@ export default function ItemSelect({
       >
         <li id="clear-item" className="mr-2 min-h-[70px] w-[90px]">
           <ImageBuilderButton
-            item={{
-              name: 'Clear Slot',
-              category: buildSlot,
-              id: buildSlot,
-              imagePath: '/cancel-icon.png',
-            }}
+            item={null}
             showLabels={true}
             size="lg"
             onClick={() => onSelectItem(null)}

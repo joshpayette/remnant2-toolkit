@@ -25,15 +25,15 @@ function getItemListForSlot(
 
   // Remove items that are already in the build
   const unequippedItems = remnantItems.filter((item) => {
-    const buildItemOrItems = build.items[item.category]
+    const categoryItemorItems = build.items[item.category]
 
-    if (!buildItemOrItems) return true
+    if (!categoryItemorItems) return true
 
-    if (Array.isArray(buildItemOrItems)) {
-      const buildItems = buildItemOrItems
+    if (Array.isArray(categoryItemorItems)) {
+      const buildItems = categoryItemorItems
       return !buildItems.find((i) => i?.id === item.id)
     } else {
-      const buildItem = buildItemOrItems
+      const buildItem = categoryItemorItems
       return buildItem?.id !== item.id
     }
   })
@@ -138,16 +138,45 @@ export default function ImageBuilder({
     (selectedItem: Item | null) => {
       if (!selectedItemSlot.category) return
 
+      /**
+       * The item index is used to determine which item in the array of items
+       * for slots like rings and archtypes
+       */
+      const specifiedIndex = selectedItemSlot.index
+      const itemIndexSpecified = specifiedIndex !== undefined
+
+      // If the item is null, remove the item from the build
+      // and from the query string
+      // If the item can be multiple, such as rings,
+      // then remove the item at the specified index
       if (!selectedItem) {
-        updateQueryString(selectedItemSlot.category, '')
+        if (itemIndexSpecified) {
+          const buildItems = build.items[selectedItemSlot.category]
+
+          if (!Array.isArray(buildItems)) return
+
+          // We can't filter here because we want to preserve the index
+          // If we filtered, the second archtype would become the first archtype
+          // if you removed the first archtype
+          const newBuildItems = buildItems.map((item, index) =>
+            index === specifiedIndex ? null : item,
+          )
+          const newItemIds = newBuildItems.map((i) => (i ? i.id : ''))
+          updateQueryString(selectedItemSlot.category, newItemIds)
+        } else {
+          updateQueryString(selectedItemSlot.category, '')
+        }
+
         setSelectedItemSlot({ category: null })
         return
       }
 
-      const buildItemOrItems = build.items[selectedItemSlot.category]
+      const categoryItemorItems = build.items[selectedItemSlot.category]
 
-      if (Array.isArray(buildItemOrItems)) {
-        const buildItems = buildItemOrItems
+      // If the item can be multiple, such as rings,
+      // then add the item at the specified index
+      if (Array.isArray(categoryItemorItems)) {
+        const buildItems = categoryItemorItems
 
         const itemAlreadyInBuild = buildItems.find(
           (i) => i?.id === selectedItem.id,
@@ -166,16 +195,17 @@ export default function ImageBuilder({
 
         const newItemIds = newBuildItems.map((i) => i.id)
         updateQueryString(selectedItem.category, newItemIds)
-      } else {
-        const buildItem = buildItemOrItems
-
-        const itemAlreadyInBuild = buildItem?.id === selectedItem.id
-        if (itemAlreadyInBuild) return
-
-        updateQueryString(selectedItem.category, selectedItem.id)
+        setSelectedItemSlot({ category: null })
+        return
       }
 
-      setSelectedItemSlot({ category: null })
+      // If the item is not null, add the item to the build
+      const buildItem = categoryItemorItems
+
+      const itemAlreadyInBuild = buildItem?.id === selectedItem.id
+      if (itemAlreadyInBuild) return
+
+      updateQueryString(selectedItem.category, selectedItem.id)
     },
     [
       build.items,
