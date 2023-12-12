@@ -54,19 +54,21 @@ export default function ItemSelect({
         role="list"
         className="flex flex-wrap items-start justify-center gap-4"
       >
-        <li id="clear-item" className="mr-2 min-h-[70px] w-[90px]">
-          <ImageBuilderButton
-            item={{
-              name: 'Clear',
-              category: buildSlot,
-              imagePath: '/cancel-icon.png',
-              id: '',
-            }}
-            showLabels={true}
-            size="lg"
-            onClick={() => onSelectItem(null)}
-          />
-        </li>
+        {buildSlot !== 'trait' && (
+          <li id="clear-item" className="mr-2 min-h-[70px] w-[90px]">
+            <ImageBuilderButton
+              item={{
+                name: 'Clear',
+                category: buildSlot,
+                imagePath: '/cancel-icon.png',
+                id: '',
+              }}
+              showLabels={true}
+              size="lg"
+              onClick={() => onSelectItem(null)}
+            />
+          </li>
+        )}
         {filteredItemList.map((item) => (
           <li key={item.name} className="mr-2 min-h-[70px] w-[90px]">
             <ImageBuilderButton
