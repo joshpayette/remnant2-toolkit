@@ -43,8 +43,8 @@ export default function ListItems({
   onClick,
   onShowItemInfo,
 }: ListItemsProps) {
-  const { itemTracker, setItemTracker } = useLocalStorage()
-  const { collapsedCategories } = itemTracker
+  const { itemTrackerStorage, setItemTrackerStorage } = useLocalStorage()
+  const { collapsedCategories } = itemTrackerStorage
 
   const isClient = useIsClient()
 
@@ -58,8 +58,8 @@ export default function ListItems({
       ? collapsedCategories.filter((type) => type !== itemCategory)
       : [...collapsedCategories, itemCategory]
 
-    setItemTracker({
-      ...itemTracker,
+    setItemTrackerStorage({
+      ...itemTrackerStorage,
       collapsedCategories: newCollapsedItemTypes,
     })
   }
