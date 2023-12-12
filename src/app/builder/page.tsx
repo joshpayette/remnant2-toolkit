@@ -9,8 +9,12 @@ import { cn, itemToCsvItem } from '@/lib/utils'
 import { useLocalStorage } from '@/hooks/useLocalStorage'
 import ToCsvButton from '../(components)/ToCsvButton'
 import { remnantItemCategories } from '@/data'
+import { TraitItem } from '@/types'
+import { useIsClient } from 'usehooks-ts'
 
 export default function BuildHomePage() {
+  const isClient = useIsClient()
+
   const searchParams = useSearchParams()
   const { parseQueryString } = useQueryString()
   const build = parseQueryString(searchParams)
@@ -41,11 +45,37 @@ export default function BuildHomePage() {
           wikiLinks: '',
         }
 
-      return Array.isArray(itemOrItems)
-        ? itemOrItems.map((item) => itemToCsvItem(item))
-        : itemToCsvItem(itemOrItems)
+      if (Array.isArray(itemOrItems)) {
+        if (category === 'trait') {
+          return itemOrItems.map((item) => {
+            const traitItem = item as TraitItem
+            const csvItem = itemToCsvItem(traitItem)
+            return {
+              ...csvItem,
+              amount: traitItem.amount,
+            }
+          })
+        }
+
+        return itemOrItems.map((item) => itemToCsvItem(item))
+      }
+
+      if (itemOrItems.category === 'trait') {
+        if (!Array.isArray(itemOrItems)) {
+          return {
+            name: '',
+            category,
+            description: '',
+            howToGet: '',
+            wikiLinks: '',
+          }
+        }
+        return itemOrItems.map((item) => itemToCsvItem(item.item))
+      }
     })
     .flat()
+
+  if (!isClient) return null
 
   return (
     <Fragment>
@@ -63,7 +93,7 @@ export default function BuildHomePage() {
           </p>
         </div>
       </PageHeader>
-      <div className="flex w-full max-w-xl flex-col items-start justify-center gap-2 sm:flex-row-reverse">
+      <div className="flex w-full max-w-4xl flex-col items-start justify-center gap-2 sm:flex-row-reverse">
         <div
           id="actions-column"
           className="flex min-w-full flex-col justify-between sm:min-w-[100px]"

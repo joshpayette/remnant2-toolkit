@@ -1,4 +1,4 @@
-import { type Build } from '@/types'
+import { TraitItem, type Build } from '@/types'
 import { remnantItemCategories, remnantItems } from '@/data'
 import { Item } from '@/types'
 import { usePathname, useSearchParams, useRouter } from 'next/navigation'
@@ -83,19 +83,46 @@ export default function useQueryString() {
       if (!itemIds) return
 
       itemIds.forEach((itemId, itemIndex) => {
+        // We need to split the the trait id at the ; to get the amount
+        if (itemCategory === 'trait') {
+          const [traitId, amount] = itemId.split(';')
+
+          const item = remnantItems.find((i) => i.id === traitId)
+          if (!item) return
+
+          const buildItem = (build.items[itemCategory] as TraitItem[])[
+            itemIndex
+          ]
+
+          if (!buildItem) {
+            return ((build.items[itemCategory] as TraitItem[])[itemIndex] = {
+              ...item,
+              category: itemCategory,
+              amount: amount ? parseInt(amount) : 1,
+            })
+          }
+
+          return ((build.items[itemCategory] as TraitItem[])[itemIndex] = {
+            ...buildItem,
+            category: itemCategory,
+            amount: amount ? parseInt(amount) : 1,
+          })
+        }
+
         const item = remnantItems.find((i) => i.id === itemId)
         if (!item) return
 
-        // Some categories can have multiple items, so we need to check
-        Array.isArray(build.items[itemCategory])
-          ? ((build.items[itemCategory] as Item[])[itemIndex] = {
-              ...item,
-              category: itemCategory,
-            })
-          : ((build.items[itemCategory] as Item) = {
-              ...item,
-              category: itemCategory,
-            })
+        if (Array.isArray(build.items[itemCategory])) {
+          return ((build.items[itemCategory] as Item[])[itemIndex] = {
+            ...item,
+            category: itemCategory,
+          })
+        }
+
+        return ((build.items[itemCategory] as Item) = {
+          ...item,
+          category: itemCategory,
+        })
       })
     })
 

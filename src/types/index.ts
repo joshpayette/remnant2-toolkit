@@ -47,6 +47,11 @@ export interface WeaponItem extends BaseItem {
   hasMutator?: boolean
 }
 
+export interface TraitItem extends BaseItem {
+  category: 'trait'
+  amount: number
+}
+
 export type Item = BaseItem | WeaponItem
 
 export interface CsvItem {
@@ -76,6 +81,6 @@ export interface Build {
     mod: Item[]
     mutator: Item[]
     relicfragment: Item[]
-    trait: Item[]
+    trait: TraitItem[]
   }
 }

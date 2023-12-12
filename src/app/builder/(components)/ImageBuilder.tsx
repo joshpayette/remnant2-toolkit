@@ -1,13 +1,14 @@
 import dynamic from 'next/dynamic'
-import { WeaponItem, type Build } from '@/types'
-import { Fragment, useCallback, useMemo, useState } from 'react'
+import { WeaponItem, type Build, TraitItem } from '@/types'
+import { Fragment, useCallback, useEffect, useMemo, useState } from 'react'
 import useQueryString from '@/hooks/useQueryString'
 import { type Item, type ItemCategory } from '@/types'
 import { remnantItems } from '@/data'
-import Image from 'next/image'
 import { cn, getArrayOfLength } from '@/lib/utils'
 import BuildName from './BuildName'
 import ImageBuilderButton from './ImageBuilderButton'
+import TraitItemSelect from './TraitItemSelect'
+import { set } from 'zod'
 
 // Prevents hydration errors with the ItemSelect modal
 const ItemSelect = dynamic(
@@ -198,6 +199,17 @@ export default function ImageBuilder({
         buildSlot={selectedItemSlot.category}
       />
 
+      <BuildName
+        editable={buildNameIsEditable}
+        onClick={() => setBuildNameIsEditable(true)}
+        onClose={(newBuildName: string) => {
+          updateQueryString('name', newBuildName)
+          setBuildNameIsEditable(false)
+        }}
+        name={build.name}
+        showLabels={showLabels}
+      />
+
       <div
         id="build-container"
         className="flex w-full items-start justify-between gap-4"
@@ -296,23 +308,12 @@ export default function ImageBuilder({
         <div
           id="center-column"
           className={cn(
-            'flex h-[290px] max-h-[290px] grow flex-col items-start justify-start overflow-y-scroll',
+            'relative ml-[13px] flex h-[290px] max-h-[290px] flex-col items-start justify-start overflow-y-scroll',
             showLabels
               ? 'sm:h-[425px] sm:max-h-[425px]'
               : 'sm:h-[375px] sm:max-h-[375px]',
           )}
         >
-          <BuildName
-            editable={buildNameIsEditable}
-            onClick={() => setBuildNameIsEditable(true)}
-            onClose={(newBuildName: string) => {
-              updateQueryString('name', newBuildName)
-              setBuildNameIsEditable(false)
-            }}
-            name={build.name}
-            showLabels={showLabels}
-          />
-
           <div
             id="archtype-container"
             className="flex flex-row flex-wrap gap-2"
@@ -345,7 +346,7 @@ export default function ImageBuilder({
 
           <div
             id="concoction-container"
-            className="flex flex-row flex-wrap gap-2"
+            className="flex flex-row flex-wrap gap-4"
           >
             <ImageBuilderButton
               item={build.items.concoction[0]}
@@ -382,7 +383,10 @@ export default function ImageBuilder({
             })}
           </div>
 
-          <div id="consumable-container" className="flex flex-row flex-wrap">
+          <div
+            id="consumable-container"
+            className="flex flex-row flex-wrap gap-2"
+          >
             {getArrayOfLength(4).map((consumableIndex) => (
               <ImageBuilderButton
                 key={`consumable-${consumableIndex}`}
@@ -423,7 +427,41 @@ export default function ImageBuilder({
             />
           ))}
         </div>
+
+        <div id="trait-column" className="flex-none grow">
+          <TraitItemSelect
+            traitItems={build.items.trait}
+            showLabels={showLabels}
+            onAddTrait={() => {
+              setSelectedItemSlot({
+                category: 'trait',
+              })
+            }}
+            onRemoveTrait={(traitItem) => {
+              const newTraitItems = build.items.trait.filter(
+                (i) => i.name !== traitItem.name,
+              )
+              const newTraitItemParams = newTraitItems.map(
+                (i) => `${i.id};${i.amount}`,
+              )
+              updateQueryString('trait', newTraitItemParams)
+            }}
+            onChangeAmount={(newTraitItem) => {
+              const newTraitItems = build.items.trait.map((traitItem) => {
+                if (traitItem.name === newTraitItem.name) {
+                  return newTraitItem
+                }
+                return traitItem
+              })
+              const newTraitItemParams = newTraitItems.map(
+                (i) => `${i.id};${i.amount}`,
+              )
+              updateQueryString('trait', newTraitItemParams)
+            }}
+          />
+        </div>
       </div>
+
       <div
         id="guns-row"
         className="flex w-full flex-row items-start justify-start gap-2 overflow-x-scroll"
@@ -431,7 +469,7 @@ export default function ImageBuilder({
         {getArrayOfLength(3).map((weaponIndex) => (
           <div
             key={`gun-${weaponIndex}`}
-            className="flex flex-col items-start justify-stretch"
+            className="flex flex-col items-start justify-center"
           >
             <ImageBuilderButton
               showLabels={showLabels}
@@ -444,7 +482,7 @@ export default function ImageBuilder({
                 })
               }}
             />
-            <div className="flex grow flex-row items-start justify-center gap-4">
+            <div className="flex w-full grow items-center justify-around gap-4">
               <ImageBuilderButton
                 showLabels={showLabels}
                 item={build.items.mod[weaponIndex]}
