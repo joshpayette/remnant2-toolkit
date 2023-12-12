@@ -2,13 +2,13 @@ import { type TraitItem } from '@/types'
 import { useState } from 'react'
 
 export default function TraitItemSelect({
-  showLabels,
+  showControls,
   traitItems,
   onAddTrait,
   onRemoveTrait,
   onChangeAmount,
 }: {
-  showLabels: boolean
+  showControls: boolean
   traitItems: TraitItem[]
   onAddTrait: () => void
   onRemoveTrait: (traitItem: TraitItem) => void
@@ -58,7 +58,7 @@ export default function TraitItemSelect({
           <div className="flex items-center text-gray-200">
             {traitItem.name}
           </div>
-          {showLabels && (
+          {showControls && (
             <button
               onClick={() => onRemoveTrait(traitItem)}
               className="flex grow items-end justify-end text-red-500"
@@ -81,7 +81,7 @@ export default function TraitItemSelect({
           )}
         </div>
       ))}
-      {showLabels && (
+      {showControls && (
         <button
           onClick={onAddTrait}
           className="mt-4 flex items-center justify-center rounded border border-purple-700 px-4 py-2 text-xs font-bold text-white hover:border-purple-400 hover:bg-purple-500"

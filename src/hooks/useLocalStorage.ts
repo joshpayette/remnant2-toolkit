@@ -8,6 +8,7 @@ interface LocalStorage {
     collapsedCategories: ItemCategory[]
   }
   builder: {
+    showControls: boolean
     showLabels: boolean
   }
 }
@@ -19,19 +20,24 @@ const initialValue: LocalStorage = {
   },
   builder: {
     showLabels: false,
+    showControls: true,
   },
 }
 
 export const useLocalStorage = () => {
-  const [itemTracker, setItemTracker] = useLS<LocalStorage['tracker']>(
-    'item-tracker',
-    initialValue.tracker,
-  )
+  const [itemTrackerStorage, setItemTrackerStorage] = useLS<
+    LocalStorage['tracker']
+  >('item-tracker', initialValue.tracker)
 
-  const [builder, setBuilder] = useLS<LocalStorage['builder']>(
+  const [builderStorage, setBuilderStorage] = useLS<LocalStorage['builder']>(
     'builder',
     initialValue.builder,
   )
 
-  return { itemTracker, setItemTracker, builder, setBuilder }
+  return {
+    itemTrackerStorage,
+    setItemTrackerStorage,
+    builderStorage,
+    setBuilderStorage,
+  }
 }

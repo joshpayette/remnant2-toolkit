@@ -33,8 +33,8 @@ export default function TrackerPage() {
   // If the item info is defined, the modal should be open
   const isShowItemInfoOpen = Boolean(itemInfo)
 
-  const { itemTracker, setItemTracker } = useLocalStorage()
-  const { discoveredItemIds } = itemTracker
+  const { itemTrackerStorage, setItemTrackerStorage } = useLocalStorage()
+  const { discoveredItemIds } = itemTrackerStorage
 
   const [filters, setFilters] = useState<Filters>({
     undiscovered: true,
@@ -115,16 +115,16 @@ export default function TrackerPage() {
                 const newDiscoveredItemIds = discoveredItemIds.filter(
                   (id) => id !== itemId,
                 )
-                setItemTracker({
-                  ...itemTracker,
+                setItemTrackerStorage({
+                  ...itemTrackerStorage,
                   discoveredItemIds: newDiscoveredItemIds,
                 })
                 return
               }
 
               const newDiscoveredItemIds = [...discoveredItemIds, itemId]
-              setItemTracker({
-                ...itemTracker,
+              setItemTrackerStorage({
+                ...itemTrackerStorage,
                 discoveredItemIds: newDiscoveredItemIds,
               })
             }}

@@ -3,13 +3,13 @@ import { Fragment, useState } from 'react'
 export default function BuildName({
   editable,
   name,
-  showLabels,
+  showControls,
   onClick,
   onClose,
 }: {
   editable: boolean
   name: string
-  showLabels: boolean
+  showControls: boolean
   onClick: () => void
   onClose: (newBuildName: string) => void
 }) {
@@ -48,7 +48,7 @@ export default function BuildName({
           <h2 className="text-center  text-4xl font-bold text-green-400">
             {name}
           </h2>
-          {showLabels && (
+          {showControls && (
             <button onClick={onClick} className="text-green-400">
               <div className="flex grow items-end justify-start">
                 <svg

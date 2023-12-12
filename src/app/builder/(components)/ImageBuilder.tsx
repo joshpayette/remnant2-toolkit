@@ -92,9 +92,11 @@ function getItemListForSlot(
 
 export default function ImageBuilder({
   build,
+  showControls,
   showLabels,
 }: {
   build: Build
+  showControls: boolean
   showLabels: boolean
 }) {
   // Hook for modifying the URL query string
@@ -199,7 +201,7 @@ export default function ImageBuilder({
           setBuildNameIsEditable(false)
         }}
         name={build.name}
-        showLabels={showLabels}
+        showControls={showControls}
       />
 
       <div
@@ -422,7 +424,7 @@ export default function ImageBuilder({
         <div id="trait-column" className="flex-none grow">
           <TraitItemSelect
             traitItems={build.items.trait}
-            showLabels={showLabels}
+            showControls={showControls}
             onAddTrait={() => {
               setSelectedItemSlot({
                 category: 'trait',

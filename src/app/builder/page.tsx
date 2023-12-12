@@ -19,15 +19,24 @@ export default function BuildHomePage() {
   const { parseQueryString } = useQueryString()
   const build = parseQueryString(searchParams)
 
-  const { builder, setBuilder } = useLocalStorage()
+  const { builderStorage, setBuilderStorage } = useLocalStorage()
 
-  const [showLabels, setShowLabels] = useState(builder.showLabels)
+  const [showLabels, setShowLabels] = useState(builderStorage.showLabels)
+  const [showControls, setShowControls] = useState(builderStorage.showControls)
 
   function toggleShowLabels() {
     setShowLabels(!showLabels)
-    setBuilder({
-      ...builder,
+    setBuilderStorage({
+      ...builderStorage,
       showLabels: !showLabels,
+    })
+  }
+
+  function toggleShowControls() {
+    setShowControls(!showControls)
+    setBuilderStorage({
+      ...builderStorage,
+      showControls: !showControls,
     })
   }
 
@@ -109,29 +118,26 @@ export default function BuildHomePage() {
               )}
               onClick={toggleShowLabels}
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="h-6 w-6"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M9.568 3H5.25A2.25 2.25 0 003 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 005.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 009.568 3z"
-                />
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M6 6h.008v.008H6V6z"
-                />
-              </svg>
               <span className="text-sm">
                 {showLabels ? 'Hide Labels' : 'Show Labels'}
               </span>
             </button>
+
+            <button
+              id="show-controls-button"
+              className={cn(
+                'flex flex-col items-center rounded border px-4 py-2 font-bold text-white hover:bg-green-700',
+                showControls
+                  ? 'border-transparent bg-green-500'
+                  : 'border-green-500 bg-black',
+              )}
+              onClick={toggleShowControls}
+            >
+              <span className="text-sm">
+                {showControls ? 'Hide Controls' : 'Show Controls'}
+              </span>
+            </button>
+
             <ToCsvButton
               data={csvBuildData}
               filename={`remnant2_builder_${build.name}`}
@@ -139,7 +145,11 @@ export default function BuildHomePage() {
           </div>
         </div>
         <div className="w-full grow rounded border-2 border-green-500 bg-black p-4">
-          <ImageBuilder build={build} showLabels={showLabels} />
+          <ImageBuilder
+            build={build}
+            showLabels={showLabels}
+            showControls={showControls}
+          />
         </div>
       </div>
     </Fragment>
