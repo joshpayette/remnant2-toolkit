@@ -47,6 +47,7 @@ export default function ItemSelect({
           onChange={(e) => setFilter(e.target.value)}
           className=" text-md rounded border border-green-500 bg-black p-2 text-white outline-none outline-offset-1 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-green-500"
           placeholder="Search"
+          value={filter}
         />
       </div>
       <ul
