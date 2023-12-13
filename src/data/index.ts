@@ -226,7 +226,7 @@ export const remnantItems: Item[] = [
         { name: 'Minion: Hollow' },
         { name: 'Minion: Flyer' },
         { name: 'Minion: Reaver' },
-      ]
+      ],
     },
   },
   {
@@ -1597,6 +1597,11 @@ export const remnantItems: Item[] = [
     name: 'Alpha-Omega',
     imagePath: '/mainhand/alpha_omega.png',
     id: '1ub6k9',
+    linkedItems: {
+      mod: {
+        name: 'Beta Ray',
+      },
+    },
   },
   {
     category: 'weapon',
@@ -1646,6 +1651,11 @@ export const remnantItems: Item[] = [
     name: 'Corrupted Merciless',
     imagePath: '/mainhand/corrupted_merciless.png',
     id: '8i85za',
+    linkedItems: {
+      mod: {
+        name: 'Bloodshot',
+      },
+    },
   },
   {
     category: 'weapon',
@@ -1688,6 +1698,11 @@ export const remnantItems: Item[] = [
     name: 'Merciless',
     imagePath: '/mainhand/merciless.png',
     id: 'g3esv1',
+    linkedItems: {
+      mod: {
+        name: 'Bloodline',
+      },
+    },
   },
   {
     category: 'weapon',
@@ -1695,6 +1710,11 @@ export const remnantItems: Item[] = [
     name: 'Monarch',
     imagePath: '/mainhand/monarch.png',
     id: '76622z',
+    linkedItems: {
+      mod: {
+        name: 'Chain of Command',
+      },
+    },
   },
   {
     category: 'weapon',
@@ -1807,6 +1827,11 @@ export const remnantItems: Item[] = [
     name: 'Abyssal Hook',
     imagePath: '/melee/abyssal_hook.png',
     id: 'sd4nzf',
+    linkedItems: {
+      mod: {
+        name: 'Fathomless Deep',
+      },
+    },
   },
   {
     category: 'weapon',
@@ -1814,6 +1839,11 @@ export const remnantItems: Item[] = [
     name: "Assassin's Dagger",
     imagePath: '/melee/assassins_dagger.png',
     id: 'bv9wps',
+    linkedItems: {
+      mod: {
+        name: 'Blood Thirst',
+      },
+    },
   },
   {
     category: 'weapon',
@@ -1905,6 +1935,11 @@ export const remnantItems: Item[] = [
     name: 'Huntress Spear',
     imagePath: '/melee/huntress_spear.png',
     id: '0jefkc',
+    linkedItems: {
+      mod: {
+        name: 'Athibar',
+      },
+    },
   },
   {
     category: 'weapon',
@@ -1940,6 +1975,11 @@ export const remnantItems: Item[] = [
     name: 'Nightshade',
     imagePath: '/melee/nightshade.png',
     id: '6j7czk',
+    linkedItems: {
+      mod: {
+        name: 'Beyond the Veil',
+      },
+    },
   },
   {
     category: 'weapon',
@@ -1975,6 +2015,11 @@ export const remnantItems: Item[] = [
     name: 'Ritualist Scythe',
     imagePath: '/melee/ritualist_scythe.png',
     id: '7hoogs',
+    linkedItems: {
+      mod: {
+        name: 'Reaver',
+      },
+    },
   },
   {
     category: 'weapon',
@@ -2087,6 +2132,11 @@ export const remnantItems: Item[] = [
     name: 'Wrathbringer',
     imagePath: '/melee/wrathbringer.png',
     id: 'mq5fnr',
+    linkedItems: {
+      mod: {
+        name: 'Awakening',
+      },
+    },
   },
   {
     category: 'weapon',
@@ -2094,6 +2144,11 @@ export const remnantItems: Item[] = [
     name: 'Anguish',
     imagePath: '/offhand/anguish.png',
     id: 'r2o474',
+    linkedItems: {
+      mod: {
+        name: 'Loath the Weak',
+      },
+    },
   },
   {
     category: 'weapon',
@@ -2136,6 +2191,11 @@ export const remnantItems: Item[] = [
     name: 'Enigma',
     imagePath: '/offhand/enigma.png',
     id: 'd06hjq',
+    linkedItems: {
+      mod: {
+        name: 'Chaos Driver',
+      },
+    },
   },
   {
     category: 'weapon',
@@ -2220,6 +2280,11 @@ export const remnantItems: Item[] = [
     name: 'Star Shot',
     imagePath: '/offhand/star_shot.png',
     id: 'tldnuq',
+    linkedItems: {
+      mod: {
+        name: 'Big Bang',
+      },
+    },
   },
   {
     category: 'weapon',
@@ -2259,30 +2324,55 @@ export const remnantItems: Item[] = [
     name: 'Athibar',
     imagePath: '/mod/athibar.png',
     id: '29kz6t',
+    linkedItems: {
+      weapon: {
+        name: 'Huntress Spear',
+      },
+    },
   },
   {
     category: 'mod',
     name: 'Awakening',
     imagePath: '/mod/awakening.png',
     id: 'wszjeu',
+    linkedItems: {
+      weapon: {
+        name: 'Wrathbringer',
+      },
+    },
   },
   {
     category: 'mod',
     name: 'Beta Ray',
     imagePath: '/mod/beta_ray.png',
     id: '5ke493',
+    linkedItems: {
+      weapon: {
+        name: 'Alpha-Omega',
+      },
+    },
   },
   {
     category: 'mod',
     name: 'Beyond the Veil',
     imagePath: '/mod/beyond_the_veil.png',
     id: 'puif17',
+    linkedItems: {
+      weapon: {
+        name: 'Nightshade',
+      },
+    },
   },
   {
     category: 'mod',
     name: 'Big Bang',
     imagePath: '/mod/big_bang.png',
     id: 's7ozpe',
+    linkedItems: {
+      weapon: {
+        name: 'Star Shot',
+      },
+    },
   },
   {
     category: 'mod',
@@ -2295,12 +2385,33 @@ export const remnantItems: Item[] = [
     name: 'Bloodline',
     imagePath: '/mod/bloodline.png',
     id: 'yxxajn',
+    linkedItems: {
+      weapon: {
+        name: 'Merciless',
+      },
+    },
+  },
+  {
+    category: 'mod',
+    name: 'Bloodshot',
+    imagePath: '/mod/bloodshot.png',
+    id: 'tw8tbh',
+    linkedItems: {
+      weapon: {
+        name: 'Corrupted Merciless',
+      },
+    },
   },
   {
     category: 'mod',
     name: 'Bloodthirst',
     imagePath: '/mod/bloodthirst.png',
     id: '1rw0kk',
+    linkedItems: {
+      weapon: {
+        name: `Assassin's Dagger`,
+      },
+    },
   },
   { category: 'mod', name: 'Bore', imagePath: '/mod/bore.png', id: 'iq4wjy' },
   {
@@ -2308,12 +2419,22 @@ export const remnantItems: Item[] = [
     name: 'Chain of Command',
     imagePath: '/mod/chain_of_command.png',
     id: 'lxt1j0',
+    linkedItems: {
+      weapon: {
+        name: 'Monarch',
+      },
+    },
   },
   {
     category: 'mod',
     name: 'Chaos Driver',
     imagePath: '/mod/chaos_driver.png',
     id: 'dxnd9s',
+    linkedItems: {
+      weapon: {
+        name: 'Enigma',
+      },
+    },
   },
   {
     category: 'mod',
@@ -2416,6 +2537,11 @@ export const remnantItems: Item[] = [
     name: 'Fathomless Deep',
     imagePath: '/mod/fathomless_deep.png',
     id: 'o1zwol',
+    linkedItems: {
+      weapon: {
+        name: 'Abyssal Hook',
+      },
+    },
   },
   {
     category: 'mod',
@@ -2489,6 +2615,11 @@ export const remnantItems: Item[] = [
     name: 'Loath the Weak',
     imagePath: '/mod/loath_the_weak.png',
     id: 'aobtw7',
+    linkedItems: {
+      weapon: {
+        name: 'Anguish',
+      },
+    },
   },
   {
     category: 'mod',
@@ -2531,6 +2662,11 @@ export const remnantItems: Item[] = [
     name: 'Reaver',
     imagePath: '/mod/reaver.png',
     id: 'geb8ho',
+    linkedItems: {
+      weapon: {
+        name: 'Ritualist Scythe',
+      },
+    },
   },
   {
     category: 'mod',
