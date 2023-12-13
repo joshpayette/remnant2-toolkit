@@ -31,8 +31,22 @@ export default function Traits({
                 <input
                   type="text"
                   value={editingTraitItem?.amount ?? traitItem.amount ?? 1}
+                  // Update the parent state when the user presses enter
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter') {
+                      onChangeAmount(editingTraitItem)
+                      setEditingTraitItem(null)
+                    }
+                  }}
+                  // Select the text when the input is focused
+                  onFocus={(e) => e.target.select()}
+                  // Update the local state when the user types
                   onChange={(e) => {
-                    let amount = parseInt(e.target.value)
+                    const { value } = e.target
+
+                    if (value.trim() === '') return
+
+                    let amount = parseInt(value)
 
                     if (isNaN(amount)) amount = 1
                     if (amount < 1) amount = 1
@@ -43,6 +57,7 @@ export default function Traits({
                       amount,
                     })
                   }}
+                  // Update the parent state when the input is blurred
                   onBlur={() => {
                     onChangeAmount(editingTraitItem)
                     setEditingTraitItem(null)
