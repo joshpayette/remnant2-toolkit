@@ -105,7 +105,7 @@ export default function BuildHomePage() {
           </p>
         </div>
       </PageHeader>
-      <div className="flex w-full max-w-4xl flex-col items-start justify-center gap-2 sm:flex-row-reverse">
+      <div className="flex w-full max-w-xl flex-col items-start justify-center gap-2 sm:flex-row-reverse">
         <div
           id="actions-column"
           className="flex min-w-full flex-col justify-between sm:min-w-[100px]"

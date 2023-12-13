@@ -1,4 +1,4 @@
-import { WeaponItem, type Build } from '@/types'
+import { WeaponItem, type Build, TraitItem } from '@/types'
 import { Fragment, useCallback, useMemo, useState } from 'react'
 import useQueryString from '@/hooks/useQueryString'
 import { type Item, type ItemCategory } from '@/types'
@@ -6,7 +6,7 @@ import { remnantItems } from '@/data'
 import { cn, getArrayOfLength } from '@/lib/utils'
 import BuildName from './BuildName'
 import ImageBuilderButton from './ImageBuilderButton'
-import TraitItemSelect from './TraitItemSelect'
+import Traits from './Traits'
 import ItemSelect from './ItemSelect'
 
 /**
@@ -143,14 +143,14 @@ export default function ImageBuilder({
        * for slots like rings and archtypes
        */
       const specifiedIndex = selectedItemSlot.index
-      const itemIndexSpecified = specifiedIndex !== undefined
+      const isIndexSpecified = specifiedIndex !== undefined
 
       // If the item is null, remove the item from the build
       // and from the query string
       // If the item can be multiple, such as rings,
       // then remove the item at the specified index
       if (!selectedItem) {
-        if (itemIndexSpecified) {
+        if (isIndexSpecified) {
           const buildItems = build.items[selectedItemSlot.category]
 
           if (!Array.isArray(buildItems)) return
@@ -187,12 +187,23 @@ export default function ImageBuilder({
         const newBuildItems = [...buildItems]
 
         const specifiedIndex = selectedItemSlot.index
-        const itemIndexSpecified = specifiedIndex !== undefined
+        const isIndexSpecified = specifiedIndex !== undefined
 
-        itemIndexSpecified
+        isIndexSpecified
           ? (newBuildItems[specifiedIndex] = selectedItem)
           : newBuildItems.push(selectedItem)
 
+        // If the item is a trait, then we need to add the amount to the query string
+        if (selectedItemSlot.category === 'trait') {
+          const newTraitItemParams = newBuildItems.map(
+            (i) => `${i.id};${(i as TraitItem).amount}`,
+          )
+          updateQueryString('trait', newTraitItemParams)
+          setSelectedItemSlot({ category: null })
+          return
+        }
+
+        // If we got here, add the item to the build
         const newItemIds = newBuildItems.map((i) => i.id)
         updateQueryString(selectedItem.category, newItemIds)
         setSelectedItemSlot({ category: null })
@@ -241,21 +252,20 @@ export default function ImageBuilder({
         buildSlot={selectedItemSlot.category}
       />
 
-      <BuildName
-        editable={buildNameIsEditable}
-        onClick={() => setBuildNameIsEditable(true)}
-        onClose={(newBuildName: string) => {
-          updateQueryString('name', newBuildName)
-          setBuildNameIsEditable(false)
-        }}
-        name={build.name}
-        showControls={showControls}
-      />
+      <div className="mb-4">
+        <BuildName
+          editable={buildNameIsEditable}
+          onClick={() => setBuildNameIsEditable(true)}
+          onClose={(newBuildName: string) => {
+            updateQueryString('name', newBuildName)
+            setBuildNameIsEditable(false)
+          }}
+          name={build.name}
+          showControls={showControls}
+        />
+      </div>
 
-      <div
-        id="build-container"
-        className="flex w-full items-start justify-between gap-4"
-      >
+      <div className="flex w-full items-start justify-between gap-4">
         <div id="left-column" className="flex-none">
           <ImageBuilderButton
             item={build.items.helm}
@@ -468,39 +478,6 @@ export default function ImageBuilder({
             />
           ))}
         </div>
-
-        <div id="trait-column" className="flex-none grow">
-          <TraitItemSelect
-            traitItems={build.items.trait}
-            showControls={showControls}
-            onAddTrait={() => {
-              setSelectedItemSlot({
-                category: 'trait',
-              })
-            }}
-            onRemoveTrait={(traitItem) => {
-              const newTraitItems = build.items.trait.filter(
-                (i) => i.name !== traitItem.name,
-              )
-              const newTraitItemParams = newTraitItems.map(
-                (i) => `${i.id};${i.amount}`,
-              )
-              updateQueryString('trait', newTraitItemParams)
-            }}
-            onChangeAmount={(newTraitItem) => {
-              const newTraitItems = build.items.trait.map((traitItem) => {
-                if (traitItem.name === newTraitItem.name) {
-                  return newTraitItem
-                }
-                return traitItem
-              })
-              const newTraitItemParams = newTraitItems.map(
-                (i) => `${i.id};${i.amount}`,
-              )
-              updateQueryString('trait', newTraitItemParams)
-            }}
-          />
-        </div>
       </div>
 
       <div
@@ -549,6 +526,38 @@ export default function ImageBuilder({
             </div>
           </div>
         ))}
+      </div>
+      <div id="trait-row" className="mt-4 w-full">
+        <Traits
+          traitItems={build.items.trait}
+          showControls={showControls}
+          onAddTrait={() => {
+            setSelectedItemSlot({
+              category: 'trait',
+            })
+          }}
+          onRemoveTrait={(traitItem) => {
+            const newTraitItems = build.items.trait.filter(
+              (i) => i.name !== traitItem.name,
+            )
+            const newTraitItemParams = newTraitItems.map(
+              (i) => `${i.id};${i.amount}`,
+            )
+            updateQueryString('trait', newTraitItemParams)
+          }}
+          onChangeAmount={(newTraitItem) => {
+            const newTraitItems = build.items.trait.map((traitItem) => {
+              if (traitItem.name === newTraitItem.name) {
+                return newTraitItem
+              }
+              return traitItem
+            })
+            const newTraitItemParams = newTraitItems.map(
+              (i) => `${i.id};${i.amount}`,
+            )
+            updateQueryString('trait', newTraitItemParams)
+          }}
+        />
       </div>
     </Fragment>
   )
