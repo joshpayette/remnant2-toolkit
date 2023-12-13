@@ -1606,6 +1606,18 @@ export const remnantItems: Item[] = [
   {
     category: 'weapon',
     type: 'long gun',
+    name: 'Aphelion',
+    imagePath: '/mainhand/aphelion.png',
+    id: '3wprfw',
+    linkedItems: {
+      mod: {
+        name: 'Supernova',
+      },
+    },
+  },
+  {
+    category: 'weapon',
+    type: 'long gun',
     name: 'AS-10 Bulldog',
     imagePath: '/mainhand/as_10_bulldog.png',
     id: 'va7cfd',
@@ -1637,6 +1649,11 @@ export const remnantItems: Item[] = [
     name: 'Corrupted Aphelion',
     imagePath: '/mainhand/corrupted_aphelion.png',
     id: 'w85ya8',
+    linkedItems: {
+      mod: {
+        name: 'Micronova',
+      },
+    },
   },
   {
     category: 'weapon',
@@ -1644,6 +1661,11 @@ export const remnantItems: Item[] = [
     name: 'Corrupted Deceit',
     imagePath: '/mainhand/corrupted_deceit.png',
     id: 'k9w4yh',
+    linkedItems: {
+      mod: {
+        name: 'Windfall',
+      },
+    },
   },
   {
     category: 'weapon',
@@ -1663,6 +1685,11 @@ export const remnantItems: Item[] = [
     name: 'Crescent Moon',
     imagePath: '/mainhand/crescent_moon.png',
     id: 'p7wc7k',
+    linkedItems: {
+      mod: {
+        name: 'Moonlight Barrage',
+      },
+    },
   },
   {
     category: 'weapon',
@@ -1677,6 +1704,11 @@ export const remnantItems: Item[] = [
     name: 'Deceit',
     imagePath: '/mainhand/deceit.png',
     id: 'hlmpjl',
+    linkedItems: {
+      mod: {
+        name: 'Ouroboros',
+      },
+    },
   },
   {
     category: 'weapon',
@@ -1722,6 +1754,11 @@ export const remnantItems: Item[] = [
     name: 'Nightfall',
     imagePath: '/mainhand/nightfall.png',
     id: '2fdvrf',
+    linkedItems: {
+      mod: {
+        name: 'Dreadwalker',
+      },
+    },
   },
   {
     category: 'weapon',
@@ -1729,6 +1766,11 @@ export const remnantItems: Item[] = [
     name: 'Plasma Cutter',
     imagePath: '/mainhand/plasma_cutter.png',
     id: '7nwwzn',
+    linkedItems: {
+      mod: {
+        name: 'Heat Sink',
+      },
+    },
   },
   {
     category: 'weapon',
@@ -1764,6 +1806,11 @@ export const remnantItems: Item[] = [
     name: 'Sagittarius',
     imagePath: '/mainhand/sagittarius.png',
     id: 't0cb8d',
+    linkedItems: {
+      mod: {
+        name: 'Starfall',
+      },
+    },
   },
   {
     category: 'weapon',
@@ -1799,6 +1846,11 @@ export const remnantItems: Item[] = [
     name: 'Twisted Arbalest',
     imagePath: '/mainhand/twisted_arbalest.png',
     id: '13hsq0',
+    linkedItems: {
+      mod: {
+        name: "Guardian's Call",
+      },
+    },
   },
   {
     category: 'weapon',
@@ -1858,6 +1910,11 @@ export const remnantItems: Item[] = [
     name: 'Atom Splitter',
     imagePath: '/melee/atom_splitter.png',
     id: 'e7c88o',
+    linkedItems: {
+      mod: {
+        name: 'Fission Strike',
+      },
+    },
   },
   {
     category: 'weapon',
@@ -1893,6 +1950,11 @@ export const remnantItems: Item[] = [
     name: 'Dreamcatcher',
     imagePath: '/melee/dreamcatcher.png',
     id: '3sxr9y',
+    linkedItems: {
+      mod: {
+        name: 'Dreamwave',
+      },
+    },
   },
   {
     category: 'weapon',
@@ -1907,6 +1969,11 @@ export const remnantItems: Item[] = [
     name: 'Feral Judgement',
     imagePath: '/melee/feral_judgement.png',
     id: 'umb305',
+    linkedItems: {
+      mod: {
+        name: 'Death Sentence',
+      },
+    },
   },
   {
     category: 'weapon',
@@ -1914,6 +1981,11 @@ export const remnantItems: Item[] = [
     name: 'Gas Giant',
     imagePath: '/melee/gas_giant.png',
     id: 'c58759',
+    linkedItems: {
+      mod: {
+        name: 'Dying Breath',
+      },
+    },
   },
   {
     category: 'weapon',
@@ -1921,6 +1993,11 @@ export const remnantItems: Item[] = [
     name: 'Godsplitter',
     imagePath: '/melee/godsplitter.png',
     id: 'a23oaa',
+    linkedItems: {
+      mod: {
+        name: 'Fracture',
+      },
+    },
   },
   {
     category: 'weapon',
@@ -1928,6 +2005,11 @@ export const remnantItems: Item[] = [
     name: "Hero's Sword",
     imagePath: '/melee/heros_sword.png',
     id: '5o3cq4',
+    linkedItems: {
+      mod: {
+        name: 'Energy Wave',
+      },
+    },
   },
   {
     category: 'weapon',
@@ -1961,6 +2043,11 @@ export const remnantItems: Item[] = [
     name: 'Krell Axe',
     imagePath: '/melee/krell_axe.png',
     id: '5gl3la',
+    linkedItems: {
+      mod: {
+        name: 'Krell Edge',
+      },
+    },
   },
   {
     category: 'weapon',
@@ -2008,6 +2095,11 @@ export const remnantItems: Item[] = [
     name: 'Red Doe Staff',
     imagePath: '/melee/red_doe_staff.png',
     id: 'oazjm0',
+    linkedItems: {
+      mod: {
+        name: 'Lifeline',
+      },
+    },
   },
   {
     category: 'weapon',
@@ -2069,6 +2161,11 @@ export const remnantItems: Item[] = [
     name: 'Spectral Blade',
     imagePath: '/melee/spectral_blade.png',
     id: 'l3zte1',
+    linkedItems: {
+      mod: {
+        name: 'Whirlwind',
+      },
+    },
   },
   {
     category: 'weapon',
@@ -2111,6 +2208,11 @@ export const remnantItems: Item[] = [
     name: 'Stonebreaker',
     imagePath: '/melee/stonebreaker.png',
     id: 'b4g4q0',
+    linkedItems: {
+      mod: {
+        name: 'Faultline',
+      },
+    },
   },
   {
     category: 'weapon',
@@ -2163,6 +2265,11 @@ export const remnantItems: Item[] = [
     name: 'Corrupted Meridian',
     imagePath: '/offhand/corrupted_meridian.png',
     id: 'yw1btj',
+    linkedItems: {
+      mod: {
+        name: 'Deadpoint',
+      },
+    },
   },
   {
     category: 'weapon',
@@ -2170,6 +2277,11 @@ export const remnantItems: Item[] = [
     name: 'Corrupted Rune Pistol',
     imagePath: '/offhand/corrupted_rune_pistol.png',
     id: 'id5pbt',
+    linkedItems: {
+      mod: {
+        name: 'Death Brand',
+      },
+    },
   },
   {
     category: 'weapon',
@@ -2177,6 +2289,11 @@ export const remnantItems: Item[] = [
     name: 'Cube Gun',
     imagePath: '/offhand/cube_gun.png',
     id: 'zn3boo',
+    linkedItems: {
+      mod: {
+        name: 'Cube Shield',
+      },
+    },
   },
   {
     category: 'weapon',
@@ -2203,6 +2320,11 @@ export const remnantItems: Item[] = [
     name: 'Hellfire',
     imagePath: '/offhand/hellfire.png',
     id: '797iqq',
+    linkedItems: {
+      mod: {
+        name: 'Explosive Shot',
+      },
+    },
   },
   {
     category: 'weapon',
@@ -2210,6 +2332,11 @@ export const remnantItems: Item[] = [
     name: 'Meridian',
     imagePath: '/offhand/meridian.png',
     id: '1ziutf',
+    linkedItems: {
+      mod: {
+        name: 'Screamer',
+      },
+    },
   },
   {
     category: 'weapon',
@@ -2224,6 +2351,11 @@ export const remnantItems: Item[] = [
     name: 'Nebula',
     imagePath: '/offhand/nebula.png',
     id: 'p7tsxr',
+    linkedItems: {
+      mod: {
+        name: 'Nano Swarm',
+      },
+    },
   },
   {
     category: 'weapon',
@@ -2238,6 +2370,11 @@ export const remnantItems: Item[] = [
     name: 'Rune Pistol',
     imagePath: '/offhand/rune_pistol.png',
     id: '2pblgq',
+    linkedItems: {
+      mod: {
+        name: 'Soul Brand',
+      },
+    },
   },
   {
     category: 'weapon',
@@ -2273,6 +2410,11 @@ export const remnantItems: Item[] = [
     name: 'Sorrow',
     imagePath: '/offhand/sorrow.png',
     id: 'u2z8i3',
+    linkedItems: {
+      mod: {
+        name: 'Eulogy',
+      },
+    },
   },
   {
     category: 'weapon',
@@ -2394,7 +2536,7 @@ export const remnantItems: Item[] = [
   {
     category: 'mod',
     name: 'Bloodshot',
-    imagePath: '/mod/bloodshot.png',
+    imagePath: '/mod/bloodshot.jpg',
     id: 'tw8tbh',
     linkedItems: {
       weapon: {
@@ -2459,18 +2601,44 @@ export const remnantItems: Item[] = [
     name: 'Cube Shield',
     imagePath: '/mod/cube_shield.png',
     id: '1bfanq',
+    linkedItems: {
+      weapon: {
+        name: 'Cube Gun',
+      },
+    },
   },
   {
     category: 'mod',
     name: 'Deadpoint',
     imagePath: '/mod/deadpoint.png',
     id: 'ysz4fw',
+    linkedItems: {
+      weapon: {
+        name: 'Corrupted Meridian',
+      },
+    },
+  },
+  {
+    category: 'mod',
+    name: 'Death Brand',
+    imagePath: '/mod/death_brand.jpg',
+    id: 'd3q99g',
+    linkedItems: {
+      weapon: {
+        name: 'Corrupted Rune Pistol',
+      },
+    },
   },
   {
     category: 'mod',
     name: 'Death Sentence',
     imagePath: '/mod/death_sentence.png',
     id: 'wilhsl',
+    linkedItems: {
+      weapon: {
+        name: 'Feral Judgement',
+      },
+    },
   },
   {
     category: 'mod',
@@ -2483,18 +2651,33 @@ export const remnantItems: Item[] = [
     name: 'Dreadwalker',
     imagePath: '/mod/dreadwalker.png',
     id: 'ybej3w',
+    linkedItems: {
+      weapon: {
+        name: ' Nightfall',
+      },
+    },
   },
   {
     category: 'mod',
     name: 'Dreamwave',
     imagePath: '/mod/dreamwave.png',
     id: 'dwmc70',
+    linkedItems: {
+      weapon: {
+        name: 'Dreamcatcher',
+      },
+    },
   },
   {
     category: 'mod',
     name: 'Dying Breath',
     imagePath: '/mod/dying_breath.png',
     id: '22nk8x',
+    linkedItems: {
+      weapon: {
+        name: 'Gas Giant',
+      },
+    },
   },
   {
     category: 'mod',
@@ -2507,18 +2690,33 @@ export const remnantItems: Item[] = [
     name: 'Energy Wave',
     imagePath: '/mod/energy_wave.png',
     id: '7ztoh8',
+    linkedItems: {
+      weapon: {
+        name: "Hero's Sword",
+      },
+    },
   },
   {
     category: 'mod',
     name: 'Eulogy',
     imagePath: '/mod/eulogy.png',
     id: '3xf7i2',
+    linkedItems: {
+      weapon: {
+        name: 'Sorrow',
+      },
+    },
   },
   {
     category: 'mod',
     name: 'Explosive Shot',
     imagePath: '/mod/explosive_shot.png',
     id: 'hpfdzp',
+    linkedItems: {
+      weapon: {
+        name: 'Hellfire',
+      },
+    },
   },
   {
     category: 'mod',
@@ -2548,6 +2746,11 @@ export const remnantItems: Item[] = [
     name: 'Faultline',
     imagePath: '/mod/faultline.png',
     id: '5mlisj',
+    linkedItems: {
+      weapon: {
+        name: 'Stonebreaker',
+      },
+    },
   },
   {
     category: 'mod',
@@ -2560,18 +2763,33 @@ export const remnantItems: Item[] = [
     name: 'Fission Strike',
     imagePath: '/mod/fission_strike.png',
     id: 'd490vt',
+    linkedItems: {
+      weapon: {
+        name: 'Atom Splitter',
+      },
+    },
   },
   {
     category: 'mod',
     name: 'Fracture',
     imagePath: '/mod/fracture.png',
     id: 'x8vmra',
+    linkedItems: {
+      weapon: {
+        name: 'Godsplitter',
+      },
+    },
   },
   {
     category: 'mod',
     name: "Guardian's Call",
     imagePath: '/mod/guardians_call.png',
     id: 'anhbhf',
+    linkedItems: {
+      weapon: {
+        name: 'Twisted Arbalest',
+      },
+    },
   },
   {
     category: 'mod',
@@ -2584,6 +2802,11 @@ export const remnantItems: Item[] = [
     name: 'Heat Sink',
     imagePath: '/mod/heat_sink.png',
     id: 's49h0c',
+    linkedItems: {
+      weapon: {
+        name: 'Plasma Cutter',
+      },
+    },
   },
   { category: 'mod', name: 'Helix', imagePath: '/mod/helix.png', id: '1mtqkk' },
   {
@@ -2603,12 +2826,22 @@ export const remnantItems: Item[] = [
     name: 'Krell Edge',
     imagePath: '/mod/krell_edge.png',
     id: '38rncx',
+    linkedItems: {
+      weapon: {
+        name: 'Krell Axe',
+      },
+    },
   },
   {
     category: 'mod',
     name: 'Lifeline',
     imagePath: '/mod/lifeline.png',
     id: '4zqfhu',
+    linkedItems: {
+      weapon: {
+        name: 'Red Doe Staff',
+      },
+    },
   },
   {
     category: 'mod',
@@ -2626,24 +2859,44 @@ export const remnantItems: Item[] = [
     name: 'Micronova',
     imagePath: '/mod/micronova.png',
     id: '8izb2g',
+    linkedItems: {
+      weapon: {
+        name: 'Corrupted Aphelion',
+      },
+    },
   },
   {
     category: 'mod',
     name: 'Moonlight Barrage',
     imagePath: '/mod/moonlight_barrage.png',
     id: 'wfak3h',
+    linkedItems: {
+      weapon: {
+        name: 'Crescent Moon',
+      },
+    },
   },
   {
     category: 'mod',
     name: 'Nano Swarm',
     imagePath: '/mod/nano_swarm.png',
     id: '8ko9zz',
+    linkedItems: {
+      weapon: {
+        name: 'Nebula',
+      },
+    },
   },
   {
     category: 'mod',
     name: 'Ouroboros',
     imagePath: '/mod/ouroboros.png',
     id: 'czgb8w',
+    linkedItems: {
+      weapon: {
+        name: 'Deceit',
+      },
+    },
   },
   {
     category: 'mod',
@@ -2697,6 +2950,11 @@ export const remnantItems: Item[] = [
     name: 'Screamer',
     imagePath: '/mod/screamer.png',
     id: '4aeebu',
+    linkedItems: {
+      weapon: {
+        name: 'Meridian',
+      },
+    },
   },
   {
     category: 'mod',
@@ -2721,6 +2979,11 @@ export const remnantItems: Item[] = [
     name: 'Soul Brand',
     imagePath: '/mod/soul_brand.png',
     id: 'imk8xh',
+    linkedItems: {
+      weapon: {
+        name: 'Rune Pistol',
+      },
+    },
   },
   {
     category: 'mod',
@@ -2745,6 +3008,11 @@ export const remnantItems: Item[] = [
     name: 'Starfall',
     imagePath: '/mod/starfall.png',
     id: 'j9wkb3',
+    linkedItems: {
+      weapon: {
+        name: 'Sagittarius',
+      },
+    },
   },
   {
     category: 'mod',
@@ -2757,6 +3025,11 @@ export const remnantItems: Item[] = [
     name: 'Supernova',
     imagePath: '/mod/supernova.png',
     id: '9rxk65',
+    linkedItems: {
+      weapon: {
+        name: 'Aphelion',
+      },
+    },
   },
   {
     category: 'mod',
@@ -2781,12 +3054,22 @@ export const remnantItems: Item[] = [
     name: 'Whirlwind',
     imagePath: '/mod/whirlwind.png',
     id: '2y6xm7',
+    linkedItems: {
+      weapon: {
+        name: 'Spectral Blade',
+      },
+    },
   },
   {
     category: 'mod',
     name: 'Windfall',
     imagePath: '/mod/windfall.png',
     id: '82v8kz',
+    linkedItems: {
+      weapon: {
+        name: 'Corrupted Deceit',
+      },
+    },
   },
   {
     category: 'mod',

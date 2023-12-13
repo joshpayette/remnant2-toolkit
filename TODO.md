@@ -2,7 +2,7 @@
 
 - Finish linking items, like guns to their mods, and
 
-  - Left off on Concussive Shot for mods
+  - linked guns and mods, need to add to builder
 
 - Add trait total, limit to 85
   respecting that in the builder.
