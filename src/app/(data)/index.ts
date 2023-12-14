@@ -2227,6 +2227,11 @@ export const remnantItems: Item[] = [
     name: "World's Edge",
     imagePath: '/melee/worlds_edge.png',
     id: 'gilcfn',
+    linkedItems: {
+      mod: {
+        name: 'Horizon Strike',
+      },
+    },
   },
   {
     category: 'weapon',
@@ -2809,6 +2814,17 @@ export const remnantItems: Item[] = [
     },
   },
   { category: 'mod', name: 'Helix', imagePath: '/mod/helix.png', id: '1mtqkk' },
+  {
+    category: 'mod',
+    name: 'Horizon Strike',
+    imagePath: '/mod/horizon_strike.png',
+    id: '2fjw9q',
+    linkedItems: {
+      weapon: {
+        name: "World's Edge",
+      },
+    },
+  },
   {
     category: 'mod',
     name: 'Hot Shot',
