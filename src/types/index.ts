@@ -41,10 +41,6 @@ interface BaseItem {
 export interface WeaponItem extends BaseItem {
   category: 'weapon'
   type: 'long gun' | 'melee' | 'hand gun'
-  // if it has a permanent mod slot
-  hasMod?: boolean
-  // if it has a permanent mutator slot
-  hasMutator?: boolean
 }
 
 export interface TraitItem extends BaseItem {
