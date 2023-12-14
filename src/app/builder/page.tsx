@@ -91,13 +91,13 @@ export default function BuildHomePage() {
       >
         <div
           id="alert"
-          className="rounded border border-orange-500 bg-black p-4 text-orange-500"
+          className="rounded border border-green-500 bg-black p-4 text-green-500"
         >
           <p>
             This tool should be mostly stable at this point. However, I am still
-            iterating on it and so your build URLs could break in the future.
-            Please use the export CSV feature to save your build data in case
-            this happens. I will try my best not to do that though!
+            iterating on it. While I will try to avoid breaking changes, they
+            are always possible. Use the export to CSV button to save your build
+            data in case.
           </p>
         </div>
       </PageHeader>
