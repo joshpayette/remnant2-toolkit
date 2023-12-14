@@ -138,7 +138,7 @@ export default function ImageBuilder({
    */
   const itemListForSlot = useMemo(
     () => getItemListForSlot(currentBuild, selectedItemSlot),
-    [selectedItemSlot, currentBuild],
+    [selectedItemSlot, currentBuild, getItemListForSlot],
   )
 
   return (
