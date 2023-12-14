@@ -1,7 +1,6 @@
 'use client'
 
 import { Fragment, useState } from 'react'
-import { useSearchParams } from 'next/navigation'
 import PageHeader from '@/app/(components)/PageHeader'
 import ImageBuilder from './(components)/ImageBuilder'
 import useQueryString from '@/hooks/useQueryString'
@@ -9,17 +8,14 @@ import { cn, itemToCsvItem } from '@/lib/utils'
 import { useLocalStorage } from '@/hooks/useLocalStorage'
 import ToCsvButton from '../(components)/ToCsvButton'
 import { remnantItemCategories } from '@/data'
-import { TraitItem } from '@/types'
+import { type TraitItem } from '@/types'
 import { useIsClient } from 'usehooks-ts'
 import copy from 'clipboard-copy'
 
 export default function BuildHomePage() {
   const isClient = useIsClient()
 
-  const searchParams = useSearchParams()
-  const { parseQueryString } = useQueryString()
-  const build = parseQueryString(searchParams)
-
+  const { currentBuild } = useQueryString()
   const { builderStorage, setBuilderStorage } = useLocalStorage()
 
   const [showLabels, setShowLabels] = useState(builderStorage.showLabels)
@@ -44,7 +40,7 @@ export default function BuildHomePage() {
   // We need to convert the build.items object into an array of items to pass to the ToCsvButton
   const csvBuildData = remnantItemCategories
     .map((category) => {
-      const itemOrItems = build.items[category]
+      const itemOrItems = currentBuild.items[category]
 
       if (!itemOrItems)
         return {
@@ -153,16 +149,12 @@ export default function BuildHomePage() {
 
             <ToCsvButton
               data={csvBuildData}
-              filename={`remnant2_builder_${build.name}`}
+              filename={`remnant2_builder_${currentBuild.name}`}
             />
           </div>
         </div>
         <div className="w-full grow rounded border-2 border-green-500 bg-black p-4">
-          <ImageBuilder
-            build={build}
-            showLabels={showLabels}
-            showControls={showControls}
-          />
+          <ImageBuilder showLabels={showLabels} showControls={showControls} />
         </div>
       </div>
     </Fragment>

@@ -134,5 +134,28 @@ export default function useQueryString() {
     return build
   }
 
-  return { parseQueryString, updateQueryString }
+  /**
+   * Checks the build weapons and equips any mods
+   * that are linked to them
+   */
+  function linkWeaponsToMods(currentBuild: Build) {
+    const newBuild = { ...currentBuild }
+
+    // Check the weapons for linked mods
+    // If any are found, add them to the build
+    const weapons = newBuild.items.weapon
+    weapons.forEach((weapon, index) => {
+      const linkedMod = weapon.linkedItems?.mod
+      if (!linkedMod) return
+      const modItem = remnantItems.find((mod) => mod.name === linkedMod.name)
+      if (!modItem) return
+      newBuild.items.mod[index] = modItem
+    })
+
+    return newBuild
+  }
+
+  const build = linkWeaponsToMods(parseQueryString(searchParams))
+
+  return { updateQueryString, currentBuild: build }
 }

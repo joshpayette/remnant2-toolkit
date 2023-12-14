@@ -108,16 +108,14 @@ function getItemListForSlot(
 }
 
 export default function ImageBuilder({
-  build,
   showControls,
   showLabels,
 }: {
-  build: Build
   showControls: boolean
   showLabels: boolean
 }) {
   // Hook for modifying the URL query string
-  const { updateQueryString } = useQueryString()
+  const { updateQueryString, currentBuild } = useQueryString()
 
   // Tracks information about the slot the user is selecting an item for
   const [selectedItemSlot, setSelectedItemSlot] = useState<{
@@ -151,7 +149,7 @@ export default function ImageBuilder({
       // then remove the item at the specified index
       if (!selectedItem) {
         if (isIndexSpecified) {
-          const buildItems = build.items[selectedItemSlot.category]
+          const buildItems = currentBuild.items[selectedItemSlot.category]
 
           if (!Array.isArray(buildItems)) return
 
@@ -171,7 +169,7 @@ export default function ImageBuilder({
         return
       }
 
-      const categoryItemorItems = build.items[selectedItemSlot.category]
+      const categoryItemorItems = currentBuild.items[selectedItemSlot.category]
 
       // If the item can be multiple, such as rings,
       // then add the item at the specified index
@@ -204,7 +202,7 @@ export default function ImageBuilder({
         }
 
         // If we got here, add the item to the build
-        const newItemIds = newBuildItems.map((i) => i.id)
+        const newItemIds = newBuildItems.map((i) => i?.id)
         updateQueryString(selectedItem.category, newItemIds)
         setSelectedItemSlot({ category: null })
         return
@@ -220,7 +218,7 @@ export default function ImageBuilder({
       setSelectedItemSlot({ category: null })
     },
     [
-      build.items,
+      currentBuild.items,
       selectedItemSlot.category,
       selectedItemSlot.index,
       updateQueryString,
@@ -238,8 +236,8 @@ export default function ImageBuilder({
    * This is passed to the ItemSelect modal to display the correct items
    */
   const itemListForSlot = useMemo(
-    () => getItemListForSlot(build, selectedItemSlot),
-    [selectedItemSlot, build],
+    () => getItemListForSlot(currentBuild, selectedItemSlot),
+    [selectedItemSlot, currentBuild],
   )
 
   return (
@@ -260,7 +258,7 @@ export default function ImageBuilder({
             updateQueryString('name', newBuildName)
             setBuildNameIsEditable(false)
           }}
-          name={build.name}
+          name={currentBuild.name}
           showControls={showControls}
         />
       </div>
@@ -268,7 +266,7 @@ export default function ImageBuilder({
       <div className="flex w-full items-start justify-between gap-4">
         <div id="left-column" className="flex-none">
           <ImageBuilderButton
-            item={build.items.helm}
+            item={currentBuild.items.helm}
             showLabels={showLabels}
             onClick={() => {
               setSelectedItemSlot({
@@ -277,7 +275,7 @@ export default function ImageBuilder({
             }}
           />
           <ImageBuilderButton
-            item={build.items.torso}
+            item={currentBuild.items.torso}
             showLabels={showLabels}
             onClick={() => {
               setSelectedItemSlot({
@@ -286,7 +284,7 @@ export default function ImageBuilder({
             }}
           />
           <ImageBuilderButton
-            item={build.items.legs}
+            item={currentBuild.items.legs}
             showLabels={showLabels}
             onClick={() => {
               setSelectedItemSlot({
@@ -295,7 +293,7 @@ export default function ImageBuilder({
             }}
           />
           <ImageBuilderButton
-            item={build.items.gloves}
+            item={currentBuild.items.gloves}
             showLabels={showLabels}
             onClick={() => {
               setSelectedItemSlot({
@@ -308,7 +306,7 @@ export default function ImageBuilder({
             className="relative flex items-start justify-start"
           >
             <ImageBuilderButton
-              item={build.items.relic}
+              item={currentBuild.items.relic}
               showLabels={showLabels}
               onClick={() => {
                 setSelectedItemSlot({
@@ -323,7 +321,7 @@ export default function ImageBuilder({
               <ImageBuilderButton
                 showLabels={showLabels}
                 size="sm"
-                item={build.items.relicfragment[0]}
+                item={currentBuild.items.relicfragment[0]}
                 onClick={() => {
                   setSelectedItemSlot({
                     category: 'relicfragment',
@@ -332,7 +330,7 @@ export default function ImageBuilder({
                 }}
               />
               <ImageBuilderButton
-                item={build.items.relicfragment[1]}
+                item={currentBuild.items.relicfragment[1]}
                 showLabels={showLabels}
                 size="sm"
                 onClick={() => {
@@ -343,7 +341,7 @@ export default function ImageBuilder({
                 }}
               />
               <ImageBuilderButton
-                item={build.items.relicfragment[2]}
+                item={currentBuild.items.relicfragment[2]}
                 showLabels={showLabels}
                 size="sm"
                 onClick={() => {
@@ -372,7 +370,7 @@ export default function ImageBuilder({
             {getArrayOfLength(2).map((archtypeIndex) => (
               <Fragment key={`archtype-${archtypeIndex}`}>
                 <ImageBuilderButton
-                  item={build.items.archtype[archtypeIndex]}
+                  item={currentBuild.items.archtype[archtypeIndex]}
                   showLabels={showLabels}
                   onClick={() => {
                     setSelectedItemSlot({
@@ -382,7 +380,7 @@ export default function ImageBuilder({
                   }}
                 />
                 <ImageBuilderButton
-                  item={build.items.skill[archtypeIndex]}
+                  item={currentBuild.items.skill[archtypeIndex]}
                   showLabels={showLabels}
                   onClick={() => {
                     setSelectedItemSlot({
@@ -400,7 +398,7 @@ export default function ImageBuilder({
             className="flex flex-row flex-wrap gap-2"
           >
             <ImageBuilderButton
-              item={build.items.concoction[0]}
+              item={currentBuild.items.concoction[0]}
               showLabels={showLabels}
               onClick={() => {
                 setSelectedItemSlot({
@@ -415,13 +413,14 @@ export default function ImageBuilder({
 
               // Skip the concoctions if the build is not an alchemist
               const isPrimaryAlchemist =
-                build.items.archtype[0]?.name?.toLowerCase() === 'alchemist'
+                currentBuild.items.archtype[0]?.name?.toLowerCase() ===
+                'alchemist'
               if (!isPrimaryAlchemist) return null
 
               return (
                 <ImageBuilderButton
                   key={`concoction-${concoctionIndex}`}
-                  item={build.items.concoction[concoctionIndex]}
+                  item={currentBuild.items.concoction[concoctionIndex]}
                   showLabels={showLabels}
                   onClick={() => {
                     setSelectedItemSlot({
@@ -441,7 +440,7 @@ export default function ImageBuilder({
             {getArrayOfLength(4).map((consumableIndex) => (
               <ImageBuilderButton
                 key={`consumable-${consumableIndex}`}
-                item={build.items.consumable[consumableIndex]}
+                item={currentBuild.items.consumable[consumableIndex]}
                 showLabels={showLabels}
                 onClick={() => {
                   setSelectedItemSlot({
@@ -456,7 +455,7 @@ export default function ImageBuilder({
 
         <div id="right-column" className="flex-none">
           <ImageBuilderButton
-            item={build.items.amulet}
+            item={currentBuild.items.amulet}
             showLabels={showLabels}
             onClick={() => {
               setSelectedItemSlot({
@@ -467,7 +466,7 @@ export default function ImageBuilder({
           {getArrayOfLength(4).map((ringIndex) => (
             <ImageBuilderButton
               showLabels={showLabels}
-              item={build.items.ring[ringIndex]}
+              item={currentBuild.items.ring[ringIndex]}
               key={`ring-${ringIndex}`}
               onClick={() => {
                 setSelectedItemSlot({
@@ -491,7 +490,7 @@ export default function ImageBuilder({
           >
             <ImageBuilderButton
               showLabels={showLabels}
-              item={build.items.weapon[weaponIndex]}
+              item={currentBuild.items.weapon[weaponIndex]}
               size="wide"
               onClick={() => {
                 setSelectedItemSlot({
@@ -503,7 +502,7 @@ export default function ImageBuilder({
             <div className="flex w-full grow items-center justify-around gap-4">
               <ImageBuilderButton
                 showLabels={showLabels}
-                item={build.items.mod[weaponIndex]}
+                item={currentBuild.items.mod[weaponIndex]}
                 size="md"
                 onClick={() => {
                   setSelectedItemSlot({
@@ -513,7 +512,7 @@ export default function ImageBuilder({
                 }}
               />
               <ImageBuilderButton
-                item={build.items.mutator[weaponIndex]}
+                item={currentBuild.items.mutator[weaponIndex]}
                 showLabels={showLabels}
                 size="md"
                 onClick={() => {
@@ -529,7 +528,7 @@ export default function ImageBuilder({
       </div>
       <div id="trait-row" className="mt-4 w-full">
         <Traits
-          traitItems={build.items.trait}
+          traitItems={currentBuild.items.trait}
           showControls={showControls}
           onAddTrait={() => {
             setSelectedItemSlot({
@@ -537,7 +536,7 @@ export default function ImageBuilder({
             })
           }}
           onRemoveTrait={(traitItem) => {
-            const newTraitItems = build.items.trait.filter(
+            const newTraitItems = currentBuild.items.trait.filter(
               (i) => i.name !== traitItem.name,
             )
             const newTraitItemParams = newTraitItems.map(
@@ -546,7 +545,7 @@ export default function ImageBuilder({
             updateQueryString('trait', newTraitItemParams)
           }}
           onChangeAmount={(newTraitItem) => {
-            const newTraitItems = build.items.trait.map((traitItem) => {
+            const newTraitItems = currentBuild.items.trait.map((traitItem) => {
               if (traitItem.name === newTraitItem.name) {
                 return newTraitItem
               }
