@@ -18,9 +18,14 @@ const skippedItemCategories: ItemCategory[] = [
   'consumable',
   'skill',
 ]
-const itemList = remnantItems.filter(
-  (item) => skippedItemCategories.includes(item.category) === false,
-)
+const itemList = remnantItems
+  // We don't want to show the items that are in the skippedItemCategories
+  .filter((item) => skippedItemCategories.includes(item.category) === false)
+  // Remove mods that have linked guns
+  .filter((item) => {
+    if (item.category !== 'mod') return true
+    return item.linkedItems?.weapon === undefined
+  })
 const itemCategories = remnantItemCategories.filter(
   (category) => skippedItemCategories.includes(category) === false,
 )
