@@ -1,5 +1,5 @@
-import { cn } from '@/lib/utils'
-import { type Item } from '@/types'
+import { cn } from '@/app/utils'
+import { type Item } from '@/app/types'
 import Image from 'next/image'
 
 export default function ImageBuilderButton({

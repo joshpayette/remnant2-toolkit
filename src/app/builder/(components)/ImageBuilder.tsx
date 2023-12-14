@@ -1,111 +1,12 @@
-import { WeaponItem, type Build, TraitItem } from '@/types'
+import { TraitItem } from '@/app/types'
 import { Fragment, useCallback, useMemo, useState } from 'react'
-import useQueryString from '@/hooks/useQueryString'
-import { type Item, type ItemCategory } from '@/types'
-import { remnantItems } from '@/data'
-import { cn, getArrayOfLength } from '@/lib/utils'
+import useBuilder from '@/app/builder/(hooks)/useBuilder'
+import { type Item, type ItemCategory } from '@/app/types'
+import { cn, getArrayOfLength } from '@/app/utils'
 import BuildName from './BuildName'
 import ImageBuilderButton from './ImageBuilderButton'
 import Traits from './Traits'
 import ItemSelect from './ItemSelect'
-
-/**
- * Returns a list of items that match the selected slot
- * Takes into account the build's current items and the selected slot
- * This is passed to the ItemSelect modal to display the correct items
- */
-function getItemListForSlot(
-  build: Build,
-  selectedItemSlot: {
-    category: ItemCategory | null
-    index?: number
-  },
-) {
-  if (!selectedItemSlot.category) return []
-
-  // Remove items that are already in the build
-  const unequippedItems = remnantItems.filter((item) => {
-    const categoryItemorItems = build.items[item.category]
-
-    if (!categoryItemorItems) return true
-
-    if (Array.isArray(categoryItemorItems)) {
-      const buildItems = categoryItemorItems
-      return !buildItems.find((i) => i?.id === item.id)
-    } else {
-      const buildItem = categoryItemorItems
-      return buildItem?.id !== item.id
-    }
-  })
-
-  // If the selected slot is a weapon, then limit the
-  // weapons based on the corresponding weapon type
-  if (selectedItemSlot.category === 'weapon') {
-    let type: WeaponItem['type']
-    switch (selectedItemSlot.index) {
-      case 0:
-        type = 'long gun'
-        break
-      case 1:
-        type = 'melee'
-        break
-      case 2:
-        type = 'hand gun'
-        break
-    }
-
-    return (unequippedItems as WeaponItem[]).filter(
-      (item) => item.type === type,
-    )
-  }
-
-  // If the selected slot is a skill, try to limit
-  // skills based on the corresponding archtype
-  if (selectedItemSlot.category === 'skill') {
-    const skillItems = (unequippedItems as Item[]).filter(
-      (item) => item.category === 'skill',
-    )
-
-    if (selectedItemSlot.index === undefined) return skillItems
-
-    const archtype =
-      build.items.archtype[selectedItemSlot.index]?.name.toLowerCase()
-
-    if (!archtype) return skillItems
-
-    const itemsForArchtype = skillItems.filter(
-      (item) => item.linkedItems?.archtype?.name.toLowerCase() === archtype,
-    )
-
-    return itemsForArchtype
-  }
-
-  // If the selected slot is an archtype, try to limit
-  // the archtypes based on the corresponding skill
-  if (selectedItemSlot.category === 'archtype') {
-    const archtypeItems = (unequippedItems as Item[]).filter(
-      (item) => item.category === 'archtype',
-    )
-
-    if (selectedItemSlot.index === undefined) return archtypeItems
-
-    const skill = build.items.skill[selectedItemSlot.index]?.name.toLowerCase()
-
-    if (!skill) return archtypeItems
-
-    const itemsForSkill = archtypeItems.filter(
-      (item) =>
-        item.linkedItems?.skills?.some((s) => s.name.toLowerCase() === skill),
-    )
-
-    return itemsForSkill
-  }
-
-  // If we got this far, then return all items for the selected slot
-  return (unequippedItems as Item[]).filter(
-    (item) => item.category === selectedItemSlot.category,
-  )
-}
 
 export default function ImageBuilder({
   showControls,
@@ -114,8 +15,8 @@ export default function ImageBuilder({
   showControls: boolean
   showLabels: boolean
 }) {
-  // Hook for modifying the URL query string
-  const { updateQueryString, currentBuild } = useQueryString()
+  // Custom hook for working with the build
+  const { updateBuild, currentBuild, getItemListForSlot } = useBuilder()
 
   // Tracks information about the slot the user is selecting an item for
   const [selectedItemSlot, setSelectedItemSlot] = useState<{
@@ -160,9 +61,9 @@ export default function ImageBuilder({
             index === specifiedIndex ? null : item,
           )
           const newItemIds = newBuildItems.map((i) => (i ? i.id : ''))
-          updateQueryString(selectedItemSlot.category, newItemIds)
+          updateBuild(selectedItemSlot.category, newItemIds)
         } else {
-          updateQueryString(selectedItemSlot.category, '')
+          updateBuild(selectedItemSlot.category, '')
         }
 
         setSelectedItemSlot({ category: null })
@@ -196,14 +97,14 @@ export default function ImageBuilder({
           const newTraitItemParams = newBuildItems.map(
             (i) => `${i.id};${(i as TraitItem).amount}`,
           )
-          updateQueryString('trait', newTraitItemParams)
+          updateBuild('trait', newTraitItemParams)
           setSelectedItemSlot({ category: null })
           return
         }
 
         // If we got here, add the item to the build
         const newItemIds = newBuildItems.map((i) => i?.id)
-        updateQueryString(selectedItem.category, newItemIds)
+        updateBuild(selectedItem.category, newItemIds)
         setSelectedItemSlot({ category: null })
         return
       }
@@ -214,14 +115,14 @@ export default function ImageBuilder({
       const itemAlreadyInBuild = buildItem?.id === selectedItem.id
       if (itemAlreadyInBuild) return
 
-      updateQueryString(selectedItem.category, selectedItem.id)
+      updateBuild(selectedItem.category, selectedItem.id)
       setSelectedItemSlot({ category: null })
     },
     [
       currentBuild.items,
       selectedItemSlot.category,
       selectedItemSlot.index,
-      updateQueryString,
+      updateBuild,
     ],
   )
 
@@ -255,7 +156,7 @@ export default function ImageBuilder({
           editable={buildNameIsEditable}
           onClick={() => setBuildNameIsEditable(true)}
           onClose={(newBuildName: string) => {
-            updateQueryString('name', newBuildName)
+            updateBuild('name', newBuildName)
             setBuildNameIsEditable(false)
           }}
           name={currentBuild.name}
@@ -542,7 +443,7 @@ export default function ImageBuilder({
             const newTraitItemParams = newTraitItems.map(
               (i) => `${i.id};${i.amount}`,
             )
-            updateQueryString('trait', newTraitItemParams)
+            updateBuild('trait', newTraitItemParams)
           }}
           onChangeAmount={(newTraitItem) => {
             const newTraitItems = currentBuild.items.trait.map((traitItem) => {
@@ -554,7 +455,7 @@ export default function ImageBuilder({
             const newTraitItemParams = newTraitItems.map(
               (i) => `${i.id};${i.amount}`,
             )
-            updateQueryString('trait', newTraitItemParams)
+            updateBuild('trait', newTraitItemParams)
           }}
         />
       </div>

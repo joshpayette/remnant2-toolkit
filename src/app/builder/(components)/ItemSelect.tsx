@@ -1,6 +1,6 @@
 'use client'
 
-import { type Item, ItemCategory } from '@/types'
+import { type Item, ItemCategory } from '@/app/types'
 import Dialog from '@/app/(components)/Dialog'
 import ImageBuilderButton from './ImageBuilderButton'
 import { useIsClient } from 'usehooks-ts'

@@ -1,6 +1,6 @@
 /* eslint-env jest */
 
-import { remnantItems } from '@/data'
+import { remnantItems } from '@/app/(data)'
 
 describe('Items', () => {
   it('all should have unique ids', () => {

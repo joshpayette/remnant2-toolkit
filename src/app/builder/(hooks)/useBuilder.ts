@@ -1,16 +1,22 @@
-import { type TraitItem, type Build, type WeaponItem } from '@/types'
-import { remnantItemCategories, remnantItems } from '@/data'
-import { type Item } from '@/types'
+import {
+  type TraitItem,
+  type Build,
+  type WeaponItem,
+  type ItemCategory,
+} from '@/app/types'
+import { remnantItemCategories, remnantItems } from '@/app/(data)'
+import { type Item } from '@/app/types'
 import { usePathname, useSearchParams, useRouter } from 'next/navigation'
 import { useCallback } from 'react'
 
 /**
- * Modifies the URL query string by adding or updating a parameter.
+ * Handles reading/writing the build to the URL query string,
+ * linking weapons to mods, and some helper functions
  *
  * @example Adds a `name` parameter to the query string
  * router.push(`${pathname}?${createQueryString('name', name)}`)
  */
-export default function useQueryString() {
+export default function useBuilder() {
   // Hooks for monitoring the URL query string
   const router = useRouter()
   const pathname = usePathname()
@@ -31,7 +37,7 @@ export default function useQueryString() {
   /**
    * Adds a value to the query string then navigates to it
    */
-  function updateQueryString(
+  function updateBuild(
     name: string,
     value: string | string[],
     scroll = false,
@@ -135,6 +141,113 @@ export default function useQueryString() {
   }
 
   /**
+   * Returns a list of items that match the selected slot
+   * Takes into account the build's current items and the selected slot
+   * This is passed to the ItemSelect modal to display the correct items
+   */
+  function getItemListForSlot(
+    build: Build,
+    selectedItemSlot: {
+      category: ItemCategory | null
+      index?: number
+    },
+  ) {
+    if (!selectedItemSlot.category) return []
+
+    // Remove items that are already in the build
+    const unequippedItems = remnantItems.filter((item) => {
+      const categoryItemorItems = build.items[item.category]
+
+      if (!categoryItemorItems) return true
+
+      if (Array.isArray(categoryItemorItems)) {
+        const buildItems = categoryItemorItems
+        return !buildItems.find((i) => i?.id === item.id)
+      } else {
+        const buildItem = categoryItemorItems
+        return buildItem?.id !== item.id
+      }
+    })
+
+    // If the selected slot is a weapon, then limit the
+    // weapons based on the corresponding weapon type
+    if (selectedItemSlot.category === 'weapon') {
+      let type: WeaponItem['type']
+      switch (selectedItemSlot.index) {
+        case 0:
+          type = 'long gun'
+          break
+        case 1:
+          type = 'melee'
+          break
+        case 2:
+          type = 'hand gun'
+          break
+      }
+
+      return (unequippedItems as WeaponItem[]).filter(
+        (item) => item.type === type,
+      )
+    }
+
+    // If the selected slot is a mod, then limit the
+    // mods to those without a linked weapon
+    if (selectedItemSlot.category === 'mod') {
+      return (unequippedItems as Item[]).filter(
+        (item) => item.category === 'mod' && !item.linkedItems?.weapon,
+      )
+    }
+
+    // If the selected slot is a skill, try to limit
+    // skills based on the corresponding archtype
+    if (selectedItemSlot.category === 'skill') {
+      const skillItems = (unequippedItems as Item[]).filter(
+        (item) => item.category === 'skill',
+      )
+
+      if (selectedItemSlot.index === undefined) return skillItems
+
+      const archtype =
+        build.items.archtype[selectedItemSlot.index]?.name.toLowerCase()
+
+      if (!archtype) return skillItems
+
+      const itemsForArchtype = skillItems.filter(
+        (item) => item.linkedItems?.archtype?.name.toLowerCase() === archtype,
+      )
+
+      return itemsForArchtype
+    }
+
+    // If the selected slot is an archtype, try to limit
+    // the archtypes based on the corresponding skill
+    if (selectedItemSlot.category === 'archtype') {
+      const archtypeItems = (unequippedItems as Item[]).filter(
+        (item) => item.category === 'archtype',
+      )
+
+      if (selectedItemSlot.index === undefined) return archtypeItems
+
+      const skill =
+        build.items.skill[selectedItemSlot.index]?.name.toLowerCase()
+
+      if (!skill) return archtypeItems
+
+      const itemsForSkill = archtypeItems.filter(
+        (item) =>
+          item.linkedItems?.skills?.some((s) => s.name.toLowerCase() === skill),
+      )
+
+      return itemsForSkill
+    }
+
+    // If we got this far, then return all items for the selected slot
+    return (unequippedItems as Item[]).filter(
+      (item) => item.category === selectedItemSlot.category,
+    )
+  }
+
+  /**
    * Checks the build weapons and equips any mods
    * that are linked to them
    */
@@ -175,5 +288,5 @@ export default function useQueryString() {
 
   const build = linkWeaponsToMods(parseQueryString(searchParams))
 
-  return { updateQueryString, currentBuild: build }
+  return { getItemListForSlot, updateBuild, currentBuild: build }
 }

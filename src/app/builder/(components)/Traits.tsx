@@ -1,4 +1,4 @@
-import { type TraitItem } from '@/types'
+import { type TraitItem } from '@/app/types'
 import { useState } from 'react'
 
 export default function Traits({

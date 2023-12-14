@@ -3,11 +3,11 @@
 import { Fragment } from 'react'
 import { Disclosure } from '@headlessui/react'
 import { ChevronUpIcon } from '@heroicons/react/20/solid'
-import { capitalize, cn } from '@/lib/utils'
+import { capitalize, cn } from '@/app/utils'
 import { type Filters } from './Filters'
-import { type Item, type ItemCategory } from '@/types'
+import { type Item, type ItemCategory } from '@/app/types'
 import { useIsClient } from 'usehooks-ts'
-import { useLocalStorage } from '@/hooks/useLocalStorage'
+import { useLocalStorage } from '@/app/(hooks)/useLocalStorage'
 import ItemCard from './ItemCard'
 
 function getProgress(

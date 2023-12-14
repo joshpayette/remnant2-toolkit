@@ -2,7 +2,7 @@
 
 import { Fragment } from 'react'
 import { Dialog as BaseDialog, Transition } from '@headlessui/react'
-import { cn } from '@/lib/utils'
+import { cn } from '@/app/utils'
 
 interface DialogProps {
   children?: React.ReactNode

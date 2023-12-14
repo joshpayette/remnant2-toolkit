@@ -1,4 +1,4 @@
-import { toCsv } from '@/lib/utils'
+import { toCsv } from '@/app/utils'
 
 interface ToCsvProps {
   data: any[]
