@@ -9,6 +9,8 @@ import { type Item } from '@/app/types'
 import { usePathname, useSearchParams, useRouter } from 'next/navigation'
 import { useCallback } from 'react'
 
+export const DEFAULT_TRAIT_AMOUNT = 10
+
 /**
  * Handles reading/writing the build to the URL query string,
  * linking weapons to mods, and some helper functions
@@ -100,10 +102,10 @@ export default function useBuilder() {
             itemIndex
           ]
 
-          let validAmount = amount ? parseInt(amount) : 1
-          if (isNaN(validAmount)) validAmount = 1
-          if (validAmount < 1) validAmount = 1
-          if (validAmount > 10) validAmount = 10
+          let validAmount = amount ? parseInt(amount) : DEFAULT_TRAIT_AMOUNT
+          if (isNaN(validAmount)) validAmount = DEFAULT_TRAIT_AMOUNT
+          if (validAmount < 1) validAmount = DEFAULT_TRAIT_AMOUNT
+          if (validAmount > 10) validAmount = DEFAULT_TRAIT_AMOUNT
 
           if (!buildItem) {
             return ((build.items[itemCategory] as TraitItem[])[itemIndex] = {

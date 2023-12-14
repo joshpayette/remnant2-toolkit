@@ -1,6 +1,8 @@
 import { TraitItem } from '@/app/types'
 import { Fragment, useCallback, useMemo, useState } from 'react'
-import useBuilder from '@/app/builder/(hooks)/useBuilder'
+import useBuilder, {
+  DEFAULT_TRAIT_AMOUNT,
+} from '@/app/builder/(hooks)/useBuilder'
 import { type Item, type ItemCategory } from '@/app/types'
 import { cn, getArrayOfLength } from '@/app/utils'
 import BuildName from './BuildName'
@@ -95,7 +97,7 @@ export default function ImageBuilder({
         // If the item is a trait, then we need to add the amount to the query string
         if (selectedItemSlot.category === 'trait') {
           const newTraitItemParams = newBuildItems.map(
-            (i) => `${i.id};${(i as TraitItem).amount}`,
+            (i) => `${i.id};${(i as TraitItem).amount ?? DEFAULT_TRAIT_AMOUNT}`,
           )
           updateBuild('trait', newTraitItemParams)
           setSelectedItemSlot({ category: null })

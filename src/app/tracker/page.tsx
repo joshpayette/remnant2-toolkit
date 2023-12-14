@@ -26,6 +26,7 @@ const itemList = remnantItems
     if (item.category !== 'mod') return true
     return item.linkedItems?.weapon === undefined
   })
+
 const itemCategories = remnantItemCategories.filter(
   (category) => skippedItemCategories.includes(category) === false,
 )

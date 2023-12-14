@@ -1,5 +1,6 @@
 import { type TraitItem } from '@/app/types'
 import { useState } from 'react'
+import { DEFAULT_TRAIT_AMOUNT } from '../(hooks)/useBuilder'
 
 export default function Traits({
   showControls,
@@ -30,7 +31,11 @@ export default function Traits({
               {traitItem.name === editingTraitItem?.name ? (
                 <input
                   type="text"
-                  value={editingTraitItem?.amount ?? traitItem.amount ?? 1}
+                  value={
+                    editingTraitItem.amount ??
+                    traitItem.amount ??
+                    DEFAULT_TRAIT_AMOUNT
+                  }
                   // Update the parent state when the user presses enter
                   onKeyDown={(e) => {
                     if (e.key === 'Enter') {
@@ -48,9 +53,9 @@ export default function Traits({
 
                     let amount = parseInt(value)
 
-                    if (isNaN(amount)) amount = 1
-                    if (amount < 1) amount = 1
-                    if (amount > 10) amount = 10
+                    if (isNaN(amount)) amount = DEFAULT_TRAIT_AMOUNT
+                    if (amount < 1) amount = DEFAULT_TRAIT_AMOUNT
+                    if (amount > 10) amount = DEFAULT_TRAIT_AMOUNT
 
                     setEditingTraitItem({
                       ...traitItem,
@@ -67,7 +72,7 @@ export default function Traits({
                 />
               ) : (
                 <button onClick={() => setEditingTraitItem(traitItem)}>
-                  {traitItem.amount ?? 1}
+                  {traitItem.amount ?? DEFAULT_TRAIT_AMOUNT}
                 </button>
               )}
             </div>

@@ -1,6 +1,5 @@
 # TODO
 
-- Make the trait point default to 10
 - Update page title with the build name
 - Add text on main page introducing the tool and how it works
   - Add blog functionality for updates on what's new
