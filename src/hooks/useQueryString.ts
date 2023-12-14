@@ -1,6 +1,6 @@
-import { TraitItem, type Build } from '@/types'
+import { type TraitItem, type Build, type WeaponItem } from '@/types'
 import { remnantItemCategories, remnantItems } from '@/data'
-import { Item } from '@/types'
+import { type Item } from '@/types'
 import { usePathname, useSearchParams, useRouter } from 'next/navigation'
 import { useCallback } from 'react'
 
@@ -147,11 +147,29 @@ export default function useQueryString() {
     weapons.forEach((weapon, index) => {
       const linkedMod = weapon.linkedItems?.mod
       if (!linkedMod) return
+
       const modItem = remnantItems.find((mod) => mod.name === linkedMod.name)
       if (!modItem) return
+
       newBuild.items.mod[index] = modItem
     })
 
+    // Check the mods for linked weapons
+    // If any are found, add them to the build
+    const mods = newBuild.items.mod
+    mods.forEach((mod, index) => {
+      const linkedWeapon = mod.linkedItems?.weapon
+      if (!linkedWeapon) return
+
+      const weaponItem = remnantItems.find(
+        (weapon) => weapon.name === linkedWeapon.name,
+      )
+      if (!weaponItem) return
+
+      newBuild.items.weapon[index] = weaponItem as WeaponItem
+    })
+
+    // Return the build with linked items
     return newBuild
   }
 
