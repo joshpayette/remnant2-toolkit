@@ -1,6 +1,6 @@
 'use client'
 
-import { Fragment, useState } from 'react'
+import { Fragment, useEffect, useState } from 'react'
 import PageHeader from '@/app/(components)/PageHeader'
 import ImageBuilder from './(components)/ImageBuilder'
 import useQueryString from '@/app/builder/(hooks)/useBuilder'
@@ -20,6 +20,12 @@ export default function BuildHomePage() {
 
   const [showLabels, setShowLabels] = useState(builderStorage.showLabels)
   const [showControls, setShowControls] = useState(builderStorage.showControls)
+
+  // Add the build name to the page title
+  useEffect(() => {
+    if (!currentBuild) return
+    document.title = `${currentBuild.name} Build | Remnant 2 Toolkit`
+  }, [currentBuild])
 
   function toggleShowLabels() {
     setShowLabels(!showLabels)
