@@ -9,6 +9,7 @@ import { type Item, type ItemCategory } from '@/app/types'
 import { useIsClient } from 'usehooks-ts'
 import { useLocalStorage } from '@/app/(hooks)/useLocalStorage'
 import ItemCard from './ItemCard'
+import { InformationCircleIcon } from '@heroicons/react/24/outline'
 
 function getProgress(
   items: Array<Item & { discovered: boolean }>,
@@ -112,16 +113,28 @@ export default function ListItems({
                     }
                   })
                   .map((item) => (
-                    <div
-                      key={item.id}
-                      className={cn(
-                        'relative h-full w-full',
-                        item.discovered
-                          ? 'border-2 border-purple-400 grayscale-0'
-                          : 'border-2 border-transparent grayscale',
-                      )}
-                    >
-                      <ItemCard item={item} onClick={() => onClick(item.id)} />
+                    <div key={item.id} className="flex flex-col">
+                      <div
+                        className={cn(
+                          'relative h-full w-full',
+                          item.discovered
+                            ? 'border-2 border-purple-400 grayscale-0'
+                            : 'border-2 border-transparent grayscale',
+                        )}
+                      >
+                        <ItemCard
+                          item={item}
+                          onClick={() => onClick(item.id)}
+                        />
+                      </div>
+                      <div className="flex items-end justify-end bg-black">
+                        <button
+                          className="flex w-auto items-center gap-1 rounded-md px-2 py-1 text-xs text-green-500 hover:bg-green-500 hover:text-black focus:outline-none focus-visible:ring focus-visible:ring-green-500/75"
+                          onClick={() => onShowItemInfo(item.id)}
+                        >
+                          <InformationCircleIcon className="h-5 w-5" /> Info
+                        </button>
+                      </div>
                     </div>
                   ))}
               </Disclosure.Panel>

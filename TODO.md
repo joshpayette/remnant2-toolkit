@@ -1,9 +1,5 @@
 # TODO
 
-- Add tooltips for hover/click on items
-- Add blog functionality for updates on what's new
-- Add item info back to tracker
-
 ## Bugs
 
 ## Maybe TODO
