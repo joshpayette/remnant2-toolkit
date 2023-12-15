@@ -59,7 +59,7 @@ export default function ItemInfo({ item, open, onClose }: ItemInfoProps) {
               >
                 {link}
               </a>
-            )) || (
+            )) ?? (
               <div className="text-left text-sm text-gray-300">
                 No links found.
               </div>

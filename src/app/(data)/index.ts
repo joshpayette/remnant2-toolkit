@@ -10,6 +10,7 @@ export const remnantItems: Item[] = [
       'The ALCHEMIST specializes in powerful buffing Vials and consumable potency.',
     howToGet:
       'Approach every sewer drain on the edge of any of the Dran overland areas in Losemn until you get grabbed by a Manticora. Once you load into the new area, defeat the white Manticora',
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Alchemist`],
     linkedItems: {
       trait: {
         name: 'Potency',
@@ -29,6 +30,7 @@ export const remnantItems: Item[] = [
     description:
       'The ARCHON is the master of Weapon Mods and Mod Power generation.',
     howToGet: `To Unlock the Red Door you will need the following. Engram Explorer with skill Fortune Hunter (LV10), Engram Invader with skill Worm Hole (LV5), Armor set Realmwalker, Relic Consumable Void Heart, Leto's Amulet, Amber Moonstone, Black Cat Band, Zanias Malice, Anastasijas Inspiration, Cube Gun, Ford's Scattergun, Labyrinth Staff. With all this the door will open.`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Archon`],
     linkedItems: {
       trait: {
         name: 'Flash Caster',
@@ -48,6 +50,7 @@ export const remnantItems: Item[] = [
     description:
       'The CHALLENGER specializes in close range combat and heightened survivability.',
     howToGet: `Buy from Reggie at Ward 13 for 1500 Scrap`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Challenger`],
     linkedItems: {
       trait: {
         name: 'Strong Back',
@@ -67,6 +70,7 @@ export const remnantItems: Item[] = [
     description:
       'The ENGINEER specializes in Heavy Weaponry which can be carried or placed in turret mode.',
     howToGet: `Found just out of bounds in either of the two overland areas you roll on N'Erud. For an easier time locating this item try using the Explorer Archtype's skill "Fortune Hunter" to highlight the item in the fog.`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Engineer`],
     linkedItems: {
       trait: {
         name: 'Fortify',
@@ -86,6 +90,7 @@ export const remnantItems: Item[] = [
     description:
       'The EXPLORER spcializes in finding valuable items and overall team utility.',
     howToGet: `Finish a full campaign playthrough`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Explorer`],
     linkedItems: {
       trait: {
         name: 'Swiftness',
@@ -105,6 +110,7 @@ export const remnantItems: Item[] = [
     description:
       'The GUNSLINGER specializes in raw damage, firearm handling, and ammo conservation.',
     howToGet: `Listen to 20 total Mudtooth stories in Ward 13 after finishing your second world in campaign mode`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Gunslinger`],
     linkedItems: {
       trait: {
         name: 'Ammo Reserves',
@@ -124,6 +130,7 @@ export const remnantItems: Item[] = [
     description:
       'The HANDLER specializes in teamwork in both solo and cooperative scenarios.',
     howToGet: `Buy from Mudtooth at Ward 13 for 1500 Scrap`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Handler`],
     linkedItems: {
       trait: {
         name: 'Kinship',
@@ -143,6 +150,7 @@ export const remnantItems: Item[] = [
     description:
       'The HUNTER specializes in ranged damage, precision shots and marking enemies.',
     howToGet: `Buy from Brabus at Ward 13 for 1500 Scrap`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Hunter`],
     linkedItems: {
       trait: {
         name: 'Longshot',
@@ -161,6 +169,7 @@ export const remnantItems: Item[] = [
     id: '0ipjpk',
     description: `The INVADER specializes elusiveness nad misdirecting the enemy's focus.`,
     howToGet: `Use the "Walker's Dream" item and defeat the "Bane" abberation. To get the "Walker's Dream" item use the Dreamcatcher melee weapon on the sleeping walker special enemy (glowing blue) in an area just off the main path between the Corrupted Harbour and Blackened Citadel checkpoint.`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Invader`],
     linkedItems: {
       trait: {
         name: 'Untouchable',
@@ -180,6 +189,7 @@ export const remnantItems: Item[] = [
     description:
       'The MEDIC specializes in survivability with enhanced healing and Relic effectiveness.',
     howToGet: `Buy from Dr. Norah at Ward 13 for 1500 Scrap`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Medic`],
     linkedItems: {
       trait: {
         name: 'Triage',
@@ -199,6 +209,7 @@ export const remnantItems: Item[] = [
     description:
       'The RITUALIST is a powerful class focusing on status effects and AOE damage, that can make enemies infect their allies with whatever status they are suffering',
     howToGet: `In Forlorn Coast, there are two interconnected rowboats near the center of the docks area. Using an overhead view on the map, they are hard to miss - their shape is unique. From there you can jump to another boat under the docks. This path leads underground, straight to a ritual performed by a witch elite. The doll is there, behind the ritual. NOTE: If you allow the ritual to complete, you will begin a miniboss fight.`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Ritualist`],
     linkedItems: {
       trait: {
         name: 'Affliction',
@@ -218,6 +229,7 @@ export const remnantItems: Item[] = [
     description:
       'The SUMMONER specializes in using Minions to do their bidding and sacrificing them.',
     howToGet: `Available at the Bloodmoon Altar for 15 Bloodmoon Essence. Acquire Bloodmoon Essence from killing Root Wisps during a bloodmoon (red moon in sky) in any of Yaesha's outside areas`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Summoner`],
     linkedItems: {
       trait: {
         name: 'Regrowth',
@@ -630,54 +642,146 @@ export const remnantItems: Item[] = [
     name: "Academic's Hat",
     imagePath: '/helm/academics_hat.png',
     id: '9qo2gg',
+    set: "Academic's Set",
+    armor: 12.7,
+    weight: 5.2,
+    bleedResistance: 1,
+    fireResistance: 0,
+    shockResistance: 0,
+    blightResistance: 2,
+    toxinResistance: 3,
+    howToGet: `On a body, during the Monster in the Drain event in Losomn`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Academic's+Hat`],
   },
   {
     category: 'helm',
     name: "Bandit's Mask",
     imagePath: '/helm/bandits_mask.png',
     id: 'v66pgu',
+    set: 'Bandit Set',
+    armor: 6.8,
+    weight: 2.7,
+    bleedResistance: 2,
+    fireResistance: 0,
+    shockResistance: 0,
+    blightResistance: 3,
+    toxinResistance: 3,
+    howToGet: `Can be bought from Whispers after beating the game once.`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Bandit's+Mask`],
   },
   {
     category: 'helm',
     name: 'Bruiser Helmet',
     imagePath: '/helm/bruiser_helmet.png',
     id: 'bd4pam',
+    set: 'Bruiser Set',
+    armor: 17.6,
+    weight: 8.1,
+    bleedResistance: 1,
+    fireResistance: 2,
+    shockResistance: 0,
+    blightResistance: 0,
+    toxinResistance: 1,
+    howToGet: `Starting Armor set for the Challenger`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Bruiser+Helmet`],
   },
   {
     category: 'helm',
     name: 'Crimson Guard Shroud',
     imagePath: '/helm/crimson_guard_shroud.png',
     id: 'ce8izt',
+    set: 'Crimson Guard Set',
+    armor: 15.6,
+    weight: 6.7,
+    bleedResistance: 2,
+    fireResistance: 2,
+    shockResistance: 0,
+    blightResistance: 2,
+    toxinResistance: 0,
+    howToGet: `1. Kill The One True King.
+    Give 3 coins to The Red Prince at the Gilded Chambers.
+    Speak to the Red King at the Chamber of the Faithless.`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Crimson+Guard+Shroud`],
   },
   {
     category: 'helm',
     name: 'Crown of the Red Prince',
     imagePath: '/helm/crown_of_the_red_prince.png',
     id: 'pu3duv',
+    armor: 6,
+    weight: 6,
+    bleedResistance: -6,
+    fireResistance: 25,
+    shockResistance: -6,
+    blightResistance: 13,
+    toxinResistance: -6,
+    howToGet: `Obtainable by killing The Red Prince using the Assassin's Dagger melee weapon`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Crown+of+the+Red+Prince`],
   },
   {
     category: 'helm',
     name: 'Cultist Hat',
     imagePath: '/helm/cultist_hat.png',
     id: 'x9jrx1',
+    set: 'Cultist Set',
+    armor: 11.1,
+    weight: 4.6,
+    bleedResistance: 1,
+    fireResistance: 1,
+    shockResistance: 1,
+    blightResistance: 1,
+    toxinResistance: 1,
+    howToGet: `Can be bought from Whispers after beating the game once.`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Cultist+Hat`],
   },
   {
     category: 'helm',
     name: 'Dendroid Mask',
     imagePath: '/helm/dendroid_mask.png',
     id: 'y7fa8n',
+    set: 'Dendroid Set',
+    armor: 7.7,
+    weight: 3.1,
+    bleedResistance: 2,
+    fireResistance: 0,
+    shockResistance: 0,
+    blightResistance: 0,
+    toxinResistance: 2,
+    howToGet: `Can be found in Root Earth - Ashen Wasteland Checkpoint.`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Dendroid+Mask`],
   },
   {
     category: 'helm',
     name: 'Elder Headdress',
     imagePath: '/helm/elder_headdress.png',
     id: 'fek1ml',
+    set: 'Elder Set',
+    armor: 7.5,
+    weight: 3,
+    bleedResistance: 0,
+    fireResistance: 3,
+    shockResistance: 0,
+    blightResistance: 2,
+    toxinResistance: 0,
+    howToGet: `Obtained for free by purchasing Remnant 2 Deluxe Edition or Ultimate Edition
+    Can be bought from Whispers after beating the game once.`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Elder+Headdress`],
   },
   {
     category: 'helm',
     name: 'Fae Royal Headcover',
     imagePath: '/helm/fae_royal_headcover.png',
     id: '88kdl6',
+    set: 'Fae Royal Set',
+    armor: 15.4,
+    weight: 6.6,
+    bleedResistance: 2,
+    fireResistance: 2,
+    shockResistance: 0,
+    blightResistance: 2,
+    toxinResistance: 0,
+    howToGet: `Can be found in Losomn - Postulant's Parlor`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Fae+Royal+Headcover`],
   },
   {
     category: 'helm',
@@ -1080,6 +1184,13 @@ export const remnantItems: Item[] = [
     name: "Academic's Gloves",
     imagePath: '/gloves/academics_gloves.png',
     id: 'f4tb3k',
+    armor: 12.3,
+    weight: 5.2,
+    bleedResistance: 0,
+    fireResistance: 0,
+    shockResistance: 0,
+    blightResistance: 1,
+    toxinResistance: 2,
   },
   {
     category: 'gloves',
@@ -3401,7 +3512,7 @@ export const remnantItems: Item[] = [
     description:
       'When attacking a BLEEDING enemy, Crit Chance is increased by 15% and Crit Damage is increased by 30%.',
     howToGet: 'Can be bought from Cass.',
-    wikiLinks: ['https://remnant2.wiki.fextralife.com/Cass'],
+    wikiLinks: ['https://remnant2.wiki.fextralife.com/Abrasive+Whetstone'],
   },
   {
     category: 'amulet',

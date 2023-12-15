@@ -38,6 +38,18 @@ interface BaseItem {
   linkedItems?: LinkedItems
 }
 
+export interface ArmorItem extends BaseItem {
+  category: 'helm' | 'torso' | 'legs' | 'gloves'
+  set?: string
+  armor: number
+  weight: number
+  bleedResistance: number
+  fireResistance: number
+  shockResistance: number
+  blightResistance: number
+  toxinResistance: number
+}
+
 export interface WeaponItem extends BaseItem {
   category: 'weapon'
   type: 'long gun' | 'melee' | 'hand gun'
@@ -48,7 +60,7 @@ export interface TraitItem extends BaseItem {
   amount: number
 }
 
-export type Item = BaseItem | WeaponItem
+export type Item = BaseItem | WeaponItem | ArmorItem | TraitItem
 
 export interface CsvItem {
   name: string
