@@ -26,12 +26,15 @@ export function getArrayOfLength(length: number): number[] {
 /**
  * Converts an array of objects to a CSV file and starts the download
  */
-export function toCsv<T extends {}>(array: T[], filename: string) {
+export function toCsv<T extends {}>(data: T[], filename: string) {
   let csvContent = 'data:text/csv;charset=utf-8,'
   // Add header row with keys
-  csvContent += Object.keys(array[0]).join(',') + '\n'
+  csvContent += Object.keys(data[0]).join(',') + '\n'
   // Add data rows with values
-  csvContent += array.map((item) => Object.values(item).join(',')).join('\n')
+  csvContent += data
+    .filter((item) => item !== undefined)
+    .map((item) => Object.values(item).join(','))
+    .join('\n')
 
   const encodedUri = encodeURI(csvContent)
   const link = document.createElement('a')

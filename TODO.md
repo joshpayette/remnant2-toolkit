@@ -7,8 +7,6 @@
 
 ## Bugs
 
-- When visiting bookmarked build, export to CSV doesn't work.
-
 ## Maybe TODO
 
 - When exporting build, put each weapon and mod next to each other?

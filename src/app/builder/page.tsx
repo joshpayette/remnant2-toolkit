@@ -58,13 +58,14 @@ export default function BuildHomePage() {
         }
 
       if (Array.isArray(itemOrItems)) {
+        // If the category is a trait, we need to add the trait amount to the name
         if (category === 'trait') {
           return itemOrItems.map((item) => {
             const traitItem = item as TraitItem
-            const csvItem = itemToCsvItem(traitItem)
+            const { name, ...csvItem } = itemToCsvItem(traitItem)
             return {
+              name: `${name} - ${traitItem.amount}`,
               ...csvItem,
-              amount: traitItem.amount,
             }
           })
         }
@@ -154,7 +155,7 @@ export default function BuildHomePage() {
             </button>
 
             <ToCsvButton
-              data={csvBuildData}
+              data={csvBuildData.filter((item) => item?.name !== '')}
               filename={`remnant2_builder_${currentBuild.name}`}
             />
 
