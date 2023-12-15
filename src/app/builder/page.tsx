@@ -91,20 +91,19 @@ export default function BuildHomePage() {
   if (!isClient) return null
 
   return (
-    <Fragment>
+    <div className="flex w-full flex-col items-center">
       <PageHeader
         title="Remnant 2 Build Tool"
-        subtitle="Create and share Remnant 2 builds"
+        subtitle="Create your builds and share them with your friends and the community."
       >
         <div
           id="alert"
           className="rounded border border-green-500 bg-black p-4 text-green-500"
         >
           <p>
-            This tool should be mostly stable at this point. However, I am still
-            iterating on it. While I will try to avoid breaking changes, they
-            are always possible. Use the export to CSV button to save your build
-            data in case.
+            This tool should be mostly stable at this point. While I will try to
+            avoid breaking changes, they are always possible. Use the export to
+            CSV button to save your build data in case.
           </p>
         </div>
       </PageHeader>
@@ -173,6 +172,6 @@ export default function BuildHomePage() {
           <ImageBuilder showLabels={showLabels} showControls={showControls} />
         </div>
       </div>
-    </Fragment>
+    </div>
   )
 }

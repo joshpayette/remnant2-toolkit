@@ -7,7 +7,8 @@ import Link from 'next/link'
 import Logo from '@/app/(components)/Logo'
 import { usePathname } from 'next/navigation'
 
-const navigation = [
+const navigationLinks = [
+  { name: 'Home', href: '/' },
   { name: 'Item Tracker', href: '/tracker' },
   { name: 'Builder', href: '/builder' },
 ]
@@ -41,7 +42,7 @@ export default function NavBar() {
           </button>
         </div>
         <div className="hidden items-center justify-start lg:flex lg:w-full lg:flex-grow lg:gap-x-12">
-          {navigation.map((item) => (
+          {navigationLinks.map((item) => (
             <Link
               key={item.name}
               href={item.href}
@@ -74,7 +75,7 @@ export default function NavBar() {
           <div className="mt-6 flow-root">
             <div className="-my-6">
               <div className="space-y-2 py-6">
-                {navigation.map((item) => (
+                {navigationLinks.map((item) => (
                   <Link
                     key={item.name}
                     href={item.href}

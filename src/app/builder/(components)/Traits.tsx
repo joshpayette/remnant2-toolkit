@@ -1,6 +1,7 @@
 import { type TraitItem } from '@/app/types'
 import { useState } from 'react'
 import { DEFAULT_TRAIT_AMOUNT } from '../(hooks)/useBuilder'
+import { XCircleIcon } from '@heroicons/react/24/outline'
 
 export default function Traits({
   showControls,
@@ -82,20 +83,7 @@ export default function Traits({
                 onClick={() => onRemoveTrait(traitItem)}
                 className="flex grow items-end justify-end text-red-500"
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                  className="h-5 w-5"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
+                <XCircleIcon className="h-5 w-5" aria-hidden="true" />
               </button>
             )}
           </div>

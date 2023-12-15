@@ -86,59 +86,57 @@ export default function TrackerPage() {
   }
 
   return (
-    <Fragment>
-      <div className="flex w-full flex-col items-center justify-center">
-        <ItemInfo
-          item={itemInfo}
-          open={isShowItemInfoOpen}
-          onClose={() => setItemInfo(null)}
-        />
-        <PageHeader
-          title="Remnant 2 Item Tracker"
-          subtitle="Discover all the items in Remnant 2"
-        >
-          <h2>Progress</h2>
-          <span className="mb-4 text-2xl font-bold text-green-400">
-            {progress}
-          </span>
-        </PageHeader>
-        <TrackerFilters
+    <div className="flex w-full flex-col items-center justify-center">
+      <ItemInfo
+        item={itemInfo}
+        open={isShowItemInfoOpen}
+        onClose={() => setItemInfo(null)}
+      />
+      <PageHeader
+        title="Remnant 2 Item Tracker"
+        subtitle="Discover all the items in Remnant 2"
+      >
+        <h2>Progress</h2>
+        <span className="mb-4 text-2xl font-bold text-green-400">
+          {progress}
+        </span>
+      </PageHeader>
+      <TrackerFilters
+        filters={filters}
+        onFiltersChange={(newFilters: Filters) => {
+          setFilters(newFilters)
+        }}
+      />
+      <div className="my-12 w-full">
+        <div className="mb-4 ml-auto flex max-w-[200px] items-end justify-end">
+          <ToCsvButton data={csvItems} filename="remnant2toolkit_tracker" />
+        </div>
+        <ListItems
           filters={filters}
-          onFiltersChange={(newFilters: Filters) => {
-            setFilters(newFilters)
-          }}
-        />
-        <div className="my-12 w-full">
-          <div className="mb-4 ml-auto flex max-w-[200px] items-end justify-end">
-            <ToCsvButton data={csvItems} filename="remnant2toolkit_tracker" />
-          </div>
-          <ListItems
-            filters={filters}
-            items={items}
-            itemCategories={itemCategories}
-            onShowItemInfo={handleShowItemInfo}
-            onClick={(itemId: string) => {
-              // If the item is already discovered, undiscover it
-              if (discoveredItemIds.includes(itemId)) {
-                const newDiscoveredItemIds = discoveredItemIds.filter(
-                  (id) => id !== itemId,
-                )
-                setItemTrackerStorage({
-                  ...itemTrackerStorage,
-                  discoveredItemIds: newDiscoveredItemIds,
-                })
-                return
-              }
-
-              const newDiscoveredItemIds = [...discoveredItemIds, itemId]
+          items={items}
+          itemCategories={itemCategories}
+          onShowItemInfo={handleShowItemInfo}
+          onClick={(itemId: string) => {
+            // If the item is already discovered, undiscover it
+            if (discoveredItemIds.includes(itemId)) {
+              const newDiscoveredItemIds = discoveredItemIds.filter(
+                (id) => id !== itemId,
+              )
               setItemTrackerStorage({
                 ...itemTrackerStorage,
                 discoveredItemIds: newDiscoveredItemIds,
               })
-            }}
-          />
-        </div>
+              return
+            }
+
+            const newDiscoveredItemIds = [...discoveredItemIds, itemId]
+            setItemTrackerStorage({
+              ...itemTrackerStorage,
+              discoveredItemIds: newDiscoveredItemIds,
+            })
+          }}
+        />
       </div>
-    </Fragment>
+    </div>
   )
 }

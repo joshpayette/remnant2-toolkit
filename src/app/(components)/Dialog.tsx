@@ -3,6 +3,7 @@
 import { Fragment } from 'react'
 import { Dialog as BaseDialog, Transition } from '@headlessui/react'
 import { cn } from '@/app/utils'
+import { XMarkIcon } from '@heroicons/react/24/outline'
 
 interface DialogProps {
   children?: React.ReactNode
@@ -66,20 +67,7 @@ export default function Dialog({
                   className="absolute right-0 top-0 p-2 text-white hover:text-green-500"
                   onClick={onClose}
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth={1.5}
-                    stroke="currentColor"
-                    className="h-6 w-6"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M6 18L18 6M6 6l12 12"
-                    />
-                  </svg>
+                  <XMarkIcon className="h-6 w-6" aria-hidden="true" />
                 </button>
                 <div className="text-center">
                   <BaseDialog.Title
