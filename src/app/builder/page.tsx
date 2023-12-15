@@ -144,6 +144,17 @@ export default function BuildHomePage() {
             </button>
 
             <button
+              className="flex flex-col items-center rounded border border-red-500 bg-red-700 px-4 py-2 text-sm font-bold text-white hover:bg-red-500"
+              onClick={() => {
+                window.location.href = '/builder'
+              }}
+            >
+              New Build
+            </button>
+
+            <hr className="my-4 border-gray-900" />
+
+            <button
               className="flex flex-col items-center rounded border border-purple-500 px-4 py-2 text-sm font-bold text-white hover:bg-purple-700"
               onClick={() => {
                 copy(window.location.href)
@@ -157,15 +168,6 @@ export default function BuildHomePage() {
               data={csvBuildData.filter((item) => item?.name !== '')}
               filename={`remnant2_builder_${currentBuild.name}`}
             />
-
-            <button
-              className="flex flex-col items-center rounded border border-red-500 bg-red-700 px-4 py-2 text-sm font-bold text-white hover:bg-red-500"
-              onClick={() => {
-                window.location.href = '/builder'
-              }}
-            >
-              New Build
-            </button>
           </div>
         </div>
         <div className="w-full grow rounded border-2 border-green-500 bg-black p-4">
