@@ -384,7 +384,7 @@ export default function ImageBuilder({
 
       <div
         id="guns-row"
-        className="flex w-full flex-row items-start justify-start gap-2 overflow-x-scroll"
+        className="flex w-full flex-row items-start justify-start gap-2 overflow-x-auto"
       >
         {getArrayOfLength(3).map((weaponIndex) => (
           <div
