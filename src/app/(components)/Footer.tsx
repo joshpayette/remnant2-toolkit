@@ -5,7 +5,33 @@ const aClass = 'text-gray-300 hover:text-green-400 underline'
 export default function Footer() {
   return (
     <div className="my-4 max-w-2xl gap-2">
-      <p className="pb-4">
+      <div className="flex w-full flex-row items-center justify-center gap-4 p-2">
+        <a
+          href="https://github.com/joshpayette/remnant2-toolkit"
+          target="_blank"
+        >
+          <img
+            src={'https://d2sqltdcj8czo5.cloudfront.net/github.png'}
+            alt="Remnant 2 Toolkit on GitHub"
+            className="h-8 w-8"
+          />
+        </a>
+        <a href="https://twitter.com/josh_payette" target="_blank">
+          <img
+            src={'https://d2sqltdcj8czo5.cloudfront.net/twitter.png'}
+            alt="Josh Payette on Twitter"
+            className="h-6 w-6"
+          />
+        </a>
+        <a href="https://patreon.com/JoshPayette" target="_blank">
+          <img
+            src={'https://d2sqltdcj8czo5.cloudfront.net/patreon.png'}
+            alt="Josh Payette on Patreon"
+            className="h-6 w-6"
+          />
+        </a>
+      </div>
+      <p className="mb-4">
         Remnant 2 Toolkit is an{' '}
         <a
           href="https://github.com/joshpayette/remnant2-toolkit"
