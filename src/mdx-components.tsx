@@ -13,7 +13,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       </a>
     ),
     blockquote: ({ children }) => (
-      <blockquote className="text-md mb-4 border border-purple-500 p-4">
+      <blockquote className="text-md mb-4 border border-purple-500 p-4 text-left">
         {children}
       </blockquote>
     ),
@@ -34,7 +34,9 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       />
     ),
     p: ({ children }) => (
-      <p className="text-md mb-4 w-full pl-8 pr-8 text-center">{children}</p>
+      <p className="text-md mb-4 w-full max-w-[300px] pl-8 pr-8 text-center">
+        {children}
+      </p>
     ),
     ...components,
   }

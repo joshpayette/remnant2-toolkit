@@ -1,9 +1,14 @@
 import Link from 'next/link'
 import { pageInfo as acidicBerserkerPageInfo } from './build/sheenshots-acidic-berserker/metadata'
-import { pageInfo as pyroPageInfo } from './build/bolt-jamisons-pyro-build/metadata'
+import { pageInfo as pyroPageInfo } from './build/bolt-jamisons-pyro/metadata'
+import { pageInfo as supportMedicSummonerPageInfo } from './build/support-medic-summoner/metadata'
 import PageHeader from '../(components)/PageHeader'
 
-const builds = [acidicBerserkerPageInfo, pyroPageInfo]
+const builds = [
+  acidicBerserkerPageInfo,
+  pyroPageInfo,
+  supportMedicSummonerPageInfo,
+]
 
 export default function Page() {
   return (
