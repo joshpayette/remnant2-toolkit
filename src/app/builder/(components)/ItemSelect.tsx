@@ -2,7 +2,7 @@
 
 import { type Item, ItemCategory } from '@/app/(types)/main'
 import Dialog from '@/app/(components)/Dialog'
-import ImageBuilderButton from './ImageBuilderButton'
+import BuilderButton from './BuilderButton'
 import { useIsClient } from 'usehooks-ts'
 import { useState } from 'react'
 
@@ -56,7 +56,7 @@ export default function ItemSelect({
       >
         {buildSlot !== 'trait' && (
           <li id="clear-item" className="mr-2 min-h-[70px] w-[90px]">
-            <ImageBuilderButton
+            <BuilderButton
               item={{
                 name: 'Clear',
                 category: buildSlot,
@@ -71,7 +71,7 @@ export default function ItemSelect({
         )}
         {filteredItemList.map((item) => (
           <li key={item.name} className="mr-2 min-h-[70px] w-[90px]">
-            <ImageBuilderButton
+            <BuilderButton
               item={item}
               showLabels={true}
               size="lg"
