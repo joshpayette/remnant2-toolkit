@@ -5906,12 +5906,24 @@ export const remnantItems: Item[] = [
     name: 'Affliction',
     imagePath: '/trait/affliction.png',
     id: 'dj8zx4',
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Affliction`],
+    linkedItems: {
+      archtype: {
+        name: 'Ritualist',
+      },
+    },
   },
   {
     category: 'trait',
     name: 'Ammo Reserves',
     imagePath: '/trait/ammo_reserves.png',
     id: 'wu3w8t',
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Ammo+Reserves`],
+    linkedItems: {
+      archtype: {
+        name: 'Gunslinger',
+      },
+    },
   },
   {
     category: 'trait',
@@ -5972,6 +5984,12 @@ export const remnantItems: Item[] = [
     name: 'Flash Caster',
     imagePath: '/trait/flash_caster.png',
     id: 'm6i4dl',
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Flash+Caster`],
+    linkedItems: {
+      archtype: {
+        name: 'Archon',
+      },
+    },
   },
   {
     category: 'trait',
@@ -5984,6 +6002,12 @@ export const remnantItems: Item[] = [
     name: 'Fortify',
     imagePath: '/trait/fortify.png',
     id: 'osj7se',
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Fortify`],
+    linkedItems: {
+      archtype: {
+        name: 'Engineer',
+      },
+    },
   },
   {
     category: 'trait',
@@ -6002,18 +6026,36 @@ export const remnantItems: Item[] = [
     name: 'Kinship',
     imagePath: '/trait/kinship.png',
     id: 'vn3gsg',
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Kinship`],
+    linkedItems: {
+      archtype: {
+        name: 'Handler',
+      },
+    },
   },
   {
     category: 'trait',
     name: 'Longshot',
     imagePath: '/trait/longshot.png',
     id: '157qcj',
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Longshot`],
+    linkedItems: {
+      archtype: {
+        name: 'Hunter',
+      },
+    },
   },
   {
     category: 'trait',
     name: 'Potency',
     imagePath: '/trait/potency.png',
     id: 'v1uiyd',
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Potency`],
+    linkedItems: {
+      archtype: {
+        name: 'Alchemist',
+      },
+    },
   },
   {
     category: 'trait',
@@ -6026,6 +6068,12 @@ export const remnantItems: Item[] = [
     name: 'Regrowth',
     imagePath: '/trait/regrowth.png',
     id: 'ysp1wu',
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Regrowth`],
+    linkedItems: {
+      archtype: {
+        name: 'Summoner',
+      },
+    },
   },
   {
     category: 'trait',
@@ -6074,6 +6122,7 @@ export const remnantItems: Item[] = [
     name: 'Strong Back',
     imagePath: '/trait/strong_back.png',
     id: 'sd2hry',
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Strong+Back`],
     linkedItems: {
       archtype: {
         name: 'Challenger',
@@ -6085,18 +6134,36 @@ export const remnantItems: Item[] = [
     name: 'Swiftness',
     imagePath: '/trait/swiftness.png',
     id: '3ochlm',
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Swiftness`],
+    linkedItems: {
+      archtype: {
+        name: 'Explorer',
+      },
+    },
   },
   {
     category: 'trait',
     name: 'Triage',
     imagePath: '/trait/triage.png',
     id: 'pbak5a',
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Triage`],
+    linkedItems: {
+      archtype: {
+        name: 'Medic',
+      },
+    },
   },
   {
     category: 'trait',
     name: 'Untouchable',
     imagePath: '/trait/untouchable.png',
     id: 'pkmmg6',
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Untouchable`],
+    linkedItems: {
+      archtype: {
+        name: 'Invader',
+      },
+    },
   },
   {
     category: 'trait',

@@ -288,7 +288,53 @@ export default function useBuilder() {
     return newBuild
   }
 
-  const build = linkWeaponsToMods(parseQueryString(searchParams))
+  /**
+   * Checks the build archtypes and equips any traints
+   * that are linked to them
+   */
+  function linkArchtypesToTraits(currentBuild: Build) {
+    const newBuild = { ...currentBuild }
+
+    // Check the archtypes for linked traits
+    // If any are found, add them to the build
+    const archtypes = newBuild.items.archtype
+    archtypes.forEach((archtype) => {
+      const linkedTrait = archtype.linkedItems?.trait
+      if (!linkedTrait) return
+
+      const traitItem = remnantItems.find(
+        (trait) => trait.name === linkedTrait.name,
+      )
+      if (!traitItem) return
+
+      // If the trait is already in the build, set the amount to 10
+      // Otherwise, add the trait to the build
+      const existingTrait = newBuild.items.trait.find(
+        (trait) => trait.name === traitItem.name,
+      )
+      if (existingTrait) {
+        existingTrait.amount = DEFAULT_TRAIT_AMOUNT
+        newBuild.items.trait = newBuild.items.trait.map((trait) =>
+          trait.name === traitItem.name ? existingTrait : trait,
+        )
+      } else {
+        newBuild.items.trait.push({
+          ...(traitItem as TraitItem),
+          amount: DEFAULT_TRAIT_AMOUNT,
+        })
+      }
+    })
+
+    // We deliberately don't check the traits and link to archtypes,
+    // since traits can be used without the archtype equipped
+
+    // Return the build with linked items
+    return newBuild
+  }
+
+  const build = linkArchtypesToTraits(
+    linkWeaponsToMods(parseQueryString(searchParams)),
+  )
 
   return { getItemListForCategory, updateBuild, currentBuild: build }
 }

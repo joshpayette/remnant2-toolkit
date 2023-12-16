@@ -1,7 +1,5 @@
 # TODO
 
-- Link traits to archtypes
-
 ## Bugs
 
 ## Maybe TODO

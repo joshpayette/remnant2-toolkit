@@ -6,6 +6,7 @@ import { cn, itemToCsvItem } from '@/app/(lib)/utils'
 import { remnantItemCategories } from '@/app/(data)'
 import useQueryString from '@/app/builder/(components)/useBuilder'
 import { type TraitItem } from '@/app/(types)'
+import Link from 'next/link'
 
 export default function Actions({
   showControls,
@@ -99,14 +100,12 @@ export default function Actions({
         </span>
       </button>
 
-      <button
-        className="flex flex-col items-center rounded border border-red-500 bg-red-700 px-4 py-2 text-sm font-bold text-white hover:bg-red-500"
-        onClick={() => {
-          window.location.href = '/builder'
-        }}
+      <Link
+        className="flex flex-col items-center justify-center rounded border border-red-500 bg-red-700 px-4 py-2 text-center text-sm font-bold text-white hover:bg-red-500"
+        href="/builder"
       >
         New Build
-      </button>
+      </Link>
 
       <hr className="my-4 border-gray-900" />
 
