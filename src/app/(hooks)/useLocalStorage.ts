@@ -1,4 +1,4 @@
-import type { ItemCategory } from '@/app/(types)/main'
+import type { ItemCategory } from '@/app/(types)'
 import { useLocalStorage as useLS } from 'usehooks-ts'
 
 // The type of the database in LocalStorage

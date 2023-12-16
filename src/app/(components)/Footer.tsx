@@ -1,4 +1,4 @@
-import { cn } from '@/app/utils'
+import { cn } from '@/app/(lib)/utils'
 
 const aClass = 'text-gray-300 hover:text-green-400 underline'
 

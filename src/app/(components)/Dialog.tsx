@@ -2,7 +2,7 @@
 
 import { Fragment } from 'react'
 import { Dialog as BaseDialog, Transition } from '@headlessui/react'
-import { cn } from '@/app/utils'
+import { cn } from '@/app/(lib)/utils'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 
 interface DialogProps {

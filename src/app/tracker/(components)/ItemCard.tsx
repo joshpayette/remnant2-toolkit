@@ -1,4 +1,4 @@
-import { type Item, type ItemCategory } from '@/app/(types)/main'
+import { type Item, type ItemCategory } from '@/app/(types)'
 import Image from 'next/image'
 
 export interface ItemCardProps {

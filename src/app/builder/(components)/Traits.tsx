@@ -1,4 +1,4 @@
-import { type TraitItem } from '@/app/(types)/main'
+import { type TraitItem } from '@/app/(types)'
 import { useState } from 'react'
 import { DEFAULT_TRAIT_AMOUNT } from './useBuilder'
 import { XCircleIcon } from '@heroicons/react/24/outline'

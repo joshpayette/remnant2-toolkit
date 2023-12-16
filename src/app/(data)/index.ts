@@ -1,4 +1,4 @@
-import { Item } from '@/app/(types)/main'
+import { Item } from '@/app/(types)'
 
 export const remnantItems: Item[] = [
   {

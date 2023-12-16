@@ -2,10 +2,10 @@
 
 import copy from 'clipboard-copy'
 import ToCsvButton from '@/app/(components)/ToCsvButton'
-import { cn, itemToCsvItem } from '@/app/utils'
+import { cn, itemToCsvItem } from '@/app/(lib)/utils'
 import { remnantItemCategories } from '@/app/(data)'
 import useQueryString from '@/app/builder/(components)/useBuilder'
-import { type TraitItem } from '@/app/(types)/main'
+import { type TraitItem } from '@/app/(types)'
 
 export default function Actions({
   showControls,

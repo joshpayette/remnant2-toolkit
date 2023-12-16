@@ -1,4 +1,4 @@
-import { type CsvItem, type Item } from '@/app/(types)/main'
+import { type CsvItem, type Item } from '@/app/(types)'
 import { clsx, type ClassValue } from 'clsx'
 import { twMerge } from 'tailwind-merge'
 

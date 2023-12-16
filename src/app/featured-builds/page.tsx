@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { pageInfo as acidicBerserkerPageInfo } from './build/sheenshots-acidic-berserker/metadata'
+import { pageInfo as acidicBerserkerPageInfo } from './sheenshots-acidic-berserker/metadata'
 import PageHeader from '../(components)/PageHeader'
 
 const builds = [acidicBerserkerPageInfo]

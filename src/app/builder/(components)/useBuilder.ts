@@ -3,9 +3,9 @@ import {
   type Build,
   type WeaponItem,
   type ItemCategory,
-} from '@/app/(types)/main'
+} from '@/app/(types)'
 import { remnantItemCategories, remnantItems } from '@/app/(data)'
-import { type Item } from '@/app/(types)/main'
+import { type Item } from '@/app/(types)'
 import { usePathname, useSearchParams, useRouter } from 'next/navigation'
 import { useCallback } from 'react'
 

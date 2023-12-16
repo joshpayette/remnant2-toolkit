@@ -1,6 +1,6 @@
-import { Item } from '@/app/(types)/main'
+import { Item } from '@/app/(types)'
 import Dialog from './Dialog'
-import { capitalize } from '@/app/utils'
+import { capitalize } from '@/app/(lib)/utils'
 import Image from 'next/image'
 
 interface ItemInfoProps {

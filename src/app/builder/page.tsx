@@ -25,6 +25,9 @@ export default function BuildHomePage() {
     document.title = `${currentBuild.name} Build | Remnant 2 Toolkit`
   }, [currentBuild])
 
+  /**
+   * Export the build as an image
+   */
   const handleImageExport = async (
     el: HTMLDivElement | null,
     imageFileName: string,
@@ -38,6 +41,7 @@ export default function BuildHomePage() {
     })
     const image = canvas.toDataURL('image/png', 1.0)
 
+    // Need a fakeLink to trigger the download
     const fakeLink = window.document.createElement('a')
     fakeLink.download = imageFileName
     fakeLink.href = image

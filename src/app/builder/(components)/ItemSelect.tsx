@@ -1,6 +1,6 @@
 'use client'
 
-import { type Item, ItemCategory } from '@/app/(types)/main'
+import { type Item, ItemCategory } from '@/app/(types)'
 import Dialog from '@/app/(components)/Dialog'
 import BuilderButton from './BuilderButton'
 import { useIsClient } from 'usehooks-ts'
