@@ -147,16 +147,17 @@ export default function useBuilder() {
    * Takes into account the build's current items and the selected slot
    * This is passed to the ItemSelect modal to display the correct items
    */
-  function getItemListForSlot(
+  function getItemListForCategory(
     build: Build,
-    selectedItemSlot: {
+    selectedItem: {
       category: ItemCategory | null
       index?: number
     },
   ) {
-    if (!selectedItemSlot.category) return []
+    if (!selectedItem.category) return []
 
     // Remove items that are already in the build
+    // for the current category
     const unequippedItems = remnantItems.filter((item) => {
       const categoryItemorItems = build.items[item.category]
 
@@ -173,9 +174,9 @@ export default function useBuilder() {
 
     // If the selected slot is a weapon, then limit the
     // weapons based on the corresponding weapon type
-    if (selectedItemSlot.category === 'weapon') {
+    if (selectedItem.category === 'weapon') {
       let type: WeaponItem['type']
-      switch (selectedItemSlot.index) {
+      switch (selectedItem.index) {
         case 0:
           type = 'long gun'
           break
@@ -194,7 +195,7 @@ export default function useBuilder() {
 
     // If the selected slot is a mod, then limit the
     // mods to those without a linked weapon
-    if (selectedItemSlot.category === 'mod') {
+    if (selectedItem.category === 'mod') {
       return (unequippedItems as Item[]).filter(
         (item) => item.category === 'mod' && !item.linkedItems?.weapon,
       )
@@ -202,15 +203,15 @@ export default function useBuilder() {
 
     // If the selected slot is a skill, try to limit
     // skills based on the corresponding archtype
-    if (selectedItemSlot.category === 'skill') {
+    if (selectedItem.category === 'skill') {
       const skillItems = (unequippedItems as Item[]).filter(
         (item) => item.category === 'skill',
       )
 
-      if (selectedItemSlot.index === undefined) return skillItems
+      if (selectedItem.index === undefined) return skillItems
 
       const archtype =
-        build.items.archtype[selectedItemSlot.index]?.name.toLowerCase()
+        build.items.archtype[selectedItem.index]?.name.toLowerCase()
 
       if (!archtype) return skillItems
 
@@ -223,15 +224,14 @@ export default function useBuilder() {
 
     // If the selected slot is an archtype, try to limit
     // the archtypes based on the corresponding skill
-    if (selectedItemSlot.category === 'archtype') {
+    if (selectedItem.category === 'archtype') {
       const archtypeItems = (unequippedItems as Item[]).filter(
         (item) => item.category === 'archtype',
       )
 
-      if (selectedItemSlot.index === undefined) return archtypeItems
+      if (selectedItem.index === undefined) return archtypeItems
 
-      const skill =
-        build.items.skill[selectedItemSlot.index]?.name.toLowerCase()
+      const skill = build.items.skill[selectedItem.index]?.name.toLowerCase()
 
       if (!skill) return archtypeItems
 
@@ -245,7 +245,7 @@ export default function useBuilder() {
 
     // If we got this far, then return all items for the selected slot
     return (unequippedItems as Item[]).filter(
-      (item) => item.category === selectedItemSlot.category,
+      (item) => item.category === selectedItem.category,
     )
   }
 
@@ -290,5 +290,5 @@ export default function useBuilder() {
 
   const build = linkWeaponsToMods(parseQueryString(searchParams))
 
-  return { getItemListForSlot, updateBuild, currentBuild: build }
+  return { getItemListForCategory, updateBuild, currentBuild: build }
 }

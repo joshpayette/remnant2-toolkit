@@ -50,15 +50,27 @@ export interface ArmorItem extends BaseItem {
   toxinResistance: number
 }
 
+export const isArmorItem = (item: Item): item is ArmorItem =>
+  item.category === 'helm' ||
+  item.category === 'torso' ||
+  item.category === 'legs' ||
+  item.category === 'gloves'
+
 export interface WeaponItem extends BaseItem {
   category: 'weapon'
   type: 'long gun' | 'melee' | 'hand gun'
 }
 
+export const isWeaponItem = (item: Item): item is WeaponItem =>
+  item.category === 'weapon'
+
 export interface TraitItem extends BaseItem {
   category: 'trait'
   amount: number
 }
+
+export const isTraitItem = (item: Item): item is TraitItem =>
+  item.category === 'trait'
 
 export type Item = BaseItem | WeaponItem | ArmorItem | TraitItem
 
