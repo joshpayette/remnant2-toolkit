@@ -1,7 +1,7 @@
 import { PencilIcon } from '@heroicons/react/24/outline'
 import { Fragment, useState } from 'react'
 
-export default function BuildName({
+export default function BuilderName({
   editable,
   name,
   showControls,

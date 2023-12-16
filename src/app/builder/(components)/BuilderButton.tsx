@@ -2,7 +2,7 @@ import { cn } from '@/app/utils'
 import { type Item } from '@/app/(types)/main'
 import Image from 'next/image'
 
-export default function ImageBuilderButton({
+export default function BuilderButton({
   onClick,
   item,
   showLabels,

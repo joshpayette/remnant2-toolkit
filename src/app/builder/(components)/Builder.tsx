@@ -2,15 +2,15 @@ import { TraitItem } from '@/app/(types)/main'
 import { Fragment, useCallback, useMemo, useState } from 'react'
 import useBuilder, {
   DEFAULT_TRAIT_AMOUNT,
-} from '@/app/builder/(hooks)/useBuilder'
+} from '@/app/builder/(components)/useBuilder'
 import { type Item, type ItemCategory } from '@/app/(types)/main'
 import { cn, getArrayOfLength } from '@/app/utils'
-import BuildName from './BuildName'
-import ImageBuilderButton from './ImageBuilderButton'
+import BuilderName from './BuilderName'
+import BuilderButton from './BuilderButton'
 import Traits from './Traits'
 import ItemSelect from './ItemSelect'
 
-export default function ImageBuilder({
+export default function Builder({
   showControls,
   showLabels,
 }: {
@@ -154,7 +154,7 @@ export default function ImageBuilder({
       />
 
       <div className="mb-4">
-        <BuildName
+        <BuilderName
           editable={buildNameIsEditable}
           onClick={() => setBuildNameIsEditable(true)}
           onClose={(newBuildName: string) => {
@@ -168,7 +168,7 @@ export default function ImageBuilder({
 
       <div className="flex w-full items-start justify-between gap-4">
         <div id="left-column" className="flex-none">
-          <ImageBuilderButton
+          <BuilderButton
             item={currentBuild.items.helm}
             showLabels={showLabels}
             onClick={() => {
@@ -177,7 +177,7 @@ export default function ImageBuilder({
               })
             }}
           />
-          <ImageBuilderButton
+          <BuilderButton
             item={currentBuild.items.torso}
             showLabels={showLabels}
             onClick={() => {
@@ -186,7 +186,7 @@ export default function ImageBuilder({
               })
             }}
           />
-          <ImageBuilderButton
+          <BuilderButton
             item={currentBuild.items.legs}
             showLabels={showLabels}
             onClick={() => {
@@ -195,7 +195,7 @@ export default function ImageBuilder({
               })
             }}
           />
-          <ImageBuilderButton
+          <BuilderButton
             item={currentBuild.items.gloves}
             showLabels={showLabels}
             onClick={() => {
@@ -208,7 +208,7 @@ export default function ImageBuilder({
             id="relic-container"
             className="relative flex items-start justify-start"
           >
-            <ImageBuilderButton
+            <BuilderButton
               item={currentBuild.items.relic}
               showLabels={showLabels}
               onClick={() => {
@@ -221,7 +221,7 @@ export default function ImageBuilder({
               id="relic-fragment-container"
               className="absolute left-[66px] top-0 flex w-[160px] flex-col items-start justify-start"
             >
-              <ImageBuilderButton
+              <BuilderButton
                 showLabels={showLabels}
                 size="sm"
                 item={currentBuild.items.relicfragment[0]}
@@ -232,7 +232,7 @@ export default function ImageBuilder({
                   })
                 }}
               />
-              <ImageBuilderButton
+              <BuilderButton
                 item={currentBuild.items.relicfragment[1]}
                 showLabels={showLabels}
                 size="sm"
@@ -243,7 +243,7 @@ export default function ImageBuilder({
                   })
                 }}
               />
-              <ImageBuilderButton
+              <BuilderButton
                 item={currentBuild.items.relicfragment[2]}
                 showLabels={showLabels}
                 size="sm"
@@ -272,7 +272,7 @@ export default function ImageBuilder({
           >
             {getArrayOfLength(2).map((archtypeIndex) => (
               <Fragment key={`archtype-${archtypeIndex}`}>
-                <ImageBuilderButton
+                <BuilderButton
                   item={currentBuild.items.archtype[archtypeIndex]}
                   showLabels={showLabels}
                   onClick={() => {
@@ -282,7 +282,7 @@ export default function ImageBuilder({
                     })
                   }}
                 />
-                <ImageBuilderButton
+                <BuilderButton
                   item={currentBuild.items.skill[archtypeIndex]}
                   showLabels={showLabels}
                   onClick={() => {
@@ -300,7 +300,7 @@ export default function ImageBuilder({
             id="concoction-container"
             className="flex flex-row flex-wrap gap-2"
           >
-            <ImageBuilderButton
+            <BuilderButton
               item={currentBuild.items.concoction[0]}
               showLabels={showLabels}
               onClick={() => {
@@ -321,7 +321,7 @@ export default function ImageBuilder({
               if (!isPrimaryAlchemist) return null
 
               return (
-                <ImageBuilderButton
+                <BuilderButton
                   key={`concoction-${concoctionIndex}`}
                   item={currentBuild.items.concoction[concoctionIndex]}
                   showLabels={showLabels}
@@ -341,7 +341,7 @@ export default function ImageBuilder({
             className="flex flex-row flex-wrap gap-2"
           >
             {getArrayOfLength(4).map((consumableIndex) => (
-              <ImageBuilderButton
+              <BuilderButton
                 key={`consumable-${consumableIndex}`}
                 item={currentBuild.items.consumable[consumableIndex]}
                 showLabels={showLabels}
@@ -357,7 +357,7 @@ export default function ImageBuilder({
         </div>
 
         <div id="right-column" className="flex-none">
-          <ImageBuilderButton
+          <BuilderButton
             item={currentBuild.items.amulet}
             showLabels={showLabels}
             onClick={() => {
@@ -367,7 +367,7 @@ export default function ImageBuilder({
             }}
           />
           {getArrayOfLength(4).map((ringIndex) => (
-            <ImageBuilderButton
+            <BuilderButton
               showLabels={showLabels}
               item={currentBuild.items.ring[ringIndex]}
               key={`ring-${ringIndex}`}
@@ -391,7 +391,7 @@ export default function ImageBuilder({
             key={`gun-${weaponIndex}`}
             className="flex flex-col items-start justify-center"
           >
-            <ImageBuilderButton
+            <BuilderButton
               showLabels={showLabels}
               item={currentBuild.items.weapon[weaponIndex]}
               size="wide"
@@ -403,7 +403,7 @@ export default function ImageBuilder({
               }}
             />
             <div className="flex w-full grow items-center justify-around gap-4">
-              <ImageBuilderButton
+              <BuilderButton
                 showLabels={showLabels}
                 item={currentBuild.items.mod[weaponIndex]}
                 size="md"
@@ -414,7 +414,7 @@ export default function ImageBuilder({
                   })
                 }}
               />
-              <ImageBuilderButton
+              <BuilderButton
                 item={currentBuild.items.mutator[weaponIndex]}
                 showLabels={showLabels}
                 size="md"
