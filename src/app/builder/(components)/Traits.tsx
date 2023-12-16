@@ -3,14 +3,18 @@ import { useState } from 'react'
 import { DEFAULT_TRAIT_AMOUNT } from './useBuilder'
 import { XCircleIcon } from '@heroicons/react/24/outline'
 
+const MAX_TRAIT_AMOUNT = 85
+
 export default function Traits({
   showControls,
+  showLabels,
   traitItems,
   onAddTrait,
   onRemoveTrait,
   onChangeAmount,
 }: {
   showControls: boolean
+  showLabels: boolean
   traitItems: TraitItem[]
   onAddTrait: () => void
   onRemoveTrait: (traitItem: TraitItem) => void
@@ -20,9 +24,20 @@ export default function Traits({
     null,
   )
 
+  const totalTraitAmount = traitItems.reduce(
+    (total, traitItem) => total + traitItem.amount,
+    0,
+  )
+
   return (
-    <div>
+    <>
       <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
+        {showLabels && (
+          <div className="col-span-full mx-auto mb-2 max-w-[150px] border border-gray-500 p-2 text-center text-xs text-gray-300">
+            <span className="font-bold">{totalTraitAmount}</span>/
+            <span className="font-bold">{MAX_TRAIT_AMOUNT}</span> Trait Points
+          </div>
+        )}
         {traitItems.map((traitItem) => (
           <div
             key={traitItem.name}
@@ -97,6 +112,6 @@ export default function Traits({
           Add Trait
         </button>
       )}
-    </div>
+    </>
   )
 }

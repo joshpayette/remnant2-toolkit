@@ -433,6 +433,7 @@ export default function Builder({
         <Traits
           traitItems={currentBuild.items.trait}
           showControls={showControls}
+          showLabels={showLabels}
           onAddTrait={() => {
             setSelectedItemSlot({
               category: 'trait',
