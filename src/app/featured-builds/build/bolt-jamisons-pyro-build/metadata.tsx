@@ -5,7 +5,7 @@ const description = 'Archon and Summoner combine for an unbelievable DoT build.'
 const slug = 'bolt-jamisons-pyro-build'
 const url = `https://remnant2toolkit.com/featured-builds/build/${slug}`
 const ogImageUrl =
-  'https://d2sqltdcj8czo5.cloudfront.net/featured-builds/sheenshots_acidic_berserker.png'
+  'https://d2sqltdcj8czo5.cloudfront.net/featured-builds/bolt_jamisons_PYRO.png'
 
 export const pageInfo = {
   title,
