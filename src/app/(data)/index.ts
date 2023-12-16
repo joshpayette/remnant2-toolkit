@@ -6451,7 +6451,7 @@ export const remnantItems: Item[] = [
   {
     category: 'consumable',
     name: 'Poisoned Ambit Ember',
-    imagePath: '/consumable/poisoned_ambit_ember.png',
+    imagePath: '/consumable/poisoned_ambit_ember_capsule.png',
     id: '6awni8',
   },
   {

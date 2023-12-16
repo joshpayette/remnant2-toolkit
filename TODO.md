@@ -1,5 +1,8 @@
 # TODO
 
+- Item select filter should clear when dialog closes
+- If allocated traits exceeds total, turn text red
+
 ## Bugs
 
 ## Maybe TODO
