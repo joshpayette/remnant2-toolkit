@@ -1,12 +1,6 @@
 import nextMDX from '@next/mdx'
-import remarkFrontmatter from 'remark-frontmatter'
 
-const withMDX = nextMDX({
-  extension: /\.mdx?$/,
-  options: {
-    remarkPlugins: [remarkFrontmatter],
-  },
-})
+const withMDX = nextMDX()
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {

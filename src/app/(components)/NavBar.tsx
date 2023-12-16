@@ -9,9 +9,9 @@ import { usePathname } from 'next/navigation'
 
 const navigationLinks = [
   { name: 'Home', href: '/' },
+  { name: 'Featured Builds', href: '/featured-builds' },
   { name: 'Item Tracker', href: '/tracker' },
   { name: 'Builder', href: '/builder' },
-  { name: 'Featured Builds', href: '/featured-builds' },
 ]
 
 export default function NavBar() {

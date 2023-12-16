@@ -1,6 +1,7 @@
 import {
   BookmarkSquareIcon,
   DocumentCheckIcon,
+  ListBulletIcon,
 } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 
@@ -19,6 +20,12 @@ export default function HomePage() {
         'Create and share your favorite builds with your friends and the community.',
       href: '/builder',
       icon: BookmarkSquareIcon,
+    },
+    {
+      name: 'Featured Builds',
+      description: 'A collection of builds aggregated from various sources.',
+      href: '/featured-builds',
+      icon: ListBulletIcon,
     },
   ]
 
