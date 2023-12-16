@@ -1,3 +1,5 @@
+'use client'
+
 import copy from 'clipboard-copy'
 import ToCsvButton from '@/app/(components)/ToCsvButton'
 import { cn, itemToCsvItem } from '@/app/utils'
@@ -8,11 +10,13 @@ import { type TraitItem } from '@/app/(types)/main'
 export default function Actions({
   showControls,
   showLabels,
+  onExportAsImage,
   onToggleControls,
   onToggleLabels,
 }: {
   showControls: boolean
   showLabels: boolean
+  onExportAsImage: () => void
   onToggleControls: () => void
   onToggleLabels: () => void
 }) {
@@ -114,6 +118,13 @@ export default function Actions({
         }}
       >
         Copy Build URL
+      </button>
+
+      <button
+        className="flex flex-col items-center rounded border border-purple-500 px-4 py-2 text-sm font-bold text-white hover:bg-purple-700"
+        onClick={onExportAsImage}
+      >
+        Export to Image
       </button>
 
       <ToCsvButton
