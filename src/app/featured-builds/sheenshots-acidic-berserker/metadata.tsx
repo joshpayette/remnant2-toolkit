@@ -24,7 +24,7 @@ export const metadata = {
     title,
     description,
     url,
-    siteName: title,
+    siteName: baseMetaData.openGraph?.siteName ?? 'Remnant 2 Toolkit',
     images: [
       {
         url: ogImageUrl,
