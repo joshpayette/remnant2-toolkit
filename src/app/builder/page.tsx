@@ -1,6 +1,6 @@
 'use client'
 
-import { Fragment, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import PageHeader from '@/app/(components)/PageHeader'
 import ImageBuilder from './(components)/ImageBuilder'
 import useQueryString from '@/app/builder/(hooks)/useBuilder'
