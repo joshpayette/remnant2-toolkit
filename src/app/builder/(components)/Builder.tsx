@@ -144,7 +144,7 @@ export default function Builder({
   )
 
   return (
-    <Fragment>
+    <>
       <ItemSelect
         open={isItemSelectModalOpen}
         onClose={() => setSelectedItemSlot({ category: null })}
@@ -461,6 +461,6 @@ export default function Builder({
           }}
         />
       </div>
-    </Fragment>
+    </>
   )
 }

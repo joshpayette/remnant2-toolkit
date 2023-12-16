@@ -1,6 +1,5 @@
 'use client'
 
-import { Fragment } from 'react'
 import { Disclosure } from '@headlessui/react'
 import { ChevronUpIcon } from '@heroicons/react/20/solid'
 import { capitalize, cn } from '@/app/(lib)/utils'
@@ -73,7 +72,7 @@ export default function ListItems({
           defaultOpen={!collapsedCategories.includes(itemCategory)}
         >
           {({ open }) => (
-            <Fragment>
+            <>
               <Disclosure.Button
                 onClick={() => handleCategoryToggle(itemCategory)}
                 className="flex w-full justify-start border-b border-purple-700 p-4 text-left hover:border-green-400 hover:bg-black focus:outline-none focus-visible:ring focus-visible:ring-green-500/75"
@@ -138,7 +137,7 @@ export default function ListItems({
                     </div>
                   ))}
               </Disclosure.Panel>
-            </Fragment>
+            </>
           )}
         </Disclosure>
       ))}

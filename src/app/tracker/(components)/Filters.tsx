@@ -1,5 +1,4 @@
 import FilterCheckbox from './Checkbox'
-import { Fragment } from 'react'
 
 export type Filters = {
   undiscovered: boolean
@@ -17,7 +16,7 @@ export default function TrackerFilters({
 }: FiltersProps) {
   return (
     <div className="mx-auto max-h-full w-full max-w-sm overflow-x-auto rounded border border-green-700 bg-black p-4">
-      <Fragment>
+      <>
         <div className="py-2 text-left text-lg font-medium text-white">
           <h3 className="text-green-400">Filters</h3>
         </div>
@@ -51,7 +50,7 @@ export default function TrackerFilters({
             />
           </div>
         </div>
-      </Fragment>
+      </>
     </div>
   )
 }

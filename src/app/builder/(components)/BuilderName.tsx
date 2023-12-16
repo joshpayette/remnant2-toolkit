@@ -1,5 +1,5 @@
 import { PencilIcon } from '@heroicons/react/24/outline'
-import { Fragment, useState } from 'react'
+import { useState } from 'react'
 
 export default function BuilderName({
   editable,
@@ -19,7 +19,7 @@ export default function BuilderName({
   return (
     <div className="relative mb-2 flex w-full flex-col items-center justify-center gap-2 border-b border-b-green-900 pb-2">
       {editable ? (
-        <Fragment>
+        <>
           <input
             type="text"
             name="buildname"
@@ -43,7 +43,7 @@ export default function BuilderName({
               Cancel
             </button>
           </div>
-        </Fragment>
+        </>
       ) : (
         <div className="mb-2 flex w-full items-center justify-center gap-2">
           <h2 className="text-center  text-4xl font-bold text-green-400">

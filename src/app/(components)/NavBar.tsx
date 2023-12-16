@@ -1,6 +1,6 @@
 'use client'
 
-import { Fragment, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
@@ -24,7 +24,7 @@ export default function NavBar() {
   }, [pathname])
 
   return (
-    <Fragment>
+    <>
       <nav
         className="z-40 mx-auto flex w-full items-center justify-between bg-background p-6 lg:px-8"
         aria-label="Global"
@@ -90,6 +90,6 @@ export default function NavBar() {
           </div>
         </Dialog.Panel>
       </Dialog>
-    </Fragment>
+    </>
   )
 }
