@@ -1,4 +1,4 @@
-import { Item } from '@/app/types'
+import { Item } from '@/app/(types)/main'
 import Dialog from './Dialog'
 import { capitalize } from '@/app/utils'
 import Image from 'next/image'

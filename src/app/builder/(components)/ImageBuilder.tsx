@@ -1,9 +1,9 @@
-import { TraitItem } from '@/app/types'
+import { TraitItem } from '@/app/(types)/main'
 import { Fragment, useCallback, useMemo, useState } from 'react'
 import useBuilder, {
   DEFAULT_TRAIT_AMOUNT,
 } from '@/app/builder/(hooks)/useBuilder'
-import { type Item, type ItemCategory } from '@/app/types'
+import { type Item, type ItemCategory } from '@/app/(types)/main'
 import { cn, getArrayOfLength } from '@/app/utils'
 import BuildName from './BuildName'
 import ImageBuilderButton from './ImageBuilderButton'

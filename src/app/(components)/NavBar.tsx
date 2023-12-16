@@ -11,6 +11,7 @@ const navigationLinks = [
   { name: 'Home', href: '/' },
   { name: 'Item Tracker', href: '/tracker' },
   { name: 'Builder', href: '/builder' },
+  { name: 'Featured Builds', href: '/featured' },
 ]
 
 export default function NavBar() {

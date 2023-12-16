@@ -8,7 +8,7 @@ import { cn, itemToCsvItem } from '@/app/utils'
 import { useLocalStorage } from '@/app/(hooks)/useLocalStorage'
 import ToCsvButton from '../(components)/ToCsvButton'
 import { remnantItemCategories } from '@/app/(data)'
-import { type TraitItem } from '@/app/types'
+import { type TraitItem } from '@/app/(types)/main'
 import { useIsClient } from 'usehooks-ts'
 import copy from 'clipboard-copy'
 
