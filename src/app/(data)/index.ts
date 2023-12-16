@@ -698,9 +698,7 @@ export const remnantItems: Item[] = [
     shockResistance: 0,
     blightResistance: 2,
     toxinResistance: 0,
-    howToGet: `1. Kill The One True King.
-    Give 3 coins to The Red Prince at the Gilded Chambers.
-    Speak to the Red King at the Chamber of the Faithless.`,
+    howToGet: `Kill The One True King. Give 3 coins to The Red Prince at the Gilded Chambers. Speak to the Red King at the Chamber of the Faithless.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Crimson+Guard+Shroud`],
   },
   {

@@ -51,8 +51,18 @@ export function itemToCsvItem(item: Item): CsvItem {
   return {
     name: item.name,
     category: item.category,
-    description: item.description?.replaceAll(',', ' ') || '',
-    howToGet: item.howToGet?.replaceAll(',', ' ') || '',
+    description:
+      item.description
+        // replace commas with spaces
+        ?.replaceAll(',', ' ')
+        // replace line breaks with spaces
+        .replace(/(?:\r\n|\r|\n)/g, ' ') || '',
+    howToGet:
+      item.howToGet
+        // replace commas with spaces
+        ?.replaceAll(',', ' ')
+        // replace line breaks with spaces
+        .replace(/(?:\r\n|\r|\n)/g, ' ') || '',
     wikiLinks: item.wikiLinks?.join('; ') || '',
   }
 }
