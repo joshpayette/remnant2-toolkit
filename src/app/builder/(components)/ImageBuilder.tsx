@@ -18,7 +18,7 @@ export default function ImageBuilder({
   showLabels: boolean
 }) {
   // Custom hook for working with the build
-  const { updateBuild, currentBuild, getItemListForSlot } = useBuilder()
+  const { updateBuild, currentBuild, getItemListForCategory } = useBuilder()
 
   // Tracks information about the slot the user is selecting an item for
   const [selectedItemSlot, setSelectedItemSlot] = useState<{
@@ -139,8 +139,8 @@ export default function ImageBuilder({
    * This is passed to the ItemSelect modal to display the correct items
    */
   const itemListForSlot = useMemo(
-    () => getItemListForSlot(currentBuild, selectedItemSlot),
-    [selectedItemSlot, currentBuild, getItemListForSlot],
+    () => getItemListForCategory(currentBuild, selectedItemSlot),
+    [selectedItemSlot, currentBuild, getItemListForCategory],
   )
 
   return (

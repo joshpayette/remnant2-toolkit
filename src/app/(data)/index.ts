@@ -6071,6 +6071,17 @@ export const remnantItems: Item[] = [
   },
   {
     category: 'trait',
+    name: 'Strong Back',
+    imagePath: '/trait/strong_back.png',
+    id: 'sd2hry',
+    linkedItems: {
+      archtype: {
+        name: 'Challenger',
+      },
+    },
+  },
+  {
+    category: 'trait',
     name: 'Swiftness',
     imagePath: '/trait/swiftness.png',
     id: '3ochlm',
