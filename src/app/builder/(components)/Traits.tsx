@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { DEFAULT_TRAIT_AMOUNT } from './useBuilder'
 import { XCircleIcon } from '@heroicons/react/24/outline'
 
-const MAX_TRAIT_AMOUNT = 85
+const MAX_TRAIT_AMOUNT = 110
 
 export default function Traits({
   showControls,
