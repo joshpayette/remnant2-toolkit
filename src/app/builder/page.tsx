@@ -22,7 +22,7 @@ export default function BuildHomePage() {
   // Add the build name to the page title
   useEffect(() => {
     if (!currentBuild) return
-    document.title = `${currentBuild.name} Build | Remnant 2 Toolkit`
+    document.title = `${currentBuild.name} | Remnant 2 Toolkit`
   }, [currentBuild])
 
   /**

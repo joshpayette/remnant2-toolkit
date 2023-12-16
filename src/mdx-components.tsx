@@ -13,7 +13,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       </a>
     ),
     blockquote: ({ children }) => (
-      <blockquote className="text-md mb-2 border border-purple-500 p-4">
+      <blockquote className="text-md mb-4 border border-purple-500 p-4">
         {children}
       </blockquote>
     ),
@@ -25,8 +25,16 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     h2: ({ children }) => (
       <h2 className="mx-8 mb-4 text-2xl font-bold text-white">{children}</h2>
     ),
+    img: ({ src, alt }) => (
+      <img
+        className="mx-auto mb-4"
+        src={src}
+        alt={alt}
+        style={{ maxWidth: '100%' }}
+      />
+    ),
     p: ({ children }) => (
-      <p className="text-md mb-4 w-full pl-8 pr-8">{children}</p>
+      <p className="text-md mb-4 w-full pl-8 pr-8 text-center">{children}</p>
     ),
     ...components,
   }
