@@ -78,12 +78,11 @@ export default function BuilderButton({
       {showLabels && item?.name && (
         <div
           className={cn(
-            'flex items-center justify-center bg-purple-950 text-center text-[10px] text-white',
-            size === 'sm' &&
-              'min-h-[22px] min-w-[22px] border border-black px-1',
-            size === 'md' && 'min-h-[40px] w-[66px] p-1',
-            size === 'lg' && 'min-h-[40px] w-[99px] p-1',
-            size === 'wide' && 'min-h-[22px] w-[150px] p-1',
+            'flex items-center justify-center bg-purple-950 p-1 text-center text-[10px] text-white',
+            size === 'sm' && 'min-h-[22px] min-w-[22px] border border-black',
+            size === 'md' && 'min-h-[40px] w-[66px]',
+            size === 'lg' && 'min-h-[40px] w-[99px]',
+            size === 'wide' && 'min-h-[22px] w-[150px]',
           )}
         >
           {item?.name}
