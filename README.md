@@ -6,21 +6,27 @@ This is a toolkit for the game Remnant 2. You can find the site at [remnant2tool
 
 - [x] Item Tracker - Track your items and see what you need to complete your collection
 - [x] Build Tool - Create and share builds with the others.
+- [x] Featured Builds - See some featured builds from the community.
 
 ## How it works
 
-The site is built using Next.js and Tailwind CSS. The data is stored in the user's local storage, so it will persist between sessions, but not between devices.
-The data is also stored in the URL, so you can share your builds with others.
+The site is built using Next.js and Tailwind CSS. The data is stored in the user's local storage, so it will persist between sessions, but not between devices. The data is also stored in the URL, so you can share your builds with others.
+
+The site is hosted on Vercel, with images served via Cloudfront from an S3 bucket.
 
 ## Roadmap
 
-- [ ] Add item info to the item tracker, such as item description and wiki links.
-- [ ] Add a section for some featured builds?
+- [ ] Add all item info to the item tracker, such as item description and wiki links.
 - [ ] Add a database of builds that users can browse and search (contingent on enough interest and backers)
 
 ## Contributions
 
-Contributions are welcome! If you have a feature you'd like to see, please open an issue. If I missed an item or anything, I'll happily try and fix it!
+Contributions are welcome! If you found a bug, have a suggestion, or want to contribute code, please open an issue or a pull request.
+
+## Featured Build Contributions
+
+Want to see your build listed on the featured builds? Submit an issue with a link to the video covering your build and I'll
+take a look. If I like it, I'll add it to the list!
 
 ## Credits
 
