@@ -85,6 +85,8 @@ export default function TrackerPage() {
     if (item) setItemInfo(item)
   }
 
+  if (!isClient) return null
+
   return (
     <div className="flex w-full flex-col items-center justify-center">
       <ItemInfo
