@@ -27,9 +27,14 @@ const itemList = remnantItems
     return item.linkedItems?.weapon === undefined
   })
 
-const itemCategories = remnantItemCategories.filter(
-  (category) => skippedItemCategories.includes(category) === false,
-)
+const itemCategories = remnantItemCategories
+  .filter((category) => skippedItemCategories.includes(category) === false)
+  // sort alphabetically by name
+  .sort((a, b) => {
+    if (a < b) return -1
+    if (a > b) return 1
+    return 0
+  })
 
 export default function TrackerPage() {
   const isClient = useIsClient()
