@@ -1,41 +1,7 @@
-import {
-  BookmarkSquareIcon,
-  DocumentCheckIcon,
-  InformationCircleIcon,
-  ListBulletIcon,
-} from '@heroicons/react/24/outline'
 import Link from 'next/link'
+import { navItems } from './navitems'
 
 export default function HomePage() {
-  const cards = [
-    {
-      name: 'Builder',
-      description:
-        'Create and share your favorite builds with your friends and the community.',
-      href: '/builder',
-      icon: BookmarkSquareIcon,
-    },
-    {
-      name: 'Featured Builds',
-      description: 'A collection of builds aggregated from various sources.',
-      href: '/featured-builds',
-      icon: ListBulletIcon,
-    },
-    {
-      name: 'Item Tracker',
-      description:
-        'Keep track of the items you have collected and the ones you still need.',
-      href: '/tracker',
-      icon: DocumentCheckIcon,
-    },
-    {
-      name: 'Item Info',
-      description: 'Look up info on all the items in Remnant 2.',
-      href: '/item-lookup',
-      icon: InformationCircleIcon,
-    },
-  ]
-
   return (
     <div className="relative isolate overflow-hidden bg-gray-900 py-24 sm:py-32">
       <img
@@ -72,23 +38,23 @@ export default function HomePage() {
           </p>
         </div>
         <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-6 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-8">
-          {cards.map((card) => (
+          {navItems.map((item) => (
             <div
-              key={card.name}
+              key={item.name}
               className="flex gap-x-4 rounded-xl bg-white/5 p-6 ring-1 ring-inset ring-white/10"
             >
-              <card.icon
+              <item.icon
                 className="h-7 w-5 flex-none text-green-500"
                 aria-hidden="true"
               />
               <div className="text-base leading-7">
                 <Link
-                  href={card.href}
+                  href={item.href}
                   className="font-semibold text-white hover:text-green-500 hover:underline"
                 >
-                  {card.name}
+                  {item.name}
                 </Link>
-                <p className="mt-2 text-gray-300">{card.description}</p>
+                <p className="mt-2 text-gray-300">{item.description}</p>
               </div>
             </div>
           ))}

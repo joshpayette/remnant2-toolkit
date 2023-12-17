@@ -6,14 +6,7 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import Logo from '@/app/(components)/Logo'
 import { usePathname } from 'next/navigation'
-
-const navigationLinks = [
-  { name: 'Home', href: '/' },
-  { name: 'Builder', href: '/builder' },
-  { name: 'Featured Builds', href: '/featured-builds' },
-  { name: 'Item Tracker', href: '/tracker' },
-  { name: 'Item Lookup', href: '/item-lookup' },
-]
+import { navItems } from '../navitems'
 
 export default function NavBar() {
   const pathname = usePathname()
@@ -44,7 +37,7 @@ export default function NavBar() {
           </button>
         </div>
         <div className="hidden items-center justify-start lg:flex lg:w-full lg:flex-grow lg:gap-x-12">
-          {navigationLinks.map((item) => (
+          {navItems.map((item) => (
             <Link
               key={item.name}
               href={item.href}
@@ -77,14 +70,22 @@ export default function NavBar() {
           <div className="mt-6 flow-root">
             <div className="-my-6">
               <div className="space-y-2 py-6">
-                {navigationLinks.map((item) => (
-                  <Link
+                {navItems.map((item) => (
+                  <div
                     key={item.name}
-                    href={item.href}
-                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-purple-900"
+                    className="flex flex-row items-center justify-start"
                   >
-                    {item.name}
-                  </Link>
+                    <item.icon
+                      className="mr-2 h-7 w-5 flex-none text-green-500"
+                      aria-hidden="true"
+                    />
+                    <Link
+                      href={item.href}
+                      className="block px-3 py-2 text-base font-semibold leading-7 text-white hover:text-purple-500 hover:underline"
+                    >
+                      {item.name}
+                    </Link>
+                  </div>
                 ))}
               </div>
             </div>
