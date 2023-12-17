@@ -3610,6 +3610,20 @@ export const remnantItems: Item[] = [
   },
   {
     category: 'mod',
+    name: 'Banish',
+    imagePath: '/mod/banish.png',
+    id: 'k7z7r2',
+    description: `Banish is a Weapon Mod in Remnant 2. Banish is a fixed weapon mod found in the Repulsor. It allows playersto banish enemies to another dimension for a short period of time.`,
+    howToGet: `Banish comes attached to the Repulsor weapon.`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Banish`],
+    linkedItems: {
+      weapon: {
+        name: 'Repulsor'
+      }
+    }
+  }
+  {
+    category: 'mod',
     name: 'Beta Ray',
     imagePath: '/mod/beta_ray.png',
     id: '5ke493',
