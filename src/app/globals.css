@@ -6,3 +6,8 @@ body {
   color: #ffffff;
   background: #11001c;
 }
+
+/** Fixes the misalignment when exporting builds to images */
+body > div:last-child > span + img {
+  display: inline !important;
+}
