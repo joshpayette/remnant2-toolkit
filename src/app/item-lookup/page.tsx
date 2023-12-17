@@ -2,7 +2,7 @@
 
 import { remnantItems } from '@/app/(data)'
 import { useEffect, useMemo, useState } from 'react'
-import { type Item } from '@/app/(types)'
+import { isMutatorItem, type Item } from '@/app/(types)'
 import ToCsvButton from '@/app/(components)/ToCsvButton'
 import { useIsClient } from 'usehooks-ts'
 import PageHeader from '@/app/(components)/PageHeader'
@@ -13,7 +13,24 @@ import { InformationCircleIcon } from '@heroicons/react/24/outline'
 import { useDebounce } from 'usehooks-ts'
 import SearchInput from '../(components)/SearchInput'
 
-const csvItems = remnantItems.map((item) => itemToCsvItem(item))
+const csvItems = remnantItems // Modify the data for use. Adds a discovered flag,
+  // modifies the description for mutators
+  .map((item) => {
+    let csvItem = itemToCsvItem(item)
+
+    // For mutators, we need to combine the description
+    // and the max level bonus
+    if (isMutatorItem(item)) {
+      const description = item.description
+      const maxLevelBonus = item.maxLevelBonus
+      csvItem = itemToCsvItem({
+        ...item,
+        description: `${description}. At Max Level: ${maxLevelBonus}`,
+      })
+    }
+
+    return csvItem
+  })
 
 export default function ItemLookupPage() {
   const isClient = useIsClient()

@@ -72,7 +72,15 @@ export interface TraitItem extends BaseItem {
 export const isTraitItem = (item: Item): item is TraitItem =>
   item.category === 'trait'
 
-export type Item = BaseItem | WeaponItem | ArmorItem | TraitItem
+export interface MutatorItem extends BaseItem {
+  category: 'mutator'
+  maxLevelBonus: string
+}
+
+export const isMutatorItem = (item: Item): item is MutatorItem =>
+  item.category === 'mutator'
+
+export type Item = BaseItem | WeaponItem | ArmorItem | TraitItem | MutatorItem
 
 export interface CsvItem {
   name: string

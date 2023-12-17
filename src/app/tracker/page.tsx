@@ -2,9 +2,9 @@
 
 import { remnantItemCategories, remnantItems } from '@/app/(data)'
 import { useLocalStorage } from '@/app/(hooks)/useLocalStorage'
-import { Fragment, useMemo, useState } from 'react'
+import { useMemo, useState } from 'react'
 import type { Filters } from './(components)/Filters'
-import { type Item, type ItemCategory } from '@/app/(types)'
+import { isMutatorItem, type Item, type ItemCategory } from '@/app/(types)'
 import TrackerFilters from './(components)/Filters'
 import ToCsvButton from '@/app/(components)/ToCsvButton'
 import { useIsClient } from 'usehooks-ts'
@@ -67,13 +67,30 @@ export default function TrackerPage() {
   // We could maybe provide the ids as well, in case users wanted to dynamically
   // generate the build urls, but that's not a priority right now.
   const csvItems = useMemo(() => {
-    return items.map((item) => {
-      const csvItem = itemToCsvItem(item)
-      return {
-        ...csvItem,
-        discovered: item.discovered,
-      }
-    })
+    return (
+      items
+        // Modify the data for use. Adds a discovered flag,
+        // modifies the description for mutators
+        .map((item) => {
+          let csvItem = itemToCsvItem(item)
+
+          // For mutators, we need to combine the description
+          // and the max level bonus
+          if (isMutatorItem(item)) {
+            const description = item.description
+            const maxLevelBonus = item.maxLevelBonus
+            csvItem = itemToCsvItem({
+              ...item,
+              description: `${description}. At Max Level: ${maxLevelBonus}`,
+            })
+          }
+
+          return {
+            ...csvItem,
+            discovered: item.discovered,
+          }
+        })
+    )
   }, [items])
 
   // Provider the tracker progress
