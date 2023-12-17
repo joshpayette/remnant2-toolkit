@@ -2704,6 +2704,9 @@ export const remnantItems: Item[] = [
     name: 'Alpha-Omega',
     imagePath: '/mainhand/alpha_omega.png',
     id: '1ub6k9',
+    description: ``,
+    howToGet: `Can be crafted at McCabe, you will need the following Materials: x1 Forgotten Memory, x7 Lumenite Crystal, x650 Scrap`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Alpha-Omega`],
     linkedItems: {
       mod: {
         name: 'Beta Ray',
@@ -2716,6 +2719,9 @@ export const remnantItems: Item[] = [
     name: 'Aphelion',
     imagePath: '/mainhand/aphelion.png',
     id: '3wprfw',
+    description: ``,
+    howToGet: `Can be crafted at McCabe, you will need the following Materials: x1 Void Cinder, x7 Lumenite Crystal, x650 Scrap`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Aphelion`],
     linkedItems: {
       mod: {
         name: 'Supernova',
@@ -2728,6 +2734,10 @@ export const remnantItems: Item[] = [
     name: 'AS-10 Bulldog',
     imagePath: '/mainhand/as_10_bulldog.png',
     id: 'va7cfd',
+    description: ``,
+    howToGet: `Starting equipment for the Challenger Class
+    Can be bought from Brabus at Ward 13`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/AS-10+Bulldog`],
   },
   {
     category: 'weapon',
@@ -2735,6 +2745,10 @@ export const remnantItems: Item[] = [
     name: 'Blackmaw AR-47',
     imagePath: '/mainhand/blackmaw_ar_47.png',
     id: 'phh1xe',
+    description: ``,
+    howToGet: `Starting equipment for the Handler Class
+    Can be bought from Brabus at Ward 13`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Blackmaw+AR-47`],
   },
   {
     category: 'weapon',
@@ -2742,6 +2756,9 @@ export const remnantItems: Item[] = [
     name: 'Chicago Typewriter',
     imagePath: '/mainhand/chicago_typewriter.png',
     id: '59oddb',
+    description: ``,
+    howToGet: `Ward 13. Can be found in the same room where players find Leto's Stash. It requires the Biome Portal Key in order to be found, and it involves some portal platform in The Labyrinth.`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Chicago+Typewriter`],
   },
   {
     category: 'weapon',
@@ -2749,6 +2766,9 @@ export const remnantItems: Item[] = [
     name: 'Coach Gun',
     imagePath: '/mainhand/coach_gun.png',
     id: 'i0hvy8',
+    description: ``,
+    howToGet: `Can be bought from Brabus at Ward 13`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Coach+Gun`],
   },
   {
     category: 'weapon',
@@ -2756,6 +2776,10 @@ export const remnantItems: Item[] = [
     name: 'Corrupted Aphelion',
     imagePath: '/mainhand/corrupted_aphelion.png',
     id: 'w85ya8',
+    description: ``,
+    howToGet: `Added with the Aberration Domination update
+    Can be purchased from Dwell by exchanging x10 Corrupted Shard and the original Aphelion`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Corrupted+Aphelion`],
     linkedItems: {
       mod: {
         name: 'Micronova',
@@ -2768,6 +2792,10 @@ export const remnantItems: Item[] = [
     name: 'Corrupted Deceit',
     imagePath: '/mainhand/corrupted_deceit.png',
     id: 'k9w4yh',
+    description: ``,
+    howToGet: `Added with the Aberration Domination update
+    Can be purchased from Dwell by exchanging x10 Corrupted Shard and the original Deceit`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Corrupted+Deceit`],
     linkedItems: {
       mod: {
         name: 'Windfall',
@@ -2780,6 +2808,10 @@ export const remnantItems: Item[] = [
     name: 'Corrupted Merciless',
     imagePath: '/mainhand/corrupted_merciless.png',
     id: '8i85za',
+    description: ``,
+    howToGet: `Added with the Aberration Domination update
+    Can be purchased from Dwell by exchanging x10 Corrupted Shard and the original Merciless`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Corrupted+Merciless`],
     linkedItems: {
       mod: {
         name: 'Bloodshot',
@@ -2991,6 +3023,9 @@ export const remnantItems: Item[] = [
     name: 'Abyssal Hook',
     imagePath: '/melee/abyssal_hook.png',
     id: 'sd4nzf',
+    description: ``,
+    howToGet: `Can be found in Forlorn Coast.`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Abyssal+Hook`],
     linkedItems: {
       mod: {
         name: 'Fathomless Deep',
@@ -3003,9 +3038,12 @@ export const remnantItems: Item[] = [
     name: "Assassin's Dagger",
     imagePath: '/melee/assassins_dagger.png',
     id: 'bv9wps',
+    description: ``,
+    howToGet: `Bring the Assassin Dagger found in the One True King chambers to Nimue.`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Assassin's+Dagger`],
     linkedItems: {
       mod: {
-        name: 'Blood Thirst',
+        name: 'Bloodthirst',
       },
     },
   },
@@ -3015,6 +3053,9 @@ export const remnantItems: Item[] = [
     name: 'Atom Smasher',
     imagePath: '/melee/atom_smasher.png',
     id: 'lrk5hf',
+    description: ``,
+    howToGet: `Can be found in N'erud inside the last wagon of the train after The Train Event in Terminus Station`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Atom+Smasher`],
   },
   {
     category: 'weapon',
@@ -3022,25 +3063,32 @@ export const remnantItems: Item[] = [
     name: 'Atom Splitter',
     imagePath: '/melee/atom_splitter.png',
     id: 'e7c88o',
+    description: `https://remnant2.wiki.fextralife.com/Atom+Splitter`,
+    howToGet: `Vault of the Formless: To get go from the start follow the path until the second room and go right. The path end with a broken path and a rotating column. Wait for the robot arm to grab a pod and jump onto than jump to the broken path once it starts going up. From their follow the route through the door and down the ladder.`,
+    wikiLinks: [``],
     linkedItems: {
       mod: {
         name: 'Fission Strike',
       },
     },
   },
-  {
-    category: 'weapon',
-    type: 'melee',
-    name: 'Blade of Adventure',
-    imagePath: '/melee/blade_of_adventure.png',
-    id: '7ob842',
-  },
+  // This weapon appears to be unobtainable
+  // {
+  //   category: 'weapon',
+  //   type: 'melee',
+  //   name: 'Blade of Adventure',
+  //   imagePath: '/melee/blade_of_adventure.png',
+  //   id: '7ob842',
+  // },
   {
     category: 'weapon',
     type: 'melee',
     name: 'Blade of Gul',
     imagePath: '/melee/blade_of_gul.png',
     id: 'nxfxlp',
+    description: ``,
+    howToGet: `Can be crafted at Bloodmoon Altar. Required Material: Blood Moon Essence`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Blade+of+Gul`],
   },
   {
     category: 'weapon',
@@ -3048,6 +3096,9 @@ export const remnantItems: Item[] = [
     name: 'Bone Chopper',
     imagePath: '/melee/bone_chopper.png',
     id: 'e6y7fy',
+    description: ``,
+    howToGet: `Use one of the small lifts after completing The Feast Event to find it in a room.`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Bone+Chopper`],
   },
   {
     category: 'weapon',
@@ -3363,6 +3414,9 @@ export const remnantItems: Item[] = [
     name: 'Anguish',
     imagePath: '/offhand/anguish.png',
     id: 'r2o474',
+    description: ``,
+    howToGet: `Can be crafted at McCabe Store with: x1 Occult Vessel, x7 Lumenite Crystal and x1000 Scrap.`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Anguish`],
     linkedItems: {
       mod: {
         name: 'Loath the Weak',
@@ -3375,6 +3429,9 @@ export const remnantItems: Item[] = [
     name: 'Bolt Driver',
     imagePath: '/offhand/bolt_driver.png',
     id: 'd388ma',
+    description: ``,
+    howToGet: `Bolt Driver can be obtained by playing the secret song on the Water Harp on Yaesha: 1, 4, 0, 2, 5, 0, 3, 0.`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Bolt+Driver`],
   },
   {
     category: 'weapon',
