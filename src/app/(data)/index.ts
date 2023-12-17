@@ -2892,6 +2892,11 @@ export const remnantItems: Item[] = [
     name: 'Repulsor',
     imagePath: '/mainhand/repulsor.png',
     id: 'v6zmn3',
+    linkedItems: {
+      mod: {
+        name: 'Banish',
+      },
+    },
   },
   {
     category: 'weapon',
