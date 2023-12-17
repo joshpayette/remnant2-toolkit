@@ -110,6 +110,13 @@ export default function Actions({
       <hr className="my-4 border-gray-900" />
 
       <button
+        className="flex flex-col items-center rounded border-2 border-green-500 px-4 py-2 text-sm font-bold text-white hover:bg-purple-700"
+        onClick={onExportAsImage}
+      >
+        Export to Image
+      </button>
+
+      <button
         className="flex flex-col items-center rounded border border-purple-500 px-4 py-2 text-sm font-bold text-white hover:bg-purple-700"
         onClick={() => {
           copy(window.location.href)
@@ -117,13 +124,6 @@ export default function Actions({
         }}
       >
         Copy Build URL
-      </button>
-
-      <button
-        className="flex flex-col items-center rounded border border-purple-500 px-4 py-2 text-sm font-bold text-white hover:bg-purple-700"
-        onClick={onExportAsImage}
-      >
-        Export to Image
       </button>
 
       <ToCsvButton
