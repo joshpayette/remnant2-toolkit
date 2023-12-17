@@ -1,6 +1,7 @@
 import {
   BookmarkSquareIcon,
   DocumentCheckIcon,
+  InformationCircleIcon,
   ListBulletIcon,
 } from '@heroicons/react/24/outline'
 import Link from 'next/link'
@@ -26,6 +27,12 @@ export default function HomePage() {
       description: 'A collection of builds aggregated from various sources.',
       href: '/featured-builds',
       icon: ListBulletIcon,
+    },
+    {
+      name: 'Item Info',
+      description: 'Look up info on all the items in Remnant 2.',
+      href: '/item-lookup',
+      icon: InformationCircleIcon,
     },
   ]
 
