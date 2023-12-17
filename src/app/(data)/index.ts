@@ -3618,10 +3618,10 @@ export const remnantItems: Item[] = [
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Banish`],
     linkedItems: {
       weapon: {
-        name: 'Repulsor'
-      }
-    }
-  }
+        name: 'Repulsor',
+      },
+    },
+  },
   {
     category: 'mod',
     name: 'Beta Ray',
