@@ -1,7 +1,5 @@
 # TODO
 
-- If allocated traits exceeds total, turn text red
-
 ## Bugs
 
 ## Maybe TODO
