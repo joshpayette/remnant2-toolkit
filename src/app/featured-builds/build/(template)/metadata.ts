@@ -1,11 +1,11 @@
 import { metadata as baseMetaData } from '@/app/metadata'
 
-const title = 'Speed Farming Build'
-const description = `This build is perfect for farming dungeon rolls and materials.`
-const slug = 'speed-farming'
+const title = 'YOUR BUILD NAME'
+const description = 'YOUR BUILD DESCRIPTION'
+const slug = 'build-folder-name'
 const url = `https://remnant2toolkit.com/featured-builds/build/${slug}`
 const ogImageUrl =
-  'https://d2sqltdcj8czo5.cloudfront.net/featured-builds/speed_farming.png'
+  'https://d2sqltdcj8czo5.cloudfront.net/featured-builds/YOUR_BUILD_IMAGE_NAME.png'
 
 export const pageInfo = {
   title,

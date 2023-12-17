@@ -20,6 +20,7 @@ export const metadata = {
   title,
   description,
   openGraph: {
+    ...baseMetaData.openGraph,
     title,
     description,
     url,
@@ -31,16 +32,11 @@ export const metadata = {
         height: 600,
       },
     ],
-    locale: 'en_US',
-    type: 'website',
   },
   twitter: {
-    card: 'summary_large_image',
+    ...baseMetaData.twitter,
     title,
     description,
-    siteId: '1696952720974888960',
-    creator: '@josh_payette',
-    creatorId: '1696952720974888960',
     images: [ogImageUrl],
   },
 }
