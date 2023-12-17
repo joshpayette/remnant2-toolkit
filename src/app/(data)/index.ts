@@ -3566,18 +3566,28 @@ export const remnantItems: Item[] = [
     name: 'Accelerator',
     imagePath: '/mod/accelerator.png',
     id: 'h9k5pl',
+    description: `Charge Melee Attacks increase the speed of all Melee Attacks by 10% for 5s.`,
+    howToGet: `Attached to the Atom Smasher melee weapon`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Accelerator`],
   },
   {
     category: 'mod',
     name: 'Astral Burst',
     imagePath: '/mod/astral_burst.png',
     id: 'mqta6g',
+    description: `Fires a short range burst of 7 star fragments which deal 35 damage each. Fragments bounce off walls up to 3 times, dealing 35% additional damage per bounce. Weakspot hits deal reduced damage.`,
+    howToGet: `Crafted from Faith Seed
+    Found in Cathedral of Omen`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Astral+Burst`],
   },
   {
     category: 'mod',
     name: 'Athibar',
     imagePath: '/mod/athibar.png',
     id: '29kz6t',
+    description: `Charge attacks use 25 stamina to throw the spear, which returns to the wielder's hand.`,
+    howToGet: `Attached to the Huntress Spear melee weapon`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Athibar`],
     linkedItems: {
       weapon: {
         name: 'Huntress Spear',
@@ -3589,6 +3599,9 @@ export const remnantItems: Item[] = [
     name: 'Awakening',
     imagePath: '/mod/awakening.png',
     id: 'wszjeu',
+    description: `Incoming damage grants Awakening which increases Melee Damage by 5% per stack for 10s. Max 10 stacks.`,
+    howToGet: `It comes attached to the Wrathbringer weapon.`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Awakening`],
     linkedItems: {
       weapon: {
         name: 'Wrathbringer',
@@ -3600,6 +3613,12 @@ export const remnantItems: Item[] = [
     name: 'Beta Ray',
     imagePath: '/mod/beta_ray.png',
     id: '5ke493',
+    description: `Brands a target for 30s. Branded enemies that die leave a Brand at their location.
+    Reloading or Swapping detonates Brands dealing 225 damage.
+    Addiotional Brands (3 Max) on the same target deal 50% damage.
+    Salin enemies return 5-15% of Ammo and Mod power to the weapon.`,
+    howToGet: `Attached to the Alpha-Omega long gun`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Beta+Ray`],
     linkedItems: {
       weapon: {
         name: 'Alpha-Omega',
@@ -3611,6 +3630,9 @@ export const remnantItems: Item[] = [
     name: 'Beyond the Veil',
     imagePath: '/mod/beyond_the_veil.png',
     id: 'puif17',
+    description: `Neutral Evade turns to mist, granting Nightshade 5% base damage as Lifesteal for 5s. Perfect Dodge doubles duration.`,
+    howToGet: `Attached to the Nightshade melee weapon`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Beyond+The+Veil`],
     linkedItems: {
       weapon: {
         name: 'Nightshade',
@@ -3622,6 +3644,10 @@ export const remnantItems: Item[] = [
     name: 'Big Bang',
     imagePath: '/mod/big_bang.png',
     id: 's7ozpe',
+    description: `Funnels all current Mod Charges into the enxt shot. Projectiles deal 65 direct damage and 65 Explosive damage in a 5m per Charge consumed. Explosion applies 75 BURNING damage over 10s per Charge consumed. 
+    Additional Charges consumed increase all damage by 5%. Max 5 Charges`,
+    howToGet: `Attached to the Star Shot hand gun`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Big+Bang`],
     linkedItems: {
       weapon: {
         name: 'Star Shot',
@@ -3633,12 +3659,19 @@ export const remnantItems: Item[] = [
     name: 'Blood Draw',
     imagePath: '/mod/blood_draw.png',
     id: 'ss7zwt',
+    description: `Shoots out razor-sharp Chain Shards which impale up to 5 targets within 15m, dealing 10 damage. On hit, chains are pulled towards the caster, dealing 250damage split equally among enemies and applying 275 BLEEDING damage over 15s.`,
+    howToGet: `Crafted from Bloody Steel Splinter
+    Appease The Red Princewith five Crimson King Coins`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Blood+Draw`],
   },
   {
     category: 'mod',
     name: 'Bloodline',
     imagePath: '/mod/bloodline.png',
     id: 'yxxajn',
+    description: `Fires a devastating blast which penetrates through all enemies in its path. Deals 120 damage with a 25% Critical damage bonus, and 2x additional stagger. Bloodline daage increases by 50% for each enemy penetrated.`,
+    howToGet: `Attached to the Merciless long gun`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Bloodline`],
     linkedItems: {
       weapon: {
         name: 'Merciless',
@@ -3650,6 +3683,9 @@ export const remnantItems: Item[] = [
     name: 'Bloodshot',
     imagePath: '/mod/bloodshot.jpg',
     id: 'tw8tbh',
+    description: `While active, grants unlimited Reserve Ammo and increases Reload Speed by 30%. If the entire magazine hits a Weakspot, Merciless will automatically perform a quick Reload. Lasts 13s.`,
+    howToGet: `Attached to the Corrupted Merciless long gun`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Bloodshot`],
     linkedItems: {
       weapon: {
         name: 'Corrupted Merciless',
@@ -3661,13 +3697,25 @@ export const remnantItems: Item[] = [
     name: 'Bloodthirst',
     imagePath: '/mod/bloodthirst.png',
     id: '1rw0kk',
+    description: `Damage increases by +25% against BLEEDING enemies, and +25% when attacking from behind. Charge Attacks deal 100 BLEEDING damage over 10s`,
+    howToGet: `Attached to the Assassin's Dagger melee weapon`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Bloodthirst`],
     linkedItems: {
       weapon: {
         name: `Assassin's Dagger`,
       },
     },
   },
-  { category: 'mod', name: 'Bore', imagePath: '/mod/bore.png', id: 'iq4wjy' },
+  {
+    category: 'mod',
+    name: 'Bore',
+    imagePath: '/mod/bore.png',
+    id: 'iq4wjy',
+    description: `Fires a drill projectile which bores into enemies on contact, dealing 80 damage. After fully burrowing into an enemy, creates a Weakspot which grants 50% of normal Weakspot Damage on hit. If attached to an existing Weakspot, Ranged Crit Chance is increased by 15% when attacking the drill. Lasts 6s.`,
+    howToGet: `Crafted from Mutated Growth
+    Drops from Abomination`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Bore`],
+  },
   {
     category: 'mod',
     name: 'Chain of Command',
