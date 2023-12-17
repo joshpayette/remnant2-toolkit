@@ -11,6 +11,7 @@ import { itemToCsvItem } from '@/app/(lib)/utils'
 import ItemCard from '../tracker/(components)/ItemCard'
 import { InformationCircleIcon } from '@heroicons/react/24/outline'
 import { useDebounce } from 'usehooks-ts'
+import SearchInput from '../(components)/SearchInput'
 
 const csvItems = remnantItems.map((item) => itemToCsvItem(item))
 
@@ -51,11 +52,8 @@ export default function ItemLookupPage() {
         title="Remnant 2 Item Info"
         subtitle="Look up info on all the items in Remnant 2"
       >
-        <input
-          type="text"
-          onChange={(e) => setFilter(e.target.value)}
-          className=" text-md rounded border border-green-500 bg-black p-2 text-white outline-none outline-offset-1 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-green-500"
-          placeholder="Search"
+        <SearchInput
+          onChange={(newValue: string) => setFilter(newValue)}
           value={filter}
         />
       </PageHeader>

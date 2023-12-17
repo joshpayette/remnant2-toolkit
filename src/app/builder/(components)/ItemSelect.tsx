@@ -3,8 +3,9 @@
 import { type Item, ItemCategory } from '@/app/(types)'
 import Dialog from '@/app/(components)/Dialog'
 import BuilderButton from './BuilderButton'
-import { useIsClient } from 'usehooks-ts'
+import { useDebounce, useIsClient } from 'usehooks-ts'
 import { useEffect, useState } from 'react'
+import SearchInput from '@/app/(components)/SearchInput'
 
 export default function ItemSelect({
   itemList,
@@ -22,9 +23,15 @@ export default function ItemSelect({
   const isClient = useIsClient()
 
   const [filter, setFilter] = useState('')
-  const filteredItemList = itemList.filter((item) =>
-    item.name.toLowerCase().includes(filter.toLowerCase()),
-  )
+  const [filteredItemList, setFilteredItemList] = useState(itemList)
+  const debouncedFilter = useDebounce(filter, 500)
+
+  useEffect(() => {
+    const filteredItems = itemList.filter((item) =>
+      item.name.toLowerCase().includes(debouncedFilter.toLowerCase()),
+    )
+    setFilteredItemList(filteredItems)
+  }, [debouncedFilter, itemList])
 
   // Reset filter when dialog is opened/closed
   useEffect(() => {
@@ -47,11 +54,8 @@ export default function ItemSelect({
       maxWidthClass="max-w-6xl"
     >
       <div className="mb-4 flex w-full items-end justify-end">
-        <input
-          type="text"
-          onChange={(e) => setFilter(e.target.value)}
-          className=" text-md rounded border border-green-500 bg-black p-2 text-white outline-none outline-offset-1 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-green-500"
-          placeholder="Search"
+        <SearchInput
+          onChange={(newValue: string) => setFilter(newValue)}
           value={filter}
         />
       </div>
