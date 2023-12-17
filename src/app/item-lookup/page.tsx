@@ -31,6 +31,14 @@ const csvItems = remnantItems // Modify the data for use. Adds a discovered flag
 
     return csvItem
   })
+  // sort items by category then name alphabetically
+  .sort((a, b) => {
+    if (a.category < b.category) return -1
+    if (a.category > b.category) return 1
+    if (a.name < b.name) return -1
+    if (a.name > b.name) return 1
+    return 0
+  })
 
 export default function ItemLookupPage() {
   const isClient = useIsClient()

@@ -90,6 +90,14 @@ export default function TrackerPage() {
             discovered: item.discovered,
           }
         })
+        // sort items by category then name alphabetically
+        .sort((a, b) => {
+          if (a.category < b.category) return -1
+          if (a.category > b.category) return 1
+          if (a.name < b.name) return -1
+          if (a.name > b.name) return 1
+          return 0
+        })
     )
   }, [items])
 
