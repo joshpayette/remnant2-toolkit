@@ -4,7 +4,7 @@ import { type Item, ItemCategory } from '@/app/(types)'
 import Dialog from '@/app/(components)/Dialog'
 import BuilderButton from './BuilderButton'
 import { useIsClient } from 'usehooks-ts'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 export default function ItemSelect({
   itemList,
@@ -25,6 +25,11 @@ export default function ItemSelect({
   const filteredItemList = itemList.filter((item) =>
     item.name.toLowerCase().includes(filter.toLowerCase()),
   )
+
+  // Reset filter when dialog is opened/closed
+  useEffect(() => {
+    setFilter('')
+  }, [open])
 
   if (!buildSlot) {
     return null

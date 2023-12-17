@@ -48,6 +48,7 @@ export function toCsv<T extends {}>(data: T[], filename: string) {
  * Converts an Item to a CSV item for export
  */
 export function itemToCsvItem(item: Item): CsvItem {
+  
   function cleanString(string: string): string {
     return (
       string
