@@ -3947,6 +3947,9 @@ export const remnantItems: Item[] = [
     name: 'Explosive Shot',
     imagePath: '/mod/explosive_shot.png',
     id: 'hpfdzp',
+    description: `Fires an explosive round that deals up to 240 damage within 9m.`,
+    howToGet: `Attached to the Hellfire weapon`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Explosive+Shot`],
     linkedItems: {
       weapon: {
         name: 'Hellfire',
@@ -3958,18 +3961,29 @@ export const remnantItems: Item[] = [
     name: 'Familiar',
     imagePath: '/mod/familiar.png',
     id: 'sccdmt',
+    description: `Summons Faerie Familiar to aid in combat. The Familiar selects a random enemy within 10m and slashes through them for 25 damage each attack. Familiar will select a new target when the previous one dies. Lasts 15s.`,
+    howToGet: `Crafted from Sacred Hunt Feather
+    Invade The Huntress dream`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Familiar`],
   },
   {
     category: 'mod',
     name: 'Fargazer',
     imagePath: '/mod/fargazer.png',
     id: 'yedqs6',
+    description: `Calls forth an eye of Legion to gaze at player's AIM target. For every 0.25sFargazer focuses on a target within 25m, a stack of MADNESS Status is applied for 5s. Each stack deals 3 Damage per second. Max 10 stacks. Lasts 30s.`,
+    howToGet: `Crafted frim Agnosia Driftwood
+    Drops from Legion`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Fargazer`],
   },
   {
     category: 'mod',
     name: 'Fathomless Deep',
     imagePath: '/mod/fathomless_deep.png',
     id: 'o1zwol',
+    description: `Charged Melee Hits grant Fathomless Deep which increases Melee Staggern by 10% per stack for 5s. Max 3 attacks.`,
+    howToGet: `It comes attached to the Abyssal hook weapon.`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Fathomless+Deep`],
     linkedItems: {
       weapon: {
         name: 'Abyssal Hook',
@@ -3981,6 +3995,9 @@ export const remnantItems: Item[] = [
     name: 'Faultline',
     imagePath: '/mod/faultline.png',
     id: '5mlisj',
+    description: `Charge to fire off ground-based shockwaves which deal 115 damage. Costs 35Stamina`,
+    howToGet: `Attached to the Stonebreaker melee weapon`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Faultline`],
     linkedItems: {
       weapon: {
         name: 'Stonebreaker',
@@ -3992,12 +4009,19 @@ export const remnantItems: Item[] = [
     name: 'Firestorm',
     imagePath: '/mod/firestorm.png',
     id: 'snlx8w',
+    description: `Creates a whirling cyclone that sucks in nearby targets and applies BURNING for 10s. The center of the cyclone deals 75 FIRE damage per second. Lasts 15s.`,
+    howToGet: `Crafted from Forlorn Fragment
+    Slay The Red Prince`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Firestorm`],
   },
   {
     category: 'mod',
     name: 'Fission Strike',
     imagePath: '/mod/fission_strike.png',
     id: 'd490vt',
+    description: `On Neutral Evade Attacks Atom Splitter achieves Nuclear Fission, releasing a wave of charged particles which deals 151.5 Damage to targets within 10m. Charged Neutral Evade Attacks increase range by 3x and Damage by 25%`,
+    howToGet: `Attached to the Atom Splitter melee weapon`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Fission+Strike`],
     linkedItems: {
       weapon: {
         name: 'Atom Splitter',
@@ -4009,6 +4033,9 @@ export const remnantItems: Item[] = [
     name: 'Fracture',
     imagePath: '/mod/fracture.png',
     id: 'x8vmra',
+    description: `Charge Attacks taint the blood of targets, causing all attacks from Godsplitter to register as Weakspot hits for 3s seconds. Duration increases with additional fragments. Max 35s.`,
+    howToGet: `Attached to the Godsplitter melee weapon`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Fracture`],
     linkedItems: {
       weapon: {
         name: 'Godsplitter',
@@ -4020,6 +4047,9 @@ export const remnantItems: Item[] = [
     name: "Guardian's Call",
     imagePath: '/mod/guardians_call.png',
     id: 'anhbhf',
+    description: `Calls down a Guardian Sword on enemies struck by an Energy Disc. Swords deal 100 damage and 3x stagger within 5m.`,
+    howToGet: `Attached to the Twisted Arbalestlong gun`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Guardian's+Call`],
     linkedItems: {
       weapon: {
         name: 'Twisted Arbalest',
@@ -4031,24 +4061,42 @@ export const remnantItems: Item[] = [
     name: 'Healing Shot',
     imagePath: '/mod/healing_shot.png',
     id: 'vc361n',
+    description: `Launches a payload that explodes on contact with allies, healing 35% of their max health. When no ally is struck, payload lays dormant until an ally gets close. Dormant payload lasts 30s, slowly losing healing potency over time.`,
+    howToGet: `Purchased from Ava McCabe`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Healing+Shot`],
   },
   {
     category: 'mod',
     name: 'Heat Sink',
     imagePath: '/mod/heat_sink.png',
     id: 's49h0c',
+    description: `Forces open Plasma Cutter's heat vents dispersing all heat. While active, Plasma Cutter generates 50% less heat, and ramping damage cap is increased to 3xDamage. Overheats automatically when deactivated. Lasts 20s.`,
+    howToGet: `Attached to the Plasma Cutter long gun`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Heat+Sink`],
     linkedItems: {
       weapon: {
         name: 'Plasma Cutter',
       },
     },
   },
-  { category: 'mod', name: 'Helix', imagePath: '/mod/helix.png', id: '1mtqkk' },
+  {
+    category: 'mod',
+    name: 'Helix',
+    imagePath: '/mod/helix.png',
+    id: '1mtqkk',
+    description: `Shoots a helix of missiles, dealing 120 damage. On contact, divides into 6 smaller rockets which seek additional targets, dealing 30 damage on contact.`,
+    howToGet: `Crafted from Seeker Residue
+    Drops from The Astropath`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Helix`],
+  },
   {
     category: 'mod',
     name: 'Horizon Strike',
     imagePath: '/mod/horizon_strike.png',
     id: '2fjw9q',
+    description: `Horizon Strike is a melee weapon mod added to the World's Edge. By performing charged attacks, this mod creates a wide horizontal projectile that deals damage.`,
+    howToGet: `Attached to the World's Edge melee weapon`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Horizon+Strike`],
     linkedItems: {
       weapon: {
         name: "World's Edge",
@@ -4060,18 +4108,27 @@ export const remnantItems: Item[] = [
     name: 'Hot Shot',
     imagePath: '/mod/hot_shot.png',
     id: '9vzb9r',
+    description: `Imbues ammunition with FIRE and increases Ranged damage by 15% for 20s. Shots also apply BURNING, dealing 200 FIRE Damage over 10 seconds.`,
+    howToGet: `Purchased from Ava McCabe`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Hot+Shot`],
   },
   {
     category: 'mod',
     name: 'Knight Guard',
     imagePath: '/mod/knight_guard.png',
     id: 'e4n1w4',
+    description: `Summons Knight Guard to aid in combat. The Guards hurl penetrating slashes at a random enemy dealing 15 damage. The Guards will melee enemies if close enough for 15 damage. Lasts 20s`,
+    howToGet: `Knight Guardcan be crafted at Ava McCabe.`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Kight+Guard`],
   },
   {
     category: 'mod',
     name: 'Krell Edge',
     imagePath: '/mod/krell_edge.png',
     id: '38rncx',
+    description: `Charge to throw the Krell Axe which applies OVERLOAD on hit, dealing 50SHOCK Damage every 5s for 10s. Shortly after throwing, another will appear in the wielders hand. Costs 25 Stamina`,
+    howToGet: `Attached to the Krell Axe melee weapon`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Krell+Edge`],
     linkedItems: {
       weapon: {
         name: 'Krell Axe',
@@ -4083,6 +4140,9 @@ export const remnantItems: Item[] = [
     name: 'Lifeline',
     imagePath: '/mod/lifeline.png',
     id: '4zqfhu',
+    description: `After dealing 250 damage, the next charge attack causes the spirit of the RED DOE to stampede forward, dealing 160 damage to enemies and regenerating 10% Health to allies in its path.`,
+    howToGet: `Attached to the Red Doe Staffmelee weapon`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Lifeline`],
     linkedItems: {
       weapon: {
         name: 'Red Doe Staff',
@@ -4094,6 +4154,9 @@ export const remnantItems: Item[] = [
     name: 'Loath the Weak',
     imagePath: '/mod/loath_the_weak.png',
     id: 'aobtw7',
+    description: `Rapidly fire volatile needles that explode after 1.5s dealing 30 explosive damage.`,
+    howToGet: `Can be found attached to the Anguish weapon.`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Loath+The+Weak`],
     linkedItems: {
       weapon: {
         name: 'Anguish',
@@ -4105,6 +4168,10 @@ export const remnantItems: Item[] = [
     name: 'Micronova',
     imagePath: '/mod/micronova.png',
     id: '8izb2g',
+    description: `Fires 5 shattered compressed remains of a dying star. On contact or when hit with the primary fire, Micronova explodes for 50 FIRE damage, and 350 BURNING damage over 10s to all targets within 2m.
+    Striking the Micronova with Corrupted Aphelion's primary fire increases its explosion radius by 25%, damage by 50%, and spawns a shockwave that deals 100 FIRE damage, detonates any nearby Micronovas and applies the initial BURNING amount.`,
+    howToGet: `Attached to the Corrupted AphelionLong Gun`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Micronova`],
     linkedItems: {
       weapon: {
         name: 'Corrupted Aphelion',
@@ -4116,6 +4183,10 @@ export const remnantItems: Item[] = [
     name: 'Moonlight Barrage',
     imagePath: '/mod/moonlight_barrage.png',
     id: 'wfak3h',
+    description: `Empowers the Bow for 15s. Arrows apply Moonlight to enemies for 3s. Enemies struck by Crescent Moon while Moonlit release a Moon Essence which returns 1 arrow, heals 5% of Max Health, and grants 15% Fire and Reload Speed for 5s.
+    Basic Shots automatically become Charged Shots. Manually Charged Shots fire two arrows.`,
+    howToGet: `Attached to the Crescent Moonlong gun`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Moonlight+Barrage`],
     linkedItems: {
       weapon: {
         name: 'Crescent Moon',
@@ -4127,6 +4198,9 @@ export const remnantItems: Item[] = [
     name: 'Nano Swarm',
     imagePath: '/mod/nano_swarm.png',
     id: '8ko9zz',
+    description: `Unleash a swarn of Nanomachines that seek after enemies within 20 meters and repeatedly attack dealing 6 ACID damage per hit. Lasts 15 seconds`,
+    howToGet: `Attached to the Nebula hand gun`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Nano+Swarm`],
     linkedItems: {
       weapon: {
         name: 'Nebula',
@@ -4138,6 +4212,9 @@ export const remnantItems: Item[] = [
     name: 'Ouroboros',
     imagePath: '/mod/ouroboros.png',
     id: 'czgb8w',
+    description: `Conjures 6 sword fragments that encircle the wielder for 20s. Performing a Melee Attacks lets loose a Fragment which taints the blood of targets, causing all attacks from Deceit to register as Weaspot hits for a short period of time. Charge Melee attack fires all remaining Fragments at once.`,
+    howToGet: `Attached to the Deceit long gun`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Ouroboros`],
     linkedItems: {
       weapon: {
         name: 'Deceit',
@@ -4149,18 +4226,28 @@ export const remnantItems: Item[] = [
     name: 'Overflow',
     imagePath: '/mod/overflow.png',
     id: 'tya9an',
+    description: `Overflow charges ammunition with shock, accelerating fire rate and reload speed, and inflicting overwhelming electrical damage over time.`,
+    howToGet: `Can be found in N'Erud, in the Custodian's Basement`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Overflow`],
   },
   {
     category: 'mod',
     name: 'Prismatic Driver',
     imagePath: '/mod/prismatic_driver.png',
     id: 'vtcg3o',
+    description: `Fires a superheated beam which deals 25 Mod Damage per second. Sustaining the beam on a target causes an explosion which deals 150 Mod damage in a 3mAOE.`,
+    howToGet: `Crafted from Sentry's Old Iris
+    Drops from The Custodian's Eye`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Prismatic+Driver`],
   },
   {
     category: 'mod',
     name: 'Reaver',
     imagePath: '/mod/reaver.png',
     id: 'geb8ho',
+    description: `Increases Melee Damage by 10% if the target is suffering from a Negative Status Effect.`,
+    howToGet: `It comes attached to the Ritualist Scythe weapon.`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Reaver`],
     linkedItems: {
       weapon: {
         name: 'Ritualist Scythe',
@@ -4172,30 +4259,47 @@ export const remnantItems: Item[] = [
     name: 'Ring of Spears',
     imagePath: '/mod/ring_of_spears.png',
     id: '4rdl8r',
+    description: `Calls forth 7 phantom spears to encircle the wielder for 25 seconds. This ring will deal up to 35 damage per second to nearby enemies, based on the number of spears remaining in the ring. While the mod is active, these spears can be thrown by tapping the mod button, dealing 100 damage to the first enemy hit. Spears will remain at their impact point for the duration of the mod or until recalled by holding the mod button. When recalled, spears will return to the wielder, dealing 50 damage to enemies along their path. When all recalled spears have reached the wielder, they cause an explosion dealing up to 350 damage based on the number of spears recalled.`,
+    howToGet: `Can be crafted at Ava McCabe`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Ring+Of+Spears`],
   },
   {
     category: 'mod',
     name: 'Rootlash',
     imagePath: '/mod/rootlash.png',
     id: 'nfw6ja',
+    description: `Launches a projectile which summons a Root Tentacle. Tentacles deal 30 damage and steal 1.5% of the hero's Max Health per hit. Lasts 20s. (Max 2)`,
+    howToGet: `Crafted from Twilight Dactylus
+    Drops from Kaeula's Shadow`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Rootlash`],
   },
   {
     category: 'mod',
     name: 'Rotted Arrow',
     imagePath: '/mod/rotted_arrow.png',
     id: 'vgin4w',
+    description: `Fires a rotten arrow that deals 19.8 damage and detonates for another 60damage within 4m. A deadly gas cloud is left behind that deals 200 damage over 5s.`,
+    howToGet: `Crafted from Soul Sliver
+    Drops from Shrewd`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Rotted+Arrow`],
   },
   {
     category: 'mod',
     name: 'Scrap Shot',
     imagePath: '/mod/scrap_shot.png',
     id: 'hcv400',
+    description: `Fires a caltrops grenade that explodes to cover an area of 6m. Caltrops deal 20 damage per second and SLOW to enemies that walk over them. Lasts 10s.`,
+    howToGet: `Purchased from Ava McCabe`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Scrap+Shot`],
   },
   {
     category: 'mod',
     name: 'Screamer',
     imagePath: '/mod/screamer.png',
     id: '4aeebu',
+    description: `Fire a high-powered rocket that deals up to 200 damage within 2.5m.`,
+    howToGet: `Attached to the Meridian hand gun`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Screamer`],
     linkedItems: {
       weapon: {
         name: 'Meridian',
@@ -4207,24 +4311,41 @@ export const remnantItems: Item[] = [
     name: 'Shatterstar',
     imagePath: '/mod/shatterstar.png',
     id: 'z9e8qq',
+    description: `Imbues shots with White hot FIRE. Hits apply BURNING, dealing 250 FIRE damage over 10 seconds. Lasts 20s.
+
+    Weakspot Hits and Kills cause shots to fragment, automatically targeting nearby enemies. Fragments strike for 30% of the initial damage dealt and apply BURNING.`,
+    howToGet: `Attached to the Savior long gun`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Shatterstar`],
   },
   {
     category: 'mod',
     name: 'Skewer',
     imagePath: '/mod/skewer.png',
     id: 'cpvech',
+    description: `Fires a Wretched Spear which embeds itself on contact. Spears deal 125 damage on hit, rapidly dividing inside the target until bursting, dealing 140 damage to all targets within 3m. Spears embedded in the environment remain in place for 10s.`,
+    howToGet: `Crafted from Dread Core
+    Drops from Venom`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Skewer`],
   },
   {
     category: 'mod',
     name: 'Song of Eafir',
     imagePath: '/mod/song_of_eafir.png',
     id: 'edm644',
+    description: `Fires a shot infused with the binding power of the Song of Eafir. Staggers most ground enemies within 10m and deals 150 damage to Flying enemies within the same range.
+    The song continues for 15s, afflicting targets within 15m with SLOW, and a 15% decrease to damage dealt.`,
+    howToGet: `Crafted from Scroll of Binding
+    Speak with The Flautistafter playing the secret melody`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Song+of+Eafir`],
   },
   {
     category: 'mod',
     name: 'Soul Brand',
     imagePath: '/mod/soul_brand.png',
     id: 'imk8xh',
+    description: `Applies a Soul Brand to all enemies within 25m which lasts 25s. Enemies killed while bearing the Soul Brand leave behind an Echo which lasts 10s before returning to the Nightmare Realm. Echoes are drawn to any survivor who walks within 3m, granting 10% of Max Health on contact.`,
+    howToGet: `Attached to the Rune Pistolhand gun`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Soul+Brand`],
     linkedItems: {
       weapon: {
         name: 'Rune Pistol',
@@ -4236,24 +4357,38 @@ export const remnantItems: Item[] = [
     name: 'Soulbinder',
     imagePath: '/mod/soulbinder.png',
     id: '5bb0mv',
+    description: `Fires a projectile that attaches to the enemy dealing 40 damage. Enemies within 7m become bound to the primary target after impact and share 60% of damage dealt to them. Lasts 15s.`,
+    howToGet: `Crafted from Heart Seed
+    Found in The Chimney`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Soulbinder`],
   },
   {
     category: 'mod',
     name: 'Space Crabs',
     imagePath: '/mod/space_crabs.png',
     id: '4wd3gm',
+    description: `Launch an alien egg that bursts on impact, releasing 5 Space Crabs. Crabs follow the caster, leaping towards enemies within 4m, and exploding, dealing 60Damage each.`,
+    howToGet: `Crafted from Cracked Shell
+    Drops from Primogenitor`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Space+Crabs`],
   },
   {
     category: 'mod',
     name: 'Spore Shot',
     imagePath: '/mod/spore_shot.png',
     id: '9fi67v',
+    description: `Fires a rotten spore that explodes dealing 125 damage within 6m and leaves a deadly gas cloud that applies SLOW while dealing 15 damage per second for 7s.`,
+    howToGet: `Attached to the Sporebloom Long Gun`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Spore+Shot`],
   },
   {
     category: 'mod',
     name: 'Starfall',
     imagePath: '/mod/starfall.png',
     id: 'j9wkb3',
+    description: `Fires a powerful arrow which deals 30 damage and opens a 7m portal that rains down star fragments. Each fragment deals 50 damage within 4m. Lasts 6s.`,
+    howToGet: `Attached to the Sagittarius long gun`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Starfall`],
     linkedItems: {
       weapon: {
         name: 'Sagittarius',
@@ -4265,12 +4400,21 @@ export const remnantItems: Item[] = [
     name: 'Stasis Beam',
     imagePath: '/mod/stasis_beam.png',
     id: 'rer73h',
+    description: `Fires a beam which deals 15 damage per second, and applies SLOW Debuff. After 2s of application to a target, SLOW becomes STASIS, freezing the target in place for 10s.`,
+    howToGet: `Crafted from Stasis Core
+    Found at The Eon Vault`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Stasis+Beam`],
   },
   {
     category: 'mod',
     name: 'Supernova',
     imagePath: '/mod/supernova.png',
     id: '9rxk65',
+    description: `Fires the compressed remains of a dying star. On contact or hit wit the primary fire, causes Supernova to explode for 150 FIRE Damage, and 350 BURNING Damage over 10s to all targets within 4m.
+
+    Striking the Supernova with Aphelion's primary fire increases its explosion radius by 25% and damage by 50%, and spawns a massive shockwave that deals 300 FIRE damage and also applies the initial BURNING amount.`,
+    howToGet: `Attached to the Aphelion long gun`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Supernova`],
     linkedItems: {
       weapon: {
         name: 'Aphelion',
@@ -4282,24 +4426,40 @@ export const remnantItems: Item[] = [
     name: 'Time Lapse',
     imagePath: '/mod/time_lapse.png',
     id: 'nn1q6k',
+    description: `Creates a 6m blast which freezes all standard enemies for 7s. 
+    Dealing damage to frozen enemies immediately breaks the Time Lapse effect, applying SLOW for the remaining duration.`,
+    howToGet: `Crafted from Broken Timepiece
+    Found in The Clock Tower Event`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Time+Lapse`],
   },
   {
     category: 'mod',
     name: 'Tremor',
     imagePath: '/mod/tremor.png',
     id: 'g6glpj',
+    description: `Fires a projectile that cracks the ground and spawns shockwaves that deal 75damage Within 9m for 6s. Shockwaves inflict 3x impact.`,
+    howToGet: `Crafted from Cordyceps Gland
+    Drops from Mother Mind`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Tremor`],
   },
   {
     category: 'mod',
     name: 'Voltaic Rondure',
     imagePath: '/mod/voltaic_rondure.png',
     id: 'wjopwy',
+    description: `Launches a slow-moving orb that pulses every 0.5s, striking enemies within 3mfor 20 SHOCK damage and applying OVERLOADED for 15s. The orb lasts 20s. The orb can be overcharged by striking it with additional damage.`,
+    howToGet: `Crafted from Bone Sap
+    Drops from Bloat King`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Voltaic+Rondure`],
   },
   {
     category: 'mod',
     name: 'Whirlwind',
     imagePath: '/mod/whirlwind.png',
     id: '2y6xm7',
+    description: `Neutral Backdash Charge creates a Whirlwind of slashes which strike all enemies within 8m for 75 damage.`,
+    howToGet: `Attached to the Spectral Blademelee weapon`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Whirlwind`],
     linkedItems: {
       weapon: {
         name: 'Spectral Blade',
@@ -4311,6 +4471,9 @@ export const remnantItems: Item[] = [
     name: 'Windfall',
     imagePath: '/mod/windfall.png',
     id: '82v8kz',
+    description: `Fires a ring of spinning blades which penetrates targets as it travels up to 20m before returning to the weapon. While traveling, activating Windfall again causes the projectile to spin in place for up to 3s. Activating it once more will recall it. Enemies struck by the Windfall obtain Tainted Blood for 3s causing all attacks from Deceit to trigger as Weakspot hits.`,
+    howToGet: `Attached to the Corrupted Deceit Long gun.`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Windfall`],
     linkedItems: {
       weapon: {
         name: 'Corrupted Deceit',
@@ -4322,6 +4485,10 @@ export const remnantItems: Item[] = [
     name: 'Witchfire',
     imagePath: '/mod/witchfire.png',
     id: 'ggf5qe',
+    description: `Fires a highly volatile projectile that explodes to leave a line of flaming terrain. Deals 55 FIRE Damage per second, and applies BURNING, dealing 200 damage over 10s. Lasts 5s.`,
+    howToGet: `Crafted from Alkahest Powder
+    Drops from Gwendil The Unburnt`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Witchfire`],
   },
   {
     category: 'mutator',
