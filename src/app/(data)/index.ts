@@ -6306,6 +6306,12 @@ export const remnantItems: Item[] = [
   },
   {
     category: 'concoction',
+    name: 'Chilled Steam',
+    imagePath: '/concoction/chilled_steam.png',
+    id: 'fhm256',
+  },
+  {
+    category: 'concoction',
     name: 'Dark Cider',
     imagePath: '/concoction/dark_cider.png',
     id: '8p2sj3',
