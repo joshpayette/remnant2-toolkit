@@ -3740,6 +3740,9 @@ export const remnantItems: Item[] = [
     name: 'Chain of Command',
     imagePath: '/mod/chain_of_command.png',
     id: 'lxt1j0',
+    description: `Harpoon Mode: Fire Harpoon to mark target causing primary fire to become Homing Rounds dealing 15% reduced damage. Enemies hit by Homing Rounds build Influence. Recasting exits Mode. When Influence fills, Monarch automatically reloads and creates a shockwave, and wielder becomes a Tyrant, gaining 20% Increased Damage and Infinite Reserves. Lasts 20s.`,
+    howToGet: `It comes attached to the Monarch weapon.`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Chain+Of+Command`],
     linkedItems: {
       weapon: {
         name: 'Monarch',
@@ -3751,6 +3754,10 @@ export const remnantItems: Item[] = [
     name: 'Chaos Driver',
     imagePath: '/mod/chaos_driver.png',
     id: 'dxnd9s',
+    description: `Drives electrified rods into targets which tether to other rods within 10m. Tethers deal 20 SHOCK damage per second.
+    Targets embedded with a rod take 20 SHOCK damage per second. They take 20% additionally damage per extra rod in the target. Damage is increased by 1.5% if linked to another rod. Rods in the same target will not link.`,
+    howToGet: `Attached to the Enigma hand gun`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Chaos+Driver`],
     linkedItems: {
       weapon: {
         name: 'Enigma',
@@ -3762,24 +3769,38 @@ export const remnantItems: Item[] = [
     name: 'Concussive Shot',
     imagePath: '/mod/concussive_shot.png',
     id: 'an140h',
+    description: `Fires a focused blast of air through all targets within 8m, dealing 155 damage and 4x impact.`,
+    howToGet: `Purchased from Ava McCabe`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Concussive+Shot`],
   },
   {
     category: 'mod',
     name: 'Corrosive Rounds',
     imagePath: '/mod/corrosive_rounds.png',
     id: 'hr3g7o',
+    description: `Imbues ammunition with TOXIC and increases Range Crit Chance by 15% for 20s. Shots also apply CORRODED, dealing 150 damage over 10s.`,
+    howToGet: `Crafted from Tainted Ichor
+    Drops from Magister Dullain`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Corrosive+Rounds`],
   },
   {
     category: 'mod',
     name: 'Creeping Mist',
     imagePath: '/mod/creeping_mist.png',
     id: 'a3ctlf',
+    description: `Shoots a cannister out that shatters on impact to reveal an expanding mist, starting at 7.5m and growing to 15m over 5s. The mist lasts 20s. While affected, enemies receive 25% additional Status Effect Damage and are 5% more likely to be struck with a critical hit from any source. The mists debuff persists for 10s after target exits the mist.`,
+    howToGet: `Can be crafted by Ava McCabe.`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Creeping+Mist`],
   },
   {
     category: 'mod',
     name: 'Cube Shield',
     imagePath: '/mod/cube_shield.png',
     id: '1bfanq',
+    description: `Generates a shield which absorbs up to 500 damage from incoming enemy projectiles. Lasts 15s.
+    Reactivating fires the Cube Shield damage enemies as is travels. Damge is increased if the Cube Shield has absorbed enemy projectile damage before firing.`,
+    howToGet: `Attached to the Cube Gun hand gun`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Cube+Shield`],
     linkedItems: {
       weapon: {
         name: 'Cube Gun',
@@ -3791,6 +3812,9 @@ export const remnantItems: Item[] = [
     name: 'Deadpoint',
     imagePath: '/mod/deadpoint.png',
     id: 'ysz4fw',
+    description: `Fires a cluster bomb which detonates on impact across 2.5m. each cluster deals up to 150 damage per explosion within 3.5m`,
+    howToGet: `Attached to the Corrupted Meridian Handgun.`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Deadpoint`],
     linkedItems: {
       weapon: {
         name: 'Corrupted Meridian',
@@ -3802,6 +3826,9 @@ export const remnantItems: Item[] = [
     name: 'Death Brand',
     imagePath: '/mod/death_brand.jpg',
     id: 'd3q99g',
+    description: `Applies Death Brand to all enemies within 25m. increasing incoming damage by 10%. Enemies killed while bearing the Death Brand leave behind an Echo which lasts 10s before returning to the Nightmare Realm. Echoes are drawn to any survivor who walks within 3m. increasing Weakspot Damage dealt by 10% for 10s.`,
+    howToGet: `Attached to the Corrupted Rune Pistol Handgun`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Death+Brand`],
     linkedItems: {
       weapon: {
         name: 'Corrupted Rune Pistol',
@@ -3813,6 +3840,9 @@ export const remnantItems: Item[] = [
     name: 'Death Sentence',
     imagePath: '/mod/death_sentence.png',
     id: 'wilhsl',
+    description: `Dealing Melee Damage 6 times over 10s empowers Feral Judgement. When empowered, Neutral Backdash Charge Attacks apply Death Sentence. After 1.5s of being sentenced, the enemy will suffer 10 Phantom Strikes, dealing X25Damage each. Deals 25% additional damage to BLEEDING enemies.`,
+    howToGet: `Attached to the Feral Judgement melee weapon`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Death+Sentence`],
     linkedItems: {
       weapon: {
         name: 'Feral Judgement',
@@ -3824,12 +3854,22 @@ export const remnantItems: Item[] = [
     name: 'Defrag',
     imagePath: '/mod/defrag.png',
     id: '3hqdob',
+    description: `Infects weapon with Malware for 30s, causing shots to apply FRAGMENTED for 15s. When a FRAGMENTED enemy dies, they create a Glitch that lasts 5s. 
+    Picking up a Glitch increases All damage by 20% for 5s. 
+    Destroying a Glitch causes it to destabilize, creating a 5m Virus Pool which deals 25 damage per second and applies the FRAGMENTED debuff to enemies inside. Virus Pools last 15s.`,
+    howToGet: `Crafted from Necrocyte Strand
+    Drops from Cancer`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Defrag`],
   },
   {
     category: 'mod',
     name: 'Dreadwalker',
     imagePath: '/mod/dreadwalker.png',
     id: 'ybej3w',
+    description: `Enter the Nightmare Realm. Nightfall gains infinite Ammo, a 35% Fire Rate increase, 10% Lifesteal, and becomes fully automatic. The wielder becomes significatly harder to hit while moving. 
+    Disables other weapons and Skills for the duration, or until Dreadwalker is deactivated. Lasts 10s.`,
+    howToGet: `Attached to the Nightfall long gun`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Dreadwalker`],
     linkedItems: {
       weapon: {
         name: ' Nightfall',
@@ -3841,6 +3881,9 @@ export const remnantItems: Item[] = [
     name: 'Dreamwave',
     imagePath: '/mod/dreamwave.png',
     id: 'dwmc70',
+    description: `After dealing 250 damage, Charge Attack will release a Dreamwave, flowing outwards 20m and returning to caster. Dreamwave applies SLOW to all enemies for 10s and grants a Stack of REVERIE for each enemy affected. Each Stack grants +2% to All Damage and +2% Movement Speed, which lasts 15s.`,
+    howToGet: `Attached to the Dreamcatcher melee weapon`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Dreamwave`],
     linkedItems: {
       weapon: {
         name: 'Dreamcatcher',
@@ -3852,6 +3895,9 @@ export const remnantItems: Item[] = [
     name: 'Dying Breath',
     imagePath: '/mod/dying_breath.png',
     id: '22nk8x',
+    description: `When infused, Neural Backdash Charge Attack explodes in a 3m. AOE and leaves an ACID Cloud which last for 15s.`,
+    howToGet: `Attached to the Gas Giant melee weapon`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Dying+Breath`],
     linkedItems: {
       weapon: {
         name: 'Gas Giant',
@@ -3863,12 +3909,19 @@ export const remnantItems: Item[] = [
     name: 'Energy Wall',
     imagePath: '/mod/energy_wall.png',
     id: '8uluwc',
+    description: `Deploys an energy barrier on impact with ground. Allies can shoot through Energy Wall but enemy projectiles are absorbed (up to 500 damage received). Max 1 Wall at a time. Lasts 30s.`,
+    howToGet: `Crafted from Ionic Crystal
+    Found in Timeless Horizon`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Energy+Wall`],
   },
   {
     category: 'mod',
     name: 'Energy Wave',
     imagePath: '/mod/energy_wave.png',
     id: '7ztoh8',
+    description: `Charge attacks use 35 stamina to release an energy wave projectile allowing the wielder to strike enemies from much farther away.`,
+    howToGet: `Attached to the Hero's Sword weapon`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Energy+Wave`],
     linkedItems: {
       weapon: {
         name: "Hero's Sword",
@@ -3880,6 +3933,9 @@ export const remnantItems: Item[] = [
     name: 'Eulogy',
     imagePath: '/mod/eulogy.png',
     id: '3xf7i2',
+    description: `Recalls ***s which deal 30 damage when pulled from a target and when striking targets on their return. Recalled bolts grant 2% of Max HP. Recalled bolts can also overfill Sorrow by up to +5. Any additional bolts will be returned to reserves.`,
+    howToGet: `Attached to the Sorrow hand gun`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Eulogy`],
     linkedItems: {
       weapon: {
         name: 'Sorrow',
