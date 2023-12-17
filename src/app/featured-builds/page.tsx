@@ -4,9 +4,11 @@ import { pageInfo as pyroPageInfo } from './build/bolt-jamisons-pyro/metadata'
 import { pageInfo as supportMedicSummonerPageInfo } from './build/support-medic-summoner/metadata'
 import { pageInfo as maxStatusEffectsPageInfo } from './build/max-status-effects/metadata'
 import { pageInfo as speedFarmingPageInfo } from './build/speed-farming/metadata'
+import { pageInfo as bleedCritPageInfo } from './build/bolt-jamisons-bleed-crit/metadata'
 import PageHeader from '../(components)/PageHeader'
 
 const builds = [
+  bleedCritPageInfo,
   acidicBerserkerPageInfo,
   pyroPageInfo,
   supportMedicSummonerPageInfo,
