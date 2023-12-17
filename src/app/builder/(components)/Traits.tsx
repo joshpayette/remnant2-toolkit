@@ -95,7 +95,10 @@ export default function Traits({
                   className="w-12 border border-green-500 bg-transparent p-1 text-center text-green-400"
                 />
               ) : (
-                <button onClick={() => setEditingTraitItem(traitItem)}>
+                <button
+                  onClick={() => setEditingTraitItem(traitItem)}
+                  className="min-w-[30px] text-left"
+                >
                   {traitItem.amount ?? DEFAULT_TRAIT_AMOUNT}
                 </button>
               )}
