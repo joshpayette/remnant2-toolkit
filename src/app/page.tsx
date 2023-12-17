@@ -9,13 +9,6 @@ import Link from 'next/link'
 export default function HomePage() {
   const cards = [
     {
-      name: 'Item Tracker',
-      description:
-        'Keep track of the items you have collected and the ones you still need.',
-      href: '/tracker',
-      icon: DocumentCheckIcon,
-    },
-    {
       name: 'Builder',
       description:
         'Create and share your favorite builds with your friends and the community.',
@@ -27,6 +20,13 @@ export default function HomePage() {
       description: 'A collection of builds aggregated from various sources.',
       href: '/featured-builds',
       icon: ListBulletIcon,
+    },
+    {
+      name: 'Item Tracker',
+      description:
+        'Keep track of the items you have collected and the ones you still need.',
+      href: '/tracker',
+      icon: DocumentCheckIcon,
     },
     {
       name: 'Item Info',
