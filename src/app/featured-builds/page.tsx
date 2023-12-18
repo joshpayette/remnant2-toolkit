@@ -5,9 +5,11 @@ import { pageInfo as supportMedicSummonerPageInfo } from './build/support-medic-
 import { pageInfo as maxStatusEffectsPageInfo } from './build/max-status-effects/metadata'
 import { pageInfo as speedFarmingPageInfo } from './build/speed-farming/metadata'
 import { pageInfo as bleedCritPageInfo } from './build/bolt-jamisons-bleed-crit/metadata'
+import { pageInfo as mrNachosNightfallBuildPageInfo } from './build/mr-nachos-nightfall-build/metadata'
 import PageHeader from '../(components)/PageHeader'
 
 const builds = [
+  mrNachosNightfallBuildPageInfo,
   bleedCritPageInfo,
   acidicBerserkerPageInfo,
   pyroPageInfo,
