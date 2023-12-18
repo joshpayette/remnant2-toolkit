@@ -16,6 +16,7 @@ The site is hosted on Vercel, with images served via Cloudfront from an S3 bucke
 
 ## Roadmap
 
+- [ ] Add an ability to import the item tracker CSV to populate the site with your current items.
 - [ ] Add all item info to the item tracker, such as item description and wiki links.
 - [ ] Update Fextralife Wiki links to the new community maintained https://remnant.wiki site.
 
