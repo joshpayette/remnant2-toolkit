@@ -1,6 +1,7 @@
 import {
   BookmarkSquareIcon,
   DocumentCheckIcon,
+  DocumentTextIcon,
   InformationCircleIcon,
   ListBulletIcon,
 } from '@heroicons/react/24/outline'
@@ -31,5 +32,11 @@ export const navItems = [
     description: 'Look up info on all the items in Remnant 2.',
     href: '/item-lookup',
     icon: InformationCircleIcon,
+  },
+  {
+    name: 'Change Log',
+    description: 'See the latest changes to the site.',
+    href: 'https://github.com/joshpayette/remnant2-toolkit/blob/main/CHANGELOG.md',
+    icon: DocumentTextIcon,
   },
 ]
