@@ -19,6 +19,11 @@ export default function BuildHomePage() {
   const [showLabels, setShowLabels] = useState(builderStorage.showLabels)
   const [showControls, setShowControls] = useState(builderStorage.showControls)
 
+  const [screenshotMode, setScreenshotMode] = useState<{
+    el: HTMLDivElement | null
+    imageFileName: string
+  } | null>(null)
+
   // Add the build name to the page title
   useEffect(() => {
     if (!currentBuild) return
@@ -32,24 +37,36 @@ export default function BuildHomePage() {
     el: HTMLDivElement | null,
     imageFileName: string,
   ) => {
-    if (!el) return
-
-    const canvas = await html2canvas(el, {
-      useCORS: true,
-      allowTaint: true,
-      logging: false,
-    })
-    const image = canvas.toDataURL('image/png', 1.0)
-
-    // Need a fakeLink to trigger the download
-    const fakeLink = window.document.createElement('a')
-    fakeLink.download = imageFileName
-    fakeLink.href = image
-    document.body.appendChild(fakeLink)
-    fakeLink.click()
-    document.body.removeChild(fakeLink)
-    fakeLink.remove()
+    setScreenshotMode({ el, imageFileName })
   }
+
+  useEffect(() => {
+    async function exportImage() {
+      if (!screenshotMode) return
+      const { el, imageFileName } = screenshotMode
+
+      if (!el) return
+
+      const canvas = await html2canvas(el, {
+        useCORS: true,
+        allowTaint: true,
+        logging: false,
+      })
+      const image = canvas.toDataURL('image/png', 1.0)
+
+      // Need a fakeLink to trigger the download
+      const fakeLink = window.document.createElement('a')
+      fakeLink.download = imageFileName
+      fakeLink.href = image
+      document.body.appendChild(fakeLink)
+      fakeLink.click()
+      document.body.removeChild(fakeLink)
+      fakeLink.remove()
+
+      setScreenshotMode(null)
+    }
+    exportImage()
+  }, [screenshotMode])
 
   if (!isClient) return null
 
@@ -95,7 +112,11 @@ export default function BuildHomePage() {
           className="w-full grow rounded border-2 border-green-500 bg-black p-4"
           ref={buildImageRef}
         >
-          <Builder showLabels={showLabels} showControls={showControls} />
+          <Builder
+            isScreenshotMode={Boolean(screenshotMode)}
+            showLabels={showLabels}
+            showControls={showControls}
+          />
         </div>
       </div>
     </div>

@@ -9,11 +9,14 @@ import BuilderName from './BuilderName'
 import BuilderButton from './BuilderButton'
 import Traits from './Traits'
 import ItemSelect from './ItemSelect'
+import Logo from '@/app/(components)/Logo'
 
 export default function Builder({
+  isScreenshotMode,
   showControls,
   showLabels,
 }: {
+  isScreenshotMode: boolean
   showControls: boolean
   showLabels: boolean
 }) {
@@ -166,7 +169,12 @@ export default function Builder({
         />
       </div>
 
-      <div className="flex w-full items-start justify-between gap-4">
+      <div className="relative flex w-full items-start justify-between gap-4">
+        {isScreenshotMode && (
+          <div className="absolute bottom-[10px] right-[80px]">
+            <Logo showUrl />
+          </div>
+        )}
         <div id="left-column" className="flex-none">
           <BuilderButton
             item={currentBuild.items.helm}
