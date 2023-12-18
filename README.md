@@ -17,7 +17,12 @@ The site is hosted on Vercel, with images served via Cloudfront from an S3 bucke
 ## Roadmap
 
 - [ ] Add all item info to the item tracker, such as item description and wiki links.
+- [ ] Update Fextralife Wiki links to the new community maintained https://remnant.wiki site.
+
+## Maybe down the line with support
+
 - [ ] Add a database of builds that users can browse and search (contingent on enough interest and backers)
+- [ ] Add calculations of armor, resists, etc. for builds
 
 ## Contributions
 
