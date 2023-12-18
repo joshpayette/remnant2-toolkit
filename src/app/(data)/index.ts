@@ -2824,6 +2824,9 @@ export const remnantItems: Item[] = [
     name: 'Crescent Moon',
     imagePath: '/mainhand/crescent_moon.png',
     id: 'p7wc7k',
+    description: ``,
+    howToGet: `Can be crafted at McCabe, you will need the following Materials: x1 Anamy's Echo, x7 Lumenite Crystal, x650 Scrap`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Crescent+Moon`],
     linkedItems: {
       mod: {
         name: 'Moonlight Barrage',
@@ -2836,6 +2839,9 @@ export const remnantItems: Item[] = [
     name: 'Crossbow',
     imagePath: '/mainhand/crossbow.png',
     id: 'x94ze2',
+    description: ``,
+    howToGet: `Starting equipment for the Summoner Archetype`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Crossbow`],
   },
   {
     category: 'weapon',
@@ -2843,6 +2849,9 @@ export const remnantItems: Item[] = [
     name: 'Deceit',
     imagePath: '/mainhand/deceit.png',
     id: 'hlmpjl',
+    description: ``,
+    howToGet: `Can be crafted at McCabe, you will need the following Materials: x1 Imposter's Heart, x7 Lumenite Crystal, x650 Scrap`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Deceit`],
     linkedItems: {
       mod: {
         name: 'Ouroboros',
@@ -2855,6 +2864,9 @@ export const remnantItems: Item[] = [
     name: "Ford's Scattergun",
     imagePath: '/mainhand/fords_scattergun.png',
     id: '8n3e07',
+    description: ``,
+    howToGet: `Starting Long Gun for the Explorer`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Ford's+Scattergun`],
   },
   {
     category: 'weapon',
@@ -2862,6 +2874,10 @@ export const remnantItems: Item[] = [
     name: 'Huntmaster M1',
     imagePath: '/mainhand/huntmaster_m1.png',
     id: 'cda7lb',
+    description: ``,
+    howToGet: `Can be bought from Brabus at Ward 13
+    Starting Long Gun for the Hunter archetype.`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Huntmaster+M1`],
   },
   {
     category: 'weapon',
@@ -2869,6 +2885,9 @@ export const remnantItems: Item[] = [
     name: 'Merciless',
     imagePath: '/mainhand/merciless.png',
     id: 'g3esv1',
+    description: ``,
+    howToGet: `Can be crafted at McCabe Store. Material Required: x1 Crimson Membrane, x7 Lumenite Crystal, x650 Scrap`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Merciless`],
     linkedItems: {
       mod: {
         name: 'Bloodline',
@@ -2881,6 +2900,9 @@ export const remnantItems: Item[] = [
     name: 'Monarch',
     imagePath: '/mainhand/monarch.png',
     id: '76622z',
+    description: ``,
+    howToGet: `Can be crafted at McCabe Store. Required Material: Hex Wreath, Lumenite Crystal and Scrap`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Monarch`],
     linkedItems: {
       mod: {
         name: 'Chain of Command',
@@ -2893,6 +2915,9 @@ export const remnantItems: Item[] = [
     name: 'Nightfall',
     imagePath: '/mainhand/nightfall.png',
     id: '2fdvrf',
+    description: ``,
+    howToGet: `Can be crafted at McCabe, you will need the following Materials: x1 Cursed Dream Silks, x7 Lumenite Crystal, x650 Scrap`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Nightfall`],
     linkedItems: {
       mod: {
         name: 'Dreadwalker',
@@ -2905,6 +2930,9 @@ export const remnantItems: Item[] = [
     name: 'Plasma Cutter',
     imagePath: '/mainhand/plasma_cutter.png',
     id: '7nwwzn',
+    description: ``,
+    howToGet: `Obtained by opening the door at the Navigation Room in N'erud. You'll need to wear the Navigator's Helm (Obtained from the Navigator Zombie) and run the face recognition to open it. Enter the room and take the Plasma Cutter.`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Plasma+Cutter`],
     linkedItems: {
       mod: {
         name: 'Heat Sink',
@@ -2917,6 +2945,9 @@ export const remnantItems: Item[] = [
     name: 'Pulse Rifle',
     imagePath: '/mainhand/pulse_rifle.png',
     id: 'vldebv',
+    description: ``,
+    howToGet: `Found after using the Decorum Cipher to unlock the door downstairs in Abyssal Rift, in the area where The Custodian resides`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Pulse+Rifle`],
   },
   {
     category: 'weapon',
@@ -2924,6 +2955,10 @@ export const remnantItems: Item[] = [
     name: 'Repulsor',
     imagePath: '/mainhand/repulsor.png',
     id: 'v6zmn3',
+    description: ``,
+    howToGet: `In Brabus' Shop after a Nightmare clear.
+    Deleting the character who unlocked them does NOT remove them from the shop.`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Repulsor`],
     linkedItems: {
       mod: {
         name: 'Banish',
@@ -2936,6 +2971,9 @@ export const remnantItems: Item[] = [
     name: 'Royal Hunting Bow',
     imagePath: '/mainhand/royal_hunting_bow.png',
     id: '8ouocq',
+    description: ``,
+    howToGet: `Complete the Postulant Event in Losomn`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Royal+Hunting+Bow`],
   },
   {
     category: 'weapon',
@@ -2943,6 +2981,9 @@ export const remnantItems: Item[] = [
     name: 'Rusty Lever Action',
     imagePath: '/mainhand/rusty_lever_action.png',
     id: 'gv6yzu',
+    description: ``,
+    howToGet: `Automatically equipped as you begin your first character in the game`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Rusty+Lever+Action`],
   },
   {
     category: 'weapon',
@@ -2950,6 +2991,9 @@ export const remnantItems: Item[] = [
     name: 'Sagittarius',
     imagePath: '/mainhand/sagittarius.png',
     id: 't0cb8d',
+    description: ``,
+    howToGet: `Yaesha - Cathedral of OmenStarting from the entrance, the triangle lever should be triggered until it is pointing towards you and to the left. The icon lever should be triggered until death is closest to you. The circle lever should be triggered such that death and moon are not in a circle. Sagittarius bow will rise from the center alter.`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Sagittarius`],
     linkedItems: {
       mod: {
         name: 'Starfall',
@@ -2962,6 +3006,10 @@ export const remnantItems: Item[] = [
     name: 'Savior',
     imagePath: '/mainhand/savior.png',
     id: '2jrbvl',
+    description: ``,
+    howToGet: `In Brabus' Shop after a Hardcore Veteran clear.
+    Deleting the character who unlocked them does NOT remove them from the shop.`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Savior`],
   },
   {
     category: 'weapon',
@@ -2969,6 +3017,9 @@ export const remnantItems: Item[] = [
     name: 'Sparkfire Shotgun',
     imagePath: '/mainhand/sparkfire_shotgun.png',
     id: '3r9jm7',
+    description: ``,
+    howToGet: `Can be crafted at Rigs Store. Required Material: Iron, Scrap.`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Sparkfire+Shotgun`],
   },
   {
     category: 'weapon',
@@ -2976,6 +3027,10 @@ export const remnantItems: Item[] = [
     name: 'Sporebloom',
     imagePath: '/mainhand/sporebloom.png',
     id: 'q3fgj2',
+    description: ``,
+    howToGet: `Sporebloom can be obtained in Brabus' Shop after Veteran clear.
+    Deleting the character who unlocked them does NOT remove them from the shop.`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Sporebloom`],
   },
   {
     category: 'weapon',
@@ -2983,6 +3038,10 @@ export const remnantItems: Item[] = [
     name: 'Starkiller',
     imagePath: '/mainhand/starkiller.png',
     id: 'hzmyu1',
+    description: ``,
+    howToGet: `Starkiller can be obtained in Brabus' Shop after a Apocalypse clear.
+    Deleting the character who unlocked them does NOT remove them from the shop.`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Starkiller`],
   },
   {
     category: 'weapon',
@@ -2990,6 +3049,9 @@ export const remnantItems: Item[] = [
     name: 'Twisted Arbalest',
     imagePath: '/mainhand/twisted_arbalest.png',
     id: '13hsq0',
+    description: ``,
+    howToGet: `Can be crafted at McCabe, you will need the following Materials: x1 Twisted Lazurite, x7 Lumenite Crystal, x650 Scrap`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Twisted+Arbalest`],
     linkedItems: {
       mod: {
         name: "Guardian's Call",
@@ -3002,6 +3064,9 @@ export const remnantItems: Item[] = [
     name: 'Widowmaker',
     imagePath: '/mainhand/widowmaker.png',
     id: 'fqdvas',
+    description: ``,
+    howToGet: `Can be bought from Brabus at Ward 13`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Widowmaker`],
   },
   {
     category: 'weapon',
@@ -3009,6 +3074,9 @@ export const remnantItems: Item[] = [
     name: 'Wrangler 1860',
     imagePath: '/mainhand/wrangler_1860.png',
     id: '5aninv',
+    description: ``,
+    howToGet: `Can be bought from Brabus at Ward 13`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Wrangler+1860`],
   },
   {
     category: 'weapon',
@@ -3016,6 +3084,9 @@ export const remnantItems: Item[] = [
     name: 'XMG57 Bonesaw',
     imagePath: '/mainhand/xmg57_bonesaw.png',
     id: 'rbpz53',
+    description: ``,
+    howToGet: `Can be bought from Brabus at Ward 13`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/XMG57+Bonesaw`],
   },
   {
     category: 'weapon',
@@ -3106,6 +3177,9 @@ export const remnantItems: Item[] = [
     name: 'Decayed Claws',
     imagePath: '/melee/decayed_claws.png',
     id: 'y1a0bu',
+    description: ``,
+    howToGet: `Root Earth - Corrupted Harbor. Near Probability Cord inside root bush. After walking up the long root on the right of the stairs and dropping down, look for a path to crawl through in the brambles slightly to the right.`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Decayed+Claws`],
   },
   {
     category: 'weapon',
@@ -3113,6 +3187,9 @@ export const remnantItems: Item[] = [
     name: 'Dreamcatcher',
     imagePath: '/melee/dreamcatcher.png',
     id: '3sxr9y',
+    description: ``,
+    howToGet: `Feed the Nightweaver Stone Doll to the Nighweaver's Web`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Dreamcatcher`],
     linkedItems: {
       mod: {
         name: 'Dreamwave',
@@ -3125,6 +3202,9 @@ export const remnantItems: Item[] = [
     name: 'Edge of the Forest',
     imagePath: '/melee/edge_of_the_forest.png',
     id: '6c7rqm',
+    description: ``,
+    howToGet: `Found on Imperial Gardens, near the world stone checkpoint location. Stick to your left and past a few enemies, you will find it there.`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Edge+of+the+Forest`],
   },
   {
     category: 'weapon',
@@ -3132,6 +3212,9 @@ export const remnantItems: Item[] = [
     name: 'Feral Judgement',
     imagePath: '/melee/feral_judgement.png',
     id: 'umb305',
+    description: ``,
+    howToGet: `Can be crafted at McCabe, you will need the following Materials: x1 Ravager's Maw, x7 Lumenite Crystal, x650 Scrap.`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Feral+Judgement`],
     linkedItems: {
       mod: {
         name: 'Death Sentence',
@@ -3144,6 +3227,9 @@ export const remnantItems: Item[] = [
     name: 'Gas Giant',
     imagePath: '/melee/gas_giant.png',
     id: 'c58759',
+    description: ``,
+    howToGet: `N'erud, drops from Tal Ratha if you allow yourself to be eaten.`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Gas+Giant`],
     linkedItems: {
       mod: {
         name: 'Dying Breath',
@@ -3156,6 +3242,9 @@ export const remnantItems: Item[] = [
     name: 'Godsplitter',
     imagePath: '/melee/godsplitter.png',
     id: 'a23oaa',
+    description: ``,
+    howToGet: `Can be crafted at McCabeStore. Required material: Melded Hilt`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Godsplitter`],
     linkedItems: {
       mod: {
         name: 'Fracture',
@@ -3168,6 +3257,9 @@ export const remnantItems: Item[] = [
     name: "Hero's Sword",
     imagePath: '/melee/heros_sword.png',
     id: '5o3cq4',
+    description: ``,
+    howToGet: `It is the starting Melee Weapon for the Explorer`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Hero's+Sword`],
     linkedItems: {
       mod: {
         name: 'Energy Wave',
@@ -3180,6 +3272,9 @@ export const remnantItems: Item[] = [
     name: 'Huntress Spear',
     imagePath: '/melee/huntress_spear.png',
     id: '0jefkc',
+    description: ``,
+    howToGet: `Can be crafted by McCabe after you defeat The Huntress and obtain the Venerated Spearhead`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Huntress+Spear`],
     linkedItems: {
       mod: {
         name: 'Athibar',
@@ -3192,6 +3287,8 @@ export const remnantItems: Item[] = [
     name: 'Iron Greatsword',
     imagePath: '/melee/iron_greatsword.png',
     id: '5wy88e',
+    description: `Can be bought from Brabusat Ward 13`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Iron+Greatsword`],
   },
   {
     category: 'weapon',
@@ -3199,6 +3296,9 @@ export const remnantItems: Item[] = [
     name: 'Knuckle Dusters',
     imagePath: '/melee/knuckle_dusters.png',
     id: 'as4bt4',
+    description: ``,
+    howToGet: `Can be bought from Brabusat Ward 13`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Knuckle+Dusters`],
   },
   {
     category: 'weapon',
@@ -3206,6 +3306,9 @@ export const remnantItems: Item[] = [
     name: 'Krell Axe',
     imagePath: '/melee/krell_axe.png',
     id: '5gl3la',
+    description: ``,
+    howToGet: `Can be found in Endaira's End`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Krell+Axe`],
     linkedItems: {
       mod: {
         name: 'Krell Edge',
@@ -3218,6 +3321,9 @@ export const remnantItems: Item[] = [
     name: 'Labyrinth Staff',
     imagePath: '/melee/labyrinth_staff.png',
     id: 'gts5dh',
+    description: ``,
+    howToGet: `Can be found in The Labyrinth`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Labyrinth+Staff`],
   },
   {
     category: 'weapon',
@@ -3225,6 +3331,9 @@ export const remnantItems: Item[] = [
     name: 'Nightshade',
     imagePath: '/melee/nightshade.png',
     id: '6j7czk',
+    description: ``,
+    howToGet: `Can be crafted by McCabe after you defeat The Nightweaver, and obtain her alternative drop. (Nightweaver's Finger)`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Nightshade`],
     linkedItems: {
       mod: {
         name: 'Beyond the Veil',
@@ -3237,6 +3346,9 @@ export const remnantItems: Item[] = [
     name: 'Ornate Blade',
     imagePath: '/melee/ornate_blade.png',
     id: '0wto7p',
+    description: ``,
+    howToGet: `Accuse the right conspirator in The Fae Council Event in Losomn`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Ornate+Blade`],
   },
   {
     category: 'weapon',
@@ -3244,6 +3356,9 @@ export const remnantItems: Item[] = [
     name: 'Ornate Flail',
     imagePath: '/melee/ornate_flail.png',
     id: 'pwuhho',
+    description: ``,
+    howToGet: `Can be found in Losomn - Council Chamber. You have to take the secret passage in The Executioner Event`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Ornate+Flail`],
   },
   {
     category: 'weapon',
@@ -3251,6 +3366,9 @@ export const remnantItems: Item[] = [
     name: 'Rebellion Spear',
     imagePath: '/melee/rebellion_spear.png',
     id: 'qy94qr',
+    description: ``,
+    howToGet: `Starting equipment for the Summoner Archetype`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Rebellion+Spear`],
   },
   {
     category: 'weapon',
@@ -3258,6 +3376,9 @@ export const remnantItems: Item[] = [
     name: 'Red Doe Staff',
     imagePath: '/melee/red_doe_staff.png',
     id: 'oazjm0',
+    description: ``,
+    howToGet: `Can be crafted at McCabe, you will need the following Materials: x1 Doe's Antler, x7 Lumenite Crystal, x650 Scrap.`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Red+Doe+Staff`],
     linkedItems: {
       mod: {
         name: 'Lifeline',
@@ -3270,6 +3391,9 @@ export const remnantItems: Item[] = [
     name: 'Ritualist Scythe',
     imagePath: '/melee/ritualist_scythe.png',
     id: '7hoogs',
+    description: ``,
+    howToGet: `After combining these Quest Items found in The Forgotten Commune: Scythe Blade and Scythe Hilt.`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Ritualist+Scythe`],
     linkedItems: {
       mod: {
         name: 'Reaver',
@@ -3282,6 +3406,9 @@ export const remnantItems: Item[] = [
     name: 'Royal Broadsword',
     imagePath: '/melee/royal_broadsword.png',
     id: 'wogdou',
+    description: ``,
+    howToGet: `Can be found in Yaesha - The Red Throne`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Royal+Broadsword`],
   },
   {
     category: 'weapon',
@@ -3289,6 +3416,9 @@ export const remnantItems: Item[] = [
     name: 'Rusted Claws',
     imagePath: '/melee/rusted_claws.png',
     id: '6odjqi',
+    description: ``,
+    howToGet: `Can be bought from Brabusat Ward 13`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Rusted+Claws`],
   },
   {
     category: 'weapon',
@@ -3296,6 +3426,9 @@ export const remnantItems: Item[] = [
     name: 'Scrap Hammer',
     imagePath: '/melee/scrap_hammer.png',
     id: 'a88cg7',
+    description: ``,
+    howToGet: `Can be bought from Brabusat Ward 13`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Scrap+Hammer`],
   },
   {
     category: 'weapon',
@@ -3303,6 +3436,9 @@ export const remnantItems: Item[] = [
     name: 'Scrap Hatchet',
     imagePath: '/melee/scrap_hatchet.png',
     id: 'wtj6mq',
+    description: ``,
+    howToGet: `Can be bought from Brabusat Ward 13`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Scrap+Hatchet`],
   },
   {
     category: 'weapon',
@@ -3310,6 +3446,9 @@ export const remnantItems: Item[] = [
     name: 'Scrap Staff',
     imagePath: '/melee/scrap_staff.png',
     id: 'fp5yi4',
+    description: ``,
+    howToGet: `Can be bought from Brabusat Ward 13`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Scrap+Staff`],
   },
   {
     category: 'weapon',
@@ -3317,6 +3456,9 @@ export const remnantItems: Item[] = [
     name: 'Smolder',
     imagePath: '/melee/smolder.png',
     id: 'd0usz6',
+    description: ``,
+    howToGet: `Beat the game on Veteran difficulty`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Smolder`],
   },
   {
     category: 'weapon',
@@ -3324,6 +3466,9 @@ export const remnantItems: Item[] = [
     name: 'Spectral Blade',
     imagePath: '/melee/spectral_blade.png',
     id: 'l3zte1',
+    description: ``,
+    howToGet: `Can be crafted at McCabeStore. Material Required: Eidolon Shard`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Spectral+Blade`],
     linkedItems: {
       mod: {
         name: 'Whirlwind',
@@ -3336,6 +3481,9 @@ export const remnantItems: Item[] = [
     name: 'Steel Flail',
     imagePath: '/melee/steel_flail.png',
     id: 'ji6tpl',
+    description: ``,
+    howToGet: `Can be bought from Brabusat Ward 13`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Steel+Flail`],
   },
   {
     category: 'weapon',
@@ -3343,6 +3491,10 @@ export const remnantItems: Item[] = [
     name: 'Steel Katana',
     imagePath: '/melee/steel_katana.png',
     id: '0cnwdx',
+    description: ``,
+    howToGet: `Can be bought from Brabusat Ward 13.
+    Can be found in Root Earth- Ashen Wasteland`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Steel+Katana`],
   },
   {
     category: 'weapon',
@@ -3350,6 +3502,9 @@ export const remnantItems: Item[] = [
     name: 'Steel Scythe',
     imagePath: '/melee/steel_scythe.png',
     id: '2po1q8',
+    description: ``,
+    howToGet: `Can be bought from Brabus`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Steel+Scythe`],
   },
   {
     category: 'weapon',
@@ -3357,6 +3512,9 @@ export const remnantItems: Item[] = [
     name: 'Steel Spear',
     imagePath: '/melee/steel_spear.png',
     id: 'vbzlfk',
+    description: ``,
+    howToGet: `Can be bought from Brabusat Ward 13`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Steel+Spear`],
   },
   {
     category: 'weapon',
@@ -3364,6 +3522,9 @@ export const remnantItems: Item[] = [
     name: 'Steel Sword',
     imagePath: '/melee/steel_sword.png',
     id: 'zsb5g1',
+    description: ``,
+    howToGet: `Can be bought from Brabusat Ward 13`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Steel+Sword`],
   },
   {
     category: 'weapon',
@@ -3371,6 +3532,9 @@ export const remnantItems: Item[] = [
     name: 'Stonebreaker',
     imagePath: '/melee/stonebreaker.png',
     id: 'b4g4q0',
+    description: ``,
+    howToGet: `Can be crafted at McCabe Store. Material Required: x1 Hollow Heart, x7 Lumenite Crystal, x650 Scrap`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Stonebreaker`],
     linkedItems: {
       mod: {
         name: 'Faultline',
@@ -3383,6 +3547,9 @@ export const remnantItems: Item[] = [
     name: 'Vice Grips',
     imagePath: '/melee/vice_grips.png',
     id: 'ygwrpd',
+    description: ``,
+    howToGet: `Can be bought from the Drzyr Replicator in N'erud. It costs: x7 Lumenite Crystal, x15 Galvanized Iron, 1,500 Scrap`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Vice+Grips`],
   },
   {
     category: 'weapon',
@@ -3390,6 +3557,10 @@ export const remnantItems: Item[] = [
     name: "World's Edge",
     imagePath: '/melee/worlds_edge.png',
     id: 'gilcfn',
+    description: ``,
+    howToGet: `Can be obtained in Brabus' Shop after completing the campaign on Apocalypse
+    Deleting the character who unlocked them does NOT remove them from the shop`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/World's+Edge`],
     linkedItems: {
       mod: {
         name: 'Horizon Strike',
@@ -3402,6 +3573,9 @@ export const remnantItems: Item[] = [
     name: 'Wrathbringer',
     imagePath: '/melee/wrathbringer.png',
     id: 'mq5fnr',
+    description: ``,
+    howToGet: `Can be crafted at McCabe. Required Material: Tormentor's Pommel, Lumenite Crystaland Scrap.`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Wrathbringer`],
     linkedItems: {
       mod: {
         name: 'Awakening',
@@ -3439,6 +3613,10 @@ export const remnantItems: Item[] = [
     name: 'Corrupted Meridian',
     imagePath: '/offhand/corrupted_meridian.png',
     id: 'yw1btj',
+    description: ``,
+    howToGet: `Added with the Aberration Domination update
+    Can be purchased from Dwell by exchanging x10 Corrupted Shard and the original Meridian`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Corrupted+Meridian`],
     linkedItems: {
       mod: {
         name: 'Deadpoint',
@@ -3451,6 +3629,10 @@ export const remnantItems: Item[] = [
     name: 'Corrupted Rune Pistol',
     imagePath: '/offhand/corrupted_rune_pistol.png',
     id: 'id5pbt',
+    description: ``,
+    howToGet: `Added with the Aberration Domination update
+    Can be purchased from Dwell by exchanging x10 Corrupted Shard and the original Rune Pistol`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Corrupted+Rune+Pistol`],
     linkedItems: {
       mod: {
         name: 'Death Brand',
@@ -3463,6 +3645,9 @@ export const remnantItems: Item[] = [
     name: 'Cube Gun',
     imagePath: '/offhand/cube_gun.png',
     id: 'zn3boo',
+    description: ``,
+    howToGet: `Can be crafted at McCabeStore. Required Material: Conflux Prism`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Cube+Gun`],
     linkedItems: {
       mod: {
         name: 'Cube Shield',
@@ -3475,6 +3660,9 @@ export const remnantItems: Item[] = [
     name: 'Double Barrel',
     imagePath: '/offhand/double_barrel.png',
     id: 'ztz84h',
+    description: ``,
+    howToGet: `Found inside a safe in the Asylum (Code: 2971), in Losomn`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Double+Barrel`],
   },
   {
     category: 'weapon',
@@ -3482,6 +3670,9 @@ export const remnantItems: Item[] = [
     name: 'Enigma',
     imagePath: '/offhand/enigma.png',
     id: 'd06hjq',
+    description: ``,
+    howToGet: `Can be crafted at McCabe, you will need the following Materials: x1 Cipher Rod, x7 Lumenite Crystal, x650 Scrap`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Enigma`],
     linkedItems: {
       mod: {
         name: 'Chaos Driver',
@@ -3494,6 +3685,9 @@ export const remnantItems: Item[] = [
     name: 'Hellfire',
     imagePath: '/offhand/hellfire.png',
     id: '797iqq',
+    description: ``,
+    howToGet: `Can be found in Root Earth- Ashen Wasteland`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Hellfire`],
     linkedItems: {
       mod: {
         name: 'Explosive Shot',
@@ -3506,6 +3700,9 @@ export const remnantItems: Item[] = [
     name: 'Meridian',
     imagePath: '/offhand/meridian.png',
     id: '1ziutf',
+    description: ``,
+    howToGet: `Can be found in Flooded Sewer event.`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Meridian`],
     linkedItems: {
       mod: {
         name: 'Screamer',
@@ -3518,6 +3715,9 @@ export const remnantItems: Item[] = [
     name: 'MP60-R',
     imagePath: '/offhand/mp60_r.png',
     id: 'ty2gsi',
+    description: ``,
+    howToGet: `Can be found in Ward 13. Players hav to open the locked chest in Ford's room using a 4-digit code. It can be found in the rear of the Flashlight (players need to inspect it). There, they can find the Cargo Control Key, which can be used in the dock area in a locked door. Once the door is open, players will find the MP60-R on a table`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/MP60-R`],
   },
   {
     category: 'weapon',
@@ -3525,6 +3725,9 @@ export const remnantItems: Item[] = [
     name: 'Nebula',
     imagePath: '/offhand/nebula.png',
     id: 'p7tsxr',
+    description: ``,
+    howToGet: `Can be crafted at McCabe, you will need the following Materials: x1 Spiced Bile, x7 Lumenite Crystal, x650 Scrap`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Nebula`],
     linkedItems: {
       mod: {
         name: 'Nano Swarm',
@@ -3537,6 +3740,10 @@ export const remnantItems: Item[] = [
     name: 'Repeater Pistol',
     imagePath: '/offhand/repeater_pistol.png',
     id: 'pbtmmj',
+    description: ``,
+    howToGet: `Can be bought from Brabus in Ward 13
+    Starting Hand Gun for the Hunter Archetype.`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Repeater+Pistol`],
   },
   {
     category: 'weapon',
@@ -3544,6 +3751,9 @@ export const remnantItems: Item[] = [
     name: 'Rune Pistol',
     imagePath: '/offhand/rune_pistol.png',
     id: '2pblgq',
+    description: ``,
+    howToGet: `Can be crafted at Nimue, you will need the following Materials: x1 Decrepit Rune`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Rune+Pistol`],
     linkedItems: {
       mod: {
         name: 'Soul Brand',
@@ -3556,6 +3766,9 @@ export const remnantItems: Item[] = [
     name: 'Rupture Cannon',
     imagePath: '/offhand/rupture_cannon.png',
     id: 'xzlpao',
+    description: ``,
+    howToGet: `Can be found in N'Erud - Vault of the Formless`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Rupture+Canon`],
   },
   {
     category: 'weapon',
@@ -3563,6 +3776,9 @@ export const remnantItems: Item[] = [
     name: 'Rusty Repeater',
     imagePath: '/offhand/rusty_repeater.png',
     id: 't412us',
+    description: ``,
+    howToGet: `Automatically equipped as you begin your first character in the game`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Rusty+Repeater`],
   },
   {
     category: 'weapon',
@@ -3570,6 +3786,9 @@ export const remnantItems: Item[] = [
     name: 'Service Pistol',
     imagePath: '/offhand/service_pistol.png',
     id: 'g34ywl',
+    description: ``,
+    howToGet: `Can be bought from Brabus at Ward 13`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Service+Pistol`],
   },
   {
     category: 'weapon',
@@ -3577,6 +3796,9 @@ export const remnantItems: Item[] = [
     name: 'Silverback Model 500',
     imagePath: '/offhand/silverback_model_500.png',
     id: '46cwa6',
+    description: ``,
+    howToGet: `Can be bought from Brabus at Ward 13`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Silverback+Model+500`],
   },
   {
     category: 'weapon',
@@ -3584,6 +3806,9 @@ export const remnantItems: Item[] = [
     name: 'Sorrow',
     imagePath: '/offhand/sorrow.png',
     id: 'u2z8i3',
+    description: ``,
+    howToGet: `Can be found in Yaesha. Obtained by trading the Tear of Kaeula at Meidre`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Sorrow`],
     linkedItems: {
       mod: {
         name: 'Eulogy',
@@ -3596,6 +3821,9 @@ export const remnantItems: Item[] = [
     name: 'Star Shot',
     imagePath: '/offhand/star_shot.png',
     id: 'tldnuq',
+    description: ``,
+    howToGet: `Complete the Supply Ship Event, in N'Erud.`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Star+Shot`],
     linkedItems: {
       mod: {
         name: 'Big Bang',
@@ -3608,6 +3836,9 @@ export const remnantItems: Item[] = [
     name: 'Sureshot',
     imagePath: '/offhand/sureshot.png',
     id: '50i9nj',
+    description: ``,
+    howToGet: `Can be bought from Brabus at Ward 13`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Sureshot`],
   },
   {
     category: 'weapon',
@@ -3615,6 +3846,9 @@ export const remnantItems: Item[] = [
     name: 'Tech 22',
     imagePath: '/offhand/tech_22.png',
     id: 'xj5syj',
+    description: ``,
+    howToGet: `Can be bought from Brabus at Ward 13`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Tech+22`],
   },
   {
     category: 'weapon',
@@ -3622,6 +3856,9 @@ export const remnantItems: Item[] = [
     name: 'Western Classic',
     imagePath: '/offhand/western_classic.png',
     id: 'hk5uls',
+    description: ``,
+    howToGet: `Can be bought from Brabus at Ward 13`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Western+Classic`],
   },
   {
     category: 'mod',
