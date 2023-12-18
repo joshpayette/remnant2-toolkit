@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import PageHeader from '../(components)/PageHeader'
 import { pageInfo as acidicBerserkerPageInfo } from './build/sheenshots-acidic-berserker/metadata'
 import { pageInfo as pyroPageInfo } from './build/bolt-jamisons-pyro/metadata'
 import { pageInfo as supportMedicSummonerPageInfo } from './build/support-medic-summoner/metadata'
@@ -6,10 +7,11 @@ import { pageInfo as maxStatusEffectsPageInfo } from './build/max-status-effects
 import { pageInfo as speedFarmingPageInfo } from './build/speed-farming/metadata'
 import { pageInfo as bleedCritPageInfo } from './build/bolt-jamisons-bleed-crit/metadata'
 import { pageInfo as mrNachosNightfallBuildPageInfo } from './build/mr-nachos-nightfall-build/metadata'
-import PageHeader from '../(components)/PageHeader'
+import { pageInfo as mrNachosEGGBuildPageInfo } from './build/mr-nachos-egg-build/metadata'
 
 const builds = [
   mrNachosNightfallBuildPageInfo,
+  mrNachosEGGBuildPageInfo,
   bleedCritPageInfo,
   acidicBerserkerPageInfo,
   pyroPageInfo,
