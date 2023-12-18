@@ -75,6 +75,7 @@ export const isTraitItem = (item: Item): item is TraitItem =>
 export interface MutatorItem extends BaseItem {
   category: 'mutator'
   maxLevelBonus: string
+  type: 'gun' | 'melee'
 }
 
 export const isMutatorItem = (item: Item): item is MutatorItem =>

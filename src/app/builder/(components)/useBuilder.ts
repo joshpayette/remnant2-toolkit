@@ -1,11 +1,12 @@
 import {
+  type Item,
   type TraitItem,
   type Build,
   type WeaponItem,
   type ItemCategory,
+  type MutatorItem,
 } from '@/app/(types)'
 import { remnantItemCategories, remnantItems } from '@/app/(data)'
-import { type Item } from '@/app/(types)'
 import { usePathname, useSearchParams, useRouter } from 'next/navigation'
 import { useCallback } from 'react'
 
@@ -198,6 +199,19 @@ export default function useBuilder() {
     if (selectedItem.category === 'mod') {
       return (unequippedItems as Item[]).filter(
         (item) => item.category === 'mod' && !item.linkedItems?.weapon,
+      )
+    }
+
+    // If the selected slot is a mutator,
+    // then limit the mutators to the weapon type
+    if (selectedItem.category === 'mutator') {
+      // Get the corresponding weapon from the build
+      const buildWeapon = build.items.weapon[selectedItem.index ?? 0]
+      if (!buildWeapon) return []
+
+      const weaponType = buildWeapon.type === 'melee' ? 'melee' : 'gun'
+      return (unequippedItems as MutatorItem[]).filter(
+        (item) => item.category === 'mutator' && item.type === weaponType,
       )
     }
 

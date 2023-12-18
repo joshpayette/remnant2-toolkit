@@ -4787,6 +4787,7 @@ export const remnantItems: Item[] = [
   {
     category: 'mutator',
     name: 'Bandit',
+    type: 'gun',
     imagePath: '/mutator/bandit.png',
     id: 'f9tqot',
     description: `On hit, grants a 10-[30]% chance to return spent Ammo directly into the magazine of this weapon.`,
@@ -4797,6 +4798,7 @@ export const remnantItems: Item[] = [
   {
     category: 'mutator',
     name: 'Battery',
+    type: 'gun',
     imagePath: '/mutator/battery.png',
     id: 'n5zhws',
     description: `Ranged Hits increase the next weakspot Hit by 10-[20]% per stack. Max 5 Stacks.`,
@@ -4807,6 +4809,7 @@ export const remnantItems: Item[] = [
   {
     category: 'mutator',
     name: 'Bottom Feeder',
+    type: 'gun',
     imagePath: '/mutator/bottom_feeder.png',
     id: '90i71b',
     description: `Increases this weapon's Ranged Damage by 5% for every 20% reserve ammo missing.`,
@@ -4817,6 +4820,7 @@ export const remnantItems: Item[] = [
   {
     category: 'mutator',
     name: 'Bottom Heavy',
+    type: 'gun',
     imagePath: '/mutator/bottom_heavy.png',
     id: '8lg493',
     description: `Increases Fire Rate by 7.5% and an additional 1% for every 10% of Magazine missing.`,
@@ -4827,6 +4831,7 @@ export const remnantItems: Item[] = [
   {
     category: 'mutator',
     name: 'Bulletweaver',
+    type: 'gun',
     imagePath: '/mutator/bulletweaver.png',
     id: 'cr22cp',
     description: `Mod use increases Fire Rate of this weapon by 10-[20]% for 7s.`,
@@ -4837,6 +4842,7 @@ export const remnantItems: Item[] = [
   {
     category: 'mutator',
     name: 'Deadly Calm',
+    type: 'gun',
     imagePath: '/mutator/deadly_calm.png',
     id: 'ssvo08',
     description: `Continuously Aiming increases Ranged Damage by up to 10-[20]%over 3s.`,
@@ -4847,6 +4853,7 @@ export const remnantItems: Item[] = [
   {
     category: 'mutator',
     name: 'Dervish',
+    type: 'melee',
     imagePath: '/mutator/dervish.png',
     id: '9htayl',
     description: `Increases Melee Damage by 10-[40]% for 10s when activating a Skill.`,
@@ -4857,6 +4864,7 @@ export const remnantItems: Item[] = [
   {
     category: 'mutator',
     name: 'Disengage',
+    type: 'melee',
     imagePath: '/mutator/disengage.png',
     id: '3kadzw',
     description: `Melee Strikes increase the damage of the next Backdash Evade Attack by 4-[10]%. Max 5 Stacks.
@@ -4868,6 +4876,7 @@ export const remnantItems: Item[] = [
   {
     category: 'mutator',
     name: 'Dreadful',
+    type: 'gun',
     imagePath: '/mutator/dreadful.png',
     id: 'zcqbti',
     description: `Increases Ranged Damage by 2% for every 10% of total Health present as Grey Health. Max 20% increase.`,
@@ -4878,6 +4887,7 @@ export const remnantItems: Item[] = [
   {
     category: 'mutator',
     name: 'Edgelord',
+    type: 'melee',
     imagePath: '/mutator/edgelord.png',
     id: 'mpxowx',
     description: `Increases Melee Charge Speed by 15% and Melee Attack Speed by 10%.`,
@@ -4888,6 +4898,7 @@ export const remnantItems: Item[] = [
   {
     category: 'mutator',
     name: 'Executor',
+    type: 'melee',
     imagePath: '/mutator/executor.png',
     id: 'pynv5l',
     description: `Increases the duration of Negative Status Effects on enemies by 10% of the original duration. Cannot exceed original max duration.`,
@@ -4898,6 +4909,7 @@ export const remnantItems: Item[] = [
   {
     category: 'mutator',
     name: 'Extender',
+    type: 'gun',
     imagePath: '/mutator/extender.png',
     id: 'pszxmh',
     description: `Increases Magazine Capacity of this weapon by 20-[40]%.`,
@@ -4908,6 +4920,7 @@ export const remnantItems: Item[] = [
   {
     category: 'mutator',
     name: 'Failsafe',
+    type: 'gun',
     imagePath: '/mutator/failsafe.png',
     id: '0xx8tz',
     description: `Attached Mod deals 10-[20]%additional Mod Damage.`,
@@ -4918,6 +4931,7 @@ export const remnantItems: Item[] = [
   {
     category: 'mutator',
     name: 'Feedback',
+    type: 'gun',
     imagePath: '/mutator/feedback.png',
     id: '75qok3',
     description: `Using this weapon's Mod generates 10-[20]% of single charge value as passive Mod Power over 10s. Does not stack.`,
@@ -4928,6 +4942,7 @@ export const remnantItems: Item[] = [
   {
     category: 'mutator',
     name: 'Fetid Wounds',
+    type: 'gun',
     imagePath: '/mutator/fetid_wounds.png',
     id: 'b07g02',
     description: `Increases Critical Chance of this weapon by 3% per unique Negative Status Effect on the enemy. Max 15% increase.`,
@@ -4938,6 +4953,7 @@ export const remnantItems: Item[] = [
   {
     category: 'mutator',
     name: 'Ghost Shell',
+    type: 'gun',
     imagePath: '/mutator/ghost_shell.png',
     id: '85c7yj',
     description: `After 3 consecutive Weakspot Hits, increase the damage of the next Weakspot Hit by 20-[40]%.`,
@@ -4948,6 +4964,7 @@ export const remnantItems: Item[] = [
   {
     category: 'mutator',
     name: 'Guts',
+    type: 'melee',
     imagePath: '/mutator/guts.png',
     id: '961d6v',
     description: `Increases Melee Critical Chance by 5% when Grey Health is present.`,
@@ -4958,6 +4975,7 @@ export const remnantItems: Item[] = [
   {
     category: 'mutator',
     name: 'Harmonizer',
+    type: 'gun',
     imagePath: '/mutator/harmonizer.png',
     id: 'jyl055',
     description: `Increases Mod Damage by 10-[20]%.`,
@@ -4968,6 +4986,7 @@ export const remnantItems: Item[] = [
   {
     category: 'mutator',
     name: 'Ingenuity',
+    type: 'gun',
     imagePath: '/mutator/ingenuity.png',
     id: 'mkbquc',
     description: `Reduces the Heat Generation of this weapon by 25%.`,
@@ -4978,6 +4997,7 @@ export const remnantItems: Item[] = [
   {
     category: 'mutator',
     name: 'Kill Switch',
+    type: 'gun',
     imagePath: '/mutator/kill_switch.png',
     id: 'rzfptj',
     description: `Switching to this weapon creates an Explosive Burst which deals 50 Damage to all enemies within 7m.`,
@@ -4988,6 +5008,7 @@ export const remnantItems: Item[] = [
   {
     category: 'mutator',
     name: 'Latency',
+    type: 'melee',
     imagePath: '/mutator/latency.png',
     id: 'nft2cp',
     description: `Melee Weapons with special abilities which become readied by dealing melee damage require 10% less damage to charge.`,
@@ -4998,6 +5019,7 @@ export const remnantItems: Item[] = [
   {
     category: 'mutator',
     name: 'Lithely',
+    type: 'gun',
     imagePath: '/mutator/lithely.png',
     id: 's2z9cc',
     description: `Increases this weapon's Reload Speed by 4-[7]% for each enemy killed between reloads. lasts 15s Max 5 Stacks.`,
@@ -5008,6 +5030,7 @@ export const remnantItems: Item[] = [
   {
     category: 'mutator',
     name: 'Maelstrom',
+    type: 'gun',
     imagePath: '/mutator/maelstrom.png',
     id: '4m2lg1',
     description: `Increases this weapon‘s Elemental Damage by 5% for each unique Elemental Status Effect on the target.`,
@@ -5018,6 +5041,7 @@ export const remnantItems: Item[] = [
   {
     category: 'mutator',
     name: 'Misfortune',
+    type: 'melee',
     imagePath: '/mutator/misfortune.png',
     id: 'imqrfz',
     description: `Increase Melee damage by 5-[8]% for each unique Negative Status the target is suffering from.`,
@@ -5028,6 +5052,7 @@ export const remnantItems: Item[] = [
   {
     category: 'mutator',
     name: 'Momentum',
+    type: 'gun',
     imagePath: '/mutator/momentum.png',
     id: 'cvbjvd',
     description: `When this weapon scores a Critical Hit, it increases Critical Chance and Critical Damage by 1.5-[3]% for 3s. Max 10 stacks.`,
@@ -5038,6 +5063,7 @@ export const remnantItems: Item[] = [
   {
     category: 'mutator',
     name: 'Opportunist',
+    type: 'melee',
     imagePath: '/mutator/opportunist.png',
     id: 'qca3zh',
     description: `Perfect Dodge activates OPPORTUNITY which increases Melee Critical Chance of the next Melee Attack by 50% for 3s.`,
@@ -5048,6 +5074,7 @@ export const remnantItems: Item[] = [
   {
     category: 'mutator',
     name: 'Overdrive',
+    type: 'melee',
     imagePath: '/mutator/overdrive.png',
     id: 'mjzb0f',
     description: `Melee Critical Hits increase Melee Critical Chance and Critical Damage by 5% for 7.5-[15]s. stacking up to 5times.`,
@@ -5058,6 +5085,7 @@ export const remnantItems: Item[] = [
   {
     category: 'mutator',
     name: 'Prophecy',
+    type: 'gun',
     imagePath: '/mutator/prophecy.png',
     id: 'lo6uce',
     description: `Using this weapon's mod increases Mod Power Generation by 3% for 10s. Max 5 stacks.`,
@@ -5068,6 +5096,7 @@ export const remnantItems: Item[] = [
   {
     category: 'mutator',
     name: 'Refunder',
+    type: 'gun',
     imagePath: '/mutator/refunder.png',
     id: 'fcl7u2',
     description: `Shots from this weapon have a 20-[30]% chance to return Ammo to reserves.`,
@@ -5078,6 +5107,7 @@ export const remnantItems: Item[] = [
   {
     category: 'mutator',
     name: 'Reinvigorate',
+    type: 'melee',
     imagePath: '/mutator/reinvigorate.png',
     id: '5bfv3p',
     description: `Reduces the Stamina Cost of all Charged Melee Attacks by 25-[50]%.`,
@@ -5088,6 +5118,7 @@ export const remnantItems: Item[] = [
   {
     category: 'mutator',
     name: 'Resentment',
+    type: 'melee',
     imagePath: '/mutator/resentment.png',
     id: 'ha3amj',
     description: `Gain 10-[30]% Melee Damage when Grey Health is present.`,
@@ -5098,6 +5129,7 @@ export const remnantItems: Item[] = [
   {
     category: 'mutator',
     name: 'Sequenced Shot',
+    type: 'gun',
     imagePath: '/mutator/sequenced_shot.png',
     id: '23ztdj',
     description: `This weapon's Charged Shots decrease the Charge time of Subsequent Charge Shots by 10% for 3s.`,
@@ -5108,6 +5140,7 @@ export const remnantItems: Item[] = [
   {
     category: 'mutator',
     name: 'Shield Breaker',
+    type: 'melee',
     imagePath: '/mutator/shield_breaker.png',
     id: 'bhov5r',
     description: `Melee Attacks grants a Shield for 2-4% of Max Health. Max 20-40%. Last 10s.`,
@@ -5118,6 +5151,7 @@ export const remnantItems: Item[] = [
   {
     category: 'mutator',
     name: 'Shocker',
+    type: 'melee',
     imagePath: '/mutator/shocker.png',
     id: '7js906',
     description: `Empowers weapon after 5 hits. While empowered. the next Charged Agelee hit strikes all enemies within 10m with SHOCK Damage.`,
@@ -5128,6 +5162,7 @@ export const remnantItems: Item[] = [
   {
     category: 'mutator',
     name: 'Slayer',
+    type: 'gun',
     imagePath: '/mutator/slayer.png',
     id: 'h98e7b',
     description: `Reloading increases the damage of this weapon's next shot by 10-[20]%. Last 3s.`,
@@ -5138,6 +5173,7 @@ export const remnantItems: Item[] = [
   {
     category: 'mutator',
     name: 'Sleeper',
+    type: 'gun',
     imagePath: '/mutator/sleeper.png',
     id: 'xim1sx',
     description: `This weapon becomes EMPOWERED when stowed for 7 seconds, granting 20% Critical Chance for 3 seconds after it is drawn.`,
@@ -5148,6 +5184,7 @@ export const remnantItems: Item[] = [
   {
     category: 'mutator',
     name: 'Spirit Healer',
+    type: 'gun',
     imagePath: '/mutator/spirit_healer.png',
     id: 'hk1k7k',
     description: `Regenerate 5% Health over 5s for every 500 Mod Power spent.`,
@@ -5158,6 +5195,7 @@ export const remnantItems: Item[] = [
   {
     category: 'mutator',
     name: 'Steadfast',
+    type: 'melee',
     imagePath: '/mutator/steadfast.png',
     id: 'yibeww',
     description: `Charged Melee Attacks cannot be interrupted and gain 10-[20]%damage reduction from all sources.`,
@@ -5168,6 +5206,7 @@ export const remnantItems: Item[] = [
   {
     category: 'mutator',
     name: 'Stormbringer',
+    type: 'melee',
     imagePath: '/mutator/stormbringer.png',
     id: 'm87yf6',
     description: `Increases the Status Effect Damage applied by Melee Attacks by 25%.`,
@@ -5178,6 +5217,7 @@ export const remnantItems: Item[] = [
   {
     category: 'mutator',
     name: 'Striker',
+    type: 'melee',
     imagePath: '/mutator/striker.png',
     id: '27rynt',
     description: `Melee Hits increase Melee Damage by 3-6% for 10s Max 5 Stacks.`,
@@ -5188,6 +5228,7 @@ export const remnantItems: Item[] = [
   {
     category: 'mutator',
     name: 'Supercharger',
+    type: 'gun',
     imagePath: '/mutator/supercharger.png',
     id: 'omeu3c',
     description: `Increases Charge Speed of Bows and Fusion Rifles by 10-[30]%.`,
@@ -5198,6 +5239,7 @@ export const remnantItems: Item[] = [
   {
     category: 'mutator',
     name: 'Tainted Blade',
+    type: 'melee',
     imagePath: '/mutator/tainted_blade.png',
     id: 'f32skd',
     description: `Increase Melee Damage by 5%-[20%] per stack of CORRODED on the target.`,
@@ -5208,6 +5250,7 @@ export const remnantItems: Item[] = [
   {
     category: 'mutator',
     name: 'Timewave',
+    type: 'gun',
     imagePath: '/mutator/timewave.png',
     id: 'dynus4',
     description: `Mod Use applies SLOW status on all enemies within 7.5m for 5-[7]s.`,
@@ -5218,6 +5261,7 @@ export const remnantItems: Item[] = [
   {
     category: 'mutator',
     name: 'Top Heavy',
+    type: 'gun',
     imagePath: '/mutator/top_heavy.png',
     id: 'fknx4t',
     description: `Increases this weapon's Ranged Damage by up to 7.5% based on how close the magazine capacity is to full.`,
@@ -5228,6 +5272,7 @@ export const remnantItems: Item[] = [
   {
     category: 'mutator',
     name: 'Transference',
+    type: 'melee',
     imagePath: '/mutator/transference.png',
     id: '0osd64',
     description: `Melee Hits generate 5% Ammo Reserves for both Firearms. Cooldown 10-[5]s.`,
@@ -5238,6 +5283,7 @@ export const remnantItems: Item[] = [
   {
     category: 'mutator',
     name: 'Transpose',
+    type: 'gun',
     imagePath: '/mutator/transpose.png',
     id: '1cxn5s',
     description: `Picking up Ammo increases Ranged damage by 10-[20]% for 20s.`,
@@ -5248,6 +5294,7 @@ export const remnantItems: Item[] = [
   {
     category: 'mutator',
     name: 'Twisting Wounds',
+    type: 'gun',
     imagePath: '/mutator/twisting_wounds.png',
     id: '7eodps',
     description: `Increases Ranged damage of this weapon by 10-[20]% to BLEEDINGtargets.`,
@@ -5258,6 +5305,7 @@ export const remnantItems: Item[] = [
   {
     category: 'mutator',
     name: 'Vampire Blade',
+    type: 'melee',
     imagePath: '/mutator/vampire_blade.png',
     id: 'dhwqt4',
     description: `Increases Melee Damage by 10-[25]%while within 10m of a BLEEDING entity.`,
@@ -5268,6 +5316,7 @@ export const remnantItems: Item[] = [
   {
     category: 'mutator',
     name: 'Vengeful Strike',
+    type: 'melee',
     imagePath: '/mutator/vengeful_strike.png',
     id: '8h8a9w',
     description: `Increases Melee damage by 20-[50]%when below 50% Max Health.`,
@@ -5278,6 +5327,7 @@ export const remnantItems: Item[] = [
   {
     category: 'mutator',
     name: 'Weaponlord',
+    type: 'melee',
     imagePath: '/mutator/weaponlord.png',
     id: 'w6gpz2',
     description: `Basic Melee Attacks increase the next Charge Attacks by 7%. Max 5 Stacks.`,
