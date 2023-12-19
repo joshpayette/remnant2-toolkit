@@ -65,49 +65,6 @@ export default function TrackerPage() {
   // file input field
   const fileInput = useRef<HTMLInputElement | null>(null)
 
-  // If the upload form response changes, we need to set the save data
-  useEffect(() => {
-    if (!uploadFormResponse) return
-
-    const { convertedSave, error } = uploadFormResponse
-
-    if (error) {
-      toast.error(error)
-      if (fileInput.current) fileInput.current.value = ''
-      return
-    }
-
-    if (!convertedSave) return
-    saveData.current = convertedSave
-  }, [uploadFormResponse])
-
-  // If the save data is set, we need to check the discovered items
-  useEffect(() => {
-    if (!saveData.current) return
-    const newDiscoveredItemIds = remnantItems
-      // filter out the skipped categories
-      .filter((item) => skippedItemCategories.includes(item.category) === false)
-      // Match all item names against info in the save file
-      .filter((item) => {
-        const name = item.name.replace(/[^a-zA-Z]/g, '').toLowerCase()
-        return (
-          saveData.current?.includes(name) ||
-          (item.saveFileSlug && saveData.current?.includes(item.saveFileSlug))
-        )
-      })
-      // Get just the item ids
-      .map((item) => item.id)
-
-    // Reset the save data
-    saveData.current = null
-    // Update the discovered item ids
-    setDiscoveredItemIds(newDiscoveredItemIds)
-    // clear input field
-    if (fileInput.current) fileInput.current.value = ''
-    // notify of success
-    toast.success('Save file uploaded successfully!')
-  }, [setDiscoveredItemIds])
-
   // We need to add the discovered flag to the items based on the discoveredItemIds
   // fetched from localstorage
   const items = useMemo(
@@ -157,11 +114,56 @@ export default function TrackerPage() {
     )
   }, [items])
 
+  // If the upload form response changes, we need to set the save data
+  useEffect(() => {
+    if (!uploadFormResponse) return
+
+    const { convertedSave, error } = uploadFormResponse
+
+    if (error) {
+      toast.error(error)
+      if (fileInput.current) fileInput.current.value = ''
+      return
+    }
+
+    if (!convertedSave) return
+    saveData.current = convertedSave
+  }, [uploadFormResponse])
+
+  // If the save data is set, we need to check the discovered items
+  useEffect(() => {
+    if (!saveData.current) return
+    const newDiscoveredItemIds = items
+      // filter out the skipped categories
+      .filter((item) => skippedItemCategories.includes(item.category) === false)
+      // Match all item names against info in the save file
+      .filter((item) => {
+        const name = item.name.replace(/[^a-zA-Z]/g, '').toLowerCase()
+        // If the item has a save file slug, use that, otherwise use the name
+        return (
+          (item.saveFileSlug &&
+            saveData.current?.includes(item.saveFileSlug)) ||
+          saveData.current?.includes(name)
+        )
+      })
+      // Get just the item ids
+      .map((item) => item.id)
+
+    // Reset the save data
+    saveData.current = null
+    // Update the discovered item ids
+    setDiscoveredItemIds(newDiscoveredItemIds)
+    // clear input field
+    if (fileInput.current) fileInput.current.value = ''
+    // notify of success
+    toast.success('Save file uploaded successfully!')
+    // Reload the page
+    window.location.reload()
+  }, [setDiscoveredItemIds, discoveredItemIds, items])
+
   // Provider the tracker progress
   const discoveredCount = discoveredItemIds.length
-  const discoveredPercent = Math.round(
-    (discoveredItemIds.length / items.length) * 100,
-  )
+  const discoveredPercent = Math.round((discoveredCount / items.length) * 100)
   const progress = isClient
     ? `${discoveredCount} / ${items.length} (${discoveredPercent}%)`
     : 'Calculating...'
@@ -202,47 +204,48 @@ export default function TrackerPage() {
         <span className="mb-4 text-2xl font-bold text-green-400">
           {progress}
         </span>
-        <ToCsvButton data={csvItems} filename="remnant2toolkit_tracker" />
+
+        <div className="flex items-center justify-center">
+          <ToCsvButton data={csvItems} filename="remnant2toolkit_tracker" />
+        </div>
       </PageHeader>
+
+      <div className="mx-auto mb-4 flex flex-col items-center justify-center">
+        <div className="mb-4 rounded border border-purple-500">
+          <form
+            action={formAction}
+            className="grid grid-cols-1 bg-black sm:grid-cols-3"
+          >
+            <input
+              type="file"
+              name="saveFile"
+              className="mt-2 px-2 text-sm sm:col-span-2"
+              ref={fileInput}
+            />
+            <SubmitButton
+              label="Import Save File"
+              className="flex items-center justify-center border border-transparent bg-purple-500 p-2 px-2 text-sm font-bold text-white hover:border-purple-500 hover:bg-purple-700 disabled:bg-gray-500"
+            />
+            <div className="col-span-full mt-4 bg-black">
+              <p className="px-2 text-sm text-green-500">
+                You can find your save file in the following location:
+              </p>
+              <pre className="px-2 text-sm">
+                C:\Users\_your_username_\Saved
+                Games\Remnant2\Steam\_steam_id_\profile.sav
+              </pre>
+            </div>
+          </form>
+        </div>
+      </div>
+
       <TrackerFilters
         filters={filters}
         onFiltersChange={(newFilters: Filters) => {
           setFilters(newFilters)
         }}
       />
-      <div className="my-12 w-full">
-        <div className="mb-4 ml-auto flex flex-col items-center justify-center">
-          <div className="mb-4 rounded border border-purple-500">
-            <form
-              action={formAction}
-              className="grid grid-cols-1 bg-black sm:grid-cols-3"
-            >
-              <input
-                type="file"
-                name="saveFile"
-                className="mt-2 px-2 text-sm sm:col-span-2"
-                ref={fileInput}
-              />
-              <SubmitButton
-                label="Import Save File"
-                className="flex items-center justify-center border border-transparent bg-purple-500 p-2 px-2 text-sm font-bold text-white hover:border-purple-500 hover:bg-purple-700"
-              />
-              <div className="col-span-full bg-black">
-                <p className="p-2 text-sm text-red-500">
-                  Note: About 90% of the items are currently discoverable via
-                  import. The rest will be added soon.
-                </p>
-                <p className="px-2 text-sm text-green-500">
-                  You can find your save file in the following location:
-                </p>
-                <pre className="px-2 text-sm">
-                  C:\Users\_your_username_\Saved
-                  Games\Remnant2\Steam\_steam_id_\profile.sav
-                </pre>
-              </div>
-            </form>
-          </div>
-        </div>
+      <div className="my-8 w-full">
         <ListItems
           filters={filters}
           items={items}

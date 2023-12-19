@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2023-12-19
+
+### Fixed
+
+- Item Tracker now correctly identifies and discovered all items in the save file.
+- Fixed bug where Item Tracker would fail on importing a save file a second time. Added a page reload after import to fix this.
+
 ## 2023-12-18
 
 ### Added

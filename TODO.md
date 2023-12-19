@@ -1,7 +1,8 @@
 # TODO
 
-- Finish the save game input parsing
 - Replace fextralife wiki links with remnant.wiki
+- Add scroll to top button for mobile
+- On tracker, allowing sorting alphabetically or by item type (i.e. group armors together)
 - Add CSV import
 - Add filters to featured builds, anticipating more build submissions!
 - Add a way to submit builds directly through the site

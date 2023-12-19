@@ -691,6 +691,7 @@ export const remnantItems: Item[] = [
   {
     category: 'helm',
     name: 'Crimson Guard Shroud',
+    saveFileSlug: 'armor_head_crimsonguard',
     imagePath: '/helm/crimson_guard_shroud.png',
     id: 'ce8izt',
     set: 'Crimson Guard Set',
@@ -707,6 +708,7 @@ export const remnantItems: Item[] = [
   {
     category: 'helm',
     name: 'Crown of the Red Prince',
+    saveFileSlug: 'armor_head_redprince',
     imagePath: '/helm/crown_of_the_red_prince.png',
     id: 'pu3duv',
     armor: 6,
@@ -722,6 +724,7 @@ export const remnantItems: Item[] = [
   {
     category: 'helm',
     name: 'Cultist Hat',
+    saveFileSlug: 'armor_head_cultist',
     imagePath: '/helm/cultist_hat.png',
     id: 'x9jrx1',
     set: 'Cultist Set',
@@ -755,6 +758,7 @@ export const remnantItems: Item[] = [
   {
     category: 'helm',
     name: 'Elder Headdress',
+    saveFileSlug: 'armor_head_elder',
     imagePath: '/helm/elder_headdress.png',
     id: 'fek1ml',
     set: 'Elder Set',
@@ -772,6 +776,7 @@ export const remnantItems: Item[] = [
   {
     category: 'helm',
     name: 'Fae Royal Headcover',
+    saveFileSlug: 'armor_head_faeroyalguard',
     imagePath: '/helm/fae_royal_headcover.png',
     id: '88kdl6',
     set: 'Fae Royal Set',
@@ -788,6 +793,7 @@ export const remnantItems: Item[] = [
   {
     category: 'helm',
     name: 'Field Medic Hat',
+    saveFileSlug: 'armor_head_fieldcap',
     imagePath: '/helm/field_medic_hat.png',
     id: '48nh1x',
     armor: 10.6,
@@ -873,6 +879,7 @@ export const remnantItems: Item[] = [
   {
     category: 'helm',
     name: 'Leto Mark I Helmet',
+    saveFileSlug: 'armor_head_leto1',
     imagePath: '/helm/leto_mark_i_helmet.png',
     id: 'kc4dc0',
     set: 'Leto Mark I Set',
@@ -889,6 +896,7 @@ export const remnantItems: Item[] = [
   {
     category: 'helm',
     name: 'Leto Mark II Helmet',
+    saveFileSlug: 'armor_head_leto2',
     imagePath: '/helm/leto_mark_ii_helmet.png',
     id: 'sdsybp',
     set: 'Leto Mark II Set',
@@ -920,6 +928,7 @@ export const remnantItems: Item[] = [
   {
     category: 'helm',
     name: "Navigator's Helm",
+    saveFileSlug: 'armor_head_pilotshelm',
     imagePath: '/helm/navigators_helm.png',
     id: 'ovnzhv',
     armor: 16,
@@ -953,6 +962,7 @@ export const remnantItems: Item[] = [
   {
     category: 'helm',
     name: 'Radiant Visage',
+    saveFileSlug: 'armor_head_radiant',
     imagePath: '/helm/radiant_visage.png',
     id: 'hv4oqq',
     set: 'Radiant Set',
@@ -987,6 +997,7 @@ export const remnantItems: Item[] = [
   {
     category: 'helm',
     name: 'Red Widow Headdress',
+    saveFileSlug: 'armor_head_redwidow',
     imagePath: '/helm/red_widow_headdress.png',
     id: 'k6zlwn',
     set: 'Red Widow Set',
@@ -1003,6 +1014,7 @@ export const remnantItems: Item[] = [
   {
     category: 'helm',
     name: 'Space Worker Mask',
+    saveFileSlug: 'armor_head_spaceworker',
     imagePath: '/helm/space_worker_mask.png',
     id: 'n3vlkq',
     set: 'Space Worker Set',
@@ -1055,6 +1067,7 @@ export const remnantItems: Item[] = [
   {
     category: 'helm',
     name: 'Void Skull',
+    saveFileSlug: 'armor_head_void',
     imagePath: '/helm/void_skull.png',
     id: 's7tvfn',
     set: 'Void Set',
@@ -1141,6 +1154,7 @@ export const remnantItems: Item[] = [
   {
     category: 'torso',
     name: 'Crimson Guard Plate',
+    saveFileSlug: 'armor_body_crimsonguard',
     imagePath: '/torso/crimson_guard_plate.png',
     id: 'hz7ddb',
     set: 'Crimson Guard Set',
@@ -1159,6 +1173,7 @@ export const remnantItems: Item[] = [
   {
     category: 'torso',
     name: 'Cultist Duster',
+    saveFileSlug: 'armor_body_cultist',
     imagePath: '/torso/cultist_duster.png',
     id: 'w4emjx',
     set: 'Cultist Set',
@@ -1192,6 +1207,7 @@ export const remnantItems: Item[] = [
   {
     category: 'torso',
     name: 'Elder Raiment',
+    saveFileSlug: 'armor_body_elder',
     imagePath: '/torso/elder_raiment.png',
     id: 'zu64t4',
     set: 'Elder Set',
@@ -1209,6 +1225,7 @@ export const remnantItems: Item[] = [
   {
     category: 'torso',
     name: 'Fae Royal Bodyplate',
+    saveFileSlug: 'armor_body_faeroyalguard',
     imagePath: '/torso/fae_royal_bodyplate.png',
     id: '0sm6sn',
     set: 'Fae Royal Set',
@@ -1295,6 +1312,7 @@ export const remnantItems: Item[] = [
   {
     category: 'torso',
     name: 'Leto Mark I Armor',
+    saveFileSlug: 'armor_body_leto1',
     imagePath: '/torso/leto_mark_i_armor.png',
     id: 'y1xt79',
     set: 'Leto Mark I Set',
@@ -1311,6 +1329,7 @@ export const remnantItems: Item[] = [
   {
     category: 'torso',
     name: 'Leto Mark II Armor',
+    saveFileSlug: 'armor_body_leto2',
     imagePath: '/torso/leto_mark_ii_armor.png',
     id: 'ioksvz',
     set: 'Leto Mark II Set',
@@ -1345,6 +1364,7 @@ export const remnantItems: Item[] = [
   {
     category: 'torso',
     name: 'Radiant Protector',
+    saveFileSlug: 'armor_body_radiant',
     imagePath: '/torso/radiant_protector.png',
     id: 'dd5s6k',
     set: 'Radiant Set',
@@ -1379,6 +1399,7 @@ export const remnantItems: Item[] = [
   {
     category: 'torso',
     name: 'Red Widow Raiment',
+    saveFileSlug: 'armor_body_redwidow',
     imagePath: '/torso/red_widow_raiment.png',
     id: 'lude4p',
     set: 'Red Widow Set',
@@ -1395,6 +1416,7 @@ export const remnantItems: Item[] = [
   {
     category: 'torso',
     name: 'Space Worker Body',
+    saveFileSlug: 'armor_body_spaceworker',
     imagePath: '/torso/space_worker_body.png',
     id: 'jwanjw',
     set: 'Space Worker Set',
@@ -1411,6 +1433,7 @@ export const remnantItems: Item[] = [
   {
     category: 'torso',
     name: 'Survivor Overcoat',
+    saveFileSlug: 'armor_body_survivor',
     imagePath: '/torso/survivor_overcoat.png',
     id: 'jr8r1l',
     set: 'Survivor Set',
@@ -1463,6 +1486,7 @@ export const remnantItems: Item[] = [
   {
     category: 'torso',
     name: 'Void Carapace',
+    saveFileSlug: 'armor_body_void',
     imagePath: '/torso/void_carapace.png',
     id: 'rmq9je',
     set: 'Void Set',
@@ -1549,6 +1573,7 @@ export const remnantItems: Item[] = [
   {
     category: 'legs',
     name: 'Crimson Guard Sabatons',
+    saveFileSlug: 'armor_legs_crimsonguard',
     imagePath: '/legs/crimson_guard_sabatons.png',
     id: 'zk58sf',
     set: 'Crimson Guard Set',
@@ -1567,6 +1592,7 @@ export const remnantItems: Item[] = [
   {
     category: 'legs',
     name: 'Cultist Britches',
+    saveFileSlug: 'armor_legs_cultist',
     imagePath: '/legs/cultist_britches.png',
     id: 'mr4hn3',
     set: 'Cultist Set',
@@ -1600,6 +1626,7 @@ export const remnantItems: Item[] = [
   {
     category: 'legs',
     name: 'Elder Leggings',
+    saveFileSlug: 'armor_legs_elder',
     imagePath: '/legs/elder_leggings.png',
     id: 'tfvyyg',
     set: 'Elder Set',
@@ -1617,6 +1644,7 @@ export const remnantItems: Item[] = [
   {
     category: 'legs',
     name: 'Fae Royal Greaves',
+    saveFileSlug: 'armor_legs_faeroyalguard',
     imagePath: '/legs/fae_royal_greaves.png',
     id: 'pi4h8k',
     set: 'Fae Royal Set',
@@ -1703,6 +1731,7 @@ export const remnantItems: Item[] = [
   {
     category: 'legs',
     name: 'Leto Mark I Leggings',
+    saveFileSlug: 'armor_legs_leto1',
     imagePath: '/legs/leto_mark_i_leggings.png',
     id: '59uhgg',
     set: 'Leto Mark I Set',
@@ -1719,6 +1748,7 @@ export const remnantItems: Item[] = [
   {
     category: 'legs',
     name: 'Leto Mark II Leggings',
+    saveFileSlug: 'armor_legs_leto2',
     imagePath: '/legs/leto_mark_ii_leggings.png',
     id: 't8auqk',
     set: 'Leto Mark II Set',
@@ -1753,6 +1783,7 @@ export const remnantItems: Item[] = [
   {
     category: 'legs',
     name: 'Radiant Greaves',
+    saveFileSlug: 'armor_legs_radiant',
     imagePath: '/legs/radiant_greaves.png',
     id: 'vsg3ue',
     set: 'Radiant Set',
@@ -1787,6 +1818,7 @@ export const remnantItems: Item[] = [
   {
     category: 'legs',
     name: 'Red Widow Leggings',
+    saveFileSlug: 'armor_legs_redwidow',
     imagePath: '/legs/red_widow_leggings.png',
     id: 'e4fbbu',
     set: 'Red Widow Set',
@@ -1803,6 +1835,7 @@ export const remnantItems: Item[] = [
   {
     category: 'legs',
     name: 'Space Worker Legs',
+    saveFileSlug: 'armor_legs_spaceworker',
     imagePath: '/legs/space_worker_legs.png',
     id: 'rsyilr',
     set: 'Space Worker Set',
@@ -1819,6 +1852,7 @@ export const remnantItems: Item[] = [
   {
     category: 'legs',
     name: 'Survivor Leggings',
+    saveFileSlug: 'armor_legs_survivor',
     imagePath: '/legs/survivor_leggings.png',
     id: 'gv2eqj',
     set: 'Survivor Set',
@@ -1871,6 +1905,7 @@ export const remnantItems: Item[] = [
   {
     category: 'legs',
     name: 'Void Greaves',
+    saveFileSlug: 'armor_legs_void',
     imagePath: '/legs/void_greaves.png',
     id: '73lqjk',
     set: 'Void Set',
@@ -1957,6 +1992,7 @@ export const remnantItems: Item[] = [
   {
     category: 'gloves',
     name: 'Crimson Guard Gauntlets',
+    saveFileSlug: 'armor_gloves_crimsonguard',
     imagePath: '/gloves/crimson_guard_gauntlets.png',
     id: 'ms9geh',
     set: 'Crimson Guard Set',
@@ -1975,6 +2011,7 @@ export const remnantItems: Item[] = [
   {
     category: 'gloves',
     name: 'Cultist Gloves',
+    saveFileSlug: 'armor_gloves_cultist',
     imagePath: '/gloves/cultist_gloves.png',
     id: '6jrywg',
     set: 'Cultist Set',
@@ -2008,6 +2045,7 @@ export const remnantItems: Item[] = [
   {
     category: 'gloves',
     name: 'Elder Gloves',
+    saveFileSlug: 'armor_gloves_elder',
     imagePath: '/gloves/elder_gloves.png',
     id: '1ijl54',
     set: 'Elder Set',
@@ -2025,6 +2063,7 @@ export const remnantItems: Item[] = [
   {
     category: 'gloves',
     name: 'Fae Royal Vambraces',
+    saveFileSlug: 'armor_gloves_faeroyalguard',
     imagePath: '/gloves/fae_royal_vambraces.png',
     id: '6005lk',
     set: 'Fae Royal Set',
@@ -2111,6 +2150,7 @@ export const remnantItems: Item[] = [
   {
     category: 'gloves',
     name: 'Leto Mark I Gloves',
+    saveFileSlug: 'armor_gloves_leto1',
     imagePath: '/gloves/leto_mark_i_gloves.png',
     id: '2lqg9t',
     set: 'Leto Mark I Set',
@@ -2127,6 +2167,7 @@ export const remnantItems: Item[] = [
   {
     category: 'gloves',
     name: 'Leto Mark II Gloves',
+    saveFileSlug: 'armor_gloves_leto2',
     imagePath: '/gloves/leto_mark_ii_gloves.png',
     id: 'nfxk7i',
     set: 'Leto Mark II Set',
@@ -2161,6 +2202,7 @@ export const remnantItems: Item[] = [
   {
     category: 'gloves',
     name: 'Radiant Bracers',
+    saveFileSlug: 'armor_gloves_radiant',
     imagePath: '/gloves/radiant_bracers.png',
     id: 'rjm014',
     set: 'Radiant Set',
@@ -2195,6 +2237,7 @@ export const remnantItems: Item[] = [
   {
     category: 'gloves',
     name: 'Red Widow Bracers',
+    saveFileSlug: 'armor_gloves_redwidow',
     imagePath: '/gloves/red_widow_bracers.png',
     id: '7uqilq',
     set: 'Red Widow Set',
@@ -2211,6 +2254,7 @@ export const remnantItems: Item[] = [
   {
     category: 'gloves',
     name: 'Space Worker Gloves',
+    saveFileSlug: 'armor_gloves_spaceworker',
     imagePath: '/gloves/space_worker_gloves.png',
     id: '6clcha',
     set: 'Space Worker Set',
@@ -2227,6 +2271,7 @@ export const remnantItems: Item[] = [
   {
     category: 'gloves',
     name: 'Survivor Gloves',
+    saveFileSlug: 'armor_gloves_survivor',
     imagePath: '/gloves/survivor_gloves.png',
     id: 'ws5jah',
     set: 'Survivor Set',
@@ -2279,6 +2324,7 @@ export const remnantItems: Item[] = [
   {
     category: 'gloves',
     name: 'Void Wraps',
+    saveFileSlug: 'armor_gloves_void',
     imagePath: '/gloves/void_wraps.png',
     id: 'a527cd',
     set: 'Void Set',
@@ -2790,6 +2836,7 @@ export const remnantItems: Item[] = [
     category: 'weapon',
     type: 'long gun',
     name: 'AS-10 Bulldog',
+    saveFileSlug: 'weapon_autoshotgun',
     imagePath: '/mainhand/as_10_bulldog.png',
     id: 'va7cfd',
     description: ``,
@@ -2801,6 +2848,7 @@ export const remnantItems: Item[] = [
     category: 'weapon',
     type: 'long gun',
     name: 'Blackmaw AR-47',
+    saveFileSlug: 'weapon_assaultrifle',
     imagePath: '/mainhand/blackmaw_ar_47.png',
     id: 'phh1xe',
     description: ``,
@@ -2812,6 +2860,7 @@ export const remnantItems: Item[] = [
     category: 'weapon',
     type: 'long gun',
     name: 'Chicago Typewriter',
+    saveFileSlug: 'weapon_tommygun',
     imagePath: '/mainhand/chicago_typewriter.png',
     id: '59oddb',
     description: ``,
@@ -2920,6 +2969,7 @@ export const remnantItems: Item[] = [
     category: 'weapon',
     type: 'long gun',
     name: "Ford's Scattergun",
+    saveFileSlug: 'weapon_shotgun',
     imagePath: '/mainhand/fords_scattergun.png',
     id: '8n3e07',
     description: ``,
@@ -2930,6 +2980,7 @@ export const remnantItems: Item[] = [
     category: 'weapon',
     type: 'long gun',
     name: 'Huntmaster M1',
+    saveFileSlug: 'weapon_huntmaster',
     imagePath: '/mainhand/huntmaster_m1.png',
     id: 'cda7lb',
     description: ``,
@@ -3027,6 +3078,7 @@ export const remnantItems: Item[] = [
     category: 'weapon',
     type: 'long gun',
     name: 'Royal Hunting Bow',
+    saveFileSlug: 'weapon_bow',
     imagePath: '/mainhand/royal_hunting_bow.png',
     id: '8ouocq',
     description: ``,
@@ -3037,6 +3089,7 @@ export const remnantItems: Item[] = [
     category: 'weapon',
     type: 'long gun',
     name: 'Rusty Lever Action',
+    saveFileSlug: 'weapon_leveraction_rusty',
     imagePath: '/mainhand/rusty_lever_action.png',
     id: 'gv6yzu',
     description: ``,
@@ -3073,6 +3126,7 @@ export const remnantItems: Item[] = [
     category: 'weapon',
     type: 'long gun',
     name: 'Sparkfire Shotgun',
+    saveFileSlug: 'weapon_sparkfire',
     imagePath: '/mainhand/sparkfire_shotgun.png',
     id: '3r9jm7',
     description: ``,
@@ -3120,6 +3174,7 @@ export const remnantItems: Item[] = [
     category: 'weapon',
     type: 'long gun',
     name: 'Widowmaker',
+    saveFileSlug: 'weapon_sniperrifle',
     imagePath: '/mainhand/widowmaker.png',
     id: 'fqdvas',
     description: ``,
@@ -3130,6 +3185,7 @@ export const remnantItems: Item[] = [
     category: 'weapon',
     type: 'long gun',
     name: 'Wrangler 1860',
+    saveFileSlug: 'weapon_leveraction',
     imagePath: '/mainhand/wrangler_1860.png',
     id: '5aninv',
     description: ``,
@@ -3140,6 +3196,7 @@ export const remnantItems: Item[] = [
     category: 'weapon',
     type: 'long gun',
     name: 'XMG57 Bonesaw',
+    saveFileSlug: 'weapon_lmg',
     imagePath: '/mainhand/xmg57_bonesaw.png',
     id: 'rbpz53',
     description: ``,
@@ -3273,6 +3330,7 @@ export const remnantItems: Item[] = [
     category: 'weapon',
     type: 'melee',
     name: 'Feral Judgement',
+    saveFileSlug: 'weapon_feraljudgment',
     imagePath: '/melee/feral_judgement.png',
     id: 'umb305',
     description: ``,
@@ -3288,6 +3346,7 @@ export const remnantItems: Item[] = [
     category: 'weapon',
     type: 'melee',
     name: 'Gas Giant',
+    saveFileSlug: 'weapon_talratha_hammer',
     imagePath: '/melee/gas_giant.png',
     id: 'c58759',
     description: ``,
@@ -3487,6 +3546,7 @@ export const remnantItems: Item[] = [
     category: 'weapon',
     type: 'melee',
     name: 'Scrap Hammer',
+    saveFileSlug: 'weapon_hammer',
     imagePath: '/melee/scrap_hammer.png',
     id: 'a88cg7',
     description: ``,
@@ -3497,6 +3557,7 @@ export const remnantItems: Item[] = [
     category: 'weapon',
     type: 'melee',
     name: 'Scrap Hatchet',
+    saveFileSlug: 'weapon_hatchet',
     imagePath: '/melee/scrap_hatchet.png',
     id: 'wtj6mq',
     description: ``,
@@ -3507,6 +3568,7 @@ export const remnantItems: Item[] = [
     category: 'weapon',
     type: 'melee',
     name: 'Scrap Staff',
+    saveFileSlug: 'weapon_staff',
     imagePath: '/melee/scrap_staff.png',
     id: 'fp5yi4',
     description: ``,
@@ -3542,6 +3604,7 @@ export const remnantItems: Item[] = [
     category: 'weapon',
     type: 'melee',
     name: 'Steel Flail',
+    saveFileSlug: 'weapon_flail',
     imagePath: '/melee/steel_flail.png',
     id: 'ji6tpl',
     description: ``,
@@ -3552,6 +3615,7 @@ export const remnantItems: Item[] = [
     category: 'weapon',
     type: 'melee',
     name: 'Steel Katana',
+    saveFileSlug: 'weapon_katana',
     imagePath: '/melee/steel_katana.png',
     id: '0cnwdx',
     description: ``,
@@ -3563,6 +3627,7 @@ export const remnantItems: Item[] = [
     category: 'weapon',
     type: 'melee',
     name: 'Steel Scythe',
+    saveFileSlug: 'weapon_scythe',
     imagePath: '/melee/steel_scythe.png',
     id: '2po1q8',
     description: ``,
@@ -3573,6 +3638,7 @@ export const remnantItems: Item[] = [
     category: 'weapon',
     type: 'melee',
     name: 'Steel Spear',
+    saveFileSlug: 'weapon_spear',
     imagePath: '/melee/steel_spear.png',
     id: 'vbzlfk',
     description: ``,
@@ -3583,6 +3649,7 @@ export const remnantItems: Item[] = [
     category: 'weapon',
     type: 'melee',
     name: 'Steel Sword',
+    saveFileSlug: 'weapon_sword',
     imagePath: '/melee/steel_sword.png',
     id: 'zsb5g1',
     description: ``,
@@ -3721,6 +3788,7 @@ export const remnantItems: Item[] = [
     category: 'weapon',
     type: 'hand gun',
     name: 'Double Barrel',
+    saveFileSlug: 'weapon_shortbarrel',
     imagePath: '/offhand/double_barrel.png',
     id: 'ztz84h',
     description: ``,
@@ -3801,6 +3869,7 @@ export const remnantItems: Item[] = [
     category: 'weapon',
     type: 'hand gun',
     name: 'Repeater Pistol',
+    saveFileSlug: 'weapon_repeater',
     imagePath: '/offhand/repeater_pistol.png',
     id: 'pbtmmj',
     description: ``,
@@ -3837,6 +3906,7 @@ export const remnantItems: Item[] = [
     category: 'weapon',
     type: 'hand gun',
     name: 'Rusty Repeater',
+    saveFileSlug: 'weapon_repeater_rusty',
     imagePath: '/offhand/rusty_repeater.png',
     id: 't412us',
     description: ``,
@@ -3857,6 +3927,7 @@ export const remnantItems: Item[] = [
     category: 'weapon',
     type: 'hand gun',
     name: 'Silverback Model 500',
+    saveFileSlug: 'weapon_magnum',
     imagePath: '/offhand/silverback_model_500.png',
     id: '46cwa6',
     description: ``,
@@ -3897,6 +3968,7 @@ export const remnantItems: Item[] = [
     category: 'weapon',
     type: 'hand gun',
     name: 'Sureshot',
+    saveFileSlug: 'weapon_huntingpistol',
     imagePath: '/offhand/sureshot.png',
     id: '50i9nj',
     description: ``,
@@ -3917,6 +3989,7 @@ export const remnantItems: Item[] = [
     category: 'weapon',
     type: 'hand gun',
     name: 'Western Classic',
+    saveFileSlug: 'weapon_revolver',
     imagePath: '/offhand/western_classic.png',
     id: 'hk5uls',
     description: ``,
@@ -5867,6 +5940,7 @@ export const remnantItems: Item[] = [
   {
     category: 'ring',
     name: 'Ahanae Crystal',
+    saveFileSlug: 'ring_panmagesigil',
     imagePath: '/ring/ahanae_crystal.png',
     id: 'azy0pj',
   },
@@ -6230,12 +6304,14 @@ export const remnantItems: Item[] = [
   {
     category: 'ring',
     name: "Embrace of Sha'Hala",
+    saveFileSlug: 'ring_downgradedring',
     imagePath: '/ring/embrace_of_shahala.png',
     id: 'h2g5z3',
   },
   {
     category: 'ring',
     name: 'Encrypted Ring',
+    saveFileSlug: 'ring_encryptedloop',
     imagePath: '/ring/encrypted_ring.png',
     id: 'g1u6gi',
   },
@@ -6320,6 +6396,7 @@ export const remnantItems: Item[] = [
   {
     category: 'ring',
     name: 'Focusing Shard',
+    saveFileSlug: 'ring_focusedjewel',
     imagePath: '/ring/focusing_shard.png',
     id: 'o7grsg',
   },
@@ -6608,6 +6685,7 @@ export const remnantItems: Item[] = [
   {
     category: 'ring',
     name: 'Ring of the Damned',
+    saveFileSlug: 'ring_strongarmband',
     imagePath: '/ring/ring_of_the_damned.png',
     id: 'jbfxsb',
   },
