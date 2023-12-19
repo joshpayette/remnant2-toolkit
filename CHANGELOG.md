@@ -14,6 +14,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Item Tracker now correctly identifies and discovered all items in the save file.
 - Fixed bug where Item Tracker would fail on importing a save file a second time. Added a page reload after import to fix this.
+- Fixed bug where mutators would show up when choosing a melee weapon in the builder.
 
 ## 2023-12-18
 

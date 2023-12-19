@@ -190,7 +190,7 @@ export default function useBuilder() {
       }
 
       return (unequippedItems as WeaponItem[]).filter(
-        (item) => item.type === type,
+        (item) => item.category === 'weapon' && item.type === type,
       )
     }
 
@@ -210,6 +210,7 @@ export default function useBuilder() {
       if (!buildWeapon) return []
 
       const weaponType = buildWeapon.type === 'melee' ? 'melee' : 'gun'
+
       return (unequippedItems as MutatorItem[]).filter(
         (item) => item.category === 'mutator' && item.type === weaponType,
       )
