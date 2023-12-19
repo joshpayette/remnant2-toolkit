@@ -7,6 +7,7 @@ import { remnantItemCategories } from '@/app/(data)'
 import useQueryString from '@/app/builder/(components)/useBuilder'
 import { type TraitItem } from '@/app/(types)'
 import Link from 'next/link'
+import { toast } from 'react-toastify'
 
 export default function Actions({
   showControls,
@@ -120,7 +121,7 @@ export default function Actions({
         className="flex flex-col items-center rounded border border-purple-500 px-4 py-2 text-sm font-bold text-white hover:bg-purple-700"
         onClick={() => {
           copy(window.location.href)
-          alert('Copied to clipboard!')
+          toast.success('Copied Build URL to clipboard')
         }}
       >
         Copy Build URL

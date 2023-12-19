@@ -1,10 +1,13 @@
 import { Inter } from 'next/font/google'
 import NavBar from '@/app/(components)/NavBar'
-import './globals.css'
 import { cn } from '@/app/(lib)/utils'
 import Footer from '@/app/(components)/Footer'
 export { metadata } from './metadata'
 import { Analytics } from '@vercel/analytics/react'
+import { ToastContainer } from 'react-toastify'
+
+import './globals.css'
+import 'react-toastify/dist/ReactToastify.css'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -26,6 +29,7 @@ export default function RootLayout({
             <NavBar />
           </header>
           <main className="flex h-full w-full grow flex-col items-center justify-start p-4">
+            <ToastContainer theme="dark" />
             {children}
           </main>
         </div>
