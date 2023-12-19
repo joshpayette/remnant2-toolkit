@@ -11,7 +11,7 @@ import Traits from './Traits'
 import ItemSelect from './ItemSelect'
 import Logo from '@/app/(components)/Logo'
 
-export default function Builder({
+export default function BuilderPage({
   isScreenshotMode,
   showControls,
   showLabels,

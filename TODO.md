@@ -1,5 +1,7 @@
 # TODO
 
+- Add save game import
+- Add CSV import
 - Add filters to featured builds, anticipating more build submissions!
 - Add a way to submit builds directly through the site
 

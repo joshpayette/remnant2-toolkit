@@ -28,7 +28,7 @@ export const navItems = [
     icon: DocumentCheckIcon,
   },
   {
-    name: 'Item Info',
+    name: 'Item Lookup',
     description: 'Look up info on all the items in Remnant 2.',
     href: '/item-lookup',
     icon: InformationCircleIcon,
