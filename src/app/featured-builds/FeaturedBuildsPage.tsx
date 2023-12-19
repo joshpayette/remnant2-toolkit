@@ -12,8 +12,10 @@ import { pageInfo as dudleysBloodHunterPageInfo } from './build/dudleys-blood-hu
 import { pageInfo as dudleysEldritchKnightPageInfo } from './build/dudleys-eldritch-knight/metadata'
 import { pageInfo as senorcervezasBossMelterPageInfo } from './build/senorcervezas-boss-melter/metadata'
 import { pageInfo as senorcervezasGrayHealthPageInfo } from './build/senorcervezas-easy-mode-gray-health/metadata'
+import { pageInfo as senorcervezasBuffMasterPageInfo } from './build/senorcervezas_buff_master_support/metadata'
 
 const builds = [
+  senorcervezasBuffMasterPageInfo,
   senorcervezasGrayHealthPageInfo,
   senorcervezasBossMelterPageInfo,
   dudleysEldritchKnightPageInfo,
