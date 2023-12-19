@@ -9,8 +9,10 @@ import { pageInfo as bleedCritPageInfo } from './build/bolt-jamisons-bleed-crit/
 import { pageInfo as mrNachosNightfallBuildPageInfo } from './build/mr-nachos-nightfall-build/metadata'
 import { pageInfo as mrNachosEGGBuildPageInfo } from './build/mr-nachos-egg-build/metadata'
 import { pageInfo as dudleysBloodHunterPageInfo } from './build/dudleys-blood-hunter/metadata'
+import { pageInfo as dudleysEldritchKnightPageInfo } from './build/dudleys-eldritch-knight/metadata'
 
 const builds = [
+  dudleysEldritchKnightPageInfo,
   dudleysBloodHunterPageInfo,
   mrNachosNightfallBuildPageInfo,
   mrNachosEGGBuildPageInfo,

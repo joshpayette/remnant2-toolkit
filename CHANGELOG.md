@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ### Added
 
+- Added Dudley's Eldritch Knight build to featured builds.
 - Added Dudley's Blood Hunter build to featured builds.
 
 ### Fixed
