@@ -33,7 +33,7 @@ export default function ItemCard({ item, onClick }: ItemCardProps) {
         {onClick ? (
           <button
             onClick={onClick}
-            className="h-full max-h-full w-full max-w-full"
+            className="h-full max-h-full w-full max-w-full overflow-hidden"
           >
             <CardImage item={item} />
           </button>
