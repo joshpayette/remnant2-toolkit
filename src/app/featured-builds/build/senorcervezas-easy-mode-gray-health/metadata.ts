@@ -1,11 +1,11 @@
 import { metadata as baseMetaData } from '@/app/metadata'
 
-const title = `YOUR BUILD NAME`
-const description = `YOUR BUILD DESCRIPTION`
-const slug = 'build-folder-name'
+const title = `SenorCerveza's Easy Mode Gray Health Build`
+const description = `Everything that makes Remnant 2 a challenging Game, get's completely removed. Period. Turn any encounter into Easy mode with this unstoppable Gray Health Allround Build.`
+const slug = 'senorcervezas-easy-mode-gray-health'
 const url = `https://remnant2toolkit.com/featured-builds/build/${slug}`
 const ogImageUrl =
-  'https://d2sqltdcj8czo5.cloudfront.net/featured-builds/YOUR_BUILD_IMAGE_NAME.png'
+  'https://d2sqltdcj8czo5.cloudfront.net/featured-builds/senorcervezas_gray_health.png'
 
 export const pageInfo = {
   title,
