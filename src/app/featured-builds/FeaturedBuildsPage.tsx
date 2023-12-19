@@ -8,8 +8,10 @@ import { pageInfo as speedFarmingPageInfo } from './build/speed-farming/metadata
 import { pageInfo as bleedCritPageInfo } from './build/bolt-jamisons-bleed-crit/metadata'
 import { pageInfo as mrNachosNightfallBuildPageInfo } from './build/mr-nachos-nightfall-build/metadata'
 import { pageInfo as mrNachosEGGBuildPageInfo } from './build/mr-nachos-egg-build/metadata'
+import { pageInfo as dudleysBloodHunterPageInfo } from './build/dudleys-blood-hunter/metadata'
 
 const builds = [
+  dudleysBloodHunterPageInfo,
   mrNachosNightfallBuildPageInfo,
   mrNachosEGGBuildPageInfo,
   bleedCritPageInfo,

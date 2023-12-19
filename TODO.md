@@ -9,6 +9,8 @@
 
 ## Bugs
 
+- When selecting melee weapon, mutators also show up
+
 ## Maybe TODO
 
 - When exporting build, put each weapon and mod next to each other?
