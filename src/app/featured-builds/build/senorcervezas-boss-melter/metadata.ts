@@ -1,6 +1,6 @@
 import { metadata as baseMetaData } from '@/app/metadata'
 
-const title = "Senor Cerveza's Boss Melter"
+const title = "SenorCerveza's Boss Melter"
 const description = `This is the BOSS MELTER! Literally... We are going to take down Annihilation or Ravager in around 1 Minute and 30 Seconds each with this extremely powerfull Plasma Cutter Build.`
 const slug = 'senorcervezas-boss-melter'
 const url = `https://remnant2toolkit.com/featured-builds/build/${slug}`
