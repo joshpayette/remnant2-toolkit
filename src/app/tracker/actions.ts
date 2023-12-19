@@ -11,10 +11,18 @@ import zlib from 'zlib'
 export default async function parseSaveFile(
   prevState: any,
   formData: FormData,
-) {
+): Promise<{ convertedSave: string | null; error?: string }> {
   const saveFile = formData.get('saveFile') as File | null
   if (!saveFile) {
     throw new Error('No file provided')
+  }
+  if (saveFile.name !== 'profile.sav') {
+    const message = 'Invalid file name, should be profile.sav'
+    console.error(message)
+    return {
+      convertedSave: null,
+      error: message,
+    }
   }
   const buffer = await saveFile.arrayBuffer()
   try {
@@ -29,6 +37,7 @@ export default async function parseSaveFile(
     console.error('Error in parseSaveFile', e)
     return {
       convertedSave: null,
+      error: `Unknown error parsing save file`,
     }
   }
 }

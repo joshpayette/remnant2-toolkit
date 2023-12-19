@@ -68,7 +68,15 @@ export default function TrackerPage() {
   // If the upload form response changes, we need to set the save data
   useEffect(() => {
     if (!uploadFormResponse) return
-    const { convertedSave } = uploadFormResponse
+
+    const { convertedSave, error } = uploadFormResponse
+
+    if (error) {
+      toast.error(error)
+      if (fileInput.current) fileInput.current.value = ''
+      return
+    }
+
     if (!convertedSave) return
     saveData.current = convertedSave
   }, [uploadFormResponse])
@@ -207,7 +215,7 @@ export default function TrackerPage() {
           <div className="mb-4 rounded border border-purple-500">
             <form
               action={formAction}
-              className="grid grid-cols-1 sm:grid-cols-3"
+              className="grid grid-cols-1 bg-black sm:grid-cols-3"
             >
               <input
                 type="file"
@@ -220,17 +228,17 @@ export default function TrackerPage() {
                 className="flex items-center justify-center border border-transparent bg-purple-500 p-2 px-2 text-sm font-bold text-white hover:border-purple-500 hover:bg-purple-700"
               />
               <div className="col-span-full bg-black">
-                <p className="p-2 text-sm text-green-500">
-                  You can find your save file in the following location:
-                  <pre>
-                    C:\Users\_your_username_\Saved
-                    Games\Remnant2\Steam\_steam_id_\profile.sav
-                  </pre>
-                </p>
                 <p className="p-2 text-sm text-red-500">
                   Note: About 90% of the items are currently discoverable via
                   import. The rest will be added soon.
                 </p>
+                <p className="px-2 text-sm text-green-500">
+                  You can find your save file in the following location:
+                </p>
+                <pre className="px-2 text-sm">
+                  C:\Users\_your_username_\Saved
+                  Games\Remnant2\Steam\_steam_id_\profile.sav
+                </pre>
               </div>
             </form>
           </div>
