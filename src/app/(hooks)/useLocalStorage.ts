@@ -34,9 +34,14 @@ export const useLocalStorage = () => {
     initialValue.builder,
   )
 
+  function setDiscoveredItemIds(ids: string[]) {
+    setItemTrackerStorage({ ...itemTrackerStorage, discoveredItemIds: ids })
+  }
+
   return {
     itemTrackerStorage,
     setItemTrackerStorage,
+    setDiscoveredItemIds,
     builderStorage,
     setBuilderStorage,
   }

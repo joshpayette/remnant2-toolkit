@@ -640,6 +640,7 @@ export const remnantItems: Item[] = [
   {
     category: 'helm',
     name: "Academic's Hat",
+    saveFileSlug: 'armor_head_alchemist',
     imagePath: '/helm/academics_hat.png',
     id: '9qo2gg',
     set: "Academic's Set",
@@ -656,6 +657,7 @@ export const remnantItems: Item[] = [
   {
     category: 'helm',
     name: "Bandit's Mask",
+    saveFileSlug: 'armor_head_bandit',
     imagePath: '/helm/bandits_mask.png',
     id: 'v66pgu',
     set: 'Bandit Set',
@@ -672,6 +674,7 @@ export const remnantItems: Item[] = [
   {
     category: 'helm',
     name: 'Bruiser Helmet',
+    saveFileSlug: 'armor_head_challenger',
     imagePath: '/helm/bruiser_helmet.png',
     id: 'bd4pam',
     set: 'Bruiser Set',
@@ -735,6 +738,7 @@ export const remnantItems: Item[] = [
   {
     category: 'helm',
     name: 'Dendroid Mask',
+    saveFileSlug: 'armor_head_invader',
     imagePath: '/helm/dendroid_mask.png',
     id: 'y7fa8n',
     set: 'Dendroid Set',
@@ -799,6 +803,7 @@ export const remnantItems: Item[] = [
   {
     category: 'helm',
     name: 'Field Medic Mask',
+    saveFileSlug: 'armor_head_medic',
     imagePath: '/helm/field_medic_mask.png',
     id: 'e1waki',
     set: 'Field Medic Set',
@@ -816,6 +821,7 @@ export const remnantItems: Item[] = [
   {
     category: 'helm',
     name: 'High Noon Hat',
+    saveFileSlug: 'armor_head_gunslinger',
     imagePath: '/helm/high_noon_hat.png',
     id: '94xkn1',
     set: 'High Noon Set',
@@ -833,6 +839,7 @@ export const remnantItems: Item[] = [
   {
     category: 'helm',
     name: 'Knotted Helm',
+    saveFileSlug: 'armor_head_summoner',
     imagePath: '/helm/knotted_helm.png',
     id: 'oab1w0',
     set: 'Knotted Set',
@@ -849,9 +856,10 @@ export const remnantItems: Item[] = [
   {
     category: 'helm',
     name: 'Labyrinth Headplate',
+    saveFileSlug: 'armor_head_archon',
     imagePath: '/helm/labyrinth_headplate.png',
     id: 'im7fm2',
-    set: 'Labryinth Set',
+    set: 'Labyrinth Set',
     armor: 12.9,
     weight: 5.4,
     bleedResistance: 0,
@@ -927,6 +935,7 @@ export const remnantItems: Item[] = [
   {
     category: 'helm',
     name: 'Nightstalker Shroud',
+    saveFileSlug: 'armor_head_hunter',
     imagePath: '/helm/nightstalker_shroud.png',
     id: 'zy1ce3',
     set: 'Nightstalker Set',
@@ -961,6 +970,7 @@ export const remnantItems: Item[] = [
   {
     category: 'helm',
     name: 'Realmwalker Beret',
+    saveFileSlug: 'armor_head_explorer',
     imagePath: '/helm/realmwalker_beret.png',
     id: 'abhqna',
     set: 'Realmwalker Set',
@@ -1009,6 +1019,7 @@ export const remnantItems: Item[] = [
   {
     category: 'helm',
     name: 'Technician Helmet',
+    saveFileSlug: 'armor_head_engineer',
     imagePath: '/helm/technician_helmet.png',
     id: 'gsctum',
     set: 'Technician Set',
@@ -1026,6 +1037,7 @@ export const remnantItems: Item[] = [
   {
     category: 'helm',
     name: 'Trainer Cap',
+    saveFileSlug: 'armor_head_handler',
     imagePath: '/helm/trainer_cap.png',
     id: 'm8wgy9',
     set: 'Trainer Set',
@@ -1060,6 +1072,7 @@ export const remnantItems: Item[] = [
   {
     category: 'helm',
     name: "Zealot's Hat",
+    saveFileSlug: 'armor_head_ritualist',
     imagePath: '/helm/zealots_hat.png',
     id: 'ts1v89',
     set: "Zealot's Set",
@@ -1076,6 +1089,7 @@ export const remnantItems: Item[] = [
   {
     category: 'torso',
     name: "Academic's Overcoat",
+    saveFileSlug: 'armor_body_alchemist',
     imagePath: '/torso/academics_overcoat.png',
     id: 'zk8f7a',
     set: `Academic's Set`,
@@ -1092,6 +1106,7 @@ export const remnantItems: Item[] = [
   {
     category: 'torso',
     name: 'Bandit Jacket',
+    saveFileSlug: 'armor_body_bandit',
     imagePath: '/torso/bandit_jacket.png',
     id: 'h04d6v',
     set: 'Bandit Set',
@@ -1108,6 +1123,7 @@ export const remnantItems: Item[] = [
   {
     category: 'torso',
     name: 'Bruiser Bodyplate',
+    saveFileSlug: 'armor_body_challenger',
     imagePath: '/torso/bruiser_bodyplate.png',
     id: 'trz2cm',
     set: 'Bruiser Set',
@@ -1159,6 +1175,7 @@ export const remnantItems: Item[] = [
   {
     category: 'torso',
     name: 'Dendroid Chest',
+    saveFileSlug: 'armor_body_invader',
     imagePath: '/torso/dendroid_chest.png',
     id: 'uoddub',
     set: 'Dendroid Set',
@@ -1208,6 +1225,7 @@ export const remnantItems: Item[] = [
   {
     category: 'torso',
     name: 'Field Medic Overcoat',
+    saveFileSlug: 'armor_body_medic',
     imagePath: '/torso/field_medic_overcoat.png',
     id: 'm07a0z',
     set: 'Field Medic Set',
@@ -1225,6 +1243,7 @@ export const remnantItems: Item[] = [
   {
     category: 'torso',
     name: 'High Noon Duds',
+    saveFileSlug: 'armor_body_gunslinger',
     imagePath: '/torso/high_noon_duds.png',
     id: 'uszg5g',
     set: 'High Noon Set',
@@ -1242,6 +1261,7 @@ export const remnantItems: Item[] = [
   {
     category: 'torso',
     name: 'Knotted Cage',
+    saveFileSlug: 'armor_body_summoner',
     imagePath: '/torso/knotted_cage.png',
     id: 'n92z22',
     set: 'Knotted Set',
@@ -1258,9 +1278,10 @@ export const remnantItems: Item[] = [
   {
     category: 'torso',
     name: 'Labyrinth Mantle',
+    saveFileSlug: 'armor_body_archon',
     imagePath: '/torso/labyrinth_mantle.png',
     id: 'ivwkr5',
-    set: 'Labryinth Set',
+    set: 'Labyrinth Set',
     armor: 51,
     weight: 21.6,
     bleedResistance: 0,
@@ -1306,6 +1327,7 @@ export const remnantItems: Item[] = [
   {
     category: 'torso',
     name: 'Nightstalker Garb',
+    saveFileSlug: 'armor_body_hunter',
     imagePath: '/torso/nightstalker_garb.png',
     id: 'lqrdx5',
     set: 'Nightstalker Set',
@@ -1340,6 +1362,7 @@ export const remnantItems: Item[] = [
   {
     category: 'torso',
     name: 'Realmwalker Tunic',
+    saveFileSlug: 'armor_body_explorer',
     imagePath: '/torso/realmwalker_tunic.png',
     id: '2h9xgj',
     set: 'Realmwalker Set',
@@ -1404,6 +1427,7 @@ export const remnantItems: Item[] = [
   {
     category: 'torso',
     name: 'Technician Bodyplate',
+    saveFileSlug: 'armor_body_engineer',
     imagePath: '/torso/technician_bodyplate.png',
     id: '0c35xs',
     set: 'Technician Set',
@@ -1421,6 +1445,7 @@ export const remnantItems: Item[] = [
   {
     category: 'torso',
     name: 'Trainer Clothes',
+    saveFileSlug: 'armor_body_handler',
     imagePath: '/torso/trainer_clothes.png',
     id: 'ldli1k',
     set: 'Trainer Set',
@@ -1455,6 +1480,7 @@ export const remnantItems: Item[] = [
   {
     category: 'torso',
     name: "Zealot's Overcoat",
+    saveFileSlug: 'armor_body_ritualist',
     imagePath: '/torso/zealots_overcoat.png',
     id: 'ym0mau',
     set: "Zealot's Set",
@@ -1471,6 +1497,7 @@ export const remnantItems: Item[] = [
   {
     category: 'legs',
     name: "Academic's Trousers",
+    saveFileSlug: 'armor_legs_alchemist',
     imagePath: '/legs/academics_trousers.png',
     id: '9b43cb',
     set: `Academic's Set`,
@@ -1487,6 +1514,7 @@ export const remnantItems: Item[] = [
   {
     category: 'legs',
     name: 'Bandit Trousers',
+    saveFileSlug: 'armor_legs_bandit',
     imagePath: '/legs/bandit_trousers.png',
     id: 'zdv44y',
     set: 'Bandit Set',
@@ -1503,6 +1531,7 @@ export const remnantItems: Item[] = [
   {
     category: 'legs',
     name: 'Bruiser Boots',
+    saveFileSlug: 'armor_legs_challenger',
     imagePath: '/legs/bruiser_boots.png',
     id: 'pof5ii',
     set: 'Bruiser Set',
@@ -1554,6 +1583,7 @@ export const remnantItems: Item[] = [
   {
     category: 'legs',
     name: 'Dendroid Leggings',
+    saveFileSlug: 'armor_legs_invader',
     imagePath: '/legs/dendroid_leggings.png',
     id: 'zwh3mb',
     set: 'Dendroid Set',
@@ -1603,6 +1633,7 @@ export const remnantItems: Item[] = [
   {
     category: 'legs',
     name: 'Field Medic Trousers',
+    saveFileSlug: 'armor_legs_medic',
     imagePath: '/legs/field_medic_trousers.png',
     id: 'eqcfyt',
     set: 'Field Medic Set',
@@ -1620,6 +1651,7 @@ export const remnantItems: Item[] = [
   {
     category: 'legs',
     name: 'High Noon Soles',
+    saveFileSlug: 'armor_legs_gunslinger',
     imagePath: '/legs/high_noon_soles.png',
     id: 'yccols',
     set: 'High Noon Set',
@@ -1637,6 +1669,7 @@ export const remnantItems: Item[] = [
   {
     category: 'legs',
     name: 'Knotted Greaves',
+    saveFileSlug: 'armor_legs_summoner',
     imagePath: '/legs/knotted_greaves.png',
     id: 'b48zw1',
     set: 'Knotted Set',
@@ -1653,9 +1686,10 @@ export const remnantItems: Item[] = [
   {
     category: 'legs',
     name: 'Labyrinth Treads',
+    saveFileSlug: 'armor_legs_archon',
     imagePath: '/legs/labyrinth_treads.png',
     id: 'td29nk',
-    set: 'Labryinth Set',
+    set: 'Labyrinth Set',
     armor: 25.5,
     weight: 10.8,
     bleedResistance: 0,
@@ -1701,6 +1735,7 @@ export const remnantItems: Item[] = [
   {
     category: 'legs',
     name: 'Nightstalker Pants',
+    saveFileSlug: 'armor_legs_hunter',
     imagePath: '/legs/nightstalker_pants.png',
     id: 'l6utx1',
     set: 'Nightstalker Set',
@@ -1735,6 +1770,7 @@ export const remnantItems: Item[] = [
   {
     category: 'legs',
     name: 'Realmwalker Pantaloons',
+    saveFileSlug: 'armor_legs_explorer',
     imagePath: '/legs/realmwalker_pantaloons.png',
     id: '4sy6z9',
     set: 'Realmwalker Set',
@@ -1799,6 +1835,7 @@ export const remnantItems: Item[] = [
   {
     category: 'legs',
     name: 'Technician Greaves',
+    saveFileSlug: 'armor_legs_engineer',
     imagePath: '/legs/technician_greaves.png',
     id: 'm16oqd',
     set: 'Technician Set',
@@ -1816,6 +1853,7 @@ export const remnantItems: Item[] = [
   {
     category: 'legs',
     name: 'Trainer Workboots',
+    saveFileSlug: 'armor_legs_handler',
     imagePath: '/legs/trainer_workboots.png',
     id: 'olwicb',
     set: 'Trainer Set',
@@ -1850,6 +1888,7 @@ export const remnantItems: Item[] = [
   {
     category: 'legs',
     name: "Zealot's Seaboots",
+    saveFileSlug: 'armor_legs_ritualist',
     imagePath: '/legs/zealots_seaboots.png',
     id: 'sem0s8',
     set: "Zealot's Set",
@@ -1866,6 +1905,8 @@ export const remnantItems: Item[] = [
   {
     category: 'gloves',
     name: "Academic's Gloves",
+    saveFileSlug: 'armor_gloves_alchemist',
+    set: "Academic's Set",
     imagePath: '/gloves/academics_gloves.png',
     id: 'f4tb3k',
     armor: 12.3,
@@ -1881,6 +1922,7 @@ export const remnantItems: Item[] = [
   {
     category: 'gloves',
     name: 'Bandit Gloves',
+    saveFileSlug: 'armor_gloves_bandit',
     imagePath: '/gloves/bandit_gloves.png',
     id: 'b7j8ys',
     set: 'Bandit Set',
@@ -1897,6 +1939,7 @@ export const remnantItems: Item[] = [
   {
     category: 'gloves',
     name: 'Bruiser Gloves',
+    saveFileSlug: 'armor_gloves_challenger',
     imagePath: '/gloves/bruiser_gloves.png',
     id: '80xuqr',
     set: 'Bruiser Set',
@@ -1948,6 +1991,7 @@ export const remnantItems: Item[] = [
   {
     category: 'gloves',
     name: 'Dendroid Grips',
+    saveFileSlug: 'armor_gloves_invader',
     imagePath: '/gloves/dendroid_grips.png',
     id: '6oy3xp',
     set: 'Dendroid Set',
@@ -1997,6 +2041,7 @@ export const remnantItems: Item[] = [
   {
     category: 'gloves',
     name: 'Field Medic Gloves',
+    saveFileSlug: 'armor_gloves_medic',
     imagePath: '/gloves/field_medic_gloves.png',
     id: '7ic3gp',
     set: 'Field Medic Set',
@@ -2014,6 +2059,7 @@ export const remnantItems: Item[] = [
   {
     category: 'gloves',
     name: 'High Noon Armguards',
+    saveFileSlug: 'armor_gloves_gunslinger',
     imagePath: '/gloves/high_noon_armguards.png',
     id: 'afu61j',
     set: 'High Noon Set',
@@ -2031,6 +2077,7 @@ export const remnantItems: Item[] = [
   {
     category: 'gloves',
     name: 'Knotted Gloves',
+    saveFileSlug: 'armor_gloves_summoner',
     imagePath: '/gloves/knotted_gloves.png',
     id: '07mqqe',
     set: 'Knotted Set',
@@ -2047,6 +2094,7 @@ export const remnantItems: Item[] = [
   {
     category: 'gloves',
     name: 'Labyrinth Gauntlets',
+    saveFileSlug: 'armor_gloves_archon',
     imagePath: '/gloves/labyrinth_gauntlets.png',
     id: 'bhw19m',
     set: 'Labyrinth Set',
@@ -2095,6 +2143,7 @@ export const remnantItems: Item[] = [
   {
     category: 'gloves',
     name: 'Nightstalker Gloves',
+    saveFileSlug: 'armor_gloves_hunter',
     imagePath: '/gloves/nightstalker_gloves.png',
     id: 'xl7dm2',
     set: 'Nightstalker Set',
@@ -2129,6 +2178,7 @@ export const remnantItems: Item[] = [
   {
     category: 'gloves',
     name: 'Realmwalker Gloves',
+    saveFileSlug: 'armor_gloves_explorer',
     imagePath: '/gloves/realmwalker_gloves.png',
     id: '47ak51',
     set: 'Realmwalker Set',
@@ -2193,6 +2243,7 @@ export const remnantItems: Item[] = [
   {
     category: 'gloves',
     name: 'Technician Gloves',
+    saveFileSlug: 'armor_gloves_engineer',
     imagePath: '/gloves/technician_gloves.png',
     id: '11wear',
     set: 'Technician Set',
@@ -2210,6 +2261,7 @@ export const remnantItems: Item[] = [
   {
     category: 'gloves',
     name: 'Trainer Bracer',
+    saveFileSlug: 'armor_gloves_handler',
     imagePath: '/gloves/trainer_bracer.png',
     id: 'tgd095',
     set: 'Trainer Set',
@@ -2244,6 +2296,7 @@ export const remnantItems: Item[] = [
   {
     category: 'gloves',
     name: "Zealot's Wraps",
+    saveFileSlug: 'armor_gloves_ritualist',
     imagePath: '/gloves/zealots_wraps.png',
     id: 'irt51q',
     set: "Zealot's Set",
@@ -2491,6 +2544,7 @@ export const remnantItems: Item[] = [
   {
     category: 'relicfragment',
     name: 'Casting Speed',
+    saveFileSlug: 'castspeed',
     imagePath: '/relicfragment/casting_speed.png',
     id: '51y6ih',
   },
@@ -2557,12 +2611,14 @@ export const remnantItems: Item[] = [
   {
     category: 'relicfragment',
     name: 'Melee Critical Chance',
+    saveFileSlug: 'meleecritchance',
     imagePath: '/relicfragment/melee_critical_chance.png',
     id: 'm16fn9',
   },
   {
     category: 'relicfragment',
     name: 'Melee Critical Damage',
+    saveFileSlug: 'meleecritdamage',
     imagePath: '/relicfragment/melee_critical_damage.png',
     id: '77ch7i',
   },
@@ -2593,12 +2649,14 @@ export const remnantItems: Item[] = [
   {
     category: 'relicfragment',
     name: 'Ranged Critical Chance',
+    saveFileSlug: 'rangedcritchance',
     imagePath: '/relicfragment/ranged_critical_chance.png',
     id: 'dp184t',
   },
   {
     category: 'relicfragment',
     name: 'Ranged Critical Damage',
+    saveFileSlug: 'rangedcritdamage',
     imagePath: '/relicfragment/ranged_critical_damage.png',
     id: 'w5jmys',
   },
@@ -3127,6 +3185,11 @@ export const remnantItems: Item[] = [
     description: ``,
     howToGet: `Can be found in N'erud inside the last wagon of the train after The Train Event in Terminus Station`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Atom+Smasher`],
+    linkedItems: {
+      mod: {
+        name: 'Accelerator',
+      },
+    },
   },
   {
     category: 'weapon',
@@ -3868,6 +3931,11 @@ export const remnantItems: Item[] = [
     description: `Charge Melee Attacks increase the speed of all Melee Attacks by 10% for 5s.`,
     howToGet: `Attached to the Atom Smasher melee weapon`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Accelerator`],
+    linkedItems: {
+      weapon: {
+        name: 'Atom Smasher',
+      },
+    },
   },
   {
     category: 'mod',
@@ -5702,6 +5770,7 @@ export const remnantItems: Item[] = [
   {
     category: 'amulet',
     name: 'Shaed Bloom Crystal',
+    saveFileSlug: `shadebloomfloret`,
     imagePath: '/amulet/shaed_bloom_crystal.png',
     id: 'ib2as6',
   },
@@ -6093,6 +6162,7 @@ export const remnantItems: Item[] = [
     category: 'ring',
     name: 'Devoured Loop',
     imagePath: '/ring/devoured_loop.png',
+    saveFileSlug: 'devouringloop',
     id: 'l8a2e1',
   },
   {
@@ -6116,6 +6186,7 @@ export const remnantItems: Item[] = [
   {
     category: 'ring',
     name: 'Dran Scavenger Ring',
+    saveFileSlug: 'dranscavengersigil',
     imagePath: '/ring/dran_scavenger_ring.png',
     id: '5pwtei',
   },
@@ -6140,6 +6211,7 @@ export const remnantItems: Item[] = [
   {
     category: 'ring',
     name: 'Dull Steel Ring',
+    saveFileSlug: 'brightsteelring',
     imagePath: '/ring/dull_steel_ring.png',
     id: 's76ytc',
   },
@@ -6788,6 +6860,7 @@ export const remnantItems: Item[] = [
   {
     category: 'ring',
     name: "Worn Admiral's Ring",
+    saveFileSlug: 'ringoftheadmiral',
     imagePath: '/ring/worn_admirals_ring.png',
     id: '9kcrxa',
   },

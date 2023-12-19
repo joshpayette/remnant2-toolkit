@@ -5,7 +5,7 @@ export default function Logo({ showUrl = false }: { showUrl?: boolean }) {
   return (
     <Link href="/" className="-m-1.5 flex items-center justify-start p-1.5">
       <Image
-        className="mr-2 h-8 w-auto"
+        className="mr-2"
         src="https://d2sqltdcj8czo5.cloudfront.net/logo-sm.png"
         alt="Remnant 2 Toolkit logo, a purple and yellow toolbox."
         height={32}

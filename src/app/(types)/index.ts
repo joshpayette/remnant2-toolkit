@@ -31,6 +31,7 @@ interface BaseItem {
   id: string
   name: string
   category: ItemCategory
+  saveFileSlug?: string
   description?: string
   howToGet?: string
   wikiLinks?: string[]

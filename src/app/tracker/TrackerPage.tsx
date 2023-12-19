@@ -2,7 +2,7 @@
 
 import { remnantItemCategories, remnantItems } from '@/app/(data)'
 import { useLocalStorage } from '@/app/(hooks)/useLocalStorage'
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import type { Filters } from './(components)/Filters'
 import { isMutatorItem, type Item, type ItemCategory } from '@/app/(types)'
 import TrackerFilters from './(components)/Filters'
@@ -12,6 +12,10 @@ import PageHeader from '@/app/(components)/PageHeader'
 import ItemInfo from '@/app/(components)/ItemInfo'
 import { itemToCsvItem } from '@/app/(lib)/utils'
 import ListItems from './(components)/ListItems'
+import { useFormState } from 'react-dom'
+import parseSaveFile from './actions'
+import { SubmitButton } from '../(components)/SubmitButton'
+import { toast } from 'react-toastify'
 
 const skippedItemCategories: ItemCategory[] = [
   'concoction',
@@ -44,13 +48,57 @@ export default function TrackerPage() {
   // If the item info is defined, the modal should be open
   const isShowItemInfoOpen = Boolean(itemInfo)
 
-  const { itemTrackerStorage, setItemTrackerStorage } = useLocalStorage()
+  const { itemTrackerStorage, setDiscoveredItemIds } = useLocalStorage()
   const { discoveredItemIds } = itemTrackerStorage
 
   const [filters, setFilters] = useState<Filters>({
     undiscovered: true,
     discovered: true,
   })
+
+  // get response after save file upload
+  const [uploadFormResponse, formAction] = useFormState(parseSaveFile, {
+    convertedSave: null,
+  })
+  // tracks the save data after upload
+  const saveData = useRef<string | null>(null)
+  // file input field
+  const fileInput = useRef<HTMLInputElement | null>(null)
+
+  // If the upload form response changes, we need to set the save data
+  useEffect(() => {
+    if (!uploadFormResponse) return
+    const { convertedSave } = uploadFormResponse
+    if (!convertedSave) return
+    saveData.current = convertedSave
+  }, [uploadFormResponse])
+
+  // If the save data is set, we need to check the discovered items
+  useEffect(() => {
+    if (!saveData.current) return
+    const newDiscoveredItemIds = remnantItems
+      // filter out the skipped categories
+      .filter((item) => skippedItemCategories.includes(item.category) === false)
+      // Match all item names against info in the save file
+      .filter((item) => {
+        const name = item.name.replace(/[^a-zA-Z]/g, '').toLowerCase()
+        return (
+          saveData.current?.includes(name) ||
+          (item.saveFileSlug && saveData.current?.includes(item.saveFileSlug))
+        )
+      })
+      // Get just the item ids
+      .map((item) => item.id)
+
+    // Reset the save data
+    saveData.current = null
+    // Update the discovered item ids
+    setDiscoveredItemIds(newDiscoveredItemIds)
+    // clear input field
+    if (fileInput.current) fileInput.current.value = ''
+    // notify of success
+    toast.success('Save file uploaded successfully!')
+  }, [setDiscoveredItemIds])
 
   // We need to add the discovered flag to the items based on the discoveredItemIds
   // fetched from localstorage
@@ -115,6 +163,20 @@ export default function TrackerPage() {
     if (item) setItemInfo(item)
   }
 
+  const handleListItemClicked = (itemId: string) => {
+    // If the item is already discovered, undiscover it
+    if (discoveredItemIds.includes(itemId)) {
+      const newDiscoveredItemIds = discoveredItemIds.filter(
+        (id) => id !== itemId,
+      )
+      setDiscoveredItemIds(newDiscoveredItemIds)
+      return
+    }
+
+    const newDiscoveredItemIds = [...discoveredItemIds, itemId]
+    setDiscoveredItemIds(newDiscoveredItemIds)
+  }
+
   if (!isClient) return null
 
   return (
@@ -132,6 +194,7 @@ export default function TrackerPage() {
         <span className="mb-4 text-2xl font-bold text-green-400">
           {progress}
         </span>
+        <ToCsvButton data={csvItems} filename="remnant2toolkit_tracker" />
       </PageHeader>
       <TrackerFilters
         filters={filters}
@@ -140,33 +203,44 @@ export default function TrackerPage() {
         }}
       />
       <div className="my-12 w-full">
-        <div className="mb-4 ml-auto flex max-w-[200px] items-end justify-end">
-          <ToCsvButton data={csvItems} filename="remnant2toolkit_tracker" />
+        <div className="mb-4 ml-auto flex flex-col items-center justify-center">
+          <div className="mb-4 rounded border border-purple-500">
+            <form
+              action={formAction}
+              className="grid grid-cols-1 sm:grid-cols-3"
+            >
+              <input
+                type="file"
+                name="saveFile"
+                className="mt-2 px-2 text-sm sm:col-span-2"
+                ref={fileInput}
+              />
+              <SubmitButton
+                label="Import Save File"
+                className="flex items-center justify-center border border-transparent bg-purple-500 p-2 px-2 text-sm font-bold text-white hover:border-purple-500 hover:bg-purple-700"
+              />
+              <div className="col-span-full bg-black">
+                <p className="p-2 text-sm text-green-500">
+                  You can find your save file in the following location:
+                  <pre>
+                    C:\Users\_your_username_\Saved
+                    Games\Remnant2\Steam\_steam_id_\profile.sav
+                  </pre>
+                </p>
+                <p className="p-2 text-sm text-red-500">
+                  Note: About 90% of the items are currently discoverable via
+                  import. The rest will be added soon.
+                </p>
+              </div>
+            </form>
+          </div>
         </div>
         <ListItems
           filters={filters}
           items={items}
           itemCategories={itemCategories}
           onShowItemInfo={handleShowItemInfo}
-          onClick={(itemId: string) => {
-            // If the item is already discovered, undiscover it
-            if (discoveredItemIds.includes(itemId)) {
-              const newDiscoveredItemIds = discoveredItemIds.filter(
-                (id) => id !== itemId,
-              )
-              setItemTrackerStorage({
-                ...itemTrackerStorage,
-                discoveredItemIds: newDiscoveredItemIds,
-              })
-              return
-            }
-
-            const newDiscoveredItemIds = [...discoveredItemIds, itemId]
-            setItemTrackerStorage({
-              ...itemTrackerStorage,
-              discoveredItemIds: newDiscoveredItemIds,
-            })
-          }}
+          onClick={handleListItemClicked}
         />
       </div>
     </div>

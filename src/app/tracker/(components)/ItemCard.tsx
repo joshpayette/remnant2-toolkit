@@ -14,7 +14,6 @@ function CardImage({ item }: { item: ItemCardProps['item'] }) {
         <Image
           src={`https://d2sqltdcj8czo5.cloudfront.net${item.imagePath}`}
           alt={item.name}
-          className="pointer-events-none h-full max-h-full w-auto max-w-full"
           width={64}
           height={64}
         />
