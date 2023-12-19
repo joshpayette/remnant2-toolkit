@@ -1,11 +1,11 @@
 import { metadata as baseMetaData } from '@/app/metadata'
 
-const title = 'Support Medic/Summoner Build'
+const title = 'Root Doctor - Support Medic Summoner'
 const description = `This build is designed to keep you and your allies while also dealing damage to enemies. It's a great build for solo play and co-op.`
-const slug = 'support-medic-summoner'
+const slug = 'root-doctor'
 const url = `https://remnant2toolkit.com/featured-builds/build/${slug}`
 const ogImageUrl =
-  'https://d2sqltdcj8czo5.cloudfront.net/featured-builds/support_medic_summoner.png'
+  'https://d2sqltdcj8czo5.cloudfront.net/featured-builds/root_doctor.png'
 
 export const pageInfo = {
   title,
