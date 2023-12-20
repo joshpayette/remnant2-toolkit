@@ -1,15 +1,15 @@
 import { type PageInfo } from '@/app/(types)'
 import { metadata as baseMetaData } from '@/app/metadata'
 
-const title = `YOUR BUILD NAME`
-const creator = `YOUR NAME`
-const description = `YOUR BUILD DESCRIPTION`
-const slug = 'build-folder-name'
+const title = `Mr. Nacho's & SenorCerveza's COOP Elemental DOTS`
+const creator = [`Mr. Nacho`, `SenorCerveza`]
+const description = `Multiple elemental DOT builds intended to be played together in a group. The builds are designed to work together to maximize damage and survivability.`
+const slug = 'mr-nacho-senorcerveza-coop-elemental-dots'
 const url = `https://remnant2toolkit.com/featured-builds/build/${slug}`
 const ogImageUrl =
-  'https://d2sqltdcj8czo5.cloudfront.net/featured-builds/YOUR_BUILD_IMAGE_NAME.png'
-const classes = ['class1', 'class2']
-// const tags = ['tag1', 'tag2'] // optional
+  'https://d2sqltdcj8czo5.cloudfront.net/featured-builds/mr_nachos_handler_eruption.png'
+// const classes = ['class1', 'class2']
+const tags = ['coop']
 
 export const pageInfo: PageInfo = {
   title,
@@ -18,7 +18,8 @@ export const pageInfo: PageInfo = {
   slug,
   url,
   ogImageUrl,
-  classes,
+  // classes,
+  tags,
 }
 
 export const metadata = {
