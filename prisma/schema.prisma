@@ -8,6 +8,10 @@ generator client {
   provider = "prisma-client-js"
 }
 
+// ---------------------------------------------------------------------------------------------
+// NextAuth.js models
+// ---------------------------------------------------------------------------------------------
+
 model Account {
   id                String  @id @default(cuid())
   userId            String
@@ -46,6 +50,7 @@ model User {
   image         String?
   accounts      Account[]
   sessions      Session[]
+  Build         Build[]
 }
 
 model VerificationToken {
@@ -54,4 +59,38 @@ model VerificationToken {
   expires    DateTime
 
   @@unique([identifier, token])
+}
+
+// ---------------------------------------------------------------------------------------------
+// Other models
+// ---------------------------------------------------------------------------------------------
+
+model Build {
+  id               String   @id @default(cuid())
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+  createdBy        User     @relation(fields: [createdById], references: [id])
+  createdById      String
+  name             String
+  description      String?
+  videoUrl         String?
+  public           Boolean  @default(true)
+  helmId           String?
+  torsoId          String?
+  legsId           String?
+  glovesId         String?
+  relicId          String?
+  amuletId         String?
+  weaponIds        String?
+  ringIds          String?
+  archtypeIds      String?
+  skillIds         String?
+  concoctionIds    String?
+  consumableIds    String?
+  modIds           String?
+  mutatorIds       String?
+  relicfragmentIds String?
+  traits           String?
+
+  @@index([createdById])
 }
