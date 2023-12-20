@@ -16,14 +16,20 @@ The site is hosted on Vercel, with images served via Cloudfront from an S3 bucke
 
 ## Roadmap
 
+- [x] Item tracker can be populated by importing your save file.
 - [ ] Add an ability to import the item tracker CSV to populate the site with your current items.
 - [ ] Add all item info to the item tracker, such as item description and wiki links.
 - [ ] Update Fextralife Wiki links to the new community maintained https://remnant.wiki site.
 
-## Maybe down the line with support
+## Supporter Roadmap
 
-- [ ] Add a database of builds that users can browse and search (contingent on enough interest and backers)
-- [ ] Add calculations of armor, resists, etc. for builds
+If there is enough interest in adding the below features via a Patreon or other funding, I would be happy to add them. The funding would help cover the
+monthly cost of the hosting of the site and expanded features.
+
+- Add the ability to create an account and save your builds to the database.
+- Enable community build submission, as well as community voting on builds.
+- Add the ability to add notes to the builds.
+- Sharing your build URL on social media would generate a more specific preview image.
 
 ## Contributions
 
