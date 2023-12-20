@@ -7,7 +7,7 @@ const description = `This is more like a Meme than anything else... I almost cra
 const slug = 'senorcervezas-160k-dps-meme'
 const url = `https://remnant2toolkit.com/featured-builds/build/${slug}`
 const ogImageUrl =
-  'https://d2sqltdcj8czo5.cloudfront.net/featured-builds/senor_cervezas_160k_meme.png'
+  'https://d2sqltdcj8czo5.cloudfront.net/featured-builds/featured-builds/senorcervezas_160k_meme.png'
 const classes = ['hunter', 'gunslinger']
 // const tags = ['tag1', 'tag2'] // optional
 
