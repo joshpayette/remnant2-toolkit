@@ -7,6 +7,7 @@ import Link from 'next/link'
 import Logo from '@/app/(components)/Logo'
 import { usePathname } from 'next/navigation'
 import { navItems } from '../navitems'
+import AuthButton from './AuthButton'
 
 export default function NavBar() {
   const pathname = usePathname()
@@ -20,7 +21,7 @@ export default function NavBar() {
   return (
     <>
       <nav
-        className="z-40 mx-auto flex w-full items-center justify-between bg-background p-6 lg:px-8"
+        className="z-40 mx-auto flex w-full items-center justify-between bg-background px-4 py-6"
         aria-label="Global"
       >
         <div className="flex min-w-[300px]">
@@ -46,6 +47,9 @@ export default function NavBar() {
               {item.name}
             </Link>
           ))}
+          <div className="flex grow items-end justify-end">
+            <AuthButton variant="desktop" />
+          </div>
         </div>
       </nav>
       <Dialog
@@ -87,6 +91,12 @@ export default function NavBar() {
                     </Link>
                   </div>
                 ))}
+
+                <hr className="border-purple-900" />
+
+                <div className="pt-4">
+                  <AuthButton variant="mobile" />
+                </div>
               </div>
             </div>
           </div>
