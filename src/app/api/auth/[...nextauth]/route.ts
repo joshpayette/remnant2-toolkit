@@ -8,6 +8,15 @@ import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient()
 
 const handler = NextAuth({
+  // Include user.id on session
+  callbacks: {
+    session({ session, user }) {
+      if (session.user) {
+        session.user.id = user.id
+      }
+      return session
+    },
+  },
   adapter: PrismaAdapter(prisma),
   providers: [
     DiscordProvider({

@@ -5,9 +5,11 @@ import Footer from '@/app/(components)/Footer'
 export { metadata } from './metadata'
 import { Analytics } from '@vercel/analytics/react'
 import { ToastContainer } from 'react-toastify'
+import SessionProvider from './(components)/SessionProvider'
 
 import './globals.css'
 import 'react-toastify/dist/ReactToastify.css'
+import SessionStatus from './(components)/SessionStatus'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -29,11 +31,13 @@ export default function RootLayout({
             <NavBar />
           </header>
           <main className="flex h-full w-full grow flex-col items-center justify-start p-4">
-            <div className="my-4 flex w-full max-w-7xl flex-grow flex-col items-center justify-start bg-green-900 p-2 text-sm">
-              {`I'm happy to announce that community build submissions and voting is in development. Stay tuned!`}
-            </div>
-            <ToastContainer theme="dark" />
-            {children}
+            <SessionProvider>
+              <div className="my-4 flex w-full max-w-7xl flex-grow flex-col items-center justify-start bg-green-900 p-2 text-sm">
+                {`I'm happy to announce that community build submissions and voting is in development. Stay tuned!`}
+              </div>
+              <ToastContainer theme="dark" />
+              {children}
+            </SessionProvider>
           </main>
         </div>
         <footer className="mt-8 flex w-full items-center justify-center border-t border-purple-900 bg-black p-4 text-left text-sm text-gray-400">
