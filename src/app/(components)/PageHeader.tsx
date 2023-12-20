@@ -1,7 +1,7 @@
 interface PageHeaderProps {
   children?: React.ReactNode
   title: string
-  subtitle: string
+  subtitle?: string
 }
 
 export default function PageHeader({

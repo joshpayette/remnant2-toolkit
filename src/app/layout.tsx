@@ -31,9 +31,6 @@ export default function RootLayout({
               <NavBar />
             </header>
             <main className="flex h-full w-full grow flex-col items-center justify-start p-4">
-              <div className="my-4 flex w-full max-w-7xl flex-grow flex-col items-center justify-start bg-green-900 p-2 text-sm">
-                {`I'm happy to announce that community build submissions and voting is in development. Stay tuned!`}
-              </div>
               <ToastContainer theme="dark" />
               {children}
             </main>
