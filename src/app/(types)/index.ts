@@ -117,7 +117,7 @@ export interface Build {
 
 export interface PageInfo {
   title: string
-  creator?: string
+  creator?: string | string[]
   description: string
   slug: string
   url: string

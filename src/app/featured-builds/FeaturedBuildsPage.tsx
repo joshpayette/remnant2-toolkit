@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import PageHeader from '../(components)/PageHeader'
+import { type PageInfo } from '../(types)'
 import { pageInfo as boltJamisonsPyroPageInfo } from './build/bolt-jamisons-pyro/metadata'
 import { pageInfo as rootDoctorPageInfo } from './build/root-doctor/metadata'
 import { pageInfo as speedFarmingPageInfo } from './build/speed-farming/metadata'
@@ -12,9 +13,10 @@ import { pageInfo as senorcervezasBossMelterPageInfo } from './build/senorcervez
 import { pageInfo as senorcervezasGrayHealthPageInfo } from './build/senorcervezas-easy-mode-gray-health/metadata'
 import { pageInfo as senorcervezasBuffMasterPageInfo } from './build/senorcervezas_buff_master_support/metadata'
 import { pageInfo as archonUnlockPageInfo } from './build/archon-unlock/metadata'
-import { PageInfo } from '../(types)'
+import { pageInfo as mrNachoCoopElementalPageInfo } from './build/mr-nacho-senorcerveza-coop-elemental-dots/metadata'
 
 const builds = [
+  mrNachoCoopElementalPageInfo,
   senorcervezasBuffMasterPageInfo,
   senorcervezasGrayHealthPageInfo,
   senorcervezasBossMelterPageInfo,
