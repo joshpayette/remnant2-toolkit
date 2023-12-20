@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Added SenorCerveza's Boss Melter build to featured builds.
 - Added SenorCerveza's Easy Mode Gray Health build to featured builds.
 - Added SenorCerveza's Buff Master Support build to featured builds.
+- Added featured build class tags to the build cards.
 
 ### Fixed
 

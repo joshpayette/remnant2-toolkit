@@ -1,11 +1,9 @@
 import Link from 'next/link'
 import PageHeader from '../(components)/PageHeader'
-import { pageInfo as acidicBerserkerPageInfo } from './build/sheenshots-acidic-berserker/metadata'
-import { pageInfo as pyroPageInfo } from './build/bolt-jamisons-pyro/metadata'
+import { pageInfo as boltJamisonsPyroPageInfo } from './build/bolt-jamisons-pyro/metadata'
 import { pageInfo as rootDoctorPageInfo } from './build/root-doctor/metadata'
-import { pageInfo as maxStatusEffectsPageInfo } from './build/max-status-effects/metadata'
 import { pageInfo as speedFarmingPageInfo } from './build/speed-farming/metadata'
-import { pageInfo as bleedCritPageInfo } from './build/bolt-jamisons-bleed-crit/metadata'
+import { pageInfo as boltJamisonsBleedCritPageInfo } from './build/bolt-jamisons-bleed-crit/metadata'
 import { pageInfo as mrNachosNightfallBuildPageInfo } from './build/mr-nachos-nightfall-build/metadata'
 import { pageInfo as mrNachosEGGBuildPageInfo } from './build/mr-nachos-egg-build/metadata'
 import { pageInfo as dudleysBloodHunterPageInfo } from './build/dudleys-blood-hunter/metadata'
@@ -14,6 +12,7 @@ import { pageInfo as senorcervezasBossMelterPageInfo } from './build/senorcervez
 import { pageInfo as senorcervezasGrayHealthPageInfo } from './build/senorcervezas-easy-mode-gray-health/metadata'
 import { pageInfo as senorcervezasBuffMasterPageInfo } from './build/senorcervezas_buff_master_support/metadata'
 import { pageInfo as archonUnlockPageInfo } from './build/archon-unlock/metadata'
+import { PageInfo } from '../(types)'
 
 const builds = [
   senorcervezasBuffMasterPageInfo,
@@ -23,14 +22,12 @@ const builds = [
   dudleysBloodHunterPageInfo,
   mrNachosNightfallBuildPageInfo,
   mrNachosEGGBuildPageInfo,
-  bleedCritPageInfo,
-  acidicBerserkerPageInfo,
-  pyroPageInfo,
+  boltJamisonsBleedCritPageInfo,
+  boltJamisonsPyroPageInfo,
   archonUnlockPageInfo,
   rootDoctorPageInfo,
   speedFarmingPageInfo,
-  // maxStatusEffectsPageInfo,
-]
+] as PageInfo[]
 
 export default function FeaturedBuildsPage() {
   return (
@@ -45,16 +42,30 @@ export default function FeaturedBuildsPage() {
             key={build.slug}
             className="flex flex-col items-center justify-center gap-2 border border-purple-500 p-4"
           >
-            <h2 className="text-center text-2xl font-bold text-purple-500">
-              {build.title}
+            <h2 className="text-center text-2xl">
+              <Link
+                href={`featured-builds/build/${build.slug}`}
+                className=" font-bold text-purple-500 hover:text-purple-300 hover:underline"
+              >
+                {build.title}
+              </Link>
             </h2>
-            <p className="text-md flex grow items-center">
-              {build.description}
-            </p>
+
+            <div className="flex grow flex-col items-center gap-2">
+              {build.classes && (
+                <p className="rounded-lg bg-black p-2 text-sm">
+                  Classes:{' '}
+                  <span className="text-green-500">
+                    {build.classes?.map((c) => c).join(', ')}
+                  </span>
+                </p>
+              )}
+              <p className="text-md text-gray-100">{build.description}</p>
+            </div>
 
             <Link
               href={`featured-builds/build/${build.slug}`}
-              className="text-green-500 hover:text-green-300 hover:underline"
+              className="w-full font-bold text-green-500 hover:text-green-300 hover:underline"
             >
               View Build
             </Link>

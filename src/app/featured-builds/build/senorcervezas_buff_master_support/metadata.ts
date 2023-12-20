@@ -1,18 +1,22 @@
 import { metadata as baseMetaData } from '@/app/metadata'
 
 const title = `SenorCerveza's Buff Master Support Build`
+const creator = `SenorCerveza`
 const description = `This Video is all about a very uncommon Support Build for Remnant 2, your Teammates will gonna love. You will have so many Buffs on, you will almost shatter your Status bar.`
 const slug = 'senorcervezas_buff_master_support'
 const url = `https://remnant2toolkit.com/featured-builds/build/${slug}`
 const ogImageUrl =
   'https://d2sqltdcj8czo5.cloudfront.net/featured-builds/senorcervezas_buff_master_support.png'
+const classes = ['alchemist', 'explorer']
 
 export const pageInfo = {
   title,
+  creator,
   description,
   slug,
   url,
   ogImageUrl,
+  classes,
 }
 
 export const metadata = {

@@ -1,19 +1,24 @@
+import { type PageInfo } from '@/app/(types)'
 import { metadata as baseMetaData } from '@/app/metadata'
 
 const title = "Bolt Jamison's Bleed Crit Build"
+const creator = 'Bolt Jamison'
 const description =
   'A fun bleed crit build intended for burning bosses down quickly.'
 const slug = 'bolt-jamisons-bleed-crit'
 const url = `https://remnant2toolkit.com/featured-builds/build/${slug}`
 const ogImageUrl =
   'https://d2sqltdcj8czo5.cloudfront.net/featured-builds/bolt_jamisons_bleed_crit.png'
+const classes = ['hunter', 'gunslinger']
 
-export const pageInfo = {
+export const pageInfo: PageInfo = {
   title,
+  creator,
   description,
   slug,
   url,
   ogImageUrl,
+  classes,
 }
 
 export const metadata = {

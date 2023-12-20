@@ -114,3 +114,14 @@ export interface Build {
     trait: TraitItem[]
   }
 }
+
+export interface PageInfo {
+  title: string
+  creator?: string
+  description: string
+  slug: string
+  url: string
+  ogImageUrl: string
+  classes?: string[]
+  tags?: string[]
+}
