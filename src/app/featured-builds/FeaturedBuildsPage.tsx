@@ -13,6 +13,7 @@ import { pageInfo as dudleysEldritchKnightPageInfo } from './build/dudleys-eldri
 import { pageInfo as senorcervezasBossMelterPageInfo } from './build/senorcervezas-boss-melter/metadata'
 import { pageInfo as senorcervezasGrayHealthPageInfo } from './build/senorcervezas-easy-mode-gray-health/metadata'
 import { pageInfo as senorcervezasBuffMasterPageInfo } from './build/senorcervezas_buff_master_support/metadata'
+import { pageInfo as archonUnlockPageInfo } from './build/archon-unlock/metadata'
 
 const builds = [
   senorcervezasBuffMasterPageInfo,
@@ -25,9 +26,10 @@ const builds = [
   bleedCritPageInfo,
   acidicBerserkerPageInfo,
   pyroPageInfo,
+  archonUnlockPageInfo,
   rootDoctorPageInfo,
-  maxStatusEffectsPageInfo,
   speedFarmingPageInfo,
+  // maxStatusEffectsPageInfo,
 ]
 
 export default function FeaturedBuildsPage() {
