@@ -1,7 +1,8 @@
 import { type Metadata } from 'next'
 
 const title = 'Remnant 2 Toolkit'
-const description = 'Item tracking and build utilities for Remnant 2'
+const description =
+  'Remnant 2 item tracking, build sharing, item database, and more!'
 const url = 'https://remnant2toolkit.com'
 const ogImageUrl = 'logo.jpg'
 
