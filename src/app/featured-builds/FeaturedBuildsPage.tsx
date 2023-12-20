@@ -14,8 +14,10 @@ import { pageInfo as senorcervezasGrayHealthPageInfo } from './build/senorcervez
 import { pageInfo as senorcervezasBuffMasterPageInfo } from './build/senorcervezas_buff_master_support/metadata'
 import { pageInfo as archonUnlockPageInfo } from './build/archon-unlock/metadata'
 import { pageInfo as mrNachoCoopElementalPageInfo } from './build/mr-nacho-senorcerveza-coop-elemental-dots/metadata'
+import { pageInfo as senorcervezasMemeBuildPageInfo } from './build/senorcervezas-160k-dps-meme/metadata'
 
 const builds = [
+  senorcervezasMemeBuildPageInfo,
   mrNachoCoopElementalPageInfo,
   senorcervezasBuffMasterPageInfo,
   senorcervezasGrayHealthPageInfo,
