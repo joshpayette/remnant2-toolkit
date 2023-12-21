@@ -4,6 +4,7 @@
 
 # TODO
 
+- ADD TESTS TO PREVENT THE BUGS YOU INTRODUCE
 - Add toggle to limit build items to DLC/non-DLC items
 - Replace fextralife wiki links with remnant.wiki
 - Add scroll to top button for mobile
