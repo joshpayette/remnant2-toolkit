@@ -10,6 +10,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Exporting a build image on mobile now exports the image at the same size as on desktop.
 
+### Fixed
+
+- Swapped order of Builder action buttons to make more sense on mobile.
+
 ## 2023-12-20
 
 ### Added

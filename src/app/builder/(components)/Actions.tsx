@@ -29,6 +29,30 @@ export default function Actions({
   return (
     <div id="actions" className="flex flex-col gap-2">
       <button
+        className="flex flex-col items-center rounded border-2 border-green-500 px-4 py-2 text-sm font-bold text-white hover:bg-purple-700"
+        onClick={onExportAsImage}
+      >
+        Export to Image
+      </button>
+
+      <button
+        className="flex flex-col items-center rounded border border-purple-500 px-4 py-2 text-sm font-bold text-white hover:bg-purple-700"
+        onClick={() => {
+          copy(window.location.href)
+          toast.success('Copied Build URL to clipboard')
+        }}
+      >
+        Copy Build URL
+      </button>
+
+      <ToCsvButton
+        data={csvBuildData.filter((item) => item?.name !== '')}
+        filename={`remnant2_builder_${currentBuildState.name}`}
+      />
+
+      <hr className="my-4 border-gray-900" />
+
+      <button
         id="show-labels-button"
         className={cn(
           'flex flex-col items-center rounded border px-4 py-2 font-bold text-white hover:bg-green-700',
@@ -64,30 +88,6 @@ export default function Actions({
       >
         New Build
       </Link>
-
-      <hr className="my-4 border-gray-900" />
-
-      <button
-        className="flex flex-col items-center rounded border-2 border-green-500 px-4 py-2 text-sm font-bold text-white hover:bg-purple-700"
-        onClick={onExportAsImage}
-      >
-        Export to Image
-      </button>
-
-      <button
-        className="flex flex-col items-center rounded border border-purple-500 px-4 py-2 text-sm font-bold text-white hover:bg-purple-700"
-        onClick={() => {
-          copy(window.location.href)
-          toast.success('Copied Build URL to clipboard')
-        }}
-      >
-        Copy Build URL
-      </button>
-
-      <ToCsvButton
-        data={csvBuildData.filter((item) => item?.name !== '')}
-        filename={`remnant2_builder_${currentBuildState.name}`}
-      />
     </div>
   )
 }
