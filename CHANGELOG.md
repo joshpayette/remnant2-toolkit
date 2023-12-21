@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Fixed
 
 - Swapped order of Builder action buttons to make more sense on mobile.
+- Fixed issue preventing skills from loading
 
 ## 2023-12-20
 

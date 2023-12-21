@@ -243,8 +243,8 @@ export default function useBuildSearchParams() {
           if (ringItems) buildState.items.ring = ringItems
           break
         case 'skill':
-          const skillItem = GenericItem.fromParamsSingle(params)
-          if (skillItem) buildState.items.skill = [skillItem]
+          const skillItems = GenericItem.fromParamsArray(params)
+          if (skillItems) buildState.items.skill = skillItems
           break
         case 'trait':
           const traitItems = TraitItem.fromParams(params)

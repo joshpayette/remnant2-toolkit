@@ -106,7 +106,6 @@ export class GenericItem implements GenericItemProps {
     })
 
     if (items.length === 0) return null
-    if (items.filter((i) => !this.isGenericItem(i)).length > 0) return null
 
     return items
   }
