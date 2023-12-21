@@ -65,32 +65,51 @@ model VerificationToken {
 // Other models
 // ---------------------------------------------------------------------------------------------
 
+enum ITEM_CATEGORY {
+  helm
+  torso
+  legs
+  gloves
+  relic
+  amulet
+  weapon
+  archtype
+  concoction
+  consumable
+  mod
+  mutator
+  relicfragment
+  ring
+  skill
+  trait
+}
+
 model Build {
-  id               String   @id @default(cuid())
-  createdAt        DateTime @default(now())
-  updatedAt        DateTime @updatedAt
-  createdBy        User     @relation(fields: [createdById], references: [id])
-  createdById      String
-  name             String
-  description      String?
-  videoUrl         String?
-  public           Boolean  @default(true)
-  helmId           String?
-  torsoId          String?
-  legsId           String?
-  glovesId         String?
-  relicId          String?
-  amuletId         String?
-  weaponIds        String?
-  ringIds          String?
-  archtypeIds      String?
-  skillIds         String?
-  concoctionIds    String?
-  consumableIds    String?
-  modIds           String?
-  mutatorIds       String?
-  relicfragmentIds String?
-  traits           String?
+  id            String    @id @default(cuid())
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime? @updatedAt
+  createdBy     User      @relation(fields: [createdById], references: [id])
+  createdById   String
+  public        Boolean   @default(true)
+  name          String
+  description   String?
+  videoUrl      String?
+  helm          String?
+  torso         String?
+  legs          String?
+  gloves        String?
+  relic         String?
+  amulet        String?
+  weapon        String?
+  ring          String?
+  archtype      String?
+  skill         String?
+  concoction    String?
+  consumable    String?
+  mod           String?
+  mutator       String?
+  relicfragment String?
+  trait         String?
 
   @@index([createdById])
 }

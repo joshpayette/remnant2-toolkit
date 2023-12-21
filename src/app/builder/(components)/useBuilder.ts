@@ -1,16 +1,16 @@
 import {
   type Item,
-  type TraitItem,
-  type Build,
   type WeaponItem,
-  type ItemCategory,
   type MutatorItem,
+  type BuildState,
 } from '@/app/(types)'
 import { remnantItemCategories, remnantItems } from '@/app/(data)'
 import { usePathname, useSearchParams, useRouter } from 'next/navigation'
 import { useCallback } from 'react'
-
-export const DEFAULT_TRAIT_AMOUNT = 10
+import { type Build } from '@prisma/client'
+import { useSession } from 'next-auth/react'
+import { DEFAULT_TRAIT_AMOUNT, TraitItem } from '@/app/(types)/TraitItem'
+import { BaseItem } from '@/app/(types)/BaseItem'
 
 /**
  * Handles reading/writing the build to the URL query string,
@@ -24,6 +24,7 @@ export default function useBuilder() {
   const router = useRouter()
   const pathname = usePathname()
   const searchParams = useSearchParams()
+  const { data: session } = useSession()
 
   /**
    * Creates a new query string by adding or updating a parameter.
@@ -57,8 +58,11 @@ export default function useBuilder() {
   /**
    * Parses the build values from the query string
    */
-  function parseQueryString(searchParams: URLSearchParams): Build {
-    const build: Build = {
+  function parseQueryString(searchParams: URLSearchParams): BuildState {
+    /**
+     * The build state that will be returned
+     */
+    const buildState: BuildState = {
       name: 'My Build',
       items: {
         helm: null,
@@ -87,60 +91,18 @@ export default function useBuilder() {
     // Loop through each category and check the query params
     // for that category's item IDs
     remnantItemCategories.forEach((itemCategory) => {
-      const itemIds = searchParams.get(itemCategory)?.split(',')
+      const params = searchParams.get(itemCategory)
 
-      if (!itemIds) return
+      if (!params) return
 
-      itemIds.forEach((itemId, itemIndex) => {
-        // We need to split the the trait id at the ; to get the amount
-        if (itemCategory === 'trait') {
-          const [traitId, amount] = itemId.split(';')
-
-          const item = remnantItems.find((i) => i.id === traitId)
-          if (!item) return
-
-          const buildItem = (build.items[itemCategory] as TraitItem[])[
-            itemIndex
-          ]
-
-          let validAmount = amount ? parseInt(amount) : DEFAULT_TRAIT_AMOUNT
-          if (isNaN(validAmount)) validAmount = DEFAULT_TRAIT_AMOUNT
-          if (validAmount < 1) validAmount = DEFAULT_TRAIT_AMOUNT
-          if (validAmount > 10) validAmount = DEFAULT_TRAIT_AMOUNT
-
-          if (!buildItem) {
-            return ((build.items[itemCategory] as TraitItem[])[itemIndex] = {
-              ...item,
-              category: itemCategory,
-              amount: validAmount,
-            })
-          }
-
-          return ((build.items[itemCategory] as TraitItem[])[itemIndex] = {
-            ...buildItem,
-            category: itemCategory,
-            amount: validAmount,
-          })
-        }
-
-        const item = remnantItems.find((i) => i.id === itemId)
-        if (!item) return
-
-        if (Array.isArray(build.items[itemCategory])) {
-          return ((build.items[itemCategory] as Item[])[itemIndex] = {
-            ...item,
-            category: itemCategory,
-          })
-        }
-
-        return ((build.items[itemCategory] as Item) = {
-          ...item,
-          category: itemCategory,
-        })
-      })
+      // If the category is a trait, then we need to split the trait id at the ; to get the amount
+      if (itemCategory === 'trait') {
+        const traitItems = new TraitItem().fromParams(params)
+        buildState.items.trait = traitItems
+      }
     })
 
-    return build
+    return buildState
   }
 
   /**
@@ -149,9 +111,9 @@ export default function useBuilder() {
    * This is passed to the ItemSelect modal to display the correct items
    */
   function getItemListForCategory(
-    build: Build,
+    buildState: BuildState,
     selectedItem: {
-      category: ItemCategory | null
+      category: BaseItem['category'] | null
       index?: number
     },
   ) {
@@ -160,7 +122,7 @@ export default function useBuilder() {
     // Remove items that are already in the build
     // for the current category
     const unequippedItems = remnantItems.filter((item) => {
-      const categoryItemorItems = build.items[item.category]
+      const categoryItemorItems = buildState.items[item.category]
 
       if (!categoryItemorItems) return true
 
@@ -206,7 +168,7 @@ export default function useBuilder() {
     // then limit the mutators to the weapon type
     if (selectedItem.category === 'mutator') {
       // Get the corresponding weapon from the build
-      const buildWeapon = build.items.weapon[selectedItem.index ?? 0]
+      const buildWeapon = buildState.items.weapon[selectedItem.index ?? 0]
       if (!buildWeapon) return []
 
       const weaponType = buildWeapon.type === 'melee' ? 'melee' : 'gun'
@@ -226,7 +188,7 @@ export default function useBuilder() {
       if (selectedItem.index === undefined) return skillItems
 
       const archtype =
-        build.items.archtype[selectedItem.index]?.name.toLowerCase()
+        buildState.items.archtype[selectedItem.index]?.name.toLowerCase()
 
       if (!archtype) return skillItems
 
@@ -246,7 +208,8 @@ export default function useBuilder() {
 
       if (selectedItem.index === undefined) return archtypeItems
 
-      const skill = build.items.skill[selectedItem.index]?.name.toLowerCase()
+      const skill =
+        buildState.items.skill[selectedItem.index]?.name.toLowerCase()
 
       if (!skill) return archtypeItems
 
@@ -268,7 +231,7 @@ export default function useBuilder() {
    * Checks the build weapons and equips any mods
    * that are linked to them
    */
-  function linkWeaponsToMods(currentBuild: Build) {
+  function linkWeaponsToMods(currentBuild: BuildState) {
     const newBuild = { ...currentBuild }
 
     // Check the weapons for linked mods
@@ -307,7 +270,7 @@ export default function useBuilder() {
    * Checks the build archtypes and equips any traints
    * that are linked to them
    */
-  function linkArchtypesToTraits(currentBuild: Build) {
+  function linkArchtypesToTraits(currentBuild: BuildState) {
     const newBuild = { ...currentBuild }
 
     // Check the archtypes for linked traits

@@ -1,43 +1,6 @@
-export type ItemCategory =
-  | 'helm'
-  | 'torso'
-  | 'legs'
-  | 'gloves'
-  | 'relic'
-  | 'amulet'
-  | 'weapon'
-  | 'archtype'
-  | 'concoction'
-  | 'consumable'
-  | 'mod'
-  | 'mutator'
-  | 'relicfragment'
-  | 'ring'
-  | 'skill'
-  | 'trait'
-
-// Used to link items,
-// such as mods to guns,
-// skills to archtypes, etc.
-type LinkedItems = Partial<{
-  archtype: { name: string }
-  skills: Array<{ name: string }>
-  weapon: { name: string }
-  mod: { name: string }
-  trait: { name: string }
-}>
-
-interface BaseItem {
-  id: string
-  name: string
-  category: ItemCategory
-  saveFileSlug?: string
-  description?: string
-  howToGet?: string
-  wikiLinks?: string[]
-  imagePath: string
-  linkedItems?: LinkedItems
-}
+import { Build } from '@prisma/client'
+import { TraitItem } from './TraitItem'
+import { BaseItem } from './BaseItem'
 
 export interface ArmorItem extends BaseItem {
   category: 'helm' | 'torso' | 'legs' | 'gloves'
@@ -65,14 +28,6 @@ export interface WeaponItem extends BaseItem {
 export const isWeaponItem = (item: Item): item is WeaponItem =>
   item.category === 'weapon'
 
-export interface TraitItem extends BaseItem {
-  category: 'trait'
-  amount: number
-}
-
-export const isTraitItem = (item: Item): item is TraitItem =>
-  item.category === 'trait'
-
 export interface MutatorItem extends BaseItem {
   category: 'mutator'
   maxLevelBonus: string
@@ -86,14 +41,13 @@ export type Item = BaseItem | WeaponItem | ArmorItem | TraitItem | MutatorItem
 
 export interface CsvItem {
   name: string
-  category: ItemCategory
+  category: BaseItem['category']
   description: string
   howToGet: string
   wikiLinks: string
 }
 
-// Used for the build page
-export interface Build {
+export interface BuildState {
   name: string
   items: {
     helm: Item | null

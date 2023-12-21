@@ -1,8 +1,5 @@
-import { TraitItem } from '@/app/(types)'
+import { TraitItem } from '@/app/(types)/TraitItem'
 import { Fragment, useCallback, useMemo, useState } from 'react'
-import useBuilder, {
-  DEFAULT_TRAIT_AMOUNT,
-} from '@/app/builder/(components)/useBuilder'
 import { type Item, type ItemCategory } from '@/app/(types)'
 import { cn, getArrayOfLength } from '@/app/(lib)/utils'
 import BuilderName from './BuilderName'
@@ -10,6 +7,7 @@ import BuilderButton from './BuilderButton'
 import Traits from './Traits'
 import ItemSelect from './ItemSelect'
 import Logo from '@/app/(components)/Logo'
+import useBuilder from './useBuilder'
 
 export default function BuilderPage({
   isScreenshotMode,
@@ -99,9 +97,7 @@ export default function BuilderPage({
 
         // If the item is a trait, then we need to add the amount to the query string
         if (selectedItemSlot.category === 'trait') {
-          const newTraitItemParams = newBuildItems.map(
-            (i) => `${i.id};${(i as TraitItem).amount ?? DEFAULT_TRAIT_AMOUNT}`,
-          )
+          const newTraitItemParams = TraitItem.toParams(newBuildItems)
           updateBuild('trait', newTraitItemParams)
           setSelectedItemSlot({ category: null })
           return

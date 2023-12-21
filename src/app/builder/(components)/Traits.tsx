@@ -1,10 +1,8 @@
 import { type TraitItem } from '@/app/(types)'
 import { useState } from 'react'
-import { DEFAULT_TRAIT_AMOUNT } from './useBuilder'
 import { XCircleIcon } from '@heroicons/react/24/outline'
 import { cn } from '@/app/(lib)/utils'
-
-const MAX_TRAIT_AMOUNT = 110
+import { DEFAULT_TRAIT_AMOUNT, MAX_TRAIT_AMOUNT } from '@/app/(types)/TraitItem'
 
 export default function Traits({
   showControls,
