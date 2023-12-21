@@ -1,10 +1,10 @@
 import { ArmorItem } from '../(types)/ArmorItem'
-import { BaseItem } from '../(types)/BaseItem'
+import { GenericItem } from '../(types)/GenericItem'
 import { MutatorItem } from '../(types)/MutatorItem'
 import { TraitItem } from '../(types)/TraitItem'
 import { WeaponItem } from '../(types)/WeaponItem'
 
-type Item = BaseItem | ArmorItem | WeaponItem | MutatorItem | TraitItem
+type Item = GenericItem | ArmorItem | WeaponItem | MutatorItem | TraitItem
 
 export const remnantItems: Item[] = [
   {

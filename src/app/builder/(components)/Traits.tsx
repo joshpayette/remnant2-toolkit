@@ -8,6 +8,7 @@ import {
 } from '@/app/(types)/TraitItem'
 
 export default function Traits({
+  isScreenshotMode,
   showControls,
   showLabels,
   traitItems,
@@ -15,6 +16,7 @@ export default function Traits({
   onRemoveTrait,
   onChangeAmount,
 }: {
+  isScreenshotMode: boolean
   showControls: boolean
   showLabels: boolean
   traitItems: TraitItem[]
@@ -33,7 +35,12 @@ export default function Traits({
 
   return (
     <>
-      <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
+      <div
+        className={cn(
+          'grid grid-cols-1 gap-2 sm:grid-cols-2',
+          isScreenshotMode && 'grid-cols-2',
+        )}
+      >
         {showLabels && (
           <div className="col-span-full mx-auto mb-2 max-w-[150px] border border-gray-500 p-2 text-center text-xs text-gray-300">
             <span

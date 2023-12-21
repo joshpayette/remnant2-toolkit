@@ -1,7 +1,7 @@
 import { remnantItemCategories, remnantItems } from '@/app/(data)'
 import { itemToCsvItem } from '@/app/(lib)/utils'
 import { BuildState } from '@/app/(types)'
-import { BaseItem } from '@/app/(types)/BaseItem'
+import { GenericItem } from '@/app/(types)/GenericItem'
 import { MutatorItem } from '@/app/(types)/MutatorItem'
 import { TraitItem } from '@/app/(types)/TraitItem'
 import { WeaponItem } from '@/app/(types)/WeaponItem'
@@ -14,7 +14,7 @@ import { WeaponItem } from '@/app/(types)/WeaponItem'
 export function getItemListForCategory(
   buildState: BuildState,
   selectedItem: {
-    category: BaseItem['category'] | null
+    category: GenericItem['category'] | null
     index?: number
   },
 ) {
@@ -102,7 +102,7 @@ export function getItemListForCategory(
   // If the selected slot is an archtype, try to limit
   // the archtypes based on the corresponding skill
   if (selectedItem.category === 'archtype') {
-    const archtypeItems = (unequippedItems as BaseItem[]).filter(
+    const archtypeItems = (unequippedItems as GenericItem[]).filter(
       (item) => item.category === 'archtype',
     )
 
@@ -121,7 +121,7 @@ export function getItemListForCategory(
   }
 
   // If we got this far, then return all items for the selected slot
-  return (unequippedItems as BaseItem[]).filter(
+  return (unequippedItems as GenericItem[]).filter(
     (item) => item.category === selectedItem.category,
   )
 }

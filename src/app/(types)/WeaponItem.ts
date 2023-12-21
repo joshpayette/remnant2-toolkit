@@ -1,19 +1,11 @@
-import { BaseItem } from './BaseItem'
+import { remnantItems } from '../(data)'
+import { GenericItem } from './GenericItem'
 
-export interface BaseWeaponItem {
-  id: BaseItem['id']
-  name: BaseItem['name']
-  category: BaseItem['category']
+export interface BaseWeaponItem extends GenericItem {
   type: 'long gun' | 'melee' | 'hand gun'
-  description: BaseItem['description']
-  imagePath: BaseItem['imagePath']
-  howToGet: BaseItem['howToGet']
-  wikiLinks: BaseItem['wikiLinks']
-  linkedItems: BaseItem['linkedItems']
-  saveFileSlug: BaseItem['saveFileSlug']
 }
 
-export class WeaponItem extends BaseItem implements BaseWeaponItem {
+export class WeaponItem implements BaseWeaponItem {
   public id: BaseWeaponItem['id'] = ''
   public name: BaseWeaponItem['name'] = ''
   public category: BaseWeaponItem['category'] = 'weapon'
@@ -26,7 +18,6 @@ export class WeaponItem extends BaseItem implements BaseWeaponItem {
   public saveFileSlug: BaseWeaponItem['saveFileSlug'] = ''
 
   constructor(props: BaseWeaponItem) {
-    super()
     this.id = props.id
     this.name = props.name
     this.description = props.description
@@ -38,8 +29,30 @@ export class WeaponItem extends BaseItem implements BaseWeaponItem {
     this.type = props.type
   }
 
-  public static isWeaponItem = (item?: BaseItem): item is WeaponItem => {
+  public static isWeaponItem = (item?: GenericItem): item is WeaponItem => {
     if (!item) return false
     return item.category === 'weapon'
+  }
+
+  static toParams(items: WeaponItem[]): string[] {
+    return items.map((i) => `${i.id}`)
+  }
+
+  static fromParams(params: string): WeaponItem[] | null {
+    const itemIds = params.split(',')
+    if (!itemIds) return null
+
+    const items: WeaponItem[] = []
+    itemIds.forEach((itemId, index) => {
+      const item = remnantItems.find((i) => i.id === itemId)
+      if (!item) return
+      if (!this.isWeaponItem(item)) return
+      items[index] = item
+    })
+
+    if (items.length === 0) return null
+    if (items.filter((i) => !this.isWeaponItem(i)).length > 0) return null
+
+    return items
   }
 }

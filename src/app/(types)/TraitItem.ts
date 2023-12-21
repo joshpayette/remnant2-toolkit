@@ -1,5 +1,5 @@
 import { remnantItems } from '../(data)'
-import { BaseItem } from './BaseItem'
+import { GenericItem } from './GenericItem'
 
 /**
  * The value of each new trait added
@@ -12,23 +12,11 @@ export const DEFAULT_TRAIT_AMOUNT = 10
  */
 export const MAX_TRAIT_AMOUNT = 110
 
-export interface BaseTraitItem {
-  id: BaseItem['id']
-  name: BaseItem['name']
-  category: BaseItem['category']
-  description: BaseItem['description']
-  imagePath: BaseItem['imagePath']
-  howToGet: BaseItem['howToGet']
-  wikiLinks: BaseItem['wikiLinks']
-  linkedItems: BaseItem['linkedItems']
-  saveFileSlug: BaseItem['saveFileSlug']
+interface BaseTraitItem extends GenericItem {
   amount: number
 }
 
-/**
- *
- */
-export class TraitItem extends BaseItem implements BaseTraitItem {
+export class TraitItem implements BaseTraitItem {
   public id: BaseTraitItem['id'] = ''
   public name: BaseTraitItem['name'] = ''
   public category: BaseTraitItem['category'] = 'trait'
@@ -41,7 +29,6 @@ export class TraitItem extends BaseItem implements BaseTraitItem {
   public amount: number = DEFAULT_TRAIT_AMOUNT
 
   constructor(props: BaseTraitItem) {
-    super()
     this.id = props.id
     this.name = props.name
     this.description = props.description
@@ -53,16 +40,18 @@ export class TraitItem extends BaseItem implements BaseTraitItem {
     this.amount = props.amount
   }
 
-  public static isTraitItem = (item?: BaseItem): item is TraitItem => {
+  public static isTraitItem = (item?: GenericItem): item is TraitItem => {
     if (!item) return false
     return item.category === 'trait'
   }
 
-  toParams(items: Array<{ id: BaseItem['id']; amount: number }>): string[] {
+  static toParams(
+    items: Array<{ id: BaseTraitItem['id']; amount: number }>,
+  ): string[] {
     return items.map((i) => `${i.id};${i.amount ?? DEFAULT_TRAIT_AMOUNT}`)
   }
 
-  fromParams(params: string): TraitItem[] {
+  static fromParams(params: string): TraitItem[] {
     const itemIds = params.split(',')
     if (!itemIds) return []
 

@@ -1,20 +1,12 @@
-import { BaseItem } from './BaseItem'
+import { remnantItems } from '../(data)'
+import { GenericItem } from './GenericItem'
 
-export interface BaseMutatorItem {
-  id: BaseItem['id']
-  name: BaseItem['name']
-  category: BaseItem['category']
-  description: BaseItem['description']
-  imagePath: BaseItem['imagePath']
-  howToGet: BaseItem['howToGet']
-  wikiLinks: BaseItem['wikiLinks']
-  linkedItems: BaseItem['linkedItems']
-  saveFileSlug: BaseItem['saveFileSlug']
+export interface BaseMutatorItem extends GenericItem {
   maxLevelBonus: string
   type: 'gun' | 'melee'
 }
 
-export class MutatorItem extends BaseItem implements BaseMutatorItem {
+export class MutatorItem implements BaseMutatorItem {
   public id: BaseMutatorItem['id'] = ''
   public name: BaseMutatorItem['name'] = ''
   public category: BaseMutatorItem['category'] = 'mutator'
@@ -28,7 +20,6 @@ export class MutatorItem extends BaseItem implements BaseMutatorItem {
   public maxLevelBonus: BaseMutatorItem['maxLevelBonus'] = ''
 
   constructor(props: BaseMutatorItem) {
-    super()
     this.id = props.id
     this.name = props.name
     this.description = props.description
@@ -42,8 +33,30 @@ export class MutatorItem extends BaseItem implements BaseMutatorItem {
     this.maxLevelBonus = props.maxLevelBonus
   }
 
-  public static isMutatorItem = (item?: BaseItem): item is MutatorItem => {
+  public static isMutatorItem = (item?: GenericItem): item is MutatorItem => {
     if (!item) return false
     return item.category === 'mutator'
+  }
+
+  static toParams(items: MutatorItem[]): string[] {
+    return items.map((i) => `${i.id}`)
+  }
+
+  static fromParams(params: string): MutatorItem[] | null {
+    const itemIds = params.split(',')
+    if (!itemIds) return null
+
+    const items: MutatorItem[] = []
+    itemIds.forEach((itemId, index) => {
+      const item = remnantItems.find((i) => i.id === itemId)
+      if (!item) return
+      if (!this.isMutatorItem(item)) return
+      items[index] = item
+    })
+
+    if (items.length === 0) return null
+    if (items.filter((i) => !this.isMutatorItem(i)).length > 0) return null
+
+    return items
   }
 }

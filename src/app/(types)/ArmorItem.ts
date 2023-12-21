@@ -1,15 +1,7 @@
-import { BaseItem } from './BaseItem'
+import { remnantItems } from '../(data)'
+import { GenericItem } from './GenericItem'
 
-export interface BaseArmorItem {
-  id: BaseItem['id']
-  name: BaseItem['name']
-  category: 'helm' | 'torso' | 'legs' | 'gloves'
-  description: BaseItem['description']
-  imagePath: BaseItem['imagePath']
-  howToGet: BaseItem['howToGet']
-  wikiLinks: BaseItem['wikiLinks']
-  linkedItems: BaseItem['linkedItems']
-  saveFileSlug: BaseItem['saveFileSlug']
+export interface BaseArmorItem extends GenericItem {
   set?: string
   armor: number
   weight: number
@@ -20,7 +12,7 @@ export interface BaseArmorItem {
   toxinResistance: number
 }
 
-export class ArmorItem extends BaseItem implements BaseArmorItem {
+export class ArmorItem implements BaseArmorItem {
   public id: BaseArmorItem['id'] = ''
   public name: BaseArmorItem['name'] = ''
   public category: BaseArmorItem['category'] = 'helm'
@@ -40,7 +32,6 @@ export class ArmorItem extends BaseItem implements BaseArmorItem {
   public toxinResistance: BaseArmorItem['toxinResistance'] = 0
 
   constructor(props: BaseArmorItem) {
-    super()
     this.id = props.id
     this.name = props.name
     this.description = props.description
@@ -59,7 +50,7 @@ export class ArmorItem extends BaseItem implements BaseArmorItem {
     this.toxinResistance = props.toxinResistance
   }
 
-  public static isArmorItem = (item?: BaseItem): item is ArmorItem => {
+  public static isArmorItem = (item?: GenericItem): item is ArmorItem => {
     if (!item) return false
     return (
       item.category === 'helm' ||
@@ -67,5 +58,19 @@ export class ArmorItem extends BaseItem implements BaseArmorItem {
       item.category === 'legs' ||
       item.category === 'gloves'
     )
+  }
+
+  static toParams(item: ArmorItem): string {
+    return `${item.id}`
+  }
+
+  static fromParams(params: string): ArmorItem | null {
+    const itemIds = params.split(',')
+    if (!itemIds) return null
+
+    const item = remnantItems.find((i) => i.id === itemIds[0])
+    if (!item) return null
+    if (!this.isArmorItem(item)) return null
+    return item
   }
 }

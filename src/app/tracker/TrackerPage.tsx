@@ -15,10 +15,10 @@ import { useFormState } from 'react-dom'
 import parseSaveFile from './actions'
 import { SubmitButton } from '../(components)/SubmitButton'
 import { toast } from 'react-toastify'
-import { BaseItem } from '../(types)/BaseItem'
+import { GenericItem } from '../(types)/GenericItem'
 import { MutatorItem } from '../(types)/MutatorItem'
 
-const skippedItemCategories: Array<BaseItem['category']> = [
+const skippedItemCategories: Array<GenericItem['category']> = [
   'concoction',
   'consumable',
   'skill',
@@ -45,7 +45,7 @@ export default function TrackerPage() {
   const isClient = useIsClient()
 
   // Tracks the item the user wants info on
-  const [itemInfo, setItemInfo] = useState<BaseItem | null>(null)
+  const [itemInfo, setItemInfo] = useState<GenericItem | null>(null)
   // If the item info is defined, the modal should be open
   const isShowItemInfoOpen = Boolean(itemInfo)
 

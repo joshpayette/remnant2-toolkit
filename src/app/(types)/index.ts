@@ -1,9 +1,8 @@
 import { TraitItem } from './TraitItem'
-import { BaseItem } from './BaseItem'
+import { GenericItem } from './GenericItem'
 import { WeaponItem } from './WeaponItem'
 import { ArmorItem } from './ArmorItem'
 import { MutatorItem } from './MutatorItem'
-
 
 /**
  * The minimum information that should be
@@ -11,7 +10,7 @@ import { MutatorItem } from './MutatorItem'
  */
 export interface CsvItem {
   name: string
-  category: BaseItem['category']
+  category: GenericItem['category']
   description: string
   howToGet: string
   wikiLinks: string
@@ -27,17 +26,17 @@ export interface BuildState {
     torso: ArmorItem | null
     legs: ArmorItem | null
     gloves: ArmorItem | null
-    relic: BaseItem | null
-    amulet: BaseItem | null
+    relic: GenericItem | null
+    amulet: GenericItem | null
     weapon: WeaponItem[]
-    ring: BaseItem[]
-    archtype: BaseItem[]
-    skill: BaseItem[]
-    concoction: BaseItem[]
-    consumable: BaseItem[]
-    mod: BaseItem[]
+    ring: GenericItem[]
+    archtype: GenericItem[]
+    skill: GenericItem[]
+    concoction: GenericItem[]
+    consumable: GenericItem[]
+    mod: GenericItem[]
     mutator: MutatorItem[]
-    relicfragment: BaseItem[]
+    relicfragment: GenericItem[]
     trait: TraitItem[]
   }
 }

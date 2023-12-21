@@ -1,12 +1,12 @@
 import Dialog from './Dialog'
 import { capitalize } from '@/app/(lib)/utils'
 import Image from 'next/image'
-import { BaseItem } from '../(types)/BaseItem'
+import { GenericItem } from '../(types)/GenericItem'
 import { MutatorItem } from '../(types)/MutatorItem'
 import { ArmorItem } from '../(types)/ArmorItem'
 
 interface ItemInfoProps {
-  item: BaseItem | null
+  item: GenericItem | null
   open: boolean
   onClose: () => void
 }
@@ -91,7 +91,7 @@ export default function ItemInfo({ item, open, onClose }: ItemInfoProps) {
                       {item.armor}
                     </span>
                   </p>
-                  <p className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-gray-500 border-b-green-500 text-left text-sm text-gray-300">
+                  <p className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 text-left text-sm text-gray-300">
                     Weight:{' '}
                     <span className="text-right text-lg font-bold">
                       {item.weight}

@@ -8,11 +8,11 @@ import { useIsClient } from 'usehooks-ts'
 import { useLocalStorage } from '@/app/(hooks)/useLocalStorage'
 import ItemCard from './ItemCard'
 import { InformationCircleIcon } from '@heroicons/react/24/outline'
-import { BaseItem } from '@/app/(types)/BaseItem'
+import { GenericItem } from '@/app/(types)/GenericItem'
 
 function getProgress(
-  items: Array<BaseItem & { discovered: boolean }>,
-  itemCategory: BaseItem['category'],
+  items: Array<GenericItem & { discovered: boolean }>,
+  itemCategory: GenericItem['category'],
   isClient: boolean,
 ) {
   const discoveredCount = items.filter(
@@ -30,8 +30,8 @@ function getProgress(
 
 interface ListItemsProps {
   filters: Filters
-  items: Array<BaseItem & { discovered: boolean }>
-  itemCategories: Array<BaseItem['category']>
+  items: Array<GenericItem & { discovered: boolean }>
+  itemCategories: Array<GenericItem['category']>
   onClick: (itemId: string) => void
   onShowItemInfo: (itemId: string) => void
 }
@@ -48,12 +48,12 @@ export default function ListItems({
 
   const isClient = useIsClient()
 
-  const getItemTitle = (itemCategory: BaseItem['category']) => {
+  const getItemTitle = (itemCategory: GenericItem['category']) => {
     if (itemCategory === 'relicfragment') return 'Relic Fragments'
     return capitalize(itemCategory)
   }
 
-  function handleCategoryToggle(itemCategory: BaseItem['category']) {
+  function handleCategoryToggle(itemCategory: GenericItem['category']) {
     const newCollapsedItemTypes = collapsedCategories.includes(itemCategory)
       ? collapsedCategories.filter((type) => type !== itemCategory)
       : [...collapsedCategories, itemCategory]

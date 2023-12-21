@@ -7,7 +7,7 @@ import Traits from './Traits'
 import ItemSelect from './ItemSelect'
 import Logo from '@/app/(components)/Logo'
 import useBuildSearchParams from '../(hooks)/useBuildSearchParams'
-import { BaseItem } from '@/app/(types)/BaseItem'
+import { GenericItem } from '@/app/(types)/GenericItem'
 import { getItemListForCategory } from '../(lib)/utils'
 
 export default function BuilderPage({
@@ -24,7 +24,7 @@ export default function BuilderPage({
 
   // Tracks information about the slot the user is selecting an item for
   const [selectedItemSlot, setSelectedItemSlot] = useState<{
-    category: BaseItem['category'] | null
+    category: GenericItem['category'] | null
     index?: number
   }>({ category: null })
 
@@ -38,7 +38,7 @@ export default function BuilderPage({
    * and the query string is updated.
    */
   const handleSelectItem = useCallback(
-    (selectedItem: BaseItem | null) => {
+    (selectedItem: GenericItem | null) => {
       if (!selectedItemSlot.category) return
 
       /**
@@ -99,7 +99,9 @@ export default function BuilderPage({
 
         // If the item is a trait, then we need to add the amount to the query string
         if (selectedItemSlot.category === 'trait') {
-          const newTraitItemParams = TraitItem.toParams(newBuildItems)
+          const newTraitItemParams = TraitItem.toParams(
+            newBuildItems as TraitItem[],
+          )
           updateBuild('trait', newTraitItemParams)
           setSelectedItemSlot({ category: null })
           return
@@ -167,7 +169,9 @@ export default function BuilderPage({
         />
       </div>
 
-      <div className="relative flex w-full items-start justify-between gap-4">
+      <div
+        className={cn('relative flex w-full items-start justify-between gap-4')}
+      >
         {isScreenshotMode && (
           <div className="absolute bottom-[10px] right-[80px]">
             <Logo showUrl />
@@ -268,7 +272,6 @@ export default function BuilderPage({
           id="center-column"
           className={cn(
             'relative ml-[13px] flex h-[290px] max-h-[290px] flex-col items-start justify-start overflow-y-auto',
-
             'sm:h-[375px] sm:max-h-[375px]',
           )}
         >
@@ -440,6 +443,7 @@ export default function BuilderPage({
           traitItems={currentBuildState.items.trait}
           showControls={showControls}
           showLabels={showLabels}
+          isScreenshotMode={isScreenshotMode}
           onAddTrait={() => {
             setSelectedItemSlot({
               category: 'trait',

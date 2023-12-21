@@ -4,7 +4,7 @@ import { usePathname, useSearchParams, useRouter } from 'next/navigation'
 import { useCallback } from 'react'
 import { useSession } from 'next-auth/react'
 import { DEFAULT_TRAIT_AMOUNT, TraitItem } from '@/app/(types)/TraitItem'
-import { BaseItem } from '@/app/(types)/BaseItem'
+import { GenericItem } from '@/app/(types)/GenericItem'
 import { ArmorItem } from '@/app/(types)/ArmorItem'
 import { WeaponItem } from '@/app/(types)/WeaponItem'
 import { MutatorItem } from '@/app/(types)/MutatorItem'
@@ -186,68 +186,68 @@ export default function useBuildSearchParams() {
 
       switch (itemCategory) {
         case 'helm':
-          const armorItem = ArmorItem.fromParamsSingle<ArmorItem>(params)
-          if (armorItem) buildState.items[armorItem.category] = armorItem
+          const armorItem = ArmorItem.fromParams(params)
+          if (armorItem) buildState.items[itemCategory] = armorItem
           break
         case 'torso':
-          const torsoItem = ArmorItem.fromParamsSingle<ArmorItem>(params)
-          if (torsoItem) buildState.items[torsoItem.category] = torsoItem
+          const torsoItem = ArmorItem.fromParams(params)
+          if (torsoItem) buildState.items[itemCategory] = torsoItem
           break
         case 'legs':
-          const legsItem = ArmorItem.fromParamsSingle<ArmorItem>(params)
-          if (legsItem) buildState.items[legsItem.category] = legsItem
+          const legsItem = ArmorItem.fromParams(params)
+          if (legsItem) buildState.items[itemCategory] = legsItem
           break
         case 'gloves':
-          const glovesItem = ArmorItem.fromParamsSingle<ArmorItem>(params)
-          if (glovesItem) buildState.items[glovesItem.category] = glovesItem
+          const glovesItem = ArmorItem.fromParams(params)
+          if (glovesItem) buildState.items[itemCategory] = glovesItem
           break
         case 'relic':
-          const relicItem = BaseItem.fromParamsSingle<BaseItem>(params)
+          const relicItem = GenericItem.fromParamsSingle(params)
           if (relicItem) buildState.items.relic = relicItem
           break
         case 'amulet':
-          const amuletItem = BaseItem.fromParamsSingle<BaseItem>(params)
+          const amuletItem = GenericItem.fromParamsSingle(params)
           if (amuletItem) buildState.items.amulet = amuletItem
           break
         case 'weapon':
-          const weaponItems = WeaponItem.fromParamsArray<WeaponItem>(params)
+          const weaponItems = WeaponItem.fromParams(params)
           if (weaponItems) buildState.items.weapon = weaponItems
           break
         case 'archtype':
-          const archtypeItems = BaseItem.fromParamsArray<BaseItem>(params)
+          const archtypeItems = GenericItem.fromParamsArray(params)
           if (archtypeItems) buildState.items.archtype = archtypeItems
           break
         case 'concoction':
-          const concoctionItems = BaseItem.fromParamsArray<BaseItem>(params)
+          const concoctionItems = GenericItem.fromParamsArray(params)
           if (concoctionItems) buildState.items.concoction = concoctionItems
           break
         case 'consumable':
-          const consumableItems = BaseItem.fromParamsArray<BaseItem>(params)
+          const consumableItems = GenericItem.fromParamsArray(params)
           if (consumableItems) buildState.items.consumable = consumableItems
           break
         case 'mod':
-          const modItems = BaseItem.fromParamsArray<BaseItem>(params)
+          const modItems = GenericItem.fromParamsArray(params)
           if (modItems) buildState.items.mod = modItems
           break
         case 'mutator':
-          const mutatorItems = MutatorItem.fromParamsArray<MutatorItem>(params)
+          const mutatorItems = MutatorItem.fromParams(params)
           if (mutatorItems) buildState.items.mutator = mutatorItems
           break
         case 'relicfragment':
-          const relicFragmentItems = BaseItem.fromParamsArray<BaseItem>(params)
+          const relicFragmentItems = GenericItem.fromParamsArray(params)
           if (relicFragmentItems)
             buildState.items.relicfragment = relicFragmentItems
           break
         case 'ring':
-          const ringItems = BaseItem.fromParamsArray<BaseItem>(params)
+          const ringItems = GenericItem.fromParamsArray(params)
           if (ringItems) buildState.items.ring = ringItems
           break
         case 'skill':
-          const skillItem = BaseItem.fromParamsSingle<BaseItem>(params)
+          const skillItem = GenericItem.fromParamsSingle(params)
           if (skillItem) buildState.items.skill = [skillItem]
           break
         case 'trait':
-          const traitItems = TraitItem.fromParamsArray<TraitItem>(params)
+          const traitItems = TraitItem.fromParams(params)
           if (traitItems) buildState.items.trait = traitItems
           break
         default: {

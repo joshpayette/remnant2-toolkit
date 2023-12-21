@@ -1,7 +1,7 @@
 import { type CsvItem } from '@/app/(types)'
 import { clsx, type ClassValue } from 'clsx'
 import { twMerge } from 'tailwind-merge'
-import { BaseItem } from '../(types)/BaseItem'
+import { GenericItem } from '../(types)/GenericItem'
 
 /**
  * capitalizes the first letter of a string
@@ -48,7 +48,7 @@ export function toCsv<T extends {}>(data: T[], filename: string) {
 /**
  * Converts an Item to a CSV item for export
  */
-export function itemToCsvItem(item: BaseItem): CsvItem {
+export function itemToCsvItem(item: GenericItem): CsvItem {
   function cleanString(string: string): string {
     return (
       string

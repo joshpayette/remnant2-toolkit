@@ -5,7 +5,7 @@ import BuilderButton from './BuilderButton'
 import { useDebounce, useIsClient } from 'usehooks-ts'
 import { useEffect, useState } from 'react'
 import SearchInput from '@/app/(components)/SearchInput'
-import { BaseItem } from '@/app/(types)/BaseItem'
+import { GenericItem } from '@/app/(types)/GenericItem'
 
 export default function ItemSelect({
   itemList,
@@ -14,11 +14,11 @@ export default function ItemSelect({
   onClose,
   onSelectItem,
 }: {
-  itemList: BaseItem[]
-  buildSlot: BaseItem['category'] | null
+  itemList: GenericItem[]
+  buildSlot: GenericItem['category'] | null
   open: boolean
   onClose: () => void
-  onSelectItem: (item: BaseItem | null) => void
+  onSelectItem: (item: GenericItem | null) => void
 }) {
   const isClient = useIsClient()
 

@@ -11,7 +11,7 @@ import { InformationCircleIcon } from '@heroicons/react/24/outline'
 import { useDebounce } from 'usehooks-ts'
 import SearchInput from '../(components)/SearchInput'
 import { MutatorItem } from '../(types)/MutatorItem'
-import { BaseItem } from '../(types)/BaseItem'
+import { GenericItem } from '../(types)/GenericItem'
 
 const csvItems = remnantItems // Modify the data for use. Adds a discovered flag,
   // modifies the description for mutators
@@ -42,7 +42,7 @@ const csvItems = remnantItems // Modify the data for use. Adds a discovered flag
 
 export default function ItemLookupPage() {
   // Tracks the item the user wants info on
-  const [itemInfo, setItemInfo] = useState<BaseItem | null>(null)
+  const [itemInfo, setItemInfo] = useState<GenericItem | null>(null)
   // If the item info is defined, the modal should be open
   const isShowItemInfoOpen = Boolean(itemInfo)
 

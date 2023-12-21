@@ -8,6 +8,7 @@ import { useLocalStorage } from '@/app/(hooks)/useLocalStorage'
 import { useIsClient } from 'usehooks-ts'
 import Actions from './(components)/Actions'
 import useBuildScreenshot from './(hooks)/useBuildScreenshot'
+import { cn } from '../(lib)/utils'
 
 export default function BuildHomePage() {
   const { currentBuildState } = useQueryString()
@@ -67,7 +68,10 @@ export default function BuildHomePage() {
           />
         </div>
         <div
-          className="w-full grow rounded border-2 border-green-500 bg-black p-4"
+          className={cn(
+            'w-full grow rounded border-2 border-green-500 bg-black p-4',
+            isScreenshotModeActive && 'min-h-[731px] min-w-[502px]',
+          )}
           ref={buildImageRef}
         >
           <Builder
