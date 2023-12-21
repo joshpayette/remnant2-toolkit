@@ -29,16 +29,16 @@ export interface BaseTraitItem {
  *
  */
 export class TraitItem extends BaseItem implements BaseTraitItem {
-  public id: BaseItem['id'] = ''
-  public name: BaseItem['name'] = ''
-  public description: BaseItem['description'] = ''
-  public imagePath: BaseItem['imagePath'] = ''
-  public howToGet: BaseItem['howToGet'] = ''
-  public wikiLinks: BaseItem['wikiLinks'] = []
-  public linkedItems: BaseItem['linkedItems'] = {}
-  public saveFileSlug: BaseItem['saveFileSlug'] = ''
+  public id: BaseTraitItem['id'] = ''
+  public name: BaseTraitItem['name'] = ''
+  public category: BaseTraitItem['category'] = 'trait'
+  public description: BaseTraitItem['description'] = ''
+  public imagePath: BaseTraitItem['imagePath'] = ''
+  public howToGet: BaseTraitItem['howToGet'] = ''
+  public wikiLinks: BaseTraitItem['wikiLinks'] = []
+  public linkedItems: BaseTraitItem['linkedItems'] = {}
+  public saveFileSlug: BaseTraitItem['saveFileSlug'] = ''
   public amount: number = DEFAULT_TRAIT_AMOUNT
-  public category: BaseItem['category'] = 'trait'
 
   constructor(props?: BaseTraitItem) {
     super()
@@ -68,7 +68,7 @@ export class TraitItem extends BaseItem implements BaseTraitItem {
     if (!itemIds) return []
 
     const items: TraitItem[] = []
-    itemIds.forEach((itemId, index) => {
+    itemIds.forEach((itemId) => {
       // We need to split the trait id at the ; to get the amount
       const [traitId, amount] = itemId.split(';')
 

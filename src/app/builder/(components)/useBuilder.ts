@@ -7,7 +7,6 @@ import {
 import { remnantItemCategories, remnantItems } from '@/app/(data)'
 import { usePathname, useSearchParams, useRouter } from 'next/navigation'
 import { useCallback } from 'react'
-import { type Build } from '@prisma/client'
 import { useSession } from 'next-auth/react'
 import { DEFAULT_TRAIT_AMOUNT, TraitItem } from '@/app/(types)/TraitItem'
 import { BaseItem } from '@/app/(types)/BaseItem'

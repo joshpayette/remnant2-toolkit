@@ -1,3 +1,5 @@
+import { remnantItems } from '../(data)'
+
 /**
  * Used to link items, such as guns to their mods,
  * archtypes to skills, etc.
@@ -49,7 +51,22 @@ export abstract class BaseItem {
     item.category !== 'gloves' &&
     item.category !== 'mutator'
 
-  abstract toParams(items: any[]): string[]
+  static toParams(items: BaseItem[]): string[] {
+    return items.map((i) => `${i.id}`)
+  }
 
-  abstract fromParams(params: string): any[]
+  static fromParams<T extends BaseItem>(params: string): T[] {
+    const itemIds = params.split(',')
+    if (!itemIds) return []
+
+    const items: T[] = []
+    itemIds.forEach((itemId) => {
+      const item = remnantItems.find((i) => i.id === itemId)
+      if (!item) return []
+
+      items.push(item as T)
+    })
+
+    return items
+  }
 }

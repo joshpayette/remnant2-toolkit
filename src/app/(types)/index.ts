@@ -1,44 +1,18 @@
-import { Build } from '@prisma/client'
-import { TraitItem } from './TraitItem'
-import { BaseItem } from './BaseItem'
+import { type TraitItem } from './TraitItem'
+import { type BaseItem } from './BaseItem'
+import { type WeaponItem } from './WeaponItem'
+import { type ArmorItem } from './ArmorItem'
+import { type MutatorItem } from './MutatorItem'
 
-export interface ArmorItem extends BaseItem {
-  category: 'helm' | 'torso' | 'legs' | 'gloves'
-  set?: string
-  armor: number
-  weight: number
-  bleedResistance: number
-  fireResistance: number
-  shockResistance: number
-  blightResistance: number
-  toxinResistance: number
-}
-
-export const isArmorItem = (item: Item): item is ArmorItem =>
-  item.category === 'helm' ||
-  item.category === 'torso' ||
-  item.category === 'legs' ||
-  item.category === 'gloves'
-
-export interface WeaponItem extends BaseItem {
-  category: 'weapon'
-  type: 'long gun' | 'melee' | 'hand gun'
-}
-
-export const isWeaponItem = (item: Item): item is WeaponItem =>
-  item.category === 'weapon'
-
-export interface MutatorItem extends BaseItem {
-  category: 'mutator'
-  maxLevelBonus: string
-  type: 'gun' | 'melee'
-}
-
-export const isMutatorItem = (item: Item): item is MutatorItem =>
-  item.category === 'mutator'
-
+/**
+ * All the items in the game
+ */
 export type Item = BaseItem | WeaponItem | ArmorItem | TraitItem | MutatorItem
 
+/**
+ * The minimum information that should be
+ * written in a CSV export for each item
+ */
 export interface CsvItem {
   name: string
   category: BaseItem['category']
@@ -47,6 +21,9 @@ export interface CsvItem {
   wikiLinks: string
 }
 
+/**
+ * The build tool UI state
+ */
 export interface BuildState {
   name: string
   items: {
@@ -69,6 +46,10 @@ export interface BuildState {
   }
 }
 
+/**
+ * The information provided by the metadata for
+ * each featured-build page
+ */
 export interface PageInfo {
   title: string
   creator?: string | string[]
