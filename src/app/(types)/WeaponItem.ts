@@ -25,19 +25,17 @@ export class WeaponItem extends BaseItem implements BaseWeaponItem {
   public linkedItems: BaseWeaponItem['linkedItems'] = {}
   public saveFileSlug: BaseWeaponItem['saveFileSlug'] = ''
 
-  constructor(props?: BaseWeaponItem) {
+  constructor(props: BaseWeaponItem) {
     super()
-    if (props) {
-      this.id = props.id
-      this.name = props.name
-      this.description = props.description
-      this.imagePath = props.imagePath
-      this.howToGet = props.howToGet
-      this.wikiLinks = props.wikiLinks
-      this.linkedItems = props.linkedItems
-      this.saveFileSlug = props.saveFileSlug
-      this.type = props.type
-    }
+    this.id = props.id
+    this.name = props.name
+    this.description = props.description
+    this.imagePath = props.imagePath
+    this.howToGet = props.howToGet
+    this.wikiLinks = props.wikiLinks
+    this.linkedItems = props.linkedItems
+    this.saveFileSlug = props.saveFileSlug
+    this.type = props.type
   }
 
   public static isWeaponItem = (item: BaseItem): item is WeaponItem => {

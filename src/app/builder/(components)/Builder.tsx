@@ -1,6 +1,5 @@
 import { TraitItem } from '@/app/(types)/TraitItem'
 import { Fragment, useCallback, useMemo, useState } from 'react'
-import { type Item, type ItemCategory } from '@/app/(types)'
 import { cn, getArrayOfLength } from '@/app/(lib)/utils'
 import BuilderName from './BuilderName'
 import BuilderButton from './BuilderButton'
@@ -8,6 +7,7 @@ import Traits from './Traits'
 import ItemSelect from './ItemSelect'
 import Logo from '@/app/(components)/Logo'
 import useBuilder from './useBuilder'
+import { BaseItem } from '@/app/(types)/BaseItem'
 
 export default function BuilderPage({
   isScreenshotMode,
@@ -23,7 +23,7 @@ export default function BuilderPage({
 
   // Tracks information about the slot the user is selecting an item for
   const [selectedItemSlot, setSelectedItemSlot] = useState<{
-    category: ItemCategory | null
+    category: BaseItem['category'] | null
     index?: number
   }>({ category: null })
 
@@ -37,7 +37,7 @@ export default function BuilderPage({
    * and the query string is updated.
    */
   const handleSelectItem = useCallback(
-    (selectedItem: Item | null) => {
+    (selectedItem: BaseItem | null) => {
       if (!selectedItemSlot.category) return
 
       /**

@@ -1,4 +1,10 @@
-import { Item } from '@/app/(types)'
+import { ArmorItem } from '../(types)/ArmorItem'
+import { BaseItem } from '../(types)/BaseItem'
+import { MutatorItem } from '../(types)/MutatorItem'
+import { TraitItem } from '../(types)/TraitItem'
+import { WeaponItem } from '../(types)/WeaponItem'
+
+type Item = BaseItem | ArmorItem | WeaponItem | MutatorItem | TraitItem
 
 export const remnantItems: Item[] = [
   {

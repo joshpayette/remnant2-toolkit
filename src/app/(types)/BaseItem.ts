@@ -55,18 +55,28 @@ export abstract class BaseItem {
     return items.map((i) => `${i.id}`)
   }
 
-  static fromParams<T extends BaseItem>(params: string): T[] {
+  static fromParamsSingle<T extends BaseItem>(params: string): T | null {
     const itemIds = params.split(',')
-    if (!itemIds) return []
+    if (!itemIds) return null
 
-    const items: T[] = []
+    const item = remnantItems.find((i) => i.id === itemIds[0])
+    if (!item) return null
+
+    return item as T
+  }
+
+  static fromParamsArray<T extends BaseItem>(params: string): T[] | null {
+    const itemIds = params.split(',')
+    if (!itemIds) return null
+
+    const items: BaseItem[] = []
     itemIds.forEach((itemId) => {
       const item = remnantItems.find((i) => i.id === itemId)
-      if (!item) return []
-
-      items.push(item as T)
+      if (!item) return
+      items.push(item)
     })
 
-    return items
+    if (items.length === 0) return null
+    return items as T[]
   }
 }

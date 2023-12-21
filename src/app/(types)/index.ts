@@ -1,13 +1,9 @@
-import { type TraitItem } from './TraitItem'
-import { type BaseItem } from './BaseItem'
-import { type WeaponItem } from './WeaponItem'
-import { type ArmorItem } from './ArmorItem'
-import { type MutatorItem } from './MutatorItem'
+import { TraitItem } from './TraitItem'
+import { BaseItem } from './BaseItem'
+import { WeaponItem } from './WeaponItem'
+import { ArmorItem } from './ArmorItem'
+import { MutatorItem } from './MutatorItem'
 
-/**
- * All the items in the game
- */
-export type Item = BaseItem | WeaponItem | ArmorItem | TraitItem | MutatorItem
 
 /**
  * The minimum information that should be
@@ -27,21 +23,21 @@ export interface CsvItem {
 export interface BuildState {
   name: string
   items: {
-    helm: Item | null
-    torso: Item | null
-    legs: Item | null
-    gloves: Item | null
-    relic: Item | null
-    amulet: Item | null
+    helm: ArmorItem | null
+    torso: ArmorItem | null
+    legs: ArmorItem | null
+    gloves: ArmorItem | null
+    relic: BaseItem | null
+    amulet: BaseItem | null
     weapon: WeaponItem[]
-    ring: Item[]
-    archtype: Item[]
-    skill: Item[]
-    concoction: Item[]
-    consumable: Item[]
-    mod: Item[]
-    mutator: Item[]
-    relicfragment: Item[]
+    ring: BaseItem[]
+    archtype: BaseItem[]
+    skill: BaseItem[]
+    concoction: BaseItem[]
+    consumable: BaseItem[]
+    mod: BaseItem[]
+    mutator: MutatorItem[]
+    relicfragment: BaseItem[]
     trait: TraitItem[]
   }
 }

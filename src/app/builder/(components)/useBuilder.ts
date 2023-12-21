@@ -1,15 +1,13 @@
-import {
-  type Item,
-  type WeaponItem,
-  type MutatorItem,
-  type BuildState,
-} from '@/app/(types)'
+import { type BuildState } from '@/app/(types)'
 import { remnantItemCategories, remnantItems } from '@/app/(data)'
 import { usePathname, useSearchParams, useRouter } from 'next/navigation'
 import { useCallback } from 'react'
 import { useSession } from 'next-auth/react'
 import { DEFAULT_TRAIT_AMOUNT, TraitItem } from '@/app/(types)/TraitItem'
 import { BaseItem } from '@/app/(types)/BaseItem'
+import { ArmorItem } from '@/app/(types)/ArmorItem'
+import { WeaponItem } from '@/app/(types)/WeaponItem'
+import { MutatorItem } from '@/app/(types)/MutatorItem'
 
 /**
  * Handles reading/writing the build to the URL query string,
@@ -85,7 +83,7 @@ export default function useBuilder() {
 
     // Build name
     const name = searchParams.get('name')
-    build.name = name ?? build.name
+    buildState.name = name ?? buildState.name
 
     // Loop through each category and check the query params
     // for that category's item IDs
@@ -94,10 +92,73 @@ export default function useBuilder() {
 
       if (!params) return
 
-      // If the category is a trait, then we need to split the trait id at the ; to get the amount
-      if (itemCategory === 'trait') {
-        const traitItems = new TraitItem().fromParams(params)
-        buildState.items.trait = traitItems
+      switch (itemCategory) {
+        case 'helm':
+          const armorItem = ArmorItem.fromParamsSingle<ArmorItem>(params)
+          if (armorItem) buildState.items[armorItem.category] = armorItem
+          break
+        case 'torso':
+          const torsoItem = ArmorItem.fromParamsSingle<ArmorItem>(params)
+          if (torsoItem) buildState.items[torsoItem.category] = torsoItem
+          break
+        case 'legs':
+          const legsItem = ArmorItem.fromParamsSingle<ArmorItem>(params)
+          if (legsItem) buildState.items[legsItem.category] = legsItem
+          break
+        case 'gloves':
+          const glovesItem = ArmorItem.fromParamsSingle<ArmorItem>(params)
+          if (glovesItem) buildState.items[glovesItem.category] = glovesItem
+          break
+        case 'relic':
+          const relicItem = BaseItem.fromParamsSingle<BaseItem>(params)
+          if (relicItem) buildState.items.relic = relicItem
+          break
+        case 'amulet':
+          const amuletItem = BaseItem.fromParamsSingle<BaseItem>(params)
+          if (amuletItem) buildState.items.amulet = amuletItem
+          break
+        case 'weapon':
+          const weaponItems = WeaponItem.fromParamsArray<WeaponItem>(params)
+          if (weaponItems) buildState.items.weapon = weaponItems
+          break
+        case 'archtype':
+          const archtypeItems = BaseItem.fromParamsArray<BaseItem>(params)
+          if (archtypeItems) buildState.items.archtype = archtypeItems
+          break
+        case 'concoction':
+          const concoctionItems = BaseItem.fromParamsArray<BaseItem>(params)
+          if (concoctionItems) buildState.items.concoction = concoctionItems
+          break
+        case 'consumable':
+          const consumableItems = BaseItem.fromParamsArray<BaseItem>(params)
+          if (consumableItems) buildState.items.consumable = consumableItems
+          break
+        case 'mod':
+          const modItems = BaseItem.fromParamsArray<BaseItem>(params)
+          if (modItems) buildState.items.mod = modItems
+          break
+        case 'mutator':
+          const mutatorItems = MutatorItem.fromParamsArray<MutatorItem>(params)
+          if (mutatorItems) buildState.items.mutator = mutatorItems
+          break
+        case 'relicfragment':
+          const relicFragmentItems = BaseItem.fromParamsArray<BaseItem>(params)
+          if (relicFragmentItems)
+            buildState.items.relicfragment = relicFragmentItems
+          break
+        case 'ring':
+
+        case 'skill':
+          const skillItem = BaseItem.fromParamsSingle<BaseItem>(params)
+          if (skillItem) buildState.items.skill = [skillItem]
+          break
+        case 'trait':
+          const traitItems = TraitItem.fromParamsArray<TraitItem>(params)
+          if (traitItems) buildState.items.trait = traitItems
+          break
+        default: {
+          throw new Error(`Unknown item category: ${itemCategory}`)
+        }
       }
     })
 
@@ -121,8 +182,8 @@ export default function useBuilder() {
     // Remove items that are already in the build
     // for the current category
     const unequippedItems = remnantItems.filter((item) => {
-      const categoryItemorItems = buildState.items[item.category]
-
+      const itemCategory = item.category as BaseItem['category']
+      const categoryItemorItems = buildState.items[itemCategory]
       if (!categoryItemorItems) return true
 
       if (Array.isArray(categoryItemorItems)) {
@@ -158,7 +219,7 @@ export default function useBuilder() {
     // If the selected slot is a mod, then limit the
     // mods to those without a linked weapon
     if (selectedItem.category === 'mod') {
-      return (unequippedItems as Item[]).filter(
+      return (unequippedItems as BaseItem[]).filter(
         (item) => item.category === 'mod' && !item.linkedItems?.weapon,
       )
     }
@@ -180,7 +241,7 @@ export default function useBuilder() {
     // If the selected slot is a skill, try to limit
     // skills based on the corresponding archtype
     if (selectedItem.category === 'skill') {
-      const skillItems = (unequippedItems as Item[]).filter(
+      const skillItems = (unequippedItems as BaseItem[]).filter(
         (item) => item.category === 'skill',
       )
 
@@ -201,7 +262,7 @@ export default function useBuilder() {
     // If the selected slot is an archtype, try to limit
     // the archtypes based on the corresponding skill
     if (selectedItem.category === 'archtype') {
-      const archtypeItems = (unequippedItems as Item[]).filter(
+      const archtypeItems = (unequippedItems as BaseItem[]).filter(
         (item) => item.category === 'archtype',
       )
 
@@ -221,7 +282,7 @@ export default function useBuilder() {
     }
 
     // If we got this far, then return all items for the selected slot
-    return (unequippedItems as Item[]).filter(
+    return (unequippedItems as BaseItem[]).filter(
       (item) => item.category === selectedItem.category,
     )
   }
@@ -269,12 +330,12 @@ export default function useBuilder() {
    * Checks the build archtypes and equips any traints
    * that are linked to them
    */
-  function linkArchtypesToTraits(currentBuild: BuildState) {
-    const newBuild = { ...currentBuild }
+  function linkArchtypesToTraits(currentBuildState: BuildState) {
+    const newBuildState = { ...currentBuildState }
 
     // Check the archtypes for linked traits
     // If any are found, add them to the build
-    const archtypes = newBuild.items.archtype
+    const archtypes = newBuildState.items.archtype
     archtypes.forEach((archtype) => {
       const linkedTrait = archtype.linkedItems?.trait
       if (!linkedTrait) return
@@ -286,27 +347,36 @@ export default function useBuilder() {
 
       // If the trait is already in the build, set the amount to 10
       // Otherwise, add the trait to the build
-      const existingTrait = newBuild.items.trait.find(
+      const existingTrait = newBuildState.items.trait.find(
         (trait) => trait.name === traitItem.name,
       )
       if (existingTrait) {
         existingTrait.amount = DEFAULT_TRAIT_AMOUNT
-        newBuild.items.trait = newBuild.items.trait.map((trait) =>
+        newBuildState.items.trait = newBuildState.items.trait.map((trait) =>
           trait.name === traitItem.name ? existingTrait : trait,
         )
       } else {
-        newBuild.items.trait.push({
-          ...(traitItem as TraitItem),
-          amount: DEFAULT_TRAIT_AMOUNT,
-        })
+        newBuildState.items.trait.push(
+          new TraitItem({
+            amount: DEFAULT_TRAIT_AMOUNT,
+            id: traitItem.id,
+            name: traitItem.name,
+            category: traitItem.category,
+            imagePath: traitItem.imagePath,
+            description: traitItem.description ?? '',
+            howToGet: traitItem.howToGet ?? '',
+            wikiLinks: traitItem.wikiLinks ?? [],
+            linkedItems: traitItem.linkedItems ?? {},
+            saveFileSlug: traitItem.saveFileSlug,
+          }),
+        )
       }
     })
 
-    // We deliberately don't check the traits and link to archtypes,
-    // since traits can be used without the archtype equipped
-
+    // *We deliberately don't check the traits and link to archtypes,
+    // *since traits can be used without the archtype equipped
     // Return the build with linked items
-    return newBuild
+    return newBuildState
   }
 
   const build = linkArchtypesToTraits(

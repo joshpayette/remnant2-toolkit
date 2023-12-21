@@ -40,19 +40,17 @@ export class TraitItem extends BaseItem implements BaseTraitItem {
   public saveFileSlug: BaseTraitItem['saveFileSlug'] = ''
   public amount: number = DEFAULT_TRAIT_AMOUNT
 
-  constructor(props?: BaseTraitItem) {
+  constructor(props: BaseTraitItem) {
     super()
-    if (props) {
-      this.id = props.id
-      this.name = props.name
-      this.description = props.description
-      this.imagePath = props.imagePath
-      this.howToGet = props.howToGet
-      this.wikiLinks = props.wikiLinks
-      this.linkedItems = props.linkedItems
-      this.saveFileSlug = props.saveFileSlug
-      this.amount = props.amount
-    }
+    this.id = props.id
+    this.name = props.name
+    this.description = props.description
+    this.imagePath = props.imagePath
+    this.howToGet = props.howToGet
+    this.wikiLinks = props.wikiLinks
+    this.linkedItems = props.linkedItems
+    this.saveFileSlug = props.saveFileSlug
+    this.amount = props.amount
   }
 
   public static isTraitItem = (item: BaseItem): item is TraitItem => {

@@ -1,4 +1,3 @@
-
 import { BaseItem } from './BaseItem'
 
 export interface BaseMutatorItem {
@@ -28,21 +27,19 @@ export class MutatorItem extends BaseItem implements BaseMutatorItem {
   public saveFileSlug: BaseMutatorItem['saveFileSlug'] = ''
   public maxLevelBonus: BaseMutatorItem['maxLevelBonus'] = ''
 
-  constructor(props?: BaseMutatorItem) {
+  constructor(props: BaseMutatorItem) {
     super()
-    if (props) {
-      this.id = props.id
-      this.name = props.name
-      this.description = props.description
-      this.imagePath = props.imagePath
-      this.howToGet = props.howToGet
-      this.wikiLinks = props.wikiLinks
-      this.linkedItems = props.linkedItems
-      this.saveFileSlug = props.saveFileSlug
-      this.type = props.type
-      this.category = props.category
-      this.maxLevelBonus = props.maxLevelBonus
-    }
+    this.id = props.id
+    this.name = props.name
+    this.description = props.description
+    this.imagePath = props.imagePath
+    this.howToGet = props.howToGet
+    this.wikiLinks = props.wikiLinks
+    this.linkedItems = props.linkedItems
+    this.saveFileSlug = props.saveFileSlug
+    this.type = props.type
+    this.category = props.category
+    this.maxLevelBonus = props.maxLevelBonus
   }
 
   public static isMutatorItem = (item: BaseItem): item is MutatorItem => {

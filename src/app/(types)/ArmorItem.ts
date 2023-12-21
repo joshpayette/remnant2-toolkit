@@ -39,26 +39,24 @@ export class ArmorItem extends BaseItem implements BaseArmorItem {
   public blightResistance: BaseArmorItem['blightResistance'] = 0
   public toxinResistance: BaseArmorItem['toxinResistance'] = 0
 
-  constructor(props?: BaseArmorItem) {
+  constructor(props: BaseArmorItem) {
     super()
-    if (props) {
-      this.id = props.id
-      this.name = props.name
-      this.description = props.description
-      this.imagePath = props.imagePath
-      this.howToGet = props.howToGet
-      this.wikiLinks = props.wikiLinks
-      this.linkedItems = props.linkedItems
-      this.saveFileSlug = props.saveFileSlug
-      this.set = props.set
-      this.armor = props.armor
-      this.weight = props.weight
-      this.bleedResistance = props.bleedResistance
-      this.fireResistance = props.fireResistance
-      this.shockResistance = props.shockResistance
-      this.blightResistance = props.blightResistance
-      this.toxinResistance = props.toxinResistance
-    }
+    this.id = props.id
+    this.name = props.name
+    this.description = props.description
+    this.imagePath = props.imagePath
+    this.howToGet = props.howToGet
+    this.wikiLinks = props.wikiLinks
+    this.linkedItems = props.linkedItems
+    this.saveFileSlug = props.saveFileSlug
+    this.set = props.set
+    this.armor = props.armor
+    this.weight = props.weight
+    this.bleedResistance = props.bleedResistance
+    this.fireResistance = props.fireResistance
+    this.shockResistance = props.shockResistance
+    this.blightResistance = props.blightResistance
+    this.toxinResistance = props.toxinResistance
   }
 
   public static isArmorItem = (item: BaseItem): item is ArmorItem => {
