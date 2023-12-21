@@ -10,16 +10,15 @@ import Actions from './(components)/Actions'
 import useBuildScreenshot from './(hooks)/useBuildScreenshot'
 
 export default function BuildHomePage() {
+  const { currentBuildState } = useQueryString()
+  const { builderStorage, setBuilderStorage } = useLocalStorage()
+  const { handleImageExport, isScreenshotModeActive } = useBuildScreenshot()
+
   const isClient = useIsClient()
   const buildImageRef = useRef<HTMLDivElement>(null)
 
-  const { currentBuildState } = useQueryString()
-  const { builderStorage, setBuilderStorage } = useLocalStorage()
-
   const [showLabels, setShowLabels] = useState(builderStorage.showLabels)
   const [showControls, setShowControls] = useState(builderStorage.showControls)
-
-  const { handleImageExport, isScreenshotModeActive } = useBuildScreenshot()
 
   // Add the build name to the page title
   useEffect(() => {
