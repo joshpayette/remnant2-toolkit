@@ -1,10 +1,12 @@
-import { Item, isArmorItem, isMutatorItem } from '@/app/(types)'
 import Dialog from './Dialog'
 import { capitalize } from '@/app/(lib)/utils'
 import Image from 'next/image'
+import { BaseItem } from '../(types)/BaseItem'
+import { MutatorItem } from '../(types)/MutatorItem'
+import { ArmorItem } from '../(types)/ArmorItem'
 
 interface ItemInfoProps {
-  item: Item | null
+  item: BaseItem | null
   open: boolean
   onClose: () => void
 }
@@ -41,7 +43,7 @@ export default function ItemInfo({ item, open, onClose }: ItemInfoProps) {
             {item.description || 'No description available.'}
           </p>
 
-          {isMutatorItem(item) && (
+          {MutatorItem.isMutatorItem(item) && (
             <div className="flex flex-col items-start justify-start">
               <h4 className="mt-4 text-left text-sm text-gray-500">
                 At Max Level
@@ -76,7 +78,7 @@ export default function ItemInfo({ item, open, onClose }: ItemInfoProps) {
               </div>
             )}
           </div>
-          {isArmorItem(item) && (
+          {ArmorItem.isArmorItem(item) && (
             <div className="flex w-full flex-col items-start justify-start">
               <h4 className="mt-4 text-left text-sm text-gray-500">
                 Armor Stats

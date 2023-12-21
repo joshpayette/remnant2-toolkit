@@ -2,9 +2,7 @@
 
 import { remnantItems } from '@/app/(data)'
 import { useEffect, useState } from 'react'
-import { isMutatorItem, type Item } from '@/app/(types)'
 import ToCsvButton from '@/app/(components)/ToCsvButton'
-import { useIsClient } from 'usehooks-ts'
 import PageHeader from '@/app/(components)/PageHeader'
 import ItemInfo from '@/app/(components)/ItemInfo'
 import { itemToCsvItem } from '@/app/(lib)/utils'
@@ -12,6 +10,8 @@ import ItemCard from '../tracker/(components)/ItemCard'
 import { InformationCircleIcon } from '@heroicons/react/24/outline'
 import { useDebounce } from 'usehooks-ts'
 import SearchInput from '../(components)/SearchInput'
+import { MutatorItem } from '../(types)/MutatorItem'
+import { BaseItem } from '../(types)/BaseItem'
 
 const csvItems = remnantItems // Modify the data for use. Adds a discovered flag,
   // modifies the description for mutators
@@ -20,7 +20,7 @@ const csvItems = remnantItems // Modify the data for use. Adds a discovered flag
 
     // For mutators, we need to combine the description
     // and the max level bonus
-    if (isMutatorItem(item)) {
+    if (MutatorItem.isMutatorItem(item)) {
       const description = item.description
       const maxLevelBonus = item.maxLevelBonus
       csvItem = itemToCsvItem({
@@ -42,7 +42,7 @@ const csvItems = remnantItems // Modify the data for use. Adds a discovered flag
 
 export default function ItemLookupPage() {
   // Tracks the item the user wants info on
-  const [itemInfo, setItemInfo] = useState<Item | null>(null)
+  const [itemInfo, setItemInfo] = useState<BaseItem | null>(null)
   // If the item info is defined, the modal should be open
   const isShowItemInfoOpen = Boolean(itemInfo)
 

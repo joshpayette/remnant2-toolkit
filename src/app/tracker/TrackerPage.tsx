@@ -4,7 +4,6 @@ import { remnantItemCategories, remnantItems } from '@/app/(data)'
 import { useLocalStorage } from '@/app/(hooks)/useLocalStorage'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import type { Filters } from './(components)/Filters'
-import { isMutatorItem, type Item, type ItemCategory } from '@/app/(types)'
 import TrackerFilters from './(components)/Filters'
 import ToCsvButton from '@/app/(components)/ToCsvButton'
 import { useIsClient } from 'usehooks-ts'
@@ -16,8 +15,10 @@ import { useFormState } from 'react-dom'
 import parseSaveFile from './actions'
 import { SubmitButton } from '../(components)/SubmitButton'
 import { toast } from 'react-toastify'
+import { BaseItem } from '../(types)/BaseItem'
+import { MutatorItem } from '../(types)/MutatorItem'
 
-const skippedItemCategories: ItemCategory[] = [
+const skippedItemCategories: Array<BaseItem['category']> = [
   'concoction',
   'consumable',
   'skill',
@@ -44,7 +45,7 @@ export default function TrackerPage() {
   const isClient = useIsClient()
 
   // Tracks the item the user wants info on
-  const [itemInfo, setItemInfo] = useState<Item | null>(null)
+  const [itemInfo, setItemInfo] = useState<BaseItem | null>(null)
   // If the item info is defined, the modal should be open
   const isShowItemInfoOpen = Boolean(itemInfo)
 
@@ -89,7 +90,7 @@ export default function TrackerPage() {
 
           // For mutators, we need to combine the description
           // and the max level bonus
-          if (isMutatorItem(item)) {
+          if (MutatorItem.isMutatorItem(item)) {
             const description = item.description
             const maxLevelBonus = item.maxLevelBonus
             csvItem = itemToCsvItem({
