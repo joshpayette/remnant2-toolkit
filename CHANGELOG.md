@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2023-12-21
+
+### Added
+
+- Exporting a build image on mobile now exports the image at the same size as on desktop.
+
 ## 2023-12-20
 
 ### Added
