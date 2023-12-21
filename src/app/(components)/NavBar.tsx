@@ -7,7 +7,7 @@ import Link from 'next/link'
 import Logo from '@/app/(components)/Logo'
 import { usePathname } from 'next/navigation'
 import { navItems } from '../navitems'
-import AuthButton from './AuthButton'
+import { AuthButton } from './AuthButton'
 
 export default function NavBar() {
   const pathname = usePathname()
@@ -48,7 +48,7 @@ export default function NavBar() {
             </Link>
           ))}
           <div className="flex grow items-end justify-end">
-            <AuthButton variant="desktop" />
+            <AuthButton.Desktop />
           </div>
         </div>
       </nav>
@@ -95,7 +95,7 @@ export default function NavBar() {
                 <hr className="border-purple-900" />
 
                 <div className="pt-4">
-                  <AuthButton variant="mobile" />
+                  <AuthButton.Mobile />
                 </div>
               </div>
             </div>

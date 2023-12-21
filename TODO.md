@@ -1,5 +1,10 @@
+# DB TODO
+
+- Get a build to save to the database
+
 # TODO
 
+- Add toggle to limit build items to DLC/non-DLC items
 - Replace fextralife wiki links with remnant.wiki
 - Add scroll to top button for mobile
 - On tracker, allowing sorting alphabetically or by item type (i.e. group armors together)

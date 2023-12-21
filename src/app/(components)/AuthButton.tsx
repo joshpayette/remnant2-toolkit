@@ -9,11 +9,7 @@ import {
   UserCircleIcon,
 } from '@heroicons/react/24/outline'
 
-export default function AuthButton({
-  variant,
-}: {
-  variant: 'mobile' | 'desktop'
-}) {
+function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
   const { data: session, status } = useSession()
 
   if (status !== 'authenticated' || !session?.user) {
@@ -121,4 +117,9 @@ export default function AuthButton({
       </Transition>
     </Menu>
   )
+}
+
+export const AuthButton = {
+  Desktop: () => <AuthButtonComponent variant="desktop" />,
+  Mobile: () => <AuthButtonComponent variant="mobile" />,
 }
