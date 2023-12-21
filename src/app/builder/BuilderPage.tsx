@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from 'react'
 import PageHeader from '@/app/(components)/PageHeader'
 import Builder from './(components)/Builder'
-import useQueryString from '@/app/builder/(components)/useBuilder'
+import useQueryString from '@/app/builder/(hooks)/useBuildSearchParams'
 import { useLocalStorage } from '@/app/(hooks)/useLocalStorage'
 import { useIsClient } from 'usehooks-ts'
 import Actions from './(components)/Actions'
@@ -13,7 +13,7 @@ export default function BuildHomePage() {
   const isClient = useIsClient()
   const buildImageRef = useRef<HTMLDivElement>(null)
 
-  const { currentBuild } = useQueryString()
+  const { currentBuildState } = useQueryString()
   const { builderStorage, setBuilderStorage } = useLocalStorage()
 
   const [showLabels, setShowLabels] = useState(builderStorage.showLabels)
@@ -26,9 +26,9 @@ export default function BuildHomePage() {
 
   // Add the build name to the page title
   useEffect(() => {
-    if (!currentBuild) return
-    document.title = `${currentBuild.name} | Remnant 2 Toolkit`
-  }, [currentBuild])
+    if (!currentBuildState) return
+    document.title = `${currentBuildState.name} | Remnant 2 Toolkit`
+  }, [currentBuildState])
 
   /**
    * Export the build as an image
@@ -89,7 +89,7 @@ export default function BuildHomePage() {
             onExportAsImage={() =>
               handleImageExport(
                 buildImageRef.current,
-                `${currentBuild.name}.png`,
+                `${currentBuildState.name}.png`,
               )
             }
             onToggleControls={() => {

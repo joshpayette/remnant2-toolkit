@@ -2,12 +2,11 @@
 
 import copy from 'clipboard-copy'
 import ToCsvButton from '@/app/(components)/ToCsvButton'
-import { cn, itemToCsvItem } from '@/app/(lib)/utils'
-import { remnantItemCategories } from '@/app/(data)'
-import useQueryString from '@/app/builder/(components)/useBuilder'
-import { type TraitItem } from '@/app/(types)'
+import { cn } from '@/app/(lib)/utils'
+import useQueryString from '@/app/builder/(hooks)/useBuildSearchParams'
 import Link from 'next/link'
 import { toast } from 'react-toastify'
+import { buildToCsvData } from '../(lib)/utils'
 
 export default function Actions({
   showControls,
@@ -22,52 +21,10 @@ export default function Actions({
   onToggleControls: () => void
   onToggleLabels: () => void
 }) {
-  const { currentBuild } = useQueryString()
+  const { currentBuildState } = useQueryString()
 
   // We need to convert the build.items object into an array of items to pass to the ToCsvButton
-  const csvBuildData = remnantItemCategories
-    .map((category) => {
-      const itemOrItems = currentBuild.items[category]
-
-      if (!itemOrItems)
-        return {
-          name: '',
-          category,
-          description: '',
-          howToGet: '',
-          wikiLinks: '',
-        }
-
-      if (Array.isArray(itemOrItems)) {
-        // If the category is a trait, we need to add the trait amount to the name
-        if (category === 'trait') {
-          return itemOrItems.map((item) => {
-            const traitItem = item as TraitItem
-            const { name, ...csvItem } = itemToCsvItem(traitItem)
-            return {
-              name: `${name} - ${traitItem.amount}`,
-              ...csvItem,
-            }
-          })
-        }
-
-        return itemOrItems.map((item) => itemToCsvItem(item))
-      }
-
-      if (itemOrItems.category === 'trait') {
-        if (!Array.isArray(itemOrItems)) {
-          return {
-            name: '',
-            category,
-            description: '',
-            howToGet: '',
-            wikiLinks: '',
-          }
-        }
-        return itemOrItems.map((item) => itemToCsvItem(item.item))
-      }
-    })
-    .flat()
+  const csvBuildData = buildToCsvData(currentBuildState)
 
   return (
     <div id="actions" className="flex flex-col gap-2">
@@ -129,7 +86,7 @@ export default function Actions({
 
       <ToCsvButton
         data={csvBuildData.filter((item) => item?.name !== '')}
-        filename={`remnant2_builder_${currentBuild.name}`}
+        filename={`remnant2_builder_${currentBuildState.name}`}
       />
     </div>
   )

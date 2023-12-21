@@ -6,8 +6,9 @@ import BuilderButton from './BuilderButton'
 import Traits from './Traits'
 import ItemSelect from './ItemSelect'
 import Logo from '@/app/(components)/Logo'
-import useBuilder from './useBuilder'
+import useBuildSearchParams from '../(hooks)/useBuildSearchParams'
 import { BaseItem } from '@/app/(types)/BaseItem'
+import { getItemListForCategory } from '../(lib)/utils'
 
 export default function BuilderPage({
   isScreenshotMode,
@@ -19,7 +20,7 @@ export default function BuilderPage({
   showLabels: boolean
 }) {
   // Custom hook for working with the build
-  const { updateBuild, currentBuild, getItemListForCategory } = useBuilder()
+  const { updateBuild, currentBuildState } = useBuildSearchParams()
 
   // Tracks information about the slot the user is selecting an item for
   const [selectedItemSlot, setSelectedItemSlot] = useState<{
@@ -53,7 +54,7 @@ export default function BuilderPage({
       // then remove the item at the specified index
       if (!selectedItem) {
         if (isIndexSpecified) {
-          const buildItems = currentBuild.items[selectedItemSlot.category]
+          const buildItems = currentBuildState.items[selectedItemSlot.category]
 
           if (!Array.isArray(buildItems)) return
 
@@ -73,7 +74,8 @@ export default function BuilderPage({
         return
       }
 
-      const categoryItemorItems = currentBuild.items[selectedItemSlot.category]
+      const categoryItemorItems =
+        currentBuildState.items[selectedItemSlot.category]
 
       // If the item can be multiple, such as rings,
       // then add the item at the specified index
@@ -120,7 +122,7 @@ export default function BuilderPage({
       setSelectedItemSlot({ category: null })
     },
     [
-      currentBuild.items,
+      currentBuildState.items,
       selectedItemSlot.category,
       selectedItemSlot.index,
       updateBuild,
@@ -138,8 +140,8 @@ export default function BuilderPage({
    * This is passed to the ItemSelect modal to display the correct items
    */
   const itemListForSlot = useMemo(
-    () => getItemListForCategory(currentBuild, selectedItemSlot),
-    [selectedItemSlot, currentBuild, getItemListForCategory],
+    () => getItemListForCategory(currentBuildState, selectedItemSlot),
+    [selectedItemSlot, currentBuildState],
   )
 
   return (
@@ -160,7 +162,7 @@ export default function BuilderPage({
             updateBuild('name', newBuildName)
             setBuildNameIsEditable(false)
           }}
-          name={currentBuild.name}
+          name={currentBuildState.name}
           showControls={showControls}
         />
       </div>
@@ -173,7 +175,7 @@ export default function BuilderPage({
         )}
         <div id="left-column" className="flex-none">
           <BuilderButton
-            item={currentBuild.items.helm}
+            item={currentBuildState.items.helm}
             showLabels={showLabels}
             onClick={() => {
               setSelectedItemSlot({
@@ -182,7 +184,7 @@ export default function BuilderPage({
             }}
           />
           <BuilderButton
-            item={currentBuild.items.torso}
+            item={currentBuildState.items.torso}
             showLabels={showLabels}
             onClick={() => {
               setSelectedItemSlot({
@@ -191,7 +193,7 @@ export default function BuilderPage({
             }}
           />
           <BuilderButton
-            item={currentBuild.items.legs}
+            item={currentBuildState.items.legs}
             showLabels={showLabels}
             onClick={() => {
               setSelectedItemSlot({
@@ -200,7 +202,7 @@ export default function BuilderPage({
             }}
           />
           <BuilderButton
-            item={currentBuild.items.gloves}
+            item={currentBuildState.items.gloves}
             showLabels={showLabels}
             onClick={() => {
               setSelectedItemSlot({
@@ -213,7 +215,7 @@ export default function BuilderPage({
             className="relative flex items-start justify-start"
           >
             <BuilderButton
-              item={currentBuild.items.relic}
+              item={currentBuildState.items.relic}
               showLabels={showLabels}
               onClick={() => {
                 setSelectedItemSlot({
@@ -228,7 +230,7 @@ export default function BuilderPage({
               <BuilderButton
                 showLabels={showLabels}
                 size="sm"
-                item={currentBuild.items.relicfragment[0]}
+                item={currentBuildState.items.relicfragment[0]}
                 onClick={() => {
                   setSelectedItemSlot({
                     category: 'relicfragment',
@@ -237,7 +239,7 @@ export default function BuilderPage({
                 }}
               />
               <BuilderButton
-                item={currentBuild.items.relicfragment[1]}
+                item={currentBuildState.items.relicfragment[1]}
                 showLabels={showLabels}
                 size="sm"
                 onClick={() => {
@@ -248,7 +250,7 @@ export default function BuilderPage({
                 }}
               />
               <BuilderButton
-                item={currentBuild.items.relicfragment[2]}
+                item={currentBuildState.items.relicfragment[2]}
                 showLabels={showLabels}
                 size="sm"
                 onClick={() => {
@@ -277,7 +279,7 @@ export default function BuilderPage({
             {getArrayOfLength(2).map((archtypeIndex) => (
               <Fragment key={`archtype-${archtypeIndex}`}>
                 <BuilderButton
-                  item={currentBuild.items.archtype[archtypeIndex]}
+                  item={currentBuildState.items.archtype[archtypeIndex]}
                   showLabels={showLabels}
                   onClick={() => {
                     setSelectedItemSlot({
@@ -287,7 +289,7 @@ export default function BuilderPage({
                   }}
                 />
                 <BuilderButton
-                  item={currentBuild.items.skill[archtypeIndex]}
+                  item={currentBuildState.items.skill[archtypeIndex]}
                   showLabels={showLabels}
                   onClick={() => {
                     setSelectedItemSlot({
@@ -305,7 +307,7 @@ export default function BuilderPage({
             className="flex flex-row flex-wrap gap-2"
           >
             <BuilderButton
-              item={currentBuild.items.concoction[0]}
+              item={currentBuildState.items.concoction[0]}
               showLabels={showLabels}
               onClick={() => {
                 setSelectedItemSlot({
@@ -320,14 +322,14 @@ export default function BuilderPage({
 
               // Skip the concoctions if the build is not an alchemist
               const isPrimaryAlchemist =
-                currentBuild.items.archtype[0]?.name?.toLowerCase() ===
+                currentBuildState.items.archtype[0]?.name?.toLowerCase() ===
                 'alchemist'
               if (!isPrimaryAlchemist) return null
 
               return (
                 <BuilderButton
                   key={`concoction-${concoctionIndex}`}
-                  item={currentBuild.items.concoction[concoctionIndex]}
+                  item={currentBuildState.items.concoction[concoctionIndex]}
                   showLabels={showLabels}
                   onClick={() => {
                     setSelectedItemSlot({
@@ -347,7 +349,7 @@ export default function BuilderPage({
             {getArrayOfLength(4).map((consumableIndex) => (
               <BuilderButton
                 key={`consumable-${consumableIndex}`}
-                item={currentBuild.items.consumable[consumableIndex]}
+                item={currentBuildState.items.consumable[consumableIndex]}
                 showLabels={showLabels}
                 onClick={() => {
                   setSelectedItemSlot({
@@ -362,7 +364,7 @@ export default function BuilderPage({
 
         <div id="right-column" className="flex-none">
           <BuilderButton
-            item={currentBuild.items.amulet}
+            item={currentBuildState.items.amulet}
             showLabels={showLabels}
             onClick={() => {
               setSelectedItemSlot({
@@ -373,7 +375,7 @@ export default function BuilderPage({
           {getArrayOfLength(4).map((ringIndex) => (
             <BuilderButton
               showLabels={showLabels}
-              item={currentBuild.items.ring[ringIndex]}
+              item={currentBuildState.items.ring[ringIndex]}
               key={`ring-${ringIndex}`}
               onClick={() => {
                 setSelectedItemSlot({
@@ -397,7 +399,7 @@ export default function BuilderPage({
           >
             <BuilderButton
               showLabels={showLabels}
-              item={currentBuild.items.weapon[weaponIndex]}
+              item={currentBuildState.items.weapon[weaponIndex]}
               size="wide"
               onClick={() => {
                 setSelectedItemSlot({
@@ -409,7 +411,7 @@ export default function BuilderPage({
             <div className="flex w-full grow items-center justify-around gap-4">
               <BuilderButton
                 showLabels={showLabels}
-                item={currentBuild.items.mod[weaponIndex]}
+                item={currentBuildState.items.mod[weaponIndex]}
                 size="md"
                 onClick={() => {
                   setSelectedItemSlot({
@@ -419,7 +421,7 @@ export default function BuilderPage({
                 }}
               />
               <BuilderButton
-                item={currentBuild.items.mutator[weaponIndex]}
+                item={currentBuildState.items.mutator[weaponIndex]}
                 showLabels={showLabels}
                 size="md"
                 onClick={() => {
@@ -435,7 +437,7 @@ export default function BuilderPage({
       </div>
       <div id="trait-row" className="mt-4 w-full">
         <Traits
-          traitItems={currentBuild.items.trait}
+          traitItems={currentBuildState.items.trait}
           showControls={showControls}
           showLabels={showLabels}
           onAddTrait={() => {
@@ -444,7 +446,7 @@ export default function BuilderPage({
             })
           }}
           onRemoveTrait={(traitItem) => {
-            const newTraitItems = currentBuild.items.trait.filter(
+            const newTraitItems = currentBuildState.items.trait.filter(
               (i) => i.name !== traitItem.name,
             )
             const newTraitItemParams = newTraitItems.map(
@@ -453,12 +455,14 @@ export default function BuilderPage({
             updateBuild('trait', newTraitItemParams)
           }}
           onChangeAmount={(newTraitItem) => {
-            const newTraitItems = currentBuild.items.trait.map((traitItem) => {
-              if (traitItem.name === newTraitItem.name) {
-                return newTraitItem
-              }
-              return traitItem
-            })
+            const newTraitItems = currentBuildState.items.trait.map(
+              (traitItem) => {
+                if (traitItem.name === newTraitItem.name) {
+                  return newTraitItem
+                }
+                return traitItem
+              },
+            )
             const newTraitItemParams = newTraitItems.map(
               (i) => `${i.id};${i.amount}`,
             )

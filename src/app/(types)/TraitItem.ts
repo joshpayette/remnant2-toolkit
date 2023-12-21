@@ -53,7 +53,8 @@ export class TraitItem extends BaseItem implements BaseTraitItem {
     this.amount = props.amount
   }
 
-  public static isTraitItem = (item: BaseItem): item is TraitItem => {
+  public static isTraitItem = (item?: BaseItem): item is TraitItem => {
+    if (!item) return false
     return item.category === 'trait'
   }
 

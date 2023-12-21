@@ -1,11 +1,11 @@
 'use client'
 
-import { type Item, ItemCategory } from '@/app/(types)'
 import Dialog from '@/app/(components)/Dialog'
 import BuilderButton from './BuilderButton'
 import { useDebounce, useIsClient } from 'usehooks-ts'
 import { useEffect, useState } from 'react'
 import SearchInput from '@/app/(components)/SearchInput'
+import { BaseItem } from '@/app/(types)/BaseItem'
 
 export default function ItemSelect({
   itemList,
@@ -14,11 +14,11 @@ export default function ItemSelect({
   onClose,
   onSelectItem,
 }: {
-  itemList: Item[]
-  buildSlot: ItemCategory | null
+  itemList: BaseItem[]
+  buildSlot: BaseItem['category'] | null
   open: boolean
   onClose: () => void
-  onSelectItem: (item: Item | null) => void
+  onSelectItem: (item: BaseItem | null) => void
 }) {
   const isClient = useIsClient()
 

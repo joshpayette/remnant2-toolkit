@@ -1,5 +1,5 @@
 import { cn } from '@/app/(lib)/utils'
-import { type Item } from '@/app/(types)'
+import { BaseItem } from '@/app/(types)/BaseItem'
 import Image from 'next/image'
 
 export default function BuilderButton({
@@ -9,7 +9,7 @@ export default function BuilderButton({
   size = 'md',
 }: {
   onClick: () => void
-  item: Item | null
+  item: BaseItem | null
   showLabels: boolean
   size?: 'sm' | 'md' | 'lg' | 'wide'
 }) {

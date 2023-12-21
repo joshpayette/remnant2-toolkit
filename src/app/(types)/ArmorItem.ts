@@ -59,7 +59,8 @@ export class ArmorItem extends BaseItem implements BaseArmorItem {
     this.toxinResistance = props.toxinResistance
   }
 
-  public static isArmorItem = (item: BaseItem): item is ArmorItem => {
+  public static isArmorItem = (item?: BaseItem): item is ArmorItem => {
+    if (!item) return false
     return (
       item.category === 'helm' ||
       item.category === 'torso' ||

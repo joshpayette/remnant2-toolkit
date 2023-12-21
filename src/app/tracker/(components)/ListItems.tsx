@@ -4,15 +4,15 @@ import { Disclosure } from '@headlessui/react'
 import { ChevronUpIcon } from '@heroicons/react/20/solid'
 import { capitalize, cn } from '@/app/(lib)/utils'
 import { type Filters } from './Filters'
-import { type Item, type ItemCategory } from '@/app/(types)'
 import { useIsClient } from 'usehooks-ts'
 import { useLocalStorage } from '@/app/(hooks)/useLocalStorage'
 import ItemCard from './ItemCard'
 import { InformationCircleIcon } from '@heroicons/react/24/outline'
+import { BaseItem } from '@/app/(types)/BaseItem'
 
 function getProgress(
-  items: Array<Item & { discovered: boolean }>,
-  itemCategory: ItemCategory,
+  items: Array<BaseItem & { discovered: boolean }>,
+  itemCategory: BaseItem['category'],
   isClient: boolean,
 ) {
   const discoveredCount = items.filter(
@@ -30,8 +30,8 @@ function getProgress(
 
 interface ListItemsProps {
   filters: Filters
-  items: Array<Item & { discovered: boolean }>
-  itemCategories: ItemCategory[]
+  items: Array<BaseItem & { discovered: boolean }>
+  itemCategories: Array<BaseItem['category']>
   onClick: (itemId: string) => void
   onShowItemInfo: (itemId: string) => void
 }
@@ -48,12 +48,12 @@ export default function ListItems({
 
   const isClient = useIsClient()
 
-  const getItemTitle = (itemCategory: ItemCategory) => {
+  const getItemTitle = (itemCategory: BaseItem['category']) => {
     if (itemCategory === 'relicfragment') return 'Relic Fragments'
     return capitalize(itemCategory)
   }
 
-  function handleCategoryToggle(itemCategory: ItemCategory) {
+  function handleCategoryToggle(itemCategory: BaseItem['category']) {
     const newCollapsedItemTypes = collapsedCategories.includes(itemCategory)
       ? collapsedCategories.filter((type) => type !== itemCategory)
       : [...collapsedCategories, itemCategory]

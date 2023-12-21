@@ -41,15 +41,19 @@ export abstract class BaseItem {
   abstract imagePath?: string
   abstract linkedItems?: LinkedItems
 
-  public static isBaseItem = (item: BaseItem): item is BaseItem =>
-    item.category !== 'skill' &&
-    item.category !== 'trait' &&
-    item.category !== 'weapon' &&
-    item.category !== 'helm' &&
-    item.category !== 'torso' &&
-    item.category !== 'legs' &&
-    item.category !== 'gloves' &&
-    item.category !== 'mutator'
+  public static isBaseItem = (item?: BaseItem): item is BaseItem => {
+    if (!item) return false
+    return (
+      item.category !== 'skill' &&
+      item.category !== 'trait' &&
+      item.category !== 'weapon' &&
+      item.category !== 'helm' &&
+      item.category !== 'torso' &&
+      item.category !== 'legs' &&
+      item.category !== 'gloves' &&
+      item.category !== 'mutator'
+    )
+  }
 
   static toParams(items: BaseItem[]): string[] {
     return items.map((i) => `${i.id}`)
@@ -70,10 +74,10 @@ export abstract class BaseItem {
     if (!itemIds) return null
 
     const items: BaseItem[] = []
-    itemIds.forEach((itemId) => {
+    itemIds.forEach((itemId, index) => {
       const item = remnantItems.find((i) => i.id === itemId)
       if (!item) return
-      items.push(item)
+      items[index] = item
     })
 
     if (items.length === 0) return null

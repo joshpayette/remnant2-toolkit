@@ -1,8 +1,11 @@
-import { type TraitItem } from '@/app/(types)'
 import { useState } from 'react'
 import { XCircleIcon } from '@heroicons/react/24/outline'
 import { cn } from '@/app/(lib)/utils'
-import { DEFAULT_TRAIT_AMOUNT, MAX_TRAIT_AMOUNT } from '@/app/(types)/TraitItem'
+import {
+  DEFAULT_TRAIT_AMOUNT,
+  MAX_TRAIT_AMOUNT,
+  TraitItem,
+} from '@/app/(types)/TraitItem'
 
 export default function Traits({
   showControls,
@@ -79,10 +82,12 @@ export default function Traits({
                     if (amount < 1) amount = DEFAULT_TRAIT_AMOUNT
                     if (amount > 10) amount = DEFAULT_TRAIT_AMOUNT
 
-                    setEditingTraitItem({
-                      ...traitItem,
-                      amount,
-                    })
+                    setEditingTraitItem(
+                      new TraitItem({
+                        ...traitItem,
+                        amount,
+                      }),
+                    )
                   }}
                   // Update the parent state when the input is blurred
                   onBlur={() => {

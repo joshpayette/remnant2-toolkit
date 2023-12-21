@@ -38,7 +38,8 @@ export class WeaponItem extends BaseItem implements BaseWeaponItem {
     this.type = props.type
   }
 
-  public static isWeaponItem = (item: BaseItem): item is WeaponItem => {
+  public static isWeaponItem = (item?: BaseItem): item is WeaponItem => {
+    if (!item) return false
     return item.category === 'weapon'
   }
 }

@@ -1,9 +1,9 @@
-import { type Item, type ItemCategory } from '@/app/(types)'
+import { BaseItem } from '@/app/(types)/BaseItem'
 import Image from 'next/image'
 
 export interface ItemCardProps {
-  item?: Item
-  category?: ItemCategory
+  item?: BaseItem
+  category?: BaseItem['category']
   onClick?: () => void
 }
 

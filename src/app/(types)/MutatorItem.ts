@@ -42,7 +42,8 @@ export class MutatorItem extends BaseItem implements BaseMutatorItem {
     this.maxLevelBonus = props.maxLevelBonus
   }
 
-  public static isMutatorItem = (item: BaseItem): item is MutatorItem => {
+  public static isMutatorItem = (item?: BaseItem): item is MutatorItem => {
+    if (!item) return false
     return item.category === 'mutator'
   }
 }
