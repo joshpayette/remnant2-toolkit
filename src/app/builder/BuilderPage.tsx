@@ -1,5 +1,7 @@
 'use client'
 
+import copy from 'clipboard-copy'
+import { toast } from 'react-toastify'
 import { useEffect, useRef, useState } from 'react'
 import PageHeader from '@/app/(components)/PageHeader'
 import Builder from './(components)/Builder'
@@ -13,10 +15,10 @@ import { cn } from '../(lib)/utils'
 export default function BuildHomePage() {
   const { currentBuildState } = useQueryString()
   const { builderStorage, setBuilderStorage } = useLocalStorage()
-  const { handleImageExport, isScreenshotModeActive } = useBuildScreenshot()
+  const { buildContainerRef, handleImageExport, isScreenshotModeActive } =
+    useBuildScreenshot()
 
   const isClient = useIsClient()
-  const buildImageRef = useRef<HTMLDivElement>(null)
 
   const [showLabels, setShowLabels] = useState(builderStorage.showLabels)
   function handleToggleLabels() {
@@ -34,6 +36,11 @@ export default function BuildHomePage() {
       ...builderStorage,
       showControls: !showControls,
     })
+  }
+
+  function handleCopyBuildUrl() {
+    copy(window.location.href)
+    toast.success('Copied Build URL to clipboard')
   }
 
   // Add the build name to the page title
@@ -60,11 +67,9 @@ export default function BuildHomePage() {
           <Actions
             showLabels={showLabels}
             showControls={showControls}
+            onCopyBuildUrl={handleCopyBuildUrl}
             onExportAsImage={() =>
-              handleImageExport(
-                buildImageRef.current,
-                `${currentBuildState.name}.png`,
-              )
+              handleImageExport(`${currentBuildState.name}.png`)
             }
             onToggleControls={handleToggleControls}
             onToggleLabels={handleToggleLabels}
@@ -75,7 +80,7 @@ export default function BuildHomePage() {
             'w-full grow rounded border-2 border-green-500 bg-black p-4',
             isScreenshotModeActive && 'min-h-[731px] min-w-[502px]',
           )}
-          ref={buildImageRef}
+          ref={buildContainerRef}
         >
           <Builder
             isScreenshotMode={isScreenshotModeActive}
