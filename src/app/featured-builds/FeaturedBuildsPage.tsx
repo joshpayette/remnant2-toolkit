@@ -66,7 +66,9 @@ export default function FeaturedBuildsPage() {
                   </span>
                 </p>
               )}
-              <p className="text-md text-gray-100">{build.description}</p>
+              <p className="text-md text-left text-gray-200">
+                {build.description}
+              </p>
             </div>
 
             <Link
