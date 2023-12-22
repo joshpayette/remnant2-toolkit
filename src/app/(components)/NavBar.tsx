@@ -47,9 +47,9 @@ export default function NavBar() {
               {item.name}
             </Link>
           ))}
-          {/* <div className="flex grow items-end justify-end">
+          <div className="flex grow items-end justify-end">
             <AuthButton.Desktop />
-          </div> */}
+          </div>
         </div>
       </nav>
       <Dialog
@@ -92,11 +92,11 @@ export default function NavBar() {
                   </div>
                 ))}
 
-                {/* <hr className="border-purple-900" />
+                <hr className="border-purple-900" />
 
                 <div className="pt-4">
                   <AuthButton.Mobile />
-                </div> */}
+                </div>
               </div>
             </div>
           </div>
