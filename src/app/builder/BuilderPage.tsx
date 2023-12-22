@@ -19,7 +19,22 @@ export default function BuildHomePage() {
   const buildImageRef = useRef<HTMLDivElement>(null)
 
   const [showLabels, setShowLabels] = useState(builderStorage.showLabels)
+  function handleToggleLabels() {
+    setShowLabels(!showLabels)
+    setBuilderStorage({
+      ...builderStorage,
+      showLabels: !showLabels,
+    })
+  }
+
   const [showControls, setShowControls] = useState(builderStorage.showControls)
+  function handleToggleControls() {
+    setShowControls(!showControls)
+    setBuilderStorage({
+      ...builderStorage,
+      showControls: !showControls,
+    })
+  }
 
   // Add the build name to the page title
   useEffect(() => {
@@ -51,20 +66,8 @@ export default function BuildHomePage() {
                 `${currentBuildState.name}.png`,
               )
             }
-            onToggleControls={() => {
-              setShowControls(!showControls)
-              setBuilderStorage({
-                ...builderStorage,
-                showControls: !showControls,
-              })
-            }}
-            onToggleLabels={() => {
-              setShowLabels(!showLabels)
-              setBuilderStorage({
-                ...builderStorage,
-                showLabels: !showLabels,
-              })
-            }}
+            onToggleControls={handleToggleControls}
+            onToggleLabels={handleToggleLabels}
           />
         </div>
         <div
