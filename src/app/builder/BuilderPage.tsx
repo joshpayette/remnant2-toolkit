@@ -5,7 +5,7 @@ import { toast } from 'react-toastify'
 import { useEffect, useRef, useState } from 'react'
 import PageHeader from '@/app/(components)/PageHeader'
 import Builder from './(components)/Builder'
-import useQueryString from '@/app/builder/(hooks)/useBuildSearchParams'
+import useBuildSearchParams from '@/app/builder/(hooks)/useBuildSearchParams'
 import { useLocalStorage } from '@/app/(hooks)/useLocalStorage'
 import { useIsClient } from 'usehooks-ts'
 import Actions from './(components)/Actions'
@@ -13,7 +13,7 @@ import useBuildScreenshot from './(hooks)/useBuildScreenshot'
 import { cn } from '../(lib)/utils'
 
 export default function BuildHomePage() {
-  const { currentBuildState } = useQueryString()
+  const { currentBuildState } = useBuildSearchParams()
   const { builderStorage, setBuilderStorage } = useLocalStorage()
   const { buildContainerRef, handleImageExport, isScreenshotModeActive } =
     useBuildScreenshot()

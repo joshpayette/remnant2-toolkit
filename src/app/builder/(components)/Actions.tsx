@@ -1,6 +1,5 @@
 import ToCsvButton from '@/app/(components)/ToCsvButton'
-import useQueryString from '@/app/builder/(hooks)/useBuildSearchParams'
-import Link from 'next/link'
+import useBuildSearchParams from '@/app/builder/(hooks)/useBuildSearchParams'
 import { buildToCsvData } from '../(lib)/utils'
 import { Button } from './Button'
 import SaveBuildButton from './SaveBuildButton'
@@ -20,7 +19,7 @@ export default function Actions({
   onToggleControls: () => void
   onToggleLabels: () => void
 }) {
-  const { currentBuildState } = useQueryString()
+  const { currentBuildState } = useBuildSearchParams()
 
   // We need to convert the build.items object into an array of items to pass to the ToCsvButton
   const csvBuildData = buildToCsvData(currentBuildState)

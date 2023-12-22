@@ -1,7 +1,7 @@
 import { cn } from '@/app/(lib)/utils'
 import Link from 'next/link'
 
-const sharedClasses =
+export const buttonClasses =
   'flex w-full flex-col items-center rounded border-2 text-center px-4 py-2 text-sm font-bold text-white'
 
 interface ButtonProps {
@@ -11,7 +11,7 @@ interface ButtonProps {
 export const Button = {
   ExportImage: ({ onClick }: ButtonProps) => (
     <button
-      className={cn(sharedClasses, 'border-green-500 hover:bg-purple-700')}
+      className={cn(buttonClasses, 'border-green-500 hover:bg-green-700')}
       onClick={onClick}
     >
       Export to Image
@@ -20,7 +20,7 @@ export const Button = {
 
   CopyBuildUrl: ({ onClick }: ButtonProps) => (
     <button
-      className={cn(sharedClasses, 'border-purple-500 hover:bg-purple-700')}
+      className={cn(buttonClasses, 'border-purple-500 hover:bg-purple-700')}
       onClick={onClick}
     >
       Copy Build URL
@@ -34,7 +34,7 @@ export const Button = {
     <button
       id="show-labels-button"
       className={cn(
-        sharedClasses,
+        buttonClasses,
         'hover:bg-green-700',
         showLabels
           ? 'border-transparent bg-green-500'
@@ -55,7 +55,7 @@ export const Button = {
     <button
       id="show-controls-button"
       className={cn(
-        sharedClasses,
+        buttonClasses,
         'hover:bg-green-700',
         showControls
           ? 'border-transparent bg-green-500'
@@ -72,7 +72,7 @@ export const Button = {
   NewBuild: () => (
     <Link
       className={cn(
-        sharedClasses,
+        buttonClasses,
         'w-full border-red-500 bg-red-700 hover:bg-red-500',
       )}
       href="/builder"
