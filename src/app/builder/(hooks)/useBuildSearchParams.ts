@@ -2,7 +2,6 @@ import { type BuildState } from '@/app/(types)'
 import { remnantItemCategories, remnantItems } from '@/app/(data)'
 import { usePathname, useSearchParams, useRouter } from 'next/navigation'
 import { useCallback } from 'react'
-import { useSession } from 'next-auth/react'
 import { DEFAULT_TRAIT_AMOUNT, TraitItem } from '@/app/(types)/TraitItem'
 import { GenericItem } from '@/app/(types)/GenericItem'
 import { ArmorItem } from '@/app/(types)/ArmorItem'
@@ -113,7 +112,6 @@ export default function useBuildSearchParams() {
   const router = useRouter()
   const pathname = usePathname()
   const searchParams = useSearchParams()
-  const { data: session } = useSession()
 
   /**
    * Creates a new query string by adding or updating a parameter.

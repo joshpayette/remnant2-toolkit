@@ -7,7 +7,6 @@ import Link from 'next/link'
 import Logo from '@/app/(components)/Logo'
 import { usePathname } from 'next/navigation'
 import { navItems } from '../navitems'
-import { AuthButton } from './AuthButton'
 
 export default function NavBar() {
   const pathname = usePathname()
@@ -47,9 +46,6 @@ export default function NavBar() {
               {item.name}
             </Link>
           ))}
-          {/* <div className="flex grow items-end justify-end">
-            <AuthButton.Desktop />
-          </div> */}
         </div>
       </nav>
       <Dialog
@@ -91,12 +87,6 @@ export default function NavBar() {
                     </Link>
                   </div>
                 ))}
-
-                {/* <hr className="border-purple-900" />
-
-                <div className="pt-4">
-                  <AuthButton.Mobile />
-                </div> */}
               </div>
             </div>
           </div>
