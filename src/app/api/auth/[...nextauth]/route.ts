@@ -1,13 +1,11 @@
-import NextAuth from 'next-auth'
+import NextAuth, { NextAuthOptions } from 'next-auth'
 import DiscordProvider from 'next-auth/providers/discord'
 import GoogleProvider from 'next-auth/providers/google'
 import RedditProvider from 'next-auth/providers/reddit'
 import { PrismaAdapter } from '@auth/prisma-adapter'
-import { PrismaClient } from '@prisma/client'
+import { prisma } from '@/app/(lib)/db'
 
-const prisma = new PrismaClient()
-
-const handler = NextAuth({
+export const authOptions: NextAuthOptions = {
   // Include user.id on session
   callbacks: {
     session({ session, user }) {
@@ -37,6 +35,8 @@ const handler = NextAuth({
       },
     }),
   ],
-})
+}
+
+const handler = NextAuth(authOptions)
 
 export { handler as GET, handler as POST }
