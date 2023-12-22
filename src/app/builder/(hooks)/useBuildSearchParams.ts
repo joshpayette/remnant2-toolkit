@@ -2,7 +2,6 @@ import { type BuildState } from '@/app/(types)'
 import { remnantItemCategories, remnantItems } from '@/app/(data)'
 import { usePathname, useSearchParams, useRouter } from 'next/navigation'
 import { useCallback } from 'react'
-import { useSession } from 'next-auth/react'
 import { DEFAULT_TRAIT_AMOUNT, TraitItem } from '@/app/(types)/TraitItem'
 import { GenericItem } from '@/app/(types)/GenericItem'
 import { ArmorItem } from '@/app/(types)/ArmorItem'
@@ -13,7 +12,7 @@ import { MutatorItem } from '@/app/(types)/MutatorItem'
  * Checks the build weapons and equips any mods
  * that are linked to them
  */
-export function linkWeaponsToMods(currentBuild: BuildState) {
+function linkWeaponsToMods(currentBuild: BuildState) {
   const newBuildState = { ...currentBuild }
 
   // Check the weapons for linked mods
@@ -52,7 +51,7 @@ export function linkWeaponsToMods(currentBuild: BuildState) {
  * Checks the build archtypes and equips any traints
  * that are linked to them
  */
-export function linkArchtypesToTraits(currentBuildState: BuildState) {
+function linkArchtypesToTraits(currentBuildState: BuildState) {
   const newBuildState = { ...currentBuildState }
 
   // Check the archtypes for linked traits
@@ -113,7 +112,6 @@ export default function useBuildSearchParams() {
   const router = useRouter()
   const pathname = usePathname()
   const searchParams = useSearchParams()
-  const { data: session } = useSession()
 
   /**
    * Creates a new query string by adding or updating a parameter.
