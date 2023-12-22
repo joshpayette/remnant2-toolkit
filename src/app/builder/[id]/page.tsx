@@ -1,5 +1,12 @@
 import { getServerSession } from 'next-auth'
 import { prisma } from '@/app/(lib)/db'
+import BuildPage from './BuildPage'
+import { BuildState } from '@/app/(types)'
+import { ArmorItem } from '@/app/(types)/ArmorItem'
+import { GenericItem } from '@/app/(types)/GenericItem'
+import { WeaponItem } from '@/app/(types)/WeaponItem'
+import { MutatorItem } from '@/app/(types)/MutatorItem'
+import { TraitItem } from '@/app/(types)/TraitItem'
 
 async function getBuild(buildId: string) {
   if (!buildId) {
@@ -57,12 +64,30 @@ export default async function Page({
       </div>
     )
   }
-  const { build } = await buildData.json()
+  const { build: dbBuild } = await buildData.json()
 
-  return (
-    <div>
-      <h1>Build {id}</h1>
-      <pre>{JSON.stringify(build)}</pre>
-    </div>
-  )
+  // Need to convert the build data to a format that the BuildPage component can use
+  const build: BuildState = {
+    name: dbBuild.name,
+    items: {
+      helm: ArmorItem.fromDBValue(dbBuild.helm),
+      torso: ArmorItem.fromDBValue(dbBuild.torso),
+      gloves: ArmorItem.fromDBValue(dbBuild.gloves),
+      legs: ArmorItem.fromDBValue(dbBuild.legs),
+      relic: GenericItem.fromDBValueSingle(dbBuild.relic),
+      weapon: WeaponItem.fromDBValue(dbBuild.weapon),
+      ring: GenericItem.fromDBValueArray(dbBuild.ring),
+      amulet: GenericItem.fromDBValueSingle(dbBuild.amulet),
+      archtype: GenericItem.fromDBValueArray(dbBuild.archtype),
+      skill: GenericItem.fromDBValueArray(dbBuild.skill),
+      concoction: GenericItem.fromDBValueArray(dbBuild.concoction),
+      consumable: GenericItem.fromDBValueArray(dbBuild.consumable),
+      mod: GenericItem.fromDBValueArray(dbBuild.mod),
+      mutator: MutatorItem.fromDBValue(dbBuild.mutator),
+      relicfragment: GenericItem.fromDBValueArray(dbBuild.relicfragment),
+      trait: TraitItem.fromDBValue(dbBuild.trait),
+    },
+  }
+
+  return <BuildPage build={build} />
 }

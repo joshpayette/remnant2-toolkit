@@ -95,6 +95,14 @@ export class GenericItem implements GenericItemProps {
     }
   }
 
+  static fromDBValueSingle(params: string): GenericItem | null {
+    return this.fromParamsSingle(params)
+  }
+
+  static fromDBValueArray(value: string): GenericItem[] {
+    return this.fromParamsArray(value) ?? []
+  }
+
   static fromParamsSingle(params: string): GenericItem | null {
     const itemIds = params.split(',')
     if (!itemIds) return null
