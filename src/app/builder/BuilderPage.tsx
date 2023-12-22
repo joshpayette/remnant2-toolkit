@@ -1,47 +1,32 @@
 'use client'
 
-import copy from 'clipboard-copy'
-import { toast } from 'react-toastify'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect } from 'react'
 import PageHeader from '@/app/(components)/PageHeader'
 import Builder from './(components)/Builder'
 import useBuildSearchParams from '@/app/builder/(hooks)/useBuildSearchParams'
-import { useLocalStorage } from '@/app/(hooks)/useLocalStorage'
 import { useIsClient } from 'usehooks-ts'
-import Actions from './(components)/Actions'
 import useBuildScreenshot from './(hooks)/useBuildScreenshot'
 import { cn } from '../(lib)/utils'
+import SaveBuildButton from './(components)/SaveBuildButton'
+import useBuildActions from './(hooks)/useBuildActions'
+import { Button } from './(components)/Button'
+import ToCsvButton from '../(components)/ToCsvButton'
+import { buildToCsvData } from './(lib)/utils'
 
 export default function BuildHomePage() {
   const { currentBuildState } = useBuildSearchParams()
-  const { builderStorage, setBuilderStorage } = useLocalStorage()
-  const { buildContainerRef, handleImageExport, isScreenshotModeActive } =
-    useBuildScreenshot()
+  const { buildContainerRef, isScreenshotModeActive } = useBuildScreenshot()
+
+  const {
+    showLabels,
+    showControls,
+    handleExportImage,
+    handleCopyBuildUrl,
+    handleToggleControls,
+    handleToggleLabels,
+  } = useBuildActions()
 
   const isClient = useIsClient()
-
-  const [showLabels, setShowLabels] = useState(builderStorage.showLabels)
-  function handleToggleLabels() {
-    setShowLabels(!showLabels)
-    setBuilderStorage({
-      ...builderStorage,
-      showLabels: !showLabels,
-    })
-  }
-
-  const [showControls, setShowControls] = useState(builderStorage.showControls)
-  function handleToggleControls() {
-    setShowControls(!showControls)
-    setBuilderStorage({
-      ...builderStorage,
-      showControls: !showControls,
-    })
-  }
-
-  function handleCopyBuildUrl() {
-    copy(window.location.href)
-    toast.success('Copied Build URL to clipboard')
-  }
 
   // Add the build name to the page title
   useEffect(() => {
@@ -50,6 +35,9 @@ export default function BuildHomePage() {
   }, [currentBuildState])
 
   if (!isClient) return null
+
+  // We need to convert the build.items object into an array of items to pass to the ToCsvButton
+  const csvBuildData = buildToCsvData(currentBuildState)
 
   return (
     <div className="flex w-full flex-col items-center">
@@ -64,16 +52,24 @@ export default function BuildHomePage() {
           id="actions-column"
           className="flex min-w-full flex-col justify-between sm:min-w-[100px]"
         >
-          <Actions
-            showLabels={showLabels}
-            showControls={showControls}
-            onCopyBuildUrl={handleCopyBuildUrl}
-            onExportAsImage={() =>
-              handleImageExport(`${currentBuildState.name}.png`)
-            }
-            onToggleControls={handleToggleControls}
-            onToggleLabels={handleToggleLabels}
-          />
+          <div id="actions" className="flex flex-col gap-2">
+            <SaveBuildButton />
+            <Button.ExportImage onClick={handleExportImage} />
+            <Button.CopyBuildUrl onClick={handleCopyBuildUrl} />
+            <ToCsvButton
+              data={csvBuildData.filter((item) => item?.name !== '')}
+              filename={`remnant2_builder_${currentBuildState.name}`}
+            />
+            <hr className="my-4 border-gray-900" />
+            <Button.ShowControls
+              onClick={handleToggleControls}
+              showControls={showControls}
+            />
+            <Button.ShowLabels
+              onClick={handleToggleLabels}
+              showLabels={showLabels}
+            />
+          </div>
         </div>
         <div
           className={cn(
@@ -83,6 +79,8 @@ export default function BuildHomePage() {
           ref={buildContainerRef}
         >
           <Builder
+            buildState={currentBuildState}
+            isEditable={true}
             isScreenshotMode={isScreenshotModeActive}
             showLabels={showLabels}
             showControls={showControls}

@@ -8,7 +8,7 @@ export default function BuilderButton({
   showLabels,
   size = 'md',
 }: {
-  onClick: () => void
+  onClick?: () => void
   item: GenericItem | null
   showLabels: boolean
   size?: 'sm' | 'md' | 'lg' | 'wide'

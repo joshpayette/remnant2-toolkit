@@ -20,7 +20,7 @@ export default function Traits({
   showControls: boolean
   showLabels: boolean
   traitItems: TraitItem[]
-  onAddTrait: () => void
+  onAddTrait?: () => void
   onRemoveTrait: (traitItem: TraitItem) => void
   onChangeAmount: (traitItem: TraitItem) => void
 }) {

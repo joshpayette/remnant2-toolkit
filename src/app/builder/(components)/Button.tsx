@@ -9,6 +9,24 @@ interface ButtonProps {
 }
 
 export const Button = {
+  CopyBuildUrl: ({ onClick }: ButtonProps) => (
+    <button
+      className={cn(buttonClasses, 'border-purple-500 hover:bg-purple-700')}
+      onClick={onClick}
+    >
+      Copy Build URL
+    </button>
+  ),
+
+  EditBuild: ({ onClick }: ButtonProps) => (
+    <button
+      className={cn(buttonClasses, 'border-yellow-500 hover:bg-yellow-700')}
+      onClick={onClick}
+    >
+      Edit Build
+    </button>
+  ),
+
   ExportImage: ({ onClick }: ButtonProps) => (
     <button
       className={cn(buttonClasses, 'border-green-500 hover:bg-green-700')}
@@ -18,13 +36,16 @@ export const Button = {
     </button>
   ),
 
-  CopyBuildUrl: ({ onClick }: ButtonProps) => (
-    <button
-      className={cn(buttonClasses, 'border-purple-500 hover:bg-purple-700')}
-      onClick={onClick}
+  NewBuild: () => (
+    <Link
+      className={cn(
+        buttonClasses,
+        'w-full border-red-500 bg-red-700 hover:bg-red-500',
+      )}
+      href="/builder"
     >
-      Copy Build URL
-    </button>
+      New Build
+    </Link>
   ),
 
   ShowLabels: ({
@@ -67,17 +88,5 @@ export const Button = {
         {showControls ? 'Hide Controls' : 'Show Controls'}
       </span>
     </button>
-  ),
-
-  NewBuild: () => (
-    <Link
-      className={cn(
-        buttonClasses,
-        'w-full border-red-500 bg-red-700 hover:bg-red-500',
-      )}
-      href="/builder"
-    >
-      New Build
-    </Link>
   ),
 }

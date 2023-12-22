@@ -1,10 +1,12 @@
 import { remnantItemCategories, remnantItems } from '@/app/(data)'
 import { itemToCsvItem } from '@/app/(lib)/utils'
 import { BuildState } from '@/app/(types)'
+import { ArmorItem } from '@/app/(types)/ArmorItem'
 import { GenericItem } from '@/app/(types)/GenericItem'
 import { MutatorItem } from '@/app/(types)/MutatorItem'
 import { TraitItem } from '@/app/(types)/TraitItem'
 import { WeaponItem } from '@/app/(types)/WeaponItem'
+import { Build } from '@prisma/client'
 
 /**
  * Returns a list of items that match the selected slot
@@ -170,4 +172,40 @@ export function buildToCsvData(buildState: BuildState) {
       }
     })
     .flat()
+}
+
+export function dbBuildToBuildState(dbBuild: Build): BuildState {
+  return {
+    name: dbBuild.name,
+    items: {
+      helm: dbBuild.helm ? ArmorItem.fromDBValue(dbBuild.helm) : null,
+      torso: dbBuild.torso ? ArmorItem.fromDBValue(dbBuild.torso) : null,
+      gloves: dbBuild.gloves ? ArmorItem.fromDBValue(dbBuild.gloves) : null,
+      legs: dbBuild.legs ? ArmorItem.fromDBValue(dbBuild.legs) : null,
+      relic: dbBuild.relic
+        ? GenericItem.fromDBValueSingle(dbBuild.relic)
+        : null,
+      weapon: dbBuild.weapon ? WeaponItem.fromDBValue(dbBuild.weapon) : [],
+      ring: dbBuild.ring ? GenericItem.fromDBValueArray(dbBuild.ring) : [],
+      amulet: dbBuild.amulet
+        ? GenericItem.fromDBValueSingle(dbBuild.amulet)
+        : null,
+      archtype: dbBuild.archtype
+        ? GenericItem.fromDBValueArray(dbBuild.archtype)
+        : [],
+      skill: dbBuild.skill ? GenericItem.fromDBValueArray(dbBuild.skill) : [],
+      concoction: dbBuild.concoction
+        ? GenericItem.fromDBValueArray(dbBuild.concoction)
+        : [],
+      consumable: dbBuild.consumable
+        ? GenericItem.fromDBValueArray(dbBuild.consumable)
+        : [],
+      mod: dbBuild.mod ? GenericItem.fromDBValueArray(dbBuild.mod) : [],
+      mutator: dbBuild.mutator ? MutatorItem.fromDBValue(dbBuild.mutator) : [],
+      relicfragment: dbBuild.relicfragment
+        ? GenericItem.fromDBValueArray(dbBuild.relicfragment)
+        : [],
+      trait: dbBuild.trait ? TraitItem.fromDBValue(dbBuild.trait) : [],
+    },
+  }
 }
