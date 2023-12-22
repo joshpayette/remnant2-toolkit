@@ -52,7 +52,7 @@ export default function Dialog({
             'fixed inset-0 z-10 mx-auto w-full overflow-y-auto',
           )}
         >
-          <div className="flex min-h-full w-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+          <div className="flex min-h-full w-full items-center justify-center p-4 text-center sm:items-center sm:p-0">
             <Transition.Child
               as={Fragment}
               enter="ease-out duration-300"
