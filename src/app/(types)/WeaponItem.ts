@@ -38,6 +38,10 @@ export class WeaponItem implements BaseWeaponItem {
     return items.map((i) => `${i.id}`)
   }
 
+  static toDBValue(items: WeaponItem[]): string {
+    return this.toParams(items).join(',')
+  }
+
   static fromParams(params: string): WeaponItem[] | null {
     const itemIds = params.split(',')
     if (!itemIds) return null

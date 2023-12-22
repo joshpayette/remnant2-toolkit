@@ -1,6 +1,6 @@
 # DB TODO
 
-- Get a build to save to the database
+- Get build id from response and add to URL for parsing
 
 # TODO
 

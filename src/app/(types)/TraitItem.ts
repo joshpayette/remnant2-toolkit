@@ -51,6 +51,10 @@ export class TraitItem implements BaseTraitItem {
     return items.map((i) => `${i.id};${i.amount ?? DEFAULT_TRAIT_AMOUNT}`)
   }
 
+  static toDBValue(items: TraitItem[]): string {
+    return this.toParams(items).join(',')
+  }
+
   static fromParams(params: string): TraitItem[] {
     const itemIds = params.split(',')
     if (!itemIds) return []

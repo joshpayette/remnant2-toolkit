@@ -79,8 +79,20 @@ export class GenericItem implements GenericItemProps {
     )
   }
 
-  static toParams(items: GenericItem[]): string[] {
+  private static toParamsFromArray(items: GenericItem[]): string[] {
     return items.map((i) => `${i.id}`)
+  }
+
+  private static toParamsFromSingle(item: GenericItem): string {
+    return `${item.id}`
+  }
+
+  static toDBValue(itemOrItems: GenericItem | GenericItem[]): string {
+    if (Array.isArray(itemOrItems)) {
+      return this.toParamsFromArray(itemOrItems).join(',')
+    } else {
+      return this.toParamsFromSingle(itemOrItems)
+    }
   }
 
   static fromParamsSingle(params: string): GenericItem | null {
