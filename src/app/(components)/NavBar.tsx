@@ -38,15 +38,17 @@ export default function NavBar() {
           </button>
         </div>
         <div className="hidden items-center justify-start lg:flex lg:w-full lg:flex-grow lg:gap-x-12">
-          {navItems.map((item) => (
-            <Link
-              key={item.name}
-              href={item.href}
-              className="text-lg font-semibold leading-6 text-white hover:text-green-400"
-            >
-              {item.name}
-            </Link>
-          ))}
+          {navItems
+            .filter((item) => item.name !== 'Change Log')
+            .map((item) => (
+              <Link
+                key={item.name}
+                href={item.href}
+                className="text-lg font-semibold leading-6 text-white hover:text-green-400"
+              >
+                {item.name}
+              </Link>
+            ))}
           <div className="flex grow items-end justify-end">
             <AuthButton.Desktop />
           </div>
