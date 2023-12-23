@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import html2canvas from 'html2canvas'
 
 export default function useBuildScreenshot() {
@@ -7,13 +7,14 @@ export default function useBuildScreenshot() {
     imageFileName: string
   } | null>(null)
 
-  const buildContainerRef = useRef<HTMLDivElement>(null)
-
   /**
    * Export the build as an image
    */
-  const handleImageExport = async (imageFileName: string) => {
-    setScreenshotMode({ el: buildContainerRef.current, imageFileName })
+  const handleImageExport = async (
+    el: HTMLDivElement | null,
+    imageFileName: string,
+  ) => {
+    setScreenshotMode({ el, imageFileName })
   }
 
   /**
@@ -48,7 +49,6 @@ export default function useBuildScreenshot() {
   }, [screenshotMode])
 
   return {
-    buildContainerRef,
     handleImageExport,
     isScreenshotModeActive: Boolean(screenshotMode),
   }

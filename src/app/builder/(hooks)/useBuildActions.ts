@@ -18,9 +18,6 @@ export default function useBuildActions() {
 
   const { builderStorage, setBuilderStorage } = useLocalStorage()
 
-  const { handleImageExport: onImageExport } = useBuildScreenshot()
-  const { currentBuildState } = useBuildSearchParams()
-
   const [showLabels, setShowLabels] = useState(builderStorage.showLabels)
   function handleToggleLabels() {
     setShowLabels(!showLabels)
@@ -42,10 +39,6 @@ export default function useBuildActions() {
   function handleCopyBuildUrl() {
     copy(window.location.href)
     toast.success('Copied Build URL to clipboard')
-  }
-
-  function handleExportImage() {
-    onImageExport(`${currentBuildState.name}.png`)
   }
 
   function handleEditBuild(buildState: BuildState) {
@@ -104,7 +97,6 @@ export default function useBuildActions() {
     setShowControls,
     handleToggleControls,
     handleCopyBuildUrl,
-    handleExportImage,
     handleEditBuild,
   }
 }

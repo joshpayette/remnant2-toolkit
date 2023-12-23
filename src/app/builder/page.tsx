@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import PageHeader from '@/app/(components)/PageHeader'
 import Builder from './(components)/Builder'
 import useBuildSearchParams from '@/app/builder/(hooks)/useBuildSearchParams'
@@ -15,12 +15,17 @@ import { buildToCsvData } from './(lib)/utils'
 
 export default function Page() {
   const { currentBuildState } = useBuildSearchParams()
-  const { buildContainerRef, isScreenshotModeActive } = useBuildScreenshot()
+
+  const { isScreenshotModeActive, handleImageExport } = useBuildScreenshot()
+  const buildContainerRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    console.info('page detected isScreenshotActive', isScreenshotModeActive)
+  }, [isScreenshotModeActive])
 
   const {
     showLabels,
     showControls,
-    handleExportImage,
     handleCopyBuildUrl,
     handleToggleControls,
     handleToggleLabels,
@@ -54,7 +59,14 @@ export default function Page() {
         >
           <div id="actions" className="flex flex-col gap-2">
             <SaveBuildButton />
-            <Button.ExportImage onClick={handleExportImage} />
+            <Button.ExportImage
+              onClick={() =>
+                handleImageExport(
+                  buildContainerRef.current,
+                  `${currentBuildState.name}.png`,
+                )
+              }
+            />
             <Button.CopyBuildUrl onClick={handleCopyBuildUrl} />
             <ToCsvButton
               data={csvBuildData.filter((item) => item?.name !== '')}

@@ -9,6 +9,7 @@ import ToCsvButton from '@/app/(components)/ToCsvButton'
 import { buildToCsvData, dbBuildToBuildState } from '../(lib)/utils'
 import { Build } from '@prisma/client'
 import { useIsClient } from 'usehooks-ts'
+import { useRef } from 'react'
 
 export default function Page({
   params: { dbBuild },
@@ -17,7 +18,8 @@ export default function Page({
 }) {
   const isClient = useIsClient()
 
-  const { buildContainerRef, isScreenshotModeActive } = useBuildScreenshot()
+  const buildContainerRef = useRef<HTMLDivElement>(null)
+  const { isScreenshotModeActive, handleImageExport } = useBuildScreenshot()
 
   // Need to convert the build data to a format that the BuildPage component can use
   const build = dbBuildToBuildState(dbBuild)
@@ -27,7 +29,6 @@ export default function Page({
 
   const {
     showLabels,
-    handleExportImage,
     handleCopyBuildUrl,
     handleEditBuild,
     handleToggleLabels,
@@ -44,7 +45,14 @@ export default function Page({
         >
           <div id="actions" className="flex flex-col gap-2">
             <Button.EditBuild onClick={() => handleEditBuild(build)} />
-            <Button.ExportImage onClick={handleExportImage} />
+            <Button.ExportImage
+              onClick={() =>
+                handleImageExport(
+                  buildContainerRef.current,
+                  `${build.name}.png`,
+                )
+              }
+            />
             <Button.CopyBuildUrl onClick={handleCopyBuildUrl} />
             <ToCsvButton
               data={csvBuildData.filter((item) => item?.name !== '')}

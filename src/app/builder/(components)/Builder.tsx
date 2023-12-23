@@ -10,6 +10,7 @@ import useBuildSearchParams from '../(hooks)/useBuildSearchParams'
 import { GenericItem } from '@/app/(types)/GenericItem'
 import { getItemListForCategory } from '../(lib)/utils'
 import { BuildState } from '@/app/(types)'
+import MemberFeatures from './MemberFeatures'
 
 export default function Builder({
   buildState,
@@ -551,6 +552,11 @@ export default function Builder({
             updateBuild('trait', newTraitItemParams)
           }}
         />
+      </div>
+
+      <div id="member-features-row" className="mt-4 w-full">
+        <hr className="border-green-900 py-2" />
+        <MemberFeatures isScreenshotModeActive={isScreenshotMode} />
       </div>
     </>
   )
