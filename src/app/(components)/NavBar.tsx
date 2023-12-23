@@ -6,8 +6,8 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import Logo from '@/app/(components)/Logo'
 import { usePathname } from 'next/navigation'
-import { navItems } from '../navitems'
 import { AuthButton } from './AuthButton'
+import { NAV_ITEMS } from '../(lib)/constants'
 
 export default function NavBar() {
   const pathname = usePathname()
@@ -38,9 +38,8 @@ export default function NavBar() {
           </button>
         </div>
         <div className="hidden items-center justify-start lg:flex lg:w-full lg:flex-grow lg:gap-x-12">
-          {navItems
-            .filter((item) => item.name !== 'Change Log')
-            .map((item) => (
+          {NAV_ITEMS.filter((item) => item.name !== 'Change Log').map(
+            (item) => (
               <Link
                 key={item.name}
                 href={item.href}
@@ -48,7 +47,8 @@ export default function NavBar() {
               >
                 {item.name}
               </Link>
-            ))}
+            ),
+          )}
           <div className="flex grow items-end justify-end">
             <AuthButton.Desktop />
           </div>
@@ -76,7 +76,7 @@ export default function NavBar() {
           <div className="mt-6 flow-root">
             <div className="-my-6">
               <div className="space-y-2 py-6">
-                {navItems.map((item) => (
+                {NAV_ITEMS.map((item) => (
                   <div
                     key={item.name}
                     className="flex flex-row items-center justify-start"

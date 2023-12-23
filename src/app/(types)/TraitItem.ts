@@ -1,16 +1,6 @@
 import { remnantItems } from '../(data)'
+import { DEFAULT_TRAIT_AMOUNT } from '../(lib)/constants'
 import { GenericItem } from './GenericItem'
-
-/**
- * The value of each new trait added
- * to the builder.
- */
-export const DEFAULT_TRAIT_AMOUNT = 10
-/**
- * The maximum amount of traits that can
- * be added to the builder.
- */
-export const MAX_TRAIT_AMOUNT = 110
 
 interface BaseTraitItem extends GenericItem {
   amount: number

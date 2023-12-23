@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { navItems } from './navitems'
+import { NAV_ITEMS } from './(lib)/constants'
 
 export default function HomePage() {
   return (
@@ -38,7 +38,7 @@ export default function HomePage() {
           </p>
         </div>
         <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-6 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-8">
-          {navItems.map((item) => (
+          {NAV_ITEMS.map((item) => (
             <div
               key={item.name}
               className="flex gap-x-4 rounded-xl bg-white/5 p-6 ring-1 ring-inset ring-white/10"

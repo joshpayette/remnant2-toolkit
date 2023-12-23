@@ -6,7 +6,10 @@ import {
   ListBulletIcon,
 } from '@heroicons/react/24/outline'
 
-export const navItems = [
+/**
+ * The base pages for the site
+ */
+export const NAV_ITEMS = [
   {
     name: 'Builder',
     description:
@@ -40,3 +43,20 @@ export const navItems = [
     icon: DocumentTextIcon,
   },
 ]
+
+/**
+ * The maximum characters allowed in a build description
+ */
+export const MAX_BUILD_DESCRIPTION_LENGTH = 128
+
+/**
+ * The value of each new trait added
+ * to the builder.
+ */
+
+export const DEFAULT_TRAIT_AMOUNT = 10
+/**
+ * The maximum amount of traits that can
+ * be added to the builder.
+ */
+export const MAX_TRAIT_AMOUNT = 110
