@@ -1,6 +1,9 @@
 # DB TODO
 
-- Get build id from response and add to URL for parsing
+- Builder changes if logged in:
+  - Description: Add a description to the build
+  - Public: Make the build public or private
+  - YouTube Video: Add a YouTube video to the build
 
 # TODO
 

@@ -59,6 +59,7 @@ export async function generateMetadata(
 
   return {
     ...metadata,
+    metadataBase: metadata.metadataBase,
     title: build.name,
     //description: build.description, // TODO: Add description to build
     openGraph: {
