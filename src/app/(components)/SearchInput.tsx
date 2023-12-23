@@ -1,4 +1,5 @@
 import { MagnifyingGlassIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import Input from './Input'
 
 export default function SearchInput({
   onChange,
@@ -11,10 +12,8 @@ export default function SearchInput({
 }) {
   return (
     <div className="relative mt-2 shadow-sm">
-      <input
-        type="text"
+      <Input
         onChange={(e) => onChange(e.target.value)}
-        className="block w-full rounded-md border-0 bg-white/5 py-1.5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-green-500 sm:text-sm sm:leading-6"
         placeholder={placeholder}
         value={value}
       />
