@@ -43,6 +43,7 @@ export default function Page({
           className="flex min-w-full flex-col justify-between sm:min-w-[100px]"
         >
           <div id="actions" className="flex flex-col gap-2">
+            <Button.EditBuild onClick={() => handleEditBuild(build)} />
             <Button.ExportImage onClick={handleExportImage} />
             <Button.CopyBuildUrl onClick={handleCopyBuildUrl} />
             <ToCsvButton
@@ -50,7 +51,6 @@ export default function Page({
               filename={`remnant2_builder_${build.name}`}
             />
             <hr className="my-4 border-gray-900" />
-            <Button.EditBuild onClick={() => handleEditBuild(build)} />
             <Button.ShowLabels
               onClick={handleToggleLabels}
               showLabels={showLabels}
