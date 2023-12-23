@@ -23,9 +23,7 @@ export default function SaveBuildButton() {
     console.log(data)
   }
 
-  if (status === 'loading') {
-    return null
-  }
+  if (status === 'loading') return null
 
   if (status === 'unauthenticated') {
     return (
