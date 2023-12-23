@@ -16,8 +16,10 @@ import { pageInfo as archonUnlockPageInfo } from './build/archon-unlock/metadata
 import { pageInfo as mrNachoCoopElementalPageInfo } from './build/mr-nacho-senorcerveza-coop-elemental-dots/metadata'
 import { pageInfo as senorcervezasMemeBuildPageInfo } from './build/senorcervezas-160k-dps-meme/metadata'
 import { pageInfo as sadderallsRichieRichPageInfo } from './build/sadderalls-richie-rich/metadata'
+import { pageInfo as dotsrusLikesDotsPageInfo } from './build/dotsrus-likes-dots/metadata'
 
 const builds = [
+  dotsrusLikesDotsPageInfo,
   sadderallsRichieRichPageInfo,
   senorcervezasMemeBuildPageInfo,
   mrNachoCoopElementalPageInfo,
