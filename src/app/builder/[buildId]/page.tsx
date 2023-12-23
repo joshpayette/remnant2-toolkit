@@ -10,7 +10,11 @@ import { buildToCsvData, dbBuildToBuildState } from '../(lib)/utils'
 import { Build } from '@prisma/client'
 import { useIsClient } from 'usehooks-ts'
 
-export default function Page({ dbBuild }: { dbBuild: Build }) {
+export default function Page({
+  params: { dbBuild },
+}: {
+  params: { dbBuild: Build }
+}) {
   const isClient = useIsClient()
 
   const { buildContainerRef, isScreenshotModeActive } = useBuildScreenshot()

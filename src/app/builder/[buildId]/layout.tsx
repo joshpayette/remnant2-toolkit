@@ -4,11 +4,7 @@ import BuildPage from './page'
 import { Metadata, ResolvingMetadata } from 'next'
 import { metadata } from '@/app/metadata'
 
-type Props = {
-  params: { buildId: string }
-}
-
-async function getBuild({ params: { buildId } }: Props) {
+async function getBuild(buildId: string) {
   if (!buildId) {
     console.error('No buildId provided!')
     return Response.json({ message: 'No buildId provided!' }, { status: 500 })
@@ -28,7 +24,10 @@ async function getBuild({ params: { buildId } }: Props) {
   }
 
   if (build.public) {
-    return Response.json({ build }, { status: 200 })
+    return Response.json(
+      { message: 'Successfully fetched build!', build },
+      { status: 200 },
+    )
   }
 
   const session = await getServerSession()
@@ -52,10 +51,10 @@ async function getBuild({ params: { buildId } }: Props) {
 }
 
 export async function generateMetadata(
-  { params }: Props,
+  { params: { buildId } }: { params: { buildId: string } },
   parent: ResolvingMetadata,
 ): Promise<Metadata> {
-  const buildData = await getBuild({ params })
+  const buildData = await getBuild(buildId)
   const { build } = await buildData.json()
 
   return {
@@ -76,12 +75,12 @@ export async function generateMetadata(
   }
 }
 
-export default async function Layout(props: Props) {
-  const {
-    params: { buildId },
-  } = props
-
-  const buildData = await getBuild(props)
+export default async function Layout({
+  params: { buildId },
+}: {
+  params: { buildId: string }
+}) {
+  const buildData = await getBuild(buildId)
   if (buildData.status !== 200) {
     return (
       <div>
@@ -91,5 +90,5 @@ export default async function Layout(props: Props) {
   }
   const { build: dbBuild } = await buildData.json()
 
-  return <BuildPage dbBuild={dbBuild} />
+  return <BuildPage params={{ dbBuild }} />
 }
