@@ -77,8 +77,6 @@ export async function PUT(request: Request) {
   const buildState = buildStateParsed.data as BuildState
   const { items } = buildState
 
-  // TODO set hard code values on client side and
-  // TODO include in the request
   const newBuild: Omit<
     Build,
     'id' | 'createdAt' | 'createdBy' | 'updatedAt' | 'createdById'
