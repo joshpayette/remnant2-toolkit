@@ -1,70 +1,73 @@
-import { getServerSession } from 'next-auth'
-import { prisma } from '@/app/(lib)/db'
-import BuildPage from './BuildPage'
-import { BuildState } from '@/app/(types)'
-import { ArmorItem } from '@/app/(types)/ArmorItem'
-import { GenericItem } from '@/app/(types)/GenericItem'
-import { WeaponItem } from '@/app/(types)/WeaponItem'
-import { MutatorItem } from '@/app/(types)/MutatorItem'
-import { TraitItem } from '@/app/(types)/TraitItem'
+'use client'
 
-async function getBuild(buildId: string) {
-  if (!buildId) {
-    console.error('No buildId provided!')
-    return Response.json({ message: 'No buildId provided!' }, { status: 500 })
-  }
+import Builder from '@/app/builder/(components)/Builder'
+import { cn } from '@/app/(lib)/utils'
+import useBuildScreenshot from '../(hooks)/useBuildScreenshot'
+import useBuildActions from '../(hooks)/useBuildActions'
+import Button from '../(components)/Button'
+import ToCsvButton from '@/app/(components)/ToCsvButton'
+import { buildToCsvData, dbBuildToBuildState } from '../(lib)/utils'
+import { Build } from '@prisma/client'
+import { useIsClient } from 'usehooks-ts'
 
-  const build = await prisma.build.findUnique({
-    where: {
-      id: buildId,
-    },
-    include: {
-      createdBy: true,
-    },
-  })
-  if (!build) {
-    console.error('Build not found!', build)
-    return Response.json({ message: 'Build not found!' }, { status: 404 })
-  }
+export default function Page({ dbBuild }: { dbBuild: Build }) {
+  const isClient = useIsClient()
 
-  if (build.public) {
-    return Response.json({ build }, { status: 200 })
-  }
+  const { buildContainerRef, isScreenshotModeActive } = useBuildScreenshot()
 
-  const session = await getServerSession()
-  if (!session || !session.user || build.createdBy.id !== session.user.id) {
-    console.error(
-      'You must be logged in as the build creator to view a private build.',
-    )
-    return Response.json(
-      {
-        message:
-          'You must be logged in as the build creator to view a private build.',
-      },
-      { status: 401 },
-    )
-  }
+  // Need to convert the build data to a format that the BuildPage component can use
+  const build = dbBuildToBuildState(dbBuild)
 
-  return Response.json(
-    { message: 'Successfully fetched build!', build },
-    { status: 200 },
-  )
-}
+  // We need to convert the build.items object into an array of items to pass to the ToCsvButton
+  const csvBuildData = buildToCsvData(build)
 
-export default async function Page({
-  params: { buildId },
-}: {
-  params: { buildId: string }
-}) {
-  const buildData = await getBuild(buildId)
-  if (buildData.status !== 200) {
-    return (
-      <div>
-        <h1>Build {buildId} not found!</h1>
+  const {
+    showLabels,
+    handleExportImage,
+    handleCopyBuildUrl,
+    handleEditBuild,
+    handleToggleLabels,
+  } = useBuildActions()
+
+  if (!isClient) return null
+
+  return (
+    <div className="flex w-full flex-col items-center">
+      <div className="flex w-full max-w-xl flex-col items-start justify-center gap-2 sm:flex-row-reverse">
+        <div
+          id="actions-column"
+          className="flex min-w-full flex-col justify-between sm:min-w-[100px]"
+        >
+          <div id="actions" className="flex flex-col gap-2">
+            <Button.ExportImage onClick={handleExportImage} />
+            <Button.CopyBuildUrl onClick={handleCopyBuildUrl} />
+            <ToCsvButton
+              data={csvBuildData.filter((item) => item?.name !== '')}
+              filename={`remnant2_builder_${build.name}`}
+            />
+            <hr className="my-4 border-gray-900" />
+            <Button.EditBuild onClick={() => handleEditBuild(build)} />
+            <Button.ShowLabels
+              onClick={handleToggleLabels}
+              showLabels={showLabels}
+            />
+          </div>
+        </div>
+        <div
+          className={cn(
+            'w-full grow rounded border-2 border-green-500 bg-black p-4',
+          )}
+          ref={buildContainerRef}
+        >
+          <Builder
+            buildState={build}
+            isEditable={false}
+            isScreenshotMode={isScreenshotModeActive}
+            showControls={false}
+            showLabels={showLabels}
+          />
+        </div>
       </div>
-    )
-  }
-  const { build: dbBuild } = await buildData.json()
-
-  return <BuildPage dbBuild={dbBuild} />
+    </div>
+  )
 }

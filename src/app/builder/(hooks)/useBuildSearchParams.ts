@@ -146,9 +146,7 @@ export default function useBuildSearchParams() {
    * Parses the build values from the query string
    */
   function parseQueryString(searchParams: URLSearchParams): BuildState {
-    /**
-     * The build state that will be returned
-     */
+    /** The build state that will be returned */
     const buildState: BuildState = {
       name: 'My Build',
       items: {
