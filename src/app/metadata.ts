@@ -44,7 +44,6 @@ export const metadata: Metadata = {
         url: ogImageUrl,
         width: 800,
         height: 600,
-        alt: title,
       },
     ],
     locale: 'en_US',
