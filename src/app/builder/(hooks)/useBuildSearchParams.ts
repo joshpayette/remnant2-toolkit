@@ -2,11 +2,12 @@ import { type BuildState } from '@/app/(types)'
 import { remnantItemCategories, remnantItems } from '@/app/(data)'
 import { usePathname, useSearchParams, useRouter } from 'next/navigation'
 import { useCallback } from 'react'
-import { DEFAULT_TRAIT_AMOUNT, TraitItem } from '@/app/(types)/TraitItem'
+import { TraitItem } from '@/app/(types)/TraitItem'
 import { GenericItem } from '@/app/(types)/GenericItem'
 import { ArmorItem } from '@/app/(types)/ArmorItem'
 import { WeaponItem } from '@/app/(types)/WeaponItem'
 import { MutatorItem } from '@/app/(types)/MutatorItem'
+import { DEFAULT_TRAIT_AMOUNT } from '@/app/(lib)/constants'
 
 /**
  * Checks the build weapons and equips any mods
