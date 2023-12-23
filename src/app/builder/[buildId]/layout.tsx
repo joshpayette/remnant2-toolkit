@@ -59,7 +59,6 @@ export async function generateMetadata(
 
   return {
     ...metadata,
-    metadataBase: new URL('https://d2sqltdcj8czo5.cloudfront.net'),
     title: build.name,
     //description: build.description, // TODO: Add description to build
     openGraph: {
