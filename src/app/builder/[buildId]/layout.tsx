@@ -66,20 +66,11 @@ export async function generateMetadata(
       title: build.name,
       //description: build.description, // TODO: Add description to build
       url: `https://remnant2builder.com/builder/${build.id}`,
-      images: [
-        {
-          url: `https://d2sqltdcj8czo5.cloudfront.net/logo.jpg`,
-          width: 800,
-          height: 600,
-          alt: build.name,
-        },
-      ],
     },
     twitter: {
       ...metadata.twitter,
       title: build.name,
       //description: build.description, // TODO: Add description to build
-      images: [`https://d2sqltdcj8czo5.cloudfront.net/logo.jpg`],
     },
   }
 }
