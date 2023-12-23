@@ -1,3 +1,5 @@
+'use client'
+
 import { useSession } from 'next-auth/react'
 import PlaceHolderIcon from './PlaceholderIcon'
 import { cn } from '../(lib)/utils'
@@ -26,16 +28,16 @@ function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
   const iconClasses =
     'h-8 w-8 overflow-hidden rounded-full border border-purple-900 p-1'
 
-  const AvatarImage = !session.user.image ? (
-    <span className={cn(iconClasses, 'bg-gray-100')}>
-      <PlaceHolderIcon />
-    </span>
-  ) : (
+  const AvatarImage = session.user.image ? (
     <img
       src={session.user.image}
       className={cn(iconClasses)}
       alt={`${session.user.name} Avatar`}
     />
+  ) : (
+    <span className={cn(iconClasses, 'bg-gray-100')}>
+      <PlaceHolderIcon />
+    </span>
   )
 
   if (variant === 'mobile')

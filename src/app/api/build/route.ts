@@ -63,7 +63,7 @@ export async function GET(request: Request) {
   )
 }
 
-export async function POST(request: Request) {
+export async function PUT(request: Request) {
   const session = await getServerSession()
   if (!session || !session.user) {
     return Response.json({ message: 'You must be logged in.' }, { status: 401 })

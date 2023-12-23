@@ -8,7 +8,7 @@ export default function AuthWrapper({
 }: {
   children: React.ReactNode
 }) {
-  const { data: session, status } = useSession()
+  const { status } = useSession()
 
   if (status === 'loading') return <LoadingIndicator />
 

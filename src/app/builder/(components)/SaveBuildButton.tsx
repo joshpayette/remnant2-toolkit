@@ -1,3 +1,5 @@
+'use client'
+
 import { signIn, useSession } from 'next-auth/react'
 import useBuildSearchParams from '../(hooks)/useBuildSearchParams'
 import { buttonClasses } from './Button'
@@ -5,12 +7,12 @@ import { cn } from '@/app/(lib)/utils'
 import { toast } from 'react-toastify'
 
 export default function SaveBuildButton() {
-  const { data: session, status } = useSession()
+  const { status } = useSession()
   const { currentBuildState } = useBuildSearchParams()
 
   async function handleSaveBuild() {
     const response = await fetch('/api/build', {
-      method: 'POST',
+      method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
       },
