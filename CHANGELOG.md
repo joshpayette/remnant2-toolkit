@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2023-12-22
+
+### Added
+
+- Added Sadderall's Richie Rich build to featured builds
+- Added DoTs Я Us likes DoTs build to featured builds
+
 ## 2023-12-21
 
 ### Added
