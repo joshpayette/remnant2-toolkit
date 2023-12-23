@@ -47,7 +47,7 @@ export const NAV_ITEMS = [
 /**
  * The maximum characters allowed in a build description
  */
-export const MAX_BUILD_DESCRIPTION_LENGTH = 128
+export const MAX_BUILD_DESCRIPTION_LENGTH = 255
 
 /**
  * The value of each new trait added
