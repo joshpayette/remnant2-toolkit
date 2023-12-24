@@ -2,6 +2,13 @@ import { BuildState, type CsvItem } from '@/app/(types)'
 import { clsx, type ClassValue } from 'clsx'
 import { twMerge } from 'tailwind-merge'
 import { GenericItem } from '../(types)/GenericItem'
+import { Build } from '@prisma/client'
+import { ArmorItem } from '../(types)/ArmorItem'
+import { WeaponItem } from '../(types)/WeaponItem'
+import { MutatorItem } from '../(types)/MutatorItem'
+import { TraitItem } from '../(types)/TraitItem'
+import { remnantItemCategories, remnantItems } from '../(data)'
+import { DEFAULT_TRAIT_AMOUNT } from './constants'
 
 /**
  * capitalizes the first letter of a string
@@ -76,6 +83,146 @@ export function trimTrailingComma(string: string): string {
 }
 
 /**
+ * Converts the build string into a CSV file
+ */
+export function buildToCsvData(buildState: BuildState) {
+  return remnantItemCategories
+    .map((category) => {
+      const itemOrItems = buildState.items[category]
+
+      if (!itemOrItems)
+        return {
+          name: '',
+          category,
+          description: '',
+          howToGet: '',
+          wikiLinks: '',
+        }
+
+      if (Array.isArray(itemOrItems)) {
+        // If the category is a trait, we need to add the trait amount to the name
+        if (category === 'trait') {
+          return itemOrItems.map((item) => {
+            if (!TraitItem.isTraitItem(item)) return itemToCsvItem(item)
+            const { name, ...csvItem } = itemToCsvItem(item)
+            return {
+              name: `${name} - ${item.amount}`,
+              ...csvItem,
+            }
+          })
+        }
+
+        return itemOrItems.map((item) => itemToCsvItem(item))
+      }
+
+      if (itemOrItems.category === 'trait') {
+        if (!Array.isArray(itemOrItems)) {
+          return {
+            name: '',
+            category,
+            description: '',
+            howToGet: '',
+            wikiLinks: '',
+          }
+        }
+        return itemOrItems.map((item) => itemToCsvItem(item.item))
+      }
+    })
+    .flat()
+}
+
+/**
+ * Converts the build state to a query string
+ */
+export function buildToQueryParams(buildState: BuildState) {
+  const { items } = buildState
+
+  let editBuildUrl = `/builder?`
+  editBuildUrl += `name=${buildState.name}`
+
+  editBuildUrl += items.helm && `&helm=${ArmorItem.toParams(items.helm)}`
+  editBuildUrl += items.torso && `&torso=${ArmorItem.toParams(items.torso)}`
+  editBuildUrl += items.gloves && `&gloves=${ArmorItem.toParams(items.gloves)}`
+  editBuildUrl += items.legs && `&legs=${ArmorItem.toParams(items.legs)}`
+
+  editBuildUrl +=
+    items.relic && `&relic=${GenericItem.toParamsFromSingle(items.relic)}`
+  editBuildUrl +=
+    items.relicfragment &&
+    `&relicfragment=${GenericItem.toParamsFromArray(items.relicfragment)}`
+
+  editBuildUrl += items.weapon && `&weapon=${WeaponItem.toParams(items.weapon)}`
+  editBuildUrl +=
+    items.mod && `&mod=${GenericItem.toParamsFromArray(items.mod)}`
+  editBuildUrl +=
+    items.mutator && `&mutator=${MutatorItem.toParams(items.mutator)}`
+
+  editBuildUrl +=
+    items.amulet && `&amulet=${GenericItem.toParamsFromSingle(items.amulet)}`
+  editBuildUrl +=
+    items.ring && `&ring=${GenericItem.toParamsFromArray(items.ring)}`
+
+  editBuildUrl +=
+    items.archtype &&
+    `&archtype=${GenericItem.toParamsFromArray(items.archtype)}`
+  editBuildUrl +=
+    items.skill && `&skill=${GenericItem.toParamsFromArray(items.skill)}`
+
+  editBuildUrl +=
+    items.concoction &&
+    `&concoction=${GenericItem.toParamsFromArray(items.concoction)}`
+  editBuildUrl +=
+    items.consumable &&
+    `&consumable=${GenericItem.toParamsFromArray(items.consumable)}`
+
+  editBuildUrl += items.trait && `&trait=${TraitItem.toParams(items.trait)}`
+
+  return editBuildUrl
+}
+
+/**
+ * Converts a build from the database to a build state that the
+ * Builder component can use
+ */
+export function dbBuildToBuildState(dbBuild: Build): BuildState {
+  return {
+    name: dbBuild.name,
+    description: dbBuild.description,
+    isPublic: dbBuild.isPublic,
+    items: {
+      helm: dbBuild.helm ? ArmorItem.fromDBValue(dbBuild.helm) : null,
+      torso: dbBuild.torso ? ArmorItem.fromDBValue(dbBuild.torso) : null,
+      gloves: dbBuild.gloves ? ArmorItem.fromDBValue(dbBuild.gloves) : null,
+      legs: dbBuild.legs ? ArmorItem.fromDBValue(dbBuild.legs) : null,
+      relic: dbBuild.relic
+        ? GenericItem.fromDBValueSingle(dbBuild.relic)
+        : null,
+      weapon: dbBuild.weapon ? WeaponItem.fromDBValue(dbBuild.weapon) : [],
+      ring: dbBuild.ring ? GenericItem.fromDBValueArray(dbBuild.ring) : [],
+      amulet: dbBuild.amulet
+        ? GenericItem.fromDBValueSingle(dbBuild.amulet)
+        : null,
+      archtype: dbBuild.archtype
+        ? GenericItem.fromDBValueArray(dbBuild.archtype)
+        : [],
+      skill: dbBuild.skill ? GenericItem.fromDBValueArray(dbBuild.skill) : [],
+      concoction: dbBuild.concoction
+        ? GenericItem.fromDBValueArray(dbBuild.concoction)
+        : [],
+      consumable: dbBuild.consumable
+        ? GenericItem.fromDBValueArray(dbBuild.consumable)
+        : [],
+      mod: dbBuild.mod ? GenericItem.fromDBValueArray(dbBuild.mod) : [],
+      mutator: dbBuild.mutator ? MutatorItem.fromDBValue(dbBuild.mutator) : [],
+      relicfragment: dbBuild.relicfragment
+        ? GenericItem.fromDBValueArray(dbBuild.relicfragment)
+        : [],
+      trait: dbBuild.trait ? TraitItem.fromDBValue(dbBuild.trait) : [],
+    },
+  }
+}
+
+/**
  * Determines how many concoction slots the build has
  */
 export function getConcoctionSlotCount(buildState: BuildState): number {
@@ -103,4 +250,96 @@ export function getConcoctionSlotCount(buildState: BuildState): number {
   if (hasBrewmastersCork) concoctionCount += 2
 
   return concoctionCount
+}
+
+/**
+ * Checks the build weapons and equips any mods
+ * that are linked to them
+ */
+export function linkWeaponsToMods(buildState: BuildState) {
+  const newBuildState = { ...buildState }
+
+  // Check the weapons for linked mods
+  // If any are found, add them to the build
+  const weapons = newBuildState.items.weapon
+  weapons.forEach((weapon, index) => {
+    const linkedMod = weapon.linkedItems?.mod
+    if (!linkedMod) return
+
+    const modItem = remnantItems.find((mod) => mod.name === linkedMod.name)
+    if (!modItem) return
+
+    newBuildState.items.mod[index] = modItem
+  })
+
+  // Check the mods for linked weapons
+  // If any are found, add them to the build
+  const mods = newBuildState.items.mod
+  mods.forEach((mod, index) => {
+    const linkedWeapon = mod.linkedItems?.weapon
+    if (!linkedWeapon) return
+
+    const weaponItem = remnantItems.find(
+      (weapon) => weapon.name === linkedWeapon.name,
+    )
+    if (!WeaponItem.isWeaponItem(weaponItem)) return
+
+    newBuildState.items.weapon[index] = weaponItem
+  })
+
+  // Return the build with linked items
+  return newBuildState
+}
+
+/**
+ * Checks the build archtypes and equips any traints
+ * that are linked to them
+ */
+export function linkArchtypesToTraits(buildState: BuildState) {
+  const newBuildState = { ...buildState }
+
+  // Check the archtypes for linked traits
+  // If any are found, add them to the build
+  const archtypes = newBuildState.items.archtype
+  archtypes.forEach((archtype) => {
+    const linkedTrait = archtype.linkedItems?.trait
+    if (!linkedTrait) return
+
+    const traitItem = remnantItems.find(
+      (trait) => trait.name === linkedTrait.name,
+    )
+    if (!traitItem) return
+
+    // If the trait is already in the build, set the amount to 10
+    // Otherwise, add the trait to the build
+    const existingTrait = newBuildState.items.trait.find(
+      (trait) => trait.name === traitItem.name,
+    )
+    if (existingTrait) {
+      existingTrait.amount = DEFAULT_TRAIT_AMOUNT
+      newBuildState.items.trait = newBuildState.items.trait.map((trait) =>
+        trait.name === traitItem.name ? existingTrait : trait,
+      )
+    } else {
+      newBuildState.items.trait.push(
+        new TraitItem({
+          amount: DEFAULT_TRAIT_AMOUNT,
+          id: traitItem.id,
+          name: traitItem.name,
+          category: traitItem.category,
+          imagePath: traitItem.imagePath,
+          description: traitItem.description ?? '',
+          howToGet: traitItem.howToGet ?? '',
+          wikiLinks: traitItem.wikiLinks ?? [],
+          linkedItems: traitItem.linkedItems ?? {},
+          saveFileSlug: traitItem.saveFileSlug,
+        }),
+      )
+    }
+  })
+
+  // *We deliberately don't check the traits and link to archtypes,
+  // *since traits can be used without the archtype equipped
+  // Return the build with linked items
+  return newBuildState
 }
