@@ -23,8 +23,8 @@ export interface CsvItem {
  */
 export interface BuildState {
   name: string
-  description: string
-  isPublic: boolean
+  description: string | null
+  isPublic: boolean | null
   items: {
     helm: ArmorItem | null
     torso: ArmorItem | null

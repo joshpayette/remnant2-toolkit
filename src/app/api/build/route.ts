@@ -78,8 +78,8 @@ export async function PUT(request: Request) {
     'id' | 'createdAt' | 'createdBy' | 'updatedAt' | 'createdById'
   > = {
     name: buildState.name,
-    isPublic: buildState.isPublic,
     description: buildState.description,
+    isPublic: Boolean(buildState.isPublic),
     videoUrl: '',
     helm: items.helm ? ArmorItem.toDBValue(items.helm) : null,
     torso: items.torso ? ArmorItem.toDBValue(items.torso) : null,

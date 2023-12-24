@@ -177,6 +177,8 @@ export function buildToCsvData(buildState: BuildState) {
 export function dbBuildToBuildState(dbBuild: Build): BuildState {
   return {
     name: dbBuild.name,
+    description: dbBuild.description,
+    isPublic: dbBuild.isPublic,
     items: {
       helm: dbBuild.helm ? ArmorItem.fromDBValue(dbBuild.helm) : null,
       torso: dbBuild.torso ? ArmorItem.fromDBValue(dbBuild.torso) : null,

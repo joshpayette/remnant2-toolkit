@@ -23,7 +23,7 @@ async function getBuild(buildId: string) {
     return Response.json({ message: 'Build not found!' }, { status: 404 })
   }
 
-  if (build.public) {
+  if (build.isPublic) {
     return Response.json(
       { message: 'Successfully fetched build!', build },
       { status: 200 },
