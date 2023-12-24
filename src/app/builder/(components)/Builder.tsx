@@ -1,6 +1,6 @@
 import { TraitItem } from '@/app/(types)/TraitItem'
 import { Fragment, useCallback, useMemo, useState } from 'react'
-import { cn, getArrayOfLength } from '@/app/(lib)/utils'
+import { cn, getArrayOfLength, getConcoctionSlotCount } from '@/app/(lib)/utils'
 import BuilderName from './BuilderName'
 import BuilderButton from './BuilderButton'
 import Traits from './Traits'
@@ -21,6 +21,7 @@ export default function BuilderPage({
 }) {
   // Custom hook for working with the build
   const { updateBuild, currentBuildState } = useBuildSearchParams()
+  const concoctionSlotCount = getConcoctionSlotCount(currentBuildState)
 
   // Tracks information about the slot the user is selecting an item for
   const [selectedItemSlot, setSelectedItemSlot] = useState<{
@@ -307,7 +308,7 @@ export default function BuilderPage({
 
           <div
             id="concoction-container"
-            className="flex flex-row flex-wrap gap-2"
+            className="flex flex-row flex-wrap gap-x-2 gap-y-0"
           >
             <BuilderButton
               item={currentBuildState.items.concoction[0]}
@@ -319,16 +320,9 @@ export default function BuilderPage({
                 })
               }}
             />
-            {getArrayOfLength(3).map((index) => {
-              // Skip the first concoction, since it's already been rendered
+            {getArrayOfLength(concoctionSlotCount).map((index) => {
+              // Add 1 to the index because we already rendered the first slot
               const concoctionIndex = index + 1
-
-              // Skip the concoctions if the build is not an alchemist
-              const isPrimaryAlchemist =
-                currentBuildState.items.archtype[0]?.name?.toLowerCase() ===
-                'alchemist'
-              if (!isPrimaryAlchemist) return null
-
               return (
                 <BuilderButton
                   key={`concoction-${concoctionIndex}`}
@@ -347,7 +341,7 @@ export default function BuilderPage({
 
           <div
             id="consumable-container"
-            className="flex flex-row flex-wrap gap-2"
+            className="flex flex-row flex-wrap gap-x-1 gap-y-0"
           >
             {getArrayOfLength(4).map((consumableIndex) => (
               <BuilderButton

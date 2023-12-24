@@ -1,4 +1,4 @@
-import { type CsvItem } from '@/app/(types)'
+import { BuildState, type CsvItem } from '@/app/(types)'
 import { clsx, type ClassValue } from 'clsx'
 import { twMerge } from 'tailwind-merge'
 import { GenericItem } from '../(types)/GenericItem'
@@ -73,4 +73,35 @@ export function itemToCsvItem(item: GenericItem): CsvItem {
  */
 export function trimTrailingComma(string: string): string {
   return string.replace(/,\s*$/, '')
+}
+
+/**
+ * Determines how many concoction slots the build has
+ */
+export function getConcoctionSlotCount(buildState: BuildState): number {
+  // Start at 0 since we already rendered the first concoction
+  let concoctionCount = 0
+
+  // Add 3 concoctions if primary is alchemist
+  const isPrimaryAlchemist =
+    buildState.items.archtype[0]?.name?.toLowerCase() === 'alchemist'
+  if (isPrimaryAlchemist) concoctionCount += 3
+
+  // Add 1 concoction if they are wearing Feastmaster's Signet
+  const hasFeastmastersSignet = buildState.items.ring.some(
+    (ring) => ring.name === "Feastmaster's Signet",
+  )
+  if (hasFeastmastersSignet) concoctionCount += 1
+
+  // Add 2 concoctionc if they are wearing Brewmasters Cork
+  const hasBrewmastersCork =
+    buildState.items.amulet?.name === 'Brewmasters Cork'
+  console.info(
+    'hasBrewmastersCork',
+    hasBrewmastersCork,
+    buildState.items.amulet,
+  )
+  if (hasBrewmastersCork) concoctionCount += 2
+
+  return concoctionCount
 }
