@@ -4,7 +4,7 @@ This is a toolkit for the game Remnant 2. You can find the site at [remnant2tool
 
 ## Features
 
-- [x] Item Tracker - Track your items and see what you need to complete your collection
+- [x] Item Tracker - Track your items and see what you need to complete your collection.
 - [x] Build Tool - Create and share builds with the others.
 - [x] Featured Builds - See some featured builds from the community.
 
