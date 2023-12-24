@@ -316,8 +316,10 @@ export default function Builder({
         <div
           id="center-column"
           className={cn(
-            'relative ml-[13px] flex h-[450px] max-h-[450px] flex-col items-start justify-start overflow-y-auto',
-            'sm:h-[460px] sm:max-h-[460px]',
+            'relative ml-[13px] flex flex-col items-start justify-start overflow-y-auto',
+            showLabels
+              ? 'h-[450px] max-h-[450px] sm:h-[460px] sm:max-h-[460px]'
+              : 'h-[362px] max-h-[362px] sm:h-[375px] sm:max-h-[375px]',
           )}
         >
           <div
