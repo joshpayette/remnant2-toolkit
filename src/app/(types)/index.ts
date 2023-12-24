@@ -4,6 +4,7 @@ import { WeaponItem } from './WeaponItem'
 import { ArmorItem } from './ArmorItem'
 import { MutatorItem } from './MutatorItem'
 import { z } from 'zod'
+import { MAX_BUILD_DESCRIPTION_LENGTH } from '../(lib)/constants'
 
 /**
  * The minimum information that should be
@@ -22,6 +23,8 @@ export interface CsvItem {
  */
 export interface BuildState {
   name: string
+  description: string
+  isPublic: boolean
   items: {
     helm: ArmorItem | null
     torso: ArmorItem | null
@@ -43,6 +46,8 @@ export interface BuildState {
 }
 export const buildStateSchema = z.object({
   name: z.string(),
+  description: z.string().max(MAX_BUILD_DESCRIPTION_LENGTH),
+  public: z.boolean(),
   items: z.object({
     helm: z.any(),
     torso: z.any(),

@@ -151,6 +151,13 @@ export default function Builder({
     [selectedItemSlot, buildState],
   )
 
+  function handleChangeDescription(description: string) {
+    updateBuild('description', description)
+  }
+  function handleToggleIsPublic(isPublic: boolean) {
+    updateBuild('isPublic', isPublic ? 'true' : 'false')
+  }
+
   return (
     <>
       <ItemSelect
@@ -556,7 +563,13 @@ export default function Builder({
 
       <div id="member-features-row" className="mt-4 w-full">
         <hr className="border-green-900 py-2" />
-        <MemberFeatures isScreenshotModeActive={isScreenshotMode} />
+        <MemberFeatures
+          description={buildState.description}
+          isPublic={buildState.isPublic}
+          onChangeDescription={handleChangeDescription}
+          onChangeIsPublic={handleToggleIsPublic}
+          isScreenshotModeActive={isScreenshotMode}
+        />
       </div>
     </>
   )

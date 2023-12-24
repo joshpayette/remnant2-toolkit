@@ -4,22 +4,23 @@ import Textarea from '@/app/(components)/Textarea'
 import Toggle from '@/app/(components)/Toggle'
 import { MAX_BUILD_DESCRIPTION_LENGTH } from '@/app/(lib)/constants'
 import { useSession } from 'next-auth/react'
-import { useState } from 'react'
+
+type Props = {
+  description: string | null
+  isPublic: boolean | null
+  isScreenshotModeActive: boolean
+  onChangeDescription: (description: string) => void
+  onChangeIsPublic: (isPublic: boolean) => void
+}
 
 export default function MemberFeatures({
+  description,
+  isPublic,
   isScreenshotModeActive,
-}: {
-  isScreenshotModeActive: boolean
-}) {
+  onChangeDescription,
+  onChangeIsPublic,
+}: Props) {
   const { data: session } = useSession()
-
-  // form fields
-  const [description, setDescription] = useState('')
-  const [buildPublic, setBuildPublic] = useState(false)
-
-  function handleChangeDescription(e: React.ChangeEvent<HTMLTextAreaElement>) {
-    setDescription(e.target.value)
-  }
 
   // If the screenshot mode is active and the user is not signed in,
   // don't render this component
@@ -46,11 +47,13 @@ export default function MemberFeatures({
         ) : (
           <div className="mb-4">
             <Textarea
-              label={`Build Description (${description.length}/${MAX_BUILD_DESCRIPTION_LENGTH})`}
+              label={`Build Description (${
+                description?.length ?? 0
+              }/${MAX_BUILD_DESCRIPTION_LENGTH})`}
               name="description"
               placeholder=""
-              onChange={handleChangeDescription}
-              value={description}
+              onChange={(e) => onChangeDescription(e.target.value)}
+              value={description ?? ''}
               maxLength={MAX_BUILD_DESCRIPTION_LENGTH}
               rows={3}
             />
@@ -61,7 +64,10 @@ export default function MemberFeatures({
           <div className="flex flex-row items-center justify-start text-sm text-green-500">
             <div className="mr-4">Public Build</div>
             <div className="">
-              <Toggle enabled={buildPublic} setEnabled={setBuildPublic} />
+              <Toggle
+                enabled={Boolean(isPublic)}
+                setEnabled={onChangeIsPublic}
+              />
             </div>
           </div>
         )}

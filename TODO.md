@@ -1,9 +1,8 @@
 # DB TODO
 
-- Builder changes if logged in:
-  - Description: Add a description to the build
-  - Public: Make the build public or private
-  - YouTube Video: Add a YouTube video to the build
+- Need to get the description and public form data added to the build state for saving and reading
+  - Description and public value are stored in localstorage when edit build button clicked.
+  - Need to add builder check on load for those values, adding them to the build state, then clearing from localstorage
 
 # TODO
 

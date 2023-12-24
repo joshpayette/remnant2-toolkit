@@ -90,7 +90,7 @@ model Build {
   updatedAt     DateTime? @updatedAt
   createdBy     User      @relation(fields: [createdById], references: [id])
   createdById   String
-  public        Boolean   @default(true)
+  isPublic      Boolean   @default(true)
   name          String
   description   String?
   videoUrl      String?

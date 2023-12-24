@@ -1,13 +1,14 @@
 import { type BuildState } from '@/app/(types)'
 import { remnantItemCategories, remnantItems } from '@/app/(data)'
 import { usePathname, useSearchParams, useRouter } from 'next/navigation'
-import { useCallback } from 'react'
+import { useCallback, useState } from 'react'
 import { TraitItem } from '@/app/(types)/TraitItem'
 import { GenericItem } from '@/app/(types)/GenericItem'
 import { ArmorItem } from '@/app/(types)/ArmorItem'
 import { WeaponItem } from '@/app/(types)/WeaponItem'
 import { MutatorItem } from '@/app/(types)/MutatorItem'
 import { DEFAULT_TRAIT_AMOUNT } from '@/app/(lib)/constants'
+import { useLocalStorage } from '@/app/(hooks)/useLocalStorage'
 
 /**
  * Checks the build weapons and equips any mods
@@ -113,6 +114,7 @@ export default function useBuildSearchParams() {
   const router = useRouter()
   const pathname = usePathname()
   const searchParams = useSearchParams()
+  const { builderStorage, setBuilderStorage } = useLocalStorage()
 
   /**
    * Creates a new query string by adding or updating a parameter.
@@ -138,6 +140,21 @@ export default function useBuildSearchParams() {
       value = value.join(',')
     }
 
+    if (name === 'description') {
+      buildState.description = value
+      setBuilderStorage({
+        ...builderStorage,
+        tempDescription: value,
+      })
+    }
+    if (name === 'isPublic') {
+      buildState.isPublic = value === 'true'
+      setBuilderStorage({
+        ...builderStorage,
+        tempPublic: value === 'true',
+      })
+    }
+
     router.push(`${pathname}?${createQueryString(name, value)}`, {
       scroll,
     })
@@ -147,9 +164,21 @@ export default function useBuildSearchParams() {
    * Parses the build values from the query string
    */
   function parseQueryString(searchParams: URLSearchParams): BuildState {
+    let description = ''
+    let isPublic = true
+
+    if (builderStorage.tempDescription) {
+      description = builderStorage.tempDescription
+    }
+    if (builderStorage.tempPublic) {
+      isPublic = builderStorage.tempPublic
+    }
+
     /** The build state that will be returned */
     const buildState: BuildState = {
       name: 'My Build',
+      description,
+      isPublic: isPublic,
       items: {
         helm: null,
         torso: null,
@@ -248,7 +277,8 @@ export default function useBuildSearchParams() {
           if (traitItems) buildState.items.trait = traitItems
           break
         default: {
-          throw new Error(`Unknown item category: ${itemCategory}`)
+          console.error(`Unhandled item category: ${itemCategory}`)
+          break
         }
       }
     })

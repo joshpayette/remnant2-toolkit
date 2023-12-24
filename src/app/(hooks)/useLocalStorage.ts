@@ -5,11 +5,15 @@ import { GenericItem } from '../(types)/GenericItem'
 interface LocalStorage {
   tracker: {
     discoveredItemIds: string[]
-    collapsedCategories: GenericItem['category'][]
+    collapsedCategories: Array<GenericItem['category']>
   }
   builder: {
     showControls: boolean
     showLabels: boolean
+    //* Used to transfer this information to the builder when
+    //* you click on edit build
+    tempDescription: string | null
+    tempPublic: boolean | null
   }
 }
 
@@ -21,6 +25,8 @@ const initialValue: LocalStorage = {
   builder: {
     showLabels: false,
     showControls: true,
+    tempDescription: null,
+    tempPublic: null,
   },
 }
 

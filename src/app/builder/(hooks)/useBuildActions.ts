@@ -86,6 +86,12 @@ export default function useBuildActions() {
 
     editBuildUrl += items.trait && `&trait=${TraitItem.toParams(items.trait)}`
 
+    setBuilderStorage({
+      ...builderStorage,
+      tempDescription: buildState.description,
+      tempPublic: buildState.isPublic,
+    })
+
     router.push(editBuildUrl)
   }
 
