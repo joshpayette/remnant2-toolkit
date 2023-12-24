@@ -5,7 +5,6 @@ import { metadata } from '@/app/metadata'
 import { getServerSession } from '@/app/(lib)/auth'
 import { Build } from '@prisma/client'
 import PageHeader from '@/app/(components)/PageHeader'
-import { toast } from 'react-toastify'
 
 async function getBuild(buildId: string) {
   if (!buildId) {
@@ -71,17 +70,17 @@ export async function generateMetadata(
   return {
     ...metadata,
     title: build.name,
-    //description: build.description, // TODO: Add description to build
+    description: build.description,
     openGraph: {
       ...metadata.openGraph,
       title: build.name,
-      //description: build.description, // TODO: Add description to build
+      description: build.description,
       url: `https://remnant2builder.com/builder/${build.id}`,
     },
     twitter: {
       ...metadata.twitter,
       title: build.name,
-      //description: build.description, // TODO: Add description to build
+      description: build.description,
     },
   }
 }

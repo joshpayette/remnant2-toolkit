@@ -41,20 +41,35 @@ export default function useBuildActions() {
     setBuilderStorage({
       ...builderStorage,
       tempDescription: buildState.description,
-      tempPublic: buildState.isPublic,
+      tempIsPublic: buildState.isPublic,
+    })
+
+    router.push(editBuildUrl)
+  }
+
+  function handleEditBuild(buildState: BuildState) {
+    let editBuildUrl = buildToQueryParams(buildState)
+
+    setBuilderStorage({
+      ...builderStorage,
+      tempDescription: buildState.description,
+      tempIsPublic: buildState.isPublic,
+      tempBuildId: buildState.buildId,
+      tempCreatedById: buildState.createdById,
     })
 
     router.push(editBuildUrl)
   }
 
   return {
-    showLabels,
-    setShowLabels,
-    handleToggleLabels,
     showControls,
-    setShowControls,
-    handleToggleControls,
+    showLabels,
     handleCopyBuildUrl,
     handleDuplicateBuild,
+    handleEditBuild,
+    handleToggleControls,
+    handleToggleLabels,
+    setShowLabels,
+    setShowControls,
   }
 }

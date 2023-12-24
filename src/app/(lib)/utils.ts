@@ -189,6 +189,8 @@ export function dbBuildToBuildState(dbBuild: Build): BuildState {
     name: dbBuild.name,
     description: dbBuild.description,
     isPublic: dbBuild.isPublic,
+    createdById: dbBuild.createdById,
+    buildId: dbBuild.id,
     items: {
       helm: dbBuild.helm ? ArmorItem.fromDBValue(dbBuild.helm) : null,
       torso: dbBuild.torso ? ArmorItem.fromDBValue(dbBuild.torso) : null,

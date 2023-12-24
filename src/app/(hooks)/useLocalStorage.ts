@@ -13,7 +13,9 @@ interface LocalStorage {
     //* Used to transfer this information to the builder when
     //* you click on edit build
     tempDescription: string | null
-    tempPublic: boolean | null
+    tempIsPublic: boolean | null
+    tempBuildId: string | null
+    tempCreatedById: string | null
   }
 }
 
@@ -26,7 +28,9 @@ const initialValue: LocalStorage = {
     showLabels: false,
     showControls: true,
     tempDescription: null,
-    tempPublic: null,
+    tempIsPublic: null,
+    tempBuildId: null,
+    tempCreatedById: null,
   },
 }
 

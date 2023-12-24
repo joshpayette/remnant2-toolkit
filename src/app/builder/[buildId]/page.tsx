@@ -9,6 +9,7 @@ import ToCsvButton from '@/app/(components)/ToCsvButton'
 import { Build } from '@prisma/client'
 import { useIsClient } from 'usehooks-ts'
 import { useRef } from 'react'
+import { useSession } from 'next-auth/react'
 
 export default function Page({
   params: { dbBuild },
@@ -16,20 +17,22 @@ export default function Page({
   params: { dbBuild: Build }
 }) {
   const isClient = useIsClient()
+  const { data: session } = useSession()
 
   const buildContainerRef = useRef<HTMLDivElement>(null)
   const { isScreenshotModeActive, handleImageExport } = useBuildScreenshot()
 
   // Need to convert the build data to a format that the BuildPage component can use
-  const build = dbBuildToBuildState(dbBuild)
+  const buildState = dbBuildToBuildState(dbBuild)
 
   // We need to convert the build.items object into an array of items to pass to the ToCsvButton
-  const csvBuildData = buildToCsvData(build)
+  const csvBuildData = buildToCsvData(buildState)
 
   const {
     showLabels,
     handleCopyBuildUrl,
     handleDuplicateBuild,
+    handleEditBuild,
     handleToggleLabels,
   } = useBuildActions()
 
@@ -43,21 +46,24 @@ export default function Page({
           className="flex min-w-full flex-col justify-between sm:min-w-[100px]"
         >
           <div id="actions" className="flex flex-col gap-2">
+            {session && session.user?.id === buildState.createdById && (
+              <Button.EditBuild onClick={() => handleEditBuild(buildState)} />
+            )}
             <Button.DuplicateBuild
-              onClick={() => handleDuplicateBuild(build)}
+              onClick={() => handleDuplicateBuild(buildState)}
             />
             <Button.ExportImage
               onClick={() =>
                 handleImageExport(
                   buildContainerRef.current,
-                  `${build.name}.png`,
+                  `${buildState.name}.png`,
                 )
               }
             />
             <Button.CopyBuildUrl onClick={handleCopyBuildUrl} />
             <ToCsvButton
               data={csvBuildData.filter((item) => item?.name !== '')}
-              filename={`remnant2_builder_${build.name}`}
+              filename={`remnant2_builder_${buildState.name}`}
             />
             <hr className="my-4 border-gray-900" />
             <Button.ShowLabels
@@ -73,7 +79,7 @@ export default function Page({
           ref={buildContainerRef}
         >
           <Builder
-            buildState={build}
+            buildState={buildState}
             isEditable={false}
             isScreenshotMode={isScreenshotModeActive}
             showControls={false}

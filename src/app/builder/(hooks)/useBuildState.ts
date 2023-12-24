@@ -17,7 +17,7 @@ import { linkArchtypesToTraits, linkWeaponsToMods } from '@/app/(lib)/utils'
  * @example Adds a `name` parameter to the query string
  * router.push(`${pathname}?${createQueryString('name', name)}`)
  */
-export default function useBuildSearchParams() {
+export default function useBuildState() {
   // Hooks for monitoring the URL query string
   const router = useRouter()
   const pathname = usePathname()
@@ -39,7 +39,7 @@ export default function useBuildSearchParams() {
   /**
    * Adds a value to the query string then navigates to it
    */
-  function updateBuild(
+  function updateBuildState(
     name: string,
     value: string | string[],
     scroll = false,
@@ -59,7 +59,7 @@ export default function useBuildSearchParams() {
       buildState.isPublic = value === 'true'
       setBuilderStorage({
         ...builderStorage,
-        tempPublic: value === 'true',
+        tempIsPublic: value === 'true',
       })
     }
 
@@ -72,19 +72,13 @@ export default function useBuildSearchParams() {
    * Parses the build values from the query string
    */
   function parseQueryString(searchParams: URLSearchParams): BuildState {
-    let description = ''
-    let isPublic = true
-
-    if (builderStorage.tempDescription) {
-      description = builderStorage.tempDescription
-    }
-    isPublic = builderStorage.tempPublic === true
-
     /** The build state that will be returned */
     const buildState: BuildState = {
       name: 'My Build',
-      description,
-      isPublic,
+      description: null,
+      isPublic: null,
+      buildId: null,
+      createdById: null,
       items: {
         helm: null,
         torso: null,
@@ -108,6 +102,19 @@ export default function useBuildSearchParams() {
     // Build name
     const name = searchParams.get('name')
     buildState.name = name ?? buildState.name
+
+    // Build description from localstorage
+    if (builderStorage.tempDescription) {
+      buildState.description = builderStorage.tempDescription
+    }
+    // Build public visibility from localstorage
+    buildState.isPublic = builderStorage.tempIsPublic === true
+
+    // Check for buildId from localstorage
+    buildState.buildId = builderStorage.tempBuildId
+
+    // Check for createdById from localstorage
+    buildState.createdById = builderStorage.tempCreatedById
 
     // Loop through each category and check the query params
     // for that category's item IDs
@@ -196,5 +203,5 @@ export default function useBuildSearchParams() {
     linkWeaponsToMods(parseQueryString(searchParams)),
   )
 
-  return { updateBuild, currentBuildState: buildState }
+  return { updateBuildState, buildState }
 }

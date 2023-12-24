@@ -38,7 +38,10 @@ export default function MemberFeatures({
       )}
       <div className="relative">
         {!session && (
-          <div id="disabled-overlay" className="absolute inset-0 bg-black/60" />
+          <div
+            id="disabled-overlay"
+            className="absolute inset-0 z-20 bg-black/60"
+          />
         )}
         {isScreenshotModeActive || !isEditable ? (
           <div className="flex flex-col">

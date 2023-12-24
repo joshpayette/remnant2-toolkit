@@ -27,6 +27,18 @@ export const Button = {
     </button>
   ),
 
+  EditBuild: ({ onClick }: ButtonProps) => (
+    <button
+      className={cn(
+        buttonClasses,
+        'border-yellow-700 bg-yellow-500 text-black hover:bg-yellow-300',
+      )}
+      onClick={onClick}
+    >
+      Edit Build
+    </button>
+  ),
+
   ExportImage: ({ onClick }: ButtonProps) => (
     <button
       className={cn(buttonClasses, 'border-green-500 hover:bg-green-700')}

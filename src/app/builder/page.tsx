@@ -3,7 +3,7 @@
 import { useEffect, useRef } from 'react'
 import PageHeader from '@/app/(components)/PageHeader'
 import Builder from './(components)/Builder'
-import useBuildSearchParams from '@/app/builder/(hooks)/useBuildSearchParams'
+import useBuildState from '@/app/builder/(hooks)/useBuildState'
 import { useIsClient } from 'usehooks-ts'
 import useBuildScreenshot from './(hooks)/useBuildScreenshot'
 import { buildToCsvData, cn } from '../(lib)/utils'
@@ -13,14 +13,10 @@ import { Button } from './(components)/Button'
 import ToCsvButton from '../(components)/ToCsvButton'
 
 export default function Page() {
-  const { currentBuildState } = useBuildSearchParams()
+  const { buildState } = useBuildState()
 
   const { isScreenshotModeActive, handleImageExport } = useBuildScreenshot()
   const buildContainerRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    console.info('page detected isScreenshotActive', isScreenshotModeActive)
-  }, [isScreenshotModeActive])
 
   const {
     showLabels,
@@ -34,14 +30,14 @@ export default function Page() {
 
   // Add the build name to the page title
   useEffect(() => {
-    if (!currentBuildState) return
-    document.title = `${currentBuildState.name} | Remnant 2 Toolkit`
-  }, [currentBuildState])
+    if (!buildState) return
+    document.title = `${buildState.name} | Remnant 2 Toolkit`
+  }, [buildState])
 
   if (!isClient) return null
 
   // We need to convert the build.items object into an array of items to pass to the ToCsvButton
-  const csvBuildData = buildToCsvData(currentBuildState)
+  const csvBuildData = buildToCsvData(buildState)
 
   return (
     <div className="flex w-full flex-col items-center">
@@ -62,14 +58,14 @@ export default function Page() {
               onClick={() =>
                 handleImageExport(
                   buildContainerRef.current,
-                  `${currentBuildState.name}.png`,
+                  `${buildState.name}.png`,
                 )
               }
             />
             <Button.CopyBuildUrl onClick={handleCopyBuildUrl} />
             <ToCsvButton
               data={csvBuildData.filter((item) => item?.name !== '')}
-              filename={`remnant2_builder_${currentBuildState.name}`}
+              filename={`remnant2_builder_${buildState.name}`}
             />
             <hr className="my-4 border-gray-900" />
             <Button.ShowControls
@@ -90,7 +86,7 @@ export default function Page() {
           ref={buildContainerRef}
         >
           <Builder
-            buildState={currentBuildState}
+            buildState={buildState}
             isEditable={true}
             isScreenshotMode={isScreenshotModeActive}
             showLabels={showLabels}

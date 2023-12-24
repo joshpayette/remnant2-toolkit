@@ -6,7 +6,7 @@ import BuilderButton from './BuilderButton'
 import Traits from './Traits'
 import ItemSelect from './ItemSelect'
 import Logo from '@/app/(components)/Logo'
-import useBuildSearchParams from '../(hooks)/useBuildSearchParams'
+import useBuildState from '../(hooks)/useBuildState'
 import { GenericItem } from '@/app/(types)/GenericItem'
 import { BuildState } from '@/app/(types)'
 import MemberFeatures from './MemberFeatures'
@@ -148,8 +148,8 @@ export default function Builder({
   showLabels: boolean
 }) {
   // Custom hook for working with the build
-  const { updateBuild, currentBuildState } = useBuildSearchParams()
-  const concoctionSlotCount = getConcoctionSlotCount(currentBuildState)
+  const { updateBuildState } = useBuildState()
+  const concoctionSlotCount = getConcoctionSlotCount(buildState)
 
   // Tracks information about the slot the user is selecting an item for
   const [selectedItemSlot, setSelectedItemSlot] = useState<{
@@ -194,9 +194,9 @@ export default function Builder({
             index === specifiedIndex ? null : item,
           )
           const newItemIds = newBuildItems.map((i) => (i ? i.id : ''))
-          updateBuild(selectedItemSlot.category, newItemIds)
+          updateBuildState(selectedItemSlot.category, newItemIds)
         } else {
-          updateBuild(selectedItemSlot.category, '')
+          updateBuildState(selectedItemSlot.category, '')
         }
 
         setSelectedItemSlot({ category: null })
@@ -230,14 +230,14 @@ export default function Builder({
           const newTraitItemParams = TraitItem.toParams(
             newBuildItems as TraitItem[],
           )
-          updateBuild('trait', newTraitItemParams)
+          updateBuildState('trait', newTraitItemParams)
           setSelectedItemSlot({ category: null })
           return
         }
 
         // If we got here, add the item to the build
         const newItemIds = newBuildItems.map((i) => i?.id)
-        updateBuild(selectedItem.category, newItemIds)
+        updateBuildState(selectedItem.category, newItemIds)
         setSelectedItemSlot({ category: null })
         return
       }
@@ -248,14 +248,14 @@ export default function Builder({
       const itemAlreadyInBuild = buildItem?.id === selectedItem.id
       if (itemAlreadyInBuild) return
 
-      updateBuild(selectedItem.category, selectedItem.id)
+      updateBuildState(selectedItem.category, selectedItem.id)
       setSelectedItemSlot({ category: null })
     },
     [
       buildState.items,
       selectedItemSlot.category,
       selectedItemSlot.index,
-      updateBuild,
+      updateBuildState,
     ],
   )
 
@@ -275,10 +275,10 @@ export default function Builder({
   )
 
   function handleChangeDescription(description: string) {
-    updateBuild('description', description)
+    updateBuildState('description', description)
   }
   function handleToggleIsPublic(isPublic: boolean) {
-    updateBuild('isPublic', isPublic ? 'true' : 'false')
+    updateBuildState('isPublic', isPublic ? 'true' : 'false')
   }
 
   return (
@@ -296,7 +296,7 @@ export default function Builder({
           editable={buildNameIsEditable}
           onClick={() => setBuildNameIsEditable(true)}
           onClose={(newBuildName: string) => {
-            updateBuild('name', newBuildName)
+            updateBuildState('name', newBuildName)
             setBuildNameIsEditable(false)
           }}
           name={buildState.name}
@@ -662,7 +662,7 @@ export default function Builder({
             const newTraitItemParams = newTraitItems.map(
               (i) => `${i.id};${i.amount}`,
             )
-            updateBuild('trait', newTraitItemParams)
+            updateBuildState('trait', newTraitItemParams)
           }}
           onChangeAmount={(newTraitItem) => {
             const newTraitItems = buildState.items.trait.map((traitItem) => {
@@ -674,21 +674,21 @@ export default function Builder({
             const newTraitItemParams = newTraitItems.map(
               (i) => `${i.id};${i.amount}`,
             )
-            updateBuild('trait', newTraitItemParams)
+            updateBuildState('trait', newTraitItemParams)
           }}
         />
       </div>
 
-        <div id="member-features-row" className="mt-4 w-full">
-          <MemberFeatures
-            description={buildState.description}
-            isEditable={isEditable}
-            isPublic={buildState.isPublic}
-            isScreenshotModeActive={isScreenshotMode}
-            onChangeDescription={handleChangeDescription}
-            onChangeIsPublic={handleToggleIsPublic}
-          />
-        </div>
+      <div id="member-features-row" className="mt-4 w-full">
+        <MemberFeatures
+          description={buildState.description}
+          isEditable={isEditable}
+          isPublic={buildState.isPublic}
+          isScreenshotModeActive={isScreenshotMode}
+          onChangeDescription={handleChangeDescription}
+          onChangeIsPublic={handleToggleIsPublic}
+        />
+      </div>
     </>
   )
 }

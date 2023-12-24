@@ -23,6 +23,8 @@ export interface CsvItem {
  */
 export interface BuildState {
   name: string
+  createdById: string | null
+  buildId: string | null
   description: string | null
   isPublic: boolean | null
   items: {
@@ -48,6 +50,8 @@ export const buildStateSchema = z.object({
   name: z.string(),
   description: z.string().max(MAX_BUILD_DESCRIPTION_LENGTH),
   isPublic: z.boolean(),
+  buildId: z.string().optional(),
+  createdById: z.string().optional(),
   items: z.object({
     helm: z.any(),
     torso: z.any(),
