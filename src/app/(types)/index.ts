@@ -50,8 +50,8 @@ export const buildStateSchema = z.object({
   name: z.string(),
   description: z.string().max(MAX_BUILD_DESCRIPTION_LENGTH),
   isPublic: z.boolean(),
-  buildId: z.string().optional(),
-  createdById: z.string().optional(),
+  buildId: z.string().nullable(),
+  createdById: z.string().nullable(),
   items: z.object({
     helm: z.any(),
     torso: z.any(),

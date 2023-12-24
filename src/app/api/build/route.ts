@@ -70,6 +70,10 @@ export async function PATCH(request: Request) {
   const unsafeBuildState = await request.json()
   const buildStateParsed = buildStateSchema.safeParse(unsafeBuildState)
   if (!buildStateParsed.success) {
+    console.error(
+      'Error in buildState!',
+      buildStateParsed.error.issues.forEach((issue) => console.error(issue)),
+    )
     return Response.json({ message: 'Error in buildState!' }, { status: 500 })
   }
   const buildState = buildStateParsed.data as BuildState
@@ -161,6 +165,10 @@ export async function PUT(request: Request) {
   const unsafeBuildState = await request.json()
   const buildStateParsed = buildStateSchema.safeParse(unsafeBuildState)
   if (!buildStateParsed.success) {
+    console.error(
+      'Error in buildState!',
+      buildStateParsed.error.issues.forEach((issue) => console.error(issue)),
+    )
     return Response.json({ message: 'Error in buildState!' }, { status: 500 })
   }
   const buildState = buildStateParsed.data as BuildState
