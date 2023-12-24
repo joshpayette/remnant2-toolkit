@@ -32,12 +32,10 @@ export async function GET(request: Request) {
     },
   })
   if (!build) {
-    console.error('Build not found!')
     return Response.json({ message: 'Build not found!' }, { status: 404 })
   }
 
-  if (build.public) {
-    console.info('build', build)
+  if (build.isPublic) {
     return Response.json({ build }, { status: 200 })
   }
 
@@ -54,8 +52,6 @@ export async function GET(request: Request) {
       { status: 401 },
     )
   }
-
-  console.info('build', build)
 
   return Response.json(
     { message: 'Successfully fetched build!', build },
@@ -82,8 +78,8 @@ export async function PUT(request: Request) {
     'id' | 'createdAt' | 'createdBy' | 'updatedAt' | 'createdById'
   > = {
     name: buildState.name,
-    public: true,
-    description: '',
+    isPublic: buildState.isPublic,
+    description: buildState.description,
     videoUrl: '',
     helm: items.helm ? ArmorItem.toDBValue(items.helm) : null,
     torso: items.torso ? ArmorItem.toDBValue(items.torso) : null,

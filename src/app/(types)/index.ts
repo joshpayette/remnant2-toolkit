@@ -47,7 +47,7 @@ export interface BuildState {
 export const buildStateSchema = z.object({
   name: z.string(),
   description: z.string().max(MAX_BUILD_DESCRIPTION_LENGTH),
-  public: z.boolean(),
+  isPublic: z.boolean(),
   items: z.object({
     helm: z.any(),
     torso: z.any(),
