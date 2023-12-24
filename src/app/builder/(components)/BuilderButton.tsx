@@ -20,7 +20,7 @@ export default function BuilderButton({
   switch (size) {
     case 'sm':
       imageSize = {
-        height: 22,
+        height: 25,
         width: 22,
       }
       break
@@ -59,7 +59,7 @@ export default function BuilderButton({
         className={cn(
           'flex items-center justify-center border-2 border-gray-700 hover:border-purple-500',
           `bg-[url('https://${process.env.NEXT_PUBLIC_IMAGE_URL}/card-body-bg.jpg')]`,
-          size === 'sm' && 'min-h-[22px] w-[22px]',
+          size === 'sm' && 'min-h-[25px] w-[22px]',
           size === 'md' && 'min-h-[66px] w-[66px]',
           size === 'lg' && 'min-h-[99px] w-[99px]',
           size === 'wide' && 'min-h-[99px] w-[150px]',

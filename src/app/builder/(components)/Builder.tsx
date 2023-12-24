@@ -272,8 +272,8 @@ export default function BuilderPage({
         <div
           id="center-column"
           className={cn(
-            'relative ml-[13px] flex h-[290px] max-h-[290px] flex-col items-start justify-start overflow-y-auto',
-            'sm:h-[375px] sm:max-h-[375px]',
+            'relative ml-[13px] flex h-[450px] max-h-[450px] flex-col items-start justify-start overflow-y-auto',
+            'sm:h-[460px] sm:max-h-[460px]',
           )}
         >
           <div

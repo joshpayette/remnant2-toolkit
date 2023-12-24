@@ -83,9 +83,12 @@ export function getConcoctionSlotCount(buildState: BuildState): number {
   let concoctionCount = 0
 
   // Add 3 concoctions if primary is alchemist
+  // or if the primary skill is an alchemist skill
   const isPrimaryAlchemist =
     buildState.items.archtype[0]?.name?.toLowerCase() === 'alchemist'
-  if (isPrimaryAlchemist) concoctionCount += 3
+  const isPrimarySkillAlchemist =
+    buildState.items.skill[0]?.linkedItems?.archtype?.name === 'Alchemist'
+  if (isPrimaryAlchemist || isPrimarySkillAlchemist) concoctionCount += 3
 
   // Add 1 concoction if they are wearing Feastmaster's Signet
   const hasFeastmastersSignet = buildState.items.ring.some(
