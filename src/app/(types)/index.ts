@@ -24,6 +24,7 @@ export interface CsvItem {
 export interface BuildState {
   name: string
   createdById: string | null
+  createdByDisplayName: string | null
   buildId: string | null
   description: string | null
   isPublic: boolean | null

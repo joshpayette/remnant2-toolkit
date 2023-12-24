@@ -184,12 +184,15 @@ export function buildToQueryParams(buildState: BuildState) {
  * Converts a build from the database to a build state that the
  * Builder component can use
  */
-export function dbBuildToBuildState(dbBuild: Build): BuildState {
+export function dbBuildToBuildState(
+  dbBuild: Build & { createdByDisplayName: '' },
+): BuildState {
   return {
     name: dbBuild.name,
     description: dbBuild.description,
     isPublic: dbBuild.isPublic,
     createdById: dbBuild.createdById,
+    createdByDisplayName: dbBuild.createdByDisplayName,
     buildId: dbBuild.id,
     items: {
       helm: dbBuild.helm ? ArmorItem.fromDBValue(dbBuild.helm) : null,

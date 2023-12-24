@@ -10,11 +10,12 @@ import { Build } from '@prisma/client'
 import { useIsClient } from 'usehooks-ts'
 import { useRef } from 'react'
 import { useSession } from 'next-auth/react'
+import PageHeader from '@/app/(components)/PageHeader'
 
 export default function Page({
   params: { dbBuild },
 }: {
-  params: { dbBuild: Build }
+  params: { dbBuild: Build & { createdByDisplayName: '' } }
 }) {
   const isClient = useIsClient()
   const { data: session } = useSession()
@@ -39,54 +40,60 @@ export default function Page({
   if (!isClient) return null
 
   return (
-    <div className="flex w-full flex-col items-center">
-      <div className="flex w-full max-w-xl flex-col items-start justify-center gap-2 sm:flex-row-reverse">
-        <div
-          id="actions-column"
-          className="flex min-w-full flex-col justify-between sm:min-w-[100px]"
-        >
-          <div id="actions" className="flex flex-col gap-2">
-            {session && session.user?.id === buildState.createdById && (
-              <Button.EditBuild onClick={() => handleEditBuild(buildState)} />
+    <>
+      <PageHeader
+        title={buildState.name}
+        subtitle={`by ${buildState.createdByDisplayName}`}
+      />
+      <div className="flex w-full flex-col items-center">
+        <div className="flex w-full max-w-xl flex-col items-start justify-center gap-2 sm:flex-row-reverse">
+          <div
+            id="actions-column"
+            className="flex min-w-full flex-col justify-between sm:min-w-[100px]"
+          >
+            <div id="actions" className="flex flex-col gap-2">
+              {session && session.user?.id === buildState.createdById && (
+                <Button.EditBuild onClick={() => handleEditBuild(buildState)} />
+              )}
+              <Button.DuplicateBuild
+                onClick={() => handleDuplicateBuild(buildState)}
+              />
+              <Button.ExportImage
+                onClick={() =>
+                  handleImageExport(
+                    buildContainerRef.current,
+                    `${buildState.name}.png`,
+                  )
+                }
+              />
+              <Button.CopyBuildUrl onClick={handleCopyBuildUrl} />
+              <ToCsvButton
+                data={csvBuildData.filter((item) => item?.name !== '')}
+                filename={`remnant2_builder_${buildState.name}`}
+              />
+              <hr className="my-4 border-gray-900" />
+              <Button.ShowLabels
+                onClick={handleToggleLabels}
+                showLabels={showLabels}
+              />
+            </div>
+          </div>
+          <div
+            className={cn(
+              'w-full grow rounded border-2 border-green-500 bg-black p-4',
             )}
-            <Button.DuplicateBuild
-              onClick={() => handleDuplicateBuild(buildState)}
-            />
-            <Button.ExportImage
-              onClick={() =>
-                handleImageExport(
-                  buildContainerRef.current,
-                  `${buildState.name}.png`,
-                )
-              }
-            />
-            <Button.CopyBuildUrl onClick={handleCopyBuildUrl} />
-            <ToCsvButton
-              data={csvBuildData.filter((item) => item?.name !== '')}
-              filename={`remnant2_builder_${buildState.name}`}
-            />
-            <hr className="my-4 border-gray-900" />
-            <Button.ShowLabels
-              onClick={handleToggleLabels}
+            ref={buildContainerRef}
+          >
+            <Builder
+              buildState={buildState}
+              isEditable={false}
+              isScreenshotMode={isScreenshotModeActive}
+              showControls={false}
               showLabels={showLabels}
             />
           </div>
         </div>
-        <div
-          className={cn(
-            'w-full grow rounded border-2 border-green-500 bg-black p-4',
-          )}
-          ref={buildContainerRef}
-        >
-          <Builder
-            buildState={buildState}
-            isEditable={false}
-            isScreenshotMode={isScreenshotModeActive}
-            showControls={false}
-            showLabels={showLabels}
-          />
-        </div>
       </div>
-    </div>
+    </>
   )
 }

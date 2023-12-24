@@ -30,7 +30,10 @@ export default function Page() {
 
   // Add the build name to the page title
   useEffect(() => {
-    if (!buildState) return
+    if (!buildState) {
+      document.title = 'Remnant 2 Toolkit'
+      return
+    }
     document.title = `${buildState.name} | Remnant 2 Toolkit`
   }, [buildState])
 

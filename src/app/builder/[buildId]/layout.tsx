@@ -31,16 +31,33 @@ async function getBuild(buildId: string) {
     return Response.json({ message: 'Build not found!' }, { status: 404 })
   }
 
-  if (build.isPublic) {
+  // Fetch the creator's name
+  const creator = await prisma.user.findUnique({
+    where: {
+      id: build.createdById,
+    },
+  })
+
+  // TODO Update to displayName
+  const creatorName = creator?.name || ''
+
+  const buildData = {
+    ...build,
+    createdByDisplayName: creatorName,
+  }
+
+  if (buildData.isPublic) {
     return Response.json(
-      { message: 'Successfully fetched build!', build },
+      {
+        message: 'Successfully fetched build!',
+        build: buildData,
+      },
       { status: 200 },
     )
   }
 
   const session = await getServerSession()
-  console.info('private build info', build.createdById, session?.user?.id)
-  if (!session || !session.user || build.createdById !== session.user.id) {
+  if (!session || !session.user || buildData.createdById !== session.user.id) {
     console.error(
       'You must be logged in as the build creator to view a private build.',
     )
@@ -54,7 +71,10 @@ async function getBuild(buildId: string) {
   }
 
   return Response.json(
-    { message: 'Successfully fetched build!', build },
+    {
+      message: 'Successfully fetched build!',
+      build: buildData,
+    },
     { status: 200 },
   )
 }
@@ -101,7 +121,7 @@ export async function generateMetadata(
       description: build.description,
       url: `https://remnant2builder.com/builder/${build.id}`,
       images: [
-        'https://d2sqltdcj8czo5.cloudfront.net/build_metadata.png',
+        'https://d2sqltdcj8czo5.cloudfront.net/build_preview_template.png',
         ...previousOGImages,
       ],
     },
@@ -109,7 +129,7 @@ export async function generateMetadata(
       title: build.name,
       description: build.description,
       images: [
-        'https://d2sqltdcj8czo5.cloudfront.net/build_metadata.png',
+        'https://d2sqltdcj8czo5.cloudfront.net/build_preview_template.png',
         ...previousTwitterImages,
       ],
     },
@@ -125,16 +145,9 @@ export default async function Layout({
   const { build: dbBuild } = await buildData.json()
 
   if (buildData.status !== 200) {
-    return (
-      <div className="flex w-full max-w-xl flex-col items-center justify-center">
-        <PageHeader title="Build Not Found" />
-        <p className="text-md text-center">
-          Build {buildId} is not found. If you are sure the build exists, it may
-          be marked private. You must be logged in as the build creator to view
-          a private build.
-        </p>
-      </div>
-    )
+    throw new Error(`Build ${buildId} is not found. If you are sure the build exists, it may
+    be marked private. You must be logged in as the build creator to view
+    a private build.`)
   }
 
   return <BuildPage params={{ dbBuild }} />
