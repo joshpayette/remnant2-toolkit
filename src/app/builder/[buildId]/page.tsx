@@ -30,7 +30,7 @@ export default function Page({
   const {
     showLabels,
     handleCopyBuildUrl,
-    handleEditBuild,
+    handleDuplicateBuild,
     handleToggleLabels,
   } = useBuildActions()
 
@@ -44,7 +44,7 @@ export default function Page({
           className="flex min-w-full flex-col justify-between sm:min-w-[100px]"
         >
           <div id="actions" className="flex flex-col gap-2">
-            <Button.EditBuild onClick={() => handleEditBuild(build)} />
+            <Button.DuplicateBuild onClick={() => handleDuplicateBuild(build)} />
             <Button.ExportImage
               onClick={() =>
                 handleImageExport(

@@ -1,7 +1,7 @@
 import { type BuildState } from '@/app/(types)'
 import { remnantItemCategories, remnantItems } from '@/app/(data)'
 import { usePathname, useSearchParams, useRouter } from 'next/navigation'
-import { useCallback, useState } from 'react'
+import { useCallback } from 'react'
 import { TraitItem } from '@/app/(types)/TraitItem'
 import { GenericItem } from '@/app/(types)/GenericItem'
 import { ArmorItem } from '@/app/(types)/ArmorItem'

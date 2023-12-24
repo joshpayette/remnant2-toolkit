@@ -2,6 +2,7 @@
 
 - If the build creator clicks to edit a build, it should pass the build id to the build creator page
   - This will allow the build creator to update the build instead of creating a new one
+- Add duplicate build button that will work as it does currentlys
 
 # TODO
 

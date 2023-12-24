@@ -18,12 +18,12 @@ export const Button = {
     </button>
   ),
 
-  EditBuild: ({ onClick }: ButtonProps) => (
+  DuplicateBuild: ({ onClick }: ButtonProps) => (
     <button
-      className={cn(buttonClasses, 'border-yellow-500 hover:bg-yellow-700')}
+      className={cn(buttonClasses, 'border-green-500 hover:bg-green-700')}
       onClick={onClick}
     >
-      Edit Build
+      Duplicate Build
     </button>
   ),
 
