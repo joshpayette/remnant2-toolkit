@@ -78,6 +78,7 @@ export default function useBuildState() {
       description: null,
       isPublic: null,
       buildId: null,
+      createdByDisplayName: null,
       createdById: null,
       items: {
         helm: null,

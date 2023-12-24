@@ -43,8 +43,14 @@ export default function Page({
     <>
       <PageHeader
         title={buildState.name}
-        subtitle={`by ${buildState.createdByDisplayName}`}
-      />
+        subtitle={`Build by ${buildState.createdByDisplayName}`}
+      >
+        {/* <div className="text-md mb-4 rounded border border-purple-500 p-4 text-left">
+          <p className="text-md text-left text-gray-200">
+            {buildState.description}
+          </p>
+        </div> */}
+      </PageHeader>
       <div className="flex w-full flex-col items-center">
         <div className="flex w-full max-w-xl flex-col items-start justify-center gap-2 sm:flex-row-reverse">
           <div
