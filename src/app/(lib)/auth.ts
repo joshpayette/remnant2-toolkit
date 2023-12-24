@@ -5,7 +5,6 @@ import type {
 } from 'next'
 import { NextAuthOptions, getServerSession as auth } from 'next-auth'
 import DiscordProvider from 'next-auth/providers/discord'
-import GoogleProvider from 'next-auth/providers/google'
 import RedditProvider from 'next-auth/providers/reddit'
 import { PrismaAdapter } from '@auth/prisma-adapter'
 import { prisma } from '@/app/(lib)/db'
@@ -26,10 +25,10 @@ export const authOptions: NextAuthOptions = {
       clientId: process.env.DISCORD_CLIENT_ID ?? '',
       clientSecret: process.env.DISCORD_CLIENT_SECRET ?? '',
     }),
-    GoogleProvider({
-      clientId: process.env.GOOGLE_CLIENT_ID ?? '',
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET ?? '',
-    }),
+    // GoogleProvider({
+    //   clientId: process.env.GOOGLE_CLIENT_ID ?? '',
+    //   clientSecret: process.env.GOOGLE_CLIENT_SECRET ?? '',
+    // }),
     RedditProvider({
       clientId: process.env.REDDIT_CLIENT_ID ?? '',
       clientSecret: process.env.REDDIT_CLIENT_SECRET ?? '',
