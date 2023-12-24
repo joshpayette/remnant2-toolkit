@@ -69,6 +69,7 @@ export async function generateMetadata(
 
   return {
     ...metadata,
+    metadataBase: new URL('https://d2sqltdcj8czo5.cloudfront.net'),
     title: build.name,
     description: build.description,
     openGraph: {
@@ -76,11 +77,19 @@ export async function generateMetadata(
       title: build.name,
       description: build.description,
       url: `https://remnant2builder.com/builder/${build.id}`,
+      images: [
+        {
+          url: 'empty_build.png',
+          width: 800,
+          height: 600,
+        },
+      ],
     },
     twitter: {
       ...metadata.twitter,
       title: build.name,
       description: build.description,
+      images: ['empty_build.png'],
     },
   }
 }
