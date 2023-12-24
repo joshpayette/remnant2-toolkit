@@ -1,7 +1,6 @@
 import { prisma } from '@/app/(lib)/db'
 import BuildPage from './page'
 import { Metadata, ResolvingMetadata } from 'next'
-import { metadata } from '@/app/metadata'
 import { getServerSession } from '@/app/(lib)/auth'
 import { Build } from '@prisma/client'
 import PageHeader from '@/app/(components)/PageHeader'
@@ -67,29 +66,28 @@ export async function generateMetadata(
   const buildData = await getBuild(buildId)
   const { build } = await buildData.json()
 
+  const previousOGImages = (await parent).openGraph?.images || []
+  const previousTwitterImages = (await parent).twitter?.images || []
+
   return {
-    ...metadata,
-    metadataBase: new URL('https://d2sqltdcj8czo5.cloudfront.net'),
     title: build.name,
     description: build.description,
     openGraph: {
-      ...metadata.openGraph,
       title: build.name,
       description: build.description,
       url: `https://remnant2builder.com/builder/${build.id}`,
       images: [
-        {
-          url: 'https://d2sqltdcj8czo5.cloudfront.net/empty_build.png',
-          width: 800,
-          height: 600,
-        },
+        'https://d2sqltdcj8czo5.cloudfront.net/empty_build.png',
+        ...previousOGImages,
       ],
     },
     twitter: {
-      ...metadata.twitter,
       title: build.name,
       description: build.description,
-      images: ['https://d2sqltdcj8czo5.cloudfront.net/empty_build.png'],
+      images: [
+        'https://d2sqltdcj8czo5.cloudfront.net/empty_build.png',
+        ...previousTwitterImages,
+      ],
     },
   }
 }
