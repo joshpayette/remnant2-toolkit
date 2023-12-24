@@ -94,16 +94,12 @@ export async function generateMetadata(
         title: 'Private Build',
         description: 'This build is private.',
         url: `https://remnant2builder.com/builder/${build.id}`,
-        images: [
-          'https://d2sqltdcj8czo5.cloudfront.net/build_preview_template.png',
-        ],
+        images: ['https://d2sqltdcj8czo5.cloudfront.net/og_image.png'],
       },
       twitter: {
         title: 'Private Build',
         description: 'This build is private.',
-        images: [
-          'https://d2sqltdcj8czo5.cloudfront.net/build_preview_template.png',
-        ],
+        images: ['https://d2sqltdcj8czo5.cloudfront.net/og_image.png'],
       },
     }
   }

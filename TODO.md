@@ -1,8 +1,9 @@
 # DB TODO
 
-- If the build creator clicks to edit a build, it should pass the build id to the build creator page
-  - This will allow the build creator to update the build instead of creating a new one
-- Add duplicate build button that will work as it does currentlys
+- Add user's builds to profile page
+- Add display name and ability to edit to profile page
+  - be sure to incorporate display name throughout the site
+- Add ability to delete builds
 
 # TODO
 
