@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2023-12-23
+
+### Fixed
+
+- Brewmaster's Cork was not granting +2 concoction slots
+- Feastmaster's Signet was not granting +1 concoction slots
+
 ## 2023-12-22
 
 ### Added
