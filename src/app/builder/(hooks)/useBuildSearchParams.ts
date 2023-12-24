@@ -170,15 +170,13 @@ export default function useBuildSearchParams() {
     if (builderStorage.tempDescription) {
       description = builderStorage.tempDescription
     }
-    if (builderStorage.tempPublic) {
-      isPublic = builderStorage.tempPublic
-    }
+    isPublic = builderStorage.tempPublic === true
 
     /** The build state that will be returned */
     const buildState: BuildState = {
       name: 'My Build',
       description,
-      isPublic: isPublic,
+      isPublic,
       items: {
         helm: null,
         torso: null,

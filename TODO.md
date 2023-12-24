@@ -1,8 +1,7 @@
 # DB TODO
 
-- Need to get the description and public form data added to the build state for saving and reading
-  - Description and public value are stored in localstorage when edit build button clicked.
-  - Need to add builder check on load for those values, adding them to the build state, then clearing from localstorage
+- If the build creator clicks to edit a build, it should pass the build id to the build creator page
+  - This will allow the build creator to update the build instead of creating a new one
 
 # TODO
 

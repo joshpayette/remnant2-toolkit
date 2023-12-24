@@ -7,6 +7,7 @@ import { useSession } from 'next-auth/react'
 
 type Props = {
   description: string | null
+  isEditable: boolean
   isPublic: boolean | null
   isScreenshotModeActive: boolean
   onChangeDescription: (description: string) => void
@@ -15,6 +16,7 @@ type Props = {
 
 export default function MemberFeatures({
   description,
+  isEditable,
   isPublic,
   isScreenshotModeActive,
   onChangeDescription,
@@ -28,6 +30,7 @@ export default function MemberFeatures({
 
   return (
     <>
+      <hr className="border-green-900 py-2" />
       {!session && (
         <p className="mb-2 text-sm text-red-500">
           In order to save additional build data, please sign in.
@@ -37,7 +40,7 @@ export default function MemberFeatures({
         {!session && (
           <div id="disabled-overlay" className="absolute inset-0 bg-black/60" />
         )}
-        {isScreenshotModeActive ? (
+        {isScreenshotModeActive || !isEditable ? (
           <div className="flex flex-col">
             <h3 className="text-md mb-2 font-bold text-green-500">
               Build Description
@@ -60,7 +63,16 @@ export default function MemberFeatures({
           </div>
         )}
 
-        {!isScreenshotModeActive && (
+        {isScreenshotModeActive || !isEditable ? (
+          <div className="flex flex-col">
+            <div className="text-md my-2 font-bold text-green-500">
+              Build Visibility
+            </div>
+            <div className="text-sm text-gray-200">
+              {isPublic ? 'Public' : 'Private'}
+            </div>
+          </div>
+        ) : (
           <div className="flex flex-row items-center justify-start text-sm text-green-500">
             <div className="mr-4">Public Build</div>
             <div className="">

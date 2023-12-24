@@ -557,16 +557,16 @@ export default function Builder({
         />
       </div>
 
-      <div id="member-features-row" className="mt-4 w-full">
-        <hr className="border-green-900 py-2" />
-        <MemberFeatures
-          description={buildState.description}
-          isPublic={buildState.isPublic}
-          onChangeDescription={handleChangeDescription}
-          onChangeIsPublic={handleToggleIsPublic}
-          isScreenshotModeActive={isScreenshotMode}
-        />
-      </div>
+        <div id="member-features-row" className="mt-4 w-full">
+          <MemberFeatures
+            description={buildState.description}
+            isEditable={isEditable}
+            isPublic={buildState.isPublic}
+            isScreenshotModeActive={isScreenshotMode}
+            onChangeDescription={handleChangeDescription}
+            onChangeIsPublic={handleToggleIsPublic}
+          />
+        </div>
     </>
   )
 }
