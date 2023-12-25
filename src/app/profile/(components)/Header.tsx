@@ -9,7 +9,7 @@ export default async function Header() {
   const { image, displayName, name, email } = session.user
 
   return (
-    <div className="flex items-center gap-x-8">
+    <div className="flex flex-col items-center gap-x-8 gap-y-4 sm:flex-row sm:gap-y-0">
       {image && (
         <img
           src={image}

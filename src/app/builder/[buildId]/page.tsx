@@ -95,6 +95,7 @@ export default function Page({
           <div
             className={cn(
               'w-full grow rounded border-2 border-green-500 bg-black p-4',
+              isScreenshotModeActive && 'min-h-[731px] min-w-[502px]',
             )}
             ref={buildContainerRef}
           >

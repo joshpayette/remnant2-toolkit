@@ -537,7 +537,7 @@ export default function Builder({
 
           <div
             id="consumable-container"
-            className="flex flex-row flex-wrap gap-x-1 gap-y-0"
+            className="flex flex-row flex-wrap gap-x-2 gap-y-0"
           >
             {getArrayOfLength(4).map((consumableIndex) => (
               <BuilderButton
