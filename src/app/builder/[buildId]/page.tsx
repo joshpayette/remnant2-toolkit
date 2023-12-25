@@ -11,6 +11,8 @@ import { useIsClient } from 'usehooks-ts'
 import { useRef } from 'react'
 import { useSession } from 'next-auth/react'
 import PageHeader from '@/app/(components)/PageHeader'
+import copy from 'clipboard-copy'
+import { toast } from 'react-toastify'
 
 export default function Page({
   params: { dbBuild },
@@ -31,13 +33,17 @@ export default function Page({
 
   const {
     showLabels,
-    handleCopyBuildUrl,
     handleDuplicateBuild,
     handleEditBuild,
     handleToggleLabels,
   } = useBuildActions()
 
   if (!isClient) return null
+
+  function handleCopyBuildUrl() {
+    copy(window.location.href)
+    toast.success('Copied Build URL to clipboard.')
+  }
 
   return (
     <>

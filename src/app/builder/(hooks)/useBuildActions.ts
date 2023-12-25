@@ -30,11 +30,6 @@ export default function useBuildActions() {
     })
   }
 
-  function handleCopyBuildUrl() {
-    copy(window.location.href)
-    toast.success('Copied Build URL to clipboard')
-  }
-
   function handleDuplicateBuild(buildState: BuildState) {
     const editBuildUrl = buildToQueryParams(buildState)
 
@@ -64,7 +59,6 @@ export default function useBuildActions() {
   return {
     showControls,
     showLabels,
-    handleCopyBuildUrl,
     handleDuplicateBuild,
     handleEditBuild,
     handleToggleControls,

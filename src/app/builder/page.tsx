@@ -13,6 +13,8 @@ import { Button } from './(components)/Button'
 import ToCsvButton from '../(components)/ToCsvButton'
 import { useLocalStorage } from '../(hooks)/useLocalStorage'
 import { useSearchParams } from 'next/navigation'
+import copy from 'clipboard-copy'
+import { toast } from 'react-toastify'
 
 export default function Page() {
   const { buildState } = useBuildState()
@@ -22,19 +24,24 @@ export default function Page() {
   const { isScreenshotModeActive, handleImageExport } = useBuildScreenshot()
   const buildContainerRef = useRef<HTMLDivElement>(null)
 
-  const {
-    showLabels,
-    showControls,
-    handleCopyBuildUrl,
-    handleToggleControls,
-    handleToggleLabels,
-  } = useBuildActions()
+  const { showLabels, showControls, handleToggleControls, handleToggleLabels } =
+    useBuildActions()
 
   const isClient = useIsClient()
+
+  function handleCopyBuildUrl() {
+    copy(window.location.href)
+    toast.success(
+      `Build url copied to clipboard.\r\n
+      \r\n
+      Want a shorter and more readable URL? Next time, click the "Save Build" button!`,
+    )
+  }
 
   // if search params are empty, clear the temp values
   // from localstorage
   useEffect(() => {
+    console.info('checking search params')
     if (searchParams.toString() === '') {
       setBuilderStorage({
         ...builderStorage,
