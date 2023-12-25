@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { Suspense, useEffect, useState } from 'react'
 import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
@@ -8,6 +8,7 @@ import Logo from '@/app/(components)/Logo'
 import { usePathname } from 'next/navigation'
 import { AuthButton } from './AuthButton'
 import { NAV_ITEMS } from '../(lib)/constants'
+import LoadingIndicator from './LoadingIndicator'
 
 export default function NavBar() {
   const pathname = usePathname()
@@ -50,7 +51,9 @@ export default function NavBar() {
             ),
           )}
           <div className="flex grow items-end justify-end">
-            <AuthButton.Desktop />
+            <Suspense fallback={<LoadingIndicator />}>
+              <AuthButton.Desktop />
+            </Suspense>
           </div>
         </div>
       </nav>
@@ -96,9 +99,11 @@ export default function NavBar() {
 
                 <hr className="border-purple-900" />
 
-                <div className="pt-4">
-                  <AuthButton.Mobile />
-                </div>
+                <Suspense fallback={<LoadingIndicator />}>
+                  <div className="pt-4">
+                    <AuthButton.Mobile />
+                  </div>
+                </Suspense>
               </div>
             </div>
           </div>

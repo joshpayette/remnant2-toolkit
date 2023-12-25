@@ -4,7 +4,7 @@ import { NAV_ITEMS } from './(lib)/constants'
 export default function HomePage() {
   return (
     <>
-      <div className="flex w-full items-center justify-center bg-purple-900">
+      <div className="mb-4 flex w-full items-center justify-center bg-purple-900">
         <div className="flex w-full max-w-2xl flex-col items-center justify-center gap-y-2 p-2 text-left text-sm text-gray-200">
           <p className="text-lg font-bold">Database integration enabled!</p>
           <p>
