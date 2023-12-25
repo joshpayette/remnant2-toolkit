@@ -37,7 +37,7 @@ export interface BuildState {
 }
 export const buildStateSchema = z.object({
   name: z.string(),
-  description: z.string().max(MAX_BUILD_DESCRIPTION_LENGTH).nullable(),
+  description: z.string().nullable(),
   isPublic: z.boolean().nullable(),
   buildId: z.string().nullable(),
   createdById: z.string().nullable(),

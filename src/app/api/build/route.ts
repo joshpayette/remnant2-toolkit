@@ -9,6 +9,7 @@ import { prisma } from '@/app/(lib)/db'
 import { badwordFilter } from '@/app/(lib)/badword-filter'
 import { revalidatePath } from 'next/cache'
 import { BuildState, buildStateSchema } from '@/app/builder/(types)'
+import { MAX_BUILD_DESCRIPTION_LENGTH } from '@/app/(lib)/constants'
 
 export async function GET(request: Request) {
   if (!request) {
@@ -76,7 +77,11 @@ export async function PATCH(request: Request) {
   }
   const buildState = buildStateParsed.data as BuildState
   const { items } = buildState
-  const cleanDescription = badwordFilter.clean(buildState.description ?? '')
+  // limit description to MAX_DESCRIPTION_LENGTH
+  const clippedDescription = buildState.description
+    ? buildState.description.slice(0, MAX_BUILD_DESCRIPTION_LENGTH)
+    : ''
+  const cleanDescription = badwordFilter.clean(clippedDescription)
 
   if (buildState.createdById !== session.user.id) {
     return Response.json(
@@ -170,9 +175,10 @@ export async function PUT(request: Request) {
   const { items } = buildState
 
   const cleanName = buildState.name ? badwordFilter.clean(buildState.name) : ''
-  const cleanDescription = buildState.description
-    ? badwordFilter.clean(buildState.description)
+  const clippedDescription = buildState.description
+    ? buildState.description.slice(0, MAX_BUILD_DESCRIPTION_LENGTH)
     : ''
+  const cleanDescription = badwordFilter.clean(clippedDescription)
 
   const newBuild: Omit<
     Build,
