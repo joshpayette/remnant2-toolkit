@@ -3,7 +3,6 @@ import BuildPage from './page'
 import { Metadata, ResolvingMetadata } from 'next'
 import { getServerSession } from '@/app/(lib)/auth'
 import { Build } from '@prisma/client'
-import PageHeader from '@/app/(components)/PageHeader'
 import { DEFAULT_DISPLAY_NAME } from '@/app/(lib)/constants'
 
 async function getBuild(buildId: string) {
@@ -14,7 +13,7 @@ async function getBuild(buildId: string) {
 
   let build: Build | null = null
   try {
-    build = await prisma.build.findUnique({
+    build = await prisma?.build.findUnique({
       where: {
         id: buildId,
       },
@@ -33,7 +32,7 @@ async function getBuild(buildId: string) {
   }
 
   // Fetch the creator's name
-  const creator = await prisma.user.findUnique({
+  const creator = await prisma?.user.findUnique({
     where: {
       id: build.createdById,
     },

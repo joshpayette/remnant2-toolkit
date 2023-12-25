@@ -1,6 +1,7 @@
 import { getServerSession } from '@/app/(lib)/auth'
 import badwordFilter from '@/app/(lib)/badword-filter'
 import { z } from 'zod'
+import { prisma } from '@/app/(lib)/db'
 
 export async function PATCH(req: Request) {
   const session = await getServerSession()

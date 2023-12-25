@@ -3,8 +3,8 @@ import EditBuildButton from './EditBuildButton'
 import { dbBuildToBuildState } from '@/app/(lib)/utils'
 import DeleteBuildButton from './DeleteBuildButton'
 import CopyBuildUrlButton from './CopyBuildUrlButton'
-import Link from 'next/link'
 import ViewBuildButton from './ViewBuildButton'
+import { prisma } from '@/app/(lib)/db'
 
 async function getBuilds() {
   const session = await getServerSession()
@@ -103,7 +103,10 @@ export default async function BuildsList() {
                     return (
                       <tr key={build.id}>
                         <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-white sm:pl-0">
-                        <ViewBuildButton buildName={buildState.name} buildId={build.id} />
+                          <ViewBuildButton
+                            buildName={buildState.name}
+                            buildId={build.id}
+                          />
                         </td>
                         <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-300">
                           {buildState.description}
