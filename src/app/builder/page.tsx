@@ -41,7 +41,6 @@ export default function Page() {
   // if search params are empty, clear the temp values
   // from localstorage
   useEffect(() => {
-    console.info('checking search params')
     if (searchParams.toString() === '') {
       setBuilderStorage({
         ...builderStorage,
