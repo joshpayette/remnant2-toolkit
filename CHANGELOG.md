@@ -9,6 +9,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Added
 
 - Added item info for all rings and amulets
+- Added the ability to sign in with Discord or Reddit. This will allow you to save and share builds. In addition,
+  builds can have a description if you are signed in.
 
 ## 2023-12-23
 
