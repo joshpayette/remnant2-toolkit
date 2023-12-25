@@ -6,11 +6,17 @@ import { buttonClasses } from './Button'
 import { cn } from '@/app/(lib)/utils'
 import { toast } from 'react-toastify'
 import { useRouter } from 'next/navigation'
+import { useLocalStorage } from '@/app/(hooks)/useLocalStorage'
+import { BuildState } from '@/app/(types)'
 
-export default function SaveBuildButton() {
+export default function SaveBuildButton({
+  buildState,
+}: {
+  buildState: BuildState
+}) {
   const router = useRouter()
   const { data: session, status } = useSession()
-  const { buildState } = useBuildState()
+  const { builderStorage, setBuilderStorage } = useLocalStorage()
 
   async function handleSaveBuild({ byOwner }: { byOwner: boolean }) {
     const response = await fetch('/api/build', {
@@ -27,6 +33,13 @@ export default function SaveBuildButton() {
       return
     }
     toast.success(data.message)
+    setBuilderStorage({
+      ...builderStorage,
+      tempDescription: null,
+      tempIsPublic: null,
+      tempBuildId: null,
+      tempCreatedById: null,
+    })
     router.push(`/builder/${data.buildId}`)
     router.refresh()
   }

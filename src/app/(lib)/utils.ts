@@ -140,43 +140,49 @@ export function buildToQueryParams(buildState: BuildState) {
   let editBuildUrl = `/builder?`
   editBuildUrl += `name=${buildState.name}`
 
-  editBuildUrl += items.helm && `&helm=${ArmorItem.toParams(items.helm)}`
-  editBuildUrl += items.torso && `&torso=${ArmorItem.toParams(items.torso)}`
-  editBuildUrl += items.gloves && `&gloves=${ArmorItem.toParams(items.gloves)}`
-  editBuildUrl += items.legs && `&legs=${ArmorItem.toParams(items.legs)}`
+  if (items.helm) editBuildUrl += `&helm=${ArmorItem.toParams(items.helm)}`
+  if (items.torso) editBuildUrl += `&torso=${ArmorItem.toParams(items.torso)}`
+  if (items.gloves)
+    editBuildUrl += `&gloves=${ArmorItem.toParams(items.gloves)}`
+  if (items.legs) editBuildUrl += `&legs=${ArmorItem.toParams(items.legs)}`
 
-  editBuildUrl +=
-    items.relic && `&relic=${GenericItem.toParamsFromSingle(items.relic)}`
-  editBuildUrl +=
-    items.relicfragment &&
-    `&relicfragment=${GenericItem.toParamsFromArray(items.relicfragment)}`
+  if (items.relic)
+    editBuildUrl += `&relic=${GenericItem.toParamsFromSingle(items.relic)}`
+  if (items.relicfragment && items.relicfragment.length > 0)
+    editBuildUrl += `&relicfragment=${GenericItem.toParamsFromArray(
+      items.relicfragment,
+    )}`
 
-  editBuildUrl += items.weapon && `&weapon=${WeaponItem.toParams(items.weapon)}`
-  editBuildUrl +=
-    items.mod && `&mod=${GenericItem.toParamsFromArray(items.mod)}`
-  editBuildUrl +=
-    items.mutator && `&mutator=${MutatorItem.toParams(items.mutator)}`
+  if (items.weapon && items.weapon.length > 0)
+    editBuildUrl += `&weapon=${WeaponItem.toParams(items.weapon)}`
+  if (items.mod && items.mod.length > 0)
+    editBuildUrl += `&mod=${GenericItem.toParamsFromArray(items.mod)}`
+  if (items.mutator && items.mutator.length > 0)
+    editBuildUrl += `&mutator=${MutatorItem.toParams(items.mutator)}`
 
-  editBuildUrl +=
-    items.amulet && `&amulet=${GenericItem.toParamsFromSingle(items.amulet)}`
-  editBuildUrl +=
-    items.ring && `&ring=${GenericItem.toParamsFromArray(items.ring)}`
+  if (items.amulet)
+    editBuildUrl += `&amulet=${GenericItem.toParamsFromSingle(items.amulet)}`
+  if (items.ring && items.ring.length > 0)
+    editBuildUrl += `&ring=${GenericItem.toParamsFromArray(items.ring)}`
 
-  editBuildUrl +=
-    items.archtype &&
-    `&archtype=${GenericItem.toParamsFromArray(items.archtype)}`
-  editBuildUrl +=
-    items.skill && `&skill=${GenericItem.toParamsFromArray(items.skill)}`
+  if (items.archtype && items.archtype.length > 0)
+    editBuildUrl += `&archtype=${GenericItem.toParamsFromArray(items.archtype)}`
+  if (items.skill && items.skill.length > 0)
+    editBuildUrl += `&skill=${GenericItem.toParamsFromArray(items.skill)}`
 
-  editBuildUrl +=
-    items.concoction &&
-    `&concoction=${GenericItem.toParamsFromArray(items.concoction)}`
-  editBuildUrl +=
-    items.consumable &&
-    `&consumable=${GenericItem.toParamsFromArray(items.consumable)}`
+  if (items.concoction && items.concoction.length > 0)
+    editBuildUrl += `&concoction=${GenericItem.toParamsFromArray(
+      items.concoction,
+    )}`
+  if (items.consumable && items.consumable.length > 0)
+    editBuildUrl += `&consumable=${GenericItem.toParamsFromArray(
+      items.consumable,
+    )}`
 
-  editBuildUrl += items.trait && `&trait=${TraitItem.toParams(items.trait)}`
+  if (items.trait && items.trait.length > 0)
+    editBuildUrl += `&trait=${TraitItem.toParams(items.trait)}`
 
+  console.info('editBuildUrl', editBuildUrl, buildState)
   return editBuildUrl
 }
 

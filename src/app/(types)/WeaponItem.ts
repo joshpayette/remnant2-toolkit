@@ -35,7 +35,14 @@ export class WeaponItem implements BaseWeaponItem {
   }
 
   static toParams(items: WeaponItem[]): string[] {
-    return items.map((i) => `${i.id}`)
+    return items
+      .filter((i) => {
+        if (!i) return false
+        const validItem = remnantItems.find((ri) => ri.id === i.id)
+        if (!validItem) return false
+        return this.isWeaponItem(validItem)
+      })
+      .map((i) => `${i.id}`)
   }
 
   static toDBValue(items: WeaponItem[]): string {

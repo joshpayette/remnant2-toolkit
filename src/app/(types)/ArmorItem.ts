@@ -61,6 +61,9 @@ export class ArmorItem implements BaseArmorItem {
   }
 
   static toParams(item: ArmorItem): string {
+    if (!item) return ''
+    const validItem = remnantItems.find((ri) => ri.id === item.id)
+    if (!validItem) return ''
     return `${item.id}`
   }
 

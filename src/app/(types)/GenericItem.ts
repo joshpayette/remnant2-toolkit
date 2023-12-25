@@ -80,11 +80,24 @@ export class GenericItem implements GenericItemProps {
   }
 
   static toParamsFromArray(items: GenericItem[]): string[] {
-    return items.map((i) => `${i?.id}`)
+    return (
+      items
+        // filter out any undefined items
+        .filter((i) => {
+          if (!i) return false
+          const validItem = remnantItems.find((ri) => ri.id === i.id)
+          return validItem ? true : false
+        })
+        .map((i) => `${i.id}`)
+    )
   }
 
   static toParamsFromSingle(item: GenericItem): string {
-    return `${item?.id}`
+    if (!item) return ''
+    const validItem = remnantItems.find((ri) => ri.id === item.id)
+    if (!validItem) return ''
+
+    return `${item.id}`
   }
 
   static toDBValue(itemOrItems: GenericItem | GenericItem[]): string {

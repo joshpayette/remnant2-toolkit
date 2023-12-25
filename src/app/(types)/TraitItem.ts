@@ -38,7 +38,14 @@ export class TraitItem implements BaseTraitItem {
   static toParams(
     items: Array<{ id: BaseTraitItem['id']; amount: number }>,
   ): string[] {
-    return items.map((i) => `${i.id};${i.amount ?? DEFAULT_TRAIT_AMOUNT}`)
+    return items
+      .filter((i) => {
+        if (!i) return false
+        const validItem = remnantItems.find((ri) => ri.id === i.id)
+        if (!validItem) return false
+        return TraitItem.isTraitItem(validItem)
+      })
+      .map((i) => `${i.id};${i.amount ?? DEFAULT_TRAIT_AMOUNT}`)
   }
 
   static toDBValue(items: TraitItem[]): string {
