@@ -1,13 +1,24 @@
-const builds = [
-  {
-    name: 'DPS So Good',
-    link: '#',
-    actions: '',
-  },
-  // More builds...
-]
+import { getServerSession } from '@/app/(lib)/auth'
+import EditBuildButton from './EditBuildButton'
+import { dbBuildToBuildState } from '@/app/(lib)/utils'
+import DeleteBuildButton from './DeleteBuildButton'
 
-export default function BuildsList() {
+async function getBuilds() {
+  const session = await getServerSession()
+
+  const dbResponse = prisma?.build.findMany({
+    where: {
+      createdById: session?.user?.id,
+    },
+  })
+
+  if (!dbResponse) return []
+  return dbResponse
+}
+
+export default async function BuildsList() {
+  const builds = await getBuilds()
+
   return (
     <div className="mx-auto w-full bg-black py-10">
       <div className="px-4 sm:px-6 lg:px-8">
@@ -37,7 +48,13 @@ export default function BuildsList() {
                       scope="col"
                       className="px-3 py-3.5 text-left text-sm font-semibold text-white"
                     >
-                      Link
+                      Description
+                    </th>
+                    <th
+                      scope="col"
+                      className="px-3 py-3.5 text-left text-sm font-semibold text-white"
+                    >
+                      Archtypes
                     </th>
                     <th
                       scope="col"
@@ -45,29 +62,46 @@ export default function BuildsList() {
                     >
                       <span className="sr-only">Edit</span>
                     </th>
+                    <th
+                      scope="col"
+                      className="relative py-3.5 pl-3 pr-4 sm:pr-0"
+                    >
+                      <span className="sr-only">Delete</span>
+                    </th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-800">
-                  {builds.map((build) => (
-                    <tr key={build.name}>
-                      <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-white sm:pl-0">
-                        {build.name}
-                      </td>
-                      <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-300">
-                        {build.link}
-                      </td>
-
-                      <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-0">
-                        <a
-                          href="#"
-                          className="text-indigo-400 hover:text-indigo-300"
-                        >
-                          Edit
-                          <span className="sr-only">, {build.name}</span>
-                        </a>
-                      </td>
-                    </tr>
-                  ))}
+                  {builds.map((build) => {
+                    const buildState = dbBuildToBuildState({
+                      ...build,
+                      createdByDisplayName: '',
+                    })
+                    return (
+                      <tr key={buildState.name}>
+                        <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-white sm:pl-0">
+                          {buildState.name}
+                        </td>
+                        <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-300">
+                          {buildState.description}
+                        </td>
+                        <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-300">
+                          {buildState.items.archtype.map((archtype, index) => {
+                            return (
+                              <div key={index}>
+                                {`${archtype.name}, ${buildState.items.skill[index].name}`}
+                              </div>
+                            )
+                          })}
+                        </td>
+                        <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-0">
+                          <EditBuildButton build={build} />
+                        </td>
+                        <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-0">
+                          <DeleteBuildButton buildId={build.id} />
+                        </td>
+                      </tr>
+                    )
+                  })}
                 </tbody>
               </table>
             </div>

@@ -190,7 +190,7 @@ export function buildToQueryParams(buildState: BuildState) {
  * Builder component can use
  */
 export function dbBuildToBuildState(
-  dbBuild: Build & { createdByDisplayName: '' },
+  dbBuild: Build & { createdByDisplayName: string },
 ): BuildState {
   return {
     name: dbBuild.name,

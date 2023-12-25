@@ -4,7 +4,6 @@ import { useState } from 'react'
 import { PencilIcon } from '@heroicons/react/24/outline'
 import { toast } from 'react-toastify'
 import { useRouter } from 'next/navigation'
-import { useSession } from 'next-auth/react'
 
 type Props = {
   name: string
@@ -51,7 +50,7 @@ export default function DisplayName({ name }: Props) {
         />
       ) : (
         <>
-          <h2 className="text-2xl font-semibold text-white">{name}</h2>
+          <h2 className="text-2xl font-semibold text-green-500">{name}</h2>
           <button onClick={() => setIsEditing(true)}>
             <PencilIcon
               className="h-4 w-4 text-green-500 hover:text-green-300"

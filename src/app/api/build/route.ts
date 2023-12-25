@@ -226,3 +226,56 @@ export async function PUT(request: Request) {
     { status: 200 },
   )
 }
+
+export async function DELETE(req: Request) {
+  const session = await getServerSession()
+  if (!session || !session.user) {
+    return Response.json({ message: 'You must be logged in.' }, { status: 401 })
+  }
+
+  const { buildId } = await req.json()
+  if (!buildId) {
+    return Response.json({ message: 'No buildId provided!' }, { status: 500 })
+  }
+
+  const build = await prisma?.build.findUnique({
+    where: {
+      id: buildId,
+    },
+    include: {
+      createdBy: true,
+    },
+  })
+  if (!build) {
+    return Response.json({ message: 'Build not found!' }, { status: 404 })
+  }
+
+  if (build.createdBy.id !== session.user.id) {
+    return Response.json(
+      {
+        message:
+          'You must be logged in as the build creator to delete a build.',
+      },
+      { status: 401 },
+    )
+  }
+
+  const dbResponse = await prisma?.build.delete({
+    where: {
+      id: buildId,
+    },
+  })
+
+  // check for errors in dbResponse
+  if (!dbResponse) {
+    return Response.json(
+      { message: 'Error in deleting build!' },
+      { status: 500 },
+    )
+  }
+
+  return Response.json(
+    { message: 'Build successfully deleted!', buildId: dbResponse.id },
+    { status: 200 },
+  )
+}
