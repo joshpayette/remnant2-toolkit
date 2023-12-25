@@ -24,25 +24,21 @@ export default function MemberFeatures({
 }: Props) {
   const { data: session } = useSession()
 
-  // If the screenshot mode is active and the user is not signed in,
-  // don't render this component
-  if (isScreenshotModeActive && !session) return null
-
   return (
     <div className="pt-4">
-      {!session && (
+      {!session && !isScreenshotModeActive && (
         <p className="mb-2 text-sm text-red-500">
           In order to save additional build data, please sign in.
         </p>
       )}
       <div className="relative">
-        {!session && (
+        {!session && !isScreenshotModeActive && (
           <div
             id="disabled-overlay"
             className="absolute inset-0 z-20 bg-black/60"
           />
         )}
-        {isScreenshotModeActive || !isEditable ? (
+        {!isEditable || isScreenshotModeActive ? (
           <div className="flex flex-col">
             <h3 className="text-md mb-2 font-bold text-green-500">
               Build Description
@@ -65,7 +61,7 @@ export default function MemberFeatures({
           </div>
         )}
 
-        {isScreenshotModeActive || !isEditable ? (
+        {isScreenshotModeActive ? null : !isEditable ? (
           <div className="flex flex-col">
             <div className="text-md my-2 font-bold text-green-500">
               Build Visibility
