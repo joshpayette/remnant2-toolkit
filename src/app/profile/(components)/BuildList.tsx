@@ -108,7 +108,7 @@ export default async function BuildsList() {
                             buildId={build.id}
                           />
                         </td>
-                        <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-300">
+                        <td className="max-w-[300px] px-3 py-4 text-sm text-gray-300">
                           {buildState.description}
                         </td>
                         <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-300">

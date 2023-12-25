@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2023-12-25
+
+### Added
+
+- Database integration is enabled! This means that you can now save and share builds with shorter URLs, descriptions, and better social media cards.
+
 ## 2023-12-24
 
 ### Added
