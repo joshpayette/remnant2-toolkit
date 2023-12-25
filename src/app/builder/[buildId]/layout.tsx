@@ -38,8 +38,7 @@ async function getBuild(buildId: string) {
     },
   })
 
-  // TODO Update to displayName
-  const creatorName = creator?.name || ''
+  const creatorName = creator?.displayName || creator?.name || 'Traveler'
 
   const buildData = {
     ...build,

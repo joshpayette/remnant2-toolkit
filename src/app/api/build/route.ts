@@ -10,8 +10,6 @@ import { badwordFilter } from '@/app/(lib)/badword-filter'
 import { revalidatePath } from 'next/cache'
 
 export async function GET(request: Request) {
-  console.info('Reached this route!')
-
   if (!request) {
     console.error('No request body!')
     return Response.json({ message: 'No request body!' }, { status: 500 })
@@ -141,19 +139,19 @@ export async function PATCH(request: Request) {
   })
 
   // check for errors in dbResponse
-  if (dbResponse) {
-    revalidatePath(`/builder/${buildState.buildId}`)
-
-    return Response.json(
-      { message: 'Build successfully updated!', buildId: dbResponse.id },
-      { status: 200 },
-    )
-  } else {
+  if (!dbResponse) {
     return Response.json(
       { message: 'Error in updating build!' },
       { status: 500 },
     )
   }
+
+  revalidatePath(`/builder/${buildState.buildId}`)
+
+  return Response.json(
+    { message: 'Build successfully updated!', buildId: dbResponse.id },
+    { status: 200 },
+  )
 }
 
 export async function PUT(request: Request) {
@@ -219,12 +217,12 @@ export async function PUT(request: Request) {
   })
 
   // check for errors in dbResponse
-  if (dbResponse) {
-    return Response.json(
-      { message: 'Build successfully saved!', buildId: dbResponse.id },
-      { status: 200 },
-    )
-  } else {
+  if (!dbResponse) {
     return Response.json({ message: 'Error in saving build!' }, { status: 500 })
   }
+
+  return Response.json(
+    { message: 'Build successfully saved!', buildId: dbResponse.id },
+    { status: 200 },
+  )
 }

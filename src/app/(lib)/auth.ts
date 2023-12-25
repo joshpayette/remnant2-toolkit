@@ -8,6 +8,7 @@ import DiscordProvider from 'next-auth/providers/discord'
 import RedditProvider from 'next-auth/providers/reddit'
 import { PrismaAdapter } from '@auth/prisma-adapter'
 import { prisma } from '@/app/(lib)/db'
+import { AdapterUser } from 'next-auth/adapters'
 
 export const authOptions: NextAuthOptions = {
   // Include user.id on session
@@ -15,6 +16,9 @@ export const authOptions: NextAuthOptions = {
     session({ session, user }) {
       if (session.user) {
         session.user.id = user.id
+        session.user.displayName = (
+          user as AdapterUser & { displayName: string }
+        ).displayName
       }
       return session
     },

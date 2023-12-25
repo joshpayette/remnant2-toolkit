@@ -2,7 +2,7 @@ import { Suspense } from 'react'
 import AuthWrapper from '../(components)/AuthWrapper'
 import PageHeader from '../(components)/PageHeader'
 import BuildList from './(components)/BuildList'
-import ProfileHeader from './(components)/ProfileHeader'
+import Header from './(components)/Header'
 import LoadingIndicator from '../(components)/LoadingIndicator'
 
 // const navigation = [{ name: 'Builds', href: '/profile', current: true }]
@@ -10,20 +10,22 @@ import LoadingIndicator from '../(components)/LoadingIndicator'
 export default async function Page() {
   return (
     <AuthWrapper>
-      <PageHeader title="Your Profile" />
-      <div className="w-full divide-y divide-white/5">
-        <div className="w-full max-w-7xl">
+      <div className="flex w-full max-w-4xl flex-col items-center">
+        <PageHeader
+          title="Your Profile"
+          subtitle="Change your display name or view your builds."
+        />
+        <div className="w-full divide-y divide-white/5">
           <Suspense fallback={<LoadingIndicator />}>
-            <ProfileHeader />
+            <Header />
           </Suspense>
           <Suspense fallback={<LoadingIndicator />}>
             <div className="mt-8">
               <BuildList />
             </div>
           </Suspense>
-        </div>
 
-        {/* <div className="grid max-w-7xl grid-cols-1 gap-x-8 gap-y-10 px-4 py-16 sm:px-6 md:grid-cols-3 lg:px-8">
+          {/* <div className="grid max-w-7xl grid-cols-1 gap-x-8 gap-y-10 px-4 py-16 sm:px-6 md:grid-cols-3 lg:px-8">
           <div>
             <h2 className="text-base font-semibold leading-7 text-white">
               Delete account
@@ -44,6 +46,7 @@ export default async function Page() {
             </button>
           </form>
         </div> */}
+        </div>
       </div>
     </AuthWrapper>
   )

@@ -29,6 +29,7 @@ export default function BuilderName({
             placeholder="Build Name"
             onChange={(e) => setNewName(e.target.value)}
           />
+          
           <div>
             <button
               onClick={() => onClose(newName)}
@@ -52,7 +53,10 @@ export default function BuilderName({
           {showControls && (
             <button onClick={onClick} className="text-green-400">
               <div className="flex grow items-end justify-start">
-                <PencilIcon className="h-5 w-5" aria-hidden="true" />
+                <PencilIcon
+                  className="h-4 w-4 text-green-500 hover:text-green-300"
+                  aria-hidden="true"
+                />
               </div>
             </button>
           )}
