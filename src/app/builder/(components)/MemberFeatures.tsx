@@ -40,10 +40,14 @@ export default function MemberFeatures({
         )}
         {!isEditable || isScreenshotModeActive ? (
           <div className="flex flex-col">
-            <h3 className="text-md mb-2 font-bold text-green-500">
-              Build Description
-            </h3>
-            <div className="text-sm text-gray-200">{description}</div>
+            {description && description.length > 0 && (
+              <>
+                <h3 className="text-md mb-2 font-bold text-green-500">
+                  Build Description
+                </h3>
+                <div className="text-sm text-gray-200">{description}</div>
+              </>
+            )}
           </div>
         ) : (
           <div className="mb-4">
