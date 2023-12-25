@@ -116,19 +116,11 @@ export default function useBuildState() {
     // Check for buildId from localstorage
     if (!buildState.buildId && builderStorage.tempBuildId) {
       buildState.buildId = builderStorage.tempBuildId
-      setBuilderStorage({
-        ...builderStorage,
-        tempBuildId: null,
-      })
     }
 
     // Check for createdById from localstorage
     if (!buildState.createdById && builderStorage.tempCreatedById) {
       buildState.createdById = builderStorage.tempCreatedById
-      setBuilderStorage({
-        ...builderStorage,
-        tempCreatedById: null,
-      })
     }
 
     // Loop through each category and check the query params

@@ -11,9 +11,13 @@ import SaveBuildButton from './(components)/SaveBuildButton'
 import useBuildActions from './(hooks)/useBuildActions'
 import { Button } from './(components)/Button'
 import ToCsvButton from '../(components)/ToCsvButton'
+import { useLocalStorage } from '../(hooks)/useLocalStorage'
+import { useSearchParams } from 'next/navigation'
 
 export default function Page() {
   const { buildState } = useBuildState()
+  const { builderStorage, setBuilderStorage } = useLocalStorage()
+  const searchParams = useSearchParams()
 
   const { isScreenshotModeActive, handleImageExport } = useBuildScreenshot()
   const buildContainerRef = useRef<HTMLDivElement>(null)
@@ -27,6 +31,20 @@ export default function Page() {
   } = useBuildActions()
 
   const isClient = useIsClient()
+
+  // if search params are empty, clear the temp values
+  // from localstorage
+  useEffect(() => {
+    if (searchParams.toString() === '') {
+      setBuilderStorage({
+        ...builderStorage,
+        tempBuildId: null,
+        tempCreatedById: null,
+        tempDescription: null,
+        tempIsPublic: null,
+      })
+    }
+  }, [searchParams])
 
   // Add the build name to the page title
   useEffect(() => {

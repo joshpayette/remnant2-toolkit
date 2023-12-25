@@ -16,7 +16,6 @@ export async function GET(request: Request) {
   }
 
   const body = await request.json()
-  console.info('body', body)
   const { buildId } = body
   if (!buildId) {
     console.error('No buildId provided!')
@@ -174,7 +173,6 @@ export async function PUT(request: Request) {
     ? badwordFilter.clean(buildState.description)
     : ''
 
-  console.info('------------------BUILD STATE------------------------')
   const newBuild: Omit<
     Build,
     'id' | 'createdAt' | 'createdBy' | 'updatedAt' | 'createdById'
@@ -206,8 +204,6 @@ export async function PUT(request: Request) {
       : null,
     trait: TraitItem.toDBValue(buildState.items.trait),
   }
-
-  console.info('------------------CREATING BUILD------------------------')
 
   const dbResponse = await prisma?.build.create({
     data: {

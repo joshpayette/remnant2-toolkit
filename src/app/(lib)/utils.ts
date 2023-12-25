@@ -182,7 +182,6 @@ export function buildToQueryParams(buildState: BuildState) {
   if (items.trait && items.trait.length > 0)
     editBuildUrl += `&trait=${TraitItem.toParams(items.trait)}`
 
-  console.info('editBuildUrl', editBuildUrl, buildState)
   return editBuildUrl
 }
 
