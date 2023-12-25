@@ -119,7 +119,7 @@ export async function generateMetadata(
       description: description,
       url: `https://remnant2builder.com/builder/${build.id}`,
       images: [
-        'https://d2sqltdcj8czo5.cloudfront.net/build_preview_template.png',
+        'https://d2sqltdcj8czo5.cloudfront.net/og_image.png',
         ...previousOGImages,
       ],
     },
@@ -127,7 +127,7 @@ export async function generateMetadata(
       title,
       description,
       images: [
-        'https://d2sqltdcj8czo5.cloudfront.net/build_preview_template.png',
+        'https://d2sqltdcj8czo5.cloudfront.net/og_image.png',
         ...previousTwitterImages,
       ],
     },
