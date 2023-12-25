@@ -3,16 +3,16 @@
 import { useLocalStorage } from '@/app/(hooks)/useLocalStorage'
 import { DEFAULT_DISPLAY_NAME } from '@/app/(lib)/constants'
 import { buildToQueryParams, dbBuildToBuildState } from '@/app/(lib)/utils'
-import { Build } from '@prisma/client'
+import { DBBuild } from '@/app/(types)'
 import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 
-export default function EditBuildButton({ build }: { build: Build }) {
+export default function EditBuildButton({ build }: { build: DBBuild }) {
   const router = useRouter()
   const { data: session } = useSession()
   const { builderStorage, setBuilderStorage } = useLocalStorage()
 
-  function handleEditBuild(build: Build) {
+  function handleEditBuild(build: DBBuild) {
     const buildState = dbBuildToBuildState({
       ...build,
       createdByDisplayName: session?.user?.name ?? DEFAULT_DISPLAY_NAME,

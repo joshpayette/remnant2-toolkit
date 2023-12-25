@@ -52,7 +52,7 @@ model User {
   accounts      Account[]
   sessions      Session[]
   Build         Build[]
-  BuildUpvote   BuildVoteCounts[]
+  BuildVotes    BuildVoteCounts[]
 }
 
 model VerificationToken {
@@ -112,7 +112,7 @@ model Build {
   mutator       String?
   relicfragment String?
   trait         String?
-  BuildUpvote   BuildVoteCounts[]
+  BuildVotes    BuildVoteCounts[]
 
   @@index([createdById])
 }

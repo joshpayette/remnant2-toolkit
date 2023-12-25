@@ -4,6 +4,7 @@ import { Metadata, ResolvingMetadata } from 'next'
 import { getServerSession } from '@/app/(lib)/auth'
 import { Build } from '@prisma/client'
 import { DEFAULT_DISPLAY_NAME } from '@/app/(lib)/constants'
+import { DBBuild } from '@/app/(types)'
 
 async function getBuild(buildId: string) {
   if (!buildId) {
@@ -11,53 +12,47 @@ async function getBuild(buildId: string) {
     return Response.json({ message: 'No buildId provided!' }, { status: 500 })
   }
 
-  let build: Build | null = null
-  try {
-    build = await prisma?.build.findUnique({
-      where: {
-        id: buildId,
-      },
-      include: {
-        createdBy: true,
-      },
-    })
-  } catch (error) {
-    console.error('Error fetching build!', error)
-    return Response.json({ message: 'Error fetching build!' }, { status: 500 })
-  }
+  const build = await prisma?.build.findUnique({
+    where: {
+      id: buildId,
+    },
+    include: {
+      createdBy: true,
+      BuildVotes: true,
+    },
+  })
 
   if (!build) {
     console.error('Build not found!', build)
     return Response.json({ message: 'Build not found!' }, { status: 404 })
   }
 
-  // Fetch the creator's name
-  const creator = await prisma?.user.findUnique({
-    where: {
-      id: build.createdById,
-    },
-  })
-
-  const creatorName =
-    creator?.displayName || creator?.name || DEFAULT_DISPLAY_NAME
-
-  const buildData = {
+  const buildWithExtraFields = {
     ...build,
-    createdByDisplayName: creatorName,
-  }
+    createdByDisplayName:
+      build.createdBy?.displayName ||
+      build.createdBy?.name ||
+      DEFAULT_DISPLAY_NAME,
+    totalUpvotes: build.BuildVotes.length, // Count the votes
+    upvoted: build.BuildVotes.some((vote) => vote.userId === build.createdById), // Check if the user upvoted the build
+  } satisfies DBBuild
 
-  if (buildData.isPublic) {
+  if (buildWithExtraFields.isPublic) {
     return Response.json(
       {
         message: 'Successfully fetched build!',
-        build: buildData,
+        build: buildWithExtraFields,
       },
       { status: 200 },
     )
   }
 
   const session = await getServerSession()
-  if (!session || !session.user || buildData.createdById !== session.user.id) {
+  if (
+    !session ||
+    !session.user ||
+    buildWithExtraFields.createdById !== session.user.id
+  ) {
     console.error(
       'You must be logged in as the build creator to view a private build.',
     )
@@ -73,7 +68,7 @@ async function getBuild(buildId: string) {
   return Response.json(
     {
       message: 'Successfully fetched build!',
-      build: buildData,
+      build: buildWithExtraFields,
     },
     { status: 200 },
   )

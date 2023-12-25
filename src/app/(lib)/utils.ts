@@ -1,15 +1,15 @@
-import { type CsvItem } from '@/app/(types)'
+import { DBBuild, type CsvItem } from '@/app/(types)'
 import { clsx, type ClassValue } from 'clsx'
 import { twMerge } from 'tailwind-merge'
-import { GenericItem } from '../(types)/GenericItem'
+import { GenericItem } from '../(types)/items/GenericItem'
 import { Build } from '@prisma/client'
-import { ArmorItem } from '../(types)/ArmorItem'
-import { WeaponItem } from '../(types)/WeaponItem'
-import { MutatorItem } from '../(types)/MutatorItem'
-import { TraitItem } from '../(types)/TraitItem'
+import { ArmorItem } from '../(types)/items/ArmorItem'
+import { WeaponItem } from '../(types)/items/WeaponItem'
+import { MutatorItem } from '../(types)/items/MutatorItem'
+import { TraitItem } from '../(types)/items/TraitItem'
 import { remnantItemCategories, remnantItems } from '../(data)'
 import { DEFAULT_TRAIT_AMOUNT } from './constants'
-import { BuildState } from '../builder/(types)'
+import { BuildState } from '../(types)/build-state'
 
 /**
  * capitalizes the first letter of a string
@@ -190,9 +190,7 @@ export function buildToQueryParams(buildState: BuildState) {
  * Converts a build from the database to a build state that the
  * Builder component can use
  */
-export function dbBuildToBuildState(
-  dbBuild: Build & { createdByDisplayName: string },
-): BuildState {
+export function dbBuildToBuildState(dbBuild: DBBuild): BuildState {
   return {
     name: dbBuild.name,
     description: dbBuild.description,
@@ -200,6 +198,8 @@ export function dbBuildToBuildState(
     createdById: dbBuild.createdById,
     createdByDisplayName: dbBuild.createdByDisplayName,
     buildId: dbBuild.id,
+    upvoted: dbBuild.upvoted,
+    totalUpvotes: dbBuild.totalUpvotes,
     items: {
       helm: dbBuild.helm ? ArmorItem.fromDBValue(dbBuild.helm) : null,
       torso: dbBuild.torso ? ArmorItem.fromDBValue(dbBuild.torso) : null,

@@ -5,21 +5,41 @@ import DeleteBuildButton from './DeleteBuildButton'
 import CopyBuildUrlButton from './CopyBuildUrlButton'
 import ViewBuildButton from './ViewBuildButton'
 import { prisma } from '@/app/(lib)/db'
+import { DBBuild } from '@/app/(types)'
+import { DEFAULT_DISPLAY_NAME } from '@/app/(lib)/constants'
 
 async function getBuilds() {
   const session = await getServerSession()
 
-  const dbResponse = prisma?.build.findMany({
+  const userId = session?.user?.id
+
+  const builds = await prisma?.build.findMany({
     where: {
-      createdById: session?.user?.id,
+      createdById: userId,
     },
     orderBy: {
       createdAt: 'desc',
     },
+    include: {
+      createdBy: true,
+      BuildVotes: true,
+    },
   })
 
-  if (!dbResponse) return []
-  return dbResponse
+  if (!builds) return []
+
+  const buildsWithExtraFields = builds.map((build) => ({
+    ...build,
+    createdByDisplayName:
+      build.createdBy?.displayName ||
+      build.createdBy?.name ||
+      session?.user?.name ||
+      DEFAULT_DISPLAY_NAME,
+    totalUpvotes: build.BuildVotes.length, // Count the votes
+    upvoted: build.BuildVotes.some((vote) => vote.userId === userId), // Check if the user upvoted the build
+  })) satisfies DBBuild[]
+
+  return buildsWithExtraFields
 }
 
 export default async function BuildsList() {
@@ -96,10 +116,7 @@ export default async function BuildsList() {
                 </thead>
                 <tbody className="divide-y divide-gray-800">
                   {builds.map((build) => {
-                    const buildState = dbBuildToBuildState({
-                      ...build,
-                      createdByDisplayName: '',
-                    })
+                    const buildState = dbBuildToBuildState(build)
                     return (
                       <tr key={build.id}>
                         <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-white sm:pl-0">

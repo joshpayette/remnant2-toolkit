@@ -1,9 +1,9 @@
 import Dialog from './Dialog'
 import { capitalize } from '@/app/(lib)/utils'
 import Image from 'next/image'
-import { GenericItem } from '../(types)/GenericItem'
-import { MutatorItem } from '../(types)/MutatorItem'
-import { ArmorItem } from '../(types)/ArmorItem'
+import { GenericItem } from '../(types)/items/GenericItem'
+import { MutatorItem } from '../(types)/items/MutatorItem'
+import { ArmorItem } from '../(types)/items/ArmorItem'
 
 interface ItemInfoProps {
   item: GenericItem | null

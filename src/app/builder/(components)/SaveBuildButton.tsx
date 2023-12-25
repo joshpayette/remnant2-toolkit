@@ -6,7 +6,7 @@ import { cn } from '@/app/(lib)/utils'
 import { toast } from 'react-toastify'
 import { useRouter } from 'next/navigation'
 import { useLocalStorage } from '@/app/(hooks)/useLocalStorage'
-import { BuildState } from '../(types)'
+import { BuildState } from '../../(types)/build-state'
 
 export default function SaveBuildButton({
   buildState,

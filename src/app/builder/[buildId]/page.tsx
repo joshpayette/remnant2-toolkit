@@ -6,18 +6,18 @@ import useBuildScreenshot from '../(hooks)/useBuildScreenshot'
 import useBuildActions from '../(hooks)/useBuildActions'
 import { ActionButton } from '../(components)/ActionButton'
 import ToCsvButton from '@/app/(components)/ToCsvButton'
-import { Build } from '@prisma/client'
 import { useIsClient } from 'usehooks-ts'
 import { useRef } from 'react'
 import { useSession } from 'next-auth/react'
 import PageHeader from '@/app/(components)/PageHeader'
 import copy from 'clipboard-copy'
 import { toast } from 'react-toastify'
+import { DBBuild } from '@/app/(types)'
 
 export default function Page({
   params: { dbBuild },
 }: {
-  params: { dbBuild: Build & { createdByDisplayName: '' } }
+  params: { dbBuild: DBBuild }
 }) {
   const isClient = useIsClient()
   const { data: session } = useSession()

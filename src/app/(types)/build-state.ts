@@ -1,8 +1,8 @@
-import { ArmorItem } from '@/app/(types)/ArmorItem'
-import { GenericItem } from '@/app/(types)/GenericItem'
-import { MutatorItem } from '@/app/(types)/MutatorItem'
-import { TraitItem } from '@/app/(types)/TraitItem'
-import { WeaponItem } from '@/app/(types)/WeaponItem'
+import { ArmorItem } from '@/app/(types)/items/ArmorItem'
+import { GenericItem } from '@/app/(types)/items/GenericItem'
+import { MutatorItem } from '@/app/(types)/items/MutatorItem'
+import { TraitItem } from '@/app/(types)/items/TraitItem'
+import { WeaponItem } from '@/app/(types)/items/WeaponItem'
 import { z } from 'zod'
 
 /**

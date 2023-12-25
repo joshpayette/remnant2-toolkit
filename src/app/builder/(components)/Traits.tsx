@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { XCircleIcon } from '@heroicons/react/24/outline'
 import { cn } from '@/app/(lib)/utils'
-import { TraitItem } from '@/app/(types)/TraitItem'
+import { TraitItem } from '@/app/(types)/items/TraitItem'
 import { DEFAULT_TRAIT_AMOUNT, MAX_TRAIT_AMOUNT } from '@/app/(lib)/constants'
 
 export default function Traits({

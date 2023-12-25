@@ -4,7 +4,7 @@ import copy from 'clipboard-copy'
 import { useLocalStorage } from '@/app/(hooks)/useLocalStorage'
 import { useRouter } from 'next/navigation'
 import { buildToQueryParams } from '@/app/(lib)/utils'
-import { BuildState } from '../(types)'
+import { BuildState } from '../../(types)/build-state'
 
 export default function useBuildActions() {
   // Hooks for monitoring the URL query string
