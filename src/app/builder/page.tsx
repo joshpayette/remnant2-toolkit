@@ -9,7 +9,7 @@ import useBuildScreenshot from './(hooks)/useBuildScreenshot'
 import { buildToCsvData, cn } from '../(lib)/utils'
 import SaveBuildButton from './(components)/SaveBuildButton'
 import useBuildActions from './(hooks)/useBuildActions'
-import { Button } from './(components)/Button'
+import { ActionButton } from './(components)/ActionButton'
 import ToCsvButton from '../(components)/ToCsvButton'
 import { useLocalStorage } from '../(hooks)/useLocalStorage'
 import { useSearchParams } from 'next/navigation'
@@ -82,7 +82,7 @@ export default function Page() {
         >
           <div id="actions" className="flex flex-col gap-2">
             <SaveBuildButton buildState={buildState} />
-            <Button.ExportImage
+            <ActionButton.ExportImage
               onClick={() =>
                 handleImageExport(
                   buildContainerRef.current,
@@ -90,17 +90,17 @@ export default function Page() {
                 )
               }
             />
-            <Button.CopyBuildUrl onClick={handleCopyBuildUrl} />
+            <ActionButton.CopyBuildUrl onClick={handleCopyBuildUrl} />
             <ToCsvButton
               data={csvBuildData.filter((item) => item?.name !== '')}
               filename={`remnant2_builder_${buildState.name}`}
             />
             <hr className="my-4 border-gray-900" />
-            <Button.ShowControls
+            <ActionButton.ShowControls
               onClick={handleToggleControls}
               showControls={showControls}
             />
-            <Button.ShowLabels
+            <ActionButton.ShowLabels
               onClick={handleToggleLabels}
               showLabels={showLabels}
             />

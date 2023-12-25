@@ -4,7 +4,7 @@ import Builder from '@/app/builder/(components)/Builder'
 import { buildToCsvData, cn, dbBuildToBuildState } from '@/app/(lib)/utils'
 import useBuildScreenshot from '../(hooks)/useBuildScreenshot'
 import useBuildActions from '../(hooks)/useBuildActions'
-import Button from '../(components)/Button'
+import { ActionButton } from '../(components)/ActionButton'
 import ToCsvButton from '@/app/(components)/ToCsvButton'
 import { Build } from '@prisma/client'
 import { useIsClient } from 'usehooks-ts'
@@ -65,12 +65,14 @@ export default function Page({
           >
             <div id="actions" className="flex flex-col gap-2">
               {session && session.user?.id === buildState.createdById && (
-                <Button.EditBuild onClick={() => handleEditBuild(buildState)} />
+                <ActionButton.EditBuild
+                  onClick={() => handleEditBuild(buildState)}
+                />
               )}
-              <Button.DuplicateBuild
+              <ActionButton.DuplicateBuild
                 onClick={() => handleDuplicateBuild(buildState)}
               />
-              <Button.ExportImage
+              <ActionButton.ExportImage
                 onClick={() =>
                   handleImageExport(
                     buildContainerRef.current,
@@ -78,13 +80,13 @@ export default function Page({
                   )
                 }
               />
-              <Button.CopyBuildUrl onClick={handleCopyBuildUrl} />
+              <ActionButton.CopyBuildUrl onClick={handleCopyBuildUrl} />
               <ToCsvButton
                 data={csvBuildData.filter((item) => item?.name !== '')}
                 filename={`remnant2_builder_${buildState.name}`}
               />
               <hr className="my-4 border-gray-900" />
-              <Button.ShowLabels
+              <ActionButton.ShowLabels
                 onClick={handleToggleLabels}
                 showLabels={showLabels}
               />

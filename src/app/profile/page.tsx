@@ -10,7 +10,7 @@ import LoadingIndicator from '../(components)/LoadingIndicator'
 export default async function Page() {
   return (
     <AuthWrapper>
-      <div className="flex w-full max-w-4xl flex-col items-center">
+      <div className="flex w-full max-w-6xl flex-col items-center">
         <PageHeader
           title="Your Profile"
           subtitle="Change your display name or view your builds."

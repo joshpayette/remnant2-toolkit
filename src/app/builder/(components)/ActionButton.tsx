@@ -1,14 +1,16 @@
+'use client'
+
 import { cn } from '@/app/(lib)/utils'
 import Link from 'next/link'
 
 export const buttonClasses =
   'flex w-full flex-col items-center rounded border-2 text-center px-4 py-2 text-sm font-bold text-white'
 
-interface ButtonProps {
+type ButtonProps = {
   onClick: () => void
 }
 
-export const Button = {
+export const ActionButton = {
   CopyBuildUrl: ({ onClick }: ButtonProps) => (
     <button
       className={cn(buttonClasses, 'border-purple-500 hover:bg-purple-700')}
@@ -103,4 +105,4 @@ export const Button = {
   ),
 }
 
-export default Button
+export default ActionButton

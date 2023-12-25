@@ -3,6 +3,8 @@ import EditBuildButton from './EditBuildButton'
 import { dbBuildToBuildState } from '@/app/(lib)/utils'
 import DeleteBuildButton from './DeleteBuildButton'
 import CopyBuildUrlButton from './CopyBuildUrlButton'
+import Link from 'next/link'
+import ViewBuildButton from './ViewBuildButton'
 
 async function getBuilds() {
   const session = await getServerSession()
@@ -62,25 +64,31 @@ export default async function BuildsList() {
                     </th>
                     <th
                       scope="col"
-                      className="relative py-3.5 pl-3 pr-4 sm:pr-0"
+                      className="px-3 py-3.5 text-left text-sm font-semibold text-white"
                     >
                       Visibility
                     </th>
                     <th
                       scope="col"
-                      className="relative py-3.5 pl-3 pr-4 sm:pr-0"
+                      className="px-3 py-3.5 text-left text-sm font-semibold text-white"
                     >
-                      <span className="sr-only">Copy</span>
+                      <span className="sr-only">View</span>
                     </th>
                     <th
                       scope="col"
-                      className="relative py-3.5 pl-3 pr-4 sm:pr-0"
+                      className="px-3 py-3.5 text-left text-sm font-semibold text-white"
+                    >
+                      <span className="sr-only">Share</span>
+                    </th>
+                    <th
+                      scope="col"
+                      className="px-3 py-3.5 text-left text-sm font-semibold text-white"
                     >
                       <span className="sr-only">Edit</span>
                     </th>
                     <th
                       scope="col"
-                      className="relative py-3.5 pl-3 pr-4 sm:pr-0"
+                      className="px-3 py-3.5 text-left text-sm font-semibold text-white"
                     >
                       <span className="sr-only">Delete</span>
                     </th>
@@ -95,7 +103,7 @@ export default async function BuildsList() {
                     return (
                       <tr key={build.id}>
                         <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-white sm:pl-0">
-                          {buildState.name}
+                        <ViewBuildButton buildName={buildState.name} buildId={build.id} />
                         </td>
                         <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-300">
                           {buildState.description}
@@ -111,7 +119,7 @@ export default async function BuildsList() {
                             )
                           })}
                         </td>
-                        <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-center text-sm font-medium sm:pr-0">
+                        <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-left text-sm font-medium sm:pr-0">
                           {buildState.isPublic ? 'Public' : 'Private'}
                         </td>
                         <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-0">

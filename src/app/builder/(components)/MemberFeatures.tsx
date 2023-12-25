@@ -29,8 +29,7 @@ export default function MemberFeatures({
   if (isScreenshotModeActive && !session) return null
 
   return (
-    <>
-      <hr className="border-green-900 py-2" />
+    <div className="pt-4">
       {!session && (
         <p className="mb-2 text-sm text-red-500">
           In order to save additional build data, please sign in.
@@ -87,6 +86,6 @@ export default function MemberFeatures({
           </div>
         )}
       </div>
-    </>
+    </div>
   )
 }
