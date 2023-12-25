@@ -52,9 +52,43 @@ In addition, the following resources were used:
 
 ## Running locally
 
-### Getting Started
+### Initial Setup
 
-First, run the development server:
+#### Create a .env file
+
+First, you need to define the environment variables. You can do this by renaming the `.env.sample` file to `.env`
+and filling in the values.
+
+```bash
+cp .env.sample .env
+```
+
+Your `.env` file should look something like this:
+
+```bash
+DATABASE_URL=""
+DISCORD_CLIENT_ID=""
+DISCORD_CLIENT_SECRET=""
+REDDIT_CLIENT_ID=""
+REDDIT_CLIENT_SECRET=""
+NEXTAUTH_SECRET=""
+NEXTAUTH_URL=""
+NEXT_PUBLIC_IMAGE_URL=""
+CRON_SECRET=""
+```
+
+#### Environment Variable Descriptions
+
+- `DATABASE_URL` - The database connection string for your database. This project uses Planetscale.
+- `DISCORD_CLIENT_ID` - The client ID for your Discord application.
+- `DISCORD_CLIENT_SECRET` - The client secret for your Discord application.
+- `REDDIT_CLIENT_ID` - The client ID for your Reddit application.
+- `REDDIT_CLIENT_SECRET` - The client secret for your Reddit application.
+- `NEXTAUTH_SECRET` - A secret string used by NextAuth. Can be anything, just make it long and random.
+- `NEXTAUTH_URL` - The base URL of your site. This is used by NextAuth to redirect back to your site after authentication. Example: http://localhost:3000 for development.
+- `CRON_SECRET` - A secret string used by the Vercel CRON platform to prevent unauthorized access.
+
+### Run the development server
 
 ```bash
 npm run dev
