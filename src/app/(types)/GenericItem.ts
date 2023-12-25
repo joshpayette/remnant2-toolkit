@@ -80,16 +80,7 @@ export class GenericItem implements GenericItemProps {
   }
 
   static toParamsFromArray(items: GenericItem[]): string[] {
-    return (
-      items
-        // filter out any undefined items
-        .filter((i) => {
-          if (!i) return false
-          const validItem = remnantItems.find((ri) => ri.id === i.id)
-          return validItem ? true : false
-        })
-        .map((i) => `${i.id}`)
-    )
+    return items.map((i) => `${i?.id ?? ''}`)
   }
 
   static toParamsFromSingle(item: GenericItem): string {

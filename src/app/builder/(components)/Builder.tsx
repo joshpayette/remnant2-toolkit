@@ -193,7 +193,7 @@ export default function Builder({
           const newBuildItems = buildItems.map((item, index) =>
             index === specifiedIndex ? null : item,
           )
-          const newItemIds = newBuildItems.map((i) => (i ? i.id : ''))
+          const newItemIds = newBuildItems.map((i) => i?.id ?? '')
           updateBuildState(selectedItemSlot.category, newItemIds)
         } else {
           updateBuildState(selectedItemSlot.category, '')
@@ -316,6 +316,7 @@ export default function Builder({
           <BuilderButton
             item={buildState.items.helm}
             showLabels={showLabels}
+            isEditable={isEditable}
             onClick={
               isEditable
                 ? () => {
@@ -329,6 +330,7 @@ export default function Builder({
           <BuilderButton
             item={buildState.items.torso}
             showLabels={showLabels}
+            isEditable={isEditable}
             onClick={
               isEditable
                 ? () => {
@@ -342,6 +344,7 @@ export default function Builder({
           <BuilderButton
             item={buildState.items.legs}
             showLabels={showLabels}
+            isEditable={isEditable}
             onClick={
               isEditable
                 ? () => {
@@ -355,6 +358,7 @@ export default function Builder({
           <BuilderButton
             item={buildState.items.gloves}
             showLabels={showLabels}
+            isEditable={isEditable}
             onClick={
               isEditable
                 ? () => {
@@ -372,6 +376,7 @@ export default function Builder({
             <BuilderButton
               item={buildState.items.relic}
               showLabels={showLabels}
+              isEditable={isEditable}
               onClick={
                 isEditable
                   ? () => {
@@ -388,6 +393,7 @@ export default function Builder({
             >
               <BuilderButton
                 showLabels={showLabels}
+                isEditable={isEditable}
                 size="sm"
                 item={buildState.items.relicfragment[0]}
                 onClick={
@@ -404,6 +410,7 @@ export default function Builder({
               <BuilderButton
                 item={buildState.items.relicfragment[1]}
                 showLabels={showLabels}
+                isEditable={isEditable}
                 size="sm"
                 onClick={
                   isEditable
@@ -419,6 +426,7 @@ export default function Builder({
               <BuilderButton
                 item={buildState.items.relicfragment[2]}
                 showLabels={showLabels}
+                isEditable={isEditable}
                 size="sm"
                 onClick={
                   isEditable
@@ -453,6 +461,7 @@ export default function Builder({
                 <BuilderButton
                   item={buildState.items.archtype[archtypeIndex]}
                   showLabels={showLabels}
+                  isEditable={isEditable}
                   onClick={
                     isEditable
                       ? () => {
@@ -467,6 +476,7 @@ export default function Builder({
                 <BuilderButton
                   item={buildState.items.skill[archtypeIndex]}
                   showLabels={showLabels}
+                  isEditable={isEditable}
                   onClick={
                     isEditable
                       ? () => {
@@ -489,6 +499,7 @@ export default function Builder({
             <BuilderButton
               item={buildState.items.concoction[0]}
               showLabels={showLabels}
+              isEditable={isEditable}
               onClick={
                 isEditable
                   ? () => {
@@ -508,6 +519,7 @@ export default function Builder({
                   key={`concoction-${concoctionIndex}`}
                   item={buildState.items.concoction[concoctionIndex]}
                   showLabels={showLabels}
+                  isEditable={isEditable}
                   onClick={
                     isEditable
                       ? () => {
@@ -532,6 +544,7 @@ export default function Builder({
                 key={`consumable-${consumableIndex}`}
                 item={buildState.items.consumable[consumableIndex]}
                 showLabels={showLabels}
+                isEditable={isEditable}
                 onClick={
                   isEditable
                     ? () => {
@@ -551,6 +564,7 @@ export default function Builder({
           <BuilderButton
             item={buildState.items.amulet}
             showLabels={showLabels}
+            isEditable={isEditable}
             onClick={
               isEditable
                 ? () => {
@@ -563,9 +577,10 @@ export default function Builder({
           />
           {getArrayOfLength(4).map((ringIndex) => (
             <BuilderButton
+              key={`ring-${ringIndex}`}
               showLabels={showLabels}
               item={buildState.items.ring[ringIndex]}
-              key={`ring-${ringIndex}`}
+              isEditable={isEditable}
               onClick={
                 isEditable
                   ? () => {
@@ -594,6 +609,7 @@ export default function Builder({
               showLabels={showLabels}
               item={buildState.items.weapon[weaponIndex]}
               size="wide"
+              isEditable={isEditable}
               onClick={
                 isEditable
                   ? () => {
@@ -610,6 +626,7 @@ export default function Builder({
                 showLabels={showLabels}
                 item={buildState.items.mod[weaponIndex]}
                 size="md"
+                isEditable={isEditable}
                 onClick={
                   isEditable
                     ? () => {
@@ -625,6 +642,7 @@ export default function Builder({
                 item={buildState.items.mutator[weaponIndex]}
                 showLabels={showLabels}
                 size="md"
+                isEditable={isEditable}
                 onClick={
                   isEditable
                     ? () => {

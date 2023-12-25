@@ -2,6 +2,7 @@ import { getServerSession } from '@/app/(lib)/auth'
 import EditBuildButton from './EditBuildButton'
 import { dbBuildToBuildState } from '@/app/(lib)/utils'
 import DeleteBuildButton from './DeleteBuildButton'
+import CopyBuildUrlButton from './CopyBuildUrlButton'
 
 async function getBuilds() {
   const session = await getServerSession()
@@ -69,6 +70,12 @@ export default async function BuildsList() {
                       scope="col"
                       className="relative py-3.5 pl-3 pr-4 sm:pr-0"
                     >
+                      <span className="sr-only">Copy</span>
+                    </th>
+                    <th
+                      scope="col"
+                      className="relative py-3.5 pl-3 pr-4 sm:pr-0"
+                    >
                       <span className="sr-only">Edit</span>
                     </th>
                     <th
@@ -104,6 +111,9 @@ export default async function BuildsList() {
                         </td>
                         <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-center text-sm font-medium sm:pr-0">
                           {buildState.isPublic ? 'Public' : 'Private'}
+                        </td>
+                        <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-0">
+                          <CopyBuildUrlButton buildId={build.id} />
                         </td>
                         <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-0">
                           <EditBuildButton build={build} />

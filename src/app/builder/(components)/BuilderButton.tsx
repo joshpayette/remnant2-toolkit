@@ -4,11 +4,13 @@ import Image from 'next/image'
 
 export default function BuilderButton({
   onClick,
+  isEditable = true,
   item,
   showLabels,
   size = 'md',
 }: {
   onClick?: () => void
+  isEditable?: boolean
   item: GenericItem | null
   showLabels: boolean
   size?: 'sm' | 'md' | 'lg' | 'wide'
@@ -57,8 +59,9 @@ export default function BuilderButton({
       <button
         onClick={onClick}
         className={cn(
-          'flex items-center justify-center border-2 border-gray-700 hover:border-purple-500',
+          'flex items-center justify-center border-2 border-gray-700 ',
           `bg-[url('https://${process.env.NEXT_PUBLIC_IMAGE_URL}/card-body-bg.jpg')]`,
+          isEditable && 'hover:border-purple-500',
           size === 'sm' && 'min-h-[22px] w-[22px]',
           size === 'md' && 'min-h-[66px] w-[66px]',
           size === 'lg' && 'min-h-[99px] w-[99px]',
