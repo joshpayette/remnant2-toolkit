@@ -4,6 +4,7 @@ import { cn } from '@/app/(lib)/utils'
 import Footer from '@/app/(components)/Footer'
 export { metadata } from './metadata'
 import { Analytics } from '@vercel/analytics/react'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 import { ToastContainer } from 'react-toastify'
 
 import './globals.css'
@@ -40,6 +41,7 @@ export default function RootLayout({
           <footer className="mt-8 flex w-full items-center justify-center border-t border-purple-900 bg-black p-4 text-left text-sm text-gray-400">
             <Footer />
           </footer>
+          <SpeedInsights />
           <Analytics />
         </SessionProvider>
       </body>

@@ -20,6 +20,7 @@
     "@next/mdx": "14.0.4",
     "@prisma/client": "5.7.1",
     "@vercel/analytics": "1.1.1",
+    "@vercel/speed-insights": "1.0.2",
     "bad-words": "3.0.4",
     "clipboard-copy": "4.0.1",
     "clsx": "2.0.0",
