@@ -8,11 +8,11 @@ import ItemSelect from './ItemSelect'
 import Logo from '@/app/(components)/Logo'
 import useBuildState from '../(hooks)/useBuildState'
 import { GenericItem } from '@/app/(types)/GenericItem'
-import { BuildState } from '@/app/(types)'
 import MemberFeatures from './MemberFeatures'
 import { remnantItems } from '@/app/(data)'
 import { WeaponItem } from '@/app/(types)/WeaponItem'
 import { MutatorItem } from '@/app/(types)/MutatorItem'
+import { BuildState } from '../(types)'
 
 /**
  * Returns a list of items that match the selected slot

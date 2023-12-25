@@ -4,6 +4,7 @@ import { Metadata, ResolvingMetadata } from 'next'
 import { getServerSession } from '@/app/(lib)/auth'
 import { Build } from '@prisma/client'
 import PageHeader from '@/app/(components)/PageHeader'
+import { DEFAULT_DISPLAY_NAME } from '@/app/(lib)/constants'
 
 async function getBuild(buildId: string) {
   if (!buildId) {
@@ -38,7 +39,8 @@ async function getBuild(buildId: string) {
     },
   })
 
-  const creatorName = creator?.displayName || creator?.name || 'Traveler'
+  const creatorName =
+    creator?.displayName || creator?.name || DEFAULT_DISPLAY_NAME
 
   const buildData = {
     ...build,

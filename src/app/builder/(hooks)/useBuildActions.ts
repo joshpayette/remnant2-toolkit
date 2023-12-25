@@ -3,8 +3,8 @@ import { toast } from 'react-toastify'
 import copy from 'clipboard-copy'
 import { useLocalStorage } from '@/app/(hooks)/useLocalStorage'
 import { useRouter } from 'next/navigation'
-import { BuildState } from '@/app/(types)'
 import { buildToQueryParams } from '@/app/(lib)/utils'
+import { BuildState } from '../(types)'
 
 export default function useBuildActions() {
   // Hooks for monitoring the URL query string

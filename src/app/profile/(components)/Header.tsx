@@ -1,5 +1,6 @@
 import { getServerSession } from '@/app/(lib)/auth'
 import DisplayName from './DisplayName'
+import { DEFAULT_DISPLAY_NAME } from '@/app/(lib)/constants'
 
 export default async function Header() {
   const session = await getServerSession()
@@ -17,7 +18,7 @@ export default async function Header() {
         />
       )}
       <div className="flex flex-col gap-0">
-        <DisplayName name={displayName ?? name ?? 'Traveler'} />
+        <DisplayName name={displayName ?? name ?? DEFAULT_DISPLAY_NAME} />
         <span className="text-sm text-white">{name}</span>
         <span className="text-sm text-gray-400">{email}</span>
       </div>

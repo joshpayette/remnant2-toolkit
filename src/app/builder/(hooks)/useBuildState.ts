@@ -1,4 +1,3 @@
-import { type BuildState } from '@/app/(types)'
 import { remnantItemCategories } from '@/app/(data)'
 import { usePathname, useSearchParams, useRouter } from 'next/navigation'
 import { useCallback } from 'react'
@@ -9,6 +8,7 @@ import { WeaponItem } from '@/app/(types)/WeaponItem'
 import { MutatorItem } from '@/app/(types)/MutatorItem'
 import { useLocalStorage } from '@/app/(hooks)/useLocalStorage'
 import { linkArchtypesToTraits, linkWeaponsToMods } from '@/app/(lib)/utils'
+import { BuildState } from '../(types)'
 
 /**
  * Handles reading/writing the build to the URL query string,
@@ -78,7 +78,7 @@ export default function useBuildState() {
     const buildState: BuildState = {
       name: 'My Build',
       description: null,
-      isPublic: null,
+      isPublic: true,
       buildId: null,
       createdByDisplayName: null,
       createdById: null,
@@ -111,7 +111,7 @@ export default function useBuildState() {
       buildState.description = builderStorage.tempDescription
     }
     // Build public visibility from localstorage
-    buildState.isPublic = builderStorage.tempIsPublic === true
+    buildState.isPublic = builderStorage.tempIsPublic !== false
 
     // Check for buildId from localstorage
     if (!buildState.buildId && builderStorage.tempBuildId) {

@@ -1,5 +1,4 @@
 import { getServerSession } from '@/app/(lib)/auth'
-import { BuildState, buildStateSchema } from '@/app/(types)'
 import { ArmorItem } from '@/app/(types)/ArmorItem'
 import { GenericItem } from '@/app/(types)/GenericItem'
 import { MutatorItem } from '@/app/(types)/MutatorItem'
@@ -8,6 +7,7 @@ import { WeaponItem } from '@/app/(types)/WeaponItem'
 import { Build } from '@prisma/client'
 import { badwordFilter } from '@/app/(lib)/badword-filter'
 import { revalidatePath } from 'next/cache'
+import { BuildState, buildStateSchema } from '@/app/builder/(types)'
 
 export async function GET(request: Request) {
   if (!request) {

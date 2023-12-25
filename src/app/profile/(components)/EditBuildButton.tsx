@@ -1,6 +1,7 @@
 'use client'
 
 import { useLocalStorage } from '@/app/(hooks)/useLocalStorage'
+import { DEFAULT_DISPLAY_NAME } from '@/app/(lib)/constants'
 import { buildToQueryParams, dbBuildToBuildState } from '@/app/(lib)/utils'
 import { Build } from '@prisma/client'
 import { useSession } from 'next-auth/react'
@@ -14,7 +15,7 @@ export default function EditBuildButton({ build }: { build: Build }) {
   function handleEditBuild(build: Build) {
     const buildState = dbBuildToBuildState({
       ...build,
-      createdByDisplayName: session?.user?.name ?? 'Traveler',
+      createdByDisplayName: session?.user?.name ?? DEFAULT_DISPLAY_NAME,
     })
 
     let editBuildUrl = buildToQueryParams(buildState)

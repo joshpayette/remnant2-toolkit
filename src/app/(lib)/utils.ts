@@ -1,4 +1,4 @@
-import { BuildState, type CsvItem } from '@/app/(types)'
+import { type CsvItem } from '@/app/(types)'
 import { clsx, type ClassValue } from 'clsx'
 import { twMerge } from 'tailwind-merge'
 import { GenericItem } from '../(types)/GenericItem'
@@ -9,6 +9,7 @@ import { MutatorItem } from '../(types)/MutatorItem'
 import { TraitItem } from '../(types)/TraitItem'
 import { remnantItemCategories, remnantItems } from '../(data)'
 import { DEFAULT_TRAIT_AMOUNT } from './constants'
+import { BuildState } from '../builder/(types)'
 
 /**
  * capitalizes the first letter of a string

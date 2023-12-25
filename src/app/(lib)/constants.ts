@@ -60,3 +60,8 @@ export const DEFAULT_TRAIT_AMOUNT = 10
  * be added to the builder.
  */
 export const MAX_TRAIT_AMOUNT = 110
+
+/**
+ * The initial display name for a user if none is set
+ */
+export const DEFAULT_DISPLAY_NAME = 'Travaller'

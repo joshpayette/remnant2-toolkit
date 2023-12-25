@@ -10,6 +10,9 @@ async function getBuilds() {
     where: {
       createdById: session?.user?.id,
     },
+    orderBy: {
+      createdAt: 'desc',
+    },
   })
 
   if (!dbResponse) return []
@@ -60,6 +63,12 @@ export default async function BuildsList() {
                       scope="col"
                       className="relative py-3.5 pl-3 pr-4 sm:pr-0"
                     >
+                      Visibility
+                    </th>
+                    <th
+                      scope="col"
+                      className="relative py-3.5 pl-3 pr-4 sm:pr-0"
+                    >
                       <span className="sr-only">Edit</span>
                     </th>
                     <th
@@ -77,7 +86,7 @@ export default async function BuildsList() {
                       createdByDisplayName: '',
                     })
                     return (
-                      <tr key={buildState.name}>
+                      <tr key={build.id}>
                         <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-white sm:pl-0">
                           {buildState.name}
                         </td>
@@ -92,6 +101,9 @@ export default async function BuildsList() {
                               </div>
                             )
                           })}
+                        </td>
+                        <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-center text-sm font-medium sm:pr-0">
+                          {buildState.isPublic ? 'Public' : 'Private'}
                         </td>
                         <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-0">
                           <EditBuildButton build={build} />
