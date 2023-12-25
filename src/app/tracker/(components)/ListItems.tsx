@@ -136,6 +136,11 @@ export default function ListItems({
                       </div>
                     </div>
                   ))}
+                <div className="col-span-full flex w-full items-center justify-end">
+                  <button className="flex w-full max-w-[125px] items-center justify-center gap-1 rounded-md border border-green-500 bg-transparent p-2 text-sm font-bold text-green-500 hover:border-green-300 hover:text-green-300">
+                    Back to Top
+                  </button>
+                </div>
               </Disclosure.Panel>
             </>
           )}

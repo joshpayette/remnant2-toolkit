@@ -9,6 +9,7 @@ import { ToastContainer } from 'react-toastify'
 import './globals.css'
 import 'react-toastify/dist/ReactToastify.css'
 import SessionProvider from './(components)/SessionProvider'
+import BackToTopButton from './(components)/BackToTopButton'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -25,6 +26,7 @@ export default function RootLayout({
           inter.className,
         )}
       >
+        <BackToTopButton />
         <SessionProvider>
           <div className="flex w-full max-w-7xl grow flex-col items-start justify-start">
             <header className="w-full">

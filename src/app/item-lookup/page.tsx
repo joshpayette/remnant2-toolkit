@@ -63,7 +63,7 @@ export default function Page() {
   }
 
   return (
-    <div className="flex w-full flex-col items-center justify-center">
+    <div className="relative flex w-full flex-col items-center justify-center">
       <ItemInfo
         item={itemInfo}
         open={isShowItemInfoOpen}
@@ -97,6 +97,7 @@ export default function Page() {
             </div>
           ))}
         </div>
+        B
       </div>
     </div>
   )
