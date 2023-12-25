@@ -36,9 +36,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       />
     ),
     p: ({ children }) => (
-      <p className="text-md mb-4 w-full max-w-[300px] pl-8 pr-8 text-left">
-        {children}
-      </p>
+      <p className="text-md mb-4 w-full pl-8 pr-8 text-left">{children}</p>
     ),
     ...components,
   }
