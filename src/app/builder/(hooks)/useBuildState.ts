@@ -54,6 +54,7 @@ export default function useBuildState() {
         ...builderStorage,
         tempDescription: value,
       })
+      return
     }
     if (name === 'isPublic') {
       buildState.isPublic = value === 'true'
@@ -61,6 +62,7 @@ export default function useBuildState() {
         ...builderStorage,
         tempIsPublic: value === 'true',
       })
+      return
     }
 
     router.push(`${pathname}?${createQueryString(name, value)}`, {
@@ -112,10 +114,22 @@ export default function useBuildState() {
     buildState.isPublic = builderStorage.tempIsPublic === true
 
     // Check for buildId from localstorage
-    buildState.buildId = builderStorage.tempBuildId
+    if (!buildState.buildId && builderStorage.tempBuildId) {
+      buildState.buildId = builderStorage.tempBuildId
+      setBuilderStorage({
+        ...builderStorage,
+        tempBuildId: null,
+      })
+    }
 
     // Check for createdById from localstorage
-    buildState.createdById = builderStorage.tempCreatedById
+    if (!buildState.createdById && builderStorage.tempCreatedById) {
+      buildState.createdById = builderStorage.tempCreatedById
+      setBuilderStorage({
+        ...builderStorage,
+        tempCreatedById: null,
+      })
+    }
 
     // Loop through each category and check the query params
     // for that category's item IDs

@@ -163,21 +163,23 @@ export async function PUT(request: Request) {
   const unsafeBuildState = await request.json()
   const buildStateParsed = buildStateSchema.safeParse(unsafeBuildState)
   if (!buildStateParsed.success) {
-    console.error(
-      'Error in buildState!',
-      buildStateParsed.error.issues.forEach((issue) => console.error(issue)),
-    )
+    console.error('Error in buildState!', buildStateParsed.error)
     return Response.json({ message: 'Error in buildState!' }, { status: 500 })
   }
   const buildState = buildStateParsed.data as BuildState
   const { items } = buildState
-  const cleanDescription = badwordFilter.clean(buildState.description ?? '')
 
+  const cleanName = buildState.name ? badwordFilter.clean(buildState.name) : ''
+  const cleanDescription = buildState.description
+    ? badwordFilter.clean(buildState.description)
+    : ''
+
+  console.info('------------------BUILD STATE------------------------')
   const newBuild: Omit<
     Build,
     'id' | 'createdAt' | 'createdBy' | 'updatedAt' | 'createdById'
   > = {
-    name: buildState.name,
+    name: cleanName,
     description: cleanDescription,
     isPublic: Boolean(buildState.isPublic),
     videoUrl: '',
@@ -204,6 +206,8 @@ export async function PUT(request: Request) {
       : null,
     trait: TraitItem.toDBValue(buildState.items.trait),
   }
+
+  console.info('------------------CREATING BUILD------------------------')
 
   const dbResponse = await prisma?.build.create({
     data: {
