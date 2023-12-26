@@ -75,6 +75,7 @@ NEXTAUTH_SECRET=""
 NEXTAUTH_URL=""
 NEXT_PUBLIC_IMAGE_URL=""
 CRON_SECRET=""
+POSTMARK_API_TOKEN=""
 ```
 
 #### Environment Variable Descriptions
@@ -87,6 +88,7 @@ CRON_SECRET=""
 - `NEXTAUTH_SECRET` - A secret string used by NextAuth. Can be anything, just make it long and random.
 - `NEXTAUTH_URL` - The base URL of your site. This is used by NextAuth to redirect back to your site after authentication. Example: http://localhost:3000 for development.
 - `CRON_SECRET` - A secret string used by the Vercel CRON platform to prevent unauthorized access.
+- `POSTMARK_API_TOKEN` - The API token for your Postmark account. Used for sending emails triggered by the CRON jobs.
 
 ### Run the development server
 
