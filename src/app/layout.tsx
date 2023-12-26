@@ -41,9 +41,9 @@ export default function RootLayout({
           <footer className="mt-8 flex w-full items-center justify-center border-t border-purple-900 bg-black p-4 text-left text-sm text-gray-400">
             <Footer />
           </footer>
-          <SpeedInsights />
-          <Analytics />
         </SessionProvider>
+        <SpeedInsights />
+        <Analytics />
       </body>
     </html>
   )
