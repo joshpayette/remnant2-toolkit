@@ -81,7 +81,8 @@ export async function PATCH(request: Request) {
   const clippedDescription = buildState.description
     ? buildState.description.slice(0, MAX_BUILD_DESCRIPTION_LENGTH)
     : ''
-  const cleanDescription = badwordFilter.clean(clippedDescription)
+  const cleanDescription =
+    clippedDescription !== '' ? badwordFilter.clean(clippedDescription) : ''
 
   if (buildState.createdById !== session.user.id) {
     return Response.json(
@@ -175,10 +176,12 @@ export async function PUT(request: Request) {
   const { items } = buildState
 
   const cleanName = buildState.name ? badwordFilter.clean(buildState.name) : ''
+  // limit description to MAX_DESCRIPTION_LENGTH
   const clippedDescription = buildState.description
     ? buildState.description.slice(0, MAX_BUILD_DESCRIPTION_LENGTH)
     : ''
-  const cleanDescription = badwordFilter.clean(clippedDescription)
+  const cleanDescription =
+    clippedDescription !== '' ? badwordFilter.clean(clippedDescription) : ''
 
   const newBuild: Omit<
     Build,

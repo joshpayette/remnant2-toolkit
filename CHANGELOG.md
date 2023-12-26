@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Fixed
 
 - Back to top button was incorrectly displaying on Item Tracker on larger screens.
+- Addressed an issue where build wasn't saving due to error in parsing description.
 
 ## 2023-12-25
 
