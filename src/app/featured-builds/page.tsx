@@ -17,8 +17,11 @@ import { pageInfo as mrNachoCoopElementalPageInfo } from './build/mr-nacho-senor
 import { pageInfo as senorcervezasMemeBuildPageInfo } from './build/senorcervezas-160k-dps-meme/metadata'
 import { pageInfo as sadderallsRichieRichPageInfo } from './build/sadderalls-richie-rich/metadata'
 import { pageInfo as dotsrusLikesDotsPageInfo } from './build/dotsrus-likes-dots/metadata'
+import { pageInfo as sheenShotsAcidicBerserkerPageInfo } from './build/sheenshots-acidic-berserker/metadata'
+import { pageInfo as sheenShotsRageLoopPageInfo } from './build/sheenshots-rage-loop/metadata'
 
 const builds = [
+  sheenShotsRageLoopPageInfo,
   dotsrusLikesDotsPageInfo,
   sadderallsRichieRichPageInfo,
   senorcervezasMemeBuildPageInfo,
@@ -30,8 +33,7 @@ const builds = [
   dudleysBloodHunterPageInfo,
   mrNachosNightfallBuildPageInfo,
   mrNachosEGGBuildPageInfo,
-  boltJamisonsBleedCritPageInfo,
-  boltJamisonsPyroPageInfo,
+  sheenShotsAcidicBerserkerPageInfo,
   archonUnlockPageInfo,
   rootDoctorPageInfo,
   speedFarmingPageInfo,
