@@ -97,7 +97,6 @@ export default function Page() {
             </div>
           ))}
         </div>
-        B
       </div>
     </div>
   )
