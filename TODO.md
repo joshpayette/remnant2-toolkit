@@ -1,5 +1,6 @@
 # TODO
 
+- Have screenshot mode automatically disable controls and enable labels
 - On the builder, add info icon to click/hover to see item info for each item in the build.
   - Look into also having an export detailed version that shows images, descriptions, stats, etc.
 - Added community build page where you can search and sort builds
