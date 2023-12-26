@@ -1,6 +1,4 @@
 import { useState } from 'react'
-import { toast } from 'react-toastify'
-import copy from 'clipboard-copy'
 import { useLocalStorage } from '@/app/(hooks)/useLocalStorage'
 import { useRouter } from 'next/navigation'
 import { buildToQueryParams } from '@/app/(lib)/utils'
