@@ -72,7 +72,7 @@ function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
             href="/api/auth/signout"
             className="block px-3 py-2 text-base font-semibold leading-7 text-white hover:text-purple-500 hover:underline"
           >
-            Signout {session.user.email}
+            Signout
           </Link>
         </div>
       </div>
@@ -119,7 +119,7 @@ function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
                   'block px-4 py-2 text-sm text-gray-700',
                 )}
               >
-                Sign out
+                Signout
               </Link>
             )}
           </Menu.Item>
