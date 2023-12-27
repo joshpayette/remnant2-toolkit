@@ -5,7 +5,6 @@ import PageHeader from '@/app/(components)/PageHeader'
 import Builder from './(components)/Builder'
 import useBuildState from '@/app/builder/(hooks)/useBuildState'
 import { useIsClient } from 'usehooks-ts'
-import useBuildScreenshot from './(hooks)/useBuildScreenshot'
 import { buildToCsvData, cn } from '../(lib)/utils'
 import SaveBuildButton from './(components)/SaveBuildButton'
 import useBuildActions from './(hooks)/useBuildActions'
@@ -13,30 +12,21 @@ import { ActionButton } from './(components)/ActionButton'
 import ToCsvButton from '../(components)/ToCsvButton'
 import { useLocalStorage } from '../(hooks)/useLocalStorage'
 import { useSearchParams } from 'next/navigation'
-import copy from 'clipboard-copy'
-import { toast } from 'react-toastify'
 
 export default function Page() {
-  const { buildState } = useBuildState()
-  const { builderStorage, setBuilderStorage } = useLocalStorage()
   const searchParams = useSearchParams()
-
-  const { isScreenshotModeActive, handleImageExport } = useBuildScreenshot()
-  const buildContainerRef = useRef<HTMLDivElement>(null)
-
-  const { showLabels, showControls, handleToggleControls, handleToggleLabels } =
-    useBuildActions()
-
   const isClient = useIsClient()
 
-  function handleCopyBuildUrl() {
-    copy(window.location.href)
-    toast.success(
-      `Build url copied to clipboard.\r\n
-      \r\n
-      Want a shorter and more readable URL? Next time, click the "Save Build" button!`,
-    )
-  }
+  const { buildState } = useBuildState()
+  const { builderStorage, setBuilderStorage } = useLocalStorage()
+  const {
+    isScreenshotMode,
+    showControls,
+    handleCopyBuildUrl,
+    handleImageExport,
+  } = useBuildActions()
+
+  const buildContainerRef = useRef<HTMLDivElement>(null)
 
   // if search params are empty, clear the temp values
   // from localstorage
@@ -89,34 +79,31 @@ export default function Page() {
                 )
               }
             />
-            <ActionButton.CopyBuildUrl onClick={handleCopyBuildUrl} />
+            <ActionButton.CopyBuildUrl
+              onClick={() =>
+                handleCopyBuildUrl(
+                  window.location.href,
+                  'Build url copied to clipboard. Sign in for a shorter URL!',
+                )
+              }
+            />
             <ToCsvButton
               data={csvBuildData.filter((item) => item?.name !== '')}
               filename={`remnant2_builder_${buildState.name}`}
-            />
-            <hr className="my-4 border-gray-900" />
-            <ActionButton.ShowControls
-              onClick={handleToggleControls}
-              showControls={showControls}
-            />
-            <ActionButton.ShowLabels
-              onClick={handleToggleLabels}
-              showLabels={showLabels}
             />
           </div>
         </div>
         <div
           className={cn(
             'w-full grow rounded border-2 border-green-500 bg-black p-4',
-            isScreenshotModeActive && 'min-h-[731px] min-w-[502px]',
+            isScreenshotMode && 'min-h-[731px] min-w-[502px]',
           )}
           ref={buildContainerRef}
         >
           <Builder
             buildState={buildState}
             isEditable={true}
-            isScreenshotMode={isScreenshotModeActive}
-            showLabels={showLabels}
+            isScreenshotMode={isScreenshotMode}
             showControls={showControls}
           />
         </div>

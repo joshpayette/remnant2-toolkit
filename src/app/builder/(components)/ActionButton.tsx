@@ -61,48 +61,6 @@ export const ActionButton = {
       New Build
     </Link>
   ),
-
-  ShowLabels: ({
-    onClick,
-    showLabels,
-  }: ButtonProps & { showLabels: boolean }) => (
-    <button
-      id="show-labels-button"
-      className={cn(
-        buttonClasses,
-        'hover:bg-green-700',
-        showLabels
-          ? 'border-transparent bg-green-500'
-          : 'border-green-500 bg-black',
-      )}
-      onClick={onClick}
-    >
-      <span className="text-sm">
-        {showLabels ? 'Hide Labels' : 'Show Labels'}
-      </span>
-    </button>
-  ),
-
-  ShowControls: ({
-    onClick,
-    showControls,
-  }: ButtonProps & { showControls: boolean }) => (
-    <button
-      id="show-controls-button"
-      className={cn(
-        buttonClasses,
-        'hover:bg-green-700',
-        showControls
-          ? 'border-transparent bg-green-500'
-          : 'border-green-500 bg-black',
-      )}
-      onClick={onClick}
-    >
-      <span className="text-sm">
-        {showControls ? 'Hide Controls' : 'Show Controls'}
-      </span>
-    </button>
-  ),
 }
 
 export default ActionButton

@@ -1,5 +1,5 @@
 import { getServerSession } from '@/app/(lib)/auth'
-import badwordFilter from '@/app/(lib)/badword-filter'
+import { badWordFilter } from '@/app/(lib)/badword-filter'
 import { z } from 'zod'
 import { prisma } from '@/app/(lib)/db'
 
@@ -25,7 +25,7 @@ export async function PATCH(req: Request) {
   }
 
   const userState = userStateParsed.data
-  const displayName = badwordFilter.clean(userState.displayName)
+  const displayName = badWordFilter(userState.displayName)
 
   const dbResponse = await prisma?.user.update({
     where: { id: session.user.id },

@@ -64,26 +64,29 @@ export default function MemberFeatures({
             />
           </div>
         )}
-
-        {isScreenshotModeActive ? null : !isEditable ? (
-          <div className="flex flex-col">
-            <div className="text-md my-2 font-bold text-green-500">
-              Build Visibility
-            </div>
-            <div className="text-sm text-gray-200">
-              {isPublic ? 'Public' : 'Private'}
-            </div>
-          </div>
-        ) : (
-          <div className="flex flex-row items-center justify-start text-sm text-green-500">
-            <div className="mr-4">Public Build</div>
-            <div className="">
-              <Toggle
-                enabled={Boolean(isPublic)}
-                setEnabled={onChangeIsPublic}
-              />
-            </div>
-          </div>
+        {isScreenshotModeActive ? null : (
+          <>
+            {isEditable ? (
+              <div className="flex flex-row items-center justify-start text-sm text-green-500">
+                <div className="mr-4">Public Build</div>
+                <div className="">
+                  <Toggle
+                    enabled={Boolean(isPublic)}
+                    setEnabled={onChangeIsPublic}
+                  />
+                </div>
+              </div>
+            ) : (
+              <div className="flex flex-col">
+                <div className="text-md my-2 font-bold text-green-500">
+                  Build Visibility
+                </div>
+                <div className="text-sm text-gray-200">
+                  {isPublic ? 'Public' : 'Private'}
+                </div>
+              </div>
+            )}
+          </>
         )}
       </div>
     </div>

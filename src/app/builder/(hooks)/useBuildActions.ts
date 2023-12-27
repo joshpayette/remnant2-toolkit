@@ -1,8 +1,11 @@
-import { useState } from 'react'
 import { useLocalStorage } from '@/app/(hooks)/useLocalStorage'
 import { useRouter } from 'next/navigation'
 import { buildToQueryParams } from '@/app/(lib)/utils'
 import { BuildState } from '../../(types)/build-state'
+import { useEffect, useState } from 'react'
+import html2canvas from 'html2canvas'
+import copy from 'clipboard-copy'
+import { toast } from 'react-toastify'
 
 export default function useBuildActions() {
   // Hooks for monitoring the URL query string
@@ -10,22 +13,22 @@ export default function useBuildActions() {
 
   const { builderStorage, setBuilderStorage } = useLocalStorage()
 
-  const [showLabels, setShowLabels] = useState(builderStorage.showLabels)
-  function handleToggleLabels() {
-    setShowLabels(!showLabels)
-    setBuilderStorage({
-      ...builderStorage,
-      showLabels: !showLabels,
-    })
-  }
+  // Used to inform the UI when a screenshot is being taken
+  // so that it can resize on mobile devices, show logo, and more.
+  const [isScreenshotMode, setIsScreenshotMode] = useState<{
+    el: HTMLDivElement | null
+    imageFileName: string
+  } | null>(null)
 
-  const [showControls, setShowControls] = useState(builderStorage.showControls)
-  function handleToggleControls() {
-    setShowControls(!showControls)
-    setBuilderStorage({
-      ...builderStorage,
-      showControls: !showControls,
-    })
+  function handleCopyBuildUrl(url: string | null, message?: string) {
+    if (!url) {
+      toast.error('Could not copy build url. Try again.')
+      return
+    }
+    const defaultMessage =
+      'Build url copied to clipboard. Sign in next time for a shorter URL!'
+    copy(url)
+    toast.success(!message ? defaultMessage : message)
   }
 
   function handleDuplicateBuild(buildState: BuildState) {
@@ -54,14 +57,50 @@ export default function useBuildActions() {
     router.push(editBuildUrl)
   }
 
+  const handleImageExport = async (
+    el: HTMLDivElement | null,
+    imageFileName: string,
+  ) => {
+    setIsScreenshotMode({ el, imageFileName })
+  }
+
+  /**
+   * Export the build as an image
+   */
+  useEffect(() => {
+    async function exportImage() {
+      if (!isScreenshotMode) return
+      const { el, imageFileName } = isScreenshotMode
+
+      if (!el) return
+
+      const canvas = await html2canvas(el, {
+        useCORS: true,
+        allowTaint: true,
+        logging: false,
+      })
+      const image = canvas.toDataURL('image/png', 1.0)
+
+      // Need a fakeLink to trigger the download
+      const fakeLink = window.document.createElement('a')
+      fakeLink.download = imageFileName
+      fakeLink.href = image
+      document.body.appendChild(fakeLink)
+      fakeLink.click()
+      document.body.removeChild(fakeLink)
+      fakeLink.remove()
+
+      setIsScreenshotMode(null)
+    }
+    exportImage()
+  }, [isScreenshotMode])
+
   return {
-    showControls,
-    showLabels,
+    handleCopyBuildUrl,
     handleDuplicateBuild,
     handleEditBuild,
-    handleToggleControls,
-    handleToggleLabels,
-    setShowLabels,
-    setShowControls,
+    handleImageExport,
+    isScreenshotMode: Boolean(isScreenshotMode),
+    showControls: Boolean(isScreenshotMode) === false,
   }
 }

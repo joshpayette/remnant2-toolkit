@@ -2,7 +2,6 @@
 
 import Builder from '@/app/builder/(components)/Builder'
 import { buildToCsvData, cn, dbBuildToBuildState } from '@/app/(lib)/utils'
-import useBuildScreenshot from '../(hooks)/useBuildScreenshot'
 import useBuildActions from '../(hooks)/useBuildActions'
 import { ActionButton } from '../(components)/ActionButton'
 import ToCsvButton from '@/app/(components)/ToCsvButton'
@@ -22,8 +21,16 @@ export default function Page({
   const isClient = useIsClient()
   const { data: session } = useSession()
 
+  const {
+    isScreenshotMode,
+    showControls,
+    handleCopyBuildUrl,
+    handleDuplicateBuild,
+    handleEditBuild,
+    handleImageExport,
+  } = useBuildActions()
+
   const buildContainerRef = useRef<HTMLDivElement>(null)
-  const { isScreenshotModeActive, handleImageExport } = useBuildScreenshot()
 
   // Need to convert the build data to a format that the BuildPage component can use
   const buildState = dbBuildToBuildState(dbBuild)
@@ -31,32 +38,14 @@ export default function Page({
   // We need to convert the build.items object into an array of items to pass to the ToCsvButton
   const csvBuildData = buildToCsvData(buildState)
 
-  const {
-    showLabels,
-    handleDuplicateBuild,
-    handleEditBuild,
-    handleToggleLabels,
-  } = useBuildActions()
-
   if (!isClient) return null
-
-  function handleCopyBuildUrl() {
-    copy(window.location.href)
-    toast.success('Copied Build URL to clipboard.')
-  }
 
   return (
     <>
       <PageHeader
         title={buildState.name}
         subtitle={`Build by ${buildState.createdByDisplayName}`}
-      >
-        {/* <div className="text-md mb-4 rounded border border-purple-500 p-4 text-left">
-          <p className="text-md text-left text-gray-200">
-            {buildState.description}
-          </p>
-        </div> */}
-      </PageHeader>
+      />
       <div className="flex w-full flex-col items-center">
         <div className="flex w-full max-w-xl flex-col items-start justify-center gap-2 sm:flex-row-reverse">
           <div
@@ -80,31 +69,33 @@ export default function Page({
                   )
                 }
               />
-              <ActionButton.CopyBuildUrl onClick={handleCopyBuildUrl} />
+              <ActionButton.CopyBuildUrl
+                onClick={() =>
+                  handleCopyBuildUrl(
+                    window.location.href,
+                    'Copied Build URL to clipboard.',
+                  )
+                }
+              />
               <ToCsvButton
                 data={csvBuildData.filter((item) => item?.name !== '')}
                 filename={`remnant2_builder_${buildState.name}`}
               />
               <hr className="my-4 border-gray-900" />
-              <ActionButton.ShowLabels
-                onClick={handleToggleLabels}
-                showLabels={showLabels}
-              />
             </div>
           </div>
           <div
             className={cn(
               'w-full grow rounded border-2 border-green-500 bg-black p-4',
-              isScreenshotModeActive && 'min-h-[731px] min-w-[502px]',
+              isScreenshotMode && 'min-h-[731px] min-w-[502px]',
             )}
             ref={buildContainerRef}
           >
             <Builder
               buildState={buildState}
               isEditable={false}
-              isScreenshotMode={isScreenshotModeActive}
-              showControls={false}
-              showLabels={showLabels}
+              isScreenshotMode={isScreenshotMode}
+              showControls={showControls}
             />
           </div>
         </div>
