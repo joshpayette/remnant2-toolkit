@@ -74,6 +74,10 @@ export default function Footer() {
         </a>
         .
       </p>
+      <div className="h-[50px] w-full bg-black sm:hidden">
+        {/* Spacer for the back to top button on mobile */}
+        &nbsp;
+      </div>
     </div>
   )
 }
