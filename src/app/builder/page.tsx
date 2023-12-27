@@ -24,6 +24,7 @@ export default function Page() {
     showControls,
     handleCopyBuildUrl,
     handleImageExport,
+    handleToggleVote,
   } = useBuildActions()
 
   const buildContainerRef = useRef<HTMLDivElement>(null)

@@ -8,7 +8,6 @@ import copy from 'clipboard-copy'
 import { toast } from 'react-toastify'
 
 export default function useBuildActions() {
-  // Hooks for monitoring the URL query string
   const router = useRouter()
 
   const { builderStorage, setBuilderStorage } = useLocalStorage()
@@ -59,15 +58,73 @@ export default function useBuildActions() {
     router.push(editBuildUrl)
   }
 
-  const handleImageExport = async (
-    el: HTMLDivElement | null,
-    imageFileName: string,
-  ) => {
-    setIsScreenshotMode({ el, imageFileName })
+  async function handleSaveBuild({
+    buildState,
+    byOwner,
+  }: {
+    buildState: BuildState
+    byOwner: boolean
+  }) {
+    const response = await fetch('/api/build', {
+      method: byOwner ? 'PATCH' : 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(buildState),
+    })
+    const data = await response.json()
+
+    if (!response.ok) {
+      toast.error(data.message)
+      return
+    }
+    toast.success(data.message)
+    setBuilderStorage({
+      ...builderStorage,
+      tempDescription: null,
+      tempIsPublic: null,
+      tempBuildId: null,
+      tempCreatedById: null,
+    })
+    router.push(`/builder/${data.buildId}`)
+    router.refresh()
   }
 
+  async function handleToggleVote(buildState: BuildState) {
+    const voted = !buildState.upvoted
+
+    const response = await fetch('/api/build', {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        ...buildState,
+        upvoted: voted,
+      }),
+    })
+    if (!response.ok) {
+      toast.error('Error saving your vote. Try again.')
+      return
+    }
+
+    const data = await response.json()
+    toast.success(data.message)
+    buildState.upvoted = data.voted
+    buildState.totalUpvotes = data.totalUpvotes
+
+    return buildState
+  }
+
+  function handleImageExport(el: HTMLDivElement | null, imageFileName: string) {
+    // We do this to trigger the effect below
+    setIsScreenshotMode({ el, imageFileName })
+  }
   /**
    * Export the build as an image
+   * We do this in a useEffect so that the UI can update,
+   * allowing us to show the logo, expand the build on mobile for
+   * better screenshots, etc.
    */
   useEffect(() => {
     async function exportImage() {
@@ -102,6 +159,8 @@ export default function useBuildActions() {
     handleDuplicateBuild,
     handleEditBuild,
     handleImageExport,
+    handleSaveBuild,
+    handleToggleVote,
     isScreenshotMode: Boolean(isScreenshotMode),
     showControls: Boolean(isScreenshotMode) === false,
   }
