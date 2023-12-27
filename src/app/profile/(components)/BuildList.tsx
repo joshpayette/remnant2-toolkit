@@ -102,7 +102,7 @@ export default async function BuildsList() {
                     })
                     return (
                       <tr key={build.id}>
-                        <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-white sm:pl-0">
+                        <td className="py-4 pl-4 pr-3 text-sm font-medium text-white sm:pl-0">
                           <ViewBuildButton
                             buildName={buildState.name}
                             buildId={build.id}
