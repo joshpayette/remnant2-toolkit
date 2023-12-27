@@ -28,6 +28,7 @@ export default function Page({
     handleDuplicateBuild,
     handleEditBuild,
     handleImageExport,
+    handleToggleVote,
   } = useBuildActions()
 
   const buildContainerRef = useRef<HTMLDivElement>(null)

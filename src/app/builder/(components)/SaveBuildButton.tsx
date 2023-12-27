@@ -5,6 +5,7 @@ import { buttonClasses } from './ActionButton'
 import { cn } from '@/app/(lib)/utils'
 import { BuildState } from '../../(types)/build-state'
 import useBuildActions from '../(hooks)/useBuildActions'
+import Skeleton from '@/app/(components)/Skeleton'
 
 export default function SaveBuildButton({
   buildState,
@@ -14,7 +15,7 @@ export default function SaveBuildButton({
   const { data: session, status } = useSession()
   const { handleSaveBuild } = useBuildActions()
 
-  if (status === 'loading') return null
+  if (status === 'loading') return <Skeleton />
 
   if (status === 'unauthenticated') {
     return (

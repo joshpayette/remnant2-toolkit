@@ -10,6 +10,18 @@ import { badWordFilter } from '@/app/(lib)/badword-filter'
 import { revalidatePath } from 'next/cache'
 import { BuildState, buildStateSchema } from '@/app/(types)/build-state'
 import { MAX_BUILD_DESCRIPTION_LENGTH } from '@/app/(lib)/constants'
+import { Ratelimit } from '@upstash/ratelimit'
+import { kv } from '@vercel/kv'
+
+const ratelimit = new Ratelimit({
+  redis: kv,
+  // 5 requests from the same IP in 10 seconds
+  limiter: Ratelimit.slidingWindow(5, '10 s'),
+})
+
+export const config = {
+  runtime: 'edge',
+}
 
 export async function GET(request: Request) {
   if (!request) {
@@ -61,11 +73,23 @@ export async function GET(request: Request) {
 }
 
 export async function PATCH(request: Request) {
+  // session check
   const session = await getServerSession()
   if (!session || !session.user) {
     return Response.json({ message: 'You must be logged in.' }, { status: 401 })
   }
 
+  // rate limiting
+  const userId = session.user.id
+  const { limit, reset, remaining } = await ratelimit.limit(userId)
+
+  const headers = {
+    'X-RateLimit-Limit': limit.toString(),
+    'X-RateLimit-Remaining': remaining.toString(),
+    'X-RateLimit-Reset': reset.toString(),
+  }
+
+  // build parsing
   const unsafeBuildState = await request.json()
   const buildStateParsed = buildStateSchema.safeParse(unsafeBuildState)
   if (!buildStateParsed.success) {
@@ -73,7 +97,10 @@ export async function PATCH(request: Request) {
       'Error in buildState!',
       buildStateParsed.error.issues.forEach((issue) => console.error(issue)),
     )
-    return Response.json({ message: 'Error in buildState!' }, { status: 500 })
+    return Response.json(
+      { message: 'Error in buildState!' },
+      { status: 500, headers },
+    )
   }
   const buildState = buildStateParsed.data as BuildState
   const { items } = buildState
@@ -91,7 +118,7 @@ export async function PATCH(request: Request) {
       {
         message: 'You must be logged in as the build creator to edit a build.',
       },
-      { status: 401 },
+      { status: 401, headers },
     )
   }
 
@@ -100,7 +127,7 @@ export async function PATCH(request: Request) {
       {
         message: 'No buildId provided!',
       },
-      { status: 500 },
+      { status: 500, headers },
     )
   }
 
@@ -136,43 +163,66 @@ export async function PATCH(request: Request) {
     trait: TraitItem.toDBValue(buildState.items.trait),
   }
 
-  const dbResponse = await prisma?.build.update({
-    where: {
-      id: buildState.buildId,
-      createdBy: {
-        id: session.user.id,
+  try {
+    const dbResponse = await prisma?.build.update({
+      where: {
+        id: buildState.buildId,
+        createdBy: {
+          id: session.user.id,
+        },
       },
-    },
-    data: updatedBuild,
-  })
+      data: updatedBuild,
+    })
 
-  // check for errors in dbResponse
-  if (!dbResponse) {
+    // check for errors in dbResponse
+    if (!dbResponse) {
+      return Response.json(
+        { message: 'Error in updating build!' },
+        { status: 500, headers },
+      )
+    }
+
+    revalidatePath(`/builder/${buildState.buildId}`)
+
+    return Response.json(
+      { message: 'Build successfully updated!', buildId: dbResponse.id },
+      { status: 200, headers },
+    )
+  } catch (e) {
+    console.error(e)
     return Response.json(
       { message: 'Error in updating build!' },
-      { status: 500 },
+      { status: 500, headers },
     )
   }
-
-  revalidatePath(`/builder/${buildState.buildId}`)
-
-  return Response.json(
-    { message: 'Build successfully updated!', buildId: dbResponse.id },
-    { status: 200 },
-  )
 }
 
 export async function PUT(request: Request) {
+  // session validation
   const session = await getServerSession()
   if (!session || !session.user) {
     return Response.json({ message: 'You must be logged in.' }, { status: 401 })
   }
 
+  // rate limiting
+  const userId = session.user.id
+  const { limit, reset, remaining } = await ratelimit.limit(userId)
+
+  const headers = {
+    'X-RateLimit-Limit': limit.toString(),
+    'X-RateLimit-Remaining': remaining.toString(),
+    'X-RateLimit-Reset': reset.toString(),
+  }
+
+  // build validation
   const unsafeBuildState = await request.json()
   const buildStateParsed = buildStateSchema.safeParse(unsafeBuildState)
   if (!buildStateParsed.success) {
     console.error('Error in buildState!', buildStateParsed.error)
-    return Response.json({ message: 'Error in buildState!' }, { status: 500 })
+    return Response.json(
+      { message: 'Error in buildState!' },
+      { status: 500, headers },
+    )
   }
   const buildState = buildStateParsed.data as BuildState
   const { items } = buildState
@@ -216,77 +266,114 @@ export async function PUT(request: Request) {
     trait: TraitItem.toDBValue(buildState.items.trait),
   }
 
-  const dbResponse = await prisma?.build.create({
-    data: {
-      ...newBuild,
-      createdBy: {
-        connect: {
-          id: session.user.id,
+  try {
+    const dbResponse = await prisma?.build.create({
+      data: {
+        ...newBuild,
+        createdBy: {
+          connect: {
+            id: session.user.id,
+          },
         },
       },
-    },
-  })
+    })
 
-  // check for errors in dbResponse
-  if (!dbResponse) {
-    return Response.json({ message: 'Error in saving build!' }, { status: 500 })
+    // check for errors in dbResponse
+    if (!dbResponse) {
+      return Response.json(
+        { message: 'Error in saving build!' },
+        { status: 500, headers },
+      )
+    }
+
+    return Response.json(
+      { message: 'Build successfully saved!', buildId: dbResponse.id, headers },
+      { status: 200 },
+    )
+  } catch (e) {
+    console.error(e)
+    return Response.json(
+      { message: 'Error in saving build!' },
+      { status: 500, headers },
+    )
   }
-
-  return Response.json(
-    { message: 'Build successfully saved!', buildId: dbResponse.id },
-    { status: 200 },
-  )
 }
 
 export async function DELETE(req: Request) {
+  // session check
   const session = await getServerSession()
   if (!session || !session.user) {
     return Response.json({ message: 'You must be logged in.' }, { status: 401 })
   }
 
+  // rate limiting
+  const userId = session.user.id
+  const { limit, reset, remaining } = await ratelimit.limit(userId)
+
+  const headers = {
+    'X-RateLimit-Limit': limit.toString(),
+    'X-RateLimit-Remaining': remaining.toString(),
+    'X-RateLimit-Reset': reset.toString(),
+  }
+
+  // build validation
   const { buildId } = await req.json()
   if (!buildId) {
-    return Response.json({ message: 'No buildId provided!' }, { status: 500 })
-  }
-
-  const build = await prisma?.build.findUnique({
-    where: {
-      id: buildId,
-    },
-    include: {
-      createdBy: true,
-    },
-  })
-  if (!build) {
-    return Response.json({ message: 'Build not found!' }, { status: 404 })
-  }
-
-  if (build.createdBy.id !== session.user.id) {
     return Response.json(
-      {
-        message:
-          'You must be logged in as the build creator to delete a build.',
-      },
-      { status: 401 },
+      { message: 'No buildId provided!' },
+      { status: 500, headers },
     )
   }
 
-  const dbResponse = await prisma?.build.delete({
-    where: {
-      id: buildId,
-    },
-  })
+  try {
+    const build = await prisma?.build.findUnique({
+      where: {
+        id: buildId,
+      },
+      include: {
+        createdBy: true,
+      },
+    })
+    if (!build) {
+      return Response.json(
+        { message: 'Build not found!' },
+        { status: 404, headers },
+      )
+    }
 
-  // check for errors in dbResponse
-  if (!dbResponse) {
+    if (build.createdBy.id !== session.user.id) {
+      return Response.json(
+        {
+          message:
+            'You must be logged in as the build creator to delete a build.',
+        },
+        { status: 401, headers },
+      )
+    }
+
+    const dbResponse = await prisma?.build.delete({
+      where: {
+        id: buildId,
+      },
+    })
+
+    // check for errors in dbResponse
+    if (!dbResponse) {
+      return Response.json(
+        { message: 'Error in deleting build!' },
+        { status: 500, headers },
+      )
+    }
+
+    return Response.json(
+      { message: 'Build successfully deleted!', buildId: dbResponse.id },
+      { status: 200, headers },
+    )
+  } catch (e) {
+    console.error(e)
     return Response.json(
       { message: 'Error in deleting build!' },
-      { status: 500 },
+      { status: 500, headers },
     )
   }
-
-  return Response.json(
-    { message: 'Build successfully deleted!', buildId: dbResponse.id },
-    { status: 200 },
-  )
 }
