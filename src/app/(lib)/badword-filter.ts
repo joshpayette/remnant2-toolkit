@@ -8,7 +8,7 @@ const filter = new Filter()
 // filter.addWords('some', 'bad', 'words')
 // filter.removeWords('some', 'bad', 'words')
 
-export default function badWordFilter(text: string) {
+export function badWordFilter(text: string) {
   if (!text || typeof text !== 'string' || text === '') return ''
   return filter.clean(text)
 }
