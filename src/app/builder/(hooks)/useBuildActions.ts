@@ -97,8 +97,8 @@ export default function useBuildActions() {
   async function handleToggleVote(buildState: BuildState) {
     const voted = !buildState.upvoted
 
-    const response = await fetch('/api/build', {
-      method: 'PATCH',
+    const response = await fetch('/api/build/vote', {
+      method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
@@ -113,11 +113,10 @@ export default function useBuildActions() {
     }
 
     const data = await response.json()
-    toast.success(data.message)
-    buildState.upvoted = data.voted
+    buildState.upvoted = voted
     buildState.totalUpvotes = data.totalUpvotes
 
-    return buildState
+    router.refresh()
   }
 
   function handleImageExport(el: HTMLDivElement | null, imageFileName: string) {

@@ -2,6 +2,8 @@
 
 import { cn } from '@/app/(lib)/utils'
 import Link from 'next/link'
+import { StarIcon as StarIconOff } from '@heroicons/react/24/outline'
+import { StarIcon as StarIconOn } from '@heroicons/react/24/solid'
 
 export const buttonClasses =
   'flex w-full flex-col items-center rounded border-2 text-center px-4 py-2 text-sm font-bold text-white'
@@ -60,6 +62,21 @@ export const ActionButton = {
     >
       New Build
     </Link>
+  ),
+
+  Vote: ({ active, onClick }: ButtonProps & { active: boolean }) => (
+    <button
+      onClick={onClick}
+      className={cn(
+        'p- flex flex-row items-center justify-center rounded border border-transparent hover:text-yellow-300',
+        active ? 'text-yellow-500' : 'text-white',
+      )}
+    >
+      <span className="mr-1 h-7 w-7">
+        {active ? <StarIconOn /> : <StarIconOff />}
+      </span>
+      <span>Favorite</span>
+    </button>
   ),
 }
 

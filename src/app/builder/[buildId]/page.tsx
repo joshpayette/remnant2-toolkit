@@ -9,8 +9,6 @@ import { useIsClient } from 'usehooks-ts'
 import { useRef } from 'react'
 import { useSession } from 'next-auth/react'
 import PageHeader from '@/app/(components)/PageHeader'
-import copy from 'clipboard-copy'
-import { toast } from 'react-toastify'
 import { DBBuild } from '@/app/(types)'
 
 export default function Page({
@@ -83,6 +81,10 @@ export default function Page({
                 filename={`remnant2_builder_${buildState.name}`}
               />
               <hr className="my-4 border-gray-900" />
+              <ActionButton.Vote
+                active={buildState.upvoted}
+                onClick={() => handleToggleVote(buildState)}
+              />
             </div>
           </div>
           <div
