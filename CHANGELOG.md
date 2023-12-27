@@ -15,6 +15,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Back to top button was incorrectly displaying on Item Tracker on larger screens.
 - Addressed an issue where build wasn't saving due to error in parsing description.
 - Fixed a bug when duplicating a bug where it would edit in place instead of creating a new build.
+- Duplicating a build now automatically adds `(copy)` to the end of the build name.
 
 ## 2023-12-25
 

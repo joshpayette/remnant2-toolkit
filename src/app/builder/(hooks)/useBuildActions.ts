@@ -31,7 +31,11 @@ export default function useBuildActions() {
   }
 
   function handleDuplicateBuild(buildState: BuildState) {
-    const editBuildUrl = buildToQueryParams(buildState)
+    const newBuildName = `${buildState.name} (copy)`
+    const editBuildUrl = buildToQueryParams({
+      ...buildState,
+      name: newBuildName,
+    })
 
     setBuilderStorage({
       ...builderStorage,
