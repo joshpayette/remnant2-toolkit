@@ -38,13 +38,9 @@ export default function ItemSelect({
     setFilter('')
   }, [open])
 
-  if (!buildSlot) {
-    return null
-  }
+  if (!buildSlot) return null
 
-  if (!isClient) {
-    return null
-  }
+  if (!isClient) return null
 
   return (
     <Dialog
@@ -72,7 +68,6 @@ export default function ItemSelect({
                 imagePath: '/cancel-icon.png',
                 id: '',
               }}
-              showLabels={true}
               size="lg"
               onClick={() => onSelectItem(null)}
             />
@@ -82,7 +77,6 @@ export default function ItemSelect({
           <li key={item.name} className="mr-2 min-h-[70px] w-[90px]">
             <BuilderButton
               item={item}
-              showLabels={true}
               size="lg"
               onClick={() => onSelectItem(item)}
             />

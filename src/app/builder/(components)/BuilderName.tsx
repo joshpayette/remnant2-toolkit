@@ -29,7 +29,7 @@ export default function BuilderName({
             placeholder="Build Name"
             onChange={(e) => setNewName(e.target.value)}
           />
-          
+
           <div>
             <button
               onClick={() => onClose(newName)}

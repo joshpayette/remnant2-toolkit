@@ -139,13 +139,11 @@ export default function Builder({
   isEditable,
   isScreenshotMode,
   showControls,
-  showLabels,
 }: {
   buildState: BuildState
   isEditable: boolean
   isScreenshotMode: boolean
   showControls: boolean
-  showLabels: boolean
 }) {
   // Custom hook for working with the build
   const { updateBuildState } = useBuildState()
@@ -315,7 +313,6 @@ export default function Builder({
         <div id="left-column" className="flex-none">
           <BuilderButton
             item={buildState.items.helm}
-            showLabels={showLabels}
             isEditable={isEditable}
             onClick={
               isEditable
@@ -329,7 +326,6 @@ export default function Builder({
           />
           <BuilderButton
             item={buildState.items.torso}
-            showLabels={showLabels}
             isEditable={isEditable}
             onClick={
               isEditable
@@ -343,7 +339,6 @@ export default function Builder({
           />
           <BuilderButton
             item={buildState.items.legs}
-            showLabels={showLabels}
             isEditable={isEditable}
             onClick={
               isEditable
@@ -357,7 +352,6 @@ export default function Builder({
           />
           <BuilderButton
             item={buildState.items.gloves}
-            showLabels={showLabels}
             isEditable={isEditable}
             onClick={
               isEditable
@@ -375,7 +369,6 @@ export default function Builder({
           >
             <BuilderButton
               item={buildState.items.relic}
-              showLabels={showLabels}
               isEditable={isEditable}
               onClick={
                 isEditable
@@ -392,7 +385,6 @@ export default function Builder({
               className="absolute left-[66px] top-0 flex w-[160px] flex-col items-start justify-start"
             >
               <BuilderButton
-                showLabels={showLabels}
                 isEditable={isEditable}
                 size="sm"
                 item={buildState.items.relicfragment[0]}
@@ -409,7 +401,6 @@ export default function Builder({
               />
               <BuilderButton
                 item={buildState.items.relicfragment[1]}
-                showLabels={showLabels}
                 isEditable={isEditable}
                 size="sm"
                 onClick={
@@ -425,7 +416,6 @@ export default function Builder({
               />
               <BuilderButton
                 item={buildState.items.relicfragment[2]}
-                showLabels={showLabels}
                 isEditable={isEditable}
                 size="sm"
                 onClick={
@@ -445,12 +435,7 @@ export default function Builder({
 
         <div
           id="center-column"
-          className={cn(
-            'relative ml-[13px] flex flex-col items-start justify-start overflow-y-auto',
-            showLabels
-              ? 'h-[450px] max-h-[450px] sm:h-[460px] sm:max-h-[460px]'
-              : 'h-[362px] max-h-[362px] sm:h-[375px] sm:max-h-[375px]',
-          )}
+          className="relative ml-[13px] flex h-[450px] max-h-[450px] flex-col items-start justify-start overflow-y-auto sm:h-[460px] sm:max-h-[460px]"
         >
           <div
             id="archtype-container"
@@ -460,7 +445,6 @@ export default function Builder({
               <Fragment key={`archtype-${archtypeIndex}`}>
                 <BuilderButton
                   item={buildState.items.archtype[archtypeIndex]}
-                  showLabels={showLabels}
                   isEditable={isEditable}
                   onClick={
                     isEditable
@@ -475,7 +459,6 @@ export default function Builder({
                 />
                 <BuilderButton
                   item={buildState.items.skill[archtypeIndex]}
-                  showLabels={showLabels}
                   isEditable={isEditable}
                   onClick={
                     isEditable
@@ -498,7 +481,6 @@ export default function Builder({
           >
             <BuilderButton
               item={buildState.items.concoction[0]}
-              showLabels={showLabels}
               isEditable={isEditable}
               onClick={
                 isEditable
@@ -518,7 +500,6 @@ export default function Builder({
                 <BuilderButton
                   key={`concoction-${concoctionIndex}`}
                   item={buildState.items.concoction[concoctionIndex]}
-                  showLabels={showLabels}
                   isEditable={isEditable}
                   onClick={
                     isEditable
@@ -543,7 +524,6 @@ export default function Builder({
               <BuilderButton
                 key={`consumable-${consumableIndex}`}
                 item={buildState.items.consumable[consumableIndex]}
-                showLabels={showLabels}
                 isEditable={isEditable}
                 onClick={
                   isEditable
@@ -563,7 +543,6 @@ export default function Builder({
         <div id="right-column" className="flex-none">
           <BuilderButton
             item={buildState.items.amulet}
-            showLabels={showLabels}
             isEditable={isEditable}
             onClick={
               isEditable
@@ -578,7 +557,6 @@ export default function Builder({
           {getArrayOfLength(4).map((ringIndex) => (
             <BuilderButton
               key={`ring-${ringIndex}`}
-              showLabels={showLabels}
               item={buildState.items.ring[ringIndex]}
               isEditable={isEditable}
               onClick={
@@ -606,7 +584,6 @@ export default function Builder({
             className="flex flex-col items-start justify-center"
           >
             <BuilderButton
-              showLabels={showLabels}
               item={buildState.items.weapon[weaponIndex]}
               size="wide"
               isEditable={isEditable}
@@ -623,7 +600,6 @@ export default function Builder({
             />
             <div className="flex w-full grow items-center justify-around gap-4">
               <BuilderButton
-                showLabels={showLabels}
                 item={buildState.items.mod[weaponIndex]}
                 size="md"
                 isEditable={isEditable}
@@ -640,7 +616,6 @@ export default function Builder({
               />
               <BuilderButton
                 item={buildState.items.mutator[weaponIndex]}
-                showLabels={showLabels}
                 size="md"
                 isEditable={isEditable}
                 onClick={
@@ -662,7 +637,6 @@ export default function Builder({
         <Traits
           traitItems={buildState.items.trait}
           showControls={showControls}
-          showLabels={showLabels}
           isScreenshotMode={isScreenshotMode}
           onAddTrait={
             isEditable

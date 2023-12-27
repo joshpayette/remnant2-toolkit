@@ -7,7 +7,6 @@ import { DEFAULT_TRAIT_AMOUNT, MAX_TRAIT_AMOUNT } from '@/app/(lib)/constants'
 export default function Traits({
   isScreenshotMode,
   showControls,
-  showLabels,
   traitItems,
   onAddTrait,
   onRemoveTrait,
@@ -15,7 +14,6 @@ export default function Traits({
 }: {
   isScreenshotMode: boolean
   showControls: boolean
-  showLabels: boolean
   traitItems: TraitItem[]
   onAddTrait?: () => void
   onRemoveTrait: (traitItem: TraitItem) => void
@@ -38,7 +36,7 @@ export default function Traits({
           isScreenshotMode && 'grid-cols-2',
         )}
       >
-        {showLabels && (
+        {showControls && (
           <div className="col-span-full mx-auto mb-2 max-w-[150px] border border-gray-500 p-2 text-center text-xs text-gray-300">
             <span
               className={cn(

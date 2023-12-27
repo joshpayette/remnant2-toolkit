@@ -6,13 +6,11 @@ export default function BuilderButton({
   onClick,
   isEditable = true,
   item,
-  showLabels,
   size = 'md',
 }: {
   onClick?: () => void
   isEditable?: boolean
   item: GenericItem | null
-  showLabels: boolean
   size?: 'sm' | 'md' | 'lg' | 'wide'
 }) {
   let imageSize = {
@@ -78,7 +76,7 @@ export default function BuilderButton({
         )}
       </button>
 
-      {showLabels && item?.name && (
+      {item?.name && (
         <div
           className={cn(
             'flex items-center justify-center bg-purple-950 px-1 py-0.5 text-center text-[10px] text-white',
