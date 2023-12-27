@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+import { Suspense, useEffect, useRef } from 'react'
 import PageHeader from '@/app/(components)/PageHeader'
 import Builder from './(components)/Builder'
 import useBuildState from '@/app/builder/(hooks)/useBuildState'
@@ -12,6 +12,7 @@ import { ActionButton } from './(components)/ActionButton'
 import ToCsvButton from '../(components)/ToCsvButton'
 import { useLocalStorage } from '../(hooks)/useLocalStorage'
 import { useSearchParams } from 'next/navigation'
+import Skeleton from '../(components)/Skeleton'
 
 export default function Page() {
   const searchParams = useSearchParams()
@@ -72,6 +73,7 @@ export default function Page() {
         >
           <div id="actions" className="flex flex-col gap-2">
             <SaveBuildButton buildState={buildState} />
+
             <ActionButton.ExportImage
               onClick={() =>
                 handleImageExport(

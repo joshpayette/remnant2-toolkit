@@ -10,12 +10,17 @@ import {
   ArrowLeftOnRectangleIcon,
   UserCircleIcon,
 } from '@heroicons/react/24/outline'
-import LoadingIndicator from './LoadingIndicator'
+import Skeleton from './Skeleton'
 
 function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
   const { data: session, status } = useSession()
 
-  if (status === 'loading') return null
+  if (status === 'loading')
+    return (
+      <div className="w-full max-w-[100px]">
+        <Skeleton />
+      </div>
+    )
 
   if (status !== 'authenticated' || !session?.user) {
     return (
