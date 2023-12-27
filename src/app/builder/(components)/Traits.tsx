@@ -5,6 +5,7 @@ import { TraitItem } from '@/app/(types)/TraitItem'
 import { DEFAULT_TRAIT_AMOUNT, MAX_TRAIT_AMOUNT } from '@/app/(lib)/constants'
 
 export default function Traits({
+  isEditable,
   isScreenshotMode,
   showControls,
   traitItems,
@@ -12,6 +13,7 @@ export default function Traits({
   onRemoveTrait,
   onChangeAmount,
 }: {
+  isEditable: boolean
   isScreenshotMode: boolean
   showControls: boolean
   traitItems: TraitItem[]
@@ -36,7 +38,7 @@ export default function Traits({
           isScreenshotMode && 'grid-cols-2',
         )}
       >
-        {showControls && (
+        {showControls && isEditable && (
           <div className="col-span-full mx-auto mb-2 max-w-[150px] border border-gray-500 p-2 text-center text-xs text-gray-300">
             <span
               className={cn(
@@ -109,7 +111,7 @@ export default function Traits({
               )}
             </div>
             <div className="text-sm text-gray-200">{traitItem.name}</div>
-            {showControls && (
+            {showControls && isEditable && (
               <button
                 onClick={() => onRemoveTrait(traitItem)}
                 className="flex grow items-end justify-end text-red-500"
@@ -120,7 +122,7 @@ export default function Traits({
           </div>
         ))}
       </div>
-      {showControls && (
+      {showControls && isEditable && (
         <button
           onClick={onAddTrait}
           className="mx-auto mt-4 flex max-w-[250px] items-center justify-center rounded border border-purple-700 px-4 py-2 text-xs font-bold text-white hover:border-purple-400 hover:bg-purple-500"

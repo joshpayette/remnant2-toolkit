@@ -261,7 +261,7 @@ export default function Builder({
   const isItemSelectModalOpen = Boolean(selectedItemSlot.category)
 
   //Tracks whether the build name is editable or not.
-  const [buildNameIsEditable, setBuildNameIsEditable] = useState(false)
+  const [isEditingBuildName, setIsEditingBuildName] = useState(false)
 
   /**
    * Returns a list of items that match the selected slot
@@ -291,11 +291,12 @@ export default function Builder({
 
       <div className="mb-4">
         <BuilderName
-          editable={buildNameIsEditable}
-          onClick={() => setBuildNameIsEditable(true)}
+          isEditable={isEditable}
+          isEditingBuildName={isEditingBuildName}
+          onClick={() => setIsEditingBuildName(true)}
           onClose={(newBuildName: string) => {
             updateBuildState('name', newBuildName)
-            setBuildNameIsEditable(false)
+            setIsEditingBuildName(false)
           }}
           name={buildState.name}
           showControls={showControls}
@@ -637,6 +638,7 @@ export default function Builder({
         <Traits
           traitItems={buildState.items.trait}
           showControls={showControls}
+          isEditable={isEditable}
           isScreenshotMode={isScreenshotMode}
           onAddTrait={
             isEditable

@@ -2,13 +2,15 @@ import { PencilIcon } from '@heroicons/react/24/outline'
 import { useState } from 'react'
 
 export default function BuilderName({
-  editable,
+  isEditable,
+  isEditingBuildName,
   name,
   showControls,
   onClick,
   onClose,
 }: {
-  editable: boolean
+  isEditable: boolean
+  isEditingBuildName: boolean
   name: string
   showControls: boolean
   onClick: () => void
@@ -18,7 +20,7 @@ export default function BuilderName({
 
   return (
     <div className="relative mb-2 flex w-full flex-col items-center justify-center gap-2 border-b border-b-green-900 pb-2">
-      {editable ? (
+      {isEditingBuildName && isEditable ? (
         <>
           <input
             type="text"
@@ -50,7 +52,7 @@ export default function BuilderName({
           <h2 className="text-center  text-4xl font-bold text-green-400">
             {name}
           </h2>
-          {showControls && (
+          {showControls && isEditable && (
             <button onClick={onClick} className="text-green-400">
               <div className="flex grow items-end justify-start">
                 <PencilIcon
