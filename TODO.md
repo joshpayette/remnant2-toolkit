@@ -2,6 +2,7 @@
 
 - On the builder, add info icon to click/hover to see item info for each item in the build.
   - Look into also having an export detailed version that shows images, descriptions, stats, etc.
+- Add build randomizer for the luls
 - Add duplicate build button to builds in profile
 - Added community build page where you can search and sort builds
 - Add mechanism to vote for builds (upvote only)
