@@ -38,6 +38,8 @@ export default function useBuildActions() {
       ...builderStorage,
       tempDescription: buildState.description,
       tempIsPublic: buildState.isPublic,
+      tempBuildId: null,
+      tempCreatedById: null,
     })
 
     router.push(editBuildUrl)
