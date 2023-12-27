@@ -12,7 +12,6 @@ import { ActionButton } from './(components)/ActionButton'
 import ToCsvButton from '../(components)/ToCsvButton'
 import { useLocalStorage } from '../(hooks)/useLocalStorage'
 import { useSearchParams } from 'next/navigation'
-import Skeleton from '../(components)/Skeleton'
 
 export default function Page() {
   const searchParams = useSearchParams()

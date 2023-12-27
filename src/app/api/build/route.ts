@@ -12,6 +12,7 @@ import { BuildState, buildStateSchema } from '@/app/(types)/build-state'
 import { MAX_BUILD_DESCRIPTION_LENGTH } from '@/app/(lib)/constants'
 import { Ratelimit } from '@upstash/ratelimit'
 import { kv } from '@vercel/kv'
+import { DBBuild } from '@/app/(types)'
 
 const ratelimit = new Ratelimit({
   redis: kv,
@@ -21,55 +22,6 @@ const ratelimit = new Ratelimit({
 
 export const config = {
   runtime: 'edge',
-}
-
-export async function GET(request: Request) {
-  if (!request) {
-    console.error('No request body!')
-    return Response.json({ message: 'No request body!' }, { status: 500 })
-  }
-
-  const body = await request.json()
-  const { buildId } = body
-  if (!buildId) {
-    console.error('No buildId provided!')
-    return Response.json({ message: 'No buildId provided!' }, { status: 500 })
-  }
-
-  const build = await prisma?.build.findUnique({
-    where: {
-      id: buildId,
-    },
-    include: {
-      createdBy: true,
-    },
-  })
-  if (!build) {
-    return Response.json({ message: 'Build not found!' }, { status: 404 })
-  }
-
-  if (build.isPublic) {
-    return Response.json({ build }, { status: 200 })
-  }
-
-  const session = await getServerSession()
-  if (!session || !session.user || build.createdBy.id !== session.user.id) {
-    console.error(
-      'You must be logged in as the build creator to view a private build.',
-    )
-    return Response.json(
-      {
-        message:
-          'You must be logged in as the build creator to view a private build.',
-      },
-      { status: 401 },
-    )
-  }
-
-  return Response.json(
-    { message: 'Successfully fetched build!', build },
-    { status: 200 },
-  )
 }
 
 export async function PATCH(request: Request) {

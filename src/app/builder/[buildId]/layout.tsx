@@ -1,9 +1,6 @@
-import { prisma } from '@/app/(lib)/db'
 import BuildPage from './page'
 import { Metadata, ResolvingMetadata } from 'next'
 import { getServerSession } from '@/app/(lib)/auth'
-import { Build } from '@prisma/client'
-import { DEFAULT_DISPLAY_NAME } from '@/app/(lib)/constants'
 import { DBBuild } from '@/app/(types)'
 
 async function getBuild(buildId: string) {
@@ -12,47 +9,49 @@ async function getBuild(buildId: string) {
     return Response.json({ message: 'No buildId provided!' }, { status: 500 })
   }
 
+  const session = await getServerSession()
+
   const build = await prisma?.build.findUnique({
     where: {
       id: buildId,
     },
     include: {
       createdBy: true,
-      BuildVotes: true,
     },
   })
 
   if (!build) {
-    console.error('Build not found!', build)
     return Response.json({ message: 'Build not found!' }, { status: 404 })
   }
 
-  const buildWithExtraFields = {
+  const returnedBuild: DBBuild = {
     ...build,
-    createdByDisplayName:
-      build.createdBy?.displayName ||
-      build.createdBy?.name ||
-      DEFAULT_DISPLAY_NAME,
-    totalUpvotes: build.BuildVotes.length, // Count the votes
-    upvoted: build.BuildVotes.some((vote) => vote.userId === build.createdById), // Check if the user upvoted the build
-  } satisfies DBBuild
-
-  if (buildWithExtraFields.isPublic) {
-    return Response.json(
-      {
-        message: 'Successfully fetched build!',
-        build: buildWithExtraFields,
-      },
-      { status: 200 },
-    )
+    createdByDisplayName: build.createdBy.displayName ?? '',
+    upvoted: false,
+    totalUpvotes: 0,
   }
 
-  const session = await getServerSession()
-  if (
-    !session ||
-    !session.user ||
-    buildWithExtraFields.createdById !== session.user.id
-  ) {
+  const voteResult = await prisma?.buildVoteCounts.findFirst({
+    where: {
+      buildId,
+      userId: session?.user?.id,
+    },
+  })
+
+  returnedBuild.upvoted = Boolean(voteResult)
+
+  returnedBuild.totalUpvotes =
+    (await prisma?.buildVoteCounts.count({
+      where: {
+        buildId: buildId,
+      },
+    })) ?? 0
+
+  if (returnedBuild.isPublic) {
+    return Response.json({ build: returnedBuild }, { status: 200 })
+  }
+
+  if (!session || !session.user || build.createdBy.id !== session.user.id) {
     console.error(
       'You must be logged in as the build creator to view a private build.',
     )
@@ -66,10 +65,7 @@ async function getBuild(buildId: string) {
   }
 
   return Response.json(
-    {
-      message: 'Successfully fetched build!',
-      build: buildWithExtraFields,
-    },
+    { message: 'Successfully fetched build!', build: returnedBuild },
     { status: 200 },
   )
 }

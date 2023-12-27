@@ -84,8 +84,7 @@ export async function POST(request: Request) {
           userId: session.user.id,
         },
       })
-    }
-    if (isVoteRegistered && buildState.upvoted === false) {
+    } else if (isVoteRegistered && !buildState.upvoted) {
       await prisma?.buildVoteCounts.delete({
         where: {
           id: isVoteRegistered.id,

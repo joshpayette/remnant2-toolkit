@@ -33,6 +33,7 @@ export default function Page({
 
   // Need to convert the build data to a format that the BuildPage component can use
   const buildState = dbBuildToBuildState(dbBuild)
+  if (!session?.user) buildState.upvoted = false
 
   // We need to convert the build.items object into an array of items to pass to the ToCsvButton
   const csvBuildData = buildToCsvData(buildState)
@@ -80,11 +81,15 @@ export default function Page({
                 data={csvBuildData.filter((item) => item?.name !== '')}
                 filename={`remnant2_builder_${buildState.name}`}
               />
-              <hr className="my-4 border-gray-900" />
-              <ActionButton.Vote
-                active={buildState.upvoted}
-                onClick={() => handleToggleVote(buildState)}
-              />
+              {session?.user && (
+                <>
+                  <hr className="mb-2 mt-4 border-gray-900" />
+                  <ActionButton.Vote
+                    active={buildState.upvoted}
+                    onClick={() => handleToggleVote(buildState)}
+                  />
+                </>
+              )}
             </div>
           </div>
           <div
