@@ -20,8 +20,6 @@ const ratelimit = new Ratelimit({
   limiter: Ratelimit.slidingWindow(5, '10 s'),
 })
 
-export const runtime = 'edge'
-
 export async function PATCH(request: Request) {
   // session check
   const session = await getServerSession()
