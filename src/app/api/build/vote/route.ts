@@ -1,15 +1,7 @@
 import { getServerSession } from '@/app/(lib)/auth'
-import { ArmorItem } from '@/app/(types)/items/ArmorItem'
-import { GenericItem } from '@/app/(types)/items/GenericItem'
-import { MutatorItem } from '@/app/(types)/items/MutatorItem'
-import { TraitItem } from '@/app/(types)/items/TraitItem'
-import { WeaponItem } from '@/app/(types)/items/WeaponItem'
-import { Build } from '@prisma/client'
 import { prisma } from '@/app/(lib)/db'
-import { badWordFilter } from '@/app/(lib)/badword-filter'
 import { revalidatePath } from 'next/cache'
-import { BuildState, buildStateSchema } from '@/app/(types)/build-state'
-import { MAX_BUILD_DESCRIPTION_LENGTH } from '@/app/(lib)/constants'
+import { BuildState } from '@/app/(types)/build-state'
 import { Ratelimit } from '@upstash/ratelimit'
 import { kv } from '@vercel/kv'
 import { z } from 'zod'
@@ -20,9 +12,7 @@ const ratelimit = new Ratelimit({
   limiter: Ratelimit.slidingWindow(5, '10 s'),
 })
 
-export const config = {
-  runtime: 'edge',
-}
+export const runtime = 'edge'
 
 export async function POST(request: Request) {
   // session check
