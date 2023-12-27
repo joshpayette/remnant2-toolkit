@@ -6,7 +6,7 @@ import { TraitItem } from '@/app/(types)/TraitItem'
 import { WeaponItem } from '@/app/(types)/WeaponItem'
 import { Build } from '@prisma/client'
 import { prisma } from '@/app/(lib)/db'
-import { badwordFilter } from '@/app/(lib)/badword-filter'
+import badWordFilter from '@/app/(lib)/badword-filter'
 import { revalidatePath } from 'next/cache'
 import { BuildState, buildStateSchema } from '@/app/builder/(types)'
 import { MAX_BUILD_DESCRIPTION_LENGTH } from '@/app/(lib)/constants'
@@ -77,12 +77,14 @@ export async function PATCH(request: Request) {
   }
   const buildState = buildStateParsed.data as BuildState
   const { items } = buildState
+
+  const cleanName = buildState.name ? badWordFilter(buildState.name) : ''
+
   // limit description to MAX_DESCRIPTION_LENGTH
   const clippedDescription = buildState.description
     ? buildState.description.slice(0, MAX_BUILD_DESCRIPTION_LENGTH)
     : ''
-  const cleanDescription =
-    clippedDescription !== '' ? badwordFilter.clean(clippedDescription) : ''
+  const cleanDescription = badWordFilter(clippedDescription)
 
   if (buildState.createdById !== session.user.id) {
     return Response.json(
@@ -106,7 +108,7 @@ export async function PATCH(request: Request) {
     Build,
     'id' | 'createdAt' | 'createdBy' | 'updatedAt' | 'createdById'
   > = {
-    name: buildState.name,
+    name: cleanName,
     description: cleanDescription,
     isPublic: Boolean(buildState.isPublic),
     videoUrl: '',
@@ -175,13 +177,12 @@ export async function PUT(request: Request) {
   const buildState = buildStateParsed.data as BuildState
   const { items } = buildState
 
-  const cleanName = buildState.name ? badwordFilter.clean(buildState.name) : ''
+  const cleanName = buildState.name ? badWordFilter(buildState.name) : ''
   // limit description to MAX_DESCRIPTION_LENGTH
   const clippedDescription = buildState.description
     ? buildState.description.slice(0, MAX_BUILD_DESCRIPTION_LENGTH)
     : ''
-  const cleanDescription =
-    clippedDescription !== '' ? badwordFilter.clean(clippedDescription) : ''
+  const cleanDescription = badWordFilter(clippedDescription)
 
   const newBuild: Omit<
     Build,
