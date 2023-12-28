@@ -15,7 +15,7 @@ export default function ToCsvButton({ data, filename }: ToCsvProps) {
       className="flex flex-col items-center justify-center rounded border border-purple-500 px-4 py-2 text-sm font-bold text-white hover:bg-purple-700"
       onClick={handleClick}
     >
-      Export to CSV
+      Export All Data to CSV
     </button>
   )
 }
