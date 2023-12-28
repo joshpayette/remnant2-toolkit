@@ -10,7 +10,7 @@ export default function BackToTopButton() {
   return (
     <div className="fixed bottom-0 right-0 z-30 mb-2 mr-2 flex w-full items-center justify-end">
       <button
-        className="flex w-auto items-center justify-center gap-1 rounded-md border border-blue-500 bg-gradient-to-b from-[#0575E6] to-[#021B79] p-2 text-sm font-bold text-white drop-shadow-md hover:border-green-500"
+        className="flex w-auto items-center justify-center gap-1 rounded-md border border-yellow-300 bg-yellow-500 bg-gradient-to-b p-2 text-sm font-bold text-black drop-shadow-md hover:border-2"
         onClick={handleBackToTopClick}
       >
         <ArrowUpIcon className="h-5 w-5" />
