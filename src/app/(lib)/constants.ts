@@ -36,12 +36,12 @@ export const NAV_ITEMS = [
     href: '/item-lookup',
     icon: InformationCircleIcon,
   },
-  {
-    name: 'Change Log',
-    description: 'See the latest changes to the site.',
-    href: 'https://github.com/joshpayette/remnant2-toolkit/blob/main/CHANGELOG.md',
-    icon: DocumentTextIcon,
-  },
+  // {
+  //   name: 'Change Log',
+  //   description: 'See the latest changes to the site.',
+  //   href: 'https://github.com/joshpayette/remnant2-toolkit/blob/main/CHANGELOG.md',
+  //   icon: DocumentTextIcon,
+  // },
 ]
 
 /**
