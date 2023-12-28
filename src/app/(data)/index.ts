@@ -2731,12 +2731,6 @@ export const remnantItems: Item[] = [
   },
   {
     category: 'relicfragment',
-    name: 'Ranged Weakspot Damage',
-    imagePath: '/relicfragment/ranged_weakspot_damage.png',
-    id: 'oszz4u',
-  },
-  {
-    category: 'relicfragment',
     name: 'Recoil',
     imagePath: '/relicfragment/recoil.png',
     id: 'ygdexg',
@@ -2800,6 +2794,12 @@ export const remnantItems: Item[] = [
     name: 'Stamina Recovery Delay',
     imagePath: '/relicfragment/stamina_recovery_delay.png',
     id: '0y36lm',
+  },
+  {
+    category: 'relicfragment',
+    name: 'Weakspot Damage',
+    imagePath: '/relicfragment/weakspot_damage.png',
+    id: 'oszz4u',
   },
   {
     category: 'relicfragment',
