@@ -24,14 +24,20 @@ function BuildItem({
   return (
     <li className="col-span-1 flex flex-col divide-y divide-green-800 rounded-lg border border-green-500 bg-black text-center shadow">
       <div className="flex flex-1 flex-col p-8">
-        <Image
-          className="mx-auto h-32 w-32 flex-shrink-0 rounded-full"
-          width={200}
-          height={200}
-          src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}${imagePath}`}
-          alt={`${name} icon`}
-        />
-        <h3 className="mt-6 text-xl font-bold text-purple-500">{name}</h3>
+        <button
+          onClick={onClickMoreInfo}
+          className="mt-6 text-xl font-bold text-purple-500 hover:text-purple-300 hover:underline"
+        >
+          <Image
+            className="mx-auto h-32 w-32 flex-shrink-0 rounded-full"
+            width={200}
+            height={200}
+            src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}${imagePath}`}
+            alt={`${name} icon`}
+          />
+
+          {name}
+        </button>
         <dl className="mt-1 flex flex-grow flex-col justify-between">
           <dt className="sr-only">Item Category</dt>
           <dd className="text-sm text-gray-500">{category}</dd>

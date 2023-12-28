@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2023-12-28
 
+### Added
+
+- Detailed build cards now show item info when you click the image or name.
+
 ### Removed
 
 - Profile no longer shows email address. It doesn't offer anything, can't be changed, and could be a privacy concern.
