@@ -75,7 +75,12 @@ NEXTAUTH_SECRET=""
 NEXTAUTH_URL=""
 NEXT_PUBLIC_IMAGE_URL=""
 CRON_SECRET=""
-POSTMARK_API_TOKEN=""
+WEBHOOK_COMMUNITY_BUILDS=""
+WEBHOOK_REPORTED_CONTENT=""
+KV_REST_API_READ_ONLY_TOKEN=""
+KV_REST_API_TOKEN=""
+KV_REST_API_URL=""
+KV_URL=""
 ```
 
 #### Environment Variable Descriptions
@@ -88,7 +93,9 @@ POSTMARK_API_TOKEN=""
 - `NEXTAUTH_SECRET` - A secret string used by NextAuth. Can be anything, just make it long and random.
 - `NEXTAUTH_URL` - The base URL of your site. This is used by NextAuth to redirect back to your site after authentication. Example: http://localhost:3000 for development.
 - `CRON_SECRET` - A secret string used by the Vercel CRON platform to prevent unauthorized access.
-- `POSTMARK_API_TOKEN` - The API token for your Postmark account. Used for sending emails triggered by the CRON jobs.
+- `WEBHOOK_COMMUNITY_BUILDS` - The Discord webhook URL to post new community builds to.
+- `WEBHOOK_REPORTED_CONTENT` - The Discord webhook URL to post reported content to.
+- `KV_` - The Vercel KV environment variables are used to access the Vercel KV store. These are only needed for production.
 
 ### Run the development server
 
