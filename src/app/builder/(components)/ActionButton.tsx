@@ -72,7 +72,7 @@ export const ActionButton = {
         active ? 'text-yellow-400' : 'text-white',
       )}
     >
-      <span className="mr-1 h-6 w-6">
+      <span className="mr-1 h-5 w-5">
         {active ? <StarIconOn /> : <StarIconOff />}
       </span>
       <span className="text-md">{active ? 'Favorited' : 'Favorite'}</span>
