@@ -9,6 +9,7 @@
 - On item lookup, add expanded filters
 - Add CSV import
 - Add toggle to limit build items to DLC/non-DLC items
+- When logging in, the next-auth page to select Discord or Reddit is pretty ugly. Make Reddit Button orange with icon, etc.
 
 ## Bugs
 

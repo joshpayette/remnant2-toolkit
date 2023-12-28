@@ -19,6 +19,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Removed
 
 - Profile no longer shows email address. It doesn't offer anything, can't be changed, and could be a privacy concern.
+- Changelog is no longer linked from the site.
 
 ### Fixed
 
