@@ -3,6 +3,7 @@ import { Metadata, ResolvingMetadata } from 'next'
 import { getServerSession } from '@/app/(lib)/auth'
 import { DBBuild } from '@/app/(types)'
 import { prisma } from '@/app/(lib)/db'
+import { DEFAULT_DISPLAY_NAME } from '@/app/(lib)/constants'
 
 async function getBuild(buildId: string) {
   if (!buildId) {
@@ -51,7 +52,10 @@ async function getBuild(buildId: string) {
     concoction: build.concoction,
     consumable: build.consumable,
     trait: build.trait,
-    createdByDisplayName: build.createdBy.displayName ?? '',
+    createdByDisplayName:
+      build.createdBy.displayName ||
+      build.createdBy.name ||
+      DEFAULT_DISPLAY_NAME,
     upvoted: false,
     totalUpvotes: build.BuildVotes.length,
   }
