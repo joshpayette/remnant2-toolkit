@@ -3,7 +3,7 @@
 import Textarea from '@/app/(components)/Textarea'
 import Toggle from '@/app/(components)/Toggle'
 import { MAX_BUILD_DESCRIPTION_LENGTH } from '@/app/(lib)/constants'
-import { useSession } from 'next-auth/react'
+import { signIn, useSession } from 'next-auth/react'
 
 type Props = {
   description: string | null
@@ -28,7 +28,10 @@ export default function MemberFeatures({
     <div className="pt-4">
       {!session && !isScreenshotModeActive && (
         <p className="mb-2 text-sm text-red-500">
-          In order to save additional build data, please sign in.
+          In order to save additional build data, please{' '}
+          <button className="underline" onClick={() => signIn()}>
+            sign in.
+          </button>
         </p>
       )}
       <div className="relative">

@@ -27,6 +27,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Fixed user display name not showing on build
 - Home page buttons are now clickable with better indications they are clickable
 - Changed Export to CSV label to indicate it exports all data regardless of filters
+- Red text at bottom of builder now links to sign in page
 
 ## 2023-12-27
 
