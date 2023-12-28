@@ -2,7 +2,7 @@ import { metadata as baseMetaData } from '@/app/metadata'
 
 const title = "Dudley's Eldritch Knight"
 const creator = 'Dudley'
-const description = `The Eldritch Knight is a versatile Ritualist build with a fun playstyle centered on inflicting status effects. This hybrid Tank/DPS build is able to shrug off damage from Apocalypse-level enemies, all while dealing substantial Ranged and Status Effect Damage of its own.`
+const description = `(Updated 2023-12-27) The Eldritch Knight is a versatile Ritualist build with a fun playstyle centered on inflicting status effects. This hybrid Tank/DPS build is able to shrug off damage from Apocalypse-level enemies, all while dealing substantial Ranged and Status Effect Damage of its own.`
 const slug = 'dudleys-eldritch-knight'
 const url = `https://remnant2toolkit.com/featured-builds/build/${slug}`
 const ogImageUrl =
