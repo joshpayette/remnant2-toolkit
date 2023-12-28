@@ -12,7 +12,6 @@ import { BuildState, buildStateSchema } from '@/app/(types)/build-state'
 import { MAX_BUILD_DESCRIPTION_LENGTH } from '@/app/(lib)/constants'
 import { Ratelimit } from '@upstash/ratelimit'
 import { kv } from '@vercel/kv'
-import { DBBuild } from '@/app/(types)'
 
 const ratelimit = new Ratelimit({
   redis: kv,
@@ -245,6 +244,14 @@ export async function PUT(request: Request) {
         { status: 500, headers },
       )
     }
+
+    // Register a vote for the build
+    await prisma?.buildVoteCounts.create({
+      data: {
+        buildId: dbResponse.id,
+        userId: session.user.id,
+      },
+    })
 
     return Response.json(
       { message: 'Build successfully saved!', buildId: dbResponse.id, headers },

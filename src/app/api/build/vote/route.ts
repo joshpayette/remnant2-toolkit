@@ -6,6 +6,8 @@ import { Ratelimit } from '@upstash/ratelimit'
 import { kv } from '@vercel/kv'
 import { z } from 'zod'
 
+// TODO Make sure build creator always upvotes their own build
+
 const ratelimit = new Ratelimit({
   redis: kv,
   // 5 requests from the same IP in 10 seconds
@@ -55,6 +57,21 @@ export async function POST(request: Request) {
     )
   }
 
+  const build = await prisma?.build.findUnique({
+    where: {
+      id: buildState.buildId,
+    },
+  })
+
+  if (!build) {
+    return Response.json(
+      {
+        message: 'Build does not exist!',
+      },
+      { status: 500, headers },
+    )
+  }
+
   try {
     // Check if user has a vote for this build already
     const isVoteRegistered = await prisma?.buildVoteCounts.findFirst({
@@ -64,15 +81,29 @@ export async function POST(request: Request) {
       },
     })
 
-    // If user voted for this build but does not have a vote registered, add a vote
-    if (!isVoteRegistered && buildState.upvoted === true) {
+    // if the user created the build, make sure they
+    // always vote for it
+    if (build.createdById === session.user.id) {
+      if (!isVoteRegistered) {
+        await prisma?.buildVoteCounts.create({
+          data: {
+            buildId: buildState.buildId,
+            userId: session.user.id,
+          },
+        })
+      }
+    }
+    // if the user has not voted for the build yet, register their vote
+    else if (!isVoteRegistered && buildState.upvoted === true) {
       await prisma?.buildVoteCounts.create({
         data: {
           buildId: buildState.buildId,
           userId: session.user.id,
         },
       })
-    } else if (isVoteRegistered && !buildState.upvoted) {
+    }
+    // if the user has voted for the build, but is now unvoting
+    else if (isVoteRegistered && !buildState.upvoted) {
       await prisma?.buildVoteCounts.delete({
         where: {
           id: isVoteRegistered.id,
