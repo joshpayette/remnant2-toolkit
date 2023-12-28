@@ -1,5 +1,6 @@
 # TODO
 
+- Add pagination to build tables in profile page.
 - Add build randomizer for the luls
 - Add duplicate build button to builds in profile
 - Added community build page where you can search and sort builds
