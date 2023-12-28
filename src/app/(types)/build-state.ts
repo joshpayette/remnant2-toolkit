@@ -5,6 +5,8 @@ import { TraitItem } from '@/app/(types)/items/TraitItem'
 import { WeaponItem } from '@/app/(types)/items/WeaponItem'
 import { z } from 'zod'
 
+export type ItemCategory = keyof BuildState['items']
+
 /**
  * The build tool UI state
  */
@@ -36,6 +38,7 @@ export interface BuildState {
     trait: TraitItem[]
   }
 }
+
 export const buildStateSchema = z.object({
   name: z.string(),
   description: z.string().nullable(),

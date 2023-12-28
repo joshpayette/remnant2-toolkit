@@ -11,6 +11,7 @@ import { useSession } from 'next-auth/react'
 import PageHeader from '@/app/(components)/PageHeader'
 import { DBBuild } from '@/app/(types)'
 import TotalUpvotes from '../(components)/TotalUpvotes'
+import DetailedBuildView from '../(components)/DetailedBuildView'
 
 export default function Page({
   params: { dbBuild },
@@ -114,6 +115,12 @@ export default function Page({
               showControls={showControls}
             />
           </div>
+        </div>
+        <div className="mt-12 flex w-full flex-col items-center justify-center gap-2">
+          <DetailedBuildView
+            buildState={buildState}
+            isScreenshotMode={isScreenshotMode}
+          />
         </div>
       </div>
     </>
