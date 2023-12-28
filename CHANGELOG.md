@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Added
 
 - Detailed build cards now show item info when you click the image or name.
+- Back to Top button now shows on non-mobile resolutions.
 
 ### Removed
 
