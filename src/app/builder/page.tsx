@@ -12,6 +12,7 @@ import { ActionButton } from './(components)/ActionButton'
 import ToCsvButton from '../(components)/ToCsvButton'
 import { useLocalStorage } from '../(hooks)/useLocalStorage'
 import { useSearchParams } from 'next/navigation'
+import DetailedBuildView from './(components)/DetailedBuildView'
 
 export default function Page() {
   const searchParams = useSearchParams()
@@ -41,6 +42,7 @@ export default function Page() {
         tempIsPublic: null,
       })
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchParams])
 
   // Add the build name to the page title
@@ -109,6 +111,12 @@ export default function Page() {
             showControls={showControls}
           />
         </div>
+      </div>
+      <div className="mt-12 flex w-full flex-col items-center justify-center gap-2">
+        <DetailedBuildView
+          buildState={buildState}
+          isScreenshotMode={isScreenshotMode}
+        />
       </div>
     </div>
   )

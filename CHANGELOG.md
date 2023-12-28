@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Added
 
 - Added the ability to favorite builds. Favorited builds will be available on your profile.
+- Added a detailed view of the items in a build.
 
 ## 2023-12-26
 
