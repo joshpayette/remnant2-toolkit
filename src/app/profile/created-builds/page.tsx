@@ -1,18 +1,20 @@
 import { getServerSession } from '@/app/(lib)/auth'
-import EditBuildButton from './EditBuildButton'
 import { dbBuildToBuildState } from '@/app/(lib)/utils'
-import DeleteBuildButton from './DeleteBuildButton'
-import CopyBuildUrlButton from './CopyBuildUrlButton'
-import ViewBuildButton from './ViewBuildButton'
 import { prisma } from '@/app/(lib)/db'
 import { DBBuild } from '@/app/(types)'
 import { DEFAULT_DISPLAY_NAME } from '@/app/(lib)/constants'
+import ViewBuildButton from '../(components)/ViewBuildButton'
+import CopyBuildUrlButton from '../(components)/CopyBuildUrlButton'
+import EditBuildButton from '../(components)/EditBuildButton'
+import DeleteBuildButton from '../(components)/DeleteBuildButton'
 
 async function getBuilds() {
   const session = await getServerSession()
 
   const userId = session?.user?.id
 
+  // select all builds created by the user
+  // including the total votes for each build
   const builds = await prisma?.build.findMany({
     where: {
       createdById: userId,
@@ -42,7 +44,7 @@ async function getBuilds() {
   return buildsWithExtraFields
 }
 
-export default async function BuildsList() {
+export default async function ListCreatedBuilds() {
   const builds = await getBuilds()
 
   return (
@@ -51,10 +53,10 @@ export default async function BuildsList() {
         <div className="w-full sm:flex sm:items-center">
           <div className="sm:flex-auto">
             <h1 className="w-full text-base font-semibold leading-6 text-green-500">
-              Builds
+              Builds created by you
             </h1>
             <p className="mt-2 text-sm text-gray-300">
-              A list of all the builds in your account.
+              All builds that you have created are listed here.
             </p>
           </div>
         </div>
@@ -87,6 +89,12 @@ export default async function BuildsList() {
                       className="px-3 py-3.5 text-left text-sm font-semibold text-white"
                     >
                       Visibility
+                    </th>
+                    <th
+                      scope="col"
+                      className="px-3 py-3.5 text-left text-sm font-semibold text-white"
+                    >
+                      Votes
                     </th>
                     <th
                       scope="col"
@@ -141,6 +149,9 @@ export default async function BuildsList() {
                         </td>
                         <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-left text-sm font-medium sm:pr-0">
                           {buildState.isPublic ? 'Public' : 'Private'}
+                        </td>
+                        <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-left text-sm font-medium text-yellow-300 sm:pr-0">
+                          {build.totalUpvotes}
                         </td>
                         <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-0">
                           <CopyBuildUrlButton buildId={build.id} />

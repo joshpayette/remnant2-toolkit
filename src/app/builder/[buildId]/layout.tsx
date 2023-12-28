@@ -17,6 +17,7 @@ async function getBuild(buildId: string) {
     },
     include: {
       createdBy: true,
+      BuildVotes: true,
     },
   })
 
@@ -25,10 +26,33 @@ async function getBuild(buildId: string) {
   }
 
   const returnedBuild: DBBuild = {
-    ...build,
+    id: build.id,
+    name: build.name,
+    description: build.description ?? '',
+    isPublic: build.isPublic,
+    createdAt: build.createdAt,
+    createdById: build.createdById,
+    videoUrl: build.videoUrl ?? '',
+    helm: build.helm,
+    torso: build.torso,
+    gloves: build.gloves,
+    legs: build.legs,
+    amulet: build.amulet,
+    ring: build.ring,
+    relic: build.relic,
+    relicfragment: build.relicfragment,
+    archtype: build.archtype,
+    skill: build.skill,
+    weapon: build.weapon,
+    mod: build.mod,
+    mutator: build.mutator,
+    updatedAt: build.updatedAt,
+    concoction: build.concoction,
+    consumable: build.consumable,
+    trait: build.trait,
     createdByDisplayName: build.createdBy.displayName ?? '',
     upvoted: false,
-    totalUpvotes: 0,
+    totalUpvotes: build.BuildVotes.length,
   }
 
   const voteResult = await prisma?.buildVoteCounts.findFirst({
@@ -39,13 +63,6 @@ async function getBuild(buildId: string) {
   })
 
   returnedBuild.upvoted = Boolean(voteResult)
-
-  returnedBuild.totalUpvotes =
-    (await prisma?.buildVoteCounts.count({
-      where: {
-        buildId: buildId,
-      },
-    })) ?? 0
 
   if (returnedBuild.isPublic) {
     return Response.json({ build: returnedBuild }, { status: 200 })
