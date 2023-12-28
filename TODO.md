@@ -1,7 +1,3 @@
-# VOTING TODO
-
-- Add total votes to builder
-
 # TODO
 
 - On the builder, add info icon to click/hover to see item info for each item in the build.

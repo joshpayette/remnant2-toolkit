@@ -68,14 +68,14 @@ export const ActionButton = {
     <button
       onClick={onClick}
       className={cn(
-        'text-md flex flex-row items-center justify-center rounded border border-transparent p-1 hover:text-yellow-300',
-        active ? 'text-yellow-500' : 'text-white',
+        'text-md flex flex-row items-center justify-center rounded border border-transparent p-1 hover:text-yellow-300 hover:underline',
+        active ? 'text-yellow-400' : 'text-white',
       )}
     >
-      <span className="mr-1 h-5 w-5">
+      <span className="mr-1 h-6 w-6">
         {active ? <StarIconOn /> : <StarIconOff />}
       </span>
-      <span>Favorite</span>
+      <span className="text-md">{active ? 'Favorited' : 'Favorite'}</span>
     </button>
   ),
 }

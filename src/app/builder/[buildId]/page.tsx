@@ -10,6 +10,7 @@ import { useRef } from 'react'
 import { useSession } from 'next-auth/react'
 import PageHeader from '@/app/(components)/PageHeader'
 import { DBBuild } from '@/app/(types)'
+import TotalUpvotes from '../(components)/TotalUpvotes'
 
 export default function Page({
   params: { dbBuild },
@@ -85,19 +86,16 @@ export default function Page({
                 <>
                   <hr className="mb-2 mt-4 border-gray-900" />
 
-                  <div className="flex w-full flex-col items-center justify-center gap-2 rounded border border-yellow-500 bg-gradient-to-br from-yellow-900 to-yellow-300 p-4">
-                    <div className="text-5xl font-bold text-black drop-shadow-md">
-                      {buildState.totalUpvotes}
-                    </div>
-                    <div className="text-lg text-gray-800">
-                      {buildState.totalUpvotes === 1 ? 'Favorite' : 'Favorites'}
-                    </div>
+                  <div className="my-4 flex w-full flex-col items-center justify-center gap-4">
+                    <TotalUpvotes totalUpvotes={buildState.totalUpvotes} />
+
+                    <ActionButton.Vote
+                      active={buildState.upvoted}
+                      onClick={() => handleToggleVote(buildState)}
+                    />
                   </div>
 
-                  <ActionButton.Vote
-                    active={buildState.upvoted}
-                    onClick={() => handleToggleVote(buildState)}
-                  />
+                  <hr className="mb-4 border-gray-900 sm:hidden" />
                 </>
               )}
             </div>
