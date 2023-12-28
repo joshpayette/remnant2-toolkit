@@ -19,12 +19,19 @@ export async function PATCH(req: Request) {
 
   // rate limiting
   const userId = session.user.id
-  const { limit, reset, remaining } = await ratelimit.limit(userId)
+  const { limit, reset, remaining, success } = await ratelimit.limit(userId)
 
   const headers = {
     'X-RateLimit-Limit': limit.toString(),
     'X-RateLimit-Remaining': remaining.toString(),
     'X-RateLimit-Reset': reset.toString(),
+  }
+
+  if (!success) {
+    return Response.json(
+      { message: 'You are being rate limited!' },
+      { status: 429 },
+    )
   }
 
   const unsafeUserState = await req.json()
