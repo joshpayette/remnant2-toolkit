@@ -7,7 +7,7 @@ export default async function Header() {
   const session = await getServerSession()
   if (!session?.user) return null
 
-  const { image, displayName, name, email } = session.user
+  const { image, displayName, name } = session.user
 
   return (
     <div className="flex flex-col items-center gap-x-8 gap-y-4 sm:flex-row sm:gap-y-0">
