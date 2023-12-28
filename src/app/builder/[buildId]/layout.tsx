@@ -2,6 +2,7 @@ import BuildPage from './page'
 import { Metadata, ResolvingMetadata } from 'next'
 import { getServerSession } from '@/app/(lib)/auth'
 import { DBBuild } from '@/app/(types)'
+import { prisma } from '@/app/(lib)/db'
 
 async function getBuild(buildId: string) {
   if (!buildId) {
