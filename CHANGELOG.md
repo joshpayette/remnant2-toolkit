@@ -9,6 +9,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Added
 
 - Detailed build cards now show item info when you click the image or name.
+- Back to Top button now shows on non-mobile resolutions.
+- Added SenorCerveza's Ronin Melee build
 
 ### Removed
 
@@ -17,6 +19,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Fixed
 
 - Renamed relic fragment "Ranged Weakspot Damage" to "Weakspot Damage" - the wiki lied to me!
+- Fixed user display name not showing on build
 
 ## 2023-12-27
 

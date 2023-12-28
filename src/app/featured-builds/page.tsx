@@ -19,8 +19,10 @@ import { pageInfo as sadderallsRichieRichPageInfo } from './build/sadderalls-ric
 import { pageInfo as dotsrusLikesDotsPageInfo } from './build/dotsrus-likes-dots/metadata'
 import { pageInfo as sheenShotsAcidicBerserkerPageInfo } from './build/sheenshots-acidic-berserker/metadata'
 import { pageInfo as sheenShotsRageLoopPageInfo } from './build/sheenshots-rage-loop/metadata'
+import { pageInfo as senorservezasRoninMeleePageInfo } from './build/senorcervezas-ronin-melee/metadata'
 
 const builds = [
+  senorservezasRoninMeleePageInfo,
   dudleysEldritchKnightPageInfo,
   sheenShotsRageLoopPageInfo,
   dotsrusLikesDotsPageInfo,
