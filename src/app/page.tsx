@@ -4,25 +4,6 @@ import { NAV_ITEMS } from './(lib)/constants'
 export default function HomePage() {
   return (
     <>
-      <div className="mb-4 flex w-full items-center justify-center bg-purple-900">
-        <div className="flex w-full max-w-2xl flex-col items-center justify-center gap-y-2 p-2 text-left text-sm text-gray-200">
-          <p className="text-lg font-bold">Database integration enabled!</p>
-          <p>
-            Sign in with your Discord or Reddit account to get started. Signing
-            in will generate significaly shorter build URLs, allow you to save
-            builds to your account, add build descriptions, and have more
-            individualized social media sharing.
-          </p>
-          <p>
-            This is a new feature, so please report any bugs or issues you find
-            to{' '}
-            <span className="font-bold text-green-500">
-              remnant2toolkit_72170
-            </span>{' '}
-            on Discord, or on the Github repo.
-          </p>
-        </div>
-      </div>
       <div className="relative isolate overflow-hidden bg-gray-900 py-24 sm:py-32">
         <img
           src="https://d2sqltdcj8czo5.cloudfront.net/home-bg.webp"
