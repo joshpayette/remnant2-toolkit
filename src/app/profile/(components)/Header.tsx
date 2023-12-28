@@ -25,7 +25,6 @@ export default async function Header() {
       <div className="flex flex-col gap-0">
         <DisplayName name={displayName ?? name ?? DEFAULT_DISPLAY_NAME} />
         <span className="text-sm text-white">{name}</span>
-        <span className="text-sm text-gray-400">{email}</span>
       </div>
     </div>
   )

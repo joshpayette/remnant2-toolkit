@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2023-12-28
 
+### Removed
+
+- Profile no longer shows email address. It doesn't offer anything, can't be changed, and could be a privacy concern.
+
 ### Fixed
 
 - Renamed relic fragment "Ranged Weakspot Damage" to "Weakspot Damage" - the wiki lied to me!
