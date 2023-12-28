@@ -12,6 +12,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Back to Top button now shows on non-mobile resolutions.
 - Added SenorCerveza's Ronin Melee build
 
+### Changed
+
+- Updated the display of individual featured builds
+
 ### Removed
 
 - Profile no longer shows email address. It doesn't offer anything, can't be changed, and could be a privacy concern.
