@@ -21,6 +21,7 @@ import { pageInfo as sheenShotsAcidicBerserkerPageInfo } from './build/sheenshot
 import { pageInfo as sheenShotsRageLoopPageInfo } from './build/sheenshots-rage-loop/metadata'
 
 const builds = [
+  dudleysEldritchKnightPageInfo,
   sheenShotsRageLoopPageInfo,
   dotsrusLikesDotsPageInfo,
   sadderallsRichieRichPageInfo,
@@ -29,7 +30,6 @@ const builds = [
   senorcervezasBuffMasterPageInfo,
   senorcervezasGrayHealthPageInfo,
   senorcervezasBossMelterPageInfo,
-  dudleysEldritchKnightPageInfo,
   dudleysBloodHunterPageInfo,
   mrNachosNightfallBuildPageInfo,
   mrNachosEGGBuildPageInfo,
