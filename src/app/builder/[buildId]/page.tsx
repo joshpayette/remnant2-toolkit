@@ -84,6 +84,16 @@ export default function Page({
               {session?.user && (
                 <>
                   <hr className="mb-2 mt-4 border-gray-900" />
+
+                  <div className="flex w-full flex-col items-center justify-center gap-2 rounded border border-yellow-500 bg-gradient-to-br from-yellow-900 to-yellow-300 p-4">
+                    <div className="text-5xl font-bold text-black drop-shadow-md">
+                      {buildState.totalUpvotes}
+                    </div>
+                    <div className="text-lg text-gray-800">
+                      {buildState.totalUpvotes === 1 ? 'Favorite' : 'Favorites'}
+                    </div>
+                  </div>
+
                   <ActionButton.Vote
                     active={buildState.upvoted}
                     onClick={() => handleToggleVote(buildState)}
