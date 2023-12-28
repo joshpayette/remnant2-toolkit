@@ -44,7 +44,7 @@ export default function HomePage() {
               <Link
                 href={item.href}
                 key={item.name}
-                className="flex flex-row gap-x-4 rounded-xl bg-white/5 p-6 ring-1 ring-inset ring-white/10"
+                className="flex flex-row gap-x-4 rounded-xl border border-transparent bg-white/5 p-6 ring-1 ring-inset ring-white/10 hover:border-yellow-500"
               >
                 <item.icon
                   className="h-7 w-7 flex-none text-green-500"
