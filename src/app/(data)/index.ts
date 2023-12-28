@@ -1,8 +1,8 @@
-import { ArmorItem } from '../(types)/ArmorItem'
-import { GenericItem } from '../(types)/GenericItem'
-import { MutatorItem } from '../(types)/MutatorItem'
-import { TraitItem } from '../(types)/TraitItem'
-import { WeaponItem } from '../(types)/WeaponItem'
+import { ArmorItem } from '../(types)/items/ArmorItem'
+import { GenericItem } from '../(types)/items/GenericItem'
+import { MutatorItem } from '../(types)/items/MutatorItem'
+import { TraitItem } from '../(types)/items/TraitItem'
+import { WeaponItem } from '../(types)/items/WeaponItem'
 
 type Item = GenericItem | ArmorItem | WeaponItem | MutatorItem | TraitItem
 

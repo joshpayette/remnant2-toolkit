@@ -1,4 +1,4 @@
-import { remnantItems } from '../(data)'
+import { remnantItems } from '../../(data)'
 
 /**
  * Used to link items, such as guns to their mods,

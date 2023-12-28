@@ -4,7 +4,6 @@ import { ArrowUpIcon } from '@heroicons/react/24/outline'
 
 export default function BackToTopButton() {
   function handleBackToTopClick() {
-    console.info('scrolling')
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 

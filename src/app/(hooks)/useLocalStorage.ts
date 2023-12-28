@@ -1,5 +1,5 @@
 import { useLocalStorage as useLS } from 'usehooks-ts'
-import { GenericItem } from '../(types)/GenericItem'
+import { GenericItem } from '../(types)/items/GenericItem'
 
 // The type of the database in LocalStorage
 interface LocalStorage {

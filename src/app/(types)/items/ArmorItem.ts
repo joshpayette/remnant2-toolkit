@@ -1,4 +1,4 @@
-import { remnantItems } from '../(data)'
+import { remnantItems } from '../../(data)'
 import { GenericItem } from './GenericItem'
 
 export interface BaseArmorItem extends GenericItem {

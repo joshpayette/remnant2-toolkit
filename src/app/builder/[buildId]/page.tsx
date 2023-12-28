@@ -5,16 +5,17 @@ import { buildToCsvData, cn, dbBuildToBuildState } from '@/app/(lib)/utils'
 import useBuildActions from '../(hooks)/useBuildActions'
 import { ActionButton } from '../(components)/ActionButton'
 import ToCsvButton from '@/app/(components)/ToCsvButton'
-import { Build } from '@prisma/client'
 import { useIsClient } from 'usehooks-ts'
 import { useRef } from 'react'
 import { useSession } from 'next-auth/react'
 import PageHeader from '@/app/(components)/PageHeader'
+import { DBBuild } from '@/app/(types)'
+import TotalUpvotes from '../(components)/TotalUpvotes'
 
 export default function Page({
   params: { dbBuild },
 }: {
-  params: { dbBuild: Build & { createdByDisplayName: '' } }
+  params: { dbBuild: DBBuild }
 }) {
   const isClient = useIsClient()
   const { data: session } = useSession()
@@ -26,12 +27,14 @@ export default function Page({
     handleDuplicateBuild,
     handleEditBuild,
     handleImageExport,
+    handleToggleVote,
   } = useBuildActions()
 
   const buildContainerRef = useRef<HTMLDivElement>(null)
 
   // Need to convert the build data to a format that the BuildPage component can use
   const buildState = dbBuildToBuildState(dbBuild)
+  if (!session?.user) buildState.upvoted = false
 
   // We need to convert the build.items object into an array of items to pass to the ToCsvButton
   const csvBuildData = buildToCsvData(buildState)
@@ -79,7 +82,22 @@ export default function Page({
                 data={csvBuildData.filter((item) => item?.name !== '')}
                 filename={`remnant2_builder_${buildState.name}`}
               />
-              <hr className="my-4 border-gray-900" />
+              {session?.user && (
+                <>
+                  <hr className="mb-2 mt-4 border-gray-900" />
+
+                  <div className="my-4 flex w-full flex-col items-center justify-center gap-4">
+                    <TotalUpvotes totalUpvotes={buildState.totalUpvotes} />
+
+                    <ActionButton.Vote
+                      active={buildState.upvoted}
+                      onClick={() => handleToggleVote(buildState)}
+                    />
+                  </div>
+
+                  <hr className="mb-4 border-gray-900 sm:hidden" />
+                </>
+              )}
             </div>
           </div>
           <div

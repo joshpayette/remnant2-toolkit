@@ -1,5 +1,5 @@
-import { remnantItems } from '../(data)'
-import { DEFAULT_TRAIT_AMOUNT } from '../(lib)/constants'
+import { remnantItems } from '../../(data)'
+import { DEFAULT_TRAIT_AMOUNT } from '../../(lib)/constants'
 import { GenericItem } from './GenericItem'
 
 interface BaseTraitItem extends GenericItem {

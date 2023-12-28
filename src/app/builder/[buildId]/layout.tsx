@@ -1,9 +1,8 @@
-import { prisma } from '@/app/(lib)/db'
 import BuildPage from './page'
 import { Metadata, ResolvingMetadata } from 'next'
 import { getServerSession } from '@/app/(lib)/auth'
-import { Build } from '@prisma/client'
-import { DEFAULT_DISPLAY_NAME } from '@/app/(lib)/constants'
+import { DBBuild } from '@/app/(types)'
+import { prisma } from '@/app/(lib)/db'
 
 async function getBuild(buildId: string) {
   if (!buildId) {
@@ -11,53 +10,66 @@ async function getBuild(buildId: string) {
     return Response.json({ message: 'No buildId provided!' }, { status: 500 })
   }
 
-  let build: Build | null = null
-  try {
-    build = await prisma?.build.findUnique({
-      where: {
-        id: buildId,
-      },
-      include: {
-        createdBy: true,
-      },
-    })
-  } catch (error) {
-    console.error('Error fetching build!', error)
-    return Response.json({ message: 'Error fetching build!' }, { status: 500 })
-  }
+  const session = await getServerSession()
 
-  if (!build) {
-    console.error('Build not found!', build)
-    return Response.json({ message: 'Build not found!' }, { status: 404 })
-  }
-
-  // Fetch the creator's name
-  const creator = await prisma?.user.findUnique({
+  const build = await prisma?.build.findUnique({
     where: {
-      id: build.createdById,
+      id: buildId,
+    },
+    include: {
+      createdBy: true,
+      BuildVotes: true,
     },
   })
 
-  const creatorName =
-    creator?.displayName || creator?.name || DEFAULT_DISPLAY_NAME
-
-  const buildData = {
-    ...build,
-    createdByDisplayName: creatorName,
+  if (!build) {
+    return Response.json({ message: 'Build not found!' }, { status: 404 })
   }
 
-  if (buildData.isPublic) {
-    return Response.json(
-      {
-        message: 'Successfully fetched build!',
-        build: buildData,
-      },
-      { status: 200 },
-    )
+  const returnedBuild: DBBuild = {
+    id: build.id,
+    name: build.name,
+    description: build.description ?? '',
+    isPublic: build.isPublic,
+    createdAt: build.createdAt,
+    createdById: build.createdById,
+    videoUrl: build.videoUrl ?? '',
+    helm: build.helm,
+    torso: build.torso,
+    gloves: build.gloves,
+    legs: build.legs,
+    amulet: build.amulet,
+    ring: build.ring,
+    relic: build.relic,
+    relicfragment: build.relicfragment,
+    archtype: build.archtype,
+    skill: build.skill,
+    weapon: build.weapon,
+    mod: build.mod,
+    mutator: build.mutator,
+    updatedAt: build.updatedAt,
+    concoction: build.concoction,
+    consumable: build.consumable,
+    trait: build.trait,
+    createdByDisplayName: build.createdBy.displayName ?? '',
+    upvoted: false,
+    totalUpvotes: build.BuildVotes.length,
   }
 
-  const session = await getServerSession()
-  if (!session || !session.user || buildData.createdById !== session.user.id) {
+  const voteResult = await prisma?.buildVoteCounts.findFirst({
+    where: {
+      buildId,
+      userId: session?.user?.id,
+    },
+  })
+
+  returnedBuild.upvoted = Boolean(voteResult)
+
+  if (returnedBuild.isPublic) {
+    return Response.json({ build: returnedBuild }, { status: 200 })
+  }
+
+  if (!session || !session.user || build.createdBy.id !== session.user.id) {
     console.error(
       'You must be logged in as the build creator to view a private build.',
     )
@@ -71,10 +83,7 @@ async function getBuild(buildId: string) {
   }
 
   return Response.json(
-    {
-      message: 'Successfully fetched build!',
-      build: buildData,
-    },
+    { message: 'Successfully fetched build!', build: returnedBuild },
     { status: 200 },
   )
 }

@@ -10,8 +10,8 @@ import ItemCard from '../tracker/(components)/ItemCard'
 import { InformationCircleIcon } from '@heroicons/react/24/outline'
 import { useDebounce } from 'usehooks-ts'
 import SearchInput from '../(components)/SearchInput'
-import { MutatorItem } from '../(types)/MutatorItem'
-import { GenericItem } from '../(types)/GenericItem'
+import { MutatorItem } from '../(types)/items/MutatorItem'
+import { GenericItem } from '../(types)/items/GenericItem'
 
 const csvItems = remnantItems // Modify the data for use. Adds a discovered flag,
   // modifies the description for mutators

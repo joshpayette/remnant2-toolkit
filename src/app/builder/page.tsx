@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+import { Suspense, useEffect, useRef } from 'react'
 import PageHeader from '@/app/(components)/PageHeader'
 import Builder from './(components)/Builder'
 import useBuildState from '@/app/builder/(hooks)/useBuildState'
@@ -24,6 +24,7 @@ export default function Page() {
     showControls,
     handleCopyBuildUrl,
     handleImageExport,
+    handleToggleVote,
   } = useBuildActions()
 
   const buildContainerRef = useRef<HTMLDivElement>(null)
@@ -71,6 +72,7 @@ export default function Page() {
         >
           <div id="actions" className="flex flex-col gap-2">
             <SaveBuildButton buildState={buildState} />
+
             <ActionButton.ExportImage
               onClick={() =>
                 handleImageExport(

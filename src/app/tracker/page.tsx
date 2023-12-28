@@ -15,8 +15,8 @@ import { useFormState } from 'react-dom'
 import parseSaveFile from './actions'
 import { SubmitButton } from '../(components)/SubmitButton'
 import { toast } from 'react-toastify'
-import { GenericItem } from '../(types)/GenericItem'
-import { MutatorItem } from '../(types)/MutatorItem'
+import { GenericItem } from '../(types)/items/GenericItem'
+import { MutatorItem } from '../(types)/items/MutatorItem'
 
 const skippedItemCategories: Array<GenericItem['category']> = [
   'concoction',

@@ -1,5 +1,5 @@
 import { cn } from '@/app/(lib)/utils'
-import { GenericItem } from '@/app/(types)/GenericItem'
+import { GenericItem } from '@/app/(types)/items/GenericItem'
 import Image from 'next/image'
 
 export default function BuilderButton({

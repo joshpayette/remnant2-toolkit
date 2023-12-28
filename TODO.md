@@ -5,7 +5,6 @@
 - Add build randomizer for the luls
 - Add duplicate build button to builds in profile
 - Added community build page where you can search and sort builds
-- Add mechanism to vote for builds (upvote only)
 - On tracker, allowing sorting alphabetically or by item type (i.e. group armors together)
 - On item lookup, add expanded filters
 - Add CSV import

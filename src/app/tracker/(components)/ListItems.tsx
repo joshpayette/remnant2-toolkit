@@ -8,7 +8,7 @@ import { useIsClient } from 'usehooks-ts'
 import { useLocalStorage } from '@/app/(hooks)/useLocalStorage'
 import ItemCard from './ItemCard'
 import { InformationCircleIcon } from '@heroicons/react/24/outline'
-import { GenericItem } from '@/app/(types)/GenericItem'
+import { GenericItem } from '@/app/(types)/items/GenericItem'
 
 function getProgress(
   items: Array<GenericItem & { discovered: boolean }>,

@@ -10,12 +10,17 @@ import {
   ArrowLeftOnRectangleIcon,
   UserCircleIcon,
 } from '@heroicons/react/24/outline'
-import LoadingIndicator from './LoadingIndicator'
+import Skeleton from './Skeleton'
 
 function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
   const { data: session, status } = useSession()
 
-  if (status === 'loading') return null
+  if (status === 'loading')
+    return (
+      <div className="w-full max-w-[100px]">
+        <Skeleton />
+      </div>
+    )
 
   if (status !== 'authenticated' || !session?.user) {
     return (
@@ -67,7 +72,7 @@ function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
             href="/api/auth/signout"
             className="block px-3 py-2 text-base font-semibold leading-7 text-white hover:text-purple-500 hover:underline"
           >
-            Signout {session.user.email}
+            Signout
           </Link>
         </div>
       </div>
@@ -114,7 +119,7 @@ function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
                   'block px-4 py-2 text-sm text-gray-700',
                 )}
               >
-                Sign out
+                Signout
               </Link>
             )}
           </Menu.Item>

@@ -1,10 +1,5 @@
-import { TraitItem } from './TraitItem'
-import { GenericItem } from './GenericItem'
-import { WeaponItem } from './WeaponItem'
-import { ArmorItem } from './ArmorItem'
-import { MutatorItem } from './MutatorItem'
-import { z } from 'zod'
-import { MAX_BUILD_DESCRIPTION_LENGTH } from '../(lib)/constants'
+import { Build } from '@prisma/client'
+import { GenericItem } from './items/GenericItem'
 
 /**
  * The minimum information that should be
@@ -31,4 +26,10 @@ export interface PageInfo {
   ogImageUrl: string
   classes?: string[]
   tags?: string[]
+}
+
+export interface DBBuild extends Build {
+  createdByDisplayName: string
+  upvoted: boolean
+  totalUpvotes: number
 }

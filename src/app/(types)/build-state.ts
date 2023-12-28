@@ -1,9 +1,8 @@
-import { MAX_BUILD_DESCRIPTION_LENGTH } from '@/app/(lib)/constants'
-import { ArmorItem } from '@/app/(types)/ArmorItem'
-import { GenericItem } from '@/app/(types)/GenericItem'
-import { MutatorItem } from '@/app/(types)/MutatorItem'
-import { TraitItem } from '@/app/(types)/TraitItem'
-import { WeaponItem } from '@/app/(types)/WeaponItem'
+import { ArmorItem } from '@/app/(types)/items/ArmorItem'
+import { GenericItem } from '@/app/(types)/items/GenericItem'
+import { MutatorItem } from '@/app/(types)/items/MutatorItem'
+import { TraitItem } from '@/app/(types)/items/TraitItem'
+import { WeaponItem } from '@/app/(types)/items/WeaponItem'
 import { z } from 'zod'
 
 /**
@@ -16,6 +15,8 @@ export interface BuildState {
   buildId: string | null
   description: string | null
   isPublic: boolean
+  upvoted: boolean
+  totalUpvotes: number
   items: {
     helm: ArmorItem | null
     torso: ArmorItem | null
@@ -41,6 +42,7 @@ export const buildStateSchema = z.object({
   isPublic: z.boolean().nullable(),
   buildId: z.string().nullable(),
   createdById: z.string().nullable(),
+  upvoted: z.boolean().nullable(),
   items: z.object({
     helm: z.any(),
     torso: z.any(),

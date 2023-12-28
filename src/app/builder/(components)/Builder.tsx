@@ -1,4 +1,4 @@
-import { TraitItem } from '@/app/(types)/TraitItem'
+import { TraitItem } from '@/app/(types)/items/TraitItem'
 import { Fragment, useCallback, useMemo, useState } from 'react'
 import { cn, getArrayOfLength, getConcoctionSlotCount } from '@/app/(lib)/utils'
 import BuilderName from './BuilderName'
@@ -7,12 +7,12 @@ import Traits from './Traits'
 import ItemSelect from './ItemSelect'
 import Logo from '@/app/(components)/Logo'
 import useBuildState from '../(hooks)/useBuildState'
-import { GenericItem } from '@/app/(types)/GenericItem'
+import { GenericItem } from '@/app/(types)/items/GenericItem'
 import MemberFeatures from './MemberFeatures'
 import { remnantItems } from '@/app/(data)'
-import { WeaponItem } from '@/app/(types)/WeaponItem'
-import { MutatorItem } from '@/app/(types)/MutatorItem'
-import { BuildState } from '../(types)'
+import { WeaponItem } from '@/app/(types)/items/WeaponItem'
+import { MutatorItem } from '@/app/(types)/items/MutatorItem'
+import { BuildState } from '../../(types)/build-state'
 
 /**
  * Returns a list of items that match the selected slot

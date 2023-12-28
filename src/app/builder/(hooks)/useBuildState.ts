@@ -1,14 +1,14 @@
 import { remnantItemCategories } from '@/app/(data)'
 import { usePathname, useSearchParams, useRouter } from 'next/navigation'
 import { useCallback } from 'react'
-import { TraitItem } from '@/app/(types)/TraitItem'
-import { GenericItem } from '@/app/(types)/GenericItem'
-import { ArmorItem } from '@/app/(types)/ArmorItem'
-import { WeaponItem } from '@/app/(types)/WeaponItem'
-import { MutatorItem } from '@/app/(types)/MutatorItem'
+import { TraitItem } from '@/app/(types)/items/TraitItem'
+import { GenericItem } from '@/app/(types)/items/GenericItem'
+import { ArmorItem } from '@/app/(types)/items/ArmorItem'
+import { WeaponItem } from '@/app/(types)/items/WeaponItem'
+import { MutatorItem } from '@/app/(types)/items/MutatorItem'
 import { useLocalStorage } from '@/app/(hooks)/useLocalStorage'
 import { linkArchtypesToTraits, linkWeaponsToMods } from '@/app/(lib)/utils'
-import { BuildState } from '../(types)'
+import { BuildState } from '../../(types)/build-state'
 
 /**
  * Handles reading/writing the build to the URL query string,
@@ -82,6 +82,8 @@ export default function useBuildState() {
       buildId: null,
       createdByDisplayName: null,
       createdById: null,
+      upvoted: false,
+      totalUpvotes: 0,
       items: {
         helm: null,
         torso: null,
