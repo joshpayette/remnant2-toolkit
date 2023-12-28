@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { NAV_ITEMS } from './(lib)/constants'
+import { ArrowRightIcon } from '@heroicons/react/24/outline'
 
 export default function HomePage() {
   return (
@@ -40,24 +41,26 @@ export default function HomePage() {
           </div>
           <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-6 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-8">
             {NAV_ITEMS.map((item) => (
-              <div
+              <Link
+                href={item.href}
                 key={item.name}
-                className="flex gap-x-4 rounded-xl bg-white/5 p-6 ring-1 ring-inset ring-white/10"
+                className="flex flex-row gap-x-4 rounded-xl bg-white/5 p-6 ring-1 ring-inset ring-white/10"
               >
                 <item.icon
-                  className="h-7 w-5 flex-none text-green-500"
+                  className="h-7 w-7 flex-none text-green-500"
                   aria-hidden="true"
                 />
-                <div className="text-base leading-7">
-                  <Link
-                    href={item.href}
-                    className="font-semibold text-white hover:text-green-500 hover:underline"
-                  >
-                    {item.name}
-                  </Link>
+                <div>
+                  <p className="text-base leading-7">{item.name}</p>
                   <p className="mt-2 text-gray-300">{item.description}</p>
+                  <div className="mt-4 flex w-full items-center justify-end">
+                    <ArrowRightIcon
+                      className="h-6 w-6 text-green-500 hover:text-green-300"
+                      aria-hidden="true"
+                    />
+                  </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
