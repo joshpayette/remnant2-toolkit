@@ -292,7 +292,7 @@ export const remnantItems: Item[] = [
     Kills and dealing significant damage grant 1 Stack of RAGE which increases Ranged Damage by 2.5% per Stack. Upon reaching 10 Stacks, the CHallenger goes BERSERK, which reloads their current firearm and doubles Rampage efects for 15s.`,
     cooldown: 90,
     howToGet: `Unlocked at level 10`,
-    wikiLinks: [``],
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Rampage`],
     linkedItems: {
       archtype: {
         name: 'Challenger',
