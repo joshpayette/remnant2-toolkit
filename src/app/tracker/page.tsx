@@ -191,7 +191,7 @@ export default function Page() {
   if (!isClient) return null
 
   return (
-    <div className="flex w-full flex-col items-center justify-center">
+    <div className="relative flex w-full flex-col items-center justify-center">
       <ItemInfo
         item={itemInfo}
         open={isShowItemInfoOpen}
@@ -220,18 +220,18 @@ export default function Page() {
             <input
               type="file"
               name="saveFile"
-              className="mt-2 px-2 text-sm sm:col-span-2"
+              className="my-2 p-2 text-sm sm:col-span-2"
               ref={fileInput}
             />
             <SubmitButton
               label="Import Save File"
               className="flex items-center justify-center border border-transparent bg-purple-500 p-2 px-2 text-sm font-bold text-white hover:border-purple-500 hover:bg-purple-700 disabled:bg-gray-500"
             />
-            <div className="col-span-full mt-4 bg-black">
+            <div className="col-span-full my-4 bg-black">
               <p className="px-2 text-sm text-green-500">
                 You can find your save file in the following location:
               </p>
-              <pre className="px-2 text-sm">
+              <pre className="overflow-x-auto px-2 text-sm">
                 C:\Users\_your_username_\Saved
                 Games\Remnant2\Steam\_steam_id_\profile.sav
               </pre>

@@ -30,6 +30,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Changed Export to CSV label to indicate it exports all data regardless of filters
 - Red text at bottom of builder now links to sign in page
 - Multiline strings in build descriptions now display correctly
+- Fixed issue with item info overflowing the page on mobile on the Tracker page.
 
 ## 2023-12-27
 
