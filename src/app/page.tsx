@@ -52,7 +52,7 @@ export default function HomePage() {
                 />
                 <div>
                   <p className="text-base leading-7">{item.name}</p>
-                  <p className="mt-2 text-gray-300">{item.description}</p>
+                  <p className="mt-2 text-gray-300 ">{item.description}</p>
                   <div className="mt-4 flex w-full items-center justify-end">
                     <ArrowRightIcon
                       className="h-6 w-6 text-green-500 hover:text-green-300"
