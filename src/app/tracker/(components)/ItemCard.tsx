@@ -9,7 +9,7 @@ export interface ItemCardProps {
 
 function CardImage({ item }: { item: ItemCardProps['item'] }) {
   return (
-    <div className="relative flex h-[64px] w-full grow items-center justify-center bg-[url('https://d2sqltdcj8czo5.cloudfront.net/card-body-bg.jpg')]">
+    <div className="relative flex h-[64px] w-full grow items-center justify-center overflow-hidden bg-[url('https://d2sqltdcj8czo5.cloudfront.net/card-body-bg.jpg')]">
       {item && (
         <Image
           src={`https://d2sqltdcj8czo5.cloudfront.net${item.imagePath}`}
@@ -32,7 +32,7 @@ export default function ItemCard({ item, onClick }: ItemCardProps) {
         {onClick ? (
           <button
             onClick={onClick}
-            className="h-full max-h-full w-full max-w-full overflow-hidden"
+            className="h-full max-h-full w-full max-w-full"
           >
             <CardImage item={item} />
           </button>

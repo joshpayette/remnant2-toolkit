@@ -32,6 +32,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Red text at bottom of builder now links to sign in page
 - Multiline strings in build descriptions now display correctly
 - Fixed issue with item info overflowing the page on mobile on the Tracker page.
+- Fixed bug where traits were breaking out of the box in the Lookup page
 
 ## 2023-12-27
 
