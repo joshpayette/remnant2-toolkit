@@ -121,9 +121,9 @@ model BuildVoteCounts {
   id        String    @id @default(cuid())
   createdAt DateTime  @default(now())
   updatedAt DateTime? @updatedAt
-  build     Build     @relation(fields: [buildId], references: [id])
+  build     Build     @relation(fields: [buildId], references: [id], onDelete: Cascade)
   buildId   String
-  user      User      @relation(fields: [userId], references: [id])
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId    String
 
   @@index([buildId])

@@ -358,8 +358,9 @@ export async function DELETE(req: Request) {
 
     const dbResponse = await prisma?.build.delete({
       where: {
-        id: buildId,
+        id: build.id,
       },
+      include: {},
     })
 
     // check for errors in dbResponse
