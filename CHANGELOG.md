@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2023-12-29
+
+### Fixed
+
+- Added missing wikilink to Rampage skill.
+
 ## 2023-12-28
 
 ### Added
