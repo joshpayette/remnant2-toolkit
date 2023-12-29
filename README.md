@@ -7,6 +7,9 @@ This is a toolkit for the game Remnant 2. You can find the site at [remnant2tool
 - [x] Item Tracker - Track your items and see what you need to complete your collection.
 - [x] Build Tool - Create and share builds with the others.
 - [x] Featured Builds - See some featured builds from the community.
+- [x] Favorited Builds - Save your favorite builds to your profile by voting on them.
+- [ ] Community Builds - See builds from the community and vote on them.
+- [ ] Advanced Filtering - Filter items by DLC, type, etc.
 
 ## How it works
 

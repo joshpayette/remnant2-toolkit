@@ -267,6 +267,23 @@ export async function PUT(request: Request) {
       },
     })
 
+    // Trigger webhook to send build to Discord
+    const params = {
+      content: `https://www.remnant2toolkit.com/builder/${dbResponse.id}`,
+    }
+
+    const res = await fetch(`${process.env.WEBHOOK_COMMUNITY_BUILDS}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(params),
+    })
+
+    if (!res.ok) {
+      console.error('Error in sending build webhook to Discord!')
+    }
+
     return Response.json(
       { message: 'Build successfully saved!', buildId: dbResponse.id, headers },
       { status: 200 },
@@ -341,8 +358,9 @@ export async function DELETE(req: Request) {
 
     const dbResponse = await prisma?.build.delete({
       where: {
-        id: buildId,
+        id: build.id,
       },
+      include: {},
     })
 
     // check for errors in dbResponse
