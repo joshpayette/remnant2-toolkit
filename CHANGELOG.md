@@ -33,6 +33,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Multiline strings in build descriptions now display correctly
 - Fixed issue with item info overflowing the page on mobile on the Tracker page.
 - Fixed bug where traits were breaking out of the box in the Lookup page
+- Fixed bug with detailed build cards and text positioning
 
 ## 2023-12-27
 
