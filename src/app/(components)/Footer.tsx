@@ -16,7 +16,7 @@ export default function Footer() {
             className="h-8 w-8"
           />
         </a>
-        <a href="https://twitter.com/josh_payette" target="_blank">
+        <a href="https://twitter.com/Remnant2Toolkit" target="_blank">
           <img
             src={'https://d2sqltdcj8czo5.cloudfront.net/twitter.png'}
             alt="Josh Payette on Twitter"
