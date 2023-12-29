@@ -257,6 +257,11 @@ export const remnantItems: Item[] = [
     name: 'War Stomp',
     imagePath: '/skill/war_stomp.png',
     id: 'qnz5iw',
+    description: `Creates a high impact tremor that deals 150 damage and additional stagger in a forward cone up to 7.5m. Deals damage in all directions at point blank range. 
+
+    Cooldown: 50s`,
+    howToGet: `Automatically unlocked`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/War+Stomp`],
     linkedItems: {
       archtype: {
         name: 'Challenger',
@@ -268,6 +273,11 @@ export const remnantItems: Item[] = [
     name: 'Juggernaut',
     imagePath: '/skill/juggernaut.png',
     id: 'p7x9pq',
+    description: `Become nearly unstoppable, gaining 3 Stack of Bulwark, 15% increased Movement, Melee Speed, and Reduces Stamina Cost. Increases Melee damage by 50%. Stagger Level reduced by 1. Lasts 25s.
+
+    Cooldown: 60s`,
+    howToGet: `Unlocked at level 5`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Juggernaut`],
     linkedItems: {
       archtype: {
         name: 'Challenger',
@@ -279,6 +289,13 @@ export const remnantItems: Item[] = [
     name: 'Rampage',
     imagePath: '/skill/rampage.png',
     id: 'wyw9r4',
+    description: `Enters a heightened state of battle which increases Fire Rate by 15%, Reload Speed by 25%, and Movement Speed by 15%. Lasts 10s. 
+
+    Kills and dealing significant damage grant 1 Stack of RAGE which increases Ranged Damage by 2.5% per Stack. Upon reaching 10 Stacks, the CHallenger goes BERSERK, which reloads their current firearm and doubles Rampage efects for 15s.
+    
+    Cooldown: 90s`,
+    howToGet: `Unlocked at level 10`,
+    wikiLinks: [``],
     linkedItems: {
       archtype: {
         name: 'Challenger',
@@ -290,6 +307,17 @@ export const remnantItems: Item[] = [
     name: 'Guard Dog',
     imagePath: '/skill/guard_dog.png',
     id: 'gpr2fw',
+    description: `Companion will follow the Handler and generate 15% incresed Threat while attacking. All damage to them is reduced by 20%. 
+
+    SINGLE PRESS: Companion engages enemies near the targeted location.
+    
+    DOUBLE TAP: Companion returns to the Handler and remains by their side. 
+    
+    HOLD: Howl reduces damage by 15% to all allies within 20m and the Companion generates additional Threat. Lasts 20s.
+    
+    Cooldown: 90s`,
+    howToGet: `Unlocks automatically`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Guard+Dog`],
     linkedItems: {
       archtype: {
         name: 'Handler',
@@ -301,6 +329,17 @@ export const remnantItems: Item[] = [
     name: 'Support Dog',
     imagePath: '/skill/support_dog.png',
     id: 'jz6x2w',
+    description: `Companion will follow the Handler and continuously heal allies within 3.5m for 0.25% of Max Health per second. 
+
+    SINGLE PRESS: Companion engages enemies near the targeted location. 
+    
+    DOUBLE TAP: Companion returns to the Handler and remains by their side.
+    
+    HOLD: Howl grants 2% of Max Health per second and 25% increased Movemente Speed to all allies within 20m. Lasts 25s
+    
+    Cooldown: 90s`,
+    howToGet: `Unlocks at level 5`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Support+Dog`],
     linkedItems: {
       archtype: {
         name: 'Handler',
@@ -312,6 +351,17 @@ export const remnantItems: Item[] = [
     name: 'Attack Dog',
     imagePath: '/skill/attack_dog.png',
     id: '8trtzh',
+    description: `Companion will follow the Handler and deal 20% additional damage. 
+
+    SINGLE PRESS: Compabion engages enemies near the targeted location. 
+    
+    DOUBLE TAP: Companion returns to the Handler and remains by their side. 
+    
+    HOLD: Howl increases damage by 20% for all allies within 20m. Lasts 20s.
+    
+    Cooldown: 90s`,
+    howToGet: `Unlocks at level 10`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Attack+Dog`],
     linkedItems: {
       archtype: {
         name: 'Handler',
@@ -323,6 +373,9 @@ export const remnantItems: Item[] = [
     name: 'Wellspring',
     imagePath: '/skill/wellspring.png',
     id: '7vtxrx',
+    description: ``,
+    howToGet: ``,
+    wikiLinks: [``],
     linkedItems: {
       archtype: {
         name: 'Medic',
@@ -334,6 +387,9 @@ export const remnantItems: Item[] = [
     name: 'Healing Shield',
     imagePath: '/skill/healing_shield.png',
     id: '8pu6y2',
+    description: ``,
+    howToGet: ``,
+    wikiLinks: [``],
     linkedItems: {
       archtype: {
         name: 'Medic',
@@ -345,6 +401,9 @@ export const remnantItems: Item[] = [
     name: 'Redemption',
     imagePath: '/skill/redemption.png',
     id: 'zs77cb',
+    description: ``,
+    howToGet: ``,
+    wikiLinks: [``],
     linkedItems: {
       archtype: {
         name: 'Medic',
@@ -356,6 +415,9 @@ export const remnantItems: Item[] = [
     name: `Hunter's Mark`,
     imagePath: '/skill/hunters_mark.png',
     id: 'jg82hi',
+    description: ``,
+    howToGet: ``,
+    wikiLinks: [``],
     linkedItems: {
       archtype: {
         name: 'Hunter',
@@ -367,6 +429,9 @@ export const remnantItems: Item[] = [
     name: `Hunter's Focus`,
     imagePath: '/skill/hunters_focus.png',
     id: '5jh6qr',
+    description: ``,
+    howToGet: ``,
+    wikiLinks: [``],
     linkedItems: {
       archtype: {
         name: 'Hunter',
@@ -378,6 +443,9 @@ export const remnantItems: Item[] = [
     name: `Hunter's Shroud`,
     imagePath: '/skill/hunters_shroud.png',
     id: 'ufkx9q',
+    description: ``,
+    howToGet: ``,
+    wikiLinks: [``],
     linkedItems: {
       archtype: {
         name: 'Hunter',
@@ -389,6 +457,9 @@ export const remnantItems: Item[] = [
     name: 'Vial: Stone Mist',
     imagePath: '/skill/vial_stone_mist.png',
     id: 'y7ia9t',
+    description: ``,
+    howToGet: ``,
+    wikiLinks: [``],
     linkedItems: {
       archtype: {
         name: 'Alchemist',
@@ -400,6 +471,9 @@ export const remnantItems: Item[] = [
     name: 'Vial: Frenzy Dust',
     imagePath: '/skill/vial_frenzy_dust.png',
     id: 'xsniv3',
+    description: ``,
+    howToGet: ``,
+    wikiLinks: [``],
     linkedItems: {
       archtype: {
         name: 'Alchemist',
@@ -411,6 +485,9 @@ export const remnantItems: Item[] = [
     name: 'Vial: Elixir of Life',
     imagePath: '/skill/vial_elixir_of_life.png',
     id: '76554i',
+    description: ``,
+    howToGet: ``,
+    wikiLinks: [``],
     linkedItems: {
       archtype: {
         name: 'Alchemist',
@@ -422,6 +499,9 @@ export const remnantItems: Item[] = [
     name: 'Reality Rune',
     imagePath: '/skill/reality_rune.png',
     id: 'i3ddi7',
+    description: ``,
+    howToGet: ``,
+    wikiLinks: [``],
     linkedItems: {
       archtype: {
         name: 'Archon',
@@ -433,6 +513,9 @@ export const remnantItems: Item[] = [
     name: 'Chaos Gate',
     imagePath: '/skill/chaos_gate.png',
     id: '9w7c5j',
+    description: ``,
+    howToGet: ``,
+    wikiLinks: [``],
     linkedItems: {
       archtype: {
         name: 'Archon',
@@ -444,6 +527,9 @@ export const remnantItems: Item[] = [
     name: 'Havoc Form',
     imagePath: '/skill/havoc_form.png',
     id: 'y72au6',
+    description: ``,
+    howToGet: ``,
+    wikiLinks: [``],
     linkedItems: {
       archtype: {
         name: 'Archon',
@@ -455,6 +541,9 @@ export const remnantItems: Item[] = [
     name: 'Heavy Weapon: Vulcan',
     imagePath: '/skill/heavy_weapon_vulcan.png',
     id: 'pgmn4v',
+    description: ``,
+    howToGet: ``,
+    wikiLinks: [``],
     linkedItems: {
       archtype: {
         name: 'Engineer',
@@ -466,6 +555,9 @@ export const remnantItems: Item[] = [
     name: 'Heavy Weapon: Flamethrower',
     imagePath: '/skill/heavy_weapon_flamethrower.png',
     id: '6fk8ea',
+    description: ``,
+    howToGet: ``,
+    wikiLinks: [``],
     linkedItems: {
       archtype: {
         name: 'Engineer',
@@ -477,6 +569,9 @@ export const remnantItems: Item[] = [
     name: 'Heavy Weapon: Impact Cannon',
     imagePath: '/skill/heavy_weapon_impact_cannon.png',
     id: 'ki92op',
+    description: ``,
+    howToGet: ``,
+    wikiLinks: [``],
     linkedItems: {
       archtype: {
         name: 'Engineer',
@@ -488,6 +583,9 @@ export const remnantItems: Item[] = [
     name: 'Void Cloak',
     imagePath: '/skill/void_cloak.png',
     id: 'hvcxo8',
+    description: ``,
+    howToGet: ``,
+    wikiLinks: [``],
     linkedItems: {
       archtype: {
         name: 'Invader',
@@ -499,6 +597,9 @@ export const remnantItems: Item[] = [
     name: 'Worm Hole',
     imagePath: '/skill/worm_hole.png',
     id: 'y9oqq6',
+    description: ``,
+    howToGet: ``,
+    wikiLinks: [``],
     linkedItems: {
       archtype: {
         name: 'Invader',
@@ -510,6 +611,9 @@ export const remnantItems: Item[] = [
     name: 'Reboot',
     imagePath: '/skill/reboot.png',
     id: 'xx6sib',
+    description: ``,
+    howToGet: ``,
+    wikiLinks: [``],
     linkedItems: {
       archtype: {
         name: 'Invader',
@@ -521,6 +625,9 @@ export const remnantItems: Item[] = [
     name: 'Plainswalker',
     imagePath: '/skill/plainswalker.png',
     id: 'a585sp',
+    description: ``,
+    howToGet: ``,
+    wikiLinks: [``],
     linkedItems: {
       archtype: {
         name: 'Explorer',
@@ -532,6 +639,9 @@ export const remnantItems: Item[] = [
     name: 'Gold Digger',
     imagePath: '/skill/gold_digger.png',
     id: 'a2cik2',
+    description: ``,
+    howToGet: ``,
+    wikiLinks: [``],
     linkedItems: {
       archtype: {
         name: 'Explorer',
@@ -543,6 +653,9 @@ export const remnantItems: Item[] = [
     name: 'Fortune Hunter',
     imagePath: '/skill/fortune_hunter.png',
     id: 'dajt58',
+    description: ``,
+    howToGet: ``,
+    wikiLinks: [``],
     linkedItems: {
       archtype: {
         name: 'Explorer',
@@ -554,6 +667,9 @@ export const remnantItems: Item[] = [
     name: 'Quick Draw',
     imagePath: '/skill/quick_draw.png',
     id: 'qdxjt7',
+    description: ``,
+    howToGet: ``,
+    wikiLinks: [``],
     linkedItems: {
       archtype: {
         name: 'Gunslinger',
@@ -565,6 +681,9 @@ export const remnantItems: Item[] = [
     name: 'Sidewinder',
     imagePath: '/skill/sidewinder.png',
     id: 'jn34u8',
+    description: ``,
+    howToGet: ``,
+    wikiLinks: [``],
     linkedItems: {
       archtype: {
         name: 'Gunslinger',
@@ -576,6 +695,9 @@ export const remnantItems: Item[] = [
     name: 'Bulletstorm',
     imagePath: '/skill/bulletstorm.png',
     id: 'xpqq62',
+    description: ``,
+    howToGet: ``,
+    wikiLinks: [``],
     linkedItems: {
       archtype: {
         name: 'Gunslinger',
@@ -587,6 +709,9 @@ export const remnantItems: Item[] = [
     name: 'Minion: Hollow',
     imagePath: '/skill/minion_hollow.png',
     id: 'kk4yre',
+    description: ``,
+    howToGet: ``,
+    wikiLinks: [``],
     linkedItems: {
       archtype: {
         name: 'Summoner',
@@ -598,6 +723,9 @@ export const remnantItems: Item[] = [
     name: 'Minion: Flyer',
     imagePath: '/skill/minion_flyer.png',
     id: 'o7pvqx',
+    description: ``,
+    howToGet: ``,
+    wikiLinks: [``],
     linkedItems: {
       archtype: {
         name: 'Summoner',
@@ -609,6 +737,9 @@ export const remnantItems: Item[] = [
     name: 'Minion: Reaver',
     imagePath: '/skill/minion_reaver.png',
     id: 'gs8zdv',
+    description: ``,
+    howToGet: ``,
+    wikiLinks: [``],
     linkedItems: {
       archtype: {
         name: 'Summoner',
@@ -620,6 +751,9 @@ export const remnantItems: Item[] = [
     name: 'Eruption',
     imagePath: '/skill/eruption.png',
     id: 'amqa83',
+    description: ``,
+    howToGet: ``,
+    wikiLinks: [``],
     linkedItems: {
       archtype: {
         name: 'Ritualist',
@@ -631,6 +765,9 @@ export const remnantItems: Item[] = [
     name: 'Miasma',
     imagePath: '/skill/miasma.png',
     id: '3er3og',
+    description: ``,
+    howToGet: ``,
+    wikiLinks: [``],
     linkedItems: {
       archtype: {
         name: 'Ritualist',
@@ -642,6 +779,9 @@ export const remnantItems: Item[] = [
     name: 'Death Wish',
     imagePath: '/skill/death_wish.png',
     id: 'ux5f9v',
+    description: ``,
+    howToGet: ``,
+    wikiLinks: [``],
     linkedItems: {
       archtype: {
         name: 'Ritualist',

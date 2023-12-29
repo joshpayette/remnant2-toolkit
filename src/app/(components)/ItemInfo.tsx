@@ -39,7 +39,7 @@ export default function ItemInfo({ item, open, onClose }: ItemInfoProps) {
         </div>
         <div className="col-span-2 flex flex-col items-start justify-start">
           <h4 className="text-left text-sm text-gray-500">Description</h4>
-          <p className="text-left text-sm text-gray-300">
+          <p className="whitespace-pre-line text-left text-sm text-gray-300">
             {item.description || 'No description available.'}
           </p>
 

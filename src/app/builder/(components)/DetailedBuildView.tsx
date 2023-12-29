@@ -42,7 +42,9 @@ function BuildItem({
           <dt className="sr-only">Item Category</dt>
           <dd className="text-sm text-gray-500">{category}</dd>
           <dt className="sr-only">Description</dt>
-          <dd className="mt-3 text-gray-200">{description}</dd>
+          <dd className="mt-3 whitespace-pre-line text-left text-gray-200">
+            {description}
+          </dd>
         </dl>
       </div>
       <div>
