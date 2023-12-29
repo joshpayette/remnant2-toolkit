@@ -1,6 +1,5 @@
 # TODO
 
-- Detailed build cards should open info when clicking item name
 - Add pagination to build tables in profile page.
 - Add build randomizer for the luls
 - Add duplicate build button to builds in profile
