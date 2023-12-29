@@ -26,10 +26,10 @@ function BuildItem({
       <div className="flex flex-1 flex-col p-8">
         <button
           onClick={onClickMoreInfo}
-          className="mt-6 text-xl font-bold text-purple-500 hover:text-purple-300 hover:underline"
+          className="text-xl font-bold text-purple-500 hover:text-purple-300 hover:underline"
         >
           <Image
-            className="mx-auto h-32 w-32 flex-shrink-0 rounded-full"
+            className="mx-auto mb-6 h-32 w-32 flex-shrink-0 rounded-full"
             width={200}
             height={200}
             src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}${imagePath}`}
@@ -38,7 +38,7 @@ function BuildItem({
 
           {name}
         </button>
-        <dl className="mt-1 flex flex-grow flex-col justify-between">
+        <dl className="mt-1 flex flex-grow flex-col justify-start">
           <dt className="sr-only">Item Category</dt>
           <dd className="text-sm text-gray-500">{category}</dd>
           <dt className="sr-only">Description</dt>
