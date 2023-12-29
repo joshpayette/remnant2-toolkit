@@ -257,9 +257,8 @@ export const remnantItems: Item[] = [
     name: 'War Stomp',
     imagePath: '/skill/war_stomp.png',
     id: 'qnz5iw',
-    description: `Creates a high impact tremor that deals 150 damage and additional stagger in a forward cone up to 7.5m. Deals damage in all directions at point blank range. 
-
-    Cooldown: 50s`,
+    description: `Creates a high impact tremor that deals 150 damage and additional stagger in a forward cone up to 7.5m. Deals damage in all directions at point blank range. `,
+    cooldown: 50,
     howToGet: `Automatically unlocked`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/War+Stomp`],
     linkedItems: {
@@ -273,9 +272,8 @@ export const remnantItems: Item[] = [
     name: 'Juggernaut',
     imagePath: '/skill/juggernaut.png',
     id: 'p7x9pq',
-    description: `Become nearly unstoppable, gaining 3 Stack of Bulwark, 15% increased Movement, Melee Speed, and Reduces Stamina Cost. Increases Melee damage by 50%. Stagger Level reduced by 1. Lasts 25s.
-
-    Cooldown: 60s`,
+    description: `Become nearly unstoppable, gaining 3 Stack of Bulwark, 15% increased Movement, Melee Speed, and Reduces Stamina Cost. Increases Melee damage by 50%. Stagger Level reduced by 1. Lasts 25s.`,
+    cooldown: 60,
     howToGet: `Unlocked at level 5`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Juggernaut`],
     linkedItems: {
@@ -291,9 +289,8 @@ export const remnantItems: Item[] = [
     id: 'wyw9r4',
     description: `Enters a heightened state of battle which increases Fire Rate by 15%, Reload Speed by 25%, and Movement Speed by 15%. Lasts 10s. 
 
-    Kills and dealing significant damage grant 1 Stack of RAGE which increases Ranged Damage by 2.5% per Stack. Upon reaching 10 Stacks, the CHallenger goes BERSERK, which reloads their current firearm and doubles Rampage efects for 15s.
-    
-    Cooldown: 90s`,
+    Kills and dealing significant damage grant 1 Stack of RAGE which increases Ranged Damage by 2.5% per Stack. Upon reaching 10 Stacks, the CHallenger goes BERSERK, which reloads their current firearm and doubles Rampage efects for 15s.`,
+    cooldown: 90,
     howToGet: `Unlocked at level 10`,
     wikiLinks: [``],
     linkedItems: {
@@ -313,9 +310,8 @@ export const remnantItems: Item[] = [
     
     DOUBLE TAP: Companion returns to the Handler and remains by their side. 
     
-    HOLD: Howl reduces damage by 15% to all allies within 20m and the Companion generates additional Threat. Lasts 20s.
-    
-    Cooldown: 90s`,
+    HOLD: Howl reduces damage by 15% to all allies within 20m and the Companion generates additional Threat. Lasts 20s.`,
+    cooldown: 90,
     howToGet: `Unlocks automatically`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Guard+Dog`],
     linkedItems: {
@@ -335,9 +331,8 @@ export const remnantItems: Item[] = [
     
     DOUBLE TAP: Companion returns to the Handler and remains by their side.
     
-    HOLD: Howl grants 2% of Max Health per second and 25% increased Movemente Speed to all allies within 20m. Lasts 25s
-    
-    Cooldown: 90s`,
+    HOLD: Howl grants 2% of Max Health per second and 25% increased Movemente Speed to all allies within 20m. Lasts 25s`,
+    cooldown: 90,
     howToGet: `Unlocks at level 5`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Support+Dog`],
     linkedItems: {
@@ -357,9 +352,8 @@ export const remnantItems: Item[] = [
     
     DOUBLE TAP: Companion returns to the Handler and remains by their side. 
     
-    HOLD: Howl increases damage by 20% for all allies within 20m. Lasts 20s.
-    
-    Cooldown: 90s`,
+    HOLD: Howl increases damage by 20% for all allies within 20m. Lasts 20s.`,
+    cooldown: 90,
     howToGet: `Unlocks at level 10`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Attack+Dog`],
     linkedItems: {
@@ -373,9 +367,10 @@ export const remnantItems: Item[] = [
     name: 'Wellspring',
     imagePath: '/skill/wellspring.png',
     id: '7vtxrx',
-    description: ``,
-    howToGet: ``,
-    wikiLinks: [``],
+    description: `The Medic channels healing energy into their fist, punching a hole in the ground to create a 3m Healing Spring AOE wich restores 10.5 Health per second and greatly increses Blight Decay Rate. Lasts 15s.`,
+    cooldown: 57.6,
+    howToGet: `Unlocks automatically`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Wellspring`],
     linkedItems: {
       archtype: {
         name: 'Medic',
@@ -387,9 +382,10 @@ export const remnantItems: Item[] = [
     name: 'Healing Shield',
     imagePath: '/skill/healing_shield.png',
     id: '8pu6y2',
-    description: ``,
-    howToGet: ``,
-    wikiLinks: [``],
+    description: `The Medic Quickly expels healing energy to SHIELD all allies within 25m for 100% of their Max Health for 10s. While shielded, allies regenerate 21% of their Max Health over the duration.`,
+    cooldown: 96,
+    howToGet: `Unlocks at level 5`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Healing+Shield`],
     linkedItems: {
       archtype: {
         name: 'Medic',
@@ -401,9 +397,12 @@ export const remnantItems: Item[] = [
     name: 'Redemption',
     imagePath: '/skill/redemption.png',
     id: 'zs77cb',
-    description: ``,
-    howToGet: ``,
-    wikiLinks: [``],
+    description: `The Medic unleashes a 30m shockwave that revives downed allies and resotres 52.5% Max Health over 10s. For each additional 1s holding the SKILL button, the heal gains an additional 52.5% (up to 210% max)
+
+    Revived allies will only receive 50% of the healing amount. If revived, allies cannot be revived again by Redemption for another 180s. Resets at Worldstone or on death. `,
+    cooldown: 115.2,
+    howToGet: `Unlocks at level 10`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Redemption`],
     linkedItems: {
       archtype: {
         name: 'Medic',
@@ -415,9 +414,12 @@ export const remnantItems: Item[] = [
     name: `Hunter's Mark`,
     imagePath: '/skill/hunters_mark.png',
     id: 'jg82hi',
-    description: ``,
-    howToGet: ``,
-    wikiLinks: [``],
+    description: `Increases the Hunter's spatial awareness by casting an Aura that automatically applies MARK to all enemies within 35m. While senses are heightened, Hunter also gains 15% increased Ragend and Melee damage. Lasts 25s.
+
+    MARK: Crit Chance against MARKED enemies is increased by 15% for all allies.`,
+    cooldown: 70,
+    howToGet: `Unlocks automatically`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Hunter's+Mark`],
     linkedItems: {
       archtype: {
         name: 'Hunter',
@@ -429,9 +431,21 @@ export const remnantItems: Item[] = [
     name: `Hunter's Focus`,
     imagePath: '/skill/hunters_focus.png',
     id: '5jh6qr',
-    description: ``,
-    howToGet: ``,
-    wikiLinks: [``],
+    description: `Continously Aiming Down Sights uninterrupted and without shooting for 1s causes the Hunter to enter a FOCUSED state. 
+
+    FOCUSED reduces Weapon Spread, Recoil, and Sway by 75% and grants 25% Ranged & Ranged Weaspot Damage, and 10% Ranged Crit Chance.
+    
+    While FOCUSED, Aiming at enemies will automatically apply MARK.
+    
+    
+    Lasts 20s.
+    
+    FOCUSED state can last up to 10s after the Skill duration expires.
+    
+    MARK: Crit Chance against MARKED enemies is increased by 15% for all allies.`,
+    cooldown: 50,
+    howToGet: `Unlocks at level 5`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Hunter's+Focus`],
     linkedItems: {
       archtype: {
         name: 'Hunter',
@@ -443,9 +457,20 @@ export const remnantItems: Item[] = [
     name: `Hunter's Shroud`,
     imagePath: '/skill/hunters_shroud.png',
     id: 'ufkx9q',
-    description: ``,
-    howToGet: ``,
-    wikiLinks: [``],
+    description: `Hunter becomes Shrouded, reducing enemy awareness and making them harder to hit while moving. Attacking or activating a Mod or Skill will instantly exit Shroud. 
+
+    Exiting Shroud applies MARK to all enemies within 10m and grants AMBUSH to the Hunter for 2s. 
+    
+    AMBUSH: Increases Ranged and Melee Damage by 50% which diminishes over its duration. Ranged and Melee attacks apply MARK. 
+    
+    Hunter will automatically Shorud again after 1.15s if no offensive action are performed. 
+    
+    Lasts 15s. 
+    
+    MARK: Crit Chance against MARKED enemies is increased by 15% for all allies. `,
+    cooldown: 86.4,
+    howToGet: `Unlocks at level 10`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Hunter's+Shroud`],
     linkedItems: {
       archtype: {
         name: 'Hunter',
@@ -457,9 +482,16 @@ export const remnantItems: Item[] = [
     name: 'Vial: Stone Mist',
     imagePath: '/skill/vial_stone_mist.png',
     id: 'y7ia9t',
-    description: ``,
-    howToGet: ``,
-    wikiLinks: [``],
+    description: `Creates a mysterious vapor cloud which lasts 10s and applies STONESKIN.
+
+    STONESKIN reduces incoming damage by 25%, greatly increases Blight Buildup Decay Rate, reduces Stagger by l, and makes the target immune to Status Effects. Lasts 15s.
+    
+    PRESS: Slam Vial on the ground, creating the effect at the Alchemist's feet.
+    
+    HOLD & RELEASE: Aim and throw the Vial causing the same effect where it lands.`,
+    cooldown: 72,
+    howToGet: `Unlocks automatically`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Vial:+Stone+Mist`],
     linkedItems: {
       archtype: {
         name: 'Alchemist',
@@ -471,9 +503,16 @@ export const remnantItems: Item[] = [
     name: 'Vial: Frenzy Dust',
     imagePath: '/skill/vial_frenzy_dust.png',
     id: 'xsniv3',
-    description: ``,
-    howToGet: ``,
-    wikiLinks: [``],
+    description: `Creates a mysterious vapor cloud which lasts 10s and applies FRENZIED.
+
+    FRENZlED increases Fire Rate, Reload Speed, and Melee Speed by 20%, and Movement Speed by 15%. Lasts 15s.
+    
+    PRESS: Slam Vial on the ground, creating the effect at the Alchemist's feet.
+    
+    HOLD & RELEASE: Aim and throw the Vial causing the same effect where it lands.`,
+    cooldown: 72,
+    howToGet: `Unlocks at level 5`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Vial:+Frenzy+Dust`],
     linkedItems: {
       archtype: {
         name: 'Alchemist',
@@ -485,9 +524,18 @@ export const remnantItems: Item[] = [
     name: 'Vial: Elixir of Life',
     imagePath: '/skill/vial_elixir_of_life.png',
     id: '76554i',
-    description: ``,
-    howToGet: ``,
-    wikiLinks: [``],
+    description: `Creates a mysterious vapor cloud that lasts 10s and applies LIVING WILL.
+
+    LIVING WILL grants 5 Health Regeneration per second, and automatically protects against fatal damage while active. Can revive downed players if it heals them to full when downed. Lasts 20s.
+    
+    Revived allies canno be affected by Living Will for 180s.
+    
+    PRESS: Slam Vial on the ground, creating the effect at the Alchemist's feet.
+    
+    HOLD & RELEASE: Aim and throw the Vial causing the same effect where it lands.`,
+    cooldown: 86.4,
+    howToGet: `Unlocks at level 10`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Vial:+Elixir+Of+Life`],
     linkedItems: {
       archtype: {
         name: 'Alchemist',
@@ -499,9 +547,10 @@ export const remnantItems: Item[] = [
     name: 'Reality Rune',
     imagePath: '/skill/reality_rune.png',
     id: 'i3ddi7',
-    description: ``,
-    howToGet: ``,
-    wikiLinks: [``],
+    description: `Conjures a 7m protective dome which applies SLOW to any enemy or enemy projectiles.  Allies inside gain 25% Damage Reduction. Lasts 15s.`,
+    cooldown: 75,
+    howToGet: `Unlocks automatically`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Reality+Rune`],
     linkedItems: {
       archtype: {
         name: 'Archon',
@@ -513,9 +562,10 @@ export const remnantItems: Item[] = [
     name: 'Chaos Gate',
     imagePath: '/skill/chaos_gate.png',
     id: '9w7c5j',
-    description: ``,
-    howToGet: ``,
-    wikiLinks: [``],
+    description: `Conjures a 7m unstable zone which grants allies a 15% to all Damage Dealt, 25% increased Mod Generation, but increases the damage that allies take by 15%. Lasts 20s.`,
+    cooldown: 85,
+    howToGet: `Unlocks at level 5`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Chaos+Gate`],
     linkedItems: {
       archtype: {
         name: 'Archon',
@@ -527,9 +577,18 @@ export const remnantItems: Item[] = [
     name: 'Havoc Form',
     imagePath: '/skill/havoc_form.png',
     id: 'y72au6',
-    description: ``,
-    howToGet: ``,
-    wikiLinks: [``],
+    description: `Unleashes the powers of the  Labyrinth to empower the caster with new abilities. Lasts 30s. Duration is reduced when Havoc Form special abilities are used.
+
+    FIRE: Blasts Lightning Tendrils from the Archon's hand, dealing 84.2 SHOCK Damage per second to targets within 15m.
+    
+    AIM: Raises a 3m Energy Shield which deals 35 SHOCK damage per second and reduces incoming damage to all allies by 50%.
+    
+    DODGE: Performs a Blink Evade that deals 100 SHOCK damage to enemies within 3m.
+    
+    Cooldown: 120s`,
+    cooldown: 120,
+    howToGet: `Unlocks at level 10`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Havoc+Form`],
     linkedItems: {
       archtype: {
         name: 'Archon',
@@ -541,9 +600,15 @@ export const remnantItems: Item[] = [
     name: 'Heavy Weapon: Vulcan',
     imagePath: '/skill/heavy_weapon_vulcan.png',
     id: 'pgmn4v',
-    description: ``,
-    howToGet: ``,
-    wikiLinks: [``],
+    description: `PRESS: Deploys a Vulcan Turret which lasts until its Ammo is exhausted. Turrets that can aim will prioritize targets that the player Aims at. Press SKILL again to enable autonomous targeting. 
+
+    HOLD: Deploys to Heavv Carry Mode. If Engineer Prime is available, will Overlock the weapon if already in hand or on the battlefield
+    
+    DOUBLE PRESS: The weapon is reclaimed, returning 75% of its remaining ammo.
+    
+    Heavy weapon ammo is regenered by 1.02% every second, and heavy weapons can only be deployed if at least 25% ammo is available.`,
+    howToGet: `Unlocks automatically`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Heavy+Weapon:+Vulcan`],
     linkedItems: {
       archtype: {
         name: 'Engineer',
@@ -555,9 +620,17 @@ export const remnantItems: Item[] = [
     name: 'Heavy Weapon: Flamethrower',
     imagePath: '/skill/heavy_weapon_flamethrower.png',
     id: '6fk8ea',
-    description: ``,
-    howToGet: ``,
-    wikiLinks: [``],
+    description: `PRESS: Deploys a Flamethrower turret which lasts until its Ammo is exhausted. Turrets that can aim will prioritze targts taht the player Aims at. Press SKILL again to enable autonomous targeting.
+
+    HOLD: Deploys to Heavy Carry Mode. If Engineer Prime is available, will Overclock the weapon if already in hand or on the battlefield.
+    
+    DOUBLE PRESS: The weapon is reclaimed, returning 75% of its remaining ammo
+    
+    Heavy weapon ammo is regenered by 1.02% every second, and heavy weapons can only be deployed if at least 25% ammo is available.`,
+    howToGet: `Unlocks at level 5`,
+    wikiLinks: [
+      `https://remnant2.wiki.fextralife.com/Heavy+Weapon:+Flamethrower`,
+    ],
     linkedItems: {
       archtype: {
         name: 'Engineer',
@@ -569,9 +642,17 @@ export const remnantItems: Item[] = [
     name: 'Heavy Weapon: Impact Cannon',
     imagePath: '/skill/heavy_weapon_impact_cannon.png',
     id: 'ki92op',
-    description: ``,
-    howToGet: ``,
-    wikiLinks: [``],
+    description: `PRESS: Deploys a Impact Cannon Turret which lasts until its Ammo is exhausted. Turrets that can aim will prioritze targts taht the player Aims at. Press SKILL again to enable autonomous targeting.
+
+    HOLD: Deploys to Heavy Carry Mode. If Engineer Prime is available, will Overclock the weapon if already in hand or on the battlefield.
+    
+    DOUBLE PRESS: The weapon is reclaimed, returning 75% of its remaining ammo.
+    
+    Heavy weapon ammo is regenered by 1.02% every second, and heavy weapons can only be deployed if at least 25% ammo is available.`,
+    howToGet: `Unlocks at level 10`,
+    wikiLinks: [
+      `https://remnant2.wiki.fextralife.com/Heavy+Weapon:+Impact+Cannon`,
+    ],
     linkedItems: {
       archtype: {
         name: 'Engineer',
@@ -580,54 +661,13 @@ export const remnantItems: Item[] = [
   },
   {
     category: 'skill',
-    name: 'Void Cloak',
-    imagePath: '/skill/void_cloak.png',
-    id: 'hvcxo8',
-    description: ``,
-    howToGet: ``,
-    wikiLinks: [``],
-    linkedItems: {
-      archtype: {
-        name: 'Invader',
-      },
-    },
-  },
-  {
-    category: 'skill',
-    name: 'Worm Hole',
-    imagePath: '/skill/worm_hole.png',
-    id: 'y9oqq6',
-    description: ``,
-    howToGet: ``,
-    wikiLinks: [``],
-    linkedItems: {
-      archtype: {
-        name: 'Invader',
-      },
-    },
-  },
-  {
-    category: 'skill',
-    name: 'Reboot',
-    imagePath: '/skill/reboot.png',
-    id: 'xx6sib',
-    description: ``,
-    howToGet: ``,
-    wikiLinks: [``],
-    linkedItems: {
-      archtype: {
-        name: 'Invader',
-      },
-    },
-  },
-  {
-    category: 'skill',
     name: 'Plainswalker',
     imagePath: '/skill/plainswalker.png',
     id: 'a585sp',
-    description: ``,
-    howToGet: ``,
-    wikiLinks: [``],
+    description: `Increases movement speed by 20% and reduces Stamina Cost by 80% for all allies. Lasts 30s.`,
+    cooldown: 60,
+    howToGet: `Unlocks automatically`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Plainswalker`],
     linkedItems: {
       archtype: {
         name: 'Explorer',
@@ -639,9 +679,12 @@ export const remnantItems: Item[] = [
     name: 'Gold Digger',
     imagePath: '/skill/gold_digger.png',
     id: 'a2cik2',
-    description: ``,
-    howToGet: ``,
-    wikiLinks: [``],
+    description: `Dig into the ground to spring a fountain which grants a random buff. Fountains last 45s and their buffs last 20s.
+
+    Fountains can grant either: 10% increased damage, 15% damage reduction, 2 Health Regeneration per second, or HASTE.`,
+    cooldown: 45,
+    howToGet: `Unlocks at level 5`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Gold+Digger`],
     linkedItems: {
       archtype: {
         name: 'Explorer',
@@ -653,9 +696,10 @@ export const remnantItems: Item[] = [
     name: 'Fortune Hunter',
     imagePath: '/skill/fortune_hunter.png',
     id: 'dajt58',
-    description: ``,
-    howToGet: ``,
-    wikiLinks: [``],
+    description: `Increases the Explorer's treasure sense to reveal special items within 40m for all allies. Lasts 60s.`,
+    cooldown: 90,
+    howToGet: `Unlocks at level 10`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Fortune+Hunter`],
     linkedItems: {
       archtype: {
         name: 'Explorer',
@@ -667,9 +711,14 @@ export const remnantItems: Item[] = [
     name: 'Quick Draw',
     imagePath: '/skill/quick_draw.png',
     id: 'qdxjt7',
-    description: ``,
-    howToGet: ``,
-    wikiLinks: [``],
+    description: `Pull out your trusty side piece and unload up to 6 Critical Shots from the hip. Each shot deals 35 base damage and double stagger value. 
+
+    PRESS: Instantly fires towards all enemies in view within 25m. Upon release, rounds will be divided evenly among all targets.
+    
+    HOLD & RELEASE: Allows manual Aim and fires one single powerful shot upon release.`,
+    cooldown: 38.4,
+    howToGet: `Unlocks automatically`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Quick+Draw`],
     linkedItems: {
       archtype: {
         name: 'Gunslinger',
@@ -681,9 +730,10 @@ export const remnantItems: Item[] = [
     name: 'Sidewinder',
     imagePath: '/skill/sidewinder.png',
     id: 'jn34u8',
-    description: ``,
-    howToGet: ``,
-    wikiLinks: [``],
+    description: `Calls upon the power of the Desert Sidewinder snake to increase ADS Movement Speed and Draw/Swap Spped by 50%. Cycling weapons will automatically reload incoming Firearms. Lasts 12s.`,
+    cooldown: 76.8,
+    howToGet: `Unlocks at level 5`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Sidewinder`],
     linkedItems: {
       archtype: {
         name: 'Gunslinger',
@@ -695,9 +745,14 @@ export const remnantItems: Item[] = [
     name: 'Bulletstorm',
     imagePath: '/skill/bulletstorm.png',
     id: 'xpqq62',
-    description: ``,
-    howToGet: ``,
-    wikiLinks: [``],
+    description: `Unleashes the full power and speed of the Gunslinger. Increases Fire Rate 20% and Reload Speed 50% of all ranged weapons. Lasts 20s. 
+
+    Single Shot Weapons become fully-automatic. Kills instantly reload the current weapon. 
+    
+    Instead of becoming fully-automatic, Bows and Crossbows gain 15% Critical Chance and 50% incresed Projectile Speed.`,
+    cooldown: 57.6,
+    howToGet: `Unlocks at level 10`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Bulletstorm`],
     linkedItems: {
       archtype: {
         name: 'Gunslinger',
@@ -706,12 +761,66 @@ export const remnantItems: Item[] = [
   },
   {
     category: 'skill',
+    name: 'Void Cloak',
+    imagePath: '/skill/void_cloak.png',
+    id: 'hvcxo8',
+    description: `Automatically Perfect Dodge incoming direct damage for 60s. Each auto-evade reduces timer by 33% - 100% based on damage absorbed and spawns a Decoy for 3s.`,
+    cooldown: 75,
+    howToGet: `Unlocks automatically`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Void+Cloak`],
+    linkedItems: {
+      archtype: {
+        name: 'Invader',
+      },
+    },
+  },
+  {
+    category: 'skill',
+    name: 'Worm Hole',
+    imagePath: '/skill/worm_hole.png',
+    id: 'y9oqq6',
+    description: `Warps the caster forward through space-time. The next Melee or Ranged attack within 5s will deal 300% damage.
+
+    Holding the Skill button will show the targeting device. If an enemy is directly targeted, the caster will emerge behind them. `,
+    cooldown: 35,
+    howToGet: `Unlocks at level 5`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Worm+Hole`],
+    linkedItems: {
+      archtype: {
+        name: 'Invader',
+      },
+    },
+  },
+  {
+    category: 'skill',
+    name: 'Reboot',
+    imagePath: '/skill/reboot.png',
+    id: 'xx6sib',
+    description: `Initiates a Data Backup of the caster's current Health, Stamina, Relic Charges, Ammo, and Negative Status Effects, which are stored for 30s.
+
+    While the Backup is active, increases Movement Speed by 15% and Damage Reduction by 10%.
+    
+    Reactivating the Skill restores all saved values from the Backup and spawns a Decoy which lasts 3s.`,
+    cooldown: 55,
+    howToGet: `Unlocks at level 10`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Reboot`],
+    linkedItems: {
+      archtype: {
+        name: 'Invader',
+      },
+    },
+  },
+  {
+    category: 'skill',
     name: 'Minion: Hollow',
     imagePath: '/skill/minion_hollow.png',
     id: 'kk4yre',
-    description: ``,
-    howToGet: ``,
-    wikiLinks: [``],
+    description: `PRESS: Summons a Root Hollow Minion to fight by your side. Costs 15% of Max Health to summon, but will not kil Summoner. Max (2)
+
+    HOLD: SACRIFICE Root Hollow Minion to explode, dealing 150 damage within 5m. Reduces Skill Cooldown by up to 50% based on remaining Health of each Minion Sacrificied.`,
+    cooldown: 30,
+    howToGet: `Unlocks automatically`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Minion:+Hollow`],
     linkedItems: {
       archtype: {
         name: 'Summoner',
@@ -723,9 +832,12 @@ export const remnantItems: Item[] = [
     name: 'Minion: Flyer',
     imagePath: '/skill/minion_flyer.png',
     id: 'o7pvqx',
-    description: ``,
-    howToGet: ``,
-    wikiLinks: [``],
+    description: `PRESS: Summons a Root Flyer Minion to fight by your side. Costs 10% of Max Health to summon, but will not kil Summoner. Max (2).
+
+    HOLD: SACRIFICE all Root Flyer Minions, dealing 50 damage within 3m and spawning 3 homing projectiles which explode on contact for 150 damage each`,
+    cooldown: 45,
+    howToGet: `Unlocks at level 5`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Minion:+Flyer`],
     linkedItems: {
       archtype: {
         name: 'Summoner',
@@ -737,9 +849,14 @@ export const remnantItems: Item[] = [
     name: 'Minion: Reaver',
     imagePath: '/skill/minion_reaver.png',
     id: 'gs8zdv',
-    description: ``,
-    howToGet: ``,
-    wikiLinks: [``],
+    description: `PRESS: Summons a Root Reaver Minion to fight by your side. Costs 35% of Max Health to summon, but will not kill Summoner. Max (1).
+
+    HOLD: SACRIFICE all Root Reaver Minion, dealing 200 damage within 6m and spawning Spore Bombs which bounce and explode on contact for 200 damage each.
+    
+    Reduces Skill Cooldown by up to 50% based on remaining Health of Minion.`,
+    cooldown: 120,
+    howToGet: `Unlocks at level 10`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Minion:+Reaver`],
     linkedItems: {
       archtype: {
         name: 'Summoner',
@@ -751,9 +868,13 @@ export const remnantItems: Item[] = [
     name: 'Eruption',
     imagePath: '/skill/eruption.png',
     id: 'amqa83',
-    description: ``,
-    howToGet: ``,
-    wikiLinks: [``],
+    description: `Creates 1m explosion for 150 damage on all enemies within 15m. Explosion Radius and
+    Damage increases 100% for each unique Status
+    Effect on the target. Refreshes all current Status
+    Effects on the target.`,
+    cooldown: 24.6,
+    howToGet: `Unlocks automatically`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Eruption`],
     linkedItems: {
       archtype: {
         name: 'Ritualist',
@@ -765,9 +886,10 @@ export const remnantItems: Item[] = [
     name: 'Miasma',
     imagePath: '/skill/miasma.png',
     id: '3er3og',
-    description: ``,
-    howToGet: ``,
-    wikiLinks: [``],
+    description: `Casts an AOE burst that applies BLEEDING, BURNING, OVERLOADED, and CORRODED to all enemies within 15m, and dealing a total of 1500 base damage. Lasts 11s. `,
+    cooldown: 36.9,
+    howToGet: `Unlocks at level 5`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Miasma`],
     linkedItems: {
       archtype: {
         name: 'Ritualist',
@@ -779,9 +901,10 @@ export const remnantItems: Item[] = [
     name: 'Death Wish',
     imagePath: '/skill/death_wish.png',
     id: 'ux5f9v',
-    description: ``,
-    howToGet: ``,
-    wikiLinks: [``],
+    description: `Negates all healing to self. Drain Health 300% over 20s. Increases all Damage by 35% and grants 10% Base Damage dealt as Lifesteal.`,
+    cooldown: 73.8,
+    howToGet: `Unlocks at level 10`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Death+Wish`],
     linkedItems: {
       archtype: {
         name: 'Ritualist',

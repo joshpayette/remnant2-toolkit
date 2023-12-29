@@ -37,6 +37,7 @@ export interface GenericItemProps {
   imagePath: string
   saveFileSlug?: string
   description?: string
+  cooldown?: number
   howToGet?: string
   wikiLinks?: string[]
   linkedItems?: LinkedItems
@@ -47,6 +48,7 @@ export class GenericItem implements GenericItemProps {
   public name: GenericItemProps['name'] = ''
   public category: GenericItemProps['category'] = 'skill'
   public description?: GenericItemProps['description'] = ''
+  public cooldown?: GenericItemProps['cooldown'] = -1
   public imagePath: GenericItemProps['imagePath'] = ''
   public howToGet?: GenericItemProps['howToGet'] = ''
   public wikiLinks?: GenericItemProps['wikiLinks'] = []
@@ -58,6 +60,7 @@ export class GenericItem implements GenericItemProps {
     this.name = props.name
     this.category = props.category
     this.description = props.description
+    this.cooldown = props.cooldown
     this.imagePath = props.imagePath
     this.howToGet = props.howToGet
     this.wikiLinks = props.wikiLinks
@@ -68,7 +71,6 @@ export class GenericItem implements GenericItemProps {
   public static isGenericItem = (item?: GenericItem): item is GenericItem => {
     if (!item) return false
     return (
-      item.category !== 'skill' &&
       item.category !== 'trait' &&
       item.category !== 'weapon' &&
       item.category !== 'helm' &&

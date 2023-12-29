@@ -12,6 +12,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Back to Top button now shows on non-mobile resolutions.
 - Added SenorCerveza's Ronin Melee build
 - Added weapon descriptions
+- Added skill descriptions
 
 ### Changed
 
