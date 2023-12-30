@@ -92,10 +92,9 @@ export default function useBuildActions() {
         const canvas = await html2canvas(el, {
           useCORS: true,
           allowTaint: true,
-          logging: false,
+          logging: true,
         })
         const image = canvas.toDataURL('image/png', 1.0)
-        //
         window.open(image, '_blank')
       } catch (error) {
         console.log('Image generating error!', error)
