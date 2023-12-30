@@ -3418,6 +3418,11 @@ export const remnantItems: Item[] = [
     howToGet: `Sporebloom can be obtained in Brabus' Shop after Veteran clear.
     Deleting the character who unlocked them does NOT remove them from the shop.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Sporebloom`],
+    linkedItems: {
+      mod: {
+        name: 'Spore Shot',
+      },
+    },
   },
   {
     category: 'weapon',
@@ -5095,6 +5100,11 @@ export const remnantItems: Item[] = [
     description: `Fires a rotten spore that explodes dealing 125 damage within 6m and leaves a deadly gas cloud that applies SLOW while dealing 15 damage per second for 7s.`,
     howToGet: `Attached to the Sporebloom Long Gun`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Spore+Shot`],
+    linkedItems: {
+      weapon: {
+        name: 'Sporebloom',
+      },
+    },
   },
   {
     category: 'mod',
