@@ -2,6 +2,7 @@ import ItemInfo from '@/app/(components)/ItemInfo'
 import { Item } from '@/app/(data)'
 import { getArrayOfLength, getConcoctionSlotCount } from '@/app/(lib)/utils'
 import { BuildState } from '@/app/(types)/build-state'
+import { GenericItem } from '@/app/(types)/items/GenericItem'
 import {
   InformationCircleIcon,
   ListBulletIcon,
@@ -45,6 +46,11 @@ function BuildItem({
           <dd className="mt-3 whitespace-pre-line text-left text-gray-200">
             {description}
           </dd>
+          {GenericItem.isGenericItem(item) && (
+            <dd className="mt-3 whitespace-pre-line text-left text-gray-200">
+              <strong>Cooldown</strong>: {item.cooldown}s
+            </dd>
+          )}
         </dl>
       </div>
       <div>
