@@ -39,6 +39,7 @@ export default function ItemInfo({ item, open, onClose }: ItemInfoProps) {
             height={128}
             alt={item.name}
             className="h-auto max-h-full w-full max-w-full"
+            priority={true}
           />
         </div>
 

@@ -10,6 +10,7 @@ export default function Logo({ showUrl = false }: { showUrl?: boolean }) {
         alt="Remnant 2 Toolkit logo, a purple and yellow toolbox."
         height={32}
         width={32}
+        priority={true}
       />
       <div className="flex flex-col gap-0">
         <span className="mb-0 pb-0 text-white">Remnant 2 Toolkit</span>

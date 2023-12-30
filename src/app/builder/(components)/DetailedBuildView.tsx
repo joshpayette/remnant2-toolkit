@@ -35,6 +35,7 @@ function BuildItem({
             height={200}
             src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}${imagePath}`}
             alt={`${name} icon`}
+            priority={true}
           />
 
           {name}
