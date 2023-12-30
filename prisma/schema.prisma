@@ -54,6 +54,7 @@ model User {
   Build         Build[]
   BuildVotes    BuildVoteCounts[]
   BuildReports  BuildReports[]
+  BannedUsers   BannedUsers[]
 }
 
 model VerificationToken {
@@ -143,5 +144,15 @@ model BuildReports {
   reason    String
 
   @@index([buildId])
+  @@index([userId])
+}
+
+model BannedUsers {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id])
+  userId    String
+  reason    String
+
   @@index([userId])
 }

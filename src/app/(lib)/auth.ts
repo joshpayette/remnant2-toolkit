@@ -9,12 +9,27 @@ import RedditProvider from 'next-auth/providers/reddit'
 import { PrismaAdapter } from '@auth/prisma-adapter'
 import { prisma } from '@/app/(lib)/db'
 import { AdapterUser } from 'next-auth/adapters'
+import { redirect } from 'next/navigation'
 
 export const authOptions: NextAuthOptions = {
   // Include user.id on session
   callbacks: {
-    session({ session, user }) {
+    async signIn({ user }) {
+      const isBanned = await prisma.bannedUsers.findFirst({
+        where: { userId: user.id },
+      })
+      return isBanned ? false : true
+    },
+
+    async session({ session, user }) {
       if (session.user) {
+        const isBanned = await prisma.bannedUsers.findFirst({
+          where: { userId: user.id },
+        })
+        if (isBanned) {
+          redirect('/api/auth/signout')
+        }
+
         session.user.id = user.id
         session.user.displayName = (
           user as AdapterUser & { displayName: string }
