@@ -33,6 +33,7 @@ export default function Page({
     handleDuplicateBuild,
     handleEditBuild,
     handleImageExport,
+    handleToggleReport,
     handleToggleVote,
   } = useBuildActions()
 
@@ -40,7 +41,10 @@ export default function Page({
 
   // Need to convert the build data to a format that the BuildPage component can use
   const buildState = dbBuildToBuildState(dbBuild)
-  if (!session?.user) buildState.upvoted = false
+  if (!session?.user) {
+    buildState.upvoted = false
+    buildState.reported = false
+  }
 
   // We need to convert the build.items object into an array of items to pass to the ToCsvButton
   const csvBuildData = buildToCsvData(buildState)
@@ -91,9 +95,9 @@ export default function Page({
               />
               {session?.user && (
                 <>
-                  <hr className="mb-2 mt-4 border-gray-900" />
+                  <hr className="my-4 border-gray-500" />
 
-                  <div className="my-4 flex w-full flex-col items-center justify-center gap-4">
+                  <div className="flex w-full flex-col items-center justify-center gap-4">
                     <TotalUpvotes totalUpvotes={buildState.totalUpvotes} />
 
                     <ActionButton.Vote
@@ -102,7 +106,14 @@ export default function Page({
                     />
                   </div>
 
-                  <hr className="mb-4 border-gray-900 sm:hidden" />
+                  <hr className="my-4 border-gray-500" />
+
+                  <div className="flex w-full flex-col items-center justify-center gap-4">
+                    <ActionButton.ReportBuild
+                      active={buildState.reported}
+                      onClick={() => handleToggleReport(buildState)}
+                    />
+                  </div>
                 </>
               )}
             </div>

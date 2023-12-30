@@ -11,14 +11,15 @@ export type ItemCategory = keyof BuildState['items']
  * The build tool UI state
  */
 export interface BuildState {
+  buildId: string | null
   name: string
   createdById: string | null
   createdByDisplayName: string | null
-  buildId: string | null
-  description: string | null
   isPublic: boolean
+  description: string | null
   upvoted: boolean
   totalUpvotes: number
+  reported: boolean
   items: {
     helm: ArmorItem | null
     torso: ArmorItem | null

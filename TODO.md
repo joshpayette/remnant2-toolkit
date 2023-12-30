@@ -1,5 +1,6 @@
 # TODO
 
+- Add Banned Users table
 - Add pagination to build tables in profile page.
 - Add build randomizer for the luls
 - Add duplicate build button to builds in profile
@@ -16,6 +17,7 @@
 
 - If you add a skill, the skills for that class should not be selectable in the other skill slot
 - Modal overlay allows click events through. This appears to be a bug in headlessui. See: https://github.com/tailwindlabs/headlessui/issues/1551
+- Got a report where image export still not working on ios. need someone to help test.
 
 ## Later TODO
 

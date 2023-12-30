@@ -84,6 +84,7 @@ export default function useBuildState() {
       createdById: null,
       upvoted: false,
       totalUpvotes: 0,
+      reported: false,
       items: {
         helm: null,
         torso: null,

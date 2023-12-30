@@ -30,6 +30,7 @@ export interface PageInfo {
 
 export interface DBBuild extends Build {
   createdByDisplayName: string
+  reported: boolean
   upvoted: boolean
   totalUpvotes: number
 }

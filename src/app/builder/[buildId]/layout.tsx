@@ -58,6 +58,7 @@ async function getBuild(buildId: string) {
       DEFAULT_DISPLAY_NAME,
     upvoted: false,
     totalUpvotes: build.BuildVotes.length,
+    reported: false,
   }
 
   const voteResult = await prisma?.buildVoteCounts.findFirst({
@@ -66,8 +67,15 @@ async function getBuild(buildId: string) {
       userId: session?.user?.id,
     },
   })
-
   returnedBuild.upvoted = Boolean(voteResult)
+
+  const buildReported = await prisma?.buildReports.findFirst({
+    where: {
+      buildId,
+      userId: session?.user?.id,
+    },
+  })
+  returnedBuild.reported = Boolean(buildReported)
 
   if (returnedBuild.isPublic) {
     return Response.json({ build: returnedBuild }, { status: 200 })

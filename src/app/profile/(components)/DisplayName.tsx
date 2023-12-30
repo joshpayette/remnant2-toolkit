@@ -16,7 +16,7 @@ export default function DisplayName({ name }: Props) {
   const [isEditing, setIsEditing] = useState(false)
 
   async function handleSave() {
-    const response = await fetch('/api/user', {
+    const response = await fetch('/api/user/edit', {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',

@@ -16,7 +16,7 @@ export default function DeleteBuildButton({
     const confirmed = confirm('Are you sure you want to delete this build?')
     if (!confirmed) return
 
-    const response = await fetch(`/api/build`, {
+    const response = await fetch(`/api/build/delete`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
