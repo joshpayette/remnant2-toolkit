@@ -16,6 +16,7 @@ function CardImage({ item }: { item: ItemCardProps['item'] }) {
           alt={item.name}
           width={64}
           height={64}
+          priority={true}
         />
       )}
     </div>

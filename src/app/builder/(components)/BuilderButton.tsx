@@ -72,6 +72,7 @@ export default function BuilderButton({
             alt={`${item.name} icon`}
             width={imageSize.width}
             height={imageSize.height}
+            priority={true}
           />
         )}
       </button>
