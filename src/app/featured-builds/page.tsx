@@ -20,10 +20,12 @@ import { pageInfo as dotsrusLikesDotsPageInfo } from './build/dotsrus-likes-dots
 import { pageInfo as sheenShotsAcidicBerserkerPageInfo } from './build/sheenshots-acidic-berserker/metadata'
 import { pageInfo as sheenShotsRageLoopPageInfo } from './build/sheenshots-rage-loop/metadata'
 import { pageInfo as senorservezasRoninMeleePageInfo } from './build/senorcervezas-ronin-melee/metadata'
+import { pageInfo as sheenShotsHotSwapperPageInfo } from './build/sheenshots-hot-swapper/metadata'
 
 const builds = [
   senorservezasRoninMeleePageInfo,
   dudleysEldritchKnightPageInfo,
+  sheenShotsHotSwapperPageInfo,
   sheenShotsRageLoopPageInfo,
   dotsrusLikesDotsPageInfo,
   sadderallsRichieRichPageInfo,
