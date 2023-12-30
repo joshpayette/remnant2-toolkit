@@ -88,15 +88,21 @@ export default function useBuildActions() {
 
       if (!el) return
 
-      const canvas = await html2canvas(el, {
-        useCORS: true,
-        allowTaint: true,
-        logging: false,
-      })
-      const image = canvas.toDataURL('image/png', 1.0)
+      try {
+        const canvas = await html2canvas(el, {
+          useCORS: true,
+          allowTaint: true,
+          logging: false,
+        })
+        const image = canvas.toDataURL('image/png', 1.0)
+        //
+        window.open(image, '_blank')
+      } catch (error) {
+        console.log('Image generating error!', error)
+      }
       // Redirect to the image
-      setIsScreenshotMode(null)
-      router.push(image)
+      // setIsScreenshotMode(null)
+      // router.push(image)
 
       // // Need a fakeLink to trigger the download
       // // This does not work for ios
