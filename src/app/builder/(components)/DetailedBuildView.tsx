@@ -46,7 +46,7 @@ function BuildItem({
           <dd className="mt-3 whitespace-pre-line text-left text-gray-200">
             {description}
           </dd>
-          {GenericItem.isGenericItem(item) && (
+          {GenericItem.isGenericItem(item) && item.cooldown && (
             <dd className="mt-3 whitespace-pre-line text-left text-gray-200">
               <strong>Cooldown</strong>: {item.cooldown}s
             </dd>
