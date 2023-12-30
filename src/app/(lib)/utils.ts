@@ -33,6 +33,13 @@ export function getArrayOfLength(length: number): number[] {
 }
 
 /**
+ * Removes bad characters from filename
+ */
+export function cleanFilename(filename: string): string {
+  return filename.replace(/[^\w\s]/gi, '')
+}
+
+/**
  * Converts an array of objects to a CSV file and starts the download
  */
 export function toCsv<T extends {}>(data: T[], filename: string) {
