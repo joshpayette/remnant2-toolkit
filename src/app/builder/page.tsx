@@ -13,8 +13,6 @@ import ToCsvButton from '../(components)/ToCsvButton'
 import { useLocalStorage } from '../(hooks)/useLocalStorage'
 import { useSearchParams } from 'next/navigation'
 import DetailedBuildView from './(components)/DetailedBuildView'
-import Dialog from '../(components)/Dialog'
-import Link from 'next/link'
 import ImageDownloadLink from './(components)/ImageDownloadLink'
 
 export default function Page() {

@@ -25,6 +25,7 @@ async function getBuilds() {
     include: {
       createdBy: true,
       BuildVotes: true,
+      BuildReports: true,
     },
   })
 
@@ -39,6 +40,7 @@ async function getBuilds() {
       DEFAULT_DISPLAY_NAME,
     totalUpvotes: build.BuildVotes.length, // Count the votes
     upvoted: build.BuildVotes.some((vote) => vote.userId === userId), // Check if the user upvoted the build
+    reported: build.BuildReports.some((report) => report.userId === userId), // Check if the user reported the build
   })) satisfies DBBuild[]
 
   return buildsWithExtraFields

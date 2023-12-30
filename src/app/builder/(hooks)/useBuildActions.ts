@@ -78,13 +78,16 @@ export default function useBuildActions() {
     buildState: BuildState
     byOwner: boolean
   }) {
-    const response = await fetch('/api/build', {
-      method: byOwner ? 'PATCH' : 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
+    const response = await fetch(
+      byOwner ? '/api/build/edit' : '/api/build/new',
+      {
+        method: byOwner ? 'PATCH' : 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(buildState),
       },
-      body: JSON.stringify(buildState),
-    })
+    )
     const data = await response.json()
 
     if (!response.ok) {
@@ -103,17 +106,51 @@ export default function useBuildActions() {
     router.refresh()
   }
 
-  async function handleToggleVote(buildState: BuildState) {
-    const voted = !buildState.upvoted
+  async function handleToggleReport(buildState: BuildState) {
+    const newReported = !buildState.reported
 
-    const response = await fetch('/api/build/vote', {
-      method: 'POST',
+    // prompt for the reason
+    const reason = newReported
+      ? prompt('Please enter a reason for reporting this build.')
+      : null
+
+    if (newReported && !reason) {
+      toast.error('You must enter a reason for reporting this build.')
+      return
+    }
+
+    const response = await fetch('/api/build/report', {
+      method: newReported ? 'PUT' : 'DELETE',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        ...buildState,
-        upvoted: voted,
+        reason,
+        buildId: buildState.buildId,
+      }),
+    })
+    const data = await response.json()
+    if (!response.ok) {
+      toast.error(data.message)
+      return
+    }
+
+    toast.success(data.message)
+    buildState.reported = newReported
+    router.refresh()
+  }
+
+  async function handleToggleVote(buildState: BuildState) {
+    const newVote = !buildState.upvoted
+
+    const response = await fetch('/api/build/vote', {
+      method: newVote ? 'PUT' : 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        buildId: buildState.buildId,
+        upvoted: newVote,
       }),
     })
     if (!response.ok) {
@@ -122,7 +159,7 @@ export default function useBuildActions() {
     }
 
     const data = await response.json()
-    buildState.upvoted = voted
+    buildState.upvoted = newVote
     buildState.totalUpvotes = data.totalUpvotes
 
     router.refresh()
@@ -174,6 +211,7 @@ export default function useBuildActions() {
     handleDuplicateBuild,
     handleEditBuild,
     handleImageExport,
+    handleToggleReport,
     handleSaveBuild,
     handleToggleVote,
     isScreenshotMode: Boolean(isScreenshotMode),

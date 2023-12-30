@@ -207,6 +207,7 @@ export function dbBuildToBuildState(dbBuild: DBBuild): BuildState {
     buildId: dbBuild.id,
     upvoted: dbBuild.upvoted,
     totalUpvotes: dbBuild.totalUpvotes,
+    reported: dbBuild.reported,
     items: {
       helm: dbBuild.helm ? ArmorItem.fromDBValue(dbBuild.helm) : null,
       torso: dbBuild.torso ? ArmorItem.fromDBValue(dbBuild.torso) : null,

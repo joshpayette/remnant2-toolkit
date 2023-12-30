@@ -53,6 +53,7 @@ model User {
   sessions      Session[]
   Build         Build[]
   BuildVotes    BuildVoteCounts[]
+  BuildReports  BuildReports[]
 }
 
 model VerificationToken {
@@ -113,6 +114,7 @@ model Build {
   relicfragment String?
   trait         String?
   BuildVotes    BuildVoteCounts[]
+  BuildReports  BuildReports[]
 
   @@index([createdById])
 }
@@ -125,6 +127,20 @@ model BuildVoteCounts {
   buildId   String
   user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId    String
+
+  @@index([buildId])
+  @@index([userId])
+}
+
+model BuildReports {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  build     Build    @relation(fields: [buildId], references: [id], onDelete: Cascade)
+  buildId   String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String
+  reason    String
 
   @@index([buildId])
   @@index([userId])
