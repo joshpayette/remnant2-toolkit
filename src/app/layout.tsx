@@ -26,6 +26,18 @@ export default function RootLayout({
           inter.className,
         )}
       >
+        <div className="w-full bg-purple-900 p-1 text-center text-sm">
+          Community member DangItsBatman unexpectedly passed away. Please
+          consider donating{' '}
+          <a
+            href="https://www.gofundme.com/f/memorial-of-christopher-austin-dangitsbatman"
+            target="_blank"
+            className="text-green-300 underline"
+          >
+            to the GoFundMe for his service.
+          </a>{' '}
+          Thank you!
+        </div>
         <BackToTopButton />
         <SessionProvider>
           <div className="flex w-full max-w-7xl grow flex-col items-start justify-start">
