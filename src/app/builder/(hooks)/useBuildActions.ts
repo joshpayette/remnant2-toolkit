@@ -95,13 +95,12 @@ export default function useBuildActions() {
           logging: true,
         })
         const image = canvas.toDataURL('image/png', 1.0)
-        window.open(image, '_blank')
+        // Redirect to the image
+        setIsScreenshotMode(null)
+        router.push(image)
       } catch (error) {
         console.log('Image generating error!', error)
       }
-      // Redirect to the image
-      // setIsScreenshotMode(null)
-      // router.push(image)
 
       // // Need a fakeLink to trigger the download
       // // This does not work for ios
@@ -116,7 +115,7 @@ export default function useBuildActions() {
       // setImageLink(image)
       // setIsScreenshotMode(null)
     }
-    exportImage()
+    setTimeout(exportImage, 500)
   }, [isScreenshotMode, router])
 
   async function handleSaveBuild({
