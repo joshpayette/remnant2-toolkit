@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2023-12-13
 
+### Added
+
+- Added link to GoFundMe for community member DangItsBatman who unexpectedly passed away.
+
 ### Fixed
 
 - Now I actually fixed the image export not working on iOS.
