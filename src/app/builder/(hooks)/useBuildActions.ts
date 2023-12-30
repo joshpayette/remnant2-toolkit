@@ -92,7 +92,7 @@ export default function useBuildActions() {
         const canvas = await html2canvas(el, {
           useCORS: true,
           allowTaint: true,
-          logging: true,
+          logging: false,
         })
         const image = canvas.toDataURL('image/png', 1.0)
         // Redirect to the image
@@ -100,6 +100,7 @@ export default function useBuildActions() {
         router.push(image)
       } catch (error) {
         console.log('Image generating error!', error)
+        alert(error)
       }
 
       // // Need a fakeLink to trigger the download
