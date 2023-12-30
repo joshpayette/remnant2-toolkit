@@ -94,6 +94,8 @@ export default function useBuildActions() {
         logging: false,
       })
       const image = canvas.toDataURL('image/png', 1.0)
+      setImageLink(image)
+      setIsScreenshotMode(null)
 
       // Need a fakeLink to trigger the download
       // This does not work for ios
@@ -104,11 +106,8 @@ export default function useBuildActions() {
       fakeLink.click()
       document.body.removeChild(fakeLink)
       fakeLink.remove()
-
-      setImageLink(image)
-      setIsScreenshotMode(null)
     }
-    setTimeout(exportImage, 500)
+    setTimeout(exportImage, 1000)
   }, [isScreenshotMode, router])
 
   async function handleSaveBuild({
