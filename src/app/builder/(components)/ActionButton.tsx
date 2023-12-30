@@ -6,6 +6,8 @@ import { StarIcon as StarIconOff } from '@heroicons/react/24/outline'
 import { StarIcon as StarIconOn } from '@heroicons/react/24/solid'
 import { FlagIcon as FlagIconOff } from '@heroicons/react/24/outline'
 import { FlagIcon as FlagIconOn } from '@heroicons/react/24/solid'
+import Skeleton from '@/app/(components)/Skeleton'
+import LoadingIndicator from '@/app/(components)/LoadingIndicator'
 
 export const buttonClasses =
   'flex w-full flex-col items-center rounded border-2 text-center px-4 py-2 text-sm font-bold text-white'
@@ -45,14 +47,22 @@ export const ActionButton = {
     </button>
   ),
 
-  ExportImage: ({ onClick }: ButtonProps) => (
-    <button
-      className={cn(buttonClasses, 'border-green-500 hover:bg-green-700')}
-      onClick={onClick}
-    >
-      Export to Image
-    </button>
-  ),
+  ExportImage: ({
+    onClick,
+    imageExportLoading,
+  }: ButtonProps & { imageExportLoading: boolean }) =>
+    imageExportLoading ? (
+      <div className={cn(buttonClasses, 'border-green-500 hover:bg-green-700')}>
+        <LoadingIndicator />
+      </div>
+    ) : (
+      <button
+        className={cn(buttonClasses, 'border-green-500 hover:bg-green-700')}
+        onClick={onClick}
+      >
+        Export to Image
+      </button>
+    ),
 
   NewBuild: () => (
     <Link
