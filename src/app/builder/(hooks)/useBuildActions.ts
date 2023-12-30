@@ -1,6 +1,6 @@
 import { useLocalStorage } from '@/app/(hooks)/useLocalStorage'
 import { useRouter } from 'next/navigation'
-import { buildToQueryParams } from '@/app/(lib)/utils'
+import { buildToQueryParams, cleanFilename } from '@/app/(lib)/utils'
 import { BuildState } from '../../(types)/build-state'
 import { useEffect, useState } from 'react'
 import html2canvas from 'html2canvas'
@@ -121,7 +121,7 @@ export default function useBuildActions() {
 
   function handleImageExport(el: HTMLDivElement | null, imageFileName: string) {
     // We do this to trigger the effect below
-    setIsScreenshotMode({ el, imageFileName })
+    setIsScreenshotMode({ el, imageFileName: cleanFilename(imageFileName) })
   }
   /**
    * Export the build as an image

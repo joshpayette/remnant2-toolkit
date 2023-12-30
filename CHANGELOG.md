@@ -16,6 +16,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Fixed issue with build not deleting after adding vote counts.
 - Fixed issue where Spore Shot was not automatically added to the build when selecting the Sporebloom weapon.
 - Fixed issue where skill cooldown wasn't showing on the detailed build description.
+- Fixed issue where image export filename was not being set correctly.
 
 ## 2023-12-28
 
