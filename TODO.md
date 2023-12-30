@@ -1,6 +1,5 @@
 # TODO
 
-- Add Banned Users table
 - Add pagination to build tables in profile page.
 - Add build randomizer for the luls
 - Add duplicate build button to builds in profile
