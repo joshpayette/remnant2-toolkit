@@ -6,7 +6,6 @@ import { useEffect, useState } from 'react'
 import html2canvas from 'html2canvas'
 import copy from 'clipboard-copy'
 import { toast } from 'react-toastify'
-import { set } from 'zod'
 
 export default function useBuildActions() {
   const router = useRouter()
@@ -16,6 +15,9 @@ export default function useBuildActions() {
   // iOS does not automatically download images, so we need to
   // make a clickable link available
   const [imageLink, setImageLink] = useState<string | null>(null)
+
+  // Need to show a loading indicator when exporting the image
+  const [imageExportLoading, setImageExportLoading] = useState(false)
 
   // Used to inform the UI when a screenshot is being taken
   // so that it can resize on mobile devices, show logo, and more.
@@ -83,6 +85,7 @@ export default function useBuildActions() {
    */
   useEffect(() => {
     async function exportImage() {
+      setImageExportLoading(false)
       if (!isScreenshotMode) return
       const { el, imageFileName } = isScreenshotMode
 
@@ -107,6 +110,7 @@ export default function useBuildActions() {
       document.body.removeChild(fakeLink)
       fakeLink.remove()
     }
+    setImageExportLoading(true)
     setTimeout(exportImage, 1000)
   }, [isScreenshotMode, router])
 
@@ -216,5 +220,6 @@ export default function useBuildActions() {
     isScreenshotMode: Boolean(isScreenshotMode),
     showControls: Boolean(isScreenshotMode) === false,
     imageLink,
+    imageExportLoading,
   }
 }

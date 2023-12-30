@@ -28,6 +28,7 @@ export default function Page({
     isScreenshotMode,
     showControls,
     imageLink,
+    imageExportLoading,
     handleClearImageLink,
     handleCopyBuildUrl,
     handleDuplicateBuild,
@@ -74,6 +75,7 @@ export default function Page({
                 onClick={() => handleDuplicateBuild(buildState)}
               />
               <ActionButton.ExportImage
+                imageExportLoading={imageExportLoading}
                 onClick={() =>
                   handleImageExport(
                     buildContainerRef.current,

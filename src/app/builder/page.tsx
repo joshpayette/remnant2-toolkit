@@ -24,6 +24,7 @@ export default function Page() {
   const {
     isScreenshotMode,
     showControls,
+    imageExportLoading,
     imageLink,
     handleClearImageLink,
     handleCopyBuildUrl,
@@ -80,6 +81,7 @@ export default function Page() {
             <SaveBuildButton buildState={buildState} />
 
             <ActionButton.ExportImage
+              imageExportLoading={imageExportLoading}
               onClick={() =>
                 handleImageExport(
                   buildContainerRef.current,
