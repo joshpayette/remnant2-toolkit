@@ -13,6 +13,9 @@ import ToCsvButton from '../(components)/ToCsvButton'
 import { useLocalStorage } from '../(hooks)/useLocalStorage'
 import { useSearchParams } from 'next/navigation'
 import DetailedBuildView from './(components)/DetailedBuildView'
+import Dialog from '../(components)/Dialog'
+import Link from 'next/link'
+import ImageDownloadLink from './(components)/ImageDownloadLink'
 
 export default function Page() {
   const searchParams = useSearchParams()
@@ -23,9 +26,10 @@ export default function Page() {
   const {
     isScreenshotMode,
     showControls,
+    imageLink,
+    handleClearImageLink,
     handleCopyBuildUrl,
     handleImageExport,
-    handleToggleVote,
   } = useBuildActions()
 
   const buildContainerRef = useRef<HTMLDivElement>(null)
@@ -61,6 +65,8 @@ export default function Page() {
 
   return (
     <div className="flex w-full flex-col items-center">
+      <ImageDownloadLink onClose={handleClearImageLink} imageLink={imageLink} />
+
       <PageHeader
         title="Remnant 2 Build Tool"
         subtitle="Create your builds and share them with your friends and the community."

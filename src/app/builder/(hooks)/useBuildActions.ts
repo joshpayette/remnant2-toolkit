@@ -1,16 +1,21 @@
 import { useLocalStorage } from '@/app/(hooks)/useLocalStorage'
 import { useRouter } from 'next/navigation'
-import { buildToQueryParams, cleanFilename } from '@/app/(lib)/utils'
+import { buildToQueryParams } from '@/app/(lib)/utils'
 import { BuildState } from '../../(types)/build-state'
 import { useEffect, useState } from 'react'
 import html2canvas from 'html2canvas'
 import copy from 'clipboard-copy'
 import { toast } from 'react-toastify'
+import { set } from 'zod'
 
 export default function useBuildActions() {
   const router = useRouter()
 
   const { builderStorage, setBuilderStorage } = useLocalStorage()
+
+  // iOS does not automatically download images, so we need to
+  // make a clickable link available
+  const [imageLink, setImageLink] = useState<string | null>(null)
 
   // Used to inform the UI when a screenshot is being taken
   // so that it can resize on mobile devices, show logo, and more.
@@ -18,6 +23,10 @@ export default function useBuildActions() {
     el: HTMLDivElement | null
     imageFileName: string
   } | null>(null)
+
+  function handleClearImageLink() {
+    setImageLink(null)
+  }
 
   function handleCopyBuildUrl(url: string | null, message?: string) {
     if (!url) {
@@ -121,7 +130,7 @@ export default function useBuildActions() {
 
   function handleImageExport(el: HTMLDivElement | null, imageFileName: string) {
     // We do this to trigger the effect below
-    setIsScreenshotMode({ el, imageFileName: cleanFilename(imageFileName) })
+    setIsScreenshotMode({ el, imageFileName })
   }
   /**
    * Export the build as an image
@@ -144,6 +153,7 @@ export default function useBuildActions() {
       const image = canvas.toDataURL('image/png', 1.0)
 
       // Need a fakeLink to trigger the download
+      // This does not work for ios
       const fakeLink = window.document.createElement('a')
       fakeLink.download = imageFileName
       fakeLink.href = image
@@ -152,12 +162,14 @@ export default function useBuildActions() {
       document.body.removeChild(fakeLink)
       fakeLink.remove()
 
+      setImageLink(image)
       setIsScreenshotMode(null)
     }
     exportImage()
   }, [isScreenshotMode])
 
   return {
+    handleClearImageLink,
     handleCopyBuildUrl,
     handleDuplicateBuild,
     handleEditBuild,
@@ -166,5 +178,6 @@ export default function useBuildActions() {
     handleToggleVote,
     isScreenshotMode: Boolean(isScreenshotMode),
     showControls: Boolean(isScreenshotMode) === false,
+    imageLink,
   }
 }

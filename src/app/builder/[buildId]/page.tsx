@@ -12,6 +12,9 @@ import PageHeader from '@/app/(components)/PageHeader'
 import { DBBuild } from '@/app/(types)'
 import TotalUpvotes from '../(components)/TotalUpvotes'
 import DetailedBuildView from '../(components)/DetailedBuildView'
+import Dialog from '@/app/(components)/Dialog'
+import Link from 'next/link'
+import ImageDownloadLink from '../(components)/ImageDownloadLink'
 
 export default function Page({
   params: { dbBuild },
@@ -24,6 +27,8 @@ export default function Page({
   const {
     isScreenshotMode,
     showControls,
+    imageLink,
+    handleClearImageLink,
     handleCopyBuildUrl,
     handleDuplicateBuild,
     handleEditBuild,
@@ -48,6 +53,7 @@ export default function Page({
         title={buildState.name}
         subtitle={`Build by ${buildState.createdByDisplayName}`}
       />
+      <ImageDownloadLink onClose={handleClearImageLink} imageLink={imageLink} />
       <div className="flex w-full flex-col items-center">
         <div className="flex w-full max-w-xl flex-col items-start justify-center gap-2 sm:flex-row-reverse">
           <div
