@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Added missing wikilink to Rampage skill.
 - Fixed issue with build not deleting after adding vote counts.
+- Fixed issue where Spore Shot was not automatically added to the build when selecting the Sporebloom weapon.
 
 ## 2023-12-28
 
