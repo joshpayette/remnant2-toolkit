@@ -5,7 +5,7 @@ import PageHeader from '@/app/(components)/PageHeader'
 import Builder from './(components)/Builder'
 import useBuildState from '@/app/builder/(hooks)/useBuildState'
 import { useIsClient } from 'usehooks-ts'
-import { buildToCsvData, cn } from '../(lib)/utils'
+import { buildStateToCsvData, cn } from '../(lib)/utils'
 import SaveBuildButton from './(components)/SaveBuildButton'
 import useBuildActions from './(hooks)/useBuildActions'
 import { ActionButton } from './(components)/ActionButton'
@@ -62,7 +62,9 @@ export default function Page() {
   if (!isClient) return null
 
   // We need to convert the build.items object into an array of items to pass to the ToCsvButton
-  const csvBuildData = buildToCsvData(buildState)
+  const csvBuildData = buildStateToCsvData(buildState).filter(
+    (item) => item?.name !== '',
+  )
 
   return (
     <div className="flex w-full flex-col items-center">
@@ -103,8 +105,9 @@ export default function Page() {
                 )
               }
             />
+
             <ToCsvButton
-              data={csvBuildData.filter((item) => item?.name !== '')}
+              data={csvBuildData}
               filename={`remnant2_builder_${buildState.name}`}
             />
           </div>

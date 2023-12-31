@@ -1,6 +1,6 @@
 import { useLocalStorage } from '@/app/(hooks)/useLocalStorage'
 import { useRouter } from 'next/navigation'
-import { buildToQueryParams } from '@/app/(lib)/utils'
+import { buildStateToQueryParams } from '@/app/(lib)/utils'
 import { BuildState } from '../../(types)/build-state'
 import { useEffect, useState } from 'react'
 import html2canvas from 'html2canvas'
@@ -43,7 +43,7 @@ export default function useBuildActions() {
 
   function handleDuplicateBuild(buildState: BuildState) {
     const newBuildName = `${buildState.name} (copy)`
-    const editBuildUrl = buildToQueryParams({
+    const editBuildUrl = buildStateToQueryParams({
       ...buildState,
       name: newBuildName,
     })
@@ -60,7 +60,7 @@ export default function useBuildActions() {
   }
 
   function handleEditBuild(buildState: BuildState) {
-    let editBuildUrl = buildToQueryParams(buildState)
+    let editBuildUrl = buildStateToQueryParams(buildState)
 
     setBuilderStorage({
       ...builderStorage,
@@ -114,109 +114,12 @@ export default function useBuildActions() {
     setTimeout(exportImage, 1000)
   }, [isScreenshotMode, router])
 
-  async function handleSaveBuild({
-    buildState,
-    byOwner,
-  }: {
-    buildState: BuildState
-    byOwner: boolean
-  }) {
-    const response = await fetch(
-      byOwner ? '/api/build/edit' : '/api/build/new',
-      {
-        method: byOwner ? 'PATCH' : 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(buildState),
-      },
-    )
-    const data = await response.json()
-
-    if (!response.ok) {
-      toast.error(data.message)
-      return
-    }
-    toast.success(data.message)
-    setBuilderStorage({
-      ...builderStorage,
-      tempDescription: null,
-      tempIsPublic: null,
-      tempBuildId: null,
-      tempCreatedById: null,
-    })
-    router.push(`/builder/${data.buildId}`)
-    router.refresh()
-  }
-
-  async function handleToggleReport(buildState: BuildState) {
-    const newReported = !buildState.reported
-
-    // prompt for the reason
-    const reason = newReported
-      ? prompt('Please enter a reason for reporting this build.')
-      : null
-
-    if (newReported && !reason) {
-      toast.error('You must enter a reason for reporting this build.')
-      return
-    }
-
-    const response = await fetch('/api/build/report', {
-      method: newReported ? 'PUT' : 'DELETE',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        reason,
-        buildId: buildState.buildId,
-      }),
-    })
-    const data = await response.json()
-    if (!response.ok) {
-      toast.error(data.message)
-      return
-    }
-
-    toast.success(data.message)
-    buildState.reported = newReported
-    router.refresh()
-  }
-
-  async function handleToggleVote(buildState: BuildState) {
-    const newVote = !buildState.upvoted
-
-    const response = await fetch('/api/build/vote', {
-      method: newVote ? 'PUT' : 'DELETE',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        buildId: buildState.buildId,
-        upvoted: newVote,
-      }),
-    })
-    if (!response.ok) {
-      toast.error('Error saving your vote. Try again.')
-      return
-    }
-
-    const data = await response.json()
-    buildState.upvoted = newVote
-    buildState.totalUpvotes = data.totalUpvotes
-
-    router.refresh()
-  }
-
   return {
     handleClearImageLink,
     handleCopyBuildUrl,
     handleDuplicateBuild,
     handleEditBuild,
     handleImageExport,
-    handleToggleReport,
-    handleSaveBuild,
-    handleToggleVote,
     isScreenshotMode: Boolean(isScreenshotMode),
     showControls: Boolean(isScreenshotMode) === false,
     imageLink,

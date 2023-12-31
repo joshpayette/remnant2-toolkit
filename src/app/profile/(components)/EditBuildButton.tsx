@@ -2,23 +2,26 @@
 
 import { useLocalStorage } from '@/app/(hooks)/useLocalStorage'
 import { DEFAULT_DISPLAY_NAME } from '@/app/(lib)/constants'
-import { buildToQueryParams, dbBuildToBuildState } from '@/app/(lib)/utils'
-import { DBBuild } from '@/app/(types)'
+import {
+  buildStateToQueryParams,
+  extendedBuildToBuildState,
+} from '@/app/(lib)/utils'
+import { ExtendedBuild } from '@/app/(types)'
 import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 
-export default function EditBuildButton({ build }: { build: DBBuild }) {
+export default function EditBuildButton({ build }: { build: ExtendedBuild }) {
   const router = useRouter()
   const { data: session } = useSession()
   const { builderStorage, setBuilderStorage } = useLocalStorage()
 
-  function handleEditBuild(build: DBBuild) {
-    const buildState = dbBuildToBuildState({
+  function handleEditBuild(build: ExtendedBuild) {
+    const buildState = extendedBuildToBuildState({
       ...build,
       createdByDisplayName: session?.user?.name ?? DEFAULT_DISPLAY_NAME,
     })
 
-    let editBuildUrl = buildToQueryParams(buildState)
+    let editBuildUrl = buildStateToQueryParams(buildState)
 
     setBuilderStorage({
       ...builderStorage,
