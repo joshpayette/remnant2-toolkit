@@ -12,8 +12,6 @@ import PageHeader from '@/app/(components)/PageHeader'
 import { DBBuild } from '@/app/(types)'
 import TotalUpvotes from '../(components)/TotalUpvotes'
 import DetailedBuildView from '../(components)/DetailedBuildView'
-import Dialog from '@/app/(components)/Dialog'
-import Link from 'next/link'
 import ImageDownloadLink from '../(components)/ImageDownloadLink'
 
 export default function Page({

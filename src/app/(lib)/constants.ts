@@ -1,7 +1,6 @@
 import {
   BookmarkSquareIcon,
   DocumentCheckIcon,
-  DocumentTextIcon,
   InformationCircleIcon,
   ListBulletIcon,
 } from '@heroicons/react/24/outline'
@@ -11,18 +10,24 @@ import {
  */
 export const NAV_ITEMS = [
   {
+    name: 'Builds',
+    description: 'A collection of builds submitted by the community.',
+    href: '/community-builds',
+    icon: ListBulletIcon,
+  },
+  {
     name: 'Builder',
     description:
       'Create and share your favorite builds with your friends and the community.',
     href: '/builder',
     icon: BookmarkSquareIcon,
   },
-  {
-    name: 'Featured Builds',
-    description: 'A collection of builds aggregated from various sources.',
-    href: '/featured-builds',
-    icon: ListBulletIcon,
-  },
+  // {
+  //   name: 'Featured Builds',
+  //   description: 'A collection of builds aggregated from various sources.',
+  //   href: '/featured-builds',
+  //   icon: ListBulletIcon,
+  // },
   {
     name: 'Item Tracker',
     description:
