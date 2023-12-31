@@ -1,17 +1,19 @@
 'use client'
 
 import { remnantItems } from '@/app/(data)'
-import { useEffect, useState } from 'react'
+import { useCallback, useMemo, useState } from 'react'
 import ToCsvButton from '@/app/(components)/ToCsvButton'
 import PageHeader from '@/app/(components)/PageHeader'
 import ItemInfo from '@/app/(components)/ItemInfo'
 import { itemToCsvItem } from '@/app/(lib)/utils'
 import ItemCard from '../tracker/(components)/ItemCard'
 import { InformationCircleIcon } from '@heroicons/react/24/outline'
-import { useDebounce } from 'usehooks-ts'
-import SearchInput from '../(components)/SearchInput'
 import { MutatorItem } from '../(types)/items/MutatorItem'
 import { GenericItem } from '../(types)/items/GenericItem'
+import Filters from '../(components)/Filters'
+import useFilteredItems from '../(hooks)/useFilteredItems'
+import PageActions from '../(components)/PageActions'
+import BackToTopButton from '../(components)/BackToTopButton'
 
 const csvItems = remnantItems // Modify the data for use. Adds a discovered flag,
   // modifies the description for mutators
@@ -40,22 +42,18 @@ const csvItems = remnantItems // Modify the data for use. Adds a discovered flag
     return 0
   })
 
+const allItems = remnantItems.map((item) => ({
+  ...item,
+  discovered: false,
+}))
+
 export default function Page() {
   // Tracks the item the user wants info on
   const [itemInfo, setItemInfo] = useState<GenericItem | null>(null)
   // If the item info is defined, the modal should be open
   const isShowItemInfoOpen = Boolean(itemInfo)
 
-  const [filter, setFilter] = useState('')
-  const [filteredItemList, setFilteredItemList] = useState(remnantItems)
-  const debouncedFilter = useDebounce(filter, 500)
-
-  useEffect(() => {
-    const filteredItems = remnantItems.filter((item) =>
-      item.name.toLowerCase().includes(debouncedFilter.toLowerCase()),
-    )
-    setFilteredItemList(filteredItems)
-  }, [debouncedFilter])
+  const { filteredItems, handleUpdateFilters } = useFilteredItems(allItems)
 
   const handleShowItemInfo = (itemId: string) => {
     const item = remnantItems.find((item) => item.id === itemId)
@@ -64,6 +62,10 @@ export default function Page() {
 
   return (
     <div className="relative flex w-full flex-col items-center justify-center">
+      <PageActions>
+        <Filters allItems={allItems} onUpdate={handleUpdateFilters} />
+        <BackToTopButton />
+      </PageActions>
       <ItemInfo
         item={itemInfo}
         open={isShowItemInfoOpen}
@@ -72,18 +74,13 @@ export default function Page() {
       <PageHeader
         title="Remnant 2 Item Lookup"
         subtitle="Look up info on all the items in Remnant 2"
-      >
-        <SearchInput
-          onChange={(newValue: string) => setFilter(newValue)}
-          value={filter}
-        />
-      </PageHeader>
+      />
       <div className="w-full">
         <div className="flex items-center justify-end">
           <ToCsvButton data={csvItems} filename="remnant2toolkit_iteminfo" />
         </div>
         <div className="grid w-full grid-cols-2 gap-4 py-4 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-10">
-          {filteredItemList.map((item) => (
+          {filteredItems.map((item) => (
             <div key={item.id} className="flex flex-col">
               <ItemCard item={item} />
               <div className="flex items-end justify-end bg-black">

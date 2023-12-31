@@ -11,7 +11,7 @@ export default function SearchInput({
   placeholder?: string
 }) {
   return (
-    <div className="relative mt-2 shadow-sm">
+    <div className="relative flex w-full flex-row items-center shadow-sm">
       <Input
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}

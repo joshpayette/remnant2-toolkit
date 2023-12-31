@@ -17,6 +17,7 @@ export class ArmorItem implements BaseArmorItem {
   public name: BaseArmorItem['name'] = ''
   public category: BaseArmorItem['category'] = 'helm'
   public description: BaseArmorItem['description'] = ''
+  public dlc: BaseArmorItem['dlc'] = 'basegame'
   public imagePath: BaseArmorItem['imagePath'] = ''
   public howToGet: BaseArmorItem['howToGet'] = ''
   public wikiLinks: BaseArmorItem['wikiLinks'] = []

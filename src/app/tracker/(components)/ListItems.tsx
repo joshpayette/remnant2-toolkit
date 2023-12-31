@@ -3,12 +3,12 @@
 import { Disclosure } from '@headlessui/react'
 import { ChevronUpIcon } from '@heroicons/react/20/solid'
 import { capitalize, cn } from '@/app/(lib)/utils'
-import { type Filters } from './Filters'
 import { useIsClient } from 'usehooks-ts'
 import { useLocalStorage } from '@/app/(hooks)/useLocalStorage'
 import ItemCard from './ItemCard'
 import { InformationCircleIcon } from '@heroicons/react/24/outline'
 import { GenericItem } from '@/app/(types)/items/GenericItem'
+import { useMemo } from 'react'
 
 function getProgress(
   items: Array<GenericItem & { discovered: boolean }>,
@@ -29,17 +29,13 @@ function getProgress(
 }
 
 interface ListItemsProps {
-  filters: Filters
   items: Array<GenericItem & { discovered: boolean }>
-  itemCategories: Array<GenericItem['category']>
   onClick: (itemId: string) => void
   onShowItemInfo: (itemId: string) => void
 }
 
 export default function ListItems({
-  filters,
   items,
-  itemCategories,
   onClick,
   onShowItemInfo,
 }: ListItemsProps) {
@@ -63,6 +59,10 @@ export default function ListItems({
       collapsedCategories: newCollapsedItemTypes,
     })
   }
+
+  const itemCategories = useMemo(() => {
+    return Array.from(new Set(items.map((item) => item.category)))
+  }, [items])
 
   return (
     <div className="w-full">
@@ -99,18 +99,6 @@ export default function ListItems({
               <Disclosure.Panel className="grid w-full grid-cols-2 gap-4 py-4 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-10">
                 {items
                   .filter((item) => item.category === itemCategory) // Filter by category
-                  .filter((item) => {
-                    // Filter by discovered/undiscovered
-                    if (filters.undiscovered && filters.discovered) {
-                      return true
-                    } else if (filters.undiscovered) {
-                      return item.discovered === false
-                    } else if (filters.discovered) {
-                      return item.discovered === true
-                    } else {
-                      return false
-                    }
-                  })
                   .map((item) => (
                     <div key={item.id} className="flex flex-col">
                       <div

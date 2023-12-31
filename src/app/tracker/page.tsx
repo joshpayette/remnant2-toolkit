@@ -1,10 +1,8 @@
 'use client'
 
-import { remnantItemCategories, remnantItems } from '@/app/(data)'
+import { remnantItems } from '@/app/(data)'
 import { useLocalStorage } from '@/app/(hooks)/useLocalStorage'
 import { useEffect, useMemo, useRef, useState } from 'react'
-import type { Filters } from './(components)/Filters'
-import TrackerFilters from './(components)/Filters'
 import ToCsvButton from '@/app/(components)/ToCsvButton'
 import { useIsClient } from 'usehooks-ts'
 import PageHeader from '@/app/(components)/PageHeader'
@@ -17,6 +15,10 @@ import { SubmitButton } from '../(components)/SubmitButton'
 import { toast } from 'react-toastify'
 import { GenericItem } from '../(types)/items/GenericItem'
 import { MutatorItem } from '../(types)/items/MutatorItem'
+import useFilteredItems from '../(hooks)/useFilteredItems'
+import Filters from '../(components)/Filters'
+import PageActions from '../(components)/PageActions'
+import BackToTopButton from '../(components)/BackToTopButton'
 
 const skippedItemCategories: Array<GenericItem['category']> = [
   'concoction',
@@ -31,15 +33,10 @@ const itemList = remnantItems
     if (item.category !== 'mod') return true
     return item.linkedItems?.weapon === undefined
   })
-
-const itemCategories = remnantItemCategories
-  .filter((category) => skippedItemCategories.includes(category) === false)
-  // sort alphabetically by name
-  .sort((a, b) => {
-    if (a < b) return -1
-    if (a > b) return 1
-    return 0
-  })
+  .map((item) => ({
+    ...item,
+    discovered: false,
+  }))
 
 export default function Page() {
   const isClient = useIsClient()
@@ -52,10 +49,7 @@ export default function Page() {
   const { itemTrackerStorage, setDiscoveredItemIds } = useLocalStorage()
   const { discoveredItemIds } = itemTrackerStorage
 
-  const [filters, setFilters] = useState<Filters>({
-    undiscovered: true,
-    discovered: true,
-  })
+  const { filteredItems, handleUpdateFilters } = useFilteredItems(itemList)
 
   // get response after save file upload
   const [uploadFormResponse, formAction] = useFormState(parseSaveFile, {
@@ -66,23 +60,12 @@ export default function Page() {
   // file input field
   const fileInput = useRef<HTMLInputElement | null>(null)
 
-  // We need to add the discovered flag to the items based on the discoveredItemIds
-  // fetched from localstorage
-  const items = useMemo(
-    () =>
-      itemList.map((item) => ({
-        ...item,
-        discovered: discoveredItemIds.includes(item.id),
-      })),
-    [discoveredItemIds],
-  )
-
   // We only provide the relevant item data, not the internal image paths, etc.
   // We could maybe provide the ids as well, in case users wanted to dynamically
   // generate the build urls, but that's not a priority right now.
   const csvItems = useMemo(() => {
     return (
-      items
+      filteredItems
         // Modify the data for use. Adds a discovered flag,
         // modifies the description for mutators
         .map((item) => {
@@ -113,7 +96,7 @@ export default function Page() {
           return 0
         })
     )
-  }, [items])
+  }, [filteredItems])
 
   // If the upload form response changes, we need to set the save data
   useEffect(() => {
@@ -134,7 +117,7 @@ export default function Page() {
   // If the save data is set, we need to check the discovered items
   useEffect(() => {
     if (!saveData.current) return
-    const newDiscoveredItemIds = items
+    const newDiscoveredItemIds = filteredItems
       // filter out the skipped categories
       .filter((item) => skippedItemCategories.includes(item.category) === false)
       // Match all item names against info in the save file
@@ -160,13 +143,15 @@ export default function Page() {
     toast.success('Save file uploaded successfully!')
     // Reload the page
     window.location.reload()
-  }, [setDiscoveredItemIds, discoveredItemIds, items])
+  }, [setDiscoveredItemIds, filteredItems])
 
   // Provider the tracker progress
   const discoveredCount = discoveredItemIds.length
-  const discoveredPercent = Math.round((discoveredCount / items.length) * 100)
+  const discoveredPercent = Math.round(
+    (discoveredCount / remnantItems.length) * 100,
+  )
   const progress = isClient
-    ? `${discoveredCount} / ${items.length} (${discoveredPercent}%)`
+    ? `${discoveredCount} / ${remnantItems.length} (${discoveredPercent}%)`
     : 'Calculating...'
 
   const handleShowItemInfo = (itemId: string) => {
@@ -192,6 +177,10 @@ export default function Page() {
 
   return (
     <div className="relative flex w-full flex-col items-center justify-center">
+      <PageActions>
+        <Filters allItems={itemList} onUpdate={handleUpdateFilters} />
+        <BackToTopButton />
+      </PageActions>
       <ItemInfo
         item={itemInfo}
         open={isShowItemInfoOpen}
@@ -239,18 +228,9 @@ export default function Page() {
           </form>
         </div>
       </div>
-
-      <TrackerFilters
-        filters={filters}
-        onFiltersChange={(newFilters: Filters) => {
-          setFilters(newFilters)
-        }}
-      />
       <div className="my-8 w-full">
         <ListItems
-          filters={filters}
-          items={items}
-          itemCategories={itemCategories}
+          items={filteredItems}
           onShowItemInfo={handleShowItemInfo}
           onClick={handleListItemClicked}
         />

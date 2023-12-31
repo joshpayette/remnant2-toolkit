@@ -6,12 +6,10 @@
 - Add duplicate build button to builds in profile
 - Added community build page where you can search and sort builds
 - On tracker, allowing sorting alphabetically or by item type (i.e. group armors together)
-- On item lookup, add expanded filters
 - Add CSV import
-- Add toggle to limit build items to DLC/non-DLC items
 - When logging in, the next-auth page to select Discord or Reddit is pretty ugly. Make Reddit Button orange with icon, etc.
-- Hide Export Buttons on builder until at least one item in build
 - Add function to highlight description text for terms like burning, bleeding, overloaded, etc.
+- Builder should automatically add the 5 base trait points to the build based on primary archtype
 
 ## Bugs
 
