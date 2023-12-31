@@ -1,5 +1,7 @@
 'use client'
 
+import { isErrorResponse } from '@/app/(types)'
+import { deleteBuild } from '@/app/builder/actions'
 import { useRouter } from 'next/navigation'
 import { toast } from 'react-toastify'
 
@@ -10,34 +12,23 @@ export default function DeleteBuildButton({
 }) {
   const router = useRouter()
 
-  async function handleDeleteBuild(buildId: string | null) {
-    if (!buildId) return console.error('No buildId provided')
-
-    const confirmed = confirm('Are you sure you want to delete this build?')
-    if (!confirmed) return
-
-    const response = await fetch(`/api/build/delete`, {
-      method: 'DELETE',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ buildId }),
-    })
-
-    if (response.ok) {
-      toast.success('Build deleted successfully!')
-      router.refresh()
-    } else {
-      console.error(response)
-      toast.error('Something went wrong. Please try again.')
-    }
-  }
-
   return (
     <button
       type="button"
       className="text-red-500 hover:text-red-300"
-      onClick={() => handleDeleteBuild(buildId)}
+      onClick={async () => {
+        const confirmed = confirm('Are you sure you want to delete this build?')
+        if (!confirmed) return
+
+        const response = await deleteBuild(JSON.stringify({ buildId }))
+
+        if (isErrorResponse(response)) {
+          console.error(response.errors)
+          toast.error('Error deleting build. Please try again later.')
+        } else {
+          toast.success(response.message)
+        }
+      }}
     >
       Delete
     </button>
