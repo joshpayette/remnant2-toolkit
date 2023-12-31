@@ -10,8 +10,7 @@ This project is intended to better enable the community to track missing items, 
 
 This toolkit is built using [Next.js](https://nextjs.org), [React](https://react.dev), and [Typescript](https://typescriptlang.org). The site is hosted on Vercel.com.
 
-The data is stored in a [Planetscale](https://planetscale.com) database and is accessed via [Prisma](https://prisma.io). [Vercel KV](https://vercel.com/storage/kv) is used as a
-Redis cache to reduce the number of database calls and rate limiting.
+The data is stored in a [Planetscale](https://planetscale.com) database and is accessed via [Prisma](https://prisma.io).
 
 The images are stored in an [AWS S3](https://aws.amazon.com/s3/) bucket, cached and served via [AWS Cloudfront](https://aws.amazon.com/cloudfront/).
 

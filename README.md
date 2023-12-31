@@ -80,10 +80,6 @@ NEXT_PUBLIC_IMAGE_URL=""
 CRON_SECRET=""
 WEBHOOK_COMMUNITY_BUILDS=""
 WEBHOOK_REPORTED_CONTENT=""
-KV_REST_API_READ_ONLY_TOKEN=""
-KV_REST_API_TOKEN=""
-KV_REST_API_URL=""
-KV_URL=""
 ```
 
 #### Environment Variable Descriptions
@@ -98,7 +94,6 @@ KV_URL=""
 - `CRON_SECRET` - A secret string used by the Vercel CRON platform to prevent unauthorized access.
 - `WEBHOOK_COMMUNITY_BUILDS` - The Discord webhook URL to post new community builds to.
 - `WEBHOOK_REPORTED_CONTENT` - The Discord webhook URL to post reported content to.
-- `KV_` - The Vercel KV environment variables are used to access the Vercel KV store. These are only needed for production.
 
 ### Run the development server
 
