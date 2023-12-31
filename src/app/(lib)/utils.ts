@@ -45,6 +45,7 @@ export function cleanFilename(filename: string): string {
  */
 export function toCsv<T extends {}>(data: T[], filename: string) {
   let csvContent = 'data:text/csv;charset=utf-8,'
+  if (!data[0]) return []
   // Add header row with keys
   csvContent += Object.keys(data[0]).join(',') + '\n'
   // Add data rows with values
