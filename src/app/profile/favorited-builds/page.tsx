@@ -8,6 +8,7 @@ import EditBuildButton from '../(components)/EditBuildButton'
 import DeleteBuildButton from '../(components)/DeleteBuildButton'
 import PageActions from '@/app/(components)/PageActions'
 import BackToTopButton from '@/app/(components)/BackToTopButton'
+import { StarIcon } from '@heroicons/react/24/solid'
 
 async function getBuilds() {
   const session = await getServerSession()
@@ -170,8 +171,11 @@ export default async function Page() {
                             )
                           })}
                         </td>
-                        <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-left text-sm font-medium text-yellow-300 sm:pr-0">
-                          {build.totalUpvotes}
+                        <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-left text-sm font-medium text-yellow-500 sm:pr-0">
+                          <div className="flex flex-row items-start justify-start">
+                            <StarIcon className="mr-2 h-5 w-5" />
+                            {build.totalUpvotes}
+                          </div>
                         </td>
                         <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-0">
                           <CopyBuildUrlButton buildId={build.id} />
