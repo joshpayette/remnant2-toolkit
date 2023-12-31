@@ -19,6 +19,7 @@ import useFilteredItems from '../(hooks)/useFilteredItems'
 import Filters from '../(components)/Filters'
 import PageActions from '../(components)/PageActions'
 import BackToTopButton from '../(components)/BackToTopButton'
+import { useRouter } from 'next/navigation'
 
 const skippedItemCategories: Array<GenericItem['category']> = [
   'concoction',
@@ -39,6 +40,7 @@ const itemList = remnantItems
   }))
 
 export default function Page() {
+  const router = useRouter()
   const isClient = useIsClient()
 
   // Tracks the item the user wants info on
@@ -142,8 +144,8 @@ export default function Page() {
     // notify of success
     toast.success('Save file uploaded successfully!')
     // Reload the page
-    window.location.reload()
-  }, [setDiscoveredItemIds, filteredItems])
+    router.refresh()
+  }, [setDiscoveredItemIds, filteredItems, router])
 
   // Provider the tracker progress
   const discoveredCount = discoveredItemIds.length
