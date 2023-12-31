@@ -1,7 +1,7 @@
 import BuildPage from './page'
 import { Metadata, ResolvingMetadata } from 'next'
 import { getServerSession } from '@/app/(lib)/auth'
-import { DBBuild } from '@/app/(types)'
+import { ExtendedBuild } from '@/app/(types)'
 import { prisma } from '@/app/(lib)/db'
 import { DEFAULT_DISPLAY_NAME } from '@/app/(lib)/constants'
 
@@ -27,7 +27,7 @@ async function getBuild(buildId: string) {
     return Response.json({ message: 'Build not found!' }, { status: 404 })
   }
 
-  const returnedBuild: DBBuild = {
+  const returnedBuild: ExtendedBuild = {
     id: build.id,
     name: build.name,
     description: build.description ?? '',
@@ -161,7 +161,7 @@ export default async function Layout({
   params: { buildId: string }
 }) {
   const buildData = await getBuild(buildId)
-  const { build: dbBuild } = await buildData.json()
+  const { build: extendedBuild } = await buildData.json()
 
   if (buildData.status !== 200) {
     throw new Error(`Build ${buildId} is not found. If you are sure the build exists, it may
@@ -169,5 +169,5 @@ export default async function Layout({
     a private build.`)
   }
 
-  return <BuildPage params={{ dbBuild }} />
+  return <BuildPage params={{ extendedBuild }} />
 }

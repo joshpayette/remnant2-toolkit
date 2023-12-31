@@ -1,14 +1,12 @@
 import { getServerSession } from '@/app/(lib)/auth'
-import { dbBuildToBuildState } from '@/app/(lib)/utils'
 import { prisma } from '@/app/(lib)/db'
-import { DBBuild } from '@/app/(types)'
 import ViewBuildButton from '../(components)/ViewBuildButton'
 import CopyBuildUrlButton from '../(components)/CopyBuildUrlButton'
-import EditBuildButton from '../(components)/EditBuildButton'
-import DeleteBuildButton from '../(components)/DeleteBuildButton'
 import PageActions from '@/app/(components)/PageActions'
 import BackToTopButton from '@/app/(components)/BackToTopButton'
 import { StarIcon } from '@heroicons/react/24/solid'
+import { ExtendedBuild } from '@/app/(types)'
+import { extendedBuildToBuildState } from '@/app/(lib)/utils'
 
 async function getBuilds() {
   const session = await getServerSession()
@@ -17,7 +15,7 @@ async function getBuilds() {
 
   // find all builds that the user has favorited but are not created
   // by the user
-  const builds = await prisma?.build.findMany({
+  const builds = await prisma.build.findMany({
     where: {
       BuildVotes: {
         some: {
@@ -66,7 +64,7 @@ async function getBuilds() {
     totalUpvotes: build.BuildVotes.length,
     upvoted: build.BuildVotes.some((vote) => vote.userId === userId), // Check if the user upvoted the build
     reported: build.BuildReports.some((report) => report.userId === userId), // Check if the user reported the build
-  })) satisfies DBBuild[]
+  })) satisfies ExtendedBuild[]
 
   return buildsWithExtraFields
 }
@@ -136,7 +134,7 @@ export default async function Page() {
                 </thead>
                 <tbody className="divide-y divide-gray-800">
                   {builds.map((build) => {
-                    const buildState = dbBuildToBuildState(build)
+                    const buildState = extendedBuildToBuildState(build)
                     return (
                       <tr key={build.id}>
                         <td className="py-4 pl-4 pr-3 text-sm font-medium text-white sm:pl-0">

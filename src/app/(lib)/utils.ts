@@ -1,4 +1,4 @@
-import { DBBuild, type CsvItem } from '@/app/(types)'
+import { ExtendedBuild, type CsvItem } from '@/app/(types)'
 import { clsx, type ClassValue } from 'clsx'
 import { twMerge } from 'tailwind-merge'
 import { GenericItem } from '../(types)/items/GenericItem'
@@ -8,8 +8,9 @@ import { WeaponItem } from '../(types)/items/WeaponItem'
 import { MutatorItem } from '../(types)/items/MutatorItem'
 import { TraitItem } from '../(types)/items/TraitItem'
 import { remnantItemCategories, remnantItems } from '../(data)'
-import { DEFAULT_TRAIT_AMOUNT } from './constants'
+import { DEFAULT_TRAIT_AMOUNT, MAX_BUILD_DESCRIPTION_LENGTH } from './constants'
 import { BuildState } from '../(types)/build-state'
+import { badWordFilter } from './badword-filter'
 
 /**
  * capitalizes the first letter of a string
@@ -91,9 +92,58 @@ export function trimTrailingComma(string: string): string {
 }
 
 /**
- * Converts the build string into a CSV file
+ * Converts the build state to a DB build for insertion or updating
  */
-export function buildToCsvData(buildState: BuildState) {
+export function buildStateToBuild(buildState: BuildState) {
+  const { items } = buildState
+
+  const cleanName = buildState.name ? badWordFilter(buildState.name) : ''
+
+  // limit description to MAX_DESCRIPTION_LENGTH
+  const clippedDescription = buildState.description
+    ? buildState.description.slice(0, MAX_BUILD_DESCRIPTION_LENGTH)
+    : ''
+  const cleanDescription = badWordFilter(clippedDescription)
+
+  const build: Omit<
+    Build,
+    'id' | 'createdAt' | 'createdBy' | 'updatedAt' | 'createdById'
+  > = {
+    name: cleanName,
+    description: cleanDescription,
+    isPublic: Boolean(buildState.isPublic),
+    videoUrl: '',
+    helm: items.helm ? ArmorItem.toDBValue(items.helm) : null,
+    torso: items.torso ? ArmorItem.toDBValue(items.torso) : null,
+    legs: items.legs ? ArmorItem.toDBValue(items.legs) : null,
+    gloves: items.gloves ? ArmorItem.toDBValue(items.gloves) : null,
+    relic: items.relic ? GenericItem.toDBValue(items.relic) : null,
+    amulet: items.amulet ? GenericItem.toDBValue(items.amulet) : null,
+    weapon: items.weapon ? WeaponItem.toDBValue(items.weapon) : null,
+    ring: items.ring ? GenericItem.toDBValue(items.ring) : null,
+    archtype: items.archtype ? GenericItem.toDBValue(items.archtype) : null,
+    skill: items.skill ? GenericItem.toDBValue(items.skill) : null,
+    concoction: items.concoction
+      ? GenericItem.toDBValue(items.concoction)
+      : null,
+    consumable: items.consumable
+      ? GenericItem.toDBValue(items.consumable)
+      : null,
+    mod: items.mod ? GenericItem.toDBValue(items.mod) : null,
+    mutator: items.mutator ? MutatorItem.toDBValue(items.mutator) : null,
+    relicfragment: items.relicfragment
+      ? GenericItem.toDBValue(items.relicfragment)
+      : null,
+    trait: TraitItem.toDBValue(buildState.items.trait),
+  }
+
+  return build
+}
+
+/**
+ * Converts the build state into a CSV file
+ */
+export function buildStateToCsvData(buildState: BuildState) {
   return remnantItemCategories
     .map((category) => {
       const itemOrItems = buildState.items[category]
@@ -142,7 +192,7 @@ export function buildToCsvData(buildState: BuildState) {
 /**
  * Converts the build state to a query string
  */
-export function buildToQueryParams(buildState: BuildState) {
+export function buildStateToQueryParams(buildState: BuildState) {
   const { items } = buildState
 
   let editBuildUrl = `/builder?`
@@ -197,7 +247,7 @@ export function buildToQueryParams(buildState: BuildState) {
  * Converts a build from the database to a build state that the
  * Builder component can use
  */
-export function dbBuildToBuildState(dbBuild: DBBuild): BuildState {
+export function extendedBuildToBuildState(dbBuild: ExtendedBuild): BuildState {
   return {
     name: dbBuild.name,
     description: dbBuild.description,

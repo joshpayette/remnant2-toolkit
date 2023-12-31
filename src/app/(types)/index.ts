@@ -42,7 +42,7 @@ export interface PageInfo {
 /**
  * Additional fields not stored in the db, but computed for the buildState
  */
-export interface DBBuild extends Build {
+export interface ExtendedBuild extends Build {
   createdByDisplayName: string
   reported: boolean
   upvoted: boolean
@@ -56,3 +56,11 @@ export const DLC_TO_NAME = {
 
 export type DLCKey = keyof typeof DLC_TO_NAME
 export type DLCName = (typeof DLC_TO_NAME)[DLCKey]
+
+export type ErrorResponse = {
+  errors?: any[]
+}
+// type guard for ErrorResponse
+export function isErrorResponse(response: any): response is ErrorResponse {
+  return (response as ErrorResponse).errors !== undefined
+}
