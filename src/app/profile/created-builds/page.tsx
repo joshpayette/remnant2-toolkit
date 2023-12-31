@@ -158,9 +158,11 @@ export default async function ListCreatedBuilds() {
                         <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-left text-sm font-medium sm:pr-0">
                           {buildState.isPublic ? 'Public' : 'Private'}
                         </td>
-                        <td className="relative flex flex-row items-center justify-start whitespace-nowrap py-4 pl-3 pr-4 text-left text-sm font-medium text-yellow-300 sm:pr-0">
-                          <StarIcon className="mr-2 h-4 w-4" />
-                          {build.totalUpvotes}
+                        <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-left text-sm font-medium text-yellow-500 sm:pr-0">
+                          <div className="flex flex-row items-start justify-start">
+                            <StarIcon className="mr-2 h-5 w-5" />
+                            {build.totalUpvotes}
+                          </div>
                         </td>
                         <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-0">
                           <CopyBuildUrlButton buildId={build.id} />
