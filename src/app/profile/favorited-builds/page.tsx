@@ -132,18 +132,6 @@ export default async function Page() {
                     >
                       <span className="sr-only">Share</span>
                     </th>
-                    <th
-                      scope="col"
-                      className="px-3 py-3.5 text-left text-sm font-semibold text-white"
-                    >
-                      <span className="sr-only">Edit</span>
-                    </th>
-                    <th
-                      scope="col"
-                      className="px-3 py-3.5 text-left text-sm font-semibold text-white"
-                    >
-                      <span className="sr-only">Delete</span>
-                    </th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-800">
@@ -179,12 +167,6 @@ export default async function Page() {
                         </td>
                         <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-0">
                           <CopyBuildUrlButton buildId={build.id} />
-                        </td>
-                        <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-0">
-                          <EditBuildButton build={build} />
-                        </td>
-                        <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-0">
-                          <DeleteBuildButton buildId={build.id} />
                         </td>
                       </tr>
                     )
