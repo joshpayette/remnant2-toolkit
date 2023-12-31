@@ -10,14 +10,19 @@ import { toast } from 'react-toastify'
 import { useLocalStorage } from '@/app/(hooks)/useLocalStorage'
 import { useRouter } from 'next/navigation'
 import { isErrorResponse } from '@/app/(types)'
+import { useState } from 'react'
+import { set } from 'zod'
+import LoadingIndicator from '@/app/(components)/LoadingIndicator'
 
-export default function SaveBuildButton({
-  buildState,
-}: {
+interface Props {
   buildState: BuildState
-}) {
+}
+
+export default function SaveBuildButton({ buildState }: Props) {
   const router = useRouter()
   const { builderStorage, setBuilderStorage } = useLocalStorage()
+
+  const [saveInProgress, setSaveInProgress] = useState(false)
 
   const { data: session, status } = useSession()
 
@@ -47,20 +52,30 @@ export default function SaveBuildButton({
         tempBuildId: null,
         tempCreatedById: null,
       })
+      setSaveInProgress(false)
       router.push(`/builder/${response.buildId}`)
     }
   }
 
   // If the build is being edited by the owner, show a save edit button
   if (buildState.createdById === session?.user?.id) {
-    return (
+    return saveInProgress ? (
+      <div
+        className={cn(
+          buttonClasses,
+          'border-yellow-700 bg-yellow-500 text-black hover:bg-yellow-300',
+        )}
+      >
+        <LoadingIndicator />
+      </div>
+    ) : (
       <button
-        type="submit"
         className={cn(
           buttonClasses,
           'border-yellow-700 bg-yellow-500 text-black hover:bg-yellow-300',
         )}
         onClick={async () => {
+          setSaveInProgress(true)
           const response = await updateBuild(JSON.stringify(buildState))
           handleResponse(response)
         }}
@@ -70,11 +85,15 @@ export default function SaveBuildButton({
     )
   }
 
-  return (
+  return saveInProgress ? (
+    <div className={cn(buttonClasses, 'border-green-500 hover:bg-green-700')}>
+      <LoadingIndicator />
+    </div>
+  ) : (
     <button
-      type="submit"
       className={cn(buttonClasses, 'border-green-500 hover:bg-green-700')}
       onClick={async () => {
+        setSaveInProgress(true)
         const response = await createBuild(JSON.stringify(buildState))
         handleResponse(response)
       }}
