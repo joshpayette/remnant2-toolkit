@@ -10,6 +10,7 @@ export class MutatorItem implements BaseMutatorItem {
   public id: BaseMutatorItem['id'] = ''
   public name: BaseMutatorItem['name'] = ''
   public category: BaseMutatorItem['category'] = 'mutator'
+  public dlc: BaseMutatorItem['dlc'] = 'basegame'
   public type: BaseMutatorItem['type'] = 'gun'
   public description: BaseMutatorItem['description'] = ''
   public imagePath: BaseMutatorItem['imagePath'] = ''

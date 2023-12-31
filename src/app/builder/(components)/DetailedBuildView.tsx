@@ -1,6 +1,6 @@
 import ItemInfo from '@/app/(components)/ItemInfo'
-import { Item } from '@/app/(data)'
-import { getArrayOfLength, getConcoctionSlotCount } from '@/app/(lib)/utils'
+import { Item } from '@/app/(types)'
+import { getArrayOfLength } from '@/app/(lib)/utils'
 import { BuildState } from '@/app/(types)/build-state'
 import { GenericItem } from '@/app/(types)/items/GenericItem'
 import {

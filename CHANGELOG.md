@@ -4,11 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
-## 2023-12-13
+## 2023-12-30
 
 ### Added
 
 - Added link to GoFundMe for community member DangItsBatman who unexpectedly passed away.
+- Added new filtering logic on Item Tracker and Item Lookup
 
 ### Fixed
 

@@ -1,3 +1,4 @@
+import { DLCKey } from '..'
 import { remnantItems } from '../../(data)'
 
 /**
@@ -34,6 +35,7 @@ export interface GenericItemProps {
   id: string
   name: string
   category: ItemCategory
+  dlc?: DLCKey
   imagePath: string
   saveFileSlug?: string
   description?: string
@@ -47,6 +49,7 @@ export class GenericItem implements GenericItemProps {
   public id: GenericItemProps['id'] = ''
   public name: GenericItemProps['name'] = ''
   public category: GenericItemProps['category'] = 'skill'
+  public dlc?: GenericItemProps['dlc'] = 'basegame'
   public description?: GenericItemProps['description'] = ''
   public cooldown?: GenericItemProps['cooldown'] = -1
   public imagePath: GenericItemProps['imagePath'] = ''
@@ -59,6 +62,7 @@ export class GenericItem implements GenericItemProps {
     this.id = props.id
     this.name = props.name
     this.category = props.category
+    this.dlc = props.dlc
     this.description = props.description
     this.cooldown = props.cooldown
     this.imagePath = props.imagePath

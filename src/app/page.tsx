@@ -1,10 +1,15 @@
 import Link from 'next/link'
 import { NAV_ITEMS } from './(lib)/constants'
 import { ArrowRightIcon } from '@heroicons/react/24/outline'
+import PageActions from './(components)/PageActions'
+import BackToTopButton from './(components)/BackToTopButton'
 
 export default function HomePage() {
   return (
     <>
+      <PageActions>
+        <BackToTopButton />
+      </PageActions>
       <div className="relative isolate overflow-hidden bg-gray-900 py-24 sm:py-32">
         <img
           src="https://d2sqltdcj8czo5.cloudfront.net/home-bg.webp"

@@ -4,7 +4,7 @@ import Image from 'next/image'
 import { GenericItem } from '../(types)/items/GenericItem'
 import { MutatorItem } from '../(types)/items/MutatorItem'
 import { ArmorItem } from '../(types)/items/ArmorItem'
-import { Item } from '../(data)'
+import { Item } from '../(types)'
 
 interface ItemInfoProps {
   item: Item | null

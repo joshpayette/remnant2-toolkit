@@ -10,6 +10,7 @@ export class TraitItem implements BaseTraitItem {
   public id: BaseTraitItem['id'] = ''
   public name: BaseTraitItem['name'] = ''
   public category: BaseTraitItem['category'] = 'trait'
+  public dlc: BaseTraitItem['dlc'] = 'basegame'
   public description: BaseTraitItem['description'] = ''
   public imagePath: BaseTraitItem['imagePath'] = ''
   public howToGet: BaseTraitItem['howToGet'] = ''
