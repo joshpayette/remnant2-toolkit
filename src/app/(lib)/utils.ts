@@ -20,6 +20,13 @@ export function capitalize(string: string): string {
 }
 
 /**
+ * Removes bad characters from filename
+ */
+export function cleanFilename(filename: string): string {
+  return filename.replace(/[^\w\s]/gi, '')
+}
+
+/**
  * shadcn utility function combining clsx and tailwind-merge
  */
 export function cn(...inputs: ClassValue[]): string {
@@ -27,17 +34,21 @@ export function cn(...inputs: ClassValue[]): string {
 }
 
 /**
+ * Formats a date to MySQL format
+ * YYYY-MM-DD HH:MM:SS
+ * @example
+ * const oneDayAgo = new Date(now.getTime() - 24 * 60 * 60 * 1000)
+ * timeCondition = `${formatDateToMySQL(oneDayAgo)}`
+ */
+export function formatDateToMySQL(date: Date): string {
+  return date.toISOString().slice(0, 19).replace('T', ' ')
+}
+
+/**
  * Generates an array of the specified length
  */
 export function getArrayOfLength(length: number): number[] {
   return Array.from(Array(length).keys())
-}
-
-/**
- * Removes bad characters from filename
- */
-export function cleanFilename(filename: string): string {
-  return filename.replace(/[^\w\s]/gi, '')
 }
 
 /**

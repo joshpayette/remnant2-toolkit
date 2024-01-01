@@ -1,16 +1,16 @@
-import { dbBuildToBuildState } from '@/app/(lib)/utils'
-import { DBBuild } from '@/app/(types)'
+import { ExtendedBuild } from '@/app/(types)'
 import ArchtypeLabel from './ArchtypeLabel'
 import { StarIcon } from '@heroicons/react/24/solid'
+import { extendedBuildToBuildState } from '@/app/(lib)/utils'
 
-export default function FeaturedBuildCard({ build }: { build: DBBuild }) {
-  const buildState = dbBuildToBuildState(build)
+export default function FeaturedBuildCard({ build }: { build: ExtendedBuild }) {
+  const buildState = extendedBuildToBuildState(build)
 
   return (
     <>
-      <li
+      <div
         key={build.id}
-        className="col-span-1 rounded-lg border border-purple-500 bg-black shadow"
+        className="col-span-1 h-full rounded-lg border border-purple-500 bg-black shadow"
       >
         <div className="flex w-full items-start justify-start space-x-6 p-6">
           <div className="flex-1 truncate">
@@ -26,7 +26,7 @@ export default function FeaturedBuildCard({ build }: { build: DBBuild }) {
                   <StarIcon className="mr-1 h-4 w-4" /> {build.totalUpvotes}
                 </p>
               </div>
-              <div className="flex flex-row items-center justify-start gap-x-2">
+              <div className="mt-2 flex flex-row items-center justify-start gap-x-2">
                 {buildState.items.archtype[0] && (
                   <ArchtypeLabel name={buildState.items.archtype[0].name} />
                 )}
@@ -34,6 +34,12 @@ export default function FeaturedBuildCard({ build }: { build: DBBuild }) {
                   <ArchtypeLabel name={buildState.items.archtype[1].name} />
                 )}
               </div>
+              {buildState.description && (
+                <div className="mt-4 flex flex-row items-start justify-start gap-x-2 text-ellipsis whitespace-break-spaces text-sm text-gray-300">
+                  {buildState.description?.slice(0, 200)}
+                  {buildState.description?.length > 200 && '...'}
+                </div>
+              )}
             </div>
           </div>
           {/* <img
@@ -70,7 +76,7 @@ export default function FeaturedBuildCard({ build }: { build: DBBuild }) {
             </div>
           </div>
         </div>
-      </li>
+      </div>
     </>
   )
 }
