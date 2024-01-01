@@ -1,15 +1,21 @@
 import { cn } from '@/app/(lib)/utils'
+import { Item } from '@/app/(types)'
 import { GenericItem } from '@/app/(types)/items/GenericItem'
+import { InformationCircleIcon } from '@heroicons/react/24/solid'
 import Image from 'next/image'
 
 export default function BuilderButton({
   onClick,
+  onItemInfoClick,
   isEditable = true,
+  isScreenshotMode = false,
   item,
   size = 'md',
 }: {
   onClick?: () => void
+  onItemInfoClick?: (item: Item) => void
   isEditable?: boolean
+  isScreenshotMode?: boolean
   item: GenericItem | null
   size?: 'sm' | 'md' | 'lg' | 'wide'
 }) {
@@ -47,13 +53,24 @@ export default function BuilderButton({
   return (
     <div
       className={cn(
-        'flex items-start justify-center',
+        'relative flex items-start justify-center',
         size === 'sm' && 'mb-0 flex-row',
         size === 'md' && 'mb-2 flex-col',
         size === 'lg' && 'mb-2 flex-col',
         size === 'wide' && 'mb-2 flex-col',
       )}
     >
+      {!isScreenshotMode && item && (
+        <button
+          className={cn(
+            'absolute right-0 top-0 bg-black',
+            size === 'sm' && 'right-[-20px]',
+          )}
+          onClick={() => onItemInfoClick && onItemInfoClick(item)}
+        >
+          <InformationCircleIcon className="h-5 w-5 text-green-500 sm:h-4 sm:w-4" />
+        </button>
+      )}
       <button
         onClick={onClick}
         className={cn(
