@@ -6,6 +6,7 @@ import { useDebounce, useIsClient } from 'usehooks-ts'
 import { useEffect, useState } from 'react'
 import SearchInput from '@/app/(components)/SearchInput'
 import { GenericItem } from '@/app/(types)/items/GenericItem'
+import ItemInfo from '@/app/(components)/ItemInfo'
 
 export default function ItemSelect({
   itemList,
@@ -21,6 +22,8 @@ export default function ItemSelect({
   onSelectItem: (item: GenericItem | null) => void
 }) {
   const isClient = useIsClient()
+
+  const [infoItem, setInfoItem] = useState<GenericItem | null>(null)
 
   const [filter, setFilter] = useState('')
   const [filteredItemList, setFilteredItemList] = useState(itemList)
@@ -48,7 +51,13 @@ export default function ItemSelect({
       onClose={onClose}
       title={`Select ${buildSlot}`}
       maxWidthClass="max-w-6xl"
+      zIndex="z-20"
     >
+      <ItemInfo
+        item={infoItem}
+        open={Boolean(infoItem)}
+        onClose={() => setInfoItem(null)}
+      />
       <div className="mb-4 flex w-full items-end justify-end">
         <SearchInput
           onChange={(newValue: string) => setFilter(newValue)}
@@ -60,7 +69,7 @@ export default function ItemSelect({
         className="flex flex-wrap items-start justify-center gap-4"
       >
         {buildSlot !== 'trait' && (
-          <li id="clear-item" className="mr-2 min-h-[70px] w-[90px]">
+          <li id="clear-item" className="min-h-[70px] w-[100px]">
             <BuilderButton
               item={{
                 name: 'Clear',
@@ -70,17 +79,17 @@ export default function ItemSelect({
               }}
               size="lg"
               onClick={() => onSelectItem(null)}
-              isScreenshotMode={true}
+              onItemInfoClick={() => setInfoItem(null)}
             />
           </li>
         )}
         {filteredItemList.map((item) => (
-          <li key={item.name} className="mr-2 min-h-[70px] w-[90px]">
+          <li key={item.name} className="min-h-[70px] w-[100px]">
             <BuilderButton
               item={item}
               size="lg"
               onClick={() => onSelectItem(item)}
-              isScreenshotMode={true}
+              onItemInfoClick={() => setInfoItem(item)}
             />
           </li>
         ))}
