@@ -2,11 +2,12 @@
 
 import { ExtendedBuild } from '@/app/(types)'
 import ArchtypeLabel from './ArchtypeLabel'
-import { StarIcon } from '@heroicons/react/24/solid'
+import { EyeIcon, StarIcon } from '@heroicons/react/24/solid'
 import { extendedBuildToBuildState } from '@/app/(lib)/utils'
 import { FlagIcon as FlagIconOff } from '@heroicons/react/24/outline'
 import { FlagIcon as FlagIconOn } from '@heroicons/react/24/solid'
 import useBuildActions from '@/app/(hooks)/useBuildActions'
+import Link from 'next/link'
 
 interface Props {
   build: ExtendedBuild
@@ -18,8 +19,8 @@ export default function BuildCard({ build, onReportBuild }: Props) {
   const { handleReportBuild } = useBuildActions()
 
   return (
-    <div className="col-span-1 h-full rounded-lg border border-purple-500 bg-black shadow">
-      <div className="flex w-full items-start justify-start space-x-6 p-6">
+    <div className="col-span-1 flex h-full flex-col rounded-lg border border-purple-500 bg-black shadow">
+      <div className="flex w-full flex-1 items-start justify-start space-x-6 p-6">
         <div className="flex-1 truncate">
           <div className="flex flex-col items-start justify-start ">
             <h3 className="text-md whitespace-pre-wrap font-medium text-green-500">
@@ -65,14 +66,9 @@ export default function BuildCard({ build, onReportBuild }: Props) {
             )}
           </div>
         </div>
-        {/* <img
-            className="h-10 w-10 flex-shrink-0 rounded-full bg-gray-300"
-            src={person.imageUrl}
-            alt=""
-          /> */}
       </div>
       <div>
-        <div className="-mt-px flex divide-x divide-gray-200">
+        <div className="-mt-px flex flex-1 divide-x divide-purple-700 border-t border-t-purple-700">
           <div className="flex w-0 flex-1">
             {/* <a
                 href={`mailto:${person.email}`}
@@ -86,16 +82,13 @@ export default function BuildCard({ build, onReportBuild }: Props) {
               </a> */}
           </div>
           <div className="-ml-px flex w-0 flex-1">
-            {/* <a
-                href={`tel:${person.telephone}`}
-                className="relative inline-flex w-0 flex-1 items-center justify-center gap-x-3 rounded-br-lg border border-transparent py-4 text-sm font-semibold text-gray-900"
-              >
-                <PhoneIcon
-                  className="h-5 w-5 text-gray-400"
-                  aria-hidden="true"
-                />
-                Call
-              </a> */}
+            <Link
+              href={`/builder/${build.id}`}
+              className="relative inline-flex w-0 flex-1 items-center justify-center gap-x-3 rounded-br-lg border border-transparent py-2 text-sm font-semibold text-green-500 hover:text-green-700 hover:underline"
+            >
+              <EyeIcon className="h-5 w-5 text-green-500" aria-hidden="true" />
+              View Build
+            </Link>
           </div>
         </div>
       </div>
