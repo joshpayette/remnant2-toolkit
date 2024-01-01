@@ -3,7 +3,7 @@
 import { ExtendedBuild } from '@/app/(types)'
 import ArchtypeLabel from './ArchtypeLabel'
 import { EyeIcon, StarIcon } from '@heroicons/react/24/solid'
-import { extendedBuildToBuildState } from '@/app/(lib)/utils'
+import { cn, extendedBuildToBuildState } from '@/app/(lib)/utils'
 import { FlagIcon as FlagIconOff } from '@heroicons/react/24/outline'
 import { FlagIcon as FlagIconOn } from '@heroicons/react/24/solid'
 import useBuildActions from '@/app/(hooks)/useBuildActions'
@@ -19,19 +19,24 @@ interface Props {
 export default function BuildCard({
   build,
   onReportBuild,
-  toolkitten = true,
+  toolkitten = false,
 }: Props) {
   const buildState = extendedBuildToBuildState(build)
   const { handleReportBuild } = useBuildActions()
 
   return (
-    <div className="col-span-1 flex h-full flex-col rounded-lg border border-purple-500 bg-black shadow">
+    <div
+      className={cn(
+        'relative col-span-1 flex h-full flex-col rounded-lg bg-black shadow',
+        toolkitten ? 'border-2 border-yellow-500' : 'border border-purple-500',
+      )}
+    >
       {toolkitten && (
-        <div>
+        <div className="absolute right-[-15px] top-[-15px]">
           <Image
             src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/toolkitten_small.png`}
-            width={86}
-            height={100}
+            width={43}
+            height={50}
             alt="Toolkitten image denoting user is a member"
           />
         </div>
@@ -39,9 +44,14 @@ export default function BuildCard({
       <div className="flex w-full flex-1 items-start justify-start space-x-6 p-6">
         <div className="flex-1 truncate">
           <div className="flex flex-col items-start justify-start ">
-            <h3 className="text-md whitespace-pre-wrap font-medium text-green-500">
-              {build.name}
-            </h3>
+            <Link
+              href={`/builder/${build.id}`}
+              className="w-full text-green-500 hover:text-green-700 hover:underline"
+            >
+              <h3 className="text-md whitespace-pre-wrap font-medium">
+                {build.name}
+              </h3>
+            </Link>
             <div className="mb-2 grid w-full grid-cols-2 text-sm">
               <p className="text-left text-gray-500">
                 by {build.createdByDisplayName}
@@ -84,7 +94,7 @@ export default function BuildCard({
         </div>
       </div>
       <div>
-        <div className="-mt-px flex flex-1 divide-x divide-purple-700 border-t border-t-purple-700">
+        <div className="-mt-px flex flex-1">
           <div className="flex w-0 flex-1">
             {/* <a
                 href={`mailto:${person.email}`}
