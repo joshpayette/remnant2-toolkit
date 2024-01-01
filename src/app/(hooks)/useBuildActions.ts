@@ -1,7 +1,7 @@
 import { useLocalStorage } from '@/app/(hooks)/useLocalStorage'
 import { useRouter } from 'next/navigation'
 import { buildStateToQueryParams } from '@/app/(lib)/utils'
-import { BuildState } from '../../(types)/build-state'
+import { BuildState } from '../(types)/build-state'
 import { useEffect, useState } from 'react'
 import html2canvas from 'html2canvas'
 import copy from 'clipboard-copy'
