@@ -33,7 +33,7 @@ function BuildItem({
             className="mx-auto mb-6 h-32 w-32 flex-shrink-0 rounded-full"
             width={200}
             height={200}
-            src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/${imagePath}`}
+            src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}${imagePath}`}
             alt={`${name} icon`}
             priority={true}
           />
@@ -44,7 +44,7 @@ function BuildItem({
           <dt className="sr-only">Item Category</dt>
           <dd className="text-sm text-gray-500">{category}</dd>
           <dt className="sr-only">Description</dt>
-          <dd className="mt-3 whitespace-pre-line text-left text-gray-200">
+          <dd className="mt-3 max-h-[200px] overflow-y-auto whitespace-pre-line text-left text-gray-300">
             {description}
           </dd>
           {GenericItem.isGenericItem(item) && item.cooldown && (
