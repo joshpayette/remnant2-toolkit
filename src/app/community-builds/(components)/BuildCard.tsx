@@ -2,8 +2,9 @@ import { ExtendedBuild } from '@/app/(types)'
 import ArchtypeLabel from './ArchtypeLabel'
 import { StarIcon } from '@heroicons/react/24/solid'
 import { extendedBuildToBuildState } from '@/app/(lib)/utils'
+import { FlagIcon } from '@heroicons/react/24/outline'
 
-export default function FeaturedBuildCard({ build }: { build: ExtendedBuild }) {
+export default function BuildCard({ build }: { build: ExtendedBuild }) {
   const buildState = extendedBuildToBuildState(build)
 
   return (
@@ -22,9 +23,14 @@ export default function FeaturedBuildCard({ build }: { build: ExtendedBuild }) {
                 <p className="text-left text-gray-500">
                   by {build.createdByDisplayName}
                 </p>
-                <p className="flex items-center justify-end text-right text-yellow-500">
-                  <StarIcon className="mr-1 h-4 w-4" /> {build.totalUpvotes}
-                </p>
+                <div className="flex flex-row items-center justify-end gap-x-2">
+                  <p className="flex items-center justify-end text-right text-red-500">
+                    <FlagIcon className="mr-1 h-4 w-4" />
+                  </p>
+                  <p className="flex items-center justify-end text-right text-yellow-500">
+                    <StarIcon className="mr-1 h-4 w-4" /> {build.totalUpvotes}
+                  </p>
+                </div>
               </div>
               <div className="mt-2 flex flex-row items-center justify-start gap-x-2">
                 {buildState.items.archtype[0] && (

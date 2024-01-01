@@ -6,7 +6,7 @@ import { Fragment, useEffect, useState } from 'react'
 import { TimeRange, getMostUpvotedBuilds } from '../actions'
 import { ExtendedBuild } from '@/app/(types)'
 import { cn } from '@/app/(lib)/utils'
-import FeaturedBuildCard from './FeaturedBuildCard'
+import BuildCard from './BuildCard'
 
 interface Props {
   limit?: number
@@ -35,8 +35,8 @@ export default function MostPopularBuilds({ limit = 20 }: Props) {
                 <Listbox.Label className="mr-2 block text-left text-sm font-medium leading-6 text-green-500">
                   Period
                 </Listbox.Label>
-                <div className="relative w-[125px]">
-                  <Listbox.Button className="relative w-full cursor-default rounded-md bg-white py-1.5 pl-3 pr-10 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-600 sm:text-sm sm:leading-6">
+                <div className="relative w-[110px]">
+                  <Listbox.Button className="relative w-full cursor-default rounded-md bg-white py-1.5 pl-3 pr-10 text-left text-sm text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-600 sm:text-sm sm:leading-6">
                     <span className="block truncate">{topBuildsTimeRange}</span>
                     <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
                       <ChevronUpDownIcon
@@ -72,7 +72,7 @@ export default function MostPopularBuilds({ limit = 20 }: Props) {
                               <span
                                 className={cn(
                                   selected ? 'font-semibold' : 'font-normal',
-                                  'block truncate',
+                                  'block truncate text-sm',
                                 )}
                               >
                                 {timeRange}
@@ -109,7 +109,7 @@ export default function MostPopularBuilds({ limit = 20 }: Props) {
       >
         {topBuilds.map((build) => (
           <div key={build.id} className="h-full w-full">
-            <FeaturedBuildCard build={build} />
+            <BuildCard build={build} />
           </div>
         ))}
       </ul>
