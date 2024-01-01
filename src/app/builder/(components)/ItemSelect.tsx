@@ -70,6 +70,7 @@ export default function ItemSelect({
               }}
               size="lg"
               onClick={() => onSelectItem(null)}
+              isScreenshotMode={true}
             />
           </li>
         )}
@@ -79,6 +80,7 @@ export default function ItemSelect({
               item={item}
               size="lg"
               onClick={() => onSelectItem(item)}
+              isScreenshotMode={true}
             />
           </li>
         ))}

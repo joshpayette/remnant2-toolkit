@@ -13,6 +13,8 @@ import { remnantItems } from '@/app/(data)'
 import { WeaponItem } from '@/app/(types)/items/WeaponItem'
 import { MutatorItem } from '@/app/(types)/items/MutatorItem'
 import { BuildState } from '../../(types)/build-state'
+import ItemInfo from '@/app/(components)/ItemInfo'
+import { Item } from '@/app/(types)'
 
 /**
  * Returns a list of items that match the selected slot
@@ -263,6 +265,9 @@ export default function Builder({
   //Tracks whether the build name is editable or not.
   const [isEditingBuildName, setIsEditingBuildName] = useState(false)
 
+  // Tracks the item that the user is viewing information for
+  const [infoItem, setInfoItem] = useState<Item | null>(null)
+
   /**
    * Returns a list of items that match the selected slot
    * This is passed to the ItemSelect modal to display the correct items
@@ -278,6 +283,16 @@ export default function Builder({
   function handleToggleIsPublic(isPublic: boolean) {
     updateBuildState('isPublic', isPublic ? 'true' : 'false')
   }
+  function handleShowInfo(item: Item) {
+    setInfoItem(item)
+  }
+  function handleButtonClick(
+    category: GenericItem['category'],
+    index?: number,
+  ) {
+    if (!isEditable) return
+    setSelectedItemSlot({ category, index })
+  }
 
   return (
     <>
@@ -287,6 +302,12 @@ export default function Builder({
         onSelectItem={handleSelectItem}
         itemList={itemListForSlot}
         buildSlot={selectedItemSlot.category}
+      />
+
+      <ItemInfo
+        item={infoItem}
+        open={Boolean(infoItem)}
+        onClose={() => setInfoItem(null)}
       />
 
       <div className="mb-4">
@@ -311,58 +332,35 @@ export default function Builder({
             <Logo showUrl />
           </div>
         )}
+
         <div id="left-column" className="flex-none">
           <BuilderButton
             item={buildState.items.helm}
             isEditable={isEditable}
-            onClick={
-              isEditable
-                ? () => {
-                    setSelectedItemSlot({
-                      category: 'helm',
-                    })
-                  }
-                : undefined
-            }
+            onClick={() => handleButtonClick('helm')}
+            onItemInfoClick={handleShowInfo}
+            isScreenshotMode={isScreenshotMode}
           />
           <BuilderButton
             item={buildState.items.torso}
             isEditable={isEditable}
-            onClick={
-              isEditable
-                ? () => {
-                    setSelectedItemSlot({
-                      category: 'torso',
-                    })
-                  }
-                : undefined
-            }
+            onClick={() => handleButtonClick('torso')}
+            onItemInfoClick={handleShowInfo}
+            isScreenshotMode={isScreenshotMode}
           />
           <BuilderButton
             item={buildState.items.legs}
             isEditable={isEditable}
-            onClick={
-              isEditable
-                ? () => {
-                    setSelectedItemSlot({
-                      category: 'legs',
-                    })
-                  }
-                : undefined
-            }
+            onClick={() => handleButtonClick('legs')}
+            onItemInfoClick={handleShowInfo}
+            isScreenshotMode={isScreenshotMode}
           />
           <BuilderButton
             item={buildState.items.gloves}
             isEditable={isEditable}
-            onClick={
-              isEditable
-                ? () => {
-                    setSelectedItemSlot({
-                      category: 'gloves',
-                    })
-                  }
-                : undefined
-            }
+            onClick={() => handleButtonClick('gloves')}
+            onItemInfoClick={handleShowInfo}
+            isScreenshotMode={isScreenshotMode}
           />
           <div
             id="relic-container"
@@ -371,15 +369,9 @@ export default function Builder({
             <BuilderButton
               item={buildState.items.relic}
               isEditable={isEditable}
-              onClick={
-                isEditable
-                  ? () => {
-                      setSelectedItemSlot({
-                        category: 'relic',
-                      })
-                    }
-                  : undefined
-              }
+              onClick={() => handleButtonClick('relic')}
+              onItemInfoClick={handleShowInfo}
+              isScreenshotMode={isScreenshotMode}
             />
             <div
               id="relic-fragment-container"
@@ -389,51 +381,29 @@ export default function Builder({
                 isEditable={isEditable}
                 size="sm"
                 item={buildState.items.relicfragment[0]}
-                onClick={
-                  isEditable
-                    ? () => {
-                        setSelectedItemSlot({
-                          category: 'relicfragment',
-                          index: 0,
-                        })
-                      }
-                    : undefined
-                }
+                onClick={() => handleButtonClick('relicfragment', 0)}
+                onItemInfoClick={handleShowInfo}
+                isScreenshotMode={isScreenshotMode}
               />
               <BuilderButton
                 item={buildState.items.relicfragment[1]}
                 isEditable={isEditable}
                 size="sm"
-                onClick={
-                  isEditable
-                    ? () => {
-                        setSelectedItemSlot({
-                          category: 'relicfragment',
-                          index: 1,
-                        })
-                      }
-                    : undefined
-                }
+                onClick={() => handleButtonClick('relicfragment', 1)}
+                onItemInfoClick={handleShowInfo}
+                isScreenshotMode={isScreenshotMode}
               />
               <BuilderButton
                 item={buildState.items.relicfragment[2]}
                 isEditable={isEditable}
                 size="sm"
-                onClick={
-                  isEditable
-                    ? () => {
-                        setSelectedItemSlot({
-                          category: 'relicfragment',
-                          index: 2,
-                        })
-                      }
-                    : undefined
-                }
+                onClick={() => handleButtonClick('relicfragment', 2)}
+                onItemInfoClick={handleShowInfo}
+                isScreenshotMode={isScreenshotMode}
               />
             </div>
           </div>
         </div>
-
         <div
           id="center-column"
           className="relative ml-[13px] flex h-[450px] max-h-[450px] flex-col items-start justify-start overflow-y-auto sm:h-[460px] sm:max-h-[460px]"
@@ -447,30 +417,16 @@ export default function Builder({
                 <BuilderButton
                   item={buildState.items.archtype[archtypeIndex]}
                   isEditable={isEditable}
-                  onClick={
-                    isEditable
-                      ? () => {
-                          setSelectedItemSlot({
-                            category: 'archtype',
-                            index: archtypeIndex,
-                          })
-                        }
-                      : undefined
-                  }
+                  onClick={() => handleButtonClick('archtype', archtypeIndex)}
+                  onItemInfoClick={handleShowInfo}
+                  isScreenshotMode={isScreenshotMode}
                 />
                 <BuilderButton
                   item={buildState.items.skill[archtypeIndex]}
                   isEditable={isEditable}
-                  onClick={
-                    isEditable
-                      ? () => {
-                          setSelectedItemSlot({
-                            category: 'skill',
-                            index: archtypeIndex,
-                          })
-                        }
-                      : undefined
-                  }
+                  onClick={() => handleButtonClick('skill', archtypeIndex)}
+                  onItemInfoClick={handleShowInfo}
+                  isScreenshotMode={isScreenshotMode}
                 />
               </Fragment>
             ))}
@@ -483,16 +439,9 @@ export default function Builder({
             <BuilderButton
               item={buildState.items.concoction[0]}
               isEditable={isEditable}
-              onClick={
-                isEditable
-                  ? () => {
-                      setSelectedItemSlot({
-                        category: 'concoction',
-                        index: 0,
-                      })
-                    }
-                  : undefined
-              }
+              onClick={() => handleButtonClick('concoction', 0)}
+              onItemInfoClick={handleShowInfo}
+              isScreenshotMode={isScreenshotMode}
             />
             {getArrayOfLength(concoctionSlotCount).map((index) => {
               // Add 1 to the index because we already rendered the first slot
@@ -502,16 +451,11 @@ export default function Builder({
                   key={`concoction-${concoctionIndex}`}
                   item={buildState.items.concoction[concoctionIndex]}
                   isEditable={isEditable}
-                  onClick={
-                    isEditable
-                      ? () => {
-                          setSelectedItemSlot({
-                            category: 'concoction',
-                            index: concoctionIndex,
-                          })
-                        }
-                      : undefined
+                  onClick={() =>
+                    handleButtonClick('concoction', concoctionIndex)
                   }
+                  onItemInfoClick={handleShowInfo}
+                  isScreenshotMode={isScreenshotMode}
                 />
               )
             })}
@@ -526,50 +470,29 @@ export default function Builder({
                 key={`consumable-${consumableIndex}`}
                 item={buildState.items.consumable[consumableIndex]}
                 isEditable={isEditable}
-                onClick={
-                  isEditable
-                    ? () => {
-                        setSelectedItemSlot({
-                          category: 'consumable',
-                          index: consumableIndex,
-                        })
-                      }
-                    : undefined
-                }
+                onClick={() => handleButtonClick('consumable', consumableIndex)}
+                onItemInfoClick={handleShowInfo}
+                isScreenshotMode={isScreenshotMode}
               />
             ))}
           </div>
         </div>
-
         <div id="right-column" className="flex-none">
           <BuilderButton
             item={buildState.items.amulet}
             isEditable={isEditable}
-            onClick={
-              isEditable
-                ? () => {
-                    setSelectedItemSlot({
-                      category: 'amulet',
-                    })
-                  }
-                : undefined
-            }
+            onClick={() => handleButtonClick('amulet')}
+            onItemInfoClick={handleShowInfo}
+            isScreenshotMode={isScreenshotMode}
           />
           {getArrayOfLength(4).map((ringIndex) => (
             <BuilderButton
               key={`ring-${ringIndex}`}
               item={buildState.items.ring[ringIndex]}
               isEditable={isEditable}
-              onClick={
-                isEditable
-                  ? () => {
-                      setSelectedItemSlot({
-                        category: 'ring',
-                        index: ringIndex,
-                      })
-                    }
-                  : undefined
-              }
+              onClick={() => handleButtonClick('ring', ringIndex)}
+              onItemInfoClick={handleShowInfo}
+              isScreenshotMode={isScreenshotMode}
             />
           ))}
         </div>
@@ -588,47 +511,26 @@ export default function Builder({
               item={buildState.items.weapon[weaponIndex]}
               size="wide"
               isEditable={isEditable}
-              onClick={
-                isEditable
-                  ? () => {
-                      setSelectedItemSlot({
-                        category: 'weapon',
-                        index: weaponIndex,
-                      })
-                    }
-                  : undefined
-              }
+              onClick={() => handleButtonClick('weapon', weaponIndex)}
+              onItemInfoClick={handleShowInfo}
+              isScreenshotMode={isScreenshotMode}
             />
             <div className="flex w-full grow items-center justify-around gap-4">
               <BuilderButton
                 item={buildState.items.mod[weaponIndex]}
                 size="md"
                 isEditable={isEditable}
-                onClick={
-                  isEditable
-                    ? () => {
-                        setSelectedItemSlot({
-                          category: 'mod',
-                          index: weaponIndex,
-                        })
-                      }
-                    : undefined
-                }
+                onClick={() => handleButtonClick('mod', weaponIndex)}
+                onItemInfoClick={handleShowInfo}
+                isScreenshotMode={isScreenshotMode}
               />
               <BuilderButton
                 item={buildState.items.mutator[weaponIndex]}
                 size="md"
                 isEditable={isEditable}
-                onClick={
-                  isEditable
-                    ? () => {
-                        setSelectedItemSlot({
-                          category: 'mutator',
-                          index: weaponIndex,
-                        })
-                      }
-                    : undefined
-                }
+                onClick={() => handleButtonClick('mutator', weaponIndex)}
+                onItemInfoClick={handleShowInfo}
+                isScreenshotMode={isScreenshotMode}
               />
             </div>
           </div>
@@ -640,22 +542,12 @@ export default function Builder({
           showControls={showControls}
           isEditable={isEditable}
           isScreenshotMode={isScreenshotMode}
-          onAddTrait={
-            isEditable
-              ? () => {
-                  setSelectedItemSlot({
-                    category: 'trait',
-                  })
-                }
-              : undefined
-          }
+          onAddTrait={() => handleButtonClick('trait')}
           onRemoveTrait={(traitItem) => {
             const newTraitItems = buildState.items.trait.filter(
               (i) => i.name !== traitItem.name,
             )
-            const newTraitItemParams = newTraitItems.map(
-              (i) => `${i.id};${i.amount}`,
-            )
+            const newTraitItemParams = TraitItem.toParams(newTraitItems)
             updateBuildState('trait', newTraitItemParams)
           }}
           onChangeAmount={(newTraitItem) => {
@@ -665,9 +557,7 @@ export default function Builder({
               }
               return traitItem
             })
-            const newTraitItemParams = newTraitItems.map(
-              (i) => `${i.id};${i.amount}`,
-            )
+            const newTraitItemParams = TraitItem.toParams(newTraitItems)
             updateBuildState('trait', newTraitItemParams)
           }}
         />
