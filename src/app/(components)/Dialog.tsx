@@ -22,6 +22,7 @@ interface DialogProps {
   open: boolean
   title: string
   onClose: () => void
+  zIndex?: 'z-10' | 'z-20' | 'z-30' | 'z-40' | 'z-50'
 }
 
 export default function Dialog({
@@ -29,11 +30,12 @@ export default function Dialog({
   maxWidthClass,
   open,
   title,
+  zIndex = 'z-50',
   onClose,
 }: DialogProps) {
   return (
     <Transition.Root show={open} as={Fragment}>
-      <BaseDialog as="div" className="relative z-50" onClose={onClose}>
+      <BaseDialog as="div" className={cn('relative', zIndex)} onClose={onClose}>
         <Transition.Child
           as={Fragment}
           enter="ease-out duration-300"
