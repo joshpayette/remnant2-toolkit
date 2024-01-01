@@ -3,6 +3,7 @@
 import { prisma } from '@/app/(lib)/db'
 import { Build } from '@prisma/client'
 import { ExtendedBuild } from '../(types)'
+import { getServerSession } from '../(lib)/auth'
 
 // Need this to suppress the BigInt JSON error
 BigInt.prototype.toJSON = function (): string {
@@ -20,6 +21,8 @@ export async function getMostUpvotedBuilds(
   timeRange: TimeRange,
   limit: number,
 ) {
+  const session = await getServerSession()
+
   let timeCondition = ''
   const now = new Date()
   const allTime = new Date(2023, 0, 1)
@@ -49,22 +52,29 @@ export async function getMostUpvotedBuilds(
   }
 
   const topBuilds = (await prisma.$queryRaw`
-    SELECT Build.*, User.name as username, User.displayName, COUNT(BuildVoteCounts.buildId) as votes
-    FROM Build
-    LEFT JOIN BuildVoteCounts ON Build.id = BuildVoteCounts.buildId
-    LEFT JOIN User on Build.createdById = User.id
-    WHERE Build.isPublic = true AND Build.archtype IS NOT NULL AND Build.archtype != '' AND Build.createdAt > ${timeCondition}
-    GROUP BY Build.id, User.id
-    ORDER BY votes DESC
-    LIMIT ${limit}
-  `) as (Build & { votes: number; username: string; displayName: string })[]
+  SELECT Build.*, User.name as username, User.displayName, COUNT(BuildVoteCounts.buildId) as votes,
+    CASE WHEN BuildReports.buildId IS NOT NULL THEN true ELSE false END as reported
+  FROM Build
+  LEFT JOIN BuildVoteCounts ON Build.id = BuildVoteCounts.buildId
+  LEFT JOIN User on Build.createdById = User.id
+  LEFT JOIN BuildReports on Build.id = BuildReports.buildId AND BuildReports.userId = ${session?.user?.id}
+  WHERE Build.isPublic = true AND Build.archtype IS NOT NULL AND Build.archtype != '' AND Build.createdAt > ${timeCondition}
+  GROUP BY Build.id, User.id
+  ORDER BY votes DESC
+  LIMIT ${limit}
+`) as (Build & {
+    votes: number
+    username: string
+    displayName: string
+    reported: boolean
+  })[]
 
   const returnedBuilds: ExtendedBuild[] = topBuilds.map((build) => ({
     ...build,
     createdByDisplayName: build.displayName || build.username, // Accessing the 'displayName' or 'name' property from the 'User' table
     upvoted: false,
     totalUpvotes: Number(build.votes),
-    reported: false,
+    reported: build.reported,
   }))
 
   return returnedBuilds

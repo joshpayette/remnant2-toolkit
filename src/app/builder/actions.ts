@@ -492,7 +492,7 @@ export async function removeReportForBuild(
     revalidatePath(`/builder/${buildId}`)
 
     return {
-      message: 'Vote removed!',
+      message: 'Report has been removed!',
     }
   } catch (e) {
     console.error(e)

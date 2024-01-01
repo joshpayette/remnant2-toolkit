@@ -22,6 +22,17 @@ export default function MostPopularBuilds({ limit = 20 }: Props) {
     getMostUpvotedBuilds(topBuildsTimeRange, limit).then(setTopBuilds)
   }, [topBuildsTimeRange, limit])
 
+  function handleReportBuild(reported: boolean, buildId: string) {
+    setTopBuilds((prev) =>
+      prev.map((build) => {
+        if (build.id === buildId) {
+          build.reported = reported
+        }
+        return build
+      }),
+    )
+  }
+
   return (
     <>
       <div className="flex w-full flex-row items-center justify-center border-b border-b-green-500 py-2">
@@ -109,7 +120,7 @@ export default function MostPopularBuilds({ limit = 20 }: Props) {
       >
         {topBuilds.map((build) => (
           <div key={build.id} className="h-full w-full">
-            <BuildCard build={build} />
+            <BuildCard build={build} onReportBuild={handleReportBuild} />
           </div>
         ))}
       </ul>

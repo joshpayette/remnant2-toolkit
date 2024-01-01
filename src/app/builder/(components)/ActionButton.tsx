@@ -6,7 +6,6 @@ import { StarIcon as StarIconOff } from '@heroicons/react/24/outline'
 import { StarIcon as StarIconOn } from '@heroicons/react/24/solid'
 import { FlagIcon as FlagIconOff } from '@heroicons/react/24/outline'
 import { FlagIcon as FlagIconOn } from '@heroicons/react/24/solid'
-import Skeleton from '@/app/(components)/Skeleton'
 import LoadingIndicator from '@/app/(components)/LoadingIndicator'
 
 export const buttonClasses =

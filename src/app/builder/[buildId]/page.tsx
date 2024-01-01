@@ -18,9 +18,7 @@ import TotalUpvotes from '../(components)/TotalUpvotes'
 import DetailedBuildView from '../(components)/DetailedBuildView'
 import ImageDownloadLink from '../(components)/ImageDownloadLink'
 import {
-  addReportForBuild,
   addVoteForBuild,
-  removeReportForBuild,
   removeVoteForBuild,
 } from '../actions'
 import { toast } from 'react-toastify'
@@ -45,6 +43,7 @@ export default function Page({
     handleDuplicateBuild,
     handleEditBuild,
     handleImageExport,
+    handleReportBuild,
   } = useBuildActions()
 
   const buildContainerRef = useRef<HTMLDivElement>(null)
@@ -146,42 +145,8 @@ export default function Page({
                       active={buildState.reported}
                       onClick={async () => {
                         const newReported = !buildState.reported
-
-                        // prompt for the reason
-                        const reason = newReported
-                          ? prompt(
-                              'Please enter a reason for reporting this build.',
-                            )
-                          : null
-
-                        if (newReported && !reason) {
-                          toast.error(
-                            'You must enter a reason for reporting this build.',
-                          )
-                          return
-                        }
-
-                        const response = newReported
-                          ? await addReportForBuild(
-                              JSON.stringify({
-                                buildId: extendedBuild.id,
-                                reason,
-                              }),
-                            )
-                          : await removeReportForBuild(
-                              JSON.stringify({ buildId: extendedBuild.id }),
-                            )
-
-                        if (isErrorResponse(response)) {
-                          console.error(response.errors)
-                          toast.error(
-                            'Error reporting build. Please try again later.',
-                          )
-                        } else {
-                          toast.success(response.message)
-                          buildState.reported = newReported
-                          router.refresh()
-                        }
+                        await handleReportBuild(newReported, extendedBuild.id)
+                        buildState.reported = newReported
                       }}
                     />
                   </div>

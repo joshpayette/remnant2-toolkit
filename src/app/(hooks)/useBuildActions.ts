@@ -6,6 +6,8 @@ import { useEffect, useState } from 'react'
 import html2canvas from 'html2canvas'
 import copy from 'clipboard-copy'
 import { toast } from 'react-toastify'
+import { addReportForBuild, removeReportForBuild } from '../builder/actions'
+import { isErrorResponse } from '../(types)'
 
 export default function useBuildActions() {
   const router = useRouter()
@@ -77,6 +79,36 @@ export default function useBuildActions() {
     // We do this to trigger the effect below
     setIsScreenshotMode({ el, imageFileName })
   }
+
+  async function handleReportBuild(reported: boolean, buildId: string) {
+    // prompt for the reason
+    const reason = reported
+      ? prompt('Please enter a reason for reporting this build.')
+      : null
+
+    if (reported && !reason) {
+      toast.error('You must enter a reason for reporting this build.')
+      return
+    }
+
+    const response = reported
+      ? await addReportForBuild(
+          JSON.stringify({
+            buildId,
+            reason,
+          }),
+        )
+      : await removeReportForBuild(JSON.stringify({ buildId }))
+
+    if (isErrorResponse(response)) {
+      console.error(response.errors)
+      toast.error('Error reporting build. Please try again later.')
+    } else {
+      toast.success(response.message)
+      router.refresh()
+    }
+  }
+
   /**
    * Export the build as an image
    * We do this in a useEffect so that the UI can update,
@@ -120,6 +152,7 @@ export default function useBuildActions() {
     handleDuplicateBuild,
     handleEditBuild,
     handleImageExport,
+    handleReportBuild,
     isScreenshotMode: Boolean(isScreenshotMode),
     showControls: Boolean(isScreenshotMode) === false,
     imageLink,
