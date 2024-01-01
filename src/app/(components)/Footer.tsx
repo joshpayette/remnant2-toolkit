@@ -11,21 +11,21 @@ export default function Footer() {
           target="_blank"
         >
           <img
-            src={'https://d2sqltdcj8czo5.cloudfront.net/github.png'}
+            src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/github.png`}
             alt="Remnant 2 Toolkit on GitHub"
             className="h-8 w-8"
           />
         </a>
         <a href="https://twitter.com/Remnant2Toolkit" target="_blank">
           <img
-            src={'https://d2sqltdcj8czo5.cloudfront.net/twitter.png'}
+            src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/twitter.png`}
             alt="Josh Payette on Twitter"
             className="h-6 w-6"
           />
         </a>
         <a href="https://patreon.com/JoshPayette" target="_blank">
           <img
-            src={'https://d2sqltdcj8czo5.cloudfront.net/patreon.png'}
+            src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/patreon.png`}
             alt="Josh Payette on Patreon"
             className="h-6 w-6"
           />

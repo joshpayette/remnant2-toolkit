@@ -34,7 +34,7 @@ export default function ItemInfo({ item, open, onClose }: ItemInfoProps) {
             </p>
           </div>
           <Image
-            src={`https://d2sqltdcj8czo5.cloudfront.net${item.imagePath}`}
+            src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/${item.imagePath}`}
             width={128}
             height={128}
             alt={item.name}

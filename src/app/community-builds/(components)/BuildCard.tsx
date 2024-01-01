@@ -8,18 +8,34 @@ import { FlagIcon as FlagIconOff } from '@heroicons/react/24/outline'
 import { FlagIcon as FlagIconOn } from '@heroicons/react/24/solid'
 import useBuildActions from '@/app/(hooks)/useBuildActions'
 import Link from 'next/link'
+import Image from 'next/image'
 
 interface Props {
   build: ExtendedBuild
+  toolkitten?: boolean
   onReportBuild: (reported: boolean, buildId: string) => void
 }
 
-export default function BuildCard({ build, onReportBuild }: Props) {
+export default function BuildCard({
+  build,
+  onReportBuild,
+  toolkitten = true,
+}: Props) {
   const buildState = extendedBuildToBuildState(build)
   const { handleReportBuild } = useBuildActions()
 
   return (
     <div className="col-span-1 flex h-full flex-col rounded-lg border border-purple-500 bg-black shadow">
+      {toolkitten && (
+        <div>
+          <Image
+            src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/toolkitten_small.png`}
+            width={86}
+            height={100}
+            alt="Toolkitten image denoting user is a member"
+          />
+        </div>
+      )}
       <div className="flex w-full flex-1 items-start justify-start space-x-6 p-6">
         <div className="flex-1 truncate">
           <div className="flex flex-col items-start justify-start ">
