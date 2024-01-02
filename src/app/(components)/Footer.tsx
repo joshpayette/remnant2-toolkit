@@ -23,7 +23,7 @@ export default function Footer() {
             className="h-6 w-6"
           />
         </a>
-        <a href="https://patreon.com/JoshPayette" target="_blank">
+        <a href="https://www.patreon.com/JoshPayette/membership" target="_blank">
           <img
             src={'https://d2sqltdcj8czo5.cloudfront.net/patreon.png'}
             alt="Josh Payette on Patreon"
