@@ -9,6 +9,7 @@
 - When logging in, the next-auth page to select Discord or Reddit is pretty ugly. Make Reddit Button orange with icon, etc.
 - Add function to highlight description text for terms like burning, bleeding, overloaded, etc.
 - Builder should automatically add the 5 base trait points to the build based on primary archtype
+- Allow users to choose which membership border frame they want
 
 ## Bugs
 
