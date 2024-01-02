@@ -25,11 +25,11 @@ import PageActions from '../(components)/PageActions'
 import BackToTopButton from '../(components)/BackToTopButton'
 
 const builds = [
+  dotsrusLikesDotsPageInfo,
   senorservezasRoninMeleePageInfo,
   dudleysEldritchKnightPageInfo,
   sheenShotsHotSwapperPageInfo,
   sheenShotsRageLoopPageInfo,
-  dotsrusLikesDotsPageInfo,
   sadderallsRichieRichPageInfo,
   senorcervezasMemeBuildPageInfo,
   mrNachoCoopElementalPageInfo,

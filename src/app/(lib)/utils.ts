@@ -8,7 +8,10 @@ import { WeaponItem } from '../(types)/items/WeaponItem'
 import { MutatorItem } from '../(types)/items/MutatorItem'
 import { TraitItem } from '../(types)/items/TraitItem'
 import { remnantItemCategories, remnantItems } from '../(data)'
-import { DEFAULT_TRAIT_AMOUNT, MAX_BUILD_DESCRIPTION_LENGTH } from './constants'
+import {
+  DEFAULT_TRAIT_AMOUNT,
+  MAX_BUILD_DESCRIPTION_LENGTH,
+} from '../(data)/constants'
 import { BuildState } from '../(types)/build-state'
 import { badWordFilter } from './badword-filter'
 

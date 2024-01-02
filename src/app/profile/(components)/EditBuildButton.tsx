@@ -1,7 +1,7 @@
 'use client'
 
 import { useLocalStorage } from '@/app/(hooks)/useLocalStorage'
-import { DEFAULT_DISPLAY_NAME } from '@/app/(lib)/constants'
+import { DEFAULT_DISPLAY_NAME } from '@/app/(data)/constants'
 import {
   buildStateToQueryParams,
   extendedBuildToBuildState,

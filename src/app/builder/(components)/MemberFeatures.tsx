@@ -2,7 +2,7 @@
 
 import Textarea from '@/app/(components)/Textarea'
 import Toggle from '@/app/(components)/Toggle'
-import { MAX_BUILD_DESCRIPTION_LENGTH } from '@/app/(lib)/constants'
+import { MAX_BUILD_DESCRIPTION_LENGTH } from '@/app/(data)/constants'
 import { signIn, useSession } from 'next-auth/react'
 
 type Props = {

@@ -1,20 +1,16 @@
 import {
   BookmarkSquareIcon,
   DocumentCheckIcon,
+  DocumentTextIcon,
+  HeartIcon,
   InformationCircleIcon,
   ListBulletIcon,
-} from '@heroicons/react/24/outline'
+} from '@heroicons/react/24/solid'
 
 /**
  * The base pages for the site
  */
 export const NAV_ITEMS = [
-  {
-    name: 'Builds',
-    description: 'A collection of builds submitted by the community.',
-    href: '/community-builds',
-    icon: ListBulletIcon,
-  },
   {
     name: 'Builder',
     description:
@@ -22,12 +18,12 @@ export const NAV_ITEMS = [
     href: '/builder',
     icon: BookmarkSquareIcon,
   },
-  // {
-  //   name: 'Featured Builds',
-  //   description: 'A collection of builds aggregated from various sources.',
-  //   href: '/featured-builds',
-  //   icon: ListBulletIcon,
-  // },
+  {
+    name: 'Featured Builds',
+    description: 'A collection of builds aggregated from various sources.',
+    href: '/featured-builds',
+    icon: ListBulletIcon,
+  },
   {
     name: 'Item Tracker',
     description:
@@ -40,6 +36,13 @@ export const NAV_ITEMS = [
     description: 'Look up info on all the items in Remnant 2.',
     href: '/item-lookup',
     icon: InformationCircleIcon,
+  },
+  {
+    name: 'Support the Tool!',
+    description:
+      'Help support the development of the Remnant 2 Toolkit, plus get some cool perks!',
+    href: 'https://www.patreon.com/JoshPayette/membership',
+    icon: HeartIcon,
   },
   // {
   //   name: 'Change Log',

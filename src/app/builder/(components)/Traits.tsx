@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { XCircleIcon } from '@heroicons/react/24/outline'
 import { cn } from '@/app/(lib)/utils'
 import { TraitItem } from '@/app/(types)/items/TraitItem'
-import { DEFAULT_TRAIT_AMOUNT, MAX_TRAIT_AMOUNT } from '@/app/(lib)/constants'
+import { DEFAULT_TRAIT_AMOUNT, MAX_TRAIT_AMOUNT } from '@/app/(data)/constants'
 
 export default function Traits({
   isEditable,
