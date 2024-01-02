@@ -9,8 +9,6 @@ const url = `https://remnant2toolkit.com/featured-builds/build/${slug}`
 const ogImageUrl =
   'https://d2sqltdcj8czo5.cloudfront.net/featured-builds/dotsrus_likes_dots.png'
 const classes = ['ritualist', 'alchemist']
-const buildUrl =
-  'https://www.remnant2toolkit.com/builder/clqwppjd60000l9svs4q2mwh7'
 // const tags = ['tag1', 'tag2'] // optional
 
 export const pageInfo: PageInfo = {
@@ -21,7 +19,6 @@ export const pageInfo: PageInfo = {
   url,
   ogImageUrl,
   classes,
-  buildUrl,
 }
 
 export const metadata = {
