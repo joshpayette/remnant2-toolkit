@@ -4,10 +4,10 @@ import { ExtendedBuild } from '@/app/(types)'
 import { prisma } from '@/app/(lib)/db'
 import { getServerSession } from '@/app/(lib)/auth'
 
-export async function getBuilds(
-  pageSize: number,
-  pageNumber: number,
-): Promise<{
+export async function getBuilds({ pageSize, pageNumber }: {
+  pageSize: number
+  pageNumber: number
+}): Promise<{
   builds: ExtendedBuild[]
   currentPage: number
   totalBuilds: number

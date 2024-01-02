@@ -8,6 +8,7 @@ import { ExtendedBuild } from '@/app/(types)'
 import { cn } from '@/app/(lib)/utils'
 import BuildCard from '../../(components)/BuildCard'
 import BuildList from '@/app/(components)/BuildList'
+import usePaginatedBuilds from '@/app/(hooks)/usePagination'
 
 interface Props {
   limit?: number
@@ -17,11 +18,38 @@ export default function MostPopularBuilds({ limit = 20 }: Props) {
   const [topBuilds, setTopBuilds] = useState<ExtendedBuild[]>([])
   const [topBuildsTimeRange, setTopBuildTimeRange] = useState<TimeRange>('week')
 
+  const pageSize = 5
+  const {
+    builds,
+    currentPage,
+    pageNumbers,
+    totalBuilds,
+    handlePageChange,
+    handlePreviousPage,
+    handleNextPage,
+    handleUpdateTotalBuilds,
+    onPageChange,
+  } = usePaginatedBuilds({
+    pageSize,
+    onPageChange: () => getMostUpvotedBuilds(topBuildsTimeRange, limit),
+  })
+
   const timeRanges: TimeRange[] = ['day', 'week', 'month', 'all-time']
 
+  // Gets the most upvoted builds on page load
+  // and when the time range changes
   useEffect(() => {
-    getMostUpvotedBuilds(topBuildsTimeRange, limit).then(setTopBuilds)
-  }, [topBuildsTimeRange, limit])
+    async function getBuilds() {
+      const { builds, totalBuilds, currentPage } = await getMostUpvotedBuilds(
+        topBuildsTimeRange,
+        limit,
+      )
+      setTopBuilds(builds)
+      handlePageChange(currentPage)
+      handleUpdateTotalBuilds(totalBuilds)
+    }
+    getBuilds()
+  }, [topBuildsTimeRange, limit, handlePageChange, handleUpdateTotalBuilds])
 
   function handleReportBuild(reported: boolean, buildId: string) {
     setTopBuilds((prev) =>
@@ -38,6 +66,8 @@ export default function MostPopularBuilds({ limit = 20 }: Props) {
     <>
       <BuildList
         label="Most Popular"
+        totalBuilds={totalBuilds}
+        onUpdateBuilds={onPageChange}
         headerActions={
           <Listbox value={topBuildsTimeRange} onChange={setTopBuildTimeRange}>
             {({ open }) => (

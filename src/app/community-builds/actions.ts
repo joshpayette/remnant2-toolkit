@@ -20,7 +20,11 @@ function formatDateToMySQL(date: Date): string {
 export async function getMostUpvotedBuilds(
   timeRange: TimeRange,
   limit: number,
-) {
+): Promise<{
+  builds: ExtendedBuild[]
+  currentPage: number
+  totalBuilds: number
+}> {
   const session = await getServerSession()
 
   let timeCondition = ''
@@ -72,6 +76,8 @@ export async function getMostUpvotedBuilds(
     isPaidUser: boolean
   })[]
 
+  // TODO Incorporate pagination in results
+
   const returnedBuilds: ExtendedBuild[] = topBuilds.map((build) => ({
     ...build,
     createdByDisplayName: build.displayName || build.username, // Accessing the 'displayName' or 'name' property from the 'User' table
@@ -81,5 +87,9 @@ export async function getMostUpvotedBuilds(
     isMember: build.isPaidUser,
   }))
 
-  return returnedBuilds
+  return {
+    builds: returnedBuilds,
+    currentPage: 1,
+    totalBuilds: returnedBuilds.length,
+  }
 }

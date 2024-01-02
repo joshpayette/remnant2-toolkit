@@ -9,39 +9,35 @@ import {
   ChevronRightIcon,
   StarIcon,
 } from '@heroicons/react/24/solid'
-import {
-  cn,
-  extendedBuildToBuildState,
-  generatePageNumbers,
-} from '@/app/(lib)/utils'
-import { getBuilds } from './actions'
+import { cn, extendedBuildToBuildState } from '@/app/(lib)/utils'
 import { useEffect, useState } from 'react'
 import { ExtendedBuild } from '@/app/(types)'
+import { getBuilds } from '@/app/actions'
+import usePagination from '@/app/(hooks)/usePagination'
 
 export default function Page() {
   const pageSize = 5
   const [builds, setBuilds] = useState<ExtendedBuild[]>([])
-  const [totalBuilds, setTotalBuilds] = useState(0)
-  const [currentPage, setCurrentPage] = useState(1)
-  const totalPages = Math.ceil(totalBuilds / pageSize)
-  const pageNumbers = generatePageNumbers(currentPage, totalBuilds, pageSize)
+  const [totalResults, setTotalResults] = useState(0)
+
+  const {
+    currentPage,
+    firstVisiblePageNumber,
+    lastVisiblePageNumber,
+    pageNumbers,
+    handleSpecificPageClick,
+    handleNextPageClick,
+    handlePreviousPageClick,
+  } = usePagination({ pageSize, totalResults })
 
   useEffect(() => {
     const getBuildsAsync = async () => {
-      const response = await getBuilds(pageSize, currentPage)
+      const response = await getBuilds({ pageSize, pageNumber: currentPage })
       setBuilds(response.builds)
-      setTotalBuilds(response.totalBuilds)
+      setTotalResults(response.totalBuilds)
     }
     getBuildsAsync()
   }, [currentPage])
-
-  function previousPage() {
-    setCurrentPage(currentPage - 1 > 0 ? currentPage - 1 : 1)
-  }
-
-  function nextPage() {
-    setCurrentPage(currentPage + 1 > totalPages ? totalPages : currentPage + 1)
-  }
 
   return (
     <div className="mx-auto w-full bg-black py-10">
@@ -147,13 +143,13 @@ export default function Page() {
                       <div className="flex items-center justify-between border-t border-green-500 bg-black px-4 py-4 sm:px-6">
                         <div className="flex flex-1 justify-between sm:hidden">
                           <button
-                            onClick={previousPage}
+                            onClick={handlePreviousPageClick}
                             className="relative inline-flex items-center rounded-md border border-green-300 bg-green-500 px-4 py-2 text-sm font-medium text-white hover:bg-green-300"
                           >
                             Previous
                           </button>
                           <button
-                            onClick={nextPage}
+                            onClick={handleNextPageClick}
                             className="relative ml-3 inline-flex items-center rounded-md border border-green-300 bg-green-500 px-4 py-2 text-sm font-medium text-white hover:bg-green-300"
                           >
                             Next
@@ -167,16 +163,16 @@ export default function Page() {
                                 id="start_page_count"
                                 className="font-medium"
                               >
-                                {currentPage * pageSize - pageSize + 1}
+                                {firstVisiblePageNumber}
                               </span>{' '}
                               to{' '}
                               <span id="end_page_count" className="font-medium">
-                                {currentPage * pageSize > totalBuilds
-                                  ? totalBuilds
-                                  : currentPage * pageSize}
+                                {lastVisiblePageNumber}
                               </span>{' '}
                               of{' '}
-                              <span className="font-medium">{totalBuilds}</span>{' '}
+                              <span className="font-medium">
+                                {totalResults}
+                              </span>{' '}
                               results
                             </p>
                           </div>
@@ -186,7 +182,7 @@ export default function Page() {
                               aria-label="Pagination"
                             >
                               <button
-                                onClick={previousPage}
+                                onClick={handlePreviousPageClick}
                                 className="relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-green-500 hover:bg-gray-50 hover:text-gray-800 focus:z-20 focus:outline-offset-0"
                               >
                                 <span className="sr-only">Previous</span>
@@ -205,14 +201,16 @@ export default function Page() {
                                     currentPage === pageNumber &&
                                       'relative z-10 inline-flex items-center bg-green-600 px-4 py-2 text-sm font-semibold text-white focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600',
                                   )}
-                                  onClick={() => setCurrentPage(pageNumber)}
+                                  onClick={() =>
+                                    handleSpecificPageClick(pageNumber)
+                                  }
                                 >
                                   {pageNumber}
                                 </button>
                               ))}
 
                               <button
-                                onClick={nextPage}
+                                onClick={handleNextPageClick}
                                 className="relative inline-flex items-center rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-green-500 hover:bg-green-50 hover:text-gray-800 focus:z-20 focus:outline-offset-0"
                               >
                                 <span className="sr-only">Next</span>
