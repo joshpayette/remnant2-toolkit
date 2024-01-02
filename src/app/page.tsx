@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { NAV_ITEMS } from './(lib)/constants'
+import { NAV_ITEMS } from './(data)/constants'
 import { ArrowRightIcon } from '@heroicons/react/24/outline'
 import PageActions from './(components)/PageActions'
 import BackToTopButton from './(components)/BackToTopButton'

@@ -1,6 +1,6 @@
 import { getServerSession } from '@/app/(lib)/auth'
 import DisplayName from './DisplayName'
-import { DEFAULT_DISPLAY_NAME } from '@/app/(lib)/constants'
+import { DEFAULT_DISPLAY_NAME } from '@/app/(data)/constants'
 import PlaceHolderIcon from '@/app/(components)/PlaceholderIcon'
 
 export default async function Header() {

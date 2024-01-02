@@ -1,6 +1,6 @@
 import { getServerSession } from '@/app/(lib)/auth'
 import { prisma } from '@/app/(lib)/db'
-import { DEFAULT_DISPLAY_NAME } from '@/app/(lib)/constants'
+import { DEFAULT_DISPLAY_NAME } from '@/app/(data)/constants'
 import ViewBuildButton from '../(components)/ViewBuildButton'
 import CopyBuildUrlButton from '../(components)/CopyBuildUrlButton'
 import EditBuildButton from '../(components)/EditBuildButton'
