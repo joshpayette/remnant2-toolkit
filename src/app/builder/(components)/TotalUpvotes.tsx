@@ -1,4 +1,4 @@
-import ToolkittenBadge from '@/app/(components)/ToolkittenBadge'
+import MemberBadge from '@/app/(components)/MemberBadge'
 import { cn } from '@/app/(lib)/utils'
 
 interface Props {
@@ -14,8 +14,8 @@ export default function TotalUpvotes({ isMember, totalUpvotes }: Props) {
       )}
     >
       {isMember && (
-        <div className="absolute right-[-15px] top-[-15px]">
-          <ToolkittenBadge />
+        <div className="absolute right-[-15px] top-[-15px] h-8 w-8">
+          <MemberBadge />
         </div>
       )}
       <div className="text-5xl font-bold text-white drop-shadow-md">

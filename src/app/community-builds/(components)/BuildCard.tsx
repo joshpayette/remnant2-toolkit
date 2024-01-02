@@ -8,8 +8,7 @@ import { FlagIcon as FlagIconOff } from '@heroicons/react/24/outline'
 import { FlagIcon as FlagIconOn } from '@heroicons/react/24/solid'
 import useBuildActions from '@/app/(hooks)/useBuildActions'
 import Link from 'next/link'
-import Image from 'next/image'
-import ToolkittenBadge from '@/app/(components)/ToolkittenBadge'
+import MemberBadge from '@/app/(components)/MemberBadge'
 
 interface Props {
   build: ExtendedBuild
@@ -24,12 +23,12 @@ export default function BuildCard({ build, onReportBuild }: Props) {
     <div
       className={cn(
         'relative col-span-1 flex h-full flex-col rounded-lg border border-purple-500 bg-black shadow',
-        buildState.isMember && 'border-2 border-yellow-500',
+        buildState.isMember && 'border-2 border-red-500',
       )}
     >
       {buildState.isMember ? (
         <div className="absolute right-[-15px] top-[-15px]">
-          <ToolkittenBadge />
+          <MemberBadge />
         </div>
       ) : null}
       <div className="flex w-full flex-1 items-start justify-start space-x-6 p-6">
