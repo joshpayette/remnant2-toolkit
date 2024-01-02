@@ -1,76 +1,47 @@
-import { getServerSession } from '@/app/(lib)/auth'
-import { prisma } from '@/app/(lib)/db'
+'use client'
+
 import ViewBuildButton from '../(components)/ViewBuildButton'
 import CopyBuildUrlButton from '../(components)/CopyBuildUrlButton'
 import PageActions from '@/app/(components)/PageActions'
 import BackToTopButton from '@/app/(components)/BackToTopButton'
-import { StarIcon } from '@heroicons/react/24/solid'
+import {
+  ChevronLeftIcon,
+  ChevronRightIcon,
+  StarIcon,
+} from '@heroicons/react/24/solid'
+import {
+  cn,
+  extendedBuildToBuildState,
+  generatePageNumbers,
+} from '@/app/(lib)/utils'
+import { getBuilds } from './actions'
+import { useEffect, useState } from 'react'
 import { ExtendedBuild } from '@/app/(types)'
-import { extendedBuildToBuildState } from '@/app/(lib)/utils'
 
-async function getBuilds() {
-  const session = await getServerSession()
+export default function Page() {
+  const pageSize = 5
+  const [builds, setBuilds] = useState<ExtendedBuild[]>([])
+  const [totalBuilds, setTotalBuilds] = useState(0)
+  const [currentPage, setCurrentPage] = useState(1)
+  const totalPages = Math.ceil(totalBuilds / pageSize)
+  const pageNumbers = generatePageNumbers(currentPage, totalBuilds, pageSize)
 
-  const userId = session?.user?.id
+  useEffect(() => {
+    const getBuildsAsync = async () => {
+      const response = await getBuilds(pageSize, currentPage)
+      setBuilds(response.builds)
+      setTotalBuilds(response.totalBuilds)
+    }
+    getBuildsAsync()
+  }, [currentPage])
 
-  // find all builds that the user has favorited but are not created
-  // by the user
-  const builds = await prisma.build.findMany({
-    where: {
-      BuildVotes: {
-        some: {
-          userId,
-        },
-      },
-      createdById: {
-        not: userId,
-      },
-    },
-    include: {
-      createdBy: true,
-      BuildVotes: true,
-      BuildReports: true,
-    },
-  })
+  function previousPage() {
+    setCurrentPage(currentPage - 1 > 0 ? currentPage - 1 : 1)
+  }
 
-  if (!builds) return []
-
-  const buildsWithExtraFields = builds.map((build) => ({
-    id: build.id,
-    name: build.name,
-    description: build.description ?? '',
-    isPublic: build.isPublic,
-    createdAt: build.createdAt,
-    createdById: build.createdById,
-    videoUrl: build.videoUrl ?? '',
-    helm: build.helm,
-    torso: build.torso,
-    gloves: build.gloves,
-    legs: build.legs,
-    amulet: build.amulet,
-    ring: build.ring,
-    relic: build.relic,
-    relicfragment: build.relicfragment,
-    archtype: build.archtype,
-    skill: build.skill,
-    weapon: build.weapon,
-    mod: build.mod,
-    mutator: build.mutator,
-    updatedAt: build.updatedAt,
-    concoction: build.concoction,
-    consumable: build.consumable,
-    trait: build.trait,
-    createdByDisplayName: build.createdBy.displayName ?? '',
-    totalUpvotes: build.BuildVotes.length,
-    upvoted: build.BuildVotes.some((vote) => vote.userId === userId), // Check if the user upvoted the build
-    reported: build.BuildReports.some((report) => report.userId === userId), // Check if the user reported the build
-  })) satisfies ExtendedBuild[]
-
-  return buildsWithExtraFields
-}
-
-export default async function Page() {
-  const builds = await getBuilds()
+  function nextPage() {
+    setCurrentPage(currentPage + 1 > totalPages ? totalPages : currentPage + 1)
+  }
 
   return (
     <div className="mx-auto w-full bg-black py-10">
@@ -170,6 +141,93 @@ export default async function Page() {
                     )
                   })}
                 </tbody>
+                <tfoot>
+                  <tr>
+                    <td colSpan={6} className="py-3.5 pt-8">
+                      <div className="flex items-center justify-between border-t border-green-500 bg-black px-4 py-4 sm:px-6">
+                        <div className="flex flex-1 justify-between sm:hidden">
+                          <button
+                            onClick={previousPage}
+                            className="relative inline-flex items-center rounded-md border border-green-300 bg-green-500 px-4 py-2 text-sm font-medium text-white hover:bg-green-300"
+                          >
+                            Previous
+                          </button>
+                          <button
+                            onClick={nextPage}
+                            className="relative ml-3 inline-flex items-center rounded-md border border-green-300 bg-green-500 px-4 py-2 text-sm font-medium text-white hover:bg-green-300"
+                          >
+                            Next
+                          </button>
+                        </div>
+                        <div className="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
+                          <div>
+                            <p className="text-sm text-gray-200">
+                              Showing{' '}
+                              <span
+                                id="start_page_count"
+                                className="font-medium"
+                              >
+                                {currentPage * pageSize - pageSize + 1}
+                              </span>{' '}
+                              to{' '}
+                              <span id="end_page_count" className="font-medium">
+                                {currentPage * pageSize > totalBuilds
+                                  ? totalBuilds
+                                  : currentPage * pageSize}
+                              </span>{' '}
+                              of{' '}
+                              <span className="font-medium">{totalBuilds}</span>{' '}
+                              results
+                            </p>
+                          </div>
+                          <div>
+                            <nav
+                              className="isolate inline-flex -space-x-px rounded-md shadow-sm"
+                              aria-label="Pagination"
+                            >
+                              <button
+                                onClick={previousPage}
+                                className="relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-green-500 hover:bg-gray-50 hover:text-gray-800 focus:z-20 focus:outline-offset-0"
+                              >
+                                <span className="sr-only">Previous</span>
+                                <ChevronLeftIcon
+                                  className="h-5 w-5"
+                                  aria-hidden="true"
+                                />
+                              </button>
+                              {/* Current: "z-10 bg-green-600 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600", Default: "text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:outline-offset-0" */}
+                              {pageNumbers.map((pageNumber) => (
+                                <button
+                                  key={pageNumber}
+                                  aria-current="page"
+                                  className={cn(
+                                    'relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-200 ring-1 ring-inset ring-green-500 hover:bg-green-50 hover:text-gray-800 focus:z-20 focus:outline-offset-0',
+                                    currentPage === pageNumber &&
+                                      'relative z-10 inline-flex items-center bg-green-600 px-4 py-2 text-sm font-semibold text-white focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600',
+                                  )}
+                                  onClick={() => setCurrentPage(pageNumber)}
+                                >
+                                  {pageNumber}
+                                </button>
+                              ))}
+
+                              <button
+                                onClick={nextPage}
+                                className="relative inline-flex items-center rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-green-500 hover:bg-green-50 hover:text-gray-800 focus:z-20 focus:outline-offset-0"
+                              >
+                                <span className="sr-only">Next</span>
+                                <ChevronRightIcon
+                                  className="h-5 w-5"
+                                  aria-hidden="true"
+                                />
+                              </button>
+                            </nav>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </tfoot>
               </table>
             </div>
           </div>
