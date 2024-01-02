@@ -9,6 +9,7 @@ import { usePathname } from 'next/navigation'
 import { AuthButton } from './AuthButton'
 import { NAV_ITEMS } from '../(data)/constants'
 import LoadingIndicator from './LoadingIndicator'
+import { cn } from '../(lib)/utils'
 
 export default function NavBar() {
   const pathname = usePathname()
@@ -43,7 +44,12 @@ export default function NavBar() {
             <Link
               key={item.name}
               href={item.href}
-              className="text-lg font-semibold leading-6 text-white hover:text-green-400"
+              className={cn(
+                'text-md font-semibold leading-6 text-white hover:text-green-400',
+                item.name === 'Support the Tool!' &&
+                  'text-green-400 underline hover:text-green-500',
+              )}
+              target={item.name === 'Support the Tool' ? '_blank' : undefined}
             >
               {item.name}
             </Link>
@@ -55,6 +61,7 @@ export default function NavBar() {
           </div>
         </div>
       </nav>
+
       <Dialog
         as="div"
         className="lg:hidden"
