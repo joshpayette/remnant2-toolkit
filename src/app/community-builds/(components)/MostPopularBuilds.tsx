@@ -6,7 +6,8 @@ import { Fragment, useEffect, useState } from 'react'
 import { TimeRange, getMostUpvotedBuilds } from '../actions'
 import { ExtendedBuild } from '@/app/(types)'
 import { cn } from '@/app/(lib)/utils'
-import BuildCard from './BuildCard'
+import BuildCard from '../../(components)/BuildCard'
+import BuildList from '@/app/(components)/BuildList'
 
 interface Props {
   limit?: number
@@ -35,11 +36,9 @@ export default function MostPopularBuilds({ limit = 20 }: Props) {
 
   return (
     <>
-      <div className="flex w-full flex-row items-center justify-center border-b border-b-green-500 py-2">
-        <h2 className="flex w-full items-center justify-start text-2xl">
-          Most Popular
-        </h2>
-        <div className="flex w-full items-center justify-end">
+      <BuildList
+        label="Most Popular"
+        headerActions={
           <Listbox value={topBuildsTimeRange} onChange={setTopBuildTimeRange}>
             {({ open }) => (
               <>
@@ -112,18 +111,14 @@ export default function MostPopularBuilds({ limit = 20 }: Props) {
               </>
             )}
           </Listbox>
-        </div>
-      </div>
-      <ul
-        role="list"
-        className="mt-4 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4"
+        }
       >
         {topBuilds.map((build) => (
           <div key={build.id} className="h-full w-full">
             <BuildCard build={build} onReportBuild={handleReportBuild} />
           </div>
         ))}
-      </ul>
+      </BuildList>
     </>
   )
 }

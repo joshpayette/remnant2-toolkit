@@ -30,7 +30,11 @@ export async function getBuilds(
       },
     },
     include: {
-      createdBy: true,
+      createdBy: {
+        include: {
+          PaidUsers: true, // Include the related PaidUsers record
+        },
+      },
       BuildVotes: true,
       BuildReports: true,
     },
@@ -59,6 +63,7 @@ export async function getBuilds(
     name: build.name,
     description: build.description ?? '',
     isPublic: build.isPublic,
+    isMember: build.createdBy.PaidUsers.length > 0,
     createdAt: build.createdAt,
     createdById: build.createdById,
     videoUrl: build.videoUrl ?? '',

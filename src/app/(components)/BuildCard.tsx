@@ -1,7 +1,7 @@
 'use client'
 
 import { ExtendedBuild } from '@/app/(types)'
-import ArchtypeLabel from './ArchtypeLabel'
+import ArchtypeLabel from '../community-builds/(components)/ArchtypeLabel'
 import { EyeIcon, StarIcon } from '@heroicons/react/24/solid'
 import { cn, extendedBuildToBuildState } from '@/app/(lib)/utils'
 import { FlagIcon as FlagIconOff } from '@heroicons/react/24/outline'
@@ -12,7 +12,7 @@ import MemberBadge from '@/app/(components)/MemberBadge'
 
 interface Props {
   build: ExtendedBuild
-  onReportBuild: (reported: boolean, buildId: string) => void
+  onReportBuild?: (reported: boolean, buildId: string) => void
 }
 
 export default function BuildCard({ build, onReportBuild }: Props) {
@@ -51,7 +51,9 @@ export default function BuildCard({ build, onReportBuild }: Props) {
                   onClick={async () => {
                     const newReported = !buildState.reported
                     await handleReportBuild(newReported, build.id)
-                    onReportBuild(newReported, build.id)
+                    if (onReportBuild) {
+                      onReportBuild(newReported, build.id)
+                    }
                   }}
                   className="flex items-center justify-end text-right text-red-500"
                 >
