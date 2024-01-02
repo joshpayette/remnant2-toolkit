@@ -21,10 +21,12 @@ import { pageInfo as sheenShotsAcidicBerserkerPageInfo } from './build/sheenshot
 import { pageInfo as sheenShotsRageLoopPageInfo } from './build/sheenshots-rage-loop/metadata'
 import { pageInfo as senorservezasRoninMeleePageInfo } from './build/senorcervezas-ronin-melee/metadata'
 import { pageInfo as sheenShotsHotSwapperPageInfo } from './build/sheenshots-hot-swapper/metadata'
+import { pageInfo as boltJamisonsFargazerMagePageInfo } from './build/bolt-jamisons-fargazer-mage/metadata'
 import PageActions from '../(components)/PageActions'
 import BackToTopButton from '../(components)/BackToTopButton'
 
 const builds = [
+  boltJamisonsFargazerMagePageInfo,
   dotsrusLikesDotsPageInfo,
   senorservezasRoninMeleePageInfo,
   dudleysEldritchKnightPageInfo,
@@ -33,6 +35,8 @@ const builds = [
   sadderallsRichieRichPageInfo,
   senorcervezasMemeBuildPageInfo,
   mrNachoCoopElementalPageInfo,
+  boltJamisonsPyroPageInfo,
+  boltJamisonsBleedCritPageInfo,
   senorcervezasBuffMasterPageInfo,
   senorcervezasGrayHealthPageInfo,
   senorcervezasBossMelterPageInfo,
