@@ -16,9 +16,9 @@ import { getBuilds } from '@/app/actions'
 import usePagination from '@/app/(hooks)/usePagination'
 
 export default function Page() {
-  const pageSize = 5
+  const itemsPerPage = 5
   const [builds, setBuilds] = useState<ExtendedBuild[]>([])
-  const [totalResults, setTotalResults] = useState(0)
+  const [totalItemCount, setTotalItemCount] = useState(0)
 
   const {
     currentPage,
@@ -28,13 +28,16 @@ export default function Page() {
     handleSpecificPageClick,
     handleNextPageClick,
     handlePreviousPageClick,
-  } = usePagination({ pageSize, totalResults })
+  } = usePagination({ itemsPerPage, totalItemCount })
 
   useEffect(() => {
     const getBuildsAsync = async () => {
-      const response = await getBuilds({ pageSize, pageNumber: currentPage })
-      setBuilds(response.builds)
-      setTotalResults(response.totalBuilds)
+      const response = await getBuilds({
+        itemsPerPage,
+        pageNumber: currentPage,
+      })
+      setBuilds(response.items)
+      setTotalItemCount(response.totalItemCount)
     }
     getBuildsAsync()
   }, [currentPage])
@@ -171,7 +174,7 @@ export default function Page() {
                               </span>{' '}
                               of{' '}
                               <span className="font-medium">
-                                {totalResults}
+                                {totalItemCount}
                               </span>{' '}
                               results
                             </p>

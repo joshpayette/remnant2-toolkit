@@ -3,15 +3,15 @@
 import { ExtendedBuild } from '@/app/(types)'
 import { prisma } from '@/app/(lib)/db'
 import { getServerSession } from '@/app/(lib)/auth'
+import { PaginationResponse } from './(hooks)/usePagination'
 
-export async function getBuilds({ pageSize, pageNumber }: {
-  pageSize: number
+export async function getBuilds({
+  itemsPerPage,
+  pageNumber,
+}: {
+  itemsPerPage: number
   pageNumber: number
-}): Promise<{
-  builds: ExtendedBuild[]
-  currentPage: number
-  totalBuilds: number
-}> {
+}): Promise<PaginationResponse<ExtendedBuild>> {
   const session = await getServerSession()
 
   const userId = session?.user?.id
@@ -38,8 +38,8 @@ export async function getBuilds({ pageSize, pageNumber }: {
       BuildVotes: true,
       BuildReports: true,
     },
-    skip: (pageNumber - 1) * pageSize,
-    take: pageSize,
+    skip: (pageNumber - 1) * itemsPerPage,
+    take: itemsPerPage,
   })
 
   // get the total number of builds that match the conditions
@@ -56,7 +56,7 @@ export async function getBuilds({ pageSize, pageNumber }: {
     },
   })
 
-  if (!builds) return { builds: [], totalBuilds: 0, currentPage: 1 }
+  if (!builds) return { items: [], totalItemCount: 0 }
 
   const buildsWithExtraFields = builds.map((build) => ({
     id: build.id,
@@ -90,5 +90,5 @@ export async function getBuilds({ pageSize, pageNumber }: {
     reported: build.BuildReports.some((report) => report.userId === userId), // Check if the user reported the build
   })) satisfies ExtendedBuild[]
 
-  return { builds: buildsWithExtraFields, totalBuilds, currentPage: pageNumber }
+  return { items: buildsWithExtraFields, totalItemCount: totalBuilds }
 }

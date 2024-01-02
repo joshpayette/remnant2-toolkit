@@ -1,12 +1,13 @@
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/solid'
 import { useEffect, useState } from 'react'
 import { cn, generatePageNumbers } from '../(lib)/utils'
-import { PageChangeResponse } from '../(hooks)/usePagination'
+import { PaginationResponse } from '../(hooks)/usePagination'
+import { ExtendedBuild } from '../(types)'
 
 interface FooterProps {
   pageSize?: number
   totalBuilds: number
-  onUpdateBuilds(): Promise<PageChangeResponse>
+  onUpdateBuilds(): Promise<PaginationResponse<ExtendedBuild>>
 }
 
 function Footer({ pageSize = 5, totalBuilds, onUpdateBuilds }: FooterProps) {

@@ -74,38 +74,6 @@ export function toCsv<T extends {}>(data: T[], filename: string) {
 }
 
 /**
- * Generates an array of page numbers based on the current page
- */
-export function generatePageNumbers(
-  currentPage: number,
-  totalItems: number,
-  itemsPerPage: number,
-) {
-  const totalPages = Math.ceil(totalItems / itemsPerPage)
-  let startPage = Math.max(1, currentPage - 2)
-  let endPage = Math.min(totalPages, currentPage + 2)
-
-  // Adjust startPage and endPage if there are less than 5 pages
-  if (totalPages <= 5) {
-    startPage = 1
-    endPage = totalPages
-  } else {
-    if (currentPage <= 3) {
-      endPage = 5
-    } else if (currentPage > totalPages - 2) {
-      startPage = totalPages - 4
-    }
-  }
-
-  const pageNumbers = []
-  for (let i = startPage; i <= endPage; i++) {
-    pageNumbers.push(i)
-  }
-
-  return pageNumbers
-}
-
-/**
  * Converts an Item to a CSV item for export
  */
 export function itemToCsvItem(item: GenericItem): CsvItem {
