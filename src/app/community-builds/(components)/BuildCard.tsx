@@ -9,6 +9,7 @@ import { FlagIcon as FlagIconOn } from '@heroicons/react/24/solid'
 import useBuildActions from '@/app/(hooks)/useBuildActions'
 import Link from 'next/link'
 import Image from 'next/image'
+import ToolkittenBadge from '@/app/(components)/ToolkittenBadge'
 
 interface Props {
   build: ExtendedBuild
@@ -28,12 +29,7 @@ export default function BuildCard({ build, onReportBuild }: Props) {
     >
       {buildState.isMember ? (
         <div className="absolute right-[-15px] top-[-15px]">
-          <Image
-            src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/toolkitten_small.png`}
-            width={43}
-            height={50}
-            alt="Toolkitten image denoting user is a member"
-          />
+          <ToolkittenBadge />
         </div>
       ) : null}
       <div className="flex w-full flex-1 items-start justify-start space-x-6 p-6">

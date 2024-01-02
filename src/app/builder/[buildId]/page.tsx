@@ -17,10 +17,7 @@ import { ExtendedBuild, isErrorResponse } from '@/app/(types)'
 import TotalUpvotes from '../(components)/TotalUpvotes'
 import DetailedBuildView from '../(components)/DetailedBuildView'
 import ImageDownloadLink from '../(components)/ImageDownloadLink'
-import {
-  addVoteForBuild,
-  removeVoteForBuild,
-} from '../actions'
+import { addVoteForBuild, removeVoteForBuild } from '../actions'
 import { toast } from 'react-toastify'
 import { useRouter } from 'next/navigation'
 
@@ -108,7 +105,10 @@ export default function Page({
                   <hr className="my-4 border-gray-500" />
 
                   <div className="flex w-full flex-col items-center justify-center gap-4">
-                    <TotalUpvotes totalUpvotes={buildState.totalUpvotes} />
+                    <TotalUpvotes
+                      totalUpvotes={buildState.totalUpvotes}
+                      isMember={buildState.isMember}
+                    />
 
                     <ActionButton.Vote
                       active={buildState.upvoted}

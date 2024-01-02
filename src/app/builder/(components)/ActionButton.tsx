@@ -7,6 +7,7 @@ import { StarIcon as StarIconOn } from '@heroicons/react/24/solid'
 import { FlagIcon as FlagIconOff } from '@heroicons/react/24/outline'
 import { FlagIcon as FlagIconOn } from '@heroicons/react/24/solid'
 import LoadingIndicator from '@/app/(components)/LoadingIndicator'
+import ToolkittenBadge from '@/app/(components)/ToolkittenBadge'
 
 export const buttonClasses =
   'flex w-full flex-col items-center rounded border-2 text-center px-4 py-2 text-sm font-bold text-white'
@@ -94,7 +95,7 @@ export const ActionButton = {
     <button
       onClick={onClick}
       className={cn(
-        'text-md flex flex-row items-center justify-center rounded border border-transparent p-1 hover:text-yellow-300 hover:underline',
+        'text-md relative flex flex-row items-center justify-center rounded border border-transparent p-1 hover:text-yellow-300 hover:underline',
         active ? 'text-yellow-400' : 'text-white',
       )}
     >

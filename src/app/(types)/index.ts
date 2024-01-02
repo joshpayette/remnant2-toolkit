@@ -44,7 +44,7 @@ export interface PageInfo {
  */
 export interface ExtendedBuild extends Build {
   createdByDisplayName: string
-  isMember?: boolean
+  isMember: boolean
   reported: boolean
   totalUpvotes: number
   upvoted: boolean
