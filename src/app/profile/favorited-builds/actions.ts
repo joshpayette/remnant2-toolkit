@@ -3,9 +3,9 @@
 import { ExtendedBuild } from '@/app/(types)'
 import { prisma } from '@/app/(lib)/db'
 import { getServerSession } from '@/app/(lib)/auth'
-import { PaginationResponse } from './(hooks)/usePagination'
+import { PaginationResponse } from '../../(hooks)/usePagination'
 
-export async function getBuilds({
+export async function getFavoritedBuilds({
   itemsPerPage,
   pageNumber,
 }: {

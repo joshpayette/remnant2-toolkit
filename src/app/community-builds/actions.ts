@@ -4,6 +4,7 @@ import { prisma } from '@/app/(lib)/db'
 import { Build } from '@prisma/client'
 import { ExtendedBuild } from '../(types)'
 import { getServerSession } from '../(lib)/auth'
+import { PaginationResponse } from '../(hooks)/usePagination'
 
 // Need this to suppress the BigInt JSON error
 BigInt.prototype.toJSON = function (): string {
@@ -17,14 +18,15 @@ function formatDateToMySQL(date: Date): string {
   return date.toISOString().slice(0, 19).replace('T', ' ')
 }
 
-export async function getMostUpvotedBuilds(
-  timeRange: TimeRange,
-  limit: number,
-): Promise<{
-  builds: ExtendedBuild[]
-  currentPage: number
-  totalBuilds: number
-}> {
+export async function getMostUpvotedBuilds({
+  itemsPerPage,
+  pageNumber,
+  timeRange,
+}: {
+  timeRange: TimeRange
+  itemsPerPage: number
+  pageNumber: number
+}): Promise<PaginationResponse<ExtendedBuild>> {
   const session = await getServerSession()
 
   let timeCondition = ''
@@ -62,12 +64,14 @@ export async function getMostUpvotedBuilds(
   FROM Build
   LEFT JOIN BuildVoteCounts ON Build.id = BuildVoteCounts.buildId
   LEFT JOIN User on Build.createdById = User.id
-  LEFT JOIN BuildReports on Build.id = BuildReports.buildId AND BuildReports.userId = ${session?.user?.id}
+  LEFT JOIN BuildReports on Build.id = BuildReports.buildId AND BuildReports.userId = ${session
+    ?.user?.id}
   LEFT JOIN PaidUsers on User.id = PaidUsers.userId
   WHERE Build.isPublic = true AND Build.archtype IS NOT NULL AND Build.archtype != '' AND Build.createdAt > ${timeCondition}
   GROUP BY Build.id, User.id
   ORDER BY votes DESC
-  LIMIT ${limit}
+  LIMIT ${itemsPerPage} 
+  OFFSET ${(pageNumber - 1) * itemsPerPage}
 `) as (Build & {
     votes: number
     username: string
@@ -75,6 +79,18 @@ export async function getMostUpvotedBuilds(
     reported: boolean
     isPaidUser: boolean
   })[]
+
+  const totalTopBuilds = (await prisma.$queryRaw`
+  SELECT COUNT(DISTINCT Build.id)
+  FROM Build
+  LEFT JOIN BuildVoteCounts ON Build.id = BuildVoteCounts.buildId
+  LEFT JOIN User on Build.createdById = User.id
+  LEFT JOIN BuildReports on Build.id = BuildReports.buildId AND BuildReports.userId = ${session?.user?.id}
+  LEFT JOIN PaidUsers on User.id = PaidUsers.userId
+  WHERE Build.isPublic = true AND Build.archtype IS NOT NULL AND Build.archtype != '' AND Build.createdAt > ${timeCondition}
+`) as { 'count(distinct Build.id)': number }[]
+
+  const totalBuildCount = Number(totalTopBuilds[0]['count(distinct Build.id)'])
 
   // TODO Incorporate pagination in results
 
@@ -88,8 +104,7 @@ export async function getMostUpvotedBuilds(
   }))
 
   return {
-    builds: returnedBuilds,
-    currentPage: 1,
-    totalBuilds: returnedBuilds.length,
+    items: returnedBuilds,
+    totalItemCount: totalBuildCount,
   }
 }

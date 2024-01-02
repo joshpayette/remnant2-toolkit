@@ -12,8 +12,8 @@ import {
 import { cn, extendedBuildToBuildState } from '@/app/(lib)/utils'
 import { useEffect, useState } from 'react'
 import { ExtendedBuild } from '@/app/(types)'
-import { getBuilds } from '@/app/actions'
 import usePagination from '@/app/(hooks)/usePagination'
+import { getFavoritedBuilds } from './actions'
 
 export default function Page() {
   const itemsPerPage = 5
@@ -32,7 +32,7 @@ export default function Page() {
 
   useEffect(() => {
     const getBuildsAsync = async () => {
-      const response = await getBuilds({
+      const response = await getFavoritedBuilds({
         itemsPerPage,
         pageNumber: currentPage,
       })

@@ -8,51 +8,52 @@ import { ExtendedBuild } from '@/app/(types)'
 import { cn } from '@/app/(lib)/utils'
 import BuildCard from '../../(components)/BuildCard'
 import BuildList from '@/app/(components)/BuildList'
-import usePaginatedBuilds from '@/app/(hooks)/usePagination'
+import usePagination from '@/app/(hooks)/usePagination'
 
 interface Props {
-  limit?: number
+  itemsPerPage?: number
 }
 
-export default function MostPopularBuilds({ limit = 20 }: Props) {
-  const [topBuilds, setTopBuilds] = useState<ExtendedBuild[]>([])
-  const [topBuildsTimeRange, setTopBuildTimeRange] = useState<TimeRange>('week')
+// TODO Add pagination controls
+// Add pagination logic to DB queries
 
-  const pageSize = 5
+export default function MostPopularBuilds({ itemsPerPage = 8 }: Props) {
+  const [builds, setBuilds] = useState<ExtendedBuild[]>([])
+  const [totalBuildCount, setTotalBuildCount] = useState<number>(0)
+  const [timeRange, setTimeRange] = useState<TimeRange>('week')
+
   const {
-    builds,
     currentPage,
+    firstVisiblePageNumber,
+    lastVisiblePageNumber,
     pageNumbers,
-    totalBuilds,
-    handlePageChange,
-    handlePreviousPage,
-    handleNextPage,
-    handleUpdateTotalBuilds,
-    onPageChange,
-  } = usePaginatedBuilds({
-    pageSize,
-    onPageChange: () => getMostUpvotedBuilds(topBuildsTimeRange, limit),
+    handleSpecificPageClick,
+    handleNextPageClick,
+    handlePreviousPageClick,
+  } = usePagination({
+    totalItemCount: totalBuildCount,
+    itemsPerPage,
   })
+
+  // This is an example of how you would use this hook with
+  // a useEffect to fetch data from an API
+  useEffect(() => {
+    const getItemsAsync = async () => {
+      const response = await getMostUpvotedBuilds({
+        itemsPerPage,
+        pageNumber: currentPage,
+        timeRange,
+      })
+      setBuilds(response.items)
+      setTotalBuildCount(response.totalItemCount)
+    }
+    getItemsAsync()
+  }, [currentPage, timeRange, itemsPerPage])
 
   const timeRanges: TimeRange[] = ['day', 'week', 'month', 'all-time']
 
-  // Gets the most upvoted builds on page load
-  // and when the time range changes
-  useEffect(() => {
-    async function getBuilds() {
-      const { builds, totalBuilds, currentPage } = await getMostUpvotedBuilds(
-        topBuildsTimeRange,
-        limit,
-      )
-      setTopBuilds(builds)
-      handlePageChange(currentPage)
-      handleUpdateTotalBuilds(totalBuilds)
-    }
-    getBuilds()
-  }, [topBuildsTimeRange, limit, handlePageChange, handleUpdateTotalBuilds])
-
   function handleReportBuild(reported: boolean, buildId: string) {
-    setTopBuilds((prev) =>
+    setBuilds((prev) =>
       prev.map((build) => {
         if (build.id === buildId) {
           build.reported = reported
@@ -66,10 +67,15 @@ export default function MostPopularBuilds({ limit = 20 }: Props) {
     <>
       <BuildList
         label="Most Popular"
-        totalBuilds={totalBuilds}
-        onUpdateBuilds={onPageChange}
+        currentPage={currentPage}
+        itemsPerPage={itemsPerPage}
+        pageNumbers={pageNumbers}
+        totalItems={totalBuildCount}
+        onPreviousPage={handlePreviousPageClick}
+        onNextPage={handleNextPageClick}
+        onSpecificPage={handleSpecificPageClick}
         headerActions={
-          <Listbox value={topBuildsTimeRange} onChange={setTopBuildTimeRange}>
+          <Listbox value={timeRange} onChange={setTimeRange}>
             {({ open }) => (
               <>
                 <Listbox.Label className="mr-2 block text-left text-sm font-medium leading-6 text-green-500">
@@ -77,7 +83,7 @@ export default function MostPopularBuilds({ limit = 20 }: Props) {
                 </Listbox.Label>
                 <div className="relative w-[110px]">
                   <Listbox.Button className="relative w-full cursor-default rounded-md bg-white py-1.5 pl-3 pr-10 text-left text-sm text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-600 sm:text-sm sm:leading-6">
-                    <span className="block truncate">{topBuildsTimeRange}</span>
+                    <span className="block truncate">{timeRange}</span>
                     <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
                       <ChevronUpDownIcon
                         className="h-5 w-5 text-gray-400"
@@ -143,7 +149,7 @@ export default function MostPopularBuilds({ limit = 20 }: Props) {
           </Listbox>
         }
       >
-        {topBuilds.map((build) => (
+        {builds.map((build) => (
           <div key={build.id} className="h-full w-full">
             <BuildCard build={build} onReportBuild={handleReportBuild} />
           </div>

@@ -11,7 +11,7 @@ export default function Page() {
       </PageActions>
       <PageHeader title="Community Builds" subtitle="Find your next build" />
       <div className="grid w-full grid-cols-1 gap-2">
-        <MostPopularBuilds limit={8} />
+        <MostPopularBuilds itemsPerPage={8} />
       </div>
     </>
   )
