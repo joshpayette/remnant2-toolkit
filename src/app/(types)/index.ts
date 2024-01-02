@@ -37,6 +37,7 @@ export interface PageInfo {
   ogImageUrl: string
   classes?: string[]
   tags?: string[]
+  buildUrl?: string
 }
 
 /**

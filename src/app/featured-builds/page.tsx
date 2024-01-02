@@ -25,11 +25,11 @@ import PageActions from '../(components)/PageActions'
 import BackToTopButton from '../(components)/BackToTopButton'
 
 const builds = [
+  dotsrusLikesDotsPageInfo,
   senorservezasRoninMeleePageInfo,
   dudleysEldritchKnightPageInfo,
   sheenShotsHotSwapperPageInfo,
   sheenShotsRageLoopPageInfo,
-  dotsrusLikesDotsPageInfo,
   sadderallsRichieRichPageInfo,
   senorcervezasMemeBuildPageInfo,
   mrNachoCoopElementalPageInfo,
@@ -63,7 +63,7 @@ export default function Page() {
           >
             <h2 className="text-center text-2xl">
               <Link
-                href={`featured-builds/build/${build.slug}`}
+                href={build.buildUrl ?? `featured-builds/build/${build.slug}`}
                 className=" font-bold text-purple-500 hover:text-purple-300 hover:underline"
               >
                 {build.title}
@@ -85,7 +85,7 @@ export default function Page() {
             </div>
 
             <Link
-              href={`featured-builds/build/${build.slug}`}
+              href={build.buildUrl ?? `featured-builds/build/${build.slug}`}
               className="w-full font-bold text-green-500 hover:text-green-300 hover:underline"
             >
               View Build
