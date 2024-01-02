@@ -79,6 +79,7 @@ export default function useBuildState() {
       name: 'My Build',
       description: null,
       isPublic: true,
+      isMember: false,
       buildId: null,
       createdByDisplayName: null,
       createdById: null,
