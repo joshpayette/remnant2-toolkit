@@ -2,9 +2,10 @@ import {
   BookmarkSquareIcon,
   DocumentCheckIcon,
   DocumentTextIcon,
+  HeartIcon,
   InformationCircleIcon,
   ListBulletIcon,
-} from '@heroicons/react/24/outline'
+} from '@heroicons/react/24/solid'
 
 /**
  * The base pages for the site
@@ -35,6 +36,13 @@ export const NAV_ITEMS = [
     description: 'Look up info on all the items in Remnant 2.',
     href: '/item-lookup',
     icon: InformationCircleIcon,
+  },
+  {
+    name: 'Support the Tool!',
+    description:
+      'Help support the development of the Remnant 2 Toolkit, plus get some cool perks!',
+    href: 'https://www.patreon.com/JoshPayette/membership',
+    icon: HeartIcon,
   },
   // {
   //   name: 'Change Log',
