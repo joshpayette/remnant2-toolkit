@@ -118,13 +118,9 @@ export default function MostPopularBuilds({ limit = 20 }: Props) {
         role="list"
         className="mt-4 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4"
       >
-        {topBuilds.map((build, index) => (
+        {topBuilds.map((build) => (
           <div key={build.id} className="h-full w-full">
-            <BuildCard
-              build={build}
-              onReportBuild={handleReportBuild}
-              toolkitten={index === 0} // TODO: remove this
-            />
+            <BuildCard build={build} onReportBuild={handleReportBuild} />
           </div>
         ))}
       </ul>

@@ -53,11 +53,13 @@ export async function getMostUpvotedBuilds(
 
   const topBuilds = (await prisma.$queryRaw`
   SELECT Build.*, User.name as username, User.displayName, COUNT(BuildVoteCounts.buildId) as votes,
-    CASE WHEN BuildReports.buildId IS NOT NULL THEN true ELSE false END as reported
+    CASE WHEN BuildReports.buildId IS NOT NULL THEN true ELSE false END as reported,
+    CASE WHEN PaidUsers.userId IS NOT NULL THEN true ELSE false END as isPaidUser
   FROM Build
   LEFT JOIN BuildVoteCounts ON Build.id = BuildVoteCounts.buildId
   LEFT JOIN User on Build.createdById = User.id
   LEFT JOIN BuildReports on Build.id = BuildReports.buildId AND BuildReports.userId = ${session?.user?.id}
+  LEFT JOIN PaidUsers on User.id = PaidUsers.userId
   WHERE Build.isPublic = true AND Build.archtype IS NOT NULL AND Build.archtype != '' AND Build.createdAt > ${timeCondition}
   GROUP BY Build.id, User.id
   ORDER BY votes DESC
@@ -67,6 +69,7 @@ export async function getMostUpvotedBuilds(
     username: string
     displayName: string
     reported: boolean
+    isPaidUser: boolean
   })[]
 
   const returnedBuilds: ExtendedBuild[] = topBuilds.map((build) => ({
@@ -75,6 +78,7 @@ export async function getMostUpvotedBuilds(
     upvoted: false,
     totalUpvotes: Number(build.votes),
     reported: build.reported,
+    isMember: build.isPaidUser,
   }))
 
   return returnedBuilds

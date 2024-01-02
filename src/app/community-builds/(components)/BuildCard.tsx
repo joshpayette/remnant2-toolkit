@@ -12,26 +12,21 @@ import Image from 'next/image'
 
 interface Props {
   build: ExtendedBuild
-  toolkitten?: boolean
   onReportBuild: (reported: boolean, buildId: string) => void
 }
 
-export default function BuildCard({
-  build,
-  onReportBuild,
-  toolkitten = false,
-}: Props) {
+export default function BuildCard({ build, onReportBuild }: Props) {
   const buildState = extendedBuildToBuildState(build)
   const { handleReportBuild } = useBuildActions()
 
   return (
     <div
       className={cn(
-        'relative col-span-1 flex h-full flex-col rounded-lg bg-black shadow',
-        toolkitten ? 'border-2 border-yellow-500' : 'border border-purple-500',
+        'relative col-span-1 flex h-full flex-col rounded-lg border border-purple-500 bg-black shadow',
+        buildState.isMember && 'border-2 border-yellow-500',
       )}
     >
-      {toolkitten && (
+      {buildState.isMember ? (
         <div className="absolute right-[-15px] top-[-15px]">
           <Image
             src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/toolkitten_small.png`}
@@ -40,7 +35,7 @@ export default function BuildCard({
             alt="Toolkitten image denoting user is a member"
           />
         </div>
-      )}
+      ) : null}
       <div className="flex w-full flex-1 items-start justify-start space-x-6 p-6">
         <div className="flex-1 truncate">
           <div className="flex flex-col items-start justify-start ">

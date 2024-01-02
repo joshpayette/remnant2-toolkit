@@ -44,9 +44,10 @@ export interface PageInfo {
  */
 export interface ExtendedBuild extends Build {
   createdByDisplayName: string
+  isMember?: boolean
   reported: boolean
-  upvoted: boolean
   totalUpvotes: number
+  upvoted: boolean
 }
 
 export const DLC_TO_NAME = {

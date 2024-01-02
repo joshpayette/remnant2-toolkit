@@ -16,6 +16,7 @@ export interface BuildState {
   createdById: string | null
   createdByDisplayName: string | null
   isPublic: boolean
+  isMember?: boolean
   description: string | null
   upvoted: boolean
   totalUpvotes: number

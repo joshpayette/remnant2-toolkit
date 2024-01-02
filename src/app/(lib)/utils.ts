@@ -263,6 +263,7 @@ export function extendedBuildToBuildState(dbBuild: ExtendedBuild): BuildState {
   return {
     name: dbBuild.name,
     description: dbBuild.description,
+    isMember: dbBuild.isMember,
     isPublic: dbBuild.isPublic,
     createdById: dbBuild.createdById,
     createdByDisplayName: dbBuild.createdByDisplayName,
