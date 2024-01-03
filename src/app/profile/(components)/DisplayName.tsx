@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { PencilIcon } from '@heroicons/react/24/outline'
+import { PencilIcon } from '@heroicons/react/24/solid'
 import { toast } from 'react-toastify'
 import { useRouter } from 'next/navigation'
 import { isErrorResponse } from '@/app/(types)'
