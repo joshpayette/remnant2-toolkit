@@ -22,10 +22,12 @@ import { pageInfo as sheenShotsRageLoopPageInfo } from './build/sheenshots-rage-
 import { pageInfo as senorservezasRoninMeleePageInfo } from './build/senorcervezas-ronin-melee/metadata'
 import { pageInfo as sheenShotsHotSwapperPageInfo } from './build/sheenshots-hot-swapper/metadata'
 import { pageInfo as boltJamisonsFargazerMagePageInfo } from './build/bolt-jamisons-fargazer-mage/metadata'
+import { pageInfo as sheenShotsCorruptedGuardianPageInfo } from './build/sheenshots-corrupted-guardian/metadata'
 import PageActions from '../(components)/PageActions'
 import BackToTopButton from '../(components)/BackToTopButton'
 
 const builds = [
+  sheenShotsCorruptedGuardianPageInfo,
   boltJamisonsFargazerMagePageInfo,
   dotsrusLikesDotsPageInfo,
   senorservezasRoninMeleePageInfo,

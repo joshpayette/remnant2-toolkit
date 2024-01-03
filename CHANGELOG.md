@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Added link to support the tool on the home page.
 - Added Bolt Jamison's Fargazer Madness Mage
+- Added SheenShots' Corrupted Guardian build
 
 ### 2023-12-31
 
