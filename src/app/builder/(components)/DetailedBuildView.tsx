@@ -11,6 +11,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
 import { Masonry } from 'masonic'
+import { ArmorItem } from '@/app/(types)/items/ArmorItem'
+import { MutatorItem } from '@/app/(types)/items/MutatorItem'
 
 interface MasonryBuildItem {
   index: number
@@ -26,13 +28,13 @@ function MasonryCard({ data: item, onMoreInfoClick }: MasonryBuildItem) {
 
   return (
     <div className="col-span-1 flex flex-col divide-y divide-green-800 rounded-lg border border-green-500 bg-black text-center shadow">
-      <div className="flex flex-1 flex-col p-8">
+      <div className="flex flex-1 flex-col p-4">
         <button
           onClick={() => onMoreInfoClick(item)}
           className="text-xl font-bold text-purple-500 hover:text-purple-300 hover:underline"
         >
           <Image
-            className="mx-auto mb-6 h-32 w-32 flex-shrink-0 rounded-full"
+            className="mx-auto mb-2 h-32 w-32 flex-shrink-0 rounded-full"
             width={200}
             height={200}
             src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}${imagePath}?width=200&height=200`}
@@ -42,19 +44,77 @@ function MasonryCard({ data: item, onMoreInfoClick }: MasonryBuildItem) {
 
           {name}
         </button>
-        <dl className="mt-1 flex flex-grow flex-col justify-start">
+        <dl className="mt-1 flex flex-grow flex-col justify-start text-sm">
           <dt className="sr-only">Item Category</dt>
           <dd className="text-sm text-gray-500">{category}</dd>
           <dt className="sr-only">Description</dt>
           <dd className="mt-3 whitespace-pre-line text-left text-sm text-gray-200">
             {description}
           </dd>
+
+          {MutatorItem.isMutatorItem(item) && (
+            <dd className="mt-3 whitespace-pre-line text-left text-gray-200">
+              <strong>At Max Level: </strong>
+              {item.maxLevelBonus || 'No max level bonus found.'}
+            </dd>
+          )}
+
           {GenericItem.isGenericItem(item) && item.cooldown && (
             <dd className="mt-3 whitespace-pre-line text-left text-gray-200">
               <strong>Cooldown</strong>: {item.cooldown}s
             </dd>
           )}
         </dl>
+        {ArmorItem.isArmorItem(item) && (
+          <dl className="mt-1 flex flex-grow flex-col justify-start">
+            <dd className="flex w-full flex-row items-center justify-start">
+              <div className="flex w-full flex-col items-start justify-start sm:max-w-[275px]">
+                <p className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 text-left text-sm text-gray-300">
+                  Armor:{' '}
+                  <span className="text-right text-lg font-bold">
+                    {item.armor}
+                  </span>
+                </p>
+                <p className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 text-left text-sm text-gray-300">
+                  Weight:{' '}
+                  <span className="text-right text-lg font-bold">
+                    {item.weight}
+                  </span>
+                </p>
+                <p className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 text-left text-sm text-gray-300">
+                  Bleed Resistance:{' '}
+                  <span className="text-right text-lg font-bold">
+                    {item.bleedResistance}
+                  </span>
+                </p>
+                <p className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 text-left text-sm text-gray-300">
+                  Fire Resistance:{' '}
+                  <span className="text-right text-lg font-bold">
+                    {item.fireResistance}
+                  </span>
+                </p>
+                <p className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 text-left text-sm text-gray-300">
+                  Shock Resistance:{' '}
+                  <span className="text-right text-lg font-bold">
+                    {item.shockResistance}
+                  </span>
+                </p>
+                <p className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 text-left text-sm text-gray-300">
+                  Toxin Resistance:{' '}
+                  <span className="text-right text-lg font-bold">
+                    {item.toxinResistance}
+                  </span>
+                </p>
+                <p className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 text-left text-sm text-gray-300">
+                  Blight Resistance:{' '}
+                  <span className="text-right text-lg font-bold">
+                    {item.blightResistance}
+                  </span>
+                </p>
+              </div>
+            </dd>
+          </dl>
+        )}
       </div>
       <div>
         <div className="-mt-px flex divide-x divide-green-800">
