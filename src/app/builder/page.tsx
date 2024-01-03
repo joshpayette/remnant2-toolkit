@@ -128,10 +128,7 @@ export default function Page() {
         </div>
       </div>
       <div className="mt-12 flex w-full flex-col items-center justify-center gap-2">
-        <DetailedBuildView
-          buildState={buildState}
-          isScreenshotMode={isScreenshotMode}
-        />
+        <DetailedBuildView buildState={buildState} />
       </div>
     </div>
   )
