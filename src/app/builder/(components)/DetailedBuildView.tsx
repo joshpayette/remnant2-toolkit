@@ -102,9 +102,8 @@ function buildStateToMasonryItems(build: BuildState): Item[] {
 
   // archtypes
   getArrayOfLength(2).forEach((_, i) => {
-    if (!items.archtype[i]) return
-    masonryItems.push(items.archtype[i])
-    masonryItems.push(items.skill[i])
+    items.archtype[i] && masonryItems.push(items.archtype[i])
+    items.skill[i] && masonryItems.push(items.skill[i])
   })
 
   // armor
