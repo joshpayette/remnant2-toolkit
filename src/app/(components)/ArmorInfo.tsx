@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { ArmorItem } from '../(types)/items/ArmorItem'
 
 interface Props {
@@ -6,47 +7,87 @@ interface Props {
 
 export default function ArmorInfo({ item }: Props) {
   return (
-    <dl className="flex flex-grow flex-col justify-start">
+    <dl className="flex w-full flex-grow flex-col justify-start">
       <dd className="flex w-full flex-row items-center justify-start">
         <div className="flex w-full flex-col items-start justify-start sm:max-w-[275px]">
-          <p className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 text-left text-sm text-gray-300">
-            Armor:{' '}
+          <div className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 text-left text-sm text-gray-300">
+            <p className="flex items-center justify-start">Armor</p>
             <span className="flex items-center justify-end text-right text-lg font-bold">
               {item.armor}
             </span>
-          </p>
-          <p className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 text-left text-sm text-gray-300">
-            Weight:{' '}
+          </div>
+          <div className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 text-left text-sm text-gray-300">
+            <p className="flex items-center justify-start">Weight</p>
             <span className="flex items-center justify-end text-right text-lg font-bold">
               {item.weight}
             </span>
-          </p>
-          <p className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 text-left text-sm text-gray-300">
-            Bleed Resistance:{' '}
+          </div>
+          <div className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 text-left text-sm text-gray-300">
+            <Image
+              src={
+                'https://remnant2toolkit.b-cdn.net/status/bleed_resistance.png?width=32&height=32'
+              }
+              alt="Bleed Resistance"
+              width={32}
+              height={32}
+              className="my-1 h-8 w-8"
+            />
             <span className="flex items-center justify-end text-right text-lg font-bold">
               {item.bleedResistance}
             </span>
-          </p>
+          </div>
           <p className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 text-left text-sm text-gray-300">
-            Fire Resistance:{' '}
+            <Image
+              src={
+                'https://remnant2toolkit.b-cdn.net/status/fire_resistance.png?width=32&height=32'
+              }
+              alt="Fire Resistance"
+              width={32}
+              height={32}
+              className="my-1 h-8 w-8"
+            />
             <span className="flex items-center justify-end text-right text-lg font-bold">
               {item.fireResistance}
             </span>
           </p>
           <p className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 text-left text-sm text-gray-300">
-            Shock Resistance:{' '}
+            <Image
+              src={
+                'https://remnant2toolkit.b-cdn.net/status/shock_resistance.png?width=32&height=32'
+              }
+              alt="Shock Resistance"
+              width={32}
+              height={32}
+              className="my-1 h-8 w-8"
+            />
             <span className="flex items-center justify-end text-right text-lg font-bold">
               {item.shockResistance}
             </span>
           </p>
           <p className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 text-left text-sm text-gray-300">
-            Toxin Resistance:{' '}
+            <Image
+              src={
+                'https://remnant2toolkit.b-cdn.net/status/toxin_resistance.png?width=32&height=32'
+              }
+              alt="Toxin Resistance"
+              width={32}
+              height={32}
+              className="my-1 h-8 w-8"
+            />
             <span className="text-right text-lg font-bold">
               {item.toxinResistance}
             </span>
           </p>
           <p className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 text-left text-sm text-gray-300">
-            Blight Resistance:{' '}
+            <Image
+              src={
+                'https://remnant2toolkit.b-cdn.net/status/blight_resistance.png?width=32&height=32'
+              }
+              alt="Blight Resistance"
+              width={32}
+              height={32}
+              className="my-1 h-8 w-8"
+            />
             <span className="flex items-center justify-end text-right text-lg font-bold">
               {item.blightResistance}
             </span>
