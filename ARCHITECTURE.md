@@ -12,7 +12,7 @@ This toolkit is built using [Next.js](https://nextjs.org), [React](https://react
 
 The data is stored in a [Planetscale](https://planetscale.com) database and is accessed via [Prisma](https://prisma.io).
 
-The images are stored in an [AWS S3](https://aws.amazon.com/s3/) bucket, cached and served via [AWS Cloudfront](https://aws.amazon.com/cloudfront/).
+The images are stored, cached, and optimized via [Bunny.net](https://bunny.net).
 
 User accounts are managed via `next-auth` with support for Discord and Reddit logins. The user and session data are persisted to the database for use in the site.
 
