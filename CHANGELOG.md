@@ -19,6 +19,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Fixed
 
 - Shielded Strike mutator was incorrectly listed as Shield Breaker.
+- Fixed error in links to SheenShots' Hot Swapper build.
 
 ### 2023-01-02
 
