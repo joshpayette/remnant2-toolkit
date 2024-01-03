@@ -5,7 +5,7 @@ const description = `This build is needed to unlock the Archon archtype.`
 const slug = 'archon-unlock'
 const url = `https://remnant2toolkit.com/featured-builds/build/${slug}`
 const ogImageUrl =
-  'https://d2sqltdcj8czo5.cloudfront.net/featured-builds/archon_unlock.png'
+  'https://remnant2toolkit.b-cdn.net/featured-builds/archon_unlock.png'
 
 export const pageInfo = {
   title,

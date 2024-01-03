@@ -33,7 +33,7 @@ function BuildItem({
             className="mx-auto mb-6 h-32 w-32 flex-shrink-0 rounded-full"
             width={200}
             height={200}
-            src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}${imagePath}`}
+            src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}${imagePath}?width=200&height=200`}
             alt={`${name} icon`}
             priority={true}
           />

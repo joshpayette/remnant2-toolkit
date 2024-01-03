@@ -7,7 +7,7 @@ const description =
 const slug = 'mr-nachos-nightfall-build'
 const url = `https://remnant2toolkit.com/featured-builds/build/${slug}`
 const ogImageUrl =
-  'https://d2sqltdcj8czo5.cloudfront.net/featured-builds/mr_nachos_nightfall_crit_build.png'
+  'https://remnant2toolkit.b-cdn.net/featured-builds/mr_nachos_nightfall_crit_build.png'
 const classes = ['hunter', 'gunslinger']
 
 export const pageInfo = {

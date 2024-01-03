@@ -6,7 +6,7 @@ const description = `This is the BOSS MELTER! Literally... We are going to take 
 const slug = 'senorcervezas-boss-melter'
 const url = `https://remnant2toolkit.com/featured-builds/build/${slug}`
 const ogImageUrl =
-  'https://d2sqltdcj8czo5.cloudfront.net/featured-builds/senorcervezas_boss_melter.png'
+  'https://remnant2toolkit.b-cdn.net/featured-builds/senorcervezas_boss_melter.png'
 const classes = ['gunslinger', 'challenger']
 
 export const pageInfo = {
