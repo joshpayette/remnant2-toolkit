@@ -12,7 +12,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'd2sqltdcj8czo5.cloudfront.net',
+        hostname: 'remnant2toolkit.b-cdn.net',
         pathname: '/**/*',
       },
     ],

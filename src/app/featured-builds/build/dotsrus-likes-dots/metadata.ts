@@ -7,7 +7,7 @@ const description = `Mixing the generic damage amp of Ritualist and Alchemist to
 const slug = 'dotsrus-likes-dots'
 const url = `https://remnant2toolkit.com/featured-builds/build/${slug}`
 const ogImageUrl =
-  'https://d2sqltdcj8czo5.cloudfront.net/featured-builds/dotsrus_likes_dots.png'
+  'https://remnant2toolkit.b-cdn.net/featured-builds/dotsrus_likes_dots.png'
 const classes = ['ritualist', 'alchemist']
 // const tags = ['tag1', 'tag2'] // optional
 

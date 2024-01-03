@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ### 2023-01-03
 
+### Changed
+
+- Moved from Cloudfront to Bunny CDN for image hosting. This should improve image load times as I'm now able to utilize image optimization.
+
 ### Fixed
 
 - Shielded Strike mutator was incorrectly listed as Shield Breaker.

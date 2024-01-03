@@ -7,7 +7,7 @@ const description = `Even without the glitch, this build still slaps and will re
 const slug = 'bolt-jamisons-fargazer-mage'
 const url = `https://remnant2toolkit.com/featured-builds/build/${slug}`
 const ogImageUrl =
-  'https://d2sqltdcj8czo5.cloudfront.net/featured-builds/bolt_jamisons_fargazer_madness_mage.png'
+  'https://remnant2toolkit.b-cdn.net/featured-builds/bolt_jamisons_fargazer_madness_mage.png'
 const classes = ['archon', 'ritualist']
 // const tags = ['tag1', 'tag2'] // optional
 

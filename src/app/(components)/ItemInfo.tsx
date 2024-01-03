@@ -34,9 +34,9 @@ export default function ItemInfo({ item, open, onClose }: ItemInfoProps) {
             </p>
           </div>
           <Image
-            src={`https://d2sqltdcj8czo5.cloudfront.net${item.imagePath}`}
-            width={128}
-            height={128}
+            src={`https://remnant2toolkit.b-cdn.net${item.imagePath}?width=220&height=220`}
+            width={220}
+            height={220}
             alt={item.name}
             className="h-auto max-h-full w-full max-w-full"
             priority={true}

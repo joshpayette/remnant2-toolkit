@@ -1,4 +1,5 @@
 import type { MDXComponents } from 'mdx/types'
+import Image from 'next/image'
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
@@ -27,8 +28,8 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         {children}
       </h2>
     ),
-    img: ({ src, alt }) => (
-      <img
+    img: ({ src, alt }) => !src || !alt ? null : (
+      <Image
         className="mx-auto mb-4"
         src={src}
         alt={alt}

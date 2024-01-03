@@ -5,7 +5,7 @@ const description = `This build is perfect for farming dungeon rolls and materia
 const slug = 'speed-farming'
 const url = `https://remnant2toolkit.com/featured-builds/build/${slug}`
 const ogImageUrl =
-  'https://d2sqltdcj8czo5.cloudfront.net/featured-builds/speed_farming.png'
+  'https://remnant2toolkit.b-cdn.net/featured-builds/speed_farming.png'
 
 export const pageInfo = {
   title,

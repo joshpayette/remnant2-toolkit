@@ -5,7 +5,7 @@ const description = `This build is designed to keep to keep as many status effec
 const slug = 'max-status-effects'
 const url = `https://remnant2toolkit.com/featured-builds/build/${slug}`
 const ogImageUrl =
-  'https://d2sqltdcj8czo5.cloudfront.net/featured-builds/max_status_effects.png'
+  'https://remnant2toolkit.b-cdn.net/featured-builds/max_status_effects.png'
 
 export const pageInfo = {
   title,
