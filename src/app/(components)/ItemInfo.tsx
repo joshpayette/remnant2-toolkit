@@ -35,8 +35,8 @@ export default function ItemInfo({ item, open, onClose }: ItemInfoProps) {
           </div>
           <Image
             src={`https://d2sqltdcj8czo5.cloudfront.net${item.imagePath}`}
-            width={128}
-            height={128}
+            width={220}
+            height={220}
             alt={item.name}
             className="h-auto max-h-full w-full max-w-full"
             priority={true}
