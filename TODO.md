@@ -1,5 +1,6 @@
 # TODO
 
+- Check if Patreon script is filtering out non-paying members
 - Add pagination to build tables in profile page.
 - Add build randomizer for the luls
 - Add duplicate build button to builds in profile
