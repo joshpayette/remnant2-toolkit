@@ -25,6 +25,8 @@ import {
 } from '../actions'
 import { toast } from 'react-toastify'
 import { useRouter } from 'next/navigation'
+import PageActions from '@/app/(components)/PageActions'
+import BackToTopButton from '@/app/(components)/BackToTopButton'
 
 export default function Page({
   params: { extendedBuild },
@@ -45,9 +47,11 @@ export default function Page({
     handleDuplicateBuild,
     handleEditBuild,
     handleImageExport,
+    handleScrollToDetailedView,
   } = useBuildActions()
 
   const buildContainerRef = useRef<HTMLDivElement>(null)
+  const detailedViewContainerRef = useRef<HTMLDivElement>(null)
 
   // Need to convert the build data to a format that the BuildPage component can use
   const buildState = extendedBuildToBuildState(extendedBuild)
@@ -63,6 +67,9 @@ export default function Page({
 
   return (
     <>
+      <PageActions>
+        <BackToTopButton />
+      </PageActions>
       <PageHeader
         title={buildState.name}
         subtitle={`Build by ${buildState.createdByDisplayName}`}
@@ -74,24 +81,26 @@ export default function Page({
             id="actions-column"
             className="flex min-w-full flex-col justify-between sm:min-w-[100px]"
           >
-            <div id="actions" className="flex flex-col gap-2">
+            <div
+              id="actions"
+              className="grid grid-cols-2 gap-2 sm:flex sm:flex-col sm:gap-2"
+            >
+              <div className="col-span-full">
+                <ActionButton.ExportImage
+                  imageExportLoading={imageExportLoading}
+                  onClick={() =>
+                    handleImageExport(
+                      buildContainerRef.current,
+                      `${buildState.name}.png`,
+                    )
+                  }
+                />
+              </div>
               {session && session.user?.id === buildState.createdById && (
                 <ActionButton.EditBuild
                   onClick={() => handleEditBuild(buildState)}
                 />
               )}
-              <ActionButton.DuplicateBuild
-                onClick={() => handleDuplicateBuild(buildState)}
-              />
-              <ActionButton.ExportImage
-                imageExportLoading={imageExportLoading}
-                onClick={() =>
-                  handleImageExport(
-                    buildContainerRef.current,
-                    `${buildState.name}.png`,
-                  )
-                }
-              />
               <ActionButton.CopyBuildUrl
                 onClick={() =>
                   handleCopyBuildUrl(
@@ -100,90 +109,98 @@ export default function Page({
                   )
                 }
               />
+              <ActionButton.DuplicateBuild
+                onClick={() => handleDuplicateBuild(buildState)}
+              />
               <ToCsvButton
                 data={csvBuildData.filter((item) => item?.name !== '')}
                 filename={`remnant2_builder_${buildState.name}`}
+                label="Export to CSV"
+              />
+
+              <ActionButton.ShowDetailedView
+                onClick={() =>
+                  handleScrollToDetailedView(detailedViewContainerRef.current)
+                }
               />
               {session?.user && (
                 <>
-                  <hr className="my-4 border-gray-500" />
+                  <hr className="my-4 hidden border-gray-500 sm:visible" />
 
-                  <div className="flex w-full flex-col items-center justify-center gap-4">
+                  <div className="col-span-full flex w-full flex-col items-center justify-center gap-4">
                     <TotalUpvotes totalUpvotes={buildState.totalUpvotes} />
 
-                    <ActionButton.Vote
-                      active={buildState.upvoted}
-                      onClick={async () => {
-                        const newVote = !buildState.upvoted
+                    <div className="my-4 flex flex-row items-center justify-center gap-x-4 sm:my-0 sm:flex-col sm:items-start sm:gap-x-0 sm:gap-y-2">
+                      <ActionButton.Vote
+                        active={buildState.upvoted}
+                        onClick={async () => {
+                          const newVote = !buildState.upvoted
 
-                        const response = newVote
-                          ? await addVoteForBuild(
-                              JSON.stringify({ buildId: extendedBuild.id }),
+                          const response = newVote
+                            ? await addVoteForBuild(
+                                JSON.stringify({ buildId: extendedBuild.id }),
+                              )
+                            : await removeVoteForBuild(
+                                JSON.stringify({ buildId: extendedBuild.id }),
+                              )
+
+                          if (isErrorResponse(response)) {
+                            console.error(response.errors)
+                            toast.error(
+                              'Error voting for build. Please try again later.',
                             )
-                          : await removeVoteForBuild(
-                              JSON.stringify({ buildId: extendedBuild.id }),
+                          } else {
+                            toast.success(response.message)
+                            buildState.upvoted = newVote
+                            buildState.totalUpvotes = response.totalUpvotes ?? 1
+                            router.refresh()
+                          }
+                        }}
+                      />
+
+                      <ActionButton.ReportBuild
+                        active={buildState.reported}
+                        onClick={async () => {
+                          const newReported = !buildState.reported
+
+                          // prompt for the reason
+                          const reason = newReported
+                            ? prompt(
+                                'Please enter a reason for reporting this build.',
+                              )
+                            : null
+
+                          if (newReported && !reason) {
+                            toast.error(
+                              'You must enter a reason for reporting this build.',
                             )
+                            return
+                          }
 
-                        if (isErrorResponse(response)) {
-                          console.error(response.errors)
-                          toast.error(
-                            'Error voting for build. Please try again later.',
-                          )
-                        } else {
-                          toast.success(response.message)
-                          buildState.upvoted = newVote
-                          buildState.totalUpvotes = response.totalUpvotes ?? 1
-                          router.refresh()
-                        }
-                      }}
-                    />
-                  </div>
+                          const response = newReported
+                            ? await addReportForBuild(
+                                JSON.stringify({
+                                  buildId: extendedBuild.id,
+                                  reason,
+                                }),
+                              )
+                            : await removeReportForBuild(
+                                JSON.stringify({ buildId: extendedBuild.id }),
+                              )
 
-                  <hr className="my-4 border-gray-500" />
-
-                  <div className="flex w-full flex-col items-center justify-center gap-4">
-                    <ActionButton.ReportBuild
-                      active={buildState.reported}
-                      onClick={async () => {
-                        const newReported = !buildState.reported
-
-                        // prompt for the reason
-                        const reason = newReported
-                          ? prompt(
-                              'Please enter a reason for reporting this build.',
+                          if (isErrorResponse(response)) {
+                            console.error(response.errors)
+                            toast.error(
+                              'Error reporting build. Please try again later.',
                             )
-                          : null
-
-                        if (newReported && !reason) {
-                          toast.error(
-                            'You must enter a reason for reporting this build.',
-                          )
-                          return
-                        }
-
-                        const response = newReported
-                          ? await addReportForBuild(
-                              JSON.stringify({
-                                buildId: extendedBuild.id,
-                                reason,
-                              }),
-                            )
-                          : await removeReportForBuild(
-                              JSON.stringify({ buildId: extendedBuild.id }),
-                            )
-
-                        if (isErrorResponse(response)) {
-                          console.error(response.errors)
-                          toast.error(
-                            'Error reporting build. Please try again later.',
-                          )
-                        } else {
-                          toast.success(response.message)
-                          buildState.reported = newReported
-                          router.refresh()
-                        }
-                      }}
-                    />
+                          } else {
+                            toast.success(response.message)
+                            buildState.reported = newReported
+                            router.refresh()
+                          }
+                        }}
+                      />
+                    </div>
                   </div>
                 </>
               )}
@@ -204,7 +221,10 @@ export default function Page({
             />
           </div>
         </div>
-        <div className="mt-12 flex w-full flex-col items-center justify-center gap-2">
+        <div
+          className="mt-12 flex w-full flex-col items-center justify-center gap-2"
+          ref={detailedViewContainerRef}
+        >
           <DetailedBuildView buildState={buildState} />
         </div>
       </div>

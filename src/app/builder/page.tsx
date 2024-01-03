@@ -31,9 +31,11 @@ export default function Page() {
     handleClearImageLink,
     handleCopyBuildUrl,
     handleImageExport,
+    handleScrollToDetailedView,
   } = useBuildActions()
 
   const buildContainerRef = useRef<HTMLDivElement>(null)
+  const detailedViewContainerRef = useRef<HTMLDivElement>(null)
 
   // if search params are empty, clear the temp values
   // from localstorage
@@ -85,18 +87,24 @@ export default function Page() {
           id="actions-column"
           className="flex min-w-full flex-col justify-between sm:min-w-[100px]"
         >
-          <div id="actions" className="flex flex-col gap-2">
+          <div
+            id="actions"
+            className="grid grid-cols-2 gap-2 sm:flex sm:flex-col sm:gap-2"
+          >
+            <div className="col-span-full">
+              <ActionButton.ExportImage
+                imageExportLoading={imageExportLoading}
+                onClick={() =>
+                  handleImageExport(
+                    buildContainerRef.current,
+                    `${buildState.name}.png`,
+                  )
+                }
+              />
+            </div>
+
             <SaveBuildButton buildState={buildState} />
 
-            <ActionButton.ExportImage
-              imageExportLoading={imageExportLoading}
-              onClick={() =>
-                handleImageExport(
-                  buildContainerRef.current,
-                  `${buildState.name}.png`,
-                )
-              }
-            />
             <ActionButton.CopyBuildUrl
               onClick={() =>
                 handleCopyBuildUrl(
@@ -109,6 +117,13 @@ export default function Page() {
             <ToCsvButton
               data={csvBuildData}
               filename={`remnant2_builder_${buildState.name}`}
+              label="Export to CSV"
+            />
+
+            <ActionButton.ShowDetailedView
+              onClick={() =>
+                handleScrollToDetailedView(detailedViewContainerRef.current)
+              }
             />
           </div>
         </div>
@@ -127,7 +142,10 @@ export default function Page() {
           />
         </div>
       </div>
-      <div className="mt-12 flex w-full flex-col items-center justify-center gap-2">
+      <div
+        className="mt-12 flex w-full flex-col items-center justify-center gap-2"
+        ref={detailedViewContainerRef}
+      >
         <DetailedBuildView buildState={buildState} />
       </div>
     </div>

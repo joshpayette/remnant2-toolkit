@@ -102,6 +102,7 @@ function buildStateToMasonryItems(build: BuildState): Item[] {
 
   // archtypes
   getArrayOfLength(2).forEach((_, i) => {
+    if (!items.archtype[i]) return
     masonryItems.push(items.archtype[i])
     masonryItems.push(items.skill[i])
   })
@@ -113,10 +114,12 @@ function buildStateToMasonryItems(build: BuildState): Item[] {
   items.gloves && masonryItems.push(items.gloves)
   items.relic && masonryItems.push(items.relic)
   getArrayOfLength(3).forEach((_, i) => {
+    if (!items.relicfragment[i]) return
     items.relicfragment[i] && masonryItems.push(items.relicfragment[i])
   })
   items.amulet && masonryItems.push(items.amulet)
   getArrayOfLength(4).forEach((_, i) => {
+    if (!items.ring[i]) return
     items.ring[i] && masonryItems.push(items.ring[i])
   })
 
@@ -161,7 +164,7 @@ export default function DetailedBuildView({ buildState }: Props) {
         onClose={() => setSelectedItem(null)}
       />
       <div className="flex w-full flex-col items-center justify-center p-4">
-        <h2 className="mb-4 text-2xl font-bold tracking-tight text-white">
+        <h2 className="mb-4 text-4xl font-bold tracking-tight text-white">
           Detailed Build View
         </h2>
         <Masonry

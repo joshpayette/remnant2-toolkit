@@ -6,7 +6,6 @@ import { StarIcon as StarIconOff } from '@heroicons/react/24/outline'
 import { StarIcon as StarIconOn } from '@heroicons/react/24/solid'
 import { FlagIcon as FlagIconOff } from '@heroicons/react/24/outline'
 import { FlagIcon as FlagIconOn } from '@heroicons/react/24/solid'
-import Skeleton from '@/app/(components)/Skeleton'
 import LoadingIndicator from '@/app/(components)/LoadingIndicator'
 
 export const buttonClasses =
@@ -19,10 +18,13 @@ type ButtonProps = {
 export const ActionButton = {
   CopyBuildUrl: ({ onClick }: ButtonProps) => (
     <button
-      className={cn(buttonClasses, 'border-purple-500 hover:bg-purple-700')}
+      className={cn(
+        buttonClasses,
+        'border-transparent bg-purple-500 text-gray-800 hover:bg-purple-700 hover:text-white',
+      )}
       onClick={onClick}
     >
-      Copy Build URL
+      Share Build
     </button>
   ),
 
@@ -39,7 +41,7 @@ export const ActionButton = {
     <button
       className={cn(
         buttonClasses,
-        'border-yellow-700 bg-yellow-500 text-black hover:bg-yellow-300',
+        'border-transparent bg-yellow-500 text-gray-800 hover:bg-yellow-700 hover:text-white',
       )}
       onClick={onClick}
     >
@@ -52,15 +54,20 @@ export const ActionButton = {
     imageExportLoading,
   }: ButtonProps & { imageExportLoading: boolean }) =>
     imageExportLoading ? (
-      <div className={cn(buttonClasses, 'border-green-500 hover:bg-green-700')}>
+      <div
+        className={cn(buttonClasses, 'border-transparent hover:bg-green-700')}
+      >
         <LoadingIndicator />
       </div>
     ) : (
       <button
-        className={cn(buttonClasses, 'border-green-500 hover:bg-green-700')}
+        className={cn(
+          buttonClasses,
+          'border-transparent bg-green-500 text-gray-800 hover:bg-green-700 hover:text-white',
+        )}
         onClick={onClick}
       >
-        Export to Image
+        Save Image
       </button>
     ),
 
@@ -88,6 +95,15 @@ export const ActionButton = {
         {active ? <FlagIconOn /> : <FlagIconOff />}
       </span>
       <span className="text-md">{active ? 'Reported' : 'Report'}</span>
+    </button>
+  ),
+
+  ShowDetailedView: ({ onClick }: ButtonProps) => (
+    <button
+      className={cn(buttonClasses, 'border-cyan-500 hover:bg-cyan-700')}
+      onClick={onClick}
+    >
+      Show Detailed View
     </button>
   ),
 
