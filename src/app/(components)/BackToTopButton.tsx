@@ -1,6 +1,6 @@
 'use client'
 
-import { ArrowUpIcon } from '@heroicons/react/24/outline'
+import { ArrowUpIcon } from '@heroicons/react/24/solid'
 
 export default function BackToTopButton() {
   function handleBackToTopClick() {

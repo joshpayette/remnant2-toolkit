@@ -9,24 +9,26 @@ import {
 } from '@heroicons/react/24/outline'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Fragment, useState } from 'react'
+import { useState } from 'react'
+import { Masonry } from 'masonic'
 
-function BuildItem({
-  item,
-  onClickMoreInfo,
-}: {
-  item: Item | null
-  onClickMoreInfo: () => void
-}) {
+interface MasonryBuildItem {
+  index: number
+  data: Item
+  width: number
+  onMoreInfoClick: (item: Item) => void
+}
+
+function MasonryCard({ data: item, onMoreInfoClick }: MasonryBuildItem) {
   if (!item) return null
 
   const { imagePath, category, name, description, wikiLinks } = item
 
   return (
-    <li className="col-span-1 flex flex-col divide-y divide-green-800 rounded-lg border border-green-500 bg-black text-center shadow">
+    <div className="col-span-1 flex flex-col divide-y divide-green-800 rounded-lg border border-green-500 bg-black text-center shadow">
       <div className="flex flex-1 flex-col p-8">
         <button
-          onClick={onClickMoreInfo}
+          onClick={() => onMoreInfoClick(item)}
           className="text-xl font-bold text-purple-500 hover:text-purple-300 hover:underline"
         >
           <Image
@@ -44,7 +46,7 @@ function BuildItem({
           <dt className="sr-only">Item Category</dt>
           <dd className="text-sm text-gray-500">{category}</dd>
           <dt className="sr-only">Description</dt>
-          <dd className="mt-3 whitespace-pre-line text-left text-gray-200">
+          <dd className="mt-3 whitespace-pre-line text-left text-sm text-gray-200">
             {description}
           </dd>
           {GenericItem.isGenericItem(item) && item.cooldown && (
@@ -58,8 +60,8 @@ function BuildItem({
         <div className="-mt-px flex divide-x divide-green-800">
           <div className="flex w-0 flex-1">
             <button
-              onClick={onClickMoreInfo}
-              className="relative inline-flex w-0 flex-1 items-center justify-center gap-x-3 rounded-br-lg border border-transparent py-4 text-sm font-semibold text-gray-200"
+              onClick={() => onMoreInfoClick(item)}
+              className="relative inline-flex w-0 flex-1 items-center justify-center gap-x-1 rounded-br-lg border border-transparent py-4 text-sm font-semibold text-gray-200"
             >
               <InformationCircleIcon
                 className="h-5 w-5 text-green-400"
@@ -73,7 +75,7 @@ function BuildItem({
               <Link
                 target="_blank"
                 href={wikiLinks[0]}
-                className="relative inline-flex w-0 flex-1 items-center justify-center gap-x-3 rounded-br-lg border border-transparent py-4 text-sm font-semibold text-gray-200"
+                className="relative inline-flex w-0 flex-1 items-center justify-center gap-x-1 rounded-br-lg border border-transparent py-4 text-sm font-semibold text-gray-200"
               >
                 <ListBulletIcon
                   className="h-5 w-5 text-green-400"
@@ -86,23 +88,70 @@ function BuildItem({
           {}
         </div>
       </div>
-    </li>
+    </div>
   )
 }
 
 type Props = {
   buildState: BuildState
-  isScreenshotMode: boolean
 }
 
-export default function DetailedBuildView({
-  buildState,
-  isScreenshotMode,
-}: Props) {
+function buildStateToMasonryItems(build: BuildState): Item[] {
+  const masonryItems: Item[] = []
+  const { items } = build
+
+  // archtypes
+  getArrayOfLength(2).forEach((_, i) => {
+    masonryItems.push(items.archtype[i])
+    masonryItems.push(items.skill[i])
+  })
+
+  // armor
+  items.helm && masonryItems.push(items.helm)
+  items.torso && masonryItems.push(items.torso)
+  items.legs && masonryItems.push(items.legs)
+  items.gloves && masonryItems.push(items.gloves)
+  items.relic && masonryItems.push(items.relic)
+  getArrayOfLength(3).forEach((_, i) => {
+    items.relicfragment[i] && masonryItems.push(items.relicfragment[i])
+  })
+  items.amulet && masonryItems.push(items.amulet)
+  getArrayOfLength(4).forEach((_, i) => {
+    items.ring[i] && masonryItems.push(items.ring[i])
+  })
+
+  // weapons
+  getArrayOfLength(3).forEach((_, i) => {
+    items.weapon[i] && masonryItems.push(items.weapon[i])
+    items.mod[i] && masonryItems.push(items.mod[i])
+    items.mutator[i] && masonryItems.push(items.mutator[i])
+  })
+
+  // traits
+  items.trait.forEach((trait) => trait && masonryItems.push(trait))
+
+  // concoctions
+  items.concoction.forEach(
+    (concoction) => concoction && masonryItems.push(concoction),
+  )
+
+  // consumables
+  items.consumable.forEach(
+    (consumable) => consumable && masonryItems.push(consumable),
+  )
+
+  return masonryItems
+}
+
+export default function DetailedBuildView({ buildState }: Props) {
   const [selectedItem, setSelectedItem] = useState<Item | null>(null)
   const infoOpen = selectedItem !== null
 
-  const { items } = buildState
+  const masonryItems = buildStateToMasonryItems(buildState)
+
+  function handleMoreInfoClick(item: Item) {
+    setSelectedItem(item)
+  }
 
   return (
     <>
@@ -115,100 +164,19 @@ export default function DetailedBuildView({
         <h2 className="mb-4 text-2xl font-bold tracking-tight text-white">
           Detailed Build View
         </h2>
-        <ul
-          role="list"
-          className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
-        >
-          {getArrayOfLength(2).map((_, i) => (
-            <Fragment key={`archtype-${i}`}>
-              <BuildItem
-                item={items.archtype[i]}
-                onClickMoreInfo={() => setSelectedItem(items.archtype[i])}
-              />
-              <BuildItem
-                item={items.skill[i]}
-                onClickMoreInfo={() => setSelectedItem(items.skill[i])}
-              />
-            </Fragment>
-          ))}
-          <BuildItem
-            item={items.helm}
-            onClickMoreInfo={() => setSelectedItem(items.helm)}
-          />
-          <BuildItem
-            item={items.torso}
-            onClickMoreInfo={() => setSelectedItem(items.torso)}
-          />
-          <BuildItem
-            item={items.legs}
-            onClickMoreInfo={() => setSelectedItem(items.legs)}
-          />
-          <BuildItem
-            item={items.gloves}
-            onClickMoreInfo={() => setSelectedItem(items.gloves)}
-          />
-          <BuildItem
-            item={items.relic}
-            onClickMoreInfo={() => setSelectedItem(items.relic)}
-          />
-          {getArrayOfLength(3).map((_, i) => (
-            <BuildItem
-              key={`relicfragment-${i}`}
-              item={items.relicfragment[i] ?? null}
-              onClickMoreInfo={() =>
-                setSelectedItem(items.relicfragment[i] ?? null)
-              }
+        <Masonry
+          items={masonryItems}
+          render={({ index, data, width }) => (
+            <MasonryCard
+              index={index}
+              data={data}
+              width={width}
+              onMoreInfoClick={handleMoreInfoClick}
             />
-          ))}
-          <BuildItem
-            item={items.amulet}
-            onClickMoreInfo={() => setSelectedItem(items.amulet)}
-          />
-          {getArrayOfLength(4).map((_, i) => (
-            <BuildItem
-              key={`ring-${i}`}
-              item={items.ring[i]}
-              onClickMoreInfo={() => setSelectedItem(items.ring[i])}
-            />
-          ))}
-          {getArrayOfLength(3).map((_, i) => (
-            <Fragment key={`weapon-${i}`}>
-              <BuildItem
-                item={items.weapon[i]}
-                onClickMoreInfo={() => setSelectedItem(items.weapon[i])}
-              />
-              <BuildItem
-                item={items.mod[i]}
-                onClickMoreInfo={() => setSelectedItem(items.mod[i])}
-              />
-              <BuildItem
-                item={items.mutator[i]}
-                onClickMoreInfo={() => setSelectedItem(items.mutator[i])}
-              />
-            </Fragment>
-          ))}
-          {items.trait.map((trait, i) => (
-            <BuildItem
-              key={`trait-${i}`}
-              item={trait}
-              onClickMoreInfo={() => setSelectedItem(trait)}
-            />
-          ))}
-          {items.concoction.map((concoction, i) => (
-            <BuildItem
-              key={`concoction-${i}`}
-              item={concoction}
-              onClickMoreInfo={() => setSelectedItem(concoction)}
-            />
-          ))}
-          {items.consumable.map((consumable, i) => (
-            <BuildItem
-              key={`consumable-${i}`}
-              item={consumable}
-              onClickMoreInfo={() => setSelectedItem(consumable)}
-            />
-          ))}
-        </ul>
+          )}
+          columnGutter={8}
+          rowGutter={8}
+        />
       </div>
     </>
   )

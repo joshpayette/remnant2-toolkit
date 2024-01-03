@@ -9,7 +9,7 @@ import Link from 'next/link'
 import {
   ArrowLeftOnRectangleIcon,
   UserCircleIcon,
-} from '@heroicons/react/24/outline'
+} from '@heroicons/react/24/solid'
 import Skeleton from './Skeleton'
 
 function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {

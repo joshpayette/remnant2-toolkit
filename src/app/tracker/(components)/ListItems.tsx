@@ -6,7 +6,7 @@ import { capitalize, cn } from '@/app/(lib)/utils'
 import { useIsClient } from 'usehooks-ts'
 import { useLocalStorage } from '@/app/(hooks)/useLocalStorage'
 import ItemCard from './ItemCard'
-import { InformationCircleIcon } from '@heroicons/react/24/outline'
+import { InformationCircleIcon } from '@heroicons/react/24/solid'
 import { GenericItem } from '@/app/(types)/items/GenericItem'
 import { useMemo } from 'react'
 

@@ -3,7 +3,7 @@ import { DLCKey, DLC_TO_NAME } from '../(types)'
 import SearchInput from './SearchInput'
 import { useDebounce } from 'usehooks-ts'
 import Dialog from './Dialog'
-import { FunnelIcon } from '@heroicons/react/24/outline'
+import { FunnelIcon } from '@heroicons/react/24/solid'
 import { FilteredItem } from '../(hooks)/useFilteredItems'
 import { useLocalStorage } from '../(hooks)/useLocalStorage'
 
