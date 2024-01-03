@@ -13,6 +13,8 @@
 
 ## Bugs
 
+- Need a different way to handle item description and public other than local storage,
+  probably include build id in URL and then fetch from database
 - If you add a skill, the skills for that class should not be selectable in the other skill slot
 - Modal overlay allows click events through. This appears to be a bug in headlessui. See: https://github.com/tailwindlabs/headlessui/issues/1551
 
