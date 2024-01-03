@@ -13,6 +13,7 @@ import { useState } from 'react'
 import { Masonry } from 'masonic'
 import { ArmorItem } from '@/app/(types)/items/ArmorItem'
 import { MutatorItem } from '@/app/(types)/items/MutatorItem'
+import ArmorInfo from '@/app/(components)/ArmorInfo'
 
 interface MasonryBuildItem {
   index: number
@@ -66,54 +67,9 @@ function MasonryCard({ data: item, onMoreInfoClick }: MasonryBuildItem) {
           )}
         </dl>
         {ArmorItem.isArmorItem(item) && (
-          <dl className="mt-1 flex flex-grow flex-col justify-start">
-            <dd className="flex w-full flex-row items-center justify-start">
-              <div className="flex w-full flex-col items-start justify-start sm:max-w-[275px]">
-                <p className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 text-left text-sm text-gray-300">
-                  Armor:{' '}
-                  <span className="text-right text-lg font-bold">
-                    {item.armor}
-                  </span>
-                </p>
-                <p className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 text-left text-sm text-gray-300">
-                  Weight:{' '}
-                  <span className="text-right text-lg font-bold">
-                    {item.weight}
-                  </span>
-                </p>
-                <p className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 text-left text-sm text-gray-300">
-                  Bleed Resistance:{' '}
-                  <span className="text-right text-lg font-bold">
-                    {item.bleedResistance}
-                  </span>
-                </p>
-                <p className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 text-left text-sm text-gray-300">
-                  Fire Resistance:{' '}
-                  <span className="text-right text-lg font-bold">
-                    {item.fireResistance}
-                  </span>
-                </p>
-                <p className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 text-left text-sm text-gray-300">
-                  Shock Resistance:{' '}
-                  <span className="text-right text-lg font-bold">
-                    {item.shockResistance}
-                  </span>
-                </p>
-                <p className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 text-left text-sm text-gray-300">
-                  Toxin Resistance:{' '}
-                  <span className="text-right text-lg font-bold">
-                    {item.toxinResistance}
-                  </span>
-                </p>
-                <p className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 text-left text-sm text-gray-300">
-                  Blight Resistance:{' '}
-                  <span className="text-right text-lg font-bold">
-                    {item.blightResistance}
-                  </span>
-                </p>
-              </div>
-            </dd>
-          </dl>
+          <div className="mt-1">
+            <ArmorInfo item={item} />
+          </div>
         )}
       </div>
       <div>
