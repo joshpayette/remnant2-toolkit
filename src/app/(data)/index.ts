@@ -5591,9 +5591,9 @@ export const remnantItems: Item[] = [
   },
   {
     category: 'mutator',
-    name: 'Shield Breaker',
+    name: 'Shielded Strike', // This is the real name, but Fextralife has it as Shield Breaker
     type: 'melee',
-    imagePath: '/mutator/shield_breaker.png',
+    imagePath: '/mutator/shield_breaker.png', // TODO Rename this after CDN swap
     id: 'bhov5r',
     description: `Melee Attacks grants a Shield for 2-4% of Max Health. Max 20-40%. Last 10s.`,
     maxLevelBonus: `Charged Melee Attacks consume all Shield to increase damage of next strike by 1% per Shield Consumed. Max 100%.`,
