@@ -9,7 +9,7 @@ export default function HomePage() {
     <>
       <div className="relative isolate overflow-hidden bg-gray-900 py-24 sm:py-32">
         <Image
-          src="https://remnant2toolkit.b-cdn.net/home-bg.webp"
+          src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/home-bg.webp`}
           alt="Home page background"
           layout="fill"
           className="absolute inset-0 -z-10 h-full w-full object-cover object-right md:object-center"

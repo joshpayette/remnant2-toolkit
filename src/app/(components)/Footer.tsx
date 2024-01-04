@@ -12,9 +12,7 @@ export default function Footer() {
           target="_blank"
         >
           <Image
-            src={
-              'https://remnant2toolkit.b-cdn.net/github.png?width=32&height=32'
-            }
+            src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/github.png?width=32&height=32`}
             alt="Remnant 2 Toolkit on GitHub"
             width={32}
             height={32}
@@ -23,10 +21,8 @@ export default function Footer() {
         </a>
         <a href="https://twitter.com/Remnant2Toolkit" target="_blank">
           <Image
-            src={
-              'https://remnant2toolkit.b-cdn.net/twitter.png?width=32&height=32'
-            }
-            alt="Josh Payette on Twitter"
+            src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/twitter.png?width=32&height=32`}
+            alt="Remnant 2 Toolkit on Twitter"
             width={32}
             height={32}
             className="h-6 w-6"
@@ -37,9 +33,7 @@ export default function Footer() {
           target="_blank"
         >
           <Image
-            src={
-              'https://remnant2toolkit.b-cdn.net/patreon.png?width=32&height=32'
-            }
+            src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/patreon.png?width=32&height=32`}
             alt="Support on Patreon"
             width={32}
             height={32}

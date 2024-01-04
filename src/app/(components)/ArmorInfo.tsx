@@ -24,9 +24,7 @@ export default function ArmorInfo({ item }: Props) {
           </div>
           <div className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 text-left text-sm text-gray-300">
             <Image
-              src={
-                'https://remnant2toolkit.b-cdn.net/status/bleed_resistance.png?width=32&height=32'
-              }
+              src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/status/bleed_resistance.png?width=32&height=32`}
               alt="Bleed Resistance"
               width={32}
               height={32}
@@ -38,9 +36,7 @@ export default function ArmorInfo({ item }: Props) {
           </div>
           <p className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 text-left text-sm text-gray-300">
             <Image
-              src={
-                'https://remnant2toolkit.b-cdn.net/status/fire_resistance.png?width=32&height=32'
-              }
+              src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/status/fire_resistance.png?width=32&height=32`}
               alt="Fire Resistance"
               width={32}
               height={32}
@@ -52,9 +48,7 @@ export default function ArmorInfo({ item }: Props) {
           </p>
           <p className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 text-left text-sm text-gray-300">
             <Image
-              src={
-                'https://remnant2toolkit.b-cdn.net/status/shock_resistance.png?width=32&height=32'
-              }
+              src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/status/shock_resistance.png?width=32&height=32`}
               alt="Shock Resistance"
               width={32}
               height={32}
@@ -66,9 +60,7 @@ export default function ArmorInfo({ item }: Props) {
           </p>
           <p className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 text-left text-sm text-gray-300">
             <Image
-              src={
-                'https://remnant2toolkit.b-cdn.net/status/toxin_resistance.png?width=32&height=32'
-              }
+              src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/status/toxin_resistance.png?width=32&height=32`}
               alt="Toxin Resistance"
               width={32}
               height={32}
@@ -80,9 +72,7 @@ export default function ArmorInfo({ item }: Props) {
           </p>
           <p className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 text-left text-sm text-gray-300">
             <Image
-              src={
-                'https://remnant2toolkit.b-cdn.net/status/blight_resistance.png?width=32&height=32'
-              }
+              src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/status/blight_resistance.png?width=32&height=32`}
               alt="Blight Resistance"
               width={32}
               height={32}
