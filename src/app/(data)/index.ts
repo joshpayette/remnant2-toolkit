@@ -2005,7 +2005,7 @@ export const remnantItems: Item[] = [
     shockResistance: 0,
     blightResistance: 2,
     toxinResistance: 0,
-    description: `With an assortment of pockets, pouches, and loops for your various concoctioy you're essentially a walking apothecary.`,
+    description: `With an assortment of pockets, pouches, and loops for your various concoctions you're essentially a walking apothecary.`,
     howToGet: `Starting Equipment for the Medic Archetype.
     Sold by Whispers in Ward 13`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Field+Medic+Trousers`],
@@ -3167,7 +3167,7 @@ export const remnantItems: Item[] = [
     saveFileSlug: 'rangedcritchance',
     imagePath: '/relicfragment/ranged_critical_chance.png',
     id: 'dp184t',
-    description: `+X% Ranged Crit Chance`,
+    description: `+X% Ranged Crit Chance (Mythic: Maximum of +10%)`,
     howToGet: ``,
     wikiLinks: [
       `https://remnant2.wiki.fextralife.com/Cracked+Ranged+Critical+Chance`,
@@ -8763,247 +8763,415 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     name: 'Bark Extract',
     imagePath: '/concoction/bark_extract.png',
     id: 'hqjxyn',
+    description: `Increases Armor by 30. Lasts 60m and will stay in effect after death. Only one Concoction may be active at a time.`,
+    howToGet: `Can be bought form Mudtooth for 500 scrap currency remnant2 wiki guide 30px`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Bark+Extract`],
   },
   {
     category: 'concoction',
     name: 'Bottled Shaedberry',
     imagePath: '/concoction/bottled_shaedberry.png',
     id: 'qj302c',
+    description: `Increases Mod Power Generation by 10%. Lasts 60m and will stay in effect after death. Only one Concoction may be active at a time.`,
+    howToGet: `Can be bought from Mudtooth at the following cost: scrap currency remnant2 wiki guide 30pxx500 Scrap.`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Bottled+Shaedberry`],
   },
   {
     category: 'concoction',
     name: 'Chilled Steam',
     imagePath: '/concoction/chilled_steam.png',
     id: 'fhm256',
+    description: `Increases Movement Speed by 10%. Lasts 60m and will stay in effect after death. Only one Concoction may be active at a time.`,
+    howToGet: `Can be bought form Mudtooth for 500 scrap currency remnant2 wiki guide 30px`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Chilled+Steam`],
   },
   {
     category: 'concoction',
     name: 'Dark Cider',
     imagePath: '/concoction/dark_cider.png',
     id: '8p2sj3',
+    description: ``,
+    howToGet: ``,
+    wikiLinks: [``],
   },
   {
     category: 'concoction',
     name: 'Dark Fluid',
     imagePath: '/concoction/dark_fluid.png',
     id: 'byi9a5',
+    description: `Increases Health by 6.66%, Stamina by 6.66%, and Movement Speed by 6.66%. Lasts 60m and will stay in effect after death. Only one Concoction may be active at a time.`,
+    howToGet: `Can be bought from Mudtooth for 500`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Dark+Cider`],
   },
   {
     category: 'concoction',
     name: 'Meat Shake',
     imagePath: '/concoction/meat_shake.png',
     id: '4yzeco',
+    description: `Reduces Damage by 8%.`,
+    howToGet: `
+    You can get Meat Shake by taking Feast Master's Leftovers to Duane in Ward 13 and constantly harrass him by asking if he is done will finish it in about 10-20 minutes.
+    Can be bought for 500 Scrap from Muddy after aquiring it once from Duane.
+`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Meat+Shake`],
   },
   {
     category: 'concoction',
     name: "Mudtooth's Elixir",
     imagePath: '/concoction/mudtooths_elixir.png',
     id: 'yduuj3',
+    description: `Increases Experience Gains by 15%. Lasts 60m and will stay in effect after death. Only one Concoction may be active at a time.`,
+    howToGet: `Can be bought from Mudtooth for 500 scrap scrap currency remnant2 wiki guide 64px after beating the campaign. `,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Mudtooth's+Elixir`],
   },
   {
     category: 'concoction',
     name: "Mudtooth's Stew",
     imagePath: '/concoction/mudtooths_stew.png',
     id: '5yrxf1',
+    description: `Increases Max Stamina by 25, Lasts 60m and will stay in effect after death Only one Concoction may be active at a time.`,
+    howToGet: `Can be bought form Mudtooth for 500 scrap currency remnant2 wiki guide 30px`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Mudtooth's+Stew`],
   },
   {
     category: 'concoction',
     name: "Mudtooth's Tonic",
     imagePath: '/concoction/mudtooths_tonic.png',
     id: 'p0ru94',
+    description: `Increases Max Health by 25. Lasts 60m and will stay in effect after death. Only one Concoction may be active at a time.`,
+    howToGet: `Can be bought form Mudtooth for 500 scrap currency remnant2 wiki guide 30px`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Mudtooth's+Tonic`],
   },
   {
     category: 'concoction',
     name: 'Root Water',
     imagePath: '/concoction/root_water.png',
     id: '56vkqr',
+    description: `Regenerates 0.75 Health per second. Lasts 60m and will stay in effect after death. Only one Concoction may be active at a time.`,
+    howToGet: `Can be bought from Mudtooth at the following cost: scrap currency remnant2 wiki guide 30pxx500 Scrap`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Root+Water`],
   },
   {
     category: 'concoction',
     name: 'Sacred Lakewater',
     imagePath: '/concoction/sacred_lakewater.png',
     id: 'dk9yg4',
+    description: `Increases Grey Health Conversion by 50% and Grey Health Regen by 1 per secorid. Lasts 60m and will stay in effect after death. Only one Concoction may be active at a time.`,
+    howToGet: `
+    Can be bought from Mudtooth at the following cost: scrap currency remnant2 wiki guide 30pxx500 Scrap.
+    Can be bought from Bedel of the Vaunnt for scrap currency remnant2 wiki guide 30pxx650 Scrap.
+`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Sacred+Lakewater`],
   },
   {
     category: 'concoction',
     name: 'Sanguine Vapor',
     imagePath: '/concoction/sanguine_vapor.png',
     id: 'kyulid',
+    description: `Increases Ranged and Melee Lifesteal by 3.5% of base damage. Increases damage taken by 10%. Lasts 60m and will stay in effect after death. Only one Concoction may be active at a time.`,
+    howToGet: `
+    Yaesha - Can be crafted at Bloodmoon Altar. Required Material: Blood Moon Essence.
+    Can be bought from Mudtooth at the following cost: scrap currency remnant2 wiki guide 30pxx500 Scrap.
+`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Sanguine+Vapor`],
   },
   {
     category: 'concoction',
     name: 'Strong Drink',
     imagePath: '/concoction/strong_drink.png',
     id: 'to2dcw',
+    description: `Reduces Encumbrance by 10. Lasts 60m and will stay in effect after death. Only one Concoction may be active at a time.`,
+    howToGet: `Can be bought form Mudtooth for 500 scrap currency remnant2 wiki guide 30px`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Strong+Drink`],
   },
   {
     category: 'concoction',
     name: 'Tranquility Font',
     imagePath: '/concoction/tranquility_font.png',
     id: 'l7r9sm',
+    description: `Reduces Reticle Sway, Spread, and Gun Recoil by 35%. Lasts 60m and will stay in effect after death. Only one Concoction may be active at a time.`,
+    howToGet: `
+    Can be bought from Mudtooth at the following cost: scrap currency remnant2 wiki guide 30pxx500 Scrap.
+    Can be crafted by Nimue with the following material: scrap currency remnant2 wiki guide 30pxx350 Scrap and x1 Lumenite Crystal.
+`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Tranquility+Font`],
   },
   {
     category: 'concoction',
     name: 'Verdant Tea',
     imagePath: '/concoction/verdant_tea.png',
     id: 'qgare2',
+    description: `Increases Stamina Recovery by 20 per second and reduces Stamina Regen Penalty by 50%. Lasts 60m and will stay in effect after death. Only one Concoction may be active at a time.`,
+    howToGet: `Can be bought form Mudtooth for 500 scrap currency remnant2 wiki guide 30px`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Verdant+Tea`],
   },
   {
     category: 'concoction',
     name: 'Xenoplasm',
     imagePath: '/concoction/xenoplasm.png',
     id: '2jeq07',
+    description: `Reduces Skill Cooldowns by 10%. Lasts 60m and will stay in effect after death. Only one Concoction may be active at a time.`,
+    howToGet: `
+    Can be bought from Mudtooth at the following cost: scrap currency remnant2 wiki guide 30pxx500 Scrap.
+    Can be crafted at Drzyr Replicator, you will need the following Materials: scrap currency remnant2 wiki guide 30pxx650 Scrap.
+    Found in N'Erud as random Drop.
+`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Xenoplasm`],
   },
   {
     category: 'consumable',
     name: 'Ambit Ember',
     imagePath: '/consumable/ambit_ember.png',
     id: '6lnae6',
+    description: `Slightly increases Evade Window and Evade Speed by 15%. Lasts 60s.`,
+    howToGet: `
+    Can be bought form Reggie for 200 scrap currency remnant2 wiki guide 30px
+    Can be crafted at Drzyr Replicator, you will need the following Materials: scrap currency remnant2 wiki guide 30pxx200 Scrap.
+`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Ambit+Ember`],
   },
   {
     category: 'consumable',
     name: 'Ammo Box',
     imagePath: '/consumable/ammo_box.png',
     id: 'v2usqs',
+    description: `Replenishes all reserve ammo.`,
+    howToGet: `Can be bought form Reggie for 250 scrap currency remnant2 wiki guide 30px`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Ammo+Box`],
   },
   {
     category: 'consumable',
     name: 'Antidote',
     imagePath: '/consumable/antidote.png',
     id: 'a34kjc',
+    description: `Removes CORRODED effect and increases ACID resistance by 15%. Lasts 10m.`,
+    howToGet: `Can be bought from Dr Norah for 100 scrap currency remnant2 wiki guide 30px`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Antidote`],
   },
   {
     category: 'consumable',
     name: 'Bandage',
     imagePath: '/consumable/bandage.png',
     id: 'elazod',
+    description: `Stops BLEEDING and restores all Grey Health.`,
+    howToGet: `Can be bought from Dr Norah for 100 scrap currency remnant2 wiki guide 30px`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Bandage`],
   },
   {
     category: 'consumable',
     name: 'Binding Orb',
     imagePath: '/consumable/binding_orb.png',
     id: 'edaeta',
+    description: `When thrown, device becomes an anchor and applies SLOW to all anemies within 4m. Lasts 20s.`,
+    howToGet: `
+    Can be bought form Reggie for 250 scrap currency remnant2 wiki guide 30px.
+    Can be crafted at Drzyr Replicator, you will need the following Materials: scrap currency remnant2 wiki guide 30pxx250 Scrap.
+`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Binding+Orb`],
   },
   {
     category: 'consumable',
     name: 'Black Tar',
     imagePath: '/consumable/black_tar.png',
     id: 'nrdcko',
+    description: `When thrown, explodes in a 4m radius dealing 90 damage and applies TARRED wich lasts 15s. Ranged damage and other FIRE sources ignite TARRED entities, causing dealing 750 BURNING damage over 10s.`,
+    howToGet: `Can be bought form Reggie for 250 scrap currency remnant2 wiki guide 30px`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Black+Tar`],
   },
   {
     category: 'consumable',
     name: 'Blood Root',
     imagePath: '/consumable/blood_root.png',
     id: 'bisl2l',
+    description: `Regenerates 1.5 Health per second. Lasts 30s.`,
+    howToGet: `Can be bought from Dr Norah for 75 scrap currency remnant2 wiki guide 30px`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Blood+Root`],
   },
   {
     category: 'consumable',
     name: 'Brightstone',
     imagePath: '/consumable/brightstone.png',
     id: '937h03',
+    description: `When thrown, explodes in a 4m radius dealing 250 damage and leaving amysterious Mist which causes enemies to receive 10% additional damage. Debuff last 10s after enemies leave the Mist. Lasts 15s.`,
+    howToGet: `
+    Can be bought form Reggie for 250 scrap currency remnant2 wiki guide 30px
+    Can be bought form Bedel of the Vaunnt for 250 scrap currency remnant2 wiki guide 30px
+`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Brightstone`],
   },
   {
     category: 'consumable',
     name: 'Confidence Booster',
     imagePath: '/consumable/confidence_booster.png',
     id: 'al8yob',
+    description: `Reduces incoming damage by 10% and Stagger by 1. Lasts 20s.`,
+    howToGet: `Can be bought form Reggie for 200 scrap currency remnant2 wiki guide 30px`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Confidence+Booster`],
   },
   {
     category: 'consumable',
     name: 'Ethereal Orb',
     imagePath: '/consumable/ethereal_orb.png',
     id: 'ffjbc9',
+    description: `Removes OVERLOADED effect and increases SHOCK resistance by 15%. Lasts 10m.`,
+    howToGet: `Can be bought from Dr Norah for 100 scrap currency remnant2 wiki guide 30px`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Ethereal+Orb`],
   },
   {
     category: 'consumable',
     name: 'Faerie Needle',
     imagePath: '/consumable/faerie_needle.png',
     id: 'aqphr5',
+    description: `Increases Mod Power Regen by 10 MP per second. Lasts 30s.`,
+    howToGet: `Can be crafted at Nimue shop for x1 Lumenite Crystal.`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Faerie+Needle`],
   },
   {
     category: 'consumable',
     name: 'Gul Serum',
     imagePath: '/consumable/gul_serum.png',
     id: 'm1gznf',
+    description: `Reduces Stamina Consumption by 50%. Lasts 60s.`,
+    howToGet: `
+    Can be bought form Reggie for 200 scrap currency remnant2 wiki guide 30px
+    Can be bought form Bedel of The Vaunnt for 200 scrap currency remnant2 wiki guide 30px
+`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Gul+Serum`],
   },
   {
     category: 'consumable',
     name: 'Koara Pellet',
     imagePath: '/consumable/koara_pellet.png',
     id: '1585ah',
+    description: `Consume to restore 10% Max Health instantly.`,
+    howToGet: `Can be found in Yaesha - The Withering Weald`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Koara+Pellet`],
   },
   {
     category: 'consumable',
     name: 'Liquid Escape',
     imagePath: '/consumable/liquid_escape.png',
     id: 'xgdk68',
+    description: `When consumed, the hero will be returned to the last activated checkpoint.`,
+    howToGet: `Starts with the player in non-hardcore mode.`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Liquid+Escape`],
   },
   {
     category: 'consumable',
     name: 'Mud Rub',
     imagePath: '/consumable/mud_rub.png',
     id: 'dvx5ib',
+    description: `Extinguishes BURNING effect and increases FIRE resistance by 15. Lasts 10m.`,
+    howToGet: `Can be bought from Dr Norah for 100 scrap currency remnant2 wiki guide 30px`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Mud+Rub`],
   },
   {
     category: 'consumable',
     name: 'Mystery Jerky',
     imagePath: '/consumable/mystery_jerky.png',
     id: '6aasor',
+    description: `Converts 1 Health into Grey Health per second. Lasts 60s.`,
+    howToGet: `
+    In Losomn - Found in the Awakened King DLC: Inside a chest between elevated ring and the second dark pact bell, on a walkway between two buildings.
+    Will also be rewarded by Duane (The cook close to the red crystal) if you hand him the Feast Master's Leftovers.
+    (Once found) Can be bought from Reggie for 200 Scrap.
+`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Mystery+Jerky`],
   },
   {
     category: 'consumable',
     name: 'Oilskin Balm',
     imagePath: '/consumable/oilskin_balm.png',
     id: '0sec3n',
+    description: `Cures ROOT ROT Blight and increases Blight Resistance by 25%. Lasts 10m.`,
+    howToGet: `
+    Can be bought form Dr Norah for 100 scrap currency remnant2 wiki guide 30px
+    Can be bought form Bedel of The Vaunnt for 100 scrap currency remnant2 wiki guide 30px
+`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Oilskin+Balm`],
   },
   {
     category: 'consumable',
     name: 'Orb of Undoing',
     imagePath: '/consumable/orb_of_undoing.png',
     id: 'g0s7fg',
+    description: `Resets all spent trait points. Can be used infinitely.`,
+    howToGet: `Can be crafted at Wallace store in Ward 13. Requires: Lumenite Crystal x3 & 2,500 scrap`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Orb+of+Undoing`],
   },
   {
     category: 'consumable',
     name: 'Pipe Bomb',
     imagePath: '/consumable/pipe_bomb.png',
     id: 'kfwizc',
+    description: `When thrown, explodes ina 4m radius dealing 450 damage and applying BLEEDING, which deals an additional 1,350 BLEED damage over 30s.`,
+    howToGet: `Can be bought form Reggie for 250 scrap currency remnant2 wiki guide 30px `,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Pipe+Bomb`],
   },
   {
     category: 'consumable',
     name: 'Poisoned Ambit Ember',
     imagePath: '/consumable/poisoned_ambit_ember_capsule.png',
     id: '6awni8',
+    description: `
+    Use to equip the capsule which can be thrown by pressing FIRE. The capsule will detonate after 2s or upon hitting an enemy, releasing a chemical agent which dampens the psionic abilities of long-term Ambit Ember users.
+    When Tal'Ratha does his "suck" attack pulling you in, quickly tossing the canister into his mouth stuns him for a few seconds (around 5) allowing easy weak spot hits.
+`,
+    howToGet: `Given by The Custodian after discussing Tal'Ratha with them.`,
+    wikiLinks: [
+      `https://remnant2.wiki.fextralife.com/Poisoned+Ambit+Ember+Capsule`,
+    ],
   },
   {
     category: 'consumable',
     name: 'Processed Koara',
     imagePath: '/consumable/processed_koara.png',
     id: '4lvdgg',
+    description: `Decreases Stamina Recovery delay by 75% and Stamina Regen Penalty by 50%. Lasts 60s.`,
+    howToGet: `Can be crafted at Dwell Store in Ward 13. Requires: Koara Pellet x1 Scrapx500`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Processed+Koara`],
   },
   {
     category: 'consumable',
     name: 'Purified Salve',
     imagePath: '/consumable/purified_salve.png',
     id: 'wzi8il',
+    description: `Cures CURSE and increases Blight Resistance by 25%. Lasts 10m.`,
+    howToGet: `Can be bought form Dr Norah for 100`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Purified+Salve`],
   },
   {
     category: 'consumable',
     name: 'Rocket Fuel',
     imagePath: '/consumable/rocket_fuel.png',
     id: 'rlpblq',
+    description: `Increases Fire Rate by 10% and Melee Attack Speed by 15%. Lasts 20s.`,
+    howToGet: `Can be bought form Reggie for 200`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Rocket+Fuel`],
   },
   {
     category: 'consumable',
     name: 'Timeworn Unguent',
     imagePath: '/consumable/timeworn_unguent.png',
     id: 'li99wc',
+    description: `Cures SUPPRESSION Blight and increases Blight Resistance by 25%. Lasts 10m.`,
+    howToGet: `
+    Can be bought form Dr Norah for x100 scrap currency remnant2 wiki guide 30px
+    Can be crafted at Drzyr Replicator, you will need the following Materials: scrap currency remnant2 wiki guide 30pxx100 Scrap.
+    Can be found as random drop in N'Erud.
+`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Timeworn+Unguent`],
   },
-  {
-    category: 'consumable',
-    name: 'Vigor Leaf',
-    imagePath: '/consumable/vigor_leaf.png',
-    id: 'jgp8cg',
-  },
+  // This item appears to not be in the game
+  // {
+  //   category: 'consumable',
+  //   name: 'Vigor Leaf',
+  //   imagePath: '/consumable/vigor_leaf.png',
+  //   id: 'jgp8cg',
+  //   description: `Decreases Stamina Recovery delay by 20% and Stamina Regen Penalty by 15%. Last 60s.`,
+  //   howToGet: ``,
+  //   wikiLinks: [`https://remnant2.wiki.fextralife.com/Vigor+Leaf`],
+  // },
 ]
 
 export const remnantItemCategories = Array.from(
