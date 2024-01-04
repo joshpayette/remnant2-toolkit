@@ -4,6 +4,7 @@ import { GenericItem } from './GenericItem'
 
 interface BaseTraitItem extends GenericItem {
   amount: number
+  maxLevelBonus: string
 }
 
 export class TraitItem implements BaseTraitItem {
@@ -12,6 +13,7 @@ export class TraitItem implements BaseTraitItem {
   public category: BaseTraitItem['category'] = 'trait'
   public dlc: BaseTraitItem['dlc'] = 'basegame'
   public description: BaseTraitItem['description'] = ''
+  public maxLevelBonus: BaseTraitItem['maxLevelBonus'] = ''
   public imagePath: BaseTraitItem['imagePath'] = ''
   public howToGet: BaseTraitItem['howToGet'] = ''
   public wikiLinks: BaseTraitItem['wikiLinks'] = []
@@ -23,6 +25,7 @@ export class TraitItem implements BaseTraitItem {
     this.id = props.id
     this.name = props.name
     this.description = props.description
+    this.maxLevelBonus = props.maxLevelBonus
     this.imagePath = props.imagePath
     this.howToGet = props.howToGet
     this.wikiLinks = props.wikiLinks
@@ -69,20 +72,23 @@ export class TraitItem implements BaseTraitItem {
       if (validAmount < 1) validAmount = DEFAULT_TRAIT_AMOUNT
       if (validAmount > 10) validAmount = DEFAULT_TRAIT_AMOUNT
 
-      items.push(
-        new TraitItem({
-          id: item.id,
-          name: item.name,
-          category: item.category,
-          imagePath: item.imagePath,
-          amount: validAmount,
-          description: item.description ?? '',
-          howToGet: item.howToGet ?? '',
-          wikiLinks: item.wikiLinks ?? [],
-          linkedItems: item.linkedItems ?? {},
-          saveFileSlug: item.saveFileSlug ?? '',
-        }),
-      )
+      if (TraitItem.isTraitItem(item)) {
+        items.push(
+          new TraitItem({
+            id: item.id,
+            name: item.name,
+            category: item.category,
+            imagePath: item.imagePath,
+            amount: validAmount,
+            description: item.description ?? '',
+            maxLevelBonus: item.maxLevelBonus ?? '',
+            howToGet: item.howToGet ?? '',
+            wikiLinks: item.wikiLinks ?? [],
+            linkedItems: item.linkedItems ?? {},
+            saveFileSlug: item.saveFileSlug ?? '',
+          }),
+        )
+      }
     })
 
     return items

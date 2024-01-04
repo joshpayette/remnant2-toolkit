@@ -383,6 +383,8 @@ export function linkArchtypesToTraits(buildState: BuildState) {
     )
     if (!traitItem) return
 
+    if (!TraitItem.isTraitItem(traitItem)) return
+
     // If the trait is already in the build, set the amount to 10
     // Otherwise, add the trait to the build
     const existingTrait = newBuildState.items.trait.find(
@@ -402,6 +404,7 @@ export function linkArchtypesToTraits(buildState: BuildState) {
           category: traitItem.category,
           imagePath: traitItem.imagePath,
           description: traitItem.description ?? '',
+          maxLevelBonus: traitItem.maxLevelBonus ?? '',
           howToGet: traitItem.howToGet ?? '',
           wikiLinks: traitItem.wikiLinks ?? [],
           linkedItems: traitItem.linkedItems ?? {},

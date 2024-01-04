@@ -6,6 +6,7 @@ import { MutatorItem } from '../(types)/items/MutatorItem'
 import { ArmorItem } from '../(types)/items/ArmorItem'
 import { Item } from '../(types)'
 import ArmorInfo from './ArmorInfo'
+import { TraitItem } from '../(types)/items/TraitItem'
 
 interface ItemInfoProps {
   item: Item | null
@@ -61,7 +62,7 @@ export default function ItemInfo({ item, open, onClose }: ItemInfoProps) {
             {item.description || 'No description available.'}
           </p>
 
-          {MutatorItem.isMutatorItem(item) && (
+          {(MutatorItem.isMutatorItem(item) || TraitItem.isTraitItem(item)) && (
             <div className="flex flex-col items-start justify-start">
               <h4 className="mt-4 text-left text-sm text-gray-500">
                 At Max Level

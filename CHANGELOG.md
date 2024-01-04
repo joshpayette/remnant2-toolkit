@@ -13,8 +13,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Reordered and resized buttons on the builder to make better use space on mobile.
 - Added "Show Detailed View" button to automatically scroll down to the detailed view.
 - Added armor stats and cooldowns to detailed view.
-- Added armor descriptions.
+- Added armor descriptions
 - Added relic fragment descriptions
+- Added trait item descriptions
 - Item Tracker item count and total item count now adjusts with filters.
 - Updated filters button placement and look.
 
