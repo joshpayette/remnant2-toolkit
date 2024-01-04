@@ -23,8 +23,6 @@ import { pageInfo as senorservezasRoninMeleePageInfo } from './build/senorcervez
 import { pageInfo as sheenShotsHotSwapperPageInfo } from './build/sheenshots-hot-swapper/metadata'
 import { pageInfo as boltJamisonsFargazerMagePageInfo } from './build/bolt-jamisons-fargazer-mage/metadata'
 import { pageInfo as sheenShotsCorruptedGuardianPageInfo } from './build/sheenshots-corrupted-guardian/metadata'
-import PageActions from '../(components)/PageActions'
-import BackToTopButton from '../(components)/BackToTopButton'
 
 const builds = [
   sheenShotsCorruptedGuardianPageInfo,
@@ -54,9 +52,6 @@ const builds = [
 export default function Page() {
   return (
     <>
-      <PageActions>
-        <BackToTopButton />
-      </PageActions>
       <PageHeader
         title="Featured Builds"
         subtitle="A collection of builds aggregated from various sources."
@@ -65,7 +60,7 @@ export default function Page() {
         {builds.map((build) => (
           <div
             key={build.slug}
-            className="flex flex-col items-center justify-center gap-2 border border-purple-500 p-4"
+            className="flex flex-col items-center justify-center gap-2 border border-purple-500 bg-black p-4"
           >
             <h2 className="text-center text-2xl">
               <Link
@@ -76,7 +71,7 @@ export default function Page() {
               </Link>
             </h2>
 
-            <div className="flex grow flex-col items-center gap-2">
+            <div className="flex grow flex-col items-center gap-2 bg-black">
               {build.classes && (
                 <p className="rounded-lg bg-black p-2 text-sm">
                   Classes:{' '}

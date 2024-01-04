@@ -5,6 +5,8 @@ import { GenericItem } from '../(types)/items/GenericItem'
 import { MutatorItem } from '../(types)/items/MutatorItem'
 import { ArmorItem } from '../(types)/items/ArmorItem'
 import { Item } from '../(types)'
+import ArmorInfo from './ArmorInfo'
+import { TraitItem } from '../(types)/items/TraitItem'
 
 interface ItemInfoProps {
   item: Item | null
@@ -34,9 +36,9 @@ export default function ItemInfo({ item, open, onClose }: ItemInfoProps) {
             </p>
           </div>
           <Image
-            src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/${item.imagePath}`}
-            width={128}
-            height={128}
+            src={`https://remnant2toolkit.b-cdn.net${item.imagePath}?width=220&height=220`}
+            width={220}
+            height={220}
             alt={item.name}
             className="h-auto max-h-full w-full max-w-full"
             priority={true}
@@ -45,53 +47,7 @@ export default function ItemInfo({ item, open, onClose }: ItemInfoProps) {
 
         {ArmorItem.isArmorItem(item) && (
           <div className="col-span-3 mb-2 flex w-full flex-col items-start justify-start sm:col-span-1">
-            <h4 className="text-left text-sm text-gray-500">Armor Stats</h4>
-            <div className="flex w-full flex-row items-center justify-start">
-              <div className="flex w-full flex-col items-start justify-start sm:max-w-[275px]">
-                <p className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 text-left text-sm text-gray-300">
-                  Armor:{' '}
-                  <span className="text-right text-lg font-bold">
-                    {item.armor}
-                  </span>
-                </p>
-                <p className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 text-left text-sm text-gray-300">
-                  Weight:{' '}
-                  <span className="text-right text-lg font-bold">
-                    {item.weight}
-                  </span>
-                </p>
-                <p className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 text-left text-sm text-gray-300">
-                  Bleed Resistance:{' '}
-                  <span className="text-right text-lg font-bold">
-                    {item.bleedResistance}
-                  </span>
-                </p>
-                <p className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 text-left text-sm text-gray-300">
-                  Fire Resistance:{' '}
-                  <span className="text-right text-lg font-bold">
-                    {item.fireResistance}
-                  </span>
-                </p>
-                <p className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 text-left text-sm text-gray-300">
-                  Shock Resistance:{' '}
-                  <span className="text-right text-lg font-bold">
-                    {item.shockResistance}
-                  </span>
-                </p>
-                <p className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 text-left text-sm text-gray-300">
-                  Toxin Resistance:{' '}
-                  <span className="text-right text-lg font-bold">
-                    {item.toxinResistance}
-                  </span>
-                </p>
-                <p className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 text-left text-sm text-gray-300">
-                  Blight Resistance:{' '}
-                  <span className="text-right text-lg font-bold">
-                    {item.blightResistance}
-                  </span>
-                </p>
-              </div>
-            </div>
+            <ArmorInfo item={item} />
           </div>
         )}
 
@@ -106,7 +62,7 @@ export default function ItemInfo({ item, open, onClose }: ItemInfoProps) {
             {item.description || 'No description available.'}
           </p>
 
-          {MutatorItem.isMutatorItem(item) && (
+          {(MutatorItem.isMutatorItem(item) || TraitItem.isTraitItem(item)) && (
             <div className="flex flex-col items-start justify-start">
               <h4 className="mt-4 text-left text-sm text-gray-500">
                 At Max Level

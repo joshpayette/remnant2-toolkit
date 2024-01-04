@@ -7,7 +7,7 @@ const description =
 const slug = 'mr-nachos-egg-build'
 const url = `https://remnant2toolkit.com/featured-builds/build/${slug}`
 const ogImageUrl =
-  'https://d2sqltdcj8czo5.cloudfront.net/featured-builds/mr_nachos_egg_build.png'
+  'https://remnant2toolkit.b-cdn.net/featured-builds/mr_nachos_egg_build.png'
 const classes = ['hunter', 'gunslinger']
 
 export const pageInfo = {

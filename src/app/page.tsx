@@ -1,19 +1,17 @@
 import Link from 'next/link'
 import { NAV_ITEMS } from './(data)/constants'
-import { ArrowRightIcon } from '@heroicons/react/24/outline'
-import PageActions from './(components)/PageActions'
+import { ArrowRightIcon } from '@heroicons/react/24/solid'
 import BackToTopButton from './(components)/BackToTopButton'
+import Image from 'next/image'
 
 export default function HomePage() {
   return (
     <>
-      <PageActions>
-        <BackToTopButton />
-      </PageActions>
       <div className="relative isolate overflow-hidden bg-gray-900 py-24 sm:py-32">
-        <img
-          src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/home-bg.webp`}
+        <Image
+          src="https://remnant2toolkit.b-cdn.net/home-bg.webp"
           alt="Home page background"
+          layout="fill"
           className="absolute inset-0 -z-10 h-full w-full object-cover object-right md:object-center"
         />
         <div className="sm:transform-g1 hidden sm:absolute sm:-top-10 sm:right-1/2 sm:-z-10 sm:mr-10 sm:block sm:blur-3xl">

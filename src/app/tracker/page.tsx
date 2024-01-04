@@ -17,9 +17,6 @@ import { GenericItem } from '../(types)/items/GenericItem'
 import { MutatorItem } from '../(types)/items/MutatorItem'
 import useFilteredItems from '../(hooks)/useFilteredItems'
 import Filters from '../(components)/Filters'
-import PageActions from '../(components)/PageActions'
-import BackToTopButton from '../(components)/BackToTopButton'
-import { useRouter } from 'next/navigation'
 
 const skippedItemCategories: Array<GenericItem['category']> = [
   'concoction',
@@ -52,6 +49,7 @@ export default function Page() {
   const { discoveredItemIds } = itemTrackerStorage
 
   const { filteredItems, handleUpdateFilters } = useFilteredItems(itemList)
+  const totalItems = filteredItems.length
 
   // get response after save file upload
   const [uploadFormResponse, formAction] = useFormState(parseSaveFile, {
@@ -148,12 +146,15 @@ export default function Page() {
   }, [setDiscoveredItemIds, filteredItems, router])
 
   // Provider the tracker progress
-  const discoveredCount = discoveredItemIds.length
-  const discoveredPercent = Math.round(
-    (discoveredCount / remnantItems.length) * 100,
-  )
+  const discoveredCount = filteredItems.reduce((acc, item) => {
+    if (discoveredItemIds.includes(item.id)) return acc + 1
+    return acc
+  }, 0)
+  const discoveredPercent = Math.round((discoveredCount / totalItems) * 100)
   const progress = isClient
-    ? `${discoveredCount} / ${remnantItems.length} (${discoveredPercent}%)`
+    ? `${discoveredCount} / ${totalItems} (${
+        isNaN(discoveredPercent) ? '0' : discoveredPercent
+      }%)`
     : 'Calculating...'
 
   const handleShowItemInfo = (itemId: string) => {
@@ -179,10 +180,8 @@ export default function Page() {
 
   return (
     <div className="relative flex w-full flex-col items-center justify-center">
-      <PageActions>
-        <Filters allItems={itemList} onUpdate={handleUpdateFilters} />
-        <BackToTopButton />
-      </PageActions>
+      <Filters allItems={itemList} onUpdate={handleUpdateFilters} />
+
       <ItemInfo
         item={itemInfo}
         open={isShowItemInfoOpen}
@@ -208,15 +207,17 @@ export default function Page() {
             action={formAction}
             className="grid grid-cols-1 bg-black sm:grid-cols-3"
           >
-            <input
-              type="file"
-              name="saveFile"
-              className="my-2 p-2 text-sm sm:col-span-2"
-              ref={fileInput}
-            />
+            <div className="flex  w-full items-center justify-center bg-purple-700 p-2 sm:col-span-2">
+              <input
+                type="file"
+                name="saveFile"
+                className="text-sm"
+                ref={fileInput}
+              />
+            </div>
             <SubmitButton
               label="Import Save File"
-              className="flex items-center justify-center border border-transparent bg-purple-500 p-2 px-2 text-sm font-bold text-white hover:border-purple-500 hover:bg-purple-700 disabled:bg-gray-500"
+              className="flex items-center justify-center border border-green-300 bg-green-500 p-2 px-2 text-sm font-bold text-gray-800 hover:border-green-300 hover:bg-green-600 disabled:bg-gray-500"
             />
             <div className="col-span-full my-4 bg-black">
               <p className="px-2 text-sm text-green-500">

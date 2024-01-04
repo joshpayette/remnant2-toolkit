@@ -7,7 +7,7 @@ const description = `Sporebloom builds do CRAZY DAMAGE. And what's really cool i
 const slug = 'sheenshots-hot-swapper'
 const url = `https://remnant2toolkit.com/featured-builds/build/${slug}`
 const ogImageUrl =
-  'https://d2sqltdcj8czo5.cloudfront.net/featured-builds/sheenshots_hot_swapper.png'
+  'https://remnant2toolkit.b-cdn.net/featured-builds/sheenshots_hot_swapper.png'
 const classes = ['hunter', 'gunslinger']
 // const tags = ['tag1', 'tag2'] // optional
 

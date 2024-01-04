@@ -1,6 +1,6 @@
 # TODO
 
-- Check if Patreon script is filtering out non-paying members
+- Not happy with filters button placement, should be somewhere else with a cog wheel or something.
 - Add pagination to build tables in profile page.
 - Add build randomizer for the luls
 - Add duplicate build button to builds in profile
@@ -14,6 +14,8 @@
 
 ## Bugs
 
+- Need a different way to handle item description and public other than local storage,
+  probably include build id in URL and then fetch from database
 - If you add a skill, the skills for that class should not be selectable in the other skill slot
 - Modal overlay allows click events through. This appears to be a bug in headlessui. See: https://github.com/tailwindlabs/headlessui/issues/1551
 

@@ -5,8 +5,6 @@ import ViewBuildButton from '../(components)/ViewBuildButton'
 import CopyBuildUrlButton from '../(components)/CopyBuildUrlButton'
 import EditBuildButton from '../(components)/EditBuildButton'
 import DeleteBuildButton from '../(components)/DeleteBuildButton'
-import PageActions from '@/app/(components)/PageActions'
-import BackToTopButton from '@/app/(components)/BackToTopButton'
 import { StarIcon } from '@heroicons/react/24/solid'
 import { ExtendedBuild } from '@/app/(types)'
 import { extendedBuildToBuildState } from '@/app/(lib)/utils'
@@ -54,9 +52,6 @@ export default async function ListCreatedBuilds() {
 
   return (
     <div className="mx-auto w-full bg-black py-10">
-      <PageActions>
-        <BackToTopButton />
-      </PageActions>
       <div className="px-4 sm:px-6 lg:px-8">
         <div className="w-full sm:flex sm:items-center">
           <div className="sm:flex-auto">

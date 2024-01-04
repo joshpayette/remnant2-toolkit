@@ -1,4 +1,5 @@
 import { cn } from '@/app/(lib)/utils'
+import Image from 'next/image'
 
 const aClass = 'text-gray-300 hover:text-green-400 underline'
 
@@ -10,16 +11,24 @@ export default function Footer() {
           href="https://github.com/joshpayette/remnant2-toolkit"
           target="_blank"
         >
-          <img
-            src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/github.png`}
+          <Image
+            src={
+              'https://remnant2toolkit.b-cdn.net/github.png?width=32&height=32'
+            }
             alt="Remnant 2 Toolkit on GitHub"
+            width={32}
+            height={32}
             className="h-8 w-8"
           />
         </a>
         <a href="https://twitter.com/Remnant2Toolkit" target="_blank">
-          <img
-            src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/twitter.png`}
+          <Image
+            src={
+              'https://remnant2toolkit.b-cdn.net/twitter.png?width=32&height=32'
+            }
             alt="Josh Payette on Twitter"
+            width={32}
+            height={32}
             className="h-6 w-6"
           />
         </a>
@@ -27,9 +36,13 @@ export default function Footer() {
           href="https://www.patreon.com/JoshPayette/membership"
           target="_blank"
         >
-          <img
-            src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/patreon.png`}
-            alt="Josh Payette on Patreon"
+          <Image
+            src={
+              'https://remnant2toolkit.b-cdn.net/patreon.png?width=32&height=32'
+            }
+            alt="Support on Patreon"
+            width={32}
+            height={32}
             className="h-6 w-6"
           />
         </a>

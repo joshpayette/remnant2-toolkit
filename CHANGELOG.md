@@ -4,6 +4,29 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+### 2023-01-03
+
+### Changed
+
+- Moved from Cloudfront to Bunny CDN for image hosting. This should improve image load times as I'm now able to utilize image optimization.
+- Detailed build view now uses masonry layout for items. This should improve the layout on all devices.
+- Reordered and resized buttons on the builder to make better use space on mobile.
+- Added "Show Detailed View" button to automatically scroll down to the detailed view.
+- Added armor stats and cooldowns to detailed view.
+- Added armor descriptions
+- Added relic fragment descriptions
+- Added trait item descriptions
+- Added concoction descriptions
+- Added consumable descriptions
+- Item Tracker item count and total item count now adjusts with filters.
+- Updated filters button placement and look.
+
+### Fixed
+
+- Shielded Strike mutator was incorrectly listed as Shield Breaker.
+- Fixed error in links to SheenShots' Hot Swapper build.
+- Fixed bug where incorrect number of items showing on the item tracker
+
 ### 2023-01-02
 
 ### Added

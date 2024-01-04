@@ -9,6 +9,7 @@ import { ToastContainer } from 'react-toastify'
 import './globals.css'
 import 'react-toastify/dist/ReactToastify.css'
 import SessionProvider from './(components)/SessionProvider'
+import BackToTopButton from './(components)/BackToTopButton'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -21,10 +22,13 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={cn(
-          'flex min-h-screen flex-col items-center justify-start',
+          'relative flex min-h-screen flex-col items-center justify-start',
           inter.className,
         )}
       >
+        <div className="fixed bottom-[16px] right-[16px] z-20">
+          <BackToTopButton />
+        </div>
         <div className="w-full bg-purple-900 p-1 text-center text-sm">
           Community member DangItsBatman unexpectedly passed away. Please
           consider donating{' '}
@@ -37,6 +41,7 @@ export default function RootLayout({
           </a>{' '}
           Thank you!
         </div>
+
         <SessionProvider>
           <div className="flex w-full max-w-7xl grow flex-col items-start justify-start">
             <header className="w-full">

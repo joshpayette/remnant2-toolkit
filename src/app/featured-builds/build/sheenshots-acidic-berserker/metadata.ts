@@ -6,7 +6,7 @@ const description =
 const slug = 'sheenshots-acidic-berserker'
 const url = `https://remnant2toolkit.com/featured-builds/build/${slug}`
 const ogImageUrl =
-  'https://d2sqltdcj8czo5.cloudfront.net/featured-builds/sheenshots_acidic_berserker.png'
+  'https://remnant2toolkit.b-cdn.net/featured-builds/sheenshots_acidic_berserker.png'
 
 export const pageInfo = {
   title,

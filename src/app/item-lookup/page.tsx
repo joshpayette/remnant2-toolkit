@@ -7,13 +7,11 @@ import PageHeader from '@/app/(components)/PageHeader'
 import ItemInfo from '@/app/(components)/ItemInfo'
 import { itemToCsvItem } from '@/app/(lib)/utils'
 import ItemCard from '../tracker/(components)/ItemCard'
-import { InformationCircleIcon } from '@heroicons/react/24/outline'
+import { InformationCircleIcon } from '@heroicons/react/24/solid'
 import { MutatorItem } from '../(types)/items/MutatorItem'
 import { GenericItem } from '../(types)/items/GenericItem'
 import Filters from '../(components)/Filters'
 import useFilteredItems from '../(hooks)/useFilteredItems'
-import PageActions from '../(components)/PageActions'
-import BackToTopButton from '../(components)/BackToTopButton'
 
 const csvItems = remnantItems // Modify the data for use. Adds a discovered flag,
   // modifies the description for mutators
@@ -62,10 +60,10 @@ export default function Page() {
 
   return (
     <div className="relative flex w-full flex-col items-center justify-center">
-      <PageActions>
+
         <Filters allItems={allItems} onUpdate={handleUpdateFilters} />
-        <BackToTopButton />
-      </PageActions>
+
+
       <ItemInfo
         item={itemInfo}
         open={isShowItemInfoOpen}

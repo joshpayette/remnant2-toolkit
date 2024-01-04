@@ -27,14 +27,15 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         {children}
       </h2>
     ),
-    img: ({ src, alt }) => (
-      <img
-        className="mx-auto mb-4"
-        src={src}
-        alt={alt}
-        style={{ maxWidth: '100%' }}
-      />
-    ),
+    img: ({ src, alt }) =>
+      !src || !alt ? null : (
+        <img
+          className="mx-auto mb-4"
+          src={src}
+          alt={alt}
+          style={{ maxWidth: '100%' }}
+        />
+      ),
     p: ({ children }) => (
       <p className="text-md mb-4 w-full pl-8 pr-8 text-left">{children}</p>
     ),

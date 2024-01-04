@@ -3,7 +3,7 @@ import { DLCKey, DLC_TO_NAME } from '../(types)'
 import SearchInput from './SearchInput'
 import { useDebounce } from 'usehooks-ts'
 import Dialog from './Dialog'
-import { FunnelIcon } from '@heroicons/react/24/outline'
+import { FunnelIcon, WrenchScrewdriverIcon } from '@heroicons/react/24/solid'
 import { FilteredItem } from '../(hooks)/useFilteredItems'
 import { useLocalStorage } from '../(hooks)/useLocalStorage'
 
@@ -127,118 +127,123 @@ export default function Filters({ allItems, onUpdate }: Props) {
   ])
 
   return (
-    <div className="flex w-full flex-col items-start justify-start">
-      <button
-        className="flex w-auto items-center justify-center gap-1 rounded-md border-2 border-transparent bg-purple-500 bg-gradient-to-b p-2 text-sm font-bold text-black drop-shadow-md hover:border-purple-300"
-        onClick={() => setFiltersOpen(true)}
-      >
-        <FunnelIcon className="h-5 w-5" />
-      </button>
+    <div className="fixed bottom-[60px] right-[16px] z-30">
+      <div className="flex w-full flex-col items-start justify-start">
+        <span className="motion-safe:animate-ping-slow absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
+        <button
+          className="flex w-auto items-center justify-center gap-1 rounded-md border-2 border-black bg-green-700 bg-gradient-to-b p-2 text-sm font-bold text-white drop-shadow-lg hover:bg-green-500"
+          onClick={() => setFiltersOpen(true)}
+        >
+          <WrenchScrewdriverIcon className="h-5 w-5" />
+        </button>
 
-      <Dialog
-        title="Filters"
-        open={filtersOpen}
-        onClose={() => setFiltersOpen(false)}
-        maxWidthClass="max-w-3xl"
-      >
-        <div className="grid-cols-full grid gap-x-8 gap-y-4 divide-y divide-green-800 sm:grid-cols-4">
-          <div className="col-span-full ">
-            <button
-              className="flex w-auto items-center justify-center gap-1 rounded-md border border-purple-500 bg-black bg-gradient-to-b p-2 text-sm font-bold text-purple-500 drop-shadow-md hover:bg-purple-500 hover:text-black"
-              onClick={clearFilters}
-            >
-              Clear Filters
-            </button>
-          </div>
-          <div className="col-span-full pt-2">
-            <div className="flex w-full items-center justify-start gap-x-4">
-              <span className="flex items-center justify-start text-left text-sm font-bold text-green-500">
-                Search
-              </span>
-              <div className="grow">
-                <SearchInput
-                  onChange={handleSearchTextChange}
-                  value={searchText}
-                />
+        <Dialog
+          title="Filters"
+          open={filtersOpen}
+          onClose={() => setFiltersOpen(false)}
+          maxWidthClass="max-w-3xl"
+        >
+          <div className="grid-cols-full grid gap-x-8 gap-y-4 divide-y divide-green-800 sm:grid-cols-4">
+            <div className="col-span-full ">
+              <button
+                className="flex w-auto items-center justify-center gap-1 rounded-md border border-purple-500 bg-black bg-gradient-to-b p-2 text-sm font-bold text-purple-500 drop-shadow-md hover:bg-purple-500 hover:text-black"
+                onClick={clearFilters}
+              >
+                Clear Filters
+              </button>
+            </div>
+            <div className="col-span-full pt-2">
+              <div className="flex w-full items-center justify-start gap-x-4">
+                <span className="flex items-center justify-start text-left text-sm font-bold text-green-500">
+                  Search
+                </span>
+                <div className="grow">
+                  <SearchInput
+                    onChange={handleSearchTextChange}
+                    value={searchText}
+                  />
+                </div>
               </div>
             </div>
-          </div>
-          <div className="col-span-full pt-2 sm:col-span-2">
-            <div className="flex w-full flex-col items-start justify-start gap-x-4 gap-y-2">
-              <span className="flex items-start justify-start text-left text-sm font-bold text-green-500">
-                By Release
-              </span>
-              <div className="grid grid-cols-2 text-left">
-                {Object.keys(DLC_TO_NAME).map((dlcKey) => {
-                  const dlcName = DLC_TO_NAME[dlcKey as DLCKey]
-                  return (
-                    <div key={dlcKey}>
-                      <div className="relative flex items-start">
-                        <div className="flex h-6 items-center">
-                          <input
-                            id={`dlc-${dlcKey}`}
-                            aria-describedby={`dlc-${dlcKey}-description`}
-                            name={`dlc-${dlcKey}`}
-                            type="checkbox"
-                            className="h-4 w-4 rounded border-gray-300 text-purple-600 focus:ring-purple-600"
-                            checked={includedDlcKeys.includes(dlcKey as DLCKey)}
-                            onChange={() =>
-                              handleDlcFilterChange(dlcKey as DLCKey)
-                            }
-                          />
-                        </div>
-                        <div className="ml-3 text-sm leading-6">
-                          <label
-                            htmlFor={`dlc-${dlcKey}`}
-                            className="font-medium text-gray-400"
-                          >
-                            {dlcName}
-                          </label>
+            <div className="col-span-full pt-2 sm:col-span-2">
+              <div className="flex w-full flex-col items-start justify-start gap-x-4 gap-y-2">
+                <span className="flex items-start justify-start text-left text-sm font-bold text-green-500">
+                  By Release
+                </span>
+                <div className="grid grid-cols-2 text-left">
+                  {Object.keys(DLC_TO_NAME).map((dlcKey) => {
+                    const dlcName = DLC_TO_NAME[dlcKey as DLCKey]
+                    return (
+                      <div key={dlcKey}>
+                        <div className="relative flex items-start">
+                          <div className="flex h-6 items-center">
+                            <input
+                              id={`dlc-${dlcKey}`}
+                              aria-describedby={`dlc-${dlcKey}-description`}
+                              name={`dlc-${dlcKey}`}
+                              type="checkbox"
+                              className="h-4 w-4 rounded border-gray-300 text-purple-600 focus:ring-purple-600"
+                              checked={includedDlcKeys.includes(
+                                dlcKey as DLCKey,
+                              )}
+                              onChange={() =>
+                                handleDlcFilterChange(dlcKey as DLCKey)
+                              }
+                            />
+                          </div>
+                          <div className="ml-3 text-sm leading-6">
+                            <label
+                              htmlFor={`dlc-${dlcKey}`}
+                              className="font-medium text-gray-400"
+                            >
+                              {dlcName}
+                            </label>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  )
-                })}
+                    )
+                  })}
+                </div>
               </div>
             </div>
-          </div>
-          <div className="col-span-full pt-2 sm:col-span-2">
-            <div className="flex w-full flex-col items-start justify-start gap-x-4 gap-y-2">
-              <span className="flex items-start justify-start text-left text-sm font-bold text-green-500">
-                By Collection
-              </span>
-              <div className="grid grid-cols-2 text-left">
-                {['Discovered', 'Undiscovered'].map((key) => {
-                  return (
-                    <div key={key}>
-                      <div className="relative flex items-start">
-                        <div className="flex h-6 items-center">
-                          <input
-                            id={`collection-${key}`}
-                            name={`collection-${key}`}
-                            type="checkbox"
-                            className="h-4 w-4 rounded border-gray-300 text-purple-600 focus:ring-purple-600"
-                            checked={includedCollectionKeys.includes(key)}
-                            onChange={() => handleCollectionFilterChange(key)}
-                          />
-                        </div>
-                        <div className="ml-3 text-sm leading-6">
-                          <label
-                            htmlFor={`collection-${key}`}
-                            className="font-medium text-gray-400"
-                          >
-                            {key}
-                          </label>
+            <div className="col-span-full pt-2 sm:col-span-2">
+              <div className="flex w-full flex-col items-start justify-start gap-x-4 gap-y-2">
+                <span className="flex items-start justify-start text-left text-sm font-bold text-green-500">
+                  By Collection
+                </span>
+                <div className="grid grid-cols-2 text-left">
+                  {['Discovered', 'Undiscovered'].map((key) => {
+                    return (
+                      <div key={key}>
+                        <div className="relative flex items-start">
+                          <div className="flex h-6 items-center">
+                            <input
+                              id={`collection-${key}`}
+                              name={`collection-${key}`}
+                              type="checkbox"
+                              className="h-4 w-4 rounded border-gray-300 text-purple-600 focus:ring-purple-600"
+                              checked={includedCollectionKeys.includes(key)}
+                              onChange={() => handleCollectionFilterChange(key)}
+                            />
+                          </div>
+                          <div className="ml-3 text-sm leading-6">
+                            <label
+                              htmlFor={`collection-${key}`}
+                              className="font-medium text-gray-400"
+                            >
+                              {key}
+                            </label>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  )
-                })}
+                    )
+                  })}
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </Dialog>
+        </Dialog>
+      </div>
     </div>
   )
 }

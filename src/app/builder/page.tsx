@@ -14,8 +14,6 @@ import { useLocalStorage } from '../(hooks)/useLocalStorage'
 import { useSearchParams } from 'next/navigation'
 import DetailedBuildView from './(components)/DetailedBuildView'
 import ImageDownloadLink from './(components)/ImageDownloadLink'
-import PageActions from '../(components)/PageActions'
-import BackToTopButton from '../(components)/BackToTopButton'
 
 export default function Page() {
   const searchParams = useSearchParams()
@@ -31,9 +29,11 @@ export default function Page() {
     handleClearImageLink,
     handleCopyBuildUrl,
     handleImageExport,
+    handleScrollToDetailedView,
   } = useBuildActions()
 
   const buildContainerRef = useRef<HTMLDivElement>(null)
+  const detailedViewContainerRef = useRef<HTMLDivElement>(null)
 
   // if search params are empty, clear the temp values
   // from localstorage
@@ -68,10 +68,6 @@ export default function Page() {
 
   return (
     <div className="flex w-full flex-col items-center">
-      <PageActions>
-        <BackToTopButton />
-      </PageActions>
-
       <ImageDownloadLink onClose={handleClearImageLink} imageLink={imageLink} />
 
       <PageHeader
@@ -85,18 +81,26 @@ export default function Page() {
           id="actions-column"
           className="flex min-w-full flex-col justify-between sm:min-w-[100px]"
         >
-          <div id="actions" className="flex flex-col gap-2">
+          <div className="mb-2">
             <SaveBuildButton buildState={buildState} />
+          </div>
 
-            <ActionButton.ExportImage
-              imageExportLoading={imageExportLoading}
-              onClick={() =>
-                handleImageExport(
-                  buildContainerRef.current,
-                  `${buildState.name}.png`,
-                )
-              }
-            />
+          <div
+            id="actions"
+            className="grid grid-cols-2 gap-2 sm:flex sm:flex-col sm:gap-2"
+          >
+            <div className="col-span-full">
+              <ActionButton.ExportImage
+                imageExportLoading={imageExportLoading}
+                onClick={() =>
+                  handleImageExport(
+                    buildContainerRef.current,
+                    `${buildState.name}.png`,
+                  )
+                }
+              />
+            </div>
+
             <ActionButton.CopyBuildUrl
               onClick={() =>
                 handleCopyBuildUrl(
@@ -109,6 +113,13 @@ export default function Page() {
             <ToCsvButton
               data={csvBuildData}
               filename={`remnant2_builder_${buildState.name}`}
+              label="Export to CSV"
+            />
+
+            <ActionButton.ShowDetailedView
+              onClick={() =>
+                handleScrollToDetailedView(detailedViewContainerRef.current)
+              }
             />
           </div>
         </div>
@@ -127,11 +138,11 @@ export default function Page() {
           />
         </div>
       </div>
-      <div className="mt-12 flex w-full flex-col items-center justify-center gap-2">
-        <DetailedBuildView
-          buildState={buildState}
-          isScreenshotMode={isScreenshotMode}
-        />
+      <div
+        className="mt-12 flex w-full flex-col items-center justify-center gap-2"
+        ref={detailedViewContainerRef}
+      >
+        <DetailedBuildView buildState={buildState} />
       </div>
     </div>
   )

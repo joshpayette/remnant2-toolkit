@@ -7,7 +7,7 @@ const description = `This is a balanced, tanky, Ritualist/Challenger build that'
 const slug = 'sadderalls-richie-rich'
 const url = `https://remnant2toolkit.com/featured-builds/build/${slug}`
 const ogImageUrl =
-  'https://d2sqltdcj8czo5.cloudfront.net/featured-builds/sadderalls_richie_rich.png'
+  'https://remnant2toolkit.b-cdn.net/featured-builds/sadderalls_richie_rich.png'
 const classes = ['ritualist', 'challenger']
 // const tags = ['tag1', 'tag2'] // optional
 
