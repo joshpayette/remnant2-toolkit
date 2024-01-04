@@ -206,15 +206,17 @@ export default function Page() {
             action={formAction}
             className="grid grid-cols-1 bg-black sm:grid-cols-3"
           >
-            <input
-              type="file"
-              name="saveFile"
-              className="my-2 p-2 text-sm sm:col-span-2"
-              ref={fileInput}
-            />
+            <div className="flex  w-full items-center justify-center bg-purple-700 p-2 sm:col-span-2">
+              <input
+                type="file"
+                name="saveFile"
+                className="text-sm"
+                ref={fileInput}
+              />
+            </div>
             <SubmitButton
               label="Import Save File"
-              className="flex items-center justify-center border border-transparent bg-purple-500 p-2 px-2 text-sm font-bold text-white hover:border-purple-500 hover:bg-purple-700 disabled:bg-gray-500"
+              className="flex items-center justify-center border border-green-300 bg-green-500 p-2 px-2 text-sm font-bold text-gray-800 hover:border-green-300 hover:bg-green-600 disabled:bg-gray-500"
             />
             <div className="col-span-full my-4 bg-black">
               <p className="px-2 text-sm text-green-500">
