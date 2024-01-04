@@ -25,8 +25,6 @@ import {
 } from '../actions'
 import { toast } from 'react-toastify'
 import { useRouter } from 'next/navigation'
-import PageActions from '@/app/(components)/PageActions'
-import BackToTopButton from '@/app/(components)/BackToTopButton'
 import { useLocalStorage } from '@/app/(hooks)/useLocalStorage'
 
 export default function Page({
@@ -81,9 +79,6 @@ export default function Page({
 
   return (
     <>
-      <PageActions>
-        <BackToTopButton />
-      </PageActions>
       <PageHeader
         title={buildState.name}
         subtitle={`Build by ${buildState.createdByDisplayName}`}

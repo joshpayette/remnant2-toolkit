@@ -17,8 +17,6 @@ import { GenericItem } from '../(types)/items/GenericItem'
 import { MutatorItem } from '../(types)/items/MutatorItem'
 import useFilteredItems from '../(hooks)/useFilteredItems'
 import Filters from '../(components)/Filters'
-import PageActions from '../(components)/PageActions'
-import BackToTopButton from '../(components)/BackToTopButton'
 
 const skippedItemCategories: Array<GenericItem['category']> = [
   'concoction',
@@ -177,10 +175,8 @@ export default function Page() {
 
   return (
     <div className="relative flex w-full flex-col items-center justify-center">
-      <PageActions>
-        <Filters allItems={itemList} onUpdate={handleUpdateFilters} />
-        <BackToTopButton />
-      </PageActions>
+      <Filters allItems={itemList} onUpdate={handleUpdateFilters} />
+
       <ItemInfo
         item={itemInfo}
         open={isShowItemInfoOpen}

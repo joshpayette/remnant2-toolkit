@@ -12,8 +12,6 @@ import { MutatorItem } from '../(types)/items/MutatorItem'
 import { GenericItem } from '../(types)/items/GenericItem'
 import Filters from '../(components)/Filters'
 import useFilteredItems from '../(hooks)/useFilteredItems'
-import PageActions from '../(components)/PageActions'
-import BackToTopButton from '../(components)/BackToTopButton'
 
 const csvItems = remnantItems // Modify the data for use. Adds a discovered flag,
   // modifies the description for mutators
@@ -62,10 +60,8 @@ export default function Page() {
 
   return (
     <div className="relative flex w-full flex-col items-center justify-center">
-      <PageActions>
-        <Filters allItems={allItems} onUpdate={handleUpdateFilters} />
-        <BackToTopButton />
-      </PageActions>
+      <Filters allItems={allItems} onUpdate={handleUpdateFilters} />
+
       <ItemInfo
         item={itemInfo}
         open={isShowItemInfoOpen}
