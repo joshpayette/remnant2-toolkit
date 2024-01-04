@@ -186,6 +186,7 @@ export default function DetailedBuildView({ buildState }: Props) {
           </h2>
           <Masonry
             items={masonryItems}
+            columnCount={4}
             render={({ index, data, width }) => (
               <MasonryCard
                 index={index}

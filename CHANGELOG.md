@@ -16,6 +16,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Added armor descriptions
 - Added relic fragment descriptions
 - Added trait item descriptions
+- Added concoction descriptions
+- Added consumable descriptions
 - Item Tracker item count and total item count now adjusts with filters.
 - Updated filters button placement and look.
 
