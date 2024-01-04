@@ -15,6 +15,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Added armor stats and cooldowns to detailed view.
 - Added armor descriptions.
 - Added relic fragment descriptions
+- Item Tracker item count and total item count now adjusts with filters.
+- Updated filters button placement and look.
 
 ### Fixed
 

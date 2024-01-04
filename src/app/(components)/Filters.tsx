@@ -129,7 +129,7 @@ export default function Filters({ allItems, onUpdate }: Props) {
   return (
     <div className="right-0 top-0 flex w-full flex-col items-start justify-start">
       <button
-        className="flex w-auto items-center justify-center gap-1 rounded-md border-2 border-black bg-green-700 bg-gradient-to-b p-2 text-sm font-bold text-white drop-shadow-lg hover:bg-purple-500"
+        className="flex w-auto items-center justify-center gap-1 rounded-md border-2 border-black bg-green-700 bg-gradient-to-b p-2 text-sm font-bold text-white drop-shadow-lg hover:bg-green-500"
         onClick={() => setFiltersOpen(true)}
       >
         <WrenchScrewdriverIcon className="h-5 w-5" />
