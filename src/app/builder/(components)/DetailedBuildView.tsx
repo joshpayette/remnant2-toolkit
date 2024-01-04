@@ -14,6 +14,7 @@ import { Masonry } from 'masonic'
 import { ArmorItem } from '@/app/(types)/items/ArmorItem'
 import { MutatorItem } from '@/app/(types)/items/MutatorItem'
 import ArmorInfo from '@/app/(components)/ArmorInfo'
+import { TraitItem } from '@/app/(types)/items/TraitItem'
 
 interface MasonryBuildItem {
   index: number
@@ -53,7 +54,7 @@ function MasonryCard({ data: item, onMoreInfoClick }: MasonryBuildItem) {
             {description}
           </dd>
 
-          {MutatorItem.isMutatorItem(item) && (
+          {(MutatorItem.isMutatorItem(item) || TraitItem.isTraitItem(item)) && (
             <dd className="mt-3 whitespace-pre-line text-left text-gray-200">
               <strong>At Max Level: </strong>
               {item.maxLevelBonus || 'No max level bonus found.'}

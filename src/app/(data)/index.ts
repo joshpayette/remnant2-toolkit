@@ -5852,10 +5852,10 @@ export const remnantItems: Item[] = [
   },
   {
     category: 'mutator',
-    name: 'Shielded Strike', // This is the real name, but Fextralife has it as Shield Breaker
+    name: 'Shielded Strike', // This is the real name, but Fextralife and internal it's Shield Breaker
     saveFileSlug: 'shieldbreaker',
     type: 'melee',
-    imagePath: '/mutator/shield_breaker.png', // TODO Rename this after CDN swap
+    imagePath: '/mutator/shield_breaker.png',
     id: 'bhov5r',
     description: `Melee Attacks grants a Shield for 2-4% of Max Health. Max 20-40%. Last 10s.`,
     maxLevelBonus: `Charged Melee Attacks consume all Shield to increase damage of next strike by 1% per Shield Consumed. Max 100%.`,
@@ -8355,6 +8355,10 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     name: 'Affliction',
     imagePath: '/trait/affliction.png',
     id: 'dj8zx4',
+    description: `Increases STATUS EFFECT duration against enemies by 10%.`,
+    maxLevelBonus: `At max level, Affliction Increases STATUS EFFECT duration against enemies by +100%
+    However, it does NOT increase a Status Total Damage, effectively reducing Status Damage by 1/2.`,
+    howToGet: `Affliction is the Archetype Trait of the Ritualist`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Affliction`],
     linkedItems: {
       archtype: {
@@ -8367,6 +8371,9 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     name: 'Ammo Reserves',
     imagePath: '/trait/ammo_reserves.png',
     id: 'wu3w8t',
+    description: `Increases Ammo Reserves`,
+    maxLevelBonus: `At max level, Ammo Reserves Increases Ammo Reserves by 50%`,
+    howToGet: `Ammo Reserves is the Archetype Trait of the Gunslinger`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Ammo+Reserves`],
     linkedItems: {
       archtype: {
@@ -8379,60 +8386,102 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     name: 'Amplitude',
     imagePath: '/trait/amplitude.png',
     id: 'pb5neu',
+    description: `Increases AOE Size`,
+    maxLevelBonus: `At max level, Amplitude Increases AOE Size by +50%`,
+    howToGet: `Amplitude can be found at The Labyrinth. Look through the "broken portal" and jump through, sprint jump to the crystal so you dont die and complete the boss fight, (stay alive long enough for a door to open)`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Amplitude`],
   },
   {
     category: 'trait',
     name: 'Arcane Strike',
     imagePath: '/trait/arcane_strike.png',
     id: '6o5ckl',
+    description: `Increases Mod Power Generation from Melee Damage`,
+    maxLevelBonus: `At max level, Arcane Strike Increases Mod Power Generation from Melee Damage by 50%`,
+    howToGet: `Losomn - Harvester's Reach (Destroy all bone piles that spawn the large rat)`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Arcane+Strike`],
   },
   {
     category: 'trait',
     name: 'Barkskin',
     imagePath: '/trait/barkskin.png',
     id: '2vgobq',
+    description: `Reduces ALL incoming Damage`,
+    maxLevelBonus: `At max level, Barkskin Reduces ALL incoming Damage by 10%`,
+    howToGet: `Yaesha - The Far Woods or The Forbidden Grove (Meidra's Sorrow)
+    Barkskin is given to you by Meidra's Sorrow if you choose the selfless answers to her questions.`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Barkskin`],
   },
   {
     category: 'trait',
     name: 'Blood Bond',
     imagePath: '/trait/blood_bond.png',
     id: '1ke6u2',
+    description: `Archetype Summons absorb X% of damage taken by the caster`,
+    maxLevelBonus: `At max level, Blood Bond Summons absorb 10% of damage taken by the caster`,
+    howToGet: `Reward for the Root Nexus boss/event. Possible spawn in The Far Woods on Yaesha.`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Blood+Bond`],
   },
   {
     category: 'trait',
     name: 'Bloodstream',
     imagePath: '/trait/bloodstream.png',
     id: 'yvttbq',
+    description: `Increases Grey Health regen`,
+    maxLevelBonus: `At max level, Bloodstream Increases Grey Health regen by 3.0/s`,
+    howToGet: `Yaesha - The Far Woods or The Forbidden Grove (Meidra's Sorrow)
+    Bloodstream is given to you by Meidra's Sorrow if you choose the selfish answers to her questions.`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Bloodstream`],
   },
   {
     category: 'trait',
     name: 'Dark Pact',
     imagePath: '/trait/dark_pact.png',
     id: 'mjkf4t',
+    description: `Reduces GREY HEALTH regen rate by 9%`,
+    maxLevelBonus: `At max level, Dark Pact Reduces GREY HEALTH regen rate by -90%`,
+    howToGet: `Can be found in Forlorn Coast, by completing the Bells Event.`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Dark+Pact`],
   },
   {
     category: 'trait',
     name: 'Endurance',
     imagePath: '/trait/endurance.png',
     id: 'wgzz0q',
+    description: `Increases Maximum Stamina`,
+    maxLevelBonus: `At max level, Endurance Increases Max Stamina by 30`,
+    howToGet: `Core trait`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Endurance`],
   },
   {
     category: 'trait',
     name: 'Expertise',
     imagePath: '/trait/expertise.png',
     id: '6kxk5x',
+    description: `Reduces Skill Cooldowns`,
+    maxLevelBonus: `At max level, Expertise Reduces Skill Cooldowns by -20%`,
+    howToGet: `Core trait`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Expertise`],
   },
   {
     category: 'trait',
     name: 'Fitness',
     imagePath: '/trait/fitness.png',
     id: 'qcvmt0',
+    description: `Increases Evade Distance`,
+    maxLevelBonus: `At max level, Fitness Increases Evade Distance by +30%`,
+    howToGet: `N'Erud - Vault of the Formless
+    The trait is awarded by completing the boss at the end of the dungeon. `,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Fitness`],
   },
   {
     category: 'trait',
     name: 'Flash Caster',
     imagePath: '/trait/flash_caster.png',
     id: 'm6i4dl',
+    description: `Increases Mod and Casting Speed`,
+    maxLevelBonus: `At max level, Flash Caster Increases Mod and Casting Speed by 50%`,
+    howToGet: `Flash Caster is the Archetype Trait of the Archon`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Flash+Caster`],
     linkedItems: {
       archtype: {
@@ -8445,12 +8494,19 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     name: 'Footwork',
     imagePath: '/trait/footwork.png',
     id: 'ay1dkh',
+    description: `Increases Movement Speed while Aiming`,
+    maxLevelBonus: `At max level, Footwork Increases Movement Speed while Aiming by +50%`,
+    howToGet: `Increases Movement Speed while Aiming`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Footwork`],
   },
   {
     category: 'trait',
     name: 'Fortify',
     imagePath: '/trait/fortify.png',
     id: 'osj7se',
+    description: `Increases Armor Effectiveness`,
+    maxLevelBonus: `At max level, Fortify Increases Armor Effectiveness by 50%`,
+    howToGet: `Fortify is the Archetype Trait of the Engineer`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Fortify`],
     linkedItems: {
       archtype: {
@@ -8463,18 +8519,30 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     name: 'Glutton',
     imagePath: '/trait/glutton.png',
     id: 'cvsois',
+    description: `Increases the Use Speed of Consumables and Relics`,
+    maxLevelBonus: `At max level, Glutton Increases the Use Speed of Consumables and Relics by +30%`,
+    howToGet: `You need to complete The Feast Event in multiplayer. Attempting to resurrect a fallen ally while under the Ravenous status grants this trait to character that decides to eat an ally. Food on the table inflicts the status and starts the event.`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Glutton`],
   },
   {
     category: 'trait',
     name: 'Handling',
     imagePath: '/trait/handling.png',
     id: '8baa52',
+    description: `Reduces Weapon Spread and Recoil`,
+    maxLevelBonus: `At max level, Handling Reduces Weapon Spread and Recoil by 40%`,
+    howToGet: `Root Earth - Ashen Wasteland
+    Defeat the Root Shade.`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Handling`],
   },
   {
     category: 'trait',
     name: 'Kinship',
     imagePath: '/trait/kinship.png',
     id: 'vn3gsg',
+    description: `Reduces Friendly Fire damage dealt and received`,
+    maxLevelBonus: `At max level, Kinship Reduces Friendly Dealt and Received by 80%`,
+    howToGet: `Kinship is the Archetype Trait of the Handler`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Kinship`],
     linkedItems: {
       archtype: {
@@ -8487,6 +8555,9 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     name: 'Longshot',
     imagePath: '/trait/longshot.png',
     id: '157qcj',
+    description: `Increases Weapon Ideal Range`,
+    maxLevelBonus: `At max level, Longshot Increases Weapon Ideal Range by 600(cm)`,
+    howToGet: `Longshot is the Archetype Trait of the Hunter`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Longshot`],
     linkedItems: {
       archtype: {
@@ -8499,6 +8570,9 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     name: 'Potency',
     imagePath: '/trait/potency.png',
     id: 'v1uiyd',
+    description: `Increases Consumable Duration`,
+    maxLevelBonus: `At max level, Potency Increases Consumable Duration by 100%`,
+    howToGet: `Potency is the Archetype Trait of the Alchemist`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Potency`],
     linkedItems: {
       archtype: {
@@ -8511,12 +8585,20 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     name: 'Recovery',
     imagePath: '/trait/recovery.png',
     id: '7z3ejv',
+    description: `Increases Stamina Regen`,
+    maxLevelBonus: `At max level, Recovery Increases Stamina Regen by 30/s`,
+    howToGet: `Losomn - Morrow Parish
+    When venturing outside, bring the Lost Dran Children you find back to the Oracle of the Dran (she’s in a house with several other children).`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Recovery`],
   },
   {
     category: 'trait',
     name: 'Regrowth',
     imagePath: '/trait/regrowth.png',
     id: 'ysp1wu',
+    description: `Increases Health Regeneration`,
+    maxLevelBonus: `At max level, Regrowth Increases Health Regen by 1.5/s`,
+    howToGet: `Regrowth is the Archetype Trait of the Summoner`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Regrowth`],
     linkedItems: {
       archtype: {
@@ -8529,48 +8611,81 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     name: 'Resonance',
     imagePath: '/trait/resonance.png',
     id: 'dmizlm',
+    description: `Increases Aura Size`,
+    maxLevelBonus: `At max level, Resonance Increases Aura Size by +50%`,
+    howToGet: `Dormant N'Erudian Facility - Multiplayer Trait. One player needs to be in the control room, located at the end of the secret path where the Biome-Control Glyph is found. The player in the control room needs to activate the console, which is only possible while the Quarantine Event is still running. All players inside the control room or any other part of the secret path will not receive the Resonance Trait, but the Siphoner Trait instead.`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Resonance`],
   },
   {
     category: 'trait',
     name: 'Revivalist',
     imagePath: '/trait/revivalist.png',
     id: 'a4idgl',
+    description: `Increases the Speed of Reviving and being Revived`,
+    maxLevelBonus: `At max level, Revivalist Increases the Speed of Reviving and being Revived by +50%`,
+    howToGet: `Revivalist is unlocked by reviving a teammate. (Handler's Dog Companion included)`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Revivalist`],
   },
   {
     category: 'trait',
     name: 'Rugged',
     imagePath: '/trait/rugged.png',
     id: 'ykxzf1',
+    description: `Increases the Health of Archetype Summons`,
+    maxLevelBonus: `At max level, Rugged Increases the Health of Archetype Summons by +100%`,
+    howToGet: `Likh (Defeat Nexus Root/Defiler 2 phase Mega Boss)`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Rugged`],
   },
   {
     category: 'trait',
     name: 'Scholar',
     imagePath: '/trait/scholar.png',
     id: '6j7cn1',
+    description: `Increases Experience Gain`,
+    maxLevelBonus: `At max level, Scholar Increases Experience Gain by +15%`,
+    howToGet: `Scholar is unlocked after killing the Final Boss.`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Scholar`],
   },
   {
     category: 'trait',
     name: 'Shadeskin',
     imagePath: '/trait/shadeskin.png',
     id: 'jk0ot9',
+    description: `Increases Resistance to Elemental Status Effect Damage`,
+    maxLevelBonus: `At max level, Shadeskin Increases Resistance to Elemental Status Effect Damage by 20%`,
+    howToGet: `Location: Losomn - Butcher's Quarter
+    By allowing the Dran to be burned in The Burning Event. (note: the neutral Dran will turn hostile to you at the conclusion of the event).
+    By preventing Dran from being burned you are rewarded with both the Shadeskin trait and Dran Memento`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Shadeskin`],
   },
   {
     category: 'trait',
     name: 'Siphoner',
     imagePath: '/trait/siphoner.png',
     id: 'x9umnf',
+    description: `Increases Lifesteal`,
+    maxLevelBonus: `At max level, Siphoner Increases Lifesteal by +3.0%`,
+    howToGet: `N'Erud - Dormant N'erudian Facility`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Siphoner`],
   },
   {
     category: 'trait',
     name: 'Spirit',
     imagePath: '/trait/spirit.png',
     id: 'p4b2v6',
+    description: `Increases Mod Power Generation`,
+    maxLevelBonus: `At max level, Spirit Increases Mod Power Generation by 20%`,
+    howToGet: `Core trait`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Spirit`],
   },
   {
     category: 'trait',
     name: 'Strong Back',
     imagePath: '/trait/strong_back.png',
     id: 'sd2hry',
+    description: `Reduces dodge weight threshold (incrementing the weight you can carry before increasing your dodge class).`,
+    maxLevelBonus: `At max level, Strong Back Reduces weight threshold by 15`,
+    howToGet: `Strong Back is the Archetype Trait of the Challenger`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Strong+Back`],
     linkedItems: {
       archtype: {
@@ -8583,6 +8698,9 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     name: 'Swiftness',
     imagePath: '/trait/swiftness.png',
     id: '3ochlm',
+    description: `Increases movement`,
+    maxLevelBonus: `At max level, Swiftness Increases all Movement Speed by 15%`,
+    howToGet: `Swiftness is the Archetype Trait of the Explorer`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Swiftness`],
     linkedItems: {
       archtype: {
@@ -8595,6 +8713,9 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     name: 'Triage',
     imagePath: '/trait/triage.png',
     id: 'pbak5a',
+    description: `Increases Healing done by all sources, including Relics, skills, equipment, and weapon mods. `,
+    maxLevelBonus: `At max level, Triage Increases healing by 50%`,
+    howToGet: `Triage is the Archetype Trait of the Medic`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Triage`],
     linkedItems: {
       archtype: {
@@ -8607,6 +8728,9 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     name: 'Untouchable',
     imagePath: '/trait/untouchable.png',
     id: 'pkmmg6',
+    description: `Increases Evade Window`,
+    maxLevelBonus: `At max level, Untouchable Increases Evade Window by 30%`,
+    howToGet: `Untouchable is the Archetype Trait of the Invader`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Untouchable`],
     linkedItems: {
       archtype: {
@@ -8619,12 +8743,20 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     name: 'Vigor',
     imagePath: '/trait/vigor.png',
     id: 'o6mx2t',
+    description: `Increases Maximum Health`,
+    maxLevelBonus: `At max level, Vigor Increases Max Health by 30`,
+    howToGet: `Core trait`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Vigor`],
   },
   {
     category: 'trait',
     name: 'Wayfarer',
     imagePath: '/trait/wayfarer.png',
     id: 'b3rey4',
+    description: `Increases Enviroment Movement Speed (Vaulting, Ladders, Wading)`,
+    maxLevelBonus: `At max level, Wayfarer Increeses Traversal Movement by +50%`,
+    howToGet: `Wayfarer can be found at Root Earth - Corrupted Harbor`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Wayfarer`],
   },
   {
     category: 'concoction',

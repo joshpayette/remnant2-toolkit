@@ -14,7 +14,6 @@ import { useLocalStorage } from '../(hooks)/useLocalStorage'
 import { useSearchParams } from 'next/navigation'
 import DetailedBuildView from './(components)/DetailedBuildView'
 import ImageDownloadLink from './(components)/ImageDownloadLink'
-import BackToTopButton from '../(components)/BackToTopButton'
 
 export default function Page() {
   const searchParams = useSearchParams()
