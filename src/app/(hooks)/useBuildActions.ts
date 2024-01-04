@@ -146,12 +146,18 @@ export default function useBuildActions() {
     setTimeout(exportImage, 1000)
   }, [isScreenshotMode, router])
 
+  function handleScrollToDetailedView(el: HTMLDivElement | null) {
+    if (!el) return
+    el.scrollIntoView({ behavior: 'smooth' })
+  }
+
   return {
     handleClearImageLink,
     handleCopyBuildUrl,
     handleDuplicateBuild,
     handleEditBuild,
     handleImageExport,
+    handleScrollToDetailedView,
     handleReportBuild,
     isScreenshotMode: Boolean(isScreenshotMode),
     showControls: Boolean(isScreenshotMode) === false,

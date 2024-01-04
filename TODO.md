@@ -1,6 +1,5 @@
 # TODO
 
-- Not happy with filters button placement, should be somewhere else with a cog wheel or something.
 - Add pagination to build tables in profile page.
 - Add build randomizer for the luls
 - Add duplicate build button to builds in profile

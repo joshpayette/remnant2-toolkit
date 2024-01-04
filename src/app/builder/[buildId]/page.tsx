@@ -167,7 +167,8 @@ export default function Page({
                           }
                         }}
                       />
-
+                    </div>
+                  </div>
                   <div className="flex w-full flex-col items-center justify-center gap-4">
                     <ActionButton.ReportBuild
                       active={buildState.reported}

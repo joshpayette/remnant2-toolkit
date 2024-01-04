@@ -2,8 +2,6 @@
 
 import ViewBuildButton from '../(components)/ViewBuildButton'
 import CopyBuildUrlButton from '../(components)/CopyBuildUrlButton'
-import PageActions from '@/app/(components)/PageActions'
-import BackToTopButton from '@/app/(components)/BackToTopButton'
 import {
   ChevronLeftIcon,
   ChevronRightIcon,
