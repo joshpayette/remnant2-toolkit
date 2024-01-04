@@ -179,9 +179,7 @@ export default function Page() {
 
   return (
     <div className="relative flex w-full flex-col items-center justify-center">
-      <div className="fixed bottom-[60px] right-[16px] z-30">
-        <Filters allItems={itemList} onUpdate={handleUpdateFilters} />
-      </div>
+      <Filters allItems={itemList} onUpdate={handleUpdateFilters} />
 
       <ItemInfo
         item={itemInfo}
