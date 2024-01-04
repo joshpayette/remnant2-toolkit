@@ -86,12 +86,20 @@ export default function SaveBuildButton({ buildState }: Props) {
   }
 
   return saveInProgress ? (
-    <div className={cn(buttonClasses, 'border-green-500 hover:bg-green-700')}>
+    <div
+      className={cn(
+        buttonClasses,
+        'border-transparent bg-green-500 hover:bg-green-700',
+      )}
+    >
       <LoadingIndicator />
     </div>
   ) : (
     <button
-      className={cn(buttonClasses, 'border-green-500 hover:bg-green-700')}
+      className={cn(
+        buttonClasses,
+        'border-transparent bg-green-500 text-black hover:bg-green-700 hover:text-white',
+      )}
       onClick={async () => {
         setSaveInProgress(true)
         const response = await createBuild(JSON.stringify(buildState))
