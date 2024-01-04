@@ -10,7 +10,7 @@ import useBuildActions from '../(hooks)/useBuildActions'
 import { ActionButton } from '../(components)/ActionButton'
 import ToCsvButton from '@/app/(components)/ToCsvButton'
 import { useIsClient } from 'usehooks-ts'
-import { useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import { useSession } from 'next-auth/react'
 import PageHeader from '@/app/(components)/PageHeader'
 import { ExtendedBuild, isErrorResponse } from '@/app/(types)'
@@ -27,6 +27,7 @@ import { toast } from 'react-toastify'
 import { useRouter } from 'next/navigation'
 import PageActions from '@/app/(components)/PageActions'
 import BackToTopButton from '@/app/(components)/BackToTopButton'
+import { useLocalStorage } from '@/app/(hooks)/useLocalStorage'
 
 export default function Page({
   params: { extendedBuild },
@@ -49,6 +50,18 @@ export default function Page({
     handleImageExport,
     handleScrollToDetailedView,
   } = useBuildActions()
+
+  const { builderStorage, setBuilderStorage } = useLocalStorage()
+
+  useEffect(() => {
+    setBuilderStorage({
+      ...builderStorage,
+      tempBuildId: null,
+      tempDescription: null,
+      tempIsPublic: null,
+      tempCreatedById: null,
+    })
+  }, [builderStorage, setBuilderStorage])
 
   const buildContainerRef = useRef<HTMLDivElement>(null)
   const detailedViewContainerRef = useRef<HTMLDivElement>(null)
