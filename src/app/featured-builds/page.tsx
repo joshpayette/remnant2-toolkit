@@ -60,7 +60,7 @@ export default function Page() {
         {builds.map((build) => (
           <div
             key={build.slug}
-            className="flex flex-col items-center justify-center gap-2 border border-purple-500 p-4"
+            className="flex flex-col items-center justify-center gap-2 border border-purple-500 bg-black p-4"
           >
             <h2 className="text-center text-2xl">
               <Link
@@ -71,7 +71,7 @@ export default function Page() {
               </Link>
             </h2>
 
-            <div className="flex grow flex-col items-center gap-2">
+            <div className="flex grow flex-col items-center gap-2 bg-black">
               {build.classes && (
                 <p className="rounded-lg bg-black p-2 text-sm">
                   Classes:{' '}
