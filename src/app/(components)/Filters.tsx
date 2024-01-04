@@ -3,7 +3,7 @@ import { DLCKey, DLC_TO_NAME } from '../(types)'
 import SearchInput from './SearchInput'
 import { useDebounce } from 'usehooks-ts'
 import Dialog from './Dialog'
-import { FunnelIcon } from '@heroicons/react/24/solid'
+import { FunnelIcon, WrenchScrewdriverIcon } from '@heroicons/react/24/solid'
 import { FilteredItem } from '../(hooks)/useFilteredItems'
 import { useLocalStorage } from '../(hooks)/useLocalStorage'
 
@@ -127,12 +127,12 @@ export default function Filters({ allItems, onUpdate }: Props) {
   ])
 
   return (
-    <div className="flex w-full flex-col items-start justify-start">
+    <div className="right-0 top-0 flex w-full flex-col items-start justify-start">
       <button
-        className="flex w-auto items-center justify-center gap-1 rounded-md border-2 border-transparent bg-purple-500 bg-gradient-to-b p-2 text-sm font-bold text-black drop-shadow-md hover:border-purple-300"
+        className="flex w-auto items-center justify-center gap-1 rounded-md border-2 border-black bg-green-700 bg-gradient-to-b p-2 text-sm font-bold text-white drop-shadow-lg hover:bg-purple-500"
         onClick={() => setFiltersOpen(true)}
       >
-        <FunnelIcon className="h-5 w-5" />
+        <WrenchScrewdriverIcon className="h-5 w-5" />
       </button>
 
       <Dialog
