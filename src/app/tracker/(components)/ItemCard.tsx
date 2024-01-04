@@ -12,7 +12,7 @@ function CardImage({ item }: { item: ItemCardProps['item'] }) {
     <div className="relative flex h-[64px] w-full grow items-center justify-center overflow-hidden bg-[url('https://remnant2toolkit.b-cdn.net/card-body-bg.jpg')]">
       {item && (
         <Image
-          src={`https://remnant2toolkit.b-cdn.net${item.imagePath}?width=64&height=64`}
+          src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}${item.imagePath}?width=64&height=64`}
           alt={item.name}
           width={64}
           height={64}

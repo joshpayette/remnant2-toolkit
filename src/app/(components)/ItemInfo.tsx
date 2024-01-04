@@ -36,7 +36,7 @@ export default function ItemInfo({ item, open, onClose }: ItemInfoProps) {
             </p>
           </div>
           <Image
-            src={`https://remnant2toolkit.b-cdn.net${item.imagePath}?width=220&height=220`}
+            src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}${item.imagePath}?width=220&height=220`}
             width={220}
             height={220}
             alt={item.name}
