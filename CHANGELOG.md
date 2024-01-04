@@ -4,7 +4,13 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
-### 2023-01-03
+## 2023-01-04
+
+### Fixed
+
+- Bug with detailed view squishing up on mobile
+
+## 2023-01-03
 
 ### Changed
 
@@ -27,7 +33,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Fixed error in links to SheenShots' Hot Swapper build.
 - Fixed bug where incorrect number of items showing on the item tracker
 
-### 2023-01-02
+## 2023-01-02
 
 ### Added
 
@@ -35,7 +41,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Added Bolt Jamison's Fargazer Madness Mage
 - Added SheenShots' Corrupted Guardian build
 
-### 2023-12-31
+## 2023-12-31
 
 ### Added
 
