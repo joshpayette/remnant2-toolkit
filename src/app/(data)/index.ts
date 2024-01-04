@@ -5853,6 +5853,7 @@ export const remnantItems: Item[] = [
   {
     category: 'mutator',
     name: 'Shielded Strike', // This is the real name, but Fextralife has it as Shield Breaker
+    saveFileSlug: 'shieldbreaker',
     type: 'melee',
     imagePath: '/mutator/shield_breaker.png', // TODO Rename this after CDN swap
     id: 'bhov5r',
