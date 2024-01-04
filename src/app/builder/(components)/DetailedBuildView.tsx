@@ -178,24 +178,26 @@ export default function DetailedBuildView({ buildState }: Props) {
         open={infoOpen}
         onClose={() => setSelectedItem(null)}
       />
-      <div className="flex w-full flex-col items-center justify-center p-4">
-        <h2 className="mb-4 text-4xl font-bold tracking-tight text-white">
-          Detailed Build View
-        </h2>
-        <Masonry
-          items={masonryItems}
-          render={({ index, data, width }) => (
-            <MasonryCard
-              index={index}
-              data={data}
-              width={width}
-              onMoreInfoClick={handleMoreInfoClick}
-            />
-          )}
-          columnGutter={8}
-          rowGutter={8}
-        />
-      </div>
+      {masonryItems.length > 0 && (
+        <div className="flex w-full flex-col items-center justify-center p-4">
+          <h2 className="mb-4 text-4xl font-bold tracking-tight text-white">
+            Detailed Build View
+          </h2>
+          <Masonry
+            items={masonryItems}
+            render={({ index, data, width }) => (
+              <MasonryCard
+                index={index}
+                data={data}
+                width={width}
+                onMoreInfoClick={handleMoreInfoClick}
+              />
+            )}
+            columnGutter={8}
+            rowGutter={8}
+          />
+        </div>
+      )}
     </>
   )
 }
