@@ -87,6 +87,10 @@ export default function Page() {
           id="actions-column"
           className="flex min-w-full flex-col justify-between sm:min-w-[100px]"
         >
+          <div className="mb-2">
+            <SaveBuildButton buildState={buildState} />
+          </div>
+
           <div
             id="actions"
             className="grid grid-cols-2 gap-2 sm:flex sm:flex-col sm:gap-2"
@@ -102,8 +106,6 @@ export default function Page() {
                 }
               />
             </div>
-
-            <SaveBuildButton buildState={buildState} />
 
             <ActionButton.CopyBuildUrl
               onClick={() =>

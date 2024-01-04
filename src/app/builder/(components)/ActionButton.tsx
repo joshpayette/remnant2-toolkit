@@ -103,7 +103,7 @@ export const ActionButton = {
       className={cn(buttonClasses, 'border-cyan-500 hover:bg-cyan-700')}
       onClick={onClick}
     >
-      Show Detailed View
+      Detailed View
     </button>
   ),
 

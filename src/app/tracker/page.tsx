@@ -38,6 +38,8 @@ const itemList = remnantItems
     discovered: false,
   }))
 
+const totalItems = itemList.length
+
 export default function Page() {
   const isClient = useIsClient()
 
@@ -147,11 +149,9 @@ export default function Page() {
 
   // Provider the tracker progress
   const discoveredCount = discoveredItemIds.length
-  const discoveredPercent = Math.round(
-    (discoveredCount / remnantItems.length) * 100,
-  )
+  const discoveredPercent = Math.round((discoveredCount / totalItems) * 100)
   const progress = isClient
-    ? `${discoveredCount} / ${remnantItems.length} (${discoveredPercent}%)`
+    ? `${discoveredCount} / ${totalItems} (${discoveredPercent}%)`
     : 'Calculating...'
 
   const handleShowItemInfo = (itemId: string) => {

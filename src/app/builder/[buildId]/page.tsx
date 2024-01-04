@@ -96,11 +96,13 @@ export default function Page({
                   }
                 />
               </div>
+
               {session && session.user?.id === buildState.createdById && (
                 <ActionButton.EditBuild
                   onClick={() => handleEditBuild(buildState)}
                 />
               )}
+
               <ActionButton.CopyBuildUrl
                 onClick={() =>
                   handleCopyBuildUrl(
