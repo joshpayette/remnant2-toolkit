@@ -1,16 +1,12 @@
 import Link from 'next/link'
 import { NAV_ITEMS } from './(data)/constants'
 import { ArrowRightIcon } from '@heroicons/react/24/solid'
-import PageActions from './(components)/PageActions'
 import BackToTopButton from './(components)/BackToTopButton'
 import Image from 'next/image'
 
 export default function HomePage() {
   return (
     <>
-      <PageActions>
-        <BackToTopButton />
-      </PageActions>
       <div className="relative isolate overflow-hidden bg-gray-900 py-24 sm:py-32">
         <Image
           src="https://remnant2toolkit.b-cdn.net/home-bg.webp"

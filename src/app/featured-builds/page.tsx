@@ -23,8 +23,6 @@ import { pageInfo as senorservezasRoninMeleePageInfo } from './build/senorcervez
 import { pageInfo as sheenShotsHotSwapperPageInfo } from './build/sheenshots-hot-swapper/metadata'
 import { pageInfo as boltJamisonsFargazerMagePageInfo } from './build/bolt-jamisons-fargazer-mage/metadata'
 import { pageInfo as sheenShotsCorruptedGuardianPageInfo } from './build/sheenshots-corrupted-guardian/metadata'
-import PageActions from '../(components)/PageActions'
-import BackToTopButton from '../(components)/BackToTopButton'
 
 const builds = [
   sheenShotsCorruptedGuardianPageInfo,
@@ -54,9 +52,6 @@ const builds = [
 export default function Page() {
   return (
     <>
-      <PageActions>
-        <BackToTopButton />
-      </PageActions>
       <PageHeader
         title="Featured Builds"
         subtitle="A collection of builds aggregated from various sources."

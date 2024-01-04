@@ -14,7 +14,6 @@ import { useLocalStorage } from '../(hooks)/useLocalStorage'
 import { useSearchParams } from 'next/navigation'
 import DetailedBuildView from './(components)/DetailedBuildView'
 import ImageDownloadLink from './(components)/ImageDownloadLink'
-import PageActions from '../(components)/PageActions'
 import BackToTopButton from '../(components)/BackToTopButton'
 
 export default function Page() {
@@ -70,10 +69,6 @@ export default function Page() {
 
   return (
     <div className="flex w-full flex-col items-center">
-      <PageActions>
-        <BackToTopButton />
-      </PageActions>
-
       <ImageDownloadLink onClose={handleClearImageLink} imageLink={imageLink} />
 
       <PageHeader

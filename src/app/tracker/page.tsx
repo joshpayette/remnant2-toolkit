@@ -17,8 +17,6 @@ import { GenericItem } from '../(types)/items/GenericItem'
 import { MutatorItem } from '../(types)/items/MutatorItem'
 import useFilteredItems from '../(hooks)/useFilteredItems'
 import Filters from '../(components)/Filters'
-import PageActions from '../(components)/PageActions'
-import BackToTopButton from '../(components)/BackToTopButton'
 
 const skippedItemCategories: Array<GenericItem['category']> = [
   'concoction',
@@ -38,8 +36,6 @@ const itemList = remnantItems
     discovered: false,
   }))
 
-const totalItems = itemList.length
-
 export default function Page() {
   const isClient = useIsClient()
 
@@ -52,6 +48,7 @@ export default function Page() {
   const { discoveredItemIds } = itemTrackerStorage
 
   const { filteredItems, handleUpdateFilters } = useFilteredItems(itemList)
+  const totalItems = filteredItems.length
 
   // get response after save file upload
   const [uploadFormResponse, formAction] = useFormState(parseSaveFile, {
@@ -148,10 +145,15 @@ export default function Page() {
   }, [setDiscoveredItemIds, filteredItems])
 
   // Provider the tracker progress
-  const discoveredCount = discoveredItemIds.length
+  const discoveredCount = filteredItems.reduce((acc, item) => {
+    if (discoveredItemIds.includes(item.id)) return acc + 1
+    return acc
+  }, 0)
   const discoveredPercent = Math.round((discoveredCount / totalItems) * 100)
   const progress = isClient
-    ? `${discoveredCount} / ${totalItems} (${discoveredPercent}%)`
+    ? `${discoveredCount} / ${totalItems} (${
+        isNaN(discoveredPercent) ? '0' : discoveredPercent
+      }%)`
     : 'Calculating...'
 
   const handleShowItemInfo = (itemId: string) => {
@@ -177,10 +179,10 @@ export default function Page() {
 
   return (
     <div className="relative flex w-full flex-col items-center justify-center">
-      <PageActions>
+      <div className="fixed bottom-[60px] right-[16px] z-30">
         <Filters allItems={itemList} onUpdate={handleUpdateFilters} />
-        <BackToTopButton />
-      </PageActions>
+      </div>
+
       <ItemInfo
         item={itemInfo}
         open={isShowItemInfoOpen}
