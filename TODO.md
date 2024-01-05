@@ -1,6 +1,8 @@
 # TODO
 
-- Not happy with filters button placement, should be somewhere else with a cog wheel or something.
+- Add item categories to page filters
+  - Maybe separate filter button from filter popup logic
+- Item lookup page should look more like detailed build view now?
 - Add pagination to build tables in profile page.
 - Add build randomizer for the luls
 - Add duplicate build button to builds in profile
@@ -13,6 +15,7 @@
 
 ## Bugs
 
+- Trait point images super fuzzy on item lookup
 - Need a different way to handle item description and public other than local storage,
   probably include build id in URL and then fetch from database
 - If you add a skill, the skills for that class should not be selectable in the other skill slot
