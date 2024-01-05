@@ -40,8 +40,21 @@ export default function Traits({
     // If the trait is linked to an archtype, it should not be deletable
     const primaryArchtype = archtypeItems[0]
     if (
-      primaryArchtype.linkedItems?.traits?.some(
+      primaryArchtype?.linkedItems?.traits?.some(
         (linkedTraitItem) => linkedTraitItem.name === traitItem.name,
+      )
+    ) {
+      shouldAllowDelete = false
+    }
+
+    // If the trait is linked to the secondary archtype and has an amount of 10,
+    // it should not be deletable
+    const secondaryArchtype = archtypeItems[1]
+    if (
+      secondaryArchtype?.linkedItems?.traits?.some(
+        (linkedTraitItem) =>
+          linkedTraitItem.name === traitItem.name &&
+          linkedTraitItem.amount === 10,
       )
     ) {
       shouldAllowDelete = false

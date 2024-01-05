@@ -41,12 +41,12 @@ export default function ItemInfo({ item, open, onClose }: ItemInfoProps) {
             </p>
           </div>
           <Image
-            src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}${item.imagePath}?width=${imageSize.width}&height=${imageSize.height}`}
+            src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}${item.imagePath}`}
             width={imageSize.width}
             height={imageSize.height}
             alt={item.name}
             className="h-auto max-h-full w-full max-w-full"
-            priority={true}
+            loading="eager"
           />
         </div>
 

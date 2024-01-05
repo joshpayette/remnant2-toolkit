@@ -91,11 +91,11 @@ export default function BuilderButton({
       >
         {item && (
           <Image
-            src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}${item.imagePath}?width=${imageSize.width}&height=${imageSize.height}`}
+            src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}${item.imagePath}`}
             alt={`${item.name} icon`}
             width={imageSize.width}
             height={imageSize.height}
-            priority={true}
+            loading="eager"
           />
         )}
       </button>
