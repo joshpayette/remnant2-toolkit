@@ -3,24 +3,27 @@ import { XCircleIcon } from '@heroicons/react/24/solid'
 import { cn } from '@/app/(lib)/utils'
 import { TraitItem } from '@/app/(types)/items/TraitItem'
 import { DEFAULT_TRAIT_AMOUNT, MAX_TRAIT_AMOUNT } from '@/app/(data)/constants'
+import { BuildState } from '@/app/(types)/build-state'
 
 export default function Traits({
+  buildState,
   isEditable,
   isScreenshotMode,
   showControls,
-  traitItems,
   onAddTrait,
   onRemoveTrait,
   onChangeAmount,
 }: {
+  buildState: BuildState
   isEditable: boolean
   isScreenshotMode: boolean
   showControls: boolean
-  traitItems: TraitItem[]
   onAddTrait?: () => void
   onRemoveTrait: (traitItem: TraitItem) => void
   onChangeAmount: (traitItem: TraitItem) => void
 }) {
+  const { trait: traitItems, archtype: archtypeItems } = buildState.items
+
   const [editingTraitItem, setEditingTraitItem] = useState<TraitItem | null>(
     null,
   )
@@ -29,6 +32,25 @@ export default function Traits({
     (total, traitItem) => total + traitItem.amount,
     0,
   )
+
+  function shouldAllowDelete(traitItem: TraitItem) {
+    // Default values based on editable and wheisEditable && showControlsther controls are shown
+    let shouldAllowDelete = isEditable && showControls
+
+    // If the trait is linked to an archtype, it should not be deletable
+    if (
+      archtypeItems.some(
+        (archtypeItem) =>
+          archtypeItem.linkedItems?.traits?.some(
+            (linkedTraitItem) => linkedTraitItem.name === traitItem.name,
+          ),
+      )
+    ) {
+      shouldAllowDelete = false
+    }
+
+    return shouldAllowDelete
+  }
 
   return (
     <>
@@ -39,7 +61,7 @@ export default function Traits({
         )}
       >
         {showControls && isEditable && (
-          <div className="col-span-full mx-auto mb-2 max-w-[150px] border border-gray-500 p-2 text-center text-xs text-gray-300">
+          <div className="col-span-full mx-auto mb-2 max-w-[300px] border border-gray-500 p-2 text-center text-xs text-gray-300">
             <span
               className={cn(
                 'text-lg font-bold',
@@ -49,6 +71,9 @@ export default function Traits({
               {totalTraitAmount}
             </span>
             /<span className="font-bold">{MAX_TRAIT_AMOUNT}</span> Trait Points
+            <p className="text-cyan-500">
+              5 Core + 20 Archtype + 85 Player Choice
+            </p>
           </div>
         )}
         {traitItems.map((traitItem) => (
@@ -80,11 +105,26 @@ export default function Traits({
 
                     if (value.trim() === '') return
 
-                    let amount = parseInt(value)
+                    let amount = Number(value)
 
                     if (isNaN(amount)) amount = DEFAULT_TRAIT_AMOUNT
                     if (amount < 1) amount = DEFAULT_TRAIT_AMOUNT
                     if (amount > 10) amount = DEFAULT_TRAIT_AMOUNT
+
+                    // if the primary archtype is set, we need to make sure the
+                    // amount is not less than the minimum allowed
+                    if (buildState.items.archtype[0]?.name) {
+                      const linkedTrait =
+                        buildState.items.archtype[0]?.linkedItems?.traits?.find(
+                          (linkedTrait) => linkedTrait.name === traitItem.name,
+                        )
+
+                      if (linkedTrait) {
+                        if (amount < linkedTrait.amount) {
+                          amount = linkedTrait.amount
+                        }
+                      }
+                    }
 
                     setEditingTraitItem(
                       new TraitItem({
@@ -111,7 +151,7 @@ export default function Traits({
               )}
             </div>
             <div className="text-sm text-gray-200">{traitItem.name}</div>
-            {showControls && isEditable && (
+            {shouldAllowDelete(traitItem) && (
               <button
                 onClick={() => onRemoveTrait(traitItem)}
                 className="flex grow items-end justify-end text-red-500"

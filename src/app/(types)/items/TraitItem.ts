@@ -42,9 +42,7 @@ export class TraitItem implements BaseTraitItem {
   static toParams(
     items: Array<{ id: BaseTraitItem['id']; amount: number }>,
   ): string[] {
-    return items.map((i) =>
-      i.id ? `${i.id};${i.amount ?? DEFAULT_TRAIT_AMOUNT}` : '',
-    )
+    return items.map((i) => (i.id ? `${i.id};${i.amount}` : ''))
   }
 
   static toDBValue(items: TraitItem[]): string {
@@ -67,7 +65,7 @@ export class TraitItem implements BaseTraitItem {
       const item = remnantItems.find((i) => i.id === traitId)
       if (!item) return []
 
-      let validAmount = amount ? parseInt(amount) : DEFAULT_TRAIT_AMOUNT
+      let validAmount = amount ? Number(amount) : DEFAULT_TRAIT_AMOUNT
       if (isNaN(validAmount)) validAmount = DEFAULT_TRAIT_AMOUNT
       if (validAmount < 1) validAmount = DEFAULT_TRAIT_AMOUNT
       if (validAmount > 10) validAmount = DEFAULT_TRAIT_AMOUNT
@@ -90,7 +88,6 @@ export class TraitItem implements BaseTraitItem {
         )
       }
     })
-
     return items
   }
 }

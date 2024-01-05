@@ -10,7 +10,7 @@ type LinkedItems = Partial<{
   skills: Array<{ name: string }>
   weapon: { name: string }
   mod: { name: string }
-  trait: { name: string }
+  traits: Array<{ name: string; amount: number }>
 }>
 
 type ItemCategory =

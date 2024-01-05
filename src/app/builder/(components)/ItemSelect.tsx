@@ -79,7 +79,6 @@ export default function ItemSelect({
               }}
               size="lg"
               onClick={() => onSelectItem(null)}
-              onItemInfoClick={() => setInfoItem(null)}
             />
           </li>
         )}

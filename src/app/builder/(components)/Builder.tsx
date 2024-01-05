@@ -187,6 +187,26 @@ export default function Builder({
 
           if (!Array.isArray(buildItems)) return
 
+          // if the item being removed is an archtype, we
+          // should remove the linked traits as well
+          if (selectedItemSlot.category === 'archtype') {
+            const linkedTraits =
+              buildState.items.archtype[selectedItemSlot.index ?? 0]
+                ?.linkedItems?.traits
+            if (linkedTraits) {
+              const archtypeTrait = linkedTraits.find(
+                (trait) => trait.amount === 10,
+              )
+
+              const newTraitItems = buildState.items.trait.filter(
+                (i) => i.name !== archtypeTrait?.name,
+              )
+
+              const newTraitItemParams = TraitItem.toParams(newTraitItems)
+              updateBuildState('trait', newTraitItemParams)
+            }
+          }
+
           // We can't filter here because we want to preserve the index
           // If we filtered, the second archtype would become the first archtype
           // if you removed the first archtype
@@ -538,7 +558,7 @@ export default function Builder({
       </div>
       <div id="trait-row" className="mt-4 w-full">
         <Traits
-          traitItems={buildState.items.trait}
+          buildState={buildState}
           showControls={showControls}
           isEditable={isEditable}
           isScreenshotMode={isScreenshotMode}
