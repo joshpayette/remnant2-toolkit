@@ -86,7 +86,7 @@ WEBHOOK_REPORTED_CONTENT=""
 
 - `DATABASE_URL` - The database connection string for your database. This project uses Planetscale.
 - `DISCORD_CLIENT_ID` - The client ID for your Discord application.
-- `DISCORD_CLIENT_SECRET` - The client secret for your Discord application.
+- `DISCORD_CLIENT_SECRET` - The client secret for your Discord application
 - `REDDIT_CLIENT_ID` - The client ID for your Reddit application.
 - `REDDIT_CLIENT_SECRET` - The client secret for your Reddit application.
 - `NEXTAUTH_SECRET` - A secret string used by NextAuth. Can be anything, just make it long and random.

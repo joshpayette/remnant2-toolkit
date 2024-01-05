@@ -20,6 +20,11 @@ export default function ItemInfo({ item, open, onClose }: ItemInfoProps) {
   // Only add the third column for certain items
   const columns = ArmorItem.isArmorItem(item) ? 3 : 2
 
+  const imageSize = {
+    width: 217,
+    height: item.category === 'trait' ? 434 : 217,
+  }
+
   return (
     <Dialog
       open={open}
@@ -36,9 +41,9 @@ export default function ItemInfo({ item, open, onClose }: ItemInfoProps) {
             </p>
           </div>
           <Image
-            src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}${item.imagePath}?width=220&height=220`}
-            width={220}
-            height={220}
+            src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}${item.imagePath}?width=${imageSize.width}&height=${imageSize.height}`}
+            width={imageSize.width}
+            height={imageSize.height}
             alt={item.name}
             className="h-auto max-h-full w-full max-w-full"
             priority={true}

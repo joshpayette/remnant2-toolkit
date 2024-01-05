@@ -538,7 +538,7 @@ export default function Builder({
       </div>
       <div id="trait-row" className="mt-4 w-full">
         <Traits
-          traitItems={buildState.items.trait}
+          buildState={buildState}
           showControls={showControls}
           isEditable={isEditable}
           isScreenshotMode={isScreenshotMode}

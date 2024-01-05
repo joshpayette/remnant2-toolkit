@@ -185,8 +185,8 @@ export default function DetailedBuildView({ buildState }: Props) {
             Detailed Build View
           </h2>
           <Masonry
+            key={new Date().getTime()}
             items={masonryItems}
-            columnCount={4}
             render={({ index, data, width }) => (
               <MasonryCard
                 index={index}

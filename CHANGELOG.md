@@ -4,7 +4,24 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
-### 2023-01-03
+## 2023-01-04
+
+### Added
+
+- Core traits for each archtype now autoassign when selecting a primary archtype.
+- Added bug report button
+
+### Changed
+
+- Can no longer delete traits that are required, i.e. those dictated by archtypes
+
+### Fixed
+
+- Bug with detailed view squishing up on mobile
+- Bug with trait item images showing up fuzzy
+- Bug with Masonry error on detailed view when changing item counts
+
+## 2023-01-03
 
 ### Changed
 
@@ -27,7 +44,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Fixed error in links to SheenShots' Hot Swapper build.
 - Fixed bug where incorrect number of items showing on the item tracker
 
-### 2023-01-02
+## 2023-01-02
 
 ### Added
 
@@ -35,7 +52,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Added Bolt Jamison's Fargazer Madness Mage
 - Added SheenShots' Corrupted Guardian build
 
-### 2023-12-31
+## 2023-12-31
 
 ### Added
 
