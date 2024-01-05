@@ -49,19 +49,6 @@ export default function Page({
     handleScrollToDetailedView,
   } = useBuildActions()
 
-  const { builderStorage, setBuilderStorage } = useLocalStorage()
-
-  useEffect(() => {
-    if (!builderStorage.tempIsPublic) return
-    setBuilderStorage({
-      ...builderStorage,
-      tempBuildId: null,
-      tempDescription: null,
-      tempIsPublic: null,
-      tempCreatedById: null,
-    })
-  }, [builderStorage, setBuilderStorage])
-
   const buildContainerRef = useRef<HTMLDivElement>(null)
   const detailedViewContainerRef = useRef<HTMLDivElement>(null)
 
