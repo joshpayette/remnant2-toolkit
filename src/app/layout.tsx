@@ -10,6 +10,7 @@ import './globals.css'
 import 'react-toastify/dist/ReactToastify.css'
 import SessionProvider from './(components)/SessionProvider'
 import BackToTopButton from './(components)/BackToTopButton'
+import ReportBugButton from './(components)/ReportBugButton'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -26,8 +27,11 @@ export default function RootLayout({
           inter.className,
         )}
       >
-        <div className="fixed bottom-[16px] right-[16px] z-20">
+        <div className="fixed bottom-[8px] right-[8px] z-20">
           <BackToTopButton />
+        </div>
+        <div className="fixed bottom-[8px] right-[52px] z-20">
+          <ReportBugButton />
         </div>
         <div className="w-full bg-purple-900 p-1 text-center text-sm">
           Community member DangItsBatman unexpectedly passed away. Please

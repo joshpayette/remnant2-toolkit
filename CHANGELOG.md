@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Added
 
 - Core traits for each archtype now autoassign when selecting a primary archtype.
+- Added bug report button
 
 ### Changed
 
