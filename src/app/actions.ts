@@ -1,6 +1,10 @@
 'use server'
 
+import { getServerSession } from './(lib)/auth'
+
 export async function ReportBug(report: string) {
+  const session = await getServerSession()
+
   const params = {
     embeds: [
       {
@@ -10,6 +14,10 @@ export async function ReportBug(report: string) {
           {
             name: 'Report',
             value: report,
+          },
+          {
+            name: 'User',
+            value: session?.user?.name ?? 'Unknown User',
           },
         ],
       },
