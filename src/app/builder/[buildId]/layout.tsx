@@ -115,12 +115,12 @@ export async function generateMetadata(
         title: 'Private Build',
         description: 'This build is private.',
         url: `https://remnant2builder.com/builder/${build.id}`,
-        images: ['https://remnant2toolkit.b-cdn.net/og_image.png'],
+        images: ['https://d2sqltdcj8czo5.cloudfront.net/og_image.png'],
       },
       twitter: {
         title: 'Private Build',
         description: 'This build is private.',
-        images: ['https://remnant2toolkit.b-cdn.net/og_image.png'],
+        images: ['https://d2sqltdcj8czo5.cloudfront.net/og_image.png'],
       },
     }
   }
@@ -140,7 +140,7 @@ export async function generateMetadata(
       description: description,
       url: `https://remnant2builder.com/builder/${build.id}`,
       images: [
-        'https://remnant2toolkit.b-cdn.net/og_image.png',
+        'https://d2sqltdcj8czo5.cloudfront.net/og_image.png',
         ...previousOGImages,
       ],
     },
@@ -148,7 +148,7 @@ export async function generateMetadata(
       title,
       description,
       images: [
-        'https://remnant2toolkit.b-cdn.net/og_image.png',
+        'https://d2sqltdcj8czo5.cloudfront.net/og_image.png',
         ...previousTwitterImages,
       ],
     },

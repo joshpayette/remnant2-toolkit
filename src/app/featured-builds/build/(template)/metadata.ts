@@ -7,7 +7,7 @@ const description = `YOUR BUILD DESCRIPTION`
 const slug = 'build-folder-name'
 const url = `https://remnant2toolkit.com/featured-builds/build/${slug}`
 const ogImageUrl =
-  'https://remnant2toolkit.b-cdn.net/featured-builds/YOUR_BUILD_IMAGE_NAME.png'
+  'https://d2sqltdcj8czo5.cloudfront.net/featured-builds/YOUR_BUILD_IMAGE_NAME.png'
 const classes = ['class1', 'class2']
 // const tags = ['tag1', 'tag2'] // optional
 

@@ -7,7 +7,7 @@ const description = `The "Ronin" is a HARD hitter! This Melee Build is able to K
 const slug = 'senorcervezas-ronin-melee'
 const url = `https://remnant2toolkit.com/featured-builds/build/${slug}`
 const ogImageUrl =
-  'https://remnant2toolkit.b-cdn.net/featured-builds/senorcervezas_ronin_melee.webp'
+  'https://d2sqltdcj8czo5.cloudfront.net/featured-builds/senorcervezas_ronin_melee.webp'
 const classes = ['ritualist', 'challenger']
 // const tags = ['tag1', 'tag2'] // optional
 

@@ -4,10 +4,10 @@ const title = 'Remnant 2 Toolkit'
 const description =
   'Remnant 2 item tracking, build sharing, item database, and more!'
 const url = 'https://remnant2toolkit.com'
-const ogImageUrl = 'https://remnant2toolkit.b-cdn.net/og_image.png'
+const ogImageUrl = 'https://d2sqltdcj8czo5.cloudfront.net/og_image.png'
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://remnant2toolkit.b-cdn.net'),
+  metadataBase: new URL('https://d2sqltdcj8czo5.cloudfront.net'),
   title,
   description,
   manifest: '/site.webmanifest',

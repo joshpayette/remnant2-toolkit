@@ -6,7 +6,7 @@ const description = `(Updated 2023-12-27) The Eldritch Knight is a versatile Rit
 const slug = 'dudleys-eldritch-knight'
 const url = `https://remnant2toolkit.com/featured-builds/build/${slug}`
 const ogImageUrl =
-  'https://remnant2toolkit.b-cdn.net/featured-builds/dudleys_eldritch_knight.png'
+  'https://d2sqltdcj8czo5.cloudfront.net/featured-builds/dudleys_eldritch_knight.png'
 const classes = ['ritualist', 'challenger']
 
 export const pageInfo = {

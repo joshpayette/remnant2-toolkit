@@ -7,7 +7,7 @@ const description = `Multiple elemental DOT builds intended to be played togethe
 const slug = 'mr-nacho-senorcerveza-coop-elemental-dots'
 const url = `https://remnant2toolkit.com/featured-builds/build/${slug}`
 const ogImageUrl =
-  'https://remnant2toolkit.b-cdn.net/featured-builds/mr_nachos_handler_eruption.png'
+  'https://d2sqltdcj8czo5.cloudfront.net/featured-builds/mr_nachos_handler_eruption.png'
 // const classes = ['class1', 'class2']
 const tags = ['coop']
 
