@@ -38,12 +38,10 @@ export default function Traits({
     let shouldAllowDelete = isEditable && showControls
 
     // If the trait is linked to an archtype, it should not be deletable
+    const primaryArchtype = archtypeItems[0]
     if (
-      archtypeItems.some(
-        (archtypeItem) =>
-          archtypeItem.linkedItems?.traits?.some(
-            (linkedTraitItem) => linkedTraitItem.name === traitItem.name,
-          ),
+      primaryArchtype.linkedItems?.traits?.some(
+        (linkedTraitItem) => linkedTraitItem.name === traitItem.name,
       )
     ) {
       shouldAllowDelete = false
