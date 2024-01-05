@@ -8,7 +8,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ### Fixed
 
-- Image export wasn't working after moving to new CDN. This is now fixed.
+- Image export wasn't working. This is now fixed.
 
 ## 2023-01-04
 
