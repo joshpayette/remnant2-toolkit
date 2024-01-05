@@ -52,7 +52,7 @@ export default function Page({
   const { builderStorage, setBuilderStorage } = useLocalStorage()
 
   useEffect(() => {
-    if (!builderStorage.tempBuildId) return
+    if (!builderStorage.tempIsPublic) return
     setBuilderStorage({
       ...builderStorage,
       tempBuildId: null,
