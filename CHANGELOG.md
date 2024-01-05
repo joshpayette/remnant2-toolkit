@@ -6,9 +6,20 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2023-01-04
 
+### Added
+
+- Core traits for each archtype now autoassign when selecting a primary archtype.
+- Added bug report button
+
+### Changed
+
+- Can no longer delete traits that are required, i.e. those dictated by archtypes
+
 ### Fixed
 
 - Bug with detailed view squishing up on mobile
+- Bug with trait item images showing up fuzzy
+- Bug with Masonry error on detailed view when changing item counts
 
 ## 2023-01-03
 

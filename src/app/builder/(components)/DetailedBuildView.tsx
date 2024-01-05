@@ -185,6 +185,7 @@ export default function DetailedBuildView({ buildState }: Props) {
             Detailed Build View
           </h2>
           <Masonry
+            key={new Date().getTime()}
             items={masonryItems}
             render={({ index, data, width }) => (
               <MasonryCard

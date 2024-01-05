@@ -1,6 +1,7 @@
 # TODO
 
-- Not happy with filters button placement, should be somewhere else with a cog wheel or something.
+- Add item categories to page filters
+  - Maybe separate filter button from filter popup logic
 - Add pagination to build tables in profile page.
 - Add build randomizer for the luls
 - Add duplicate build button to builds in profile
@@ -9,10 +10,11 @@
 - Add CSV import
 - When logging in, the next-auth page to select Discord or Reddit is pretty ugly. Make Reddit Button orange with icon, etc.
 - Add function to highlight description text for terms like burning, bleeding, overloaded, etc.
-- Builder should automatically add the 5 base trait points to the build based on primary archtype
 
 ## Bugs
 
+- When items are automatically linked in the build, they aren't added to the URL to be edited. This is causing odd behavior.
+  Now that we have a database, we don't need to worry as much about the URL length.
 - Need a different way to handle item description and public other than local storage,
   probably include build id in URL and then fetch from database
 - If you add a skill, the skills for that class should not be selectable in the other skill slot

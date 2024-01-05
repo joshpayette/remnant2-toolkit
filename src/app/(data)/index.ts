@@ -12,9 +12,12 @@ export const remnantItems: Item[] = [
       'Approach every sewer drain on the edge of any of the Dran overland areas in Losemn until you get grabbed by a Manticora. Once you load into the new area, defeat the white Manticora',
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Alchemist`],
     linkedItems: {
-      trait: {
-        name: 'Potency',
-      },
+      traits: [
+        { name: 'Potency', amount: 10 },
+        { name: 'Spirit', amount: 2 },
+        { name: 'Expertise', amount: 2 },
+        { name: 'Vigor', amount: 1 },
+      ],
       skills: [
         { name: 'Vial: Stone Mist' },
         { name: 'Vial: Frenzy Dust' },
@@ -32,9 +35,12 @@ export const remnantItems: Item[] = [
     howToGet: `To Unlock the Red Door you will need the following. Engram Explorer with skill Fortune Hunter (LV10), Engram Invader with skill Worm Hole (LV5), Armor set Realmwalker, Relic Consumable Void Heart, Leto's Amulet, Amber Moonstone, Black Cat Band, Zanias Malice, Anastasijas Inspiration, Cube Gun, Ford's Scattergun, Labyrinth Staff. With all this the door will open.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Archon`],
     linkedItems: {
-      trait: {
-        name: 'Flash Caster',
-      },
+      traits: [
+        { name: 'Flash Caster', amount: 10 },
+        { name: 'Spirit', amount: 3 },
+        { name: 'Vigor', amount: 1 },
+        { name: 'Endurance', amount: 1 },
+      ],
       skills: [
         { name: 'Reality Rune' },
         { name: 'Chaos Gate' },
@@ -52,9 +58,11 @@ export const remnantItems: Item[] = [
     howToGet: `Buy from Reggie at Ward 13 for 1500 Scrap`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Challenger`],
     linkedItems: {
-      trait: {
-        name: 'Strong Back',
-      },
+      traits: [
+        { name: 'Strong Back', amount: 10 },
+        { name: 'Vigor', amount: 3 },
+        { name: 'Endurance', amount: 2 },
+      ],
       skills: [
         { name: 'War Stomp' },
         { name: 'Juggernaut' },
@@ -72,9 +80,12 @@ export const remnantItems: Item[] = [
     howToGet: `Found just out of bounds in either of the two overland areas you roll on N'Erud. For an easier time locating this item try using the Explorer Archtype's skill "Fortune Hunter" to highlight the item in the fog.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Engineer`],
     linkedItems: {
-      trait: {
-        name: 'Fortify',
-      },
+      traits: [
+        { name: 'Fortify', amount: 10 },
+        { name: 'Vigor', amount: 2 },
+        { name: 'Endurance', amount: 2 },
+        { name: 'Expertise', amount: 1 },
+      ],
       skills: [
         { name: 'Heavy Weapon: Vulcan' },
         { name: 'Heavy Weapon: Flamethrower' },
@@ -92,9 +103,12 @@ export const remnantItems: Item[] = [
     howToGet: `Finish a full campaign playthrough`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Explorer`],
     linkedItems: {
-      trait: {
-        name: 'Swiftness',
-      },
+      traits: [
+        { name: 'Swiftness', amount: 10 },
+        { name: 'Endurance', amount: 2 },
+        { name: 'Spirit', amount: 2 },
+        { name: 'Expertise', amount: 1 },
+      ],
       skills: [
         { name: 'Plainswalker' },
         { name: 'Gold Digger' },
@@ -112,9 +126,12 @@ export const remnantItems: Item[] = [
     howToGet: `Listen to 20 total Mudtooth stories in Ward 13 after finishing your second world in campaign mode`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Gunslinger`],
     linkedItems: {
-      trait: {
-        name: 'Ammo Reserves',
-      },
+      traits: [
+        { name: 'Ammo Reserves', amount: 10 },
+        { name: 'Vigor', amount: 2 },
+        { name: 'Expertise', amount: 2 },
+        { name: 'Endurance', amount: 1 },
+      ],
       skills: [
         { name: 'Quick Draw' },
         { name: 'Sidewinder' },
@@ -132,9 +149,12 @@ export const remnantItems: Item[] = [
     howToGet: `Buy from Mudtooth at Ward 13 for 1500 Scrap`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Handler`],
     linkedItems: {
-      trait: {
-        name: 'Kinship',
-      },
+      traits: [
+        { name: 'Kinship', amount: 10 },
+        { name: 'Expertise', amount: 3 },
+        { name: 'Vigor', amount: 1 },
+        { name: 'Endurance', amount: 1 },
+      ],
       skills: [
         { name: 'Guard Dog' },
         { name: 'Support Dog' },
@@ -152,9 +172,12 @@ export const remnantItems: Item[] = [
     howToGet: `Buy from Brabus at Ward 13 for 1500 Scrap`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Hunter`],
     linkedItems: {
-      trait: {
-        name: 'Longshot',
-      },
+      traits: [
+        { name: 'Longshot', amount: 10 },
+        { name: 'Endurance', amount: 2 },
+        { name: 'Expertise', amount: 2 },
+        { name: 'Vigor', amount: 1 },
+      ],
       skills: [
         { name: `Hunter's Mark` },
         { name: `Hunter's Focus` },
@@ -171,9 +194,11 @@ export const remnantItems: Item[] = [
     howToGet: `Use the "Walker's Dream" item and defeat the "Bane" abberation. To get the "Walker's Dream" item use the Dreamcatcher melee weapon on the sleeping walker special enemy (glowing blue) in an area just off the main path between the Corrupted Harbour and Blackened Citadel checkpoint.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Invader`],
     linkedItems: {
-      trait: {
-        name: 'Untouchable',
-      },
+      traits: [
+        { name: 'Untouchable', amount: 10 },
+        { name: 'Endurance', amount: 4 },
+        { name: 'Spirit', amount: 1 },
+      ],
       skills: [
         { name: 'Void Cloak' },
         { name: 'Worm Hole' },
@@ -191,9 +216,12 @@ export const remnantItems: Item[] = [
     howToGet: `Buy from Dr. Norah at Ward 13 for 1500 Scrap`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Medic`],
     linkedItems: {
-      trait: {
-        name: 'Triage',
-      },
+      traits: [
+        { name: 'Triage', amount: 10 },
+        { name: 'Vigor', amount: 2 },
+        { name: 'Expertise', amount: 2 },
+        { name: 'Spirit', amount: 1 },
+      ],
       skills: [
         { name: 'Wellspring' },
         { name: 'Healing Shield' },
@@ -212,9 +240,12 @@ export const remnantItems: Item[] = [
     howToGet: `In Forlorn Coast, there are two interconnected rowboats near the center of the docks area. Using an overhead view on the map, they are hard to miss - their shape is unique. From there you can jump to another boat under the docks. This path leads underground, straight to a ritual performed by a witch elite. The doll is there, behind the ritual. NOTE: If you allow the ritual to complete, you will begin a miniboss fight.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Ritualist`],
     linkedItems: {
-      trait: {
-        name: 'Affliction',
-      },
+      traits: [
+        { name: 'Affliction', amount: 10 },
+        { name: 'Spirit', amount: 2 },
+        { name: 'Expertise', amount: 2 },
+        { name: 'Endurance', amount: 1 },
+      ],
       skills: [
         { name: 'Eruption' },
         { name: 'Miasma' },
@@ -232,9 +263,12 @@ export const remnantItems: Item[] = [
     howToGet: `Available at the Bloodmoon Altar for 15 Bloodmoon Essence. Acquire Bloodmoon Essence from killing Root Wisps during a bloodmoon (red moon in sky) in any of Yaesha's outside areas`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Summoner`],
     linkedItems: {
-      trait: {
-        name: 'Regrowth',
-      },
+      traits: [
+        { name: 'Regrowth', amount: 10 },
+        { name: 'Spirit', amount: 3 },
+        { name: 'Vigor', amount: 1 },
+        { name: 'Expertise', amount: 1 },
+      ],
       skills: [
         { name: 'Minion: Hollow' },
         { name: 'Minion: Flyer' },

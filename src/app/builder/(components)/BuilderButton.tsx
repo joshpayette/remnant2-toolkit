@@ -37,10 +37,16 @@ export default function BuilderButton({
       }
       break
     case 'lg':
-      imageSize = {
-        height: 99,
-        width: 99,
-      }
+      imageSize =
+        item?.category === 'trait'
+          ? {
+              height: 188,
+              width: 95,
+            }
+          : {
+              height: 99,
+              width: 99,
+            }
       break
     case 'wide':
       imageSize = {
@@ -60,7 +66,7 @@ export default function BuilderButton({
         size === 'wide' && 'mb-2 flex-col',
       )}
     >
-      {!isScreenshotMode && item && (
+      {!isScreenshotMode && item && onItemInfoClick && (
         <button
           className={cn(
             'absolute right-0 top-0 bg-black',
