@@ -24,11 +24,12 @@ export default function ArmorInfo({ item }: Props) {
           </div>
           <div className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 text-left text-sm text-gray-300">
             <Image
-              src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/status/bleed_resistance.png?width=32&height=32`}
+              src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/status/bleed_resistance.png`}
               alt="Bleed Resistance"
               width={32}
               height={32}
               className="my-1 h-8 w-8"
+              loading="eager"
             />
             <span className="flex items-center justify-end text-right text-lg font-bold">
               {item.bleedResistance}
@@ -36,11 +37,12 @@ export default function ArmorInfo({ item }: Props) {
           </div>
           <p className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 text-left text-sm text-gray-300">
             <Image
-              src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/status/fire_resistance.png?width=32&height=32`}
+              src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/status/fire_resistance.png`}
               alt="Fire Resistance"
               width={32}
               height={32}
               className="my-1 h-8 w-8"
+              loading="eager"
             />
             <span className="flex items-center justify-end text-right text-lg font-bold">
               {item.fireResistance}
@@ -48,11 +50,12 @@ export default function ArmorInfo({ item }: Props) {
           </p>
           <p className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 text-left text-sm text-gray-300">
             <Image
-              src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/status/shock_resistance.png?width=32&height=32`}
+              src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/status/shock_resistance.png`}
               alt="Shock Resistance"
               width={32}
               height={32}
               className="my-1 h-8 w-8"
+              loading="eager"
             />
             <span className="flex items-center justify-end text-right text-lg font-bold">
               {item.shockResistance}
@@ -60,11 +63,12 @@ export default function ArmorInfo({ item }: Props) {
           </p>
           <p className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 text-left text-sm text-gray-300">
             <Image
-              src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/status/toxin_resistance.png?width=32&height=32`}
+              src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/status/toxin_resistance.png`}
               alt="Toxin Resistance"
               width={32}
               height={32}
               className="my-1 h-8 w-8"
+              loading="eager"
             />
             <span className="text-right text-lg font-bold">
               {item.toxinResistance}
@@ -72,11 +76,12 @@ export default function ArmorInfo({ item }: Props) {
           </p>
           <p className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 text-left text-sm text-gray-300">
             <Image
-              src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/status/blight_resistance.png?width=32&height=32`}
+              src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/status/blight_resistance.png`}
               alt="Blight Resistance"
               width={32}
               height={32}
               className="my-1 h-8 w-8"
+              loading="eager"
             />
             <span className="flex items-center justify-end text-right text-lg font-bold">
               {item.blightResistance}

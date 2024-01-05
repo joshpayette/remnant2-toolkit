@@ -7,7 +7,7 @@ const description = `Gain access to extremely high-ranged damage for an infinite
 const slug = 'sheenshots-rage-loop'
 const url = `https://remnant2toolkit.com/featured-builds/build/${slug}`
 const ogImageUrl =
-  'https://remnant2toolkit.b-cdn.net/featured-builds/sheenshots_rage_loop.png'
+  'https://d2sqltdcj8czo5.cloudfront.net/featured-builds/sheenshots_rage_loop.png'
 const classes = ['challenger', 'gunslinger']
 // const tags = ['tag1', 'tag2'] // optional
 

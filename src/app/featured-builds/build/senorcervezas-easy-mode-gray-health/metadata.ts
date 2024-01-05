@@ -6,7 +6,7 @@ const description = `Everything that makes Remnant 2 a challenging Game, get's c
 const slug = 'senorcervezas-easy-mode-gray-health'
 const url = `https://remnant2toolkit.com/featured-builds/build/${slug}`
 const ogImageUrl =
-  'https://remnant2toolkit.b-cdn.net/featured-builds/senorcervezas_gray_health.png'
+  'https://d2sqltdcj8czo5.cloudfront.net/featured-builds/senorcervezas_gray_health.png'
 const classes = ['archon', 'medic']
 
 export const pageInfo = {

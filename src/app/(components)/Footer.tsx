@@ -12,20 +12,22 @@ export default function Footer() {
           target="_blank"
         >
           <Image
-            src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/github.png?width=32&height=32`}
+            src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/github.png`}
             alt="Remnant 2 Toolkit on GitHub"
             width={32}
             height={32}
             className="h-8 w-8"
+            loading="eager"
           />
         </a>
         <a href="https://twitter.com/Remnant2Toolkit" target="_blank">
           <Image
-            src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/twitter.png?width=32&height=32`}
+            src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/twitter.png`}
             alt="Remnant 2 Toolkit on Twitter"
             width={32}
             height={32}
             className="h-6 w-6"
+            loading="eager"
           />
         </a>
         <a
@@ -33,11 +35,12 @@ export default function Footer() {
           target="_blank"
         >
           <Image
-            src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/patreon.png?width=32&height=32`}
+            src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/patreon.png`}
             alt="Support on Patreon"
             width={32}
             height={32}
             className="h-6 w-6"
+            loading="eager"
           />
         </a>
       </div>

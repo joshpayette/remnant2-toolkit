@@ -127,9 +127,9 @@ export default function Filters({ allItems, onUpdate }: Props) {
   ])
 
   return (
-    <div className="fixed bottom-[60px] right-[16px] z-30">
+    <div className="fixed bottom-[52px] right-[8px] z-30">
       <div className="flex w-full flex-col items-start justify-start">
-        <span className="motion-safe:animate-ping-slow absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
+        <span className="absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75 motion-safe:animate-ping-slow" />
         <button
           className="flex w-auto items-center justify-center gap-1 rounded-md border-2 border-black bg-green-700 bg-gradient-to-b p-2 text-sm font-bold text-white drop-shadow-lg hover:bg-green-500"
           onClick={() => setFiltersOpen(true)}

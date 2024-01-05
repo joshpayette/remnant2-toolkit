@@ -6,7 +6,7 @@ const description = `This Video is all about a very uncommon Support Build for R
 const slug = 'senorcervezas_buff_master_support'
 const url = `https://remnant2toolkit.com/featured-builds/build/${slug}`
 const ogImageUrl =
-  'https://remnant2toolkit.b-cdn.net/featured-builds/senorcervezas_buff_master_support.png'
+  'https://d2sqltdcj8czo5.cloudfront.net/featured-builds/senorcervezas_buff_master_support.png'
 const classes = ['alchemist', 'explorer']
 
 export const pageInfo = {

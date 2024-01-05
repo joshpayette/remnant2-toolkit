@@ -7,7 +7,7 @@ const description = `Corrupted weapons can make some REALLY COOL Builds In Remna
 const slug = 'sheenshots-corrupted-guardian'
 const url = `https://remnant2toolkit.com/featured-builds/build/${slug}`
 const ogImageUrl =
-  'https://remnant2toolkit.b-cdn.net/featured-builds/sheenshots_corrupted_guardian.png'
+  'https://d2sqltdcj8czo5.cloudfront.net/featured-builds/sheenshots_corrupted_guardian.png'
 const classes = ['archon', 'medic']
 // const tags = ['tag1', 'tag2'] // optional
 

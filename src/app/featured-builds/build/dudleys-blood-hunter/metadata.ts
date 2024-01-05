@@ -6,7 +6,7 @@ const description = `The Blood Hunter is a hybrid DPS/support build with high ca
 const slug = 'dudleys-blood-hunter'
 const url = `https://remnant2toolkit.com/featured-builds/build/${slug}`
 const ogImageUrl =
-  'https://remnant2toolkit.b-cdn.net/featured-builds/dudleys_blood_hunter.png'
+  'https://d2sqltdcj8czo5.cloudfront.net/featured-builds/dudleys_blood_hunter.png'
 const classes = ['handler', 'alchemist']
 
 export const pageInfo = {
