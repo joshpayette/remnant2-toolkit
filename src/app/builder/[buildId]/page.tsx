@@ -60,7 +60,7 @@ export default function Page({
       tempIsPublic: null,
       tempCreatedById: null,
     })
-  })
+  }, [builderStorage, setBuilderStorage])
 
   const buildContainerRef = useRef<HTMLDivElement>(null)
   const detailedViewContainerRef = useRef<HTMLDivElement>(null)

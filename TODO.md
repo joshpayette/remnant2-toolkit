@@ -15,7 +15,6 @@
 
 - When items are automatically linked in the build, they aren't added to the URL to be edited. This is causing odd behavior.
   Now that we have a database, we don't need to worry as much about the URL length.
-- Editing a build from [buildId] page doesn't pass the description. Editing from profile does work though.
 - Need a different way to handle item description and public other than local storage,
   probably include build id in URL and then fetch from database
 - If you add a skill, the skills for that class should not be selectable in the other skill slot

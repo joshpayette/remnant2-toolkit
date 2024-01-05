@@ -20,6 +20,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Bug with detailed view squishing up on mobile
 - Bug with trait item images showing up fuzzy
 - Bug with Masonry error on detailed view when changing item counts
+- Bug with build description not carrying over when editing in certain situations
 
 ## 2023-01-03
 
