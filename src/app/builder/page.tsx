@@ -5,11 +5,7 @@ import PageHeader from '@/app/(components)/PageHeader'
 import Builder from './(components)/Builder'
 import useBuildState from '@/app/builder/(hooks)/useBuildState'
 import { useIsClient } from 'usehooks-ts'
-import {
-  buildStateToCsvData,
-  buildStateToMasonryItems,
-  cn,
-} from '../(lib)/utils'
+import { buildStateToMasonryItems, cn } from '../(lib)/utils'
 import SaveBuildButton from './(components)/SaveBuildButton'
 import useBuildActions from './(hooks)/useBuildActions'
 import { ActionButton } from './(components)/ActionButton'

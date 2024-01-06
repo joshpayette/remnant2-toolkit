@@ -26,6 +26,7 @@ import {
 } from '../actions'
 import { toast } from 'react-toastify'
 import { useRouter } from 'next/navigation'
+import { ExtendedBuild } from '../types'
 
 export default function Page({
   params: { extendedBuild },
