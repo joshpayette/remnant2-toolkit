@@ -5,7 +5,7 @@ import PageHeader from '@/app/(components)/PageHeader'
 import Builder from './(components)/Builder'
 import useBuildState from '@/app/builder/(hooks)/useBuildState'
 import { useIsClient } from 'usehooks-ts'
-import { buildStateToMasonryItems, cn } from '../(lib)/utils'
+import { cn } from '../(lib)/utils'
 import SaveBuildButton from './(components)/SaveBuildButton'
 import useBuildActions from './(hooks)/useBuildActions'
 import { ActionButton } from './(components)/ActionButton'
@@ -14,7 +14,7 @@ import { useLocalStorage } from '../(hooks)/useLocalStorage'
 import { useSearchParams } from 'next/navigation'
 import MasonryItemList from '../(components)/MasonryItemList'
 import ImageDownloadLink from './(components)/ImageDownloadLink'
-import { buildStateToCsvData } from './utils'
+import { buildStateToCsvData, buildStateToMasonryItems } from './utils'
 
 export default function Page() {
   const searchParams = useSearchParams()

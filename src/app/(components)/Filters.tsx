@@ -4,9 +4,9 @@ import SearchInput from './SearchInput'
 import { useDebounce } from 'usehooks-ts'
 import { FilteredItem } from '../(hooks)/useFilteredItems'
 import { useLocalStorage } from '../(hooks)/useLocalStorage'
-import { ItemCategory } from '../(types)/build-state'
 import { cn } from '../(lib)/utils'
 import { remnantItemCategories } from '../(data)'
+import { ItemCategory } from '../builder/types'
 
 interface Props {
   allItems: FilteredItem[]
