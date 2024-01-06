@@ -1,7 +1,7 @@
+'use client'
+
 import ItemInfo from '@/app/(components)/ItemInfo'
 import { Item } from '@/app/(types)'
-import { getArrayOfLength } from '@/app/(lib)/utils'
-import { BuildState } from '@/app/(types)/build-state'
 import { GenericItem } from '@/app/(types)/items/GenericItem'
 import {
   InformationCircleIcon,
@@ -15,6 +15,7 @@ import { ArmorItem } from '@/app/(types)/items/ArmorItem'
 import { MutatorItem } from '@/app/(types)/items/MutatorItem'
 import ArmorInfo from '@/app/(components)/ArmorInfo'
 import { TraitItem } from '@/app/(types)/items/TraitItem'
+import { useIsClient } from 'usehooks-ts'
 
 interface MasonryBuildItem {
   index: number
@@ -110,67 +111,20 @@ function MasonryCard({ data: item, onMoreInfoClick }: MasonryBuildItem) {
 }
 
 type Props = {
-  buildState: BuildState
+  items: Item[]
 }
 
-function buildStateToMasonryItems(build: BuildState): Item[] {
-  const masonryItems: Item[] = []
-  const { items } = build
-
-  // archtypes
-  getArrayOfLength(2).forEach((_, i) => {
-    items.archtype[i] && masonryItems.push(items.archtype[i])
-    items.skill[i] && masonryItems.push(items.skill[i])
-  })
-
-  // armor
-  items.helm && masonryItems.push(items.helm)
-  items.torso && masonryItems.push(items.torso)
-  items.legs && masonryItems.push(items.legs)
-  items.gloves && masonryItems.push(items.gloves)
-  items.relic && masonryItems.push(items.relic)
-  getArrayOfLength(3).forEach((_, i) => {
-    if (!items.relicfragment[i]) return
-    items.relicfragment[i] && masonryItems.push(items.relicfragment[i])
-  })
-  items.amulet && masonryItems.push(items.amulet)
-  getArrayOfLength(4).forEach((_, i) => {
-    if (!items.ring[i]) return
-    items.ring[i] && masonryItems.push(items.ring[i])
-  })
-
-  // weapons
-  getArrayOfLength(3).forEach((_, i) => {
-    items.weapon[i] && masonryItems.push(items.weapon[i])
-    items.mod[i] && masonryItems.push(items.mod[i])
-    items.mutator[i] && masonryItems.push(items.mutator[i])
-  })
-
-  // traits
-  items.trait.forEach((trait) => trait && masonryItems.push(trait))
-
-  // concoctions
-  items.concoction.forEach(
-    (concoction) => concoction && masonryItems.push(concoction),
-  )
-
-  // consumables
-  items.consumable.forEach(
-    (consumable) => consumable && masonryItems.push(consumable),
-  )
-
-  return masonryItems
-}
-
-export default function DetailedBuildView({ buildState }: Props) {
+export default function MasonryItemList({ items }: Props) {
   const [selectedItem, setSelectedItem] = useState<Item | null>(null)
   const infoOpen = selectedItem !== null
 
-  const masonryItems = buildStateToMasonryItems(buildState)
+  const isClient = useIsClient()
 
   function handleMoreInfoClick(item: Item) {
     setSelectedItem(item)
   }
+
+  if (!isClient) return null
 
   return (
     <>
@@ -179,14 +133,12 @@ export default function DetailedBuildView({ buildState }: Props) {
         open={infoOpen}
         onClose={() => setSelectedItem(null)}
       />
-      {masonryItems.length > 0 && (
+      {items.length > 0 && (
         <div className="flex w-full flex-col items-center justify-center p-4">
-          <h2 className="mb-4 text-4xl font-bold tracking-tight text-white">
-            Detailed Build View
-          </h2>
+          <h2 className="my-4 text-4xl font-bold text-green-500">Items</h2>
           <Masonry
             key={new Date().getTime()}
-            items={masonryItems}
+            items={items}
             render={({ index, data, width }) => (
               <MasonryCard
                 index={index}
