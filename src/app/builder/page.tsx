@@ -5,7 +5,7 @@ import PageHeader from '@/app/(components)/PageHeader'
 import Builder from './(components)/Builder'
 import useBuildState from '@/app/builder/(hooks)/useBuildState'
 import { useIsClient } from 'usehooks-ts'
-import { buildStateToCsvData, cn } from '../(lib)/utils'
+import { cn } from '../(lib)/utils'
 import SaveBuildButton from './(components)/SaveBuildButton'
 import useBuildActions from './(hooks)/useBuildActions'
 import { ActionButton } from './(components)/ActionButton'
@@ -14,12 +14,13 @@ import { useLocalStorage } from '../(hooks)/useLocalStorage'
 import { useSearchParams } from 'next/navigation'
 import DetailedBuildView from './(components)/DetailedBuildView'
 import ImageDownloadLink from './(components)/ImageDownloadLink'
+import { buildStateToCsvData } from './utils'
 
 export default function Page() {
   const searchParams = useSearchParams()
   const isClient = useIsClient()
 
-  const { buildState } = useBuildState()
+  const { buildState, updateBuildState } = useBuildState()
   const { builderStorage, setBuilderStorage } = useLocalStorage()
   const {
     isScreenshotMode,
@@ -135,6 +136,7 @@ export default function Page() {
             isEditable={true}
             isScreenshotMode={isScreenshotMode}
             showControls={showControls}
+            updateBuildState={updateBuildState}
           />
         </div>
       </div>

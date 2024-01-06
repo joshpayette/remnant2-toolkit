@@ -1,11 +1,11 @@
 import { useLocalStorage } from '@/app/(hooks)/useLocalStorage'
 import { useRouter } from 'next/navigation'
-import { buildStateToQueryParams } from '@/app/(lib)/utils'
-import { BuildState } from '../../(types)/build-state'
+import { BuildState } from '../types'
 import { useEffect, useState } from 'react'
 import html2canvas from 'html2canvas'
 import copy from 'clipboard-copy'
 import { toast } from 'react-toastify'
+import { buildStateToQueryParams } from '../utils'
 
 export default function useBuildActions() {
   const router = useRouter()

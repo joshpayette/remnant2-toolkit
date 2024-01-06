@@ -3,9 +3,18 @@ import { GenericItem } from '@/app/(types)/items/GenericItem'
 import { MutatorItem } from '@/app/(types)/items/MutatorItem'
 import { TraitItem } from '@/app/(types)/items/TraitItem'
 import { WeaponItem } from '@/app/(types)/items/WeaponItem'
+import { Build } from '@prisma/client'
 import { z } from 'zod'
 
 export type ItemCategory = keyof BuildState['items']
+
+/**
+ * Represents a slot in the buildState
+ */
+export type ItemSlot = {
+  category: GenericItem['category'] | null
+  index?: number
+}
 
 /**
  * The build tool UI state
@@ -66,3 +75,14 @@ export const buildStateSchema = z.object({
     trait: z.array(z.any()),
   }),
 })
+
+/**
+ * Additional fields not stored in the db,
+ * but computed for the buildState
+ */
+export interface ExtendedBuild extends Build {
+  createdByDisplayName: string
+  reported: boolean
+  upvoted: boolean
+  totalUpvotes: number
+}

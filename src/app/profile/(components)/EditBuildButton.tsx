@@ -2,13 +2,13 @@
 
 import { useLocalStorage } from '@/app/(hooks)/useLocalStorage'
 import { DEFAULT_DISPLAY_NAME } from '@/app/(data)/constants'
+import { useSession } from 'next-auth/react'
+import { useRouter } from 'next/navigation'
 import {
   buildStateToQueryParams,
   extendedBuildToBuildState,
-} from '@/app/(lib)/utils'
-import { ExtendedBuild } from '@/app/(types)'
-import { useSession } from 'next-auth/react'
-import { useRouter } from 'next/navigation'
+} from '@/app/builder/utils'
+import { ExtendedBuild } from '@/app/builder/types'
 
 export default function EditBuildButton({ build }: { build: ExtendedBuild }) {
   const router = useRouter()

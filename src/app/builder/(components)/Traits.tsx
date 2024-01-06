@@ -3,7 +3,7 @@ import { XCircleIcon } from '@heroicons/react/24/solid'
 import { cn } from '@/app/(lib)/utils'
 import { TraitItem } from '@/app/(types)/items/TraitItem'
 import { DEFAULT_TRAIT_AMOUNT, MAX_TRAIT_AMOUNT } from '@/app/(data)/constants'
-import { BuildState } from '@/app/(types)/build-state'
+import { BuildState } from '@/app/builder/types'
 
 export default function Traits({
   buildState,
@@ -12,7 +12,7 @@ export default function Traits({
   showControls,
   onAddTrait,
   onRemoveTrait,
-  onChangeAmount,
+  onUpdateAmount,
 }: {
   buildState: BuildState
   isEditable: boolean
@@ -20,7 +20,7 @@ export default function Traits({
   showControls: boolean
   onAddTrait?: () => void
   onRemoveTrait: (traitItem: TraitItem) => void
-  onChangeAmount: (traitItem: TraitItem) => void
+  onUpdateAmount: (traitItem: TraitItem) => void
 }) {
   const { trait: traitItems, archtype: archtypeItems } = buildState.items
 
@@ -104,7 +104,7 @@ export default function Traits({
                   // Update the parent state when the user presses enter
                   onKeyDown={(e) => {
                     if (e.key === 'Enter') {
-                      onChangeAmount(editingTraitItem)
+                      onUpdateAmount(editingTraitItem)
                       setEditingTraitItem(null)
                     }
                   }}
@@ -146,7 +146,7 @@ export default function Traits({
                   }}
                   // Update the parent state when the input is blurred
                   onBlur={() => {
-                    onChangeAmount(editingTraitItem)
+                    onUpdateAmount(editingTraitItem)
                     setEditingTraitItem(null)
                   }}
                   autoFocus

@@ -3,7 +3,7 @@
 import { signIn, useSession } from 'next-auth/react'
 import { buttonClasses } from './ActionButton'
 import { cn } from '@/app/(lib)/utils'
-import { BuildState } from '../../(types)/build-state'
+import { BuildState } from '../types'
 import Skeleton from '@/app/(components)/Skeleton'
 import { BuildActionResponse, createBuild, updateBuild } from '../actions'
 import { toast } from 'react-toastify'

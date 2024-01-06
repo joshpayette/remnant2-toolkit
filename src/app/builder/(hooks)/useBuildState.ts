@@ -7,8 +7,8 @@ import { ArmorItem } from '@/app/(types)/items/ArmorItem'
 import { WeaponItem } from '@/app/(types)/items/WeaponItem'
 import { MutatorItem } from '@/app/(types)/items/MutatorItem'
 import { useLocalStorage } from '@/app/(hooks)/useLocalStorage'
-import { linkArchtypesToTraits, linkWeaponsToMods } from '@/app/(lib)/utils'
-import { BuildState } from '../../(types)/build-state'
+import { BuildState } from '../types'
+import { linkArchtypesToTraits, linkWeaponsToMods } from '../utils'
 
 /**
  * Handles reading/writing the build to the URL query string,
@@ -39,16 +39,20 @@ export default function useBuildState() {
   /**
    * Adds a value to the query string then navigates to it
    */
-  function updateBuildState(
-    name: string,
-    value: string | string[],
+  function updateBuildState({
+    category,
+    value,
     scroll = false,
-  ): void {
+  }: {
+    category: string
+    value: string | string[]
+    scroll?: boolean
+  }): void {
     if (Array.isArray(value)) {
       value = value.join(',')
     }
 
-    if (name === 'description') {
+    if (category === 'description') {
       buildState.description = value
       setBuilderStorage({
         ...builderStorage,
@@ -56,7 +60,7 @@ export default function useBuildState() {
       })
       return
     }
-    if (name === 'isPublic') {
+    if (category === 'isPublic') {
       buildState.isPublic = value === 'true'
       setBuilderStorage({
         ...builderStorage,
@@ -65,7 +69,7 @@ export default function useBuildState() {
       return
     }
 
-    router.push(`${pathname}?${createQueryString(name, value)}`, {
+    router.push(`${pathname}?${createQueryString(category, value)}`, {
       scroll,
     })
   }
@@ -208,9 +212,8 @@ export default function useBuildState() {
     return buildState
   }
 
-  const buildState = linkArchtypesToTraits(
-    linkWeaponsToMods(parseQueryString(searchParams)),
-  )
+  const parsedBuild = parseQueryString(searchParams)
+  const buildState = linkArchtypesToTraits(linkWeaponsToMods(parsedBuild))
 
   return { updateBuildState, buildState }
 }

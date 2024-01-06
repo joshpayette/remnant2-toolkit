@@ -1,9 +1,9 @@
 import BuildPage from './page'
 import { Metadata, ResolvingMetadata } from 'next'
 import { getServerSession } from '@/app/(lib)/auth'
-import { ExtendedBuild } from '@/app/(types)'
 import { prisma } from '@/app/(lib)/db'
 import { DEFAULT_DISPLAY_NAME } from '@/app/(data)/constants'
+import { ExtendedBuild } from '../types'
 
 async function getBuild(buildId: string) {
   if (!buildId) {

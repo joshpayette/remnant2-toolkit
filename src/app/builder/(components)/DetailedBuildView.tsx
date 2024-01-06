@@ -1,7 +1,7 @@
 import ItemInfo from '@/app/(components)/ItemInfo'
 import { Item } from '@/app/(types)'
 import { getArrayOfLength } from '@/app/(lib)/utils'
-import { BuildState } from '@/app/(types)/build-state'
+import { BuildState } from '@/app/builder/types'
 import { GenericItem } from '@/app/(types)/items/GenericItem'
 import {
   InformationCircleIcon,

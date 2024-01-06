@@ -1,17 +1,17 @@
 'use client'
 
 import { remnantItems } from '@/app/(data)'
-import { useCallback, useMemo, useState } from 'react'
+import { useState } from 'react'
 import ToCsvButton from '@/app/(components)/ToCsvButton'
 import PageHeader from '@/app/(components)/PageHeader'
 import ItemInfo from '@/app/(components)/ItemInfo'
-import { itemToCsvItem } from '@/app/(lib)/utils'
 import ItemCard from '../tracker/(components)/ItemCard'
 import { InformationCircleIcon } from '@heroicons/react/24/solid'
 import { MutatorItem } from '../(types)/items/MutatorItem'
 import { GenericItem } from '../(types)/items/GenericItem'
 import Filters from '../(components)/Filters'
 import useFilteredItems from '../(hooks)/useFilteredItems'
+import { itemToCsvItem } from '../builder/utils'
 
 const csvItems = remnantItems // Modify the data for use. Adds a discovered flag,
   // modifies the description for mutators
@@ -60,9 +60,7 @@ export default function Page() {
 
   return (
     <div className="relative flex w-full flex-col items-center justify-center">
-
-        <Filters allItems={allItems} onUpdate={handleUpdateFilters} />
-
+      <Filters allItems={allItems} onUpdate={handleUpdateFilters} />
 
       <ItemInfo
         item={itemInfo}

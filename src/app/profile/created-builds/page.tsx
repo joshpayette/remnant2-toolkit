@@ -6,8 +6,8 @@ import CopyBuildUrlButton from '../(components)/CopyBuildUrlButton'
 import EditBuildButton from '../(components)/EditBuildButton'
 import DeleteBuildButton from '../(components)/DeleteBuildButton'
 import { StarIcon } from '@heroicons/react/24/solid'
-import { ExtendedBuild } from '@/app/(types)'
-import { extendedBuildToBuildState } from '@/app/(lib)/utils'
+import { ExtendedBuild } from '@/app/builder/types'
+import { extendedBuildToBuildState } from '@/app/builder/utils'
 
 async function getBuilds() {
   const session = await getServerSession()

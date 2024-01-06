@@ -1,19 +1,15 @@
 'use client'
 
 import Builder from '@/app/builder/(components)/Builder'
-import {
-  buildStateToCsvData,
-  cn,
-  extendedBuildToBuildState,
-} from '@/app/(lib)/utils'
+import { cn } from '@/app/(lib)/utils'
 import useBuildActions from '../(hooks)/useBuildActions'
 import { ActionButton } from '../(components)/ActionButton'
 import ToCsvButton from '@/app/(components)/ToCsvButton'
 import { useIsClient } from 'usehooks-ts'
-import { useEffect, useRef } from 'react'
+import { useRef } from 'react'
 import { useSession } from 'next-auth/react'
 import PageHeader from '@/app/(components)/PageHeader'
-import { ExtendedBuild, isErrorResponse } from '@/app/(types)'
+import { isErrorResponse } from '@/app/(types)'
 import TotalUpvotes from '../(components)/TotalUpvotes'
 import DetailedBuildView from '../(components)/DetailedBuildView'
 import ImageDownloadLink from '../(components)/ImageDownloadLink'
@@ -25,7 +21,8 @@ import {
 } from '../actions'
 import { toast } from 'react-toastify'
 import { useRouter } from 'next/navigation'
-import { useLocalStorage } from '@/app/(hooks)/useLocalStorage'
+import { ExtendedBuild } from '../types'
+import { buildStateToCsvData, extendedBuildToBuildState } from '../utils'
 
 export default function Page({
   params: { extendedBuild },
@@ -57,6 +54,18 @@ export default function Page({
   if (!session?.user) {
     buildState.upvoted = false
     buildState.reported = false
+  }
+
+  function handleUpdateBuildState({
+    category,
+    value,
+    scroll = false,
+  }: {
+    category: string
+    value: string | string[]
+    scroll?: boolean | undefined
+  }) {
+    // TODO: update the build state
   }
 
   // We need to convert the build.items object into an array of items to pass to the ToCsvButton
@@ -216,6 +225,7 @@ export default function Page({
               isEditable={false}
               isScreenshotMode={isScreenshotMode}
               showControls={showControls}
+              updateBuildState={handleUpdateBuildState}
             />
           </div>
         </div>
