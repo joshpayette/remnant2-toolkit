@@ -206,13 +206,7 @@ export default function Page({
               )}
             </div>
           </div>
-          <div
-            className={cn(
-              'w-full grow rounded border-2 border-green-500 bg-black p-4',
-              isScreenshotMode && 'min-h-[731px] min-w-[502px]',
-            )}
-            ref={buildContainerRef}
-          >
+          <div ref={buildContainerRef}>
             <Builder
               buildState={buildState}
               isEditable={false}
