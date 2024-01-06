@@ -1,13 +1,13 @@
 import { type PageInfo } from '@/app/(types)'
 import { metadata as baseMetaData } from '@/app/metadata'
 
-const title = `SenorCerveza's INCIERNARY KING`
+const title = `SenorCerveza's INCENDIARY KING`
 const creator = `SenorCerveza`
 const description = `If you like to nuke and burn down everything on your run through the Worlds of Remnant 2, this Build is DEFINATELY for YOU! So the Inciernary KING is back! `
-const slug = 'senorcervezas-inciernary-king'
+const slug = 'senorcervezas-incendiary-king'
 const url = `https://remnant2toolkit.com/featured-builds/build/${slug}`
 const ogImageUrl =
-  'https://d2sqltdcj8czo5.cloudfront.net/featured-builds/senorcervezas_inciernary_king.png'
+  'https://d2sqltdcj8czo5.cloudfront.net/featured-builds/senorcervezas_incendiary_king.png'
 const classes = ['archon', 'ritualist']
 // const tags = ['tag1', 'tag2'] // optional
 
