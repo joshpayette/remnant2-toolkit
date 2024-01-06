@@ -4,12 +4,14 @@
 - Convert profile build tables to cards for better mobile experience.
 - Add item categories to page filters
   - Maybe separate filter button from filter popup logic
+- Add item descriptions to searched fields for ItemTracker
 - Add pagination to build tables in profile page.
 - Add build randomizer for the luls
 - Add duplicate build button to builds in profile
 - Added community build page where you can search and sort builds
 - On tracker, allowing sorting alphabetically or by item type (i.e. group armors together)
 - Add CSV import
+- Should be able to store tracked items in db
 - When logging in, the next-auth page to select Discord or Reddit is pretty ugly. Make Reddit Button orange with icon, etc.
 - Add function to highlight description text for terms like burning, bleeding, overloaded, etc.
 
