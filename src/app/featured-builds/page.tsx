@@ -23,7 +23,7 @@ import { pageInfo as senorservezasRoninMeleePageInfo } from './build/senorcervez
 import { pageInfo as sheenShotsHotSwapperPageInfo } from './build/sheenshots-hot-swapper/metadata'
 import { pageInfo as boltJamisonsFargazerMagePageInfo } from './build/bolt-jamisons-fargazer-mage/metadata'
 import { pageInfo as sheenShotsCorruptedGuardianPageInfo } from './build/sheenshots-corrupted-guardian/metadata'
-import { pageInfo as senorcervezasInciernaryKingPageInfo } from './build/senorcervezas-inciernary-king/metadata'
+import { pageInfo as senorcervezasInciernaryKingPageInfo } from './build/senorcervezas-incendiary-king/metadata'
 
 const builds = [
   senorcervezasInciernaryKingPageInfo,
