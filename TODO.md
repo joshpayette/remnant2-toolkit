@@ -2,9 +2,6 @@
 
 - Need to make a db friendly edit page, the attempted linking between the two is causing too many headaches
 - Convert profile build tables to cards for better mobile experience.
-- Add item categories to page filters
-  - Maybe separate filter button from filter popup logic
-- Add item descriptions to searched fields for ItemTracker
 - Add pagination to build tables in profile page.
 - Add build randomizer for the luls
 - Add duplicate build button to builds in profile
