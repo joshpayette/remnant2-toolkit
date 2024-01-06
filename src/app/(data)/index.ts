@@ -3691,6 +3691,11 @@ export const remnantItems: Item[] = [
     howToGet: `In Brabus' Shop after a Hardcore Veteran clear.
     Deleting the character who unlocked them does NOT remove them from the shop.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Savior`],
+    linkedItems: {
+      mod: {
+        name: 'Shatterstar',
+      },
+    },
   },
   {
     category: 'weapon',
@@ -5346,6 +5351,11 @@ export const remnantItems: Item[] = [
     Weakspot Hits and Kills cause shots to fragment, automatically targeting nearby enemies. Fragments strike for 30% of the initial damage dealt and apply BURNING.`,
     howToGet: `Attached to the Savior long gun`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Shatterstar`],
+    linkedItems: {
+      weapon: {
+        name: 'Savior',
+      },
+    },
   },
   {
     category: 'mod',

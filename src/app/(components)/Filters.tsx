@@ -2,19 +2,25 @@ import { useEffect, useState } from 'react'
 import { DLCKey, DLC_TO_NAME } from '../(types)'
 import SearchInput from './SearchInput'
 import { useDebounce } from 'usehooks-ts'
-import Dialog from './Dialog'
-import { FunnelIcon, WrenchScrewdriverIcon } from '@heroicons/react/24/solid'
 import { FilteredItem } from '../(hooks)/useFilteredItems'
 import { useLocalStorage } from '../(hooks)/useLocalStorage'
+import { ItemCategory } from '../(types)/build-state'
+import { cn } from '../(lib)/utils'
+import { remnantItemCategories } from '../(data)'
 
 interface Props {
   allItems: FilteredItem[]
+  itemCategories?: ItemCategory[]
+  showBorder?: boolean
   onUpdate: (filteredItems: FilteredItem[]) => void
 }
 
-export default function Filters({ allItems, onUpdate }: Props) {
-  const [filtersOpen, setFiltersOpen] = useState(false)
-
+export default function Filters({
+  allItems,
+  itemCategories,
+  showBorder = true,
+  onUpdate,
+}: Props) {
   const { itemTrackerStorage } = useLocalStorage()
   const { discoveredItemIds } = itemTrackerStorage
 
@@ -76,6 +82,35 @@ export default function Filters({ allItems, onUpdate }: Props) {
 
   /**
    * ------------------------------------
+   * Category Filters
+   * ------------------------------------
+   */
+  const defaultCategoryKeys: ItemCategory[] =
+    itemCategories?.sort((a, b) => {
+      if (a < b) return -1
+      if (a > b) return 1
+      return 0
+    }) ??
+    remnantItemCategories.sort((a, b) => {
+      if (a < b) return -1
+      if (a > b) return 1
+      return 0
+    })
+  const [includedCategoryKeys, setIncludedCategoryKeys] =
+    useState<ItemCategory[]>(defaultCategoryKeys)
+
+  function handleCategoryFilterChange(categoryKey: ItemCategory) {
+    if (includedCategoryKeys.includes(categoryKey)) {
+      setIncludedCategoryKeys(
+        includedCategoryKeys.filter((key) => key !== categoryKey),
+      )
+    } else {
+      setIncludedCategoryKeys([...includedCategoryKeys, categoryKey])
+    }
+  }
+
+  /**
+   * ------------------------------------
    * Applies the filters as they change
    * ------------------------------------
    */
@@ -87,8 +122,12 @@ export default function Filters({ allItems, onUpdate }: Props) {
     }))
 
     // Filter out the search text
-    filteredItems = filteredItems.filter((item) =>
-      item.name.toLowerCase().includes(debouncedSearchText.toLowerCase()),
+    filteredItems = filteredItems.filter(
+      (item) =>
+        item.name.toLowerCase().includes(debouncedSearchText.toLowerCase()) ||
+        item.description
+          ?.toLowerCase()
+          .includes(debouncedSearchText.toLowerCase()),
     )
 
     // Filter out the collections
@@ -116,6 +155,15 @@ export default function Filters({ allItems, onUpdate }: Props) {
       return includedDlcKeys.includes(item.dlc as DLCKey)
     })
 
+    // Filter out the categories
+    filteredItems = filteredItems.filter((item) => {
+      if (item.category === undefined) {
+        return true
+      }
+
+      return includedCategoryKeys.includes(item.category as ItemCategory)
+    })
+
     onUpdate(filteredItems)
   }, [
     allItems,
@@ -123,126 +171,183 @@ export default function Filters({ allItems, onUpdate }: Props) {
     discoveredItemIds,
     includedCollectionKeys,
     includedDlcKeys,
+    includedCategoryKeys,
     onUpdate,
   ])
 
   return (
-    <div className="fixed bottom-[52px] right-[8px] z-30">
-      <div className="flex w-full flex-col items-start justify-start">
-        <span className="absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75 motion-safe:animate-ping-slow" />
-        <button
-          className="flex w-auto items-center justify-center gap-1 rounded-md border-2 border-black bg-green-700 bg-gradient-to-b p-2 text-sm font-bold text-white drop-shadow-lg hover:bg-green-500"
-          onClick={() => setFiltersOpen(true)}
-        >
-          <WrenchScrewdriverIcon className="h-5 w-5" />
-        </button>
-
-        <Dialog
-          title="Filters"
-          open={filtersOpen}
-          onClose={() => setFiltersOpen(false)}
-          maxWidthClass="max-w-3xl"
-        >
-          <div className="grid-cols-full grid gap-x-8 gap-y-4 divide-y divide-green-800 sm:grid-cols-4">
-            <div className="col-span-full ">
-              <button
-                className="flex w-auto items-center justify-center gap-1 rounded-md border border-purple-500 bg-black bg-gradient-to-b p-2 text-sm font-bold text-purple-500 drop-shadow-md hover:bg-purple-500 hover:text-black"
-                onClick={clearFilters}
-              >
-                Clear Filters
-              </button>
-            </div>
-            <div className="col-span-full pt-2">
-              <div className="flex w-full items-center justify-start gap-x-4">
-                <span className="flex items-center justify-start text-left text-sm font-bold text-green-500">
-                  Search
-                </span>
-                <div className="grow">
-                  <SearchInput
-                    onChange={handleSearchTextChange}
-                    value={searchText}
-                  />
-                </div>
-              </div>
-            </div>
-            <div className="col-span-full pt-2 sm:col-span-2">
-              <div className="flex w-full flex-col items-start justify-start gap-x-4 gap-y-2">
-                <span className="flex items-start justify-start text-left text-sm font-bold text-green-500">
-                  By Release
-                </span>
-                <div className="grid grid-cols-2 text-left">
-                  {Object.keys(DLC_TO_NAME).map((dlcKey) => {
-                    const dlcName = DLC_TO_NAME[dlcKey as DLCKey]
-                    return (
-                      <div key={dlcKey}>
-                        <div className="relative flex items-start">
-                          <div className="flex h-6 items-center">
-                            <input
-                              id={`dlc-${dlcKey}`}
-                              aria-describedby={`dlc-${dlcKey}-description`}
-                              name={`dlc-${dlcKey}`}
-                              type="checkbox"
-                              className="h-4 w-4 rounded border-gray-300 text-purple-600 focus:ring-purple-600"
-                              checked={includedDlcKeys.includes(
-                                dlcKey as DLCKey,
-                              )}
-                              onChange={() =>
-                                handleDlcFilterChange(dlcKey as DLCKey)
-                              }
-                            />
-                          </div>
-                          <div className="ml-3 text-sm leading-6">
-                            <label
-                              htmlFor={`dlc-${dlcKey}`}
-                              className="font-medium text-gray-400"
-                            >
-                              {dlcName}
-                            </label>
-                          </div>
-                        </div>
-                      </div>
-                    )
-                  })}
-                </div>
-              </div>
-            </div>
-            <div className="col-span-full pt-2 sm:col-span-2">
-              <div className="flex w-full flex-col items-start justify-start gap-x-4 gap-y-2">
-                <span className="flex items-start justify-start text-left text-sm font-bold text-green-500">
-                  By Collection
-                </span>
-                <div className="grid grid-cols-2 text-left">
-                  {['Discovered', 'Undiscovered'].map((key) => {
-                    return (
-                      <div key={key}>
-                        <div className="relative flex items-start">
-                          <div className="flex h-6 items-center">
-                            <input
-                              id={`collection-${key}`}
-                              name={`collection-${key}`}
-                              type="checkbox"
-                              className="h-4 w-4 rounded border-gray-300 text-purple-600 focus:ring-purple-600"
-                              checked={includedCollectionKeys.includes(key)}
-                              onChange={() => handleCollectionFilterChange(key)}
-                            />
-                          </div>
-                          <div className="ml-3 text-sm leading-6">
-                            <label
-                              htmlFor={`collection-${key}`}
-                              className="font-medium text-gray-400"
-                            >
-                              {key}
-                            </label>
-                          </div>
-                        </div>
-                      </div>
-                    )
-                  })}
-                </div>
-              </div>
+    <div
+      className={cn(
+        'relative h-full max-h-fit w-full transform overflow-y-auto border-2 border-green-500 bg-black px-4 pb-4 pt-4 text-left shadow-xl sm:my-8 sm:p-6',
+        !showBorder && 'border-transparent',
+      )}
+    >
+      <div className="grid-cols-full grid gap-x-8 gap-y-4 divide-y divide-green-800 bg-black sm:grid-cols-4">
+        <div className="col-span-full ">
+          <button
+            className="flex w-auto items-center justify-center gap-1 rounded-md border border-purple-500 bg-black bg-gradient-to-b p-2 text-sm font-bold text-purple-500 drop-shadow-md hover:bg-purple-500 hover:text-black"
+            onClick={clearFilters}
+          >
+            Clear Filters
+          </button>
+        </div>
+        <div className="col-span-full pt-2">
+          <div className="flex w-full items-center justify-start gap-x-4">
+            <span className="flex items-center justify-start text-left text-sm font-bold text-green-500">
+              Search
+            </span>
+            <div className="grow">
+              <SearchInput
+                onChange={handleSearchTextChange}
+                value={searchText}
+              />
             </div>
           </div>
-        </Dialog>
+        </div>
+        <div className="col-span-full pt-2 sm:col-span-2">
+          <div className="flex w-full flex-col items-start justify-start gap-x-4 gap-y-2">
+            <span className="flex items-start justify-start text-left text-sm font-bold text-green-500">
+              By Release
+            </span>
+            <div className="text-xs">
+              <button
+                className="underline"
+                onClick={() => setIncludedDlcKeys([])}
+              >
+                Uncheck All
+              </button>{' '}
+              /{' '}
+              <button
+                className="underline"
+                onClick={() => setIncludedDlcKeys(defaultDlcKeys)}
+              >
+                Check All
+              </button>
+            </div>
+            <div className="grid grid-cols-2 text-left">
+              {defaultDlcKeys.map((key) => {
+                const dlcName = DLC_TO_NAME[key]
+                return (
+                  <div key={key}>
+                    <Checkbox
+                      label={dlcName}
+                      name={`dlc-${key}`}
+                      checked={includedDlcKeys.includes(key)}
+                      onChange={() => handleDlcFilterChange(key)}
+                    />
+                  </div>
+                )
+              })}
+            </div>
+          </div>
+        </div>
+
+        <div className="col-span-full pt-2 sm:col-span-2">
+          <div className="flex w-full flex-col items-start justify-start gap-x-4 gap-y-2">
+            <span className="flex items-start justify-start text-left text-sm font-bold text-green-500">
+              By Collection
+            </span>
+            <div className="text-xs">
+              <button
+                className="underline"
+                onClick={() => setIncludedCollectionKeys([])}
+              >
+                Uncheck All
+              </button>{' '}
+              /{' '}
+              <button
+                className="underline"
+                onClick={() => setIncludedCollectionKeys(defaultCollectionKeys)}
+              >
+                Check All
+              </button>
+            </div>
+            <div className="grid grid-cols-2 text-left">
+              {defaultCollectionKeys.map((key) => {
+                return (
+                  <div key={key}>
+                    <Checkbox
+                      label={key}
+                      name={`collection-${key}`}
+                      checked={includedCollectionKeys.includes(key)}
+                      onChange={() => handleCollectionFilterChange(key)}
+                    />
+                  </div>
+                )
+              })}
+            </div>
+          </div>
+        </div>
+
+        <div className="col-span-full pt-2">
+          <div className="flex w-full flex-col items-start justify-start gap-x-4 gap-y-2">
+            <span className="flex items-center justify-start text-left text-sm font-bold text-green-500">
+              By Category
+            </span>
+            <div className="text-xs">
+              <button
+                className="underline"
+                onClick={() => setIncludedCategoryKeys([])}
+              >
+                Uncheck All
+              </button>{' '}
+              /{' '}
+              <button
+                className="underline"
+                onClick={() => setIncludedCategoryKeys(defaultCategoryKeys)}
+              >
+                Check All
+              </button>
+            </div>
+            <div className="grid grid-cols-4 gap-x-4 text-left sm:grid-cols-6">
+              {defaultCategoryKeys.map((key) => {
+                return (
+                  <div key={key}>
+                    <Checkbox
+                      label={key}
+                      name={`category-${key}`}
+                      checked={includedCategoryKeys.includes(key)}
+                      onChange={() => handleCategoryFilterChange(key)}
+                    />
+                  </div>
+                )
+              })}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+function Checkbox({
+  checked,
+  label,
+  name,
+  onChange,
+}: {
+  checked: boolean
+  label: string
+  name: string
+  onChange: () => void
+}) {
+  return (
+    <div className="relative flex items-start">
+      <div className="flex h-6 items-center">
+        <input
+          id={`${name}`}
+          aria-describedby={`${name}-description`}
+          name={`${name}`}
+          type="checkbox"
+          className="h-4 w-4 rounded border-gray-300 text-purple-600 focus:ring-purple-600"
+          checked={checked}
+          onChange={onChange}
+        />
+      </div>
+      <div className="ml-3 text-sm leading-6">
+        <label htmlFor={`${name}`} className="font-medium text-gray-400">
+          {label}
+        </label>
       </div>
     </div>
   )

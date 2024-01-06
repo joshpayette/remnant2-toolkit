@@ -1,7 +1,12 @@
 'use client'
 
 import Builder from '@/app/builder/(components)/Builder'
-import { cn } from '@/app/(lib)/utils'
+import {
+  buildStateToCsvData,
+  buildStateToMasonryItems,
+  cn,
+  extendedBuildToBuildState,
+} from '@/app/(lib)/utils'
 import useBuildActions from '../(hooks)/useBuildActions'
 import { ActionButton } from '../(components)/ActionButton'
 import ToCsvButton from '@/app/(components)/ToCsvButton'
@@ -11,7 +16,7 @@ import { useSession } from 'next-auth/react'
 import PageHeader from '@/app/(components)/PageHeader'
 import { isErrorResponse } from '@/app/(types)'
 import TotalUpvotes from '../(components)/TotalUpvotes'
-import DetailedBuildView from '../(components)/DetailedBuildView'
+import MasonryItemList from '../../(components)/MasonryItemList'
 import ImageDownloadLink from '../(components)/ImageDownloadLink'
 import {
   addReportForBuild,
@@ -21,8 +26,6 @@ import {
 } from '../actions'
 import { toast } from 'react-toastify'
 import { useRouter } from 'next/navigation'
-import { ExtendedBuild } from '../types'
-import { buildStateToCsvData, extendedBuildToBuildState } from '../utils'
 
 export default function Page({
   params: { extendedBuild },
@@ -70,6 +73,8 @@ export default function Page({
 
   // We need to convert the build.items object into an array of items to pass to the ToCsvButton
   const csvBuildData = buildStateToCsvData(buildState)
+
+  const masonryItems = buildStateToMasonryItems(buildState)
 
   if (!isClient) return null
 
@@ -233,7 +238,7 @@ export default function Page({
           className="mt-12 flex w-full flex-col items-center justify-center gap-2"
           ref={detailedViewContainerRef}
         >
-          <DetailedBuildView buildState={buildState} />
+          <MasonryItemList items={masonryItems} />
         </div>
       </div>
     </>

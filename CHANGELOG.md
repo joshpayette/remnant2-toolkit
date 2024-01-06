@@ -4,6 +4,22 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2023-01-06
+
+### Added
+
+- Added SenorCerveza's Inciernary King build to featured builds.
+
+### Fixed
+
+- Shatterstar mod now correctly linked to Savior long gun.
+
+### Changed
+
+- Overhauled item lookup to use the detailed item view, making it easier to quickly scan items and their descriptions.
+- Expanded the filters on the item lookup and item tracker to include all item types.
+- Expanded the search functionality in the filters to also search item descriptions when returning results.
+
 ## 2023-01-05
 
 ### Fixed

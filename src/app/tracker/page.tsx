@@ -1,6 +1,6 @@
 'use client'
 
-import { remnantItems } from '@/app/(data)'
+import { remnantItemCategories, remnantItems } from '@/app/(data)'
 import { useLocalStorage } from '@/app/(hooks)/useLocalStorage'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import ToCsvButton from '@/app/(components)/ToCsvButton'
@@ -23,6 +23,11 @@ const skippedItemCategories: Array<GenericItem['category']> = [
   'consumable',
   'skill',
 ]
+
+const itemCategories = remnantItemCategories.filter((category) => {
+  return skippedItemCategories.includes(category) === false
+})
+
 const itemList = remnantItems
   // We don't want to show the items that are in the skippedItemCategories
   .filter((item) => skippedItemCategories.includes(item.category) === false)
@@ -179,8 +184,6 @@ export default function Page() {
 
   return (
     <div className="relative flex w-full flex-col items-center justify-center">
-      <Filters allItems={itemList} onUpdate={handleUpdateFilters} />
-
       <ItemInfo
         item={itemInfo}
         open={isShowItemInfoOpen}
@@ -195,41 +198,50 @@ export default function Page() {
           {progress}
         </span>
 
-        <div className="flex items-center justify-center">
+        <div className="mb-4 flex items-center justify-center">
           <ToCsvButton data={csvItems} filename="remnant2toolkit_tracker" />
+        </div>
+
+        <div className="mx-auto mb-4 flex flex-col items-center justify-center">
+          <div className="mb-4 rounded border border-purple-500">
+            <form
+              action={formAction}
+              className="grid grid-cols-1 bg-black sm:grid-cols-3"
+            >
+              <div className="flex  w-full items-center justify-center bg-purple-700 p-2 sm:col-span-2">
+                <input
+                  type="file"
+                  name="saveFile"
+                  className="text-sm"
+                  ref={fileInput}
+                />
+              </div>
+              <SubmitButton
+                label="Import Save File"
+                className="flex items-center justify-center border border-green-300 bg-green-500 p-2 px-2 text-sm font-bold text-gray-800 hover:border-green-300 hover:bg-green-600 disabled:bg-gray-500"
+              />
+              <div className="col-span-full my-4 bg-black">
+                <p className="px-2 text-sm text-green-500">
+                  You can find your save file in the following location:
+                </p>
+                <pre className="overflow-x-auto px-2 text-sm">
+                  C:\Users\_your_username_\Saved
+                  Games\Remnant2\Steam\_steam_id_\profile.sav
+                </pre>
+              </div>
+            </form>
+          </div>
         </div>
       </PageHeader>
 
-      <div className="mx-auto mb-4 flex flex-col items-center justify-center">
-        <div className="mb-4 rounded border border-purple-500">
-          <form
-            action={formAction}
-            className="grid grid-cols-1 bg-black sm:grid-cols-3"
-          >
-            <div className="flex  w-full items-center justify-center bg-purple-700 p-2 sm:col-span-2">
-              <input
-                type="file"
-                name="saveFile"
-                className="text-sm"
-                ref={fileInput}
-              />
-            </div>
-            <SubmitButton
-              label="Import Save File"
-              className="flex items-center justify-center border border-green-300 bg-green-500 p-2 px-2 text-sm font-bold text-gray-800 hover:border-green-300 hover:bg-green-600 disabled:bg-gray-500"
-            />
-            <div className="col-span-full my-4 bg-black">
-              <p className="px-2 text-sm text-green-500">
-                You can find your save file in the following location:
-              </p>
-              <pre className="overflow-x-auto px-2 text-sm">
-                C:\Users\_your_username_\Saved
-                Games\Remnant2\Steam\_steam_id_\profile.sav
-              </pre>
-            </div>
-          </form>
-        </div>
+      <div className="max-w-3xl">
+        <Filters
+          allItems={itemList}
+          onUpdate={handleUpdateFilters}
+          itemCategories={itemCategories}
+        />
       </div>
+
       <div className="my-8 w-full">
         <ListItems
           items={filteredItems}
