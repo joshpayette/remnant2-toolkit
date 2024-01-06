@@ -49,6 +49,8 @@ export default function Filters({
   function clearFilters() {
     setSearchText('')
     setIncludedDlcKeys(defaultDlcKeys)
+    setIncludedCollectionKeys(defaultCollectionKeys)
+    setIncludedCategoryKeys(defaultCategoryKeys)
   }
 
   function handleDlcFilterChange(dlcKey: DLCKey) {
@@ -175,22 +177,36 @@ export default function Filters({
     onUpdate,
   ])
 
+  const areAnyFiltersActive = () => {
+    return (
+      searchText !== '' ||
+      includedDlcKeys.length !== defaultDlcKeys.length ||
+      includedCollectionKeys.length !== defaultCollectionKeys.length ||
+      includedCategoryKeys.length !== defaultCategoryKeys.length
+    )
+  }
+
   return (
     <div
       className={cn(
-        'relative h-full max-h-fit w-full transform overflow-y-auto border-2 border-green-500 bg-black px-4 pb-4 pt-4 text-left shadow-xl sm:my-8 sm:p-6',
+        'relative h-full max-h-fit w-full transform overflow-y-auto border-2 border-green-500 bg-black px-4 pb-4 pt-4 text-left shadow-lg shadow-green-500/50 sm:my-8 sm:p-6',
         !showBorder && 'border-transparent',
+        showBorder &&
+          areAnyFiltersActive() &&
+          'border-yellow-500 shadow-xl shadow-yellow-500/50',
       )}
     >
       <div className="grid-cols-full grid gap-x-8 gap-y-4 divide-y divide-green-800 bg-black sm:grid-cols-4">
-        <div className="col-span-full ">
-          <button
-            className="flex w-auto items-center justify-center gap-1 rounded-md border border-purple-500 bg-black bg-gradient-to-b p-2 text-sm font-bold text-purple-500 drop-shadow-md hover:bg-purple-500 hover:text-black"
-            onClick={clearFilters}
-          >
-            Clear Filters
-          </button>
-        </div>
+        {areAnyFiltersActive() && (
+          <div className="col-span-full flex items-center justify-end">
+            <button
+              className="flex w-auto items-center justify-center gap-1 rounded-md border border-green-400  bg-green-500 bg-gradient-to-b p-2 text-sm font-bold text-white drop-shadow-md hover:bg-green-700"
+              onClick={clearFilters}
+            >
+              Clear Filters
+            </button>
+          </div>
+        )}
         <div className="col-span-full pt-2">
           <div className="flex w-full items-center justify-start gap-x-4">
             <span className="flex items-center justify-start text-left text-sm font-bold text-green-500">
