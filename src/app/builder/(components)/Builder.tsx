@@ -295,7 +295,12 @@ export default function Builder({
   }
 
   return (
-    <>
+    <div
+      className={cn(
+        'w-full grow rounded border-2 border-green-500 bg-black p-4',
+        isScreenshotMode && 'min-h-[731px] min-w-[502px]',
+      )}
+    >
       <ItemSelect
         open={isItemSelectModalOpen}
         onClose={() => setSelectedItemSlot({ category: null })}
@@ -573,6 +578,6 @@ export default function Builder({
           onChangeIsPublic={handleToggleIsPublic}
         />
       </div>
-    </>
+    </div>
   )
 }
