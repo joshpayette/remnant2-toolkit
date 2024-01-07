@@ -4,6 +4,17 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2023-01-07
+
+### Added
+
+- Small note below total trait points showing how the 110 total is derived.
+
+### Fixed
+
+- Fixed small display issues on item filters.
+- Updated the build name field to use the same input as other parts of the site.
+
 ## 2023-01-06
 
 ### Added

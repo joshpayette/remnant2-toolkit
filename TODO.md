@@ -15,7 +15,6 @@
 
 ## Bugs
 
-- Item lookup filters need 3 columns on mobile instead of 4
 - When items are automatically linked in the build, they aren't added to the URL to be edited. This is causing odd behavior.
   Now that we have a database, we don't need to worry as much about the URL length.
 - Need a different way to handle item description and public other than local storage,
