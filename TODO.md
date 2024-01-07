@@ -1,6 +1,5 @@
 # TODO
 
-- Add check to save file import to reject files over 250kb or some other smaller size
 - Need to make a db friendly edit page, the attempted linking between the two is causing too many headaches
 - Convert profile build tables to cards for better mobile experience.
 - Add pagination to build tables in profile page.

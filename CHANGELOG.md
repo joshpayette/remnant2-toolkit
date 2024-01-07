@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Added
 
 - Small note below total trait points showing how the 110 total is derived.
+- Check on file size of save file before parsing to prevent errors.
 
 ### Fixed
 
