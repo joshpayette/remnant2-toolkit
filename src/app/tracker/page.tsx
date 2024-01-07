@@ -217,11 +217,17 @@ export default function Page() {
                 <p className="text-sm text-green-500">
                   You can find your save file in the following location:
                 </p>
+
+                <hr className="my-4" />
+
                 <strong>Steam</strong>
                 <pre className="mb-4 px-2 text-sm">
                   C:\Users\_your_username_\Saved
                   Games\Remnant2\Steam\_steam_id_\profile.sav
                 </pre>
+
+                <hr className="my-4" />
+
                 <strong>Xbox</strong>
                 <ul className="mb-4 list-inside list-disc text-sm">
                   <li>The file name varies from user to user.</li>
@@ -244,6 +250,9 @@ export default function Page() {
                     and then import it.
                   </li>
                 </ul>
+
+                <hr className="my-4" />
+
                 <strong>Playstation</strong>
                 <p className="text-sm italic">
                   I could use some help with this one. If you know where the
