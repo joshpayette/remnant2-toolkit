@@ -4,6 +4,18 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2023-01-07
+
+### Added
+
+- Small note below total trait points showing how the 110 total is derived.
+- Check on file size of save file before parsing to prevent errors.
+
+### Fixed
+
+- Fixed small display issues on item filters.
+- Updated the build name field to use the same input as other parts of the site.
+
 ## 2023-01-06
 
 ### Added
@@ -14,6 +26,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Shatterstar mod now correctly linked to Savior long gun.
 - Fixed a bug where item tracker would not correctly import Xbox save files due to response size.
+  - Turns out there was no bug, but hey this was still an optimization!
 
 ### Changed
 
