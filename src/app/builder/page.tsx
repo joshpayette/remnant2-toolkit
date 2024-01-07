@@ -111,7 +111,7 @@ export default function Page() {
               onClick={() =>
                 handleCopyBuildUrl(
                   window.location.href,
-                  'Build url copied to clipboard. Sign in for a shorter URL!',
+                  'Build url copied to clipboard. Sign in for a shorter link, build descriptions, and more!',
                 )
               }
             />
