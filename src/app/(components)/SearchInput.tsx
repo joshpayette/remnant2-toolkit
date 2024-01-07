@@ -2,12 +2,10 @@ import { MagnifyingGlassIcon, XMarkIcon } from '@heroicons/react/24/solid'
 import Input from './Input'
 
 export default function SearchInput({
-  autoFocus = true,
   onChange,
   value,
   placeholder = 'Search',
 }: {
-  autoFocus?: boolean
   onChange: (value: string) => void
   value: string
   placeholder?: string
@@ -18,7 +16,6 @@ export default function SearchInput({
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
         value={value}
-        autoFocus={autoFocus}
       />
       <div className="absolute inset-y-0 right-0 flex items-center pr-3">
         {value ? (

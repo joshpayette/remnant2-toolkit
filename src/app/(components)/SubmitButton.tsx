@@ -1,6 +1,7 @@
 'use client'
 
 import { useFormStatus } from 'react-dom'
+import LoadingIndicator from './LoadingIndicator'
 
 export function SubmitButton({
   className,
@@ -20,7 +21,7 @@ export function SubmitButton({
       disabled={pending || disabled}
       className={className}
     >
-      {label}
+      {!pending ? label : <LoadingIndicator />}
     </button>
   )
 }

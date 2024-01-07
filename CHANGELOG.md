@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Fixed
 
 - Shatterstar mod now correctly linked to Savior long gun.
+- Fixed a bug where item tracker would not correctly import Xbox save files due to response size.
 
 ### Changed
 
