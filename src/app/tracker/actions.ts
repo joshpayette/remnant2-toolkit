@@ -7,11 +7,12 @@
 'use server'
 
 import zlib from 'zlib'
+import { remnantItems } from '../(data)'
 
 export default async function parseSaveFile(
   prevState: any,
   formData: FormData,
-): Promise<{ convertedSave: string | null; error?: string }> {
+): Promise<{ saveFileDiscoveredItemIds: string[] | null; error?: string }> {
   const saveFile = formData.get('saveFile') as File | null
   if (!saveFile) {
     throw new Error('No file provided')
@@ -20,7 +21,7 @@ export default async function parseSaveFile(
     const message = 'Invalid file name, should be profile.sav'
     console.error(message)
     return {
-      convertedSave: null,
+      saveFileDiscoveredItemIds: null,
       error: message,
     }
   }
@@ -30,13 +31,27 @@ export default async function parseSaveFile(
       .toString()
       .toLowerCase()
 
+    // Get the saveFileDiscoveredItemIds
+    const saveFileDiscoveredItemIds = remnantItems
+      // Match all item names against info in the save file
+      .filter((item) => {
+        const name = item.name.replace(/[^a-zA-Z]/g, '').toLowerCase()
+        // If the item has a save file slug, use that, otherwise use the name
+        return (
+          (item.saveFileSlug && convertedSave?.includes(item.saveFileSlug)) ||
+          convertedSave?.includes(name)
+        )
+      })
+      // Get just the item ids
+      .map((item) => item.id)
+
     return {
-      convertedSave,
+      saveFileDiscoveredItemIds,
     }
   } catch (e) {
     console.error('Error in parseSaveFile', e)
     return {
-      convertedSave: null,
+      saveFileDiscoveredItemIds: null,
       error: `Unknown error parsing save file`,
     }
   }

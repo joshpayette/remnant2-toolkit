@@ -57,10 +57,10 @@ export default function Page() {
 
   // get response after save file upload
   const [uploadFormResponse, formAction] = useFormState(parseSaveFile, {
-    convertedSave: null,
+    saveFileDiscoveredItemIds: null,
   })
   // tracks the save data after upload
-  const saveData = useRef<string | null>(null)
+  const saveData = useRef<string[] | null>(null)
   // file input field
   const fileInput = useRef<HTMLInputElement | null>(null)
 
@@ -106,7 +106,7 @@ export default function Page() {
   useEffect(() => {
     if (!uploadFormResponse) return
 
-    const { convertedSave, error } = uploadFormResponse
+    const { saveFileDiscoveredItemIds, error } = uploadFormResponse
 
     if (error) {
       toast.error(error)
@@ -114,39 +114,32 @@ export default function Page() {
       return
     }
 
-    if (!convertedSave) return
-    saveData.current = convertedSave
+    if (!saveFileDiscoveredItemIds) return
+    saveData.current = saveFileDiscoveredItemIds
   }, [uploadFormResponse])
 
   // If the save data is set, we need to check the discovered items
   useEffect(() => {
     if (!saveData.current) return
-    const newDiscoveredItemIds = filteredItems
-      // filter out the skipped categories
-      .filter((item) => skippedItemCategories.includes(item.category) === false)
-      // Match all item names against info in the save file
-      .filter((item) => {
-        const name = item.name.replace(/[^a-zA-Z]/g, '').toLowerCase()
-        // If the item has a save file slug, use that, otherwise use the name
-        return (
-          (item.saveFileSlug &&
-            saveData.current?.includes(item.saveFileSlug)) ||
-          saveData.current?.includes(name)
-        )
-      })
-      // Get just the item ids
-      .map((item) => item.id)
 
+    // Remove any items that are in the skipped categories
+    const filteredDiscoveredItems = saveData.current.filter((itemId) => {
+      const item = itemList.find((item) => item.id === itemId)
+      if (!item) return false
+      if (skippedItemCategories.includes(item.category)) return false
+      return true
+    })
+
+    // Update the discovered item ids
+    setDiscoveredItemIds(filteredDiscoveredItems)
     // Reset the save data
     saveData.current = null
-    // Update the discovered item ids
-    setDiscoveredItemIds(newDiscoveredItemIds)
     // clear input field
     if (fileInput.current) fileInput.current.value = ''
     // notify of success
     toast.success('Save file uploaded successfully!')
     // Reload the page
-    window.location.reload()
+    // window.location.reload()
   }, [setDiscoveredItemIds, filteredItems])
 
   // Provider the tracker progress
@@ -198,7 +191,7 @@ export default function Page() {
           {progress}
         </span>
 
-        <div className="mb-4 flex items-center justify-center">
+        <div className="mb-8 flex items-center justify-center">
           <ToCsvButton data={csvItems} filename="remnant2toolkit_tracker" />
         </div>
 
@@ -220,14 +213,53 @@ export default function Page() {
                 label="Import Save File"
                 className="flex items-center justify-center border border-green-300 bg-green-500 p-2 px-2 text-sm font-bold text-gray-800 hover:border-green-300 hover:bg-green-600 disabled:bg-gray-500"
               />
-              <div className="col-span-full my-4 bg-black">
-                <p className="px-2 text-sm text-green-500">
+              <div className="col-span-full gap-y-4 overflow-x-auto bg-black p-2 p-2 text-left">
+                <p className="text-sm text-green-500">
                   You can find your save file in the following location:
                 </p>
-                <pre className="overflow-x-auto px-2 text-sm">
+
+                <hr className="my-4" />
+
+                <strong>Steam</strong>
+                <pre className="mb-4 px-2 text-sm">
                   C:\Users\_your_username_\Saved
                   Games\Remnant2\Steam\_steam_id_\profile.sav
                 </pre>
+
+                <hr className="my-4" />
+
+                <strong>Xbox</strong>
+                <ul className="mb-4 list-inside list-disc text-sm">
+                  <li>The file name varies from user to user.</li>
+                  <li>
+                    You want to look for a save folder with a recent Date
+                    Modified
+                  </li>
+                  <li>
+                    File size for the save file should be the larger of the two
+                    files you find, with a super long name, such as{' '}
+                    <pre className="inline-block text-green-500">
+                      DC6E40058AD611B18ED8685CA8BBE724
+                    </pre>
+                  </li>
+                  <li>
+                    Copy that file to another folder, rename it to{' '}
+                    <pre className="inline-block text-green-500">
+                      profile.sav
+                    </pre>{' '}
+                    and then import it.
+                  </li>
+                </ul>
+
+                <hr className="my-4" />
+
+                <strong>Playstation</strong>
+                <p className="text-sm italic">
+                  I could use some help with this one. If you know where the
+                  save is, or can provide a save that I can test with, I will
+                  happily try to make this work. Please use the blue bug report
+                  icon in the bottom right to get in touch.
+                </p>
               </div>
             </form>
           </div>
