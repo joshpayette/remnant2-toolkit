@@ -8,7 +8,6 @@
 
 import zlib from 'zlib'
 import { remnantItems } from '../(data)'
-import { skippedItemCategories } from './page'
 
 export default async function parseSaveFile(
   prevState: any,

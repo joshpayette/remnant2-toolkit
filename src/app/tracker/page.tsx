@@ -18,7 +18,7 @@ import { MutatorItem } from '../(types)/items/MutatorItem'
 import useFilteredItems from '../(hooks)/useFilteredItems'
 import Filters from '../(components)/Filters'
 
-export const skippedItemCategories: Array<GenericItem['category']> = [
+const skippedItemCategories: Array<GenericItem['category']> = [
   'concoction',
   'consumable',
   'skill',
