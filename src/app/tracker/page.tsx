@@ -198,7 +198,7 @@ export default function Page() {
           {progress}
         </span>
 
-        <div className="mb-4 flex items-center justify-center">
+        <div className="mb-8 flex items-center justify-center">
           <ToCsvButton data={csvItems} filename="remnant2toolkit_tracker" />
         </div>
 
@@ -220,14 +220,44 @@ export default function Page() {
                 label="Import Save File"
                 className="flex items-center justify-center border border-green-300 bg-green-500 p-2 px-2 text-sm font-bold text-gray-800 hover:border-green-300 hover:bg-green-600 disabled:bg-gray-500"
               />
-              <div className="col-span-full my-4 bg-black">
-                <p className="px-2 text-sm text-green-500">
+              <div className="col-span-full gap-y-4 overflow-x-auto bg-black p-2 p-2 text-left">
+                <p className="text-sm text-green-500">
                   You can find your save file in the following location:
                 </p>
-                <pre className="overflow-x-auto px-2 text-sm">
+                <strong>Steam</strong>
+                <pre className="mb-4 px-2 text-sm">
                   C:\Users\_your_username_\Saved
                   Games\Remnant2\Steam\_steam_id_\profile.sav
                 </pre>
+                <strong>Xbox</strong>
+                <ul className="mb-4 list-inside list-disc text-sm">
+                  <li>The file name varies from user to user.</li>
+                  <li>
+                    You want to look for a save folder with a recent Date
+                    Modified
+                  </li>
+                  <li>
+                    File size for the save file should be the larger of the two
+                    files you find, with a super long name, such as{' '}
+                    <pre className="inline-block text-green-500">
+                      DC6E40058AD611B18ED8685CA8BBE724
+                    </pre>
+                  </li>
+                  <li>
+                    Copy that file to another folder, rename it to{' '}
+                    <pre className="inline-block text-green-500">
+                      profile.sav
+                    </pre>{' '}
+                    and then import it.
+                  </li>
+                </ul>
+                <strong>Playstation</strong>
+                <p className="text-sm italic">
+                  I could use some help with this one. If you know where the
+                  save is, or can provide a save that I can test with, I will
+                  happily try to make this work. Please use the blue bug report
+                  icon in the bottom right to get in touch.
+                </p>
               </div>
             </form>
           </div>
