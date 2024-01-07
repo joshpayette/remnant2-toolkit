@@ -18,7 +18,7 @@ import { MutatorItem } from '../(types)/items/MutatorItem'
 import useFilteredItems from '../(hooks)/useFilteredItems'
 import Filters from '../(components)/Filters'
 
-const skippedItemCategories: Array<GenericItem['category']> = [
+export const skippedItemCategories: Array<GenericItem['category']> = [
   'concoction',
   'consumable',
   'skill',
@@ -57,10 +57,10 @@ export default function Page() {
 
   // get response after save file upload
   const [uploadFormResponse, formAction] = useFormState(parseSaveFile, {
-    convertedSave: null,
+    saveFileDiscoveredItemIds: null,
   })
   // tracks the save data after upload
-  const saveData = useRef<string | null>(null)
+  const saveData = useRef<string[] | null>(null)
   // file input field
   const fileInput = useRef<HTMLInputElement | null>(null)
 
@@ -106,7 +106,7 @@ export default function Page() {
   useEffect(() => {
     if (!uploadFormResponse) return
 
-    const { convertedSave, error } = uploadFormResponse
+    const { saveFileDiscoveredItemIds, error } = uploadFormResponse
 
     if (error) {
       toast.error(error)
@@ -114,39 +114,32 @@ export default function Page() {
       return
     }
 
-    if (!convertedSave) return
-    saveData.current = convertedSave
+    if (!saveFileDiscoveredItemIds) return
+    saveData.current = saveFileDiscoveredItemIds
   }, [uploadFormResponse])
 
   // If the save data is set, we need to check the discovered items
   useEffect(() => {
     if (!saveData.current) return
-    const newDiscoveredItemIds = filteredItems
-      // filter out the skipped categories
-      .filter((item) => skippedItemCategories.includes(item.category) === false)
-      // Match all item names against info in the save file
-      .filter((item) => {
-        const name = item.name.replace(/[^a-zA-Z]/g, '').toLowerCase()
-        // If the item has a save file slug, use that, otherwise use the name
-        return (
-          (item.saveFileSlug &&
-            saveData.current?.includes(item.saveFileSlug)) ||
-          saveData.current?.includes(name)
-        )
-      })
-      // Get just the item ids
-      .map((item) => item.id)
 
+    // Remove any items that are in the skipped categories
+    const filteredDiscoveredItems = saveData.current.filter((itemId) => {
+      const item = itemList.find((item) => item.id === itemId)
+      if (!item) return false
+      if (skippedItemCategories.includes(item.category)) return false
+      return true
+    })
+
+    // Update the discovered item ids
+    setDiscoveredItemIds(filteredDiscoveredItems)
     // Reset the save data
     saveData.current = null
-    // Update the discovered item ids
-    setDiscoveredItemIds(newDiscoveredItemIds)
     // clear input field
     if (fileInput.current) fileInput.current.value = ''
     // notify of success
     toast.success('Save file uploaded successfully!')
     // Reload the page
-    window.location.reload()
+    // window.location.reload()
   }, [setDiscoveredItemIds, filteredItems])
 
   // Provider the tracker progress
