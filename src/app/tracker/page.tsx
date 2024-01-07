@@ -196,6 +196,7 @@ export default function Page() {
         </div>
 
         <div className="mx-auto mb-4 flex flex-col items-center justify-center">
+          <h2 className="mb-4 text-xl font-bold text-green-400">Import Save</h2>
           <div className="mb-4 rounded border border-purple-500">
             <form
               action={formAction}
@@ -230,10 +231,16 @@ export default function Page() {
 
                 <strong>Xbox</strong>
                 <ul className="mb-4 list-inside list-disc text-sm">
-                  <li>The file name varies from user to user.</li>
+                  <li>
+                    The file name varies from user to user, but is usually
+                    located in:
+                    <pre>
+                      %LOCALAPPDATA%\Packages\PerfectWorldEntertainment.GFREMP2_jrajkyc4tsa6w\SystemAppData\wgsYOURNUMERICID\
+                    </pre>
+                  </li>
                   <li>
                     You want to look for a save folder with a recent Date
-                    Modified
+                    Modified, but it may not always be the most recent.{' '}
                   </li>
                   <li>
                     File size for the save file should be the larger of the two
@@ -242,12 +249,19 @@ export default function Page() {
                       DC6E40058AD611B18ED8685CA8BBE724
                     </pre>
                   </li>
+                  <li>The size is typically less than 100kb</li>
                   <li>
                     Copy that file to another folder, rename it to{' '}
                     <pre className="inline-block text-green-500">
                       profile.sav
                     </pre>{' '}
                     and then import it.
+                  </li>
+                  <li>
+                    Be sure to check the results, such as the number of items
+                    and archtypes. If you choose the wrong file, it may still
+                    show some items discovered erroneously. If this happens, try
+                    a different file even if the date modified is older.
                   </li>
                 </ul>
 
@@ -267,6 +281,7 @@ export default function Page() {
       </PageHeader>
 
       <div className="max-w-3xl">
+        <h2 className="mb-4 text-xl font-bold text-green-400">Filters</h2>
         <Filters
           allItems={itemList}
           onUpdate={handleUpdateFilters}
