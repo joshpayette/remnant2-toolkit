@@ -45,6 +45,12 @@ export default async function parseSaveFile(
       // Get just the item ids
       .map((item) => item.id)
 
+    // const responseSize = Buffer.byteLength(
+    //   JSON.stringify(saveFileDiscoveredItemIds),
+    //   'utf-8',
+    // )
+    // console.info('FINAL Response', responseSize)
+
     return {
       saveFileDiscoveredItemIds,
     }
