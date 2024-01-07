@@ -105,12 +105,18 @@ export default function Page() {
             </div>
 
             <ActionButton.CopyBuildUrl
-              onClick={() =>
+              onClick={() => {
+                const response = confirm(
+                  'This build is unsaved, meaning the URL will be very long. Sign in and Save Build for a shorter URL, plus additional features.\r\n\r\nDo you want to copy the URL anyway?',
+                )
+
+                if (!response) return
+
                 handleCopyBuildUrl(
                   window.location.href,
-                  'Build url copied to clipboard. Sign in and save build for a shorter link, build descriptions, and more!',
+                  'Build url copied to clipboard!',
                 )
-              }
+              }}
             />
 
             <ToCsvButton
