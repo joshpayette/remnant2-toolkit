@@ -216,6 +216,7 @@ export default function Filters({
               <SearchInput
                 onChange={handleSearchTextChange}
                 value={searchText}
+                placeholder={'Search item names and descriptions'}
               />
             </div>
           </div>
@@ -315,7 +316,7 @@ export default function Filters({
                 Check All
               </button>
             </div>
-            <div className="grid grid-cols-4 gap-x-4 text-left sm:grid-cols-6">
+            <div className="grid grid-cols-3 gap-x-8 text-left sm:grid-cols-6">
               {defaultCategoryKeys.map((key) => {
                 return (
                   <div key={key}>

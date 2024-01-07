@@ -1,3 +1,4 @@
+import Input from '@/app/(components)/Input'
 import { PencilIcon } from '@heroicons/react/24/solid'
 import { useState } from 'react'
 
@@ -22,14 +23,11 @@ export default function BuilderName({
     <div className="relative mb-2 flex w-full flex-col items-center justify-center gap-2 border-b border-b-green-900 pb-2">
       {isEditingBuildName && isEditable ? (
         <>
-          <input
-            type="text"
-            name="buildname"
-            id="buildname"
-            value={newName}
-            className="block w-full max-w-xl rounded-md border-0 bg-black py-1.5 text-center text-xl text-green-500 shadow-sm ring-1 ring-inset ring-green-300 placeholder:text-green-400 focus:ring-2 focus:ring-inset focus:ring-green-600 sm:leading-6"
-            placeholder="Build Name"
+          <Input
             onChange={(e) => setNewName(e.target.value)}
+            value={newName}
+            placeholder={'Build Name'}
+            id="buildname"
           />
 
           <div>

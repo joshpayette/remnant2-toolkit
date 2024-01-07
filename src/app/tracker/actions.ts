@@ -25,6 +25,18 @@ export default async function parseSaveFile(
       error: message,
     }
   }
+
+  const fileSizeInBytes = saveFile.size
+  const fileSizeInKilobytes = fileSizeInBytes / 1000.0
+
+  if (fileSizeInKilobytes > 100) {
+    console.error('File too large', fileSizeInKilobytes)
+    return {
+      saveFileDiscoveredItemIds: null,
+      error: `File too large (${fileSizeInKilobytes} KB), please use a smaller file. If you think this is in error, please use the bug report icon in the bottom right to let me know.`,
+    }
+  }
+
   const buffer = await saveFile.arrayBuffer()
   try {
     const convertedSave = decompressSave(Buffer.from(buffer))
