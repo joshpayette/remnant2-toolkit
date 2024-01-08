@@ -8834,18 +8834,21 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     name: 'Dark Cider',
     imagePath: '/concoction/dark_cider.png',
     id: '8p2sj3',
-    description: ``,
-    howToGet: ``,
-    wikiLinks: [``],
+    description: `Increases Health by 6.66%, Stamina by 6.66%, and Movement Speed by 6.66%. Lasts 60m and will stay in effect after death. Only one Concoction may be active at a time.`,
+    howToGet: `Can be bought from Mudtooth for 500`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Dark+Cider`],
   },
   {
     category: 'concoction',
     name: 'Dark Fluid',
     imagePath: '/concoction/dark_fluid.png',
     id: 'byi9a5',
-    description: `Increases Health by 6.66%, Stamina by 6.66%, and Movement Speed by 6.66%. Lasts 60m and will stay in effect after death. Only one Concoction may be active at a time.`,
-    howToGet: `Can be bought from Mudtooth for 500`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Dark+Cider`],
+    description: `Increases Distance of Evade and Combat Slide by 15% and reduces the cost by 20%. Lasts 60m and will stay in effect after death. Only one Concoction may be active at a time.`,
+    howToGet: `
+    Can be bought from Mudtooth at the following cost: scrap currency remnant2 wiki guide 30pxx500 Scrap.
+    Can be crafted at Drzyr Replicator, you will need the following Materials: scrap currency remnant2 wiki guide 30pxx650 Scrap.
+`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Dark+Fluid`],
   },
   {
     category: 'concoction',

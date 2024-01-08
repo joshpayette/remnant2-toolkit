@@ -10,6 +10,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Added The Batman Build to featured builds.
 
+### Fixed
+
+- Dark Fluid and Dark Cider had mixed up/missing information. (Thanks Joe!)
+
 ## 2023-01-07
 
 ### Added
