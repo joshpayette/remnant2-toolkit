@@ -10,8 +10,6 @@ import { buildStateToQueryParams } from '../utils'
 export default function useBuildActions() {
   const router = useRouter()
 
-  const { builderStorage, setBuilderStorage } = useLocalStorage()
-
   // iOS does not automatically download images, so we need to
   // make a clickable link available
   const [imageLink, setImageLink] = useState<string | null>(null)
@@ -47,29 +45,6 @@ export default function useBuildActions() {
       ...buildState,
       name: newBuildName,
     })
-
-    setBuilderStorage({
-      ...builderStorage,
-      tempDescription: buildState.description,
-      tempIsPublic: buildState.isPublic,
-      tempBuildId: null,
-      tempCreatedById: null,
-    })
-
-    router.push(editBuildUrl)
-  }
-
-  function handleEditBuild(buildState: BuildState) {
-    let editBuildUrl = buildStateToQueryParams(buildState)
-
-    setBuilderStorage({
-      ...builderStorage,
-      tempDescription: buildState.description,
-      tempIsPublic: buildState.isPublic,
-      tempBuildId: buildState.buildId,
-      tempCreatedById: buildState.createdById,
-    })
-
     router.push(editBuildUrl)
   }
 
@@ -123,7 +98,6 @@ export default function useBuildActions() {
     handleClearImageLink,
     handleCopyBuildUrl,
     handleDuplicateBuild,
-    handleEditBuild,
     handleImageExport,
     handleScrollToDetailedView,
     isScreenshotMode: Boolean(isScreenshotMode),

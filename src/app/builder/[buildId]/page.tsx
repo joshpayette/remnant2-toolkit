@@ -44,7 +44,6 @@ export default function Page({
     handleClearImageLink,
     handleCopyBuildUrl,
     handleDuplicateBuild,
-    handleEditBuild,
     handleImageExport,
     handleScrollToDetailedView,
   } = useBuildActions()
@@ -73,7 +72,6 @@ export default function Page({
 
   // We need to convert the build.items object into an array of items to pass to the ToCsvButton
   const csvBuildData = buildStateToCsvData(buildState)
-
   const masonryItems = buildStateToMasonryItems(buildState)
 
   if (!isClient) return null
@@ -109,7 +107,9 @@ export default function Page({
 
               {session && session.user?.id === buildState.createdById && (
                 <ActionButton.EditBuild
-                  onClick={() => handleEditBuild(buildState)}
+                  onClick={() =>
+                    router.push(`/builder/edit/${buildState.buildId}`)
+                  }
                 />
               )}
 

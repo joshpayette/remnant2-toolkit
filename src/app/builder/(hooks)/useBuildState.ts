@@ -6,7 +6,6 @@ import { GenericItem } from '@/app/(types)/items/GenericItem'
 import { ArmorItem } from '@/app/(types)/items/ArmorItem'
 import { WeaponItem } from '@/app/(types)/items/WeaponItem'
 import { MutatorItem } from '@/app/(types)/items/MutatorItem'
-import { useLocalStorage } from '@/app/(hooks)/useLocalStorage'
 import { BuildState } from '../types'
 import { linkArchtypesToTraits, linkWeaponsToMods } from '../utils'
 
@@ -22,7 +21,6 @@ export default function useBuildState() {
   const router = useRouter()
   const pathname = usePathname()
   const searchParams = useSearchParams()
-  const { builderStorage, setBuilderStorage } = useLocalStorage()
 
   /**
    * Creates a new query string by adding or updating a parameter.
@@ -50,23 +48,6 @@ export default function useBuildState() {
   }): void {
     if (Array.isArray(value)) {
       value = value.join(',')
-    }
-
-    if (category === 'description') {
-      buildState.description = value
-      setBuilderStorage({
-        ...builderStorage,
-        tempDescription: value,
-      })
-      return
-    }
-    if (category === 'isPublic') {
-      buildState.isPublic = value === 'true'
-      setBuilderStorage({
-        ...builderStorage,
-        tempIsPublic: value === 'true',
-      })
-      return
     }
 
     router.push(`${pathname}?${createQueryString(category, value)}`, {
@@ -112,23 +93,6 @@ export default function useBuildState() {
     // Build name
     const name = searchParams.get('name')
     buildState.name = name ?? buildState.name
-
-    // Build description from localstorage
-    if (builderStorage.tempDescription) {
-      buildState.description = builderStorage.tempDescription
-    }
-    // Build public visibility from localstorage
-    buildState.isPublic = builderStorage.tempIsPublic !== false
-
-    // Check for buildId from localstorage
-    if (!buildState.buildId && builderStorage.tempBuildId) {
-      buildState.buildId = builderStorage.tempBuildId
-    }
-
-    // Check for createdById from localstorage
-    if (!buildState.createdById && builderStorage.tempCreatedById) {
-      buildState.createdById = builderStorage.tempCreatedById
-    }
 
     // Loop through each category and check the query params
     // for that category's item IDs

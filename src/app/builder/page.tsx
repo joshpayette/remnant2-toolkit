@@ -9,8 +9,6 @@ import SaveBuildButton from './(components)/SaveBuildButton'
 import useBuildActions from './(hooks)/useBuildActions'
 import { ActionButton } from './(components)/ActionButton'
 import ToCsvButton from '../(components)/ToCsvButton'
-import { useLocalStorage } from '../(hooks)/useLocalStorage'
-import { useSearchParams } from 'next/navigation'
 import MasonryItemList from '../(components)/MasonryItemList'
 import ImageDownloadLink from './(components)/ImageDownloadLink'
 import { buildStateToCsvData, buildStateToMasonryItems } from './utils'
@@ -19,12 +17,10 @@ import LoadingIndicator from '../(components)/LoadingIndicator'
 import Skeleton from '../(components)/Skeleton'
 
 export default function Page() {
-  const searchParams = useSearchParams()
   const isClient = useIsClient()
   const { data: session, status: sessionStatus } = useSession()
 
   const { buildState, updateBuildState } = useBuildState()
-  const { builderStorage, setBuilderStorage } = useLocalStorage()
   const {
     isScreenshotMode,
     showControls,
@@ -38,21 +34,6 @@ export default function Page() {
 
   const buildContainerRef = useRef<HTMLDivElement>(null)
   const detailedViewContainerRef = useRef<HTMLDivElement>(null)
-
-  // if search params are empty, clear the temp values
-  // from localstorage
-  useEffect(() => {
-    if (searchParams.toString() === '') {
-      setBuilderStorage({
-        ...builderStorage,
-        tempBuildId: null,
-        tempCreatedById: null,
-        tempDescription: null,
-        tempIsPublic: null,
-      })
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [searchParams])
 
   // Add the build name to the page title
   useEffect(() => {
