@@ -7,11 +7,9 @@ import { BuildState } from '../types'
 import Skeleton from '@/app/(components)/Skeleton'
 import { BuildActionResponse, createBuild, updateBuild } from '../actions'
 import { toast } from 'react-toastify'
-import { useLocalStorage } from '@/app/(hooks)/useLocalStorage'
 import { useRouter } from 'next/navigation'
 import { isErrorResponse } from '@/app/(types)'
 import { useState } from 'react'
-import { set } from 'zod'
 import LoadingIndicator from '@/app/(components)/LoadingIndicator'
 
 interface Props {
@@ -20,7 +18,6 @@ interface Props {
 
 export default function SaveBuildButton({ buildState }: Props) {
   const router = useRouter()
-  const { builderStorage, setBuilderStorage } = useLocalStorage()
 
   const [saveInProgress, setSaveInProgress] = useState(false)
 
@@ -45,13 +42,6 @@ export default function SaveBuildButton({ buildState }: Props) {
       toast.error('Error saving build. Please try again later.')
     } else {
       toast.success(response.message)
-      setBuilderStorage({
-        ...builderStorage,
-        tempDescription: null,
-        tempIsPublic: null,
-        tempBuildId: null,
-        tempCreatedById: null,
-      })
       setSaveInProgress(false)
       router.push(`/builder/${response.buildId}`)
     }

@@ -7,8 +7,6 @@ export default function Page({
 }: {
   params: { buildId: string }
 }) {
-  console.info('buildId', buildId)
-
   return (
     <>
       <PageHeader title="Authenticated User Build Editing" />

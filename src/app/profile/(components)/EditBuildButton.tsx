@@ -1,6 +1,5 @@
 'use client'
 
-import { useLocalStorage } from '@/app/(hooks)/useLocalStorage'
 import { DEFAULT_DISPLAY_NAME } from '@/app/(data)/constants'
 import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
@@ -13,24 +12,13 @@ import { ExtendedBuild } from '@/app/builder/types'
 export default function EditBuildButton({ build }: { build: ExtendedBuild }) {
   const router = useRouter()
   const { data: session } = useSession()
-  const { builderStorage, setBuilderStorage } = useLocalStorage()
 
   function handleEditBuild(build: ExtendedBuild) {
     const buildState = extendedBuildToBuildState({
       ...build,
       createdByDisplayName: session?.user?.name ?? DEFAULT_DISPLAY_NAME,
     })
-
     let editBuildUrl = buildStateToQueryParams(buildState)
-
-    setBuilderStorage({
-      ...builderStorage,
-      tempDescription: build.description,
-      tempIsPublic: build.isPublic,
-      tempBuildId: build.id,
-      tempCreatedById: build.createdById,
-    })
-
     router.push(editBuildUrl)
   }
 
