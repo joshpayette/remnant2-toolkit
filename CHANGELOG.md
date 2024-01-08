@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Small note below total trait points showing how the 110 total is derived.
 - Check on file size of save file before parsing to prevent errors.
+- Added CHAOS GAMING'S TANKUALIST build to featured builds.
 
 ### Fixed
 
