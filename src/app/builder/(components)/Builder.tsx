@@ -13,27 +13,35 @@ import ItemInfo from '@/app/(components)/ItemInfo'
 import { Item } from '@/app/(types)'
 import { getConcoctionSlotCount, getItemListForSlot } from '../utils'
 
+type BuilderProps = {
+  buildState: BuildState
+  includeMemberFeatures: boolean
+  isScreenshotMode: boolean
+  showControls: boolean
+} & (
+  | { isEditable: false; updateBuildState?: never }
+  | {
+      isEditable: true
+      updateBuildState: ({
+        category,
+        value,
+        scroll,
+      }: {
+        category: string
+        value: string | string[]
+        scroll?: boolean
+      }) => void
+    }
+)
+
 export default function Builder({
   buildState,
+  includeMemberFeatures,
   isEditable,
   isScreenshotMode,
   showControls,
   updateBuildState,
-}: {
-  buildState: BuildState
-  isEditable: boolean
-  isScreenshotMode: boolean
-  showControls: boolean
-  updateBuildState: ({
-    category,
-    value,
-    scroll,
-  }: {
-    category: string
-    value: string | string[]
-    scroll?: boolean
-  }) => void
-}) {
+}: BuilderProps) {
   const concoctionSlotCount = getConcoctionSlotCount(buildState)
 
   // Tracks information about the slot the user is selecting an item for
@@ -71,6 +79,7 @@ export default function Builder({
   const handleSelectItem = useCallback(
     (selectedItem: GenericItem | null) => {
       if (!selectedItemSlot.category) return
+      if (!updateBuildState) return
 
       /**
        * The item index is used to determine which item in the array of items
@@ -168,10 +177,14 @@ export default function Builder({
   )
 
   function handleChangeDescription(description: string) {
+    if (!isEditable) return
+    if (!updateBuildState) return
     updateBuildState({ category: 'description', value: description })
   }
 
   function handleToggleIsPublic(isPublic: boolean) {
+    if (!isEditable) return
+    if (!updateBuildState) return
     updateBuildState({
       category: 'isPublic',
       value: isPublic ? 'true' : 'false',
@@ -191,13 +204,16 @@ export default function Builder({
   }
 
   function handleUpdateBuildName(newBuildName: string) {
-    {
-      updateBuildState({ category: 'name', value: newBuildName })
-      setIsEditingBuildName(false)
-    }
+    if (!isEditable) return
+    if (!updateBuildState) return
+    updateBuildState({ category: 'name', value: newBuildName })
+    setIsEditingBuildName(false)
   }
 
   function handleRemoveTrait(traitItem: TraitItem) {
+    if (!isEditable) return
+    if (!updateBuildState) return
+
     const newTraitItems = buildState.items.trait.filter(
       (i) => i.name !== traitItem.name,
     )
@@ -206,6 +222,9 @@ export default function Builder({
   }
 
   function handleUpdateTraitAmount(newTraitItem: TraitItem) {
+    if (!isEditable) return
+    if (!updateBuildState) return
+
     const newTraitItems = buildState.items.trait.map((traitItem) => {
       if (traitItem.name === newTraitItem.name) {
         return newTraitItem
@@ -476,16 +495,18 @@ export default function Builder({
         />
       </div>
 
-      <div id="member-features-row" className="mt-4 w-full">
-        <MemberFeatures
-          description={buildState.description}
-          isEditable={isEditable}
-          isPublic={buildState.isPublic}
-          isScreenshotModeActive={isScreenshotMode}
-          onChangeDescription={handleChangeDescription}
-          onChangeIsPublic={handleToggleIsPublic}
-        />
-      </div>
+      {includeMemberFeatures && (
+        <div id="member-features-row" className="mt-4 w-full">
+          <MemberFeatures
+            description={buildState.description}
+            isEditable={isEditable}
+            isPublic={buildState.isPublic}
+            isScreenshotModeActive={isScreenshotMode}
+            onChangeDescription={handleChangeDescription}
+            onChangeIsPublic={handleToggleIsPublic}
+          />
+        </div>
+      )}
     </div>
   )
 }

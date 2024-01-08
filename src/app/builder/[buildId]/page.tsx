@@ -1,7 +1,6 @@
 'use client'
 
 import Builder from '@/app/builder/(components)/Builder'
-import { cn } from '@/app/(lib)/utils'
 import useBuildActions from '../(hooks)/useBuildActions'
 import { ActionButton } from '../(components)/ActionButton'
 import ToCsvButton from '@/app/(components)/ToCsvButton'
@@ -114,7 +113,7 @@ export default function Page({
                 />
               )}
 
-              <ActionButton.CopyBuildUrl
+              <ActionButton.ShareBuild
                 onClick={() =>
                   handleCopyBuildUrl(
                     window.location.href,
@@ -222,10 +221,10 @@ export default function Page({
           <div ref={buildContainerRef}>
             <Builder
               buildState={buildState}
+              includeMemberFeatures={true}
               isEditable={false}
               isScreenshotMode={isScreenshotMode}
               showControls={showControls}
-              updateBuildState={handleUpdateBuildState}
             />
           </div>
         </div>
