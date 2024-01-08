@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Fixed
 
 - Dark Fluid and Dark Cider had mixed up/missing information. (Thanks Joe!)
+- Fixed a number of copy paste fails in item info.
 
 ## 2023-01-07
 
