@@ -3737,6 +3737,11 @@ export const remnantItems: Item[] = [
     howToGet: `Starkiller can be obtained in Brabus' Shop after a Apocalypse clear.
     Deleting the character who unlocked them does NOT remove them from the shop.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Starkiller`],
+    linkedItems: {
+      mod: {
+        name: 'Gravity Core',
+      },
+    },
   },
   {
     category: 'weapon',
@@ -5070,6 +5075,22 @@ export const remnantItems: Item[] = [
     linkedItems: {
       weapon: {
         name: 'Godsplitter',
+      },
+    },
+  },
+  {
+    category: 'mod',
+    name: 'Gravity Core',
+    imagePath: '/mod/gravity_core.png',
+    id: 'kep3kb',
+    description: `Fires a highly compressed sphere which draws in objects and deals 50 damage on impact. When colliding with a target, a large Gravity Well opens and draws in objects for 5s.
+
+    When the Gravity Well expires, it deals 250 damage within 10m. Adds 200 damage per enemy and divides total damage among all enemies.`,
+    howToGet: `Attached to the Starkiller weapon`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Gravity+Core`],
+    linkedItems: {
+      weapon: {
+        name: 'Starkiller',
       },
     },
   },
