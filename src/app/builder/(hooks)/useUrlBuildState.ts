@@ -1,26 +1,55 @@
 import { remnantItemCategories } from '@/app/(data)'
 import { usePathname, useSearchParams, useRouter } from 'next/navigation'
-import { useCallback } from 'react'
+import { useCallback, useEffect } from 'react'
 import { TraitItem } from '@/app/(types)/items/TraitItem'
 import { GenericItem } from '@/app/(types)/items/GenericItem'
 import { ArmorItem } from '@/app/(types)/items/ArmorItem'
 import { WeaponItem } from '@/app/(types)/items/WeaponItem'
 import { MutatorItem } from '@/app/(types)/items/MutatorItem'
-import { BuildState } from '../types'
-import { linkArchtypesToTraits, linkWeaponsToMods } from '../utils'
+import { BuildState, initialBuildState } from '../types'
+import {
+  buildStateToCsvData,
+  buildStateToMasonryItems,
+  linkArchtypesToTraits,
+  linkWeaponsToMods,
+} from '../utils'
 
 /**
  * Handles reading/writing the build to the URL query string,
- * linking weapons to mods, and some helper functions
+ * used for unauthenticated users who can't save builds to the database.
  *
  * @example Adds a `name` parameter to the query string
  * router.push(`${pathname}?${createQueryString('name', name)}`)
  */
-export default function useBuildState() {
+export default function useUrlBuildState() {
   // Hooks for monitoring the URL query string
   const router = useRouter()
   const pathname = usePathname()
   const searchParams = useSearchParams()
+
+  const parsedBuild = parseQueryString(searchParams)
+  const urlBuildState = linkArchtypesToTraits(linkWeaponsToMods(parsedBuild))
+
+  /**
+   * Converts the build state to CSV data.
+   */
+  const csvItems = buildStateToCsvData(urlBuildState).filter(
+    (item) => item?.name !== '',
+  )
+
+  /**
+   * Populates the masonry grid with the items from the build state.
+   */
+  const masonryItems = buildStateToMasonryItems(urlBuildState)
+
+  // Add the build name to the page title
+  useEffect(() => {
+    if (!urlBuildState) {
+      document.title = 'Remnant 2 Toolkit'
+      return
+    }
+    document.title = `${urlBuildState.name} | Remnant 2 Toolkit`
+  }, [urlBuildState])
 
   /**
    * Creates a new query string by adding or updating a parameter.
@@ -37,7 +66,7 @@ export default function useBuildState() {
   /**
    * Adds a value to the query string then navigates to it
    */
-  function updateBuildState({
+  function updateUrlBuildState({
     category,
     value,
     scroll = false,
@@ -60,35 +89,7 @@ export default function useBuildState() {
    */
   function parseQueryString(searchParams: URLSearchParams): BuildState {
     /** The build state that will be returned */
-    const buildState: BuildState = {
-      name: 'My Build',
-      description: null,
-      isPublic: true,
-      buildId: null,
-      createdByDisplayName: null,
-      createdById: null,
-      upvoted: false,
-      totalUpvotes: 0,
-      reported: false,
-      items: {
-        helm: null,
-        torso: null,
-        legs: null,
-        gloves: null,
-        relic: null,
-        amulet: null,
-        weapon: [],
-        ring: [],
-        archtype: [],
-        skill: [],
-        concoction: [],
-        consumable: [],
-        mod: [],
-        mutator: [],
-        relicfragment: [],
-        trait: [],
-      },
-    }
+    const buildState = initialBuildState
 
     // Build name
     const name = searchParams.get('name')
@@ -176,8 +177,5 @@ export default function useBuildState() {
     return buildState
   }
 
-  const parsedBuild = parseQueryString(searchParams)
-  const buildState = linkArchtypesToTraits(linkWeaponsToMods(parsedBuild))
-
-  return { updateBuildState, buildState }
+  return { csvItems, masonryItems, urlBuildState, updateUrlBuildState }
 }

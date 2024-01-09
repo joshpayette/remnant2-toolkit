@@ -49,6 +49,36 @@ export interface BuildState {
   }
 }
 
+export const initialBuildState: BuildState = {
+  name: 'My Build',
+  description: null,
+  isPublic: true,
+  buildId: null,
+  createdByDisplayName: null,
+  createdById: null,
+  upvoted: false,
+  totalUpvotes: 0,
+  reported: false,
+  items: {
+    helm: null,
+    torso: null,
+    legs: null,
+    gloves: null,
+    relic: null,
+    amulet: null,
+    weapon: [],
+    ring: [],
+    archtype: [],
+    skill: [],
+    concoction: [],
+    consumable: [],
+    mod: [],
+    mutator: [],
+    relicfragment: [],
+    trait: [],
+  },
+}
+
 export const buildStateSchema = z.object({
   name: z.string(),
   description: z.string().nullable(),

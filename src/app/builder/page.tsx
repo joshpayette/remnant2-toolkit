@@ -1,9 +1,9 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+import { useRef } from 'react'
 import PageHeader from '@/app/(components)/PageHeader'
 import Builder from './(components)/Builder'
-import useBuildState from '@/app/builder/(hooks)/useBuildState'
+import useUrlBuildState from '@/app/builder/(hooks)/useUrlBuildState'
 import { useIsClient } from 'usehooks-ts'
 import SaveBuildButton from './(components)/SaveBuildButton'
 import useBuildActions from './(hooks)/useBuildActions'
@@ -11,16 +11,18 @@ import { ActionButton } from './(components)/ActionButton'
 import ToCsvButton from '../(components)/ToCsvButton'
 import MasonryItemList from '../(components)/MasonryItemList'
 import ImageDownloadLink from './(components)/ImageDownloadLink'
-import { buildStateToCsvData, buildStateToMasonryItems } from './utils'
 import { useSession } from 'next-auth/react'
 import LoadingIndicator from '../(components)/LoadingIndicator'
 import Skeleton from '../(components)/Skeleton'
 
 export default function Page() {
-  const isClient = useIsClient()
   const { data: session, status: sessionStatus } = useSession()
 
-  const { buildState, updateBuildState } = useBuildState()
+  const isClient = useIsClient()
+
+  const { csvItems, masonryItems, urlBuildState, updateUrlBuildState } =
+    useUrlBuildState()
+
   const {
     isScreenshotMode,
     showControls,
@@ -35,23 +37,7 @@ export default function Page() {
   const buildContainerRef = useRef<HTMLDivElement>(null)
   const detailedViewContainerRef = useRef<HTMLDivElement>(null)
 
-  // Add the build name to the page title
-  useEffect(() => {
-    if (!buildState) {
-      document.title = 'Remnant 2 Toolkit'
-      return
-    }
-    document.title = `${buildState.name} | Remnant 2 Toolkit`
-  }, [buildState])
-
   if (!isClient) return null
-
-  // We need to convert the build.items object into an array of items to pass to the ToCsvButton
-  const csvBuildData = buildStateToCsvData(buildState).filter(
-    (item) => item?.name !== '',
-  )
-
-  const masonryItems = buildStateToMasonryItems(buildState)
 
   return (
     <div className="flex w-full flex-col items-center">
@@ -91,7 +77,7 @@ export default function Page() {
           >
             {session?.user && (
               <div className="mb-2">
-                <SaveBuildButton buildState={buildState} />
+                <SaveBuildButton buildState={urlBuildState} />
               </div>
             )}
 
@@ -105,7 +91,7 @@ export default function Page() {
                   onClick={() =>
                     handleImageExport(
                       buildContainerRef.current,
-                      `${buildState.name}.png`,
+                      `${urlBuildState.name}.png`,
                     )
                   }
                 />
@@ -129,8 +115,8 @@ export default function Page() {
               )}
 
               <ToCsvButton
-                data={csvBuildData}
-                filename={`remnant2_builder_${buildState.name}`}
+                data={csvItems}
+                filename={`remnant2_builder_${urlBuildState.name}`}
                 label="Export to CSV"
               />
 
@@ -144,12 +130,12 @@ export default function Page() {
         )}
         <div ref={buildContainerRef}>
           <Builder
-            buildState={buildState}
+            buildState={urlBuildState}
             includeMemberFeatures={false}
             isEditable={true}
             isScreenshotMode={isScreenshotMode}
             showControls={showControls}
-            updateBuildState={updateBuildState}
+            updateBuildState={updateUrlBuildState}
           />
         </div>
       </div>
