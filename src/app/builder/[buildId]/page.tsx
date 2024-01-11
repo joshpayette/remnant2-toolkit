@@ -1,7 +1,6 @@
 'use client'
 
 import Builder from '@/app/builder/(components)/Builder'
-import useBuildActions from '../(hooks)/useBuildActions'
 import { ActionButton } from '../(components)/ActionButton'
 import ToCsvButton from '@/app/(components)/ToCsvButton'
 import { useIsClient } from 'usehooks-ts'
@@ -12,7 +11,12 @@ import { isErrorResponse } from '@/app/(types)'
 import TotalUpvotes from '../(components)/TotalUpvotes'
 import MasonryItemList from '../../(components)/MasonryItemList'
 import ImageDownloadLink from '../(components)/ImageDownloadLink'
-import { addVoteForBuild, removeVoteForBuild } from '../actions'
+import {
+  addReportForBuild,
+  addVoteForBuild,
+  removeReportForBuild,
+  removeVoteForBuild,
+} from '../actions'
 import { toast } from 'react-toastify'
 import { useRouter } from 'next/navigation'
 import { ExtendedBuild } from '../types'
@@ -21,6 +25,7 @@ import {
   buildStateToMasonryItems,
   extendedBuildToBuildState,
 } from '../utils'
+import useBuildActions from '../(hooks)/useBuildActions'
 
 export default function Page({
   params: { build },
@@ -41,7 +46,6 @@ export default function Page({
     handleDuplicateBuild,
     handleImageExport,
     handleScrollToDetailedView,
-    handleReportBuild,
   } = useBuildActions()
 
   const buildContainerRef = useRef<HTMLDivElement>(null)
@@ -119,8 +123,6 @@ export default function Page({
                 <hr className="my-4 hidden border-gray-500 sm:visible" />
 
                 <div className="col-span-full flex w-full flex-col items-center justify-center gap-4">
-                  <TotalUpvotes totalUpvotes={buildState.totalUpvotes} />
-
                   <div className="my-4 flex flex-row items-center justify-center gap-x-4 sm:my-0 sm:flex-col sm:items-start sm:gap-x-0 sm:gap-y-2">
                     <ActionButton.Vote
                       active={buildState.upvoted}

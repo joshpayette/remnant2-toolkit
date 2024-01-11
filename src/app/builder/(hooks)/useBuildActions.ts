@@ -1,0 +1,112 @@
+import { useRouter } from 'next/navigation'
+import { BuildState } from '../types'
+import { useEffect, useState } from 'react'
+import html2canvas from 'html2canvas'
+import copy from 'clipboard-copy'
+import { toast } from 'react-toastify'
+import { isErrorResponse } from '@/app/(types)'
+import { createBuild } from '../actions'
+
+export default function useBuildActions() {
+  const router = useRouter()
+
+  // iOS does not automatically download images, so we need to
+  // make a clickable link available
+  const [imageLink, setImageLink] = useState<string | null>(null)
+
+  // Need to show a loading indicator when exporting the image
+  const [imageExportLoading, setImageExportLoading] = useState(false)
+
+  // Used to inform the UI when a screenshot is being taken
+  // so that it can resize on mobile devices, show logo, and more.
+  const [isScreenshotMode, setIsScreenshotMode] = useState<{
+    el: HTMLDivElement | null
+    imageFileName: string
+  } | null>(null)
+
+  function handleClearImageLink() {
+    setImageLink(null)
+  }
+
+  function handleCopyBuildUrl(url: string | null, message?: string) {
+    if (!url) {
+      toast.error('Could not copy build url. Try again.')
+      return
+    }
+    const defaultMessage =
+      'Build url copied to clipboard. Sign in next time for a shorter URL!'
+    copy(url)
+    toast.success(!message ? defaultMessage : message)
+  }
+
+  async function handleDuplicateBuild(buildState: BuildState) {
+    const newBuildName = `${buildState.name} (copy)`
+    const newBuildState = { ...buildState, name: newBuildName }
+    const response = await createBuild(JSON.stringify(newBuildState))
+    if (isErrorResponse(response)) {
+      console.error(response.errors)
+      toast.error('Error duplicating build. Please try again later.')
+    } else {
+      toast.success(response.message)
+      router.push(`/builder/${response.buildId}`)
+    }
+  }
+
+  function handleImageExport(el: HTMLDivElement | null, imageFileName: string) {
+    // We do this to trigger the effect below
+    setIsScreenshotMode({ el, imageFileName })
+  }
+  /**
+   * Export the build as an image
+   * We do this in a useEffect so that the UI can update,
+   * allowing us to show the logo, expand the build on mobile for
+   * better screenshots, etc.
+   */
+  useEffect(() => {
+    async function exportImage() {
+      setImageExportLoading(false)
+      if (!isScreenshotMode) return
+      const { el, imageFileName } = isScreenshotMode
+
+      if (!el) return
+
+      const canvas = await html2canvas(el, {
+        useCORS: true,
+        allowTaint: true,
+        logging: false,
+      })
+      const image = canvas.toDataURL('image/png', 1.0)
+      setImageLink(image)
+      setIsScreenshotMode(null)
+
+      // Need a fakeLink to trigger the download
+      // This does not work for ios
+      const fakeLink = window.document.createElement('a')
+      fakeLink.download = imageFileName
+      fakeLink.href = image
+      document.body.appendChild(fakeLink)
+      fakeLink.click()
+      document.body.removeChild(fakeLink)
+      fakeLink.remove()
+    }
+    setImageExportLoading(true)
+    setTimeout(exportImage, 1000)
+  }, [isScreenshotMode, router])
+
+  function handleScrollToDetailedView(el: HTMLDivElement | null) {
+    if (!el) return
+    el.scrollIntoView({ behavior: 'smooth' })
+  }
+
+  return {
+    handleClearImageLink,
+    handleCopyBuildUrl,
+    handleDuplicateBuild,
+    handleImageExport,
+    handleScrollToDetailedView,
+    isScreenshotMode: Boolean(isScreenshotMode),
+    showControls: Boolean(isScreenshotMode) === false,
+    imageLink,
+    imageExportLoading,
+  }
+}

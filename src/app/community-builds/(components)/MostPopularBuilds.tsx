@@ -4,11 +4,11 @@ import { Listbox, Transition } from '@headlessui/react'
 import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/24/solid'
 import { Fragment, useEffect, useState } from 'react'
 import { TimeRange, getMostUpvotedBuilds } from '../actions'
-import { ExtendedBuild } from '@/app/(types)'
 import { cn } from '@/app/(lib)/utils'
 import BuildCard from '../../(components)/BuildCard'
 import BuildList from '@/app/(components)/BuildList'
 import usePagination from '@/app/(hooks)/usePagination'
+import { ExtendedBuild } from '@/app/builder/types'
 
 interface Props {
   itemsPerPage?: number
@@ -151,7 +151,7 @@ export default function MostPopularBuilds({ itemsPerPage = 8 }: Props) {
       >
         {builds.map((build) => (
           <div key={build.id} className="h-full w-full">
-            <BuildCard build={build} onReportBuild={handleReportBuild} />
+            <BuildCard build={build} />
           </div>
         ))}
       </BuildList>

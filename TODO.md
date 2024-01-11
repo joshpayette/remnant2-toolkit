@@ -1,3 +1,8 @@
+# Where to start
+
+- Re-integrate isMember for patron members to get special frames
+- Run the app and check how the merge went
+
 # TODO
 
 - Convert profile build tables to cards for better mobile experience.

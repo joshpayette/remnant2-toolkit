@@ -2,9 +2,9 @@
 
 import { prisma } from '@/app/(lib)/db'
 import { Build } from '@prisma/client'
-import { ExtendedBuild } from '../(types)'
 import { getServerSession } from '../(lib)/auth'
 import { PaginationResponse } from '../(hooks)/usePagination'
+import { ExtendedBuild } from '../builder/types'
 
 // Need this to suppress the BigInt JSON error
 BigInt.prototype.toJSON = function (): string {

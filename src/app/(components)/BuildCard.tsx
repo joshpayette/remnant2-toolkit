@@ -1,36 +1,39 @@
 'use client'
 
-import { ExtendedBuild } from '@/app/(types)'
 import ArchtypeLabel from '../community-builds/(components)/ArchtypeLabel'
 import { EyeIcon, StarIcon } from '@heroicons/react/24/solid'
-import { cn, extendedBuildToBuildState } from '@/app/(lib)/utils'
+import { cn } from '@/app/(lib)/utils'
 import { FlagIcon as FlagIconOff } from '@heroicons/react/24/outline'
 import { FlagIcon as FlagIconOn } from '@heroicons/react/24/solid'
-import useBuildActions from '@/app/(hooks)/useBuildActions'
 import Link from 'next/link'
 import MemberBadge from '@/app/(components)/MemberBadge'
+import { ExtendedBuild } from '../builder/types'
+import { extendedBuildToBuildState } from '../builder/utils'
+import { toast } from 'react-toastify'
+import { addReportForBuild, removeReportForBuild } from '../builder/actions'
+import { isErrorResponse } from '../(types)'
+import { useRouter } from 'next/navigation'
 
 interface Props {
   build: ExtendedBuild
-  onReportBuild?: (reported: boolean, buildId: string) => void
 }
 
-export default function BuildCard({ build, onReportBuild }: Props) {
+export default function BuildCard({ build }: Props) {
+  const router = useRouter()
   const buildState = extendedBuildToBuildState(build)
-  const { handleReportBuild } = useBuildActions()
 
   return (
     <div
       className={cn(
         'relative col-span-1 flex h-full flex-col rounded-lg border border-purple-500 bg-black shadow',
-        buildState.isMember && 'border-2 border-red-500',
+        // buildState.isMember && 'border-2 border-red-500',
       )}
     >
-      {buildState.isMember ? (
+      {/* {buildState.isMember ? (
         <div className="absolute right-[-15px] top-[-15px]">
           <MemberBadge />
         </div>
-      ) : null}
+      ) : null} */}
       <div className="flex w-full flex-1 items-start justify-start space-x-6 p-6">
         <div className="flex-1 truncate">
           <div className="flex flex-col items-start justify-start ">
@@ -50,9 +53,39 @@ export default function BuildCard({ build, onReportBuild }: Props) {
                 <button
                   onClick={async () => {
                     const newReported = !buildState.reported
-                    await handleReportBuild(newReported, build.id)
-                    if (onReportBuild) {
-                      onReportBuild(newReported, build.id)
+
+                    // prompt for the reason
+                    const reason = newReported
+                      ? prompt(
+                          'Please enter a reason for reporting this build.',
+                        )
+                      : null
+
+                    if (newReported && !reason) {
+                      toast.error(
+                        'You must enter a reason for reporting this build.',
+                      )
+                      return
+                    }
+
+                    const response = newReported
+                      ? await addReportForBuild(
+                          JSON.stringify({
+                            buildId: build.id,
+                            reason,
+                          }),
+                        )
+                      : await removeReportForBuild(
+                          JSON.stringify({ buildId: build.id }),
+                        )
+
+                    if (isErrorResponse(response)) {
+                      console.error(response.errors)
+                      toast.error(response.errors?.[0])
+                    } else {
+                      toast.success(response.message)
+                      buildState.reported = newReported
+                      router.refresh()
                     }
                   }}
                   className="flex items-center justify-end text-right text-red-500"
