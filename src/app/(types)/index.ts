@@ -39,17 +39,6 @@ export interface PageInfo {
   tags?: string[]
 }
 
-/**
- * Additional fields not stored in the db, but computed for the buildState
- */
-export interface ExtendedBuild extends Build {
-  createdByDisplayName: string
-  isMember: boolean
-  reported: boolean
-  totalUpvotes: number
-  upvoted: boolean
-}
-
 export const DLC_TO_NAME = {
   basegame: 'Base Game',
   dlc1: 'The Awakened King',

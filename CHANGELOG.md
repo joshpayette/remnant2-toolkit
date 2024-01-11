@@ -4,6 +4,64 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2023-01-10
+
+### Added
+
+- New notes and prompts when editing or creating builds while not logged in.
+
+### Changed
+
+- Updated the builder to use separate page routes for builds in the database. This helps squash bugs from trying to keep both types of builds commingled in the same page.
+
+## 2023-01-09
+
+### Fixed
+
+- Gravity Core mod was missing from the list of mods. (Thanks Joe!) Added it and linked it to the Starkiller weapon.
+
+## 2023-01-08
+
+### Added
+
+- Added The Batman Build to featured builds.
+
+### Fixed
+
+- Dark Fluid and Dark Cider had mixed up/missing information. (Thanks Joe!)
+- Fixed a number of copy paste fails in item info.
+
+## 2023-01-07
+
+### Added
+
+- Small note below total trait points showing how the 110 total is derived.
+- Check on file size of save file before parsing to prevent errors.
+- Added CHAOS GAMING'S TANKUALIST build to featured builds.
+
+### Fixed
+
+- Fixed small display issues on item filters.
+- Updated the build name field to use the same input as other parts of the site.
+
+## 2023-01-06
+
+### Added
+
+- Added SenorCerveza's Inciernary King build to featured builds.
+
+### Fixed
+
+- Shatterstar mod now correctly linked to Savior long gun.
+- Fixed a bug where item tracker would not correctly import Xbox save files due to response size.
+  - Turns out there was no bug, but hey this was still an optimization!
+
+### Changed
+
+- Overhauled item lookup to use the detailed item view, making it easier to quickly scan items and their descriptions.
+- Expanded the filters on the item lookup and item tracker to include all item types.
+- Expanded the search functionality in the filters to also search item descriptions when returning results.
+
 ## 2023-01-05
 
 ### Fixed

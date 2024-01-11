@@ -2,43 +2,73 @@
 
 import ViewBuildButton from '../(components)/ViewBuildButton'
 import CopyBuildUrlButton from '../(components)/CopyBuildUrlButton'
-import {
-  ChevronLeftIcon,
-  ChevronRightIcon,
-  StarIcon,
-} from '@heroicons/react/24/solid'
-import { cn, extendedBuildToBuildState } from '@/app/(lib)/utils'
-import { useEffect, useState } from 'react'
-import { ExtendedBuild } from '@/app/(types)'
-import usePagination from '@/app/(hooks)/usePagination'
-import { getFavoritedBuilds } from './actions'
+import { StarIcon } from '@heroicons/react/24/solid'
+import { ExtendedBuild } from '@/app/builder/types'
+import { extendedBuildToBuildState } from '@/app/builder/utils'
 
-export default function Page() {
-  const itemsPerPage = 5
-  const [builds, setBuilds] = useState<ExtendedBuild[]>([])
-  const [totalItemCount, setTotalItemCount] = useState(0)
+async function getBuilds() {
+  const session = await getServerSession()
 
-  const {
-    currentPage,
-    firstVisiblePageNumber,
-    lastVisiblePageNumber,
-    pageNumbers,
-    handleSpecificPageClick,
-    handleNextPageClick,
-    handlePreviousPageClick,
-  } = usePagination({ itemsPerPage, totalItemCount })
+  const userId = session?.user?.id
 
-  useEffect(() => {
-    const getBuildsAsync = async () => {
-      const response = await getFavoritedBuilds({
-        itemsPerPage,
-        pageNumber: currentPage,
-      })
-      setBuilds(response.items)
-      setTotalItemCount(response.totalItemCount)
-    }
-    getBuildsAsync()
-  }, [currentPage])
+  // find all builds that the user has favorited but are not created
+  // by the user
+  const builds = await prisma.build.findMany({
+    where: {
+      BuildVotes: {
+        some: {
+          userId,
+        },
+      },
+      createdById: {
+        not: userId,
+      },
+    },
+    include: {
+      createdBy: true,
+      BuildVotes: true,
+      BuildReports: true,
+    },
+  })
+
+  if (!builds) return []
+
+  const buildsWithExtraFields = builds.map((build) => ({
+    id: build.id,
+    name: build.name,
+    description: build.description ?? '',
+    isPublic: build.isPublic,
+    createdAt: build.createdAt,
+    createdById: build.createdById,
+    videoUrl: build.videoUrl ?? '',
+    helm: build.helm,
+    torso: build.torso,
+    gloves: build.gloves,
+    legs: build.legs,
+    amulet: build.amulet,
+    ring: build.ring,
+    relic: build.relic,
+    relicfragment: build.relicfragment,
+    archtype: build.archtype,
+    skill: build.skill,
+    weapon: build.weapon,
+    mod: build.mod,
+    mutator: build.mutator,
+    updatedAt: build.updatedAt,
+    concoction: build.concoction,
+    consumable: build.consumable,
+    trait: build.trait,
+    createdByDisplayName: build.createdBy.displayName ?? '',
+    totalUpvotes: build.BuildVotes.length,
+    upvoted: build.BuildVotes.some((vote) => vote.userId === userId), // Check if the user upvoted the build
+    reported: build.BuildReports.some((report) => report.userId === userId), // Check if the user reported the build
+  })) satisfies ExtendedBuild[]
+
+  return buildsWithExtraFields
+}
+
+export default async function Page() {
+  const builds = await getBuilds()
 
   return (
     <div className="mx-auto w-full bg-black py-10">

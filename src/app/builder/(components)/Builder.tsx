@@ -1,161 +1,71 @@
 import { TraitItem } from '@/app/(types)/items/TraitItem'
 import { Fragment, useCallback, useMemo, useState } from 'react'
-import { cn, getArrayOfLength, getConcoctionSlotCount } from '@/app/(lib)/utils'
+import { cn, getArrayOfLength } from '@/app/(lib)/utils'
 import BuilderName from './BuilderName'
 import BuilderButton from './BuilderButton'
 import Traits from './Traits'
 import ItemSelect from './ItemSelect'
 import Logo from '@/app/(components)/Logo'
-import useBuildState from '../(hooks)/useBuildState'
 import { GenericItem } from '@/app/(types)/items/GenericItem'
 import MemberFeatures from './MemberFeatures'
-import { remnantItems } from '@/app/(data)'
-import { WeaponItem } from '@/app/(types)/items/WeaponItem'
-import { MutatorItem } from '@/app/(types)/items/MutatorItem'
-import { BuildState } from '../../(types)/build-state'
+import { BuildState, ItemSlot } from '../types'
 import ItemInfo from '@/app/(components)/ItemInfo'
 import { Item } from '@/app/(types)'
+import { getConcoctionSlotCount, getItemListForSlot } from '../utils'
 
-/**
- * Returns a list of items that match the selected slot
- * Takes into account the build's current items and the selected slot
- * This is passed to the ItemSelect modal to display the correct items
- */
-function getItemListForCategory(
-  buildState: BuildState,
-  selectedItem: {
-    category: GenericItem['category'] | null
-    index?: number
-  },
-) {
-  if (!selectedItem.category) return []
-
-  // Remove items that are already in the build
-  // for the current category
-  const unequippedItems = remnantItems.filter((item) => {
-    const categoryItemorItems = buildState.items[item.category]
-    if (!categoryItemorItems) return true
-
-    if (Array.isArray(categoryItemorItems)) {
-      const buildItems = categoryItemorItems
-      return !buildItems.find((i) => i?.id === item.id)
-    } else {
-      const buildItem = categoryItemorItems
-      return buildItem?.id !== item.id
+type BuilderProps = {
+  buildState: BuildState
+  includeMemberFeatures: boolean
+  isScreenshotMode: boolean
+  showControls: boolean
+} & (
+  | { isEditable: false; updateBuildState?: never }
+  | {
+      isEditable: true
+      updateBuildState: ({
+        category,
+        value,
+        scroll,
+      }: {
+        category: string
+        value: string | string[]
+        scroll?: boolean
+      }) => void
     }
-  })
-
-  // If the selected slot is a weapon, then limit the
-  // weapons based on the corresponding weapon type
-  if (selectedItem.category === 'weapon') {
-    let type: WeaponItem['type']
-    switch (selectedItem.index) {
-      case 0:
-        type = 'long gun'
-        break
-      case 1:
-        type = 'melee'
-        break
-      case 2:
-        type = 'hand gun'
-        break
-    }
-
-    return unequippedItems.filter(
-      (item) => WeaponItem.isWeaponItem(item) && item.type === type,
-    )
-  }
-
-  // If the selected slot is a mod, then limit the
-  // mods to those without a linked weapon
-  if (selectedItem.category === 'mod') {
-    return unequippedItems.filter(
-      (item) => item.category === 'mod' && !item.linkedItems?.weapon,
-    )
-  }
-
-  // If the selected slot is a mutator,
-  // then limit the mutators to the weapon type
-  if (selectedItem.category === 'mutator') {
-    // Get the corresponding weapon from the build
-    const buildWeapon = buildState.items.weapon[selectedItem.index ?? 0]
-    if (!buildWeapon) return []
-
-    const weaponType = buildWeapon.type === 'melee' ? 'melee' : 'gun'
-
-    return unequippedItems.filter(
-      (item) => MutatorItem.isMutatorItem(item) && item.type === weaponType,
-    )
-  }
-
-  // If the selected slot is a skill, try to limit
-  // skills based on the corresponding archtype
-  if (selectedItem.category === 'skill') {
-    const skillItems = unequippedItems.filter(
-      (item) => item.category === 'skill',
-    )
-
-    if (selectedItem.index === undefined) return skillItems
-
-    const archtype =
-      buildState.items.archtype[selectedItem.index]?.name.toLowerCase()
-
-    if (!archtype) return skillItems
-
-    const itemsForArchtype = skillItems.filter(
-      (item) => item.linkedItems?.archtype?.name.toLowerCase() === archtype,
-    )
-
-    return itemsForArchtype
-  }
-
-  // If the selected slot is an archtype, try to limit
-  // the archtypes based on the corresponding skill
-  if (selectedItem.category === 'archtype') {
-    const archtypeItems = (unequippedItems as GenericItem[]).filter(
-      (item) => item.category === 'archtype',
-    )
-
-    if (selectedItem.index === undefined) return archtypeItems
-
-    const skill = buildState.items.skill[selectedItem.index]?.name.toLowerCase()
-
-    if (!skill) return archtypeItems
-
-    const itemsForSkill = archtypeItems.filter(
-      (item) =>
-        item.linkedItems?.skills?.some((s) => s.name.toLowerCase() === skill),
-    )
-
-    return itemsForSkill
-  }
-
-  // If we got this far, then return all items for the selected slot
-  return (unequippedItems as GenericItem[]).filter(
-    (item) => item.category === selectedItem.category,
-  )
-}
+)
 
 export default function Builder({
   buildState,
+  includeMemberFeatures,
   isEditable,
   isScreenshotMode,
   showControls,
-}: {
-  buildState: BuildState
-  isEditable: boolean
-  isScreenshotMode: boolean
-  showControls: boolean
-}) {
-  // Custom hook for working with the build
-  const { updateBuildState } = useBuildState()
+  updateBuildState,
+}: BuilderProps) {
   const concoctionSlotCount = getConcoctionSlotCount(buildState)
 
   // Tracks information about the slot the user is selecting an item for
-  const [selectedItemSlot, setSelectedItemSlot] = useState<{
-    category: GenericItem['category'] | null
-    index?: number
-  }>({ category: null })
+  const [selectedItemSlot, setSelectedItemSlot] = useState<ItemSlot>({
+    category: null,
+  })
+
+  /** If the item category is null, modal is closed */
+  const isItemSelectModalOpen = Boolean(selectedItemSlot.category)
+
+  //Tracks whether the build name is editable or not.
+  const [isEditingBuildName, setIsEditingBuildName] = useState(false)
+
+  // Tracks the item that the user is viewing information for
+  const [infoItem, setInfoItem] = useState<Item | null>(null)
+
+  /**
+   * Returns a list of items that match the selected slot
+   * This is passed to the ItemSelect modal to display the correct items
+   */
+  const itemListForSlot = useMemo(
+    () => getItemListForSlot(buildState, selectedItemSlot),
+    [selectedItemSlot, buildState],
+  )
 
   /**
    * Fires when the user changes an item in the build.
@@ -169,6 +79,7 @@ export default function Builder({
   const handleSelectItem = useCallback(
     (selectedItem: GenericItem | null) => {
       if (!selectedItemSlot.category) return
+      if (!updateBuildState) return
 
       /**
        * The item index is used to determine which item in the array of items
@@ -194,9 +105,12 @@ export default function Builder({
             index === specifiedIndex ? null : item,
           )
           const newItemIds = newBuildItems.map((i) => i?.id ?? '')
-          updateBuildState(selectedItemSlot.category, newItemIds)
+          updateBuildState({
+            category: selectedItemSlot.category,
+            value: newItemIds,
+          })
         } else {
-          updateBuildState(selectedItemSlot.category, '')
+          updateBuildState({ category: selectedItemSlot.category, value: '' })
         }
 
         setSelectedItemSlot({ category: null })
@@ -230,14 +144,14 @@ export default function Builder({
           const newTraitItemParams = TraitItem.toParams(
             newBuildItems as TraitItem[],
           )
-          updateBuildState('trait', newTraitItemParams)
+          updateBuildState({ category: 'trait', value: newTraitItemParams })
           setSelectedItemSlot({ category: null })
           return
         }
 
         // If we got here, add the item to the build
         const newItemIds = newBuildItems.map((i) => i?.id)
-        updateBuildState(selectedItem.category, newItemIds)
+        updateBuildState({ category: selectedItem.category, value: newItemIds })
         setSelectedItemSlot({ category: null })
         return
       }
@@ -248,7 +162,10 @@ export default function Builder({
       const itemAlreadyInBuild = buildItem?.id === selectedItem.id
       if (itemAlreadyInBuild) return
 
-      updateBuildState(selectedItem.category, selectedItem.id)
+      updateBuildState({
+        category: selectedItem.category,
+        value: selectedItem.id,
+      })
       setSelectedItemSlot({ category: null })
     },
     [
@@ -259,33 +176,25 @@ export default function Builder({
     ],
   )
 
-  /** If the item category is null, modal is closed */
-  const isItemSelectModalOpen = Boolean(selectedItemSlot.category)
-
-  //Tracks whether the build name is editable or not.
-  const [isEditingBuildName, setIsEditingBuildName] = useState(false)
-
-  // Tracks the item that the user is viewing information for
-  const [infoItem, setInfoItem] = useState<Item | null>(null)
-
-  /**
-   * Returns a list of items that match the selected slot
-   * This is passed to the ItemSelect modal to display the correct items
-   */
-  const itemListForSlot = useMemo(
-    () => getItemListForCategory(buildState, selectedItemSlot),
-    [selectedItemSlot, buildState],
-  )
-
   function handleChangeDescription(description: string) {
-    updateBuildState('description', description)
+    if (!isEditable) return
+    if (!updateBuildState) return
+    updateBuildState({ category: 'description', value: description })
   }
+
   function handleToggleIsPublic(isPublic: boolean) {
-    updateBuildState('isPublic', isPublic ? 'true' : 'false')
+    if (!isEditable) return
+    if (!updateBuildState) return
+    updateBuildState({
+      category: 'isPublic',
+      value: isPublic ? 'true' : 'false',
+    })
   }
+
   function handleShowInfo(item: Item) {
     setInfoItem(item)
   }
+
   function handleButtonClick(
     category: GenericItem['category'],
     index?: number,
@@ -294,8 +203,45 @@ export default function Builder({
     setSelectedItemSlot({ category, index })
   }
 
+  function handleUpdateBuildName(newBuildName: string) {
+    if (!isEditable) return
+    if (!updateBuildState) return
+    updateBuildState({ category: 'name', value: newBuildName })
+    setIsEditingBuildName(false)
+  }
+
+  function handleRemoveTrait(traitItem: TraitItem) {
+    if (!isEditable) return
+    if (!updateBuildState) return
+
+    const newTraitItems = buildState.items.trait.filter(
+      (i) => i.name !== traitItem.name,
+    )
+    const newTraitItemParams = TraitItem.toParams(newTraitItems)
+    updateBuildState({ category: 'trait', value: newTraitItemParams })
+  }
+
+  function handleUpdateTraitAmount(newTraitItem: TraitItem) {
+    if (!isEditable) return
+    if (!updateBuildState) return
+
+    const newTraitItems = buildState.items.trait.map((traitItem) => {
+      if (traitItem.name === newTraitItem.name) {
+        return newTraitItem
+      }
+      return traitItem
+    })
+    const newTraitItemParams = TraitItem.toParams(newTraitItems)
+    updateBuildState({ category: 'trait', value: newTraitItemParams })
+  }
+
   return (
-    <>
+    <div
+      className={cn(
+        'w-full grow rounded border-2 border-green-500 bg-black p-4',
+        isScreenshotMode && 'min-h-[731px] min-w-[502px]',
+      )}
+    >
       <ItemSelect
         open={isItemSelectModalOpen}
         onClose={() => setSelectedItemSlot({ category: null })}
@@ -315,10 +261,9 @@ export default function Builder({
           isEditable={isEditable}
           isEditingBuildName={isEditingBuildName}
           onClick={() => setIsEditingBuildName(true)}
-          onClose={(newBuildName: string) => {
-            updateBuildState('name', newBuildName)
-            setIsEditingBuildName(false)
-          }}
+          onClose={(newBuildName: string) =>
+            handleUpdateBuildName(newBuildName)
+          }
           name={buildState.name}
           showControls={showControls}
         />
@@ -543,36 +488,25 @@ export default function Builder({
           isEditable={isEditable}
           isScreenshotMode={isScreenshotMode}
           onAddTrait={() => handleButtonClick('trait')}
-          onRemoveTrait={(traitItem) => {
-            const newTraitItems = buildState.items.trait.filter(
-              (i) => i.name !== traitItem.name,
-            )
-            const newTraitItemParams = TraitItem.toParams(newTraitItems)
-            updateBuildState('trait', newTraitItemParams)
-          }}
-          onChangeAmount={(newTraitItem) => {
-            const newTraitItems = buildState.items.trait.map((traitItem) => {
-              if (traitItem.name === newTraitItem.name) {
-                return newTraitItem
-              }
-              return traitItem
-            })
-            const newTraitItemParams = TraitItem.toParams(newTraitItems)
-            updateBuildState('trait', newTraitItemParams)
-          }}
+          onRemoveTrait={(traitItem) => handleRemoveTrait(traitItem)}
+          onUpdateAmount={(newTraitItem) =>
+            handleUpdateTraitAmount(newTraitItem)
+          }
         />
       </div>
 
-      <div id="member-features-row" className="mt-4 w-full">
-        <MemberFeatures
-          description={buildState.description}
-          isEditable={isEditable}
-          isPublic={buildState.isPublic}
-          isScreenshotModeActive={isScreenshotMode}
-          onChangeDescription={handleChangeDescription}
-          onChangeIsPublic={handleToggleIsPublic}
-        />
-      </div>
-    </>
+      {includeMemberFeatures && (
+        <div id="member-features-row" className="mt-4 w-full">
+          <MemberFeatures
+            description={buildState.description}
+            isEditable={isEditable}
+            isPublic={buildState.isPublic}
+            isScreenshotModeActive={isScreenshotMode}
+            onChangeDescription={handleChangeDescription}
+            onChangeIsPublic={handleToggleIsPublic}
+          />
+        </div>
+      )}
+    </div>
   )
 }

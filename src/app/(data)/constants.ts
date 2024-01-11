@@ -1,7 +1,6 @@
 import {
   BookmarkSquareIcon,
   DocumentCheckIcon,
-  DocumentTextIcon,
   HeartIcon,
   InformationCircleIcon,
   ListBulletIcon,
@@ -21,7 +20,7 @@ export const NAV_ITEMS = [
     name: 'Builder',
     description:
       'Create and share your favorite builds with your friends and the community.',
-    href: '/builder',
+    href: '/builder/create',
     icon: BookmarkSquareIcon,
   },
   {

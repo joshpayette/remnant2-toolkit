@@ -23,13 +23,19 @@ import { pageInfo as senorservezasRoninMeleePageInfo } from './build/senorcervez
 import { pageInfo as sheenShotsHotSwapperPageInfo } from './build/sheenshots-hot-swapper/metadata'
 import { pageInfo as boltJamisonsFargazerMagePageInfo } from './build/bolt-jamisons-fargazer-mage/metadata'
 import { pageInfo as sheenShotsCorruptedGuardianPageInfo } from './build/sheenshots-corrupted-guardian/metadata'
+import { pageInfo as senorcervezasInciernaryKingPageInfo } from './build/senorcervezas-incendiary-king/metadata'
+import { pageInfo as chaosGamingsTankualistPageInfo } from './build/chaos-gamings-tankualist/metadata'
+import { pageInfo as theBatmanBuildPageInfo } from './build/the-batman-build/metadata'
 
 const builds = [
-  sheenShotsCorruptedGuardianPageInfo,
+  theBatmanBuildPageInfo,
+  senorcervezasInciernaryKingPageInfo,
+  chaosGamingsTankualistPageInfo,
   boltJamisonsFargazerMagePageInfo,
   dotsrusLikesDotsPageInfo,
   senorservezasRoninMeleePageInfo,
   dudleysEldritchKnightPageInfo,
+  sheenShotsCorruptedGuardianPageInfo,
   sheenShotsHotSwapperPageInfo,
   sheenShotsRageLoopPageInfo,
   sadderallsRichieRichPageInfo,

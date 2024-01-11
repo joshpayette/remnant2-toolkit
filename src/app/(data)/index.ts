@@ -3691,6 +3691,11 @@ export const remnantItems: Item[] = [
     howToGet: `In Brabus' Shop after a Hardcore Veteran clear.
     Deleting the character who unlocked them does NOT remove them from the shop.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Savior`],
+    linkedItems: {
+      mod: {
+        name: 'Shatterstar',
+      },
+    },
   },
   {
     category: 'weapon',
@@ -3732,6 +3737,11 @@ export const remnantItems: Item[] = [
     howToGet: `Starkiller can be obtained in Brabus' Shop after a Apocalypse clear.
     Deleting the character who unlocked them does NOT remove them from the shop.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Starkiller`],
+    linkedItems: {
+      mod: {
+        name: 'Gravity Core',
+      },
+    },
   },
   {
     category: 'weapon',
@@ -5070,6 +5080,22 @@ export const remnantItems: Item[] = [
   },
   {
     category: 'mod',
+    name: 'Gravity Core',
+    imagePath: '/mod/gravity_core.png',
+    id: 'kep3kb',
+    description: `Fires a highly compressed sphere which draws in objects and deals 50 damage on impact. When colliding with a target, a large Gravity Well opens and draws in objects for 5s.
+
+    When the Gravity Well expires, it deals 250 damage within 10m. Adds 200 damage per enemy and divides total damage among all enemies.`,
+    howToGet: `Attached to the Starkiller weapon`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Gravity+Core`],
+    linkedItems: {
+      weapon: {
+        name: 'Starkiller',
+      },
+    },
+  },
+  {
+    category: 'mod',
     name: "Guardian's Call",
     imagePath: '/mod/guardians_call.png',
     id: 'anhbhf',
@@ -5346,6 +5372,11 @@ export const remnantItems: Item[] = [
     Weakspot Hits and Kills cause shots to fragment, automatically targeting nearby enemies. Fragments strike for 30% of the initial damage dealt and apply BURNING.`,
     howToGet: `Attached to the Savior long gun`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Shatterstar`],
+    linkedItems: {
+      weapon: {
+        name: 'Savior',
+      },
+    },
   },
   {
     category: 'mod',
@@ -7046,7 +7077,7 @@ Exclusive Ring for The Awakened King DLC."`,
   },
   {
     category: 'ring',
-    name: 'Bridge Wardens Crest',
+    name: `Bridge Warden's Crest`,
     imagePath: '/ring/bridge_wardens_crest.png',
     dlc: 'dlc1',
     id: 't7sqw7',
@@ -8798,7 +8829,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     imagePath: '/concoction/bark_extract.png',
     id: 'hqjxyn',
     description: `Increases Armor by 30. Lasts 60m and will stay in effect after death. Only one Concoction may be active at a time.`,
-    howToGet: `Can be bought form Mudtooth for 500 scrap currency remnant2 wiki guide 30px`,
+    howToGet: `Can be bought form Mudtooth for 500 scrap`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Bark+Extract`],
   },
   {
@@ -8807,7 +8838,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     imagePath: '/concoction/bottled_shaedberry.png',
     id: 'qj302c',
     description: `Increases Mod Power Generation by 10%. Lasts 60m and will stay in effect after death. Only one Concoction may be active at a time.`,
-    howToGet: `Can be bought from Mudtooth at the following cost: scrap currency remnant2 wiki guide 30pxx500 Scrap.`,
+    howToGet: `Can be bought from Mudtooth at the following cost: 500 Scrap.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Bottled+Shaedberry`],
   },
   {
@@ -8816,7 +8847,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     imagePath: '/concoction/chilled_steam.png',
     id: 'fhm256',
     description: `Increases Movement Speed by 10%. Lasts 60m and will stay in effect after death. Only one Concoction may be active at a time.`,
-    howToGet: `Can be bought form Mudtooth for 500 scrap currency remnant2 wiki guide 30px`,
+    howToGet: `Can be bought form Mudtooth for 500 scrap currency`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Chilled+Steam`],
   },
   {
@@ -8824,18 +8855,21 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     name: 'Dark Cider',
     imagePath: '/concoction/dark_cider.png',
     id: '8p2sj3',
-    description: ``,
-    howToGet: ``,
-    wikiLinks: [``],
+    description: `Increases Health by 6.66%, Stamina by 6.66%, and Movement Speed by 6.66%. Lasts 60m and will stay in effect after death. Only one Concoction may be active at a time.`,
+    howToGet: `Can be bought from Mudtooth for 500`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Dark+Cider`],
   },
   {
     category: 'concoction',
     name: 'Dark Fluid',
     imagePath: '/concoction/dark_fluid.png',
     id: 'byi9a5',
-    description: `Increases Health by 6.66%, Stamina by 6.66%, and Movement Speed by 6.66%. Lasts 60m and will stay in effect after death. Only one Concoction may be active at a time.`,
-    howToGet: `Can be bought from Mudtooth for 500`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Dark+Cider`],
+    description: `Increases Distance of Evade and Combat Slide by 15% and reduces the cost by 20%. Lasts 60m and will stay in effect after death. Only one Concoction may be active at a time.`,
+    howToGet: `
+    Can be bought from Mudtooth at the following cost: 500 Scrap.
+    Can be crafted at Drzyr Replicator, you will need the following Materials: 650 Scrap.
+`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Dark+Fluid`],
   },
   {
     category: 'concoction',
@@ -8855,7 +8889,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     imagePath: '/concoction/mudtooths_elixir.png',
     id: 'yduuj3',
     description: `Increases Experience Gains by 15%. Lasts 60m and will stay in effect after death. Only one Concoction may be active at a time.`,
-    howToGet: `Can be bought from Mudtooth for 500 scrap scrap currency remnant2 wiki guide 64px after beating the campaign. `,
+    howToGet: `Can be bought from Mudtooth for 500 scrap scrap currency after beating the campaign. `,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Mudtooth's+Elixir`],
   },
   {
@@ -8864,7 +8898,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     imagePath: '/concoction/mudtooths_stew.png',
     id: '5yrxf1',
     description: `Increases Max Stamina by 25, Lasts 60m and will stay in effect after death Only one Concoction may be active at a time.`,
-    howToGet: `Can be bought form Mudtooth for 500 scrap currency remnant2 wiki guide 30px`,
+    howToGet: `Can be bought form Mudtooth for 500 scrap currency`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Mudtooth's+Stew`],
   },
   {
@@ -8873,7 +8907,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     imagePath: '/concoction/mudtooths_tonic.png',
     id: 'p0ru94',
     description: `Increases Max Health by 25. Lasts 60m and will stay in effect after death. Only one Concoction may be active at a time.`,
-    howToGet: `Can be bought form Mudtooth for 500 scrap currency remnant2 wiki guide 30px`,
+    howToGet: `Can be bought form Mudtooth for 500 scrap currency`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Mudtooth's+Tonic`],
   },
   {
@@ -8882,7 +8916,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     imagePath: '/concoction/root_water.png',
     id: '56vkqr',
     description: `Regenerates 0.75 Health per second. Lasts 60m and will stay in effect after death. Only one Concoction may be active at a time.`,
-    howToGet: `Can be bought from Mudtooth at the following cost: scrap currency remnant2 wiki guide 30pxx500 Scrap`,
+    howToGet: `Can be bought from Mudtooth at the following cost: 500 Scrap`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Root+Water`],
   },
   {
@@ -8892,8 +8926,8 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     id: 'dk9yg4',
     description: `Increases Grey Health Conversion by 50% and Grey Health Regen by 1 per secorid. Lasts 60m and will stay in effect after death. Only one Concoction may be active at a time.`,
     howToGet: `
-    Can be bought from Mudtooth at the following cost: scrap currency remnant2 wiki guide 30pxx500 Scrap.
-    Can be bought from Bedel of the Vaunnt for scrap currency remnant2 wiki guide 30pxx650 Scrap.
+    Can be bought from Mudtooth at the following cost: 500 Scrap.
+    Can be bought from Bedel of the Vaunnt for 650 Scrap.
 `,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Sacred+Lakewater`],
   },
@@ -8905,7 +8939,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     description: `Increases Ranged and Melee Lifesteal by 3.5% of base damage. Increases damage taken by 10%. Lasts 60m and will stay in effect after death. Only one Concoction may be active at a time.`,
     howToGet: `
     Yaesha - Can be crafted at Bloodmoon Altar. Required Material: Blood Moon Essence.
-    Can be bought from Mudtooth at the following cost: scrap currency remnant2 wiki guide 30pxx500 Scrap.
+    Can be bought from Mudtooth at the following cost: 500 Scrap.
 `,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Sanguine+Vapor`],
   },
@@ -8915,7 +8949,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     imagePath: '/concoction/strong_drink.png',
     id: 'to2dcw',
     description: `Reduces Encumbrance by 10. Lasts 60m and will stay in effect after death. Only one Concoction may be active at a time.`,
-    howToGet: `Can be bought form Mudtooth for 500 scrap currency remnant2 wiki guide 30px`,
+    howToGet: `Can be bought form Mudtooth for 500 scrap currency`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Strong+Drink`],
   },
   {
@@ -8925,8 +8959,8 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     id: 'l7r9sm',
     description: `Reduces Reticle Sway, Spread, and Gun Recoil by 35%. Lasts 60m and will stay in effect after death. Only one Concoction may be active at a time.`,
     howToGet: `
-    Can be bought from Mudtooth at the following cost: scrap currency remnant2 wiki guide 30pxx500 Scrap.
-    Can be crafted by Nimue with the following material: scrap currency remnant2 wiki guide 30pxx350 Scrap and x1 Lumenite Crystal.
+    Can be bought from Mudtooth at the following cost: 500 Scrap.
+    Can be crafted by Nimue with the following material: 350 Scrap and x1 Lumenite Crystal.
 `,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Tranquility+Font`],
   },
@@ -8936,7 +8970,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     imagePath: '/concoction/verdant_tea.png',
     id: 'qgare2',
     description: `Increases Stamina Recovery by 20 per second and reduces Stamina Regen Penalty by 50%. Lasts 60m and will stay in effect after death. Only one Concoction may be active at a time.`,
-    howToGet: `Can be bought form Mudtooth for 500 scrap currency remnant2 wiki guide 30px`,
+    howToGet: `Can be bought form Mudtooth for 500 scrap currency`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Verdant+Tea`],
   },
   {
@@ -8946,8 +8980,8 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     id: '2jeq07',
     description: `Reduces Skill Cooldowns by 10%. Lasts 60m and will stay in effect after death. Only one Concoction may be active at a time.`,
     howToGet: `
-    Can be bought from Mudtooth at the following cost: scrap currency remnant2 wiki guide 30pxx500 Scrap.
-    Can be crafted at Drzyr Replicator, you will need the following Materials: scrap currency remnant2 wiki guide 30pxx650 Scrap.
+    Can be bought from Mudtooth at the following cost: 500 Scrap.
+    Can be crafted at Drzyr Replicator, you will need the following Materials: 650 Scrap.
     Found in N'Erud as random Drop.
 `,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Xenoplasm`],
@@ -8959,8 +8993,8 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     id: '6lnae6',
     description: `Slightly increases Evade Window and Evade Speed by 15%. Lasts 60s.`,
     howToGet: `
-    Can be bought form Reggie for 200 scrap currency remnant2 wiki guide 30px
-    Can be crafted at Drzyr Replicator, you will need the following Materials: scrap currency remnant2 wiki guide 30pxx200 Scrap.
+    Can be bought form Reggie for 200 scrap currency
+    Can be crafted at Drzyr Replicator, you will need the following Materials: 200 Scrap.
 `,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Ambit+Ember`],
   },
@@ -8970,7 +9004,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     imagePath: '/consumable/ammo_box.png',
     id: 'v2usqs',
     description: `Replenishes all reserve ammo.`,
-    howToGet: `Can be bought form Reggie for 250 scrap currency remnant2 wiki guide 30px`,
+    howToGet: `Can be bought form Reggie for 250 scrap currency`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Ammo+Box`],
   },
   {
@@ -8979,7 +9013,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     imagePath: '/consumable/antidote.png',
     id: 'a34kjc',
     description: `Removes CORRODED effect and increases ACID resistance by 15%. Lasts 10m.`,
-    howToGet: `Can be bought from Dr Norah for 100 scrap currency remnant2 wiki guide 30px`,
+    howToGet: `Can be bought from Dr Norah for 100 scrap currency`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Antidote`],
   },
   {
@@ -8988,7 +9022,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     imagePath: '/consumable/bandage.png',
     id: 'elazod',
     description: `Stops BLEEDING and restores all Grey Health.`,
-    howToGet: `Can be bought from Dr Norah for 100 scrap currency remnant2 wiki guide 30px`,
+    howToGet: `Can be bought from Dr Norah for 100 scrap currency`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Bandage`],
   },
   {
@@ -8998,8 +9032,8 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     id: 'edaeta',
     description: `When thrown, device becomes an anchor and applies SLOW to all anemies within 4m. Lasts 20s.`,
     howToGet: `
-    Can be bought form Reggie for 250 scrap currency remnant2 wiki guide 30px.
-    Can be crafted at Drzyr Replicator, you will need the following Materials: scrap currency remnant2 wiki guide 30pxx250 Scrap.
+    Can be bought form Reggie for 250 scrap currency.
+    Can be crafted at Drzyr Replicator, you will need the following Materials: 250 Scrap.
 `,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Binding+Orb`],
   },
@@ -9009,7 +9043,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     imagePath: '/consumable/black_tar.png',
     id: 'nrdcko',
     description: `When thrown, explodes in a 4m radius dealing 90 damage and applies TARRED wich lasts 15s. Ranged damage and other FIRE sources ignite TARRED entities, causing dealing 750 BURNING damage over 10s.`,
-    howToGet: `Can be bought form Reggie for 250 scrap currency remnant2 wiki guide 30px`,
+    howToGet: `Can be bought form Reggie for 250 scrap`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Black+Tar`],
   },
   {
@@ -9018,7 +9052,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     imagePath: '/consumable/blood_root.png',
     id: 'bisl2l',
     description: `Regenerates 1.5 Health per second. Lasts 30s.`,
-    howToGet: `Can be bought from Dr Norah for 75 scrap currency remnant2 wiki guide 30px`,
+    howToGet: `Can be bought from Dr Norah for 75 scrap currency`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Blood+Root`],
   },
   {
@@ -9028,8 +9062,8 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     id: '937h03',
     description: `When thrown, explodes in a 4m radius dealing 250 damage and leaving amysterious Mist which causes enemies to receive 10% additional damage. Debuff last 10s after enemies leave the Mist. Lasts 15s.`,
     howToGet: `
-    Can be bought form Reggie for 250 scrap currency remnant2 wiki guide 30px
-    Can be bought form Bedel of the Vaunnt for 250 scrap currency remnant2 wiki guide 30px
+    Can be bought form Reggie for 250 scrap currency
+    Can be bought form Bedel of the Vaunnt for 250 scrap currency
 `,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Brightstone`],
   },
@@ -9039,7 +9073,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     imagePath: '/consumable/confidence_booster.png',
     id: 'al8yob',
     description: `Reduces incoming damage by 10% and Stagger by 1. Lasts 20s.`,
-    howToGet: `Can be bought form Reggie for 200 scrap currency remnant2 wiki guide 30px`,
+    howToGet: `Can be bought form Reggie for 200 scrap`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Confidence+Booster`],
   },
   {
@@ -9048,7 +9082,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     imagePath: '/consumable/ethereal_orb.png',
     id: 'ffjbc9',
     description: `Removes OVERLOADED effect and increases SHOCK resistance by 15%. Lasts 10m.`,
-    howToGet: `Can be bought from Dr Norah for 100 scrap currency remnant2 wiki guide 30px`,
+    howToGet: `Can be bought from Dr Norah for 100 scrap currency`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Ethereal+Orb`],
   },
   {
@@ -9067,8 +9101,8 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     id: 'm1gznf',
     description: `Reduces Stamina Consumption by 50%. Lasts 60s.`,
     howToGet: `
-    Can be bought form Reggie for 200 scrap currency remnant2 wiki guide 30px
-    Can be bought form Bedel of The Vaunnt for 200 scrap currency remnant2 wiki guide 30px
+    Can be bought form Reggie for 200 scrap currency
+    Can be bought form Bedel of The Vaunnt for 200 scrap currency
 `,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Gul+Serum`],
   },
@@ -9096,7 +9130,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     imagePath: '/consumable/mud_rub.png',
     id: 'dvx5ib',
     description: `Extinguishes BURNING effect and increases FIRE resistance by 15. Lasts 10m.`,
-    howToGet: `Can be bought from Dr Norah for 100 scrap currency remnant2 wiki guide 30px`,
+    howToGet: `Can be bought from Dr Norah for 100 scrap currency`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Mud+Rub`],
   },
   {
@@ -9119,8 +9153,8 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     id: '0sec3n',
     description: `Cures ROOT ROT Blight and increases Blight Resistance by 25%. Lasts 10m.`,
     howToGet: `
-    Can be bought form Dr Norah for 100 scrap currency remnant2 wiki guide 30px
-    Can be bought form Bedel of The Vaunnt for 100 scrap currency remnant2 wiki guide 30px
+    Can be bought form Dr Norah for 100 scrap currency
+    Can be bought form Bedel of The Vaunnt for 100 scrap currency
 `,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Oilskin+Balm`],
   },
@@ -9139,7 +9173,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     imagePath: '/consumable/pipe_bomb.png',
     id: 'kfwizc',
     description: `When thrown, explodes ina 4m radius dealing 450 damage and applying BLEEDING, which deals an additional 1,350 BLEED damage over 30s.`,
-    howToGet: `Can be bought form Reggie for 250 scrap currency remnant2 wiki guide 30px `,
+    howToGet: `Can be bought form Reggie for 250 scrap currency`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Pipe+Bomb`],
   },
   {
@@ -9162,7 +9196,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     imagePath: '/consumable/processed_koara.png',
     id: '4lvdgg',
     description: `Decreases Stamina Recovery delay by 75% and Stamina Regen Penalty by 50%. Lasts 60s.`,
-    howToGet: `Can be crafted at Dwell Store in Ward 13. Requires: Koara Pellet x1 Scrapx500`,
+    howToGet: `Can be crafted at Dwell Store in Ward 13. Requires: Koara Pellet x1 Scrap x500`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Processed+Koara`],
   },
   {
@@ -9190,8 +9224,8 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     id: 'li99wc',
     description: `Cures SUPPRESSION Blight and increases Blight Resistance by 25%. Lasts 10m.`,
     howToGet: `
-    Can be bought form Dr Norah for x100 scrap currency remnant2 wiki guide 30px
-    Can be crafted at Drzyr Replicator, you will need the following Materials: scrap currency remnant2 wiki guide 30pxx100 Scrap.
+    Can be bought form Dr Norah for x100 scrap currency
+    Can be crafted at Drzyr Replicator, you will need the following Materials: 100 Scrap.
     Can be found as random drop in N'Erud.
 `,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Timeworn+Unguent`],
