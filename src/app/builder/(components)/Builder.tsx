@@ -28,7 +28,7 @@ type BuilderProps = {
         scroll,
       }: {
         category: string
-        value: string | string[]
+        value: string | Array<string | undefined>
         scroll?: boolean
       }) => void
     }

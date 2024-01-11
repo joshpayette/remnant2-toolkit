@@ -39,11 +39,11 @@ export class MutatorItem implements BaseMutatorItem {
     return item.category === 'mutator'
   }
 
-  static toParams(items: MutatorItem[]): string[] {
+  static toParams(items: Array<MutatorItem | null>): string[] {
     return items.map((i) => `${i?.id ?? ''}`)
   }
 
-  static toDBValue(items: MutatorItem[]): string {
+  static toDBValue(items: Array<MutatorItem | null>): string {
     return this.toParams(items).join(',')
   }
 

@@ -1,4 +1,3 @@
-import { Build } from '@prisma/client'
 import { GenericItem } from './items/GenericItem'
 import { ArmorItem } from './items/ArmorItem'
 import { WeaponItem } from './items/WeaponItem'
