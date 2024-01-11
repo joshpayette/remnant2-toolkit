@@ -6,13 +6,13 @@ import {
   linkArchtypesToTraits,
   linkWeaponsToMods,
 } from '../utils'
-import { remnantItems } from '@/app/(data)'
 import { Item } from '@/app/(types)'
 import { TraitItem } from '@/app/(types)/items/TraitItem'
 import { ArmorItem } from '@/app/(types)/items/ArmorItem'
 import { GenericItem } from '@/app/(types)/items/GenericItem'
 import { WeaponItem } from '@/app/(types)/items/WeaponItem'
 import { MutatorItem } from '@/app/(types)/items/MutatorItem'
+import { remnantItems } from '@/app/(data)'
 
 export default function useDBBuildState(initialBuildState: BuildState) {
   const [dbBuildState, setDBBuildState] =
@@ -162,6 +162,12 @@ export default function useDBBuildState(initialBuildState: BuildState) {
         ...dbBuildState.items,
         [category]: itemOrItems,
       },
+    }
+
+    // Remove all mods if category is weapon
+    // They will be relinked
+    if (category === 'weapon') {
+      newBuildState.items.mod = []
     }
 
     const linkedBuildState = linkArchtypesToTraits(
