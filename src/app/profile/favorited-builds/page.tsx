@@ -3,8 +3,8 @@ import { prisma } from '@/app/(lib)/db'
 import ViewBuildButton from '../(components)/ViewBuildButton'
 import CopyBuildUrlButton from '../(components)/CopyBuildUrlButton'
 import { StarIcon } from '@heroicons/react/24/solid'
-import { ExtendedBuild } from '@/app/(types)'
-import { extendedBuildToBuildState } from '@/app/(lib)/utils'
+import { ExtendedBuild } from '@/app/builder/types'
+import { extendedBuildToBuildState } from '@/app/builder/utils'
 
 async function getBuilds() {
   const session = await getServerSession()

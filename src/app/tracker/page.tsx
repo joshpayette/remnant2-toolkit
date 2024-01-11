@@ -7,7 +7,6 @@ import ToCsvButton from '@/app/(components)/ToCsvButton'
 import { useIsClient } from 'usehooks-ts'
 import PageHeader from '@/app/(components)/PageHeader'
 import ItemInfo from '@/app/(components)/ItemInfo'
-import { itemToCsvItem } from '@/app/(lib)/utils'
 import ListItems from './(components)/ListItems'
 import { useFormState } from 'react-dom'
 import parseSaveFile from './actions'
@@ -17,6 +16,7 @@ import { GenericItem } from '../(types)/items/GenericItem'
 import { MutatorItem } from '../(types)/items/MutatorItem'
 import useFilteredItems from '../(hooks)/useFilteredItems'
 import Filters from '../(components)/Filters'
+import { itemToCsvItem } from '../builder/utils'
 
 const skippedItemCategories: Array<GenericItem['category']> = [
   'concoction',

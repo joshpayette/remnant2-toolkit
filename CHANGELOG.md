@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2023-01-10
+
+### Added
+
+- New notes and prompts when editing or creating builds while not logged in.
+
+### Changed
+
+- Updated the builder to use separate page routes for builds in the database. This helps squash bugs from trying to keep both types of builds commingled in the same page.
+
 ## 2023-01-09
 
 ### Fixed
