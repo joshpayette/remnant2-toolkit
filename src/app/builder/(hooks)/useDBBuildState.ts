@@ -6,7 +6,6 @@ import {
   linkArchtypesToTraits,
   linkWeaponsToMods,
 } from '../utils'
-import { remnantItems } from '@/app/(data)'
 import { Item } from '@/app/(types)'
 import { TraitItem } from '@/app/(types)/items/TraitItem'
 import { ArmorItem } from '@/app/(types)/items/ArmorItem'
