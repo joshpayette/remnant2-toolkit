@@ -414,20 +414,20 @@ export function linkWeaponsToMods(buildState: BuildState) {
     newBuildState.items.mod[index] = modItem
   })
 
-  // Check the mods for linked weapons
-  // If any are found, add them to the build
-  const mods = newBuildState.items.mod
-  mods.forEach((mod, index) => {
-    const linkedWeapon = mod.linkedItems?.weapon
-    if (!linkedWeapon) return
+  // // Check the mods for linked weapons
+  // // If any are found, add them to the build
+  // const mods = newBuildState.items.mod
+  // mods.forEach((mod, index) => {
+  //   const linkedWeapon = mod?.linkedItems?.weapon
+  //   if (!linkedWeapon) return
 
-    const weaponItem = remnantItems.find(
-      (weapon) => weapon.name === linkedWeapon.name,
-    )
-    if (!WeaponItem.isWeaponItem(weaponItem)) return
+  //   const weaponItem = remnantItems.find(
+  //     (weapon) => weapon.name === linkedWeapon.name,
+  //   )
+  //   if (!WeaponItem.isWeaponItem(weaponItem)) return
 
-    newBuildState.items.weapon[index] = weaponItem
-  })
+  //   newBuildState.items.weapon[index] = weaponItem
+  // })
 
   // Return the build with linked items
   return newBuildState
@@ -556,7 +556,7 @@ export function buildStateToMasonryItems(build: BuildState): Item[] {
   // weapons
   getArrayOfLength(3).forEach((_, i) => {
     items.weapon[i] && masonryItems.push(items.weapon[i])
-    items.mod[i] && masonryItems.push(items.mod[i])
+    items.mod[i] && masonryItems.push(items.mod[i] as Item)
     items.mutator[i] && masonryItems.push(items.mutator[i])
   })
 
