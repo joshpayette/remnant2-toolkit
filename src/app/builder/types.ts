@@ -36,15 +36,15 @@ export interface BuildState {
     gloves: ArmorItem | null
     relic: GenericItem | null
     amulet: GenericItem | null
-    weapon: WeaponItem[]
-    ring: GenericItem[]
-    archtype: GenericItem[]
-    skill: GenericItem[]
-    concoction: GenericItem[]
-    consumable: GenericItem[]
-    mod: GenericItem[]
-    mutator: MutatorItem[]
-    relicfragment: GenericItem[]
+    weapon: Array<WeaponItem | null>
+    ring: Array<GenericItem | null>
+    archtype: Array<GenericItem | null>
+    skill: Array<GenericItem | null>
+    concoction: Array<GenericItem | null>
+    consumable: Array<GenericItem | null>
+    mod: Array<GenericItem | null>
+    mutator: Array<MutatorItem | null>
+    relicfragment: Array<GenericItem | null>
     trait: TraitItem[]
   }
 }

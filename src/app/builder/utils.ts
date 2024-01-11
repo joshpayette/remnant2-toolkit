@@ -101,19 +101,21 @@ export function buildStateToCsvData(buildState: BuildState) {
     .map((category) => {
       const itemOrItems = buildState.items[category]
 
-      if (!itemOrItems)
-        return {
-          name: '',
-          category,
-          description: '',
-          howToGet: '',
-          wikiLinks: '',
-        }
+      const emptyItem = {
+        name: '',
+        category,
+        description: '',
+        howToGet: '',
+        wikiLinks: '',
+      }
+
+      if (!itemOrItems) return emptyItem
 
       if (Array.isArray(itemOrItems)) {
         // If the category is a trait, we need to add the trait amount to the name
         if (category === 'trait') {
           return itemOrItems.map((item) => {
+            if (!item) return emptyItem
             if (!TraitItem.isTraitItem(item)) return itemToCsvItem(item)
             const { name, ...csvItem } = itemToCsvItem(item)
             return {
@@ -123,7 +125,9 @@ export function buildStateToCsvData(buildState: BuildState) {
           })
         }
 
-        return itemOrItems.map((item) => itemToCsvItem(item))
+        return itemOrItems
+          .filter((item) => item !== null)
+          .map((item) => itemToCsvItem(item as GenericItem))
       }
 
       if (itemOrItems.category === 'trait') {
@@ -261,7 +265,7 @@ export function getConcoctionSlotCount(buildState: BuildState): number {
 
   // Add 1 concoction if they are wearing Feastmaster's Signet
   const hasFeastmastersSignet = buildState.items.ring.some(
-    (ring) => ring.name === "Feastmaster's Signet",
+    (ring) => ring?.name === "Feastmaster's Signet",
   )
   if (hasFeastmastersSignet) concoctionCount += 1
 
@@ -405,28 +409,13 @@ export function linkWeaponsToMods(buildState: BuildState) {
   // If any are found, add them to the build
   const weapons = newBuildState.items.weapon
   weapons.forEach((weapon, index) => {
-    const linkedMod = weapon.linkedItems?.mod
+    const linkedMod = weapon?.linkedItems?.mod
     if (!linkedMod) return
 
     const modItem = remnantItems.find((mod) => mod.name === linkedMod.name)
     if (!modItem) return
 
     newBuildState.items.mod[index] = modItem
-  })
-
-  // Check the mods for linked weapons
-  // If any are found, add them to the build
-  const mods = newBuildState.items.mod
-  mods.forEach((mod, index) => {
-    const linkedWeapon = mod.linkedItems?.weapon
-    if (!linkedWeapon) return
-
-    const weaponItem = remnantItems.find(
-      (weapon) => weapon.name === linkedWeapon.name,
-    )
-    if (!WeaponItem.isWeaponItem(weaponItem)) return
-
-    newBuildState.items.weapon[index] = weaponItem
   })
 
   // Return the build with linked items
@@ -445,7 +434,7 @@ export function linkArchtypesToTraits(buildState: BuildState) {
   const archtypes = newBuildState.items.archtype
 
   archtypes.forEach((archtype, archtypeIndex) => {
-    const linkedTraits = archtype.linkedItems?.traits
+    const linkedTraits = archtype?.linkedItems?.traits
     if (!linkedTraits) return
 
     const linkedTraitItems = remnantItems.filter((item) =>
@@ -533,8 +522,8 @@ export function buildStateToMasonryItems(build: BuildState): Item[] {
 
   // archtypes
   getArrayOfLength(2).forEach((_, i) => {
-    items.archtype[i] && masonryItems.push(items.archtype[i])
-    items.skill[i] && masonryItems.push(items.skill[i])
+    items.archtype[i] && masonryItems.push(items.archtype[i] as GenericItem)
+    items.skill[i] && masonryItems.push(items.skill[i] as GenericItem)
   })
 
   // armor
@@ -545,19 +534,20 @@ export function buildStateToMasonryItems(build: BuildState): Item[] {
   items.relic && masonryItems.push(items.relic)
   getArrayOfLength(3).forEach((_, i) => {
     if (!items.relicfragment[i]) return
-    items.relicfragment[i] && masonryItems.push(items.relicfragment[i])
+    items.relicfragment[i] &&
+      masonryItems.push(items.relicfragment[i] as GenericItem)
   })
   items.amulet && masonryItems.push(items.amulet)
   getArrayOfLength(4).forEach((_, i) => {
     if (!items.ring[i]) return
-    items.ring[i] && masonryItems.push(items.ring[i])
+    items.ring[i] && masonryItems.push(items.ring[i] as GenericItem)
   })
 
   // weapons
   getArrayOfLength(3).forEach((_, i) => {
-    items.weapon[i] && masonryItems.push(items.weapon[i])
-    items.mod[i] && masonryItems.push(items.mod[i])
-    items.mutator[i] && masonryItems.push(items.mutator[i])
+    items.weapon[i] && masonryItems.push(items.weapon[i] as GenericItem)
+    items.mod[i] && masonryItems.push(items.mod[i] as Item)
+    items.mutator[i] && masonryItems.push(items.mutator[i] as GenericItem)
   })
 
   // traits

@@ -12,6 +12,7 @@ import { ArmorItem } from '@/app/(types)/items/ArmorItem'
 import { GenericItem } from '@/app/(types)/items/GenericItem'
 import { WeaponItem } from '@/app/(types)/items/WeaponItem'
 import { MutatorItem } from '@/app/(types)/items/MutatorItem'
+import { remnantItems } from '@/app/(data)'
 
 export default function useDBBuildState(initialBuildState: BuildState) {
   const [dbBuildState, setDBBuildState] =
@@ -38,7 +39,7 @@ export default function useDBBuildState(initialBuildState: BuildState) {
     value,
   }: {
     category: string
-    value: string | string[]
+    value: string | Array<string | undefined>
   }) {
     // --------------------------
     // Non-items
@@ -162,6 +163,36 @@ export default function useDBBuildState(initialBuildState: BuildState) {
         [category]: itemOrItems,
       },
     }
+
+    if (category === 'weapon') {
+      // Look at each mod and if it is linked to the wrong weapon, remove it
+      newBuildState.items.mod = newBuildState.items.mod.map((mod, index) => {
+        if (mod?.linkedItems?.weapon) {
+          const linkedWeapon = remnantItems.find(
+            (item) => item.name === mod.linkedItems?.weapon?.name,
+          )
+          if (!linkedWeapon) return mod
+
+          if (newBuildState.items.weapon[index]?.id !== linkedWeapon.id) {
+            return null
+          }
+        }
+        return mod
+      })
+    }
+
+    // if (category === 'weapon') {
+    //   newBuildState.items.weapon.map((weapon, index) => {
+    //     if (weapon?.linkedItems?.mod) {
+    //       const linkedMod = remnantItems.find(
+    //         (item) => item.name === weapon.linkedItems?.mod?.name,
+    //       )
+    //       if (linkedMod) {
+    //         newBuildState.items.mod[index] = linkedMod
+    //       }
+    //     }
+    //   })
+    // }
 
     const linkedBuildState = linkArchtypesToTraits(
       linkWeaponsToMods(newBuildState),

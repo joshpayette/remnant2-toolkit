@@ -77,7 +77,7 @@ export default function useUrlBuildState() {
     scroll = false,
   }: {
     category: string
-    value: string | string[]
+    value: string | Array<string | undefined>
     scroll?: boolean
   }): void {
     // Remove empty items

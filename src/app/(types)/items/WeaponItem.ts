@@ -35,11 +35,11 @@ export class WeaponItem implements BaseWeaponItem {
     return item.category === 'weapon'
   }
 
-  static toParams(items: WeaponItem[]): string[] {
+  static toParams(items: Array<WeaponItem | null>): string[] {
     return items.map((i) => `${i?.id ?? ''}`)
   }
 
-  static toDBValue(items: WeaponItem[]): string {
+  static toDBValue(items: Array<WeaponItem | null>): string {
     return this.toParams(items).join(',')
   }
 
