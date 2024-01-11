@@ -164,10 +164,17 @@ export default function useDBBuildState(initialBuildState: BuildState) {
       },
     }
 
-    // Remove all mods if category is weapon
-    // They will be relinked
     if (category === 'weapon') {
-      newBuildState.items.mod = []
+      newBuildState.items.weapon.map((weapon, index) => {
+        if (weapon.linkedItems?.mod) {
+          const linkedMod = remnantItems.find(
+            (item) => item.name === weapon.linkedItems?.mod?.name,
+          )
+          if (linkedMod) {
+            newBuildState.items.mod[index] = linkedMod
+          }
+        }
+      })
     }
 
     const linkedBuildState = linkArchtypesToTraits(
