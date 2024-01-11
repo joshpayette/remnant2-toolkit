@@ -144,7 +144,7 @@ export default async function ListCreatedBuilds() {
                           {buildState.items.archtype.map((archtype, index) => {
                             return (
                               <div key={index}>
-                                {`${archtype.name}, ${
+                                {`${archtype?.name}, ${
                                   buildState.items.skill[index]?.name ?? ''
                                 }`}
                               </div>

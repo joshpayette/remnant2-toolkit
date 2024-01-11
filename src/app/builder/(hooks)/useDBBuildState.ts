@@ -39,7 +39,7 @@ export default function useDBBuildState(initialBuildState: BuildState) {
     value,
   }: {
     category: string
-    value: string | string[]
+    value: string | Array<string | undefined>
   }) {
     // --------------------------
     // Non-items
@@ -165,17 +165,34 @@ export default function useDBBuildState(initialBuildState: BuildState) {
     }
 
     if (category === 'weapon') {
-      newBuildState.items.weapon.map((weapon, index) => {
-        if (weapon.linkedItems?.mod) {
-          const linkedMod = remnantItems.find(
-            (item) => item.name === weapon.linkedItems?.mod?.name,
+      // Look at each mod and if it is linked to the wrong weapon, remove it
+      newBuildState.items.mod = newBuildState.items.mod.map((mod, index) => {
+        if (mod?.linkedItems?.weapon) {
+          const linkedWeapon = remnantItems.find(
+            (item) => item.name === mod.linkedItems?.weapon?.name,
           )
-          if (linkedMod) {
-            newBuildState.items.mod[index] = linkedMod
+          if (!linkedWeapon) return mod
+
+          if (newBuildState.items.weapon[index]?.id !== linkedWeapon.id) {
+            return null
           }
         }
+        return mod
       })
     }
+
+    // if (category === 'weapon') {
+    //   newBuildState.items.weapon.map((weapon, index) => {
+    //     if (weapon?.linkedItems?.mod) {
+    //       const linkedMod = remnantItems.find(
+    //         (item) => item.name === weapon.linkedItems?.mod?.name,
+    //       )
+    //       if (linkedMod) {
+    //         newBuildState.items.mod[index] = linkedMod
+    //       }
+    //     }
+    //   })
+    // }
 
     const linkedBuildState = linkArchtypesToTraits(
       linkWeaponsToMods(newBuildState),

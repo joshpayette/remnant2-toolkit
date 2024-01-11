@@ -34,7 +34,7 @@ export class TraitItem implements BaseTraitItem {
     this.amount = props.amount
   }
 
-  public static isTraitItem = (item?: GenericItem): item is TraitItem => {
+  public static isTraitItem = (item: GenericItem | null): item is TraitItem => {
     if (!item) return false
     return item.category === 'trait'
   }
