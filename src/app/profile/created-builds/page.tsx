@@ -6,8 +6,9 @@ import CopyBuildUrlButton from '../(components)/CopyBuildUrlButton'
 import EditBuildButton from '../(components)/EditBuildButton'
 import DeleteBuildButton from '../(components)/DeleteBuildButton'
 import { StarIcon } from '@heroicons/react/24/solid'
-import { ExtendedBuild } from '@/app/(types)'
-import { extendedBuildToBuildState } from '@/app/(lib)/utils'
+import { ExtendedBuild } from '@/app/builder/types'
+import { extendedBuildToBuildState } from '@/app/builder/utils'
+import DuplicateBuildButton from '../(components)/DuplicateBuildButton'
 
 async function getBuilds() {
   const session = await getServerSession()
@@ -163,7 +164,10 @@ export default async function ListCreatedBuilds() {
                           <CopyBuildUrlButton buildId={build.id} />
                         </td>
                         <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-0">
-                          <EditBuildButton build={build} />
+                          <EditBuildButton buildId={build.id} />
+                        </td>
+                        <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-0">
+                          <DuplicateBuildButton build={build} />
                         </td>
                         <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-0">
                           <DeleteBuildButton buildId={build.id} />

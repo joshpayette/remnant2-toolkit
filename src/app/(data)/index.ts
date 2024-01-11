@@ -7077,7 +7077,7 @@ Exclusive Ring for The Awakened King DLC."`,
   },
   {
     category: 'ring',
-    name: 'Bridge Wardens Crest',
+    name: `Bridge Warden's Crest`,
     imagePath: '/ring/bridge_wardens_crest.png',
     dlc: 'dlc1',
     id: 't7sqw7',

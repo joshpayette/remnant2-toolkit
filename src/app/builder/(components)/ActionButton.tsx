@@ -16,18 +16,6 @@ type ButtonProps = {
 }
 
 export const ActionButton = {
-  CopyBuildUrl: ({ onClick }: ButtonProps) => (
-    <button
-      className={cn(
-        buttonClasses,
-        'border-transparent bg-purple-500 text-gray-800 hover:bg-purple-700 hover:text-white',
-      )}
-      onClick={onClick}
-    >
-      Share Build
-    </button>
-  ),
-
   DuplicateBuild: ({ onClick }: ButtonProps) => (
     <button
       className={cn(buttonClasses, 'border-green-500 hover:bg-green-700')}
@@ -95,6 +83,18 @@ export const ActionButton = {
         {active ? <FlagIconOn /> : <FlagIconOff />}
       </span>
       <span className="text-md">{active ? 'Reported' : 'Report'}</span>
+    </button>
+  ),
+
+  ShareBuild: ({ onClick }: ButtonProps) => (
+    <button
+      className={cn(
+        buttonClasses,
+        'border-transparent bg-purple-500 text-gray-800 hover:bg-purple-700 hover:text-white',
+      )}
+      onClick={onClick}
+    >
+      Share Build
     </button>
   ),
 

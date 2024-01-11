@@ -1,16 +1,15 @@
-import { useLocalStorage } from '@/app/(hooks)/useLocalStorage'
 import { useRouter } from 'next/navigation'
-import { buildStateToQueryParams } from '@/app/(lib)/utils'
-import { BuildState } from '../../(types)/build-state'
+import { BuildState } from '../types'
 import { useEffect, useState } from 'react'
 import html2canvas from 'html2canvas'
 import copy from 'clipboard-copy'
 import { toast } from 'react-toastify'
+import { buildStateToQueryParams } from '../utils'
+import { isErrorResponse } from '@/app/(types)'
+import { createBuild } from '../actions'
 
 export default function useBuildActions() {
   const router = useRouter()
-
-  const { builderStorage, setBuilderStorage } = useLocalStorage()
 
   // iOS does not automatically download images, so we need to
   // make a clickable link available
@@ -41,36 +40,17 @@ export default function useBuildActions() {
     toast.success(!message ? defaultMessage : message)
   }
 
-  function handleDuplicateBuild(buildState: BuildState) {
+  async function handleDuplicateBuild(buildState: BuildState) {
     const newBuildName = `${buildState.name} (copy)`
-    const editBuildUrl = buildStateToQueryParams({
-      ...buildState,
-      name: newBuildName,
-    })
-
-    setBuilderStorage({
-      ...builderStorage,
-      tempDescription: buildState.description,
-      tempIsPublic: buildState.isPublic,
-      tempBuildId: null,
-      tempCreatedById: null,
-    })
-
-    router.push(editBuildUrl)
-  }
-
-  function handleEditBuild(buildState: BuildState) {
-    let editBuildUrl = buildStateToQueryParams(buildState)
-
-    setBuilderStorage({
-      ...builderStorage,
-      tempDescription: buildState.description,
-      tempIsPublic: buildState.isPublic,
-      tempBuildId: buildState.buildId,
-      tempCreatedById: buildState.createdById,
-    })
-
-    router.push(editBuildUrl)
+    const newBuildState = { ...buildState, name: newBuildName }
+    const response = await createBuild(JSON.stringify(newBuildState))
+    if (isErrorResponse(response)) {
+      console.error(response.errors)
+      toast.error('Error duplicating build. Please try again later.')
+    } else {
+      toast.success(response.message)
+      router.push(`/builder/${response.buildId}`)
+    }
   }
 
   function handleImageExport(el: HTMLDivElement | null, imageFileName: string) {
@@ -123,7 +103,6 @@ export default function useBuildActions() {
     handleClearImageLink,
     handleCopyBuildUrl,
     handleDuplicateBuild,
-    handleEditBuild,
     handleImageExport,
     handleScrollToDetailedView,
     isScreenshotMode: Boolean(isScreenshotMode),
