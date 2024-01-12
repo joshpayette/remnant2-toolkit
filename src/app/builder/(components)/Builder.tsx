@@ -12,6 +12,7 @@ import { BuildState, ItemSlot } from '../types'
 import ItemInfo from '@/app/(components)/ItemInfo'
 import { Item } from '@/app/(types)'
 import { getConcoctionSlotCount, getItemListForSlot } from '../utils'
+import MemberBadge from '@/app/(components)/MemberBadge'
 
 type BuilderProps = {
   buildState: BuildState
@@ -238,8 +239,9 @@ export default function Builder({
   return (
     <div
       className={cn(
-        'w-full grow rounded border-2 border-green-500 bg-black p-4',
+        'w-full grow rounded border-2 bg-black p-4',
         isScreenshotMode && 'min-h-[731px] min-w-[502px]',
+        buildState.isMember ? 'border-red-500' : 'border-green-500',
       )}
     >
       <ItemSelect
@@ -256,7 +258,12 @@ export default function Builder({
         onClose={() => setInfoItem(null)}
       />
 
-      <div className="mb-4">
+      <div
+        className={cn(
+          'relative border-b border-b-green-900',
+          buildState.isMember ? 'mb-8' : 'mb-4',
+        )}
+      >
         <BuilderName
           isEditable={isEditable}
           isEditingBuildName={isEditingBuildName}
@@ -267,6 +274,11 @@ export default function Builder({
           name={buildState.name}
           showControls={showControls}
         />
+        {buildState.isMember && (
+          <div className="absolute bottom-[-24px] left-[220px]">
+            <MemberBadge />
+          </div>
+        )}
       </div>
 
       <div

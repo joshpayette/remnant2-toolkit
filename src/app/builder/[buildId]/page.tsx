@@ -123,6 +123,8 @@ export default function Page({
                 <hr className="my-4 hidden border-gray-500 sm:visible" />
 
                 <div className="col-span-full flex w-full flex-col items-center justify-center gap-4">
+                  <TotalUpvotes totalUpvotes={buildState.totalUpvotes} />
+
                   <div className="my-4 flex flex-row items-center justify-center gap-x-4 sm:my-0 sm:flex-col sm:items-start sm:gap-x-0 sm:gap-y-2">
                     <ActionButton.Vote
                       active={buildState.upvoted}

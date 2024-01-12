@@ -20,7 +20,7 @@ export default function BuilderName({
   const [newName, setNewName] = useState(name)
 
   return (
-    <div className="relative mb-2 flex w-full flex-col items-center justify-center gap-2 border-b border-b-green-900 pb-2">
+    <div className="relative mb-2 flex w-full flex-col items-center justify-center gap-2  pb-2">
       {isEditingBuildName && isEditable ? (
         <>
           <Input

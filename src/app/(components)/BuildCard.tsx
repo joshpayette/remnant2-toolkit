@@ -22,8 +22,6 @@ export default function BuildCard({ build }: Props) {
   const router = useRouter()
   const buildState = extendedBuildToBuildState(build)
 
-  console.info('buildState', buildState)
-
   return (
     <div
       className={cn(

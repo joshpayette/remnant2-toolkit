@@ -708,6 +708,7 @@ export async function getBuild(
     id: build.id,
     name: build.name,
     description: build.description ?? '',
+    isMember: false,
     isPublic: build.isPublic,
     createdAt: build.createdAt,
     createdById: build.createdById,
@@ -753,6 +754,13 @@ export async function getBuild(
     },
   })
   returnedBuild.reported = Boolean(buildReported)
+
+  const isPaidUser = await prisma.paidUsers.findFirst({
+    where: {
+      userId: build.createdById,
+    },
+  })
+  returnedBuild.isMember = Boolean(isPaidUser)
 
   if (returnedBuild.isPublic) {
     return { message: 'Successfully fetched build', build: returnedBuild }
