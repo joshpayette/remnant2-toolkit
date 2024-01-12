@@ -14,6 +14,7 @@ import ImageDownloadLink from './(components)/ImageDownloadLink'
 import { useSession } from 'next-auth/react'
 import LoadingIndicator from '../(components)/LoadingIndicator'
 import Skeleton from '../(components)/Skeleton'
+import { cn } from '../(lib)/utils'
 
 export default function Page() {
   const { data: session, status: sessionStatus } = useSession()
@@ -126,7 +127,13 @@ export default function Page() {
             </div>
           </div>
         )}
-        <div ref={buildContainerRef}>
+        <div
+          ref={buildContainerRef}
+          className={cn(
+            'w-full grow bg-black',
+            isScreenshotMode && 'min-h-[731px] min-w-[502px]',
+          )}
+        >
           <Builder
             buildState={urlBuildState}
             includeMemberFeatures={false}

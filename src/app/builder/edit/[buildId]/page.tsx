@@ -12,6 +12,7 @@ import ActionButton from '../../(components)/ActionButton'
 import Builder from '../../(components)/Builder'
 import { extendedBuildToBuildState } from '../../utils'
 import MasonryItemList from '@/app/(components)/MasonryItemList'
+import { cn } from '@/app/(lib)/utils'
 
 export default function Page({
   params: { initialBuildState },
@@ -61,7 +62,13 @@ export default function Page({
           />
         </div>
 
-        <div ref={buildContainerRef}>
+        <div
+          ref={buildContainerRef}
+          className={cn(
+            'w-full grow bg-black',
+            isScreenshotMode && 'min-h-[731px] min-w-[502px]',
+          )}
+        >
           <Builder
             buildState={dbBuildState}
             includeMemberFeatures={true}
