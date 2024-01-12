@@ -26,8 +26,10 @@ import { pageInfo as sheenShotsCorruptedGuardianPageInfo } from './build/sheensh
 import { pageInfo as senorcervezasInciernaryKingPageInfo } from './build/senorcervezas-incendiary-king/metadata'
 import { pageInfo as chaosGamingsTankualistPageInfo } from './build/chaos-gamings-tankualist/metadata'
 import { pageInfo as theBatmanBuildPageInfo } from './build/the-batman-build/metadata'
+import { pageInfo as senorcervezasVoltaicShockTrooperPageInfo } from './build/senorcervezas-voltaic-shock-trooper/metadata'
 
 const builds = [
+  senorcervezasVoltaicShockTrooperPageInfo,
   theBatmanBuildPageInfo,
   senorcervezasInciernaryKingPageInfo,
   chaosGamingsTankualistPageInfo,
