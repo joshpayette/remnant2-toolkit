@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2023-01-11
 
+### Added
+
+- Added new SenorCerveza build to featured builds.
+
 ### Fixed
 
 - Fixed bug where item with linked mod would not allow you to equip another non-boss gun.
