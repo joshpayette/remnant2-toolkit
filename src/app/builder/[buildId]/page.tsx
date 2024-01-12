@@ -26,6 +26,7 @@ import {
   buildStateToMasonryItems,
   extendedBuildToBuildState,
 } from '../utils'
+import { cn } from '@/app/(lib)/utils'
 
 export default function Page({
   params: { build },
@@ -198,7 +199,13 @@ export default function Page({
               </>
             )}
           </div>
-          <div ref={buildContainerRef}>
+          <div
+            ref={buildContainerRef}
+            className={cn(
+              'w-full grow bg-black',
+              isScreenshotMode && 'min-h-[731px] min-w-[502px]',
+            )}
+          >
             <Builder
               buildState={buildState}
               includeMemberFeatures={true}

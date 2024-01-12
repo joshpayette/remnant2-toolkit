@@ -237,10 +237,7 @@ export default function Builder({
 
   return (
     <div
-      className={cn(
-        'w-full grow rounded border-2 border-green-500 bg-black p-4',
-        isScreenshotMode && 'min-h-[731px] min-w-[502px]',
-      )}
+      className={cn('w-full rounded border-2 border-green-500 bg-black p-4')}
     >
       <ItemSelect
         open={isItemSelectModalOpen}
