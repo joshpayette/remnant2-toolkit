@@ -22,18 +22,20 @@ export default function BuildCard({ build }: Props) {
   const router = useRouter()
   const buildState = extendedBuildToBuildState(build)
 
+  console.info('buildState', buildState)
+
   return (
     <div
       className={cn(
         'relative col-span-1 flex h-full flex-col rounded-lg border border-purple-500 bg-black shadow',
-        // buildState.isMember && 'border-2 border-red-500',
+        buildState.isMember && 'border-2 border-red-500',
       )}
     >
-      {/* {buildState.isMember ? (
+      {buildState.isMember ? (
         <div className="absolute right-[-15px] top-[-15px]">
           <MemberBadge />
         </div>
-      ) : null} */}
+      ) : null}
       <div className="flex w-full flex-1 items-start justify-start space-x-6 p-6">
         <div className="flex-1 truncate">
           <div className="flex flex-col items-start justify-start ">

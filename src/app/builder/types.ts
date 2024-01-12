@@ -25,6 +25,7 @@ export interface BuildState {
   createdById: string | null
   createdByDisplayName: string | null
   isPublic: boolean
+  isMember: boolean
   description: string | null
   upvoted: boolean
   totalUpvotes: number
@@ -53,6 +54,7 @@ export const initialBuildState: BuildState = {
   name: 'My Build',
   description: null,
   isPublic: true,
+  isMember: false,
   buildId: null,
   createdByDisplayName: null,
   createdById: null,
@@ -112,6 +114,7 @@ export const buildStateSchema = z.object({
  */
 export interface ExtendedBuild extends Build {
   createdByDisplayName: string
+  isMember: boolean
   reported: boolean
   upvoted: boolean
   totalUpvotes: number
