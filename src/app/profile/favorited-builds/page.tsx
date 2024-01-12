@@ -37,6 +37,7 @@ async function getBuilds() {
     id: build.id,
     name: build.name,
     description: build.description ?? '',
+    isMember: false, // Not needed for this page
     isPublic: build.isPublic,
     createdAt: build.createdAt,
     createdById: build.createdById,
