@@ -4,20 +4,19 @@ import { EyeIcon } from '@heroicons/react/24/solid'
 import { ExtendedBuild } from '@/app/(types)/build'
 import BuildList from '@/app/(components)/BuildList'
 import BuildCard from '@/app/(components)/BuildCard'
-import Link from 'next/link'
 import usePagination from '@/app/(hooks)/usePagination'
 import { useEffect, useState } from 'react'
-import { Filter, getCreatedBuilds } from '../actions'
+import { CreatedBuildsFilter, getCreatedBuilds } from '../actions'
 import BuildListFilters from '@/app/(components)/BuildListFilters'
 import CopyBuildUrlButton from '../(components)/CopyBuildUrlButton'
 import EditBuildButton from '../(components)/EditBuildButton'
 import DuplicateBuildButton from '../(components)/DuplicateBuildButton'
 import DeleteBuildButton from '../(components)/DeleteBuildButton'
 
-export default function ListCreatedBuilds() {
+export default function Page() {
   const [builds, setBuilds] = useState<ExtendedBuild[]>([])
   const [totalBuildCount, setTotalBuildCount] = useState<number>(0)
-  const [filter, setFilter] = useState<Filter>('date created')
+  const [filter, setFilter] = useState<CreatedBuildsFilter>('date created')
   const itemsPerPage = 8
 
   const {
@@ -47,10 +46,16 @@ export default function ListCreatedBuilds() {
     getItemsAsync()
   }, [currentPage, itemsPerPage, filter])
 
-  const filterOptions: Filter[] = ['date created', 'upvotes']
+  const filterOptions: CreatedBuildsFilter[] = ['date created', 'upvotes']
 
   function handleFilterChange(filter: string) {
-    setFilter(filter as Filter)
+    setFilter(filter as CreatedBuildsFilter)
+  }
+
+  function handleDeleteBuild(buildId: string) {
+    setBuilds((prevBuilds) =>
+      prevBuilds.filter((build) => build.id !== buildId),
+    )
   }
 
   return (
@@ -84,7 +89,10 @@ export default function ListCreatedBuilds() {
                 <CopyBuildUrlButton buildId={build.id} />
                 <EditBuildButton buildId={build.id} />
                 <DuplicateBuildButton build={build} />
-                <DeleteBuildButton buildId={build.id} />
+                <DeleteBuildButton
+                  buildId={build.id}
+                  onDeleteBuild={handleDeleteBuild}
+                />
               </div>
             }
           />

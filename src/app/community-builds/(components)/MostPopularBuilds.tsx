@@ -1,14 +1,7 @@
 'use client'
 
-import { Listbox, Transition } from '@headlessui/react'
-import {
-  CheckIcon,
-  ChevronUpDownIcon,
-  EyeIcon,
-} from '@heroicons/react/24/solid'
-import { Fragment, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { TimeRange, getMostUpvotedBuilds } from '../actions'
-import { cn } from '@/app/(lib)/utils'
 import BuildCard from '../../(components)/BuildCard'
 import BuildList from '@/app/(components)/BuildList'
 import usePagination from '@/app/(hooks)/usePagination'
@@ -121,20 +114,13 @@ export default function MostPopularBuilds({ itemsPerPage = 8 }: Props) {
               build={build}
               onReportBuild={onReportBuild}
               footerActions={
-                <div className="-mt-px flex flex-1">
-                  <div className="flex w-0 flex-1">&nbsp;</div>
-                  <div className="-ml-px flex w-0 flex-1 items-center justify-end">
-                    <Link
-                      href={`/builder/${build.id}`}
-                      className="relative inline-flex items-center justify-center gap-x-3 rounded-br-lg border border-transparent p-4 text-sm font-semibold text-green-500 hover:text-green-700 hover:underline"
-                    >
-                      <EyeIcon
-                        className="h-5 w-5 text-green-500"
-                        aria-hidden="true"
-                      />
-                      View Build
-                    </Link>
-                  </div>
+                <div className="flex items-center justify-end gap-2 p-2 text-sm">
+                  <Link
+                    href={`/builder/${build.id}`}
+                    className="relative inline-flex items-center justify-center gap-x-3 rounded-br-lg border border-transparent p-4 text-sm font-semibold text-green-500 hover:text-green-700 hover:underline"
+                  >
+                    View Build
+                  </Link>
                 </div>
               }
             />
