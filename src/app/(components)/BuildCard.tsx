@@ -7,12 +7,12 @@ import { FlagIcon as FlagIconOff } from '@heroicons/react/24/outline'
 import { FlagIcon as FlagIconOn } from '@heroicons/react/24/solid'
 import Link from 'next/link'
 import MemberBadge from '@/app/(components)/MemberBadge'
-import { ExtendedBuild } from '../builder/types'
-import { extendedBuildToBuildState } from '../builder/utils'
 import { toast } from 'react-toastify'
 import { addReportForBuild, removeReportForBuild } from '../builder/actions'
 import { isErrorResponse } from '../(types)'
 import { useRouter } from 'next/navigation'
+import { extendedBuildToBuildState } from '../(lib)/build'
+import { ExtendedBuild } from '../(types)/build'
 
 interface Props {
   build: ExtendedBuild
