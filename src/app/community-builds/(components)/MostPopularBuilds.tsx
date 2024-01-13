@@ -8,14 +8,11 @@ import { cn } from '@/app/(lib)/utils'
 import BuildCard from '../../(components)/BuildCard'
 import BuildList from '@/app/(components)/BuildList'
 import usePagination from '@/app/(hooks)/usePagination'
-import { ExtendedBuild } from '@/app/builder/types'
+import { ExtendedBuild } from '@/app/(types)/build'
 
 interface Props {
   itemsPerPage?: number
 }
-
-// TODO Add pagination controls
-// Add pagination logic to DB queries
 
 export default function MostPopularBuilds({ itemsPerPage = 8 }: Props) {
   const [builds, setBuilds] = useState<ExtendedBuild[]>([])
@@ -24,9 +21,10 @@ export default function MostPopularBuilds({ itemsPerPage = 8 }: Props) {
 
   const {
     currentPage,
-    firstVisiblePageNumber,
-    lastVisiblePageNumber,
+    firstVisibleItemNumber,
+    lastVisibleItemNumber,
     pageNumbers,
+    totalPages,
     handleSpecificPageClick,
     handleNextPageClick,
     handlePreviousPageClick,
@@ -52,25 +50,16 @@ export default function MostPopularBuilds({ itemsPerPage = 8 }: Props) {
 
   const timeRanges: TimeRange[] = ['day', 'week', 'month', 'all-time']
 
-  function handleReportBuild(reported: boolean, buildId: string) {
-    setBuilds((prev) =>
-      prev.map((build) => {
-        if (build.id === buildId) {
-          build.reported = reported
-        }
-        return build
-      }),
-    )
-  }
-
   return (
     <>
       <BuildList
         label="Most Popular"
         currentPage={currentPage}
-        itemsPerPage={itemsPerPage}
         pageNumbers={pageNumbers}
         totalItems={totalBuildCount}
+        totalPages={totalPages}
+        firstVisibleItemNumber={firstVisibleItemNumber}
+        lastVisibleItemNumber={lastVisibleItemNumber}
         onPreviousPage={handlePreviousPageClick}
         onNextPage={handleNextPageClick}
         onSpecificPage={handleSpecificPageClick}

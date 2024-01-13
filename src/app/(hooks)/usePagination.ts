@@ -93,8 +93,8 @@ export default function usePagination({
     totalItemCount,
     itemsPerPage,
   })
-  const firstVisiblePageNumber = currentPage * itemsPerPage - itemsPerPage + 1
-  const lastVisiblePageNumber =
+  const firstVisibleItemNumber = currentPage * itemsPerPage - itemsPerPage + 1
+  const lastVisibleItemNumber =
     currentPage * itemsPerPage > totalItemCount
       ? totalItemCount
       : currentPage * itemsPerPage
@@ -116,8 +116,8 @@ export default function usePagination({
     handlePreviousPageClick,
     handleNextPageClick,
     currentPage,
-    firstVisiblePageNumber,
-    lastVisiblePageNumber,
+    firstVisibleItemNumber,
+    lastVisibleItemNumber,
     pageNumbers,
     totalItemCount,
     totalPages,
