@@ -6,9 +6,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2023-01-12
 
+### Added
+
+- Random build button added. Available on the create build page when logged in
+
 ### Fixed
 
 - Fixed bug where builder was exceeding screen size on mobile
+- Fixed bug where mods were selectable for melee weapons. Turns out melee weapons have linked mods or nothing
+- Fixed bug where state wasn't resetting when going from query builder to db builder
 
 ## 2023-01-11
 

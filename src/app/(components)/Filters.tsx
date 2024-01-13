@@ -6,7 +6,7 @@ import { FilteredItem } from '../(hooks)/useFilteredItems'
 import { useLocalStorage } from '../(hooks)/useLocalStorage'
 import { cn } from '../(lib)/utils'
 import { remnantItemCategories } from '../(data)'
-import { ItemCategory } from '../builder/types'
+import { ItemCategory } from '../(types)/build'
 
 interface Props {
   allItems: FilteredItem[]

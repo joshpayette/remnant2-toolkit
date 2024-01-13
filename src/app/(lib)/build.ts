@@ -4,15 +4,17 @@ import {
   DEFAULT_TRAIT_AMOUNT,
   MAX_BUILD_DESCRIPTION_LENGTH,
 } from '../(data)/constants'
-import { badWordFilter } from '../(lib)/badword-filter'
+import { badWordFilter } from './badword-filter'
 import { CsvItem, Item } from '../(types)'
 import { ArmorItem } from '../(types)/items/ArmorItem'
 import { GenericItem } from '../(types)/items/GenericItem'
 import { MutatorItem } from '../(types)/items/MutatorItem'
 import { TraitItem } from '../(types)/items/TraitItem'
 import { WeaponItem } from '../(types)/items/WeaponItem'
-import { BuildState, ExtendedBuild } from './types'
-import { getArrayOfLength } from '../(lib)/utils'
+import { BuildState, ExtendedBuild } from '@/app/(types)/build'
+import { getArrayOfLength } from './utils'
+import { ModItem } from '../(types)/items/ModItem'
+import { z } from 'zod'
 
 /**
  * Converts an Item to a CSV item for export
@@ -82,7 +84,7 @@ export function buildStateToBuild(buildState: BuildState) {
     consumable: items.consumable
       ? GenericItem.toDBValue(items.consumable)
       : null,
-    mod: items.mod ? GenericItem.toDBValue(items.mod) : null,
+    mod: items.mod ? ModItem.toDBValue(items.mod) : null,
     mutator: items.mutator ? MutatorItem.toDBValue(items.mutator) : null,
     relicfragment: items.relicfragment
       ? GenericItem.toDBValue(items.relicfragment)
@@ -171,7 +173,7 @@ export function buildStateToQueryParams(buildState: BuildState) {
   if (items.weapon && items.weapon.length > 0)
     editBuildUrl += `&weapon=${WeaponItem.toParams(items.weapon)}`
   if (items.mod && items.mod.length > 0)
-    editBuildUrl += `&mod=${GenericItem.toParamsFromArray(items.mod)}`
+    editBuildUrl += `&mod=${ModItem.toParams(items.mod)}`
   if (items.mutator && items.mutator.length > 0)
     editBuildUrl += `&mutator=${MutatorItem.toParams(items.mutator)}`
 
@@ -238,7 +240,7 @@ export function extendedBuildToBuildState(dbBuild: ExtendedBuild): BuildState {
       consumable: dbBuild.consumable
         ? GenericItem.fromDBValueArray(dbBuild.consumable)
         : [],
-      mod: dbBuild.mod ? GenericItem.fromDBValueArray(dbBuild.mod) : [],
+      mod: dbBuild.mod ? ModItem.fromDBValue(dbBuild.mod) : [],
       mutator: dbBuild.mutator ? MutatorItem.fromDBValue(dbBuild.mutator) : [],
       relicfragment: dbBuild.relicfragment
         ? GenericItem.fromDBValueArray(dbBuild.relicfragment)
@@ -331,6 +333,12 @@ export function getItemListForSlot(
   // If the selected slot is a mod, then limit the
   // mods to those without a linked weapon
   if (selectedItem.category === 'mod') {
+    // If melee weapon is selected, no mods are allowed that are not linked
+    // to a melee weapon
+    if (selectedItem.index === 1) {
+      return []
+    }
+
     return unequippedItems.filter(
       (item) => item.category === 'mod' && !item.linkedItems?.weapon,
     )
@@ -398,6 +406,19 @@ export function getItemListForSlot(
   )
 }
 
+export function getRandomItem(
+  buildState: BuildState,
+  selectedItem: {
+    category: GenericItem['category'] | null
+    index?: number // Used for slots that can have multiple items, such as rings
+  },
+): Item {
+  let items = getItemListForSlot(buildState, selectedItem)
+  const randomIndex = Math.floor(Math.random() * items.length)
+  const randomItem = items[randomIndex]
+  return randomItem
+}
+
 /**
  * Checks the build weapons and equips any mods
  * that are linked to them
@@ -415,7 +436,7 @@ export function linkWeaponsToMods(buildState: BuildState) {
     const modItem = remnantItems.find((mod) => mod.name === linkedMod.name)
     if (!modItem) return
 
-    newBuildState.items.mod[index] = modItem
+    newBuildState.items.mod[index] = modItem as ModItem
   })
 
   // Return the build with linked items
@@ -564,4 +585,61 @@ export function buildStateToMasonryItems(build: BuildState): Item[] {
   )
 
   return masonryItems
+}
+
+export const buildStateSchema = z.object({
+  name: z.string(),
+  description: z.string().nullable(),
+  isPublic: z.boolean().nullable(),
+  buildId: z.string().nullable(),
+  createdById: z.string().nullable(),
+  upvoted: z.boolean().nullable(),
+  items: z.object({
+    helm: z.any(),
+    torso: z.any(),
+    legs: z.any(),
+    gloves: z.any(),
+    relic: z.any(),
+    amulet: z.any(),
+    weapon: z.array(z.any()),
+    ring: z.array(z.any()),
+    archtype: z.array(z.any()),
+    skill: z.array(z.any()),
+    concoction: z.array(z.any()),
+    consumable: z.array(z.any()),
+    mod: z.array(z.any()),
+    mutator: z.array(z.any()),
+    relicfragment: z.array(z.any()),
+    trait: z.array(z.any()),
+  }),
+})
+
+export const initialBuildState: BuildState = {
+  name: 'My Build',
+  description: null,
+  isPublic: true,
+  buildId: null,
+  createdByDisplayName: null,
+  createdById: null,
+  upvoted: false,
+  totalUpvotes: 0,
+  reported: false,
+  items: {
+    helm: null,
+    torso: null,
+    legs: null,
+    gloves: null,
+    relic: null,
+    amulet: null,
+    weapon: [],
+    ring: [],
+    archtype: [],
+    skill: [],
+    concoction: [],
+    consumable: [],
+    mod: [],
+    mutator: [],
+    relicfragment: [],
+    trait: [],
+  },
 }

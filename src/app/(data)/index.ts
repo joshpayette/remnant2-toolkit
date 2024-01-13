@@ -5100,7 +5100,7 @@ export const remnantItems: Item[] = [
     imagePath: '/mod/guardians_call.png',
     id: 'anhbhf',
     description: `Calls down a Guardian Sword on enemies struck by an Energy Disc. Swords deal 100 damage and 3x stagger within 5m.`,
-    howToGet: `Attached to the Twisted Arbalestlong gun`,
+    howToGet: `Attached to the Twisted Arbalest long gun`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Guardian's+Call`],
     linkedItems: {
       weapon: {
