@@ -5,6 +5,100 @@ import { getServerSession } from '../(lib)/auth'
 import { ErrorResponse } from '../(types)'
 import { badWordFilter } from '../(lib)/badword-filter'
 import { prisma } from '../(lib)/db'
+import { DEFAULT_DISPLAY_NAME } from '../(data)/constants'
+import { ExtendedBuild } from '../(types)/build'
+import { PaginationResponse } from '../(hooks)/usePagination'
+
+export type Filter = 'date created' | 'upvotes'
+
+export async function getCreatedBuilds({
+  itemsPerPage,
+  pageNumber,
+  filter,
+}: {
+  itemsPerPage: number
+  pageNumber: number
+  filter: Filter
+}): Promise<PaginationResponse<ExtendedBuild>> {
+  const session = await getServerSession()
+  const userId = session?.user?.id
+
+  // select all builds created by the user
+  // including the total votes for each build
+  const builds =
+    filter === 'date created'
+      ? await prisma.build.findMany({
+          where: {
+            createdById: userId,
+          },
+          orderBy: {
+            createdAt: 'desc',
+          },
+          include: {
+            createdBy: {
+              include: {
+                PaidUsers: true, // Include the related PaidUsers record
+              },
+            },
+            BuildVotes: true,
+            BuildReports: true,
+          },
+          take: itemsPerPage,
+          skip: (pageNumber - 1) * itemsPerPage,
+        })
+      : await prisma.build.findMany({
+          where: {
+            createdById: userId,
+          },
+          orderBy: {
+            BuildVotes: {
+              _count: 'desc',
+            },
+          },
+          include: {
+            createdBy: {
+              include: {
+                PaidUsers: true, // Include the related PaidUsers record
+              },
+            },
+            BuildVotes: true,
+            BuildReports: true,
+          },
+          take: itemsPerPage,
+          skip: (pageNumber - 1) * itemsPerPage,
+        })
+
+  if (!builds) {
+    return {
+      items: [],
+      totalItemCount: 0,
+    }
+  }
+
+  const totalBuildCount = await prisma.build.count({
+    where: {
+      createdById: userId,
+    },
+  })
+
+  const returnedBuilds: ExtendedBuild[] = builds.map((build) => ({
+    ...build,
+    createdByDisplayName:
+      build.createdBy?.displayName ||
+      build.createdBy?.name ||
+      session?.user?.name ||
+      DEFAULT_DISPLAY_NAME,
+    totalUpvotes: build.BuildVotes.length, // Count the votes
+    upvoted: build.BuildVotes.some((vote) => vote.userId === userId), // Check if the user upvoted the build
+    reported: build.BuildReports.some((report) => report.userId === userId), // Check if the user reported the build
+    isMember: build.createdBy.PaidUsers.length > 0, // Check if the user is a member
+  })) satisfies ExtendedBuild[]
+
+  return {
+    items: returnedBuilds,
+    totalItemCount: totalBuildCount,
+  }
+}
 
 export async function updateUserDisplayName(
   data: string,

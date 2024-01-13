@@ -241,7 +241,7 @@ export default function Builder({
     <div
       className={cn(
         'w-full grow rounded border-2 bg-black p-4',
-        buildState.isMember ? 'border-red-500' : 'border-green-500',
+        buildState.isMember ? 'border-yellow-500' : 'border-green-500',
       )}
     >
       <ItemSelect

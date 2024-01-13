@@ -12,7 +12,7 @@ import { ExtendedBuild } from '../(types)/build'
 interface Props {
   build: ExtendedBuild
   footerActions?: React.ReactNode
-  onReportBuild: (buildId: string) => void
+  onReportBuild: ((buildId: string) => void) | undefined
 }
 
 export default function BuildCard({
@@ -46,7 +46,9 @@ export default function BuildCard({
               </p>
               <div className="flex flex-row items-center justify-end gap-x-2">
                 <button
-                  onClick={() => onReportBuild(build.id)}
+                  onClick={
+                    onReportBuild ? () => onReportBuild(build.id) : undefined
+                  }
                   className="flex items-center justify-end text-right text-red-500"
                 >
                   {buildState.reported ? (

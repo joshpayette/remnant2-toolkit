@@ -58,7 +58,7 @@ export default function BuildList({
       />
       <ul
         role="list"
-        className="mt-4 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4"
+        className="my-4 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4"
       >
         {children}
       </ul>
@@ -101,7 +101,7 @@ function Pagination({
   onSpecificPage,
 }: PaginationProps) {
   return (
-    <div className="flex items-center justify-between bg-black px-4 py-4 sm:px-6">
+    <div className="flex w-full items-center justify-between bg-black px-4 py-4 sm:px-6">
       <div className="flex flex-1 justify-between sm:hidden">
         <button
           onClick={onPreviousPage}

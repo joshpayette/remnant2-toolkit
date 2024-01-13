@@ -33,7 +33,7 @@ export default function DuplicateBuildButton({
       className="text-yellow-500 hover:text-yellow-300"
       onClick={handleDuplicateBuild}
     >
-      Duplicate Build
+      Duplicate
     </button>
   )
 }
