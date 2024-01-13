@@ -12,7 +12,8 @@ import ItemInfo from '@/app/(components)/ItemInfo'
 import { Item } from '@/app/(types)'
 import { getConcoctionSlotCount, getItemListForSlot } from '../../(lib)/build'
 import { BuildState, ItemSlot } from '@/app/(types)/build'
-import MemberBadge from '@/app/(components)/MemberBadge'
+import PopularBuildBadge from '@/app/(components)/PopularBuildBadge'
+import { POPULAR_VOTE_THRESHOLD } from '@/app/(data)/constants'
 
 type BuilderProps = {
   buildState: BuildState
@@ -273,9 +274,9 @@ export default function Builder({
           name={buildState.name}
           showControls={showControls}
         />
-        {buildState.isMember && (
+        {buildState.totalUpvotes > POPULAR_VOTE_THRESHOLD && (
           <div className="absolute bottom-[-24px] left-[220px]">
-            <MemberBadge />
+            <PopularBuildBadge />
           </div>
         )}
       </div>

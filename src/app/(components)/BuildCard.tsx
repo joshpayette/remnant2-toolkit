@@ -6,7 +6,6 @@ import { cn } from '@/app/(lib)/utils'
 import { FlagIcon as FlagIconOff } from '@heroicons/react/24/outline'
 import { FlagIcon as FlagIconOn } from '@heroicons/react/24/solid'
 import Link from 'next/link'
-import MemberBadge from '@/app/(components)/MemberBadge'
 import { toast } from 'react-toastify'
 import { addReportForBuild, removeReportForBuild } from '../builder/actions'
 import { isErrorResponse } from '../(types)'
@@ -25,15 +24,10 @@ export default function BuildCard({ build }: Props) {
   return (
     <div
       className={cn(
-        'relative col-span-1 flex h-full flex-col rounded-lg border border-purple-500 bg-black shadow',
-        buildState.isMember && 'border-2 border-red-500',
+        'col-span-1 flex h-full flex-col rounded-lg border border-purple-500 bg-black shadow',
+        buildState.isMember && 'border-2 border-yellow-500',
       )}
     >
-      {buildState.isMember ? (
-        <div className="absolute right-[-15px] top-[-15px]">
-          <MemberBadge />
-        </div>
-      ) : null}
       <div className="flex w-full flex-1 items-start justify-start space-x-6 p-6">
         <div className="flex-1 truncate">
           <div className="flex flex-col items-start justify-start ">
@@ -132,10 +126,10 @@ export default function BuildCard({ build }: Props) {
                 Email
               </a> */}
           </div>
-          <div className="-ml-px flex w-0 flex-1">
+          <div className="-ml-px flex w-0 flex-1 items-center justify-end">
             <Link
               href={`/builder/${build.id}`}
-              className="relative inline-flex w-0 flex-1 items-center justify-center gap-x-3 rounded-br-lg border border-transparent py-2 text-sm font-semibold text-green-500 hover:text-green-700 hover:underline"
+              className="relative inline-flex items-center justify-center gap-x-3 rounded-br-lg border border-transparent p-4 text-sm font-semibold text-green-500 hover:text-green-700 hover:underline"
             >
               <EyeIcon className="h-5 w-5 text-green-500" aria-hidden="true" />
               View Build

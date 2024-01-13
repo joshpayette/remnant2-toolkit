@@ -1,4 +1,4 @@
-import MemberBadge from '@/app/(components)/MemberBadge'
+import MemberBadge from '@/app/(components)/PopularBuildBadge'
 import { cn } from '@/app/(lib)/utils'
 
 interface Props {

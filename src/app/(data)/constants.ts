@@ -73,3 +73,8 @@ export const MAX_TRAIT_AMOUNT = 110
  * The initial display name for a user if none is set
  */
 export const DEFAULT_DISPLAY_NAME = 'Traveller'
+
+/**
+ * Number of votes for a build to be popular
+ */
+export const POPULAR_VOTE_THRESHOLD = 50

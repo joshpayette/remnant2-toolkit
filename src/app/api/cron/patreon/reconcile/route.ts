@@ -9,8 +9,8 @@ import { prisma } from '@/app/(lib)/db'
  */
 const allowListIserIds = [
   'clql3zq8k0000a6m41vtnvldq',
-  // 'clqnz8j6s000ekmx52vr5tot9',
-  // 'clqoktf3g0005ivzzxbyane4s',
+  'clqnz8j6s000ekmx52vr5tot9',
+  'clqoktf3g0005ivzzxbyane4s',
 ]
 
 /**
