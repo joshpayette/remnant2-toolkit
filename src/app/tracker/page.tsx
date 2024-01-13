@@ -16,7 +16,7 @@ import { GenericItem } from '../(types)/items/GenericItem'
 import { MutatorItem } from '../(types)/items/MutatorItem'
 import useFilteredItems from '../(hooks)/useFilteredItems'
 import Filters from '../(components)/Filters'
-import { itemToCsvItem } from '../builder/utils'
+import { itemToCsvItem } from '../(lib)/build'
 import { useRouter } from 'next/navigation'
 
 const skippedItemCategories: Array<GenericItem['category']> = [
@@ -216,7 +216,7 @@ export default function Page() {
                 label="Import Save File"
                 className="flex items-center justify-center border border-green-300 bg-green-500 p-2 px-2 text-sm font-bold text-gray-800 hover:border-green-300 hover:bg-green-600 disabled:bg-gray-500"
               />
-              <div className="col-span-full gap-y-4 overflow-x-auto bg-black p-2 p-2 text-left">
+              <div className="col-span-full gap-y-4 overflow-x-auto bg-black p-2 text-left">
                 <p className="text-sm text-green-500">
                   You can find your save file in the following location:
                 </p>

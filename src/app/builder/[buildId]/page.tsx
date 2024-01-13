@@ -19,13 +19,14 @@ import {
 } from '../actions'
 import { toast } from 'react-toastify'
 import { useRouter } from 'next/navigation'
-import { ExtendedBuild } from '../types'
 import {
   buildStateToCsvData,
   buildStateToMasonryItems,
   extendedBuildToBuildState,
-} from '../utils'
+} from '../../(lib)/build'
+import { cn } from '@/app/(lib)/utils'
 import useBuildActions from '../(hooks)/useBuildActions'
+import { ExtendedBuild } from '@/app/(types)/build'
 
 export default function Page({
   params: { build },
@@ -198,7 +199,13 @@ export default function Page({
               </>
             )}
           </div>
-          <div ref={buildContainerRef}>
+          <div
+            ref={buildContainerRef}
+            className={cn(
+              'w-full grow bg-black',
+              isScreenshotMode && 'min-h-[731px] min-w-[502px]',
+            )}
+          >
             <Builder
               buildState={buildState}
               includeMemberFeatures={true}

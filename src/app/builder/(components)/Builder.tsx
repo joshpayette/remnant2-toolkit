@@ -8,10 +8,10 @@ import ItemSelect from './ItemSelect'
 import Logo from '@/app/(components)/Logo'
 import { GenericItem } from '@/app/(types)/items/GenericItem'
 import MemberFeatures from './MemberFeatures'
-import { BuildState, ItemSlot } from '../types'
 import ItemInfo from '@/app/(components)/ItemInfo'
 import { Item } from '@/app/(types)'
-import { getConcoctionSlotCount, getItemListForSlot } from '../utils'
+import { getConcoctionSlotCount, getItemListForSlot } from '../../(lib)/build'
+import { BuildState, ItemSlot } from '@/app/(types)/build'
 import MemberBadge from '@/app/(components)/MemberBadge'
 
 type BuilderProps = {
@@ -240,7 +240,6 @@ export default function Builder({
     <div
       className={cn(
         'w-full grow rounded border-2 bg-black p-4',
-        isScreenshotMode && 'min-h-[731px] min-w-[502px]',
         buildState.isMember ? 'border-red-500' : 'border-green-500',
       )}
     >
@@ -472,15 +471,23 @@ export default function Builder({
               onItemInfoClick={handleShowInfo}
               isScreenshotMode={isScreenshotMode}
             />
-            <div className="flex w-full grow items-center justify-around gap-4">
-              <BuilderButton
-                item={buildState.items.mod[weaponIndex]}
-                size="md"
-                isEditable={isEditable}
-                onClick={() => handleButtonClick('mod', weaponIndex)}
-                onItemInfoClick={handleShowInfo}
-                isScreenshotMode={isScreenshotMode}
-              />
+            <div className="flex w-full grow items-start justify-around gap-4">
+              {weaponIndex !== 1 || buildState.items.mod[weaponIndex] ? (
+                <BuilderButton
+                  item={buildState.items.mod[weaponIndex]}
+                  size="md"
+                  isEditable={isEditable}
+                  onClick={
+                    weaponIndex === 1
+                      ? undefined
+                      : () => handleButtonClick('mod', weaponIndex)
+                  }
+                  onItemInfoClick={handleShowInfo}
+                  isScreenshotMode={isScreenshotMode}
+                />
+              ) : (
+                <div className="h-[66px] w-[66px]" />
+              )}
               <BuilderButton
                 item={buildState.items.mutator[weaponIndex]}
                 size="md"

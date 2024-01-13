@@ -1,12 +1,12 @@
 'use server'
 
 import { getServerSession } from '../(lib)/auth'
-import { BuildState, ExtendedBuild, buildStateSchema } from './types'
+import { BuildState, ExtendedBuild } from '@/app/(types)/build'
 import { prisma } from '@/app/(lib)/db'
 import { revalidatePath } from 'next/cache'
 import { z } from 'zod'
 import { ErrorResponse } from '../(types)'
-import { buildStateToBuild } from './utils'
+import { buildStateSchema, buildStateToBuild } from '../(lib)/build'
 import { DEFAULT_DISPLAY_NAME } from '@/app/(data)/constants'
 
 export type SuccessResponse = {

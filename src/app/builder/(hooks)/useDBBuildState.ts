@@ -1,11 +1,10 @@
 import { useMemo, useState } from 'react'
-import { BuildState } from '../types'
 import {
   buildStateToCsvData,
   buildStateToMasonryItems,
   linkArchtypesToTraits,
   linkWeaponsToMods,
-} from '../utils'
+} from '../../(lib)/build'
 import { Item } from '@/app/(types)'
 import { TraitItem } from '@/app/(types)/items/TraitItem'
 import { ArmorItem } from '@/app/(types)/items/ArmorItem'
@@ -13,6 +12,7 @@ import { GenericItem } from '@/app/(types)/items/GenericItem'
 import { WeaponItem } from '@/app/(types)/items/WeaponItem'
 import { MutatorItem } from '@/app/(types)/items/MutatorItem'
 import { remnantItems } from '@/app/(data)'
+import { BuildState } from '@/app/(types)/build'
 
 export default function useDBBuildState(initialBuildState: BuildState) {
   const [dbBuildState, setDBBuildState] =
@@ -200,5 +200,15 @@ export default function useDBBuildState(initialBuildState: BuildState) {
     setDBBuildState(linkedBuildState)
   }
 
-  return { csvItems, masonryItems, dbBuildState, updateDBBuildState }
+  function setNewBuildState(buildState: BuildState) {
+    setDBBuildState(buildState)
+  }
+
+  return {
+    csvItems,
+    masonryItems,
+    dbBuildState,
+    setNewBuildState,
+    updateDBBuildState,
+  }
 }

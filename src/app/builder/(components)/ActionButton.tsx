@@ -71,6 +71,18 @@ export const ActionButton = {
     </Link>
   ),
 
+  RandomBuild: ({ onClick }: ButtonProps) => (
+    <button
+      className={cn(
+        buttonClasses,
+        'border-2 border-purple-500 text-white hover:border-purple-700',
+      )}
+      onClick={onClick}
+    >
+      Random Build
+    </button>
+  ),
+
   ReportBuild: ({ onClick, active }: ButtonProps & { active: boolean }) => (
     <button
       onClick={onClick}

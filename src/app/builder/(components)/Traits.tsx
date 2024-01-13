@@ -3,7 +3,7 @@ import { XCircleIcon } from '@heroicons/react/24/solid'
 import { cn } from '@/app/(lib)/utils'
 import { TraitItem } from '@/app/(types)/items/TraitItem'
 import { DEFAULT_TRAIT_AMOUNT, MAX_TRAIT_AMOUNT } from '@/app/(data)/constants'
-import { BuildState } from '@/app/builder/types'
+import { BuildState } from '@/app/(types)/build'
 
 export default function Traits({
   buildState,

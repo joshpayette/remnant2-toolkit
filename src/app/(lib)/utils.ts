@@ -1,19 +1,7 @@
-import { type CsvItem, Item } from '@/app/(types)'
+import { type CsvItem } from '@/app/(types)'
 import { clsx, type ClassValue } from 'clsx'
 import { twMerge } from 'tailwind-merge'
 import { GenericItem } from '../(types)/items/GenericItem'
-import { BuildState, ExtendedBuild } from '../builder/types'
-import { badWordFilter } from './badword-filter'
-import {
-  DEFAULT_TRAIT_AMOUNT,
-  MAX_BUILD_DESCRIPTION_LENGTH,
-} from '../(data)/constants'
-import { Build } from '@prisma/client'
-import { ArmorItem } from '../(types)/items/ArmorItem'
-import { WeaponItem } from '../(types)/items/WeaponItem'
-import { MutatorItem } from '../(types)/items/MutatorItem'
-import { TraitItem } from '../(types)/items/TraitItem'
-import { remnantItemCategories, remnantItems } from '../(data)'
 
 /**
  * capitalizes the first letter of a string

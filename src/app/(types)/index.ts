@@ -3,11 +3,13 @@ import { ArmorItem } from './items/ArmorItem'
 import { WeaponItem } from './items/WeaponItem'
 import { MutatorItem } from './items/MutatorItem'
 import { TraitItem } from './items/TraitItem'
+import { ModItem } from './items/ModItem'
 
 export type Item =
   | GenericItem
   | ArmorItem
   | WeaponItem
+  | ModItem
   | MutatorItem
   | TraitItem
 

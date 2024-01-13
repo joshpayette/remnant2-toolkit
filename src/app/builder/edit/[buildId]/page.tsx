@@ -1,7 +1,6 @@
 'use client'
 
 import PageHeader from '@/app/(components)/PageHeader'
-import { ExtendedBuild } from '../../types'
 import SaveBuildButton from '../../(components)/SaveBuildButton'
 import ImageDownloadLink from '../../(components)/ImageDownloadLink'
 import { useRef } from 'react'
@@ -10,8 +9,10 @@ import { useIsClient } from 'usehooks-ts'
 import useDBBuildState from '../../(hooks)/useDBBuildState'
 import ActionButton from '../../(components)/ActionButton'
 import Builder from '../../(components)/Builder'
-import { extendedBuildToBuildState } from '../../utils'
 import MasonryItemList from '@/app/(components)/MasonryItemList'
+import { cn } from '@/app/(lib)/utils'
+import { extendedBuildToBuildState } from '../../../(lib)/build'
+import { ExtendedBuild } from '@/app/(types)/build'
 
 export default function Page({
   params: { initialBuildState },
@@ -20,9 +21,8 @@ export default function Page({
 }) {
   const isClient = useIsClient()
 
-  const { masonryItems, dbBuildState, updateDBBuildState } = useDBBuildState(
-    extendedBuildToBuildState(initialBuildState),
-  )
+  const { masonryItems, dbBuildState, setNewBuildState, updateDBBuildState } =
+    useDBBuildState(extendedBuildToBuildState(initialBuildState))
 
   const {
     isScreenshotMode,
@@ -61,7 +61,13 @@ export default function Page({
           />
         </div>
 
-        <div ref={buildContainerRef}>
+        <div
+          ref={buildContainerRef}
+          className={cn(
+            'w-full grow bg-black',
+            isScreenshotMode && 'min-h-[731px] min-w-[502px]',
+          )}
+        >
           <Builder
             buildState={dbBuildState}
             includeMemberFeatures={true}

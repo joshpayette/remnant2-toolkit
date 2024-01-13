@@ -1,8 +1,8 @@
 import ViewBuildButton from '../(components)/ViewBuildButton'
 import CopyBuildUrlButton from '../(components)/CopyBuildUrlButton'
 import { StarIcon } from '@heroicons/react/24/solid'
-import { ExtendedBuild } from '@/app/builder/types'
-import { extendedBuildToBuildState } from '@/app/builder/utils'
+import { extendedBuildToBuildState } from '@/app/(lib)/build'
+import { ExtendedBuild } from '@/app/(types)/build'
 import { getServerSession } from '@/app/(lib)/auth'
 import { prisma } from '@/app/(lib)/db'
 

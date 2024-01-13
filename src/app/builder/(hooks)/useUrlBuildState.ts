@@ -6,13 +6,15 @@ import { GenericItem } from '@/app/(types)/items/GenericItem'
 import { ArmorItem } from '@/app/(types)/items/ArmorItem'
 import { WeaponItem } from '@/app/(types)/items/WeaponItem'
 import { MutatorItem } from '@/app/(types)/items/MutatorItem'
-import { BuildState, initialBuildState } from '../types'
 import {
   buildStateToCsvData,
   buildStateToMasonryItems,
+  initialBuildState,
   linkArchtypesToTraits,
   linkWeaponsToMods,
-} from '../utils'
+} from '../../(lib)/build'
+import { ModItem } from '@/app/(types)/items/ModItem'
+import { BuildState } from '@/app/(types)/build'
 
 /**
  * Handles reading/writing the build to the URL query string,
@@ -108,7 +110,7 @@ export default function useUrlBuildState() {
    */
   function parseQueryString(searchParams: URLSearchParams): BuildState {
     /** The build state that will be returned */
-    const buildState = initialBuildState
+    const buildState = JSON.parse(JSON.stringify(initialBuildState))
 
     // Build name
     const name = searchParams.get('name')
@@ -205,7 +207,7 @@ export default function useUrlBuildState() {
             buildState.items.mod = []
             break
           }
-          const modItems = GenericItem.fromParamsArray(params)
+          const modItems = ModItem.fromParams(params)
           if (modItems) buildState.items.mod = modItems
           break
         case 'mutator':
