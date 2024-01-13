@@ -12,12 +12,14 @@ import { ExtendedBuild } from '../(types)/build'
 interface Props {
   build: ExtendedBuild
   footerActions?: React.ReactNode
+  memberFrameEnabled?: boolean
   onReportBuild: ((buildId: string) => void) | undefined
 }
 
 export default function BuildCard({
   build,
   footerActions,
+  memberFrameEnabled = true,
   onReportBuild,
 }: Props) {
   const buildState = extendedBuildToBuildState(build)
@@ -26,7 +28,9 @@ export default function BuildCard({
     <div
       className={cn(
         'col-span-1 flex h-full flex-col rounded-lg border border-purple-500 bg-black shadow',
-        buildState.isMember && 'border-2 border-yellow-500',
+        buildState.isMember &&
+          memberFrameEnabled &&
+          'border-2 border-yellow-500',
       )}
     >
       <div className="flex w-full flex-1 items-start justify-start space-x-6 p-6">
@@ -45,18 +49,18 @@ export default function BuildCard({
                 by {build.createdByDisplayName}
               </p>
               <div className="flex flex-row items-center justify-end gap-x-2">
-                <button
-                  onClick={
-                    onReportBuild ? () => onReportBuild(build.id) : undefined
-                  }
-                  className="flex items-center justify-end text-right text-red-500"
-                >
-                  {buildState.reported ? (
-                    <FlagIconOn className="mr-1 h-4 w-4" />
-                  ) : (
-                    <FlagIconOff className="mr-1 h-4 w-4" />
-                  )}
-                </button>
+                {onReportBuild && (
+                  <button
+                    onClick={() => onReportBuild(build.id)}
+                    className="flex items-center justify-end text-right text-red-500"
+                  >
+                    {buildState.reported ? (
+                      <FlagIconOn className="mr-1 h-4 w-4" />
+                    ) : (
+                      <FlagIconOff className="mr-1 h-4 w-4" />
+                    )}
+                  </button>
+                )}
                 <p className="flex items-center justify-end text-right text-yellow-500">
                   <StarIcon className="mr-1 h-4 w-4" /> {build.totalUpvotes}
                 </p>

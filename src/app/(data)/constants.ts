@@ -12,7 +12,7 @@ import { BuildState } from '../(types)/build'
  */
 export const NAV_ITEMS = [
   {
-    name: 'Builds',
+    name: 'Community Builds',
     description: 'A collection of builds aggregated from various sources.',
     href: '/community-builds',
     icon: ListBulletIcon,
