@@ -10,13 +10,13 @@ import SaveBuildButton from '../(components)/SaveBuildButton'
 import ActionButton from '../(components)/ActionButton'
 import Builder from '../(components)/Builder'
 import MasonryItemList from '@/app/(components)/MasonryItemList'
-import { initialBuildState } from '../types'
 import { cn } from '@/app/(lib)/utils'
+import { initialBuildState } from '@/app/(lib)/build'
 
 export default function Page() {
   const isClient = useIsClient()
 
-  const { masonryItems, dbBuildState, updateDBBuildState } =
+  const { masonryItems, dbBuildState, setNewBuildState, updateDBBuildState } =
     useDBBuildState(initialBuildState)
 
   const {
@@ -24,6 +24,7 @@ export default function Page() {
     showControls,
     imageLink,
     handleClearImageLink,
+    handleRandomBuild,
     handleScrollToDetailedView,
   } = useBuildActions()
 
@@ -53,6 +54,13 @@ export default function Page() {
             onClick={() =>
               handleScrollToDetailedView(detailedViewContainerRef.current)
             }
+          />
+
+          <ActionButton.RandomBuild
+            onClick={() => {
+              const randomBuild = handleRandomBuild()
+              setNewBuildState(randomBuild)
+            }}
           />
         </div>
 

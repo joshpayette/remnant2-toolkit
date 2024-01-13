@@ -2,10 +2,10 @@
 
 import { isErrorResponse } from '@/app/(types)'
 import { createBuild } from '@/app/builder/actions'
-import { ExtendedBuild } from '@/app/builder/types'
-import { extendedBuildToBuildState } from '@/app/builder/utils'
+import { extendedBuildToBuildState } from '@/app/(lib)/build'
 import { useRouter } from 'next/navigation'
 import { toast } from 'react-toastify'
+import { ExtendedBuild } from '@/app/(types)/build'
 
 export default function DuplicateBuildButton({
   build,

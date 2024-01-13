@@ -2,7 +2,6 @@
 
 - Convert profile build tables to cards for better mobile experience.
 - Add pagination to build tables in profile page.
-- Add build randomizer for the luls
 - Added community build page where you can search and sort builds
 - On tracker, allowing sorting alphabetically or by item type (i.e. group armors together)
 - Add CSV import

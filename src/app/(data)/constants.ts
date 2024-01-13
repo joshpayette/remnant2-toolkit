@@ -5,6 +5,7 @@ import {
   InformationCircleIcon,
   ListBulletIcon,
 } from '@heroicons/react/24/solid'
+import { BuildState } from '../(types)/build'
 
 /**
  * The base pages for the site
