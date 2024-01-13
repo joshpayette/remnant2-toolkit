@@ -4,7 +4,7 @@ import { prisma } from '@/app/(lib)/db'
 import { Build } from '@prisma/client'
 import { getServerSession } from '../(lib)/auth'
 import { PaginationResponse } from '../(hooks)/usePagination'
-import { ExtendedBuild } from '../builder/types'
+import { ExtendedBuild } from '../(types)/build'
 
 // Need this to suppress the BigInt JSON error
 BigInt.prototype.toJSON = function (): string {
@@ -91,8 +91,6 @@ export async function getMostUpvotedBuilds({
 `) as { 'count(distinct Build.id)': number }[]
 
   const totalBuildCount = Number(totalTopBuilds[0]['count(distinct Build.id)'])
-
-  // TODO Incorporate pagination in results
 
   const returnedBuilds: ExtendedBuild[] = topBuilds.map((build) => ({
     ...build,

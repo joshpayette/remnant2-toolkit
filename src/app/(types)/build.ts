@@ -60,4 +60,5 @@ export interface ExtendedBuild extends Build {
   reported: boolean
   upvoted: boolean
   totalUpvotes: number
+  isMember: boolean
 }

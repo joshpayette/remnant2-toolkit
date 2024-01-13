@@ -3,7 +3,7 @@
 import { prisma } from '@/app/(lib)/db'
 import { getServerSession } from '@/app/(lib)/auth'
 import { PaginationResponse } from '../../(hooks)/usePagination'
-import { ExtendedBuild } from '@/app/builder/types'
+import { ExtendedBuild } from '@/app/(types)/build'
 
 export async function getFavoritedBuilds({
   itemsPerPage,

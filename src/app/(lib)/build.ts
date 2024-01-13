@@ -619,6 +619,7 @@ export const initialBuildState: BuildState = {
   name: 'My Build',
   description: null,
   isPublic: true,
+  isMember: false,
   buildId: null,
   createdByDisplayName: null,
   createdById: null,
