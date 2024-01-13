@@ -1,24 +1,25 @@
 'use client'
 
 import ArchtypeLabel from '../community-builds/(components)/ArchtypeLabel'
-import { EyeIcon, StarIcon } from '@heroicons/react/24/solid'
+import { StarIcon } from '@heroicons/react/24/solid'
 import { cn } from '@/app/(lib)/utils'
 import { FlagIcon as FlagIconOff } from '@heroicons/react/24/outline'
 import { FlagIcon as FlagIconOn } from '@heroicons/react/24/solid'
 import Link from 'next/link'
-import { toast } from 'react-toastify'
-import { addReportForBuild, removeReportForBuild } from '../builder/actions'
-import { isErrorResponse } from '../(types)'
-import { useRouter } from 'next/navigation'
 import { extendedBuildToBuildState } from '../(lib)/build'
 import { ExtendedBuild } from '../(types)/build'
 
 interface Props {
   build: ExtendedBuild
+  footerActions?: React.ReactNode
+  onReportBuild: (buildId: string) => void
 }
 
-export default function BuildCard({ build }: Props) {
-  const router = useRouter()
+export default function BuildCard({
+  build,
+  footerActions,
+  onReportBuild,
+}: Props) {
   const buildState = extendedBuildToBuildState(build)
 
   return (
@@ -45,43 +46,7 @@ export default function BuildCard({ build }: Props) {
               </p>
               <div className="flex flex-row items-center justify-end gap-x-2">
                 <button
-                  onClick={async () => {
-                    const newReported = !buildState.reported
-
-                    // prompt for the reason
-                    const reason = newReported
-                      ? prompt(
-                          'Please enter a reason for reporting this build.',
-                        )
-                      : null
-
-                    if (newReported && !reason) {
-                      toast.error(
-                        'You must enter a reason for reporting this build.',
-                      )
-                      return
-                    }
-
-                    const response = newReported
-                      ? await addReportForBuild(
-                          JSON.stringify({
-                            buildId: build.id,
-                            reason,
-                          }),
-                        )
-                      : await removeReportForBuild(
-                          JSON.stringify({ buildId: build.id }),
-                        )
-
-                    if (isErrorResponse(response)) {
-                      console.error(response.errors)
-                      toast.error(response.errors?.[0])
-                    } else {
-                      toast.success(response.message)
-                      buildState.reported = newReported
-                      router.refresh()
-                    }
-                  }}
+                  onClick={() => onReportBuild(build.id)}
                   className="flex items-center justify-end text-right text-red-500"
                 >
                   {buildState.reported ? (
@@ -112,31 +77,7 @@ export default function BuildCard({ build }: Props) {
           </div>
         </div>
       </div>
-      <div>
-        <div className="-mt-px flex flex-1">
-          <div className="flex w-0 flex-1">
-            {/* <a
-                href={`mailto:${person.email}`}
-                className="relative -mr-px inline-flex w-0 flex-1 items-center justify-center gap-x-3 rounded-bl-lg border border-transparent py-4 text-sm font-semibold text-gray-900"
-              >
-                <EnvelopeIcon
-                  className="h-5 w-5 text-gray-400"
-                  aria-hidden="true"
-                />
-                Email
-              </a> */}
-          </div>
-          <div className="-ml-px flex w-0 flex-1 items-center justify-end">
-            <Link
-              href={`/builder/${build.id}`}
-              className="relative inline-flex items-center justify-center gap-x-3 rounded-br-lg border border-transparent p-4 text-sm font-semibold text-green-500 hover:text-green-700 hover:underline"
-            >
-              <EyeIcon className="h-5 w-5 text-green-500" aria-hidden="true" />
-              View Build
-            </Link>
-          </div>
-        </div>
-      </div>
+      <div>{footerActions}</div>
     </div>
   )
 }
