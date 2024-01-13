@@ -709,6 +709,7 @@ export async function getBuild(
     name: build.name,
     description: build.description ?? '',
     isMember: false,
+    isFeaturedBuild: build.isFeaturedBuild,
     isPublic: build.isPublic,
     createdAt: build.createdAt,
     createdById: build.createdById,
