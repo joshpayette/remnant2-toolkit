@@ -8,6 +8,8 @@ import { FlagIcon as FlagIconOn } from '@heroicons/react/24/solid'
 import Link from 'next/link'
 import { extendedBuildToBuildState } from '../(lib)/build'
 import { ExtendedBuild } from '../(types)/build'
+import PopularBuildBadge from './PopularBuildBadge'
+import { POPULAR_VOTE_THRESHOLD } from '../(data)/constants'
 
 interface Props {
   build: ExtendedBuild
@@ -23,16 +25,22 @@ export default function BuildCard({
   onReportBuild,
 }: Props) {
   const buildState = extendedBuildToBuildState(build)
+  const isPopular = buildState.totalUpvotes >= POPULAR_VOTE_THRESHOLD
 
   return (
     <div
       className={cn(
-        'col-span-1 flex h-full flex-col rounded-lg border border-purple-500 bg-black shadow',
+        'relative col-span-1 flex h-full flex-col rounded-lg border border-purple-500 bg-black shadow',
         buildState.isMember &&
           memberFrameEnabled &&
           'border-2 border-yellow-500',
       )}
     >
+      {isPopular && (
+        <div className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 transform">
+          <PopularBuildBadge />
+        </div>
+      )}
       <div className="flex w-full flex-1 items-start justify-start space-x-6 p-6">
         <div className="flex-1 truncate">
           <div className="flex flex-col items-start justify-start ">

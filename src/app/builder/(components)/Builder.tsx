@@ -45,6 +45,7 @@ export default function Builder({
   updateBuildState,
 }: BuilderProps) {
   const concoctionSlotCount = getConcoctionSlotCount(buildState)
+  const isPopular = buildState.totalUpvotes > POPULAR_VOTE_THRESHOLD
 
   // Tracks information about the slot the user is selecting an item for
   const [selectedItemSlot, setSelectedItemSlot] = useState<ItemSlot>({
@@ -274,8 +275,8 @@ export default function Builder({
           name={buildState.name}
           showControls={showControls}
         />
-        {buildState.totalUpvotes > POPULAR_VOTE_THRESHOLD && (
-          <div className="absolute bottom-[-24px] left-[220px]">
+        {isPopular && (
+          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 transform">
             <PopularBuildBadge />
           </div>
         )}
