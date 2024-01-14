@@ -1,5 +1,11 @@
+# WHERE I LEFT OFF
+
+- Linked mods and core traits need to be saved to the database
+  so that they can be filtered
+
 # TODO
 
+- On Item Tracker, split weapons into the three types
 - Convert profile build tables to cards for better mobile experience.
 - Add pagination to build tables in profile page.
 - Added community build page where you can search and sort builds

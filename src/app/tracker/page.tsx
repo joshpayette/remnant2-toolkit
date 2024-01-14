@@ -283,7 +283,9 @@ export default function Page() {
       </PageHeader>
 
       <div className="max-w-3xl">
-        <h2 className="mb-4 text-xl font-bold text-green-400">Filters</h2>
+        <h2 className="mb-2 text-center text-4xl font-bold text-green-400">
+          Filters
+        </h2>
         <Filters
           allItems={itemList}
           onUpdate={handleUpdateFilters}

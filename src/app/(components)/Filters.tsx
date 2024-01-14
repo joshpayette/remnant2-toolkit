@@ -24,6 +24,22 @@ export default function Filters({
   const { itemTrackerStorage } = useLocalStorage()
   const { discoveredItemIds } = itemTrackerStorage
 
+  function clearFilters() {
+    setSearchText('')
+    setIncludedDlcKeys(defaultDlcKeys)
+    setIncludedCollectionKeys(defaultCollectionKeys)
+    setIncludedCategoryKeys(defaultCategoryKeys)
+  }
+
+  const areAnyFiltersActive = () => {
+    return (
+      searchText !== '' ||
+      includedDlcKeys.length !== defaultDlcKeys.length ||
+      includedCollectionKeys.length !== defaultCollectionKeys.length ||
+      includedCategoryKeys.length !== defaultCategoryKeys.length
+    )
+  }
+
   /**
    * ------------------------------------
    * Search Text
@@ -45,13 +61,6 @@ export default function Filters({
   const defaultDlcKeys: DLCKey[] = ['basegame', 'dlc1']
   const [includedDlcKeys, setIncludedDlcKeys] =
     useState<DLCKey[]>(defaultDlcKeys)
-
-  function clearFilters() {
-    setSearchText('')
-    setIncludedDlcKeys(defaultDlcKeys)
-    setIncludedCollectionKeys(defaultCollectionKeys)
-    setIncludedCategoryKeys(defaultCategoryKeys)
-  }
 
   function handleDlcFilterChange(dlcKey: DLCKey) {
     if (includedDlcKeys.includes(dlcKey)) {
@@ -176,15 +185,6 @@ export default function Filters({
     includedCategoryKeys,
     onUpdate,
   ])
-
-  const areAnyFiltersActive = () => {
-    return (
-      searchText !== '' ||
-      includedDlcKeys.length !== defaultDlcKeys.length ||
-      includedCollectionKeys.length !== defaultCollectionKeys.length ||
-      includedCategoryKeys.length !== defaultCategoryKeys.length
-    )
-  }
 
   return (
     <div

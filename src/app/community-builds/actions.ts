@@ -120,7 +120,6 @@ export async function getFeaturedBuilds({
   filter: FeaturedBuildsFilter
 }): Promise<PaginationResponse<ExtendedBuild>> {
   const session = await getServerSession()
-
   const userId = session?.user?.id
 
   // find all builds that the user has favorited but are not created
@@ -130,6 +129,7 @@ export async function getFeaturedBuilds({
       ? await prisma.build.findMany({
           where: {
             isFeaturedBuild: true,
+            isPublic: true,
           },
           include: {
             createdBy: true,
@@ -174,7 +174,6 @@ export async function getFeaturedBuilds({
     createdByDisplayName:
       build.createdBy?.displayName ||
       build.createdBy?.name ||
-      session?.user?.name ||
       DEFAULT_DISPLAY_NAME,
     totalUpvotes: build.BuildVotes.length, // Count the votes
     upvoted: build.BuildVotes.some((vote) => vote.userId === userId), // Check if the user upvoted the build
