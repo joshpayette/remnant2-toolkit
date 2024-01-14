@@ -5,6 +5,7 @@ import { Build } from '@prisma/client'
 import { getServerSession } from '../(lib)/auth'
 import { PaginationResponse } from '../(hooks)/usePagination'
 import { ExtendedBuild } from '../(types)/build'
+import { DEFAULT_DISPLAY_NAME } from '../(data)/constants'
 
 // Need this to suppress the BigInt JSON error
 BigInt.prototype.toJSON = function (): string {
@@ -105,4 +106,81 @@ export async function getMostUpvotedBuilds({
     items: returnedBuilds,
     totalItemCount: totalBuildCount,
   }
+}
+
+export type FeaturedBuildsFilter = 'date created' | 'upvotes'
+
+export async function getFeaturedBuilds({
+  itemsPerPage,
+  pageNumber,
+  filter,
+}: {
+  itemsPerPage: number
+  pageNumber: number
+  filter: FeaturedBuildsFilter
+}): Promise<PaginationResponse<ExtendedBuild>> {
+  const session = await getServerSession()
+
+  const userId = session?.user?.id
+
+  // find all builds that the user has favorited but are not created
+  // by the user
+  const builds =
+    filter === 'date created'
+      ? await prisma.build.findMany({
+          where: {
+            isFeaturedBuild: true,
+          },
+          include: {
+            createdBy: true,
+            BuildVotes: true,
+            BuildReports: true,
+          },
+          orderBy: {
+            createdAt: 'desc',
+          },
+          skip: (pageNumber - 1) * itemsPerPage,
+          take: itemsPerPage,
+        })
+      : await prisma.build.findMany({
+          where: {
+            isFeaturedBuild: true,
+          },
+          include: {
+            createdBy: true,
+            BuildVotes: true,
+            BuildReports: true,
+          },
+          orderBy: {
+            BuildVotes: {
+              _count: 'desc',
+            },
+          },
+          skip: (pageNumber - 1) * itemsPerPage,
+          take: itemsPerPage,
+        })
+
+  // get the total number of builds that match the conditions
+  const totalBuildCount = await prisma.build.count({
+    where: {
+      isFeaturedBuild: true,
+    },
+  })
+
+  if (!builds) return { items: [], totalItemCount: 0 }
+
+  const returnedBuilds: ExtendedBuild[] = builds.map((build) => ({
+    ...build,
+    createdByDisplayName:
+      build.createdBy?.displayName ||
+      build.createdBy?.name ||
+      session?.user?.name ||
+      DEFAULT_DISPLAY_NAME,
+    totalUpvotes: build.BuildVotes.length, // Count the votes
+    upvoted: build.BuildVotes.some((vote) => vote.userId === userId), // Check if the user upvoted the build
+    reported: build.BuildReports.some((report) => report.userId === userId), // Check if the user reported the build
+    isMember: false,
+  })) satisfies ExtendedBuild[]
+
+  return { items: returnedBuilds, totalItemCount: totalBuildCount }
 }

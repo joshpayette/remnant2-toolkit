@@ -711,6 +711,7 @@ export async function getBuild(
     isMember: false,
     isFeaturedBuild: build.isFeaturedBuild,
     isPublic: build.isPublic,
+    thumbnailUrl: '',
     createdAt: build.createdAt,
     createdById: build.createdById,
     videoUrl: build.videoUrl ?? '',

@@ -4,7 +4,6 @@ import { MutatorItem } from '@/app/(types)/items/MutatorItem'
 import { TraitItem } from '@/app/(types)/items/TraitItem'
 import { WeaponItem } from '@/app/(types)/items/WeaponItem'
 import { Build } from '@prisma/client'
-import { z } from 'zod'
 import { ModItem } from '../(types)/items/ModItem'
 
 export type ItemCategory = keyof BuildState['items']
@@ -28,6 +27,7 @@ export interface BuildState {
   isMember: boolean
   isPublic: boolean
   isFeaturedBuild: boolean
+  thumbnailUrl: string | null
   description: string | null
   upvoted: boolean
   totalUpvotes: number

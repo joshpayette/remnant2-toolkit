@@ -100,6 +100,7 @@ model Build {
   name            String
   description     String?           @db.Text
   videoUrl        String?
+  thumbnailUrl    String?
   helm            String?
   torso           String?
   legs            String?

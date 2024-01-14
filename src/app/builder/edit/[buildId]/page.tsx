@@ -21,8 +21,9 @@ export default function Page({
 }) {
   const isClient = useIsClient()
 
-  const { masonryItems, dbBuildState, setNewBuildState, updateDBBuildState } =
-    useDBBuildState(extendedBuildToBuildState(initialBuildState))
+  const { masonryItems, dbBuildState, updateDBBuildState } = useDBBuildState(
+    extendedBuildToBuildState(initialBuildState),
+  )
 
   const {
     isScreenshotMode,
