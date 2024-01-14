@@ -70,23 +70,10 @@ model VerificationToken {
 // Other models
 // ---------------------------------------------------------------------------------------------
 
-enum ITEM_CATEGORY {
-  helm
-  torso
-  legs
-  gloves
-  relic
-  amulet
-  weapon
-  archtype
-  concoction
-  consumable
-  mod
-  mutator
-  relicfragment
-  ring
-  skill
-  trait
+model Item {
+  id         String       @id @default(cuid())
+  itemId     String       @unique
+  BuildItems BuildItems[]
 }
 
 model Build {
@@ -119,8 +106,21 @@ model Build {
   trait           String?
   BuildVotes      BuildVoteCounts[]
   BuildReports    BuildReports[]
+  BuildItems      BuildItems[]
 
   @@index([createdById])
+}
+
+model BuildItems {
+  id      String @id @default(cuid())
+  build   Build  @relation(fields: [buildId], references: [id], onDelete: Cascade)
+  buildId String
+  item    Item   @relation(fields: [itemId], references: [id], onDelete: Cascade)
+  itemId  String
+  amount  Int?
+
+  @@index([buildId])
+  @@index([itemId])
 }
 
 model BuildVoteCounts {
