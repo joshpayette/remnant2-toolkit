@@ -6,6 +6,7 @@ import { getServerSession } from '@/app/(lib)/auth'
 import { prisma } from '@/app/(lib)/db'
 import { ExtendedBuild } from '@/app/(types)/build'
 import { SearchFilters } from './page'
+import { remnantItems } from '@/app/(data)'
 
 export async function getBuilds({
   itemsPerPage,
@@ -20,6 +21,46 @@ export async function getBuilds({
 }): Promise<PaginationResponse<ExtendedBuild>> {
   const session = await getServerSession()
   const userId = session?.user?.id
+
+  // Add linked mods to the discoveredItemIds
+  // Add linked skills to the discoveredItemIds
+  // Add core traits to the discoveredItemIds
+  for (const itemId of discoveredItemIds) {
+    const currentItem = remnantItems.find((item) => item.id === itemId)
+
+    if (currentItem?.linkedItems?.mod) {
+      const modItem = remnantItems.find(
+        (item) => item.name === currentItem.linkedItems?.mod?.name,
+      )
+      if (!modItem) {
+        console.error(`Could not find mod item for ${currentItem.name}`)
+        continue
+      }
+      discoveredItemIds.push(modItem.id)
+    }
+
+    if (currentItem?.linkedItems?.skills) {
+      for (const skill of currentItem.linkedItems.skills) {
+        const skillItem = remnantItems.find((item) => item.name === skill.name)
+        if (!skillItem) {
+          console.error(`Could not find skill item for ${currentItem.name}`)
+          continue
+        }
+        discoveredItemIds.push(skillItem.id)
+      }
+    }
+
+    if (currentItem?.linkedItems?.traits) {
+      for (const trait of currentItem.linkedItems.traits) {
+        const traitItem = remnantItems.find((item) => item.name === trait.name)
+        if (!traitItem) {
+          console.error(`Could not find trait item for ${currentItem.name}`)
+          continue
+        }
+        discoveredItemIds.push(traitItem.id)
+      }
+    }
+  }
 
   const whereClause = {
     isPublic: true,
@@ -125,23 +166,23 @@ export async function getBuilds({
                 })),
               ],
             },
-            // {
-            //   OR: [
-            //     { mod: { equals: null } },
-            //     ...discoveredItemIds.map((itemId) => ({
-            //       mod: { contains: itemId },
-            //     })),
-            //   ],
-            // },
-            // {
-            //   OR: [
-            //     { trait: { equals: null } },
-            //     { trait: { equals: '' } },
-            //     ...discoveredItemIds.map((itemId) => ({
-            //       trait: { contains: itemId },
-            //     })),
-            //   ],
-            // },
+            {
+              OR: [
+                { mod: { equals: null } },
+                ...discoveredItemIds.map((itemId) => ({
+                  mod: { contains: itemId },
+                })),
+              ],
+            },
+            {
+              OR: [
+                { trait: { equals: null } },
+                { trait: { equals: '' } },
+                ...discoveredItemIds.map((itemId) => ({
+                  trait: { contains: itemId },
+                })),
+              ],
+            },
           ],
         }
       : {}),

@@ -45,7 +45,7 @@ export default function Filters({ defaultFilters, filters, onUpdate }: Props) {
             </span>
             <div className="grid grid-cols-2 text-left">
               <Checkbox
-                label="Limit to items you own"
+                label="Limit to items you own (based on Item Tracker)"
                 name={`filter-owned-items`}
                 checked={filters.ownedItemsOnly}
                 onChange={() =>

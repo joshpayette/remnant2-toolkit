@@ -1,8 +1,3 @@
-# WHERE I LEFT OFF
-
-- Linked mods and core traits need to be saved to the database
-  so that they can be filtered
-
 # TODO
 
 - On Item Tracker, split weapons into the three types
