@@ -204,13 +204,9 @@ export async function getBuilds({
     take: itemsPerPage,
   })
 
-  const totalBuildCount = await prisma.build.count({
-    where: {
-      isPublic: true,
-    },
-  })
-
   if (!builds) return { items: [], totalItemCount: 0 }
+
+  const totalBuildCount = await prisma.build.count({ where: whereClause })
 
   const returnedBuilds: ExtendedBuild[] = builds.map((build) => ({
     ...build,
