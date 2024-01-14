@@ -2,16 +2,10 @@ import type { NextRequest } from 'next/server'
 import { patreon as patreonAPI } from 'patreon'
 import { prisma } from '@/app/(lib)/db'
 
-// TODO SCHEDULE THIS
-
 /**
  * Gives specific users the benefits of a paid user
  */
-const allowListIserIds = [
-  'clql3zq8k0000a6m41vtnvldq',
-  'clqnz8j6s000ekmx52vr5tot9',
-  'clqoktf3g0005ivzzxbyane4s',
-]
+const allowListUserIds = ['clql3zq8k0000a6m41vtnvldq']
 
 /**
  * CRON script that runs to moderate reported users and builds
@@ -87,7 +81,7 @@ export async function GET(request: NextRequest) {
     }
 
     // Add the allowed users to the PaidUsers table
-    for (const userId of allowListIserIds) {
+    for (const userId of allowListUserIds) {
       const user = await prisma.user.findUnique({
         where: {
           id: userId,
