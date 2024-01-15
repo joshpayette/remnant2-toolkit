@@ -117,6 +117,7 @@ model BuildItems {
   buildId String
   item    Item   @relation(fields: [itemId], references: [id], onDelete: Cascade)
   itemId  String
+  index   Int?
   amount  Int?
 
   @@index([buildId])

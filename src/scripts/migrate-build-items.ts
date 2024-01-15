@@ -8,70 +8,76 @@ async function updateBuildItems() {
   const builds = await prisma.build.findMany()
 
   for (const build of builds) {
-    let itemIds: Array<{ itemId: string; amount?: number }> = []
+    let itemIds: Array<{
+      itemId: string
+      amount?: number
+      index?: number
+    }> = []
 
     // Do all the single items first
-    if (build.helm) itemIds.push({ itemId: build.helm })
-    if (build.torso) itemIds.push({ itemId: build.torso })
-    if (build.legs) itemIds.push({ itemId: build.legs })
-    if (build.gloves) itemIds.push({ itemId: build.gloves })
-    if (build.amulet) itemIds.push({ itemId: build.amulet })
-    if (build.relic) itemIds.push({ itemId: build.relic })
+    if (build.helm && build.helm !== '') itemIds.push({ itemId: build.helm })
+    if (build.torso && build.torso !== '') itemIds.push({ itemId: build.torso })
+    if (build.legs && build.legs !== '') itemIds.push({ itemId: build.legs })
+    if (build.gloves && build.gloves !== '')
+      itemIds.push({ itemId: build.gloves })
+    if (build.amulet && build.amulet !== '')
+      itemIds.push({ itemId: build.amulet })
+    if (build.relic && build.relic !== '') itemIds.push({ itemId: build.relic })
 
     // Now all the multiple items
     if (build.weapon) {
       const weaponIds = build.weapon.split(',')
-      for (const weaponId of weaponIds) {
-        itemIds.push({ itemId: weaponId })
-      }
+      weaponIds.forEach((weaponId, index) => {
+        itemIds.push({ itemId: weaponId, index })
+      })
     }
     if (build.mod) {
       const modIds = build.mod.split(',')
-      for (const modId of modIds) {
-        itemIds.push({ itemId: modId })
-      }
+      modIds.forEach((modId, index) => {
+        itemIds.push({ itemId: modId, index })
+      })
     }
     if (build.mutator) {
       const mutatorIds = build.mutator.split(',')
-      for (const mutatorId of mutatorIds) {
-        itemIds.push({ itemId: mutatorId })
-      }
+      mutatorIds.forEach((mutatorId, index) => {
+        itemIds.push({ itemId: mutatorId, index })
+      })
     }
     if (build.ring) {
       const ringIds = build.ring.split(',')
-      for (const ringId of ringIds) {
-        itemIds.push({ itemId: ringId })
-      }
+      ringIds.forEach((ringId, index) => {
+        itemIds.push({ itemId: ringId, index })
+      })
     }
     if (build.archtype) {
       const archtypeIds = build.archtype.split(',')
-      for (const archtypeId of archtypeIds) {
-        itemIds.push({ itemId: archtypeId })
-      }
+      archtypeIds.forEach((archtypeId, index) => {
+        itemIds.push({ itemId: archtypeId, index })
+      })
     }
     if (build.skill) {
       const skillIds = build.skill.split(',')
-      for (const skillId of skillIds) {
-        itemIds.push({ itemId: skillId })
-      }
+      skillIds.forEach((skillId, index) => {
+        itemIds.push({ itemId: skillId, index })
+      })
     }
     if (build.relicfragment) {
       const relicfragmentIds = build.relicfragment.split(',')
-      for (const relicfragmentId of relicfragmentIds) {
-        itemIds.push({ itemId: relicfragmentId })
-      }
+      relicfragmentIds.forEach((relicfragmentId, index) => {
+        itemIds.push({ itemId: relicfragmentId, index })
+      })
     }
     if (build.concoction) {
       const concoctionIds = build.concoction.split(',')
-      for (const concoctionId of concoctionIds) {
-        itemIds.push({ itemId: concoctionId })
-      }
+      concoctionIds.forEach((concoctionId, index) => {
+        itemIds.push({ itemId: concoctionId, index })
+      })
     }
     if (build.consumable) {
       const consumableIds = build.consumable.split(',')
-      for (const consumableId of consumableIds) {
-        itemIds.push({ itemId: consumableId })
-      }
+      consumableIds.forEach((consumableId, index) => {
+        itemIds.push({ itemId: consumableId, index })
+      })
     }
     if (build.trait) {
       const traits = build.trait.split(',')
@@ -88,6 +94,7 @@ async function updateBuildItems() {
         buildId: build.id,
         itemId: itemId.itemId,
         amount: itemId.amount,
+        index: itemId.index,
       })),
     })
 

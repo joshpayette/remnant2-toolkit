@@ -47,57 +47,6 @@ export function trimTrailingComma(string: string): string {
 }
 
 /**
- * Converts the build state to a DB build for insertion or updating
- */
-export function buildStateToBuild(buildState: BuildState) {
-  const { items } = buildState
-
-  const cleanName = buildState.name ? badWordFilter(buildState.name) : ''
-
-  // limit description to MAX_DESCRIPTION_LENGTH
-  const clippedDescription = buildState.description
-    ? buildState.description.slice(0, MAX_BUILD_DESCRIPTION_LENGTH)
-    : ''
-  const cleanDescription = badWordFilter(clippedDescription)
-
-  const build: Omit<
-    Build,
-    'id' | 'createdAt' | 'createdBy' | 'updatedAt' | 'createdById'
-  > = {
-    name: cleanName,
-    description: cleanDescription,
-    isPublic: Boolean(buildState.isPublic),
-    isFeaturedBuild: buildState.isFeaturedBuild,
-    thumbnailUrl: buildState.thumbnailUrl,
-    videoUrl: '',
-    helm: items.helm ? ArmorItem.toDBValue(items.helm) : null,
-    torso: items.torso ? ArmorItem.toDBValue(items.torso) : null,
-    legs: items.legs ? ArmorItem.toDBValue(items.legs) : null,
-    gloves: items.gloves ? ArmorItem.toDBValue(items.gloves) : null,
-    relic: items.relic ? GenericItem.toDBValue(items.relic) : null,
-    amulet: items.amulet ? GenericItem.toDBValue(items.amulet) : null,
-    weapon: items.weapon ? WeaponItem.toDBValue(items.weapon) : null,
-    ring: items.ring ? GenericItem.toDBValue(items.ring) : null,
-    archtype: items.archtype ? GenericItem.toDBValue(items.archtype) : null,
-    skill: items.skill ? GenericItem.toDBValue(items.skill) : null,
-    concoction: items.concoction
-      ? GenericItem.toDBValue(items.concoction)
-      : null,
-    consumable: items.consumable
-      ? GenericItem.toDBValue(items.consumable)
-      : null,
-    mod: items.mod ? ModItem.toDBValue(items.mod) : null,
-    mutator: items.mutator ? MutatorItem.toDBValue(items.mutator) : null,
-    relicfragment: items.relicfragment
-      ? GenericItem.toDBValue(items.relicfragment)
-      : null,
-    trait: TraitItem.toDBValue(buildState.items.trait),
-  }
-
-  return build
-}
-
-/**
  * Converts the build state into a CSV file
  */
 export function buildStateToCsvData(buildState: BuildState) {

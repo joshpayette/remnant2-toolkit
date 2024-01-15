@@ -6,8 +6,9 @@ import { prisma } from '@/app/(lib)/db'
 import { revalidatePath } from 'next/cache'
 import { z } from 'zod'
 import { ErrorResponse } from '../(types)'
-import { buildStateSchema, buildStateToBuild } from '../(lib)/build'
+import { buildStateSchema } from '../(lib)/build'
 import { DEFAULT_DISPLAY_NAME } from '@/app/(data)/constants'
+import { GenericItem } from '../(types)/items/GenericItem'
 
 export type SuccessResponse = {
   message?: string
@@ -38,17 +39,33 @@ export async function createBuild(data: string): Promise<BuildActionResponse> {
     }
   }
   const buildState = validatedData.data as BuildState
-
-  const newBuild = buildStateToBuild(buildState)
+  const buildItems = buildState.items
 
   try {
     const dbResponse = await prisma.build.create({
       data: {
-        ...newBuild,
+        name: buildState.name ?? 'My Build',
+        description: buildState.description ?? '',
+        isPublic: Boolean(buildState.isPublic),
         createdBy: {
           connect: {
             id: session.user.id,
           },
+        },
+        BuildItems: {
+          create: [
+            ...(buildItems.helm ? [{ itemId: buildItems.helm.id }] : []),
+            ...(buildItems.torso ? [{ itemId: buildItems.torso.id }] : []),
+            ...(buildItems.legs ? [{ itemId: buildItems.legs.id }] : []),
+            ...(buildItems.gloves ? [{ itemId: buildItems.gloves.id }] : []),
+            ...(buildItems.amulet ? [{ itemId: buildItems.amulet.id }] : []),
+            ...(buildItems.relic ? [{ itemId: buildItems.relic.id }] : []),
+            // ...(buildItems.ring
+            //   ? buildItems.ring
+            //       .filter((ring) => ring !== null)
+            //       .map((r) => ({ itemId: (r as GenericItem).id }))
+            //   : []),
+          ],
         },
       },
     })
