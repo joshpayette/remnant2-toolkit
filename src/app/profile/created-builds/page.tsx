@@ -25,7 +25,11 @@ async function getBuilds() {
       createdAt: 'desc',
     },
     include: {
-      createdBy: true,
+      createdBy: {
+        include: {
+          PaidUsers: true, // Include the related PaidUsers record
+        },
+      },
       BuildVotes: true,
       BuildReports: true,
     },
@@ -33,7 +37,7 @@ async function getBuilds() {
 
   if (!builds) return []
 
-  const buildsWithExtraFields = builds.map((build) => ({
+  const buildsWithExtraFields: ExtendedBuild[] = builds.map((build) => ({
     ...build,
     createdByDisplayName:
       build.createdBy?.displayName ||
@@ -43,7 +47,8 @@ async function getBuilds() {
     totalUpvotes: build.BuildVotes.length, // Count the votes
     upvoted: build.BuildVotes.some((vote) => vote.userId === userId), // Check if the user upvoted the build
     reported: build.BuildReports.some((report) => report.userId === userId), // Check if the user reported the build
-  })) satisfies ExtendedBuild[]
+    isMember: build.createdBy.PaidUsers.length > 0, // Check if the user is a member
+  }))
 
   return buildsWithExtraFields
 }

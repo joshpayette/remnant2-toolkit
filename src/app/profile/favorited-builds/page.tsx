@@ -5,6 +5,7 @@ import CopyBuildUrlButton from '../(components)/CopyBuildUrlButton'
 import { StarIcon } from '@heroicons/react/24/solid'
 import { extendedBuildToBuildState } from '@/app/(lib)/build'
 import { ExtendedBuild } from '@/app/(types)/build'
+import { DEFAULT_DISPLAY_NAME } from '@/app/(data)/constants'
 
 async function getBuilds() {
   const session = await getServerSession()
@@ -25,7 +26,11 @@ async function getBuilds() {
       },
     },
     include: {
-      createdBy: true,
+      createdBy: {
+        include: {
+          PaidUsers: true, // Include the related PaidUsers record
+        },
+      },
       BuildVotes: true,
       BuildReports: true,
     },
@@ -33,36 +38,17 @@ async function getBuilds() {
 
   if (!builds) return []
 
-  const buildsWithExtraFields = builds.map((build) => ({
-    id: build.id,
-    name: build.name,
-    description: build.description ?? '',
-    isPublic: build.isPublic,
-    createdAt: build.createdAt,
-    createdById: build.createdById,
-    videoUrl: build.videoUrl ?? '',
-    helm: build.helm,
-    torso: build.torso,
-    gloves: build.gloves,
-    legs: build.legs,
-    amulet: build.amulet,
-    ring: build.ring,
-    relic: build.relic,
-    relicfragment: build.relicfragment,
-    archtype: build.archtype,
-    skill: build.skill,
-    weapon: build.weapon,
-    mod: build.mod,
-    mutator: build.mutator,
-    updatedAt: build.updatedAt,
-    concoction: build.concoction,
-    consumable: build.consumable,
-    trait: build.trait,
-    createdByDisplayName: build.createdBy.displayName ?? '',
-    totalUpvotes: build.BuildVotes.length,
+  const buildsWithExtraFields: ExtendedBuild[] = builds.map((build) => ({
+    ...build,
+    createdByDisplayName:
+      build.createdBy?.displayName ||
+      build.createdBy?.name ||
+      DEFAULT_DISPLAY_NAME,
+    totalUpvotes: build.BuildVotes.length, // Count the votes
     upvoted: build.BuildVotes.some((vote) => vote.userId === userId), // Check if the user upvoted the build
     reported: build.BuildReports.some((report) => report.userId === userId), // Check if the user reported the build
-  })) satisfies ExtendedBuild[]
+    isMember: build.createdBy.PaidUsers.length > 0, // Check if the user is a member
+  }))
 
   return buildsWithExtraFields
 }

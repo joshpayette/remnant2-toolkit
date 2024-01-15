@@ -25,7 +25,10 @@ export interface BuildState {
   name: string
   createdById: string | null
   createdByDisplayName: string | null
+  isMember: boolean
   isPublic: boolean
+  isFeaturedBuild: boolean
+  thumbnailUrl: string | null
   description: string | null
   upvoted: boolean
   totalUpvotes: number
@@ -59,4 +62,5 @@ export interface ExtendedBuild extends Build {
   reported: boolean
   upvoted: boolean
   totalUpvotes: number
+  isMember: boolean
 }
