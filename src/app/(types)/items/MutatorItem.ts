@@ -43,14 +43,6 @@ export class MutatorItem implements BaseMutatorItem {
     return items.map((i) => `${i?.id ?? ''}`)
   }
 
-  static toDBValue(items: Array<MutatorItem | null>): string {
-    return this.toParams(items).join(',')
-  }
-
-  static fromDBValue(value: string): MutatorItem[] {
-    return this.fromParams(value) ?? []
-  }
-
   static fromParams(params: string): MutatorItem[] | null {
     const itemIds = params.split(',')
     if (!itemIds) return null

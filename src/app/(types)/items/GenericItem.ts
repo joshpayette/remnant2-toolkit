@@ -97,24 +97,6 @@ export class GenericItem implements GenericItemProps {
     return `${item.id}`
   }
 
-  static toDBValue(
-    itemOrItems: GenericItem | Array<GenericItem | null>,
-  ): string {
-    if (Array.isArray(itemOrItems)) {
-      return this.toParamsFromArray(itemOrItems).join(',')
-    } else {
-      return this.toParamsFromSingle(itemOrItems)
-    }
-  }
-
-  static fromDBValueSingle(params: string): GenericItem | null {
-    return this.fromParamsSingle(params)
-  }
-
-  static fromDBValueArray(value: string): GenericItem[] {
-    return this.fromParamsArray(value) ?? []
-  }
-
   static fromParamsSingle(params: string): GenericItem | null {
     const itemIds = params.split(',')
     if (!itemIds) return null

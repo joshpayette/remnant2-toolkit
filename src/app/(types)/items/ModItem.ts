@@ -36,14 +36,6 @@ export class ModItem implements BaseModItem {
     return items.map((i) => `${i?.id ?? ''}`)
   }
 
-  static toDBValue(items: Array<ModItem | null>): string {
-    return this.toParams(items).join(',')
-  }
-
-  static fromDBValue(value: string): ModItem[] {
-    return this.fromParams(value) ?? []
-  }
-
   static fromParams(params: string): ModItem[] | null {
     const itemIds = params.split(',')
     if (!itemIds) return null

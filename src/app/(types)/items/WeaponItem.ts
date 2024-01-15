@@ -39,14 +39,6 @@ export class WeaponItem implements BaseWeaponItem {
     return items.map((i) => `${i?.id ?? ''}`)
   }
 
-  static toDBValue(items: Array<WeaponItem | null>): string {
-    return this.toParams(items).join(',')
-  }
-
-  static fromDBValue(value: string): WeaponItem[] {
-    return this.fromParams(value) ?? []
-  }
-
   static fromParams(params: string): WeaponItem[] | null {
     const itemIds = params.split(',')
     if (!itemIds) return null

@@ -65,14 +65,6 @@ export class ArmorItem implements BaseArmorItem {
     return `${item?.id ?? ''}`
   }
 
-  static toDBValue(item: ArmorItem): string {
-    return this.toParams(item)
-  }
-
-  static fromDBValue(value: string): ArmorItem | null {
-    return this.fromParams(value)
-  }
-
   static fromParams(params: string): ArmorItem | null {
     const itemIds = params.split(',')
     if (!itemIds) return null
