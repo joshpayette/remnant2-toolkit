@@ -192,7 +192,6 @@ export async function getFavoritedBuilds({
     createdByDisplayName:
       build.createdBy?.displayName ||
       build.createdBy?.name ||
-      session?.user?.name ||
       DEFAULT_DISPLAY_NAME,
     totalUpvotes: build.BuildVotes.length, // Count the votes
     upvoted: build.BuildVotes.some((vote) => vote.userId === userId), // Check if the user upvoted the build
