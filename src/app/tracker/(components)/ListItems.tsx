@@ -2,26 +2,45 @@
 
 import { Disclosure } from '@headlessui/react'
 import { ChevronUpIcon } from '@heroicons/react/20/solid'
-import { capitalize, cn } from '@/app/(lib)/utils'
+import { cn } from '@/app/(lib)/utils'
 import { useIsClient } from 'usehooks-ts'
 import { useLocalStorage } from '@/app/(hooks)/useLocalStorage'
 import ItemCard from './ItemCard'
 import { InformationCircleIcon } from '@heroicons/react/24/solid'
-import { GenericItem } from '@/app/(types)/items/GenericItem'
-import { useMemo } from 'react'
+import { ItemCategory } from '@/app/(types)/build'
+import { WeaponItem } from '@/app/(types)/items/WeaponItem'
+import { MutatorItem } from '@/app/(types)/items/MutatorItem'
+import { Item } from '@/app/(types)'
+
+interface ItemTrackerCategory {
+  category: ItemCategory
+  label: string
+  type?: WeaponItem['type'] | MutatorItem['type']
+}
 
 function getProgress(
-  items: Array<GenericItem & { discovered: boolean }>,
-  itemCategory: GenericItem['category'],
+  items: Array<Item & { discovered: boolean }>,
+  itemCategory: ItemTrackerCategory,
   isClient: boolean,
 ) {
-  const discoveredCount = items.filter(
-    (item) => item.category === itemCategory && item.discovered,
-  ).length
+  const discoveredCount = items.filter((item) => {
+    if (WeaponItem.isWeaponItem(item) || MutatorItem.isMutatorItem(item)) {
+      return (
+        item.category === itemCategory.category &&
+        item.type === itemCategory.type &&
+        item.discovered
+      )
+    }
+    return item.category === itemCategory.category && item.discovered
+  }).length
+
   const discoveredPercent = Math.round(
     (discoveredCount / items.length) * 100,
   ).toString()
-  const total = items.filter((item) => item.category === itemCategory).length
+
+  const total = items.filter(
+    (item) => item.category === itemCategory.category,
+  ).length
 
   return isClient
     ? `${discoveredCount} / ${total} (${discoveredPercent}%)`
@@ -29,7 +48,7 @@ function getProgress(
 }
 
 interface ListItemsProps {
-  items: Array<GenericItem & { discovered: boolean }>
+  items: Array<Item & { discovered: boolean }>
   onClick: (itemId: string) => void
   onShowItemInfo: (itemId: string) => void
 }
@@ -44,12 +63,7 @@ export default function ListItems({
 
   const isClient = useIsClient()
 
-  const getItemTitle = (itemCategory: GenericItem['category']) => {
-    if (itemCategory === 'relicfragment') return 'Relic Fragments'
-    return capitalize(itemCategory)
-  }
-
-  function handleCategoryToggle(itemCategory: GenericItem['category']) {
+  function handleCategoryToggle(itemCategory: ItemCategory) {
     const newCollapsedItemTypes = collapsedCategories.includes(itemCategory)
       ? collapsedCategories.filter((type) => type !== itemCategory)
       : [...collapsedCategories, itemCategory]
@@ -60,30 +74,83 @@ export default function ListItems({
     })
   }
 
-  const itemCategories = useMemo(() => {
-    return Array.from(new Set(items.map((item) => item.category)))
-  }, [items])
+  const itemCategories: ItemTrackerCategory[] = [
+    { category: 'helm' as ItemCategory, label: 'Helms' },
+    { category: 'torso' as ItemCategory, label: 'Torsos' },
+    { category: 'legs' as ItemCategory, label: 'Legs' },
+    { category: 'gloves' as ItemCategory, label: 'Gloves' },
+    { category: 'relic' as ItemCategory, label: 'Relics' },
+    { category: 'relicfragment' as ItemCategory, label: 'Relic Fragments' },
+    { category: 'amulet' as ItemCategory, label: 'Amulets' },
+    { category: 'ring' as ItemCategory, label: 'Rings' },
+    {
+      category: 'weapon' as ItemCategory,
+      label: 'Long Guns',
+      type: 'long gun' as WeaponItem['type'],
+    },
+    {
+      category: 'weapon' as ItemCategory,
+      label: 'Hand Guns',
+      type: 'hand gun' as WeaponItem['type'],
+    },
+    {
+      category: 'weapon' as ItemCategory,
+      label: 'Melee',
+      type: 'melee' as WeaponItem['type'],
+    },
+    { category: 'archtype' as ItemCategory, label: 'Archtypes' },
+    { category: 'trait' as ItemCategory, label: 'Traits' },
+    { category: 'mod' as ItemCategory, label: 'Mods' },
+    {
+      category: 'mutator' as ItemCategory,
+      label: 'Mutators (Guns)',
+      type: 'gun' as MutatorItem['type'],
+    },
+    {
+      category: 'mutator' as ItemCategory,
+      label: 'Mutators (Melee)',
+      type: 'melee' as MutatorItem['type'],
+    },
+  ].filter((itemCategory) => {
+    const visibleCategories = Array.from(
+      new Set(items.map((item) => item.category)),
+    )
+    return visibleCategories.includes(
+      (itemCategory as ItemTrackerCategory).category,
+    )
+  })
 
   return (
     <div className="w-full">
       {itemCategories.map((itemCategory) => (
         <Disclosure
-          key={itemCategory}
-          defaultOpen={!collapsedCategories.includes(itemCategory)}
+          key={itemCategory.label}
+          defaultOpen={!collapsedCategories.includes(itemCategory.category)}
         >
           {({ open }) => (
             <>
               <Disclosure.Button
-                onClick={() => handleCategoryToggle(itemCategory)}
+                onClick={() => handleCategoryToggle(itemCategory.category)}
                 className="flex w-full justify-start border-b border-purple-700 p-4 text-left hover:border-green-400 hover:bg-black focus:outline-none focus-visible:ring focus-visible:ring-green-500/75"
               >
                 <div className="w-full">
                   <h2 className="text-lg font-semibold">
-                    {getItemTitle(itemCategory)}
+                    {itemCategory.label}
                   </h2>
                   <span className="text-sm text-gray-400">
                     {getProgress(
-                      items.filter((i) => i.category === itemCategory),
+                      items.filter((item) => {
+                        if (
+                          WeaponItem.isWeaponItem(item) ||
+                          MutatorItem.isMutatorItem(item)
+                        ) {
+                          return (
+                            item.category === itemCategory.category &&
+                            item.type === itemCategory.type
+                          )
+                        }
+                        return item.category === itemCategory.category
+                      }),
                       itemCategory,
                       isClient,
                     )}
@@ -98,7 +165,18 @@ export default function ListItems({
               </Disclosure.Button>
               <Disclosure.Panel className="grid w-full grid-cols-2 gap-4 py-4 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-10">
                 {items
-                  .filter((item) => item.category === itemCategory) // Filter by category
+                  .filter((item) => {
+                    if (
+                      WeaponItem.isWeaponItem(item) ||
+                      MutatorItem.isMutatorItem(item)
+                    ) {
+                      return (
+                        item.category === itemCategory.category &&
+                        item.type === itemCategory.type
+                      )
+                    }
+                    return item.category === itemCategory.category
+                  }) // Filter by category
                   .map((item) => (
                     <div key={item.id} className="flex flex-col">
                       <div
