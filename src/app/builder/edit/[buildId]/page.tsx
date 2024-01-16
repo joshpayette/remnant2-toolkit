@@ -11,18 +11,18 @@ import ActionButton from '../../(components)/ActionButton'
 import Builder from '../../(components)/Builder'
 import MasonryItemList from '@/app/(components)/MasonryItemList'
 import { cn } from '@/app/(lib)/utils'
-import { extendedBuildToBuildState } from '../../../(lib)/build'
-import { ExtendedBuild } from '@/app/(types)/build'
+import { DBBuild } from '@/app/(types)/build'
+import { dbBuildToBuildState } from '@/app/(lib)/build'
 
 export default function Page({
   params: { initialBuildState },
 }: {
-  params: { initialBuildState: ExtendedBuild }
+  params: { initialBuildState: DBBuild }
 }) {
   const isClient = useIsClient()
 
   const { masonryItems, dbBuildState, updateDBBuildState } = useDBBuildState(
-    extendedBuildToBuildState(initialBuildState),
+    dbBuildToBuildState(initialBuildState),
   )
 
   const {

@@ -4,14 +4,14 @@ import CopyBuildUrlButton from '../(components)/CopyBuildUrlButton'
 import { FavoritedBuildsFilter, getFavoritedBuilds } from '../actions'
 import usePagination from '@/app/(hooks)/usePagination'
 import { useEffect, useState } from 'react'
-import { ExtendedBuild } from '@/app/(types)/build'
 import BuildCard from '@/app/(components)/BuildCard'
 import BuildListFilters from '@/app/(components)/BuildListFilters'
 import BuildList from '@/app/(components)/BuildList'
 import DuplicateBuildButton from '../(components)/DuplicateBuildButton'
+import { DBBuild } from '@/app/(types)/build'
 
 export default function Page() {
-  const [builds, setBuilds] = useState<ExtendedBuild[]>([])
+  const [builds, setBuilds] = useState<DBBuild[]>([])
   const [totalBuildCount, setTotalBuildCount] = useState<number>(0)
   const [filter, setFilter] = useState<FavoritedBuildsFilter>('date favorited')
   const itemsPerPage = 8

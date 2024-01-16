@@ -1,3 +1,4 @@
+import { BuildItems } from '@prisma/client'
 import { DLCKey } from '..'
 import { remnantItems } from '../../(data)'
 
@@ -97,22 +98,34 @@ export class GenericItem implements GenericItemProps {
     return `${item.id}`
   }
 
-  static toDBValue(
-    itemOrItems: GenericItem | Array<GenericItem | null>,
-  ): string {
-    if (Array.isArray(itemOrItems)) {
-      return this.toParamsFromArray(itemOrItems).join(',')
-    } else {
-      return this.toParamsFromSingle(itemOrItems)
+  static fromDBValueSingle(
+    buildItems: BuildItems[],
+    category: ItemCategory,
+  ): GenericItem | null {
+    let genericItem: GenericItem | null = null
+    for (const buildItem of buildItems) {
+      const item = remnantItems.find((i) => i.id === buildItem.itemId)
+      if (!item) continue
+      if (item.category !== category) continue
+      genericItem = item
     }
+    return genericItem
   }
 
-  static fromDBValueSingle(params: string): GenericItem | null {
-    return this.fromParamsSingle(params)
-  }
-
-  static fromDBValueArray(value: string): GenericItem[] {
-    return this.fromParamsArray(value) ?? []
+  static fromDBValueArray(
+    buildItems: BuildItems[],
+    category: ItemCategory,
+  ): Array<GenericItem | null> {
+    let genericItems: Array<GenericItem | null> = []
+    for (const buildItem of buildItems) {
+      const item = remnantItems.find((i) => i.id === buildItem.itemId)
+      if (!item) continue
+      if (item.category !== category) continue
+      buildItem.index
+        ? (genericItems[buildItem.index] = item)
+        : genericItems.push(item)
+    }
+    return genericItems
   }
 
   static fromParamsSingle(params: string): GenericItem | null {

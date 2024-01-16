@@ -57,8 +57,8 @@ export default function useBuildActions() {
   }
 
   async function handleDuplicateBuild(buildState: BuildState) {
-    const newBuildName = `${buildState.name} (copy)`
-    const newBuildState = { ...buildState, name: newBuildName }
+    const newBuildState = JSON.parse(JSON.stringify(buildState)) as BuildState
+    newBuildState.name = `${buildState.name} (copy)`
     const response = await createBuild(JSON.stringify(newBuildState))
     if (isErrorResponse(response)) {
       console.error(response.errors)

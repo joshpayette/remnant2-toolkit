@@ -1,13 +1,14 @@
 'use server'
 
 import { getServerSession } from '../(lib)/auth'
-import { BuildState, ExtendedBuild } from '@/app/(types)/build'
+import { BuildState, DBBuild } from '@/app/(types)/build'
 import { prisma } from '@/app/(lib)/db'
 import { revalidatePath } from 'next/cache'
 import { z } from 'zod'
 import { ErrorResponse } from '../(types)'
-import { buildStateSchema, buildStateToBuild } from '../(lib)/build'
+import { buildStateSchema, buildStateToBuildItems } from '../(lib)/build'
 import { DEFAULT_DISPLAY_NAME } from '@/app/(data)/constants'
+import { badWordFilter } from '../(lib)/badword-filter'
 
 export type SuccessResponse = {
   message?: string
@@ -38,17 +39,27 @@ export async function createBuild(data: string): Promise<BuildActionResponse> {
     }
   }
   const buildState = validatedData.data as BuildState
-
-  const newBuild = buildStateToBuild(buildState)
+  const buildItems = buildStateToBuildItems(buildState)
 
   try {
     const dbResponse = await prisma.build.create({
       data: {
-        ...newBuild,
+        name:
+          buildState.name && buildState.name !== ''
+            ? badWordFilter(buildState.name)
+            : 'My Build',
+        description:
+          buildState.description && buildState.description !== ''
+            ? badWordFilter(buildState.description)
+            : '',
+        isPublic: Boolean(buildState.isPublic),
         createdBy: {
           connect: {
             id: session.user.id,
           },
+        },
+        BuildItems: {
+          create: buildItems,
         },
       },
     })
@@ -215,7 +226,7 @@ export async function updateBuild(data: string): Promise<BuildActionResponse> {
     }
   }
 
-  const updatedBuildState = buildStateToBuild(buildState)
+  const updatedBuildItems = buildStateToBuildItems(buildState)
 
   try {
     const updatedBuild = await prisma.build.update({
@@ -225,7 +236,21 @@ export async function updateBuild(data: string): Promise<BuildActionResponse> {
           id: session.user.id,
         },
       },
-      data: updatedBuildState,
+      data: {
+        name:
+          buildState.name && buildState.name !== ''
+            ? badWordFilter(buildState.name)
+            : 'My Build',
+        description:
+          buildState.description && buildState.description !== ''
+            ? badWordFilter(buildState.description)
+            : '',
+        isPublic: Boolean(buildState.isPublic),
+        BuildItems: {
+          deleteMany: {},
+          create: updatedBuildItems,
+        },
+      },
     })
 
     if (!updatedBuild) {
@@ -682,7 +707,7 @@ export async function removeVoteForBuild(
 
 export async function getBuild(
   buildId: string,
-): Promise<ErrorResponse | { message: string; build: ExtendedBuild }> {
+): Promise<ErrorResponse | { message: string; build: DBBuild }> {
   if (!buildId) {
     console.error('No buildId provided!')
     return { errors: ['No buildId provided!'] }
@@ -690,21 +715,22 @@ export async function getBuild(
 
   const session = await getServerSession()
 
-  const build = await prisma?.build.findUnique({
+  const build = await prisma.build.findUnique({
     where: {
       id: buildId,
     },
     include: {
       createdBy: true,
       BuildVotes: true,
+      BuildItems: true,
     },
   })
 
   if (!build) {
-    return { errors: ['Build not found!'] }
+    return { errors: [`Build not found! ${buildId}`] }
   }
 
-  const returnedBuild: ExtendedBuild = {
+  const returnedBuild: DBBuild = {
     id: build.id,
     name: build.name,
     description: build.description ?? '',
@@ -714,24 +740,6 @@ export async function getBuild(
     thumbnailUrl: '',
     createdAt: build.createdAt,
     createdById: build.createdById,
-    videoUrl: build.videoUrl ?? '',
-    helm: build.helm,
-    torso: build.torso,
-    gloves: build.gloves,
-    legs: build.legs,
-    amulet: build.amulet,
-    ring: build.ring,
-    relic: build.relic,
-    relicfragment: build.relicfragment,
-    archtype: build.archtype,
-    skill: build.skill,
-    weapon: build.weapon,
-    mod: build.mod,
-    mutator: build.mutator,
-    updatedAt: build.updatedAt,
-    concoction: build.concoction,
-    consumable: build.consumable,
-    trait: build.trait,
     createdByDisplayName:
       build.createdBy.displayName ||
       build.createdBy.name ||
@@ -739,6 +747,7 @@ export async function getBuild(
     upvoted: false,
     totalUpvotes: build.BuildVotes.length,
     reported: false,
+    buildItems: build.BuildItems,
   }
 
   const voteResult = await prisma.buildVoteCounts.findFirst({

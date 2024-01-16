@@ -3,7 +3,7 @@ import { GenericItem } from '@/app/(types)/items/GenericItem'
 import { MutatorItem } from '@/app/(types)/items/MutatorItem'
 import { TraitItem } from '@/app/(types)/items/TraitItem'
 import { WeaponItem } from '@/app/(types)/items/WeaponItem'
-import { Build } from '@prisma/client'
+import { Build, BuildItems } from '@prisma/client'
 import { ModItem } from '../(types)/items/ModItem'
 
 export type ItemCategory = keyof BuildState['items']
@@ -53,13 +53,22 @@ export interface BuildState {
 }
 
 /**
- * Additional fields not stored in the db,
- * but computed for the buildState
+ * The shape of the build returned from the DB, along with
+ * additional computed fields
  */
-export interface ExtendedBuild extends Build {
+export interface DBBuild {
+  id: Build['id']
+  name: Build['name']
+  description: Build['description']
+  isPublic: Build['isPublic']
+  isFeaturedBuild: Build['isFeaturedBuild']
+  isMember: boolean
+  thumbnailUrl: Build['thumbnailUrl']
+  createdById: Build['createdById']
   createdByDisplayName: string
+  createdAt: Build['createdAt']
   reported: boolean
   upvoted: boolean
   totalUpvotes: number
-  isMember: boolean
+  buildItems: BuildItems[]
 }

@@ -1,7 +1,5 @@
 'use client'
 
-import { EyeIcon } from '@heroicons/react/24/solid'
-import { ExtendedBuild } from '@/app/(types)/build'
 import BuildList from '@/app/(components)/BuildList'
 import BuildCard from '@/app/(components)/BuildCard'
 import usePagination from '@/app/(hooks)/usePagination'
@@ -12,9 +10,10 @@ import CopyBuildUrlButton from '../(components)/CopyBuildUrlButton'
 import EditBuildButton from '../(components)/EditBuildButton'
 import DuplicateBuildButton from '../(components)/DuplicateBuildButton'
 import DeleteBuildButton from '../(components)/DeleteBuildButton'
+import { DBBuild } from '@/app/(types)/build'
 
 export default function Page() {
-  const [builds, setBuilds] = useState<ExtendedBuild[]>([])
+  const [builds, setBuilds] = useState<DBBuild[]>([])
   const [totalBuildCount, setTotalBuildCount] = useState<number>(0)
   const [filter, setFilter] = useState<CreatedBuildsFilter>('date created')
   const itemsPerPage = 8

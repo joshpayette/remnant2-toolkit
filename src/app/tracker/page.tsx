@@ -16,7 +16,7 @@ import { GenericItem } from '../(types)/items/GenericItem'
 import { MutatorItem } from '../(types)/items/MutatorItem'
 import useFilteredItems from '../(hooks)/useFilteredItems'
 import Filters from '../(components)/Filters'
-import { itemToCsvItem } from '../(lib)/build'
+import { itemToCsvItem } from '../(lib)/utils'
 import { useRouter } from 'next/navigation'
 
 const skippedItemCategories: Array<GenericItem['category']> = [
