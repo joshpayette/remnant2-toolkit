@@ -6,13 +6,13 @@ import { cn } from '@/app/(lib)/utils'
 import { FlagIcon as FlagIconOff } from '@heroicons/react/24/outline'
 import { FlagIcon as FlagIconOn } from '@heroicons/react/24/solid'
 import Link from 'next/link'
-import { extendedBuildToBuildState } from '../(lib)/build'
-import { ExtendedBuild } from '../(types)/build'
 import PopularBuildBadge from './PopularBuildBadge'
 import { POPULAR_VOTE_THRESHOLD } from '../(data)/constants'
+import { DBBuild } from '../(types)/build'
+import { dbBuildToBuildState } from '../(lib)/build'
 
 interface Props {
-  build: ExtendedBuild
+  build: DBBuild
   footerActions?: React.ReactNode
   memberFrameEnabled?: boolean
   onReportBuild: ((buildId: string) => void) | undefined
@@ -24,7 +24,7 @@ export default function BuildCard({
   memberFrameEnabled = true,
   onReportBuild,
 }: Props) {
-  const buildState = extendedBuildToBuildState(build)
+  const buildState = dbBuildToBuildState(build)
   const isPopular = buildState.totalUpvotes >= POPULAR_VOTE_THRESHOLD
 
   return (

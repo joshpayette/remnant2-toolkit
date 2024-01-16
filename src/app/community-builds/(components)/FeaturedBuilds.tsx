@@ -5,16 +5,16 @@ import { FeaturedBuildsFilter, getFeaturedBuilds } from '../actions'
 import BuildCard from '../../(components)/BuildCard'
 import BuildList from '@/app/(components)/BuildList'
 import usePagination from '@/app/(hooks)/usePagination'
-import { ExtendedBuild } from '@/app/(types)/build'
 import Link from 'next/link'
 import BuildListFilters from '@/app/(components)/BuildListFilters'
+import { DBBuild } from '@/app/(types)/build'
 
 interface Props {
   itemsPerPage?: number
 }
 
 export default function FeaturedBuilds({ itemsPerPage = 8 }: Props) {
-  const [builds, setBuilds] = useState<ExtendedBuild[]>([])
+  const [builds, setBuilds] = useState<DBBuild[]>([])
   const [totalBuildCount, setTotalBuildCount] = useState<number>(0)
   const [filter, setFilter] = useState<FeaturedBuildsFilter>('date created')
 

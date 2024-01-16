@@ -4,7 +4,6 @@ import PageHeader from '@/app/(components)/PageHeader'
 import Filters from '../(components)/Filters'
 import usePagination from '@/app/(hooks)/usePagination'
 import { useState } from 'react'
-import { ExtendedBuild } from '@/app/(types)/build'
 import { getBuilds } from './actions'
 import BuildCard from '@/app/(components)/BuildCard'
 import BuildList from '@/app/(components)/BuildList'
@@ -12,6 +11,7 @@ import Link from 'next/link'
 import { useLocalStorage } from '@/app/(hooks)/useLocalStorage'
 import { DLCKey } from '@/app/(types)'
 import LoadingIndicator from '@/app/(components)/LoadingIndicator'
+import { DBBuild } from '@/app/(types)/build'
 
 export interface SearchFilters {
   ownedItemsOnly: boolean
@@ -21,7 +21,7 @@ export interface SearchFilters {
 const itemsPerPage = 8
 
 export default function Page() {
-  const [builds, setBuilds] = useState<ExtendedBuild[]>([])
+  const [builds, setBuilds] = useState<DBBuild[]>([])
   const [totalBuildCount, setTotalBuildCount] = useState<number>(0)
   const [isLoading, setIsLoading] = useState(false)
   const { itemTrackerStorage } = useLocalStorage()

@@ -1,11 +1,11 @@
 'use server'
 
 import { prisma } from '@/app/(lib)/db'
-import { Build } from '@prisma/client'
+import { Build, BuildItems } from '@prisma/client'
 import { getServerSession } from '../(lib)/auth'
 import { PaginationResponse } from '../(hooks)/usePagination'
-import { ExtendedBuild } from '../(types)/build'
 import { DEFAULT_DISPLAY_NAME } from '../(data)/constants'
+import { DBBuild } from '../(types)/build'
 
 // Need this to suppress the BigInt JSON error
 BigInt.prototype.toJSON = function (): string {
@@ -27,7 +27,7 @@ export async function getMostUpvotedBuilds({
   timeRange: TimeRange
   itemsPerPage: number
   pageNumber: number
-}): Promise<PaginationResponse<ExtendedBuild>> {
+}): Promise<PaginationResponse<DBBuild>> {
   const session = await getServerSession()
 
   let timeCondition = ''
@@ -61,15 +61,17 @@ export async function getMostUpvotedBuilds({
   const topBuilds = (await prisma.$queryRaw`
   SELECT Build.*, User.name as username, User.displayName, COUNT(BuildVoteCounts.buildId) as votes,
     CASE WHEN BuildReports.buildId IS NOT NULL THEN true ELSE false END as reported,
-    CASE WHEN PaidUsers.userId IS NOT NULL THEN true ELSE false END as isPaidUser
+    CASE WHEN PaidUsers.userId IS NOT NULL THEN true ELSE false END as isPaidUser,
+    BuildItems.*
   FROM Build
   LEFT JOIN BuildVoteCounts ON Build.id = BuildVoteCounts.buildId
   LEFT JOIN User on Build.createdById = User.id
   LEFT JOIN BuildReports on Build.id = BuildReports.buildId AND BuildReports.userId = ${session
     ?.user?.id}
   LEFT JOIN PaidUsers on User.id = PaidUsers.userId
+  LEFT JOIN BuildItems on Build.id = BuildItems.buildId
   WHERE Build.isPublic = true AND Build.archtype IS NOT NULL AND Build.archtype != '' AND Build.createdAt > ${timeCondition}
-  GROUP BY Build.id, User.id
+  GROUP BY Build.id, User.id, BuildItems.id
   ORDER BY votes DESC
   LIMIT ${itemsPerPage} 
   OFFSET ${(pageNumber - 1) * itemsPerPage}
@@ -79,27 +81,26 @@ export async function getMostUpvotedBuilds({
     displayName: string
     reported: boolean
     isPaidUser: boolean
+    BuildItems: BuildItems[]
   })[]
 
   const totalTopBuilds = (await prisma.$queryRaw`
   SELECT COUNT(DISTINCT Build.id)
   FROM Build
   LEFT JOIN BuildVoteCounts ON Build.id = BuildVoteCounts.buildId
-  LEFT JOIN User on Build.createdById = User.id
-  LEFT JOIN BuildReports on Build.id = BuildReports.buildId AND BuildReports.userId = ${session?.user?.id}
-  LEFT JOIN PaidUsers on User.id = PaidUsers.userId
   WHERE Build.isPublic = true AND Build.archtype IS NOT NULL AND Build.archtype != '' AND Build.createdAt > ${timeCondition}
 `) as { 'count(distinct Build.id)': number }[]
 
   const totalBuildCount = Number(totalTopBuilds[0]['count(distinct Build.id)'])
 
-  const returnedBuilds: ExtendedBuild[] = topBuilds.map((build) => ({
+  const returnedBuilds: DBBuild[] = topBuilds.map((build) => ({
     ...build,
     createdByDisplayName: build.displayName || build.username, // Accessing the 'displayName' or 'name' property from the 'User' table
     upvoted: false,
     totalUpvotes: Number(build.votes),
     reported: build.reported,
     isMember: build.isPaidUser,
+    buildItems: build.BuildItems,
   }))
 
   return {
@@ -118,7 +119,7 @@ export async function getFeaturedBuilds({
   itemsPerPage: number
   pageNumber: number
   filter: FeaturedBuildsFilter
-}): Promise<PaginationResponse<ExtendedBuild>> {
+}): Promise<PaginationResponse<DBBuild>> {
   const session = await getServerSession()
   const userId = session?.user?.id
 
@@ -135,6 +136,7 @@ export async function getFeaturedBuilds({
             createdBy: true,
             BuildVotes: true,
             BuildReports: true,
+            BuildItems: true,
           },
           orderBy: {
             createdAt: 'desc',
@@ -150,6 +152,7 @@ export async function getFeaturedBuilds({
             createdBy: true,
             BuildVotes: true,
             BuildReports: true,
+            BuildItems: true,
           },
           orderBy: {
             BuildVotes: {
@@ -169,7 +172,7 @@ export async function getFeaturedBuilds({
 
   if (!builds) return { items: [], totalItemCount: 0 }
 
-  const returnedBuilds: ExtendedBuild[] = builds.map((build) => ({
+  const returnedBuilds: DBBuild[] = builds.map((build) => ({
     ...build,
     createdByDisplayName:
       build.createdBy?.displayName ||
@@ -179,7 +182,8 @@ export async function getFeaturedBuilds({
     upvoted: build.BuildVotes.some((vote) => vote.userId === userId), // Check if the user upvoted the build
     reported: build.BuildReports.some((report) => report.userId === userId), // Check if the user reported the build
     isMember: false,
-  })) satisfies ExtendedBuild[]
+    buildItems: build.BuildItems,
+  }))
 
   return { items: returnedBuilds, totalItemCount: totalBuildCount }
 }

@@ -6,8 +6,8 @@ import { ErrorResponse } from '../(types)'
 import { badWordFilter } from '../(lib)/badword-filter'
 import { prisma } from '../(lib)/db'
 import { DEFAULT_DISPLAY_NAME } from '../(data)/constants'
-import { ExtendedBuild } from '../(types)/build'
 import { PaginationResponse } from '../(hooks)/usePagination'
+import { DBBuild } from '../(types)/build'
 
 export type CreatedBuildsFilter = 'date created' | 'upvotes'
 
@@ -19,7 +19,7 @@ export async function getCreatedBuilds({
   itemsPerPage: number
   pageNumber: number
   filter: CreatedBuildsFilter
-}): Promise<PaginationResponse<ExtendedBuild>> {
+}): Promise<PaginationResponse<DBBuild>> {
   const session = await getServerSession()
   const userId = session?.user?.id
 
@@ -42,6 +42,7 @@ export async function getCreatedBuilds({
             },
             BuildVotes: true,
             BuildReports: true,
+            BuildItems: true,
           },
           take: itemsPerPage,
           skip: (pageNumber - 1) * itemsPerPage,
@@ -63,6 +64,7 @@ export async function getCreatedBuilds({
             },
             BuildVotes: true,
             BuildReports: true,
+            BuildItems: true,
           },
           take: itemsPerPage,
           skip: (pageNumber - 1) * itemsPerPage,
@@ -81,7 +83,7 @@ export async function getCreatedBuilds({
     },
   })
 
-  const returnedBuilds: ExtendedBuild[] = builds.map((build) => ({
+  const returnedBuilds: DBBuild[] = builds.map((build) => ({
     ...build,
     createdByDisplayName:
       build.createdBy?.displayName ||
@@ -92,7 +94,8 @@ export async function getCreatedBuilds({
     upvoted: build.BuildVotes.some((vote) => vote.userId === userId), // Check if the user upvoted the build
     reported: build.BuildReports.some((report) => report.userId === userId), // Check if the user reported the build
     isMember: build.createdBy.PaidUsers.length > 0, // Check if the user is a member
-  })) satisfies ExtendedBuild[]
+    buildItems: build.BuildItems,
+  }))
 
   return {
     items: returnedBuilds,
@@ -110,7 +113,7 @@ export async function getFavoritedBuilds({
   itemsPerPage: number
   pageNumber: number
   filter: FavoritedBuildsFilter
-}): Promise<PaginationResponse<ExtendedBuild>> {
+}): Promise<PaginationResponse<DBBuild>> {
   const session = await getServerSession()
 
   const userId = session?.user?.id
@@ -138,6 +141,7 @@ export async function getFavoritedBuilds({
             },
             BuildVotes: true,
             BuildReports: true,
+            BuildItems: true,
           },
           skip: (pageNumber - 1) * itemsPerPage,
           take: itemsPerPage,
@@ -166,6 +170,7 @@ export async function getFavoritedBuilds({
             },
             BuildVotes: true,
             BuildReports: true,
+            BuildItems: true,
           },
           skip: (pageNumber - 1) * itemsPerPage,
           take: itemsPerPage,
@@ -187,7 +192,7 @@ export async function getFavoritedBuilds({
 
   if (!builds) return { items: [], totalItemCount: 0 }
 
-  const returnedBuilds: ExtendedBuild[] = builds.map((build) => ({
+  const returnedBuilds: DBBuild[] = builds.map((build) => ({
     ...build,
     createdByDisplayName:
       build.createdBy?.displayName ||
@@ -197,7 +202,8 @@ export async function getFavoritedBuilds({
     upvoted: build.BuildVotes.some((vote) => vote.userId === userId), // Check if the user upvoted the build
     reported: build.BuildReports.some((report) => report.userId === userId), // Check if the user reported the build
     isMember: build.createdBy.PaidUsers.length > 0, // Check if the user is a member
-  })) satisfies ExtendedBuild[]
+    buildItems: build.BuildItems,
+  }))
 
   return { items: returnedBuilds, totalItemCount: totalBuildCount }
 }

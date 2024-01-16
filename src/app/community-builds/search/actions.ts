@@ -4,10 +4,10 @@ import { DEFAULT_DISPLAY_NAME } from '@/app/(data)/constants'
 import { PaginationResponse } from '@/app/(hooks)/usePagination'
 import { getServerSession } from '@/app/(lib)/auth'
 import { prisma } from '@/app/(lib)/db'
-import { ExtendedBuild } from '@/app/(types)/build'
 import { SearchFilters } from './page'
 import { remnantItems } from '@/app/(data)'
 import fs from 'fs'
+import { DBBuild } from '@/app/(types)/build'
 
 // Add linked mods to the itemIds
 // Add linked skills to the itemIds
@@ -63,7 +63,7 @@ export async function getBuilds({
   pageNumber: number
   searchFilters: SearchFilters
   discoveredItemIds: string[]
-}): Promise<PaginationResponse<ExtendedBuild>> {
+}): Promise<PaginationResponse<DBBuild>> {
   const session = await getServerSession()
   const userId = session?.user?.id
 
@@ -234,6 +234,7 @@ export async function getBuilds({
       createdBy: true,
       BuildVotes: true,
       BuildReports: true,
+      BuildItems: true,
     },
     orderBy: {
       BuildVotes: {
@@ -248,7 +249,7 @@ export async function getBuilds({
 
   const totalBuildCount = await prisma.build.count({ where: whereClause })
 
-  const returnedBuilds: ExtendedBuild[] = builds.map((build) => ({
+  const returnedBuilds: DBBuild[] = builds.map((build) => ({
     ...build,
     createdByDisplayName:
       build.createdBy?.displayName ||
@@ -258,6 +259,7 @@ export async function getBuilds({
     upvoted: build.BuildVotes.some((vote) => vote.userId === userId), // Check if the user upvoted the build
     reported: build.BuildReports.some((report) => report.userId === userId), // Check if the user reported the build
     isMember: false,
+    buildItems: build.BuildItems,
   }))
 
   return { items: returnedBuilds, totalItemCount: totalBuildCount }

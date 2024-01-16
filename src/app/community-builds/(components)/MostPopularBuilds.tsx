@@ -5,20 +5,20 @@ import { TimeRange, getMostUpvotedBuilds } from '../actions'
 import BuildCard from '../../(components)/BuildCard'
 import BuildList from '@/app/(components)/BuildList'
 import usePagination from '@/app/(hooks)/usePagination'
-import { ExtendedBuild } from '@/app/(types)/build'
 import Link from 'next/link'
 import { toast } from 'react-toastify'
 import { isErrorResponse } from '@/app/(types)'
 import useBuildActions from '@/app/builder/(hooks)/useBuildActions'
-import { extendedBuildToBuildState } from '@/app/(lib)/build'
 import BuildListFilters from '@/app/(components)/BuildListFilters'
+import { DBBuild } from '@/app/(types)/build'
+import { dbBuildToBuildState } from '@/app/(lib)/build'
 
 interface Props {
   itemsPerPage?: number
 }
 
 export default function MostPopularBuilds({ itemsPerPage = 8 }: Props) {
-  const [builds, setBuilds] = useState<ExtendedBuild[]>([])
+  const [builds, setBuilds] = useState<DBBuild[]>([])
   const [totalBuildCount, setTotalBuildCount] = useState<number>(0)
   const [timeRange, setTimeRange] = useState<TimeRange>('week')
 
@@ -63,7 +63,7 @@ export default function MostPopularBuilds({ itemsPerPage = 8 }: Props) {
     }
     const newReported = !reportedBuild.reported
     const response = await handleReportBuild(
-      extendedBuildToBuildState(reportedBuild),
+      dbBuildToBuildState(reportedBuild),
       newReported,
     )
 
