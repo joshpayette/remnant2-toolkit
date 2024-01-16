@@ -1,7 +1,6 @@
 # Where I'm at
 
 - The logic is borked. Because I was lazy and stored all item ids in a single comma-delimitted string, I can't easily filter.
-For example
 
 # TODO
 
