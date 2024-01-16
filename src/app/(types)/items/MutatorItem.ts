@@ -1,3 +1,4 @@
+import { BuildItems } from '@prisma/client'
 import { remnantItems } from '../../(data)'
 import { GenericItem } from './GenericItem'
 
@@ -59,5 +60,19 @@ export class MutatorItem implements BaseMutatorItem {
     if (items.filter((i) => !this.isMutatorItem(i)).length > 0) return null
 
     return items
+  }
+
+  static fromDBValue(buildItems: BuildItems[]): Array<MutatorItem | null> {
+    let mutatorItems: Array<MutatorItem | null> = []
+    for (const buildItem of buildItems) {
+      const item = remnantItems.find((i) => i.id === buildItem.itemId)
+      if (!item) continue
+      if (item.category !== 'mutator') continue
+      if (!this.isMutatorItem(item)) continue
+      buildItem.index
+        ? (mutatorItems[buildItem.index] = item)
+        : mutatorItems.push(item)
+    }
+    return mutatorItems
   }
 }

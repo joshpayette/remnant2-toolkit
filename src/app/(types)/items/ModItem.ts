@@ -1,3 +1,4 @@
+import { BuildItems } from '@prisma/client'
 import { remnantItems } from '../../(data)'
 import { GenericItem } from './GenericItem'
 
@@ -52,5 +53,17 @@ export class ModItem implements BaseModItem {
     if (items.filter((i) => !this.isModItem(i)).length > 0) return null
 
     return items
+  }
+
+  static fromDBValue(buildItems: BuildItems[]): Array<ModItem | null> {
+    let modItems: Array<ModItem | null> = []
+    for (const buildItem of buildItems) {
+      const item = remnantItems.find((i) => i.id === buildItem.itemId)
+      if (!item) continue
+      if (item.category !== 'mod') continue
+      if (!this.isModItem(item)) continue
+      buildItem.index ? (modItems[buildItem.index] = item) : modItems.push(item)
+    }
+    return modItems
   }
 }

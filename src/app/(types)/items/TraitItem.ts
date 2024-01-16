@@ -1,3 +1,4 @@
+import { BuildItems } from '@prisma/client'
 import { remnantItems } from '../../(data)'
 import { DEFAULT_TRAIT_AMOUNT } from '../../(data)/constants'
 import { GenericItem } from './GenericItem'
@@ -81,5 +82,23 @@ export class TraitItem implements BaseTraitItem {
       }
     })
     return items
+  }
+
+  static fromDBValue(buildItems: BuildItems[]): Array<TraitItem> {
+    let traitItems: Array<TraitItem> = []
+    for (const buildItem of buildItems) {
+      const item = remnantItems.find((i) => i.id === buildItem.itemId)
+      if (!item) continue
+      if (item.category !== 'trait') continue
+      if (!this.isTraitItem(item)) continue
+      const traitItem = {
+        ...item,
+        amount: buildItem.amount,
+      } as TraitItem
+      buildItem.index
+        ? (traitItems[buildItem.index] = traitItem)
+        : traitItems.push(traitItem)
+    }
+    return traitItems
   }
 }

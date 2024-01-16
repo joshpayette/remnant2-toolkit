@@ -23,19 +23,21 @@ import { useRouter } from 'next/navigation'
 import {
   buildStateToCsvData,
   buildStateToMasonryItems,
-  extendedBuildToBuildState,
+  dbBuildToBuildState,
 } from '../../(lib)/build'
 import { cn } from '@/app/(lib)/utils'
-import { ExtendedBuild } from '@/app/(types)/build'
+import { DBBuild } from '@/app/(types)/build'
 
 export default function Page({
   params: { build },
 }: {
-  params: { build: ExtendedBuild }
+  params: { build: DBBuild }
 }) {
   const router = useRouter()
   const isClient = useIsClient()
   const { data: session } = useSession()
+
+  const buildState = dbBuildToBuildState(build)
 
   const {
     isScreenshotMode,
@@ -53,7 +55,6 @@ export default function Page({
   const detailedViewContainerRef = useRef<HTMLDivElement>(null)
 
   // Need to convert the build data to a format that the BuildPage component can use
-  const buildState = extendedBuildToBuildState(build)
   if (!session?.user) {
     buildState.upvoted = false
     buildState.reported = false

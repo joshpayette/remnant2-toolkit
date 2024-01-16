@@ -3,9 +3,9 @@ import { prisma } from '@/app/(lib)/db'
 import ViewBuildButton from '../(components)/ViewBuildButton'
 import CopyBuildUrlButton from '../(components)/CopyBuildUrlButton'
 import { StarIcon } from '@heroicons/react/24/solid'
-import { extendedBuildToBuildState } from '@/app/(lib)/build'
-import { ExtendedBuild } from '@/app/(types)/build'
 import { DEFAULT_DISPLAY_NAME } from '@/app/(data)/constants'
+import { DBBuild } from '@/app/(types)/build'
+import { dbBuildToBuildState } from '@/app/(lib)/build'
 
 async function getBuilds() {
   const session = await getServerSession()
@@ -33,12 +33,13 @@ async function getBuilds() {
       },
       BuildVotes: true,
       BuildReports: true,
+      BuildItems: true,
     },
   })
 
   if (!builds) return []
 
-  const buildsWithExtraFields: ExtendedBuild[] = builds.map((build) => ({
+  const buildsWithExtraFields: DBBuild[] = builds.map((build) => ({
     ...build,
     createdByDisplayName:
       build.createdBy?.displayName ||
@@ -48,6 +49,7 @@ async function getBuilds() {
     upvoted: build.BuildVotes.some((vote) => vote.userId === userId), // Check if the user upvoted the build
     reported: build.BuildReports.some((report) => report.userId === userId), // Check if the user reported the build
     isMember: build.createdBy.PaidUsers.length > 0, // Check if the user is a member
+    buildItems: build.BuildItems,
   }))
 
   return buildsWithExtraFields
@@ -115,7 +117,7 @@ export default async function Page() {
                 </thead>
                 <tbody className="divide-y divide-gray-800">
                   {builds.map((build) => {
-                    const buildState = extendedBuildToBuildState(build)
+                    const buildState = dbBuildToBuildState(build)
                     return (
                       <tr key={build.id}>
                         <td className="py-4 pl-4 pr-3 text-sm font-medium text-white sm:pl-0">

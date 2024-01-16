@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2023-01-15
+
+### Changed
+
+- Overhauled the database schema for storing builds. This was a big change, so I'm hoping I didn't break anything! This was necessary to
+  enable the kind of granular filtering I want to do for community builds.
+
 ## 2023-01-12
 
 ### Added
