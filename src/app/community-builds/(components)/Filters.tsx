@@ -4,7 +4,7 @@ import { DLC_TO_NAME } from '@/app/(types)'
 import { useState } from 'react'
 import Skeleton from '@/app/(components)/Skeleton'
 
-const defaultFilters: SearchFilters = {
+export const defaultFilters: SearchFilters = {
   ownedItemsOnly: false,
   specificDLCItemsOnly: ['basegame', 'dlc1'],
 }

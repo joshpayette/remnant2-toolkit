@@ -58,20 +58,19 @@ export async function getMostUpvotedBuilds({
       break
   }
 
+  // First, get the Builds
   const topBuilds = (await prisma.$queryRaw`
   SELECT Build.*, User.name as username, User.displayName, COUNT(BuildVoteCounts.buildId) as votes,
     CASE WHEN BuildReports.buildId IS NOT NULL THEN true ELSE false END as reported,
-    CASE WHEN PaidUsers.userId IS NOT NULL THEN true ELSE false END as isPaidUser,
-    BuildItems.*
+    CASE WHEN PaidUsers.userId IS NOT NULL THEN true ELSE false END as isPaidUser
   FROM Build
   LEFT JOIN BuildVoteCounts ON Build.id = BuildVoteCounts.buildId
   LEFT JOIN User on Build.createdById = User.id
   LEFT JOIN BuildReports on Build.id = BuildReports.buildId AND BuildReports.userId = ${session
     ?.user?.id}
   LEFT JOIN PaidUsers on User.id = PaidUsers.userId
-  LEFT JOIN BuildItems on Build.id = BuildItems.buildId
   WHERE Build.isPublic = true AND Build.archtype IS NOT NULL AND Build.archtype != '' AND Build.createdAt > ${timeCondition}
-  GROUP BY Build.id, User.id, BuildItems.id
+  GROUP BY Build.id, User.id
   ORDER BY votes DESC
   LIMIT ${itemsPerPage} 
   OFFSET ${(pageNumber - 1) * itemsPerPage}
@@ -81,8 +80,16 @@ export async function getMostUpvotedBuilds({
     displayName: string
     reported: boolean
     isPaidUser: boolean
-    BuildItems: BuildItems[]
+    buildItems: BuildItems[]
   })[]
+
+  // Then, for each Build, get the associated BuildItems
+  for (const build of topBuilds) {
+    const buildItems = await prisma.buildItems.findMany({
+      where: { buildId: build.id },
+    })
+    build.buildItems = buildItems
+  }
 
   const totalTopBuilds = (await prisma.$queryRaw`
   SELECT COUNT(DISTINCT Build.id)
@@ -94,13 +101,20 @@ export async function getMostUpvotedBuilds({
   const totalBuildCount = Number(totalTopBuilds[0]['count(distinct Build.id)'])
 
   const returnedBuilds: DBBuild[] = topBuilds.map((build) => ({
-    ...build,
+    id: build.id,
+    name: build.name,
+    description: build.description,
+    isPublic: build.isPublic,
+    isFeaturedBuild: build.isFeaturedBuild,
+    thumbnailUrl: build.thumbnailUrl,
+    createdById: build.createdById,
+    createdAt: build.createdAt,
     createdByDisplayName: build.displayName || build.username, // Accessing the 'displayName' or 'name' property from the 'User' table
     upvoted: false,
     totalUpvotes: Number(build.votes),
     reported: build.reported,
     isMember: build.isPaidUser,
-    buildItems: build.BuildItems,
+    buildItems: build.buildItems,
   }))
 
   return {

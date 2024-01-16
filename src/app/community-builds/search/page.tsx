@@ -1,9 +1,9 @@
 'use client'
 
 import PageHeader from '@/app/(components)/PageHeader'
-import Filters from '../(components)/Filters'
+import Filters, { defaultFilters } from '../(components)/Filters'
 import usePagination from '@/app/(hooks)/usePagination'
-import { useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { getBuilds } from './actions'
 import BuildCard from '@/app/(components)/BuildCard'
 import BuildList from '@/app/(components)/BuildList'
@@ -23,9 +23,11 @@ const itemsPerPage = 8
 export default function Page() {
   const [builds, setBuilds] = useState<DBBuild[]>([])
   const [totalBuildCount, setTotalBuildCount] = useState<number>(0)
-  const [isLoading, setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
   const { itemTrackerStorage } = useLocalStorage()
   const { discoveredItemIds } = itemTrackerStorage
+  const [searchFilters, setSearchFilters] =
+    useState<SearchFilters>(defaultFilters)
 
   const {
     currentPage,
@@ -41,19 +43,28 @@ export default function Page() {
     itemsPerPage,
   })
 
-  async function handleFilterChange(searchFilters: SearchFilters) {
-    setIsLoading(true)
-    const response = await getBuilds({
-      itemsPerPage,
-      pageNumber: currentPage,
-      searchFilters,
-      // don't pass unneeded data if filter is not set
-      discoveredItemIds: searchFilters.ownedItemsOnly ? discoveredItemIds : [],
-    })
-    setIsLoading(false)
-    setBuilds(response.items)
-    setTotalBuildCount(response.totalItemCount)
-  }
+  const handleFilterChange = useCallback(
+    async (searchFilters: SearchFilters) => {
+      setIsLoading(true)
+      const response = await getBuilds({
+        itemsPerPage,
+        pageNumber: currentPage,
+        searchFilters,
+        // don't pass unneeded data if filter is not set
+        discoveredItemIds: searchFilters.ownedItemsOnly
+          ? discoveredItemIds
+          : [],
+      })
+      setBuilds(response.items)
+      setTotalBuildCount(response.totalItemCount)
+      setIsLoading(false)
+    },
+    [currentPage, discoveredItemIds],
+  )
+
+  useEffect(() => {
+    handleFilterChange(searchFilters)
+  }, [handleFilterChange, searchFilters, currentPage])
 
   return (
     <>
@@ -61,7 +72,10 @@ export default function Page() {
         title="Search Community Builds"
         subtitle="Find your perfect build"
       />
-      <Filters isLoading={isLoading} onUpdate={handleFilterChange} />
+      <Filters
+        isLoading={isLoading}
+        onUpdate={(newSearchFilters) => setSearchFilters(newSearchFilters)}
+      />
       {isLoading ? (
         <LoadingIndicator />
       ) : (

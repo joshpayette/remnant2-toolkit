@@ -1,4 +1,5 @@
 import { prisma } from '../app/(lib)/db'
+import { ItemCategory } from '../app/(types)/build'
 
 async function updateBuildItems() {
   // Delete all build items
@@ -12,78 +13,91 @@ async function updateBuildItems() {
       itemId: string
       amount?: number
       index?: number
+      category: ItemCategory
     }> = []
 
     // Do all the single items first
-    if (build.helm && build.helm !== '') itemIds.push({ itemId: build.helm })
-    if (build.torso && build.torso !== '') itemIds.push({ itemId: build.torso })
-    if (build.legs && build.legs !== '') itemIds.push({ itemId: build.legs })
+    if (build.helm && build.helm !== '')
+      itemIds.push({ itemId: build.helm, category: 'helm' })
+    if (build.torso && build.torso !== '')
+      itemIds.push({ itemId: build.torso, category: 'torso' })
+    if (build.legs && build.legs !== '')
+      itemIds.push({ itemId: build.legs, category: 'legs' })
     if (build.gloves && build.gloves !== '')
-      itemIds.push({ itemId: build.gloves })
+      itemIds.push({ itemId: build.gloves, category: 'gloves' })
     if (build.amulet && build.amulet !== '')
-      itemIds.push({ itemId: build.amulet })
-    if (build.relic && build.relic !== '') itemIds.push({ itemId: build.relic })
+      itemIds.push({ itemId: build.amulet, category: 'amulet' })
+    if (build.relic && build.relic !== '')
+      itemIds.push({ itemId: build.relic, category: 'relic' })
 
     // Now all the multiple items
     if (build.weapon) {
       const weaponIds = build.weapon.split(',')
       weaponIds.forEach((weaponId, index) => {
-        itemIds.push({ itemId: weaponId, index })
+        itemIds.push({ itemId: weaponId, index, category: 'weapon' })
       })
     }
     if (build.mod) {
       const modIds = build.mod.split(',')
       modIds.forEach((modId, index) => {
-        itemIds.push({ itemId: modId, index })
+        itemIds.push({ itemId: modId, index, category: 'mod' })
       })
     }
     if (build.mutator) {
       const mutatorIds = build.mutator.split(',')
       mutatorIds.forEach((mutatorId, index) => {
-        itemIds.push({ itemId: mutatorId, index })
+        itemIds.push({ itemId: mutatorId, index, category: 'mutator' })
       })
     }
     if (build.ring) {
       const ringIds = build.ring.split(',')
       ringIds.forEach((ringId, index) => {
-        itemIds.push({ itemId: ringId, index })
+        itemIds.push({ itemId: ringId, index, category: 'ring' })
       })
     }
     if (build.archtype) {
       const archtypeIds = build.archtype.split(',')
       archtypeIds.forEach((archtypeId, index) => {
-        itemIds.push({ itemId: archtypeId, index })
+        itemIds.push({ itemId: archtypeId, index, category: 'archtype' })
       })
     }
     if (build.skill) {
       const skillIds = build.skill.split(',')
       skillIds.forEach((skillId, index) => {
-        itemIds.push({ itemId: skillId, index })
+        itemIds.push({ itemId: skillId, index, category: 'skill' })
       })
     }
     if (build.relicfragment) {
       const relicfragmentIds = build.relicfragment.split(',')
       relicfragmentIds.forEach((relicfragmentId, index) => {
-        itemIds.push({ itemId: relicfragmentId, index })
+        itemIds.push({
+          itemId: relicfragmentId,
+          index,
+          category: 'relicfragment',
+        })
       })
     }
     if (build.concoction) {
       const concoctionIds = build.concoction.split(',')
       concoctionIds.forEach((concoctionId, index) => {
-        itemIds.push({ itemId: concoctionId, index })
+        itemIds.push({ itemId: concoctionId, index, category: 'concoction' })
       })
     }
     if (build.consumable) {
       const consumableIds = build.consumable.split(',')
       consumableIds.forEach((consumableId, index) => {
-        itemIds.push({ itemId: consumableId, index })
+        itemIds.push({ itemId: consumableId, index, category: 'consumable' })
       })
     }
     if (build.trait) {
       const traits = build.trait.split(',')
       for (const trait of traits) {
         const [traitId, amount] = trait.split(';')
-        itemIds.push({ itemId: traitId, amount: parseInt(amount) })
+        itemIds.push({
+          itemId: traitId,
+          amount: parseInt(amount),
+          category: 'trait',
+        })
       }
     }
 
@@ -95,6 +109,7 @@ async function updateBuildItems() {
         itemId: itemId.itemId,
         amount: itemId.amount,
         index: itemId.index,
+        category: itemId.category,
       })),
     })
 

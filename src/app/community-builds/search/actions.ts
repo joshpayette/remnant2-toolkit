@@ -6,7 +6,6 @@ import { getServerSession } from '@/app/(lib)/auth'
 import { prisma } from '@/app/(lib)/db'
 import { SearchFilters } from './page'
 import { remnantItems } from '@/app/(data)'
-import fs from 'fs'
 import { DBBuild } from '@/app/(types)/build'
 
 // Add linked mods to the itemIds
@@ -94,136 +93,113 @@ export async function getBuilds({
   // Link items
   itemIds = addLinkedItemIds(itemIds)
 
-  // write itemIds to text file
-  fs.writeFile(
-    './src/app/(data)/itemIds.txt',
-    JSON.stringify(itemIds),
-    function (err) {
-      if (err) return console.log(err)
-      console.log('itemIds.txt was saved!')
-    },
-  )
-
-  // Set the query clause
-
   const whereClause = {
     isPublic: true,
     AND: [
       {
-        OR: [
-          { helm: { equals: null } },
-          { helm: { equals: '' } },
-          ...itemIds.map((itemId) => ({
-            helm: { contains: itemId },
-          })),
-        ],
+        BuildItems: {
+          some: {
+            AND: [
+              {
+                OR: [
+                  { itemId: { equals: '' } },
+                  ...itemIds.map((itemId) => ({ itemId: { equals: itemId } })),
+                ],
+              },
+              { category: { equals: 'helm' } },
+            ],
+          },
+        },
       },
       {
-        OR: [
-          { gloves: { equals: null } },
-          { gloves: { equals: '' } },
-          ...itemIds.map((itemId) => ({
-            gloves: { contains: itemId },
-          })),
-        ],
+        BuildItems: {
+          some: {
+            AND: [
+              {
+                OR: [
+                  { itemId: { equals: '' } },
+                  ...itemIds.map((itemId) => ({ itemId: { equals: itemId } })),
+                ],
+              },
+              { category: { equals: 'gloves' } },
+            ],
+          },
+        },
       },
       {
-        OR: [
-          { torso: { equals: null } },
-          { torso: { equals: '' } },
-          ...itemIds.map((itemId) => ({
-            torso: { contains: itemId },
-          })),
-        ],
+        BuildItems: {
+          some: {
+            AND: [
+              {
+                OR: [
+                  { itemId: { equals: '' } },
+                  ...itemIds.map((itemId) => ({ itemId: { equals: itemId } })),
+                ],
+              },
+              { category: { equals: 'torso' } },
+            ],
+          },
+        },
       },
       {
-        OR: [
-          { legs: { equals: null } },
-          { legs: { equals: '' } },
-          ...itemIds.map((itemId) => ({
-            legs: { contains: itemId },
-          })),
-        ],
+        BuildItems: {
+          some: {
+            AND: [
+              {
+                OR: [
+                  { itemId: { equals: '' } },
+                  ...itemIds.map((itemId) => ({ itemId: { equals: itemId } })),
+                ],
+              },
+              { category: { equals: 'legs' } },
+            ],
+          },
+        },
       },
       {
-        OR: [
-          { relic: { equals: null } },
-          { relic: { equals: '' } },
-          ...itemIds.map((itemId) => ({
-            relic: { contains: itemId },
-          })),
-        ],
+        BuildItems: {
+          some: {
+            AND: [
+              {
+                OR: [
+                  { itemId: { equals: '' } },
+                  ...itemIds.map((itemId) => ({ itemId: { equals: itemId } })),
+                ],
+              },
+              { category: { equals: 'relic' } },
+            ],
+          },
+        },
       },
       {
-        OR: [
-          { amulet: { equals: null } },
-          { amulet: { equals: '' } },
-          ...itemIds.map((itemId) => ({
-            amulet: { contains: itemId },
-          })),
-        ],
+        BuildItems: {
+          some: {
+            AND: [
+              {
+                OR: [
+                  { itemId: { equals: '' } },
+                  ...itemIds.map((itemId) => ({ itemId: { equals: itemId } })),
+                ],
+              },
+              { category: { equals: 'amulet' } },
+            ],
+          },
+        },
       },
       {
-        OR: [
-          { weapon: { equals: null } },
-          { weapon: { equals: '' } },
-          ...itemIds.map((itemId) => ({
-            weapon: { contains: itemId },
-          })),
-        ],
-      },
-      {
-        OR: [
-          { ring: { equals: null } },
-          { ring: { equals: '' } },
-          ...itemIds.map((itemId) => ({
-            ring: { contains: itemId },
-          })),
-        ],
-      },
-      {
-        OR: [
-          { archtype: { equals: null } },
-          { archtype: { equals: '' } },
-          ...itemIds.map((itemId) => ({
-            archtype: { contains: itemId },
-          })),
-        ],
-      },
-      {
-        OR: [
-          { relicfragment: { equals: null } },
-          { relicfragment: { equals: '' } },
-          ...itemIds.map((itemId) => ({
-            relicfragment: { contains: itemId },
-          })),
-        ],
-      },
-      {
-        OR: [
-          { mutator: { equals: null } },
-          { mutator: { equals: '' } },
-          ...itemIds.map((itemId) => ({
-            mutator: { contains: itemId },
-          })),
-        ],
-      },
-      {
-        OR: [
-          { mod: { equals: null } },
-          ...itemIds.map((itemId) => ({
-            mod: { contains: itemId },
-          })),
-        ],
-      },
-      {
-        OR: [
-          { trait: { equals: null } },
-          { trait: { equals: '' } },
-          ...itemIds.map((itemId) => ({
-            trait: { contains: itemId },
-          })),
-        ],
+        BuildItems: {
+          some: {
+            AND: [
+              {
+                OR: [
+                  { itemId: { equals: '' } },
+                  ...itemIds.map((itemId) => ({ itemId: { equals: itemId } })),
+                ],
+              },
+              { category: { equals: 'weapon' } },
+            ],
+          },
+        },
       },
     ],
   }
@@ -241,15 +217,93 @@ export async function getBuilds({
         _count: 'desc',
       },
     },
-    skip: (pageNumber - 1) * itemsPerPage,
-    take: itemsPerPage,
+    // skip: (pageNumber - 1) * itemsPerPage,
+    // take: itemsPerPage,
   })
 
-  if (!builds) return { items: [], totalItemCount: 0 }
+  if (!builds) {
+    console.info('No builds found')
+    return { items: [], totalItemCount: 0 }
+  }
 
-  const totalBuildCount = await prisma.build.count({ where: whereClause })
+  // Due to limitations in Prisma and incredibly slow workarounds,
+  // the base query will return all builds where just one of the items in the
+  // build matches the search criteria. We need to filter out the builds
+  // where not all of the items match the search criteria.
+  const filteredBuilds = builds.filter((build) => {
+    const weaponItemIds = build.BuildItems.filter(
+      (item) => item.category === 'weapon' && item.itemId !== '',
+    ).map((item) => item.itemId)
+    const weaponIdsFound = weaponItemIds.every((weaponId) =>
+      itemIds.includes(weaponId),
+    )
 
-  const returnedBuilds: DBBuild[] = builds.map((build) => ({
+    const modItemIds = build.BuildItems.filter(
+      (item) => item.category === 'mod' && item.itemId !== '',
+    ).map((item) => item.itemId)
+    const modIdsFound = modItemIds.every((modId) => itemIds.includes(modId))
+
+    const mutatorItemIds = build.BuildItems.filter(
+      (item) => item.category === 'mutator' && item.itemId !== '',
+    ).map((item) => item.itemId)
+    const mutatorIdsFound = mutatorItemIds.every((mutatorId) =>
+      itemIds.includes(mutatorId),
+    )
+
+    const traitItemIds = build.BuildItems.filter(
+      (item) => item.category === 'trait' && item.itemId !== '',
+    ).map((item) => item.itemId)
+    const traitIdsFound = traitItemIds.every((traitId) =>
+      itemIds.includes(traitId),
+    )
+
+    const archtypeItemIds = build.BuildItems.filter(
+      (item) => item.category === 'archtype' && item.itemId,
+    ).map((item) => item.itemId)
+    const archtypeIdsFound = archtypeItemIds.every((archtypeId) =>
+      itemIds.includes(archtypeId),
+    )
+
+    const skillItemIds = build.BuildItems.filter(
+      (item) => item.category === 'skill' && item.itemId,
+    ).map((item) => item.itemId)
+    const skillIdsFound = skillItemIds.every((skillId) =>
+      itemIds.includes(skillId),
+    )
+
+    const ringItemIds = build.BuildItems.filter(
+      (item) => item.category === 'ring' && item.itemId !== '',
+    ).map((item) => item.itemId)
+    const ringIdsFound = ringItemIds.every((ringId) => itemIds.includes(ringId))
+
+    const concoctionItemIds = build.BuildItems.filter(
+      (item) => item.category === 'concoction' && item.itemId !== '',
+    ).map((item) => item.itemId)
+    const concoctionIdsFound = concoctionItemIds.every((concoctionId) =>
+      itemIds.includes(concoctionId),
+    )
+
+    return (
+      weaponIdsFound &&
+      modIdsFound &&
+      mutatorIdsFound &&
+      traitIdsFound &&
+      archtypeIdsFound &&
+      skillIdsFound &&
+      ringIdsFound &&
+      concoctionIdsFound
+    )
+  })
+
+  // Apply pagination to the filtered builds
+  const paginatedBuilds = filteredBuilds.slice(
+    (pageNumber - 1) * itemsPerPage,
+    pageNumber * itemsPerPage,
+  )
+
+  const totalBuildCount = filteredBuilds.length
+
+  const returnedBuilds: DBBuild[] = paginatedBuilds.map((build) => ({
     ...build,
     createdByDisplayName:
       build.createdBy?.displayName ||

@@ -70,6 +70,25 @@ model VerificationToken {
 // Other models
 // ---------------------------------------------------------------------------------------------
 
+enum ITEM_CATEGORY {
+  helm
+  torso
+  legs
+  gloves
+  relic
+  amulet
+  weapon
+  archtype
+  concoction
+  consumable
+  mod
+  mutator
+  relicfragment
+  ring
+  skill
+  trait
+}
+
 model Item {
   id         String       @id @default(cuid())
   itemId     String       @unique
@@ -112,13 +131,14 @@ model Build {
 }
 
 model BuildItems {
-  id      String @id @default(cuid())
-  build   Build  @relation(fields: [buildId], references: [id], onDelete: Cascade)
-  buildId String
-  item    Item   @relation(fields: [itemId], references: [id], onDelete: Cascade)
-  itemId  String
-  index   Int?
-  amount  Int?
+  id       String  @id @default(cuid())
+  build    Build   @relation(fields: [buildId], references: [id], onDelete: Cascade)
+  buildId  String
+  item     Item    @relation(fields: [itemId], references: [id], onDelete: Cascade)
+  itemId   String
+  category String?
+  index    Int?
+  amount   Int?
 
   @@index([buildId])
   @@index([itemId])

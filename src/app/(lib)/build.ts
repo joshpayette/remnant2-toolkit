@@ -5,7 +5,7 @@ import { GenericItem } from '../(types)/items/GenericItem'
 import { MutatorItem } from '../(types)/items/MutatorItem'
 import { TraitItem } from '../(types)/items/TraitItem'
 import { WeaponItem } from '../(types)/items/WeaponItem'
-import { BuildState, DBBuild } from '@/app/(types)/build'
+import { BuildState, DBBuild, ItemCategory } from '@/app/(types)/build'
 import { getArrayOfLength, itemToCsvItem } from './utils'
 import { ModItem } from '../(types)/items/ModItem'
 import { z } from 'zod'
@@ -103,75 +103,100 @@ export function dbBuildToBuildState(dbBuild: DBBuild): BuildState {
   return buildState
 }
 
-export function buildStateToBuildItems(
-  buildState: BuildState,
-): Array<{ itemId: string; amount?: number; index?: number }> {
+export function buildStateToBuildItems(buildState: BuildState): Array<{
+  itemId: string
+  amount?: number
+  index?: number
+  category: ItemCategory
+}> {
   const { items } = buildState
 
   const buildItems = [
-    ...(items.helm ? [{ itemId: items.helm.id }] : []),
-    ...(items.torso ? [{ itemId: items.torso.id }] : []),
-    ...(items.legs ? [{ itemId: items.legs.id }] : []),
-    ...(items.gloves ? [{ itemId: items.gloves.id }] : []),
-    ...(items.amulet ? [{ itemId: items.amulet.id }] : []),
-    ...(items.relic ? [{ itemId: items.relic.id }] : []),
+    ...(items.helm
+      ? [{ itemId: items.helm.id, category: 'helm' as ItemCategory }]
+      : []),
+    ...(items.torso
+      ? [{ itemId: items.torso.id, category: 'torso' as ItemCategory }]
+      : []),
+    ...(items.legs
+      ? [{ itemId: items.legs.id, category: 'legs' as ItemCategory }]
+      : []),
+    ...(items.gloves
+      ? [{ itemId: items.gloves.id, category: 'gloves' as ItemCategory }]
+      : []),
+    ...(items.amulet
+      ? [{ itemId: items.amulet.id, category: 'amulet' as ItemCategory }]
+      : []),
+    ...(items.relic
+      ? [{ itemId: items.relic.id, category: 'relic' as ItemCategory }]
+      : []),
     ...(items.ring
       ? items.ring.map((ring, index) => ({
           itemId: ring?.id ?? '',
+          category: 'ring' as ItemCategory,
           index,
         }))
       : []),
     ...(items.archtype
       ? items.archtype.map((archtype, index) => ({
           itemId: archtype?.id ?? '',
+          category: 'archtype' as ItemCategory,
           index,
         }))
       : []),
     ...(items.skill
       ? items.skill.map((skill, index) => ({
           itemId: skill?.id ?? '',
+          category: 'skill' as ItemCategory,
           index,
         }))
       : []),
     ...(items.concoction
       ? items.concoction.map((concoction, index) => ({
           itemId: concoction?.id ?? '',
+          category: 'concoction' as ItemCategory,
           index,
         }))
       : []),
     ...(items.consumable
       ? items.consumable.map((consumable, index) => ({
           itemId: consumable?.id ?? '',
+          category: 'consumable' as ItemCategory,
           index,
         }))
       : []),
     ...(items.weapon
       ? items.weapon.map((weapon, index) => ({
           itemId: weapon?.id ?? '',
+          category: 'weapon' as ItemCategory,
           index,
         }))
       : []),
     ...(items.mod
       ? items.mod.map((mod, index) => ({
           itemId: mod?.id ?? '',
+          category: 'mod' as ItemCategory,
           index,
         }))
       : []),
     ...(items.mutator
       ? items.mutator.map((mutator, index) => ({
           itemId: mutator?.id ?? '',
+          category: 'mutator' as ItemCategory,
           index,
         }))
       : []),
     ...(items.relicfragment
       ? items.relicfragment.map((relicfragment, index) => ({
           itemId: relicfragment?.id ?? '',
+          category: 'relicfragment' as ItemCategory,
           index,
         }))
       : []),
     ...(items.trait
       ? items.trait.map((trait) => ({
           itemId: trait.id,
+          category: 'trait' as ItemCategory,
           amount: trait.amount,
         }))
       : []),
