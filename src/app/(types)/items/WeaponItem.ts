@@ -59,12 +59,14 @@ export class WeaponItem implements BaseWeaponItem {
   }
 
   static fromDBValue(buildItems: BuildItems[]): Array<WeaponItem | null> {
+    if (!buildItems) return []
+
     let weaponItems: Array<WeaponItem | null> = []
     for (const buildItem of buildItems) {
       const item = remnantItems.find((i) => i.id === buildItem.itemId)
       if (!item) continue
       if (item.category !== 'weapon') continue
-      if(!this.isWeaponItem(item)) continue
+      if (!this.isWeaponItem(item)) continue
       buildItem.index
         ? (weaponItems[buildItem.index] = item)
         : weaponItems.push(item)

@@ -102,6 +102,8 @@ export class GenericItem implements GenericItemProps {
     buildItems: BuildItems[],
     category: ItemCategory,
   ): GenericItem | null {
+    if (!buildItems) return null
+
     let genericItem: GenericItem | null = null
     for (const buildItem of buildItems) {
       const item = remnantItems.find((i) => i.id === buildItem.itemId)
@@ -116,6 +118,8 @@ export class GenericItem implements GenericItemProps {
     buildItems: BuildItems[],
     category: ItemCategory,
   ): Array<GenericItem | null> {
+    if (!buildItems) return []
+
     let genericItems: Array<GenericItem | null> = []
     for (const buildItem of buildItems) {
       const item = remnantItems.find((i) => i.id === buildItem.itemId)

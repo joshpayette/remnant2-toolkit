@@ -56,6 +56,8 @@ export class ModItem implements BaseModItem {
   }
 
   static fromDBValue(buildItems: BuildItems[]): Array<ModItem | null> {
+    if (!buildItems) return []
+
     let modItems: Array<ModItem | null> = []
     for (const buildItem of buildItems) {
       const item = remnantItems.find((i) => i.id === buildItem.itemId)

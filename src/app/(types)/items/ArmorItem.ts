@@ -66,6 +66,8 @@ export class ArmorItem implements BaseArmorItem {
     buildItems: BuildItems[],
     category: 'helm' | 'gloves' | 'torso' | 'legs',
   ): ArmorItem | null {
+    if (!buildItems) return null
+
     let armorItem: ArmorItem | null = null
     for (const buildItem of buildItems) {
       const item = remnantItems.find((i) => i.id === buildItem.itemId)

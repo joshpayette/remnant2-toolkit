@@ -85,6 +85,8 @@ export class TraitItem implements BaseTraitItem {
   }
 
   static fromDBValue(buildItems: BuildItems[]): Array<TraitItem> {
+    if (!buildItems) return []
+
     let traitItems: Array<TraitItem> = []
     for (const buildItem of buildItems) {
       const item = remnantItems.find((i) => i.id === buildItem.itemId)
