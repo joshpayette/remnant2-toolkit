@@ -78,3 +78,8 @@ export const DEFAULT_DISPLAY_NAME = 'Traveller'
  * Number of votes for a build to be popular
  */
 export const POPULAR_VOTE_THRESHOLD = 25
+
+/**
+ * The max size a profile.sav import can be (in kilobytes)
+ */
+export const MAX_PROFILE_SAV_SIZE = 250

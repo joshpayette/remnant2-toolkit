@@ -14,6 +14,7 @@ import { getConcoctionSlotCount, getItemListForSlot } from '../../(lib)/build'
 import { BuildState, ItemSlot } from '@/app/(types)/build'
 import PopularBuildBadge from '@/app/(components)/PopularBuildBadge'
 import { POPULAR_VOTE_THRESHOLD } from '@/app/(data)/constants'
+import { DEFAULT_TRAIT_AMOUNT } from '@/app/(data)/constants'
 
 type BuilderProps = {
   buildState: BuildState
@@ -234,8 +235,49 @@ export default function Builder({
       }
       return traitItem
     })
-    const newTraitItemParams = TraitItem.toParams(newTraitItems)
-    updateBuildState({ category: 'trait', value: newTraitItemParams })
+
+    // validate the amounts
+    const validatedTraitItems = newTraitItems.map((traitItem) => {
+      let validAmount = traitItem.amount
+
+      // if this is the linked trait to an archtype,
+      // the default should be the linked amount
+      let defaultAmount = DEFAULT_TRAIT_AMOUNT
+
+      // if this is the linked trait for the primary archtype,
+      // make sure the amount is not less than the minimum allowed
+      if (buildState.items.archtype[0]?.name) {
+        const linkedTrait =
+          buildState.items.archtype[0]?.linkedItems?.traits?.find(
+            (linkedTrait) => linkedTrait.name === traitItem.name,
+          )
+        if (linkedTrait && traitItem.name === linkedTrait.name) {
+          if (validAmount < linkedTrait.amount) {
+            validAmount = linkedTrait.amount
+            defaultAmount = linkedTrait.amount
+          }
+        }
+      } else if (buildState.items.archtype[1]?.name) {
+        const linkedTrait =
+          buildState.items.archtype[1]?.linkedItems?.traits?.find(
+            (linkedTrait) => linkedTrait.name === traitItem.name,
+          )
+        if (linkedTrait && traitItem.name === linkedTrait.name) {
+          if (validAmount > linkedTrait.amount) {
+            validAmount = linkedTrait.amount
+            defaultAmount = linkedTrait.amount
+          }
+        }
+      }
+
+      if (isNaN(validAmount)) validAmount = defaultAmount
+      if (validAmount < 1) validAmount = defaultAmount
+      if (validAmount > 10) validAmount = defaultAmount
+
+      return { ...traitItem, amount: validAmount }
+    })
+
+    const newTraitItemParams = TraitItem.toParams(validatedTraitItems)
   }
 
   return (
