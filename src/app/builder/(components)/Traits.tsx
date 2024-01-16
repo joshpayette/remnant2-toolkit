@@ -33,6 +33,34 @@ export default function Traits({
     0,
   )
 
+  function shouldAllowEdit(traitItem: TraitItem) {
+    // if the trait being edited is the linked archtype with an amount of 10,
+    // it should not be editable
+    const primaryArchtype = archtypeItems[0]
+    if (
+      primaryArchtype?.linkedItems?.traits?.some(
+        (linkedTraitItem) =>
+          linkedTraitItem.name === traitItem.name &&
+          linkedTraitItem.amount === 10,
+      )
+    ) {
+      return false
+    }
+
+    const secondaryArchtype = archtypeItems[1]
+    if (
+      secondaryArchtype?.linkedItems?.traits?.some(
+        (linkedTraitItem) =>
+          linkedTraitItem.name === traitItem.name &&
+          linkedTraitItem.amount === 10,
+      )
+    ) {
+      return false
+    }
+
+    return true
+  }
+
   function shouldAllowDelete(traitItem: TraitItem) {
     // Default values based on editable and wheisEditable && showControlsther controls are shown
     let shouldAllowDelete = isEditable && showControls
@@ -93,14 +121,13 @@ export default function Traits({
             className="flex items-center border border-transparent border-b-green-500 text-sm"
           >
             <div className="mr-4 flex items-center text-lg font-bold text-green-400">
-              {traitItem.name === editingTraitItem?.name ? (
+              {traitItem.name === editingTraitItem?.name &&
+              shouldAllowEdit(editingTraitItem) ? (
                 <input
-                  type="text"
-                  value={
-                    editingTraitItem.amount ??
-                    traitItem.amount ??
-                    DEFAULT_TRAIT_AMOUNT
-                  }
+                  type="number"
+                  min={1}
+                  max={10}
+                  value={editingTraitItem.amount}
                   // Update the parent state when the user presses enter
                   onKeyDown={(e) => {
                     if (e.key === 'Enter') {
@@ -118,29 +145,10 @@ export default function Traits({
 
                     let amount = Number(value)
 
-                    if (isNaN(amount)) amount = DEFAULT_TRAIT_AMOUNT
-                    if (amount < 1) amount = DEFAULT_TRAIT_AMOUNT
-                    if (amount > 10) amount = DEFAULT_TRAIT_AMOUNT
-
-                    // if the primary archtype is set, we need to make sure the
-                    // amount is not less than the minimum allowed
-                    if (buildState.items.archtype[0]?.name) {
-                      const linkedTrait =
-                        buildState.items.archtype[0]?.linkedItems?.traits?.find(
-                          (linkedTrait) => linkedTrait.name === traitItem.name,
-                        )
-
-                      if (linkedTrait) {
-                        if (amount < linkedTrait.amount) {
-                          amount = linkedTrait.amount
-                        }
-                      }
-                    }
-
                     setEditingTraitItem(
                       new TraitItem({
                         ...traitItem,
-                        amount,
+                        amount: isNaN(amount) ? 0 : amount,
                       }),
                     )
                   }}

@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Fixed
 
 - Increased the allowed file size for a profile.sav. Not sure why I had it set so low.
+- Trait points should be correctly calculated, editable, and perform better on mobile.
 
 ## 2023-01-12
 
