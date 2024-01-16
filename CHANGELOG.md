@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Increased the allowed file size for a profile.sav. Not sure why I had it set so low.
 - Trait points should be correctly calculated, editable, and perform better on mobile.
+- Fixed all the weapons and mutators being grouped in a single category on the Item Tracker.
 
 ## 2023-01-12
 
