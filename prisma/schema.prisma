@@ -55,6 +55,7 @@ model User {
   BuildVotes    BuildVoteCounts[]
   BuildReports  BuildReports[]
   BannedUsers   BannedUsers[]
+  PaidUsers     PaidUsers[]
 }
 
 model VerificationToken {
@@ -89,33 +90,35 @@ enum ITEM_CATEGORY {
 }
 
 model Build {
-  id            String            @id @default(cuid())
-  createdAt     DateTime          @default(now())
-  updatedAt     DateTime?         @updatedAt
-  createdBy     User              @relation(fields: [createdById], references: [id])
-  createdById   String
-  isPublic      Boolean           @default(true)
-  name          String
-  description   String?           @db.Text
-  videoUrl      String?
-  helm          String?
-  torso         String?
-  legs          String?
-  gloves        String?
-  relic         String?
-  amulet        String?
-  weapon        String?
-  ring          String?
-  archtype      String?
-  skill         String?
-  concoction    String?
-  consumable    String?
-  mod           String?
-  mutator       String?
-  relicfragment String?
-  trait         String?
-  BuildVotes    BuildVoteCounts[]
-  BuildReports  BuildReports[]
+  id              String            @id @default(cuid())
+  createdAt       DateTime          @default(now())
+  updatedAt       DateTime?         @updatedAt
+  createdBy       User              @relation(fields: [createdById], references: [id])
+  createdById     String
+  isPublic        Boolean           @default(true)
+  isFeaturedBuild Boolean           @default(false)
+  name            String
+  description     String?           @db.Text
+  videoUrl        String?
+  thumbnailUrl    String?
+  helm            String?
+  torso           String?
+  legs            String?
+  gloves          String?
+  relic           String?
+  amulet          String?
+  weapon          String?
+  ring            String?
+  archtype        String?
+  skill           String?
+  concoction      String?
+  consumable      String?
+  mod             String?
+  mutator         String?
+  relicfragment   String?
+  trait           String?
+  BuildVotes      BuildVoteCounts[]
+  BuildReports    BuildReports[]
 
   @@index([createdById])
 }
@@ -153,6 +156,15 @@ model BannedUsers {
   user      User     @relation(fields: [userId], references: [id])
   userId    String
   reason    String
+
+  @@index([userId])
+}
+
+model PaidUsers {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id])
+  userId    String
 
   @@index([userId])
 }

@@ -67,6 +67,8 @@ export function buildStateToBuild(buildState: BuildState) {
     name: cleanName,
     description: cleanDescription,
     isPublic: Boolean(buildState.isPublic),
+    isFeaturedBuild: false,
+    thumbnailUrl: '',
     videoUrl: '',
     helm: items.helm ? ArmorItem.toDBValue(items.helm) : null,
     torso: items.torso ? ArmorItem.toDBValue(items.torso) : null,

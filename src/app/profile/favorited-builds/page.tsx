@@ -33,11 +33,13 @@ async function getBuilds() {
 
   if (!builds) return []
 
-  const buildsWithExtraFields = builds.map((build) => ({
+  const buildsWithExtraFields: ExtendedBuild[] = builds.map((build) => ({
     id: build.id,
     name: build.name,
     description: build.description ?? '',
     isPublic: build.isPublic,
+    isFeaturedBuild: build.isFeaturedBuild,
+    thumbnailUrl: build.thumbnailUrl ?? '',
     createdAt: build.createdAt,
     createdById: build.createdById,
     videoUrl: build.videoUrl ?? '',
@@ -62,7 +64,7 @@ async function getBuilds() {
     totalUpvotes: build.BuildVotes.length,
     upvoted: build.BuildVotes.some((vote) => vote.userId === userId), // Check if the user upvoted the build
     reported: build.BuildReports.some((report) => report.userId === userId), // Check if the user reported the build
-  })) satisfies ExtendedBuild[]
+  }))
 
   return buildsWithExtraFields
 }
