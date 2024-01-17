@@ -10,7 +10,7 @@ export class WeaponItem implements BaseWeaponItem {
   public id: BaseWeaponItem['id'] = ''
   public name: BaseWeaponItem['name'] = ''
   public category: BaseWeaponItem['category'] = 'weapon'
-  public dlc: BaseWeaponItem['dlc'] = 'basegame'
+  public dlc: BaseWeaponItem['dlc'] = 'base'
   public type: BaseWeaponItem['type'] = 'long gun'
   public description: BaseWeaponItem['description'] = ''
   public imagePath: BaseWeaponItem['imagePath'] = ''

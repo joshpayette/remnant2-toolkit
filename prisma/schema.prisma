@@ -56,6 +56,7 @@ model User {
   BuildReports  BuildReports[]
   BannedUsers   BannedUsers[]
   PaidUsers     PaidUsers[]
+  UserItems     UserItems[]
 }
 
 model VerificationToken {
@@ -89,10 +90,28 @@ enum ITEM_CATEGORY {
   trait
 }
 
+enum ITEM_DLC {
+  base
+  dlc1
+}
+
 model Item {
   id         String       @id @default(cuid())
   itemId     String       @unique
+  dlc        ITEM_DLC     @default(base)
   BuildItems BuildItems[]
+  UserItems  UserItems[]
+}
+
+model UserItems {
+  id     String @id @default(cuid())
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId String
+  item   Item   @relation(fields: [itemId], references: [id], onDelete: Cascade)
+  itemId String
+
+  @@index([userId])
+  @@index([itemId])
 }
 
 model Build {

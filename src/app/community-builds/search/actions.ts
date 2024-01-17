@@ -66,255 +66,178 @@ export async function getBuilds({
   const session = await getServerSession()
   const userId = session?.user?.id
 
-  let dlcItemIds: string[] = []
-  if (searchFilters.specificDLCItemsOnly.length > 0) {
-    for (const dlcItem of searchFilters.specificDLCItemsOnly) {
-      const dlcItems = remnantItems.filter((item) => {
-        // no dlc means basegame
-        if (item.dlc === undefined && dlcItem === 'basegame') return true
-        return item.dlc === dlcItem
-      })
-      dlcItemIds = [...dlcItemIds, ...dlcItems.map((item) => item.id)]
-    }
-  }
-
-  // Determine which item ids to use
-  let itemIds: string[] = []
-  if (searchFilters.ownedItemsOnly) {
-    itemIds = discoveredItemIds
-  } else if (searchFilters.specificDLCItemsOnly.length > 0) {
-    itemIds = dlcItemIds
-  }
-
-  if (itemIds.length === 0) {
+  if (discoveredItemIds.length === 0 && searchFilters.ownedItemsOnly) {
     return { items: [], totalItemCount: 0 }
   }
 
-  // Link items
-  itemIds = addLinkedItemIds(itemIds)
+  // TOD REmove
 
-  const whereClause = {
-    isPublic: true,
-    AND: [
-      {
-        BuildItems: {
-          some: {
-            AND: [
-              {
-                OR: [
-                  { itemId: { equals: '' } },
-                  ...itemIds.map((itemId) => ({ itemId: { equals: itemId } })),
-                ],
-              },
-              { category: { equals: 'helm' } },
-            ],
-          },
-        },
-      },
-      {
-        BuildItems: {
-          some: {
-            AND: [
-              {
-                OR: [
-                  { itemId: { equals: '' } },
-                  ...itemIds.map((itemId) => ({ itemId: { equals: itemId } })),
-                ],
-              },
-              { category: { equals: 'gloves' } },
-            ],
-          },
-        },
-      },
-      {
-        BuildItems: {
-          some: {
-            AND: [
-              {
-                OR: [
-                  { itemId: { equals: '' } },
-                  ...itemIds.map((itemId) => ({ itemId: { equals: itemId } })),
-                ],
-              },
-              { category: { equals: 'torso' } },
-            ],
-          },
-        },
-      },
-      {
-        BuildItems: {
-          some: {
-            AND: [
-              {
-                OR: [
-                  { itemId: { equals: '' } },
-                  ...itemIds.map((itemId) => ({ itemId: { equals: itemId } })),
-                ],
-              },
-              { category: { equals: 'legs' } },
-            ],
-          },
-        },
-      },
-      {
-        BuildItems: {
-          some: {
-            AND: [
-              {
-                OR: [
-                  { itemId: { equals: '' } },
-                  ...itemIds.map((itemId) => ({ itemId: { equals: itemId } })),
-                ],
-              },
-              { category: { equals: 'relic' } },
-            ],
-          },
-        },
-      },
-      {
-        BuildItems: {
-          some: {
-            AND: [
-              {
-                OR: [
-                  { itemId: { equals: '' } },
-                  ...itemIds.map((itemId) => ({ itemId: { equals: itemId } })),
-                ],
-              },
-              { category: { equals: 'amulet' } },
-            ],
-          },
-        },
-      },
-      {
-        BuildItems: {
-          some: {
-            AND: [
-              {
-                OR: [
-                  { itemId: { equals: '' } },
-                  ...itemIds.map((itemId) => ({ itemId: { equals: itemId } })),
-                ],
-              },
-              { category: { equals: 'weapon' } },
-            ],
-          },
-        },
-      },
-    ],
+  if (!searchFilters.ownedItemsOnly) {
+    return { items: [], totalItemCount: 0 }
   }
 
-  const builds = await prisma.build.findMany({
-    where: whereClause,
-    include: {
-      createdBy: true,
-      BuildVotes: true,
-      BuildReports: true,
-      BuildItems: true,
-    },
-    orderBy: {
-      BuildVotes: {
-        _count: 'desc',
-      },
-    },
-    // skip: (pageNumber - 1) * itemsPerPage,
-    // take: itemsPerPage,
-  })
+  // Don't allow a user to search by owned items if they're not logged in
+  if (searchFilters.ownedItemsOnly && !userId) {
+    return { items: [], totalItemCount: 0 }
+  }
+
+  if (searchFilters.ownedItemsOnly && userId) {
+    // delete all user's items first
+    await prisma.userItems.deleteMany({
+      where: { userId },
+    })
+    // insert all user's items
+    await prisma.userItems.createMany({
+      data: addLinkedItemIds(discoveredItemIds).map((itemId) => ({
+        userId,
+        itemId,
+      })),
+    })
+  }
+
+  const query = prisma.$queryRaw`
+SELECT *
+FROM Build
+WHERE isPublic = true
+AND EXISTS (
+  SELECT 1
+  FROM BuildItems
+  INNER JOIN Item ON BuildItems.itemId = Item.itemId
+  WHERE Build.id = BuildItems.buildId
+  AND BuildItems.category = 'helm'
+  AND (
+    BuildItems.itemId = ''
+    OR EXISTS (
+      SELECT 1
+      FROM UserItems
+      WHERE UserItems.itemId = Item.itemId
+      AND UserItems.userId = ${userId}
+    )
+  )
+)
+AND EXISTS (
+  SELECT 1
+  FROM BuildItems
+  INNER JOIN Item ON BuildItems.itemId = Item.itemId
+  WHERE Build.id = BuildItems.buildId
+  AND BuildItems.category = 'torso'
+  AND (
+    BuildItems.itemId = ''
+    OR EXISTS (
+      SELECT 1
+      FROM UserItems
+      WHERE UserItems.itemId = Item.itemId
+      AND UserItems.userId = ${userId}
+    )
+  )
+)
+AND EXISTS (
+  SELECT 1
+  FROM BuildItems
+  INNER JOIN Item ON BuildItems.itemId = Item.itemId
+  WHERE Build.id = BuildItems.buildId
+  AND BuildItems.category = 'legs'
+  AND (
+    BuildItems.itemId = ''
+    OR EXISTS (
+      SELECT 1
+      FROM UserItems
+      WHERE UserItems.itemId = Item.itemId
+      AND UserItems.userId = ${userId}
+    )
+  )
+)
+AND EXISTS (
+  SELECT 1
+  FROM BuildItems
+  INNER JOIN Item ON BuildItems.itemId = Item.itemId
+  WHERE Build.id = BuildItems.buildId
+  AND BuildItems.category = 'gloves'
+  AND (
+    BuildItems.itemId = ''
+    OR EXISTS (
+      SELECT 1
+      FROM UserItems
+      WHERE UserItems.itemId = Item.itemId
+      AND UserItems.userId = ${userId}
+    )
+  )
+)
+AND EXISTS (
+  SELECT 1
+  FROM BuildItems
+  INNER JOIN Item ON BuildItems.itemId = Item.itemId
+  WHERE Build.id = BuildItems.buildId
+  AND BuildItems.category = 'relic'
+  AND (
+    BuildItems.itemId = ''
+    OR EXISTS (
+      SELECT 1
+      FROM UserItems
+      WHERE UserItems.itemId = Item.itemId
+      AND UserItems.userId = ${userId}
+    )
+  )
+)
+AND EXISTS (
+  SELECT 1
+  FROM BuildItems
+  INNER JOIN Item ON BuildItems.itemId = Item.itemId
+  WHERE Build.id = BuildItems.buildId
+  AND BuildItems.category = 'amulet'
+  AND (
+    BuildItems.itemId = ''
+    OR EXISTS (
+      SELECT 1
+      FROM UserItems
+      WHERE UserItems.itemId = Item.itemId
+      AND UserItems.userId = ${userId}
+    )
+  )
+)
+AND EXISTS (
+  SELECT 1
+  FROM BuildItems
+  INNER JOIN Item ON BuildItems.itemId = Item.itemId
+  WHERE Build.id = BuildItems.buildId
+  AND BuildItems.category = 'weapon'
+  AND (
+    BuildItems.itemId = ''
+    OR EXISTS (
+      SELECT 1
+      FROM UserItems
+      WHERE UserItems.itemId = Item.itemId
+      AND UserItems.userId = ${userId}
+    )
+  )
+  GROUP BY Build.id
+  HAVING COUNT(*) = 3
+)
+`
+
+  const builds = (await query) as any[]
+
+  console.info('------------------- Builds -------------------', builds)
 
   if (!builds) {
     console.info('No builds found')
     return { items: [], totalItemCount: 0 }
   }
+  // const totalBuildCount = builds.length
 
-  // Due to limitations in Prisma and incredibly slow workarounds,
-  // the base query will return all builds where just one of the items in the
-  // build matches the search criteria. We need to filter out the builds
-  // where not all of the items match the search criteria.
-  const filteredBuilds = builds.filter((build) => {
-    const weaponItemIds = build.BuildItems.filter(
-      (item) => item.category === 'weapon' && item.itemId !== '',
-    ).map((item) => item.itemId)
-    const weaponIdsFound = weaponItemIds.every((weaponId) =>
-      itemIds.includes(weaponId),
-    )
+  // const returnedBuilds: DBBuild[] = builds.map((build) => ({
+  //   ...build,
+  //   createdByDisplayName:
+  //     build.createdBy?.displayName ||
+  //     build.createdBy?.name ||
+  //     DEFAULT_DISPLAY_NAME,
+  //   totalUpvotes: build.BuildVotes.length, // Count the votes
+  //   upvoted: build.BuildVotes.some((vote) => vote.userId === userId), // Check if the user upvoted the build
+  //   reported: build.BuildReports.some((report) => report.userId === userId), // Check if the user reported the build
+  //   isMember: false,
+  //   buildItems: build.BuildItems,
+  // }))
 
-    const modItemIds = build.BuildItems.filter(
-      (item) => item.category === 'mod' && item.itemId !== '',
-    ).map((item) => item.itemId)
-    const modIdsFound = modItemIds.every((modId) => itemIds.includes(modId))
-
-    const mutatorItemIds = build.BuildItems.filter(
-      (item) => item.category === 'mutator' && item.itemId !== '',
-    ).map((item) => item.itemId)
-    const mutatorIdsFound = mutatorItemIds.every((mutatorId) =>
-      itemIds.includes(mutatorId),
-    )
-
-    const traitItemIds = build.BuildItems.filter(
-      (item) => item.category === 'trait' && item.itemId !== '',
-    ).map((item) => item.itemId)
-    const traitIdsFound = traitItemIds.every((traitId) =>
-      itemIds.includes(traitId),
-    )
-
-    const archtypeItemIds = build.BuildItems.filter(
-      (item) => item.category === 'archtype' && item.itemId,
-    ).map((item) => item.itemId)
-    const archtypeIdsFound = archtypeItemIds.every((archtypeId) =>
-      itemIds.includes(archtypeId),
-    )
-
-    const skillItemIds = build.BuildItems.filter(
-      (item) => item.category === 'skill' && item.itemId,
-    ).map((item) => item.itemId)
-    const skillIdsFound = skillItemIds.every((skillId) =>
-      itemIds.includes(skillId),
-    )
-
-    const ringItemIds = build.BuildItems.filter(
-      (item) => item.category === 'ring' && item.itemId !== '',
-    ).map((item) => item.itemId)
-    const ringIdsFound = ringItemIds.every((ringId) => itemIds.includes(ringId))
-
-    const concoctionItemIds = build.BuildItems.filter(
-      (item) => item.category === 'concoction' && item.itemId !== '',
-    ).map((item) => item.itemId)
-    const concoctionIdsFound = concoctionItemIds.every((concoctionId) =>
-      itemIds.includes(concoctionId),
-    )
-
-    return (
-      weaponIdsFound &&
-      modIdsFound &&
-      mutatorIdsFound &&
-      traitIdsFound &&
-      archtypeIdsFound &&
-      skillIdsFound &&
-      ringIdsFound &&
-      concoctionIdsFound
-    )
-  })
-
-  // Apply pagination to the filtered builds
-  const paginatedBuilds = filteredBuilds.slice(
-    (pageNumber - 1) * itemsPerPage,
-    pageNumber * itemsPerPage,
-  )
-
-  const totalBuildCount = filteredBuilds.length
-
-  const returnedBuilds: DBBuild[] = paginatedBuilds.map((build) => ({
-    ...build,
-    createdByDisplayName:
-      build.createdBy?.displayName ||
-      build.createdBy?.name ||
-      DEFAULT_DISPLAY_NAME,
-    totalUpvotes: build.BuildVotes.length, // Count the votes
-    upvoted: build.BuildVotes.some((vote) => vote.userId === userId), // Check if the user upvoted the build
-    reported: build.BuildReports.some((report) => report.userId === userId), // Check if the user reported the build
-    isMember: false,
-    buildItems: build.BuildItems,
-  }))
-
-  return { items: returnedBuilds, totalItemCount: totalBuildCount }
+  // return { items: returnedBuilds, totalItemCount: totalBuildCount }
+  return { items: [], totalItemCount: 0 }
 }

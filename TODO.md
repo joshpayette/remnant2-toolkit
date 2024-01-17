@@ -1,6 +1,6 @@
 # Where I'm at
 
-- The logic is borked. Because I was lazy and stored all item ids in a single comma-delimitted string, I can't easily filter.
+- Be sure to disallow searching by items you own if you are not signed in
 
 # TODO
 
@@ -13,6 +13,7 @@
 
 ## Bugs
 
+- Item tracker shows NAN% next ot item categories when searching for items
 - If you add a skill, the skills for that class should not be selectable in the other skill slot
 - Modal overlay allows click events through. This appears to be a bug in headlessui. See: https://github.com/tailwindlabs/headlessui/issues/1551
 

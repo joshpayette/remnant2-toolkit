@@ -6,7 +6,7 @@ import Skeleton from '@/app/(components)/Skeleton'
 
 export const defaultFilters: SearchFilters = {
   ownedItemsOnly: false,
-  specificDLCItemsOnly: ['basegame', 'dlc1'],
+  specificDLCItemsOnly: ['base', 'dlc1'],
 }
 
 interface Props {

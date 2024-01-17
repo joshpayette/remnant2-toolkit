@@ -8,7 +8,7 @@ export class ModItem implements BaseModItem {
   public id: BaseModItem['id'] = ''
   public name: BaseModItem['name'] = ''
   public category: BaseModItem['category'] = 'mod'
-  public dlc: BaseModItem['dlc'] = 'basegame'
+  public dlc: BaseModItem['dlc'] = 'base'
   public description: BaseModItem['description'] = ''
   public imagePath: BaseModItem['imagePath'] = ''
   public howToGet: BaseModItem['howToGet'] = ''

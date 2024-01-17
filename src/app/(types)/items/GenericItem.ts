@@ -50,7 +50,7 @@ export class GenericItem implements GenericItemProps {
   public id: GenericItemProps['id'] = ''
   public name: GenericItemProps['name'] = ''
   public category: GenericItemProps['category'] = 'skill'
-  public dlc?: GenericItemProps['dlc'] = 'basegame'
+  public dlc?: GenericItemProps['dlc'] = 'base'
   public description?: GenericItemProps['description'] = ''
   public cooldown?: GenericItemProps['cooldown'] = -1
   public imagePath: GenericItemProps['imagePath'] = ''

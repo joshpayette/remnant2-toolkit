@@ -58,7 +58,7 @@ export default function Filters({
    * ------------------------------------
    */
 
-  const defaultDlcKeys: DLCKey[] = ['basegame', 'dlc1']
+  const defaultDlcKeys: DLCKey[] = ['base', 'dlc1']
   const [includedDlcKeys, setIncludedDlcKeys] =
     useState<DLCKey[]>(defaultDlcKeys)
 
@@ -160,7 +160,7 @@ export default function Filters({
     // Filter out the DLCs
     filteredItems = filteredItems.filter((item) => {
       if (item.dlc === undefined) {
-        return includedDlcKeys.includes('basegame')
+        return includedDlcKeys.includes('base')
       }
 
       return includedDlcKeys.includes(item.dlc as DLCKey)

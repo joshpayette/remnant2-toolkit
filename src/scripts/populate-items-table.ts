@@ -3,15 +3,16 @@ import { remnantItems } from '../app/(data)'
 
 // Load all the item ids into the Item table
 async function main() {
-  // first clear all items from Item table
-  await prisma.item.deleteMany({})
+  for (const item of remnantItems) {
+    console.info(`Upserting item ${item.id}`)
+    const dlc = item.dlc ?? 'base'
 
-  // then add all items from remnantItems dataset
-  await prisma.item.createMany({
-    data: remnantItems.map((item) => ({
-      itemId: item.id,
-    })),
-  })
+    await prisma.item.upsert({
+      where: { itemId: item.id },
+      update: { dlc }, // update fields if necessary
+      create: { itemId: item.id, dlc },
+    })
+  }
 }
 
 main()

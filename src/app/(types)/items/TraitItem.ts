@@ -12,7 +12,7 @@ export class TraitItem implements BaseTraitItem {
   public id: BaseTraitItem['id'] = ''
   public name: BaseTraitItem['name'] = ''
   public category: BaseTraitItem['category'] = 'trait'
-  public dlc: BaseTraitItem['dlc'] = 'basegame'
+  public dlc: BaseTraitItem['dlc'] = 'base'
   public description: BaseTraitItem['description'] = ''
   public maxLevelBonus: BaseTraitItem['maxLevelBonus'] = ''
   public imagePath: BaseTraitItem['imagePath'] = ''
