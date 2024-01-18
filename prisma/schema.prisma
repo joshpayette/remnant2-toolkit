@@ -99,6 +99,7 @@ model Item {
   id         String       @id @default(cuid())
   itemId     String       @unique
   dlc        ITEM_DLC     @default(base)
+  isActive   Boolean      @default(true)
   BuildItems BuildItems[]
   UserItems  UserItems[]
 }
