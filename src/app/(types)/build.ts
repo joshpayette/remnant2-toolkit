@@ -72,3 +72,24 @@ export interface DBBuild {
   totalUpvotes: number
   buildItems: BuildItems[]
 }
+
+/**
+ * When searching for builds, we use a query whose type is not inferred
+ * All responses should be cast to this type
+ */
+export type SearchBuildResponse = Array<
+  DBBuild & {
+    createdByDisplayName: string
+    createdByName: string
+    reported: boolean
+    totalUpvotes: number
+    totalReports: number
+    upvoted: boolean
+    displayName: string
+    name: string
+  }
+>
+
+export interface SearchBuildTotalCount {
+  totalBuildCount: number
+}

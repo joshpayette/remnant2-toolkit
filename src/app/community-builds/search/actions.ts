@@ -5,8 +5,16 @@ import { getServerSession } from '@/app/(lib)/auth'
 import { prisma } from '@/app/(lib)/db'
 import { SearchFilters } from './page'
 import { remnantItems } from '@/app/(data)'
-import { DBBuild } from '@/app/(types)/build'
+import {
+  DBBuild,
+  SearchBuildResponse,
+  SearchBuildTotalCount,
+} from '@/app/(types)/build'
 import { DEFAULT_DISPLAY_NAME } from '@/app/(data)/constants'
+import {
+  getUserOwnedBuilds,
+  getUserOwnedBuildsCount,
+} from '@/app/(queries)/userOwnedBuilds'
 
 // Add linked mods to the itemIds
 // Add linked skills to the itemIds
@@ -70,7 +78,7 @@ export async function getBuilds({
     return { items: [], totalItemCount: 0 }
   }
 
-  // TOD REmove
+  // TODO Remove
 
   if (!searchFilters.ownedItemsOnly) {
     return { items: [], totalItemCount: 0 }
@@ -95,56 +103,15 @@ export async function getBuilds({
     })
   }
 
-  const builds = (await prisma.$queryRaw`
-  SELECT 
-    Build.*, 
-    User.displayName as createdByDisplayName,
-    User.name as createdByName,
-    COUNT(BuildVoteCounts.id) as totalUpvotes,
-    COUNT(BuildReports.id) as totalReports,
-    CASE WHEN EXISTS (
-      SELECT 1
-      FROM BuildReports
-      WHERE BuildReports.buildId = Build.id
-      AND BuildReports.userId = ${userId}
-    ) THEN TRUE ELSE FALSE END as reported,
-    CASE WHEN EXISTS (
-      SELECT 1
-      FROM BuildVoteCounts
-      WHERE BuildVoteCounts.buildId = Build.id
-      AND BuildVoteCounts.userId = ${userId}
-    ) THEN TRUE ELSE FALSE END as upvoted
-  FROM Build
-  LEFT JOIN User ON Build.createdById = User.id
-  LEFT JOIN BuildVoteCounts ON Build.id = BuildVoteCounts.buildId
-  LEFT JOIN BuildReports ON Build.id = BuildReports.buildId
-  WHERE Build.isPublic = true
-  AND NOT EXISTS (
-      SELECT 1
-      FROM BuildItems
-      LEFT JOIN UserItems
-          ON  BuildItems.itemId = UserItems.itemId 
-          AND UserItems.userId = ${userId}
-      WHERE BuildItems.buildId = Build.id
-      AND nullif(BuildItems.itemId,'') IS NOT NULL
-      AND UserItems.itemId IS NULL
-  )
-  GROUP BY Build.id, User.displayName, User.name
-  ORDER BY totalUpvotes DESC
-  LIMIT ${itemsPerPage}
-  OFFSET ${(pageNumber - 1) * itemsPerPage}
-`) as Array<
-    DBBuild & {
-      createdByDisplayName: string
-      createdByName: string
-      reported: boolean
-      totalUpvotes: number
-      totalReports: number
-      upvoted: boolean
-      displayName: string
-      name: string
-    }
-  >
+  let builds: SearchBuildResponse = []
+  let totalBuilds: SearchBuildTotalCount = { totalBuildCount: 0 }
+
+  // Return all builds the user owns
+  // Not allowed if the user is not signed in
+  if (searchFilters.ownedItemsOnly && userId) {
+    builds = await getUserOwnedBuilds({ userId, itemsPerPage, pageNumber })
+    totalBuilds = await getUserOwnedBuildsCount({ userId })
+  }
 
   const buildItems = await prisma.buildItems.findMany({
     where: {
@@ -154,32 +121,10 @@ export async function getBuilds({
     },
   })
 
-  console.info('------------------- Builds -------------------', builds)
-
   if (!builds) {
     console.info('No builds found')
     return { items: [], totalItemCount: 0 }
   }
-
-  const totalBuilds = (await prisma.$queryRaw`
-  SELECT 
-    COUNT(DISTINCT Build.id) as totalBuildCount
-  FROM Build
-  LEFT JOIN User ON Build.createdById = User.id
-  LEFT JOIN BuildVoteCounts ON Build.id = BuildVoteCounts.buildId
-  LEFT JOIN BuildReports ON Build.id = BuildReports.buildId
-  WHERE Build.isPublic = true
-  AND NOT EXISTS (
-      SELECT 1
-      FROM BuildItems
-      LEFT JOIN UserItems
-          ON  BuildItems.itemId = UserItems.itemId 
-          AND UserItems.userId = ${userId}
-      WHERE BuildItems.buildId = Build.id
-      AND nullif(BuildItems.itemId,'') IS NOT NULL
-      AND UserItems.itemId IS NULL
-  )
-`) as { totalBuildCount: number }
 
   const returnedBuilds: DBBuild[] = builds.map((build) => ({
     id: build.id,

@@ -7,6 +7,7 @@ import { useLocalStorage } from '../(hooks)/useLocalStorage'
 import { cn } from '../(lib)/utils'
 import { remnantItemCategories } from '../(data)'
 import { ItemCategory } from '../(types)/build'
+import ClearFiltersButton from './ClearFiltersButton'
 
 interface Props {
   allItems: FilteredItem[]
@@ -199,12 +200,7 @@ export default function Filters({
       <div className="grid-cols-full grid gap-x-8 gap-y-4 divide-y divide-green-800 bg-black sm:grid-cols-4">
         {areAnyFiltersActive() && (
           <div className="col-span-full flex items-center justify-end">
-            <button
-              className="flex w-auto items-center justify-center gap-1 rounded-md border border-green-400  bg-green-500 bg-gradient-to-b p-2 text-sm font-bold text-white drop-shadow-md hover:bg-green-700"
-              onClick={clearFilters}
-            >
-              Clear Filters
-            </button>
+            <ClearFiltersButton onClick={clearFilters} />
           </div>
         )}
         <div className="col-span-full pt-2">

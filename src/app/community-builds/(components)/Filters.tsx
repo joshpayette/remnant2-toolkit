@@ -1,8 +1,12 @@
+'use client'
+
 import { cn } from '@/app/(lib)/utils'
 import { SearchFilters } from '../search/page'
 import { DLC_TO_NAME } from '@/app/(types)'
 import { useState } from 'react'
 import Skeleton from '@/app/(components)/Skeleton'
+import ClearFiltersButton from '@/app/(components)/ClearFiltersButton'
+import { useSession } from 'next-auth/react'
 
 export const defaultFilters: SearchFilters = {
   ownedItemsOnly: false,
@@ -15,11 +19,13 @@ interface Props {
 }
 
 export default function Filters({ isLoading, onUpdate }: Props) {
+  const { data: sessionData } = useSession()
+
   const [searchFilters, setSearchFilters] =
     useState<SearchFilters>(defaultFilters)
 
   function clearFilters() {
-    onUpdate(defaultFilters)
+    setSearchFilters(defaultFilters)
   }
 
   const areAnyFiltersActive = () => {
@@ -43,15 +49,15 @@ export default function Filters({ isLoading, onUpdate }: Props) {
       <div className="grid-cols-full grid gap-x-8 gap-y-4 divide-y divide-green-800 bg-black">
         {areAnyFiltersActive() && (
           <div className="col-span-full flex items-center justify-end">
-            <button
-              className="flex w-auto items-center justify-center gap-1 rounded-md border border-green-400  bg-green-500 bg-gradient-to-b p-2 text-sm font-bold text-white drop-shadow-md hover:bg-green-700"
-              onClick={clearFilters}
-            >
-              Clear Filters
-            </button>
+            <ClearFiltersButton onClick={clearFilters} />
           </div>
         )}
-        <div className="col-span-full pt-2">
+        <div className="relative col-span-full pt-2">
+          {sessionData?.user?.id === undefined && (
+            <div className="absolute left-0 top-0 z-20 flex h-full w-full items-center justify-center bg-black bg-opacity-90 text-sm font-bold text-red-500">
+              You must sign in to search by items you own
+            </div>
+          )}
           <div className="flex w-full flex-col items-start justify-start gap-x-4 gap-y-2">
             <span className="flex items-start justify-start text-left text-sm font-bold text-green-500">
               By Collection
@@ -61,6 +67,7 @@ export default function Filters({ isLoading, onUpdate }: Props) {
                 label="Limit to items you own (based on Item Tracker)"
                 name={`filter-owned-items`}
                 checked={searchFilters.ownedItemsOnly}
+                disabled={sessionData?.user?.id === undefined}
                 onChange={() => {
                   const newFilter = !searchFilters.ownedItemsOnly
 
@@ -178,11 +185,13 @@ export default function Filters({ isLoading, onUpdate }: Props) {
 
 function Checkbox({
   checked,
+  disabled = false,
   label,
   name,
   onChange,
 }: {
   checked: boolean
+  disabled?: boolean
   label: string
   name: string
   onChange: () => void
@@ -195,9 +204,10 @@ function Checkbox({
           aria-describedby={`${name}-description`}
           name={`${name}`}
           type="checkbox"
-          className="h-4 w-4 rounded border-gray-300 text-purple-600 focus:ring-purple-600"
+          className="h-4 w-4 rounded border-gray-300 text-purple-600 focus:ring-purple-600 disabled:opacity-50"
           checked={checked}
           onChange={onChange}
+          disabled={disabled}
         />
       </div>
       <div className="ml-3 text-sm leading-6">
