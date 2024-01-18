@@ -1,13 +1,12 @@
 'use server'
 
-import { DEFAULT_DISPLAY_NAME } from '@/app/(data)/constants'
 import { PaginationResponse } from '@/app/(hooks)/usePagination'
 import { getServerSession } from '@/app/(lib)/auth'
 import { prisma } from '@/app/(lib)/db'
 import { SearchFilters } from './page'
 import { remnantItems } from '@/app/(data)'
 import { DBBuild } from '@/app/(types)/build'
-import getBuildsByOwnedItems from '@/app/(queries)/getBuildsByOwnedItems'
+import { DEFAULT_DISPLAY_NAME } from '@/app/(data)/constants'
 
 // Add linked mods to the itemIds
 // Add linked skills to the itemIds
@@ -96,9 +95,64 @@ export async function getBuilds({
     })
   }
 
-  const query = getBuildsByOwnedItems(userId as string)
+  const builds = (await prisma.$queryRaw`
+  SELECT 
+    Build.*, 
+    User.displayName as createdByDisplayName,
+    User.name as createdByName,
+    COUNT(BuildVoteCounts.id) as totalUpvotes,
+    COUNT(BuildReports.id) as totalReports,
+    CASE WHEN EXISTS (
+      SELECT 1
+      FROM BuildReports
+      WHERE BuildReports.buildId = Build.id
+      AND BuildReports.userId = ${userId}
+    ) THEN TRUE ELSE FALSE END as reported,
+    CASE WHEN EXISTS (
+      SELECT 1
+      FROM BuildVoteCounts
+      WHERE BuildVoteCounts.buildId = Build.id
+      AND BuildVoteCounts.userId = ${userId}
+    ) THEN TRUE ELSE FALSE END as upvoted
+  FROM Build
+  LEFT JOIN User ON Build.createdById = User.id
+  LEFT JOIN BuildVoteCounts ON Build.id = BuildVoteCounts.buildId
+  LEFT JOIN BuildReports ON Build.id = BuildReports.buildId
+  WHERE Build.isPublic = true
+  AND NOT EXISTS (
+      SELECT 1
+      FROM BuildItems
+      LEFT JOIN UserItems
+          ON  BuildItems.itemId = UserItems.itemId 
+          AND UserItems.userId = ${userId}
+      WHERE BuildItems.buildId = Build.id
+      AND nullif(BuildItems.itemId,'') IS NOT NULL
+      AND UserItems.itemId IS NULL
+  )
+  GROUP BY Build.id, User.displayName, User.name
+  ORDER BY totalUpvotes DESC
+  LIMIT ${itemsPerPage}
+  OFFSET ${(pageNumber - 1) * itemsPerPage}
+`) as Array<
+    DBBuild & {
+      createdByDisplayName: string
+      createdByName: string
+      reported: boolean
+      totalUpvotes: number
+      totalReports: number
+      upvoted: boolean
+      displayName: string
+      name: string
+    }
+  >
 
-  const builds = (await query) as any[]
+  const buildItems = await prisma.buildItems.findMany({
+    where: {
+      buildId: {
+        in: builds.map((build) => build.id),
+      },
+    },
+  })
 
   console.info('------------------- Builds -------------------', builds)
 
@@ -106,21 +160,44 @@ export async function getBuilds({
     console.info('No builds found')
     return { items: [], totalItemCount: 0 }
   }
-  // const totalBuildCount = builds.length
 
-  // const returnedBuilds: DBBuild[] = builds.map((build) => ({
-  //   ...build,
-  //   createdByDisplayName:
-  //     build.createdBy?.displayName ||
-  //     build.createdBy?.name ||
-  //     DEFAULT_DISPLAY_NAME,
-  //   totalUpvotes: build.BuildVotes.length, // Count the votes
-  //   upvoted: build.BuildVotes.some((vote) => vote.userId === userId), // Check if the user upvoted the build
-  //   reported: build.BuildReports.some((report) => report.userId === userId), // Check if the user reported the build
-  //   isMember: false,
-  //   buildItems: build.BuildItems,
-  // }))
+  const totalBuilds = (await prisma.$queryRaw`
+  SELECT 
+    COUNT(DISTINCT Build.id) as totalBuildCount
+  FROM Build
+  LEFT JOIN User ON Build.createdById = User.id
+  LEFT JOIN BuildVoteCounts ON Build.id = BuildVoteCounts.buildId
+  LEFT JOIN BuildReports ON Build.id = BuildReports.buildId
+  WHERE Build.isPublic = true
+  AND NOT EXISTS (
+      SELECT 1
+      FROM BuildItems
+      LEFT JOIN UserItems
+          ON  BuildItems.itemId = UserItems.itemId 
+          AND UserItems.userId = ${userId}
+      WHERE BuildItems.buildId = Build.id
+      AND nullif(BuildItems.itemId,'') IS NOT NULL
+      AND UserItems.itemId IS NULL
+  )
+`) as { totalBuildCount: number }
 
-  // return { items: returnedBuilds, totalItemCount: totalBuildCount }
-  return { items: [], totalItemCount: 0 }
+  const returnedBuilds: DBBuild[] = builds.map((build) => ({
+    id: build.id,
+    name: build.name,
+    description: build.description,
+    isPublic: build.isPublic,
+    isFeaturedBuild: build.isFeaturedBuild,
+    thumbnailUrl: build.thumbnailUrl,
+    createdById: build.createdById,
+    createdAt: build.createdAt,
+    totalUpvotes: build.totalUpvotes,
+    reported: build.reported,
+    isMember: false,
+    createdByDisplayName:
+      build.createdByDisplayName || build.createdByName || DEFAULT_DISPLAY_NAME,
+    upvoted: build.upvoted,
+    buildItems,
+  }))
+
+  return { items: returnedBuilds, totalItemCount: totalBuilds.totalBuildCount }
 }

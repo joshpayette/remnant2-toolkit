@@ -227,6 +227,7 @@ export async function updateBuild(data: string): Promise<BuildActionResponse> {
   }
 
   const updatedBuildItems = buildStateToBuildItems(buildState)
+  console.info('updatedBuildItems', updatedBuildItems)
 
   try {
     const updatedBuild = await prisma.build.update({
