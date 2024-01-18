@@ -7,6 +7,7 @@ import { prisma } from '@/app/(lib)/db'
 import { SearchFilters } from './page'
 import { remnantItems } from '@/app/(data)'
 import { DBBuild } from '@/app/(types)/build'
+import getBuildsByOwnedItems from '@/app/(queries)/getBuildsByOwnedItems'
 
 // Add linked mods to the itemIds
 // Add linked skills to the itemIds
@@ -95,125 +96,7 @@ export async function getBuilds({
     })
   }
 
-  const query = prisma.$queryRaw`
-SELECT *
-FROM Build
-WHERE isPublic = true
-AND EXISTS (
-  SELECT 1
-  FROM BuildItems
-  INNER JOIN Item ON BuildItems.itemId = Item.itemId
-  WHERE Build.id = BuildItems.buildId
-  AND BuildItems.category = 'helm'
-  AND (
-    BuildItems.itemId = ''
-    OR EXISTS (
-      SELECT 1
-      FROM UserItems
-      WHERE UserItems.itemId = Item.itemId
-      AND UserItems.userId = ${userId}
-    )
-  )
-)
-AND EXISTS (
-  SELECT 1
-  FROM BuildItems
-  INNER JOIN Item ON BuildItems.itemId = Item.itemId
-  WHERE Build.id = BuildItems.buildId
-  AND BuildItems.category = 'torso'
-  AND (
-    BuildItems.itemId = ''
-    OR EXISTS (
-      SELECT 1
-      FROM UserItems
-      WHERE UserItems.itemId = Item.itemId
-      AND UserItems.userId = ${userId}
-    )
-  )
-)
-AND EXISTS (
-  SELECT 1
-  FROM BuildItems
-  INNER JOIN Item ON BuildItems.itemId = Item.itemId
-  WHERE Build.id = BuildItems.buildId
-  AND BuildItems.category = 'legs'
-  AND (
-    BuildItems.itemId = ''
-    OR EXISTS (
-      SELECT 1
-      FROM UserItems
-      WHERE UserItems.itemId = Item.itemId
-      AND UserItems.userId = ${userId}
-    )
-  )
-)
-AND EXISTS (
-  SELECT 1
-  FROM BuildItems
-  INNER JOIN Item ON BuildItems.itemId = Item.itemId
-  WHERE Build.id = BuildItems.buildId
-  AND BuildItems.category = 'gloves'
-  AND (
-    BuildItems.itemId = ''
-    OR EXISTS (
-      SELECT 1
-      FROM UserItems
-      WHERE UserItems.itemId = Item.itemId
-      AND UserItems.userId = ${userId}
-    )
-  )
-)
-AND EXISTS (
-  SELECT 1
-  FROM BuildItems
-  INNER JOIN Item ON BuildItems.itemId = Item.itemId
-  WHERE Build.id = BuildItems.buildId
-  AND BuildItems.category = 'relic'
-  AND (
-    BuildItems.itemId = ''
-    OR EXISTS (
-      SELECT 1
-      FROM UserItems
-      WHERE UserItems.itemId = Item.itemId
-      AND UserItems.userId = ${userId}
-    )
-  )
-)
-AND EXISTS (
-  SELECT 1
-  FROM BuildItems
-  INNER JOIN Item ON BuildItems.itemId = Item.itemId
-  WHERE Build.id = BuildItems.buildId
-  AND BuildItems.category = 'amulet'
-  AND (
-    BuildItems.itemId = ''
-    OR EXISTS (
-      SELECT 1
-      FROM UserItems
-      WHERE UserItems.itemId = Item.itemId
-      AND UserItems.userId = ${userId}
-    )
-  )
-)
-AND EXISTS (
-  SELECT 1
-  FROM BuildItems
-  INNER JOIN Item ON BuildItems.itemId = Item.itemId
-  WHERE Build.id = BuildItems.buildId
-  AND BuildItems.category = 'weapon'
-  AND (
-    BuildItems.itemId = ''
-    OR EXISTS (
-      SELECT 1
-      FROM UserItems
-      WHERE UserItems.itemId = Item.itemId
-      AND UserItems.userId = ${userId}
-    )
-  )
-  GROUP BY Build.id
-  HAVING COUNT(*) = 3
-)
-`
+  const query = getBuildsByOwnedItems(userId as string)
 
   const builds = (await query) as any[]
 

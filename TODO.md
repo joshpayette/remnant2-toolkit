@@ -1,5 +1,7 @@
 # Where I'm at
 
+- Mods not fetching properly
+- Check to see if builds are found with one blank ring
 - Be sure to disallow searching by items you own if you are not signed in
 
 # TODO
