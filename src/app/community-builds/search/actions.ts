@@ -5,17 +5,17 @@ import { getServerSession } from '@/app/(lib)/auth'
 import { prisma } from '@/app/(lib)/db'
 import { SearchFilters } from './page'
 import { remnantItems } from '@/app/(data)'
-import {
-  DBBuild,
-  SearchBuildResponse,
-  SearchBuildTotalCount,
-} from '@/app/(types)/build'
+import { DBBuild } from '@/app/(types)/build'
 import { DEFAULT_DISPLAY_NAME } from '@/app/(data)/constants'
 import {
   getUserOwnedBuilds,
   getUserOwnedBuildsCount,
 } from '@/app/(queries)/userOwnedBuilds'
-import { BuildItems } from '@prisma/client'
+import {
+  getDLCSpecificBuilds,
+  getDLCSpecificBuildsCount,
+} from '@/app/(queries)/dlcSpecificBuilds'
+import { bigIntFix } from '@/app/(lib)/utils'
 
 // Add linked mods to the itemIds
 // Add linked skills to the itemIds
@@ -75,16 +75,6 @@ export async function getBuilds({
   const session = await getServerSession()
   const userId = session?.user?.id
 
-  // If the user has not selected any items, return an empty array
-  if (discoveredItemIds.length === 0 && searchFilters.ownedItemsOnly) {
-    return { items: [], totalItemCount: 0 }
-  }
-
-  // Don't allow a user to search by owned items if they're not logged in
-  if (searchFilters.ownedItemsOnly && !userId) {
-    return { items: [], totalItemCount: 0 }
-  }
-
   if (searchFilters.ownedItemsOnly && userId) {
     // delete all user's items first
     await prisma.userItems.deleteMany({
@@ -99,8 +89,28 @@ export async function getBuilds({
     })
   }
 
-  // Return all builds the user owns
-  // Not allowed if the user is not signed in
+  // If the user has not selected any items, return an empty array
+  if (discoveredItemIds.length === 0 && searchFilters.ownedItemsOnly) {
+    return { items: [], totalItemCount: 0 }
+  }
+
+  // Don't allow a user to search by owned items if they're not logged in
+  if (searchFilters.ownedItemsOnly && !userId) {
+    return { items: [], totalItemCount: 0 }
+  }
+
+  // If no dlc items are selected, and  ownedItemsOnly is not checked, return nothing
+  if (
+    searchFilters.specificDLCItemsOnly.length === 0 &&
+    !searchFilters.ownedItemsOnly
+  ) {
+    return { items: [], totalItemCount: 0 }
+  }
+
+  // --------------------------------------------
+  // Return all builds that the user owns
+  // --------------------------------------------
+
   if (searchFilters.ownedItemsOnly && userId) {
     const builds = await getUserOwnedBuilds({
       userId,
@@ -108,13 +118,8 @@ export async function getBuilds({
       pageNumber,
     })
     const totalBuilds = await getUserOwnedBuildsCount({ userId })
-    const buildItems = await prisma.buildItems.findMany({
-      where: {
-        buildId: {
-          in: builds.map((build) => build.id),
-        },
-      },
-    })
+    const totalBuildCount = totalBuilds[0].totalBuildCount
+
     if (!builds) {
       console.info('No builds found')
       return { items: [], totalItemCount: 0 }
@@ -137,20 +142,84 @@ export async function getBuilds({
         build.createdByName ||
         DEFAULT_DISPLAY_NAME,
       upvoted: build.upvoted,
-      buildItems,
+      buildItems: [],
     }))
 
+    // Add the buildItems to each build
+    for (const build of returnedBuilds) {
+      const buildItems = await prisma.buildItems.findMany({
+        where: {
+          buildId: build.id,
+        },
+      })
+      build.buildItems = buildItems
+    }
+
     return {
-      items: returnedBuilds,
-      totalItemCount: totalBuilds.totalBuildCount,
+      items: bigIntFix(returnedBuilds),
+      totalItemCount: totalBuildCount,
     }
   }
 
-  if (searchFilters.specificDLCItemsOnly) {
-    const builds = await prisma.item.findMany({})
+  // --------------------------------------------
+  // Return all builds that contain the selected DLC items
+  // --------------------------------------------
+
+  if (searchFilters.specificDLCItemsOnly.length > 0) {
+    const builds = await getDLCSpecificBuilds({
+      itemsPerPage,
+      pageNumber,
+      specifiedDLCItems: searchFilters.specificDLCItemsOnly,
+    })
+    const totalBuilds = await getDLCSpecificBuildsCount({
+      specifiedDLCItems: searchFilters.specificDLCItemsOnly,
+    })
+    const totalBuildCount = totalBuilds[0].totalBuildCount
+
+    if (!builds) {
+      console.info('No builds found')
+      return { items: [], totalItemCount: 0 }
+    }
+
+    const returnedBuilds: DBBuild[] = builds.map((build) => ({
+      id: build.id,
+      name: build.name,
+      description: build.description,
+      isPublic: build.isPublic,
+      isFeaturedBuild: build.isFeaturedBuild,
+      thumbnailUrl: build.thumbnailUrl,
+      createdById: build.createdById,
+      createdAt: build.createdAt,
+      totalUpvotes: build.totalUpvotes,
+      reported: build.reported,
+      isMember: false,
+      createdByDisplayName:
+        build.createdByDisplayName ||
+        build.createdByName ||
+        DEFAULT_DISPLAY_NAME,
+      upvoted: build.upvoted,
+      buildItems: [],
+    }))
+
+    // Add the buildItems to each build
+    for (const build of returnedBuilds) {
+      const buildItems = await prisma.buildItems.findMany({
+        where: {
+          buildId: build.id,
+        },
+      })
+      build.buildItems = buildItems
+    }
+
+    return {
+      items: bigIntFix(returnedBuilds),
+      totalItemCount: totalBuildCount,
+    }
   }
 
+  // --------------------------------------------
   // Return all public builds
+  // --------------------------------------------
 
   const builds = await prisma.build.findMany({
     where: {
@@ -186,11 +255,11 @@ export async function getBuilds({
       build.createdBy?.displayName ||
       build.createdBy?.name ||
       DEFAULT_DISPLAY_NAME,
-    totalUpvotes: build.BuildVotes.length.toString(), // Count the votes
+    totalUpvotes: build.BuildVotes.length, // Count the votes
     upvoted: build.BuildVotes.some((vote) => vote.userId === userId), // Check if the user upvoted the build
     reported: build.BuildReports.some((report) => report.userId === userId), // Check if the user reported the build
     buildItems: build.BuildItems,
   }))
 
-  return { items: returnedBuilds, totalItemCount: totalBuildCount }
+  return { items: bigIntFix(returnedBuilds), totalItemCount: totalBuildCount }
 }

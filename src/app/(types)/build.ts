@@ -69,7 +69,7 @@ export interface DBBuild {
   createdAt: Build['createdAt']
   reported: boolean
   upvoted: boolean
-  totalUpvotes: string
+  totalUpvotes: number
   buildItems: BuildItems[]
 }
 
@@ -90,6 +90,6 @@ export type SearchBuildResponse = Array<
   }
 >
 
-export interface SearchBuildTotalCount {
+export type SearchBuildTotalCount = Array<{
   totalBuildCount: number
-}
+}>

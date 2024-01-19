@@ -8,6 +8,7 @@ import { prisma } from '../(lib)/db'
 import { DEFAULT_DISPLAY_NAME } from '../(data)/constants'
 import { PaginationResponse } from '../(hooks)/usePagination'
 import { DBBuild } from '../(types)/build'
+import { bigIntFix } from '../(lib)/utils'
 
 export type CreatedBuildsFilter = 'date created' | 'upvotes'
 
@@ -97,10 +98,10 @@ export async function getCreatedBuilds({
     buildItems: build.BuildItems,
   }))
 
-  return {
+  return bigIntFix({
     items: returnedBuilds,
     totalItemCount: totalBuildCount,
-  }
+  })
 }
 
 export type FavoritedBuildsFilter = 'date favorited' | 'upvotes'
@@ -205,7 +206,7 @@ export async function getFavoritedBuilds({
     buildItems: build.BuildItems,
   }))
 
-  return { items: returnedBuilds, totalItemCount: totalBuildCount }
+  return bigIntFix({ items: returnedBuilds, totalItemCount: totalBuildCount })
 }
 
 export async function updateUserDisplayName(

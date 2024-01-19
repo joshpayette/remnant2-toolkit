@@ -9,6 +9,7 @@ import { ErrorResponse } from '../(types)'
 import { buildStateSchema, buildStateToBuildItems } from '../(lib)/build'
 import { DEFAULT_DISPLAY_NAME } from '@/app/(data)/constants'
 import { badWordFilter } from '../(lib)/badword-filter'
+import { bigIntFix } from '../(lib)/utils'
 
 export type SuccessResponse = {
   message?: string
@@ -596,10 +597,10 @@ export async function addVoteForBuild(
     }
     revalidatePath(`/builder/${buildId}`)
 
-    return {
+    return bigIntFix({
       message: 'Vote saved!',
-      totalUpvotes: Number(totalUpvotes),
-    }
+      totalUpvotes: totalUpvotes,
+    })
   } catch (e) {
     console.error(e)
     return {
@@ -694,10 +695,10 @@ export async function removeVoteForBuild(
     }
     revalidatePath(`/builder/${buildId}`)
 
-    return {
+    return bigIntFix({
       message: 'Vote removed!',
-      totalUpvotes: Number(totalUpvotes),
-    }
+      totalUpvotes: totalUpvotes,
+    })
   } catch (e) {
     console.error(e)
     return {
@@ -789,5 +790,8 @@ export async function getBuild(
     }
   }
 
-  return { message: 'Successfully fetched build!', build: returnedBuild }
+  return bigIntFix({
+    message: 'Successfully fetched build!',
+    build: returnedBuild,
+  })
 }

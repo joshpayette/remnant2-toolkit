@@ -93,3 +93,12 @@ export function itemToCsvItem(item: GenericItem): CsvItem {
 export function trimTrailingComma(string: string): string {
   return string.replace(/,\s*$/, '')
 }
+
+export function bigIntFix<T>(value: T): T {
+  return JSON.parse(
+    JSON.stringify(
+      value,
+      (k, v) => (typeof v === 'bigint' ? v.toString() : v), // return everything else unchanged
+    ),
+  ) as T
+}

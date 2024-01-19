@@ -6,12 +6,7 @@ import { getServerSession } from '../(lib)/auth'
 import { PaginationResponse } from '../(hooks)/usePagination'
 import { DEFAULT_DISPLAY_NAME } from '../(data)/constants'
 import { DBBuild } from '../(types)/build'
-
-// Need this to suppress the BigInt JSON error
-BigInt.prototype.toJSON = function (): string {
-  const int = Number.parseInt(this.toString())
-  return int.toString()
-}
+import { bigIntFix } from '../(lib)/utils'
 
 export type TimeRange = 'day' | 'week' | 'month' | 'all-time'
 
@@ -111,16 +106,16 @@ export async function getMostUpvotedBuilds({
     createdAt: build.createdAt,
     createdByDisplayName: build.displayName || build.username, // Accessing the 'displayName' or 'name' property from the 'User' table
     upvoted: false,
-    totalUpvotes: Number(build.votes),
+    totalUpvotes: build.votes,
     reported: build.reported,
     isMember: build.isPaidUser,
     buildItems: build.buildItems,
   }))
 
-  return {
+  return bigIntFix({
     items: returnedBuilds,
     totalItemCount: totalBuildCount,
-  }
+  })
 }
 
 export type FeaturedBuildsFilter = 'date created' | 'upvotes'
@@ -199,5 +194,5 @@ export async function getFeaturedBuilds({
     buildItems: build.BuildItems,
   }))
 
-  return { items: returnedBuilds, totalItemCount: totalBuildCount }
+  return bigIntFix({ items: returnedBuilds, totalItemCount: totalBuildCount })
 }
