@@ -85,7 +85,14 @@ export async function getCreatedBuilds({
   })
 
   const returnedBuilds: DBBuild[] = builds.map((build) => ({
-    ...build,
+    id: build.id,
+    name: build.name,
+    description: build.description,
+    isPublic: build.isPublic,
+    isFeaturedBuild: build.isFeaturedBuild,
+    thumbnailUrl: build.thumbnailUrl,
+    createdById: build.createdById,
+    createdAt: build.createdAt,
     createdByDisplayName:
       build.createdBy?.displayName ||
       build.createdBy?.name ||
@@ -194,7 +201,14 @@ export async function getFavoritedBuilds({
   if (!builds) return { items: [], totalItemCount: 0 }
 
   const returnedBuilds: DBBuild[] = builds.map((build) => ({
-    ...build,
+    id: build.id,
+    name: build.name,
+    description: build.description,
+    isPublic: build.isPublic,
+    isFeaturedBuild: build.isFeaturedBuild,
+    thumbnailUrl: build.thumbnailUrl,
+    createdById: build.createdById,
+    createdAt: build.createdAt,
     createdByDisplayName:
       build.createdBy?.displayName ||
       build.createdBy?.name ||
