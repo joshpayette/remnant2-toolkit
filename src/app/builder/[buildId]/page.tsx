@@ -147,7 +147,9 @@ export default function Page({
                             'Error voting for build. Please try again later.',
                           )
                         } else {
-                          toast.success(response.message)
+                          toast.success(
+                            'Successfully favorited build! You can find it in your profile.',
+                          )
                           buildState.upvoted = newVote
                           buildState.totalUpvotes = response.totalUpvotes ?? 1
                           router.refresh()

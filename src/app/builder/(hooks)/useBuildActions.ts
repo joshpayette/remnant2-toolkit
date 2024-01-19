@@ -328,6 +328,8 @@ export default function useBuildActions() {
         )
       : await removeReportForBuild(JSON.stringify({ buildId: build.buildId }))
 
+    
+
     return response
   }
 

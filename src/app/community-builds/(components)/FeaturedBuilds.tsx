@@ -8,6 +8,10 @@ import usePagination from '@/app/(hooks)/usePagination'
 import Link from 'next/link'
 import BuildListFilters from '@/app/(components)/BuildListFilters'
 import { DBBuild } from '@/app/(types)/build'
+import { isErrorResponse } from '@/app/(types)'
+import { toast } from 'react-toastify'
+import { dbBuildToBuildState } from '@/app/(lib)/build'
+import useBuildActions from '@/app/builder/(hooks)/useBuildActions'
 
 interface Props {
   itemsPerPage?: number
@@ -33,6 +37,8 @@ export default function FeaturedBuilds({ itemsPerPage = 8 }: Props) {
     itemsPerPage,
   })
 
+  const { handleReportBuild } = useBuildActions()
+
   // Fetch data
   useEffect(() => {
     const getItemsAsync = async () => {
@@ -51,6 +57,34 @@ export default function FeaturedBuilds({ itemsPerPage = 8 }: Props) {
 
   function handleFilterChange(filter: string) {
     setFilter(filter as FeaturedBuildsFilter)
+  }
+
+  async function onReportBuild(buildId: string) {
+    const reportedBuild = builds.find((build) => build.id === buildId)
+
+    if (!reportedBuild) {
+      console.error(`Could not find build with id ${buildId}, report not saved`)
+      return
+    }
+    const newReported = !reportedBuild.reported
+    const response = await handleReportBuild(
+      dbBuildToBuildState(reportedBuild),
+      newReported,
+    )
+
+    if (!response || isErrorResponse(response)) {
+      console.error(response?.errors)
+      toast.error(response?.errors?.[0])
+    } else {
+      toast.success(response.message)
+      const newBuilds = builds.map((build) => {
+        if (build.id === buildId) {
+          build.reported = newReported
+        }
+        return build
+      })
+      setBuilds(newBuilds)
+    }
   }
 
   const filterOptions: FeaturedBuildsFilter[] = ['date created', 'upvotes']
@@ -81,7 +115,7 @@ export default function FeaturedBuilds({ itemsPerPage = 8 }: Props) {
           <div key={build.id} className="h-full w-full">
             <BuildCard
               build={build}
-              onReportBuild={undefined}
+              onReportBuild={onReportBuild}
               footerActions={
                 <div className="flex items-center justify-end gap-2 p-2 text-sm">
                   <Link

@@ -8,10 +8,13 @@ import { DBBuild } from '@/app/(types)/build'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { getBuilds } from './actions'
-import { DLCKey, DLC_TO_NAME } from '@/app/(types)'
+import { DLCKey, DLC_TO_NAME, isErrorResponse } from '@/app/(types)'
 import Skeleton from '@/app/(components)/Skeleton'
 import { cn } from '@/app/(lib)/utils'
 import ClearFiltersButton from '@/app/(components)/ClearFiltersButton'
+import useBuildActions from '@/app/builder/(hooks)/useBuildActions'
+import { toast } from 'react-toastify'
+import { dbBuildToBuildState } from '@/app/(lib)/build'
 
 const ITEMS_PER_PAGE = 8
 const DEFAULT_DLC_ITEMS: DLCKey[] = ['base', 'dlc1']
@@ -38,6 +41,8 @@ export default function Page() {
     itemsPerPage: ITEMS_PER_PAGE,
   })
 
+  const { handleReportBuild } = useBuildActions()
+
   useEffect(() => {
     async function getBuildsByRelease() {
       const response = await getBuilds({
@@ -59,6 +64,34 @@ export default function Page() {
 
   const areAnyFiltersActive = () => {
     return filters.length !== DEFAULT_DLC_ITEMS.length
+  }
+
+  async function onReportBuild(buildId: string) {
+    const reportedBuild = builds.find((build) => build.id === buildId)
+
+    if (!reportedBuild) {
+      console.error(`Could not find build with id ${buildId}, report not saved`)
+      return
+    }
+    const newReported = !reportedBuild.reported
+    const response = await handleReportBuild(
+      dbBuildToBuildState(reportedBuild),
+      newReported,
+    )
+
+    if (!response || isErrorResponse(response)) {
+      console.error(response?.errors)
+      toast.error(response?.errors?.[0])
+    } else {
+      toast.success(response.message)
+      const newBuilds = builds.map((build) => {
+        if (build.id === buildId) {
+          build.reported = newReported
+        }
+        return build
+      })
+      setBuilds(newBuilds)
+    }
   }
 
   return (
@@ -162,7 +195,7 @@ export default function Page() {
           <div key={build.id} className="h-full w-full">
             <BuildCard
               build={build}
-              onReportBuild={undefined}
+              onReportBuild={onReportBuild}
               footerActions={
                 <div className="flex items-center justify-end gap-2 p-2 text-sm">
                   <Link

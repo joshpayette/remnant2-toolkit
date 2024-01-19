@@ -2,7 +2,6 @@
 
 - Add note to FAVORITE button to use it to save the build so people don't keep making clones.
 - Add build filters to show only builds above certain vote thresholds
-- Added community build page where you can search and sort builds
 - On tracker, allowing sorting alphabetically or by item type (i.e. group armors together)
 - Add CSV import
 - Should be able to store tracked items in db
