@@ -27,8 +27,10 @@ import { pageInfo as senorcervezasInciernaryKingPageInfo } from './build/senorce
 import { pageInfo as chaosGamingsTankualistPageInfo } from './build/chaos-gamings-tankualist/metadata'
 import { pageInfo as theBatmanBuildPageInfo } from './build/the-batman-build/metadata'
 import { pageInfo as senorcervezasVoltaicShockTrooperPageInfo } from './build/senorcervezas-voltaic-shock-trooper/metadata'
+import { pageInfo as sheenShotsModMagePageInfo } from './build/sheenshots-mod-mage/metadata'
 
 const builds = [
+  sheenShotsModMagePageInfo,
   senorcervezasVoltaicShockTrooperPageInfo,
   theBatmanBuildPageInfo,
   senorcervezasInciernaryKingPageInfo,
