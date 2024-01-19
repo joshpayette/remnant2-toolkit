@@ -10,7 +10,6 @@ import BuildList from '@/app/(components)/BuildList'
 import Link from 'next/link'
 import { useLocalStorage } from '@/app/(hooks)/useLocalStorage'
 import { DLCKey } from '@/app/(types)'
-import LoadingIndicator from '@/app/(components)/LoadingIndicator'
 import { DBBuild } from '@/app/(types)/build'
 
 export interface SearchFilters {
@@ -76,42 +75,40 @@ export default function Page() {
         isLoading={isLoading}
         onUpdate={(newSearchFilters) => setSearchFilters(newSearchFilters)}
       />
-      {isLoading ? (
-        <LoadingIndicator />
-      ) : (
-        <BuildList
-          label="Build Results"
-          currentPage={currentPage}
-          pageNumbers={pageNumbers}
-          totalItems={totalBuildCount}
-          totalPages={totalPages}
-          firstVisibleItemNumber={firstVisibleItemNumber}
-          lastVisibleItemNumber={lastVisibleItemNumber}
-          onPreviousPage={handlePreviousPageClick}
-          onNextPage={handleNextPageClick}
-          onSpecificPage={handleSpecificPageClick}
-          headerActions={undefined}
-        >
-          {builds.map((build) => (
-            <div key={build.id} className="h-full w-full">
-              <BuildCard
-                build={build}
-                onReportBuild={undefined}
-                footerActions={
-                  <div className="flex items-center justify-end gap-2 p-2 text-sm">
-                    <Link
-                      href={`/builder/${build.id}`}
-                      className="relative inline-flex items-center justify-center gap-x-3 rounded-br-lg border border-transparent p-4 text-sm font-semibold text-green-500 hover:text-green-700 hover:underline"
-                    >
-                      View Build
-                    </Link>
-                  </div>
-                }
-              />
-            </div>
-          ))}
-        </BuildList>
-      )}
+
+      <BuildList
+        label="Build Results"
+        currentPage={currentPage}
+        pageNumbers={pageNumbers}
+        totalItems={totalBuildCount}
+        totalPages={totalPages}
+        isLoading={isLoading}
+        firstVisibleItemNumber={firstVisibleItemNumber}
+        lastVisibleItemNumber={lastVisibleItemNumber}
+        onPreviousPage={handlePreviousPageClick}
+        onNextPage={handleNextPageClick}
+        onSpecificPage={handleSpecificPageClick}
+        headerActions={undefined}
+      >
+        {builds.map((build) => (
+          <div key={build.id} className="h-full w-full">
+            <BuildCard
+              build={build}
+              onReportBuild={undefined}
+              footerActions={
+                <div className="flex items-center justify-end gap-2 p-2 text-sm">
+                  <Link
+                    href={`/builder/${build.id}`}
+                    className="relative inline-flex items-center justify-center gap-x-3 rounded-br-lg border border-transparent p-4 text-sm font-semibold text-green-500 hover:text-green-700 hover:underline"
+                  >
+                    View Build
+                  </Link>
+                </div>
+              }
+            />
+          </div>
+        ))}
+      </BuildList>
     </>
   )
 }

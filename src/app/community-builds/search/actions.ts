@@ -15,6 +15,7 @@ import {
   getUserOwnedBuilds,
   getUserOwnedBuildsCount,
 } from '@/app/(queries)/userOwnedBuilds'
+import { BuildItems } from '@prisma/client'
 
 // Add linked mods to the itemIds
 // Add linked skills to the itemIds
@@ -74,13 +75,8 @@ export async function getBuilds({
   const session = await getServerSession()
   const userId = session?.user?.id
 
+  // If the user has not selected any items, return an empty array
   if (discoveredItemIds.length === 0 && searchFilters.ownedItemsOnly) {
-    return { items: [], totalItemCount: 0 }
-  }
-
-  // TODO Remove
-
-  if (!searchFilters.ownedItemsOnly) {
     return { items: [], totalItemCount: 0 }
   }
 
@@ -103,28 +99,78 @@ export async function getBuilds({
     })
   }
 
-  let builds: SearchBuildResponse = []
-  let totalBuilds: SearchBuildTotalCount = { totalBuildCount: 0 }
-
   // Return all builds the user owns
   // Not allowed if the user is not signed in
   if (searchFilters.ownedItemsOnly && userId) {
-    builds = await getUserOwnedBuilds({ userId, itemsPerPage, pageNumber })
-    totalBuilds = await getUserOwnedBuildsCount({ userId })
+    const builds = await getUserOwnedBuilds({
+      userId,
+      itemsPerPage,
+      pageNumber,
+    })
+    const totalBuilds = await getUserOwnedBuildsCount({ userId })
+    const buildItems = await prisma.buildItems.findMany({
+      where: {
+        buildId: {
+          in: builds.map((build) => build.id),
+        },
+      },
+    })
+    if (!builds) {
+      console.info('No builds found')
+      return { items: [], totalItemCount: 0 }
+    }
+
+    const returnedBuilds: DBBuild[] = builds.map((build) => ({
+      id: build.id,
+      name: build.name,
+      description: build.description,
+      isPublic: build.isPublic,
+      isFeaturedBuild: build.isFeaturedBuild,
+      thumbnailUrl: build.thumbnailUrl,
+      createdById: build.createdById,
+      createdAt: build.createdAt,
+      totalUpvotes: build.totalUpvotes,
+      reported: build.reported,
+      isMember: false,
+      createdByDisplayName:
+        build.createdByDisplayName ||
+        build.createdByName ||
+        DEFAULT_DISPLAY_NAME,
+      upvoted: build.upvoted,
+      buildItems,
+    }))
+
+    return {
+      items: returnedBuilds,
+      totalItemCount: totalBuilds.totalBuildCount,
+    }
   }
 
-  const buildItems = await prisma.buildItems.findMany({
+  if (searchFilters.specificDLCItemsOnly) {
+    const builds = await prisma.item.findMany({})
+  }
+
+  // Return all public builds
+
+  const builds = await prisma.build.findMany({
     where: {
-      buildId: {
-        in: builds.map((build) => build.id),
-      },
+      isPublic: true,
     },
+    include: {
+      createdBy: true,
+      BuildItems: true,
+      BuildReports: true,
+      BuildVotes: true,
+    },
+    skip: itemsPerPage * (pageNumber - 1),
+    take: itemsPerPage,
   })
 
-  if (!builds) {
-    console.info('No builds found')
-    return { items: [], totalItemCount: 0 }
-  }
+  const totalBuildCount = await prisma.build.count({
+    where: {
+      isPublic: true,
+    },
+  })
 
   const returnedBuilds: DBBuild[] = builds.map((build) => ({
     id: build.id,
@@ -132,17 +178,19 @@ export async function getBuilds({
     description: build.description,
     isPublic: build.isPublic,
     isFeaturedBuild: build.isFeaturedBuild,
-    thumbnailUrl: build.thumbnailUrl,
+    isMember: false,
     createdById: build.createdById,
     createdAt: build.createdAt,
-    totalUpvotes: build.totalUpvotes,
-    reported: build.reported,
-    isMember: false,
+    thumbnailUrl: build.thumbnailUrl,
     createdByDisplayName:
-      build.createdByDisplayName || build.createdByName || DEFAULT_DISPLAY_NAME,
-    upvoted: build.upvoted,
-    buildItems,
+      build.createdBy?.displayName ||
+      build.createdBy?.name ||
+      DEFAULT_DISPLAY_NAME,
+    totalUpvotes: build.BuildVotes.length, // Count the votes
+    upvoted: build.BuildVotes.some((vote) => vote.userId === userId), // Check if the user upvoted the build
+    reported: build.BuildReports.some((report) => report.userId === userId), // Check if the user reported the build
+    buildItems: build.BuildItems,
   }))
 
-  return { items: returnedBuilds, totalItemCount: totalBuilds.totalBuildCount }
+  return { items: returnedBuilds, totalItemCount: totalBuildCount }
 }

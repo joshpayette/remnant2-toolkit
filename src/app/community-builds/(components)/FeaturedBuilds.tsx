@@ -17,6 +17,7 @@ export default function FeaturedBuilds({ itemsPerPage = 8 }: Props) {
   const [builds, setBuilds] = useState<DBBuild[]>([])
   const [totalBuildCount, setTotalBuildCount] = useState<number>(0)
   const [filter, setFilter] = useState<FeaturedBuildsFilter>('date created')
+  const [isLoading, setIsLoading] = useState<boolean>(false)
 
   const {
     currentPage,
@@ -35,6 +36,7 @@ export default function FeaturedBuilds({ itemsPerPage = 8 }: Props) {
   // Fetch data
   useEffect(() => {
     const getItemsAsync = async () => {
+      setIsLoading(true)
       const response = await getFeaturedBuilds({
         itemsPerPage,
         pageNumber: currentPage,
@@ -42,6 +44,7 @@ export default function FeaturedBuilds({ itemsPerPage = 8 }: Props) {
       })
       setBuilds(response.items)
       setTotalBuildCount(response.totalItemCount)
+      setIsLoading(false)
     }
     getItemsAsync()
   }, [currentPage, itemsPerPage, filter])
@@ -60,6 +63,7 @@ export default function FeaturedBuilds({ itemsPerPage = 8 }: Props) {
         pageNumbers={pageNumbers}
         totalItems={totalBuildCount}
         totalPages={totalPages}
+        isLoading={isLoading}
         firstVisibleItemNumber={firstVisibleItemNumber}
         lastVisibleItemNumber={lastVisibleItemNumber}
         onPreviousPage={handlePreviousPageClick}

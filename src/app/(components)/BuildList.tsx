@@ -1,10 +1,5 @@
-import {
-  ChevronLeftIcon,
-  ChevronRightIcon,
-  ChevronDoubleLeftIcon,
-  ChevronDoubleRightIcon,
-} from '@heroicons/react/24/solid'
-import { cn } from '../(lib)/utils'
+import { useEffect } from 'react'
+import Loading from '../loading'
 import BuildListPagination from './BuildListPagination'
 
 interface Props {
@@ -13,6 +8,7 @@ interface Props {
   firstVisibleItemNumber: number
   lastVisibleItemNumber: number
   headerActions: React.ReactNode | undefined
+  isLoading: boolean
   label: string
   pageNumbers: number[]
   totalItems: number
@@ -28,6 +24,7 @@ export default function BuildList({
   firstVisibleItemNumber,
   lastVisibleItemNumber,
   headerActions,
+  isLoading,
   label,
   pageNumbers,
   totalItems,
@@ -36,6 +33,10 @@ export default function BuildList({
   onNextPage,
   onSpecificPage,
 }: Props) {
+  useEffect(() => {
+    console.info('pageNumbers', pageNumbers)
+  }, [pageNumbers])
+
   return (
     <>
       <div className="flex w-full flex-row items-center justify-center border-b border-b-green-500 py-2">
@@ -61,7 +62,7 @@ export default function BuildList({
         role="list"
         className="my-4 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4"
       >
-        {children}
+        {isLoading ? <Loading /> : children}
       </ul>
       <BuildListPagination
         currentPage={currentPage}

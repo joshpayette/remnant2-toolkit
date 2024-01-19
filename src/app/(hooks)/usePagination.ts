@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 
 export interface PaginationResponse<ItemType> {
   items: ItemType[]
@@ -8,42 +8,6 @@ export interface PaginationResponse<ItemType> {
 interface Props {
   itemsPerPage: number
   totalItemCount: number
-}
-
-/**
- * Generates an array of page numbers based on the current page
- */
-export function generatePageNumbers({
-  currentPage,
-  totalItemCount,
-  itemsPerPage,
-}: {
-  currentPage: number
-  totalItemCount: number
-  itemsPerPage: number
-}) {
-  const totalPages = Math.ceil(totalItemCount / itemsPerPage)
-  let startPage = Math.max(1, currentPage - 2)
-  let endPage = Math.min(totalPages, currentPage + 2)
-
-  // Adjust startPage and endPage if there are less than 5 pages
-  if (totalPages <= 5) {
-    startPage = 1
-    endPage = totalPages
-  } else {
-    if (currentPage <= 3) {
-      endPage = 5
-    } else if (currentPage > totalPages - 2) {
-      startPage = totalPages - 4
-    }
-  }
-
-  const pageNumbers = []
-  for (let i = startPage; i <= endPage; i++) {
-    pageNumbers.push(i)
-  }
-
-  return pageNumbers
 }
 
 /**
@@ -87,17 +51,55 @@ export default function usePagination({
   totalItemCount,
 }: Props) {
   const [currentPage, setCurrentPage] = useState(1)
-  const totalPages = Math.ceil(totalItemCount / itemsPerPage)
-  const pageNumbers = generatePageNumbers({
-    currentPage,
-    totalItemCount,
-    itemsPerPage,
-  })
-  const firstVisibleItemNumber = currentPage * itemsPerPage - itemsPerPage + 1
-  const lastVisibleItemNumber =
-    currentPage * itemsPerPage > totalItemCount
+  const totalPages = useMemo(
+    () => Math.ceil(totalItemCount / itemsPerPage),
+    [totalItemCount, itemsPerPage],
+  )
+  const pageNumbers = useMemo(() => {
+    const totalPages = Math.ceil(totalItemCount / itemsPerPage)
+
+    if (isNaN(totalPages)) return [1]
+    if (totalPages === 0) return []
+    if (totalPages === 1) return [1]
+
+    let startPage = Math.max(1, currentPage - 2)
+    let endPage = Math.min(totalPages, currentPage + 2)
+
+    // Adjust startPage and endPage if there are less than 5 pages
+    if (totalPages <= 5) {
+      startPage = 1
+      endPage = totalPages
+    } else {
+      if (currentPage <= 3) {
+        endPage = 5
+      } else if (currentPage > totalPages - 2) {
+        startPage = totalPages - 4
+      }
+    }
+
+    const pageNumbers = []
+    for (let i = startPage; i <= endPage; i++) {
+      pageNumbers.push(i)
+    }
+
+    return pageNumbers
+  }, [currentPage, itemsPerPage, totalItemCount])
+
+  const firstVisibleItemNumber = useMemo(() => {
+    return currentPage * itemsPerPage - itemsPerPage + 1
+  }, [currentPage, itemsPerPage])
+
+  const lastVisibleItemNumber = useMemo(() => {
+    return currentPage * itemsPerPage > totalItemCount
       ? totalItemCount
       : currentPage * itemsPerPage
+  }, [currentPage, itemsPerPage, totalItemCount])
+
+  useEffect(() => {
+    if (currentPage !== 1 && isNaN(totalPages)) {
+      setCurrentPage(1)
+    }
+  }, [currentPage, totalItemCount, totalPages])
 
   function handlePreviousPageClick() {
     setCurrentPage(currentPage - 1 > 0 ? currentPage - 1 : 1)

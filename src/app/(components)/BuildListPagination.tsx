@@ -30,7 +30,7 @@ export default function BuildListPagination({
   onSpecificPage,
 }: Props) {
   return (
-    <div className="flex w-full items-center justify-between bg-black px-4 py-4 sm:px-6">
+    <div className="flex w-full items-center justify-between bg-black bg-opacity-40 px-4 py-4 sm:px-6">
       <div className="flex flex-1 justify-between sm:hidden">
         <button
           onClick={onPreviousPage}
