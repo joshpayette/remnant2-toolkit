@@ -69,7 +69,7 @@ export interface DBBuild {
   createdAt: Build['createdAt']
   reported: boolean
   upvoted: boolean
-  totalUpvotes: number
+  totalUpvotes: string
   buildItems: BuildItems[]
 }
 

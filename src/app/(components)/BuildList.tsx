@@ -33,10 +33,6 @@ export default function BuildList({
   onNextPage,
   onSpecificPage,
 }: Props) {
-  useEffect(() => {
-    console.info('pageNumbers', pageNumbers)
-  }, [pageNumbers])
-
   return (
     <>
       <div className="flex w-full flex-row items-center justify-center border-b border-b-green-500 py-2">

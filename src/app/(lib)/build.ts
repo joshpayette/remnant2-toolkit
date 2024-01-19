@@ -78,7 +78,7 @@ export function dbBuildToBuildState(dbBuild: DBBuild): BuildState {
     isFeaturedBuild: dbBuild.isFeaturedBuild,
     thumbnailUrl: dbBuild.thumbnailUrl,
     upvoted: dbBuild.upvoted,
-    totalUpvotes: dbBuild.totalUpvotes,
+    totalUpvotes: Number(dbBuild.totalUpvotes),
     reported: dbBuild.reported,
     items: {
       helm: ArmorItem.fromDBValue(buildItems, 'helm'),

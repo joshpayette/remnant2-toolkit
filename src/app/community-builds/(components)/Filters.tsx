@@ -26,6 +26,7 @@ export default function Filters({ isLoading, onUpdate }: Props) {
 
   function clearFilters() {
     setSearchFilters(defaultFilters)
+    onUpdate(defaultFilters)
   }
 
   const areAnyFiltersActive = () => {
