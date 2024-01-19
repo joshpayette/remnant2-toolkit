@@ -1,32 +1,26 @@
 'use client'
 
-import PageHeader from '@/app/(components)/PageHeader'
-import Filters, { defaultFilters } from '../(components)/Filters'
-import usePagination from '@/app/(hooks)/usePagination'
-import { useCallback, useEffect, useState } from 'react'
-import { getBuilds } from './actions'
 import BuildCard from '@/app/(components)/BuildCard'
 import BuildList from '@/app/(components)/BuildList'
-import Link from 'next/link'
+import PageHeader from '@/app/(components)/PageHeader'
 import { useLocalStorage } from '@/app/(hooks)/useLocalStorage'
-import { DLCKey } from '@/app/(types)'
+import usePagination from '@/app/(hooks)/usePagination'
 import { DBBuild } from '@/app/(types)/build'
+import { signIn, useSession } from 'next-auth/react'
+import Link from 'next/link'
+import { useCallback, useEffect, useState } from 'react'
+import { getBuilds } from './actions'
 
-export interface SearchFilters {
-  ownedItemsOnly: boolean
-  specificDLCItemsOnly: DLCKey[]
-}
-
-const itemsPerPage = 8
+const ITEMS_PER_PAGE = 8
 
 export default function Page() {
+  const { data: sessionData } = useSession()
+
   const [builds, setBuilds] = useState<DBBuild[]>([])
   const [totalBuildCount, setTotalBuildCount] = useState<number>(0)
   const [isLoading, setIsLoading] = useState(true)
   const { itemTrackerStorage } = useLocalStorage()
   const { discoveredItemIds } = itemTrackerStorage
-  const [searchFilters, setSearchFilters] =
-    useState<SearchFilters>(defaultFilters)
 
   const {
     currentPage,
@@ -39,41 +33,46 @@ export default function Page() {
     handlePreviousPageClick,
   } = usePagination({
     totalItemCount: totalBuildCount,
-    itemsPerPage,
+    itemsPerPage: ITEMS_PER_PAGE,
   })
 
-  const handleFilterChange = useCallback(
-    async (searchFilters: SearchFilters) => {
-      setIsLoading(true)
+  useEffect(() => {
+    async function getBuildsByCollection() {
       const response = await getBuilds({
-        itemsPerPage,
+        itemsPerPage: ITEMS_PER_PAGE,
         pageNumber: currentPage,
-        searchFilters,
-        // don't pass unneeded data if filter is not set
-        discoveredItemIds: searchFilters.ownedItemsOnly
-          ? discoveredItemIds
-          : [],
+        discoveredItemIds,
       })
       setBuilds(response.items)
       setTotalBuildCount(response.totalItemCount)
       setIsLoading(false)
-    },
-    [currentPage, discoveredItemIds],
-  )
+    }
+    getBuildsByCollection()
+  }, [currentPage, discoveredItemIds])
 
-  useEffect(() => {
-    handleFilterChange(searchFilters)
-  }, [handleFilterChange, searchFilters, currentPage])
+  if (!sessionData?.user) {
+    return (
+      <>
+        <PageHeader
+          title="Builds By Collection"
+          subtitle="Browse all community builds that contain only items in your collection, based on the data in the Item Tracker."
+        >
+          <button
+            className="rounded bg-purple-500 p-2 text-sm font-bold hover:bg-purple-700"
+            onClick={() => signIn()}
+          >
+            Sign in to find builds by collection
+          </button>
+        </PageHeader>
+      </>
+    )
+  }
 
   return (
     <>
       <PageHeader
-        title="Search Community Builds"
-        subtitle="Find your perfect build"
-      />
-      <Filters
-        isLoading={isLoading}
-        onUpdate={(newSearchFilters) => setSearchFilters(newSearchFilters)}
+        title="Builds By Collection"
+        subtitle="Browse all community builds that contain only items in your collection, based on the data in the Item Tracker."
       />
 
       <BuildList

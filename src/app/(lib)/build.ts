@@ -12,6 +12,50 @@ import { z } from 'zod'
 import { ArmorItem } from '../(types)/items/ArmorItem'
 
 /**
+ * Takes a list of itemIds and adds any linked items to the list
+ */
+export function addLinkedItemIds(itemIds: string[]): string[] {
+  for (const itemId of itemIds) {
+    const currentItem = remnantItems.find((item) => item.id === itemId)
+
+    if (currentItem?.linkedItems?.mod) {
+      const modItem = remnantItems.find(
+        (item) => item.name === currentItem.linkedItems?.mod?.name,
+      )
+      if (!modItem) {
+        console.error(`Could not find mod item for ${currentItem.name}`)
+        continue
+      }
+      itemIds.push(modItem.id)
+    }
+
+    if (currentItem?.linkedItems?.skills) {
+      for (const skill of currentItem.linkedItems.skills) {
+        const skillItem = remnantItems.find((item) => item.name === skill.name)
+        if (!skillItem) {
+          console.error(`Could not find skill item for ${currentItem.name}`)
+          continue
+        }
+        itemIds.push(skillItem.id)
+      }
+    }
+
+    if (currentItem?.linkedItems?.traits) {
+      for (const trait of currentItem.linkedItems.traits) {
+        const traitItem = remnantItems.find((item) => item.name === trait.name)
+        if (!traitItem) {
+          console.error(`Could not find trait item for ${currentItem.name}`)
+          continue
+        }
+        itemIds.push(traitItem.id)
+      }
+    }
+  }
+
+  return itemIds
+}
+
+/**
  * Converts the build state into a CSV file
  */
 export function buildStateToCsvData(buildState: BuildState) {

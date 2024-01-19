@@ -1,11 +1,7 @@
-# Where I'm at
-
-- Mods not fetching properly
-- Check to see if builds are found with one blank ring
-- Be sure to disallow searching by items you own if you are not signed in
-
 # TODO
 
+- Add note to FAVORITE button to use it to save the build so people don't keep making clones.
+- Add build filters to show only builds above certain vote thresholds
 - Added community build page where you can search and sort builds
 - On tracker, allowing sorting alphabetically or by item type (i.e. group armors together)
 - Add CSV import
@@ -18,6 +14,10 @@
 - Item tracker shows NAN% next ot item categories when searching for items
 - If you add a skill, the skills for that class should not be selectable in the other skill slot
 - Modal overlay allows click events through. This appears to be a bug in headlessui. See: https://github.com/tailwindlabs/headlessui/issues/1551
+
+## After next patch
+
+- Update Anguish image and description
 
 ## Later TODO
 
