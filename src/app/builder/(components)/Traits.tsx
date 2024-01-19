@@ -99,22 +99,20 @@ export default function Traits({
           isScreenshotMode && 'grid-cols-2',
         )}
       >
-        {showControls && isEditable && (
-          <div className="col-span-full mx-auto mb-2 max-w-[300px] border border-gray-500 p-2 text-center text-xs text-gray-300">
-            <span
-              className={cn(
-                'text-lg font-bold',
-                totalTraitAmount > MAX_TRAIT_AMOUNT && 'text-red-500',
-              )}
-            >
-              {totalTraitAmount}
-            </span>
-            /<span className="font-bold">{MAX_TRAIT_AMOUNT}</span> Trait Points
-            <p className="text-cyan-500">
-              5 Core + 20 Archtype + 85 Player Choice
-            </p>
-          </div>
-        )}
+        <div className="col-span-full mx-auto mb-2 max-w-[300px] border border-gray-500 p-2 text-center text-xs text-gray-300">
+          <span
+            className={cn(
+              'text-lg font-bold',
+              totalTraitAmount > MAX_TRAIT_AMOUNT && 'text-red-500',
+            )}
+          >
+            {totalTraitAmount}
+          </span>
+          /<span className="font-bold">{MAX_TRAIT_AMOUNT}</span> Trait Points
+          <p className="text-cyan-500">
+            5 Core + 20 Archtype + 85 Player Choice
+          </p>
+        </div>
         {traitItems.map((traitItem) => (
           <div
             key={traitItem.name}
