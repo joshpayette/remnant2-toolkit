@@ -13,6 +13,7 @@ import { DBBuild } from '@/app/(types)/build'
 export default function Page() {
   const [builds, setBuilds] = useState<DBBuild[]>([])
   const [totalBuildCount, setTotalBuildCount] = useState<number>(0)
+  const [isLoading, setIsLoading] = useState(false)
   const [filter, setFilter] = useState<FavoritedBuildsFilter>('date favorited')
   const itemsPerPage = 8
 
@@ -32,6 +33,7 @@ export default function Page() {
 
   useEffect(() => {
     const getItemsAsync = async () => {
+      setIsLoading(true)
       const response = await getFavoritedBuilds({
         itemsPerPage,
         pageNumber: currentPage,
@@ -39,6 +41,7 @@ export default function Page() {
       })
       setBuilds(response.items)
       setTotalBuildCount(response.totalItemCount)
+      setIsLoading(false)
     }
     getItemsAsync()
   }, [currentPage, itemsPerPage, filter])
@@ -56,6 +59,7 @@ export default function Page() {
       pageNumbers={pageNumbers}
       totalItems={totalBuildCount}
       totalPages={totalPages}
+      isLoading={isLoading}
       firstVisibleItemNumber={firstVisibleItemNumber}
       lastVisibleItemNumber={lastVisibleItemNumber}
       onPreviousPage={handlePreviousPageClick}

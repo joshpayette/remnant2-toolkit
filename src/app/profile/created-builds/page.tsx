@@ -16,6 +16,7 @@ export default function Page() {
   const [builds, setBuilds] = useState<DBBuild[]>([])
   const [totalBuildCount, setTotalBuildCount] = useState<number>(0)
   const [filter, setFilter] = useState<CreatedBuildsFilter>('date created')
+  const [isLoading, setIsLoading] = useState(false)
   const itemsPerPage = 8
 
   const {
@@ -34,6 +35,7 @@ export default function Page() {
 
   useEffect(() => {
     const getItemsAsync = async () => {
+      setIsLoading(true)
       const response = await getCreatedBuilds({
         itemsPerPage,
         pageNumber: currentPage,
@@ -41,6 +43,7 @@ export default function Page() {
       })
       setBuilds(response.items)
       setTotalBuildCount(response.totalItemCount)
+      setIsLoading(false)
     }
     getItemsAsync()
   }, [currentPage, itemsPerPage, filter])
@@ -64,6 +67,7 @@ export default function Page() {
       pageNumbers={pageNumbers}
       totalItems={totalBuildCount}
       totalPages={totalPages}
+      isLoading={isLoading}
       firstVisibleItemNumber={firstVisibleItemNumber}
       lastVisibleItemNumber={lastVisibleItemNumber}
       onPreviousPage={handlePreviousPageClick}
