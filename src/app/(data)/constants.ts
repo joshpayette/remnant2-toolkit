@@ -12,17 +12,17 @@ import { BuildState } from '../(types)/build'
  */
 export const NAV_ITEMS = [
   {
+    name: 'Community Builds',
+    description: 'A collection of builds aggregated from various sources.',
+    href: '/community-builds',
+    icon: ListBulletIcon,
+  },
+  {
     name: 'Builder',
     description:
       'Create and share your favorite builds with your friends and the community.',
     href: '/builder/create',
     icon: BookmarkSquareIcon,
-  },
-  {
-    name: 'Featured Builds',
-    description: 'A collection of builds aggregated from various sources.',
-    href: '/featured-builds',
-    icon: ListBulletIcon,
   },
   {
     name: 'Item Tracker',
@@ -72,7 +72,12 @@ export const MAX_TRAIT_AMOUNT = 110
 /**
  * The initial display name for a user if none is set
  */
-export const DEFAULT_DISPLAY_NAME = 'Travaller'
+export const DEFAULT_DISPLAY_NAME = 'Traveller'
+
+/**
+ * Number of votes for a build to be popular
+ */
+export const POPULAR_VOTE_THRESHOLD = 25
 
 /**
  * The max size a profile.sav import can be (in kilobytes)

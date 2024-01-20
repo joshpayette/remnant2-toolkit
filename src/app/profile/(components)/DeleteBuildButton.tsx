@@ -2,16 +2,15 @@
 
 import { isErrorResponse } from '@/app/(types)'
 import { deleteBuild } from '@/app/builder/actions'
-import { useRouter } from 'next/navigation'
 import { toast } from 'react-toastify'
 
 export default function DeleteBuildButton({
   buildId,
+  onDeleteBuild,
 }: {
-  buildId: string | null
+  buildId: string
+  onDeleteBuild: (buildId: string) => void
 }) {
-  const router = useRouter()
-
   async function handleDeleteBuild() {
     const confirmed = confirm('Are you sure you want to delete this build?')
     if (!confirmed) return
@@ -23,6 +22,7 @@ export default function DeleteBuildButton({
       toast.error('Error deleting build. Please try again later.')
     } else {
       toast.success(response.message)
+      onDeleteBuild(buildId)
     }
   }
 

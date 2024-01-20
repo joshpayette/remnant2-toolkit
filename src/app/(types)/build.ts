@@ -3,8 +3,7 @@ import { GenericItem } from '@/app/(types)/items/GenericItem'
 import { MutatorItem } from '@/app/(types)/items/MutatorItem'
 import { TraitItem } from '@/app/(types)/items/TraitItem'
 import { WeaponItem } from '@/app/(types)/items/WeaponItem'
-import { Build } from '@prisma/client'
-import { z } from 'zod'
+import { Build, BuildItems } from '@prisma/client'
 import { ModItem } from '../(types)/items/ModItem'
 
 export type ItemCategory = keyof BuildState['items']
@@ -25,7 +24,10 @@ export interface BuildState {
   name: string
   createdById: string | null
   createdByDisplayName: string | null
+  isMember: boolean
   isPublic: boolean
+  isFeaturedBuild: boolean
+  thumbnailUrl: string | null
   description: string | null
   upvoted: boolean
   totalUpvotes: number
@@ -51,12 +53,43 @@ export interface BuildState {
 }
 
 /**
- * Additional fields not stored in the db,
- * but computed for the buildState
+ * The shape of the build returned from the DB, along with
+ * additional computed fields
  */
-export interface ExtendedBuild extends Build {
+export interface DBBuild {
+  id: Build['id']
+  name: Build['name']
+  description: Build['description']
+  isPublic: Build['isPublic']
+  isFeaturedBuild: Build['isFeaturedBuild']
+  isMember: boolean
+  thumbnailUrl: Build['thumbnailUrl']
+  createdById: Build['createdById']
   createdByDisplayName: string
+  createdAt: Build['createdAt']
   reported: boolean
   upvoted: boolean
   totalUpvotes: number
+  buildItems: BuildItems[]
 }
+
+/**
+ * When searching for builds, we use a query whose type is not inferred
+ * All responses should be cast to this type
+ */
+export type SearchBuildResponse = Array<
+  DBBuild & {
+    createdByDisplayName: string
+    createdByName: string
+    reported: boolean
+    totalUpvotes: number
+    totalReports: number
+    upvoted: boolean
+    displayName: string
+    name: string
+  }
+>
+
+export type SearchBuildTotalCount = Array<{
+  totalBuildCount: number
+}>

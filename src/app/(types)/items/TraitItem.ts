@@ -1,3 +1,4 @@
+import { BuildItems } from '@prisma/client'
 import { remnantItems } from '../../(data)'
 import { DEFAULT_TRAIT_AMOUNT } from '../../(data)/constants'
 import { GenericItem } from './GenericItem'
@@ -11,7 +12,7 @@ export class TraitItem implements BaseTraitItem {
   public id: BaseTraitItem['id'] = ''
   public name: BaseTraitItem['name'] = ''
   public category: BaseTraitItem['category'] = 'trait'
-  public dlc: BaseTraitItem['dlc'] = 'basegame'
+  public dlc: BaseTraitItem['dlc'] = 'base'
   public description: BaseTraitItem['description'] = ''
   public maxLevelBonus: BaseTraitItem['maxLevelBonus'] = ''
   public imagePath: BaseTraitItem['imagePath'] = ''
@@ -43,14 +44,6 @@ export class TraitItem implements BaseTraitItem {
     items: Array<{ id: BaseTraitItem['id']; amount: number }>,
   ): string[] {
     return items.map((i) => (i.id ? `${i.id};${i.amount}` : ''))
-  }
-
-  static toDBValue(items: TraitItem[]): string {
-    return this.toParams(items).join(',')
-  }
-
-  static fromDBValue(value: string): TraitItem[] {
-    return this.fromParams(value) ?? []
   }
 
   static fromParams(params: string): TraitItem[] {
@@ -89,5 +82,25 @@ export class TraitItem implements BaseTraitItem {
       }
     })
     return items
+  }
+
+  static fromDBValue(buildItems: BuildItems[]): Array<TraitItem> {
+    if (!buildItems) return []
+
+    let traitItems: Array<TraitItem> = []
+    for (const buildItem of buildItems) {
+      const item = remnantItems.find((i) => i.id === buildItem.itemId)
+      if (!item) continue
+      if (item.category !== 'trait') continue
+      if (!this.isTraitItem(item)) continue
+      const traitItem = {
+        ...item,
+        amount: buildItem.amount,
+      } as TraitItem
+      buildItem.index
+        ? (traitItems[buildItem.index] = traitItem)
+        : traitItems.push(traitItem)
+    }
+    return traitItems
   }
 }

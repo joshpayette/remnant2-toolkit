@@ -7,6 +7,7 @@ import { useLocalStorage } from '../(hooks)/useLocalStorage'
 import { cn } from '../(lib)/utils'
 import { remnantItemCategories } from '../(data)'
 import { ItemCategory } from '../(types)/build'
+import ClearFiltersButton from './ClearFiltersButton'
 
 interface Props {
   allItems: FilteredItem[]
@@ -23,6 +24,22 @@ export default function Filters({
 }: Props) {
   const { itemTrackerStorage } = useLocalStorage()
   const { discoveredItemIds } = itemTrackerStorage
+
+  function clearFilters() {
+    setSearchText('')
+    setIncludedDlcKeys(defaultDlcKeys)
+    setIncludedCollectionKeys(defaultCollectionKeys)
+    setIncludedCategoryKeys(defaultCategoryKeys)
+  }
+
+  const areAnyFiltersActive = () => {
+    return (
+      searchText !== '' ||
+      includedDlcKeys.length !== defaultDlcKeys.length ||
+      includedCollectionKeys.length !== defaultCollectionKeys.length ||
+      includedCategoryKeys.length !== defaultCategoryKeys.length
+    )
+  }
 
   /**
    * ------------------------------------
@@ -42,16 +59,9 @@ export default function Filters({
    * ------------------------------------
    */
 
-  const defaultDlcKeys: DLCKey[] = ['basegame', 'dlc1']
+  const defaultDlcKeys: DLCKey[] = ['base', 'dlc1']
   const [includedDlcKeys, setIncludedDlcKeys] =
     useState<DLCKey[]>(defaultDlcKeys)
-
-  function clearFilters() {
-    setSearchText('')
-    setIncludedDlcKeys(defaultDlcKeys)
-    setIncludedCollectionKeys(defaultCollectionKeys)
-    setIncludedCategoryKeys(defaultCategoryKeys)
-  }
 
   function handleDlcFilterChange(dlcKey: DLCKey) {
     if (includedDlcKeys.includes(dlcKey)) {
@@ -151,7 +161,7 @@ export default function Filters({
     // Filter out the DLCs
     filteredItems = filteredItems.filter((item) => {
       if (item.dlc === undefined) {
-        return includedDlcKeys.includes('basegame')
+        return includedDlcKeys.includes('base')
       }
 
       return includedDlcKeys.includes(item.dlc as DLCKey)
@@ -177,15 +187,6 @@ export default function Filters({
     onUpdate,
   ])
 
-  const areAnyFiltersActive = () => {
-    return (
-      searchText !== '' ||
-      includedDlcKeys.length !== defaultDlcKeys.length ||
-      includedCollectionKeys.length !== defaultCollectionKeys.length ||
-      includedCategoryKeys.length !== defaultCategoryKeys.length
-    )
-  }
-
   return (
     <div
       className={cn(
@@ -199,12 +200,7 @@ export default function Filters({
       <div className="grid-cols-full grid gap-x-8 gap-y-4 divide-y divide-green-800 bg-black sm:grid-cols-4">
         {areAnyFiltersActive() && (
           <div className="col-span-full flex items-center justify-end">
-            <button
-              className="flex w-auto items-center justify-center gap-1 rounded-md border border-green-400  bg-green-500 bg-gradient-to-b p-2 text-sm font-bold text-white drop-shadow-md hover:bg-green-700"
-              onClick={clearFilters}
-            >
-              Clear Filters
-            </button>
+            <ClearFiltersButton onClick={clearFilters} />
           </div>
         )}
         <div className="col-span-full pt-2">

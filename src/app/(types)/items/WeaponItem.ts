@@ -1,3 +1,4 @@
+import { BuildItems } from '@prisma/client'
 import { remnantItems } from '../../(data)'
 import { GenericItem } from './GenericItem'
 
@@ -9,7 +10,7 @@ export class WeaponItem implements BaseWeaponItem {
   public id: BaseWeaponItem['id'] = ''
   public name: BaseWeaponItem['name'] = ''
   public category: BaseWeaponItem['category'] = 'weapon'
-  public dlc: BaseWeaponItem['dlc'] = 'basegame'
+  public dlc: BaseWeaponItem['dlc'] = 'base'
   public type: BaseWeaponItem['type'] = 'long gun'
   public description: BaseWeaponItem['description'] = ''
   public imagePath: BaseWeaponItem['imagePath'] = ''
@@ -39,14 +40,6 @@ export class WeaponItem implements BaseWeaponItem {
     return items.map((i) => `${i?.id ?? ''}`)
   }
 
-  static toDBValue(items: Array<WeaponItem | null>): string {
-    return this.toParams(items).join(',')
-  }
-
-  static fromDBValue(value: string): WeaponItem[] {
-    return this.fromParams(value) ?? []
-  }
-
   static fromParams(params: string): WeaponItem[] | null {
     const itemIds = params.split(',')
     if (!itemIds) return null
@@ -63,5 +56,21 @@ export class WeaponItem implements BaseWeaponItem {
     if (items.filter((i) => !this.isWeaponItem(i)).length > 0) return null
 
     return items
+  }
+
+  static fromDBValue(buildItems: BuildItems[]): Array<WeaponItem | null> {
+    if (!buildItems) return []
+
+    let weaponItems: Array<WeaponItem | null> = []
+    for (const buildItem of buildItems) {
+      const item = remnantItems.find((i) => i.id === buildItem.itemId)
+      if (!item) continue
+      if (item.category !== 'weapon') continue
+      if (!this.isWeaponItem(item)) continue
+      buildItem.index
+        ? (weaponItems[buildItem.index] = item)
+        : weaponItems.push(item)
+    }
+    return weaponItems
   }
 }

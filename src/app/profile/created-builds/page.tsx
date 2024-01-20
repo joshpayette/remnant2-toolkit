@@ -1,186 +1,106 @@
-import { getServerSession } from '@/app/(lib)/auth'
-import { prisma } from '@/app/(lib)/db'
-import { DEFAULT_DISPLAY_NAME } from '@/app/(data)/constants'
-import ViewBuildButton from '../(components)/ViewBuildButton'
+'use client'
+
+import BuildList from '@/app/(components)/BuildList'
+import BuildCard from '@/app/(components)/BuildCard'
+import usePagination from '@/app/(hooks)/usePagination'
+import { useEffect, useState } from 'react'
+import { CreatedBuildsFilter, getCreatedBuilds } from '../actions'
+import BuildListFilters from '@/app/(components)/BuildListFilters'
 import CopyBuildUrlButton from '../(components)/CopyBuildUrlButton'
 import EditBuildButton from '../(components)/EditBuildButton'
-import DeleteBuildButton from '../(components)/DeleteBuildButton'
-import { StarIcon } from '@heroicons/react/24/solid'
-import { extendedBuildToBuildState } from '@/app/(lib)/build'
 import DuplicateBuildButton from '../(components)/DuplicateBuildButton'
-import { ExtendedBuild } from '@/app/(types)/build'
+import DeleteBuildButton from '../(components)/DeleteBuildButton'
+import { DBBuild } from '@/app/(types)/build'
 
-async function getBuilds() {
-  const session = await getServerSession()
+export default function Page() {
+  const [builds, setBuilds] = useState<DBBuild[]>([])
+  const [totalBuildCount, setTotalBuildCount] = useState<number>(0)
+  const [filter, setFilter] = useState<CreatedBuildsFilter>('date created')
+  const [isLoading, setIsLoading] = useState(false)
+  const itemsPerPage = 8
 
-  const userId = session?.user?.id
-
-  // select all builds created by the user
-  // including the total votes for each build
-  const builds = await prisma.build.findMany({
-    where: {
-      createdById: userId,
-    },
-    orderBy: {
-      createdAt: 'desc',
-    },
-    include: {
-      createdBy: true,
-      BuildVotes: true,
-      BuildReports: true,
-    },
+  const {
+    currentPage,
+    firstVisibleItemNumber,
+    lastVisibleItemNumber,
+    pageNumbers,
+    totalPages,
+    handleSpecificPageClick,
+    handleNextPageClick,
+    handlePreviousPageClick,
+  } = usePagination({
+    totalItemCount: totalBuildCount,
+    itemsPerPage,
   })
 
-  if (!builds) return []
+  useEffect(() => {
+    const getItemsAsync = async () => {
+      setIsLoading(true)
+      const response = await getCreatedBuilds({
+        itemsPerPage,
+        pageNumber: currentPage,
+        filter,
+      })
+      setBuilds(response.items)
+      setTotalBuildCount(response.totalItemCount)
+      setIsLoading(false)
+    }
+    getItemsAsync()
+  }, [currentPage, itemsPerPage, filter])
 
-  const buildsWithExtraFields = builds.map((build) => ({
-    ...build,
-    createdByDisplayName:
-      build.createdBy?.displayName ||
-      build.createdBy?.name ||
-      session?.user?.name ||
-      DEFAULT_DISPLAY_NAME,
-    totalUpvotes: build.BuildVotes.length, // Count the votes
-    upvoted: build.BuildVotes.some((vote) => vote.userId === userId), // Check if the user upvoted the build
-    reported: build.BuildReports.some((report) => report.userId === userId), // Check if the user reported the build
-  })) satisfies ExtendedBuild[]
+  const filterOptions: CreatedBuildsFilter[] = ['date created', 'upvotes']
 
-  return buildsWithExtraFields
-}
+  function handleFilterChange(filter: string) {
+    setFilter(filter as CreatedBuildsFilter)
+  }
 
-export default async function ListCreatedBuilds() {
-  const builds = await getBuilds()
+  function handleDeleteBuild(buildId: string) {
+    setBuilds((prevBuilds) =>
+      prevBuilds.filter((build) => build.id !== buildId),
+    )
+  }
 
   return (
-    <div className="mx-auto w-full bg-black py-10">
-      <div className="px-4 sm:px-6 lg:px-8">
-        <div className="w-full sm:flex sm:items-center">
-          <div className="sm:flex-auto">
-            <h1 className="w-full text-base font-semibold leading-6 text-green-500">
-              Builds created by you
-            </h1>
-            <p className="mt-2 text-sm text-gray-300">
-              All builds that you have created are listed here.
-            </p>
-          </div>
+    <BuildList
+      label="Builds you've created"
+      currentPage={currentPage}
+      pageNumbers={pageNumbers}
+      totalItems={totalBuildCount}
+      totalPages={totalPages}
+      isLoading={isLoading}
+      firstVisibleItemNumber={firstVisibleItemNumber}
+      lastVisibleItemNumber={lastVisibleItemNumber}
+      onPreviousPage={handlePreviousPageClick}
+      onNextPage={handleNextPageClick}
+      onSpecificPage={handleSpecificPageClick}
+      headerActions={
+        <BuildListFilters
+          filter={filter}
+          onFilterChange={handleFilterChange}
+          options={filterOptions}
+        />
+      }
+    >
+      {builds.map((build) => (
+        <div key={build.id} className="h-full w-full">
+          <BuildCard
+            build={build}
+            onReportBuild={undefined}
+            memberFrameEnabled={false}
+            footerActions={
+              <div className="flex items-center justify-between gap-2 p-2 text-sm">
+                <CopyBuildUrlButton buildId={build.id} />
+                <EditBuildButton buildId={build.id} />
+                <DuplicateBuildButton build={build} />
+                <DeleteBuildButton
+                  buildId={build.id}
+                  onDeleteBuild={handleDeleteBuild}
+                />
+              </div>
+            }
+          />
         </div>
-        <div className="mt-8 flow-root">
-          <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-            <div className="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
-              <table className="min-w-full divide-y divide-gray-700">
-                <thead>
-                  <tr>
-                    <th
-                      scope="col"
-                      className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-white sm:pl-0"
-                    >
-                      Name
-                    </th>
-                    <th
-                      scope="col"
-                      className="px-3 py-3.5 text-left text-sm font-semibold text-white"
-                    >
-                      Description
-                    </th>
-                    <th
-                      scope="col"
-                      className="px-3 py-3.5 text-left text-sm font-semibold text-white"
-                    >
-                      Archtypes
-                    </th>
-                    <th
-                      scope="col"
-                      className="px-3 py-3.5 text-left text-sm font-semibold text-white"
-                    >
-                      Visibility
-                    </th>
-                    <th
-                      scope="col"
-                      className="px-3 py-3.5 text-left text-sm font-semibold text-white"
-                    >
-                      Votes
-                    </th>
-                    <th
-                      scope="col"
-                      className="px-3 py-3.5 text-left text-sm font-semibold text-white"
-                    >
-                      <span className="sr-only">View</span>
-                    </th>
-                    <th
-                      scope="col"
-                      className="px-3 py-3.5 text-left text-sm font-semibold text-white"
-                    >
-                      <span className="sr-only">Share</span>
-                    </th>
-                    <th
-                      scope="col"
-                      className="px-3 py-3.5 text-left text-sm font-semibold text-white"
-                    >
-                      <span className="sr-only">Edit</span>
-                    </th>
-                    <th
-                      scope="col"
-                      className="px-3 py-3.5 text-left text-sm font-semibold text-white"
-                    >
-                      <span className="sr-only">Delete</span>
-                    </th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-gray-800">
-                  {builds.map((build) => {
-                    const buildState = extendedBuildToBuildState(build)
-                    return (
-                      <tr key={build.id}>
-                        <td className="py-4 pl-4 pr-3 text-sm font-medium text-white sm:pl-0">
-                          <ViewBuildButton
-                            buildName={buildState.name}
-                            buildId={build.id}
-                          />
-                        </td>
-                        <td className="max-w-[300px] truncate px-3 py-4 text-sm text-gray-300">
-                          {buildState.description}
-                        </td>
-                        <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-300">
-                          {buildState.items.archtype.map((archtype, index) => {
-                            return (
-                              <div key={index}>
-                                {`${archtype?.name}, ${
-                                  buildState.items.skill[index]?.name ?? ''
-                                }`}
-                              </div>
-                            )
-                          })}
-                        </td>
-                        <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-left text-sm font-medium sm:pr-0">
-                          {buildState.isPublic ? 'Public' : 'Private'}
-                        </td>
-                        <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-left text-sm font-medium text-yellow-500 sm:pr-0">
-                          <div className="flex flex-row items-start justify-start">
-                            <StarIcon className="mr-2 h-5 w-5" />
-                            {build.totalUpvotes}
-                          </div>
-                        </td>
-                        <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-0">
-                          <CopyBuildUrlButton buildId={build.id} />
-                        </td>
-                        <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-0">
-                          <EditBuildButton buildId={build.id} />
-                        </td>
-                        <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-0">
-                          <DuplicateBuildButton build={build} />
-                        </td>
-                        <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-0">
-                          <DeleteBuildButton buildId={build.id} />
-                        </td>
-                      </tr>
-                    )
-                  })}
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+      ))}
+    </BuildList>
   )
 }

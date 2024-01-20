@@ -99,7 +99,7 @@ export default function Traits({
           isScreenshotMode && 'grid-cols-2',
         )}
       >
-        <div className="col-span-full mx-auto mb-2 max-w-[300px] border border-gray-500 p-2 text-center text-xs text-gray-300">
+        <div className="col-span-full mx-auto mb-2 max-w-[300px] border border-purple-800 p-2 text-center text-xs text-gray-300">
           <span
             className={cn(
               'text-lg font-bold',
@@ -113,6 +113,7 @@ export default function Traits({
             5 Core + 20 Archtype + 85 Player Choice
           </p>
         </div>
+
         {traitItems.map((traitItem) => (
           <div
             key={traitItem.name}

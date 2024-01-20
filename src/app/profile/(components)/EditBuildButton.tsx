@@ -14,7 +14,7 @@ export default function EditBuildButton({ buildId }: { buildId: string }) {
       className="text-purple-500 hover:text-purple-300"
       onClick={handleEditBuild}
     >
-      Edit Build
+      Edit
     </button>
   )
 }

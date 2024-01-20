@@ -1,3 +1,4 @@
+import { BuildItems } from '@prisma/client'
 import { remnantItems } from '../../(data)'
 import { GenericItem } from './GenericItem'
 
@@ -17,7 +18,7 @@ export class ArmorItem implements BaseArmorItem {
   public name: BaseArmorItem['name'] = ''
   public category: BaseArmorItem['category'] = 'helm'
   public description: BaseArmorItem['description'] = ''
-  public dlc: BaseArmorItem['dlc'] = 'basegame'
+  public dlc: BaseArmorItem['dlc'] = 'base'
   public imagePath: BaseArmorItem['imagePath'] = ''
   public howToGet: BaseArmorItem['howToGet'] = ''
   public wikiLinks: BaseArmorItem['wikiLinks'] = []
@@ -61,16 +62,25 @@ export class ArmorItem implements BaseArmorItem {
     )
   }
 
+  static fromDBValue(
+    buildItems: BuildItems[],
+    category: 'helm' | 'gloves' | 'torso' | 'legs',
+  ): ArmorItem | null {
+    if (!buildItems) return null
+
+    let armorItem: ArmorItem | null = null
+    for (const buildItem of buildItems) {
+      const item = remnantItems.find((i) => i.id === buildItem.itemId)
+      if (!item) continue
+      if (item.category !== category) continue
+      if (!this.isArmorItem(item)) continue
+      armorItem = item
+    }
+    return armorItem
+  }
+
   static toParams(item: ArmorItem): string {
     return `${item?.id ?? ''}`
-  }
-
-  static toDBValue(item: ArmorItem): string {
-    return this.toParams(item)
-  }
-
-  static fromDBValue(value: string): ArmorItem | null {
-    return this.fromParams(value)
   }
 
   static fromParams(params: string): ArmorItem | null {

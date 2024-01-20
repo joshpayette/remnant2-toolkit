@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2023-01-19
+
+### Added
+
+- Community builds is now live! You can now filter builds by items you own, by specific releases, most popular, and more to come!
+- Added pagination and improved views for builds you've created and favorited.
+- So much more, I should have kept better notes!
+
 ## 2023-01-18
 
 ### Added
@@ -18,6 +26,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Increased the allowed file size for a profile.sav. Not sure why I had it set so low.
 - Trait points should be correctly calculated, editable, and perform better on mobile.
 - Fixed all the weapons and mutators being grouped in a single category on the Item Tracker.
+
+## 2023-01-15
+
+### Changed
+
+- Overhauled the database schema for storing builds. This was a big change, so I'm hoping I didn't break anything! This was necessary to
+  enable the kind of granular filtering I want to do for community builds.
 
 ## 2023-01-12
 

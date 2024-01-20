@@ -8,6 +8,8 @@ import { Fragment } from 'react'
 import Link from 'next/link'
 import {
   ArrowLeftOnRectangleIcon,
+  ListBulletIcon,
+  StarIcon,
   UserCircleIcon,
 } from '@heroicons/react/24/solid'
 import Skeleton from './Skeleton'
@@ -64,6 +66,30 @@ function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
           </Link>
         </div>
         <div className="flex flex-row items-center justify-start">
+          <ListBulletIcon
+            className="mr-2 h-7 w-5 flex-none text-green-500"
+            aria-hidden="true"
+          />
+          <Link
+            href="/profile/created-builds"
+            className="block px-3 py-2 text-base font-semibold leading-7 text-white hover:text-purple-500 hover:underline"
+          >
+            Created Builds
+          </Link>
+        </div>
+        <div className="flex flex-row items-center justify-start">
+          <StarIcon
+            className="mr-2 h-7 w-5 flex-none text-green-500"
+            aria-hidden="true"
+          />
+          <Link
+            href="/profile/favorited-builds"
+            className="block px-3 py-2 text-base font-semibold leading-7 text-white hover:text-purple-500 hover:underline"
+          >
+            Favorited Builds
+          </Link>
+        </div>
+        <div className="flex flex-row items-center justify-start">
           <ArrowLeftOnRectangleIcon
             className="mr-2 h-7 w-5 flex-none text-green-500"
             aria-hidden="true"
@@ -99,14 +125,42 @@ function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
         <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
           <Menu.Item>
             {({ active }) => (
+              <>
+                <Link
+                  href="/profile"
+                  className={cn(
+                    active ? 'bg-gray-100' : '',
+                    'block px-4 py-2 text-sm text-gray-700',
+                  )}
+                >
+                  Your Profile
+                </Link>
+              </>
+            )}
+          </Menu.Item>
+          <Menu.Item>
+            {({ active }) => (
               <Link
-                href="/profile"
+                href="/profile/created-builds"
                 className={cn(
                   active ? 'bg-gray-100' : '',
                   'block px-4 py-2 text-sm text-gray-700',
                 )}
               >
-                Your Profile
+                Created Builds
+              </Link>
+            )}
+          </Menu.Item>
+          <Menu.Item>
+            {({ active }) => (
+              <Link
+                href="/profile/favorited-builds"
+                className={cn(
+                  active ? 'bg-gray-100' : '',
+                  'block px-4 py-2 text-sm text-gray-700',
+                )}
+              >
+                Favorited Builds
               </Link>
             )}
           </Menu.Item>

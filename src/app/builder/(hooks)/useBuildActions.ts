@@ -4,7 +4,11 @@ import html2canvas from 'html2canvas'
 import copy from 'clipboard-copy'
 import { toast } from 'react-toastify'
 import { isErrorResponse } from '@/app/(types)'
-import { createBuild } from '../actions'
+import {
+  addReportForBuild,
+  createBuild,
+  removeReportForBuild,
+} from '../actions'
 import { remnantItems } from '@/app/(data)'
 import { GenericItem } from '@/app/(types)/items/GenericItem'
 import { ArmorItem } from '@/app/(types)/items/ArmorItem'
@@ -53,8 +57,8 @@ export default function useBuildActions() {
   }
 
   async function handleDuplicateBuild(buildState: BuildState) {
-    const newBuildName = `${buildState.name} (copy)`
-    const newBuildState = { ...buildState, name: newBuildName }
+    const newBuildState = JSON.parse(JSON.stringify(buildState)) as BuildState
+    newBuildState.name = `${buildState.name} (copy)`
     const response = await createBuild(JSON.stringify(newBuildState))
     if (isErrorResponse(response)) {
       console.error(response.errors)
@@ -304,6 +308,31 @@ export default function useBuildActions() {
     setTimeout(exportImage, 1000)
   }, [isScreenshotMode, router])
 
+  async function handleReportBuild(build: BuildState, newReported: boolean) {
+    // prompt for the reason
+    const reason = newReported
+      ? prompt('Please enter a reason for reporting this build.')
+      : null
+
+    if (newReported && !reason) {
+      toast.error('You must enter a reason for reporting this build.')
+      return
+    }
+
+    const response = newReported
+      ? await addReportForBuild(
+          JSON.stringify({
+            buildId: build.buildId,
+            reason,
+          }),
+        )
+      : await removeReportForBuild(JSON.stringify({ buildId: build.buildId }))
+
+    
+
+    return response
+  }
+
   function handleScrollToDetailedView(el: HTMLDivElement | null) {
     if (!el) return
     el.scrollIntoView({ behavior: 'smooth' })
@@ -315,6 +344,7 @@ export default function useBuildActions() {
     handleDuplicateBuild,
     handleRandomBuild,
     handleImageExport,
+    handleReportBuild,
     handleScrollToDetailedView,
     isScreenshotMode: Boolean(isScreenshotMode),
     showControls: Boolean(isScreenshotMode) === false,

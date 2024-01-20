@@ -1,7 +1,6 @@
 'use client'
 
 import Builder from '@/app/builder/(components)/Builder'
-import useBuildActions from '../(hooks)/useBuildActions'
 import { ActionButton } from '../(components)/ActionButton'
 import ToCsvButton from '@/app/(components)/ToCsvButton'
 import { useIsClient } from 'usehooks-ts'
@@ -23,19 +22,22 @@ import { useRouter } from 'next/navigation'
 import {
   buildStateToCsvData,
   buildStateToMasonryItems,
-  extendedBuildToBuildState,
+  dbBuildToBuildState,
 } from '../../(lib)/build'
 import { cn } from '@/app/(lib)/utils'
-import { ExtendedBuild } from '@/app/(types)/build'
+import { DBBuild } from '@/app/(types)/build'
+import useBuildActions from '../(hooks)/useBuildActions'
 
 export default function Page({
   params: { build },
 }: {
-  params: { build: ExtendedBuild }
+  params: { build: DBBuild }
 }) {
   const router = useRouter()
   const isClient = useIsClient()
   const { data: session } = useSession()
+
+  const buildState = dbBuildToBuildState(build)
 
   const {
     isScreenshotMode,
@@ -53,7 +55,6 @@ export default function Page({
   const detailedViewContainerRef = useRef<HTMLDivElement>(null)
 
   // Need to convert the build data to a format that the BuildPage component can use
-  const buildState = extendedBuildToBuildState(build)
   if (!session?.user) {
     buildState.upvoted = false
     buildState.reported = false
@@ -146,7 +147,9 @@ export default function Page({
                             'Error voting for build. Please try again later.',
                           )
                         } else {
-                          toast.success(response.message)
+                          toast.success(
+                            'Successfully favorited build! You can find it in your profile.',
+                          )
                           buildState.upvoted = newVote
                           buildState.totalUpvotes = response.totalUpvotes ?? 1
                           router.refresh()

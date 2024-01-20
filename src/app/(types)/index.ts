@@ -41,7 +41,7 @@ export interface PageInfo {
 }
 
 export const DLC_TO_NAME = {
-  basegame: 'Base Game',
+  base: 'Base Game',
   dlc1: 'The Awakened King',
 } as const
 

@@ -120,18 +120,23 @@ export const ActionButton = {
   ),
 
   Vote: ({ active, onClick }: ButtonProps & { active: boolean }) => (
-    <button
-      onClick={onClick}
-      className={cn(
-        'text-md flex flex-row items-center justify-center rounded border border-transparent p-1 hover:text-yellow-300 hover:underline',
-        active ? 'text-yellow-400' : 'text-white',
-      )}
-    >
-      <span className="mr-1 h-5 w-5">
-        {active ? <StarIconOn /> : <StarIconOff />}
-      </span>
-      <span className="text-md">{active ? 'Favorited' : 'Favorite'}</span>
-    </button>
+    <div className="">
+      <button
+        onClick={onClick}
+        className={cn(
+          'text-md relative flex flex-row items-center justify-center rounded border border-transparent p-1 hover:text-yellow-300 hover:underline',
+          active ? 'text-yellow-400' : 'text-white',
+        )}
+      >
+        <span className="mr-1 h-5 w-5">
+          {active ? <StarIconOn /> : <StarIconOff />}
+        </span>
+        <span className="text-md">{active ? 'Favorited' : 'Favorite'}</span>
+      </button>
+      <p className="m-1 text-left text-xs text-gray-400">
+        Favorite a build to save it to your profile and view it later!
+      </p>
+    </div>
   ),
 }
 

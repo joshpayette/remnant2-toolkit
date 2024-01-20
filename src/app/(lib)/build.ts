@@ -1,100 +1,58 @@
-import { Build } from '@prisma/client'
 import { remnantItemCategories, remnantItems } from '../(data)'
-import {
-  DEFAULT_TRAIT_AMOUNT,
-  MAX_BUILD_DESCRIPTION_LENGTH,
-} from '../(data)/constants'
-import { badWordFilter } from './badword-filter'
-import { CsvItem, Item } from '../(types)'
-import { ArmorItem } from '../(types)/items/ArmorItem'
+import { DEFAULT_TRAIT_AMOUNT } from '../(data)/constants'
+import { Item } from '../(types)'
 import { GenericItem } from '../(types)/items/GenericItem'
 import { MutatorItem } from '../(types)/items/MutatorItem'
 import { TraitItem } from '../(types)/items/TraitItem'
 import { WeaponItem } from '../(types)/items/WeaponItem'
-import { BuildState, ExtendedBuild } from '@/app/(types)/build'
-import { getArrayOfLength } from './utils'
+import { BuildState, DBBuild, ItemCategory } from '@/app/(types)/build'
+import { getArrayOfLength, itemToCsvItem } from './utils'
 import { ModItem } from '../(types)/items/ModItem'
 import { z } from 'zod'
+import { ArmorItem } from '../(types)/items/ArmorItem'
 
 /**
- * Converts an Item to a CSV item for export
+ * Takes a list of itemIds and adds any linked items to the list
  */
-export function itemToCsvItem(item: GenericItem): CsvItem {
-  function cleanString(string: string): string {
-    return (
-      string
-        // replace commas with spaces
-        .replaceAll(',', ' ')
-        // replace line breaks with spaces
-        .replace(/(?:\r\n|\r|\n)/g, ' ')
-    )
+export function addLinkedItemIds(itemIds: string[]): string[] {
+  for (const itemId of itemIds) {
+    const currentItem = remnantItems.find((item) => item.id === itemId)
+
+    if (currentItem?.linkedItems?.mod) {
+      const modItem = remnantItems.find(
+        (item) => item.name === currentItem.linkedItems?.mod?.name,
+      )
+      if (!modItem) {
+        console.error(`Could not find mod item for ${currentItem.name}`)
+        continue
+      }
+      itemIds.push(modItem.id)
+    }
+
+    if (currentItem?.linkedItems?.skills) {
+      for (const skill of currentItem.linkedItems.skills) {
+        const skillItem = remnantItems.find((item) => item.name === skill.name)
+        if (!skillItem) {
+          console.error(`Could not find skill item for ${currentItem.name}`)
+          continue
+        }
+        itemIds.push(skillItem.id)
+      }
+    }
+
+    if (currentItem?.linkedItems?.traits) {
+      for (const trait of currentItem.linkedItems.traits) {
+        const traitItem = remnantItems.find((item) => item.name === trait.name)
+        if (!traitItem) {
+          console.error(`Could not find trait item for ${currentItem.name}`)
+          continue
+        }
+        itemIds.push(traitItem.id)
+      }
+    }
   }
 
-  return {
-    name: item.name,
-    category: item.category,
-    description: cleanString(item.description || ''),
-    howToGet: cleanString(item.howToGet || ''),
-    wikiLinks: item.wikiLinks?.join('; ') || '',
-  }
-}
-
-/**
- * Removes dangling comma from the end of a string
- */
-export function trimTrailingComma(string: string): string {
-  return string.replace(/,\s*$/, '')
-}
-
-/**
- * Converts the build state to a DB build for insertion or updating
- */
-export function buildStateToBuild(buildState: BuildState) {
-  const { items } = buildState
-
-  const cleanName = buildState.name ? badWordFilter(buildState.name) : ''
-
-  // limit description to MAX_DESCRIPTION_LENGTH
-  const clippedDescription = buildState.description
-    ? buildState.description.slice(0, MAX_BUILD_DESCRIPTION_LENGTH)
-    : ''
-  const cleanDescription = badWordFilter(clippedDescription)
-
-  const build: Omit<
-    Build,
-    'id' | 'createdAt' | 'createdBy' | 'updatedAt' | 'createdById'
-  > = {
-    name: cleanName,
-    description: cleanDescription,
-    isPublic: Boolean(buildState.isPublic),
-    isFeaturedBuild: false,
-    thumbnailUrl: '',
-    videoUrl: '',
-    helm: items.helm ? ArmorItem.toDBValue(items.helm) : null,
-    torso: items.torso ? ArmorItem.toDBValue(items.torso) : null,
-    legs: items.legs ? ArmorItem.toDBValue(items.legs) : null,
-    gloves: items.gloves ? ArmorItem.toDBValue(items.gloves) : null,
-    relic: items.relic ? GenericItem.toDBValue(items.relic) : null,
-    amulet: items.amulet ? GenericItem.toDBValue(items.amulet) : null,
-    weapon: items.weapon ? WeaponItem.toDBValue(items.weapon) : null,
-    ring: items.ring ? GenericItem.toDBValue(items.ring) : null,
-    archtype: items.archtype ? GenericItem.toDBValue(items.archtype) : null,
-    skill: items.skill ? GenericItem.toDBValue(items.skill) : null,
-    concoction: items.concoction
-      ? GenericItem.toDBValue(items.concoction)
-      : null,
-    consumable: items.consumable
-      ? GenericItem.toDBValue(items.consumable)
-      : null,
-    mod: items.mod ? ModItem.toDBValue(items.mod) : null,
-    mutator: items.mutator ? MutatorItem.toDBValue(items.mutator) : null,
-    relicfragment: items.relicfragment
-      ? GenericItem.toDBValue(items.relicfragment)
-      : null,
-    trait: TraitItem.toDBValue(buildState.items.trait),
-  }
-
-  return build
+  return itemIds
 }
 
 /**
@@ -150,106 +108,182 @@ export function buildStateToCsvData(buildState: BuildState) {
     .flat()
 }
 
-/**
- * Converts the build state to a query string
- */
-export function buildStateToQueryParams(buildState: BuildState) {
-  const { items } = buildState
+export function buildStateToMasonryItems(build: BuildState): Item[] {
+  const masonryItems: Item[] = []
+  const { items } = build
 
-  let editBuildUrl = `/builder?`
-  editBuildUrl += `name=${buildState.name}`
+  // archtypes
+  getArrayOfLength(2).forEach((_, i) => {
+    items.archtype[i] && masonryItems.push(items.archtype[i] as GenericItem)
+    items.skill[i] && masonryItems.push(items.skill[i] as GenericItem)
+  })
 
-  if (items.helm) editBuildUrl += `&helm=${ArmorItem.toParams(items.helm)}`
-  if (items.torso) editBuildUrl += `&torso=${ArmorItem.toParams(items.torso)}`
-  if (items.gloves)
-    editBuildUrl += `&gloves=${ArmorItem.toParams(items.gloves)}`
-  if (items.legs) editBuildUrl += `&legs=${ArmorItem.toParams(items.legs)}`
+  // armor
+  items.helm && masonryItems.push(items.helm)
+  items.torso && masonryItems.push(items.torso)
+  items.legs && masonryItems.push(items.legs)
+  items.gloves && masonryItems.push(items.gloves)
+  items.relic && masonryItems.push(items.relic)
+  getArrayOfLength(3).forEach((_, i) => {
+    if (!items.relicfragment[i]) return
+    items.relicfragment[i] &&
+      masonryItems.push(items.relicfragment[i] as GenericItem)
+  })
+  items.amulet && masonryItems.push(items.amulet)
+  getArrayOfLength(4).forEach((_, i) => {
+    if (!items.ring[i]) return
+    items.ring[i] && masonryItems.push(items.ring[i] as GenericItem)
+  })
 
-  if (items.relic)
-    editBuildUrl += `&relic=${GenericItem.toParamsFromSingle(items.relic)}`
-  if (items.relicfragment && items.relicfragment.length > 0)
-    editBuildUrl += `&relicfragment=${GenericItem.toParamsFromArray(
-      items.relicfragment,
-    )}`
+  // weapons
+  getArrayOfLength(3).forEach((_, i) => {
+    items.weapon[i] && masonryItems.push(items.weapon[i] as GenericItem)
+    items.mod[i] && masonryItems.push(items.mod[i] as Item)
+    items.mutator[i] && masonryItems.push(items.mutator[i] as GenericItem)
+  })
 
-  if (items.weapon && items.weapon.length > 0)
-    editBuildUrl += `&weapon=${WeaponItem.toParams(items.weapon)}`
-  if (items.mod && items.mod.length > 0)
-    editBuildUrl += `&mod=${ModItem.toParams(items.mod)}`
-  if (items.mutator && items.mutator.length > 0)
-    editBuildUrl += `&mutator=${MutatorItem.toParams(items.mutator)}`
+  // traits
+  items.trait.forEach((trait) => trait && masonryItems.push(trait))
 
-  if (items.amulet)
-    editBuildUrl += `&amulet=${GenericItem.toParamsFromSingle(items.amulet)}`
-  if (items.ring && items.ring.length > 0)
-    editBuildUrl += `&ring=${GenericItem.toParamsFromArray(items.ring)}`
+  // concoctions
+  items.concoction.forEach(
+    (concoction) => concoction && masonryItems.push(concoction),
+  )
 
-  if (items.archtype && items.archtype.length > 0)
-    editBuildUrl += `&archtype=${GenericItem.toParamsFromArray(items.archtype)}`
-  if (items.skill && items.skill.length > 0)
-    editBuildUrl += `&skill=${GenericItem.toParamsFromArray(items.skill)}`
+  // consumables
+  items.consumable.forEach(
+    (consumable) => consumable && masonryItems.push(consumable),
+  )
 
-  if (items.concoction && items.concoction.length > 0)
-    editBuildUrl += `&concoction=${GenericItem.toParamsFromArray(
-      items.concoction,
-    )}`
-  if (items.consumable && items.consumable.length > 0)
-    editBuildUrl += `&consumable=${GenericItem.toParamsFromArray(
-      items.consumable,
-    )}`
-
-  if (items.trait && items.trait.length > 0)
-    editBuildUrl += `&trait=${TraitItem.toParams(items.trait)}`
-
-  return editBuildUrl
+  return masonryItems
 }
 
-/**
- * Converts a build from the database to a build state that the
- * Builder component can use
- */
-export function extendedBuildToBuildState(dbBuild: ExtendedBuild): BuildState {
-  return {
+export function dbBuildToBuildState(dbBuild: DBBuild): BuildState {
+  const { buildItems } = dbBuild
+
+  const buildState: BuildState = {
+    buildId: dbBuild.id,
     name: dbBuild.name,
     description: dbBuild.description,
-    isPublic: dbBuild.isPublic,
     createdById: dbBuild.createdById,
     createdByDisplayName: dbBuild.createdByDisplayName,
-    buildId: dbBuild.id,
+    isMember: dbBuild.isMember,
+    isPublic: dbBuild.isPublic,
+    isFeaturedBuild: dbBuild.isFeaturedBuild,
+    thumbnailUrl: dbBuild.thumbnailUrl,
     upvoted: dbBuild.upvoted,
     totalUpvotes: dbBuild.totalUpvotes,
     reported: dbBuild.reported,
     items: {
-      helm: dbBuild.helm ? ArmorItem.fromDBValue(dbBuild.helm) : null,
-      torso: dbBuild.torso ? ArmorItem.fromDBValue(dbBuild.torso) : null,
-      gloves: dbBuild.gloves ? ArmorItem.fromDBValue(dbBuild.gloves) : null,
-      legs: dbBuild.legs ? ArmorItem.fromDBValue(dbBuild.legs) : null,
-      relic: dbBuild.relic
-        ? GenericItem.fromDBValueSingle(dbBuild.relic)
-        : null,
-      weapon: dbBuild.weapon ? WeaponItem.fromDBValue(dbBuild.weapon) : [],
-      ring: dbBuild.ring ? GenericItem.fromDBValueArray(dbBuild.ring) : [],
-      amulet: dbBuild.amulet
-        ? GenericItem.fromDBValueSingle(dbBuild.amulet)
-        : null,
-      archtype: dbBuild.archtype
-        ? GenericItem.fromDBValueArray(dbBuild.archtype)
-        : [],
-      skill: dbBuild.skill ? GenericItem.fromDBValueArray(dbBuild.skill) : [],
-      concoction: dbBuild.concoction
-        ? GenericItem.fromDBValueArray(dbBuild.concoction)
-        : [],
-      consumable: dbBuild.consumable
-        ? GenericItem.fromDBValueArray(dbBuild.consumable)
-        : [],
-      mod: dbBuild.mod ? ModItem.fromDBValue(dbBuild.mod) : [],
-      mutator: dbBuild.mutator ? MutatorItem.fromDBValue(dbBuild.mutator) : [],
-      relicfragment: dbBuild.relicfragment
-        ? GenericItem.fromDBValueArray(dbBuild.relicfragment)
-        : [],
-      trait: dbBuild.trait ? TraitItem.fromDBValue(dbBuild.trait) : [],
+      helm: ArmorItem.fromDBValue(buildItems, 'helm'),
+      torso: ArmorItem.fromDBValue(buildItems, 'torso'),
+      legs: ArmorItem.fromDBValue(buildItems, 'legs'),
+      gloves: ArmorItem.fromDBValue(buildItems, 'gloves'),
+      relic: GenericItem.fromDBValueSingle(buildItems, 'relic'),
+      amulet: GenericItem.fromDBValueSingle(buildItems, 'amulet'),
+      ring: GenericItem.fromDBValueArray(buildItems, 'ring'),
+      archtype: GenericItem.fromDBValueArray(buildItems, 'archtype'),
+      skill: GenericItem.fromDBValueArray(buildItems, 'skill'),
+      concoction: GenericItem.fromDBValueArray(buildItems, 'concoction'),
+      consumable: GenericItem.fromDBValueArray(buildItems, 'consumable'),
+      relicfragment: GenericItem.fromDBValueArray(buildItems, 'relicfragment'),
+      weapon: WeaponItem.fromDBValue(buildItems),
+      mod: ModItem.fromDBValue(buildItems),
+      mutator: MutatorItem.fromDBValue(buildItems),
+      trait: TraitItem.fromDBValue(buildItems),
     },
   }
+
+  return buildState
+}
+
+export function buildStateToBuildItems(buildState: BuildState): Array<{
+  itemId: string
+  amount?: number
+  index?: number
+  category: ItemCategory
+}> {
+  const { items } = buildState
+
+  const buildItems = [
+    { itemId: items.helm?.id ?? '', category: 'helm' as ItemCategory },
+    { itemId: items.torso?.id ?? '', category: 'torso' as ItemCategory },
+    { itemId: items.legs?.id ?? '', category: 'legs' as ItemCategory },
+    { itemId: items.gloves?.id ?? '', category: 'gloves' as ItemCategory },
+    { itemId: items.amulet?.id ?? '', category: 'amulet' as ItemCategory },
+    { itemId: items.relic?.id ?? '', category: 'relic' as ItemCategory },
+    ...(items.ring
+      ? items.ring.map((ring, index) => ({
+          itemId: ring?.id ?? '',
+          category: 'ring' as ItemCategory,
+          index,
+        }))
+      : [{ itemId: '', category: 'ring' as ItemCategory, index: 0 }]),
+    ...(items.archtype
+      ? items.archtype.map((archtype, index) => ({
+          itemId: archtype?.id ?? '',
+          category: 'archtype' as ItemCategory,
+          index,
+        }))
+      : [{ itemId: '', category: 'archtype' as ItemCategory, index: 0 }]),
+    ...(items.skill
+      ? items.skill.map((skill, index) => ({
+          itemId: skill?.id ?? '',
+          category: 'skill' as ItemCategory,
+          index,
+        }))
+      : [{ itemId: '', category: 'skill' as ItemCategory, index: 0 }]),
+    ...(items.concoction
+      ? items.concoction.map((concoction, index) => ({
+          itemId: concoction?.id ?? '',
+          category: 'concoction' as ItemCategory,
+          index,
+        }))
+      : [{ itemId: '', category: 'concoction' as ItemCategory, index: 0 }]),
+    ...(items.consumable
+      ? items.consumable.map((consumable, index) => ({
+          itemId: consumable?.id ?? '',
+          category: 'consumable' as ItemCategory,
+          index,
+        }))
+      : [{ itemId: '', category: 'consumable' as ItemCategory, index: 0 }]),
+    ...(items.weapon
+      ? items.weapon.map((weapon, index) => ({
+          itemId: weapon?.id ?? '',
+          category: 'weapon' as ItemCategory,
+          index,
+        }))
+      : [{ itemId: '', category: 'weapon' as ItemCategory, index: 0 }]),
+    ...(items.mod
+      ? items.mod.map((mod, index) => ({
+          itemId: mod?.id ?? '',
+          category: 'mod' as ItemCategory,
+          index,
+        }))
+      : [{ itemId: '', category: 'mod' as ItemCategory, index: 0 }]),
+    ...(items.mutator
+      ? items.mutator.map((mutator, index) => ({
+          itemId: mutator?.id ?? '',
+          category: 'mutator' as ItemCategory,
+          index,
+        }))
+      : [{ itemId: '', category: 'mutator' as ItemCategory, index: 0 }]),
+    ...(items.relicfragment
+      ? items.relicfragment.map((relicfragment, index) => ({
+          itemId: relicfragment?.id ?? '',
+          category: 'relicfragment' as ItemCategory,
+          index,
+        }))
+      : [{ itemId: '', category: 'relicfragment' as ItemCategory, index: 0 }]),
+    ...(items.trait
+      ? items.trait.map((trait) => ({
+          itemId: trait.id,
+          category: 'trait' as ItemCategory,
+          amount: trait.amount,
+        }))
+      : [{ itemId: '', category: 'trait' as ItemCategory, amount: 0 }]),
+  ]
+  return buildItems
 }
 
 /**
@@ -539,61 +573,12 @@ export function linkArchtypesToTraits(buildState: BuildState) {
   return newBuildState
 }
 
-export function buildStateToMasonryItems(build: BuildState): Item[] {
-  const masonryItems: Item[] = []
-  const { items } = build
-
-  // archtypes
-  getArrayOfLength(2).forEach((_, i) => {
-    items.archtype[i] && masonryItems.push(items.archtype[i] as GenericItem)
-    items.skill[i] && masonryItems.push(items.skill[i] as GenericItem)
-  })
-
-  // armor
-  items.helm && masonryItems.push(items.helm)
-  items.torso && masonryItems.push(items.torso)
-  items.legs && masonryItems.push(items.legs)
-  items.gloves && masonryItems.push(items.gloves)
-  items.relic && masonryItems.push(items.relic)
-  getArrayOfLength(3).forEach((_, i) => {
-    if (!items.relicfragment[i]) return
-    items.relicfragment[i] &&
-      masonryItems.push(items.relicfragment[i] as GenericItem)
-  })
-  items.amulet && masonryItems.push(items.amulet)
-  getArrayOfLength(4).forEach((_, i) => {
-    if (!items.ring[i]) return
-    items.ring[i] && masonryItems.push(items.ring[i] as GenericItem)
-  })
-
-  // weapons
-  getArrayOfLength(3).forEach((_, i) => {
-    items.weapon[i] && masonryItems.push(items.weapon[i] as GenericItem)
-    items.mod[i] && masonryItems.push(items.mod[i] as Item)
-    items.mutator[i] && masonryItems.push(items.mutator[i] as GenericItem)
-  })
-
-  // traits
-  items.trait.forEach((trait) => trait && masonryItems.push(trait))
-
-  // concoctions
-  items.concoction.forEach(
-    (concoction) => concoction && masonryItems.push(concoction),
-  )
-
-  // consumables
-  items.consumable.forEach(
-    (consumable) => consumable && masonryItems.push(consumable),
-  )
-
-  return masonryItems
-}
-
 export const buildStateSchema = z.object({
   name: z.string(),
   description: z.string().nullable(),
   isPublic: z.boolean().nullable(),
   buildId: z.string().nullable(),
+  isFeaturedBuild: z.boolean().nullable(),
   createdById: z.string().nullable(),
   upvoted: z.boolean().nullable(),
   items: z.object({
@@ -620,6 +605,9 @@ export const initialBuildState: BuildState = {
   name: 'My Build',
   description: null,
   isPublic: true,
+  isMember: false,
+  isFeaturedBuild: false,
+  thumbnailUrl: null,
   buildId: null,
   createdByDisplayName: null,
   createdById: null,

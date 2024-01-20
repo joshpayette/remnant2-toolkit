@@ -1,3 +1,4 @@
+import { BuildItems } from '@prisma/client'
 import { DLCKey } from '..'
 import { remnantItems } from '../../(data)'
 
@@ -49,7 +50,7 @@ export class GenericItem implements GenericItemProps {
   public id: GenericItemProps['id'] = ''
   public name: GenericItemProps['name'] = ''
   public category: GenericItemProps['category'] = 'skill'
-  public dlc?: GenericItemProps['dlc'] = 'basegame'
+  public dlc?: GenericItemProps['dlc'] = 'base'
   public description?: GenericItemProps['description'] = ''
   public cooldown?: GenericItemProps['cooldown'] = -1
   public imagePath: GenericItemProps['imagePath'] = ''
@@ -97,22 +98,38 @@ export class GenericItem implements GenericItemProps {
     return `${item.id}`
   }
 
-  static toDBValue(
-    itemOrItems: GenericItem | Array<GenericItem | null>,
-  ): string {
-    if (Array.isArray(itemOrItems)) {
-      return this.toParamsFromArray(itemOrItems).join(',')
-    } else {
-      return this.toParamsFromSingle(itemOrItems)
+  static fromDBValueSingle(
+    buildItems: BuildItems[],
+    category: ItemCategory,
+  ): GenericItem | null {
+    if (!buildItems) return null
+
+    let genericItem: GenericItem | null = null
+    for (const buildItem of buildItems) {
+      const item = remnantItems.find((i) => i.id === buildItem.itemId)
+      if (!item) continue
+      if (item.category !== category) continue
+      genericItem = item
     }
+    return genericItem
   }
 
-  static fromDBValueSingle(params: string): GenericItem | null {
-    return this.fromParamsSingle(params)
-  }
+  static fromDBValueArray(
+    buildItems: BuildItems[],
+    category: ItemCategory,
+  ): Array<GenericItem | null> {
+    if (!buildItems) return []
 
-  static fromDBValueArray(value: string): GenericItem[] {
-    return this.fromParamsArray(value) ?? []
+    let genericItems: Array<GenericItem | null> = []
+    for (const buildItem of buildItems) {
+      const item = remnantItems.find((i) => i.id === buildItem.itemId)
+      if (!item) continue
+      if (item.category !== category) continue
+      buildItem.index
+        ? (genericItems[buildItem.index] = item)
+        : genericItems.push(item)
+    }
+    return genericItems
   }
 
   static fromParamsSingle(params: string): GenericItem | null {

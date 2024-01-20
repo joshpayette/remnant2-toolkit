@@ -1,177 +1,92 @@
-import { getServerSession } from '@/app/(lib)/auth'
-import { prisma } from '@/app/(lib)/db'
-import ViewBuildButton from '../(components)/ViewBuildButton'
+'use client'
+
 import CopyBuildUrlButton from '../(components)/CopyBuildUrlButton'
-import { StarIcon } from '@heroicons/react/24/solid'
-import { extendedBuildToBuildState } from '@/app/(lib)/build'
-import { ExtendedBuild } from '@/app/(types)/build'
+import { FavoritedBuildsFilter, getFavoritedBuilds } from '../actions'
+import usePagination from '@/app/(hooks)/usePagination'
+import { useEffect, useState } from 'react'
+import BuildCard from '@/app/(components)/BuildCard'
+import BuildListFilters from '@/app/(components)/BuildListFilters'
+import BuildList from '@/app/(components)/BuildList'
+import DuplicateBuildButton from '../(components)/DuplicateBuildButton'
+import { DBBuild } from '@/app/(types)/build'
 
-async function getBuilds() {
-  const session = await getServerSession()
+export default function Page() {
+  const [builds, setBuilds] = useState<DBBuild[]>([])
+  const [totalBuildCount, setTotalBuildCount] = useState<number>(0)
+  const [isLoading, setIsLoading] = useState(false)
+  const [filter, setFilter] = useState<FavoritedBuildsFilter>('date favorited')
+  const itemsPerPage = 8
 
-  const userId = session?.user?.id
-
-  // find all builds that the user has favorited but are not created
-  // by the user
-  const builds = await prisma.build.findMany({
-    where: {
-      BuildVotes: {
-        some: {
-          userId,
-        },
-      },
-      createdById: {
-        not: userId,
-      },
-    },
-    include: {
-      createdBy: true,
-      BuildVotes: true,
-      BuildReports: true,
-    },
+  const {
+    currentPage,
+    firstVisibleItemNumber,
+    lastVisibleItemNumber,
+    pageNumbers,
+    totalPages,
+    handleSpecificPageClick,
+    handleNextPageClick,
+    handlePreviousPageClick,
+  } = usePagination({
+    totalItemCount: totalBuildCount,
+    itemsPerPage,
   })
 
-  if (!builds) return []
+  useEffect(() => {
+    const getItemsAsync = async () => {
+      setIsLoading(true)
+      const response = await getFavoritedBuilds({
+        itemsPerPage,
+        pageNumber: currentPage,
+        filter,
+      })
+      setBuilds(response.items)
+      setTotalBuildCount(response.totalItemCount)
+      setIsLoading(false)
+    }
+    getItemsAsync()
+  }, [currentPage, itemsPerPage, filter])
 
-  const buildsWithExtraFields: ExtendedBuild[] = builds.map((build) => ({
-    id: build.id,
-    name: build.name,
-    description: build.description ?? '',
-    isPublic: build.isPublic,
-    isFeaturedBuild: build.isFeaturedBuild,
-    thumbnailUrl: build.thumbnailUrl ?? '',
-    createdAt: build.createdAt,
-    createdById: build.createdById,
-    videoUrl: build.videoUrl ?? '',
-    helm: build.helm,
-    torso: build.torso,
-    gloves: build.gloves,
-    legs: build.legs,
-    amulet: build.amulet,
-    ring: build.ring,
-    relic: build.relic,
-    relicfragment: build.relicfragment,
-    archtype: build.archtype,
-    skill: build.skill,
-    weapon: build.weapon,
-    mod: build.mod,
-    mutator: build.mutator,
-    updatedAt: build.updatedAt,
-    concoction: build.concoction,
-    consumable: build.consumable,
-    trait: build.trait,
-    createdByDisplayName: build.createdBy.displayName ?? '',
-    totalUpvotes: build.BuildVotes.length,
-    upvoted: build.BuildVotes.some((vote) => vote.userId === userId), // Check if the user upvoted the build
-    reported: build.BuildReports.some((report) => report.userId === userId), // Check if the user reported the build
-  }))
+  const filterOptions: FavoritedBuildsFilter[] = ['date favorited', 'upvotes']
 
-  return buildsWithExtraFields
-}
-
-export default async function Page() {
-  const builds = await getBuilds()
+  function handleFilterChange(filter: string) {
+    setFilter(filter as FavoritedBuildsFilter)
+  }
 
   return (
-    <div className="mx-auto w-full bg-black py-10">
-      <div className="px-4 sm:px-6 lg:px-8">
-        <div className="w-full sm:flex sm:items-center">
-          <div className="sm:flex-auto">
-            <h1 className="w-full text-base font-semibold leading-6 text-green-500">
-              Builds favorited by you
-            </h1>
-            <p className="mt-2 text-sm text-gray-300">
-              All builds that you have favorited are listed here.
-            </p>
-          </div>
+    <BuildList
+      label="Builds you've favorited"
+      currentPage={currentPage}
+      pageNumbers={pageNumbers}
+      totalItems={totalBuildCount}
+      totalPages={totalPages}
+      isLoading={isLoading}
+      firstVisibleItemNumber={firstVisibleItemNumber}
+      lastVisibleItemNumber={lastVisibleItemNumber}
+      onPreviousPage={handlePreviousPageClick}
+      onNextPage={handleNextPageClick}
+      onSpecificPage={handleSpecificPageClick}
+      headerActions={
+        <BuildListFilters
+          filter={filter}
+          onFilterChange={handleFilterChange}
+          options={filterOptions}
+        />
+      }
+    >
+      {builds.map((build) => (
+        <div key={build.id} className="h-full w-full">
+          <BuildCard
+            build={build}
+            onReportBuild={undefined}
+            footerActions={
+              <div className="flex items-center justify-between gap-2 p-2 text-sm">
+                <CopyBuildUrlButton buildId={build.id} />
+                <DuplicateBuildButton build={build} />
+              </div>
+            }
+          />
         </div>
-        <div className="mt-8 flow-root">
-          <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-            <div className="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
-              <table className="min-w-full divide-y divide-gray-700">
-                <thead>
-                  <tr>
-                    <th
-                      scope="col"
-                      className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-white sm:pl-0"
-                    >
-                      Name
-                    </th>
-                    <th
-                      scope="col"
-                      className="px-3 py-3.5 text-left text-sm font-semibold text-white"
-                    >
-                      Description
-                    </th>
-                    <th
-                      scope="col"
-                      className="px-3 py-3.5 text-left text-sm font-semibold text-white"
-                    >
-                      Archtypes
-                    </th>
-                    <th
-                      scope="col"
-                      className="px-3 py-3.5 text-left text-sm font-semibold text-white"
-                    >
-                      Votes
-                    </th>
-                    <th
-                      scope="col"
-                      className="px-3 py-3.5 text-left text-sm font-semibold text-white"
-                    >
-                      <span className="sr-only">View</span>
-                    </th>
-                    <th
-                      scope="col"
-                      className="px-3 py-3.5 text-left text-sm font-semibold text-white"
-                    >
-                      <span className="sr-only">Share</span>
-                    </th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-gray-800">
-                  {builds.map((build) => {
-                    const buildState = extendedBuildToBuildState(build)
-                    return (
-                      <tr key={build.id}>
-                        <td className="py-4 pl-4 pr-3 text-sm font-medium text-white sm:pl-0">
-                          <ViewBuildButton
-                            buildName={buildState.name}
-                            buildId={build.id}
-                          />
-                        </td>
-                        <td className="max-w-[300px] truncate px-3 py-4 text-sm text-gray-300">
-                          {buildState.description}
-                        </td>
-                        <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-300">
-                          {buildState.items.archtype.map((archtype, index) => {
-                            return (
-                              <div key={index}>
-                                {`${archtype?.name}, ${
-                                  buildState.items.skill[index]?.name ?? ''
-                                }`}
-                              </div>
-                            )
-                          })}
-                        </td>
-                        <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-left text-sm font-medium text-yellow-500 sm:pr-0">
-                          <div className="flex flex-row items-start justify-start">
-                            <StarIcon className="mr-2 h-5 w-5" />
-                            {build.totalUpvotes}
-                          </div>
-                        </td>
-                        <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-0">
-                          <CopyBuildUrlButton buildId={build.id} />
-                        </td>
-                      </tr>
-                    )
-                  })}
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+      ))}
+    </BuildList>
   )
 }

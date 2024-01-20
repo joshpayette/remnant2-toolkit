@@ -16,7 +16,8 @@ import { GenericItem } from '../(types)/items/GenericItem'
 import { MutatorItem } from '../(types)/items/MutatorItem'
 import useFilteredItems from '../(hooks)/useFilteredItems'
 import Filters from '../(components)/Filters'
-import { itemToCsvItem } from '../(lib)/build'
+import { itemToCsvItem } from '../(lib)/utils'
+import { useRouter } from 'next/navigation'
 
 const skippedItemCategories: Array<GenericItem['category']> = [
   'concoction',
@@ -42,6 +43,7 @@ const itemList = remnantItems
   }))
 
 export default function Page() {
+  const router = useRouter()
   const isClient = useIsClient()
 
   // Tracks the item the user wants info on
@@ -281,7 +283,9 @@ export default function Page() {
       </PageHeader>
 
       <div className="max-w-3xl">
-        <h2 className="mb-4 text-xl font-bold text-green-400">Filters</h2>
+        <h2 className="mb-2 text-center text-4xl font-bold text-green-400">
+          Filters
+        </h2>
         <Filters
           allItems={itemList}
           onUpdate={handleUpdateFilters}

@@ -12,6 +12,8 @@ import ItemInfo from '@/app/(components)/ItemInfo'
 import { Item } from '@/app/(types)'
 import { getConcoctionSlotCount, getItemListForSlot } from '../../(lib)/build'
 import { BuildState, ItemSlot } from '@/app/(types)/build'
+import PopularBuildBadge from '@/app/(components)/PopularBuildBadge'
+import { POPULAR_VOTE_THRESHOLD } from '@/app/(data)/constants'
 import { DEFAULT_TRAIT_AMOUNT } from '@/app/(data)/constants'
 
 type BuilderProps = {
@@ -44,6 +46,7 @@ export default function Builder({
   updateBuildState,
 }: BuilderProps) {
   const concoctionSlotCount = getConcoctionSlotCount(buildState)
+  const isPopular = buildState.totalUpvotes > POPULAR_VOTE_THRESHOLD
 
   // Tracks information about the slot the user is selecting an item for
   const [selectedItemSlot, setSelectedItemSlot] = useState<ItemSlot>({
@@ -275,12 +278,14 @@ export default function Builder({
     })
 
     const newTraitItemParams = TraitItem.toParams(validatedTraitItems)
-    updateBuildState({ category: 'trait', value: newTraitItemParams })
   }
 
   return (
     <div
-      className={cn('w-full rounded border-2 border-green-500 bg-black p-4')}
+      className={cn(
+        'w-full grow rounded border-2 bg-black p-4',
+        buildState.isMember ? 'border-yellow-500' : 'border-green-500',
+      )}
     >
       <ItemSelect
         open={isItemSelectModalOpen}
@@ -296,7 +301,12 @@ export default function Builder({
         onClose={() => setInfoItem(null)}
       />
 
-      <div className="mb-4">
+      <div
+        className={cn(
+          'relative border-b border-b-green-900',
+          buildState.isMember ? 'mb-8' : 'mb-4',
+        )}
+      >
         <BuilderName
           isEditable={isEditable}
           isEditingBuildName={isEditingBuildName}
@@ -307,6 +317,11 @@ export default function Builder({
           name={buildState.name}
           showControls={showControls}
         />
+        {isPopular && (
+          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 transform">
+            <PopularBuildBadge />
+          </div>
+        )}
       </div>
 
       <div

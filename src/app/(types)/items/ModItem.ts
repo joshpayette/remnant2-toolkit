@@ -1,3 +1,4 @@
+import { BuildItems } from '@prisma/client'
 import { remnantItems } from '../../(data)'
 import { GenericItem } from './GenericItem'
 
@@ -7,7 +8,7 @@ export class ModItem implements BaseModItem {
   public id: BaseModItem['id'] = ''
   public name: BaseModItem['name'] = ''
   public category: BaseModItem['category'] = 'mod'
-  public dlc: BaseModItem['dlc'] = 'basegame'
+  public dlc: BaseModItem['dlc'] = 'base'
   public description: BaseModItem['description'] = ''
   public imagePath: BaseModItem['imagePath'] = ''
   public howToGet: BaseModItem['howToGet'] = ''
@@ -36,14 +37,6 @@ export class ModItem implements BaseModItem {
     return items.map((i) => `${i?.id ?? ''}`)
   }
 
-  static toDBValue(items: Array<ModItem | null>): string {
-    return this.toParams(items).join(',')
-  }
-
-  static fromDBValue(value: string): ModItem[] {
-    return this.fromParams(value) ?? []
-  }
-
   static fromParams(params: string): ModItem[] | null {
     const itemIds = params.split(',')
     if (!itemIds) return null
@@ -60,5 +53,19 @@ export class ModItem implements BaseModItem {
     if (items.filter((i) => !this.isModItem(i)).length > 0) return null
 
     return items
+  }
+
+  static fromDBValue(buildItems: BuildItems[]): Array<ModItem | null> {
+    if (!buildItems) return []
+
+    let modItems: Array<ModItem | null> = []
+    for (const buildItem of buildItems) {
+      const item = remnantItems.find((i) => i.id === buildItem.itemId)
+      if (!item) continue
+      if (item.category !== 'mod') continue
+      if (!this.isModItem(item)) continue
+      buildItem.index ? (modItems[buildItem.index] = item) : modItems.push(item)
+    }
+    return modItems
   }
 }
