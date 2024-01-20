@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2023-01-20
 
+### Added
+
+- Initial armor and resistances added to Builder
+
 ### Fixed
 
 - A few mutators had wrong HOW TO GET text.
