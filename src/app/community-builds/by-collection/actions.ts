@@ -92,11 +92,14 @@ export async function getBuilds({
       FROM BuildVoteCounts
       WHERE BuildVoteCounts.buildId = Build.id
       AND BuildVoteCounts.userId = ${userId}
-    ) THEN TRUE ELSE FALSE END as upvoted
+    ) THEN TRUE ELSE FALSE END as upvoted,
+    CASE WHEN PaidUsers.userId IS NOT NULL THEN true ELSE false END as isPaidUser
   FROM Build
   LEFT JOIN User ON Build.createdById = User.id
   LEFT JOIN BuildVoteCounts ON Build.id = BuildVoteCounts.buildId
-  LEFT JOIN BuildReports ON Build.id = BuildReports.buildId
+  LEFT JOIN BuildReports on Build.id = BuildReports.buildId AND BuildReports.userId = ${session
+    ?.user?.id}
+  LEFT JOIN PaidUsers on User.id = PaidUsers.userId
   WHERE Build.isPublic = true
   AND NOT EXISTS (
       SELECT 1

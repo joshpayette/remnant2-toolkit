@@ -3,11 +3,18 @@
 import Link from 'next/link'
 import PageHeader from '../(components)/PageHeader'
 import CreatorBuilds from './(components)/FeaturedBuilds'
-import MostPopularBuilds from './(components)/MostPopularBuilds'
 import { signIn, useSession } from 'next-auth/react'
+import Filters, { FilterProps, defaultFilters } from './(components)/Filters'
+import { useState } from 'react'
+import MostPopularBuilds from './(components)/MostPopularBuilds'
 
 export default function Page() {
   const { data: sessionData } = useSession()
+  const [filters, setFilters] = useState<FilterProps>(defaultFilters)
+
+  function handleChangeFilters(filters: FilterProps) {
+    setFilters(filters)
+  }
 
   return (
     <>
@@ -36,12 +43,16 @@ export default function Page() {
           </Link>
         </div>
       </PageHeader>
+
+      <div className="mb-8 flex w-full max-w-lg items-center justify-center">
+        <Filters onUpdate={handleChangeFilters} />
+      </div>
       <div className="mb-4 grid w-full grid-cols-1 gap-2">
-        <CreatorBuilds itemsPerPage={4} />
+        <CreatorBuilds globalFilters={filters} itemsPerPage={4} />
       </div>
       <hr className="my-12 w-full border-gray-800" />
       <div className="grid w-full grid-cols-1 gap-2">
-        <MostPopularBuilds itemsPerPage={8} />
+        <MostPopularBuilds filters={filters} itemsPerPage={16} />
       </div>
     </>
   )

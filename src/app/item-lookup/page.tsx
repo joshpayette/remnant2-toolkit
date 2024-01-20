@@ -7,7 +7,7 @@ import { itemToCsvItem } from '@/app/(lib)/utils'
 import { MutatorItem } from '../(types)/items/MutatorItem'
 import useFilteredItems from '../(hooks)/useFilteredItems'
 import MasonryItemList from '../(components)/MasonryItemList'
-import Filters from '../(components)/Filters'
+import Filters from './(components)/Filters'
 
 const csvItems = remnantItems // Modify the data for use. Adds a discovered flag,
   // modifies the description for mutators

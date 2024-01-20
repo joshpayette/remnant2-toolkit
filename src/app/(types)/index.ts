@@ -48,6 +48,20 @@ export const DLC_TO_NAME = {
 export type DLCKey = keyof typeof DLC_TO_NAME
 export type DLCName = (typeof DLC_TO_NAME)[DLCKey]
 
+export type Archtype =
+  | 'alchemist'
+  | 'archon'
+  | 'challenger'
+  | 'engineer'
+  | 'explorer'
+  | 'gunslinger'
+  | 'handler'
+  | 'hunter'
+  | 'invader'
+  | 'medic'
+  | 'ritualist'
+  | 'summoner'
+
 export type ErrorResponse = {
   errors?: any[]
 }
