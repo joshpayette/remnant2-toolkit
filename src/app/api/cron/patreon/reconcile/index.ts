@@ -133,6 +133,8 @@ export async function GET(request: NextRequest) {
       console.error('Error in sending build webhook to Discord!')
     }
 
+    console.info('Patreon membership script succeeded')
+
     return Response.json({ success: true })
   } catch (e) {
     console.error(e)
