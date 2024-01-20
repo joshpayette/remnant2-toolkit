@@ -17,7 +17,7 @@ export default function Page() {
   const [totalBuildCount, setTotalBuildCount] = useState<number>(0)
   const [filter, setFilter] = useState<CreatedBuildsFilter>('date created')
   const [isLoading, setIsLoading] = useState(false)
-  const itemsPerPage = 8
+  const itemsPerPage = 16
 
   const {
     currentPage,
