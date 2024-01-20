@@ -5778,7 +5778,7 @@ export const remnantItems: Item[] = [
     id: 'rzfptj',
     description: `Switching to this weapon creates an Explosive Burst which deals 50 Damage to all enemies within 7m.`,
     maxLevelBonus: `This weapon's kills with any Explosive Damage reduce Kill Switch cooldown by 1s`,
-    howToGet: `Imperial Gardens, dropped by Mantagora`,
+    howToGet: `Has a chance to drop from Aberrations randomly encountered during enemy ambushes.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Kill+Switch`],
   },
   {
@@ -5901,7 +5901,7 @@ export const remnantItems: Item[] = [
     id: 'ha3amj',
     description: `Gain 10-[30]% Melee Damage when Grey Health is present.`,
     maxLevelBonus: `Reduces Stagger by 1 when using any Melee Attack`,
-    howToGet: `Can be found in Losomn at The Executioner Event. Drops from The Executioner.`,
+    howToGet: `Purchased from Dwell in Ward 13 for 75 Relic Dust and 500 scrap`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Resentment`],
   },
   {
@@ -6113,7 +6113,7 @@ export const remnantItems: Item[] = [
     id: 'w6gpz2',
     description: `Basic Melee Attacks increase the next Charge Attacks by 7%. Max 5 Stacks.`,
     maxLevelBonus: `At Max Stacks, the next Charge Attack gains 100% Critical Chance.`,
-    howToGet: `Can be found in The Forgotten Commune`,
+    howToGet: `Purchased from Dwell in Ward 13 for 75 Relic Dust and 500 scrap`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Weaponlord`],
   },
   {
