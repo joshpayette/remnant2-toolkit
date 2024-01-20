@@ -70,7 +70,7 @@ export default function ArmorInfo({ item }: Props) {
               className="my-1 h-8 w-8"
               loading="eager"
             />
-            <span className="text-right text-lg font-bold">
+            <span className="flex items-center justify-end text-right text-lg font-bold">
               {item.toxinResistance}
             </span>
           </p>
