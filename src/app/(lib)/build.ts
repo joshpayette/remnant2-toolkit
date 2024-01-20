@@ -561,6 +561,8 @@ export function linkArchtypesToTraits(buildState: BuildState) {
             wikiLinks: linkedTraitItem.wikiLinks ?? [],
             linkedItems: linkedTraitItem.linkedItems ?? {},
             saveFileSlug: linkedTraitItem.saveFileSlug,
+            healthStep: linkedTraitItem.healthStep ?? 0,
+            armorStep: linkedTraitItem.armorStep ?? 0,
           }),
         )
       }

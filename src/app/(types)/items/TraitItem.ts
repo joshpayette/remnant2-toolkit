@@ -6,33 +6,23 @@ import { GenericItem } from './GenericItem'
 interface BaseTraitItem extends GenericItem {
   amount: number
   maxLevelBonus: string
+  healthStep: number
+  armorStep: number
 }
 
-export class TraitItem implements BaseTraitItem {
-  public id: BaseTraitItem['id'] = ''
-  public name: BaseTraitItem['name'] = ''
+export class TraitItem extends GenericItem implements BaseTraitItem {
   public category: BaseTraitItem['category'] = 'trait'
-  public dlc: BaseTraitItem['dlc'] = 'base'
-  public description: BaseTraitItem['description'] = ''
   public maxLevelBonus: BaseTraitItem['maxLevelBonus'] = ''
-  public imagePath: BaseTraitItem['imagePath'] = ''
-  public howToGet: BaseTraitItem['howToGet'] = ''
-  public wikiLinks: BaseTraitItem['wikiLinks'] = []
-  public linkedItems: BaseTraitItem['linkedItems'] = {}
-  public saveFileSlug: BaseTraitItem['saveFileSlug'] = ''
   public amount: number = DEFAULT_TRAIT_AMOUNT
+  public healthStep: number = 0
+  public armorStep: number = 0
 
   constructor(props: BaseTraitItem) {
-    this.id = props.id
-    this.name = props.name
-    this.description = props.description
-    this.maxLevelBonus = props.maxLevelBonus
-    this.imagePath = props.imagePath
-    this.howToGet = props.howToGet
-    this.wikiLinks = props.wikiLinks
-    this.linkedItems = props.linkedItems
-    this.saveFileSlug = props.saveFileSlug
+    super(props)
     this.amount = props.amount
+    this.maxLevelBonus = props.maxLevelBonus
+    this.healthStep = props.healthStep
+    this.armorStep = props.armorStep
   }
 
   public static isTraitItem = (item: GenericItem | null): item is TraitItem => {
@@ -77,6 +67,8 @@ export class TraitItem implements BaseTraitItem {
             wikiLinks: item.wikiLinks ?? [],
             linkedItems: item.linkedItems ?? {},
             saveFileSlug: item.saveFileSlug ?? '',
+            healthStep: item.healthStep ?? 0,
+            armorStep: item.armorStep ?? 0,
           }),
         )
       }

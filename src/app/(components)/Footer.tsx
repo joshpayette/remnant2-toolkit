@@ -75,15 +75,14 @@ export default function Footer() {
         >
           Fextralife Remnant 2 Wiki
         </a>
-        , as well as the amazingly detailed{' '}
+        , as well as the amazingly detailed stat calculator Excel sheet{' '}
         <a
-          href="https://docs.google.com/spreadsheets/d/1hgcUe-PvFnm3QSf3iamtaX3Q8tf_RS_y1fdwS1QHXMU/edit#gid=389923786"
+          href="https://www.youtube.com/@VashCowaii"
           target="_blank"
           className={cn(aClass)}
         >
-          Google Sheet
+          by Vash Cowaii
         </a>{' '}
-        compiled by Matthew Whyment.
       </p>
       <hr className="border-gray-900 pb-4" />
       <p>

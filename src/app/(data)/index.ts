@@ -2535,8 +2535,8 @@ export const remnantItems: Item[] = [
     imagePath: '/gloves/labyrinth_gauntlets.png',
     id: 'bhw19m',
     set: 'Labyrinth Set',
-    armor: 25.8,
-    weight: 10.8,
+    armor: 12.9,
+    weight: 5.4,
     bleedResistance: 0,
     fireResistance: 3,
     shockResistance: 4,
@@ -3005,6 +3005,7 @@ export const remnantItems: Item[] = [
     wikiLinks: [
       `https://remnant2.wiki.fextralife.com/Cracked+Armor+Effectiveness`,
     ],
+    armorPercent: 0.15,
   },
   {
     category: 'relicfragment',
@@ -3092,6 +3093,11 @@ export const remnantItems: Item[] = [
     wikiLinks: [
       `https://remnant2.wiki.fextralife.com/Cracked+Elemental+Resistance`,
     ],
+    bleedResistance: 10,
+    fireResistance: 10,
+    shockResistance: 10,
+    blightResistance: 10,
+    toxinResistance: 10,
   },
   {
     category: 'relicfragment',
@@ -3123,6 +3129,7 @@ export const remnantItems: Item[] = [
     description: `+X% Health (Mythic: Maximum of +15%)`,
     howToGet: ``,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Cracked+Health`],
+    healthPercent: 0.15,
   },
   {
     category: 'relicfragment',
@@ -6520,6 +6527,7 @@ Exclusive to The Awakened King DLC"`,
     description: `Reduces Encumbrance by 40% and Stamina Cost by 30%.`,
     howToGet: `Can be purchased from Reggie after doing 100 flops.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Leto's+Amulet`],
+    weightPercent: -0.4,
   },
   {
     category: 'amulet',
@@ -6538,6 +6546,8 @@ Exclusive to The Awakened King DLC"`,
     description: `Grants 25 Health, 25 Stamina, and -10 Armor Encumbrance.`,
     howToGet: `Can be found in N'Erud - Obtained by wearing Rusted Navigator's Pendant and being eaten by Tal'Ratha.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Navigator's+Pendant`],
+    health: 25,
+    weight: -25,
   },
   {
     category: 'amulet',
@@ -6632,6 +6642,7 @@ Exclusive to The Awakened King DLC"`,
     howToGet: `"Die when facing any boss while the difficulty is set on Apocalypse.
 Exclusive to The Awakened King DLC"`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Participation+Medal`],
+    health: 10,
   },
   {
     category: 'amulet',
@@ -6670,6 +6681,8 @@ Exclusive to The Awakened King DLC"`,
     wikiLinks: [
       `https://remnant2.wiki.fextralife.com/Rusted+Navigator's+Pendant`,
     ],
+    health: 20,
+    weight: -15,
   },
   {
     category: 'amulet',
@@ -6782,6 +6795,8 @@ Can only happen once every 3s."`,
     description: `Increases Armor Effectiveness by 35% and reduces Encumbrance by 15.`,
     howToGet: `Can be bought from Cass at Ward 13.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Twisted+Idol`],
+    healthPercent: 0.35,
+    weight: -15,
   },
   {
     category: 'amulet',
@@ -6839,6 +6854,7 @@ Exclusive to The Awakened King DLC"`,
     description: `Increases ACID damage by 10% and ACID Resistance by 15%.`,
     howToGet: `Can be bought from Reggie at Ward 13.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Acid+Stone`],
+    toxinResistance: 15,
   },
   {
     category: 'ring',
@@ -7054,6 +7070,11 @@ Exclusive Ring for The Awakened King DLC."`,
     description: `Increases all Status Resistances by 25.`,
     howToGet: `Can be found in Losomn - Council Chamber.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Booster+Ring`],
+    bleedResistance: 25,
+    fireResistance: 25,
+    shockResistance: 25,
+    toxinResistance: 25,
+    blightResistance: 25,
   },
   {
     category: 'ring',
@@ -7260,6 +7281,7 @@ Exclusive Ring for The Awakened King DLC."`,
     description: `Increases Health by 15.`,
     howToGet: `Can be bought from Cass.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Dead+King's+Memento`],
+    health: 15,
   },
   {
     category: 'ring',
@@ -7336,6 +7358,7 @@ Exclusive Ring for The Awakened King DLC."`,
     howToGet: `"Can be found in Losomn, by saving the dran in The Burning Event
 Burning can be prevented by killing all the enemies, not allowing any to light the fire under the hanging man."`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Dran+Memento`],
+    weight: -5,
   },
   {
     category: 'ring',
@@ -7405,6 +7428,7 @@ Exclusive Ring for The Awakened King DLC."`,
     howToGet: `"Can be found in Forlorn Coast. As you access the lift to get down, on a body in front of you.
 Exclusive Ring for The Awakened King DLC."`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Elevated+Ring`],
+    weight: -5,
   },
   {
     category: 'ring',
@@ -7470,6 +7494,8 @@ Exclusive Ring for The Awakened King DLC."`,
     description: `Increases Max Health and Stamina by 10 and Reduces Encumbrance by 5.`,
     howToGet: `Can be found in Losomn - Council Chamber. Players have to face The Council during The Fae Council Event.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Fae+Protector+Signet`],
+    health: 10,
+    weight: -5,
   },
   {
     category: 'ring',
@@ -7533,6 +7559,7 @@ Exclusive Ring for The Awakened King DLC."`,
     description: `Increases FIRE damage by 10% and FIRE Resistance by 15.`,
     howToGet: `Can be found in Losomn - also can be bought from Reggie at Ward 13 for 500`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Fire+Stone`],
+    fireResistance: 15,
   },
   {
     category: 'ring',
@@ -7601,6 +7628,7 @@ Player needs to choose sarcastic answers when first speaking to Bedel and choose
     howToGet: `"Can be found in Losomn.
 Can also can be bought from Reggie at Ward 13 for 500"`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Grounding+Stone`],
+    shockResistance: 15,
   },
   {
     category: 'ring',
@@ -7752,6 +7780,7 @@ Exclusive Ring for The Awakened King DLC."`,
     howToGet: `"Can be found in N'Erud.
 Can be crafted at Drzyr Replicator, you will need the following Materials: x10 Iron, 750 Scrap."`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Meteorite+Shard+Ring`],
+    weight: 50,
   },
   {
     category: 'ring',
@@ -8025,6 +8054,8 @@ Exclusive Ring for The Awakened King DLC."`,
     description: `Increases Max Health by 10, and Armor by 20.`,
     howToGet: `Can be found in Losomn as a random drop.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Ring+of+the+Robust`],
+    health: 10,
+    armor: 20,
   },
   {
     category: 'ring',
@@ -8090,6 +8121,7 @@ Yaesha - Possible spawn in The Twisted Chantry"`,
     description: `Increases Max Health by 20. Reduces Max Stamina by 5.`,
     howToGet: `Can be found in Yaesha - The Red Throne. Rewarded by The Eternal Empress if the player finishes the main quest without giving her the Thaen Seed.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Seal+of+the+Empress`],
+    health: 20,
   },
   {
     category: 'ring',
@@ -8578,6 +8610,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
         name: 'Engineer',
       },
     },
+    armorStep: 0.05,
   },
   {
     category: 'trait',
@@ -8812,6 +8845,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     maxLevelBonus: `At max level, Vigor Increases Max Health by 30`,
     howToGet: `Core trait`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Vigor`],
+    healthStep: 0.03,
   },
   {
     category: 'trait',
@@ -8831,6 +8865,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     description: `Increases Armor by 30. Lasts 60m and will stay in effect after death. Only one Concoction may be active at a time.`,
     howToGet: `Can be bought form Mudtooth for 500 scrap`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Bark+Extract`],
+    armor: 30,
   },
   {
     category: 'concoction',
@@ -8858,6 +8893,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     description: `Increases Health by 6.66%, Stamina by 6.66%, and Movement Speed by 6.66%. Lasts 60m and will stay in effect after death. Only one Concoction may be active at a time.`,
     howToGet: `Can be bought from Mudtooth for 500`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Dark+Cider`],
+    healthPercent: 0.0666,
   },
   {
     category: 'concoction',
@@ -8909,6 +8945,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     description: `Increases Max Health by 25. Lasts 60m and will stay in effect after death. Only one Concoction may be active at a time.`,
     howToGet: `Can be bought form Mudtooth for 500 scrap currency`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Mudtooth's+Tonic`],
+    health: 25,
   },
   {
     category: 'concoction',
@@ -8951,6 +8988,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     description: `Reduces Encumbrance by 10. Lasts 60m and will stay in effect after death. Only one Concoction may be active at a time.`,
     howToGet: `Can be bought form Mudtooth for 500 scrap currency`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Strong+Drink`],
+    weight: -10,
   },
   {
     category: 'concoction',

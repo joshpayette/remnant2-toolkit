@@ -44,6 +44,22 @@ export interface GenericItemProps {
   howToGet?: string
   wikiLinks?: string[]
   linkedItems?: LinkedItems
+  health?: number
+  healthPercent?: number
+  armor?: number
+  armorPercent?: number
+  weight?: number
+  weightPercent?: number
+  bleedResistance?: number
+  bleedResistancePercent?: number
+  fireResistance?: number
+  fireResistancePercent?: number
+  shockResistance?: number
+  shockResistancePercent?: number
+  blightResistance?: number
+  blightResistancePercent?: number
+  toxinResistance?: number
+  toxinResistancePercent?: number
 }
 
 export class GenericItem implements GenericItemProps {
@@ -58,6 +74,22 @@ export class GenericItem implements GenericItemProps {
   public wikiLinks?: GenericItemProps['wikiLinks'] = []
   public linkedItems?: GenericItemProps['linkedItems'] = {}
   public saveFileSlug?: GenericItemProps['saveFileSlug'] = ''
+  public health?: GenericItemProps['health'] = 0
+  public healthPercent?: GenericItemProps['healthPercent'] = 0
+  public armor?: GenericItemProps['armor'] = 0
+  public armorPercent?: GenericItemProps['armorPercent'] = 0
+  public weight?: GenericItemProps['weight'] = 0
+  public weightPercent?: GenericItemProps['weightPercent'] = 0
+  public bleedResistance?: GenericItemProps['bleedResistance'] = 0
+  public bleedResistancePercent?: GenericItemProps['bleedResistancePercent'] = 0
+  public fireResistance?: GenericItemProps['fireResistance'] = 0
+  public fireResistancePercent?: GenericItemProps['fireResistancePercent'] = 0
+  public shockResistance?: GenericItemProps['shockResistance'] = 0
+  public shockResistancePercent?: GenericItemProps['shockResistancePercent'] = 0
+  public blightResistance?: GenericItemProps['blightResistance'] = 0
+  public blightResistancePercent?: GenericItemProps['blightResistancePercent'] = 0
+  public toxinResistance?: GenericItemProps['toxinResistance'] = 0
+  public toxinResistancePercent?: GenericItemProps['toxinResistancePercent'] = 0
 
   constructor(props: GenericItemProps) {
     this.id = props.id
@@ -71,6 +103,22 @@ export class GenericItem implements GenericItemProps {
     this.wikiLinks = props.wikiLinks
     this.linkedItems = props.linkedItems
     this.saveFileSlug = props.saveFileSlug
+    this.health = props.health
+    this.healthPercent = props.healthPercent
+    this.armor = props.armor
+    this.armorPercent = props.armorPercent
+    this.weight = props.weight
+    this.weightPercent = props.weightPercent
+    this.bleedResistance = props.bleedResistance
+    this.bleedResistancePercent = props.bleedResistancePercent
+    this.fireResistance = props.fireResistance
+    this.fireResistancePercent = props.fireResistancePercent
+    this.shockResistance = props.shockResistance
+    this.shockResistancePercent = props.shockResistancePercent
+    this.blightResistance = props.blightResistance
+    this.blightResistancePercent = props.blightResistancePercent
+    this.toxinResistance = props.toxinResistance
+    this.toxinResistancePercent = props.toxinResistancePercent
   }
 
   public static isGenericItem = (item?: GenericItem): item is GenericItem => {

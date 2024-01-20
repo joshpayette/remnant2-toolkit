@@ -433,14 +433,7 @@ export default function Builder({
             id="center-column"
             className="relative ml-[13px] flex h-[450px] max-h-[450px] w-full flex-col items-start justify-start overflow-y-auto sm:h-[460px] sm:max-h-[460px]"
           >
-            <Stats
-              armorItems={[
-                buildState.items.helm,
-                buildState.items.gloves,
-                buildState.items.torso,
-                buildState.items.legs,
-              ]}
-            />
+            <Stats buildState={buildState} />
           </div>
           <div id="right-column" className="flex-none">
             <BuilderButton
