@@ -53,7 +53,7 @@ export async function getBuilds({
     LEFT JOIN User ON Build.createdById = User.id
     LEFT JOIN BuildVoteCounts ON Build.id = BuildVoteCounts.buildId
     LEFT JOIN BuildReports on Build.id = BuildReports.buildId AND BuildReports.userId = ${session
-    ?.user?.id}
+      ?.user?.id}
     LEFT JOIN PaidUsers on User.id = PaidUsers.userId
     WHERE Build.isPublic = true
     AND NOT EXISTS (
@@ -106,7 +106,7 @@ export async function getBuilds({
     createdAt: build.createdAt,
     totalUpvotes: build.totalUpvotes,
     reported: build.reported,
-    isMember: false,
+    isMember: build.isPaidUser,
     createdByDisplayName:
       build.createdByDisplayName || build.createdByName || DEFAULT_DISPLAY_NAME,
     upvoted: build.upvoted,

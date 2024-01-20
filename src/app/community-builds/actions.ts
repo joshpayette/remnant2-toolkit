@@ -271,7 +271,7 @@ AND BuildItems.itemId IN (${Prisma.join(archtypeIds)})
       totalUpvotes: build.totalUpvotes,
       upvoted: build.upvoted,
       reported: build.reported,
-      isMember: false,
+      isMember: build.isPaidUser,
       buildItems: build.buildItems,
     }))
 
@@ -353,7 +353,7 @@ AND BuildItems.itemId IN (${Prisma.join(archtypeIds)})
       totalUpvotes: build.totalUpvotes,
       upvoted: build.upvoted,
       reported: build.reported,
-      isMember: false,
+      isMember: build.isPaidUser,
       buildItems: build.buildItems,
     }))
 
