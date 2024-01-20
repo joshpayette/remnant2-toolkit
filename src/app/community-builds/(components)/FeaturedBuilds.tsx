@@ -12,12 +12,17 @@ import { isErrorResponse } from '@/app/(types)'
 import { toast } from 'react-toastify'
 import { dbBuildToBuildState } from '@/app/(lib)/build'
 import useBuildActions from '@/app/builder/(hooks)/useBuildActions'
+import { FilterProps } from './Filters'
 
 interface Props {
   itemsPerPage?: number
+  globalFilters: FilterProps
 }
 
-export default function FeaturedBuilds({ itemsPerPage = 8 }: Props) {
+export default function FeaturedBuilds({
+  itemsPerPage = 8,
+  globalFilters,
+}: Props) {
   const [builds, setBuilds] = useState<DBBuild[]>([])
   const [totalBuildCount, setTotalBuildCount] = useState<number>(0)
   const [filter, setFilter] = useState<FeaturedBuildsFilter>('date created')
@@ -47,13 +52,14 @@ export default function FeaturedBuilds({ itemsPerPage = 8 }: Props) {
         itemsPerPage,
         pageNumber: currentPage,
         filter,
+        globalFilters,
       })
       setBuilds(response.items)
       setTotalBuildCount(response.totalItemCount)
       setIsLoading(false)
     }
     getItemsAsync()
-  }, [currentPage, itemsPerPage, filter])
+  }, [currentPage, itemsPerPage, filter, globalFilters])
 
   function handleFilterChange(filter: string) {
     setFilter(filter as FeaturedBuildsFilter)
@@ -88,6 +94,10 @@ export default function FeaturedBuilds({ itemsPerPage = 8 }: Props) {
   }
 
   const filterOptions: FeaturedBuildsFilter[] = ['date created', 'upvotes']
+
+  if (totalBuildCount === 0) {
+    return null
+  }
 
   return (
     <>

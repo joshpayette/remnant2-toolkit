@@ -12,12 +12,17 @@ import useBuildActions from '@/app/builder/(hooks)/useBuildActions'
 import BuildListFilters from '@/app/(components)/BuildListFilters'
 import { DBBuild } from '@/app/(types)/build'
 import { dbBuildToBuildState } from '@/app/(lib)/build'
+import { FilterProps } from './Filters'
 
 interface Props {
   itemsPerPage?: number
+  filters: FilterProps
 }
 
-export default function MostPopularBuilds({ itemsPerPage = 8 }: Props) {
+export default function MostPopularBuilds({
+  itemsPerPage = 8,
+  filters,
+}: Props) {
   const [builds, setBuilds] = useState<DBBuild[]>([])
   const [totalBuildCount, setTotalBuildCount] = useState<number>(0)
   const [timeRange, setTimeRange] = useState<TimeRange>('all-time')
@@ -47,13 +52,14 @@ export default function MostPopularBuilds({ itemsPerPage = 8 }: Props) {
         itemsPerPage,
         pageNumber: currentPage,
         timeRange,
+        globalFilters: filters,
       })
       setBuilds(response.items)
       setTotalBuildCount(response.totalItemCount)
       setIsLoading(false)
     }
     getItemsAsync()
-  }, [currentPage, timeRange, itemsPerPage])
+  }, [currentPage, timeRange, itemsPerPage, filters])
 
   const timeRanges: TimeRange[] = ['day', 'week', 'month', 'all-time']
 

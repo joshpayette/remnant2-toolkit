@@ -1,12 +1,15 @@
 'use server'
 
 import { prisma } from '@/app/(lib)/db'
-import { Build, BuildItems } from '@prisma/client'
+import { Build, BuildItems, Prisma } from '@prisma/client'
 import { getServerSession } from '../(lib)/auth'
 import { PaginationResponse } from '../(hooks)/usePagination'
 import { DEFAULT_DISPLAY_NAME } from '../(data)/constants'
-import { DBBuild } from '../(types)/build'
+import { DBBuild, SearchBuildResponse } from '../(types)/build'
 import { bigIntFix } from '../(lib)/utils'
+import { FilterProps } from './(components)/Filters'
+import { remnantItems } from '../(data)'
+import { Archtype } from '../(types)'
 
 export type TimeRange = 'day' | 'week' | 'month' | 'all-time'
 
@@ -18,12 +21,15 @@ export async function getMostUpvotedBuilds({
   itemsPerPage,
   pageNumber,
   timeRange,
+  globalFilters,
 }: {
   timeRange: TimeRange
   itemsPerPage: number
   pageNumber: number
+  globalFilters: FilterProps
 }): Promise<PaginationResponse<DBBuild>> {
   const session = await getServerSession()
+  const userId = session?.user?.id
 
   let timeCondition = ''
   const now = new Date()
@@ -53,27 +59,61 @@ export async function getMostUpvotedBuilds({
       break
   }
 
+  const { archtypes } = globalFilters
+  const archtypeIds = archtypes.map(
+    (archtype) =>
+      remnantItems.find((item) => item.name.toLowerCase() === archtype)?.id,
+  ) as Archtype[]
+
+  const archtypeCondition =
+    archtypeIds.length === 0
+      ? Prisma.empty
+      : Prisma.sql`AND (
+SELECT COUNT(*)
+FROM BuildItems
+WHERE BuildItems.buildId = Build.id
+AND BuildItems.itemId IN (${Prisma.join(archtypeIds)})
+) = ${archtypeIds.length}`
+
   // First, get the Builds
   const topBuilds = (await prisma.$queryRaw`
-  SELECT Build.*, User.name as username, User.displayName, COUNT(BuildVoteCounts.buildId) as votes,
-    CASE WHEN BuildReports.buildId IS NOT NULL THEN true ELSE false END as reported,
-    CASE WHEN PaidUsers.userId IS NOT NULL THEN true ELSE false END as isPaidUser
+        SELECT Build.*, 
+        User.name as createdByName, 
+        User.displayName as createdByDisplayName, 
+        COUNT(BuildVoteCounts.buildId) as totalUpvotes,
+        COUNT(BuildReports.id) as totalReports,
+        CASE WHEN EXISTS (
+          SELECT 1
+          FROM BuildReports
+          WHERE BuildReports.buildId = Build.id
+          AND BuildReports.userId = ${userId}
+        ) THEN TRUE ELSE FALSE END as reported,
+        CASE WHEN EXISTS (
+          SELECT 1
+          FROM BuildVoteCounts
+          WHERE BuildVoteCounts.buildId = Build.id
+          AND BuildVoteCounts.userId = ${userId}
+        ) THEN TRUE ELSE FALSE END as upvoted,
+        CASE WHEN PaidUsers.userId IS NOT NULL THEN true ELSE false END as isPaidUser
   FROM Build
   LEFT JOIN BuildVoteCounts ON Build.id = BuildVoteCounts.buildId
   LEFT JOIN User on Build.createdById = User.id
   LEFT JOIN BuildReports on Build.id = BuildReports.buildId AND BuildReports.userId = ${session
     ?.user?.id}
   LEFT JOIN PaidUsers on User.id = PaidUsers.userId
-  WHERE Build.isPublic = true AND Build.archtype IS NOT NULL AND Build.archtype != '' AND Build.createdAt > ${timeCondition}
+  WHERE Build.isPublic = true
+  ${archtypeCondition}
+  AND Build.createdAt > ${timeCondition}
   GROUP BY Build.id, User.id
-  ORDER BY votes DESC
+  ORDER BY totalUpvotes DESC
   LIMIT ${itemsPerPage} 
   OFFSET ${(pageNumber - 1) * itemsPerPage}
 `) as (Build & {
-    votes: number
-    username: string
-    displayName: string
+    totalUpvotes: number
+    createdByName: string
+    createdByDisplayName: string
     reported: boolean
+    upvoted: boolean
     isPaidUser: boolean
     buildItems: BuildItems[]
   })[]
@@ -90,7 +130,9 @@ export async function getMostUpvotedBuilds({
   SELECT COUNT(DISTINCT Build.id)
   FROM Build
   LEFT JOIN BuildVoteCounts ON Build.id = BuildVoteCounts.buildId
-  WHERE Build.isPublic = true AND Build.archtype IS NOT NULL AND Build.archtype != '' AND Build.createdAt > ${timeCondition}
+  WHERE Build.isPublic = true 
+  ${archtypeCondition}
+  AND Build.createdAt > ${timeCondition}
 `) as { 'count(distinct Build.id)': number }[]
 
   const totalBuildCount = Number(totalTopBuilds[0]['count(distinct Build.id)'])
@@ -104,9 +146,9 @@ export async function getMostUpvotedBuilds({
     thumbnailUrl: build.thumbnailUrl,
     createdById: build.createdById,
     createdAt: build.createdAt,
-    createdByDisplayName: build.displayName || build.username, // Accessing the 'displayName' or 'name' property from the 'User' table
+    createdByDisplayName: build.createdByDisplayName || build.createdByName,
     upvoted: false,
-    totalUpvotes: build.votes,
+    totalUpvotes: build.totalUpvotes,
     reported: build.reported,
     isMember: build.isPaidUser,
     buildItems: build.buildItems,
@@ -124,82 +166,197 @@ export async function getFeaturedBuilds({
   itemsPerPage,
   pageNumber,
   filter,
+  globalFilters,
 }: {
   itemsPerPage: number
   pageNumber: number
   filter: FeaturedBuildsFilter
+  globalFilters: FilterProps
 }): Promise<PaginationResponse<DBBuild>> {
   const session = await getServerSession()
   const userId = session?.user?.id
 
-  // find all builds that the user has favorited but are not created
-  // by the user
-  const builds =
-    filter === 'date created'
-      ? await prisma.build.findMany({
-          where: {
-            isFeaturedBuild: true,
-            isPublic: true,
-          },
-          include: {
-            createdBy: true,
-            BuildVotes: true,
-            BuildReports: true,
-            BuildItems: true,
-          },
-          orderBy: {
-            createdAt: 'desc',
-          },
-          skip: (pageNumber - 1) * itemsPerPage,
-          take: itemsPerPage,
-        })
-      : await prisma.build.findMany({
-          where: {
-            isFeaturedBuild: true,
-          },
-          include: {
-            createdBy: true,
-            BuildVotes: true,
-            BuildReports: true,
-            BuildItems: true,
-          },
-          orderBy: {
-            BuildVotes: {
-              _count: 'desc',
-            },
-          },
-          skip: (pageNumber - 1) * itemsPerPage,
-          take: itemsPerPage,
-        })
+  const { archtypes } = globalFilters
+  const archtypeIds = archtypes.map(
+    (archtype) =>
+      remnantItems.find((item) => item.name.toLowerCase() === archtype)?.id,
+  ) as Archtype[]
 
-  // get the total number of builds that match the conditions
-  const totalBuildCount = await prisma.build.count({
-    where: {
-      isFeaturedBuild: true,
-    },
-  })
+  const archtypeCondition =
+    archtypeIds.length === 0
+      ? Prisma.empty
+      : Prisma.sql`AND (
+SELECT COUNT(*)
+FROM BuildItems
+WHERE BuildItems.buildId = Build.id
+AND BuildItems.itemId IN (${Prisma.join(archtypeIds)})
+) = ${archtypeIds.length}`
 
-  if (!builds) return { items: [], totalItemCount: 0 }
+  if (filter === 'date created') {
+    const builds = (await prisma.$queryRaw`
+        SELECT Build.*, 
+        User.name as createdByName, 
+        User.displayName as createdByDisplayName, 
+        COUNT(BuildVoteCounts.buildId) as totalUpvotes,
+        COUNT(BuildReports.id) as totalReports,
+        CASE WHEN EXISTS (
+          SELECT 1
+          FROM BuildReports
+          WHERE BuildReports.buildId = Build.id
+          AND BuildReports.userId = ${userId}
+        ) THEN TRUE ELSE FALSE END as reported,
+        CASE WHEN EXISTS (
+          SELECT 1
+          FROM BuildVoteCounts
+          WHERE BuildVoteCounts.buildId = Build.id
+          AND BuildVoteCounts.userId = ${userId}
+        ) THEN TRUE ELSE FALSE END as upvoted,
+        CASE WHEN PaidUsers.userId IS NOT NULL THEN true ELSE false END as isPaidUser
+      FROM Build
+      LEFT JOIN BuildVoteCounts ON Build.id = BuildVoteCounts.buildId
+      LEFT JOIN User on Build.createdById = User.id
+      LEFT JOIN BuildReports on Build.id = BuildReports.buildId AND BuildReports.userId = ${userId}
+      LEFT JOIN PaidUsers on User.id = PaidUsers.userId
+      WHERE Build.isPublic = true
+      ${archtypeCondition}
+      AND Build.isFeaturedBuild = true
+      GROUP BY Build.id, User.id
+      ORDER BY Build.createdAt DESC
+      LIMIT ${itemsPerPage}
+      OFFSET ${(pageNumber - 1) * itemsPerPage}
+    `) as (Build & {
+      totalUpvotes: number
+      createdByName: string
+      createdByDisplayName: string
+      reported: boolean
+      upvoted: boolean
+      isPaidUser: boolean
+      buildItems: BuildItems[]
+    })[]
 
-  const returnedBuilds: DBBuild[] = builds.map((build) => ({
-    id: build.id,
-    name: build.name,
-    description: build.description,
-    isPublic: build.isPublic,
-    isFeaturedBuild: build.isFeaturedBuild,
-    thumbnailUrl: build.thumbnailUrl,
-    createdById: build.createdById,
-    createdAt: build.createdAt,
-    createdByDisplayName:
-      build.createdBy?.displayName ||
-      build.createdBy?.name ||
-      DEFAULT_DISPLAY_NAME,
-    totalUpvotes: build.BuildVotes.length, // Count the votes
-    upvoted: build.BuildVotes.some((vote) => vote.userId === userId), // Check if the user upvoted the build
-    reported: build.BuildReports.some((report) => report.userId === userId), // Check if the user reported the build
-    isMember: false,
-    buildItems: build.BuildItems,
-  }))
+    const totalBuildCount = (await prisma.$queryRaw`
+      SELECT COUNT(DISTINCT Build.id)
+      FROM Build
+      LEFT JOIN BuildVoteCounts ON Build.id = BuildVoteCounts.buildId
+      WHERE Build.isPublic = true
+      ${archtypeCondition}
+      AND Build.isFeaturedBuild = true
+    `) as { 'count(distinct Build.id)': number }[]
 
-  return bigIntFix({ items: returnedBuilds, totalItemCount: totalBuildCount })
+    const totalBuilds = Number(totalBuildCount[0]['count(distinct Build.id)'])
+
+    if (!builds) return { items: [], totalItemCount: 0 }
+
+    // Find al build items for each build
+    for (const build of builds) {
+      const buildItems = await prisma.buildItems.findMany({
+        where: { buildId: build.id },
+      })
+      build.buildItems = buildItems
+    }
+
+    const returnedBuilds: DBBuild[] = builds.map((build) => ({
+      id: build.id,
+      name: build.name,
+      description: build.description,
+      isPublic: build.isPublic,
+      isFeaturedBuild: build.isFeaturedBuild,
+      thumbnailUrl: build.thumbnailUrl,
+      createdById: build.createdById,
+      createdAt: build.createdAt,
+      createdByDisplayName:
+        build.createdByDisplayName ||
+        build.createdByName ||
+        DEFAULT_DISPLAY_NAME,
+      totalUpvotes: build.totalUpvotes,
+      upvoted: build.upvoted,
+      reported: build.reported,
+      isMember: false,
+      buildItems: build.buildItems,
+    }))
+
+    return bigIntFix({ items: returnedBuilds, totalItemCount: totalBuilds })
+  } else {
+    const builds = (await prisma.$queryRaw`
+        SELECT Build.*, 
+        User.name as createdByName, 
+        User.displayName as createdByDisplayName, 
+        COUNT(BuildVoteCounts.buildId) as totalUpvotes,
+        COUNT(BuildReports.id) as totalReports,
+        ${
+          userId
+            ? `(EXISTS (SELECT 1 FROM BuildVoteCounts WHERE BuildVoteCounts.buildId = Build.id AND BuildVoteCounts.userId = ${userId}))`
+            : 'FALSE'
+        } as upvoted,
+          ${
+            userId
+              ? `(EXISTS (SELECT 1 FROM BuildReports WHERE BuildReports.buildId = Build.id AND BuildReports.userId = ${userId}))`
+              : 'FALSE'
+          } as reported,
+        CASE WHEN PaidUsers.userId IS NOT NULL THEN true ELSE false END as isPaidUser
+        FROM Build
+        LEFT JOIN BuildVoteCounts ON Build.id = BuildVoteCounts.buildId
+        LEFT JOIN User on Build.createdById = User.id
+        LEFT JOIN BuildReports on Build.id = BuildReports.buildId 
+        LEFT JOIN PaidUsers on User.id = PaidUsers.userId
+        WHERE Build.isPublic = true 
+        AND Build.isFeaturedBuild = true
+        ${archtypeCondition}
+        GROUP BY Build.id, User.id
+        ORDER BY totalUpvotes DESC
+        LIMIT ${itemsPerPage}
+        OFFSET ${(pageNumber - 1) * itemsPerPage}
+    `) as (Build & {
+      totalUpvotes: number
+      createdByName: string
+      createdByDisplayName: string
+      reported: boolean
+      upvoted: boolean
+      isPaidUser: boolean
+      buildItems: BuildItems[]
+    })[]
+
+    const totalBuildCount = (await prisma.$queryRaw`
+      SELECT COUNT(DISTINCT Build.id)
+      FROM Build
+      LEFT JOIN BuildVoteCounts ON Build.id = BuildVoteCounts.buildId
+      WHERE Build.isPublic = true
+      AND Build.isFeaturedBuild = true
+      ${archtypeCondition}
+    `) as { 'count(distinct Build.id)': number }[]
+
+    const totalBuilds = Number(totalBuildCount[0]['count(distinct Build.id)'])
+
+    if (!builds) return { items: [], totalItemCount: 0 }
+
+    // Find al build items for each build
+    for (const build of builds) {
+      const buildItems = await prisma.buildItems.findMany({
+        where: { buildId: build.id },
+      })
+      build.buildItems = buildItems
+    }
+
+    const returnedBuilds: DBBuild[] = builds.map((build) => ({
+      id: build.id,
+      name: build.name,
+      description: build.description,
+      isPublic: build.isPublic,
+      isFeaturedBuild: build.isFeaturedBuild,
+      thumbnailUrl: build.thumbnailUrl,
+      createdById: build.createdById,
+      createdAt: build.createdAt,
+      createdByDisplayName:
+        build.createdByDisplayName ||
+        build.createdByName ||
+        DEFAULT_DISPLAY_NAME,
+      totalUpvotes: build.totalUpvotes,
+      upvoted: build.upvoted,
+      reported: build.reported,
+      isMember: false,
+      buildItems: build.buildItems,
+    }))
+
+    return bigIntFix({ items: returnedBuilds, totalItemCount: totalBuilds })
+  }
 }

@@ -1,13 +1,13 @@
+import ClearFiltersButton from '@/app/(components)/ClearFiltersButton'
+import SearchInput from '@/app/(components)/SearchInput'
+import { remnantItemCategories } from '@/app/(data)'
+import { FilteredItem } from '@/app/(hooks)/useFilteredItems'
+import { useLocalStorage } from '@/app/(hooks)/useLocalStorage'
+import { cn } from '@/app/(lib)/utils'
+import { DLCKey, DLC_TO_NAME } from '@/app/(types)'
+import { ItemCategory } from '@/app/(types)/build'
 import { useEffect, useState } from 'react'
-import { DLCKey, DLC_TO_NAME } from '../(types)'
-import SearchInput from './SearchInput'
 import { useDebounce } from 'usehooks-ts'
-import { FilteredItem } from '../(hooks)/useFilteredItems'
-import { useLocalStorage } from '../(hooks)/useLocalStorage'
-import { cn } from '../(lib)/utils'
-import { remnantItemCategories } from '../(data)'
-import { ItemCategory } from '../(types)/build'
-import ClearFiltersButton from './ClearFiltersButton'
 
 interface Props {
   allItems: FilteredItem[]
