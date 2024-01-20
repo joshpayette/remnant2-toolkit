@@ -87,8 +87,7 @@ export const ActionButton = {
     <button
       onClick={onClick}
       className={cn(
-        'text-md flex flex-row items-center justify-center rounded border border-transparent p-1 hover:text-red-300 hover:underline',
-        active ? 'text-red-400' : 'text-white',
+        'text-md flex flex-row items-center justify-center rounded border border-transparent p-1 text-red-500 hover:text-red-300 hover:underline',
       )}
     >
       <span className="mr-1 h-5 w-5">
@@ -119,21 +118,39 @@ export const ActionButton = {
     </button>
   ),
 
-  Vote: ({ active, onClick }: ButtonProps & { active: boolean }) => (
-    <div className="">
+  Vote: ({
+    active,
+    onClick,
+    totalUpvotes,
+  }: ButtonProps & { active: boolean; totalUpvotes: number }) => (
+    <div className="flex flex-col items-center justify-center">
       <button
         onClick={onClick}
         className={cn(
-          'text-md relative flex flex-row items-center justify-center rounded border border-transparent p-1 hover:text-yellow-300 hover:underline',
+          'text-md relative flex flex-col items-center justify-center gap-y-2 rounded border border-transparent p-1',
           active ? 'text-yellow-400' : 'text-white',
         )}
       >
-        <span className="mr-1 h-5 w-5">
-          {active ? <StarIconOn /> : <StarIconOff />}
-        </span>
-        <span className="text-md">{active ? 'Favorited' : 'Favorite'}</span>
+        <div
+          className={cn(
+            'relative flex w-full flex-col items-center justify-center gap-x-2 rounded border border-yellow-300 bg-gradient-to-b from-[#f12711] to-[#f5af19] p-4 hover:from-[#f5af19] hover:to-[#f12711] sm:bg-gradient-to-br',
+          )}
+        >
+          <div className="text-5xl font-bold text-white drop-shadow-md">
+            {totalUpvotes}
+          </div>
+          <div className="text-md text-gray-800">
+            {totalUpvotes === 1 ? 'Favorite' : 'Favorites'}
+          </div>
+        </div>
+        <div className="flex flex-row items-center justify-center text-yellow-500 hover:text-yellow-300 hover:underline">
+          <span className="mr-1 h-5 w-5">
+            {active ? <StarIconOn /> : <StarIconOff />}
+          </span>
+          <span className="text-md">{active ? 'Favorited' : 'Favorite'}</span>
+        </div>
       </button>
-      <p className="m-1 text-left text-xs text-gray-400">
+      <p className="mx-2 my-0 text-left text-sm text-gray-300 sm:text-xs">
         Favorite a build to save it to your profile and view it later!
       </p>
     </div>

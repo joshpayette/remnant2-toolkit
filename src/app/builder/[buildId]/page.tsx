@@ -8,7 +8,6 @@ import { useRef } from 'react'
 import { useSession } from 'next-auth/react'
 import PageHeader from '@/app/(components)/PageHeader'
 import { isErrorResponse } from '@/app/(types)'
-import TotalUpvotes from '../(components)/TotalUpvotes'
 import MasonryItemList from '../../(components)/MasonryItemList'
 import ImageDownloadLink from '../(components)/ImageDownloadLink'
 import {
@@ -73,7 +72,7 @@ export default function Page({
         subtitle={`Build by ${buildState.createdByDisplayName}`}
       />
       <ImageDownloadLink onClose={handleClearImageLink} imageLink={imageLink} />
-      <div className="flex w-full flex-col items-center">
+      <div className="flex w-full flex-col items-center ">
         <div className="flex w-full max-w-xl flex-col items-start justify-center gap-2 sm:flex-row-reverse">
           <div
             id="actions-column"
@@ -122,14 +121,13 @@ export default function Page({
             />
             {session?.user && (
               <>
-                <hr className="my-4 hidden border-gray-500 sm:visible" />
+                <hr className="my-2 w-full border-gray-500" />
 
                 <div className="col-span-full flex w-full flex-col items-center justify-center gap-4">
-                  <TotalUpvotes totalUpvotes={buildState.totalUpvotes} />
-
                   <div className="my-4 flex flex-row items-center justify-center gap-x-4 sm:my-0 sm:flex-col sm:items-start sm:gap-x-0 sm:gap-y-2">
                     <ActionButton.Vote
                       active={buildState.upvoted}
+                      totalUpvotes={buildState.totalUpvotes}
                       onClick={async () => {
                         const newVote = !buildState.upvoted
 
@@ -156,7 +154,13 @@ export default function Page({
                         }
                       }}
                     />
+                  </div>
+                </div>
 
+                <hr className="my-2 w-full border-gray-500" />
+
+                <div className="col-span-full flex w-full flex-col items-center justify-center gap-4 sm:items-start">
+                  <div className="my-4 flex flex-row items-center justify-center gap-x-4 sm:my-0 sm:flex-col sm:items-start sm:gap-x-0 sm:gap-y-2">
                     <ActionButton.ReportBuild
                       active={buildState.reported}
                       onClick={async () => {
