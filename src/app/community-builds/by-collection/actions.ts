@@ -11,6 +11,7 @@ import { prisma } from '@/app/(lib)/db'
 import { addLinkedItemIds } from '@/app/(lib)/build'
 import { DEFAULT_DISPLAY_NAME } from '@/app/(data)/constants'
 import { bigIntFix } from '@/app/(lib)/utils'
+import { remnantItems } from '@/app/(data)'
 
 export async function getBuilds({
   itemsPerPage,
@@ -42,9 +43,28 @@ export async function getBuilds({
   await prisma.userItems.deleteMany({
     where: { userId },
   })
+
+  const linkedItemIds = addLinkedItemIds(discoveredItemIds)
+
+  // Add all concoctions and consumables to the user's items
+  // so we can query them efficiently
+  // This is necessary because these categories are omitted from
+  // the item tracker
+  const consumableItemIds = remnantItems
+    .filter((item) => item.category === 'consumable')
+    .map((item) => item.id)
+  const concoctionItemIds = remnantItems
+    .filter((item) => item.category === 'concoction')
+    .map((item) => item.id)
+  const allOwnedItemIds = [
+    ...linkedItemIds,
+    ...consumableItemIds,
+    ...concoctionItemIds,
+  ]
+
   // insert all user's items, including linked items
   await prisma.userItems.createMany({
-    data: addLinkedItemIds(discoveredItemIds).map((itemId) => ({
+    data: allOwnedItemIds.map((itemId) => ({
       userId,
       itemId,
     })),
