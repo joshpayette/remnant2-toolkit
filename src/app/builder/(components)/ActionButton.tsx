@@ -136,6 +136,7 @@ export const ActionButton = {
             'relative flex w-full flex-col items-center justify-center gap-x-2 rounded border border-yellow-300 bg-gradient-to-b from-[#f12711] to-[#f5af19] p-4 hover:from-[#f5af19] hover:to-[#f12711] sm:bg-gradient-to-br',
           )}
         >
+          <div className="absolute left-0 top-0 -z-10 h-full w-full animate-ping-slow bg-green-500" />
           <div className="text-5xl font-bold text-white drop-shadow-md">
             {totalUpvotes}
           </div>
