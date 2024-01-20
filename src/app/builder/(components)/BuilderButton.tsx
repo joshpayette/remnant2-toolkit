@@ -69,12 +69,19 @@ export default function BuilderButton({
       {!isScreenshotMode && item && onItemInfoClick && (
         <button
           className={cn(
-            'absolute right-0 top-0 bg-black',
+            'absolute right-0 top-0',
             size === 'sm' && 'right-[-20px]',
           )}
           onClick={() => onItemInfoClick && onItemInfoClick(item)}
         >
-          <InformationCircleIcon className="h-5 w-5 text-green-500 sm:h-4 sm:w-4" />
+          <Image
+            src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/information.png`}
+            alt="Bleed Resistance"
+            width={32}
+            height={32}
+            className="h-5 w-5 sm:h-4 sm:w-4"
+            loading="eager"
+          />
         </button>
       )}
       <button

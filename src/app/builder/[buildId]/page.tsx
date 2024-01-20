@@ -146,7 +146,9 @@ export default function Page({
                           )
                         } else {
                           toast.success(
-                            'Successfully favorited build! You can find it in your profile.',
+                            newVote
+                              ? 'Successfully favorited build! You can find it in your profile.'
+                              : 'Successfully removed favorite!',
                           )
                           buildState.upvoted = newVote
                           buildState.totalUpvotes = response.totalUpvotes ?? 1
