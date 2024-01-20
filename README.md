@@ -8,31 +8,14 @@ This is a toolkit for the game Remnant 2. You can find the site at [remnant2tool
 - [x] Build Tool - Create and share builds with the others.
 - [x] Featured Builds - See some featured builds from the community.
 - [x] Favorited Builds - Save your favorite builds to your profile by voting on them.
-- [ ] Community Builds - See builds from the community and vote on them.
-- [ ] Advanced Filtering - Filter items by DLC, type, etc.
+- [x] Community Builds - See builds from the community and vote on them.
+- [x] Advanced Filtering - Filter items by DLC, type, etc.
 
 ## How it works
 
 The site is built using Next.js and Tailwind CSS. The data is stored in the user's local storage, so it will persist between sessions, but not between devices. The data is also stored in the URL, so you can share your builds with others.
 
 The site is hosted on Vercel, with images served via Cloudfront from an S3 bucket.
-
-## Roadmap
-
-- [x] Item tracker can be populated by importing your save file.
-- [ ] Add all item info to the item tracker, such as item description and wiki links.
-- [ ] Update Fextralife Wiki links to the new community maintained https://remnant.wiki site.
-- [ ] Add an ability to import the item tracker CSV to populate the site with your current items.
-
-## Supporter Roadmap
-
-If there is enough interest in adding the below features via a Patreon or other funding, I would be happy to add them. The funding would help cover the
-monthly cost of the hosting of the site and expanded features.
-
-- Add the ability to create an account and save your builds to the database.
-- Enable community build submission, as well as community voting on builds.
-- Add the ability to add notes to the builds.
-- Sharing your build URL on social media would generate a more specific preview image.
 
 ## Contributions
 
@@ -45,13 +28,11 @@ take a look. If I like it, I'll add it to the list!
 
 ## Credits
 
-This project would not be possible without [Robin Kuiper's Remnant Tools](https://remnant.rkuiper.nl/) serving as a
-foundation to build upon.
-
-In addition, the following resources were used:
+This project would not be possible without the following sources:
 
 - [Fextralife Remnant Wiki](https://remnant2.wiki.fextralife.com/Remnant+2+Wiki)
-- [The amazingly detailed Google sheet compiled by Matthew Whyment](https://docs.google.com/spreadsheets/d/1hgcUe-PvFnm3QSf3iamtaX3Q8tf_RS_y1fdwS1QHXMU/edit#gid=389923786)
+- [Vash Cowaii's Excel Stat Calculator](https://www.youtube.com/@VashCowaii)
+- [Robin Kuiper's Remnant Tools](https://remnant.rkuiper.nl/)
 
 ## Running locally
 
