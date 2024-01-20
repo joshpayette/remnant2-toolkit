@@ -278,6 +278,7 @@ export default function Builder({
     })
 
     const newTraitItemParams = TraitItem.toParams(validatedTraitItems)
+    updateBuildState({ category: 'trait', value: newTraitItemParams })
   }
 
   return (
