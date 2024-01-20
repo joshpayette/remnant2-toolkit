@@ -15,7 +15,7 @@ export default function Page() {
   const [totalBuildCount, setTotalBuildCount] = useState<number>(0)
   const [isLoading, setIsLoading] = useState(false)
   const [filter, setFilter] = useState<FavoritedBuildsFilter>('date favorited')
-  const itemsPerPage = 8
+  const itemsPerPage = 16
 
   const {
     currentPage,
