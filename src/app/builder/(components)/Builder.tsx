@@ -527,8 +527,8 @@ export default function Builder({
           <div
             id="concoction-container"
             className={cn(
-              'mt-4 flex flex-row flex-wrap items-start justify-between gap-x-2 gap-y-0 sm:justify-center',
-              isScreenshotMode && 'justify-center',
+              'mt-4 flex flex-row flex-wrap items-start justify-between gap-x-2 gap-y-0 sm:justify-start',
+              isScreenshotMode && 'justify-start',
             )}
           >
             <BuilderButton
@@ -561,8 +561,8 @@ export default function Builder({
           <div
             id="consumable-container"
             className={cn(
-              'mt-4 flex flex-row flex-wrap items-start justify-between gap-x-2 gap-y-0 sm:justify-center',
-              isScreenshotMode && 'justify-center',
+              'mt-4 flex flex-row flex-wrap items-start justify-between gap-x-2 gap-y-0 sm:justify-start',
+              isScreenshotMode && 'justify-start',
             )}
           >
             {getArrayOfLength(4).map((consumableIndex) => (
