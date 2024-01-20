@@ -154,7 +154,7 @@ export async function getBuilds({
     createdAt: build.createdAt,
     totalUpvotes: build.totalUpvotes,
     reported: build.reported,
-    isMember: false,
+    isMember: build.isPaidUser,
     createdByDisplayName:
       build.createdByDisplayName || build.createdByName || DEFAULT_DISPLAY_NAME,
     upvoted: build.upvoted,

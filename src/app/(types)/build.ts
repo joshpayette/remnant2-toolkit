@@ -87,6 +87,7 @@ export type SearchBuildResponse = Array<
     upvoted: boolean
     displayName: string
     name: string
+    isPaidUser: boolean
   }
 >
 
