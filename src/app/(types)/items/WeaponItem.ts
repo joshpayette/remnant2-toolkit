@@ -6,28 +6,12 @@ export interface BaseWeaponItem extends GenericItem {
   type: 'long gun' | 'melee' | 'hand gun'
 }
 
-export class WeaponItem implements BaseWeaponItem {
-  public id: BaseWeaponItem['id'] = ''
-  public name: BaseWeaponItem['name'] = ''
+export class WeaponItem extends GenericItem implements BaseWeaponItem {
   public category: BaseWeaponItem['category'] = 'weapon'
-  public dlc: BaseWeaponItem['dlc'] = 'base'
   public type: BaseWeaponItem['type'] = 'long gun'
-  public description: BaseWeaponItem['description'] = ''
-  public imagePath: BaseWeaponItem['imagePath'] = ''
-  public howToGet: BaseWeaponItem['howToGet'] = ''
-  public wikiLinks: BaseWeaponItem['wikiLinks'] = []
-  public linkedItems: BaseWeaponItem['linkedItems'] = {}
-  public saveFileSlug: BaseWeaponItem['saveFileSlug'] = ''
 
   constructor(props: BaseWeaponItem) {
-    this.id = props.id
-    this.name = props.name
-    this.description = props.description
-    this.imagePath = props.imagePath
-    this.howToGet = props.howToGet
-    this.wikiLinks = props.wikiLinks
-    this.linkedItems = props.linkedItems
-    this.saveFileSlug = props.saveFileSlug
+    super(props)
     this.type = props.type
   }
 

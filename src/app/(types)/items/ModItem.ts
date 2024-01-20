@@ -4,28 +4,11 @@ import { GenericItem } from './GenericItem'
 
 export interface BaseModItem extends GenericItem {}
 
-export class ModItem implements BaseModItem {
-  public id: BaseModItem['id'] = ''
-  public name: BaseModItem['name'] = ''
+export class ModItem extends GenericItem implements BaseModItem {
   public category: BaseModItem['category'] = 'mod'
-  public dlc: BaseModItem['dlc'] = 'base'
-  public description: BaseModItem['description'] = ''
-  public imagePath: BaseModItem['imagePath'] = ''
-  public howToGet: BaseModItem['howToGet'] = ''
-  public wikiLinks: BaseModItem['wikiLinks'] = []
-  public linkedItems: BaseModItem['linkedItems'] = {}
-  public saveFileSlug: BaseModItem['saveFileSlug'] = ''
 
   constructor(props: BaseModItem) {
-    this.id = props.id
-    this.name = props.name
-    this.description = props.description
-    this.imagePath = props.imagePath
-    this.howToGet = props.howToGet
-    this.wikiLinks = props.wikiLinks
-    this.linkedItems = props.linkedItems
-    this.saveFileSlug = props.saveFileSlug
-    this.category = props.category
+    super(props)
   }
 
   public static isModItem = (item?: GenericItem): item is ModItem => {

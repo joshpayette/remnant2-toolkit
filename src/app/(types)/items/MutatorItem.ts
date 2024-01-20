@@ -7,31 +7,14 @@ export interface BaseMutatorItem extends GenericItem {
   type: 'gun' | 'melee'
 }
 
-export class MutatorItem implements BaseMutatorItem {
-  public id: BaseMutatorItem['id'] = ''
-  public name: BaseMutatorItem['name'] = ''
+export class MutatorItem extends GenericItem implements BaseMutatorItem {
   public category: BaseMutatorItem['category'] = 'mutator'
-  public dlc: BaseMutatorItem['dlc'] = 'base'
   public type: BaseMutatorItem['type'] = 'gun'
-  public description: BaseMutatorItem['description'] = ''
-  public imagePath: BaseMutatorItem['imagePath'] = ''
-  public howToGet: BaseMutatorItem['howToGet'] = ''
-  public wikiLinks: BaseMutatorItem['wikiLinks'] = []
-  public linkedItems: BaseMutatorItem['linkedItems'] = {}
-  public saveFileSlug: BaseMutatorItem['saveFileSlug'] = ''
   public maxLevelBonus: BaseMutatorItem['maxLevelBonus'] = ''
 
   constructor(props: BaseMutatorItem) {
-    this.id = props.id
-    this.name = props.name
-    this.description = props.description
-    this.imagePath = props.imagePath
-    this.howToGet = props.howToGet
-    this.wikiLinks = props.wikiLinks
-    this.linkedItems = props.linkedItems
-    this.saveFileSlug = props.saveFileSlug
+    super(props)
     this.type = props.type
-    this.category = props.category
     this.maxLevelBonus = props.maxLevelBonus
   }
 
