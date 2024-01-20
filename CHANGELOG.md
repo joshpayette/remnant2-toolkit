@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2023-01-19
+
+### Added
+
+- Community builds is now live! You can now filter builds by items you own, by specific releases, most popular, and more to come!
+- Added pagination and improved views for builds you've created and favorited.
+- So much more, I should have kept better notes!
+
 ## 2023-01-18
 
 ### Added

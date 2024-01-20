@@ -20,7 +20,7 @@ interface Props {
 export default function MostPopularBuilds({ itemsPerPage = 8 }: Props) {
   const [builds, setBuilds] = useState<DBBuild[]>([])
   const [totalBuildCount, setTotalBuildCount] = useState<number>(0)
-  const [timeRange, setTimeRange] = useState<TimeRange>('week')
+  const [timeRange, setTimeRange] = useState<TimeRange>('all-time')
   const [isLoading, setIsLoading] = useState<boolean>(false)
 
   const {
