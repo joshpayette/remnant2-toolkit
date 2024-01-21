@@ -18,15 +18,10 @@ export default function SearchInput({
         value={value}
       />
       <div className="absolute inset-y-0 right-0 flex items-center pr-3">
-        {value ? (
+        {value && (
           <button onClick={() => onChange('')}>
             <XMarkIcon className="h-5 w-5 text-green-400" aria-hidden="true" />
           </button>
-        ) : (
-          <MagnifyingGlassIcon
-            className="h-5 w-5 text-green-400"
-            aria-hidden="true"
-          />
         )}
       </div>
     </div>
