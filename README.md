@@ -31,7 +31,7 @@ take a look. If I like it, I'll add it to the list!
 This project would not be possible without the following sources:
 
 - [Fextralife Remnant Wiki](https://remnant2.wiki.fextralife.com/Remnant+2+Wiki)
-- [Vash Cowaii's Excel Stat Calculator](https://www.youtube.com/@VashCowaii)
+- [Vash Cowaii's Excel Stat Calculator](https://docs.google.com/spreadsheets/d/1I7vkh50KWJZSxNy4FqxvniFWBstJQEMtpwtxQ3ByoPw/edit?pli=1). Support him on [YouTube](https://www.youtube.com/@VashCowaii)
 - [Robin Kuiper's Remnant Tools](https://remnant.rkuiper.nl/)
 
 ## Running locally

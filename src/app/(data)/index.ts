@@ -3658,7 +3658,7 @@ export const remnantItems: Item[] = [
     saveFileSlug: 'weapon_bow',
     imagePath: '/mainhand/royal_hunting_bow.png',
     id: '8ouocq',
-    description: `The Postulant grants these to those who can defeat him. None know why. Some suspect that the game is mere preamble—that perhaps the true game is what its players do next.`,
+    description: `The Postulant grants these to those who can defeat him. None know why. Some suspect that the game is mere preamble-that perhaps the true game is what its players do next.`,
     howToGet: `Complete the Postulant Event in Losomn`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Royal+Hunting+Bow`],
   },
@@ -3722,7 +3722,7 @@ export const remnantItems: Item[] = [
     name: 'Sporebloom',
     imagePath: '/mainhand/sporebloom.png',
     id: 'q3fgj2',
-    description: `An exceptionally powerful single—shot weapon that deals bonus stagger damage.
+    description: `An exceptionally powerful single-shot weapon that deals bonus stagger damage.
     Must reload after each round fired.`,
     howToGet: `Sporebloom can be obtained in Brabus' Shop after Veteran clear.
     Deleting the character who unlocked them does NOT remove them from the shop.`,
@@ -4975,7 +4975,7 @@ export const remnantItems: Item[] = [
     name: 'Eulogy',
     imagePath: '/mod/eulogy.png',
     id: '3xf7i2',
-    description: `Recalls ***s which deal 30 damage when pulled from a target and when striking targets on their return. Recalled bolts grant 2% of Max HP. Recalled bolts can also overfill Sorrow by up to +5. Any additional bolts will be returned to reserves.`,
+    description: `Recalls bolts which deal 30 damage when pulled from a target and when striking targets on their return. Recalled bolts grant 2% of Max HP. Recalled bolts can also overfill Sorrow by up to +5. Any additional bolts will be returned to reserves.`,
     howToGet: `Attached to the Sorrow hand gun`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Eulogy`],
     linkedItems: {
