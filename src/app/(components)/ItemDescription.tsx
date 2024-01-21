@@ -72,7 +72,7 @@ function highlightKeywords(text: string) {
   let highlightedText = text
 
   colorKeywords.forEach((keyword) => {
-    const regex = new RegExp(`(${keyword})`, 'gi')
+    const regex = new RegExp(`(${keyword})`, 'g')
     highlightedText = highlightedText.replace(
       regex,
       `<span class="${colorKeywordMap[keyword]} font-semibold">$1</span>`,
