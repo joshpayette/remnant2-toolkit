@@ -2,10 +2,12 @@ import type { NextRequest } from 'next/server'
 import { patreon as patreonAPI } from 'patreon'
 import { prisma } from '@/app/(lib)/db'
 
+const toolkitUserId = 'clql3zq8k0000a6m41vtnvldq'
+
 /**
  * Gives specific users the benefits of a paid user
  */
-const allowListUserIds = ['clql3zq8k0000a6m41vtnvldq']
+const allowListUserIds: string[] = []
 
 /**
  * CRON script that runs to moderate reported users and builds
@@ -103,6 +105,43 @@ export async function GET(request: NextRequest) {
       })
     }
 
+    // Add a build vote for each user in PaidUsers from the toolkit account
+    const toolkitUser = await prisma.user.findUnique({
+      where: {
+        id: toolkitUserId,
+      },
+    })
+    if (!toolkitUser) {
+      throw new Error('Toolkit user not found')
+    }
+
+    // Find every build for each PaidUser,
+    // then add a row to BuildVoteCounts for each build for
+    // the toolkitUserId
+    const paidUsersWithUser = await prisma.paidUsers.findMany()
+    for (const paidUser of paidUsersWithUser) {
+      const builds = await prisma.build.findMany({
+        where: {
+          createdById: paidUser.userId,
+        },
+      })
+      for (const build of builds) {
+        const buildVoteCount = await prisma.buildVoteCounts.findFirst({
+          where: {
+            buildId: build.id,
+            userId: toolkitUserId,
+          },
+        })
+        if (buildVoteCount) continue
+        await prisma.buildVoteCounts.create({
+          data: {
+            buildId: build.id,
+            userId: toolkitUserId,
+          },
+        })
+      }
+    }
+
     // Trigger webhook
     const params = {
       embeds: [
@@ -139,35 +178,5 @@ export async function GET(request: NextRequest) {
   } catch (e) {
     console.error(e)
     return Response.json({ success: false })
-
-    // // Trigger webhook
-    // const params = {
-    //   embeds: [
-    //     {
-    //       title: `Patreon Membership Script Failed`,
-    //       color: 0xff0000,
-    //       fields: [
-    //         {
-    //           name: 'Last Run',
-    //           value: new Date().toLocaleString('en-US', {
-    //             timeZone: 'America/New_York',
-    //           }),
-    //         },
-    //       ],
-    //     },
-    //   ],
-    // }
-
-    // const res = await fetch(`${process.env.WEBHOOK_CRON_LOGS}`, {
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //   },
-    //   body: JSON.stringify(params),
-    // })
-
-    // if (!res.ok) {
-    //   console.error('Error in sending build webhook to Discord!')
-    // }
   }
 }

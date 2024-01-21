@@ -1,5 +1,6 @@
 # TODO
 
+- Add info on getting a yellow border around builds
 - Add build filters to show only builds above certain vote thresholds
 - On tracker, allowing sorting alphabetically or by item type (i.e. group armors together)
 - Add CSV import

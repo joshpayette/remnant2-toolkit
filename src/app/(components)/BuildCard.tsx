@@ -33,7 +33,7 @@ export default function BuildCard({
         'relative col-span-1 flex h-full flex-col rounded-lg border border-purple-500 bg-black shadow',
         buildState.isMember &&
           memberFrameEnabled &&
-          'border-2 border-yellow-500',
+          'border-2 border-yellow-300 shadow-lg shadow-yellow-600',
       )}
     >
       {isPopular && (

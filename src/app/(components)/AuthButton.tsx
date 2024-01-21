@@ -28,7 +28,7 @@ function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
     return (
       <Link
         href="/api/auth/signin"
-        className="rounded border border-green-500 bg-background p-2 text-sm text-white hover:bg-green-800"
+        className="rounded border border-purple-300 bg-purple-700 p-2 text-center text-sm text-gray-200 hover:bg-purple-500"
       >
         Sign in
       </Link>
