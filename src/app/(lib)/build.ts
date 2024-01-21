@@ -10,6 +10,7 @@ import { getArrayOfLength, itemToCsvItem } from './utils'
 import { ModItem } from '../(types)/items/ModItem'
 import { z } from 'zod'
 import { ArmorItem } from '../(types)/items/ArmorItem'
+import { PerkItem } from '../(types)/items/PerkItem'
 
 /**
  * Takes a list of itemIds and adds any linked items to the list
@@ -191,6 +192,7 @@ export function dbBuildToBuildState(dbBuild: DBBuild): BuildState {
       mod: ModItem.fromDBValue(buildItems),
       mutator: MutatorItem.fromDBValue(buildItems),
       trait: TraitItem.fromDBValue(buildItems),
+      perk: PerkItem.fromDBValue(buildItems),
     },
   }
 
@@ -600,6 +602,7 @@ export const buildStateSchema = z.object({
     mutator: z.array(z.any()),
     relicfragment: z.array(z.any()),
     trait: z.array(z.any()),
+    perk: z.array(z.any()),
   }),
 })
 
@@ -633,5 +636,6 @@ export const initialBuildState: BuildState = {
     mutator: [],
     relicfragment: [],
     trait: [],
+    perk: [],
   },
 }

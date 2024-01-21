@@ -23,7 +23,13 @@ export const remnantItems: Item[] = [
         { name: 'Vial: Frenzy Dust' },
         { name: 'Vial: Elixir of Life' },
       ],
-      perks: [{ name: 'Dead to Rights' }],
+      perks: [
+        { name: 'Spirited' },
+        { name: 'Liquid Courage' },
+        { name: 'Panacea' },
+        { name: 'Gold to Lead' },
+        { name: 'Experimentalist' },
+      ],
     },
   },
   {
@@ -47,6 +53,13 @@ export const remnantItems: Item[] = [
         { name: 'Chaos Gate' },
         { name: 'Havoc Form' },
       ],
+      perks: [
+        { name: 'Tempest' },
+        { name: 'Amplify' },
+        { name: 'Power Creep' },
+        { name: 'Spirit Within' },
+        { name: 'Power Leak' },
+      ],
     },
   },
   {
@@ -68,6 +81,13 @@ export const remnantItems: Item[] = [
         { name: 'War Stomp' },
         { name: 'Juggernaut' },
         { name: 'Rampage' },
+      ],
+      perks: [
+        { name: 'Die Hard' },
+        { name: 'Close Quarters' },
+        { name: 'Intimidating Presence' },
+        { name: 'Powerlifter' },
+        { name: 'Face of Danger' },
       ],
     },
   },
@@ -92,6 +112,13 @@ export const remnantItems: Item[] = [
         { name: 'Heavy Weapon: Flamethrower' },
         { name: 'Heavy Weapon: Impact Cannon' },
       ],
+      perks: [
+        { name: 'High Tech' },
+        { name: 'Metalworker' },
+        { name: 'Magnetic Field' },
+        { name: 'Heavy Mobility' },
+        { name: 'Surplus' },
+      ],
     },
   },
   {
@@ -114,6 +141,13 @@ export const remnantItems: Item[] = [
         { name: 'Plainswalker' },
         { name: 'Gold Digger' },
         { name: 'Fortune Hunter' },
+      ],
+      perks: [
+        { name: 'Lucky' },
+        { name: 'Scavenger' },
+        { name: 'Metal Detector' },
+        { name: 'Prospector' },
+        { name: 'Self Discovery' },
       ],
     },
   },
@@ -138,6 +172,13 @@ export const remnantItems: Item[] = [
         { name: 'Sidewinder' },
         { name: 'Bulletstorm' },
       ],
+      perks: [
+        { name: 'Loaded' },
+        { name: 'Swift Shot' },
+        { name: 'Posse Up' },
+        { name: 'Quick Hands' },
+        { name: 'Sleight of Hand' },
+      ],
     },
   },
   {
@@ -160,6 +201,13 @@ export const remnantItems: Item[] = [
         { name: 'Guard Dog' },
         { name: 'Support Dog' },
         { name: 'Attack Dog' },
+      ],
+      perks: [
+        { name: 'Bonded' },
+        { name: 'Pack Hunter' },
+        { name: 'Spirit of the Wolf' },
+        { name: 'Teamwork' },
+        { name: 'Best Friend' },
       ],
     },
   },
@@ -184,6 +232,13 @@ export const remnantItems: Item[] = [
         { name: `Hunter's Focus` },
         { name: `Hunter's Shroud` },
       ],
+      perks: [
+        { name: 'Dead to Rights' },
+        { name: 'Deadeye' },
+        { name: 'Return to Sender' },
+        { name: 'Urgency' },
+        { name: 'Intuition' },
+      ],
     },
   },
   {
@@ -204,6 +259,13 @@ export const remnantItems: Item[] = [
         { name: 'Void Cloak' },
         { name: 'Worm Hole' },
         { name: 'Reboot' },
+      ],
+      perks: [
+        { name: 'Shadow' },
+        { name: 'S.H.A.R.K.' },
+        { name: 'Loophole' },
+        { name: 'Circumvent' },
+        { name: 'Override' },
       ],
     },
   },
@@ -227,6 +289,13 @@ export const remnantItems: Item[] = [
         { name: 'Wellspring' },
         { name: 'Healing Shield' },
         { name: 'Redemption' },
+      ],
+      perks: [
+        { name: 'Regenerator' },
+        { name: 'Invigorated' },
+        { name: 'Benevolence' },
+        { name: 'Backbone' },
+        { name: 'Benefactor' },
       ],
     },
   },
@@ -252,6 +321,13 @@ export const remnantItems: Item[] = [
         { name: 'Miasma' },
         { name: 'Death Wish' },
       ],
+      perks: [
+        { name: 'Vile' },
+        { name: 'Wrath' },
+        { name: 'Terrify' },
+        { name: 'Dark Blood' },
+        { name: 'Purge' },
+      ],
     },
   },
   {
@@ -274,6 +350,13 @@ export const remnantItems: Item[] = [
         { name: 'Minion: Hollow' },
         { name: 'Minion: Flyer' },
         { name: 'Minion: Reaver' },
+      ],
+      perks: [
+        { name: 'Ruthless' },
+        { name: 'Dominator' },
+        { name: 'Residue' },
+        { name: 'Outrage' },
+        { name: 'Incite' },
       ],
     },
   },
@@ -9283,6 +9366,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     category: 'perk',
     name: 'Dead to Rights',
     imagePath: '/perk/dead_to_rights.png',
+    type: 'prime',
     id: 's8eytq',
     description: `
     Dealing 65 Base Ranged Weakspot Damage extends the duration of active Hunter Skills by 2.5s. Can extend timer beyond its initial duration
@@ -9297,6 +9381,1227 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     linkedItems: {
       archtype: {
         name: 'Hunter',
+      },
+    },
+  },
+  {
+    category: 'perk',
+    name: 'Deadeye',
+    imagePath: '/perk/deadeye.png',
+    type: 'damage',
+    id: 'c4fx8u',
+    description: `
+    Unlocked at level 1
+Gain 4% Ranged Damage and 1.5% Weakspot Damage.
+
+Increases with Hunter Level
+
+Upgrade Unlocked at level 6
+Gain 24% Ranged Damage, 9% Weakspot Damage and 5% Ranged Critical Chance.
+
+Increases with Hunter Level (level 10: 40% Ranged Damage and 15% Weakspot Damage)
+    `,
+    howToGet: `Unlocked at Level 1`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Deadeye`],
+    linkedItems: {
+      archtype: {
+        name: 'Hunter',
+      },
+    },
+  },
+  {
+    category: 'perk',
+    name: 'Return to Sender',
+    imagePath: '/perk/return_to_sender.png',
+    type: 'team',
+    id: 'oyjp3t',
+    description: `
+    Unlocked at level 2
+Kills due to Weakspot and Critical Hits increase Ammo drops by 25%
+
+Upgrade unlocked at level 7
+Kills due to Weakspot and Critical Hits increase Ammo drops by 50% and double the chance of Ammo drops.
+    `,
+    howToGet: `Unlocked at Level 2`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Return+to+Sender`],
+    linkedItems: {
+      archtype: {
+        name: 'Hunter',
+      },
+    },
+  },
+  {
+    category: 'perk',
+    name: 'Urgency',
+    imagePath: '/perk/urgency.png',
+    type: 'utility',
+    id: '98yqyq',
+    description: `
+    Unlocked at level 3
+Firearms gain 15% Reload Speed after a Kill. Lasts 3s
+
+Upgrade unlocked at level 8
+Firearms gain 15% Reload Speed and 15% Increased Movement Speed after a Kill. Lasts 5s
+    `,
+    howToGet: `Unlocked at Level 3`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Urgency`],
+    linkedItems: {
+      archtype: {
+        name: 'Hunter',
+      },
+    },
+  },
+  {
+    category: 'perk',
+    name: 'Intuition',
+    imagePath: '/perk/intuition.png',
+    id: '8d4diq',
+    type: 'relic',
+    description: `
+    Unlocked at level 4
+Using a Relic extends the duration of any active Hunter Skill by 5s. Effect degrades with each subsequent use.
+
+Upgrade unlocked at level 9
+Using a Relic extends the duration of any active Hunter Skill by 10s. Effect degrades with each subsequent use. Weakspot Kills against MARKED enemies increase speed of next Relic Use within 15s by 5%. Stacks 10x.
+    `,
+    howToGet: `Unlocked at Level 4`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Intuition`],
+    linkedItems: {
+      archtype: {
+        name: 'Hunter',
+      },
+    },
+  },
+  {
+    category: 'perk',
+    name: 'Bonded',
+    imagePath: '/perk/bonded.png',
+    id: 'd58t4k',
+    type: 'prime',
+    description: `
+    When Handler is downed, their Companion will attempt to revive them at 50% Max Health. Can be used to revive allies with Command. Downed ally must have a Relic charge. 
+    Cooldown: 120s
+
+    Upgraded at Level 5
+    When Handler is downed, their Companion will attempt to revive them at 50% Max Health. Can be used to revive allies with Command. Downed ally must have a Relic charge.
+    Cooldown: 105s
+
+    Upgraded at level 10
+    When Handler is downed, their Companion will attempt to revive them at 50% Max Health. Can be used to revive allies with Command. Downed ally must have a Relic charge.
+    Cooldown: 90s`,
+    howToGet: `Automatically unlocked`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Bonded`],
+    linkedItems: {
+      archtype: {
+        name: 'Handler',
+      },
+    },
+  },
+  {
+    category: 'perk',
+    name: 'Pack Hunter',
+    imagePath: '/perk/pack_hunter.png',
+    type: 'damage',
+    id: '485uc9',
+    description: `
+    Gain 3% Ranged and Skill Damage while Companion is active and within 40m of the player.
+    
+    Upgrade Unlocked at level 6
+    Gain 18% Ranged and Skill Damage and 5% Ranged and Skill Critical Chance while Companion is active and within 40m of the player.
+    
+    Increases with Handler Level (level 10: 30% Ranged and Skill Damage)`,
+    howToGet: `Unlocked at Level 1`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Pack+Hunter`],
+    linkedItems: {
+      archtype: {
+        name: 'Handler',
+      },
+    },
+  },
+  {
+    category: 'perk',
+    name: 'Spirit of the Wolf',
+    imagePath: '/perk/spirit_of_the_wolf.png',
+    type: 'team',
+    id: 'z3sz58',
+    description: `
+    Increases Movement Speed by 10%. All allies within 10m of the Handler gain the Handler's Movement Speed (if faster).
+
+    Upgrade unlocked at level 7
+    Increases Movement Speed by 10%. All allies within 10m of the Handler gain the Handler's Movement Speed (if faster). Reduces the Stamina Cost of actions for allies by 15%.`,
+    howToGet: `Unlocked at Level 2`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Spirit+of+the+Wolf`],
+    linkedItems: {
+      archtype: {
+        name: 'Handler',
+      },
+    },
+  },
+  {
+    category: 'perk',
+    name: 'Teamwork',
+    imagePath: '/perk/teamwork.png',
+    type: 'utility',
+    id: 'y36q6p',
+    description: `
+    Handler and Companion gain 15% increased Revive Speed.
+
+    Upgrade unlocked at level 8
+    Handler and Companion gain 30% increased Revive Speed. While Handler or Companion are reviving, they receive 50% less damage.`,
+    howToGet: `Unlocked at Level 3`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Teamwork`],
+    linkedItems: {
+      archtype: {
+        name: 'Handler',
+      },
+    },
+  },
+  {
+    category: 'perk',
+    name: 'Best Friend',
+    imagePath: '/perk/best_friend.png',
+    type: 'relic',
+    id: '8vh7yq',
+    description: `
+    Using a Relic fully restores the Companion's health.
+
+    Upgrade unlocked at level 9
+    Using a Relic fully restores the Companion's health and grants them 25% Damage and 35% Damage Resistance for 15s.`,
+    howToGet: `Unlocked at Level 4`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Best+Friend`],
+    linkedItems: {
+      archtype: {
+        name: 'Handler',
+      },
+    },
+  },
+  {
+    category: 'perk',
+    name: 'Regenerator',
+    imagePath: '/perk/regenerator.png',
+    type: 'prime',
+    id: 'io3m7t',
+    description: `
+    After restoring 350 Total Health to allies, regain a spent Relic charge. 
+    Resting or Respawning at a Worldstone resets healing accumulation. Each additional player increases the healing requirement by 50%.
+
+    Upgraded at Level 5
+    After restoring 300 Total Health to allies, regain a spent Relic charge.
+    Resting or Respawning at a Worldstone resets healing accumulation. Each additional player increases the healing requirement by 50%.
+
+    Upgraded at level 10
+    After restoring 250 Total Health to allies, regain a spent Relic charge.
+    Resting or Respawning at a Worldstone resets healing accumulation. Each additional player increases the healing requirement by 50%.`,
+    howToGet: `Automatically unlocked.`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Regenerator`],
+    linkedItems: {
+      archtype: {
+        name: 'Medic',
+      },
+    },
+  },
+  {
+    category: 'perk',
+    name: 'Invigorated',
+    imagePath: '/perk/invigorated.png',
+    type: 'damage',
+    id: 'errks7',
+    description: `
+Grants a 2.5% increase to All Damage
+Upgrade Unlocked at level 6
+
+Grants a 18% increase to All Damage and 5% Critical Chance
+
+Increases with Medic Level
+
+(level 10: Grants a 25% increase to All Damage and 5% Critical Chance)`,
+    howToGet: `Unlocked at Level 1`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Invigorated`],
+    linkedItems: {
+      archtype: {
+        name: 'Medic',
+      },
+    },
+  },
+  {
+    category: 'perk',
+    name: 'Benevolence',
+    imagePath: '/perk/benevolence.png',
+    type: 'team',
+    id: 't2fc7j',
+    description: `
+    Increases Relic Efficacy by 15% and heals nearby allies for 30% of the total healing value.
+
+    Upgrade unlocked at level 7
+    Increases Relic Efficacy by 15% and heals nearby allies for 30% of the total healing value, increasing to 60% for any below 35% ma health.`,
+    howToGet: `Unlocked at Level 2`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Benevolence`],
+    linkedItems: {
+      archtype: {
+        name: 'Medic',
+      },
+    },
+  },
+  {
+    category: 'perk',
+    name: 'Backbone',
+    imagePath: '/perk/backbone.png',
+    type: 'utility',
+    id: 'z2xo76',
+    description: `
+Increases the hits Medic can take before losing Grey Health by 1
+
+Upgrade unlocked at level 8
+Increases the hits Medic can take before losing Grey Health by 2`,
+    howToGet: `Unlocked at Level 3`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Backbone`],
+    linkedItems: {
+      archtype: {
+        name: 'Medic',
+      },
+    },
+  },
+  {
+    category: 'perk',
+    name: 'Benefactor',
+    imagePath: '/perk/benefactor.png',
+    type: 'relic',
+    id: 'bp9pr7',
+    description: `
+    Increases Relic Use Speed by 20%
+
+    Upgrade unlocked at level 9
+    Increases Relic Use Speed by 20%. Relic Use gains -1 Stagger-`,
+    howToGet: `Unlocked at Level 4`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Benefactor`],
+    linkedItems: {
+      archtype: {
+        name: 'Medic',
+      },
+    },
+  },
+  {
+    category: 'perk',
+    name: 'Loaded',
+    imagePath: '/perk/loaded.png',
+    type: 'prime',
+    id: 'm6pvhd',
+    description: `
+    When activating any Gunslinger Skill, both weapons are instantly reloaded, and gain infinite reserve ammo on all weapons for 5s.
+
+    Upgraded at Level 5
+    When activating any Gunslinger Skill, both weapons are instantly reloaded, and gain infinite reserve ammo on all weapons for 6.5s
+    
+    Upgraded at level 10
+    When activating any Gunslinger Skill, both weapons are instantly reloaded, and gain infinite reserve ammo on all weapons for 8s.`,
+    howToGet: `Automatically unlocked.`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Loaded`],
+    linkedItems: {
+      archtype: {
+        name: 'Gunslinger',
+      },
+    },
+  },
+  {
+    category: 'perk',
+    name: 'Swift Shot',
+    imagePath: '/perk/swift_shot.png',
+    type: 'damage',
+    id: '7mbvc3',
+    description: `
+    Gain 1.5% Fire Rate and 2.5% Ranged Damage.
+    Increases with Gunslinger Level.
+
+    Upgrade Unlocked at level 6
+    Gain 15% Fire Rate and 25% Ranged Damage and 5% Crit Chance for all firearms.
+    
+    Fire Rate and Damage increases with Gunslinger Level.`,
+    howToGet: `Unlocked at Level 1`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Swift+Shot`],
+    linkedItems: {
+      archtype: {
+        name: 'Gunslinger',
+      },
+    },
+  },
+  {
+    category: 'perk',
+    name: 'Posse Up',
+    imagePath: '/perk/posse_up.png',
+    type: 'team',
+    id: 'ajobx6',
+    description: `
+    Ammo pickups award 20% additional Ammo per player with the bonus split equally among teammates.
+
+    Upgrade unlocked at level 7
+    Ammo pickups award 30% additional Ammo per player with the bonus split equally among teammates. Causes Ammo Box to drop additional ammo on the ground.`,
+    howToGet: `Unlocked at Level 2`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Posse+Up`],
+    linkedItems: {
+      archtype: {
+        name: 'Gunslinger',
+      },
+    },
+  },
+  {
+    category: 'perk',
+    name: 'Quick Hands',
+    imagePath: '/perk/quick_hands.png',
+    type: 'utility',
+    id: '496x8y',
+    description: `
+    Firearms gain 10% Reload Speed
+
+    Upgrade unlocked at level 8
+    Firearms gain 10% Reload Speed. Bonus is DOUBLED if magazine is empty`,
+    howToGet: `Unlocked at Level 3`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Quick+Hands`],
+    linkedItems: {
+      archtype: {
+        name: 'Gunslinger',
+      },
+    },
+  },
+  {
+    category: 'perk',
+    name: 'Sleight of Hand',
+    imagePath: '/perk/sleight_of_hand.png',
+    type: 'relic',
+    id: 'fspt8u',
+    description: `
+    Using a Relic reloads equipped Firearm.
+
+    Upgrade unlocked at level 9
+    Using a Relic reloads equipped Firearm and increases Ranged Damage by 15% for 10s.`,
+    howToGet: `Unlocked at Level 4`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Sleight+of+Hand`],
+    linkedItems: {
+      archtype: {
+        name: 'Gunslinger',
+      },
+    },
+  },
+  {
+    category: 'perk',
+    name: 'Die Hard',
+    imagePath: '/perk/die_hard.png',
+    type: 'prime',
+    id: 'je27uv',
+    description: `
+    When receiving fatal damage, the Challenger becomes invulnerable for 2s and regenerates 50% of Max Health.
+    Can only happen once every 10 minutes. Resets at Wordstone or on death.
+
+    Upgraded at Level 5
+    When receiving fatal damage, the Challenger becomes invulnerable for 2.5s and regenerates 75% of Max Health.
+    Can only happen once every 10 minutes. Resets at Wordstone or on death.
+
+    Upgraded at level 10
+    When receiving fatal damage, the Challenger becomes invulnerable for 3s and regenerates 100% of Max Health.
+    
+    Can only happen once every 10 minutes. Resets at Wordstone or on death.`,
+    howToGet: `Automatically unlocked.`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Die+Hard`],
+    linkedItems: {
+      archtype: {
+        name: 'Challenger',
+      },
+    },
+  },
+  {
+    category: 'perk',
+    name: 'Close Quarters',
+    imagePath: '/perk/close_quarters.png',
+    type: 'damage',
+    id: 'f4jx9k',
+    description: `
+    Grants a 3.5% increase to All Damage to enemies within 10m. Damage bonus tapers off until 20m.
+    
+    Upgrade Unlocked at level 6
+    Grants a 21% increase to All Damage to enemies within 10m. Damage bonus tapers off until 20m. Critical Chance is increased by up to 10%.
+    
+    Increases with Challenger Level. 
+    
+    (Level 10: Grants a 35% increase to All Damage to enemies within 10m. Damage bonus tapers off until 20m. Critical Chance is increased by up to 10%.)`,
+    howToGet: `Unlocked at Level 1`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Close+Quarters`],
+    linkedItems: {
+      archtype: {
+        name: 'Challenger',
+      },
+    },
+  },
+  {
+    category: 'perk',
+    name: 'Intimidating Presence',
+    imagePath: '/perk/intimidating_presence.png',
+    type: 'team',
+    id: 'c92847',
+    description: `
+    After activating a Challenger Skill, enemies within 10m deal 10% less damage for 15s.
+
+    Upgrade unlocked at level 7
+    After activating a Challenger Skill, enemies within 10m deal 10% less damage for 15s, with an additional 2.5% damage reduction per enemy affected. (Max 10%)`,
+    howToGet: `Unlocked at Level 2`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Intimidating+Presence`],
+    linkedItems: {
+      archtype: {
+        name: 'Challenger',
+      },
+    },
+  },
+  {
+    category: 'perk',
+    name: 'Powerlifter',
+    imagePath: '/perk/powerlifter.png',
+    type: 'utility',
+    id: '8p55rw',
+    description: `
+    The Stamina Cost increases for each weight bracket is reduced by 50%.
+
+    Upgrade unlocked at level 8
+    Both the Stamina cost increase for each weight bracket and Stamina Regen Delay are reduced by 50%.`,
+    howToGet: `Unlocked at Level 3`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Powerlifter`],
+    linkedItems: {
+      archtype: {
+        name: 'Challenger',
+      },
+    },
+  },
+  {
+    category: 'perk',
+    name: 'Face of Danger',
+    imagePath: '/perk/face_of_danger.png',
+    type: 'relic',
+    id: '7dvm5a',
+    description: `
+    Using a Relic within 10m of an enemy grants 2 stacks of Bulwark for 10s.
+
+    Upgrade unlocked at level 9
+    Using a Relic within 10m of an enemy grants 2 stacks of Bulwark and 10% Increased Damage for 10s.`,
+    howToGet: `Unlocked at Level 4`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Face+of+Danger`],
+    linkedItems: {
+      archtype: {
+        name: 'Challenger',
+      },
+    },
+  },
+  {
+    category: 'perk',
+    name: 'Spirited',
+    imagePath: '/perk/spirited.png',
+    type: 'prime',
+    id: 'rx6e2w',
+    description: `
+    Alchemist can have 1 additional Concotion buff active.
+
+    Upgraded at Level 5
+    Alchemist can have 2 additional Concotion buff active.
+
+    Upgraded at level 10
+    Alchemist can have 3 additional Concoction Buffs actlve.`,
+    howToGet: `Automatically unlocked.`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Spirited`],
+    linkedItems: {
+      archtype: {
+        name: 'Alchemist',
+      },
+    },
+  },
+  {
+    category: 'perk',
+    name: 'Liquid Courage',
+    imagePath: '/perk/liquid_courage.png',
+    type: 'damage',
+    id: '5exhee',
+    description: `Unlocked at level 1
+    Gain 2.5%  increase to All Damage.
+  
+    Increases with Alchemist Level.
+
+    Upgrade Unlocked at level 6
+    Grants a 25% increase to All Damage and 5% Critical Chance`,
+    howToGet: `Unlocked at Level 1`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Liquid+Courage`],
+    linkedItems: {
+      archtype: {
+        name: 'Alchemist',
+      },
+    },
+  },
+  {
+    category: 'perk',
+    name: 'Panacea',
+    imagePath: '/perk/panacea.png',
+    type: 'team',
+    id: '49i5jm',
+    description: `
+    Curative effects apply to all allies within15m and grant 15 additional Resistance.
+
+    Upgrade unlocked at level 7
+    Allies affected by Panacea gain +10% Status and Blight Resistance.`,
+    howToGet: `Unlocked at Level 2`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Panacea`],
+    linkedItems: {
+      archtype: {
+        name: 'Alchemist',
+      },
+    },
+  },
+  {
+    category: 'perk',
+    name: 'Gold to Lead',
+    imagePath: '/perk/gold_to_lead.png',
+    type: 'utility',
+    id: '3a9dd2',
+    description: `
+    Picking up Scrap has a 15% chance to also award Ammo to the Alchemist.
+
+    Upgrade unlocked at level 8
+    Picking up Scrap or Metals also has a 15% chance to award Ammo to the Alchemist
+    `,
+    howToGet: `Unlocked at Level 3`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Gold+to+Lead`],
+    linkedItems: {
+      archtype: {
+        name: 'Alchemist',
+      },
+    },
+  },
+  {
+    category: 'perk',
+    name: 'Experimentalist',
+    imagePath: '/perk/experimentalist.png',
+    type: 'relic',
+    id: 'cxnnz9',
+    description: `
+    Using a Relic applies a random buff on the Alchemist for 30s. Cannot be overriden.
+
+    Upgrade unlocked at level 9
+    Using a Relic applies a random buff o the Alchemist and allies within 20m for 60s. Cannot obe overriden`,
+    howToGet: `Unlocked at Level 4`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Experimentalist`],
+    linkedItems: {
+      archtype: {
+        name: 'Alchemist',
+      },
+    },
+  },
+  {
+    category: 'perk',
+    name: 'Tempest',
+    imagePath: '/perk/tempest.png',
+    type: 'prime',
+    id: 'dh2wih',
+    description: `
+    Automatically generate 2 Mod Power per second. Casting a Mod increases all Mod Generation by 50% for 6s
+
+    Upgraded at Level 5
+    Upgrade: Automatically generate 2.5 Mod Power per second. Casting a Mod increases all Mod Generation by 50% for 6s
+
+    Upgraded at level 10
+    Upgrade: Automatically generate 3 Mod Power per second. Casting a Mod increases all Mod Generation by 100% for 10s.`,
+    howToGet: `Automatically unlocked.`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Tempest`],
+    linkedItems: {
+      archtype: {
+        name: 'Archon',
+      },
+    },
+  },
+  {
+    category: 'perk',
+    name: 'Amplify',
+    imagePath: '/perk/amplify.png',
+    type: 'damage',
+    id: 'yro37y',
+    description: `
+    Increases Mod Damage by +5%.
+    Increases with Archon Level.
+    
+    Upgrade Unlocked at level 6
+    Upgrade: Increases Mod Damage by +30% and grants +10% Mod Critical Chance.
+    
+    Damage increases with Archon Level.`,
+    howToGet: `Unlocked at Level 1`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Amplify`],
+    linkedItems: {
+      archtype: {
+        name: 'Archon',
+      },
+    },
+  },
+  {
+    category: 'perk',
+    name: 'Power Creep',
+    imagePath: '/perk/power_creep.png',
+    type: 'team',
+    id: '7ay3kh',
+    description: `
+    After casting a Mod, 5% of the Mod Power spent will be regenerated by all allies over 10s.
+
+    Upgrade unlocked at level 7
+    Upgrade: While Power Creep is active. allies will also gain 5% Mod Power Generation.`,
+    howToGet: `Unlocked at Level 2`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Power+Creep`],
+    linkedItems: {
+      archtype: {
+        name: 'Archon',
+      },
+    },
+  },
+  {
+    category: 'perk',
+    name: 'Spirit Within',
+    imagePath: '/perk/spirit_within.png',
+    type: 'utility',
+    id: '5fz7xr',
+    description: `
+    Reduces the Mod Power requirement for all Mods by 15%.
+
+    Upgrade unlocked at level 8
+    Upgrade After casting a Mod instantly regain 15% of theMod Power spent`,
+    howToGet: `Unlocked at Level 3`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Spirit+Within`],
+    linkedItems: {
+      archtype: {
+        name: 'Archon',
+      },
+    },
+  },
+  {
+    category: 'perk',
+    name: 'Power Leak',
+    imagePath: '/perk/power_leak.png',
+    type: 'relic',
+    id: 'h42e2n',
+    description: `
+    Using a Relic grants 200 Mod Power for both equipped Mods.
+
+    Upgrade unlocked at level 9
+    Upgrade: Grant an additional 100 Mod Power to the current mod.`,
+    howToGet: `Unlocked at Level 4`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Power+Leak`],
+    linkedItems: {
+      archtype: {
+        name: 'Archon',
+      },
+    },
+  },
+  {
+    category: 'perk',
+    name: 'High Tech',
+    imagePath: '/perk/high_tech.png',
+    type: 'prime',
+    id: '98qnpc',
+    description: `
+    Holding the SKILL button will Overclock a Carried or Deployed Heavy Weapon. Overclocking grants infinite Ammo, increased Fire Rate, and a 25% damage increase for 15s.
+    
+    Cooldown: 58.8s
+
+    Upgraded at Level 5
+    Holding the SKILL button will Overclock a Carried or Deployed Heavy Weapon. Overclocking grants infinite Ammo, increased Fire Rate, and a 25% damage increase for 20s.
+    
+    Cooldown: 58.8s
+
+    Upgraded at level 10
+    Holding the SKILL button will Overclock a Carried or Deployed Heavy Weapon. Overclocking grants infinite Ammo, increased Fire Rate, and a 25% damage increase for 25s
+    
+    Cooldown: 20s`,
+    howToGet: `Automatically unlocked.`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/High+Tech`],
+    linkedItems: {
+      archtype: {
+        name: 'Engineer',
+      },
+    },
+  },
+  {
+    category: 'perk',
+    name: 'Metalworker',
+    imagePath: '/perk/metalworker.png',
+    type: 'damage',
+    id: '2hcif5',
+    description: `
+    Increases Skill Damage by 5%
+    Heavy Weapons gain 5% Ammo Capacity, and +2.5% Max Health
+
+    Upgrade Unlocked at level 6
+    Increases Skill Damage by 50% and Skill Critical Chance by 10%
+    
+    Heavy Weapons gain 50% Ammo Capacity, 25% Max Health, and 25% Weakspot Damage`,
+    howToGet: `Unlocked at Level 1`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Metalworker`],
+    linkedItems: {
+      archtype: {
+        name: 'Engineer',
+      },
+    },
+  },
+  {
+    category: 'perk',
+    name: 'Magnetic Field',
+    imagePath: '/perk/magnetic_field.png',
+    type: 'team',
+    id: 'w6v2o6',
+    description: `
+    Heavy Weapons grant 15% Damage Reduction to all allies within 2.5m.
+    
+    Upgrade unlocked at level 7
+    Heavy Weapons grant 15% Damage Reduction and gradually restore Ammo to allies within 2.5m`,
+    howToGet: `Unlocked at Level 2`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Magnetic+Field`],
+    linkedItems: {
+      archtype: {
+        name: 'Engineer',
+      },
+    },
+  },
+  {
+    category: 'perk',
+    name: 'Heavy Mobility',
+    imagePath: '/perk/heavy_mobility.png',
+    type: 'utility',
+    id: 'htf7h4',
+    description: `
+    Movement Speed while Carrying a Heavy Weapon is increased by 35%.
+
+    Upgrade unlocked at level 8
+    While Carrying a Heavy Weapon, Movement Speed is increased by 35% and both Evade Speed and Evade Distance are increased by 25%`,
+    howToGet: `Unlocked at Level 3`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Heavy+Mobility`],
+    linkedItems: {
+      archtype: {
+        name: 'Engineer',
+      },
+    },
+  },
+  {
+    category: 'perk',
+    name: 'Surplus',
+    imagePath: '/perk/surplus.png',
+    type: 'relic',
+    id: '2k4yzk',
+    description: `
+    Using a Relic refills 15% of Heavy Weapon Ammo. Bonus is doubled when Heavy Weapon is stowed. If the Stowed Heavy Weapon is overfilled, the Engineer will drop additional Ammo based on the surplus.
+    
+    Upgrade unlocked at level 9
+    Using a Relic refills 15% of Heavy Weapon Ammo. Bonus is doubled when Heavy Weapon is stowed`,
+    howToGet: `Unlocked at Level 4`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Surplus`],
+    linkedItems: {
+      archtype: {
+        name: 'Engineer',
+      },
+    },
+  },
+  {
+    category: 'perk',
+    name: 'Lucky',
+    imagePath: '/perk/lucky.png',
+    type: 'prime',
+    id: '82y94m',
+    description: `
+    Grants a 10% chance to spawn additional items and rarer drops when defeating stronger enemies.
+
+    Upgraded at Level 5
+    Grants a 20% chance to spawn additional items and rarer drops when defeating stronger enemies.
+
+    Upgraded at level 10
+    Grants a 35% chance to spawn additional items and rarer drops when defeating stronger enemies.`,
+    howToGet: `Automatically unlocked.`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Lucky`],
+    linkedItems: {
+      archtype: {
+        name: 'Explorer',
+      },
+    },
+  },
+  {
+    category: 'perk',
+    name: 'Scavenger',
+    imagePath: '/perk/scavenger.png',
+    type: 'damage',
+    id: 'y6x5dr',
+    description: `
+    Pickups increase All Damage Dealt by 0.5% per stack for 20s. Additional Stacks increase Duration, up to 60s. Max 5 Stacks.
+    Upgrade Unlocked at level 6
+    
+    Scavenger also increase All Crit Chance by 5% while active.
+    
+    Increases with Explorer Level
+    
+    (level 10: Pickups increase All Damage Dealt by 5% per stack)`,
+    howToGet: `Unlocked at Level 1`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Scavenger`],
+    linkedItems: {
+      archtype: {
+        name: 'Explorer',
+      },
+    },
+  },
+  {
+    category: 'perk',
+    name: 'Metal Detector',
+    imagePath: '/perk/metal_detector.png',
+    type: 'team',
+    id: 'w838yg',
+    description: `
+    Increase Ammo, Currecny, and Metal Drop Rate Chance for entire party by 10%.
+    
+    Upgrade unlocked at level 7
+    Prospector increases the chance of Consumables being rewarded from Chests`,
+    howToGet: `Unlocked at Level 2`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Metal+Detector`],
+    linkedItems: {
+      archtype: {
+        name: 'Explorer',
+      },
+    },
+  },
+  {
+    category: 'perk',
+    name: 'Prospector',
+    imagePath: '/perk/prospector.png',
+    type: 'utility',
+    id: 'o5q3p9',
+    description: `
+    Relic Fragments discovered by Explorer drop at a higher quality.
+
+    Upgrade unlocked at level 8
+    When picking up a gem, Explorer has a 5% chance of picking up a second one of the same type/quality`,
+    howToGet: `Unlocked at Level 3`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Prospector`],
+    linkedItems: {
+      archtype: {
+        name: 'Explorer',
+      },
+    },
+  },
+  {
+    category: 'perk',
+    name: 'Self Discovery',
+    imagePath: '/perk/self_discovery.png',
+    type: 'relic',
+    id: 'rvb63g',
+    description: `
+    Using a Relic instantly fills Scavenger Stacks and prevents Stack Decay for 15s.
+    
+    Upgrade unlocked at level 9
+    After using a Relic, Self Discovery gains +1 Stack and prevents Stack Decay for 30s.`,
+    howToGet: `Unlocked at Level 4`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Self+Discovery`],
+    linkedItems: {
+      archtype: {
+        name: 'Explorer',
+      },
+    },
+  },
+  {
+    category: 'perk',
+    name: 'Shadow',
+    imagePath: '/perk/shadow.png',
+    type: 'prime',
+    id: 'yg77rq',
+    description: `
+    Casting an Invader Skill leaves a Decoy for 3s which draws enemy fire. Deal +5% additional damage to enemies not targeting Invader.
+
+    Upgraded at Level 5
+    Casting an Invader Skill leaves a Decoy for 3s which draws enemy fire. Deal +10% additional damage to enemies not targeting Invader.
+
+    Upgraded at level 10
+    Casting an Invader Skill leaves a Decoy for 3s which draws enemy fire. Deal +15% additional damage to enemies not targeting Invader.`,
+    howToGet: `Automatically unlocked.`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Shadow`],
+    linkedItems: {
+      archtype: {
+        name: 'Invader',
+      },
+    },
+  },
+  {
+    category: 'perk',
+    name: 'S.H.A.R.K.',
+    imagePath: '/perk/shark.png',
+    type: 'damage',
+    id: '59swqq',
+    description: `
+    Sprinting for 1s or Evading adds 1 Stack of Momentum which increases Ranged and Melee damage  by 0.7% for 15s. Max 5 Stacks.
+    Increases with Invader Level
+
+    Upgrade Unlocked at level 6
+    Sprinting for 1s or Evading adds 1 Stack of Momentum which increases Ranged and Melee damage by 7% and Ranged and Melee Critical Chance by 1% for 15s. Max 5 Stacks.
+    
+    Damage increases with Invader level.`,
+    howToGet: `Unlocked at Level 1`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Shark`],
+    linkedItems: {
+      archtype: {
+        name: 'Invader',
+      },
+    },
+  },
+  {
+    category: 'perk',
+    name: 'Loophole',
+    imagePath: '/perk/loophole.png',
+    type: 'team',
+    id: 'd5qedi',
+    description: `
+    All ally Ranged and Melee damage against enemies distracted by the Invader's Decoy grants 5% as Lifesteal
+
+    Upgrade unlocked at level 7
+    All ally Ranged and Melee damage against enemies distracted by the Invader's Decoy grants 7.5% as Lifesteal`,
+    howToGet: `Unlocked at Level 2`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Loophole`],
+    linkedItems: {
+      archtype: {
+        name: 'Invader',
+      },
+    },
+  },
+  {
+    category: 'perk',
+    name: 'Circumvent',
+    imagePath: '/perk/circumvent.png',
+    type: 'utility',
+    id: 'i9tjgk',
+    description: `
+    Reduce Cost of Evade and Combat Slide by 10%
+
+    Upgrade unlocked at level 8
+    Reduce Cost of Evade and Combat Slide by 15%. perfect Dodges gain an additional 15% reduction`,
+    howToGet: `Unlocked at Level 3`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Circumvent`],
+    linkedItems: {
+      archtype: {
+        name: 'Invader',
+      },
+    },
+  },
+  {
+    category: 'perk',
+    name: 'Override',
+    imagePath: '/perk/override.png',
+    type: 'relic',
+    id: 'decoy8',
+    description: `
+    Using a Relic reduces Threat Generation by 25% for 10s. While Override is active, the next Evade leaves a Empowered Decoy which lasts 4s.
+    
+    Upgrade unlocked at level 9
+    Using a Relic reduces Threat Generation by 25% for 10s. While Override is active, the next Evade leaves a Empowered Decoy which lasts 5.5s.`,
+    howToGet: `Unlocked at Level 4`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Override`],
+    linkedItems: {
+      archtype: {
+        name: 'Invader',
+      },
+    },
+  },
+  {
+    category: 'perk',
+    name: 'Ruthless',
+    imagePath: '/perk/ruthless.png',
+    type: 'prime',
+    id: 'tmc2tk',
+    description: `
+    When the Summoner deals damage to their Minion, it causes them to ENRAGE. Minions gain 30% increased Damage, Attack Speed, and Movement Speed. Lasts 20s
+    
+    Upgraded at Level 5
+    When the Summoner deals damage to their Minion, it causes them to ENRAGE. Minions gain 40% increased Damage, Attack Speed, and Movement Speed. Lasts 30s.
+    
+    Upgraded at level 10
+    When the Summoner deals damage to their Minion, it causes them to ENRAGE. Minions gain 50% increased Damage, Attack Speed, and Movement Speed. Lasts 40s.`,
+    howToGet: `Automatically unlocked.`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Ruthless`],
+    linkedItems: {
+      archtype: {
+        name: 'Summoner',
+      },
+    },
+  },
+  {
+    category: 'perk',
+    name: 'Dominator',
+    imagePath: '/perk/dominator.png',
+    type: 'damage',
+    id: 'tu8pcp',
+    description: `
+    Increases Mod and Skill Damage by 3.5% while a Minion is active.  Sacrificing a Minion increases Ranged and Melee Damage by 3% for 30s or until another Minion is summoned.  Increases with Summoner level
+    
+    Upgrade Unlocked at level 6
+    Increases Mod and Skill Damage by 21% and Mod and Skill Critical Chance by 5% while a Minion is active.
+    
+    Sacrificing a Minion increases Ranged and Melee Damage by 18% and Ranged and Melee Critical Chance by 5% for 30s.  
+    
+    Damage increases with Summoner level
+    
+    (level 10: Increases Mod and Skill Damage by 35% and Skill and Mod Critical Chance by 5% while a Minion is active. Sacrificing a Minion increases Ranged and Melee Damage by 30% and Ranged and Melee Critical Chance by 5% for 30s or until another Minion is summoned)`,
+    howToGet: `Unlocked at Level 1`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Dominator`],
+    linkedItems: {
+      archtype: {
+        name: 'Summoner',
+      },
+    },
+  },
+  {
+    category: 'perk',
+    name: 'Residue',
+    imagePath: '/perk/residue.png',
+    type: 'team',
+    id: 'fzywc2',
+    description: `
+    Minions that expire leave a 3m Aura which heals 2.5% Health per second. Lasts 10s.
+    
+    Upgrade unlocked at level 7
+    Minions that expire leave a 3m Aura which heals 2.5% Health per second. and increases Healing by 20%. Lasts 10s.`,
+    howToGet: `Unlocked at Level 2`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Residue`],
+    linkedItems: {
+      archtype: {
+        name: 'Summoner',
+      },
+    },
+  },
+  {
+    category: 'perk',
+    name: 'Outrage',
+    imagePath: '/perk/outrage.png',
+    type: 'utility',
+    id: 't8bb9k',
+    description: `
+    Sacrifice grants 3% Lifesteal for each Minion Sacrificed. Lasts 10s.
+
+    Upgrade unlocked at level 8
+    Sacrifice grants 3% Lifesteal for each Minion Sacrificed, and increases Movement Speed by 15%. Lasts 10s.`,
+    howToGet: `Unlocked at Level 3`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Outrage`],
+    linkedItems: {
+      archtype: {
+        name: 'Summoner',
+      },
+    },
+  },
+  {
+    category: 'perk',
+    name: 'Incite',
+    imagePath: '/perk/incite.png',
+    type: 'relic',
+    id: 'd82mwz',
+    description: ``,
+    howToGet: `Unlocked at Level 4`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Incite`],
+    linkedItems: {
+      archtype: {
+        name: 'Summoner',
+      },
+    },
+  },
+  {
+    category: 'perk',
+    name: 'Vile',
+    imagePath: '/perk/vile.png',
+    type: 'prime',
+    id: 'qewh6t',
+    description: `
+    Negative Status Effects applied by Ritualist inflict Infected
+    Infected: Victim receives 5% more Status Effect damage, On death, spreads all statuses to nearby enemies within 5m
+    
+    Upgraded at Level 5
+    Infected: Victim receives 10% more Status Effect damage. On death, spreads
+    all statuses to nearby enemies within 10m
+    
+    Upgraded at level 10
+    Infected: Victim receives 15% more Status Effect damage. On death, spreads
+    all statuses to nearby enemies within 15m`,
+    howToGet: `Automatically unlocked.`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Vile`],
+    linkedItems: {
+      archtype: {
+        name: 'Ritualist',
+      },
+    },
+  },
+  {
+    category: 'perk',
+    name: 'Wrath',
+    imagePath: '/perk/wrath.png',
+    type: 'damage',
+    id: '6wc56t',
+    description: `
+    Increases all damage to enemies affected by a Negative Status Effect by 2%. Damage increases with Ritualist Level.
+    
+    Upgrade Unlocked at level 6
+    Increases all damage to enemies affected by a Negative Status Effect by 12%. Increases all Critical Chance against enemies affected by a Negative Status Effect by 10%.
+  
+    Damage increases with Ritualist Level
+    
+    Upgrade Unlocked at level 10
+    Increases all damage to enemies affected by a Negative Status Effect by 20%. Increases all Critical Chance against enemies affected by a Negative Status Effect by 10%.`,
+    howToGet: `Unlocked at Level 1`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Wrath`],
+    linkedItems: {
+      archtype: {
+        name: 'Ritualist',
+      },
+    },
+  },
+  {
+    category: 'perk',
+    name: 'Terrify',
+    imagePath: '/perk/terrify.png',
+    type: 'team',
+    id: 'h3ag53',
+    description: `
+    Killing an entity applies TERRIFIED to all enemies within 5m of killed entity for 20s. TERRIFIED enemies deal 5% less damage.
+    
+    Upgrade unlocked at level 7
+    Killing an entity applies TERRIFIED to all enemies within 5m of killed entity for 20s. TERRIFIED enemies are more likely to drop additional ammo on death. TERRIFIED enemies deal 5% less damage`,
+    howToGet: `Unlocked at Level 2`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Terrify`],
+    linkedItems: {
+      archtype: {
+        name: 'Ritualist',
+      },
+    },
+  },
+  {
+    category: 'perk',
+    name: 'Dark Blood',
+    imagePath: '/perk/dark_blood.png',
+    type: 'utility',
+    id: 'qqhkw9',
+    description: `
+    Reduces damage received from Negative Status Effects by 25%.
+
+    Upgrade unlocked at level 8
+    Reduces damage received from Negative Status Effects by 25%. Reduces Blight Buildup by 50%.`,
+    howToGet: `Unlocked at Level 3`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Dark+Blood`],
+    linkedItems: {
+      archtype: {
+        name: 'Ritualist',
+      },
+    },
+  },
+  {
+    category: 'perk',
+    name: 'Purge',
+    imagePath: '/perk/purge.png',
+    type: 'relic',
+    id: 'tr5r38',
+    description: `
+    On Relic Use, cleanses all Negative Status Effects..
+    
+    Upgrade unlocked at level 9
+    On Relic Use, cleanses all Negative Status Effects. Negative Status Effects cleansed by Purge are applied to all enemies within 7.5m.`,
+    howToGet: `Unlocked at Level 4`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Purge`],
+    linkedItems: {
+      archtype: {
+        name: 'Ritualist',
       },
     },
   },

@@ -4,6 +4,7 @@ import { WeaponItem } from './items/WeaponItem'
 import { MutatorItem } from './items/MutatorItem'
 import { TraitItem } from './items/TraitItem'
 import { ModItem } from './items/ModItem'
+import { PerkItem } from './items/PerkItem'
 
 export type Item =
   | GenericItem
@@ -12,6 +13,7 @@ export type Item =
   | ModItem
   | MutatorItem
   | TraitItem
+  | PerkItem
 
 /**
  * The minimum information that should be
