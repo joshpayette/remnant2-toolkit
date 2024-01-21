@@ -1,7 +1,8 @@
 # Where I'm at
 
-- Add passives for each archtype
-- Add Panacea resistances
+- Ensure all passives show up in the item lookup
+- Ensure builds still save
+- Ensure perks are added to item filters when finding builds
 
 # TODO
 

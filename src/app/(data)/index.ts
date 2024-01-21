@@ -9937,7 +9937,7 @@ Increases the hits Medic can take before losing Grey Health by 2`,
     type: 'team',
     id: '49i5jm',
     description: `
-    Curative effects apply to all allies within15m and grant 15 additional Resistance.
+    Curative effects apply to all allies within 15m and grant 15 additional Resistance.
 
     Upgrade unlocked at level 7
     Allies affected by Panacea gain +10% Status and Blight Resistance.`,
@@ -9948,6 +9948,11 @@ Increases the hits Medic can take before losing Grey Health by 2`,
         name: 'Alchemist',
       },
     },
+    fireResistance: 15,
+    shockResistance: 15,
+    blightResistance: 15,
+    bleedResistance: 15,
+    toxinResistance: 15,
   },
   {
     category: 'perk',
