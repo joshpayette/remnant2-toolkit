@@ -4,8 +4,8 @@ import {
   HeartIcon,
   InformationCircleIcon,
   ListBulletIcon,
+  UserIcon,
 } from '@heroicons/react/24/solid'
-import { BuildState } from '../(types)/build'
 
 /**
  * The base pages for the site
@@ -18,7 +18,7 @@ export const NAV_ITEMS = [
     icon: ListBulletIcon,
   },
   {
-    name: 'Builder',
+    name: 'Create a Build',
     description:
       'Create and share your favorite builds with your friends and the community.',
     href: '/builder/create',
@@ -43,6 +43,12 @@ export const NAV_ITEMS = [
       'Help support the development of the Remnant 2 Toolkit, plus get some cool perks!',
     href: 'https://www.patreon.com/JoshPayette/membership',
     icon: HeartIcon,
+  },
+  {
+    name: 'My Builds',
+    description: 'View and manage your builds.',
+    href: '/profile/created-builds',
+    icon: UserIcon,
   },
   // {
   //   name: 'Change Log',
