@@ -76,7 +76,10 @@ export default function Dialog({
                 <div className="mb-8 text-center">
                   <BaseDialog.Title
                     as="h3"
-                    className="text-4xl font-semibold leading-6 text-green-500"
+                    className={cn(
+                      'text-4xl font-semibold leading-6 text-green-500',
+                      !subtitle && 'mb-4',
+                    )}
                   >
                     {title}
                   </BaseDialog.Title>
