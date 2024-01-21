@@ -1,7 +1,6 @@
 # TODO
 
 - Add build filters to show only builds above certain vote thresholds
-- Add build filters to search by classes
 - Add creator builds page
 - On tracker, allowing sorting alphabetically or by item type (i.e. group armors together)
 - Add CSV import

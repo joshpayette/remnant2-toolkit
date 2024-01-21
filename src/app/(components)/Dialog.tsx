@@ -20,7 +20,8 @@ interface DialogProps {
     | 'max-w-7xl'
     | 'max-w-full'
   open: boolean
-  title: string
+  title: React.ReactNode
+  subtitle?: string
   onClose: () => void
   zIndex?: 'z-10' | 'z-20' | 'z-30' | 'z-40' | 'z-50'
 }
@@ -29,6 +30,7 @@ export default function Dialog({
   children,
   maxWidthClass,
   open,
+  subtitle,
   title,
   zIndex = 'z-50',
   onClose,
@@ -71,13 +73,18 @@ export default function Dialog({
                 >
                   <XMarkIcon className="h-6 w-6" aria-hidden="true" />
                 </button>
-                <div className="text-center">
+                <div className="mb-8 text-center">
                   <BaseDialog.Title
                     as="h3"
-                    className="mb-8 text-4xl font-semibold leading-6 text-green-500"
+                    className="text-4xl font-semibold leading-6 text-green-500"
                   >
                     {title}
                   </BaseDialog.Title>
+                  {subtitle && (
+                    <BaseDialog.Description className="text-md mb-4 mt-2 text-gray-400">
+                      {subtitle}
+                    </BaseDialog.Description>
+                  )}
                   <div className="mt-2">{children}</div>
                 </div>
               </BaseDialog.Panel>

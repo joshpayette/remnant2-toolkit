@@ -7,6 +7,7 @@ import { ArmorItem } from '../(types)/items/ArmorItem'
 import { Item } from '../(types)'
 import ArmorInfo from './ArmorInfo'
 import { TraitItem } from '../(types)/items/TraitItem'
+import { PerkItem } from '../(types)/items/PerkItem'
 
 interface ItemInfoProps {
   item: Item | null
@@ -25,21 +26,21 @@ export default function ItemInfo({ item, open, onClose }: ItemInfoProps) {
     height: item.category === 'trait' ? 434 : 217,
   }
 
+  let subtitle = capitalize(item.category)
+  if (PerkItem.isPerkItem(item)) {
+    subtitle += ` - ${capitalize(item.type)}`
+  }
+
   return (
     <Dialog
       open={open}
       onClose={onClose}
-      title={'Item Info'}
+      title={<span className="text-purple-500">{item.name}</span>}
+      subtitle={subtitle}
       maxWidthClass="max-w-3xl"
     >
       <div className="grid-cols-full grid gap-x-8 gap-y-4 sm:grid-cols-3">
-        <div className="col-span-3 flex w-full flex-col items-start justify-start sm:col-span-1">
-          <div className="w-full text-center">
-            <h3 className="text-xl font-bold text-purple-500">{item.name}</h3>
-            <p className="mb-2 text-sm text-gray-200">
-              {capitalize(item.category)}
-            </p>
-          </div>
+        <div className="col-span-3 flex w-full flex-col items-start justify-start sm:col-span-1 sm:justify-center">
           <Image
             src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}${item.imagePath}`}
             width={imageSize.width}
