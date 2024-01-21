@@ -17,7 +17,17 @@ export default function Footer() {
             loading="eager"
           />
         </a>
-        {/* <a
+        <a href="https://twitter.com/Remnant2Toolkit" target="_blank">
+          <Image
+            src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/twitter.png`}
+            alt="Remnant 2 Toolkit on Twitter"
+            width={32}
+            height={32}
+            className="h-6 w-6"
+            loading="eager"
+          />
+        </a>
+        <a
           href="https://github.com/joshpayette/remnant2-toolkit"
           target="_blank"
         >
@@ -27,16 +37,6 @@ export default function Footer() {
             width={32}
             height={32}
             className="h-8 w-8"
-            loading="eager"
-          />
-        </a> */}
-        <a href="https://twitter.com/Remnant2Toolkit" target="_blank">
-          <Image
-            src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/twitter.png`}
-            alt="Remnant 2 Toolkit on Twitter"
-            width={32}
-            height={32}
-            className="h-6 w-6"
             loading="eager"
           />
         </a>
@@ -75,13 +75,21 @@ export default function Footer() {
         >
           Fextralife Remnant 2 Wiki
         </a>
-        , as well as the amazingly detailed stat calculator Excel sheet{' '}
+        , as well as the{' '}
+        <a
+          href="https://docs.google.com/spreadsheets/d/1I7vkh50KWJZSxNy4FqxvniFWBstJQEMtpwtxQ3ByoPw/edit?pli=1"
+          target="_blank"
+          className={cn(aClass)}
+        >
+          amazingly detailed stat calculator
+        </a>{' '}
+        by{' '}
         <a
           href="https://www.youtube.com/@VashCowaii"
           target="_blank"
           className={cn(aClass)}
         >
-          by Vash Cowaii
+          Vash Cowaii
         </a>{' '}
       </p>
       <hr className="border-gray-900 pb-4" />
