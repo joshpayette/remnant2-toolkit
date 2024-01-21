@@ -39,7 +39,7 @@ export const remnantItems: Item[] = [
     id: 'og1fvq',
     description:
       'The ARCHON is the master of Weapon Mods and Mod Power generation.',
-    howToGet: `To Unlock the Red Door you will need the following. Engram Explorer with skill Fortune Hunter (LV10), Engram Invader with skill Worm Hole (LV5), Armor set Realmwalker, Relic Consumable Void Heart, Leto's Amulet, Amber Moonstone, Black Cat Band, Zanias Malice, Anastasijas Inspiration, Cube Gun, Ford's Scattergun, Labyrinth Staff. With all this the door will open.`,
+    howToGet: `To Unlock the Red Door you will need the following. Engram EXPLORER with skill Fortune Hunter (LV10), Engram INVADER with skill Worm Hole (LV5), Armor set Realmwalker, Relic Consumable Void Heart, Leto's Amulet, Amber Moonstone, Black Cat Band, Zanias Malice, Anastasijas Inspiration, Cube Gun, Ford's Scattergun, Labyrinth Staff. With all this the door will open.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Archon`],
     linkedItems: {
       traits: [
@@ -98,7 +98,7 @@ export const remnantItems: Item[] = [
     id: '98i1ka',
     description:
       'The ENGINEER specializes in Heavy Weaponry which can be carried or placed in turret mode.',
-    howToGet: `Found just out of bounds in either of the two overland areas you roll on N'Erud. For an easier time locating this item try using the Explorer Archtype's skill "Fortune Hunter" to highlight the item in the fog.`,
+    howToGet: `Found just out of bounds in either of the two overland areas you roll on N'Erud. For an easier time locating this item try using the EXPLORER Archtype's skill "Fortune Hunter" to highlight the item in the fog.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Engineer`],
     linkedItems: {
       traits: [
@@ -380,7 +380,7 @@ export const remnantItems: Item[] = [
     name: 'Juggernaut',
     imagePath: '/skill/juggernaut.png',
     id: 'p7x9pq',
-    description: `Become nearly unstoppable, gaining 3 Stack of Bulwark, 15% increased Movement, Melee Speed, and Reduces Stamina Cost. Increases Melee damage by 50%. Stagger Level reduced by 1. Lasts 25s.`,
+    description: `Become nearly unstoppable, gaining 3 Stack of BULWARK, 15% increased Movement, Melee Speed, and Reduces Stamina Cost. Increases Melee damage by 50%. Stagger Level reduced by 1. Lasts 25s.`,
     cooldown: 60,
     howToGet: `Unlocked at level 5`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Juggernaut`],
@@ -397,7 +397,7 @@ export const remnantItems: Item[] = [
     id: 'wyw9r4',
     description: `Enters a heightened state of battle which increases Fire Rate by 15%, Reload Speed by 25%, and Movement Speed by 15%. Lasts 10s. 
 
-    Kills and dealing significant damage grant 1 Stack of RAGE which increases Ranged Damage by 2.5% per Stack. Upon reaching 10 Stacks, the CHallenger goes BERSERK, which reloads their current firearm and doubles Rampage efects for 15s.`,
+    Kills and dealing significant damage grant 1 Stack of RAGE which increases Ranged Damage by 2.5% per Stack. Upon reaching 10 Stacks, the CHALLENGER goes BERSERK, which reloads their current firearm and doubles Rampage efects for 15s.`,
     cooldown: 90,
     howToGet: `Unlocked at level 10`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Rampage`],
@@ -412,11 +412,11 @@ export const remnantItems: Item[] = [
     name: 'Guard Dog',
     imagePath: '/skill/guard_dog.png',
     id: 'gpr2fw',
-    description: `Companion will follow the Handler and generate 15% incresed Threat while attacking. All damage to them is reduced by 20%. 
+    description: `Companion will follow the HANDLER and generate 15% incresed Threat while attacking. All damage to them is reduced by 20%. 
 
     SINGLE PRESS: Companion engages enemies near the targeted location.
     
-    DOUBLE TAP: Companion returns to the Handler and remains by their side. 
+    DOUBLE TAP: Companion returns to the HANDLER and remains by their side. 
     
     HOLD: Howl reduces damage by 15% to all allies within 20m and the Companion generates additional Threat. Lasts 20s.`,
     cooldown: 90,
@@ -433,11 +433,11 @@ export const remnantItems: Item[] = [
     name: 'Support Dog',
     imagePath: '/skill/support_dog.png',
     id: 'jz6x2w',
-    description: `Companion will follow the Handler and continuously heal allies within 3.5m for 0.25% of Max Health per second. 
+    description: `Companion will follow the HANDLER and continuously heal allies within 3.5m for 0.25% of Max Health per second. 
 
     SINGLE PRESS: Companion engages enemies near the targeted location. 
     
-    DOUBLE TAP: Companion returns to the Handler and remains by their side.
+    DOUBLE TAP: Companion returns to the HANDLER and remains by their side.
     
     HOLD: Howl grants 2% of Max Health per second and 25% increased Movemente Speed to all allies within 20m. Lasts 25s`,
     cooldown: 90,
@@ -454,11 +454,11 @@ export const remnantItems: Item[] = [
     name: 'Attack Dog',
     imagePath: '/skill/attack_dog.png',
     id: '8trtzh',
-    description: `Companion will follow the Handler and deal 20% additional damage. 
+    description: `Companion will follow the HANDLER and deal 20% additional damage. 
 
     SINGLE PRESS: Compabion engages enemies near the targeted location. 
     
-    DOUBLE TAP: Companion returns to the Handler and remains by their side. 
+    DOUBLE TAP: Companion returns to the HANDLER and remains by their side. 
     
     HOLD: Howl increases damage by 20% for all allies within 20m. Lasts 20s.`,
     cooldown: 90,
@@ -475,7 +475,7 @@ export const remnantItems: Item[] = [
     name: 'Wellspring',
     imagePath: '/skill/wellspring.png',
     id: '7vtxrx',
-    description: `The Medic channels healing energy into their fist, punching a hole in the ground to create a 3m Healing Spring AOE wich restores 10.5 Health per second and greatly increses Blight Decay Rate. Lasts 15s.`,
+    description: `The MEDIC channels healing energy into their fist, punching a hole in the ground to create a 3m Healing Spring AOE wich restores 10.5 Health per second and greatly increses Blight Decay Rate. Lasts 15s.`,
     cooldown: 57.6,
     howToGet: `Unlocks automatically`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Wellspring`],
@@ -490,7 +490,7 @@ export const remnantItems: Item[] = [
     name: 'Healing Shield',
     imagePath: '/skill/healing_shield.png',
     id: '8pu6y2',
-    description: `The Medic Quickly expels healing energy to SHIELD all allies within 25m for 100% of their Max Health for 10s. While shielded, allies regenerate 21% of their Max Health over the duration.`,
+    description: `The MEDIC Quickly expels healing energy to SHIELD all allies within 25m for 100% of their Max Health for 10s. While shielded, allies regenerate 21% of their Max Health over the duration.`,
     cooldown: 96,
     howToGet: `Unlocks at level 5`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Healing+Shield`],
@@ -505,7 +505,7 @@ export const remnantItems: Item[] = [
     name: 'Redemption',
     imagePath: '/skill/redemption.png',
     id: 'zs77cb',
-    description: `The Medic unleashes a 30m shockwave that revives downed allies and resotres 52.5% Max Health over 10s. For each additional 1s holding the SKILL button, the heal gains an additional 52.5% (up to 210% max)
+    description: `The MEDIC unleashes a 30m shockwave that revives downed allies and resotres 52.5% Max Health over 10s. For each additional 1s holding the SKILL button, the heal gains an additional 52.5% (up to 210% max)
 
     Revived allies will only receive 50% of the healing amount. If revived, allies cannot be revived again by Redemption for another 180s. Resets at Worldstone or on death. `,
     cooldown: 115.2,
@@ -522,7 +522,7 @@ export const remnantItems: Item[] = [
     name: `Hunter's Mark`,
     imagePath: '/skill/hunters_mark.png',
     id: 'jg82hi',
-    description: `Increases the Hunter's spatial awareness by casting an Aura that automatically applies MARK to all enemies within 35m. While senses are heightened, Hunter also gains 15% increased Ragend and Melee damage. Lasts 25s.
+    description: `Increases the HUNTER's spatial awareness by casting an Aura that automatically applies MARK to all enemies within 35m. While senses are heightened, HUNTER also gains 15% increased Ragend and Melee damage. Lasts 25s.
 
     MARK: Crit Chance against MARKED enemies is increased by 15% for all allies.`,
     cooldown: 70,
@@ -539,7 +539,7 @@ export const remnantItems: Item[] = [
     name: `Hunter's Focus`,
     imagePath: '/skill/hunters_focus.png',
     id: '5jh6qr',
-    description: `Continously Aiming Down Sights uninterrupted and without shooting for 1s causes the Hunter to enter a FOCUSED state. 
+    description: `Continously Aiming Down Sights uninterrupted and without shooting for 1s causes the HUNTER to enter a FOCUSED state. 
 
     FOCUSED reduces Weapon Spread, Recoil, and Sway by 75% and grants 25% Ranged & Ranged Weaspot Damage, and 10% Ranged Crit Chance.
     
@@ -565,13 +565,13 @@ export const remnantItems: Item[] = [
     name: `Hunter's Shroud`,
     imagePath: '/skill/hunters_shroud.png',
     id: 'ufkx9q',
-    description: `Hunter becomes Shrouded, reducing enemy awareness and making them harder to hit while moving. Attacking or activating a Mod or Skill will instantly exit Shroud. 
+    description: `HUNTER becomes Shrouded, reducing enemy awareness and making them harder to hit while moving. Attacking or activating a Mod or Skill will instantly exit Shroud. 
 
-    Exiting Shroud applies MARK to all enemies within 10m and grants AMBUSH to the Hunter for 2s. 
+    Exiting Shroud applies MARK to all enemies within 10m and grants AMBUSH to the HUNTER for 2s. 
     
     AMBUSH: Increases Ranged and Melee Damage by 50% which diminishes over its duration. Ranged and Melee attacks apply MARK. 
     
-    Hunter will automatically Shorud again after 1.15s if no offensive action are performed. 
+    HUNTER will automatically Shorud again after 1.15s if no offensive action are performed. 
     
     Lasts 15s. 
     
@@ -594,7 +594,7 @@ export const remnantItems: Item[] = [
 
     STONESKIN reduces incoming damage by 25%, greatly increases Blight Buildup Decay Rate, reduces Stagger by l, and makes the target immune to Status Effects. Lasts 15s.
     
-    PRESS: Slam Vial on the ground, creating the effect at the Alchemist's feet.
+    PRESS: Slam Vial on the ground, creating the effect at the ALCHEMIST's feet.
     
     HOLD & RELEASE: Aim and throw the Vial causing the same effect where it lands.`,
     cooldown: 72,
@@ -615,7 +615,7 @@ export const remnantItems: Item[] = [
 
     FRENZlED increases Fire Rate, Reload Speed, and Melee Speed by 20%, and Movement Speed by 15%. Lasts 15s.
     
-    PRESS: Slam Vial on the ground, creating the effect at the Alchemist's feet.
+    PRESS: Slam Vial on the ground, creating the effect at the ALCHEMIST's feet.
     
     HOLD & RELEASE: Aim and throw the Vial causing the same effect where it lands.`,
     cooldown: 72,
@@ -638,7 +638,7 @@ export const remnantItems: Item[] = [
     
     Revived allies canno be affected by Living Will for 180s.
     
-    PRESS: Slam Vial on the ground, creating the effect at the Alchemist's feet.
+    PRESS: Slam Vial on the ground, creating the effect at the ALCHEMIST's feet.
     
     HOLD & RELEASE: Aim and throw the Vial causing the same effect where it lands.`,
     cooldown: 86.4,
@@ -687,7 +687,7 @@ export const remnantItems: Item[] = [
     id: 'y72au6',
     description: `Unleashes the powers of the  Labyrinth to empower the caster with new abilities. Lasts 30s. Duration is reduced when Havoc Form special abilities are used.
 
-    FIRE: Blasts Lightning Tendrils from the Archon's hand, dealing 84.2 SHOCK Damage per second to targets within 15m.
+    FIRE: Blasts Lightning Tendrils from the ARCHON's hand, dealing 84.2 SHOCK Damage per second to targets within 15m.
     
     AIM: Raises a 3m Energy Shield which deals 35 SHOCK damage per second and reduces incoming damage to all allies by 50%.
     
@@ -710,7 +710,7 @@ export const remnantItems: Item[] = [
     id: 'pgmn4v',
     description: `PRESS: Deploys a Vulcan Turret which lasts until its Ammo is exhausted. Turrets that can aim will prioritize targets that the player Aims at. Press SKILL again to enable autonomous targeting. 
 
-    HOLD: Deploys to Heavv Carry Mode. If Engineer Prime is available, will Overlock the weapon if already in hand or on the battlefield
+    HOLD: Deploys to Heavv Carry Mode. If ENGINEER Prime is available, will Overlock the weapon if already in hand or on the battlefield
     
     DOUBLE PRESS: The weapon is reclaimed, returning 75% of its remaining ammo.
     
@@ -730,7 +730,7 @@ export const remnantItems: Item[] = [
     id: '6fk8ea',
     description: `PRESS: Deploys a Flamethrower turret which lasts until its Ammo is exhausted. Turrets that can aim will prioritze targts taht the player Aims at. Press SKILL again to enable autonomous targeting.
 
-    HOLD: Deploys to Heavy Carry Mode. If Engineer Prime is available, will Overclock the weapon if already in hand or on the battlefield.
+    HOLD: Deploys to Heavy Carry Mode. If ENGINEER Prime is available, will Overclock the weapon if already in hand or on the battlefield.
     
     DOUBLE PRESS: The weapon is reclaimed, returning 75% of its remaining ammo
     
@@ -752,7 +752,7 @@ export const remnantItems: Item[] = [
     id: 'ki92op',
     description: `PRESS: Deploys a Impact Cannon Turret which lasts until its Ammo is exhausted. Turrets that can aim will prioritze targts taht the player Aims at. Press SKILL again to enable autonomous targeting.
 
-    HOLD: Deploys to Heavy Carry Mode. If Engineer Prime is available, will Overclock the weapon if already in hand or on the battlefield.
+    HOLD: Deploys to Heavy Carry Mode. If ENGINEER Prime is available, will Overclock the weapon if already in hand or on the battlefield.
     
     DOUBLE PRESS: The weapon is reclaimed, returning 75% of its remaining ammo.
     
@@ -804,7 +804,7 @@ export const remnantItems: Item[] = [
     name: 'Fortune Hunter',
     imagePath: '/skill/fortune_hunter.png',
     id: 'dajt58',
-    description: `Increases the Explorer's treasure sense to reveal special items within 40m for all allies. Lasts 60s.`,
+    description: `Increases the EXPLORER's treasure sense to reveal special items within 40m for all allies. Lasts 60s.`,
     cooldown: 90,
     howToGet: `Unlocks at level 10`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Fortune+Hunter`],
@@ -853,7 +853,7 @@ export const remnantItems: Item[] = [
     name: 'Bulletstorm',
     imagePath: '/skill/bulletstorm.png',
     id: 'xpqq62',
-    description: `Unleashes the full power and speed of the Gunslinger. Increases Fire Rate 20% and Reload Speed 50% of all ranged weapons. Lasts 20s. 
+    description: `Unleashes the full power and speed of the GUNSLINGER. Increases Fire Rate 20% and Reload Speed 50% of all ranged weapons. Lasts 20s. 
 
     Single Shot Weapons become fully-automatic. Kills instantly reload the current weapon. 
     
@@ -923,7 +923,7 @@ export const remnantItems: Item[] = [
     name: 'Minion: Hollow',
     imagePath: '/skill/minion_hollow.png',
     id: 'kk4yre',
-    description: `PRESS: Summons a Root Hollow Minion to fight by your side. Costs 15% of Max Health to summon, but will not kil Summoner. Max (2)
+    description: `PRESS: Summons a Root Hollow Minion to fight by your side. Costs 15% of Max Health to summon, but will not kil SUMMONER. Max (2)
 
     HOLD: SACRIFICE Root Hollow Minion to explode, dealing 150 damage within 5m. Reduces Skill Cooldown by up to 50% based on remaining Health of each Minion Sacrificied.`,
     cooldown: 30,
@@ -940,7 +940,7 @@ export const remnantItems: Item[] = [
     name: 'Minion: Flyer',
     imagePath: '/skill/minion_flyer.png',
     id: 'o7pvqx',
-    description: `PRESS: Summons a Root Flyer Minion to fight by your side. Costs 10% of Max Health to summon, but will not kil Summoner. Max (2).
+    description: `PRESS: Summons a Root Flyer Minion to fight by your side. Costs 10% of Max Health to summon, but will not kil SUMMONER. Max (2).
 
     HOLD: SACRIFICE all Root Flyer Minions, dealing 50 damage within 3m and spawning 3 homing projectiles which explode on contact for 150 damage each`,
     cooldown: 45,
@@ -957,7 +957,7 @@ export const remnantItems: Item[] = [
     name: 'Minion: Reaver',
     imagePath: '/skill/minion_reaver.png',
     id: 'gs8zdv',
-    description: `PRESS: Summons a Root Reaver Minion to fight by your side. Costs 35% of Max Health to summon, but will not kill Summoner. Max (1).
+    description: `PRESS: Summons a Root Reaver Minion to fight by your side. Costs 35% of Max Health to summon, but will not kill SUMMONER. Max (1).
 
     HOLD: SACRIFICE all Root Reaver Minion, dealing 200 damage within 6m and spawning Spore Bombs which bounce and explode on contact for 200 damage each.
     
@@ -1070,7 +1070,7 @@ export const remnantItems: Item[] = [
     blightResistance: 0,
     toxinResistance: 1,
     description: `The visibility in this helmet leaves much to be desired, but that's not really the point. It goes a long way in keeping your head on your shoulders.`,
-    howToGet: `Starting Armor set for the Challenger`,
+    howToGet: `Starting Armor set for the CHALLENGER`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Bruiser+Helmet`],
   },
   {
@@ -1216,7 +1216,7 @@ export const remnantItems: Item[] = [
     blightResistance: 2,
     toxinResistance: 1,
     description: `This face covering protects you from contagions without obstructing your sight. You feel like a creature from another world in this thing. Perhaps that's fitting. `,
-    howToGet: `Starting Equipment for the Medic Archetype.
+    howToGet: `Starting Equipment for the MEDIC Archetype.
     Sold by Whispers in Ward 13`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Field+Medic+Mask`],
   },
@@ -1235,7 +1235,7 @@ export const remnantItems: Item[] = [
     blightResistance: 0,
     toxinResistance: 1,
     description: `Something about this hat just feels right. Paired with a bandana, it keeps the sun and elements from hindering your all-important aim. `,
-    howToGet: `Starting equipment for the Gunslinger Archetype.
+    howToGet: `Starting equipment for the GUNSLINGER Archetype.
     Can be bought from Whispers in Ward 13`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/High+Noon+Hat`],
   },
@@ -1272,7 +1272,7 @@ export const remnantItems: Item[] = [
     blightResistance: 0,
     toxinResistance: 0,
     description: `This helmet is reminiscent of a statue from a time long, long before. `,
-    howToGet: `Can be bought from Whispers after getting the Archon archetype.`,
+    howToGet: `Can be bought from Whispers after getting the ARCHON archetype.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Labyrinth+Headplate`],
   },
   {
@@ -1359,7 +1359,7 @@ export const remnantItems: Item[] = [
     blightResistance: 3,
     toxinResistance: 0,
     description: `A hunting mask with advanced respirator capabilities. It purifies yet does nothing to mask the stench of death that permeates the air. `,
-    howToGet: `Starting equipment for the Hunter Archetype
+    howToGet: `Starting equipment for the HUNTER Archetype
     Can be fought from Whispers in Ward 13`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Nightstalker+Shroud`],
   },
@@ -1397,7 +1397,7 @@ export const remnantItems: Item[] = [
     blightResistance: 1,
     toxinResistance: 0,
     description: `This hat once belonged to Founder Ford. He was only a captain then-a much younger Ford, from a long time and many lives ago. `,
-    howToGet: `Starting equipment for the Explorer`,
+    howToGet: `Starting equipment for the EXPLORER`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Realmwalker+Beret`],
   },
   {
@@ -1451,7 +1451,7 @@ export const remnantItems: Item[] = [
     blightResistance: 0,
     toxinResistance: 2,
     description: `An overwhelming amount of information shines within the helmet's display, the vast majority of it incomprehensible. Whether that's because it's a foreign language or the helmet has been damaged by whatever destroyed this place is anybody's guess. `,
-    howToGet: `Starting equipment for the Engineer.
+    howToGet: `Starting equipment for the ENGINEER.
     Can be found on a dead body in The Eon Vault in N'erud`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Technician+Helmet`],
   },
@@ -1470,7 +1470,7 @@ export const remnantItems: Item[] = [
     blightResistance: 0,
     toxinResistance: 1,
     description: `For some reason, your head feels naked without this simple baseball cap with a fox logo. That aside, it keeps the sun out of your eyes, and that's all you ask of it.`,
-    howToGet: `Starting equipment for the Handler
+    howToGet: `Starting equipment for the HANDLER
     Can be bought from Whispers in Ward 13`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Trainer+Cap`],
   },
@@ -1564,7 +1564,7 @@ export const remnantItems: Item[] = [
     blightResistance: 0,
     toxinResistance: 2,
     description: `This thing is difficult to put on or take off and makes you feel like afwalkipig ta In the thick of battle, that's exactly what you're looking for.`,
-    howToGet: `Starting equipment for the Challenger Class
+    howToGet: `Starting equipment for the CHALLENGER Class
     Sold by Whispers in Ward 13`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Bruiser+Bodyplate`],
   },
@@ -1677,7 +1677,7 @@ export const remnantItems: Item[] = [
     blightResistance: 3,
     toxinResistance: 0,
     description: `A long coat over a plate of armor. The metal could be thicker, sure, but your primary concern is safe and speedy travel to the wounded.`,
-    howToGet: `Starting Equipment for the Medic Archetype.
+    howToGet: `Starting Equipment for the MEDIC Archetype.
     Sold by Whispers in Ward 13`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Field+Medic+Overcoat`],
   },
@@ -1696,7 +1696,7 @@ export const remnantItems: Item[] = [
     blightResistance: 0,
     toxinResistance: 2,
     description: `A rugged amalgamation of canvas, denim, leather, and steel. These different materials all serve the same purpose of keeping you covered without inhibitin aiming mobility.`,
-    howToGet: `Starting equipment for the Gunslinger Archetype.
+    howToGet: `Starting equipment for the GUNSLINGER Archetype.
     Whispers sells this item at the following cost: x1,150 Scrap`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/High+Noon+Duds`],
   },
@@ -1733,7 +1733,7 @@ export const remnantItems: Item[] = [
     blightResistance: 0,
     toxinResistance: 0,
     description: `Though the cloth and tassels possess a seemingly primitive design, the pure energy wracking down your spine reminds you otherwise.`,
-    howToGet: `Can be bought from Whispers after getting the Archon archetype.`,
+    howToGet: `Can be bought from Whispers after getting the ARCHON archetype.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Labyrinth+Mantle`],
   },
   {
@@ -1787,7 +1787,7 @@ export const remnantItems: Item[] = [
     blightResistance: 2,
     toxinResistance: 0,
     description: `This old coat is shabby, but who's really looking? The wealth of interior ammunition pockets more than makes up for it.`,
-    howToGet: `Starting equipment for the Hunter Archetype
+    howToGet: `Starting equipment for the HUNTER Archetype
     Can be fought from Whispers in Ward 13`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Nightstalker+Garb`],
   },
@@ -1825,7 +1825,7 @@ export const remnantItems: Item[] = [
     blightResistance: 4,
     toxinResistance: 0,
     description: `It's not even frayed. How is that possible? Unless the World Stones did the same thing to Ford's clothes as they did to Ford himself.`,
-    howToGet: `Starting equipment for the Explorer`,
+    howToGet: `Starting equipment for the EXPLORER`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Realmwalker+Tunic`],
   },
   {
@@ -1897,7 +1897,7 @@ export const remnantItems: Item[] = [
     blightResistance: 0,
     toxinResistance: 2,
     description: `The Xul were engineers and builders, but this armor was made to withstand a grenade blast. Was this built for safety or something else?`,
-    howToGet: `Starting equipment for the Engineer.
+    howToGet: `Starting equipment for the ENGINEER.
     Can be found on a dead body in The Eon Vault in N'erud`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Technician+Bodyplate`],
   },
@@ -1916,7 +1916,7 @@ export const remnantItems: Item[] = [
     blightResistance: 1,
     toxinResistance: 3,
     description: `This isn't just any denim jacket, it's your denim jacket. It's not especial pdale. 7 ready, but it's comfortable, and in it you feel ready for anything.`,
-    howToGet: `Starting equipment for the Handler
+    howToGet: `Starting equipment for the HANDLER
     Can be bought from Whispers in Ward 13`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Trainer+Clothes`],
   },
@@ -2009,7 +2009,7 @@ export const remnantItems: Item[] = [
     blightResistance: 0,
     toxinResistance: 2,
     description: `While they're not exactly aesthetic, you're more comfortable in twice-temper steel and repurposed tire tread than you care to admit.`,
-    howToGet: `Starting Armor set for the Challenger
+    howToGet: `Starting Armor set for the CHALLENGER
     Sold by Whispers in Ward 13`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Bruiser+Boots`],
   },
@@ -2124,7 +2124,7 @@ export const remnantItems: Item[] = [
     blightResistance: 2,
     toxinResistance: 0,
     description: `With an assortment of pockets, pouches, and loops for your various concoctions you're essentially a walking apothecary.`,
-    howToGet: `Starting Equipment for the Medic Archetype.
+    howToGet: `Starting Equipment for the MEDIC Archetype.
     Sold by Whispers in Ward 13`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Field+Medic+Trousers`],
   },
@@ -2143,7 +2143,7 @@ export const remnantItems: Item[] = [
     blightResistance: 0,
     toxinResistance: 2,
     description: `Durable pants with spurred boots and a strip of leather for a belt. The only accent is an imposing skull on the belt buckle, a constant reminder that death is always lurking in the shadows.`,
-    howToGet: `Starting equipment for the Gunslinger Archetype.
+    howToGet: `Starting equipment for the GUNSLINGER Archetype.
     Can be bought from Whispers in Ward 13`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/High+Noon+Soles`],
   },
@@ -2180,7 +2180,7 @@ export const remnantItems: Item[] = [
     blightResistance: 0,
     toxinResistance: 0,
     description: `The grime of a thousand different worlds mars the side of boots that walk in one place where all paths converge.`,
-    howToGet: `Can be bought from Whispers after getting the Archon class.`,
+    howToGet: `Can be bought from Whispers after getting the ARCHON class.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Labyrinth+Treads`],
   },
   {
@@ -2234,7 +2234,7 @@ export const remnantItems: Item[] = [
     blightResistance: 1,
     toxinResistance: 0,
     description: `Thin shoes that fit perfectly and feel like they practically disappear on your feet. They're ideal for stealthy maneuvering while stalking your prey.`,
-    howToGet: `Starting equipment for the Hunter Archetype
+    howToGet: `Starting equipment for the HUNTER Archetype
     Can be fought from Whispers in Ward 13`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Nightstalker+Pants`],
   },
@@ -2272,7 +2272,7 @@ export const remnantItems: Item[] = [
     blightResistance: 3,
     toxinResistance: 0,
     description: `There is hardly a world where these boots haven't tread.`,
-    howToGet: `Starting equipment for the Explorer`,
+    howToGet: `Starting equipment for the EXPLORER`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Realmwalker+Pantaloons`],
   },
   {
@@ -2344,7 +2344,7 @@ export const remnantItems: Item[] = [
     blightResistance: 0,
     toxinResistance: 2,
     description: `Designed for stability rather than speed. Plant your weight in these things, and you'd be very difficult to move.`,
-    howToGet: `Starting equipment for the Engineer.
+    howToGet: `Starting equipment for the ENGINEER.
     Can be found on a dead body in The Eon Vault in N'erud`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Technician+Greaves`],
   },
@@ -2363,7 +2363,7 @@ export const remnantItems: Item[] = [
     blightResistance: 1,
     toxinResistance: 2,
     description: `Durable pants that are used to handling more than a little dirt and fur. The canteen is for your companion, while the flask is all yours.`,
-    howToGet: `Starting equipment for the Handler
+    howToGet: `Starting equipment for the HANDLER
     Can be bought from Whispers in Ward 13`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Trainer+Workboots`],
   },
@@ -2456,7 +2456,7 @@ export const remnantItems: Item[] = [
     blightResistance: 0,
     toxinResistance: 1,
     description: `These gauntlets are as tough as steel, as hard as stone, and up for whatever dangers or challenges come their way. They suit you well.`,
-    howToGet: `Starting Armor set for the Challenger
+    howToGet: `Starting Armor set for the CHALLENGER
     Sold by Whispers in Ward 13`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Bruiser+Gloves`],
   },
@@ -2571,7 +2571,7 @@ export const remnantItems: Item[] = [
     blightResistance: 1,
     toxinResistance: 1,
     description: `At a glance it's clear that these fingerless gloves won't keep you warm or offer much protection. Even still, you wear them because they provide improved grip without impacting precision.`,
-    howToGet: `Starting Equipment for the Medic Archetype.
+    howToGet: `Starting Equipment for the MEDIC Archetype.
     Sold by Whispers in Ward 13`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Field+Medic+Gloves`],
   },
@@ -2590,7 +2590,7 @@ export const remnantItems: Item[] = [
     blightResistance: 0,
     toxinResistance: 1,
     description: `Metal arm guards paired with well-worn gloves that are more comfortable gripping a warm gun than reaching for a handshake. They're tasked with protecting your greatest asset - your trigger finger.`,
-    howToGet: `Starting equipment for the Gunslinger Archetype.
+    howToGet: `Starting equipment for the GUNSLINGER Archetype.
     Can be bought from Whispers in Ward 13`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/High+Noon+Armguards`],
   },
@@ -2627,7 +2627,7 @@ export const remnantItems: Item[] = [
     blightResistance: 0,
     toxinResistance: 0,
     description: `Craggy, uneven stone melds tightly to your hands and forearms, as if the skin of something that once was has at last found new purchase.`,
-    howToGet: `Can be bought from Whispers after getting the Archon archetype.`,
+    howToGet: `Can be bought from Whispers after getting the ARCHON archetype.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Labyrinth+Gauntlets`],
   },
   {
@@ -2681,7 +2681,7 @@ export const remnantItems: Item[] = [
     blightResistance: 7,
     toxinResistance: 0,
     description: `A single glove and arm wrap are all you need or‘want for ar protection. The only defense you can truly rely on is a loaded gun and a cle shot.`,
-    howToGet: `Starting equipment for the Hunter Archetype
+    howToGet: `Starting equipment for the HUNTER Archetype
     Can be bought from Whispers in Ward 13`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Nightstalker+Gloves`],
   },
@@ -2719,7 +2719,7 @@ export const remnantItems: Item[] = [
     blightResistance: 1,
     toxinResistance: 0,
     description: `Ford's gloves were designed for warmth and dexterity. The soldier who wore these was not swinging blades or forging metal. He was pulling triggers and throwing grenades`,
-    howToGet: `Starting equipment for the Explorer`,
+    howToGet: `Starting equipment for the EXPLORER`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Realmwalker+Gloves`],
   },
   {
@@ -2791,7 +2791,7 @@ export const remnantItems: Item[] = [
     blightResistance: 0,
     toxinResistance: 1,
     description: `A tingle runs across your palm within these gloves - like bugs skittering over your hand.`,
-    howToGet: `Starting equipment for the Engineer.
+    howToGet: `Starting equipment for the ENGINEER.
     Can be found on a dead body in The Eon Vault in N'erud`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Technician+Gloves`],
   },
@@ -2810,7 +2810,7 @@ export const remnantItems: Item[] = [
     blightResistance: 1,
     toxinResistance: 1,
     description: `An arm guard that also functions as a bite sleeve for training on the subtle nuances of when and who to bite.`,
-    howToGet: `Starting equipment for the Handler
+    howToGet: `Starting equipment for the HANDLER
     Can be bought from Whispers in Ward 13`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Trainer+Bracer`],
   },
@@ -2876,7 +2876,7 @@ export const remnantItems: Item[] = [
     name: 'Constrained Heart',
     imagePath: '/relic/constrained_heart.png',
     id: 'rlezcg',
-    description: `On use regenerates 20 Health per second for 5s and grants 2 Stacks of Bulwark while heal is active.`,
+    description: `On use regenerates 20 Health per second for 5s and grants 2 Stacks of BULWARK while heal is active.`,
     howToGet: `Cass at Ward 13 for 1,250 Scrap.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Constrained+Heart`],
   },
@@ -3500,7 +3500,7 @@ export const remnantItems: Item[] = [
     imagePath: '/mainhand/as_10_bulldog.png',
     id: 'va7cfd',
     description: `A brutal drum-fed fully-automatic 10 gauge shotgun designed for close-quarters combat.`,
-    howToGet: `Starting equipment for the Challenger Class
+    howToGet: `Starting equipment for the CHALLENGER Class
     Can be bought from Brabus at Ward 13`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/AS-10+Bulldog`],
   },
@@ -3512,7 +3512,7 @@ export const remnantItems: Item[] = [
     imagePath: '/mainhand/blackmaw_ar_47.png',
     id: 'phh1xe',
     description: `A fully automatic rifle with a medium capacity. Highly effective with controlled bursts.`,
-    howToGet: `Starting equipment for the Handler Class
+    howToGet: `Starting equipment for the HANDLER Class
     Can be bought from Brabus at Ward 13`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Blackmaw+AR-47`],
   },
@@ -3607,7 +3607,7 @@ export const remnantItems: Item[] = [
     imagePath: '/mainhand/crossbow.png',
     id: 'x94ze2',
     description: `An accurate and deadly single-shot crossbow with a low sound profile.`,
-    howToGet: `Starting equipment for the Summoner Archetype`,
+    howToGet: `Starting equipment for the SUMMONER Archetype`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Crossbow`],
   },
   {
@@ -3633,7 +3633,7 @@ export const remnantItems: Item[] = [
     imagePath: '/mainhand/fords_scattergun.png',
     id: '8n3e07',
     description: `An incredibly powerful 12 gauge shotgun with a wide spread. High damage, slow reload.`,
-    howToGet: `Starting Long Gun for the Explorer`,
+    howToGet: `Starting Long Gun for the EXPLORER`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Ford's+Scattergun`],
   },
   {
@@ -3645,7 +3645,7 @@ export const remnantItems: Item[] = [
     id: 'cda7lb',
     description: `A powerful single-shot sniper rifle with excellent range and pinpoint accuracy. Comes with a 3x scope. Tap SCOPE to toggle.`,
     howToGet: `Can be bought from Brabus at Ward 13
-    Starting Long Gun for the Hunter archetype.`,
+    Starting Long Gun for the HUNTER archetype.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Huntmaster+M1`],
   },
   {
@@ -4061,7 +4061,7 @@ export const remnantItems: Item[] = [
     imagePath: '/melee/heros_sword.png',
     id: '5o3cq4',
     description: `An ancient, quick, and versatile blade suited for many situations. Charge attacks cast a projectile for dealing melee damage at range.`,
-    howToGet: `It is the starting Melee Weapon for the Explorer`,
+    howToGet: `It is the starting Melee Weapon for the EXPLORER`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Hero's+Sword`],
     linkedItems: {
       mod: {
@@ -4172,7 +4172,7 @@ export const remnantItems: Item[] = [
     imagePath: '/melee/rebellion_spear.png',
     id: 'qy94qr',
     description: `A spear perfect for staying at a distance. Has excellent range, great recovery, and focused direct damage for one on one combat.`,
-    howToGet: `Starting equipment for the Summoner Archetype`,
+    howToGet: `Starting equipment for the SUMMONER Archetype`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Rebellion+Spear`],
   },
   {
@@ -4562,7 +4562,7 @@ export const remnantItems: Item[] = [
     id: 'pbtmmj',
     description: `An accurate semi-automatic pistol that can rapidly fire small-caliber bullets.`,
     howToGet: `Can be bought from Brabus in Ward 13
-    Starting Hand Gun for the Hunter Archetype.`,
+    Starting Hand Gun for the HUNTER Archetype.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Repeater+Pistol`],
   },
   {
@@ -6026,7 +6026,7 @@ export const remnantItems: Item[] = [
     id: '7js906',
     description: `Empowers weapon after 5 hits. While empowered. the next Charged Agelee hit strikes all enemies within 10m with SHOCK Damage.`,
     maxLevelBonus: `The SHOCK Damage now applies OVERLOADED dealing 100 damage over 5.05s.`,
-    howToGet: `Root Earth - Drop from Banein Twilight Vale (obtained when going for the InvaderArchetype)`,
+    howToGet: `Root Earth - Drop from Banein Twilight Vale (obtained when going for the INVADER Archetype)`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Shocker`],
   },
   {
@@ -6494,7 +6494,7 @@ Exclusive to The Awakened King DLC"`,
     imagePath: '/amulet/gunslingers_charm.png',
     id: 'qqg64h',
     description: `Increases Fire Rate by 15% and Reload Speed by 20%.`,
-    howToGet: `Ward 13: Talk to Mudtooth and ask him about his stories, repeat this multiple times (about 10 stories). Eventually Mudtooth will be thankful for your time and reward you with the Gunslinger's Ring. Keep playing the game, until you complete the second world. Go back to Mudtooth and repeat the process until he rewards you with the Gunslinger's Charm.`,
+    howToGet: `Ward 13: Talk to Mudtooth and ask him about his stories, repeat this multiple times (about 10 stories). Eventually Mudtooth will be thankful for your time and reward you with the GUNSLINGER's Ring. Keep playing the game, until you complete the second world. Go back to Mudtooth and repeat the process until he rewards you with the GUNSLINGER's Charm.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Gunslinger's+Charm`],
   },
   {
@@ -7729,7 +7729,7 @@ Can also can be bought from Reggie at Ward 13 for 500"`,
     imagePath: '/ring/gunslingers_ring.png',
     id: '976r2x',
     description: `Increases Firearm Swap Speed by 30% and Reload Speed by 10%.`,
-    howToGet: `Ward 13: Talk to Mudtooth and ask him about his stories, repeat this multiple times (about 10 stories). Eventually Mudtooth will be thankful for your time and reward you with the Gunslinger's Ring.`,
+    howToGet: `Ward 13: Talk to Mudtooth and ask him about his stories, repeat this multiple times (about 10 stories). Eventually Mudtooth will be thankful for your time and reward you with the GUNSLINGER's Ring.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Gunslinger's+Ring`],
   },
   {
@@ -7842,7 +7842,7 @@ Exclusive Ring for The Awakened King DLC."`,
     name: "Mechanic's Cog",
     imagePath: '/ring/mechanics_cog.png',
     id: 'ngue5b',
-    description: `While carrying an Engineer Heavy Weapon, gain 15% Movement Speed and 1 stack of BULWARK`,
+    description: `While carrying an ENGINEER Heavy Weapon, gain 15% Movement Speed and 1 stack of BULWARK`,
     howToGet: `Can be bought from Cass.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Mechanic's+Cog`],
   },
@@ -8539,7 +8539,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     description: `Increases STATUS EFFECT duration against enemies by 10%.`,
     maxLevelBonus: `At max level, Affliction Increases STATUS EFFECT duration against enemies by +100%
     However, it does NOT increase a Status Total Damage, effectively reducing Status Damage by 1/2.`,
-    howToGet: `Affliction is the Archetype Trait of the Ritualist`,
+    howToGet: `Affliction is the Archetype Trait of the RITUALIST`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Affliction`],
     linkedItems: {
       archtype: {
@@ -8554,7 +8554,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     id: 'wu3w8t',
     description: `Increases Ammo Reserves`,
     maxLevelBonus: `At max level, Ammo Reserves Increases Ammo Reserves by 50%`,
-    howToGet: `Ammo Reserves is the Archetype Trait of the Gunslinger`,
+    howToGet: `Ammo Reserves is the Archetype Trait of the GUNSLINGER`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Ammo+Reserves`],
     linkedItems: {
       archtype: {
@@ -8662,7 +8662,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     id: 'm6i4dl',
     description: `Increases Mod and Casting Speed`,
     maxLevelBonus: `At max level, Flash Caster Increases Mod and Casting Speed by 50%`,
-    howToGet: `Flash Caster is the Archetype Trait of the Archon`,
+    howToGet: `Flash Caster is the Archetype Trait of the ARCHON`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Flash+Caster`],
     linkedItems: {
       archtype: {
@@ -8687,7 +8687,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     id: 'osj7se',
     description: `Increases Armor Effectiveness`,
     maxLevelBonus: `At max level, Fortify Increases Armor Effectiveness by 50%`,
-    howToGet: `Fortify is the Archetype Trait of the Engineer`,
+    howToGet: `Fortify is the Archetype Trait of the ENGINEER`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Fortify`],
     linkedItems: {
       archtype: {
@@ -8724,7 +8724,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     id: 'vn3gsg',
     description: `Reduces Friendly Fire damage dealt and received`,
     maxLevelBonus: `At max level, Kinship Reduces Friendly Dealt and Received by 80%`,
-    howToGet: `Kinship is the Archetype Trait of the Handler`,
+    howToGet: `Kinship is the Archetype Trait of the HANDLER`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Kinship`],
     linkedItems: {
       archtype: {
@@ -8739,7 +8739,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     id: '157qcj',
     description: `Increases Weapon Ideal Range`,
     maxLevelBonus: `At max level, Longshot Increases Weapon Ideal Range by 600(cm)`,
-    howToGet: `Longshot is the Archetype Trait of the Hunter`,
+    howToGet: `Longshot is the Archetype Trait of the HUNTER`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Longshot`],
     linkedItems: {
       archtype: {
@@ -8754,7 +8754,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     id: 'v1uiyd',
     description: `Increases Consumable Duration`,
     maxLevelBonus: `At max level, Potency Increases Consumable Duration by 100%`,
-    howToGet: `Potency is the Archetype Trait of the Alchemist`,
+    howToGet: `Potency is the Archetype Trait of the ALCHEMIST`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Potency`],
     linkedItems: {
       archtype: {
@@ -8780,7 +8780,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     id: 'ysp1wu',
     description: `Increases Health Regeneration`,
     maxLevelBonus: `At max level, Regrowth Increases Health Regen by 1.5/s`,
-    howToGet: `Regrowth is the Archetype Trait of the Summoner`,
+    howToGet: `Regrowth is the Archetype Trait of the SUMMONER`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Regrowth`],
     linkedItems: {
       archtype: {
@@ -8805,7 +8805,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     id: 'a4idgl',
     description: `Increases the Speed of Reviving and being Revived`,
     maxLevelBonus: `At max level, Revivalist Increases the Speed of Reviving and being Revived by +50%`,
-    howToGet: `Revivalist is unlocked by reviving a teammate. (Handler's Dog Companion included)`,
+    howToGet: `Revivalist is unlocked by reviving a teammate. (HANDLER's Dog Companion included)`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Revivalist`],
   },
   {
@@ -8867,7 +8867,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     id: 'sd2hry',
     description: `Reduces dodge weight threshold (incrementing the weight you can carry before increasing your dodge class).`,
     maxLevelBonus: `At max level, Strong Back Reduces weight threshold by 15`,
-    howToGet: `Strong Back is the Archetype Trait of the Challenger`,
+    howToGet: `Strong Back is the Archetype Trait of the CHALLENGER`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Strong+Back`],
     linkedItems: {
       archtype: {
@@ -8882,7 +8882,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     id: '3ochlm',
     description: `Increases movement`,
     maxLevelBonus: `At max level, Swiftness Increases all Movement Speed by 15%`,
-    howToGet: `Swiftness is the Archetype Trait of the Explorer`,
+    howToGet: `Swiftness is the Archetype Trait of the EXPLORER`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Swiftness`],
     linkedItems: {
       archtype: {
@@ -8897,7 +8897,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     id: 'pbak5a',
     description: `Increases Healing done by all sources, including Relics, skills, equipment, and weapon mods. `,
     maxLevelBonus: `At max level, Triage Increases healing by 50%`,
-    howToGet: `Triage is the Archetype Trait of the Medic`,
+    howToGet: `Triage is the Archetype Trait of the MEDIC`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Triage`],
     linkedItems: {
       archtype: {
@@ -8912,7 +8912,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     id: 'pkmmg6',
     description: `Increases Evade Window`,
     maxLevelBonus: `At max level, Untouchable Increases Evade Window by 30%`,
-    howToGet: `Untouchable is the Archetype Trait of the Invader`,
+    howToGet: `Untouchable is the Archetype Trait of the INVADER`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Untouchable`],
     linkedItems: {
       archtype: {
@@ -9369,13 +9369,13 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     type: 'prime',
     id: 's8eytq',
     description: `
-    Dealing 65 Base Ranged Weakspot Damage extends the duration of active Hunter Skills by 2.5s. Can extend timer beyond its initial duration
+    Dealing 65 Base Ranged Weakspot Damage extends the duration of active HUNTER Skills by 2.5s. Can extend timer beyond its initial duration
 
     Upgraded at Level 5
-    Dealing 60 Base Ranged Weakspot Damage extends the duration of active Hunter Skills by 3s. Can extend timer beyond its initial duration
+    Dealing 60 Base Ranged Weakspot Damage extends the duration of active HUNTER Skills by 3s. Can extend timer beyond its initial duration
 
     Upgraded at level 10
-    Dealing 55 Base Ranged Weakspot Damage extends the duration of active Hunter Skills by 3.5s. Can extend timer beyond its initial duration`,
+    Dealing 55 Base Ranged Weakspot Damage extends the duration of active HUNTER Skills by 3.5s. Can extend timer beyond its initial duration`,
     howToGet: `Automatically unlocked.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Dead+to+Rights`],
     linkedItems: {
@@ -9394,12 +9394,12 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     Unlocked at level 1
 Gain 4% Ranged Damage and 1.5% Weakspot Damage.
 
-Increases with Hunter Level
+Increases with HUNTER Level
 
 Upgrade Unlocked at level 6
 Gain 24% Ranged Damage, 9% Weakspot Damage and 5% Ranged Critical Chance.
 
-Increases with Hunter Level (level 10: 40% Ranged Damage and 15% Weakspot Damage)
+Increases with HUNTER Level (level 10: 40% Ranged Damage and 15% Weakspot Damage)
     `,
     howToGet: `Unlocked at Level 1`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Deadeye`],
@@ -9459,10 +9459,10 @@ Firearms gain 15% Reload Speed and 15% Increased Movement Speed after a Kill. La
     type: 'relic',
     description: `
     Unlocked at level 4
-Using a Relic extends the duration of any active Hunter Skill by 5s. Effect degrades with each subsequent use.
+Using a Relic extends the duration of any active HUNTER Skill by 5s. Effect degrades with each subsequent use.
 
 Upgrade unlocked at level 9
-Using a Relic extends the duration of any active Hunter Skill by 10s. Effect degrades with each subsequent use. Weakspot Kills against MARKED enemies increase speed of next Relic Use within 15s by 5%. Stacks 10x.
+Using a Relic extends the duration of any active HUNTER Skill by 10s. Effect degrades with each subsequent use. Weakspot Kills against MARKED enemies increase speed of next Relic Use within 15s by 5%. Stacks 10x.
     `,
     howToGet: `Unlocked at Level 4`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Intuition`],
@@ -9479,15 +9479,15 @@ Using a Relic extends the duration of any active Hunter Skill by 10s. Effect deg
     id: 'd58t4k',
     type: 'prime',
     description: `
-    When Handler is downed, their Companion will attempt to revive them at 50% Max Health. Can be used to revive allies with Command. Downed ally must have a Relic charge. 
+    When HANDLER is downed, their Companion will attempt to revive them at 50% Max Health. Can be used to revive allies with Command. Downed ally must have a Relic charge. 
     Cooldown: 120s
 
     Upgraded at Level 5
-    When Handler is downed, their Companion will attempt to revive them at 50% Max Health. Can be used to revive allies with Command. Downed ally must have a Relic charge.
+    When HANDLER is downed, their Companion will attempt to revive them at 50% Max Health. Can be used to revive allies with Command. Downed ally must have a Relic charge.
     Cooldown: 105s
 
     Upgraded at level 10
-    When Handler is downed, their Companion will attempt to revive them at 50% Max Health. Can be used to revive allies with Command. Downed ally must have a Relic charge.
+    When HANDLER is downed, their Companion will attempt to revive them at 50% Max Health. Can be used to revive allies with Command. Downed ally must have a Relic charge.
     Cooldown: 90s`,
     howToGet: `Automatically unlocked`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Bonded`],
@@ -9509,7 +9509,7 @@ Using a Relic extends the duration of any active Hunter Skill by 10s. Effect deg
     Upgrade Unlocked at level 6
     Gain 18% Ranged and Skill Damage and 5% Ranged and Skill Critical Chance while Companion is active and within 40m of the player.
     
-    Increases with Handler Level (level 10: 30% Ranged and Skill Damage)`,
+    Increases with HANDLER Level (level 10: 30% Ranged and Skill Damage)`,
     howToGet: `Unlocked at Level 1`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Pack+Hunter`],
     linkedItems: {
@@ -9525,10 +9525,10 @@ Using a Relic extends the duration of any active Hunter Skill by 10s. Effect deg
     type: 'team',
     id: 'z3sz58',
     description: `
-    Increases Movement Speed by 10%. All allies within 10m of the Handler gain the Handler's Movement Speed (if faster).
+    Increases Movement Speed by 10%. All allies within 10m of the HANDLER gain the HANDLER's Movement Speed (if faster).
 
     Upgrade unlocked at level 7
-    Increases Movement Speed by 10%. All allies within 10m of the Handler gain the Handler's Movement Speed (if faster). Reduces the Stamina Cost of actions for allies by 15%.`,
+    Increases Movement Speed by 10%. All allies within 10m of the HANDLER gain the HANDLER's Movement Speed (if faster). Reduces the Stamina Cost of actions for allies by 15%.`,
     howToGet: `Unlocked at Level 2`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Spirit+of+the+Wolf`],
     linkedItems: {
@@ -9544,10 +9544,10 @@ Using a Relic extends the duration of any active Hunter Skill by 10s. Effect deg
     type: 'utility',
     id: 'y36q6p',
     description: `
-    Handler and Companion gain 15% increased Revive Speed.
+    HANDLER and Companion gain 15% increased Revive Speed.
 
     Upgrade unlocked at level 8
-    Handler and Companion gain 30% increased Revive Speed. While Handler or Companion are reviving, they receive 50% less damage.`,
+    HANDLER and Companion gain 30% increased Revive Speed. While HANDLER or Companion are reviving, they receive 50% less damage.`,
     howToGet: `Unlocked at Level 3`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Teamwork`],
     linkedItems: {
@@ -9612,7 +9612,7 @@ Upgrade Unlocked at level 6
 
 Grants a 18% increase to All Damage and 5% Critical Chance
 
-Increases with Medic Level
+Increases with MEDIC Level
 
 (level 10: Grants a 25% increase to All Damage and 5% Critical Chance)`,
     howToGet: `Unlocked at Level 1`,
@@ -9649,10 +9649,10 @@ Increases with Medic Level
     type: 'utility',
     id: 'z2xo76',
     description: `
-Increases the hits Medic can take before losing Grey Health by 1
+Increases the hits MEDIC can take before losing Grey Health by 1
 
 Upgrade unlocked at level 8
-Increases the hits Medic can take before losing Grey Health by 2`,
+Increases the hits MEDIC can take before losing Grey Health by 2`,
     howToGet: `Unlocked at Level 3`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Backbone`],
     linkedItems: {
@@ -9687,13 +9687,13 @@ Increases the hits Medic can take before losing Grey Health by 2`,
     type: 'prime',
     id: 'm6pvhd',
     description: `
-    When activating any Gunslinger Skill, both weapons are instantly reloaded, and gain infinite reserve ammo on all weapons for 5s.
+    When activating any GUNSLINGER Skill, both weapons are instantly reloaded, and gain infinite reserve ammo on all weapons for 5s.
 
     Upgraded at Level 5
-    When activating any Gunslinger Skill, both weapons are instantly reloaded, and gain infinite reserve ammo on all weapons for 6.5s
+    When activating any GUNSLINGER Skill, both weapons are instantly reloaded, and gain infinite reserve ammo on all weapons for 6.5s
     
     Upgraded at level 10
-    When activating any Gunslinger Skill, both weapons are instantly reloaded, and gain infinite reserve ammo on all weapons for 8s.`,
+    When activating any GUNSLINGER Skill, both weapons are instantly reloaded, and gain infinite reserve ammo on all weapons for 8s.`,
     howToGet: `Automatically unlocked.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Loaded`],
     linkedItems: {
@@ -9710,12 +9710,12 @@ Increases the hits Medic can take before losing Grey Health by 2`,
     id: '7mbvc3',
     description: `
     Gain 1.5% Fire Rate and 2.5% Ranged Damage.
-    Increases with Gunslinger Level.
+    Increases with GUNSLINGER Level.
 
     Upgrade Unlocked at level 6
     Gain 15% Fire Rate and 25% Ranged Damage and 5% Crit Chance for all firearms.
     
-    Fire Rate and Damage increases with Gunslinger Level.`,
+    Fire Rate and Damage increases with GUNSLINGER Level.`,
     howToGet: `Unlocked at Level 1`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Swift+Shot`],
     linkedItems: {
@@ -9788,15 +9788,15 @@ Increases the hits Medic can take before losing Grey Health by 2`,
     type: 'prime',
     id: 'je27uv',
     description: `
-    When receiving fatal damage, the Challenger becomes invulnerable for 2s and regenerates 50% of Max Health.
+    When receiving fatal damage, the CHALLENGER becomes invulnerable for 2s and regenerates 50% of Max Health.
     Can only happen once every 10 minutes. Resets at Wordstone or on death.
 
     Upgraded at Level 5
-    When receiving fatal damage, the Challenger becomes invulnerable for 2.5s and regenerates 75% of Max Health.
+    When receiving fatal damage, the CHALLENGER becomes invulnerable for 2.5s and regenerates 75% of Max Health.
     Can only happen once every 10 minutes. Resets at Wordstone or on death.
 
     Upgraded at level 10
-    When receiving fatal damage, the Challenger becomes invulnerable for 3s and regenerates 100% of Max Health.
+    When receiving fatal damage, the CHALLENGER becomes invulnerable for 3s and regenerates 100% of Max Health.
     
     Can only happen once every 10 minutes. Resets at Wordstone or on death.`,
     howToGet: `Automatically unlocked.`,
@@ -9819,7 +9819,7 @@ Increases the hits Medic can take before losing Grey Health by 2`,
     Upgrade Unlocked at level 6
     Grants a 21% increase to All Damage to enemies within 10m. Damage bonus tapers off until 20m. Critical Chance is increased by up to 10%.
     
-    Increases with Challenger Level. 
+    Increases with CHALLENGER Level. 
     
     (Level 10: Grants a 35% increase to All Damage to enemies within 10m. Damage bonus tapers off until 20m. Critical Chance is increased by up to 10%.)`,
     howToGet: `Unlocked at Level 1`,
@@ -9837,10 +9837,10 @@ Increases the hits Medic can take before losing Grey Health by 2`,
     type: 'team',
     id: 'c92847',
     description: `
-    After activating a Challenger Skill, enemies within 10m deal 10% less damage for 15s.
+    After activating a CHALLENGER Skill, enemies within 10m deal 10% less damage for 15s.
 
     Upgrade unlocked at level 7
-    After activating a Challenger Skill, enemies within 10m deal 10% less damage for 15s, with an additional 2.5% damage reduction per enemy affected. (Max 10%)`,
+    After activating a CHALLENGER Skill, enemies within 10m deal 10% less damage for 15s, with an additional 2.5% damage reduction per enemy affected. (Max 10%)`,
     howToGet: `Unlocked at Level 2`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Intimidating+Presence`],
     linkedItems: {
@@ -9875,10 +9875,10 @@ Increases the hits Medic can take before losing Grey Health by 2`,
     type: 'relic',
     id: '7dvm5a',
     description: `
-    Using a Relic within 10m of an enemy grants 2 stacks of Bulwark for 10s.
+    Using a Relic within 10m of an enemy grants 2 stacks of BULWARK for 10s.
 
     Upgrade unlocked at level 9
-    Using a Relic within 10m of an enemy grants 2 stacks of Bulwark and 10% Increased Damage for 10s.`,
+    Using a Relic within 10m of an enemy grants 2 stacks of BULWARK and 10% Increased Damage for 10s.`,
     howToGet: `Unlocked at Level 4`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Face+of+Danger`],
     linkedItems: {
@@ -9894,13 +9894,13 @@ Increases the hits Medic can take before losing Grey Health by 2`,
     type: 'prime',
     id: 'rx6e2w',
     description: `
-    Alchemist can have 1 additional Concotion buff active.
+    ALCHEMIST can have 1 additional Concotion buff active.
 
     Upgraded at Level 5
-    Alchemist can have 2 additional Concotion buff active.
+    ALCHEMIST can have 2 additional Concotion buff active.
 
     Upgraded at level 10
-    Alchemist can have 3 additional Concoction Buffs actlve.`,
+    ALCHEMIST can have 3 additional Concoction Buffs actlve.`,
     howToGet: `Automatically unlocked.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Spirited`],
     linkedItems: {
@@ -9918,7 +9918,7 @@ Increases the hits Medic can take before losing Grey Health by 2`,
     description: `Unlocked at level 1
     Gain 2.5%  increase to All Damage.
   
-    Increases with Alchemist Level.
+    Increases with ALCHEMIST Level.
 
     Upgrade Unlocked at level 6
     Grants a 25% increase to All Damage and 5% Critical Chance`,
@@ -9961,10 +9961,10 @@ Increases the hits Medic can take before losing Grey Health by 2`,
     type: 'utility',
     id: '3a9dd2',
     description: `
-    Picking up Scrap has a 15% chance to also award Ammo to the Alchemist.
+    Picking up Scrap has a 15% chance to also award Ammo to the ALCHEMIST.
 
     Upgrade unlocked at level 8
-    Picking up Scrap or Metals also has a 15% chance to award Ammo to the Alchemist
+    Picking up Scrap or Metals also has a 15% chance to award Ammo to the ALCHEMIST
     `,
     howToGet: `Unlocked at Level 3`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Gold+to+Lead`],
@@ -9981,10 +9981,10 @@ Increases the hits Medic can take before losing Grey Health by 2`,
     type: 'relic',
     id: 'cxnnz9',
     description: `
-    Using a Relic applies a random buff on the Alchemist for 30s. Cannot be overriden.
+    Using a Relic applies a random buff on the ALCHEMIST for 30s. Cannot be overriden.
 
     Upgrade unlocked at level 9
-    Using a Relic applies a random buff o the Alchemist and allies within 20m for 60s. Cannot obe overriden`,
+    Using a Relic applies a random buff o the ALCHEMIST and allies within 20m for 60s. Cannot obe overriden`,
     howToGet: `Unlocked at Level 4`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Experimentalist`],
     linkedItems: {
@@ -10023,12 +10023,12 @@ Increases the hits Medic can take before losing Grey Health by 2`,
     id: 'yro37y',
     description: `
     Increases Mod Damage by +5%.
-    Increases with Archon Level.
+    Increases with ARCHON Level.
     
     Upgrade Unlocked at level 6
     Upgrade: Increases Mod Damage by +30% and grants +10% Mod Critical Chance.
     
-    Damage increases with Archon Level.`,
+    Damage increases with ARCHON Level.`,
     howToGet: `Unlocked at Level 1`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Amplify`],
     linkedItems: {
@@ -10189,7 +10189,7 @@ Increases the hits Medic can take before losing Grey Health by 2`,
     type: 'relic',
     id: '2k4yzk',
     description: `
-    Using a Relic refills 15% of Heavy Weapon Ammo. Bonus is doubled when Heavy Weapon is stowed. If the Stowed Heavy Weapon is overfilled, the Engineer will drop additional Ammo based on the surplus.
+    Using a Relic refills 15% of Heavy Weapon Ammo. Bonus is doubled when Heavy Weapon is stowed. If the Stowed Heavy Weapon is overfilled, the ENGINEER will drop additional Ammo based on the surplus.
     
     Upgrade unlocked at level 9
     Using a Relic refills 15% of Heavy Weapon Ammo. Bonus is doubled when Heavy Weapon is stowed`,
@@ -10235,7 +10235,7 @@ Increases the hits Medic can take before losing Grey Health by 2`,
     
     Scavenger also increase All Crit Chance by 5% while active.
     
-    Increases with Explorer Level
+    Increases with EXPLORER Level
     
     (level 10: Pickups increase All Damage Dealt by 5% per stack)`,
     howToGet: `Unlocked at Level 1`,
@@ -10272,10 +10272,10 @@ Increases the hits Medic can take before losing Grey Health by 2`,
     type: 'utility',
     id: 'o5q3p9',
     description: `
-    Relic Fragments discovered by Explorer drop at a higher quality.
+    Relic Fragments discovered by EXPLORER drop at a higher quality.
 
     Upgrade unlocked at level 8
-    When picking up a gem, Explorer has a 5% chance of picking up a second one of the same type/quality`,
+    When picking up a gem, EXPLORER has a 5% chance of picking up a second one of the same type/quality`,
     howToGet: `Unlocked at Level 3`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Prospector`],
     linkedItems: {
@@ -10310,13 +10310,13 @@ Increases the hits Medic can take before losing Grey Health by 2`,
     type: 'prime',
     id: 'yg77rq',
     description: `
-    Casting an Invader Skill leaves a Decoy for 3s which draws enemy fire. Deal +5% additional damage to enemies not targeting Invader.
+    Casting an INVADER Skill leaves a Decoy for 3s which draws enemy fire. Deal +5% additional damage to enemies not targeting INVADER.
 
     Upgraded at Level 5
-    Casting an Invader Skill leaves a Decoy for 3s which draws enemy fire. Deal +10% additional damage to enemies not targeting Invader.
+    Casting an INVADER Skill leaves a Decoy for 3s which draws enemy fire. Deal +10% additional damage to enemies not targeting INVADER.
 
     Upgraded at level 10
-    Casting an Invader Skill leaves a Decoy for 3s which draws enemy fire. Deal +15% additional damage to enemies not targeting Invader.`,
+    Casting an INVADER Skill leaves a Decoy for 3s which draws enemy fire. Deal +15% additional damage to enemies not targeting INVADER.`,
     howToGet: `Automatically unlocked.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Shadow`],
     linkedItems: {
@@ -10333,12 +10333,12 @@ Increases the hits Medic can take before losing Grey Health by 2`,
     id: '59swqq',
     description: `
     Sprinting for 1s or Evading adds 1 Stack of Momentum which increases Ranged and Melee damage  by 0.7% for 15s. Max 5 Stacks.
-    Increases with Invader Level
+    Increases with INVADER Level
 
     Upgrade Unlocked at level 6
     Sprinting for 1s or Evading adds 1 Stack of Momentum which increases Ranged and Melee damage by 7% and Ranged and Melee Critical Chance by 1% for 15s. Max 5 Stacks.
     
-    Damage increases with Invader level.`,
+    Damage increases with INVADER level.`,
     howToGet: `Unlocked at Level 1`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Shark`],
     linkedItems: {
@@ -10354,10 +10354,10 @@ Increases the hits Medic can take before losing Grey Health by 2`,
     type: 'team',
     id: 'd5qedi',
     description: `
-    All ally Ranged and Melee damage against enemies distracted by the Invader's Decoy grants 5% as Lifesteal
+    All ally Ranged and Melee damage against enemies distracted by the INVADER's Decoy grants 5% as Lifesteal
 
     Upgrade unlocked at level 7
-    All ally Ranged and Melee damage against enemies distracted by the Invader's Decoy grants 7.5% as Lifesteal`,
+    All ally Ranged and Melee damage against enemies distracted by the INVADER's Decoy grants 7.5% as Lifesteal`,
     howToGet: `Unlocked at Level 2`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Loophole`],
     linkedItems: {
@@ -10411,13 +10411,13 @@ Increases the hits Medic can take before losing Grey Health by 2`,
     type: 'prime',
     id: 'tmc2tk',
     description: `
-    When the Summoner deals damage to their Minion, it causes them to ENRAGE. Minions gain 30% increased Damage, Attack Speed, and Movement Speed. Lasts 20s
+    When the SUMMONER deals damage to their Minion, it causes them to ENRAGE. Minions gain 30% increased Damage, Attack Speed, and Movement Speed. Lasts 20s
     
     Upgraded at Level 5
-    When the Summoner deals damage to their Minion, it causes them to ENRAGE. Minions gain 40% increased Damage, Attack Speed, and Movement Speed. Lasts 30s.
+    When the SUMMONER deals damage to their Minion, it causes them to ENRAGE. Minions gain 40% increased Damage, Attack Speed, and Movement Speed. Lasts 30s.
     
     Upgraded at level 10
-    When the Summoner deals damage to their Minion, it causes them to ENRAGE. Minions gain 50% increased Damage, Attack Speed, and Movement Speed. Lasts 40s.`,
+    When the SUMMONER deals damage to their Minion, it causes them to ENRAGE. Minions gain 50% increased Damage, Attack Speed, and Movement Speed. Lasts 40s.`,
     howToGet: `Automatically unlocked.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Ruthless`],
     linkedItems: {
@@ -10433,14 +10433,14 @@ Increases the hits Medic can take before losing Grey Health by 2`,
     type: 'damage',
     id: 'tu8pcp',
     description: `
-    Increases Mod and Skill Damage by 3.5% while a Minion is active.  Sacrificing a Minion increases Ranged and Melee Damage by 3% for 30s or until another Minion is summoned.  Increases with Summoner level
+    Increases Mod and Skill Damage by 3.5% while a Minion is active.  Sacrificing a Minion increases Ranged and Melee Damage by 3% for 30s or until another Minion is summoned.  Increases with SUMMONER level
     
     Upgrade Unlocked at level 6
     Increases Mod and Skill Damage by 21% and Mod and Skill Critical Chance by 5% while a Minion is active.
     
     Sacrificing a Minion increases Ranged and Melee Damage by 18% and Ranged and Melee Critical Chance by 5% for 30s.  
     
-    Damage increases with Summoner level
+    Damage increases with SUMMONER level
     
     (level 10: Increases Mod and Skill Damage by 35% and Skill and Mod Critical Chance by 5% while a Minion is active. Sacrificing a Minion increases Ranged and Melee Damage by 30% and Ranged and Melee Critical Chance by 5% for 30s or until another Minion is summoned)`,
     howToGet: `Unlocked at Level 1`,
@@ -10511,7 +10511,7 @@ Increases the hits Medic can take before losing Grey Health by 2`,
     type: 'prime',
     id: 'qewh6t',
     description: `
-    Negative Status Effects applied by Ritualist inflict Infected
+    Negative Status Effects applied by RITUALIST inflict Infected
     Infected: Victim receives 5% more Status Effect damage, On death, spreads all statuses to nearby enemies within 5m
     
     Upgraded at Level 5
@@ -10536,12 +10536,12 @@ Increases the hits Medic can take before losing Grey Health by 2`,
     type: 'damage',
     id: '6wc56t',
     description: `
-    Increases all damage to enemies affected by a Negative Status Effect by 2%. Damage increases with Ritualist Level.
+    Increases all damage to enemies affected by a Negative Status Effect by 2%. Damage increases with RITUALIST Level.
     
     Upgrade Unlocked at level 6
     Increases all damage to enemies affected by a Negative Status Effect by 12%. Increases all Critical Chance against enemies affected by a Negative Status Effect by 10%.
   
-    Damage increases with Ritualist Level
+    Damage increases with RITUALIST Level
     
     Upgrade Unlocked at level 10
     Increases all damage to enemies affected by a Negative Status Effect by 20%. Increases all Critical Chance against enemies affected by a Negative Status Effect by 10%.`,

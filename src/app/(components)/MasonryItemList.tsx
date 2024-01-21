@@ -16,6 +16,7 @@ import { MutatorItem } from '@/app/(types)/items/MutatorItem'
 import ArmorInfo from '@/app/(components)/ArmorInfo'
 import { TraitItem } from '@/app/(types)/items/TraitItem'
 import { useIsClient } from 'usehooks-ts'
+import ItemDescription from './ItemDescription'
 
 interface MasonryBuildItem {
   index: number
@@ -52,7 +53,7 @@ function MasonryCard({ data: item, onMoreInfoClick }: MasonryBuildItem) {
           <dd className="text-sm text-gray-500">{category}</dd>
           <dt className="sr-only">Description</dt>
           <dd className="mt-3 whitespace-pre-line text-left text-sm text-gray-200">
-            {description}
+            <ItemDescription description={description ?? ''} />
           </dd>
 
           {(MutatorItem.isMutatorItem(item) || TraitItem.isTraitItem(item)) && (

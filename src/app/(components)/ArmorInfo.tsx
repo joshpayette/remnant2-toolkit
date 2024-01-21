@@ -28,7 +28,7 @@ export default function ArmorInfo({ item }: Props) {
               alt="Bleed Resistance"
               width={32}
               height={32}
-              className="my-1 h-8 w-8"
+              className="my-1 h-6 w-6"
               loading="eager"
             />
             <span className="flex items-center justify-end text-right text-lg font-bold">
@@ -41,7 +41,7 @@ export default function ArmorInfo({ item }: Props) {
               alt="Fire Resistance"
               width={32}
               height={32}
-              className="my-1 h-8 w-8"
+              className="my-1 h-6 w-6"
               loading="eager"
             />
             <span className="flex items-center justify-end text-right text-lg font-bold">
@@ -54,7 +54,7 @@ export default function ArmorInfo({ item }: Props) {
               alt="Shock Resistance"
               width={32}
               height={32}
-              className="my-1 h-8 w-8"
+              className="my-1 h-6 w-6"
               loading="eager"
             />
             <span className="flex items-center justify-end text-right text-lg font-bold">
@@ -67,7 +67,7 @@ export default function ArmorInfo({ item }: Props) {
               alt="Toxin Resistance"
               width={32}
               height={32}
-              className="my-1 h-8 w-8"
+              className="my-1 h-6 w-6"
               loading="eager"
             />
             <span className="flex items-center justify-end text-right text-lg font-bold">
@@ -80,7 +80,7 @@ export default function ArmorInfo({ item }: Props) {
               alt="Blight Resistance"
               width={32}
               height={32}
-              className="my-1 h-8 w-8"
+              className="my-1 h-6 w-6"
               loading="eager"
             />
             <span className="flex items-center justify-end text-right text-lg font-bold">

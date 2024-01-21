@@ -1,6 +1,6 @@
 'use client'
 
-import ArchtypeLabel from '../community-builds/(components)/ArchtypeLabel'
+import ArchtypeLabel from '../builder/(components)/ArchtypeLabel'
 import { StarIcon } from '@heroicons/react/24/solid'
 import { cn } from '@/app/(lib)/utils'
 import { FlagIcon as FlagIconOff } from '@heroicons/react/24/outline'
