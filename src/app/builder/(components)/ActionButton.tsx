@@ -148,7 +148,7 @@ export const ActionButton = {
           <span className="mr-1 h-5 w-5">
             {active ? <StarIconOn /> : <StarIconOff />}
           </span>
-          <span className="text-md">{active ? 'Favorited' : 'Favorite'}</span>
+          <span className="text-md">{active ? 'Unfavorite' : 'Favorite'}</span>
         </div>
       </button>
       <p className="mx-2 my-0 text-left text-sm text-gray-300 sm:text-xs">
