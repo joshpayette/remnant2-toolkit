@@ -1,9 +1,3 @@
-# Where I'm at
-
-- Ensure all passives show up in the item lookup
-- Ensure builds still save
-- Ensure perks are added to item filters when finding builds
-
 # TODO
 
 - Add build filters to show only builds above certain vote thresholds

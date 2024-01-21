@@ -22,6 +22,7 @@ const skippedItemCategories: Array<GenericItem['category']> = [
   'concoction',
   'consumable',
   'skill',
+  'perk',
 ]
 
 const itemCategories = remnantItemCategories.filter((category) => {

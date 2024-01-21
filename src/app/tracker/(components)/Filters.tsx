@@ -9,7 +9,7 @@ import { ItemCategory } from '@/app/(types)/build'
 import { useEffect, useState } from 'react'
 import { useDebounce } from 'usehooks-ts'
 
-type FilterItemCategory = ItemCategory | 'perk'
+type FilterItemCategory = ItemCategory
 
 interface Props {
   allItems: FilteredItem[]
