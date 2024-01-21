@@ -8,7 +8,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ### Added
 
-- Added all archtype perks
+- Added all archtype perks to the item lookup.
+- Added individual coloring for keywords in item descriptions and howToGet text.
 
 ## 2023-01-20
 

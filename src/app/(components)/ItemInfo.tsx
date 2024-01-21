@@ -8,6 +8,7 @@ import { Item } from '../(types)'
 import ArmorInfo from './ArmorInfo'
 import { TraitItem } from '../(types)/items/TraitItem'
 import { PerkItem } from '../(types)/items/PerkItem'
+import ItemDescription from './ItemDescription'
 
 interface ItemInfoProps {
   item: Item | null
@@ -64,18 +65,24 @@ export default function ItemInfo({ item, open, onClose }: ItemInfoProps) {
           )}
         >
           <h4 className="text-left text-sm text-gray-500">Description</h4>
-          <p className="whitespace-pre-line text-left text-sm text-gray-300">
-            {item.description || 'No description available.'}
-          </p>
+          <div className="whitespace-pre-line text-left text-sm text-gray-300">
+            <ItemDescription
+              description={item.description || 'No description available.'}
+            />
+          </div>
 
           {(MutatorItem.isMutatorItem(item) || TraitItem.isTraitItem(item)) && (
             <div className="flex flex-col items-start justify-start">
               <h4 className="mt-4 text-left text-sm text-gray-500">
                 At Max Level
               </h4>
-              <p className="text-left text-sm text-gray-300">
-                {item.maxLevelBonus || 'No max level bonus found.'}
-              </p>
+              <div className="text-left text-sm text-gray-300">
+                <ItemDescription
+                  description={
+                    item.maxLevelBonus || 'No max level bonus found.'
+                  }
+                />
+              </div>
             </div>
           )}
 
@@ -90,9 +97,11 @@ export default function ItemInfo({ item, open, onClose }: ItemInfoProps) {
 
           <div className="flex flex-col items-start justify-start">
             <h4 className="mt-4 text-left text-sm text-gray-500">How to Get</h4>
-            <p className="text-left text-sm text-gray-300">
-              {item.howToGet || 'No instructions found.'}
-            </p>
+            <div className="text-left text-sm text-gray-300">
+              <ItemDescription
+                description={item.howToGet || 'No instructions found.'}
+              />
+            </div>
           </div>
           <div className="flex flex-col items-start justify-start">
             <h4 className="mt-4 text-left text-sm text-gray-500">Wiki Links</h4>
