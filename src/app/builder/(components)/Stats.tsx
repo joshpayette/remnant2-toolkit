@@ -1,3 +1,4 @@
+import { cn } from '@/app/(lib)/utils'
 import { Item } from '@/app/(types)'
 import { BuildState } from '@/app/(types)/build'
 import { TraitItem } from '@/app/(types)/items/TraitItem'
@@ -162,9 +163,10 @@ function getTotalResistances(
 
 interface Props {
   buildState: BuildState
+  isScreenshotMode: boolean
 }
 
-export default function Stats({ buildState }: Props) {
+export default function Stats({ buildState, isScreenshotMode }: Props) {
   const totalArmor = getTotalArmor(buildState)
   const totalWeight = getTotalWeight(buildState)
   const totalFireResistance = getTotalResistances(buildState, 'fire')
@@ -179,13 +181,23 @@ export default function Stats({ buildState }: Props) {
         <div className="flex w-full flex-col items-start justify-start sm:max-w-[275px]">
           <div className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 text-left text-sm text-gray-300">
             <p className="flex items-center justify-start">Armor</p>
-            <span className="flex items-center justify-end text-right text-lg font-bold">
+            <span
+              className={cn(
+                'text-md flex items-center justify-end text-right font-bold sm:text-lg',
+                isScreenshotMode && 'text-lg',
+              )}
+            >
               {totalArmor}
             </span>
           </div>
           <div className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 text-left text-sm text-gray-300">
             <p className="flex items-center justify-start">Weight</p>
-            <span className="flex items-center justify-end text-right text-lg font-bold">
+            <span
+              className={cn(
+                'text-md flex items-center justify-end text-right font-bold sm:text-lg',
+                isScreenshotMode && 'text-lg',
+              )}
+            >
               {totalWeight}
             </span>
           </div>
@@ -195,10 +207,18 @@ export default function Stats({ buildState }: Props) {
               alt="Bleed Resistance"
               width={32}
               height={32}
-              className="my-1 h-8 w-8"
+              className={cn(
+                'my-1 h-6 w-6 sm:h-8 sm:w-8',
+                isScreenshotMode && 'h-8 w-8',
+              )}
               loading="eager"
             />
-            <span className="flex items-center justify-end text-right text-lg font-bold">
+            <span
+              className={cn(
+                'text-md flex items-center justify-end text-right font-bold sm:text-lg',
+                isScreenshotMode && 'text-lg',
+              )}
+            >
               {totalBleedResistance}
             </span>
           </div>
@@ -208,10 +228,18 @@ export default function Stats({ buildState }: Props) {
               alt="Fire Resistance"
               width={32}
               height={32}
-              className="my-1 h-8 w-8"
+              className={cn(
+                'my-1 h-6 w-6 sm:h-8 sm:w-8',
+                isScreenshotMode && 'h-8 w-8',
+              )}
               loading="eager"
             />
-            <span className="flex items-center justify-end text-right text-lg font-bold">
+            <span
+              className={cn(
+                'text-md flex items-center justify-end text-right font-bold sm:text-lg',
+                isScreenshotMode && 'text-lg',
+              )}
+            >
               {totalFireResistance}
             </span>
           </p>
@@ -221,10 +249,18 @@ export default function Stats({ buildState }: Props) {
               alt="Shock Resistance"
               width={32}
               height={32}
-              className="my-1 h-8 w-8"
+              className={cn(
+                'my-1 h-6 w-6 sm:h-8 sm:w-8',
+                isScreenshotMode && 'h-8 w-8',
+              )}
               loading="eager"
             />
-            <span className="flex items-center justify-end text-right text-lg font-bold">
+            <span
+              className={cn(
+                'text-md flex items-center justify-end text-right font-bold sm:text-lg',
+                isScreenshotMode && 'text-lg',
+              )}
+            >
               {totalShockResistance}
             </span>
           </p>
@@ -234,10 +270,18 @@ export default function Stats({ buildState }: Props) {
               alt="Toxin Resistance"
               width={32}
               height={32}
-              className="my-1 h-8 w-8"
+              className={cn(
+                'my-1 h-6 w-6 sm:h-8 sm:w-8',
+                isScreenshotMode && 'h-8 w-8',
+              )}
               loading="eager"
             />
-            <span className="flex items-center justify-end text-right text-lg font-bold">
+            <span
+              className={cn(
+                'text-md flex items-center justify-end text-right font-bold sm:text-lg',
+                isScreenshotMode && 'text-lg',
+              )}
+            >
               {totalToxinResistance}
             </span>
           </p>
@@ -247,13 +291,31 @@ export default function Stats({ buildState }: Props) {
               alt="Blight Resistance"
               width={32}
               height={32}
-              className="my-1 h-8 w-8"
+              className={cn(
+                'my-1 h-6 w-6 sm:h-8 sm:w-8',
+                isScreenshotMode && 'h-8 w-8',
+              )}
               loading="eager"
             />
-            <span className="flex items-center justify-end text-right text-lg font-bold">
+            <span
+              className={cn(
+                'text-md flex items-center justify-end text-right font-bold sm:text-lg',
+                isScreenshotMode && 'text-lg',
+              )}
+            >
               {totalBlightResistance}
             </span>
           </p>
+          <div className="mt-2 text-right text-xs text-green-700">
+            Looking for more advanced stats? Check out{' '}
+            <a
+              href="https://docs.google.com/spreadsheets/d/1I7vkh50KWJZSxNy4FqxvniFWBstJQEMtpwtxQ3ByoPw/edit?pli=1"
+              target="_blank"
+              className="text-green-500 hover:underline"
+            >
+              Vash Cowaii&apos;s spreadsheet.
+            </a>
+          </div>
         </div>
       </dd>
     </dl>
