@@ -112,8 +112,9 @@ function getTotalArmor(buildState: BuildState) {
     0,
   )
 
-  const totalArmor =
-    totalArmorIncrease * (1 + totalArmorPercent + totalArmorStep)
+  const combinedPercent = totalArmorPercent + totalArmorStep
+  const totalArmorIncreasePercent = totalArmorIncrease * combinedPercent
+  const totalArmor = totalArmorIncrease + totalArmorIncreasePercent
   return totalArmor.toFixed(2)
 }
 
@@ -131,7 +132,10 @@ function getTotalWeight(buildState: BuildState) {
     0,
   )
 
-  const totalWeight = totalItemWeight * (1 + totalItemWeightPercent)
+  const totalWeight =
+    totalItemWeightPercent > 0
+      ? totalItemWeight * totalItemWeightPercent
+      : totalItemWeight
   return totalWeight.toFixed(2)
 }
 
@@ -157,7 +161,9 @@ function getTotalResistances(
     0,
   )
 
-  const totalResistance = totalItemResistance * (1 + totalItemResistancePercent)
+  const totalResistanceIncrease =
+    totalItemResistance * totalItemResistancePercent
+  const totalResistance = totalItemResistance + totalResistanceIncrease
   return totalResistance
 }
 

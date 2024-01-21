@@ -12,6 +12,7 @@ type LinkedItems = Partial<{
   weapon: { name: string }
   mod: { name: string }
   traits: Array<{ name: string; amount: number }>
+  perks: Array<{ name: string }>
 }>
 
 type ItemCategory =
@@ -31,6 +32,7 @@ type ItemCategory =
   | 'ring'
   | 'skill'
   | 'trait'
+  | 'perk'
 
 export interface GenericItemProps {
   id: string

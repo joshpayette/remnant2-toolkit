@@ -122,12 +122,12 @@ export default function Builder({
         return
       }
 
-      const categoryItemorItems = buildState.items[selectedItemSlot.category]
+      const categoryItemOrItems = buildState.items[selectedItemSlot.category]
 
       // If the item can be multiple, such as rings,
       // then add the item at the specified index
-      if (Array.isArray(categoryItemorItems)) {
-        const buildItems = categoryItemorItems
+      if (Array.isArray(categoryItemOrItems)) {
+        const buildItems = categoryItemOrItems
 
         const itemAlreadyInBuild = buildItems.find(
           (i) => i?.id === selectedItem.id,
@@ -162,7 +162,7 @@ export default function Builder({
       }
 
       // If the item is not null, add the item to the build
-      const buildItem = categoryItemorItems
+      const buildItem = categoryItemOrItems
 
       const itemAlreadyInBuild = buildItem?.id === selectedItem.id
       if (itemAlreadyInBuild) return

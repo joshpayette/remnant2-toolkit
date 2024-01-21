@@ -5,6 +5,7 @@ import { TraitItem } from '@/app/(types)/items/TraitItem'
 import { WeaponItem } from '@/app/(types)/items/WeaponItem'
 import { Build, BuildItems } from '@prisma/client'
 import { ModItem } from '../(types)/items/ModItem'
+import { PerkItem } from './items/PerkItem'
 
 export type ItemCategory = keyof BuildState['items']
 
@@ -49,6 +50,7 @@ export interface BuildState {
     mutator: Array<MutatorItem | null>
     relicfragment: Array<GenericItem | null>
     trait: TraitItem[]
+    perk: Array<PerkItem | null>
   }
 }
 

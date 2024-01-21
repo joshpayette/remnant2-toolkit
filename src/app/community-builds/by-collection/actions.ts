@@ -56,10 +56,15 @@ export async function getBuilds({
   const concoctionItemIds = remnantItems
     .filter((item) => item.category === 'concoction')
     .map((item) => item.id)
+  const perkItemIds = remnantItems
+    .filter((item) => item.category === 'perk')
+    .map((item) => item.id)
+
   const allOwnedItemIds = [
     ...linkedItemIds,
     ...consumableItemIds,
     ...concoctionItemIds,
+    ...perkItemIds,
   ]
 
   // insert all user's items, including linked items

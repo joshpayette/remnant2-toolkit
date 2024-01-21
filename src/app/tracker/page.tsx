@@ -17,12 +17,12 @@ import { MutatorItem } from '../(types)/items/MutatorItem'
 import useFilteredItems from '../(hooks)/useFilteredItems'
 import Filters from './(components)/Filters'
 import { itemToCsvItem } from '../(lib)/utils'
-import { useRouter } from 'next/navigation'
 
 const skippedItemCategories: Array<GenericItem['category']> = [
   'concoction',
   'consumable',
   'skill',
+  'perk',
 ]
 
 const itemCategories = remnantItemCategories.filter((category) => {
@@ -43,7 +43,6 @@ const itemList = remnantItems
   }))
 
 export default function Page() {
-  const router = useRouter()
   const isClient = useIsClient()
 
   // Tracks the item the user wants info on
@@ -231,7 +230,7 @@ export default function Page() {
 
                 <hr className="my-4" />
 
-                <strong>Xbox</strong>
+                <strong>Xbox GamePass</strong>
                 <ul className="mb-4 list-inside list-disc text-sm">
                   <li>
                     The file name varies from user to user, but is usually
@@ -266,6 +265,17 @@ export default function Page() {
                     a different file even if the date modified is older.
                   </li>
                 </ul>
+
+                <hr className="my-4" />
+
+                <strong>Xbox</strong>
+                <p className="text-sm italic">
+                  I don&apos;t have the ability to test this, but I believe you
+                  can export your save file to a USB drive, then rename the file
+                  to profile.sav and import. If you can confirm this works,
+                  please use the blue bug report icon in the bottom right to get
+                  in touch.
+                </p>
 
                 <hr className="my-4" />
 

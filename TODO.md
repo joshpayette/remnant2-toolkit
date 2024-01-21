@@ -1,8 +1,3 @@
-# Where I'm at
-
-- Add passives for each archtype
-- Add Panacea resistances
-
 # TODO
 
 - Add build filters to show only builds above certain vote thresholds
