@@ -25,7 +25,7 @@ export default function MostPopularBuilds({
 }: Props) {
   const [builds, setBuilds] = useState<DBBuild[]>([])
   const [totalBuildCount, setTotalBuildCount] = useState<number>(0)
-  const [timeRange, setTimeRange] = useState<TimeRange>('all-time')
+  const [timeRange, setTimeRange] = useState<TimeRange>('day')
   const [isLoading, setIsLoading] = useState<boolean>(false)
 
   const {
