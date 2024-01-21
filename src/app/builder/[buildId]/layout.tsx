@@ -49,10 +49,7 @@ export async function generateMetadata(
       title,
       description: description,
       url: `https://remnant2builder.com/builder/${build.id}`,
-      images: [
-        'https://d2sqltdcj8czo5.cloudfront.net/og_image.png',
-        ...previousOGImages,
-      ],
+      images: ['https://d2sqltdcj8czo5.cloudfront.net/og_image.png'],
     },
     twitter: {
       title,
