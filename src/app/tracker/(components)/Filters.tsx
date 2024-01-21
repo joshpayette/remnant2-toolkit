@@ -9,9 +9,11 @@ import { ItemCategory } from '@/app/(types)/build'
 import { useEffect, useState } from 'react'
 import { useDebounce } from 'usehooks-ts'
 
+type FilterItemCategory = ItemCategory | 'perk'
+
 interface Props {
   allItems: FilteredItem[]
-  itemCategories?: ItemCategory[]
+  itemCategories?: FilterItemCategory[]
   showBorder?: boolean
   onUpdate: (filteredItems: FilteredItem[]) => void
 }
@@ -97,7 +99,7 @@ export default function Filters({
    * Category Filters
    * ------------------------------------
    */
-  const defaultCategoryKeys: ItemCategory[] =
+  const defaultCategoryKeys: FilterItemCategory[] =
     itemCategories?.sort((a, b) => {
       if (a < b) return -1
       if (a > b) return 1
@@ -109,9 +111,9 @@ export default function Filters({
       return 0
     })
   const [includedCategoryKeys, setIncludedCategoryKeys] =
-    useState<ItemCategory[]>(defaultCategoryKeys)
+    useState<FilterItemCategory[]>(defaultCategoryKeys)
 
-  function handleCategoryFilterChange(categoryKey: ItemCategory) {
+  function handleCategoryFilterChange(categoryKey: FilterItemCategory) {
     if (includedCategoryKeys.includes(categoryKey)) {
       setIncludedCategoryKeys(
         includedCategoryKeys.filter((key) => key !== categoryKey),

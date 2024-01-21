@@ -32,7 +32,6 @@ type ItemCategory =
   | 'ring'
   | 'skill'
   | 'trait'
-  | 'perk'
 
 export interface GenericItemProps {
   id: string
