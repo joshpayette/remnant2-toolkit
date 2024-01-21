@@ -23,6 +23,7 @@ export const remnantItems: Item[] = [
         { name: 'Vial: Frenzy Dust' },
         { name: 'Vial: Elixir of Life' },
       ],
+      perks: [{ name: 'Dead to Rights' }],
     },
   },
   {
@@ -9278,6 +9279,27 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
   //   howToGet: ``,
   //   wikiLinks: [`https://remnant2.wiki.fextralife.com/Vigor+Leaf`],
   // },
+  {
+    category: 'perk',
+    name: 'Dead to Rights',
+    imagePath: '/perk/dead_to_rights.png',
+    id: 's8eytq',
+    description: `
+    Dealing 65 Base Ranged Weakspot Damage extends the duration of active Hunter Skills by 2.5s. Can extend timer beyond its initial duration
+
+    Upgraded at Level 5
+    Dealing 60 Base Ranged Weakspot Damage extends the duration of active Hunter Skills by 3s. Can extend timer beyond its initial duration
+
+    Upgraded at level 10
+    Dealing 55 Base Ranged Weakspot Damage extends the duration of active Hunter Skills by 3.5s. Can extend timer beyond its initial duration`,
+    howToGet: `Automatically unlocked.`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Dead+to+Rights`],
+    linkedItems: {
+      archtype: {
+        name: 'Hunter',
+      },
+    },
+  },
 ]
 
 export const remnantItemCategories = Array.from(

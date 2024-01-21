@@ -17,12 +17,12 @@ import { MutatorItem } from '../(types)/items/MutatorItem'
 import useFilteredItems from '../(hooks)/useFilteredItems'
 import Filters from './(components)/Filters'
 import { itemToCsvItem } from '../(lib)/utils'
-import { useRouter } from 'next/navigation'
 
 const skippedItemCategories: Array<GenericItem['category']> = [
   'concoction',
   'consumable',
   'skill',
+  'perk',
 ]
 
 const itemCategories = remnantItemCategories.filter((category) => {
@@ -43,7 +43,6 @@ const itemList = remnantItems
   }))
 
 export default function Page() {
-  const router = useRouter()
   const isClient = useIsClient()
 
   // Tracks the item the user wants info on
