@@ -318,6 +318,12 @@ export default function Builder({
           name={buildState.name}
           showControls={showControls}
         />
+        <p className="mb-2 flex items-center justify-center text-sm text-gray-400">
+          Build by{' '}
+          <span className="ml-1 text-green-500">
+            {buildState.createdByDisplayName}
+          </span>
+        </p>
         {isPopular && (
           <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 transform">
             <PopularBuildBadge />

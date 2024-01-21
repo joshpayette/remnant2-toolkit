@@ -67,10 +67,6 @@ export default function Page({
 
   return (
     <>
-      <PageHeader
-        title={buildState.name}
-        subtitle={`Build by ${buildState.createdByDisplayName}`}
-      />
       <ImageDownloadLink onClose={handleClearImageLink} imageLink={imageLink} />
       <div className="flex w-full flex-col items-center ">
         <div className="flex w-full max-w-xl flex-col items-start justify-center gap-2 sm:flex-row-reverse">
