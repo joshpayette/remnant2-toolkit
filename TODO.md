@@ -1,10 +1,8 @@
 # TODO
 
 - Add build filters to show only builds above certain vote thresholds
-- Add creator builds page
 - On tracker, allowing sorting alphabetically or by item type (i.e. group armors together)
 - Add CSV import
-- When logging in, the next-auth page to select Discord or Reddit is pretty ugly. Make Reddit Button orange with icon, etc.
 - Add function to highlight description text for terms like burning, bleeding, overloaded, etc.
 
 ## Bugs
