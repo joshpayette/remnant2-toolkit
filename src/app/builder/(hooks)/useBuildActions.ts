@@ -59,6 +59,7 @@ export default function useBuildActions() {
   async function handleDuplicateBuild(buildState: BuildState) {
     const newBuildState = JSON.parse(JSON.stringify(buildState)) as BuildState
     newBuildState.name = `${buildState.name} (copy)`
+    newBuildState.isPublic = false
     const response = await createBuild(JSON.stringify(newBuildState))
     if (isErrorResponse(response)) {
       console.error(response.errors)
@@ -327,8 +328,6 @@ export default function useBuildActions() {
           }),
         )
       : await removeReportForBuild(JSON.stringify({ buildId: build.buildId }))
-
-    
 
     return response
   }
