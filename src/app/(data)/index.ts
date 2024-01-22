@@ -9112,6 +9112,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     category: 'consumable',
     name: 'Ambit Ember',
     imagePath: '/consumable/ambit_ember.png',
+    saveFileSlug: 'consumable_spice',
     id: '6lnae6',
     description: `Slightly increases Evade Window and Evade Speed by 15%. Lasts 60s.`,
     howToGet: `
@@ -9302,6 +9303,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     category: 'consumable',
     name: 'Poisoned Ambit Ember',
     imagePath: '/consumable/poisoned_ambit_ember_capsule.png',
+    saveFileSlug: 'poisonedspice',
     id: '6awni8',
     description: `
     Use to equip the capsule which can be thrown by pressing FIRE. The capsule will detonate after 2s or upon hitting an enemy, releasing a chemical agent which dampens the psionic abilities of long-term Ambit Ember users.
