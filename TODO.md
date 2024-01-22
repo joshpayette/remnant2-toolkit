@@ -1,3 +1,10 @@
+# Profiles todo
+
+- Create a route in profiles for the userId slug to view a user's profile
+- Ensure only public builds show up
+- Allow user to add intro text to their profile
+- Allow user to pin X number of builds to the top of their profile
+
 # TODO
 
 - Add profile pages where you can see all builds by a user
