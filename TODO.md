@@ -1,6 +1,7 @@
 # TODO
 
 - Add profile pages where you can see all builds by a user
+- Add a creator builds page to show all creator builds, similar to former featured builds page
 - Add info on getting a yellow border around builds
 - Add build filters to show only builds above certain vote thresholds
 - On tracker, allowing sorting alphabetically or by item type (i.e. group armors together)
