@@ -4787,7 +4787,7 @@ export const remnantItems: Item[] = [
     name: 'Big Bang',
     imagePath: '/mod/big_bang.png',
     id: 's7ozpe',
-    description: `Funnels all current Mod Charges into the enxt shot. Projectiles deal 65 direct damage and 65 Explosive damage in a 5m per Charge consumed. Explosion applies 75 BURNING damage over 10s per Charge consumed. 
+    description: `Funnels all current Mod Charges into the next shot. Projectiles deal 65 direct damage and 65 Explosive damage in a 5m per Charge consumed. Explosion applies 75 BURNING damage over 10s per Charge consumed. 
     Additional Charges consumed increase all damage by 5%. Max 5 Charges`,
     howToGet: `Attached to the Star Shot hand gun`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Big+Bang`],
