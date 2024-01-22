@@ -141,6 +141,7 @@ export default function Page() {
             isScreenshotMode={isScreenshotMode}
             showControls={showControls}
             updateBuildState={updateUrlBuildState}
+            showCreatedBy={false}
           />
         </div>
       </div>

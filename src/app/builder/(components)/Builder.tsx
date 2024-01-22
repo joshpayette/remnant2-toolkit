@@ -22,6 +22,7 @@ type BuilderProps = {
   includeMemberFeatures: boolean
   isScreenshotMode: boolean
   showControls: boolean
+  showCreatedBy?: boolean
 } & (
   | { isEditable: false; updateBuildState?: never }
   | {
@@ -44,6 +45,7 @@ export default function Builder({
   isEditable,
   isScreenshotMode,
   showControls,
+  showCreatedBy = true,
   updateBuildState,
 }: BuilderProps) {
   const concoctionSlotCount = getConcoctionSlotCount(buildState)
@@ -318,12 +320,14 @@ export default function Builder({
           name={buildState.name}
           showControls={showControls}
         />
-        <p className="mb-2 flex items-center justify-center text-sm text-gray-400">
-          Build by{' '}
-          <span className="ml-1 text-green-500">
-            {buildState.createdByDisplayName}
-          </span>
-        </p>
+        {showCreatedBy && (
+          <p className="mb-2 flex items-center justify-center text-sm text-gray-400">
+            Build by{' '}
+            <span className="ml-1 text-green-500">
+              {buildState.createdByDisplayName}
+            </span>
+          </p>
+        )}
         {isPopular && (
           <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 transform">
             <PopularBuildBadge />

@@ -741,6 +741,7 @@ export async function getBuild(
     isPublic: build.isPublic,
     thumbnailUrl: build.thumbnailUrl ?? '',
     createdAt: build.createdAt,
+    updatedAt: build.updatedAt,
     createdById: build.createdById,
     createdByDisplayName:
       build.createdBy.displayName ||
