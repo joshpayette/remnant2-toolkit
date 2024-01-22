@@ -98,8 +98,7 @@ AND BuildItems.itemId IN (${Prisma.join(archtypeIds)})
   FROM Build
   LEFT JOIN BuildVoteCounts ON Build.id = BuildVoteCounts.buildId
   LEFT JOIN User on Build.createdById = User.id
-  LEFT JOIN BuildReports on Build.id = BuildReports.buildId AND BuildReports.userId = ${session
-    ?.user?.id}
+  LEFT JOIN BuildReports on Build.id = BuildReports.buildId AND BuildReports.userId = ${userId}
   LEFT JOIN PaidUsers on User.id = PaidUsers.userId
   WHERE Build.isPublic = true
   ${archtypeCondition}
@@ -285,16 +284,18 @@ AND BuildItems.itemId IN (${Prisma.join(archtypeIds)})
         User.displayName as createdByDisplayName, 
         COUNT(BuildVoteCounts.buildId) as totalUpvotes,
         COUNT(BuildReports.id) as totalReports,
-        ${
-          userId
-            ? `(EXISTS (SELECT 1 FROM BuildVoteCounts WHERE BuildVoteCounts.buildId = Build.id AND BuildVoteCounts.userId = ${userId}))`
-            : 'FALSE'
-        } as upvoted,
-          ${
-            userId
-              ? `(EXISTS (SELECT 1 FROM BuildReports WHERE BuildReports.buildId = Build.id AND BuildReports.userId = ${userId}))`
-              : 'FALSE'
-          } as reported,
+        CASE WHEN EXISTS (
+          SELECT 1
+          FROM BuildReports
+          WHERE BuildReports.buildId = Build.id
+          AND BuildReports.userId = ${userId}
+        ) THEN TRUE ELSE FALSE END as reported,
+        CASE WHEN EXISTS (
+          SELECT 1
+          FROM BuildVoteCounts
+          WHERE BuildVoteCounts.buildId = Build.id
+          AND BuildVoteCounts.userId = ${userId}
+        ) THEN TRUE ELSE FALSE END as upvoted,
         CASE WHEN PaidUsers.userId IS NOT NULL THEN true ELSE false END as isPaidUser
         FROM Build
         LEFT JOIN BuildVoteCounts ON Build.id = BuildVoteCounts.buildId

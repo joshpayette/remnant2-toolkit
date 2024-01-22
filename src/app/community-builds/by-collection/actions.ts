@@ -102,8 +102,7 @@ export async function getBuilds({
   FROM Build
   LEFT JOIN User ON Build.createdById = User.id
   LEFT JOIN BuildVoteCounts ON Build.id = BuildVoteCounts.buildId
-  LEFT JOIN BuildReports on Build.id = BuildReports.buildId AND BuildReports.userId = ${session
-    ?.user?.id}
+  LEFT JOIN BuildReports on Build.id = BuildReports.buildId AND BuildReports.userId = ${userId}
   LEFT JOIN PaidUsers on User.id = PaidUsers.userId
   WHERE Build.isPublic = true
   AND NOT EXISTS (
