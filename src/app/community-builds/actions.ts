@@ -146,6 +146,7 @@ AND BuildItems.itemId IN (${Prisma.join(archtypeIds)})
     thumbnailUrl: build.thumbnailUrl,
     createdById: build.createdById,
     createdAt: build.createdAt,
+    updatedAt: build.updatedAt,
     createdByDisplayName: build.createdByDisplayName || build.createdByName,
     upvoted: false,
     totalUpvotes: build.totalUpvotes,
@@ -264,6 +265,7 @@ AND BuildItems.itemId IN (${Prisma.join(archtypeIds)})
       thumbnailUrl: build.thumbnailUrl,
       createdById: build.createdById,
       createdAt: build.createdAt,
+      updatedAt: build.updatedAt,
       createdByDisplayName:
         build.createdByDisplayName ||
         build.createdByName ||
@@ -346,6 +348,7 @@ AND BuildItems.itemId IN (${Prisma.join(archtypeIds)})
       thumbnailUrl: build.thumbnailUrl,
       createdById: build.createdById,
       createdAt: build.createdAt,
+      updatedAt: build.updatedAt,
       createdByDisplayName:
         build.createdByDisplayName ||
         build.createdByName ||

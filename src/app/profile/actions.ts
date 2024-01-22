@@ -93,6 +93,7 @@ export async function getCreatedBuilds({
     thumbnailUrl: build.thumbnailUrl,
     createdById: build.createdById,
     createdAt: build.createdAt,
+    updatedAt: build.updatedAt,
     createdByDisplayName:
       build.createdBy?.displayName ||
       build.createdBy?.name ||
@@ -209,6 +210,7 @@ export async function getFavoritedBuilds({
     thumbnailUrl: build.thumbnailUrl,
     createdById: build.createdById,
     createdAt: build.createdAt,
+    updatedAt: build.updatedAt,
     createdByDisplayName:
       build.createdBy?.displayName ||
       build.createdBy?.name ||

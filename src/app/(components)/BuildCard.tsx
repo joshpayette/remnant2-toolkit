@@ -54,7 +54,10 @@ export default function BuildCard({
             </Link>
             <div className="mb-2 grid w-full grid-cols-2 text-sm">
               <p className="text-left text-gray-500">
-                by {build.createdByDisplayName}
+                by{' '}
+                <span className="text-purple-500">
+                  {build.createdByDisplayName}
+                </span>
               </p>
               <div className="flex flex-row items-center justify-end gap-x-2">
                 {onReportBuild && (
@@ -73,6 +76,24 @@ export default function BuildCard({
                   <StarIcon className="mr-1 h-4 w-4" /> {build.totalUpvotes}
                 </p>
               </div>
+            </div>
+            <div className="mb-2 flex flex-row items-center justify-start gap-x-2">
+              {build.updatedAt && (
+                <p className="text-left text-xs text-gray-500">
+                  Last Updated:{' '}
+                  <span className="text-gray-400">
+                    {new Date(build.updatedAt).toLocaleDateString('en-US', {
+                      year: 'numeric',
+                      month: '2-digit',
+                      day: '2-digit',
+                      hour: '2-digit',
+                      minute: '2-digit',
+                      hour12: true,
+                      timeZone: 'UTC',
+                    })}
+                  </span>
+                </p>
+              )}
             </div>
             <div className="mt-2 flex flex-row items-center justify-start gap-x-2">
               {buildState.items.archtype[0] && (

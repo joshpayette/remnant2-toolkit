@@ -104,6 +104,7 @@ export async function getBuilds({
     thumbnailUrl: build.thumbnailUrl,
     createdById: build.createdById,
     createdAt: build.createdAt,
+    updatedAt: build.updatedAt,
     totalUpvotes: build.totalUpvotes,
     reported: build.reported,
     isMember: build.isPaidUser,

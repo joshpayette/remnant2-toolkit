@@ -15,6 +15,7 @@ import {
 } from '../../(lib)/build'
 import { ModItem } from '@/app/(types)/items/ModItem'
 import { BuildState } from '@/app/(types)/build'
+import { PerkItem } from '@/app/(types)/items/PerkItem'
 
 /**
  * Handles reading/writing the build to the URL query string,
@@ -250,6 +251,14 @@ export default function useUrlBuildState() {
           }
           const traitItems = TraitItem.fromParams(params)
           if (traitItems) buildState.items.trait = traitItems
+          break
+        case 'perk':
+          if (!params) {
+            buildState.items.perk = []
+            break
+          }
+          const perkItems = PerkItem.fromParamsArray(params)
+          if (perkItems) buildState.items.perk = perkItems
           break
         default: {
           console.error(`Unhandled item category: ${itemCategory}`)
