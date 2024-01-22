@@ -111,6 +111,18 @@ export default function ListItems({
       label: 'Mutators (Melee)',
       type: 'melee' as MutatorItem['type'],
     },
+    {
+      category: 'concoction' as ItemCategory,
+      label: 'Concoctions',
+    },
+    {
+      category: 'consumable' as ItemCategory,
+      label: 'Consumables',
+    },
+    {
+      category: 'misc' as ItemCategory,
+      label: 'Miscellaneous',
+    },
   ].filter((itemCategory) => {
     const visibleCategories = Array.from(
       new Set(items.map((item) => item.category)),
