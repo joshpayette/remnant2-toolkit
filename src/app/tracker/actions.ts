@@ -8,6 +8,8 @@
 
 import zlib from 'zlib'
 import { remnantItems } from '../(data)'
+import fs from 'fs'
+import path from 'path'
 
 export default async function parseSaveFile(
   prevState: any,
@@ -42,6 +44,14 @@ export default async function parseSaveFile(
     const convertedSave = decompressSave(Buffer.from(buffer))
       .toString()
       .toLowerCase()
+
+    // // save converted size to file
+    // const convertedSavePath = path.join(
+    //   process.cwd(),
+    //   'public',
+    //   'convertedSave.txt',
+    // )
+    // fs.writeFileSync(convertedSavePath, convertedSave)
 
     // Get the saveFileDiscoveredItemIds
     const saveFileDiscoveredItemIds = remnantItems

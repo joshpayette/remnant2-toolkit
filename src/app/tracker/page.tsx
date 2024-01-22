@@ -18,12 +18,7 @@ import useFilteredItems from '../(hooks)/useFilteredItems'
 import Filters from './(components)/Filters'
 import { itemToCsvItem } from '../(lib)/utils'
 
-const skippedItemCategories: Array<GenericItem['category']> = [
-  'concoction',
-  'consumable',
-  'skill',
-  'perk',
-]
+const skippedItemCategories: Array<GenericItem['category']> = ['skill', 'perk']
 
 const itemCategories = remnantItemCategories.filter((category) => {
   return skippedItemCategories.includes(category) === false
