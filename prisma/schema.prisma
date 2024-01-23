@@ -57,6 +57,7 @@ model User {
   BannedUsers   BannedUsers[]
   PaidUsers     PaidUsers[]
   UserItems     UserItems[]
+  UserProfile   UserProfile?
 }
 
 model VerificationToken {
@@ -146,8 +147,11 @@ model Build {
   BuildVotes      BuildVoteCounts[]
   BuildReports    BuildReports[]
   BuildItems      BuildItems[]
+  UserProfile     UserProfile?      @relation(fields: [userProfileId], references: [id])
+  userProfileId   String?
 
   @@index([createdById])
+  @@index([userProfileId])
 }
 
 model BuildItems {
@@ -188,6 +192,18 @@ model BuildReports {
   reason    String
 
   @@index([buildId])
+  @@index([userId])
+}
+
+model UserProfile {
+  id           String   @id @default(cuid())
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  userId       String   @unique // Added @unique directive
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  bio          String   @db.Text
+  pinnedBuilds Build[]
+
   @@index([userId])
 }
 

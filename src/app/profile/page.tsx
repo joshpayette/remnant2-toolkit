@@ -1,5 +1,12 @@
-import { redirect } from 'next/navigation'
+import Tabs from './(components)/Tabs'
 
 export default async function Page() {
-  redirect('/profile/created-builds')
+  return (
+    <>
+      <div>Your profile</div>
+      <div className="mb-8 flex w-full flex-col items-center">
+        <Tabs />
+      </div>
+    </>
+  )
 }

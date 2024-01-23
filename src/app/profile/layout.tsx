@@ -18,9 +18,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <Header />
           </Suspense>
         </div>
-        <div className="mb-8 flex w-full flex-col items-center">
-          <Tabs />
-        </div>
         {children}
       </div>
     </AuthWrapper>

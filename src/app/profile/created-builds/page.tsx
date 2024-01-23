@@ -11,6 +11,7 @@ import EditBuildButton from '../(components)/EditBuildButton'
 import DuplicateBuildButton from '../(components)/DuplicateBuildButton'
 import DeleteBuildButton from '../(components)/DeleteBuildButton'
 import { DBBuild } from '@/app/(types)/build'
+import Tabs from '../(components)/Tabs'
 
 export default function Page() {
   const [builds, setBuilds] = useState<DBBuild[]>([])
@@ -61,46 +62,51 @@ export default function Page() {
   }
 
   return (
-    <BuildList
-      label="Builds you've created"
-      currentPage={currentPage}
-      pageNumbers={pageNumbers}
-      totalItems={totalBuildCount}
-      totalPages={totalPages}
-      isLoading={isLoading}
-      firstVisibleItemNumber={firstVisibleItemNumber}
-      lastVisibleItemNumber={lastVisibleItemNumber}
-      onPreviousPage={handlePreviousPageClick}
-      onNextPage={handleNextPageClick}
-      onSpecificPage={handleSpecificPageClick}
-      headerActions={
-        <BuildListFilters
-          filter={filter}
-          onFilterChange={handleFilterChange}
-          options={filterOptions}
-        />
-      }
-    >
-      {builds.map((build) => (
-        <div key={build.id} className="h-full w-full">
-          <BuildCard
-            build={build}
-            onReportBuild={undefined}
-            memberFrameEnabled={false}
-            footerActions={
-              <div className="flex items-center justify-between gap-2 p-2 text-sm">
-                <CopyBuildUrlButton buildId={build.id} />
-                <EditBuildButton buildId={build.id} />
-                <DuplicateBuildButton build={build} />
-                <DeleteBuildButton
-                  buildId={build.id}
-                  onDeleteBuild={handleDeleteBuild}
-                />
-              </div>
-            }
+    <>
+      <div className="mb-8 flex w-full flex-col items-center">
+        <Tabs />
+      </div>
+      <BuildList
+        label="Builds you've created"
+        currentPage={currentPage}
+        pageNumbers={pageNumbers}
+        totalItems={totalBuildCount}
+        totalPages={totalPages}
+        isLoading={isLoading}
+        firstVisibleItemNumber={firstVisibleItemNumber}
+        lastVisibleItemNumber={lastVisibleItemNumber}
+        onPreviousPage={handlePreviousPageClick}
+        onNextPage={handleNextPageClick}
+        onSpecificPage={handleSpecificPageClick}
+        headerActions={
+          <BuildListFilters
+            filter={filter}
+            onFilterChange={handleFilterChange}
+            options={filterOptions}
           />
-        </div>
-      ))}
-    </BuildList>
+        }
+      >
+        {builds.map((build) => (
+          <div key={build.id} className="h-full w-full">
+            <BuildCard
+              build={build}
+              onReportBuild={undefined}
+              memberFrameEnabled={false}
+              footerActions={
+                <div className="flex items-center justify-between gap-2 p-2 text-sm">
+                  <CopyBuildUrlButton buildId={build.id} />
+                  <EditBuildButton buildId={build.id} />
+                  <DuplicateBuildButton build={build} />
+                  <DeleteBuildButton
+                    buildId={build.id}
+                    onDeleteBuild={handleDeleteBuild}
+                  />
+                </div>
+              }
+            />
+          </div>
+        ))}
+      </BuildList>
+    </>
   )
 }

@@ -9,6 +9,7 @@ import BuildListFilters from '@/app/(components)/BuildListFilters'
 import BuildList from '@/app/(components)/BuildList'
 import DuplicateBuildButton from '../(components)/DuplicateBuildButton'
 import { DBBuild } from '@/app/(types)/build'
+import Tabs from '../(components)/Tabs'
 
 export default function Page() {
   const [builds, setBuilds] = useState<DBBuild[]>([])
@@ -53,40 +54,45 @@ export default function Page() {
   }
 
   return (
-    <BuildList
-      label="Builds you've favorited"
-      currentPage={currentPage}
-      pageNumbers={pageNumbers}
-      totalItems={totalBuildCount}
-      totalPages={totalPages}
-      isLoading={isLoading}
-      firstVisibleItemNumber={firstVisibleItemNumber}
-      lastVisibleItemNumber={lastVisibleItemNumber}
-      onPreviousPage={handlePreviousPageClick}
-      onNextPage={handleNextPageClick}
-      onSpecificPage={handleSpecificPageClick}
-      headerActions={
-        <BuildListFilters
-          filter={filter}
-          onFilterChange={handleFilterChange}
-          options={filterOptions}
-        />
-      }
-    >
-      {builds.map((build) => (
-        <div key={build.id} className="h-full w-full">
-          <BuildCard
-            build={build}
-            onReportBuild={undefined}
-            footerActions={
-              <div className="flex items-center justify-between gap-2 p-2 text-sm">
-                <CopyBuildUrlButton buildId={build.id} />
-                <DuplicateBuildButton build={build} />
-              </div>
-            }
+    <>
+      <div className="mb-8 flex w-full flex-col items-center">
+        <Tabs />
+      </div>
+      <BuildList
+        label="Builds you've favorited"
+        currentPage={currentPage}
+        pageNumbers={pageNumbers}
+        totalItems={totalBuildCount}
+        totalPages={totalPages}
+        isLoading={isLoading}
+        firstVisibleItemNumber={firstVisibleItemNumber}
+        lastVisibleItemNumber={lastVisibleItemNumber}
+        onPreviousPage={handlePreviousPageClick}
+        onNextPage={handleNextPageClick}
+        onSpecificPage={handleSpecificPageClick}
+        headerActions={
+          <BuildListFilters
+            filter={filter}
+            onFilterChange={handleFilterChange}
+            options={filterOptions}
           />
-        </div>
-      ))}
-    </BuildList>
+        }
+      >
+        {builds.map((build) => (
+          <div key={build.id} className="h-full w-full">
+            <BuildCard
+              build={build}
+              onReportBuild={undefined}
+              footerActions={
+                <div className="flex items-center justify-between gap-2 p-2 text-sm">
+                  <CopyBuildUrlButton buildId={build.id} />
+                  <DuplicateBuildButton build={build} />
+                </div>
+              }
+            />
+          </div>
+        ))}
+      </BuildList>
+    </>
   )
 }
