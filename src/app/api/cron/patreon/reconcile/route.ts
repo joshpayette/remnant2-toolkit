@@ -42,6 +42,8 @@ export async function GET(request: NextRequest) {
       store.findAll('pledge').map((pledge: any) => pledge.patron.email),
     )
 
+    console.info(`Pledge emails: ${pledgeEmails}`)
+
     // Need to remove all users from the db table PaidUsers whose User.email is not in pledgeEmails
     const paidUsers = await prisma.paidUsers.findMany({
       include: {
@@ -50,6 +52,7 @@ export async function GET(request: NextRequest) {
     })
     for (const paidUser of paidUsers) {
       if (!pledgeEmails.includes(paidUser.user.email)) {
+        console.info(`Removing ${paidUser.user.email} from PaidUsers`)
         await prisma.paidUsers.delete({
           where: {
             id: paidUser.id,
@@ -75,6 +78,7 @@ export async function GET(request: NextRequest) {
       // if user is already in PaidUsers, skip
       if (paidUser) continue
       // if user is not in PaidUsers, add
+      console.info(`Adding ${user.email} to PaidUsers`)
       await prisma.paidUsers.create({
         data: {
           userId: user.id,
