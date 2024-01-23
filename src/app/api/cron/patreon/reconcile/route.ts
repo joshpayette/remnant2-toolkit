@@ -7,7 +7,9 @@ const toolkitUserId = 'clql3zq8k0000a6m41vtnvldq'
 /**
  * Gives specific users the benefits of a paid user
  */
-const allowListUserIds: string[] = []
+const allowListUserIds: string[] = [
+  'clqnz8j6s000ekmx52vr5tot9', // senorcervezaplays
+]
 
 /**
  * CRON script that runs to moderate reported users and builds
