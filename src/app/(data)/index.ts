@@ -8704,7 +8704,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
         name: 'Engineer',
       },
     },
-    armorStep: 0.05,
+    armorStepPercent: 0.05,
   },
   {
     category: 'trait',
@@ -8939,7 +8939,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     maxLevelBonus: `At max level, Vigor Increases Max Health by 30`,
     howToGet: `Core trait`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Vigor`],
-    healthStep: 0.03,
+    healthStep: 3,
   },
   {
     category: 'trait',

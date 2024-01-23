@@ -84,7 +84,13 @@ function getItemsByKey(
 
 function getItemsWithStep(
   buildState: BuildState,
-  key: 'armorStep' | 'healthStep' | 'staminaStep',
+  key:
+    | 'armorStep'
+    | 'armorStepPercent'
+    | 'healthStep'
+    | 'healthStepPercent'
+    | 'staminaStep'
+    | 'staminaStepPercent',
 ) {
   const items: TraitItem[] = []
   buildState.items.trait &&
@@ -99,8 +105,13 @@ function getTotalArmor(buildState: BuildState) {
   const equippedArmorIncreaseItems = getItemsByKey(buildState, 'armor')
   // all equipped items that increase armor by a percentage
   const equippedArmorPercentItems = getItemsByKey(buildState, 'armorPercent')
-  // all equipped items that increase
+  // all equipped items that increase the armor by a value per point
   const equippedArmorStepItems = getItemsWithStep(buildState, 'armorStep')
+  // all equipped itesm that increase the armor by a percentage point
+  const equippedArmorStepPercentItems = getItemsWithStep(
+    buildState,
+    'armorStepPercent',
+  )
 
   const totalArmorIncrease = equippedArmorIncreaseItems.reduce(
     (acc, item) => acc + (item.armor ?? 0),
@@ -115,9 +126,15 @@ function getTotalArmor(buildState: BuildState) {
     0,
   )
 
-  const combinedPercent = totalArmorPercent + totalArmorStep
-  let totalArmor = totalArmorIncrease * combinedPercent
-  totalArmor = totalArmorIncrease + totalArmor
+  const totalArmorStepPercent = equippedArmorStepPercentItems.reduce(
+    (acc, item) => acc + (item.armorStepPercent * item.amount ?? 0),
+    0,
+  )
+
+  const totalArmor =
+    totalArmorIncrease * (1 + totalArmorPercent + totalArmorStepPercent) +
+    totalArmorStep
+
   return totalArmor.toFixed(2)
 }
 
@@ -135,8 +152,7 @@ function getTotalWeight(buildState: BuildState) {
     0,
   )
 
-  const totalWeightIncreasePercent = totalWeightIncrease * totalWeightPercent
-  const totalWeight = totalWeightIncrease + totalWeightIncreasePercent
+  const totalWeight = totalWeightIncrease * (1 + totalWeightPercent)
   return totalWeight.toFixed(2)
 }
 
@@ -172,6 +188,10 @@ function getTotalHealth(buildState: BuildState) {
   const equippedHealthIncreaseItems = getItemsByKey(buildState, 'health')
   const equippedHealthPercentItems = getItemsByKey(buildState, 'healthPercent')
   const equippedHealthStepItems = getItemsWithStep(buildState, 'healthStep')
+  const equippedHealthStepPercentItems = getItemsWithStep(
+    buildState,
+    'healthStepPercent',
+  )
   const equippedHealthCapItems = getItemsByKey(buildState, 'healthCap')
 
   const totalHealthIncrease = equippedHealthIncreaseItems.reduce(
@@ -186,6 +206,11 @@ function getTotalHealth(buildState: BuildState) {
 
   const totalHealthStep = equippedHealthStepItems.reduce(
     (acc, item) => acc + (item.healthStep * item.amount ?? 0),
+    0,
+  )
+
+  const totalHealthStepPercent = equippedHealthStepPercentItems.reduce(
+    (acc, item) => acc + (item.healthStepPercent * item.amount ?? 0),
     0,
   )
 
@@ -212,9 +237,11 @@ function getTotalHealth(buildState: BuildState) {
   const healthCapReduction = 1 - (itemWithLowestHealthCap?.healthCap ?? 0)
 
   const baseHealthAmount = 100
-  const combinedPercent = totalHealthPercent + totalHealthStep
-  let totalHealth = baseHealthAmount + totalHealthIncrease * combinedPercent
-  totalHealth = (totalHealthIncrease + totalHealth) * healthCapReduction
+
+  const totalHealth =
+    (baseHealthAmount + totalHealthIncrease + totalHealthStep) *
+    (1 + totalHealthPercent + totalHealthStepPercent) *
+    healthCapReduction
 
   return totalHealth.toFixed(2)
 }
@@ -226,6 +253,10 @@ function getTotalStamina(buildState: BuildState) {
     'staminaPercent',
   )
   const equippedStaminaStepItems = getItemsWithStep(buildState, 'staminaStep')
+  const equippedStaminaStepPercentItems = getItemsWithStep(
+    buildState,
+    'staminaStepPercent',
+  )
 
   const totalStaminaIncrease = equippedStaminaIncreaseItems.reduce(
     (acc, item) => acc + (item?.stamina ?? 0),
@@ -242,10 +273,16 @@ function getTotalStamina(buildState: BuildState) {
     0,
   )
 
+  const staminaHealthStepPercent = equippedStaminaStepPercentItems.reduce(
+    (acc, item) => acc + (item.staminaStepPercent * item.amount ?? 0),
+    0,
+  )
+
   const baseStaminaAmount = 100
-  const combinedPercent = totalStaminaPercent + staminaHealthStep
-  let totalStamina = baseStaminaAmount + totalStaminaIncrease * combinedPercent
-  totalStamina = totalStaminaIncrease + totalStamina
+
+  const totalStamina =
+    (baseStaminaAmount + totalStaminaIncrease + staminaHealthStep) *
+    (1 + totalStaminaPercent + staminaHealthStepPercent)
 
   return totalStamina.toFixed(2)
 }
@@ -271,28 +308,6 @@ export default function Stats({ buildState, isScreenshotMode }: Props) {
       <dd className="flex w-full flex-row items-center justify-start">
         <div className="flex w-full flex-col items-start justify-start sm:max-w-[275px]">
           <div className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 text-left text-sm text-gray-300">
-            <p className="flex items-center justify-start">Armor</p>
-            <span
-              className={cn(
-                'text-md flex items-center justify-end text-right font-bold sm:text-lg',
-                isScreenshotMode && 'text-lg',
-              )}
-            >
-              {totalArmor}
-            </span>
-          </div>
-          <div className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 text-left text-sm text-gray-300">
-            <p className="flex items-center justify-start">Weight</p>
-            <span
-              className={cn(
-                'text-md flex items-center justify-end text-right font-bold sm:text-lg',
-                isScreenshotMode && 'text-lg',
-              )}
-            >
-              {totalWeight}
-            </span>
-          </div>
-          <div className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 text-left text-sm text-gray-300">
             <p className="flex items-center justify-start">Health</p>
             <span
               className={cn(
@@ -312,6 +327,28 @@ export default function Stats({ buildState, isScreenshotMode }: Props) {
               )}
             >
               {totalStamina}
+            </span>
+          </div>
+          <div className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 text-left text-sm text-gray-300">
+            <p className="flex items-center justify-start">Armor</p>
+            <span
+              className={cn(
+                'text-md flex items-center justify-end text-right font-bold sm:text-lg',
+                isScreenshotMode && 'text-lg',
+              )}
+            >
+              {totalArmor}
+            </span>
+          </div>
+          <div className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 text-left text-sm text-gray-300">
+            <p className="flex items-center justify-start">Weight</p>
+            <span
+              className={cn(
+                'text-md flex items-center justify-end text-right font-bold sm:text-lg',
+                isScreenshotMode && 'text-lg',
+              )}
+            >
+              {totalWeight}
             </span>
           </div>
           <div className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 text-left text-sm text-gray-300">

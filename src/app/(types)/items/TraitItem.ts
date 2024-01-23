@@ -6,26 +6,35 @@ import { GenericItem } from './GenericItem'
 interface BaseTraitItem extends GenericItem {
   amount: number
   maxLevelBonus: string
-  healthStep: number
-  staminaStep: number
-  armorStep: number
+  healthStep: number // The amount to increase the health per level
+  healthStepPercent: number // The percentage to increase the health per level
+  staminaStep: number // The amount to increase the stamina per level
+  staminaStepPercent: number // The percentage to increase the stamina per level
+  armorStep: number // The amount to increase the armor per level
+  armorStepPercent: number // The percentage to increase the armor per level
 }
 
 export class TraitItem extends GenericItem implements BaseTraitItem {
   public category: BaseTraitItem['category'] = 'trait'
   public maxLevelBonus: BaseTraitItem['maxLevelBonus'] = ''
-  public amount: number = DEFAULT_TRAIT_AMOUNT
-  public healthStep: number = 0
-  public staminaStep: number = 0
-  public armorStep: number = 0
+  public amount: BaseTraitItem['amount'] = DEFAULT_TRAIT_AMOUNT
+  public healthStep: BaseTraitItem['healthStep'] = 0
+  public healthStepPercent: BaseTraitItem['healthStepPercent'] = 0
+  public staminaStep: BaseTraitItem['staminaStep'] = 0
+  public staminaStepPercent: BaseTraitItem['staminaStepPercent'] = 0
+  public armorStep: BaseTraitItem['armorStep'] = 0
+  public armorStepPercent: BaseTraitItem['armorStepPercent'] = 0
 
   constructor(props: BaseTraitItem) {
     super(props)
     this.amount = props.amount
     this.maxLevelBonus = props.maxLevelBonus
     this.healthStep = props.healthStep
+    this.healthStepPercent = props.healthStepPercent
     this.staminaStep = props.staminaStep
+    this.staminaStepPercent = props.staminaStepPercent
     this.armorStep = props.armorStep
+    this.armorStepPercent = props.armorStepPercent
   }
 
   public static isTraitItem = (item: GenericItem | null): item is TraitItem => {
@@ -71,8 +80,11 @@ export class TraitItem extends GenericItem implements BaseTraitItem {
             linkedItems: item.linkedItems ?? {},
             saveFileSlug: item.saveFileSlug ?? '',
             healthStep: item.healthStep ?? 0,
+            healthStepPercent: item.healthStepPercent ?? 0,
             armorStep: item.armorStep ?? 0,
+            armorStepPercent: item.armorStepPercent ?? 0,
             staminaStep: item.staminaStep ?? 0,
+            staminaStepPercent: item.staminaStepPercent ?? 0,
           }),
         )
       }
