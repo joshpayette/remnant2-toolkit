@@ -2,21 +2,6 @@
 
 This is a toolkit for the game Remnant 2. You can find the site at [remnant2toolkit.com](https://remnant2toolkit.com).
 
-## Features
-
-- [x] Item Tracker - Track your items and see what you need to complete your collection.
-- [x] Build Tool - Create and share builds with the others.
-- [x] Featured Builds - See some featured builds from the community.
-- [x] Favorited Builds - Save your favorite builds to your profile by voting on them.
-- [x] Community Builds - See builds from the community and vote on them.
-- [x] Advanced Filtering - Filter items by DLC, type, etc.
-
-## How it works
-
-The site is built using Next.js and Tailwind CSS. The data is stored in the user's local storage, so it will persist between sessions, but not between devices. The data is also stored in the URL, so you can share your builds with others.
-
-The site is hosted on Vercel, with images served via Cloudfront from an S3 bucket.
-
 ## Contributions
 
 Contributions are welcome! If you found a bug, have a suggestion, or want to contribute code, please open an issue or a pull request.
@@ -33,6 +18,10 @@ This project would not be possible without the following sources:
 - [Fextralife Remnant Wiki](https://remnant2.wiki.fextralife.com/Remnant+2+Wiki)
 - [Vash Cowaii's Excel Stat Calculator](https://docs.google.com/spreadsheets/d/1I7vkh50KWJZSxNy4FqxvniFWBstJQEMtpwtxQ3ByoPw/edit?pli=1). Support him on [YouTube](https://www.youtube.com/@VashCowaii)
 - [Robin Kuiper's Remnant Tools](https://remnant.rkuiper.nl/)
+
+## License
+
+This project is licensed under the GNU General Public License v3.0. See the [LICENSE](LICENSE) file for details.
 
 ## Running locally
 
