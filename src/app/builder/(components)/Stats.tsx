@@ -116,29 +116,27 @@ function getTotalArmor(buildState: BuildState) {
   )
 
   const combinedPercent = totalArmorPercent + totalArmorStep
-  const totalArmorIncreasePercent = totalArmorIncrease * combinedPercent
-  const totalArmor = totalArmorIncrease + totalArmorIncreasePercent
+  let totalArmor = totalArmorIncrease * combinedPercent
+  totalArmor = totalArmorIncrease + totalArmor
   return totalArmor.toFixed(2)
 }
 
 function getTotalWeight(buildState: BuildState) {
-  const itemsWithWeight = getItemsByKey(buildState, 'weight')
-  const itemsWithWeightPercent = getItemsByKey(buildState, 'weightPercent')
+  const equippedWeightIncreaseItems = getItemsByKey(buildState, 'weight')
+  const equippedWeightPercentItems = getItemsByKey(buildState, 'weightPercent')
 
-  const totalItemWeight = itemsWithWeight.reduce(
+  const totalWeightIncrease = equippedWeightIncreaseItems.reduce(
     (acc, item) => acc + (item?.weight ?? 0),
     0,
   )
 
-  const totalItemWeightPercent = itemsWithWeightPercent.reduce(
+  const totalWeightPercent = equippedWeightPercentItems.reduce(
     (acc, item) => acc + (item?.weightPercent ?? 0),
     0,
   )
 
-  const totalWeight =
-    totalItemWeightPercent > 0
-      ? totalItemWeight * totalItemWeightPercent
-      : totalItemWeight
+  const totalWeightIncreasePercent = totalWeightIncrease * totalWeightPercent
+  const totalWeight = totalWeightIncrease + totalWeightIncreasePercent
   return totalWeight.toFixed(2)
 }
 
@@ -171,67 +169,84 @@ function getTotalResistances(
 }
 
 function getTotalHealth(buildState: BuildState) {
-  const itemsWithHealth = getItemsByKey(buildState, 'health')
-  const itemsWithHealthPercent = getItemsByKey(buildState, 'healthPercent')
-  const itemsWithHealthCap = getItemsByKey(buildState, 'healthCap')
+  const equippedHealthIncreaseItems = getItemsByKey(buildState, 'health')
+  const equippedHealthPercentItems = getItemsByKey(buildState, 'healthPercent')
+  const equippedHealthStepItems = getItemsWithStep(buildState, 'healthStep')
+  const equippedHealthCapItems = getItemsByKey(buildState, 'healthCap')
 
-  const totalItemHealth = itemsWithHealth.reduce(
+  const totalHealthIncrease = equippedHealthIncreaseItems.reduce(
     (acc, item) => acc + (item?.health ?? 0),
     0,
   )
 
-  const totalItemHealthPercent = itemsWithHealthPercent.reduce(
+  const totalHealthPercent = equippedHealthPercentItems.reduce(
     (acc, item) => acc + (item?.healthPercent ?? 0),
     0,
   )
 
-  const itemWithHighestHealthCap = itemsWithHealthCap.reduce<Item | null>(
+  const totalHealthStep = equippedHealthStepItems.reduce(
+    (acc, item) => acc + (item.healthStep * item.amount ?? 0),
+    0,
+  )
+
+  // Find the item with the lowest health cap, i.e. the lowest max health
+  // player can have
+  const itemWithLowestHealthCap = equippedHealthCapItems.reduce<Item | null>(
     (prev, current) => {
       if (prev === null || prev.healthCap === undefined) {
         return current
       } else if (current === null || current.healthCap === undefined) {
         return prev
       } else {
-        return prev.healthCap > current.healthCap ? prev : current
+        return prev.healthCap < current.healthCap ? prev : current
       }
     },
     null,
   )
 
+  // Calculate the health cap reduction, i.e. the amount of health that is
+  // not included in the total health calculation
+  // This is 1 - the lowest health cap, because the health cap is a percentage
+  // of the player's max health
+  // So if the lowest health cap is 0.9, then the player's max health is 10% less
+  const healthCapReduction = 1 - (itemWithLowestHealthCap?.healthCap ?? 0)
+
   const baseHealthAmount = 100
-
-  let totalHealth =
-    totalItemHealthPercent > 0
-      ? baseHealthAmount + totalItemHealth * totalItemHealthPercent
-      : totalItemHealth + baseHealthAmount
-
-  if (itemWithHighestHealthCap !== null && itemWithHighestHealthCap.healthCap) {
-    totalHealth *= itemWithHighestHealthCap.healthCap
-  }
+  const combinedPercent = totalHealthPercent + totalHealthStep
+  let totalHealth = baseHealthAmount + totalHealthIncrease * combinedPercent
+  totalHealth = (totalHealthIncrease + totalHealth) * healthCapReduction
 
   return totalHealth.toFixed(2)
 }
 
 function getTotalStamina(buildState: BuildState) {
-  const itemsWithStamina = getItemsByKey(buildState, 'stamina')
-  const itemsWithStaminaPercent = getItemsByKey(buildState, 'staminaPercent')
+  const equippedStaminaIncreaseItems = getItemsByKey(buildState, 'stamina')
+  const equippedStaminaPercentItems = getItemsByKey(
+    buildState,
+    'staminaPercent',
+  )
+  const equippedStaminaStepItems = getItemsWithStep(buildState, 'staminaStep')
 
-  const totalItemStamina = itemsWithStamina.reduce(
+  const totalStaminaIncrease = equippedStaminaIncreaseItems.reduce(
     (acc, item) => acc + (item?.stamina ?? 0),
     0,
   )
 
-  const totalItemStaminaPercent = itemsWithStaminaPercent.reduce(
+  const totalStaminaPercent = equippedStaminaPercentItems.reduce(
     (acc, item) => acc + (item?.staminaPercent ?? 0),
     0,
   )
 
-  const baseStaminaAmount = 100
+  const staminaHealthStep = equippedStaminaStepItems.reduce(
+    (acc, item) => acc + (item.staminaStep * item.amount ?? 0),
+    0,
+  )
 
-  const totalStamina =
-    totalItemStaminaPercent > 0
-      ? baseStaminaAmount + totalItemStamina * totalItemStaminaPercent
-      : totalItemStamina + baseStaminaAmount
+  const baseStaminaAmount = 100
+  const combinedPercent = totalStaminaPercent + staminaHealthStep
+  let totalStamina = baseStaminaAmount + totalStaminaIncrease * combinedPercent
+  totalStamina = totalStaminaIncrease + totalStamina
+
   return totalStamina.toFixed(2)
 }
 

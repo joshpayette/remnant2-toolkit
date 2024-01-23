@@ -8642,7 +8642,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     maxLevelBonus: `At max level, Endurance Increases Max Stamina by 30`,
     howToGet: `Core trait`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Endurance`],
-    staminaStep: 3,
+    staminaStep: 0.03,
   },
   {
     category: 'trait',
