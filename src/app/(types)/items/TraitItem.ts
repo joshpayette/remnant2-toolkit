@@ -7,6 +7,7 @@ interface BaseTraitItem extends GenericItem {
   amount: number
   maxLevelBonus: string
   healthStep: number
+  staminaStep: number
   armorStep: number
 }
 
@@ -15,6 +16,7 @@ export class TraitItem extends GenericItem implements BaseTraitItem {
   public maxLevelBonus: BaseTraitItem['maxLevelBonus'] = ''
   public amount: number = DEFAULT_TRAIT_AMOUNT
   public healthStep: number = 0
+  public staminaStep: number = 0
   public armorStep: number = 0
 
   constructor(props: BaseTraitItem) {
@@ -22,6 +24,7 @@ export class TraitItem extends GenericItem implements BaseTraitItem {
     this.amount = props.amount
     this.maxLevelBonus = props.maxLevelBonus
     this.healthStep = props.healthStep
+    this.staminaStep = props.staminaStep
     this.armorStep = props.armorStep
   }
 
@@ -69,6 +72,7 @@ export class TraitItem extends GenericItem implements BaseTraitItem {
             saveFileSlug: item.saveFileSlug ?? '',
             healthStep: item.healthStep ?? 0,
             armorStep: item.armorStep ?? 0,
+            staminaStep: item.staminaStep ?? 0,
           }),
         )
       }

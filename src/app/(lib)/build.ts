@@ -565,6 +565,7 @@ export function linkArchtypesToTraits(buildState: BuildState) {
             saveFileSlug: linkedTraitItem.saveFileSlug,
             healthStep: linkedTraitItem.healthStep ?? 0,
             armorStep: linkedTraitItem.armorStep ?? 0,
+            staminaStep: linkedTraitItem.staminaStep ?? 0,
           }),
         )
       }

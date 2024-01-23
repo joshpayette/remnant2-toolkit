@@ -48,6 +48,9 @@ export interface GenericItemProps {
   linkedItems?: LinkedItems
   health?: number
   healthPercent?: number
+  healthCap?: number
+  stamina?: number
+  staminaPercent?: number
   armor?: number
   armorPercent?: number
   weight?: number
@@ -78,6 +81,9 @@ export class GenericItem implements GenericItemProps {
   public saveFileSlug?: GenericItemProps['saveFileSlug'] = ''
   public health?: GenericItemProps['health'] = 0
   public healthPercent?: GenericItemProps['healthPercent'] = 0
+  public healthCap?: GenericItemProps['healthCap'] = 1 // no cap
+  public stamina?: GenericItemProps['stamina'] = 0
+  public staminaPercent?: GenericItemProps['staminaPercent'] = 0
   public armor?: GenericItemProps['armor'] = 0
   public armorPercent?: GenericItemProps['armorPercent'] = 0
   public weight?: GenericItemProps['weight'] = 0
@@ -107,6 +113,9 @@ export class GenericItem implements GenericItemProps {
     this.saveFileSlug = props.saveFileSlug
     this.health = props.health
     this.healthPercent = props.healthPercent
+    this.healthCap = props.healthCap
+    this.stamina = props.stamina
+    this.staminaPercent = props.staminaPercent
     this.armor = props.armor
     this.armorPercent = props.armorPercent
     this.weight = props.weight
@@ -132,7 +141,9 @@ export class GenericItem implements GenericItemProps {
       item.category !== 'torso' &&
       item.category !== 'legs' &&
       item.category !== 'gloves' &&
-      item.category !== 'mutator'
+      item.category !== 'mutator' &&
+      item.category !== 'mod' &&
+      item.category !== 'perk'
     )
   }
 
