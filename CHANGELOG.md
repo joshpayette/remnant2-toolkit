@@ -9,6 +9,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Added
 
 - Added consumables and concoctions to the item tracker.
+- Added health and stamina to build stats
+
+### Changed
+
+- When you duplicate a build, it now defaults to private by default. This should help prevent a bunch of junk builds polluting the community builds.
+  - As part of this change, I retroactively applied the private flag to all builds that were created before this change that contain the `(copy)` text in the name, which is automatically appended when duplicating a build.
 
 ## 2023-01-21
 
