@@ -11,6 +11,9 @@ function getItemsByKey(
     | 'armorPercent'
     | 'health'
     | 'healthPercent'
+    | 'healthCap'
+    | 'stamina'
+    | 'staminaPercent'
     | 'weight'
     | 'weightPercent'
     | 'fireResistance'
@@ -81,7 +84,7 @@ function getItemsByKey(
 
 function getItemsWithStep(
   buildState: BuildState,
-  key: 'armorStep' | 'healthStep',
+  key: 'armorStep' | 'healthStep' | 'staminaStep',
 ) {
   const items: TraitItem[] = []
   buildState.items.trait &&
@@ -167,6 +170,71 @@ function getTotalResistances(
   return totalResistance
 }
 
+function getTotalHealth(buildState: BuildState) {
+  const itemsWithHealth = getItemsByKey(buildState, 'health')
+  const itemsWithHealthPercent = getItemsByKey(buildState, 'healthPercent')
+  const itemsWithHealthCap = getItemsByKey(buildState, 'healthCap')
+
+  const totalItemHealth = itemsWithHealth.reduce(
+    (acc, item) => acc + (item?.health ?? 0),
+    0,
+  )
+
+  const totalItemHealthPercent = itemsWithHealthPercent.reduce(
+    (acc, item) => acc + (item?.healthPercent ?? 0),
+    0,
+  )
+
+  const itemWithHighestHealthCap = itemsWithHealthCap.reduce<Item | null>(
+    (prev, current) => {
+      if (prev === null || prev.healthCap === undefined) {
+        return current
+      } else if (current === null || current.healthCap === undefined) {
+        return prev
+      } else {
+        return prev.healthCap > current.healthCap ? prev : current
+      }
+    },
+    null,
+  )
+
+  const baseHealthAmount = 100
+
+  let totalHealth =
+    totalItemHealthPercent > 0
+      ? baseHealthAmount + totalItemHealth * totalItemHealthPercent
+      : totalItemHealth + baseHealthAmount
+
+  if (itemWithHighestHealthCap !== null && itemWithHighestHealthCap.healthCap) {
+    totalHealth *= itemWithHighestHealthCap.healthCap
+  }
+
+  return totalHealth.toFixed(2)
+}
+
+function getTotalStamina(buildState: BuildState) {
+  const itemsWithStamina = getItemsByKey(buildState, 'stamina')
+  const itemsWithStaminaPercent = getItemsByKey(buildState, 'staminaPercent')
+
+  const totalItemStamina = itemsWithStamina.reduce(
+    (acc, item) => acc + (item?.stamina ?? 0),
+    0,
+  )
+
+  const totalItemStaminaPercent = itemsWithStaminaPercent.reduce(
+    (acc, item) => acc + (item?.staminaPercent ?? 0),
+    0,
+  )
+
+  const baseStaminaAmount = 100
+
+  const totalStamina =
+    totalItemStaminaPercent > 0
+      ? baseStaminaAmount + totalItemStamina * totalItemStaminaPercent
+      : totalItemStamina + baseStaminaAmount
+  return totalStamina.toFixed(2)
+}
+
 interface Props {
   buildState: BuildState
   isScreenshotMode: boolean
@@ -175,6 +243,8 @@ interface Props {
 export default function Stats({ buildState, isScreenshotMode }: Props) {
   const totalArmor = getTotalArmor(buildState)
   const totalWeight = getTotalWeight(buildState)
+  const totalStamina = getTotalStamina(buildState)
+  const totalHealth = getTotalHealth(buildState)
   const totalFireResistance = getTotalResistances(buildState, 'fire')
   const totalBlightResistance = getTotalResistances(buildState, 'blight')
   const totalShockResistance = getTotalResistances(buildState, 'shock')
@@ -208,15 +278,34 @@ export default function Stats({ buildState, isScreenshotMode }: Props) {
             </span>
           </div>
           <div className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 text-left text-sm text-gray-300">
+            <p className="flex items-center justify-start">Health</p>
+            <span
+              className={cn(
+                'text-md flex items-center justify-end text-right font-bold sm:text-lg',
+                isScreenshotMode && 'text-lg',
+              )}
+            >
+              {totalHealth}
+            </span>
+          </div>
+          <div className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 text-left text-sm text-gray-300">
+            <p className="flex items-center justify-start">Stamina</p>
+            <span
+              className={cn(
+                'text-md flex items-center justify-end text-right font-bold sm:text-lg',
+                isScreenshotMode && 'text-lg',
+              )}
+            >
+              {totalStamina}
+            </span>
+          </div>
+          <div className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 text-left text-sm text-gray-300">
             <Image
               src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/status/bleed_resistance.png`}
               alt="Bleed Resistance"
               width={32}
               height={32}
-              className={cn(
-                'my-1 h-6 w-6 sm:h-8 sm:w-8',
-                isScreenshotMode && 'h-8 w-8',
-              )}
+              className={cn('my-1 h-6 w-6')}
               loading="eager"
             />
             <span
@@ -234,10 +323,7 @@ export default function Stats({ buildState, isScreenshotMode }: Props) {
               alt="Fire Resistance"
               width={32}
               height={32}
-              className={cn(
-                'my-1 h-6 w-6 sm:h-8 sm:w-8',
-                isScreenshotMode && 'h-8 w-8',
-              )}
+              className={cn('my-1 h-6 w-6')}
               loading="eager"
             />
             <span
@@ -255,10 +341,7 @@ export default function Stats({ buildState, isScreenshotMode }: Props) {
               alt="Shock Resistance"
               width={32}
               height={32}
-              className={cn(
-                'my-1 h-6 w-6 sm:h-8 sm:w-8',
-                isScreenshotMode && 'h-8 w-8',
-              )}
+              className={cn('my-1 h-6 w-6')}
               loading="eager"
             />
             <span
@@ -276,10 +359,7 @@ export default function Stats({ buildState, isScreenshotMode }: Props) {
               alt="Toxin Resistance"
               width={32}
               height={32}
-              className={cn(
-                'my-1 h-6 w-6 sm:h-8 sm:w-8',
-                isScreenshotMode && 'h-8 w-8',
-              )}
+              className={cn('my-1 h-6 w-6')}
               loading="eager"
             />
             <span
@@ -297,10 +377,7 @@ export default function Stats({ buildState, isScreenshotMode }: Props) {
               alt="Blight Resistance"
               width={32}
               height={32}
-              className={cn(
-                'my-1 h-6 w-6 sm:h-8 sm:w-8',
-                isScreenshotMode && 'h-8 w-8',
-              )}
+              className={cn('my-1 h-6 w-6')}
               loading="eager"
             />
             <span
