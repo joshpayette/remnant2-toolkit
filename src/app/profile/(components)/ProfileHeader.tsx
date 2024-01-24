@@ -8,6 +8,7 @@ import { getUserBio } from '../actions'
 import { isErrorResponse } from '@/app/(types)'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
+import LoadingIndicator from '@/app/(components)/LoadingIndicator'
 
 interface Props {
   editable: boolean
@@ -25,9 +26,11 @@ export default function ProfileHeader({ editable, userId, image }: Props) {
     name: '',
     displayName: '',
   })
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     const getUserBioAsync = async () => {
+      setIsLoading(true)
       const response = await getUserBio(userId)
       if (!response) return
       if (isErrorResponse(response)) {
@@ -36,11 +39,14 @@ export default function ProfileHeader({ editable, userId, image }: Props) {
       }
 
       setUserProfile(response)
+      setIsLoading(false)
     }
     getUserBioAsync()
   }, [userId])
 
   const { name, displayName } = userProfile
+
+  if (isLoading) return <LoadingIndicator />
 
   return (
     <div className="max-w-xl">
@@ -70,6 +76,9 @@ export default function ProfileHeader({ editable, userId, image }: Props) {
         <Bio
           bio={userProfile.bio ?? 'No bio is set yet.'}
           editable={editable}
+          onChangeBio={(newBio) =>
+            setUserProfile({ ...userProfile, bio: newBio })
+          }
         />
       </div>
       {editable && (

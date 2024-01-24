@@ -10,6 +10,7 @@ import { PrismaAdapter } from '@auth/prisma-adapter'
 import { prisma } from '@/app/(lib)/db'
 import { AdapterUser } from 'next-auth/adapters'
 import { redirect } from 'next/navigation'
+import { DEFAULT_DISPLAY_NAME } from '../(data)/constants'
 
 export const authOptions: NextAuthOptions = {
   // Include user.id on session
@@ -34,6 +35,13 @@ export const authOptions: NextAuthOptions = {
         session.user.displayName = (
           user as AdapterUser & { displayName: string }
         ).displayName
+
+        if (!session.user.displayName) {
+          await prisma.user.update({
+            where: { id: user.id },
+            data: { displayName: user.name || DEFAULT_DISPLAY_NAME },
+          })
+        }
       }
       return session
     },
