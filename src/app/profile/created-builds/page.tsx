@@ -14,6 +14,7 @@ import { DBBuild } from '@/app/(types)/build'
 import Tabs from '../(components)/Tabs'
 import ProfileHeader from '../(components)/ProfileHeader'
 import { useSession } from 'next-auth/react'
+import AuthWrapper from '@/app/(components)/AuthWrapper'
 
 export default function Page() {
   const { data: sessionData } = useSession()
@@ -65,7 +66,7 @@ export default function Page() {
   }
 
   return (
-    <>
+    <AuthWrapper>
       {sessionData?.user && (
         <ProfileHeader
           editable={true}
@@ -117,6 +118,6 @@ export default function Page() {
           </div>
         ))}
       </BuildList>
-    </>
+    </AuthWrapper>
   )
 }
