@@ -63,7 +63,9 @@ export async function getUserProfilePage({
   pageNumber: number
   filter: BuildsFilter
   userId: string
-}): Promise<PaginationResponse<DBBuild> & { user: User | null }> {
+}): Promise<
+  PaginationResponse<DBBuild> & { user: User | null; totalFavorites: number }
+> {
   const user = await prisma.user.findUnique({
     where: {
       id: userId,
@@ -78,6 +80,7 @@ export async function getUserProfilePage({
     return {
       items: [],
       totalItemCount: 0,
+      totalFavorites: 0,
       user: null,
     }
   }
@@ -133,6 +136,7 @@ export async function getUserProfilePage({
     return {
       items: [],
       totalItemCount: 0,
+      totalFavorites: 0,
       user: null,
     }
   }
@@ -141,6 +145,17 @@ export async function getUserProfilePage({
     where: {
       createdById: userId,
       isPublic: true,
+    },
+  })
+
+  const totalFavorites = await prisma.buildVoteCounts.aggregate({
+    _count: {
+      _all: true,
+    },
+    where: {
+      build: {
+        createdById: userId,
+      },
     },
   })
 
@@ -168,6 +183,7 @@ export async function getUserProfilePage({
   return bigIntFix({
     items: returnedBuilds,
     totalItemCount: totalBuildCount,
+    totalFavorites: totalFavorites._count._all,
     user,
   })
 }

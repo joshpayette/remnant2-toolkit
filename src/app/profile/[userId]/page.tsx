@@ -20,6 +20,7 @@ export default function Page({
 }) {
   const [builds, setBuilds] = useState<DBBuild[]>([])
   const [totalBuildCount, setTotalBuildCount] = useState<number>(0)
+  const [totalFavorites, setTotalFavorites] = useState<number>(0)
   const [filter, setFilter] = useState<BuildsFilter>('upvotes')
   const [isLoading, setIsLoading] = useState(false)
   const itemsPerPage = 16
@@ -49,6 +50,7 @@ export default function Page({
       })
       setBuilds(response.items)
       setTotalBuildCount(response.totalItemCount)
+      setTotalFavorites(response.totalFavorites)
       setIsLoading(false)
     }
     getItemsAsync()
@@ -60,16 +62,11 @@ export default function Page({
     setFilter(filter as BuildsFilter)
   }
 
-  const totalFavorites = builds.reduce(
-    (total, build) => total + build.totalUpvotes,
-    0,
-  )
-
   return (
     <>
       <div className="my-4 flex w-full max-w-lg flex-col items-center justify-center">
         <ProfileHeader editable={false} userId={userId} />
-        <div className="my-4 flex w-full flex-row items-center justify-start gap-1 text-2xl text-yellow-500">
+        <div className="my-4 flex w-full flex-row items-center justify-center gap-1 text-2xl text-yellow-500">
           Total <StarIcon className="h-6 w-6" />: {totalFavorites}
         </div>
       </div>
