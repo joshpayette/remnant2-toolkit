@@ -1,26 +1,26 @@
 'use client'
 
 import BuildList from '@/app/(components)/BuildList'
+import ProfileHeader from '../(components)/ProfileHeader'
 import BuildCard from '@/app/(components)/BuildCard'
-import usePagination from '@/app/(hooks)/usePagination'
-import { useEffect, useState } from 'react'
-import { CreatedBuildsFilter, getCreatedBuilds } from '../actions'
 import BuildListFilters from '@/app/(components)/BuildListFilters'
+import { DBBuild } from '@/app/(types)/build'
+import { useEffect, useState } from 'react'
+import { BuildsFilter, getUserProfilePage } from './actions'
+import usePagination from '@/app/(hooks)/usePagination'
 import CopyBuildUrlButton from '../(components)/CopyBuildUrlButton'
 import EditBuildButton from '../(components)/EditBuildButton'
 import DuplicateBuildButton from '../(components)/DuplicateBuildButton'
-import DeleteBuildButton from '../(components)/DeleteBuildButton'
-import { DBBuild } from '@/app/(types)/build'
-import Tabs from '../(components)/Tabs'
-import ProfileHeader from '../(components)/ProfileHeader'
-import { useSession } from 'next-auth/react'
-import AuthWrapper from '@/app/(components)/AuthWrapper'
+import { StarIcon } from '@heroicons/react/24/solid'
 
-export default function Page() {
-  const { data: sessionData } = useSession()
+export default function Page({
+  params: { userId },
+}: {
+  params: { userId: string }
+}) {
   const [builds, setBuilds] = useState<DBBuild[]>([])
   const [totalBuildCount, setTotalBuildCount] = useState<number>(0)
-  const [filter, setFilter] = useState<CreatedBuildsFilter>('date created')
+  const [filter, setFilter] = useState<BuildsFilter>('upvotes')
   const [isLoading, setIsLoading] = useState(false)
   const itemsPerPage = 16
 
@@ -41,44 +41,40 @@ export default function Page() {
   useEffect(() => {
     const getItemsAsync = async () => {
       setIsLoading(true)
-      const response = await getCreatedBuilds({
+      const response = await getUserProfilePage({
         itemsPerPage,
         pageNumber: currentPage,
         filter,
+        userId,
       })
       setBuilds(response.items)
       setTotalBuildCount(response.totalItemCount)
       setIsLoading(false)
     }
     getItemsAsync()
-  }, [currentPage, itemsPerPage, filter])
+  }, [currentPage, itemsPerPage, filter, userId])
 
-  const filterOptions: CreatedBuildsFilter[] = ['date created', 'upvotes']
+  const filterOptions: BuildsFilter[] = ['date created', 'upvotes']
 
   function handleFilterChange(filter: string) {
-    setFilter(filter as CreatedBuildsFilter)
+    setFilter(filter as BuildsFilter)
   }
 
-  function handleDeleteBuild(buildId: string) {
-    setBuilds((prevBuilds) =>
-      prevBuilds.filter((build) => build.id !== buildId),
-    )
-  }
+  const totalFavorites = builds.reduce(
+    (total, build) => total + build.totalUpvotes,
+    0,
+  )
 
   return (
-    <AuthWrapper>
-      {sessionData?.user && (
-        <ProfileHeader
-          editable={true}
-          userId={sessionData.user.id}
-          image={sessionData.user.image}
-        />
-      )}
-      <div className="mb-8 flex w-full flex-col items-center">
-        <Tabs />
+    <>
+      <div className="my-4 flex w-full max-w-lg flex-col items-center justify-center">
+        <ProfileHeader editable={false} userId={userId} />
+        <div className="my-4 flex w-full flex-row items-center justify-start gap-1 text-2xl text-yellow-500">
+          Total <StarIcon className="h-6 w-6" />: {totalFavorites}
+        </div>
       </div>
       <BuildList
-        label="Builds you've created"
+        label="Created Builds"
         currentPage={currentPage}
         pageNumbers={pageNumbers}
         totalItems={totalBuildCount}
@@ -108,16 +104,12 @@ export default function Page() {
                   <CopyBuildUrlButton buildId={build.id} />
                   <EditBuildButton buildId={build.id} />
                   <DuplicateBuildButton build={build} />
-                  <DeleteBuildButton
-                    buildId={build.id}
-                    onDeleteBuild={handleDeleteBuild}
-                  />
                 </div>
               }
             />
           </div>
         ))}
       </BuildList>
-    </AuthWrapper>
+    </>
   )
 }

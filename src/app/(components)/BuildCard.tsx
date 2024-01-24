@@ -55,9 +55,12 @@ export default function BuildCard({
             <div className="mb-2 grid w-full grid-cols-2 text-sm">
               <p className="text-left text-gray-500">
                 by{' '}
-                <span className="text-purple-500">
+                <Link
+                  href={`/profile/${build.createdById}`}
+                  className="text-purple-500 underline hover:text-purple-700"
+                >
                   {build.createdByDisplayName}
-                </span>
+                </Link>
               </p>
               <div className="flex flex-row items-center justify-end gap-x-2">
                 {onReportBuild && (

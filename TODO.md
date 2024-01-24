@@ -1,6 +1,11 @@
+# Profiles todo
+
+- Allow user to pin X number of builds to the top of their profile
+- Allow user to specify if they want their avatar to be public
+
 # TODO
 
-- Add profile pages where you can see all builds by a user
+- Disable favoriting button if the user created the build
 - Refactor code by domain
 - Add a creator builds page to show all creator builds, similar to former featured builds page
 - Add info on getting a yellow border around builds

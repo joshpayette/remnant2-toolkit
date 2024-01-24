@@ -35,7 +35,7 @@ export async function generateMetadata(
     }
   }
 
-  const previousOGImages = (await parent).openGraph?.images || []
+  // const previousOGImages = (await parent).openGraph?.images || []
   const previousTwitterImages = (await parent).twitter?.images || []
   const title = `${build.name} by ${build.createdByDisplayName}`
   const description =
