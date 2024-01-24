@@ -337,7 +337,7 @@ export const remnantItems: Item[] = [
     id: 'og0bwx',
     description:
       'The SUMMONER specializes in using Minions to do their bidding and sacrificing them.',
-    howToGet: `Available at the Bloodmoon Altar for 15 Bloodmoon Essence. Acquire Bloodmoon Essence from killing Root Wisps during a bloodmoon (red moon in sky) in any of Yaesha's outside areas`,
+    howToGet: `Available at the Bloodmoon Altar for 15 Bloodmoon Essence. Acquire Bloodmoon Essence from killing Root Wisps during a bloodmoon (red moon in the sky) in any of Yaesha's outside areas`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Summoner`],
     linkedItems: {
       traits: [
@@ -3798,7 +3798,7 @@ export const remnantItems: Item[] = [
     imagePath: '/mainhand/sparkfire_shotgun.png',
     id: '3r9jm7',
     description: `Fires incendiary shells that apply BURNING which deals 30 FIRE damage over 3.0 seconds.`,
-    howToGet: `Can be crafted at Rigs Store. Required Material: Iron, Scrap.`,
+    howToGet: `Found at Derelict Lighthouse. Requires The Awakened King DLC.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Sparkfire+Shotgun`],
   },
   {

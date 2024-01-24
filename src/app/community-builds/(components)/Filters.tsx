@@ -1,6 +1,6 @@
 import ClearFiltersButton from '@/app/(components)/ClearFiltersButton'
 import { remnantItems } from '@/app/(data)'
-import { cn } from '@/app/(lib)/utils'
+import { capitalize, cn } from '@/app/(lib)/utils'
 import { Archtype } from '@/app/(types)'
 import { useState } from 'react'
 
@@ -81,7 +81,7 @@ export default function Filters({ showBorder = true, onUpdate }: Props) {
                 return (
                   <div key={archtype}>
                     <Checkbox
-                      label={archtype}
+                      label={capitalize(archtype)}
                       name={`archtype-${archtype}`}
                       checked={filters.archtypes.includes(archtype)}
                       onChange={() => handleArchtypeChange(archtype)}

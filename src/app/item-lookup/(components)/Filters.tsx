@@ -3,7 +3,7 @@ import SearchInput from '@/app/(components)/SearchInput'
 import { remnantItemCategories } from '@/app/(data)'
 import { FilteredItem } from '@/app/(hooks)/useFilteredItems'
 import { useLocalStorage } from '@/app/(hooks)/useLocalStorage'
-import { cn } from '@/app/(lib)/utils'
+import { capitalize, cn } from '@/app/(lib)/utils'
 import { DLCKey, DLC_TO_NAME } from '@/app/(types)'
 import { ItemCategory } from '@/app/(types)/build'
 import { useEffect, useState } from 'react'
@@ -317,7 +317,7 @@ export default function Filters({
                 return (
                   <div key={key}>
                     <Checkbox
-                      label={key}
+                      label={capitalize(key)}
                       name={`category-${key}`}
                       checked={includedCategoryKeys.includes(key)}
                       onChange={() => handleCategoryFilterChange(key)}
