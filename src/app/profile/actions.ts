@@ -354,6 +354,13 @@ export async function getUserBio(
       where: { id: userId },
     })
 
+    if (!userResponse?.displayName || userResponse.displayName === '') {
+      await prisma.user.update({
+        where: { id: userId },
+        data: { displayName: userResponse?.name || DEFAULT_DISPLAY_NAME },
+      })
+    }
+
     const profileResponse = await prisma.userProfile.findUnique({
       where: { userId },
     })
@@ -369,7 +376,6 @@ export async function getUserBio(
       return {
         bio: newProfile.bio ?? 'No bio is set yet',
         name: userResponse?.name ?? '',
-
         displayName: userResponse?.displayName ?? '',
       }
     }
