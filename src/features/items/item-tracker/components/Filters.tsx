@@ -1,13 +1,14 @@
 import ClearFiltersButton from '@/components/ClearFiltersButton'
 import SearchInput from '@/components/SearchInput'
 import { useLocalStorage } from '@/features/localstorage/hooks/useLocalStorage'
-import { capitalize, cn } from '@/lib/utils'
+import { cn } from '@/lib/classnames'
 import { ItemCategory } from '@/features/build/types'
 import { DLCKey, DLC_TO_NAME } from '@/features/items/dlc/types'
 import { useEffect, useState } from 'react'
 import { useDebounce } from 'usehooks-ts'
 import { FilteredItem } from '@/features/items/hooks/useFilteredItems'
 import { remnantItemCategories } from '@/features/items/data'
+import { capitalize } from '@/lib/capitalize'
 
 type FilterItemCategory = ItemCategory
 

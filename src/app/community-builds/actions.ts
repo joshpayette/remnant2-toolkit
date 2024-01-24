@@ -5,11 +5,11 @@ import { Build, BuildItems, Prisma } from '@prisma/client'
 import { getServerSession } from '../../features/auth/lib/auth'
 import { PaginationResponse } from '../../features/pagination/hooks/usePagination'
 import { DBBuild } from '../../features/build/types'
-import { bigIntFix } from '../../lib/utils'
 import { FilterProps } from './(components)/Filters'
 import { DEFAULT_DISPLAY_NAME } from '@/features/profile/constants'
 import { remnantItems } from '@/features/items/data'
 import { Archtype } from '@/features/items/constants'
+import { bigIntFix } from '@/lib/bigIntFix'
 
 export type TimeRange = 'day' | 'week' | 'month' | 'all-time'
 

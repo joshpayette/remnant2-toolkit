@@ -13,7 +13,7 @@ import { useSession } from 'next-auth/react'
 import LoadingIndicator from '../../components/LoadingIndicator'
 import Skeleton from '../../components/Skeleton'
 import useBuildActions from '../../features/build/hooks/useBuildActions'
-import { cn } from '../../lib/utils'
+import { cn } from '../../lib/classnames'
 import MasonryItemList from '@/features/items/components/MasonryItemList'
 
 export default function Page() {

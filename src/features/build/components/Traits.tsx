@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { XCircleIcon } from '@heroicons/react/24/solid'
-import { cn } from '@/lib/utils'
+import { cn } from '@/lib/classnames'
 import { BuildState } from '@/features/build/types'
 import { DEFAULT_TRAIT_AMOUNT, MAX_TRAIT_AMOUNT } from '../constants'
 import { TraitItem } from '@/features/items/types/TraitItem'

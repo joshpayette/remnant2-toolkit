@@ -11,8 +11,8 @@ import {
   buildStateToBuildItems,
 } from '../../features/build/lib/build'
 import { badWordsFilter } from '../../features/badwords/lib/badwords-filter'
-import { bigIntFix } from '../../lib/utils'
 import { DEFAULT_DISPLAY_NAME } from '@/features/profile/constants'
+import { bigIntFix } from '@/lib/bigIntFix'
 
 export type SuccessResponse = {
   message?: string

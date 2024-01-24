@@ -1,6 +1,6 @@
 import { Inter } from 'next/font/google'
 import NavBar from '@/components/NavBar'
-import { cn } from '@/lib/utils'
+import { cn } from '@/lib/classnames'
 import Footer from '@/components/Footer'
 export { metadata } from './metadata'
 import { Analytics } from '@vercel/analytics/react'

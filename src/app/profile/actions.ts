@@ -7,11 +7,11 @@ import { badWordsFilter } from '../../features/badwords/lib/badwords-filter'
 import { prisma } from '../../features/db/lib/db'
 import { PaginationResponse } from '../../features/pagination/hooks/usePagination'
 import { DBBuild } from '../../features/build/types'
-import { bigIntFix } from '../../lib/utils'
 import {
   DEFAULT_DISPLAY_NAME,
   MAX_PROFILE_BIO_LENGTH,
 } from '@/features/profile/constants'
+import { bigIntFix } from '@/lib/bigIntFix'
 
 export type CreatedBuildsFilter = 'date created' | 'upvotes'
 

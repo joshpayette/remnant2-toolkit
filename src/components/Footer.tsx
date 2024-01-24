@@ -1,4 +1,4 @@
-import { cn } from '@/lib/utils'
+import { cn } from '@/lib/classnames'
 import Image from 'next/image'
 
 const aClass = 'text-gray-300 hover:text-green-400 underline'

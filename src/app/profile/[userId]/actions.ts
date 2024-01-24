@@ -2,11 +2,11 @@
 
 import { PaginationResponse } from '@/features/pagination/hooks/usePagination'
 import { prisma } from '@/features/db/lib/db'
-import { bigIntFix } from '@/lib/utils'
 import { ErrorResponse } from '@/types'
 import { DBBuild } from '@/features/build/types'
 import { DEFAULT_DISPLAY_NAME } from '@/features/profile/constants'
 import { User, UserProfile } from '@prisma/client'
+import { bigIntFix } from '@/lib/bigIntFix'
 
 export async function getProfile(userId: string): Promise<
   | ErrorResponse

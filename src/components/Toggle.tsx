@@ -1,7 +1,7 @@
 'use client'
 
 import { Switch } from '@headlessui/react'
-import { cn } from '../lib/utils'
+import { cn } from '../lib/classnames'
 
 type Props = {
   enabled: boolean

@@ -1,5 +1,5 @@
 import { ARCHTYPE_COLORS } from '@/features/items/constants'
-import { cn } from '@/lib/utils'
+import { cn } from '@/lib/classnames'
 
 export default function ArchtypeLabel({ name }: { name: string }) {
   return (

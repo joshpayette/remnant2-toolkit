@@ -1,4 +1,4 @@
-import { cn } from '@/lib/utils'
+import { cn } from '@/lib/classnames'
 import { BuildState } from '@/features/build/types'
 import Image from 'next/image'
 import { Item } from '@/features/items/types'

@@ -8,10 +8,10 @@ import {
   SearchBuildTotalCount,
 } from '@/features/build/types'
 import { prisma } from '@/features/db/lib/db'
-import { bigIntFix } from '@/lib/utils'
 import { Prisma } from '@prisma/client'
 import { DLCKey } from '@/features/items/dlc/types'
 import { DEFAULT_DISPLAY_NAME } from '@/features/profile/constants'
+import { bigIntFix } from '@/lib/bigIntFix'
 
 export async function getBuilds({
   itemsPerPage,

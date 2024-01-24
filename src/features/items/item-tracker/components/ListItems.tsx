@@ -2,7 +2,7 @@
 
 import { Disclosure } from '@headlessui/react'
 import { ChevronUpIcon } from '@heroicons/react/20/solid'
-import { cn } from '@/lib/utils'
+import { cn } from '@/lib/classnames'
 import { useIsClient } from 'usehooks-ts'
 import { useLocalStorage } from '@/features/localstorage/hooks/useLocalStorage'
 import ItemCard from './ItemCard'

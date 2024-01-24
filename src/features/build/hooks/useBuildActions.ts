@@ -9,8 +9,8 @@ import {
   createBuild,
   removeReportForBuild,
 } from '../../../app/builder/actions'
-import { getArrayOfLength } from '@/lib/utils'
 import {
+  getArrayOfLength,
   getConcoctionSlotCount,
   getRandomItem,
   initialBuildState,

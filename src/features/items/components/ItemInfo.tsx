@@ -1,5 +1,5 @@
 import Dialog from '../../../components/Dialog'
-import { capitalize, cn } from '@/lib/utils'
+import { cn } from '@/lib/classnames'
 import Image from 'next/image'
 import { GenericItem } from '../types/GenericItem'
 import { MutatorItem } from '../types/MutatorItem'
@@ -9,6 +9,7 @@ import { TraitItem } from '../types/TraitItem'
 import { PerkItem } from '../types/PerkItem'
 import ItemDescription from './ItemDescription'
 import { Item } from '../types'
+import { capitalize } from '@/lib/capitalize'
 
 interface ItemInfoProps {
   item: Item | null

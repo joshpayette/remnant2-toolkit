@@ -1,5 +1,5 @@
 import { Fragment } from 'react'
-import { cn } from '../../../lib/utils'
+import { cn } from '../../../lib/classnames'
 import { Listbox, Transition } from '@headlessui/react'
 import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/24/solid'
 

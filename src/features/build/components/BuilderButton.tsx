@@ -1,6 +1,6 @@
 import { Item } from '@/features/items/types'
 import { GenericItem } from '@/features/items/types/GenericItem'
-import { cn } from '@/lib/utils'
+import { cn } from '@/lib/classnames'
 import Image from 'next/image'
 
 export default function BuilderButton({

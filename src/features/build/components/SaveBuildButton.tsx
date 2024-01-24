@@ -2,7 +2,7 @@
 
 import { signIn, useSession } from 'next-auth/react'
 import { buttonClasses } from './ActionButton'
-import { cn } from '@/lib/utils'
+import { cn } from '@/lib/classnames'
 import Skeleton from '@/components/Skeleton'
 import {
   BuildActionResponse,

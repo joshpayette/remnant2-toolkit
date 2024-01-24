@@ -4,7 +4,7 @@ import {
   ChevronLeftIcon,
   ChevronRightIcon,
 } from '@heroicons/react/24/solid'
-import { cn } from '../../../lib/utils'
+import { cn } from '../../../lib/classnames'
 
 interface Props {
   currentPage: number

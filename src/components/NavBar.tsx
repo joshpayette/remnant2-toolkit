@@ -8,7 +8,7 @@ import Logo from '@/components/Logo'
 import { usePathname } from 'next/navigation'
 import { AuthButton } from '../features/auth/components/AuthButton'
 import LoadingIndicator from './LoadingIndicator'
-import { cn } from '../lib/utils'
+import { cn } from '../lib/classnames'
 import { NAV_ITEMS } from '@/features/navigation/constants'
 
 export default function NavBar() {

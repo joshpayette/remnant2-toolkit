@@ -1,6 +1,6 @@
 'use client'
 
-import { cn } from '@/lib/utils'
+import { cn } from '@/lib/classnames'
 import Link from 'next/link'
 import { StarIcon as StarIconOff } from '@heroicons/react/24/outline'
 import { StarIcon as StarIconOn } from '@heroicons/react/24/solid'

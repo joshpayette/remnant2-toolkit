@@ -2,7 +2,7 @@
 
 import { useSession } from 'next-auth/react'
 import PlaceHolderIcon from '../../../components/PlaceholderIcon'
-import { cn } from '../../../lib/utils'
+import { cn } from '../../../lib/classnames'
 import { Menu, Transition } from '@headlessui/react'
 import { Fragment } from 'react'
 import Link from 'next/link'

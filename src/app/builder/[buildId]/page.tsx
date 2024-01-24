@@ -21,7 +21,7 @@ import {
   buildStateToMasonryItems,
   dbBuildToBuildState,
 } from '../../../features/build/lib/build'
-import { cn } from '@/lib/utils'
+import { cn } from '@/lib/classnames'
 import { DBBuild } from '@/features/build/types'
 import useBuildActions from '../../../features/build/hooks/useBuildActions'
 import MasonryItemList from '@/features/items/components/MasonryItemList'

@@ -9,9 +9,9 @@ import {
 } from '@/features/build/types'
 import { prisma } from '@/features/db/lib/db'
 import { addLinkedItemIds } from '@/features/build/lib/build'
-import { bigIntFix } from '@/lib/utils'
 import { DEFAULT_DISPLAY_NAME } from '@/features/profile/constants'
 import { remnantItems } from '@/features/items/data'
+import { bigIntFix } from '@/lib/bigIntFix'
 
 export async function getBuilds({
   itemsPerPage,
