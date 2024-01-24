@@ -1,17 +1,17 @@
 'use server'
 
-import { PaginationResponse } from '@/app/(hooks)/usePagination'
-import { getServerSession } from '@/app/(lib)/auth'
+import { PaginationResponse } from '@/features/pagination/hooks/usePagination'
+import { getServerSession } from '@/features/auth/lib/auth'
 import {
   DBBuild,
   SearchBuildResponse,
   SearchBuildTotalCount,
 } from '@/features/build/types'
-import { prisma } from '@/app/(lib)/db'
-import { DEFAULT_DISPLAY_NAME } from '@/app/(data)/constants'
-import { bigIntFix } from '@/app/(lib)/utils'
+import { prisma } from '@/features/db/lib/db'
+import { bigIntFix } from '@/lib/utils'
 import { Prisma } from '@prisma/client'
 import { DLCKey } from '@/features/dlc/types'
+import { DEFAULT_DISPLAY_NAME } from '@/features/profile/constants'
 
 export async function getBuilds({
   itemsPerPage,

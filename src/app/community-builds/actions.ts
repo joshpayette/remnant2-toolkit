@@ -1,15 +1,15 @@
 'use server'
 
-import { prisma } from '@/app/(lib)/db'
+import { prisma } from '@/features/db/lib/db'
 import { Build, BuildItems, Prisma } from '@prisma/client'
-import { getServerSession } from '../(lib)/auth'
-import { PaginationResponse } from '../(hooks)/usePagination'
-import { DEFAULT_DISPLAY_NAME } from '../(data)/constants'
-import { DBBuild, SearchBuildResponse } from '../../features/build/types'
-import { bigIntFix } from '../(lib)/utils'
+import { getServerSession } from '../../features/auth/lib/auth'
+import { PaginationResponse } from '../../features/pagination/hooks/usePagination'
+import { DBBuild } from '../../features/build/types'
+import { bigIntFix } from '../../lib/utils'
 import { FilterProps } from './(components)/Filters'
-import { remnantItems } from '../(data)'
-import { Archtype } from '../(types)'
+import { DEFAULT_DISPLAY_NAME } from '@/features/profile/constants'
+import { remnantItems } from '@/features/items/data'
+import { Archtype } from '@/features/items/constants'
 
 export type TimeRange = 'day' | 'week' | 'month' | 'all-time'
 

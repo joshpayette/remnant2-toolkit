@@ -1,18 +1,18 @@
 'use client'
 
-import PageHeader from '@/app/(components)/PageHeader'
-import SaveBuildButton from '../../(components)/SaveBuildButton'
-import ImageDownloadLink from '../../(components)/ImageDownloadLink'
+import PageHeader from '@/components/PageHeader'
+import SaveBuildButton from '../../../../features/build/components/SaveBuildButton'
+import ImageDownloadLink from '../../../../features/build/components/ImageDownloadLink'
 import { useRef } from 'react'
-import useBuildActions from '../../(hooks)/useBuildActions'
+import useBuildActions from '../../../../features/build/hooks/useBuildActions'
 import { useIsClient } from 'usehooks-ts'
-import useDBBuildState from '../../(hooks)/useDBBuildState'
-import ActionButton from '../../(components)/ActionButton'
-import Builder from '../../(components)/Builder'
-import MasonryItemList from '@/app/(components)/MasonryItemList'
-import { cn } from '@/app/(lib)/utils'
+import useDBBuildState from '../../../../features/build/hooks/useDBBuildState'
+import ActionButton from '../../../../features/build/components/ActionButton'
+import Builder from '../../../../features/build/components/Builder'
+import { cn } from '@/lib/utils'
 import { DBBuild } from '@/features/build/types'
-import { dbBuildToBuildState } from '@/app/(lib)/build'
+import { dbBuildToBuildState } from '@/features/build/lib/build'
+import MasonryItemList from '@/features/items/components/MasonryItemList'
 
 export default function Page({
   params: { initialBuildState },

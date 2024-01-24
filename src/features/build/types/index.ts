@@ -1,11 +1,11 @@
-import { ArmorItem } from '@/features/item/types/ArmorItem'
-import { GenericItem } from '@/features/item/types/GenericItem'
-import { MutatorItem } from '@/features/item/types/MutatorItem'
-import { TraitItem } from '@/features/item/types/TraitItem'
-import { WeaponItem } from '@/features/item/types/WeaponItem'
+import { ArmorItem } from '@/features/items/types/ArmorItem'
+import { GenericItem } from '@/features/items/types/GenericItem'
+import { ModItem } from '@/features/items/types/ModItem'
+import { MutatorItem } from '@/features/items/types/MutatorItem'
+import { PerkItem } from '@/features/items/types/PerkItem'
+import { TraitItem } from '@/features/items/types/TraitItem'
+import { WeaponItem } from '@/features/items/types/WeaponItem'
 import { Build, BuildItems } from '@prisma/client'
-import { ModItem } from '../../item/types/ModItem'
-import { PerkItem } from '../../item/types/PerkItem'
 
 export type ItemCategory = keyof BuildState['items']
 

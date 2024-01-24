@@ -1,7 +1,7 @@
 import Link from 'next/link'
-import { NAV_ITEMS } from './(data)/constants'
 import { ArrowRightIcon } from '@heroicons/react/24/solid'
 import Image from 'next/image'
+import { NAV_ITEMS } from '@/features/navigation/constants'
 
 export default function HomePage() {
   return (

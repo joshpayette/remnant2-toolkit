@@ -1,17 +1,17 @@
 'use client'
 
-import PageHeader from '@/app/(components)/PageHeader'
+import PageHeader from '@/components/PageHeader'
 import { useIsClient } from 'usehooks-ts'
 import { useRef } from 'react'
-import ImageDownloadLink from '../(components)/ImageDownloadLink'
-import useDBBuildState from '../(hooks)/useDBBuildState'
-import SaveBuildButton from '../(components)/SaveBuildButton'
-import ActionButton from '../(components)/ActionButton'
-import Builder from '../(components)/Builder'
-import MasonryItemList from '@/app/(components)/MasonryItemList'
-import { cn } from '@/app/(lib)/utils'
-import { initialBuildState } from '@/app/(lib)/build'
-import useBuildActions from '../(hooks)/useBuildActions'
+import ImageDownloadLink from '../../../features/build/components/ImageDownloadLink'
+import useDBBuildState from '../../../features/build/hooks/useDBBuildState'
+import SaveBuildButton from '../../../features/build/components/SaveBuildButton'
+import ActionButton from '../../../features/build/components/ActionButton'
+import Builder from '../../../features/build/components/Builder'
+import { cn } from '@/lib/utils'
+import { initialBuildState } from '@/features/build/lib/build'
+import useBuildActions from '../../../features/build/hooks/useBuildActions'
+import MasonryItemList from '@/features/items/components/MasonryItemList'
 
 export default function Page() {
   const isClient = useIsClient()

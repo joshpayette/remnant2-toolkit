@@ -1,11 +1,11 @@
 'use server'
 
-import { DEFAULT_DISPLAY_NAME } from '@/app/(data)/constants'
-import { PaginationResponse } from '@/app/(hooks)/usePagination'
-import { prisma } from '@/app/(lib)/db'
-import { bigIntFix } from '@/app/(lib)/utils'
-import { ErrorResponse } from '@/app/(types)'
+import { PaginationResponse } from '@/features/pagination/hooks/usePagination'
+import { prisma } from '@/features/db/lib/db'
+import { bigIntFix } from '@/lib/utils'
+import { ErrorResponse } from '@/types'
 import { DBBuild } from '@/features/build/types'
+import { DEFAULT_DISPLAY_NAME } from '@/features/profile/constants'
 import { User, UserProfile } from '@prisma/client'
 
 export async function getProfile(userId: string): Promise<

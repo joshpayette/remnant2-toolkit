@@ -1,5 +1,5 @@
-import { prisma } from '../app/(lib)/db'
-import { remnantItems } from '../app/(data)'
+import { prisma } from '../features/db/lib/db'
+import { remnantItems } from '../features/items/data'
 
 // Load all the item ids into the Item table
 async function main() {

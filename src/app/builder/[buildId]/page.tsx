@@ -1,15 +1,13 @@
 'use client'
 
-import Builder from '@/app/builder/(components)/Builder'
-import { ActionButton } from '../(components)/ActionButton'
-import ToCsvButton from '@/app/(components)/ToCsvButton'
+import Builder from '@/features/build/components/Builder'
+import { ActionButton } from '../../../features/build/components/ActionButton'
+import ToCsvButton from '@/components/ToCsvButton'
 import { useIsClient } from 'usehooks-ts'
 import { useRef } from 'react'
 import { useSession } from 'next-auth/react'
-import PageHeader from '@/app/(components)/PageHeader'
-import { isErrorResponse } from '@/app/(types)'
-import MasonryItemList from '../../(components)/MasonryItemList'
-import ImageDownloadLink from '../(components)/ImageDownloadLink'
+import { isErrorResponse } from '@/types'
+import ImageDownloadLink from '../../../features/build/components/ImageDownloadLink'
 import {
   addReportForBuild,
   addVoteForBuild,
@@ -22,10 +20,11 @@ import {
   buildStateToCsvData,
   buildStateToMasonryItems,
   dbBuildToBuildState,
-} from '../../(lib)/build'
-import { cn } from '@/app/(lib)/utils'
+} from '../../../features/build/lib/build'
+import { cn } from '@/lib/utils'
 import { DBBuild } from '@/features/build/types'
-import useBuildActions from '../(hooks)/useBuildActions'
+import useBuildActions from '../../../features/build/hooks/useBuildActions'
+import MasonryItemList from '@/features/items/components/MasonryItemList'
 
 export default function Page({
   params: { build },

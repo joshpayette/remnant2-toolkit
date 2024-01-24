@@ -1,17 +1,17 @@
 'use server'
 
 import { z } from 'zod'
-import { getServerSession } from '../(lib)/auth'
-import { ErrorResponse } from '../(types)'
-import { badWordFilter } from '../(lib)/badword-filter'
-import { prisma } from '../(lib)/db'
+import { getServerSession } from '../../features/auth/lib/auth'
+import { ErrorResponse } from '../../types'
+import { badWordsFilter } from '../../features/badwords/lib/badwords-filter'
+import { prisma } from '../../features/db/lib/db'
+import { PaginationResponse } from '../../features/pagination/hooks/usePagination'
+import { DBBuild } from '../../features/build/types'
+import { bigIntFix } from '../../lib/utils'
 import {
   DEFAULT_DISPLAY_NAME,
   MAX_PROFILE_BIO_LENGTH,
-} from '../(data)/constants'
-import { PaginationResponse } from '../(hooks)/usePagination'
-import { DBBuild } from '../../features/build/types'
-import { bigIntFix } from '../(lib)/utils'
+} from '@/features/profile/constants'
 
 export type CreatedBuildsFilter = 'date created' | 'upvotes'
 
@@ -261,7 +261,7 @@ export async function updateUserDisplayName(
   const { displayName: dirtyDisplayName } = validatedData.data
 
   try {
-    const displayName = badWordFilter(dirtyDisplayName)
+    const displayName = badWordsFilter(dirtyDisplayName)
 
     const dbResponse = await prisma.user.update({
       where: { id: session.user.id },
@@ -319,7 +319,7 @@ export async function updateUserBio(
   const { bio: dirtyBio } = validatedData.data
 
   try {
-    const bio = badWordFilter(dirtyBio)
+    const bio = badWordsFilter(dirtyBio)
 
     const dbResponse = await prisma.userProfile.update({
       where: { userId: session.user.id },

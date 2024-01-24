@@ -1,15 +1,18 @@
 'use server'
 
-import { getServerSession } from '../(lib)/auth'
+import { getServerSession } from '../../features/auth/lib/auth'
 import { BuildState, DBBuild } from '@/features/build/types'
-import { prisma } from '@/app/(lib)/db'
+import { prisma } from '@/features/db/lib/db'
 import { revalidatePath } from 'next/cache'
 import { z } from 'zod'
-import { ErrorResponse } from '../(types)'
-import { buildStateSchema, buildStateToBuildItems } from '../(lib)/build'
-import { DEFAULT_DISPLAY_NAME } from '@/app/(data)/constants'
-import { badWordFilter } from '../(lib)/badword-filter'
-import { bigIntFix } from '../(lib)/utils'
+import { ErrorResponse } from '../../types'
+import {
+  buildStateSchema,
+  buildStateToBuildItems,
+} from '../../features/build/lib/build'
+import { badWordsFilter } from '../../features/badwords/lib/badwords-filter'
+import { bigIntFix } from '../../lib/utils'
+import { DEFAULT_DISPLAY_NAME } from '@/features/profile/constants'
 
 export type SuccessResponse = {
   message?: string
@@ -47,11 +50,11 @@ export async function createBuild(data: string): Promise<BuildActionResponse> {
       data: {
         name:
           buildState.name && buildState.name !== ''
-            ? badWordFilter(buildState.name)
+            ? badWordsFilter(buildState.name)
             : 'My Build',
         description:
           buildState.description && buildState.description !== ''
-            ? badWordFilter(buildState.description)
+            ? badWordsFilter(buildState.description)
             : '',
         isPublic: Boolean(buildState.isPublic),
         createdBy: {
@@ -241,11 +244,11 @@ export async function updateBuild(data: string): Promise<BuildActionResponse> {
       data: {
         name:
           buildState.name && buildState.name !== ''
-            ? badWordFilter(buildState.name)
+            ? badWordsFilter(buildState.name)
             : 'My Build',
         description:
           buildState.description && buildState.description !== ''
-            ? badWordFilter(buildState.description)
+            ? badWordsFilter(buildState.description)
             : '',
         isPublic: Boolean(buildState.isPublic),
         BuildItems: {

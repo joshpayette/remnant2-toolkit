@@ -2,16 +2,16 @@
 
 import { useEffect, useState } from 'react'
 import { TimeRange, getMostUpvotedBuilds } from '../actions'
-import BuildCard from '../../(components)/BuildCard'
-import BuildList from '@/app/(components)/BuildList'
-import usePagination from '@/app/(hooks)/usePagination'
+import BuildCard from '../../../features/build/components/BuildCard'
+import BuildList from '@/features/build/components/BuildList'
+import usePagination from '@/features/pagination/hooks/usePagination'
 import Link from 'next/link'
 import { toast } from 'react-toastify'
-import { isErrorResponse } from '@/app/(types)'
-import useBuildActions from '@/app/builder/(hooks)/useBuildActions'
-import BuildListFilters from '@/app/(components)/BuildListFilters'
+import { isErrorResponse } from '@/types'
+import useBuildActions from '@/features/build/hooks/useBuildActions'
+import BuildListFilters from '@/features/build/components/BuildListFilters'
 import { DBBuild } from '@/features/build/types'
-import { dbBuildToBuildState } from '@/app/(lib)/build'
+import { dbBuildToBuildState } from '@/features/build/lib/build'
 import { FilterProps } from './Filters'
 
 interface Props {

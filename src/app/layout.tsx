@@ -1,16 +1,16 @@
 import { Inter } from 'next/font/google'
-import NavBar from '@/app/(components)/NavBar'
-import { cn } from '@/app/(lib)/utils'
-import Footer from '@/app/(components)/Footer'
+import NavBar from '@/components/NavBar'
+import { cn } from '@/lib/utils'
+import Footer from '@/components/Footer'
 export { metadata } from './metadata'
 import { Analytics } from '@vercel/analytics/react'
 import { ToastContainer } from 'react-toastify'
 
 import './globals.css'
 import 'react-toastify/dist/ReactToastify.css'
-import SessionProvider from './(components)/SessionProvider'
-import BackToTopButton from './(components)/BackToTopButton'
-import ReportBugButton from './(components)/ReportBugButton'
+import SessionProvider from '../features/auth/components/SessionProvider'
+import BackToTopButton from '../components/BackToTopButton'
+import ReportBugButton from '../components/ReportBugButton'
 
 const inter = Inter({ subsets: ['latin'] })
 

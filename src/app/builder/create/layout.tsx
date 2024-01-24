@@ -1,6 +1,6 @@
 'use server'
 
-import { getServerSession } from '@/app/(lib)/auth'
+import { getServerSession } from '@/features/auth/lib/auth'
 import { redirect } from 'next/navigation'
 import React from 'react'
 

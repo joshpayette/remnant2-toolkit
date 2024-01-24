@@ -1,13 +1,13 @@
 'use client'
 
-import { remnantItems } from '@/app/(data)'
-import ToCsvButton from '@/app/(components)/ToCsvButton'
-import PageHeader from '@/app/(components)/PageHeader'
-import { MutatorItem } from '../../features/item/types/MutatorItem'
-import useFilteredItems from '../(hooks)/useFilteredItems'
-import MasonryItemList from '../(components)/MasonryItemList'
+import ToCsvButton from '@/components/ToCsvButton'
+import PageHeader from '@/components/PageHeader'
 import Filters from './(components)/Filters'
-import { itemToCsvItem } from '@/features/item/lib/itemToCsvItem'
+import { remnantItems } from '@/features/items/data'
+import { itemToCsvItem } from '@/features/items/lib/itemToCsvItem'
+import { MutatorItem } from '@/features/items/types/MutatorItem'
+import useFilteredItems from '@/features/items/hooks/useFilteredItems'
+import MasonryItemList from '@/features/items/components/MasonryItemList'
 
 const csvItems = remnantItems // Modify the data for use. Adds a discovered flag,
   // modifies the description for mutators
