@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { PencilIcon } from '@heroicons/react/24/solid'
 import { toast } from 'react-toastify'
 import { useRouter } from 'next/navigation'
@@ -12,12 +12,13 @@ import { MAX_PROFILE_BIO_LENGTH } from '@/app/(data)/constants'
 type Props = {
   bio: string
   editable: boolean
+  onChangeBio: (bio: string) => void
 }
 
-export default function Bio({ bio, editable }: Props) {
+export default function Bio({ bio, editable, onChangeBio }: Props) {
   const router = useRouter()
 
-  const [newBio, setNewBio] = useState(bio)
+  const [newBio, setNewBio] = useState<string>(bio)
   const [isEditing, setIsEditing] = useState(false)
 
   async function handleSaveBio() {
@@ -32,8 +33,7 @@ export default function Bio({ bio, editable }: Props) {
 
     toast.success(response.message)
     setIsEditing(false)
-    setNewBio(response.updatedBio ?? '')
-    router.refresh()
+    onChangeBio(response.updatedBio ?? '')
   }
 
   return (
@@ -47,7 +47,7 @@ export default function Bio({ bio, editable }: Props) {
             name="bio"
             placeholder=""
             onChange={(e) => setNewBio(e.target.value)}
-            value={newBio ?? ''}
+            value={newBio ?? bio}
             maxLength={MAX_PROFILE_BIO_LENGTH}
             rows={6}
             cols={70}
