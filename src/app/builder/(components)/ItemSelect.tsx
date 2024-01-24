@@ -5,7 +5,7 @@ import BuilderButton from './BuilderButton'
 import { useDebounce, useIsClient } from 'usehooks-ts'
 import { useEffect, useState } from 'react'
 import SearchInput from '@/app/(components)/SearchInput'
-import { GenericItem } from '@/app/(types)/items/GenericItem'
+import { GenericItem } from '@/features/item/types/GenericItem'
 import ItemInfo from '@/app/(components)/ItemInfo'
 
 export default function ItemSelect({

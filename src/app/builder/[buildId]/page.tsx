@@ -24,7 +24,7 @@ import {
   dbBuildToBuildState,
 } from '../../(lib)/build'
 import { cn } from '@/app/(lib)/utils'
-import { DBBuild } from '@/app/(types)/build'
+import { DBBuild } from '@/features/build/types'
 import useBuildActions from '../(hooks)/useBuildActions'
 
 export default function Page({

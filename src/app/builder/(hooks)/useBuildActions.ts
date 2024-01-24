@@ -10,19 +10,19 @@ import {
   removeReportForBuild,
 } from '../actions'
 import { remnantItems } from '@/app/(data)'
-import { GenericItem } from '@/app/(types)/items/GenericItem'
-import { ArmorItem } from '@/app/(types)/items/ArmorItem'
+import { GenericItem } from '@/features/item/types/GenericItem'
+import { ArmorItem } from '@/features/item/types/ArmorItem'
 import { getArrayOfLength } from '@/app/(lib)/utils'
-import { WeaponItem } from '@/app/(types)/items/WeaponItem'
+import { WeaponItem } from '@/features/item/types/WeaponItem'
 import {
   getConcoctionSlotCount,
   getRandomItem,
   initialBuildState,
 } from '../../(lib)/build'
-import { ModItem } from '@/app/(types)/items/ModItem'
-import { TraitItem } from '@/app/(types)/items/TraitItem'
-import { MutatorItem } from '@/app/(types)/items/MutatorItem'
-import { BuildState } from '@/app/(types)/build'
+import { ModItem } from '@/features/item/types/ModItem'
+import { TraitItem } from '@/features/item/types/TraitItem'
+import { MutatorItem } from '@/features/item/types/MutatorItem'
+import { BuildState } from '@/features/build/types'
 
 export default function useBuildActions() {
   const router = useRouter()

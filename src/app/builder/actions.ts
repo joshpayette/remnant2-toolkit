@@ -1,7 +1,7 @@
 'use server'
 
 import { getServerSession } from '../(lib)/auth'
-import { BuildState, DBBuild } from '@/app/(types)/build'
+import { BuildState, DBBuild } from '@/features/build/types'
 import { prisma } from '@/app/(lib)/db'
 import { revalidatePath } from 'next/cache'
 import { z } from 'zod'

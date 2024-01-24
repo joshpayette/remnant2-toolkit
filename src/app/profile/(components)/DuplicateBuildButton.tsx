@@ -1,7 +1,7 @@
 'use client'
 
 import { dbBuildToBuildState } from '@/app/(lib)/build'
-import { DBBuild } from '@/app/(types)/build'
+import { DBBuild } from '@/features/build/types'
 import useBuildActions from '@/app/builder/(hooks)/useBuildActions'
 
 export default function DuplicateBuildButton({ build }: { build: DBBuild }) {

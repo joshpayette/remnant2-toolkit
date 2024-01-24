@@ -7,10 +7,10 @@ import { useIsClient } from 'usehooks-ts'
 import { useLocalStorage } from '@/app/(hooks)/useLocalStorage'
 import ItemCard from './ItemCard'
 import { InformationCircleIcon } from '@heroicons/react/24/solid'
-import { ItemCategory } from '@/app/(types)/build'
-import { WeaponItem } from '@/app/(types)/items/WeaponItem'
-import { MutatorItem } from '@/app/(types)/items/MutatorItem'
-import { Item } from '@/app/(types)'
+import { ItemCategory } from '@/features/build/types'
+import { WeaponItem } from '@/features/item/types/WeaponItem'
+import { MutatorItem } from '@/features/item/types/MutatorItem'
+import { Item } from '@/features/item/types'
 
 interface ItemTrackerCategory {
   category: ItemCategory

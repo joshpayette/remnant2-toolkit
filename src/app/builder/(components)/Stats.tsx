@@ -1,7 +1,7 @@
 import { cn } from '@/app/(lib)/utils'
-import { Item } from '@/app/(types)'
-import { BuildState } from '@/app/(types)/build'
-import { TraitItem } from '@/app/(types)/items/TraitItem'
+import { BuildState } from '@/features/build/types'
+import { Item } from '@/features/item/types'
+import { TraitItem } from '@/features/item/types/TraitItem'
 import Image from 'next/image'
 
 function getItemsByKey(

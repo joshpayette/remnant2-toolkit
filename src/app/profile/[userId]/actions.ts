@@ -5,7 +5,7 @@ import { PaginationResponse } from '@/app/(hooks)/usePagination'
 import { prisma } from '@/app/(lib)/db'
 import { bigIntFix } from '@/app/(lib)/utils'
 import { ErrorResponse } from '@/app/(types)'
-import { DBBuild } from '@/app/(types)/build'
+import { DBBuild } from '@/features/build/types'
 import { User, UserProfile } from '@prisma/client'
 
 export async function getProfile(userId: string): Promise<

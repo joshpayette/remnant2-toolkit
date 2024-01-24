@@ -10,7 +10,7 @@ import { useRouter } from 'next/navigation'
 import { isErrorResponse } from '@/app/(types)'
 import { useState } from 'react'
 import LoadingIndicator from '@/app/(components)/LoadingIndicator'
-import { BuildState } from '@/app/(types)/build'
+import { BuildState } from '@/features/build/types'
 
 interface Props {
   buildState: BuildState

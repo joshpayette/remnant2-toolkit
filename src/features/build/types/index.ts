@@ -1,21 +1,13 @@
-import { ArmorItem } from '@/app/(types)/items/ArmorItem'
-import { GenericItem } from '@/app/(types)/items/GenericItem'
-import { MutatorItem } from '@/app/(types)/items/MutatorItem'
-import { TraitItem } from '@/app/(types)/items/TraitItem'
-import { WeaponItem } from '@/app/(types)/items/WeaponItem'
+import { ArmorItem } from '@/features/item/types/ArmorItem'
+import { GenericItem } from '@/features/item/types/GenericItem'
+import { MutatorItem } from '@/features/item/types/MutatorItem'
+import { TraitItem } from '@/features/item/types/TraitItem'
+import { WeaponItem } from '@/features/item/types/WeaponItem'
 import { Build, BuildItems } from '@prisma/client'
-import { ModItem } from '../(types)/items/ModItem'
-import { PerkItem } from './items/PerkItem'
+import { ModItem } from '../../item/types/ModItem'
+import { PerkItem } from '../../item/types/PerkItem'
 
 export type ItemCategory = keyof BuildState['items']
-
-/**
- * Represents a slot in the buildState
- */
-export type ItemSlot = {
-  category: GenericItem['category'] | null
-  index?: number
-}
 
 /**
  * The build tool UI state

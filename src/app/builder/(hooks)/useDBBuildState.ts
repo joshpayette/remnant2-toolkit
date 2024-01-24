@@ -5,14 +5,14 @@ import {
   linkArchtypesToTraits,
   linkWeaponsToMods,
 } from '../../(lib)/build'
-import { Item } from '@/app/(types)'
-import { TraitItem } from '@/app/(types)/items/TraitItem'
-import { ArmorItem } from '@/app/(types)/items/ArmorItem'
-import { GenericItem } from '@/app/(types)/items/GenericItem'
-import { WeaponItem } from '@/app/(types)/items/WeaponItem'
-import { MutatorItem } from '@/app/(types)/items/MutatorItem'
+import { TraitItem } from '@/features/item/types/TraitItem'
+import { ArmorItem } from '@/features/item/types/ArmorItem'
+import { GenericItem } from '@/features/item/types/GenericItem'
+import { WeaponItem } from '@/features/item/types/WeaponItem'
+import { MutatorItem } from '@/features/item/types/MutatorItem'
 import { remnantItems } from '@/app/(data)'
-import { BuildState } from '@/app/(types)/build'
+import { BuildState } from '@/features/build/types'
+import { Item } from '@/features/item/types'
 
 export default function useDBBuildState(initialBuildState: BuildState) {
   const [dbBuildState, setDBBuildState] =

@@ -1,6 +1,6 @@
 import { BuildItems } from '@prisma/client'
-import { DLCKey } from '..'
-import { remnantItems } from '../../(data)'
+import { remnantItems } from '../../../app/(data)'
+import { DLCKey } from '@/features/dlc/types'
 
 /**
  * Used to link items, such as guns to their mods,

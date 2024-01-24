@@ -8,7 +8,7 @@ import { FlagIcon as FlagIconOn } from '@heroicons/react/24/solid'
 import Link from 'next/link'
 import PopularBuildBadge from './PopularBuildBadge'
 import { POPULAR_VOTE_THRESHOLD } from '../(data)/constants'
-import { DBBuild } from '../(types)/build'
+import { DBBuild } from '../../features/build/types'
 import { dbBuildToBuildState } from '../(lib)/build'
 
 interface Props {

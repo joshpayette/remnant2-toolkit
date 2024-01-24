@@ -6,12 +6,12 @@ import {
   DBBuild,
   SearchBuildResponse,
   SearchBuildTotalCount,
-} from '@/app/(types)/build'
+} from '@/features/build/types'
 import { prisma } from '@/app/(lib)/db'
 import { DEFAULT_DISPLAY_NAME } from '@/app/(data)/constants'
 import { bigIntFix } from '@/app/(lib)/utils'
-import { DLCKey } from '@/app/(types)'
 import { Prisma } from '@prisma/client'
+import { DLCKey } from '@/features/dlc/types'
 
 export async function getBuilds({
   itemsPerPage,

@@ -11,7 +11,7 @@ import ActionButton from '../../(components)/ActionButton'
 import Builder from '../../(components)/Builder'
 import MasonryItemList from '@/app/(components)/MasonryItemList'
 import { cn } from '@/app/(lib)/utils'
-import { DBBuild } from '@/app/(types)/build'
+import { DBBuild } from '@/features/build/types'
 import { dbBuildToBuildState } from '@/app/(lib)/build'
 
 export default function Page({

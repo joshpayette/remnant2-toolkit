@@ -6,7 +6,7 @@ import {
   DBBuild,
   SearchBuildResponse,
   SearchBuildTotalCount,
-} from '@/app/(types)/build'
+} from '@/features/build/types'
 import { prisma } from '@/app/(lib)/db'
 import { addLinkedItemIds } from '@/app/(lib)/build'
 import { DEFAULT_DISPLAY_NAME } from '@/app/(data)/constants'

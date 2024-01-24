@@ -1,4 +1,4 @@
-import { TraitItem } from '@/app/(types)/items/TraitItem'
+import { TraitItem } from '@/features/item/types/TraitItem'
 import { Fragment, useCallback, useMemo, useState } from 'react'
 import { cn, getArrayOfLength } from '@/app/(lib)/utils'
 import BuilderName from './BuilderName'
@@ -6,17 +6,17 @@ import BuilderButton from './BuilderButton'
 import Traits from './Traits'
 import ItemSelect from './ItemSelect'
 import Logo from '@/app/(components)/Logo'
-import { GenericItem } from '@/app/(types)/items/GenericItem'
+import { GenericItem } from '@/features/item/types/GenericItem'
 import MemberFeatures from './MemberFeatures'
 import ItemInfo from '@/app/(components)/ItemInfo'
-import { Item } from '@/app/(types)'
 import { getConcoctionSlotCount, getItemListForSlot } from '../../(lib)/build'
-import { BuildState, ItemSlot } from '@/app/(types)/build'
+import { BuildState } from '@/features/build/types'
 import PopularBuildBadge from '@/app/(components)/PopularBuildBadge'
 import { POPULAR_VOTE_THRESHOLD } from '@/app/(data)/constants'
 import { DEFAULT_TRAIT_AMOUNT } from '@/app/(data)/constants'
 import Stats from './Stats'
 import Link from 'next/link'
+import { Item } from '@/features/item/types'
 
 type BuilderProps = {
   buildState: BuildState
@@ -53,7 +53,10 @@ export default function Builder({
   const isPopular = buildState.totalUpvotes > POPULAR_VOTE_THRESHOLD
 
   // Tracks information about the slot the user is selecting an item for
-  const [selectedItemSlot, setSelectedItemSlot] = useState<ItemSlot>({
+  const [selectedItemSlot, setSelectedItemSlot] = useState<{
+    category: GenericItem['category'] | null
+    index?: number
+  }>({
     category: null,
   })
 

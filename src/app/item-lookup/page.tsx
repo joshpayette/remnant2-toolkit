@@ -3,11 +3,11 @@
 import { remnantItems } from '@/app/(data)'
 import ToCsvButton from '@/app/(components)/ToCsvButton'
 import PageHeader from '@/app/(components)/PageHeader'
-import { itemToCsvItem } from '@/app/(lib)/utils'
-import { MutatorItem } from '../(types)/items/MutatorItem'
+import { MutatorItem } from '../../features/item/types/MutatorItem'
 import useFilteredItems from '../(hooks)/useFilteredItems'
 import MasonryItemList from '../(components)/MasonryItemList'
 import Filters from './(components)/Filters'
+import { itemToCsvItem } from '@/features/item/lib/itemToCsvItem'
 
 const csvItems = remnantItems // Modify the data for use. Adds a discovered flag,
   // modifies the description for mutators

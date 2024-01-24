@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { ArmorItem } from '../(types)/items/ArmorItem'
+import { ArmorItem } from '../../features/item/types/ArmorItem'
 
 interface Props {
   item: ArmorItem

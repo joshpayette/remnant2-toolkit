@@ -12,11 +12,11 @@ import { useFormState } from 'react-dom'
 import parseSaveFile from './actions'
 import { SubmitButton } from '../(components)/SubmitButton'
 import { toast } from 'react-toastify'
-import { GenericItem } from '../(types)/items/GenericItem'
-import { MutatorItem } from '../(types)/items/MutatorItem'
+import { GenericItem } from '../../features/item/types/GenericItem'
+import { MutatorItem } from '../../features/item/types/MutatorItem'
 import useFilteredItems from '../(hooks)/useFilteredItems'
 import Filters from './(components)/Filters'
-import { itemToCsvItem } from '../(lib)/utils'
+import { itemToCsvItem } from '@/features/item/lib/itemToCsvItem'
 
 const skippedItemCategories: Array<GenericItem['category']> = ['skill', 'perk']
 

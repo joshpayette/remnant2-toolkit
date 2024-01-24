@@ -1,6 +1,6 @@
 import { BuildItems } from '@prisma/client'
-import { remnantItems } from '../../(data)'
-import { DEFAULT_TRAIT_AMOUNT } from '../../(data)/constants'
+import { remnantItems } from '../../../app/(data)'
+import { DEFAULT_TRAIT_AMOUNT } from '../../../app/(data)/constants'
 import { GenericItem } from './GenericItem'
 
 interface BaseTraitItem extends GenericItem {

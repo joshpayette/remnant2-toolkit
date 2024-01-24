@@ -1,14 +1,14 @@
 import Dialog from './Dialog'
 import { capitalize, cn } from '@/app/(lib)/utils'
 import Image from 'next/image'
-import { GenericItem } from '../(types)/items/GenericItem'
-import { MutatorItem } from '../(types)/items/MutatorItem'
-import { ArmorItem } from '../(types)/items/ArmorItem'
-import { Item } from '../(types)'
+import { GenericItem } from '../../features/item/types/GenericItem'
+import { MutatorItem } from '../../features/item/types/MutatorItem'
+import { ArmorItem } from '../../features/item/types/ArmorItem'
 import ArmorInfo from './ArmorInfo'
-import { TraitItem } from '../(types)/items/TraitItem'
-import { PerkItem } from '../(types)/items/PerkItem'
+import { TraitItem } from '../../features/item/types/TraitItem'
+import { PerkItem } from '../../features/item/types/PerkItem'
 import ItemDescription from './ItemDescription'
+import { Item } from '@/features/item/types'
 
 interface ItemInfoProps {
   item: Item | null

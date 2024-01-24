@@ -1,8 +1,7 @@
 'use client'
 
 import ItemInfo from '@/app/(components)/ItemInfo'
-import { Item } from '@/app/(types)'
-import { GenericItem } from '@/app/(types)/items/GenericItem'
+import { GenericItem } from '@/features/item/types/GenericItem'
 import {
   InformationCircleIcon,
   ListBulletIcon,
@@ -11,12 +10,13 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
 import { Masonry } from 'masonic'
-import { ArmorItem } from '@/app/(types)/items/ArmorItem'
-import { MutatorItem } from '@/app/(types)/items/MutatorItem'
+import { ArmorItem } from '@/features/item/types/ArmorItem'
+import { MutatorItem } from '@/features/item/types/MutatorItem'
 import ArmorInfo from '@/app/(components)/ArmorInfo'
-import { TraitItem } from '@/app/(types)/items/TraitItem'
+import { TraitItem } from '@/features/item/types/TraitItem'
 import { useIsClient } from 'usehooks-ts'
 import ItemDescription from './ItemDescription'
+import { Item } from '@/features/item/types'
 
 interface MasonryBuildItem {
   index: number

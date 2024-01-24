@@ -1,32 +1,3 @@
-import { GenericItem } from './items/GenericItem'
-import { ArmorItem } from './items/ArmorItem'
-import { WeaponItem } from './items/WeaponItem'
-import { MutatorItem } from './items/MutatorItem'
-import { TraitItem } from './items/TraitItem'
-import { ModItem } from './items/ModItem'
-import { PerkItem } from './items/PerkItem'
-
-export type Item =
-  | GenericItem
-  | ArmorItem
-  | WeaponItem
-  | ModItem
-  | MutatorItem
-  | TraitItem
-  | PerkItem
-
-/**
- * The minimum information that should be
- * written in a CSV export for each item
- */
-export interface CsvItem {
-  name: string
-  category: GenericItem['category']
-  description: string
-  howToGet: string
-  wikiLinks: string
-}
-
 /**
  * The information provided by the metadata for
  * each featured-build page
@@ -41,14 +12,6 @@ export interface PageInfo {
   classes?: string[]
   tags?: string[]
 }
-
-export const DLC_TO_NAME = {
-  base: 'Base Game',
-  dlc1: 'The Awakened King',
-} as const
-
-export type DLCKey = keyof typeof DLC_TO_NAME
-export type DLCName = (typeof DLC_TO_NAME)[DLCKey]
 
 export type Archtype =
   | 'alchemist'

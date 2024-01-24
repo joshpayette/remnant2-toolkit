@@ -1,11 +1,11 @@
 import { remnantItemCategories } from '@/app/(data)'
 import { usePathname, useSearchParams, useRouter } from 'next/navigation'
 import { useCallback, useEffect } from 'react'
-import { TraitItem } from '@/app/(types)/items/TraitItem'
-import { GenericItem } from '@/app/(types)/items/GenericItem'
-import { ArmorItem } from '@/app/(types)/items/ArmorItem'
-import { WeaponItem } from '@/app/(types)/items/WeaponItem'
-import { MutatorItem } from '@/app/(types)/items/MutatorItem'
+import { TraitItem } from '@/features/item/types/TraitItem'
+import { GenericItem } from '@/features/item/types/GenericItem'
+import { ArmorItem } from '@/features/item/types/ArmorItem'
+import { WeaponItem } from '@/features/item/types/WeaponItem'
+import { MutatorItem } from '@/features/item/types/MutatorItem'
 import {
   buildStateToCsvData,
   buildStateToMasonryItems,
@@ -13,9 +13,9 @@ import {
   linkArchtypesToTraits,
   linkWeaponsToMods,
 } from '../../(lib)/build'
-import { ModItem } from '@/app/(types)/items/ModItem'
-import { BuildState } from '@/app/(types)/build'
-import { PerkItem } from '@/app/(types)/items/PerkItem'
+import { ModItem } from '@/features/item/types/ModItem'
+import { BuildState } from '@/features/build/types'
+import { PerkItem } from '@/features/item/types/PerkItem'
 
 /**
  * Handles reading/writing the build to the URL query string,

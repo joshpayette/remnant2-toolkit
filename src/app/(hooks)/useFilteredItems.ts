@@ -1,6 +1,6 @@
 import { useCallback, useState } from 'react'
-import { Item } from '../(types)'
 import { useLocalStorage } from './useLocalStorage'
+import { Item } from '@/features/item/types'
 
 export type FilteredItem = Item & {
   discovered: boolean

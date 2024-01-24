@@ -1,7 +1,5 @@
-import { type CsvItem } from '@/app/(types)'
 import { clsx, type ClassValue } from 'clsx'
 import { twMerge } from 'tailwind-merge'
-import { GenericItem } from '../(types)/items/GenericItem'
 
 /**
  * capitalizes the first letter of a string
@@ -62,29 +60,6 @@ export function toCsv<T extends {}>(data: T[], filename: string) {
   link.setAttribute('download', `${filename}.csv`)
   document.body.appendChild(link) // Required for FF
   link.click()
-}
-
-/**
- * Converts an Item to a CSV item for export
- */
-export function itemToCsvItem(item: GenericItem): CsvItem {
-  function cleanString(string: string): string {
-    return (
-      string
-        // replace commas with spaces
-        .replaceAll(',', ' ')
-        // replace line breaks with spaces
-        .replace(/(?:\r\n|\r|\n)/g, ' ')
-    )
-  }
-
-  return {
-    name: item.name,
-    category: item.category,
-    description: cleanString(item.description || ''),
-    howToGet: cleanString(item.howToGet || ''),
-    wikiLinks: item.wikiLinks?.join('; ') || '',
-  }
 }
 
 /**

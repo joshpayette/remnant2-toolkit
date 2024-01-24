@@ -10,7 +10,7 @@ import {
   MAX_PROFILE_BIO_LENGTH,
 } from '../(data)/constants'
 import { PaginationResponse } from '../(hooks)/usePagination'
-import { DBBuild } from '../(types)/build'
+import { DBBuild } from '../../features/build/types'
 import { bigIntFix } from '../(lib)/utils'
 
 export type CreatedBuildsFilter = 'date created' | 'upvotes'

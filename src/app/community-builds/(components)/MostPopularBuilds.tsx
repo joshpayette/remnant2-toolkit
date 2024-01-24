@@ -10,7 +10,7 @@ import { toast } from 'react-toastify'
 import { isErrorResponse } from '@/app/(types)'
 import useBuildActions from '@/app/builder/(hooks)/useBuildActions'
 import BuildListFilters from '@/app/(components)/BuildListFilters'
-import { DBBuild } from '@/app/(types)/build'
+import { DBBuild } from '@/features/build/types'
 import { dbBuildToBuildState } from '@/app/(lib)/build'
 import { FilterProps } from './Filters'
 

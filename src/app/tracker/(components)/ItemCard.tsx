@@ -1,4 +1,4 @@
-import { GenericItem } from '@/app/(types)/items/GenericItem'
+import { GenericItem } from '@/features/item/types/GenericItem'
 import Image from 'next/image'
 
 export interface ItemCardProps {

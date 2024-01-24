@@ -1,7 +1,6 @@
 import { cn } from '@/app/(lib)/utils'
-import { Item } from '@/app/(types)'
-import { GenericItem } from '@/app/(types)/items/GenericItem'
-import { InformationCircleIcon } from '@heroicons/react/24/solid'
+import { Item } from '@/features/item/types'
+import { GenericItem } from '@/features/item/types/GenericItem'
 import Image from 'next/image'
 
 export default function BuilderButton({

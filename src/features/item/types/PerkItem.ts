@@ -1,5 +1,5 @@
 import { BuildItems } from '@prisma/client'
-import { remnantItems } from '../../(data)'
+import { remnantItems } from '../../../app/(data)'
 import { GenericItem } from './GenericItem'
 
 export interface BasePerkItem extends GenericItem {
