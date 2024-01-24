@@ -7,7 +7,6 @@
 
 - Integrate youtube video links on creator builds page
 - Disable favoriting button if the user created the build
-- Refactor code by domain
 - Add a creator builds page to show all creator builds, similar to former featured builds page
 - Add info on getting a yellow border around builds
 - Add build filters to show only builds above certain vote thresholds
@@ -16,7 +15,6 @@
 
 ## Bugs
 
-- Check stamina calculation. Bolt Jamison Sporebloom build should be 106 stamina total, but is showing 100.6. Replace image once done.
 - When creating a build hide "build created by"
 - Possible for the date to be formatted for local time considerations, or at least show yyyy-mm-dd?
 - Item tracker shows NAN% next to item categories when searching for items, such as when searching for a specific pistol
