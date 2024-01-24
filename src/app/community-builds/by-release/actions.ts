@@ -10,7 +10,7 @@ import {
 import { prisma } from '@/features/db/lib/db'
 import { bigIntFix } from '@/lib/utils'
 import { Prisma } from '@prisma/client'
-import { DLCKey } from '@/features/dlc/types'
+import { DLCKey } from '@/features/items/dlc/types'
 import { DEFAULT_DISPLAY_NAME } from '@/features/profile/constants'
 
 export async function getBuilds({

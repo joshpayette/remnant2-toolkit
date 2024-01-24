@@ -15,7 +15,7 @@ import ClearFiltersButton from '@/components/ClearFiltersButton'
 import useBuildActions from '@/features/build/hooks/useBuildActions'
 import { toast } from 'react-toastify'
 import { dbBuildToBuildState } from '@/features/build/lib/build'
-import { DLCKey, DLC_TO_NAME } from '@/features/dlc/types'
+import { DLCKey, DLC_TO_NAME } from '@/features/items/dlc/types'
 
 const ITEMS_PER_PAGE = 8
 const DEFAULT_DLC_ITEMS: DLCKey[] = ['base', 'dlc1']

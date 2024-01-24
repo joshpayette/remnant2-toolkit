@@ -3,17 +3,15 @@ import SearchInput from '@/components/SearchInput'
 import { useLocalStorage } from '@/features/localstorage/hooks/useLocalStorage'
 import { capitalize, cn } from '@/lib/utils'
 import { ItemCategory } from '@/features/build/types'
-import { DLCKey, DLC_TO_NAME } from '@/features/dlc/types'
+import { DLCKey, DLC_TO_NAME } from '@/features/items/dlc/types'
 import { useEffect, useState } from 'react'
 import { useDebounce } from 'usehooks-ts'
 import { FilteredItem } from '@/features/items/hooks/useFilteredItems'
 import { remnantItemCategories } from '@/features/items/data'
 
-type FilterItemCategory = ItemCategory
-
 interface Props {
   allItems: FilteredItem[]
-  itemCategories?: FilterItemCategory[]
+  itemCategories?: ItemCategory[]
   showBorder?: boolean
   onUpdate: (filteredItems: FilteredItem[]) => void
 }
@@ -99,7 +97,7 @@ export default function Filters({
    * Category Filters
    * ------------------------------------
    */
-  const defaultCategoryKeys: FilterItemCategory[] =
+  const defaultCategoryKeys: ItemCategory[] =
     itemCategories?.sort((a, b) => {
       if (a < b) return -1
       if (a > b) return 1
@@ -111,9 +109,9 @@ export default function Filters({
       return 0
     })
   const [includedCategoryKeys, setIncludedCategoryKeys] =
-    useState<FilterItemCategory[]>(defaultCategoryKeys)
+    useState<ItemCategory[]>(defaultCategoryKeys)
 
-  function handleCategoryFilterChange(categoryKey: FilterItemCategory) {
+  function handleCategoryFilterChange(categoryKey: ItemCategory) {
     if (includedCategoryKeys.includes(categoryKey)) {
       setIncludedCategoryKeys(
         includedCategoryKeys.filter((key) => key !== categoryKey),
