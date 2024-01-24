@@ -5,7 +5,10 @@ import { getServerSession } from '../(lib)/auth'
 import { ErrorResponse } from '../(types)'
 import { badWordFilter } from '../(lib)/badword-filter'
 import { prisma } from '../(lib)/db'
-import { DEFAULT_DISPLAY_NAME } from '../(data)/constants'
+import {
+  DEFAULT_DISPLAY_NAME,
+  MAX_PROFILE_BIO_LENGTH,
+} from '../(data)/constants'
 import { PaginationResponse } from '../(hooks)/usePagination'
 import { DBBuild } from '../(types)/build'
 import { bigIntFix } from '../(lib)/utils'
@@ -279,6 +282,107 @@ export async function updateUserDisplayName(
     console.error(e)
     return {
       errors: ['Error updating user!'],
+    }
+  }
+}
+
+export async function updateUserBio(
+  data: string,
+): Promise<ErrorResponse | { message: string; updatedBio?: string }> {
+  // session validation
+  const session = await getServerSession()
+  if (!session || !session.user) {
+    return {
+      message: 'You must be logged in.',
+    }
+  }
+
+  // data validation
+  const unvalidatedData = JSON.parse(data)
+  const validatedData = z
+    .object({
+      bio: z
+        .string()
+        .min(5, { message: 'Bio is required.' })
+        .max(MAX_PROFILE_BIO_LENGTH, {
+          message: `Bio cannot be longer than ${MAX_PROFILE_BIO_LENGTH} characters.`,
+        }),
+    })
+    .safeParse(unvalidatedData)
+  if (!validatedData.success) {
+    console.error('Error in data!', validatedData.error)
+    return {
+      errors: [validatedData.error.flatten().fieldErrors],
+    }
+  }
+
+  const { bio: dirtyBio } = validatedData.data
+
+  try {
+    const bio = badWordFilter(dirtyBio)
+
+    const dbResponse = await prisma.userProfile.update({
+      where: { userId: session.user.id },
+      data: { bio },
+    })
+
+    if (!dbResponse) {
+      return {
+        errors: ['Error updating user!'],
+      }
+    }
+
+    return {
+      message: 'Successfully updated user!',
+      updatedBio: dbResponse.bio ?? '',
+    }
+  } catch (e) {
+    console.error(e)
+    return {
+      errors: ['Error updating user!'],
+    }
+  }
+}
+
+export async function getUserBio(
+  userId: string,
+): Promise<
+  ErrorResponse | { bio?: string; name: string; displayName: string }
+> {
+  try {
+    const userResponse = await prisma.user.findUnique({
+      where: { id: userId },
+    })
+
+    const profileResponse = await prisma.userProfile.findUnique({
+      where: { userId },
+    })
+
+    if (!profileResponse) {
+      // create a profile for the user if one doesn't exist
+      const newProfile = await prisma.userProfile.create({
+        data: {
+          bio: 'No bio is set yet',
+          userId,
+        },
+      })
+      return {
+        bio: newProfile.bio ?? 'No bio is set yet',
+        name: userResponse?.name ?? '',
+
+        displayName: userResponse?.displayName ?? '',
+      }
+    }
+
+    return {
+      bio: profileResponse.bio ?? 'No bio is set yet',
+      name: userResponse?.name ?? '',
+      displayName: userResponse?.displayName ?? '',
+    }
+  } catch (e) {
+    console.error(e)
+    return {
+      errors: ['Error fetching user!'],
     }
   }
 }

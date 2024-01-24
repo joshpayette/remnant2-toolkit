@@ -64,6 +64,11 @@ export const NAV_ITEMS = [
 export const MAX_BUILD_DESCRIPTION_LENGTH = 1000
 
 /**
+ * The maximum characters allowed in a profile bio
+ */
+export const MAX_PROFILE_BIO_LENGTH = 1000
+
+/**
  * The value of each new trait added
  * to the builder.
  */

@@ -8,10 +8,11 @@ import { isErrorResponse } from '@/app/(types)'
 import { updateUserDisplayName } from '../actions'
 
 type Props = {
+  editable: boolean
   name: string
 }
 
-export default function DisplayName({ name }: Props) {
+export default function DisplayName({ editable, name }: Props) {
   const router = useRouter()
 
   const [newDisplayName, setNewDisplayName] = useState(name)
@@ -51,13 +52,15 @@ export default function DisplayName({ name }: Props) {
         />
       ) : (
         <>
-          <h2 className="text-2xl font-semibold text-green-500">{name}</h2>
-          <button onClick={() => setIsEditing(true)}>
-            <PencilIcon
-              className="h-4 w-4 text-green-500 hover:text-green-300"
-              aria-hidden="true"
-            />
-          </button>
+          <h2 className="text-4xl font-semibold text-green-500">{name}</h2>
+          {editable && (
+            <button onClick={() => setIsEditing(true)}>
+              <PencilIcon
+                className="h-4 w-4 text-green-500 hover:text-green-300"
+                aria-hidden="true"
+              />
+            </button>
+          )}
         </>
       )}
     </div>

@@ -12,8 +12,11 @@ import DuplicateBuildButton from '../(components)/DuplicateBuildButton'
 import DeleteBuildButton from '../(components)/DeleteBuildButton'
 import { DBBuild } from '@/app/(types)/build'
 import Tabs from '../(components)/Tabs'
+import ProfileHeader from '../(components)/ProfileHeader'
+import { useSession } from 'next-auth/react'
 
 export default function Page() {
+  const { data: sessionData } = useSession()
   const [builds, setBuilds] = useState<DBBuild[]>([])
   const [totalBuildCount, setTotalBuildCount] = useState<number>(0)
   const [filter, setFilter] = useState<CreatedBuildsFilter>('date created')
@@ -63,6 +66,13 @@ export default function Page() {
 
   return (
     <>
+      {sessionData?.user && (
+        <ProfileHeader
+          editable={true}
+          userId={sessionData.user.id}
+          image={sessionData.user.image}
+        />
+      )}
       <div className="mb-8 flex w-full flex-col items-center">
         <Tabs />
       </div>

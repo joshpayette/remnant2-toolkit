@@ -16,6 +16,7 @@ import PopularBuildBadge from '@/app/(components)/PopularBuildBadge'
 import { POPULAR_VOTE_THRESHOLD } from '@/app/(data)/constants'
 import { DEFAULT_TRAIT_AMOUNT } from '@/app/(data)/constants'
 import Stats from './Stats'
+import Link from 'next/link'
 
 type BuilderProps = {
   buildState: BuildState
@@ -323,9 +324,12 @@ export default function Builder({
         {showCreatedBy && (
           <p className="mb-2 flex items-center justify-center text-sm text-gray-400">
             Build by{' '}
-            <span className="ml-1 text-green-500">
+            <Link
+              href={`/profile/${buildState.createdById}`}
+              className="ml-1 text-green-500 underline hover:text-green-700"
+            >
               {buildState.createdByDisplayName}
-            </span>
+            </Link>
           </p>
         )}
         {isPopular && (

@@ -51,7 +51,7 @@ export async function getProfile(userId: string): Promise<
   }
 }
 
-type BuildsFilter = 'date created' | 'upvotes'
+export type BuildsFilter = 'date created' | 'upvotes'
 
 export async function getUserProfilePage({
   itemsPerPage,
@@ -87,6 +87,7 @@ export async function getUserProfilePage({
       ? await prisma.build.findMany({
           where: {
             createdById: userId,
+            isPublic: true,
           },
           orderBy: {
             createdAt: 'desc',
@@ -107,6 +108,7 @@ export async function getUserProfilePage({
       : await prisma.build.findMany({
           where: {
             createdById: userId,
+            isPublic: true,
           },
           orderBy: {
             BuildVotes: {
@@ -138,6 +140,7 @@ export async function getUserProfilePage({
   const totalBuildCount = await prisma.build.count({
     where: {
       createdById: userId,
+      isPublic: true,
     },
   })
 

@@ -10,8 +10,11 @@ import BuildList from '@/app/(components)/BuildList'
 import DuplicateBuildButton from '../(components)/DuplicateBuildButton'
 import { DBBuild } from '@/app/(types)/build'
 import Tabs from '../(components)/Tabs'
+import ProfileHeader from '../(components)/ProfileHeader'
+import { useSession } from 'next-auth/react'
 
 export default function Page() {
+  const { data: sessionData } = useSession()
   const [builds, setBuilds] = useState<DBBuild[]>([])
   const [totalBuildCount, setTotalBuildCount] = useState<number>(0)
   const [isLoading, setIsLoading] = useState(false)
@@ -55,6 +58,13 @@ export default function Page() {
 
   return (
     <>
+      {sessionData?.user && (
+        <ProfileHeader
+          editable={true}
+          userId={sessionData.user.id}
+          image={sessionData.user.image}
+        />
+      )}
       <div className="mb-8 flex w-full flex-col items-center">
         <Tabs />
       </div>
