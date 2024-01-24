@@ -15,7 +15,6 @@
 
 ## Bugs
 
-- When creating a build hide "build created by"
 - Possible for the date to be formatted for local time considerations, or at least show yyyy-mm-dd?
 - Item tracker shows NAN% next to item categories when searching for items, such as when searching for a specific pistol
 - If you add a skill, the skills for that class should not be selectable in the other skill slot

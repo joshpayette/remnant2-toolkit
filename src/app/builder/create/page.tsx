@@ -78,6 +78,7 @@ export default function Page() {
             isScreenshotMode={isScreenshotMode}
             showControls={showControls}
             updateBuildState={updateDBBuildState}
+            showCreatedBy={false}
           />
         </div>
       </div>
