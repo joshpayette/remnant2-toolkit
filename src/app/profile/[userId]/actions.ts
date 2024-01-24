@@ -155,6 +155,7 @@ export async function getUserProfilePage({
     where: {
       build: {
         createdById: userId,
+        isPublic: true,
       },
     },
   })
