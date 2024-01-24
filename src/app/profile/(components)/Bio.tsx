@@ -1,9 +1,8 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { PencilIcon } from '@heroicons/react/24/solid'
 import { toast } from 'react-toastify'
-import { useRouter } from 'next/navigation'
 import { isErrorResponse } from '@/app/(types)'
 import { updateUserBio } from '../actions'
 import Textarea from '@/app/(components)/Textarea'
@@ -16,8 +15,6 @@ type Props = {
 }
 
 export default function Bio({ bio, editable, onChangeBio }: Props) {
-  const router = useRouter()
-
   const [newBio, setNewBio] = useState<string>(bio)
   const [isEditing, setIsEditing] = useState(false)
 
