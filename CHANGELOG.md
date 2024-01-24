@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2023-01-23
 
+### Added
+
+- User profile pages now active. You can add a bio or see all of a user's public builds
+
 ### Fixed
 
 - Fixed how to get description for Sparkfire Shotgun.
