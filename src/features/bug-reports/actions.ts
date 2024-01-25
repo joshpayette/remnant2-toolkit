@@ -1,6 +1,6 @@
 'use server'
 
-import { getServerSession } from '../auth/lib/auth'
+import { getServerSession } from '../auth/lib'
 
 export async function ReportBug(report: string) {
   const session = await getServerSession()

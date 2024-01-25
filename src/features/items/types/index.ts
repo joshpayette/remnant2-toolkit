@@ -26,3 +26,17 @@ export interface CsvItem {
   howToGet: string
   wikiLinks: string
 }
+
+export type Archtype =
+  | 'alchemist'
+  | 'archon'
+  | 'challenger'
+  | 'engineer'
+  | 'explorer'
+  | 'gunslinger'
+  | 'handler'
+  | 'hunter'
+  | 'invader'
+  | 'medic'
+  | 'ritualist'
+  | 'summoner'

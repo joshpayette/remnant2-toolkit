@@ -1,4 +1,4 @@
-import { prisma } from '../features/db/lib/db'
+import { prisma } from '../features/db'
 import { ItemCategory } from '../features/build/types'
 
 async function updateBuildItems() {
