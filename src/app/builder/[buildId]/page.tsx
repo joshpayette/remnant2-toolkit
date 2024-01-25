@@ -100,7 +100,7 @@ export default function Page({
             />
           </div>
         )}
-        <div className="flex w-full max-w-xl flex-col items-start justify-center gap-2 sm:flex-row-reverse">
+        <div className="flex w-full max-w-xl flex-col-reverse items-start justify-center gap-2 sm:flex-row-reverse">
           <div
             id="actions-column"
             className="flex min-w-full flex-col justify-between gap-2 sm:min-w-[100px]"
