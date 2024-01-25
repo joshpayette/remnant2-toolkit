@@ -16,6 +16,7 @@ import {
   FeaturedBuildsFilter,
   getFeaturedBuilds,
 } from '@/features/build/actions/getFeaturedBuilds'
+import Loading from '@/app/loading'
 
 interface Props {
   itemsPerPage?: number
@@ -29,7 +30,7 @@ export default function FeaturedBuilds({
   const [builds, setBuilds] = useState<DBBuild[]>([])
   const [totalBuildCount, setTotalBuildCount] = useState<number>(0)
   const [filter, setFilter] = useState<FeaturedBuildsFilter>('date created')
-  const [isLoading, setIsLoading] = useState<boolean>(false)
+  const [isLoading, setIsLoading] = useState<boolean>(true)
 
   const {
     currentPage,
@@ -98,8 +99,8 @@ export default function FeaturedBuilds({
 
   const filterOptions: FeaturedBuildsFilter[] = ['date created', 'upvotes']
 
-  if (totalBuildCount === 0) {
-    return null
+  if (isLoading) {
+    return <Loading />
   }
 
   return (
