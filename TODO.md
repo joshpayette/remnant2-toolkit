@@ -5,6 +5,7 @@
 
 # TODO
 
+- Rework the item import on the tracker to be a bit more clear
 - Add total votes to /created-builds and /favorited-builds
 - Add info on getting a yellow border around builds
 - Add build filters to show only builds above certain vote thresholds
