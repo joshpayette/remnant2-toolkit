@@ -348,9 +348,7 @@ export async function updateUserBio(
 
 export async function getUserBio(
   userId: string,
-): Promise<
-  ErrorResponse | { bio?: string; name: string; displayName: string }
-> {
+): Promise<ErrorResponse | { bio?: string; displayName: string }> {
   try {
     const userResponse = await prisma.user.findUnique({
       where: { id: userId },
@@ -376,16 +374,19 @@ export async function getUserBio(
         },
       })
       return {
-        bio: newProfile.bio ?? 'No bio is set yet',
-        name: userResponse?.name ?? '',
-        displayName: userResponse?.displayName ?? '',
+        bio: newProfile.bio !== '' ? newProfile.bio : 'No bio is set yet',
+        displayName:
+          userResponse?.displayName ??
+          userResponse?.name ??
+          DEFAULT_DISPLAY_NAME,
       }
     }
 
     return {
-      bio: profileResponse.bio ?? 'No bio is set yet',
-      name: userResponse?.name ?? '',
-      displayName: userResponse?.displayName ?? '',
+      bio:
+        profileResponse.bio !== '' ? profileResponse.bio : 'No bio is set yet',
+      displayName:
+        userResponse?.displayName ?? userResponse?.name ?? DEFAULT_DISPLAY_NAME,
     }
   } catch (e) {
     console.error(e)
