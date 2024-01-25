@@ -4,6 +4,7 @@ import {
   HeartIcon,
   InformationCircleIcon,
   ListBulletIcon,
+  StarIcon,
   UserIcon,
 } from '@heroicons/react/24/solid'
 
@@ -11,6 +12,12 @@ import {
  * The base pages for the site
  */
 export const NAV_ITEMS = [
+  {
+    name: 'Featured Builds',
+    description: 'A collection of featured creator builds',
+    href: '/creator-builds',
+    icon: StarIcon,
+  },
   {
     name: 'Community Builds',
     description: 'A collection of builds aggregated from various sources.',

@@ -1,4 +1,4 @@
-import { prisma } from '../features/db/lib/db'
+import { prisma } from '../features/db'
 import { remnantItems } from '../features/items/data'
 
 // Load all the item ids into the Item table

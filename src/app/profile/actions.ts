@@ -1,10 +1,10 @@
 'use server'
 
 import { z } from 'zod'
-import { getServerSession } from '../../features/auth/lib/auth'
+import { getServerSession } from '../../features/auth'
 import { ErrorResponse } from '../../types'
 import { badWordsFilter } from '../../features/badwords/lib/badwords-filter'
-import { prisma } from '../../features/db/lib/db'
+import { prisma } from '../../features/db'
 import { PaginationResponse } from '../../features/pagination/hooks/usePagination'
 import { DBBuild } from '../../features/build/types'
 import {

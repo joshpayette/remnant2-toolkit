@@ -1,6 +1,6 @@
 import type { NextRequest } from 'next/server'
 import { patreon as patreonAPI } from 'patreon'
-import { prisma } from '@/features/db/lib/db'
+import { prisma } from '@/features/db'
 
 const toolkitUserId = 'clql3zq8k0000a6m41vtnvldq'
 

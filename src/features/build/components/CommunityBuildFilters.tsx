@@ -1,15 +1,15 @@
 import ClearFiltersButton from '@/components/ClearFiltersButton'
-import { Archtype } from '@/features/items/constants'
 import { remnantItems } from '@/features/items/data'
+import { Archtype } from '@/features/items/types'
 import { capitalize } from '@/lib/capitalize'
 import { cn } from '@/lib/classnames'
 import { useState } from 'react'
 
-export interface FilterProps {
+export interface CommunityBuildFilterProps {
   archtypes: Archtype[]
 }
 
-export const defaultFilters: FilterProps = {
+export const defaultCommunityBuildFilters: CommunityBuildFilterProps = {
   archtypes: [],
 }
 
@@ -19,15 +19,20 @@ const allArchtypes: Archtype[] = remnantItems
 
 interface Props {
   showBorder?: boolean
-  onUpdate: (filters: FilterProps) => void
+  onUpdate: (filters: CommunityBuildFilterProps) => void
 }
 
-export default function Filters({ showBorder = true, onUpdate }: Props) {
-  const [filters, setFilters] = useState<FilterProps>(defaultFilters)
+export default function CommunityBuildFilters({
+  showBorder = true,
+  onUpdate,
+}: Props) {
+  const [filters, setFilters] = useState<CommunityBuildFilterProps>(
+    defaultCommunityBuildFilters,
+  )
 
   function clearFilters() {
-    setFilters(defaultFilters)
-    onUpdate(defaultFilters)
+    setFilters(defaultCommunityBuildFilters)
+    onUpdate(defaultCommunityBuildFilters)
   }
 
   const areAnyFiltersActive = () => {

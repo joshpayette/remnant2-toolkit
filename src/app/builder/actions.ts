@@ -1,8 +1,8 @@
 'use server'
 
-import { getServerSession } from '../../features/auth/lib/auth'
+import { getServerSession } from '../../features/auth'
 import { BuildState, DBBuild } from '@/features/build/types'
-import { prisma } from '@/features/db/lib/db'
+import { prisma } from '@/features/db'
 import { revalidatePath } from 'next/cache'
 import { z } from 'zod'
 import { ErrorResponse } from '../../types'

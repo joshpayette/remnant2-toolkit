@@ -1,13 +1,13 @@
 'use server'
 
 import { PaginationResponse } from '@/features/pagination/hooks/usePagination'
-import { getServerSession } from '@/features/auth/lib/auth'
+import { getServerSession } from '@/features/auth'
 import {
   DBBuild,
   SearchBuildResponse,
   SearchBuildTotalCount,
 } from '@/features/build/types'
-import { prisma } from '@/features/db/lib/db'
+import { prisma } from '@/features/db'
 import { addLinkedItemIds } from '@/features/build/lib/build'
 import { DEFAULT_DISPLAY_NAME } from '@/features/profile/constants'
 import { remnantItems } from '@/features/items/data'

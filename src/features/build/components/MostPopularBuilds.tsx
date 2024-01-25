@@ -1,31 +1,34 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { FeaturedBuildsFilter, getFeaturedBuilds } from '../actions'
-import BuildCard from '../../../features/build/components/BuildCard'
+import BuildCard from './BuildCard'
 import BuildList from '@/features/build/components/BuildList'
 import usePagination from '@/features/pagination/hooks/usePagination'
 import Link from 'next/link'
+import { toast } from 'react-toastify'
+import { isErrorResponse } from '@/types'
+import useBuildActions from '@/features/build/hooks/useBuildActions'
 import BuildListFilters from '@/features/build/components/BuildListFilters'
 import { DBBuild } from '@/features/build/types'
-import { isErrorResponse } from '@/types'
-import { toast } from 'react-toastify'
 import { dbBuildToBuildState } from '@/features/build/lib/build'
-import useBuildActions from '@/features/build/hooks/useBuildActions'
-import { FilterProps } from './Filters'
+import { CommunityBuildFilterProps } from './CommunityBuildFilters'
+import {
+  TimeRange,
+  getMostPopularBuilds,
+} from '@/features/build/actions/getMostPopularBuilds'
 
 interface Props {
   itemsPerPage?: number
-  globalFilters: FilterProps
+  filters: CommunityBuildFilterProps
 }
 
-export default function FeaturedBuilds({
+export default function MostPopularBuilds({
   itemsPerPage = 8,
-  globalFilters,
+  filters,
 }: Props) {
   const [builds, setBuilds] = useState<DBBuild[]>([])
   const [totalBuildCount, setTotalBuildCount] = useState<number>(0)
-  const [filter, setFilter] = useState<FeaturedBuildsFilter>('date created')
+  const [timeRange, setTimeRange] = useState<TimeRange>('week')
   const [isLoading, setIsLoading] = useState<boolean>(false)
 
   const {
@@ -48,22 +51,20 @@ export default function FeaturedBuilds({
   useEffect(() => {
     const getItemsAsync = async () => {
       setIsLoading(true)
-      const response = await getFeaturedBuilds({
+      const response = await getMostPopularBuilds({
         itemsPerPage,
         pageNumber: currentPage,
-        filter,
-        globalFilters,
+        timeRange,
+        globalFilters: filters,
       })
       setBuilds(response.items)
       setTotalBuildCount(response.totalItemCount)
       setIsLoading(false)
     }
     getItemsAsync()
-  }, [currentPage, itemsPerPage, filter, globalFilters])
+  }, [currentPage, timeRange, itemsPerPage, filters])
 
-  function handleFilterChange(filter: string) {
-    setFilter(filter as FeaturedBuildsFilter)
-  }
+  const timeRanges: TimeRange[] = ['day', 'week', 'month', 'all-time']
 
   async function onReportBuild(buildId: string) {
     const reportedBuild = builds.find((build) => build.id === buildId)
@@ -93,16 +94,14 @@ export default function FeaturedBuilds({
     }
   }
 
-  const filterOptions: FeaturedBuildsFilter[] = ['date created', 'upvotes']
-
-  if (totalBuildCount === 0) {
-    return null
+  function handleTimeRangeChange(timeRange: string) {
+    setTimeRange(timeRange as TimeRange)
   }
 
   return (
     <>
       <BuildList
-        label="Creator Spotlight"
+        label="Most Popular"
         currentPage={currentPage}
         pageNumbers={pageNumbers}
         totalItems={totalBuildCount}
@@ -115,9 +114,10 @@ export default function FeaturedBuilds({
         onSpecificPage={handleSpecificPageClick}
         headerActions={
           <BuildListFilters
-            filter={filter}
-            onFilterChange={handleFilterChange}
-            options={filterOptions}
+            label="Time Range"
+            filter={timeRange}
+            onFilterChange={handleTimeRangeChange}
+            options={timeRanges}
           />
         }
       >

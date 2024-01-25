@@ -2,17 +2,22 @@
 
 import Link from 'next/link'
 import PageHeader from '../../components/PageHeader'
-import CreatorBuilds from './(components)/FeaturedBuilds'
+import CreatorBuilds from '../../features/build/components/FeaturedBuilds'
 import { signIn, useSession } from 'next-auth/react'
-import Filters, { FilterProps, defaultFilters } from './(components)/Filters'
+import CommunityBuildFilters, {
+  CommunityBuildFilterProps,
+  defaultCommunityBuildFilters,
+} from '../../features/build/components/CommunityBuildFilters'
 import { useState } from 'react'
-import MostPopularBuilds from './(components)/MostPopularBuilds'
+import MostPopularBuilds from '../../features/build/components/MostPopularBuilds'
 
 export default function Page() {
   const { data: sessionData } = useSession()
-  const [filters, setFilters] = useState<FilterProps>(defaultFilters)
+  const [filters, setFilters] = useState<CommunityBuildFilterProps>(
+    defaultCommunityBuildFilters,
+  )
 
-  function handleChangeFilters(filters: FilterProps) {
+  function handleChangeFilters(filters: CommunityBuildFilterProps) {
     setFilters(filters)
   }
 
@@ -45,7 +50,7 @@ export default function Page() {
       </PageHeader>
 
       <div className="mb-8 flex w-full max-w-lg items-center justify-center">
-        <Filters onUpdate={handleChangeFilters} />
+        <CommunityBuildFilters onUpdate={handleChangeFilters} />
       </div>
       <div className="mb-4 grid w-full grid-cols-1 gap-2">
         <CreatorBuilds globalFilters={filters} itemsPerPage={4} />
