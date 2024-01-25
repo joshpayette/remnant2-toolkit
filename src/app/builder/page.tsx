@@ -15,6 +15,7 @@ import Skeleton from '../../components/Skeleton'
 import useBuildActions from '../../features/build/hooks/useBuildActions'
 import { cn } from '../../lib/classnames'
 import MasonryItemList from '@/features/items/components/MasonryItemList'
+import BuilderPage from '@/features/build/components/BuilderPage'
 
 export default function Page() {
   const { data: session, status: sessionStatus } = useSession()
@@ -68,14 +69,19 @@ export default function Page() {
           </div>
         )}
       </PageHeader>
-      <div className="flex w-full max-w-xl flex-col items-start justify-center gap-2 sm:flex-row-reverse">
-        {sessionStatus === 'loading' ? (
-          <LoadingIndicator />
-        ) : (
-          <div
-            id="actions-column"
-            className="flex min-w-full flex-col justify-between gap-2 sm:min-w-[100px]"
-          >
+
+      <BuilderPage
+        buildContainerRef={buildContainerRef}
+        buildState={urlBuildState}
+        detailedViewContainerRef={detailedViewContainerRef}
+        includeMemberFeatures={false}
+        isEditable={true}
+        isScreenshotMode={isScreenshotMode}
+        showControls={showControls}
+        showCreatedBy={false}
+        onUpdateBuildState={updateUrlBuildState}
+        builderActions={
+          <>
             {session?.user && (
               <SaveBuildButton buildState={urlBuildState} editMode={false} />
             )}
@@ -125,32 +131,9 @@ export default function Page() {
                 }
               />
             </div>
-          </div>
-        )}
-        <div
-          ref={buildContainerRef}
-          className={cn(
-            'w-full grow bg-black',
-            isScreenshotMode && 'min-h-[731px] min-w-[502px]',
-          )}
-        >
-          <Builder
-            buildState={urlBuildState}
-            includeMemberFeatures={false}
-            isEditable={true}
-            isScreenshotMode={isScreenshotMode}
-            showControls={showControls}
-            updateBuildState={updateUrlBuildState}
-            showCreatedBy={false}
-          />
-        </div>
-      </div>
-      <div
-        className="mt-12 flex w-full flex-col items-center justify-center gap-2"
-        ref={detailedViewContainerRef}
-      >
-        <MasonryItemList items={masonryItems} />
-      </div>
+          </>
+        }
+      />
     </div>
   )
 }

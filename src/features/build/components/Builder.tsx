@@ -28,10 +28,10 @@ type BuilderProps = {
   showControls: boolean
   showCreatedBy?: boolean
 } & (
-  | { isEditable: false; updateBuildState?: never }
+  | { isEditable: false; onUpdateBuildState?: never }
   | {
       isEditable: true
-      updateBuildState: ({
+      onUpdateBuildState: ({
         category,
         value,
         scroll,
@@ -50,7 +50,7 @@ export default function Builder({
   isScreenshotMode,
   showControls,
   showCreatedBy = true,
-  updateBuildState,
+  onUpdateBuildState,
 }: BuilderProps) {
   const concoctionSlotCount = getConcoctionSlotCount(buildState)
   const isPopular = buildState.totalUpvotes > POPULAR_VOTE_THRESHOLD
@@ -93,7 +93,7 @@ export default function Builder({
   const handleSelectItem = useCallback(
     (selectedItem: GenericItem | null) => {
       if (!selectedItemSlot.category) return
-      if (!updateBuildState) return
+      if (!onUpdateBuildState) return
 
       /**
        * The item index is used to determine which item in the array of items
@@ -119,12 +119,12 @@ export default function Builder({
             index === specifiedIndex ? null : item,
           )
           const newItemIds = newBuildItems.map((i) => i?.id ?? '')
-          updateBuildState({
+          onUpdateBuildState({
             category: selectedItemSlot.category,
             value: newItemIds,
           })
         } else {
-          updateBuildState({ category: selectedItemSlot.category, value: '' })
+          onUpdateBuildState({ category: selectedItemSlot.category, value: '' })
         }
 
         setSelectedItemSlot({ category: null })
@@ -158,14 +158,17 @@ export default function Builder({
           const newTraitItemParams = TraitItem.toParams(
             newBuildItems as TraitItem[],
           )
-          updateBuildState({ category: 'trait', value: newTraitItemParams })
+          onUpdateBuildState({ category: 'trait', value: newTraitItemParams })
           setSelectedItemSlot({ category: null })
           return
         }
 
         // If we got here, add the item to the build
         const newItemIds = newBuildItems.map((i) => i?.id)
-        updateBuildState({ category: selectedItem.category, value: newItemIds })
+        onUpdateBuildState({
+          category: selectedItem.category,
+          value: newItemIds,
+        })
         setSelectedItemSlot({ category: null })
         return
       }
@@ -176,7 +179,7 @@ export default function Builder({
       const itemAlreadyInBuild = buildItem?.id === selectedItem.id
       if (itemAlreadyInBuild) return
 
-      updateBuildState({
+      onUpdateBuildState({
         category: selectedItem.category,
         value: selectedItem.id,
       })
@@ -186,20 +189,20 @@ export default function Builder({
       buildState.items,
       selectedItemSlot.category,
       selectedItemSlot.index,
-      updateBuildState,
+      onUpdateBuildState,
     ],
   )
 
   function handleChangeDescription(description: string) {
     if (!isEditable) return
-    if (!updateBuildState) return
-    updateBuildState({ category: 'description', value: description })
+    if (!onUpdateBuildState) return
+    onUpdateBuildState({ category: 'description', value: description })
   }
 
   function handleToggleIsPublic(isPublic: boolean) {
     if (!isEditable) return
-    if (!updateBuildState) return
-    updateBuildState({
+    if (!onUpdateBuildState) return
+    onUpdateBuildState({
       category: 'isPublic',
       value: isPublic ? 'true' : 'false',
     })
@@ -219,25 +222,25 @@ export default function Builder({
 
   function handleUpdateBuildName(newBuildName: string) {
     if (!isEditable) return
-    if (!updateBuildState) return
-    updateBuildState({ category: 'name', value: newBuildName })
+    if (!onUpdateBuildState) return
+    onUpdateBuildState({ category: 'name', value: newBuildName })
     setIsEditingBuildName(false)
   }
 
   function handleRemoveTrait(traitItem: TraitItem) {
     if (!isEditable) return
-    if (!updateBuildState) return
+    if (!onUpdateBuildState) return
 
     const newTraitItems = buildState.items.trait.filter(
       (i) => i.name !== traitItem.name,
     )
     const newTraitItemParams = TraitItem.toParams(newTraitItems)
-    updateBuildState({ category: 'trait', value: newTraitItemParams })
+    onUpdateBuildState({ category: 'trait', value: newTraitItemParams })
   }
 
   function handleUpdateTraitAmount(newTraitItem: TraitItem) {
     if (!isEditable) return
-    if (!updateBuildState) return
+    if (!onUpdateBuildState) return
 
     const newTraitItems = buildState.items.trait.map((traitItem) => {
       if (traitItem.name === newTraitItem.name) {
@@ -288,7 +291,7 @@ export default function Builder({
     })
 
     const newTraitItemParams = TraitItem.toParams(validatedTraitItems)
-    updateBuildState({ category: 'trait', value: newTraitItemParams })
+    onUpdateBuildState({ category: 'trait', value: newTraitItemParams })
   }
 
   return (
