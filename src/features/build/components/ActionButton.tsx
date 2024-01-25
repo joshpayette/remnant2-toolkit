@@ -93,7 +93,9 @@ export const ActionButton = {
       <span className="mr-1 h-5 w-5">
         {active ? <FlagIconOn /> : <FlagIconOff />}
       </span>
-      <span className="text-md">{active ? 'Reported' : 'Report'}</span>
+      <span className="text-md">
+        {active ? 'Build Reported' : 'Report Build'}
+      </span>
     </button>
   ),
 

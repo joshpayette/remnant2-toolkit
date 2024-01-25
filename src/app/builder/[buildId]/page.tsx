@@ -82,7 +82,7 @@ export default function Page({
       <ImageDownloadLink onClose={handleClearImageLink} imageLink={imageLink} />
       <div className="flex w-full flex-col items-center justify-center">
         {buildState.isFeaturedBuild && buildState.videoUrl && (
-          <div className="relative mb-4 flex h-[315px] w-[560px] items-center justify-center">
+          <div className="youtube-video-container mb-8 max-h-[315px] max-w-[560px]">
             <iframe
               width="560"
               height="315"
@@ -100,7 +100,7 @@ export default function Page({
             />
           </div>
         )}
-        <div className="flex w-full max-w-xl flex-col items-start justify-center gap-2 sm:flex-row-reverse">
+        <div className="flex w-full max-w-xl flex-col-reverse items-start justify-center gap-2 sm:flex-row-reverse">
           <div
             id="actions-column"
             className="flex min-w-full flex-col justify-between gap-2 sm:min-w-[100px]"

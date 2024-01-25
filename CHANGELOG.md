@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2023-01-25
+
+### Fixed
+
+- Youtube embeds were overflowing and causing layout issues.
+
+### Changed
+
+- Moved builder action buttons below the builder on mobile
+
 ## 2023-01-24
 
 ### Added
