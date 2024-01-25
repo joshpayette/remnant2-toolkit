@@ -6,9 +6,9 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid'
 import Link from 'next/link'
 import Logo from '@/components/Logo'
 import { usePathname } from 'next/navigation'
-import { AuthButton } from '../features/auth/components/AuthButton'
-import LoadingIndicator from './LoadingIndicator'
-import { cn } from '../lib/classnames'
+import { AuthButton } from '../../auth/components/AuthButton'
+import LoadingIndicator from '../../../components/LoadingIndicator'
+import { cn } from '../../../lib/classnames'
 import { NAV_ITEMS } from '@/features/navigation/constants'
 
 export default function NavBar() {

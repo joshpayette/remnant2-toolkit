@@ -1,7 +1,7 @@
 'use client'
 
 import { BugAntIcon } from '@heroicons/react/24/solid'
-import { ReportBug } from '../app/actions'
+import { ReportBug } from '../actions'
 import { toast } from 'react-toastify'
 
 export default function ReportBugButton() {

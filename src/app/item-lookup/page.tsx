@@ -1,6 +1,6 @@
 'use client'
 
-import ToCsvButton from '@/components/ToCsvButton'
+import ToCsvButton from '@/features/csv/components/ToCsvButton'
 import PageHeader from '@/components/PageHeader'
 import { remnantItems } from '@/features/items/data'
 import { itemToCsvItem } from '@/features/items/lib/itemToCsvItem'
