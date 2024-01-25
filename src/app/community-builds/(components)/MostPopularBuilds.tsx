@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { TimeRange, getMostUpvotedBuilds } from '../actions'
+import { TimeRange, getMostPopularBuilds } from '../actions'
 import BuildCard from '../../../features/build/components/BuildCard'
 import BuildList from '@/features/build/components/BuildList'
 import usePagination from '@/features/pagination/hooks/usePagination'
@@ -12,11 +12,11 @@ import useBuildActions from '@/features/build/hooks/useBuildActions'
 import BuildListFilters from '@/features/build/components/BuildListFilters'
 import { DBBuild } from '@/features/build/types'
 import { dbBuildToBuildState } from '@/features/build/lib/build'
-import { FilterProps } from './Filters'
+import { CommunityBuildFilterProps } from './CommunityBuildFilters'
 
 interface Props {
   itemsPerPage?: number
-  filters: FilterProps
+  filters: CommunityBuildFilterProps
 }
 
 export default function MostPopularBuilds({
@@ -48,7 +48,7 @@ export default function MostPopularBuilds({
   useEffect(() => {
     const getItemsAsync = async () => {
       setIsLoading(true)
-      const response = await getMostUpvotedBuilds({
+      const response = await getMostPopularBuilds({
         itemsPerPage,
         pageNumber: currentPage,
         timeRange,

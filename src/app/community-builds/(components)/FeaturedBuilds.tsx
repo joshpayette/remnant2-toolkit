@@ -12,11 +12,11 @@ import { isErrorResponse } from '@/types'
 import { toast } from 'react-toastify'
 import { dbBuildToBuildState } from '@/features/build/lib/build'
 import useBuildActions from '@/features/build/hooks/useBuildActions'
-import { FilterProps } from './Filters'
+import { CommunityBuildFilterProps } from './CommunityBuildFilters'
 
 interface Props {
   itemsPerPage?: number
-  globalFilters: FilterProps
+  globalFilters: CommunityBuildFilterProps
 }
 
 export default function FeaturedBuilds({

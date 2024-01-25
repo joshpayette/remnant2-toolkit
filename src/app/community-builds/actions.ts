@@ -5,7 +5,7 @@ import { Build, BuildItems, Prisma } from '@prisma/client'
 import { getServerSession } from '../../features/auth'
 import { PaginationResponse } from '../../features/pagination/hooks/usePagination'
 import { DBBuild } from '../../features/build/types'
-import { FilterProps } from './(components)/Filters'
+import { CommunityBuildFilterProps } from './(components)/CommunityBuildFilters'
 import { DEFAULT_DISPLAY_NAME } from '@/features/profile/constants'
 import { remnantItems } from '@/features/items/data'
 import { bigIntFix } from '@/lib/bigIntFix'
@@ -17,7 +17,7 @@ function formatDateToMySQL(date: Date): string {
   return date.toISOString().slice(0, 19).replace('T', ' ')
 }
 
-export async function getMostUpvotedBuilds({
+export async function getMostPopularBuilds({
   itemsPerPage,
   pageNumber,
   timeRange,
@@ -26,7 +26,7 @@ export async function getMostUpvotedBuilds({
   timeRange: TimeRange
   itemsPerPage: number
   pageNumber: number
-  globalFilters: FilterProps
+  globalFilters: CommunityBuildFilterProps
 }): Promise<PaginationResponse<DBBuild>> {
   const session = await getServerSession()
   const userId = session?.user?.id
@@ -172,7 +172,7 @@ export async function getFeaturedBuilds({
   itemsPerPage: number
   pageNumber: number
   filter: FeaturedBuildsFilter
-  globalFilters: FilterProps
+  globalFilters: CommunityBuildFilterProps
 }): Promise<PaginationResponse<DBBuild>> {
   const session = await getServerSession()
   const userId = session?.user?.id
