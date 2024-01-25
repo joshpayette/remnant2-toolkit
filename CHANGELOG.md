@@ -6,6 +6,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2023-01-24
 
+### Added
+
+- Added creator youtube videos above their builds.
+- Added new Featured Builds page.
+
 ### Fixed
 
 - Fixed bug with stamina not calculating correctly.

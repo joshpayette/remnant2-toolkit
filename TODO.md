@@ -6,7 +6,6 @@
 # TODO
 
 - Add total votes to /created-builds and /favorited-builds
-- Add a creator builds page to show all creator builds, similar to former featured builds page
 - Add info on getting a yellow border around builds
 - Add build filters to show only builds above certain vote thresholds
 - On tracker, allowing sorting alphabetically or by item type (i.e. group armors together)

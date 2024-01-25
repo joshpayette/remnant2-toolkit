@@ -2,14 +2,14 @@
 
 import Link from 'next/link'
 import PageHeader from '../../components/PageHeader'
-import CreatorBuilds from './(components)/FeaturedBuilds'
+import CreatorBuilds from '../../features/build/components/FeaturedBuilds'
 import { signIn, useSession } from 'next-auth/react'
 import CommunityBuildFilters, {
   CommunityBuildFilterProps,
   defaultCommunityBuildFilters,
-} from './(components)/CommunityBuildFilters'
+} from '../../features/build/components/CommunityBuildFilters'
 import { useState } from 'react'
-import MostPopularBuilds from './(components)/MostPopularBuilds'
+import MostPopularBuilds from '../../features/build/components/MostPopularBuilds'
 
 export default function Page() {
   const { data: sessionData } = useSession()
