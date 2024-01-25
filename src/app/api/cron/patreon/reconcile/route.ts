@@ -10,6 +10,7 @@ const toolkitUserId = 'clql3zq8k0000a6m41vtnvldq'
 const allowListUserIds: string[] = [
   'clqnz8j6s000ekmx52vr5tot9', // senorcervezaplays
   'clrle2v5s0000ydtr0a15wt61', // alexij
+  'clqsdi836000aqhqitf2m49mi', // thatguylegit69
 ]
 
 /**
