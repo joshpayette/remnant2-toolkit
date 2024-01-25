@@ -19,11 +19,9 @@ interface Props {
 export default function ProfileHeader({ editable, userId, image }: Props) {
   const [userProfile, setUserProfile] = useState<{
     bio?: string
-    name: string
     displayName: string
   }>({
     bio: '',
-    name: '',
     displayName: '',
   })
   const [isLoading, setIsLoading] = useState(true)
@@ -44,7 +42,7 @@ export default function ProfileHeader({ editable, userId, image }: Props) {
     getUserBioAsync()
   }, [userId])
 
-  const { name, displayName } = userProfile
+  const { displayName } = userProfile
 
   if (isLoading) return <LoadingIndicator />
 
@@ -55,7 +53,7 @@ export default function ProfileHeader({ editable, userId, image }: Props) {
           {image ? (
             <img
               src={image}
-              alt={`Profile picture of ${name}`}
+              alt={`Profile picture of ${displayName}`}
               className="h-24 w-24 flex-none rounded-lg bg-gray-800 object-cover"
             />
           ) : (
@@ -65,10 +63,9 @@ export default function ProfileHeader({ editable, userId, image }: Props) {
           )}
           <div className="flex flex-col items-start gap-0">
             <DisplayName
-              name={displayName ?? name ?? DEFAULT_DISPLAY_NAME}
+              name={displayName ?? DEFAULT_DISPLAY_NAME}
               editable={editable}
             />
-            <span className="text-md text-gray-400">{name}</span>
           </div>
         </div>
       </div>
