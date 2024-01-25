@@ -1,15 +1,15 @@
 'use server'
 
-import { prisma } from '@/app/(lib)/db'
+import { prisma } from '@/features/db/lib/db'
 import { Build, BuildItems, Prisma } from '@prisma/client'
-import { getServerSession } from '../(lib)/auth'
-import { PaginationResponse } from '../(hooks)/usePagination'
-import { DEFAULT_DISPLAY_NAME } from '../(data)/constants'
-import { DBBuild, SearchBuildResponse } from '../(types)/build'
-import { bigIntFix } from '../(lib)/utils'
+import { getServerSession } from '../../features/auth/lib/auth'
+import { PaginationResponse } from '../../features/pagination/hooks/usePagination'
+import { DBBuild } from '../../features/build/types'
 import { FilterProps } from './(components)/Filters'
-import { remnantItems } from '../(data)'
-import { Archtype } from '../(types)'
+import { DEFAULT_DISPLAY_NAME } from '@/features/profile/constants'
+import { remnantItems } from '@/features/items/data'
+import { Archtype } from '@/features/items/constants'
+import { bigIntFix } from '@/lib/bigIntFix'
 
 export type TimeRange = 'day' | 'week' | 'month' | 'all-time'
 
@@ -143,6 +143,7 @@ AND BuildItems.itemId IN (${Prisma.join(archtypeIds)})
     isPublic: build.isPublic,
     isFeaturedBuild: build.isFeaturedBuild,
     thumbnailUrl: build.thumbnailUrl,
+    videoUrl: build.videoUrl,
     createdById: build.createdById,
     createdAt: build.createdAt,
     updatedAt: build.updatedAt,
@@ -262,6 +263,7 @@ AND BuildItems.itemId IN (${Prisma.join(archtypeIds)})
       isPublic: build.isPublic,
       isFeaturedBuild: build.isFeaturedBuild,
       thumbnailUrl: build.thumbnailUrl,
+      videoUrl: build.videoUrl,
       createdById: build.createdById,
       createdAt: build.createdAt,
       updatedAt: build.updatedAt,
@@ -347,6 +349,7 @@ AND BuildItems.itemId IN (${Prisma.join(archtypeIds)})
       isPublic: build.isPublic,
       isFeaturedBuild: build.isFeaturedBuild,
       thumbnailUrl: build.thumbnailUrl,
+      videoUrl: build.videoUrl,
       createdById: build.createdById,
       createdAt: build.createdAt,
       updatedAt: build.updatedAt,

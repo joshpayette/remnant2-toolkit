@@ -5,8 +5,8 @@
 
 # TODO
 
-- Disable favoriting button if the user created the build
-- Refactor code by domain
+- Add total votes to /created-builds and /favorited-builds
+- Add all created build youtube videos, where applicable
 - Add a creator builds page to show all creator builds, similar to former featured builds page
 - Add info on getting a yellow border around builds
 - Add build filters to show only builds above certain vote thresholds

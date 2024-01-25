@@ -1,12 +1,12 @@
 'use server'
 
-import { DEFAULT_DISPLAY_NAME } from '@/app/(data)/constants'
-import { PaginationResponse } from '@/app/(hooks)/usePagination'
-import { prisma } from '@/app/(lib)/db'
-import { bigIntFix } from '@/app/(lib)/utils'
-import { ErrorResponse } from '@/app/(types)'
-import { DBBuild } from '@/app/(types)/build'
+import { PaginationResponse } from '@/features/pagination/hooks/usePagination'
+import { prisma } from '@/features/db/lib/db'
+import { ErrorResponse } from '@/types'
+import { DBBuild } from '@/features/build/types'
+import { DEFAULT_DISPLAY_NAME } from '@/features/profile/constants'
 import { User, UserProfile } from '@prisma/client'
+import { bigIntFix } from '@/lib/bigIntFix'
 
 export async function getProfile(userId: string): Promise<
   | ErrorResponse
@@ -167,6 +167,7 @@ export async function getUserProfilePage({
     isPublic: build.isPublic,
     isFeaturedBuild: build.isFeaturedBuild,
     thumbnailUrl: build.thumbnailUrl,
+    videoUrl: build.videoUrl,
     createdById: build.createdById,
     createdAt: build.createdAt,
     updatedAt: build.updatedAt,

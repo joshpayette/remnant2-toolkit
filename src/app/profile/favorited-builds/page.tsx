@@ -1,18 +1,18 @@
 'use client'
 
-import CopyBuildUrlButton from '../(components)/CopyBuildUrlButton'
+import CopyBuildUrlButton from '../../../features/profile/components/CopyBuildUrlButton'
 import { FavoritedBuildsFilter, getFavoritedBuilds } from '../actions'
-import usePagination from '@/app/(hooks)/usePagination'
+import usePagination from '@/features/pagination/hooks/usePagination'
 import { useEffect, useState } from 'react'
-import BuildCard from '@/app/(components)/BuildCard'
-import BuildListFilters from '@/app/(components)/BuildListFilters'
-import BuildList from '@/app/(components)/BuildList'
-import DuplicateBuildButton from '../(components)/DuplicateBuildButton'
-import { DBBuild } from '@/app/(types)/build'
-import Tabs from '../(components)/Tabs'
-import ProfileHeader from '../(components)/ProfileHeader'
+import BuildCard from '@/features/build/components/BuildCard'
+import BuildListFilters from '@/features/build/components/BuildListFilters'
+import BuildList from '@/features/build/components/BuildList'
+import DuplicateBuildButton from '../../../features/profile/components/DuplicateBuildButton'
+import { DBBuild } from '@/features/build/types'
+import Tabs from '../../../features/profile/components/Tabs'
+import ProfileHeader from '../../../features/profile/components/ProfileHeader'
 import { useSession } from 'next-auth/react'
-import AuthWrapper from '@/app/(components)/AuthWrapper'
+import AuthWrapper from '@/features/auth/components/AuthWrapper'
 
 export default function Page() {
   const { data: sessionData } = useSession()

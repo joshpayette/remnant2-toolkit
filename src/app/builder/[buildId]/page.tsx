@@ -1,15 +1,13 @@
 'use client'
 
-import Builder from '@/app/builder/(components)/Builder'
-import { ActionButton } from '../(components)/ActionButton'
-import ToCsvButton from '@/app/(components)/ToCsvButton'
+import Builder from '@/features/build/components/Builder'
+import { ActionButton } from '../../../features/build/components/ActionButton'
+import ToCsvButton from '@/features/csv/components/ToCsvButton'
 import { useIsClient } from 'usehooks-ts'
 import { useRef } from 'react'
 import { useSession } from 'next-auth/react'
-import PageHeader from '@/app/(components)/PageHeader'
-import { isErrorResponse } from '@/app/(types)'
-import MasonryItemList from '../../(components)/MasonryItemList'
-import ImageDownloadLink from '../(components)/ImageDownloadLink'
+import { isErrorResponse } from '@/types'
+import ImageDownloadLink from '../../../features/build/components/ImageDownloadLink'
 import {
   addReportForBuild,
   addVoteForBuild,
@@ -22,10 +20,24 @@ import {
   buildStateToCsvData,
   buildStateToMasonryItems,
   dbBuildToBuildState,
-} from '../../(lib)/build'
-import { cn } from '@/app/(lib)/utils'
-import { DBBuild } from '@/app/(types)/build'
-import useBuildActions from '../(hooks)/useBuildActions'
+} from '../../../features/build/lib/build'
+import { cn } from '@/lib/classnames'
+import { DBBuild } from '@/features/build/types'
+import useBuildActions from '../../../features/build/hooks/useBuildActions'
+import MasonryItemList from '@/features/items/components/MasonryItemList'
+
+/**
+ * Converts a youtube embed url to a watch url
+ * @example
+ * videoEmbedUrlToWatchUrl('https://www.youtube.com/embed/3QKpQjvtqE8?controls=0')
+ *  => 'https://www.youtube.com/watch?v=3QKpQjvtqE8'
+ */
+function videoEmbedUrlToWatchUrl(videoEmbedUrl: string) {
+  const url = new URL(videoEmbedUrl)
+  // need to get the video id segment
+  const videoId = url.pathname.split('/')[2].split('?')[0]
+  return `https://www.youtube.com/watch?v=${videoId}`
+}
 
 export default function Page({
   params: { build },
@@ -68,7 +80,26 @@ export default function Page({
   return (
     <>
       <ImageDownloadLink onClose={handleClearImageLink} imageLink={imageLink} />
-      <div className="flex w-full flex-col items-center ">
+      <div className="flex w-full flex-col items-center justify-center">
+        {buildState.isFeaturedBuild && buildState.videoUrl && (
+          <div className="relative mb-4 flex h-[315px] w-[560px] items-center justify-center">
+            <iframe
+              width="560"
+              height="315"
+              src={`${buildState.videoUrl}&amp;controls=0`}
+              title={buildState.name}
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+              className="pointer-events-none absolute left-0 top-0 h-full w-full"
+            />
+            <a
+              href={`${videoEmbedUrlToWatchUrl(buildState.videoUrl)}`}
+              target="_blank"
+              className="absolute left-0 top-0 h-full w-full"
+            />
+          </div>
+        )}
         <div className="flex w-full max-w-xl flex-col items-start justify-center gap-2 sm:flex-row-reverse">
           <div
             id="actions-column"
@@ -125,6 +156,13 @@ export default function Page({
                       active={buildState.upvoted}
                       totalUpvotes={buildState.totalUpvotes}
                       onClick={async () => {
+                        if (buildState.createdById === session.user?.id) {
+                          toast.error(
+                            'You cannot vote/unvote for your own build.',
+                          )
+                          return
+                        }
+
                         const newVote = !buildState.upvoted
 
                         const response = newVote

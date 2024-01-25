@@ -1,5 +1,5 @@
-import { prisma } from '../app/(lib)/db'
-import { ItemCategory } from '../app/(types)/build'
+import { prisma } from '../features/db/lib/db'
+import { ItemCategory } from '../features/build/types'
 
 async function updateBuildItems() {
   // Delete all build items
