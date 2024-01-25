@@ -743,6 +743,7 @@ export async function getBuild(
     isFeaturedBuild: build.isFeaturedBuild,
     isPublic: build.isPublic,
     thumbnailUrl: build.thumbnailUrl ?? '',
+    videoUrl: build.videoUrl ?? '',
     createdAt: build.createdAt,
     updatedAt: build.updatedAt,
     createdById: build.createdById,

@@ -95,7 +95,7 @@ export default function Page({
             <BuildCard
               build={build}
               onReportBuild={undefined}
-              memberFrameEnabled={false}
+              memberFrameEnabled={build.isMember}
               footerActions={
                 <div className="flex items-center justify-between gap-2 p-2 text-sm">
                   <CopyBuildUrlButton buildId={build.id} />

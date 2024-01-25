@@ -21,6 +21,7 @@ export interface BuildState {
   isPublic: boolean
   isFeaturedBuild: boolean
   thumbnailUrl: string | null
+  videoUrl: string | null
   description: string | null
   upvoted: boolean
   totalUpvotes: number
@@ -58,6 +59,7 @@ export interface DBBuild {
   isFeaturedBuild: Build['isFeaturedBuild']
   isMember: boolean
   thumbnailUrl: Build['thumbnailUrl']
+  videoUrl: Build['videoUrl']
   createdById: Build['createdById']
   createdByDisplayName: string
   createdAt: Build['createdAt']

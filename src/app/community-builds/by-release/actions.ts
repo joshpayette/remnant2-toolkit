@@ -101,6 +101,7 @@ export async function getBuilds({
     isPublic: build.isPublic,
     isFeaturedBuild: build.isFeaturedBuild,
     thumbnailUrl: build.thumbnailUrl,
+    videoUrl: build.videoUrl,
     createdById: build.createdById,
     createdAt: build.createdAt,
     updatedAt: build.updatedAt,
