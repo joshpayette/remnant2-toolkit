@@ -1,7 +1,7 @@
 'use server'
 
 import { z } from 'zod'
-import { getServerSession } from '../../features/auth/lib'
+import { getServerSession } from '../../features/auth'
 import { ErrorResponse } from '../../types'
 import { badWordsFilter } from '../../features/badwords/lib/badwords-filter'
 import { prisma } from '../../features/db'

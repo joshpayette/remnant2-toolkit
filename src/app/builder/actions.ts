@@ -1,6 +1,6 @@
 'use server'
 
-import { getServerSession } from '../../features/auth/lib'
+import { getServerSession } from '../../features/auth'
 import { BuildState, DBBuild } from '@/features/build/types'
 import { prisma } from '@/features/db'
 import { revalidatePath } from 'next/cache'

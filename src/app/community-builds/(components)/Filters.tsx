@@ -1,6 +1,6 @@
 import ClearFiltersButton from '@/components/ClearFiltersButton'
-import { Archtype } from '@/features/items/constants'
 import { remnantItems } from '@/features/items/data'
+import { Archtype } from '@/features/items/types'
 import { capitalize } from '@/lib/capitalize'
 import { cn } from '@/lib/classnames'
 import { useState } from 'react'
