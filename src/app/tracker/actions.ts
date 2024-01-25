@@ -6,10 +6,8 @@
 
 'use server'
 
+import { remnantItems } from '@/features/items/data'
 import zlib from 'zlib'
-import { remnantItems } from '../(data)'
-import fs from 'fs'
-import path from 'path'
 
 export default async function parseSaveFile(
   prevState: any,

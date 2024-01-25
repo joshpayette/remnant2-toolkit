@@ -1,4 +1,4 @@
-import { type PageInfo } from '@/app/(types)'
+import { type PageInfo } from '@/types'
 import { metadata as baseMetaData } from '@/app/metadata'
 
 const title = `SenorCerveza's 160k DPS Meme Build`

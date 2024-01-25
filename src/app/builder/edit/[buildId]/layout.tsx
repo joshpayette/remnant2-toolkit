@@ -1,4 +1,4 @@
-import { isErrorResponse } from '@/app/(types)'
+import { isErrorResponse } from '@/types'
 import BuildPage from './page'
 import { getBuild } from '../../actions'
 

@@ -1,17 +1,17 @@
 'use server'
 
-import { PaginationResponse } from '@/app/(hooks)/usePagination'
-import { getServerSession } from '@/app/(lib)/auth'
+import { PaginationResponse } from '@/features/pagination/hooks/usePagination'
+import { getServerSession } from '@/features/auth/lib/auth'
 import {
   DBBuild,
   SearchBuildResponse,
   SearchBuildTotalCount,
-} from '@/app/(types)/build'
-import { prisma } from '@/app/(lib)/db'
-import { addLinkedItemIds } from '@/app/(lib)/build'
-import { DEFAULT_DISPLAY_NAME } from '@/app/(data)/constants'
-import { bigIntFix } from '@/app/(lib)/utils'
-import { remnantItems } from '@/app/(data)'
+} from '@/features/build/types'
+import { prisma } from '@/features/db/lib/db'
+import { addLinkedItemIds } from '@/features/build/lib/build'
+import { DEFAULT_DISPLAY_NAME } from '@/features/profile/constants'
+import { remnantItems } from '@/features/items/data'
+import { bigIntFix } from '@/lib/bigIntFix'
 
 export async function getBuilds({
   itemsPerPage,
@@ -154,6 +154,7 @@ export async function getBuilds({
     isPublic: build.isPublic,
     isFeaturedBuild: build.isFeaturedBuild,
     thumbnailUrl: build.thumbnailUrl,
+    videoUrl: build.videoUrl,
     createdById: build.createdById,
     createdAt: build.createdAt,
     updatedAt: build.updatedAt,

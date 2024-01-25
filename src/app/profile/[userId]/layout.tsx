@@ -1,4 +1,4 @@
-import { isErrorResponse } from '@/app/(types)'
+import { isErrorResponse } from '@/types'
 import { Metadata, ResolvingMetadata } from 'next'
 import { getProfile } from './actions'
 import ProfilePage from './page'

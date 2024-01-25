@@ -1,4 +1,4 @@
-import { remnantItems } from '../app/(data)'
+import { remnantItems } from '../features/items/data'
 
 // need to iterate over remnantItems to find the duplicate id
 // for each item, check if the id is already in the set
