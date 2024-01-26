@@ -126,7 +126,7 @@ export default function Traits({
             key={traitItem.name}
             className={cn(
               'flex items-center border border-transparent border-b-green-500 text-sm',
-              isArchtypeTrait(traitItem) && 'border-b-yellow-500',
+              isArchtypeTrait(traitItem) && 'border-b-purple-500',
             )}
           >
             <div className="mr-4 flex items-center text-lg font-bold text-green-400">
