@@ -1,8 +1,3 @@
-# Profiles todo
-
-- Allow user to pin X number of builds to the top of their profile
-- Allow user to specify if they want their avatar to be public
-
 # TODO
 
 - Rework the item import on the tracker to be a bit more clear

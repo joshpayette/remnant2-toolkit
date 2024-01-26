@@ -88,7 +88,7 @@ export default function BuildCard({
                   <span className="text-gray-400">
                     {format(
                       new Date(build.updatedAt ?? new Date()),
-                      'MM/dd/yyyy hh:mm a',
+                      'yyyy-MM-dd hh:mm a',
                     )}
                   </span>
                 </p>

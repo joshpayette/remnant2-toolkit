@@ -66,17 +66,26 @@ export default function Traits({
     let shouldAllowDelete = isEditable && showControls
 
     // If the trait is linked to an archtype, it should not be deletable
+    if (isArchtypeTrait(traitItem)) {
+      shouldAllowDelete = false
+    }
+
+    return shouldAllowDelete
+  }
+
+  function isArchtypeTrait(traitItem: TraitItem) {
+    // If the trait is linked to an archtype, it should not be deletable
     const primaryArchtype = archtypeItems[0]
     if (
       primaryArchtype?.linkedItems?.traits?.some(
         (linkedTraitItem) => linkedTraitItem.name === traitItem.name,
       )
     ) {
-      shouldAllowDelete = false
+      return true
     }
 
-    // If the trait is linked to the secondary archtype and has an amount of 10,
-    // it should not be deletable
+    // If the trait is linked to the secondary archtype, it should not be deletable
+    // but only if it's the main archtype trait, i.e. amount is 10
     const secondaryArchtype = archtypeItems[1]
     if (
       secondaryArchtype?.linkedItems?.traits?.some(
@@ -85,10 +94,8 @@ export default function Traits({
           linkedTraitItem.amount === 10,
       )
     ) {
-      shouldAllowDelete = false
+      return true
     }
-
-    return shouldAllowDelete
   }
 
   return (
@@ -117,7 +124,10 @@ export default function Traits({
         {traitItems.map((traitItem) => (
           <div
             key={traitItem.name}
-            className="flex items-center border border-transparent border-b-green-500 text-sm"
+            className={cn(
+              'flex items-center border border-transparent border-b-green-500 text-sm',
+              isArchtypeTrait(traitItem) && 'border-b-purple-500',
+            )}
           >
             <div className="mr-4 flex items-center text-lg font-bold text-green-400">
               {traitItem.name === editingTraitItem?.name &&
