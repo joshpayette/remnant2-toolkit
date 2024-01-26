@@ -7,9 +7,8 @@ import usePagination from '@/features/pagination/hooks/usePagination'
 import Link from 'next/link'
 import BuildListFilters from '@/features/build/components/BuildListFilters'
 import { DBBuild } from '@/features/build/types'
-import { isErrorResponse } from '@/types'
 import { toast } from 'react-toastify'
-import { dbBuildToBuildState } from '@/features/build/lib/build'
+import { dbBuildToBuildState } from '@/features/build/lib'
 import useBuildActions from '@/features/build/hooks/useBuildActions'
 import { CommunityBuildFilterProps } from './CommunityBuildFilters'
 import {
@@ -17,6 +16,7 @@ import {
   getFeaturedBuilds,
 } from '@/features/build/actions/getFeaturedBuilds'
 import Loading from '@/app/loading'
+import { isErrorResponse } from '@/features/error-handling/lib/isErrorResponse'
 
 interface Props {
   itemsPerPage?: number

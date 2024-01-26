@@ -1,9 +1,8 @@
 'use server'
 
 import { z } from 'zod'
-import { getServerSession } from '../../features/auth'
-import { ErrorResponse } from '../../types'
-import { badWordsFilter } from '../../features/badwords/lib/badwords-filter'
+import { getServerSession } from '../../features/auth/lib'
+import { badWordsFilter } from '../../features/bad-word-filter'
 import { prisma } from '../../features/db'
 import { PaginationResponse } from '../../features/pagination/hooks/usePagination'
 import { DBBuild } from '../../features/build/types'
@@ -12,6 +11,7 @@ import {
   MAX_PROFILE_BIO_LENGTH,
 } from '@/features/profile/constants'
 import { bigIntFix } from '@/lib/bigIntFix'
+import { ErrorResponse } from '@/features/error-handling/types'
 
 export type CreatedBuildsFilter = 'date created' | 'upvotes'
 

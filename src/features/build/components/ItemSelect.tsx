@@ -1,10 +1,10 @@
 'use client'
 
-import Dialog from '@/components/Dialog'
+import Dialog from '@/features/ui/Dialog'
 import BuilderButton from './BuilderButton'
 import { useDebounce, useIsClient } from 'usehooks-ts'
 import { useEffect, useState } from 'react'
-import SearchInput from '@/components/SearchInput'
+import SearchInput from '@/features/ui/SearchInput'
 import { GenericItem } from '@/features/items/types/GenericItem'
 import ItemInfo from '@/features/items/components/ItemInfo'
 

@@ -1,7 +1,7 @@
 'use client'
 
 import { signIn, useSession } from 'next-auth/react'
-import LoadingIndicator from '../../../components/LoadingIndicator'
+import LoadingIndicator from '../../ui/LoadingIndicator'
 
 export default function AuthWrapper({
   children,

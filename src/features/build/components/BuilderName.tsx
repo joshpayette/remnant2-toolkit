@@ -1,4 +1,4 @@
-import Input from '@/components/Input'
+import Input from '@/features/ui/Input'
 import { PencilIcon } from '@heroicons/react/24/solid'
 import { useState } from 'react'
 

@@ -12,11 +12,3 @@ export interface PageInfo {
   classes?: string[]
   tags?: string[]
 }
-
-export type ErrorResponse = {
-  errors?: any[]
-}
-// type guard for ErrorResponse
-export function isErrorResponse(response: any): response is ErrorResponse {
-  return (response as ErrorResponse).errors !== undefined
-}

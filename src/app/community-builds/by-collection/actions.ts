@@ -1,14 +1,14 @@
 'use server'
 
 import { PaginationResponse } from '@/features/pagination/hooks/usePagination'
-import { getServerSession } from '@/features/auth'
+import { getServerSession } from '@/features/auth/lib'
 import {
   DBBuild,
   SearchBuildResponse,
   SearchBuildTotalCount,
 } from '@/features/build/types'
 import { prisma } from '@/features/db'
-import { addLinkedItemIds } from '@/features/build/lib/build'
+import { addLinkedItemIds } from '@/features/build/lib'
 import { DEFAULT_DISPLAY_NAME } from '@/features/profile/constants'
 import { remnantItems } from '@/features/items/data'
 import { bigIntFix } from '@/lib/bigIntFix'

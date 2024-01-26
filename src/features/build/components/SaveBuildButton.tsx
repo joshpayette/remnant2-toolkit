@@ -3,7 +3,7 @@
 import { signIn, useSession } from 'next-auth/react'
 import { buttonClasses } from './ActionButton'
 import { cn } from '@/lib/classnames'
-import Skeleton from '@/components/Skeleton'
+import Skeleton from '@/features/ui/Skeleton'
 import {
   BuildActionResponse,
   createBuild,
@@ -11,10 +11,10 @@ import {
 } from '../../../app/builder/actions'
 import { toast } from 'react-toastify'
 import { useRouter } from 'next/navigation'
-import { isErrorResponse } from '@/types'
 import { useState } from 'react'
-import LoadingIndicator from '@/components/LoadingIndicator'
+import LoadingIndicator from '@/features/ui/LoadingIndicator'
 import { BuildState } from '@/features/build/types'
+import { isErrorResponse } from '@/features/error-handling/lib/isErrorResponse'
 
 interface Props {
   buildState: BuildState

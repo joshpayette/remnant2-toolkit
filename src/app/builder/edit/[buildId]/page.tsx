@@ -1,6 +1,6 @@
 'use client'
 
-import PageHeader from '@/components/PageHeader'
+import PageHeader from '@/features/ui/PageHeader'
 import SaveBuildButton from '../../../../features/build/components/SaveBuildButton'
 import ImageDownloadLink from '../../../../features/build/components/ImageDownloadLink'
 import { useRef } from 'react'
@@ -11,7 +11,7 @@ import ActionButton from '../../../../features/build/components/ActionButton'
 import Builder from '../../../../features/build/components/Builder'
 import { cn } from '@/lib/classnames'
 import { DBBuild } from '@/features/build/types'
-import { dbBuildToBuildState } from '@/features/build/lib/build'
+import { dbBuildToBuildState } from '@/features/build/lib'
 import MasonryItemList from '@/features/items/components/MasonryItemList'
 import BuilderPage from '@/features/build/components/BuilderPage'
 

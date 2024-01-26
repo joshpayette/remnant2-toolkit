@@ -1,6 +1,6 @@
 'use client'
 
-import { dbBuildToBuildState } from '@/features/build/lib/build'
+import { dbBuildToBuildState } from '@/features/build/lib'
 import { DBBuild } from '@/features/build/types'
 import useBuildActions from '@/features/build/hooks/useBuildActions'
 

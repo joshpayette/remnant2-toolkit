@@ -4,13 +4,13 @@ import BuilderName from './BuilderName'
 import BuilderButton from './BuilderButton'
 import Traits from './Traits'
 import ItemSelect from './ItemSelect'
-import Logo from '@/components/Logo'
+import Logo from '@/features/ui/Logo'
 import MemberFeatures from './MemberFeatures'
 import {
   getArrayOfLength,
   getConcoctionSlotCount,
   getItemListForSlot,
-} from '../lib/build'
+} from '../lib'
 import { BuildState } from '@/features/build/types'
 import PopularBuildBadge from '@/features/build/components/PopularBuildBadge'
 import Stats from './Stats'

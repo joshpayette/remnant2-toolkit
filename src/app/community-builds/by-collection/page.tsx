@@ -2,18 +2,18 @@
 
 import BuildCard from '@/features/build/components/BuildCard'
 import BuildList from '@/features/build/components/BuildList'
-import PageHeader from '@/components/PageHeader'
+import PageHeader from '@/features/ui/PageHeader'
 import { useLocalStorage } from '@/features/localstorage/hooks/useLocalStorage'
 import usePagination from '@/features/pagination/hooks/usePagination'
 import { DBBuild } from '@/features/build/types'
 import { signIn, useSession } from 'next-auth/react'
 import Link from 'next/link'
-import { useCallback, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { getBuilds } from './actions'
 import useBuildActions from '@/features/build/hooks/useBuildActions'
-import { dbBuildToBuildState } from '@/features/build/lib/build'
-import { isErrorResponse } from '@/types'
+import { dbBuildToBuildState } from '@/features/build/lib'
 import { toast } from 'react-toastify'
+import { isErrorResponse } from '@/features/error-handling/lib/isErrorResponse'
 
 const ITEMS_PER_PAGE = 8
 

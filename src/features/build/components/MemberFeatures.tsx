@@ -1,7 +1,7 @@
 'use client'
 
-import Textarea from '@/components/Textarea'
-import Toggle from '@/components/Toggle'
+import Textarea from '@/features/ui/Textarea'
+import Toggle from '@/features/ui/Toggle'
 import { signIn, useSession } from 'next-auth/react'
 import { MAX_BUILD_DESCRIPTION_LENGTH } from '../constants'
 
