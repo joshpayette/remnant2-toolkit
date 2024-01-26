@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react'
 import html2canvas from 'html2canvas'
 import copy from 'clipboard-copy'
 import { toast } from 'react-toastify'
-import { isErrorResponse } from '@/types'
 import {
   addReportForBuild,
   createBuild,
@@ -23,6 +22,7 @@ import { remnantItems } from '@/features/items/data'
 import { ModItem } from '@/features/items/types/ModItem'
 import { MutatorItem } from '@/features/items/types/MutatorItem'
 import { TraitItem } from '@/features/items/types/TraitItem'
+import { isErrorResponse } from '@/features/error-handling/lib/isErrorResponse'
 
 export default function useBuildActions() {
   const router = useRouter()

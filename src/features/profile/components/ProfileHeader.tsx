@@ -1,14 +1,14 @@
 'use client'
 
-import PlaceHolderIcon from '@/components/PlaceholderIcon'
+import PlaceHolderIcon from '@/features/ui/PlaceholderIcon'
 import DisplayName from './DisplayName'
 import Bio from './Bio'
 import { getUserBio } from '../../../app/profile/actions'
-import { isErrorResponse } from '@/types'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
-import LoadingIndicator from '@/components/LoadingIndicator'
+import LoadingIndicator from '@/features/ui/LoadingIndicator'
 import { DEFAULT_DISPLAY_NAME } from '../constants'
+import { isErrorResponse } from '@/features/error-handling/lib/isErrorResponse'
 
 interface Props {
   editable: boolean

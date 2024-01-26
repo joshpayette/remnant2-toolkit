@@ -1,6 +1,6 @@
 'use client'
 
-import PageHeader from '@/components/PageHeader'
+import PageHeader from '@/features/ui/PageHeader'
 import { useIsClient } from 'usehooks-ts'
 import { useRef } from 'react'
 import ImageDownloadLink from '../../../features/build/components/ImageDownloadLink'

@@ -1,6 +1,6 @@
 'use client'
 
-import PageHeader from '@/components/PageHeader'
+import PageHeader from '@/features/ui/PageHeader'
 import SaveBuildButton from '../../../../features/build/components/SaveBuildButton'
 import ImageDownloadLink from '../../../../features/build/components/ImageDownloadLink'
 import { useRef } from 'react'

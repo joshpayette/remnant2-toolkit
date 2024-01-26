@@ -1,6 +1,6 @@
 'use client'
 
-import PageHeader from '@/components/PageHeader'
+import PageHeader from '@/features/ui/PageHeader'
 import { useEffect } from 'react'
 
 export default function Error({

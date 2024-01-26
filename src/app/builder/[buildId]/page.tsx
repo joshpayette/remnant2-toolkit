@@ -1,12 +1,10 @@
 'use client'
 
-import Builder from '@/features/build/components/Builder'
 import { ActionButton } from '../../../features/build/components/ActionButton'
 import ToCsvButton from '@/features/csv/components/ToCsvButton'
 import { useIsClient } from 'usehooks-ts'
 import { useRef } from 'react'
 import { useSession } from 'next-auth/react'
-import { isErrorResponse } from '@/types'
 import ImageDownloadLink from '../../../features/build/components/ImageDownloadLink'
 import {
   addReportForBuild,
@@ -18,14 +16,12 @@ import { toast } from 'react-toastify'
 import { useRouter } from 'next/navigation'
 import {
   buildStateToCsvData,
-  buildStateToMasonryItems,
   dbBuildToBuildState,
 } from '../../../features/build/lib'
-import { cn } from '@/lib/classnames'
 import { DBBuild } from '@/features/build/types'
 import useBuildActions from '../../../features/build/hooks/useBuildActions'
-import MasonryItemList from '@/features/items/components/MasonryItemList'
 import BuilderPage from '@/features/build/components/BuilderPage'
+import { isErrorResponse } from '@/features/error-handling/lib/isErrorResponse'
 
 /**
  * Converts a youtube embed url to a watch url

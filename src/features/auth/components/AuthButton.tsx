@@ -1,7 +1,7 @@
 'use client'
 
 import { useSession } from 'next-auth/react'
-import PlaceHolderIcon from '../../../components/PlaceholderIcon'
+import PlaceHolderIcon from '../../ui/PlaceholderIcon'
 import { cn } from '../../../lib/classnames'
 import { Menu, Transition } from '@headlessui/react'
 import { Fragment } from 'react'
@@ -12,7 +12,7 @@ import {
   StarIcon,
   UserCircleIcon,
 } from '@heroicons/react/24/solid'
-import Skeleton from '../../../components/Skeleton'
+import Skeleton from '../../ui/Skeleton'
 
 function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
   const { data: session, status } = useSession()

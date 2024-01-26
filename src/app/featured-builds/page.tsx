@@ -1,6 +1,6 @@
 import Link from 'next/link'
-import PageHeader from '../../components/PageHeader'
-import { type PageInfo } from '../../types'
+import PageHeader from '../../features/ui/PageHeader'
+import { type PageInfo } from './types'
 import { pageInfo as boltJamisonsPyroPageInfo } from './build/bolt-jamisons-pyro/metadata'
 import { pageInfo as rootDoctorPageInfo } from './build/root-doctor/metadata'
 import { pageInfo as speedFarmingPageInfo } from './build/speed-farming/metadata'

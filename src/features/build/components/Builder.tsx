@@ -4,7 +4,7 @@ import BuilderName from './BuilderName'
 import BuilderButton from './BuilderButton'
 import Traits from './Traits'
 import ItemSelect from './ItemSelect'
-import Logo from '@/components/Logo'
+import Logo from '@/features/ui/Logo'
 import MemberFeatures from './MemberFeatures'
 import {
   getArrayOfLength,

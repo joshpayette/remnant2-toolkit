@@ -2,20 +2,20 @@
 
 import BuildCard from '@/features/build/components/BuildCard'
 import BuildList from '@/features/build/components/BuildList'
-import PageHeader from '@/components/PageHeader'
+import PageHeader from '@/features/ui/PageHeader'
 import usePagination from '@/features/pagination/hooks/usePagination'
 import { DBBuild } from '@/features/build/types'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { getBuilds } from './actions'
-import { isErrorResponse } from '@/types'
-import Skeleton from '@/components/Skeleton'
+import Skeleton from '@/features/ui/Skeleton'
 import { cn } from '@/lib/classnames'
-import ClearFiltersButton from '@/components/ClearFiltersButton'
+import ClearFiltersButton from '@/features/ui/ClearFiltersButton'
 import useBuildActions from '@/features/build/hooks/useBuildActions'
 import { toast } from 'react-toastify'
 import { dbBuildToBuildState } from '@/features/build/lib'
 import { DLCKey, DLC_TO_NAME } from '@/features/items/dlc/types'
+import { isErrorResponse } from '@/features/error-handling/lib/isErrorResponse'
 
 const ITEMS_PER_PAGE = 8
 const DEFAULT_DLC_ITEMS: DLCKey[] = ['base', 'dlc1']

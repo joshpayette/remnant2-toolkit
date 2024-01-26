@@ -1,4 +1,4 @@
-import Dialog from '../../../components/Dialog'
+import Dialog from '../../ui/Dialog'
 import { cn } from '@/lib/classnames'
 import Image from 'next/image'
 import { GenericItem } from '../types/GenericItem'

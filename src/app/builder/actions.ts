@@ -5,7 +5,6 @@ import { BuildState, DBBuild } from '@/features/build/types'
 import { prisma } from '@/features/db'
 import { revalidatePath } from 'next/cache'
 import { z } from 'zod'
-import { ErrorResponse } from '../../types'
 import {
   buildStateSchema,
   buildStateToBuildItems,
@@ -13,6 +12,7 @@ import {
 import { badWordsFilter } from '../../features/bad-word-filter'
 import { DEFAULT_DISPLAY_NAME } from '@/features/profile/constants'
 import { bigIntFix } from '@/lib/bigIntFix'
+import { ErrorResponse } from '@/features/error-handling/types'
 
 export type SuccessResponse = {
   message?: string
