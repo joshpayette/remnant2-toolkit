@@ -9,7 +9,7 @@ import BuildListFilters from '@/features/build/components/BuildListFilters'
 import { DBBuild } from '@/features/build/types'
 import { isErrorResponse } from '@/types'
 import { toast } from 'react-toastify'
-import { dbBuildToBuildState } from '@/features/build/lib/build'
+import { dbBuildToBuildState } from '@/features/build/lib'
 import useBuildActions from '@/features/build/hooks/useBuildActions'
 import { CommunityBuildFilterProps } from './CommunityBuildFilters'
 import {

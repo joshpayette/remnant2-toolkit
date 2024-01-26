@@ -11,7 +11,7 @@ import Link from 'next/link'
 import { useCallback, useEffect, useState } from 'react'
 import { getBuilds } from './actions'
 import useBuildActions from '@/features/build/hooks/useBuildActions'
-import { dbBuildToBuildState } from '@/features/build/lib/build'
+import { dbBuildToBuildState } from '@/features/build/lib'
 import { isErrorResponse } from '@/types'
 import { toast } from 'react-toastify'
 

@@ -10,7 +10,7 @@ import { isErrorResponse } from '@/types'
 import useBuildActions from '@/features/build/hooks/useBuildActions'
 import BuildListFilters from '@/features/build/components/BuildListFilters'
 import { DBBuild } from '@/features/build/types'
-import { dbBuildToBuildState } from '@/features/build/lib/build'
+import { dbBuildToBuildState } from '@/features/build/lib'
 import { CommunityBuildFilterProps } from './CommunityBuildFilters'
 import {
   TimeRange,

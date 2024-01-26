@@ -6,7 +6,7 @@ import {
   initialBuildState,
   linkArchtypesToTraits,
   linkWeaponsToMods,
-} from '../lib/build'
+} from '../lib'
 import { BuildState } from '@/features/build/types'
 import { remnantItemCategories } from '@/features/items/data'
 import { ArmorItem } from '@/features/items/types/ArmorItem'

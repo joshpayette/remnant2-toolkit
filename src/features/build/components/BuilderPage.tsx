@@ -3,7 +3,7 @@ import Builder from './Builder'
 import { BuildState } from '../types'
 import { ReactNode, RefObject } from 'react'
 import MasonryItemList from '@/features/items/components/MasonryItemList'
-import { buildStateToMasonryItems } from '../lib/build'
+import { buildStateToMasonryItems } from '../lib'
 
 type Props = {
   buildContainerRef: RefObject<HTMLDivElement>

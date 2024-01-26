@@ -1,6 +1,6 @@
 'use server'
 
-import { getServerSession } from '../../features/auth'
+import { getServerSession } from '../../features/auth/lib'
 import { BuildState, DBBuild } from '@/features/build/types'
 import { prisma } from '@/features/db'
 import { revalidatePath } from 'next/cache'
@@ -9,7 +9,7 @@ import { ErrorResponse } from '../../types'
 import {
   buildStateSchema,
   buildStateToBuildItems,
-} from '../../features/build/lib/build'
+} from '../../features/build/lib'
 import { badWordsFilter } from '../../features/bad-word-filter'
 import { DEFAULT_DISPLAY_NAME } from '@/features/profile/constants'
 import { bigIntFix } from '@/lib/bigIntFix'

@@ -14,7 +14,7 @@ import { cn } from '@/lib/classnames'
 import ClearFiltersButton from '@/components/ClearFiltersButton'
 import useBuildActions from '@/features/build/hooks/useBuildActions'
 import { toast } from 'react-toastify'
-import { dbBuildToBuildState } from '@/features/build/lib/build'
+import { dbBuildToBuildState } from '@/features/build/lib'
 import { DLCKey, DLC_TO_NAME } from '@/features/items/dlc/types'
 
 const ITEMS_PER_PAGE = 8

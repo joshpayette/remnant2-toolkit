@@ -9,7 +9,7 @@ import { Archtype } from '@/features/items/types'
 import { CommunityBuildFilterProps } from '@/features/build/components/CommunityBuildFilters'
 import { DBBuild } from '../types'
 import { PaginationResponse } from '@/features/pagination/hooks/usePagination'
-import { getServerSession } from '@/features/auth'
+import { getServerSession } from '@/features/auth/lib'
 
 export type FeaturedBuildsFilter = 'date created' | 'upvotes'
 

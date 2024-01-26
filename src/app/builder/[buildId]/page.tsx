@@ -20,7 +20,7 @@ import {
   buildStateToCsvData,
   buildStateToMasonryItems,
   dbBuildToBuildState,
-} from '../../../features/build/lib/build'
+} from '../../../features/build/lib'
 import { cn } from '@/lib/classnames'
 import { DBBuild } from '@/features/build/types'
 import useBuildActions from '../../../features/build/hooks/useBuildActions'

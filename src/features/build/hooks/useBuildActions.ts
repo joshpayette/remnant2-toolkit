@@ -14,7 +14,7 @@ import {
   getConcoctionSlotCount,
   getRandomItem,
   initialBuildState,
-} from '../lib/build'
+} from '../lib'
 import { BuildState } from '@/features/build/types'
 import { ArmorItem } from '@/features/items/types/ArmorItem'
 import { GenericItem } from '@/features/items/types/GenericItem'
