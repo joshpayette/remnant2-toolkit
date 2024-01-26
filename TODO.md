@@ -9,6 +9,7 @@
 - On tracker, allowing sorting alphabetically or by item type (i.e. group armors together)
 - Add CSV import
 - Make random builds work with only owned items?
+- Try to store the trait sorting preferences?
 
 ## Bugs
 

@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2023-01-25
 
+### Added
+
+- When selecting Traits for a build, you can now sort alphabetically or by the in-game sorting.
+
 ### Fixed
 
 - Youtube embeds were overflowing and causing layout issues.
