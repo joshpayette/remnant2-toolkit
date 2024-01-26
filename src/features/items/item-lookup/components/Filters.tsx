@@ -9,6 +9,7 @@ import { useDebounce } from 'usehooks-ts'
 import { FilteredItem } from '@/features/items/hooks/useFilteredItems'
 import { remnantItemCategories } from '@/features/items/data'
 import { capitalize } from '@/lib/capitalize'
+import { Checkbox } from '@/features/ui/Checkbox'
 
 interface Props {
   allItems: FilteredItem[]
@@ -329,39 +330,6 @@ export default function Filters({
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  )
-}
-
-function Checkbox({
-  checked,
-  label,
-  name,
-  onChange,
-}: {
-  checked: boolean
-  label: string
-  name: string
-  onChange: () => void
-}) {
-  return (
-    <div className="relative flex items-start">
-      <div className="flex h-6 items-center">
-        <input
-          id={`${name}`}
-          aria-describedby={`${name}-description`}
-          name={`${name}`}
-          type="checkbox"
-          className="h-4 w-4 rounded border-gray-300 text-purple-600 focus:ring-purple-600"
-          checked={checked}
-          onChange={onChange}
-        />
-      </div>
-      <div className="ml-3 text-sm leading-6">
-        <label htmlFor={`${name}`} className="font-medium text-gray-400">
-          {label}
-        </label>
       </div>
     </div>
   )

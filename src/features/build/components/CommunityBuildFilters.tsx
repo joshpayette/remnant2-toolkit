@@ -4,18 +4,36 @@ import { Archtype } from '@/features/items/types'
 import { capitalize } from '@/lib/capitalize'
 import { cn } from '@/lib/classnames'
 import { useState } from 'react'
+import { WeaponItem } from '@/features/items/types/WeaponItem'
+import { Checkbox } from '@/features/ui/Checkbox'
 
 export interface CommunityBuildFilterProps {
   archtypes: Archtype[]
+  longGun: string
+  handGun: string
+  melee: string
 }
 
 export const defaultCommunityBuildFilters: CommunityBuildFilterProps = {
   archtypes: [],
+  longGun: '',
+  handGun: '',
+  melee: '',
 }
 
 const allArchtypes: Archtype[] = remnantItems
   .filter((item) => item.category === 'archtype')
   .map((item) => item.name.toLowerCase() as Archtype)
+
+const allLongGuns: string[] = remnantItems
+  .filter((item) => WeaponItem.isWeaponItem(item) && item.type === 'long gun')
+  .map((item) => item.name)
+const allHandGuns: string[] = remnantItems
+  .filter((item) => WeaponItem.isWeaponItem(item) && item.type === 'hand gun')
+  .map((item) => item.name)
+const allMelee: string[] = remnantItems
+  .filter((item) => WeaponItem.isWeaponItem(item) && item.type === 'melee')
+  .map((item) => item.name)
 
 interface Props {
   showBorder?: boolean
@@ -36,12 +54,15 @@ export default function CommunityBuildFilters({
   }
 
   const areAnyFiltersActive = () => {
-    return filters.archtypes.length > 0
+    return (
+      filters.archtypes.length > 0 ||
+      filters.longGun !== '' ||
+      filters.handGun !== '' ||
+      filters.melee !== ''
+    )
   }
 
   function handleArchtypeChange(archtype: Archtype) {
-    console.info('handleArchtypeChange', archtype)
-
     let newArchtypes = [...filters.archtypes]
 
     if (newArchtypes.includes(archtype)) {
@@ -57,6 +78,13 @@ export default function CommunityBuildFilters({
     setFilters({
       ...filters,
       archtypes: newArchtypes,
+    })
+  }
+
+  function handleWeaponChange(weapon: string, type: WeaponItem['type']) {
+    setFilters({
+      ...filters,
+      [type]: weapon,
     })
   }
 
@@ -99,6 +127,21 @@ export default function CommunityBuildFilters({
           </div>
         </div>
 
+        {/** TODO  */}
+
+        {/* <div className="col-span-full pt-2">
+          <div className="flex w-full flex-col items-start justify-start gap-x-4 gap-y-2">
+            <span className="flex items-center justify-start text-left text-sm font-bold text-green-500">
+              By Weapons
+            </span>
+            <div className="grid grid-cols-2 gap-x-8 text-left sm:grid-cols-4">
+              {allLongGuns.map((weapon) => {
+                return <div key={weapon}>{weapon}</div>
+              })}
+            </div>
+          </div>
+        </div> */}
+
         <div className="col-span-full flex items-center justify-end pt-2">
           <button
             className="rounded bg-green-500 p-2 text-sm font-bold hover:bg-green-700"
@@ -107,39 +150,6 @@ export default function CommunityBuildFilters({
             Apply Filters
           </button>
         </div>
-      </div>
-    </div>
-  )
-}
-
-function Checkbox({
-  checked,
-  label,
-  name,
-  onChange,
-}: {
-  checked: boolean
-  label: string
-  name: string
-  onChange: () => void
-}) {
-  return (
-    <div className="relative flex items-start">
-      <div className="flex h-6 items-center">
-        <input
-          id={`${name}`}
-          aria-describedby={`${name}-description`}
-          name={`${name}`}
-          type="checkbox"
-          className="h-4 w-4 rounded border-gray-300 text-purple-600 focus:ring-purple-600"
-          checked={checked}
-          onChange={onChange}
-        />
-      </div>
-      <div className="ml-3 text-sm leading-6">
-        <label htmlFor={`${name}`} className="font-medium text-gray-400">
-          {label}
-        </label>
       </div>
     </div>
   )

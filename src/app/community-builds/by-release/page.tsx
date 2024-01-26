@@ -16,6 +16,7 @@ import { toast } from 'react-toastify'
 import { dbBuildToBuildState } from '@/features/build/lib'
 import { DLCKey, DLC_TO_NAME } from '@/features/items/dlc/types'
 import { isErrorResponse } from '@/features/error-handling/lib/isErrorResponse'
+import { Checkbox } from '@/features/ui/Checkbox'
 
 const ITEMS_PER_PAGE = 8
 const DEFAULT_DLC_ITEMS: DLCKey[] = ['base', 'dlc1']
@@ -212,41 +213,5 @@ export default function Page() {
         ))}
       </BuildList>
     </>
-  )
-}
-
-function Checkbox({
-  checked,
-  disabled = false,
-  label,
-  name,
-  onChange,
-}: {
-  checked: boolean
-  disabled?: boolean
-  label: string
-  name: string
-  onChange: () => void
-}) {
-  return (
-    <div className="relative flex items-start">
-      <div className="flex h-6 items-center">
-        <input
-          id={`${name}`}
-          aria-describedby={`${name}-description`}
-          name={`${name}`}
-          type="checkbox"
-          className="h-4 w-4 rounded border-gray-300 text-purple-600 focus:ring-purple-600 disabled:opacity-50"
-          checked={checked}
-          onChange={onChange}
-          disabled={disabled}
-        />
-      </div>
-      <div className="ml-3 text-sm leading-6">
-        <label htmlFor={`${name}`} className="font-medium text-gray-400">
-          {label}
-        </label>
-      </div>
-    </div>
   )
 }

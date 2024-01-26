@@ -1,4 +1,4 @@
-import { MagnifyingGlassIcon, XMarkIcon } from '@heroicons/react/24/solid'
+import { XMarkIcon } from '@heroicons/react/24/solid'
 import Input from './Input'
 
 export default function SearchInput({
