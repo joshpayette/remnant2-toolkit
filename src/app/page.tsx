@@ -38,11 +38,14 @@ export default function HomePage() {
               Remnant 2 Toolkit
             </h2>
             <p className="mt-6 text-lg leading-8 text-gray-300">
-              100% free and open source toolkit for Remnant 2 for finding and
-              sharing builds, tracking your collectibles, and more!
+              <span className="font-bold text-green-500">100% free</span> and{' '}
+              <span className="font-bold text-green-500">open source</span>{' '}
+              toolkit for Remnant 2. Find and share builds, track your
+              collectibles, and more!
             </p>
             <p className="mt-6 text-lg leading-8 text-gray-300">
-              No login required for any features.
+              <span className="font-bold text-white">No login required</span>{' '}
+              for any features.
             </p>
           </div>
           <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-6 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-8">
