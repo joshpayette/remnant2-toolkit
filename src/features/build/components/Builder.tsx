@@ -153,11 +153,12 @@ export default function Builder({
           ? (newBuildItems[specifiedIndex] = selectedItem)
           : newBuildItems.push(selectedItem)
 
-        // If the item is a trait, then we need to add the amount to the query string
+        // If the item is a trait, then we need to add the amount
         if (selectedItemSlot.category === 'trait') {
           const newTraitItemParams = TraitItem.toParams(
             newBuildItems as TraitItem[],
           )
+
           onUpdateBuildState({ category: 'trait', value: newTraitItemParams })
           setSelectedItemSlot({ category: null })
           return
@@ -270,13 +271,17 @@ export default function Builder({
             defaultAmount = linkedTrait.amount
           }
         }
-      } else if (buildState.items.archtype[1]?.name) {
+      }
+      // if this is the linked trait for the secondary archtype
+      // make sure the amount is not less than the minimum allowed
+      if (buildState.items.archtype[1]?.name) {
         const linkedTrait =
           buildState.items.archtype[1]?.linkedItems?.traits?.find(
-            (linkedTrait) => linkedTrait.name === traitItem.name,
+            (linkedTrait) =>
+              linkedTrait.name === traitItem.name && linkedTrait.amount === 10,
           )
         if (linkedTrait && traitItem.name === linkedTrait.name) {
-          if (validAmount > linkedTrait.amount) {
+          if (validAmount < linkedTrait.amount) {
             validAmount = linkedTrait.amount
             defaultAmount = linkedTrait.amount
           }

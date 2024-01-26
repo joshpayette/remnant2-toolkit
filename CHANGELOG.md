@@ -14,6 +14,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Changed
 
 - Moved builder action buttons below the builder on mobile
+- Traits now sort alphabetically, with archtype traits at the start
+- Archtype traits now have a yellow underline to make it clearer that they come from archtypes
 
 ## 2023-01-24
 

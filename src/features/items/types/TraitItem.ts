@@ -96,9 +96,17 @@ export class TraitItem extends GenericItem implements BaseTraitItem {
     if (!buildItems) return []
 
     let traitItems: Array<TraitItem> = []
+    let archtypeItems: Array<GenericItem> = []
     for (const buildItem of buildItems) {
       const item = remnantItems.find((i) => i.id === buildItem.itemId)
       if (!item) continue
+      if (item.category === 'archtype') {
+        // insert the archtype at the index
+        buildItem.index
+          ? archtypeItems.splice(buildItem.index, 0, item)
+          : archtypeItems.push(item)
+        continue
+      }
       if (item.category !== 'trait') continue
       if (!this.isTraitItem(item)) continue
       const traitItem = {
@@ -109,6 +117,81 @@ export class TraitItem extends GenericItem implements BaseTraitItem {
         ? (traitItems[buildItem.index] = traitItem)
         : traitItems.push(traitItem)
     }
-    return traitItems
+
+    const newTraitItems: TraitItem[] = []
+    const primaryTraits: TraitItem[] = []
+
+    // Add the archtype items to the trait items
+    for (let i = 0; i < archtypeItems.length; i++) {
+      const archtypeItem = archtypeItems[i]
+      // if the archtype is primary, get all linked items
+      // if the archtype is secondary, get only the main trait
+      const linkedTraits =
+        i === 0
+          ? archtypeItem.linkedItems?.traits
+          : archtypeItem.linkedItems?.traits?.filter((t) => t.amount === 10)
+      if (!linkedTraits) continue
+
+      for (const linkedTrait of linkedTraits) {
+        const traitItem = traitItems.find((i) => i.name === linkedTrait.name)
+        if (!traitItem) continue
+
+        if (linkedTrait.amount === 10) {
+          primaryTraits.push(traitItem)
+        }
+
+        // if traititem not already in newTraitItems, add it
+        if (!newTraitItems.find((i) => i.name === traitItem.name)) {
+          newTraitItems.push(traitItem)
+        }
+      }
+    }
+
+    // alphabetize the newTraitItems by name
+    const sortedTraitItems = [...newTraitItems]
+    sortedTraitItems.sort((a, b) => {
+      if (a.name < b.name) return -1
+      if (a.name === b.name) return 0
+      return 1
+    })
+
+    // Alphabetize the primary traits by name, Desc so that they are at the front of the array
+    // alphabetical
+    const sortedPrimaryTraits = [...primaryTraits]
+    sortedPrimaryTraits.sort((a, b) => {
+      if (a.name < b.name) return 1
+      if (a.name === b.name) return 0
+      return -1
+    })
+
+    // move the primary traits to the front of the array
+    for (const primaryTrait of sortedPrimaryTraits) {
+      const index = sortedTraitItems.findIndex(
+        (i) => i.name === primaryTrait.name,
+      )
+      if (index > 0) {
+        sortedTraitItems.splice(index, 1)
+        sortedTraitItems.unshift(primaryTrait)
+      }
+    }
+
+    // All non-archtype linked traits
+    const remainingTraits = traitItems.filter(
+      (i) => !newTraitItems.find((j) => j.name === i.name),
+    )
+    // sort the remaining traits alphabetically
+    const sortedRemainingTraits = [...remainingTraits]
+    sortedRemainingTraits.sort((a, b) => {
+      if (a.name < b.name) return -1
+      if (a.name === b.name) return 0
+      return 1
+    })
+
+    // Add the remaining traits to the end of the array
+    for (const remainingTrait of sortedRemainingTraits) {
+      sortedTraitItems.push(remainingTrait)
+    }
+
+    return sortedTraitItems
   }
 }

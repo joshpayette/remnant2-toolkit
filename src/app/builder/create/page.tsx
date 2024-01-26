@@ -3,21 +3,18 @@
 import PageHeader from '@/features/ui/PageHeader'
 import { useIsClient } from 'usehooks-ts'
 import { useRef } from 'react'
-import ImageDownloadLink from '../../../features/build/components/ImageDownloadLink'
-import useDBBuildState from '../../../features/build/hooks/useDBBuildState'
-import SaveBuildButton from '../../../features/build/components/SaveBuildButton'
-import ActionButton from '../../../features/build/components/ActionButton'
-import Builder from '../../../features/build/components/Builder'
-import { cn } from '@/lib/classnames'
+import ImageDownloadLink from '@/features/build/components/ImageDownloadLink'
+import useDBBuildState from '@/features/build/hooks/useDBBuildState'
+import SaveBuildButton from '@/features/build/components/SaveBuildButton'
+import ActionButton from '@/features/build/components/ActionButton'
 import { initialBuildState } from '@/features/build/lib'
-import useBuildActions from '../../../features/build/hooks/useBuildActions'
-import MasonryItemList from '@/features/items/components/MasonryItemList'
+import useBuildActions from '@/features/build/hooks/useBuildActions'
 import BuilderPage from '@/features/build/components/BuilderPage'
 
 export default function Page() {
   const isClient = useIsClient()
 
-  const { masonryItems, dbBuildState, setNewBuildState, updateDBBuildState } =
+  const { dbBuildState, setNewBuildState, updateDBBuildState } =
     useDBBuildState(initialBuildState)
 
   const {

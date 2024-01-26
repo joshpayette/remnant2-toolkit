@@ -70,6 +70,47 @@ export default function useBuildActions() {
     }
   }
 
+  function handleImageExport(el: HTMLDivElement | null, imageFileName: string) {
+    // We do this to trigger the effect below
+    setIsScreenshotMode({ el, imageFileName })
+  }
+  /**
+   * Export the build as an image
+   * We do this in a useEffect so that the UI can update,
+   * allowing us to show the logo, expand the build on mobile for
+   * better screenshots, etc.
+   */
+  useEffect(() => {
+    async function exportImage() {
+      setImageExportLoading(false)
+      if (!isScreenshotMode) return
+      const { el, imageFileName } = isScreenshotMode
+
+      if (!el) return
+
+      const canvas = await html2canvas(el, {
+        useCORS: true,
+        allowTaint: true,
+        logging: false,
+      })
+      const image = canvas.toDataURL('image/png', 1.0)
+      setImageLink(image)
+      setIsScreenshotMode(null)
+
+      // Need a fakeLink to trigger the download
+      // This does not work for ios
+      const fakeLink = window.document.createElement('a')
+      fakeLink.download = imageFileName
+      fakeLink.href = image
+      document.body.appendChild(fakeLink)
+      fakeLink.click()
+      document.body.removeChild(fakeLink)
+      fakeLink.remove()
+    }
+    setImageExportLoading(true)
+    setTimeout(exportImage, 1000)
+  }, [isScreenshotMode, router])
+
   function handleRandomBuild(): BuildState {
     const randomBuild: BuildState = JSON.parse(
       JSON.stringify(initialBuildState),
@@ -267,47 +308,6 @@ export default function useBuildActions() {
 
     return randomBuild
   }
-
-  function handleImageExport(el: HTMLDivElement | null, imageFileName: string) {
-    // We do this to trigger the effect below
-    setIsScreenshotMode({ el, imageFileName })
-  }
-  /**
-   * Export the build as an image
-   * We do this in a useEffect so that the UI can update,
-   * allowing us to show the logo, expand the build on mobile for
-   * better screenshots, etc.
-   */
-  useEffect(() => {
-    async function exportImage() {
-      setImageExportLoading(false)
-      if (!isScreenshotMode) return
-      const { el, imageFileName } = isScreenshotMode
-
-      if (!el) return
-
-      const canvas = await html2canvas(el, {
-        useCORS: true,
-        allowTaint: true,
-        logging: false,
-      })
-      const image = canvas.toDataURL('image/png', 1.0)
-      setImageLink(image)
-      setIsScreenshotMode(null)
-
-      // Need a fakeLink to trigger the download
-      // This does not work for ios
-      const fakeLink = window.document.createElement('a')
-      fakeLink.download = imageFileName
-      fakeLink.href = image
-      document.body.appendChild(fakeLink)
-      fakeLink.click()
-      document.body.removeChild(fakeLink)
-      fakeLink.remove()
-    }
-    setImageExportLoading(true)
-    setTimeout(exportImage, 1000)
-  }, [isScreenshotMode, router])
 
   async function handleReportBuild(build: BuildState, newReported: boolean) {
     // prompt for the reason

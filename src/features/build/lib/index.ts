@@ -48,6 +48,7 @@ export function addLinkedItemIds(itemIds: string[]): string[] {
           console.error(`Could not find trait item for ${currentItem.name}`)
           continue
         }
+
         itemIds.push(traitItem.id)
       }
     }
