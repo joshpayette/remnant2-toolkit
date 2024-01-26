@@ -98,6 +98,33 @@ export default function Traits({
     }
   }
 
+  function isArchtypeCoreTrait(traitItem: TraitItem) {
+    // If the trait is linked to an archtype, it should not be deletable
+    const primaryArchtype = archtypeItems[0]
+    if (
+      primaryArchtype?.linkedItems?.traits?.some(
+        (linkedTraitItem) =>
+          linkedTraitItem.name === traitItem.name &&
+          linkedTraitItem.amount === 10,
+      )
+    ) {
+      return true
+    }
+
+    // If the trait is linked to the secondary archtype, it should not be deletable
+    // but only if it's the main archtype trait, i.e. amount is 10
+    const secondaryArchtype = archtypeItems[1]
+    if (
+      secondaryArchtype?.linkedItems?.traits?.some(
+        (linkedTraitItem) =>
+          linkedTraitItem.name === traitItem.name &&
+          linkedTraitItem.amount === 10,
+      )
+    ) {
+      return true
+    }
+  }
+
   return (
     <>
       <div
@@ -126,7 +153,16 @@ export default function Traits({
             key={traitItem.name}
             className={cn(
               'flex items-center border border-transparent border-b-green-500 text-sm',
-              isArchtypeTrait(traitItem) && 'border-b-purple-500',
+              isArchtypeTrait(traitItem) &&
+                isArchtypeCoreTrait(traitItem) &&
+                'border-b-purple-500',
+              isArchtypeTrait(traitItem) &&
+                !isArchtypeCoreTrait(traitItem) &&
+                'border-b-purple-500',
+              isArchtypeTrait(traitItem) &&
+                !isArchtypeCoreTrait(traitItem) &&
+                isEditable &&
+                'border-b-yellow-500',
             )}
           >
             <div className="mr-4 flex items-center text-lg font-bold text-green-400">
