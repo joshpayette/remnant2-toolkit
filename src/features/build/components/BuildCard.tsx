@@ -10,6 +10,7 @@ import PopularBuildBadge from './PopularBuildBadge'
 import { DBBuild } from '../types'
 import { dbBuildToBuildState } from '../lib'
 import { POPULAR_VOTE_THRESHOLD } from '../constants'
+import { format } from 'date-fns'
 
 interface Props {
   build: DBBuild
@@ -85,15 +86,10 @@ export default function BuildCard({
                 <p className="text-left text-xs text-gray-500">
                   Last Updated:{' '}
                   <span className="text-gray-400">
-                    {new Date(build.updatedAt).toLocaleDateString('en-US', {
-                      year: 'numeric',
-                      month: '2-digit',
-                      day: '2-digit',
-                      hour: '2-digit',
-                      minute: '2-digit',
-                      hour12: true,
-                      timeZone: 'UTC',
-                    })}
+                    {format(
+                      new Date(build.updatedAt ?? new Date()),
+                      'MM/dd/yyyy hh:mm a',
+                    )}
                   </span>
                 </p>
               )}
