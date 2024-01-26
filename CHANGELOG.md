@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2023-01-26
+
+### Changed
+
+- Old featured build home page redirects to new featured build page. Old links still will work.
+
 ## 2023-01-25
 
 ### Added
