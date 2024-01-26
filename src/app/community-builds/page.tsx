@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import PageHeader from '../../components/PageHeader'
+import PageHeader from '../../features/ui/PageHeader'
 import CreatorBuilds from '../../features/build/components/FeaturedBuilds'
 import { signIn, useSession } from 'next-auth/react'
 import CommunityBuildFilters, {

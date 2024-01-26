@@ -1,4 +1,4 @@
-import Dialog from '@/components/Dialog'
+import Dialog from '@/features/ui/Dialog'
 import Link from 'next/link'
 
 interface Props {

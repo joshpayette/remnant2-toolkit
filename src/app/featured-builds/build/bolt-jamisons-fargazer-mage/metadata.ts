@@ -1,4 +1,4 @@
-import { type PageInfo } from '@/types'
+import { type PageInfo } from '../../types'
 import { metadata as baseMetaData } from '@/app/metadata'
 
 const title = `Bolt Jamison's Fargazer Madness Mage`

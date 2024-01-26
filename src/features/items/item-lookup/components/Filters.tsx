@@ -1,5 +1,5 @@
-import ClearFiltersButton from '@/components/ClearFiltersButton'
-import SearchInput from '@/components/SearchInput'
+import ClearFiltersButton from '@/features/ui/ClearFiltersButton'
+import SearchInput from '@/features/ui/SearchInput'
 import { useLocalStorage } from '@/features/localstorage/hooks/useLocalStorage'
 import { cn } from '@/lib/classnames'
 import { ItemCategory } from '@/features/build/types'

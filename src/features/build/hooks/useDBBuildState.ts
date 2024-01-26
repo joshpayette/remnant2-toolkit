@@ -4,7 +4,7 @@ import {
   buildStateToMasonryItems,
   linkArchtypesToTraits,
   linkWeaponsToMods,
-} from '../lib/build'
+} from '../lib'
 import { BuildState } from '@/features/build/types'
 import { Item } from '@/features/items/types'
 import { ArmorItem } from '@/features/items/types/ArmorItem'

@@ -12,3 +12,5 @@ export function badWordsFilter(text: string) {
   if (!text || typeof text !== 'string' || text === '') return ''
   return filter.clean(text)
 }
+
+export default badWordsFilter

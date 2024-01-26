@@ -1,4 +1,4 @@
-import { isErrorResponse } from '@/types'
+import { isErrorResponse } from '@/features/error-handling/lib/isErrorResponse'
 import { getBuild } from '../actions'
 import BuildPage from './page'
 import { Metadata, ResolvingMetadata } from 'next'
