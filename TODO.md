@@ -1,5 +1,6 @@
 # TODO
 
+- Add community build filter for specific weapons
 - Add weight class coloring to the build stats
 - Rework the item import on the tracker to be a bit more clear
 - Add tracker of world bosses
