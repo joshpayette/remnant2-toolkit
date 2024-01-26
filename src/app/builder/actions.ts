@@ -10,7 +10,7 @@ import {
   buildStateSchema,
   buildStateToBuildItems,
 } from '../../features/build/lib/build'
-import { badWordsFilter } from '../../features/badwords/lib/badwords-filter'
+import { badWordsFilter } from '../../features/bad-word-filter'
 import { DEFAULT_DISPLAY_NAME } from '@/features/profile/constants'
 import { bigIntFix } from '@/lib/bigIntFix'
 
