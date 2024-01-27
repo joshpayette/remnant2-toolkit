@@ -6,9 +6,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2023-01-26
 
+### Added
+
+- Added damage modifier info logic to a couple of items.
+
 ### Changed
 
 - Old featured build home page redirects to new featured build page. Old links still will work.
+- Reduced size of detailed build cards
 
 ## 2023-01-25
 

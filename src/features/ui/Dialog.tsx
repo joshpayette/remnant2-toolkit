@@ -77,7 +77,7 @@ export default function Dialog({
                   <BaseDialog.Title
                     as="h3"
                     className={cn(
-                      'text-4xl font-semibold leading-6 text-green-500',
+                      'text-4xl font-semibold text-green-500',
                       !subtitle && 'mb-4',
                     )}
                   >

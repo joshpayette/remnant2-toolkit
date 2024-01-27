@@ -1,4 +1,4 @@
-import { ARCHTYPE_COLORS } from '../constants'
+import { ARCHTYPE_COLORS, MODIFIERS } from '../constants'
 
 type ColorKeyword =
   | 'BLEEDING'
@@ -82,6 +82,24 @@ function highlightKeywords(text: string) {
   return highlightedText
 }
 
+function highlightModifierTokens(text: string) {
+  let highlightedText = text
+
+  MODIFIERS.forEach((modifier) => {
+    const escapedToken = modifier.token.replace(
+      /[-\/\\^$*+?.()|[\]{}]/g,
+      '\\$&',
+    )
+    const regex = new RegExp(`(${escapedToken})`, 'g')
+    highlightedText = highlightedText.replace(
+      regex,
+      `<span class="${modifier.color} font-semibold">$1</span>`,
+    )
+  })
+
+  return highlightedText
+}
+
 interface Props {
   description: string
 }
@@ -90,7 +108,7 @@ export default function ItemDescription({ description }: Props) {
   return (
     <p
       dangerouslySetInnerHTML={{
-        __html: highlightKeywords(description),
+        __html: highlightModifierTokens(highlightKeywords(description)),
       }}
     />
   )
