@@ -8,9 +8,9 @@ import { FlagIcon as FlagIconOn } from '@heroicons/react/24/solid'
 import Link from 'next/link'
 import PopularBuildBadge from './PopularBuildBadge'
 import { DBBuild } from '../types'
-import { dbBuildToBuildState } from '../lib'
 import { POPULAR_VOTE_THRESHOLD } from '../constants'
 import { format } from 'date-fns'
+import { dbBuildToBuildState } from '../lib/dbBuildToBuildState'
 
 interface Props {
   build: DBBuild

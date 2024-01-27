@@ -11,9 +11,9 @@ import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { getBuilds } from './actions'
 import useBuildActions from '@/features/build/hooks/useBuildActions'
-import { dbBuildToBuildState } from '@/features/build/lib'
 import { toast } from 'react-toastify'
 import { isErrorResponse } from '@/features/error-handling/lib/isErrorResponse'
+import { dbBuildToBuildState } from '@/features/build/lib/dbBuildToBuildState'
 
 const ITEMS_PER_PAGE = 8
 

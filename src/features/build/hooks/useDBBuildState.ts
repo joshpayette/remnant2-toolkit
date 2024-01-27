@@ -1,10 +1,4 @@
 import { useMemo, useState } from 'react'
-import {
-  buildStateToCsvData,
-  buildStateToMasonryItems,
-  linkArchtypesToTraits,
-  linkWeaponsToMods,
-} from '../lib'
 import { BuildState } from '@/features/build/types'
 import { Item } from '@/features/items/types'
 import { ArmorItem } from '@/features/items/types/ArmorItem'
@@ -13,6 +7,10 @@ import { WeaponItem } from '@/features/items/types/WeaponItem'
 import { MutatorItem } from '@/features/items/types/MutatorItem'
 import { TraitItem } from '@/features/items/types/TraitItem'
 import { remnantItems } from '@/features/items/data'
+import { buildStateToCsvData } from '../lib/buildStateToCsvData'
+import { buildStateToMasonryItems } from '../lib/buildStateToMasonryItems'
+import linkWeaponsToMods from '../lib/linkWeaponsToMods'
+import linkArchtypesToTraits from '../lib/linkArchtypesToTraits'
 
 export default function useDBBuildState(initialBuildState: BuildState) {
   const [dbBuildState, setDBBuildState] =

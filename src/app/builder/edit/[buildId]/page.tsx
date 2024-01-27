@@ -8,12 +8,9 @@ import useBuildActions from '../../../../features/build/hooks/useBuildActions'
 import { useIsClient } from 'usehooks-ts'
 import useDBBuildState from '../../../../features/build/hooks/useDBBuildState'
 import ActionButton from '../../../../features/build/components/ActionButton'
-import Builder from '../../../../features/build/components/Builder'
-import { cn } from '@/lib/classnames'
 import { DBBuild } from '@/features/build/types'
-import { dbBuildToBuildState } from '@/features/build/lib'
-import MasonryItemList from '@/features/items/components/MasonryItemList'
 import BuilderPage from '@/features/build/components/BuilderPage'
+import { dbBuildToBuildState } from '@/features/build/lib/dbBuildToBuildState'
 
 export default function Page({
   params: { initialBuildState },
@@ -22,7 +19,7 @@ export default function Page({
 }) {
   const isClient = useIsClient()
 
-  const { masonryItems, dbBuildState, updateDBBuildState } = useDBBuildState(
+  const { dbBuildState, updateDBBuildState } = useDBBuildState(
     dbBuildToBuildState(initialBuildState),
   )
 
