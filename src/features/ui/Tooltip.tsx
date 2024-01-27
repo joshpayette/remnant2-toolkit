@@ -3,24 +3,22 @@ import Tippy from '@tippyjs/react'
 interface Props {
   arrow?: boolean
   children: React.ReactElement
-  className?: string
+  content: React.ReactNode
   interactive?: boolean
-  tooltipText: string
 }
 
 export default function Tooltip({
   arrow,
   children,
-  className,
+  content,
   interactive = false,
-  tooltipText,
 }: Props) {
   return (
     <Tippy trigger="onClick">
       <Tippy
         arrow={arrow}
         interactive={interactive}
-        content={<span className={className}>{tooltipText}</span>}
+        content={content}
       >
         {children}
       </Tippy>
