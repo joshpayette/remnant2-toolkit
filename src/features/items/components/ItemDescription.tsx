@@ -108,7 +108,7 @@ function highlightModifierTokens(parts: (string | JSX.Element)[]) {
             <Tooltip
               content={
                 <span className={cn(modifier.color, 'bg-black p-2 text-xs')}>
-                  Damage is {modifier.type}
+                  {modifier.description}
                 </span>
               }
               key={`${index}-${tokenIndex}`}

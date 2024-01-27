@@ -79,10 +79,12 @@ export const MODIFIERS: Modifier[] = [
     type: 'additive',
     token: '[+]',
     color: 'text-blue-300',
+    description: 'Damage is additive with other sources of damage',
   },
   {
     type: 'multiplicative',
     token: '[∗]',
     color: 'text-orange-300',
+    description: 'Damage is multiplicative with other sources of damage',
   },
 ]
