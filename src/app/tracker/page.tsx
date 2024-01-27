@@ -134,8 +134,6 @@ export default function Page() {
     if (fileInput.current) fileInput.current.value = ''
     // notify of success
     toast.success('Save file uploaded successfully!')
-    // Reload the page
-    // window.location.reload()
   }, [setDiscoveredItemIds, filteredItems])
 
   // Provider the tracker progress
@@ -218,7 +216,7 @@ export default function Page() {
                 <hr className="my-4" />
 
                 <strong>Steam</strong>
-                <pre className="mb-4 px-2 text-sm">
+                <pre className="mb-4 px-2 text-sm text-gray-400">
                   C:\Users\_your_username_\Saved
                   Games\Remnant2\Steam\_steam_id_\profile.sav
                 </pre>
@@ -226,45 +224,23 @@ export default function Page() {
                 <hr className="my-4" />
 
                 <strong>Xbox GamePass</strong>
-                <ul className="mb-4 list-inside list-disc text-sm">
-                  <li>
-                    The file name varies from user to user, but is usually
-                    located in:
-                    <pre>
-                      %LOCALAPPDATA%\Packages\PerfectWorldEntertainment.GFREMP2_jrajkyc4tsa6w\SystemAppData\wgsYOURNUMERICID\
-                    </pre>
-                  </li>
-                  <li>
-                    You want to look for a save folder with a recent Date
-                    Modified, but it may not always be the most recent.{' '}
-                  </li>
-                  <li>
-                    File size for the save file should be the larger of the two
-                    files you find, with a super long name, such as{' '}
-                    <pre className="inline-block text-green-500">
-                      DC6E40058AD611B18ED8685CA8BBE724
-                    </pre>
-                  </li>
-                  <li>The size is typically less than 100kb</li>
-                  <li>
-                    Copy that file to another folder, rename it to{' '}
-                    <pre className="inline-block text-green-500">
-                      profile.sav
-                    </pre>{' '}
-                    and then import it.
-                  </li>
-                  <li>
-                    Be sure to check the results, such as the number of items
-                    and archtypes. If you choose the wrong file, it may still
-                    show some items discovered erroneously. If this happens, try
-                    a different file even if the date modified is older.
-                  </li>
-                </ul>
+                <p className="text-sm text-gray-400">
+                  This is a bit more complicated, but doable. I&apos;d recommend
+                  following{' '}
+                  <a
+                    href="https://www.reddit.com/r/remnantgame/comments/187rfdq/transferring_save_files_from_pcsteam_to_xbox/"
+                    className="text-purple-500 underline hover:text-purple-700"
+                  >
+                    this guide on Reddit by SpectralHunt
+                  </a>
+                  . Once you find your file, you can rename it to profile.sav
+                  and import it here.
+                </p>
 
                 <hr className="my-4" />
 
                 <strong>Xbox</strong>
-                <p className="text-sm italic">
+                <p className="text-sm italic text-gray-400">
                   I don&apos;t have the ability to test this, but I believe you
                   can export your save file to a USB drive, then rename the file
                   to profile.sav and import. If you can confirm this works,
@@ -275,7 +251,7 @@ export default function Page() {
                 <hr className="my-4" />
 
                 <strong>Playstation</strong>
-                <p className="text-sm italic">
+                <p className="text-sm italic text-gray-400">
                   I could use some help with this one. If you know where the
                   save is, or can provide a save that I can test with, I will
                   happily try to make this work. Please use the blue bug report
