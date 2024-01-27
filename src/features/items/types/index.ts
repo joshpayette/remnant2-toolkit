@@ -40,3 +40,5 @@ export type Archtype =
   | 'medic'
   | 'ritualist'
   | 'summoner'
+
+export type Modifier = { type: string; token: string; color: string }
