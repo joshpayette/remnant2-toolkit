@@ -126,9 +126,6 @@ export default function ItemInfo({ item, open, onClose }: ItemInfoProps) {
             )}
           </div>
         </div>
-        <div className="absolute bottom-0 right-0 pb-4 pr-4">
-          <ItemModifiers itemDescription={item.description} />
-        </div>
       </div>
     </Dialog>
   )
