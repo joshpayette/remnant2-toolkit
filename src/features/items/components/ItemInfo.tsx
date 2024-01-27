@@ -8,8 +8,11 @@ import ArmorInfo from './ArmorInfo'
 import { TraitItem } from '../types/TraitItem'
 import { PerkItem } from '../types/PerkItem'
 import ItemDescription from './ItemDescription'
-import { Item } from '../types'
+import { Item, Modifier } from '../types'
 import { capitalize } from '@/lib/capitalize'
+import { MODIFIERS } from '../constants'
+import { parseItemModifiers } from '../lib/parseItemModifiers'
+import { ItemModifiers } from './ItemModifiers'
 
 interface ItemInfoProps {
   item: Item | null
@@ -96,14 +99,14 @@ export default function ItemInfo({ item, open, onClose }: ItemInfoProps) {
             </div>
           )}
 
-          <div className="flex flex-col items-start justify-start">
+          {/* <div className="flex flex-col items-start justify-start">
             <h4 className="mt-4 text-left text-sm text-gray-500">How to Get</h4>
             <div className="text-left text-sm text-gray-300">
               <ItemDescription
                 description={item.howToGet || 'No instructions found.'}
               />
             </div>
-          </div>
+          </div> */}
           <div className="flex flex-col items-start justify-start">
             <h4 className="mt-4 text-left text-sm text-gray-500">Wiki Links</h4>
             {item.wikiLinks?.map((link) => (
@@ -122,6 +125,9 @@ export default function ItemInfo({ item, open, onClose }: ItemInfoProps) {
               </div>
             )}
           </div>
+        </div>
+        <div className="absolute bottom-0 right-0 pb-4 pr-4">
+          <ItemModifiers itemDescription={item.description} />
         </div>
       </div>
     </Dialog>

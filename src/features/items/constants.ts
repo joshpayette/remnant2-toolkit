@@ -1,3 +1,5 @@
+import { Modifier } from './types'
+
 export const ARCHTYPE_COLORS = {
   ALCHEMIST: {
     bg: 'bg-[#102a22]',
@@ -49,3 +51,15 @@ export const ARCHTYPE_COLORS = {
   },
 }
 
+export const MODIFIERS: Modifier[] = [
+  {
+    type: 'additive',
+    token: '[+]',
+    color: 'text-blue-300',
+  },
+  {
+    type: 'multiplicative',
+    token: '[∗]',
+    color: 'text-orange-300',
+  },
+]
