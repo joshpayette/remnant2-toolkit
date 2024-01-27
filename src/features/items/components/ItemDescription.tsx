@@ -1,4 +1,8 @@
-import { ARCHTYPE_COLORS } from '../constants'
+import { cn } from '@/lib/classnames'
+import { ARCHTYPE_COLORS, MODIFIERS } from '../constants'
+import Tippy from '@tippyjs/react'
+import { useState } from 'react'
+import Tooltip from '@/features/ui/Tooltip'
 
 type ColorKeyword =
   | 'BLEEDING'
@@ -69,17 +73,63 @@ export const colorKeywordMap: Record<ColorKeyword, string> = {
 }
 
 function highlightKeywords(text: string) {
-  let highlightedText = text
+  const parts = text.split(new RegExp(`(${colorKeywords.join('|')})`, 'g')) // split text into parts by keyword
 
-  colorKeywords.forEach((keyword) => {
-    const regex = new RegExp(`(${keyword})`, 'g')
-    highlightedText = highlightedText.replace(
-      regex,
-      `<span class="${colorKeywordMap[keyword]} font-semibold">$1</span>`,
-    )
+  const highlightedParts = parts.map((part, index) => {
+    const color = colorKeywordMap[part as ColorKeyword] // find the color for this part
+
+    if (color) {
+      // if this part is a keyword, replace it with a span
+      return (
+        <span key={index} className={`${color} font-semibold`}>
+          {part}
+        </span>
+      )
+    } else {
+      // if this part is not a keyword, return it as is
+      return part
+    }
   })
 
-  return highlightedText
+  return highlightedParts // return array of parts
+}
+
+function highlightModifierTokens(parts: (string | JSX.Element)[]) {
+  return parts.flatMap((part, index) => {
+    if (typeof part === 'string') {
+      const tokenParts = part.split(/(\[[^\]]+\])/) // split part into token parts
+
+      return tokenParts.map((tokenPart, tokenIndex) => {
+        const modifier = MODIFIERS.find(({ token }) => token === tokenPart) // find the modifier for this token part
+
+        if (modifier) {
+          // if this token part is a token, replace it with a Tippy component
+          return (
+            <Tooltip
+              content={
+                <span className={cn(modifier.color, 'bg-black p-2 text-xs')}>
+                  Damage is {modifier.type}
+                </span>
+              }
+              key={`${index}-${tokenIndex}`}
+            >
+              <button
+                className={cn('cursor-pointer font-semibold', modifier.color)}
+              >
+                {tokenPart}
+              </button>
+            </Tooltip>
+          )
+        } else {
+          // if this token part is not a token, return it as is
+          return tokenPart
+        }
+      })
+    } else {
+      // if part is not a string, return it as is
+      return part
+    }
+  })
 }
 
 interface Props {
@@ -87,11 +137,8 @@ interface Props {
 }
 
 export default function ItemDescription({ description }: Props) {
-  return (
-    <p
-      dangerouslySetInnerHTML={{
-        __html: highlightKeywords(description),
-      }}
-    />
-  )
+  const keywordParts = highlightKeywords(description)
+  const finalParts = highlightModifierTokens(keywordParts)
+
+  return finalParts
 }

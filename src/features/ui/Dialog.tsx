@@ -21,7 +21,7 @@ interface DialogProps {
     | 'max-w-full'
   open: boolean
   title: React.ReactNode
-  subtitle?: string
+  subtitle?: React.ReactNode
   onClose: () => void
   zIndex?: 'z-10' | 'z-20' | 'z-30' | 'z-40' | 'z-50'
 }
@@ -66,7 +66,7 @@ export default function Dialog({
               leaveFrom="opacity-100 translate-y-0 sm:scale-100"
               leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
             >
-              <BaseDialog.Panel className="relative h-full max-h-fit w-full transform overflow-y-auto border-2 border-green-500 bg-black px-4 pb-4 pt-4 text-left shadow-xl transition-all sm:my-8 sm:p-6">
+              <BaseDialog.Panel className="relative h-full max-h-fit w-full transform overflow-y-auto border-2 border-green-500 bg-black px-4 py-4 text-left shadow-xl transition-all sm:my-8">
                 <button
                   className="absolute right-0 top-0 p-2 text-white hover:text-green-500"
                   onClick={onClose}
@@ -77,16 +77,14 @@ export default function Dialog({
                   <BaseDialog.Title
                     as="h3"
                     className={cn(
-                      'text-4xl font-semibold leading-6 text-green-500',
+                      'text-4xl font-semibold text-green-500',
                       !subtitle && 'mb-4',
                     )}
                   >
                     {title}
                   </BaseDialog.Title>
                   {subtitle && (
-                    <BaseDialog.Description className="text-md mb-4 mt-2 text-gray-400">
-                      {subtitle}
-                    </BaseDialog.Description>
+                    <BaseDialog.Description>{subtitle}</BaseDialog.Description>
                   )}
                   <div className="mt-2">{children}</div>
                 </div>
