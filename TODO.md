@@ -1,5 +1,7 @@
 # TODO
 
+- Remove footer on item info for modifiers
+- Update tooltip lanaguage, ie. "Damage is multiplicative with other sources of damage"
 - Add community build filter for specific weapons
 - Rework the item import on the tracker to be a bit more clear
 - Add tracker of world bosses
