@@ -73,7 +73,7 @@ export default function Dialog({
                 >
                   <XMarkIcon className="h-6 w-6" aria-hidden="true" />
                 </button>
-                <div className="mb-8 text-center">
+                <div className="text-center">
                   <BaseDialog.Title
                     as="h3"
                     className={cn(
