@@ -1,5 +1,4 @@
 import { cn } from '@/lib/classnames'
-import { Modifier } from '../types'
 import { parseItemModifiers } from '../lib/parseItemModifiers'
 
 interface Props {
