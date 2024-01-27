@@ -1,7 +1,7 @@
 'use server'
 
 import { prisma } from '@/features/db'
-import { Build, BuildItems, Prisma } from '@prisma/client'
+import { Prisma } from '@prisma/client'
 import { remnantItems } from '@/features/items/data'
 import { bigIntFix } from '@/lib/bigIntFix'
 import { Archtype } from '@/features/items/types'
@@ -9,6 +9,18 @@ import { CommunityBuildFilterProps } from '@/features/build/components/Community
 import { DBBuild } from '../types'
 import { PaginationResponse } from '@/features/pagination/hooks/usePagination'
 import { getServerSession } from '@/features/auth/lib'
+import {
+  archtypeFiltersToIds,
+  limitByArchtypesSegment,
+} from '@/features/filters/queries/segments/limitByArchtypes'
+import {
+  communityBuildsCountQuery,
+  communityBuildsQuery,
+} from '@/features/filters/queries/community-builds'
+import {
+  limitByWeaponsSegment,
+  weaponFiltersToIds,
+} from '@/features/filters/queries/segments/limitByWeapons'
 
 export type TimeRange = 'day' | 'week' | 'month' | 'all-time'
 
@@ -58,64 +70,34 @@ export async function getMostPopularBuilds({
       break
   }
 
-  // TODO
   const { archtypes, longGun, handGun, melee } = communityBuildFilters
-  const archtypeIds = archtypes.map(
-    (archtype) =>
-      remnantItems.find((item) => item.name.toLowerCase() === archtype)?.id,
-  ) as Archtype[]
+  const archtypeIds = archtypeFiltersToIds({ archtypes })
 
-  const archtypeCondition =
-    archtypeIds.length === 0
-      ? Prisma.empty
-      : Prisma.sql`AND (
-SELECT COUNT(*)
-FROM BuildItems
-WHERE BuildItems.buildId = Build.id
-AND BuildItems.itemId IN (${Prisma.join(archtypeIds)})
-) = ${archtypeIds.length}`
+  const weaponIds = weaponFiltersToIds({
+    longGun,
+    handGun,
+    melee,
+  })
+
+  const whereConditions = Prisma.sql`
+  WHERE Build.isPublic = true
+  ${limitByArchtypesSegment(archtypeIds)}
+  ${limitByWeaponsSegment(weaponIds)}
+  AND Build.createdAt > ${timeCondition}
+  `
+
+  const orderBySegment = Prisma.sql`
+  ORDER BY totalUpvotes DESC
+  `
 
   // First, get the Builds
-  const topBuilds = (await prisma.$queryRaw`
-        SELECT Build.*, 
-        User.name as createdByName, 
-        User.displayName as createdByDisplayName, 
-        COUNT(BuildVoteCounts.buildId) as totalUpvotes,
-        COUNT(BuildReports.id) as totalReports,
-        CASE WHEN EXISTS (
-          SELECT 1
-          FROM BuildReports
-          WHERE BuildReports.buildId = Build.id
-          AND BuildReports.userId = ${userId}
-        ) THEN TRUE ELSE FALSE END as reported,
-        CASE WHEN EXISTS (
-          SELECT 1
-          FROM BuildVoteCounts
-          WHERE BuildVoteCounts.buildId = Build.id
-          AND BuildVoteCounts.userId = ${userId}
-        ) THEN TRUE ELSE FALSE END as upvoted,
-        CASE WHEN PaidUsers.userId IS NOT NULL THEN true ELSE false END as isPaidUser
-  FROM Build
-  LEFT JOIN BuildVoteCounts ON Build.id = BuildVoteCounts.buildId
-  LEFT JOIN User on Build.createdById = User.id
-  LEFT JOIN BuildReports on Build.id = BuildReports.buildId AND BuildReports.userId = ${userId}
-  LEFT JOIN PaidUsers on User.id = PaidUsers.userId
-  WHERE Build.isPublic = true
-  ${archtypeCondition}
-  AND Build.createdAt > ${timeCondition}
-  GROUP BY Build.id, User.id
-  ORDER BY totalUpvotes DESC
-  LIMIT ${itemsPerPage} 
-  OFFSET ${(pageNumber - 1) * itemsPerPage}
-`) as (Build & {
-    totalUpvotes: number
-    createdByName: string
-    createdByDisplayName: string
-    reported: boolean
-    upvoted: boolean
-    isPaidUser: boolean
-    buildItems: BuildItems[]
-  })[]
+  const topBuilds = await communityBuildsQuery({
+    userId,
+    itemsPerPage,
+    pageNumber,
+    orderBySegment,
+    whereConditions,
+  })
 
   // Then, for each Build, get the associated BuildItems
   for (const build of topBuilds) {
@@ -125,16 +107,10 @@ AND BuildItems.itemId IN (${Prisma.join(archtypeIds)})
     build.buildItems = buildItems
   }
 
-  const totalTopBuilds = (await prisma.$queryRaw`
-  SELECT COUNT(DISTINCT Build.id)
-  FROM Build
-  LEFT JOIN BuildVoteCounts ON Build.id = BuildVoteCounts.buildId
-  WHERE Build.isPublic = true 
-  ${archtypeCondition}
-  AND Build.createdAt > ${timeCondition}
-`) as { 'count(distinct Build.id)': number }[]
-
-  const totalBuildCount = Number(totalTopBuilds[0]['count(distinct Build.id)'])
+  const totalTopBuilds = await communityBuildsCountQuery({
+    whereConditions,
+  })
+  const totalBuildCount = totalTopBuilds[0].totalBuildCount
 
   const returnedBuilds: DBBuild[] = topBuilds.map((build) => ({
     id: build.id,

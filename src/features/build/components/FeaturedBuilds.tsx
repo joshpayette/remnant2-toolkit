@@ -99,10 +99,6 @@ export default function FeaturedBuilds({
 
   const filterOptions: FeaturedBuildsFilter[] = ['date created', 'upvotes']
 
-  if (isLoading) {
-    return <Loading />
-  }
-
   return (
     <>
       <BuildList

@@ -57,6 +57,7 @@ export default function CommunityBuildFilters({
   )
 
   function clearFilters() {
+    console.info('setting filters', defaultCommunityBuildFilters)
     setFilters(defaultCommunityBuildFilters)
     onUpdate(defaultCommunityBuildFilters)
   }
@@ -64,9 +65,9 @@ export default function CommunityBuildFilters({
   const areAnyFiltersActive = () => {
     return (
       filters.archtypes.length > 0 ||
-      filters.longGun !== '' ||
-      filters.handGun !== '' ||
-      filters.melee !== ''
+      filters.longGun !== defaultGun ||
+      filters.handGun !== defaultGun ||
+      filters.melee !== defaultGun
     )
   }
 
@@ -147,6 +148,7 @@ export default function CommunityBuildFilters({
               <SelectMenu
                 name="longGun"
                 label="Long Guns"
+                value={filters.longGun}
                 options={allLongGuns.map((weapon) => ({
                   label: weapon,
                   value: weapon,
@@ -154,22 +156,24 @@ export default function CommunityBuildFilters({
                 onChange={(e) => handleWeaponChange(e.target.value, 'longGun')}
               />
               <SelectMenu
-                name="handGun"
-                label="Hand Guns"
-                options={allHandGuns.map((weapon) => ({
-                  label: weapon,
-                  value: weapon,
-                }))}
-                onChange={(e) => handleWeaponChange(e.target.value, 'handGun')}
-              />
-              <SelectMenu
                 name="melee"
                 label="Melee"
+                value={filters.melee}
                 options={allMelee.map((weapon) => ({
                   label: weapon,
                   value: weapon,
                 }))}
                 onChange={(e) => handleWeaponChange(e.target.value, 'melee')}
+              />
+              <SelectMenu
+                name="handGun"
+                label="Hand Guns"
+                value={filters.handGun}
+                options={allHandGuns.map((weapon) => ({
+                  label: weapon,
+                  value: weapon,
+                }))}
+                onChange={(e) => handleWeaponChange(e.target.value, 'handGun')}
               />
             </div>
           </div>
