@@ -17,7 +17,9 @@ import { GenericItem } from '../types/GenericItem'
 import { ArmorItem } from '../types/ArmorItem'
 import ArmorInfo from './ArmorInfo'
 import ItemInfo from './ItemInfo'
-import { ItemModifiers } from './ItemModifiers'
+import { WeaponItem } from '../types/WeaponItem'
+import WeaponInfo from './WeaponInfo'
+import { cn } from '@/lib/classnames'
 
 interface MasonryBuildItem {
   index: number
@@ -39,7 +41,11 @@ function MasonryCard({ data: item, onMoreInfoClick }: MasonryBuildItem) {
           className="text-md font-bold text-purple-500 hover:text-purple-300 hover:underline"
         >
           <Image
-            className="mx-auto mb-2 h-24 w-24 flex-shrink-0 rounded-full"
+            className={cn(
+              'mx-auto mb-2 h-auto w-24 flex-shrink-0 rounded-full',
+              TraitItem.isTraitItem(item) && 'h-24 w-auto',
+              WeaponItem.isWeaponItem(item) && 'h-auto w-32',
+            )}
             width={150}
             height={150}
             src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}${imagePath}`}
@@ -77,6 +83,11 @@ function MasonryCard({ data: item, onMoreInfoClick }: MasonryBuildItem) {
         {ArmorItem.isArmorItem(item) && (
           <div className="mt-1">
             <ArmorInfo item={item} />
+          </div>
+        )}
+        {WeaponItem.isWeaponItem(item) && (
+          <div className="mt-1">
+            <WeaponInfo item={item} />
           </div>
         )}
       </div>
