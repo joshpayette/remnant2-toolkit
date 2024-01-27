@@ -9,11 +9,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Added
 
 - Added damage modifier info logic to a couple of items.
+- Added gun damage, rps, and magazine info
+- Added weight class coloring in stats
 
 ### Changed
 
 - Old featured build home page redirects to new featured build page. Old links still will work.
 - Reduced size of detailed build cards
+- Removed "how to get" instructions from item info. Wanted to save space, and the wiki is already the best source for this.
 
 ## 2023-01-25
 

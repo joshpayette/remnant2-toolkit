@@ -55,6 +55,7 @@ export interface GenericItemProps {
   armorPercent?: number
   weight?: number
   weightPercent?: number
+  weightThreshold?: number
   bleedResistance?: number
   bleedResistancePercent?: number
   fireResistance?: number
@@ -88,6 +89,7 @@ export class GenericItem implements GenericItemProps {
   public armorPercent?: GenericItemProps['armorPercent'] = 0
   public weight?: GenericItemProps['weight'] = 0
   public weightPercent?: GenericItemProps['weightPercent'] = 0
+  public weightThreshold?: GenericItemProps['weightThreshold'] = 0
   public bleedResistance?: GenericItemProps['bleedResistance'] = 0
   public bleedResistancePercent?: GenericItemProps['bleedResistancePercent'] = 0
   public fireResistance?: GenericItemProps['fireResistance'] = 0
@@ -120,6 +122,7 @@ export class GenericItem implements GenericItemProps {
     this.armorPercent = props.armorPercent
     this.weight = props.weight
     this.weightPercent = props.weightPercent
+    this.weightThreshold = props.weightThreshold
     this.bleedResistance = props.bleedResistance
     this.bleedResistancePercent = props.bleedResistancePercent
     this.fireResistance = props.fireResistance

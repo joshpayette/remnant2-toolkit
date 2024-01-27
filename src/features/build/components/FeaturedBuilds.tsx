@@ -8,7 +8,6 @@ import Link from 'next/link'
 import BuildListFilters from '@/features/build/components/BuildListFilters'
 import { DBBuild } from '@/features/build/types'
 import { toast } from 'react-toastify'
-import { dbBuildToBuildState } from '@/features/build/lib'
 import useBuildActions from '@/features/build/hooks/useBuildActions'
 import { CommunityBuildFilterProps } from './CommunityBuildFilters'
 import {
@@ -17,6 +16,7 @@ import {
 } from '@/features/build/actions/getFeaturedBuilds'
 import Loading from '@/app/loading'
 import { isErrorResponse } from '@/features/error-handling/lib/isErrorResponse'
+import { dbBuildToBuildState } from '../lib/dbBuildToBuildState'
 
 interface Props {
   itemsPerPage?: number

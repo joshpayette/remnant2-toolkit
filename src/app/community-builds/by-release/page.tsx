@@ -13,10 +13,10 @@ import { cn } from '@/lib/classnames'
 import ClearFiltersButton from '@/features/ui/ClearFiltersButton'
 import useBuildActions from '@/features/build/hooks/useBuildActions'
 import { toast } from 'react-toastify'
-import { dbBuildToBuildState } from '@/features/build/lib'
 import { DLCKey, DLC_TO_NAME } from '@/features/items/dlc/types'
 import { isErrorResponse } from '@/features/error-handling/lib/isErrorResponse'
 import { Checkbox } from '@/features/ui/Checkbox'
+import { dbBuildToBuildState } from '@/features/build/lib/dbBuildToBuildState'
 
 const ITEMS_PER_PAGE = 8
 const DEFAULT_DLC_ITEMS: DLCKey[] = ['base', 'dlc1']

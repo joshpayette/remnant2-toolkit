@@ -3477,6 +3477,9 @@ export const remnantItems: Item[] = [
         name: 'Beta Ray',
       },
     },
+    damage: 15,
+    rps: 7.2,
+    magazine: 55,
   },
   {
     category: 'weapon',
@@ -3492,6 +3495,9 @@ export const remnantItems: Item[] = [
         name: 'Supernova',
       },
     },
+    damage: 62,
+    rps: 2,
+    magazine: 7,
   },
   {
     category: 'weapon',
@@ -3504,6 +3510,9 @@ export const remnantItems: Item[] = [
     howToGet: `Starting equipment for the CHALLENGER Class
     Can be bought from Brabus at Ward 13`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/AS-10+Bulldog`],
+    damage: 60,
+    rps: 2.5,
+    magazine: 12,
   },
   {
     category: 'weapon',
@@ -3516,6 +3525,9 @@ export const remnantItems: Item[] = [
     howToGet: `Starting equipment for the HANDLER Class
     Can be bought from Brabus at Ward 13`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Blackmaw+AR-47`],
+    damage: 17,
+    rps: 7.3,
+    magazine: 38,
   },
   {
     category: 'weapon',
@@ -3527,6 +3539,9 @@ export const remnantItems: Item[] = [
     description: `A classic Tommy Gun with large ammo capacity and a slow reload. Poor initial accuracy which improves while holding down the trigger.`,
     howToGet: `Ward 13. Can be found in the same room where players find Leto's Stash. It requires the Biome Portal Key in order to be found, and it involves some portal platform in The Labyrinth.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Chicago+Typewriter`],
+    damage: 10,
+    rps: 11,
+    magazine: 80,
   },
   {
     category: 'weapon',
@@ -3537,6 +3552,9 @@ export const remnantItems: Item[] = [
     description: `A double-barrel over/under shotgun modified to fire powerful slugs. High damage with a decent fire rate, but very low magazine capacity.`,
     howToGet: `Can be bought from Brabus at Ward 13`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Coach+Gun`],
+    damage: 115,
+    rps: 2.3,
+    magazine: 2,
   },
   {
     category: 'weapon',
@@ -3553,6 +3571,9 @@ export const remnantItems: Item[] = [
         name: 'Micronova',
       },
     },
+    damage: 22,
+    rps: 2.2,
+    magazine: 6,
   },
   {
     category: 'weapon',
@@ -3569,6 +3590,9 @@ export const remnantItems: Item[] = [
         name: 'Windfall',
       },
     },
+    damage: 66,
+    rps: 3,
+    magazine: 12,
   },
   {
     category: 'weapon',
@@ -3585,6 +3609,9 @@ export const remnantItems: Item[] = [
         name: 'Bloodshot',
       },
     },
+    damage: 90,
+    rps: 1.3,
+    magazine: 3,
   },
   {
     category: 'weapon',
@@ -3600,6 +3627,9 @@ export const remnantItems: Item[] = [
         name: 'Moonlight Barrage',
       },
     },
+    damage: 87,
+    rps: 4.1,
+    magazine: 1,
   },
   {
     category: 'weapon',
@@ -3610,6 +3640,9 @@ export const remnantItems: Item[] = [
     description: `An accurate and deadly single-shot crossbow with a low sound profile.`,
     howToGet: `Starting equipment for the SUMMONER Archetype`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Crossbow`],
+    damage: 115,
+    rps: 3.4,
+    magazine: 1,
   },
   {
     category: 'weapon',
@@ -3625,6 +3658,9 @@ export const remnantItems: Item[] = [
         name: 'Ouroboros',
       },
     },
+    damage: 120,
+    rps: 2,
+    magazine: 6,
   },
   {
     category: 'weapon',
@@ -3636,6 +3672,9 @@ export const remnantItems: Item[] = [
     description: `An incredibly powerful 12 gauge shotgun with a wide spread. High damage, slow reload.`,
     howToGet: `Starting Long Gun for the EXPLORER`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Ford's+Scattergun`],
+    damage: 130,
+    rps: 1.1,
+    magazine: 7,
   },
   {
     category: 'weapon',
@@ -3648,6 +3687,9 @@ export const remnantItems: Item[] = [
     howToGet: `Can be bought from Brabus at Ward 13
     Starting Long Gun for the HUNTER archetype.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Huntmaster+M1`],
+    damage: 70,
+    rps: 1.5,
+    magazine: 7,
   },
   {
     category: 'weapon',
@@ -3663,6 +3705,9 @@ export const remnantItems: Item[] = [
         name: 'Bloodline',
       },
     },
+    damage: 13,
+    rps: 8.6,
+    magazine: 50,
   },
   {
     category: 'weapon',
@@ -3679,6 +3724,9 @@ export const remnantItems: Item[] = [
         name: 'Chain of Command',
       },
     },
+    damage: 12,
+    rps: 10.5,
+    magazine: 60,
   },
   {
     category: 'weapon',
@@ -3694,6 +3742,9 @@ export const remnantItems: Item[] = [
         name: 'Dreadwalker',
       },
     },
+    damage: 31,
+    rps: 4.3,
+    magazine: 10,
   },
   {
     category: 'weapon',
@@ -3709,6 +3760,9 @@ export const remnantItems: Item[] = [
         name: 'Heat Sink',
       },
     },
+    damage: 7,
+    rps: 13,
+    magazine: 100,
   },
   {
     category: 'weapon',
@@ -3719,6 +3773,9 @@ export const remnantItems: Item[] = [
     description: `An extremely accurate, high-tech pulse rifle which shoots quick three-round bursts.`,
     howToGet: `Found after using the Decorum Cipher to unlock the door downstairs in Abyssal Rift, in the area where The Custodian resides`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Pulse+Rifle`],
+    damage: 16,
+    rps: 7.8,
+    magazine: 30,
   },
   {
     category: 'weapon',
@@ -3735,6 +3792,9 @@ export const remnantItems: Item[] = [
         name: 'Banish',
       },
     },
+    damage: 100,
+    rps: 1.6,
+    magazine: 5,
   },
   {
     category: 'weapon',
@@ -3746,6 +3806,9 @@ export const remnantItems: Item[] = [
     description: `The Postulant grants these to those who can defeat him. None know why. Some suspect that the game is mere preamble-that perhaps the true game is what its players do next.`,
     howToGet: `Complete the Postulant Event in Losomn`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Royal+Hunting+Bow`],
+    damage: 80,
+    rps: 4.3,
+    magazine: 1,
   },
   {
     category: 'weapon',
@@ -3757,6 +3820,9 @@ export const remnantItems: Item[] = [
     description: `A well-worn lever-action rifle.`,
     howToGet: `Automatically equipped as you begin your first character in the game`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Rusty+Lever+Action`],
+    damage: 55,
+    rps: 1.8,
+    magazine: 10,
   },
   {
     category: 'weapon',
@@ -3772,6 +3838,9 @@ export const remnantItems: Item[] = [
         name: 'Starfall',
       },
     },
+    damage: 98,
+    rps: 4.5,
+    magazine: 1,
   },
   {
     category: 'weapon',
@@ -3788,6 +3857,9 @@ export const remnantItems: Item[] = [
         name: 'Shatterstar',
       },
     },
+    damage: 72,
+    rps: 1.9,
+    magazine: 6,
   },
   {
     category: 'weapon',
@@ -3800,6 +3872,9 @@ export const remnantItems: Item[] = [
     description: `Fires incendiary shells that apply BURNING which deals 30 FIRE damage over 3.0 seconds.`,
     howToGet: `Found at Derelict Lighthouse. Requires The Awakened King DLC.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Sparkfire+Shotgun`],
+    damage: 100,
+    rps: 1.4,
+    magazine: 7,
   },
   {
     category: 'weapon',
@@ -3817,6 +3892,9 @@ export const remnantItems: Item[] = [
         name: 'Spore Shot',
       },
     },
+    damage: 200,
+    rps: 3.5,
+    magazine: 1,
   },
   {
     category: 'weapon',
@@ -3834,6 +3912,9 @@ export const remnantItems: Item[] = [
         name: 'Gravity Core',
       },
     },
+    damage: 80,
+    rps: 1.5,
+    magazine: 5,
   },
   {
     category: 'weapon',
@@ -3849,6 +3930,9 @@ export const remnantItems: Item[] = [
         name: "Guardian's Call",
       },
     },
+    damage: 80,
+    rps: 2,
+    magazine: 1,
   },
   {
     category: 'weapon',
@@ -3860,6 +3944,9 @@ export const remnantItems: Item[] = [
     description: `A powerful single-shot sniper rifle with excellent range and pinpoint accuracy. Comes with a 3x scope. Tap SCOPE to toggle.`,
     howToGet: `Can be bought from Brabus at Ward 13`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Widowmaker`],
+    damage: 125,
+    rps: 2.4,
+    magazine: 1,
   },
   {
     category: 'weapon',
@@ -3871,6 +3958,9 @@ export const remnantItems: Item[] = [
     description: `A well-rounded lever-action rifle effective at most ranges, hampered only by a slow reload.`,
     howToGet: `Can be bought from Brabus at Ward 13`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Wrangler+1860`],
+    damage: 55,
+    rps: 2.1,
+    magazine: 10,
   },
   {
     category: 'weapon',
@@ -3882,6 +3972,9 @@ export const remnantItems: Item[] = [
     description: `An experimental infantry support weapon used for prolonged suppressive fire. High capacity, long reload, and prone to overheating. Becomes more accurate while holding down the trigger.`,
     howToGet: `Can be bought from Brabus at Ward 13`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/XMG57+Bonesaw`],
+    damage: 12,
+    rps: 9.5,
+    magazine: 150,
   },
   {
     category: 'weapon',
@@ -3898,6 +3991,7 @@ export const remnantItems: Item[] = [
         name: 'Fathomless Deep',
       },
     },
+    damage: 101,
   },
   {
     category: 'weapon',
@@ -3913,6 +4007,7 @@ export const remnantItems: Item[] = [
         name: 'Bloodthirst',
       },
     },
+    damage: 41,
   },
   {
     category: 'weapon',
@@ -3928,6 +4023,7 @@ export const remnantItems: Item[] = [
         name: 'Accelerator',
       },
     },
+    damage: 72,
   },
   {
     category: 'weapon',
@@ -3943,6 +4039,7 @@ export const remnantItems: Item[] = [
         name: 'Fission Strike',
       },
     },
+    damage: 100,
   },
   // This weapon appears to be unobtainable
   // {
@@ -3961,6 +4058,7 @@ export const remnantItems: Item[] = [
     description: `A short, but thick sword, used by Gul Warriors. It's compact design makes for swift yet hard-hitting blows. An excellent close-range option.`,
     howToGet: `Can be crafted at Bloodmoon Altar. Required Material: Blood Moon Essence`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Blade+of+Gul`],
+    damage: 57,
   },
   {
     category: 'weapon',
@@ -3971,6 +4069,7 @@ export const remnantItems: Item[] = [
     description: `A razor-sharp hand axe. Excellent for separating flesh from bone. Charge for double attacks.`,
     howToGet: `Use one of the small lifts after completing The Feast Event to find it in a room.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Bone+Chopper`],
+    damage: 58,
   },
   {
     category: 'weapon',
@@ -3981,6 +4080,7 @@ export const remnantItems: Item[] = [
     description: `Makeshift claws fashioned from decayed root and rusted metal.`,
     howToGet: `Root Earth - Corrupted Harbor. Near Probability Cord inside root bush. After walking up the long root on the right of the stairs and dropping down, look for a path to crawl through in the brambles slightly to the right.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Decayed+Claws`],
+    damage: 49,
   },
   {
     category: 'weapon',
@@ -3997,6 +4097,7 @@ export const remnantItems: Item[] = [
         name: 'Dreamwave',
       },
     },
+    damage: 58,
   },
   {
     category: 'weapon',
@@ -4007,6 +4108,7 @@ export const remnantItems: Item[] = [
     description: `An elegant, yet light blade, designed to bring beauty to bloodshed. Unstoppable in the hands of a master swordsman.`,
     howToGet: `Found on Imperial Gardens, near the world stone checkpoint location. Stick to your left and past a few enemies, you will find it there.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Edge+of+the+Forest`],
+    damage: 59,
   },
   {
     category: 'weapon',
@@ -4023,6 +4125,7 @@ export const remnantItems: Item[] = [
         name: 'Death Sentence',
       },
     },
+    damage: 53,
   },
   {
     category: 'weapon',
@@ -4039,6 +4142,7 @@ export const remnantItems: Item[] = [
         name: 'Dying Breath',
       },
     },
+    damage: 74,
   },
   {
     category: 'weapon',
@@ -4054,6 +4158,7 @@ export const remnantItems: Item[] = [
         name: 'Fracture',
       },
     },
+    damage: 38,
   },
   {
     category: 'weapon',
@@ -4069,6 +4174,7 @@ export const remnantItems: Item[] = [
         name: 'Energy Wave',
       },
     },
+    damage: 51,
   },
   {
     category: 'weapon',
@@ -4084,6 +4190,7 @@ export const remnantItems: Item[] = [
         name: 'Athibar',
       },
     },
+    damage: 63,
   },
   {
     category: 'weapon',
@@ -4094,6 +4201,7 @@ export const remnantItems: Item[] = [
     description: `A giant broadsword made from flattened railroad tracks. Dozens of ridges cut in the side for causing irreparable damage.`,
     howToGet: `Can be bought from Brabusat Ward 13`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Iron+Greatsword`],
+    damage: 105,
   },
   {
     category: 'weapon',
@@ -4104,6 +4212,7 @@ export const remnantItems: Item[] = [
     description: `Steel knuckles with rusty sawblade tips, designed to boost Unarmed damage.`,
     howToGet: `Can be bought from Brabusat Ward 13`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Knuckle+Dusters`],
+    damage: 43,
   },
   {
     category: 'weapon',
@@ -4119,6 +4228,7 @@ export const remnantItems: Item[] = [
         name: 'Krell Edge',
       },
     },
+    damage: 54,
   },
   {
     category: 'weapon',
@@ -4129,6 +4239,7 @@ export const remnantItems: Item[] = [
     description: `Basic Strikes generate 10% additional Mod Power. Charge Attacks perform an AOE which strikes all enemies within 2m, dealing 75 Damage. AOE Damage generates 50% additional Mod Power.`,
     howToGet: `Can be found in The Labyrinth`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Labyrinth+Staff`],
+    damage: 64,
   },
   {
     category: 'weapon',
@@ -4145,6 +4256,7 @@ export const remnantItems: Item[] = [
         name: 'Beyond the Veil',
       },
     },
+    damage: 47,
   },
   {
     category: 'weapon',
@@ -4155,6 +4267,7 @@ export const remnantItems: Item[] = [
     description: `An intricately-forged elongated sword. Designed to keep stronger enemies at bay, while remaining light enough for agile maneuvers.`,
     howToGet: `Accuse the right conspirator in The Fae Council Event in Losomn`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Ornate+Blade`],
+    damage: 52,
   },
   {
     category: 'weapon',
@@ -4165,6 +4278,7 @@ export const remnantItems: Item[] = [
     description: `An intricately-forged mace with uniquely designed airways. Allows smaller wielders to get the mace up to speed much quicker.`,
     howToGet: `Can be found in Losomn - Council Chamber. You have to take the secret passage in The Executioner Event`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Ornate+Flail`],
+    damage: 63,
   },
   {
     category: 'weapon',
@@ -4175,6 +4289,7 @@ export const remnantItems: Item[] = [
     description: `A spear perfect for staying at a distance. Has excellent range, great recovery, and focused direct damage for one on one combat.`,
     howToGet: `Starting equipment for the SUMMONER Archetype`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Rebellion+Spear`],
+    damage: 60,
   },
   {
     category: 'weapon',
@@ -4190,6 +4305,7 @@ export const remnantItems: Item[] = [
         name: 'Lifeline',
       },
     },
+    damage: 62,
   },
   {
     category: 'weapon',
@@ -4206,6 +4322,7 @@ export const remnantItems: Item[] = [
         name: 'Reaver',
       },
     },
+    damage: 51,
   },
   {
     category: 'weapon',
@@ -4216,6 +4333,7 @@ export const remnantItems: Item[] = [
     description: `Standard issue Greatsword for the Empress's Royal Guards. Razor-sharp edges, extremely heavy, yet perfectly balanced.`,
     howToGet: `Can be found in Yaesha - The Red Throne`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Royal+Broadsword`],
+    damage: 102,
   },
   {
     category: 'weapon',
@@ -4226,6 +4344,7 @@ export const remnantItems: Item[] = [
     description: `A pair of old-canine training bracers converted into deadly claws. Used for slashing and ripping.`,
     howToGet: `Can be bought from Brabusat Ward 13`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Rusted+Claws`],
+    damage: 51,
   },
   {
     category: 'weapon',
@@ -4237,6 +4356,7 @@ export const remnantItems: Item[] = [
     description: `A large, heavy warhammer cobbled together from engine components. It is a slow- but-devastating weapon meant to destroy anything it hits.`,
     howToGet: `Can be bought from Brabusat Ward 13`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Scrap+Hammer`],
+    damage: 83,
   },
   {
     category: 'weapon',
@@ -4248,6 +4368,7 @@ export const remnantItems: Item[] = [
     description: `A common chopping tool that has been repurposed for combat. Rapidly cycles attacks from right to left. Charge attacks strike twice.`,
     howToGet: `Can be bought from Brabusat Ward 13`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Scrap+Hatchet`],
+    damage: 57,
   },
   {
     category: 'weapon',
@@ -4259,6 +4380,7 @@ export const remnantItems: Item[] = [
     description: `A staff made from old plumbing parts used for controlling wide swaths in front of the wielder.`,
     howToGet: `Can be bought from Brabusat Ward 13`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Scrap+Staff`],
+    damage: 65,
   },
   {
     category: 'weapon',
@@ -4269,6 +4391,7 @@ export const remnantItems: Item[] = [
     description: `A scorched blade imbued with FIRE.`,
     howToGet: `Beat the game on Veteran difficulty`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Smolder`],
+    damage: 46,
   },
   {
     category: 'weapon',
@@ -4284,6 +4407,7 @@ export const remnantItems: Item[] = [
         name: 'Whirlwind',
       },
     },
+    damage: 53,
   },
   {
     category: 'weapon',
@@ -4295,6 +4419,7 @@ export const remnantItems: Item[] = [
     description: `An unorthodox weapon meant to convert momentum into destruction. Some attacks can continuously chain overhead swings.`,
     howToGet: `Can be bought from Brabusat Ward 13`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Steel+Flail`],
+    damage: 69,
   },
   {
     category: 'weapon',
@@ -4307,6 +4432,7 @@ export const remnantItems: Item[] = [
     howToGet: `Can be bought from Brabusat Ward 13.
     Can be found in Root Earth- Ashen Wasteland`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Steel+Katana`],
+    damage: 56,
   },
   {
     category: 'weapon',
@@ -4319,6 +4445,7 @@ export const remnantItems: Item[] = [
     description: `A ruthless threshing device.`,
     howToGet: `Can be bought from Brabus`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Steel+Scythe`],
+    damage: 55,
   },
   {
     category: 'weapon',
@@ -4330,6 +4457,7 @@ export const remnantItems: Item[] = [
     description: `A spear perfect for staying at range with quick, focused attacks. High, single-target damage.`,
     howToGet: `Can be bought from Brabusat Ward 13`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Steel+Spear`],
+    damage: 61,
   },
   {
     category: 'weapon',
@@ -4341,6 +4469,7 @@ export const remnantItems: Item[] = [
     description: `A long, sharp blade hammered out of vehicle leaf springs. Well-rounded for most situations.`,
     howToGet: `Can be bought from Brabusat Ward 13`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Steel+Sword`],
+    damage: 56,
   },
   {
     category: 'weapon',
@@ -4356,6 +4485,7 @@ export const remnantItems: Item[] = [
         name: 'Faultline',
       },
     },
+    damage: 103,
   },
   {
     category: 'weapon',
@@ -4366,6 +4496,7 @@ export const remnantItems: Item[] = [
     description: `A N'Erudian tool converted into a ruthless ripping device. High raw damage.`,
     howToGet: `Can be bought from the Drzyr Replicator in N'erud. It costs: x7 Lumenite Crystal, x15 Galvanized Iron, 1,500 Scrap`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Vice+Grips`],
+    damage: 55,
   },
   {
     category: 'weapon',
@@ -4383,6 +4514,7 @@ export const remnantItems: Item[] = [
         name: 'Horizon Strike',
       },
     },
+    damage: 101,
   },
   {
     category: 'weapon',
@@ -4399,6 +4531,7 @@ export const remnantItems: Item[] = [
         name: 'Awakening',
       },
     },
+    damage: 101,
   },
   {
     category: 'weapon',
@@ -4415,6 +4548,9 @@ export const remnantItems: Item[] = [
         name: 'Loath the Weak',
       },
     },
+    damage: 17.5,
+    rps: 1.7,
+    magazine: 5,
   },
   {
     category: 'weapon',
@@ -4425,6 +4561,9 @@ export const remnantItems: Item[] = [
     description: `An ingenius Gul rifle designed to harness energy from Pan crystals. Charge to fire a 3- shot burst.`,
     howToGet: `Bolt Driver can be obtained by playing the secret song on the Water Harp on Yaesha: 1, 4, 0, 2, 5, 0, 3, 0.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Bolt+Driver`],
+    damage: 26,
+    rps: 7.4,
+    magazine: 24,
   },
   {
     category: 'weapon',
@@ -4441,6 +4580,9 @@ export const remnantItems: Item[] = [
         name: 'Deadpoint',
       },
     },
+    damage: 90,
+    rps: 1.9,
+    magazine: 6,
   },
   {
     category: 'weapon',
@@ -4457,6 +4599,9 @@ export const remnantItems: Item[] = [
         name: 'Death Brand',
       },
     },
+    damage: 16,
+    rps: 6.3,
+    magazine: 25,
   },
   {
     category: 'weapon',
@@ -4472,6 +4617,9 @@ export const remnantItems: Item[] = [
         name: 'Cube Shield',
       },
     },
+    damage: 15,
+    rps: 7.5,
+    magazine: 5,
   },
   {
     category: 'weapon',
@@ -4483,6 +4631,9 @@ export const remnantItems: Item[] = [
     description: `A double barrel shotgun which can deal massive damage at close range with back to back shots.`,
     howToGet: `Found inside a safe in the Asylum (Code: 2971), in Losomn`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Double+Barrel`],
+    damage: 110,
+    rps: 2.3,
+    magazine: 2,
   },
   {
     category: 'weapon',
@@ -4498,6 +4649,9 @@ export const remnantItems: Item[] = [
         name: 'Chaos Driver',
       },
     },
+    damage: 22,
+    rps: 4,
+    magazine: 25,
   },
   {
     category: 'weapon',
@@ -4513,6 +4667,9 @@ export const remnantItems: Item[] = [
         name: 'Explosive Shot',
       },
     },
+    damage: 13,
+    rps: 6,
+    magazine: 60,
   },
   {
     category: 'weapon',
@@ -4528,6 +4685,9 @@ export const remnantItems: Item[] = [
         name: 'Screamer',
       },
     },
+    damage: 82,
+    rps: 1.9,
+    magazine: 5,
   },
   {
     category: 'weapon',
@@ -4538,6 +4698,9 @@ export const remnantItems: Item[] = [
     description: `A small-caliber submachine gun best suited for close range skirmishes.`,
     howToGet: `Can be found in Ward 13. Players hav to open the locked chest in Ford's room using a 4-digit code. It can be found in the rear of the Flashlight (players need to inspect it). There, they can find the Cargo Control Key, which can be used in the dock area in a locked door. Once the door is open, players will find the MP60-R on a table`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/MP60-R`],
+    damage: 9,
+    rps: 14.2,
+    magazine: 42,
   },
   {
     category: 'weapon',
@@ -4553,6 +4716,9 @@ export const remnantItems: Item[] = [
         name: 'Nano Swarm',
       },
     },
+    damage: 12,
+    rps: 8,
+    magazine: 55,
   },
   {
     category: 'weapon',
@@ -4565,6 +4731,9 @@ export const remnantItems: Item[] = [
     howToGet: `Can be bought from Brabus in Ward 13
     Starting Hand Gun for the HUNTER Archetype.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Repeater+Pistol`],
+    damage: 15,
+    rps: 7.5,
+    magazine: 15,
   },
   {
     category: 'weapon',
@@ -4580,6 +4749,9 @@ export const remnantItems: Item[] = [
         name: 'Soul Brand',
       },
     },
+    damage: 15,
+    rps: 6.6,
+    magazine: 42,
   },
   {
     category: 'weapon',
@@ -4590,6 +4762,9 @@ export const remnantItems: Item[] = [
     description: `A mid-range Pistol Shotgun with a brisk fire rate and medium recoil Slower reload.`,
     howToGet: `Can be found in N'Erud - Vault of the Formless`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Rupture+Canon`],
+    damage: 42,
+    rps: 3.1,
+    magazine: 12,
   },
   {
     category: 'weapon',
@@ -4601,6 +4776,9 @@ export const remnantItems: Item[] = [
     description: `An old antique pistol.`,
     howToGet: `Automatically equipped as you begin your first character in the game`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Rusty+Repeater`],
+    damage: 15,
+    rps: 7.2,
+    magazine: 15,
   },
   {
     category: 'weapon',
@@ -4611,6 +4789,9 @@ export const remnantItems: Item[] = [
     description: `Astandard issue military spec sidearm known for its reliability and accuracy.`,
     howToGet: `Can be bought from Brabus at Ward 13`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Service+Pistol`],
+    damage: 24,
+    rps: 6.5,
+    magazine: 9,
   },
   {
     category: 'weapon',
@@ -4622,6 +4803,9 @@ export const remnantItems: Item[] = [
     description: `A powerful hand cannon witha low capacity cylinder. High damage and a heavy kick.`,
     howToGet: `Can be bought from Brabus at Ward 13`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Silverback+Model+500`],
+    damage: 55,
+    rps: 2.4,
+    magazine: 5,
   },
   {
     category: 'weapon',
@@ -4637,6 +4821,9 @@ export const remnantItems: Item[] = [
         name: 'Eulogy',
       },
     },
+    damage: 45,
+    rps: 2.6,
+    magazine: 5,
   },
   {
     category: 'weapon',
@@ -4652,6 +4839,9 @@ export const remnantItems: Item[] = [
         name: 'Big Bang',
       },
     },
+    damage: 22,
+    rps: 2.5,
+    magazine: 10,
   },
   {
     category: 'weapon',
@@ -4663,6 +4853,9 @@ export const remnantItems: Item[] = [
     description: `A high-caliber single-shot hunting pistol that inflicts heavy damage at mid to long range.`,
     howToGet: `Can be bought from Brabus at Ward 13`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Sureshot`],
+    damage: 105,
+    rps: 3,
+    magazine: 1,
   },
   {
     category: 'weapon',
@@ -4673,6 +4866,9 @@ export const remnantItems: Item[] = [
     description: `A suppressed small-caliber automatic pistol with medium magazine capacity and a high fire rate.`,
     howToGet: `Can be bought from Brabus at Ward 13`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Tech+22`],
+    damage: 8,
+    rps: 16,
+    magazine: 30,
   },
   {
     category: 'weapon',
@@ -4684,6 +4880,9 @@ export const remnantItems: Item[] = [
     description: `A classic six-shooter. Tough. Dependable.`,
     howToGet: `Can be bought from Brabus at Ward 13`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Western+Classic`],
+    damage: 32,
+    rps: 5,
+    magazine: 6,
   },
   {
     category: 'mod',
@@ -7497,6 +7696,7 @@ Exclusive Ring for The Awakened King DLC."`,
     description: `Improves Dodge roll by 1 weight class.`,
     howToGet: `Can be bought from Reggie after defeating 15 World Bosses (can be done solo or co-op).`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Dull+Steel+Rings`],
+    weightThreshold: 25,
   },
   {
     category: 'ring',
@@ -7518,6 +7718,7 @@ Exclusive Ring for The Awakened King DLC."`,
 Exclusive Ring for The Awakened King DLC."`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Elevated+Ring`],
     weight: -5,
+    weightThreshold: 5,
   },
   {
     category: 'ring',
@@ -8884,6 +9085,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
         name: 'Challenger',
       },
     },
+    weightThresholds: [2, 3, 5, 6, 8, 9, 11, 12, 14, 15],
   },
   {
     category: 'trait',

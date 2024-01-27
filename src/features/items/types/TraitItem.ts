@@ -12,6 +12,9 @@ interface BaseTraitItem extends GenericItem {
   staminaStepPercent: number // The percentage to increase the stamina per level
   armorStep: number // The amount to increase the armor per level
   armorStepPercent: number // The percentage to increase the armor per level
+  weightStep: number // The amount to increase the weight per level
+  weightStepPercent: number // The percentage to increase the weight per level
+  weightThresholds: number[] // The weight thresholds for the weight step
 }
 
 export class TraitItem extends GenericItem implements BaseTraitItem {
@@ -23,7 +26,10 @@ export class TraitItem extends GenericItem implements BaseTraitItem {
   public staminaStep: BaseTraitItem['staminaStep'] = 0
   public staminaStepPercent: BaseTraitItem['staminaStepPercent'] = 0
   public armorStep: BaseTraitItem['armorStep'] = 0
+  public weightStep: BaseTraitItem['weightStep'] = 0
   public armorStepPercent: BaseTraitItem['armorStepPercent'] = 0
+  public weightThresholds: BaseTraitItem['weightThresholds'] = []
+  public weightStepPercent: BaseTraitItem['weightStepPercent'] = 0
 
   constructor(props: BaseTraitItem) {
     super(props)
@@ -35,6 +41,9 @@ export class TraitItem extends GenericItem implements BaseTraitItem {
     this.staminaStepPercent = props.staminaStepPercent
     this.armorStep = props.armorStep
     this.armorStepPercent = props.armorStepPercent
+    this.weightStep = props.weightStep
+    this.weightStepPercent = props.weightStepPercent
+    this.weightThresholds = props.weightThresholds
   }
 
   public static isTraitItem = (item: GenericItem | null): item is TraitItem => {
@@ -85,6 +94,9 @@ export class TraitItem extends GenericItem implements BaseTraitItem {
             armorStepPercent: item.armorStepPercent ?? 0,
             staminaStep: item.staminaStep ?? 0,
             staminaStepPercent: item.staminaStepPercent ?? 0,
+            weightStep: item.weightStep ?? 0,
+            weightStepPercent: item.weightStepPercent ?? 0,
+            weightThresholds: item.weightThresholds ?? [],
           }),
         )
       }

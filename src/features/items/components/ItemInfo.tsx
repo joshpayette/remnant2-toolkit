@@ -11,6 +11,8 @@ import ItemDescription from './ItemDescription'
 import { Item } from '../types'
 import { capitalize } from '@/lib/capitalize'
 import { ItemModifiers } from './ItemModifiers'
+import { WeaponItem } from '../types/WeaponItem'
+import WeaponInfo from './WeaponInfo'
 
 interface ItemInfoProps {
   item: Item | null
@@ -22,7 +24,8 @@ export default function ItemInfo({ item, open, onClose }: ItemInfoProps) {
   if (!item) return null
 
   // Only add the third column for certain items
-  const columns = ArmorItem.isArmorItem(item) ? 3 : 2
+  const columns =
+    ArmorItem.isArmorItem(item) || WeaponItem.isWeaponItem(item) ? 3 : 2
 
   const imageSize = {
     width: 150,
@@ -59,6 +62,11 @@ export default function ItemInfo({ item, open, onClose }: ItemInfoProps) {
         {ArmorItem.isArmorItem(item) && (
           <div className="col-span-3 mb-2 flex w-full flex-col items-start justify-start sm:col-span-1">
             <ArmorInfo item={item} />
+          </div>
+        )}
+        {WeaponItem.isWeaponItem(item) && (
+          <div className="col-span-3 mb-2 flex w-full flex-col items-start justify-start sm:col-span-1">
+            <WeaponInfo item={item} />
           </div>
         )}
 

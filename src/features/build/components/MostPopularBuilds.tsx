@@ -9,13 +9,13 @@ import { toast } from 'react-toastify'
 import useBuildActions from '@/features/build/hooks/useBuildActions'
 import BuildListFilters from '@/features/build/components/BuildListFilters'
 import { DBBuild } from '@/features/build/types'
-import { dbBuildToBuildState } from '@/features/build/lib'
 import { CommunityBuildFilterProps } from './CommunityBuildFilters'
 import {
   TimeRange,
   getMostPopularBuilds,
 } from '@/features/build/actions/getMostPopularBuilds'
 import { isErrorResponse } from '@/features/error-handling/lib/isErrorResponse'
+import { dbBuildToBuildState } from '../lib/dbBuildToBuildState'
 
 interface Props {
   itemsPerPage?: number

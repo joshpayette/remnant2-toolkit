@@ -4,15 +4,24 @@ import { GenericItem } from './GenericItem'
 
 export interface BaseWeaponItem extends GenericItem {
   type: 'long gun' | 'melee' | 'hand gun'
+  damage: number
+  rps?: number
+  magazine?: number
 }
 
 export class WeaponItem extends GenericItem implements BaseWeaponItem {
   public category: BaseWeaponItem['category'] = 'weapon'
   public type: BaseWeaponItem['type'] = 'long gun'
+  public damage: BaseWeaponItem['damage'] = 0
+  public rps?: BaseWeaponItem['rps'] = 0
+  public magazine?: BaseWeaponItem['magazine'] = 0
 
   constructor(props: BaseWeaponItem) {
     super(props)
     this.type = props.type
+    this.damage = props.damage
+    this.rps = props.rps
+    this.magazine = props.magazine
   }
 
   public static isWeaponItem = (item?: GenericItem): item is WeaponItem => {
