@@ -6,11 +6,6 @@ import Traits from './Traits'
 import ItemSelect from './ItemSelect'
 import Logo from '@/features/ui/Logo'
 import MemberFeatures from './MemberFeatures'
-import {
-  getArrayOfLength,
-  getConcoctionSlotCount,
-  getItemListForSlot,
-} from '../lib'
 import { BuildState } from '@/features/build/types'
 import PopularBuildBadge from '@/features/build/components/PopularBuildBadge'
 import Stats from './Stats'
@@ -20,6 +15,9 @@ import { GenericItem } from '@/features/items/types/GenericItem'
 import { Item } from '@/features/items/types'
 import { TraitItem } from '@/features/items/types/TraitItem'
 import ItemInfo from '@/features/items/components/ItemInfo'
+import getArrayOfLength from '../lib/getArrayOfLength'
+import getConcoctionSlotCount from '../lib/getConcoctionSlotCount'
+import getItemListForSlot from '../lib/getItemListForSlot'
 
 type BuilderProps = {
   buildState: BuildState

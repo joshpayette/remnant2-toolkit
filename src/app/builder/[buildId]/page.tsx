@@ -14,14 +14,12 @@ import {
 } from '../actions'
 import { toast } from 'react-toastify'
 import { useRouter } from 'next/navigation'
-import {
-  buildStateToCsvData,
-  dbBuildToBuildState,
-} from '../../../features/build/lib'
 import { DBBuild } from '@/features/build/types'
 import useBuildActions from '../../../features/build/hooks/useBuildActions'
 import BuilderPage from '@/features/build/components/BuilderPage'
 import { isErrorResponse } from '@/features/error-handling/lib/isErrorResponse'
+import { buildStateToCsvData } from '@/features/build/lib/buildStateToCsvData'
+import { dbBuildToBuildState } from '@/features/build/lib/dbBuildToBuildState'
 
 /**
  * Converts a youtube embed url to a watch url

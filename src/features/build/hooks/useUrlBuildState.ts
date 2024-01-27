@@ -1,12 +1,6 @@
 import { usePathname, useSearchParams, useRouter } from 'next/navigation'
 import { useCallback, useEffect } from 'react'
-import {
-  buildStateToCsvData,
-  buildStateToMasonryItems,
-  initialBuildState,
-  linkArchtypesToTraits,
-  linkWeaponsToMods,
-} from '../lib'
+import { initialBuildState } from '../lib'
 import { BuildState } from '@/features/build/types'
 import { remnantItemCategories } from '@/features/items/data'
 import { ArmorItem } from '@/features/items/types/ArmorItem'
@@ -16,6 +10,10 @@ import { ModItem } from '@/features/items/types/ModItem'
 import { MutatorItem } from '@/features/items/types/MutatorItem'
 import { TraitItem } from '@/features/items/types/TraitItem'
 import { PerkItem } from '@/features/items/types/PerkItem'
+import { buildStateToCsvData } from '../lib/buildStateToCsvData'
+import { buildStateToMasonryItems } from '../lib/buildStateToMasonryItems'
+import linkWeaponsToMods from '../lib/linkWeaponsToMods'
+import linkArchtypesToTraits from '../lib/linkArchtypesToTraits'
 
 /**
  * Handles reading/writing the build to the URL query string,

@@ -7696,6 +7696,7 @@ Exclusive Ring for The Awakened King DLC."`,
     description: `Improves Dodge roll by 1 weight class.`,
     howToGet: `Can be bought from Reggie after defeating 15 World Bosses (can be done solo or co-op).`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Dull+Steel+Rings`],
+    weightThreshold: 25,
   },
   {
     category: 'ring',
@@ -7717,6 +7718,7 @@ Exclusive Ring for The Awakened King DLC."`,
 Exclusive Ring for The Awakened King DLC."`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Elevated+Ring`],
     weight: -5,
+    weightThreshold: 5,
   },
   {
     category: 'ring',
@@ -9083,6 +9085,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
         name: 'Challenger',
       },
     },
+    weightThresholds: [2, 3, 5, 6, 8, 9, 11, 12, 14, 15],
   },
   {
     category: 'trait',

@@ -7,13 +7,8 @@ import {
   addReportForBuild,
   createBuild,
   removeReportForBuild,
-} from '../../../app/builder/actions'
-import {
-  getArrayOfLength,
-  getConcoctionSlotCount,
-  getRandomItem,
-  initialBuildState,
-} from '../lib'
+} from '@/app/builder/actions'
+import { initialBuildState } from '../lib'
 import { BuildState } from '@/features/build/types'
 import { ArmorItem } from '@/features/items/types/ArmorItem'
 import { GenericItem } from '@/features/items/types/GenericItem'
@@ -23,6 +18,23 @@ import { ModItem } from '@/features/items/types/ModItem'
 import { MutatorItem } from '@/features/items/types/MutatorItem'
 import { TraitItem } from '@/features/items/types/TraitItem'
 import { isErrorResponse } from '@/features/error-handling/lib/isErrorResponse'
+import getArrayOfLength from '../lib/getArrayOfLength'
+import getConcoctionSlotCount from '../lib/getConcoctionSlotCount'
+import { Item } from '@/features/items/types'
+import getItemListForSlot from '../lib/getItemListForSlot'
+
+function getRandomItem(
+  buildState: BuildState,
+  selectedItem: {
+    category: GenericItem['category'] | null
+    index?: number // Used for slots that can have multiple items, such as rings
+  },
+): Item {
+  let items = getItemListForSlot(buildState, selectedItem)
+  const randomIndex = Math.floor(Math.random() * items.length)
+  const randomItem = items[randomIndex]
+  return randomItem
+}
 
 export default function useBuildActions() {
   const router = useRouter()

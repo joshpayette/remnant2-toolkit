@@ -113,9 +113,7 @@ function highlightModifierTokens(parts: (string | JSX.Element)[]) {
               }
               key={`${index}-${tokenIndex}`}
             >
-              <button
-                className={cn('cursor-pointer font-semibold', modifier.color)}
-              >
+              <button className={cn('font-semibold', modifier.color)}>
                 {tokenPart}
               </button>
             </Tooltip>
