@@ -2,7 +2,7 @@
 
 - Remove footer on item info for modifiers
 - Update tooltip lanaguage, ie. "Damage is multiplicative with other sources of damage"
-- Add community build filter for specific weapons
+- Add filters to by collection and by release page
 - Rework the item import on the tracker to be a bit more clear
 - Add tracker of world bosses
 - Allow tracking of whether you have completely upgraded a weapon, trait, or archtype

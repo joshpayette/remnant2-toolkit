@@ -4,8 +4,8 @@ import { PaginationResponse } from '@/features/pagination/hooks/usePagination'
 import { getServerSession } from '@/features/auth/lib'
 import {
   DBBuild,
-  SearchBuildResponse,
-  SearchBuildTotalCount,
+  CommunityBuildQueryResponse,
+  CommunityBuildTotalCount,
 } from '@/features/build/types'
 import { prisma } from '@/features/db'
 import { DEFAULT_DISPLAY_NAME } from '@/features/profile/constants'
@@ -163,7 +163,7 @@ export async function getBuilds({
   ORDER BY totalUpvotes DESC
   LIMIT ${itemsPerPage}
   OFFSET ${(pageNumber - 1) * itemsPerPage}
-`) as SearchBuildResponse
+`) as CommunityBuildQueryResponse
 
   const totalBuilds = (await prisma.$queryRaw`
   SELECT 
@@ -183,7 +183,7 @@ export async function getBuilds({
       AND nullif(BuildItems.itemId,'') IS NOT NULL
       AND UserItems.itemId IS NULL
   )
-`) as SearchBuildTotalCount
+`) as CommunityBuildTotalCount
   const totalBuildCount = totalBuilds[0].totalBuildCount
 
   if (!builds) {

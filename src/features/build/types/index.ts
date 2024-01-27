@@ -74,20 +74,20 @@ export interface DBBuild {
  * When searching for builds, we use a query whose type is not inferred
  * All responses should be cast to this type
  */
-export type SearchBuildResponse = Array<
+export type CommunityBuildQueryResponse = Array<
   DBBuild & {
     createdByDisplayName: string
     createdByName: string
+    displayName: string
+    name: string
+    isPaidUser: boolean
     reported: boolean
     totalUpvotes: number
     totalReports: number
     upvoted: boolean
-    displayName: string
-    name: string
-    isPaidUser: boolean
   }
 >
 
-export type SearchBuildTotalCount = Array<{
+export type CommunityBuildTotalCount = Array<{
   totalBuildCount: number
 }>
