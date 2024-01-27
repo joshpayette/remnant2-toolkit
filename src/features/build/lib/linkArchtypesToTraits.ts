@@ -91,6 +91,9 @@ export default function linkArchtypesToTraits(buildState: BuildState) {
             armorStepPercent: linkedTraitItem.armorStepPercent ?? 0,
             staminaStep: linkedTraitItem.staminaStep ?? 0,
             staminaStepPercent: linkedTraitItem.staminaStepPercent ?? 0,
+            weightStep: linkedTraitItem.weightStep ?? 0,
+            weightStepPercent: linkedTraitItem.weightStepPercent ?? 0,
+            weightThresholds: linkedTraitItem.weightThresholds ?? [],
           }),
         )
       }

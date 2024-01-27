@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Added damage modifier info logic to a couple of items.
 - Added gun damage, rps, and magazine info
+- Added weight class coloring in stats
 
 ### Changed
 

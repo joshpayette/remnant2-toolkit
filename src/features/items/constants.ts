@@ -51,32 +51,28 @@ export const ARCHTYPE_COLORS = {
   },
 }
 
-export const WEIGHT_CLASSES = [
-  {
-    type: 'light',
+export const WEIGHT_CLASSES = {
+  LIGHT: {
     description: 'Fast Dodge. No Stamina Cost Penalty.',
-    text: 'text-[#5a97a9]',
+    textColor: 'text-[#5a97a9]',
     maxWeight: 25,
   },
-  {
-    type: 'medium',
+  MEDIUM: {
     description: 'Normal Dodge. 25% Stamina Cost Penalty.',
-    text: 'text-[#61855a]',
+    textColor: 'text-[#61855a]',
     maxWeight: 50,
   },
-  {
-    type: 'heavy',
+  HEAVY: {
     description: 'Slow Dodge. 50% Stamina Cost Penalty.',
-    text: 'text-[#9ea457]',
+    textColor: 'text-[#9ea457]',
     maxWeight: 75,
   },
-  {
-    type: 'ultra',
+  ULTRA: {
     description: 'FLOP. 75% Stamina Cost Penalty.',
-    text: 'text-[#c9403c]',
+    textColor: 'text-[#c9403c]',
     maxWeight: -1,
   },
-]
+}
 
 export const MODIFIERS: Modifier[] = [
   {
