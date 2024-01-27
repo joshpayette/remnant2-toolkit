@@ -19,12 +19,12 @@ import { isErrorResponse } from '@/features/error-handling/lib/isErrorResponse'
 
 interface Props {
   itemsPerPage?: number
-  filters: CommunityBuildFilterProps
+  communityBuildFilters: CommunityBuildFilterProps
 }
 
 export default function MostPopularBuilds({
   itemsPerPage = 8,
-  filters,
+  communityBuildFilters,
 }: Props) {
   const [builds, setBuilds] = useState<DBBuild[]>([])
   const [totalBuildCount, setTotalBuildCount] = useState<number>(0)
@@ -55,14 +55,14 @@ export default function MostPopularBuilds({
         itemsPerPage,
         pageNumber: currentPage,
         timeRange,
-        globalFilters: filters,
+        communityBuildFilters,
       })
       setBuilds(response.items)
       setTotalBuildCount(response.totalItemCount)
       setIsLoading(false)
     }
     getItemsAsync()
-  }, [currentPage, timeRange, itemsPerPage, filters])
+  }, [currentPage, timeRange, itemsPerPage, communityBuildFilters])
 
   const timeRanges: TimeRange[] = ['day', 'week', 'month', 'all-time']
 

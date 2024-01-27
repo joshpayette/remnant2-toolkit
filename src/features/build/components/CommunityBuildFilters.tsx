@@ -6,6 +6,7 @@ import { cn } from '@/lib/classnames'
 import { useState } from 'react'
 import { WeaponItem } from '@/features/items/types/WeaponItem'
 import { Checkbox } from '@/features/ui/Checkbox'
+import SelectMenu from '@/features/ui/SelectMenu'
 
 export interface CommunityBuildFilterProps {
   archtypes: Archtype[]
@@ -14,11 +15,13 @@ export interface CommunityBuildFilterProps {
   melee: string
 }
 
+const defaultGun = 'All'
+
 export const defaultCommunityBuildFilters: CommunityBuildFilterProps = {
   archtypes: [],
-  longGun: '',
-  handGun: '',
-  melee: '',
+  longGun: defaultGun,
+  handGun: defaultGun,
+  melee: defaultGun,
 }
 
 const allArchtypes: Archtype[] = remnantItems
@@ -28,12 +31,17 @@ const allArchtypes: Archtype[] = remnantItems
 const allLongGuns: string[] = remnantItems
   .filter((item) => WeaponItem.isWeaponItem(item) && item.type === 'long gun')
   .map((item) => item.name)
+allLongGuns.unshift(defaultGun)
+
 const allHandGuns: string[] = remnantItems
   .filter((item) => WeaponItem.isWeaponItem(item) && item.type === 'hand gun')
   .map((item) => item.name)
+allHandGuns.unshift(defaultGun)
+
 const allMelee: string[] = remnantItems
   .filter((item) => WeaponItem.isWeaponItem(item) && item.type === 'melee')
   .map((item) => item.name)
+allMelee.unshift(defaultGun)
 
 interface Props {
   showBorder?: boolean
@@ -81,7 +89,10 @@ export default function CommunityBuildFilters({
     })
   }
 
-  function handleWeaponChange(weapon: string, type: WeaponItem['type']) {
+  function handleWeaponChange(
+    weapon: string,
+    type: 'longGun' | 'handGun' | 'melee',
+  ) {
     setFilters({
       ...filters,
       [type]: weapon,
@@ -107,10 +118,10 @@ export default function CommunityBuildFilters({
 
         <div className="col-span-full pt-2">
           <div className="flex w-full flex-col items-start justify-start gap-x-4 gap-y-2">
-            <span className="flex items-center justify-start text-left text-sm font-bold text-green-500">
+            <span className="flex w-full items-center justify-start text-left text-sm font-bold text-green-500">
               By Archtypes
             </span>
-            <div className="grid grid-cols-2 gap-x-8 text-left sm:grid-cols-4">
+            <div className="grid w-full grid-cols-2 gap-x-8 text-left sm:grid-cols-3 md:grid-cols-4">
               {allArchtypes.map((archtype) => {
                 return (
                   <div key={archtype}>
@@ -127,20 +138,42 @@ export default function CommunityBuildFilters({
           </div>
         </div>
 
-        {/** TODO  */}
-
-        {/* <div className="col-span-full pt-2">
+        <div className="col-span-full pt-2">
           <div className="flex w-full flex-col items-start justify-start gap-x-4 gap-y-2">
             <span className="flex items-center justify-start text-left text-sm font-bold text-green-500">
               By Weapons
             </span>
-            <div className="grid grid-cols-2 gap-x-8 text-left sm:grid-cols-4">
-              {allLongGuns.map((weapon) => {
-                return <div key={weapon}>{weapon}</div>
-              })}
+            <div className="grid grid-cols-1 gap-x-8 text-left sm:grid-cols-3">
+              <SelectMenu
+                name="longGun"
+                label="Long Guns"
+                options={allLongGuns.map((weapon) => ({
+                  label: weapon,
+                  value: weapon,
+                }))}
+                onChange={(e) => handleWeaponChange(e.target.value, 'longGun')}
+              />
+              <SelectMenu
+                name="handGun"
+                label="Hand Guns"
+                options={allHandGuns.map((weapon) => ({
+                  label: weapon,
+                  value: weapon,
+                }))}
+                onChange={(e) => handleWeaponChange(e.target.value, 'handGun')}
+              />
+              <SelectMenu
+                name="melee"
+                label="Melee"
+                options={allMelee.map((weapon) => ({
+                  label: weapon,
+                  value: weapon,
+                }))}
+                onChange={(e) => handleWeaponChange(e.target.value, 'melee')}
+              />
             </div>
           </div>
-        </div> */}
+        </div>
 
         <div className="col-span-full flex items-center justify-end pt-2">
           <button

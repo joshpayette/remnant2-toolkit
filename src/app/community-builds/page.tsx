@@ -13,12 +13,11 @@ import MostPopularBuilds from '../../features/build/components/MostPopularBuilds
 
 export default function Page() {
   const { data: sessionData } = useSession()
-  const [filters, setFilters] = useState<CommunityBuildFilterProps>(
-    defaultCommunityBuildFilters,
-  )
+  const [communityBuildFilters, setCommunityBuildFilters] =
+    useState<CommunityBuildFilterProps>(defaultCommunityBuildFilters)
 
   function handleChangeFilters(filters: CommunityBuildFilterProps) {
-    setFilters(filters)
+    setCommunityBuildFilters(filters)
   }
 
   return (
@@ -49,15 +48,21 @@ export default function Page() {
         </div>
       </PageHeader>
 
-      <div className="mb-8 flex w-full max-w-lg items-center justify-center">
+      <div className="mb-8 flex w-full max-w-2xl items-center justify-center">
         <CommunityBuildFilters onUpdate={handleChangeFilters} />
       </div>
       <div className="mb-4 grid w-full grid-cols-1 gap-2">
-        <CreatorBuilds globalFilters={filters} itemsPerPage={4} />
+        <CreatorBuilds
+          communityBuildFilters={communityBuildFilters}
+          itemsPerPage={4}
+        />
       </div>
       <hr className="my-12 w-full border-gray-800" />
       <div className="grid w-full grid-cols-1 gap-2">
-        <MostPopularBuilds filters={filters} itemsPerPage={16} />
+        <MostPopularBuilds
+          communityBuildFilters={communityBuildFilters}
+          itemsPerPage={16}
+        />
       </div>
     </>
   )

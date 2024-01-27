@@ -20,12 +20,12 @@ import { isErrorResponse } from '@/features/error-handling/lib/isErrorResponse'
 
 interface Props {
   itemsPerPage?: number
-  globalFilters: CommunityBuildFilterProps
+  communityBuildFilters: CommunityBuildFilterProps
 }
 
 export default function FeaturedBuilds({
   itemsPerPage = 8,
-  globalFilters,
+  communityBuildFilters,
 }: Props) {
   const [builds, setBuilds] = useState<DBBuild[]>([])
   const [totalBuildCount, setTotalBuildCount] = useState<number>(0)
@@ -56,14 +56,14 @@ export default function FeaturedBuilds({
         itemsPerPage,
         pageNumber: currentPage,
         filter,
-        globalFilters,
+        communityBuildFilters,
       })
       setBuilds(response.items)
       setTotalBuildCount(response.totalItemCount)
       setIsLoading(false)
     }
     getItemsAsync()
-  }, [currentPage, itemsPerPage, filter, globalFilters])
+  }, [currentPage, itemsPerPage, filter, communityBuildFilters])
 
   function handleFilterChange(filter: string) {
     setFilter(filter as FeaturedBuildsFilter)

@@ -17,17 +17,18 @@ export async function getFeaturedBuilds({
   itemsPerPage,
   pageNumber,
   filter,
-  globalFilters,
+  communityBuildFilters,
 }: {
   itemsPerPage: number
   pageNumber: number
   filter: FeaturedBuildsFilter
-  globalFilters: CommunityBuildFilterProps
+  communityBuildFilters: CommunityBuildFilterProps
 }): Promise<PaginationResponse<DBBuild>> {
   const session = await getServerSession()
   const userId = session?.user?.id
 
-  const { archtypes } = globalFilters
+  // TODO
+  const { archtypes, longGun, handGun, melee } = communityBuildFilters
   const archtypeIds = archtypes.map(
     (archtype) =>
       remnantItems.find((item) => item.name.toLowerCase() === archtype)?.id,

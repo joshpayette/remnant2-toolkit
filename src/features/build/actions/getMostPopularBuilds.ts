@@ -20,12 +20,12 @@ export async function getMostPopularBuilds({
   itemsPerPage,
   pageNumber,
   timeRange,
-  globalFilters,
+  communityBuildFilters,
 }: {
   timeRange: TimeRange
   itemsPerPage: number
   pageNumber: number
-  globalFilters: CommunityBuildFilterProps
+  communityBuildFilters: CommunityBuildFilterProps
 }): Promise<PaginationResponse<DBBuild>> {
   const session = await getServerSession()
   const userId = session?.user?.id
@@ -58,7 +58,8 @@ export async function getMostPopularBuilds({
       break
   }
 
-  const { archtypes } = globalFilters
+  // TODO
+  const { archtypes, longGun, handGun, melee } = communityBuildFilters
   const archtypeIds = archtypes.map(
     (archtype) =>
       remnantItems.find((item) => item.name.toLowerCase() === archtype)?.id,
