@@ -11,6 +11,7 @@ import { DBBuild } from '../types'
 import { POPULAR_VOTE_THRESHOLD } from '../constants'
 import { format } from 'date-fns'
 import { dbBuildToBuildState } from '../lib/dbBuildToBuildState'
+import Tooltip from '@/features/ui/Tooltip'
 
 interface Props {
   build: DBBuild
@@ -61,29 +62,53 @@ export default function BuildCard({
             <div className="mb-2 grid w-full grid-cols-3 truncate text-sm">
               <div className="col-span-2 truncate text-left text-gray-500">
                 by{' '}
-                <Link
-                  href={`/profile/${build.createdById}`}
-                  className="text-purple-500 underline hover:text-purple-700"
+                <Tooltip
+                  content={
+                    <span className="rounded-md border-2 border-cyan-500 bg-black p-2 text-xs text-white">
+                      See all builds from {build.createdByDisplayName}
+                    </span>
+                  }
                 >
-                  {build.createdByDisplayName}
-                </Link>
+                  <Link
+                    href={`/profile/${build.createdById}`}
+                    className="text-purple-500 underline hover:text-purple-700"
+                  >
+                    {build.createdByDisplayName}
+                  </Link>
+                </Tooltip>
               </div>
               <div className="flex flex-row items-center justify-end gap-x-2">
                 {onReportBuild && (
-                  <button
-                    onClick={() => onReportBuild(build.id)}
-                    className="flex items-center justify-end text-right text-red-500"
+                  <Tooltip
+                    content={
+                      <span className="rounded-md border-2 border-red-500 bg-black p-2 text-xs text-red-500">
+                        Report this build
+                      </span>
+                    }
                   >
-                    {buildState.reported ? (
-                      <FlagIconOn className="mr-0.5 h-4 w-4" />
-                    ) : (
-                      <FlagIconOff className="mr-0.5 h-4 w-4" />
-                    )}
-                  </button>
+                    <button
+                      onClick={() => onReportBuild(build.id)}
+                      className="flex items-center justify-end text-right text-red-500"
+                    >
+                      {buildState.reported ? (
+                        <FlagIconOn className="mr-0.5 h-4 w-4" />
+                      ) : (
+                        <FlagIconOff className="mr-0.5 h-4 w-4" />
+                      )}
+                    </button>
+                  </Tooltip>
                 )}
-                <p className="flex items-center justify-end text-right text-yellow-500">
-                  <StarIcon className="mr-1 h-4 w-4" /> {build.totalUpvotes}
-                </p>
+                <Tooltip
+                  content={
+                    <span className="rounded-md border-2 border-yellow-500 bg-black p-2 text-xs text-yellow-500">
+                      Total Favorites
+                    </span>
+                  }
+                >
+                  <div className="flex items-center justify-end text-right text-yellow-500">
+                    <StarIcon className="mr-1 h-4 w-4" /> {build.totalUpvotes}
+                  </div>
+                </Tooltip>
               </div>
             </div>
             <div className="mb-2 flex flex-row items-center justify-start gap-x-2">
