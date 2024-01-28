@@ -1,8 +1,8 @@
 'use client'
 
-import { useLocalStorage } from '@/features/localstorage/hooks/useLocalStorage'
+import { useLocalStorage } from '@/features/localstorage/useLocalStorage'
 import { useEffect, useMemo, useRef, useState } from 'react'
-import ToCsvButton from '@/features/csv/components/ToCsvButton'
+import ToCsvButton from '@/features/csv/ToCsvButton'
 import { useIsClient } from 'usehooks-ts'
 import PageHeader from '@/features/ui/PageHeader'
 import { useFormState } from 'react-dom'
@@ -45,8 +45,7 @@ export default function Page() {
   // If the item info is defined, the modal should be open
   const isShowItemInfoOpen = Boolean(itemInfo)
 
-  const { itemTrackerStorage, setDiscoveredItemIds } = useLocalStorage()
-  const { discoveredItemIds } = itemTrackerStorage
+  const { discoveredItemIds, setDiscoveredItemIds } = useLocalStorage()
 
   const { filteredItems, handleUpdateFilters } = useFilteredItems(itemList)
   const totalItems = filteredItems.length
@@ -127,7 +126,7 @@ export default function Page() {
     })
 
     // Update the discovered item ids
-    setDiscoveredItemIds(filteredDiscoveredItems)
+    setDiscoveredItemIds({ ids: filteredDiscoveredItems })
     // Reset the save data
     saveData.current = null
     // clear input field
@@ -159,12 +158,12 @@ export default function Page() {
       const newDiscoveredItemIds = discoveredItemIds.filter(
         (id) => id !== itemId,
       )
-      setDiscoveredItemIds(newDiscoveredItemIds)
+      setDiscoveredItemIds({ ids: newDiscoveredItemIds })
       return
     }
 
     const newDiscoveredItemIds = [...discoveredItemIds, itemId]
-    setDiscoveredItemIds(newDiscoveredItemIds)
+    setDiscoveredItemIds({ ids: newDiscoveredItemIds })
   }
 
   if (!isClient) return null

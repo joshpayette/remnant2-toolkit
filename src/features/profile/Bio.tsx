@@ -3,10 +3,10 @@
 import { useState } from 'react'
 import { PencilIcon } from '@heroicons/react/24/solid'
 import { toast } from 'react-toastify'
-import { updateUserBio } from '../../../app/profile/actions'
+import { updateUserBio } from '../../app/profile/actions'
 import Textarea from '@/features/ui/Textarea'
-import { MAX_PROFILE_BIO_LENGTH } from '../constants'
-import { isErrorResponse } from '@/features/error-handling/lib/isErrorResponse'
+import { MAX_PROFILE_BIO_LENGTH } from './constants'
+import { isErrorResponse } from '@/features/error-handling/isErrorResponse'
 
 type Props = {
   bio: string

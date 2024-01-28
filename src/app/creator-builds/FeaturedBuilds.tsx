@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 import BuildCard from '../../features/build/components/BuildCard'
 import BuildList from '@/features/build/components/BuildList'
-import usePagination from '@/features/pagination/hooks/usePagination'
+import usePagination from '@/features/pagination/usePagination'
 import Link from 'next/link'
 import BuildListFilters from '@/features/build/components/BuildListFilters'
 import { DBBuild } from '@/features/build/types'

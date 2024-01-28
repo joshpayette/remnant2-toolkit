@@ -1,7 +1,7 @@
 'use client'
 
 import { ActionButton } from '../../../features/build/components/ActionButton'
-import ToCsvButton from '@/features/csv/components/ToCsvButton'
+import ToCsvButton from '@/features/csv/ToCsvButton'
 import { useIsClient } from 'usehooks-ts'
 import { useRef } from 'react'
 import { useSession } from 'next-auth/react'
@@ -17,7 +17,7 @@ import { useRouter } from 'next/navigation'
 import { DBBuild } from '@/features/build/types'
 import useBuildActions from '../../../features/build/hooks/useBuildActions'
 import BuilderPage from '@/features/build/components/BuilderPage'
-import { isErrorResponse } from '@/features/error-handling/lib/isErrorResponse'
+import { isErrorResponse } from '@/features/error-handling/isErrorResponse'
 import { buildStateToCsvData } from '@/features/build/lib/buildStateToCsvData'
 import { dbBuildToBuildState } from '@/features/build/lib/dbBuildToBuildState'
 

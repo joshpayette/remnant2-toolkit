@@ -3,8 +3,8 @@
 import BuildCard from '@/features/build/components/BuildCard'
 import BuildList from '@/features/build/components/BuildList'
 import PageHeader from '@/features/ui/PageHeader'
-import { useLocalStorage } from '@/features/localstorage/hooks/useLocalStorage'
-import usePagination from '@/features/pagination/hooks/usePagination'
+import { useLocalStorage } from '@/features/localstorage/useLocalStorage'
+import usePagination from '@/features/pagination/usePagination'
 import { DBBuild } from '@/features/build/types'
 import { signIn, useSession } from 'next-auth/react'
 import Link from 'next/link'
@@ -34,8 +34,7 @@ export default function Page() {
   }
   const [isLoading, setIsLoading] = useState(true)
 
-  const { itemTrackerStorage } = useLocalStorage()
-  const { discoveredItemIds } = itemTrackerStorage
+  const { discoveredItemIds } = useLocalStorage()
 
   const {
     currentPage,

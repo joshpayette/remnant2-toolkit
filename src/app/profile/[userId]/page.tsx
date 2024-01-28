@@ -1,16 +1,16 @@
 'use client'
 
 import BuildList from '@/features/build/components/BuildList'
-import ProfileHeader from '../../../features/profile/components/ProfileHeader'
+import ProfileHeader from '../../../features/profile/ProfileHeader'
 import BuildCard from '@/features/build/components/BuildCard'
 import BuildListFilters from '@/features/build/components/BuildListFilters'
 import { DBBuild } from '@/features/build/types'
 import { useEffect, useState } from 'react'
 import { BuildsFilter, getUserProfilePage } from './actions'
-import usePagination from '@/features/pagination/hooks/usePagination'
-import CopyBuildUrlButton from '../../../features/profile/components/CopyBuildUrlButton'
-import EditBuildButton from '../../../features/profile/components/EditBuildButton'
-import DuplicateBuildButton from '../../../features/profile/components/DuplicateBuildButton'
+import usePagination from '@/features/pagination/usePagination'
+import CopyBuildUrlButton from '../../../features/profile/CopyBuildUrlButton'
+import EditBuildButton from '../../../features/profile/EditBuildButton'
+import DuplicateBuildButton from '../../../features/profile/DuplicateBuildButton'
 import { StarIcon } from '@heroicons/react/24/solid'
 
 export default function Page({

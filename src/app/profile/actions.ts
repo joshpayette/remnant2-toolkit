@@ -4,7 +4,7 @@ import { z } from 'zod'
 import { getServerSession } from '../../features/auth/lib'
 import { badWordsFilter } from '../../features/bad-word-filter'
 import { prisma } from '../../features/db'
-import { PaginationResponse } from '../../features/pagination/hooks/usePagination'
+import { PaginationResponse } from '../../features/pagination/usePagination'
 import { DBBuild } from '../../features/build/types'
 import {
   DEFAULT_DISPLAY_NAME,

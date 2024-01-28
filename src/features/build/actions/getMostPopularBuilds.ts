@@ -4,7 +4,7 @@ import { prisma } from '@/features/db'
 import { Prisma } from '@prisma/client'
 import { bigIntFix } from '@/lib/bigIntFix'
 import { DBBuild } from '../types'
-import { PaginationResponse } from '@/features/pagination/hooks/usePagination'
+import { PaginationResponse } from '@/features/pagination/usePagination'
 import { getServerSession } from '@/features/auth/lib'
 import {
   archtypeFiltersToIds,

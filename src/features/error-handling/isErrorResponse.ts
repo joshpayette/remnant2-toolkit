@@ -1,4 +1,4 @@
-import { ErrorResponse } from '../types'
+import { ErrorResponse } from './types'
 
 // type guard for ErrorResponse
 export function isErrorResponse(response: any): response is ErrorResponse {
