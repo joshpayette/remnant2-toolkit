@@ -229,7 +229,6 @@ export default function Page() {
             onShowItemInfo={handleShowItemInfo}
             onClick={handleListItemClicked}
           />
-          d
         </div>
       </div>
     </>
