@@ -2,14 +2,8 @@
 
 import { PaginationResponse } from '@/features/pagination/usePagination'
 import { getServerSession } from '@/features/auth/lib'
-import {
-  DBBuild,
-  CommunityBuildQueryResponse,
-  CommunityBuildTotalCount,
-} from '@/features/build/types'
+import { DBBuild } from '@/features/build/types'
 import { prisma } from '@/features/db'
-import { DEFAULT_DISPLAY_NAME } from '@/features/profile/constants'
-import { remnantItems } from '@/features/items/data'
 import { bigIntFix } from '@/lib/bigIntFix'
 import { SortFilter } from '@/app/community-builds/by-collection/page'
 import { CommunityBuildFilterProps } from '@/features/filters/types'

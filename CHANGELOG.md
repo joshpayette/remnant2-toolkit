@@ -14,6 +14,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Fixed
 
 - Added report build icon back to community build cards
+- Fixed bug where Favorited Builds were not showing up in order of date favorited when sorting by date favorited
 
 ## 2023-01-27
 
