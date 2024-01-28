@@ -7,6 +7,7 @@ import { StarIcon as StarIconOn } from '@heroicons/react/24/solid'
 import { FlagIcon as FlagIconOff } from '@heroicons/react/24/outline'
 import { FlagIcon as FlagIconOn } from '@heroicons/react/24/solid'
 import LoadingIndicator from '@/features/ui/LoadingIndicator'
+import Tooltip from '@/features/ui/Tooltip'
 
 export const buttonClasses =
   'flex w-full flex-col items-center rounded border-2 text-center px-4 py-2 text-sm font-bold text-white'
@@ -125,7 +126,15 @@ export const ActionButton = {
     onClick,
     totalUpvotes,
   }: ButtonProps & { active: boolean; totalUpvotes: number }) => (
-    <div className="flex flex-col items-center justify-center">
+    <Tooltip
+      content={
+        <span className="rounded-md border-2 border-orange-500 bg-black p-2 text-sm text-yellow-500">
+          {active
+            ? 'Unfavorite build and remove your vote.'
+            : 'Favorite the build to save it to your profile!'}
+        </span>
+      }
+    >
       <button
         onClick={onClick}
         className={cn(
@@ -142,7 +151,7 @@ export const ActionButton = {
           <div className="text-5xl font-bold text-white drop-shadow-md">
             {totalUpvotes}
           </div>
-          <div className="text-md text-gray-800">
+          <div className="text-md font-semibold text-orange-900">
             {totalUpvotes === 1 ? 'Favorite' : 'Favorites'}
           </div>
         </div>
@@ -153,10 +162,7 @@ export const ActionButton = {
           <span className="text-md">{active ? 'Unfavorite' : 'Favorite'}</span>
         </div>
       </button>
-      <p className="mx-2 my-0 text-left text-sm text-gray-300 sm:text-xs">
-        Favorite a build to save it to your profile and view it later!
-      </p>
-    </div>
+    </Tooltip>
   ),
 }
 
