@@ -98,7 +98,7 @@ export default function MostPopularBuilds({
     setTimeRange(timeRange as TimeRange)
   }
 
-  if (!isLoading && builds.length === 0) return null
+
 
   return (
     <>
