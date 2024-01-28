@@ -4,7 +4,6 @@
 - Make armour weight tooltip account for https://remnant2.wiki.fextralife.com/Powerlifter
 - Have stat tooltips show the items contributing to the calculations
 - Add a way to track items on a second character
-- Rework the item import on the tracker to be a bit more clear
 - Add tracker of world bosses
 - Allow tracking of whether you have completely upgraded a weapon, trait, or archtype
 - Add total votes to /created-builds and /favorited-builds

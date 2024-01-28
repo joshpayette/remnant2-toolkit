@@ -17,6 +17,7 @@ import { MutatorItem } from '@/features/items/types/MutatorItem'
 import ItemInfo from '@/features/items/components/ItemInfo'
 import Filters from '@/app/tracker/Filters'
 import ListItems from '@/app/tracker/ListItems'
+import ImportSaveDialog from './ImportSaveDialog'
 
 const skippedItemCategories: Array<GenericItem['category']> = ['skill', 'perk']
 
@@ -54,10 +55,11 @@ export default function Page() {
   const [uploadFormResponse, formAction] = useFormState(parseSaveFile, {
     saveFileDiscoveredItemIds: null,
   })
+  const [importDialogOpen, setImportDialogOpen] = useState(false)
   // tracks the save data after upload
   const saveData = useRef<string[] | null>(null)
   // file input field
-  const fileInput = useRef<HTMLInputElement | null>(null)
+  const fileInputRef = useRef<HTMLInputElement | null>(null)
 
   // We only provide the relevant item data, not the internal image paths, etc.
   // We could maybe provide the ids as well, in case users wanted to dynamically
@@ -101,11 +103,13 @@ export default function Page() {
   useEffect(() => {
     if (!uploadFormResponse) return
 
+    setImportDialogOpen(false)
+
     const { saveFileDiscoveredItemIds, error } = uploadFormResponse
 
     if (error) {
       toast.error(error)
-      if (fileInput.current) fileInput.current.value = ''
+      if (fileInputRef.current) fileInputRef.current.value = ''
       return
     }
 
@@ -130,7 +134,7 @@ export default function Page() {
     // Reset the save data
     saveData.current = null
     // clear input field
-    if (fileInput.current) fileInput.current.value = ''
+    if (fileInputRef.current) fileInputRef.current.value = ''
     // notify of success
     toast.success('Save file uploaded successfully!')
   }, [setDiscoveredItemIds, filteredItems])
@@ -169,117 +173,65 @@ export default function Page() {
   if (!isClient) return null
 
   return (
-    <div className="relative flex w-full flex-col items-center justify-center">
-      <ItemInfo
-        item={itemInfo}
-        open={isShowItemInfoOpen}
-        onClose={() => setItemInfo(null)}
+    <>
+      <ImportSaveDialog
+        open={importDialogOpen}
+        onClose={() => setImportDialogOpen(false)}
+        onSubmit={formAction}
+        fileInputRef={fileInputRef}
       />
-      <PageHeader
-        title="Remnant 2 Item Tracker"
-        subtitle="Discover all the items in Remnant 2"
-      >
-        <h2>Progress</h2>
-        <span className="mb-4 text-2xl font-bold text-green-400">
-          {progress}
-        </span>
-
-        <div className="mb-8 flex items-center justify-center">
-          <ToCsvButton data={csvItems} filename="remnant2toolkit_tracker" />
-        </div>
-
-        <div className="mx-auto mb-4 flex flex-col items-center justify-center">
-          <h2 className="mb-4 text-xl font-bold text-green-400">Import Save</h2>
-          <div className="mb-4 rounded border border-purple-500">
-            <form
-              action={formAction}
-              className="grid grid-cols-1 bg-black sm:grid-cols-3"
+      <div className="relative flex w-full flex-col items-center justify-center">
+        <ItemInfo
+          item={itemInfo}
+          open={isShowItemInfoOpen}
+          onClose={() => setItemInfo(null)}
+        />
+        <PageHeader
+          title="Remnant 2 Item Tracker"
+          subtitle="Discover all the items in Remnant 2"
+        >
+          <div className="flex w-full items-center justify-center">
+            <button
+              onClick={() => setImportDialogOpen(true)}
+              className="w-[200px] rounded border-2 border-purple-500 bg-purple-700 p-2 text-lg font-bold text-white/90 hover:bg-purple-500 hover:text-white"
             >
-              <div className="flex  w-full items-center justify-center bg-purple-700 p-2 sm:col-span-2">
-                <input
-                  type="file"
-                  name="saveFile"
-                  className="text-sm"
-                  ref={fileInput}
-                />
-              </div>
-              <SubmitButton
-                label="Import Save File"
-                className="flex items-center justify-center border border-green-300 bg-green-500 p-2 px-2 text-sm font-bold text-gray-800 hover:border-green-300 hover:bg-green-600 disabled:bg-gray-500"
-              />
-              <div className="col-span-full gap-y-4 overflow-x-auto bg-black p-2 text-left">
-                <p className="text-sm text-green-500">
-                  You can find your save file in the following location:
-                </p>
+              Import Save File
+            </button>
+          </div>
+        </PageHeader>
 
-                <hr className="my-4" />
+        <hr className="mb-4 mt-4 w-full max-w-[500px] border-gray-700" />
 
-                <strong>Steam</strong>
-                <pre className="mb-4 px-2 text-sm text-gray-400">
-                  C:\Users\_your_username_\Saved
-                  Games\Remnant2\Steam\_steam_id_\profile.sav
-                </pre>
-
-                <hr className="my-4" />
-
-                <strong>Xbox GamePass</strong>
-                <p className="text-sm text-gray-400">
-                  This is a bit more complicated, but doable. I&apos;d recommend
-                  following{' '}
-                  <a
-                    href="https://www.reddit.com/r/remnantgame/comments/187rfdq/transferring_save_files_from_pcsteam_to_xbox/"
-                    className="text-purple-500 underline hover:text-purple-700"
-                  >
-                    this guide on Reddit by SpectralHunt
-                  </a>
-                  . Once you find your file, you can rename it to profile.sav
-                  and import it here.
-                </p>
-
-                <hr className="my-4" />
-
-                <strong>Xbox</strong>
-                <p className="text-sm italic text-gray-400">
-                  I don&apos;t have the ability to test this, but I believe you
-                  can export your save file to a USB drive, then rename the file
-                  to profile.sav and import. If you can confirm this works,
-                  please use the blue bug report icon in the bottom right to get
-                  in touch.
-                </p>
-
-                <hr className="my-4" />
-
-                <strong>Playstation</strong>
-                <p className="text-sm italic text-gray-400">
-                  I could use some help with this one. If you know where the
-                  save is, or can provide a save that I can test with, I will
-                  happily try to make this work. Please use the blue bug report
-                  icon in the bottom right to get in touch.
-                </p>
-              </div>
-            </form>
+        <div className="my-8 flex flex-col items-center justify-center gap-y-2 text-4xl font-bold text-green-400">
+          <h2 className="text-4xl font-bold">Progress</h2>
+          <span className="mb-4 text-2xl font-bold text-white">{progress}</span>
+          <div className="flex flex-row items-center justify-center gap-x-2">
+            <ToCsvButton data={csvItems} filename="remnant2toolkit_tracker" />
           </div>
         </div>
-      </PageHeader>
 
-      <div className="max-w-3xl">
-        <h2 className="mb-2 text-center text-4xl font-bold text-green-400">
-          Filters
-        </h2>
-        <Filters
-          allItems={itemList}
-          onUpdate={handleUpdateFilters}
-          itemCategories={itemCategories}
-        />
-      </div>
+        <hr className="mb-8 mt-4 w-full max-w-[500px] border-gray-700" />
 
-      <div className="my-8 w-full">
-        <ListItems
-          items={filteredItems}
-          onShowItemInfo={handleShowItemInfo}
-          onClick={handleListItemClicked}
-        />
+        <div className="max-w-3xl">
+          <h2 className="mb-2 text-center text-4xl font-bold text-green-400">
+            Filters
+          </h2>
+          <Filters
+            allItems={itemList}
+            onUpdate={handleUpdateFilters}
+            itemCategories={itemCategories}
+          />
+        </div>
+
+        <div className="my-8 w-full">
+          <ListItems
+            items={filteredItems}
+            onShowItemInfo={handleShowItemInfo}
+            onClick={handleListItemClicked}
+          />
+          d
+        </div>
       </div>
-    </div>
+    </>
   )
 }
