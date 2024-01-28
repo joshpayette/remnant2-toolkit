@@ -171,6 +171,7 @@ export async function getUserProfilePage({
     createdById: build.createdById,
     createdAt: build.createdAt,
     updatedAt: build.updatedAt,
+    createdByName: build.createdBy?.name || '',
     createdByDisplayName:
       build.createdBy?.displayName ||
       build.createdBy?.name ||

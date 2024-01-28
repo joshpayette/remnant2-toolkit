@@ -106,6 +106,7 @@ export async function getCreatedBuilds({
     createdById: build.createdById,
     createdAt: build.createdAt,
     updatedAt: build.updatedAt,
+    createdByName: build.createdBy?.name || '',
     createdByDisplayName:
       build.createdBy?.displayName ||
       build.createdBy?.name ||
@@ -123,8 +124,6 @@ export async function getCreatedBuilds({
     totalItemCount: totalBuildCount,
   })
 }
-
-
 
 export async function updateUserDisplayName(
   data: string,
