@@ -15,6 +15,7 @@
 
 ## Bugs
 
+- Add report build back to build cards in Builds By Collection
 - On favorite builds in profile, I don't think sort by date favorited is working
 - Item tracker shows NAN% next to item categories when searching for items, such as when searching for a specific pistol
 - If you add a skill, the skills for that class should not be selectable in the other skill slot
