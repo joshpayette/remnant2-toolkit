@@ -61,6 +61,7 @@ export interface DBBuild {
   thumbnailUrl: Build['thumbnailUrl']
   videoUrl: Build['videoUrl']
   createdById: Build['createdById']
+  createdByName: string
   createdByDisplayName: string
   createdAt: Build['createdAt']
   updatedAt: Build['updatedAt']
