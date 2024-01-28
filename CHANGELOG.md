@@ -8,7 +8,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ### Added
 
-- Added weapon filters to community builds page
+- Added weapon filters to community builds page and subsections
+
+### Changed
+
+- Removed creator builds from community builds page. They have their own page now.
+- Removed the /by-release page. Incorporated the functionality into the community builds page to filter by DLC
 
 ## 2023-01-26
 

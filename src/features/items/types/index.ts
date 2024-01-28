@@ -1,3 +1,4 @@
+import { RELEASE_TO_NAME } from '../constants'
 import { ArmorItem } from './ArmorItem'
 import { GenericItem } from './GenericItem'
 import { ModItem } from './ModItem'
@@ -47,3 +48,6 @@ export type Modifier = {
   color: string
   description: string
 }
+
+export type ReleaseKey = keyof typeof RELEASE_TO_NAME
+export type ReleaseName = (typeof RELEASE_TO_NAME)[ReleaseKey]

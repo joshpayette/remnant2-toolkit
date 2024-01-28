@@ -1,22 +1,17 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import BuildCard from './BuildCard'
+import BuildCard from '../../features/build/components/BuildCard'
 import BuildList from '@/features/build/components/BuildList'
 import usePagination from '@/features/pagination/hooks/usePagination'
 import Link from 'next/link'
 import BuildListFilters from '@/features/build/components/BuildListFilters'
 import { DBBuild } from '@/features/build/types'
-import { toast } from 'react-toastify'
-import useBuildActions from '@/features/build/hooks/useBuildActions'
-import { CommunityBuildFilterProps } from './CommunityBuildFilters'
-import {
-  FeaturedBuildsFilter,
-  getFeaturedBuilds,
-} from '@/features/build/actions/getFeaturedBuilds'
-import Loading from '@/app/loading'
-import { isErrorResponse } from '@/features/error-handling/lib/isErrorResponse'
-import { dbBuildToBuildState } from '../lib/dbBuildToBuildState'
+import { getFeaturedBuilds } from '@/features/build/actions/getFeaturedBuilds'
+import { CommunityBuildFilterProps } from '@/features/filters/types'
+
+export type SortFilter = 'date created' | 'upvotes'
+const sortFilterOptions: SortFilter[] = ['date created', 'upvotes']
 
 interface Props {
   itemsPerPage?: number
@@ -29,7 +24,7 @@ export default function FeaturedBuilds({
 }: Props) {
   const [builds, setBuilds] = useState<DBBuild[]>([])
   const [totalBuildCount, setTotalBuildCount] = useState<number>(0)
-  const [filter, setFilter] = useState<FeaturedBuildsFilter>('date created')
+  const [sortFilter, setSortFilter] = useState<SortFilter>('date created')
   const [isLoading, setIsLoading] = useState<boolean>(true)
 
   const {
@@ -46,8 +41,6 @@ export default function FeaturedBuilds({
     itemsPerPage,
   })
 
-  const { handleReportBuild } = useBuildActions()
-
   // Fetch data
   useEffect(() => {
     const getItemsAsync = async () => {
@@ -55,7 +48,7 @@ export default function FeaturedBuilds({
       const response = await getFeaturedBuilds({
         itemsPerPage,
         pageNumber: currentPage,
-        filter,
+        sortFilter,
         communityBuildFilters,
       })
       setBuilds(response.items)
@@ -63,41 +56,13 @@ export default function FeaturedBuilds({
       setIsLoading(false)
     }
     getItemsAsync()
-  }, [currentPage, itemsPerPage, filter, communityBuildFilters])
+  }, [currentPage, itemsPerPage, sortFilter, communityBuildFilters])
 
-  function handleFilterChange(filter: string) {
-    setFilter(filter as FeaturedBuildsFilter)
+  function handleSortFilterChange(filter: string) {
+    setSortFilter(filter as SortFilter)
   }
 
-  async function onReportBuild(buildId: string) {
-    const reportedBuild = builds.find((build) => build.id === buildId)
-
-    if (!reportedBuild) {
-      console.error(`Could not find build with id ${buildId}, report not saved`)
-      return
-    }
-    const newReported = !reportedBuild.reported
-    const response = await handleReportBuild(
-      dbBuildToBuildState(reportedBuild),
-      newReported,
-    )
-
-    if (!response || isErrorResponse(response)) {
-      console.error(response?.errors)
-      toast.error(response?.errors?.[0])
-    } else {
-      toast.success(response.message)
-      const newBuilds = builds.map((build) => {
-        if (build.id === buildId) {
-          build.reported = newReported
-        }
-        return build
-      })
-      setBuilds(newBuilds)
-    }
-  }
-
-  const filterOptions: FeaturedBuildsFilter[] = ['date created', 'upvotes']
+  if (!isLoading && builds.length === 0) return null
 
   return (
     <>
@@ -115,9 +80,9 @@ export default function FeaturedBuilds({
         onSpecificPage={handleSpecificPageClick}
         headerActions={
           <BuildListFilters
-            filter={filter}
-            onFilterChange={handleFilterChange}
-            options={filterOptions}
+            filter={sortFilter}
+            onFilterChange={handleSortFilterChange}
+            options={sortFilterOptions}
           />
         }
       >
@@ -125,7 +90,7 @@ export default function FeaturedBuilds({
           <div key={build.id} className="h-full w-full">
             <BuildCard
               build={build}
-              onReportBuild={onReportBuild}
+              onReportBuild={undefined}
               footerActions={
                 <div className="flex items-center justify-end gap-2 p-2 text-sm">
                   <Link

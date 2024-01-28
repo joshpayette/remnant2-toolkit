@@ -1,15 +1,16 @@
-import ClearFiltersButton from '@/features/ui/ClearFiltersButton'
+import ClearFiltersButton from '@/features/filters/components/ClearFiltersButton'
 import SearchInput from '@/features/ui/SearchInput'
 import { useLocalStorage } from '@/features/localstorage/hooks/useLocalStorage'
 import { cn } from '@/lib/classnames'
 import { ItemCategory } from '@/features/build/types'
-import { DLCKey, DLC_TO_NAME } from '@/features/items/dlc/types'
 import { useEffect, useState } from 'react'
 import { useDebounce } from 'usehooks-ts'
 import { FilteredItem } from '@/features/items/hooks/useFilteredItems'
 import { remnantItemCategories } from '@/features/items/data'
 import { capitalize } from '@/lib/capitalize'
 import { Checkbox } from '@/features/ui/Checkbox'
+import { ReleaseKey } from '../../features/items/types'
+import { RELEASE_TO_NAME } from '../../features/items/constants'
 
 interface Props {
   allItems: FilteredItem[]
@@ -29,7 +30,7 @@ export default function Filters({
 
   function clearFilters() {
     setSearchText('')
-    setIncludedDlcKeys(defaultDlcKeys)
+    setIncludedReleaseKeys(defaultReleaseKeys)
     setIncludedCollectionKeys(defaultCollectionKeys)
     setIncludedCategoryKeys(defaultCategoryKeys)
   }
@@ -37,7 +38,7 @@ export default function Filters({
   const areAnyFiltersActive = () => {
     return (
       searchText !== '' ||
-      includedDlcKeys.length !== defaultDlcKeys.length ||
+      includedReleaseKeys.length !== defaultReleaseKeys.length ||
       includedCollectionKeys.length !== defaultCollectionKeys.length ||
       includedCategoryKeys.length !== defaultCategoryKeys.length
     )
@@ -61,15 +62,17 @@ export default function Filters({
    * ------------------------------------
    */
 
-  const defaultDlcKeys: DLCKey[] = ['base', 'dlc1']
-  const [includedDlcKeys, setIncludedDlcKeys] =
-    useState<DLCKey[]>(defaultDlcKeys)
+  const defaultReleaseKeys: ReleaseKey[] = ['base', 'dlc1']
+  const [includedReleaseKeys, setIncludedReleaseKeys] =
+    useState<ReleaseKey[]>(defaultReleaseKeys)
 
-  function handleDlcFilterChange(dlcKey: DLCKey) {
-    if (includedDlcKeys.includes(dlcKey)) {
-      setIncludedDlcKeys(includedDlcKeys.filter((key) => key !== dlcKey))
+  function handleDlcFilterChange(ReleaseKey: ReleaseKey) {
+    if (includedReleaseKeys.includes(ReleaseKey)) {
+      setIncludedReleaseKeys(
+        includedReleaseKeys.filter((key) => key !== ReleaseKey),
+      )
     } else {
-      setIncludedDlcKeys([...includedDlcKeys, dlcKey])
+      setIncludedReleaseKeys([...includedReleaseKeys, ReleaseKey])
     }
   }
 
@@ -163,10 +166,10 @@ export default function Filters({
     // Filter out the DLCs
     filteredItems = filteredItems.filter((item) => {
       if (item.dlc === undefined) {
-        return includedDlcKeys.includes('base')
+        return includedReleaseKeys.includes('base')
       }
 
-      return includedDlcKeys.includes(item.dlc as DLCKey)
+      return includedReleaseKeys.includes(item.dlc as ReleaseKey)
     })
 
     // Filter out the categories
@@ -184,7 +187,7 @@ export default function Filters({
     debouncedSearchText,
     discoveredItemIds,
     includedCollectionKeys,
-    includedDlcKeys,
+    includedReleaseKeys,
     includedCategoryKeys,
     onUpdate,
   ])
@@ -227,27 +230,27 @@ export default function Filters({
             <div className="text-xs">
               <button
                 className="underline"
-                onClick={() => setIncludedDlcKeys([])}
+                onClick={() => setIncludedReleaseKeys([])}
               >
                 Uncheck All
               </button>{' '}
               /{' '}
               <button
                 className="underline"
-                onClick={() => setIncludedDlcKeys(defaultDlcKeys)}
+                onClick={() => setIncludedReleaseKeys(defaultReleaseKeys)}
               >
                 Check All
               </button>
             </div>
             <div className="grid grid-cols-2 text-left">
-              {defaultDlcKeys.map((key) => {
-                const dlcName = DLC_TO_NAME[key]
+              {defaultReleaseKeys.map((key) => {
+                const dlcName = RELEASE_TO_NAME[key]
                 return (
                   <div key={key}>
                     <Checkbox
                       label={dlcName}
                       name={`dlc-${key}`}
-                      checked={includedDlcKeys.includes(key)}
+                      checked={includedReleaseKeys.includes(key)}
                       onChange={() => handleDlcFilterChange(key)}
                     />
                   </div>

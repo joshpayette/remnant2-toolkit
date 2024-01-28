@@ -15,8 +15,8 @@ import useFilteredItems from '@/features/items/hooks/useFilteredItems'
 import { itemToCsvItem } from '@/features/items/lib/itemToCsvItem'
 import { MutatorItem } from '@/features/items/types/MutatorItem'
 import ItemInfo from '@/features/items/components/ItemInfo'
-import Filters from '@/features/items/item-tracker/components/Filters'
-import ListItems from '@/features/items/item-tracker/components/ListItems'
+import Filters from '@/app/tracker/Filters'
+import ListItems from '@/app/tracker/ListItems'
 
 const skippedItemCategories: Array<GenericItem['category']> = ['skill', 'perk']
 

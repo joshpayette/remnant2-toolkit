@@ -42,7 +42,7 @@ export default function BuildCard({
           <PopularBuildBadge />
         </div>
       )}
-      <div className="flex w-full flex-1 items-start justify-start space-x-6 p-6">
+      <div className="flex w-full flex-1 items-start justify-start space-x-6 p-4">
         <div className="flex-1 truncate">
           <div className="flex flex-col items-start justify-start ">
             <Link
@@ -53,16 +53,16 @@ export default function BuildCard({
                 {build.name}
               </h3>
             </Link>
-            <div className="mb-2 grid w-full grid-cols-2 text-sm">
-              <p className="text-left text-gray-500">
+            <div className="mb-2 grid w-full grid-cols-3 text-sm">
+              <div className="col-span-2 text-left text-gray-500">
                 by{' '}
                 <Link
                   href={`/profile/${build.createdById}`}
-                  className="text-purple-500 underline hover:text-purple-700"
+                  className="truncate text-purple-500 underline hover:text-purple-700"
                 >
                   {build.createdByDisplayName}
                 </Link>
-              </p>
+              </div>
               <div className="flex flex-row items-center justify-end gap-x-2">
                 {onReportBuild && (
                   <button
@@ -70,9 +70,9 @@ export default function BuildCard({
                     className="flex items-center justify-end text-right text-red-500"
                   >
                     {buildState.reported ? (
-                      <FlagIconOn className="mr-1 h-4 w-4" />
+                      <FlagIconOn className="mr-0.5 h-4 w-4" />
                     ) : (
-                      <FlagIconOff className="mr-1 h-4 w-4" />
+                      <FlagIconOff className="mr-0.5 h-4 w-4" />
                     )}
                   </button>
                 )}
@@ -103,9 +103,8 @@ export default function BuildCard({
               )}
             </div>
             {buildState.description && (
-              <div className="mt-4 flex flex-row items-start justify-start gap-x-2 text-ellipsis whitespace-break-spaces text-sm text-gray-300">
-                {buildState.description?.slice(0, 200)}
-                {buildState.description?.length > 200 && '...'}
+              <div className="mt-4 flex max-h-[100px] flex-row items-start justify-start gap-x-2 overflow-y-auto text-ellipsis whitespace-break-spaces text-xs text-gray-300">
+                {buildState.description}
               </div>
             )}
           </div>

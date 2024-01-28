@@ -1,16 +1,15 @@
 'use client'
 
-import PageHeader from '../../features/ui/PageHeader'
-import CreatorBuilds from '../../features/build/components/FeaturedBuilds'
-import CommunityBuildFilters, {
-  CommunityBuildFilterProps,
-  defaultCommunityBuildFilters,
-} from '../../features/build/components/CommunityBuildFilters'
+import PageHeader from '@/features/ui/PageHeader'
+import FeaturedBuilds from '@/app/creator-builds/FeaturedBuilds'
 import { useState } from 'react'
+import CommunityBuildFilters from '@/features/filters/components/CommunityBuildFilters'
+import { CommunityBuildFilterProps } from '@/features/filters/types'
+import { DEFAULT_COMMUNITY_BUILD_FILTERS } from '@/features/filters/constants'
 
 export default function Page() {
   const [communityBuildFilters, setCommunityBuildFilters] =
-    useState<CommunityBuildFilterProps>(defaultCommunityBuildFilters)
+    useState<CommunityBuildFilterProps>(DEFAULT_COMMUNITY_BUILD_FILTERS)
 
   function handleChangeFilters(filters: CommunityBuildFilterProps) {
     setCommunityBuildFilters(filters)
@@ -27,7 +26,7 @@ export default function Page() {
         <CommunityBuildFilters onUpdate={handleChangeFilters} />
       </div>
       <div className="mb-4 grid w-full grid-cols-1 gap-2">
-        <CreatorBuilds
+        <FeaturedBuilds
           communityBuildFilters={communityBuildFilters}
           itemsPerPage={24}
         />
