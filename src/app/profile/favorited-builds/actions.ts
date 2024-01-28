@@ -5,7 +5,6 @@ import { PaginationResponse } from '@/features/pagination/usePagination'
 import { bigIntFix } from '@/lib/bigIntFix'
 import { getServerSession } from '@/features/auth/lib'
 import { Prisma } from '@prisma/client'
-import { communityBuildsCountQuery } from '@/features/filters/queries/community-builds'
 import { prisma } from '@/features/db'
 
 export type SortFilter = 'date favorited' | 'upvotes'
@@ -41,7 +40,7 @@ ORDER BY totalUpvotes DESC
 SELECT Build.*, 
   User.name as createdByName, 
   User.displayName as createdByDisplayName, 
-  COUNT(BuildVoteCounts.buildId) as totalUpvotes,
+  (SELECT COUNT(*) FROM BuildVoteCounts WHERE BuildVoteCounts.buildId = Build.id) as totalUpvotes,
   COUNT(BuildReports.id) as totalReports,
   (SELECT MAX(updatedAt) FROM BuildVoteCounts WHERE BuildVoteCounts.buildId = Build.id AND userId = ${userId}) as latestVoteUpdatedAt,
   CASE WHEN PaidUsers.userId IS NOT NULL THEN true ELSE false END as isPaidUser
