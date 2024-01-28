@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - When selecting a Trait item to add to a build, you can change the ordering from alphabetical or in-game ordering.
   - Sort preference is now persisted between sessions.
+- Added total build count on home page and community builds page
 
 ### Fixed
 

@@ -3,16 +3,29 @@
 import Link from 'next/link'
 import PageHeader from '../../features/ui/PageHeader'
 import { signIn, useSession } from 'next-auth/react'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import MostPopularBuilds from '../../features/build/components/MostPopularBuilds'
 import CommunityBuildFilters from '@/features/filters/components/CommunityBuildFilters'
 import { CommunityBuildFilterProps } from '@/features/filters/types'
 import { DEFAULT_COMMUNITY_BUILD_FILTERS } from '@/features/filters/constants'
+import getTotalBuildCount from '@/features/build/actions/getTotalBuildCount'
 
 export default function Page() {
   const { data: sessionData } = useSession()
   const [communityBuildFilters, setCommunityBuildFilters] =
     useState<CommunityBuildFilterProps>(DEFAULT_COMMUNITY_BUILD_FILTERS)
+
+  const [totalBuildCount, setTotalBuildCount] = useState<number | string>(
+    'HUNDREDS',
+  )
+
+  useEffect(() => {
+    async function getBuildCountAsync() {
+      const response = await getTotalBuildCount()
+      setTotalBuildCount(response)
+    }
+    getBuildCountAsync()
+  }, [])
 
   function handleChangeFilters(filters: CommunityBuildFilterProps) {
     setCommunityBuildFilters(filters)
@@ -20,7 +33,18 @@ export default function Page() {
 
   return (
     <>
-      <PageHeader title="Community Builds" subtitle="Find your next build">
+      <PageHeader
+        title="Community Builds"
+        subtitle={
+          <span>
+            Search from{' '}
+            <span className="text-2xl font-bold text-green-500">
+              {totalBuildCount}
+            </span>{' '}
+            community submitted builds!
+          </span>
+        }
+      >
         <div className="flex items-center justify-center gap-x-4">
           {sessionData?.user ? (
             <Link
