@@ -30,6 +30,7 @@ import {
   communityBuildsCountQuery,
   communityBuildsQuery,
 } from '@/features/filters/queries/community-builds'
+import { limitByReleasesSegment } from '@/features/filters/queries/segments/limitByRelease'
 
 export async function getBuildsByCollection({
   itemsPerPage,
@@ -76,14 +77,18 @@ export async function getBuildsByCollection({
     })),
   })
 
-  const { archtypes, longGun, handGun, melee } = communityBuildFilters
+  const { archtypes, longGun, handGun, melee, selectedReleases } =
+    communityBuildFilters
   const archtypeIds = archtypeFiltersToIds({ archtypes })
   const weaponIds = weaponFiltersToIds({ longGun, handGun, melee })
+
+  if (selectedReleases.length === 0) return { items: [], totalItemCount: 0 }
 
   const whereConditions = Prisma.sql`
   WHERE Build.isPublic = true
   ${limitByArchtypesSegment(archtypeIds)}
   ${limitByWeaponsSegment(weaponIds)}
+  ${limitByReleasesSegment(selectedReleases)}
   ${limitByCollectionSegment({ userId, allOwnedItemIds })}
   `
 
@@ -119,25 +124,5 @@ export async function getBuildsByCollection({
     build.buildItems = buildItems
   }
 
-  const returnedBuilds: DBBuild[] = builds.map((build) => ({
-    id: build.id,
-    name: build.name,
-    description: build.description,
-    isPublic: build.isPublic,
-    isFeaturedBuild: build.isFeaturedBuild,
-    thumbnailUrl: build.thumbnailUrl,
-    videoUrl: build.videoUrl,
-    createdById: build.createdById,
-    createdAt: build.createdAt,
-    updatedAt: build.updatedAt,
-    createdByDisplayName:
-      build.createdByDisplayName || build.createdByName || DEFAULT_DISPLAY_NAME,
-    totalUpvotes: build.totalUpvotes,
-    upvoted: build.upvoted,
-    reported: build.reported,
-    isMember: build.isPaidUser,
-    buildItems: build.buildItems,
-  }))
-
-  return bigIntFix({ items: returnedBuilds, totalItemCount: totalBuilds })
+  return bigIntFix({ items: builds, totalItemCount: totalBuilds })
 }

@@ -1,13 +1,11 @@
-import { Archtype } from '@/features/items/types'
+import { Archtype, ReleaseKey } from '@/features/items/types'
 import { useState } from 'react'
-import {
-  DEFAULT_COMMUNITY_BUILD_FILTERS,
-  DEFAULT_GUN,
-} from '@/features/filters/constants'
+import { DEFAULT_COMMUNITY_BUILD_FILTERS } from '@/features/filters/constants'
 import { CommunityBuildFilterProps } from '@/features/filters/types'
 import FiltersContainer from '@/features/filters/components/FiltersContainer'
 import ArchtypeFilters from '@/features/filters/components/ArchtypeFilters'
 import WeaponFilters from '@/features/filters/components/WeaponFilters'
+import ReleaseFilters from './ReleaseFilters'
 
 interface Props {
   showBorder?: boolean
@@ -27,9 +25,10 @@ export default function CommunityBuildFilters({ onUpdate }: Props) {
   function areAnyFiltersActive() {
     return (
       filters.archtypes.length > 0 ||
-      filters.longGun !== DEFAULT_GUN ||
-      filters.handGun !== DEFAULT_GUN ||
-      filters.melee !== DEFAULT_GUN
+      filters.longGun !== DEFAULT_COMMUNITY_BUILD_FILTERS['longGun'] ||
+      filters.handGun !== DEFAULT_COMMUNITY_BUILD_FILTERS['handGun'] ||
+      filters.melee !== DEFAULT_COMMUNITY_BUILD_FILTERS['melee'] ||
+      filters.selectedReleases.length < 2
     )
   }
 
@@ -62,6 +61,21 @@ export default function CommunityBuildFilters({ onUpdate }: Props) {
     })
   }
 
+  function handleReleaseChange(release: ReleaseKey) {
+    let newReleases = [...filters.selectedReleases]
+
+    if (newReleases.includes(release)) {
+      newReleases = newReleases.filter((r) => r !== release)
+    } else {
+      newReleases.push(release)
+    }
+
+    setFilters({
+      ...filters,
+      selectedReleases: newReleases,
+    })
+  }
+
   return (
     <FiltersContainer<CommunityBuildFilterProps>
       areAnyFiltersActive={areAnyFiltersActive()}
@@ -80,6 +94,10 @@ export default function CommunityBuildFilters({ onUpdate }: Props) {
         onChange={(weapon: string, type: 'longGun' | 'handGun' | 'melee') =>
           handleWeaponChange(weapon, type)
         }
+      />
+      <ReleaseFilters
+        selectedReleases={filters.selectedReleases}
+        onChange={(release: ReleaseKey) => handleReleaseChange(release)}
       />
     </FiltersContainer>
   )

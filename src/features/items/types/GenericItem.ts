@@ -1,6 +1,6 @@
 import { BuildItems } from '@prisma/client'
 import { remnantItems } from '../data'
-import { DLCKey } from '@/features/items/dlc/types'
+import { ReleaseKey } from '.'
 
 /**
  * Used to link items, such as guns to their mods,
@@ -38,7 +38,7 @@ export interface GenericItemProps {
   id: string
   name: string
   category: ItemCategory
-  dlc?: DLCKey
+  dlc?: ReleaseKey
   imagePath: string
   saveFileSlug?: string
   description?: string

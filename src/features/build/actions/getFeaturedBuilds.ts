@@ -20,7 +20,8 @@ import {
   weaponFiltersToIds,
 } from '@/features/filters/queries/segments/limitByWeapons'
 import { CommunityBuildFilterProps } from '@/features/filters/types'
-import { SortFilter } from '../components/FeaturedBuilds'
+import { SortFilter } from '../../../app/creator-builds/FeaturedBuilds'
+import { limitByReleasesSegment } from '@/features/filters/queries/segments/limitByRelease'
 
 export async function getFeaturedBuilds({
   itemsPerPage,
@@ -36,14 +37,18 @@ export async function getFeaturedBuilds({
   const session = await getServerSession()
   const userId = session?.user?.id
 
-  const { archtypes, longGun, handGun, melee } = communityBuildFilters
+  const { archtypes, longGun, handGun, melee, selectedReleases } =
+    communityBuildFilters
   const archtypeIds = archtypeFiltersToIds({ archtypes })
   const weaponIds = weaponFiltersToIds({ longGun, handGun, melee })
+
+  if (selectedReleases.length === 0) return { items: [], totalItemCount: 0 }
 
   const whereConditions = Prisma.sql`
   WHERE Build.isPublic = true
   ${limitByArchtypesSegment(archtypeIds)}
   ${limitByWeaponsSegment(weaponIds)}
+  ${limitByReleasesSegment(selectedReleases)}
   AND Build.isFeaturedBuild = true
   `
 
@@ -79,25 +84,5 @@ export async function getFeaturedBuilds({
     build.buildItems = buildItems
   }
 
-  const returnedBuilds: DBBuild[] = builds.map((build) => ({
-    id: build.id,
-    name: build.name,
-    description: build.description,
-    isPublic: build.isPublic,
-    isFeaturedBuild: build.isFeaturedBuild,
-    thumbnailUrl: build.thumbnailUrl,
-    videoUrl: build.videoUrl,
-    createdById: build.createdById,
-    createdAt: build.createdAt,
-    updatedAt: build.updatedAt,
-    createdByDisplayName:
-      build.createdByDisplayName || build.createdByName || DEFAULT_DISPLAY_NAME,
-    totalUpvotes: build.totalUpvotes,
-    upvoted: build.upvoted,
-    reported: build.reported,
-    isMember: build.isPaidUser,
-    buildItems: build.buildItems,
-  }))
-
-  return bigIntFix({ items: returnedBuilds, totalItemCount: totalBuilds })
+  return bigIntFix({ items: builds, totalItemCount: totalBuilds })
 }

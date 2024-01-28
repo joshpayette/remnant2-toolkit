@@ -2,7 +2,6 @@
 
 import Link from 'next/link'
 import PageHeader from '../../features/ui/PageHeader'
-import CreatorBuilds from '../../features/build/components/FeaturedBuilds'
 import { signIn, useSession } from 'next-auth/react'
 import { useState } from 'react'
 import MostPopularBuilds from '../../features/build/components/MostPopularBuilds'
@@ -38,12 +37,6 @@ export default function Page() {
               Sign in to find builds by collection
             </button>
           )}
-          <Link
-            href="/community-builds/by-release"
-            className="rounded bg-purple-500 p-2 text-sm font-bold hover:bg-purple-700"
-          >
-            Find builds by release
-          </Link>
         </div>
       </PageHeader>
 

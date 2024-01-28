@@ -1,13 +1,12 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import BuildCard from './BuildCard'
+import BuildCard from '../../features/build/components/BuildCard'
 import BuildList from '@/features/build/components/BuildList'
 import usePagination from '@/features/pagination/hooks/usePagination'
 import Link from 'next/link'
 import BuildListFilters from '@/features/build/components/BuildListFilters'
 import { DBBuild } from '@/features/build/types'
-import useBuildActions from '@/features/build/hooks/useBuildActions'
 import { getFeaturedBuilds } from '@/features/build/actions/getFeaturedBuilds'
 import { CommunityBuildFilterProps } from '@/features/filters/types'
 

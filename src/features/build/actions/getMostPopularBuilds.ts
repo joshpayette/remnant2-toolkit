@@ -19,6 +19,7 @@ import {
   weaponFiltersToIds,
 } from '@/features/filters/queries/segments/limitByWeapons'
 import { CommunityBuildFilterProps } from '@/features/filters/types'
+import { limitByReleasesSegment } from '@/features/filters/queries/segments/limitByRelease'
 
 export type TimeRange = 'day' | 'week' | 'month' | 'all-time'
 
@@ -68,8 +69,11 @@ export async function getMostPopularBuilds({
       break
   }
 
-  const { archtypes, longGun, handGun, melee } = communityBuildFilters
+  const { archtypes, longGun, handGun, melee, selectedReleases } =
+    communityBuildFilters
   const archtypeIds = archtypeFiltersToIds({ archtypes })
+
+  if (selectedReleases.length === 0) return { items: [], totalItemCount: 0 }
 
   const weaponIds = weaponFiltersToIds({
     longGun,
@@ -81,6 +85,7 @@ export async function getMostPopularBuilds({
   WHERE Build.isPublic = true
   ${limitByArchtypesSegment(archtypeIds)}
   ${limitByWeaponsSegment(weaponIds)}
+  ${limitByReleasesSegment(selectedReleases)}
   AND Build.createdAt > ${timeCondition}
   `
 
@@ -89,7 +94,7 @@ export async function getMostPopularBuilds({
   `
 
   // First, get the Builds
-  const topBuilds = await communityBuildsQuery({
+  const builds = await communityBuildsQuery({
     userId,
     itemsPerPage,
     pageNumber,
@@ -98,39 +103,20 @@ export async function getMostPopularBuilds({
   })
 
   // Then, for each Build, get the associated BuildItems
-  for (const build of topBuilds) {
+  for (const build of builds) {
     const buildItems = await prisma.buildItems.findMany({
       where: { buildId: build.id },
     })
     build.buildItems = buildItems
   }
 
-  const totalTopBuilds = await communityBuildsCountQuery({
+  const totalBuildsCountResponse = await communityBuildsCountQuery({
     whereConditions,
   })
-  const totalBuildCount = totalTopBuilds[0].totalBuildCount
-
-  const returnedBuilds: DBBuild[] = topBuilds.map((build) => ({
-    id: build.id,
-    name: build.name,
-    description: build.description,
-    isPublic: build.isPublic,
-    isFeaturedBuild: build.isFeaturedBuild,
-    thumbnailUrl: build.thumbnailUrl,
-    videoUrl: build.videoUrl,
-    createdById: build.createdById,
-    createdAt: build.createdAt,
-    updatedAt: build.updatedAt,
-    createdByDisplayName: build.createdByDisplayName || build.createdByName,
-    upvoted: false,
-    totalUpvotes: build.totalUpvotes,
-    reported: build.reported,
-    isMember: build.isPaidUser,
-    buildItems: build.buildItems,
-  }))
+  const totalBuildCount = totalBuildsCountResponse[0].totalBuildCount
 
   return bigIntFix({
-    items: returnedBuilds,
+    items: builds,
     totalItemCount: totalBuildCount,
   })
 }
