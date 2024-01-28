@@ -14,6 +14,7 @@
 
 ## Bugs
 
+- Favorited builds not showing membership frames
 - If you add a skill, the skills for that class should not be selectable in the other skill slot
 - Modal overlay allows click events through. This appears to be a bug in headlessui. See: https://github.com/tailwindlabs/headlessui/issues/1551
 
