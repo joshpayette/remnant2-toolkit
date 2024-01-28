@@ -2,10 +2,7 @@
 
 import { prisma } from '@/features/db'
 import { Prisma } from '@prisma/client'
-import { remnantItems } from '@/features/items/data'
 import { bigIntFix } from '@/lib/bigIntFix'
-import { Archtype } from '@/features/items/types'
-import { CommunityBuildFilterProps } from '@/features/build/components/CommunityBuildFilters'
 import { DBBuild } from '../types'
 import { PaginationResponse } from '@/features/pagination/hooks/usePagination'
 import { getServerSession } from '@/features/auth/lib'
@@ -21,6 +18,7 @@ import {
   limitByWeaponsSegment,
   weaponFiltersToIds,
 } from '@/features/filters/queries/segments/limitByWeapons'
+import { CommunityBuildFilterProps } from '@/features/filters/types'
 
 export type TimeRange = 'day' | 'week' | 'month' | 'all-time'
 

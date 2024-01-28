@@ -9,13 +9,13 @@ import { toast } from 'react-toastify'
 import useBuildActions from '@/features/build/hooks/useBuildActions'
 import BuildListFilters from '@/features/build/components/BuildListFilters'
 import { DBBuild } from '@/features/build/types'
-import { CommunityBuildFilterProps } from './CommunityBuildFilters'
 import {
   TimeRange,
   getMostPopularBuilds,
 } from '@/features/build/actions/getMostPopularBuilds'
 import { isErrorResponse } from '@/features/error-handling/lib/isErrorResponse'
 import { dbBuildToBuildState } from '../lib/dbBuildToBuildState'
+import { CommunityBuildFilterProps } from '@/features/filters/types'
 
 interface Props {
   itemsPerPage?: number
@@ -97,6 +97,8 @@ export default function MostPopularBuilds({
   function handleTimeRangeChange(timeRange: string) {
     setTimeRange(timeRange as TimeRange)
   }
+
+  if (!isLoading && builds.length === 0) return null
 
   return (
     <>

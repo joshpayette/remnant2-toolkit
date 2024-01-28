@@ -1,12 +1,9 @@
 'use server'
 
 import { prisma } from '@/features/db'
-import { Build, BuildItems, Prisma } from '@prisma/client'
+import { Prisma } from '@prisma/client'
 import { DEFAULT_DISPLAY_NAME } from '@/features/profile/constants'
-import { remnantItems } from '@/features/items/data'
 import { bigIntFix } from '@/lib/bigIntFix'
-import { Archtype } from '@/features/items/types'
-import { CommunityBuildFilterProps } from '@/features/build/components/CommunityBuildFilters'
 import { DBBuild } from '../types'
 import { PaginationResponse } from '@/features/pagination/hooks/usePagination'
 import { getServerSession } from '@/features/auth/lib'
@@ -22,6 +19,7 @@ import {
   limitByWeaponsSegment,
   weaponFiltersToIds,
 } from '@/features/filters/queries/segments/limitByWeapons'
+import { CommunityBuildFilterProps } from '@/features/filters/types'
 
 export type FeaturedBuildsFilter = 'date created' | 'upvotes'
 

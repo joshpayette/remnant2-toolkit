@@ -4,17 +4,16 @@ import Link from 'next/link'
 import PageHeader from '../../features/ui/PageHeader'
 import CreatorBuilds from '../../features/build/components/FeaturedBuilds'
 import { signIn, useSession } from 'next-auth/react'
-import CommunityBuildFilters, {
-  CommunityBuildFilterProps,
-  defaultCommunityBuildFilters,
-} from '../../features/build/components/CommunityBuildFilters'
 import { useState } from 'react'
 import MostPopularBuilds from '../../features/build/components/MostPopularBuilds'
+import CommunityBuildFilters from '@/features/build/components/CommunityBuildFilters'
+import { CommunityBuildFilterProps } from '@/features/filters/types'
+import { DEFAULT_COMMUNITY_BUILD_FILTERS } from '@/features/filters/constants'
 
 export default function Page() {
   const { data: sessionData } = useSession()
   const [communityBuildFilters, setCommunityBuildFilters] =
-    useState<CommunityBuildFilterProps>(defaultCommunityBuildFilters)
+    useState<CommunityBuildFilterProps>(DEFAULT_COMMUNITY_BUILD_FILTERS)
 
   function handleChangeFilters(filters: CommunityBuildFilterProps) {
     setCommunityBuildFilters(filters)
