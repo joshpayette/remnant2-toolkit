@@ -833,6 +833,7 @@ export async function getBuild(
     createdAt: build.createdAt,
     updatedAt: build.updatedAt,
     createdById: build.createdById,
+    createdByName: build.createdBy.name ?? '',
     createdByDisplayName:
       build.createdBy.displayName ||
       build.createdBy.name ||
