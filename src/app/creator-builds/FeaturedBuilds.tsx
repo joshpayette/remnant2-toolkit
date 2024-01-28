@@ -62,8 +62,6 @@ export default function FeaturedBuilds({
     setSortFilter(filter as SortFilter)
   }
 
-  if (!isLoading && builds.length === 0) return null
-
   return (
     <>
       <BuildList
