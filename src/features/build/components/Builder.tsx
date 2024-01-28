@@ -322,7 +322,12 @@ export default function Builder({
         onClose={() => setInfoItem(null)}
       />
 
-      <div className={cn('relative mb-4 border-b border-b-green-900')}>
+      <div
+        className={cn(
+          'relative mb-4 border-b border-b-green-900',
+          isPopular && 'mb-8 pb-6',
+        )}
+      >
         <BuilderName
           isEditable={isEditable}
           isEditingBuildName={isEditingBuildName}

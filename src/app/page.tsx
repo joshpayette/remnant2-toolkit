@@ -1,12 +1,28 @@
+'use client'
+
 import Link from 'next/link'
 import { ArrowRightIcon } from '@heroicons/react/24/solid'
 import Image from 'next/image'
 import { NAV_ITEMS } from '@/features/navigation/constants'
+import { useEffect, useState } from 'react'
+import getTotalBuildCount from '@/features/build/actions/getTotalBuildCount'
 
 export default function HomePage() {
+  const [totalBuildCount, setTotalBuildCount] = useState<number | string>(
+    'HUNDREDS',
+  )
+
+  useEffect(() => {
+    async function getBuildCountAsync() {
+      const response = await getTotalBuildCount()
+      setTotalBuildCount(response)
+    }
+    getBuildCountAsync()
+  }, [])
+
   return (
     <>
-      <div className="relative isolate overflow-hidden bg-gray-900 py-24 sm:py-32">
+      <div className="relative isolate overflow-hidden bg-gray-900 py-24">
         <Image
           src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/home-bg.webp`}
           alt="Home page background"
@@ -37,6 +53,27 @@ export default function HomePage() {
             <h2 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
               Remnant 2 Toolkit
             </h2>
+            <div className="mt-6 text-lg leading-8 text-gray-300">
+              <Link
+                href="/community-builds"
+                className="underline hover:text-green-500"
+              >
+                Search the community&apos;s{' '}
+                <span className="text-2xl font-bold text-green-500">
+                  {totalBuildCount}
+                </span>{' '}
+                submitted builds
+              </Link>
+              ,{' '}
+              <Link href="/builder" className="underline hover:text-green-500">
+                create your own builds
+              </Link>
+              ,{' '}
+              <Link href="/tracker" className="underline hover:text-green-500">
+                track your collectibles
+              </Link>
+              , and more!
+            </div>
             <p className="mt-6 text-lg leading-8 text-gray-300">
               <span className="font-bold text-green-500">100% free</span> and{' '}
               <span className="font-bold text-green-500">open source</span>{' '}
@@ -44,8 +81,9 @@ export default function HomePage() {
               collectibles, and more!
             </p>
             <p className="mt-6 text-lg leading-8 text-gray-300">
-              <span className="font-bold text-white">No login required</span>{' '}
-              for any features.
+              <span className="font-bold text-white">No login required</span> to
+              start creating builds, searching for builds, or tracking your
+              collectibles,
             </p>
           </div>
           <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-6 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-8">

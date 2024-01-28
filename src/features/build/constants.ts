@@ -18,4 +18,4 @@ export const MAX_TRAIT_AMOUNT = 110
 /**
  * Number of votes for a build to be popular
  */
-export const POPULAR_VOTE_THRESHOLD = 25
+export const POPULAR_VOTE_THRESHOLD = 15

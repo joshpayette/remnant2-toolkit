@@ -49,7 +49,12 @@ export default function BuildCard({
               href={`/builder/${build.id}`}
               className="w-full text-green-500 hover:text-green-700 hover:underline"
             >
-              <h3 className="text-md whitespace-pre-wrap font-medium">
+              <h3
+                className={cn(
+                  'text-md whitespace-pre-wrap font-medium',
+                  isPopular && 'mt-2',
+                )}
+              >
                 {build.name}
               </h3>
             </Link>

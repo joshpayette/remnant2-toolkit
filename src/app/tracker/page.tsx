@@ -200,7 +200,7 @@ export default function Page() {
           </div>
         </PageHeader>
 
-        <hr className="mb-4 mt-4 w-full max-w-[500px] border-gray-700" />
+        <hr className="mb-4 mt-4 w-full max-w-3xl border-gray-700" />
 
         <div className="my-8 flex flex-col items-center justify-center gap-y-2 text-4xl font-bold text-green-400">
           <h2 className="text-4xl font-bold">Progress</h2>
@@ -210,7 +210,7 @@ export default function Page() {
           </div>
         </div>
 
-        <hr className="mb-8 mt-4 w-full max-w-[500px] border-gray-700" />
+        <hr className="mb-8 mt-4 w-full max-w-3xl border-gray-700" />
 
         <div className="max-w-3xl">
           <h2 className="mb-2 text-center text-4xl font-bold text-green-400">
