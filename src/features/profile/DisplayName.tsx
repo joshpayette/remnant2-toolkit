@@ -4,8 +4,8 @@ import { useState } from 'react'
 import { PencilIcon } from '@heroicons/react/24/solid'
 import { toast } from 'react-toastify'
 import { useRouter } from 'next/navigation'
-import { updateUserDisplayName } from '../../../app/profile/actions'
-import { isErrorResponse } from '@/features/error-handling/lib/isErrorResponse'
+import { updateUserDisplayName } from '../../app/profile/actions'
+import { isErrorResponse } from '@/features/error-handling/isErrorResponse'
 
 type Props = {
   editable: boolean

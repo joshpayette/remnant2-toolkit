@@ -4,7 +4,7 @@ import { Disclosure } from '@headlessui/react'
 import { ChevronUpIcon } from '@heroicons/react/20/solid'
 import { cn } from '@/lib/classnames'
 import { useIsClient } from 'usehooks-ts'
-import { useLocalStorage } from '@/features/localstorage/hooks/useLocalStorage'
+import { useLocalStorage } from '@/features/localstorage/useLocalStorage'
 import ItemCard from './ItemCard'
 import { InformationCircleIcon } from '@heroicons/react/24/solid'
 import { ItemCategory } from '@/features/build/types'
@@ -38,12 +38,12 @@ function getProgress(
     (discoveredCount / items.length) * 100,
   ).toString()
 
-  const total = items.filter(
+  const totalDiscoverableItems = items.filter(
     (item) => item.category === itemCategory.category,
   ).length
 
   return isClient
-    ? `${discoveredCount} / ${total} (${discoveredPercent}%)`
+    ? `${discoveredCount} / ${totalDiscoverableItems} (${discoveredPercent}%)`
     : 'Calculating...'
 }
 
@@ -58,8 +58,7 @@ export default function ListItems({
   onClick,
   onShowItemInfo,
 }: ListItemsProps) {
-  const { itemTrackerStorage, setItemTrackerStorage } = useLocalStorage()
-  const { collapsedCategories } = itemTrackerStorage
+  const { collapsedCategories, setCollapsedCategories } = useLocalStorage()
 
   const isClient = useIsClient()
 
@@ -68,9 +67,8 @@ export default function ListItems({
       ? collapsedCategories.filter((type) => type !== itemCategory)
       : [...collapsedCategories, itemCategory]
 
-    setItemTrackerStorage({
-      ...itemTrackerStorage,
-      collapsedCategories: newCollapsedItemTypes,
+    setCollapsedCategories({
+      categories: newCollapsedItemTypes,
     })
   }
 

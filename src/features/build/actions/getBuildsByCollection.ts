@@ -1,6 +1,6 @@
 'use server'
 
-import { PaginationResponse } from '@/features/pagination/hooks/usePagination'
+import { PaginationResponse } from '@/features/pagination/usePagination'
 import { getServerSession } from '@/features/auth/lib'
 import {
   DBBuild,

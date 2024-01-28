@@ -1,6 +1,6 @@
 import ClearFiltersButton from '@/features/filters/components/ClearFiltersButton'
 import SearchInput from '@/features/ui/SearchInput'
-import { useLocalStorage } from '@/features/localstorage/hooks/useLocalStorage'
+import { useLocalStorage } from '@/features/localstorage/useLocalStorage'
 import { cn } from '@/lib/classnames'
 import { ItemCategory } from '@/features/build/types'
 import { useEffect, useState } from 'react'
@@ -25,8 +25,7 @@ export default function Filters({
   showBorder = true,
   onUpdate,
 }: Props) {
-  const { itemTrackerStorage } = useLocalStorage()
-  const { discoveredItemIds } = itemTrackerStorage
+  const { discoveredItemIds } = useLocalStorage()
 
   function clearFilters() {
     setSearchText('')

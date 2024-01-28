@@ -1,6 +1,6 @@
 'use server'
 
-import { PaginationResponse } from '@/features/pagination/hooks/usePagination'
+import { PaginationResponse } from '@/features/pagination/usePagination'
 import { prisma } from '@/features/db'
 import { DBBuild } from '@/features/build/types'
 import { DEFAULT_DISPLAY_NAME } from '@/features/profile/constants'

@@ -21,13 +21,31 @@ export const useLocalStorage = () => {
     LocalStorage['tracker']
   >('item-tracker', initialValue.tracker)
 
-  function setDiscoveredItemIds(ids: string[]) {
+  function setDiscoveredItemIds({
+    ids,
+  }: {
+    ids: LocalStorage['tracker']['discoveredItemIds']
+  }) {
     setItemTrackerStorage({ ...itemTrackerStorage, discoveredItemIds: ids })
   }
+  const discoveredItemIds = itemTrackerStorage.discoveredItemIds
+
+  function setCollapsedCategories({
+    categories,
+  }: {
+    categories: LocalStorage['tracker']['collapsedCategories']
+  }) {
+    setItemTrackerStorage({
+      ...itemTrackerStorage,
+      collapsedCategories: categories,
+    })
+  }
+  const collapsedCategories = itemTrackerStorage.collapsedCategories
 
   return {
-    itemTrackerStorage,
-    setItemTrackerStorage,
+    collapsedCategories,
+    setCollapsedCategories,
+    discoveredItemIds,
     setDiscoveredItemIds,
   }
 }

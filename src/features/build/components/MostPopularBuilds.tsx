@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 import BuildCard from './BuildCard'
 import BuildList from '@/features/build/components/BuildList'
-import usePagination from '@/features/pagination/hooks/usePagination'
+import usePagination from '@/features/pagination/usePagination'
 import Link from 'next/link'
 import { toast } from 'react-toastify'
 import useBuildActions from '@/features/build/hooks/useBuildActions'
@@ -13,7 +13,7 @@ import {
   TimeRange,
   getMostPopularBuilds,
 } from '@/features/build/actions/getMostPopularBuilds'
-import { isErrorResponse } from '@/features/error-handling/lib/isErrorResponse'
+import { isErrorResponse } from '@/features/error-handling/isErrorResponse'
 import { dbBuildToBuildState } from '../lib/dbBuildToBuildState'
 import { CommunityBuildFilterProps } from '@/features/filters/types'
 
@@ -97,8 +97,6 @@ export default function MostPopularBuilds({
   function handleTimeRangeChange(timeRange: string) {
     setTimeRange(timeRange as TimeRange)
   }
-
-
 
   return (
     <>

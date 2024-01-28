@@ -1,5 +1,5 @@
 import { Inter } from 'next/font/google'
-import NavBar from '@/features/navigation/components/NavBar'
+import NavBar from '@/features/navigation/NavBar'
 import { cn } from '@/lib/classnames'
 import Footer from '@/features/ui/Footer'
 export { metadata } from './metadata'
@@ -10,7 +10,7 @@ import './globals.css'
 import 'react-toastify/dist/ReactToastify.css'
 import SessionProvider from '../features/auth/components/SessionProvider'
 import BackToTopButton from '../features/ui/BackToTopButton'
-import ReportBugButton from '../features/bug-reports/components/ReportBugButton'
+import ReportBugButton from '../features/bug-reports/ReportBugButton'
 
 const inter = Inter({ subsets: ['latin'] })
 

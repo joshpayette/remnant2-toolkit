@@ -3,12 +3,12 @@
 import PlaceHolderIcon from '@/features/ui/PlaceholderIcon'
 import DisplayName from './DisplayName'
 import Bio from './Bio'
-import { getUserBio } from '../../../app/profile/actions'
+import { getUserBio } from '../../app/profile/actions'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import LoadingIndicator from '@/features/ui/LoadingIndicator'
-import { DEFAULT_DISPLAY_NAME } from '../constants'
-import { isErrorResponse } from '@/features/error-handling/lib/isErrorResponse'
+import { DEFAULT_DISPLAY_NAME } from './constants'
+import { isErrorResponse } from '@/features/error-handling/isErrorResponse'
 
 interface Props {
   editable: boolean

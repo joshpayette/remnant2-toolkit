@@ -1,7 +1,7 @@
 'use client'
 
 import { deleteBuild } from '@/app/builder/actions'
-import { isErrorResponse } from '@/features/error-handling/lib/isErrorResponse'
+import { isErrorResponse } from '@/features/error-handling/isErrorResponse'
 import { toast } from 'react-toastify'
 
 export default function DeleteBuildButton({

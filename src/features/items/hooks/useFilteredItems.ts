@@ -1,5 +1,5 @@
 import { useCallback, useState } from 'react'
-import { useLocalStorage } from '../../localstorage/hooks/useLocalStorage'
+import { useLocalStorage } from '../../localstorage/useLocalStorage'
 import { Item } from '../types'
 
 export type FilteredItem = Item & {
@@ -7,8 +7,7 @@ export type FilteredItem = Item & {
 }
 
 export default function useFilteredItems(items: Item[]) {
-  const { itemTrackerStorage } = useLocalStorage()
-  const { discoveredItemIds } = itemTrackerStorage
+  const { discoveredItemIds } = useLocalStorage()
 
   const [filteredItems, setFilteredItems] = useState<FilteredItem[]>(
     items.map((item) => ({
