@@ -34,9 +34,9 @@ function getProgress(
     return item.category === itemCategory.category && item.discovered
   }).length
 
-  const discoveredPercent = Math.round(
-    (discoveredCount / items.length) * 100,
-  ).toString()
+  let discoveredPercent = Math.round((discoveredCount / items.length) * 100)
+
+  if (isNaN(discoveredPercent)) discoveredPercent = 0
 
   const totalDiscoverableItems = items.filter(
     (item) => item.category === itemCategory.category,

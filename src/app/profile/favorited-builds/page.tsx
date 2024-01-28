@@ -1,7 +1,6 @@
 'use client'
 
 import CopyBuildUrlButton from '../../../features/profile/CopyBuildUrlButton'
-import { FavoritedBuildsFilter, getFavoritedBuilds } from '../actions'
 import usePagination from '@/features/pagination/usePagination'
 import { useEffect, useState } from 'react'
 import BuildCard from '@/features/build/components/BuildCard'
@@ -13,13 +12,14 @@ import Tabs from '../../../features/profile/Tabs'
 import ProfileHeader from '../../../features/profile/ProfileHeader'
 import { useSession } from 'next-auth/react'
 import AuthWrapper from '@/features/auth/components/AuthWrapper'
+import { SortFilter, getFavoritedBuilds } from './actions'
 
 export default function Page() {
   const { data: sessionData } = useSession()
   const [builds, setBuilds] = useState<DBBuild[]>([])
   const [totalBuildCount, setTotalBuildCount] = useState<number>(0)
   const [isLoading, setIsLoading] = useState(false)
-  const [filter, setFilter] = useState<FavoritedBuildsFilter>('date favorited')
+  const [sortFilter, setSortFilter] = useState<SortFilter>('date favorited')
   const itemsPerPage = 16
 
   const {
@@ -42,19 +42,19 @@ export default function Page() {
       const response = await getFavoritedBuilds({
         itemsPerPage,
         pageNumber: currentPage,
-        filter,
+        sortFilter,
       })
       setBuilds(response.items)
       setTotalBuildCount(response.totalItemCount)
       setIsLoading(false)
     }
     getItemsAsync()
-  }, [currentPage, itemsPerPage, filter])
+  }, [currentPage, itemsPerPage, sortFilter])
 
-  const filterOptions: FavoritedBuildsFilter[] = ['date favorited', 'upvotes']
+  const filterOptions: SortFilter[] = ['date favorited', 'upvotes']
 
   function handleFilterChange(filter: string) {
-    setFilter(filter as FavoritedBuildsFilter)
+    setSortFilter(filter as SortFilter)
   }
 
   return (
@@ -83,7 +83,7 @@ export default function Page() {
         onSpecificPage={handleSpecificPageClick}
         headerActions={
           <BuildListFilters
-            filter={filter}
+            filter={sortFilter}
             onFilterChange={handleFilterChange}
             options={filterOptions}
           />

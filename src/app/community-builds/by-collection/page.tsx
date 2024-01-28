@@ -14,6 +14,10 @@ import BuildListFilters from '@/features/build/components/BuildListFilters'
 import CommunityBuildFilters from '@/features/filters/components/CommunityBuildFilters'
 import { CommunityBuildFilterProps } from '@/features/filters/types'
 import { DEFAULT_COMMUNITY_BUILD_FILTERS } from '@/features/filters/constants'
+import useBuildActions from '@/features/build/hooks/useBuildActions'
+import { dbBuildToBuildState } from '@/features/build/lib/dbBuildToBuildState'
+import { toast } from 'react-toastify'
+import { isErrorResponse } from '@/features/error-handling/isErrorResponse'
 
 const ITEMS_PER_PAGE = 24
 
@@ -70,6 +74,36 @@ export default function Page() {
     setSortFilter(filter as SortFilter)
   }
 
+  const { handleReportBuild } = useBuildActions()
+
+  async function onReportBuild(buildId: string) {
+    const reportedBuild = builds.find((build) => build.id === buildId)
+
+    if (!reportedBuild) {
+      console.error(`Could not find build with id ${buildId}, report not saved`)
+      return
+    }
+    const newReported = !reportedBuild.reported
+    const response = await handleReportBuild(
+      dbBuildToBuildState(reportedBuild),
+      newReported,
+    )
+
+    if (!response || isErrorResponse(response)) {
+      console.error(response?.errors)
+      toast.error(response?.errors?.[0])
+    } else {
+      toast.success(response.message)
+      const newBuilds = builds.map((build) => {
+        if (build.id === buildId) {
+          build.reported = newReported
+        }
+        return build
+      })
+      setBuilds(newBuilds)
+    }
+  }
+
   if (!sessionData?.user) {
     return (
       <>
@@ -123,7 +157,7 @@ export default function Page() {
           <div key={build.id} className="h-full w-full">
             <BuildCard
               build={build}
-              onReportBuild={undefined}
+              onReportBuild={onReportBuild}
               footerActions={
                 <div className="flex items-center justify-end gap-2 p-2 text-sm">
                   <Link

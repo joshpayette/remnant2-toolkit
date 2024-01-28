@@ -11,6 +11,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - When selecting a Trait item to add to a build, you can change the ordering from alphabetical or in-game ordering.
   - Sort preference is now persisted between sessions.
 
+### Fixed
+
+- Added report build icon back to community build cards
+- Fixed bug where Favorited Builds were not showing up in order of date favorited when sorting by date favorited
+- Fixed a bug where percentages would show as NaN on the item tracker.
+
+### Changed
+
+- Moved the import save box into a dialog to reclaim space. Updated the styling to make it more clear.
+
 ## 2023-01-27
 
 ### Added

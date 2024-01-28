@@ -26,7 +26,7 @@ export default function NavBar() {
         className="z-40 mx-auto flex w-full items-center justify-between bg-background px-4 py-6"
         aria-label="Global"
       >
-        <div className="flex min-w-[300px]">
+        <div className="flex min-w-[250px]">
           <Logo />
         </div>
         <div className="flex lg:hidden">
@@ -45,7 +45,7 @@ export default function NavBar() {
               key={item.name}
               href={item.href}
               className={cn(
-                'text-md font-semibold leading-6 text-white hover:text-green-400',
+                'text-md font-semibold text-white hover:text-green-400',
                 item.name === 'Support the Tool!' &&
                   'text-green-400 underline hover:text-green-500',
               )}

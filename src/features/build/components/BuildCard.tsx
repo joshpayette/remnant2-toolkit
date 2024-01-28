@@ -43,7 +43,7 @@ export default function BuildCard({
         </div>
       )}
       <div className="flex w-full flex-1 items-start justify-start space-x-6 p-4">
-        <div className="flex-1 truncate">
+        <div className="flex-1">
           <div className="flex flex-col items-start justify-start ">
             <Link
               href={`/builder/${build.id}`}
@@ -53,12 +53,12 @@ export default function BuildCard({
                 {build.name}
               </h3>
             </Link>
-            <div className="mb-2 grid w-full grid-cols-3 text-sm">
-              <div className="col-span-2 text-left text-gray-500">
+            <div className="mb-2 grid w-full grid-cols-3 truncate text-sm">
+              <div className="col-span-2 truncate text-left text-gray-500">
                 by{' '}
                 <Link
                   href={`/profile/${build.createdById}`}
-                  className="truncate text-purple-500 underline hover:text-purple-700"
+                  className="text-purple-500 underline hover:text-purple-700"
                 >
                   {build.createdByDisplayName}
                 </Link>
