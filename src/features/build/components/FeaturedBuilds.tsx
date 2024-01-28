@@ -12,7 +12,6 @@ import { getFeaturedBuilds } from '@/features/build/actions/getFeaturedBuilds'
 import { CommunityBuildFilterProps } from '@/features/filters/types'
 
 export type SortFilter = 'date created' | 'upvotes'
-
 const sortFilterOptions: SortFilter[] = ['date created', 'upvotes']
 
 interface Props {
@@ -42,8 +41,6 @@ export default function FeaturedBuilds({
     totalItemCount: totalBuildCount,
     itemsPerPage,
   })
-
-  const { handleReportBuild } = useBuildActions()
 
   // Fetch data
   useEffect(() => {

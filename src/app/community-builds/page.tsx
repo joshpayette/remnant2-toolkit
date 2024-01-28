@@ -50,17 +50,10 @@ export default function Page() {
       <div className="mb-8 flex w-full max-w-2xl items-center justify-center">
         <CommunityBuildFilters onUpdate={handleChangeFilters} />
       </div>
-      <div className="mb-4 grid w-full grid-cols-1 gap-2">
-        <CreatorBuilds
-          communityBuildFilters={communityBuildFilters}
-          itemsPerPage={4}
-        />
-      </div>
-      <hr className="my-12 w-full border-gray-800" />
       <div className="grid w-full grid-cols-1 gap-2">
         <MostPopularBuilds
           communityBuildFilters={communityBuildFilters}
-          itemsPerPage={16}
+          itemsPerPage={24}
         />
       </div>
     </>

@@ -5,10 +5,17 @@ import FiltersContainer from '@/features/filters/components/FiltersContainer'
 import ArchtypeFilters from '@/features/filters/components/ArchtypeFilters'
 import WeaponFilters from '@/features/filters/components/WeaponFilters'
 import ReleaseFilters from './ReleaseFilters'
-import {
-  ByReleaseFilters,
-  DEFAULT_BY_RELEASE_FILTERS,
-} from '@/app/community-builds/by-release/page'
+import { CommunityBuildFilterProps } from '../types'
+import { DEFAULT_COMMUNITY_BUILD_FILTERS } from '@/features/filters/constants'
+
+export type ByReleaseFilters = CommunityBuildFilterProps & {
+  selectedReleases: ReleaseKey[]
+}
+
+export const DEFAULT_BY_RELEASE_FILTERS: ByReleaseFilters = {
+  ...DEFAULT_COMMUNITY_BUILD_FILTERS,
+  selectedReleases: ['base', 'dlc1'],
+}
 
 interface Props {
   showBorder?: boolean

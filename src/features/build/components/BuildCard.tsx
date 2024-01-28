@@ -103,9 +103,8 @@ export default function BuildCard({
               )}
             </div>
             {buildState.description && (
-              <div className="mt-4 flex flex-row items-start justify-start gap-x-2 text-ellipsis whitespace-break-spaces text-sm text-gray-300">
-                {buildState.description?.slice(0, 200)}
-                {buildState.description?.length > 200 && '...'}
+              <div className="mt-4 flex max-h-[100px] flex-row items-start justify-start gap-x-2 overflow-y-auto text-ellipsis whitespace-break-spaces text-xs text-gray-300">
+                {buildState.description}
               </div>
             )}
           </div>

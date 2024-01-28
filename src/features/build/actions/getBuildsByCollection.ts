@@ -2,12 +2,17 @@
 
 import { PaginationResponse } from '@/features/pagination/hooks/usePagination'
 import { getServerSession } from '@/features/auth/lib'
-import { DBBuild } from '@/features/build/types'
+import {
+  DBBuild,
+  CommunityBuildQueryResponse,
+  CommunityBuildTotalCount,
+} from '@/features/build/types'
 import { prisma } from '@/features/db'
-import { Prisma } from '@prisma/client'
 import { DEFAULT_DISPLAY_NAME } from '@/features/profile/constants'
+import { remnantItems } from '@/features/items/data'
 import { bigIntFix } from '@/lib/bigIntFix'
-import { SortFilter } from '@/app/community-builds/by-release/page'
+import { SortFilter } from '@/app/community-builds/by-collection/page'
+import { CommunityBuildFilterProps } from '@/features/filters/types'
 import {
   archtypeFiltersToIds,
   limitByArchtypesSegment,
@@ -17,31 +22,61 @@ import {
   weaponFiltersToIds,
 } from '@/features/filters/queries/segments/limitByWeapons'
 import {
+  collectionToIds,
+  limitByCollectionSegment,
+} from '@/features/filters/queries/segments/limitByCollection'
+import { Prisma } from '@prisma/client'
+import {
   communityBuildsCountQuery,
   communityBuildsQuery,
 } from '@/features/filters/queries/community-builds'
-import { limitByReleasesSegment } from '@/features/filters/queries/segments/limitByRelease'
-import { ByReleaseFilters } from '@/features/filters/components/ByReleaseBuildFilters'
 
-export async function getBuildsByRelease({
-  sortFilter,
+export async function getBuildsByCollection({
   itemsPerPage,
   pageNumber,
-  byReleaseFilters,
+  sortFilter,
+  discoveredItemIds,
+  communityBuildFilters,
 }: {
-  sortFilter: SortFilter
   itemsPerPage: number
   pageNumber: number
-  byReleaseFilters: ByReleaseFilters
+  sortFilter: SortFilter
+  discoveredItemIds: string[]
+  communityBuildFilters: CommunityBuildFilterProps
 }): Promise<PaginationResponse<DBBuild>> {
   const session = await getServerSession()
   const userId = session?.user?.id
 
-  const { archtypes, longGun, handGun, melee, selectedReleases } =
-    byReleaseFilters
+  if (!userId) return { items: [], totalItemCount: 0 }
 
-  if (selectedReleases.length === 0) return { items: [], totalItemCount: 0 }
+  // if the user has no discoveredItemIds, return an empty array
+  if (discoveredItemIds.length === 0) {
+    return { items: [], totalItemCount: 0 }
+  }
 
+  // -----------------------------------
+  // Update user's items
+  //
+  // We need to store the itemIds in a separate table
+  // so we can query them efficiently
+  // -----------------------------------
+
+  // delete all user's items first
+  await prisma.userItems.deleteMany({
+    where: { userId },
+  })
+
+  const allOwnedItemIds = collectionToIds({ discoveredItemIds })
+
+  // insert all user's items, including linked items
+  await prisma.userItems.createMany({
+    data: allOwnedItemIds.map((itemId) => ({
+      userId,
+      itemId,
+    })),
+  })
+
+  const { archtypes, longGun, handGun, melee } = communityBuildFilters
   const archtypeIds = archtypeFiltersToIds({ archtypes })
   const weaponIds = weaponFiltersToIds({ longGun, handGun, melee })
 
@@ -49,7 +84,7 @@ export async function getBuildsByRelease({
   WHERE Build.isPublic = true
   ${limitByArchtypesSegment(archtypeIds)}
   ${limitByWeaponsSegment(weaponIds)}
-  ${limitByReleasesSegment(selectedReleases)}
+  ${limitByCollectionSegment({ userId, allOwnedItemIds })}
   `
 
   const orderBySegment =
@@ -74,7 +109,7 @@ export async function getBuildsByRelease({
   const totalBuildCountResponse = await communityBuildsCountQuery({
     whereConditions,
   })
-  const totalBuildCount = totalBuildCountResponse[0].totalBuildCount
+  const totalBuilds = totalBuildCountResponse[0].totalBuildCount
 
   // Find all build items for each build
   for (const build of builds) {
@@ -95,17 +130,14 @@ export async function getBuildsByRelease({
     createdById: build.createdById,
     createdAt: build.createdAt,
     updatedAt: build.updatedAt,
-    totalUpvotes: build.totalUpvotes,
-    reported: build.reported,
-    isMember: build.isPaidUser,
     createdByDisplayName:
       build.createdByDisplayName || build.createdByName || DEFAULT_DISPLAY_NAME,
+    totalUpvotes: build.totalUpvotes,
     upvoted: build.upvoted,
-    buildItems: [],
+    reported: build.reported,
+    isMember: build.isPaidUser,
+    buildItems: build.buildItems,
   }))
 
-  return bigIntFix({
-    items: returnedBuilds,
-    totalItemCount: totalBuildCount,
-  })
+  return bigIntFix({ items: returnedBuilds, totalItemCount: totalBuilds })
 }

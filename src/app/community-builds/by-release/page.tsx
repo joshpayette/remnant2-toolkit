@@ -8,26 +8,16 @@ import { DBBuild } from '@/features/build/types'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { getBuildsByRelease } from '@/features/build/actions/getBuildsByRelease'
-import { CommunityBuildFilterProps } from '@/features/filters/types'
-import { DEFAULT_COMMUNITY_BUILD_FILTERS } from '@/features/filters/constants'
-import { ReleaseKey } from '@/features/items/types'
-import ByReleaseFilters from '@/features/filters/components/ReleaseFilters'
 import BuildListFilters from '@/features/build/components/BuildListFilters'
-import ByReleaseBuildFilters from '@/features/filters/components/ByReleaseBuildFilters'
+import ByReleaseBuildFilters, {
+  ByReleaseFilters,
+  DEFAULT_BY_RELEASE_FILTERS,
+} from '@/features/filters/components/ByReleaseBuildFilters'
 
 export type SortFilter = 'date created' | 'upvotes'
 
-export type ByReleaseFilters = CommunityBuildFilterProps & {
-  selectedReleases: ReleaseKey[]
-}
-
 const itemsPerPage = 24
 const sortFilterOptions: SortFilter[] = ['date created', 'upvotes']
-
-export const DEFAULT_BY_RELEASE_FILTERS: ByReleaseFilters = {
-  ...DEFAULT_COMMUNITY_BUILD_FILTERS,
-  selectedReleases: ['base', 'dlc1'],
-}
 
 export default function Page() {
   const [builds, setBuilds] = useState<DBBuild[]>([])
