@@ -1,52 +1,37 @@
-import { remnantItems } from '@/features/items/data'
-import { Archtype } from '@/features/items/types'
+import { Archtype, ReleaseKey } from '@/features/items/types'
 import { useState } from 'react'
-import { WeaponItem } from '@/features/items/types/WeaponItem'
-import {
-  DEFAULT_COMMUNITY_BUILD_FILTERS,
-  DEFAULT_GUN,
-} from '@/features/filters/constants'
-import { CommunityBuildFilterProps } from '@/features/filters/types'
+import { DEFAULT_GUN } from '@/features/filters/constants'
 import FiltersContainer from '@/features/filters/components/FiltersContainer'
 import ArchtypeFilters from '@/features/filters/components/ArchtypeFilters'
 import WeaponFilters from '@/features/filters/components/WeaponFilters'
-
-const allLongGuns: string[] = remnantItems
-  .filter((item) => WeaponItem.isWeaponItem(item) && item.type === 'long gun')
-  .map((item) => item.name)
-allLongGuns.unshift(DEFAULT_GUN)
-
-const allHandGuns: string[] = remnantItems
-  .filter((item) => WeaponItem.isWeaponItem(item) && item.type === 'hand gun')
-  .map((item) => item.name)
-allHandGuns.unshift(DEFAULT_GUN)
-
-const allMelee: string[] = remnantItems
-  .filter((item) => WeaponItem.isWeaponItem(item) && item.type === 'melee')
-  .map((item) => item.name)
-allMelee.unshift(DEFAULT_GUN)
+import ReleaseFilters from './ReleaseFilters'
+import {
+  ByReleaseFilters,
+  DEFAULT_BY_RELEASE_FILTERS,
+} from '@/app/community-builds/by-release/page'
 
 interface Props {
   showBorder?: boolean
-  onUpdate: (filters: CommunityBuildFilterProps) => void
+  onUpdate: (filters: ByReleaseFilters) => void
 }
 
-export default function CommunityBuildFilters({ onUpdate }: Props) {
-  const [filters, setFilters] = useState<CommunityBuildFilterProps>(
-    DEFAULT_COMMUNITY_BUILD_FILTERS,
+export default function ByReleaseBuildFilters({ onUpdate }: Props) {
+  const [filters, setFilters] = useState<ByReleaseFilters>(
+    DEFAULT_BY_RELEASE_FILTERS,
   )
 
   function handleClearFilters() {
-    setFilters(DEFAULT_COMMUNITY_BUILD_FILTERS)
-    onUpdate(DEFAULT_COMMUNITY_BUILD_FILTERS)
+    setFilters(DEFAULT_BY_RELEASE_FILTERS)
+    onUpdate(DEFAULT_BY_RELEASE_FILTERS)
   }
 
-  const areAnyFiltersActive = () => {
+  function areAnyFiltersActive() {
     return (
       filters.archtypes.length > 0 ||
       filters.longGun !== DEFAULT_GUN ||
       filters.handGun !== DEFAULT_GUN ||
-      filters.melee !== DEFAULT_GUN
+      filters.melee !== DEFAULT_GUN ||
+      filters.selectedReleases.length < 2
     )
   }
 
@@ -79,8 +64,23 @@ export default function CommunityBuildFilters({ onUpdate }: Props) {
     })
   }
 
+  function handleReleaseChange(release: ReleaseKey) {
+    let newReleases = [...filters.selectedReleases]
+
+    if (newReleases.includes(release)) {
+      newReleases = newReleases.filter((r) => r !== release)
+    } else {
+      newReleases.push(release)
+    }
+
+    setFilters({
+      ...filters,
+      selectedReleases: newReleases,
+    })
+  }
+
   return (
-    <FiltersContainer<CommunityBuildFilterProps>
+    <FiltersContainer<ByReleaseFilters>
       areAnyFiltersActive={areAnyFiltersActive()}
       filters={filters}
       onApplyFilters={onUpdate}
@@ -97,6 +97,10 @@ export default function CommunityBuildFilters({ onUpdate }: Props) {
         onChange={(weapon: string, type: 'longGun' | 'handGun' | 'melee') =>
           handleWeaponChange(weapon, type)
         }
+      />
+      <ReleaseFilters
+        selectedReleases={filters.selectedReleases}
+        onChange={(release: ReleaseKey) => handleReleaseChange(release)}
       />
     </FiltersContainer>
   )

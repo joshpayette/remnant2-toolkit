@@ -6,7 +6,7 @@ import CreatorBuilds from '../../features/build/components/FeaturedBuilds'
 import { signIn, useSession } from 'next-auth/react'
 import { useState } from 'react'
 import MostPopularBuilds from '../../features/build/components/MostPopularBuilds'
-import CommunityBuildFilters from '@/features/build/components/CommunityBuildFilters'
+import CommunityBuildFilters from '@/features/filters/components/CommunityBuildFilters'
 import { CommunityBuildFilterProps } from '@/features/filters/types'
 import { DEFAULT_COMMUNITY_BUILD_FILTERS } from '@/features/filters/constants'
 

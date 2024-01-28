@@ -3,7 +3,7 @@
 import PageHeader from '@/features/ui/PageHeader'
 import CreatorBuilds from '@/features/build/components/FeaturedBuilds'
 import { useState } from 'react'
-import CommunityBuildFilters from '@/features/build/components/CommunityBuildFilters'
+import CommunityBuildFilters from '@/features/filters/components/CommunityBuildFilters'
 import { CommunityBuildFilterProps } from '@/features/filters/types'
 import { DEFAULT_COMMUNITY_BUILD_FILTERS } from '@/features/filters/constants'
 

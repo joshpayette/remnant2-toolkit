@@ -88,3 +88,8 @@ export const MODIFIERS: Modifier[] = [
     description: 'Damage is multiplicative with other sources of damage',
   },
 ]
+
+export const RELEASE_TO_NAME = {
+  base: 'Base Game',
+  dlc1: 'The Awakened King',
+} as const

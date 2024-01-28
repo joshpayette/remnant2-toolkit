@@ -35,7 +35,7 @@ export default function WeaponFilters({
     <div className="col-span-full pt-2">
       <div className="flex w-full flex-col items-start justify-start gap-x-4 gap-y-2">
         <span className="flex items-center justify-start text-left text-sm font-bold text-green-500">
-          By Weapons
+          By Weapon
         </span>
         <div className="grid grid-cols-1 gap-x-8 text-left sm:grid-cols-3">
           <SelectMenu

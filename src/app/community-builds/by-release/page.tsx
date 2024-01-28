@@ -7,27 +7,36 @@ import usePagination from '@/features/pagination/hooks/usePagination'
 import { DBBuild } from '@/features/build/types'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
-import { getBuilds } from './actions'
-import Skeleton from '@/features/ui/Skeleton'
-import { cn } from '@/lib/classnames'
-import ClearFiltersButton from '@/features/filters/components/ClearFiltersButton'
-import useBuildActions from '@/features/build/hooks/useBuildActions'
-import { toast } from 'react-toastify'
-import { DLCKey, DLC_TO_NAME } from '@/features/items/dlc/types'
-import { isErrorResponse } from '@/features/error-handling/lib/isErrorResponse'
-import { Checkbox } from '@/features/ui/Checkbox'
-import { dbBuildToBuildState } from '@/features/build/lib/dbBuildToBuildState'
+import { getBuildsByRelease } from '@/features/build/actions/getBuildsByRelease'
+import { CommunityBuildFilterProps } from '@/features/filters/types'
+import { DEFAULT_COMMUNITY_BUILD_FILTERS } from '@/features/filters/constants'
+import { ReleaseKey } from '@/features/items/types'
+import ByReleaseFilters from '@/features/filters/components/ReleaseFilters'
+import BuildListFilters from '@/features/build/components/BuildListFilters'
+import ByReleaseBuildFilters from '@/features/filters/components/ByReleaseBuildFilters'
 
-const ITEMS_PER_PAGE = 8
-const DEFAULT_DLC_ITEMS: DLCKey[] = ['base', 'dlc1']
+export type SortFilter = 'date created' | 'upvotes'
+
+export type ByReleaseFilters = CommunityBuildFilterProps & {
+  selectedReleases: ReleaseKey[]
+}
+
+const itemsPerPage = 24
+const sortFilterOptions: SortFilter[] = ['date created', 'upvotes']
+
+export const DEFAULT_BY_RELEASE_FILTERS: ByReleaseFilters = {
+  ...DEFAULT_COMMUNITY_BUILD_FILTERS,
+  selectedReleases: ['base', 'dlc1'],
+}
 
 export default function Page() {
   const [builds, setBuilds] = useState<DBBuild[]>([])
   const [totalBuildCount, setTotalBuildCount] = useState<number>(0)
-  const [specifiedDLCItems, setSpecifiedDLCItems] =
-    useState<DLCKey[]>(DEFAULT_DLC_ITEMS)
   const [isLoading, setIsLoading] = useState(true)
-  const [filters, setFilters] = useState<DLCKey[]>(DEFAULT_DLC_ITEMS)
+  const [sortFilter, setSortFilter] = useState<SortFilter>('upvotes')
+  const [byReleaseFilters, setByReleaseFilters] = useState<ByReleaseFilters>(
+    DEFAULT_BY_RELEASE_FILTERS,
+  )
 
   const {
     currentPage,
@@ -40,60 +49,31 @@ export default function Page() {
     handlePreviousPageClick,
   } = usePagination({
     totalItemCount: totalBuildCount,
-    itemsPerPage: ITEMS_PER_PAGE,
+    itemsPerPage,
   })
 
-  const { handleReportBuild } = useBuildActions()
-
   useEffect(() => {
-    async function getBuildsByRelease() {
-      const response = await getBuilds({
-        itemsPerPage: ITEMS_PER_PAGE,
+    async function getItemsAsync() {
+      const response = await getBuildsByRelease({
+        itemsPerPage,
         pageNumber: currentPage,
-        specifiedDLCItems,
+        sortFilter,
+        byReleaseFilters,
       })
       setBuilds(response.items)
       setTotalBuildCount(response.totalItemCount)
       setIsLoading(false)
     }
 
-    getBuildsByRelease()
-  }, [currentPage, specifiedDLCItems])
+    getItemsAsync()
+  }, [currentPage, sortFilter, byReleaseFilters])
 
-  function clearFilters() {
-    setFilters(DEFAULT_DLC_ITEMS)
+  function handleSortFilterChange(filter: string) {
+    setSortFilter(filter as SortFilter)
   }
 
-  const areAnyFiltersActive = () => {
-    return filters.length !== DEFAULT_DLC_ITEMS.length
-  }
-
-  async function onReportBuild(buildId: string) {
-    const reportedBuild = builds.find((build) => build.id === buildId)
-
-    if (!reportedBuild) {
-      console.error(`Could not find build with id ${buildId}, report not saved`)
-      return
-    }
-    const newReported = !reportedBuild.reported
-    const response = await handleReportBuild(
-      dbBuildToBuildState(reportedBuild),
-      newReported,
-    )
-
-    if (!response || isErrorResponse(response)) {
-      console.error(response?.errors)
-      toast.error(response?.errors?.[0])
-    } else {
-      toast.success(response.message)
-      const newBuilds = builds.map((build) => {
-        if (build.id === buildId) {
-          build.reported = newReported
-        }
-        return build
-      })
-      setBuilds(newBuilds)
-    }
+  function handleChangeFilters(filters: ByReleaseFilters) {
+    setByReleaseFilters(filters)
   }
 
   return (
@@ -101,83 +81,11 @@ export default function Page() {
       <PageHeader
         title="Builds By Release"
         subtitle="Browse all community builds that contain only items from specific releases"
-      >
-        <div
-          className={cn(
-            'h-full max-h-fit max-w-lg transform overflow-y-auto border-2 border-green-500 bg-black px-4 pb-4 pt-4 text-left shadow-lg shadow-green-500/50 sm:my-8 sm:p-6',
-            areAnyFiltersActive() &&
-              'border-yellow-500 shadow-xl shadow-yellow-500/50',
-          )}
-        >
-          <div className="grid-cols-full grid gap-x-8 gap-y-4 divide-y divide-green-800 bg-black">
-            {areAnyFiltersActive() && (
-              <div className="col-span-full flex items-center justify-end">
-                <ClearFiltersButton onClick={clearFilters} />
-              </div>
-            )}
+      />
 
-            <div className="col-span-full pt-2">
-              <div className="flex w-full flex-col items-start justify-start gap-x-4 gap-y-2">
-                <span className="flex items-start justify-start text-left text-sm font-bold text-green-500">
-                  By Release
-                </span>
-                <div className="text-xs">
-                  <button className="underline" onClick={() => setFilters([])}>
-                    Uncheck All
-                  </button>{' '}
-                  /{' '}
-                  <button
-                    className="underline"
-                    onClick={() => setFilters(DEFAULT_DLC_ITEMS)}
-                  >
-                    Check All
-                  </button>
-                </div>
-
-                <div className="grid grid-cols-2 text-left">
-                  {DEFAULT_DLC_ITEMS.map((key) => {
-                    const dlcName = DLC_TO_NAME[key]
-                    return (
-                      <div key={key}>
-                        <Checkbox
-                          label={dlcName}
-                          name={`dlc-${key}`}
-                          checked={filters.includes(key)}
-                          onChange={() => {
-                            let newFilters = []
-                            if (filters.includes(key)) {
-                              newFilters = filters.filter(
-                                (item) => item !== key,
-                              )
-                            } else {
-                              newFilters = [...filters, key]
-                            }
-                            setFilters(newFilters)
-                          }}
-                        />
-                      </div>
-                    )
-                  })}
-                </div>
-              </div>
-            </div>
-
-            <div className="col-span-full flex items-center justify-end pt-4">
-              {isLoading ? (
-                <Skeleton />
-              ) : (
-                <button
-                  className="rounded-lg bg-green-500 p-2 text-sm font-bold text-white hover:bg-green-700"
-                  onClick={() => setSpecifiedDLCItems(filters)} // TODO
-                  disabled={isLoading}
-                >
-                  Apply Filters
-                </button>
-              )}
-            </div>
-          </div>
-        </div>
-      </PageHeader>
+      <div className="mb-8 flex w-full max-w-2xl items-center justify-center">
+        <ByReleaseBuildFilters onUpdate={handleChangeFilters} />
+      </div>
 
       <BuildList
         label="Build Results"
@@ -191,13 +99,19 @@ export default function Page() {
         onPreviousPage={handlePreviousPageClick}
         onNextPage={handleNextPageClick}
         onSpecificPage={handleSpecificPageClick}
-        headerActions={undefined}
+        headerActions={
+          <BuildListFilters
+            filter={sortFilter}
+            onFilterChange={handleSortFilterChange}
+            options={sortFilterOptions}
+          />
+        }
       >
         {builds.map((build) => (
           <div key={build.id} className="h-full w-full">
             <BuildCard
               build={build}
-              onReportBuild={onReportBuild}
+              onReportBuild={undefined}
               footerActions={
                 <div className="flex items-center justify-end gap-2 p-2 text-sm">
                   <Link

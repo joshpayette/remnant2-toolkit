@@ -1,42 +1,49 @@
 'use server'
 
+import { PaginationResponse } from '@/features/pagination/hooks/usePagination'
+import { getServerSession } from '@/features/auth/lib'
+import { DBBuild } from '@/features/build/types'
 import { prisma } from '@/features/db'
 import { Prisma } from '@prisma/client'
 import { DEFAULT_DISPLAY_NAME } from '@/features/profile/constants'
 import { bigIntFix } from '@/lib/bigIntFix'
-import { DBBuild } from '../types'
-import { PaginationResponse } from '@/features/pagination/hooks/usePagination'
-import { getServerSession } from '@/features/auth/lib'
+import {
+  ByReleaseFilters,
+  SortFilter,
+} from '@/app/community-builds/by-release/page'
 import {
   archtypeFiltersToIds,
   limitByArchtypesSegment,
 } from '@/features/filters/queries/segments/limitByArchtypes'
 import {
-  communityBuildsCountQuery,
-  communityBuildsQuery,
-} from '@/features/filters/queries/community-builds'
-import {
   limitByWeaponsSegment,
   weaponFiltersToIds,
 } from '@/features/filters/queries/segments/limitByWeapons'
-import { CommunityBuildFilterProps } from '@/features/filters/types'
-import { SortFilter } from '../components/FeaturedBuilds'
+import {
+  communityBuildsCountQuery,
+  communityBuildsQuery,
+} from '@/features/filters/queries/community-builds'
+import { limitByReleasesSegment } from '@/features/filters/queries/segments/limitByRelease'
 
-export async function getFeaturedBuilds({
+export async function getBuildsByRelease({
+  sortFilter,
   itemsPerPage,
   pageNumber,
-  sortFilter,
-  communityBuildFilters,
+  byReleaseFilters,
 }: {
+  sortFilter: SortFilter
   itemsPerPage: number
   pageNumber: number
-  sortFilter: SortFilter
-  communityBuildFilters: CommunityBuildFilterProps
+  byReleaseFilters: ByReleaseFilters
 }): Promise<PaginationResponse<DBBuild>> {
   const session = await getServerSession()
   const userId = session?.user?.id
 
-  const { archtypes, longGun, handGun, melee } = communityBuildFilters
+  const { archtypes, longGun, handGun, melee, selectedReleases } =
+    byReleaseFilters
+
+  if (selectedReleases.length === 0) return { items: [], totalItemCount: 0 }
+
   const archtypeIds = archtypeFiltersToIds({ archtypes })
   const weaponIds = weaponFiltersToIds({ longGun, handGun, melee })
 
@@ -44,7 +51,7 @@ export async function getFeaturedBuilds({
   WHERE Build.isPublic = true
   ${limitByArchtypesSegment(archtypeIds)}
   ${limitByWeaponsSegment(weaponIds)}
-  AND Build.isFeaturedBuild = true
+  ${limitByReleasesSegment(selectedReleases)}
   `
 
   const orderBySegment =
@@ -69,7 +76,7 @@ export async function getFeaturedBuilds({
   const totalBuildCountResponse = await communityBuildsCountQuery({
     whereConditions,
   })
-  const totalBuilds = totalBuildCountResponse[0].totalBuildCount
+  const totalBuildCount = totalBuildCountResponse[0].totalBuildCount
 
   // Find all build items for each build
   for (const build of builds) {
@@ -90,14 +97,17 @@ export async function getFeaturedBuilds({
     createdById: build.createdById,
     createdAt: build.createdAt,
     updatedAt: build.updatedAt,
-    createdByDisplayName:
-      build.createdByDisplayName || build.createdByName || DEFAULT_DISPLAY_NAME,
     totalUpvotes: build.totalUpvotes,
-    upvoted: build.upvoted,
     reported: build.reported,
     isMember: build.isPaidUser,
-    buildItems: build.buildItems,
+    createdByDisplayName:
+      build.createdByDisplayName || build.createdByName || DEFAULT_DISPLAY_NAME,
+    upvoted: build.upvoted,
+    buildItems: [],
   }))
 
-  return bigIntFix({ items: returnedBuilds, totalItemCount: totalBuilds })
+  return bigIntFix({
+    items: returnedBuilds,
+    totalItemCount: totalBuildCount,
+  })
 }
