@@ -9,8 +9,8 @@ import { FilteredItem } from '@/features/items/hooks/useFilteredItems'
 import { remnantItemCategories } from '@/features/items/data'
 import { capitalize } from '@/lib/capitalize'
 import { Checkbox } from '@/features/ui/Checkbox'
-import { ReleaseKey } from '../../types'
-import { RELEASE_TO_NAME } from '../../constants'
+import { ReleaseKey } from '../../features/items/types'
+import { RELEASE_TO_NAME } from '../../features/items/constants'
 
 type FilterItemCategory = ItemCategory
 
