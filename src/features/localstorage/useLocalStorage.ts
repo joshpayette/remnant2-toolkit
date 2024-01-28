@@ -7,6 +7,7 @@ interface LocalStorage {
     discoveredItemIds: string[]
     collapsedCategories: Array<GenericItem['category']>
   }
+  sortingPreference: 'alphabetical' | 'in-game'
 }
 
 const initialValue: LocalStorage = {
@@ -14,6 +15,7 @@ const initialValue: LocalStorage = {
     discoveredItemIds: [],
     collapsedCategories: [],
   },
+  sortingPreference: 'alphabetical',
 }
 
 export const useLocalStorage = () => {
@@ -42,10 +44,16 @@ export const useLocalStorage = () => {
   }
   const collapsedCategories = itemTrackerStorage.collapsedCategories
 
+  const [sortingPreference, setSortingPreference] = useLS<
+    LocalStorage['sortingPreference']
+  >('sorting-preference', initialValue.sortingPreference)
+
   return {
     collapsedCategories,
     setCollapsedCategories,
     discoveredItemIds,
     setDiscoveredItemIds,
+    sortingPreference,
+    setSortingPreference,
   }
 }

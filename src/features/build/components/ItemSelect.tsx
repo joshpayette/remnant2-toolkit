@@ -9,6 +9,34 @@ import { GenericItem } from '@/features/items/types/GenericItem'
 import ItemInfo from '@/features/items/components/ItemInfo'
 import { AdjustmentsHorizontalIcon } from '@heroicons/react/24/solid'
 import { cn } from '@/lib/classnames'
+import { useLocalStorage } from '@/features/localstorage/useLocalStorage'
+import { capitalize } from '@/lib/capitalize'
+
+function sortByPreference({
+  items,
+  buildSlot,
+  sortingPreference,
+}: {
+  items: GenericItem[]
+  buildSlot: GenericItem['category'] | null
+  sortingPreference: 'alphabetical' | 'in-game'
+}) {
+  if (buildSlot !== 'trait') return items
+
+  if (sortingPreference === 'alphabetical') {
+    return [...items].sort((a, b) => a.name.localeCompare(b.name))
+  } else {
+    const archtypeTraits = items
+      .filter((item) => item.linkedItems?.archtype)
+      .sort((a, b) => a.name.localeCompare(b.name))
+
+    const nonArchtypeTraits = items
+      .filter((item) => !item.linkedItems?.archtype)
+      .sort((a, b) => a.name.localeCompare(b.name))
+
+    return [...archtypeTraits, ...nonArchtypeTraits]
+  }
+}
 
 export default function ItemSelect({
   itemList,
@@ -27,9 +55,7 @@ export default function ItemSelect({
   const [infoItem, setInfoItem] = useState<GenericItem | null>(null)
 
   const [filter, setFilter] = useState('')
-  const [sortingMethod, setSortingMethod] = useState<
-    'alphabetical' | 'in-game'
-  >('alphabetical')
+  const { sortingPreference, setSortingPreference } = useLocalStorage()
 
   const [filteredItemList, setFilteredItemList] = useState(itemList)
   const debouncedFilter = useDebounce(filter, 500)
@@ -38,41 +64,41 @@ export default function ItemSelect({
     const filteredItems = itemList.filter((item) =>
       item.name.toLowerCase().includes(debouncedFilter.toLowerCase()),
     )
-    setFilteredItemList(filteredItems)
-  }, [debouncedFilter, itemList])
+
+    const sortedItems =
+      buildSlot === 'trait'
+        ? sortByPreference({
+            items: filteredItems,
+            buildSlot,
+            sortingPreference,
+          })
+        : filteredItems
+
+    setFilteredItemList(sortedItems)
+  }, [debouncedFilter, itemList, buildSlot, sortingPreference])
 
   // Reset filter when dialog is opened/closed
   useEffect(() => {
     setFilter('')
   }, [open])
 
-  function toggleSortingMethod() {
-    const newSortingMethod =
-      sortingMethod === 'alphabetical' ? 'in-game' : 'alphabetical'
-
+  function handleSortingPreferenceToggle() {
     if (buildSlot !== 'trait') return
 
-    if (newSortingMethod === 'alphabetical') {
-      setFilteredItemList((prev) =>
-        [...prev].sort((a, b) => a.name.localeCompare(b.name)),
-      )
-    } else {
-      const archtypeTraits = filteredItemList
-        .filter((item) => item.linkedItems?.archtype)
-        .sort((a, b) => a.name.localeCompare(b.name))
+    const newSortingPreference =
+      sortingPreference === 'alphabetical' ? 'in-game' : 'alphabetical'
 
-      const nonArchtypeTraits = filteredItemList
-        .filter((item) => !item.linkedItems?.archtype)
-        .sort((a, b) => a.name.localeCompare(b.name))
+    const sortedItems = sortByPreference({
+      items: filteredItemList,
+      buildSlot,
+      sortingPreference: newSortingPreference,
+    })
 
-      setFilteredItemList([...archtypeTraits, ...nonArchtypeTraits])
-    }
-
-    setSortingMethod(newSortingMethod)
+    setFilteredItemList(sortedItems)
+    setSortingPreference(newSortingPreference)
   }
 
   if (!buildSlot) return null
-
   if (!isClient) return null
 
   return (
@@ -104,12 +130,10 @@ export default function ItemSelect({
             <div className="col-span-1 flex items-center justify-start">
               <button
                 className="flex items-center justify-center text-sm text-gray-400 hover:text-green-500"
-                onClick={toggleSortingMethod}
+                onClick={handleSortingPreferenceToggle}
               >
                 <AdjustmentsHorizontalIcon className="mr-2 h-6 w-6" />
-                {sortingMethod === 'alphabetical'
-                  ? 'Alphabetical'
-                  : 'In-Game Ordering'}
+                {capitalize(sortingPreference)}
               </button>
             </div>
           )}
