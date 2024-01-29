@@ -308,20 +308,25 @@ export function getWeightClass(buildState: BuildState) {
   )
   const totalWeightThresholdTrait =
     equippedWeightThresholdTraits.reduce(
-      (acc, item) => acc + (item.weightThresholds[0] * item.amount ?? 0),
+      (acc, item) => acc + (item.weightThresholds[item.amount - 1] ?? 0),
       0,
     ) || 0
 
-  totalWeight -= totalWeightThreshold + totalWeightThresholdTrait
+  const combinedWeightThreshold =
+    totalWeightThreshold + totalWeightThresholdTrait
+
+  console.info('totalWeightThreshold', totalWeightThreshold)
+  console.info('totalWeightThresholdTrait', totalWeightThresholdTrait)
+  console.info('combinedWeightThreshold', combinedWeightThreshold)
 
   let weightClass = WEIGHT_CLASSES.LIGHT
-  if (totalWeight > WEIGHT_CLASSES.LIGHT.maxWeight) {
+  if (totalWeight > WEIGHT_CLASSES.LIGHT.maxWeight + combinedWeightThreshold) {
     weightClass = WEIGHT_CLASSES.MEDIUM
   }
-  if (totalWeight > WEIGHT_CLASSES.MEDIUM.maxWeight) {
+  if (totalWeight > WEIGHT_CLASSES.MEDIUM.maxWeight + combinedWeightThreshold) {
     weightClass = WEIGHT_CLASSES.HEAVY
   }
-  if (totalWeight > WEIGHT_CLASSES.HEAVY.maxWeight) {
+  if (totalWeight > WEIGHT_CLASSES.HEAVY.maxWeight + combinedWeightThreshold) {
     weightClass = WEIGHT_CLASSES.ULTRA
   }
 
