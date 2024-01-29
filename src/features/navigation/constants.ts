@@ -46,7 +46,7 @@ export const NAV_ITEMS = [
     icon: InformationCircleIcon,
   },
   {
-    name: 'Support the Tool!',
+    name: 'Support R2TK!',
     description:
       'Help support the development of the Remnant 2 Toolkit, plus get some cool perks!',
     href: 'https://www.patreon.com/JoshPayette/membership',
