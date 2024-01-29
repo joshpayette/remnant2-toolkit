@@ -106,11 +106,7 @@ function highlightModifierTokens(parts: (string | JSX.Element)[]) {
           // if this token part is a token, replace it with a Tippy component
           return (
             <Tooltip
-              content={
-                <span className={cn(modifier.color, 'bg-black p-2 text-xs')}>
-                  {modifier.description}
-                </span>
-              }
+              content={modifier.description}
               key={`${index}-${tokenIndex}`}
             >
               <button className={cn('font-semibold', modifier.color)}>

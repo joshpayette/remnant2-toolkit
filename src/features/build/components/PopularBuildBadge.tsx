@@ -4,13 +4,7 @@ import { POPULAR_VOTE_THRESHOLD } from '../constants'
 
 export default function PopularBuildBadge() {
   return (
-    <Tooltip
-      content={
-        <span className="rounded-md border-2 border-cyan-500 bg-black p-2">
-          Awarded to builds that exceed {POPULAR_VOTE_THRESHOLD} favorites!
-        </span>
-      }
-    >
+    <Tooltip content="Awarded to builds that exceed {POPULAR_VOTE_THRESHOLD} favorites!">
       <Image
         src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/badges/crystal_small.png`}
         width={43}

@@ -127,15 +127,11 @@ export const ActionButton = {
     onClick,
     totalUpvotes,
   }: ButtonProps & { active: boolean; totalUpvotes: number }) => (
-    <Tippy
-      touch={false}
-      arrow
+    <Tooltip
       content={
-        <span className="rounded-md border-2 border-orange-500 bg-black p-2 text-sm text-yellow-500">
-          {active
-            ? 'Unfavorite build and remove your vote.'
-            : 'Favorite the build to save it to your profile!'}
-        </span>
+        active
+          ? 'Unfavorite build and remove your vote.'
+          : 'Favorite the build to save it to your profile!'
       }
     >
       <button
@@ -165,7 +161,7 @@ export const ActionButton = {
           <span className="text-md">{active ? 'Unfavorite' : 'Favorite'}</span>
         </div>
       </button>
-    </Tippy>
+    </Tooltip>
   ),
 }
 

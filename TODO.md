@@ -1,6 +1,6 @@
 # TODO
 
-- Add color variants to tooltip
+- Swap community build filters from internal state to url state
 - Make armour weight tooltip account for https://remnant2.wiki.fextralife.com/Powerlifter
 - Have stat tooltips show the items contributing to the calculations
 - Add a way to track items on a second character

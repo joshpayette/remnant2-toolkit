@@ -74,17 +74,7 @@ export default function Stats({ buildState, isScreenshotMode }: Props) {
                 weightClass.textColor,
               )}
             >
-              <Tooltip
-                content={
-                  <span
-                    className={cn(
-                      'rounded-lg border-2 border-cyan-500 bg-cyan-900 p-2 text-sm text-white',
-                    )}
-                  >
-                    {weightClass.description}
-                  </span>
-                }
-              >
+              <Tooltip content={weightClass.description}>
                 <button>{totalWeight}</button>
               </Tooltip>
             </span>

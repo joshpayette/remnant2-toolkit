@@ -71,13 +71,7 @@ export default function BuildCard({
               </div>
               <div className="flex flex-row items-center justify-end gap-x-2">
                 {onReportBuild && (
-                  <Tooltip
-                    content={
-                      <span className="rounded-md border border-red-500 bg-black p-2 text-xs text-red-500">
-                        Report this build
-                      </span>
-                    }
-                  >
+                  <Tooltip content="Report this build">
                     <button
                       onClick={() => onReportBuild(build.id)}
                       className="flex items-center justify-end text-right text-red-500"
@@ -90,13 +84,7 @@ export default function BuildCard({
                     </button>
                   </Tooltip>
                 )}
-                <Tooltip
-                  content={
-                    <span className="rounded-md border border-yellow-500 bg-black p-2 text-xs text-yellow-500">
-                      Total Favorites
-                    </span>
-                  }
-                >
+                <Tooltip content="Total Favorites">
                   <button className="flex items-center justify-end text-right text-yellow-500">
                     <StarIcon className="mr-1 h-4 w-4" /> {build.totalUpvotes}
                   </button>
