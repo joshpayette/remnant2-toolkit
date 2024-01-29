@@ -26,7 +26,7 @@ export default function NavBar() {
         className="z-40 mx-auto flex w-full items-center justify-between bg-background px-4 py-6"
         aria-label="Global"
       >
-        <div className="flex min-w-[250px]">
+        <div className="flex min-w-[200px]">
           <Logo />
         </div>
         <div className="flex lg:hidden">
