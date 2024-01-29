@@ -81,7 +81,7 @@ export type CommunityBuildQueryResponse = Array<
     createdByName: string
     displayName: string
     name: string
-    isPaidUser: boolean
+    isMember: boolean
     reported: boolean
     totalUpvotes: number
     totalReports: number

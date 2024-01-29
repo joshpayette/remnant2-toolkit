@@ -56,7 +56,7 @@ export default function HomePage() {
             <div className="mt-6 text-lg leading-8 text-gray-300">
               <Link
                 href="/community-builds"
-                className="underline hover:text-green-500"
+                className="hover:text-green-500 hover:underline"
               >
                 Search the community&apos;s{' '}
                 <span className="text-2xl font-bold text-green-500">
@@ -65,11 +65,17 @@ export default function HomePage() {
                 submitted builds
               </Link>
               ,{' '}
-              <Link href="/builder" className="underline hover:text-green-500">
+              <Link
+                href="/builder"
+                className="hover:text-green-500 hover:underline"
+              >
                 create your own builds
               </Link>
               ,{' '}
-              <Link href="/tracker" className="underline hover:text-green-500">
+              <Link
+                href="/tracker"
+                className="hover:text-green-500 hover:underline"
+              >
                 track your collectibles
               </Link>
               , and more!
@@ -77,13 +83,12 @@ export default function HomePage() {
             <p className="mt-6 text-lg leading-8 text-gray-300">
               <span className="font-bold text-green-500">100% free</span> and{' '}
               <span className="font-bold text-green-500">open source</span>{' '}
-              toolkit for Remnant 2. Find and share builds, track your
-              collectibles, and more!
+              toolkit for Remnant 2. No ads, no tracking, no BS.
             </p>
             <p className="mt-6 text-lg leading-8 text-gray-300">
               <span className="font-bold text-white">No login required</span> to
               start creating builds, searching for builds, or tracking your
-              collectibles,
+              collectibles!
             </p>
           </div>
           <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-6 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-8">
