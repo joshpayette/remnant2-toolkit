@@ -43,7 +43,7 @@ SELECT Build.*,
   (SELECT COUNT(*) FROM BuildVoteCounts WHERE BuildVoteCounts.buildId = Build.id) as totalUpvotes,
   COUNT(BuildReports.id) as totalReports,
   (SELECT MAX(updatedAt) FROM BuildVoteCounts WHERE BuildVoteCounts.buildId = Build.id AND userId = ${userId}) as latestVoteUpdatedAt,
-  CASE WHEN PaidUsers.userId IS NOT NULL THEN true ELSE false END as isPaidUser
+  CASE WHEN PaidUsers.userId IS NOT NULL THEN true ELSE false END as isMember
 FROM Build
 LEFT JOIN BuildVoteCounts ON Build.id = BuildVoteCounts.buildId
 LEFT JOIN User on Build.createdById = User.id

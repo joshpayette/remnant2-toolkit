@@ -29,7 +29,7 @@ function userUpvotedBuildSegment(userId: string | undefined) {
 
 function userPaidSegment() {
   return Prisma.sql`
-  CASE WHEN PaidUsers.userId IS NOT NULL THEN true ELSE false END as isPaidUser
+  CASE WHEN PaidUsers.userId IS NOT NULL THEN true ELSE false END as isMember
   `
 }
 

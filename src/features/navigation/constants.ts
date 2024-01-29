@@ -20,7 +20,8 @@ export const NAV_ITEMS = [
   },
   {
     name: 'Community Builds',
-    description: 'A collection of builds aggregated from various sources.',
+    description:
+      'A collection of builds submitted and ranked by the community.',
     href: '/community-builds',
     icon: ListBulletIcon,
   },

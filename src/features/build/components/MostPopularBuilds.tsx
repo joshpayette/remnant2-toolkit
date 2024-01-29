@@ -57,6 +57,7 @@ export default function MostPopularBuilds({
         timeRange,
         communityBuildFilters,
       })
+
       setBuilds(response.items)
       setTotalBuildCount(response.totalItemCount)
       setIsLoading(false)
