@@ -16,8 +16,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Added report build icon back to community build cards
 - Fixed bug where Favorited Builds were not showing up in order of date favorited when sorting by date favorited
-- Fixed a bug where percentages would show as NaN on the item tracker.
-- Fixed bug in Zealot's Hat weight and armor stats.
+- Fixed a bug where percentages would show as NaN on the item tracker
+- Fixed bug in Zealot's Hat weight and armor stats
+- Fixed a bug with weight threshold calculations not doing what it should be at all
 
 ### Changed
 
