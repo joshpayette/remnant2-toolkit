@@ -1,7 +1,8 @@
 # TODO
 
+- Add prompt to auto suggest armor to fit a certain weight class, then autofill into the builder.
+- In addition to date created, allow sort by date updated
 - Swap community build filters from internal state to url state
-- Make armour weight tooltip account for https://remnant2.wiki.fextralife.com/Powerlifter
 - Have stat tooltips show the items contributing to the calculations
 - Add a way to track items on a second character
 - Add tracker of world bosses
@@ -12,6 +13,7 @@
 - On tracker, allowing sorting alphabetically or by item type (i.e. group armors together)
 - Add CSV import to tracker
 - Make random builds work with only owned items?
+- Make armour weight tooltip account for https://remnant2.wiki.fextralife.com/Powerlifter
 
 ## Bugs
 
