@@ -571,7 +571,7 @@ export const remnantItems: Item[] = [
     
     AMBUSH: Increases Ranged and Melee Damage by 50% which diminishes over its duration. Ranged and Melee attacks apply MARK. 
     
-    HUNTER will automatically Shorud again after 1.15s if no offensive action are performed. 
+    HUNTER will automatically Shroud again after 1.15s if no offensive action are performed. 
     
     Lasts 15s. 
     
