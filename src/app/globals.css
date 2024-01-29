@@ -37,6 +37,8 @@ body > div:last-child > span + img {
   color: #fff;
   border-width: 1px;
   border-color: rgb(34 211 238);
+  font-size: 0.75rem/* 12px */;
+  line-height: 1rem/* 16px */;
 }
 
 .tippy-box[data-theme~='r2tk'][data-placement^='top'] > .tippy-arrow::before {
