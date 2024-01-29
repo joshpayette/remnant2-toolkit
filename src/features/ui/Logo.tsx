@@ -13,7 +13,9 @@ export default function Logo({ showUrl = false }: { showUrl?: boolean }) {
         loading="eager"
       />
       <div className="flex flex-col gap-0">
-        <span className="mb-0 pb-0 text-white">Remnant2Toolkit</span>
+        <span className="font-semi mb-0 pb-0 text-sm text-white">
+          Remnant2Toolkit
+        </span>
         {showUrl && (
           <span className="text-xs text-gray-400">remnant2toolkit.com</span>
         )}
