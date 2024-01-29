@@ -46,7 +46,7 @@ export default function NavBar() {
               href={item.href}
               className={cn(
                 'text-md font-semibold text-white hover:text-green-400',
-                item.name === 'Support the Tool!' &&
+                item.name === 'Support R2TK!' &&
                   'text-green-400 underline hover:text-green-500',
               )}
               target={item.name === 'Support the Tool' ? '_blank' : undefined}
