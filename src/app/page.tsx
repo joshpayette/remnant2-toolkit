@@ -86,8 +86,10 @@ export default function HomePage() {
               toolkit for Remnant 2. No ads, no tracking, no BS.
             </p>
             <p className="mt-6 text-lg leading-8 text-gray-300">
-              <span className="font-bold text-white">No login required</span> to
-              start creating builds, searching for builds, or tracking your
+              <span className="font-bold text-green-500">
+                No login required
+              </span>{' '}
+              to start creating builds, searching for builds, or tracking your
               collectibles!
             </p>
           </div>
