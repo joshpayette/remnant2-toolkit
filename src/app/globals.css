@@ -31,3 +31,23 @@ body > div:last-child > span + img {
   width: 100%;
   height: 100%;
 }
+
+.tippy-box[data-theme~='r2tk'] {
+  background-color: rgb(22 78 99);
+  color: #fff;
+  border-width: 1px;
+  border-color: rgb(34 211 238);
+}
+
+.tippy-box[data-theme~='r2tk'][data-placement^='top'] > .tippy-arrow::before {
+  border-top-color: rgb(22 78 99);
+}
+.tippy-box[data-theme~='r2tk'][data-placement^='bottom'] > .tippy-arrow::before {
+  border-bottom-color: rgb(22 78 99);
+}
+.tippy-box[data-theme~='r2tk'][data-placement^='left'] > .tippy-arrow::before {
+  border-left-color: rgb(22 78 99);
+}
+.tippy-box[data-theme~='r2tk'][data-placement^='right'] > .tippy-arrow::before {
+  border-right-color: rgb(22 78 99);
+}

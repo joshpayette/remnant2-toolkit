@@ -1,22 +1,21 @@
-import Tippy from '@tippyjs/react'
-
-// TODO add color variants to use throughout the site
-
-interface Props {
-  arrow?: boolean
-  children: React.ReactElement
-  content: React.ReactNode
-  interactive?: boolean
-}
+import Tippy, { TippyProps } from '@tippyjs/react'
+import 'tippy.js/dist/tippy.css'
 
 export default function Tooltip({
-  arrow,
-  children,
+  arrow = false,
+  interactive = true,
   content,
-  interactive = false,
-}: Props) {
+  children,
+  ...rest
+}: TippyProps) {
   return (
-    <Tippy arrow={arrow} interactive={interactive} content={content}>
+    <Tippy
+      arrow={arrow}
+      interactive={interactive}
+      content={content}
+      {...rest}
+      theme="r2tk"
+    >
       {children}
     </Tippy>
   )
