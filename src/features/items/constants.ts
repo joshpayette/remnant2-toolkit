@@ -87,6 +87,36 @@ export const MODIFIERS: Modifier[] = [
     color: 'text-orange-300',
     description: 'Damage is multiplicative with other sources of damage',
   },
+  {
+    type: 'bleeding',
+    token: 'BLEEDING',
+    color: 'text-[#a63838]',
+    description: 'Deals Physical Damage. Reduces healing effects by 50%.',
+  },
+  {
+    type: 'burning',
+    token: 'BURNING',
+    color: 'text-[#b65d30]',
+    description: '',
+  },
+  {
+    type: 'overloaded',
+    token: 'OVERLOADED',
+    color: 'text-[#7676af]',
+    description: '',
+  },
+  {
+    type: 'corroded',
+    token: 'CORRODED',
+    color: 'text-[#30b65d]',
+    description: '',
+  },
+  {
+    type: 'shield',
+    token: 'SHIELD',
+    color: 'text-[#f1f1cf]',
+    description: '',
+  },
 ]
 
 export const RELEASE_TO_NAME = {
