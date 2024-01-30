@@ -655,7 +655,7 @@ export const remnantItems: Item[] = [
     name: 'Reality Rune',
     imagePath: '/skill/reality_rune.png',
     id: 'i3ddi7',
-    description: `Conjures a 7m protective dome which applies SLOW to any enemy or enemy projectiles.  Allies inside gain 25% [∗] Damage Reduction. Lasts 15s.`,
+    description: `Conjures a 7m protective dome which applies SLOW to any enemy or enemy projectiles.  Allies inside gain 25% Damage Reduction. Lasts 15s.`,
     cooldown: 75,
     howToGet: `Unlocks automatically`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Reality+Rune`],
@@ -789,7 +789,7 @@ export const remnantItems: Item[] = [
     id: 'a2cik2',
     description: `Dig into the ground to spring a fountain which grants a random buff. Fountains last 45s and their buffs last 20s.
 
-    Fountains can grant either: 10% increased damage, 15% [∗] damage reduction, 2 Health Regeneration per second, or HASTE.`,
+    Fountains can grant either: 10% increased damage, 15% damage reduction, 2 Health Regeneration per second, or HASTE.`,
     cooldown: 45,
     howToGet: `Unlocks at level 5`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Gold+Digger`],
@@ -906,7 +906,7 @@ export const remnantItems: Item[] = [
     id: 'xx6sib',
     description: `Initiates a Data Backup of the caster's current Health, Stamina, Relic Charges, Ammo, and Negative Status Effects, which are stored for 30s.
 
-    While the Backup is active, increases Movement Speed by 15% and Damage Reduction by 10% [∗].
+    While the Backup is active, increases Movement Speed by 15% and Damage Reduction by 10%.
     
     Reactivating the Skill restores all saved values from the Backup and spawns a Decoy which lasts 3s.`,
     cooldown: 55,
@@ -3150,7 +3150,7 @@ export const remnantItems: Item[] = [
     name: 'Damage Reduction',
     imagePath: '/relicfragment/damage_reduction.png',
     id: '1pddio',
-    description: `X% [∗] Damage Reduction (Mythic: Maximum of +5% [∗])`,
+    description: `X% Damage Reduction (Mythic: Maximum of +5%)`,
     howToGet: ``,
     wikiLinks: [
       `https://remnant2.wiki.fextralife.com/Cracked+Damage+Reduction`,
@@ -6269,7 +6269,7 @@ export const remnantItems: Item[] = [
     type: 'melee',
     imagePath: '/mutator/steadfast.png',
     id: 'yibeww',
-    description: `Charged Melee Attacks cannot be interrupted and gain 10-[20]% [∗] damage reduction from all sources.`,
+    description: `Charged Melee Attacks cannot be interrupted and gain 10-[20]% damage reduction from all sources.`,
     maxLevelBonus: `All damage taken during Charged Melee Attack is covered to Grey Health.`,
     howToGet: `Can be found in N'Erud - Void Vessel Facility`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Steadfast`],
@@ -6577,7 +6577,7 @@ Can be bought for Bedel of the Vaunnt for 400."`,
     name: 'Effigy Pendant',
     imagePath: '/amulet/effigy_pendant.png',
     id: 'vkcf4e',
-    description: `While Grey Health is present, gain 15% to all damage dealt, 10% [∗] damage reduction and 1 additional hit before Grey Health is removed.`,
+    description: `While Grey Health is present, gain 15% to all damage dealt, 10% damage reduction and 1 additional hit before Grey Health is removed.`,
     howToGet: `Can be found in Losomn - Secret passage in Cotton's Kiln or Butcher's Quarter.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Effigy+Pendant`],
   },
@@ -6923,7 +6923,7 @@ Exclusive to The Awakened King DLC"`,
     imagePath: '/amulet/participation_medal.png',
     dlc: 'dlc1',
     id: '588hoi',
-    description: `Increase Health by 10, Stamina by 10, Movement Speed by 10%, and Damage Reduction by 10% [∗]`,
+    description: `Increase Health by 10, Stamina by 10, Movement Speed by 10%, and Damage Reduction by 10%`,
     howToGet: `"Die when facing any boss while the difficulty is set on Apocalypse.
 Exclusive to The Awakened King DLC"`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Participation+Medal`],
@@ -7389,7 +7389,7 @@ Exclusive Ring for The Awakened King DLC."`,
     imagePath: '/ring/bridge_wardens_crest.png',
     dlc: 'dlc1',
     id: 't7sqw7',
-    description: `Perfect Dodge increases Melee Damage by 15% [+] for 7 seconds. Perfect Evade Flop also gains 10% [∗] Damage Reduction for the duration.`,
+    description: `Perfect Dodge increases Melee Damage by 15% [+] for 7 seconds. Perfect Evade Flop also gains 10% Damage Reduction for the duration.`,
     howToGet: `When you speak to the Bridge Warden and have NOT killed any of the Fae who are fighting with the Dran, he will award you this ring and praise you for not succumbing to the blood hunger.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Bridge+Wardens+Crest`],
   },
@@ -7673,7 +7673,7 @@ Burning can be prevented by killing all the enemies, not allowing any to light t
     imagePath: '/ring/dried_clay_ring.png',
     dlc: 'dlc1',
     id: 'ez6z8b',
-    description: `Grants 1 stack of BULWARK. Increases All Damage by 60% [∗] of the total Damage Reduction granted by BULWARK stacks`,
+    description: `Grants 1 stack of BULWARK. Increases All Damage by 60% of the total Damage Reduction granted by BULWARK stacks`,
     howToGet: `"Random drop in Losomn.
 Exclusive Ring for The Awakened King DLC."`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Dried+Clay+Ring`],
@@ -7726,7 +7726,7 @@ Exclusive Ring for The Awakened King DLC."`,
     saveFileSlug: 'ring_downgradedring',
     imagePath: '/ring/embrace_of_shahala.png',
     id: 'h2g5z3',
-    description: `Wearer gains 5% [∗] incoming damage reduction for each Negative Status Effect or Blight they are suffering from. Max 4stacks.`,
+    description: `Wearer gains 5% incoming damage reduction for each Negative Status Effect or Blight they are suffering from. Max 4 stacks.`,
     howToGet: `Can be found in N'Erud, by speaking to The Custodian after defeating Sha'Hala.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Embrace+of+Sha'Hala`],
   },
@@ -10056,7 +10056,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     After activating a CHALLENGER Skill, enemies within 10m deal 10% less damage for 15s.
 
     Upgrade unlocked at level 7
-    After activating a CHALLENGER Skill, enemies within 10m deal 10% less damage for 15s, with an additional 2.5% [∗] damage reduction per enemy affected. (Max 10%)`,
+    After activating a CHALLENGER Skill, enemies within 10m deal 10% less damage for 15s, with an additional 2.5% damage reduction per enemy affected. (Max 10%)`,
     howToGet: `Unlocked at Level 2`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Intimidating+Presence`],
     linkedItems: {
@@ -10367,10 +10367,10 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     type: 'team',
     id: 'w6v2o6',
     description: `
-    Heavy Weapons grant 15% [∗] Damage Reduction to all allies within 2.5m.
+    Heavy Weapons grant 15% Damage Reduction to all allies within 2.5m.
     
     Upgrade unlocked at level 7
-    Heavy Weapons grant 15% [∗] Damage Reduction and gradually restore Ammo to allies within 2.5m`,
+    Heavy Weapons grant 15% Damage Reduction and gradually restore Ammo to allies within 2.5m`,
     howToGet: `Unlocked at Level 2`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Magnetic+Field`],
     linkedItems: {

@@ -1,5 +1,6 @@
 # TODO
 
+- Add modifier tokens and tooltips for statuses (burning, bleeding, etc.)
 - In addition to date created, allow sort by date updated
 - Swap community build filters from internal state to url state
 - Have stat tooltips show the items contributing to the calculations
