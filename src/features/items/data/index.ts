@@ -246,7 +246,7 @@ export const remnantItems: Item[] = [
     name: 'Invader',
     imagePath: '/archtype/invader.png',
     id: '0ipjpk',
-    description: `The INVADER specializes elusiveness nad misdirecting the enemy's focus.`,
+    description: `The INVADER specializes elusiveness and misdirecting the enemy's focus.`,
     howToGet: `Use the "Walker's Dream" item and defeat the "Bane" abberation. To get the "Walker's Dream" item use the Dreamcatcher melee weapon on the sleeping walker special enemy (glowing blue) in an area just off the main path between the Corrupted Harbour and Blackened Citadel checkpoint.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Invader`],
     linkedItems: {
