@@ -93,7 +93,7 @@ export const DESCRIPTION_TAGS: DescriptionTag[] = [
     token: 'BLEEDING',
     color: 'text-[#a63838]',
     description:
-      'Deals physical BLEED damage per second. Reduces healing effectiveness by 50%.', //
+      'Deals physical BLEED damage per second. Reduces healing effectiveness by 50%.',
   },
   {
     type: 'burning',
@@ -126,13 +126,13 @@ export const DESCRIPTION_TAGS: DescriptionTag[] = [
     type: 'bulwark',
     token: 'BULWARK',
     color: ARCHTYPE_COLORS.CHALLENGER.text,
-    description: '',
+    description: 'Increases flat Damage Reduction per stack up to maximum of 25% at 5 stacks.',
   },
   {
     type: 'slow',
     token: 'SLOW',
     color: '',
-    description: '',
+    description: 'Reduces target speed. Ineffective against Bosses and Aberrations.',
   },
   {
     type: 'haste',
@@ -144,31 +144,31 @@ export const DESCRIPTION_TAGS: DescriptionTag[] = [
     type: 'root rot',
     token: 'ROOT ROT',
     color: '',
-    description: '',
+    description: 'Reduces maximum Stamina by 33%. Forces coughing animation at random intervals.',
   },
   {
     type: 'contamination',
     token: 'CONTAMINATION',
     color: '',
-    description: '',
+    description: 'Inflicts a burst of damage after which it resets allowing another build-up.',
   },
   {
     type: 'curse',
     token: 'CURSE',
     color: '',
-    description: '',
+    description: 'Reduces maximum Health by 10% per stack. Maximum 5 stacks.',
   },
   {
     type: 'suppression',
     token: 'SUPPRESSION',
     color: '',
-    description: '',
+    description: 'Reduces Mod Power Generation by 50%.',
   },
   {
     type: 'data corruption',
     token: 'DATA CORRUPTION',
     color: '',
-    description: '',
+    description: 'Disables skills, relic, and consumables use for a short duration.', // I think it also deals damage and staggers but need to verify. 
   },
 ]
 
