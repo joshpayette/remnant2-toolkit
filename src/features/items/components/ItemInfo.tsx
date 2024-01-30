@@ -10,7 +10,6 @@ import { PerkItem } from '../types/PerkItem'
 import ItemDescription from './ItemDescription'
 import { Item } from '../types'
 import { capitalize } from '@/lib/capitalize'
-import { ItemModifiers } from './ItemModifiers'
 import { WeaponItem } from '../types/WeaponItem'
 import WeaponInfo from './WeaponInfo'
 

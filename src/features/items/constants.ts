@@ -1,4 +1,4 @@
-import { Modifier } from './types'
+import { DescriptionTag } from './types'
 
 export const ARCHTYPE_COLORS = {
   ALCHEMIST: {
@@ -74,7 +74,7 @@ export const WEIGHT_CLASSES = {
   },
 }
 
-export const MODIFIERS: Modifier[] = [
+export const DESCRIPTION_TAGS: DescriptionTag[] = [
   {
     type: 'additive',
     token: '[+]',
@@ -91,25 +91,29 @@ export const MODIFIERS: Modifier[] = [
     type: 'bleeding',
     token: 'BLEEDING',
     color: 'text-[#a63838]',
-    description: 'Deals physical BLEED damage per second. Reduces healing effectiveness by 50%.', //
+    description:
+      'Deals physical BLEED damage per second. Reduces healing effectiveness by 50%.', //
   },
   {
     type: 'burning',
     token: 'BURNING',
     color: 'text-[#b65d30]',
-    description: 'Deals elemental FIRE damage per second. Can make enemies panic.', //Have no good source on the secondary effect.
+    description:
+      'Deals elemental FIRE damage per second. Can make enemies panic.', //Have no good source on the secondary effect.
   },
   {
     type: 'overloaded',
     token: 'OVERLOADED',
     color: 'text-[#7676af]',
-    description: 'Deals elemental SHOCK area damage ever 5 seconds. Damage increases by 10% for every overloaded enemy nerby. ', // What's the range and what's the max damage increase for secondary effect?
+    description:
+      'Deals elemental SHOCK area damage ever 5 seconds. Damage increases by 10% for every overloaded enemy nerby. ', // What's the range and what's the max damage increase for secondary effect?
   },
   {
     type: 'corroded',
     token: 'CORRODED',
     color: 'text-[#30b65d]',
-    description: 'Deals elemental ACID damage per second. Increases damage taken by 10%.',
+    description:
+      'Deals elemental ACID damage per second. Increases damage taken by 10%.',
   },
   {
     type: 'shield',
@@ -133,7 +137,7 @@ export const MODIFIERS: Modifier[] = [
     type: 'haste',
     token: 'HASTE',
     color: '',
-    description: `Increases the speed of player's actions by 7%.`, 
+    description: `Increases the speed of player's actions by 7%.`,
   },
   {
     type: 'root rot',

@@ -1,7 +1,5 @@
 import { cn } from '@/lib/classnames'
-import { ARCHTYPE_COLORS, MODIFIERS } from '../constants'
-import Tippy from '@tippyjs/react'
-import { useState } from 'react'
+import { ARCHTYPE_COLORS, DESCRIPTION_TAGS } from '../constants'
 import Tooltip from '@/features/ui/Tooltip'
 
 type ColorKeyword =
@@ -94,22 +92,24 @@ function highlightKeywords(text: string) {
   return highlightedParts // return array of parts
 }
 
-function highlightModifierTokens(parts: (string | JSX.Element)[]) {
+function highlightDescriptionTags(parts: (string | JSX.Element)[]) {
   return parts.flatMap((part, index) => {
     if (typeof part === 'string') {
       const tokenParts = part.split(/(\[[^\]]+\])/) // split part into token parts
 
       return tokenParts.map((tokenPart, tokenIndex) => {
-        const modifier = MODIFIERS.find(({ token }) => token === tokenPart) // find the modifier for this token part
+        const descriptionTag = DESCRIPTION_TAGS.find(
+          ({ token }) => token === tokenPart,
+        )
 
-        if (modifier) {
+        if (descriptionTag) {
           // if this token part is a token, replace it with a Tippy component
           return (
             <Tooltip
-              content={modifier.description}
+              content={descriptionTag.description}
               key={`${index}-${tokenIndex}`}
             >
-              <button className={cn('font-semibold', modifier.color)}>
+              <button className={cn('font-semibold', descriptionTag.color)}>
                 {tokenPart}
               </button>
             </Tooltip>
@@ -132,7 +132,7 @@ interface Props {
 
 export default function ItemDescription({ description }: Props) {
   const keywordParts = highlightKeywords(description)
-  const finalParts = highlightModifierTokens(keywordParts)
+  const finalParts = highlightDescriptionTags(keywordParts)
 
   return finalParts
 }

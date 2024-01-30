@@ -42,7 +42,11 @@ export type Archtype =
   | 'ritualist'
   | 'summoner'
 
-export type Modifier = {
+/**
+ * Used to highlight certain words and provide
+ * contextual tooltips in item and build descriptions
+ */
+export type DescriptionTag = {
   type: string
   token: string
   color: string
