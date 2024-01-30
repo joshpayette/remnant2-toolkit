@@ -79,37 +79,37 @@ export const MODIFIERS: Modifier[] = [
     type: 'additive',
     token: '[+]',
     color: 'text-blue-300',
-    description: 'Damage is additive with other sources of damage',
+    description: 'Damage is additive with other sources of damage.',
   },
   {
     type: 'multiplicative',
     token: '[∗]',
     color: 'text-orange-300',
-    description: 'Damage is multiplicative with other sources of damage',
+    description: 'Damage is multiplicative with other sources of damage.',
   },
   {
     type: 'bleeding',
     token: 'BLEEDING',
     color: 'text-[#a63838]',
-    description: 'Deals Physical Damage. Reduces healing effects by 50%.',
+    description: 'Deals physical BLEED damage per second. Reduces healing effectiveness by 50%.', //
   },
   {
     type: 'burning',
     token: 'BURNING',
     color: 'text-[#b65d30]',
-    description: '',
+    description: 'Deals elemental FIRE damage per second. Can make enemies panic.', //Have no good source on the secondary effect.
   },
   {
     type: 'overloaded',
     token: 'OVERLOADED',
     color: 'text-[#7676af]',
-    description: '',
+    description: 'Deals elemental SHOCK area damage ever 5 seconds. Damage increases by 10% for every overloaded enemy nerby. ', // What's the range and what's the max damage increase for secondary effect?
   },
   {
     type: 'corroded',
     token: 'CORRODED',
     color: 'text-[#30b65d]',
-    description: '',
+    description: 'Deals elemental ACID damage per second. Increases damage taken by 10%.',
   },
   {
     type: 'shield',
@@ -133,7 +133,7 @@ export const MODIFIERS: Modifier[] = [
     type: 'haste',
     token: 'HASTE',
     color: '',
-    description: '',
+    description: `Increases the speed of player's actions by 7%.`, 
   },
   {
     type: 'root rot',
