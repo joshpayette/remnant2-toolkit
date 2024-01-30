@@ -309,7 +309,6 @@ export default function useBuildActions() {
     // add 1 to the concoction count to account for the default slot
     getArrayOfLength(getConcoctionSlotCount(randomBuild) + 1).forEach(
       (_, index) => {
-        console.info('selectingConcoction')
         const randomConcoction = getRandomItem(randomBuild, {
           category: 'concoction',
           index,

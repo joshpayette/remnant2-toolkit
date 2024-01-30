@@ -315,10 +315,6 @@ export function getWeightClass(buildState: BuildState) {
   const combinedWeightThreshold =
     totalWeightThreshold + totalWeightThresholdTrait
 
-  console.info('totalWeightThreshold', totalWeightThreshold)
-  console.info('totalWeightThresholdTrait', totalWeightThresholdTrait)
-  console.info('combinedWeightThreshold', combinedWeightThreshold)
-
   let weightClass = WEIGHT_CLASSES.LIGHT
   if (totalWeight > WEIGHT_CLASSES.LIGHT.maxWeight + combinedWeightThreshold) {
     weightClass = WEIGHT_CLASSES.MEDIUM
