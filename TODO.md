@@ -14,6 +14,7 @@
 - Add CSV import to tracker
 - Make random builds work with only owned items?
 - Make armour weight tooltip account for https://remnant2.wiki.fextralife.com/Powerlifter
+- Add more pre-dlc builds from content creators
 
 ## Bugs
 
