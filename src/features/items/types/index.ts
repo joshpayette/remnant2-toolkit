@@ -50,7 +50,7 @@ export type DescriptionTag = {
   type: string
   token: string
   color: string
-  description: string
+  description: string | undefined
 }
 
 export type ReleaseKey = keyof typeof RELEASE_TO_NAME

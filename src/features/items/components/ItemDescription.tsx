@@ -2,6 +2,11 @@ import { cn } from '@/lib/classnames'
 import { ARCHTYPE_COLORS, DESCRIPTION_TAGS } from '../constants'
 import Tooltip from '@/features/ui/Tooltip'
 
+// TODO If constants and types are still needed, move to appropriate file
+
+// TODO Rename this component to DescriptionWithTags or something similar
+// TODO since it will also be used for build descriptions
+
 type ColorKeyword =
   | 'BLEEDING'
   | 'BURNING'
@@ -70,6 +75,7 @@ export const colorKeywordMap: Record<ColorKeyword, string> = {
   BULWARK: ARCHTYPE_COLORS.CHALLENGER.text,
 }
 
+// TODO Consolidate this into the highlight description keywords
 function highlightKeywords(text: string) {
   const parts = text.split(new RegExp(`(${colorKeywords.join('|')})`, 'g')) // split text into parts by keyword
 

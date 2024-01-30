@@ -74,6 +74,7 @@ export const WEIGHT_CLASSES = {
   },
 }
 
+// TODO if description is undefined, don't show tooltip, only color it
 export const DESCRIPTION_TAGS: DescriptionTag[] = [
   {
     type: 'additive',
