@@ -93,7 +93,7 @@ export const DESCRIPTION_TAGS: DescriptionTag[] = [
     token: 'BLEEDING',
     color: 'text-[#a63838]',
     description:
-      'Deals physical BLEED damage per second. Reduces healing effectiveness by 50%.',
+      'Deals physical damage per second. Reduces healing effectiveness by 50%.',
   },
   {
     type: 'burning',
