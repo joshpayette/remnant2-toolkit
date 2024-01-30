@@ -1,6 +1,9 @@
 # TODO
 
 - Add modifier tokens and tooltips for statuses (burning, bleeding, etc.)
+  - Incorporate token logic into build descriptions
+  - Make tokens act as tags to search upon
+- GUIDES section?
 - In addition to date created, allow sort by date updated
 - Swap community build filters from internal state to url state
 - Have stat tooltips show the items contributing to the calculations

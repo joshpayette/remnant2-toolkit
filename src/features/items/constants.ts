@@ -117,6 +117,54 @@ export const MODIFIERS: Modifier[] = [
     color: 'text-[#f1f1cf]',
     description: '',
   },
+  {
+    type: 'bulwark',
+    token: 'BULWARK',
+    color: ARCHTYPE_COLORS.CHALLENGER.text,
+    description: '',
+  },
+  {
+    type: 'slow',
+    token: 'SLOW',
+    color: '',
+    description: '',
+  },
+  {
+    type: 'haste',
+    token: 'HASTE',
+    color: '',
+    description: '',
+  },
+  {
+    type: 'root rot',
+    token: 'ROOT ROT',
+    color: '',
+    description: '',
+  },
+  {
+    type: 'contamination',
+    token: 'CONTAMINATION',
+    color: '',
+    description: '',
+  },
+  {
+    type: 'curse',
+    token: 'CURSE',
+    color: '',
+    description: '',
+  },
+  {
+    type: 'suppression',
+    token: 'SUPPRESSION',
+    color: '',
+    description: '',
+  },
+  {
+    type: 'data corruption',
+    token: 'DATA CORRUPTION',
+    color: '',
+    description: '',
+  },
 ]
 
 export const RELEASE_TO_NAME = {
