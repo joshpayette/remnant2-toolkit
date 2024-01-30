@@ -8,7 +8,6 @@ import { FlagIcon as FlagIconOff } from '@heroicons/react/24/outline'
 import { FlagIcon as FlagIconOn } from '@heroicons/react/24/solid'
 import LoadingIndicator from '@/features/ui/LoadingIndicator'
 import Tooltip from '@/features/ui/Tooltip'
-import Tippy from '@tippyjs/react'
 
 export const buttonClasses =
   'flex w-full flex-col items-center rounded border-2 text-center px-4 py-2 text-sm font-bold text-white'
@@ -18,6 +17,15 @@ type ButtonProps = {
 }
 
 export const ActionButton = {
+  ArmorCalculator: ({ onClick }: ButtonProps) => (
+    <button
+      className={cn(buttonClasses, 'border-blue-500 hover:bg-blue-700')}
+      onClick={onClick}
+    >
+      ArmorCalculator
+    </button>
+  ),
+
   DuplicateBuild: ({ onClick }: ButtonProps) => (
     <button
       className={cn(buttonClasses, 'border-green-500 hover:bg-green-700')}

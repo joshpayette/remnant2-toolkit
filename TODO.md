@@ -1,6 +1,5 @@
 # TODO
 
-- Add prompt to auto suggest armor to fit a certain weight class, then autofill into the builder.
 - In addition to date created, allow sort by date updated
 - Swap community build filters from internal state to url state
 - Have stat tooltips show the items contributing to the calculations

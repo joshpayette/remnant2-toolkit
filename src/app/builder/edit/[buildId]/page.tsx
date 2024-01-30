@@ -3,14 +3,15 @@
 import PageHeader from '@/features/ui/PageHeader'
 import SaveBuildButton from '../../../../features/build/components/SaveBuildButton'
 import ImageDownloadLink from '../../../../features/build/components/ImageDownloadLink'
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import useBuildActions from '../../../../features/build/hooks/useBuildActions'
 import { useIsClient } from 'usehooks-ts'
 import useDBBuildState from '../../../../features/build/hooks/useDBBuildState'
 import ActionButton from '../../../../features/build/components/ActionButton'
-import { DBBuild } from '@/features/build/types'
+import { BuildState, DBBuild } from '@/features/build/types'
 import BuilderPage from '@/features/build/components/BuilderPage'
 import { dbBuildToBuildState } from '@/features/build/lib/dbBuildToBuildState'
+import ArmorCalculatorDialog from '@/features/build/components/ArmorCalculatorDialog'
 
 export default function Page({
   params: { initialBuildState },
@@ -19,9 +20,8 @@ export default function Page({
 }) {
   const isClient = useIsClient()
 
-  const { dbBuildState, updateDBBuildState } = useDBBuildState(
-    dbBuildToBuildState(initialBuildState),
-  )
+  const { dbBuildState, updateDBBuildState, setNewBuildState } =
+    useDBBuildState(dbBuildToBuildState(initialBuildState))
 
   const {
     isScreenshotMode,
@@ -33,6 +33,13 @@ export default function Page({
 
   const buildContainerRef = useRef<HTMLDivElement>(null)
   const detailedViewContainerRef = useRef<HTMLDivElement>(null)
+
+  const [showArmorCalculator, setShowArmorCalculator] = useState(false)
+
+  function handleSelectArmorSuggestion(newBuildState: BuildState) {
+    setNewBuildState(newBuildState)
+    setShowArmorCalculator(false)
+  }
 
   if (!isClient) return null
 
@@ -47,6 +54,13 @@ export default function Page({
         &nbsp;
       </PageHeader>
 
+      <ArmorCalculatorDialog
+        buildState={dbBuildState}
+        open={showArmorCalculator}
+        onClose={() => setShowArmorCalculator(false)}
+        onSelectArmorSuggestion={handleSelectArmorSuggestion}
+      />
+
       <BuilderPage
         buildContainerRef={buildContainerRef}
         buildState={dbBuildState}
@@ -59,6 +73,10 @@ export default function Page({
         builderActions={
           <>
             <SaveBuildButton buildState={dbBuildState} editMode={true} />
+
+            <ActionButton.ArmorCalculator
+              onClick={() => setShowArmorCalculator(true)}
+            />
 
             <ActionButton.ShowDetailedView
               onClick={() =>

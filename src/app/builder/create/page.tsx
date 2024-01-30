@@ -2,7 +2,7 @@
 
 import PageHeader from '@/features/ui/PageHeader'
 import { useIsClient } from 'usehooks-ts'
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import ImageDownloadLink from '@/features/build/components/ImageDownloadLink'
 import useDBBuildState from '@/features/build/hooks/useDBBuildState'
 import SaveBuildButton from '@/features/build/components/SaveBuildButton'
@@ -10,6 +10,8 @@ import ActionButton from '@/features/build/components/ActionButton'
 import { initialBuildState } from '@/features/build/lib'
 import useBuildActions from '@/features/build/hooks/useBuildActions'
 import BuilderPage from '@/features/build/components/BuilderPage'
+import ArmorCalculatorDialog from '@/features/build/components/ArmorCalculatorDialog'
+import { BuildState } from '@/features/build/types'
 
 export default function Page() {
   const isClient = useIsClient()
@@ -29,6 +31,13 @@ export default function Page() {
   const buildContainerRef = useRef<HTMLDivElement>(null)
   const detailedViewContainerRef = useRef<HTMLDivElement>(null)
 
+  const [showArmorCalculator, setShowArmorCalculator] = useState(false)
+
+  function handleSelectArmorSuggestion(newBuildState: BuildState) {
+    setNewBuildState(newBuildState)
+    setShowArmorCalculator(false)
+  }
+
   if (!isClient) return null
 
   return (
@@ -39,6 +48,14 @@ export default function Page() {
         title="Remnant 2 Build Tool"
         subtitle="Create your builds and share them with your friends and the community."
       />
+
+      <ArmorCalculatorDialog
+        buildState={dbBuildState}
+        open={showArmorCalculator}
+        onClose={() => setShowArmorCalculator(false)}
+        onSelectArmorSuggestion={handleSelectArmorSuggestion}
+      />
+
       <BuilderPage
         buildContainerRef={buildContainerRef}
         buildState={dbBuildState}
@@ -52,6 +69,10 @@ export default function Page() {
         builderActions={
           <>
             <SaveBuildButton buildState={dbBuildState} editMode={false} />
+
+            <ActionButton.ArmorCalculator
+              onClick={() => setShowArmorCalculator(true)}
+            />
 
             <ActionButton.ShowDetailedView
               onClick={() =>
