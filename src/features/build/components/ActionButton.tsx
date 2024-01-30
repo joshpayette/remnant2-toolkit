@@ -22,7 +22,7 @@ export const ActionButton = {
       className={cn(buttonClasses, 'border-blue-500 hover:bg-blue-700')}
       onClick={onClick}
     >
-      ArmorCalculator
+      Armor Calculator
     </button>
   ),
 
