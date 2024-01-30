@@ -120,7 +120,7 @@ export const DESCRIPTION_TAGS: DescriptionTag[] = [
     type: 'shield',
     token: 'SHIELD',
     color: 'text-[#f1f1cf]',
-    description: '',
+    description: '', //No description in game.
   },
   {
     type: 'bulwark',
