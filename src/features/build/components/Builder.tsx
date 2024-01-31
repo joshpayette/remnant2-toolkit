@@ -98,7 +98,7 @@ export default function Builder({
 
       /**
        * The item index is used to determine which item in the array of items
-       * for slots like rings and archtypes
+       * for slots like rings and archetypes
        */
       const specifiedIndex = selectedItemSlot.index
       const isIndexSpecified = specifiedIndex !== undefined
@@ -114,8 +114,8 @@ export default function Builder({
           if (!Array.isArray(buildItems)) return
 
           // We can't filter here because we want to preserve the index
-          // If we filtered, the second archtype would become the first archtype
-          // if you removed the first archtype
+          // If we filtered, the second archetype would become the first archetype
+          // if you removed the first archetype
           const newBuildItems = buildItems.map((item, index) =>
             index === specifiedIndex ? null : item,
           )
@@ -255,15 +255,15 @@ export default function Builder({
     const validatedTraitItems = newTraitItems.map((traitItem) => {
       let validAmount = traitItem.amount
 
-      // if this is the linked trait to an archtype,
+      // if this is the linked trait to an archetype,
       // the default should be the linked amount
       let defaultAmount = DEFAULT_TRAIT_AMOUNT
 
-      // if this is the linked trait for the primary archtype,
+      // if this is the linked trait for the primary archetype,
       // make sure the amount is not less than the minimum allowed
-      if (buildState.items.archtype[0]?.name) {
+      if (buildState.items.archetype[0]?.name) {
         const linkedTrait =
-          buildState.items.archtype[0]?.linkedItems?.traits?.find(
+          buildState.items.archetype[0]?.linkedItems?.traits?.find(
             (linkedTrait) => linkedTrait.name === traitItem.name,
           )
         if (linkedTrait && traitItem.name === linkedTrait.name) {
@@ -273,11 +273,11 @@ export default function Builder({
           }
         }
       }
-      // if this is the linked trait for the secondary archtype
+      // if this is the linked trait for the secondary archetype
       // make sure the amount is not less than the minimum allowed
-      if (buildState.items.archtype[1]?.name) {
+      if (buildState.items.archetype[1]?.name) {
         const linkedTrait =
-          buildState.items.archtype[1]?.linkedItems?.traits?.find(
+          buildState.items.archetype[1]?.linkedItems?.traits?.find(
             (linkedTrait) =>
               linkedTrait.name === traitItem.name && linkedTrait.amount === 10,
           )
@@ -366,25 +366,25 @@ export default function Builder({
 
       <div>
         <div
-          id="archtype-container"
+          id="archetype-container"
           className={cn(
             'flex flex-row flex-wrap items-start justify-between gap-1 sm:justify-center',
             isScreenshotMode && 'justify-center gap-2',
           )}
         >
-          {getArrayOfLength(2).map((archtypeIndex) => (
-            <Fragment key={`archtype-${archtypeIndex}`}>
+          {getArrayOfLength(2).map((archetypeIndex) => (
+            <Fragment key={`archetype-${archetypeIndex}`}>
               <BuilderButton
-                item={buildState.items.archtype[archtypeIndex]}
+                item={buildState.items.archetype[archetypeIndex]}
                 isEditable={isEditable}
-                onClick={() => handleButtonClick('archtype', archtypeIndex)}
+                onClick={() => handleButtonClick('archetype', archetypeIndex)}
                 onItemInfoClick={handleShowInfo}
                 isScreenshotMode={isScreenshotMode}
               />
               <BuilderButton
-                item={buildState.items.skill[archtypeIndex]}
+                item={buildState.items.skill[archetypeIndex]}
                 isEditable={isEditable}
-                onClick={() => handleButtonClick('skill', archtypeIndex)}
+                onClick={() => handleButtonClick('skill', archetypeIndex)}
                 onItemInfoClick={handleShowInfo}
                 isScreenshotMode={isScreenshotMode}
               />

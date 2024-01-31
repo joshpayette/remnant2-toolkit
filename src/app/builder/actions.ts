@@ -33,13 +33,13 @@ function buildStateToBuildItems(buildState: BuildState): Array<{
           index,
         }))
       : [{ itemId: '', category: 'ring' as ItemCategory, index: 0 }]),
-    ...(items.archtype
-      ? items.archtype.map((archtype, index) => ({
-          itemId: archtype?.id ?? '',
-          category: 'archtype' as ItemCategory,
+    ...(items.archetype
+      ? items.archetype.map((archetype, index) => ({
+          itemId: archetype?.id ?? '',
+          category: 'archtype' as ItemCategory, //! database still use `archtype` key
           index,
         }))
-      : [{ itemId: '', category: 'archtype' as ItemCategory, index: 0 }]),
+      : [{ itemId: '', category: 'archetype' as ItemCategory, index: 0 }]),
     ...(items.skill
       ? items.skill.map((skill, index) => ({
           itemId: skill?.id ?? '',
@@ -170,7 +170,7 @@ export async function createBuild(data: string): Promise<BuildActionResponse> {
     })
 
     // Trigger webhook to send build to Discord
-    if (buildState.isPublic) {
+    if (buildState.isPublic && process.env.NODE_ENV !== 'development') {
       const params = {
         content: `https://www.remnant2toolkit.com/builder/${dbResponse.id}`,
       }

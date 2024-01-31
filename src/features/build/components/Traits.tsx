@@ -22,7 +22,7 @@ export default function Traits({
   onRemoveTrait: (traitItem: TraitItem) => void
   onUpdateAmount: (traitItem: TraitItem) => void
 }) {
-  const { trait: traitItems, archtype: archtypeItems } = buildState.items
+  const { trait: traitItems, archetype: archtypeItems } = buildState.items
 
   const [editingTraitItem, setEditingTraitItem] = useState<TraitItem | null>(
     null,

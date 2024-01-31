@@ -207,13 +207,13 @@ export default function useBuildActions() {
     // archtypes
     getArrayOfLength(2).forEach((_, index) => {
       const randomArchtype = getRandomItem(randomBuild, {
-        category: 'archtype',
+        category: 'archetype',
         index,
       }) as GenericItem
       if (!randomArchtype) {
         throw new Error(`Could not find random archtype for ${index}`)
       }
-      randomBuild.items.archtype[index] = randomArchtype
+      randomBuild.items.archetype[index] = randomArchtype
 
       // archtype skills
       const randomSkill = getRandomItem(randomBuild, {
@@ -244,7 +244,7 @@ export default function useBuildActions() {
     })
     // Traits
     // First assign the primary archtype traits
-    const primaryArchtype = randomBuild.items.archtype[0] as GenericItem
+    const primaryArchtype = randomBuild.items.archetype[0] as GenericItem
     primaryArchtype.linkedItems?.traits?.forEach((trait, index) => {
       const traitItem = remnantItems.find(
         (item) => item.name === trait.name,

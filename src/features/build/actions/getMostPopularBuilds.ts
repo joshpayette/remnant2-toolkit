@@ -7,8 +7,8 @@ import { DBBuild } from '../types'
 import { PaginationResponse } from '@/features/pagination/usePagination'
 import { getServerSession } from '@/features/auth/lib'
 import {
-  archtypeFiltersToIds,
-  limitByArchtypesSegment,
+  archetypeFiltersToIds,
+  limitByArchetypesSegment,
 } from '@/features/filters/queries/segments/limitByArchtypes'
 import {
   communityBuildsCountQuery,
@@ -69,9 +69,9 @@ export async function getMostPopularBuilds({
       break
   }
 
-  const { archtypes, longGun, handGun, melee, selectedReleases } =
+  const { archetypes, longGun, handGun, melee, selectedReleases } =
     communityBuildFilters
-  const archtypeIds = archtypeFiltersToIds({ archtypes })
+  const archetypeIds = archetypeFiltersToIds({ archetypes })
 
   if (selectedReleases.length === 0) return { items: [], totalItemCount: 0 }
 
@@ -83,7 +83,7 @@ export async function getMostPopularBuilds({
 
   const whereConditions = Prisma.sql`
   WHERE Build.isPublic = true
-  ${limitByArchtypesSegment(archtypeIds)}
+  ${limitByArchetypesSegment(archetypeIds)}
   ${limitByWeaponsSegment(weaponIds)}
   ${limitByReleasesSegment(selectedReleases)}
   AND Build.createdAt > ${timeCondition}

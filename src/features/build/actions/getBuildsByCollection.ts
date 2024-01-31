@@ -8,8 +8,8 @@ import { bigIntFix } from '@/lib/bigIntFix'
 import { SortFilter } from '@/app/community-builds/by-collection/page'
 import { CommunityBuildFilterProps } from '@/features/filters/types'
 import {
-  archtypeFiltersToIds,
-  limitByArchtypesSegment,
+  archetypeFiltersToIds,
+  limitByArchetypesSegment,
 } from '@/features/filters/queries/segments/limitByArchtypes'
 import {
   limitByWeaponsSegment,
@@ -71,16 +71,16 @@ export async function getBuildsByCollection({
     })),
   })
 
-  const { archtypes, longGun, handGun, melee, selectedReleases } =
+  const { archetypes, longGun, handGun, melee, selectedReleases } =
     communityBuildFilters
-  const archtypeIds = archtypeFiltersToIds({ archtypes })
+  const archetypeIds = archetypeFiltersToIds({ archetypes })
   const weaponIds = weaponFiltersToIds({ longGun, handGun, melee })
 
   if (selectedReleases.length === 0) return { items: [], totalItemCount: 0 }
 
   const whereConditions = Prisma.sql`
   WHERE Build.isPublic = true
-  ${limitByArchtypesSegment(archtypeIds)}
+  ${limitByArchetypesSegment(archetypeIds)}
   ${limitByWeaponsSegment(weaponIds)}
   ${limitByReleasesSegment(selectedReleases)}
   ${limitByCollectionSegment({ userId, allOwnedItemIds })}

@@ -26,15 +26,15 @@ function sortByPreference({
   if (sortingPreference === 'alphabetical') {
     return [...items].sort((a, b) => a.name.localeCompare(b.name))
   } else {
-    const archtypeTraits = items
-      .filter((item) => item.linkedItems?.archtype)
+    const archetypeTraits = items
+      .filter((item) => item.linkedItems?.archetype)
       .sort((a, b) => a.name.localeCompare(b.name))
 
     const nonArchtypeTraits = items
-      .filter((item) => !item.linkedItems?.archtype)
+      .filter((item) => !item.linkedItems?.archetype)
       .sort((a, b) => a.name.localeCompare(b.name))
 
-    return [...archtypeTraits, ...nonArchtypeTraits]
+    return [...archetypeTraits, ...nonArchtypeTraits]
   }
 }
 

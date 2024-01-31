@@ -1,19 +1,19 @@
 import { remnantItems } from '@/features/items/data'
-import { Archtype } from '@/features/items/types'
+import { Archetype } from '@/features/items/types'
 import { Checkbox } from '@/features/ui/Checkbox'
 import { capitalize } from '@/lib/capitalize'
 
-const allArchtypes: Archtype[] = remnantItems
-  .filter((item) => item.category === 'archtype')
-  .map((item) => item.name.toLowerCase() as Archtype)
+const allArchetypes: Archetype[] = remnantItems
+  .filter((item) => item.category === 'archetype')
+  .map((item) => item.name.toLowerCase() as Archetype)
 
 interface Props {
-  selectedArchtypes: Archtype[]
-  onChange: (archtype: Archtype) => void
+  selectedArchetypes: Archetype[]
+  onChange: (archtype: Archetype) => void
 }
 
 export default function ArchtypeFilters({
-  selectedArchtypes,
+  selectedArchetypes,
   onChange,
 }: Props) {
   return (
@@ -23,13 +23,13 @@ export default function ArchtypeFilters({
           By Archtype
         </div>
         <div className="grid w-full grid-cols-2 gap-x-8 text-left sm:grid-cols-3 md:grid-cols-4">
-          {allArchtypes.map((archtype) => {
+          {allArchetypes.map((archtype) => {
             return (
               <div key={archtype}>
                 <Checkbox
                   label={capitalize(archtype)}
                   name={`archtype-${archtype}`}
-                  checked={selectedArchtypes.includes(archtype)}
+                  checked={selectedArchetypes.includes(archtype)}
                   onChange={() => onChange(archtype)}
                 />
               </div>

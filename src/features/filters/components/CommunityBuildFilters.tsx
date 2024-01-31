@@ -1,4 +1,4 @@
-import { Archtype, ReleaseKey } from '@/features/items/types'
+import { Archetype, ReleaseKey } from '@/features/items/types'
 import { useState } from 'react'
 import { DEFAULT_COMMUNITY_BUILD_FILTERS } from '@/features/filters/constants'
 import { CommunityBuildFilterProps } from '@/features/filters/types'
@@ -24,7 +24,7 @@ export default function CommunityBuildFilters({ onUpdate }: Props) {
 
   function areAnyFiltersActive() {
     return (
-      filters.archtypes.length > 0 ||
+      filters.archetypes.length > 0 ||
       filters.longGun !== DEFAULT_COMMUNITY_BUILD_FILTERS['longGun'] ||
       filters.handGun !== DEFAULT_COMMUNITY_BUILD_FILTERS['handGun'] ||
       filters.melee !== DEFAULT_COMMUNITY_BUILD_FILTERS['melee'] ||
@@ -32,14 +32,14 @@ export default function CommunityBuildFilters({ onUpdate }: Props) {
     )
   }
 
-  function handleArchtypeChange(archtype: Archtype) {
-    let newArchtypes = [...filters.archtypes]
+  function handleArchtypeChange(archtype: Archetype) {
+    let newArchtypes = [...filters.archetypes]
 
     if (newArchtypes.includes(archtype)) {
       newArchtypes = newArchtypes.filter((a) => a !== archtype)
     } else {
       // Only allow two archtypes to be selected at a time
-      if (filters.archtypes.length === 2) {
+      if (filters.archetypes.length === 2) {
         return
       }
       newArchtypes.push(archtype)
@@ -47,7 +47,7 @@ export default function CommunityBuildFilters({ onUpdate }: Props) {
 
     setFilters({
       ...filters,
-      archtypes: newArchtypes,
+      archetypes: newArchtypes,
     })
   }
 
@@ -84,8 +84,8 @@ export default function CommunityBuildFilters({ onUpdate }: Props) {
       onClearFilters={handleClearFilters}
     >
       <ArchtypeFilters
-        selectedArchtypes={filters.archtypes}
-        onChange={(archtype: Archtype) => handleArchtypeChange(archtype)}
+        selectedArchetypes={filters.archetypes}
+        onChange={(archtype: Archetype) => handleArchtypeChange(archtype)}
       />
       <WeaponFilters
         selectedLongGun={filters.longGun}

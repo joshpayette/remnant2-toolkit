@@ -91,23 +91,23 @@ export default function getItemListForSlot(
 
     if (selectedItem.index === undefined) return skillItems
 
-    const archtype =
-      buildState.items.archtype[selectedItem.index]?.name.toLowerCase()
+    const archetype =
+      buildState.items.archetype[selectedItem.index]?.name.toLowerCase()
 
-    if (!archtype) return skillItems
+    if (!archetype) return skillItems
 
-    const itemsForArchtype = skillItems.filter(
-      (item) => item.linkedItems?.archtype?.name.toLowerCase() === archtype,
+    const itemsForArchetype = skillItems.filter(
+      (item) => item.linkedItems?.archetype?.name.toLowerCase() === archetype,
     )
 
-    return itemsForArchtype
+    return itemsForArchetype
   }
 
-  // If the selected slot is an archtype, try to limit
-  // the archtypes based on the corresponding skill
-  if (selectedItem.category === 'archtype') {
+  // If the selected slot is an archetype, try to limit
+  // the archetypes based on the corresponding skill
+  if (selectedItem.category === 'archetype') {
     const archtypeItems = (unequippedItems as GenericItem[]).filter(
-      (item) => item.category === 'archtype',
+      (item) => item.category === 'archetype',
     )
 
     if (selectedItem.index === undefined) return archtypeItems

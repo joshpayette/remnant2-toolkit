@@ -9,7 +9,7 @@ export function buildStateToMasonryItems(build: BuildState): Item[] {
 
   // archtypes
   getArrayOfLength(2).forEach((_, i) => {
-    items.archtype[i] && masonryItems.push(items.archtype[i] as GenericItem)
+    items.archetype[i] && masonryItems.push(items.archetype[i] as GenericItem)
     items.skill[i] && masonryItems.push(items.skill[i] as GenericItem)
   })
 

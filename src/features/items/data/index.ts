@@ -2,7 +2,7 @@ import { Item } from '../types'
 
 export const remnantItems: Item[] = [
   {
-    category: 'archtype',
+    category: 'archetype',
     name: 'Alchemist',
     imagePath: '/archtype/alchemist.png',
     id: '67pme7',
@@ -33,7 +33,7 @@ export const remnantItems: Item[] = [
     },
   },
   {
-    category: 'archtype',
+    category: 'archetype',
     name: 'Archon',
     imagePath: '/archtype/archon.png',
     id: 'og1fvq',
@@ -63,7 +63,7 @@ export const remnantItems: Item[] = [
     },
   },
   {
-    category: 'archtype',
+    category: 'archetype',
     name: 'Challenger',
     imagePath: '/archtype/challenger.png',
     id: 'wm2xsy',
@@ -92,7 +92,7 @@ export const remnantItems: Item[] = [
     },
   },
   {
-    category: 'archtype',
+    category: 'archetype',
     name: 'Engineer',
     imagePath: '/archtype/engineer.png',
     id: '98i1ka',
@@ -122,7 +122,7 @@ export const remnantItems: Item[] = [
     },
   },
   {
-    category: 'archtype',
+    category: 'archetype',
     name: 'Explorer',
     imagePath: '/archtype/explorer.png',
     id: 'la3vvu',
@@ -152,7 +152,7 @@ export const remnantItems: Item[] = [
     },
   },
   {
-    category: 'archtype',
+    category: 'archetype',
     name: 'Gunslinger',
     imagePath: '/archtype/gunslinger.png',
     id: 'd2qga5',
@@ -182,7 +182,7 @@ export const remnantItems: Item[] = [
     },
   },
   {
-    category: 'archtype',
+    category: 'archetype',
     name: 'Handler',
     imagePath: '/archtype/handler.png',
     id: 'aazlxe',
@@ -212,7 +212,7 @@ export const remnantItems: Item[] = [
     },
   },
   {
-    category: 'archtype',
+    category: 'archetype',
     name: 'Hunter',
     imagePath: '/archtype/hunter.png',
     id: '5tkqdz',
@@ -242,7 +242,7 @@ export const remnantItems: Item[] = [
     },
   },
   {
-    category: 'archtype',
+    category: 'archetype',
     name: 'Invader',
     imagePath: '/archtype/invader.png',
     id: '0ipjpk',
@@ -270,7 +270,7 @@ export const remnantItems: Item[] = [
     },
   },
   {
-    category: 'archtype',
+    category: 'archetype',
     name: 'Medic',
     imagePath: '/archtype/medic.png',
     id: 'd6fvmc',
@@ -300,7 +300,7 @@ export const remnantItems: Item[] = [
     },
   },
   {
-    category: 'archtype',
+    category: 'archetype',
     name: 'Ritualist',
     imagePath: '/archtype/ritualist.png',
     id: '1q7z9d',
@@ -331,7 +331,7 @@ export const remnantItems: Item[] = [
     },
   },
   {
-    category: 'archtype',
+    category: 'archetype',
     name: 'Summoner',
     imagePath: '/archtype/summoner.png',
     id: 'og0bwx',
@@ -370,7 +370,7 @@ export const remnantItems: Item[] = [
     howToGet: `Automatically unlocked`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/War+Stomp`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Challenger',
       },
     },
@@ -385,7 +385,7 @@ export const remnantItems: Item[] = [
     howToGet: `Unlocked at level 5`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Juggernaut`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Challenger',
       },
     },
@@ -402,7 +402,7 @@ export const remnantItems: Item[] = [
     howToGet: `Unlocked at level 10`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Rampage`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Challenger',
       },
     },
@@ -423,7 +423,7 @@ export const remnantItems: Item[] = [
     howToGet: `Unlocks automatically`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Guard+Dog`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Handler',
       },
     },
@@ -444,7 +444,7 @@ export const remnantItems: Item[] = [
     howToGet: `Unlocks at level 5`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Support+Dog`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Handler',
       },
     },
@@ -465,7 +465,7 @@ export const remnantItems: Item[] = [
     howToGet: `Unlocks at level 10`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Attack+Dog`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Handler',
       },
     },
@@ -480,7 +480,7 @@ export const remnantItems: Item[] = [
     howToGet: `Unlocks automatically`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Wellspring`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Medic',
       },
     },
@@ -495,7 +495,7 @@ export const remnantItems: Item[] = [
     howToGet: `Unlocks at level 5`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Healing+Shield`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Medic',
       },
     },
@@ -512,7 +512,7 @@ export const remnantItems: Item[] = [
     howToGet: `Unlocks at level 10`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Redemption`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Medic',
       },
     },
@@ -529,7 +529,7 @@ export const remnantItems: Item[] = [
     howToGet: `Unlocks automatically`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Hunter's+Mark`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Hunter',
       },
     },
@@ -555,7 +555,7 @@ export const remnantItems: Item[] = [
     howToGet: `Unlocks at level 5`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Hunter's+Focus`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Hunter',
       },
     },
@@ -580,7 +580,7 @@ export const remnantItems: Item[] = [
     howToGet: `Unlocks at level 10`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Hunter's+Shroud`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Hunter',
       },
     },
@@ -601,7 +601,7 @@ export const remnantItems: Item[] = [
     howToGet: `Unlocks automatically`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Vial:+Stone+Mist`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Alchemist',
       },
     },
@@ -622,7 +622,7 @@ export const remnantItems: Item[] = [
     howToGet: `Unlocks at level 5`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Vial:+Frenzy+Dust`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Alchemist',
       },
     },
@@ -645,7 +645,7 @@ export const remnantItems: Item[] = [
     howToGet: `Unlocks at level 10`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Vial:+Elixir+Of+Life`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Alchemist',
       },
     },
@@ -660,7 +660,7 @@ export const remnantItems: Item[] = [
     howToGet: `Unlocks automatically`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Reality+Rune`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Archon',
       },
     },
@@ -675,7 +675,7 @@ export const remnantItems: Item[] = [
     howToGet: `Unlocks at level 5`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Chaos+Gate`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Archon',
       },
     },
@@ -698,7 +698,7 @@ export const remnantItems: Item[] = [
     howToGet: `Unlocks at level 10`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Havoc+Form`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Archon',
       },
     },
@@ -718,7 +718,7 @@ export const remnantItems: Item[] = [
     howToGet: `Unlocks automatically`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Heavy+Weapon:+Vulcan`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Engineer',
       },
     },
@@ -740,7 +740,7 @@ export const remnantItems: Item[] = [
       `https://remnant2.wiki.fextralife.com/Heavy+Weapon:+Flamethrower`,
     ],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Engineer',
       },
     },
@@ -762,7 +762,7 @@ export const remnantItems: Item[] = [
       `https://remnant2.wiki.fextralife.com/Heavy+Weapon:+Impact+Cannon`,
     ],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Engineer',
       },
     },
@@ -777,7 +777,7 @@ export const remnantItems: Item[] = [
     howToGet: `Unlocks automatically`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Plainswalker`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Explorer',
       },
     },
@@ -794,7 +794,7 @@ export const remnantItems: Item[] = [
     howToGet: `Unlocks at level 5`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Gold+Digger`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Explorer',
       },
     },
@@ -809,7 +809,7 @@ export const remnantItems: Item[] = [
     howToGet: `Unlocks at level 10`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Fortune+Hunter`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Explorer',
       },
     },
@@ -828,7 +828,7 @@ export const remnantItems: Item[] = [
     howToGet: `Unlocks automatically`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Quick+Draw`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Gunslinger',
       },
     },
@@ -843,7 +843,7 @@ export const remnantItems: Item[] = [
     howToGet: `Unlocks at level 5`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Sidewinder`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Gunslinger',
       },
     },
@@ -862,7 +862,7 @@ export const remnantItems: Item[] = [
     howToGet: `Unlocks at level 10`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Bulletstorm`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Gunslinger',
       },
     },
@@ -877,7 +877,7 @@ export const remnantItems: Item[] = [
     howToGet: `Unlocks automatically`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Void+Cloak`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Invader',
       },
     },
@@ -894,7 +894,7 @@ export const remnantItems: Item[] = [
     howToGet: `Unlocks at level 5`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Worm+Hole`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Invader',
       },
     },
@@ -913,7 +913,7 @@ export const remnantItems: Item[] = [
     howToGet: `Unlocks at level 10`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Reboot`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Invader',
       },
     },
@@ -930,7 +930,7 @@ export const remnantItems: Item[] = [
     howToGet: `Unlocks automatically`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Minion:+Hollow`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Summoner',
       },
     },
@@ -947,7 +947,7 @@ export const remnantItems: Item[] = [
     howToGet: `Unlocks at level 5`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Minion:+Flyer`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Summoner',
       },
     },
@@ -966,7 +966,7 @@ export const remnantItems: Item[] = [
     howToGet: `Unlocks at level 10`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Minion:+Reaver`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Summoner',
       },
     },
@@ -984,7 +984,7 @@ export const remnantItems: Item[] = [
     howToGet: `Unlocks automatically`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Eruption`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Ritualist',
       },
     },
@@ -999,7 +999,7 @@ export const remnantItems: Item[] = [
     howToGet: `Unlocks at level 5`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Miasma`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Ritualist',
       },
     },
@@ -1014,7 +1014,7 @@ export const remnantItems: Item[] = [
     howToGet: `Unlocks at level 10`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Death+Wish`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Ritualist',
       },
     },
@@ -8771,7 +8771,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     howToGet: `Affliction is the Archetype Trait of the RITUALIST`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Affliction`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Ritualist',
       },
     },
@@ -8786,7 +8786,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     howToGet: `Ammo Reserves is the Archetype Trait of the GUNSLINGER`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Ammo+Reserves`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Gunslinger',
       },
     },
@@ -8895,7 +8895,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     howToGet: `Flash Caster is the Archetype Trait of the ARCHON`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Flash+Caster`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Archon',
       },
     },
@@ -8920,7 +8920,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     howToGet: `Fortify is the Archetype Trait of the ENGINEER`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Fortify`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Engineer',
       },
     },
@@ -8957,7 +8957,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     howToGet: `Kinship is the Archetype Trait of the HANDLER`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Kinship`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Handler',
       },
     },
@@ -8972,7 +8972,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     howToGet: `Longshot is the Archetype Trait of the HUNTER`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Longshot`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Hunter',
       },
     },
@@ -8987,7 +8987,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     howToGet: `Potency is the Archetype Trait of the ALCHEMIST`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Potency`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Alchemist',
       },
     },
@@ -9013,7 +9013,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     howToGet: `Regrowth is the Archetype Trait of the SUMMONER`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Regrowth`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Summoner',
       },
     },
@@ -9100,7 +9100,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     howToGet: `Strong Back is the Archetype Trait of the CHALLENGER`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Strong+Back`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Challenger',
       },
     },
@@ -9116,7 +9116,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     howToGet: `Swiftness is the Archetype Trait of the EXPLORER`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Swiftness`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Explorer',
       },
     },
@@ -9131,7 +9131,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     howToGet: `Triage is the Archetype Trait of the MEDIC`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Triage`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Medic',
       },
     },
@@ -9146,7 +9146,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     howToGet: `Untouchable is the Archetype Trait of the INVADER`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Untouchable`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Invader',
       },
     },
@@ -9612,7 +9612,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     howToGet: `Automatically unlocked.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Dead+to+Rights`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Hunter',
       },
     },
@@ -9635,7 +9635,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     howToGet: `Unlocked at Level 1`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Deadeye`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Hunter',
       },
     },
@@ -9656,7 +9656,7 @@ Kills due to Weakspot and Critical Hits increase Ammo drops by 50% and double th
     howToGet: `Unlocked at Level 2`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Return+to+Sender`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Hunter',
       },
     },
@@ -9677,7 +9677,7 @@ Firearms gain 15% Reload Speed and 15% Increased Movement Speed after a Kill. La
     howToGet: `Unlocked at Level 3`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Urgency`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Hunter',
       },
     },
@@ -9698,7 +9698,7 @@ Using a Relic extends the duration of any active HUNTER Skill by 10s. Effect deg
     howToGet: `Unlocked at Level 4`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Intuition`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Hunter',
       },
     },
@@ -9723,7 +9723,7 @@ Using a Relic extends the duration of any active HUNTER Skill by 10s. Effect deg
     howToGet: `Automatically unlocked`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Bonded`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Handler',
       },
     },
@@ -9744,7 +9744,7 @@ Using a Relic extends the duration of any active HUNTER Skill by 10s. Effect deg
     howToGet: `Unlocked at Level 1`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Pack+Hunter`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Handler',
       },
     },
@@ -9763,7 +9763,7 @@ Using a Relic extends the duration of any active HUNTER Skill by 10s. Effect deg
     howToGet: `Unlocked at Level 2`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Spirit+of+the+Wolf`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Handler',
       },
     },
@@ -9782,7 +9782,7 @@ Using a Relic extends the duration of any active HUNTER Skill by 10s. Effect deg
     howToGet: `Unlocked at Level 3`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Teamwork`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Handler',
       },
     },
@@ -9801,7 +9801,7 @@ Using a Relic extends the duration of any active HUNTER Skill by 10s. Effect deg
     howToGet: `Unlocked at Level 4`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Best+Friend`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Handler',
       },
     },
@@ -9826,7 +9826,7 @@ Using a Relic extends the duration of any active HUNTER Skill by 10s. Effect deg
     howToGet: `Automatically unlocked.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Regenerator`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Medic',
       },
     },
@@ -9847,7 +9847,7 @@ Using a Relic extends the duration of any active HUNTER Skill by 10s. Effect deg
     howToGet: `Unlocked at Level 1`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Invigorated`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Medic',
       },
     },
@@ -9866,7 +9866,7 @@ Using a Relic extends the duration of any active HUNTER Skill by 10s. Effect deg
     howToGet: `Unlocked at Level 2`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Benevolence`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Medic',
       },
     },
@@ -9885,7 +9885,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     howToGet: `Unlocked at Level 3`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Backbone`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Medic',
       },
     },
@@ -9904,7 +9904,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     howToGet: `Unlocked at Level 4`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Benefactor`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Medic',
       },
     },
@@ -9926,7 +9926,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     howToGet: `Automatically unlocked.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Loaded`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Gunslinger',
       },
     },
@@ -9947,7 +9947,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     howToGet: `Unlocked at Level 1`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Swift+Shot`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Gunslinger',
       },
     },
@@ -9966,7 +9966,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     howToGet: `Unlocked at Level 2`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Posse+Up`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Gunslinger',
       },
     },
@@ -9985,7 +9985,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     howToGet: `Unlocked at Level 3`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Quick+Hands`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Gunslinger',
       },
     },
@@ -10004,7 +10004,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     howToGet: `Unlocked at Level 4`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Sleight+of+Hand`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Gunslinger',
       },
     },
@@ -10030,7 +10030,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     howToGet: `Automatically unlocked.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Die+Hard`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Challenger',
       },
     },
@@ -10051,7 +10051,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     howToGet: `Unlocked at Level 1`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Close+Quarters`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Challenger',
       },
     },
@@ -10070,7 +10070,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     howToGet: `Unlocked at Level 2`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Intimidating+Presence`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Challenger',
       },
     },
@@ -10089,7 +10089,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     howToGet: `Unlocked at Level 3`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Powerlifter`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Challenger',
       },
     },
@@ -10108,7 +10108,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     howToGet: `Unlocked at Level 4`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Face+of+Danger`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Challenger',
       },
     },
@@ -10130,7 +10130,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     howToGet: `Automatically unlocked.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Spirited`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Alchemist',
       },
     },
@@ -10151,7 +10151,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     howToGet: `Unlocked at Level 1`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Liquid+Courage`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Alchemist',
       },
     },
@@ -10170,7 +10170,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     howToGet: `Unlocked at Level 2`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Panacea`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Alchemist',
       },
     },
@@ -10195,7 +10195,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     howToGet: `Unlocked at Level 3`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Gold+to+Lead`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Alchemist',
       },
     },
@@ -10214,7 +10214,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     howToGet: `Unlocked at Level 4`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Experimentalist`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Alchemist',
       },
     },
@@ -10236,7 +10236,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     howToGet: `Automatically unlocked.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Tempest`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Archon',
       },
     },
@@ -10258,7 +10258,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     howToGet: `Unlocked at Level 1`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Amplify`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Archon',
       },
     },
@@ -10277,7 +10277,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     howToGet: `Unlocked at Level 2`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Power+Creep`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Archon',
       },
     },
@@ -10296,7 +10296,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     howToGet: `Unlocked at Level 3`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Spirit+Within`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Archon',
       },
     },
@@ -10315,7 +10315,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     howToGet: `Unlocked at Level 4`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Power+Leak`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Archon',
       },
     },
@@ -10343,7 +10343,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     howToGet: `Automatically unlocked.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/High+Tech`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Engineer',
       },
     },
@@ -10365,7 +10365,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     howToGet: `Unlocked at Level 1`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Metalworker`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Engineer',
       },
     },
@@ -10384,7 +10384,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     howToGet: `Unlocked at Level 2`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Magnetic+Field`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Engineer',
       },
     },
@@ -10403,7 +10403,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     howToGet: `Unlocked at Level 3`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Heavy+Mobility`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Engineer',
       },
     },
@@ -10422,7 +10422,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     howToGet: `Unlocked at Level 4`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Surplus`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Engineer',
       },
     },
@@ -10444,7 +10444,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     howToGet: `Automatically unlocked.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Lucky`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Explorer',
       },
     },
@@ -10465,7 +10465,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     howToGet: `Unlocked at Level 1`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Scavenger`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Explorer',
       },
     },
@@ -10484,7 +10484,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     howToGet: `Unlocked at Level 2`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Metal+Detector`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Explorer',
       },
     },
@@ -10503,7 +10503,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     howToGet: `Unlocked at Level 3`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Prospector`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Explorer',
       },
     },
@@ -10522,7 +10522,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     howToGet: `Unlocked at Level 4`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Self+Discovery`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Explorer',
       },
     },
@@ -10544,7 +10544,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     howToGet: `Automatically unlocked.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Shadow`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Invader',
       },
     },
@@ -10565,7 +10565,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     howToGet: `Unlocked at Level 1`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Shark`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Invader',
       },
     },
@@ -10584,7 +10584,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     howToGet: `Unlocked at Level 2`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Loophole`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Invader',
       },
     },
@@ -10603,7 +10603,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     howToGet: `Unlocked at Level 3`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Circumvent`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Invader',
       },
     },
@@ -10622,7 +10622,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     howToGet: `Unlocked at Level 4`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Override`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Invader',
       },
     },
@@ -10644,7 +10644,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     howToGet: `Automatically unlocked.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Ruthless`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Summoner',
       },
     },
@@ -10666,7 +10666,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     howToGet: `Unlocked at Level 1`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Dominator`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Summoner',
       },
     },
@@ -10685,7 +10685,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     howToGet: `Unlocked at Level 2`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Residue`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Summoner',
       },
     },
@@ -10704,7 +10704,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     howToGet: `Unlocked at Level 3`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Outrage`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Summoner',
       },
     },
@@ -10719,7 +10719,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     howToGet: `Unlocked at Level 4`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Incite`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Summoner',
       },
     },
@@ -10744,7 +10744,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     howToGet: `Automatically unlocked.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Vile`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Ritualist',
       },
     },
@@ -10765,7 +10765,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     howToGet: `Unlocked at Level 1`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Wrath`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Ritualist',
       },
     },
@@ -10784,7 +10784,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     howToGet: `Unlocked at Level 2`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Terrify`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Ritualist',
       },
     },
@@ -10803,7 +10803,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     howToGet: `Unlocked at Level 3`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Dark+Blood`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Ritualist',
       },
     },
@@ -10822,7 +10822,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     howToGet: `Unlocked at Level 4`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Purge`],
     linkedItems: {
-      archtype: {
+      archetype: {
         name: 'Ritualist',
       },
     },

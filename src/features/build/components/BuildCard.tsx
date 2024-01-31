@@ -114,11 +114,11 @@ export default function BuildCard({
               )}
             </div>
             <div className="mt-2 flex flex-row items-center justify-start gap-x-2">
-              {buildState.items.archtype[0] && (
-                <ArchtypeLabel name={buildState.items.archtype[0].name} />
+              {buildState.items.archetype[0] && (
+                <ArchtypeLabel name={buildState.items.archetype[0].name} />
               )}
-              {buildState.items.archtype[1] && (
-                <ArchtypeLabel name={buildState.items.archtype[1].name} />
+              {buildState.items.archetype[1] && (
+                <ArchtypeLabel name={buildState.items.archetype[1].name} />
               )}
             </div>
             {buildState.description && (

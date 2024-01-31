@@ -15,6 +15,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Added missing Blaze mod for Smolder weapon.
 - Fixed a few more low res images.
+- Renamed `archtype` to `archetype` throughout the tool
 
 ## 2023-01-30
 

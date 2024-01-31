@@ -1,7 +1,7 @@
-import { Archtype, ReleaseKey } from '../items/types'
+import { Archetype, ReleaseKey } from '../items/types'
 
 export interface CommunityBuildFilterProps {
-  archtypes: Archtype[]
+  archetypes: Archetype[]
   longGun: string
   handGun: string
   melee: string

@@ -7,7 +7,7 @@ import { ReleaseKey } from '.'
  * archtypes to skills, etc.
  */
 type LinkedItems = Partial<{
-  archtype: { name: string }
+  archetype: { name: string }
   skills: Array<{ name: string }>
   weapon: { name: string }
   mod: { name: string }
@@ -23,7 +23,7 @@ type ItemCategory =
   | 'relic'
   | 'amulet'
   | 'weapon'
-  | 'archtype'
+  | 'archetype'
   | 'concoction'
   | 'consumable'
   | 'mod'

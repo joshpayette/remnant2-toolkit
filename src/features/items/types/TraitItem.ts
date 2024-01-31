@@ -112,7 +112,7 @@ export class TraitItem extends GenericItem implements BaseTraitItem {
     for (const buildItem of buildItems) {
       const item = remnantItems.find((i) => i.id === buildItem.itemId)
       if (!item) continue
-      if (item.category === 'archtype') {
+      if (item.category === 'archetype') {
         // insert the archtype at the index
         buildItem.index
           ? archtypeItems.splice(buildItem.index, 0, item)

@@ -10,7 +10,7 @@ import { remnantItems } from '@/features/items/data'
 import { buildStateToCsvData } from '../lib/buildStateToCsvData'
 import { buildStateToMasonryItems } from '../lib/buildStateToMasonryItems'
 import linkWeaponsToMods from '../lib/linkWeaponsToMods'
-import linkArchtypesToTraits from '../lib/linkArchtypesToTraits'
+import linkArchetypesToTraits from '../lib/linkArchetypesToTraits'
 
 export default function useDBBuildState(initialBuildState: BuildState) {
   const [dbBuildState, setDBBuildState] =
@@ -120,7 +120,7 @@ export default function useDBBuildState(initialBuildState: BuildState) {
       case 'weapon':
         itemOrItems = WeaponItem.fromParams(params)
         break
-      case 'archtype':
+      case 'archetype':
         itemOrItems = GenericItem.fromParamsArray(params)
         break
       case 'concoction':
@@ -179,7 +179,7 @@ export default function useDBBuildState(initialBuildState: BuildState) {
       })
     }
 
-    const linkedBuildState = linkArchtypesToTraits(
+    const linkedBuildState = linkArchetypesToTraits(
       linkWeaponsToMods(newBuildState),
     )
     setDBBuildState(linkedBuildState)

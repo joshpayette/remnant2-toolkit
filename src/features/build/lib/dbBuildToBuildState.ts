@@ -34,7 +34,7 @@ export function dbBuildToBuildState(dbBuild: DBBuild): BuildState {
       relic: GenericItem.fromDBValueSingle(buildItems, 'relic'),
       amulet: GenericItem.fromDBValueSingle(buildItems, 'amulet'),
       ring: GenericItem.fromDBValueArray(buildItems, 'ring'),
-      archtype: GenericItem.fromDBValueArray(buildItems, 'archtype'),
+      archetype: GenericItem.fromDBValueArray(buildItems, 'archetype'),
       skill: GenericItem.fromDBValueArray(buildItems, 'skill'),
       concoction: GenericItem.fromDBValueArray(buildItems, 'concoction'),
       consumable: GenericItem.fromDBValueArray(buildItems, 'consumable'),

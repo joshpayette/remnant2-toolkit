@@ -13,7 +13,7 @@ import { PerkItem } from '@/features/items/types/PerkItem'
 import { buildStateToCsvData } from '../lib/buildStateToCsvData'
 import { buildStateToMasonryItems } from '../lib/buildStateToMasonryItems'
 import linkWeaponsToMods from '../lib/linkWeaponsToMods'
-import linkArchtypesToTraits from '../lib/linkArchtypesToTraits'
+import linkArchetypesToTraits from '../lib/linkArchetypesToTraits'
 
 /**
  * Handles reading/writing the build to the URL query string,
@@ -29,7 +29,7 @@ export default function useUrlBuildState() {
   const searchParams = useSearchParams()
 
   const parsedBuild = parseQueryString(searchParams)
-  const urlBuildState = linkArchtypesToTraits(linkWeaponsToMods(parsedBuild))
+  const urlBuildState = linkArchetypesToTraits(linkWeaponsToMods(parsedBuild))
 
   /**
    * Converts the build state to CSV data.
@@ -109,7 +109,9 @@ export default function useUrlBuildState() {
    */
   function parseQueryString(searchParams: URLSearchParams): BuildState {
     /** The build state that will be returned */
-    const buildState = JSON.parse(JSON.stringify(initialBuildState))
+    const buildState = JSON.parse(
+      JSON.stringify(initialBuildState),
+    ) as BuildState
 
     // Build name
     const name = searchParams.get('name')
@@ -177,13 +179,13 @@ export default function useUrlBuildState() {
           const weaponItems = WeaponItem.fromParams(params)
           if (weaponItems) buildState.items.weapon = weaponItems
           break
-        case 'archtype':
+        case 'archetype':
           if (!params) {
-            buildState.items.archtype = []
+            buildState.items.archetype = []
             break
           }
           const archtypeItems = GenericItem.fromParamsArray(params)
-          if (archtypeItems) buildState.items.archtype = archtypeItems
+          if (archtypeItems) buildState.items.archetype = archtypeItems
           break
         case 'concoction':
           if (!params) {
@@ -255,7 +257,7 @@ export default function useUrlBuildState() {
             buildState.items.perk = []
             break
           }
-          const perkItems = PerkItem.fromParamsArray(params)
+          const perkItems = PerkItem.fromParams(params)
           if (perkItems) buildState.items.perk = perkItems
           break
         default: {

@@ -2,14 +2,13 @@
 
 import { prisma } from '@/features/db'
 import { Prisma } from '@prisma/client'
-import { DEFAULT_DISPLAY_NAME } from '@/features/profile/constants'
 import { bigIntFix } from '@/lib/bigIntFix'
 import { DBBuild } from '../types'
 import { PaginationResponse } from '@/features/pagination/usePagination'
 import { getServerSession } from '@/features/auth/lib'
 import {
-  archtypeFiltersToIds,
-  limitByArchtypesSegment,
+  archetypeFiltersToIds,
+  limitByArchetypesSegment,
 } from '@/features/filters/queries/segments/limitByArchtypes'
 import {
   communityBuildsCountQuery,
@@ -37,16 +36,16 @@ export async function getFeaturedBuilds({
   const session = await getServerSession()
   const userId = session?.user?.id
 
-  const { archtypes, longGun, handGun, melee, selectedReleases } =
+  const { archetypes, longGun, handGun, melee, selectedReleases } =
     communityBuildFilters
-  const archtypeIds = archtypeFiltersToIds({ archtypes })
+  const archetypeIds = archetypeFiltersToIds({ archetypes })
   const weaponIds = weaponFiltersToIds({ longGun, handGun, melee })
 
   if (selectedReleases.length === 0) return { items: [], totalItemCount: 0 }
 
   const whereConditions = Prisma.sql`
   WHERE Build.isPublic = true
-  ${limitByArchtypesSegment(archtypeIds)}
+  ${limitByArchetypesSegment(archetypeIds)}
   ${limitByWeaponsSegment(weaponIds)}
   ${limitByReleasesSegment(selectedReleases)}
   AND Build.isFeaturedBuild = true

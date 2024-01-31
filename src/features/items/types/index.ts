@@ -28,7 +28,7 @@ export interface CsvItem {
   wikiLinks: string
 }
 
-export type Archtype =
+export type Archetype =
   | 'alchemist'
   | 'archon'
   | 'challenger'

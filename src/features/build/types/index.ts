@@ -37,7 +37,7 @@ export interface BuildState {
     amulet: GenericItem | null
     weapon: Array<WeaponItem | null>
     ring: Array<GenericItem | null>
-    archtype: Array<GenericItem | null>
+    archetype: Array<GenericItem | null>
     skill: Array<GenericItem | null>
     concoction: Array<GenericItem | null>
     consumable: Array<GenericItem | null>

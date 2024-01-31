@@ -96,7 +96,7 @@ export default function ListItems({
       label: 'Melee',
       type: 'melee' as WeaponItem['type'],
     },
-    { category: 'archtype' as ItemCategory, label: 'Archtypes' },
+    { category: 'archetype' as ItemCategory, label: 'Archetypes' },
     { category: 'trait' as ItemCategory, label: 'Traits' },
     { category: 'mod' as ItemCategory, label: 'Mods' },
     {
