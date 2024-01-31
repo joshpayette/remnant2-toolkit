@@ -5852,6 +5852,20 @@ export const remnantItems: Item[] = [
     Drops from Gwendil The Unburnt`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Witchfire`],
   },
+  //{
+  //  category: 'mod',
+  //  name: 'Blaze',
+  //  imagePath: '/mod/blaze.png',
+  //  id: '',                                                                                   //@Josh Missing ID, tried to copy existing weapon mods
+  //  description: `Charge Melee Attacks apply BURNING which deals 150 FIRE damage over 5s.`, 
+  //  howToGet: `Attached to Smolder.`,
+  //  wikiLinks: [`https://remnant2.wiki.fextralife.com/Blaze`],
+  //  linkedItems: {
+  //    weapon: {
+  //      name: `Smolder`,
+  //    },
+  //  },
+  //},
   {
     category: 'mutator',
     name: 'Bandit',
@@ -5869,7 +5883,7 @@ export const remnantItems: Item[] = [
     type: 'gun',
     imagePath: '/mutator/battery.png',
     id: 'n5zhws',
-    description: `Ranged Hits increase the next weakspot Hit by 10-[20]% per stack. Max 5 Stacks.`,
+    description: `Ranged Hits increase the next weakspot Hit by 10-[20]%[∗] per stack. Max 5 Stacks.`,
     maxLevelBonus: `At Max Stacks, the next weakspot Hit deals 15% additional damage over 3s.`,
     howToGet: `Sold by Dwell at the following cost: x75 Relic Dust + x500 Scrap.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Battery`],
