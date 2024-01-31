@@ -12,6 +12,7 @@ import { POPULAR_VOTE_THRESHOLD } from '../constants'
 import { format } from 'date-fns'
 import { dbBuildToBuildState } from '../lib/dbBuildToBuildState'
 import Tooltip from '@/features/ui/Tooltip'
+import DescriptionWithTags from '@/features/items/components/DescriptionWithTags'
 
 interface Props {
   build: DBBuild
@@ -113,8 +114,8 @@ export default function BuildCard({
               )}
             </div>
             {buildState.description && (
-              <div className="mt-4 flex max-h-[100px] flex-row items-start justify-start gap-x-2 overflow-y-auto text-ellipsis whitespace-break-spaces text-xs text-gray-300">
-                {buildState.description}
+              <div className="mt-4 max-h-[100px] flex-row items-start justify-start gap-x-2 overflow-y-auto text-ellipsis whitespace-break-spaces text-xs text-gray-300">
+                <DescriptionWithTags description={buildState.description} />
               </div>
             )}
           </div>

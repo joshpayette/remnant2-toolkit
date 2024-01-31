@@ -4,6 +4,7 @@ import Textarea from '@/features/ui/Textarea'
 import Toggle from '@/features/ui/Toggle'
 import { signIn, useSession } from 'next-auth/react'
 import { MAX_BUILD_DESCRIPTION_LENGTH } from '../constants'
+import DescriptionWithTags from '@/features/items/components/DescriptionWithTags'
 
 type Props = {
   description: string | null
@@ -49,7 +50,7 @@ export default function MemberFeatures({
                   Build Description
                 </h3>
                 <div className="whitespace-pre-wrap text-sm text-gray-200">
-                  {description}
+                  <DescriptionWithTags description={description} />
                 </div>
               </>
             )}
@@ -65,7 +66,7 @@ export default function MemberFeatures({
               onChange={(e) => onChangeDescription(e.target.value)}
               value={description ?? ''}
               maxLength={MAX_BUILD_DESCRIPTION_LENGTH}
-              rows={3}
+              rows={6}
             />
           </div>
         )}
