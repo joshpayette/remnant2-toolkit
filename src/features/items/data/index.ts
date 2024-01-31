@@ -127,7 +127,7 @@ export const remnantItems: Item[] = [
     imagePath: '/archtype/explorer.png',
     id: 'la3vvu',
     description:
-      'The EXPLORER spcializes in finding valuable items and overall team utility.',
+      'The EXPLORER specializes in finding valuable items and overall team utility.',
     howToGet: `Finish a full campaign playthrough`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Explorer`],
     linkedItems: {
@@ -397,7 +397,7 @@ export const remnantItems: Item[] = [
     id: 'wyw9r4',
     description: `Enters a heightened state of battle which increases Fire Rate by 15%, Reload Speed by 25%, and Movement Speed by 15%. Lasts 10s. 
 
-    Kills and dealing significant damage grant 1 Stack of RAGE which increases Ranged Damage by 2.5% per Stack. Upon reaching 10 Stacks, the CHALLENGER goes BERSERK, which reloads their current firearm and doubles Rampage efects for 15s.`,
+    Kills and dealing significant damage grant 1 Stack of RAGE which increases Ranged Damage by 2.5% per Stack. Upon reaching 10 Stacks, the CHALLENGER goes BERSERK, which reloads their current firearm and doubles Rampage effects for 15s.`,
     cooldown: 90,
     howToGet: `Unlocked at level 10`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Rampage`],
@@ -412,7 +412,7 @@ export const remnantItems: Item[] = [
     name: 'Guard Dog',
     imagePath: '/skill/guard_dog.png',
     id: 'gpr2fw',
-    description: `Companion will follow the HANDLER and generate 15% incresed Threat while attacking. All damage to them is reduced by 20%. 
+    description: `Companion will follow the HANDLER and generate 15% increased Threat while attacking. All damage to them is reduced by 20%. 
 
     SINGLE PRESS: Companion engages enemies near the targeted location.
     
@@ -439,7 +439,7 @@ export const remnantItems: Item[] = [
     
     DOUBLE TAP: Companion returns to the HANDLER and remains by their side.
     
-    HOLD: Howl grants 2% of Max Health per second and 25% increased Movemente Speed to all allies within 20m. Lasts 25s`,
+    HOLD: Howl grants 2% of Max Health per second and 25% increased Movement Speed to all allies within 20m. Lasts 25s`,
     cooldown: 90,
     howToGet: `Unlocks at level 5`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Support+Dog`],
@@ -456,7 +456,7 @@ export const remnantItems: Item[] = [
     id: '8trtzh',
     description: `Companion will follow the HANDLER and deal 20% additional damage. 
 
-    SINGLE PRESS: Compabion engages enemies near the targeted location. 
+    SINGLE PRESS: Companion engages enemies near the targeted location. 
     
     DOUBLE TAP: Companion returns to the HANDLER and remains by their side. 
     
@@ -475,7 +475,7 @@ export const remnantItems: Item[] = [
     name: 'Wellspring',
     imagePath: '/skill/wellspring.png',
     id: '7vtxrx',
-    description: `The MEDIC channels healing energy into their fist, punching a hole in the ground to create a 3m Healing Spring AOE wich restores 10.5 Health per second and greatly increses Blight Decay Rate. Lasts 15s.`,
+    description: `The MEDIC channels healing energy into their fist, punching a hole in the ground to create a 3m Healing Spring AOE which restores 10.5 Health per second and greatly increases Blight Decay Rate. Lasts 15s.`,
     cooldown: 57.6,
     howToGet: `Unlocks automatically`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Wellspring`],
@@ -505,7 +505,7 @@ export const remnantItems: Item[] = [
     name: 'Redemption',
     imagePath: '/skill/redemption.png',
     id: 'zs77cb',
-    description: `The MEDIC unleashes a 30m shockwave that revives downed allies and resotres 52.5% Max Health over 10s. For each additional 1s holding the SKILL button, the heal gains an additional 52.5% (up to 210% max)
+    description: `The MEDIC unleashes a 30m shockwave that revives downed allies and restores 52.5% Max Health over 10s. For each additional 1s holding the SKILL button, the heal gains an additional 52.5% (up to 210% max)
 
     Revived allies will only receive 50% of the healing amount. If revived, allies cannot be revived again by Redemption for another 180s. Resets at Worldstone or on death. `,
     cooldown: 115.2,
@@ -541,7 +541,7 @@ export const remnantItems: Item[] = [
     id: '5jh6qr',
     description: `Continously Aiming Down Sights uninterrupted and without shooting for 1s causes the HUNTER to enter a FOCUSED state. 
 
-    FOCUSED reduces Weapon Spread, Recoil, and Sway by 75% and grants 25% Ranged & Ranged Weaspot Damage, and 10% Ranged Crit Chance.
+    FOCUSED reduces Weapon Spread, Recoil, and Sway by 75% and grants 25% Ranged & Ranged Weakspot Damage, and 10% Ranged Crit Chance.
     
     While FOCUSED, Aiming at enemies will automatically apply MARK.
     
@@ -636,7 +636,7 @@ export const remnantItems: Item[] = [
 
     LIVING WILL grants 5 Health Regeneration per second, and automatically protects against fatal damage while active. Can revive downed players if it heals them to full when downed. Lasts 20s.
     
-    Revived allies canno be affected by Living Will for 180s.
+    Revived allies cannot be affected by Living Will for 180s.
     
     PRESS: Slam Vial on the ground, creating the effect at the ALCHEMIST's feet.
     
@@ -710,11 +710,11 @@ export const remnantItems: Item[] = [
     id: 'pgmn4v',
     description: `PRESS: Deploys a Vulcan Turret which lasts until its Ammo is exhausted. Turrets that can aim will prioritize targets that the player Aims at. Press SKILL again to enable autonomous targeting. 
 
-    HOLD: Deploys to Heavv Carry Mode. If ENGINEER Prime is available, will Overlock the weapon if already in hand or on the battlefield
+    HOLD: Deploys to Heavy Carry Mode. If ENGINEER Prime is available, will Overlock the weapon if already in hand or on the battlefield
     
     DOUBLE PRESS: The weapon is reclaimed, returning 75% of its remaining ammo.
     
-    Heavy weapon ammo is regenered by 1.02% every second, and heavy weapons can only be deployed if at least 25% ammo is available.`,
+    Heavy weapon ammo is regenerated by 1.02% every second, and heavy weapons can only be deployed if at least 25% ammo is available.`,
     howToGet: `Unlocks automatically`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Heavy+Weapon:+Vulcan`],
     linkedItems: {
@@ -728,13 +728,13 @@ export const remnantItems: Item[] = [
     name: 'Heavy Weapon: Flamethrower',
     imagePath: '/skill/heavy_weapon_flamethrower.png',
     id: '6fk8ea',
-    description: `PRESS: Deploys a Flamethrower turret which lasts until its Ammo is exhausted. Turrets that can aim will prioritze targts taht the player Aims at. Press SKILL again to enable autonomous targeting.
+    description: `PRESS: Deploys a Flamethrower turret which lasts until its Ammo is exhausted. Turrets that can aim will prioritize targets that the player Aims at. Press SKILL again to enable autonomous targeting.
 
     HOLD: Deploys to Heavy Carry Mode. If ENGINEER Prime is available, will Overclock the weapon if already in hand or on the battlefield.
     
     DOUBLE PRESS: The weapon is reclaimed, returning 75% of its remaining ammo
     
-    Heavy weapon ammo is regenered by 1.02% every second, and heavy weapons can only be deployed if at least 25% ammo is available.`,
+    Heavy weapon ammo is regenerated by 1.02% every second, and heavy weapons can only be deployed if at least 25% ammo is available.`,
     howToGet: `Unlocks at level 5`,
     wikiLinks: [
       `https://remnant2.wiki.fextralife.com/Heavy+Weapon:+Flamethrower`,
@@ -750,13 +750,13 @@ export const remnantItems: Item[] = [
     name: 'Heavy Weapon: Impact Cannon',
     imagePath: '/skill/heavy_weapon_impact_cannon.png',
     id: 'ki92op',
-    description: `PRESS: Deploys a Impact Cannon Turret which lasts until its Ammo is exhausted. Turrets that can aim will prioritze targts taht the player Aims at. Press SKILL again to enable autonomous targeting.
+    description: `PRESS: Deploys a Impact Cannon Turret which lasts until its Ammo is exhausted. Turrets that can aim will prioritze targets that the player Aims at. Press SKILL again to enable autonomous targeting.
 
     HOLD: Deploys to Heavy Carry Mode. If ENGINEER Prime is available, will Overclock the weapon if already in hand or on the battlefield.
     
     DOUBLE PRESS: The weapon is reclaimed, returning 75% of its remaining ammo.
     
-    Heavy weapon ammo is regenered by 1.02% every second, and heavy weapons can only be deployed if at least 25% ammo is available.`,
+    Heavy weapon ammo is regenerated by 1.02% every second, and heavy weapons can only be deployed if at least 25% ammo is available.`,
     howToGet: `Unlocks at level 10`,
     wikiLinks: [
       `https://remnant2.wiki.fextralife.com/Heavy+Weapon:+Impact+Cannon`,
@@ -838,7 +838,7 @@ export const remnantItems: Item[] = [
     name: 'Sidewinder',
     imagePath: '/skill/sidewinder.png',
     id: 'jn34u8',
-    description: `Calls upon the power of the Desert Sidewinder snake to increase ADS Movement Speed and Draw/Swap Spped by 50%. Cycling weapons will automatically reload incoming Firearms. Lasts 12s.`,
+    description: `Calls upon the power of the Desert Sidewinder snake to increase ADS Movement Speed and Draw/Swap Speed by 50%. Cycling weapons will automatically reload incoming Firearms. Lasts 12s.`,
     cooldown: 76.8,
     howToGet: `Unlocks at level 5`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Sidewinder`],
@@ -857,7 +857,7 @@ export const remnantItems: Item[] = [
 
     Single Shot Weapons become fully-automatic. Kills instantly reload the current weapon. 
     
-    Instead of becoming fully-automatic, Bows and Crossbows gain 15% Critical Chance and 50% incresed Projectile Speed.`,
+    Instead of becoming fully-automatic, Bows and Crossbows gain 15% Critical Chance and 50% increased Projectile Speed.`,
     cooldown: 57.6,
     howToGet: `Unlocks at level 10`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Bulletstorm`],
@@ -925,7 +925,7 @@ export const remnantItems: Item[] = [
     id: 'kk4yre',
     description: `PRESS: Summons a Root Hollow Minion to fight by your side. Costs 15% of Max Health to summon, but will not kil SUMMONER. Max (2)
 
-    HOLD: SACRIFICE Root Hollow Minion to explode, dealing 150 damage within 5m. Reduces Skill Cooldown by up to 50% based on remaining Health of each Minion Sacrificied.`,
+    HOLD: SACRIFICE Root Hollow Minion to explode, dealing 150 damage within 5m. Reduces Skill Cooldown by up to 50% based on remaining Health of each Minion Sacrificed.`,
     cooldown: 30,
     howToGet: `Unlocks automatically`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Minion:+Hollow`],
@@ -1123,7 +1123,7 @@ export const remnantItems: Item[] = [
     shockResistance: 1,
     blightResistance: 1,
     toxinResistance: 1,
-    description: `A simple and unassuming headpiece that belies its storied past. Once worn by members of a secretive and enigmatic cult. It now serves as a symbol of redemption for those who have turned their backs on the gruoup's teachings.`,
+    description: `A simple and unassuming headpiece that belies its storied past. Once worn by members of a secretive and enigmatic cult. It now serves as a symbol of redemption for those who have turned their backs on the group's teachings.`,
     howToGet: `Can be bought from Whispers after beating the game once.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Cultist+Hat`],
   },
@@ -1563,7 +1563,7 @@ export const remnantItems: Item[] = [
     shockResistance: 0,
     blightResistance: 0,
     toxinResistance: 2,
-    description: `This thing is difficult to put on or take off and makes you feel like afwalkipig ta In the thick of battle, that's exactly what you're looking for.`,
+    description: `This thing is difficult to put on or take off and makes you feel like a walking tank. In the thick of battle, that's exactly what you're looking for.`,
     howToGet: `Starting equipment for the CHALLENGER Class
     Sold by Whispers in Ward 13`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Bruiser+Bodyplate`],
@@ -1603,7 +1603,7 @@ export const remnantItems: Item[] = [
     shockResistance: 2,
     blightResistance: 2,
     toxinResistance: 3,
-    description: `More symbolic than functional, its adorned with trinklets and ornaments instead of providing significant protection. The coat's drab color blends in with the bleak, post-apocalyptic landscape, serving as a visible sign of the wearer's allegiance to the Root`,
+    description: `More symbolic than functional, it's adorned with trinkets and ornaments instead of providing significant protection. The coat's drab color blends in with the bleak, post-apocalyptic landscape, serving as a visible sign of the wearer's allegiance to the Root`,
     howToGet: `Can be bought from Whispers after beating the game once.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Cultist+Duster`],
   },
@@ -1658,7 +1658,7 @@ export const remnantItems: Item[] = [
     shockResistance: 0,
     blightResistance: 2,
     toxinResistance: 0,
-    description: `The royal guard do not wear insignias on their chests nor crests on their shield. It is assumed their identify is clear from their grab and the confidence with wich they carry themselves.`,
+    description: `The royal guard do not wear insignias on their chests nor crests on their shield. It is assumed their identify is clear from their grab and the confidence with which they carry themselves.`,
     howToGet: `Can be found in Losomn - Postulant's Parlor`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Fae+Royal+Bodyplate`],
   },
@@ -1695,7 +1695,7 @@ export const remnantItems: Item[] = [
     shockResistance: 4,
     blightResistance: 0,
     toxinResistance: 2,
-    description: `A rugged amalgamation of canvas, denim, leather, and steel. These different materials all serve the same purpose of keeping you covered without inhibitin aiming mobility.`,
+    description: `A rugged amalgamation of canvas, denim, leather, and steel. These different materials all serve the same purpose of keeping you covered without inhibiting aiming mobility.`,
     howToGet: `Starting equipment for the GUNSLINGER Archetype.
     Whispers sells this item at the following cost: x1,150 Scrap`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/High+Noon+Duds`],
@@ -1842,7 +1842,7 @@ export const remnantItems: Item[] = [
     shockResistance: 0,
     blightResistance: 4,
     toxinResistance: 1,
-    description: `This chestpiece must be hundreds -thousands- of years old, yet it shows no signi of rust or decay. One can only imagine a Pan king or queen wearing such  majestic regalia.`,
+    description: `This chest piece must be hundreds -thousands- of years old, yet it shows no signis of rust or decay. One can only imagine a Pan king or queen wearing such  majestic regalia.`,
     howToGet: `Can be found in Yaesha - The Lament`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Red+Widow+Raiment`],
   },
@@ -1878,7 +1878,7 @@ export const remnantItems: Item[] = [
     shockResistance: 2,
     blightResistance: 2,
     toxinResistance: 2,
-    description: `A combination of a sturdy metal chest plate and a worn, leather trench coat that provides some protection against the elements. It's clear that the ari together with practicality in mind, rather than aesthetics.`,
+    description: `A combination of a sturdy metal chest plate and a worn, leather trench coat that provides some protection against the elements. It's clear that the are together with practicality in mind, rather than aesthetics.`,
     howToGet: `Automatically equipped as you begin your first character in the game`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Survivor+Overcoat`],
   },
@@ -1915,7 +1915,7 @@ export const remnantItems: Item[] = [
     shockResistance: 4,
     blightResistance: 1,
     toxinResistance: 3,
-    description: `This isn't just any denim jacket, it's your denim jacket. It's not especial pdale. 7 ready, but it's comfortable, and in it you feel ready for anything.`,
+    description: `This isn't just any denim jacket, it's your denim jacket. It's not especial pale. 7 ready, but it's comfortable, and in it you feel ready for anything.`,
     howToGet: `Starting equipment for the HANDLER
     Can be bought from Whispers in Ward 13`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Trainer+Clothes`],
@@ -1972,7 +1972,7 @@ export const remnantItems: Item[] = [
     shockResistance: 0,
     blightResistance: 1,
     toxinResistance: 4,
-    description: `Expensive-looking shoes fit for a lecture hall...that wouldn't last a week outsid it.`,
+    description: `Expensive-looking shoes fit for a lecture hall...that wouldn't last a week outside it.`,
     howToGet: `On a body, during the Monster in the Drain event in Losomn`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Academic's+Trousers`],
   },
@@ -2028,7 +2028,7 @@ export const remnantItems: Item[] = [
     shockResistance: 0,
     blightResistance: 2,
     toxinResistance: 0,
-    description: `The crimson greaves clink and clank as you walk, announcing your presence to those honoured enough to know it. Each sabaton tapers to a sharp, defiant point.`,
+    description: `The crimson greaves clink and clank as you walk, announcing your presence to those honored enough to know it. Each sabaton tapers to a sharp, defiant point.`,
     howToGet: `Kill The One True King.
     Give 3 coins to The Red Prince at the Gilded Chambers.
     Speak to the Red King at the Chamber of the Faithless.`,
@@ -2066,7 +2066,7 @@ export const remnantItems: Item[] = [
     shockResistance: 2,
     blightResistance: 2,
     toxinResistance: 0,
-    description: `The deadwood boots are surprisingly snug. You're not sure what you expecte shodding your feet inside the bloodthirsty branches of the Root, but it wasn't this cushioned comfort.`,
+    description: `The deadwood boots are surprisingly snug. You're not sure what you expected shodding your feet inside the bloodthirsty branches of the Root, but it wasn't this cushioned comfort.`,
     howToGet: `Can be found in Root Earth - Ashen Wasteland Checkpoint`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Dendroid+Leggings`],
   },
@@ -2419,7 +2419,7 @@ export const remnantItems: Item[] = [
     shockResistance: 0,
     blightResistance: 1,
     toxinResistance: 2,
-    description: `The initials of the Dran who once owned these - and misplaged them often - are embroidered on the wool-lined inside.`,
+    description: `The initials of the Dran who once owned these - and misplaced them often - are embroidered on the wool-lined inside.`,
     howToGet: `On a body, during the Monster in the Drain event in Losomn`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Academic's+Gloves`],
   },
@@ -2662,7 +2662,7 @@ export const remnantItems: Item[] = [
     shockResistance: 2,
     blightResistance: 1,
     toxinResistance: 3,
-    description: `These gauntlets are sturdy enough to hold up even agaist the Root: They're tough and intimidating while providing the bare-minimnum level of dexterity for,a steady grip on your weapon of choice. Just don't plan on completing any tasks that require subtlety when wearing these.`,
+    description: `These gauntlets are sturdy enough to hold up even against the Root: They're tough and intimidating while providing the bare-minimum level of dexterity for,a steady grip on your weapon of choice. Just don't plan on completing any tasks that require subtlety when wearing these.`,
     howToGet: `Can be found in Ward 13. Check Leto's Stash to learn how to obtain it.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Leto+Mark+II+Gloves`],
   },
@@ -2680,7 +2680,7 @@ export const remnantItems: Item[] = [
     shockResistance: 1,
     blightResistance: 7,
     toxinResistance: 0,
-    description: `A single glove and arm wrap are all you need or‘want for ar protection. The only defense you can truly rely on is a loaded gun and a cle shot.`,
+    description: `A single glove and arm wrap are all you need or want for arm protection. The only defense you can truly rely on is a loaded gun and a clear shot.`,
     howToGet: `Starting equipment for the HUNTER Archetype
     Can be bought from Whispers in Ward 13`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Nightstalker+Gloves`],
@@ -2699,7 +2699,7 @@ export const remnantItems: Item[] = [
     shockResistance: 2,
     blightResistance: 0,
     toxinResistance: 1,
-    description: `The fingerless leather gloves provide exceptional dexterity to the wearer, while the vambracers are adorned with a blue gem that gives the wearer acess to the volatile energy stored within.`,
+    description: `The fingerless leather gloves provide exceptional dexterity to the wearer, while the vambraces are adorned with a blue gem that gives the wearer access to the volatile energy stored within.`,
     howToGet: `Obtained for free by purchasing Remnant 2 Deluxe Edition or Ultimate Edition
     Can be bought from Whispers after beating the game once.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Radiant+Bracers`],
@@ -2736,7 +2736,7 @@ export const remnantItems: Item[] = [
     shockResistance: 0,
     blightResistance: 2,
     toxinResistance: 0,
-    description: `These gloves are light, with openings for the fingers to allow the wearer maximum dexterity - a necesary consideration for traditional Pan weaponry.`,
+    description: `These gloves are light, with openings for the fingers to allow the wearer maximum dexterity - a neccesary consideration for traditional Pan weaponry.`,
     howToGet: `Can be found in Yaesha - The Lament`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Red+Widow+Bracers`],
   },
@@ -2772,7 +2772,7 @@ export const remnantItems: Item[] = [
     shockResistance: 1,
     blightResistance: 1,
     toxinResistance: 1,
-    description: `Made of durable leather and include a makeshift wrist guard consisting of a etalk plate secured by leather straps, providing addition protection to the wearer's wrists withour sacrificing dexterity.`,
+    description: `Made of durable leather and include a makeshift wrist guard consisting of a metal plate secured by leather straps, providing addition protection to the wearer's wrists without sacrificing dexterity.`,
     howToGet: `Automatically equipped as you begin your first character in the game`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Survivor+Gloves`],
   },
@@ -2976,7 +2976,7 @@ export const remnantItems: Item[] = [
     name: 'Resonating Heart',
     imagePath: '/relic/resonating_heart.png',
     id: '6ruk95',
-    description: `On use, regenerates 50% of Max Health over 5s. When heal ends, any overhea| Health is Doubled and awarded over the next 20s.`,
+    description: `On use, regenerates 50% of Max Health over 5s. When heal ends, any overhealed Health is Doubled and awarded over the next 20s.`,
     howToGet: `Can be found in Root Earth - Ashen Wasteland.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Resonating+Heart`],
   },
@@ -4563,7 +4563,7 @@ export const remnantItems: Item[] = [
     name: 'Bolt Driver',
     imagePath: '/offhand/bolt_driver.png',
     id: 'd388ma',
-    description: `An ingenius Gul rifle designed to harness energy from Pan crystals. Charge to fire a 3- shot burst.`,
+    description: `An ingenious Gul rifle designed to harness energy from Pan crystals. Charge to fire a 3- shot burst.`,
     howToGet: `Bolt Driver can be obtained by playing the secret song on the Water Harp on Yaesha: 1, 4, 0, 2, 5, 0, 3, 0.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Bolt+Driver`],
     damage: 26,
@@ -4646,7 +4646,7 @@ export const remnantItems: Item[] = [
     name: 'Enigma',
     imagePath: '/offhand/enigma.png',
     id: 'd06hjq',
-    description: `Fires an electrical stream thatjumps to nearby targets within 7.5m, dealing 30% reduced damage perjump. Applies OVERLOADED, dealing 30 SHOCK damage every 5 seconds for 5.2s.`,
+    description: `Fires an electrical stream that jumps to nearby targets within 7.5m, dealing 30% reduced damage per jump. Applies OVERLOADED, dealing 30 SHOCK damage every 5 seconds for 5.2s.`,
     howToGet: `Can be crafted at McCabe, you will need the following Materials: x1 Cipher Rod, x7 Lumenite Crystal, x650 Scrap`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Enigma`],
     linkedItems: {
@@ -4791,7 +4791,7 @@ export const remnantItems: Item[] = [
     name: 'Service Pistol',
     imagePath: '/offhand/service_pistol.png',
     id: 'g34ywl',
-    description: `Astandard issue military spec sidearm known for its reliability and accuracy.`,
+    description: `A standard issue military spec sidearm known for its reliability and accuracy.`,
     howToGet: `Can be bought from Brabus at Ward 13`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Service+Pistol`],
     damage: 24,
@@ -4805,7 +4805,7 @@ export const remnantItems: Item[] = [
     saveFileSlug: 'weapon_magnum',
     imagePath: '/offhand/silverback_model_500.png',
     id: '46cwa6',
-    description: `A powerful hand cannon witha low capacity cylinder. High damage and a heavy kick.`,
+    description: `A powerful hand cannon with a low capacity cylinder. High damage and a heavy kick.`,
     howToGet: `Can be bought from Brabus at Ward 13`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Silverback+Model+500`],
     damage: 55,
@@ -4963,7 +4963,7 @@ export const remnantItems: Item[] = [
     id: '5ke493',
     description: `Brands a target for 30s. Branded enemies that die leave a Brand at their location.
     Reloading or Swapping detonates Brands dealing 225 damage.
-    Addiotional Brands (3 Max) on the same target deal 50% damage.
+    Additional Brands (3 Max) on the same target deal 50% damage.
     Slain enemies return 5-15% of Ammo and Mod power to the weapon.`,
     howToGet: `Attached to the Alpha-Omega long gun`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Beta+Ray`],
@@ -5017,7 +5017,7 @@ export const remnantItems: Item[] = [
     name: 'Bloodline',
     imagePath: '/mod/bloodline.png',
     id: 'yxxajn',
-    description: `Fires a devastating blast which penetrates through all enemies in its path. Deals 120 damage with a 25% Critical damage bonus, and 2x additional stagger. Bloodline daage increases by 50% for each enemy penetrated.`,
+    description: `Fires a devastating blast which penetrates through all enemies in its path. Deals 120 damage with a 25% Critical damage bonus, and 2x additional stagger. Bloodline damage increases by 50% for each enemy penetrated.`,
     howToGet: `Attached to the Merciless long gun`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Bloodline`],
     linkedItems: {
@@ -5129,7 +5129,7 @@ export const remnantItems: Item[] = [
     imagePath: '/mod/cube_shield.png',
     id: '1bfanq',
     description: `Generates a shield which absorbs up to 500 damage from incoming enemy projectiles. Lasts 15s.
-    Reactivating fires the Cube Shield damage enemies as is travels. Damge is increased if the Cube Shield has absorbed enemy projectile damage before firing.`,
+    Reactivating fires the Cube Shield damage enemies as is travels. Damage is increased if the Cube Shield has absorbed enemy projectile damage before firing.`,
     howToGet: `Attached to the Cube Gun hand gun`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Cube+Shield`],
     linkedItems: {
@@ -5197,7 +5197,7 @@ export const remnantItems: Item[] = [
     name: 'Dreadwalker',
     imagePath: '/mod/dreadwalker.png',
     id: 'ybej3w',
-    description: `Enter the Nightmare Realm. Nightfall gains infinite Ammo, a 35% Fire Rate increase, 10% Lifesteal, and becomes fully automatic. The wielder becomes significatly harder to hit while moving. 
+    description: `Enter the Nightmare Realm. Nightfall gains infinite Ammo, a 35% Fire Rate increase, 10% Lifesteal, and becomes fully automatic. The wielder becomes significantly harder to hit while moving. 
     Disables other weapons and Skills for the duration, or until Dreadwalker is deactivated. Lasts 10s.`,
     howToGet: `Attached to the Nightfall long gun`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Dreadwalker`],
@@ -5313,7 +5313,7 @@ export const remnantItems: Item[] = [
     imagePath: '/mod/fathomless_deep.png',
     dlc: 'dlc1',
     id: 'o1zwol',
-    description: `Charged Melee Hits grant Fathomless Deep which increases Melee Staggern by 10% per stack for 5s. Max 3 attacks.`,
+    description: `Charged Melee Hits grant Fathomless Deep which increases Melee Stagger by 10% per stack for 5s. Max 3 attacks.`,
     howToGet: `It comes attached to the Abyssal hook weapon.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Fathomless+Deep`],
     linkedItems: {
@@ -5548,7 +5548,7 @@ export const remnantItems: Item[] = [
     name: 'Nano Swarm',
     imagePath: '/mod/nano_swarm.png',
     id: '8ko9zz',
-    description: `Unleash a swarn of Nanomachines that seek after enemies within 20 meters and repeatedly attack dealing 6 ACID damage per hit. Lasts 15 seconds`,
+    description: `Unleash a swarm of Nanomachines that seek after enemies within 20 meters and repeatedly attack dealing 6 ACID damage per hit. Lasts 15 seconds`,
     howToGet: `Attached to the Nebula hand gun`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Nano+Swarm`],
     linkedItems: {
@@ -5562,7 +5562,7 @@ export const remnantItems: Item[] = [
     name: 'Ouroboros',
     imagePath: '/mod/ouroboros.png',
     id: 'czgb8w',
-    description: `Conjures 6 sword fragments that encircle the wielder for 20s. Performing a Melee Attacks lets loose a Fragment which taints the blood of targets, causing all attacks from Deceit to register as Weaspot hits for a short period of time. Charge Melee attack fires all remaining Fragments at once.`,
+    description: `Conjures 6 sword fragments that encircle the wielder for 20s. Performing a Melee Attacks lets loose a Fragment which taints the blood of targets, causing all attacks from Deceit to register as Weakspot hits for a short period of time. Charge Melee attack fires all remaining Fragments at once.`,
     howToGet: `Attached to the Deceit long gun`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Ouroboros`],
     linkedItems: {
@@ -5994,7 +5994,7 @@ export const remnantItems: Item[] = [
     imagePath: '/mutator/failsafe.png',
     id: '0xx8tz',
     description: `Attached Mod deals 10-[20]%additional Mod Damage.`,
-    maxLevelBonus: `Attached Mod use gains a 15% chace to not consume charge.`,
+    maxLevelBonus: `Attached Mod use gains a 15% chance to not consume charge.`,
     howToGet: `Interact with the Rotten Thaen Fruit, while having the Red Doe Sigilequipped..`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Failsafe`],
   },
@@ -6229,7 +6229,7 @@ export const remnantItems: Item[] = [
     type: 'melee',
     imagePath: '/mutator/shocker.png',
     id: '7js906',
-    description: `Empowers weapon after 5 hits. While empowered. the next Charged Agelee hit strikes all enemies within 10m with SHOCK Damage.`,
+    description: `Empowers weapon after 5 hits. While empowered. the next Charged Melee hit strikes all enemies within 10m with SHOCK Damage.`,
     maxLevelBonus: `The SHOCK Damage now applies OVERLOADED dealing 100 damage over 5.05s.`,
     howToGet: `Root Earth - Drop from Banein Twilight Vale (obtained when going for the INVADER Archetype)`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Shocker`],
@@ -6308,7 +6308,7 @@ export const remnantItems: Item[] = [
     imagePath: '/mutator/supercharger.png',
     id: 'omeu3c',
     description: `Increases Charge Speed of Bows and Fusion Rifles by 10-[30]%.`,
-    maxLevelBonus: `Charged Primary Shots of Bows and Fusion Rigles gain 15% Critical Chance.`,
+    maxLevelBonus: `Charged Primary Shots of Bows and Fusion Rifles gain 15% Critical Chance.`,
     howToGet: `Can be found in The Labyrinth. Dropped by Bastion.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Supercharger`],
   },
@@ -6374,7 +6374,7 @@ export const remnantItems: Item[] = [
     type: 'gun',
     imagePath: '/mutator/twisting_wounds.png',
     id: '7eodps',
-    description: `Increases Ranged damage of this weapon by 10-[20]% to BLEEDINGtargets.`,
+    description: `Increases Ranged damage of this weapon by 10-[20]% to BLEEDING targets.`,
     maxLevelBonus: `This weapon's Ranged Weakspot and Ranged Critical Hits apply BLEEDING, dealing 100 BLEED damage over 10s.`,
     howToGet: `Can be found in Forlorn Coast`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Twisting+Wounds`],
@@ -6536,7 +6536,7 @@ Exclusive to The Awakened King DLC"`,
     name: "Death's Embrace",
     imagePath: '/amulet/deaths_embrace.png',
     id: 'i13ipm',
-    description: `Gain 20% to all damage when Health is below 100%. Gain HASTEwhen below 50% Health.`,
+    description: `Gain 20% to all damage when Health is below 100%. Gain HASTE when below 50% Health.`,
     howToGet: `"Can be found in Yaesha 
 Can be bought for Bedel of the Vaunnt for 400."`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Death's+Embrace`],
@@ -6555,7 +6555,7 @@ Can be bought for Bedel of the Vaunnt for 400."`,
     name: 'Detonation Trigger',
     imagePath: '/amulet/detonation_trigger.png',
     id: '3zi80a',
-    description: `Increases Explosion damage by 25%. Explosions apply 405 BURNINGdamage over 5s.`,
+    description: `Increases Explosion damage by 25%. Explosions apply 405 BURNING damage over 5s.`,
     howToGet: `Can be found in N'Erud - Pounding Piston Event.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Detonation+Trigger`],
   },
@@ -7074,7 +7074,7 @@ Exclusive to The Awakened King DLC"`,
     name: 'Toxic Release Valve',
     imagePath: '/amulet/toxic_release_valve.png',
     id: 'nevpy5',
-    description: `"Swapping off a Firearm releases a Toxic Cloud, which deals 148.5 ACIDDamage to all enemies within 7m. and applies CORROSION. 
+    description: `"Swapping off a Firearm releases a Toxic Cloud, which deals 148.5 ACID damage to all enemies within 7m. and applies CORROSION. 
 Can only happen once every 3s."`,
     howToGet: `Can be found in N'Erud - Dormant N'Erudian Facility in the room unlocked using the Biome-Control Glyph.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Toxic+Release+Valve`],
@@ -7341,7 +7341,7 @@ Exclusive Ring for The Awakened King DLC."`,
     name: 'Blood Jewel',
     imagePath: '/ring/blood_jewel.png',
     id: 'rw8rn0',
-    description: `Charged Melee Attacks apply BLEEDING, dealing 460 BLEEDdamage over 20s.`,
+    description: `Charged Melee Attacks apply BLEEDING, dealing 460 BLEED damage over 20s.`,
     howToGet: `Can be found in Yaesha - The Forbidden Grove.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Blood+Jewel`],
   },
@@ -7843,7 +7843,7 @@ Exclusive Ring for The Awakened King DLC."`,
     name: 'Feedback Loop',
     imagePath: '/ring/feedback_loop.png',
     id: 'j13xrf',
-    description: `Perfect Dodge triggers a 3m AOE blast that deal 115 SHOCKDamage and applies OVERLOADED.`,
+    description: `Perfect Dodge triggers a 3m AOE blast that deal 115 SHOCK Damage and applies OVERLOADED.`,
     howToGet: `Can be found in N'Erud -`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Feedback+Loop`],
   },
@@ -7902,7 +7902,7 @@ Player needs to choose sarcastic answers when first speaking to Bedel and choose
     name: `Game Master's Pride`,
     imagePath: '/ring/game_masters_pride.png',
     id: '4dstmt',
-    description: `Reduces all healing by 50%. Splits all damage and remaining healing evenly amoung all allies wearing this ring.`,
+    description: `Reduces all healing by 50%. Splits all damage and remaining healing evenly among all allies wearing this ring.`,
     howToGet: `Can be found in Losomn - Postulant's Parlor. Co-op only.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Game+Master's+Pride`],
   },
@@ -8370,7 +8370,7 @@ Exclusive Ring for The Awakened King DLC."`,
     name: 'Rock of Anguish',
     imagePath: '/ring/rock_of_anguish.png',
     id: 'lr4wxu',
-    description: `Gain 5% Movement Speed and 7.5% Reload Speed for every 25% of Max Healthmissing.`,
+    description: `Gain 5% Movement Speed and 7.5% Reload Speed for every 25% of Max Health hmissing.`,
     howToGet: `Can be bought from Cass.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Rock+of+Anguish`],
   },
@@ -8631,7 +8631,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     name: 'Tightly Wound Coil',
     imagePath: '/ring/tightly_wound_coil.png',
     id: '3pe83i',
-    description: `When spending 75% or more of current magazine, gain a SHIELD ofr 15% of Max Health for 5s. Does not stack with itself.`,
+    description: `When spending 75% or more of current magazine, gain a SHIELD for 15% of Max Health for 5s. Does not stack with itself.`,
     howToGet: `Can be found in N'Erud - Void Vessel Facility.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Tightly+Wound+Coil`],
   },
@@ -9153,7 +9153,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     name: 'Wayfarer',
     imagePath: '/trait/wayfarer.png',
     id: 'b3rey4',
-    description: `Increases Enviroment Movement Speed (Vaulting, Ladders, Wading)`,
+    description: `Increases Environment Movement Speed (Vaulting, Ladders, Wading)`,
     maxLevelBonus: `At max level, Wayfarer Increeses Traversal Movement by +50%`,
     howToGet: `Wayfarer can be found at Root Earth - Corrupted Harbor`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Wayfarer`],
@@ -9264,7 +9264,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     name: 'Sacred Lakewater',
     imagePath: '/concoction/sacred_lakewater.png',
     id: 'dk9yg4',
-    description: `Increases Grey Health Conversion by 50% and Grey Health Regen by 1 per secorid. Lasts 60m and will stay in effect after death. Only one Concoction may be active at a time.`,
+    description: `Increases Grey Health Conversion by 50% and Grey Health Regen by 1 per second. Lasts 60m and will stay in effect after death. Only one Concoction may be active at a time.`,
     howToGet: `
     Can be bought from Mudtooth at the following cost: 500 Scrap.
     Can be bought from Bedel of the Vaunnt for 650 Scrap.
@@ -9372,7 +9372,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     name: 'Binding Orb',
     imagePath: '/consumable/binding_orb.png',
     id: 'edaeta',
-    description: `When thrown, device becomes an anchor and applies SLOW to all anemies within 4m. Lasts 20s.`,
+    description: `When thrown, device becomes an anchor and applies SLOW to all enemies within 4m. Lasts 20s.`,
     howToGet: `
     Can be bought form Reggie for 250 scrap currency.
     Can be crafted at Drzyr Replicator, you will need the following Materials: 250 Scrap.
@@ -9384,7 +9384,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     name: 'Black Tar',
     imagePath: '/consumable/black_tar.png',
     id: 'nrdcko',
-    description: `When thrown, explodes in a 4m radius dealing 90 damage and applies TARRED wich lasts 15s. Ranged damage and other FIRE sources ignite TARRED entities, causing dealing 750 BURNING damage over 10s.`,
+    description: `When thrown, explodes in a 4m radius dealing 90 damage and applies TARRED which lasts 15s. Ranged damage and other FIRE sources ignite TARRED entities, causing dealing 750 BURNING damage over 10s.`,
     howToGet: `Can be bought form Reggie for 250 scrap`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Black+Tar`],
   },
@@ -9402,7 +9402,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     name: 'Brightstone',
     imagePath: '/consumable/brightstone.png',
     id: '937h03',
-    description: `When thrown, explodes in a 4m radius dealing 250 damage and leaving amysterious Mist which causes enemies to receive 10% additional damage. Debuff last 10s after enemies leave the Mist. Lasts 15s.`,
+    description: `When thrown, explodes in a 4m radius dealing 250 damage and leaving a mysterious Mist which causes enemies to receive 10% additional damage. Debuff last 10s after enemies leave the Mist. Lasts 15s.`,
     howToGet: `
     Can be bought form Reggie for 250 scrap currency
     Can be bought form Bedel of the Vaunnt for 250 scrap currency
@@ -9514,7 +9514,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     name: 'Pipe Bomb',
     imagePath: '/consumable/pipe_bomb.png',
     id: 'kfwizc',
-    description: `When thrown, explodes ina 4m radius dealing 450 damage and applying BLEEDING, which deals an additional 1,350 BLEED damage over 30s.`,
+    description: `When thrown, explodes in a 4m radius dealing 450 damage and applying BLEEDING, which deals an additional 1,350 BLEED damage over 30s.`,
     howToGet: `Can be bought form Reggie for 250 scrap currency`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Pipe+Bomb`],
   },
@@ -9611,7 +9611,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     id: 'c4fx8u',
     description: `
     Unlocked at level 1
-    Gain 4% Ranged Damage and 1.5%[∗] Weakspot Damage. Damageincreases with HUNTER Level
+    Gain 4% Ranged Damage and 1.5%[∗] Weakspot Damage. Damage increases with HUNTER Level
 
   Upgrade Unlocked at level 6
   Gain 24% Ranged Damage, 9%[∗] Weakspot Damage and 5% Ranged Critical Chance.
@@ -10109,10 +10109,10 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     ALCHEMIST can have 1 additional Concotion buff active.
 
     Upgraded at Level 5
-    ALCHEMIST can have 2 additional Concotion buff active.
+    ALCHEMIST can have 2 additional Concotions buff active.
 
     Upgraded at level 10
-    ALCHEMIST can have 3 additional Concoction Buffs actlve.`,
+    ALCHEMIST can have 3 additional Concoctions Buffs active.`,
     howToGet: `Automatically unlocked.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Spirited`],
     linkedItems: {
@@ -10193,10 +10193,10 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     type: 'relic',
     id: 'cxnnz9',
     description: `
-    Using a Relic applies a random buff on the ALCHEMIST for 30s. Cannot be overriden.
+    Using a Relic applies a random buff on the ALCHEMIST for 30s. Cannot be overridden.
 
     Upgrade unlocked at level 9
-    Using a Relic applies a random buff o the ALCHEMIST and allies within 20m for 60s. Cannot obe overriden`,
+    Using a Relic applies a random buff o the ALCHEMIST and allies within 20m for 60s. Cannot be overridden`,
     howToGet: `Unlocked at Level 4`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Experimentalist`],
     linkedItems: {
@@ -10278,7 +10278,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     Reduces the Mod Power requirement for all Mods by 15%.
 
     Upgrade unlocked at level 8
-    Upgrade After casting a Mod instantly regain 15% of theMod Power spent`,
+    Upgrade After casting a Mod instantly regain 15% of the Mod Power spent`,
     howToGet: `Unlocked at Level 3`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Spirit+Within`],
     linkedItems: {
@@ -10717,7 +10717,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     type: 'prime',
     id: 'qewh6t',
     description: `
-    Negative Status Effects applied by RITUALIST inflict Infected
+    Negative Status Effects applied by RITUALIST inflict Infected.
     Infected: Victim receives 5% more Status Effect damage, On death, spreads all statuses to nearby enemies within 5m
     
     Upgraded at Level 5
