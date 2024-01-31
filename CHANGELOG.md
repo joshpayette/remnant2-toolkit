@@ -9,6 +9,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Added
 
 - Added armor calculator when creating or editing a build. This will give you the highest possible armor value for your build based on the items you have selected.
+- Added more status effect tooltips to item descriptions.
+- Status effect tooltips added to build descriptions.
 
 ## 2023-01-28
 

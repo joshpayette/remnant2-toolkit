@@ -1,13 +1,11 @@
 # TODO
 
-- Add modifier tokens and tooltips for statuses (burning, bleeding, etc.)
-  - Incorporate token logic into build descriptions
-  - Make tokens act as tags to search upon
+- Description tags need to be searchable
+- Add a way to track items on a second character
 - GUIDES section?
 - In addition to date created, allow sort by date updated
 - Swap community build filters from internal state to url state
 - Have stat tooltips show the items contributing to the calculations
-- Add a way to track items on a second character
 - Add tracker of world bosses
 - Allow tracking of whether you have completely upgraded a weapon, trait, or archtype
 - Add total votes to /created-builds and /favorited-builds
