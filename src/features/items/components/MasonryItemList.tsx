@@ -29,10 +29,9 @@ interface MasonryBuildItem {
 }
 
 function MasonryCard({ data: item, onMoreInfoClick }: MasonryBuildItem) {
-  if (!item) return null
-
   const moreInfoRef = useRef<HTMLButtonElement>(null)
 
+  if (!item) return null
   const { imagePath, category, name, description, wikiLinks } = item
 
   return (
