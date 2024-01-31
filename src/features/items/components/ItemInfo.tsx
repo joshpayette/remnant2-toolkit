@@ -7,7 +7,7 @@ import { ArmorItem } from '../types/ArmorItem'
 import ArmorInfo from './ArmorInfo'
 import { TraitItem } from '../types/TraitItem'
 import { PerkItem } from '../types/PerkItem'
-import ItemDescription from './ItemDescription'
+import DescriptionWithTags from './DescriptionWithTags'
 import { Item } from '../types'
 import { capitalize } from '@/lib/capitalize'
 import { WeaponItem } from '../types/WeaponItem'
@@ -77,7 +77,7 @@ export default function ItemInfo({ item, open, onClose }: ItemInfoProps) {
         >
           <h4 className="text-left text-xs text-gray-500">Description</h4>
           <div className="whitespace-pre-line text-left text-xs text-gray-300">
-            <ItemDescription
+            <DescriptionWithTags
               description={item.description || 'No description available.'}
             />
           </div>
@@ -88,7 +88,7 @@ export default function ItemInfo({ item, open, onClose }: ItemInfoProps) {
                 At Max Level
               </h4>
               <div className="text-left text-xs text-gray-300">
-                <ItemDescription
+                <DescriptionWithTags
                   description={
                     item.maxLevelBonus || 'No max level bonus found.'
                   }

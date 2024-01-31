@@ -136,7 +136,7 @@ interface Props {
   description: string
 }
 
-export default function ItemDescription({ description }: Props) {
+export default function DescriptionWithTags({ description }: Props) {
   const keywordParts = highlightKeywords(description)
   const finalParts = highlightDescriptionTags(keywordParts)
 

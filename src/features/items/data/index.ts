@@ -9520,7 +9520,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     saveFileSlug: 'poisonedspice',
     id: '6awni8',
     description: `
-    Use to equip the capsule which can be thrown by pressing FIRE. The capsule will detonate after 2s or upon hitting an enemy, releasing a chemical agent which dampens the psionic abilities of long-term Ambit Ember users.`
+    Use to equip the capsule which can be thrown by pressing FIRE. The capsule will detonate after 2s or upon hitting an enemy, releasing a chemical agent which dampens the psionic abilities of long-term Ambit Ember users.`,
     howToGet: `Given by The Custodian after discussing Tal'Ratha with them.`,
     wikiLinks: [
       `https://remnant2.wiki.fextralife.com/Poisoned+Ambit+Ember+Capsule`,
@@ -10542,8 +10542,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     Upgrade Unlocked at level 6
     Sprinting for 1s or Evading adds 1 Stack of Momentum which increases Ranged and Melee damage by 5% and Ranged and Melee Critical Chance by 1% for 15s. Max 5 Stacks.
     
-    (Level 10: Sprinting for 1s or Evading adds 1 Stack of Momentum which increases Ranged and Melee damage by 7% and Ranged and Melee Critical Chance by 1% for 15s. Max 5 Stacks. )`
-    ,
+    (Level 10: Sprinting for 1s or Evading adds 1 Stack of Momentum which increases Ranged and Melee damage by 7% and Ranged and Melee Critical Chance by 1% for 15s. Max 5 Stacks. )`,
     howToGet: `Unlocked at Level 1`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Shark`],
     linkedItems: {

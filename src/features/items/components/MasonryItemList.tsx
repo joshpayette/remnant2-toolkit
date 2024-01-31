@@ -9,7 +9,7 @@ import Link from 'next/link'
 import { useState } from 'react'
 import { Masonry } from 'masonic'
 import { useIsClient } from 'usehooks-ts'
-import ItemDescription from './ItemDescription'
+import DescriptionWithTags from './DescriptionWithTags'
 import { Item } from '../types'
 import { TraitItem } from '../types/TraitItem'
 import { MutatorItem } from '../types/MutatorItem'
@@ -62,7 +62,7 @@ function MasonryCard({ data: item, onMoreInfoClick }: MasonryBuildItem) {
             <>
               <dt className="sr-only">Description</dt>
               <dd className="mt-3 whitespace-pre-line text-left text-xs text-gray-200">
-                <ItemDescription description={description ?? ''} />
+                <DescriptionWithTags description={description ?? ''} />
               </dd>
             </>
           )}
