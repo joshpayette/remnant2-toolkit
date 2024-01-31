@@ -132,7 +132,7 @@ export const DESCRIPTION_TAGS = [
   {
     type: 'contamination',
     token: 'CONTAMINATION',
-    color: 'text-white',
+    color: 'text-[#800080]',
     description:
       'Inflicts a burst of damage after which it resets allowing another build-up.',
   },
@@ -146,13 +146,13 @@ export const DESCRIPTION_TAGS = [
   {
     type: 'curse',
     token: 'CURSE',
-    color: 'text-purple-500',
+    color: 'text-[#7d219e]',
     description: 'Reduces maximum Health by 10% per stack. Maximum 5 stacks.',
   },
   {
     type: 'data corruption',
     token: 'DATA CORRUPTION',
-    color: 'text-white',
+    color: 'text-gray-400',
     description:
       'Disables skills, relic, and consumables use for a short duration.', // I think it also deals damage and staggers but need to verify.
   },
@@ -172,7 +172,8 @@ export const DESCRIPTION_TAGS = [
     type: 'frenzied',
     token: 'FRENZIED',
     color: ARCHTYPE_COLORS.ALCHEMIST.text,
-    description: undefined, // TODO: Add description
+    description:
+      'Increases Fire Rate, Reload Speed, and Melee Speed by 20%, and Movement Speed by 15%. Lasts 15s.', // TODO: Review for accuracy
   },
   {
     type: 'gunslinger',
@@ -189,7 +190,7 @@ export const DESCRIPTION_TAGS = [
   {
     type: 'haste',
     token: 'HASTE',
-    color: 'text-white',
+    color: 'text-[#f1f1cf]',
     description: `Increases the speed of player's actions by 7%.`,
   },
   {
@@ -208,7 +209,8 @@ export const DESCRIPTION_TAGS = [
     type: 'marked',
     token: 'MARKED',
     color: ARCHTYPE_COLORS.GUNSLINGER.text,
-    description: undefined, // TODO: Add description
+    description:
+      'Crit Chance against MARKED enemies is increased by 15% for all allies.', // TODO: Review for accuracy
   },
   {
     type: 'medic',
@@ -238,7 +240,7 @@ export const DESCRIPTION_TAGS = [
   {
     type: 'root rot',
     token: 'ROOT ROT',
-    color: 'text-white',
+    color: 'text-[#b4a065]',
     description:
       'Reduces maximum Stamina by 33%. Forces coughing animation at random intervals.',
   },
@@ -251,7 +253,7 @@ export const DESCRIPTION_TAGS = [
   {
     type: 'slow',
     token: 'SLOW',
-    color: 'text-white',
+    color: 'text-[#f1f1cf]',
     description:
       'Reduces target speed. Ineffective against Bosses and Aberrations.',
   },
@@ -264,7 +266,7 @@ export const DESCRIPTION_TAGS = [
   {
     type: 'suppression',
     token: 'SUPPRESSION',
-    color: 'text-blue-500',
+    color: 'text-[#444662]',
     description: 'Reduces Mod Power Generation by 50%.',
   },
 ] as const satisfies {
