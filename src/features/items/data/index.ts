@@ -4392,6 +4392,11 @@ export const remnantItems: Item[] = [
     howToGet: `Beat the game on Veteran difficulty`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Smolder`],
     damage: 46,
+    linkedItems: {
+      mod: {
+        name: 'Blaze',
+      },
+    },
   },
   {
     category: 'weapon',
@@ -4999,6 +5004,20 @@ export const remnantItems: Item[] = [
   },
   {
     category: 'mod',
+    name: 'Blaze',
+    imagePath: '/mod/blaze.png',
+    id: 'gdY2uZ',
+    description: `Charge Melee Attacks apply BURNING which deals 150 FIRE damage over 5s`,
+    howToGet: `Attached to the Smolder melee weapon`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Blaze`],
+    linkedItems: {
+      weapon: {
+        name: 'Smolder',
+      },
+    },
+  },
+  {
+    category: 'mod',
     name: 'Blood Draw',
     imagePath: '/mod/blood_draw.png',
     id: 'ss7zwt',
@@ -5024,7 +5043,7 @@ export const remnantItems: Item[] = [
   {
     category: 'mod',
     name: 'Bloodshot',
-    imagePath: '/mod/bloodshot.jpg',
+    imagePath: '/mod/bloodshot.png',
     id: 'tw8tbh',
     description: `While active, grants unlimited Reserve Ammo and increases Reload Speed by 30%. If the entire magazine hits a Weakspot, Merciless will automatically perform a quick Reload. Lasts 13s.`,
     howToGet: `Attached to the Corrupted Merciless long gun`,

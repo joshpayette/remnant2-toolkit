@@ -22,8 +22,6 @@
 ## Bugs
 
 - Closing item info scrolls back to the top of the page (seems to be related to the search box taking focus)
-- Reaver (icon low res)
-- Smolder (blaze mod is missing)
 - If you add a skill, the skills for that class should not be selectable in the other skill slot
 - Modal overlay allows click events through. This appears to be a bug in headlessui. See: https://github.com/tailwindlabs/headlessui/issues/1551
 
