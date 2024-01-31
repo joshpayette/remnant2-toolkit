@@ -95,7 +95,11 @@ export default function NavBar() {
                     />
                     <Link
                       href={item.href}
-                      className="block px-3 py-2 text-base font-semibold leading-7 text-white hover:text-purple-500 hover:underline"
+                      className={cn(
+                        'block px-3 py-2 text-base font-semibold leading-7 text-white hover:text-purple-500 hover:underline',
+                        item.name === 'Support R2TK!' &&
+                          'text-green-400 underline hover:text-green-500',
+                      )}
                     >
                       {item.name}
                     </Link>
