@@ -4391,6 +4391,11 @@ export const remnantItems: Item[] = [
     description: `A scorched blade imbued with FIRE.`,
     howToGet: `Beat the game on Veteran difficulty`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Smolder`],
+    linkedItems: {
+      mod: {
+        name: 'Blaze', //Blaze needs to be added to mods @Josh
+      },
+    },
     damage: 46,
   },
   {
@@ -4708,7 +4713,7 @@ export const remnantItems: Item[] = [
     name: 'Nebula',
     imagePath: '/offhand/nebula.png',
     id: 'p7tsxr',
-    description: `Fires a stream of superhot ACID gas which applies the CORRODED effect, dealing 300 CORROSIVE Damage over 15s. Killing targets CORRODED by Nebula spawns a gas cloud which applies its on-hit effect. Gas clouds lasts 2s and can be refreshed.`,
+    description: `Fires a stream of superhot ACID gas which applies the CORRODED effect, dealing 300 CORROSIVE Damage over 15s. Killing targets CORRODED by Nebula spawns a gas cloud which applies its on-hit effect. Gas clouds last 2s and can be refreshed.`,
     howToGet: `Can be crafted at McCabe, you will need the following Materials: x1 Spiced Bile, x7 Lumenite Crystal, x650 Scrap`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Nebula`],
     linkedItems: {
@@ -4942,7 +4947,7 @@ export const remnantItems: Item[] = [
     name: 'Banish',
     imagePath: '/mod/banish.png',
     id: 'k7z7r2',
-    description: `Banish is a Weapon Mod in Remnant 2. Banish is a fixed weapon mod found in the Repulsor. It allows playersto banish enemies to another dimension for a short period of time.`,
+    description: `Banishes enemies or allies into another dimension for 4s. When Banish ends, enemies take 1.5x the damage from the Repulsor's primary fire for 8s. Powerful enemies won't be banished, but will take increased damage from any Repulsor while debuffed.`,
     howToGet: `Banish comes attached to the Repulsor weapon.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Banish`],
     linkedItems: {
@@ -4959,7 +4964,7 @@ export const remnantItems: Item[] = [
     description: `Brands a target for 30s. Branded enemies that die leave a Brand at their location.
     Reloading or Swapping detonates Brands dealing 225 damage.
     Addiotional Brands (3 Max) on the same target deal 50% damage.
-    Salin enemies return 5-15% of Ammo and Mod power to the weapon.`,
+    Slain enemies return 5-15% of Ammo and Mod power to the weapon.`,
     howToGet: `Attached to the Alpha-Omega long gun`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Beta+Ray`],
     linkedItems: {
@@ -5571,7 +5576,7 @@ export const remnantItems: Item[] = [
     name: 'Overflow',
     imagePath: '/mod/overflow.png',
     id: 'tya9an',
-    description: `Overflow charges ammunition with shock, accelerating fire rate and reload speed, and inflicting overwhelming electrical damage over time.`,
+    description: `Imbues ammunition with SHOCK and increases Fire Rate by 15% and Reload Speed by 15% for 20 seconds. Shots also apply OVERLOADED, dealing 35 SHOCK Damage every 5s for 15s.`,
     howToGet: `Can be found in N'Erud, in the Custodian's Basement`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Overflow`],
   },
@@ -5580,7 +5585,7 @@ export const remnantItems: Item[] = [
     name: 'Prismatic Driver',
     imagePath: '/mod/prismatic_driver.png',
     id: 'vtcg3o',
-    description: `Fires a superheated beam which deals 25 Mod Damage per second. Sustaining the beam on a target causes an explosion which deals 150 Mod damage in a 3mAOE.`,
+    description: `Fires a superheated beam which deals 25 Mod Damage per second. Sustaining the beam on a target causes an explosion which deals 150 Mod damage in a 3m AOE.`, //(sic!) mod damage instead of damage
     howToGet: `Crafted from Sentry's Old Iris
     Drops from The Custodian's Eye`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Prismatic+Driver`],
