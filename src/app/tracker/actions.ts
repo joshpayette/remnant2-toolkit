@@ -17,7 +17,7 @@ export default async function parseSaveFile(
   if (!saveFile) {
     throw new Error('No file provided')
   }
-  if (saveFile.name !== 'profile.sav') {
+  if (saveFile.name.toLowerCase() !== 'profile.sav') {
     const message = 'Invalid file name, should be profile.sav'
     console.error(message)
     return {
