@@ -36,34 +36,25 @@ and filling in the values.
 cp .env.sample .env
 ```
 
-Your `.env` file should look something like this:
-
-```bash
-DATABASE_URL=""
-DISCORD_CLIENT_ID=""
-DISCORD_CLIENT_SECRET=""
-REDDIT_CLIENT_ID=""
-REDDIT_CLIENT_SECRET=""
-NEXTAUTH_SECRET=""
-NEXTAUTH_URL=""
-NEXT_PUBLIC_IMAGE_URL=""
-CRON_SECRET=""
-WEBHOOK_COMMUNITY_BUILDS=""
-WEBHOOK_REPORTED_CONTENT=""
-```
-
 #### Environment Variable Descriptions
 
+- `CRON_SECRET` - A secret string used by the Vercel CRON platform to prevent unauthorized access.
 - `DATABASE_URL` - The database connection string for your database. This project uses Planetscale.
 - `DISCORD_CLIENT_ID` - The client ID for your Discord application.
 - `DISCORD_CLIENT_SECRET` - The client secret for your Discord application
-- `REDDIT_CLIENT_ID` - The client ID for your Reddit application.
-- `REDDIT_CLIENT_SECRET` - The client secret for your Reddit application.
 - `NEXTAUTH_SECRET` - A secret string used by NextAuth. Can be anything, just make it long and random.
 - `NEXTAUTH_URL` - The base URL of your site. This is used by NextAuth to redirect back to your site after authentication. Example: http://localhost:3000 for development.
-- `CRON_SECRET` - A secret string used by the Vercel CRON platform to prevent unauthorized access.
-- `WEBHOOK_COMMUNITY_BUILDS` - The Discord webhook URL to post new community builds to.
-- `WEBHOOK_REPORTED_CONTENT` - The Discord webhook URL to post reported content to.
+- `NEXT_PUBLIC_IMAGE_URL` - The base URL for images. This is used to build the full URL for images in the CDN.
+- `PATREON_CLIENT_ID` - The client ID for your Patreon application.
+- `PATREON_CLIENT_SECRET` - The client secret for your Patreon application.
+- `PATREON_CREATOR_ACCESS_TOKEN` - The access token for your Patreon creator account.
+- `PATREON_CREATOR_REFRESH_TOKEN` - The refresh token for your Patreon creator account.
+- `REDDIT_CLIENT_ID` - The client ID for your Reddit application.
+- `REDDIT_CLIENT_SECRET` - The client secret for your Reddit application.
+- `WEBHOOK_BUG_REPORT` - The webhook URL to post bug reports to. This project uses a Discord webhook.
+- `WEBHOOK_COMMUNITY_BUILDS` - The webhook URL to post new community builds to. This project uses a Discord webhook.
+- `WEBHOOK_CRON_LOGS` - The webhook URL to post CRON logs to. This project uses a Discord webhook.
+- `WEBHOOK_REPORTED_CONTENT` - The webhook URL to post reported content to. This project uses a Discord webhook.
 
 ### Run the development server
 
