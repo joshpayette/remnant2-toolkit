@@ -5809,7 +5809,7 @@ export const remnantItems: Item[] = [
     name: 'Voltaic Rondure',
     imagePath: '/mod/voltaic_rondure.png',
     id: 'wjopwy',
-    description: `Launches a slow-moving orb that pulses every 0.5s, striking enemies within 3mfor 20 SHOCK damage and applying OVERLOADED for 15s. The orb lasts 20s. The orb can be overcharged by striking it with additional damage.`,
+    description: `Launches a slow-moving orb that pulses every 0.5s, striking enemies within 3m for 20 SHOCK damage and applying OVERLOADED for 15s. The orb lasts 20s. The orb can be overcharged by striking it with additional damage.`,
     howToGet: `Crafted from Bone Sap
     Drops from Bloat King`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Voltaic+Rondure`],
