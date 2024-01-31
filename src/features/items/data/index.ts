@@ -3304,7 +3304,7 @@ export const remnantItems: Item[] = [
     saveFileSlug: 'rangedcritdamage',
     imagePath: '/relicfragment/ranged_critical_damage.png',
     id: 'w5jmys',
-    description: `+X% Ranged Crit Damage`,
+    description: `+X% Ranged Crit Damage (Mythic: Maximum of +20%[∗])`,
     howToGet: ``,
     wikiLinks: [
       `https://remnant2.wiki.fextralife.com/Cracked+Ranged+Critical+Damage`,
@@ -3439,7 +3439,7 @@ export const remnantItems: Item[] = [
     name: 'Weakspot Damage', // This is the correct name, fextralife has it called ranged weakspot damage
     imagePath: '/relicfragment/weakspot_damage.png',
     id: 'oszz4u',
-    description: `+X% Weakspot Damage (Mythic: Maximum of +15%)`,
+    description: `+X% Weakspot Damage (Mythic: Maximum of +15%[∗])`,
     howToGet: ``,
     wikiLinks: [
       `https://remnant2.wiki.fextralife.com/Cracked+Ranged+Weakspot+Damage`,
@@ -5152,7 +5152,7 @@ export const remnantItems: Item[] = [
     name: 'Death Brand',
     imagePath: '/mod/death_brand.jpg',
     id: 'd3q99g',
-    description: `Applies Death Brand to all enemies within 25m. increasing incoming damage by 10%. Enemies killed while bearing the Death Brand leave behind an Echo which lasts 10s before returning to the Nightmare Realm. Echoes are drawn to any survivor who walks within 3m. increasing Weakspot Damage dealt by 10% for 10s.`,
+    description: `Applies Death Brand to all enemies within 25m. increasing incoming damage by 10%. Enemies killed while bearing the Death Brand leave behind an Echo which lasts 10s before returning to the Nightmare Realm. Echoes are drawn to any survivor who walks within 3m. increasing Weakspot Damage dealt by 10%[∗] for 10s.`,
     howToGet: `Attached to the Corrupted Rune Pistol Handgun`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Death+Brand`],
     linkedItems: {
@@ -6337,7 +6337,7 @@ export const remnantItems: Item[] = [
     imagePath: '/mutator/top_heavy.png',
     id: 'fknx4t',
     description: `Increases this weapon's Ranged Damage by up to 7.5% based on how close the magazine capacity is to full.`,
-    maxLevelBonus: `Increases this weapon's Weakspot Damage by up to 20% based on how close the magazine capacity is to full.`,
+    maxLevelBonus: `Increases this weapon's Weakspot Damage by up to 20%[∗] based on how close the magazine capacity is to full.`,
     howToGet: `Can be found in Forlorn Coast`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Top+Heavy`],
   },
@@ -6413,7 +6413,7 @@ export const remnantItems: Item[] = [
     imagePath: '/amulet/abrasive_whetstone.png',
     id: '6sqyf9',
     description:
-      'When attacking a BLEEDING enemy, Crit Chance is increased by 15% and Crit Damage is increased by 30%.',
+      'When attacking a BLEEDING enemy, Crit Chance is increased by 15% and Crit Damage is increased by 30%[∗].',
     howToGet: 'Can be bought from Cass.',
     wikiLinks: ['https://remnant2.wiki.fextralife.com/Abrasive+Whetstone'],
   },
@@ -6491,7 +6491,7 @@ Exclusive to The Awakened King DLC"`,
     name: 'Core Booster',
     imagePath: '/amulet/core_booster.png',
     id: 'wb4ixr',
-    description: `Increases weakspot damage by 50% for 10s after killing an enemy.`,
+    description: `Increases weakspot damage by 50%[∗] for 10s after killing an enemy.`,
     howToGet: `Can be found in N'Erud - Hidden underneath the Ascension Spireworldstone down a hole behind the first statue to your left when you enter. It will be behind a forcefield that needs to be opened using the Decorum Cipher or the Memory Core II.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Core+Booster`],
   },
@@ -6613,7 +6613,7 @@ Can be bought for Bedel of the Vaunnt for 400."`,
     name: 'Energy Diverter',
     imagePath: '/amulet/energy_diverter.png',
     id: 'evwgwk',
-    description: `While a SHIELD is active, gain 10 Critical Chance and 15% to all damage dealt.`,
+    description: `While a SHIELD is active, gain 10% Critical Chance and 15% to all damage dealt.`,
     howToGet: `Can be found in N'Erud - Can be bought from the Drzyr Replicatorunderneath Ascension Spire.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Energy+Diverter`],
   },
@@ -6722,7 +6722,7 @@ For Heavy Weapons, doubles Heavy Weapon Ammo instead."`,
     imagePath: '/amulet/index_of_the_scribe.png',
     dlc: 'dlc1',
     id: '3lzs0c',
-    description: `Increases Mod and Skill Weakspot Damage by 35%`,
+    description: `Increases Mod and Skill Weakspot Damage by 35%[∗]`,
     howToGet: `"Can be bought from Leywise in Forlorn Coast
 Exclusive to The Awakened King DLC"`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Index+Of+The+Scribe`],
@@ -8032,7 +8032,7 @@ Exclusive Ring for The Awakened King DLC."`,
     name: 'Lodestone Ring',
     imagePath: '/ring/lodestone_ring.png',
     id: 'sye1ay',
-    description: `Increases all damage dealt against illuminated enemies by 5% [∗] .`,
+    description: `Increases all damage dealt against illuminated enemies by 5%[∗].`,
     howToGet: `Rewarded by Bedel of the Vaunnt if the players talks to him while wearing the Lodestone Crown after defeating the Ravager.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Lodestone+Ring`],
   },
@@ -8156,7 +8156,7 @@ Exclusive Ring for The Awakened King DLC."`,
     name: 'Probability Cord',
     imagePath: '/ring/probability_cord.png',
     id: '0k8d0g',
-    description: `Increases Crit Damage by 30%.`,
+    description: `Increases Crit Damage by 30%[∗].`,
     howToGet: `Can be found in Root Earth - Corrupted Harbor.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Probability+Cord`],
   },
@@ -8257,7 +8257,7 @@ Exclusive Ring for The Awakened King DLC."`,
     name: 'Ring of Flawed Beauty',
     imagePath: '/ring/ring_of_flawed_beauty.png',
     id: 'lx6all',
-    description: `Ranged Weakspot damage is increased by 25%. Ranged damage is reduced by 15% when failing to hit a Weakspot.`,
+    description: `Ranged Weakspot damage is increased by 25%[∗]. Ranged damage is reduced by 15% when failing to hit a Weakspot.`,
     howToGet: `Can be bought from Cass.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Ring+of+Flawed+Beauty`],
   },
@@ -8324,7 +8324,7 @@ Exclusive Ring for The Awakened King DLC."`,
     saveFileSlug: 'ring_strongarmband',
     imagePath: '/ring/ring_of_the_damned.png',
     id: 'jbfxsb',
-    description: `Increases all damage dealt by10% while Grey Health is present.`,
+    description: `Increases all damage dealt by 10% while Grey Health is present.`,
     howToGet: `Can be found in Losomn, The Great Sewers.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Ring+of+the+Damned`],
   },
@@ -8460,7 +8460,7 @@ Yaesha - Possible spawn in The Twisted Chantry"`,
     name: 'Singed Ring',
     imagePath: '/ring/singed_ring.png',
     id: 'cpxk1d',
-    description: `Increases all damage dealt to BURNING enemies by 10% [∗] .`,
+    description: `Increases all damage dealt to BURNING enemies by 10%[∗].`,
     howToGet: `Can be found in Losomn - Butcher's Quarter. watch or fail to save the hanging man during the burning event. use the checkpoint and then kill the pig next to the man`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Singed+Ring`],
   },
@@ -8728,7 +8728,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     name: "Zania's Malice",
     imagePath: '/ring/zanias_malice.png',
     id: 'ukufrn',
-    description: `Dealing Weakspot damage increases Weakspot damage by 10% for 7s. Stacks 3x.`,
+    description: `Dealing Weakspot damage increases Weakspot damage by 10%[∗] for 7s. Stacks 3x.`,
     howToGet: `Can be found in Root Earth - Ashen Wasteland.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Zania's+Malice`],
   },
@@ -9520,9 +9520,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     saveFileSlug: 'poisonedspice',
     id: '6awni8',
     description: `
-    Use to equip the capsule which can be thrown by pressing FIRE. The capsule will detonate after 2s or upon hitting an enemy, releasing a chemical agent which dampens the psionic abilities of long-term Ambit Ember users.
-    When Tal'Ratha does his "suck" attack pulling you in, quickly tossing the canister into his mouth stuns him for a few seconds (around 5) allowing easy weak spot hits.
-`,
+    Use to equip the capsule which can be thrown by pressing FIRE. The capsule will detonate after 2s or upon hitting an enemy, releasing a chemical agent which dampens the psionic abilities of long-term Ambit Ember users.`
     howToGet: `Given by The Custodian after discussing Tal'Ratha with them.`,
     wikiLinks: [
       `https://remnant2.wiki.fextralife.com/Poisoned+Ambit+Ember+Capsule`,
@@ -9608,14 +9606,12 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     id: 'c4fx8u',
     description: `
     Unlocked at level 1
-Gain 4% Ranged Damage and 1.5% Weakspot Damage.
+    Gain 4% Ranged Damage and 1.5%[∗] Weakspot Damage. Damageincreases with HUNTER Level
 
-Increases with HUNTER Level
+  Upgrade Unlocked at level 6
+  Gain 24% Ranged Damage, 9%[∗] Weakspot Damage and 5% Ranged Critical Chance.
 
-Upgrade Unlocked at level 6
-Gain 24% Ranged Damage, 9% Weakspot Damage and 5% Ranged Critical Chance.
-
-Increases with HUNTER Level (level 10: 40% Ranged Damage and 15% Weakspot Damage)
+  (Level 10: Gain 40% Ranged Damage and 15%[∗] Weakspot Damage)
     `,
     howToGet: `Unlocked at Level 1`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Deadeye`],
@@ -9720,12 +9716,12 @@ Using a Relic extends the duration of any active HUNTER Skill by 10s. Effect deg
     type: 'damage',
     id: '485uc9',
     description: `
-    Gain 3% Ranged and Skill Damage while Companion is active and within 40m of the player.
+    Gain 3% Ranged and Skill Damage while Companion is active and within 40m of the player. Damage increases with HANDLER Level.
     
     Upgrade Unlocked at level 6
     Gain 18% Ranged and Skill Damage and 5% Ranged and Skill Critical Chance while Companion is active and within 40m of the player.
-    
-    Increases with HANDLER Level (level 10: 30% Ranged and Skill Damage)`,
+      
+    (Level 10: Gain 30% Ranged and Skill Damage and 5% Ranged and Skill Critical Chance while Companion is active and within 40m of the player.)`,
     howToGet: `Unlocked at Level 1`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Pack+Hunter`],
     linkedItems: {
@@ -9823,14 +9819,12 @@ Using a Relic extends the duration of any active HUNTER Skill by 10s. Effect deg
     type: 'damage',
     id: 'errks7',
     description: `
-Grants a 2.5% increase to All Damage
-Upgrade Unlocked at level 6
+    Grants a 2.5% increase to All Damage. Damage increases with MEDIC Level.
 
-Grants a 18% increase to All Damage and 5% Critical Chance
-
-Increases with MEDIC Level
-
-(level 10: Grants a 25% increase to All Damage and 5% Critical Chance)`,
+    Upgrade Unlocked at level 6
+    Grants a 18% increase to All Damage and 5% Critical Chance
+    
+    (Level 10: Grants a 25% increase to All Damage and 5% Critical Chance)`,
     howToGet: `Unlocked at Level 1`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Invigorated`],
     linkedItems: {
@@ -9925,13 +9919,12 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     type: 'damage',
     id: '7mbvc3',
     description: `
-    Gain 1.5% Fire Rate and 2.5% Ranged Damage.
-    Increases with GUNSLINGER Level.
-
+    Gain 1.5% Fire Rate and 2.5% Ranged Damage. Fire Rate and Damage increases with GUNSLINGER Level.
+    
     Upgrade Unlocked at level 6
     Gain 15% Fire Rate and 25% Ranged Damage and 5% Crit Chance for all firearms.
-    
-    Fire Rate and Damage increases with GUNSLINGER Level.`,
+  
+   (Level 10: Gain 15% Fire Rate, 25% Ranged Damage and 5% Crit Chance for all firearms.)`,
     howToGet: `Unlocked at Level 1`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Swift+Shot`],
     linkedItems: {
@@ -10030,13 +10023,11 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     type: 'damage',
     id: 'f4jx9k',
     description: `
-    Grants a 3.5% increase to All Damage to enemies within 10m. Damage bonus tapers off until 20m.
+    Grants a 3.5% increase to All Damage to enemies within 10m. Damage bonus tapers off until 20m. Increases with CHALLENGER Level. 
     
     Upgrade Unlocked at level 6
     Grants a 21% increase to All Damage to enemies within 10m. Damage bonus tapers off until 20m. Critical Chance is increased by up to 10%.
-    
-    Increases with CHALLENGER Level. 
-    
+          
     (Level 10: Grants a 35% increase to All Damage to enemies within 10m. Damage bonus tapers off until 20m. Critical Chance is increased by up to 10%.)`,
     howToGet: `Unlocked at Level 1`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Close+Quarters`],
@@ -10351,7 +10342,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     Upgrade Unlocked at level 6
     Increases Skill Damage by 50% and Skill Critical Chance by 10%
     
-    Heavy Weapons gain 50% Ammo Capacity, 25% Max Health, and 25% Weakspot Damage`,
+    Heavy Weapons gain 50% Ammo Capacity, 25% Max Health, and 25%[∗] Weakspot Damage`,
     howToGet: `Unlocked at Level 1`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Metalworker`],
     linkedItems: {
@@ -10446,14 +10437,12 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     type: 'damage',
     id: 'y6x5dr',
     description: `
-    Pickups increase All Damage Dealt by 0.5% per stack for 20s. Additional Stacks increase Duration, up to 60s. Max 5 Stacks.
-    Upgrade Unlocked at level 6
-    
+    Pickups increase All Damage Dealt by 0.5% per stack for 20s. Additional Stacks increase Duration, up to 60s. Max 5 Stacks. Damage increases with EXPLORER Level
+         
+    Upgraded at level 6
     Scavenger also increase All Crit Chance by 5% while active.
-    
-    Increases with EXPLORER Level
-    
-    (level 10: Pickups increase All Damage Dealt by 5% per stack)`,
+        
+    (Level 10: Pickups increase All Damage Dealt by 5% per stack for 20s. Scavenger also increase All Crit Chance by 5% while active. Additional Stacks increase Duration, up to 60s. Max 5 Stacks.)`,
     howToGet: `Unlocked at Level 1`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Scavenger`],
     linkedItems: {
@@ -10469,7 +10458,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     type: 'team',
     id: 'w838yg',
     description: `
-    Increase Ammo, Currecny, and Metal Drop Rate Chance for entire party by 10%.
+    Increase Ammo, Currency, and Metal Drop Rate Chance for entire party by 10%.
     
     Upgrade unlocked at level 7
     Prospector increases the chance of Consumables being rewarded from Chests`,
@@ -10491,7 +10480,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     Relic Fragments discovered by EXPLORER drop at a higher quality.
 
     Upgrade unlocked at level 8
-    When picking up a gem, EXPLORER has a 5% chance of picking up a second one of the same type/quality`,
+    Relic Fragments discovered by the Explorer drop at a higher quality. When picking up a Fragment, the Explorer has a 5% chance of picking up a second one of the same type & quality.`,
     howToGet: `Unlocked at Level 3`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Prospector`],
     linkedItems: {
@@ -10548,13 +10537,13 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     type: 'damage',
     id: '59swqq',
     description: `
-    Sprinting for 1s or Evading adds 1 Stack of Momentum which increases Ranged and Melee damage  by 0.7% for 15s. Max 5 Stacks.
-    Increases with INVADER Level
-
-    Upgrade Unlocked at level 6
-    Sprinting for 1s or Evading adds 1 Stack of Momentum which increases Ranged and Melee damage by 7% and Ranged and Melee Critical Chance by 1% for 15s. Max 5 Stacks.
+    Sprinting for 1s or Evading adds 1 Stack of Momentum which increases Ranged and Melee damage  by 0.7% for 15s. Max 5 Stacks. Damage increases with INVADER level.
     
-    Damage increases with INVADER level.`,
+    Upgrade Unlocked at level 6
+    Sprinting for 1s or Evading adds 1 Stack of Momentum which increases Ranged and Melee damage by 5% and Ranged and Melee Critical Chance by 1% for 15s. Max 5 Stacks.
+    
+    (Level 10: Sprinting for 1s or Evading adds 1 Stack of Momentum which increases Ranged and Melee damage by 7% and Ranged and Melee Critical Chance by 1% for 15s. Max 5 Stacks. )`
+    ,
     howToGet: `Unlocked at Level 1`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Shark`],
     linkedItems: {
@@ -10649,16 +10638,13 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     type: 'damage',
     id: 'tu8pcp',
     description: `
-    Increases Mod and Skill Damage by 3.5% while a Minion is active.  Sacrificing a Minion increases Ranged and Melee Damage by 3% for 30s or until another Minion is summoned.  Increases with SUMMONER level
+    Increases Mod and Skill Damage by 3.5% while a Minion is active. Sacrificing a Minion increases Ranged and Melee Damage by 3% for 30s or until another Minion is summoned. Damage increases with SUMMONER level
     
     Upgrade Unlocked at level 6
-    Increases Mod and Skill Damage by 21% and Mod and Skill Critical Chance by 5% while a Minion is active.
-    
+    Increases Mod and Skill Damage by 21% and Mod and Skill Critical Chance by 5% while a Minion is active.    
     Sacrificing a Minion increases Ranged and Melee Damage by 18% and Ranged and Melee Critical Chance by 5% for 30s.  
-    
-    Damage increases with SUMMONER level
-    
-    (level 10: Increases Mod and Skill Damage by 35% and Skill and Mod Critical Chance by 5% while a Minion is active. Sacrificing a Minion increases Ranged and Melee Damage by 30% and Ranged and Melee Critical Chance by 5% for 30s or until another Minion is summoned)`,
+           
+    (Level 10: Increases Mod and Skill Damage by 35% and Skill and Mod Critical Chance by 5% while a Minion is active. Sacrificing a Minion increases Ranged and Melee Damage by 30% and Ranged and Melee Critical Chance by 5% for 30s or until another Minion is summoned)`,
     howToGet: `Unlocked at Level 1`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Dominator`],
     linkedItems: {
@@ -10752,15 +10738,12 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     type: 'damage',
     id: '6wc56t',
     description: `
-    Increases all damage to enemies affected by a Negative Status Effect by 2%. Damage increases with RITUALIST Level.
+    Increases all damage to enemies affected by a Negative Status Effect by 2%. Damage increases with RITUALIST Level
     
     Upgrade Unlocked at level 6
     Increases all damage to enemies affected by a Negative Status Effect by 12%. Increases all Critical Chance against enemies affected by a Negative Status Effect by 10%.
-  
-    Damage increases with RITUALIST Level
-    
-    Upgrade Unlocked at level 10
-    Increases all damage to enemies affected by a Negative Status Effect by 20%. Increases all Critical Chance against enemies affected by a Negative Status Effect by 10%.`,
+         
+    (Level 10: Increases all damage to enemies affected by a Negative Status Effect by 20%. Increases all Critical Chance against enemies affected by a Negative Status Effect by 10%.)`,
     howToGet: `Unlocked at Level 1`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Wrath`],
     linkedItems: {
