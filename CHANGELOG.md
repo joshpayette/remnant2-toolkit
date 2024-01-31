@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2023-01-31
 
+### Added
+
+- Added build badge for builds that are new
+
 ### Fixed
 
 - Added missing Blaze mod for Smolder weapon.

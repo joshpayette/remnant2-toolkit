@@ -1,7 +1,6 @@
 # TODO
 
 - Add FIRE, SHOCK, and ACID description tags
-- Add badge for builds that are new.
 - Description tags need to be searchable
 - Add a way to track items on a second character
 - GUIDES section?

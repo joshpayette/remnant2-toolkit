@@ -15,6 +15,8 @@ export type ItemCategory = keyof BuildState['items']
 export interface BuildState {
   buildId: string | null
   name: string
+  createdAt: Date
+  updatedAt: Date | null
   createdById: string | null
   createdByDisplayName: string | null
   isMember: boolean

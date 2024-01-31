@@ -39,6 +39,8 @@ export const initialBuildState: BuildState = {
   thumbnailUrl: null,
   videoUrl: null,
   buildId: null,
+  createdAt: new Date(),
+  updatedAt: null,
   createdByDisplayName: null,
   createdById: null,
   upvoted: false,

@@ -18,6 +18,8 @@ import ItemInfo from '@/features/items/components/ItemInfo'
 import getArrayOfLength from '../lib/getArrayOfLength'
 import getConcoctionSlotCount from '../lib/getConcoctionSlotCount'
 import getItemListForSlot from '../lib/getItemListForSlot'
+import isBuildNew from '../lib/isBuildNew'
+import NewBuildBadge from './NewBuildBadge'
 
 type BuilderProps = {
   buildState: BuildState
@@ -52,6 +54,7 @@ export default function Builder({
 }: BuilderProps) {
   const concoctionSlotCount = getConcoctionSlotCount(buildState)
   const isPopular = buildState.totalUpvotes > POPULAR_VOTE_THRESHOLD
+  const isNew = isBuildNew(buildState.createdAt) && showCreatedBy
 
   // Tracks information about the slot the user is selecting an item for
   const [selectedItemSlot, setSelectedItemSlot] = useState<{
@@ -325,7 +328,7 @@ export default function Builder({
       <div
         className={cn(
           'relative mb-4 border-b border-b-green-900',
-          isPopular && 'mb-8 pb-6',
+          (isPopular || isNew) && 'mb-8 pb-6',
         )}
       >
         <BuilderName
@@ -349,9 +352,14 @@ export default function Builder({
             </Link>
           </p>
         )}
-        {isPopular && (
+        {isPopular && !isNew && (
           <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 transform">
             <PopularBuildBadge />
+          </div>
+        )}
+        {isNew && (
+          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 transform">
+            <NewBuildBadge />
           </div>
         )}
       </div>

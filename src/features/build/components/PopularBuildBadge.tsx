@@ -8,7 +8,7 @@ export default function PopularBuildBadge() {
       content={`Awarded to builds that exceed ${POPULAR_VOTE_THRESHOLD} favorites!`}
     >
       <Image
-        src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/badges/crystal_small.png`}
+        src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/badges/popular_build_badge.png`}
         width={43}
         height={50}
         alt="image denoting the build is popular"

@@ -14,6 +14,8 @@ export function dbBuildToBuildState(dbBuild: DBBuild): BuildState {
     buildId: dbBuild.id,
     name: dbBuild.name,
     description: dbBuild.description,
+    createdAt: dbBuild.createdAt,
+    updatedAt: dbBuild.updatedAt,
     createdById: dbBuild.createdById,
     createdByDisplayName: dbBuild.createdByDisplayName,
     isMember: dbBuild.isMember,

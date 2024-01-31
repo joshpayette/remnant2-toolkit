@@ -13,6 +13,8 @@ import { format } from 'date-fns'
 import { dbBuildToBuildState } from '../lib/dbBuildToBuildState'
 import Tooltip from '@/features/ui/Tooltip'
 import DescriptionWithTags from '@/features/items/components/DescriptionWithTags'
+import NewBuildBadge from './NewBuildBadge'
+import isBuildNew from '../lib/isBuildNew'
 
 interface Props {
   build: DBBuild
@@ -29,6 +31,7 @@ export default function BuildCard({
 }: Props) {
   const buildState = dbBuildToBuildState(build)
   const isPopular = buildState.totalUpvotes >= POPULAR_VOTE_THRESHOLD
+  const isNew = isBuildNew(buildState.createdAt)
 
   return (
     <div
@@ -39,9 +42,14 @@ export default function BuildCard({
           'border-2 border-yellow-300 shadow-lg shadow-yellow-600',
       )}
     >
-      {isPopular && (
-        <div className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 transform">
+      {isPopular && !isNew && (
+        <div className="absolute left-1/2 top-0 flex w-full -translate-x-1/2 -translate-y-1/2 transform items-center justify-center">
           <PopularBuildBadge />
+        </div>
+      )}
+      {isNew && (
+        <div className="absolute left-1/2 top-0 flex w-full -translate-x-1/2 -translate-y-1/2 transform items-center justify-center">
+          <NewBuildBadge />
         </div>
       )}
       <div className="flex w-full flex-1 items-start justify-start space-x-6 p-4">
@@ -54,7 +62,7 @@ export default function BuildCard({
               <h3
                 className={cn(
                   'text-md whitespace-pre-wrap font-medium',
-                  isPopular && 'mt-2',
+                  (isPopular || isNew) && 'mt-2',
                 )}
               >
                 {build.name}
