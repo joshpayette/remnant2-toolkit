@@ -6,7 +6,7 @@ import {
 } from '@heroicons/react/24/outline'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useRef, useState } from 'react'
+import { useState } from 'react'
 import { Masonry } from 'masonic'
 import { useIsClient } from 'usehooks-ts'
 import DescriptionWithTags from './DescriptionWithTags'
@@ -29,9 +29,8 @@ interface MasonryBuildItem {
 }
 
 function MasonryCard({ data: item, onMoreInfoClick }: MasonryBuildItem) {
-  const moreInfoRef = useRef<HTMLButtonElement>(null)
-
   if (!item) return null
+
   const { imagePath, category, name, description, wikiLinks } = item
 
   return (
@@ -96,11 +95,7 @@ function MasonryCard({ data: item, onMoreInfoClick }: MasonryBuildItem) {
         <div className="-mt-px flex divide-x divide-green-800">
           <div className="flex w-0 flex-1">
             <button
-              ref={moreInfoRef}
-              onClick={() => {
-                onMoreInfoClick(item)
-                moreInfoRef.current?.focus()
-              }}
+              onClick={() => onMoreInfoClick(item)}
               className="relative inline-flex w-0 flex-1 items-center justify-center gap-x-1 rounded-br-lg border border-transparent py-4 text-xs font-semibold text-gray-200"
             >
               <InformationCircleIcon
