@@ -5150,7 +5150,7 @@ export const remnantItems: Item[] = [
   {
     category: 'mod',
     name: 'Death Brand',
-    imagePath: '/mod/death_brand.jpg',
+    imagePath: '/mod/death_brand.png',
     id: 'd3q99g',
     description: `Applies Death Brand to all enemies within 25m. increasing incoming damage by 10%. Enemies killed while bearing the Death Brand leave behind an Echo which lasts 10s before returning to the Nightmare Realm. Echoes are drawn to any survivor who walks within 3m. increasing Weakspot Damage dealt by 10%[∗] for 10s.`,
     howToGet: `Attached to the Corrupted Rune Pistol Handgun`,
