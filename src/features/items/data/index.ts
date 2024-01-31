@@ -3831,7 +3831,7 @@ export const remnantItems: Item[] = [
     imagePath: '/mainhand/sagittarius.png',
     id: 't0cb8d',
     description: `A high-powered Bow which deals bonus damage to Weakspots. Can be charged for increased effect. Perfect release after Charge for maximum damage`,
-    howToGet: `Yaesha - Cathedral of OmenStarting from the entrance, the triangle lever should be triggered until it is pointing towards you and to the left. The icon lever should be triggered until death is closest to you. The circle lever should be triggered such that death and moon are not in a circle. Sagittarius bow will rise from the center alter.`,
+    howToGet: `Yaesha - Cathedral of OmenStarting from the entrance, the triangle lever should be triggered until it is pointing towards you and to the left. The icon lever should be triggered until death is closest to you. The circle lever should be triggered such that death and moon are not in a circle. Sagittarius Bow will rise from the center alter.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Sagittarius`],
     linkedItems: {
       mod: {
