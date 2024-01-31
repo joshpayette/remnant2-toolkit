@@ -475,7 +475,7 @@ export const remnantItems: Item[] = [
     name: 'Wellspring',
     imagePath: '/skill/wellspring.png',
     id: '7vtxrx',
-    description: `The MEDIC channels healing energy into their fist, punching a hole in the ground to create a 3m Healing Spring AOE which restores 10.5 Health per second and greatly increases Blight Decay Rate. Lasts 15s.`,
+    description: `The MEDIC channels healing energy into their fist, punching a hole in the ground to create a 3m Healing Spring AOE which restores 10.5 Health per second and greatly increases Blight Decay Rate. Lasts 15s. [A]`,
     cooldown: 57.6,
     howToGet: `Unlocks automatically`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Wellspring`],
@@ -490,7 +490,7 @@ export const remnantItems: Item[] = [
     name: 'Healing Shield',
     imagePath: '/skill/healing_shield.png',
     id: '8pu6y2',
-    description: `The MEDIC Quickly expels healing energy to SHIELD all allies within 25m for 100% of their Max Health for 10s. While shielded, allies regenerate 21% of their Max Health over the duration.`,
+    description: `The MEDIC Quickly expels healing energy to SHIELD all allies within 25m for 100% of their Max Health for 10s. While shielded, allies regenerate 21% of their Max Health over the duration. [A]`,
     cooldown: 96,
     howToGet: `Unlocks at level 5`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Healing+Shield`],
@@ -506,8 +506,7 @@ export const remnantItems: Item[] = [
     imagePath: '/skill/redemption.png',
     id: 'zs77cb',
     description: `The MEDIC unleashes a 30m shockwave that revives downed allies and restores 52.5% Max Health over 10s. For each additional 1s holding the SKILL button, the heal gains an additional 52.5% (up to 210% max)
-
-    Revived allies will only receive 50% of the healing amount. If revived, allies cannot be revived again by Redemption for another 180s. Resets at Worldstone or on death. `,
+    Revived allies will only receive 50% of the healing amount. If revived, allies cannot be revived again by Redemption for another 180s. Resets at Worldstone or on death. [A]`,
     cooldown: 115.2,
     howToGet: `Unlocks at level 10`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Redemption`],
@@ -592,7 +591,7 @@ export const remnantItems: Item[] = [
     id: 'y7ia9t',
     description: `Creates a mysterious vapor cloud which lasts 10s and applies STONESKIN.
 
-    STONESKIN reduces incoming damage by 25%, greatly increases Blight Buildup Decay Rate, reduces Stagger by l, and makes the target immune to Status Effects. Lasts 15s.
+    STONESKIN reduces incoming damage by 25%, greatly increases Blight Buildup Decay Rate, reduces Stagger by l, and makes the target immune to Status Effects. Lasts 15s. [A]
     
     PRESS: Slam Vial on the ground, creating the effect at the ALCHEMIST's feet.
     
@@ -613,8 +612,8 @@ export const remnantItems: Item[] = [
     id: 'xsniv3',
     description: `Creates a mysterious vapor cloud which lasts 10s and applies FRENZIED.
 
-    FRENZlED increases Fire Rate, Reload Speed, and Melee Speed by 20%, and Movement Speed by 15%. Lasts 15s.
-    
+    FRENZlED increases Fire Rate, Reload Speed, and Melee Speed by 20%, and Movement Speed by 15%. Lasts 15s. [A]
+
     PRESS: Slam Vial on the ground, creating the effect at the ALCHEMIST's feet.
     
     HOLD & RELEASE: Aim and throw the Vial causing the same effect where it lands.`,
@@ -634,7 +633,7 @@ export const remnantItems: Item[] = [
     id: '76554i',
     description: `Creates a mysterious vapor cloud that lasts 10s and applies LIVING WILL.
 
-    LIVING WILL grants 5 Health Regeneration per second, and automatically protects against fatal damage while active. Can revive downed players if it heals them to full when downed. Lasts 20s.
+    LIVING WILL grants 5 Health Regeneration per second, and automatically protects against fatal damage while active. Can revive downed players if it heals them to full when downed. Lasts 20s. [A]
     
     Revived allies cannot be affected by Living Will for 180s.
     
@@ -655,7 +654,7 @@ export const remnantItems: Item[] = [
     name: 'Reality Rune',
     imagePath: '/skill/reality_rune.png',
     id: 'i3ddi7',
-    description: `Conjures a 7m protective dome which applies SLOW to any enemy or enemy projectiles.  Allies inside gain 25% Damage Reduction. Lasts 15s.`,
+    description: `Conjures a 7m protective dome which applies SLOW to any enemy or enemy projectiles.  Allies inside gain 25% Damage Reduction. Lasts 15s. [A]`,
     cooldown: 75,
     howToGet: `Unlocks automatically`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Reality+Rune`],
@@ -670,7 +669,7 @@ export const remnantItems: Item[] = [
     name: 'Chaos Gate',
     imagePath: '/skill/chaos_gate.png',
     id: '9w7c5j',
-    description: `Conjures a 7m unstable zone which grants allies a 15% to all Damage Dealt, 25% increased Mod Generation, but increases the damage that allies take by 15%. Lasts 20s.`,
+    description: `Conjures a 7m unstable zone which grants allies a 15% to all Damage Dealt, 25% increased Mod Generation, but increases the damage that allies take by 15%. Lasts 20s. [A]`,
     cooldown: 85,
     howToGet: `Unlocks at level 5`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Chaos+Gate`],
@@ -689,9 +688,9 @@ export const remnantItems: Item[] = [
 
     FIRE: Blasts Lightning Tendrils from the ARCHON's hand, dealing 84.2 SHOCK Damage per second to targets within 15m.
     
-    AIM: Raises a 3m Energy Shield which deals 35 SHOCK damage per second and reduces incoming damage to all allies by 50%.
+    AIM: Raises a 3m Energy Shield which deals 35 SHOCK damage per second and reduces incoming damage to all allies by 50%. [R]
     
-    DODGE: Performs a Blink Evade that deals 100 SHOCK damage to enemies within 3m.
+    DODGE: Performs a Blink Evade that deals 100 SHOCK damage to enemies within 3m. [A]
     
     Cooldown: 120s`,
     cooldown: 120,
@@ -750,7 +749,7 @@ export const remnantItems: Item[] = [
     name: 'Heavy Weapon: Impact Cannon',
     imagePath: '/skill/heavy_weapon_impact_cannon.png',
     id: 'ki92op',
-    description: `PRESS: Deploys a Impact Cannon Turret which lasts until its Ammo is exhausted. Turrets that can aim will prioritze targets that the player Aims at. Press SKILL again to enable autonomous targeting.
+    description: `PRESS: Deploys a Impact Cannon Turret which lasts until its Ammo is exhausted. Turrets that can aim will prioritze targets that the player Aims at. Press SKILL again to enable autonomous targeting. [A]
 
     HOLD: Deploys to Heavy Carry Mode. If ENGINEER Prime is available, will Overclock the weapon if already in hand or on the battlefield.
     
@@ -787,7 +786,7 @@ export const remnantItems: Item[] = [
     name: 'Gold Digger',
     imagePath: '/skill/gold_digger.png',
     id: 'a2cik2',
-    description: `Dig into the ground to spring a fountain which grants a random buff. Fountains last 45s and their buffs last 20s.
+    description: `Dig into the ground to spring a fountain which grants a random buff. Fountains last 45s and their buffs last 20s. [R]
 
     Fountains can grant either: 10% increased damage, 15% damage reduction, 2 Health Regeneration per second, or HASTE.`,
     cooldown: 45,
@@ -925,7 +924,7 @@ export const remnantItems: Item[] = [
     id: 'kk4yre',
     description: `PRESS: Summons a Root Hollow Minion to fight by your side. Costs 15% of Max Health to summon, but will not kil SUMMONER. Max (2)
 
-    HOLD: SACRIFICE Root Hollow Minion to explode, dealing 150 damage within 5m. Reduces Skill Cooldown by up to 50% based on remaining Health of each Minion Sacrificed.`,
+    HOLD: SACRIFICE Root Hollow Minion to explode, dealing 150 damage within 5m. Reduces Skill Cooldown by up to 50% based on remaining Health of each Minion Sacrificed. [A]`,
     cooldown: 30,
     howToGet: `Unlocks automatically`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Minion:+Hollow`],
@@ -942,7 +941,7 @@ export const remnantItems: Item[] = [
     id: 'o7pvqx',
     description: `PRESS: Summons a Root Flyer Minion to fight by your side. Costs 10% of Max Health to summon, but will not kil SUMMONER. Max (2).
 
-    HOLD: SACRIFICE all Root Flyer Minions, dealing 50 damage within 3m and spawning 3 homing projectiles which explode on contact for 150 damage each`,
+    HOLD: SACRIFICE all Root Flyer Minions, dealing 50 damage within 3m and spawning 3 homing projectiles which explode on contact for 150 damage each. [A]`,
     cooldown: 45,
     howToGet: `Unlocks at level 5`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Minion:+Flyer`],
@@ -959,7 +958,7 @@ export const remnantItems: Item[] = [
     id: 'gs8zdv',
     description: `PRESS: Summons a Root Reaver Minion to fight by your side. Costs 35% of Max Health to summon, but will not kill SUMMONER. Max (1).
 
-    HOLD: SACRIFICE all Root Reaver Minion, dealing 200 damage within 6m and spawning Spore Bombs which bounce and explode on contact for 200 damage each.
+    HOLD: SACRIFICE all Root Reaver Minion, dealing 200 damage within 6m and spawning Spore Bombs which bounce and explode on contact for 200 damage each. [A]
     
     Reduces Skill Cooldown by up to 50% based on remaining Health of Minion.`,
     cooldown: 120,
@@ -976,10 +975,7 @@ export const remnantItems: Item[] = [
     name: 'Eruption',
     imagePath: '/skill/eruption.png',
     id: 'amqa83',
-    description: `Creates 1m explosion for 150 damage on all enemies within 15m. Explosion Radius and
-    Damage increases 100% for each unique Status
-    Effect on the target. Refreshes all current Status
-    Effects on the target.`,
+    description: `Creates 1m explosion for 150 damage on all enemies within 15m. Explosion Radius and damage increases 100% for each unique Status Effect on the target. Refreshes all current Status Effects on the target. [A]`,
     cooldown: 24.6,
     howToGet: `Unlocks automatically`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Eruption`],
@@ -994,7 +990,7 @@ export const remnantItems: Item[] = [
     name: 'Miasma',
     imagePath: '/skill/miasma.png',
     id: '3er3og',
-    description: `Casts an AOE burst that applies BLEEDING, BURNING, OVERLOADED, and CORRODED to all enemies within 15m, and dealing a total of 1500 base damage. Lasts 11s. `,
+    description: `Casts an AOE burst that applies BLEEDING, BURNING, OVERLOADED, and CORRODED to all enemies within 15m, and dealing a total of 1500 base damage. Lasts 11s. [A]`,
     cooldown: 36.9,
     howToGet: `Unlocks at level 5`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Miasma`],
@@ -3030,7 +3026,7 @@ export const remnantItems: Item[] = [
     name: 'Tormented Heart',
     imagePath: '/relic/tormented_heart.png',
     id: 'rtmajx',
-    description: `Innate 20% Use Speed bonus. On use, deals 420 Explosive damage to enemies within 10m and Lifesteals 25% of damage dealt.`,
+    description: `Innate 20% Use Speed bonus. On use, deals 420 Explosive damage to enemies within 10m and Lifesteals 25% of damage dealt. [A]`,
     howToGet: `Can be found in Losomn as a reward for sacrificing the Override Pin to the Nightweaver's Web.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Tormented+Heart`],
   },
@@ -6501,7 +6497,7 @@ Exclusive to The Awakened King DLC"`,
     name: 'Cleansing Stone',
     imagePath: '/amulet/cleansing_stone.png',
     id: 'nm7b6f',
-    description: `Reduces Duration of Elemental Status Effects against wearer by 50%. Relic use cleanses Elemental Status effects and grants 25% of wearers Max Health to all allies within 20m when cleansed.`,
+    description: `Reduces Duration of Elemental Status Effects against wearer by 50%. Relic use cleanses Elemental Status effects and grants 25% of wearers Max Health to all allies within 20m when cleansed. [A]`,
     howToGet: `Can be found in Losomn.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Cleansing+Stone`],
   },
@@ -6896,7 +6892,7 @@ Exclusive to The Awakened King DLC"`,
     name: "Nightweaver's Grudge",
     imagePath: '/amulet/nightweavers_grudge.png',
     id: '0aaso1',
-    description: `Gain 20% Critical Chance and HASTE when within 15m of an entity suffering from a Status Effect.`,
+    description: `Gain 20% Critical Chance and HASTE when within 15m of an entity suffering from a Status Effect. [A]`,
     howToGet: `Can be obtained in Losomn - The Tormented Asylum. Given to the player by feeding Kolket's Razor to the Nightweaver's Web.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Nightweaver's+Grudge`],
   },
@@ -7088,8 +7084,7 @@ Exclusive to The Awakened King DLC"`,
     name: 'Toxic Release Valve',
     imagePath: '/amulet/toxic_release_valve.png',
     id: 'nevpy5',
-    description: `"Swapping off a Firearm releases a Toxic Cloud, which deals 148.5 ACID damage to all enemies within 7m. and applies CORROSION. 
-Can only happen once every 3s."`,
+    description: `Swapping off a Firearm releases a Toxic Cloud, which deals 148.5 ACID damage to all enemies within 7m. and applies CORROSION. Can only happen once every 3s. [A]`,
     howToGet: `Can be found in N'Erud - Dormant N'Erudian Facility in the room unlocked using the Biome-Control Glyph.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Toxic+Release+Valve`],
   },
@@ -7857,7 +7852,7 @@ Exclusive Ring for The Awakened King DLC."`,
     name: 'Feedback Loop',
     imagePath: '/ring/feedback_loop.png',
     id: 'j13xrf',
-    description: `Perfect Dodge triggers a 3m AOE blast that deal 115 SHOCK Damage and applies OVERLOADED.`,
+    description: `Perfect Dodge triggers a 3m AOE blast that deal 115 SHOCK Damage and applies OVERLOADED. [A]`,
     howToGet: `Can be found in N'Erud -`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Feedback+Loop`],
   },
@@ -7945,7 +7940,7 @@ Can also can be bought from Reggie at Ward 13 for 500"`,
     name: `Guardian's Ring`,
     imagePath: '/ring/guardians_ring.png',
     id: 'yvo3jd',
-    description: `Adds 1 Stack of BULWARK when within 15m of an enemy. Increases to 2 Stacks for 10s after taking Melee damage.`,
+    description: `Adds 1 Stack of BULWARK when within 15m of an enemy. Increases to 2 Stacks for 10s after taking Melee damage. [A]`,
     howToGet: `Can be found in Yaesha - The Nameless Nest.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Guardian's+Ring`],
   },
@@ -10063,7 +10058,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     type: 'team',
     id: 'c92847',
     description: `
-    After activating a CHALLENGER Skill, enemies within 10m deal 10% less damage for 15s.
+    After activating a CHALLENGER Skill, enemies within 10m deal 10% less damage for 15s. [R]
 
     Upgrade unlocked at level 7
     After activating a CHALLENGER Skill, enemies within 10m deal 10% less damage for 15s, with an additional 2.5% damage reduction per enemy affected. (Max 10%)`,
@@ -10732,15 +10727,15 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     id: 'qewh6t',
     description: `
     Negative Status Effects applied by RITUALIST inflict Infected.
-    Infected: Victim receives 5% more Status Effect damage, On death, spreads all statuses to nearby enemies within 5m
+    Infected: Victim receives 5% more Status Effect damage, On death, spreads all statuses to nearby enemies within 5m. [A]
     
     Upgraded at Level 5
     Infected: Victim receives 10% more Status Effect damage. On death, spreads
-    all statuses to nearby enemies within 10m
+    all statuses to nearby enemies within 10m.
     
     Upgraded at level 10
     Infected: Victim receives 15% more Status Effect damage. On death, spreads
-    all statuses to nearby enemies within 15m`,
+    all statuses to nearby enemies within 15m.`,
     howToGet: `Automatically unlocked.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Vile`],
     linkedItems: {
