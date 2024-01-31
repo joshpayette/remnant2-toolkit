@@ -1,4 +1,4 @@
-import { RELEASE_TO_NAME } from '../constants'
+import { DESCRIPTION_TAGS, RELEASE_TO_NAME } from '../constants'
 import { ArmorItem } from './ArmorItem'
 import { GenericItem } from './GenericItem'
 import { ModItem } from './ModItem'
@@ -42,16 +42,7 @@ export type Archtype =
   | 'ritualist'
   | 'summoner'
 
-/**
- * Used to highlight certain words and provide
- * contextual tooltips in item and build descriptions
- */
-export type DescriptionTag = {
-  type: string
-  token: string
-  color: string
-  description: string | undefined
-}
-
 export type ReleaseKey = keyof typeof RELEASE_TO_NAME
 export type ReleaseName = (typeof RELEASE_TO_NAME)[ReleaseKey]
+
+export type DescriptionTag = (typeof DESCRIPTION_TAGS)[number]

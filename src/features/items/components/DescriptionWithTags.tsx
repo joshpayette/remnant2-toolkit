@@ -1,135 +1,67 @@
 import { cn } from '@/lib/classnames'
-import { ARCHTYPE_COLORS, DESCRIPTION_TAGS } from '../constants'
+import { DESCRIPTION_TAGS } from '../constants'
 import Tooltip from '@/features/ui/Tooltip'
+import { DescriptionTag } from '../types'
 
-// TODO If constants and types are still needed, move to appropriate file
-
-// TODO Rename this component to DescriptionWithTags or something similar
-// TODO since it will also be used for build descriptions
-
-type ColorKeyword =
-  | 'BLEEDING'
-  | 'BURNING'
-  | 'OVERLOADED'
-  | 'CORRODED'
-  | 'ALCHEMIST'
-  | 'ARCHON'
-  | 'CHALLENGER'
-  | 'ENGINEER'
-  | 'EXPLORER'
-  | 'GUNSLINGER'
-  | 'HANDLER'
-  | 'HUNTER'
-  | 'MEDIC'
-  | 'INVADER'
-  | 'SUMMONER'
-  | 'RITUALIST'
-  | 'SHIELD'
-  | 'FRENZIED'
-  | 'MARKED'
-  | 'BULWARK'
-
-export const colorKeywords: ColorKeyword[] = [
-  'BLEEDING',
-  'BURNING',
-  'OVERLOADED',
-  'CORRODED',
-  'ALCHEMIST',
-  'ARCHON',
-  'CHALLENGER',
-  'ENGINEER',
-  'EXPLORER',
-  'GUNSLINGER',
-  'HANDLER',
-  'HUNTER',
-  'MEDIC',
-  'INVADER',
-  'SUMMONER',
-  'RITUALIST',
-  'SHIELD',
-  'FRENZIED',
-  'MARKED',
-  'BULWARK',
-]
-
-export const colorKeywordMap: Record<ColorKeyword, string> = {
-  FRENZIED: ARCHTYPE_COLORS.ALCHEMIST.text,
-  MARKED: ARCHTYPE_COLORS.GUNSLINGER.text,
-  ALCHEMIST: ARCHTYPE_COLORS.ALCHEMIST.text,
-  ARCHON: ARCHTYPE_COLORS.ARCHON.text,
-  CHALLENGER: ARCHTYPE_COLORS.CHALLENGER.text,
-  ENGINEER: ARCHTYPE_COLORS.ENGINEER.text,
-  EXPLORER: ARCHTYPE_COLORS.EXPLORER.text,
-  GUNSLINGER: ARCHTYPE_COLORS.GUNSLINGER.text,
-  HANDLER: ARCHTYPE_COLORS.HANDLER.text,
-  HUNTER: ARCHTYPE_COLORS.HUNTER.text,
-  MEDIC: ARCHTYPE_COLORS.MEDIC.text,
-  INVADER: ARCHTYPE_COLORS.INVADER.text,
-  SUMMONER: ARCHTYPE_COLORS.SUMMONER.text,
-  RITUALIST: ARCHTYPE_COLORS.RITUALIST.text,
-  BLEEDING: 'text-[#a63838]',
-  BURNING: 'text-[#b65d30]',
-  OVERLOADED: 'text-[#7676af]',
-  CORRODED: 'text-[#30b65d]',
-  SHIELD: 'text-[#f1f1cf]',
-  BULWARK: ARCHTYPE_COLORS.CHALLENGER.text,
+function createTagElement(
+  tag: DescriptionTag,
+  index: number,
+  partIndex: number,
+  token: string,
+): JSX.Element {
+  const key = `${index}-${partIndex}-${token}`
+  if (tag.description) {
+    return (
+      <Tooltip key={key} content={tag.description}>
+        <button className={cn('font-semibold', tag.color)}>{token}</button>
+      </Tooltip>
+    )
+  } else {
+    return (
+      <span key={key} className={cn('font-semibold', tag.color)}>
+        {token}
+      </span>
+    )
+  }
 }
 
-// TODO Consolidate this into the highlight description keywords
-function highlightKeywords(text: string) {
-  const parts = text.split(new RegExp(`(${colorKeywords.join('|')})`, 'g')) // split text into parts by keyword
+function parseStringForToken(input: string): (JSX.Element | string)[] | null {
+  const wordsAndSpaces = input.split(/(\s+)/)
 
-  const highlightedParts = parts.map((part, index) => {
-    const color = colorKeywordMap[part as ColorKeyword] // find the color for this part
-
-    if (color) {
-      // if this part is a keyword, replace it with a span
-      return (
-        <span key={index} className={`${color} font-semibold`}>
-          {part}
-        </span>
+  const result = wordsAndSpaces.flatMap((wordOrSpace, index) => {
+    if (wordOrSpace.trim() === '') {
+      // If it's a space, return it as is
+      return wordOrSpace
+    } else {
+      // If it's a word, check if it contains a tag.token
+      const tag = DESCRIPTION_TAGS.find((tag) =>
+        wordOrSpace.includes(tag.token),
       )
-    } else {
-      // if this part is not a keyword, return it as is
-      return part
+      if (tag) {
+        const parts = wordOrSpace.split(tag.token)
+        return parts.flatMap((part, partIndex, array) => {
+          if (partIndex < array.length - 1) {
+            // If it's not the last part, append the token as a JSX element
+            const tagElement = createTagElement(
+              tag,
+              index,
+              partIndex,
+              tag.token,
+            )
+            return [part, tagElement]
+          } else {
+            // If it's the last part, return it as is
+            return part
+          }
+        })
+      } else {
+        // If it doesn't contain a tag.token, return it as is
+        return wordOrSpace
+      }
     }
   })
 
-  return highlightedParts // return array of parts
-}
-
-function highlightDescriptionTags(parts: (string | JSX.Element)[]) {
-  return parts.flatMap((part, index) => {
-    if (typeof part === 'string') {
-      const tokenParts = part.split(/(\[[^\]]+\])/) // split part into token parts
-
-      return tokenParts.map((tokenPart, tokenIndex) => {
-        const descriptionTag = DESCRIPTION_TAGS.find(
-          ({ token }) => token === tokenPart,
-        )
-
-        if (descriptionTag) {
-          // if this token part is a token, replace it with a Tippy component
-          return (
-            <Tooltip
-              content={descriptionTag.description}
-              key={`${index}-${tokenIndex}`}
-            >
-              <button className={cn('font-semibold', descriptionTag.color)}>
-                {tokenPart}
-              </button>
-            </Tooltip>
-          )
-        } else {
-          // if this token part is not a token, return it as is
-          return tokenPart
-        }
-      })
-    } else {
-      // if part is not a string, return it as is
-      return part
-    }
-  })
+  return result.length > 0 ? result : null
 }
 
 interface Props {
@@ -137,8 +69,5 @@ interface Props {
 }
 
 export default function DescriptionWithTags({ description }: Props) {
-  const keywordParts = highlightKeywords(description)
-  const finalParts = highlightDescriptionTags(keywordParts)
-
-  return finalParts
+  return parseStringForToken(description)
 }

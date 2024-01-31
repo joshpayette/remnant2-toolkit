@@ -74,8 +74,16 @@ export const WEIGHT_CLASSES = {
   },
 }
 
-// TODO if description is undefined, don't show tooltip, only color it
-export const DESCRIPTION_TAGS: DescriptionTag[] = [
+export const RELEASE_TO_NAME = {
+  base: 'Base Game',
+  dlc1: 'The Awakened King',
+} as const
+
+/**
+ * TODO Need to add bleedResistance, shockResistance, fireResistance, blightResistance, and toxinResistance
+ * TODO Once done, add tooltips to Stats and ArmorInfo
+ */
+export const DESCRIPTION_TAGS = [
   {
     type: 'additive',
     token: '[+]',
@@ -83,10 +91,16 @@ export const DESCRIPTION_TAGS: DescriptionTag[] = [
     description: 'Damage is additive with other sources of damage.',
   },
   {
-    type: 'multiplicative',
-    token: '[∗]',
-    color: 'text-orange-300',
-    description: 'Damage is multiplicative with other sources of damage.',
+    type: 'alchemist',
+    token: 'ALCHEMIST',
+    color: ARCHTYPE_COLORS.ALCHEMIST.text,
+    description: undefined,
+  },
+  {
+    type: 'archon',
+    token: 'ARCHON',
+    color: ARCHTYPE_COLORS.ARCHON.text,
+    description: undefined,
   },
   {
     type: 'bleeding',
@@ -103,11 +117,24 @@ export const DESCRIPTION_TAGS: DescriptionTag[] = [
       'Deals elemental FIRE damage per second. Can make enemies panic.', //Have no good source on the secondary effect.
   },
   {
-    type: 'overloaded',
-    token: 'OVERLOADED',
-    color: 'text-[#7676af]',
+    type: 'bulwark',
+    token: 'BULWARK',
+    color: ARCHTYPE_COLORS.CHALLENGER.text,
     description:
-      'Deals elemental SHOCK area damage ever 5 seconds. Damage increases by 10% for every overloaded enemy nerby. ', // What's the range and what's the max damage increase for secondary effect?
+      'Increases flat Damage Reduction per stack up to maximum of 25% at 5 stacks.',
+  },
+  {
+    type: 'challenger',
+    token: 'CHALLENGER',
+    color: ARCHTYPE_COLORS.CHALLENGER.text,
+    description: undefined,
+  },
+  {
+    type: 'contamination',
+    token: 'CONTAMINATION',
+    color: 'text-white',
+    description:
+      'Inflicts a burst of damage after which it resets allowing another build-up.',
   },
   {
     type: 'corroded',
@@ -117,62 +144,132 @@ export const DESCRIPTION_TAGS: DescriptionTag[] = [
       'Deals elemental ACID damage per second. Increases damage taken by 10%.',
   },
   {
-    type: 'shield',
-    token: 'SHIELD',
-    color: 'text-[#f1f1cf]',
-    description: '', //No description in game.
-  },
-  {
-    type: 'bulwark',
-    token: 'BULWARK',
-    color: ARCHTYPE_COLORS.CHALLENGER.text,
-    description: 'Increases flat Damage Reduction per stack up to maximum of 25% at 5 stacks.',
-  },
-  {
-    type: 'slow',
-    token: 'SLOW',
-    color: '',
-    description: 'Reduces target speed. Ineffective against Bosses and Aberrations.',
-  },
-  {
-    type: 'haste',
-    token: 'HASTE',
-    color: '',
-    description: `Increases the speed of player's actions by 7%.`,
-  },
-  {
-    type: 'root rot',
-    token: 'ROOT ROT',
-    color: '',
-    description: 'Reduces maximum Stamina by 33%. Forces coughing animation at random intervals.',
-  },
-  {
-    type: 'contamination',
-    token: 'CONTAMINATION',
-    color: '',
-    description: 'Inflicts a burst of damage after which it resets allowing another build-up.',
-  },
-  {
     type: 'curse',
     token: 'CURSE',
-    color: '',
+    color: 'text-purple-500',
     description: 'Reduces maximum Health by 10% per stack. Maximum 5 stacks.',
-  },
-  {
-    type: 'suppression',
-    token: 'SUPPRESSION',
-    color: '',
-    description: 'Reduces Mod Power Generation by 50%.',
   },
   {
     type: 'data corruption',
     token: 'DATA CORRUPTION',
-    color: '',
-    description: 'Disables skills, relic, and consumables use for a short duration.', // I think it also deals damage and staggers but need to verify. 
+    color: 'text-white',
+    description:
+      'Disables skills, relic, and consumables use for a short duration.', // I think it also deals damage and staggers but need to verify.
   },
-]
-
-export const RELEASE_TO_NAME = {
-  base: 'Base Game',
-  dlc1: 'The Awakened King',
-} as const
+  {
+    type: 'engineer',
+    token: 'ENGINEER',
+    color: ARCHTYPE_COLORS.ENGINEER.text,
+    description: undefined,
+  },
+  {
+    type: 'explorer',
+    token: 'EXPLORER',
+    color: ARCHTYPE_COLORS.EXPLORER.text,
+    description: undefined,
+  },
+  {
+    type: 'frenzied',
+    token: 'FRENZIED',
+    color: ARCHTYPE_COLORS.ALCHEMIST.text,
+    description: undefined, // TODO: Add description
+  },
+  {
+    type: 'gunslinger',
+    token: 'GUNSLINGER',
+    color: ARCHTYPE_COLORS.GUNSLINGER.text,
+    description: undefined,
+  },
+  {
+    type: 'handler',
+    token: 'HANDLER',
+    color: ARCHTYPE_COLORS.HANDLER.text,
+    description: undefined,
+  },
+  {
+    type: 'haste',
+    token: 'HASTE',
+    color: 'text-white',
+    description: `Increases the speed of player's actions by 7%.`,
+  },
+  {
+    type: 'hunter',
+    token: 'HUNTER',
+    color: ARCHTYPE_COLORS.HUNTER.text,
+    description: undefined,
+  },
+  {
+    type: 'invader',
+    token: 'INVADER',
+    color: ARCHTYPE_COLORS.INVADER.text,
+    description: undefined,
+  },
+  {
+    type: 'marked',
+    token: 'MARKED',
+    color: ARCHTYPE_COLORS.GUNSLINGER.text,
+    description: undefined, // TODO: Add description
+  },
+  {
+    type: 'medic',
+    token: 'MEDIC',
+    color: ARCHTYPE_COLORS.MEDIC.text,
+    description: undefined,
+  },
+  {
+    type: 'multiplicative',
+    token: '[∗]',
+    color: 'text-orange-300',
+    description: 'Damage is multiplicative with other sources of damage.',
+  },
+  {
+    type: 'overloaded',
+    token: 'OVERLOADED',
+    color: 'text-[#7676af]',
+    description:
+      'Deals elemental SHOCK area damage ever 5 seconds. Damage increases by 10% for every overloaded enemy nerby. ', // What's the range and what's the max damage increase for secondary effect?
+  },
+  {
+    type: 'ritualist',
+    token: 'RITUALIST',
+    color: ARCHTYPE_COLORS.RITUALIST.text,
+    description: undefined,
+  },
+  {
+    type: 'root rot',
+    token: 'ROOT ROT',
+    color: 'text-white',
+    description:
+      'Reduces maximum Stamina by 33%. Forces coughing animation at random intervals.',
+  },
+  {
+    type: 'shield',
+    token: 'SHIELD',
+    color: 'text-[#f1f1cf]',
+    description: undefined, //No description in game.
+  },
+  {
+    type: 'slow',
+    token: 'SLOW',
+    color: 'text-white',
+    description:
+      'Reduces target speed. Ineffective against Bosses and Aberrations.',
+  },
+  {
+    type: 'summoner',
+    token: 'SUMMONER',
+    color: ARCHTYPE_COLORS.SUMMONER.text,
+    description: undefined,
+  },
+  {
+    type: 'suppression',
+    token: 'SUPPRESSION',
+    color: 'text-blue-500',
+    description: 'Reduces Mod Power Generation by 50%.',
+  },
+] as const satisfies {
+  type: string
+  token: string
+  color: string
+  description: string | undefined
+}[]
