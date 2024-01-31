@@ -142,12 +142,17 @@ export default function MasonryItemList({ items }: Props) {
 
   if (!isClient) return null
 
+  const scrollY = window.scrollY
+
   return (
     <>
       <ItemInfo
         item={selectedItem}
         open={infoOpen}
-        onClose={() => setSelectedItem(null)}
+        onClose={() => {
+          setSelectedItem(null)
+          window.scrollTo(0, scrollY)
+        }}
       />
       {items.length > 0 && (
         <div className="flex w-full flex-col items-center justify-center p-4">
