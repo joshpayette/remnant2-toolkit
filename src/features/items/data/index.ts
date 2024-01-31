@@ -4393,7 +4393,7 @@ export const remnantItems: Item[] = [
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Smolder`],
     linkedItems: {
       mod: {
-        name: 'Blaze', //Blaze needs to be added to mods @Josh
+        name: 'Blaze',
       },
     },
     damage: 46,
