@@ -97,6 +97,12 @@ export const DESCRIPTION_TAGS = [
     description: undefined,
   },
   {
+    type: 'amplitude',
+    token: '[A]',
+    color: 'text-[#66ffcc]',
+    description: 'This effect benefits from Amplitude.',
+  },
+  {
     type: 'archon',
     token: 'ARCHON',
     color: ARCHTYPE_COLORS.ARCHON.text,
@@ -230,6 +236,12 @@ export const DESCRIPTION_TAGS = [
     color: 'text-[#7676af]',
     description:
       'Deals elemental SHOCK area damage ever 5 seconds. Damage increases by 10% for every overloaded enemy nerby. ', // What's the range and what's the max damage increase for secondary effect?
+  },
+  {
+    type: 'resonance',
+    token: '[R]',
+    color: 'text-[#00ffcc]',
+    description: 'This effect benefits from Resonance.',
   },
   {
     type: 'ritualist',
