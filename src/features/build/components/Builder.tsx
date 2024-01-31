@@ -353,12 +353,12 @@ export default function Builder({
           </p>
         )}
         {isPopular && !isNew && (
-          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 transform">
+          <div className="absolute bottom-0 left-1/2 flex w-full -translate-x-1/2 translate-y-1/2 transform items-center justify-center">
             <PopularBuildBadge />
           </div>
         )}
         {isNew && (
-          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 transform">
+          <div className="absolute bottom-0 left-1/2 flex w-full -translate-x-1/2 translate-y-1/2 transform items-center justify-center">
             <NewBuildBadge />
           </div>
         )}
