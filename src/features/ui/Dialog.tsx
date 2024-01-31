@@ -78,7 +78,7 @@ export default function Dialog({
                     as="h3"
                     className={cn(
                       'text-4xl font-semibold text-green-500',
-                      !subtitle ? 'mb-4' : 'mb-2',
+                      !subtitle ? 'mb-4' : 'mb-0',
                     )}
                   >
                     {title}
@@ -86,7 +86,7 @@ export default function Dialog({
                   {subtitle && (
                     <BaseDialog.Description>{subtitle}</BaseDialog.Description>
                   )}
-                  <div className="mt-2">{children}</div>
+                  <div className="mt-4">{children}</div>
                 </div>
               </BaseDialog.Panel>
             </Transition.Child>
