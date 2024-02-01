@@ -594,7 +594,7 @@ export const remnantItems: Item[] = [
     STONESKIN reduces incoming damage by 25%, greatly increases Blight Buildup Decay Rate, reduces Stagger by l, and makes the target immune to Status Effects. Lasts 15s. 
     
     PRESS: Slam Vial on the ground, creating the effect at the ALCHEMIST's feet [A].
- [A]
+    
     HOLD & RELEASE: Aim and throw the Vial causing the same effect where it lands [A].`,
     cooldown: 72,
     howToGet: `Unlocks automatically`,
