@@ -14,6 +14,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Fixed bug with description tags not highlighting in max level bonuses.
 - Fixed bug in changelog where my brain didn't accept it was 2024.
+- Fixed incorrect stamina percent granted by Dark Cider.
 
 ## 2024-01-31
 

@@ -9202,7 +9202,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     howToGet: `Can be bought from Mudtooth for 500`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Dark+Cider`],
     healthPercent: 0.0666,
-    staminaPercent: 0.666,
+    staminaPercent: 0.0666,
   },
   {
     category: 'concoction',
