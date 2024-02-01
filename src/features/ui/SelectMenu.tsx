@@ -5,7 +5,7 @@ interface Props
     SelectHTMLAttributes<HTMLSelectElement>,
     HTMLSelectElement
   > {
-  label: string
+  label?: string
   options: Array<{ label: string; value: string }>
 }
 
@@ -20,12 +20,14 @@ export default function SelectMenu({
 }: Props) {
   return (
     <div className="w-full">
-      <label
-        htmlFor={name}
-        className="block text-sm font-medium leading-6 text-gray-500"
-      >
-        {label}
-      </label>
+      {label && (
+        <label
+          htmlFor={name}
+          className="block text-sm font-medium leading-6 text-gray-500"
+        >
+          {label}
+        </label>
+      )}
       <select
         id={id ?? name}
         name={name}

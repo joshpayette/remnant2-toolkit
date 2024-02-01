@@ -1,6 +1,7 @@
 # TODO
 
 - Add additional build filters next to time range, such as "Most Favorited, Newest, Alphabetical"
+  - Commununity Builds done, add to other pages. Extract logic to hook and add to other pages
 - Add FIRE, SHOCK, and ACID description tags
 - Description tags need to be searchable
 - Add a way to track items on a second character

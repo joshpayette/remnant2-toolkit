@@ -7,29 +7,50 @@ import usePagination from '@/features/pagination/usePagination'
 import Link from 'next/link'
 import { toast } from 'react-toastify'
 import useBuildActions from '@/features/build/hooks/useBuildActions'
-import BuildListFilters from '@/features/build/components/BuildListFilters'
 import { DBBuild } from '@/features/build/types'
 import {
+  OrderBy,
   TimeRange,
-  getMostPopularBuilds,
-} from '@/features/build/actions/getMostPopularBuilds'
+  getCommunityBuilds,
+} from '@/features/build/actions/getCommunityBuilds'
 import { isErrorResponse } from '@/features/error-handling/isErrorResponse'
 import { dbBuildToBuildState } from '../lib/dbBuildToBuildState'
 import { CommunityBuildFilterProps } from '@/features/filters/types'
+import SelectMenu from '@/features/ui/SelectMenu'
 
 interface Props {
   itemsPerPage?: number
   communityBuildFilters: CommunityBuildFilterProps
 }
 
-export default function MostPopularBuilds({
+export default function CommunityBuildList({
   itemsPerPage = 8,
   communityBuildFilters,
 }: Props) {
   const [builds, setBuilds] = useState<DBBuild[]>([])
   const [totalBuildCount, setTotalBuildCount] = useState<number>(0)
-  const [timeRange, setTimeRange] = useState<TimeRange>('all-time')
   const [isLoading, setIsLoading] = useState<boolean>(false)
+
+  const [timeRange, setTimeRange] = useState<TimeRange>('all-time')
+  const timeRangeOptions: Array<{ label: TimeRange; value: string }> = [
+    { label: 'day', value: 'day' },
+    { label: 'week', value: 'week' },
+    { label: 'month', value: 'month' },
+    { label: 'all-time', value: 'all-time' },
+  ]
+  function handleTimeRangeChange(timeRange: string) {
+    setTimeRange(timeRange as TimeRange)
+  }
+
+  const [orderBy, setOrderBy] = useState<OrderBy>('most favorited')
+  const orderByOptions: Array<{ label: OrderBy; value: string }> = [
+    { label: 'alphabetical', value: 'alphabetical' },
+    { label: 'most favorited', value: 'most favorited' },
+    { label: 'newest', value: 'newest' },
+  ]
+  function handleOrderByChange(orderBy: string) {
+    setOrderBy(orderBy as OrderBy)
+  }
 
   const {
     currentPage,
@@ -51,10 +72,11 @@ export default function MostPopularBuilds({
   useEffect(() => {
     const getItemsAsync = async () => {
       setIsLoading(true)
-      const response = await getMostPopularBuilds({
+      const response = await getCommunityBuilds({
         itemsPerPage,
         pageNumber: currentPage,
         timeRange,
+        orderBy,
         communityBuildFilters,
       })
 
@@ -63,9 +85,7 @@ export default function MostPopularBuilds({
       setIsLoading(false)
     }
     getItemsAsync()
-  }, [currentPage, timeRange, itemsPerPage, communityBuildFilters])
-
-  const timeRanges: TimeRange[] = ['day', 'week', 'month', 'all-time']
+  }, [currentPage, orderBy, timeRange, itemsPerPage, communityBuildFilters])
 
   async function onReportBuild(buildId: string) {
     const reportedBuild = builds.find((build) => build.id === buildId)
@@ -95,14 +115,10 @@ export default function MostPopularBuilds({
     }
   }
 
-  function handleTimeRangeChange(timeRange: string) {
-    setTimeRange(timeRange as TimeRange)
-  }
-
   return (
     <>
       <BuildList
-        label="Most Popular"
+        label="Community Builds"
         currentPage={currentPage}
         pageNumbers={pageNumbers}
         totalItems={totalBuildCount}
@@ -114,12 +130,18 @@ export default function MostPopularBuilds({
         onNextPage={handleNextPageClick}
         onSpecificPage={handleSpecificPageClick}
         headerActions={
-          <BuildListFilters
-            label="Time Range"
-            filter={timeRange}
-            onFilterChange={handleTimeRangeChange}
-            options={timeRanges}
-          />
+          <div className="flex w-full flex-col items-center justify-end gap-x-2 sm:flex-row">
+            <SelectMenu
+              value={timeRange}
+              options={timeRangeOptions}
+              onChange={(e) => handleTimeRangeChange(e.target.value)}
+            />
+            <SelectMenu
+              value={orderBy}
+              options={orderByOptions}
+              onChange={(e) => handleOrderByChange(e.target.value)}
+            />
+          </div>
         }
       >
         {builds.map((build) => (

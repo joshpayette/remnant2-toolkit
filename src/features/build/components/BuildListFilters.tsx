@@ -5,7 +5,7 @@ import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/24/solid'
 
 interface Props {
   filter: string
-  onFilterChange: (filter: string) => void
+  onFilterChange: (newFilters: string) => void
   options: string[]
   label?: string
 }
@@ -13,16 +13,18 @@ interface Props {
 export default function BuildListFilters({
   filter,
   onFilterChange,
-  label = 'Filter',
+  label,
   options,
 }: Props) {
   return (
     <Listbox value={filter} onChange={onFilterChange}>
       {({ open }) => (
         <>
-          <Listbox.Label className="mr-2 block text-left text-sm font-medium leading-6 text-green-500">
-            {label}
-          </Listbox.Label>
+          {label && (
+            <Listbox.Label className="mr-2 block text-left text-sm font-medium leading-6 text-green-500">
+              {label}
+            </Listbox.Label>
+          )}
           <div className="relative">
             <Listbox.Button className="relative w-full min-w-[150px] cursor-default rounded-md bg-white py-1.5 pl-3 pr-10 text-left text-sm text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-600 sm:text-sm sm:leading-6">
               <span className="block truncate">{filter}</span>
