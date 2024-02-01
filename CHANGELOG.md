@@ -16,6 +16,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Fixed bug in changelog where my brain didn't accept it was 2024.
 - Fixed incorrect stamina percent granted by Dark Cider.
 
+### Changed
+
+- Reworked Favorite button to be more like the other buttons.
+- Made archetype labels larger on build cards.
+- Moved total favorites to the build card itself
+
 ## 2024-01-31
 
 ### Added

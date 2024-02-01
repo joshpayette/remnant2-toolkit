@@ -69,6 +69,28 @@ export const ActionButton = {
       </button>
     ),
 
+  FavoriteBuild: ({ upvoted, onClick }: ButtonProps & { upvoted: boolean }) => (
+    <Tooltip
+      content={
+        upvoted
+          ? 'Remove build from your favorited builds.'
+          : 'Save build to your favorited builds!'
+      }
+    >
+      <button
+        className={cn(
+          buttonClasses,
+          upvoted
+            ? 'border-red-500 text-white hover:bg-red-500'
+            : 'border-orange-500 text-white hover:bg-orange-500',
+        )}
+        onClick={onClick}
+      >
+        {upvoted ? 'Remove Favorite' : 'Favorite Build'}
+      </button>
+    </Tooltip>
+  ),
+
   NewBuild: () => (
     <Link
       className={cn(
@@ -128,48 +150,6 @@ export const ActionButton = {
     >
       Detailed View
     </button>
-  ),
-
-  Vote: ({
-    active,
-    onClick,
-    totalUpvotes,
-  }: ButtonProps & { active: boolean; totalUpvotes: number }) => (
-    <Tooltip
-      content={
-        active
-          ? 'Unfavorite build and remove your vote.'
-          : 'Favorite the build to save it to your profile!'
-      }
-    >
-      <button
-        onClick={onClick}
-        className={cn(
-          'text-md relative flex flex-col items-center justify-center gap-y-2 rounded border border-transparent p-1',
-          active ? 'text-yellow-400' : 'text-white',
-        )}
-      >
-        <div
-          className={cn(
-            'relative flex w-full flex-col items-center justify-center gap-x-2 rounded border border-yellow-300 bg-gradient-to-b from-[#f12711] to-[#f5af19] p-4 hover:from-[#f5af19] hover:to-[#f12711] sm:bg-gradient-to-br',
-          )}
-        >
-          <div className="absolute left-0 top-0 -z-10 h-full w-full animate-ping-slow bg-green-500" />
-          <div className="text-5xl font-bold text-white drop-shadow-md">
-            {totalUpvotes}
-          </div>
-          <div className="text-md font-semibold text-orange-900">
-            {totalUpvotes === 1 ? 'Favorite' : 'Favorites'}
-          </div>
-        </div>
-        <div className="flex flex-row items-center justify-center text-yellow-500 hover:text-yellow-300 hover:underline">
-          <span className="mr-1 h-5 w-5">
-            {active ? <StarIconOn /> : <StarIconOff />}
-          </span>
-          <span className="text-md">{active ? 'Unfavorite' : 'Favorite'}</span>
-        </div>
-      </button>
-    </Tooltip>
   ),
 }
 

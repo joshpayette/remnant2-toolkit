@@ -5,7 +5,7 @@ export default function ArchtypeLabel({ name }: { name: string }) {
   return (
     <span
       className={cn(
-        'inline-flex flex-shrink-0 items-center rounded-full px-1.5 py-0.5 text-xs font-medium',
+        'text-md inline-flex flex-shrink-0 items-center justify-center rounded-md px-2 py-1 font-medium',
         name.toLowerCase() === 'alchemist' &&
           `${ARCHTYPE_COLORS.ALCHEMIST.bg} ${ARCHTYPE_COLORS.ALCHEMIST.text}`,
         name.toLowerCase() === 'archon' &&

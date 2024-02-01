@@ -20,6 +20,7 @@ import getConcoctionSlotCount from '../lib/getConcoctionSlotCount'
 import getItemListForSlot from '../lib/getItemListForSlot'
 import isBuildNew from '../lib/isBuildNew'
 import NewBuildBadge from './NewBuildBadge'
+import { StarIcon } from '@heroicons/react/24/solid'
 
 type BuilderProps = {
   buildState: BuildState
@@ -27,6 +28,7 @@ type BuilderProps = {
   isScreenshotMode: boolean
   showControls: boolean
   showCreatedBy?: boolean
+  totalUpvotes?: number
 } & (
   | { isEditable: false; onUpdateBuildState?: never }
   | {
@@ -342,15 +344,26 @@ export default function Builder({
           showControls={showControls}
         />
         {showCreatedBy && (
-          <p className="mb-2 flex items-center justify-center text-sm text-gray-400">
-            Build by{' '}
+          <div className="mb-2 flex items-center justify-center text-sm text-gray-400">
+            <span className="mb-1">Build by </span>
             <Link
               href={`/profile/${buildState.createdById}`}
-              className="ml-1 text-green-500 underline hover:text-green-700"
+              className="mb-1 ml-1 text-green-500 hover:text-green-700"
             >
               {buildState.createdByDisplayName}
             </Link>
-          </p>
+            <div className="ml-2 flex flex-row text-sm">
+              <StarIcon
+                className={cn(
+                  'mr-0.5 h-4 w-4 text-yellow-500',
+                  isScreenshotMode ? 'mt-[1.5px]' : 'mt-0.5',
+                )}
+              />
+              <span className={cn(isScreenshotMode ? 'mb-[2px]' : 'mb-0.5')}>
+                {buildState.totalUpvotes}
+              </span>
+            </div>
+          </div>
         )}
         {isPopular && !isNew && (
           <div className="absolute bottom-0 left-1/2 flex w-full -translate-x-1/2 translate-y-1/2 transform items-center justify-center">

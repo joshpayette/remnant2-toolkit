@@ -1,13 +1,14 @@
 # TODO
 
+- BuildCard should show "days ago" for updated text instead of a date
+  - less than 24h ago, 1 day ago, 2 days ago, more than a week ago
 - Add additional build filters next to time range, such as "Most Favorited, Newest, Alphabetical"
   - Commununity Builds done, add to other pages. Extract logic to hook and add to other pages
-- Add FIRE, SHOCK, and ACID description tags
-- Description tags need to be searchable
+- Swap community build filters from internal state to url state
 - Add a way to track items on a second character
+- Description tags need to be searchable
 - GUIDES section?
 - In addition to date created, allow sort by date updated
-- Swap community build filters from internal state to url state
 - Have stat tooltips show the items contributing to the calculations
 - Add tracker of world bosses
 - Allow tracking of whether you have completely upgraded a weapon, trait, or archtype

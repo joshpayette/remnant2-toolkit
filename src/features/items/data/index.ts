@@ -988,7 +988,7 @@ export const remnantItems: Item[] = [
     name: 'Miasma',
     imagePath: '/skill/miasma.png',
     id: '3er3og',
-    description: `Casts an AOE burst [A] that applies BLEEDING, BURNING, OVERLOADED, and CORRODED to all enemies within 15m, and dealing a total of 1500 base damage. Lasts 11s.`,
+    description: `Casts an AOE burst that applies BLEEDING, BURNING, OVERLOADED, and CORRODED to all enemies within 15m [A], and dealing a total of 1500 base damage. Lasts 11s.`,
     cooldown: 36.9,
     howToGet: `Unlocks at level 5`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Miasma`],

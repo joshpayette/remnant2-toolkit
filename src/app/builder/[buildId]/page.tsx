@@ -132,6 +132,42 @@ export default function Page({
                   )
                 }
               />
+              <ActionButton.FavoriteBuild
+                upvoted={buildState.upvoted}
+                onClick={async () => {
+                  if (buildState.createdById === session?.user?.id) {
+                    toast.error('You cannot vote/unvote for your own build.')
+                    return
+                  }
+
+                  const newVote = !buildState.upvoted
+
+                  const response = newVote
+                    ? await addVoteForBuild(
+                        JSON.stringify({ buildId: build.id }),
+                      )
+                    : await removeVoteForBuild(
+                        JSON.stringify({ buildId: build.id }),
+                      )
+
+                  if (isErrorResponse(response)) {
+                    console.error(response.errors)
+                    toast.error(
+                      'Error voting for build. Please try again later.',
+                    )
+                  } else {
+                    toast.success(
+                      newVote
+                        ? 'Successfully favorited build! You can find it in your profile.'
+                        : 'Successfully removed favorite!',
+                    )
+                    buildState.upvoted = newVote
+                    buildState.totalUpvotes = response.totalUpvotes ?? 1
+                    router.refresh()
+                  }
+                }}
+              />
+
               <ActionButton.DuplicateBuild
                 onClick={() => handleDuplicateBuild(buildState)}
               />
@@ -147,53 +183,6 @@ export default function Page({
               />
               {session?.user && (
                 <>
-                  <hr className="my-2 w-full border-gray-500" />
-
-                  <div className="col-span-full flex w-full flex-col items-center justify-center gap-4">
-                    <div className="my-4 flex flex-row items-center justify-center gap-x-4 sm:my-0 sm:flex-col sm:items-start sm:gap-x-0 sm:gap-y-2">
-                      <ActionButton.Vote
-                        active={buildState.upvoted}
-                        totalUpvotes={buildState.totalUpvotes}
-                        onClick={async () => {
-                          if (buildState.createdById === session.user?.id) {
-                            toast.error(
-                              'You cannot vote/unvote for your own build.',
-                            )
-                            return
-                          }
-
-                          const newVote = !buildState.upvoted
-
-                          const response = newVote
-                            ? await addVoteForBuild(
-                                JSON.stringify({ buildId: build.id }),
-                              )
-                            : await removeVoteForBuild(
-                                JSON.stringify({ buildId: build.id }),
-                              )
-
-                          if (isErrorResponse(response)) {
-                            console.error(response.errors)
-                            toast.error(
-                              'Error voting for build. Please try again later.',
-                            )
-                          } else {
-                            toast.success(
-                              newVote
-                                ? 'Successfully favorited build! You can find it in your profile.'
-                                : 'Successfully removed favorite!',
-                            )
-                            buildState.upvoted = newVote
-                            buildState.totalUpvotes = response.totalUpvotes ?? 1
-                            router.refresh()
-                          }
-                        }}
-                      />
-                    </div>
-                  </div>
-
-                  <hr className="my-2 w-full border-gray-500" />
-
                   <div className="col-span-full flex w-full flex-col items-center justify-center gap-4 sm:items-start">
                     <div className="my-4 flex flex-row items-center justify-center gap-x-4 sm:my-0 sm:flex-col sm:items-start sm:gap-x-0 sm:gap-y-2">
                       <ActionButton.ReportBuild

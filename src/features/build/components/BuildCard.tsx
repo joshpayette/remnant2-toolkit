@@ -73,7 +73,7 @@ export default function BuildCard({
                 by{' '}
                 <Link
                   href={`/profile/${build.createdById}`}
-                  className="text-purple-500 underline hover:text-purple-700"
+                  className="text-purple-500 hover:text-purple-700 hover:underline"
                 >
                   {build.createdByDisplayName ?? build.createdByName}
                 </Link>
@@ -113,7 +113,7 @@ export default function BuildCard({
                 </p>
               )}
             </div>
-            <div className="mt-2 flex flex-row items-center justify-start gap-x-2">
+            <div className="mt-2 flex w-full flex-row items-center justify-center gap-x-2">
               {buildState.items.archetype[0] && (
                 <ArchtypeLabel name={buildState.items.archetype[0].name} />
               )}
