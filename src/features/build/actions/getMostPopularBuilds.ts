@@ -22,21 +22,24 @@ import { CommunityBuildFilterProps } from '@/features/filters/types'
 import { limitByReleasesSegment } from '@/features/filters/queries/segments/limitByRelease'
 
 export type TimeRange = 'day' | 'week' | 'month' | 'all-time'
+export type OrderBy = 'alphabetical' | 'most favorited' | 'newest'
 
 function formatDateToMySQL(date: Date): string {
   return date.toISOString().slice(0, 19).replace('T', ' ')
 }
 
 export async function getMostPopularBuilds({
+  communityBuildFilters,
   itemsPerPage,
+  orderBy,
   pageNumber,
   timeRange,
-  communityBuildFilters,
 }: {
-  timeRange: TimeRange
-  itemsPerPage: number
-  pageNumber: number
   communityBuildFilters: CommunityBuildFilterProps
+  itemsPerPage: number
+  orderBy: OrderBy
+  pageNumber: number
+  timeRange: TimeRange
 }): Promise<PaginationResponse<DBBuild>> {
   const session = await getServerSession()
   const userId = session?.user?.id
@@ -89,9 +92,19 @@ export async function getMostPopularBuilds({
   AND Build.createdAt > ${timeCondition}
   `
 
-  const orderBySegment = Prisma.sql`
+  let orderBySegment = Prisma.sql`
   ORDER BY totalUpvotes DESC
   `
+
+  if (orderBy === 'alphabetical') {
+    orderBySegment = Prisma.sql`
+    ORDER BY TRIM(Build.name) ASC
+    `
+  } else if (orderBy === 'newest') {
+    orderBySegment = Prisma.sql`
+    ORDER BY createdAt DESC
+    `
+  }
 
   // First, get the Builds
   const builds = await communityBuildsQuery({
