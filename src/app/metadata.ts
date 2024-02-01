@@ -11,6 +11,7 @@ export const metadata: Metadata = {
   title,
   description,
   manifest: '/site.webmanifest',
+  themeColor: '#3b0764',
   icons: {
     icon: [
       { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
@@ -49,13 +50,13 @@ export const metadata: Metadata = {
     locale: 'en_US',
     type: 'website',
   },
-  twitter: {
-    card: 'summary',
-    title,
-    description,
-    siteId: '1696952720974888960',
-    creator: '@josh_payette',
-    creatorId: '1696952720974888960',
-    images: [ogImageUrl],
-  },
+  // twitter: {
+  //   card: 'summary',
+  //   title,
+  //   description,
+  //   siteId: '1696952720974888960',
+  //   creator: '@josh_payette',
+  //   creatorId: '1696952720974888960',
+  //   images: [ogImageUrl],
+  // },
 }

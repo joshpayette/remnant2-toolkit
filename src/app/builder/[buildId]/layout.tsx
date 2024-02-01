@@ -28,11 +28,11 @@ export async function generateMetadata(
         images: ['https://d2sqltdcj8czo5.cloudfront.net/og_image_small.png'],
         type: 'website',
       },
-      twitter: {
-        title: 'Private Build',
-        description: 'This build is private.',
-        images: ['https://d2sqltdcj8czo5.cloudfront.net/og_image_small.png'],
-      },
+      // twitter: {
+      //   title: 'Private Build',
+      //   description: 'This build is private.',
+      //   images: ['https://d2sqltdcj8czo5.cloudfront.net/og_image_small.png'],
+      // },
     }
   }
 
@@ -53,14 +53,14 @@ export async function generateMetadata(
       images: ['https://d2sqltdcj8czo5.cloudfront.net/og_image_small.png'],
       type: 'website',
     },
-    twitter: {
-      title,
-      description,
-      images: [
-        'https://d2sqltdcj8czo5.cloudfront.net/og_image_small.png',
-        ...previousTwitterImages,
-      ],
-    },
+    // twitter: {
+    //   title,
+    //   description,
+    //   images: [
+    //     'https://d2sqltdcj8czo5.cloudfront.net/og_image_small.png',
+    //     ...previousTwitterImages,
+    //   ],
+    // },
   }
 }
 
