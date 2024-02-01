@@ -4,7 +4,7 @@ const title = 'Remnant 2 Toolkit'
 const description =
   'Remnant 2 item tracking, build sharing, item database, and more!'
 const url = 'https://remnant2toolkit.com'
-const ogImageUrl = 'https://d2sqltdcj8czo5.cloudfront.net/og_image.png'
+const ogImageUrl = 'https://d2sqltdcj8czo5.cloudfront.net/og_image_small.png'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://d2sqltdcj8czo5.cloudfront.net'),
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     type: 'website',
   },
   twitter: {
-    card: 'summary_large_image',
+    card: 'summary',
     title,
     description,
     siteId: '1696952720974888960',
