@@ -132,41 +132,43 @@ export default function Page({
                   )
                 }
               />
-              <ActionButton.FavoriteBuild
-                upvoted={buildState.upvoted}
-                onClick={async () => {
-                  if (buildState.createdById === session?.user?.id) {
-                    toast.error('You cannot vote/unvote for your own build.')
-                    return
-                  }
+              {buildState.createdById !== session?.user?.id && (
+                <ActionButton.FavoriteBuild
+                  upvoted={buildState.upvoted}
+                  onClick={async () => {
+                    if (buildState.createdById === session?.user?.id) {
+                      toast.error('You cannot vote/unvote for your own build.')
+                      return
+                    }
 
-                  const newVote = !buildState.upvoted
+                    const newVote = !buildState.upvoted
 
-                  const response = newVote
-                    ? await addVoteForBuild(
-                        JSON.stringify({ buildId: build.id }),
+                    const response = newVote
+                      ? await addVoteForBuild(
+                          JSON.stringify({ buildId: build.id }),
+                        )
+                      : await removeVoteForBuild(
+                          JSON.stringify({ buildId: build.id }),
+                        )
+
+                    if (isErrorResponse(response)) {
+                      console.error(response.errors)
+                      toast.error(
+                        'Error voting for build. Please try again later.',
                       )
-                    : await removeVoteForBuild(
-                        JSON.stringify({ buildId: build.id }),
+                    } else {
+                      toast.success(
+                        newVote
+                          ? 'Successfully favorited build! You can find it in your profile.'
+                          : 'Successfully removed favorite!',
                       )
-
-                  if (isErrorResponse(response)) {
-                    console.error(response.errors)
-                    toast.error(
-                      'Error voting for build. Please try again later.',
-                    )
-                  } else {
-                    toast.success(
-                      newVote
-                        ? 'Successfully favorited build! You can find it in your profile.'
-                        : 'Successfully removed favorite!',
-                    )
-                    buildState.upvoted = newVote
-                    buildState.totalUpvotes = response.totalUpvotes ?? 1
-                    router.refresh()
-                  }
-                }}
-              />
+                      buildState.upvoted = newVote
+                      buildState.totalUpvotes = response.totalUpvotes ?? 1
+                      router.refresh()
+                    }
+                  }}
+                />
+              )}
 
               <ActionButton.DuplicateBuild
                 onClick={() => handleDuplicateBuild(buildState)}

@@ -18,9 +18,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ### Changed
 
-- Reworked Favorite button to be more like the other buttons.
-- Made archetype labels larger on build cards.
+- Reworked Favorite button to be more like the other buttons
+- Made archetype labels larger on build cards
 - Moved total favorites to the build card itself
+- Favorite button no longer shows on builds you created
 
 ## 2024-01-31
 
