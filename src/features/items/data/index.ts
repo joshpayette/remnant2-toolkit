@@ -4830,7 +4830,7 @@ export const remnantItems: Item[] = [
     name: 'Star Shot',
     imagePath: '/offhand/star_shot.png',
     id: 'tldnuq',
-    description: `Fires a fast moving projectile which explodes on contact. Explosion has no damage falloff.`,
+    description: `Fires a fast moving projectile which explodes on contact. Explosion has no damage falloff. [A]`,
     howToGet: `Complete the Supply Ship Event, in N'Erud.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Star+Shot`],
     linkedItems: {
@@ -5403,7 +5403,7 @@ export const remnantItems: Item[] = [
     name: "Guardian's Call",
     imagePath: '/mod/guardians_call.png',
     id: 'anhbhf',
-    description: `Calls down a Guardian Sword on enemies struck by an Energy Disc. Swords deal 100 damage and 3x stagger within 5m. [A]`,
+    description: `Calls down a Guardian Sword on enemies struck by an Energy Disc. Swords deal 100 damage and 3x stagger within 3m. [A]`,
     howToGet: `Attached to the Twisted Arbalest long gun`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Guardian's+Call`],
     linkedItems: {
@@ -5527,7 +5527,7 @@ export const remnantItems: Item[] = [
     imagePath: '/mod/micronova.png',
     id: '8izb2g',
     description: `Fires 5 shattered compressed remains of a dying star. On contact or when hit with the primary fire, Micronova explodes for 50 FIRE damage, and 350 BURNING damage over 10s to all targets within 2m.
-    Striking the Micronova with Corrupted Aphelion's primary fire increases its explosion radius by 25%, damage by 50%, and spawns a shockwave that deals 100 FIRE damage, detonates any nearby Micronovas and applies the initial BURNING amount.`,
+    Striking the Micronova with Corrupted Aphelion's primary fire increases its explosion radius by 25%, damage by 50%, and spawns a shockwave that deals 100 FIRE damage, detonates any nearby Micronovas and applies the initial BURNING amount. [A]`,
     howToGet: `Attached to the Corrupted AphelionLong Gun`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Micronova`],
     linkedItems: {
