@@ -313,7 +313,7 @@ export const DESCRIPTION_TAGS = [
     type: 'madness',
     token: 'MADNESS',
     color: 'text-[#ede6e6]',
-    description: 'Physical Damage.',
+    description: 'Physical Damage',
   },
 ] as const satisfies {
   type: string
