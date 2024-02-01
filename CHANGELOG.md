@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Added build badge for builds that are new
 - Added description tags for Amplitude `[A]` and Resonanace `[R]`
+- Added better filtering to Community Builds
 
 ### Fixed
 

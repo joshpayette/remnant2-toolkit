@@ -11,8 +11,8 @@ import { DBBuild } from '@/features/build/types'
 import {
   OrderBy,
   TimeRange,
-  getMostPopularBuilds,
-} from '@/features/build/actions/getMostPopularBuilds'
+  getCommunityBuilds,
+} from '@/features/build/actions/getCommunityBuilds'
 import { isErrorResponse } from '@/features/error-handling/isErrorResponse'
 import { dbBuildToBuildState } from '../lib/dbBuildToBuildState'
 import { CommunityBuildFilterProps } from '@/features/filters/types'
@@ -23,7 +23,7 @@ interface Props {
   communityBuildFilters: CommunityBuildFilterProps
 }
 
-export default function MostPopularBuilds({
+export default function CommunityBuildList({
   itemsPerPage = 8,
   communityBuildFilters,
 }: Props) {
@@ -72,7 +72,7 @@ export default function MostPopularBuilds({
   useEffect(() => {
     const getItemsAsync = async () => {
       setIsLoading(true)
-      const response = await getMostPopularBuilds({
+      const response = await getCommunityBuilds({
         itemsPerPage,
         pageNumber: currentPage,
         timeRange,
@@ -118,7 +118,7 @@ export default function MostPopularBuilds({
   return (
     <>
       <BuildList
-        label="Most Popular"
+        label="Community Builds"
         currentPage={currentPage}
         pageNumbers={pageNumbers}
         totalItems={totalBuildCount}

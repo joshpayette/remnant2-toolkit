@@ -3,19 +3,19 @@ import { cn } from '../../../lib/classnames'
 import { Listbox, Transition } from '@headlessui/react'
 import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/24/solid'
 
-interface Props<FilterType> {
-  filter: FilterType
-  onFilterChange: (newFilters: FilterType) => void
+interface Props {
+  filter: string
+  onFilterChange: (newFilters: string) => void
   options: string[]
   label?: string
 }
 
-export default function BuildListFilters<FilterType>({
+export default function BuildListFilters({
   filter,
   onFilterChange,
   label,
   options,
-}: Props<FilterType>) {
+}: Props) {
   return (
     <Listbox value={filter} onChange={onFilterChange}>
       {({ open }) => (
