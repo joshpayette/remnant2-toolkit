@@ -20,6 +20,7 @@ import ItemInfo from './ItemInfo'
 import { WeaponItem } from '../types/WeaponItem'
 import WeaponInfo from './WeaponInfo'
 import { cn } from '@/lib/classnames'
+import { Description } from '@headlessui/react/dist/components/description/description'
 
 interface MasonryBuildItem {
   index: number
@@ -70,7 +71,9 @@ function MasonryCard({ data: item, onMoreInfoClick }: MasonryBuildItem) {
           {(MutatorItem.isMutatorItem(item) || TraitItem.isTraitItem(item)) && (
             <dd className="mt-3 whitespace-pre-line text-left text-xs text-gray-200">
               <strong>At Max Level: </strong>
-              {item.maxLevelBonus || 'No max level bonus found.'}
+              <DescriptionWithTags
+                description={item.maxLevelBonus || 'No max level bonus found.'}
+              />
             </dd>
           )}
 

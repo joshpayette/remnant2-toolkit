@@ -4,7 +4,14 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
-## 2023-01-31
+## 2024-02-01
+
+### Fixed
+
+- Fixed bug with description tags not highlighting in max level bonuses.
+- Fixed bug in changelog where my brain didn't accept it was 2024.
+
+## 2024-01-31
 
 ### Added
 
@@ -22,7 +29,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Social media embeds are now significantly smaller
 
-## 2023-01-30
+## 2024-01-30
 
 ### Added
 
@@ -30,7 +37,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Added more status effect tooltips to item descriptions.
 - Status effect tooltips added to build descriptions.
 
-## 2023-01-28
+## 2024-01-28
 
 ### Added
 
@@ -50,7 +57,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Moved the import save box into a dialog to reclaim space. Updated the styling to make it more clear.
 
-## 2023-01-27
+## 2024-01-27
 
 ### Added
 
@@ -61,7 +68,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Removed creator builds from community builds page. They have their own page now.
 - Removed the /by-release page. Incorporated the functionality into the community builds page to filter by DLC
 
-## 2023-01-26
+## 2024-01-26
 
 ### Added
 
@@ -75,7 +82,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Reduced size of detailed build cards
 - Removed "how to get" instructions from item info. Wanted to save space, and the wiki is already the best source for this.
 
-## 2023-01-25
+## 2024-01-25
 
 ### Added
 
@@ -92,7 +99,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Traits now sort alphabetically, with archtype traits at the start
 - Archtype traits now have a yellow underline to make it clearer that they come from archtypes
 
-## 2023-01-24
+## 2024-01-24
 
 ### Added
 
@@ -103,7 +110,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Fixed bug with stamina not calculating correctly.
 
-## 2023-01-23
+## 2024-01-23
 
 ### Added
 
@@ -113,7 +120,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Fixed how to get description for Sparkfire Shotgun.
 
-## 2023-01-22
+## 2024-01-22
 
 ### Added
 
@@ -125,14 +132,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - When you duplicate a build, it now defaults to private by default. This should help prevent a bunch of junk builds polluting the community builds.
   - As part of this change, I retroactively applied the private flag to all builds that were created before this change that contain the `(copy)` text in the name, which is automatically appended when duplicating a build.
 
-## 2023-01-21
+## 2024-01-21
 
 ### Added
 
 - Added all archtype perks to the item lookup.
 - Added individual coloring for keywords in item descriptions and howToGet text.
 
-## 2023-01-20
+## 2024-01-20
 
 ### Added
 
@@ -142,7 +149,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - A few mutators had wrong HOW TO GET text.
 
-## 2023-01-19
+## 2024-01-19
 
 ### Added
 
@@ -150,14 +157,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Added pagination and improved views for builds you've created and favorited.
 - So much more, I should have kept better notes!
 
-## 2023-01-18
+## 2024-01-18
 
 ### Added
 
 - Added SheenShots' Mod Mage build
 - Trait count now shows in screenshots
 
-## 2023-01-16
+## 2024-01-16
 
 ### Fixed
 
@@ -165,14 +172,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Trait points should be correctly calculated, editable, and perform better on mobile.
 - Fixed all the weapons and mutators being grouped in a single category on the Item Tracker.
 
-## 2023-01-15
+## 2024-01-15
 
 ### Changed
 
 - Overhauled the database schema for storing builds. This was a big change, so I'm hoping I didn't break anything! This was necessary to
   enable the kind of granular filtering I want to do for community builds.
 
-## 2023-01-12
+## 2024-01-12
 
 ### Added
 
@@ -184,7 +191,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Fixed bug where mods were selectable for melee weapons. Turns out melee weapons have linked mods or nothing
 - Fixed bug where state wasn't resetting when going from query builder to db builder
 
-## 2023-01-11
+## 2024-01-11
 
 ### Added
 
@@ -194,7 +201,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Fixed bug where item with linked mod would not allow you to equip another non-boss gun.
 
-## 2023-01-10
+## 2024-01-10
 
 ### Added
 
@@ -204,13 +211,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Updated the builder to use separate page routes for builds in the database. This helps squash bugs from trying to keep both types of builds commingled in the same page.
 
-## 2023-01-09
+## 2024-01-09
 
 ### Fixed
 
 - Gravity Core mod was missing from the list of mods. (Thanks Joe!) Added it and linked it to the Starkiller weapon.
 
-## 2023-01-08
+## 2024-01-08
 
 ### Added
 
@@ -221,7 +228,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Dark Fluid and Dark Cider had mixed up/missing information. (Thanks Joe!)
 - Fixed a number of copy paste fails in item info.
 
-## 2023-01-07
+## 2024-01-07
 
 ### Added
 
@@ -234,7 +241,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Fixed small display issues on item filters.
 - Updated the build name field to use the same input as other parts of the site.
 
-## 2023-01-06
+## 2024-01-06
 
 ### Added
 
@@ -252,13 +259,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Expanded the filters on the item lookup and item tracker to include all item types.
 - Expanded the search functionality in the filters to also search item descriptions when returning results.
 
-## 2023-01-05
+## 2024-01-05
 
 ### Fixed
 
 - Image export wasn't working. This is now fixed.
 
-## 2023-01-04
+## 2024-01-04
 
 ### Added
 
@@ -276,7 +283,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Can no longer delete traits that are required, i.e. those dictated by archtypes
 
-## 2023-01-03
+## 2024-01-03
 
 ### Changed
 
@@ -299,7 +306,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Fixed error in links to SheenShots' Hot Swapper build.
 - Fixed bug where incorrect number of items showing on the item tracker
 
-## 2023-01-02
+## 2024-01-02
 
 ### Added
 
