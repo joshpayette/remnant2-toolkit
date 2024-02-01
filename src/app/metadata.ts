@@ -50,13 +50,13 @@ export const metadata: Metadata = {
     locale: 'en_US',
     type: 'website',
   },
-  // twitter: {
-  //   card: 'summary',
-  //   title,
-  //   description,
-  //   siteId: '1696952720974888960',
-  //   creator: '@josh_payette',
-  //   creatorId: '1696952720974888960',
-  //   images: [ogImageUrl],
-  // },
+  twitter: {
+    card: 'summary',
+    title,
+    description,
+    siteId: '1696952720974888960',
+    creator: '@josh_payette',
+    creatorId: '1696952720974888960',
+    images: [ogImageUrl],
+  },
 }

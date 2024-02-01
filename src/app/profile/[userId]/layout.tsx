@@ -26,17 +26,18 @@ export async function generateMetadata(
   return {
     title,
     description,
+    themeColor: '#3b0764',
     openGraph: {
       title,
       description: description,
       url: `https://remnant2builder.com/profile/${user.id}`,
-      images: ['https://d2sqltdcj8czo5.cloudfront.net/og_image_profile.png'],
+      images: ['https://d2sqltdcj8czo5.cloudfront.net/og_image_small.png'],
     },
-    // twitter: {
-    //   title,
-    //   description,
-    //   images: ['https://d2sqltdcj8czo5.cloudfront.net/og_image_profile.png'],
-    // },
+    twitter: {
+      title,
+      description,
+      images: ['https://d2sqltdcj8czo5.cloudfront.net/og_image_small.png'],
+    },
   }
 }
 
