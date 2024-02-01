@@ -5483,7 +5483,7 @@ export const remnantItems: Item[] = [
     name: 'Krell Edge',
     imagePath: '/mod/krell_edge.png',
     id: '38rncx',
-    description: `Charge to throw the Krell Axe which applies OVERLOAD on hit, dealing 50SHOCK Damage every 5s for 10s. Shortly after throwing, another will appear in the wielders hand. Costs 25 Stamina`,
+    description: `Charge to throw the Krell Axe which applies OVERLOADED on hit, dealing 50 SHOCK Damage every 5s for 10s. Shortly after throwing, another will appear in the wielders hand. Costs 25 Stamina`,
     howToGet: `Attached to the Krell Axe melee weapon`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Krell+Edge`],
     linkedItems: {

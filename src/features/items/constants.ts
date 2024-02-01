@@ -85,6 +85,12 @@ export const RELEASE_TO_NAME = {
  */
 export const DESCRIPTION_TAGS = [
   {
+    type: 'acid',
+    token: 'ACID',
+    color: 'text-[#589961]',
+    description: 'Elemental Damage',
+  },
+  {
     type: 'additive',
     token: '[+]',
     color: 'text-blue-300',
@@ -163,6 +169,12 @@ export const DESCRIPTION_TAGS = [
       'Disables skills, relic, and consumables use for a short duration.', // I think it also deals damage and staggers but need to verify.
   },
   {
+    type: 'defrag',
+    token: 'DEFRAG',
+    color: 'text-[#fff]', // TODO: Need to verify color
+    description: 'Physical Damage',
+  },
+  {
     type: 'engineer',
     token: 'ENGINEER',
     color: ARCHTYPE_COLORS.ENGINEER.text,
@@ -173,6 +185,18 @@ export const DESCRIPTION_TAGS = [
     token: 'EXPLORER',
     color: ARCHTYPE_COLORS.EXPLORER.text,
     description: undefined,
+  },
+  {
+    type: 'explosive',
+    token: 'EXPLOSIVE',
+    color: 'text-[#fff]', // TODO: Need to verify color
+    description: 'Physical Damage',
+  },
+  {
+    type: 'fire',
+    token: 'FIRE',
+    color: 'text-[#9f674e]',
+    description: 'Elemental Damage',
   },
   {
     type: 'frenzied',
@@ -261,6 +285,12 @@ export const DESCRIPTION_TAGS = [
     token: 'SHIELD',
     color: 'text-[#f1f1cf]',
     description: undefined, //No description in game.
+  },
+  {
+    type: 'shock',
+    token: 'SHOCK',
+    color: 'text-[#7e7ea2]',
+    description: 'Elemental Damage',
   },
   {
     type: 'slow',

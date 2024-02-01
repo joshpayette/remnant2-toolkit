@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2024-02-01
 
+### Added
+
+- More status effect description tags added
+
 ### Fixed
 
 - Fixed bug with description tags not highlighting in max level bonuses.
