@@ -591,11 +591,11 @@ export const remnantItems: Item[] = [
     id: 'y7ia9t',
     description: `Creates a mysterious vapor cloud which lasts 10s and applies STONESKIN.
 
-    STONESKIN reduces incoming damage by 25%, greatly increases Blight Buildup Decay Rate, reduces Stagger by l, and makes the target immune to Status Effects. Lasts 15s. [A]
+    STONESKIN reduces incoming damage by 25%, greatly increases Blight Buildup Decay Rate, reduces Stagger by l, and makes the target immune to Status Effects. Lasts 15s.
     
-    PRESS: Slam Vial on the ground, creating the effect at the ALCHEMIST's feet.
+    PRESS: Slam Vial on the ground, creating the effect at the ALCHEMIST's feet. [A]
     
-    HOLD & RELEASE: Aim and throw the Vial causing the same effect where it lands.`,
+    HOLD & RELEASE: Aim and throw the Vial causing the same effect where it lands.[A] `,
     cooldown: 72,
     howToGet: `Unlocks automatically`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Vial:+Stone+Mist`],
@@ -612,11 +612,11 @@ export const remnantItems: Item[] = [
     id: 'xsniv3',
     description: `Creates a mysterious vapor cloud which lasts 10s and applies FRENZIED.
 
-    FRENZlED increases Fire Rate, Reload Speed, and Melee Speed by 20%, and Movement Speed by 15%. Lasts 15s. [A]
+    FRENZlED increases Fire Rate, Reload Speed, and Melee Speed by 20%, and Movement Speed by 15%. Lasts 15s. 
 
-    PRESS: Slam Vial on the ground, creating the effect at the ALCHEMIST's feet.
+    PRESS: Slam Vial on the ground, creating the effect at the ALCHEMIST's feet. [A]
     
-    HOLD & RELEASE: Aim and throw the Vial causing the same effect where it lands.`,
+    HOLD & RELEASE: Aim and throw the Vial causing the same effect where it lands. [A]`,
     cooldown: 72,
     howToGet: `Unlocks at level 5`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Vial:+Frenzy+Dust`],
@@ -633,13 +633,12 @@ export const remnantItems: Item[] = [
     id: '76554i',
     description: `Creates a mysterious vapor cloud that lasts 10s and applies LIVING WILL.
 
-    LIVING WILL grants 5 Health Regeneration per second, and automatically protects against fatal damage while active. Can revive downed players if it heals them to full when downed. Lasts 20s. [A]
-    
+    LIVING WILL grants 5 Health Regeneration per second, and automatically protects against fatal damage while active. Can revive downed players if it heals them to full when downed. Lasts 20s.
     Revived allies cannot be affected by Living Will for 180s.
     
-    PRESS: Slam Vial on the ground, creating the effect at the ALCHEMIST's feet.
+    PRESS: Slam Vial on the ground, creating the effect at the ALCHEMIST's feet. [A]
     
-    HOLD & RELEASE: Aim and throw the Vial causing the same effect where it lands.`,
+    HOLD & RELEASE: Aim and throw the Vial causing the same effect where it lands. [A]`,
     cooldown: 86.4,
     howToGet: `Unlocks at level 10`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Vial:+Elixir+Of+Life`],
