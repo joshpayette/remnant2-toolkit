@@ -51,6 +51,7 @@ export async function generateMetadata(
     openGraph: {
       title,
       description: description,
+      siteName: 'Remnant 2 Toolkit',
       url: `https://remnant2builder.com/builder/${build.id}`,
       images: ['https://d2sqltdcj8czo5.cloudfront.net/og_image_small.png'],
       type: 'website',
