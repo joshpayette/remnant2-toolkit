@@ -17,7 +17,7 @@ export default function Footer() {
             loading="eager"
           />
         </a>
-        <a href="https://twitter.com/Remnant2Toolkit" target="_blank">
+        {/* <a href="https://twitter.com/Remnant2Toolkit" target="_blank">
           <Image
             src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/twitter.png`}
             alt="Remnant 2 Toolkit on Twitter"
@@ -26,7 +26,7 @@ export default function Footer() {
             className="h-6 w-6"
             loading="eager"
           />
-        </a>
+        </a> */}
         <a
           href="https://github.com/joshpayette/remnant2-toolkit"
           target="_blank"
@@ -91,6 +91,7 @@ export default function Footer() {
         >
           Vash Cowaii
         </a>{' '}
+        and all of the community contributors.
       </p>
       <hr className="border-gray-900 pb-4" />
       <p>
