@@ -475,7 +475,7 @@ export const remnantItems: Item[] = [
     name: 'Wellspring',
     imagePath: '/skill/wellspring.png',
     id: '7vtxrx',
-    description: `The MEDIC channels healing energy into their fist, punching a hole in the ground to create a 3m Healing Spring AOE which restores 10.5 Health per second and greatly increases Blight Decay Rate. Lasts 15s. [A]`,
+    description: `The MEDIC channels healing energy into their fist, punching a hole in the ground to create a 3m [A] Healing Spring AOE which restores 10.5 Health per second and greatly increases Blight Decay Rate. Lasts 15s.`,
     cooldown: 57.6,
     howToGet: `Unlocks automatically`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Wellspring`],
@@ -490,7 +490,7 @@ export const remnantItems: Item[] = [
     name: 'Healing Shield',
     imagePath: '/skill/healing_shield.png',
     id: '8pu6y2',
-    description: `The MEDIC Quickly expels healing energy to SHIELD all allies within 25m for 100% of their Max Health for 10s. While shielded, allies regenerate 21% of their Max Health over the duration. [A]`,
+    description: `The MEDIC Quickly expels healing energy to SHIELD all allies within 25m [A] for 100% of their Max Health for 10s. While shielded, allies regenerate 21% of their Max Health over the duration.`,
     cooldown: 96,
     howToGet: `Unlocks at level 5`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Healing+Shield`],
@@ -505,8 +505,8 @@ export const remnantItems: Item[] = [
     name: 'Redemption',
     imagePath: '/skill/redemption.png',
     id: 'zs77cb',
-    description: `The MEDIC unleashes a 30m shockwave that revives downed allies and restores 52.5% Max Health over 10s. For each additional 1s holding the SKILL button, the heal gains an additional 52.5% (up to 210% max)
-    Revived allies will only receive 50% of the healing amount. If revived, allies cannot be revived again by Redemption for another 180s. Resets at Worldstone or on death. [A]`,
+    description: `The MEDIC unleashes a 30m [A] shockwave that revives downed allies and restores 52.5% Max Health over 10s. For each additional 1s holding the SKILL button, the heal gains an additional 52.5% (up to 210% max)
+    Revived allies will only receive 50% of the healing amount. If revived, allies cannot be revived again by Redemption for another 180s. Resets at Worldstone or on death.`,
     cooldown: 115.2,
     howToGet: `Unlocks at level 10`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Redemption`],
@@ -591,11 +591,11 @@ export const remnantItems: Item[] = [
     id: 'y7ia9t',
     description: `Creates a mysterious vapor cloud which lasts 10s and applies STONESKIN.
 
-    STONESKIN reduces incoming damage by 25%, greatly increases Blight Buildup Decay Rate, reduces Stagger by l, and makes the target immune to Status Effects. Lasts 15s.
+    STONESKIN reduces incoming damage by 25%, greatly increases Blight Buildup Decay Rate, reduces Stagger by l, and makes the target immune to Status Effects. Lasts 15s. 
     
-    PRESS: Slam Vial on the ground, creating the effect at the ALCHEMIST's feet. [A]
-    
-    HOLD & RELEASE: Aim and throw the Vial causing the same effect where it lands.[A] `,
+    PRESS: Slam Vial on the ground, creating the effect at the ALCHEMIST's feet [A].
+ [A]
+    HOLD & RELEASE: Aim and throw the Vial causing the same effect where it lands [A].`,
     cooldown: 72,
     howToGet: `Unlocks automatically`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Vial:+Stone+Mist`],
@@ -612,7 +612,7 @@ export const remnantItems: Item[] = [
     id: 'xsniv3',
     description: `Creates a mysterious vapor cloud which lasts 10s and applies FRENZIED.
 
-    FRENZlED increases Fire Rate, Reload Speed, and Melee Speed by 20%, and Movement Speed by 15%. Lasts 15s. 
+    FRENZlED increases Fire Rate, Reload Speed, and Melee Speed by 20%, and Movement Speed by 15%. Lasts 15s.
 
     PRESS: Slam Vial on the ground, creating the effect at the ALCHEMIST's feet. [A]
     
@@ -634,6 +634,7 @@ export const remnantItems: Item[] = [
     description: `Creates a mysterious vapor cloud that lasts 10s and applies LIVING WILL.
 
     LIVING WILL grants 5 Health Regeneration per second, and automatically protects against fatal damage while active. Can revive downed players if it heals them to full when downed. Lasts 20s.
+    
     Revived allies cannot be affected by Living Will for 180s.
     
     PRESS: Slam Vial on the ground, creating the effect at the ALCHEMIST's feet. [A]
@@ -653,7 +654,7 @@ export const remnantItems: Item[] = [
     name: 'Reality Rune',
     imagePath: '/skill/reality_rune.png',
     id: 'i3ddi7',
-    description: `Conjures a 7m protective dome which applies SLOW to any enemy or enemy projectiles.  Allies inside gain 25% Damage Reduction. Lasts 15s. [A]`,
+    description: `Conjures a 7m [A] protective dome which applies SLOW to any enemy or enemy projectiles.  Allies inside gain 25% Damage Reduction. Lasts 15s.`,
     cooldown: 75,
     howToGet: `Unlocks automatically`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Reality+Rune`],
@@ -668,7 +669,7 @@ export const remnantItems: Item[] = [
     name: 'Chaos Gate',
     imagePath: '/skill/chaos_gate.png',
     id: '9w7c5j',
-    description: `Conjures a 7m unstable zone which grants allies a 15% to all Damage Dealt, 25% increased Mod Generation, but increases the damage that allies take by 15%. Lasts 20s. [A]`,
+    description: `Conjures a 7m [A] unstable zone which grants allies a 15% to all Damage Dealt, 25% increased Mod Generation, but increases the damage that allies take by 15%. Lasts 20s.`,
     cooldown: 85,
     howToGet: `Unlocks at level 5`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Chaos+Gate`],
@@ -687,11 +688,9 @@ export const remnantItems: Item[] = [
 
     FIRE: Blasts Lightning Tendrils from the ARCHON's hand, dealing 84.2 SHOCK Damage per second to targets within 15m.
     
-    AIM: Raises a 3m Energy Shield which deals 35 SHOCK damage per second and reduces incoming damage to all allies by 50%. [R]
+    AIM: Raises a 3m [R] Energy Shield which deals 35 SHOCK damage per second and reduces incoming damage to all allies by 50%. 
     
-    DODGE: Performs a Blink Evade that deals 100 SHOCK damage to enemies within 3m. [A]
-    
-    Cooldown: 120s`,
+    DODGE: Performs a Blink Evade that deals 100 SHOCK damage to enemies within 3m. [A]`,
     cooldown: 120,
     howToGet: `Unlocks at level 10`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Havoc+Form`],
@@ -923,7 +922,7 @@ export const remnantItems: Item[] = [
     id: 'kk4yre',
     description: `PRESS: Summons a Root Hollow Minion to fight by your side. Costs 15% of Max Health to summon, but will not kil SUMMONER. Max (2)
 
-    HOLD: SACRIFICE Root Hollow Minion to explode, dealing 150 damage within 5m. Reduces Skill Cooldown by up to 50% based on remaining Health of each Minion Sacrificed. [A]`,
+    HOLD: SACRIFICE Root Hollow Minion to explode, dealing 150 damage within 5m. [A] Reduces Skill Cooldown by up to 50% based on remaining Health of each Minion Sacrificed.`,
     cooldown: 30,
     howToGet: `Unlocks automatically`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Minion:+Hollow`],
@@ -940,7 +939,7 @@ export const remnantItems: Item[] = [
     id: 'o7pvqx',
     description: `PRESS: Summons a Root Flyer Minion to fight by your side. Costs 10% of Max Health to summon, but will not kil SUMMONER. Max (2).
 
-    HOLD: SACRIFICE all Root Flyer Minions, dealing 50 damage within 3m and spawning 3 homing projectiles which explode on contact for 150 damage each. [A]`,
+    HOLD: SACRIFICE all Root Flyer Minions, dealing 50 damage within 3m [A] and spawning 3 homing projectiles which explode on contact for 150 damage each.`,
     cooldown: 45,
     howToGet: `Unlocks at level 5`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Minion:+Flyer`],
@@ -957,7 +956,7 @@ export const remnantItems: Item[] = [
     id: 'gs8zdv',
     description: `PRESS: Summons a Root Reaver Minion to fight by your side. Costs 35% of Max Health to summon, but will not kill SUMMONER. Max (1).
 
-    HOLD: SACRIFICE all Root Reaver Minion, dealing 200 damage within 6m and spawning Spore Bombs which bounce and explode on contact for 200 damage each. [A]
+    HOLD: SACRIFICE all Root Reaver Minion, dealing 200 damage within 6m [A] and spawning Spore Bombs which bounce and explode on contact for 200 damage each.
     
     Reduces Skill Cooldown by up to 50% based on remaining Health of Minion.`,
     cooldown: 120,
@@ -989,7 +988,7 @@ export const remnantItems: Item[] = [
     name: 'Miasma',
     imagePath: '/skill/miasma.png',
     id: '3er3og',
-    description: `Casts an AOE burst that applies BLEEDING, BURNING, OVERLOADED, and CORRODED to all enemies within 15m, and dealing a total of 1500 base damage. Lasts 11s. [A]`,
+    description: `Casts an AOE burst [A] that applies BLEEDING, BURNING, OVERLOADED, and CORRODED to all enemies within 15m, and dealing a total of 1500 base damage. Lasts 11s.`,
     cooldown: 36.9,
     howToGet: `Unlocks at level 5`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Miasma`],
@@ -3025,7 +3024,7 @@ export const remnantItems: Item[] = [
     name: 'Tormented Heart',
     imagePath: '/relic/tormented_heart.png',
     id: 'rtmajx',
-    description: `Innate 20% Use Speed bonus. On use, deals 420 Explosive damage to enemies within 10m and Lifesteals 25% of damage dealt. [A]`,
+    description: `Innate 20% Use Speed bonus. On use, deals 420 Explosive damage to enemies within 10m [A] and Lifesteals 25% of damage dealt.`,
     howToGet: `Can be found in Losomn as a reward for sacrificing the Override Pin to the Nightweaver's Web.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Tormented+Heart`],
   },
@@ -4231,7 +4230,7 @@ export const remnantItems: Item[] = [
     name: 'Labyrinth Staff',
     imagePath: '/melee/labyrinth_staff.png',
     id: 'gts5dh',
-    description: `Basic Strikes generate 10% additional Mod Power. Charge Attacks perform an AOE which strikes all enemies within 2m, dealing 75 Damage. AOE Damage generates 50% additional Mod Power.`,
+    description: `Basic Strikes generate 10% additional Mod Power. Charge Attacks perform an AOE which strikes all enemies within 2m [R], dealing 75 Damage. AOE Damage generates 50% additional Mod Power.`,
     howToGet: `Can be found in The Labyrinth`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Labyrinth+Staff`],
     damage: 64,
@@ -4571,7 +4570,7 @@ export const remnantItems: Item[] = [
     name: 'Corrupted Meridian',
     imagePath: '/offhand/corrupted_meridian.png',
     id: 'yw1btj',
-    description: `Fires rocket that deals AOE damage within 2m. Charging the weapon can load additional rockets.  (Max 3). Cannot Weakspot`,
+    description: `Fires rocket that deals AOE damage within 2m. [A] Charging the weapon can load additional rockets.  (Max 3). Cannot Weakspot`,
     howToGet: `Added with the Aberration Domination update
     Can be purchased from Dwell by exchanging x10 Corrupted Shard and the original Meridian`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Corrupted+Meridian`],
@@ -4641,7 +4640,7 @@ export const remnantItems: Item[] = [
     name: 'Enigma',
     imagePath: '/offhand/enigma.png',
     id: 'd06hjq',
-    description: `Fires an electrical stream that jumps to nearby targets within 7.5m, dealing 30% reduced damage per jump. Applies OVERLOADED, dealing 30 SHOCK damage every 5 seconds for 5.2s.`,
+    description: `Fires an electrical stream that jumps to nearby targets within 7.5m [A], dealing 30% reduced damage per jump. Applies OVERLOADED, dealing 30 SHOCK damage every 5 seconds for 5.2s.`,
     howToGet: `Can be crafted at McCabe, you will need the following Materials: x1 Cipher Rod, x7 Lumenite Crystal, x650 Scrap`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Enigma`],
     linkedItems: {
@@ -4677,7 +4676,7 @@ export const remnantItems: Item[] = [
     name: 'Meridian',
     imagePath: '/offhand/meridian.png',
     id: '1ziutf',
-    description: `Fires volatile grenades that explode on direct contact with enemies and deal AOE damage within 4m. Dormant grenades eventually explode and can also be shot to detonate early.`,
+    description: `Fires volatile grenades that explode on direct contact with enemies and deal AOE damage within 4m. [A] Dormant grenades eventually explode and can also be shot to detonate early.`,
     howToGet: `Can be found in Flooded Sewer event.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Meridian`],
     linkedItems: {
@@ -4987,7 +4986,7 @@ export const remnantItems: Item[] = [
     name: 'Big Bang',
     imagePath: '/mod/big_bang.png',
     id: 's7ozpe',
-    description: `Funnels all current Mod Charges into the next shot. Projectiles deal 65 direct damage and 65 Explosive damage in a 5m per Charge consumed. Explosion applies 75 BURNING damage over 10s per Charge consumed. 
+    description: `Funnels all current Mod Charges into the next shot. Projectiles deal 65 direct damage and 65 Explosive damage in a 5m [A] per Charge consumed. Explosion applies 75 BURNING damage over 10s per Charge consumed. 
     Additional Charges consumed increase all damage by 5%. Max 5 Charges`,
     howToGet: `Attached to the Star Shot hand gun`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Big+Bang`],
@@ -5026,7 +5025,7 @@ export const remnantItems: Item[] = [
     name: 'Bloodline',
     imagePath: '/mod/bloodline.png',
     id: 'yxxajn',
-    description: `Fires a devastating blast which penetrates through all enemies in its path. Deals 120 damage with a 25% Critical damage bonus, and 2x additional stagger. Bloodline damage increases by 50% for each enemy penetrated.`,
+    description: `Fires a devastating blast which penetrates through all enemies in its path. Deals 120 damage with a 25% Critical damage [∗] bonus, and 2x additional stagger. Bloodline damage increases by 50% for each enemy penetrated.`,
     howToGet: `Attached to the Merciless long gun`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Bloodline`],
     linkedItems: {
@@ -5093,7 +5092,7 @@ export const remnantItems: Item[] = [
     name: 'Chaos Driver',
     imagePath: '/mod/chaos_driver.png',
     id: 'dxnd9s',
-    description: `Drives electrified rods into targets which tether to other rods within 10m. Tethers deal 20 SHOCK damage per second.
+    description: `Drives electrified rods into targets which tether to other rods within 10m. [A] Tethers deal 20 SHOCK damage per second.
     Targets embedded with a rod take 20 SHOCK damage per second. They take 20% additionally damage per extra rod in the target. Damage is increased by 1.5% if linked to another rod. Rods in the same target will not link.`,
     howToGet: `Attached to the Enigma hand gun`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Chaos+Driver`],
@@ -5108,7 +5107,7 @@ export const remnantItems: Item[] = [
     name: 'Concussive Shot',
     imagePath: '/mod/concussive_shot.png',
     id: 'an140h',
-    description: `Fires a focused blast of air through all targets within 8m, dealing 155 damage and 4x impact.`,
+    description: `Fires a focused blast of air through all targets within 8m [R], dealing 155 damage and 4x impact.`,
     howToGet: `Purchased from Ava McCabe`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Concussive+Shot`],
   },
@@ -5128,7 +5127,7 @@ export const remnantItems: Item[] = [
     imagePath: '/mod/creeping_mist.png',
     dlc: 'dlc1',
     id: 'a3ctlf',
-    description: `Shoots a cannister out that shatters on impact to reveal an expanding mist, starting at 7.5m and growing to 15m over 5s. The mist lasts 20s. While affected, enemies receive 25% additional Status Effect Damage and are 5% more likely to be struck with a critical hit from any source. The mists debuff persists for 10s after target exits the mist.`,
+    description: `Shoots a cannister out that shatters on impact to reveal an expanding mist, starting at 7.5m and growing to 15m [A] over 5s. The mist lasts 20s. While affected, enemies receive 25% additional Status Effect Damage and are 5% more likely to be struck with a critical hit from any source. The mists debuff persists for 10s after target exits the mist.`,
     howToGet: `Can be crafted by Ava McCabe.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Creeping+Mist`],
   },
@@ -5152,7 +5151,7 @@ export const remnantItems: Item[] = [
     name: 'Deadpoint',
     imagePath: '/mod/deadpoint.png',
     id: 'ysz4fw',
-    description: `Fires a cluster bomb which detonates on impact across 2.5m. each cluster deals up to 150 damage per explosion within 3.5m`,
+    description: `Fires a cluster bomb which detonates on impact across 2.5m. each cluster deals up to 150 damage per explosion within 3.5m. [A]`,
     howToGet: `Attached to the Corrupted Meridian Handgun.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Deadpoint`],
     linkedItems: {
@@ -5166,7 +5165,7 @@ export const remnantItems: Item[] = [
     name: 'Death Brand',
     imagePath: '/mod/death_brand.png',
     id: 'd3q99g',
-    description: `Applies Death Brand to all enemies within 25m. increasing incoming damage by 10%. Enemies killed while bearing the Death Brand leave behind an Echo which lasts 10s before returning to the Nightmare Realm. Echoes are drawn to any survivor who walks within 3m. increasing Weakspot Damage dealt by 10%[∗] for 10s.`,
+    description: `Applies Death Brand to all enemies within 25m. [R] increasing incoming damage by 10%. Enemies killed while bearing the Death Brand leave behind an Echo which lasts 10s before returning to the Nightmare Realm. Echoes are drawn to any survivor who walks within 3m. increasing Weakspot Damage dealt by 10%[∗] for 10s.`,
     howToGet: `Attached to the Corrupted Rune Pistol Handgun`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Death+Brand`],
     linkedItems: {
@@ -5196,7 +5195,7 @@ export const remnantItems: Item[] = [
     id: '3hqdob',
     description: `Infects weapon with Malware for 30s, causing shots to apply FRAGMENTED for 15s. When a FRAGMENTED enemy dies, they create a Glitch that lasts 5s. 
     Picking up a Glitch increases All damage by 20% for 5s. 
-    Destroying a Glitch causes it to destabilize, creating a 5m Virus Pool which deals 25 damage per second and applies the FRAGMENTED debuff to enemies inside. Virus Pools last 15s.`,
+    Destroying a Glitch causes it to destabilize, creating a 5m [R] Virus Pool which deals 25 damage per second and applies the FRAGMENTED debuff to enemies inside. Virus Pools last 15s.`,
     howToGet: `Crafted from Necrocyte Strand
     Drops from Cancer`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Defrag`],
@@ -5221,7 +5220,7 @@ export const remnantItems: Item[] = [
     name: 'Dreamwave',
     imagePath: '/mod/dreamwave.png',
     id: 'dwmc70',
-    description: `After dealing 250 damage, Charge Attack will release a Dreamwave, flowing outwards 20m and returning to caster. Dreamwave applies SLOW to all enemies for 10s and grants a Stack of REVERIE for each enemy affected. Each Stack grants +2% to All Damage and +2% Movement Speed, which lasts 15s.`,
+    description: `After dealing 250 damage, Charge Attack will release a Dreamwave, flowing outwards 20m [R] and returning to caster. Dreamwave applies SLOW to all enemies for 10s and grants a Stack of REVERIE for each enemy affected. Each Stack grants +2% to All Damage and +2% Movement Speed, which lasts 15s.`,
     howToGet: `Attached to the Dreamcatcher melee weapon`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Dreamwave`],
     linkedItems: {
@@ -5301,7 +5300,7 @@ export const remnantItems: Item[] = [
     name: 'Familiar',
     imagePath: '/mod/familiar.png',
     id: 'sccdmt',
-    description: `Summons Faerie Familiar to aid in combat. The Familiar selects a random enemy within 10m and slashes through them for 25 damage each attack. Familiar will select a new target when the previous one dies. Lasts 15s.`,
+    description: `Summons Faerie Familiar to aid in combat. The Familiar selects a random enemy within 10m [R] and slashes through them for 25 damage each attack. Familiar will select a new target when the previous one dies. Lasts 15s.`,
     howToGet: `Crafted from Sacred Hunt Feather
     Invade The Huntress dream`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Familiar`],
@@ -5350,7 +5349,7 @@ export const remnantItems: Item[] = [
     name: 'Firestorm',
     imagePath: '/mod/firestorm.png',
     id: 'snlx8w',
-    description: `Creates a whirling cyclone that sucks in nearby targets and applies BURNING for 10s. The center of the cyclone deals 75 FIRE damage per second. Lasts 15s.`,
+    description: `Creates a whirling cyclone that sucks in nearby targets [A] and applies BURNING for 10s. The center of the cyclone deals 75 FIRE damage per second. Lasts 15s.`,
     howToGet: `Crafted from Forlorn Fragment
     Slay The Red Prince`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Firestorm`],
@@ -5404,7 +5403,7 @@ export const remnantItems: Item[] = [
     name: "Guardian's Call",
     imagePath: '/mod/guardians_call.png',
     id: 'anhbhf',
-    description: `Calls down a Guardian Sword on enemies struck by an Energy Disc. Swords deal 100 damage and 3x stagger within 5m.`,
+    description: `Calls down a Guardian Sword on enemies struck by an Energy Disc. Swords deal 100 damage and 3x stagger within 5m. [A]`,
     howToGet: `Attached to the Twisted Arbalest long gun`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Guardian's+Call`],
     linkedItems: {
@@ -5594,7 +5593,7 @@ export const remnantItems: Item[] = [
     name: 'Prismatic Driver',
     imagePath: '/mod/prismatic_driver.png',
     id: 'vtcg3o',
-    description: `Fires a superheated beam which deals 25 Mod Damage per second. Sustaining the beam on a target causes an explosion which deals 150 Mod damage in a 3m AOE.`, //(sic!) mod damage instead of damage
+    description: `Fires a superheated beam which deals 25 Mod Damage per second. Sustaining the beam on a target causes an explosion which deals 150 Mod damage in a 3m [A] AOE.`, //(sic!) mod damage instead of damage
     howToGet: `Crafted from Sentry's Old Iris
     Drops from The Custodian's Eye`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Prismatic+Driver`],
@@ -5620,7 +5619,7 @@ export const remnantItems: Item[] = [
     imagePath: '/mod/ring_of_spears.png',
     dlc: 'dlc1',
     id: '4rdl8r',
-    description: `Calls forth 7 phantom spears to encircle the wielder for 25 seconds. This ring will deal up to 35 damage per second to nearby enemies, based on the number of spears remaining in the ring. While the mod is active, these spears can be thrown by tapping the mod button, dealing 100 damage to the first enemy hit. Spears will remain at their impact point for the duration of the mod or until recalled by holding the mod button. When recalled, spears will return to the wielder, dealing 50 damage to enemies along their path. When all recalled spears have reached the wielder, they cause an explosion dealing up to 350 damage based on the number of spears recalled.`,
+    description: `Calls forth 7 phantom spears to encircle the wielder [R] for 25 seconds. This ring will deal up to 35 damage per second to nearby enemies, based on the number of spears remaining in the ring. While the mod is active, these spears can be thrown by tapping the mod button, dealing 100 damage to the first enemy hit. Spears will remain at their impact point for the duration of the mod or until recalled by holding the mod button. When recalled, spears will return to the wielder, dealing 50 damage to enemies along their path. When all recalled spears have reached the wielder, they cause an explosion dealing up to 350 damage based on the number of spears recalled.`,
     howToGet: `Can be crafted at Ava McCabe`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Ring+Of+Spears`],
   },
@@ -5639,7 +5638,7 @@ export const remnantItems: Item[] = [
     name: 'Rotted Arrow',
     imagePath: '/mod/rotted_arrow.png',
     id: 'vgin4w',
-    description: `Fires a rotten arrow that deals 19.8 damage and detonates for another 60damage within 4m. A deadly gas cloud is left behind that deals 200 damage over 5s.`,
+    description: `Fires a rotten arrow that deals 19.8 damage and detonates for another 60 damage within 4m. [A] A deadly gas cloud is left behind that deals 200 damage over 5s.`,
     howToGet: `Crafted from Soul Sliver
     Drops from Shrewd`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Rotted+Arrow`],
@@ -5649,7 +5648,7 @@ export const remnantItems: Item[] = [
     name: 'Scrap Shot',
     imagePath: '/mod/scrap_shot.png',
     id: 'hcv400',
-    description: `Fires a caltrops grenade that explodes to cover an area of 6m. Caltrops deal 20 damage per second and SLOW to enemies that walk over them. Lasts 10s.`,
+    description: `Fires a caltrops grenade that explodes to cover an area of 6m. [R] Caltrops deal 20 damage per second and SLOW to enemies that walk over them. Lasts 10s.`,
     howToGet: `Purchased from Ava McCabe`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Scrap+Shot`],
   },
@@ -5658,7 +5657,7 @@ export const remnantItems: Item[] = [
     name: 'Screamer',
     imagePath: '/mod/screamer.png',
     id: '4aeebu',
-    description: `Fire a high-powered rocket that deals up to 200 damage within 2.5m.`,
+    description: `Fire a high-powered rocket that deals up to 200 damage within 2.5m. [A]`,
     howToGet: `Attached to the Meridian hand gun`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Screamer`],
     linkedItems: {
@@ -5688,7 +5687,7 @@ export const remnantItems: Item[] = [
     name: 'Skewer',
     imagePath: '/mod/skewer.png',
     id: 'cpvech',
-    description: `Fires a Wretched Spear which embeds itself on contact. Spears deal 125 damage on hit, rapidly dividing inside the target until bursting, dealing 140 damage to all targets within 3m. Spears embedded in the environment remain in place for 10s.`,
+    description: `Fires a Wretched Spear which embeds itself on contact. Spears deal 125 damage on hit, rapidly dividing inside the target until bursting, dealing 140 damage to all targets within 3m. [A] Spears embedded in the environment remain in place for 10s.`,
     howToGet: `Crafted from Dread Core
     Drops from Venom`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Skewer`],
@@ -5698,8 +5697,8 @@ export const remnantItems: Item[] = [
     name: 'Song of Eafir',
     imagePath: '/mod/song_of_eafir.png',
     id: 'edm644',
-    description: `Fires a shot infused with the binding power of the Song of Eafir. Staggers most ground enemies within 10m and deals 150 damage to Flying enemies within the same range.
-    The song continues for 15s, afflicting targets within 15m with SLOW, and a 15% decrease to damage dealt.`,
+    description: `Fires a shot infused with the binding power of the Song of Eafir. Staggers most ground enemies within 10m [A] and deals 150 damage to Flying enemies within the same range.
+    The song continues for 15s, afflicting targets within 15m [A] with SLOW, and a 15% decrease to damage dealt.`,
     howToGet: `Crafted from Scroll of Binding
     Speak with The Flautistafter playing the secret melody`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Song+of+Eafir`],
@@ -5709,7 +5708,7 @@ export const remnantItems: Item[] = [
     name: 'Soul Brand',
     imagePath: '/mod/soul_brand.png',
     id: 'imk8xh',
-    description: `Applies a Soul Brand to all enemies within 25m which lasts 25s. Enemies killed while bearing the Soul Brand leave behind an Echo which lasts 10s before returning to the Nightmare Realm. Echoes are drawn to any survivor who walks within 3m, granting 10% of Max Health on contact.`,
+    description: `Applies a Soul Brand to all enemies within 25m [R] which lasts 25s. Enemies killed while bearing the Soul Brand leave behind an Echo which lasts 10s before returning to the Nightmare Realm. Echoes are drawn to any survivor who walks within 3m, granting 10% of Max Health on contact.`,
     howToGet: `Attached to the Rune Pistolhand gun`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Soul+Brand`],
     linkedItems: {
@@ -5723,7 +5722,7 @@ export const remnantItems: Item[] = [
     name: 'Soulbinder',
     imagePath: '/mod/soulbinder.png',
     id: '5bb0mv',
-    description: `Fires a projectile that attaches to the enemy dealing 40 damage. Enemies within 7m become bound to the primary target after impact and share 60% of damage dealt to them. Lasts 15s.`,
+    description: `Fires a projectile that attaches to the enemy dealing 40 damage. Enemies within 7m [R] become bound to the primary target after impact and share 60% of damage dealt to them. Lasts 15s.`,
     howToGet: `Crafted from Heart Seed
     Found in The Chimney`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Soulbinder`],
@@ -5743,7 +5742,7 @@ export const remnantItems: Item[] = [
     name: 'Spore Shot',
     imagePath: '/mod/spore_shot.png',
     id: '9fi67v',
-    description: `Fires a rotten spore that explodes dealing 125 damage within 6m and leaves a deadly gas cloud that applies SLOW while dealing 15 damage per second for 7s.`,
+    description: `Fires a rotten spore that explodes dealing 125 damage within 6m and leaves a deadly gas cloud that applies SLOW [R] while dealing 15 damage per second for 7s.`,
     howToGet: `Attached to the Sporebloom Long Gun`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Spore+Shot`],
     linkedItems: {
@@ -5757,7 +5756,7 @@ export const remnantItems: Item[] = [
     name: 'Starfall',
     imagePath: '/mod/starfall.png',
     id: 'j9wkb3',
-    description: `Fires a powerful arrow which deals 30 damage and opens a 7m portal that rains down star fragments. Each fragment deals 50 damage within 4m. Lasts 6s.`,
+    description: `Fires a powerful arrow which deals 30 damage and opens a 7m [A] portal that rains down star fragments. Each fragment deals 50 damage within 4m. [A] Lasts 6s.`,
     howToGet: `Attached to the Sagittarius long gun`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Starfall`],
     linkedItems: {
@@ -5797,7 +5796,7 @@ export const remnantItems: Item[] = [
     name: 'Time Lapse',
     imagePath: '/mod/time_lapse.png',
     id: 'nn1q6k',
-    description: `Creates a 6m blast which freezes all standard enemies for 7s. 
+    description: `Creates a 6m [R] blast which freezes all standard enemies for 7s. 
     Dealing damage to frozen enemies immediately breaks the Time Lapse effect, applying SLOW for the remaining duration.`,
     howToGet: `Crafted from Broken Timepiece
     Found in The Clock Tower Event`,
@@ -5808,7 +5807,7 @@ export const remnantItems: Item[] = [
     name: 'Tremor',
     imagePath: '/mod/tremor.png',
     id: 'g6glpj',
-    description: `Fires a projectile that cracks the ground and spawns shockwaves that deal 75damage Within 9m for 6s. Shockwaves inflict 3x impact.`,
+    description: `Fires a projectile that cracks the ground and spawns shockwaves that deal 75 damage within 9m [A] for 6s. Shockwaves inflict 3x impact.`,
     howToGet: `Crafted from Cordyceps Gland
     Drops from Mother Mind`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Tremor`],
@@ -5818,7 +5817,7 @@ export const remnantItems: Item[] = [
     name: 'Voltaic Rondure',
     imagePath: '/mod/voltaic_rondure.png',
     id: 'wjopwy',
-    description: `Launches a slow-moving orb that pulses every 0.5s, striking enemies within 3m for 20 SHOCK damage and applying OVERLOADED for 15s. The orb lasts 20s. The orb can be overcharged by striking it with additional damage.`,
+    description: `Launches a slow-moving orb that pulses every 0.5s, striking enemies within 3m [R] for 20 SHOCK damage and applying OVERLOADED for 15s. The orb lasts 20s. The orb can be overcharged by striking it with additional damage.`,
     howToGet: `Crafted from Bone Sap
     Drops from Bloat King`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Voltaic+Rondure`],
@@ -5828,7 +5827,7 @@ export const remnantItems: Item[] = [
     name: 'Whirlwind',
     imagePath: '/mod/whirlwind.png',
     id: '2y6xm7',
-    description: `Neutral Backdash Charge creates a Whirlwind of slashes which strike all enemies within 8m for 75 damage.`,
+    description: `Neutral Backdash Charge creates a Whirlwind of slashes which strike all enemies within 8m [R] for 75 damage.`,
     howToGet: `Attached to the Spectral Blademelee weapon`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Whirlwind`],
     linkedItems: {
@@ -5856,7 +5855,7 @@ export const remnantItems: Item[] = [
     name: 'Witchfire',
     imagePath: '/mod/witchfire.png',
     id: 'ggf5qe',
-    description: `Fires a highly volatile projectile that explodes to leave a line of flaming terrain. Deals 55 FIRE Damage per second, and applies BURNING, dealing 200 damage over 10s. Lasts 5s.`,
+    description: `Fires a highly volatile projectile that explodes to leave a line of flaming terrain. [A] Deals 55 FIRE Damage per second, and applies BURNING, dealing 200 damage over 10s. Lasts 5s.`,
     howToGet: `Crafted from Alkahest Powder
     Drops from Gwendil The Unburnt`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Witchfire`],
@@ -5981,7 +5980,7 @@ export const remnantItems: Item[] = [
     dlc: 'dlc1',
     id: 'pynv5l',
     description: `Increases the duration of Negative Status Effects on enemies by 10% of the original duration. Cannot exceed original max duration.`,
-    maxLevelBonus: `Increases Melee Charge Speed and Melee Attack Speed by 5% per entity within 10m with a Negative Status Effect. Max 4 stacks.`,
+    maxLevelBonus: `Increases Melee Charge Speed and Melee Attack Speed by 5% per entity within 10m with a Negative Status Effect. Max 4 stacks.`, //No info on whether its A or R
     howToGet: `Can be found at Dormant N'Erudian Facility(timed event).`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Executor`],
   },
@@ -6049,7 +6048,7 @@ export const remnantItems: Item[] = [
     dlc: 'dlc1',
     id: '961d6v',
     description: `Increases Melee Critical Chance by 5% when Grey Health is present.`,
-    maxLevelBonus: `Increases Melee Critical Damage by 2.5% for every 10% of Grey Health.`,
+    maxLevelBonus: `Increases Melee Critical Damage by 2.5% [∗] for every 10% of Grey Health.`,
     howToGet: `Aberration Event Random Drop`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Guts`],
   },
@@ -6081,7 +6080,7 @@ export const remnantItems: Item[] = [
     type: 'gun',
     imagePath: '/mutator/kill_switch.png',
     id: 'rzfptj',
-    description: `Switching to this weapon creates an Explosive Burst which deals 50 Damage to all enemies within 7m.`,
+    description: `Switching to this weapon creates an Explosive Burst which deals 50 Damage to all enemies within 7m. [A]`,
     maxLevelBonus: `This weapon's kills with any Explosive Damage reduce Kill Switch cooldown by 1s`,
     howToGet: `Has a chance to drop from Aberrations randomly encountered during enemy ambushes.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Kill+Switch`],
@@ -6137,7 +6136,7 @@ export const remnantItems: Item[] = [
     type: 'gun',
     imagePath: '/mutator/momentum.png',
     id: 'cvbjvd',
-    description: `When this weapon scores a Critical Hit, it increases Critical Chance and Critical Damage by 1.5-[3]% for 3s. Max 10 stacks.`,
+    description: `When this weapon scores a Critical Hit, it increases Critical Chance and Critical Damage by 1.5-[3]% [∗] for 3s. Max 10 stacks.`,
     maxLevelBonus: `Critical Hits from this weapon add 2 stacks. Increases duration by 2s.`,
     howToGet: `Sold by Dwell at the following cost: x75 Relic Dust + x500 Scrap.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Momentum`],
@@ -6159,7 +6158,7 @@ export const remnantItems: Item[] = [
     type: 'melee',
     imagePath: '/mutator/overdrive.png',
     id: 'mjzb0f',
-    description: `Melee Critical Hits increase Melee Critical Chance and Critical Damage by 5% for 7.5-[15]s. stacking up to 5times.`,
+    description: `Melee Critical Hits increase Melee Critical Chance and Critical Damage by 5% [∗] for 7.5-[15]s. stacking up to 5times.`,
     maxLevelBonus: `Melee Critical Strikes deal 20% additional damage.`,
     howToGet: `Sold by Dwell at the following cost: x75 Relic Dust + x500 Scrap.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Overdrive`],
@@ -6238,7 +6237,7 @@ export const remnantItems: Item[] = [
     type: 'melee',
     imagePath: '/mutator/shocker.png',
     id: '7js906',
-    description: `Empowers weapon after 5 hits. While empowered. the next Charged Melee hit strikes all enemies within 10m with SHOCK Damage.`,
+    description: `Empowers weapon after 5 hits. While empowered. the next Charged Melee hit strikes all enemies within 10m [A] with SHOCK Damage.`,
     maxLevelBonus: `The SHOCK Damage now applies OVERLOADED dealing 100 damage over 5.05s.`,
     howToGet: `Root Earth - Drop from Banein Twilight Vale (obtained when going for the INVADER Archetype)`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Shocker`],
@@ -6262,7 +6261,7 @@ export const remnantItems: Item[] = [
     dlc: 'dlc1',
     id: 'xim1sx',
     description: `This weapon becomes EMPOWERED when stowed for 7 seconds, granting 20% Critical Chance for 3 seconds after it is drawn.`,
-    maxLevelBonus: `While EMPOWERED, increases Critical Damage of this weapon by 15%.`,
+    maxLevelBonus: `While EMPOWERED, increases Critical Damage of this weapon by 15%. [∗]`,
     howToGet: `Aberration Event Random Drop`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Sleeper`],
   },
@@ -6273,7 +6272,7 @@ export const remnantItems: Item[] = [
     imagePath: '/mutator/spirit_healer.png',
     id: 'hk1k7k',
     description: `Regenerate 5% Health over 5s for every 500 Mod Power spent.`,
-    maxLevelBonus: `Allies within 15m are healed for 50% of the primary effect.`,
+    maxLevelBonus: `Allies within 15m are healed for 50% of the primary effect.`, //No info on whether it's A or R
     howToGet: `N'Erud: Dropped by Fetid Corpse at the Void Vessel Facility.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Spirit+Healer`],
   },
@@ -6339,7 +6338,7 @@ export const remnantItems: Item[] = [
     type: 'gun',
     imagePath: '/mutator/timewave.png',
     id: 'dynus4',
-    description: `Mod Use applies SLOW status on all enemies within 7.5m for 5-[7]s.`,
+    description: `Mod Use applies SLOW status on all enemies within 7.5m [A] for 5-[7]s.`,
     maxLevelBonus: `Increase this weapon's Ranged damage by 15% to enemies inflicted with SLOW status.`,
     howToGet: `Sold by Dwell at the following cost: x75 Relic Dust + x500 Scrap.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Timewave`],
@@ -6394,7 +6393,7 @@ export const remnantItems: Item[] = [
     type: 'melee',
     imagePath: '/mutator/vampire_blade.png',
     id: 'dhwqt4',
-    description: `Increases Melee Damage by 10-[25]%while within 10m of a BLEEDING entity.`,
+    description: `Increases Melee Damage by 10-[25]%while within 10m of a BLEEDING entity.`, //No info whether its R or A
     maxLevelBonus: `Melee Hits vs BLEEDING targets will Lifesteal 3% of base damage dealt.`,
     howToGet: `Can be in found in the Pathway of the Fallen`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Vampire+Blade`],
@@ -6478,7 +6477,7 @@ Exclusive to The Awakened King DLC"`,
     name: "Butcher's Fetish",
     imagePath: '/amulet/butchers_fetish.png',
     id: '67s1pu',
-    description: `Increases Critical Chance by 15% and Critical Damage by 25% for 15safter striking enemy with a Charged Melee Attack.`,
+    description: `Increases Critical Chance by 15% and Critical Damage by 25% [∗] for 15s after striking enemy with a Charged Melee Attack.`,
     howToGet: `Can be bought from Reggie for 1,000  after completing the game on Veteran difficulty.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Butcher's+Fetish`],
   },
@@ -6496,7 +6495,7 @@ Exclusive to The Awakened King DLC"`,
     name: 'Cleansing Stone',
     imagePath: '/amulet/cleansing_stone.png',
     id: 'nm7b6f',
-    description: `Reduces Duration of Elemental Status Effects against wearer by 50%. Relic use cleanses Elemental Status effects and grants 25% of wearers Max Health to all allies within 20m when cleansed. [A]`,
+    description: `Reduces Duration of Elemental Status Effects against wearer by 50%. Relic use cleanses Elemental Status effects and grants 25% of wearers Max Health to all allies within 20m [A] when cleansed.`,
     howToGet: `Can be found in Losomn.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Cleansing+Stone`],
   },
@@ -6891,7 +6890,7 @@ Exclusive to The Awakened King DLC"`,
     name: "Nightweaver's Grudge",
     imagePath: '/amulet/nightweavers_grudge.png',
     id: '0aaso1',
-    description: `Gain 20% Critical Chance and HASTE when within 15m of an entity suffering from a Status Effect. [A]`,
+    description: `Gain 20% Critical Chance and HASTE when within 15m [A] of an entity suffering from a Status Effect.`,
     howToGet: `Can be obtained in Losomn - The Tormented Asylum. Given to the player by feeding Kolket's Razor to the Nightweaver's Web.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Nightweaver's+Grudge`],
   },
@@ -7083,7 +7082,7 @@ Exclusive to The Awakened King DLC"`,
     name: 'Toxic Release Valve',
     imagePath: '/amulet/toxic_release_valve.png',
     id: 'nevpy5',
-    description: `Swapping off a Firearm releases a Toxic Cloud, which deals 148.5 ACID damage to all enemies within 7m. and applies CORROSION. Can only happen once every 3s. [A]`,
+    description: `Swapping off a Firearm releases a Toxic Cloud, which deals 148.5 ACID damage to all enemies within 7m [A] and applies CORROSION. Can only happen once every 3s.`,
     howToGet: `Can be found in N'Erud - Dormant N'Erudian Facility in the room unlocked using the Biome-Control Glyph.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Toxic+Release+Valve`],
   },
@@ -7171,7 +7170,7 @@ Exclusive to The Awakened King DLC"`,
     name: 'Akari War Band',
     imagePath: '/ring/akari_war_band.png',
     id: '9siz0d',
-    description: `Perfect Dodges increase Critical Chance by 15% and Critical Damage by 15% for 15s.`,
+    description: `Perfect Dodges increase Critical Chance by 15% and Critical Damage by 15% [∗] for 15s.`,
     howToGet: `Can be bought from Cass.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Akari+War+Band`],
   },
@@ -7457,7 +7456,7 @@ Exclusive Ring for The Awakened King DLC."`,
     name: 'Burden of the Gambler',
     imagePath: '/ring/burden_of_the_gambler.png',
     id: 'ctv31c',
-    description: `Disables Weakspots. Increases Critical Chance by 10% and Critical Damage by 20%.`,
+    description: `Disables Weakspots. Increases Critical Chance by 10% and Critical Damage by 20%. [∗]`,
     howToGet: `Cass in Ward 13 can potentially sell this ring.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Burden+of+the+Gambler`],
   },
@@ -7851,7 +7850,7 @@ Exclusive Ring for The Awakened King DLC."`,
     name: 'Feedback Loop',
     imagePath: '/ring/feedback_loop.png',
     id: 'j13xrf',
-    description: `Perfect Dodge triggers a 3m AOE blast that deal 115 SHOCK Damage and applies OVERLOADED. [A]`,
+    description: `Perfect Dodge triggers a 3m [A] AOE blast that deal 115 SHOCK Damage and applies OVERLOADED.`,
     howToGet: `Can be found in N'Erud -`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Feedback+Loop`],
   },
@@ -7939,7 +7938,7 @@ Can also can be bought from Reggie at Ward 13 for 500"`,
     name: `Guardian's Ring`,
     imagePath: '/ring/guardians_ring.png',
     id: 'yvo3jd',
-    description: `Adds 1 Stack of BULWARK when within 15m of an enemy. Increases to 2 Stacks for 10s after taking Melee damage. [A]`,
+    description: `Adds 1 Stack of BULWARK when within 15m [R] of an enemy. Increases to 2 Stacks for 10s after taking Melee damage.`,
     howToGet: `Can be found in Yaesha - The Nameless Nest.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Guardian's+Ring`],
   },
@@ -9380,7 +9379,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     name: 'Binding Orb',
     imagePath: '/consumable/binding_orb.png',
     id: 'edaeta',
-    description: `When thrown, device becomes an anchor and applies SLOW to all enemies within 4m. Lasts 20s.`,
+    description: `When thrown, device becomes an anchor and applies SLOW to all enemies within 4m. [A] Lasts 20s.`,
     howToGet: `
     Can be bought form Reggie for 250 scrap currency.
     Can be crafted at Drzyr Replicator, you will need the following Materials: 250 Scrap.
@@ -9392,7 +9391,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     name: 'Black Tar',
     imagePath: '/consumable/black_tar.png',
     id: 'nrdcko',
-    description: `When thrown, explodes in a 4m radius dealing 90 damage and applies TARRED which lasts 15s. Ranged damage and other FIRE sources ignite TARRED entities, causing dealing 750 BURNING damage over 10s.`,
+    description: `When thrown, explodes in a 4m [A] radius dealing 90 damage and applies TARRED which lasts 15s. Ranged damage and other FIRE sources ignite TARRED entities, causing dealing 750 BURNING damage over 10s.`,
     howToGet: `Can be bought form Reggie for 250 scrap`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Black+Tar`],
   },
@@ -9410,7 +9409,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     name: 'Brightstone',
     imagePath: '/consumable/brightstone.png',
     id: '937h03',
-    description: `When thrown, explodes in a 4m radius dealing 250 damage and leaving a mysterious Mist which causes enemies to receive 10% additional damage. Debuff last 10s after enemies leave the Mist. Lasts 15s.`,
+    description: `When thrown, explodes in a 4m [A] radius dealing 250 damage and leaving a mysterious Mist which causes enemies to receive 10% additional damage. Debuff last 10s after enemies leave the Mist. Lasts 15s.`,
     howToGet: `
     Can be bought form Reggie for 250 scrap currency
     Can be bought form Bedel of the Vaunnt for 250 scrap currency
@@ -9522,7 +9521,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     name: 'Pipe Bomb',
     imagePath: '/consumable/pipe_bomb.png',
     id: 'kfwizc',
-    description: `When thrown, explodes in a 4m radius dealing 450 damage and applying BLEEDING, which deals an additional 1,350 BLEED damage over 30s.`,
+    description: `When thrown, explodes in a 4m [A] radius dealing 450 damage and applying BLEEDING, which deals an additional 1,350 BLEED damage over 30s.`,
     howToGet: `Can be bought form Reggie for 250 scrap currency`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Pipe+Bomb`],
   },
@@ -10057,10 +10056,10 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     type: 'team',
     id: 'c92847',
     description: `
-    After activating a CHALLENGER Skill, enemies within 10m deal 10% less damage for 15s. [R]
+    After activating a CHALLENGER Skill, enemies within 10m deal 10% less damage for 15s. 
 
     Upgrade unlocked at level 7
-    After activating a CHALLENGER Skill, enemies within 10m deal 10% less damage for 15s, with an additional 2.5% damage reduction per enemy affected. (Max 10%)`,
+    After activating a CHALLENGER Skill, enemies within 10m [R] deal 10% less damage for 15s, with an additional 2.5% damage reduction per enemy affected. (Max 10%)`,
     howToGet: `Unlocked at Level 2`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Intimidating+Presence`],
     linkedItems: {
