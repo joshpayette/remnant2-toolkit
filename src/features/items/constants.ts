@@ -93,7 +93,7 @@ export const DESCRIPTION_TAGS = [
   {
     type: 'additive',
     token: '[+]',
-    color: 'text-blue-300',
+    color: 'text-[#64b5f6]',
     description: 'Damage is additive with other sources of damage.',
   },
   {
