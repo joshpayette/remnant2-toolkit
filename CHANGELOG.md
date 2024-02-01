@@ -17,6 +17,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Fixed a few more low res images.
 - Renamed `archtype` to `archetype` throughout the tool
 
+### Changed
+
+- Social media embeds are now significantly smaller
+
 ## 2023-01-30
 
 ### Added
