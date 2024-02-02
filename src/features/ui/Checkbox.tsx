@@ -14,7 +14,7 @@ export function Checkbox({ checked, label, name, onChange }: Props) {
           aria-describedby={`${name}-description`}
           name={`${name}`}
           type="checkbox"
-          className="h-4 w-4 rounded border-gray-300 text-purple-600 focus:ring-purple-600"
+          className="h-4 w-4 rounded border-purple-600 bg-black text-purple-600 focus:ring-purple-600"
           checked={checked}
           onChange={onChange}
         />

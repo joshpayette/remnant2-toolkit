@@ -12,7 +12,7 @@ interface Props {
   onChange: (archtype: Archetype) => void
 }
 
-export default function ArchtypeFilters({
+export default function ArchetypeFilters({
   selectedArchetypes,
   onChange,
 }: Props) {

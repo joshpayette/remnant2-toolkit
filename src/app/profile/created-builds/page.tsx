@@ -90,11 +90,13 @@ export default function Page() {
         onNextPage={handleNextPageClick}
         onSpecificPage={handleSpecificPageClick}
         headerActions={
-          <BuildListFilters
-            filter={filter}
-            onFilterChange={handleFilterChange}
-            options={filterOptions}
-          />
+          <div className="min-w-[150px] max-w-[250px]">
+            <BuildListFilters
+              filter={filter}
+              onFilterChange={handleFilterChange}
+              options={filterOptions}
+            />
+          </div>
         }
       >
         {builds.map((build) => (

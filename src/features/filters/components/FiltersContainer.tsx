@@ -35,7 +35,7 @@ export default function FiltersContainer<T>({
 
         <div className="col-span-full flex items-center justify-end pt-2">
           <button
-            className="rounded bg-green-500 p-2 text-sm font-bold hover:bg-green-700"
+            className="rounded bg-green-500 p-2 text-sm font-bold text-black hover:bg-green-700 hover:text-white"
             onClick={() => onApplyFilters(filters)}
           >
             Apply Filters

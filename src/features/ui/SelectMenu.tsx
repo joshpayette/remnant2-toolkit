@@ -23,7 +23,7 @@ export default function SelectMenu({
       {label && (
         <label
           htmlFor={name}
-          className="block text-sm font-medium leading-6 text-gray-500"
+          className="block text-sm font-medium leading-6 text-gray-400"
         >
           {label}
         </label>
@@ -31,7 +31,7 @@ export default function SelectMenu({
       <select
         id={id ?? name}
         name={name}
-        className="mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-sm text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-purple-600 sm:leading-6"
+        className="mt-2 block w-full rounded-md border border-purple-600 bg-black py-1.5 pl-3 pr-10 font-sans text-sm font-normal text-gray-300 ring-1 ring-inset ring-purple-600 focus:ring-2 focus:ring-purple-600 sm:leading-6"
         defaultValue={defaultValue}
         value={value}
         {...rest}

@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { DEFAULT_COMMUNITY_BUILD_FILTERS } from '@/features/filters/constants'
 import { CommunityBuildFilterProps } from '@/features/filters/types'
 import FiltersContainer from '@/features/filters/components/FiltersContainer'
-import ArchtypeFilters from '@/features/filters/components/ArchtypeFilters'
+import ArchetypeFilters from '@/features/filters/components/ArchetypeFilters'
 import WeaponFilters from '@/features/filters/components/WeaponFilters'
 import ReleaseFilters from './ReleaseFilters'
 
@@ -83,7 +83,7 @@ export default function CommunityBuildFilters({ onUpdate }: Props) {
       onApplyFilters={onUpdate}
       onClearFilters={handleClearFilters}
     >
-      <ArchtypeFilters
+      <ArchetypeFilters
         selectedArchetypes={filters.archetypes}
         onChange={(archtype: Archetype) => handleArchtypeChange(archtype)}
       />

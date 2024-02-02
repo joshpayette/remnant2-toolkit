@@ -77,11 +77,13 @@ export default function FeaturedBuilds({
         onNextPage={handleNextPageClick}
         onSpecificPage={handleSpecificPageClick}
         headerActions={
-          <BuildListFilters
-            filter={sortFilter}
-            onFilterChange={handleSortFilterChange}
-            options={sortFilterOptions}
-          />
+          <div className="min-w-[150px] max-w-[250px]">
+            <BuildListFilters
+              filter={sortFilter}
+              onFilterChange={handleSortFilterChange}
+              options={sortFilterOptions}
+            />
+          </div>
         }
       >
         {builds.map((build) => (
