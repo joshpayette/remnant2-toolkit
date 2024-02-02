@@ -6,10 +6,11 @@ This is a toolkit for the game Remnant 2. You can find the site at [remnant2tool
 
 Contributions are welcome! If you found a bug, have a suggestion, or want to contribute code, please open an issue or a pull request.
 
-## Featured Build Contributions
+You can also join the [Discord server](https://discord.gg/kgVaU3zAQ7) to discuss the project and get help.
 
-Want to see your build listed on the featured builds? Submit an issue with a link to the video covering your build and I'll
-take a look. If I like it, I'll add it to the list!
+## Featured Builds
+
+Want to see your build listed on the featured builds? Submit an issue with a link to the video covering your build and I'll take a look. If I like it, I'll add it to the list!
 
 ## Credits
 
@@ -18,6 +19,7 @@ This project would not be possible without the following sources:
 - [Fextralife Remnant Wiki](https://remnant2.wiki.fextralife.com/Remnant+2+Wiki)
 - [Vash Cowaii's Excel Stat Calculator](https://docs.google.com/spreadsheets/d/1I7vkh50KWJZSxNy4FqxvniFWBstJQEMtpwtxQ3ByoPw/edit?pli=1). Support him on [YouTube](https://www.youtube.com/@VashCowaii)
 - [Robin Kuiper's Remnant Tools](https://remnant.rkuiper.nl/)
+- [All of the contributors from the community](CONTRIBUTORS.md)
 
 ## License
 

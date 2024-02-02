@@ -5,7 +5,6 @@
 - Swap community build filters from internal state to url state
 - Add a way to track items on a second character
 - Description tags need to be searchable
-- GUIDES section?
 - In addition to date created, allow sort by date updated
 - Have stat tooltips show the items contributing to the calculations
 - Add tracker of world bosses
