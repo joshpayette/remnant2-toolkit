@@ -128,7 +128,7 @@ export default function NavBar() {
                         'flex flex-row items-center justify-start px-4 py-2 text-sm text-gray-300',
                       )}
                     >
-                      <NAV_ITEMS.featuredBuilds.icon className="mr-1 h-4 w-4 text-green-600" />
+                      <NAV_ITEMS.itemTracker.icon className="mr-1 h-4 w-4 text-green-600" />
                       {NAV_ITEMS.itemTracker.label}
                     </Link>
                   )}
@@ -142,7 +142,7 @@ export default function NavBar() {
                         'flex flex-row items-center justify-start px-4 py-2 text-sm text-gray-300',
                       )}
                     >
-                      <NAV_ITEMS.communityBuilds.icon className="mr-1 h-4 w-4 text-green-600" />
+                      <NAV_ITEMS.itemLookup.icon className="mr-1 h-4 w-4 text-green-600" />
                       {NAV_ITEMS.itemLookup.label}
                     </Link>
                   )}

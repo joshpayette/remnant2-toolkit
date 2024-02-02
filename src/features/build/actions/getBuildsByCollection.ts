@@ -5,8 +5,11 @@ import { getServerSession } from '@/features/auth/lib'
 import { DBBuild } from '@/features/build/types'
 import { prisma } from '@/features/db'
 import { bigIntFix } from '@/lib/bigIntFix'
-import { SortFilter } from '@/app/community-builds/by-collection/page'
-import { CommunityBuildFilterProps } from '@/features/filters/types'
+import {
+  CommunityBuildFilterProps,
+  OrderBy,
+  TimeRange,
+} from '@/features/filters/types'
 import {
   archetypeFiltersToIds,
   limitByArchetypesSegment,
@@ -25,19 +28,23 @@ import {
   communityBuildsQuery,
 } from '@/features/filters/queries/community-builds'
 import { limitByReleasesSegment } from '@/features/filters/queries/segments/limitByRelease'
+import limitByTimeCondition from '@/features/filters/queries/segments/limitByTimeCondition'
+import getOrderBySegment from '@/features/filters/queries/segments/getOrderBySegment'
 
 export async function getBuildsByCollection({
-  itemsPerPage,
-  pageNumber,
-  sortFilter,
-  discoveredItemIds,
   communityBuildFilters,
+  discoveredItemIds,
+  itemsPerPage,
+  orderBy,
+  pageNumber,
+  timeRange,
 }: {
-  itemsPerPage: number
-  pageNumber: number
-  sortFilter: SortFilter
-  discoveredItemIds: string[]
   communityBuildFilters: CommunityBuildFilterProps
+  discoveredItemIds: string[]
+  itemsPerPage: number
+  orderBy: OrderBy
+  pageNumber: number
+  timeRange: TimeRange
 }): Promise<PaginationResponse<DBBuild>> {
   const session = await getServerSession()
   const userId = session?.user?.id
@@ -84,16 +91,10 @@ export async function getBuildsByCollection({
   ${limitByWeaponsSegment(weaponIds)}
   ${limitByReleasesSegment(selectedReleases)}
   ${limitByCollectionSegment({ userId, allOwnedItemIds })}
+  ${limitByTimeCondition(timeRange)}
   `
 
-  const orderBySegment =
-    sortFilter === 'date created'
-      ? Prisma.sql`
-  ORDER BY Build.createdAt DESC
-  `
-      : Prisma.sql`
-  ORDER BY totalUpvotes DESC
-  `
+  const orderBySegment = getOrderBySegment(orderBy)
 
   const builds = await communityBuildsQuery({
     userId,

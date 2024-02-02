@@ -4,8 +4,8 @@ import {
   DocumentPlusIcon,
   DocumentTextIcon,
   HeartIcon,
-  InformationCircleIcon,
   ListBulletIcon,
+  MagnifyingGlassIcon,
   PlusIcon,
   StarIcon,
   UserIcon,
@@ -47,18 +47,18 @@ export const NAV_ITEMS = {
     href: '/creator-builds',
     icon: StarIcon,
   },
+  itemLookup: {
+    label: 'Item Lookup',
+    description: 'Look up info on all the items in Remnant 2.',
+    href: '/item-lookup',
+    icon: MagnifyingGlassIcon,
+  },
   itemTracker: {
     label: 'Item Tracker',
     description:
       'Keep track of the items you have collected and the ones you still need.',
     href: '/tracker',
     icon: DocumentCheckIcon,
-  },
-  itemLookup: {
-    label: 'Item Lookup',
-    description: 'Look up info on all the items in Remnant 2.',
-    href: '/item-lookup',
-    icon: InformationCircleIcon,
   },
   myBuilds: {
     label: 'My Builds',

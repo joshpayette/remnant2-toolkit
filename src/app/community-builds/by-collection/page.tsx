@@ -10,7 +10,6 @@ import { signIn, useSession } from 'next-auth/react'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { getBuildsByCollection } from '@/features/build/actions/getBuildsByCollection'
-import BuildListFilters from '@/features/build/components/BuildListFilters'
 import CommunityBuildFilters from '@/features/filters/components/CommunityBuildFilters'
 import { CommunityBuildFilterProps } from '@/features/filters/types'
 import { DEFAULT_COMMUNITY_BUILD_FILTERS } from '@/features/filters/constants'
@@ -18,27 +17,36 @@ import useBuildActions from '@/features/build/hooks/useBuildActions'
 import { dbBuildToBuildState } from '@/features/build/lib/dbBuildToBuildState'
 import { toast } from 'react-toastify'
 import { isErrorResponse } from '@/features/error-handling/isErrorResponse'
+import BuildListFilters from '@/features/filters/components/BuildListFilters'
+import useBuildListFilters from '@/features/filters/hooks/useBuildListFilters'
 
 const ITEMS_PER_PAGE = 24
-
-export type SortFilter = 'date created' | 'upvotes'
-const sortFilterOptions: SortFilter[] = ['date created', 'upvotes']
 
 export default function Page() {
   const { data: sessionData } = useSession()
 
   const [builds, setBuilds] = useState<DBBuild[]>([])
   const [totalBuildCount, setTotalBuildCount] = useState<number>(0)
-  const [sortFilter, setSortFilter] = useState<SortFilter>('upvotes')
+
   const [communityBuildFilters, setCommunityBuildFilters] =
     useState<CommunityBuildFilterProps>(DEFAULT_COMMUNITY_BUILD_FILTERS)
-
-  function handleChangeFilters(filters: CommunityBuildFilterProps) {
+  function handleChangeCommunityBuildFilters(
+    filters: CommunityBuildFilterProps,
+  ) {
     setCommunityBuildFilters(filters)
   }
-  const [isLoading, setIsLoading] = useState(true)
 
+  const [isLoading, setIsLoading] = useState(true)
   const { discoveredItemIds } = useLocalStorage()
+
+  const {
+    orderBy,
+    orderByOptions,
+    timeRange,
+    timeRangeOptions,
+    handleOrderByChange,
+    handleTimeRangeChange,
+  } = useBuildListFilters()
 
   const {
     currentPage,
@@ -59,7 +67,8 @@ export default function Page() {
       const response = await getBuildsByCollection({
         itemsPerPage: ITEMS_PER_PAGE,
         pageNumber: currentPage,
-        sortFilter,
+        orderBy,
+        timeRange,
         discoveredItemIds,
         communityBuildFilters,
       })
@@ -68,11 +77,13 @@ export default function Page() {
       setIsLoading(false)
     }
     getItemsAsync()
-  }, [currentPage, communityBuildFilters, sortFilter, discoveredItemIds])
-
-  function handleSortFilterChange(filter: string) {
-    setSortFilter(filter as SortFilter)
-  }
+  }, [
+    currentPage,
+    communityBuildFilters,
+    discoveredItemIds,
+    orderBy,
+    timeRange,
+  ])
 
   const { handleReportBuild } = useBuildActions()
 
@@ -130,7 +141,7 @@ export default function Page() {
       />
 
       <div className="mb-8 flex w-full max-w-xl items-center justify-center">
-        <CommunityBuildFilters onUpdate={handleChangeFilters} />
+        <CommunityBuildFilters onUpdate={handleChangeCommunityBuildFilters} />
       </div>
 
       <BuildList
@@ -146,13 +157,14 @@ export default function Page() {
         onNextPage={handleNextPageClick}
         onSpecificPage={handleSpecificPageClick}
         headerActions={
-          <div className="min-w-[150px] max-w-[250px]">
-            <BuildListFilters
-              filter={sortFilter}
-              onFilterChange={handleSortFilterChange}
-              options={sortFilterOptions}
-            />
-          </div>
+          <BuildListFilters
+            orderBy={orderBy}
+            orderByOptions={orderByOptions}
+            onOrderByChange={handleOrderByChange}
+            timeRange={timeRange}
+            timeRangeOptions={timeRangeOptions}
+            onTimeRangeChange={handleTimeRangeChange}
+          />
         }
       >
         {builds.map((build) => (

@@ -8,15 +8,13 @@ import Link from 'next/link'
 import { toast } from 'react-toastify'
 import useBuildActions from '@/features/build/hooks/useBuildActions'
 import { DBBuild } from '@/features/build/types'
-import {
-  OrderBy,
-  TimeRange,
-  getCommunityBuilds,
-} from '@/features/build/actions/getCommunityBuilds'
+import { getCommunityBuilds } from '@/features/build/actions/getCommunityBuilds'
 import { isErrorResponse } from '@/features/error-handling/isErrorResponse'
 import { dbBuildToBuildState } from '../lib/dbBuildToBuildState'
 import { CommunityBuildFilterProps } from '@/features/filters/types'
 import SelectMenu from '@/features/ui/SelectMenu'
+import useBuildListFilters from '@/features/filters/hooks/useBuildListFilters'
+import BuildListFilters from '@/features/filters/components/BuildListFilters'
 
 interface Props {
   itemsPerPage?: number
@@ -31,26 +29,14 @@ export default function CommunityBuildList({
   const [totalBuildCount, setTotalBuildCount] = useState<number>(0)
   const [isLoading, setIsLoading] = useState<boolean>(false)
 
-  const [timeRange, setTimeRange] = useState<TimeRange>('all-time')
-  const timeRangeOptions: Array<{ label: TimeRange; value: string }> = [
-    { label: 'day', value: 'day' },
-    { label: 'week', value: 'week' },
-    { label: 'month', value: 'month' },
-    { label: 'all-time', value: 'all-time' },
-  ]
-  function handleTimeRangeChange(timeRange: string) {
-    setTimeRange(timeRange as TimeRange)
-  }
-
-  const [orderBy, setOrderBy] = useState<OrderBy>('most favorited')
-  const orderByOptions: Array<{ label: OrderBy; value: string }> = [
-    { label: 'alphabetical', value: 'alphabetical' },
-    { label: 'most favorited', value: 'most favorited' },
-    { label: 'newest', value: 'newest' },
-  ]
-  function handleOrderByChange(orderBy: string) {
-    setOrderBy(orderBy as OrderBy)
-  }
+  const {
+    orderBy,
+    orderByOptions,
+    timeRange,
+    timeRangeOptions,
+    handleOrderByChange,
+    handleTimeRangeChange,
+  } = useBuildListFilters()
 
   const {
     currentPage,
@@ -130,18 +116,14 @@ export default function CommunityBuildList({
         onNextPage={handleNextPageClick}
         onSpecificPage={handleSpecificPageClick}
         headerActions={
-          <div className="flex w-full flex-col items-center justify-end gap-x-2 sm:flex-row">
-            <SelectMenu
-              value={timeRange}
-              options={timeRangeOptions}
-              onChange={(e) => handleTimeRangeChange(e.target.value)}
-            />
-            <SelectMenu
-              value={orderBy}
-              options={orderByOptions}
-              onChange={(e) => handleOrderByChange(e.target.value)}
-            />
-          </div>
+          <BuildListFilters
+            orderBy={orderBy}
+            orderByOptions={orderByOptions}
+            onOrderByChange={handleOrderByChange}
+            timeRange={timeRange}
+            timeRangeOptions={timeRangeOptions}
+            onTimeRangeChange={handleTimeRangeChange}
+          />
         }
       >
         {builds.map((build) => (

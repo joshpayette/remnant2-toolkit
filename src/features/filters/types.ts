@@ -7,3 +7,6 @@ export interface CommunityBuildFilterProps {
   melee: string
   selectedReleases: ReleaseKey[]
 }
+
+export type TimeRange = 'day' | 'week' | 'month' | 'all-time'
+export type OrderBy = 'alphabetical' | 'most favorited' | 'newest'
