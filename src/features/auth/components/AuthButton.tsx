@@ -104,15 +104,14 @@ function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
       </div>
     )
 
+  // Desktop
   return (
     <Menu as="div" className="relative">
-      <div>
-        <Menu.Button className="flex h-8 w-8 rounded-full bg-background text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
-          <span className="absolute -inset-1.5" />
-          <span className="sr-only">Open user menu</span>
-          {AvatarImage}
-        </Menu.Button>
-      </div>
+      <Menu.Button className="flex h-8 w-8 rounded-full bg-background text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+        <span className="absolute -inset-1.5" />
+        <span className="sr-only">Open user menu</span>
+        {AvatarImage}
+      </Menu.Button>
       <Transition
         as={Fragment}
         enter="transition ease-out duration-100"

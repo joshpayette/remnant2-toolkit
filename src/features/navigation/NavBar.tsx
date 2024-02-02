@@ -1,7 +1,7 @@
 'use client'
 
-import { Suspense, useEffect, useState } from 'react'
-import { Dialog } from '@headlessui/react'
+import { Fragment, Suspense, useEffect, useState } from 'react'
+import { Dialog, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid'
 import Link from 'next/link'
 import Logo from '@/features/ui/Logo'
@@ -22,11 +22,12 @@ export default function NavBar() {
 
   return (
     <>
+      {/* DESKTOP */}
       <nav
         className="z-40 mx-auto flex w-full items-center justify-between bg-background px-4 py-6"
         aria-label="Global"
       >
-        <div className="flex min-w-[200px]">
+        <div className="flex min-w-[300px]">
           <Logo />
         </div>
         <div className="flex lg:hidden">
@@ -40,20 +41,143 @@ export default function NavBar() {
           </button>
         </div>
         <div className="hidden items-center justify-start lg:flex lg:w-full lg:flex-grow lg:gap-x-12">
-          {NAV_ITEMS.map((item) => (
-            <Link
-              key={item.name}
-              href={item.href}
-              className={cn(
-                'text-md font-semibold text-white hover:text-green-400',
-                item.name === 'Support R2TK!' &&
-                  'text-green-400 underline hover:text-green-500',
-              )}
-              target={item.name === 'Support the Tool' ? '_blank' : undefined}
+          <Menu as="div" className="relative">
+            <Menu.Button className="flex bg-background text-lg font-semibold text-white hover:text-green-500">
+              <span className="absolute -inset-1.5" />
+              <span className="sr-only">Open Builds menu</span>
+              Builds
+            </Menu.Button>
+            <Transition
+              as={Fragment}
+              enter="transition ease-out duration-100"
+              enterFrom="transform opacity-0 scale-95"
+              enterTo="transform opacity-100 scale-100"
+              leave="transition ease-in duration-75"
+              leaveFrom="transform opacity-100 scale-100"
+              leaveTo="transform opacity-0 scale-95"
             >
-              {item.name}
-            </Link>
-          ))}
+              <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                <Menu.Item>
+                  {({ active }) => (
+                    <Link
+                      href={NAV_ITEMS.featuredBuilds.href}
+                      className={cn(
+                        active ? 'bg-gray-100' : '',
+                        'flex flex-row items-center justify-start px-4 py-2 text-sm text-gray-700',
+                      )}
+                    >
+                      {/* <NAV_ITEMS.featuredBuilds.icon className="mr-1 h-4 w-4 text-green-600" /> */}
+                      {NAV_ITEMS.featuredBuilds.label}
+                    </Link>
+                  )}
+                </Menu.Item>
+                <Menu.Item>
+                  {({ active }) => (
+                    <Link
+                      href={NAV_ITEMS.communityBuilds.href}
+                      className={cn(
+                        active ? 'bg-gray-100' : '',
+                        'flex flex-row items-center justify-start px-4 py-2 text-sm text-gray-700',
+                      )}
+                    >
+                      {/* <NAV_ITEMS.communityBuilds.icon className="mr-1 h-4 w-4 text-green-600" /> */}
+                      {NAV_ITEMS.communityBuilds.label}
+                    </Link>
+                  )}
+                </Menu.Item>
+                <Menu.Item>
+                  {({ active }) => (
+                    <Link
+                      href={NAV_ITEMS.createBuild.href}
+                      className={cn(
+                        active ? 'bg-gray-100' : '',
+                        'flex flex-row items-center justify-start px-4 py-2 text-sm text-gray-700',
+                      )}
+                    >
+                      {/* <NAV_ITEMS.createBuild.icon className="mr-1 h-4 w-4 text-green-600" /> */}
+                      {NAV_ITEMS.createBuild.label}
+                    </Link>
+                  )}
+                </Menu.Item>
+              </Menu.Items>
+            </Transition>
+          </Menu>
+
+          <Menu as="div" className="relative">
+            <Menu.Button className="flex bg-background text-lg font-semibold text-white hover:text-green-500">
+              <span className="absolute -inset-1.5" />
+              <span className="sr-only">Open Builds menu</span>
+              Items
+            </Menu.Button>
+            <Transition
+              as={Fragment}
+              enter="transition ease-out duration-100"
+              enterFrom="transform opacity-0 scale-95"
+              enterTo="transform opacity-100 scale-100"
+              leave="transition ease-in duration-75"
+              leaveFrom="transform opacity-100 scale-100"
+              leaveTo="transform opacity-0 scale-95"
+            >
+              <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                <Menu.Item>
+                  {({ active }) => (
+                    <Link
+                      href={NAV_ITEMS.itemTracker.href}
+                      className={cn(
+                        active ? 'bg-gray-100' : '',
+                        'flex flex-row items-center justify-start px-4 py-2 text-sm text-gray-700',
+                      )}
+                    >
+                      {/* <NAV_ITEMS.featuredBuilds.icon className="mr-1 h-4 w-4 text-green-600" /> */}
+                      {NAV_ITEMS.itemTracker.label}
+                    </Link>
+                  )}
+                </Menu.Item>
+                <Menu.Item>
+                  {({ active }) => (
+                    <Link
+                      href={NAV_ITEMS.itemLookup.href}
+                      className={cn(
+                        active ? 'bg-gray-100' : '',
+                        'flex flex-row items-center justify-start px-4 py-2 text-sm text-gray-700',
+                      )}
+                    >
+                      {/* <NAV_ITEMS.communityBuilds.icon className="mr-1 h-4 w-4 text-green-600" /> */}
+                      {NAV_ITEMS.itemLookup.label}
+                    </Link>
+                  )}
+                </Menu.Item>
+              </Menu.Items>
+            </Transition>
+          </Menu>
+
+          <Link
+            href={NAV_ITEMS.myBuilds.href}
+            className={cn(
+              'flex flex-row items-center justify-start text-lg font-semibold text-white',
+            )}
+          >
+            {NAV_ITEMS.myBuilds.label}
+          </Link>
+
+          <Link
+            href={NAV_ITEMS.changeLog.href}
+            className={cn(
+              'flex flex-row items-center justify-start text-lg font-semibold text-white',
+            )}
+          >
+            {NAV_ITEMS.changeLog.label}
+          </Link>
+
+          <Link
+            href={NAV_ITEMS.supportR2TK.href}
+            className={cn(
+              'flex flex-row items-center justify-start text-lg font-semibold text-green-500 underline',
+            )}
+          >
+            {NAV_ITEMS.supportR2TK.label}
+          </Link>
+
           <div className="flex grow items-end justify-end">
             <Suspense fallback={<LoadingIndicator />}>
               <AuthButton.Desktop />
@@ -62,6 +186,7 @@ export default function NavBar() {
         </div>
       </nav>
 
+      {/* MOBILE */}
       <Dialog
         as="div"
         className="lg:hidden"
@@ -84,27 +209,108 @@ export default function NavBar() {
           <div className="mt-6 flow-root">
             <div className="-my-6">
               <div className="space-y-2 py-6">
-                {NAV_ITEMS.map((item) => (
-                  <div
-                    key={item.name}
-                    className="flex flex-row items-center justify-start"
+                <div
+                  key={NAV_ITEMS.featuredBuilds.label}
+                  className="flex flex-row items-center justify-start"
+                >
+                  <NAV_ITEMS.featuredBuilds.icon
+                    className="mr-2 h-7 w-5 flex-none text-green-500"
+                    aria-hidden="true"
+                  />
+                  <Link
+                    href={NAV_ITEMS.featuredBuilds.href}
+                    className={cn(
+                      'block px-3 py-2 text-base font-semibold leading-7 text-white',
+                    )}
                   >
-                    <item.icon
-                      className="mr-2 h-7 w-5 flex-none text-green-500"
-                      aria-hidden="true"
-                    />
-                    <Link
-                      href={item.href}
-                      className={cn(
-                        'block px-3 py-2 text-base font-semibold leading-7 text-white hover:text-purple-500 hover:underline',
-                        item.name === 'Support R2TK!' &&
-                          'text-green-400 underline hover:text-green-500',
-                      )}
-                    >
-                      {item.name}
-                    </Link>
-                  </div>
-                ))}
+                    {NAV_ITEMS.featuredBuilds.label}
+                  </Link>
+                </div>
+                <div
+                  key={NAV_ITEMS.communityBuilds.label}
+                  className="flex flex-row items-center justify-start"
+                >
+                  <NAV_ITEMS.communityBuilds.icon
+                    className="mr-2 h-7 w-5 flex-none text-green-500"
+                    aria-hidden="true"
+                  />
+                  <Link
+                    href={NAV_ITEMS.communityBuilds.href}
+                    className={cn(
+                      'block px-3 py-2 text-base font-semibold leading-7 text-white',
+                    )}
+                  >
+                    {NAV_ITEMS.communityBuilds.label}
+                  </Link>
+                </div>
+                <div
+                  key={NAV_ITEMS.createBuild.label}
+                  className="flex flex-row items-center justify-start"
+                >
+                  <NAV_ITEMS.createBuild.icon
+                    className="mr-2 h-7 w-5 flex-none text-green-500"
+                    aria-hidden="true"
+                  />
+                  <Link
+                    href={NAV_ITEMS.createBuild.href}
+                    className={cn(
+                      'block px-3 py-2 text-base font-semibold leading-7 text-white',
+                    )}
+                  >
+                    {NAV_ITEMS.createBuild.label}
+                  </Link>
+                </div>
+                <div
+                  key={NAV_ITEMS.itemTracker.label}
+                  className="flex flex-row items-center justify-start"
+                >
+                  <NAV_ITEMS.itemTracker.icon
+                    className="mr-2 h-7 w-5 flex-none text-green-500"
+                    aria-hidden="true"
+                  />
+                  <Link
+                    href={NAV_ITEMS.itemTracker.href}
+                    className={cn(
+                      'block px-3 py-2 text-base font-semibold leading-7 text-white',
+                    )}
+                  >
+                    {NAV_ITEMS.itemTracker.label}
+                  </Link>
+                </div>
+                <div
+                  key={NAV_ITEMS.itemLookup.label}
+                  className="flex flex-row items-center justify-start"
+                >
+                  <NAV_ITEMS.itemLookup.icon
+                    className="mr-2 h-7 w-5 flex-none text-green-500"
+                    aria-hidden="true"
+                  />
+                  <Link
+                    href={NAV_ITEMS.itemLookup.href}
+                    className={cn(
+                      'block px-3 py-2 text-base font-semibold leading-7 text-white',
+                    )}
+                  >
+                    {NAV_ITEMS.itemLookup.label}
+                  </Link>
+                </div>
+                <div
+                  key={NAV_ITEMS.supportR2TK.label}
+                  className="flex flex-row items-center justify-start"
+                >
+                  <NAV_ITEMS.supportR2TK.icon
+                    className="mr-2 h-7 w-5 flex-none text-green-500"
+                    aria-hidden="true"
+                  />
+                  <Link
+                    href={NAV_ITEMS.supportR2TK.href}
+                    className={cn(
+                      'block px-3 py-2 text-base font-semibold leading-7 text-green-500 underline',
+                    )}
+                  >
+                    {NAV_ITEMS.supportR2TK.label}
+                  </Link>
+                </div>
 
                 <hr className="border-purple-900" />
 

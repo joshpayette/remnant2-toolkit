@@ -13,7 +13,7 @@ export default function Logo({ showUrl = false }: { showUrl?: boolean }) {
         loading="eager"
       />
       <div className="flex flex-col gap-0">
-        <span className="font-semi mb-0 pb-0 text-sm text-white">
+        <span className="text-md mb-0 pb-0 font-semibold text-white">
           Remnant2Toolkit
         </span>
         {showUrl && (

@@ -1,7 +1,6 @@
 # TODO
 
 - Consolidate navbar items
-  - My builds -> Your Profile, Created Builds, Favorited Builds, Signout
 - BuildCard should show "days ago" for updated text instead of a date
   - less than 24h ago, 1 day ago, 2 days ago, more than a week ago
 - Add additional build filters next to time range, such as "Most Favorited, Newest, Alphabetical"

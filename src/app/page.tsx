@@ -22,7 +22,7 @@ export default function HomePage() {
 
   return (
     <>
-      <div className="relative isolate overflow-hidden bg-gray-900 py-24">
+      <div className="relative isolate w-full max-w-7xl overflow-hidden bg-gray-900 py-24">
         <Image
           src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/home-bg.webp`}
           alt="Home page background"
@@ -30,7 +30,7 @@ export default function HomePage() {
           className="absolute inset-0 -z-10 h-full w-full object-cover object-right md:object-center"
           loading="eager"
         />
-        <div className="sm:transform-g1 hidden sm:absolute sm:-top-10 sm:right-1/2 sm:-z-10 sm:mr-10 sm:block sm:blur-3xl">
+        <div className="sm:transform-g1 hidden w-full sm:absolute sm:-top-10 sm:right-1/2 sm:-z-10 sm:mr-10 sm:block sm:blur-3xl">
           <div
             className="aspect-[1097/845] w-[68.5625rem] bg-gradient-to-tr from-[#9646ff] to-[#776fff] opacity-20"
             style={{
@@ -48,7 +48,7 @@ export default function HomePage() {
             }}
           />
         </div>
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="mx-auto w-full px-6 lg:px-8">
           <div className="mx-auto max-w-2xl lg:mx-0">
             <h2 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
               Remnant 2 Toolkit
@@ -94,28 +94,198 @@ export default function HomePage() {
             </p>
           </div>
           <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-6 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-8">
-            {NAV_ITEMS.map((item) => (
-              <Link
-                href={item.href}
-                key={item.name}
-                className="flex flex-row gap-x-4 rounded-xl border border-transparent bg-white/5 p-6 ring-1 ring-inset ring-white/10 hover:border-green-500"
-              >
-                <item.icon
-                  className="h-7 w-7 flex-none text-green-500"
-                  aria-hidden="true"
-                />
-                <div>
-                  <p className="text-base leading-7">{item.name}</p>
-                  <div className="mt-2 text-gray-300 ">{item.description}</div>
-                  <div className="mt-4 flex w-full items-center justify-end">
-                    <ArrowRightIcon
-                      className="h-6 w-6 text-green-500 hover:text-green-300"
-                      aria-hidden="true"
-                    />
-                  </div>
+            <Link
+              href={NAV_ITEMS.featuredBuilds.href}
+              key={NAV_ITEMS.featuredBuilds.label}
+              className="flex min-h-[200px] flex-row gap-x-4 rounded-xl border border-transparent bg-white/5 p-6 ring-1 ring-inset ring-white/10 hover:border-green-500"
+            >
+              <NAV_ITEMS.featuredBuilds.icon
+                className="h-7 w-7 flex-none text-green-500"
+                aria-hidden="true"
+              />
+              <div className="relative w-full">
+                <p className="text-base leading-7">
+                  {NAV_ITEMS.featuredBuilds.label}
+                </p>
+                <div className="mt-2 text-gray-300 ">
+                  {NAV_ITEMS.featuredBuilds.description}
                 </div>
-              </Link>
-            ))}
+                <div className="absolute bottom-0 right-0 mt-4 flex w-full items-center justify-end">
+                  <ArrowRightIcon
+                    className="h-6 w-6 text-green-500 hover:text-green-300"
+                    aria-hidden="true"
+                  />
+                </div>
+              </div>
+            </Link>
+            <Link
+              href={NAV_ITEMS.communityBuilds.href}
+              key={NAV_ITEMS.communityBuilds.label}
+              className="flex min-h-[200px] flex-row gap-x-4 rounded-xl border border-transparent bg-white/5 p-6 ring-1 ring-inset ring-white/10 hover:border-green-500"
+            >
+              <NAV_ITEMS.communityBuilds.icon
+                className="h-7 w-7 flex-none text-green-500"
+                aria-hidden="true"
+              />
+              <div className="relative w-full">
+                <p className="text-base leading-7">
+                  {NAV_ITEMS.communityBuilds.label}
+                </p>
+                <div className="mt-2 text-gray-300 ">
+                  {NAV_ITEMS.communityBuilds.description}
+                </div>
+                <div className="absolute bottom-0 right-0 mt-4 flex w-full items-center justify-end">
+                  <ArrowRightIcon
+                    className="h-6 w-6 text-green-500 hover:text-green-300"
+                    aria-hidden="true"
+                  />
+                </div>
+              </div>
+            </Link>
+            <Link
+              href={NAV_ITEMS.createBuild.href}
+              key={NAV_ITEMS.createBuild.label}
+              className="flex min-h-[200px] flex-row gap-x-4 rounded-xl border border-transparent bg-white/5 p-6 ring-1 ring-inset ring-white/10 hover:border-green-500"
+            >
+              <NAV_ITEMS.createBuild.icon
+                className="h-7 w-7 flex-none text-green-500"
+                aria-hidden="true"
+              />
+              <div className="relative w-full">
+                <p className="text-base leading-7">
+                  {NAV_ITEMS.createBuild.label}
+                </p>
+                <div className="mt-2 text-gray-300 ">
+                  {NAV_ITEMS.createBuild.description}
+                </div>
+                <div className="absolute bottom-0 right-0 mt-4 flex w-full items-center justify-end">
+                  <ArrowRightIcon
+                    className="h-6 w-6 text-green-500 hover:text-green-300"
+                    aria-hidden="true"
+                  />
+                </div>
+              </div>
+            </Link>
+            <Link
+              href={NAV_ITEMS.myBuilds.href}
+              key={NAV_ITEMS.myBuilds.label}
+              className="flex min-h-[200px] flex-row gap-x-4 rounded-xl border border-transparent bg-white/5 p-6 ring-1 ring-inset ring-white/10 hover:border-green-500"
+            >
+              <NAV_ITEMS.myBuilds.icon
+                className="h-7 w-7 flex-none text-green-500"
+                aria-hidden="true"
+              />
+              <div className="relative w-full">
+                <p className="text-base leading-7">
+                  {NAV_ITEMS.myBuilds.label}
+                </p>
+                <div className="mt-2 text-gray-300 ">
+                  {NAV_ITEMS.myBuilds.description}
+                </div>
+                <div className="absolute bottom-0 right-0 mt-4 flex w-full items-center justify-end">
+                  <ArrowRightIcon
+                    className="h-6 w-6 text-green-500 hover:text-green-300"
+                    aria-hidden="true"
+                  />
+                </div>
+              </div>
+            </Link>
+            <Link
+              href={NAV_ITEMS.itemTracker.href}
+              key={NAV_ITEMS.itemTracker.label}
+              className="flex min-h-[200px] flex-row gap-x-4 rounded-xl border border-transparent bg-white/5 p-6 ring-1 ring-inset ring-white/10 hover:border-green-500"
+            >
+              <NAV_ITEMS.itemTracker.icon
+                className="h-7 w-7 flex-none text-green-500"
+                aria-hidden="true"
+              />
+              <div className="relative w-full">
+                <p className="text-base leading-7">
+                  {NAV_ITEMS.itemTracker.label}
+                </p>
+                <div className="mt-2 text-gray-300 ">
+                  {NAV_ITEMS.itemTracker.description}
+                </div>
+                <div className="absolute bottom-0 right-0 mt-4 flex w-full items-center justify-end">
+                  <ArrowRightIcon
+                    className="h-6 w-6 text-green-500 hover:text-green-300"
+                    aria-hidden="true"
+                  />
+                </div>
+              </div>
+            </Link>
+            <Link
+              href={NAV_ITEMS.itemLookup.href}
+              key={NAV_ITEMS.itemLookup.label}
+              className="flex min-h-[200px] flex-row gap-x-4 rounded-xl border border-transparent bg-white/5 p-6 ring-1 ring-inset ring-white/10 hover:border-green-500"
+            >
+              <NAV_ITEMS.itemLookup.icon
+                className="h-7 w-7 flex-none text-green-500"
+                aria-hidden="true"
+              />
+              <div className="relative w-full">
+                <p className="text-base leading-7">
+                  {NAV_ITEMS.itemLookup.label}
+                </p>
+                <div className="mt-2 text-gray-300 ">
+                  {NAV_ITEMS.itemLookup.description}
+                </div>
+                <div className="absolute bottom-0 right-0 mt-4 flex w-full items-center justify-end">
+                  <ArrowRightIcon
+                    className="h-6 w-6 text-green-500 hover:text-green-300"
+                    aria-hidden="true"
+                  />
+                </div>
+              </div>
+            </Link>
+            <Link
+              href={NAV_ITEMS.changeLog.href}
+              key={NAV_ITEMS.changeLog.label}
+              className="flex min-h-[200px] w-full flex-row gap-x-4 rounded-xl border border-transparent bg-white/5 p-6 ring-1 ring-inset ring-white/10 hover:border-green-500"
+            >
+              <NAV_ITEMS.changeLog.icon
+                className="h-7 w-7 flex-none text-green-500"
+                aria-hidden="true"
+              />
+              <div className="relative w-full">
+                <p className="text-base leading-7">
+                  {NAV_ITEMS.changeLog.label}
+                </p>
+                <div className="mt-2 text-gray-300 ">
+                  {NAV_ITEMS.changeLog.description}
+                </div>
+                <div className="absolute bottom-0 right-0 mt-4 flex w-full items-center justify-end">
+                  <ArrowRightIcon
+                    className="h-6 w-6 text-green-500 hover:text-green-300"
+                    aria-hidden="true"
+                  />
+                </div>
+              </div>
+            </Link>
+            <Link
+              href={NAV_ITEMS.supportR2TK.href}
+              key={NAV_ITEMS.supportR2TK.label}
+              className="flex min-h-[200px] flex-row gap-x-4 rounded-xl border border-transparent bg-white/5 p-6 ring-1 ring-inset ring-white/10 hover:border-green-500"
+            >
+              <NAV_ITEMS.supportR2TK.icon
+                className="h-7 w-7 flex-none text-green-500"
+                aria-hidden="true"
+              />
+              <div className="relative w-full">
+                <p className="text-base leading-7">
+                  {NAV_ITEMS.supportR2TK.label}
+                </p>
+                <div className="mt-2 text-gray-300 ">
+                  {NAV_ITEMS.supportR2TK.description}
+                </div>
+                <div className="absolute bottom-0 right-0 mt-4 flex w-full items-center justify-end">
+                  <ArrowRightIcon
+                    className="h-6 w-6 text-green-500 hover:text-green-300"
+                    aria-hidden="true"
+                  />
+                </div>
+              </div>
+            </Link>
           </div>
         </div>
       </div>
