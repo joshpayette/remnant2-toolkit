@@ -31,7 +31,7 @@ export async function generateMetadata(
       twitter: {
         title: 'Private Build',
         description: 'This build is private.',
-        images: ['https://d2sqltdcj8czo5.cloudfront.net/og_image_small.png'],
+        images: ['https://d2sqltdcj8czo5.cloudfront.net/og_image.png'],
       },
     }
   }
@@ -58,7 +58,7 @@ export async function generateMetadata(
       title,
       description,
       images: [
-        'https://d2sqltdcj8czo5.cloudfront.net/og_image_small.png',
+        'https://d2sqltdcj8czo5.cloudfront.net/og_image.png',
         ...previousTwitterImages,
       ],
     },
