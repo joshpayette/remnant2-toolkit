@@ -35,7 +35,7 @@ export async function generateMetadata(
     twitter: {
       title,
       description,
-      images: ['https://d2sqltdcj8czo5.cloudfront.net/og_image.png'],
+      images: ['https://d2sqltdcj8czo5.cloudfront.net/og_image_small.png'],
     },
   }
 }

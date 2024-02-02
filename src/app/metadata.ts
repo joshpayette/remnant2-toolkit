@@ -49,12 +49,12 @@ export const metadata: Metadata = {
     type: 'website',
   },
   twitter: {
-    card: 'summary_large_image',
+    card: 'summary',
     title,
     description,
     siteId: '1696952720974888960',
     creator: '@josh_payette',
     creatorId: '1696952720974888960',
-    images: ['https://d2sqltdcj8czo5.cloudfront.net/og_image.png'],
+    images: ['https://d2sqltdcj8czo5.cloudfront.net/og_image_small.png'],
   },
 }
