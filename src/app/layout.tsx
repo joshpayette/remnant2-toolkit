@@ -11,8 +11,13 @@ import 'react-toastify/dist/ReactToastify.css'
 import SessionProvider from '../features/auth/components/SessionProvider'
 import BackToTopButton from '../features/ui/BackToTopButton'
 import ReportBugButton from '../features/bug-reports/ReportBugButton'
+import { Viewport } from 'next'
 
 const inter = Inter({ subsets: ['latin'] })
+
+export const viewport: Viewport = {
+  themeColor: '#3b0764',
+}
 
 export default function RootLayout({
   children,

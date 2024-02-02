@@ -26,7 +26,6 @@ export async function generateMetadata(
   return {
     title,
     description,
-    themeColor: '#3b0764',
     openGraph: {
       title,
       description: description,

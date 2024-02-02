@@ -11,7 +11,6 @@ export const metadata: Metadata = {
   title,
   description,
   manifest: '/site.webmanifest',
-  themeColor: '#3b0764',
   icons: {
     icon: [
       { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },

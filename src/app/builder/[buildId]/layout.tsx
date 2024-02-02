@@ -21,7 +21,6 @@ export async function generateMetadata(
     return {
       title: 'Private Build',
       description: 'This build is private.',
-      themeColor: '#3b0764',
       openGraph: {
         title: 'Private Build',
         description: 'This build is private.',
@@ -47,7 +46,6 @@ export async function generateMetadata(
   return {
     title,
     description,
-    themeColor: '#3b0764',
     openGraph: {
       title,
       description: description,

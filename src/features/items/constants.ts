@@ -126,7 +126,7 @@ export const DESCRIPTION_TAGS = [
     token: 'BURNING',
     color: 'text-[#b65d30]',
     description:
-      'Deals elemental FIRE damage per second. Can make enemies panic.', //Have no good source on the secondary effect.
+      'Deals elemental FIRE damage per second. Can make enemies panic.', // Have no good source on the secondary effect.
   },
   {
     type: 'bulwark',
@@ -166,7 +166,7 @@ export const DESCRIPTION_TAGS = [
     token: 'DATA CORRUPTION',
     color: 'text-gray-400',
     description:
-      'Disables skills, relic, and consumables use for a short duration.', // I think it also deals damage and staggers but need to verify.
+      'Disables skills, relic, and consumables use for a short duration.', // TODO: I think it also deals damage and staggers but need to verify.
   },
   {
     type: 'defrag',
@@ -189,7 +189,7 @@ export const DESCRIPTION_TAGS = [
   {
     type: 'explosive',
     token: 'EXPLOSIVE',
-    color: 'text-[#fff]', //In game colour is the same as text - Alexij
+    color: 'text-[#fff]',
     description: 'Physical Damage',
   },
   {
@@ -259,7 +259,7 @@ export const DESCRIPTION_TAGS = [
     token: 'OVERLOADED',
     color: 'text-[#7676af]',
     description:
-      'Deals elemental SHOCK area damage ever 5 seconds. Damage increases by 10% for every overloaded enemy nerby. ', // What's the range and what's the max damage increase for secondary effect?
+      'Deals elemental SHOCK area damage ever 5 seconds. Damage increases by 10% for every overloaded enemy nerby. ', // TODO What's the range and what's the max damage increase for secondary effect?
   },
   {
     type: 'resonance',
@@ -277,13 +277,14 @@ export const DESCRIPTION_TAGS = [
     type: 'root rot',
     token: 'ROOT ROT',
     color: 'text-[#b4a065]',
-    description: 'Reduces maximum Stamina by 33%. Forces coughing animation at random intervals.',
+    description:
+      'Reduces maximum Stamina by 33%. Forces coughing animation at random intervals.',
   },
   {
     type: 'shield',
     token: 'SHIELD',
     color: 'text-[#f1f1cf]',
-    description: `Provides a shield on top of your health. Shields from different sources stack.`
+    description: `Provides a shield on top of your health. Shields from different sources stack.`,
   },
   {
     type: 'shock',
@@ -295,7 +296,8 @@ export const DESCRIPTION_TAGS = [
     type: 'slow',
     token: 'SLOW',
     color: 'text-[#f1f1cf]',
-    description:  'Reduces target speed. Ineffective against Bosses and Aberrations.',
+    description:
+      'Reduces target speed. Ineffective against Bosses and Aberrations.',
   },
   {
     type: 'summoner',
