@@ -81,8 +81,8 @@ export const ActionButton = {
         className={cn(
           buttonClasses,
           upvoted
-            ? 'border-red-500 text-white hover:bg-red-500'
-            : 'border-orange-500 text-white hover:bg-orange-500',
+            ? 'border-transparent bg-red-500 text-black hover:bg-red-700 hover:text-white'
+            : 'border-transparent bg-orange-500 text-black hover:bg-orange-700 hover:text-white',
         )}
         onClick={onClick}
       >
