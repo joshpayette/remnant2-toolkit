@@ -13,6 +13,7 @@ import {
   UserCircleIcon,
 } from '@heroicons/react/24/solid'
 import Skeleton from '../../ui/Skeleton'
+import { NAV_ITEMS } from '@/features/navigation/constants'
 
 function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
   const { data: session, status } = useSession()
@@ -54,51 +55,51 @@ function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
     return (
       <div className="space-y-2">
         <div className="flex flex-row items-center justify-start">
-          <UserCircleIcon
+          <NAV_ITEMS.profile.icon
             className="mr-2 h-7 w-5 flex-none text-green-500"
             aria-hidden="true"
           />
           <Link
-            href="/profile"
+            href={NAV_ITEMS.profile.href}
             className="block px-3 py-2 text-base font-semibold leading-7 text-white hover:text-purple-500 hover:underline"
           >
-            Your Profile
+            {NAV_ITEMS.profile.label}
           </Link>
         </div>
         <div className="flex flex-row items-center justify-start">
-          <ListBulletIcon
+          <NAV_ITEMS.myBuilds.icon
             className="mr-2 h-7 w-5 flex-none text-green-500"
             aria-hidden="true"
           />
           <Link
-            href="/profile/created-builds"
+            href={NAV_ITEMS.myBuilds.href}
             className="block px-3 py-2 text-base font-semibold leading-7 text-white hover:text-purple-500 hover:underline"
           >
-            Created Builds
+            {NAV_ITEMS.myBuilds.label}
           </Link>
         </div>
         <div className="flex flex-row items-center justify-start">
-          <StarIcon
+          <NAV_ITEMS.favoritedBuilds.icon
             className="mr-2 h-7 w-5 flex-none text-green-500"
             aria-hidden="true"
           />
           <Link
-            href="/profile/favorited-builds"
+            href={NAV_ITEMS.favoritedBuilds.href}
             className="block px-3 py-2 text-base font-semibold leading-7 text-white hover:text-purple-500 hover:underline"
           >
-            Favorited Builds
+            {NAV_ITEMS.favoritedBuilds.label}
           </Link>
         </div>
         <div className="flex flex-row items-center justify-start">
-          <ArrowLeftOnRectangleIcon
+          <NAV_ITEMS.signout.icon
             className="mr-2 h-7 w-5 flex-none text-green-500"
             aria-hidden="true"
           />
           <Link
-            href="/api/auth/signout"
+            href={NAV_ITEMS.signout.href}
             className="block px-3 py-2 text-base font-semibold leading-7 text-white hover:text-purple-500 hover:underline"
           >
-            Signout
+            {NAV_ITEMS.signout.label}
           </Link>
         </div>
       </div>
@@ -121,42 +122,45 @@ function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
         leaveFrom="transform opacity-100 scale-100"
         leaveTo="transform opacity-0 scale-95"
       >
-        <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+        <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-black py-1 shadow-lg ring-1 ring-gray-800 ring-opacity-5 focus:outline-none">
           <Menu.Item>
             {({ active }) => (
               <Link
-                href="/profile"
+                href={NAV_ITEMS.profile.href}
                 className={cn(
-                  active ? 'bg-gray-100' : '',
-                  'block px-4 py-2 text-sm text-gray-700',
+                  active ? 'bg-gray-800' : '',
+                  'flex flex-row items-center justify-start px-4 py-2 text-sm text-gray-300',
                 )}
               >
-                Your Profile
+                <NAV_ITEMS.profile.icon className="mr-1 h-4 w-4 text-green-600" />
+                {NAV_ITEMS.profile.label}
               </Link>
             )}
           </Menu.Item>
           <Menu.Item>
             {({ active }) => (
               <Link
-                href="/profile/created-builds"
+                href={NAV_ITEMS.myBuilds.href}
                 className={cn(
-                  active ? 'bg-gray-100' : '',
-                  'block px-4 py-2 text-sm text-gray-700',
+                  active ? 'bg-gray-800' : '',
+                  'flex flex-row items-center justify-start px-4 py-2 text-sm text-gray-300',
                 )}
               >
-                Created Builds
+                <NAV_ITEMS.myBuilds.icon className="mr-1 h-4 w-4 text-green-600" />
+                {NAV_ITEMS.myBuilds.label}
               </Link>
             )}
           </Menu.Item>
           <Menu.Item>
             {({ active }) => (
               <Link
-                href="/profile/favorited-builds"
+                href={NAV_ITEMS.favoritedBuilds.href}
                 className={cn(
-                  active ? 'bg-gray-100' : '',
-                  'block px-4 py-2 text-sm text-gray-700',
+                  active ? 'bg-gray-800' : '',
+                  'flex flex-row items-center justify-start  px-4 py-2 text-sm text-gray-300',
                 )}
               >
+                <NAV_ITEMS.favoritedBuilds.icon className="mr-1 h-4 w-4 text-green-600" />
                 Favorited Builds
               </Link>
             )}
@@ -164,13 +168,14 @@ function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
           <Menu.Item>
             {({ active }) => (
               <Link
-                href="/api/auth/signout"
+                href={NAV_ITEMS.signout.href}
                 className={cn(
-                  active ? 'bg-gray-100' : '',
-                  'block px-4 py-2 text-sm text-gray-700',
+                  active ? 'bg-gray-800' : '',
+                  'flex flex-row items-center justify-start px-4 py-2 text-sm text-gray-300',
                 )}
               >
-                Signout
+                <NAV_ITEMS.signout.icon className="mr-1 h-4 w-4 text-green-600" />
+                {NAV_ITEMS.signout.label}
               </Link>
             )}
           </Menu.Item>

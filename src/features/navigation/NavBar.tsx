@@ -56,14 +56,14 @@ export default function NavBar() {
               leaveFrom="transform opacity-100 scale-100"
               leaveTo="transform opacity-0 scale-95"
             >
-              <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-black py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+              <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-black py-1 shadow-lg ring-1 ring-gray-800 ring-opacity-5 focus:outline-none">
                 <Menu.Item>
                   {({ active }) => (
                     <Link
                       href={NAV_ITEMS.featuredBuilds.href}
                       className={cn(
-                        active ? 'bg-gray-100' : '',
-                        'flex flex-row items-center justify-start px-4 py-2 text-sm text-gray-700',
+                        active ? 'bg-gray-800' : '',
+                        'flex flex-row items-center justify-start px-4 py-2 text-sm text-gray-300',
                       )}
                     >
                       <NAV_ITEMS.featuredBuilds.icon className="mr-1 h-4 w-4 text-green-600" />
@@ -76,8 +76,8 @@ export default function NavBar() {
                     <Link
                       href={NAV_ITEMS.communityBuilds.href}
                       className={cn(
-                        active ? 'bg-gray-100' : '',
-                        'flex flex-row items-center justify-start px-4 py-2 text-sm text-gray-700',
+                        active ? 'bg-gray-800' : '',
+                        'flex flex-row items-center justify-start px-4 py-2 text-sm text-gray-300',
                       )}
                     >
                       <NAV_ITEMS.communityBuilds.icon className="mr-1 h-4 w-4 text-green-600" />
@@ -90,8 +90,8 @@ export default function NavBar() {
                     <Link
                       href={NAV_ITEMS.createBuild.href}
                       className={cn(
-                        active ? 'bg-gray-100' : '',
-                        'flex flex-row items-center justify-start px-4 py-2 text-sm text-gray-700',
+                        active ? 'bg-gray-800' : '',
+                        'flex flex-row items-center justify-start px-4 py-2 text-sm text-gray-300',
                       )}
                     >
                       <NAV_ITEMS.createBuild.icon className="mr-1 h-4 w-4 text-green-600" />
@@ -118,17 +118,17 @@ export default function NavBar() {
               leaveFrom="transform opacity-100 scale-100"
               leaveTo="transform opacity-0 scale-95"
             >
-              <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+              <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-black py-1 shadow-lg ring-1 ring-gray-800 ring-opacity-5 focus:outline-none">
                 <Menu.Item>
                   {({ active }) => (
                     <Link
                       href={NAV_ITEMS.itemTracker.href}
                       className={cn(
-                        active ? 'bg-gray-100' : '',
-                        'flex flex-row items-center justify-start px-4 py-2 text-sm text-gray-700',
+                        active ? 'bg-gray-800' : '',
+                        'flex flex-row items-center justify-start px-4 py-2 text-sm text-gray-300',
                       )}
                     >
-                      {/* <NAV_ITEMS.featuredBuilds.icon className="mr-1 h-4 w-4 text-green-600" /> */}
+                      <NAV_ITEMS.featuredBuilds.icon className="mr-1 h-4 w-4 text-green-600" />
                       {NAV_ITEMS.itemTracker.label}
                     </Link>
                   )}
@@ -138,11 +138,11 @@ export default function NavBar() {
                     <Link
                       href={NAV_ITEMS.itemLookup.href}
                       className={cn(
-                        active ? 'bg-gray-100' : '',
-                        'flex flex-row items-center justify-start px-4 py-2 text-sm text-gray-700',
+                        active ? 'bg-gray-800' : '',
+                        'flex flex-row items-center justify-start px-4 py-2 text-sm text-gray-300',
                       )}
                     >
-                      {/* <NAV_ITEMS.communityBuilds.icon className="mr-1 h-4 w-4 text-green-600" /> */}
+                      <NAV_ITEMS.communityBuilds.icon className="mr-1 h-4 w-4 text-green-600" />
                       {NAV_ITEMS.itemLookup.label}
                     </Link>
                   )}

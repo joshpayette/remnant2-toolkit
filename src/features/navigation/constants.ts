@@ -1,10 +1,12 @@
 import {
+  ArrowLeftOnRectangleIcon,
   DocumentCheckIcon,
+  DocumentPlusIcon,
   DocumentTextIcon,
   HeartIcon,
   InformationCircleIcon,
   ListBulletIcon,
-  PlusCircleIcon,
+  PlusIcon,
   StarIcon,
   UserIcon,
 } from '@heroicons/react/24/solid'
@@ -13,11 +15,11 @@ import {
  * The base pages for the site
  */
 export const NAV_ITEMS = {
-  featuredBuilds: {
-    label: 'Featured Builds',
-    description: 'A collection of featured creator builds',
-    href: '/creator-builds',
-    icon: StarIcon,
+  changeLog: {
+    label: 'Change Log',
+    description: 'See the latest changes to the site.',
+    href: 'https://github.com/joshpayette/remnant2-toolkit/blob/main/CHANGELOG.md',
+    icon: DocumentPlusIcon,
   },
   communityBuilds: {
     label: 'Community Builds',
@@ -31,7 +33,19 @@ export const NAV_ITEMS = {
     description:
       'Create and share your favorite builds with your friends and the community.',
     href: '/builder/create',
-    icon: PlusCircleIcon,
+    icon: PlusIcon,
+  },
+  favoritedBuilds: {
+    label: 'Favorited Builds',
+    description: 'View and manage your favorited builds.',
+    href: '/profile/favorited-builds',
+    icon: StarIcon,
+  },
+  featuredBuilds: {
+    label: 'Featured Builds',
+    description: 'A collection of featured creator builds',
+    href: '/creator-builds',
+    icon: StarIcon,
   },
   itemTracker: {
     label: 'Item Tracker',
@@ -46,23 +60,29 @@ export const NAV_ITEMS = {
     href: '/item-lookup',
     icon: InformationCircleIcon,
   },
+  myBuilds: {
+    label: 'My Builds',
+    description: 'View and manage your builds.',
+    href: '/profile/created-builds',
+    icon: DocumentTextIcon,
+  },
+  profile: {
+    label: 'Profile',
+    description: 'View and manage your profile.',
+    href: '/profile',
+    icon: UserIcon,
+  },
+  signout: {
+    label: 'Sign Out',
+    description: 'Sign out of your account.',
+    href: '/api/auth/signout',
+    icon: ArrowLeftOnRectangleIcon,
+  },
   supportR2TK: {
     label: 'Support R2TK!',
     description:
       'Help support the development of the Remnant 2 Toolkit, plus get some cool perks!',
     href: 'https://www.patreon.com/JoshPayette/membership',
     icon: HeartIcon,
-  },
-  myBuilds: {
-    label: 'My Builds',
-    description: 'View and manage your builds.',
-    href: '/profile/created-builds',
-    icon: UserIcon,
-  },
-  changeLog: {
-    label: 'Change Log',
-    description: 'See the latest changes to the site.',
-    href: 'https://github.com/joshpayette/remnant2-toolkit/blob/main/CHANGELOG.md',
-    icon: DocumentTextIcon,
   },
 }
