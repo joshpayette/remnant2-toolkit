@@ -1,10 +1,10 @@
 import {
-  BookmarkSquareIcon,
   DocumentCheckIcon,
   DocumentTextIcon,
   HeartIcon,
   InformationCircleIcon,
   ListBulletIcon,
+  PlusCircleIcon,
   StarIcon,
   UserIcon,
 } from '@heroicons/react/24/solid'
@@ -31,7 +31,7 @@ export const NAV_ITEMS = {
     description:
       'Create and share your favorite builds with your friends and the community.',
     href: '/builder/create',
-    icon: BookmarkSquareIcon,
+    icon: PlusCircleIcon,
   },
   itemTracker: {
     label: 'Item Tracker',
