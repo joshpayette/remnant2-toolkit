@@ -25,7 +25,6 @@ import {
 } from '@/features/filters/types'
 import { limitByReleasesSegment } from '@/features/filters/queries/segments/limitByRelease'
 import limitByTimeCondition from '@/features/filters/queries/segments/limitByTimeCondition'
-import orderBySegment from '@/features/filters/queries/segments/getOrderBySegment'
 import getOrderBySegment from '@/features/filters/queries/segments/getOrderBySegment'
 
 export async function getCommunityBuilds({

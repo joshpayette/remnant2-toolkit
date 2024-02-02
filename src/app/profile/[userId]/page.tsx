@@ -3,7 +3,6 @@
 import BuildList from '@/features/build/components/BuildList'
 import ProfileHeader from '../../../features/profile/ProfileHeader'
 import BuildCard from '@/features/build/components/BuildCard'
-import BuildListFilters from '@/features/build/components/BuildListFilters'
 import { DBBuild } from '@/features/build/types'
 import { useEffect, useState } from 'react'
 import { BuildsFilter, getUserProfilePage } from './actions'
@@ -12,6 +11,12 @@ import CopyBuildUrlButton from '../../../features/profile/CopyBuildUrlButton'
 import EditBuildButton from '../../../features/profile/EditBuildButton'
 import DuplicateBuildButton from '../../../features/profile/DuplicateBuildButton'
 import { StarIcon } from '@heroicons/react/24/solid'
+import BuildListFilters from '@/features/filters/components/BuildListFilters'
+import useBuildListFilters from '@/features/filters/hooks/useBuildListFilters'
+import getTotalBuildFavorites from '@/features/build/actions/getTotalBuildFavorites'
+import CommunityBuildFilters from '@/features/filters/components/CommunityBuildFilters'
+import { CommunityBuildFilterProps } from '@/features/filters/types'
+import { DEFAULT_COMMUNITY_BUILD_FILTERS } from '@/features/filters/constants'
 
 export default function Page({
   params: { userId },
@@ -20,10 +25,26 @@ export default function Page({
 }) {
   const [builds, setBuilds] = useState<DBBuild[]>([])
   const [totalBuildCount, setTotalBuildCount] = useState<number>(0)
-  const [totalFavorites, setTotalFavorites] = useState<number>(0)
-  const [filter, setFilter] = useState<BuildsFilter>('upvotes')
   const [isLoading, setIsLoading] = useState(false)
+
+  const [communityBuildFilters, setCommunityBuildFilters] =
+    useState<CommunityBuildFilterProps>(DEFAULT_COMMUNITY_BUILD_FILTERS)
+  function handleChangeCommunityBuildFilters(
+    filters: CommunityBuildFilterProps,
+  ) {
+    setCommunityBuildFilters(filters)
+  }
+
   const itemsPerPage = 16
+
+  const {
+    orderBy,
+    orderByOptions,
+    timeRange,
+    timeRangeOptions,
+    handleOrderByChange,
+    handleTimeRangeChange,
+  } = useBuildListFilters()
 
   const {
     currentPage,
@@ -43,32 +64,34 @@ export default function Page({
     const getItemsAsync = async () => {
       setIsLoading(true)
       const response = await getUserProfilePage({
+        communityBuildFilters,
         itemsPerPage,
+        orderBy,
         pageNumber: currentPage,
-        filter,
+        timeRange,
         userId,
       })
       setBuilds(response.items)
       setTotalBuildCount(response.totalItemCount)
-      setTotalFavorites(response.totalFavorites)
       setIsLoading(false)
     }
     getItemsAsync()
-  }, [currentPage, itemsPerPage, filter, userId])
-
-  const filterOptions: BuildsFilter[] = ['date created', 'upvotes']
-
-  function handleFilterChange(filter: string) {
-    setFilter(filter as BuildsFilter)
-  }
+  }, [
+    communityBuildFilters,
+    currentPage,
+    itemsPerPage,
+    orderBy,
+    timeRange,
+    userId,
+  ])
 
   return (
     <>
       <div className="my-4 flex w-full max-w-lg flex-col items-center justify-center">
         <ProfileHeader editable={false} userId={userId} />
-        <div className="my-4 flex w-full flex-row items-center justify-center gap-1 text-2xl text-yellow-500">
-          Total <StarIcon className="h-6 w-6" />: {totalFavorites}
-        </div>
+      </div>
+      <div className="mb-8 flex w-full max-w-2xl items-center justify-center">
+        <CommunityBuildFilters onUpdate={handleChangeCommunityBuildFilters} />
       </div>
       <BuildList
         label="Created Builds"
@@ -83,13 +106,14 @@ export default function Page({
         onNextPage={handleNextPageClick}
         onSpecificPage={handleSpecificPageClick}
         headerActions={
-          <div className="min-w-[150px] max-w-[250px]">
-            <BuildListFilters
-              filter={filter}
-              onFilterChange={handleFilterChange}
-              options={filterOptions}
-            />
-          </div>
+          <BuildListFilters
+            orderBy={orderBy}
+            orderByOptions={orderByOptions}
+            onOrderByChange={handleOrderByChange}
+            timeRange={timeRange}
+            timeRangeOptions={timeRangeOptions}
+            onTimeRangeChange={handleTimeRangeChange}
+          />
         }
       >
         {builds.map((build) => (

@@ -1,5 +1,6 @@
 import {
   ArrowLeftOnRectangleIcon,
+  CircleStackIcon,
   DocumentCheckIcon,
   DocumentPlusIcon,
   DocumentTextIcon,
@@ -20,6 +21,13 @@ export const NAV_ITEMS = {
     description: 'See the latest changes to the site.',
     href: 'https://github.com/joshpayette/remnant2-toolkit/blob/main/CHANGELOG.md',
     icon: DocumentPlusIcon,
+  },
+  collectionBuilds: {
+    label: 'Builds by Collection',
+    description:
+      'View builds that you can create based on the Item Tracker data.',
+    href: '/community-builds/by-collection',
+    icon: CircleStackIcon,
   },
   communityBuilds: {
     label: 'Community Builds',

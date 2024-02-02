@@ -27,7 +27,9 @@ export default function Page() {
     getBuildCountAsync()
   }, [])
 
-  function handleChangeFilters(filters: CommunityBuildFilterProps) {
+  function handleChangeCommunityBuildFilters(
+    filters: CommunityBuildFilterProps,
+  ) {
     setCommunityBuildFilters(filters)
   }
 
@@ -65,7 +67,7 @@ export default function Page() {
       </PageHeader>
 
       <div className="mb-8 flex w-full max-w-2xl items-center justify-center">
-        <CommunityBuildFilters onUpdate={handleChangeFilters} />
+        <CommunityBuildFilters onUpdate={handleChangeCommunityBuildFilters} />
       </div>
       <div className="grid w-full grid-cols-1 gap-2">
         <CommunityBuildList

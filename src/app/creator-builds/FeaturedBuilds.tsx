@@ -5,13 +5,11 @@ import BuildCard from '../../features/build/components/BuildCard'
 import BuildList from '@/features/build/components/BuildList'
 import usePagination from '@/features/pagination/usePagination'
 import Link from 'next/link'
-import BuildListFilters from '@/features/build/components/BuildListFilters'
 import { DBBuild } from '@/features/build/types'
 import { getFeaturedBuilds } from '@/features/build/actions/getFeaturedBuilds'
 import { CommunityBuildFilterProps } from '@/features/filters/types'
-
-export type SortFilter = 'date created' | 'upvotes'
-const sortFilterOptions: SortFilter[] = ['date created', 'upvotes']
+import useBuildListFilters from '@/features/filters/hooks/useBuildListFilters'
+import BuildListFilters from '@/features/filters/components/BuildListFilters'
 
 interface Props {
   itemsPerPage?: number
@@ -24,8 +22,16 @@ export default function FeaturedBuilds({
 }: Props) {
   const [builds, setBuilds] = useState<DBBuild[]>([])
   const [totalBuildCount, setTotalBuildCount] = useState<number>(0)
-  const [sortFilter, setSortFilter] = useState<SortFilter>('date created')
   const [isLoading, setIsLoading] = useState<boolean>(true)
+
+  const {
+    orderBy,
+    orderByOptions,
+    timeRange,
+    timeRangeOptions,
+    handleOrderByChange,
+    handleTimeRangeChange,
+  } = useBuildListFilters()
 
   const {
     currentPage,
@@ -46,21 +52,18 @@ export default function FeaturedBuilds({
     const getItemsAsync = async () => {
       setIsLoading(true)
       const response = await getFeaturedBuilds({
-        itemsPerPage,
-        pageNumber: currentPage,
-        sortFilter,
         communityBuildFilters,
+        itemsPerPage,
+        orderBy,
+        pageNumber: currentPage,
+        timeRange,
       })
       setBuilds(response.items)
       setTotalBuildCount(response.totalItemCount)
       setIsLoading(false)
     }
     getItemsAsync()
-  }, [currentPage, itemsPerPage, sortFilter, communityBuildFilters])
-
-  function handleSortFilterChange(filter: string) {
-    setSortFilter(filter as SortFilter)
-  }
+  }, [communityBuildFilters, currentPage, itemsPerPage, orderBy, timeRange])
 
   return (
     <>
@@ -77,13 +80,14 @@ export default function FeaturedBuilds({
         onNextPage={handleNextPageClick}
         onSpecificPage={handleSpecificPageClick}
         headerActions={
-          <div className="min-w-[150px] max-w-[250px]">
-            <BuildListFilters
-              filter={sortFilter}
-              onFilterChange={handleSortFilterChange}
-              options={sortFilterOptions}
-            />
-          </div>
+          <BuildListFilters
+            orderBy={orderBy}
+            orderByOptions={orderByOptions}
+            onOrderByChange={handleOrderByChange}
+            timeRange={timeRange}
+            timeRangeOptions={timeRangeOptions}
+            onTimeRangeChange={handleTimeRangeChange}
+          />
         }
       >
         {builds.map((build) => (

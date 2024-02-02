@@ -6,6 +6,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2024-02-02
 
+### Added
+
+- Added advanced filtering to other pages
+- Added the user's total favorites to all profile pages
+
 ### Changed
 
 - Navbar now has a dropdown for various items. This is to prepare for adding more features to the site.

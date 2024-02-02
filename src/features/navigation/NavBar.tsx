@@ -88,6 +88,20 @@ export default function NavBar() {
                 <Menu.Item>
                   {({ active }) => (
                     <Link
+                      href={NAV_ITEMS.collectionBuilds.href}
+                      className={cn(
+                        active ? 'bg-gray-800' : '',
+                        'flex flex-row items-center justify-start px-4 py-2 text-sm text-gray-300',
+                      )}
+                    >
+                      <NAV_ITEMS.collectionBuilds.icon className="mr-1 h-4 w-4 text-green-600" />
+                      {NAV_ITEMS.collectionBuilds.label}
+                    </Link>
+                  )}
+                </Menu.Item>
+                <Menu.Item>
+                  {({ active }) => (
+                    <Link
                       href={NAV_ITEMS.createBuild.href}
                       className={cn(
                         active ? 'bg-gray-800' : '',

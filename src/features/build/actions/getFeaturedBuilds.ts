@@ -18,20 +18,27 @@ import {
   limitByWeaponsSegment,
   weaponFiltersToIds,
 } from '@/features/filters/queries/segments/limitByWeapons'
-import { CommunityBuildFilterProps } from '@/features/filters/types'
-import { SortFilter } from '../../../app/creator-builds/FeaturedBuilds'
+import {
+  CommunityBuildFilterProps,
+  OrderBy,
+  TimeRange,
+} from '@/features/filters/types'
 import { limitByReleasesSegment } from '@/features/filters/queries/segments/limitByRelease'
+import limitByTimeCondition from '@/features/filters/queries/segments/limitByTimeCondition'
+import getOrderBySegment from '@/features/filters/queries/segments/getOrderBySegment'
 
 export async function getFeaturedBuilds({
-  itemsPerPage,
-  pageNumber,
-  sortFilter,
   communityBuildFilters,
+  itemsPerPage,
+  orderBy,
+  pageNumber,
+  timeRange,
 }: {
-  itemsPerPage: number
-  pageNumber: number
-  sortFilter: SortFilter
   communityBuildFilters: CommunityBuildFilterProps
+  itemsPerPage: number
+  orderBy: OrderBy
+  pageNumber: number
+  timeRange: TimeRange
 }): Promise<PaginationResponse<DBBuild>> {
   const session = await getServerSession()
   const userId = session?.user?.id
@@ -48,17 +55,11 @@ export async function getFeaturedBuilds({
   ${limitByArchetypesSegment(archetypeIds)}
   ${limitByWeaponsSegment(weaponIds)}
   ${limitByReleasesSegment(selectedReleases)}
+  ${limitByTimeCondition(timeRange)}
   AND Build.isFeaturedBuild = true
   `
 
-  const orderBySegment =
-    sortFilter === 'date created'
-      ? Prisma.sql`
-  ORDER BY Build.createdAt DESC
-  `
-      : Prisma.sql`
-  ORDER BY totalUpvotes DESC
-  `
+  const orderBySegment = getOrderBySegment(orderBy)
 
   const builds = await communityBuildsQuery({
     userId,

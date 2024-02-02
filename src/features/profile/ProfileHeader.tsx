@@ -1,6 +1,5 @@
 'use client'
 
-import PlaceHolderIcon from '@/features/ui/PlaceholderIcon'
 import DisplayName from './DisplayName'
 import Bio from './Bio'
 import { getUserBio } from '../../app/profile/actions'
@@ -9,6 +8,8 @@ import { useEffect, useState } from 'react'
 import LoadingIndicator from '@/features/ui/LoadingIndicator'
 import { DEFAULT_DISPLAY_NAME } from './constants'
 import { isErrorResponse } from '@/features/error-handling/isErrorResponse'
+import { StarIcon } from '@heroicons/react/24/solid'
+import getTotalBuildFavorites from '../build/actions/getTotalBuildFavorites'
 
 interface Props {
   editable: boolean
@@ -25,6 +26,15 @@ export default function ProfileHeader({ editable, userId, image }: Props) {
     displayName: '',
   })
   const [isLoading, setIsLoading] = useState(true)
+  const [totalFavorites, setTotalFavorites] = useState<number>(0)
+
+  useEffect(() => {
+    async function getTotalFavoritesAsync() {
+      const totalVoteCount = await getTotalBuildFavorites()
+      setTotalFavorites(totalVoteCount)
+    }
+    getTotalFavoritesAsync()
+  }, [])
 
   useEffect(() => {
     const getUserBioAsync = async () => {
@@ -66,6 +76,9 @@ export default function ProfileHeader({ editable, userId, image }: Props) {
             setUserProfile({ ...userProfile, bio: newBio })
           }
         />
+      </div>
+      <div className="my-4 flex w-full flex-row items-center justify-center gap-1 text-2xl text-yellow-500">
+        Total <StarIcon className="h-6 w-6" />: {totalFavorites}
       </div>
       {editable && (
         <div className="my-8 flex items-center justify-center">

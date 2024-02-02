@@ -8,7 +8,6 @@
 - Have stat tooltips show the items contributing to the calculations
 - Add tracker of world bosses
 - Allow tracking of whether you have completely upgraded a weapon, trait, or archtype
-- Add total votes to /created-builds and /favorited-builds
 - Add info on getting a yellow border around builds
 - Add build filters to show only builds above certain vote thresholds
 - On tracker, allowing sorting alphabetically or by item type (i.e. group armors together)

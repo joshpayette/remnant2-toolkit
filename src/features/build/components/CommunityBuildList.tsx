@@ -12,7 +12,6 @@ import { getCommunityBuilds } from '@/features/build/actions/getCommunityBuilds'
 import { isErrorResponse } from '@/features/error-handling/isErrorResponse'
 import { dbBuildToBuildState } from '../lib/dbBuildToBuildState'
 import { CommunityBuildFilterProps } from '@/features/filters/types'
-import SelectMenu from '@/features/ui/SelectMenu'
 import useBuildListFilters from '@/features/filters/hooks/useBuildListFilters'
 import BuildListFilters from '@/features/filters/components/BuildListFilters'
 

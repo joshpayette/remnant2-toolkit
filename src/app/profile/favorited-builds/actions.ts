@@ -6,67 +6,90 @@ import { bigIntFix } from '@/lib/bigIntFix'
 import { getServerSession } from '@/features/auth/lib'
 import { Prisma } from '@prisma/client'
 import { prisma } from '@/features/db'
-
-export type SortFilter = 'date favorited' | 'upvotes'
+import {
+  CommunityBuildFilterProps,
+  OrderBy,
+  TimeRange,
+} from '@/features/filters/types'
+import {
+  communityBuildsCountQuery,
+  communityBuildsQuery,
+} from '@/features/filters/queries/community-builds'
+import getOrderBySegment from '@/features/filters/queries/segments/getOrderBySegment'
+import limitByTimeCondition from '@/features/filters/queries/segments/limitByTimeCondition'
+import { limitByReleasesSegment } from '@/features/filters/queries/segments/limitByRelease'
+import {
+  limitByWeaponsSegment,
+  weaponFiltersToIds,
+} from '@/features/filters/queries/segments/limitByWeapons'
+import {
+  archetypeFiltersToIds,
+  limitByArchetypesSegment,
+} from '@/features/filters/queries/segments/limitByArchtypes'
 
 export async function getFavoritedBuilds({
+  communityBuildFilters,
   itemsPerPage,
+  orderBy,
   pageNumber,
-  sortFilter,
+  timeRange,
 }: {
+  communityBuildFilters: CommunityBuildFilterProps
   itemsPerPage: number
+  orderBy: OrderBy
   pageNumber: number
-  sortFilter: SortFilter
+  timeRange: TimeRange
 }): Promise<PaginationResponse<DBBuild>> {
   const session = await getServerSession()
   const userId = session?.user?.id
 
+  const { archetypes, longGun, handGun, melee, selectedReleases } =
+    communityBuildFilters
+  const archetypeIds = archetypeFiltersToIds({ archetypes })
+
+  if (selectedReleases.length === 0) return { items: [], totalItemCount: 0 }
+
+  const weaponIds = weaponFiltersToIds({
+    longGun,
+    handGun,
+    melee,
+  })
+
   const whereConditions = Prisma.sql`
-  WHERE Build.isPublic = true
-  AND BuildVoteCounts.userId = ${userId}
-  AND Build.createdById != ${userId}
-  `
-
-  const orderBySegment =
-    sortFilter === 'date favorited'
-      ? Prisma.sql`
-ORDER BY latestVoteUpdatedAt DESC
-`
-      : Prisma.sql`
-ORDER BY totalUpvotes DESC
+WHERE Build.isPublic = true
+AND Build.createdById != ${userId}
+${limitByArchetypesSegment(archetypeIds)}
+${limitByWeaponsSegment(weaponIds)}
+${limitByReleasesSegment(selectedReleases)}
+${limitByTimeCondition(timeRange)}
 `
 
-  const buildQuery = Prisma.sql`
-SELECT Build.*, 
-  User.name as createdByName, 
-  User.displayName as createdByDisplayName, 
-  (SELECT COUNT(*) FROM BuildVoteCounts WHERE BuildVoteCounts.buildId = Build.id) as totalUpvotes,
-  COUNT(BuildReports.id) as totalReports,
-  (SELECT MAX(updatedAt) FROM BuildVoteCounts WHERE BuildVoteCounts.buildId = Build.id AND userId = ${userId}) as latestVoteUpdatedAt,
-  CASE WHEN PaidUsers.userId IS NOT NULL THEN true ELSE false END as isMember
-FROM Build
-LEFT JOIN BuildVoteCounts ON Build.id = BuildVoteCounts.buildId
-LEFT JOIN User on Build.createdById = User.id
-LEFT JOIN BuildReports on Build.id = BuildReports.buildId AND BuildReports.userId = ${userId}
-LEFT JOIN PaidUsers on User.id = PaidUsers.userId
-${whereConditions}
-GROUP BY Build.id, User.id
-${orderBySegment}
-LIMIT ${itemsPerPage} 
-OFFSET ${(pageNumber - 1) * itemsPerPage}
-`
+  const orderBySegment = getOrderBySegment(orderBy)
 
-  const builds = await prisma.$queryRaw<DBBuild[]>(buildQuery)
+  // First, get the Builds
+  const builds = await communityBuildsQuery({
+    userId,
+    itemsPerPage,
+    pageNumber,
+    orderBySegment,
+    whereConditions,
+  })
 
-  const buildCountQuery = Prisma.sql`
-  SELECT COUNT(DISTINCT Build.id) as totalBuildCount
-  FROM Build
-  LEFT JOIN BuildVoteCounts ON Build.id = BuildVoteCounts.buildId
-  ${whereConditions}
-  `
-  const totalBuildCountResponse =
-    await prisma.$queryRaw<CommunityBuildTotalCount>(buildCountQuery)
-  const totalBuildCount = totalBuildCountResponse[0].totalBuildCount
+  // Then, for each Build, get the associated BuildItems
+  for (const build of builds) {
+    const buildItems = await prisma.buildItems.findMany({
+      where: { buildId: build.id },
+    })
+    build.buildItems = buildItems
+  }
 
-  return bigIntFix({ items: builds, totalItemCount: totalBuildCount })
+  const totalBuildsCountResponse = await communityBuildsCountQuery({
+    whereConditions,
+  })
+  const totalBuildCount = totalBuildsCountResponse[0].totalBuildCount
+
+  return bigIntFix({
+    items: builds,
+    totalItemCount: totalBuildCount,
+  })
 }

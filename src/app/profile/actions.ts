@@ -13,114 +13,92 @@ import {
 import { bigIntFix } from '@/lib/bigIntFix'
 import { ErrorResponse } from '@/features/error-handling/types'
 import {
-  Build,
-  BuildItems,
-  BuildReports,
-  BuildVoteCounts,
-  PaidUsers,
-  User,
-} from '@prisma/client'
+  CommunityBuildFilterProps,
+  OrderBy,
+  TimeRange,
+} from '@/features/filters/types'
+import {
+  archetypeFiltersToIds,
+  limitByArchetypesSegment,
+} from '@/features/filters/queries/segments/limitByArchtypes'
+import {
+  limitByWeaponsSegment,
+  weaponFiltersToIds,
+} from '@/features/filters/queries/segments/limitByWeapons'
+import { limitByReleasesSegment } from '@/features/filters/queries/segments/limitByRelease'
+import limitByTimeCondition from '@/features/filters/queries/segments/limitByTimeCondition'
+import getOrderBySegment from '@/features/filters/queries/segments/getOrderBySegment'
+import {
+  communityBuildsCountQuery,
+  communityBuildsQuery,
+} from '@/features/filters/queries/community-builds'
+import { Prisma } from '@prisma/client'
 
 export type CreatedBuildsFilter = 'date created' | 'upvotes'
 
 export async function getCreatedBuilds({
+  communityBuildFilters,
   itemsPerPage,
+  orderBy,
   pageNumber,
-  filter,
+  timeRange,
 }: {
+  communityBuildFilters: CommunityBuildFilterProps
   itemsPerPage: number
+  orderBy: OrderBy
   pageNumber: number
-  filter: CreatedBuildsFilter
+  timeRange: TimeRange
 }): Promise<PaginationResponse<DBBuild>> {
   const session = await getServerSession()
   const userId = session?.user?.id
 
-  // select all builds created by the user
-  // including the total votes for each build
-  const builds =
-    filter === 'date created'
-      ? await prisma.build.findMany({
-          where: {
-            createdById: userId,
-          },
-          orderBy: {
-            createdAt: 'desc',
-          },
-          include: {
-            createdBy: {
-              include: {
-                PaidUsers: true, // Include the related PaidUsers record
-              },
-            },
-            BuildVotes: true,
-            BuildReports: true,
-            BuildItems: true,
-          },
-          take: itemsPerPage,
-          skip: (pageNumber - 1) * itemsPerPage,
-        })
-      : await prisma.build.findMany({
-          where: {
-            createdById: userId,
-          },
-          orderBy: {
-            BuildVotes: {
-              _count: 'desc',
-            },
-          },
-          include: {
-            createdBy: {
-              include: {
-                PaidUsers: true, // Include the related PaidUsers record
-              },
-            },
-            BuildVotes: true,
-            BuildReports: true,
-            BuildItems: true,
-          },
-          take: itemsPerPage,
-          skip: (pageNumber - 1) * itemsPerPage,
-        })
+  const { archetypes, longGun, handGun, melee, selectedReleases } =
+    communityBuildFilters
+  const archetypeIds = archetypeFiltersToIds({ archetypes })
 
-  if (!builds) {
-    return {
-      items: [],
-      totalItemCount: 0,
-    }
-  }
+  if (selectedReleases.length === 0) return { items: [], totalItemCount: 0 }
 
-  const totalBuildCount = await prisma.build.count({
-    where: {
-      createdById: userId,
-    },
+  const weaponIds = weaponFiltersToIds({
+    longGun,
+    handGun,
+    melee,
   })
 
-  const returnedBuilds: DBBuild[] = builds.map((build) => ({
-    id: build.id,
-    name: build.name,
-    description: build.description,
-    isPublic: build.isPublic,
-    isFeaturedBuild: build.isFeaturedBuild,
-    thumbnailUrl: build.thumbnailUrl,
-    videoUrl: build.videoUrl,
-    createdById: build.createdById,
-    createdAt: build.createdAt,
-    updatedAt: build.updatedAt,
-    createdByName: build.createdBy?.name || '',
-    createdByDisplayName:
-      build.createdBy?.displayName ||
-      build.createdBy?.name ||
-      session?.user?.name ||
-      DEFAULT_DISPLAY_NAME,
-    totalUpvotes: build.BuildVotes.length, // Count the votes
-    upvoted: build.BuildVotes.some((vote) => vote.userId === userId), // Check if the user upvoted the build
-    reported: build.BuildReports.some((report) => report.userId === userId), // Check if the user reported the build
-    isMember: build.createdBy.PaidUsers.length > 0, // Check if the user is a member
-    buildItems: build.BuildItems,
-  }))
+  const whereConditions = Prisma.sql`
+  WHERE Build.isPublic = true
+  AND Build.createdById = ${userId}
+  ${limitByArchetypesSegment(archetypeIds)}
+  ${limitByWeaponsSegment(weaponIds)}
+  ${limitByReleasesSegment(selectedReleases)}
+  ${limitByTimeCondition(timeRange)}
+  `
+
+  const orderBySegment = getOrderBySegment(orderBy)
+
+  // First, get the Builds
+  const builds = await communityBuildsQuery({
+    userId,
+    itemsPerPage,
+    pageNumber,
+    orderBySegment,
+    whereConditions,
+  })
+
+  // Then, for each Build, get the associated BuildItems
+  for (const build of builds) {
+    const buildItems = await prisma.buildItems.findMany({
+      where: { buildId: build.id },
+    })
+    build.buildItems = buildItems
+  }
+
+  const totalBuildsCountResponse = await communityBuildsCountQuery({
+    whereConditions,
+  })
+  const totalBuildCount = totalBuildsCountResponse[0].totalBuildCount
 
   return bigIntFix({
-    items: returnedBuilds,
+    items: builds,
     totalItemCount: totalBuildCount,
   })
 }

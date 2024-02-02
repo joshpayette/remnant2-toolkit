@@ -4,9 +4,29 @@ import { PaginationResponse } from '@/features/pagination/usePagination'
 import { prisma } from '@/features/db'
 import { DBBuild } from '@/features/build/types'
 import { DEFAULT_DISPLAY_NAME } from '@/features/profile/constants'
-import { User, UserProfile } from '@prisma/client'
+import { Prisma, User, UserProfile } from '@prisma/client'
 import { bigIntFix } from '@/lib/bigIntFix'
 import { ErrorResponse } from '@/features/error-handling/types'
+import {
+  CommunityBuildFilterProps,
+  OrderBy,
+  TimeRange,
+} from '@/features/filters/types'
+import {
+  archetypeFiltersToIds,
+  limitByArchetypesSegment,
+} from '@/features/filters/queries/segments/limitByArchtypes'
+import {
+  limitByWeaponsSegment,
+  weaponFiltersToIds,
+} from '@/features/filters/queries/segments/limitByWeapons'
+import { limitByReleasesSegment } from '@/features/filters/queries/segments/limitByRelease'
+import limitByTimeCondition from '@/features/filters/queries/segments/limitByTimeCondition'
+import {
+  communityBuildsCountQuery,
+  communityBuildsQuery,
+} from '@/features/filters/queries/community-builds'
+import getOrderBySegment from '@/features/filters/queries/segments/getOrderBySegment'
 
 export async function getProfile(userId: string): Promise<
   | ErrorResponse
@@ -54,18 +74,20 @@ export async function getProfile(userId: string): Promise<
 export type BuildsFilter = 'date created' | 'upvotes'
 
 export async function getUserProfilePage({
+  communityBuildFilters,
   itemsPerPage,
+  orderBy,
   pageNumber,
-  filter,
+  timeRange,
   userId,
 }: {
+  communityBuildFilters: CommunityBuildFilterProps
   itemsPerPage: number
+  orderBy: OrderBy
   pageNumber: number
-  filter: BuildsFilter
+  timeRange: TimeRange
   userId: string
-}): Promise<
-  PaginationResponse<DBBuild> & { user: User | null; totalFavorites: number }
-> {
+}): Promise<PaginationResponse<DBBuild> & { user: User | null }> {
   const user = await prisma.user.findUnique({
     where: {
       id: userId,
@@ -80,113 +102,63 @@ export async function getUserProfilePage({
     return {
       items: [],
       totalItemCount: 0,
-      totalFavorites: 0,
       user: null,
     }
   }
 
-  const builds =
-    filter === 'date created'
-      ? await prisma.build.findMany({
-          where: {
-            createdById: userId,
-            isPublic: true,
-          },
-          orderBy: {
-            createdAt: 'desc',
-          },
-          include: {
-            createdBy: {
-              include: {
-                PaidUsers: true, // Include the related PaidUsers record
-              },
-            },
-            BuildVotes: true,
-            BuildReports: true,
-            BuildItems: true,
-          },
-          take: itemsPerPage,
-          skip: (pageNumber - 1) * itemsPerPage,
-        })
-      : await prisma.build.findMany({
-          where: {
-            createdById: userId,
-            isPublic: true,
-          },
-          orderBy: {
-            BuildVotes: {
-              _count: 'desc',
-            },
-          },
-          include: {
-            createdBy: {
-              include: {
-                PaidUsers: true, // Include the related PaidUsers record
-              },
-            },
-            BuildVotes: true,
-            BuildReports: true,
-            BuildItems: true,
-          },
-          take: itemsPerPage,
-          skip: (pageNumber - 1) * itemsPerPage,
-        })
+  const { archetypes, longGun, handGun, melee, selectedReleases } =
+    communityBuildFilters
+  const archetypeIds = archetypeFiltersToIds({ archetypes })
 
-  if (!builds) {
+  if (selectedReleases.length === 0)
     return {
       items: [],
       totalItemCount: 0,
-      totalFavorites: 0,
       user: null,
     }
+
+  const weaponIds = weaponFiltersToIds({
+    longGun,
+    handGun,
+    melee,
+  })
+
+  const whereConditions = Prisma.sql`
+  WHERE Build.isPublic = true
+  AND Build.createdById = ${userId}
+  ${limitByArchetypesSegment(archetypeIds)}
+  ${limitByWeaponsSegment(weaponIds)}
+  ${limitByReleasesSegment(selectedReleases)}
+  ${limitByTimeCondition(timeRange)}
+  `
+
+  const orderBySegment = getOrderBySegment(orderBy)
+
+  // First, get the Builds
+  const builds = await communityBuildsQuery({
+    userId,
+    itemsPerPage,
+    pageNumber,
+    orderBySegment,
+    whereConditions,
+  })
+
+  // Then, for each Build, get the associated BuildItems
+  for (const build of builds) {
+    const buildItems = await prisma.buildItems.findMany({
+      where: { buildId: build.id },
+    })
+    build.buildItems = buildItems
   }
 
-  const totalBuildCount = await prisma.build.count({
-    where: {
-      createdById: userId,
-      isPublic: true,
-    },
+  const totalBuildsCountResponse = await communityBuildsCountQuery({
+    whereConditions,
   })
-
-  const totalFavorites = await prisma.buildVoteCounts.aggregate({
-    _count: {
-      _all: true,
-    },
-    where: {
-      build: {
-        createdById: userId,
-        isPublic: true,
-      },
-    },
-  })
-
-  const returnedBuilds: DBBuild[] = builds.map((build) => ({
-    id: build.id,
-    name: build.name,
-    description: build.description,
-    isPublic: build.isPublic,
-    isFeaturedBuild: build.isFeaturedBuild,
-    thumbnailUrl: build.thumbnailUrl,
-    videoUrl: build.videoUrl,
-    createdById: build.createdById,
-    createdAt: build.createdAt,
-    updatedAt: build.updatedAt,
-    createdByName: build.createdBy?.name || '',
-    createdByDisplayName:
-      build.createdBy?.displayName ||
-      build.createdBy?.name ||
-      DEFAULT_DISPLAY_NAME,
-    totalUpvotes: build.BuildVotes.length,
-    upvoted: build.BuildVotes.some((vote) => vote.userId === userId),
-    reported: build.BuildReports.some((report) => report.userId === userId),
-    isMember: build.createdBy.PaidUsers.length > 0,
-    buildItems: build.BuildItems,
-  }))
+  const totalBuildCount = totalBuildsCountResponse[0].totalBuildCount
 
   return bigIntFix({
-    items: returnedBuilds,
+    items: builds,
     totalItemCount: totalBuildCount,
-    totalFavorites: totalFavorites._count._all,
     user,
   })
 }
