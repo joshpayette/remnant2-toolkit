@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-02-02
+
+### Changed
+
+- Navbar now has a dropdown for various items. This is to prepare for adding more features to the site.
+- "Updated At" dates on Build cards now show a referential time instead of a date, e.g. "2 days ago" instead of "2024-02-02"
+
 ## 2024-02-01
 
 ### Added

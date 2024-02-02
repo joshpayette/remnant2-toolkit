@@ -15,6 +15,7 @@ import Tooltip from '@/features/ui/Tooltip'
 import DescriptionWithTags from '@/features/items/components/DescriptionWithTags'
 import NewBuildBadge from './NewBuildBadge'
 import isBuildNew from '../lib/isBuildNew'
+import formatUpdatedAt from '../lib/formatUpdatedAt'
 
 interface Props {
   build: DBBuild
@@ -105,10 +106,7 @@ export default function BuildCard({
                 <p className="text-left text-xs text-gray-500">
                   Last Updated:{' '}
                   <span className="text-gray-400">
-                    {format(
-                      new Date(build.updatedAt ?? new Date()),
-                      'yyyy-MM-dd hh:mm a',
-                    )}
+                    {formatUpdatedAt(build.updatedAt)}
                   </span>
                 </p>
               )}

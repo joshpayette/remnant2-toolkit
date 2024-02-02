@@ -1,7 +1,5 @@
 # TODO
 
-- BuildCard should show "days ago" for updated text instead of a date
-  - less than 24h ago, 1 day ago, 2 days ago, more than a week ago
 - Add additional build filters next to time range, such as "Most Favorited, Newest, Alphabetical"
   - Commununity Builds done, add to other pages. Extract logic to hook and add to other pages
 - Swap community build filters from internal state to url state
