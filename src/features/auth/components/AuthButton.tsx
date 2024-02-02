@@ -6,12 +6,6 @@ import { cn } from '../../../lib/classnames'
 import { Menu, Transition } from '@headlessui/react'
 import { Fragment } from 'react'
 import Link from 'next/link'
-import {
-  ArrowLeftOnRectangleIcon,
-  ListBulletIcon,
-  StarIcon,
-  UserCircleIcon,
-} from '@heroicons/react/24/solid'
 import Skeleton from '../../ui/Skeleton'
 import { NAV_ITEMS } from '@/features/navigation/constants'
 
@@ -54,54 +48,69 @@ function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
   if (variant === 'mobile')
     return (
       <div className="space-y-2">
-        <div className="flex flex-row items-center justify-start">
+        <Link
+          href={NAV_ITEMS.profile.href}
+          className="flex flex-row items-center justify-start"
+        >
           <NAV_ITEMS.profile.icon
             className="mr-2 h-7 w-5 flex-none text-green-500"
             aria-hidden="true"
           />
-          <Link
-            href={NAV_ITEMS.profile.href}
-            className="block px-3 py-2 text-base font-semibold leading-7 text-white hover:text-purple-500 hover:underline"
-          >
+          <div className="flex flex-col items-start justify-start px-3 py-2">
             {NAV_ITEMS.profile.label}
-          </Link>
-        </div>
-        <div className="flex flex-row items-center justify-start">
+
+            <p className="mt-1 text-xs text-gray-400">
+              {NAV_ITEMS.profile.description}
+            </p>
+          </div>
+        </Link>
+
+        <Link
+          href={NAV_ITEMS.myBuilds.href}
+          className="flex flex-row items-center justify-start"
+        >
           <NAV_ITEMS.myBuilds.icon
             className="mr-2 h-7 w-5 flex-none text-green-500"
             aria-hidden="true"
           />
-          <Link
-            href={NAV_ITEMS.myBuilds.href}
-            className="block px-3 py-2 text-base font-semibold leading-7 text-white hover:text-purple-500 hover:underline"
-          >
+          <div className="flex flex-col items-start justify-start px-3 py-2">
             {NAV_ITEMS.myBuilds.label}
-          </Link>
-        </div>
-        <div className="flex flex-row items-center justify-start">
+
+            <p className="mt-1 text-xs text-gray-400">
+              {NAV_ITEMS.myBuilds.description}
+            </p>
+          </div>
+        </Link>
+
+        <Link
+          href={NAV_ITEMS.favoritedBuilds.href}
+          className="flex flex-row items-center justify-start"
+        >
           <NAV_ITEMS.favoritedBuilds.icon
             className="mr-2 h-7 w-5 flex-none text-green-500"
             aria-hidden="true"
           />
-          <Link
-            href={NAV_ITEMS.favoritedBuilds.href}
-            className="block px-3 py-2 text-base font-semibold leading-7 text-white hover:text-purple-500 hover:underline"
-          >
+          <div className="flex flex-col items-start justify-start px-3 py-2">
             {NAV_ITEMS.favoritedBuilds.label}
-          </Link>
-        </div>
-        <div className="flex flex-row items-center justify-start">
+
+            <p className="mt-1 text-xs text-gray-400">
+              {NAV_ITEMS.favoritedBuilds.description}
+            </p>
+          </div>
+        </Link>
+
+        <Link
+          href={NAV_ITEMS.signout.href}
+          className="flex flex-row items-center justify-start"
+        >
           <NAV_ITEMS.signout.icon
             className="mr-2 h-7 w-5 flex-none text-green-500"
             aria-hidden="true"
           />
-          <Link
-            href={NAV_ITEMS.signout.href}
-            className="block px-3 py-2 text-base font-semibold leading-7 text-white hover:text-purple-500 hover:underline"
-          >
+          <div className="flex flex-col items-start justify-start px-3 py-2">
             {NAV_ITEMS.signout.label}
-          </Link>
-        </div>
+          </div>
+        </Link>
       </div>
     )
 

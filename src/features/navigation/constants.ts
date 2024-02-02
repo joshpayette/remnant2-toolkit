@@ -51,7 +51,7 @@ export const NAV_ITEMS = {
   },
   featuredBuilds: {
     label: 'Featured Builds',
-    description: 'A collection of featured creator builds',
+    description: 'A collection of featured creator builds.',
     href: '/creator-builds',
     icon: StarIcon,
   },
@@ -70,7 +70,7 @@ export const NAV_ITEMS = {
   },
   myBuilds: {
     label: 'My Builds',
-    description: 'View and manage your builds.',
+    description: 'View and manage builds you created.',
     href: '/profile/created-builds',
     icon: DocumentTextIcon,
   },

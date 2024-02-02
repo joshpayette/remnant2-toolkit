@@ -56,18 +56,25 @@ export default function NavBar() {
               leaveFrom="transform opacity-100 scale-100"
               leaveTo="transform opacity-0 scale-95"
             >
-              <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-black py-1 shadow-lg ring-1 ring-gray-800 ring-opacity-5 focus:outline-none">
+              <Menu.Items className="absolute right-0 z-10 mt-2 w-[290px] origin-top-right rounded-md bg-black p-2 shadow-lg ring-1 ring-gray-800 ring-opacity-5 focus:outline-none">
                 <Menu.Item>
                   {({ active }) => (
                     <Link
                       href={NAV_ITEMS.featuredBuilds.href}
                       className={cn(
                         active ? 'bg-gray-800' : '',
-                        'flex flex-row items-center justify-start px-4 py-2 text-sm text-gray-300',
+                        'flex w-full flex-row items-start justify-start p-2 text-sm font-semibold text-white',
                       )}
                     >
-                      <NAV_ITEMS.featuredBuilds.icon className="mr-1 h-4 w-4 text-green-600" />
-                      {NAV_ITEMS.featuredBuilds.label}
+                      <div className="mr-4 w-[20px]">
+                        <NAV_ITEMS.featuredBuilds.icon className="h-5 w-5 text-green-600" />
+                      </div>
+                      <div className="flex flex-col items-start justify-start gap-y-1">
+                        {NAV_ITEMS.featuredBuilds.label}
+                        <p className="text-xs font-normal text-gray-400">
+                          {NAV_ITEMS.featuredBuilds.description}
+                        </p>
+                      </div>
                     </Link>
                   )}
                 </Menu.Item>
@@ -77,11 +84,18 @@ export default function NavBar() {
                       href={NAV_ITEMS.communityBuilds.href}
                       className={cn(
                         active ? 'bg-gray-800' : '',
-                        'flex flex-row items-center justify-start px-4 py-2 text-sm text-gray-300',
+                        'flex w-full flex-row items-start justify-start p-2 text-sm font-semibold text-white',
                       )}
                     >
-                      <NAV_ITEMS.communityBuilds.icon className="mr-1 h-4 w-4 text-green-600" />
-                      {NAV_ITEMS.communityBuilds.label}
+                      <div className="mr-4 w-[20px]">
+                        <NAV_ITEMS.communityBuilds.icon className="h-5 w-5 text-green-600" />
+                      </div>
+                      <div className="flex flex-col items-start justify-start gap-y-1">
+                        {NAV_ITEMS.communityBuilds.label}
+                        <p className="text-xs font-normal text-gray-400">
+                          {NAV_ITEMS.communityBuilds.description}
+                        </p>
+                      </div>
                     </Link>
                   )}
                 </Menu.Item>
@@ -91,11 +105,18 @@ export default function NavBar() {
                       href={NAV_ITEMS.collectionBuilds.href}
                       className={cn(
                         active ? 'bg-gray-800' : '',
-                        'flex flex-row items-center justify-start px-4 py-2 text-sm text-gray-300',
+                        'flex w-full flex-row items-start justify-start p-2 text-sm font-semibold text-white',
                       )}
                     >
-                      <NAV_ITEMS.collectionBuilds.icon className="mr-1 h-4 w-4 text-green-600" />
-                      {NAV_ITEMS.collectionBuilds.label}
+                      <div className="mr-4 w-[20px]">
+                        <NAV_ITEMS.collectionBuilds.icon className="h-5 w-5 text-green-600" />
+                      </div>
+                      <div className="flex flex-col items-start justify-start gap-y-1">
+                        {NAV_ITEMS.collectionBuilds.label}
+                        <p className="text-xs font-normal text-gray-400">
+                          {NAV_ITEMS.collectionBuilds.description}
+                        </p>
+                      </div>
                     </Link>
                   )}
                 </Menu.Item>
@@ -105,11 +126,18 @@ export default function NavBar() {
                       href={NAV_ITEMS.createBuild.href}
                       className={cn(
                         active ? 'bg-gray-800' : '',
-                        'flex flex-row items-center justify-start px-4 py-2 text-sm text-gray-300',
+                        'flex w-full flex-row items-start justify-start p-2 text-sm font-semibold text-white',
                       )}
                     >
-                      <NAV_ITEMS.createBuild.icon className="mr-1 h-4 w-4 text-green-600" />
-                      {NAV_ITEMS.createBuild.label}
+                      <div className="mr-4 w-[20px]">
+                        <NAV_ITEMS.createBuild.icon className="h-5 w-5 text-green-600" />
+                      </div>
+                      <div className="flex flex-col items-start justify-start gap-y-1">
+                        {NAV_ITEMS.createBuild.label}
+                        <p className="text-xs font-normal text-gray-400">
+                          {NAV_ITEMS.createBuild.description}
+                        </p>
+                      </div>
                     </Link>
                   )}
                 </Menu.Item>
@@ -132,18 +160,25 @@ export default function NavBar() {
               leaveFrom="transform opacity-100 scale-100"
               leaveTo="transform opacity-0 scale-95"
             >
-              <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-black py-1 shadow-lg ring-1 ring-gray-800 ring-opacity-5 focus:outline-none">
+              <Menu.Items className="absolute right-0 z-10 mt-2 w-[290px] origin-top-right rounded-md bg-black p-2 shadow-lg ring-1 ring-gray-800 ring-opacity-5 focus:outline-none">
                 <Menu.Item>
                   {({ active }) => (
                     <Link
                       href={NAV_ITEMS.itemTracker.href}
                       className={cn(
                         active ? 'bg-gray-800' : '',
-                        'flex flex-row items-center justify-start px-4 py-2 text-sm text-gray-300',
+                        'flex w-full flex-row items-start justify-start p-2 text-sm font-semibold text-white',
                       )}
                     >
-                      <NAV_ITEMS.itemTracker.icon className="mr-1 h-4 w-4 text-green-600" />
-                      {NAV_ITEMS.itemTracker.label}
+                      <div className="mr-4 w-[20px]">
+                        <NAV_ITEMS.itemTracker.icon className="h-5 w-5 text-green-600" />
+                      </div>
+                      <div className="flex flex-col items-start justify-start gap-y-1">
+                        {NAV_ITEMS.itemTracker.label}
+                        <p className="text-xs font-normal text-gray-400">
+                          {NAV_ITEMS.itemTracker.description}
+                        </p>
+                      </div>
                     </Link>
                   )}
                 </Menu.Item>
@@ -153,11 +188,18 @@ export default function NavBar() {
                       href={NAV_ITEMS.itemLookup.href}
                       className={cn(
                         active ? 'bg-gray-800' : '',
-                        'flex flex-row items-center justify-start px-4 py-2 text-sm text-gray-300',
+                        'flex w-full flex-row items-start justify-start p-2 text-sm font-semibold text-white',
                       )}
                     >
-                      <NAV_ITEMS.itemLookup.icon className="mr-1 h-4 w-4 text-green-600" />
-                      {NAV_ITEMS.itemLookup.label}
+                      <div className="mr-4 w-[20px]">
+                        <NAV_ITEMS.itemLookup.icon className="h-5 w-5 text-green-600" />
+                      </div>
+                      <div className="flex flex-col items-start justify-start gap-y-1">
+                        {NAV_ITEMS.itemLookup.label}
+                        <p className="text-xs font-normal text-gray-400">
+                          {NAV_ITEMS.itemLookup.description}
+                        </p>
+                      </div>
                     </Link>
                   )}
                 </Menu.Item>
@@ -223,115 +265,112 @@ export default function NavBar() {
           <div className="mt-6 flow-root">
             <div className="-my-6">
               <div className="space-y-2 py-6">
-                <div
-                  key={NAV_ITEMS.featuredBuilds.label}
+                <Link
+                  href={NAV_ITEMS.featuredBuilds.href}
                   className="flex flex-row items-center justify-start"
                 >
                   <NAV_ITEMS.featuredBuilds.icon
                     className="mr-2 h-7 w-5 flex-none text-green-500"
                     aria-hidden="true"
                   />
-                  <Link
-                    href={NAV_ITEMS.featuredBuilds.href}
-                    className={cn(
-                      'block px-3 py-2 text-base font-semibold leading-7 text-white',
-                    )}
-                  >
+                  <div className="flex flex-col items-start justify-start px-3 py-2">
                     {NAV_ITEMS.featuredBuilds.label}
-                  </Link>
-                </div>
-                <div
-                  key={NAV_ITEMS.communityBuilds.label}
+
+                    <p className="text-xs text-gray-400">
+                      {NAV_ITEMS.featuredBuilds.description}
+                    </p>
+                  </div>
+                </Link>
+
+                <Link
+                  href={NAV_ITEMS.communityBuilds.href}
                   className="flex flex-row items-center justify-start"
                 >
                   <NAV_ITEMS.communityBuilds.icon
                     className="mr-2 h-7 w-5 flex-none text-green-500"
                     aria-hidden="true"
                   />
-                  <Link
-                    href={NAV_ITEMS.communityBuilds.href}
-                    className={cn(
-                      'block px-3 py-2 text-base font-semibold leading-7 text-white',
-                    )}
-                  >
+                  <div className="flex flex-col items-start justify-start px-3 py-2">
                     {NAV_ITEMS.communityBuilds.label}
-                  </Link>
-                </div>
-                <div
-                  key={NAV_ITEMS.createBuild.label}
+
+                    <p className="text-xs text-gray-400">
+                      {NAV_ITEMS.communityBuilds.description}
+                    </p>
+                  </div>
+                </Link>
+
+                <Link
+                  href={NAV_ITEMS.createBuild.href}
                   className="flex flex-row items-center justify-start"
                 >
                   <NAV_ITEMS.createBuild.icon
                     className="mr-2 h-7 w-5 flex-none text-green-500"
                     aria-hidden="true"
                   />
-                  <Link
-                    href={NAV_ITEMS.createBuild.href}
-                    className={cn(
-                      'block px-3 py-2 text-base font-semibold leading-7 text-white',
-                    )}
-                  >
+                  <div className="flex flex-col items-start justify-start px-3 py-2">
                     {NAV_ITEMS.createBuild.label}
-                  </Link>
-                </div>
-                <div
-                  key={NAV_ITEMS.itemTracker.label}
+
+                    <p className="text-xs text-gray-400">
+                      {NAV_ITEMS.createBuild.description}
+                    </p>
+                  </div>
+                </Link>
+
+                <Link
+                  href={NAV_ITEMS.itemTracker.href}
                   className="flex flex-row items-center justify-start"
                 >
                   <NAV_ITEMS.itemTracker.icon
                     className="mr-2 h-7 w-5 flex-none text-green-500"
                     aria-hidden="true"
                   />
-                  <Link
-                    href={NAV_ITEMS.itemTracker.href}
-                    className={cn(
-                      'block px-3 py-2 text-base font-semibold leading-7 text-white',
-                    )}
-                  >
+                  <div className="flex flex-col items-start justify-start px-3 py-2">
                     {NAV_ITEMS.itemTracker.label}
-                  </Link>
-                </div>
-                <div
-                  key={NAV_ITEMS.itemLookup.label}
+
+                    <p className="text-xs text-gray-400">
+                      {NAV_ITEMS.itemTracker.description}
+                    </p>
+                  </div>
+                </Link>
+
+                <Link
+                  href={NAV_ITEMS.itemLookup.href}
                   className="flex flex-row items-center justify-start"
                 >
                   <NAV_ITEMS.itemLookup.icon
                     className="mr-2 h-7 w-5 flex-none text-green-500"
                     aria-hidden="true"
                   />
-                  <Link
-                    href={NAV_ITEMS.itemLookup.href}
-                    className={cn(
-                      'block px-3 py-2 text-base font-semibold leading-7 text-white',
-                    )}
-                  >
+                  <div className="flex flex-col items-start justify-start px-3 py-2">
                     {NAV_ITEMS.itemLookup.label}
-                  </Link>
-                </div>
-                <div
-                  key={NAV_ITEMS.supportR2TK.label}
+
+                    <p className="text-xs text-gray-400">
+                      {NAV_ITEMS.itemLookup.description}
+                    </p>
+                  </div>
+                </Link>
+
+                <Link
+                  href={NAV_ITEMS.supportR2TK.href}
                   className="flex flex-row items-center justify-start"
                 >
                   <NAV_ITEMS.supportR2TK.icon
                     className="mr-2 h-7 w-5 flex-none text-green-500"
                     aria-hidden="true"
                   />
-                  <Link
-                    href={NAV_ITEMS.supportR2TK.href}
-                    className={cn(
-                      'block px-3 py-2 text-base font-semibold leading-7 text-green-500 underline',
-                    )}
-                  >
+                  <div className="flex flex-col items-start justify-start px-3 py-2">
                     {NAV_ITEMS.supportR2TK.label}
-                  </Link>
-                </div>
+
+                    <p className="text-xs text-gray-400">
+                      {NAV_ITEMS.supportR2TK.description}
+                    </p>
+                  </div>
+                </Link>
 
                 <hr className="border-purple-900" />
 
                 <Suspense fallback={<LoadingIndicator />}>
-                  <div className="pt-4">
-                    <AuthButton.Mobile />
-                  </div>
+                  <AuthButton.Mobile />
                 </Suspense>
               </div>
             </div>
