@@ -91,8 +91,14 @@ export default function Footer() {
         >
           Vash Cowaii
         </a>{' '}
-        [and all of the community
-        contributors.](https://github.com/joshpayette/remnant2-toolkit/CONTRIBUTORS.md)
+        and{' '}
+        <a
+          href="https://github.com/joshpayette/remnant2-toolkit/CONTRIBUTORS.md"
+          target="_blank"
+          className={cn(aClass)}
+        >
+          all of the community contributors.
+        </a>
       </p>
       <hr className="border-gray-900 pb-4" />
       <p>
