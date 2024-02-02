@@ -91,7 +91,8 @@ export default function Footer() {
         >
           Vash Cowaii
         </a>{' '}
-        and all of the community contributors.
+        [and all of the community
+        contributors.](https://github.com/joshpayette/remnant2-toolkit/CONTRIBUTORS.md)
       </p>
       <hr className="border-gray-900 pb-4" />
       <p>
