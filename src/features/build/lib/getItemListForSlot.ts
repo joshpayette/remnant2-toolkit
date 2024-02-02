@@ -1,6 +1,6 @@
 import { GenericItem } from '@/features/items/types/GenericItem'
 import { BuildState } from '../types'
-import { remnantItems } from '@/features/items/data'
+import { remnantItems } from '@/features/items/data/remnantItems'
 import { WeaponItem } from '@/features/items/types/WeaponItem'
 import { MutatorItem } from '@/features/items/types/MutatorItem'
 

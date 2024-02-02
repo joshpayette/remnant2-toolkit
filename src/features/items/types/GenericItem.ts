@@ -1,5 +1,5 @@
 import { BuildItems } from '@prisma/client'
-import { remnantItems } from '../data'
+import { remnantItems } from '../data/remnantItems'
 import { ReleaseKey } from '.'
 
 /**

@@ -1,5 +1,12 @@
+/**
+ * When new items are added to the data set,
+ * this script is used to populate the items table in the database
+ * Because the unique IDs in the items table are used in other tables,
+ * we use upsert so that no items are duplicated or deleted mistakenly.
+ */
+
 import { prisma } from '../features/db'
-import { remnantItems } from '../features/items/data'
+import { remnantItems } from '../features/items/data/remnantItems'
 
 // Load all the item ids into the Item table
 async function main() {

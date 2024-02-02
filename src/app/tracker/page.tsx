@@ -9,7 +9,10 @@ import { useFormState } from 'react-dom'
 import parseSaveFile from './actions'
 import { SubmitButton } from '../../features/ui/SubmitButton'
 import { toast } from 'react-toastify'
-import { remnantItemCategories, remnantItems } from '@/features/items/data'
+import {
+  remnantItemCategories,
+  remnantItems,
+} from '@/features/items/data/remnantItems'
 import { GenericItem } from '@/features/items/types/GenericItem'
 import useFilteredItems from '@/features/items/hooks/useFilteredItems'
 import { itemToCsvItem } from '@/features/items/lib/itemToCsvItem'

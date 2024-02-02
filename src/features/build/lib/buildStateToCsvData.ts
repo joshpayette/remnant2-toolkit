@@ -1,4 +1,4 @@
-import { remnantItemCategories } from '@/features/items/data'
+import { remnantItemCategories } from '@/features/items/data/remnantItems'
 import { BuildState } from '../types'
 import { itemToCsvItem } from '@/features/items/lib/itemToCsvItem'
 import { GenericItem } from '@/features/items/types/GenericItem'

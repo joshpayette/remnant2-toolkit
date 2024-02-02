@@ -4,7 +4,7 @@ import SelectMenu from '@/features/ui/SelectMenu'
 import { useEffect, useState } from 'react'
 import { WEIGHT_CLASSES } from '@/features/items/constants'
 import { ArmorItem } from '@/features/items/types/ArmorItem'
-import { remnantItems } from '@/features/items/data'
+import { remnantItems } from '@/features/items/data/remnantItems'
 import {
   getTotalArmor,
   getTotalWeight,

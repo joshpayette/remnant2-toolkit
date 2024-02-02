@@ -1,3 +1,8 @@
+/**
+ * This script is used to convert the save file from binary to text
+ * I have extracted the logic as a script so that I could run it standalone
+ */
+
 import zlib from 'zlib'
 import fs from 'fs'
 import path from 'path'

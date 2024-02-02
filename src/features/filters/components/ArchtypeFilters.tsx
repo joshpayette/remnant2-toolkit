@@ -1,4 +1,4 @@
-import { remnantItems } from '@/features/items/data'
+import { remnantItems } from '@/features/items/data/remnantItems'
 import { Archetype } from '@/features/items/types'
 import { Checkbox } from '@/features/ui/Checkbox'
 import { capitalize } from '@/lib/capitalize'

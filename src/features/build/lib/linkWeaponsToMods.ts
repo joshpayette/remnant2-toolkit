@@ -1,4 +1,4 @@
-import { remnantItems } from '@/features/items/data'
+import { remnantItems } from '@/features/items/data/remnantItems'
 import { BuildState } from '../types'
 import { ModItem } from '@/features/items/types/ModItem'
 

@@ -1,4 +1,4 @@
-import { remnantItems } from '@/features/items/data'
+import { remnantItems } from '@/features/items/data/remnantItems'
 import { Prisma } from '@prisma/client'
 
 export function limitByArchetypesSegment(archetypeIds: string[]) {

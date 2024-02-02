@@ -1,4 +1,4 @@
-import { remnantItems } from '@/features/items/data'
+import { remnantItems } from '@/features/items/data/remnantItems'
 import { BuildState } from '../types'
 import { TraitItem } from '@/features/items/types/TraitItem'
 import { DEFAULT_TRAIT_AMOUNT } from '../constants'

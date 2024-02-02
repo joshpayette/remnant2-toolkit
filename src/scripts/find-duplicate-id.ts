@@ -1,4 +1,11 @@
-import { remnantItems } from '../features/items/data'
+/**
+ * This is used to identify if an item has a duplicate id
+ * When I add new items, I use a random id, then run `npm run test`
+ * to see if there are any duplicate ids
+ * If there are, this script is run to identify the duplicate ids
+ */
+
+import { remnantItems } from '../features/items/data/remnantItems'
 
 // need to iterate over remnantItems to find the duplicate id
 // for each item, check if the id is already in the set

@@ -1,4 +1,4 @@
-import { remnantItems } from '@/features/items/data'
+import { remnantItems } from '@/features/items/data/remnantItems'
 import SelectMenu from '@/features/ui/SelectMenu'
 import { WeaponItem } from '@/features/items/types/WeaponItem'
 import { DEFAULT_COMMUNITY_BUILD_FILTERS } from '../constants'

@@ -6,7 +6,7 @@
 
 'use server'
 
-import { remnantItems } from '@/features/items/data'
+import { remnantItems } from '@/features/items/data/remnantItems'
 import zlib from 'zlib'
 
 export default async function parseSaveFile(

@@ -2,7 +2,7 @@
 
 import ToCsvButton from '@/features/csv/ToCsvButton'
 import PageHeader from '@/features/ui/PageHeader'
-import { remnantItems } from '@/features/items/data'
+import { remnantItems } from '@/features/items/data/remnantItems'
 import { itemToCsvItem } from '@/features/items/lib/itemToCsvItem'
 import { MutatorItem } from '@/features/items/types/MutatorItem'
 import useFilteredItems from '@/features/items/hooks/useFilteredItems'
