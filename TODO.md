@@ -2,6 +2,7 @@
 
 - Add additional build filters next to time range, such as "Most Favorited, Newest, Alphabetical"
   - Commununity Builds done, add to other pages. Extract logic to hook and add to other pages
+- Add a way to link builds to each other (good for alternate builds, like mobbing versus bosses)
 - Swap community build filters from internal state to url state
 - Add a way to track items on a second character
 - Description tags need to be searchable
