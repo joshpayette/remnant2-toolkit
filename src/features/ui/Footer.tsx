@@ -93,7 +93,7 @@ export default function Footer() {
         </a>{' '}
         and{' '}
         <a
-          href="https://github.com/joshpayette/remnant2-toolkit/CONTRIBUTORS.md"
+          href="https://github.com/joshpayette/remnant2-toolkit/blob/main/CONTRIBUTORS.md"
           target="_blank"
           className={cn(aClass)}
         >
