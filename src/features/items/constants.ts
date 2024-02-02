@@ -93,7 +93,7 @@ export const DESCRIPTION_TAGS = [
   {
     type: 'additive',
     token: '[+]',
-    color: 'text-blue-300',
+    color: 'text-[#64b5f6]',
     description: 'Damage is additive with other sources of damage.',
   },
   {
@@ -171,7 +171,7 @@ export const DESCRIPTION_TAGS = [
   {
     type: 'defrag',
     token: 'DEFRAG',
-    color: 'text-[#fff]', // TODO: Need to verify color
+    color: 'text-[#ede6e6]',
     description: 'Physical Damage',
   },
   {
@@ -189,7 +189,7 @@ export const DESCRIPTION_TAGS = [
   {
     type: 'explosive',
     token: 'EXPLOSIVE',
-    color: 'text-[#fff]', // TODO: Need to verify color
+    color: 'text-[#fff]', //In game colour is the same as text - Alexij
     description: 'Physical Damage',
   },
   {
@@ -203,7 +203,7 @@ export const DESCRIPTION_TAGS = [
     token: 'FRENZIED',
     color: ARCHTYPE_COLORS.ALCHEMIST.text,
     description:
-      'Increases Fire Rate, Reload Speed, and Melee Speed by 20%, and Movement Speed by 15%. Lasts 15s.', // TODO: Review for accuracy
+      'Increases Fire Rate, Reload Speed, and Melee Speed by 20%, and Movement Speed by 15%. Lasts 15s.',
   },
   {
     type: 'gunslinger',
@@ -240,7 +240,7 @@ export const DESCRIPTION_TAGS = [
     token: 'MARKED',
     color: ARCHTYPE_COLORS.GUNSLINGER.text,
     description:
-      'Crit Chance against MARKED enemies is increased by 15% for all allies.', // TODO: Review for accuracy
+      'Crit Chance against MARKED enemies is increased by 15% for all allies.',
   },
   {
     type: 'medic',
@@ -277,14 +277,13 @@ export const DESCRIPTION_TAGS = [
     type: 'root rot',
     token: 'ROOT ROT',
     color: 'text-[#b4a065]',
-    description:
-      'Reduces maximum Stamina by 33%. Forces coughing animation at random intervals.',
+    description: 'Reduces maximum Stamina by 33%. Forces coughing animation at random intervals.',
   },
   {
     type: 'shield',
     token: 'SHIELD',
     color: 'text-[#f1f1cf]',
-    description: undefined, //No description in game.
+    description: `Provides a shield on top of your health. Shields from different sources stack.`
   },
   {
     type: 'shock',
@@ -296,8 +295,7 @@ export const DESCRIPTION_TAGS = [
     type: 'slow',
     token: 'SLOW',
     color: 'text-[#f1f1cf]',
-    description:
-      'Reduces target speed. Ineffective against Bosses and Aberrations.',
+    description:  'Reduces target speed. Ineffective against Bosses and Aberrations.',
   },
   {
     type: 'summoner',
@@ -310,6 +308,12 @@ export const DESCRIPTION_TAGS = [
     token: 'SUPPRESSION',
     color: 'text-[#444662]',
     description: 'Reduces Mod Power Generation by 50%.',
+  },
+  {
+    type: 'madness',
+    token: 'MADNESS',
+    color: 'text-[#ede6e6]',
+    description: 'Physical Damage',
   },
 ] as const satisfies {
   type: string
