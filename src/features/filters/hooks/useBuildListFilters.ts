@@ -1,8 +1,11 @@
 import { useState } from 'react'
 import { OrderBy, TimeRange } from '../types'
 
-export default function useBuildListFilters() {
-  const [timeRange, setTimeRange] = useState<TimeRange>('all-time')
+export default function useBuildListFilters(
+  defaultOrderBy: OrderBy = 'most favorited',
+  defaultTimeRange: TimeRange = 'all-time',
+) {
+  const [timeRange, setTimeRange] = useState<TimeRange>(defaultTimeRange)
   const timeRangeOptions: Array<{ label: TimeRange; value: string }> = [
     { label: 'day', value: 'day' },
     { label: 'week', value: 'week' },
@@ -13,7 +16,7 @@ export default function useBuildListFilters() {
     setTimeRange(timeRange as TimeRange)
   }
 
-  const [orderBy, setOrderBy] = useState<OrderBy>('most favorited')
+  const [orderBy, setOrderBy] = useState<OrderBy>(defaultOrderBy)
   const orderByOptions: Array<{ label: OrderBy; value: string }> = [
     { label: 'alphabetical', value: 'alphabetical' },
     { label: 'most favorited', value: 'most favorited' },

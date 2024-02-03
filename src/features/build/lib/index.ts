@@ -6,7 +6,9 @@ export const buildStateSchema = z.object({
   description: z.string().nullable(),
   isPublic: z.boolean().nullable(),
   buildId: z.string().nullable(),
+  isFeaturedBuild: z.boolean().nullable(),
   createdById: z.string().nullable(),
+  upvoted: z.boolean().nullable(),
   items: z.object({
     helm: z.any(),
     torso: z.any(),

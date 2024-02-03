@@ -20,10 +20,10 @@ export function dbBuildToBuildState(dbBuild: DBBuild): BuildState {
     createdByDisplayName: dbBuild.createdByDisplayName,
     isMember: dbBuild.isMember,
     isPublic: dbBuild.isPublic,
-    isFeaturedBuild: dbBuild.isFeaturedBuild,
+    isFeaturedBuild: Boolean(dbBuild.isFeaturedBuild),
     thumbnailUrl: dbBuild.thumbnailUrl,
     videoUrl: dbBuild.videoUrl,
-    upvoted: dbBuild.upvoted,
+    upvoted: Boolean(dbBuild.upvoted),
     totalUpvotes: dbBuild.totalUpvotes,
     reported: dbBuild.reported,
     items: {
