@@ -10,7 +10,6 @@ import {
   getWeightClass,
 } from '../lib/getTotalValues'
 import Tooltip from '@/features/ui/Tooltip'
-import { DR_CALCULATION_TEXT } from '@/features/items/constants'
 
 interface Props {
   buildState: BuildState
@@ -57,7 +56,7 @@ export default function Stats({ buildState, isScreenshotMode }: Props) {
           </div>
           <div className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 text-left text-sm text-gray-300">
             <p className="flex items-center justify-start">Armor</p>
-            <Tooltip content={DR_CALCULATION_TEXT}>
+            <Tooltip content="ArmorDR = Armor / (Armor+200)">
               <button
                 className={cn(
                   'text-md flex items-center justify-end text-right font-bold sm:text-lg',

@@ -317,6 +317,3 @@ export const DESCRIPTION_TAGS = [
   color: string
   description: string | undefined
 }[]
-
-export const DR_CALCULATION_TEXT =
-  'DR = armor / (armor + (200 / armor effectiveness))'
