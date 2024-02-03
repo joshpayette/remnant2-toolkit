@@ -65,8 +65,7 @@ export async function getCreatedBuilds({
   })
 
   const whereConditions = Prisma.sql`
-  WHERE Build.isPublic = true
-  AND Build.createdById = ${userId}
+  WHERE Build.createdById = ${userId}
   ${limitByArchetypesSegment(archetypeIds)}
   ${limitByWeaponsSegment(weaponIds)}
   ${limitByReleasesSegment(selectedReleases)}
