@@ -1,5 +1,3 @@
-import { DescriptionTag } from './types'
-
 export const ARCHTYPE_COLORS = {
   ALCHEMIST: {
     bg: 'bg-[#102a22]',
@@ -79,10 +77,6 @@ export const RELEASE_TO_NAME = {
   dlc1: 'The Awakened King',
 } as const
 
-/**
- * TODO Need to add bleedResistance, shockResistance, fireResistance, blightResistance, and toxinResistance
- * TODO Once done, add tooltips to Stats and ArmorInfo
- */
 export const DESCRIPTION_TAGS = [
   {
     type: 'acid',
