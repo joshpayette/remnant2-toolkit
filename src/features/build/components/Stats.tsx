@@ -56,14 +56,16 @@ export default function Stats({ buildState, isScreenshotMode }: Props) {
           </div>
           <div className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 text-left text-sm text-gray-300">
             <p className="flex items-center justify-start">Armor</p>
-            <span
-              className={cn(
-                'text-md flex items-center justify-end text-right font-bold sm:text-lg',
-                isScreenshotMode && 'text-lg',
-              )}
-            >
-              {totalArmor}
-            </span>
+            <Tooltip content="DR = armor / (armor + (200 / armor effectiveness))">
+              <button
+                className={cn(
+                  'text-md flex items-center justify-end text-right font-bold sm:text-lg',
+                  isScreenshotMode && 'text-lg',
+                )}
+              >
+                {totalArmor}
+              </button>
+            </Tooltip>
           </div>
           <div className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 text-left text-sm">
             <p className="flex items-center justify-start">Weight</p>
