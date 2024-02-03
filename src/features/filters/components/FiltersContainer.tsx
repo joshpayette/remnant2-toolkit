@@ -19,7 +19,7 @@ export default function FiltersContainer<T>({
   return (
     <div
       className={cn(
-        'relative h-full max-h-fit w-full transform overflow-y-auto border-2 border-green-500 bg-black px-4 pb-4 pt-4 text-left shadow-lg shadow-green-500/50 sm:my-8 sm:p-6',
+        'relative h-full max-h-fit w-full transform overflow-y-auto border-2 border-purple-500 bg-black px-4 pb-4 pt-4 text-left shadow-lg shadow-purple-500/50 sm:my-8 sm:p-6',
         areAnyFiltersActive &&
           'border-yellow-500 shadow-xl shadow-yellow-500/50',
       )}

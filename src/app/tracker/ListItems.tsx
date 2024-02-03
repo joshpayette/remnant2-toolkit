@@ -193,7 +193,7 @@ export default function ListItems({
                         className={cn(
                           'relative h-full w-full',
                           item.discovered
-                            ? 'border-2 border-purple-400 grayscale-0'
+                            ? 'border-2 border-green-500 grayscale-0'
                             : 'border-2 border-transparent grayscale',
                         )}
                       >
