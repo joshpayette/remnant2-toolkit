@@ -16,7 +16,7 @@ import { Viewport } from 'next'
 const inter = Inter({ subsets: ['latin'] })
 
 export const viewport: Viewport = {
-  themeColor: '#3b0764',
+  themeColor: '#581c87',
 }
 
 export default function RootLayout({

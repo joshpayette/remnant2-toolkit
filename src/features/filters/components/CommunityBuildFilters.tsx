@@ -1,5 +1,5 @@
 import { Archetype, ReleaseKey } from '@/features/items/types'
-import { useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { DEFAULT_COMMUNITY_BUILD_FILTERS } from '@/features/filters/constants'
 import { CommunityBuildFilterProps } from '@/features/filters/types'
 import FiltersContainer from '@/features/filters/components/FiltersContainer'
@@ -16,13 +16,18 @@ export default function CommunityBuildFilters({ onUpdate }: Props) {
   const [filters, setFilters] = useState<CommunityBuildFilterProps>(
     DEFAULT_COMMUNITY_BUILD_FILTERS,
   )
+  // If filters are changed but the apply button is not pressed
+  // the filters are not applied. We use this to draw attention
+  // to the apply button
+  const [areFiltersApplied, setAreFiltersApplied] = useState(true)
 
   function handleClearFilters() {
     setFilters(DEFAULT_COMMUNITY_BUILD_FILTERS)
+    setAreFiltersApplied(true)
     onUpdate(DEFAULT_COMMUNITY_BUILD_FILTERS)
   }
 
-  function areAnyFiltersActive() {
+  const areAnyFiltersActive = useCallback(() => {
     return (
       filters.archetypes.length > 0 ||
       filters.longGun !== DEFAULT_COMMUNITY_BUILD_FILTERS['longGun'] ||
@@ -30,7 +35,15 @@ export default function CommunityBuildFilters({ onUpdate }: Props) {
       filters.melee !== DEFAULT_COMMUNITY_BUILD_FILTERS['melee'] ||
       filters.selectedReleases.length < 2
     )
-  }
+  }, [filters])
+
+  // If the filters are changed, but back to the default state
+  // we should consider the filters as applied
+  useEffect(() => {
+    console.info('areFiltersApplied', areFiltersApplied)
+
+    if (!areFiltersApplied && !areAnyFiltersActive()) setAreFiltersApplied(true)
+  }, [areFiltersApplied, areAnyFiltersActive])
 
   function handleArchtypeChange(archtype: Archetype) {
     let newArchtypes = [...filters.archetypes]
@@ -49,6 +62,7 @@ export default function CommunityBuildFilters({ onUpdate }: Props) {
       ...filters,
       archetypes: newArchtypes,
     })
+    setAreFiltersApplied(false)
   }
 
   function handleWeaponChange(
@@ -59,6 +73,7 @@ export default function CommunityBuildFilters({ onUpdate }: Props) {
       ...filters,
       [type]: weapon,
     })
+    setAreFiltersApplied(false)
   }
 
   function handleReleaseChange(release: ReleaseKey) {
@@ -74,13 +89,18 @@ export default function CommunityBuildFilters({ onUpdate }: Props) {
       ...filters,
       selectedReleases: newReleases,
     })
+    setAreFiltersApplied(false)
   }
 
   return (
     <FiltersContainer<CommunityBuildFilterProps>
       areAnyFiltersActive={areAnyFiltersActive()}
+      areFiltersApplied={areFiltersApplied}
       filters={filters}
-      onApplyFilters={onUpdate}
+      onApplyFilters={(filters) => {
+        setAreFiltersApplied(true)
+        onUpdate(filters)
+      }}
       onClearFilters={handleClearFilters}
     >
       <ArchetypeFilters

@@ -3,6 +3,7 @@ import ClearFiltersButton from './ClearFiltersButton'
 
 interface Props<T> {
   areAnyFiltersActive: boolean
+  areFiltersApplied: boolean
   children: React.ReactNode
   filters: T
   onApplyFilters: (filters: T) => void
@@ -11,6 +12,7 @@ interface Props<T> {
 
 export default function FiltersContainer<T>({
   areAnyFiltersActive,
+  areFiltersApplied,
   children,
   filters,
   onApplyFilters,
@@ -25,17 +27,18 @@ export default function FiltersContainer<T>({
       )}
     >
       <div className="grid-cols-full grid gap-x-8 gap-y-4 divide-y divide-green-800 bg-black sm:grid-cols-4">
-        {areAnyFiltersActive && (
-          <div className="col-span-full flex items-center justify-end">
-            <ClearFiltersButton onClick={onClearFilters} />
-          </div>
-        )}
-
         {children}
-
         <div className="col-span-full flex items-center justify-end pt-2">
+          {areAnyFiltersActive && (
+            <div className="col-span-full mr-4 flex items-center justify-end">
+              <ClearFiltersButton onClick={onClearFilters} />
+            </div>
+          )}
           <button
-            className="rounded bg-green-500 p-2 text-sm font-bold text-black hover:bg-green-700 hover:text-white"
+            className={cn(
+              'rounded bg-green-500 p-2 text-sm font-bold text-black hover:bg-green-700 hover:text-white',
+              !areFiltersApplied && 'animate-pulse ',
+            )}
             onClick={() => onApplyFilters(filters)}
           >
             Apply Filters

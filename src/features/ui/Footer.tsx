@@ -1,5 +1,6 @@
 import { cn } from '@/lib/classnames'
 import Image from 'next/image'
+import { NAV_ITEMS } from '../navigation/constants'
 
 const aClass = 'text-gray-300 hover:text-green-400 underline'
 
@@ -64,6 +65,12 @@ export default function Footer() {
           open source project
         </a>{' '}
         created and managed by Josh Payette.
+        <br />
+        View the{' '}
+        <a href={NAV_ITEMS.changeLog.href} className={cn(aClass)}>
+          change log
+        </a>{' '}
+        for the latest updates.
       </p>
       <hr className="border-gray-900 pb-4" />
       <p className="pb-4">
@@ -73,7 +80,7 @@ export default function Footer() {
           target="_blank"
           className={cn(aClass)}
         >
-          Fextralife Remnant 2 Wiki
+          Remnant 2 Wiki
         </a>
         , as well as the{' '}
         <a
@@ -90,15 +97,18 @@ export default function Footer() {
           className={cn(aClass)}
         >
           Vash Cowaii
-        </a>{' '}
-        and{' '}
+        </a>
+        .
+        <br />
+        <br />A special thanks to
         <a
           href="https://github.com/joshpayette/remnant2-toolkit/blob/main/CONTRIBUTORS.md"
           target="_blank"
           className={cn(aClass)}
         >
-          all of the community contributors.
+          all of the community contributors
         </a>
+        , this project would not be possible without your help.
       </p>
       <hr className="border-gray-900 pb-4" />
       <p>

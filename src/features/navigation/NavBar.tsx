@@ -40,7 +40,7 @@ export default function NavBar() {
             <Bars3Icon className="h-6 w-6" aria-hidden="true" />
           </button>
         </div>
-        <div className="hidden items-center justify-start lg:flex lg:w-full lg:flex-grow lg:gap-x-12">
+        <div className="hidden items-center justify-center lg:flex lg:flex-grow lg:gap-x-12">
           <Menu as="div" className="relative">
             <Menu.Button className="flex bg-background text-lg font-semibold text-white hover:text-green-500">
               <span className="absolute -inset-1.5" />
@@ -217,15 +217,6 @@ export default function NavBar() {
           </Link>
 
           <Link
-            href={NAV_ITEMS.changeLog.href}
-            className={cn(
-              'flex flex-row items-center justify-start text-lg font-semibold text-white',
-            )}
-          >
-            {NAV_ITEMS.changeLog.label}
-          </Link>
-
-          <Link
             href={NAV_ITEMS.supportR2TK.href}
             className={cn(
               'flex flex-row items-center justify-start text-lg font-semibold text-green-500 underline',
@@ -233,12 +224,11 @@ export default function NavBar() {
           >
             {NAV_ITEMS.supportR2TK.label}
           </Link>
-
-          <div className="flex grow items-end justify-end">
-            <Suspense fallback={<LoadingIndicator />}>
-              <AuthButton.Desktop />
-            </Suspense>
-          </div>
+        </div>
+        <div className="flex grow items-end justify-end">
+          <Suspense fallback={<LoadingIndicator />}>
+            <AuthButton.Desktop />
+          </Suspense>
         </div>
       </nav>
 
