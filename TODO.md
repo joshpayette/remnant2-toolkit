@@ -1,11 +1,11 @@
 # TODO
 
-- Add a way to link builds to each other (good for alternate builds, like mobbing versus bosses)
-- Swap community build filters from internal state to url state
+- Have stat tooltips show the items contributing to the calculations
 - Add a way to track items on a second character
+- Add a way to link builds to each other (good for alternate builds, like mobbing versus bosses)
+- Swap community build filters from internal state to url state. this will allow sharing links to filtered builds
 - Description tags need to be searchable
 - In addition to date created, allow sort by date updated
-- Have stat tooltips show the items contributing to the calculations
 - Add tracker of world bosses
 - Allow tracking of whether you have completely upgraded a weapon, trait, or archtype
 - Add info on getting a yellow border around builds
