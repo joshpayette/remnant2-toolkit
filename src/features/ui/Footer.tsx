@@ -100,7 +100,7 @@ export default function Footer() {
         </a>
         .
         <br />
-        <br />A special thanks to
+        <br />A special thanks to{' '}
         <a
           href="https://github.com/joshpayette/remnant2-toolkit/blob/main/CONTRIBUTORS.md"
           target="_blank"
