@@ -14,6 +14,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Fixed bug preventing duplication of builds
 - Fixed bug where MY BUILDS was not showing private builds
+- Added a check to speed up the Builds by Collection query, preventing the writing of the user's items every single query.
 
 ## 2024-02-02
 

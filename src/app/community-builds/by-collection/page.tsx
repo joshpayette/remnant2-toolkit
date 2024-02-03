@@ -8,7 +8,7 @@ import usePagination from '@/features/pagination/usePagination'
 import { DBBuild } from '@/features/build/types'
 import { signIn, useSession } from 'next-auth/react'
 import Link from 'next/link'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { getBuildsByCollection } from '@/features/build/actions/getBuildsByCollection'
 import CommunityBuildFilters from '@/features/filters/components/CommunityBuildFilters'
 import { CommunityBuildFilterProps } from '@/features/filters/types'
@@ -19,6 +19,7 @@ import { toast } from 'react-toastify'
 import { isErrorResponse } from '@/features/error-handling/isErrorResponse'
 import BuildListFilters from '@/features/filters/components/BuildListFilters'
 import useBuildListFilters from '@/features/filters/hooks/useBuildListFilters'
+import { set } from 'date-fns'
 
 const ITEMS_PER_PAGE = 24
 
@@ -37,7 +38,9 @@ export default function Page() {
   }
 
   const [isLoading, setIsLoading] = useState(true)
-  const { discoveredItemIds } = useLocalStorage()
+  const { discoveredItemIds, userItemInsertNeeded, setUserItemInsertNeeded } =
+    useLocalStorage()
+  const isFirstRun = useRef(true)
 
   const {
     orderBy,
@@ -64,17 +67,32 @@ export default function Page() {
 
   useEffect(() => {
     async function getItemsAsync() {
+      setIsLoading(true)
       const response = await getBuildsByCollection({
-        itemsPerPage: ITEMS_PER_PAGE,
-        pageNumber: currentPage,
-        orderBy,
-        timeRange,
-        discoveredItemIds,
         communityBuildFilters,
+        discoveredItemIds,
+        itemsPerPage: ITEMS_PER_PAGE,
+        orderBy,
+        pageNumber: currentPage,
+        timeRange,
+        userItemInsertNeeded,
       })
       setBuilds(response.items)
       setTotalBuildCount(response.totalItemCount)
       setIsLoading(false)
+
+      // we want to avoid an infinite loop of fetching builds
+      // in an effort to minimize the largest part of the build query,
+      // i.e. inserting the user's items into the database
+      // we only want to insert the user's items once if required
+      // so we set the userItemInsertNeeded to false after the first run
+      //
+      // However, if we set it to false without the ref, the value would update,
+      // triggering another run, updating the value, triggering another run, etc.
+      if (isFirstRun.current) {
+        setUserItemInsertNeeded(false)
+        isFirstRun.current = false
+      }
     }
     getItemsAsync()
   }, [
@@ -83,6 +101,8 @@ export default function Page() {
     discoveredItemIds,
     orderBy,
     timeRange,
+    userItemInsertNeeded,
+    setUserItemInsertNeeded,
   ])
 
   const { handleReportBuild } = useBuildActions()
