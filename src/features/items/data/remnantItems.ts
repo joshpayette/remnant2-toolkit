@@ -9086,7 +9086,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
   {
     category: 'trait',
     name: 'Strong Back',
-    imagePath: '/trait/strong_back.png',``
+    imagePath: '/trait/strong_back.png',
     id: 'sd2hry',
     description: `Reduces dodge weight threshold (incrementing the weight you can carry before increasing your dodge class).`,
     maxLevelBonus: `At max level, Strong Back Reduces weight threshold by 15`,
