@@ -49,7 +49,7 @@ export default function Page() {
   // If the item info is defined, the modal should be open
   const isShowItemInfoOpen = Boolean(itemInfo)
 
-  const { discoveredItemIds, setDiscoveredItemIds, setUserItemInsertNeeded } =
+  const { discoveredItemIds, setDiscoveredItemIds } =
     useLocalStorage()
 
   const { filteredItems, handleUpdateFilters } = useFilteredItems(itemList)
@@ -170,7 +170,6 @@ export default function Page() {
       // We need to set the user item insert needed flag
       // so that the next time they filter builds by collection,
       // their items will be updated
-      setUserItemInsertNeeded(true)
       return
     }
 
@@ -179,7 +178,6 @@ export default function Page() {
     // We need to set the user item insert needed flag
     // so that the next time they filter builds by collection,
     // their items will be updated
-    setUserItemInsertNeeded(true)
   }
 
   if (!isClient) return null

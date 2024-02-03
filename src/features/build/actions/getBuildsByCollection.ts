@@ -46,7 +46,6 @@ export async function getBuildsByCollection({
   orderBy,
   pageNumber,
   timeRange,
-  userItemInsertNeeded,
 }: {
   communityBuildFilters: CommunityBuildFilterProps
   discoveredItemIds: string[]
@@ -54,7 +53,6 @@ export async function getBuildsByCollection({
   orderBy: OrderBy
   pageNumber: number
   timeRange: TimeRange
-  userItemInsertNeeded: boolean
 }): Promise<PaginationResponse<DBBuild>> {
   const session = await getServerSession()
   const userId = session?.user?.id
@@ -94,24 +92,17 @@ export async function getBuildsByCollection({
   // that are still "owned" by the user
   const allOwnedItemIds = collectionToIds({ discoveredItemIds })
 
-  if (userItemInsertNeeded) {
-    console.info('Inserting user items into the database')
-
-    // delete and re-create the user's items
-    await prisma.$transaction([
-      prisma.userItems.deleteMany({
-        where: { userId },
-      }),
-      prisma.userItems.createMany({
-        data: allOwnedItemIds.map((itemId) => ({
-          userId,
-          itemId,
-        })),
-      }),
-    ])
-  } else {
-    console.info('User items already inserted')
-  }
+  await prisma.$transaction([
+    prisma.userItems.deleteMany({
+      where: { userId },
+    }),
+    prisma.userItems.createMany({
+      data: allOwnedItemIds.map((itemId) => ({
+        userId,
+        itemId,
+      })),
+    }),
+  ])
 
   const whereConditions = Prisma.sql`
   WHERE Build.isPublic = true

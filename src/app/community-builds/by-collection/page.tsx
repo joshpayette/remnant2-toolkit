@@ -38,9 +38,7 @@ export default function Page() {
   }
 
   const [isLoading, setIsLoading] = useState(true)
-  const { discoveredItemIds, userItemInsertNeeded, setUserItemInsertNeeded } =
-    useLocalStorage()
-  const isFirstRun = useRef(true)
+  const { discoveredItemIds } = useLocalStorage()
 
   const {
     orderBy,
@@ -75,24 +73,10 @@ export default function Page() {
         orderBy,
         pageNumber: currentPage,
         timeRange,
-        userItemInsertNeeded,
       })
       setBuilds(response.items)
       setTotalBuildCount(response.totalItemCount)
       setIsLoading(false)
-
-      // we want to avoid an infinite loop of fetching builds
-      // in an effort to minimize the largest part of the build query,
-      // i.e. inserting the user's items into the database
-      // we only want to insert the user's items once if required
-      // so we set the userItemInsertNeeded to false after the first run
-      //
-      // However, if we set it to false without the ref, the value would update,
-      // triggering another run, updating the value, triggering another run, etc.
-      if (isFirstRun.current) {
-        setUserItemInsertNeeded(false)
-        isFirstRun.current = false
-      }
     }
     getItemsAsync()
   }, [
@@ -101,8 +85,6 @@ export default function Page() {
     discoveredItemIds,
     orderBy,
     timeRange,
-    userItemInsertNeeded,
-    setUserItemInsertNeeded,
   ])
 
   const { handleReportBuild } = useBuildActions()
