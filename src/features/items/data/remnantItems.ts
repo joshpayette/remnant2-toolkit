@@ -3977,7 +3977,7 @@ export const remnantItems: Item[] = [
     imagePath: '/melee/abyssal_hook.png',
     dlc: 'dlc1',
     id: 'sd4nzf',
-    description: `Charged Melee Hits grant Fathomless Deep which increases Melee Stagger by 10% per stack for 5s. Max 3 attacks.`,
+    description: `A hammer-like anchor that swings with an exceptionally irregular ferocity.`,
     howToGet: `Can be found in Forlorn Coast.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Abyssal+Hook`],
     linkedItems: {
