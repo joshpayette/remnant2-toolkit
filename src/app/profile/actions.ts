@@ -33,6 +33,14 @@ import {
   communityBuildsQuery,
 } from '@/features/filters/queries/community-builds'
 import { Prisma } from '@prisma/client'
+import {
+  amuletFilterToId,
+  limitByAmuletSegment,
+} from '@/features/filters/queries/segments/limitByAmulet'
+import {
+  limitByRingSegment,
+  ringFilterToId,
+} from '@/features/filters/queries/segments/limitByRing'
 
 export type CreatedBuildsFilter = 'date created' | 'upvotes'
 
@@ -52,22 +60,33 @@ export async function getCreatedBuilds({
   const session = await getServerSession()
   const userId = session?.user?.id
 
-  const { archetypes, longGun, handGun, melee, selectedReleases } =
-    communityBuildFilters
-  const archetypeIds = archetypeFiltersToIds({ archetypes })
+  const {
+    archetypes,
+    longGun,
+    handGun,
+    melee,
+    ring,
+    amulet,
+    selectedReleases,
+  } = communityBuildFilters
 
   if (selectedReleases.length === 0) return { items: [], totalItemCount: 0 }
 
+  const archetypeIds = archetypeFiltersToIds({ archetypes })
   const weaponIds = weaponFiltersToIds({
     longGun,
     handGun,
     melee,
   })
+  const amuletId = amuletFilterToId({ amulet })
+  const ringId = ringFilterToId({ ring })
 
   const whereConditions = Prisma.sql`
   WHERE Build.createdById = ${userId}
   ${limitByArchetypesSegment(archetypeIds)}
   ${limitByWeaponsSegment(weaponIds)}
+  ${limitByAmuletSegment(amuletId)}
+  ${limitByRingSegment(ringId)}
   ${limitByReleasesSegment(selectedReleases)}
   ${limitByTimeCondition(timeRange)}
   `

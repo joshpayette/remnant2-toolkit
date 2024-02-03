@@ -6,6 +6,7 @@ import FiltersContainer from '@/features/filters/components/FiltersContainer'
 import ArchetypeFilters from '@/features/filters/components/ArchetypeFilters'
 import WeaponFilters from '@/features/filters/components/WeaponFilters'
 import ReleaseFilters from './ReleaseFilters'
+import JewelryFilters from './JewelryFilters'
 
 interface Props {
   showBorder?: boolean
@@ -33,6 +34,8 @@ export default function CommunityBuildFilters({ onUpdate }: Props) {
       filters.longGun !== DEFAULT_COMMUNITY_BUILD_FILTERS['longGun'] ||
       filters.handGun !== DEFAULT_COMMUNITY_BUILD_FILTERS['handGun'] ||
       filters.melee !== DEFAULT_COMMUNITY_BUILD_FILTERS['melee'] ||
+      filters.ring !== DEFAULT_COMMUNITY_BUILD_FILTERS['ring'] ||
+      filters.amulet !== DEFAULT_COMMUNITY_BUILD_FILTERS['amulet'] ||
       filters.selectedReleases.length < 2
     )
   }, [filters])
@@ -40,8 +43,6 @@ export default function CommunityBuildFilters({ onUpdate }: Props) {
   // If the filters are changed, but back to the default state
   // we should consider the filters as applied
   useEffect(() => {
-    console.info('areFiltersApplied', areFiltersApplied)
-
     if (!areFiltersApplied && !areAnyFiltersActive()) setAreFiltersApplied(true)
   }, [areFiltersApplied, areAnyFiltersActive])
 
@@ -72,6 +73,22 @@ export default function CommunityBuildFilters({ onUpdate }: Props) {
     setFilters({
       ...filters,
       [type]: weapon,
+    })
+    setAreFiltersApplied(false)
+  }
+
+  function handleRingChange(ring: string) {
+    setFilters({
+      ...filters,
+      ring: ring,
+    })
+    setAreFiltersApplied(false)
+  }
+
+  function handleAmuletChange(amulet: string) {
+    setFilters({
+      ...filters,
+      amulet: amulet,
     })
     setAreFiltersApplied(false)
   }
@@ -114,6 +131,12 @@ export default function CommunityBuildFilters({ onUpdate }: Props) {
         onChange={(weapon: string, type: 'longGun' | 'handGun' | 'melee') =>
           handleWeaponChange(weapon, type)
         }
+      />
+      <JewelryFilters
+        selectedRing={filters.ring}
+        selectedAmulet={filters.amulet}
+        onChangeRing={(ring: string) => handleRingChange(ring)}
+        onChangeAmulet={(amulet: string) => handleAmuletChange(amulet)}
       />
       <ReleaseFilters
         selectedReleases={filters.selectedReleases}

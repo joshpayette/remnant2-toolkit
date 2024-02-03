@@ -5,6 +5,8 @@ export interface CommunityBuildFilterProps {
   longGun: string
   handGun: string
   melee: string
+  ring: string
+  amulet: string
   selectedReleases: ReleaseKey[]
 }
 

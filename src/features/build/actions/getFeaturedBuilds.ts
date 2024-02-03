@@ -26,6 +26,14 @@ import {
 import { limitByReleasesSegment } from '@/features/filters/queries/segments/limitByRelease'
 import limitByTimeCondition from '@/features/filters/queries/segments/limitByTimeCondition'
 import getOrderBySegment from '@/features/filters/queries/segments/getOrderBySegment'
+import {
+  limitByRingSegment,
+  ringFilterToId,
+} from '@/features/filters/queries/segments/limitByRing'
+import {
+  amuletFilterToId,
+  limitByAmuletSegment,
+} from '@/features/filters/queries/segments/limitByAmulet'
 
 export async function getFeaturedBuilds({
   communityBuildFilters,
@@ -43,12 +51,22 @@ export async function getFeaturedBuilds({
   const session = await getServerSession()
   const userId = session?.user?.id
 
-  const { archetypes, longGun, handGun, melee, selectedReleases } =
-    communityBuildFilters
-  const archetypeIds = archetypeFiltersToIds({ archetypes })
-  const weaponIds = weaponFiltersToIds({ longGun, handGun, melee })
+  const {
+    archetypes,
+    longGun,
+    handGun,
+    melee,
+    ring,
+    amulet,
+    selectedReleases,
+  } = communityBuildFilters
 
   if (selectedReleases.length === 0) return { items: [], totalItemCount: 0 }
+
+  const archetypeIds = archetypeFiltersToIds({ archetypes })
+  const weaponIds = weaponFiltersToIds({ longGun, handGun, melee })
+  const amuletId = amuletFilterToId({ amulet })
+  const ringId = ringFilterToId({ ring })
 
   const whereConditions = Prisma.sql`
   WHERE Build.isPublic = true
@@ -56,6 +74,8 @@ export async function getFeaturedBuilds({
   ${limitByWeaponsSegment(weaponIds)}
   ${limitByReleasesSegment(selectedReleases)}
   ${limitByTimeCondition(timeRange)}
+  ${limitByAmuletSegment(amuletId)}
+  ${limitByRingSegment(ringId)}
   AND Build.isFeaturedBuild = true
   `
 

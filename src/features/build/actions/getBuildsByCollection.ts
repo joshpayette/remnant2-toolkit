@@ -30,6 +30,14 @@ import {
 import { limitByReleasesSegment } from '@/features/filters/queries/segments/limitByRelease'
 import limitByTimeCondition from '@/features/filters/queries/segments/limitByTimeCondition'
 import getOrderBySegment from '@/features/filters/queries/segments/getOrderBySegment'
+import {
+  limitByRingSegment,
+  ringFilterToId,
+} from '@/features/filters/queries/segments/limitByRing'
+import {
+  amuletFilterToId,
+  limitByAmuletSegment,
+} from '@/features/filters/queries/segments/limitByAmulet'
 
 export async function getBuildsByCollection({
   communityBuildFilters,
@@ -50,6 +58,23 @@ export async function getBuildsByCollection({
   const userId = session?.user?.id
 
   if (!userId) return { items: [], totalItemCount: 0 }
+
+  const {
+    archetypes,
+    longGun,
+    handGun,
+    melee,
+    ring,
+    amulet,
+    selectedReleases,
+  } = communityBuildFilters
+
+  if (selectedReleases.length === 0) return { items: [], totalItemCount: 0 }
+
+  const archetypeIds = archetypeFiltersToIds({ archetypes })
+  const weaponIds = weaponFiltersToIds({ longGun, handGun, melee })
+  const ringId = ringFilterToId({ ring })
+  const amuletId = amuletFilterToId({ amulet })
 
   // if the user has no discoveredItemIds, return an empty array
   if (discoveredItemIds.length === 0) {
@@ -78,17 +103,12 @@ export async function getBuildsByCollection({
     })),
   })
 
-  const { archetypes, longGun, handGun, melee, selectedReleases } =
-    communityBuildFilters
-  const archetypeIds = archetypeFiltersToIds({ archetypes })
-  const weaponIds = weaponFiltersToIds({ longGun, handGun, melee })
-
-  if (selectedReleases.length === 0) return { items: [], totalItemCount: 0 }
-
   const whereConditions = Prisma.sql`
   WHERE Build.isPublic = true
   ${limitByArchetypesSegment(archetypeIds)}
   ${limitByWeaponsSegment(weaponIds)}
+  ${limitByAmuletSegment(amuletId)}
+  ${limitByRingSegment(ringId)}
   ${limitByReleasesSegment(selectedReleases)}
   ${limitByCollectionSegment({ userId, allOwnedItemIds })}
   ${limitByTimeCondition(timeRange)}
