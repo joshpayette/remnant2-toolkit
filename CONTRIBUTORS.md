@@ -2,12 +2,23 @@
 
 This project exists and thrives thanks to all the people who contribute.
 
+## Code Contributors
+
 - Alexij
 - Spoon
-- Thatguylegit
+
+## Content Creators
+
 - SenorCerveza
 - Mr. Nacho [*]
-- Joelexion
+
+## Guide Contributors
+
+- Thatguylegit
+
+## Bug Reporters
+
 - bo}|{omar
+- Joelexion
 - Newby
 - Sk0oMa
