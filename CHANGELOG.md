@@ -11,6 +11,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - You can now filter builds by an amulet or ring in the various build lists.
 - Added Challenger specific description to Weight tooltip in the builder to account for the Powerlifter perk.
 - Added tooltip to Armor in the builder to show the Armor Damage Reduction formula.
+- Added CODE_OF_CONDUCT.md to repo and linked to it in the Builder near the public visibility toggler.
 
 ### Fixed
 
