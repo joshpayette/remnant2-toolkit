@@ -75,11 +75,18 @@ export default function MemberFeatures({
             {isEditable ? (
               <div className="flex flex-row items-center justify-start text-sm text-green-500">
                 <div className="mr-4">Public Build</div>
-                <div className="">
+                <div className="flex items-center justify-start">
                   <Toggle
                     enabled={Boolean(isPublic)}
                     setEnabled={onChangeIsPublic}
                   />
+                  <a
+                    href="https://github.com/joshpayette/remnant2-toolkit/blob/main/CODE_OF_CONDUCT.md"
+                    target="_blank"
+                    className="ml-2 text-xs text-purple-500 underline"
+                  >
+                    Code of Conduct
+                  </a>
                 </div>
               </div>
             ) : (
