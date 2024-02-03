@@ -1,3 +1,10 @@
+/**
+ * API endpoint for reconciling Patreon memberships with the database
+ * This script is run on a cron job to ensure that the database is up to date
+ * with the current Patreon memberships
+ * It also adds a build vote for each user in PaidUsers from the toolkit account
+ */
+
 import type { NextRequest } from 'next/server'
 import { patreon as patreonAPI } from 'patreon'
 import { prisma } from '@/features/db'
