@@ -365,7 +365,7 @@ export const remnantItems: Item[] = [
     name: 'War Stomp',
     imagePath: '/skill/war_stomp.png',
     id: 'qnz5iw',
-    description: `Creates a high impact tremor that deals 150 damage and additional stagger in a forward cone up to 7.5m. Deals damage in all directions at point blank range. `,
+    description: `Creates a high impact tremor that deals 150 damage and additional stagger in a forward cone up to 7.5m. [A] Deals damage in all directions at point blank range. `,
     cooldown: 50,
     howToGet: `Automatically unlocked`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/War+Stomp`],
@@ -725,7 +725,7 @@ export const remnantItems: Item[] = [
     name: 'Heavy Weapon: Flamethrower',
     imagePath: '/skill/heavy_weapon_flamethrower.png',
     id: '6fk8ea',
-    description: `PRESS: Deploys a Flamethrower turret which lasts until its Ammo is exhausted. Turrets that can aim will prioritize targets that the player Aims at. Press SKILL again to enable autonomous targeting.
+    description: `PRESS: Deploys a Flamethrower turret which lasts until its Ammo is exhausted. Turrets that can aim will prioritize targets that the player Aims at. Press SKILL again to enable autonomous targeting. [A]
 
     HOLD: Deploys to Heavy Carry Mode. If ENGINEER Prime is available, will Overclock the weapon if already in hand or on the battlefield.
     
@@ -5234,7 +5234,7 @@ export const remnantItems: Item[] = [
     name: 'Dying Breath',
     imagePath: '/mod/dying_breath.png',
     id: '22nk8x',
-    description: `When infused, Neural Backdash Charge Attack explodes in a 3m. AOE and leaves an ACID Cloud which last for 15s.`,
+    description: `When infused, Neural Backdash Charge Attack explodes in a 3m. [R] AOE and leaves an ACID Cloud which last for 15s.`,
     howToGet: `Attached to the Gas Giant melee weapon`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Dying+Breath`],
     linkedItems: {
@@ -5286,7 +5286,7 @@ export const remnantItems: Item[] = [
     name: 'Explosive Shot',
     imagePath: '/mod/explosive_shot.png',
     id: 'hpfdzp',
-    description: `Fires an explosive round that deals up to 240 damage within 9m.`,
+    description: `Fires an explosive round that deals up to 240 damage within 9m. [A] `,
     howToGet: `Attached to the Hellfire weapon`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Explosive+Shot`],
     linkedItems: {
@@ -10373,7 +10373,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     Heavy Weapons grant 15% Damage Reduction to all allies within 2.5m.
     
     Upgrade unlocked at level 7
-    Heavy Weapons grant 15% Damage Reduction and gradually restore Ammo to allies within 2.5m`,
+    Heavy Weapons grant 15% Damage Reduction and gradually restore Ammo to allies within 2.5m. [R]`,
     howToGet: `Unlocked at Level 2`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Magnetic+Field`],
     linkedItems: {
