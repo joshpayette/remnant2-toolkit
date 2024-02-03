@@ -28,6 +28,10 @@ export default function Stats({ buildState, isScreenshotMode }: Props) {
   const totalToxinResistance = getTotalResistances(buildState, 'toxin')
   const weightClass = getWeightClass(buildState)
 
+  const challengerIsEquipped =
+    buildState.items.archetype[0]?.name === 'Challenger' ||
+    buildState.items.archetype[1]?.name === 'Challenger'
+
   return (
     <dl className="flex w-full flex-grow flex-col justify-start">
       <dd className="flex w-full flex-row items-center justify-start">
@@ -74,7 +78,13 @@ export default function Stats({ buildState, isScreenshotMode }: Props) {
                 weightClass.textColor,
               )}
             >
-              <Tooltip content={weightClass.description}>
+              <Tooltip
+                content={
+                  challengerIsEquipped
+                    ? weightClass.challengerDescription
+                    : weightClass.description
+                }
+              >
                 <button>{totalWeight}</button>
               </Tooltip>
             </span>

@@ -51,21 +51,28 @@ export const ARCHTYPE_COLORS = {
 
 export const WEIGHT_CLASSES = {
   LIGHT: {
+    challengerDescription: 'Fast Dodge. No Stamina Cost Penalty.',
     description: 'Fast Dodge. No Stamina Cost Penalty.',
     textColor: 'text-[#5a97a9]',
     maxWeight: 25,
   },
   MEDIUM: {
+    challengerDescription:
+      'Normal Dodge. 12.5% Stamina Cost Penalty due to Powerlifter perk.',
     description: 'Normal Dodge. 25% Stamina Cost Penalty.',
     textColor: 'text-[#61855a]',
     maxWeight: 50,
   },
   HEAVY: {
+    challengerDescription:
+      'Slow Dodge. 25% Stamina Cost Penalty due to Powerlifter perk.',
     description: 'Slow Dodge. 50% Stamina Cost Penalty.',
     textColor: 'text-[#9ea457]',
     maxWeight: 75,
   },
   ULTRA: {
+    challengerDescription:
+      'FLOP. 36% Stamina Cost Penalty due to Powerlifter perk.',
     description: 'FLOP. 75% Stamina Cost Penalty.',
     textColor: 'text-[#c9403c]',
     maxWeight: -1,
