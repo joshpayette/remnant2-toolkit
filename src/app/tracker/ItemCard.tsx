@@ -14,7 +14,7 @@ function CardImage({ item }: { item: ItemCardProps['item'] }) {
   }
 
   return (
-    <div className="relative flex h-[64px] w-full grow items-center justify-center overflow-hidden bg-[url('https://d2sqltdcj8czo5.cloudfront.net/card-body-bg.jpg')]">
+    <div className="relative flex w-full grow items-center justify-center overflow-hidden bg-[url('https://d2sqltdcj8czo5.cloudfront.net/card-body-bg.jpg')]">
       {item && (
         <Image
           src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}${item.imagePath}`}
