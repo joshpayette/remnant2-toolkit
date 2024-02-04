@@ -4,7 +4,13 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
-## 2024-02-23
+## 2024-02-04
+
+### Added
+
+- You can now import a CSV file to the Item Tracker.
+
+## 2024-02-03
 
 ### Added
 
