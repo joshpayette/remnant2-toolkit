@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Fixed
 
 - Fixed bug where 0 results would show "Showing 1 of 0 of 0"
+- Fixed bug where long urls in descriptions broke out of the build card
 
 ## 2024-02-04
 
