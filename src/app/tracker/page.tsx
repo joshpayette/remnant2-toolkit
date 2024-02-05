@@ -2,12 +2,10 @@
 
 import { useLocalStorage } from '@/features/localstorage/useLocalStorage'
 import { useEffect, useMemo, useRef, useState } from 'react'
-import ToCsvButton from '@/features/csv/ToCsvButton'
 import { useIsClient } from 'usehooks-ts'
 import PageHeader from '@/features/ui/PageHeader'
 import { useFormState } from 'react-dom'
-import parseSaveFile from './actions'
-import { SubmitButton } from '../../features/ui/SubmitButton'
+import { parseSaveFile } from './actions'
 import { toast } from 'react-toastify'
 import {
   remnantItemCategories,
@@ -21,6 +19,8 @@ import ItemInfo from '@/features/items/components/ItemInfo'
 import Filters from '@/app/tracker/Filters'
 import ListItems from '@/app/tracker/ListItems'
 import ImportSaveDialog from './ImportSaveDialog'
+import ImportCSVDialog from './ImportCSVDialog'
+import Papa from 'papaparse'
 
 const skippedItemCategories: Array<GenericItem['category']> = ['skill', 'perk']
 
@@ -49,21 +49,151 @@ export default function Page() {
   // If the item info is defined, the modal should be open
   const isShowItemInfoOpen = Boolean(itemInfo)
 
-  const { discoveredItemIds, setDiscoveredItemIds } =
-    useLocalStorage()
+  const { discoveredItemIds, setDiscoveredItemIds } = useLocalStorage()
 
   const { filteredItems, handleUpdateFilters } = useFilteredItems(itemList)
   const totalItems = filteredItems.length
 
+  /**
+   * ----------------------------------------------
+   * Save File Upload
+   * ----------------------------------------------
+   */
+
   // get response after save file upload
-  const [uploadFormResponse, formAction] = useFormState(parseSaveFile, {
-    saveFileDiscoveredItemIds: null,
-  })
-  const [importDialogOpen, setImportDialogOpen] = useState(false)
-  // tracks the save data after upload
-  const saveData = useRef<string[] | null>(null)
-  // file input field
-  const fileInputRef = useRef<HTMLInputElement | null>(null)
+  const [uploadSaveFormResponse, saveFileFormAction] = useFormState(
+    parseSaveFile,
+    {
+      saveFileDiscoveredItemIds: null,
+    },
+  )
+  const [importSaveDialogOpen, setImportSaveDialogOpen] = useState(false)
+  const saveFileInputRef = useRef<HTMLInputElement | null>(null)
+
+  // If the upload save file form response changes, we need to set the save data
+  useEffect(() => {
+    if (!uploadSaveFormResponse) return
+
+    const { saveFileDiscoveredItemIds, error } = uploadSaveFormResponse
+
+    if (error) {
+      saveFileInputRef.current = null
+      setImportSaveDialogOpen(false)
+      toast.error(error)
+      return
+    }
+
+    if (!saveFileDiscoveredItemIds) return
+
+    // Remove any items that are in the skipped categories
+    const filteredDiscoveredItems = saveFileDiscoveredItemIds.filter(
+      (itemId) => {
+        const item = itemList.find((item) => item.id === itemId)
+        if (!item) return false
+        if (skippedItemCategories.includes(item.category)) return false
+        return true
+      },
+    )
+
+    saveFileInputRef.current = null
+    // Update the discovered item ids
+    setDiscoveredItemIds({ ids: filteredDiscoveredItems })
+    setImportSaveDialogOpen(false)
+    toast.success('Save file imported successfully!')
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [uploadSaveFormResponse])
+
+  /**
+   * ----------------------------------------------
+   * CSV File Upload
+   * ----------------------------------------------
+   */
+
+  const [importCSVDialogOpen, setImportCSVDialogOpen] = useState(false)
+  const csvFileInputRef = useRef<HTMLInputElement | null>(null)
+
+  // Provider the tracker progress
+  const discoveredCount = filteredItems.reduce((acc, item) => {
+    if (discoveredItemIds.includes(item.id)) return acc + 1
+    return acc
+  }, 0)
+  const discoveredPercent = Math.round((discoveredCount / totalItems) * 100)
+  const progress = isClient
+    ? `${discoveredCount} / ${totalItems} (${
+        isNaN(discoveredPercent) ? '0' : discoveredPercent
+      }%)`
+    : 'Calculating...'
+
+  function handleCsvFileSubmit() {
+    if (!csvFileInputRef.current || !csvFileInputRef.current.files) {
+      setImportCSVDialogOpen(false)
+      return
+    }
+
+    try {
+      Papa.parse(csvFileInputRef.current.files[0], {
+        complete: function (results) {
+          const newCsvItemIds: string[] = []
+
+          results.data.forEach(
+            (value: any, index: number, array: unknown[]) => {
+              const itemName = value[0]
+              const discovered =
+                value[value.length - 1].toLowerCase() === 'true'
+
+              if (!discovered) return
+
+              const item = remnantItems.find((item) => item.name === itemName)
+              if (!item) return
+
+              if (skippedItemCategories.includes(item.category)) return
+
+              newCsvItemIds.push(item.id)
+            },
+          )
+
+          csvFileInputRef.current = null
+          setDiscoveredItemIds({ ids: newCsvItemIds })
+          setImportCSVDialogOpen(false)
+          toast.success('CSV file imported successfully!')
+        },
+      })
+    } catch (error) {
+      csvFileInputRef.current = null
+      setImportCSVDialogOpen(false)
+      toast.error('There was an error importing the CSV file.')
+    }
+  }
+
+  /**
+   * ----------------------------------------------
+   * Other functions
+   * ----------------------------------------------
+   */
+  const handleShowItemInfo = (itemId: string) => {
+    const item = itemList.find((item) => item.id === itemId)
+    if (item) setItemInfo(item)
+  }
+
+  const handleListItemClicked = (itemId: string) => {
+    // If the item is already discovered, undiscover it
+    if (discoveredItemIds.includes(itemId)) {
+      const newDiscoveredItemIds = discoveredItemIds.filter(
+        (id) => id !== itemId,
+      )
+      setDiscoveredItemIds({ ids: newDiscoveredItemIds })
+      // We need to set the user item insert needed flag
+      // so that the next time they filter builds by collection,
+      // their items will be updated
+      return
+    }
+
+    const newDiscoveredItemIds = [...discoveredItemIds, itemId]
+    setDiscoveredItemIds({ ids: newDiscoveredItemIds })
+    // We need to set the user item insert needed flag
+    // so that the next time they filter builds by collection,
+    // their items will be updated
+  }
 
   // We only provide the relevant item data, not the internal image paths, etc.
   // We could maybe provide the ids as well, in case users wanted to dynamically
@@ -103,92 +233,22 @@ export default function Page() {
     )
   }, [filteredItems])
 
-  // If the upload form response changes, we need to set the save data
-  useEffect(() => {
-    if (!uploadFormResponse) return
-
-    setImportDialogOpen(false)
-
-    const { saveFileDiscoveredItemIds, error } = uploadFormResponse
-
-    if (error) {
-      toast.error(error)
-      if (fileInputRef.current) fileInputRef.current.value = ''
-      return
-    }
-
-    if (!saveFileDiscoveredItemIds) return
-    saveData.current = saveFileDiscoveredItemIds
-  }, [uploadFormResponse])
-
-  // If the save data is set, we need to check the discovered items
-  useEffect(() => {
-    if (!saveData.current) return
-
-    // Remove any items that are in the skipped categories
-    const filteredDiscoveredItems = saveData.current.filter((itemId) => {
-      const item = itemList.find((item) => item.id === itemId)
-      if (!item) return false
-      if (skippedItemCategories.includes(item.category)) return false
-      return true
-    })
-
-    // Update the discovered item ids
-    setDiscoveredItemIds({ ids: filteredDiscoveredItems })
-    // Reset the save data
-    saveData.current = null
-    // clear input field
-    if (fileInputRef.current) fileInputRef.current.value = ''
-    // notify of success
-    toast.success('Save file uploaded successfully!')
-  }, [setDiscoveredItemIds, filteredItems])
-
-  // Provider the tracker progress
-  const discoveredCount = filteredItems.reduce((acc, item) => {
-    if (discoveredItemIds.includes(item.id)) return acc + 1
-    return acc
-  }, 0)
-  const discoveredPercent = Math.round((discoveredCount / totalItems) * 100)
-  const progress = isClient
-    ? `${discoveredCount} / ${totalItems} (${
-        isNaN(discoveredPercent) ? '0' : discoveredPercent
-      }%)`
-    : 'Calculating...'
-
-  const handleShowItemInfo = (itemId: string) => {
-    const item = itemList.find((item) => item.id === itemId)
-    if (item) setItemInfo(item)
-  }
-
-  const handleListItemClicked = (itemId: string) => {
-    // If the item is already discovered, undiscover it
-    if (discoveredItemIds.includes(itemId)) {
-      const newDiscoveredItemIds = discoveredItemIds.filter(
-        (id) => id !== itemId,
-      )
-      setDiscoveredItemIds({ ids: newDiscoveredItemIds })
-      // We need to set the user item insert needed flag
-      // so that the next time they filter builds by collection,
-      // their items will be updated
-      return
-    }
-
-    const newDiscoveredItemIds = [...discoveredItemIds, itemId]
-    setDiscoveredItemIds({ ids: newDiscoveredItemIds })
-    // We need to set the user item insert needed flag
-    // so that the next time they filter builds by collection,
-    // their items will be updated
-  }
-
   if (!isClient) return null
 
   return (
     <>
       <ImportSaveDialog
-        open={importDialogOpen}
-        onClose={() => setImportDialogOpen(false)}
-        onSubmit={formAction}
-        fileInputRef={fileInputRef}
+        open={importSaveDialogOpen}
+        onClose={() => setImportSaveDialogOpen(false)}
+        onSubmit={saveFileFormAction}
+        fileInputRef={saveFileInputRef}
+      />
+      <ImportCSVDialog
+        csvItems={csvItems}
+        open={importCSVDialogOpen}
+        onClose={() => setImportCSVDialogOpen(false)}
+        onSubmit={handleCsvFileSubmit}
+        fileInputRef={csvFileInputRef}
       />
       <div className="relative flex w-full flex-col items-center justify-center">
         <ItemInfo
@@ -200,25 +260,11 @@ export default function Page() {
           title="Remnant 2 Item Tracker"
           subtitle="Discover all the items in Remnant 2"
         >
-          <div className="flex w-full items-center justify-center">
-            <button
-              onClick={() => setImportDialogOpen(true)}
-              className="w-[200px] rounded border-2 border-purple-500 bg-purple-700 p-2 text-lg font-bold text-white/90 hover:bg-purple-500 hover:text-white"
-            >
-              Import Save File
-            </button>
+          <div className="flex flex-col items-center justify-center text-4xl font-bold text-green-400">
+            <h2 className="text-4xl font-bold">Progress</h2>
+            <span className="text-2xl font-bold text-white">{progress}</span>
           </div>
         </PageHeader>
-
-        <hr className="mb-4 mt-4 w-full max-w-3xl border-gray-700" />
-
-        <div className="my-8 flex flex-col items-center justify-center gap-y-2 text-4xl font-bold text-green-400">
-          <h2 className="text-4xl font-bold">Progress</h2>
-          <span className="mb-4 text-2xl font-bold text-white">{progress}</span>
-          <div className="flex flex-row items-center justify-center gap-x-2">
-            <ToCsvButton data={csvItems} filename="remnant2toolkit_tracker" />
-          </div>
-        </div>
 
         <hr className="mb-8 mt-4 w-full max-w-3xl border-gray-700" />
 
@@ -231,6 +277,20 @@ export default function Page() {
             onUpdate={handleUpdateFilters}
             itemCategories={itemCategories}
           />
+          <div className="mt-16 flex w-full items-center justify-center gap-x-4">
+            <button
+              onClick={() => setImportSaveDialogOpen(true)}
+              className="w-[200px] rounded border-2 border-purple-500 bg-purple-700 p-2 text-lg font-bold text-white/90 hover:bg-purple-500 hover:text-white"
+            >
+              Import Save File
+            </button>
+            <button
+              onClick={() => setImportCSVDialogOpen(true)}
+              className="w-[200px] rounded border-2 border-purple-500 bg-purple-700 p-2 text-lg font-bold text-white/90 hover:bg-purple-500 hover:text-white"
+            >
+              Import CSV File
+            </button>
+          </div>
         </div>
 
         <div className="my-8 w-full">

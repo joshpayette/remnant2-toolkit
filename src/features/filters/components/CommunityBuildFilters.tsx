@@ -7,6 +7,7 @@ import ArchetypeFilters from '@/features/filters/components/ArchetypeFilters'
 import WeaponFilters from '@/features/filters/components/WeaponFilters'
 import ReleaseFilters from './ReleaseFilters'
 import JewelryFilters from './JewelryFilters'
+import SearchBuildsFilter from './SearchBuildsFilter'
 
 interface Props {
   showBorder?: boolean
@@ -36,6 +37,7 @@ export default function CommunityBuildFilters({ onUpdate }: Props) {
       filters.melee !== DEFAULT_COMMUNITY_BUILD_FILTERS['melee'] ||
       filters.ring !== DEFAULT_COMMUNITY_BUILD_FILTERS['ring'] ||
       filters.amulet !== DEFAULT_COMMUNITY_BUILD_FILTERS['amulet'] ||
+      filters.searchText !== DEFAULT_COMMUNITY_BUILD_FILTERS['searchText'] ||
       filters.selectedReleases.length < 2
     )
   }, [filters])
@@ -109,6 +111,14 @@ export default function CommunityBuildFilters({ onUpdate }: Props) {
     setAreFiltersApplied(false)
   }
 
+  function handleSearchTextChange(searchQuery: string) {
+    setFilters({
+      ...filters,
+      searchText: searchQuery,
+    })
+    setAreFiltersApplied(false)
+  }
+
   return (
     <FiltersContainer<CommunityBuildFilterProps>
       areAnyFiltersActive={areAnyFiltersActive()}
@@ -120,6 +130,12 @@ export default function CommunityBuildFilters({ onUpdate }: Props) {
       }}
       onClearFilters={handleClearFilters}
     >
+      <SearchBuildsFilter
+        searchText={filters.searchText}
+        onChange={(newSearchText: string) =>
+          handleSearchTextChange(newSearchText)
+        }
+      />
       <ArchetypeFilters
         selectedArchetypes={filters.archetypes}
         onChange={(archtype: Archetype) => handleArchtypeChange(archtype)}

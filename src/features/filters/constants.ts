@@ -1,11 +1,12 @@
 import { CommunityBuildFilterProps } from './types'
 
 export const DEFAULT_COMMUNITY_BUILD_FILTERS: CommunityBuildFilterProps = {
+  amulet: 'All',
   archetypes: [],
-  longGun: 'All',
   handGun: 'All',
+  longGun: 'All',
   melee: 'All',
   ring: 'All',
-  amulet: 'All',
+  searchText: '',
   selectedReleases: ['base', 'dlc1'],
 }

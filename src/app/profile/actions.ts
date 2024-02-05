@@ -41,6 +41,7 @@ import {
   limitByRingSegment,
   ringFilterToId,
 } from '@/features/filters/queries/segments/limitByRing'
+import { limitByBuildNameOrDescription } from '@/features/filters/queries/segments/limitByBuildNameOrDescription'
 
 export type CreatedBuildsFilter = 'date created' | 'upvotes'
 
@@ -61,12 +62,13 @@ export async function getCreatedBuilds({
   const userId = session?.user?.id
 
   const {
+    amulet,
     archetypes,
-    longGun,
     handGun,
+    longGun,
     melee,
     ring,
-    amulet,
+    searchText,
     selectedReleases,
   } = communityBuildFilters
 
@@ -89,6 +91,7 @@ export async function getCreatedBuilds({
   ${limitByRingSegment(ringId)}
   ${limitByReleasesSegment(selectedReleases)}
   ${limitByTimeCondition(timeRange)}
+  ${limitByBuildNameOrDescription(searchText)}
   `
 
   const orderBySegment = getOrderBySegment(orderBy)

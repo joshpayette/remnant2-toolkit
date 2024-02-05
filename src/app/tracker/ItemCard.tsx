@@ -1,4 +1,5 @@
 import { GenericItem } from '@/features/items/types/GenericItem'
+import { cn } from '@/lib/classnames'
 import Image from 'next/image'
 
 export interface ItemCardProps {
@@ -14,7 +15,12 @@ function CardImage({ item }: { item: ItemCardProps['item'] }) {
   }
 
   return (
-    <div className="relative flex h-[64px] w-full grow items-center justify-center overflow-hidden bg-[url('https://d2sqltdcj8czo5.cloudfront.net/card-body-bg.jpg')]">
+    <div
+      className={cn(
+        "relative flex h-[64px] w-full grow items-center justify-center overflow-hidden bg-[url('https://d2sqltdcj8czo5.cloudfront.net/card-body-bg.jpg')]",
+        imageSize.height === 128 && 'h-[128px]',
+      )}
+    >
       {item && (
         <Image
           src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}${item.imagePath}`}
@@ -22,6 +28,10 @@ function CardImage({ item }: { item: ItemCardProps['item'] }) {
           width={imageSize.width}
           height={imageSize.height}
           loading="eager"
+          className={cn(
+            'h-[64px] w-[64px]',
+            imageSize.height === 128 && 'h-[128px]',
+          )}
         />
       )}
     </div>

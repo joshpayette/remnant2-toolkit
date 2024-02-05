@@ -24,7 +24,6 @@ export interface CsvItem {
   name: string
   category: GenericItem['category']
   description: string
-  howToGet: string
   wikiLinks: string
 }
 

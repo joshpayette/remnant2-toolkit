@@ -19,7 +19,6 @@ export function itemToCsvItem(item: GenericItem): CsvItem {
     name: item.name,
     category: item.category,
     description: cleanString(item.description || ''),
-    howToGet: cleanString(item.howToGet || ''),
     wikiLinks: item.wikiLinks?.join('; ') || '',
   }
 }
