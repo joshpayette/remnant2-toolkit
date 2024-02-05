@@ -19,6 +19,7 @@ This project exists and thrives thanks to all the people who contribute.
 ## Bug Reporters
 
 - bo}|{omar
+- BrotherFromHood
 - Joelexion
 - Newby
 - Sk0oMa
