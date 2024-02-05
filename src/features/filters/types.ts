@@ -1,12 +1,13 @@
 import { Archetype, ReleaseKey } from '../items/types'
 
 export interface CommunityBuildFilterProps {
+  amulet: string
   archetypes: Archetype[]
-  longGun: string
   handGun: string
+  longGun: string
   melee: string
   ring: string
-  amulet: string
+  searchText: string
   selectedReleases: ReleaseKey[]
 }
 

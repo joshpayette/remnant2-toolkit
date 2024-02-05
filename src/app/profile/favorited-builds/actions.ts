@@ -34,6 +34,7 @@ import {
   limitByRingSegment,
   ringFilterToId,
 } from '@/features/filters/queries/segments/limitByRing'
+import { limitByBuildNameOrDescription } from '@/features/filters/queries/segments/limitByBuildNameOrDescription'
 
 export async function getFavoritedBuilds({
   communityBuildFilters,
@@ -52,12 +53,13 @@ export async function getFavoritedBuilds({
   const userId = session?.user?.id
 
   const {
+    amulet,
     archetypes,
-    longGun,
     handGun,
+    longGun,
     melee,
     ring,
-    amulet,
+    searchText,
     selectedReleases,
   } = communityBuildFilters
 
@@ -81,6 +83,7 @@ ${limitByAmuletSegment(amuletId)}
 ${limitByRingSegment(ringId)}
 ${limitByReleasesSegment(selectedReleases)}
 ${limitByTimeCondition(timeRange)}
+${limitByBuildNameOrDescription(searchText)}
 `
 
   const orderBySegment = getOrderBySegment(orderBy)

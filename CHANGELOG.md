@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Added
 
 - You can now import a CSV file to the Item Tracker.
+- You can now filter builds by a search term against the build name or build description.
 
 ## 2024-02-03
 

@@ -34,6 +34,7 @@ import {
   limitByRingSegment,
   ringFilterToId,
 } from '@/features/filters/queries/segments/limitByRing'
+import { limitByBuildNameOrDescription } from '@/features/filters/queries/segments/limitByBuildNameOrDescription'
 
 export async function getCommunityBuilds({
   communityBuildFilters,
@@ -52,12 +53,13 @@ export async function getCommunityBuilds({
   const userId = session?.user?.id
 
   const {
+    amulet,
     archetypes,
-    longGun,
     handGun,
+    longGun,
     melee,
     ring,
-    amulet,
+    searchText,
     selectedReleases,
   } = communityBuildFilters
   if (selectedReleases.length === 0) return { items: [], totalItemCount: 0 }
@@ -79,6 +81,7 @@ export async function getCommunityBuilds({
   ${limitByRingSegment(ringId)}
   ${limitByAmuletSegment(amuletId)}
   ${limitByTimeCondition(timeRange)}
+  ${limitByBuildNameOrDescription(searchText)}
   `
 
   const orderBySegment = getOrderBySegment(orderBy)
