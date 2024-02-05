@@ -103,3 +103,26 @@ Last updated: 2024-02-02
 - Killswitch - 7m > 10m **Amplitude**
 - Shocker - 7.5m > 11.25m **Amplitude**
 - Timewave - 7.5m > 11.25m **Amplitude**
+
+NEED TO BE FORMATED:
+• Starshot (Primary Fire) Explosion from impact 1m -> 1.5m EST Amplitude
+
+• Aphelion (Mod)
+Explosion from use of Primary Shot 4m -> 6m Amplitude
+
+• Hellfire (Mod)
+Explosion from Mod use 9m -> 13.5m Amplitude
+
+• Gas Giant (Nuetral Backdash + Charge)
+Gas cloud 3m -> 4.5m Resonance
+
+• Engineer, Flame Turret
+Range of acquired target 10m -> 15m EST Amplitude
+
+Flame Turret, impact of fireball 2m -> 3m Amplitude
+
+Magnetic Field (Perk)
+2.5m -> 3.75m Resonance
+
+Challenger, War Stomp (Skill)
+7.5m -> 11.25m Amplitude
