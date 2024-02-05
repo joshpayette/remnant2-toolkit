@@ -36,6 +36,14 @@ Examples of unacceptable behavior include:
 - Other conduct which could reasonably be considered inappropriate in a
   professional setting
 
+## Foreign Language Policy
+
+This community is primarily English-speaking. While we welcome and encourage
+people from all over the world to participate, we ask that all communication
+be in English. This includes build names and build descriptions. This is to
+ensure that all members of the community can understand and participate in
+discussions and activities, and to ensure that moderation is effective.
+
 ## Enforcement Responsibilities
 
 Community leaders are responsible for clarifying and enforcing our standards of
@@ -111,6 +119,12 @@ individual, or aggression toward or disparagement of classes of individuals.
 
 **Consequence**: A permanent ban from any sort of public interaction within the
 community.
+
+### Build Enforcement
+
+In the case that a build is in violation of the Code of Conduct, the build will either be
+set to private or removed from the toolkit entirely. The creator of the build will be notified
+of the violation and the reason for the action taken.
 
 ## Attribution
 
