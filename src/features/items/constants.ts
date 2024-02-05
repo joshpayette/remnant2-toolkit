@@ -256,6 +256,12 @@ export const DESCRIPTION_TAGS = [
     description: 'Damage is multiplicative with other sources of damage.',
   },
   {
+    type: 'crit damage',
+    token: '[C]',
+    color: 'text-[#f2350f]',
+    description: 'Base 50%. Damage is multiplicative with other sources of damage.',
+  },
+  {
     type: 'overloaded',
     token: 'OVERLOADED',
     color: 'text-[#7676af]',
