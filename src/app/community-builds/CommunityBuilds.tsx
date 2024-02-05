@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import BuildCard from '../../features/build/components/BuildCard'
 import BuildList from '@/features/build/components/BuildList'
 import usePagination from '@/features/pagination/usePagination'
