@@ -29,6 +29,8 @@ export default function BuildListPagination({
   onNextPage,
   onSpecificPage,
 }: Props) {
+  console.info('totalItems', totalItems)
+
   return (
     <div className="flex w-full items-center justify-between bg-black bg-opacity-40 px-4 py-4 sm:px-6">
       <div className="flex flex-1 justify-between sm:hidden">
@@ -50,7 +52,7 @@ export default function BuildListPagination({
           <p className="text-sm text-gray-200">
             Showing{' '}
             <span id="start_page_count" className="font-medium">
-              {totalItems !== 0 ? firstVisibleItemNumber : 0}
+              {firstVisibleItemNumber}
             </span>{' '}
             to{' '}
             <span id="end_page_count" className="font-medium">

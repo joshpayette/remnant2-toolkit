@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-02-05
+
+### Fixed
+
+- Fixed bug where 0 results would show "Showing 1 of 0 of 0"
+
 ## 2024-02-04
 
 ### Added

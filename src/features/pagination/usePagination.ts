@@ -86,8 +86,10 @@ export default function usePagination({
   }, [currentPage, itemsPerPage, totalItemCount])
 
   const firstVisibleItemNumber = useMemo(() => {
-    return currentPage * itemsPerPage - itemsPerPage + 1
-  }, [currentPage, itemsPerPage])
+    let firstPage = currentPage * itemsPerPage - itemsPerPage + 1
+    if (totalItemCount < 1) return 0
+    return firstPage
+  }, [currentPage, itemsPerPage, totalItemCount])
 
   const lastVisibleItemNumber = useMemo(() => {
     return currentPage * itemsPerPage > totalItemCount
