@@ -19,12 +19,14 @@ import BuildListFilters from '@/features/filters/components/BuildListFilters'
 import CommunityBuildFilters from '@/features/filters/components/CommunityBuildFilters'
 import { CommunityBuildFilterProps } from '@/features/filters/types'
 import { DEFAULT_COMMUNITY_BUILD_FILTERS } from '@/features/filters/constants'
+import useBuildListState from '@/features/build/hooks/useBuildListState'
+import { set } from 'date-fns'
 
 export default function Page() {
   const { data: sessionData } = useSession()
-  const [builds, setBuilds] = useState<DBBuild[]>([])
-  const [totalBuildCount, setTotalBuildCount] = useState<number>(0)
-  const [isLoading, setIsLoading] = useState(false)
+
+  const { buildListState, setBuildListState } = useBuildListState()
+  const { builds, totalBuildCount, isLoading } = buildListState
 
   const [communityBuildFilters, setCommunityBuildFilters] =
     useState<CommunityBuildFilterProps>(DEFAULT_COMMUNITY_BUILD_FILTERS)
@@ -61,7 +63,7 @@ export default function Page() {
 
   useEffect(() => {
     const getItemsAsync = async () => {
-      setIsLoading(true)
+      setBuildListState((prevState) => ({ ...prevState, isLoading: true }))
       const response = await getCreatedBuilds({
         communityBuildFilters,
         itemsPerPage,
@@ -69,17 +71,28 @@ export default function Page() {
         pageNumber: currentPage,
         timeRange,
       })
-      setBuilds(response.items)
-      setTotalBuildCount(response.totalItemCount)
-      setIsLoading(false)
+      setBuildListState((prevState) => ({
+        ...prevState,
+        isLoading: false,
+        builds: response.items,
+        totalBuildCount: response.totalItemCount,
+      }))
     }
     getItemsAsync()
-  }, [communityBuildFilters, currentPage, itemsPerPage, orderBy, timeRange])
+  }, [
+    communityBuildFilters,
+    currentPage,
+    itemsPerPage,
+    orderBy,
+    timeRange,
+    setBuildListState,
+  ])
 
   function handleDeleteBuild(buildId: string) {
-    setBuilds((prevBuilds) =>
-      prevBuilds.filter((build) => build.id !== buildId),
-    )
+    setBuildListState((prevBuilds) => ({
+      ...prevBuilds,
+      builds: prevBuilds.builds.filter((build) => build.id !== buildId),
+    }))
   }
 
   return (

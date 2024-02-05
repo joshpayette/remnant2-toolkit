@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import BuildCard from './BuildCard'
+import BuildCard from '../../features/build/components/BuildCard'
 import BuildList from '@/features/build/components/BuildList'
 import usePagination from '@/features/pagination/usePagination'
 import Link from 'next/link'
@@ -10,10 +10,11 @@ import useBuildActions from '@/features/build/hooks/useBuildActions'
 import { DBBuild } from '@/features/build/types'
 import { getCommunityBuilds } from '@/features/build/actions/getCommunityBuilds'
 import { isErrorResponse } from '@/features/error-handling/isErrorResponse'
-import { dbBuildToBuildState } from '../lib/dbBuildToBuildState'
+import { dbBuildToBuildState } from '../../features/build/lib/dbBuildToBuildState'
 import { CommunityBuildFilterProps } from '@/features/filters/types'
 import useBuildListFilters from '@/features/filters/hooks/useBuildListFilters'
 import BuildListFilters from '@/features/filters/components/BuildListFilters'
+import useBuildListState from '@/features/build/hooks/useBuildListState'
 
 interface Props {
   itemsPerPage?: number
@@ -24,9 +25,8 @@ export default function CommunityBuildList({
   itemsPerPage = 8,
   communityBuildFilters,
 }: Props) {
-  const [builds, setBuilds] = useState<DBBuild[]>([])
-  const [totalBuildCount, setTotalBuildCount] = useState<number>(0)
-  const [isLoading, setIsLoading] = useState<boolean>(false)
+  const { buildListState, setBuildListState } = useBuildListState()
+  const { builds, totalBuildCount, isLoading } = buildListState
 
   const {
     orderBy,
@@ -56,7 +56,7 @@ export default function CommunityBuildList({
   // Fetch data
   useEffect(() => {
     const getItemsAsync = async () => {
-      setIsLoading(true)
+      setBuildListState((prevState) => ({ ...prevState, isLoading: true }))
       const response = await getCommunityBuilds({
         itemsPerPage,
         pageNumber: currentPage,
@@ -64,13 +64,22 @@ export default function CommunityBuildList({
         orderBy,
         communityBuildFilters,
       })
-
-      setBuilds(response.items)
-      setTotalBuildCount(response.totalItemCount)
-      setIsLoading(false)
+      setBuildListState((prevState) => ({
+        ...prevState,
+        isLoading: false,
+        builds: response.items,
+        totalBuildCount: response.totalItemCount,
+      }))
     }
     getItemsAsync()
-  }, [currentPage, orderBy, timeRange, itemsPerPage, communityBuildFilters])
+  }, [
+    currentPage,
+    orderBy,
+    timeRange,
+    setBuildListState,
+    itemsPerPage,
+    communityBuildFilters,
+  ])
 
   async function onReportBuild(buildId: string) {
     const reportedBuild = builds.find((build) => build.id === buildId)
@@ -96,7 +105,7 @@ export default function CommunityBuildList({
         }
         return build
       })
-      setBuilds(newBuilds)
+      setBuildListState((prevState) => ({ ...prevState, builds: newBuilds }))
     }
   }
 

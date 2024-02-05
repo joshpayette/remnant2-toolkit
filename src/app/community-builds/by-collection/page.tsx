@@ -20,14 +20,15 @@ import { isErrorResponse } from '@/features/error-handling/isErrorResponse'
 import BuildListFilters from '@/features/filters/components/BuildListFilters'
 import useBuildListFilters from '@/features/filters/hooks/useBuildListFilters'
 import { set } from 'date-fns'
+import useBuildListState from '@/features/build/hooks/useBuildListState'
 
 const ITEMS_PER_PAGE = 24
 
 export default function Page() {
   const { data: sessionData } = useSession()
 
-  const [builds, setBuilds] = useState<DBBuild[]>([])
-  const [totalBuildCount, setTotalBuildCount] = useState<number>(0)
+  const { buildListState, setBuildListState } = useBuildListState()
+  const { builds, totalBuildCount, isLoading } = buildListState
 
   const [communityBuildFilters, setCommunityBuildFilters] =
     useState<CommunityBuildFilterProps>(DEFAULT_COMMUNITY_BUILD_FILTERS)
@@ -37,7 +38,6 @@ export default function Page() {
     setCommunityBuildFilters(filters)
   }
 
-  const [isLoading, setIsLoading] = useState(true)
   const { discoveredItemIds } = useLocalStorage()
 
   const {
@@ -65,7 +65,7 @@ export default function Page() {
 
   useEffect(() => {
     async function getItemsAsync() {
-      setIsLoading(true)
+      setBuildListState((prevState) => ({ ...prevState, isLoading: true }))
       const response = await getBuildsByCollection({
         communityBuildFilters,
         discoveredItemIds,
@@ -74,9 +74,12 @@ export default function Page() {
         pageNumber: currentPage,
         timeRange,
       })
-      setBuilds(response.items)
-      setTotalBuildCount(response.totalItemCount)
-      setIsLoading(false)
+      setBuildListState((prevState) => ({
+        ...prevState,
+        isLoading: false,
+        builds: response.items,
+        totalBuildCount: response.totalItemCount,
+      }))
     }
     getItemsAsync()
   }, [
@@ -85,6 +88,7 @@ export default function Page() {
     discoveredItemIds,
     orderBy,
     timeRange,
+    setBuildListState,
   ])
 
   const { handleReportBuild } = useBuildActions()
@@ -113,7 +117,7 @@ export default function Page() {
         }
         return build
       })
-      setBuilds(newBuilds)
+      setBuildListState((prevState) => ({ ...prevState, builds: newBuilds }))
     }
   }
 

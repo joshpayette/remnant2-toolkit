@@ -4,7 +4,7 @@ import Link from 'next/link'
 import PageHeader from '../../features/ui/PageHeader'
 import { signIn, useSession } from 'next-auth/react'
 import { useEffect, useState } from 'react'
-import CommunityBuildList from '../../features/build/components/CommunityBuildList'
+import CommunityBuilds from './CommunityBuilds'
 import CommunityBuildFilters from '@/features/filters/components/CommunityBuildFilters'
 import { CommunityBuildFilterProps } from '@/features/filters/types'
 import { DEFAULT_COMMUNITY_BUILD_FILTERS } from '@/features/filters/constants'
@@ -70,7 +70,7 @@ export default function Page() {
         <CommunityBuildFilters onUpdate={handleChangeCommunityBuildFilters} />
       </div>
       <div className="grid w-full grid-cols-1 gap-2">
-        <CommunityBuildList
+        <CommunityBuilds
           communityBuildFilters={communityBuildFilters}
           itemsPerPage={24}
         />

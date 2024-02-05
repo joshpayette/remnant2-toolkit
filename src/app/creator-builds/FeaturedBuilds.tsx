@@ -1,15 +1,15 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import BuildCard from '../../features/build/components/BuildCard'
 import BuildList from '@/features/build/components/BuildList'
 import usePagination from '@/features/pagination/usePagination'
 import Link from 'next/link'
-import { DBBuild } from '@/features/build/types'
 import { getFeaturedBuilds } from '@/features/build/actions/getFeaturedBuilds'
 import { CommunityBuildFilterProps } from '@/features/filters/types'
 import useBuildListFilters from '@/features/filters/hooks/useBuildListFilters'
 import BuildListFilters from '@/features/filters/components/BuildListFilters'
+import useBuildListState from '@/features/build/hooks/useBuildListState'
 
 interface Props {
   itemsPerPage?: number
@@ -20,9 +20,8 @@ export default function FeaturedBuilds({
   itemsPerPage = 8,
   communityBuildFilters,
 }: Props) {
-  const [builds, setBuilds] = useState<DBBuild[]>([])
-  const [totalBuildCount, setTotalBuildCount] = useState<number>(0)
-  const [isLoading, setIsLoading] = useState<boolean>(true)
+  const { buildListState, setBuildListState } = useBuildListState()
+  const { builds, totalBuildCount, isLoading } = buildListState
 
   const {
     orderBy,
@@ -50,7 +49,7 @@ export default function FeaturedBuilds({
   // Fetch data
   useEffect(() => {
     const getItemsAsync = async () => {
-      setIsLoading(true)
+      setBuildListState((prevState) => ({ ...prevState, isLoading: true }))
       const response = await getFeaturedBuilds({
         communityBuildFilters,
         itemsPerPage,
@@ -58,12 +57,22 @@ export default function FeaturedBuilds({
         pageNumber: currentPage,
         timeRange,
       })
-      setBuilds(response.items)
-      setTotalBuildCount(response.totalItemCount)
-      setIsLoading(false)
+      setBuildListState((prevState) => ({
+        ...prevState,
+        isLoading: false,
+        builds: response.items,
+        totalBuildCount: response.totalItemCount,
+      }))
     }
     getItemsAsync()
-  }, [communityBuildFilters, currentPage, itemsPerPage, orderBy, timeRange])
+  }, [
+    communityBuildFilters,
+    currentPage,
+    itemsPerPage,
+    orderBy,
+    timeRange,
+    setBuildListState,
+  ])
 
   return (
     <>
