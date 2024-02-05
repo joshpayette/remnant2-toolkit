@@ -1,12 +1,14 @@
 'use client'
 
 import { Disclosure } from '@headlessui/react'
-import { ChevronUpIcon } from '@heroicons/react/20/solid'
 import { cn } from '@/lib/classnames'
 import { useIsClient } from 'usehooks-ts'
 import { useLocalStorage } from '@/features/localstorage/useLocalStorage'
 import ItemCard from './ItemCard'
-import { InformationCircleIcon } from '@heroicons/react/24/solid'
+import {
+  ChevronDownIcon,
+  InformationCircleIcon,
+} from '@heroicons/react/24/solid'
 import { ItemCategory } from '@/features/build/types'
 import { WeaponItem } from '@/features/items/types/WeaponItem'
 import { Item } from '@/features/items/types'
@@ -166,7 +168,7 @@ export default function ListItems({
                     )}
                   </span>
                 </div>
-                <ChevronUpIcon
+                <ChevronDownIcon
                   className={cn(
                     'h-5 w-5 text-white',
                     open ? 'rotate-180 transform' : '',
