@@ -54,7 +54,7 @@ export default function BuildCard({
         </div>
       )}
       <div className="flex w-full flex-1 items-start justify-start space-x-6 p-4">
-        <div className="flex flex-col items-start justify-start overflow-x-auto">
+        <div className="flex flex-col items-start justify-start">
           <Link
             href={`/builder/${build.id}`}
             className="w-full text-green-500 hover:text-green-700 hover:underline"
@@ -119,7 +119,7 @@ export default function BuildCard({
             )}
           </div>
           {buildState.description && (
-            <div className="mt-4 max-h-[100px] flex-row items-start justify-start gap-x-2 overflow-y-auto whitespace-break-spaces text-xs text-gray-300">
+            <div className="mt-4 max-h-[100px] flex-row items-start justify-start gap-x-2 overflow-y-auto whitespace-pre-wrap break-all text-xs text-gray-300">
               <DescriptionWithTags description={buildState.description} />
             </div>
           )}
