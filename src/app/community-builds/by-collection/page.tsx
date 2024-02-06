@@ -19,6 +19,7 @@ import BuildListFilters from '@/features/filters/components/BuildListFilters'
 import useBuildListFilters from '@/features/filters/hooks/useBuildListFilters'
 import useBuildListState from '@/features/build/hooks/useBuildListState'
 import saveDiscoveredItemIds from '@/features/items/actions/saveDiscoveredItemIds'
+import LoadingIndicator from '@/features/ui/LoadingIndicator'
 
 const ITEMS_PER_PAGE = 24
 
@@ -166,7 +167,14 @@ export default function Page() {
         />
       </div>
 
-      {communityBuildFilters && (
+      {discoveredItemsSaved.current === false && (
+        <div className="flex items-center justify-center p-4 text-lg font-semibold text-yellow-500">
+          Saving your discovered items...
+          <LoadingIndicator />
+        </div>
+      )}
+
+      {communityBuildFilters && discoveredItemsSaved.current && (
         <BuildList
           label="Build Results"
           currentPage={currentPage}
