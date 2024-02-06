@@ -7,11 +7,10 @@ import { useLocalStorage } from '@/features/localstorage/useLocalStorage'
 import usePagination from '@/features/pagination/usePagination'
 import { signIn, useSession } from 'next-auth/react'
 import Link from 'next/link'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { getBuildsByCollection } from '@/features/build/actions/getBuildsByCollection'
 import CommunityBuildFilters from '@/features/filters/components/CommunityBuildFilters'
 import { CommunityBuildFilterProps } from '@/features/filters/types'
-import { DEFAULT_COMMUNITY_BUILD_FILTERS } from '@/features/filters/constants'
 import useBuildActions from '@/features/build/hooks/useBuildActions'
 import { dbBuildToBuildState } from '@/features/build/lib/dbBuildToBuildState'
 import { toast } from 'react-toastify'
@@ -19,6 +18,7 @@ import { isErrorResponse } from '@/features/error-handling/isErrorResponse'
 import BuildListFilters from '@/features/filters/components/BuildListFilters'
 import useBuildListFilters from '@/features/filters/hooks/useBuildListFilters'
 import useBuildListState from '@/features/build/hooks/useBuildListState'
+import saveDiscoveredItemIds from '@/features/items/actions/saveDiscoveredItemIds'
 
 const ITEMS_PER_PAGE = 24
 
@@ -55,6 +55,22 @@ export default function Page() {
     totalItemCount: totalBuildCount,
     itemsPerPage: ITEMS_PER_PAGE,
   })
+
+  const discoveredItemsSaved = useRef(false)
+  useEffect(() => {
+    async function saveItemsAsync() {
+      const response = await saveDiscoveredItemIds({ discoveredItemIds })
+      if (response.success) {
+        discoveredItemsSaved.current = true
+      } else {
+        throw new Error(response.message)
+      }
+    }
+
+    if (discoveredItemsSaved.current === false) {
+      saveItemsAsync()
+    }
+  }, [discoveredItemIds, discoveredItemsSaved])
 
   useEffect(() => {
     async function getItemsAsync() {

@@ -166,10 +166,8 @@ export default function CommunityBuildFilters({ onUpdateFilters }: Props) {
   // If the filters are changed, check if they are applied
   useEffect(() => {
     if (isEqual(filters, unappliedFilters)) {
-      console.info('if x2')
       setAreFiltersApplied(true)
     } else {
-      console.info('hit else')
       setAreFiltersApplied(false)
     }
   }, [unappliedFilters, filters])

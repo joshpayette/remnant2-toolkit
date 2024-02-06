@@ -83,28 +83,9 @@ export async function getBuildsByCollection({
     return { items: [], totalItemCount: 0 }
   }
 
-  // -----------------------------------
-  // Update user's items
-  //
-  // We need to store the itemIds in a separate table
-  // so we can query them efficiently
-  // -----------------------------------
-
   // add linked items or item categories omitted from the tracker
   // that are still "owned" by the user
   const allOwnedItemIds = collectionToIds({ discoveredItemIds })
-
-  await prisma.$transaction([
-    prisma.userItems.deleteMany({
-      where: { userId },
-    }),
-    prisma.userItems.createMany({
-      data: allOwnedItemIds.map((itemId) => ({
-        userId,
-        itemId,
-      })),
-    }),
-  ])
 
   const whereConditions = Prisma.sql`
   WHERE Build.isPublic = true
