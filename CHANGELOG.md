@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-02-06
+
+### Added
+
+- Filters for various build lists now written to the URL. This will allow you to share a link to a specific set of builds with the filters applied, as well as maintaining the filters if you refresh the page.
+
 ## 2024-02-05
 
 ### Changed
