@@ -27,7 +27,7 @@ export async function generateMetadata(
         url: `https://remnant2builder.com/builder/${build.id}`,
         images: [
           {
-            url: 'https://d2sqltdcj8czo5.cloudfront.net/og_image_small.png',
+            url: 'https://d2sqltdcj8czo5.cloudfront.net/og_image.png',
             width: 100,
             height: 100,
           },
@@ -40,8 +40,8 @@ export async function generateMetadata(
         images: [
           {
             url: 'https://d2sqltdcj8czo5.cloudfront.net/og_image.png',
-            width: 495,
-            height: 495,
+            width: 200,
+            height: 200,
           },
         ],
       },
@@ -49,7 +49,7 @@ export async function generateMetadata(
   }
 
   // const previousOGImages = (await parent).openGraph?.images || []
-  const previousTwitterImages = (await parent).twitter?.images || []
+  //const previousTwitterImages = (await parent).twitter?.images || []
   const title = `${build.name} by ${build.createdByDisplayName}`
   const description =
     build.description ??
@@ -65,7 +65,7 @@ export async function generateMetadata(
       url: `https://remnant2builder.com/builder/${build.id}`,
       images: [
         {
-          url: 'https://d2sqltdcj8czo5.cloudfront.net/og_image_small.png',
+          url: 'https://d2sqltdcj8czo5.cloudfront.net/og_image.png',
           width: 100,
           height: 100,
         },
@@ -75,6 +75,13 @@ export async function generateMetadata(
     twitter: {
       title,
       description,
+      images: [
+        {
+          url: 'https://d2sqltdcj8czo5.cloudfront.net/og_image.png',
+          width: 200,
+          height: 200,
+        },
+      ],
     },
   }
 }
