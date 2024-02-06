@@ -749,7 +749,7 @@ export const remnantItems: Item[] = [
     id: 'ki92op',
     description: `PRESS: Deploys a Impact Cannon Turret which lasts until its Ammo is exhausted. Turrets that can aim will prioritze targets that the player Aims at. Press SKILL again to enable autonomous targeting. [A]
 
-    HOLD: Deploys to Heavy Carry Mode. If ENGINEER Prime is available, will Overclock the weapon if already in hand or on the battlefield.
+    HOLD: Deploys to Heavy Carry Mode [E]. If ENGINEER Prime is available, will Overclock the weapon if already in hand or on the battlefield.
     
     DOUBLE PRESS: The weapon is reclaimed, returning 75% of its remaining ammo.
     
@@ -3024,7 +3024,7 @@ export const remnantItems: Item[] = [
     name: 'Tormented Heart',
     imagePath: '/relic/tormented_heart.png',
     id: 'rtmajx',
-    description: `Innate 20% Use Speed bonus. On use, deals 420 Explosive damage to enemies within 10m [A] and Lifesteals 25% of damage dealt.`,
+    description: `Innate 20% Use Speed bonus. On use, deals 420 Explosive damage [E] to enemies within 10m [A] and Lifesteals 25% of damage dealt.`,
     howToGet: `Can be found in Losomn as a reward for sacrificing the Override Pin to the Nightweaver's Web.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Tormented+Heart`],
   },
@@ -4539,7 +4539,7 @@ export const remnantItems: Item[] = [
     imagePath: '/offhand/anguish.png',
     dlc: 'dlc1',
     id: 'r2o474',
-    description: `Fires heated bits of molten slag. Can be charged to fire a single explosive rod at the cost of causing damage to the wielder while charging.`,
+    description: `Fires heated bits of molten slag. Can be charged to fire a single explosive rod [E] at the cost of causing damage to the wielder while charging.`, // TODO IN-GAME test if it's explosive
     howToGet: `Can be crafted at McCabe Store with: x1 Occult Vessel, x7 Lumenite Crystal and x1000 Scrap.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Anguish`],
     linkedItems: {
@@ -4570,7 +4570,7 @@ export const remnantItems: Item[] = [
     name: 'Corrupted Meridian',
     imagePath: '/offhand/corrupted_meridian.png',
     id: 'yw1btj',
-    description: `Fires rocket that deals AOE damage within 2m. [A] Charging the weapon can load additional rockets.  (Max 3). Cannot Weakspot`,
+    description: `Fires rocket that deals AOE damage [E] within 2m. [A] Charging the weapon can load additional rockets.  (Max 3). Cannot Weakspot`,
     howToGet: `Added with the Aberration Domination update
     Can be purchased from Dwell by exchanging x10 Corrupted Shard and the original Meridian`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Corrupted+Meridian`],
@@ -4830,7 +4830,7 @@ export const remnantItems: Item[] = [
     name: 'Star Shot',
     imagePath: '/offhand/star_shot.png',
     id: 'tldnuq',
-    description: `Fires a fast moving projectile which explodes on contact. Explosion has no damage falloff. [A]`,
+    description: `Fires a fast moving projectile which explodes [E] on contact. Explosion has no damage falloff. [A]`,
     howToGet: `Complete the Supply Ship Event, in N'Erud.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Star+Shot`],
     linkedItems: {
@@ -4986,7 +4986,7 @@ export const remnantItems: Item[] = [
     name: 'Big Bang',
     imagePath: '/mod/big_bang.png',
     id: 's7ozpe',
-    description: `Funnels all current Mod Charges into the next shot. Projectiles deal 65 direct damage and 65 Explosive damage in a 5m [A] per Charge consumed. Explosion applies 75 BURNING damage over 10s per Charge consumed. 
+    description: `Funnels all current Mod Charges into the next shot. Projectiles deal 65 direct damage and 65 Explosive damage [E] in a 5m [A] per Charge consumed. Explosion applies 75 BURNING damage over 10s per Charge consumed. 
     Additional Charges consumed increase all damage by 5%. Max 5 Charges`,
     howToGet: `Attached to the Star Shot hand gun`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Big+Bang`],
@@ -5151,7 +5151,7 @@ export const remnantItems: Item[] = [
     name: 'Deadpoint',
     imagePath: '/mod/deadpoint.png',
     id: 'ysz4fw',
-    description: `Fires a cluster bomb which detonates on impact across 2.5m. each cluster deals up to 150 damage per explosion within 3.5m. [A]`,
+    description: `Fires a cluster bomb which detonates on impact across 2.5m. each cluster deals up to 150 damage [E] per explosion within 3.5m. [A]`,
     howToGet: `Attached to the Corrupted Meridian Handgun.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Deadpoint`],
     linkedItems: {
@@ -5272,7 +5272,7 @@ export const remnantItems: Item[] = [
     name: 'Eulogy',
     imagePath: '/mod/eulogy.png',
     id: '3xf7i2',
-    description: `Recalls bolts which deal 30 damage when pulled from a target and when striking targets on their return. Recalled bolts grant 2% of Max HP. Recalled bolts can also overfill Sorrow by up to +5. Any additional bolts will be returned to reserves.`,
+    description: `Recalls bolts which deal 30 damage when pulled from a target and when striking targets on their return. Recalled bolts grant 2% of Max HP. Recalled bolts can also overfill Sorrow by up to +5. Any additional bolts will be returned to reserves.`, // TODO IN-GAME Check if it deals explosive damage
     howToGet: `Attached to the Sorrow hand gun`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Eulogy`],
     linkedItems: {
@@ -5286,7 +5286,7 @@ export const remnantItems: Item[] = [
     name: 'Explosive Shot',
     imagePath: '/mod/explosive_shot.png',
     id: 'hpfdzp',
-    description: `Fires an explosive round that deals up to 240 damage within 9m. [A] `,
+    description: `Fires an explosive round [E] that deals up to 240 damage within 9m. [A] `, // TODO IN-GAME check for explosive damage
     howToGet: `Attached to the Hellfire weapon`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Explosive+Shot`],
     linkedItems: {
@@ -5512,7 +5512,7 @@ export const remnantItems: Item[] = [
     imagePath: '/mod/loath_the_weak.png',
     dlc: 'dlc1',
     id: 'aobtw7',
-    description: `Rapidly fire volatile needles that explode after 1.5s dealing 30 explosive damage.`,
+    description: `Rapidly fire volatile needles that explode after 1.5s dealing 30 explosive damage [E].`,
     howToGet: `Can be found attached to the Anguish weapon.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Loath+The+Weak`],
     linkedItems: {
@@ -5648,7 +5648,7 @@ export const remnantItems: Item[] = [
     name: 'Scrap Shot',
     imagePath: '/mod/scrap_shot.png',
     id: 'hcv400',
-    description: `Fires a caltrops grenade that explodes to cover an area of 6m. [R] Caltrops deal 20 damage per second and SLOW to enemies that walk over them. Lasts 10s.`,
+    description: `Fires a caltrops grenade that explodes to cover an area of 6m. [R] Caltrops deal 20 damage per second and SLOW to enemies that walk over them. Lasts 10s.`, // TODO IN-GAME check if its explosive damage 
     howToGet: `Purchased from Ava McCabe`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Scrap+Shot`],
   },
@@ -5657,7 +5657,7 @@ export const remnantItems: Item[] = [
     name: 'Screamer',
     imagePath: '/mod/screamer.png',
     id: '4aeebu',
-    description: `Fire a high-powered rocket that deals up to 200 damage within 2.5m. [A]`,
+    description: `Fire a high-powered rocket that deals up to 200 damage [E] within 2.5m. [A]`,
     howToGet: `Attached to the Meridian hand gun`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Screamer`],
     linkedItems: {
@@ -5807,7 +5807,7 @@ export const remnantItems: Item[] = [
     name: 'Tremor',
     imagePath: '/mod/tremor.png',
     id: 'g6glpj',
-    description: `Fires a projectile that cracks the ground and spawns shockwaves that deal 75 damage within 9m [A] for 6s. Shockwaves inflict 3x impact.`,
+    description: `Fires a projectile that cracks the ground and spawns shockwaves that deal 75 damage [E] within 9m [A] for 6s. Shockwaves inflict 3x impact.`,
     howToGet: `Crafted from Cordyceps Gland
     Drops from Mother Mind`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Tremor`],
@@ -6080,7 +6080,7 @@ export const remnantItems: Item[] = [
     type: 'gun',
     imagePath: '/mutator/kill_switch.png',
     id: 'rzfptj',
-    description: `Switching to this weapon creates an Explosive Burst which deals 50 Damage to all enemies within 7m. [A]`,
+    description: `Switching to this weapon creates an Explosive Burst [E] which deals 50 Damage to all enemies within 7m. [A]`,
     maxLevelBonus: `This weapon's kills with any Explosive Damage reduce Kill Switch cooldown by 1s`,
     howToGet: `Has a chance to drop from Aberrations randomly encountered during enemy ambushes.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Kill+Switch`],
@@ -7330,7 +7330,7 @@ Exclusive Ring for The Awakened King DLC."`,
     name: 'Blasting Cap Ring',
     imagePath: '/ring/blasting_cap_ring.png',
     id: 'ep14lr',
-    description: `Increases Explosive damage by 10%.`,
+    description: `Increases Explosive damage [E] by 10%.`,
     howToGet: `Can be found in N'Erud - Timeless Horizon.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Blasting+Cap+Ring`],
   },
@@ -9391,7 +9391,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     name: 'Black Tar',
     imagePath: '/consumable/black_tar.png',
     id: 'nrdcko',
-    description: `When thrown, explodes in a 4m [A] radius dealing 90 damage and applies TARRED which lasts 15s. Ranged damage and other FIRE sources ignite TARRED entities, causing dealing 750 BURNING damage over 10s.`,
+    description: `When thrown, explodes in a 4m [A] radius dealing 90 damage [E] and applies TARRED which lasts 15s. Ranged damage and other FIRE sources ignite TARRED entities, causing dealing 750 BURNING damage over 10s.`, // TODO IN-GAME check if it deals explosive damage 
     howToGet: `Can be bought form Reggie for 250 scrap`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Black+Tar`],
   },
@@ -9521,7 +9521,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     name: 'Pipe Bomb',
     imagePath: '/consumable/pipe_bomb.png',
     id: 'kfwizc',
-    description: `When thrown, explodes in a 4m [A] radius dealing 450 damage and applying BLEEDING, which deals an additional 1,350 BLEED damage over 30s.`,
+    description: `When thrown, explodes in a 4m [A] radius dealing 450 damage and applying BLEEDING, which deals an additional 1,350 BLEED damage over 30s.`, // TODO IN-GAME check if it deals explosive damage
     howToGet: `Can be bought form Reggie for 250 scrap currency`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Pipe+Bomb`],
   },
