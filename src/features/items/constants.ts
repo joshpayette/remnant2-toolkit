@@ -328,7 +328,7 @@ export const DESCRIPTION_TAGS = [
     type: 'explosive damage',
     token: '[E]',
     color: 'text-[#f57070]',
-    description: 'Explosive damage. Deals physical damage.',
+    description: 'Counts as explosive damage.',
   },  
 ] as const satisfies {
   type: string
