@@ -18,12 +18,7 @@ export default function Error({
 
   return (
     <div className="flex max-w-lg flex-col">
-      <PageHeader
-        title="Something went wrong!"
-        subtitle={
-          'Sorry, there was an unknown error. This has been logged for the team to review.'
-        }
-      />
+      <PageHeader title="Something went wrong!" subtitle={error.message} />
       <button
         onClick={() => reset()}
         className="rounded-md bg-gray-800 px-4 py-2 text-white"
