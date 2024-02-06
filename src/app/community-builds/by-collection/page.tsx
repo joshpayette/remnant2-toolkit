@@ -5,10 +5,9 @@ import BuildList from '@/features/build/components/BuildList'
 import PageHeader from '@/features/ui/PageHeader'
 import { useLocalStorage } from '@/features/localstorage/useLocalStorage'
 import usePagination from '@/features/pagination/usePagination'
-import { DBBuild } from '@/features/build/types'
 import { signIn, useSession } from 'next-auth/react'
 import Link from 'next/link'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { getBuildsByCollection } from '@/features/build/actions/getBuildsByCollection'
 import CommunityBuildFilters from '@/features/filters/components/CommunityBuildFilters'
 import { CommunityBuildFilterProps } from '@/features/filters/types'
@@ -30,12 +29,7 @@ export default function Page() {
   const { builds, totalBuildCount, isLoading } = buildListState
 
   const [communityBuildFilters, setCommunityBuildFilters] =
-    useState<CommunityBuildFilterProps>(DEFAULT_COMMUNITY_BUILD_FILTERS)
-  function handleChangeCommunityBuildFilters(
-    filters: CommunityBuildFilterProps,
-  ) {
-    setCommunityBuildFilters(filters)
-  }
+    useState<CommunityBuildFilterProps | null>(null)
 
   const { discoveredItemIds } = useLocalStorage()
 
@@ -64,6 +58,9 @@ export default function Page() {
 
   useEffect(() => {
     async function getItemsAsync() {
+      if (!communityBuildFilters) {
+        return
+      }
       setBuildListState((prevState) => ({ ...prevState, isLoading: true }))
       const response = await getBuildsByCollection({
         communityBuildFilters,
@@ -146,51 +143,57 @@ export default function Page() {
       />
 
       <div className="mb-8 flex w-full max-w-xl items-center justify-center">
-        <CommunityBuildFilters onUpdate={handleChangeCommunityBuildFilters} />
+        <CommunityBuildFilters
+          onUpdateFilters={(newFilters) => {
+            setCommunityBuildFilters(newFilters)
+          }}
+        />
       </div>
 
-      <BuildList
-        label="Build Results"
-        currentPage={currentPage}
-        pageNumbers={pageNumbers}
-        totalItems={totalBuildCount}
-        totalPages={totalPages}
-        isLoading={isLoading}
-        firstVisibleItemNumber={firstVisibleItemNumber}
-        lastVisibleItemNumber={lastVisibleItemNumber}
-        onPreviousPage={handlePreviousPageClick}
-        onNextPage={handleNextPageClick}
-        onSpecificPage={handleSpecificPageClick}
-        headerActions={
-          <BuildListFilters
-            orderBy={orderBy}
-            orderByOptions={orderByOptions}
-            onOrderByChange={handleOrderByChange}
-            timeRange={timeRange}
-            timeRangeOptions={timeRangeOptions}
-            onTimeRangeChange={handleTimeRangeChange}
-          />
-        }
-      >
-        {builds.map((build) => (
-          <div key={build.id} className="h-full w-full">
-            <BuildCard
-              build={build}
-              onReportBuild={onReportBuild}
-              footerActions={
-                <div className="flex items-center justify-end gap-2 p-2 text-sm">
-                  <Link
-                    href={`/builder/${build.id}`}
-                    className="relative inline-flex items-center justify-center gap-x-3 rounded-br-lg border border-transparent p-4 text-sm font-semibold text-green-500 hover:text-green-700 hover:underline"
-                  >
-                    View Build
-                  </Link>
-                </div>
-              }
+      {communityBuildFilters && (
+        <BuildList
+          label="Build Results"
+          currentPage={currentPage}
+          pageNumbers={pageNumbers}
+          totalItems={totalBuildCount}
+          totalPages={totalPages}
+          isLoading={isLoading}
+          firstVisibleItemNumber={firstVisibleItemNumber}
+          lastVisibleItemNumber={lastVisibleItemNumber}
+          onPreviousPage={handlePreviousPageClick}
+          onNextPage={handleNextPageClick}
+          onSpecificPage={handleSpecificPageClick}
+          headerActions={
+            <BuildListFilters
+              orderBy={orderBy}
+              orderByOptions={orderByOptions}
+              onOrderByChange={handleOrderByChange}
+              timeRange={timeRange}
+              timeRangeOptions={timeRangeOptions}
+              onTimeRangeChange={handleTimeRangeChange}
             />
-          </div>
-        ))}
-      </BuildList>
+          }
+        >
+          {builds.map((build) => (
+            <div key={build.id} className="h-full w-full">
+              <BuildCard
+                build={build}
+                onReportBuild={onReportBuild}
+                footerActions={
+                  <div className="flex items-center justify-end gap-2 p-2 text-sm">
+                    <Link
+                      href={`/builder/${build.id}`}
+                      className="relative inline-flex items-center justify-center gap-x-3 rounded-br-lg border border-transparent p-4 text-sm font-semibold text-green-500 hover:text-green-700 hover:underline"
+                    >
+                      View Build
+                    </Link>
+                  </div>
+                }
+              />
+            </div>
+          ))}
+        </BuildList>
+      )}
     </>
   )
 }

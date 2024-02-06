@@ -1,2 +1,2 @@
-- Builds by collection still fetches the full list before applying filters from the URL
-- Happening on all pages
+- Add user item update to DB in the tracker, remove from
+  the build by collection query

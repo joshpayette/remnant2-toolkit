@@ -11,6 +11,7 @@ import { CommunityBuildFilterProps } from '@/features/filters/types'
 
 export default function Page() {
   const { data: sessionData } = useSession()
+  
   const [communityBuildFilters, setCommunityBuildFilters] =
     useState<CommunityBuildFilterProps | null>(null)
 
