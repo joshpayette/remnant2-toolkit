@@ -40,8 +40,8 @@ export async function generateMetadata(
         images: [
           {
             url: 'https://d2sqltdcj8czo5.cloudfront.net/og_image.png',
-            width: 200,
-            height: 200,
+            width: 100,
+            height: 100,
           },
         ],
       },
