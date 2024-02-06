@@ -1,5 +1,5 @@
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { DEFAULT_COMMUNITY_BUILD_FILTERS } from '../constants'
 import { RELEASE_TO_NAME } from '@/features/items/constants'
 import { Archetype, ReleaseKey } from '@/features/items/types'
@@ -7,7 +7,9 @@ import { remnantItems } from '@/features/items/data/remnantItems'
 import { WeaponItem } from '@/features/items/types/WeaponItem'
 import { CommunityBuildFilterProps } from '../types'
 
-export default function useCommunityBuildFilters() {
+export default function useCommunityBuildFilters(
+  onUpdateFilters: (newFilters: CommunityBuildFilterProps) => void,
+) {
   const router = useRouter()
   const pathname = usePathname()
   const searchParams = useSearchParams()
@@ -31,7 +33,7 @@ export default function useCommunityBuildFilters() {
       const archetypesArray = archetypes.split(',')
       archetypesArray.forEach((archetype) => {
         if (!allArchetypes.includes(archetype as Archetype)) {
-          archetypes = null
+          archetypes = DEFAULT_COMMUNITY_BUILD_FILTERS['archetypes'].join(',')
         }
       })
     }
@@ -43,7 +45,7 @@ export default function useCommunityBuildFilters() {
         )
         .map((item) => item.name.toLowerCase())
       if (!allLongGuns.includes(longGun.toLowerCase())) {
-        longGun = null
+        longGun = DEFAULT_COMMUNITY_BUILD_FILTERS['longGun']
       }
     }
     // check if handGun is valid
@@ -54,7 +56,7 @@ export default function useCommunityBuildFilters() {
         )
         .map((item) => item.name.toLowerCase())
       if (!allHandGuns.includes(handGun.toLowerCase())) {
-        handGun = null
+        handGun = DEFAULT_COMMUNITY_BUILD_FILTERS['handGun']
       }
     }
     // check if melee is valid
@@ -65,7 +67,7 @@ export default function useCommunityBuildFilters() {
         )
         .map((item) => item.name.toLowerCase())
       if (!allMelees.includes(melee.toLowerCase())) {
-        melee = null
+        melee = DEFAULT_COMMUNITY_BUILD_FILTERS['melee']
       }
     }
     // check if ring is valid
@@ -74,7 +76,7 @@ export default function useCommunityBuildFilters() {
         .filter((item) => item.category === 'ring')
         .map((item) => item.name.toLowerCase())
       if (!allRings.includes(ring.toLowerCase())) {
-        ring = null
+        ring = DEFAULT_COMMUNITY_BUILD_FILTERS['ring']
       }
     }
     // check if amulet is valid
@@ -83,7 +85,7 @@ export default function useCommunityBuildFilters() {
         .filter((item) => item.category === 'amulet')
         .map((item) => item.name.toLowerCase())
       if (!allAmulets.includes(amulet.toLowerCase())) {
-        amulet = null
+        amulet = DEFAULT_COMMUNITY_BUILD_FILTERS['amulet']
       }
     }
     // check if releases are valid
@@ -96,12 +98,10 @@ export default function useCommunityBuildFilters() {
       const releasesArray = releases.split(',')
       releasesArray.forEach((release) => {
         if (!allReleases.includes(release as ReleaseKey)) {
-          releases = null
+          releases =
+            DEFAULT_COMMUNITY_BUILD_FILTERS['selectedReleases'].join(',')
         }
       })
-      if (!releases) {
-        releases = Object.keys(RELEASE_TO_NAME).join(',')
-      }
     }
 
     return {
@@ -115,6 +115,12 @@ export default function useCommunityBuildFilters() {
       selectedReleases: releases ? (releases.split(',') as ReleaseKey[]) : [],
     }
   }, [searchParams])
+
+  useEffect(() => {
+    console.info('filters changed, updating')
+    onUpdateFilters(filters)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [filters])
 
   const [unappliedFilters, setUnappliedFilters] =
     useState<CommunityBuildFilterProps>(filters)
@@ -230,6 +236,7 @@ export default function useCommunityBuildFilters() {
       finalPath = finalPath.slice(0, -1)
     }
 
+    // onUpdateFilters(newFilters)
     router.push(finalPath, { scroll: false })
   }
 

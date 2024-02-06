@@ -1,7 +1,5 @@
 'use client'
 
-// TODO move logic to CommunityBuildFilters to prevent full page rerender?
-
 import Link from 'next/link'
 import PageHeader from '../../features/ui/PageHeader'
 import { signIn, useSession } from 'next-auth/react'
@@ -9,24 +7,12 @@ import { useEffect, useState } from 'react'
 import CommunityBuilds from './CommunityBuilds'
 import CommunityBuildFilters from '@/features/filters/components/CommunityBuildFilters'
 import getTotalBuildCount from '@/features/build/actions/getTotalBuildCount'
-import useCommunityBuildFilters from '@/features/filters/hooks/useCommunityBuildFilters'
+import { CommunityBuildFilterProps } from '@/features/filters/types'
 
 export default function Page() {
   const { data: sessionData } = useSession()
-  const {
-    areAnyFiltersActive,
-    areFiltersApplied,
-    communityBuildFilters,
-    unappliedFilters,
-    handleAmuletChange,
-    handleApplyFilters,
-    handleArchetypeChange,
-    handleClearFilters,
-    handleReleaseChange,
-    handleRingChange,
-    handleSearchTextChange,
-    handleWeaponChange,
-  } = useCommunityBuildFilters()
+  const [communityBuildFilters, setCommunityBuildFilters] =
+    useState<CommunityBuildFilterProps | null>(null)
 
   const [totalBuildCount, setTotalBuildCount] = useState<number | string>(
     'HUNDREDS',
@@ -75,25 +61,19 @@ export default function Page() {
 
       <div className="mb-8 flex w-full max-w-2xl items-center justify-center">
         <CommunityBuildFilters
-          areAnyFiltersActive={areAnyFiltersActive}
-          areFiltersApplied={areFiltersApplied}
-          filters={unappliedFilters}
-          onAmuletChange={handleAmuletChange}
-          onApplyFilters={handleApplyFilters}
-          onArchetypeChange={handleArchetypeChange}
-          onClearFilters={handleClearFilters}
-          onReleaseChange={handleReleaseChange}
-          onRingChange={handleRingChange}
-          onSearchTextChange={handleSearchTextChange}
-          onWeaponChange={handleWeaponChange}
+          onUpdateFilters={(newFilters) => {
+            setCommunityBuildFilters(newFilters)
+          }}
         />
       </div>
-      <div className="grid w-full grid-cols-1 gap-2">
-        <CommunityBuilds
-          communityBuildFilters={communityBuildFilters}
-          itemsPerPage={24}
-        />
-      </div>
+      {communityBuildFilters && (
+        <div className="grid w-full grid-cols-1 gap-2">
+          <CommunityBuilds
+            communityBuildFilters={communityBuildFilters}
+            itemsPerPage={24}
+          />
+        </div>
+      )}
     </>
   )
 }

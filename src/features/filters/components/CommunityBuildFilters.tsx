@@ -6,76 +6,62 @@ import WeaponFilters from '@/features/filters/components/WeaponFilters'
 import ReleaseFilters from './ReleaseFilters'
 import JewelryFilters from './JewelryFilters'
 import SearchBuildsFilter from './SearchBuildsFilter'
+import useCommunityBuildFilters from '../hooks/useCommunityBuildFilters'
 
 interface Props {
-  areAnyFiltersActive: boolean
-  areFiltersApplied: boolean
-  filters: CommunityBuildFilterProps
-  onAmuletChange: (amulet: string) => void
-  onApplyFilters: (newFilters: CommunityBuildFilterProps) => void
-  onArchetypeChange: (archetype: Archetype) => void
-  onClearFilters: () => void
-  onReleaseChange: (release: ReleaseKey) => void
-  onRingChange: (ring: string) => void
-  onSearchTextChange: (searchText: string) => void
-  onWeaponChange: (
-    weapon: string,
-    type: 'longGun' | 'handGun' | 'melee',
-  ) => void
+  onUpdateFilters: (newFilters: CommunityBuildFilterProps) => void
 }
 
-export default function CommunityBuildFilters({
-  areAnyFiltersActive,
-  areFiltersApplied,
-  filters,
-  onAmuletChange,
-  onApplyFilters,
-  onArchetypeChange,
-  onClearFilters,
-  onReleaseChange,
-  onRingChange,
-  onSearchTextChange,
-  onWeaponChange,
-}: Props) {
-  // If the filters are changed, but back to the default state
-  // we should consider the filters as applied
-  // useEffect(() => {
-  //   if (!areFiltersApplied && !areAnyFiltersActive()) setAreFiltersApplied(true)
-  // }, [areFiltersApplied, areAnyFiltersActive])
+export default function CommunityBuildFilters({ onUpdateFilters }: Props) {
+  const {
+    areAnyFiltersActive,
+    areFiltersApplied,
+    unappliedFilters,
+    handleAmuletChange,
+    handleApplyFilters,
+    handleArchetypeChange,
+    handleClearFilters,
+    handleReleaseChange,
+    handleRingChange,
+    handleSearchTextChange,
+    handleWeaponChange,
+  } = useCommunityBuildFilters(onUpdateFilters)
 
   return (
     <FiltersContainer<CommunityBuildFilterProps>
       areAnyFiltersActive={areAnyFiltersActive}
       areFiltersApplied={areFiltersApplied}
-      filters={filters}
-      onApplyFilters={onApplyFilters}
-      onClearFilters={onClearFilters}
+      filters={unappliedFilters}
+      onApplyFilters={handleApplyFilters}
+      onClearFilters={handleClearFilters}
     >
       <SearchBuildsFilter
-        searchText={filters.searchText}
-        onChange={(newSearchText: string) => onSearchTextChange(newSearchText)}
+        searchText={unappliedFilters.searchText}
+        onChange={(newSearchText: string) =>
+          handleSearchTextChange(newSearchText)
+        }
       />
       <ArchetypeFilters
-        selectedArchetypes={filters.archetypes}
-        onChange={(archtype: Archetype) => onArchetypeChange(archtype)}
+        selectedArchetypes={unappliedFilters.archetypes}
+        onChange={(archtype: Archetype) => handleArchetypeChange(archtype)}
       />
       <WeaponFilters
-        selectedLongGun={filters.longGun}
-        selectedHandGun={filters.handGun}
-        selectedMelee={filters.melee}
+        selectedLongGun={unappliedFilters.longGun}
+        selectedHandGun={unappliedFilters.handGun}
+        selectedMelee={unappliedFilters.melee}
         onChange={(weapon: string, type: 'longGun' | 'handGun' | 'melee') =>
-          onWeaponChange(weapon, type)
+          handleWeaponChange(weapon, type)
         }
       />
       <JewelryFilters
-        selectedRing={filters.ring}
-        selectedAmulet={filters.amulet}
-        onChangeRing={(ring: string) => onRingChange(ring)}
-        onChangeAmulet={(amulet: string) => onAmuletChange(amulet)}
+        selectedRing={unappliedFilters.ring}
+        selectedAmulet={unappliedFilters.amulet}
+        onChangeRing={(ring: string) => handleRingChange(ring)}
+        onChangeAmulet={(amulet: string) => handleAmuletChange(amulet)}
       />
       <ReleaseFilters
-        selectedReleases={filters.selectedReleases}
-        onChange={(release: ReleaseKey) => onReleaseChange(release)}
+        selectedReleases={unappliedFilters.selectedReleases}
+        onChange={(release: ReleaseKey) => handleReleaseChange(release)}
       />
     </FiltersContainer>
   )
