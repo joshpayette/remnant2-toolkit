@@ -17,6 +17,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Fixed
 
 - Item Tracker save import allowed file size has been increased. This was mistakenly lowered in a previous update.
+- Fixed error in description of `Diverting Heart`
 
 ## 2024-02-05
 
