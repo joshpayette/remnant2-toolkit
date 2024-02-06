@@ -686,7 +686,7 @@ export const remnantItems: Item[] = [
     id: 'y72au6',
     description: `Unleashes the powers of the  Labyrinth to empower the caster with new abilities. Lasts 30s. Duration is reduced when Havoc Form special abilities are used.
 
-    FIRE: Blasts Lightning Tendrils from the ARCHON's hand, dealing 84.2 SHOCK Damage per second to targets within 15m.
+    SHOOT: Blasts Lightning Tendrils from the ARCHON's hand, dealing 84.2 SHOCK Damage per second to targets within 15m.
     
     AIM: Raises a 3m [R] Energy Shield which deals 35 SHOCK damage per second and reduces incoming damage to all allies by 50%. 
     
