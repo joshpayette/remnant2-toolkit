@@ -41,8 +41,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: 'https://d2sqltdcj8czo5.cloudfront.net/og_image_small.png',
-        width: 800,
-        height: 600,
+        width: 100,
+        height: 100,
       },
     ],
     locale: 'en_US',
@@ -55,6 +55,12 @@ export const metadata: Metadata = {
     siteId: '1696952720974888960',
     creator: '@josh_payette',
     creatorId: '1696952720974888960',
-    images: ['https://d2sqltdcj8czo5.cloudfront.net/og_image_small.png'],
+    images: [
+      {
+        url: 'https://d2sqltdcj8czo5.cloudfront.net/og_image.png',
+        width: 495,
+        height: 495,
+      },
+    ],
   },
 }

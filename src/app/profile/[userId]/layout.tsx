@@ -30,12 +30,24 @@ export async function generateMetadata(
       title,
       description: description,
       url: `https://remnant2builder.com/profile/${user.id}`,
-      images: ['https://d2sqltdcj8czo5.cloudfront.net/og_image_small.png'],
+      images: [
+        {
+          url: 'https://d2sqltdcj8czo5.cloudfront.net/og_image_small.png',
+          width: 100,
+          height: 100,
+        },
+      ],
     },
     twitter: {
       title,
       description,
-      images: ['https://d2sqltdcj8czo5.cloudfront.net/og_image_small.png'],
+      images: [
+        {
+          url: 'https://d2sqltdcj8czo5.cloudfront.net/og_image.png',
+          width: 495,
+          height: 495,
+        },
+      ],
     },
   }
 }
