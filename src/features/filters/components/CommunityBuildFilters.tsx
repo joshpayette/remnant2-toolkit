@@ -1,6 +1,4 @@
 import { Archetype, ReleaseKey } from '@/features/items/types'
-import { useCallback, useEffect, useRef, useState } from 'react'
-import { DEFAULT_COMMUNITY_BUILD_FILTERS } from '@/features/filters/constants'
 import { CommunityBuildFilterProps } from '@/features/filters/types'
 import FiltersContainer from '@/features/filters/components/FiltersContainer'
 import ArchetypeFilters from '@/features/filters/components/ArchetypeFilters'
@@ -8,49 +6,24 @@ import WeaponFilters from '@/features/filters/components/WeaponFilters'
 import ReleaseFilters from './ReleaseFilters'
 import JewelryFilters from './JewelryFilters'
 import SearchBuildsFilter from './SearchBuildsFilter'
-import { usePathname, useRouter, useSearchParams } from 'next/navigation'
-import { remnantItems } from '@/features/items/data/remnantItems'
+import { DEFAULT_COMMUNITY_BUILD_FILTERS } from '../constants'
+import { useEffect, useMemo, useState } from 'react'
 import { RELEASE_TO_NAME } from '@/features/items/constants'
+import { remnantItems } from '@/features/items/data/remnantItems'
 import { WeaponItem } from '@/features/items/types/WeaponItem'
+import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 
 interface Props {
-  showBorder?: boolean
-  onUpdate: (filters: CommunityBuildFilterProps) => void
+  onUpdateFilters: (newFilters: CommunityBuildFilterProps) => void
 }
 
-export default function CommunityBuildFilters({ onUpdate }: Props) {
+export default function CommunityBuildFilters({ onUpdateFilters }: Props) {
   const router = useRouter()
   const pathname = usePathname()
   const searchParams = useSearchParams()
 
-  /**
-   * Creates a new query string by adding or updating a parameter.
-   */
-  const createQueryString = useCallback(
-    (name: string, value: string | null) => {
-      const params = new URLSearchParams(searchParams)
-      if (value === null) {
-        params.delete(name)
-      } else {
-        params.set(name, value)
-      }
-
-      return params.toString()
-    },
-    [searchParams],
-  )
-
-  const [filters, setFilters] = useState<CommunityBuildFilterProps>(
-    DEFAULT_COMMUNITY_BUILD_FILTERS,
-  )
-
-  // If filters are changed but the apply button is not pressed
-  // the filters are not applied. We use this to draw attention
-  // to the apply button
-  const [areFiltersApplied, setAreFiltersApplied] = useState(true)
-
-  // When the URL changes, update the filters
-  useEffect(() => {
+  // Get the filters from the URL
+  const filters = useMemo(() => {
     const params = new URLSearchParams(searchParams)
     let archetypes = params.get('archetypes')
     let longGun = params.get('longGun')
@@ -69,7 +42,7 @@ export default function CommunityBuildFilters({ onUpdate }: Props) {
       const archetypesArray = archetypes.split(',')
       archetypesArray.forEach((archetype) => {
         if (!allArchetypes.includes(archetype as Archetype)) {
-          archetypes = null
+          archetypes = DEFAULT_COMMUNITY_BUILD_FILTERS['archetypes'].join(',')
         }
       })
     }
@@ -81,7 +54,7 @@ export default function CommunityBuildFilters({ onUpdate }: Props) {
         )
         .map((item) => item.name.toLowerCase())
       if (!allLongGuns.includes(longGun.toLowerCase())) {
-        longGun = null
+        longGun = DEFAULT_COMMUNITY_BUILD_FILTERS['longGun']
       }
     }
     // check if handGun is valid
@@ -92,7 +65,7 @@ export default function CommunityBuildFilters({ onUpdate }: Props) {
         )
         .map((item) => item.name.toLowerCase())
       if (!allHandGuns.includes(handGun.toLowerCase())) {
-        handGun = null
+        handGun = DEFAULT_COMMUNITY_BUILD_FILTERS['handGun']
       }
     }
     // check if melee is valid
@@ -103,7 +76,7 @@ export default function CommunityBuildFilters({ onUpdate }: Props) {
         )
         .map((item) => item.name.toLowerCase())
       if (!allMelees.includes(melee.toLowerCase())) {
-        melee = null
+        melee = DEFAULT_COMMUNITY_BUILD_FILTERS['melee']
       }
     }
     // check if ring is valid
@@ -112,7 +85,7 @@ export default function CommunityBuildFilters({ onUpdate }: Props) {
         .filter((item) => item.category === 'ring')
         .map((item) => item.name.toLowerCase())
       if (!allRings.includes(ring.toLowerCase())) {
-        ring = null
+        ring = DEFAULT_COMMUNITY_BUILD_FILTERS['ring']
       }
     }
     // check if amulet is valid
@@ -121,7 +94,7 @@ export default function CommunityBuildFilters({ onUpdate }: Props) {
         .filter((item) => item.category === 'amulet')
         .map((item) => item.name.toLowerCase())
       if (!allAmulets.includes(amulet.toLowerCase())) {
-        amulet = null
+        amulet = DEFAULT_COMMUNITY_BUILD_FILTERS['amulet']
       }
     }
     // check if releases are valid
@@ -134,15 +107,13 @@ export default function CommunityBuildFilters({ onUpdate }: Props) {
       const releasesArray = releases.split(',')
       releasesArray.forEach((release) => {
         if (!allReleases.includes(release as ReleaseKey)) {
-          releases = null
+          releases =
+            DEFAULT_COMMUNITY_BUILD_FILTERS['selectedReleases'].join(',')
         }
       })
-      if (!releases) {
-        releases = Object.keys(RELEASE_TO_NAME).join(',')
-      }
     }
 
-    const parsedFilters = {
+    return {
       archetypes: archetypes ? (archetypes.split(',') as Archetype[]) : [],
       longGun: longGun || DEFAULT_COMMUNITY_BUILD_FILTERS['longGun'],
       handGun: handGun || DEFAULT_COMMUNITY_BUILD_FILTERS['handGun'],
@@ -152,19 +123,22 @@ export default function CommunityBuildFilters({ onUpdate }: Props) {
       searchText: searchText || DEFAULT_COMMUNITY_BUILD_FILTERS['searchText'],
       selectedReleases: releases ? (releases.split(',') as ReleaseKey[]) : [],
     }
-
-    setFilters(parsedFilters)
-    setAreFiltersApplied(true)
-    onUpdate(parsedFilters)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchParams])
 
-  function handleClearFilters() {
-    setFilters(DEFAULT_COMMUNITY_BUILD_FILTERS)
-    handleApplyFilters(DEFAULT_COMMUNITY_BUILD_FILTERS)
-  }
+  // Tracks the filter changes by the user that are not yet applied
+  // via clicking the Apply Filters button
+  const [unappliedFilters, setUnappliedFilters] =
+    useState<CommunityBuildFilterProps>(filters)
 
-  const areAnyFiltersActive = useCallback(() => {
+  // This is used to check if the filters are applied
+  // This is used to determine if the Apply Filters button should pulsate
+  // for the user to indicate they need to apply the changes
+  const [areFiltersApplied, setAreFiltersApplied] = useState(true)
+
+  // If the filters differ from the default filters,
+  // the filters table should have a yellow outline to
+  // indicate that
+  const areAnyFiltersActive = useMemo(() => {
     return (
       filters.archetypes.length > 0 ||
       filters.longGun !== DEFAULT_COMMUNITY_BUILD_FILTERS['longGun'] ||
@@ -177,51 +151,57 @@ export default function CommunityBuildFilters({ onUpdate }: Props) {
     )
   }, [filters])
 
-  // If the filters are changed, but back to the default state
-  // we should consider the filters as applied
-  // useEffect(() => {
-  //   if (!areFiltersApplied && !areAnyFiltersActive()) setAreFiltersApplied(true)
-  // }, [areFiltersApplied, areAnyFiltersActive])
+  // Once the initial filters are parsed from the URL,
+  // pass this information up to the page so it can render
+  // the builds list with the correct filters
+  useEffect(() => {
+    onUpdateFilters(filters)
+    setAreFiltersApplied(true)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [filters])
 
-  function handleArchtypeChange(archtype: Archetype) {
-    let newArchetypes = [...filters.archetypes]
-
-    if (newArchetypes.includes(archtype)) {
-      newArchetypes = newArchetypes.filter((a) => a !== archtype)
-    } else {
-      // Only allow two archtypes to be selected at a time
-      if (filters.archetypes.length === 2) {
-        return
-      }
-      newArchetypes.push(archtype)
+  // If the filters are changed, check if they are applied
+  useEffect(() => {
+    if (JSON.stringify(filters) === JSON.stringify(unappliedFilters)) {
+      setAreFiltersApplied(true)
     }
+  }, [unappliedFilters, filters])
 
-    setFilters({ ...filters, archetypes: newArchetypes })
-    setAreFiltersApplied(false)
-  }
-
-  function handleWeaponChange(
-    weapon: string,
-    type: 'longGun' | 'handGun' | 'melee',
-  ) {
-    setFilters({ ...filters, [type]: weapon })
-    setAreFiltersApplied(false)
-  }
-
-  function handleRingChange(ring: string) {
-    setFilters({ ...filters, ring })
-    setAreFiltersApplied(false)
+  function handleClearFilters() {
+    setUnappliedFilters(DEFAULT_COMMUNITY_BUILD_FILTERS)
+    handleApplyFilters(DEFAULT_COMMUNITY_BUILD_FILTERS)
   }
 
   function handleAmuletChange(amulet: string) {
-    router.push(`${pathname}?${createQueryString('amulet', amulet)}`, {
-      scroll: false,
-    })
-    setAreFiltersApplied(false)
+    setUnappliedFilters({ ...unappliedFilters, amulet })
+    if (amulet !== filters.amulet) {
+      setAreFiltersApplied(false)
+    }
+  }
+
+  function handleArchetypeChange(archetype: Archetype) {
+    let newArchetypes = [...unappliedFilters.archetypes]
+
+    if (newArchetypes.includes(archetype)) {
+      newArchetypes = newArchetypes.filter(
+        (newArchetype) => newArchetype !== archetype,
+      )
+    } else {
+      // Only allow two archtypes to be selected at a time
+      if (unappliedFilters.archetypes.length === 2) {
+        return
+      }
+      newArchetypes.push(archetype)
+    }
+
+    setUnappliedFilters({ ...unappliedFilters, archetypes: newArchetypes })
+    if (filters.archetypes.some((a) => !newArchetypes.includes(a))) {
+      setAreFiltersApplied(false)
+    }
   }
 
   function handleReleaseChange(release: ReleaseKey) {
-    let newReleases = [...filters.selectedReleases]
+    let newReleases = [...unappliedFilters.selectedReleases]
 
     if (newReleases.includes(release)) {
       newReleases = newReleases.filter((r) => r !== release)
@@ -229,88 +209,108 @@ export default function CommunityBuildFilters({ onUpdate }: Props) {
       newReleases.push(release)
     }
 
-    setFilters({ ...filters, selectedReleases: newReleases })
-    setAreFiltersApplied(false)
+    setUnappliedFilters({ ...unappliedFilters, selectedReleases: newReleases })
+
+    if (filters.selectedReleases.some((r) => !newReleases.includes(r))) {
+      setAreFiltersApplied(false)
+    }
+  }
+
+  function handleRingChange(ring: string) {
+    setUnappliedFilters({ ...unappliedFilters, ring })
+    if (ring !== filters.ring) {
+      setAreFiltersApplied(false)
+    }
   }
 
   function handleSearchTextChange(searchQuery: string) {
-    setFilters({ ...filters, searchText: searchQuery })
-    setAreFiltersApplied(false)
+    setUnappliedFilters({ ...unappliedFilters, searchText: searchQuery })
+    if (searchQuery !== filters.searchText) {
+      setAreFiltersApplied(false)
+    }
   }
 
-  function handleApplyFilters(filtersToApply: CommunityBuildFilterProps) {
+  function handleWeaponChange(
+    weapon: string,
+    type: 'longGun' | 'handGun' | 'melee',
+  ) {
+    setUnappliedFilters({ ...unappliedFilters, [type]: weapon })
+    if (weapon !== filters[type]) {
+      setAreFiltersApplied(false)
+    }
+  }
+
+  function handleApplyFilters(newFilters: CommunityBuildFilterProps) {
     let finalPath = `${pathname}?`
-    if (filtersToApply.archetypes.length > 0) {
-      finalPath += `archetypes=${filtersToApply.archetypes.join(',')}&`
+    if (newFilters.archetypes.length > 0) {
+      finalPath += `archetypes=${newFilters.archetypes.join(',')}&`
     }
-    if (filtersToApply.longGun !== DEFAULT_COMMUNITY_BUILD_FILTERS['longGun']) {
-      finalPath += `longGun=${filtersToApply.longGun}&`
+    if (newFilters.longGun !== DEFAULT_COMMUNITY_BUILD_FILTERS['longGun']) {
+      finalPath += `longGun=${newFilters.longGun}&`
     }
-    if (filtersToApply.handGun !== DEFAULT_COMMUNITY_BUILD_FILTERS['handGun']) {
-      finalPath += `handGun=${filtersToApply.handGun}&`
+    if (newFilters.handGun !== DEFAULT_COMMUNITY_BUILD_FILTERS['handGun']) {
+      finalPath += `handGun=${newFilters.handGun}&`
     }
-    if (filtersToApply.melee !== DEFAULT_COMMUNITY_BUILD_FILTERS['melee']) {
-      finalPath += `melee=${filtersToApply.melee}&`
+    if (newFilters.melee !== DEFAULT_COMMUNITY_BUILD_FILTERS['melee']) {
+      finalPath += `melee=${newFilters.melee}&`
     }
-    if (filtersToApply.ring !== DEFAULT_COMMUNITY_BUILD_FILTERS['ring']) {
-      finalPath += `ring=${filtersToApply.ring}&`
+    if (newFilters.ring !== DEFAULT_COMMUNITY_BUILD_FILTERS['ring']) {
+      finalPath += `ring=${newFilters.ring}&`
     }
-    if (filtersToApply.amulet !== DEFAULT_COMMUNITY_BUILD_FILTERS['amulet']) {
-      finalPath += `amulet=${filtersToApply.amulet}&`
+    if (newFilters.amulet !== DEFAULT_COMMUNITY_BUILD_FILTERS['amulet']) {
+      finalPath += `amulet=${newFilters.amulet}&`
     }
     if (
-      filtersToApply.searchText !==
-      DEFAULT_COMMUNITY_BUILD_FILTERS['searchText']
+      newFilters.searchText !== DEFAULT_COMMUNITY_BUILD_FILTERS['searchText']
     ) {
-      finalPath += `searchText=${filtersToApply.searchText}&`
+      finalPath += `searchText=${newFilters.searchText}&`
     }
-    if (filtersToApply.selectedReleases.length < 2) {
-      finalPath += `releases=${filtersToApply.selectedReleases.join(',')}&`
+    if (newFilters.selectedReleases.length < 2) {
+      finalPath += `releases=${newFilters.selectedReleases.join(',')}&`
     }
 
     if (finalPath.endsWith('&')) {
       finalPath = finalPath.slice(0, -1)
     }
 
+    // onUpdateFilters(newFilters)
     router.push(finalPath, { scroll: false })
   }
 
   return (
     <FiltersContainer<CommunityBuildFilterProps>
-      areAnyFiltersActive={areAnyFiltersActive()}
+      areAnyFiltersActive={areAnyFiltersActive}
       areFiltersApplied={areFiltersApplied}
-      filters={filters}
-      onApplyFilters={(filters) => {
-        handleApplyFilters(filters)
-      }}
+      filters={unappliedFilters}
+      onApplyFilters={handleApplyFilters}
       onClearFilters={handleClearFilters}
     >
       <SearchBuildsFilter
-        searchText={filters.searchText}
+        searchText={unappliedFilters.searchText}
         onChange={(newSearchText: string) =>
           handleSearchTextChange(newSearchText)
         }
       />
       <ArchetypeFilters
-        selectedArchetypes={filters.archetypes}
-        onChange={(archtype: Archetype) => handleArchtypeChange(archtype)}
+        selectedArchetypes={unappliedFilters.archetypes}
+        onChange={(archtype: Archetype) => handleArchetypeChange(archtype)}
       />
       <WeaponFilters
-        selectedLongGun={filters.longGun}
-        selectedHandGun={filters.handGun}
-        selectedMelee={filters.melee}
+        selectedLongGun={unappliedFilters.longGun}
+        selectedHandGun={unappliedFilters.handGun}
+        selectedMelee={unappliedFilters.melee}
         onChange={(weapon: string, type: 'longGun' | 'handGun' | 'melee') =>
           handleWeaponChange(weapon, type)
         }
       />
       <JewelryFilters
-        selectedRing={filters.ring}
-        selectedAmulet={filters.amulet}
+        selectedRing={unappliedFilters.ring}
+        selectedAmulet={unappliedFilters.amulet}
         onChangeRing={(ring: string) => handleRingChange(ring)}
         onChangeAmulet={(amulet: string) => handleAmuletChange(amulet)}
       />
       <ReleaseFilters
-        selectedReleases={filters.selectedReleases}
+        selectedReleases={unappliedFilters.selectedReleases}
         onChange={(release: ReleaseKey) => handleReleaseChange(release)}
       />
     </FiltersContainer>

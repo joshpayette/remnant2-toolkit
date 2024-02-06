@@ -5,15 +5,10 @@ import FeaturedBuilds from '@/app/creator-builds/FeaturedBuilds'
 import { useState } from 'react'
 import CommunityBuildFilters from '@/features/filters/components/CommunityBuildFilters'
 import { CommunityBuildFilterProps } from '@/features/filters/types'
-import { DEFAULT_COMMUNITY_BUILD_FILTERS } from '@/features/filters/constants'
 
 export default function Page() {
   const [communityBuildFilters, setCommunityBuildFilters] =
-    useState<CommunityBuildFilterProps>(DEFAULT_COMMUNITY_BUILD_FILTERS)
-
-  function handleChangeFilters(filters: CommunityBuildFilterProps) {
-    setCommunityBuildFilters(filters)
-  }
+    useState<CommunityBuildFilterProps | null>(null)
 
   return (
     <>
@@ -23,14 +18,20 @@ export default function Page() {
       />
 
       <div className="mb-8 flex w-full max-w-xl items-center justify-center">
-        <CommunityBuildFilters onUpdate={handleChangeFilters} />
-      </div>
-      <div className="mb-4 grid w-full grid-cols-1 gap-2">
-        <FeaturedBuilds
-          communityBuildFilters={communityBuildFilters}
-          itemsPerPage={24}
+        <CommunityBuildFilters
+          onUpdateFilters={(newFilters) => {
+            setCommunityBuildFilters(newFilters)
+          }}
         />
       </div>
+      {communityBuildFilters && (
+        <div className="mb-4 grid w-full grid-cols-1 gap-2">
+          <FeaturedBuilds
+            communityBuildFilters={communityBuildFilters}
+            itemsPerPage={24}
+          />
+        </div>
+      )}
     </>
   )
 }

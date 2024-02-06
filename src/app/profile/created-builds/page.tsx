@@ -4,12 +4,11 @@ import BuildList from '@/features/build/components/BuildList'
 import BuildCard from '@/features/build/components/BuildCard'
 import usePagination from '@/features/pagination/usePagination'
 import { useEffect, useState } from 'react'
-import { CreatedBuildsFilter, getCreatedBuilds } from '../actions'
+import { getCreatedBuilds } from '../actions'
 import CopyBuildUrlButton from '../../../features/profile/CopyBuildUrlButton'
 import EditBuildButton from '../../../features/profile/EditBuildButton'
 import DuplicateBuildButton from '../../../features/profile/DuplicateBuildButton'
 import DeleteBuildButton from '../../../features/profile/DeleteBuildButton'
-import { DBBuild } from '@/features/build/types'
 import Tabs from '../../../features/profile/Tabs'
 import ProfileHeader from '../../../features/profile/ProfileHeader'
 import { useSession } from 'next-auth/react'
@@ -18,9 +17,7 @@ import useBuildListFilters from '@/features/filters/hooks/useBuildListFilters'
 import BuildListFilters from '@/features/filters/components/BuildListFilters'
 import CommunityBuildFilters from '@/features/filters/components/CommunityBuildFilters'
 import { CommunityBuildFilterProps } from '@/features/filters/types'
-import { DEFAULT_COMMUNITY_BUILD_FILTERS } from '@/features/filters/constants'
 import useBuildListState from '@/features/build/hooks/useBuildListState'
-import { set } from 'date-fns'
 
 export default function Page() {
   const { data: sessionData } = useSession()
@@ -29,12 +26,7 @@ export default function Page() {
   const { builds, totalBuildCount, isLoading } = buildListState
 
   const [communityBuildFilters, setCommunityBuildFilters] =
-    useState<CommunityBuildFilterProps>(DEFAULT_COMMUNITY_BUILD_FILTERS)
-  function handleChangeCommunityBuildFilters(
-    filters: CommunityBuildFilterProps,
-  ) {
-    setCommunityBuildFilters(filters)
-  }
+    useState<CommunityBuildFilterProps | null>(null)
 
   const itemsPerPage = 16
 
@@ -63,6 +55,9 @@ export default function Page() {
 
   useEffect(() => {
     const getItemsAsync = async () => {
+      if (!communityBuildFilters) {
+        return
+      }
       setBuildListState((prevState) => ({ ...prevState, isLoading: true }))
       const response = await getCreatedBuilds({
         communityBuildFilters,
@@ -108,52 +103,58 @@ export default function Page() {
         <Tabs />
       </div>
       <div className="mb-8 flex w-full max-w-2xl items-center justify-center">
-        <CommunityBuildFilters onUpdate={handleChangeCommunityBuildFilters} />
+        <CommunityBuildFilters
+          onUpdateFilters={(newFilters) => {
+            setCommunityBuildFilters(newFilters)
+          }}
+        />
       </div>
-      <BuildList
-        label="Builds you've created"
-        currentPage={currentPage}
-        pageNumbers={pageNumbers}
-        totalItems={totalBuildCount}
-        totalPages={totalPages}
-        isLoading={isLoading}
-        firstVisibleItemNumber={firstVisibleItemNumber}
-        lastVisibleItemNumber={lastVisibleItemNumber}
-        onPreviousPage={handlePreviousPageClick}
-        onNextPage={handleNextPageClick}
-        onSpecificPage={handleSpecificPageClick}
-        headerActions={
-          <BuildListFilters
-            orderBy={orderBy}
-            orderByOptions={orderByOptions}
-            onOrderByChange={handleOrderByChange}
-            timeRange={timeRange}
-            timeRangeOptions={timeRangeOptions}
-            onTimeRangeChange={handleTimeRangeChange}
-          />
-        }
-      >
-        {builds.map((build) => (
-          <div key={build.id} className="h-full w-full">
-            <BuildCard
-              build={build}
-              onReportBuild={undefined}
-              memberFrameEnabled={false}
-              footerActions={
-                <div className="flex items-center justify-between gap-2 p-2 text-sm">
-                  <CopyBuildUrlButton buildId={build.id} />
-                  <EditBuildButton buildId={build.id} />
-                  <DuplicateBuildButton build={build} />
-                  <DeleteBuildButton
-                    buildId={build.id}
-                    onDeleteBuild={handleDeleteBuild}
-                  />
-                </div>
-              }
+      {communityBuildFilters && (
+        <BuildList
+          label="Builds you've created"
+          currentPage={currentPage}
+          pageNumbers={pageNumbers}
+          totalItems={totalBuildCount}
+          totalPages={totalPages}
+          isLoading={isLoading}
+          firstVisibleItemNumber={firstVisibleItemNumber}
+          lastVisibleItemNumber={lastVisibleItemNumber}
+          onPreviousPage={handlePreviousPageClick}
+          onNextPage={handleNextPageClick}
+          onSpecificPage={handleSpecificPageClick}
+          headerActions={
+            <BuildListFilters
+              orderBy={orderBy}
+              orderByOptions={orderByOptions}
+              onOrderByChange={handleOrderByChange}
+              timeRange={timeRange}
+              timeRangeOptions={timeRangeOptions}
+              onTimeRangeChange={handleTimeRangeChange}
             />
-          </div>
-        ))}
-      </BuildList>
+          }
+        >
+          {builds.map((build) => (
+            <div key={build.id} className="h-full w-full">
+              <BuildCard
+                build={build}
+                onReportBuild={undefined}
+                memberFrameEnabled={false}
+                footerActions={
+                  <div className="flex items-center justify-between gap-2 p-2 text-sm">
+                    <CopyBuildUrlButton buildId={build.id} />
+                    <EditBuildButton buildId={build.id} />
+                    <DuplicateBuildButton build={build} />
+                    <DeleteBuildButton
+                      buildId={build.id}
+                      onDeleteBuild={handleDeleteBuild}
+                    />
+                  </div>
+                }
+              />
+            </div>
+          ))}
+        </BuildList>
+      )}
     </AuthWrapper>
   )
 }

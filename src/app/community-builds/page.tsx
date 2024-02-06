@@ -6,14 +6,14 @@ import { signIn, useSession } from 'next-auth/react'
 import { useEffect, useState } from 'react'
 import CommunityBuilds from './CommunityBuilds'
 import CommunityBuildFilters from '@/features/filters/components/CommunityBuildFilters'
-import { CommunityBuildFilterProps } from '@/features/filters/types'
-import { DEFAULT_COMMUNITY_BUILD_FILTERS } from '@/features/filters/constants'
 import getTotalBuildCount from '@/features/build/actions/getTotalBuildCount'
+import { CommunityBuildFilterProps } from '@/features/filters/types'
 
 export default function Page() {
   const { data: sessionData } = useSession()
+  
   const [communityBuildFilters, setCommunityBuildFilters] =
-    useState<CommunityBuildFilterProps>(DEFAULT_COMMUNITY_BUILD_FILTERS)
+    useState<CommunityBuildFilterProps | null>(null)
 
   const [totalBuildCount, setTotalBuildCount] = useState<number | string>(
     'HUNDREDS',
@@ -26,12 +26,6 @@ export default function Page() {
     }
     getBuildCountAsync()
   }, [])
-
-  function handleChangeCommunityBuildFilters(
-    filters: CommunityBuildFilterProps,
-  ) {
-    setCommunityBuildFilters(filters)
-  }
 
   return (
     <>
@@ -67,14 +61,20 @@ export default function Page() {
       </PageHeader>
 
       <div className="mb-8 flex w-full max-w-2xl items-center justify-center">
-        <CommunityBuildFilters onUpdate={handleChangeCommunityBuildFilters} />
-      </div>
-      <div className="grid w-full grid-cols-1 gap-2">
-        <CommunityBuilds
-          communityBuildFilters={communityBuildFilters}
-          itemsPerPage={24}
+        <CommunityBuildFilters
+          onUpdateFilters={(newFilters) => {
+            setCommunityBuildFilters(newFilters)
+          }}
         />
       </div>
+      {communityBuildFilters && (
+        <div className="grid w-full grid-cols-1 gap-2">
+          <CommunityBuilds
+            communityBuildFilters={communityBuildFilters}
+            itemsPerPage={24}
+          />
+        </div>
+      )}
     </>
   )
 }
