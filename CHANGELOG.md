@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2024-02-05
 
+### Changed
+
+- Pagination uses URL query params now. This will allow you to share a link to a specific page of builds, as well as maintaining the page if you refresh the page.
+
 ### Fixed
 
 - Fixed bug where 0 results would show "Showing 1 of 0 of 0"
