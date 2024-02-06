@@ -591,7 +591,7 @@ export const remnantItems: Item[] = [
     id: 'y7ia9t',
     description: `Creates a mysterious vapor cloud which lasts 10s and applies STONESKIN.
 
-    STONESKIN reduces incoming damage by 25%, greatly increases Blight Buildup Decay Rate, reduces Stagger by l, and makes the target immune to Status Effects. Lasts 15s. 
+    STONESKIN reduces incoming damage by 25%, greatly increases Blight Buildup Decay Rate, reduces Stagger by 1, and makes the target immune to Status Effects. Lasts 15s. 
     
     PRESS: Slam Vial on the ground, creating the effect at the ALCHEMIST's feet [A].
     
