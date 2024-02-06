@@ -5648,7 +5648,7 @@ export const remnantItems: Item[] = [
     name: 'Scrap Shot',
     imagePath: '/mod/scrap_shot.png',
     id: 'hcv400',
-    description: `Fires a caltrops grenade that explodes to cover an area of 6m. [R] Caltrops deal 20 damage per second and SLOW to enemies that walk over them. Lasts 10s.`, // TODO IN-GAME check if its explosive damage 
+    description: `Fires a caltrops grenade that explodes to cover an area of 6m. [R] Caltrops deal 20 damage per second and SLOW to enemies that walk over them. Lasts 10s.`,
     howToGet: `Purchased from Ava McCabe`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Scrap+Shot`],
   },
@@ -9391,7 +9391,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     name: 'Black Tar',
     imagePath: '/consumable/black_tar.png',
     id: 'nrdcko',
-    description: `When thrown, explodes in a 4m [A] radius dealing 90 damage [E] and applies TARRED which lasts 15s. Ranged damage and other FIRE sources ignite TARRED entities, causing dealing 750 BURNING damage over 10s.`, // TODO IN-GAME check if it deals explosive damage 
+    description: `When thrown, explodes in a 4m [A] radius dealing 90 damage [E] and applies TARRED which lasts 15s. Ranged damage and other FIRE sources ignite TARRED entities, causing dealing 750 BURNING damage over 10s.`, 
     howToGet: `Can be bought form Reggie for 250 scrap`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Black+Tar`],
   },
@@ -9521,7 +9521,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     name: 'Pipe Bomb',
     imagePath: '/consumable/pipe_bomb.png',
     id: 'kfwizc',
-    description: `When thrown, explodes in a 4m [A] radius dealing 450 damage and applying BLEEDING, which deals an additional 1,350 BLEED damage over 30s.`, // TODO IN-GAME check if it deals explosive damage
+    description: `When thrown, explodes in a 4m [A] radius dealing 450 damage [E] and applying BLEEDING, which deals an additional 1,350 BLEED damage over 30s.`,
     howToGet: `Can be bought form Reggie for 250 scrap currency`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Pipe+Bomb`],
   },
