@@ -4539,7 +4539,7 @@ export const remnantItems: Item[] = [
     imagePath: '/offhand/anguish.png',
     dlc: 'dlc1',
     id: 'r2o474',
-    description: `Fires heated bits of molten slag. Can be charged to fire a single explosive rod [E] at the cost of causing damage to the wielder while charging.`, // TODO IN-GAME test if it's explosive
+    description: `Fires heated bits of molten slag. Can be charged to fire a single explosive rod [E] at the cost of causing damage to the wielder while charging.`,
     howToGet: `Can be crafted at McCabe Store with: x1 Occult Vessel, x7 Lumenite Crystal and x1000 Scrap.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Anguish`],
     linkedItems: {
@@ -5015,7 +5015,7 @@ export const remnantItems: Item[] = [
     name: 'Blood Draw',
     imagePath: '/mod/blood_draw.png',
     id: 'ss7zwt',
-    description: `Shoots out razor-sharp Chain Shards which impale up to 5 targets within 15m, dealing 10 damage. On hit, chains are pulled towards the caster, dealing 250damage split equally among enemies and applying 275 BLEEDING damage over 15s.`,
+    description: `Shoots out razor-sharp Chain Shards which impale up to 5 targets within 15m, dealing 10 damage [E]. On hit, chains are pulled towards the caster, dealing 250damage split equally among enemies and applying 275 BLEEDING damage over 15s.`,
     howToGet: `Crafted from Bloody Steel Splinter
     Appease The Red Princewith five Crimson King Coins`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Blood+Draw`],
@@ -5272,7 +5272,7 @@ export const remnantItems: Item[] = [
     name: 'Eulogy',
     imagePath: '/mod/eulogy.png',
     id: '3xf7i2',
-    description: `Recalls bolts which deal 30 damage when pulled from a target and when striking targets on their return. Recalled bolts grant 2% of Max HP. Recalled bolts can also overfill Sorrow by up to +5. Any additional bolts will be returned to reserves.`, // TODO IN-GAME Check if it deals explosive damage
+    description: `Recalls bolts which deal 30 damage [E] when pulled from a target and when striking targets on their return. Recalled bolts grant 2% of Max HP. Recalled bolts can also overfill Sorrow by up to +5. Any additional bolts will be returned to reserves.`,
     howToGet: `Attached to the Sorrow hand gun`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Eulogy`],
     linkedItems: {
