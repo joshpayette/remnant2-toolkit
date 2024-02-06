@@ -12,6 +12,9 @@ import { RELEASE_TO_NAME } from '@/features/items/constants'
 import { remnantItems } from '@/features/items/data/remnantItems'
 import { WeaponItem } from '@/features/items/types/WeaponItem'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
+import isEqual from 'lodash/isEqual'
+
+// TODO Apply Filters not pulsating when first visiting the page and checking boxes
 
 interface Props {
   onUpdateFilters: (newFilters: CommunityBuildFilterProps) => void
@@ -162,8 +165,12 @@ export default function CommunityBuildFilters({ onUpdateFilters }: Props) {
 
   // If the filters are changed, check if they are applied
   useEffect(() => {
-    if (JSON.stringify(filters) === JSON.stringify(unappliedFilters)) {
+    if (isEqual(filters, unappliedFilters)) {
+      console.info('if x2')
       setAreFiltersApplied(true)
+    } else {
+      console.info('hit else')
+      setAreFiltersApplied(false)
     }
   }, [unappliedFilters, filters])
 
@@ -273,7 +280,6 @@ export default function CommunityBuildFilters({ onUpdateFilters }: Props) {
       finalPath = finalPath.slice(0, -1)
     }
 
-    // onUpdateFilters(newFilters)
     router.push(finalPath, { scroll: false })
   }
 
