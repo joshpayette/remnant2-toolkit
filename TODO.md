@@ -1,0 +1,2 @@
+- Builds by collection still fetches the full list before applying filters from the URL
+- Happening on all pages
