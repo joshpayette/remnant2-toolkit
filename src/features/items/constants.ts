@@ -1,3 +1,8 @@
+/**
+ * The max size a profile.sav import can be (in kilobytes)
+ */
+export const MAX_PROFILE_SAV_SIZE = 250
+
 export const ARCHTYPE_COLORS = {
   ALCHEMIST: {
     bg: 'bg-[#102a22]',
@@ -259,7 +264,8 @@ export const DESCRIPTION_TAGS = [
     type: 'crit damage',
     token: '[C]',
     color: 'text-[#f2350f]',
-    description: 'Base 50%. Damage is multiplicative with other sources of damage.',
+    description:
+      'Base 50%. Damage is multiplicative with other sources of damage.',
   },
   {
     type: 'overloaded',
@@ -329,7 +335,7 @@ export const DESCRIPTION_TAGS = [
     token: '[E]',
     color: 'text-[#f57070]',
     description: 'Counts as explosive damage.',
-  },  
+  },
 ] as const satisfies {
   type: string
   token: string

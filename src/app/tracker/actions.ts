@@ -6,6 +6,7 @@
 
 'use server'
 
+import { MAX_PROFILE_SAV_SIZE } from '@/features/items/constants'
 import { remnantItems } from '@/features/items/data/remnantItems'
 import zlib from 'zlib'
 
@@ -71,7 +72,7 @@ export async function parseSaveFile(
   const fileSizeInBytes = saveFile.size
   const fileSizeInKilobytes = fileSizeInBytes / 1000.0
 
-  if (fileSizeInKilobytes > 100) {
+  if (fileSizeInKilobytes > MAX_PROFILE_SAV_SIZE) {
     console.error('File too large', fileSizeInKilobytes)
     return {
       saveFileDiscoveredItemIds: null,

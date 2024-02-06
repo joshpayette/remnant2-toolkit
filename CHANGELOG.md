@@ -14,6 +14,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Builds by Collection should now be quicker. Discovered items are saved to the database once when you visit the site, rather than on every request like previously.
 
+### Fixed
+
+- Item Tracker save import allowed file size has been increased. This was mistakenly lowered in a previous update.
+
 ## 2024-02-05
 
 ### Changed
