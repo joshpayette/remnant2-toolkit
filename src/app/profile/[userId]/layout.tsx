@@ -41,13 +41,6 @@ export async function generateMetadata(
     twitter: {
       title,
       description,
-      images: [
-        {
-          url: 'https://d2sqltdcj8czo5.cloudfront.net/og_image.png',
-          width: 495,
-          height: 495,
-        },
-      ],
     },
   }
 }

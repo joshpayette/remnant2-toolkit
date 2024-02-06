@@ -58,8 +58,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: 'https://d2sqltdcj8czo5.cloudfront.net/og_image.png',
-        width: 495,
-        height: 495,
+        width: 200,
+        height: 200,
       },
     ],
   },
