@@ -10,6 +10,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Filters for various build lists now written to the URL. This will allow you to share a link to a specific set of builds with the filters applied, as well as maintaining the filters if you refresh the page.
 
+### Changed
+
+- Builds by Collection should now be quicker. Discovered items are saved to the database once when you visit the site, rather than on every request like previously.
+
 ## 2024-02-05
 
 ### Changed
