@@ -19,7 +19,6 @@ import { toast } from 'react-toastify'
 import { isErrorResponse } from '@/features/error-handling/isErrorResponse'
 import BuildListFilters from '@/features/filters/components/BuildListFilters'
 import useBuildListFilters from '@/features/filters/hooks/useBuildListFilters'
-import { set } from 'date-fns'
 import useBuildListState from '@/features/build/hooks/useBuildListState'
 
 const ITEMS_PER_PAGE = 24
