@@ -1,4 +1,5 @@
-import { useEffect, useMemo, useState } from 'react'
+import { usePathname, useRouter, useSearchParams } from 'next/navigation'
+import { useCallback, useEffect, useMemo } from 'react'
 
 export interface PaginationResponse<ItemType> {
   items: ItemType[]
@@ -50,11 +51,38 @@ export default function usePagination({
   itemsPerPage = 5,
   totalItemCount,
 }: Props) {
-  const [currentPage, setCurrentPage] = useState(1)
+  const router = useRouter()
+  const pathname = usePathname()
+  const searchParams = useSearchParams()
+
+  /**
+   * Creates a new query string by adding or updating a parameter.
+   */
+  const createQueryString = useCallback(
+    (name: string, value: string | null) => {
+      const params = new URLSearchParams(searchParams)
+      if (value === null) {
+        params.delete(name)
+      } else {
+        params.set(name, value)
+      }
+
+      return params.toString()
+    },
+    [searchParams],
+  )
+
   const totalPages = useMemo(
     () => Math.ceil(totalItemCount / itemsPerPage),
     [totalItemCount, itemsPerPage],
   )
+
+  const currentPageParam = searchParams.get('page')
+  let currentPage = currentPageParam ? Number(currentPageParam) : 1
+  if (isNaN(currentPage)) currentPage = 1
+  if (currentPage < 1) currentPage = 1
+  if (totalPages > 0 && currentPage > totalPages) currentPage = totalPages
+
   const pageNumbers = useMemo(() => {
     const totalPages = Math.ceil(totalItemCount / itemsPerPage)
 
@@ -97,22 +125,34 @@ export default function usePagination({
       : currentPage * itemsPerPage
   }, [currentPage, itemsPerPage, totalItemCount])
 
-  useEffect(() => {
-    if (currentPage !== 1 && isNaN(totalPages)) {
-      setCurrentPage(1)
-    }
-  }, [currentPage, totalItemCount, totalPages])
+  // useEffect(() => {
+  //   if (currentPage !== 1 && isNaN(totalPages)) {
+  //     router.push(`${pathname}?${createQueryString('page', '1')}`)
+  //   }
+  // }, [currentPage, totalPages, pathname, createQueryString, router])
 
   function handlePreviousPageClick() {
-    setCurrentPage(currentPage - 1 > 0 ? currentPage - 1 : 1)
+    const previousPage = currentPage - 1 > 0 ? currentPage - 1 : 1
+    router.push(
+      `${pathname}?${createQueryString('page', String(previousPage))}`,
+    )
   }
 
   function handleNextPageClick() {
-    setCurrentPage(currentPage + 1 > totalPages ? totalPages : currentPage + 1)
+    const nextPage = currentPage + 1 > totalPages ? totalPages : currentPage + 1
+    router.push(`${pathname}?${createQueryString('page', String(nextPage))}`)
   }
 
   function handleSpecificPageClick(newPageNumber: number) {
-    setCurrentPage(newPageNumber)
+    if (newPageNumber < 1) {
+      newPageNumber = 1
+    } else if (newPageNumber > totalPages) {
+      newPageNumber = totalPages
+    }
+
+    router.push(
+      `${pathname}?${createQueryString('page', String(newPageNumber))}`,
+    )
   }
 
   return {
