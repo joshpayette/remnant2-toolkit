@@ -93,249 +93,243 @@ export const RELEASE_TO_NAME = {
 
 export const DESCRIPTION_TAGS = [
   {
-    type: 'acid',
+    type: 'Acid',
     token: 'ACID',
     color: 'text-[#589961]',
     description: 'Elemental Damage',
   },
   {
-    type: 'additive',
+    type: 'Additive',
     token: '[+]',
     color: 'text-[#64b5f6]',
     description: 'Damage is additive with other sources of damage.',
   },
   {
-    type: 'alchemist',
+    type: 'Alchemist',
     token: 'ALCHEMIST',
     color: ARCHTYPE_COLORS.ALCHEMIST.text,
     description: undefined,
   },
   {
-    type: 'amplitude',
+    type: 'Amplitude',
     token: '[A]',
     color: 'text-[#66ffcc]',
     description: 'This effect benefits from Amplitude.',
   },
   {
-    type: 'archon',
+    type: 'Archon',
     token: 'ARCHON',
     color: ARCHTYPE_COLORS.ARCHON.text,
     description: undefined,
   },
   {
-    type: 'bleeding',
+    type: 'Bleeding',
     token: 'BLEEDING',
     color: 'text-[#a63838]',
     description:
       'Deals physical damage per second. Reduces healing effectiveness by 50%.',
   },
   {
-    type: 'burning',
+    type: 'Burning',
     token: 'BURNING',
     color: 'text-[#b65d30]',
     description:
       'Deals elemental FIRE damage per second. Can make enemies panic.', // Have no good source on the secondary effect.
   },
   {
-    type: 'bulwark',
+    type: 'Bulwark',
     token: 'BULWARK',
     color: ARCHTYPE_COLORS.CHALLENGER.text,
     description:
       'Increases flat Damage Reduction per stack up to maximum of 25% at 5 stacks.',
   },
   {
-    type: 'challenger',
+    type: 'Challenger',
     token: 'CHALLENGER',
     color: ARCHTYPE_COLORS.CHALLENGER.text,
     description: undefined,
   },
   {
-    type: 'contamination',
+    type: 'Contamination',
     token: 'CONTAMINATION',
     color: 'text-[#800080]',
     description:
       'Inflicts a burst of damage after which it resets allowing another build-up.',
   },
   {
-    type: 'corroded',
+    type: 'Corroded',
     token: 'CORRODED',
     color: 'text-[#30b65d]',
     description:
       'Deals elemental ACID damage per second. Increases damage taken by 10%.',
   },
   {
-    type: 'curse',
+    type: 'Curse',
     token: 'CURSE',
     color: 'text-[#7d219e]',
     description: 'Reduces maximum Health by 10% per stack. Maximum 5 stacks.',
   },
   {
-    type: 'data corruption',
+    type: 'Data corruption',
     token: 'DATA CORRUPTION',
     color: 'text-gray-400',
     description:
       'Disables skills, relic, and consumables use for a short duration.', // TODO: I think it also deals damage and staggers but need to verify.
   },
   {
-    type: 'defrag',
+    type: 'Defrag',
     token: 'DEFRAG',
     color: 'text-[#ede6e6]',
     description: 'Physical Damage',
   },
   {
-    type: 'engineer',
+    type: 'Engineer',
     token: 'ENGINEER',
     color: ARCHTYPE_COLORS.ENGINEER.text,
     description: undefined,
   },
   {
-    type: 'explorer',
+    type: 'Explorer',
     token: 'EXPLORER',
     color: ARCHTYPE_COLORS.EXPLORER.text,
     description: undefined,
   },
   {
-    type: 'explosive',
-    token: 'EXPLOSIVE',
-    color: 'text-[#fff]',
-    description: 'Physical Damage',
-  },
-  {
-    type: 'fire',
+    type: 'Fire',
     token: 'FIRE',
     color: 'text-[#9f674e]',
     description: 'Elemental Damage',
   },
   {
-    type: 'frenzied',
+    type: 'Frenzied',
     token: 'FRENZIED',
     color: ARCHTYPE_COLORS.ALCHEMIST.text,
     description:
       'Increases Fire Rate, Reload Speed, and Melee Speed by 20%, and Movement Speed by 15%. Lasts 15s.',
   },
   {
-    type: 'gunslinger',
+    type: 'Gunslinger',
     token: 'GUNSLINGER',
     color: ARCHTYPE_COLORS.GUNSLINGER.text,
     description: undefined,
   },
   {
-    type: 'handler',
+    type: 'Handler',
     token: 'HANDLER',
     color: ARCHTYPE_COLORS.HANDLER.text,
     description: undefined,
   },
   {
-    type: 'haste',
+    type: 'Haste',
     token: 'HASTE',
     color: 'text-[#f1f1cf]',
     description: `Increases the speed of player's actions by 7%.`,
   },
   {
-    type: 'hunter',
+    type: 'Hunter',
     token: 'HUNTER',
     color: ARCHTYPE_COLORS.HUNTER.text,
     description: undefined,
   },
   {
-    type: 'invader',
+    type: 'Invader',
     token: 'INVADER',
     color: ARCHTYPE_COLORS.INVADER.text,
     description: undefined,
   },
   {
-    type: 'marked',
+    type: 'Marked',
     token: 'MARKED',
     color: ARCHTYPE_COLORS.GUNSLINGER.text,
     description:
       'Crit Chance against MARKED enemies is increased by 15% for all allies.',
   },
   {
-    type: 'medic',
+    type: 'Medic',
     token: 'MEDIC',
     color: ARCHTYPE_COLORS.MEDIC.text,
     description: undefined,
   },
   {
-    type: 'multiplicative',
+    type: 'Multiplicative',
     token: '[∗]',
     color: 'text-orange-300',
     description: 'Damage is multiplicative with other sources of damage.',
   },
   {
-    type: 'crit damage',
+    type: 'Critical damage',
     token: '[C]',
     color: 'text-[#f2350f]',
     description:
-      'Base 50%. Damage is multiplicative with other sources of damage.',
+      'Base 50%. Critical damage is multiplicative with other sources of damage.',
   },
   {
-    type: 'overloaded',
+    type: 'Overloaded',
     token: 'OVERLOADED',
     color: 'text-[#7676af]',
     description:
       'Deals elemental SHOCK area damage ever 5 seconds. Damage increases by 10% for every overloaded enemy nerby. ', // TODO What's the range and what's the max damage increase for secondary effect?
   },
   {
-    type: 'resonance',
+    type: 'Resonance',
     token: '[R]',
     color: 'text-[#00ffcc]',
     description: 'This effect benefits from Resonance.',
   },
   {
-    type: 'ritualist',
+    type: 'Ritualist',
     token: 'RITUALIST',
     color: ARCHTYPE_COLORS.RITUALIST.text,
     description: undefined,
   },
   {
-    type: 'root rot',
+    type: 'Root Rot',
     token: 'ROOT ROT',
     color: 'text-[#b4a065]',
     description:
       'Reduces maximum Stamina by 33%. Forces coughing animation at random intervals.',
   },
   {
-    type: 'shield',
+    type: 'Shield',
     token: 'SHIELD',
     color: 'text-[#f1f1cf]',
     description: `Provides a shield on top of your health. Shields from different sources stack.`,
   },
   {
-    type: 'shock',
+    type: 'Shock',
     token: 'SHOCK',
     color: 'text-[#7e7ea2]',
     description: 'Elemental Damage',
   },
   {
-    type: 'slow',
+    type: 'Slow',
     token: 'SLOW',
     color: 'text-[#f1f1cf]',
     description:
       'Reduces target speed. Ineffective against Bosses and Aberrations.',
   },
   {
-    type: 'summoner',
+    type: 'Summoner',
     token: 'SUMMONER',
     color: ARCHTYPE_COLORS.SUMMONER.text,
     description: undefined,
   },
   {
-    type: 'suppression',
+    type: 'Suppression',
     token: 'SUPPRESSION',
     color: 'text-[#444662]',
     description: 'Reduces Mod Power Generation by 50%.',
   },
   {
-    type: 'madness',
+    type: 'Madness',
     token: 'MADNESS',
     color: 'text-[#ede6e6]',
     description: 'Physical Damage',
   },
   {
-    type: 'explosive damage',
+    type: 'Explosive Damage',
     token: '[E]',
-    color: 'text-[#f57070]',
+    color: 'text-[#ff7575]',
     description: 'Counts as explosive damage.',
   },
 ] as const satisfies {
