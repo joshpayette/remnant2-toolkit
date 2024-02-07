@@ -568,6 +568,7 @@ export default function Builder({
             isEditable={isEditable}
             isScreenshotMode={isScreenshotMode}
             onAddTrait={() => handleButtonClick('trait')}
+            onItemInfoClick={handleShowInfo}
             onRemoveTrait={(traitItem) => handleRemoveTrait(traitItem)}
             onUpdateAmount={(newTraitItem) =>
               handleUpdateTraitAmount(newTraitItem)

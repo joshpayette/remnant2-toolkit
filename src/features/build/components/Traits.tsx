@@ -4,6 +4,8 @@ import { cn } from '@/lib/classnames'
 import { BuildState } from '@/features/build/types'
 import { DEFAULT_TRAIT_AMOUNT, MAX_TRAIT_AMOUNT } from '../constants'
 import { TraitItem } from '@/features/items/types/TraitItem'
+import { Item } from '@/features/items/types'
+import Image from 'next/image'
 
 export default function Traits({
   buildState,
@@ -11,6 +13,7 @@ export default function Traits({
   isScreenshotMode,
   showControls,
   onAddTrait,
+  onItemInfoClick,
   onRemoveTrait,
   onUpdateAmount,
 }: {
@@ -19,6 +22,7 @@ export default function Traits({
   isScreenshotMode: boolean
   showControls: boolean
   onAddTrait?: () => void
+  onItemInfoClick?: (item: Item) => void
   onRemoveTrait: (traitItem: TraitItem) => void
   onUpdateAmount: (traitItem: TraitItem) => void
 }) {
@@ -214,7 +218,22 @@ export default function Traits({
                 </button>
               )}
             </div>
-            <div className="text-sm text-gray-200">{traitItem.name}</div>
+            <button
+              className="relative flex items-center justify-start gap-x-2 text-sm text-gray-200"
+              onClick={() => onItemInfoClick && onItemInfoClick(traitItem)}
+            >
+              <div>{traitItem.name}</div>
+              {!isScreenshotMode && onItemInfoClick && (
+                <Image
+                  src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/information.png`}
+                  alt="Bleed Resistance"
+                  width={32}
+                  height={32}
+                  className="h-3 w-3"
+                  loading="eager"
+                />
+              )}
+            </button>
             {shouldAllowDelete(traitItem) && (
               <button
                 onClick={() => onRemoveTrait(traitItem)}
