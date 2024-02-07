@@ -101,19 +101,21 @@ export async function getBuildsByCollection({
 
   const orderBySegment = getOrderBySegment(orderBy)
 
-  const builds = await communityBuildsQuery({
-    userId,
-    itemsPerPage,
-    pageNumber,
-    orderBySegment,
-    whereConditions,
-  })
+  const [builds, totalBuildCountResponse] = await Promise.all([
+    communityBuildsQuery({
+      userId,
+      itemsPerPage,
+      pageNumber,
+      orderBySegment,
+      whereConditions,
+    }),
+    communityBuildsCountQuery({
+      whereConditions,
+    }),
+  ])
 
   if (!builds) return { items: [], totalItemCount: 0 }
 
-  const totalBuildCountResponse = await communityBuildsCountQuery({
-    whereConditions,
-  })
   const totalBuilds = totalBuildCountResponse[0].totalBuildCount
 
   // Find all build items for each build
