@@ -17,13 +17,13 @@ import {
   archetypeFiltersToIds,
   limitByArchetypesSegment,
 } from '@/features/filters/queries/segments/limitByArchtypes'
-import { limitByBuildNameOrDescription } from '@/features/filters/queries/segments/limitByBuildNameOrDescription'
+import { limitByBuildNameOrDescriptionSegment } from '@/features/filters/queries/segments/limitByBuildNameOrDescription'
 import { limitByReleasesSegment } from '@/features/filters/queries/segments/limitByRelease'
 import {
   limitByRingSegment,
   ringFilterToId,
 } from '@/features/filters/queries/segments/limitByRing'
-import limitByTimeCondition from '@/features/filters/queries/segments/limitByTimeCondition'
+import { limitByTimeConditionSegment } from '@/features/filters/queries/segments/limitByTimeCondition'
 import {
   limitByWeaponsSegment,
   weaponFiltersToIds,
@@ -85,8 +85,8 @@ export async function getCreatedBuilds({
   ${limitByAmuletSegment(amuletId)}
   ${limitByRingSegment(ringId)}
   ${limitByReleasesSegment(selectedReleases)}
-  ${limitByTimeCondition(timeRange)}
-  ${limitByBuildNameOrDescription(searchText)}
+  ${limitByTimeConditionSegment(timeRange)}
+  ${limitByBuildNameOrDescriptionSegment(searchText)}
   `
 
   const orderBySegment = getOrderBySegment(orderBy)

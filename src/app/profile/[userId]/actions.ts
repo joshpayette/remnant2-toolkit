@@ -20,7 +20,7 @@ import {
   weaponFiltersToIds,
 } from '@/features/filters/queries/segments/limitByWeapons'
 import { limitByReleasesSegment } from '@/features/filters/queries/segments/limitByRelease'
-import limitByTimeCondition from '@/features/filters/queries/segments/limitByTimeCondition'
+import { limitByTimeConditionSegment } from '@/features/filters/queries/segments/limitByTimeCondition'
 import {
   communityBuildsCountQuery,
   communityBuildsQuery,
@@ -128,7 +128,7 @@ export async function getUserProfilePage({
   ${limitByArchetypesSegment(archetypeIds)}
   ${limitByWeaponsSegment(weaponIds)}
   ${limitByReleasesSegment(selectedReleases)}
-  ${limitByTimeCondition(timeRange)}
+  ${limitByTimeConditionSegment(timeRange)}
   `
 
   const orderBySegment = getOrderBySegment(orderBy)

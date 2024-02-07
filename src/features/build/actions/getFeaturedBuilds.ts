@@ -24,7 +24,7 @@ import {
   TimeRange,
 } from '@/features/filters/types'
 import { limitByReleasesSegment } from '@/features/filters/queries/segments/limitByRelease'
-import limitByTimeCondition from '@/features/filters/queries/segments/limitByTimeCondition'
+import { limitByTimeConditionSegment } from '@/features/filters/queries/segments/limitByTimeCondition'
 import getOrderBySegment from '@/features/filters/queries/segments/getOrderBySegment'
 import {
   limitByRingSegment,
@@ -34,7 +34,7 @@ import {
   amuletFilterToId,
   limitByAmuletSegment,
 } from '@/features/filters/queries/segments/limitByAmulet'
-import { limitByBuildNameOrDescription } from '@/features/filters/queries/segments/limitByBuildNameOrDescription'
+import { limitByBuildNameOrDescriptionSegment } from '@/features/filters/queries/segments/limitByBuildNameOrDescription'
 
 export async function getFeaturedBuilds({
   communityBuildFilters,
@@ -76,10 +76,10 @@ export async function getFeaturedBuilds({
   ${limitByArchetypesSegment(archetypeIds)}
   ${limitByWeaponsSegment(weaponIds)}
   ${limitByReleasesSegment(selectedReleases)}
-  ${limitByTimeCondition(timeRange)}
+  ${limitByTimeConditionSegment(timeRange)}
   ${limitByAmuletSegment(amuletId)}
   ${limitByRingSegment(ringId)}
-  ${limitByBuildNameOrDescription(searchText)}
+  ${limitByBuildNameOrDescriptionSegment(searchText)}
   `
 
   const orderBySegment = getOrderBySegment(orderBy)

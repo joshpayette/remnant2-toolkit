@@ -1,6 +1,6 @@
 import { Prisma } from '@prisma/client'
 
-export function limitByBuildNameOrDescription(searchText: string) {
+export function limitByBuildNameOrDescriptionSegment(searchText: string) {
   const trimmedSearchText = searchText.trim()
   return trimmedSearchText === ''
     ? Prisma.empty
