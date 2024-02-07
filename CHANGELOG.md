@@ -6,6 +6,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2024-02-07
 
+### Changed
+
+- Swapped the order of the More Info and Wiki links in the foot of item cards
+- Added search tags to the ItemSelect dialog in the builder
+
 ### Fixed
 
 - Fixed issue where the user's favorited builds was just returning all builds

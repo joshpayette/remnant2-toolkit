@@ -11,6 +11,7 @@ import { AdjustmentsHorizontalIcon } from '@heroicons/react/24/solid'
 import { cn } from '@/lib/classnames'
 import { useLocalStorage } from '@/features/localstorage/useLocalStorage'
 import { capitalize } from '@/lib/capitalize'
+import SearchTagsFilter from '@/features/filters/components/SearchTagsFilter'
 
 function sortByPreference({
   items,
@@ -60,9 +61,24 @@ export default function ItemSelect({
   const [filteredItemList, setFilteredItemList] = useState(itemList)
   const debouncedFilter = useDebounce(filter, 500)
 
+  const [selectedTag, setSelectedTag] = useState('[A]')
+  function handleSelectedTagChange(newValue: string) {
+    setSelectedTag(newValue)
+  }
+  function handleAddTagToSearchText() {
+    setFilter((prev) => `${prev} ${selectedTag}`)
+  }
+
   useEffect(() => {
-    const filteredItems = itemList.filter((item) =>
-      item.name.toLowerCase().includes(debouncedFilter.toLowerCase()),
+    const filteredItems = itemList.filter(
+      (item) =>
+        item.name.toLowerCase().includes(debouncedFilter.toLowerCase()) ||
+        item.description
+          ?.toLowerCase()
+          .includes(debouncedFilter.toLowerCase()) ||
+        item.tags?.some((tag) =>
+          tag.toLowerCase().includes(debouncedFilter.toLowerCase()),
+        ),
     )
 
     const sortedItems =
@@ -125,6 +141,13 @@ export default function ItemSelect({
               onChange={(newValue: string) => setFilter(newValue)}
               value={filter}
             />
+            <div className="flex items-start justify-start text-left">
+              <SearchTagsFilter
+                selectedTag={selectedTag}
+                onSelectedTagChange={handleSelectedTagChange}
+                onApplySelectedTag={handleAddTagToSearchText}
+              />
+            </div>
           </div>
           {buildSlot === 'trait' && (
             <div className="col-span-1 flex items-center justify-start">
@@ -139,6 +162,9 @@ export default function ItemSelect({
           )}
         </div>
       </div>
+
+      <hr className="mb-8 mt-4 border-green-500" />
+
       <ul
         role="list"
         className="flex flex-wrap items-start justify-center gap-4"

@@ -28,11 +28,6 @@ export default function Filters({
 }: Props) {
   const { discoveredItemIds } = useLocalStorage()
 
-  const [selectedTag, setSelectedTag] = useState('[A]')
-  function handleSelectedTagChange(newValue: string) {
-    setSelectedTag(newValue)
-  }
-
   function clearFilters() {
     setSearchText('')
     setIncludedReleaseKeys(defaultReleaseKeys)
@@ -56,9 +51,16 @@ export default function Filters({
    */
   const [searchText, setSearchText] = useState('')
   const debouncedSearchText = useDebounce(searchText, 500)
-
   function handleSearchTextChange(newValue: string) {
     setSearchText(newValue)
+  }
+
+  const [selectedTag, setSelectedTag] = useState('[A]')
+  function handleSelectedTagChange(newValue: string) {
+    setSelectedTag(newValue)
+  }
+  function handleAddTagToSearchText() {
+    setSearchText((prev) => `${prev} ${selectedTag}`)
   }
 
   /**
@@ -129,10 +131,6 @@ export default function Filters({
     } else {
       setIncludedCategoryKeys([...includedCategoryKeys, categoryKey])
     }
-  }
-
-  function handleAddTagToSearchText() {
-    setSearchText((prev) => `${prev} ${selectedTag}`)
   }
 
   /**

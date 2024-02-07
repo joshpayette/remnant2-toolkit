@@ -23,7 +23,7 @@ export default function SelectMenu({
       {label && (
         <label
           htmlFor={name}
-          className="block text-sm font-medium leading-6 text-green-500"
+          className="block text-sm font-medium text-green-500"
         >
           {label}
         </label>

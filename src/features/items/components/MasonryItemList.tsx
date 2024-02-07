@@ -96,32 +96,33 @@ function MasonryCard({ data: item, onMoreInfoClick }: MasonryBuildItem) {
       </div>
       <div>
         <div className="-mt-px flex divide-x divide-green-800">
-          <div className="flex w-0 flex-1">
-            <button
-              onClick={() => onMoreInfoClick(item)}
+          {wikiLinks && wikiLinks[0] && (
+            <Link
+              target="_blank"
+              href={wikiLinks[0]}
               className="relative inline-flex w-0 flex-1 items-center justify-center gap-x-1 rounded-br-lg border border-transparent py-4 text-xs font-semibold text-gray-200"
             >
-              <InformationCircleIcon
+              <ListBulletIcon
                 className="h-4 w-4 text-green-400"
                 aria-hidden="true"
               />
-              More Info
-            </button>
-          </div>
+              Wiki
+            </Link>
+          )}
+
           <div className="-ml-px flex w-0 flex-1">
-            {wikiLinks && wikiLinks[0] && (
-              <Link
-                target="_blank"
-                href={wikiLinks[0]}
+            <div className="flex w-0 flex-1">
+              <button
+                onClick={() => onMoreInfoClick(item)}
                 className="relative inline-flex w-0 flex-1 items-center justify-center gap-x-1 rounded-br-lg border border-transparent py-4 text-xs font-semibold text-gray-200"
               >
-                <ListBulletIcon
+                <InformationCircleIcon
                   className="h-4 w-4 text-green-400"
                   aria-hidden="true"
                 />
-                Wiki
-              </Link>
-            )}
+                More Info
+              </button>
+            </div>
           </div>
         </div>
       </div>
