@@ -40,25 +40,7 @@ export default function Page() {
             community submitted builds!
           </span>
         }
-      >
-        <div className="flex items-center justify-center gap-x-4">
-          {sessionData?.user ? (
-            <Link
-              className="rounded bg-purple-500 p-2 text-sm font-bold hover:bg-purple-700"
-              href="/community-builds/by-collection"
-            >
-              Find builds by collection
-            </Link>
-          ) : (
-            <button
-              className="rounded bg-red-500 p-2 text-sm font-bold hover:bg-red-700"
-              onClick={() => signIn()}
-            >
-              Sign in to find builds by collection
-            </button>
-          )}
-        </div>
-      </PageHeader>
+      />
 
       <div className="mb-8 flex w-full max-w-2xl items-center justify-center">
         <CommunityBuildFilters

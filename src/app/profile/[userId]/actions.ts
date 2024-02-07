@@ -3,7 +3,6 @@
 import { PaginationResponse } from '@/features/pagination/usePagination'
 import { prisma } from '@/features/db'
 import { DBBuild } from '@/features/build/types'
-import { DEFAULT_DISPLAY_NAME } from '@/features/profile/constants'
 import { Prisma, User, UserProfile } from '@prisma/client'
 import { bigIntFix } from '@/lib/bigIntFix'
 import { ErrorResponse } from '@/features/error-handling/types'
@@ -135,13 +134,18 @@ export async function getUserProfilePage({
   const orderBySegment = getOrderBySegment(orderBy)
 
   // First, get the Builds
-  const builds = await communityBuildsQuery({
-    userId,
-    itemsPerPage,
-    pageNumber,
-    orderBySegment,
-    whereConditions,
-  })
+  const [builds, totalBuildsCountResponse] = await Promise.all([
+    communityBuildsQuery({
+      userId,
+      itemsPerPage,
+      pageNumber,
+      orderBySegment,
+      whereConditions,
+    }),
+    communityBuildsCountQuery({
+      whereConditions,
+    }),
+  ])
 
   // Then, for each Build, get the associated BuildItems
   for (const build of builds) {
@@ -151,9 +155,6 @@ export async function getUserProfilePage({
     build.buildItems = buildItems
   }
 
-  const totalBuildsCountResponse = await communityBuildsCountQuery({
-    whereConditions,
-  })
   const totalBuildCount = totalBuildsCountResponse[0].totalBuildCount
 
   return bigIntFix({

@@ -91,13 +91,18 @@ ${limitByBuildNameOrDescription(searchText)}
   const orderBySegment = getOrderBySegment(orderBy)
 
   // First, get the Builds
-  const builds = await communityBuildsQuery({
-    userId,
-    itemsPerPage,
-    pageNumber,
-    orderBySegment,
-    whereConditions,
-  })
+  const [builds, totalBuildsCountResponse] = await Promise.all([
+    communityBuildsQuery({
+      userId,
+      itemsPerPage,
+      pageNumber,
+      orderBySegment,
+      whereConditions,
+    }),
+    communityBuildsCountQuery({
+      whereConditions,
+    }),
+  ])
 
   // Then, for each Build, get the associated BuildItems
   for (const build of builds) {
@@ -107,9 +112,6 @@ ${limitByBuildNameOrDescription(searchText)}
     build.buildItems = buildItems
   }
 
-  const totalBuildsCountResponse = await communityBuildsCountQuery({
-    whereConditions,
-  })
   const totalBuildCount = totalBuildsCountResponse[0].totalBuildCount
 
   return bigIntFix({
