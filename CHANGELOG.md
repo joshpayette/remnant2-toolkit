@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Filters for various build lists now written to the URL. This will allow you to share a link to a specific set of builds with the filters applied, as well as maintaining the filters if you refresh the page.
 - Added Item Info button to trait points on builder.
+- Added ability to add tags to the search text for the Item Lookup. This allows the user to search by tags that they may not be aware of, such as `[A]` for Amplitude or `reduce skill cooldown` to find items where the descriptions are inconsistent.
 
 ### Changed
 

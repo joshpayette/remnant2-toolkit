@@ -34,7 +34,7 @@ type ItemCategory =
   | 'trait'
   | 'perk'
 
-type ItemTag =
+export type ItemTag =
   | 'hardcore'
   | 'reduce skill cooldown'
   | 'mod duration'

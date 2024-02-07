@@ -1,3 +1,5 @@
+import { ItemTag } from './types/GenericItem'
+
 /**
  * The max size a profile.sav import can be (in kilobytes)
  */
@@ -342,3 +344,11 @@ export const DESCRIPTION_TAGS = [
   color: string
   description: string | undefined
 }[]
+
+// TODO Uncomment the remaining tags after we add them to items
+export const ITEM_TAGS: ItemTag[] = [
+  // 'hardcore',
+  'reduce skill cooldown',
+  // 'mod duration',
+  // 'mod cooldown',
+]

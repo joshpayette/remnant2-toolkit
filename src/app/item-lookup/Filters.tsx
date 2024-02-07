@@ -10,7 +10,13 @@ import { remnantItemCategories } from '@/features/items/data/remnantItems'
 import { capitalize } from '@/lib/capitalize'
 import { Checkbox } from '@/features/ui/Checkbox'
 import { ReleaseKey } from '../../features/items/types'
-import { RELEASE_TO_NAME } from '../../features/items/constants'
+import {
+  DESCRIPTION_TAGS,
+  ITEM_TAGS,
+  RELEASE_TO_NAME,
+} from '../../features/items/constants'
+import SelectMenu from '@/features/ui/SelectMenu'
+import { ItemTag } from '@/features/items/types/GenericItem'
 
 interface Props {
   allItems: FilteredItem[]
@@ -26,6 +32,7 @@ export default function Filters({
   onUpdate,
 }: Props) {
   const { discoveredItemIds } = useLocalStorage()
+  const [selectedTag, setSelectedTag] = useState('[A]')
 
   function clearFilters() {
     setSearchText('')
@@ -125,6 +132,10 @@ export default function Filters({
     }
   }
 
+  function handleAddTagToSearchText() {
+    setSearchText((prev) => `${prev} ${selectedTag}`)
+  }
+
   /**
    * ------------------------------------
    * Applies the filters as they change
@@ -143,7 +154,10 @@ export default function Filters({
         item.name.toLowerCase().includes(debouncedSearchText.toLowerCase()) ||
         item.description
           ?.toLowerCase()
-          .includes(debouncedSearchText.toLowerCase()),
+          .includes(debouncedSearchText.toLowerCase()) ||
+        item.tags?.some((tag) =>
+          tag.toLowerCase().includes(debouncedSearchText.toLowerCase()),
+        ),
     )
 
     // Filter out the collections
@@ -191,6 +205,24 @@ export default function Filters({
     onUpdate,
   ])
 
+  const descriptionTagOptions = DESCRIPTION_TAGS.map((tag) => ({
+    label: tag.type,
+    value: tag.token,
+  }))
+  const itemTagsOptions: Array<{ label: string; value: ItemTag }> =
+    ITEM_TAGS.map((tag) => ({
+      label: tag,
+      value: tag,
+    }))
+
+  const allTagOptions = [...descriptionTagOptions, ...itemTagsOptions].sort(
+    (a, b) => {
+      if (a.label < b.label) return -1
+      if (a.label > b.label) return 1
+      return 0
+    },
+  )
+
   return (
     <div
       className={cn(
@@ -208,16 +240,34 @@ export default function Filters({
           </div>
         )}
         <div className="col-span-full pt-2">
-          <div className="flex w-full items-center justify-start gap-x-4">
-            <span className="flex items-center justify-start text-left text-sm font-bold text-green-500">
+          <div className="flex w-full flex-col items-start justify-center gap-x-4">
+            <span className="mb-2 flex items-center justify-start text-left text-sm font-bold text-green-500">
               Search
             </span>
-            <div className="grow">
+            <div className="w-full grow">
               <SearchInput
                 onChange={handleSearchTextChange}
                 value={searchText}
                 placeholder={'Search item names and descriptions'}
               />
+              <div className="mt-2 flex items-end justify-start">
+                <div>
+                  <SelectMenu
+                    label="Tags"
+                    options={allTagOptions}
+                    value={selectedTag}
+                    onChange={(e) => setSelectedTag(e.target.value)}
+                  />
+                </div>
+                <div className="flex items-end justify-end">
+                  <button
+                    onClick={handleAddTagToSearchText}
+                    className="lg ml-2 rounded bg-purple-600 p-2 text-sm"
+                  >
+                    Add Tag
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
