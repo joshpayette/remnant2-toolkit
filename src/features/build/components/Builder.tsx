@@ -303,16 +303,7 @@ export default function Builder({
   }
 
   return (
-    <div
-      className={cn(
-        'w-full grow rounded border-2 bg-black p-4',
-        !buildState.isMember && 'border-green-500',
-        buildState.isMember &&
-          !isScreenshotMode &&
-          'border-yellow-300 shadow-lg shadow-yellow-600',
-        buildState.isMember && isScreenshotMode && 'border-yellow-500',
-      )}
-    >
+    <>
       <ItemSelect
         open={isItemSelectModalOpen}
         onClose={() => setSelectedItemSlot({ category: null })}
@@ -327,323 +318,344 @@ export default function Builder({
         onClose={() => setInfoItem(null)}
       />
 
+      {buildState.isPublic === false && !isScreenshotMode && (
+        <div className="text-md mb-4 flex flex-col items-center justify-center gap-4 border-2 border-red-500 p-4 font-semibold text-red-500">
+          This build is currently marked private. Other users will be unable to
+          view it until you mark it public.
+        </div>
+      )}
       <div
         className={cn(
-          'relative mb-4 border-b border-b-green-900',
-          (isPopular || isNew) && 'mb-8 pb-6',
+          'w-full grow rounded border-2 bg-black p-4',
+          !buildState.isMember && 'border-green-500',
+          buildState.isMember &&
+            !isScreenshotMode &&
+            'border-yellow-300 shadow-lg shadow-yellow-600',
+          buildState.isMember && isScreenshotMode && 'border-yellow-500',
         )}
       >
-        <BuilderName
-          isEditable={isEditable}
-          isEditingBuildName={isEditingBuildName}
-          onClick={() => setIsEditingBuildName(true)}
-          onClose={(newBuildName: string) =>
-            handleUpdateBuildName(newBuildName)
-          }
-          name={buildState.name}
-          showControls={showControls}
-        />
-        {showCreatedBy && (
-          <div className="mb-2 flex items-center justify-center text-sm text-gray-400">
-            <span className="mb-1">Build by </span>
-            <Link
-              href={`/profile/${buildState.createdById}`}
-              className="mb-1 ml-1 text-green-500 hover:text-green-700"
-            >
-              {buildState.createdByDisplayName}
-            </Link>
-            <div className="ml-2 flex flex-row text-sm">
-              <StarIcon
-                className={cn(
-                  'mr-0.5 h-4 w-4 text-yellow-500',
-                  isScreenshotMode ? 'mt-[1.5px]' : 'mt-0.5',
-                )}
-              />
-              <span className={cn(isScreenshotMode ? 'mb-[2px]' : 'mb-0.5')}>
-                {buildState.totalUpvotes}
-              </span>
-            </div>
-          </div>
-        )}
-        {isPopular && !isNew && (
-          <div className="absolute bottom-0 left-1/2 flex w-full -translate-x-1/2 translate-y-1/2 transform items-center justify-center">
-            <PopularBuildBadge />
-          </div>
-        )}
-        {isNew && (
-          <div className="absolute bottom-0 left-1/2 flex w-full -translate-x-1/2 translate-y-1/2 transform items-center justify-center">
-            <NewBuildBadge />
-          </div>
-        )}
-      </div>
-
-      <div>
         <div
-          id="archetype-container"
           className={cn(
-            'flex flex-row flex-wrap items-start justify-between gap-1 sm:justify-center',
-            isScreenshotMode && 'justify-center gap-2',
+            'relative mb-4 border-b border-b-green-900',
+            (isPopular || isNew) && 'mb-8 pb-6',
           )}
         >
-          {getArrayOfLength(2).map((archetypeIndex) => (
-            <Fragment key={`archetype-${archetypeIndex}`}>
-              <BuilderButton
-                item={buildState.items.archetype[archetypeIndex]}
-                isEditable={isEditable}
-                onClick={() => handleButtonClick('archetype', archetypeIndex)}
-                onItemInfoClick={handleShowInfo}
-                isScreenshotMode={isScreenshotMode}
-              />
-              <BuilderButton
-                item={buildState.items.skill[archetypeIndex]}
-                isEditable={isEditable}
-                onClick={() => handleButtonClick('skill', archetypeIndex)}
-                onItemInfoClick={handleShowInfo}
-                isScreenshotMode={isScreenshotMode}
-              />
-            </Fragment>
-          ))}
+          <BuilderName
+            isEditable={isEditable}
+            isEditingBuildName={isEditingBuildName}
+            onClick={() => setIsEditingBuildName(true)}
+            onClose={(newBuildName: string) =>
+              handleUpdateBuildName(newBuildName)
+            }
+            name={buildState.name}
+            showControls={showControls}
+          />
+          {showCreatedBy && (
+            <div className="mb-2 flex items-center justify-center text-sm text-gray-400">
+              <span className="mb-1">Build by </span>
+              <Link
+                href={`/profile/${buildState.createdById}`}
+                className="mb-1 ml-1 text-green-500 hover:text-green-700"
+              >
+                {buildState.createdByDisplayName}
+              </Link>
+              <div className="ml-2 flex flex-row text-sm">
+                <StarIcon
+                  className={cn(
+                    'mr-0.5 h-4 w-4 text-yellow-500',
+                    isScreenshotMode ? 'mt-[1.5px]' : 'mt-0.5',
+                  )}
+                />
+                <span className={cn(isScreenshotMode ? 'mb-[2px]' : 'mb-0.5')}>
+                  {buildState.totalUpvotes}
+                </span>
+              </div>
+            </div>
+          )}
+          {isPopular && !isNew && (
+            <div className="absolute bottom-0 left-1/2 flex w-full -translate-x-1/2 translate-y-1/2 transform items-center justify-center">
+              <PopularBuildBadge />
+            </div>
+          )}
+          {isNew && (
+            <div className="absolute bottom-0 left-1/2 flex w-full -translate-x-1/2 translate-y-1/2 transform items-center justify-center">
+              <NewBuildBadge />
+            </div>
+          )}
         </div>
-        <div
-          className={cn(
-            'relative flex w-full items-start justify-between gap-4',
-          )}
-        >
-          {isScreenshotMode && (
-            <div className="absolute bottom-[10px] right-[80px]">
-              <Logo showUrl />
-            </div>
-          )}
-          <div id="left-column" className="flex-none">
-            <BuilderButton
-              item={buildState.items.helm}
-              isEditable={isEditable}
-              onClick={() => handleButtonClick('helm')}
-              onItemInfoClick={handleShowInfo}
-              isScreenshotMode={isScreenshotMode}
-            />
-            <BuilderButton
-              item={buildState.items.torso}
-              isEditable={isEditable}
-              onClick={() => handleButtonClick('torso')}
-              onItemInfoClick={handleShowInfo}
-              isScreenshotMode={isScreenshotMode}
-            />
-            <BuilderButton
-              item={buildState.items.legs}
-              isEditable={isEditable}
-              onClick={() => handleButtonClick('legs')}
-              onItemInfoClick={handleShowInfo}
-              isScreenshotMode={isScreenshotMode}
-            />
-            <BuilderButton
-              item={buildState.items.gloves}
-              isEditable={isEditable}
-              onClick={() => handleButtonClick('gloves')}
-              onItemInfoClick={handleShowInfo}
-              isScreenshotMode={isScreenshotMode}
-            />
-            <div
-              id="relic-container"
-              className="relative flex items-start justify-start"
-            >
+
+        <div>
+          <div
+            id="archetype-container"
+            className={cn(
+              'flex flex-row flex-wrap items-start justify-between gap-1 sm:justify-center',
+              isScreenshotMode && 'justify-center gap-2',
+            )}
+          >
+            {getArrayOfLength(2).map((archetypeIndex) => (
+              <Fragment key={`archetype-${archetypeIndex}`}>
+                <BuilderButton
+                  item={buildState.items.archetype[archetypeIndex]}
+                  isEditable={isEditable}
+                  onClick={() => handleButtonClick('archetype', archetypeIndex)}
+                  onItemInfoClick={handleShowInfo}
+                  isScreenshotMode={isScreenshotMode}
+                />
+                <BuilderButton
+                  item={buildState.items.skill[archetypeIndex]}
+                  isEditable={isEditable}
+                  onClick={() => handleButtonClick('skill', archetypeIndex)}
+                  onItemInfoClick={handleShowInfo}
+                  isScreenshotMode={isScreenshotMode}
+                />
+              </Fragment>
+            ))}
+          </div>
+          <div
+            className={cn(
+              'relative flex w-full items-start justify-between gap-4',
+            )}
+          >
+            {isScreenshotMode && (
+              <div className="absolute bottom-[10px] right-[80px]">
+                <Logo showUrl />
+              </div>
+            )}
+            <div id="left-column" className="flex-none">
               <BuilderButton
-                item={buildState.items.relic}
+                item={buildState.items.helm}
                 isEditable={isEditable}
-                onClick={() => handleButtonClick('relic')}
+                onClick={() => handleButtonClick('helm')}
+                onItemInfoClick={handleShowInfo}
+                isScreenshotMode={isScreenshotMode}
+              />
+              <BuilderButton
+                item={buildState.items.torso}
+                isEditable={isEditable}
+                onClick={() => handleButtonClick('torso')}
+                onItemInfoClick={handleShowInfo}
+                isScreenshotMode={isScreenshotMode}
+              />
+              <BuilderButton
+                item={buildState.items.legs}
+                isEditable={isEditable}
+                onClick={() => handleButtonClick('legs')}
+                onItemInfoClick={handleShowInfo}
+                isScreenshotMode={isScreenshotMode}
+              />
+              <BuilderButton
+                item={buildState.items.gloves}
+                isEditable={isEditable}
+                onClick={() => handleButtonClick('gloves')}
                 onItemInfoClick={handleShowInfo}
                 isScreenshotMode={isScreenshotMode}
               />
               <div
-                id="relic-fragment-container"
-                className="absolute left-[66px] top-0 flex w-[160px] flex-col items-start justify-start"
+                id="relic-container"
+                className="relative flex items-start justify-start"
               >
                 <BuilderButton
+                  item={buildState.items.relic}
                   isEditable={isEditable}
-                  size="sm"
-                  item={buildState.items.relicfragment[0]}
-                  onClick={() => handleButtonClick('relicfragment', 0)}
+                  onClick={() => handleButtonClick('relic')}
                   onItemInfoClick={handleShowInfo}
                   isScreenshotMode={isScreenshotMode}
                 />
-                <BuilderButton
-                  item={buildState.items.relicfragment[1]}
-                  isEditable={isEditable}
-                  size="sm"
-                  onClick={() => handleButtonClick('relicfragment', 1)}
-                  onItemInfoClick={handleShowInfo}
-                  isScreenshotMode={isScreenshotMode}
-                />
-                <BuilderButton
-                  item={buildState.items.relicfragment[2]}
-                  isEditable={isEditable}
-                  size="sm"
-                  onClick={() => handleButtonClick('relicfragment', 2)}
-                  onItemInfoClick={handleShowInfo}
-                  isScreenshotMode={isScreenshotMode}
-                />
+                <div
+                  id="relic-fragment-container"
+                  className="absolute left-[66px] top-0 flex w-[160px] flex-col items-start justify-start"
+                >
+                  <BuilderButton
+                    isEditable={isEditable}
+                    size="sm"
+                    item={buildState.items.relicfragment[0]}
+                    onClick={() => handleButtonClick('relicfragment', 0)}
+                    onItemInfoClick={handleShowInfo}
+                    isScreenshotMode={isScreenshotMode}
+                  />
+                  <BuilderButton
+                    item={buildState.items.relicfragment[1]}
+                    isEditable={isEditable}
+                    size="sm"
+                    onClick={() => handleButtonClick('relicfragment', 1)}
+                    onItemInfoClick={handleShowInfo}
+                    isScreenshotMode={isScreenshotMode}
+                  />
+                  <BuilderButton
+                    item={buildState.items.relicfragment[2]}
+                    isEditable={isEditable}
+                    size="sm"
+                    onClick={() => handleButtonClick('relicfragment', 2)}
+                    onItemInfoClick={handleShowInfo}
+                    isScreenshotMode={isScreenshotMode}
+                  />
+                </div>
               </div>
             </div>
-          </div>
-          <div
-            id="center-column"
-            className="relative ml-[13px] flex h-[450px] max-h-[450px] w-full flex-col items-start justify-start overflow-y-auto sm:h-[460px] sm:max-h-[460px]"
-          >
-            <Stats
-              buildState={buildState}
-              isScreenshotMode={isScreenshotMode}
-            />
-          </div>
-          <div id="right-column" className="flex-none">
-            <BuilderButton
-              item={buildState.items.amulet}
-              isEditable={isEditable}
-              onClick={() => handleButtonClick('amulet')}
-              onItemInfoClick={handleShowInfo}
-              isScreenshotMode={isScreenshotMode}
-            />
-            {getArrayOfLength(4).map((ringIndex) => (
-              <BuilderButton
-                key={`ring-${ringIndex}`}
-                item={buildState.items.ring[ringIndex]}
-                isEditable={isEditable}
-                onClick={() => handleButtonClick('ring', ringIndex)}
-                onItemInfoClick={handleShowInfo}
-                isScreenshotMode={isScreenshotMode}
-              />
-            ))}
-          </div>
-        </div>
-
-        <div
-          id="guns-row"
-          className="flex w-full flex-row items-start justify-start gap-2 overflow-x-auto"
-        >
-          {getArrayOfLength(3).map((weaponIndex) => (
             <div
-              key={`gun-${weaponIndex}`}
-              className="flex flex-col items-start justify-center"
+              id="center-column"
+              className="relative ml-[13px] flex h-[450px] max-h-[450px] w-full flex-col items-start justify-start overflow-y-auto sm:h-[460px] sm:max-h-[460px]"
             >
+              <Stats
+                buildState={buildState}
+                isScreenshotMode={isScreenshotMode}
+              />
+            </div>
+            <div id="right-column" className="flex-none">
               <BuilderButton
-                item={buildState.items.weapon[weaponIndex]}
-                size="wide"
+                item={buildState.items.amulet}
                 isEditable={isEditable}
-                onClick={() => handleButtonClick('weapon', weaponIndex)}
+                onClick={() => handleButtonClick('amulet')}
                 onItemInfoClick={handleShowInfo}
                 isScreenshotMode={isScreenshotMode}
               />
-              <div className="flex w-full grow items-start justify-around gap-4">
-                {weaponIndex !== 1 || buildState.items.mod[weaponIndex] ? (
+              {getArrayOfLength(4).map((ringIndex) => (
+                <BuilderButton
+                  key={`ring-${ringIndex}`}
+                  item={buildState.items.ring[ringIndex]}
+                  isEditable={isEditable}
+                  onClick={() => handleButtonClick('ring', ringIndex)}
+                  onItemInfoClick={handleShowInfo}
+                  isScreenshotMode={isScreenshotMode}
+                />
+              ))}
+            </div>
+          </div>
+
+          <div
+            id="guns-row"
+            className="flex w-full flex-row items-start justify-start gap-2 overflow-x-auto"
+          >
+            {getArrayOfLength(3).map((weaponIndex) => (
+              <div
+                key={`gun-${weaponIndex}`}
+                className="flex flex-col items-start justify-center"
+              >
+                <BuilderButton
+                  item={buildState.items.weapon[weaponIndex]}
+                  size="wide"
+                  isEditable={isEditable}
+                  onClick={() => handleButtonClick('weapon', weaponIndex)}
+                  onItemInfoClick={handleShowInfo}
+                  isScreenshotMode={isScreenshotMode}
+                />
+                <div className="flex w-full grow items-start justify-around gap-4">
+                  {weaponIndex !== 1 || buildState.items.mod[weaponIndex] ? (
+                    <BuilderButton
+                      item={buildState.items.mod[weaponIndex]}
+                      size="md"
+                      isEditable={isEditable}
+                      onClick={
+                        weaponIndex === 1
+                          ? undefined
+                          : () => handleButtonClick('mod', weaponIndex)
+                      }
+                      onItemInfoClick={handleShowInfo}
+                      isScreenshotMode={isScreenshotMode}
+                    />
+                  ) : (
+                    <div className="h-[66px] w-[66px]" />
+                  )}
                   <BuilderButton
-                    item={buildState.items.mod[weaponIndex]}
+                    item={buildState.items.mutator[weaponIndex]}
                     size="md"
                     isEditable={isEditable}
-                    onClick={
-                      weaponIndex === 1
-                        ? undefined
-                        : () => handleButtonClick('mod', weaponIndex)
+                    onClick={() => handleButtonClick('mutator', weaponIndex)}
+                    onItemInfoClick={handleShowInfo}
+                    isScreenshotMode={isScreenshotMode}
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+          <div id="trait-row" className="mt-4 w-full">
+            <Traits
+              buildState={buildState}
+              showControls={showControls}
+              isEditable={isEditable}
+              isScreenshotMode={isScreenshotMode}
+              onAddTrait={() => handleButtonClick('trait')}
+              onItemInfoClick={handleShowInfo}
+              onRemoveTrait={(traitItem) => handleRemoveTrait(traitItem)}
+              onUpdateAmount={(newTraitItem) =>
+                handleUpdateTraitAmount(newTraitItem)
+              }
+            />
+          </div>
+
+          {buildState.items.concoction.every((i) => !i) &&
+          !isEditable ? null : (
+            <div
+              id="concoction-container"
+              className={cn(
+                'mt-4 flex flex-row flex-wrap items-start justify-between gap-x-2 gap-y-0 sm:justify-start',
+                isScreenshotMode && 'justify-start',
+              )}
+            >
+              <BuilderButton
+                item={buildState.items.concoction[0]}
+                isEditable={isEditable}
+                onClick={() => handleButtonClick('concoction', 0)}
+                onItemInfoClick={handleShowInfo}
+                isScreenshotMode={isScreenshotMode}
+              />
+              {getArrayOfLength(concoctionSlotCount).map((index) => {
+                // Add 1 to the index because we already rendered the first slot
+                const concoctionIndex = index + 1
+                return (
+                  <BuilderButton
+                    key={`concoction-${concoctionIndex}`}
+                    item={buildState.items.concoction[concoctionIndex]}
+                    isEditable={isEditable}
+                    onClick={() =>
+                      handleButtonClick('concoction', concoctionIndex)
                     }
                     onItemInfoClick={handleShowInfo}
                     isScreenshotMode={isScreenshotMode}
                   />
-                ) : (
-                  <div className="h-[66px] w-[66px]" />
-                )}
-                <BuilderButton
-                  item={buildState.items.mutator[weaponIndex]}
-                  size="md"
-                  isEditable={isEditable}
-                  onClick={() => handleButtonClick('mutator', weaponIndex)}
-                  onItemInfoClick={handleShowInfo}
-                  isScreenshotMode={isScreenshotMode}
-                />
-              </div>
+                )
+              })}
             </div>
-          ))}
-        </div>
-        <div id="trait-row" className="mt-4 w-full">
-          <Traits
-            buildState={buildState}
-            showControls={showControls}
-            isEditable={isEditable}
-            isScreenshotMode={isScreenshotMode}
-            onAddTrait={() => handleButtonClick('trait')}
-            onItemInfoClick={handleShowInfo}
-            onRemoveTrait={(traitItem) => handleRemoveTrait(traitItem)}
-            onUpdateAmount={(newTraitItem) =>
-              handleUpdateTraitAmount(newTraitItem)
-            }
-          />
-        </div>
+          )}
 
-        {buildState.items.concoction.every((i) => !i) && !isEditable ? null : (
-          <div
-            id="concoction-container"
-            className={cn(
-              'mt-4 flex flex-row flex-wrap items-start justify-between gap-x-2 gap-y-0 sm:justify-start',
-              isScreenshotMode && 'justify-start',
-            )}
-          >
-            <BuilderButton
-              item={buildState.items.concoction[0]}
-              isEditable={isEditable}
-              onClick={() => handleButtonClick('concoction', 0)}
-              onItemInfoClick={handleShowInfo}
-              isScreenshotMode={isScreenshotMode}
-            />
-            {getArrayOfLength(concoctionSlotCount).map((index) => {
-              // Add 1 to the index because we already rendered the first slot
-              const concoctionIndex = index + 1
-              return (
+          {buildState.items.consumable.every((i) => !i) &&
+          !isEditable ? null : (
+            <div
+              id="consumable-container"
+              className={cn(
+                'mt-4 flex flex-row flex-wrap items-start justify-between gap-x-2 gap-y-0 sm:justify-start',
+                isScreenshotMode && 'justify-start',
+              )}
+            >
+              {getArrayOfLength(4).map((consumableIndex) => (
                 <BuilderButton
-                  key={`concoction-${concoctionIndex}`}
-                  item={buildState.items.concoction[concoctionIndex]}
+                  key={`consumable-${consumableIndex}`}
+                  item={buildState.items.consumable[consumableIndex]}
                   isEditable={isEditable}
                   onClick={() =>
-                    handleButtonClick('concoction', concoctionIndex)
+                    handleButtonClick('consumable', consumableIndex)
                   }
                   onItemInfoClick={handleShowInfo}
                   isScreenshotMode={isScreenshotMode}
                 />
-              )
-            })}
-          </div>
-        )}
+              ))}
+            </div>
+          )}
 
-        {buildState.items.consumable.every((i) => !i) && !isEditable ? null : (
-          <div
-            id="consumable-container"
-            className={cn(
-              'mt-4 flex flex-row flex-wrap items-start justify-between gap-x-2 gap-y-0 sm:justify-start',
-              isScreenshotMode && 'justify-start',
-            )}
-          >
-            {getArrayOfLength(4).map((consumableIndex) => (
-              <BuilderButton
-                key={`consumable-${consumableIndex}`}
-                item={buildState.items.consumable[consumableIndex]}
+          {includeMemberFeatures && (
+            <div id="member-features-row" className="mt-4 w-full">
+              <MemberFeatures
+                description={buildState.description}
                 isEditable={isEditable}
-                onClick={() => handleButtonClick('consumable', consumableIndex)}
-                onItemInfoClick={handleShowInfo}
-                isScreenshotMode={isScreenshotMode}
+                isPublic={buildState.isPublic}
+                isScreenshotModeActive={isScreenshotMode}
+                onChangeDescription={handleChangeDescription}
+                onChangeIsPublic={handleToggleIsPublic}
               />
-            ))}
-          </div>
-        )}
-
-        {includeMemberFeatures && (
-          <div id="member-features-row" className="mt-4 w-full">
-            <MemberFeatures
-              description={buildState.description}
-              isEditable={isEditable}
-              isPublic={buildState.isPublic}
-              isScreenshotModeActive={isScreenshotMode}
-              onChangeDescription={handleChangeDescription}
-              onChangeIsPublic={handleToggleIsPublic}
-            />
-          </div>
-        )}
+            </div>
+          )}
+        </div>
       </div>
-    </div>
+    </>
   )
 }

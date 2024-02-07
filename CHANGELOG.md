@@ -14,6 +14,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Changed
 
 - Builds by Collection should now be quicker. Discovered items are saved to the database once when you visit the site, rather than on every request like previously.
+- Added notice at the top of private builds informing users the build is private.
 
 ### Fixed
 
