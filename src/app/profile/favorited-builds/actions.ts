@@ -35,6 +35,7 @@ import {
   ringFilterToId,
 } from '@/features/filters/queries/segments/limitByRing'
 import { limitByBuildNameOrDescription } from '@/features/filters/queries/segments/limitByBuildNameOrDescription'
+import { limitByFavorited } from '@/features/filters/queries/segments/limitByFavorited'
 
 export async function getFavoritedBuilds({
   communityBuildFilters,
@@ -77,6 +78,7 @@ export async function getFavoritedBuilds({
   const whereConditions = Prisma.sql`
 WHERE Build.isPublic = true
 AND Build.createdById != ${userId}
+${limitByFavorited(userId)}
 ${limitByArchetypesSegment(archetypeIds)}
 ${limitByWeaponsSegment(weaponIds)}
 ${limitByAmuletSegment(amuletId)}

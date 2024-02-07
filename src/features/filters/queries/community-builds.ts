@@ -52,7 +52,7 @@ export function communityBuildsQuery({
   SELECT Build.*, 
   User.name as createdByName, 
   User.displayName as createdByDisplayName, 
-  COUNT(BuildVoteCounts.buildId) as totalUpvotes,
+  (SELECT COUNT(*) FROM BuildVoteCounts WHERE BuildVoteCounts.buildId = Build.id) as totalUpvotes,
   COUNT(BuildReports.id) as totalReports,
   ${userReportedBuildSegment(userId)},
   ${userUpvotedBuildSegment(userId)},
