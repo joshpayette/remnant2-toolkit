@@ -20,6 +20,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Item Tracker save import allowed file size has been increased. This was mistakenly lowered in a previous update.
 - Fixed error in description of `Diverting Heart`
+- Fixed bug allow trait points to be clickable on Builder even if not your build. Traits were not allowed to change, but the UI still allowed you to click them.
 
 ## 2024-02-05
 

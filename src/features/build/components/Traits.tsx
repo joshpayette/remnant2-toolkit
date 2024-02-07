@@ -171,6 +171,7 @@ export default function Traits({
           >
             <div className="mr-4 flex items-center text-lg font-bold text-green-400">
               {traitItem.name === editingTraitItem?.name &&
+              isEditable &&
               shouldAllowEdit(editingTraitItem) ? (
                 <input
                   type="number"
