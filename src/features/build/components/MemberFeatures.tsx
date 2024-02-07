@@ -49,7 +49,7 @@ export default function MemberFeatures({
                 <h3 className="text-md mb-2 font-bold text-green-500">
                   Build Description
                 </h3>
-                <div className="whitespace-pre-wrap text-sm text-gray-200">
+                <div className="overflow-x-auto whitespace-pre-wrap text-sm text-gray-200">
                   <DescriptionWithTags description={description} />
                 </div>
               </>

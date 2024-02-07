@@ -1,10 +1,12 @@
 import Input from '@/features/ui/Input'
+import { cn } from '@/lib/classnames'
 import { PencilIcon } from '@heroicons/react/24/solid'
 import { useState } from 'react'
 
 export default function BuilderName({
   isEditable,
   isEditingBuildName,
+  isScreenshotMode,
   name,
   showControls,
   onClick,
@@ -12,6 +14,7 @@ export default function BuilderName({
 }: {
   isEditable: boolean
   isEditingBuildName: boolean
+  isScreenshotMode: boolean
   name: string
   showControls: boolean
   onClick: () => void
@@ -47,7 +50,12 @@ export default function BuilderName({
         </>
       ) : (
         <div className="mb-2 flex w-full items-center justify-center gap-2">
-          <h2 className="text-center  text-4xl font-bold text-green-400">
+          <h2
+            className={cn(
+              'whitespace-normal text-center text-2xl font-bold text-green-400 sm:text-4xl',
+              isScreenshotMode && 'text-4xl',
+            )}
+          >
             {name}
           </h2>
           {showControls && isEditable && (

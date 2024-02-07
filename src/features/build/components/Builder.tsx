@@ -343,6 +343,7 @@ export default function Builder({
           <BuilderName
             isEditable={isEditable}
             isEditingBuildName={isEditingBuildName}
+            isScreenshotMode={isScreenshotMode}
             onClick={() => setIsEditingBuildName(true)}
             onClose={(newBuildName: string) =>
               handleUpdateBuildName(newBuildName)
