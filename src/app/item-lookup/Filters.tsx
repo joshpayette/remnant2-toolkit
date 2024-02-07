@@ -10,13 +10,8 @@ import { remnantItemCategories } from '@/features/items/data/remnantItems'
 import { capitalize } from '@/lib/capitalize'
 import { Checkbox } from '@/features/ui/Checkbox'
 import { ReleaseKey } from '../../features/items/types'
-import {
-  DESCRIPTION_TAGS,
-  ITEM_TAGS,
-  RELEASE_TO_NAME,
-} from '../../features/items/constants'
-import SelectMenu from '@/features/ui/SelectMenu'
-import { ItemTag } from '@/features/items/types/GenericItem'
+import { RELEASE_TO_NAME } from '../../features/items/constants'
+import SearchTagsFilter from '@/features/filters/components/SearchTagsFilter'
 
 interface Props {
   allItems: FilteredItem[]
@@ -32,7 +27,11 @@ export default function Filters({
   onUpdate,
 }: Props) {
   const { discoveredItemIds } = useLocalStorage()
+
   const [selectedTag, setSelectedTag] = useState('[A]')
+  function handleSelectedTagChange(newValue: string) {
+    setSelectedTag(newValue)
+  }
 
   function clearFilters() {
     setSearchText('')
@@ -205,24 +204,6 @@ export default function Filters({
     onUpdate,
   ])
 
-  const descriptionTagOptions = DESCRIPTION_TAGS.map((tag) => ({
-    label: tag.type,
-    value: tag.token,
-  }))
-  const itemTagsOptions: Array<{ label: string; value: ItemTag }> =
-    ITEM_TAGS.map((tag) => ({
-      label: tag,
-      value: tag,
-    }))
-
-  const allTagOptions = [...descriptionTagOptions, ...itemTagsOptions].sort(
-    (a, b) => {
-      if (a.label < b.label) return -1
-      if (a.label > b.label) return 1
-      return 0
-    },
-  )
-
   return (
     <div
       className={cn(
@@ -250,24 +231,11 @@ export default function Filters({
                 value={searchText}
                 placeholder={'Search item names and descriptions'}
               />
-              <div className="mt-2 flex items-end justify-start">
-                <div>
-                  <SelectMenu
-                    label="Tags"
-                    options={allTagOptions}
-                    value={selectedTag}
-                    onChange={(e) => setSelectedTag(e.target.value)}
-                  />
-                </div>
-                <div className="flex items-end justify-end">
-                  <button
-                    onClick={handleAddTagToSearchText}
-                    className="lg ml-2 rounded bg-purple-600 p-2 text-sm"
-                  >
-                    Add Tag
-                  </button>
-                </div>
-              </div>
+              <SearchTagsFilter
+                selectedTag={selectedTag}
+                onApplySelectedTag={handleAddTagToSearchText}
+                onSelectedTagChange={handleSelectedTagChange}
+              />
             </div>
           </div>
         </div>
