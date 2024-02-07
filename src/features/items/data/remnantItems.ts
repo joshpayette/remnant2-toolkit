@@ -475,7 +475,7 @@ export const remnantItems: Item[] = [
     name: 'Wellspring',
     imagePath: '/skill/wellspring.png',
     id: '7vtxrx',
-    description: `The MEDIC channels healing energy into their fist, punching a hole in the ground to create a 3m [A] Healing Spring AOE which restores 10.5 Health per second and greatly increases Blight Decay Rate. Lasts 15s.`,
+    description: `The MEDIC channels healing energy into their fist, punching a hole in the ground [E] to create a 3m [A] Healing Spring AOE which restores 10.5 Health per second and greatly increases Blight Decay Rate. Lasts 15s.`,
     cooldown: 57.6,
     howToGet: `Unlocks automatically`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Wellspring`],
@@ -540,7 +540,7 @@ export const remnantItems: Item[] = [
     id: '5jh6qr',
     description: `Continously Aiming Down Sights uninterrupted and without shooting for 1s causes the HUNTER to enter a FOCUSED state. 
 
-    FOCUSED reduces Weapon Spread, Recoil, and Sway by 75% and grants 25% Ranged & Ranged Weakspot Damage, and 10% Ranged Crit Chance.
+    FOCUSED reduces Weapon Spread, Recoil, and Sway by 75% and grants 25% Ranged & Ranged Weakspot Damage [∗], and 10% Ranged Crit Chance.
     
     While FOCUSED, Aiming at enemies will automatically apply MARK.
     
@@ -3437,7 +3437,7 @@ export const remnantItems: Item[] = [
     name: 'Weakspot Damage', // This is the correct name, fextralife has it called ranged weakspot damage
     imagePath: '/relicfragment/weakspot_damage.png',
     id: 'oszz4u',
-    description: `+X% Weakspot Damage (Mythic: Maximum of +15%[∗])`,
+    description: `+X% Weakspot Damage (Mythic: Maximum of +15% [∗]).`,
     howToGet: ``,
     wikiLinks: [
       `https://remnant2.wiki.fextralife.com/Cracked+Ranged+Weakspot+Damage`,
@@ -6355,7 +6355,7 @@ export const remnantItems: Item[] = [
     imagePath: '/mutator/top_heavy.png',
     id: 'fknx4t',
     description: `Increases this weapon's Ranged Damage by up to 7.5% based on how close the magazine capacity is to full.`,
-    maxLevelBonus: `Increases this weapon's Weakspot Damage by up to 20%[∗] based on how close the magazine capacity is to full.`,
+    maxLevelBonus: `Increases this weapon's Weakspot Damage by up to 20% [∗] based on how close the magazine capacity is to full.`,
     howToGet: `Can be found in Forlorn Coast`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Top+Heavy`],
   },
@@ -6509,7 +6509,7 @@ Exclusive to The Awakened King DLC"`,
     name: 'Core Booster',
     imagePath: '/amulet/core_booster.png',
     id: 'wb4ixr',
-    description: `Increases weakspot damage by 50%[∗] for 10s after killing an enemy.`,
+    description: `Increases weakspot damage by 50% [∗] for 10s after killing an enemy.`,
     howToGet: `Can be found in N'Erud - Hidden underneath the Ascension Spireworldstone down a hole behind the first statue to your left when you enter. It will be behind a forcefield that needs to be opened using the Decorum Cipher or the Memory Core II.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Core+Booster`],
   },
@@ -6740,7 +6740,7 @@ For Heavy Weapons, doubles Heavy Weapon Ammo instead."`,
     imagePath: '/amulet/index_of_the_scribe.png',
     dlc: 'dlc1',
     id: '3lzs0c',
-    description: `Increases Mod and Skill Weakspot Damage by 35%[∗]`,
+    description: `Increases Mod and Skill Weakspot Damage by 35% [∗].`,
     howToGet: `"Can be bought from Leywise in Forlorn Coast
 Exclusive to The Awakened King DLC"`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Index+Of+The+Scribe`],
@@ -7408,7 +7408,7 @@ Exclusive Ring for The Awakened King DLC."`,
     imagePath: '/ring/bridge_wardens_crest.png',
     dlc: 'dlc1',
     id: 't7sqw7',
-    description: `Perfect Dodge increases Melee Damage by 15% [+] for 7 seconds. Perfect Evade Flop also gains 10% Damage Reduction for the duration.`,
+    description: `Perfect Dodge increases Melee Damage by 15% for 7 seconds. Perfect Evade Flop also gains 10% Damage Reduction for the duration.`,
     howToGet: `When you speak to the Bridge Warden and have NOT killed any of the Fae who are fighting with the Dran, he will award you this ring and praise you for not succumbing to the blood hunger.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Bridge+Wardens+Crest`],
   },
@@ -8278,7 +8278,7 @@ Exclusive Ring for The Awakened King DLC."`,
     name: 'Ring of Flawed Beauty',
     imagePath: '/ring/ring_of_flawed_beauty.png',
     id: 'lx6all',
-    description: `Ranged Weakspot damage is increased by 25%[∗]. Ranged damage is reduced by 15% when failing to hit a Weakspot.`,
+    description: `Ranged Weakspot damage is increased by 25% [∗]. Ranged damage is reduced by 15% when failing to hit a Weakspot.`,
     howToGet: `Can be bought from Cass.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Ring+of+Flawed+Beauty`],
   },
@@ -8750,7 +8750,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     name: "Zania's Malice",
     imagePath: '/ring/zanias_malice.png',
     id: 'ukufrn',
-    description: `Dealing Weakspot damage increases Weakspot damage by 10%[∗] for 7s. Stacks 3x.`,
+    description: `Dealing Weakspot damage increases Weakspot damage by 10% [∗] for 7s. Stacks 3x.`,
     howToGet: `Can be found in Root Earth - Ashen Wasteland.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Zania's+Malice`],
   },
@@ -9630,12 +9630,12 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     id: 'c4fx8u',
     description: `
     Unlocked at level 1
-    Gain 4% Ranged Damage and 1.5%[∗] Weakspot Damage. Damage increases with HUNTER Level
+    Gain 4% Ranged Damage and 1.5% [∗] Weakspot Damage. Damage increases with HUNTER Level
 
   Upgrade Unlocked at level 6
-  Gain 24% Ranged Damage, 9%[∗] Weakspot Damage and 5% Ranged Critical Chance.
+  Gain 24% Ranged Damage, 9% [∗] Weakspot Damage and 5% Ranged Critical Chance.
 
-  (Level 10: Gain 40% Ranged Damage and 15%[∗] Weakspot Damage)
+  (Level 10: Gain 40% Ranged Damage and 15% [∗] Weakspot Damage)
     `,
     howToGet: `Unlocked at Level 1`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Deadeye`],
@@ -10366,7 +10366,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     Upgrade Unlocked at level 6
     Increases Skill Damage by 50% and Skill Critical Chance by 10%
     
-    Heavy Weapons gain 50% Ammo Capacity, 25% Max Health, and 25%[∗] Weakspot Damage`,
+    Heavy Weapons gain 50% Ammo Capacity, 25% Max Health, and 25% [∗] Weakspot Damage.`,
     howToGet: `Unlocked at Level 1`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Metalworker`],
     linkedItems: {

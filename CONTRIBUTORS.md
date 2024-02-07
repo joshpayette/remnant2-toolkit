@@ -16,6 +16,10 @@ This project exists and thrives thanks to all the people who contribute.
 
 - Thatguylegit
 
+## Testing
+
+- ConRaven
+
 ## Bug Reporters
 
 - bo}|{omar
