@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Fixed
 
 - Fixed issue where the user's favorited builds was just returning all builds
+- Fixed bug with profile button and menu button on mobile, all UI related.
 
 ## 2024-02-06
 

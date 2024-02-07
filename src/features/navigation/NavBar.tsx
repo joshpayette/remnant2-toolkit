@@ -30,7 +30,7 @@ export default function NavBar() {
         <div className="flex min-w-[300px]">
           <Logo />
         </div>
-        <div className="flex lg:hidden">
+        <div className="flex w-full justify-end lg:hidden">
           <button
             type="button"
             className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-white"
