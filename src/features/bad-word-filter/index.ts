@@ -10,9 +10,16 @@ const filter = new Filter()
 // filter.addWords('some', 'bad', 'words')
 filter.removeWords('fart')
 
-export function badWordsFilter(text: string) {
+export function cleanBadWords(text: string) {
   if (!text || typeof text !== 'string' || text === '') return ''
   return filter.clean(text)
 }
 
-export default badWordsFilter
+export function checkBadWords(text: string) {
+  if (!text || typeof text !== 'string' || text === '') return false
+
+  // If the string has 3 or more asterisks in a row, it should be considered a bad word
+  if (text.includes('***')) return true
+
+  return filter.isProfane(text)
+}

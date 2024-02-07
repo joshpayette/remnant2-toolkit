@@ -6,10 +6,10 @@ import { prisma } from '@/features/db'
 import { revalidatePath } from 'next/cache'
 import { z } from 'zod'
 import { buildStateSchema } from '../../features/build/lib'
-import { badWordsFilter } from '../../features/bad-word-filter'
 import { DEFAULT_DISPLAY_NAME } from '@/features/profile/constants'
 import { bigIntFix } from '@/lib/bigIntFix'
 import { ErrorResponse } from '@/features/error-handling/types'
+import { checkBadWords, cleanBadWords } from '@/features/bad-word-filter'
 
 function buildStateToBuildItems(buildState: BuildState): Array<{
   itemId: string
@@ -131,16 +131,23 @@ export async function createBuild(data: string): Promise<BuildActionResponse> {
   const buildState = validatedData.data as BuildState
   const buildItems = buildStateToBuildItems(buildState)
 
+  if (
+    checkBadWords(buildState.name) ||
+    checkBadWords(buildState.description ?? '')
+  ) {
+    buildState.isPublic = false
+  }
+
   try {
     const dbResponse = await prisma.build.create({
       data: {
         name:
           buildState.name && buildState.name !== ''
-            ? badWordsFilter(buildState.name)
+            ? cleanBadWords(buildState.name)
             : 'My Build',
         description:
           buildState.description && buildState.description !== ''
-            ? badWordsFilter(buildState.description)
+            ? cleanBadWords(buildState.description)
             : '',
         isPublic: Boolean(buildState.isPublic),
         createdBy: {
@@ -318,6 +325,13 @@ export async function updateBuild(data: string): Promise<BuildActionResponse> {
 
   const updatedBuildItems = buildStateToBuildItems(buildState)
 
+  if (
+    checkBadWords(buildState.name) ||
+    checkBadWords(buildState.description ?? '')
+  ) {
+    buildState.isPublic = false
+  }
+
   try {
     const updatedBuild = await prisma.build.update({
       where: {
@@ -329,11 +343,11 @@ export async function updateBuild(data: string): Promise<BuildActionResponse> {
       data: {
         name:
           buildState.name && buildState.name !== ''
-            ? badWordsFilter(buildState.name)
+            ? cleanBadWords(buildState.name)
             : 'My Build',
         description:
           buildState.description && buildState.description !== ''
-            ? badWordsFilter(buildState.description)
+            ? cleanBadWords(buildState.description)
             : '',
         isPublic: Boolean(buildState.isPublic),
         BuildItems: {

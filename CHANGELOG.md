@@ -15,6 +15,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Builds by Collection should now be quicker. Discovered items are saved to the database once when you visit the site, rather than on every request like previously.
 - Added notice at the top of private builds informing users the build is private.
+- Updated handling of builds with bad language to prevent them from showing up in the community builds.
+  - Builds flagged for bad language now are privated by default.
+  - Builds flagged for bad language have the words replaced with asterisks.
+  - Three asterisks in a row are considered bad language based on the prior two points, with the goal of preventing circumvention of the filter.
 
 ### Fixed
 

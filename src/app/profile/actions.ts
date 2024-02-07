@@ -2,7 +2,6 @@
 
 import { z } from 'zod'
 import { getServerSession } from '../../features/auth/lib'
-import { badWordsFilter } from '../../features/bad-word-filter'
 import { prisma } from '../../features/db'
 import { PaginationResponse } from '../../features/pagination/usePagination'
 import { DBBuild } from '../../features/build/types'
@@ -42,6 +41,7 @@ import {
   ringFilterToId,
 } from '@/features/filters/queries/segments/limitByRing'
 import { limitByBuildNameOrDescription } from '@/features/filters/queries/segments/limitByBuildNameOrDescription'
+import { cleanBadWords } from '@/features/bad-word-filter'
 
 export type CreatedBuildsFilter = 'date created' | 'upvotes'
 
@@ -157,7 +157,7 @@ export async function updateUserDisplayName(
   const { displayName: dirtyDisplayName } = validatedData.data
 
   try {
-    const displayName = badWordsFilter(dirtyDisplayName)
+    const displayName = cleanBadWords(dirtyDisplayName)
 
     const dbResponse = await prisma.user.update({
       where: { id: session.user.id },
@@ -215,7 +215,7 @@ export async function updateUserBio(
   const { bio: dirtyBio } = validatedData.data
 
   try {
-    const bio = badWordsFilter(dirtyBio)
+    const bio = cleanBadWords(dirtyBio)
 
     const dbResponse = await prisma.userProfile.update({
       where: { userId: session.user.id },
