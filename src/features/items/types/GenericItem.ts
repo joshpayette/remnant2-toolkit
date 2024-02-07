@@ -34,10 +34,17 @@ type ItemCategory =
   | 'trait'
   | 'perk'
 
+type ItemTag =
+  | 'hardcore'
+  | 'reduce skill cooldown'
+  | 'mod duration'
+  | 'mod cooldown'
+
 export interface GenericItemProps {
   id: string
   name: string
   category: ItemCategory
+  tags?: ItemTag[]
   dlc?: ReleaseKey
   imagePath: string
   saveFileSlug?: string
@@ -72,6 +79,7 @@ export class GenericItem implements GenericItemProps {
   public id: GenericItemProps['id'] = ''
   public name: GenericItemProps['name'] = ''
   public category: GenericItemProps['category'] = 'skill'
+  public tags?: GenericItemProps['tags'] = []
   public dlc?: GenericItemProps['dlc'] = 'base'
   public description?: GenericItemProps['description'] = ''
   public cooldown?: GenericItemProps['cooldown'] = -1
