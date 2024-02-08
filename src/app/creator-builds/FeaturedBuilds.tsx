@@ -7,7 +7,7 @@ import usePagination from '@/features/pagination/usePagination'
 import Link from 'next/link'
 import { getFeaturedBuilds } from '@/features/build/actions/getFeaturedBuilds'
 import { BuildListFilterFields } from '@/features/filters/types'
-import useBuildListFilters from '@/features/filters/hooks/useBuildListFilters'
+import useBuildListSecondaryFilters from '@/features/filters/hooks/useBuildListSecondaryFilters'
 import BuildListSecondaryFilters from '@/features/filters/components/BuildListSecondaryFilters'
 import useBuildListState from '@/features/build/hooks/useBuildListState'
 
@@ -30,7 +30,7 @@ export default function FeaturedBuilds({
     timeRangeOptions,
     handleOrderByChange,
     handleTimeRangeChange,
-  } = useBuildListFilters()
+  } = useBuildListSecondaryFilters()
 
   const {
     currentPage,

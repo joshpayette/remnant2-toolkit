@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { OrderBy, TimeRange } from '../types'
 
-export default function useBuildListFilters(
+export default function useBuildListSecondaryFilters(
   defaultOrderBy: OrderBy = 'most favorited',
   defaultTimeRange: TimeRange = 'all-time',
 ) {

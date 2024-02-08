@@ -10,7 +10,7 @@ import CopyBuildUrlButton from '../../../features/profile/CopyBuildUrlButton'
 import EditBuildButton from '../../../features/profile/EditBuildButton'
 import DuplicateBuildButton from '../../../features/profile/DuplicateBuildButton'
 import BuildListSecondaryFilters from '@/features/filters/components/BuildListSecondaryFilters'
-import useBuildListFilters from '@/features/filters/hooks/useBuildListFilters'
+import useBuildListSecondaryFilters from '@/features/filters/hooks/useBuildListSecondaryFilters'
 import { BuildListFilterFields } from '@/features/filters/types'
 import useBuildListState from '@/features/build/hooks/useBuildListState'
 import BuildListFilters from '@/features/filters/components/BuildListFilters'
@@ -35,7 +35,7 @@ export default function Page({
     timeRangeOptions,
     handleOrderByChange,
     handleTimeRangeChange,
-  } = useBuildListFilters()
+  } = useBuildListSecondaryFilters()
 
   const {
     currentPage,

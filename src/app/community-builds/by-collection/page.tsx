@@ -16,7 +16,7 @@ import { dbBuildToBuildState } from '@/features/build/lib/dbBuildToBuildState'
 import { toast } from 'react-toastify'
 import { isErrorResponse } from '@/features/error-handling/isErrorResponse'
 import BuildListSecondaryFilters from '@/features/filters/components/BuildListSecondaryFilters'
-import useBuildListFilters from '@/features/filters/hooks/useBuildListFilters'
+import useBuildListSecondaryFilters from '@/features/filters/hooks/useBuildListSecondaryFilters'
 import useBuildListState from '@/features/build/hooks/useBuildListState'
 import saveDiscoveredItemIds from '@/features/items/actions/saveDiscoveredItemIds'
 import LoadingIndicator from '@/features/ui/LoadingIndicator'
@@ -41,7 +41,7 @@ export default function Page() {
     timeRangeOptions,
     handleOrderByChange,
     handleTimeRangeChange,
-  } = useBuildListFilters()
+  } = useBuildListSecondaryFilters()
 
   const {
     currentPage,

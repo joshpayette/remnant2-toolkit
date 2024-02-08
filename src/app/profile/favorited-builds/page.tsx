@@ -13,7 +13,7 @@ import AuthWrapper from '@/features/auth/components/AuthWrapper'
 import { getFavoritedBuilds } from './actions'
 import BuildListFilters from '@/features/filters/components/BuildListFilters'
 import { BuildListFilterFields } from '@/features/filters/types'
-import useBuildListFilters from '@/features/filters/hooks/useBuildListFilters'
+import useBuildListSecondaryFilters from '@/features/filters/hooks/useBuildListSecondaryFilters'
 import BuildListSecondaryFilters from '@/features/filters/components/BuildListSecondaryFilters'
 import useBuildListState from '@/features/build/hooks/useBuildListState'
 
@@ -34,7 +34,7 @@ export default function Page() {
     timeRangeOptions,
     handleOrderByChange,
     handleTimeRangeChange,
-  } = useBuildListFilters()
+  } = useBuildListSecondaryFilters()
 
   const {
     currentPage,

@@ -13,7 +13,7 @@ import Tabs from '../../../features/profile/Tabs'
 import ProfileHeader from '../../../features/profile/ProfileHeader'
 import { useSession } from 'next-auth/react'
 import AuthWrapper from '@/features/auth/components/AuthWrapper'
-import useBuildListFilters from '@/features/filters/hooks/useBuildListFilters'
+import useBuildListSecondaryFilters from '@/features/filters/hooks/useBuildListSecondaryFilters'
 import BuildListSecondaryFilters from '@/features/filters/components/BuildListSecondaryFilters'
 import BuildListFilters from '@/features/filters/components/BuildListFilters'
 import { BuildListFilterFields } from '@/features/filters/types'
@@ -37,7 +37,7 @@ export default function Page() {
     timeRangeOptions,
     handleOrderByChange,
     handleTimeRangeChange,
-  } = useBuildListFilters('newest')
+  } = useBuildListSecondaryFilters('newest')
 
   const {
     currentPage,

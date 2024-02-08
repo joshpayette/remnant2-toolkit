@@ -11,7 +11,7 @@ import { getCommunityBuilds } from '@/features/build/actions/getCommunityBuilds'
 import { isErrorResponse } from '@/features/error-handling/isErrorResponse'
 import { dbBuildToBuildState } from '../../features/build/lib/dbBuildToBuildState'
 import { BuildListFilterFields } from '@/features/filters/types'
-import useBuildListFilters from '@/features/filters/hooks/useBuildListFilters'
+import useBuildListSecondaryFilters from '@/features/filters/hooks/useBuildListSecondaryFilters'
 import BuildListSecondaryFilters from '@/features/filters/components/BuildListSecondaryFilters'
 import useBuildListState from '@/features/build/hooks/useBuildListState'
 
@@ -34,7 +34,7 @@ export default function CommunityBuildList({
     timeRangeOptions,
     handleOrderByChange,
     handleTimeRangeChange,
-  } = useBuildListFilters()
+  } = useBuildListSecondaryFilters()
 
   const {
     currentPage,
