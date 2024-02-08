@@ -143,9 +143,9 @@ export default function ItemSelect({
             />
             <div className="flex items-start justify-start text-left">
               <SearchTagsFilter
-                selectedTag={selectedTag}
-                onSelectedTagChange={handleSelectedTagChange}
-                onApplySelectedTag={handleAddTagToSearchText}
+                selectedSearchTag={selectedTag}
+                onSearchTagChange={handleSelectedTagChange}
+                onSearchTagApply={handleAddTagToSearchText}
               />
             </div>
           </div>

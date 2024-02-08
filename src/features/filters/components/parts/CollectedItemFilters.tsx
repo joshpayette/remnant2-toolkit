@@ -4,7 +4,7 @@ export const DEFAULT_COLLECTION_FILTERS = ['Discovered', 'Undiscovered']
 
 interface Props {
   selectedCollectionKeys: string[]
-  onUpdate: (collectionKeys: string[]) => void
+  onUpdate: (collectionKey: string) => void
 }
 
 export default function CollectedItemFilters({
@@ -17,29 +17,17 @@ export default function CollectedItemFilters({
         <div className="flex w-full items-center justify-start text-left text-sm font-bold text-green-500">
           By Collection
         </div>
-        <div className="text-xs">
-          <button className="underline" onClick={() => onUpdate([])}>
-            Uncheck All
-          </button>{' '}
-          /{' '}
-          <button
-            className="underline"
-            onClick={() => onUpdate(DEFAULT_COLLECTION_FILTERS)}
-          >
-            Check All
-          </button>
-        </div>
 
         <div className="relative flex w-full flex-row items-center shadow-sm">
           <div className="grid grid-cols-2 text-left">
             {DEFAULT_COLLECTION_FILTERS.map((key) => {
               return (
-                <div key={key}>
+                <div key={key} className="flex w-full">
                   <Checkbox
                     label={key}
                     name={`collection-${key}`}
                     checked={selectedCollectionKeys.includes(key)}
-                    onChange={() => onUpdate([key])}
+                    onChange={() => onUpdate(key)}
                   />
                 </div>
               )

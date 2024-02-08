@@ -19,10 +19,10 @@ export default function ReleaseFilters({ selectedReleases, onChange }: Props) {
         <div className="flex w-full items-center justify-start text-left text-sm font-bold text-green-500">
           By Release
         </div>
-        <div className="grid w-full grid-cols-2 gap-x-8 text-left sm:grid-cols-3">
+        <div className="grid w-full grid-cols-2 gap-x-8 text-left">
           {allReleases.map((release) => {
             return (
-              <div key={release}>
+              <div key={release} className="flex w-full">
                 <Checkbox
                   label={capitalize(RELEASE_TO_NAME[release])}
                   name={`release-${release}`}

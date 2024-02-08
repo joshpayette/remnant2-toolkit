@@ -11,6 +11,9 @@ import ItemLookupFilters, {
 } from '@/features/filters/components/ItemLookupFilters'
 import { useMemo, useState } from 'react'
 import { ItemLookupFilterFields } from '@/features/filters/types'
+import { useLocalStorage } from '@/features/localstorage/useLocalStorage'
+import { ItemCategory } from '@/features/build/types'
+import { ReleaseKey } from '@/features/items/types'
 
 const csvItems = remnantItems // Modify the data for use. Adds a discovered flag,
   // modifies the description for mutators
@@ -49,8 +52,16 @@ export default function Page() {
     DEFAULT_ITEM_LOOKUP_FILTERS,
   )
 
+  const { discoveredItemIds } = useLocalStorage()
+
   const filteredItems = useMemo(() => {
-    return allItems.filter(
+    let filteredItems = allItems.map((item) => ({
+      ...item,
+      discovered: discoveredItemIds.includes(item.id),
+    }))
+
+    // Filter by search text
+    filteredItems = filteredItems.filter(
       (item) =>
         item.name.toLowerCase().includes(filters.searchText.toLowerCase()) ||
         item.description
@@ -60,7 +71,43 @@ export default function Page() {
           tag.toLowerCase().includes(filters.searchText.toLowerCase()),
         ),
     )
-  }, [filters])
+
+    // Filter out the collections
+    filteredItems = filteredItems.filter((item) => {
+      if (
+        filters.collectionKeys.includes('Discovered') &&
+        filters.collectionKeys.includes('Undiscovered')
+      ) {
+        return true
+      } else if (filters.collectionKeys.includes('Undiscovered')) {
+        return item.discovered === false
+      } else if (filters.collectionKeys.includes('Discovered')) {
+        return item.discovered === true
+      } else {
+        return false
+      }
+    })
+
+    // Filter out the DLCs
+    filteredItems = filteredItems.filter((item) => {
+      if (item.dlc === undefined) {
+        return filters.selectedReleases.includes('base')
+      }
+
+      return filters.selectedReleases.includes(item.dlc as ReleaseKey)
+    })
+
+    // Filter out the categories
+    filteredItems = filteredItems.filter((item) => {
+      if (item.category === undefined) {
+        return true
+      }
+
+      return filters.itemCategories.includes(item.category as ItemCategory)
+    })
+
+    return filteredItems
+  }, [filters, discoveredItemIds])
 
   function handleUpdateFilters(newFilters: ItemLookupFilterFields) {
     setFilters(newFilters)

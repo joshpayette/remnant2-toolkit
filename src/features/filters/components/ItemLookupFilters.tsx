@@ -1,7 +1,9 @@
 import { remnantItemCategories } from '@/features/items/data/remnantItems'
-import { DEFAULT_COLLECTION_FILTERS } from './parts/CollectedItemFilters'
+import CollectedItemFilters, {
+  DEFAULT_COLLECTION_FILTERS,
+} from './parts/CollectedItemFilters'
 import { ItemCategory } from '@/features/build/types'
-import { DEFAULT_RELEASE_FILTERS } from './parts/ReleaseFilters'
+import ReleaseFilters, { DEFAULT_RELEASE_FILTERS } from './parts/ReleaseFilters'
 import { ItemLookupFilterFields } from '../types'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import FiltersContainer from './parts/FiltersContainer'
@@ -10,6 +12,8 @@ import { RELEASE_TO_NAME } from '@/features/items/constants'
 import { ReleaseKey } from '@/features/items/types'
 import SearchItemsFilter from './parts/SearchItemsFilter'
 import isEqual from 'lodash.isequal'
+import { capitalize } from '@/lib/capitalize'
+import ItemCategoryFilters from './parts/ItemCategoryFilters'
 
 const DEFAULT_ITEM_CATEGORY_FILTERS: ItemCategory[] =
   remnantItemCategories.sort((a, b) => {
@@ -41,7 +45,7 @@ export default function ItemLookupFilters({ onUpdateFilters }: Props) {
     const params = new URLSearchParams(searchParams)
     let collection = params.get('collection')
     let categories = params.get('categories')
-    let releases = params.get('handGun')
+    let releases = params.get('releases')
     let searchText = params.get('searchText')
 
     // check if categories are valid
@@ -53,22 +57,27 @@ export default function ItemLookupFilters({ onUpdateFilters }: Props) {
           categories = DEFAULT_ITEM_LOOKUP_FILTERS['itemCategories'].join(',')
         }
       })
+    } else {
+      categories = DEFAULT_ITEM_LOOKUP_FILTERS['itemCategories'].join(',')
     }
 
     // check if collection is valid
     if (collection) {
-      if (!DEFAULT_COLLECTION_FILTERS.includes(collection.toLowerCase())) {
+      if (
+        !DEFAULT_COLLECTION_FILTERS.includes(
+          capitalize(collection.toLowerCase()),
+        )
+      ) {
         collection = DEFAULT_ITEM_LOOKUP_FILTERS['collectionKeys'].join(',')
       }
+    } else {
+      collection = DEFAULT_ITEM_LOOKUP_FILTERS['collectionKeys'].join(',')
     }
 
     // check if releases are valid
-    if (!releases) {
-      releases = Object.keys(RELEASE_TO_NAME).join(',')
-    } else {
-      const allReleases: ReleaseKey[] = Object.keys(
-        RELEASE_TO_NAME,
-      ) as ReleaseKey[]
+    if (releases) {
+      const allReleases: ReleaseKey[] =
+        DEFAULT_ITEM_LOOKUP_FILTERS['selectedReleases']
       const releasesArray = releases.split(',')
       releasesArray.forEach((release) => {
         if (!allReleases.includes(release as ReleaseKey)) {
@@ -83,7 +92,9 @@ export default function ItemLookupFilters({ onUpdateFilters }: Props) {
         ? (categories.split(',') as ItemCategory[])
         : [],
       searchText: searchText || DEFAULT_ITEM_LOOKUP_FILTERS['searchText'],
-      selectedReleases: releases ? (releases.split(',') as ReleaseKey[]) : [],
+      selectedReleases: releases
+        ? (releases.split(',') as ReleaseKey[])
+        : DEFAULT_ITEM_LOOKUP_FILTERS['selectedReleases'],
     } satisfies ItemLookupFilterFields
   }, [searchParams])
 
@@ -101,12 +112,14 @@ export default function ItemLookupFilters({ onUpdateFilters }: Props) {
   // the filters table should have a yellow outline to
   // indicate that
   const areAnyFiltersActive = useMemo(() => {
-    console.info('filters', filters)
     return (
-      filters.collectionKeys.length < 2 ||
-      filters.itemCategories.length > 0 ||
+      filters.collectionKeys.length !==
+        DEFAULT_ITEM_LOOKUP_FILTERS['collectionKeys'].length ||
+      filters.itemCategories.length !==
+        DEFAULT_ITEM_LOOKUP_FILTERS['itemCategories'].length ||
       filters.searchText !== DEFAULT_ITEM_LOOKUP_FILTERS['searchText'] ||
-      filters.selectedReleases.length < 2
+      filters.selectedReleases.length !==
+        DEFAULT_ITEM_LOOKUP_FILTERS['selectedReleases'].length
     )
   }, [filters])
 
@@ -126,21 +139,26 @@ export default function ItemLookupFilters({ onUpdateFilters }: Props) {
   }
 
   function handleCategoryChange(category: ItemCategory) {
-    let newCategories = [...filters.itemCategories]
+    let newCategories = [...unappliedFilters.itemCategories]
 
     if (newCategories.includes(category)) {
       newCategories = newCategories.filter((c) => c !== category)
     } else {
       newCategories.push(category)
     }
-    setUnappliedFilters({ ...filters, itemCategories: newCategories })
-    if (!isEqual(newCategories, filters.itemCategories)) {
+
+    setUnappliedFilters({ ...unappliedFilters, itemCategories: newCategories })
+
+    if (filters.itemCategories.some((c) => !newCategories.includes(c))) {
       setAreFiltersApplied(false)
+    }
+    if (filters.itemCategories.length === newCategories.length) {
+      setAreFiltersApplied(true)
     }
   }
 
   function handleCollectionChange(collection: string) {
-    let newCollection = [...filters.collectionKeys]
+    let newCollection = [...unappliedFilters.collectionKeys]
 
     if (newCollection.includes(collection)) {
       newCollection = newCollection.filter((c) => c !== collection)
@@ -148,14 +166,18 @@ export default function ItemLookupFilters({ onUpdateFilters }: Props) {
       newCollection.push(collection)
     }
 
-    setUnappliedFilters({ ...filters, collectionKeys: newCollection })
-    if (!isEqual(newCollection, filters.collectionKeys)) {
+    setUnappliedFilters({ ...unappliedFilters, collectionKeys: newCollection })
+
+    if (filters.collectionKeys.some((c) => !newCollection.includes(c))) {
       setAreFiltersApplied(false)
+    }
+    if (isEqual(filters.collectionKeys, newCollection)) {
+      setAreFiltersApplied(true)
     }
   }
 
   function handleReleaseChange(release: ReleaseKey) {
-    let newReleases = [...filters.selectedReleases]
+    let newReleases = [...unappliedFilters.selectedReleases]
 
     if (newReleases.includes(release)) {
       newReleases = newReleases.filter((r) => r !== release)
@@ -163,9 +185,13 @@ export default function ItemLookupFilters({ onUpdateFilters }: Props) {
       newReleases.push(release)
     }
 
-    setUnappliedFilters({ ...filters, selectedReleases: newReleases })
-    if (!isEqual(newReleases, filters.selectedReleases)) {
+    setUnappliedFilters({ ...unappliedFilters, selectedReleases: newReleases })
+
+    if (filters.selectedReleases.some((r) => !newReleases.includes(r))) {
       setAreFiltersApplied(false)
+    }
+    if (isEqual(filters.selectedReleases, newReleases)) {
+      setAreFiltersApplied(true)
     }
   }
 
@@ -188,23 +214,32 @@ export default function ItemLookupFilters({ onUpdateFilters }: Props) {
     setUnappliedFilters({ ...unappliedFilters, searchText: searchQuery })
     if (searchQuery !== filters.searchText) {
       setAreFiltersApplied(false)
+    } else {
+      setAreFiltersApplied(true)
     }
   }
 
   function handleApplyFilters(newFilters: ItemLookupFilterFields) {
-    console.info('newFilters', newFilters)
-
     let finalPath = `${pathname}?`
-    if (newFilters.itemCategories.length > 0) {
+    if (
+      newFilters.itemCategories.length > 0 &&
+      newFilters.itemCategories.length <
+        DEFAULT_ITEM_LOOKUP_FILTERS['itemCategories'].length
+    ) {
       finalPath += `categories=${newFilters.itemCategories.join(',')}&`
     }
     if (
-      newFilters.collectionKeys !==
-      DEFAULT_ITEM_LOOKUP_FILTERS['collectionKeys']
+      newFilters.collectionKeys.length > 0 &&
+      newFilters.collectionKeys.length <
+        DEFAULT_ITEM_LOOKUP_FILTERS['collectionKeys'].length
     ) {
       finalPath += `collection=${newFilters.collectionKeys}&`
     }
-    if (newFilters.selectedReleases.length < 2) {
+    if (
+      newFilters.selectedReleases.length > 0 &&
+      newFilters.selectedReleases.length <
+        DEFAULT_ITEM_LOOKUP_FILTERS['selectedReleases'].length
+    ) {
       finalPath += `releases=${newFilters.selectedReleases.join(',')}&`
     }
     if (newFilters.searchText !== DEFAULT_ITEM_LOOKUP_FILTERS['searchText']) {
@@ -235,6 +270,31 @@ export default function ItemLookupFilters({ onUpdateFilters }: Props) {
         }
         onSearchTextChange={(newSearchText: string) =>
           handleSearchTextChange(newSearchText)
+        }
+      />
+
+      <div className="col-span-full flex w-full sm:col-span-2">
+        <ReleaseFilters
+          selectedReleases={unappliedFilters.selectedReleases}
+          onChange={(release: ReleaseKey) => handleReleaseChange(release)}
+        />
+      </div>
+      <div className="col-span-full flex w-full sm:col-span-2">
+        <CollectedItemFilters
+          selectedCollectionKeys={unappliedFilters.collectionKeys}
+          onUpdate={(collectionKey: string) =>
+            handleCollectionChange(collectionKey)
+          }
+        />
+      </div>
+
+      <ItemCategoryFilters
+        selectedItemCategories={unappliedFilters.itemCategories}
+        onReset={(itemCategories: ItemCategory[]) =>
+          setUnappliedFilters({ ...unappliedFilters, itemCategories })
+        }
+        onUpdate={(itemCategory: ItemCategory) =>
+          handleCategoryChange(itemCategory)
         }
       />
     </FiltersContainer>

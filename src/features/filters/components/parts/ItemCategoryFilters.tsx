@@ -6,12 +6,14 @@ import { capitalize } from '@/lib/capitalize'
 interface Props {
   itemCategories?: ItemCategory[]
   selectedItemCategories: ItemCategory[]
-  onUpdate: (categories: ItemCategory[]) => void
+  onReset: (categories: ItemCategory[]) => void
+  onUpdate: (category: ItemCategory) => void
 }
 
 export default function ItemCategoryFilters({
   itemCategories,
   selectedItemCategories,
+  onReset,
   onUpdate,
 }: Props) {
   const defaultItemCategories: ItemCategory[] =
@@ -33,13 +35,13 @@ export default function ItemCategoryFilters({
           By Category
         </div>
         <div className="text-xs">
-          <button className="underline" onClick={() => onUpdate([])}>
+          <button className="underline" onClick={() => onReset([])}>
             Uncheck All
           </button>{' '}
           /{' '}
           <button
             className="underline"
-            onClick={() => onUpdate(defaultItemCategories)}
+            onClick={() => onReset(defaultItemCategories)}
           >
             Check All
           </button>
@@ -54,7 +56,7 @@ export default function ItemCategoryFilters({
                     label={capitalize(category)}
                     name={`category-${category}`}
                     checked={selectedItemCategories.includes(category)}
-                    onChange={() => onUpdate([category])}
+                    onChange={() => onUpdate(category)}
                   />
                 </div>
               )
