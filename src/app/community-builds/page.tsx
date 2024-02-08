@@ -1,19 +1,15 @@
 'use client'
 
-import Link from 'next/link'
 import PageHeader from '../../features/ui/PageHeader'
-import { signIn, useSession } from 'next-auth/react'
 import { useEffect, useState } from 'react'
 import CommunityBuilds from './CommunityBuilds'
-import CommunityBuildFilters from '@/features/filters/components/CommunityBuildFilters'
+import BuildListFilters from '@/features/filters/components/BuildListFilters'
 import getTotalBuildCount from '@/features/build/actions/getTotalBuildCount'
-import { CommunityBuildFilterProps } from '@/features/filters/types'
+import { BuildListFilterFields } from '@/features/filters/types'
 
 export default function Page() {
-  const { data: sessionData } = useSession()
-
-  const [communityBuildFilters, setCommunityBuildFilters] =
-    useState<CommunityBuildFilterProps | null>(null)
+  const [buildListFilters, setCommunityBuildFilters] =
+    useState<BuildListFilterFields | null>(null)
 
   const [totalBuildCount, setTotalBuildCount] = useState<number | string>(
     'HUNDREDS',
@@ -43,16 +39,16 @@ export default function Page() {
       />
 
       <div className="mb-8 flex w-full max-w-2xl items-center justify-center">
-        <CommunityBuildFilters
+        <BuildListFilters
           onUpdateFilters={(newFilters) => {
             setCommunityBuildFilters(newFilters)
           }}
         />
       </div>
-      {communityBuildFilters && (
+      {buildListFilters && (
         <div className="grid w-full grid-cols-1 gap-2">
           <CommunityBuilds
-            communityBuildFilters={communityBuildFilters}
+            buildListFilters={buildListFilters}
             itemsPerPage={24}
           />
         </div>

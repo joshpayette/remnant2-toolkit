@@ -1,6 +1,6 @@
 import { Archetype, ReleaseKey } from '../items/types'
 
-export interface CommunityBuildFilterProps {
+export interface BuildListFilterFields {
   amulet: string
   archetypes: Archetype[]
   handGun: string

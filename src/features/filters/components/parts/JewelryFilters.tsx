@@ -1,19 +1,23 @@
 import { remnantItems } from '@/features/items/data/remnantItems'
 import SelectMenu from '@/features/ui/SelectMenu'
 import { GenericItem } from '@/features/items/types/GenericItem'
-import { DEFAULT_COMMUNITY_BUILD_FILTERS } from '../constants'
+
+export const DEFAULT_JEWELRY_FILTERS = {
+  amulet: 'All',
+  ring: 'All',
+}
 
 const allRings: string[] = remnantItems
   .filter((item) => GenericItem.isGenericItem(item) && item.category === 'ring')
   .map((item) => item.name)
-allRings.unshift(DEFAULT_COMMUNITY_BUILD_FILTERS.ring)
+allRings.unshift(DEFAULT_JEWELRY_FILTERS.ring)
 
 const allAmulets: string[] = remnantItems
   .filter(
     (item) => GenericItem.isGenericItem(item) && item.category === 'amulet',
   )
   .map((item) => item.name)
-allAmulets.unshift(DEFAULT_COMMUNITY_BUILD_FILTERS.amulet)
+allAmulets.unshift(DEFAULT_JEWELRY_FILTERS.amulet)
 
 interface Props {
   selectedRing: string

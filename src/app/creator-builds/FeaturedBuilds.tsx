@@ -6,19 +6,19 @@ import BuildList from '@/features/build/components/BuildList'
 import usePagination from '@/features/pagination/usePagination'
 import Link from 'next/link'
 import { getFeaturedBuilds } from '@/features/build/actions/getFeaturedBuilds'
-import { CommunityBuildFilterProps } from '@/features/filters/types'
+import { BuildListFilterFields } from '@/features/filters/types'
 import useBuildListFilters from '@/features/filters/hooks/useBuildListFilters'
-import BuildListFilters from '@/features/filters/components/BuildListFilters'
+import BuildListSecondaryFilters from '@/features/filters/components/BuildListSecondaryFilters'
 import useBuildListState from '@/features/build/hooks/useBuildListState'
 
 interface Props {
   itemsPerPage?: number
-  communityBuildFilters: CommunityBuildFilterProps
+  buildListFilters: BuildListFilterFields
 }
 
 export default function FeaturedBuilds({
   itemsPerPage = 8,
-  communityBuildFilters,
+  buildListFilters,
 }: Props) {
   const { buildListState, setBuildListState } = useBuildListState()
   const { builds, totalBuildCount, isLoading } = buildListState
@@ -51,7 +51,7 @@ export default function FeaturedBuilds({
     const getItemsAsync = async () => {
       setBuildListState((prevState) => ({ ...prevState, isLoading: true }))
       const response = await getFeaturedBuilds({
-        communityBuildFilters,
+        buildListFilters,
         itemsPerPage,
         orderBy,
         pageNumber: currentPage,
@@ -66,7 +66,7 @@ export default function FeaturedBuilds({
     }
     getItemsAsync()
   }, [
-    communityBuildFilters,
+    buildListFilters,
     currentPage,
     itemsPerPage,
     orderBy,
@@ -89,7 +89,7 @@ export default function FeaturedBuilds({
         onNextPage={handleNextPageClick}
         onSpecificPage={handleSpecificPageClick}
         headerActions={
-          <BuildListFilters
+          <BuildListSecondaryFilters
             orderBy={orderBy}
             orderByOptions={orderByOptions}
             onOrderByChange={handleOrderByChange}

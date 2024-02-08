@@ -1,22 +1,27 @@
 import { remnantItems } from '@/features/items/data/remnantItems'
 import SelectMenu from '@/features/ui/SelectMenu'
 import { WeaponItem } from '@/features/items/types/WeaponItem'
-import { DEFAULT_COMMUNITY_BUILD_FILTERS } from '../constants'
+
+export const DEFAULT_WEAPON_FILTERS = {
+  longGun: 'All',
+  handGun: 'All',
+  melee: 'All',
+}
 
 const allLongGuns: string[] = remnantItems
   .filter((item) => WeaponItem.isWeaponItem(item) && item.type === 'long gun')
   .map((item) => item.name)
-allLongGuns.unshift(DEFAULT_COMMUNITY_BUILD_FILTERS.longGun)
+allLongGuns.unshift(DEFAULT_WEAPON_FILTERS.longGun)
 
 const allHandGuns: string[] = remnantItems
   .filter((item) => WeaponItem.isWeaponItem(item) && item.type === 'hand gun')
   .map((item) => item.name)
-allHandGuns.unshift(DEFAULT_COMMUNITY_BUILD_FILTERS.handGun)
+allHandGuns.unshift(DEFAULT_WEAPON_FILTERS.handGun)
 
 const allMelee: string[] = remnantItems
   .filter((item) => WeaponItem.isWeaponItem(item) && item.type === 'melee')
   .map((item) => item.name)
-allMelee.unshift(DEFAULT_COMMUNITY_BUILD_FILTERS.melee)
+allMelee.unshift(DEFAULT_WEAPON_FILTERS.melee)
 
 interface Props {
   selectedLongGun: string

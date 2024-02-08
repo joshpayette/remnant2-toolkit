@@ -6,7 +6,7 @@ import { DBBuild } from '@/features/build/types'
 import { prisma } from '@/features/db'
 import { bigIntFix } from '@/lib/bigIntFix'
 import {
-  CommunityBuildFilterProps,
+  BuildListFilterFields,
   OrderBy,
   TimeRange,
 } from '@/features/filters/types'
@@ -41,14 +41,14 @@ import {
 import { limitByBuildNameOrDescriptionSegment } from '@/features/filters/queries/segments/limitByBuildNameOrDescription'
 
 export async function getBuildsByCollection({
-  communityBuildFilters,
+  buildListFilters,
   discoveredItemIds,
   itemsPerPage,
   orderBy,
   pageNumber,
   timeRange,
 }: {
-  communityBuildFilters: CommunityBuildFilterProps
+  buildListFilters: BuildListFilterFields
   discoveredItemIds: string[]
   itemsPerPage: number
   orderBy: OrderBy
@@ -69,7 +69,7 @@ export async function getBuildsByCollection({
     ring,
     searchText,
     selectedReleases,
-  } = communityBuildFilters
+  } = buildListFilters
 
   if (selectedReleases.length === 0) return { items: [], totalItemCount: 0 }
 

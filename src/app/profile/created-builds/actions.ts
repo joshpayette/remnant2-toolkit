@@ -1,7 +1,6 @@
 'use server'
 
 import { getServerSession } from '@/features/auth/lib'
-import { cleanBadWords } from '@/features/bad-word-filter'
 import { DBBuild } from '@/features/build/types'
 import { prisma } from '@/features/db'
 import {
@@ -29,7 +28,7 @@ import {
   weaponFiltersToIds,
 } from '@/features/filters/queries/segments/limitByWeapons'
 import {
-  CommunityBuildFilterProps,
+  BuildListFilterFields,
   OrderBy,
   TimeRange,
 } from '@/features/filters/types'
@@ -41,13 +40,13 @@ import { z } from 'zod'
 export type CreatedBuildsFilter = 'date created' | 'upvotes'
 
 export async function getCreatedBuilds({
-  communityBuildFilters,
+  buildListFilters,
   itemsPerPage,
   orderBy,
   pageNumber,
   timeRange,
 }: {
-  communityBuildFilters: CommunityBuildFilterProps
+  buildListFilters: BuildListFilterFields
   itemsPerPage: number
   orderBy: OrderBy
   pageNumber: number
@@ -65,7 +64,7 @@ export async function getCreatedBuilds({
     ring,
     searchText,
     selectedReleases,
-  } = communityBuildFilters
+  } = buildListFilters
 
   if (selectedReleases.length === 0) return { items: [], totalItemCount: 0 }
 

@@ -1,4 +1,4 @@
-import ClearFiltersButton from '@/features/filters/components/ClearFiltersButton'
+import ClearFiltersButton from '@/features/filters/components/parts/ClearFiltersButton'
 import SearchInput from '@/features/ui/SearchInput'
 import { useLocalStorage } from '@/features/localstorage/useLocalStorage'
 import { cn } from '@/lib/classnames'

@@ -14,9 +14,9 @@ import ProfileHeader from '../../../features/profile/ProfileHeader'
 import { useSession } from 'next-auth/react'
 import AuthWrapper from '@/features/auth/components/AuthWrapper'
 import useBuildListFilters from '@/features/filters/hooks/useBuildListFilters'
+import BuildListSecondaryFilters from '@/features/filters/components/BuildListSecondaryFilters'
 import BuildListFilters from '@/features/filters/components/BuildListFilters'
-import CommunityBuildFilters from '@/features/filters/components/CommunityBuildFilters'
-import { CommunityBuildFilterProps } from '@/features/filters/types'
+import { BuildListFilterFields } from '@/features/filters/types'
 import useBuildListState from '@/features/build/hooks/useBuildListState'
 
 export default function Page() {
@@ -25,8 +25,8 @@ export default function Page() {
   const { buildListState, setBuildListState } = useBuildListState()
   const { builds, totalBuildCount, isLoading } = buildListState
 
-  const [communityBuildFilters, setCommunityBuildFilters] =
-    useState<CommunityBuildFilterProps | null>(null)
+  const [buildListFilters, setBuildListFilters] =
+    useState<BuildListFilterFields | null>(null)
 
   const itemsPerPage = 16
 
@@ -55,12 +55,12 @@ export default function Page() {
 
   useEffect(() => {
     const getItemsAsync = async () => {
-      if (!communityBuildFilters) {
+      if (!buildListFilters) {
         return
       }
       setBuildListState((prevState) => ({ ...prevState, isLoading: true }))
       const response = await getCreatedBuilds({
-        communityBuildFilters,
+        buildListFilters,
         itemsPerPage,
         orderBy,
         pageNumber: currentPage,
@@ -75,7 +75,7 @@ export default function Page() {
     }
     getItemsAsync()
   }, [
-    communityBuildFilters,
+    buildListFilters,
     currentPage,
     itemsPerPage,
     orderBy,
@@ -103,13 +103,13 @@ export default function Page() {
         <Tabs />
       </div>
       <div className="mb-8 flex w-full max-w-2xl items-center justify-center">
-        <CommunityBuildFilters
+        <BuildListFilters
           onUpdateFilters={(newFilters) => {
-            setCommunityBuildFilters(newFilters)
+            setBuildListFilters(newFilters)
           }}
         />
       </div>
-      {communityBuildFilters && (
+      {buildListFilters && (
         <BuildList
           label="Builds you've created"
           currentPage={currentPage}
@@ -123,7 +123,7 @@ export default function Page() {
           onNextPage={handleNextPageClick}
           onSpecificPage={handleSpecificPageClick}
           headerActions={
-            <BuildListFilters
+            <BuildListSecondaryFilters
               orderBy={orderBy}
               orderByOptions={orderByOptions}
               onOrderByChange={handleOrderByChange}

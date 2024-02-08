@@ -3,6 +3,8 @@ import { ReleaseKey } from '@/features/items/types'
 import { Checkbox } from '@/features/ui/Checkbox'
 import { capitalize } from '@/lib/capitalize'
 
+export const DEFAULT_RELEASE_FILTERS: ReleaseKey[] = ['base', 'dlc1']
+
 interface Props {
   selectedReleases: ReleaseKey[]
   onChange: (release: ReleaseKey) => void

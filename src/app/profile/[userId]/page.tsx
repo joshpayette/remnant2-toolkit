@@ -9,11 +9,11 @@ import usePagination from '@/features/pagination/usePagination'
 import CopyBuildUrlButton from '../../../features/profile/CopyBuildUrlButton'
 import EditBuildButton from '../../../features/profile/EditBuildButton'
 import DuplicateBuildButton from '../../../features/profile/DuplicateBuildButton'
-import BuildListFilters from '@/features/filters/components/BuildListFilters'
+import BuildListSecondaryFilters from '@/features/filters/components/BuildListSecondaryFilters'
 import useBuildListFilters from '@/features/filters/hooks/useBuildListFilters'
-import CommunityBuildFilters from '@/features/filters/components/CommunityBuildFilters'
-import { CommunityBuildFilterProps } from '@/features/filters/types'
+import { BuildListFilterFields } from '@/features/filters/types'
 import useBuildListState from '@/features/build/hooks/useBuildListState'
+import BuildListFilters from '@/features/filters/components/BuildListFilters'
 
 export default function Page({
   params: { userId },
@@ -23,8 +23,8 @@ export default function Page({
   const { buildListState, setBuildListState } = useBuildListState()
   const { builds, totalBuildCount, isLoading } = buildListState
 
-  const [communityBuildFilters, setCommunityBuildFilters] =
-    useState<CommunityBuildFilterProps | null>(null)
+  const [buildListFilters, setBuildListFilters] =
+    useState<BuildListFilterFields | null>(null)
 
   const itemsPerPage = 16
 
@@ -53,12 +53,12 @@ export default function Page({
 
   useEffect(() => {
     const getItemsAsync = async () => {
-      if (!communityBuildFilters) {
+      if (!buildListFilters) {
         return
       }
       setBuildListState((prevState) => ({ ...prevState, isLoading: true }))
       const response = await getUserProfilePage({
-        communityBuildFilters,
+        buildListFilters,
         itemsPerPage,
         orderBy,
         pageNumber: currentPage,
@@ -74,7 +74,7 @@ export default function Page({
     }
     getItemsAsync()
   }, [
-    communityBuildFilters,
+    buildListFilters,
     currentPage,
     itemsPerPage,
     orderBy,
@@ -89,13 +89,13 @@ export default function Page({
         <ProfileHeader editable={false} userId={userId} />
       </div>
       <div className="mb-8 flex w-full max-w-2xl items-center justify-center">
-        <CommunityBuildFilters
+        <BuildListFilters
           onUpdateFilters={(newFilters) => {
-            setCommunityBuildFilters(newFilters)
+            setBuildListFilters(newFilters)
           }}
         />
       </div>
-      {communityBuildFilters && (
+      {buildListFilters && (
         <BuildList
           label="Created Builds"
           currentPage={currentPage}
@@ -109,7 +109,7 @@ export default function Page({
           onNextPage={handleNextPageClick}
           onSpecificPage={handleSpecificPageClick}
           headerActions={
-            <BuildListFilters
+            <BuildListSecondaryFilters
               orderBy={orderBy}
               orderByOptions={orderByOptions}
               onOrderByChange={handleOrderByChange}

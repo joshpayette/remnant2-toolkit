@@ -1,4 +1,4 @@
-import ClearFiltersButton from '@/features/filters/components/ClearFiltersButton'
+import ClearFiltersButton from '@/features/filters/components/parts/ClearFiltersButton'
 import SearchInput from '@/features/ui/SearchInput'
 import { useLocalStorage } from '@/features/localstorage/useLocalStorage'
 import { cn } from '@/lib/classnames'
@@ -11,7 +11,7 @@ import { capitalize } from '@/lib/capitalize'
 import { Checkbox } from '@/features/ui/Checkbox'
 import { ReleaseKey } from '../../features/items/types'
 import { RELEASE_TO_NAME } from '../../features/items/constants'
-import SearchTagsFilter from '@/features/filters/components/SearchTagsFilter'
+import SearchTagsFilter from '@/features/filters/components/parts/SearchTagsFilter'
 
 interface Props {
   allItems: FilteredItem[]
