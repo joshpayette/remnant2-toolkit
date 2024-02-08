@@ -6008,7 +6008,7 @@ export const remnantItems: Item[] = [
     id: '0xx8tz',
     description: `Attached Mod deals 10-[20]%additional Mod Damage.`,
     maxLevelBonus: `Attached Mod use gains a 15% chance to not consume charge.`,
-    howToGet: `Interact with the Rotten Thaen Fruit, while having the Red Doe Sigilequipped..`,
+    howToGet: `Interact with the Rotten Thaen Fruit, while having the Red Doe Sigil equipped..`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Failsafe`],
   },
   {
