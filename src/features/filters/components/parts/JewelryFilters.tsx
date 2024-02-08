@@ -35,13 +35,10 @@ export default function JewelryFilters({
   return (
     <div className="col-span-full pt-2">
       <div className="flex w-full flex-col items-start justify-start gap-x-4 gap-y-2">
-        <div className="flex items-center justify-start text-left text-sm font-bold text-green-500">
-          By Jewelry
-        </div>
         <div className="grid grid-cols-1 gap-x-8 text-left sm:grid-cols-2">
           <SelectMenu
             name="amulet"
-            label="Amulets"
+            label="By Amulet"
             value={selectedAmulet}
             options={allAmulets.map((amulet) => ({
               label: amulet,
@@ -51,7 +48,7 @@ export default function JewelryFilters({
           />
           <SelectMenu
             name="ring"
-            label="Ring"
+            label="By Ring"
             value={selectedRing}
             options={allRings.map((ring) => ({
               label: ring,

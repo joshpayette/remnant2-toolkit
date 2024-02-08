@@ -39,13 +39,10 @@ export default function WeaponFilters({
   return (
     <div className="col-span-full pt-2">
       <div className="flex w-full flex-col items-start justify-start gap-x-4 gap-y-2">
-        <div className="flex items-center justify-start text-left text-sm font-bold text-green-500">
-          By Weapon
-        </div>
         <div className="grid grid-cols-1 gap-x-8 text-left sm:grid-cols-3">
           <SelectMenu
             name="longGun"
-            label="Long Guns"
+            label="By Long Gun"
             value={selectedLongGun}
             options={allLongGuns.map((weapon) => ({
               label: weapon,
@@ -55,7 +52,7 @@ export default function WeaponFilters({
           />
           <SelectMenu
             name="melee"
-            label="Melee"
+            label="By Melee"
             value={selectedMelee}
             options={allMelee.map((weapon) => ({
               label: weapon,
@@ -65,7 +62,7 @@ export default function WeaponFilters({
           />
           <SelectMenu
             name="handGun"
-            label="Hand Guns"
+            label="By Hand Gun"
             value={selectedHandGun}
             options={allHandGuns.map((weapon) => ({
               label: weapon,

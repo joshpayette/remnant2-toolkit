@@ -1,3 +1,4 @@
+import { ItemCategory } from '../build/types'
 import { Archetype, ReleaseKey } from '../items/types'
 
 export interface BuildListFilterFields {
@@ -7,6 +8,13 @@ export interface BuildListFilterFields {
   longGun: string
   melee: string
   ring: string
+  searchText: string
+  selectedReleases: ReleaseKey[]
+}
+
+export interface ItemLookupFilterFields {
+  collectionKeys: string[]
+  itemCategories: ItemCategory[]
   searchText: string
   selectedReleases: ReleaseKey[]
 }

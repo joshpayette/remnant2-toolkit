@@ -25,34 +25,32 @@ const allTagOptions = [...descriptionTagOptions, ...itemTagsOptions].sort(
 )
 
 interface Props {
-  selectedTag: string
-  onApplySelectedTag: () => void
-  onSelectedTagChange: (newTag: string) => void
+  selectedSearchTag: string
+  onSearchTagApply: () => void
+  onSearchTagChange: (newTag: string) => void
 }
 
 export default function SearchTagsFilter({
-  selectedTag,
-  onApplySelectedTag,
-  onSelectedTagChange,
+  selectedSearchTag,
+  onSearchTagApply,
+  onSearchTagChange,
 }: Props) {
   return (
-    <div className="mt-2 flex items-end justify-start">
+    <div className="mt-2 flex flex-row items-end justify-start">
       <div>
         <SelectMenu
           label="Tags"
           options={allTagOptions}
-          value={selectedTag}
-          onChange={(e) => onSelectedTagChange(e.target.value)}
+          value={selectedSearchTag}
+          onChange={(e) => onSearchTagChange(e.target.value)}
         />
       </div>
-      <div className="flex items-end justify-end">
-        <button
-          onClick={onApplySelectedTag}
-          className="lg ml-2 rounded bg-purple-600 p-2 text-sm"
-        >
-          Add Tag
-        </button>
-      </div>
+      <button
+        onClick={onSearchTagApply}
+        className="lg ml-2 w-[100px] rounded bg-purple-600 p-2 text-sm"
+      >
+        Add Tag
+      </button>
     </div>
   )
 }

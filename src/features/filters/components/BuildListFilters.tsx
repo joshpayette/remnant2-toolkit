@@ -134,7 +134,7 @@ export default function BuildListFilters({ onUpdateFilters }: Props) {
       amulet: amulet || DEFAULT_BUILD_LIST_FILTERS['amulet'],
       searchText: searchText || DEFAULT_BUILD_LIST_FILTERS['searchText'],
       selectedReleases: releases ? (releases.split(',') as ReleaseKey[]) : [],
-    }
+    } satisfies BuildListFilterFields
   }, [searchParams])
 
   // Tracks the filter changes by the user that are not yet applied

@@ -2,22 +2,14 @@ import { cn } from '@/lib/classnames'
 import ClearFiltersButton from './ClearFiltersButton'
 import ApplyFiltersButton from './ApplyFiltersButton'
 
-type Props<T> = {
+interface Props<T> {
+  areFiltersApplied: boolean
   areAnyFiltersActive: boolean
   children: React.ReactNode
   filters: T
   onClearFilters: () => void
-} & (
-  | {
-      areFiltersApplied: boolean
-      onApplyFilters: (filters: T) => void
-    }
-  | {
-      areFiltersApplied?: never
-      onApplyFilters?: never
-    }
-)
-
+  onApplyFilters: (filters: T) => void
+}
 export default function FiltersContainer<T>({
   areAnyFiltersActive,
   areFiltersApplied,
@@ -38,17 +30,17 @@ export default function FiltersContainer<T>({
         {children}
         <div className="col-span-full flex items-center justify-end pt-2">
           {areAnyFiltersActive && (
-            <div className="col-span-full mr-4 flex items-center justify-end">
+            <div className="col-span-full flex items-center justify-end">
               <ClearFiltersButton onClick={onClearFilters} />
             </div>
           )}
-          {onApplyFilters && (
+          <div className="ml-4">
             <ApplyFiltersButton
               areFiltersApplied={areFiltersApplied}
               filters={filters}
               onClick={onApplyFilters}
             />
-          )}
+          </div>
         </div>
       </div>
     </div>
