@@ -1,13 +1,13 @@
 'use server'
 
-import { CommunityBuildTotalCount, DBBuild } from '@/features/build/types'
+import { DBBuild } from '@/features/build/types'
 import { PaginationResponse } from '@/features/pagination/usePagination'
 import { bigIntFix } from '@/lib/bigIntFix'
 import { getServerSession } from '@/features/auth/lib'
 import { Prisma } from '@prisma/client'
 import { prisma } from '@/features/db'
 import {
-  CommunityBuildFilterProps,
+  BuildListFilterFields,
   OrderBy,
   TimeRange,
 } from '@/features/filters/types'
@@ -38,13 +38,13 @@ import { limitByBuildNameOrDescriptionSegment } from '@/features/filters/queries
 import { limitByFavorited } from '@/features/filters/queries/segments/limitByFavorited'
 
 export async function getFavoritedBuilds({
-  communityBuildFilters,
+  buildListFilters,
   itemsPerPage,
   orderBy,
   pageNumber,
   timeRange,
 }: {
-  communityBuildFilters: CommunityBuildFilterProps
+  buildListFilters: BuildListFilterFields
   itemsPerPage: number
   orderBy: OrderBy
   pageNumber: number
@@ -62,7 +62,7 @@ export async function getFavoritedBuilds({
     ring,
     searchText,
     selectedReleases,
-  } = communityBuildFilters
+  } = buildListFilters
 
   if (selectedReleases.length === 0) return { items: [], totalItemCount: 0 }
 

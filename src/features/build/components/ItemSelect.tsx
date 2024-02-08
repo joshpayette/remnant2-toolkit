@@ -11,7 +11,7 @@ import { AdjustmentsHorizontalIcon } from '@heroicons/react/24/solid'
 import { cn } from '@/lib/classnames'
 import { useLocalStorage } from '@/features/localstorage/useLocalStorage'
 import { capitalize } from '@/lib/capitalize'
-import SearchTagsFilter from '@/features/filters/components/SearchTagsFilter'
+import SearchTagsFilter from '@/features/filters/components/parts/SearchTagsFilter'
 
 function sortByPreference({
   items,
@@ -143,9 +143,9 @@ export default function ItemSelect({
             />
             <div className="flex items-start justify-start text-left">
               <SearchTagsFilter
-                selectedTag={selectedTag}
-                onSelectedTagChange={handleSelectedTagChange}
-                onApplySelectedTag={handleAddTagToSearchText}
+                selectedSearchTag={selectedTag}
+                onSearchTagChange={handleSelectedTagChange}
+                onSearchTagApply={handleAddTagToSearchText}
               />
             </div>
           </div>

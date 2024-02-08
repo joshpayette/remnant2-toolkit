@@ -1,22 +1,27 @@
 import { remnantItems } from '@/features/items/data/remnantItems'
 import SelectMenu from '@/features/ui/SelectMenu'
 import { WeaponItem } from '@/features/items/types/WeaponItem'
-import { DEFAULT_COMMUNITY_BUILD_FILTERS } from '../constants'
+
+export const DEFAULT_WEAPON_FILTERS = {
+  longGun: 'All',
+  handGun: 'All',
+  melee: 'All',
+}
 
 const allLongGuns: string[] = remnantItems
   .filter((item) => WeaponItem.isWeaponItem(item) && item.type === 'long gun')
   .map((item) => item.name)
-allLongGuns.unshift(DEFAULT_COMMUNITY_BUILD_FILTERS.longGun)
+allLongGuns.unshift(DEFAULT_WEAPON_FILTERS.longGun)
 
 const allHandGuns: string[] = remnantItems
   .filter((item) => WeaponItem.isWeaponItem(item) && item.type === 'hand gun')
   .map((item) => item.name)
-allHandGuns.unshift(DEFAULT_COMMUNITY_BUILD_FILTERS.handGun)
+allHandGuns.unshift(DEFAULT_WEAPON_FILTERS.handGun)
 
 const allMelee: string[] = remnantItems
   .filter((item) => WeaponItem.isWeaponItem(item) && item.type === 'melee')
   .map((item) => item.name)
-allMelee.unshift(DEFAULT_COMMUNITY_BUILD_FILTERS.melee)
+allMelee.unshift(DEFAULT_WEAPON_FILTERS.melee)
 
 interface Props {
   selectedLongGun: string
@@ -34,13 +39,10 @@ export default function WeaponFilters({
   return (
     <div className="col-span-full pt-2">
       <div className="flex w-full flex-col items-start justify-start gap-x-4 gap-y-2">
-        <div className="flex items-center justify-start text-left text-sm font-bold text-green-500">
-          By Weapon
-        </div>
         <div className="grid grid-cols-1 gap-x-8 text-left sm:grid-cols-3">
           <SelectMenu
             name="longGun"
-            label="Long Guns"
+            label="By Long Gun"
             value={selectedLongGun}
             options={allLongGuns.map((weapon) => ({
               label: weapon,
@@ -50,7 +52,7 @@ export default function WeaponFilters({
           />
           <SelectMenu
             name="melee"
-            label="Melee"
+            label="By Melee"
             value={selectedMelee}
             options={allMelee.map((weapon) => ({
               label: weapon,
@@ -60,7 +62,7 @@ export default function WeaponFilters({
           />
           <SelectMenu
             name="handGun"
-            label="Hand Guns"
+            label="By Hand Gun"
             value={selectedHandGun}
             options={allHandGuns.map((weapon) => ({
               label: weapon,

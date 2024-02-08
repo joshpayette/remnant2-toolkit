@@ -9,14 +9,14 @@ import { signIn, useSession } from 'next-auth/react'
 import Link from 'next/link'
 import { useEffect, useRef, useState } from 'react'
 import { getBuildsByCollection } from '@/features/build/actions/getBuildsByCollection'
-import CommunityBuildFilters from '@/features/filters/components/CommunityBuildFilters'
-import { CommunityBuildFilterProps } from '@/features/filters/types'
+import BuildListFilters from '@/features/filters/components/BuildListFilters'
+import { BuildListFilterFields } from '@/features/filters/types'
 import useBuildActions from '@/features/build/hooks/useBuildActions'
 import { dbBuildToBuildState } from '@/features/build/lib/dbBuildToBuildState'
 import { toast } from 'react-toastify'
 import { isErrorResponse } from '@/features/error-handling/isErrorResponse'
-import BuildListFilters from '@/features/filters/components/BuildListFilters'
-import useBuildListFilters from '@/features/filters/hooks/useBuildListFilters'
+import BuildListSecondaryFilters from '@/features/filters/components/BuildListSecondaryFilters'
+import useBuildListSecondaryFilters from '@/features/filters/hooks/useBuildListSecondaryFilters'
 import useBuildListState from '@/features/build/hooks/useBuildListState'
 import saveDiscoveredItemIds from '@/features/items/actions/saveDiscoveredItemIds'
 import LoadingIndicator from '@/features/ui/LoadingIndicator'
@@ -29,8 +29,8 @@ export default function Page() {
   const { buildListState, setBuildListState } = useBuildListState()
   const { builds, totalBuildCount, isLoading } = buildListState
 
-  const [communityBuildFilters, setCommunityBuildFilters] =
-    useState<CommunityBuildFilterProps | null>(null)
+  const [buildListFilters, setBuildListFilters] =
+    useState<BuildListFilterFields | null>(null)
 
   const { discoveredItemIds } = useLocalStorage()
 
@@ -41,7 +41,7 @@ export default function Page() {
     timeRangeOptions,
     handleOrderByChange,
     handleTimeRangeChange,
-  } = useBuildListFilters()
+  } = useBuildListSecondaryFilters()
 
   const {
     currentPage,
@@ -75,12 +75,12 @@ export default function Page() {
 
   useEffect(() => {
     async function getItemsAsync() {
-      if (!communityBuildFilters) {
+      if (!buildListFilters) {
         return
       }
       setBuildListState((prevState) => ({ ...prevState, isLoading: true }))
       const response = await getBuildsByCollection({
-        communityBuildFilters,
+        buildListFilters,
         discoveredItemIds,
         itemsPerPage: ITEMS_PER_PAGE,
         orderBy,
@@ -97,7 +97,7 @@ export default function Page() {
     getItemsAsync()
   }, [
     currentPage,
-    communityBuildFilters,
+    buildListFilters,
     discoveredItemIds,
     orderBy,
     timeRange,
@@ -160,9 +160,9 @@ export default function Page() {
       />
 
       <div className="mb-8 flex w-full max-w-xl items-center justify-center">
-        <CommunityBuildFilters
+        <BuildListFilters
           onUpdateFilters={(newFilters) => {
-            setCommunityBuildFilters(newFilters)
+            setBuildListFilters(newFilters)
           }}
         />
       </div>
@@ -174,7 +174,7 @@ export default function Page() {
         </div>
       )}
 
-      {communityBuildFilters && discoveredItemsSaved.current && (
+      {buildListFilters && discoveredItemsSaved.current && (
         <BuildList
           label="Build Results"
           currentPage={currentPage}
@@ -188,7 +188,7 @@ export default function Page() {
           onNextPage={handleNextPageClick}
           onSpecificPage={handleSpecificPageClick}
           headerActions={
-            <BuildListFilters
+            <BuildListSecondaryFilters
               orderBy={orderBy}
               orderByOptions={orderByOptions}
               onOrderByChange={handleOrderByChange}

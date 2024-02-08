@@ -7,7 +7,7 @@ import { Prisma, User, UserProfile } from '@prisma/client'
 import { bigIntFix } from '@/lib/bigIntFix'
 import { ErrorResponse } from '@/features/error-handling/types'
 import {
-  CommunityBuildFilterProps,
+  BuildListFilterFields,
   OrderBy,
   TimeRange,
 } from '@/features/filters/types'
@@ -73,14 +73,14 @@ export async function getProfile(userId: string): Promise<
 export type BuildsFilter = 'date created' | 'upvotes'
 
 export async function getUserProfilePage({
-  communityBuildFilters,
+  buildListFilters,
   itemsPerPage,
   orderBy,
   pageNumber,
   timeRange,
   userId,
 }: {
-  communityBuildFilters: CommunityBuildFilterProps
+  buildListFilters: BuildListFilterFields
   itemsPerPage: number
   orderBy: OrderBy
   pageNumber: number
@@ -106,7 +106,7 @@ export async function getUserProfilePage({
   }
 
   const { archetypes, longGun, handGun, melee, selectedReleases } =
-    communityBuildFilters
+    buildListFilters
   const archetypeIds = archetypeFiltersToIds({ archetypes })
 
   if (selectedReleases.length === 0)

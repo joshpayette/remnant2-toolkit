@@ -5,9 +5,15 @@ import PageHeader from '@/features/ui/PageHeader'
 import { remnantItems } from '@/features/items/data/remnantItems'
 import { itemToCsvItem } from '@/features/items/lib/itemToCsvItem'
 import { MutatorItem } from '@/features/items/types/MutatorItem'
-import useFilteredItems from '@/features/items/hooks/useFilteredItems'
 import MasonryItemList from '@/features/items/components/MasonryItemList'
-import Filters from '@/app/item-lookup/Filters'
+import ItemLookupFilters, {
+  DEFAULT_ITEM_LOOKUP_FILTERS,
+} from '@/features/filters/components/ItemLookupFilters'
+import { useMemo, useState } from 'react'
+import { ItemLookupFilterFields } from '@/features/filters/types'
+import { useLocalStorage } from '@/features/localstorage/useLocalStorage'
+import { ItemCategory } from '@/features/build/types'
+import { ReleaseKey } from '@/features/items/types'
 
 const csvItems = remnantItems // Modify the data for use. Adds a discovered flag,
   // modifies the description for mutators
@@ -42,7 +48,70 @@ const allItems = remnantItems.map((item) => ({
 }))
 
 export default function Page() {
-  const { filteredItems, handleUpdateFilters } = useFilteredItems(allItems)
+  const [filters, setFilters] = useState<ItemLookupFilterFields>(
+    DEFAULT_ITEM_LOOKUP_FILTERS,
+  )
+
+  const { discoveredItemIds } = useLocalStorage()
+
+  const filteredItems = useMemo(() => {
+    let filteredItems = allItems.map((item) => ({
+      ...item,
+      discovered: discoveredItemIds.includes(item.id),
+    }))
+
+    // Filter by search text
+    filteredItems = filteredItems.filter(
+      (item) =>
+        item.name.toLowerCase().includes(filters.searchText.toLowerCase()) ||
+        item.description
+          ?.toLowerCase()
+          .includes(filters.searchText.toLowerCase()) ||
+        item.tags?.some((tag) =>
+          tag.toLowerCase().includes(filters.searchText.toLowerCase()),
+        ),
+    )
+
+    // Filter out the collections
+    filteredItems = filteredItems.filter((item) => {
+      if (
+        filters.collectionKeys.includes('Discovered') &&
+        filters.collectionKeys.includes('Undiscovered')
+      ) {
+        return true
+      } else if (filters.collectionKeys.includes('Undiscovered')) {
+        return item.discovered === false
+      } else if (filters.collectionKeys.includes('Discovered')) {
+        return item.discovered === true
+      } else {
+        return false
+      }
+    })
+
+    // Filter out the DLCs
+    filteredItems = filteredItems.filter((item) => {
+      if (item.dlc === undefined) {
+        return filters.selectedReleases.includes('base')
+      }
+
+      return filters.selectedReleases.includes(item.dlc as ReleaseKey)
+    })
+
+    // Filter out the categories
+    filteredItems = filteredItems.filter((item) => {
+      if (item.category === undefined) {
+        return true
+      }
+
+      return filters.itemCategories.includes(item.category as ItemCategory)
+    })
+
+    return filteredItems
+  }, [filters, discoveredItemIds])
+
+  function handleUpdateFilters(newFilters: ItemLookupFilterFields) {
+    setFilters(newFilters)
+  }
 
   return (
     <div className="relative flex w-full flex-col items-center justify-center">
@@ -56,8 +125,8 @@ export default function Page() {
       </PageHeader>
 
       <div className="flex w-full flex-col items-center">
-        <div className="max-w-3xl">
-          <Filters allItems={allItems} onUpdate={handleUpdateFilters} />
+        <div className="w-full max-w-3xl">
+          <ItemLookupFilters onUpdateFilters={handleUpdateFilters} />
         </div>
 
         <MasonryItemList key={new Date().getTime()} items={filteredItems} />

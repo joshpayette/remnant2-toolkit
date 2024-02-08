@@ -1,12 +1,20 @@
+import { ItemCategory } from '../build/types'
 import { Archetype, ReleaseKey } from '../items/types'
 
-export interface CommunityBuildFilterProps {
+export interface BuildListFilterFields {
   amulet: string
   archetypes: Archetype[]
   handGun: string
   longGun: string
   melee: string
   ring: string
+  searchText: string
+  selectedReleases: ReleaseKey[]
+}
+
+export interface ItemLookupFilterFields {
+  collectionKeys: string[]
+  itemCategories: ItemCategory[]
   searchText: string
   selectedReleases: ReleaseKey[]
 }

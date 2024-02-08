@@ -1,19 +1,23 @@
 import { remnantItems } from '@/features/items/data/remnantItems'
 import SelectMenu from '@/features/ui/SelectMenu'
 import { GenericItem } from '@/features/items/types/GenericItem'
-import { DEFAULT_COMMUNITY_BUILD_FILTERS } from '../constants'
+
+export const DEFAULT_JEWELRY_FILTERS = {
+  amulet: 'All',
+  ring: 'All',
+}
 
 const allRings: string[] = remnantItems
   .filter((item) => GenericItem.isGenericItem(item) && item.category === 'ring')
   .map((item) => item.name)
-allRings.unshift(DEFAULT_COMMUNITY_BUILD_FILTERS.ring)
+allRings.unshift(DEFAULT_JEWELRY_FILTERS.ring)
 
 const allAmulets: string[] = remnantItems
   .filter(
     (item) => GenericItem.isGenericItem(item) && item.category === 'amulet',
   )
   .map((item) => item.name)
-allAmulets.unshift(DEFAULT_COMMUNITY_BUILD_FILTERS.amulet)
+allAmulets.unshift(DEFAULT_JEWELRY_FILTERS.amulet)
 
 interface Props {
   selectedRing: string
@@ -31,13 +35,10 @@ export default function JewelryFilters({
   return (
     <div className="col-span-full pt-2">
       <div className="flex w-full flex-col items-start justify-start gap-x-4 gap-y-2">
-        <div className="flex items-center justify-start text-left text-sm font-bold text-green-500">
-          By Jewelry
-        </div>
         <div className="grid grid-cols-1 gap-x-8 text-left sm:grid-cols-2">
           <SelectMenu
             name="amulet"
-            label="Amulets"
+            label="By Amulet"
             value={selectedAmulet}
             options={allAmulets.map((amulet) => ({
               label: amulet,
@@ -47,7 +48,7 @@ export default function JewelryFilters({
           />
           <SelectMenu
             name="ring"
-            label="Ring"
+            label="By Ring"
             value={selectedRing}
             options={allRings.map((ring) => ({
               label: ring,

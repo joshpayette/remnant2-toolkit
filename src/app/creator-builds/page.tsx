@@ -3,12 +3,12 @@
 import PageHeader from '@/features/ui/PageHeader'
 import FeaturedBuilds from '@/app/creator-builds/FeaturedBuilds'
 import { useState } from 'react'
-import CommunityBuildFilters from '@/features/filters/components/CommunityBuildFilters'
-import { CommunityBuildFilterProps } from '@/features/filters/types'
+import BuildListFilters from '@/features/filters/components/BuildListFilters'
+import { BuildListFilterFields } from '@/features/filters/types'
 
 export default function Page() {
-  const [communityBuildFilters, setCommunityBuildFilters] =
-    useState<CommunityBuildFilterProps | null>(null)
+  const [buildListFilters, setBuildListFilters] =
+    useState<BuildListFilterFields | null>(null)
 
   return (
     <>
@@ -18,16 +18,16 @@ export default function Page() {
       />
 
       <div className="mb-8 flex w-full max-w-xl items-center justify-center">
-        <CommunityBuildFilters
+        <BuildListFilters
           onUpdateFilters={(newFilters) => {
-            setCommunityBuildFilters(newFilters)
+            setBuildListFilters(newFilters)
           }}
         />
       </div>
-      {communityBuildFilters && (
+      {buildListFilters && (
         <div className="mb-4 grid w-full grid-cols-1 gap-2">
           <FeaturedBuilds
-            communityBuildFilters={communityBuildFilters}
+            buildListFilters={buildListFilters}
             itemsPerPage={24}
           />
         </div>

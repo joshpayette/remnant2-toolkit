@@ -19,7 +19,7 @@ import {
   weaponFiltersToIds,
 } from '@/features/filters/queries/segments/limitByWeapons'
 import {
-  CommunityBuildFilterProps,
+  BuildListFilterFields,
   OrderBy,
   TimeRange,
 } from '@/features/filters/types'
@@ -37,13 +37,13 @@ import {
 import { limitByBuildNameOrDescriptionSegment } from '@/features/filters/queries/segments/limitByBuildNameOrDescription'
 
 export async function getFeaturedBuilds({
-  communityBuildFilters,
+  buildListFilters,
   itemsPerPage,
   orderBy,
   pageNumber,
   timeRange,
 }: {
-  communityBuildFilters: CommunityBuildFilterProps
+  buildListFilters: BuildListFilterFields
   itemsPerPage: number
   orderBy: OrderBy
   pageNumber: number
@@ -61,7 +61,7 @@ export async function getFeaturedBuilds({
     ring,
     searchText,
     selectedReleases,
-  } = communityBuildFilters
+  } = buildListFilters
 
   if (selectedReleases.length === 0) return { items: [], totalItemCount: 0 }
 

@@ -10,19 +10,19 @@ import useBuildActions from '@/features/build/hooks/useBuildActions'
 import { getCommunityBuilds } from '@/features/build/actions/getCommunityBuilds'
 import { isErrorResponse } from '@/features/error-handling/isErrorResponse'
 import { dbBuildToBuildState } from '../../features/build/lib/dbBuildToBuildState'
-import { CommunityBuildFilterProps } from '@/features/filters/types'
-import useBuildListFilters from '@/features/filters/hooks/useBuildListFilters'
-import BuildListFilters from '@/features/filters/components/BuildListFilters'
+import { BuildListFilterFields } from '@/features/filters/types'
+import useBuildListSecondaryFilters from '@/features/filters/hooks/useBuildListSecondaryFilters'
+import BuildListSecondaryFilters from '@/features/filters/components/BuildListSecondaryFilters'
 import useBuildListState from '@/features/build/hooks/useBuildListState'
 
 interface Props {
   itemsPerPage?: number
-  communityBuildFilters: CommunityBuildFilterProps
+  buildListFilters: BuildListFilterFields
 }
 
 export default function CommunityBuildList({
   itemsPerPage = 8,
-  communityBuildFilters,
+  buildListFilters,
 }: Props) {
   const { buildListState, setBuildListState } = useBuildListState()
   const { builds, totalBuildCount, isLoading } = buildListState
@@ -34,7 +34,7 @@ export default function CommunityBuildList({
     timeRangeOptions,
     handleOrderByChange,
     handleTimeRangeChange,
-  } = useBuildListFilters()
+  } = useBuildListSecondaryFilters()
 
   const {
     currentPage,
@@ -61,7 +61,7 @@ export default function CommunityBuildList({
         pageNumber: currentPage,
         timeRange,
         orderBy,
-        communityBuildFilters,
+        buildListFilters,
       })
       setBuildListState((prevState) => ({
         ...prevState,
@@ -77,7 +77,7 @@ export default function CommunityBuildList({
     timeRange,
     setBuildListState,
     itemsPerPage,
-    communityBuildFilters,
+    buildListFilters,
   ])
 
   async function onReportBuild(buildId: string) {
@@ -123,7 +123,7 @@ export default function CommunityBuildList({
         onNextPage={handleNextPageClick}
         onSpecificPage={handleSpecificPageClick}
         headerActions={
-          <BuildListFilters
+          <BuildListSecondaryFilters
             orderBy={orderBy}
             orderByOptions={orderByOptions}
             onOrderByChange={handleOrderByChange}
