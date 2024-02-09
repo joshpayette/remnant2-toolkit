@@ -33,7 +33,9 @@ export async function generateMetadata(
     throw new Error(`Item ${itemName} is not found.`)
   }
 
-  const title = `${item.name} (${item.category})`
+  const title = `${item.name} (${
+    item.category === 'relicfragment' ? 'relic fragment' : item.category
+  })`
   let description = `${item.description}\r\n` ?? 'An item for Remnant 2.'
 
   if (MutatorItem.isMutatorItem(item) || TraitItem.isTraitItem(item)) {

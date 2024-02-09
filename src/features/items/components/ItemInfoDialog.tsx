@@ -34,7 +34,10 @@ export function ItemInfoDialog({ item, open, onClose }: ItemInfoProps) {
     height: item.category === 'trait' ? 367 : 150,
   }
 
-  let subtitle = capitalize(item.category)
+  let subtitle =
+    item.category === 'relicfragment'
+      ? 'Relic Fragment'
+      : capitalize(item.category)
   if (PerkItem.isPerkItem(item)) {
     subtitle += ` - ${capitalize(item.type)}`
   }

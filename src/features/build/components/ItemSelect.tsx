@@ -121,7 +121,9 @@ export default function ItemSelect({
     <Dialog
       open={open}
       onClose={onClose}
-      title={`Select ${buildSlot}`}
+      title={`Select ${
+        buildSlot === 'relicfragment' ? 'Relic Fragment' : capitalize(buildSlot)
+      }`}
       maxWidthClass="max-w-6xl"
       zIndex="z-20"
     >

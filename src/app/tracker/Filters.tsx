@@ -202,11 +202,6 @@ export default function Filters({
       )}
     >
       <div className="grid-cols-full grid gap-x-8 gap-y-4 divide-y divide-green-800 bg-black sm:grid-cols-4">
-        {areAnyFiltersActive() && (
-          <div className="col-span-full flex items-center justify-end">
-            <ClearFiltersButton onClick={clearFilters} />
-          </div>
-        )}
         <div className="col-span-full pt-2">
           <div className="flex w-full items-center justify-start gap-x-4">
             <span className="flex items-center justify-start text-left text-sm font-bold text-green-500">
@@ -221,6 +216,7 @@ export default function Filters({
             </div>
           </div>
         </div>
+
         <div className="col-span-full pt-2 sm:col-span-2">
           <div className="flex w-full flex-col items-start justify-start gap-x-4 gap-y-2">
             <span className="flex items-start justify-start text-left text-sm font-bold text-green-500">
@@ -318,10 +314,12 @@ export default function Filters({
             </div>
             <div className="grid grid-cols-2 gap-x-8 text-left sm:grid-cols-5">
               {defaultCategoryKeys.map((key) => {
+                const label =
+                  key === 'relicfragment' ? 'Relic Fragment' : capitalize(key)
                 return (
                   <div key={key}>
                     <Checkbox
-                      label={capitalize(key)}
+                      label={label}
                       name={`category-${key}`}
                       checked={includedCategoryKeys.includes(key)}
                       onChange={() => handleCategoryFilterChange(key)}
@@ -332,6 +330,12 @@ export default function Filters({
             </div>
           </div>
         </div>
+
+        {areAnyFiltersActive() && (
+          <div className="col-span-full flex items-center justify-end pt-4">
+            <ClearFiltersButton onClick={clearFilters} />
+          </div>
+        )}
       </div>
     </div>
   )
