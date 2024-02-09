@@ -98,7 +98,7 @@ function MasonryCard({ data: item, onMoreInfoClick }: MasonryBuildItem) {
           <button
             className="relative inline-flex w-0 flex-1 items-center justify-center gap-x-1 rounded-br-lg border border-transparent py-4 text-xs font-semibold text-gray-200"
             onClick={() => {
-              copy(`https://remnant2builder.com/item/${cleanItemName(item)}`)
+              copy(`https://remnant2toolkit.com/item/${cleanItemName(item)}`)
               toast.success('Copied link to clipboard')
             }}
           >
