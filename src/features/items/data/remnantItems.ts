@@ -4680,7 +4680,7 @@ export const remnantItems: Item[] = [
     name: 'Meridian',
     imagePath: '/offhand/meridian.png',
     id: '1ziutf',
-    description: `Fires volatile grenades that explode on direct contact with enemies and deal AOE damage within 4m. [A] Dormant grenades eventually explode and can also be shot to detonate early.`,
+    description: `Fires volatile grenades that explode [E] on direct contact with enemies and deal AOE damage within 4m. [A] Dormant grenades eventually explode and can also be shot to detonate early.`,
     howToGet: `Can be found in Flooded Sewer event.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Meridian`],
     linkedItems: {
