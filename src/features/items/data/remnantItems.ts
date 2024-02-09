@@ -747,9 +747,9 @@ export const remnantItems: Item[] = [
     name: 'Heavy Weapon: Impact Cannon',
     imagePath: '/skill/heavy_weapon_impact_cannon.png',
     id: 'ki92op',
-    description: `PRESS: Deploys a Impact Cannon Turret which lasts until its Ammo is exhausted. Turrets that can aim will prioritze targets that the player Aims at. Press SKILL again to enable autonomous targeting. [A]
+    description: `PRESS: Deploys a Impact Cannon Turret [E] which lasts until its Ammo is exhausted. Turrets that can aim will prioritze targets that the player Aims at. Press SKILL again to enable autonomous targeting. [A]
 
-    HOLD: Deploys to Heavy Carry Mode [E]. If ENGINEER Prime is available, will Overclock the weapon if already in hand or on the battlefield.
+    HOLD: Deploys to Heavy Carry Mode. If ENGINEER Prime is available, will Overclock the weapon if already in hand or on the battlefield.
     
     DOUBLE PRESS: The weapon is reclaimed, returning 75% of its remaining ammo.
     
