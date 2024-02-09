@@ -264,6 +264,7 @@ export default function ItemLookupFilters({ onUpdateFilters }: Props) {
       <SearchItemsFilter
         selectedSearchTag={selectedSearchTag}
         searchText={unappliedFilters.searchText}
+        onApplyFilters={() => handleApplyFilters(unappliedFilters)}
         onSearchTagApply={handleSearchTagApply}
         onSearchTagChange={(newSearchTag: string) =>
           handleSearchTagChange(newSearchTag)

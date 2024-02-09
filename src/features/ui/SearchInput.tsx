@@ -3,10 +3,12 @@ import Input from './Input'
 
 export default function SearchInput({
   onChange,
+  onKeyDown,
   value,
   placeholder = 'Search',
 }: {
   onChange: (value: string) => void
+  onKeyDown?: () => void
   value: string
   placeholder?: string
 }) {
@@ -14,6 +16,7 @@ export default function SearchInput({
     <div className="relative flex w-full flex-row items-center shadow-sm">
       <Input
         onChange={(e) => onChange(e.target.value)}
+        onKeyDown={onKeyDown}
         placeholder={placeholder}
         value={value}
       />

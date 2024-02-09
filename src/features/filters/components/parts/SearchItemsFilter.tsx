@@ -7,11 +7,13 @@ interface Props {
   onSearchTagApply: () => void
   onSearchTagChange: (searchTag: string) => void
   onSearchTextChange: (searchQuery: string) => void
+  onApplyFilters: () => void
 }
 
 export default function SearchItemsFilter({
   searchText,
   selectedSearchTag,
+  onApplyFilters,
   onSearchTagApply,
   onSearchTagChange,
   onSearchTextChange,
@@ -25,6 +27,7 @@ export default function SearchItemsFilter({
           </div>
           <SearchInput
             onChange={onSearchTextChange}
+            onKeyDown={onApplyFilters}
             value={searchText}
             placeholder={'Search item names and descriptions'}
           />
