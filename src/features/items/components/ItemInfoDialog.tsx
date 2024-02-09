@@ -12,6 +12,9 @@ import { Item } from '../types'
 import { capitalize } from '@/lib/capitalize'
 import { WeaponItem } from '../types/WeaponItem'
 import WeaponInfo from './WeaponInfo'
+import copy from 'clipboard-copy'
+import { toast } from 'react-toastify'
+import { cleanItemName } from '../lib/cleanItemName'
 
 interface ItemInfoProps {
   item: Item | null
@@ -19,7 +22,7 @@ interface ItemInfoProps {
   onClose: () => void
 }
 
-export default function ItemInfo({ item, open, onClose }: ItemInfoProps) {
+export function ItemInfoDialog({ item, open, onClose }: ItemInfoProps) {
   if (!item) return null
 
   // Only add the third column for certain items
@@ -40,9 +43,22 @@ export default function ItemInfo({ item, open, onClose }: ItemInfoProps) {
     <Dialog
       open={open}
       onClose={onClose}
-      title={<span className="text-xl text-purple-500">{item.name}</span>}
-      subtitle={<span className="text-sm text-gray-400">{subtitle}</span>}
-      maxWidthClass="max-w-xl"
+      title={<div className="text-xl text-purple-500">{item.name}</div>}
+      subtitle={
+        <span className="flex w-full flex-col items-center justify-center gap-x-2">
+          <span className="text-sm text-gray-400">{subtitle}</span>
+          <button
+            className="text-xs text-green-500 underline hover:text-green-400"
+            onClick={() => {
+              copy(`https://remnant2builder.com/item/${cleanItemName(item)}`)
+              toast.success('Copied link to clipboard')
+            }}
+          >
+            Share
+          </button>
+        </span>
+      }
+      maxWidthClass="max-w-2xl"
     >
       <div className="grid-cols-full grid gap-x-8 gap-y-4 sm:grid-cols-3">
         <div className="col-span-3 flex w-full flex-col items-center justify-start sm:col-span-1 sm:justify-center">
@@ -106,24 +122,35 @@ export default function ItemInfo({ item, open, onClose }: ItemInfoProps) {
             </div>
           )}
 
-          <div className="flex flex-col items-start justify-start">
-            <h4 className="mt-4 text-left text-xs text-gray-500">Wiki Links</h4>
-            {item.wikiLinks?.map((link) => (
-              <a
-                key={link}
-                href={link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-left text-xs text-gray-300 underline hover:text-green-400"
-              >
-                {link}
-              </a>
-            )) ?? (
+          {item.howToGet && (
+            <div className="flex flex-col items-start justify-start">
+              <h4 className="mt-4 text-left text-xs text-gray-500">
+                How To Get
+              </h4>
               <div className="text-left text-xs text-gray-300">
-                No links found.
+                {item.howToGet}
               </div>
-            )}
-          </div>
+            </div>
+          )}
+
+          {item.wikiLinks && (
+            <div className="flex flex-col items-start justify-start">
+              <h4 className="mt-4 text-left text-xs text-gray-500">
+                Wiki Links
+              </h4>
+              {item.wikiLinks.map((link) => (
+                <a
+                  key={link}
+                  href={link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-left text-xs text-gray-300 underline hover:text-green-400"
+                >
+                  {link}
+                </a>
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </Dialog>

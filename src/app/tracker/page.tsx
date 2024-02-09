@@ -15,7 +15,7 @@ import { GenericItem } from '@/features/items/types/GenericItem'
 import useFilteredItems from '@/features/items/hooks/useFilteredItems'
 import { itemToCsvItem } from '@/features/items/lib/itemToCsvItem'
 import { MutatorItem } from '@/features/items/types/MutatorItem'
-import ItemInfo from '@/features/items/components/ItemInfo'
+import {ItemInfoDialog} from '@/features/items/components/ItemInfoDialog'
 import Filters from '@/app/tracker/Filters'
 import ListItems from '@/app/tracker/ListItems'
 import ImportSaveDialog from './ImportSaveDialog'
@@ -251,7 +251,7 @@ export default function Page() {
         fileInputRef={csvFileInputRef}
       />
       <div className="relative flex w-full flex-col items-center justify-center">
-        <ItemInfo
+        <ItemInfoDialog
           item={itemInfo}
           open={isShowItemInfoOpen}
           onClose={() => setItemInfo(null)}

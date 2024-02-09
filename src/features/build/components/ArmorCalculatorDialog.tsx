@@ -11,7 +11,7 @@ import {
   getWeightClass,
 } from '../lib/getTotalValues'
 import BuilderButton from './BuilderButton'
-import ItemInfo from '@/features/items/components/ItemInfo'
+import { ItemInfoDialog } from '@/features/items/components/ItemInfoDialog'
 import { GenericItem } from '@/features/items/types/GenericItem'
 
 function getArmorSuggestions(
@@ -219,7 +219,7 @@ export default function ArmorCalculatorDialog({
         open={open}
         onClose={onClose}
       >
-        <ItemInfo
+        <ItemInfoDialog
           item={itemInfo}
           open={isShowItemInfoOpen}
           onClose={() => setItemInfo(null)}

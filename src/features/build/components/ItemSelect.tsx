@@ -6,7 +6,7 @@ import { useDebounce, useIsClient } from 'usehooks-ts'
 import { useEffect, useState } from 'react'
 import SearchInput from '@/features/ui/SearchInput'
 import { GenericItem } from '@/features/items/types/GenericItem'
-import ItemInfo from '@/features/items/components/ItemInfo'
+import { ItemInfoDialog } from '@/features/items/components/ItemInfoDialog'
 import { AdjustmentsHorizontalIcon } from '@heroicons/react/24/solid'
 import { cn } from '@/lib/classnames'
 import { useLocalStorage } from '@/features/localstorage/useLocalStorage'
@@ -125,7 +125,7 @@ export default function ItemSelect({
       maxWidthClass="max-w-6xl"
       zIndex="z-20"
     >
-      <ItemInfo
+      <ItemInfoDialog
         item={infoItem}
         open={Boolean(infoItem)}
         onClose={() => setInfoItem(null)}

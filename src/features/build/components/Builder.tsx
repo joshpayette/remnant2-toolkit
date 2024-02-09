@@ -14,7 +14,7 @@ import { DEFAULT_TRAIT_AMOUNT, POPULAR_VOTE_THRESHOLD } from '../constants'
 import { GenericItem } from '@/features/items/types/GenericItem'
 import { Item } from '@/features/items/types'
 import { TraitItem } from '@/features/items/types/TraitItem'
-import ItemInfo from '@/features/items/components/ItemInfo'
+import { ItemInfoDialog } from '@/features/items/components/ItemInfoDialog'
 import getArrayOfLength from '../lib/getArrayOfLength'
 import getConcoctionSlotCount from '../lib/getConcoctionSlotCount'
 import getItemListForSlot from '../lib/getItemListForSlot'
@@ -312,7 +312,7 @@ export default function Builder({
         buildSlot={selectedItemSlot.category}
       />
 
-      <ItemInfo
+      <ItemInfoDialog
         item={infoItem}
         open={Boolean(infoItem)}
         onClose={() => setInfoItem(null)}

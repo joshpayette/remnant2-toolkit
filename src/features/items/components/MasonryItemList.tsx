@@ -1,11 +1,7 @@
 'use client'
 
-import {
-  InformationCircleIcon,
-  ListBulletIcon,
-} from '@heroicons/react/24/outline'
+import { InformationCircleIcon } from '@heroicons/react/24/outline'
 import Image from 'next/image'
-import Link from 'next/link'
 import { useState } from 'react'
 import { Masonry } from 'masonic'
 import { useIsClient } from 'usehooks-ts'
@@ -16,11 +12,14 @@ import { MutatorItem } from '../types/MutatorItem'
 import { GenericItem } from '../types/GenericItem'
 import { ArmorItem } from '../types/ArmorItem'
 import ArmorInfo from './ArmorInfo'
-import ItemInfo from './ItemInfo'
+import { ItemInfoDialog } from './ItemInfoDialog'
 import { WeaponItem } from '../types/WeaponItem'
 import WeaponInfo from './WeaponInfo'
 import { cn } from '@/lib/classnames'
-import { Description } from '@headlessui/react/dist/components/description/description'
+import { ShareIcon } from '@heroicons/react/24/solid'
+import { toast } from 'react-toastify'
+import copy from 'clipboard-copy'
+import { cleanItemName } from '../lib/cleanItemName'
 
 interface MasonryBuildItem {
   index: number
@@ -96,19 +95,16 @@ function MasonryCard({ data: item, onMoreInfoClick }: MasonryBuildItem) {
       </div>
       <div>
         <div className="-mt-px flex divide-x divide-green-800">
-          {wikiLinks && wikiLinks[0] && (
-            <Link
-              target="_blank"
-              href={wikiLinks[0]}
-              className="relative inline-flex w-0 flex-1 items-center justify-center gap-x-1 rounded-br-lg border border-transparent py-4 text-xs font-semibold text-gray-200"
-            >
-              <ListBulletIcon
-                className="h-4 w-4 text-green-400"
-                aria-hidden="true"
-              />
-              Wiki
-            </Link>
-          )}
+          <button
+            className="relative inline-flex w-0 flex-1 items-center justify-center gap-x-1 rounded-br-lg border border-transparent py-4 text-xs font-semibold text-gray-200"
+            onClick={() => {
+              copy(`https://remnant2builder.com/item/${cleanItemName(item)}`)
+              toast.success('Copied link to clipboard')
+            }}
+          >
+            <ShareIcon className="h-4 w-4 text-green-400" aria-hidden="true" />
+            Share
+          </button>
 
           <div className="-ml-px flex w-0 flex-1">
             <div className="flex w-0 flex-1">
@@ -148,7 +144,7 @@ export default function MasonryItemList({ items }: Props) {
 
   return (
     <>
-      <ItemInfo
+      <ItemInfoDialog
         item={selectedItem}
         open={infoOpen}
         onClose={() => setSelectedItem(null)}
