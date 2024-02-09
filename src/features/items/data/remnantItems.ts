@@ -747,9 +747,9 @@ export const remnantItems: Item[] = [
     name: 'Heavy Weapon: Impact Cannon',
     imagePath: '/skill/heavy_weapon_impact_cannon.png',
     id: 'ki92op',
-    description: `PRESS: Deploys a Impact Cannon Turret which lasts until its Ammo is exhausted. Turrets that can aim will prioritze targets that the player Aims at. Press SKILL again to enable autonomous targeting. [A]
+    description: `PRESS: Deploys a Impact Cannon Turret [E] which lasts until its Ammo is exhausted. Turrets that can aim will prioritze targets that the player Aims at. Press SKILL again to enable autonomous targeting. [A]
 
-    HOLD: Deploys to Heavy Carry Mode [E]. If ENGINEER Prime is available, will Overclock the weapon if already in hand or on the battlefield.
+    HOLD: Deploys to Heavy Carry Mode. If ENGINEER Prime is available, will Overclock the weapon if already in hand or on the battlefield.
     
     DOUBLE PRESS: The weapon is reclaimed, returning 75% of its remaining ammo.
     
@@ -922,7 +922,7 @@ export const remnantItems: Item[] = [
     id: 'kk4yre',
     description: `PRESS: Summons a Root Hollow Minion to fight by your side. Costs 15% of Max Health to summon, but will not kil SUMMONER. Max (2)
 
-    HOLD: SACRIFICE Root Hollow Minion to explode, dealing 150 damage within 5m. [A] Reduces Skill Cooldown by up to 50% based on remaining Health of each Minion Sacrificed.`,
+    HOLD: SACRIFICE Root Hollow Minion to explode, dealing 150 damage [E] within 5m. [A] Reduces Skill Cooldown by up to 50% based on remaining Health of each Minion Sacrificed.`,
     cooldown: 30,
     howToGet: `Unlocks automatically`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Minion:+Hollow`],
@@ -940,7 +940,7 @@ export const remnantItems: Item[] = [
     id: 'o7pvqx',
     description: `PRESS: Summons a Root Flyer Minion to fight by your side. Costs 10% of Max Health to summon, but will not kil SUMMONER. Max (2).
 
-    HOLD: SACRIFICE all Root Flyer Minions, dealing 50 damage within 3m [A] and spawning 3 homing projectiles which explode on contact for 150 damage each.`,
+    HOLD: SACRIFICE all Root Flyer Minions, dealing 50 damage [E] within 3m [A] and spawning 3 homing projectiles which explode on contact for 150 damage each.`,
     cooldown: 45,
     howToGet: `Unlocks at level 5`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Minion:+Flyer`],
@@ -957,7 +957,7 @@ export const remnantItems: Item[] = [
     id: 'gs8zdv',
     description: `PRESS: Summons a Root Reaver Minion to fight by your side. Costs 35% of Max Health to summon, but will not kill SUMMONER. Max (1).
 
-    HOLD: SACRIFICE all Root Reaver Minion, dealing 200 damage within 6m [A] and spawning Spore Bombs which bounce and explode on contact for 200 damage each.
+    HOLD: SACRIFICE all Root Reaver Minion, dealing 200 damage [E] within 6m [A] and spawning Spore Bombs which bounce and explode on contact for 200 damage each.
     
     Reduces Skill Cooldown by up to 50% based on remaining Health of Minion.`,
     cooldown: 120,
@@ -4680,7 +4680,7 @@ export const remnantItems: Item[] = [
     name: 'Meridian',
     imagePath: '/offhand/meridian.png',
     id: '1ziutf',
-    description: `Fires volatile grenades that explode on direct contact with enemies and deal AOE damage within 4m. [A] Dormant grenades eventually explode and can also be shot to detonate early.`,
+    description: `Fires volatile grenades that explode [E] on direct contact with enemies and deal AOE damage within 4m. [A] Dormant grenades eventually explode and can also be shot to detonate early.`,
     howToGet: `Can be found in Flooded Sewer event.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Meridian`],
     linkedItems: {
@@ -4960,7 +4960,7 @@ export const remnantItems: Item[] = [
     imagePath: '/mod/beta_ray.png',
     id: '5ke493',
     description: `Brands a target for 30s. Branded enemies that die leave a Brand at their location.
-    Reloading or Swapping detonates Brands dealing 225 damage.
+    Reloading or Swapping detonates Brands dealing 225 damage [E].
     Additional Brands (3 Max) on the same target deal 50% damage.
     Slain enemies return 5-15% of Ammo and Mod power to the weapon.`,
     howToGet: `Attached to the Alpha-Omega long gun`,
@@ -5407,7 +5407,7 @@ export const remnantItems: Item[] = [
     name: "Guardian's Call",
     imagePath: '/mod/guardians_call.png',
     id: 'anhbhf',
-    description: `Calls down a Guardian Sword on enemies struck by an Energy Disc. Swords deal 100 damage and 3x stagger within 3m. [A]`,
+    description: `Calls down a Guardian Sword on enemies struck by an Energy Disc. Swords deal 100 damage [E] and 3x stagger within 3m. [A]`,
     howToGet: `Attached to the Twisted Arbalest long gun`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Guardian's+Call`],
     linkedItems: {
@@ -5444,7 +5444,7 @@ export const remnantItems: Item[] = [
     name: 'Helix',
     imagePath: '/mod/helix.png',
     id: '1mtqkk',
-    description: `Shoots a helix of missiles, dealing 120 damage. On contact, divides into 6 smaller rockets which seek additional targets, dealing 30 damage on contact.`,
+    description: `Shoots a helix of missiles, dealing 120 damage [E]. On contact, divides into 6 smaller rockets which seek additional targets, dealing 30 damage [E] on contact.`,
     howToGet: `Crafted from Seeker Residue
     Drops from The Astropath`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Helix`],
@@ -5597,7 +5597,7 @@ export const remnantItems: Item[] = [
     name: 'Prismatic Driver',
     imagePath: '/mod/prismatic_driver.png',
     id: 'vtcg3o',
-    description: `Fires a superheated beam which deals 25 Mod Damage per second. Sustaining the beam on a target causes an explosion which deals 150 Mod damage in a 3m [A] AOE.`, //(sic!) mod damage instead of damage
+    description: `Fires a superheated beam which deals 25 Mod Damage per second. Sustaining the beam on a target causes an explosion which deals 150 Mod damage [E] in a 3m [A] AOE.`, //(sic!) mod damage instead of damage
     howToGet: `Crafted from Sentry's Old Iris
     Drops from The Custodian's Eye`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Prismatic+Driver`],
@@ -5642,7 +5642,7 @@ export const remnantItems: Item[] = [
     name: 'Rotted Arrow',
     imagePath: '/mod/rotted_arrow.png',
     id: 'vgin4w',
-    description: `Fires a rotten arrow that deals 19.8 damage and detonates for another 60 damage within 4m. [A] A deadly gas cloud is left behind that deals 200 damage over 5s.`,
+    description: `Fires a rotten arrow that deals 19.8 damage and detonates for another 60 damage [E] within 4m. [A] A deadly gas cloud is left behind that deals 200 damage over 5s.`,
     howToGet: `Crafted from Soul Sliver
     Drops from Shrewd`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Rotted+Arrow`],
@@ -5736,7 +5736,7 @@ export const remnantItems: Item[] = [
     name: 'Space Crabs',
     imagePath: '/mod/space_crabs.png',
     id: '4wd3gm',
-    description: `Launch an alien egg that bursts on impact, releasing 5 Space Crabs. Crabs follow the caster, leaping towards enemies within 4m, and exploding, dealing 60Damage each.`,
+    description: `Launch an alien egg that bursts on impact, releasing 5 Space Crabs. Crabs follow the caster, leaping towards enemies within 4m, and exploding, dealing 60 damage [E] each.`,
     howToGet: `Crafted from Cracked Shell
     Drops from Primogenitor`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Space+Crabs`],
@@ -5760,7 +5760,7 @@ export const remnantItems: Item[] = [
     name: 'Starfall',
     imagePath: '/mod/starfall.png',
     id: 'j9wkb3',
-    description: `Fires a powerful arrow which deals 30 damage and opens a 7m [A] portal that rains down star fragments. Each fragment deals 50 damage within 4m. [A] Lasts 6s.`,
+    description: `Fires a powerful arrow which deals 30 damage and opens a 7m [A] portal that rains down star fragments. Each fragment deals 50 damage [E] within 4m. [A] Lasts 6s.`,
     howToGet: `Attached to the Sagittarius long gun`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Starfall`],
     linkedItems: {
