@@ -540,7 +540,7 @@ export const remnantItems: Item[] = [
     id: '5jh6qr',
     description: `Continously Aiming Down Sights uninterrupted and without shooting for 1s causes the HUNTER to enter a FOCUSED state. 
 
-    FOCUSED reduces Weapon Spread, Recoil, and Sway by 75% and grants 25% Ranged & Ranged Weakspot Damage [∗], and 10% Ranged Crit Chance.
+    FOCUSED reduces Weapon Spread, Recoil, and Sway by 75% and grants 25% Ranged & Ranged Weakspot Damage [M], and 10% Ranged Crit Chance.
     
     While FOCUSED, Aiming at enemies will automatically apply MARK.
     
@@ -926,7 +926,11 @@ export const remnantItems: Item[] = [
     cooldown: 30,
     howToGet: `Unlocks automatically`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Minion:+Hollow`],
+<<<<<<< HEAD
+    tags: ['Reduce Skill Cooldown', 'Summon',],
+=======
     tags: ['Reduce Skill Cooldown'],
+>>>>>>> 95c8d0b2278476e02c8059f90f5a3e6a847901b5
     linkedItems: {
       archetype: {
         name: 'Summoner',
@@ -961,7 +965,11 @@ export const remnantItems: Item[] = [
     
     Reduces Skill Cooldown by up to 50% based on remaining Health of Minion.`,
     cooldown: 120,
+<<<<<<< HEAD
+    tags: ['Reduce Skill Cooldown', 'Summon'],
+=======
     tags: ['Reduce Skill Cooldown'],
+>>>>>>> 95c8d0b2278476e02c8059f90f5a3e6a847901b5
     howToGet: `Unlocks at level 10`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Minion:+Reaver`],
     linkedItems: {
@@ -2899,9 +2907,13 @@ export const remnantItems: Item[] = [
     name: 'Diverting Heart',
     imagePath: '/relic/diverting_heart.png',
     id: '96f26y',
+<<<<<<< HEAD
+    tags: ['Reduce Skill Cooldown',],
+=======
     tags: ['Reduce Skill Cooldown'],
+>>>>>>> 95c8d0b2278476e02c8059f90f5a3e6a847901b5
     description: `On use, reduces Skill Cooldowns by 1s for sec. Lasts 15s.`,
-    howToGet: `Cass at Ward 13 for x1,250 Scrapunlocked after completing 30 world biomes.`,
+    howToGet: `Cass at Ward 13 for x1,250 Scrap unlocked after completing 30 world biomes.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Diverting+Heart`],
   },
   {
@@ -3437,7 +3449,7 @@ export const remnantItems: Item[] = [
     name: 'Weakspot Damage', // This is the correct name, fextralife has it called ranged weakspot damage
     imagePath: '/relicfragment/weakspot_damage.png',
     id: 'oszz4u',
-    description: `+X% Weakspot Damage (Mythic: Maximum of +15% [∗]).`,
+    description: `+X% Weakspot Damage (Mythic: Maximum of +15% [M]).`,
     howToGet: ``,
     wikiLinks: [
       `https://remnant2.wiki.fextralife.com/Cracked+Ranged+Weakspot+Damage`,
@@ -5169,7 +5181,7 @@ export const remnantItems: Item[] = [
     name: 'Death Brand',
     imagePath: '/mod/death_brand.png',
     id: 'd3q99g',
-    description: `Applies Death Brand to all enemies within 25m. [R] increasing incoming damage by 10%. Enemies killed while bearing the Death Brand leave behind an Echo which lasts 10s before returning to the Nightmare Realm. Echoes are drawn to any survivor who walks within 3m. increasing Weakspot Damage dealt by 10%[∗] for 10s.`,
+    description: `Applies Death Brand to all enemies within 25m. [R] increasing incoming damage by 10%. Enemies killed while bearing the Death Brand leave behind an Echo which lasts 10s before returning to the Nightmare Realm. Echoes are drawn to any survivor who walks within 3m. increasing Weakspot Damage dealt by 10%[M] for 10s.`,
     howToGet: `Attached to the Corrupted Rune Pistol Handgun`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Death+Brand`],
     linkedItems: {
@@ -5881,7 +5893,7 @@ export const remnantItems: Item[] = [
     type: 'gun',
     imagePath: '/mutator/battery.png',
     id: 'n5zhws',
-    description: `Ranged Hits increase the next weakspot Hit by 10-[20]%[∗] per stack. Max 5 Stacks.`,
+    description: `Ranged Hits increase the next weakspot Hit by 10-[20]%[M] per stack. Max 5 Stacks.`,
     maxLevelBonus: `At Max Stacks, the next weakspot Hit deals 15% additional damage over 3s.`,
     howToGet: `Sold by Dwell at the following cost: x75 Relic Dust + x500 Scrap.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Battery`],
@@ -5974,7 +5986,11 @@ export const remnantItems: Item[] = [
     type: 'melee',
     imagePath: '/mutator/edgelord.png',
     id: 'mpxowx',
+<<<<<<< HEAD
+    tags:['Melee Charge Speed','Melee Attack Speed', 'Charged Melee', 'Lifesteal'],
+=======
     tags:['Melee Charge Speed','Melee Attack Speed', 'Charged Melee Damage', 'Lifesteal']
+>>>>>>> 95c8d0b2278476e02c8059f90f5a3e6a847901b5
     description: `Increases Melee Charge Speed by 15% and Melee Attack Speed by 10%.`,
     maxLevelBonus: `Gain 3% of based Charged Melee Damage dealt as Lifesteal.`,
     howToGet: `Can be found in Yaesha - The Chimney`,
@@ -5987,7 +6003,11 @@ export const remnantItems: Item[] = [
     imagePath: '/mutator/executor.png',
     dlc: 'dlc1',
     id: 'pynv5l',
+<<<<<<< HEAD
+    tags: ['Status Effect', 'Melee Charge Speed', 'Melee Attack Speed'] ,
+=======
     tags: ['Status Effects', 'Melee Charge Speed', 'Melee Attack Speed'] ,
+>>>>>>> 95c8d0b2278476e02c8059f90f5a3e6a847901b5
     description: `Increases the duration of Negative Status Effects on enemies by 10% of the original duration. Cannot exceed original max duration.`,
     maxLevelBonus: `Increases Melee Charge Speed and Melee Attack Speed by 5% per entity within 10m with a Negative Status Effect. Max 4 stacks.`, //No info on whether its A or R
     howToGet: `Can be found at Dormant N'Erudian Facility(timed event).`,
@@ -6011,8 +6031,13 @@ export const remnantItems: Item[] = [
     type: 'gun',
     imagePath: '/mutator/failsafe.png',
     id: '0xx8tz',
+<<<<<<< HEAD
+    tags: ['Mod Damage'],
+    description: `Attached Mod deals 10-[20]% additional Mod Damage.`,
+=======
     tags: ['Mod Damage'],
     description: `Attached Mod deals 10-[20]%additional Mod Damage.`,
+>>>>>>> 95c8d0b2278476e02c8059f90f5a3e6a847901b5
     maxLevelBonus: `Attached Mod use gains a 15% chance to not consume charge.`,
     howToGet: `Interact with the Rotten Thaen Fruit, while having the Red Doe Sigil equipped..`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Failsafe`],
@@ -6036,7 +6061,11 @@ export const remnantItems: Item[] = [
     dlc: 'dlc1',
     imagePath: '/mutator/fetid_wounds.png',
     id: 'b07g02',
+<<<<<<< HEAD
+    tags: ['Critical Chance', 'Status Effect', 'Weakspot Damage', 'Critical Hit'],
+=======
     tags: ['Critical Chance', 'Status Effect', 'Weakspot Damage', 'Corrodedeeeeeds' ],
+>>>>>>> 95c8d0b2278476e02c8059f90f5a3e6a847901b5
     description: `Increases Critical Chance of this weapon by 3% per unique Negative Status Effect on the enemy. Max 15% increase.`,
     maxLevelBonus: `This weapon's Ranged Weakspot and Ranged Critical Hits apply CORRODED, dealing 200 CORROSIVE damage over 10s.`,
     howToGet: `Aberration Event Random Drop`,
@@ -6048,6 +6077,7 @@ export const remnantItems: Item[] = [
     type: 'gun',
     imagePath: '/mutator/ghost_shell.png',
     id: '85c7yj',
+    tags: ['Weakspot Hit', 'Weakspot Damage', 'Weakspot Critical Chance'],
     description: `After 3 consecutive Weakspot Hits, increase the damage of the next Weakspot Hit by 20-[40]%.`,
     maxLevelBonus: `Increases Weakspot Critical Chance by 15%.`,
     howToGet: `Aberration Event Random Drop`,
@@ -6060,6 +6090,7 @@ export const remnantItems: Item[] = [
     imagePath: '/mutator/guts.png',
     dlc: 'dlc1',
     id: '961d6v',
+    tags: ['Melee Critical Chance', 'Grey Health',],
     description: `Increases Melee Critical Chance by 5% when Grey Health is present.`,
     maxLevelBonus: `Increases Melee Critical Damage by 2.5% [C] for every 10% of Grey Health.`,
     howToGet: `Aberration Event Random Drop`,
@@ -6071,6 +6102,7 @@ export const remnantItems: Item[] = [
     type: 'gun',
     imagePath: '/mutator/harmonizer.png',
     id: 'jyl055',
+    tags: ['Mod Damage', 'Mod Power'],
     description: `Increases Mod Damage by 10-[20]%.`,
     maxLevelBonus: `Generate 25% additional Mod Power for Stowed Weapon.`,
     howToGet: `Losomn - Harvester's Reach. Dropped by Barghest the Vile`,
@@ -6082,8 +6114,9 @@ export const remnantItems: Item[] = [
     type: 'gun',
     imagePath: '/mutator/ingenuity.png',
     id: 'mkbquc',
+    tags: ['Heat Generation', 'Reload Speed',],
     description: `Reduces the Heat Generation of this weapon by 25%.`,
-    maxLevelBonus: `Reduces the Heat Generation of this weapon by 25%.`,
+    maxLevelBonus: `Reload Speed is increased up to 50% based on this weapon's Heat accumulation.`,
     howToGet: `Drops from the Aberration fight at the Card Jester event. When choosing cards, choose the devil.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Ingenuity`],
   },
@@ -6093,6 +6126,7 @@ export const remnantItems: Item[] = [
     type: 'gun',
     imagePath: '/mutator/kill_switch.png',
     id: 'rzfptj',
+    tags: [''],
     description: `Switching to this weapon creates an Explosive Burst [E] which deals 50 Damage to all enemies within 7m. [A]`,
     maxLevelBonus: `This weapon's kills with any Explosive Damage reduce Kill Switch cooldown by 1s`,
     howToGet: `Has a chance to drop from Aberrations randomly encountered during enemy ambushes.`,
@@ -6104,6 +6138,7 @@ export const remnantItems: Item[] = [
     type: 'melee',
     imagePath: '/mutator/latency.png',
     id: 'nft2cp',
+    tags: ['Melee Special Ability',],
     description: `Melee Weapons with special abilities which become readied by dealing melee damage require 10% less damage to charge.`,
     maxLevelBonus: `Increase the potency of readied Melee Special abilities by 25%.`,
     howToGet: `Aberration Event Random Drop`,
@@ -6115,7 +6150,8 @@ export const remnantItems: Item[] = [
     type: 'gun',
     imagePath: '/mutator/lithely.png',
     id: 's2z9cc',
-    description: `Increases this weapon's Reload Speed by 4-[7]% for each enemy killed between reloads. lasts 15s Max 5 Stacks.`,
+    tags: ['Reload Speed', 'Ranged Damage',],
+    description: `Increases this weapon's Reload Speed by 4-[7]% for each enemy killed between reloads. Lasts 15s Max 5 Stacks.`,
     maxLevelBonus: `Reloading this weapon at Max Stacks increases Ranged Damage by 20% by 15s`,
     howToGet: `Can be found in Yaesha - The Lament, drops from Wither.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Lithely`],
@@ -6127,7 +6163,8 @@ export const remnantItems: Item[] = [
     imagePath: '/mutator/maelstrom.png',
     dlc: 'dlc1',
     id: '4m2lg1',
-    description: `Increases this weapon‘s Elemental Damage by 5% for each unique Elemental Status Effect on the target.`,
+    tags: ['Elemental Damage', 'Status Effect', 'Mod Power',],
+    description: `Increases this weapon's Elemental Damage by 5% for each unique Elemental Status Effect on the target.`,
     maxLevelBonus: `Increases Mod Power Generation of Elemental Damage and Elemental Status damage by 20%.`,
     howToGet: `Can be found in N'Erud - Tower of the Unseen, dropped by E.D. Alpha`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Maelstrom`],
@@ -6138,6 +6175,7 @@ export const remnantItems: Item[] = [
     type: 'melee',
     imagePath: '/mutator/misfortune.png',
     id: 'imqrfz',
+    tags: ['Melee Damage', 'Status Effect',],
     description: `Increase Melee damage by 5-[8]% for each unique Negative Status the target is suffering from.`,
     maxLevelBonus: `Melee Attacks apply SLOW for 2s.`,
     howToGet: `Can be found in Yaesha - Forgotten Field. Drops from the Defiler at the boss fight of the level.`,
@@ -6149,6 +6187,7 @@ export const remnantItems: Item[] = [
     type: 'gun',
     imagePath: '/mutator/momentum.png',
     id: 'cvbjvd',
+    tags: ['Critical Hit', 'Critical Chance,'],
     description: `When this weapon scores a Critical Hit, it increases Critical Chance and Critical Damage by 1.5-[3]% [C] for 3s. Max 10 stacks.`,
     maxLevelBonus: `Critical Hits from this weapon add 2 stacks. Increases duration by 2s.`,
     howToGet: `Sold by Dwell at the following cost: x75 Relic Dust + x500 Scrap.`,
@@ -6160,6 +6199,7 @@ export const remnantItems: Item[] = [
     type: 'melee',
     imagePath: '/mutator/opportunist.png',
     id: 'qca3zh',
+    tags: ['Perfect Dodge', 'Melee Critical Chance',],
     description: `Perfect Dodge activates OPPORTUNITY which increases Melee Critical Chance of the next Melee Attack by 50% for 3s.`,
     maxLevelBonus: `While OPPORTUNITY is active, any dodge or combat slide refreshes the duration.`,
     howToGet: `Aberration Event Random Drop`,
@@ -6171,7 +6211,8 @@ export const remnantItems: Item[] = [
     type: 'melee',
     imagePath: '/mutator/overdrive.png',
     id: 'mjzb0f',
-    description: `Melee Critical Hits increase Melee Critical Chance and Critical Damage by 5% [C] for 7.5-[15]s. stacking up to 5times.`,
+    tags: ['Melee Critical Hit', 'Critical Hit', 'Critical Chance',],
+    description: `Melee Critical Hits increase Melee Critical Chance and Critical Damage by 5% [C] for 7.5-[15]s. stacking up to 5 times.`,
     maxLevelBonus: `Melee Critical Strikes deal 20% additional damage.`,
     howToGet: `Sold by Dwell at the following cost: x75 Relic Dust + x500 Scrap.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Overdrive`],
@@ -6183,6 +6224,7 @@ export const remnantItems: Item[] = [
     imagePath: '/mutator/prophecy.png',
     dlc: 'dlc1',
     id: 'lo6uce',
+    tags: ['Mod Power',],
     description: `Using this weapon's mod increases Mod Power Generation by 3% for 10s. Max 5 stacks.`,
     maxLevelBonus: `Reduces Mod Power requirement of this weapon's mod by 10%.`,
     howToGet: `Aberration Event Random Drop`,
@@ -6194,6 +6236,7 @@ export const remnantItems: Item[] = [
     type: 'gun',
     imagePath: '/mutator/refunder.png',
     id: 'fcl7u2',
+    tags: ['',],
     description: `Shots from this weapon have a 20-[30]% chance to return Ammo to reserves.`,
     maxLevelBonus: `Refunded Ammo has a 50% chance to also be added to stowed weapon reserves.`,
     howToGet: `Sold by Dwell at the following cost: x75 Relic Dust + x500 Scrap.`,
@@ -6205,6 +6248,7 @@ export const remnantItems: Item[] = [
     type: 'melee',
     imagePath: '/mutator/reinvigorate.png',
     id: '5bfv3p',
+    tags: ['Charged Melee', 'Melee Critical Chance', ''],
     description: `Reduces the Stamina Cost of all Charged Melee Attacks by 25-[50]%.`,
     maxLevelBonus: `Melee Charge Attacks gain 15% additional damage and 10% Critical Chance.`,
     howToGet: `Aberration Event Random Drop`,
@@ -6216,6 +6260,7 @@ export const remnantItems: Item[] = [
     type: 'melee',
     imagePath: '/mutator/resentment.png',
     id: 'ha3amj',
+    tags: ['Melee Damage', 'Grey Health', 'Stagger'],
     description: `Gain 10-[30]% Melee Damage when Grey Health is present.`,
     maxLevelBonus: `Reduces Stagger by 1 when using any Melee Attack`,
     howToGet: `Purchased from Dwell in Ward 13 for 75 Relic Dust and 500 scrap`,
@@ -6227,6 +6272,7 @@ export const remnantItems: Item[] = [
     type: 'gun',
     imagePath: '/mutator/sequenced_shot.png',
     id: '23ztdj',
+    tags: ['Charged Shot', 'Critical Chance'],
     description: `This weapon's Charged Shots decrease the Charge time of Subsequent Charge Shots by 10% for 3s.`,
     maxLevelBonus: `While active, Charged Primary Shots grant 1% Ranged Critical Chance per round spent. Max 20%.`,
     howToGet: `Aberration Event Random Drop`,
@@ -6239,6 +6285,7 @@ export const remnantItems: Item[] = [
     type: 'melee',
     imagePath: '/mutator/shielded_strike.png',
     id: 'bhov5r',
+    tags: ['Charged Melee', 'Melee Damage', ],
     description: `Melee Attacks grants a Shield for 2-4% of Max Health. Max 20-40%. Last 10s.`,
     maxLevelBonus: `Charged Melee Attacks consume all Shield to increase damage of next strike by 1% per Shield Consumed. Max 100%.`,
     howToGet: `Morrow Parish - Losomn. The boss is found inside the shed located outside of the asylum courtyard. Players have to open the door to let him out.`,
@@ -6250,6 +6297,7 @@ export const remnantItems: Item[] = [
     type: 'melee',
     imagePath: '/mutator/shocker.png',
     id: '7js906',
+    tags: ['Charged Melee',] ,
     description: `Empowers weapon after 5 hits. While empowered. the next Charged Melee hit strikes all enemies within 10m [A] with SHOCK Damage.`,
     maxLevelBonus: `The SHOCK Damage now applies OVERLOADED dealing 100 damage over 5.05s.`,
     howToGet: `Root Earth - Drop from Banein Twilight Vale (obtained when going for the INVADER Archetype)`,
@@ -6261,8 +6309,9 @@ export const remnantItems: Item[] = [
     type: 'gun',
     imagePath: '/mutator/slayer.png',
     id: 'h98e7b',
+    tags: ['Ranged Damage', 'Reload Speed'],
     description: `Reloading increases the damage of this weapon's next shot by 10-[20]%. Last 3s.`,
-    maxLevelBonus: `Increases reload Speed by 15%.`,
+    maxLevelBonus: `Increases Reload Speed by 15%.`,
     howToGet: `N'Erud - Terminus Station, interact with the machine found at the secret passage where you find the Constant Variable Ring.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Slayer+(Mutator)`],
   },
@@ -6273,6 +6322,7 @@ export const remnantItems: Item[] = [
     imagePath: '/mutator/sleeper.png',
     dlc: 'dlc1',
     id: 'xim1sx',
+    tags: ['Critical Chance',],
     description: `This weapon becomes EMPOWERED when stowed for 7 seconds, granting 20% Critical Chance for 3 seconds after it is drawn.`,
     maxLevelBonus: `While EMPOWERED, increases Critical Damage of this weapon by 15%. [C]`,
     howToGet: `Aberration Event Random Drop`,
@@ -6284,8 +6334,9 @@ export const remnantItems: Item[] = [
     type: 'gun',
     imagePath: '/mutator/spirit_healer.png',
     id: 'hk1k7k',
+    tags: ['Mod Power', 'Heal'],
     description: `Regenerate 5% Health over 5s for every 500 Mod Power spent.`,
-    maxLevelBonus: `Allies within 15m are healed for 50% of the primary effect.`, //No info on whether it's A or R
+    maxLevelBonus: `Allies within 15m are healed for 50% of the primary effect.`,   //TODO IN-GAME No info on whether it's A or R
     howToGet: `N'Erud: Dropped by Fetid Corpse at the Void Vessel Facility.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Spirit+Healer`],
   },
@@ -6295,6 +6346,7 @@ export const remnantItems: Item[] = [
     type: 'melee',
     imagePath: '/mutator/steadfast.png',
     id: 'yibeww',
+    tags: ['Charged Melee', 'Damage Reduction', 'Grey Health'],
     description: `Charged Melee Attacks cannot be interrupted and gain 10-[20]% damage reduction from all sources.`,
     maxLevelBonus: `All damage taken during Charged Melee Attack is covered to Grey Health.`,
     howToGet: `Can be found in N'Erud - Void Vessel Facility`,
@@ -6306,6 +6358,7 @@ export const remnantItems: Item[] = [
     type: 'melee',
     imagePath: '/mutator/stormbringer.png',
     id: 'm87yf6',
+    tags: ['Status Effect', 'Melee Damage', 'Charged Melee',],
     description: `Increases the Status Effect Damage applied by Melee Attacks by 25%.`,
     maxLevelBonus: `Charged Melee Attacks lower enemy's Resistance to All Status Damage by 10%. Lasts 10s.`,
     howToGet: `Losomn: Dropped by Gorge at the Butcher's Quarter or Cotton's Kiln.`,
@@ -6317,6 +6370,7 @@ export const remnantItems: Item[] = [
     type: 'melee',
     imagePath: '/mutator/striker.png',
     id: '27rynt',
+    tags: ['Meele Damage', 'Movement Speed'],
     description: `Melee Hits increase Melee Damage by 3-6% for 10s Max 5 Stacks.`,
     maxLevelBonus: `Increases Movement Speed by 3% per stack.`,
     howToGet: `Dropped by Fester in Endaira's End.`,
@@ -6328,6 +6382,7 @@ export const remnantItems: Item[] = [
     type: 'gun',
     imagePath: '/mutator/supercharger.png',
     id: 'omeu3c',
+    tags: ['Charged Shot', 'Critical Chance',],
     description: `Increases Charge Speed of Bows and Fusion Rifles by 10-[30]%.`,
     maxLevelBonus: `Charged Primary Shots of Bows and Fusion Rifles gain 15% Critical Chance.`,
     howToGet: `Can be found in The Labyrinth. Dropped by Bastion.`,
@@ -6340,6 +6395,7 @@ export const remnantItems: Item[] = [
     imagePath: '/mutator/tainted_blade.png',
     dlc: 'dlc1',
     id: 'f32skd',
+    tags: ['Melee Damage', 'Charged Melee'],
     description: `Increase Melee Damage by 5%-[20%] per stack of CORRODED on the target.`,
     maxLevelBonus: `Charged Melee Attacks apply CORRODED dealing 500 ACID damage over 20s.`,
     howToGet: `Can be crafted at Dwell in Ward 13`,
@@ -6351,6 +6407,7 @@ export const remnantItems: Item[] = [
     type: 'gun',
     imagePath: '/mutator/timewave.png',
     id: 'dynus4',
+    tags: ['Ranged Damage',],
     description: `Mod Use applies SLOW status on all enemies within 7.5m [A] for 5-[7]s.`,
     maxLevelBonus: `Increase this weapon's Ranged damage by 15% to enemies inflicted with SLOW status.`,
     howToGet: `Sold by Dwell at the following cost: x75 Relic Dust + x500 Scrap.`,
@@ -6362,8 +6419,9 @@ export const remnantItems: Item[] = [
     type: 'gun',
     imagePath: '/mutator/top_heavy.png',
     id: 'fknx4t',
+    tags: ['Ranged Damage', 'Weakspot Damage',],
     description: `Increases this weapon's Ranged Damage by up to 7.5% based on how close the magazine capacity is to full.`,
-    maxLevelBonus: `Increases this weapon's Weakspot Damage by up to 20% [∗] based on how close the magazine capacity is to full.`,
+    maxLevelBonus: `Increases this weapon's Weakspot Damage by up to 20% [M] based on how close the magazine capacity is to full.`,
     howToGet: `Can be found in Forlorn Coast`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Top+Heavy`],
   },
@@ -6373,6 +6431,7 @@ export const remnantItems: Item[] = [
     type: 'melee',
     imagePath: '/mutator/transference.png',
     id: '0osd64',
+    tags: ['Melee Damage', 'Mod Power'],
     description: `Melee Hits generate 5% Ammo Reserves for both Firearms. Cooldown 10-[5]s.`,
     maxLevelBonus: `When a Firearm reserve is full, melee Strikes generate 25% additional Mod Power for that weapon.`,
     howToGet: `Can be looted in Drowned Wen.`,
@@ -6384,6 +6443,7 @@ export const remnantItems: Item[] = [
     type: 'gun',
     imagePath: '/mutator/transpose.png',
     id: '1cxn5s',
+    tags: ['Ranged Damage',],
     description: `Picking up Ammo increases Ranged damage by 10-[20]% for 20s.`,
     maxLevelBonus: `Ammo pickups are added directly to into this weapon's magazine.`,
     howToGet: `Can be crafted at Dwell store. Required materials: Relic Dust and Scrap`,
@@ -6395,6 +6455,7 @@ export const remnantItems: Item[] = [
     type: 'gun',
     imagePath: '/mutator/twisting_wounds.png',
     id: '7eodps',
+    tags: ['Ranged Damage', 'Critical Hit', 'Weakspot Hit',],
     description: `Increases Ranged damage of this weapon by 10-[20]% to BLEEDING targets.`,
     maxLevelBonus: `This weapon's Ranged Weakspot and Ranged Critical Hits apply BLEEDING, dealing 100 BLEED damage over 10s.`,
     howToGet: `Can be found in Forlorn Coast`,
@@ -6406,7 +6467,8 @@ export const remnantItems: Item[] = [
     type: 'melee',
     imagePath: '/mutator/vampire_blade.png',
     id: 'dhwqt4',
-    description: `Increases Melee Damage by 10-[25]%while within 10m of a BLEEDING entity.`, //No info whether its R or A
+    tags: ['Melee Damage', 'Lifesteal',],
+    description: `Increases Melee Damage by 10-[25]% while within 10m of a BLEEDING entity.`, //No info whether its R or A
     maxLevelBonus: `Melee Hits vs BLEEDING targets will Lifesteal 3% of base damage dealt.`,
     howToGet: `Can be in found in the Pathway of the Fallen`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Vampire+Blade`],
@@ -6417,7 +6479,8 @@ export const remnantItems: Item[] = [
     type: 'melee',
     imagePath: '/mutator/vengeful_strike.png',
     id: '8h8a9w',
-    description: `Increases Melee damage by 20-[50]%when below 50% Max Health.`,
+    tags: ['Melee Damage', 'Critical Chance'],
+    description: `Increases Melee damage by 20-[50]% when below 50% Max Health.`,
     maxLevelBonus: `Increases Melee Critical Chance by 15% when below 50% Max Health.`,
     howToGet: `Can be found in Derelict Lighthouse. As you approach the lighthouse, make your way to the left corner of the map, facing the tower. Inside a large building, you will find both Thunderpiercer and Gorecarver aberrations. Defeat them to obtain the Sleeper Mutator.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Vengeful+Strike`],
@@ -6428,6 +6491,7 @@ export const remnantItems: Item[] = [
     type: 'melee',
     imagePath: '/mutator/weaponlord.png',
     id: 'w6gpz2',
+    tags: ['Melee Damage', 'Charged Melee', 'Critical Chance'],
     description: `Basic Melee Attacks increase the next Charge Attacks by 7%. Max 5 Stacks.`,
     maxLevelBonus: `At Max Stacks, the next Charge Attack gains 100% Critical Chance.`,
     howToGet: `Purchased from Dwell in Ward 13 for 75 Relic Dust and 500 scrap`,
@@ -6517,7 +6581,7 @@ Exclusive to The Awakened King DLC"`,
     name: 'Core Booster',
     imagePath: '/amulet/core_booster.png',
     id: 'wb4ixr',
-    description: `Increases weakspot damage by 50% [∗] for 10s after killing an enemy.`,
+    description: `Increases weakspot damage by 50% [M] for 10s after killing an enemy.`,
     howToGet: `Can be found in N'Erud - Hidden underneath the Ascension Spireworldstone down a hole behind the first statue to your left when you enter. It will be behind a forcefield that needs to be opened using the Decorum Cipher or the Memory Core II.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Core+Booster`],
   },
@@ -6748,7 +6812,7 @@ For Heavy Weapons, doubles Heavy Weapon Ammo instead."`,
     imagePath: '/amulet/index_of_the_scribe.png',
     dlc: 'dlc1',
     id: '3lzs0c',
-    description: `Increases Mod and Skill Weakspot Damage by 35% [∗].`,
+    description: `Increases Mod and Skill Weakspot Damage by 35% [M].`,
     howToGet: `"Can be bought from Leywise in Forlorn Coast
 Exclusive to The Awakened King DLC"`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Index+Of+The+Scribe`],
@@ -6824,7 +6888,11 @@ Exclusive to The Awakened King DLC"`,
     imagePath: '/amulet/legacy_protocol.png',
     dlc: 'dlc1',
     id: 'a7axvo',
+<<<<<<< HEAD
+    tags: ['Reduce Skill Cooldown',],
+=======
     tags: ['Reduce Skill Cooldown'],
+>>>>>>> 95c8d0b2278476e02c8059f90f5a3e6a847901b5
     description: `Lowers skill cooldown by 30% and increased skill duration by 25%`,
     howToGet: `"Random loot in N'Erud
 Exclusive to The Awakened King DLC"`,
@@ -7069,8 +7137,13 @@ Exclusive to The Awakened King DLC"`,
     name: 'Spirit Wisp Amulet',
     imagePath: '/amulet/spirit_wisp_amulet.png',
     id: 'n1y24e',
+<<<<<<< HEAD
+    tags: ['Reduce Skill Cooldown','Mod Power'],
+    description: `Activating a Mod reduces current Skill Cooldowns by 3% for every 300 Mod Power spent.`,
+=======
     tags: ['Reduce Skill Cooldown'],
     description: `Activating a Mod reduces current Skill Cooldowns by 3% for every 300Mod Power spent.`,
+>>>>>>> 95c8d0b2278476e02c8059f90f5a3e6a847901b5
     howToGet: `Complete the Man in the Sewersevent in Losomn.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Spirit+Wisp+Amulet`],
   },
@@ -7176,7 +7249,7 @@ Exclusive to The Awakened King DLC"`,
     saveFileSlug: 'ring_panmagesigil',
     imagePath: '/ring/ahanae_crystal.png',
     id: 'azy0pj',
-    description: `Deal 5% [∗] additional damage for each Status Effect the target is suffering from.`,
+    description: `Deal 5% [M] additional damage for each Status Effect the target is suffering from.`,
     howToGet: `Can be bought from Reggie after killing any Yaesha world boss in Hardcore mode on any difficulty.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Ahanae+Crystal`],
   },
@@ -7490,7 +7563,11 @@ Can be crafted at Drzyr Replicator, you will need the following Materials: x10 I
     name: 'Burden of the Rebel',
     imagePath: '/ring/burden_of_the_rebel.png',
     id: 'z169p0',
+<<<<<<< HEAD
+    tags: ['Reduce Skill Cooldown', 'Relic Use Speed'],
+=======
     tags: ['Reduce Skill Cooldown'],
+>>>>>>> 95c8d0b2278476e02c8059f90f5a3e6a847901b5
     description: `Reduces Skill Cooldowns by 15% but decreases Relic Use Speed by 25%.`,
     howToGet: `Can be found in Yaesha - Red Throne, as a reward from the Eternal Empress if you give her the Thaen Seed.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Burden+of+the+Rebel`],
@@ -7511,7 +7588,11 @@ Exclusive Ring for The Awakened King DLC."`,
     name: 'Burden of the Stargazer',
     imagePath: '/ring/burden_of_the_stargazer.png',
     id: 'kj85yo',
+<<<<<<< HEAD
+    tags: ['Reduce Skill Cooldown',],
+=======
     tags: ['Reduce Skill Cooldown'],
+>>>>>>> 95c8d0b2278476e02c8059f90f5a3e6a847901b5
     description: `Reduces Skill Cooldowns by 15%. Activating a Skill costs 15% Health.`,
     howToGet: `Can be found in N'Erud - Tower of the Unseen as a random drop.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Burden+of+the+Stargazer`],
@@ -7641,6 +7722,7 @@ Exclusive Ring for The Awakened King DLC."`,
     imagePath: '/ring/devoured_loop.png',
     saveFileSlug: 'devouringloop',
     id: 'l8a2e1',
+    tags ['Critical Hit', 'Reduce Skill Cooldown',],
     description: `Critical Hits have 1% chance to reset Skill Cooldowns. Can only occur once every 10s. Increases all incoming damage by 10%.`,
     howToGet: `Can be bought from Reggie after completing Campaign on Apocalypse difficulty.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Devoured+Loop`],
@@ -8061,7 +8143,7 @@ Exclusive Ring for The Awakened King DLC."`,
     name: 'Lodestone Ring',
     imagePath: '/ring/lodestone_ring.png',
     id: 'sye1ay',
-    description: `Increases all damage dealt against illuminated enemies by 5%[∗].`,
+    description: `Increases all damage dealt against illuminated enemies by 5%[M].`,
     howToGet: `Rewarded by Bedel of the Vaunnt if the players talks to him while wearing the Lodestone Crown after defeating the Ravager.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Lodestone+Ring`],
   },
@@ -8286,7 +8368,7 @@ Exclusive Ring for The Awakened King DLC."`,
     name: 'Ring of Flawed Beauty',
     imagePath: '/ring/ring_of_flawed_beauty.png',
     id: 'lx6all',
-    description: `Ranged Weakspot damage is increased by 25% [∗]. Ranged damage is reduced by 15% when failing to hit a Weakspot.`,
+    description: `Ranged Weakspot damage is increased by 25% [M]. Ranged damage is reduced by 15% when failing to hit a Weakspot.`,
     howToGet: `Can be bought from Cass.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Ring+of+Flawed+Beauty`],
   },
@@ -8431,7 +8513,11 @@ Yaesha - Possible spawn in The Twisted Chantry"`,
     name: 'Sapphire Dreamstone',
     imagePath: '/ring/sapphire_dreamstone.png',
     id: 'v65mav',
+<<<<<<< HEAD
+    tags: ['Reduce Skill Cooldown', 'Critical Hits'],
+=======
     tags: ['Reduce Skill Cooldown'],
+>>>>>>> 95c8d0b2278476e02c8059f90f5a3e6a847901b5
     description: `Critical Hits reduce Skill Cooldowns by 3%. Can only happen once every 2s.`,
     howToGet: `Can be found in Losomn - Council Chamber. Players have to take a secret path in order to find it.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Sapphire+Dreamstone`],
@@ -8490,7 +8576,7 @@ Yaesha - Possible spawn in The Twisted Chantry"`,
     name: 'Singed Ring',
     imagePath: '/ring/singed_ring.png',
     id: 'cpxk1d',
-    description: `Increases all damage dealt to BURNING enemies by 10%[∗].`,
+    description: `Increases all damage dealt to BURNING enemies by 10%[M].`,
     howToGet: `Can be found in Losomn - Butcher's Quarter. watch or fail to save the hanging man during the burning event. use the checkpoint and then kill the pig next to the man`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Singed+Ring`],
   },
@@ -8758,7 +8844,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     name: "Zania's Malice",
     imagePath: '/ring/zanias_malice.png',
     id: 'ukufrn',
-    description: `Dealing Weakspot damage increases Weakspot damage by 10% [∗] for 7s. Stacks 3x.`,
+    description: `Dealing Weakspot damage increases Weakspot damage by 10% [M] for 7s. Stacks 3x.`,
     howToGet: `Can be found in Root Earth - Ashen Wasteland.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Zania's+Malice`],
   },
@@ -8880,9 +8966,13 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     name: 'Expertise',
     imagePath: '/trait/expertise.png',
     id: '6kxk5x',
+<<<<<<< HEAD
+    tags: ['Reduce Skill Cooldown',],
+=======
     tags: ['Reduce Skill Cooldown'],
+>>>>>>> 95c8d0b2278476e02c8059f90f5a3e6a847901b5
     description: `Reduces Skill Cooldowns`,
-    maxLevelBonus: `At max level, Expertise Reduces Skill Cooldowns by -20%`,
+    maxLevelBonus: `At max level, Expertise Reduces Skill Cooldown by -20%`,
     howToGet: `Core trait`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Expertise`],
   },
@@ -9345,7 +9435,11 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     name: 'Xenoplasm',
     imagePath: '/concoction/xenoplasm.png',
     id: '2jeq07',
+<<<<<<< HEAD
+    tags: ['Reduce Skill Cooldown',],
+=======
     tags: ['Reduce Skill Cooldown'],
+>>>>>>> 95c8d0b2278476e02c8059f90f5a3e6a847901b5
     description: `Reduces Skill Cooldowns by 10%. Lasts 60m and will stay in effect after death. Only one Concoction may be active at a time.`,
     howToGet: `
     Can be bought from Mudtooth at the following cost: 500 Scrap.
@@ -9638,12 +9732,12 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     id: 'c4fx8u',
     description: `
     Unlocked at level 1
-    Gain 4% Ranged Damage and 1.5% [∗] Weakspot Damage. Damage increases with HUNTER Level
+    Gain 4% Ranged Damage and 1.5% [M] Weakspot Damage. Damage increases with HUNTER Level
 
   Upgrade Unlocked at level 6
-  Gain 24% Ranged Damage, 9% [∗] Weakspot Damage and 5% Ranged Critical Chance.
+  Gain 24% Ranged Damage, 9% [M] Weakspot Damage and 5% Ranged Critical Chance.
 
-  (Level 10: Gain 40% Ranged Damage and 15% [∗] Weakspot Damage)
+  (Level 10: Gain 40% Ranged Damage and 15% [M] Weakspot Damage)
     `,
     howToGet: `Unlocked at Level 1`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Deadeye`],
@@ -9659,6 +9753,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     imagePath: '/perk/return_to_sender.png',
     type: 'team',
     id: 'oyjp3t',
+    tags: ['Hunter', 'Critical Hit', 'Weakspot Hit', ],
     description: `
     Unlocked at level 2
 Kills due to Weakspot and Critical Hits increase Ammo drops by 25%
@@ -10374,7 +10469,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     Upgrade Unlocked at level 6
     Increases Skill Damage by 50% and Skill Critical Chance by 10%
     
-    Heavy Weapons gain 50% Ammo Capacity, 25% Max Health, and 25% [∗] Weakspot Damage.`,
+    Heavy Weapons gain 50% Ammo Capacity, 25% Max Health, and 25% [M] Weakspot Damage.`,
     howToGet: `Unlocked at Level 1`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Metalworker`],
     linkedItems: {
