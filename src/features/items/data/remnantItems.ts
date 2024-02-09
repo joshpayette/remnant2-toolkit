@@ -922,7 +922,7 @@ export const remnantItems: Item[] = [
     id: 'kk4yre',
     description: `PRESS: Summons a Root Hollow Minion to fight by your side. Costs 15% of Max Health to summon, but will not kil SUMMONER. Max (2)
 
-    HOLD: SACRIFICE Root Hollow Minion to explode, dealing 150 damage within 5m. [A] Reduces Skill Cooldown by up to 50% based on remaining Health of each Minion Sacrificed.`,
+    HOLD: SACRIFICE Root Hollow Minion to explode, dealing 150 damage [E] within 5m. [A] Reduces Skill Cooldown by up to 50% based on remaining Health of each Minion Sacrificed.`,
     cooldown: 30,
     howToGet: `Unlocks automatically`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Minion:+Hollow`],
@@ -940,7 +940,7 @@ export const remnantItems: Item[] = [
     id: 'o7pvqx',
     description: `PRESS: Summons a Root Flyer Minion to fight by your side. Costs 10% of Max Health to summon, but will not kil SUMMONER. Max (2).
 
-    HOLD: SACRIFICE all Root Flyer Minions, dealing 50 damage within 3m [A] and spawning 3 homing projectiles which explode on contact for 150 damage each.`,
+    HOLD: SACRIFICE all Root Flyer Minions, dealing 50 damage [E] within 3m [A] and spawning 3 homing projectiles which explode on contact for 150 damage each.`,
     cooldown: 45,
     howToGet: `Unlocks at level 5`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Minion:+Flyer`],
@@ -957,7 +957,7 @@ export const remnantItems: Item[] = [
     id: 'gs8zdv',
     description: `PRESS: Summons a Root Reaver Minion to fight by your side. Costs 35% of Max Health to summon, but will not kill SUMMONER. Max (1).
 
-    HOLD: SACRIFICE all Root Reaver Minion, dealing 200 damage within 6m [A] and spawning Spore Bombs which bounce and explode on contact for 200 damage each.
+    HOLD: SACRIFICE all Root Reaver Minion, dealing 200 damage [E] within 6m [A] and spawning Spore Bombs which bounce and explode on contact for 200 damage each.
     
     Reduces Skill Cooldown by up to 50% based on remaining Health of Minion.`,
     cooldown: 120,
