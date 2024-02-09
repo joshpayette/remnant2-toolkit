@@ -926,11 +926,7 @@ export const remnantItems: Item[] = [
     cooldown: 30,
     howToGet: `Unlocks automatically`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Minion:+Hollow`],
-<<<<<<< HEAD
     tags: ['Reduce Skill Cooldown', 'Summon',],
-=======
-    tags: ['Reduce Skill Cooldown'],
->>>>>>> 95c8d0b2278476e02c8059f90f5a3e6a847901b5
     linkedItems: {
       archetype: {
         name: 'Summoner',
@@ -965,11 +961,7 @@ export const remnantItems: Item[] = [
     
     Reduces Skill Cooldown by up to 50% based on remaining Health of Minion.`,
     cooldown: 120,
-<<<<<<< HEAD
     tags: ['Reduce Skill Cooldown', 'Summon'],
-=======
-    tags: ['Reduce Skill Cooldown'],
->>>>>>> 95c8d0b2278476e02c8059f90f5a3e6a847901b5
     howToGet: `Unlocks at level 10`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Minion:+Reaver`],
     linkedItems: {
@@ -2907,11 +2899,7 @@ export const remnantItems: Item[] = [
     name: 'Diverting Heart',
     imagePath: '/relic/diverting_heart.png',
     id: '96f26y',
-<<<<<<< HEAD
     tags: ['Reduce Skill Cooldown',],
-=======
-    tags: ['Reduce Skill Cooldown'],
->>>>>>> 95c8d0b2278476e02c8059f90f5a3e6a847901b5
     description: `On use, reduces Skill Cooldowns by 1s for sec. Lasts 15s.`,
     howToGet: `Cass at Ward 13 for x1,250 Scrap unlocked after completing 30 world biomes.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Diverting+Heart`],
@@ -5986,11 +5974,7 @@ export const remnantItems: Item[] = [
     type: 'melee',
     imagePath: '/mutator/edgelord.png',
     id: 'mpxowx',
-<<<<<<< HEAD
     tags:['Melee Charge Speed','Melee Attack Speed', 'Charged Melee', 'Lifesteal'],
-=======
-    tags:['Melee Charge Speed','Melee Attack Speed', 'Charged Melee Damage', 'Lifesteal']
->>>>>>> 95c8d0b2278476e02c8059f90f5a3e6a847901b5
     description: `Increases Melee Charge Speed by 15% and Melee Attack Speed by 10%.`,
     maxLevelBonus: `Gain 3% of based Charged Melee Damage dealt as Lifesteal.`,
     howToGet: `Can be found in Yaesha - The Chimney`,
@@ -6003,11 +5987,7 @@ export const remnantItems: Item[] = [
     imagePath: '/mutator/executor.png',
     dlc: 'dlc1',
     id: 'pynv5l',
-<<<<<<< HEAD
     tags: ['Status Effect', 'Melee Charge Speed', 'Melee Attack Speed'] ,
-=======
-    tags: ['Status Effects', 'Melee Charge Speed', 'Melee Attack Speed'] ,
->>>>>>> 95c8d0b2278476e02c8059f90f5a3e6a847901b5
     description: `Increases the duration of Negative Status Effects on enemies by 10% of the original duration. Cannot exceed original max duration.`,
     maxLevelBonus: `Increases Melee Charge Speed and Melee Attack Speed by 5% per entity within 10m with a Negative Status Effect. Max 4 stacks.`, //No info on whether its A or R
     howToGet: `Can be found at Dormant N'Erudian Facility(timed event).`,
@@ -6031,13 +6011,8 @@ export const remnantItems: Item[] = [
     type: 'gun',
     imagePath: '/mutator/failsafe.png',
     id: '0xx8tz',
-<<<<<<< HEAD
     tags: ['Mod Damage'],
     description: `Attached Mod deals 10-[20]% additional Mod Damage.`,
-=======
-    tags: ['Mod Damage'],
-    description: `Attached Mod deals 10-[20]%additional Mod Damage.`,
->>>>>>> 95c8d0b2278476e02c8059f90f5a3e6a847901b5
     maxLevelBonus: `Attached Mod use gains a 15% chance to not consume charge.`,
     howToGet: `Interact with the Rotten Thaen Fruit, while having the Red Doe Sigil equipped..`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Failsafe`],
@@ -6061,11 +6036,7 @@ export const remnantItems: Item[] = [
     dlc: 'dlc1',
     imagePath: '/mutator/fetid_wounds.png',
     id: 'b07g02',
-<<<<<<< HEAD
     tags: ['Critical Chance', 'Status Effect', 'Weakspot Damage', 'Critical Hit'],
-=======
-    tags: ['Critical Chance', 'Status Effect', 'Weakspot Damage', 'Corrodedeeeeeds' ],
->>>>>>> 95c8d0b2278476e02c8059f90f5a3e6a847901b5
     description: `Increases Critical Chance of this weapon by 3% per unique Negative Status Effect on the enemy. Max 15% increase.`,
     maxLevelBonus: `This weapon's Ranged Weakspot and Ranged Critical Hits apply CORRODED, dealing 200 CORROSIVE damage over 10s.`,
     howToGet: `Aberration Event Random Drop`,
@@ -6888,11 +6859,7 @@ Exclusive to The Awakened King DLC"`,
     imagePath: '/amulet/legacy_protocol.png',
     dlc: 'dlc1',
     id: 'a7axvo',
-<<<<<<< HEAD
     tags: ['Reduce Skill Cooldown',],
-=======
-    tags: ['Reduce Skill Cooldown'],
->>>>>>> 95c8d0b2278476e02c8059f90f5a3e6a847901b5
     description: `Lowers skill cooldown by 30% and increased skill duration by 25%`,
     howToGet: `"Random loot in N'Erud
 Exclusive to The Awakened King DLC"`,
@@ -7137,13 +7104,8 @@ Exclusive to The Awakened King DLC"`,
     name: 'Spirit Wisp Amulet',
     imagePath: '/amulet/spirit_wisp_amulet.png',
     id: 'n1y24e',
-<<<<<<< HEAD
     tags: ['Reduce Skill Cooldown','Mod Power'],
     description: `Activating a Mod reduces current Skill Cooldowns by 3% for every 300 Mod Power spent.`,
-=======
-    tags: ['Reduce Skill Cooldown'],
-    description: `Activating a Mod reduces current Skill Cooldowns by 3% for every 300Mod Power spent.`,
->>>>>>> 95c8d0b2278476e02c8059f90f5a3e6a847901b5
     howToGet: `Complete the Man in the Sewersevent in Losomn.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Spirit+Wisp+Amulet`],
   },
@@ -7563,11 +7525,7 @@ Can be crafted at Drzyr Replicator, you will need the following Materials: x10 I
     name: 'Burden of the Rebel',
     imagePath: '/ring/burden_of_the_rebel.png',
     id: 'z169p0',
-<<<<<<< HEAD
     tags: ['Reduce Skill Cooldown', 'Relic Use Speed'],
-=======
-    tags: ['Reduce Skill Cooldown'],
->>>>>>> 95c8d0b2278476e02c8059f90f5a3e6a847901b5
     description: `Reduces Skill Cooldowns by 15% but decreases Relic Use Speed by 25%.`,
     howToGet: `Can be found in Yaesha - Red Throne, as a reward from the Eternal Empress if you give her the Thaen Seed.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Burden+of+the+Rebel`],
@@ -7588,11 +7546,7 @@ Exclusive Ring for The Awakened King DLC."`,
     name: 'Burden of the Stargazer',
     imagePath: '/ring/burden_of_the_stargazer.png',
     id: 'kj85yo',
-<<<<<<< HEAD
     tags: ['Reduce Skill Cooldown',],
-=======
-    tags: ['Reduce Skill Cooldown'],
->>>>>>> 95c8d0b2278476e02c8059f90f5a3e6a847901b5
     description: `Reduces Skill Cooldowns by 15%. Activating a Skill costs 15% Health.`,
     howToGet: `Can be found in N'Erud - Tower of the Unseen as a random drop.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Burden+of+the+Stargazer`],
@@ -7722,7 +7676,7 @@ Exclusive Ring for The Awakened King DLC."`,
     imagePath: '/ring/devoured_loop.png',
     saveFileSlug: 'devouringloop',
     id: 'l8a2e1',
-    tags ['Critical Hit', 'Reduce Skill Cooldown',],
+    tags: ['Critical Hit', 'Reduce Skill Cooldown'] ,
     description: `Critical Hits have 1% chance to reset Skill Cooldowns. Can only occur once every 10s. Increases all incoming damage by 10%.`,
     howToGet: `Can be bought from Reggie after completing Campaign on Apocalypse difficulty.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Devoured+Loop`],
@@ -8513,11 +8467,7 @@ Yaesha - Possible spawn in The Twisted Chantry"`,
     name: 'Sapphire Dreamstone',
     imagePath: '/ring/sapphire_dreamstone.png',
     id: 'v65mav',
-<<<<<<< HEAD
     tags: ['Reduce Skill Cooldown', 'Critical Hits'],
-=======
-    tags: ['Reduce Skill Cooldown'],
->>>>>>> 95c8d0b2278476e02c8059f90f5a3e6a847901b5
     description: `Critical Hits reduce Skill Cooldowns by 3%. Can only happen once every 2s.`,
     howToGet: `Can be found in Losomn - Council Chamber. Players have to take a secret path in order to find it.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Sapphire+Dreamstone`],
@@ -8966,11 +8916,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     name: 'Expertise',
     imagePath: '/trait/expertise.png',
     id: '6kxk5x',
-<<<<<<< HEAD
     tags: ['Reduce Skill Cooldown',],
-=======
-    tags: ['Reduce Skill Cooldown'],
->>>>>>> 95c8d0b2278476e02c8059f90f5a3e6a847901b5
     description: `Reduces Skill Cooldowns`,
     maxLevelBonus: `At max level, Expertise Reduces Skill Cooldown by -20%`,
     howToGet: `Core trait`,
@@ -9435,11 +9381,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     name: 'Xenoplasm',
     imagePath: '/concoction/xenoplasm.png',
     id: '2jeq07',
-<<<<<<< HEAD
     tags: ['Reduce Skill Cooldown',],
-=======
-    tags: ['Reduce Skill Cooldown'],
->>>>>>> 95c8d0b2278476e02c8059f90f5a3e6a847901b5
     description: `Reduces Skill Cooldowns by 10%. Lasts 60m and will stay in effect after death. Only one Concoction may be active at a time.`,
     howToGet: `
     Can be bought from Mudtooth at the following cost: 500 Scrap.
