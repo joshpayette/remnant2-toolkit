@@ -14,6 +14,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - `relicfragment` updated to read `relic fragment` throughout the site. This is to match the in-game naming convention.
 
+### Fixed
+
+- Restored `Enter` key submitting filters on the various pages.
+
 ### 2024-02-08
 
 ### Added

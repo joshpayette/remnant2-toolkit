@@ -298,6 +298,7 @@ export default function BuildListFilters({ onUpdateFilters }: Props) {
     >
       <SearchBuildsFilter
         searchText={unappliedFilters.searchText}
+        onApplyFilters={() => handleApplyFilters(unappliedFilters)}
         onChange={(newSearchText: string) =>
           handleSearchTextChange(newSearchText)
         }

@@ -154,12 +154,13 @@ export default function BossTrackerFilters({ onUpdateFilters }: Props) {
       onClearFilters={handleClearFilters}
     >
       <div className="col-span-full flex w-full flex-col items-start justify-start gap-x-4 gap-y-2">
-        <div className="grid grid-cols-1 gap-y-4 sm:grid-cols-3 sm:gap-x-4 sm:gap-y-0">
-          <div className="col-span-full flex flex-col items-start justify-end sm:col-span-2">
+        <div className="grid w-full grid-cols-1 gap-y-4 sm:grid-cols-3 sm:gap-x-4 sm:gap-y-0">
+          <div className="col-span-full flex w-full flex-col items-start justify-end">
             <div className="mb-2 text-left text-sm font-bold text-green-500">
               Search
             </div>
             <SearchInput
+              onKeyDown={() => handleApplyFilters(unappliedFilters)}
               onChange={handleSearchTextChange}
               value={unappliedFilters.searchText}
               placeholder={'Search boss names'}

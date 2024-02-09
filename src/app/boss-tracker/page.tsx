@@ -80,7 +80,7 @@ export default function Page() {
       />
 
       <div className="flex w-full flex-col items-center">
-        <div className="w-full max-w-4xl">
+        <div className="w-full max-w-xl">
           <BossTrackerFilters onUpdateFilters={handleUpdateFilters} />
         </div>
       </div>
