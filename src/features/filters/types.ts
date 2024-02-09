@@ -1,3 +1,4 @@
+import { BossCategory } from '../bosses/types'
 import { ItemCategory } from '../build/types'
 import { Archetype, ReleaseKey } from '../items/types'
 
@@ -17,6 +18,11 @@ export interface ItemLookupFilterFields {
   itemCategories: ItemCategory[]
   searchText: string
   selectedReleases: ReleaseKey[]
+}
+
+export interface BossTrackerFilterFields {
+  searchText: string
+  selectedBossCategories: BossCategory[]
 }
 
 export type TimeRange = 'day' | 'week' | 'month' | 'all-time'

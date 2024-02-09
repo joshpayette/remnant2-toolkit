@@ -191,6 +191,30 @@ export default function HomePage() {
               </div>
             </Link>
             <Link
+              href={NAV_ITEMS.bossTracker.href}
+              key={NAV_ITEMS.bossTracker.label}
+              className="flex min-h-[200px] flex-row gap-x-4 rounded-xl border border-transparent bg-white/5 p-6 ring-1 ring-inset ring-white/10 hover:border-green-500"
+            >
+              <NAV_ITEMS.bossTracker.icon
+                className="h-7 w-7 flex-none text-green-500"
+                aria-hidden="true"
+              />
+              <div className="relative w-full">
+                <p className="text-base leading-7">
+                  {NAV_ITEMS.bossTracker.label}
+                </p>
+                <div className="mt-2 text-gray-300 ">
+                  {NAV_ITEMS.bossTracker.description}
+                </div>
+                <div className="absolute bottom-0 right-0 mt-4 flex w-full items-center justify-end">
+                  <ArrowRightIcon
+                    className="h-6 w-6 text-green-500 hover:text-green-300"
+                    aria-hidden="true"
+                  />
+                </div>
+              </div>
+            </Link>
+            <Link
               href={NAV_ITEMS.itemTracker.href}
               key={NAV_ITEMS.itemTracker.label}
               className="flex min-h-[200px] flex-row gap-x-4 rounded-xl border border-transparent bg-white/5 p-6 ring-1 ring-inset ring-white/10 hover:border-green-500"

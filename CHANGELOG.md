@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ### 2024-02-09
 
+### Added
+
+- Boss Tracker has been added to the ITEM link in the nav bar. Now you can track the world bosses, bosses, and aberrations you have defeated!
+
 ### Changed
 
 - `relicfragment` updated to read `relic fragment` throughout the site. This is to match the in-game naming convention.

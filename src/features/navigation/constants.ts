@@ -8,6 +8,7 @@ import {
   ListBulletIcon,
   MagnifyingGlassIcon,
   PlusIcon,
+  ShieldCheckIcon,
   StarIcon,
   UserIcon,
 } from '@heroicons/react/24/solid'
@@ -16,6 +17,13 @@ import {
  * The base pages for the site
  */
 export const NAV_ITEMS = {
+  bossTracker: {
+    label: 'Boss Tracker',
+    description:
+      'Keep track of the bosses you have defeated and the ones you still need.',
+    href: '/boss-tracker',
+    icon: ShieldCheckIcon,
+  },
   changeLog: {
     label: 'Change Log',
     description: 'See the latest changes to the site.',
