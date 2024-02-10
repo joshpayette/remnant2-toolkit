@@ -287,7 +287,7 @@ export const remnantItems: Item[] = [
       ],
       skills: [
         { name: 'Wellspring' },
-        { name: 'Healing Shield' },
+        { name: 'Healing SHIELD' },
         { name: 'Redemption' },
       ],
       perks: [
@@ -487,13 +487,13 @@ export const remnantItems: Item[] = [
   },
   {
     category: 'skill',
-    name: 'Healing Shield',
+    name: 'Healing SHIELD',
     imagePath: '/skill/healing_shield.png',
     id: '8pu6y2',
     description: `The MEDIC Quickly expels healing energy to SHIELD all allies within 25m [A] for 100% of their Max Health for 10s. While shielded, allies regenerate 21% of their Max Health over the duration.`,
     cooldown: 96,
     howToGet: `Unlocks at level 5`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Healing+Shield`],
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Healing+SHIELD`],
     linkedItems: {
       archetype: {
         name: 'Medic',
@@ -688,7 +688,7 @@ export const remnantItems: Item[] = [
 
     SHOOT: Blasts Lightning Tendrils from the ARCHON's hand, dealing 84.2 SHOCK Damage per second to targets within 15m.
     
-    AIM: Raises a 3m [R] Energy Shield which deals 35 SHOCK damage per second and reduces incoming damage to all allies by 50%. 
+    AIM: Raises a 3m [R] Energy SHIELD which deals 35 SHOCK damage per second and reduces incoming damage to all allies by 50%. 
     
     DODGE: Performs a Blink Evade that deals 100 SHOCK damage to enemies within 3m. [A]`,
     cooldown: 120,
@@ -3006,12 +3006,12 @@ export const remnantItems: Item[] = [
   },
   {
     category: 'relic',
-    name: 'Shielded Heart',
+    name: 'SHIELDed Heart',
     imagePath: '/relic/shielded_heart.png',
     id: 'sge99k',
-    description: `On use, grants a Shield for 100% of Current Health. Lasts 20s or until Shield is removed by damage`,
+    description: `On use, grants a SHIELD for 100% of Current Health. Lasts 20s or until SHIELD is removed by damage`,
     howToGet: `Can be found in N'Erud - Tower of the Unseen.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Shielded+Heart`],
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/SHIELDed+Heart`],
   },
   {
     category: 'relic',
@@ -3347,13 +3347,13 @@ export const remnantItems: Item[] = [
   },
   {
     category: 'relicfragment',
-    name: 'Shield Effectiveness',
+    name: 'SHIELD Effectiveness',
     imagePath: '/relicfragment/shield_effectiveness.png',
     id: 'alp59n',
-    description: `+X% Shield Amount (Mythic: Maximum of +20%)`,
+    description: `+X% SHIELD Amount (Mythic: Maximum of +20%)`,
     howToGet: ``,
     wikiLinks: [
-      `https://remnant2.wiki.fextralife.com/Cracked+Shield+Effectiveness`,
+      `https://remnant2.wiki.fextralife.com/Cracked+SHIELD+Effectiveness`,
     ],
   },
   {
@@ -4617,7 +4617,7 @@ export const remnantItems: Item[] = [
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Cube+Gun`],
     linkedItems: {
       mod: {
-        name: 'Cube Shield',
+        name: 'Cube SHIELD',
       },
     },
     damage: 15,
@@ -5137,13 +5137,13 @@ export const remnantItems: Item[] = [
   },
   {
     category: 'mod',
-    name: 'Cube Shield',
+    name: 'Cube SHIELD',
     imagePath: '/mod/cube_shield.png',
     id: '1bfanq',
     description: `Generates a shield which absorbs up to 500 damage from incoming enemy projectiles. Lasts 15s.
-    Reactivating fires the Cube Shield damage enemies as is travels. Damage is increased if the Cube Shield has absorbed enemy projectile damage before firing.`,
+    Reactivating fires the Cube SHIELD damage enemies as is travels. Damage is increased if the Cube SHIELD has absorbed enemy projectile damage before firing.`,
     howToGet: `Attached to the Cube Gun hand gun`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Cube+Shield`],
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Cube+SHIELD`],
     linkedItems: {
       weapon: {
         name: 'Cube Gun',
@@ -6259,16 +6259,16 @@ export const remnantItems: Item[] = [
   },
   {
     category: 'mutator',
-    name: 'Shielded Strike', // This is the real name, but Fextralife and internal it's Shield Breaker
+    name: 'SHIELDed Strike', // This is the real name, but Fextralife and internal it's SHIELD Breaker
     saveFileSlug: 'shieldbreaker',
     type: 'melee',
     imagePath: '/mutator/shielded_strike.png',
     id: 'bhov5r',
     tags: ['Charged Melee', 'Melee Damage'],
-    description: `Melee Attacks grants a Shield for 2-4% of Max Health. Max 20-40%. Last 10s.`,
-    maxLevelBonus: `Charged Melee Attacks consume all Shield to increase damage of next strike by 1% per Shield Consumed. Max 100%.`,
+    description: `Melee Attacks grants a SHIELD for 2-4% of Max Health. Max 20-40%. Last 10s.`,
+    maxLevelBonus: `Charged Melee Attacks consume all SHIELD to increase damage of next strike by 1% per SHIELD Consumed. Max 100%.`,
     howToGet: `Morrow Parish - Losomn. The boss is found inside the shed located outside of the asylum courtyard. Players have to open the door to let him out.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Shield+Breaker`],
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/SHIELD+Breaker`],
   },
   {
     category: 'mutator',
@@ -6642,7 +6642,7 @@ Can be bought for Bedel of the Vaunnt for 400."`,
     imagePath: '/amulet/difference_engine.png',
     id: '2zr6vu',
     tags: ['All Damage', 'Lifesteal'],
-    description: `While a Shield is active, gain 20% damage and 1.5% of base dealt as Lifesteal.`,
+    description: `While a SHIELD is active, gain 20% damage and 1.5% of base dealt as Lifesteal.`,
     howToGet: `Can be found in N'Erud -`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Difference+Engine`],
   },
@@ -6871,14 +6871,14 @@ Exclusive to The Awakened King DLC"`,
   },
   {
     category: 'amulet',
-    name: 'Kinetic Shield Exchanger',
+    name: 'Kinetic SHIELD Exchanger',
     imagePath: '/amulet/kinetic_shield_exchanger.png',
     id: 'femylz',
     tags: ['Mod Damage', 'Mod Power'],
     description: `While a SHIELD is active, gain 25% Mod damage and generate 15% additional Mod power.`,
     howToGet: `Can be found in N'Erud -`,
     wikiLinks: [
-      `https://remnant2.wiki.fextralife.com/Kinetic+Shield+Exchanger`,
+      `https://remnant2.wiki.fextralife.com/Kinetic+SHIELD+Exchanger`,
     ],
   },
   {
@@ -8117,7 +8117,7 @@ Player needs to choose sarcastic answers when first speaking to Bedel and choose
     imagePath: '/ring/generating_band.png',
     id: 'fg8su2',
     tags: ['Heal'],
-    description: `Regenerate 3% of Max Health per second while a Shield is active.`,
+    description: `Regenerate 3% of Max Health per second while a SHIELD is active.`,
     howToGet: `Can be found in N'Erud - The Flooded Room Event.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Generating+Band`],
   },
@@ -8471,7 +8471,7 @@ Exclusive Ring for The Awakened King DLC."`,
     imagePath: '/ring/ring_of_crisis.png',
     id: '378qz0',
     tags: ['Health'],
-    description: `When wearer's Health drops below 25%, gain a Shield for 25% of Max Health. Lasts 10s.`,
+    description: `When wearer's Health drops below 25%, gain a SHIELD for 25% of Max Health. Lasts 10s.`,
     howToGet: `Can be found in N'Erud - The Hatchery.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Ring+of+Crisis`],
   },
