@@ -521,6 +521,7 @@ export const remnantItems: Item[] = [
     name: `Hunter's Mark`,
     imagePath: '/skill/hunters_mark.png',
     id: 'jg82hi',
+    tags: ['Critical Chance', 'Ranged Damage', 'Melee Damage'],
     description: `Increases the HUNTER's spatial awareness by casting an Aura that automatically applies MARK to all enemies within 35m. While senses are heightened, HUNTER also gains 15% increased Ragend and Melee damage. Lasts 25s.
 
     MARK: Crit Chance against MARKED enemies is increased by 15% for all allies.`,
@@ -538,6 +539,7 @@ export const remnantItems: Item[] = [
     name: `Hunter's Focus`,
     imagePath: '/skill/hunters_focus.png',
     id: '5jh6qr',
+    tags: ['Spread', 'Ranged Damage', 'Weakspot Damage', 'Critical Chance','Recoil'],
     description: `Continously Aiming Down Sights uninterrupted and without shooting for 1s causes the HUNTER to enter a FOCUSED state. 
 
     FOCUSED reduces Weapon Spread, Recoil, and Sway by 75% and grants 25% Ranged & Ranged Weakspot Damage [M], and 10% Ranged Crit Chance.
@@ -564,6 +566,7 @@ export const remnantItems: Item[] = [
     name: `Hunter's Shroud`,
     imagePath: '/skill/hunters_shroud.png',
     id: 'ufkx9q',
+    tags: ['Ranged Damage', 'Melee Damage', 'Critical Chance', 'Melee Hit'],
     description: `HUNTER becomes Shrouded, reducing enemy awareness and making them harder to hit while moving. Attacking or activating a Mod or Skill will instantly exit Shroud. 
 
     Exiting Shroud applies MARK to all enemies within 10m and grants AMBUSH to the HUNTER for 2s. 
@@ -850,6 +853,7 @@ export const remnantItems: Item[] = [
     name: 'Bulletstorm',
     imagePath: '/skill/bulletstorm.png',
     id: 'xpqq62',
+    tags: ['Rate of Fire', 'Reload Speed', 'Critical Chance', 'Projectile Speed'],
     description: `Unleashes the full power and speed of the GUNSLINGER. Increases Fire Rate 20% and Reload Speed 50% of all ranged weapons. Lasts 20s. 
 
     Single Shot Weapons become fully-automatic. Kills instantly reload the current weapon. 
@@ -3229,6 +3233,7 @@ export const remnantItems: Item[] = [
     saveFileSlug: 'meleecritchance',
     imagePath: '/relicfragment/melee_critical_chance.png',
     id: 'm16fn9',
+    tags: ['Critical Chane'],
     description: `+X% Melee Crit Chance (Mythic: Maximum of +10%)`,
     howToGet: ``,
     wikiLinks: [
@@ -3289,6 +3294,7 @@ export const remnantItems: Item[] = [
     saveFileSlug: 'rangedcritchance',
     imagePath: '/relicfragment/ranged_critical_chance.png',
     id: 'dp184t',
+    tags: ['Critical Chance'],
     description: `+X% Ranged Crit Chance (Mythic: Maximum of +10%)`,
     howToGet: ``,
     wikiLinks: [
@@ -3389,6 +3395,7 @@ export const remnantItems: Item[] = [
     name: 'Spread Recovery',
     imagePath: '/relicfragment/spread_recovery.png',
     id: 'yk8dng',
+    tags: ['Spread'],
     description: `X% Reticle Spread Recovery (Mythic: Maximum of +30%)`,
     howToGet: ``,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Cracked+Spread+Recovery`],
@@ -3457,7 +3464,7 @@ export const remnantItems: Item[] = [
     name: 'Weapon Swap',
     imagePath: '/relicfragment/weapon_swap.png',
     id: 'h9e463',
-    description: `X% Weapon Swap Speed (Mythic: Maximum of +20%)`,
+    description: `+X% Weapon Swap Speed (Mythic: Maximum of +20%)`,
     howToGet: ``,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Cracked+Weapon+Swap`],
   },
@@ -3846,6 +3853,7 @@ export const remnantItems: Item[] = [
     name: 'Savior',
     imagePath: '/mainhand/savior.png',
     id: '2jrbvl',
+    tags: ['Hardcore'],
     description: `A old Fusion Rifle refactored to store and violently release energy in each shot. Can be charged for more damage. Perfect release after Charge for maximum damage.`,
     howToGet: `In Brabus' Shop after a Hardcore Veteran clear.
     Deleting the character who unlocked them does NOT remove them from the shop.`,
@@ -5071,6 +5079,7 @@ export const remnantItems: Item[] = [
     name: 'Bore',
     imagePath: '/mod/bore.png',
     id: 'iq4wjy',
+    tags: ['Critical Chance', 'Weakspot Damage'],
     description: `Fires a drill projectile which bores into enemies on contact, dealing 80 damage. After fully burrowing into an enemy, creates a Weakspot which grants 50% of normal Weakspot Damage on hit. If attached to an existing Weakspot, Ranged Crit Chance is increased by 15% when attacking the drill. Lasts 6s.`,
     howToGet: `Crafted from Mutated Growth
     Drops from Abomination`,
@@ -5120,6 +5129,7 @@ export const remnantItems: Item[] = [
     name: 'Corrosive Rounds',
     imagePath: '/mod/corrosive_rounds.png',
     id: 'hr3g7o',
+    tags: ['Critical Chance'],
     description: `Imbues ammunition with TOXIC and increases Range Crit Chance by 15% for 20s. Shots also apply CORRODED, dealing 150 damage over 10s.`,
     howToGet: `Crafted from Tainted Ichor
     Drops from Magister Dullain`,
@@ -6589,7 +6599,7 @@ Exclusive to The Awakened King DLC"`,
     name: "Daredevil's Charm",
     imagePath: '/amulet/daredevils_charm.png',
     id: 'ik580i',
-    tags: ['All Damage', 'Movement Speed'],
+    tags: ['All Damage', 'Movement Speed', 'Hardcore', 'Encumbrance'],
     description: `Gain 7.5% to all damage dealt, 3% Movement Speed, and 5% all damage taken for each piece of unequipped armor.`,
     howToGet: `Can be bought from Reggie after completing Root Earth in Hardcore mode on any difficulty.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Daredevil's+Charm`],
@@ -6844,7 +6854,7 @@ Exclusive to The Awakened King DLC"`,
     name: 'Inert Overcharger',
     imagePath: '/amulet/inert_overcharger.png',
     id: 'k8d15f',
-    tags: ['Rate of Fire', 'Reload Speed'],
+    tags: ['Rate of Fire', 'Reload Speed', 'Recoil'],
     description: `Standing still increases Fire Rate by 20%, Reload Speed by 15%, and reduces Recoil by 50%. Lasts 1.5s after moving.`,
     howToGet: `Can be found in N'Erud, as a random world drop.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Inert+Overcharger`],
@@ -7035,7 +7045,7 @@ Exclusive to The Awakened King DLC"`,
     imagePath: '/amulet/onyx_pendulum.png',
     id: 'ps6umu',
     tags: ['Ranged Damage'],
-    description: `Firearm damage adds stacks which increase the damage of stowed firearm by 2.5% for 15s. Stacks 10x.`,
+    description: `Firearm damage adds stacks which increase the damage of stowed firearm by 2.5% [M] for 15s. Stacks 10x.`, // No idea why. ConRaven checked it.
     howToGet: `Can be bought from Reggie after completing the Campaign on Nightmare difficulty.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Onyx+Pendulum`],
   },
@@ -7288,7 +7298,7 @@ Exclusive to The Awakened King DLC"`,
     saveFileSlug: 'ring_panmagesigil',
     imagePath: '/ring/ahanae_crystal.png',
     id: 'azy0pj',
-    tags: ['All Damage', 'Status Effect'],
+    tags: ['All Damage', 'Status Effect', 'Hardcore'],
     description: `Deal 5% [M] additional damage for each Status Effect the target is suffering from.`,
     howToGet: `Can be bought from Reggie after killing any Yaesha world boss in Hardcore mode on any difficulty.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Ahanae+Crystal`],
@@ -7581,7 +7591,7 @@ Exclusive Ring for The Awakened King DLC."`,
     name: 'Burden of the Destroyer',
     imagePath: '/ring/burden_of_the_destroyer.png',
     id: 'dgb0s9',
-    tags: ['All Damage'],
+    tags: ['All Damage', 'Range'],
     description: `Decreases Ideal Range of all Firearms by 25%. Increases all damage dealt by 15%.`,
     howToGet: `Can be bought from Cass.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Burden+of+the+Destroyer`],
@@ -8074,7 +8084,7 @@ Exclusive Ring for The Awakened King DLC."`,
     saveFileSlug: 'ring_focusedjewel',
     imagePath: '/ring/focusing_shard.png',
     id: 'o7grsg',
-    tags: ['Recoil'],
+    tags: ['Recoil', 'Spread',],
     description: `Continuously Aiming Down Sights reduces Recoil by 25% and gradually reduces Spread up to 35% over 3.5s.`,
     howToGet: `Can be found in N'Erud -`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Focused+Jewel`],
@@ -8409,7 +8419,7 @@ Exclusive Ring for The Awakened King DLC."`,
     name: 'Provisioner Ring',
     imagePath: '/ring/provisioner_ring.png',
     id: '8i7o4p',
-    tags: ['Reload Speed'],
+    tags: ['Reload Speed', 'Hardcore'],
     description: `Firearms reload over time while stowed.`,
     howToGet: `Can be bought from Reggie after deferating the Labyrinth Sentinel in Hardcore mode on any difficulty.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Provisioner+Ring`],
@@ -9203,6 +9213,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     name: 'Handling',
     imagePath: '/trait/handling.png',
     id: '8baa52',
+    tags: ['Spread', 'Recoil'],
     description: `Reduces Weapon Spread and Recoil`,
     maxLevelBonus: `At max level, Handling Reduces Weapon Spread and Recoil by 40%`,
     howToGet: `Root Earth - Ashen Wasteland
@@ -9574,6 +9585,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     name: 'Tranquility Font',
     imagePath: '/concoction/tranquility_font.png',
     id: 'l7r9sm',
+    tags: ['Spread', 'Recoil'],
     description: `Reduces Reticle Sway, Spread, and Gun Recoil by 35%. Lasts 60m and will stay in effect after death. Only one Concoction may be active at a time.`,
     howToGet: `
     Can be bought from Mudtooth at the following cost: 500 Scrap.
@@ -9586,6 +9598,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     name: 'Verdant Tea',
     imagePath: '/concoction/verdant_tea.png',
     id: 'qgare2',
+    tags: ['Stamina'],
     description: `Increases Stamina Recovery by 20 per second and reduces Stamina Regen Penalty by 50%. Lasts 60m and will stay in effect after death. Only one Concoction may be active at a time.`,
     howToGet: `Can be bought form Mudtooth for 500 scrap currency`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Verdant+Tea`],
@@ -9739,6 +9752,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     name: 'Liquid Escape',
     imagePath: '/consumable/liquid_escape.png',
     id: 'xgdk68',
+    tags: [''],
     description: `When consumed, the hero will be returned to the last activated checkpoint.`,
     howToGet: `Starts with the player in non-hardcore mode.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Liquid+Escape`],
@@ -10201,6 +10215,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     imagePath: '/perk/swift_shot.png',
     type: 'damage',
     id: '7mbvc3',
+    tags: ['Rate of Fire', 'Ranged Damage', 'Critical Chance'],
     description: `
     Gain 1.5% Fire Rate and 2.5% Ranged Damage. Fire Rate and Damage increases with GUNSLINGER Level.
     
@@ -10719,6 +10734,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     imagePath: '/perk/scavenger.png',
     type: 'damage',
     id: 'y6x5dr',
+    tags: ['All Damage', 'Critical Chance'],
     description: `
     Pickups increase All Damage Dealt by 0.5% per stack for 20s. Additional Stacks increase Duration, up to 60s. Max 5 Stacks. Damage increases with EXPLORER Level
          
