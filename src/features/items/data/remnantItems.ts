@@ -691,7 +691,7 @@ export const remnantItems: Item[] = [
 
     SHOOT: Blasts Lightning Tendrils from the ARCHON's hand, dealing 84.2 SHOCK Damage per second to targets within 15m.
     
-    AIM: Raises a 3m [R] Energy SHIELD which deals 35 SHOCK damage per second and reduces incoming damage to all allies by 50%. 
+    AIM: Raises a 3m [R] Energy Shield which deals 35 SHOCK damage per second and reduces incoming damage to all allies by 50%. 
     
     DODGE: Performs a Blink Evade that deals 100 SHOCK damage to enemies within 3m. [A]`,
     cooldown: 120,
@@ -3010,12 +3010,12 @@ export const remnantItems: Item[] = [
   },
   {
     category: 'relic',
-    name: 'SHIELDed Heart',
+    name: 'Shielded Heart',
     imagePath: '/relic/shielded_heart.png',
     id: 'sge99k',
     description: `On use, grants a SHIELD for 100% of Current Health. Lasts 20s or until SHIELD is removed by damage`,
     howToGet: `Can be found in N'Erud - Tower of the Unseen.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/SHIELDed+Heart`],
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Shielded+Heart`],
   },
   {
     category: 'relic',
@@ -3353,13 +3353,13 @@ export const remnantItems: Item[] = [
   },
   {
     category: 'relicfragment',
-    name: 'SHIELD Effectiveness',
+    name: 'Shield Effectiveness',
     imagePath: '/relicfragment/shield_effectiveness.png',
     id: 'alp59n',
     description: `+X% SHIELD Amount (Mythic: Maximum of +20%)`,
     howToGet: ``,
     wikiLinks: [
-      `https://remnant2.wiki.fextralife.com/Cracked+SHIELD+Effectiveness`,
+      `https://remnant2.wiki.fextralife.com/Cracked+Shield+Effectiveness`,
     ],
   },
   {
@@ -4625,7 +4625,7 @@ export const remnantItems: Item[] = [
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Cube+Gun`],
     linkedItems: {
       mod: {
-        name: 'Cube SHIELD',
+        name: 'Cube Shield',
       },
     },
     damage: 15,
@@ -5147,13 +5147,13 @@ export const remnantItems: Item[] = [
   },
   {
     category: 'mod',
-    name: 'Cube SHIELD',
+    name: 'Cube Shield',
     imagePath: '/mod/cube_shield.png',
     id: '1bfanq',
     description: `Generates a shield which absorbs up to 500 damage from incoming enemy projectiles. Lasts 15s.
-    Reactivating fires the Cube SHIELD damage enemies as is travels. Damage is increased if the Cube SHIELD has absorbed enemy projectile damage before firing.`,
+    Reactivating fires the Cube Shield damage enemies as is travels. Damage is increased if the Cube Shield has absorbed enemy projectile damage before firing.`,
     howToGet: `Attached to the Cube Gun hand gun`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Cube+SHIELD`],
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Cube+Shield`],
     linkedItems: {
       weapon: {
         name: 'Cube Gun',
@@ -6269,7 +6269,7 @@ export const remnantItems: Item[] = [
   },
   {
     category: 'mutator',
-    name: 'SHIELDed Strike', // This is the real name, but Fextralife and internal it's SHIELD Breaker
+    name: 'Shielded Strike',               // This is the real name, but Fextralife and internal it's Shield Breaker
     saveFileSlug: 'shieldbreaker',
     type: 'melee',
     imagePath: '/mutator/shielded_strike.png',
@@ -6278,7 +6278,7 @@ export const remnantItems: Item[] = [
     description: `Melee Attacks grants a SHIELD for 2-4% of Max Health. Max 20-40%. Last 10s.`,
     maxLevelBonus: `Charged Melee Attacks consume all SHIELD to increase damage of next strike by 1% per SHIELD Consumed. Max 100%.`,
     howToGet: `Morrow Parish - Losomn. The boss is found inside the shed located outside of the asylum courtyard. Players have to open the door to let him out.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/SHIELD+Breaker`],
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Shield+Breaker`],
   },
   {
     category: 'mutator',
@@ -6881,14 +6881,14 @@ Exclusive to The Awakened King DLC"`,
   },
   {
     category: 'amulet',
-    name: 'Kinetic SHIELD Exchanger',
+    name: 'Kinetic Shield Exchanger',
     imagePath: '/amulet/kinetic_shield_exchanger.png',
     id: 'femylz',
     tags: ['Mod Damage', 'Mod Power'],
     description: `While a SHIELD is active, gain 25% Mod damage and generate 15% additional Mod power.`,
     howToGet: `Can be found in N'Erud -`,
     wikiLinks: [
-      `https://remnant2.wiki.fextralife.com/Kinetic+SHIELD+Exchanger`,
+      `https://remnant2.wiki.fextralife.com/Kinetic+Shield+Exchanger`,
     ],
   },
   {
