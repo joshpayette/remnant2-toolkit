@@ -25,7 +25,7 @@ export default function BossCategoryFilters({
         </div>
 
         <div className="relative flex w-full flex-row items-center shadow-sm">
-          <div className="grid grid-cols-2 gap-x-8 text-left sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+          <div className="grid grid-cols-2 gap-x-8 text-left sm:grid-cols-3">
             {DEFAULT_BOSS_FILTERS.map((category) => {
               const label =
                 category === 'world boss' ? 'World Boss' : capitalize(category)

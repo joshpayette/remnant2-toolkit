@@ -112,7 +112,7 @@ export default function Page() {
   const [importCSVDialogOpen, setImportCSVDialogOpen] = useState(false)
   const csvFileInputRef = useRef<HTMLInputElement | null>(null)
 
-  // Provider the tracker progress
+  // Provide the tracker progress
   const discoveredCount = filteredItems.reduce((acc, item) => {
     if (discoveredItemIds.includes(item.id)) return acc + 1
     return acc

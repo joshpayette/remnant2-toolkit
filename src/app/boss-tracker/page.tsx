@@ -10,6 +10,7 @@ import BossTrackerFilters, {
 } from '@/features/filters/components/BossTrackerFilters'
 import { BossCategory } from '@/features/bosses/types'
 import ListBosses from './ListBosses'
+import { useIsClient } from 'usehooks-ts'
 
 const allBosses = remnantBosses.map((boss) => ({
   ...boss,
@@ -17,6 +18,8 @@ const allBosses = remnantBosses.map((boss) => ({
 }))
 
 export default function Page() {
+  const isClient = useIsClient()
+
   const [filters, setFilters] = useState<BossTrackerFilterFields>(
     DEFAULT_BOSS_TRACKER_FILTERS,
   )
@@ -48,6 +51,8 @@ export default function Page() {
     return filteredBosses
   }, [filters, discoveredBossIds])
 
+  const totalItems = filteredBosses.length
+
   const handleListItemClicked = (bossId: string) => {
     // If the boss is already discovered, undiscover it
     if (discoveredBossIds.includes(bossId)) {
@@ -68,6 +73,18 @@ export default function Page() {
     // their items will be updated
   }
 
+  // Provider the tracker progress
+  const discoveredCount = filteredBosses.reduce((acc, item) => {
+    if (discoveredBossIds.includes(item.id)) return acc + 1
+    return acc
+  }, 0)
+  const discoveredPercent = Math.round((discoveredCount / totalItems) * 100)
+  const progress = isClient
+    ? `${discoveredCount} / ${totalItems} (${
+        isNaN(discoveredPercent) ? '0' : discoveredPercent
+      }%)`
+    : 'Calculating...'
+
   function handleUpdateFilters(newFilters: BossTrackerFilterFields) {
     setFilters(newFilters)
   }
@@ -77,7 +94,12 @@ export default function Page() {
       <PageHeader
         title="Remnant 2 Boss Tracker"
         subtitle="Discover all the bosses in Remnant 2"
-      />
+      >
+        <div className="flex flex-col items-center justify-center text-4xl font-bold text-green-400">
+          <h2 className="text-4xl font-bold">Progress</h2>
+          <span className="text-2xl font-bold text-white">{progress}</span>
+        </div>
+      </PageHeader>
 
       <div className="flex w-full flex-col items-center">
         <div className="w-full max-w-xl">

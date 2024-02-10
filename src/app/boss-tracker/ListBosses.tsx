@@ -105,7 +105,7 @@ export default function ListBosses({ bosses, onClick }: ListBossesProps) {
                   )}
                 />
               </Disclosure.Button>
-              <Disclosure.Panel className="grid w-full grid-cols-2 gap-4 py-4 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-10">
+              <Disclosure.Panel className="grid w-full grid-cols-2 gap-4 py-4 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8">
                 {bosses
                   .filter((boss) => {
                     return boss.category === bossCategory.category

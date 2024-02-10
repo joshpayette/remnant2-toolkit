@@ -24,7 +24,7 @@ function CardImage({ boss }: { boss: BossCardProps['boss'] }) {
           width={imageSize.width}
           height={imageSize.height}
           loading="eager"
-          className="h-[64px] w-[64px]"
+          className="h-[96px] w-[96px]"
         />
       )}
     </div>
