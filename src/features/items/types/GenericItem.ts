@@ -6,7 +6,7 @@ import { ReleaseKey } from '.'
  * Used to link items, such as guns to their mods,
  * archtypes to skills, etc.
  */
-type LinkedItems = Partial<{
+export type LinkedItems = Partial<{
   archetype: { name: string }
   skills: Array<{ name: string }>
   weapon: { name: string }

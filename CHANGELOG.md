@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2024-02-10
 
+### Added
+
+- Expanded the search text to include linked weapons and mods.
+
 ### Fixed
 
 - Replaced bad url in a couple of meta tags, preventing item linking from working correctly
