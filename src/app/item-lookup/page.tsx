@@ -14,6 +14,7 @@ import { ItemLookupFilterFields } from '@/features/filters/types'
 import { useLocalStorage } from '@/features/localstorage/useLocalStorage'
 import { ItemCategory } from '@/features/build/types'
 import { ReleaseKey } from '@/features/items/types'
+import { itemMatchesSearchText } from '@/features/items/lib/itemMatchesSearchText'
 
 const csvItems = remnantItems // Modify the data for use. Adds a discovered flag,
   // modifies the description for mutators
@@ -61,15 +62,8 @@ export default function Page() {
     }))
 
     // Filter by search text
-    filteredItems = filteredItems.filter(
-      (item) =>
-        item.name.toLowerCase().includes(filters.searchText.toLowerCase()) ||
-        item.description
-          ?.toLowerCase()
-          .includes(filters.searchText.toLowerCase()) ||
-        item.tags?.some((tag) =>
-          tag.toLowerCase().includes(filters.searchText.toLowerCase()),
-        ),
+    filteredItems = filteredItems.filter((item) =>
+      itemMatchesSearchText({ item, searchText: filters.searchText }),
     )
 
     // Filter out the collections

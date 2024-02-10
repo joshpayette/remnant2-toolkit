@@ -12,6 +12,7 @@ import { cn } from '@/lib/classnames'
 import { useLocalStorage } from '@/features/localstorage/useLocalStorage'
 import { capitalize } from '@/lib/capitalize'
 import SearchTagsFilter from '@/features/filters/components/parts/SearchTagsFilter'
+import { itemMatchesSearchText } from '@/features/items/lib/itemMatchesSearchText'
 
 function sortByPreference({
   items,
@@ -70,15 +71,8 @@ export default function ItemSelect({
   }
 
   useEffect(() => {
-    const filteredItems = itemList.filter(
-      (item) =>
-        item.name.toLowerCase().includes(debouncedFilter.toLowerCase()) ||
-        item.description
-          ?.toLowerCase()
-          .includes(debouncedFilter.toLowerCase()) ||
-        item.tags?.some((tag) =>
-          tag.toLowerCase().includes(debouncedFilter.toLowerCase()),
-        ),
+    const filteredItems = itemList.filter((item) =>
+      itemMatchesSearchText({ item, searchText: debouncedFilter }),
     )
 
     const sortedItems =
