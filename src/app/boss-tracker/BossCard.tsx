@@ -16,12 +16,7 @@ function CardImage({ boss }: { boss: BossCardProps['boss'] }) {
   }
 
   return (
-    <div
-      className={cn(
-        "relative flex h-[64px] w-full grow items-center justify-center overflow-hidden bg-[url('https://d2sqltdcj8czo5.cloudfront.net/card-body-bg.jpg')]",
-        imageSize.height === 128 && 'h-[128px]',
-      )}
-    >
+    <div className="relative flex h-[96px] w-full grow items-center justify-center overflow-hidden bg-[url('https://d2sqltdcj8czo5.cloudfront.net/card-body-bg.jpg')]">
       {boss && (
         <Image
           src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}${boss.imagePath}`}
@@ -40,7 +35,7 @@ export default function BossCard({ boss, onClick }: BossCardProps) {
   return (
     <div className="relative w-full min-w-full">
       <div className="flex w-full min-w-full flex-col items-center justify-center">
-        <div className="h-[48px] w-full bg-[url('https://d2sqltdcj8czo5.cloudfront.net/card-title-bg.jpg')] p-2 text-center ">
+        <div className="h-[64px] w-full bg-[url('https://d2sqltdcj8czo5.cloudfront.net/card-title-bg.jpg')] p-2 text-center ">
           <h3 className="text-sm text-purple-400">{boss?.name}</h3>
         </div>
         {onClick ? (

@@ -85,6 +85,17 @@ export const remnantBosses: Boss[] = [
     id: '2ZmDKS',
   },
   {
+    name: `Sha'Hala (Metaphysical)`,
+    category: 'world boss',
+    imagePath: '/bosses/shahala_metaphysical.jpg',
+    location: 'Nerud',
+    dungeon: `Sentinel's Keep`,
+    wikiLinks: [
+      `https://remnant2.wiki.fextralife.com/Sha'Hala+Spectral+Guardian+of+N'Erud`,
+    ],
+    id: 'S3JrnD',
+  },
+  {
     name: `Tal'Ratha`,
     category: 'world boss',
     imagePath: '/bosses/talratha.jpg',
