@@ -93,7 +93,7 @@ export default function Page() {
       <div className="mb-8 flex w-full flex-col items-center">
         <Tabs />
       </div>
-      <div className="mb-8 flex w-full max-w-2xl items-center justify-center">
+      <div className="mb-8 flex w-full max-w-4xl items-center justify-center">
         <BuildListFilters
           onUpdateFilters={(newFilters) => {
             setBuildListFilters(newFilters)

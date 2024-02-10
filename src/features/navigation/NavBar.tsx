@@ -238,6 +238,15 @@ export default function NavBar() {
           </Link>
 
           <Link
+            href={NAV_ITEMS.favoritedBuilds.href}
+            className={cn(
+              'flex flex-row items-center justify-start text-lg font-semibold text-white',
+            )}
+          >
+            {NAV_ITEMS.favoritedBuilds.label}
+          </Link>
+
+          <Link
             href={NAV_ITEMS.supportR2TK.href}
             className={cn(
               'flex flex-row items-center justify-start text-lg font-semibold text-green-500 underline',
