@@ -34,11 +34,45 @@ type ItemCategory =
   | 'trait'
   | 'perk'
 
-export type ItemTag =
-  | 'hardcore'
-  | 'reduce skill cooldown'
-  | 'mod duration'
-  | 'mod cooldown'
+export type ItemTag =         //WIP Alphabetical order
+  | 'All Damage'  
+  | 'Charged Melee Damage'
+  | 'Critical Hit'
+  | 'Critical Chance'
+  | 'Charged Melee'
+  | 'Charged Shot'
+  | 'Damage Reduction'
+  | 'Elemental Damage'
+  | 'Grey Health'
+  | 'Hardcore'
+  | 'Heal'
+  | 'Heat Generation'
+  | 'Summon'
+  | 'Skill Damage'
+  | 'Relic Use Speed'
+  | 'Reduce Skill Cooldown'
+  | 'Reload Speed'
+  | 'Rate of Fire'
+  | 'Ranged Damage'
+  | 'Mod Duration'
+  | 'Mod Cooldown'
+  | 'Mod Power'
+  | 'Mod Damage'
+  | 'Melee Damage'
+  | 'Melee Attack Speed'
+  | 'Melee Charge Speed'
+  | 'Melle Special Ability'
+  | 'Magazine Capacity'
+  | 'Movement Speed'
+  | 'Perfect Dodge'
+  | 'Lifesteal'
+  | 'Status Effects'
+  | 'Stagger'
+  | 'Weapon Damage'
+  | 'Weakspot Damage'
+
+
+
 
 export interface GenericItemProps {
   id: string
