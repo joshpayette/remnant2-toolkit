@@ -287,7 +287,7 @@ export const remnantItems: Item[] = [
       ],
       skills: [
         { name: 'Wellspring' },
-        { name: 'Healing SHIELD' },
+        { name: 'Healing Shield' },
         { name: 'Redemption' },
       ],
       perks: [
@@ -487,7 +487,7 @@ export const remnantItems: Item[] = [
   },
   {
     category: 'skill',
-    name: 'Healing SHIELD',
+    name: 'Healing Shield',
     imagePath: '/skill/healing_shield.png',
     id: '8pu6y2',
     description: `The MEDIC Quickly expels healing energy to SHIELD all allies within 25m [A] for 100% of their Max Health for 10s. While shielded, allies regenerate 21% of their Max Health over the duration.`,
