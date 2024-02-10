@@ -85,6 +85,12 @@ export default function linkArchetypesToTraits(buildState: BuildState) {
             wikiLinks: linkedTraitItem.wikiLinks ?? [],
             linkedItems: linkedTraitItem.linkedItems ?? {},
             saveFileSlug: linkedTraitItem.saveFileSlug,
+            elementalResistanceStep:
+              linkedTraitItem.elementalResistanceStep ?? 0,
+            elementalResistanceStepPercent:
+              linkedTraitItem.elementalResistanceStepPercent ?? 0,
+            elementalResistanceThresholds:
+              linkedTraitItem.elementalResistanceThresholds ?? [],
             healthStep: linkedTraitItem.healthStep ?? 0,
             healthStepPercent: linkedTraitItem.healthStepPercent ?? 0,
             armorStep: linkedTraitItem.armorStep ?? 0,

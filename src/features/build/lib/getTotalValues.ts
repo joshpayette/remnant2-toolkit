@@ -87,6 +87,8 @@ function getTraitItemsByKey(
   key:
     | 'armorStep'
     | 'armorStepPercent'
+    | 'elementalResistanceStep'
+    | 'elementalResistanceStepPercent'
     | 'healthStep'
     | 'healthStepPercent'
     | 'staminaStep'
@@ -215,6 +217,10 @@ export function getTotalResistances(
     buildState,
     `${resistance}ResistancePercent`,
   )
+  const itemsWithElementalResistanceStep = getTraitItemsByKey(
+    buildState,
+    `elementalResistanceStep`,
+  )
 
   const totalItemResistance = itemsWithResistance.reduce(
     (acc, item) => acc + (item?.[`${resistance}Resistance`] ?? 0),
@@ -225,9 +231,22 @@ export function getTotalResistances(
     0,
   )
 
+  // Elemental Resistance only applies to the elemental resistances,
+  // so fire and blight are excluded
+  let totalElementalResistance = 0
+  if (resistance !== 'bleed' && resistance !== 'blight') {
+    totalElementalResistance = itemsWithElementalResistanceStep.reduce(
+      (acc, item) => acc + (item.elementalResistanceStep * item.amount ?? 0),
+      0,
+    )
+  }
+
   const totalResistanceIncrease =
     totalItemResistance * totalItemResistancePercent
-  const totalResistance = totalItemResistance + totalResistanceIncrease
+
+  const totalResistance =
+    totalItemResistance + totalResistanceIncrease + totalElementalResistance
+
   return totalResistance
 }
 

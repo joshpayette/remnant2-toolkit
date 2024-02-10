@@ -6,6 +6,9 @@ import { DEFAULT_TRAIT_AMOUNT } from '@/features/build/constants'
 interface BaseTraitItem extends GenericItem {
   amount: number
   maxLevelBonus: string
+  elementalResistanceStep: number // The amount to increase the elemental resistance per level
+  elementalResistanceStepPercent: number // The percentage to increase the elemental resistance per level
+  elementalResistanceThresholds: number[] // The elemental resistance thresholds for the elemental resistance step
   healthStep: number // The amount to increase the health per level
   healthStepPercent: number // The percentage to increase the health per level
   staminaStep: number // The amount to increase the stamina per level
@@ -21,6 +24,10 @@ export class TraitItem extends GenericItem implements BaseTraitItem {
   public category: BaseTraitItem['category'] = 'trait'
   public maxLevelBonus: BaseTraitItem['maxLevelBonus'] = ''
   public amount: BaseTraitItem['amount'] = DEFAULT_TRAIT_AMOUNT
+  public elementalResistanceStep: BaseTraitItem['elementalResistanceStep'] = 0
+  public elementalResistanceStepPercent: BaseTraitItem['elementalResistanceStepPercent'] = 0
+  public elementalResistanceThresholds: BaseTraitItem['elementalResistanceThresholds'] =
+    []
   public healthStep: BaseTraitItem['healthStep'] = 0
   public healthStepPercent: BaseTraitItem['healthStepPercent'] = 0
   public staminaStep: BaseTraitItem['staminaStep'] = 0
@@ -35,6 +42,9 @@ export class TraitItem extends GenericItem implements BaseTraitItem {
     super(props)
     this.amount = props.amount
     this.maxLevelBonus = props.maxLevelBonus
+    this.elementalResistanceStep = props.elementalResistanceStep
+    this.elementalResistanceStepPercent = props.elementalResistanceStepPercent
+    this.elementalResistanceThresholds = props.elementalResistanceThresholds
     this.healthStep = props.healthStep
     this.healthStepPercent = props.healthStepPercent
     this.staminaStep = props.staminaStep
@@ -88,6 +98,11 @@ export class TraitItem extends GenericItem implements BaseTraitItem {
             wikiLinks: item.wikiLinks ?? [],
             linkedItems: item.linkedItems ?? {},
             saveFileSlug: item.saveFileSlug ?? '',
+            elementalResistanceStep: item.elementalResistanceStep ?? 0,
+            elementalResistanceStepPercent:
+              item.elementalResistanceStepPercent ?? 0,
+            elementalResistanceThresholds:
+              item.elementalResistanceThresholds ?? [],
             healthStep: item.healthStep ?? 0,
             healthStepPercent: item.healthStepPercent ?? 0,
             armorStep: item.armorStep ?? 0,

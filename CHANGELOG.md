@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Fixed
 
 - Replaced bad url in a couple of meta tags, preventing item linking from working correctly
+- Fixed bug where the Shadeskin trait was not increasing elemental resistances
 
 ## 2024-02-09
 

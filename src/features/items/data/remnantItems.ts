@@ -9331,6 +9331,9 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     By allowing the Dran to be burned in The Burning Event. (note: the neutral Dran will turn hostile to you at the conclusion of the event).
     By preventing Dran from being burned you are rewarded with both the Shadeskin trait and Dran Memento`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Shadeskin`],
+    // Increases by 2% per level, but since 10 fire resistance is 10%
+    // we add the percentage
+    elementalResistanceStep: 2,
   },
   {
     category: 'trait',
