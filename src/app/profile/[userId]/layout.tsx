@@ -29,7 +29,7 @@ export async function generateMetadata(
     openGraph: {
       title,
       description: description,
-      url: `https://remnant2builder.com/profile/${user.id}`,
+      url: `https://remnant2toolkit.com/profile/${user.id}`,
       images: [
         {
           url: 'https://d2sqltdcj8czo5.cloudfront.net/og_image_small.png',

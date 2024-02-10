@@ -24,7 +24,7 @@ export async function generateMetadata(
       openGraph: {
         title: 'Private Build',
         description: 'This build is private.',
-        url: `https://remnant2builder.com/builder/${build.id}`,
+        url: `https://remnant2toolkit.com/builder/${build.id}`,
         images: [
           {
             url: 'https://d2sqltdcj8czo5.cloudfront.net/og_image_small.png',
@@ -55,7 +55,7 @@ export async function generateMetadata(
       title,
       description: description,
       siteName: 'Remnant 2 Toolkit',
-      url: `https://remnant2builder.com/builder/${build.id}`,
+      url: `https://remnant2toolkit.com/builder/${build.id}`,
       images: [
         {
           url: 'https://d2sqltdcj8czo5.cloudfront.net/og_image_small.png',
