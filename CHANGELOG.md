@@ -4,7 +4,13 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
-### 2024-02-09
+## 2024-02-10
+
+### Fixed
+
+- Replaced bad url in a couple of meta tags, preventing item linking from working correctly
+
+## 2024-02-09
 
 ### Added
 
@@ -19,7 +25,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Restored `Enter` key submitting filters on the various pages.
 
-### 2024-02-08
+## 2024-02-08
 
 ### Added
 
