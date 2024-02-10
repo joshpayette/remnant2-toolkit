@@ -262,7 +262,7 @@ export const DESCRIPTION_TAGS = [
     token: 'OVERLOADED',
     color: 'text-[#7676af]',
     description:
-      'Deals elemental SHOCK area damage ever 5 seconds. Damage increases by 10% for every overloaded enemy nerby. ', // TODO What's the range and what's the max damage increase for secondary effect?
+      'Deals elemental SHOCK area damage every 5 seconds. Damage increases by 10% for every overloaded enemy nerby. ', // TODO What's the range and what's the max damage increase for secondary effect?
   },
   {
     type: 'Resonance',
