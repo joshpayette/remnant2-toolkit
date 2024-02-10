@@ -17,7 +17,7 @@ export default function Page() {
         subtitle="Popular creator builds from the community"
       />
 
-      <div className="mb-8 flex w-full max-w-2xl items-center justify-center">
+      <div className="mb-8 flex w-full max-w-3xl items-center justify-center">
         <BuildListFilters
           onUpdateFilters={(newFilters) => {
             setBuildListFilters(newFilters)

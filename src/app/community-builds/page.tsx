@@ -38,7 +38,7 @@ export default function Page() {
         }
       />
 
-      <div className="mb-8 flex w-full max-w-2xl items-center justify-center">
+      <div className="mb-8 flex w-full max-w-3xl items-center justify-center">
         <BuildListFilters
           onUpdateFilters={(newFilters) => {
             setCommunityBuildFilters(newFilters)

@@ -159,7 +159,7 @@ export default function Page() {
         subtitle="Browse all community builds that contain only items in your collection, based on the data in the Item Tracker."
       />
 
-      <div className="mb-8 flex w-full max-w-xl items-center justify-center">
+      <div className="mb-8 flex w-full max-w-3xl items-center justify-center">
         <BuildListFilters
           onUpdateFilters={(newFilters) => {
             setBuildListFilters(newFilters)
