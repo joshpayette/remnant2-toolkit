@@ -252,7 +252,7 @@ export const DESCRIPTION_TAGS = [
   },
   {
     type: 'Multiplicative',
-    token: '[∗]',
+    token: '[M]',
     color: 'text-orange-300',
     description: 'Damage is multiplicative with other sources of damage.',
   },
