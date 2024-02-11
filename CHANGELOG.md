@@ -9,6 +9,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Added
 
 - Build Suggestions have replaced the Armor Calculator button in builds. The build suggestions button will now let you receive armor suggestions, but it will also give you item suggestions based on internal tags, such as BLEEDING, SLOW, etc.
+- Added tag endpoint to get summaries of all items for a tag in social media previews. To use, link to `https://remnant2toolkit.com/endpoint/tag/{tagName}`, removing spaces and capitalization. Ex: `https://remnant2toolkit.com/endpoint/tag/chargedmelee`
+
+### Changed
+
+- Changed item endpoint from `/item` to `/endpoint/item` to better organize other endpoints.
 
 ## 2024-02-10
 

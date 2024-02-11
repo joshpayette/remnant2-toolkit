@@ -74,7 +74,7 @@ export async function generateMetadata(
       title,
       description,
       siteName: 'Remnant 2 Toolkit',
-      url: `https://remnant2toolkit.com/item/${item.name}`,
+      url: `https://remnant2toolkit.com/endpoint/item/${item.name}`,
       images: [
         {
           url: `https://${process.env.NEXT_PUBLIC_IMAGE_URL}${item.imagePath}`,

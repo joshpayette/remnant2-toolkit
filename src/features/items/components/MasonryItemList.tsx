@@ -8,10 +8,11 @@ import { ItemInfoDialog } from './ItemInfoDialog'
 import { MasonryCard } from './MasonryCard'
 
 type Props = {
+  label?: string
   items: Item[]
 }
 
-export default function MasonryItemList({ items }: Props) {
+export default function MasonryItemList({ items, label = 'Items' }: Props) {
   const [selectedItem, setSelectedItem] = useState<Item | null>(null)
   const infoOpen = selectedItem !== null
 
@@ -32,7 +33,7 @@ export default function MasonryItemList({ items }: Props) {
       />
       {items.length > 0 && (
         <div className="flex w-full flex-col items-center justify-center p-4">
-          <h2 className="my-4 text-4xl font-bold text-green-500">Items</h2>
+          <h2 className="my-4 text-4xl font-bold text-green-500">{label}</h2>
           <Masonry
             key={new Date().getTime()}
             items={items}

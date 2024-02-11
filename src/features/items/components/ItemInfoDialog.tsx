@@ -53,7 +53,11 @@ export function ItemInfoDialog({ item, open, onClose }: ItemInfoProps) {
           <button
             className="text-xs text-green-500 underline hover:text-green-400"
             onClick={() => {
-              copy(`https://remnant2toolkit.com/item/${cleanItemName(item)}`)
+              copy(
+                `https://remnant2toolkit.com/endpoint/item/${cleanItemName(
+                  item,
+                )}`,
+              )
               toast.success('Copied link to clipboard')
             }}
           >
