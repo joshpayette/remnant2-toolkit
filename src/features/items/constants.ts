@@ -358,6 +358,7 @@ export const ITEM_TAGS: ItemTag[] = [
   'Melee Critical Chance',
   'Melee Critical Hit',
   'Melee Damage',
+  'Melee Hit',
   'Melee Special Ability',
   'Melee Speed',
   'Mod Cast Speed',

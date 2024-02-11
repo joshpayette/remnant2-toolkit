@@ -59,6 +59,7 @@ export type ItemTag =
   | 'Melee Critical Chance'
   | 'Melee Critical Hit'
   | 'Melee Damage'
+  | 'Melee Hit'
   | 'Melee Special Ability'
   | 'Melee Speed'
   | 'Mod Cast Speed'

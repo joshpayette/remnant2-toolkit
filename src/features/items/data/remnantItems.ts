@@ -539,7 +539,13 @@ export const remnantItems: Item[] = [
     name: `Hunter's Focus`,
     imagePath: '/skill/hunters_focus.png',
     id: '5jh6qr',
-    tags: ['Spread', 'Ranged Damage', 'Weakspot Damage', 'Critical Chance','Recoil'],
+    tags: [
+      'Spread',
+      'Ranged Damage',
+      'Weakspot Damage',
+      'Critical Chance',
+      'Recoil',
+    ],
     description: `Continously Aiming Down Sights uninterrupted and without shooting for 1s causes the HUNTER to enter a FOCUSED state. 
 
     FOCUSED reduces Weapon Spread, Recoil, and Sway by 75% and grants 25% Ranged & Ranged Weakspot Damage [M], and 10% Ranged Crit Chance.
@@ -853,7 +859,12 @@ export const remnantItems: Item[] = [
     name: 'Bulletstorm',
     imagePath: '/skill/bulletstorm.png',
     id: 'xpqq62',
-    tags: ['Rate of Fire', 'Reload Speed', 'Critical Chance', 'Projectile Speed'],
+    tags: [
+      'Rate of Fire',
+      'Reload Speed',
+      'Critical Chance',
+      'Projectile Speed',
+    ],
     description: `Unleashes the full power and speed of the GUNSLINGER. Increases Fire Rate 20% and Reload Speed 50% of all ranged weapons. Lasts 20s. 
 
     Single Shot Weapons become fully-automatic. Kills instantly reload the current weapon. 
@@ -3233,7 +3244,7 @@ export const remnantItems: Item[] = [
     saveFileSlug: 'meleecritchance',
     imagePath: '/relicfragment/melee_critical_chance.png',
     id: 'm16fn9',
-    tags: ['Critical Chane'],
+    tags: ['Critical Chance'],
     description: `+X% Melee Crit Chance (Mythic: Maximum of +10%)`,
     howToGet: ``,
     wikiLinks: [
@@ -6269,7 +6280,7 @@ export const remnantItems: Item[] = [
   },
   {
     category: 'mutator',
-    name: 'Shielded Strike',               // This is the real name, but Fextralife and internal it's Shield Breaker
+    name: 'Shielded Strike', // This is the real name, but Fextralife and internal it's Shield Breaker
     saveFileSlug: 'shieldbreaker',
     type: 'melee',
     imagePath: '/mutator/shielded_strike.png',
@@ -8084,7 +8095,7 @@ Exclusive Ring for The Awakened King DLC."`,
     saveFileSlug: 'ring_focusedjewel',
     imagePath: '/ring/focusing_shard.png',
     id: 'o7grsg',
-    tags: ['Recoil', 'Spread',],
+    tags: ['Recoil', 'Spread'],
     description: `Continuously Aiming Down Sights reduces Recoil by 25% and gradually reduces Spread up to 35% over 3.5s.`,
     howToGet: `Can be found in N'Erud -`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Focused+Jewel`],
@@ -9755,7 +9766,6 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     name: 'Liquid Escape',
     imagePath: '/consumable/liquid_escape.png',
     id: 'xgdk68',
-    tags: [''],
     description: `When consumed, the hero will be returned to the last activated checkpoint.`,
     howToGet: `Starts with the player in non-hardcore mode.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Liquid+Escape`],
