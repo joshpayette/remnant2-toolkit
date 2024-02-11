@@ -36,21 +36,27 @@ export default function SearchTagsFilter({
   onSearchTagChange,
 }: Props) {
   return (
-    <div className="mt-2 flex flex-row items-end justify-start">
-      <div>
-        <SelectMenu
-          label="Tags"
-          options={allTagOptions}
-          value={selectedSearchTag}
-          onChange={(e) => onSearchTagChange(e.target.value)}
-        />
+    <div className="flex w-full flex-col items-start justify-start">
+      <div className="mt-2 flex flex-row items-end justify-start">
+        <div>
+          <SelectMenu
+            label="Tags"
+            options={allTagOptions}
+            value={selectedSearchTag}
+            onChange={(e) => onSearchTagChange(e.target.value)}
+          />
+        </div>
+        <button
+          onClick={onSearchTagApply}
+          className="lg ml-2 w-[100px] rounded bg-purple-600 p-2 text-sm"
+        >
+          Add Tag
+        </button>
       </div>
-      <button
-        onClick={onSearchTagApply}
-        className="lg ml-2 w-[100px] rounded bg-purple-600 p-2 text-sm"
-      >
-        Add Tag
-      </button>
+      <p className="mt-1 text-xs text-gray-500">
+        Note: These tags are still a work in progress. Results may not be
+        exhaustive.
+      </p>
     </div>
   )
 }

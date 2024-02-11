@@ -20,8 +20,8 @@ export default function SearchItemsFilter({
 }: Props) {
   return (
     <div className="col-span-full flex w-full flex-col items-start justify-start gap-x-4 gap-y-2">
-      <div className="grid grid-cols-1 gap-y-4 sm:grid-cols-3 sm:gap-x-4 sm:gap-y-0">
-        <div className="col-span-full flex flex-col items-start justify-end sm:col-span-2">
+      <div className="grid grid-cols-1 gap-y-4 sm:grid-cols-4 sm:gap-x-4 sm:gap-y-0">
+        <div className="col-span-full flex flex-col items-start justify-center sm:col-span-2">
           <div className="mb-2 text-left text-sm font-bold text-green-500">
             Search
           </div>
@@ -33,7 +33,7 @@ export default function SearchItemsFilter({
           />
         </div>
 
-        <div className="col-span-full sm:col-span-1">
+        <div className="col-span-full sm:col-span-2">
           <SearchTagsFilter
             selectedSearchTag={selectedSearchTag}
             onSearchTagApply={onSearchTagApply}
