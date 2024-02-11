@@ -4,15 +4,12 @@ import { Disclosure } from '@headlessui/react'
 import { cn } from '@/lib/classnames'
 import { useIsClient } from 'usehooks-ts'
 import { useLocalStorage } from '@/features/localstorage/useLocalStorage'
-import ItemCard from './ItemCard'
-import {
-  ChevronDownIcon,
-  InformationCircleIcon,
-} from '@heroicons/react/24/solid'
+import { ChevronDownIcon } from '@heroicons/react/24/solid'
 import { ItemCategory } from '@/features/build/types'
 import { WeaponItem } from '@/features/items/types/WeaponItem'
 import { Item } from '@/features/items/types'
 import { MutatorItem } from '@/features/items/types/MutatorItem'
+import { ItemButton } from '@/features/items/components/ItemButton'
 
 interface ItemTrackerCategory {
   category: ItemCategory
@@ -175,7 +172,7 @@ export default function ListItems({
                   )}
                 />
               </Disclosure.Button>
-              <Disclosure.Panel className="grid w-full grid-cols-2 gap-4 py-4 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-10">
+              <Disclosure.Panel className="grid w-full grid-cols-3 gap-4 py-4 sm:grid-cols-5 md:grid-cols-7 lg:grid-cols-9 xl:grid-cols-10">
                 {items
                   .filter((item) => {
                     if (
@@ -191,27 +188,14 @@ export default function ListItems({
                   }) // Filter by category
                   .map((item) => (
                     <div key={item.id} className="flex flex-col">
-                      <div
-                        className={cn(
-                          'relative h-full w-full',
-                          item.discovered
-                            ? 'border-2 border-green-500 grayscale-0'
-                            : 'border-2 border-transparent grayscale',
-                        )}
-                      >
-                        <ItemCard
-                          item={item}
-                          onClick={() => onClick(item.id)}
-                        />
-                      </div>
-                      <div className="flex items-end justify-end bg-black">
-                        <button
-                          className="flex w-auto items-center gap-1 rounded-md px-2 py-1 text-xs text-green-500 hover:bg-green-500 hover:text-black focus:outline-none focus-visible:ring focus-visible:ring-green-500/75"
-                          onClick={() => onShowItemInfo(item.id)}
-                        >
-                          <InformationCircleIcon className="h-5 w-5" /> Info
-                        </button>
-                      </div>
+                      <ItemButton
+                        item={item}
+                        isEditable={false}
+                        isToggled={item.discovered}
+                        onClick={() => onClick(item.id)}
+                        onItemInfoClick={() => onShowItemInfo(item.id)}
+                        size="lg"
+                      />
                     </div>
                   ))}
               </Disclosure.Panel>

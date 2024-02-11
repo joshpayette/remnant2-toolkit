@@ -1,23 +1,28 @@
+import { Boss, isBoss } from '@/features/bosses/types'
 import { Item } from '@/features/items/types'
 import { GenericItem } from '@/features/items/types/GenericItem'
 import { cn } from '@/lib/classnames'
 import Image from 'next/image'
 
-export default function BuilderButton({
-  onClick,
-  onItemInfoClick,
-  isEditable = true,
-  isScreenshotMode = false,
-  item,
-  size = 'md',
-}: {
-  onClick?: () => void
-  onItemInfoClick?: (item: Item) => void
+type Props = {
+  item: GenericItem | Boss | null
+  isToggled?: boolean
   isEditable?: boolean
   isScreenshotMode?: boolean
-  item: GenericItem | null
   size?: 'sm' | 'md' | 'lg' | 'wide'
-}) {
+  onClick?: () => void
+  onItemInfoClick?: (item: Item) => void
+}
+
+export function ItemButton({
+  item,
+  isEditable = true,
+  isScreenshotMode = false,
+  isToggled,
+  size = 'md',
+  onClick,
+  onItemInfoClick,
+}: Props) {
   let imageSize = {
     height: 50,
     width: 50,
@@ -36,16 +41,10 @@ export default function BuilderButton({
       }
       break
     case 'lg':
-      imageSize =
-        item?.category === 'trait'
-          ? {
-              height: 188,
-              width: 95,
-            }
-          : {
-              height: 99,
-              width: 99,
-            }
+      imageSize = {
+        height: 99,
+        width: 99,
+      }
       break
     case 'wide':
       imageSize = {
@@ -59,19 +58,23 @@ export default function BuilderButton({
     <div
       className={cn(
         'relative flex items-start justify-center',
-        size === 'sm' && 'mb-0 flex-row',
-        size === 'md' && 'mb-2 flex-col',
-        size === 'lg' && 'mb-2 flex-col',
-        size === 'wide' && 'mb-2 flex-col',
+        size === 'sm' && 'mb-0 flex-row justify-start',
+        size === 'md' && 'mb-2 w-[66px] flex-col',
+        size === 'lg' && 'mb-2 w-[99px] flex-col',
+        size === 'wide' && 'mb-2 w-[150px] flex-col',
+        isToggled === true && 'grayscale-0',
+        isToggled === false && 'grayscale',
       )}
     >
       {!isScreenshotMode && item && onItemInfoClick && (
         <button
           className={cn(
-            'absolute right-0 top-0',
+            'absolute right-[2px] top-[2px]',
             size === 'sm' && 'right-[-20px]',
           )}
-          onClick={() => onItemInfoClick && onItemInfoClick(item)}
+          onClick={() =>
+            onItemInfoClick && !isBoss(item) && onItemInfoClick(item)
+          }
         >
           <Image
             src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/information.png`}
@@ -86,13 +89,15 @@ export default function BuilderButton({
       <button
         onClick={onClick}
         className={cn(
-          'flex items-center justify-center border-2 border-gray-700 ',
-          `bg-[url('https://${process.env.NEXT_PUBLIC_IMAGE_URL}/card-body-bg.jpg')]`,
-          isEditable && 'hover:border-purple-500',
-          size === 'sm' && 'min-h-[22px] w-[22px]',
-          size === 'md' && 'min-h-[66px] w-[66px]',
-          size === 'lg' && 'min-h-[99px] w-[99px]',
-          size === 'wide' && 'min-h-[99px] w-[150px]',
+          'flex items-center justify-center overflow-hidden border-2 border-gray-700',
+          `bg-[url('https://d2sqltdcj8czo5.cloudfront.net/card-body-bg.jpg')]`,
+          isEditable && 'o border-gray-700 hover:border-purple-500',
+          size === 'sm' && 'h-[22px] w-[22px]',
+          size === 'md' && 'h-[66px] w-[66px]',
+          size === 'lg' && 'h-[99px] w-[99px]',
+          size === 'wide' && 'h-[99px] w-[150px]',
+          isToggled === true && 'border-green-500',
+          isToggled === false && 'border-gray-700',
         )}
       >
         {item && (

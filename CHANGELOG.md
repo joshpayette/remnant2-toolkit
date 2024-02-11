@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-02-11
+
+### Added
+
+- Build Suggestions have replaced the Armor Calculator button in builds. The build suggestions button will now let you receive armor suggestions, but it will also give you item suggestions based on internal tags, such as BLEEDING, SLOW, etc.
+
 ## 2024-02-10
 
 ### Added

@@ -6,7 +6,7 @@ import { useIsClient } from 'usehooks-ts'
 import { useLocalStorage } from '@/features/localstorage/useLocalStorage'
 import { ChevronDownIcon } from '@heroicons/react/24/solid'
 import { Boss, BossCategory } from '@/features/bosses/types'
-import BossCard from './BossCard'
+import { ItemButton } from '@/features/items/components/ItemButton'
 
 interface BossTrackerCategory {
   category: BossCategory
@@ -105,34 +105,20 @@ export default function ListBosses({ bosses, onClick }: ListBossesProps) {
                   )}
                 />
               </Disclosure.Button>
-              <Disclosure.Panel className="grid w-full grid-cols-2 gap-4 py-4 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8">
+              <Disclosure.Panel className="grid w-full grid-cols-3 gap-4 py-4 sm:grid-cols-5 md:grid-cols-7 lg:grid-cols-9 xl:grid-cols-10">
                 {bosses
                   .filter((boss) => {
                     return boss.category === bossCategory.category
                   }) // Filter by category
                   .map((boss) => (
                     <div key={boss.id} className="flex flex-col">
-                      <div
-                        className={cn(
-                          'relative h-full w-full',
-                          boss.discovered
-                            ? 'border-2 border-green-500 grayscale-0'
-                            : 'border-2 border-transparent grayscale',
-                        )}
-                      >
-                        <BossCard
-                          boss={boss}
-                          onClick={() => onClick(boss.id)}
-                        />
-                      </div>
-                      {/* <div className="flex items-end justify-end bg-black">
-                        <button
-                          className="flex w-auto items-center gap-1 rounded-md px-2 py-1 text-xs text-green-500 hover:bg-green-500 hover:text-black focus:outline-none focus-visible:ring focus-visible:ring-green-500/75"
-                          onClick={() => onShowItemInfo(item.id)}
-                        >
-                          <InformationCircleIcon className="h-5 w-5" /> Info
-                        </button>
-                      </div> */}
+                      <ItemButton
+                        item={boss}
+                        isEditable={false}
+                        isToggled={boss.discovered}
+                        onClick={() => onClick(boss.id)}
+                        size="lg"
+                      />
                     </div>
                   ))}
               </Disclosure.Panel>

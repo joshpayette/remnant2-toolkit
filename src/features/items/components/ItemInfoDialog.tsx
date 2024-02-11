@@ -125,7 +125,7 @@ export function ItemInfoDialog({ item, open, onClose }: ItemInfoProps) {
             </div>
           )}
 
-          {item.howToGet && (
+          {/* {item.howToGet && (
             <div className="flex flex-col items-start justify-start">
               <h4 className="mt-4 text-left text-xs text-gray-500">
                 How To Get
@@ -134,7 +134,7 @@ export function ItemInfoDialog({ item, open, onClose }: ItemInfoProps) {
                 {item.howToGet}
               </div>
             </div>
-          )}
+          )} */}
 
           {item.wikiLinks && (
             <div className="flex flex-col items-start justify-start">

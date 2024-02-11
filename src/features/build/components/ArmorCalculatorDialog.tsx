@@ -10,7 +10,7 @@ import {
   getTotalWeight,
   getWeightClass,
 } from '../lib/getTotalValues'
-import BuilderButton from './BuilderButton'
+import { ItemButton } from '../../items/components/ItemButton'
 import { ItemInfoDialog } from '@/features/items/components/ItemInfoDialog'
 import { GenericItem } from '@/features/items/types/GenericItem'
 
@@ -116,14 +116,14 @@ interface Props {
   buildState: BuildState
   open: boolean
   onClose: () => void
-  onSelectArmorSuggestion: (newBuildState: BuildState) => void
+  onApplySuggestions: (newBuildState: BuildState) => void
 }
 
 export default function ArmorCalculatorDialog({
   buildState,
   open,
   onClose,
-  onSelectArmorSuggestion,
+  onApplySuggestions,
 }: Props) {
   const [desiredWeightClass, setDesiredWeightClass] =
     useState<keyof typeof WEIGHT_CLASSES>('LIGHT')
@@ -274,25 +274,25 @@ export default function ArmorCalculatorDialog({
                       </div>
                     </div>
                     <div className="flex flex-row items-center justify-center gap-x-2">
-                      <BuilderButton
+                      <ItemButton
                         item={suggestion.helm}
                         isEditable={false}
                         size="md"
                         onItemInfoClick={() => setItemInfo(suggestion.helm)}
                       />
-                      <BuilderButton
+                      <ItemButton
                         item={suggestion.torso}
                         isEditable={false}
                         size="md"
                         onItemInfoClick={() => setItemInfo(suggestion.torso)}
                       />
-                      <BuilderButton
+                      <ItemButton
                         item={suggestion.gloves}
                         isEditable={false}
                         size="md"
                         onItemInfoClick={() => setItemInfo(suggestion.gloves)}
                       />
-                      <BuilderButton
+                      <ItemButton
                         item={suggestion.legs}
                         isEditable={false}
                         size="md"
@@ -302,7 +302,7 @@ export default function ArmorCalculatorDialog({
                     <button
                       className="mt-4 rounded-md border-2 border-green-500 p-2 text-sm text-white hover:bg-green-500 hover:text-white"
                       onClick={() =>
-                        onSelectArmorSuggestion({
+                        onApplySuggestions({
                           ...buildState,
                           items: {
                             ...buildState.items,

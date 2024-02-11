@@ -9,3 +9,11 @@ export interface Boss {
   wikiLinks: string[]
   id: string
 }
+
+export function isBoss(obj: any): obj is Boss {
+  return (
+    obj.category === 'world boss' ||
+    obj.category === 'boss' ||
+    obj.category === 'aberration'
+  )
+}

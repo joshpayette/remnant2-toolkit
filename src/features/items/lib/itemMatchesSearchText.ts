@@ -1,5 +1,4 @@
 import { Item } from '../types'
-import { LinkedItems } from '../types/GenericItem'
 
 export function itemMatchesSearchText({
   item,

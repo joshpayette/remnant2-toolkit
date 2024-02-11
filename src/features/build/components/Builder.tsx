@@ -1,7 +1,7 @@
 import { Fragment, useCallback, useMemo, useState } from 'react'
 import { cn } from '@/lib/classnames'
 import BuilderName from './BuilderName'
-import BuilderButton from './BuilderButton'
+import { ItemButton } from '../../items/components/ItemButton'
 import Traits from './Traits'
 import ItemSelect from './ItemSelect'
 import Logo from '@/features/ui/Logo'
@@ -395,14 +395,14 @@ export default function Builder({
           >
             {getArrayOfLength(2).map((archetypeIndex) => (
               <Fragment key={`archetype-${archetypeIndex}`}>
-                <BuilderButton
+                <ItemButton
                   item={buildState.items.archetype[archetypeIndex]}
                   isEditable={isEditable}
                   onClick={() => handleButtonClick('archetype', archetypeIndex)}
                   onItemInfoClick={handleShowInfo}
                   isScreenshotMode={isScreenshotMode}
                 />
-                <BuilderButton
+                <ItemButton
                   item={buildState.items.skill[archetypeIndex]}
                   isEditable={isEditable}
                   onClick={() => handleButtonClick('skill', archetypeIndex)}
@@ -423,28 +423,28 @@ export default function Builder({
               </div>
             )}
             <div id="left-column" className="flex-none">
-              <BuilderButton
+              <ItemButton
                 item={buildState.items.helm}
                 isEditable={isEditable}
                 onClick={() => handleButtonClick('helm')}
                 onItemInfoClick={handleShowInfo}
                 isScreenshotMode={isScreenshotMode}
               />
-              <BuilderButton
+              <ItemButton
                 item={buildState.items.torso}
                 isEditable={isEditable}
                 onClick={() => handleButtonClick('torso')}
                 onItemInfoClick={handleShowInfo}
                 isScreenshotMode={isScreenshotMode}
               />
-              <BuilderButton
+              <ItemButton
                 item={buildState.items.legs}
                 isEditable={isEditable}
                 onClick={() => handleButtonClick('legs')}
                 onItemInfoClick={handleShowInfo}
                 isScreenshotMode={isScreenshotMode}
               />
-              <BuilderButton
+              <ItemButton
                 item={buildState.items.gloves}
                 isEditable={isEditable}
                 onClick={() => handleButtonClick('gloves')}
@@ -455,7 +455,7 @@ export default function Builder({
                 id="relic-container"
                 className="relative flex items-start justify-start"
               >
-                <BuilderButton
+                <ItemButton
                   item={buildState.items.relic}
                   isEditable={isEditable}
                   onClick={() => handleButtonClick('relic')}
@@ -466,7 +466,7 @@ export default function Builder({
                   id="relic-fragment-container"
                   className="absolute left-[66px] top-0 flex w-[160px] flex-col items-start justify-start"
                 >
-                  <BuilderButton
+                  <ItemButton
                     isEditable={isEditable}
                     size="sm"
                     item={buildState.items.relicfragment[0]}
@@ -474,7 +474,7 @@ export default function Builder({
                     onItemInfoClick={handleShowInfo}
                     isScreenshotMode={isScreenshotMode}
                   />
-                  <BuilderButton
+                  <ItemButton
                     item={buildState.items.relicfragment[1]}
                     isEditable={isEditable}
                     size="sm"
@@ -482,7 +482,7 @@ export default function Builder({
                     onItemInfoClick={handleShowInfo}
                     isScreenshotMode={isScreenshotMode}
                   />
-                  <BuilderButton
+                  <ItemButton
                     item={buildState.items.relicfragment[2]}
                     isEditable={isEditable}
                     size="sm"
@@ -503,7 +503,7 @@ export default function Builder({
               />
             </div>
             <div id="right-column" className="flex-none">
-              <BuilderButton
+              <ItemButton
                 item={buildState.items.amulet}
                 isEditable={isEditable}
                 onClick={() => handleButtonClick('amulet')}
@@ -511,7 +511,7 @@ export default function Builder({
                 isScreenshotMode={isScreenshotMode}
               />
               {getArrayOfLength(4).map((ringIndex) => (
-                <BuilderButton
+                <ItemButton
                   key={`ring-${ringIndex}`}
                   item={buildState.items.ring[ringIndex]}
                   isEditable={isEditable}
@@ -532,7 +532,7 @@ export default function Builder({
                 key={`gun-${weaponIndex}`}
                 className="flex flex-col items-start justify-center"
               >
-                <BuilderButton
+                <ItemButton
                   item={buildState.items.weapon[weaponIndex]}
                   size="wide"
                   isEditable={isEditable}
@@ -542,7 +542,7 @@ export default function Builder({
                 />
                 <div className="flex w-full grow items-start justify-around gap-4">
                   {weaponIndex !== 1 || buildState.items.mod[weaponIndex] ? (
-                    <BuilderButton
+                    <ItemButton
                       item={buildState.items.mod[weaponIndex]}
                       size="md"
                       isEditable={isEditable}
@@ -557,7 +557,7 @@ export default function Builder({
                   ) : (
                     <div className="h-[66px] w-[66px]" />
                   )}
-                  <BuilderButton
+                  <ItemButton
                     item={buildState.items.mutator[weaponIndex]}
                     size="md"
                     isEditable={isEditable}
@@ -593,7 +593,7 @@ export default function Builder({
                 isScreenshotMode && 'justify-start',
               )}
             >
-              <BuilderButton
+              <ItemButton
                 item={buildState.items.concoction[0]}
                 isEditable={isEditable}
                 onClick={() => handleButtonClick('concoction', 0)}
@@ -604,7 +604,7 @@ export default function Builder({
                 // Add 1 to the index because we already rendered the first slot
                 const concoctionIndex = index + 1
                 return (
-                  <BuilderButton
+                  <ItemButton
                     key={`concoction-${concoctionIndex}`}
                     item={buildState.items.concoction[concoctionIndex]}
                     isEditable={isEditable}
@@ -629,7 +629,7 @@ export default function Builder({
               )}
             >
               {getArrayOfLength(4).map((consumableIndex) => (
-                <BuilderButton
+                <ItemButton
                   key={`consumable-${consumableIndex}`}
                   item={buildState.items.consumable[consumableIndex]}
                   isEditable={isEditable}

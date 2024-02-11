@@ -17,12 +17,12 @@ type ButtonProps = {
 }
 
 export const ActionButton = {
-  ArmorCalculator: ({ onClick }: ButtonProps) => (
+  BuildSuggestions: ({ onClick }: ButtonProps) => (
     <button
       className={cn(buttonClasses, 'border-blue-500 hover:bg-blue-700')}
       onClick={onClick}
     >
-      Armor Calculator
+      Build Suggestions
     </button>
   ),
 

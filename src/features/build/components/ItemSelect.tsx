@@ -1,7 +1,7 @@
 'use client'
 
 import Dialog from '@/features/ui/Dialog'
-import BuilderButton from './BuilderButton'
+import { ItemButton } from '../../items/components/ItemButton'
 import { useDebounce, useIsClient } from 'usehooks-ts'
 import { useEffect, useState } from 'react'
 import SearchInput from '@/features/ui/SearchInput'
@@ -167,7 +167,7 @@ export default function ItemSelect({
       >
         {buildSlot !== 'trait' && (
           <li id="clear-item" className="min-h-[70px] w-[100px]">
-            <BuilderButton
+            <ItemButton
               item={{
                 name: 'Clear',
                 category: buildSlot,
@@ -181,7 +181,7 @@ export default function ItemSelect({
         )}
         {filteredItemList.map((item) => (
           <li key={item.name} className="min-h-[70px] w-[100px]">
-            <BuilderButton
+            <ItemButton
               item={item}
               size="lg"
               onClick={() => onSelectItem(item)}
