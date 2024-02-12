@@ -1,7 +1,6 @@
 import Dialog from '../../ui/Dialog'
 import { cn } from '@/lib/classnames'
 import Image from 'next/image'
-import { GenericItem } from '../types/GenericItem'
 import { MutatorItem } from '../types/MutatorItem'
 import { ArmorItem } from '../types/ArmorItem'
 import ArmorInfo from './ArmorInfo'
@@ -120,7 +119,7 @@ export function ItemInfoDialog({ item, open, onClose }: ItemInfoProps) {
             </div>
           )}
 
-          {GenericItem.isGenericItem(item) && item.cooldown && (
+          {item.cooldown && (
             <div className="flex flex-col items-start justify-start">
               <h4 className="mt-4 text-left text-xs text-gray-500">Cooldown</h4>
               <p className="text-left text-xs text-gray-300">

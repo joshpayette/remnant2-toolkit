@@ -1,5 +1,5 @@
 import { DESCRIPTION_TAGS, ITEM_TAGS } from '@/features/items/constants'
-import { ItemTag } from '@/features/items/types/GenericItem'
+import { ItemTag } from '@/features/items/types'
 import SelectMenu from '@/features/ui/SelectMenu'
 
 // ------------------------------

@@ -1,17 +1,18 @@
 import { BuildItems } from '@prisma/client'
 import { remnantItems } from '../data/remnantItems'
-import { GenericItem } from './GenericItem'
+import { BaseItem } from './BaseItem'
+import { Item } from '.'
 
-export interface BaseModItem extends GenericItem {}
+interface BaseModItem extends BaseItem {}
 
-export class ModItem extends GenericItem implements BaseModItem {
+export class ModItem extends BaseItem implements BaseModItem {
   public category: BaseModItem['category'] = 'mod'
 
   constructor(props: BaseModItem) {
     super(props)
   }
 
-  public static isModItem = (item?: GenericItem): item is ModItem => {
+  public static isModItem = (item?: Item): item is ModItem => {
     if (!item) return false
     return item.category === 'mod'
   }

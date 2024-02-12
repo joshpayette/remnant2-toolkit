@@ -1,8 +1,8 @@
 import { remnantItemCategories } from '@/features/items/data/remnantItems'
 import { BuildState } from '../types'
 import { itemToCsvItem } from '@/features/items/lib/itemToCsvItem'
-import { GenericItem } from '@/features/items/types/GenericItem'
 import { TraitItem } from '@/features/items/types/TraitItem'
+import { Item } from '@/features/items/types'
 
 /**
  * Converts the build state into a CSV file
@@ -38,7 +38,7 @@ export function buildStateToCsvData(buildState: BuildState) {
 
         return itemOrItems
           .filter((item) => item !== null)
-          .map((item) => itemToCsvItem(item as GenericItem))
+          .map((item) => itemToCsvItem(item as Item))
       }
 
       if (itemOrItems.category === 'trait') {

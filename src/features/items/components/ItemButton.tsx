@@ -1,11 +1,10 @@
 import { Boss, isBoss } from '@/features/bosses/types'
 import { Item } from '@/features/items/types'
-import { GenericItem } from '@/features/items/types/GenericItem'
 import { cn } from '@/lib/classnames'
 import Image from 'next/image'
 
 type Props = {
-  item: GenericItem | Boss | null
+  item: Item | Boss | null
   isToggled?: boolean
   isEditable?: boolean
   isScreenshotMode?: boolean

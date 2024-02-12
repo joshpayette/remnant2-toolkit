@@ -1,9 +1,10 @@
 import { BuildItems } from '@prisma/client'
 import { remnantItems } from '../data/remnantItems'
-import { GenericItem } from './GenericItem'
+import { BaseItem } from './BaseItem'
 import { DEFAULT_TRAIT_AMOUNT } from '@/features/build/constants'
+import { Item } from '.'
 
-interface BaseTraitItem extends GenericItem {
+interface BaseTraitItem extends BaseItem {
   amount: number
   maxLevelBonus: string
   elementalResistanceStep: number // The amount to increase the elemental resistance per level
@@ -20,7 +21,7 @@ interface BaseTraitItem extends GenericItem {
   weightThresholds: number[] // The weight thresholds for the weight step
 }
 
-export class TraitItem extends GenericItem implements BaseTraitItem {
+export class TraitItem extends BaseItem implements BaseTraitItem {
   public category: BaseTraitItem['category'] = 'trait'
   public maxLevelBonus: BaseTraitItem['maxLevelBonus'] = ''
   public amount: BaseTraitItem['amount'] = DEFAULT_TRAIT_AMOUNT
@@ -56,7 +57,7 @@ export class TraitItem extends GenericItem implements BaseTraitItem {
     this.weightThresholds = props.weightThresholds
   }
 
-  public static isTraitItem = (item: GenericItem | null): item is TraitItem => {
+  public static isTraitItem = (item?: Item): item is TraitItem => {
     if (!item) return false
     return item.category === 'trait'
   }
@@ -123,7 +124,7 @@ export class TraitItem extends GenericItem implements BaseTraitItem {
     if (!buildItems) return []
 
     let traitItems: Array<TraitItem> = []
-    let archtypeItems: Array<GenericItem> = []
+    let archtypeItems: Array<BaseItem> = []
     for (const buildItem of buildItems) {
       const item = remnantItems.find((i) => i.id === buildItem.itemId)
       if (!item) continue

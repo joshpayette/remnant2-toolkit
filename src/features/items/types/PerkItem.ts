@@ -1,12 +1,13 @@
 import { BuildItems } from '@prisma/client'
 import { remnantItems } from '../data/remnantItems'
-import { GenericItem } from './GenericItem'
+import { BaseItem } from './BaseItem'
+import { Item } from '.'
 
-export interface BasePerkItem extends GenericItem {
+interface BasePerkItem extends BaseItem {
   type: 'prime' | 'damage' | 'team' | 'utility' | 'relic'
 }
 
-export class PerkItem extends GenericItem implements BasePerkItem {
+export class PerkItem extends BaseItem implements BasePerkItem {
   public category: BasePerkItem['category'] = 'perk'
   public type: BasePerkItem['type'] = 'prime'
 
@@ -15,7 +16,7 @@ export class PerkItem extends GenericItem implements BasePerkItem {
     this.type = props.type
   }
 
-  public static isPerkItem = (item?: GenericItem): item is PerkItem => {
+  public static isPerkItem = (item?: Item): item is PerkItem => {
     if (!item) return false
     return item.category === 'perk'
   }

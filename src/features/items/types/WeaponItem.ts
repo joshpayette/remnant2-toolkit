@@ -1,15 +1,16 @@
 import { BuildItems } from '@prisma/client'
 import { remnantItems } from '../data/remnantItems'
-import { GenericItem } from './GenericItem'
+import { BaseItem } from './BaseItem'
+import { Item } from '.'
 
-export interface BaseWeaponItem extends GenericItem {
+interface BaseWeaponItem extends BaseItem {
   type: 'long gun' | 'melee' | 'hand gun'
   damage: number
   rps?: number
   magazine?: number
 }
 
-export class WeaponItem extends GenericItem implements BaseWeaponItem {
+export class WeaponItem extends BaseItem implements BaseWeaponItem {
   public category: BaseWeaponItem['category'] = 'weapon'
   public type: BaseWeaponItem['type'] = 'long gun'
   public damage: BaseWeaponItem['damage'] = 0
@@ -24,7 +25,7 @@ export class WeaponItem extends GenericItem implements BaseWeaponItem {
     this.magazine = props.magazine
   }
 
-  public static isWeaponItem = (item?: GenericItem): item is WeaponItem => {
+  public static isWeaponItem = (item?: Item): item is WeaponItem => {
     if (!item) return false
     return item.category === 'weapon'
   }

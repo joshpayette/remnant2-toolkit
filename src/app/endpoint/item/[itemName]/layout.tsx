@@ -3,7 +3,6 @@ import { Metadata, ResolvingMetadata } from 'next'
 import ItemPage from './page'
 import { MutatorItem } from '@/features/items/types/MutatorItem'
 import { TraitItem } from '@/features/items/types/TraitItem'
-import { GenericItem } from '@/features/items/types/GenericItem'
 import { ArmorItem } from '@/features/items/types/ArmorItem'
 import { WeaponItem } from '@/features/items/types/WeaponItem'
 
@@ -42,7 +41,7 @@ export async function generateMetadata(
     description += ''
     description += `\r\nAt Max Level: ${item.maxLevelBonus}`
   }
-  if (GenericItem.isGenericItem(item) && item.cooldown) {
+  if (item.cooldown) {
     description += ''
     description += `\r\nCooldown: ${item.cooldown}s`
   }

@@ -5,7 +5,6 @@ import { ItemButton } from '../../items/components/ItemButton'
 import { useDebounce, useIsClient } from 'usehooks-ts'
 import { useEffect, useState } from 'react'
 import SearchInput from '@/features/ui/SearchInput'
-import { GenericItem } from '@/features/items/types/GenericItem'
 import { ItemInfoDialog } from '@/features/items/components/ItemInfoDialog'
 import { AdjustmentsHorizontalIcon } from '@heroicons/react/24/solid'
 import { cn } from '@/lib/classnames'
@@ -13,14 +12,16 @@ import { useLocalStorage } from '@/features/localstorage/useLocalStorage'
 import { capitalize } from '@/lib/capitalize'
 import SearchTagsFilter from '@/features/filters/components/parts/SearchTagsFilter'
 import { itemMatchesSearchText } from '@/features/items/lib/itemMatchesSearchText'
+import { ItemCategory } from '../types'
+import { Item } from '@/features/items/types'
 
 function sortByPreference({
   items,
   buildSlot,
   sortingPreference,
 }: {
-  items: GenericItem[]
-  buildSlot: GenericItem['category'] | null
+  items: Item[]
+  buildSlot: ItemCategory | null
   sortingPreference: 'alphabetical' | 'in-game'
 }) {
   if (buildSlot !== 'trait') return items
@@ -47,14 +48,14 @@ export default function ItemSelect({
   onClose,
   onSelectItem,
 }: {
-  itemList: GenericItem[]
-  buildSlot: GenericItem['category'] | null
+  itemList: Item[]
+  buildSlot: ItemCategory | null
   open: boolean
   onClose: () => void
-  onSelectItem: (item: GenericItem | null) => void
+  onSelectItem: (item: Item | null) => void
 }) {
   const isClient = useIsClient()
-  const [infoItem, setInfoItem] = useState<GenericItem | null>(null)
+  const [infoItem, setInfoItem] = useState<Item | null>(null)
 
   const [filter, setFilter] = useState('')
   const { sortingPreference, setSortingPreference } = useLocalStorage()

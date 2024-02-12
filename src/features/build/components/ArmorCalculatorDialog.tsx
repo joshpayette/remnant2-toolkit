@@ -12,7 +12,7 @@ import {
 } from '../lib/getTotalValues'
 import { ItemButton } from '../../items/components/ItemButton'
 import { ItemInfoDialog } from '@/features/items/components/ItemInfoDialog'
-import { GenericItem } from '@/features/items/types/GenericItem'
+import { Item } from '@/features/items/types'
 
 function getArmorSuggestions(
   buildState: BuildState,
@@ -133,7 +133,7 @@ export default function ArmorCalculatorDialog({
   )
 
   // Tracks the item the user wants info on
-  const [itemInfo, setItemInfo] = useState<GenericItem | null>(null)
+  const [itemInfo, setItemInfo] = useState<Item | null>(null)
   // If the item info is defined, the modal should be open
   const isShowItemInfoOpen = Boolean(itemInfo)
 

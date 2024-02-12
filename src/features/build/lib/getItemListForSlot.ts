@@ -1,8 +1,9 @@
-import { GenericItem } from '@/features/items/types/GenericItem'
-import { BuildState } from '../types'
+import { BuildState, ItemCategory } from '../types'
 import { remnantItems } from '@/features/items/data/remnantItems'
 import { WeaponItem } from '@/features/items/types/WeaponItem'
 import { MutatorItem } from '@/features/items/types/MutatorItem'
+import { ArchetypeItem } from '@/features/items/types/ArchetypeItem'
+import { Item } from '@/features/items/types'
 
 /**
  * Returns a list of items that match the selected slot
@@ -12,7 +13,7 @@ import { MutatorItem } from '@/features/items/types/MutatorItem'
 export default function getItemListForSlot(
   buildState: BuildState,
   selectedItem: {
-    category: GenericItem['category'] | null
+    category: ItemCategory | null
     index?: number // Used for slots that can have multiple items, such as rings
   },
 ) {
@@ -106,7 +107,7 @@ export default function getItemListForSlot(
   // If the selected slot is an archetype, try to limit
   // the archetypes based on the corresponding skill
   if (selectedItem.category === 'archetype') {
-    const archtypeItems = (unequippedItems as GenericItem[]).filter(
+    const archtypeItems = (unequippedItems as ArchetypeItem[]).filter(
       (item) => item.category === 'archetype',
     )
 
@@ -125,7 +126,7 @@ export default function getItemListForSlot(
   }
 
   // If we got this far, then return all items for the selected slot
-  return (unequippedItems as GenericItem[]).filter(
+  return (unequippedItems as Item[]).filter(
     (item) => item.category === selectedItem.category,
   )
 }

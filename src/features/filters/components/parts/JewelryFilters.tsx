@@ -1,6 +1,7 @@
 import { remnantItems } from '@/features/items/data/remnantItems'
+import { AmuletItem } from '@/features/items/types/AmuletItem'
+import { RingItem } from '@/features/items/types/RingItem'
 import SelectMenu from '@/features/ui/SelectMenu'
-import { GenericItem } from '@/features/items/types/GenericItem'
 
 export const DEFAULT_JEWELRY_FILTERS = {
   amulet: 'All',
@@ -8,14 +9,12 @@ export const DEFAULT_JEWELRY_FILTERS = {
 }
 
 const allRings: string[] = remnantItems
-  .filter((item) => GenericItem.isGenericItem(item) && item.category === 'ring')
+  .filter((item) => RingItem.isRingItem(item))
   .map((item) => item.name)
 allRings.unshift(DEFAULT_JEWELRY_FILTERS.ring)
 
 const allAmulets: string[] = remnantItems
-  .filter(
-    (item) => GenericItem.isGenericItem(item) && item.category === 'amulet',
-  )
+  .filter((item) => AmuletItem.isAmuletItem(item))
   .map((item) => item.name)
 allAmulets.unshift(DEFAULT_JEWELRY_FILTERS.amulet)
 

@@ -4,7 +4,6 @@ import { initialBuildState } from '../lib'
 import { BuildState } from '@/features/build/types'
 import { remnantItemCategories } from '@/features/items/data/remnantItems'
 import { ArmorItem } from '@/features/items/types/ArmorItem'
-import { GenericItem } from '@/features/items/types/GenericItem'
 import { WeaponItem } from '@/features/items/types/WeaponItem'
 import { ModItem } from '@/features/items/types/ModItem'
 import { MutatorItem } from '@/features/items/types/MutatorItem'
@@ -14,6 +13,14 @@ import { buildStateToCsvData } from '../lib/buildStateToCsvData'
 import { buildStateToMasonryItems } from '../lib/buildStateToMasonryItems'
 import linkWeaponsToMods from '../lib/linkWeaponsToMods'
 import linkArchetypesToTraits from '../lib/linkArchetypesToTraits'
+import { RelicItem } from '@/features/items/types/RelicItem'
+import { AmuletItem } from '@/features/items/types/AmuletItem'
+import { ArchetypeItem } from '@/features/items/types/ArchetypeItem'
+import { ConcoctionItem } from '@/features/items/types/ConcoctionItem'
+import { ConsumableItem } from '@/features/items/types/ConsumableItem'
+import { RelicFragmentItem } from '@/features/items/types/RelicFragmentItem'
+import { RingItem } from '@/features/items/types/RingItem'
+import { SkillItem } from '@/features/items/types/SkillItem'
 
 /**
  * Handles reading/writing the build to the URL query string,
@@ -160,7 +167,7 @@ export default function useUrlBuildState() {
             buildState.items.relic = null
             break
           }
-          const relicItem = GenericItem.fromParamsSingle(params)
+          const relicItem = RelicItem.fromParams(params)
           if (relicItem) buildState.items.relic = relicItem
           break
         case 'amulet':
@@ -168,7 +175,7 @@ export default function useUrlBuildState() {
             buildState.items.amulet = null
             break
           }
-          const amuletItem = GenericItem.fromParamsSingle(params)
+          const amuletItem = AmuletItem.fromParams(params)
           if (amuletItem) buildState.items.amulet = amuletItem
           break
         case 'weapon':
@@ -184,15 +191,15 @@ export default function useUrlBuildState() {
             buildState.items.archetype = []
             break
           }
-          const archtypeItems = GenericItem.fromParamsArray(params)
-          if (archtypeItems) buildState.items.archetype = archtypeItems
+          const archetypeItems = ArchetypeItem.fromParams(params)
+          if (archetypeItems) buildState.items.archetype = archetypeItems
           break
         case 'concoction':
           if (!params) {
             buildState.items.concoction = []
             break
           }
-          const concoctionItems = GenericItem.fromParamsArray(params)
+          const concoctionItems = ConcoctionItem.fromParams(params)
           if (concoctionItems) buildState.items.concoction = concoctionItems
           break
         case 'consumable':
@@ -200,7 +207,7 @@ export default function useUrlBuildState() {
             buildState.items.consumable = []
             break
           }
-          const consumableItems = GenericItem.fromParamsArray(params)
+          const consumableItems = ConsumableItem.fromParams(params)
           if (consumableItems) buildState.items.consumable = consumableItems
           break
         case 'mod':
@@ -224,7 +231,7 @@ export default function useUrlBuildState() {
             buildState.items.relicfragment = []
             break
           }
-          const relicFragmentItems = GenericItem.fromParamsArray(params)
+          const relicFragmentItems = RelicFragmentItem.fromParams(params)
           if (relicFragmentItems)
             buildState.items.relicfragment = relicFragmentItems
           break
@@ -233,7 +240,7 @@ export default function useUrlBuildState() {
             buildState.items.ring = []
             break
           }
-          const ringItems = GenericItem.fromParamsArray(params)
+          const ringItems = RingItem.fromParams(params)
           if (ringItems) buildState.items.ring = ringItems
           break
         case 'skill':
@@ -241,7 +248,7 @@ export default function useUrlBuildState() {
             buildState.items.skill = []
             break
           }
-          const skillItems = GenericItem.fromParamsArray(params)
+          const skillItems = SkillItem.fromParams(params)
           if (skillItems) buildState.items.skill = skillItems
           break
         case 'trait':

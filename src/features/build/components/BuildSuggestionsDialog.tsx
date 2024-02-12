@@ -2,9 +2,9 @@ import Dialog from '@/features/ui/Dialog'
 import { BuildState } from '../types'
 import { useState } from 'react'
 import { ItemInfoDialog } from '@/features/items/components/ItemInfoDialog'
-import { GenericItem } from '@/features/items/types/GenericItem'
 import { ArmorSuggestions } from './ArmorSuggestions'
 import { ItemTagSuggestions } from './ItemTagSuggestions'
+import { Item } from '@/features/items/types'
 
 interface Props {
   buildState: BuildState
@@ -20,7 +20,7 @@ export function BuildSuggestionsDialog({
   onApplySuggestions,
 }: Props) {
   // Tracks the item the user wants info on
-  const [itemInfo, setItemInfo] = useState<GenericItem | null>(null)
+  const [itemInfo, setItemInfo] = useState<Item | null>(null)
 
   // If the item info is defined, the modal should be open
   const isShowItemInfoOpen = Boolean(itemInfo)

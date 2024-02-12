@@ -1,10 +1,9 @@
-import { CsvItem } from '../types'
-import { GenericItem } from '../types/GenericItem'
+import { CsvItem, Item } from '../types'
 
 /**
  * Converts an Item to a CSV item for export
  */
-export function itemToCsvItem(item: GenericItem): CsvItem {
+export function itemToCsvItem(item: Item): CsvItem {
   function cleanString(string: string): string {
     return (
       string

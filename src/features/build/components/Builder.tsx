@@ -6,12 +6,11 @@ import Traits from './Traits'
 import ItemSelect from './ItemSelect'
 import Logo from '@/features/ui/Logo'
 import MemberFeatures from './MemberFeatures'
-import { BuildState } from '@/features/build/types'
+import { BuildState, ItemCategory } from '@/features/build/types'
 import PopularBuildBadge from '@/features/build/components/PopularBuildBadge'
 import Stats from './Stats'
 import Link from 'next/link'
 import { DEFAULT_TRAIT_AMOUNT, POPULAR_VOTE_THRESHOLD } from '../constants'
-import { GenericItem } from '@/features/items/types/GenericItem'
 import { Item } from '@/features/items/types'
 import { TraitItem } from '@/features/items/types/TraitItem'
 import { ItemInfoDialog } from '@/features/items/components/ItemInfoDialog'
@@ -60,7 +59,7 @@ export default function Builder({
 
   // Tracks information about the slot the user is selecting an item for
   const [selectedItemSlot, setSelectedItemSlot] = useState<{
-    category: GenericItem['category'] | null
+    category: ItemCategory | null
     index?: number
   }>({
     category: null,
@@ -94,7 +93,7 @@ export default function Builder({
    * and the query string is updated.
    */
   const handleSelectItem = useCallback(
-    (selectedItem: GenericItem | null) => {
+    (selectedItem: Item | null) => {
       if (!selectedItemSlot.category) return
       if (!onUpdateBuildState) return
 
@@ -216,10 +215,7 @@ export default function Builder({
     setInfoItem(item)
   }
 
-  function handleButtonClick(
-    category: GenericItem['category'],
-    index?: number,
-  ) {
+  function handleButtonClick(category: ItemCategory, index?: number) {
     if (!isEditable) return
     setSelectedItemSlot({ category, index })
   }

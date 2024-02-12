@@ -1,6 +1,6 @@
-import { GenericItem } from '@/features/items/types/GenericItem'
 import { useLocalStorage as useLS } from 'usehooks-ts'
 import { BossCategory } from '../bosses/types'
+import { ItemCategory } from '../build/types'
 
 // The type of the database in LocalStorage
 interface LocalStorage {
@@ -10,7 +10,7 @@ interface LocalStorage {
   }
   tracker: {
     discoveredItemIds: string[]
-    collapsedCategories: Array<GenericItem['category']>
+    collapsedCategories: Array<ItemCategory>
   }
   // used just for selecting traits at the moment
   sortingPreference: 'alphabetical' | 'in-game'

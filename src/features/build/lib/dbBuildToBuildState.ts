@@ -1,11 +1,18 @@
 import { ArmorItem } from '@/features/items/types/ArmorItem'
 import { BuildState, DBBuild } from '../types'
-import { GenericItem } from '@/features/items/types/GenericItem'
 import { WeaponItem } from '@/features/items/types/WeaponItem'
 import { ModItem } from '@/features/items/types/ModItem'
 import { MutatorItem } from '@/features/items/types/MutatorItem'
 import { TraitItem } from '@/features/items/types/TraitItem'
 import { PerkItem } from '@/features/items/types/PerkItem'
+import { RelicItem } from '@/features/items/types/RelicItem'
+import { AmuletItem } from '@/features/items/types/AmuletItem'
+import { RingItem } from '@/features/items/types/RingItem'
+import { ArchetypeItem } from '@/features/items/types/ArchetypeItem'
+import { SkillItem } from '@/features/items/types/SkillItem'
+import { ConcoctionItem } from '@/features/items/types/ConcoctionItem'
+import { ConsumableItem } from '@/features/items/types/ConsumableItem'
+import { RelicFragmentItem } from '@/features/items/types/RelicFragmentItem'
 
 export function dbBuildToBuildState(dbBuild: DBBuild): BuildState {
   const { buildItems } = dbBuild
@@ -31,14 +38,14 @@ export function dbBuildToBuildState(dbBuild: DBBuild): BuildState {
       torso: ArmorItem.fromDBValue(buildItems, 'torso'),
       legs: ArmorItem.fromDBValue(buildItems, 'legs'),
       gloves: ArmorItem.fromDBValue(buildItems, 'gloves'),
-      relic: GenericItem.fromDBValueSingle(buildItems, 'relic'),
-      amulet: GenericItem.fromDBValueSingle(buildItems, 'amulet'),
-      ring: GenericItem.fromDBValueArray(buildItems, 'ring'),
-      archetype: GenericItem.fromDBValueArray(buildItems, 'archetype'),
-      skill: GenericItem.fromDBValueArray(buildItems, 'skill'),
-      concoction: GenericItem.fromDBValueArray(buildItems, 'concoction'),
-      consumable: GenericItem.fromDBValueArray(buildItems, 'consumable'),
-      relicfragment: GenericItem.fromDBValueArray(buildItems, 'relicfragment'),
+      relic: RelicItem.fromDBValue(buildItems),
+      amulet: AmuletItem.fromDBValue(buildItems),
+      ring: RingItem.fromDBValue(buildItems),
+      archetype: ArchetypeItem.fromDBValue(buildItems),
+      skill: SkillItem.fromDBValue(buildItems),
+      concoction: ConcoctionItem.fromDBValue(buildItems),
+      consumable: ConsumableItem.fromDBValue(buildItems),
+      relicfragment: RelicFragmentItem.fromDBValue(buildItems),
       weapon: WeaponItem.fromDBValue(buildItems),
       mod: ModItem.fromDBValue(buildItems),
       mutator: MutatorItem.fromDBValue(buildItems),

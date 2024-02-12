@@ -1,8 +1,15 @@
+import { AmuletItem } from '@/features/items/types/AmuletItem'
+import { ArchetypeItem } from '@/features/items/types/ArchetypeItem'
 import { ArmorItem } from '@/features/items/types/ArmorItem'
-import { GenericItem } from '@/features/items/types/GenericItem'
+import { ConcoctionItem } from '@/features/items/types/ConcoctionItem'
+import { ConsumableItem } from '@/features/items/types/ConsumableItem'
 import { ModItem } from '@/features/items/types/ModItem'
 import { MutatorItem } from '@/features/items/types/MutatorItem'
 import { PerkItem } from '@/features/items/types/PerkItem'
+import { RelicFragmentItem } from '@/features/items/types/RelicFragmentItem'
+import { RelicItem } from '@/features/items/types/RelicItem'
+import { RingItem } from '@/features/items/types/RingItem'
+import { SkillItem } from '@/features/items/types/SkillItem'
 import { TraitItem } from '@/features/items/types/TraitItem'
 import { WeaponItem } from '@/features/items/types/WeaponItem'
 import { Build, BuildItems } from '@prisma/client'
@@ -33,17 +40,17 @@ export interface BuildState {
     torso: ArmorItem | null
     legs: ArmorItem | null
     gloves: ArmorItem | null
-    relic: GenericItem | null
-    amulet: GenericItem | null
+    relic: RelicItem | null
+    amulet: AmuletItem | null
     weapon: Array<WeaponItem | null>
-    ring: Array<GenericItem | null>
-    archetype: Array<GenericItem | null>
-    skill: Array<GenericItem | null>
-    concoction: Array<GenericItem | null>
-    consumable: Array<GenericItem | null>
+    ring: Array<RingItem | null>
+    archetype: Array<ArchetypeItem | null>
+    skill: Array<SkillItem | null>
+    concoction: Array<ConcoctionItem | null>
+    consumable: Array<ConsumableItem | null>
     mod: Array<ModItem | null>
     mutator: Array<MutatorItem | null>
-    relicfragment: Array<GenericItem | null>
+    relicfragment: Array<RelicFragmentItem | null>
     trait: TraitItem[]
     perk: Array<PerkItem | null>
   }

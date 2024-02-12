@@ -1,4 +1,4 @@
-import { ItemTag } from './types/GenericItem'
+import { ItemTag } from './types'
 
 /**
  * The max size a profile.sav import can be (in kilobytes)

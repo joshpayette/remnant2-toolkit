@@ -7,7 +7,6 @@ import copy from 'clipboard-copy'
 import { cleanItemName } from '../lib/cleanItemName'
 import { TraitItem } from '../types/TraitItem'
 import { MutatorItem } from '../types/MutatorItem'
-import { GenericItem } from '../types/GenericItem'
 import { ArmorItem } from '../types/ArmorItem'
 import ArmorInfo from './ArmorInfo'
 import DescriptionWithTags from './DescriptionWithTags'
@@ -72,7 +71,7 @@ export function MasonryCard({ data: item, onMoreInfoClick }: Props) {
             </dd>
           )}
 
-          {GenericItem.isGenericItem(item) && item.cooldown && (
+          {item.cooldown && (
             <dd className="mt-3 whitespace-pre-line text-left text-xs text-gray-200">
               <strong>Cooldown</strong>: {item.cooldown}s
             </dd>

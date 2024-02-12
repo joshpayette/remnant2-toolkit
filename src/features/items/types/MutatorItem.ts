@@ -1,13 +1,14 @@
 import { BuildItems } from '@prisma/client'
 import { remnantItems } from '../data/remnantItems'
-import { GenericItem } from './GenericItem'
+import { BaseItem } from './BaseItem'
+import { Item } from '.'
 
-export interface BaseMutatorItem extends GenericItem {
+interface BaseMutatorItem extends BaseItem {
   maxLevelBonus: string
   type: 'gun' | 'melee'
 }
 
-export class MutatorItem extends GenericItem implements BaseMutatorItem {
+export class MutatorItem extends BaseItem implements BaseMutatorItem {
   public category: BaseMutatorItem['category'] = 'mutator'
   public type: BaseMutatorItem['type'] = 'gun'
   public maxLevelBonus: BaseMutatorItem['maxLevelBonus'] = ''
@@ -18,7 +19,7 @@ export class MutatorItem extends GenericItem implements BaseMutatorItem {
     this.maxLevelBonus = props.maxLevelBonus
   }
 
-  public static isMutatorItem = (item?: GenericItem): item is MutatorItem => {
+  public static isMutatorItem = (item?: Item): item is MutatorItem => {
     if (!item) return false
     return item.category === 'mutator'
   }

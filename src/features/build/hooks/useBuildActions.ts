@@ -9,9 +9,8 @@ import {
   removeReportForBuild,
 } from '@/app/builder/actions'
 import { initialBuildState } from '../lib'
-import { BuildState } from '@/features/build/types'
+import { BuildState, ItemCategory } from '@/features/build/types'
 import { ArmorItem } from '@/features/items/types/ArmorItem'
-import { GenericItem } from '@/features/items/types/GenericItem'
 import { WeaponItem } from '@/features/items/types/WeaponItem'
 import { remnantItems } from '@/features/items/data/remnantItems'
 import { ModItem } from '@/features/items/types/ModItem'
@@ -22,11 +21,19 @@ import getArrayOfLength from '../lib/getArrayOfLength'
 import getConcoctionSlotCount from '../lib/getConcoctionSlotCount'
 import { Item } from '@/features/items/types'
 import getItemListForSlot from '../lib/getItemListForSlot'
+import { RelicItem } from '@/features/items/types/RelicItem'
+import { RelicFragmentItem } from '@/features/items/types/RelicFragmentItem'
+import { ArchetypeItem } from '@/features/items/types/ArchetypeItem'
+import { SkillItem } from '@/features/items/types/SkillItem'
+import { AmuletItem } from '@/features/items/types/AmuletItem'
+import { RingItem } from '@/features/items/types/RingItem'
+import { ConsumableItem } from '@/features/items/types/ConsumableItem'
+import { ConcoctionItem } from '@/features/items/types/ConcoctionItem'
 
 function getRandomItem(
   buildState: BuildState,
   selectedItem: {
-    category: GenericItem['category'] | null
+    category: ItemCategory | null
     index?: number // Used for slots that can have multiple items, such as rings
   },
 ): Item {
@@ -157,7 +164,7 @@ export default function useBuildActions() {
     // relic
     const randomRelic = getRandomItem(randomBuild, {
       category: 'relic',
-    }) as GenericItem
+    }) as RelicItem
     randomBuild.items.relic = randomRelic
 
     // relic fragments
@@ -165,7 +172,7 @@ export default function useBuildActions() {
       const randomRelicFragment = getRandomItem(randomBuild, {
         category: 'relicfragment',
         index,
-      }) as GenericItem
+      }) satisfies RelicFragmentItem
       randomBuild.items.relicfragment[index] = randomRelicFragment
     })
 
@@ -209,7 +216,7 @@ export default function useBuildActions() {
       const randomArchtype = getRandomItem(randomBuild, {
         category: 'archetype',
         index,
-      }) as GenericItem
+      }) as ArchetypeItem
       if (!randomArchtype) {
         throw new Error(`Could not find random archtype for ${index}`)
       }
@@ -219,7 +226,7 @@ export default function useBuildActions() {
       const randomSkill = getRandomItem(randomBuild, {
         category: 'skill',
         index,
-      }) as GenericItem
+      }) as SkillItem
       if (!randomSkill) {
         throw new Error(
           `Could not find random skill for ${randomArchtype.name}`,
@@ -231,7 +238,7 @@ export default function useBuildActions() {
     // amulet
     const randomAmulet = getRandomItem(randomBuild, {
       category: 'amulet',
-    }) as GenericItem
+    }) as AmuletItem
     randomBuild.items.amulet = randomAmulet
 
     // rings
@@ -239,13 +246,13 @@ export default function useBuildActions() {
       const randomRing = getRandomItem(randomBuild, {
         category: 'ring',
         index,
-      }) as GenericItem
+      }) as RingItem
       randomBuild.items.ring[index] = randomRing
     })
     // Traits
     // First assign the primary archtype traits
-    const primaryArchtype = randomBuild.items.archetype[0] as GenericItem
-    primaryArchtype.linkedItems?.traits?.forEach((trait, index) => {
+    const primaryArchetype = randomBuild.items.archetype[0] as ArchetypeItem
+    primaryArchetype.linkedItems?.traits?.forEach((trait, index) => {
       const traitItem = remnantItems.find(
         (item) => item.name === trait.name,
       ) as TraitItem
@@ -301,7 +308,7 @@ export default function useBuildActions() {
       const randomConsumable = getRandomItem(randomBuild, {
         category: 'consumable',
         index,
-      }) as GenericItem
+      }) as ConsumableItem
       randomBuild.items.consumable[index] = randomConsumable
     })
     // Concotions
@@ -312,7 +319,7 @@ export default function useBuildActions() {
         const randomConcoction = getRandomItem(randomBuild, {
           category: 'concoction',
           index,
-        }) as GenericItem
+        }) as ConcoctionItem
         randomBuild.items.concoction[index] = randomConcoction
       },
     )

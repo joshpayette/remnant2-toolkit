@@ -1,12 +1,13 @@
 import { BuildItems } from '@prisma/client'
 import { remnantItems } from '../data/remnantItems'
-import { GenericItem } from './GenericItem'
+import { BaseItem } from './BaseItem'
+import { Item } from '.'
 
-export interface BaseArmorItem extends GenericItem {
+interface BaseArmorItem extends BaseItem {
   set?: string
 }
 
-export class ArmorItem extends GenericItem implements BaseArmorItem {
+export class ArmorItem extends BaseItem implements BaseArmorItem {
   public set: BaseArmorItem['set']
 
   constructor(props: BaseArmorItem) {
@@ -14,7 +15,7 @@ export class ArmorItem extends GenericItem implements BaseArmorItem {
     this.set = props.set
   }
 
-  public static isArmorItem = (item?: GenericItem): item is ArmorItem => {
+  public static isArmorItem = (item?: Item): item is ArmorItem => {
     if (!item) return false
     return (
       item.category === 'helm' ||

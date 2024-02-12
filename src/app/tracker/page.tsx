@@ -11,7 +11,6 @@ import {
   remnantItemCategories,
   remnantItems,
 } from '@/features/items/data/remnantItems'
-import { GenericItem } from '@/features/items/types/GenericItem'
 import useFilteredItems from '@/features/items/hooks/useFilteredItems'
 import { itemToCsvItem } from '@/features/items/lib/itemToCsvItem'
 import { MutatorItem } from '@/features/items/types/MutatorItem'
@@ -21,8 +20,10 @@ import ListItems from '@/app/tracker/ListItems'
 import ImportSaveDialog from './ImportSaveDialog'
 import ImportCSVDialog from './ImportCSVDialog'
 import Papa from 'papaparse'
+import { ItemCategory } from '@/features/build/types'
+import { Item } from '@/features/items/types'
 
-const skippedItemCategories: Array<GenericItem['category']> = ['skill', 'perk']
+const skippedItemCategories: Array<ItemCategory> = ['skill', 'perk']
 
 const itemCategories = remnantItemCategories.filter((category) => {
   return skippedItemCategories.includes(category) === false
@@ -45,7 +46,7 @@ export default function Page() {
   const isClient = useIsClient()
 
   // Tracks the item the user wants info on
-  const [itemInfo, setItemInfo] = useState<GenericItem | null>(null)
+  const [itemInfo, setItemInfo] = useState<Item | null>(null)
   // If the item info is defined, the modal should be open
   const isShowItemInfoOpen = Boolean(itemInfo)
 

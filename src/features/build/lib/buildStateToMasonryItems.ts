@@ -1,7 +1,12 @@
 import { Item } from '@/features/items/types'
 import { BuildState } from '../types'
-import { GenericItem } from '@/features/items/types/GenericItem'
 import getArrayOfLength from './getArrayOfLength'
+import { ArchetypeItem } from '@/features/items/types/ArchetypeItem'
+import { SkillItem } from '@/features/items/types/SkillItem'
+import { RelicFragmentItem } from '@/features/items/types/RelicFragmentItem'
+import { RingItem } from '@/features/items/types/RingItem'
+import { WeaponItem } from '@/features/items/types/WeaponItem'
+import { MutatorItem } from '@/features/items/types/MutatorItem'
 
 export function buildStateToMasonryItems(build: BuildState): Item[] {
   const masonryItems: Item[] = []
@@ -9,8 +14,8 @@ export function buildStateToMasonryItems(build: BuildState): Item[] {
 
   // archtypes
   getArrayOfLength(2).forEach((_, i) => {
-    items.archetype[i] && masonryItems.push(items.archetype[i] as GenericItem)
-    items.skill[i] && masonryItems.push(items.skill[i] as GenericItem)
+    items.archetype[i] && masonryItems.push(items.archetype[i] as ArchetypeItem)
+    items.skill[i] && masonryItems.push(items.skill[i] as SkillItem)
   })
 
   // armor
@@ -22,19 +27,19 @@ export function buildStateToMasonryItems(build: BuildState): Item[] {
   getArrayOfLength(3).forEach((_, i) => {
     if (!items.relicfragment[i]) return
     items.relicfragment[i] &&
-      masonryItems.push(items.relicfragment[i] as GenericItem)
+      masonryItems.push(items.relicfragment[i] as RelicFragmentItem)
   })
   items.amulet && masonryItems.push(items.amulet)
   getArrayOfLength(4).forEach((_, i) => {
     if (!items.ring[i]) return
-    items.ring[i] && masonryItems.push(items.ring[i] as GenericItem)
+    items.ring[i] && masonryItems.push(items.ring[i] as RingItem)
   })
 
   // weapons
   getArrayOfLength(3).forEach((_, i) => {
-    items.weapon[i] && masonryItems.push(items.weapon[i] as GenericItem)
+    items.weapon[i] && masonryItems.push(items.weapon[i] as WeaponItem)
     items.mod[i] && masonryItems.push(items.mod[i] as Item)
-    items.mutator[i] && masonryItems.push(items.mutator[i] as GenericItem)
+    items.mutator[i] && masonryItems.push(items.mutator[i] as MutatorItem)
   })
 
   // traits

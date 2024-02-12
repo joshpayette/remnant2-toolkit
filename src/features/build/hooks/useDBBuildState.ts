@@ -2,7 +2,6 @@ import { useMemo, useState } from 'react'
 import { BuildState } from '@/features/build/types'
 import { Item } from '@/features/items/types'
 import { ArmorItem } from '@/features/items/types/ArmorItem'
-import { GenericItem } from '@/features/items/types/GenericItem'
 import { WeaponItem } from '@/features/items/types/WeaponItem'
 import { MutatorItem } from '@/features/items/types/MutatorItem'
 import { TraitItem } from '@/features/items/types/TraitItem'
@@ -11,6 +10,15 @@ import { buildStateToCsvData } from '../lib/buildStateToCsvData'
 import { buildStateToMasonryItems } from '../lib/buildStateToMasonryItems'
 import linkWeaponsToMods from '../lib/linkWeaponsToMods'
 import linkArchetypesToTraits from '../lib/linkArchetypesToTraits'
+import { RelicItem } from '@/features/items/types/RelicItem'
+import { AmuletItem } from '@/features/items/types/AmuletItem'
+import { ArchetypeItem } from '@/features/items/types/ArchetypeItem'
+import { ConcoctionItem } from '@/features/items/types/ConcoctionItem'
+import { ConsumableItem } from '@/features/items/types/ConsumableItem'
+import { ModItem } from '@/features/items/types/ModItem'
+import { RelicFragmentItem } from '@/features/items/types/RelicFragmentItem'
+import { RingItem } from '@/features/items/types/RingItem'
+import { SkillItem } from '@/features/items/types/SkillItem'
 
 export default function useDBBuildState(initialBuildState: BuildState) {
   const [dbBuildState, setDBBuildState] =
@@ -112,37 +120,37 @@ export default function useDBBuildState(initialBuildState: BuildState) {
         itemOrItems = ArmorItem.fromParams(params)
         break
       case 'relic':
-        itemOrItems = GenericItem.fromParamsSingle(params)
+        itemOrItems = RelicItem.fromParams(params)
         break
       case 'amulet':
-        itemOrItems = GenericItem.fromParamsSingle(params)
+        itemOrItems = AmuletItem.fromParams(params)
         break
       case 'weapon':
         itemOrItems = WeaponItem.fromParams(params)
         break
       case 'archetype':
-        itemOrItems = GenericItem.fromParamsArray(params)
+        itemOrItems = ArchetypeItem.fromParams(params)
         break
       case 'concoction':
-        itemOrItems = GenericItem.fromParamsArray(params)
+        itemOrItems = ConcoctionItem.fromParams(params)
         break
       case 'consumable':
-        itemOrItems = GenericItem.fromParamsArray(params)
+        itemOrItems = ConsumableItem.fromParams(params)
         break
       case 'mod':
-        itemOrItems = GenericItem.fromParamsArray(params)
+        itemOrItems = ModItem.fromParams(params)
         break
       case 'mutator':
         itemOrItems = MutatorItem.fromParams(params)
         break
       case 'relicfragment':
-        itemOrItems = GenericItem.fromParamsArray(params)
+        itemOrItems = RelicFragmentItem.fromParams(params)
         break
       case 'ring':
-        itemOrItems = GenericItem.fromParamsArray(params)
+        itemOrItems = RingItem.fromParams(params)
         break
       case 'skill':
-        itemOrItems = GenericItem.fromParamsArray(params)
+        itemOrItems = SkillItem.fromParams(params)
         break
       case 'trait':
         itemOrItems = TraitItem.fromParams(params)
