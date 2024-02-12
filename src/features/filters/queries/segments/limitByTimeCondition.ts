@@ -1,4 +1,5 @@
 import { Prisma } from '@prisma/client'
+
 import { TimeRange } from '../../types'
 
 function formatDateToMySQL(date: Date): string {

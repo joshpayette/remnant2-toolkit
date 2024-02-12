@@ -1,10 +1,12 @@
-import { remnantItems } from '@/features/items/data/remnantItems'
 import { Metadata, ResolvingMetadata } from 'next'
-import ItemPage from './page'
+
+import { remnantItems } from '@/features/items/data/remnantItems'
+import { ArmorItem } from '@/features/items/types/ArmorItem'
 import { MutatorItem } from '@/features/items/types/MutatorItem'
 import { TraitItem } from '@/features/items/types/TraitItem'
-import { ArmorItem } from '@/features/items/types/ArmorItem'
 import { WeaponItem } from '@/features/items/types/WeaponItem'
+
+import ItemPage from './page'
 
 function getItemFromParam(itemName: string) {
   // need to remove all punctuation and spaces from itemName

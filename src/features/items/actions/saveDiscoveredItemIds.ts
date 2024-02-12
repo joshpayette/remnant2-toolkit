@@ -4,7 +4,7 @@ import { getServerSession } from '@/features/auth/lib'
 import { prisma } from '@/features/db'
 import { collectionToIds } from '@/features/filters/queries/segments/limitByCollection'
 
-export default async function saveDiscoveredItemIds({
+export async function saveDiscoveredItemIds({
   discoveredItemIds,
 }: {
   discoveredItemIds: string[]

@@ -1,7 +1,8 @@
+import Image from 'next/image'
+
 import { Boss, isBoss } from '@/features/bosses/types'
 import { Item } from '@/features/items/types'
 import { cn } from '@/lib/classnames'
-import Image from 'next/image'
 
 type Props = {
   item: Item | Boss | null

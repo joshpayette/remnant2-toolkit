@@ -1,7 +1,9 @@
 import { Metadata, ResolvingMetadata } from 'next'
+
+import { isErrorResponse } from '@/features/error-handling/isErrorResponse'
+
 import { getProfile } from './actions'
 import ProfilePage from './page'
-import { isErrorResponse } from '@/features/error-handling/isErrorResponse'
 
 export async function generateMetadata(
   { params: { userId } }: { params: { userId: string } },

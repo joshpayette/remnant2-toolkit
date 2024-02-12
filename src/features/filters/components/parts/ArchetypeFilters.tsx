@@ -12,10 +12,7 @@ interface Props {
   onChange: (archtype: Archetype) => void
 }
 
-export default function ArchetypeFilters({
-  selectedArchetypes,
-  onChange,
-}: Props) {
+export function ArchetypeFilters({ selectedArchetypes, onChange }: Props) {
   return (
     <div className="col-span-full pt-2">
       <div className="flex w-full flex-col items-start justify-start gap-x-4 gap-y-2">

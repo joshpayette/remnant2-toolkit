@@ -6,7 +6,7 @@ type Props = {
   id?: string
 }
 
-export default function Input({
+export function Input({
   onChange,
   onKeyDown,
   value,

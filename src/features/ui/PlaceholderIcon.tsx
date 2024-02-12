@@ -1,4 +1,4 @@
-export default function PlaceHolderIcon() {
+export function PlaceHolderIcon() {
   return (
     <svg
       className="h-full w-full text-gray-300"

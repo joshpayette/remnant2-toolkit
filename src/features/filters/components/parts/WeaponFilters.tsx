@@ -1,6 +1,6 @@
 import { remnantItems } from '@/features/items/data/remnantItems'
-import SelectMenu from '@/features/ui/SelectMenu'
 import { WeaponItem } from '@/features/items/types/WeaponItem'
+import { SelectMenu } from '@/features/ui/SelectMenu'
 
 export const DEFAULT_WEAPON_FILTERS = {
   longGun: 'All',
@@ -30,7 +30,7 @@ interface Props {
   onChange: (weapon: string, type: 'longGun' | 'melee' | 'handGun') => void
 }
 
-export default function WeaponFilters({
+export function WeaponFilters({
   selectedLongGun,
   selectedHandGun,
   selectedMelee,

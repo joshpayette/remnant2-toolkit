@@ -1,8 +1,9 @@
 'use client'
 
+import { useState } from 'react'
+
 import { ItemInfoDialog } from '@/features/items/components/ItemInfoDialog'
 import { Item } from '@/features/items/types'
-import { useState } from 'react'
 
 export default function Page({ params: { item } }: { params: { item: Item } }) {
   const [open, setOpen] = useState(true)

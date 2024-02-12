@@ -1,18 +1,20 @@
 'use client'
 
-import { useState } from 'react'
 import { PencilIcon } from '@heroicons/react/24/solid'
-import { toast } from 'react-toastify'
 import { useRouter } from 'next/navigation'
-import { updateUserDisplayName } from '../../app/profile/actions'
+import { useState } from 'react'
+import { toast } from 'react-toastify'
+
 import { isErrorResponse } from '@/features/error-handling/isErrorResponse'
+
+import { updateUserDisplayName } from '../../app/profile/actions'
 
 type Props = {
   editable: boolean
   name: string
 }
 
-export default function DisplayName({ editable, name }: Props) {
+export function DisplayName({ editable, name }: Props) {
   const router = useRouter()
 
   const [newDisplayName, setNewDisplayName] = useState(name)

@@ -1,7 +1,8 @@
-import Tooltip from '@/features/ui/Tooltip'
 import Image from 'next/image'
 
-export default function NewBuildBadge() {
+import { Tooltip } from '@/features/ui/Tooltip'
+
+export function NewBuildBadge() {
   return (
     <Tooltip content={`Denotes a new build created in the past 24 hours`}>
       <Image

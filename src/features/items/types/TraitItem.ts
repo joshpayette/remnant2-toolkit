@@ -1,8 +1,10 @@
 import { BuildItems } from '@prisma/client'
-import { remnantItems } from '../data/remnantItems'
-import { BaseItem } from './BaseItem'
+
 import { DEFAULT_TRAIT_AMOUNT } from '@/features/build/constants'
+
+import { remnantItems } from '../data/remnantItems'
 import { Item } from '.'
+import { BaseItem } from './BaseItem'
 
 interface BaseTraitItem extends BaseItem {
   amount: number

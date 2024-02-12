@@ -1,4 +1,4 @@
-export default function Skeleton() {
+export function Skeleton() {
   return (
     <div
       role="status"

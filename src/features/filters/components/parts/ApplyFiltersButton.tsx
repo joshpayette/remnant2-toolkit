@@ -6,7 +6,7 @@ interface Props<T> {
   onClick: (newData: T) => void
 }
 
-export default function ApplyFiltersButton<T>({
+export function ApplyFiltersButton<T>({
   areFiltersApplied,
   filters,
   onClick,

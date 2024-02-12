@@ -1,6 +1,6 @@
 import { DESCRIPTION_TAGS, ITEM_TAGS } from '@/features/items/constants'
 import { ItemTag } from '@/features/items/types'
-import SelectMenu from '@/features/ui/SelectMenu'
+import { SelectMenu } from '@/features/ui/SelectMenu'
 
 // ------------------------------
 // Extract the options for the select input
@@ -30,7 +30,7 @@ interface Props {
   onSearchTagChange: (newTag: string) => void
 }
 
-export default function SearchTagsFilter({
+export function SearchTagsFilter({
   selectedSearchTag,
   onSearchTagApply,
   onSearchTagChange,

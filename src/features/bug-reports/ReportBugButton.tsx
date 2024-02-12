@@ -1,10 +1,11 @@
 'use client'
 
 import { BugAntIcon } from '@heroicons/react/24/solid'
-import { ReportBug } from './actions'
 import { toast } from 'react-toastify'
 
-export default function ReportBugButton() {
+import { ReportBug } from './actions'
+
+export function ReportBugButton() {
   return (
     <div className="flex items-center justify-start">
       <button

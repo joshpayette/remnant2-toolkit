@@ -1,19 +1,21 @@
 'use client'
 
-import Dialog from '@/features/ui/Dialog'
-import { ItemButton } from '../../items/components/ItemButton'
-import { useDebounce, useIsClient } from 'usehooks-ts'
-import { useEffect, useState } from 'react'
-import SearchInput from '@/features/ui/SearchInput'
-import { ItemInfoDialog } from '@/features/items/components/ItemInfoDialog'
 import { AdjustmentsHorizontalIcon } from '@heroicons/react/24/solid'
-import { cn } from '@/lib/classnames'
-import { useLocalStorage } from '@/features/localstorage/useLocalStorage'
-import { capitalize } from '@/lib/capitalize'
-import SearchTagsFilter from '@/features/filters/components/parts/SearchTagsFilter'
+import { useEffect, useState } from 'react'
+import { useDebounce, useIsClient } from 'usehooks-ts'
+
+import { SearchTagsFilter } from '@/features/filters/components/parts/SearchTagsFilter'
+import { ItemInfoDialog } from '@/features/items/components/ItemInfoDialog'
 import { itemMatchesSearchText } from '@/features/items/lib/itemMatchesSearchText'
-import { ItemCategory } from '../types'
 import { Item } from '@/features/items/types'
+import { useLocalStorage } from '@/features/localstorage/useLocalStorage'
+import { Dialog } from '@/features/ui/Dialog'
+import { SearchInput } from '@/features/ui/SearchInput'
+import { capitalize } from '@/lib/capitalize'
+import { cn } from '@/lib/classnames'
+
+import { ItemButton } from '../../items/components/ItemButton'
+import { ItemCategory } from '../types'
 
 function sortByPreference({
   items,
@@ -41,7 +43,7 @@ function sortByPreference({
   }
 }
 
-export default function ItemSelect({
+export function ItemSelect({
   itemList,
   buildSlot,
   open,

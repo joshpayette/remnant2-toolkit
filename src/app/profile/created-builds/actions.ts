@@ -1,5 +1,8 @@
 'use server'
 
+import { Prisma } from '@prisma/client'
+import { z } from 'zod'
+
 import { getServerSession } from '@/features/auth/lib'
 import { DBBuild } from '@/features/build/types'
 import { prisma } from '@/features/db'
@@ -7,7 +10,7 @@ import {
   communityBuildsCountQuery,
   communityBuildsQuery,
 } from '@/features/filters/queries/community-builds'
-import getOrderBySegment from '@/features/filters/queries/segments/getOrderBySegment'
+import { getOrderBySegment } from '@/features/filters/queries/segments/getOrderBySegment'
 import {
   amuletFilterToId,
   limitByAmuletSegment,
@@ -34,8 +37,6 @@ import {
 } from '@/features/filters/types'
 import { PaginationResponse } from '@/features/pagination/usePagination'
 import { bigIntFix } from '@/lib/bigIntFix'
-import { Prisma } from '@prisma/client'
-import { z } from 'zod'
 
 export type CreatedBuildsFilter = 'date created' | 'upvotes'
 

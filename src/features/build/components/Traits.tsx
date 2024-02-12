@@ -1,13 +1,15 @@
-import { useState } from 'react'
 import { XCircleIcon } from '@heroicons/react/24/solid'
-import { cn } from '@/lib/classnames'
-import { BuildState } from '@/features/build/types'
-import { DEFAULT_TRAIT_AMOUNT, MAX_TRAIT_AMOUNT } from '../constants'
-import { TraitItem } from '@/features/items/types/TraitItem'
-import { Item } from '@/features/items/types'
 import Image from 'next/image'
+import { useState } from 'react'
 
-export default function Traits({
+import { BuildState } from '@/features/build/types'
+import { Item } from '@/features/items/types'
+import { TraitItem } from '@/features/items/types/TraitItem'
+import { cn } from '@/lib/classnames'
+
+import { DEFAULT_TRAIT_AMOUNT, MAX_TRAIT_AMOUNT } from '../constants'
+
+export function Traits({
   buildState,
   isEditable,
   isScreenshotMode,

@@ -1,18 +1,20 @@
-import Dialog from '@/features/ui/Dialog'
-import { BuildState } from '../types'
-import SelectMenu from '@/features/ui/SelectMenu'
 import { useEffect, useState } from 'react'
+
+import { ItemInfoDialog } from '@/features/items/components/ItemInfoDialog'
 import { WEIGHT_CLASSES } from '@/features/items/constants'
-import { ArmorItem } from '@/features/items/types/ArmorItem'
 import { remnantItems } from '@/features/items/data/remnantItems'
+import { Item } from '@/features/items/types'
+import { ArmorItem } from '@/features/items/types/ArmorItem'
+import { Dialog } from '@/features/ui/Dialog'
+import { SelectMenu } from '@/features/ui/SelectMenu'
+
+import { ItemButton } from '../../items/components/ItemButton'
 import {
   getTotalArmor,
   getTotalWeight,
   getWeightClass,
 } from '../lib/getTotalValues'
-import { ItemButton } from '../../items/components/ItemButton'
-import { ItemInfoDialog } from '@/features/items/components/ItemInfoDialog'
-import { Item } from '@/features/items/types'
+import { BuildState } from '../types'
 
 function getArmorSuggestions(
   buildState: BuildState,
@@ -119,7 +121,7 @@ interface Props {
   onApplySuggestions: (newBuildState: BuildState) => void
 }
 
-export default function ArmorCalculatorDialog({
+export function ArmorCalculatorDialog({
   buildState,
   open,
   onClose,

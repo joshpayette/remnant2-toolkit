@@ -1,12 +1,13 @@
 import { Item } from '@/features/items/types'
-import { BuildState } from '../types'
-import getArrayOfLength from './getArrayOfLength'
 import { ArchetypeItem } from '@/features/items/types/ArchetypeItem'
-import { SkillItem } from '@/features/items/types/SkillItem'
+import { MutatorItem } from '@/features/items/types/MutatorItem'
 import { RelicFragmentItem } from '@/features/items/types/RelicFragmentItem'
 import { RingItem } from '@/features/items/types/RingItem'
+import { SkillItem } from '@/features/items/types/SkillItem'
 import { WeaponItem } from '@/features/items/types/WeaponItem'
-import { MutatorItem } from '@/features/items/types/MutatorItem'
+
+import { BuildState } from '../types'
+import { getArrayOfLength } from './getArrayOfLength'
 
 export function buildStateToMasonryItems(build: BuildState): Item[] {
   const masonryItems: Item[] = []

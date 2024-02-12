@@ -1,13 +1,12 @@
 'use client'
 
-import { cn } from '@/lib/classnames'
-import Link from 'next/link'
-import { StarIcon as StarIconOff } from '@heroicons/react/24/outline'
-import { StarIcon as StarIconOn } from '@heroicons/react/24/solid'
 import { FlagIcon as FlagIconOff } from '@heroicons/react/24/outline'
 import { FlagIcon as FlagIconOn } from '@heroicons/react/24/solid'
-import LoadingIndicator from '@/features/ui/LoadingIndicator'
-import Tooltip from '@/features/ui/Tooltip'
+import Link from 'next/link'
+
+import { LoadingIndicator } from '@/features/ui/LoadingIndicator'
+import { Tooltip } from '@/features/ui/Tooltip'
+import { cn } from '@/lib/classnames'
 
 export const buttonClasses =
   'flex w-full flex-col items-center rounded border-2 text-center px-4 py-2 text-sm font-bold text-white'
@@ -152,5 +151,3 @@ export const ActionButton = {
     </button>
   ),
 }
-
-export default ActionButton

@@ -1,14 +1,16 @@
 'use server'
 
 import { z } from 'zod'
-import { getServerSession } from '../../features/auth/lib'
-import { prisma } from '../../features/db'
+
+import { cleanBadWords } from '@/features/bad-word-filter'
+import { ErrorResponse } from '@/features/error-handling/types'
 import {
   DEFAULT_DISPLAY_NAME,
   MAX_PROFILE_BIO_LENGTH,
 } from '@/features/profile/constants'
-import { ErrorResponse } from '@/features/error-handling/types'
-import { cleanBadWords } from '@/features/bad-word-filter'
+
+import { getServerSession } from '../../features/auth/lib'
+import { prisma } from '../../features/db'
 
 export async function updateUserDisplayName(
   data: string,

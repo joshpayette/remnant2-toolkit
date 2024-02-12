@@ -1,9 +1,11 @@
-import { remnantItems } from '@/features/items/data/remnantItems'
 import { Metadata, ResolvingMetadata } from 'next'
-import TagPage from './page'
-import { Item } from '@/features/items/types'
-import { itemMatchesSearchText } from '@/features/items/lib/itemMatchesSearchText'
+
 import { DESCRIPTION_TAGS, ITEM_TAGS } from '@/features/items/constants'
+import { remnantItems } from '@/features/items/data/remnantItems'
+import { itemMatchesSearchText } from '@/features/items/lib/itemMatchesSearchText'
+import { Item } from '@/features/items/types'
+
+import TagPage from './page'
 
 function getItemsFromTagParam(tagName: string): Item[] {
   // need to remove all punctuation and spaces from tagName

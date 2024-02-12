@@ -1,26 +1,28 @@
 'use client'
 
-import { useEffect } from 'react'
-import BuildCard from '../../features/build/components/BuildCard'
-import BuildList from '@/features/build/components/BuildList'
-import usePagination from '@/features/pagination/usePagination'
 import Link from 'next/link'
+import { useEffect } from 'react'
 import { toast } from 'react-toastify'
-import useBuildActions from '@/features/build/hooks/useBuildActions'
+
 import { getCommunityBuilds } from '@/features/build/actions/getCommunityBuilds'
+import { BuildList } from '@/features/build/components/BuildList'
+import { useBuildActions } from '@/features/build/hooks/useBuildActions'
+import { useBuildListState } from '@/features/build/hooks/useBuildListState'
 import { isErrorResponse } from '@/features/error-handling/isErrorResponse'
-import { dbBuildToBuildState } from '../../features/build/lib/dbBuildToBuildState'
+import { BuildListSecondaryFilters } from '@/features/filters/components/BuildListSecondaryFilters'
+import { useBuildListSecondaryFilters } from '@/features/filters/hooks/useBuildListSecondaryFilters'
 import { BuildListFilterFields } from '@/features/filters/types'
-import useBuildListSecondaryFilters from '@/features/filters/hooks/useBuildListSecondaryFilters'
-import BuildListSecondaryFilters from '@/features/filters/components/BuildListSecondaryFilters'
-import useBuildListState from '@/features/build/hooks/useBuildListState'
+import { usePagination } from '@/features/pagination/usePagination'
+
+import { BuildCard } from '../../features/build/components/BuildCard'
+import { dbBuildToBuildState } from '../../features/build/lib/dbBuildToBuildState'
 
 interface Props {
   itemsPerPage?: number
   buildListFilters: BuildListFilterFields
 }
 
-export default function CommunityBuildList({
+export function CommunityBuildList({
   itemsPerPage = 8,
   buildListFilters,
 }: Props) {

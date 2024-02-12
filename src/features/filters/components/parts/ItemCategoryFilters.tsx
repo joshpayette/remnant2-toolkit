@@ -10,7 +10,7 @@ interface Props {
   onUpdate: (category: ItemCategory) => void
 }
 
-export default function ItemCategoryFilters({
+export function ItemCategoryFilters({
   itemCategories,
   selectedItemCategories,
   onReset,

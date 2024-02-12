@@ -1,4 +1,4 @@
-export default function LoadingIndicator() {
+export function LoadingIndicator() {
   return (
     <div role="status">
       <svg

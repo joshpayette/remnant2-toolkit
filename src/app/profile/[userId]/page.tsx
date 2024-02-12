@@ -1,19 +1,21 @@
 'use client'
 
-import BuildList from '@/features/build/components/BuildList'
-import ProfileHeader from '../../../features/profile/ProfileHeader'
-import BuildCard from '@/features/build/components/BuildCard'
 import { useEffect, useState } from 'react'
-import { getUserProfilePage } from './actions'
-import usePagination from '@/features/pagination/usePagination'
-import CopyBuildUrlButton from '../../../features/profile/CopyBuildUrlButton'
-import EditBuildButton from '../../../features/profile/EditBuildButton'
-import DuplicateBuildButton from '../../../features/profile/DuplicateBuildButton'
-import BuildListSecondaryFilters from '@/features/filters/components/BuildListSecondaryFilters'
-import useBuildListSecondaryFilters from '@/features/filters/hooks/useBuildListSecondaryFilters'
+
+import { BuildCard } from '@/features/build/components/BuildCard'
+import { BuildList } from '@/features/build/components/BuildList'
+import { useBuildListState } from '@/features/build/hooks/useBuildListState'
+import { BuildListFilters } from '@/features/filters/components/BuildListFilters'
+import { BuildListSecondaryFilters } from '@/features/filters/components/BuildListSecondaryFilters'
+import { useBuildListSecondaryFilters } from '@/features/filters/hooks/useBuildListSecondaryFilters'
 import { BuildListFilterFields } from '@/features/filters/types'
-import useBuildListState from '@/features/build/hooks/useBuildListState'
-import BuildListFilters from '@/features/filters/components/BuildListFilters'
+import { usePagination } from '@/features/pagination/usePagination'
+
+import { CopyBuildUrlButton } from '../../../features/profile/CopyBuildUrlButton'
+import { DuplicateBuildButton } from '../../../features/profile/DuplicateBuildButton'
+import { EditBuildButton } from '../../../features/profile/EditBuildButton'
+import { ProfileHeader } from '../../../features/profile/ProfileHeader'
+import { getUserProfilePage } from './actions'
 
 export default function Page({
   params: { userId },

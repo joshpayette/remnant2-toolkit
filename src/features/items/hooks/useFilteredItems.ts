@@ -1,4 +1,5 @@
 import { useCallback, useState } from 'react'
+
 import { useLocalStorage } from '../../localstorage/useLocalStorage'
 import { Item } from '../types'
 
@@ -6,7 +7,7 @@ export type FilteredItem = Item & {
   discovered: boolean
 }
 
-export default function useFilteredItems(items: Item[]) {
+export function useFilteredItems(items: Item[]) {
   const { discoveredItemIds } = useLocalStorage()
 
   const [filteredItems, setFilteredItems] = useState<FilteredItem[]>(

@@ -1,6 +1,9 @@
-import { cn } from '@/lib/classnames'
-import { BuildState } from '@/features/build/types'
 import Image from 'next/image'
+
+import { BuildState } from '@/features/build/types'
+import { Tooltip } from '@/features/ui/Tooltip'
+import { cn } from '@/lib/classnames'
+
 import {
   getTotalArmor,
   getTotalHealth,
@@ -9,14 +12,13 @@ import {
   getTotalWeight,
   getWeightClass,
 } from '../lib/getTotalValues'
-import Tooltip from '@/features/ui/Tooltip'
 
 interface Props {
   buildState: BuildState
   isScreenshotMode: boolean
 }
 
-export default function Stats({ buildState, isScreenshotMode }: Props) {
+export function Stats({ buildState, isScreenshotMode }: Props) {
   const totalArmor = getTotalArmor(buildState)
   const totalWeight = getTotalWeight(buildState)
   const totalStamina = getTotalStamina(buildState)

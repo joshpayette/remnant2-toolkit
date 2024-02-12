@@ -1,13 +1,16 @@
-import FiltersContainer from '@/features/filters/components/parts/FiltersContainer'
-import { useEffect, useMemo, useState } from 'react'
-import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import isEqual from 'lodash/isEqual'
+import { usePathname, useRouter, useSearchParams } from 'next/navigation'
+import { useEffect, useMemo, useState } from 'react'
+
+import { BossCategory } from '@/features/bosses/types'
+import { FiltersContainer } from '@/features/filters/components/parts/FiltersContainer'
+import { SearchInput } from '@/features/ui/SearchInput'
+
 import { BossTrackerFilterFields } from '../types'
-import BossCategoryFilters, {
+import {
+  BossCategoryFilters,
   DEFAULT_BOSS_FILTERS,
 } from './parts/BossCategoryFilters'
-import { BossCategory } from '@/features/bosses/types'
-import SearchInput from '@/features/ui/SearchInput'
 
 export const DEFAULT_BOSS_TRACKER_FILTERS: BossTrackerFilterFields = {
   searchText: '',
@@ -18,7 +21,7 @@ interface Props {
   onUpdateFilters: (newFilters: BossTrackerFilterFields) => void
 }
 
-export default function BossTrackerFilters({ onUpdateFilters }: Props) {
+export function BossTrackerFilters({ onUpdateFilters }: Props) {
   const router = useRouter()
   const pathname = usePathname()
   const searchParams = useSearchParams()

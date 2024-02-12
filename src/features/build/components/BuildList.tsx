@@ -1,6 +1,6 @@
-import { useEffect } from 'react'
-import Loading from '../../../app/loading'
-import BuildListPagination from './BuildListPagination'
+import Loading from '@/app/loading'
+
+import { BuildListPagination } from './BuildListPagination'
 
 interface Props {
   children: React.ReactNode
@@ -18,7 +18,7 @@ interface Props {
   onSpecificPage: (pageNumber: number) => void
 }
 
-export default function BuildList({
+export function BuildList({
   children,
   currentPage,
   firstVisibleItemNumber,

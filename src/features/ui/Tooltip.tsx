@@ -1,7 +1,8 @@
-import Tippy, { TippyProps } from '@tippyjs/react'
 import 'tippy.js/dist/tippy.css'
 
-export default function Tooltip({
+import Tippy, { TippyProps } from '@tippyjs/react'
+
+export function Tooltip({
   arrow = false,
   interactive = true,
   content,

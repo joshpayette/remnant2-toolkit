@@ -1,8 +1,9 @@
 import { remnantItemCategories } from '@/features/items/data/remnantItems'
-import { BuildState } from '../types'
 import { itemToCsvItem } from '@/features/items/lib/itemToCsvItem'
-import { TraitItem } from '@/features/items/types/TraitItem'
 import { Item } from '@/features/items/types'
+import { TraitItem } from '@/features/items/types/TraitItem'
+
+import { BuildState } from '../types'
 
 /**
  * Converts the build state into a CSV file

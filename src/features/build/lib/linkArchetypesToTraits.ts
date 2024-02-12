@@ -1,13 +1,14 @@
 import { remnantItems } from '@/features/items/data/remnantItems'
-import { BuildState } from '../types'
 import { TraitItem } from '@/features/items/types/TraitItem'
+
 import { DEFAULT_TRAIT_AMOUNT } from '../constants'
+import { BuildState } from '../types'
 
 /**
  * Checks the build archtypes and equips any traints
  * that are linked to them
  */
-export default function linkArchetypesToTraits(buildState: BuildState) {
+export function linkArchetypesToTraits(buildState: BuildState) {
   const newBuildState = { ...buildState }
 
   // Check the archtypes for linked traits

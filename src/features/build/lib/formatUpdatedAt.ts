@@ -1,6 +1,6 @@
-import { format, isWithinInterval, sub } from 'date-fns'
+import { isWithinInterval, sub } from 'date-fns'
 
-export default function formatUpdatedAt(updatedAt: Date) {
+export function formatUpdatedAt(updatedAt: Date) {
   // If the updatedAt date is less than 24 hours ago, return 'less than 24h ago'
   const lessThan24HoursAgo = isWithinInterval(new Date(updatedAt), {
     start: sub(new Date(), { hours: 24 }),

@@ -1,10 +1,12 @@
-import Dialog from '@/features/ui/Dialog'
-import { BuildState } from '../types'
 import { useState } from 'react'
+
 import { ItemInfoDialog } from '@/features/items/components/ItemInfoDialog'
+import { Item } from '@/features/items/types'
+import { Dialog } from '@/features/ui/Dialog'
+
+import { BuildState } from '../types'
 import { ArmorSuggestions } from './ArmorSuggestions'
 import { ItemTagSuggestions } from './ItemTagSuggestions'
-import { Item } from '@/features/items/types'
 
 interface Props {
   buildState: BuildState

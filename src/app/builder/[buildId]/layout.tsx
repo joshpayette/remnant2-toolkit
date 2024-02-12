@@ -1,7 +1,9 @@
+import { Metadata, ResolvingMetadata } from 'next'
+
 import { isErrorResponse } from '@/features/error-handling/isErrorResponse'
+
 import { getBuild } from '../actions'
 import BuildPage from './page'
-import { Metadata, ResolvingMetadata } from 'next'
 
 export async function generateMetadata(
   { params: { buildId } }: { params: { buildId: string } },

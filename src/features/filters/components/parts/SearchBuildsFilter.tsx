@@ -1,5 +1,6 @@
-import SearchInput from '@/features/ui/SearchInput'
 import { XMarkIcon } from '@heroicons/react/24/solid'
+
+import { SearchInput } from '@/features/ui/SearchInput'
 
 interface Props {
   searchText: string
@@ -7,7 +8,7 @@ interface Props {
   onChange: (searchQuery: string) => void
 }
 
-export default function SearchBuildsFilter({
+export function SearchBuildsFilter({
   searchText,
   onApplyFilters,
   onChange,

@@ -1,19 +1,29 @@
 'use server'
 
-import { prisma } from '@/features/db'
 import { Prisma } from '@prisma/client'
-import { bigIntFix } from '@/lib/bigIntFix'
-import { DBBuild } from '../types'
-import { PaginationResponse } from '@/features/pagination/usePagination'
+
 import { getServerSession } from '@/features/auth/lib'
-import {
-  archetypeFiltersToIds,
-  limitByArchetypesSegment,
-} from '@/features/filters/queries/segments/limitByArchtypes'
+import { prisma } from '@/features/db'
 import {
   communityBuildsCountQuery,
   communityBuildsQuery,
 } from '@/features/filters/queries/community-builds'
+import { getOrderBySegment } from '@/features/filters/queries/segments/getOrderBySegment'
+import {
+  amuletFilterToId,
+  limitByAmuletSegment,
+} from '@/features/filters/queries/segments/limitByAmulet'
+import {
+  archetypeFiltersToIds,
+  limitByArchetypesSegment,
+} from '@/features/filters/queries/segments/limitByArchtypes'
+import { limitByBuildNameOrDescriptionSegment } from '@/features/filters/queries/segments/limitByBuildNameOrDescription'
+import { limitByReleasesSegment } from '@/features/filters/queries/segments/limitByRelease'
+import {
+  limitByRingSegment,
+  ringFilterToId,
+} from '@/features/filters/queries/segments/limitByRing'
+import { limitByTimeConditionSegment } from '@/features/filters/queries/segments/limitByTimeCondition'
 import {
   limitByWeaponsSegment,
   weaponFiltersToIds,
@@ -23,18 +33,10 @@ import {
   OrderBy,
   TimeRange,
 } from '@/features/filters/types'
-import { limitByReleasesSegment } from '@/features/filters/queries/segments/limitByRelease'
-import { limitByTimeConditionSegment } from '@/features/filters/queries/segments/limitByTimeCondition'
-import getOrderBySegment from '@/features/filters/queries/segments/getOrderBySegment'
-import {
-  amuletFilterToId,
-  limitByAmuletSegment,
-} from '@/features/filters/queries/segments/limitByAmulet'
-import {
-  limitByRingSegment,
-  ringFilterToId,
-} from '@/features/filters/queries/segments/limitByRing'
-import { limitByBuildNameOrDescriptionSegment } from '@/features/filters/queries/segments/limitByBuildNameOrDescription'
+import { PaginationResponse } from '@/features/pagination/usePagination'
+import { bigIntFix } from '@/lib/bigIntFix'
+
+import { DBBuild } from '../types'
 
 export async function getCommunityBuilds({
   buildListFilters,

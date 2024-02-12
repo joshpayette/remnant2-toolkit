@@ -1,31 +1,32 @@
 'use server'
 
-import { PaginationResponse } from '@/features/pagination/usePagination'
-import { prisma } from '@/features/db'
-import { DBBuild } from '@/features/build/types'
 import { Prisma, User, UserProfile } from '@prisma/client'
-import { bigIntFix } from '@/lib/bigIntFix'
+
+import { DBBuild } from '@/features/build/types'
+import { prisma } from '@/features/db'
 import { ErrorResponse } from '@/features/error-handling/types'
+import {
+  communityBuildsCountQuery,
+  communityBuildsQuery,
+} from '@/features/filters/queries/community-builds'
+import { getOrderBySegment } from '@/features/filters/queries/segments/getOrderBySegment'
+import {
+  archetypeFiltersToIds,
+  limitByArchetypesSegment,
+} from '@/features/filters/queries/segments/limitByArchtypes'
+import { limitByReleasesSegment } from '@/features/filters/queries/segments/limitByRelease'
+import { limitByTimeConditionSegment } from '@/features/filters/queries/segments/limitByTimeCondition'
+import {
+  limitByWeaponsSegment,
+  weaponFiltersToIds,
+} from '@/features/filters/queries/segments/limitByWeapons'
 import {
   BuildListFilterFields,
   OrderBy,
   TimeRange,
 } from '@/features/filters/types'
-import {
-  archetypeFiltersToIds,
-  limitByArchetypesSegment,
-} from '@/features/filters/queries/segments/limitByArchtypes'
-import {
-  limitByWeaponsSegment,
-  weaponFiltersToIds,
-} from '@/features/filters/queries/segments/limitByWeapons'
-import { limitByReleasesSegment } from '@/features/filters/queries/segments/limitByRelease'
-import { limitByTimeConditionSegment } from '@/features/filters/queries/segments/limitByTimeCondition'
-import {
-  communityBuildsCountQuery,
-  communityBuildsQuery,
-} from '@/features/filters/queries/community-builds'
-import getOrderBySegment from '@/features/filters/queries/segments/getOrderBySegment'
+import { PaginationResponse } from '@/features/pagination/usePagination'
+import { bigIntFix } from '@/lib/bigIntFix'
 
 export async function getProfile(userId: string): Promise<
   | ErrorResponse

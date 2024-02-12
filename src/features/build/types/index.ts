@@ -1,3 +1,5 @@
+import { Build, BuildItems } from '@prisma/client'
+
 import { AmuletItem } from '@/features/items/types/AmuletItem'
 import { ArchetypeItem } from '@/features/items/types/ArchetypeItem'
 import { ArmorItem } from '@/features/items/types/ArmorItem'
@@ -12,7 +14,6 @@ import { RingItem } from '@/features/items/types/RingItem'
 import { SkillItem } from '@/features/items/types/SkillItem'
 import { TraitItem } from '@/features/items/types/TraitItem'
 import { WeaponItem } from '@/features/items/types/WeaponItem'
-import { Build, BuildItems } from '@prisma/client'
 
 export type ItemCategory = keyof BuildState['items']
 

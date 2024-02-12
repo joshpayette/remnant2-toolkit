@@ -1,9 +1,10 @@
-import Input from '@/features/ui/Input'
-import { cn } from '@/lib/classnames'
 import { PencilIcon } from '@heroicons/react/24/solid'
 import { useState } from 'react'
 
-export default function BuilderName({
+import { Input } from '@/features/ui/Input'
+import { cn } from '@/lib/classnames'
+
+export function BuilderName({
   isEditable,
   isEditingBuildName,
   isScreenshotMode,

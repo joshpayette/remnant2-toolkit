@@ -1,19 +1,22 @@
-import { Archetype, ReleaseKey } from '@/features/items/types'
-import FiltersContainer from '@/features/filters/components/parts/FiltersContainer'
-import ArchetypeFilters from '@/features/filters/components/parts/ArchetypeFilters'
-import WeaponFilters, {
-  DEFAULT_WEAPON_FILTERS,
-} from '@/features/filters/components/parts/WeaponFilters'
-import ReleaseFilters, { DEFAULT_RELEASE_FILTERS } from './parts/ReleaseFilters'
-import JewelryFilters, { DEFAULT_JEWELRY_FILTERS } from './parts/JewelryFilters'
-import SearchBuildsFilter from './parts/SearchBuildsFilter'
+import isEqual from 'lodash/isEqual'
+import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import { useEffect, useMemo, useState } from 'react'
+
+import { ArchetypeFilters } from '@/features/filters/components/parts/ArchetypeFilters'
+import { FiltersContainer } from '@/features/filters/components/parts/FiltersContainer'
+import {
+  DEFAULT_WEAPON_FILTERS,
+  WeaponFilters,
+} from '@/features/filters/components/parts/WeaponFilters'
 import { RELEASE_TO_NAME } from '@/features/items/constants'
 import { remnantItems } from '@/features/items/data/remnantItems'
+import { Archetype, ReleaseKey } from '@/features/items/types'
 import { WeaponItem } from '@/features/items/types/WeaponItem'
-import { usePathname, useRouter, useSearchParams } from 'next/navigation'
-import isEqual from 'lodash/isEqual'
+
 import { BuildListFilterFields } from '../types'
+import { DEFAULT_JEWELRY_FILTERS, JewelryFilters } from './parts/JewelryFilters'
+import { DEFAULT_RELEASE_FILTERS, ReleaseFilters } from './parts/ReleaseFilters'
+import { SearchBuildsFilter } from './parts/SearchBuildsFilter'
 
 const DEFAULT_BUILD_LIST_FILTERS: BuildListFilterFields = {
   amulet: DEFAULT_JEWELRY_FILTERS.amulet,
@@ -30,7 +33,7 @@ interface Props {
   onUpdateFilters: (newFilters: BuildListFilterFields) => void
 }
 
-export default function BuildListFilters({ onUpdateFilters }: Props) {
+export function BuildListFilters({ onUpdateFilters }: Props) {
   const router = useRouter()
   const pathname = usePathname()
   const searchParams = useSearchParams()

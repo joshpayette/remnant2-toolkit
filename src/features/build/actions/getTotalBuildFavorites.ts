@@ -3,7 +3,7 @@
 import { getServerSession } from '@/features/auth/lib'
 import { prisma } from '@/features/db'
 
-export default async function getTotalBuildFavorites() {
+export async function getTotalBuildFavorites() {
   const session = await getServerSession()
 
   if (!session?.user) return 0

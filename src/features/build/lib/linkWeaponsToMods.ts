@@ -1,12 +1,13 @@
 import { remnantItems } from '@/features/items/data/remnantItems'
-import { BuildState } from '../types'
 import { ModItem } from '@/features/items/types/ModItem'
+
+import { BuildState } from '../types'
 
 /**
  * Checks the build weapons and equips any mods
  * that are linked to them
  */
-export default function linkWeaponsToMods(buildState: BuildState) {
+export function linkWeaponsToMods(buildState: BuildState) {
   const newBuildState = { ...buildState }
 
   // Check the weapons for linked mods

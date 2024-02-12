@@ -1,5 +1,6 @@
-import { remnantItems } from '@/features/items/data/remnantItems'
 import { Prisma } from '@prisma/client'
+
+import { remnantItems } from '@/features/items/data/remnantItems'
 
 export function limitByWeaponsSegment(weaponIds: string[]) {
   return weaponIds.length === 0

@@ -1,11 +1,10 @@
-import Image from 'next/image'
 import { WeaponItem } from '../types/WeaponItem'
 
 interface Props {
   item: WeaponItem
 }
 
-export default function WeaponInfo({ item }: Props) {
+export function WeaponInfo({ item }: Props) {
   return (
     <dl className="flex w-full flex-grow flex-col justify-start">
       <dd className="flex w-full flex-row items-center justify-start">

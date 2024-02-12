@@ -1,19 +1,21 @@
+import isEqual from 'lodash.isequal'
+import { usePathname, useRouter, useSearchParams } from 'next/navigation'
+import { useEffect, useMemo, useState } from 'react'
+
+import { ItemCategory } from '@/features/build/types'
 import { remnantItemCategories } from '@/features/items/data/remnantItems'
-import CollectedItemFilters, {
+import { ReleaseKey } from '@/features/items/types'
+import { capitalize } from '@/lib/capitalize'
+
+import { ItemLookupFilterFields } from '../types'
+import {
+  CollectedItemFilters,
   DEFAULT_COLLECTION_FILTERS,
 } from './parts/CollectedItemFilters'
-import { ItemCategory } from '@/features/build/types'
-import ReleaseFilters, { DEFAULT_RELEASE_FILTERS } from './parts/ReleaseFilters'
-import { ItemLookupFilterFields } from '../types'
-import { usePathname, useRouter, useSearchParams } from 'next/navigation'
-import FiltersContainer from './parts/FiltersContainer'
-import { useEffect, useMemo, useState } from 'react'
-import { RELEASE_TO_NAME } from '@/features/items/constants'
-import { ReleaseKey } from '@/features/items/types'
-import SearchItemsFilter from './parts/SearchItemsFilter'
-import isEqual from 'lodash.isequal'
-import { capitalize } from '@/lib/capitalize'
-import ItemCategoryFilters from './parts/ItemCategoryFilters'
+import { FiltersContainer } from './parts/FiltersContainer'
+import { ItemCategoryFilters } from './parts/ItemCategoryFilters'
+import { DEFAULT_RELEASE_FILTERS, ReleaseFilters } from './parts/ReleaseFilters'
+import { SearchItemsFilter } from './parts/SearchItemsFilter'
 
 const DEFAULT_ITEM_CATEGORY_FILTERS: ItemCategory[] =
   remnantItemCategories.sort((a, b) => {
@@ -33,7 +35,7 @@ interface Props {
   onUpdateFilters: (newFilters: ItemLookupFilterFields) => void
 }
 
-export default function ItemLookupFilters({ onUpdateFilters }: Props) {
+export function ItemLookupFilters({ onUpdateFilters }: Props) {
   const router = useRouter()
   const pathname = usePathname()
   const searchParams = useSearchParams()

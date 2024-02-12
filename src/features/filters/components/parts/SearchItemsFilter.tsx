@@ -1,5 +1,6 @@
-import SearchInput from '@/features/ui/SearchInput'
-import SearchTagsFilter from './SearchTagsFilter'
+import { SearchInput } from '@/features/ui/SearchInput'
+
+import { SearchTagsFilter } from './SearchTagsFilter'
 
 interface Props {
   selectedSearchTag: string
@@ -10,7 +11,7 @@ interface Props {
   onApplyFilters: () => void
 }
 
-export default function SearchItemsFilter({
+export function SearchItemsFilter({
   searchText,
   selectedSearchTag,
   onApplyFilters,

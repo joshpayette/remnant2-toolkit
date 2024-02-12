@@ -1,18 +1,20 @@
-import { WeaponItem } from '../types/WeaponItem'
-import WeaponInfo from './WeaponInfo'
-import { cn } from '@/lib/classnames'
-import { ShareIcon } from '@heroicons/react/24/solid'
-import { toast } from 'react-toastify'
-import copy from 'clipboard-copy'
-import { cleanItemName } from '../lib/cleanItemName'
-import { TraitItem } from '../types/TraitItem'
-import { MutatorItem } from '../types/MutatorItem'
-import { ArmorItem } from '../types/ArmorItem'
-import ArmorInfo from './ArmorInfo'
-import DescriptionWithTags from './DescriptionWithTags'
 import { InformationCircleIcon } from '@heroicons/react/24/outline'
+import { ShareIcon } from '@heroicons/react/24/solid'
+import copy from 'clipboard-copy'
 import Image from 'next/image'
+import { toast } from 'react-toastify'
+
+import { cn } from '@/lib/classnames'
+
+import { cleanItemName } from '../lib/cleanItemName'
 import { Item } from '../types'
+import { ArmorItem } from '../types/ArmorItem'
+import { MutatorItem } from '../types/MutatorItem'
+import { TraitItem } from '../types/TraitItem'
+import { WeaponItem } from '../types/WeaponItem'
+import { ArmorInfo } from './ArmorInfo'
+import { DescriptionWithTags } from './DescriptionWithTags'
+import { WeaponInfo } from './WeaponInfo'
 
 interface Props {
   index: number

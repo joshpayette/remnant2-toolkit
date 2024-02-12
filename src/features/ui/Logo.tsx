@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
-export default function Logo({ showUrl = false }: { showUrl?: boolean }) {
+export function Logo({ showUrl = false }: { showUrl?: boolean }) {
   return (
     <Link href="/" className="-m-1.5 flex items-center justify-start p-1.5">
       <Image

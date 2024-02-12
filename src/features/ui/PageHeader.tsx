@@ -4,11 +4,7 @@ interface PageHeaderProps {
   subtitle?: React.ReactNode
 }
 
-export default function PageHeader({
-  children,
-  title,
-  subtitle,
-}: PageHeaderProps) {
+export function PageHeader({ children, title, subtitle }: PageHeaderProps) {
   return (
     <div className="mb-4 flex max-w-md flex-col p-4 text-center">
       {title && (

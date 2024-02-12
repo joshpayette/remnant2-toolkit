@@ -1,16 +1,18 @@
-import ClearFiltersButton from '@/features/filters/components/parts/ClearFiltersButton'
-import SearchInput from '@/features/ui/SearchInput'
-import { useLocalStorage } from '@/features/localstorage/useLocalStorage'
-import { cn } from '@/lib/classnames'
-import { ItemCategory } from '@/features/build/types'
 import { useEffect, useState } from 'react'
 import { useDebounce } from 'usehooks-ts'
-import { FilteredItem } from '@/features/items/hooks/useFilteredItems'
+
+import { ItemCategory } from '@/features/build/types'
+import { ClearFiltersButton } from '@/features/filters/components/parts/ClearFiltersButton'
 import { remnantItemCategories } from '@/features/items/data/remnantItems'
-import { capitalize } from '@/lib/capitalize'
+import { FilteredItem } from '@/features/items/hooks/useFilteredItems'
+import { useLocalStorage } from '@/features/localstorage/useLocalStorage'
 import { Checkbox } from '@/features/ui/Checkbox'
-import { ReleaseKey } from '../../features/items/types'
+import { SearchInput } from '@/features/ui/SearchInput'
+import { capitalize } from '@/lib/capitalize'
+import { cn } from '@/lib/classnames'
+
 import { RELEASE_TO_NAME } from '../../features/items/constants'
+import { ReleaseKey } from '../../features/items/types'
 
 type FilterItemCategory = ItemCategory
 
@@ -21,7 +23,7 @@ interface Props {
   onUpdate: (filteredItems: FilteredItem[]) => void
 }
 
-export default function Filters({
+export function Filters({
   allItems,
   itemCategories,
   showBorder = true,

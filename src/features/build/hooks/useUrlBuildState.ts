@@ -1,26 +1,28 @@
-import { usePathname, useSearchParams, useRouter } from 'next/navigation'
+import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import { useCallback, useEffect } from 'react'
-import { initialBuildState } from '../lib'
+
 import { BuildState } from '@/features/build/types'
 import { remnantItemCategories } from '@/features/items/data/remnantItems'
-import { ArmorItem } from '@/features/items/types/ArmorItem'
-import { WeaponItem } from '@/features/items/types/WeaponItem'
-import { ModItem } from '@/features/items/types/ModItem'
-import { MutatorItem } from '@/features/items/types/MutatorItem'
-import { TraitItem } from '@/features/items/types/TraitItem'
-import { PerkItem } from '@/features/items/types/PerkItem'
-import { buildStateToCsvData } from '../lib/buildStateToCsvData'
-import { buildStateToMasonryItems } from '../lib/buildStateToMasonryItems'
-import linkWeaponsToMods from '../lib/linkWeaponsToMods'
-import linkArchetypesToTraits from '../lib/linkArchetypesToTraits'
-import { RelicItem } from '@/features/items/types/RelicItem'
 import { AmuletItem } from '@/features/items/types/AmuletItem'
 import { ArchetypeItem } from '@/features/items/types/ArchetypeItem'
+import { ArmorItem } from '@/features/items/types/ArmorItem'
 import { ConcoctionItem } from '@/features/items/types/ConcoctionItem'
 import { ConsumableItem } from '@/features/items/types/ConsumableItem'
+import { ModItem } from '@/features/items/types/ModItem'
+import { MutatorItem } from '@/features/items/types/MutatorItem'
+import { PerkItem } from '@/features/items/types/PerkItem'
 import { RelicFragmentItem } from '@/features/items/types/RelicFragmentItem'
+import { RelicItem } from '@/features/items/types/RelicItem'
 import { RingItem } from '@/features/items/types/RingItem'
 import { SkillItem } from '@/features/items/types/SkillItem'
+import { TraitItem } from '@/features/items/types/TraitItem'
+import { WeaponItem } from '@/features/items/types/WeaponItem'
+
+import { initialBuildState } from '../lib'
+import { buildStateToCsvData } from '../lib/buildStateToCsvData'
+import { buildStateToMasonryItems } from '../lib/buildStateToMasonryItems'
+import { linkArchetypesToTraits } from '../lib/linkArchetypesToTraits'
+import { linkWeaponsToMods } from '../lib/linkWeaponsToMods'
 
 /**
  * Handles reading/writing the build to the URL query string,
@@ -29,7 +31,7 @@ import { SkillItem } from '@/features/items/types/SkillItem'
  * @example Adds a `name` parameter to the query string
  * router.push(`${pathname}?${createQueryString('name', name)}`)
  */
-export default function useUrlBuildState() {
+export function useUrlBuildState() {
   // Hooks for monitoring the URL query string
   const router = useRouter()
   const pathname = usePathname()

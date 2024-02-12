@@ -4,6 +4,7 @@ import {
   ChevronLeftIcon,
   ChevronRightIcon,
 } from '@heroicons/react/24/solid'
+
 import { cn } from '../../../lib/classnames'
 
 interface Props {
@@ -18,7 +19,7 @@ interface Props {
   onSpecificPage: (pageNumber: number) => void
 }
 
-export default function BuildListPagination({
+export function BuildListPagination({
   currentPage,
   firstVisibleItemNumber,
   lastVisibleItemNumber,

@@ -1,15 +1,17 @@
 'use client'
 
-import DisplayName from './DisplayName'
-import Bio from './Bio'
-import { getUserBio } from '../../app/profile/actions'
+import { StarIcon } from '@heroicons/react/24/solid'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
-import LoadingIndicator from '@/features/ui/LoadingIndicator'
-import { DEFAULT_DISPLAY_NAME } from './constants'
+
 import { isErrorResponse } from '@/features/error-handling/isErrorResponse'
-import { StarIcon } from '@heroicons/react/24/solid'
-import getTotalBuildFavorites from '../build/actions/getTotalBuildFavorites'
+import { LoadingIndicator } from '@/features/ui/LoadingIndicator'
+
+import { getUserBio } from '../../app/profile/actions'
+import { getTotalBuildFavorites } from '../build/actions/getTotalBuildFavorites'
+import { Bio } from './Bio'
+import { DEFAULT_DISPLAY_NAME } from './constants'
+import { DisplayName } from './DisplayName'
 
 interface Props {
   editable: boolean
@@ -17,7 +19,7 @@ interface Props {
   userId: string
 }
 
-export default function ProfileHeader({ editable, userId, image }: Props) {
+export function ProfileHeader({ editable, userId, image }: Props) {
   const [userProfile, setUserProfile] = useState<{
     bio?: string
     displayName: string

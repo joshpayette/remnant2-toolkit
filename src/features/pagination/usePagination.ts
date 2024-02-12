@@ -1,5 +1,5 @@
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
-import { useCallback, useEffect, useMemo } from 'react'
+import { useCallback, useMemo } from 'react'
 
 export interface PaginationResponse<ItemType> {
   items: ItemType[]
@@ -47,10 +47,7 @@ interface Props {
  *      getItemsAsync()
  *    }, [currentPage])
  */
-export default function usePagination({
-  itemsPerPage = 5,
-  totalItemCount,
-}: Props) {
+export function usePagination({ itemsPerPage = 5, totalItemCount }: Props) {
   const router = useRouter()
   const pathname = usePathname()
   const searchParams = useSearchParams()

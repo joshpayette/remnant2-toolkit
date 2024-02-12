@@ -12,7 +12,7 @@ interface Props {
 
 const allReleases: ReleaseKey[] = Object.keys(RELEASE_TO_NAME) as ReleaseKey[]
 
-export default function ReleaseFilters({ selectedReleases, onChange }: Props) {
+export function ReleaseFilters({ selectedReleases, onChange }: Props) {
   return (
     <div className="col-span-full pt-2">
       <div className="flex w-full flex-col items-start justify-start gap-x-4 gap-y-2">

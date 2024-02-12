@@ -1,7 +1,7 @@
 {
   "root": true,
   "extends": ["next/core-web-vitals"],
-  "plugins": ["testing-library"],
+  "plugins": ["testing-library", "simple-import-sort"],
   "overrides": [
     // Only uses Testing Library lint rules in test files
     {
@@ -13,6 +13,8 @@
     }
   ],
   "rules": {
-    "@next/next/no-img-element": "off"
+    "@next/next/no-img-element": "off",
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error"
   }
 }

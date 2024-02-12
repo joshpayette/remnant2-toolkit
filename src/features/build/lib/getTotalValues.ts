@@ -1,7 +1,8 @@
-import { Item } from '@/features/items/types'
-import { BuildState } from '../types'
-import { TraitItem } from '@/features/items/types/TraitItem'
 import { WEIGHT_CLASSES } from '@/features/items/constants'
+import { Item } from '@/features/items/types'
+import { TraitItem } from '@/features/items/types/TraitItem'
+
+import { BuildState } from '../types'
 
 function getItemsByKey(
   buildState: BuildState,

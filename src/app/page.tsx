@@ -1,11 +1,12 @@
 'use client'
 
-import Link from 'next/link'
 import { ArrowRightIcon } from '@heroicons/react/24/solid'
 import Image from 'next/image'
-import { NAV_ITEMS } from '@/features/navigation/constants'
+import Link from 'next/link'
 import { useEffect, useState } from 'react'
-import getTotalBuildCount from '@/features/build/actions/getTotalBuildCount'
+
+import { getTotalBuildCount } from '@/features/build/actions/getTotalBuildCount'
+import { NAV_ITEMS } from '@/features/navigation/constants'
 
 export default function HomePage() {
   const [totalBuildCount, setTotalBuildCount] = useState<number | string>(

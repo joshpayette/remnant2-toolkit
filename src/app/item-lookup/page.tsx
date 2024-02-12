@@ -1,20 +1,22 @@
 'use client'
 
-import ToCsvButton from '@/features/csv/ToCsvButton'
-import PageHeader from '@/features/ui/PageHeader'
-import { remnantItems } from '@/features/items/data/remnantItems'
-import { itemToCsvItem } from '@/features/items/lib/itemToCsvItem'
-import { MutatorItem } from '@/features/items/types/MutatorItem'
-import MasonryItemList from '@/features/items/components/MasonryItemList'
-import ItemLookupFilters, {
-  DEFAULT_ITEM_LOOKUP_FILTERS,
-} from '@/features/filters/components/ItemLookupFilters'
 import { useMemo, useState } from 'react'
-import { ItemLookupFilterFields } from '@/features/filters/types'
-import { useLocalStorage } from '@/features/localstorage/useLocalStorage'
+
 import { ItemCategory } from '@/features/build/types'
-import { ReleaseKey } from '@/features/items/types'
+import { ToCsvButton } from '@/features/csv/ToCsvButton'
+import {
+  DEFAULT_ITEM_LOOKUP_FILTERS,
+  ItemLookupFilters,
+} from '@/features/filters/components/ItemLookupFilters'
+import { ItemLookupFilterFields } from '@/features/filters/types'
+import { MasonryItemList } from '@/features/items/components/MasonryItemList'
+import { remnantItems } from '@/features/items/data/remnantItems'
 import { itemMatchesSearchText } from '@/features/items/lib/itemMatchesSearchText'
+import { itemToCsvItem } from '@/features/items/lib/itemToCsvItem'
+import { ReleaseKey } from '@/features/items/types'
+import { MutatorItem } from '@/features/items/types/MutatorItem'
+import { useLocalStorage } from '@/features/localstorage/useLocalStorage'
+import { PageHeader } from '@/features/ui/PageHeader'
 
 const csvItems = remnantItems // Modify the data for use. Adds a discovered flag,
   // modifies the description for mutators

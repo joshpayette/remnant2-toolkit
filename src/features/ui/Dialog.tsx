@@ -1,9 +1,10 @@
 'use client'
 
-import { Fragment } from 'react'
 import { Dialog as BaseDialog, Transition } from '@headlessui/react'
-import { cn } from '@/lib/classnames'
 import { XMarkIcon } from '@heroicons/react/24/solid'
+import { Fragment } from 'react'
+
+import { cn } from '@/lib/classnames'
 
 interface DialogProps {
   children?: React.ReactNode
@@ -26,7 +27,7 @@ interface DialogProps {
   zIndex?: 'z-10' | 'z-20' | 'z-30' | 'z-40' | 'z-50'
 }
 
-export default function Dialog({
+export function Dialog({
   children,
   maxWidthClass,
   open,

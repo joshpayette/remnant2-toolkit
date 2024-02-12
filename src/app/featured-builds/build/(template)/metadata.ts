@@ -1,5 +1,6 @@
-import { type PageInfo } from '../../types'
 import { metadata as baseMetaData } from '@/app/metadata'
+
+import { type PageInfo } from '../../types'
 
 const title = `YOUR BUILD NAME`
 const creator = `YOUR NAME`

@@ -1,20 +1,22 @@
 'use client'
 
-import ArchtypeLabel from './ArchtypeLabel'
-import { StarIcon } from '@heroicons/react/24/solid'
-import { cn } from '@/lib/classnames'
 import { FlagIcon as FlagIconOff } from '@heroicons/react/24/outline'
+import { StarIcon } from '@heroicons/react/24/solid'
 import { FlagIcon as FlagIconOn } from '@heroicons/react/24/solid'
 import Link from 'next/link'
-import PopularBuildBadge from './PopularBuildBadge'
-import { DBBuild } from '../types'
+
+import { DescriptionWithTags } from '@/features/items/components/DescriptionWithTags'
+import { Tooltip } from '@/features/ui/Tooltip'
+import { cn } from '@/lib/classnames'
+
 import { POPULAR_VOTE_THRESHOLD } from '../constants'
 import { dbBuildToBuildState } from '../lib/dbBuildToBuildState'
-import Tooltip from '@/features/ui/Tooltip'
-import DescriptionWithTags from '@/features/items/components/DescriptionWithTags'
-import NewBuildBadge from './NewBuildBadge'
-import isBuildNew from '../lib/isBuildNew'
-import formatUpdatedAt from '../lib/formatUpdatedAt'
+import { formatUpdatedAt } from '../lib/formatUpdatedAt'
+import { isBuildNew } from '../lib/isBuildNew'
+import { DBBuild } from '../types'
+import { ArchtypeLabel } from './ArchtypeLabel'
+import { NewBuildBadge } from './NewBuildBadge'
+import { PopularBuildBadge } from './PopularBuildBadge'
 
 interface Props {
   build: DBBuild
@@ -23,7 +25,7 @@ interface Props {
   onReportBuild: ((buildId: string) => void) | undefined
 }
 
-export default function BuildCard({
+export function BuildCard({
   build,
   footerActions,
   memberFrameEnabled = true,

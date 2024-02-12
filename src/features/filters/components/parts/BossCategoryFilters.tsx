@@ -13,7 +13,7 @@ interface Props {
   onUpdate: (category: BossCategory) => void
 }
 
-export default function BossCategoryFilters({
+export function BossCategoryFilters({
   selectedBossCategories,
   onUpdate,
 }: Props) {

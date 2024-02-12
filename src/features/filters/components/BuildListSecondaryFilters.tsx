@@ -1,4 +1,5 @@
-import SelectMenu from '@/features/ui/SelectMenu'
+import { SelectMenu } from '@/features/ui/SelectMenu'
+
 import { OrderBy, TimeRange } from '../types'
 
 interface Props {
@@ -16,7 +17,7 @@ interface Props {
   onTimeRangeChange: (timeRange: string) => void
 }
 
-export default function BuildListSecondaryFilters({
+export function BuildListSecondaryFilters({
   orderBy,
   orderByOptions,
   timeRange,

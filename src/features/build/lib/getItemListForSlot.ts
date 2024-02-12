@@ -1,16 +1,17 @@
-import { BuildState, ItemCategory } from '../types'
 import { remnantItems } from '@/features/items/data/remnantItems'
-import { WeaponItem } from '@/features/items/types/WeaponItem'
-import { MutatorItem } from '@/features/items/types/MutatorItem'
-import { ArchetypeItem } from '@/features/items/types/ArchetypeItem'
 import { Item } from '@/features/items/types'
+import { ArchetypeItem } from '@/features/items/types/ArchetypeItem'
+import { MutatorItem } from '@/features/items/types/MutatorItem'
+import { WeaponItem } from '@/features/items/types/WeaponItem'
+
+import { BuildState, ItemCategory } from '../types'
 
 /**
  * Returns a list of items that match the selected slot
  * Takes into account the build's current items and the selected slot
  * This is passed to the ItemSelect modal to display the correct items
  */
-export default function getItemListForSlot(
+export function getItemListForSlot(
   buildState: BuildState,
   selectedItem: {
     category: ItemCategory | null

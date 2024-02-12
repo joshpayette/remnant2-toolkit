@@ -2,7 +2,7 @@
 
 import { useRouter } from 'next/navigation'
 
-export default function EditBuildButton({ buildId }: { buildId: string }) {
+export function EditBuildButton({ buildId }: { buildId: string }) {
   const router = useRouter()
 
   function handleEditBuild() {

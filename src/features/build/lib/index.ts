@@ -1,5 +1,6 @@
-import { BuildState } from '@/features/build/types'
 import { z } from 'zod'
+
+import { BuildState } from '@/features/build/types'
 
 export const buildStateSchema = z.object({
   name: z.string(),

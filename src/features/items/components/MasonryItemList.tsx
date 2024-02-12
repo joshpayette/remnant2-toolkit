@@ -1,8 +1,9 @@
 'use client'
 
-import { useState } from 'react'
 import { Masonry } from 'masonic'
+import { useState } from 'react'
 import { useIsClient } from 'usehooks-ts'
+
 import { Item } from '../types'
 import { ItemInfoDialog } from './ItemInfoDialog'
 import { MasonryCard } from './MasonryCard'
@@ -12,7 +13,7 @@ type Props = {
   items: Item[]
 }
 
-export default function MasonryItemList({ items, label = 'Items' }: Props) {
+export function MasonryItemList({ items, label = 'Items' }: Props) {
   const [selectedItem, setSelectedItem] = useState<Item | null>(null)
   const infoOpen = selectedItem !== null
 

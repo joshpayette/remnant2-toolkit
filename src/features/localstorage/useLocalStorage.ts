@@ -1,4 +1,5 @@
 import { useLocalStorage as useLS } from 'usehooks-ts'
+
 import { BossCategory } from '../bosses/types'
 import { ItemCategory } from '../build/types'
 

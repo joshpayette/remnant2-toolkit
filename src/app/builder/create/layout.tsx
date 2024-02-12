@@ -1,8 +1,9 @@
 'use server'
 
-import { getServerSession } from '@/features/auth/lib'
 import { redirect } from 'next/navigation'
 import React from 'react'
+
+import { getServerSession } from '@/features/auth/lib'
 
 export default async function Layout({
   children,

@@ -1,15 +1,16 @@
+import { PrismaAdapter } from '@auth/prisma-adapter'
 import type {
   GetServerSidePropsContext,
   NextApiRequest,
   NextApiResponse,
 } from 'next'
-import { NextAuthOptions, getServerSession as auth } from 'next-auth'
+import { redirect } from 'next/navigation'
+import { getServerSession as auth, NextAuthOptions } from 'next-auth'
+import { AdapterUser } from 'next-auth/adapters'
 import DiscordProvider from 'next-auth/providers/discord'
 import RedditProvider from 'next-auth/providers/reddit'
-import { PrismaAdapter } from '@auth/prisma-adapter'
+
 import { prisma } from '@/features/db'
-import { AdapterUser } from 'next-auth/adapters'
-import { redirect } from 'next/navigation'
 import { DEFAULT_DISPLAY_NAME } from '@/features/profile/constants'
 
 export const authOptions: NextAuthOptions = {

@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 
-export default function ViewBuildButton({
+export function ViewBuildButton({
   buildId,
   buildName,
 }: {

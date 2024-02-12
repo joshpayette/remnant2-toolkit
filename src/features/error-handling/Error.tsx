@@ -1,9 +1,10 @@
 'use client'
 
-import PageHeader from '@/features/ui/PageHeader'
 import { useEffect } from 'react'
 
-export default function Error({
+import { PageHeader } from '@/features/ui/PageHeader'
+
+export function Error({
   error,
   reset,
 }: {

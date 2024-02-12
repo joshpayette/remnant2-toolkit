@@ -1,7 +1,8 @@
 import { XMarkIcon } from '@heroicons/react/24/solid'
-import Input from './Input'
 
-export default function SearchInput({
+import { Input } from './Input'
+
+export function SearchInput({
   onChange,
   onKeyDown,
   value,

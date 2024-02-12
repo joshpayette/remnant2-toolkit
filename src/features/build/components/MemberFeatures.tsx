@@ -1,10 +1,12 @@
 'use client'
 
-import Textarea from '@/features/ui/Textarea'
-import Toggle from '@/features/ui/Toggle'
 import { signIn, useSession } from 'next-auth/react'
+
+import { DescriptionWithTags } from '@/features/items/components/DescriptionWithTags'
+import { Textarea } from '@/features/ui/Textarea'
+import { Toggle } from '@/features/ui/Toggle'
+
 import { MAX_BUILD_DESCRIPTION_LENGTH } from '../constants'
-import DescriptionWithTags from '@/features/items/components/DescriptionWithTags'
 
 type Props = {
   description: string | null
@@ -15,7 +17,7 @@ type Props = {
   onChangeIsPublic: (isPublic: boolean) => void
 }
 
-export default function MemberFeatures({
+export function MemberFeatures({
   description,
   isEditable,
   isPublic,

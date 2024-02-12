@@ -1,8 +1,9 @@
+import { Prisma } from '@prisma/client'
+
 import {
   CommunityBuildQueryResponse,
   CommunityBuildTotalCount,
 } from '@/features/build/types'
-import { Prisma } from '@prisma/client'
 import { prisma } from '@/features/db'
 
 function userReportedBuildSegment(userId: string | undefined) {

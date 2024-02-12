@@ -1,13 +1,14 @@
 'use client'
 
-import { useSession } from 'next-auth/react'
-import PlaceHolderIcon from '../../ui/PlaceholderIcon'
-import { cn } from '../../../lib/classnames'
 import { Menu, Transition } from '@headlessui/react'
-import { Fragment } from 'react'
 import Link from 'next/link'
-import Skeleton from '../../ui/Skeleton'
+import { useSession } from 'next-auth/react'
+import { Fragment } from 'react'
+
 import { NAV_ITEMS } from '@/features/navigation/constants'
+import { PlaceHolderIcon } from '@/features/ui/PlaceholderIcon'
+import { Skeleton } from '@/features/ui/Skeleton'
+import { cn } from '@/lib/classnames'
 
 function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
   const { data: session, status } = useSession()

@@ -1,15 +1,16 @@
 'use client'
 
-import { cn } from '@/lib/classnames'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+
+import { cn } from '@/lib/classnames'
 
 const tabs = [
   { name: 'Created Builds', href: '/profile/created-builds' },
   { name: 'Favorited Builds', href: '/profile/favorited-builds' },
 ]
 
-export default function Tabs() {
+export function Tabs() {
   const pathname = usePathname()
 
   // get the current tab based on the pathname

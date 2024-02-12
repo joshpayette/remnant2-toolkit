@@ -1,6 +1,7 @@
+import { Tooltip } from '@/features/ui/Tooltip'
 import { cn } from '@/lib/classnames'
+
 import { DESCRIPTION_TAGS } from '../constants'
-import Tooltip from '@/features/ui/Tooltip'
 import { DescriptionTag } from '../types'
 
 function createTagElement(
@@ -68,6 +69,6 @@ interface Props {
   description: string
 }
 
-export default function DescriptionWithTags({ description }: Props) {
+export function DescriptionWithTags({ description }: Props) {
   return parseStringForToken(description)
 }

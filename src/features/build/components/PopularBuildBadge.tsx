@@ -1,8 +1,10 @@
-import Tooltip from '@/features/ui/Tooltip'
 import Image from 'next/image'
+
+import { Tooltip } from '@/features/ui/Tooltip'
+
 import { POPULAR_VOTE_THRESHOLD } from '../constants'
 
-export default function PopularBuildBadge() {
+export function PopularBuildBadge() {
   return (
     <Tooltip
       content={`Awarded to builds that exceed ${POPULAR_VOTE_THRESHOLD} favorites!`}

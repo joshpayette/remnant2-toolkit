@@ -1,6 +1,6 @@
-import ToCsvButton from '@/features/csv/ToCsvButton'
+import { ToCsvButton } from '@/features/csv/ToCsvButton'
 import { CsvItem } from '@/features/items/types'
-import Dialog from '@/features/ui/Dialog'
+import { Dialog } from '@/features/ui/Dialog'
 
 interface Props {
   csvItems: CsvItem[]
@@ -10,7 +10,7 @@ interface Props {
   onSubmit: () => void
 }
 
-export default function ImportCSVDialog({
+export function ImportCSVDialog({
   csvItems,
   fileInputRef,
   open,

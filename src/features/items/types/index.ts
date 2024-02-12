@@ -1,19 +1,20 @@
 import { ItemCategory } from '@/features/build/types'
+
 import { DESCRIPTION_TAGS, RELEASE_TO_NAME } from '../constants'
+import { AmuletItem } from './AmuletItem'
+import { ArchetypeItem } from './ArchetypeItem'
 import { ArmorItem } from './ArmorItem'
+import { ConcoctionItem } from './ConcoctionItem'
+import { ConsumableItem } from './ConsumableItem'
 import { ModItem } from './ModItem'
 import { MutatorItem } from './MutatorItem'
 import { PerkItem } from './PerkItem'
+import { RelicFragmentItem } from './RelicFragmentItem'
+import { RelicItem } from './RelicItem'
+import { RingItem } from './RingItem'
+import { SkillItem } from './SkillItem'
 import { TraitItem } from './TraitItem'
 import { WeaponItem } from './WeaponItem'
-import { AmuletItem } from './AmuletItem'
-import { RelicItem } from './RelicItem'
-import { RelicFragmentItem } from './RelicFragmentItem'
-import { ArchetypeItem } from './ArchetypeItem'
-import { SkillItem } from './SkillItem'
-import { RingItem } from './RingItem'
-import { ConsumableItem } from './ConsumableItem'
-import { ConcoctionItem } from './ConcoctionItem'
 
 export type Item =
   | AmuletItem

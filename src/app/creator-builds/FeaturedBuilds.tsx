@@ -1,25 +1,24 @@
 'use client'
 
-import { useEffect } from 'react'
-import BuildCard from '../../features/build/components/BuildCard'
-import BuildList from '@/features/build/components/BuildList'
-import usePagination from '@/features/pagination/usePagination'
 import Link from 'next/link'
+import { useEffect } from 'react'
+
 import { getFeaturedBuilds } from '@/features/build/actions/getFeaturedBuilds'
+import { BuildList } from '@/features/build/components/BuildList'
+import { useBuildListState } from '@/features/build/hooks/useBuildListState'
+import { BuildListSecondaryFilters } from '@/features/filters/components/BuildListSecondaryFilters'
+import { useBuildListSecondaryFilters } from '@/features/filters/hooks/useBuildListSecondaryFilters'
 import { BuildListFilterFields } from '@/features/filters/types'
-import useBuildListSecondaryFilters from '@/features/filters/hooks/useBuildListSecondaryFilters'
-import BuildListSecondaryFilters from '@/features/filters/components/BuildListSecondaryFilters'
-import useBuildListState from '@/features/build/hooks/useBuildListState'
+import { usePagination } from '@/features/pagination/usePagination'
+
+import { BuildCard } from '../../features/build/components/BuildCard'
 
 interface Props {
   itemsPerPage?: number
   buildListFilters: BuildListFilterFields
 }
 
-export default function FeaturedBuilds({
-  itemsPerPage = 8,
-  buildListFilters,
-}: Props) {
+export function FeaturedBuilds({ itemsPerPage = 8, buildListFilters }: Props) {
   const { buildListState, setBuildListState } = useBuildListState()
   const { builds, totalBuildCount, isLoading } = buildListState
 

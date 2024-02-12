@@ -2,7 +2,7 @@
 
 import { ArrowUpIcon } from '@heroicons/react/24/solid'
 
-export default function BackToTopButton() {
+export function BackToTopButton() {
   function handleBackToTopClick() {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }

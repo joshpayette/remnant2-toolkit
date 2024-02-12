@@ -1,12 +1,13 @@
-import Dialog from '@/features/ui/Dialog'
 import Link from 'next/link'
+
+import { Dialog } from '@/features/ui/Dialog'
 
 interface Props {
   imageLink: string | null
   onClose: () => void
 }
 
-export default function ImageDownloadLink({ imageLink, onClose }: Props) {
+export function ImageDownloadLink({ imageLink, onClose }: Props) {
   if (!imageLink) return null
 
   return (

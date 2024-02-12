@@ -7,7 +7,7 @@ interface Props {
   onUpdate: (collectionKey: string) => void
 }
 
-export default function CollectedItemFilters({
+export function CollectedItemFilters({
   selectedCollectionKeys,
   onUpdate,
 }: Props) {

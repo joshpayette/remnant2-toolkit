@@ -1,26 +1,28 @@
 import { useMemo, useState } from 'react'
+
 import { BuildState } from '@/features/build/types'
-import { Item } from '@/features/items/types'
-import { ArmorItem } from '@/features/items/types/ArmorItem'
-import { WeaponItem } from '@/features/items/types/WeaponItem'
-import { MutatorItem } from '@/features/items/types/MutatorItem'
-import { TraitItem } from '@/features/items/types/TraitItem'
 import { remnantItems } from '@/features/items/data/remnantItems'
-import { buildStateToCsvData } from '../lib/buildStateToCsvData'
-import { buildStateToMasonryItems } from '../lib/buildStateToMasonryItems'
-import linkWeaponsToMods from '../lib/linkWeaponsToMods'
-import linkArchetypesToTraits from '../lib/linkArchetypesToTraits'
-import { RelicItem } from '@/features/items/types/RelicItem'
+import { Item } from '@/features/items/types'
 import { AmuletItem } from '@/features/items/types/AmuletItem'
 import { ArchetypeItem } from '@/features/items/types/ArchetypeItem'
+import { ArmorItem } from '@/features/items/types/ArmorItem'
 import { ConcoctionItem } from '@/features/items/types/ConcoctionItem'
 import { ConsumableItem } from '@/features/items/types/ConsumableItem'
 import { ModItem } from '@/features/items/types/ModItem'
+import { MutatorItem } from '@/features/items/types/MutatorItem'
 import { RelicFragmentItem } from '@/features/items/types/RelicFragmentItem'
+import { RelicItem } from '@/features/items/types/RelicItem'
 import { RingItem } from '@/features/items/types/RingItem'
 import { SkillItem } from '@/features/items/types/SkillItem'
+import { TraitItem } from '@/features/items/types/TraitItem'
+import { WeaponItem } from '@/features/items/types/WeaponItem'
 
-export default function useDBBuildState(initialBuildState: BuildState) {
+import { buildStateToCsvData } from '../lib/buildStateToCsvData'
+import { buildStateToMasonryItems } from '../lib/buildStateToMasonryItems'
+import { linkArchetypesToTraits } from '../lib/linkArchetypesToTraits'
+import { linkWeaponsToMods } from '../lib/linkWeaponsToMods'
+
+export function useDBBuildState(initialBuildState: BuildState) {
   const [dbBuildState, setDBBuildState] =
     useState<BuildState>(initialBuildState)
 

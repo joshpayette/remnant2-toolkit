@@ -9,7 +9,7 @@ interface TextAreaProps
   onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void
 }
 
-export default function Textarea({
+export function Textarea({
   label,
   name,
   className,

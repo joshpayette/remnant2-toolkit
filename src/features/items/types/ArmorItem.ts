@@ -1,7 +1,8 @@
 import { BuildItems } from '@prisma/client'
+
 import { remnantItems } from '../data/remnantItems'
-import { BaseItem } from './BaseItem'
 import { Item } from '.'
+import { BaseItem } from './BaseItem'
 
 interface BaseArmorItem extends BaseItem {
   set?: string

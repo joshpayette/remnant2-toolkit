@@ -1,10 +1,11 @@
 'use client'
 
-import PageHeader from '@/features/ui/PageHeader'
-import FeaturedBuilds from '@/app/creator-builds/FeaturedBuilds'
 import { useState } from 'react'
-import BuildListFilters from '@/features/filters/components/BuildListFilters'
+
+import { FeaturedBuilds } from '@/app/creator-builds/FeaturedBuilds'
+import { BuildListFilters } from '@/features/filters/components/BuildListFilters'
 import { BuildListFilterFields } from '@/features/filters/types'
+import { PageHeader } from '@/features/ui/PageHeader'
 
 export default function Page() {
   const [buildListFilters, setBuildListFilters] =

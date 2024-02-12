@@ -1,5 +1,6 @@
-import { type PageInfo } from '../../types'
 import { metadata as baseMetaData } from '@/app/metadata'
+
+import { type PageInfo } from '../../types'
 
 const title = "Bolt Jamison's Bleed Crit Build"
 const creator = 'Bolt Jamison'

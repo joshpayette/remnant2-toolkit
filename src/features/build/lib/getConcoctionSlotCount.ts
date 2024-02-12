@@ -3,7 +3,7 @@ import { BuildState } from '../types'
 /**
  * Determines how many concoction slots the build has
  */
-export default function getConcoctionSlotCount(buildState: BuildState): number {
+export function getConcoctionSlotCount(buildState: BuildState): number {
   // Start at 0 since we already rendered the first concoction
   let concoctionCount = 0
 

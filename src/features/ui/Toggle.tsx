@@ -1,6 +1,7 @@
 'use client'
 
 import { Switch } from '@headlessui/react'
+
 import { cn } from '../../lib/classnames'
 
 type Props = {
@@ -8,7 +9,7 @@ type Props = {
   setEnabled: (enabled: boolean) => void
 }
 
-export default function Toggle({ enabled, setEnabled }: Props) {
+export function Toggle({ enabled, setEnabled }: Props) {
   return (
     <Switch
       checked={enabled}

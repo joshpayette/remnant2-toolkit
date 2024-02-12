@@ -1,6 +1,7 @@
 import { cn } from '@/lib/classnames'
-import ClearFiltersButton from './ClearFiltersButton'
-import ApplyFiltersButton from './ApplyFiltersButton'
+
+import { ApplyFiltersButton } from './ApplyFiltersButton'
+import { ClearFiltersButton } from './ClearFiltersButton'
 
 interface Props<T> {
   areFiltersApplied: boolean
@@ -10,7 +11,7 @@ interface Props<T> {
   onClearFilters: () => void
   onApplyFilters: (filters: T) => void
 }
-export default function FiltersContainer<T>({
+export function FiltersContainer<T>({
   areAnyFiltersActive,
   areFiltersApplied,
   children,

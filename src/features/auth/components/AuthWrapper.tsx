@@ -1,13 +1,10 @@
 'use client'
 
 import { signIn, useSession } from 'next-auth/react'
-import LoadingIndicator from '../../ui/LoadingIndicator'
 
-export default function AuthWrapper({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+import { LoadingIndicator } from '../../ui/LoadingIndicator'
+
+export function AuthWrapper({ children }: { children: React.ReactNode }) {
   const { status } = useSession()
 
   if (status === 'loading') return <LoadingIndicator />

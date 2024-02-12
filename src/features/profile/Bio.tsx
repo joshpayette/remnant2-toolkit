@@ -1,12 +1,14 @@
 'use client'
 
-import { useState } from 'react'
 import { PencilIcon } from '@heroicons/react/24/solid'
+import { useState } from 'react'
 import { toast } from 'react-toastify'
-import { updateUserBio } from '../../app/profile/actions'
-import Textarea from '@/features/ui/Textarea'
-import { MAX_PROFILE_BIO_LENGTH } from './constants'
+
 import { isErrorResponse } from '@/features/error-handling/isErrorResponse'
+import { Textarea } from '@/features/ui/Textarea'
+
+import { updateUserBio } from '../../app/profile/actions'
+import { MAX_PROFILE_BIO_LENGTH } from './constants'
 
 type Props = {
   bio: string
@@ -14,7 +16,7 @@ type Props = {
   onChangeBio: (bio: string) => void
 }
 
-export default function Bio({ bio, editable, onChangeBio }: Props) {
+export function Bio({ bio, editable, onChangeBio }: Props) {
   const [newBio, setNewBio] = useState<string>(bio)
   const [isEditing, setIsEditing] = useState(false)
 

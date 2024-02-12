@@ -1,4 +1,5 @@
 import { useState } from 'react'
+
 import { DBBuild } from '../types'
 
 interface State {
@@ -13,7 +14,7 @@ const DEFAULT_STATE: State = {
   isLoading: false,
 }
 
-export default function useBuildListState() {
+export function useBuildListState() {
   const [buildListState, setBuildListState] = useState<State>(DEFAULT_STATE)
   return { buildListState, setBuildListState }
 }

@@ -1,7 +1,7 @@
 import { remnantItems } from '@/features/items/data/remnantItems'
 import { AmuletItem } from '@/features/items/types/AmuletItem'
 import { RingItem } from '@/features/items/types/RingItem'
-import SelectMenu from '@/features/ui/SelectMenu'
+import { SelectMenu } from '@/features/ui/SelectMenu'
 
 export const DEFAULT_JEWELRY_FILTERS = {
   amulet: 'All',
@@ -25,7 +25,7 @@ interface Props {
   onChangeAmulet: (amulet: string) => void
 }
 
-export default function JewelryFilters({
+export function JewelryFilters({
   selectedRing,
   selectedAmulet,
   onChangeRing,

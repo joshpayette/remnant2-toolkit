@@ -1,25 +1,27 @@
-import { Fragment, useCallback, useMemo, useState } from 'react'
-import { cn } from '@/lib/classnames'
-import BuilderName from './BuilderName'
-import { ItemButton } from '../../items/components/ItemButton'
-import Traits from './Traits'
-import ItemSelect from './ItemSelect'
-import Logo from '@/features/ui/Logo'
-import MemberFeatures from './MemberFeatures'
-import { BuildState, ItemCategory } from '@/features/build/types'
-import PopularBuildBadge from '@/features/build/components/PopularBuildBadge'
-import Stats from './Stats'
+import { StarIcon } from '@heroicons/react/24/solid'
 import Link from 'next/link'
-import { DEFAULT_TRAIT_AMOUNT, POPULAR_VOTE_THRESHOLD } from '../constants'
+import { Fragment, useCallback, useMemo, useState } from 'react'
+
+import { PopularBuildBadge } from '@/features/build/components/PopularBuildBadge'
+import { BuildState, ItemCategory } from '@/features/build/types'
+import { ItemInfoDialog } from '@/features/items/components/ItemInfoDialog'
 import { Item } from '@/features/items/types'
 import { TraitItem } from '@/features/items/types/TraitItem'
-import { ItemInfoDialog } from '@/features/items/components/ItemInfoDialog'
-import getArrayOfLength from '../lib/getArrayOfLength'
-import getConcoctionSlotCount from '../lib/getConcoctionSlotCount'
-import getItemListForSlot from '../lib/getItemListForSlot'
-import isBuildNew from '../lib/isBuildNew'
-import NewBuildBadge from './NewBuildBadge'
-import { StarIcon } from '@heroicons/react/24/solid'
+import { Logo } from '@/features/ui/Logo'
+import { cn } from '@/lib/classnames'
+
+import { ItemButton } from '../../items/components/ItemButton'
+import { DEFAULT_TRAIT_AMOUNT, POPULAR_VOTE_THRESHOLD } from '../constants'
+import { getArrayOfLength } from '../lib/getArrayOfLength'
+import { getConcoctionSlotCount } from '../lib/getConcoctionSlotCount'
+import { getItemListForSlot } from '../lib/getItemListForSlot'
+import { isBuildNew } from '../lib/isBuildNew'
+import { BuilderName } from './BuilderName'
+import { ItemSelect } from './ItemSelect'
+import { MemberFeatures } from './MemberFeatures'
+import { NewBuildBadge } from './NewBuildBadge'
+import { Stats } from './Stats'
+import { Traits } from './Traits'
 
 type BuilderProps = {
   buildState: BuildState
@@ -44,7 +46,7 @@ type BuilderProps = {
     }
 )
 
-export default function Builder({
+export function Builder({
   buildState,
   includeMemberFeatures,
   isEditable,

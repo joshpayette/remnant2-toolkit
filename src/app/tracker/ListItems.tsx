@@ -1,15 +1,16 @@
 'use client'
 
 import { Disclosure } from '@headlessui/react'
-import { cn } from '@/lib/classnames'
-import { useIsClient } from 'usehooks-ts'
-import { useLocalStorage } from '@/features/localstorage/useLocalStorage'
 import { ChevronDownIcon } from '@heroicons/react/24/solid'
+import { useIsClient } from 'usehooks-ts'
+
 import { ItemCategory } from '@/features/build/types'
-import { WeaponItem } from '@/features/items/types/WeaponItem'
+import { ItemButton } from '@/features/items/components/ItemButton'
 import { Item } from '@/features/items/types'
 import { MutatorItem } from '@/features/items/types/MutatorItem'
-import { ItemButton } from '@/features/items/components/ItemButton'
+import { WeaponItem } from '@/features/items/types/WeaponItem'
+import { useLocalStorage } from '@/features/localstorage/useLocalStorage'
+import { cn } from '@/lib/classnames'
 
 interface ItemTrackerCategory {
   category: ItemCategory
@@ -52,11 +53,7 @@ interface ListItemsProps {
   onShowItemInfo: (itemId: string) => void
 }
 
-export default function ListItems({
-  items,
-  onClick,
-  onShowItemInfo,
-}: ListItemsProps) {
+export function ListItems({ items, onClick, onShowItemInfo }: ListItemsProps) {
   const { collapsedCategories, setCollapsedCategories } = useLocalStorage()
 
   const isClient = useIsClient()

@@ -1,9 +1,11 @@
-import { cn } from '@/lib/classnames'
-import Builder from './Builder'
-import { BuildState } from '../types'
 import { ReactNode, RefObject } from 'react'
-import MasonryItemList from '@/features/items/components/MasonryItemList'
+
+import { MasonryItemList } from '@/features/items/components/MasonryItemList'
+import { cn } from '@/lib/classnames'
+
 import { buildStateToMasonryItems } from '../lib/buildStateToMasonryItems'
+import { BuildState } from '../types'
+import { Builder } from './Builder'
 
 type Props = {
   buildContainerRef: RefObject<HTMLDivElement>
@@ -30,7 +32,7 @@ type Props = {
     }
 )
 
-export default function BuilderPage({
+export function BuilderPage({
   buildContainerRef,
   builderActions,
   buildState,

@@ -26,7 +26,7 @@ interface ToCsvProps {
   label?: string
 }
 
-export default function ToCsvButton({
+export function ToCsvButton({
   data,
   filename,
   label = 'Export All Data to CSV',

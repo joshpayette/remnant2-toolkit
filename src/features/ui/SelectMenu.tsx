@@ -9,7 +9,7 @@ interface Props
   options: Array<{ label: string; value: string }>
 }
 
-export default function SelectMenu({
+export function SelectMenu({
   label,
   name,
   options,

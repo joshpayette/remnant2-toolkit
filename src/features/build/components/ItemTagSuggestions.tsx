@@ -1,20 +1,19 @@
-import { DESCRIPTION_TAGS, ITEM_TAGS } from '@/features/items/constants'
-import SelectMenu from '@/features/ui/SelectMenu'
 import { useState } from 'react'
-import { BuildState } from '../types'
-import { Item, ItemTag } from '@/features/items/types'
-import { ItemButton } from '../../items/components/ItemButton'
+
+import { DESCRIPTION_TAGS, ITEM_TAGS } from '@/features/items/constants'
 import { remnantItems } from '@/features/items/data/remnantItems'
 import { itemMatchesSearchText } from '@/features/items/lib/itemMatchesSearchText'
-import { WeaponItem } from '@/features/items/types/WeaponItem'
+import { Item, ItemTag } from '@/features/items/types'
 import { ModItem } from '@/features/items/types/ModItem'
 import { MutatorItem } from '@/features/items/types/MutatorItem'
-import linkArchetypesToTraits from '../lib/linkArchetypesToTraits'
-import linkWeaponsToMods from '../lib/linkWeaponsToMods'
-import getConcoctionSlotCount from '../lib/getConcoctionSlotCount'
+import { WeaponItem } from '@/features/items/types/WeaponItem'
+import { SelectMenu } from '@/features/ui/SelectMenu'
 
-// TODO It's working well except for adding archetypes
-// TODO It needs to update the base trait points when adding archetypes
+import { ItemButton } from '../../items/components/ItemButton'
+import { getConcoctionSlotCount } from '../lib/getConcoctionSlotCount'
+import { linkArchetypesToTraits } from '../lib/linkArchetypesToTraits'
+import { linkWeaponsToMods } from '../lib/linkWeaponsToMods'
+import { BuildState } from '../types'
 
 /**
  * Combines the tags found in item.descriptions, as well as the item.tags

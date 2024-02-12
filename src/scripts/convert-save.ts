@@ -3,9 +3,9 @@
  * I have extracted the logic as a script so that I could run it standalone
  */
 
-import zlib from 'zlib'
 import fs from 'fs'
 import path from 'path'
+import zlib from 'zlib'
 
 function readChunkHeader(buffer: Buffer) {
   return {

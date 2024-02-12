@@ -1,4 +1,4 @@
-import Dialog from '@/features/ui/Dialog'
+import { Dialog } from '@/features/ui/Dialog'
 import { SubmitButton } from '@/features/ui/SubmitButton'
 
 interface Props {
@@ -8,7 +8,7 @@ interface Props {
   onSubmit: (payload: FormData) => void
 }
 
-export default function ImportSaveDialog({
+export function ImportSaveDialog({
   fileInputRef,
   open,
   onClose,

@@ -1,11 +1,13 @@
 'use client'
 
-import PageHeader from '../../features/ui/PageHeader'
 import { useEffect, useState } from 'react'
-import CommunityBuilds from './CommunityBuilds'
-import BuildListFilters from '@/features/filters/components/BuildListFilters'
-import getTotalBuildCount from '@/features/build/actions/getTotalBuildCount'
+
+import { getTotalBuildCount } from '@/features/build/actions/getTotalBuildCount'
+import { BuildListFilters } from '@/features/filters/components/BuildListFilters'
 import { BuildListFilterFields } from '@/features/filters/types'
+
+import { PageHeader } from '../../features/ui/PageHeader'
+import { CommunityBuildList } from './CommunityBuilds'
 
 export default function Page() {
   const [buildListFilters, setCommunityBuildFilters] =
@@ -47,7 +49,7 @@ export default function Page() {
       </div>
       {buildListFilters && (
         <div className="grid w-full grid-cols-1 gap-2">
-          <CommunityBuilds
+          <CommunityBuildList
             buildListFilters={buildListFilters}
             itemsPerPage={24}
           />

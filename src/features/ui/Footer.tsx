@@ -1,10 +1,12 @@
-import { cn } from '@/lib/classnames'
 import Image from 'next/image'
+
+import { cn } from '@/lib/classnames'
+
 import { NAV_ITEMS } from '../navigation/constants'
 
 const aClass = 'text-gray-300 hover:text-green-400 underline'
 
-export default function Footer() {
+export function Footer() {
   return (
     <div className="max-w-2xl gap-2">
       <div className="flex w-full flex-row items-center justify-center gap-4 p-2">

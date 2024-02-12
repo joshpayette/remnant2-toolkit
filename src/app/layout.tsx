@@ -1,17 +1,19 @@
 import { Inter } from 'next/font/google'
-import NavBar from '@/features/navigation/NavBar'
-import { cn } from '@/lib/classnames'
-import Footer from '@/features/ui/Footer'
-export { metadata } from './metadata'
-import { Analytics } from '@vercel/analytics/react'
-import { ToastContainer } from 'react-toastify'
 
+import { NavBar } from '@/features/navigation/NavBar'
+import { Footer } from '@/features/ui/Footer'
+import { cn } from '@/lib/classnames'
+export { metadata } from './metadata'
 import './globals.css'
 import 'react-toastify/dist/ReactToastify.css'
-import SessionProvider from '../features/auth/components/SessionProvider'
-import BackToTopButton from '../features/ui/BackToTopButton'
-import ReportBugButton from '../features/bug-reports/ReportBugButton'
+
+import { Analytics } from '@vercel/analytics/react'
 import { Viewport } from 'next'
+import { ToastContainer } from 'react-toastify'
+
+import { SessionProvider } from '../features/auth/components/SessionProvider'
+import { ReportBugButton } from '../features/bug-reports/ReportBugButton'
+import { BackToTopButton } from '../features/ui/BackToTopButton'
 
 const inter = Inter({ subsets: ['latin'] })
 

@@ -1,16 +1,19 @@
 'use client'
 
-import PageHeader from '@/features/ui/PageHeader'
 import { useMemo, useState } from 'react'
-import { BossTrackerFilterFields } from '@/features/filters/types'
-import { useLocalStorage } from '@/features/localstorage/useLocalStorage'
+import { useIsClient } from 'usehooks-ts'
+
 import { remnantBosses } from '@/features/bosses/remnantBosses'
-import BossTrackerFilters, {
+import { BossCategory } from '@/features/bosses/types'
+import {
+  BossTrackerFilters,
   DEFAULT_BOSS_TRACKER_FILTERS,
 } from '@/features/filters/components/BossTrackerFilters'
-import { BossCategory } from '@/features/bosses/types'
-import ListBosses from './ListBosses'
-import { useIsClient } from 'usehooks-ts'
+import { BossTrackerFilterFields } from '@/features/filters/types'
+import { useLocalStorage } from '@/features/localstorage/useLocalStorage'
+import { PageHeader } from '@/features/ui/PageHeader'
+
+import { ListBosses } from './ListBosses'
 
 const allBosses = remnantBosses.map((boss) => ({
   ...boss,

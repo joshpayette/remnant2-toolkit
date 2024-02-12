@@ -1,6 +1,6 @@
 'use client'
 
-import Error from '@/features/error-handling/Error'
+import { Error } from '@/features/error-handling/Error'
 
 export default function ErrorPage({
   error,

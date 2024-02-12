@@ -1,6 +1,7 @@
-import BuildPage from './page'
-import { getBuild } from '../../actions'
 import { isErrorResponse } from '@/features/error-handling/isErrorResponse'
+
+import { getBuild } from '../../actions'
+import BuildPage from './page'
 
 export default async function Layout({
   params: { buildId },

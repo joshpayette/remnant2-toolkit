@@ -1,15 +1,17 @@
+import { useEffect, useState } from 'react'
+
+import { WEIGHT_CLASSES } from '@/features/items/constants'
 import { remnantItems } from '@/features/items/data/remnantItems'
+import { ArmorItem } from '@/features/items/types/ArmorItem'
+import { SelectMenu } from '@/features/ui/SelectMenu'
+
+import { ItemButton } from '../../items/components/ItemButton'
 import {
   getTotalArmor,
   getTotalWeight,
   getWeightClass,
 } from '../lib/getTotalValues'
 import { BuildState } from '../types'
-import { WEIGHT_CLASSES } from '@/features/items/constants'
-import { ArmorItem } from '@/features/items/types/ArmorItem'
-import { useEffect, useState } from 'react'
-import { ItemButton } from '../../items/components/ItemButton'
-import SelectMenu from '@/features/ui/SelectMenu'
 
 type ArmorSuggestion = {
   helm: ArmorItem

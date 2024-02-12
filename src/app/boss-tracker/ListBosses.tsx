@@ -1,12 +1,13 @@
 'use client'
 
 import { Disclosure } from '@headlessui/react'
-import { cn } from '@/lib/classnames'
-import { useIsClient } from 'usehooks-ts'
-import { useLocalStorage } from '@/features/localstorage/useLocalStorage'
 import { ChevronDownIcon } from '@heroicons/react/24/solid'
+import { useIsClient } from 'usehooks-ts'
+
 import { Boss, BossCategory } from '@/features/bosses/types'
 import { ItemButton } from '@/features/items/components/ItemButton'
+import { useLocalStorage } from '@/features/localstorage/useLocalStorage'
+import { cn } from '@/lib/classnames'
 
 interface BossTrackerCategory {
   category: BossCategory
@@ -40,7 +41,7 @@ interface ListBossesProps {
   onClick: (itemId: string) => void
 }
 
-export default function ListBosses({ bosses, onClick }: ListBossesProps) {
+export function ListBosses({ bosses, onClick }: ListBossesProps) {
   const { collapsedBossCategories, setCollapsedBossCategories } =
     useLocalStorage()
 
