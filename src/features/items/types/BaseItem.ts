@@ -54,7 +54,7 @@ export interface BaseItemProps {
   toxinResistancePercent?: number
 }
 
-export class BaseItem implements BaseItemProps {
+export abstract class BaseItem implements BaseItemProps {
   public id: BaseItemProps['id'] = ''
   public name: BaseItemProps['name'] = ''
   public category: BaseItemProps['category'] = 'skill'
@@ -88,7 +88,7 @@ export class BaseItem implements BaseItemProps {
   public toxinResistance?: BaseItemProps['toxinResistance'] = 0
   public toxinResistancePercent?: BaseItemProps['toxinResistancePercent'] = 0
 
-  constructor(props: BaseItemProps) {
+  protected constructor(props: BaseItemProps) {
     this.id = props.id
     this.name = props.name
     this.category = props.category
@@ -136,77 +136,4 @@ export class BaseItem implements BaseItemProps {
       item.category !== 'perk'
     )
   }
-
-  // static toParamsFromArray(items: Array<BaseItem | null>): string[] {
-  //   return items.map((i) => `${i?.id ?? ''}`)
-  // }
-
-  // static toParamsFromSingle(item: BaseItem): string {
-  //   if (!item) return ''
-  //   const validItem = remnantItems.find((ri) => ri.id === item.id)
-  //   if (!validItem) return ''
-
-  //   return `${item.id}`
-  // }
-
-  // static fromDBValueSingle(
-  //   buildItems: BuildItems[],
-  //   category: ItemCategory,
-  // ): BaseItem | null {
-  //   if (!buildItems) return null
-
-  //   let BaseItem: BaseItem | null = null
-  //   for (const buildItem of buildItems) {
-  //     const item = remnantItems.find((i) => i.id === buildItem.itemId)
-  //     if (!item) continue
-  //     if (item.category !== category) continue
-  //     BaseItem = item
-  //   }
-  //   return BaseItem
-  // }
-
-  // static fromDBValueArray(
-  //   buildItems: BuildItems[],
-  //   category: ItemCategory,
-  // ): Array<BaseItem | null> {
-  //   if (!buildItems) return []
-
-  //   let BaseItems: Array<BaseItem | null> = []
-  //   for (const buildItem of buildItems) {
-  //     const item = remnantItems.find((i) => i.id === buildItem.itemId)
-  //     if (!item) continue
-  //     if (item.category !== category) continue
-  //     buildItem.index
-  //       ? (BaseItems[buildItem.index] = item)
-  //       : BaseItems.push(item)
-  //   }
-  //   return BaseItems
-  // }
-
-  // static fromParamsSingle(params: string): BaseItem | null {
-  //   const itemIds = params.split(',')
-  //   if (!itemIds) return null
-
-  //   const item = remnantItems.find((i) => i.id === itemIds[0])
-  //   if (!item) return null
-
-  //   if (!this.isBaseItem(item)) return null
-  //   return item
-  // }
-
-  // static fromParamsArray(params: string): BaseItem[] | null {
-  //   const itemIds = params.split(',')
-  //   if (!itemIds) return null
-
-  //   const items: BaseItem[] = []
-  //   itemIds.forEach((itemId, index) => {
-  //     const item = remnantItems.find((i) => i.id === itemId)
-  //     if (!item) return
-  //     items[index] = item
-  //   })
-
-  //   if (items.length === 0) return null
-
-  //   return items
-  // }
 }
