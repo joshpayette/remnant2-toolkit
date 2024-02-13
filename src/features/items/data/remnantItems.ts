@@ -4564,13 +4564,13 @@ export const remnantItems: Item[] = [
     id: 'r2o474',
     description: `Fires heated bits of molten slag. Can be charged to fire a single explosive rod [E] at the cost of causing damage to the wielder while charging.`,
     howToGet: `Can be crafted at McCabe Store with: x1 Occult Vessel, x7 Lumenite Crystal and x1000 Scrap.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Anguish`],
+    wikiLinks: [`https://remnant.wiki/Anguish`],
     linkedItems: {
       mod: {
         name: 'Loath the Weak',
       },
     },
-    damage: 17.5,
+    damage: 105,
     rps: 1.7,
     magazine: 5,
   },
@@ -5537,7 +5537,7 @@ export const remnantItems: Item[] = [
     imagePath: '/mod/loath_the_weak.png',
     dlc: 'dlc1',
     id: 'aobtw7',
-    description: `Rapidly fire volatile needles that explode after 1.5s dealing 30 explosive damage [E].`,
+    description: `Rapidly fires volatile needles that explode after 1.5s dealing 30 - 60 explosive damage [E].`,
     howToGet: `Can be found attached to the Anguish weapon.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Loath+The+Weak`],
     linkedItems: {
