@@ -3,7 +3,7 @@
 import { Metadata } from 'next'
 
 export async function generateMetadata(): Promise<Metadata> {
-  const title = `Boss Tracker`
+  const title = `Boss Tracker - Remnant2Toolkit`
   const description =
     'Keep track of all the world bosses, bosses, and aberrations you have defeated in Remnant 2.'
 

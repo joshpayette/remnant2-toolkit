@@ -3,7 +3,7 @@
 import { Metadata } from 'next'
 
 export async function generateMetadata(): Promise<Metadata> {
-  const title = `Build Creation Tool`
+  const title = `Build Creation Tool - Remnant2Toolkit`
   const description =
     'Create a build for Remnant 2 and share it with the community.'
 

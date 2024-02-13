@@ -21,7 +21,7 @@ export async function generateMetadata(
 
   // const previousOGImages = (await parent).openGraph?.images || []
   // const previousTwitterImages = (await parent).twitter?.images || []
-  const title = `${user.displayName ?? user.name} Profile on Remnant 2 Toolkit`
+  const title = `${user.displayName ?? user.name} Profile - Remnant2Toolkit`
   const description =
     profile.bio ??
     `View ${user.displayName ?? user.name}'s profile on Remnant 2 Toolkit.`
