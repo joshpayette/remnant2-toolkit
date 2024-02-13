@@ -29,7 +29,7 @@ export async function generateMetadata(
         url: `https://remnant2toolkit.com/builder/${build.id}`,
         images: [
           {
-            url: 'https://d2sqltdcj8czo5.cloudfront.net/og_image_small.png',
+            url: 'https://d2sqltdcj8czo5.cloudfront.net/toolkit/og-image-sm.jpg',
             width: 100,
             height: 100,
           },
@@ -60,7 +60,7 @@ export async function generateMetadata(
       url: `https://remnant2toolkit.com/builder/${build.id}`,
       images: [
         {
-          url: 'https://d2sqltdcj8czo5.cloudfront.net/og_image_small.png',
+          url: 'https://d2sqltdcj8czo5.cloudfront.net/toolkit/og-image-sm.jpg',
           width: 100,
           height: 100,
         },

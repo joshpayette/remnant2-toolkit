@@ -5,11 +5,11 @@ export function Logo({ showUrl = false }: { showUrl?: boolean }) {
   return (
     <Link href="/" className="-m-1.5 flex items-center justify-start p-1.5">
       <Image
-        className="mr-2 h-[32px] w-[32px]"
-        src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/logo-sm.png`}
+        className="mr-2 h-[24px] w-[35px]"
+        src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/toolkit/toolkit-logo-sm.png`}
         alt="Remnant 2 Toolkit logo, a purple and yellow toolbox."
-        height={32}
-        width={32}
+        width={35}
+        height={24}
         loading="eager"
         priority
       />
