@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Removed bosses from autocomplete suggestions in Item Lookup
 - Fixed bug with search input filtering caused by no coffee and bad conditional logic
+- Fixed another bug where text not found in the list was not searchable
 
 ## 2024-02-12
 
