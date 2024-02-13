@@ -1046,7 +1046,7 @@ export const remnantItems: Item[] = [
     toxinResistance: 3,
     description: `A soft and durable felt hat fashioned to stylize, not necessarily protect, the most important part of your body. `,
     howToGet: `On a body, during the Monster in the Drain event in Losomn`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Academic's+Hat`],
+    wikiLinks: [`https://remnant.wiki/Academic%27s_Hat`],
   },
   {
     category: 'helm',
@@ -1064,7 +1064,7 @@ export const remnantItems: Item[] = [
     toxinResistance: 3,
     description: `The helm of the bandit armor is a haunting symbol of the ruthless opportunism that arose after the cataclysmic destruction of Earth. Yet, for those who wear it, it also represents a means of survival in a world where mercy is a scarce commodity`,
     howToGet: `Can be bought from Whispers after beating the game once.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Bandit's+Mask`],
+    wikiLinks: [`https://remnant.wiki/Bandit%27s_Mask`],
   },
   {
     category: 'helm',
@@ -1082,7 +1082,7 @@ export const remnantItems: Item[] = [
     toxinResistance: 1,
     description: `The visibility in this helmet leaves much to be desired, but that's not really the point. It goes a long way in keeping your head on your shoulders.`,
     howToGet: `Starting Armor set for the CHALLENGER`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Bruiser+Helmet`],
+    wikiLinks: [`https://remnant.wiki/Bruiser_Helmet`],
   },
   {
     category: 'helm',
@@ -1101,7 +1101,7 @@ export const remnantItems: Item[] = [
     toxinResistance: 0,
     description: `The hooded mask wreathes you in a vicious, fiery visage that evokes both fear and admiration. The incandescent eye slits color your vision with the hues of hellfire.`,
     howToGet: `Kill The One True King. Give 3 coins to The Red Prince at the Gilded Chambers. Speak to the Red King at the Chamber of the Faithless.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Crimson+Guard+Shroud`],
+    wikiLinks: [`https://remnant.wiki/Crimson_Guard_Shroud`],
   },
   {
     category: 'helm',
@@ -1118,7 +1118,7 @@ export const remnantItems: Item[] = [
     toxinResistance: -6,
     description: `A flashy, flame-hot diadem that demands respect and attention in equal measure...were there any subjects left to offer such sentiments. `,
     howToGet: `Obtainable by killing The Red Prince using the Assassin's Dagger melee weapon`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Crown+of+the+Red+Prince`],
+    wikiLinks: [`https://remnant.wiki/Crown_of_the_Red_Prince`],
   },
   {
     category: 'helm',
@@ -1136,7 +1136,7 @@ export const remnantItems: Item[] = [
     toxinResistance: 1,
     description: `A simple and unassuming headpiece that belies its storied past. Once worn by members of a secretive and enigmatic cult. It now serves as a symbol of redemption for those who have turned their backs on the group's teachings.`,
     howToGet: `Can be bought from Whispers after beating the game once.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Cultist+Hat`],
+    wikiLinks: [`https://remnant.wiki/Cultist_Hat`],
   },
   {
     category: 'helm',
@@ -1154,7 +1154,7 @@ export const remnantItems: Item[] = [
     toxinResistance: 2,
     description: `It's like putting your head inside the monsters you've been killing all this time. It's comfortable enough though, so long as you don't think about where it's been. `,
     howToGet: `Can be found in Root Earth - Ashen Wasteland Checkpoint.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Dendroid+Mask`],
+    wikiLinks: [`https://remnant.wiki/Dendroid_Mask`],
   },
   {
     category: 'helm',
@@ -1175,7 +1175,7 @@ export const remnantItems: Item[] = [
     with luxuriant fur and imposing horns.`,
     howToGet: `Obtained for free by purchasing Remnant 2 Deluxe Edition or Ultimate Edition
     Can be bought from Whispers after beating the game once.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Elder+Headdress`],
+    wikiLinks: [`https://remnant.wiki/Elder_Headdress`],
   },
   {
     category: 'helm',
@@ -1193,7 +1193,7 @@ export const remnantItems: Item[] = [
     toxinResistance: 0,
     description: `It feels like you're not wearing any helmet at all - you'd swear you could even feel the wind in your hair. Yet it turns an arrow as effectively as any steel. `,
     howToGet: `Can be found in Losomn - Postulant's Parlor`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Fae+Royal+Headcover`],
+    wikiLinks: [`https://remnant.wiki/Fae_Royal_Headcover`],
   },
   {
     category: 'helm',
@@ -1210,7 +1210,7 @@ export const remnantItems: Item[] = [
     toxinResistance: 1,
     description: `While it may shield your eyes from the sun, it's not particularly protective against the dangers of the Root. `,
     howToGet: `Sold by Whispers in Ward 13`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Field+Medic+Hat`],
+    wikiLinks: [`https://remnant.wiki/Field_Medic_Hat`],
   },
   {
     category: 'helm',
@@ -1229,7 +1229,7 @@ export const remnantItems: Item[] = [
     description: `This face covering protects you from contagions without obstructing your sight. You feel like a creature from another world in this thing. Perhaps that's fitting. `,
     howToGet: `Starting Equipment for the MEDIC Archetype.
     Sold by Whispers in Ward 13`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Field+Medic+Mask`],
+    wikiLinks: [`https://remnant.wiki/Field_Medic_Mask`],
   },
   {
     category: 'helm',
@@ -1248,7 +1248,7 @@ export const remnantItems: Item[] = [
     description: `Something about this hat just feels right. Paired with a bandana, it keeps the sun and elements from hindering your all-important aim. `,
     howToGet: `Starting equipment for the GUNSLINGER Archetype.
     Can be bought from Whispers in Ward 13`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/High+Noon+Hat`],
+    wikiLinks: [`https://remnant.wiki/High_Noon_Hat`],
   },
   {
     category: 'helm',
@@ -1266,7 +1266,7 @@ export const remnantItems: Item[] = [
     toxinResistance: 4,
     description: `A hauntingly familiar visage, convincing enough to still be alive. To truly know your enemy, you must get inside its head. Literally. `,
     howToGet: `Can be crafted at Bloodmoon Altar. Required Material: Blood Moon Essence`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Knotted+Helm`],
+    wikiLinks: [`https://remnant.wiki/Knotted_Helm`],
   },
   {
     category: 'helm',
@@ -1284,7 +1284,7 @@ export const remnantItems: Item[] = [
     toxinResistance: 0,
     description: `This helmet is reminiscent of a statue from a time long, long before. `,
     howToGet: `Can be bought from Whispers after getting the ARCHON archetype.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Labyrinth+Headplate`],
+    wikiLinks: [`https://remnant.wiki/Labyrinth_Headplate`],
   },
   {
     category: 'helm',
@@ -1302,7 +1302,7 @@ export const remnantItems: Item[] = [
     toxinResistance: 4,
     description: `Reinforced and designed to completely enclose the head, providing maximum protection against the dangers of the Root`,
     howToGet: `Can be bought from Whispers after beating the game once.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Leto+Mark+I+Helmet`],
+    wikiLinks: [`https://remnant.wiki/Leto_Mark_1_Helmet`],
   },
   {
     category: 'helm',
@@ -1320,7 +1320,7 @@ export const remnantItems: Item[] = [
     toxinResistance: 2,
     description: `While this ironclad helmet is somewhat difficult to breathe in, you feel secure knowing even the heaviest weapon would have little chance of cracking into your skull. `,
     howToGet: `Can be found in Ward 13. Check Leto's Stash to learn how to obtain it.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Leto+Mark+II+Helmet`],
+    wikiLinks: [`https://remnant.wiki/Leto_Mark_II_Helmet`],
   },
   {
     category: 'helm',
@@ -1336,7 +1336,7 @@ export const remnantItems: Item[] = [
     toxinResistance: 0,
     description: `This crown was worn by King Kolket himself. It could be heresy for a paxultek to wear such an artifact, but there are few left among the Pan who would even recognize it as their own.`,
     howToGet: `Can be found in Yaesha - The Lament`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Lodestone+Crown`],
+    wikiLinks: [`https://remnant.wiki/Lodestone_Crown`],
   },
   {
     category: 'helm',
@@ -1353,7 +1353,7 @@ export const remnantItems: Item[] = [
     toxinResistance: 3,
     description: `It's hard to imagine someone piloting an entire world, but that's who this helm was for. The sockets allowed them to speak with N'Erud directly. N'Erud had dozens of pilots, all working in concert-both with each other and with the world itself. `,
     howToGet: `Can be found N'Erud - Timeless Horizon`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Navigator's+Helm`],
+    wikiLinks: [`https://remnant.wiki/Navigator%27s_Helm`],
   },
   {
     category: 'helm',
@@ -1372,7 +1372,7 @@ export const remnantItems: Item[] = [
     description: `A hunting mask with advanced respirator capabilities. It purifies yet does nothing to mask the stench of death that permeates the air. `,
     howToGet: `Starting equipment for the HUNTER Archetype
     Can be fought from Whispers in Ward 13`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Nightstalker+Shroud`],
+    wikiLinks: [`https://remnant.wiki/Nightstalker_Shroud`],
   },
   {
     category: 'helm',
@@ -1391,7 +1391,7 @@ export const remnantItems: Item[] = [
     description: `The cowl is a striking blue, which contrasts with the large, featureless golden mask that covers the face of the wearer. This armor was highly coveted and only granted to those few who were recognized as the "Radiant Ones." `,
     howToGet: `Obtained for free by purchasing Remnant 2 Deluxe Edition or Ultimate Edition
     Can be bought from Whispers after beating the game once.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Radiant+Visage`],
+    wikiLinks: [`https://remnant.wiki/Radiant_Visage`],
   },
   {
     category: 'helm',
@@ -1409,7 +1409,7 @@ export const remnantItems: Item[] = [
     toxinResistance: 0,
     description: `This hat once belonged to Founder Ford. He was only a captain then-a much younger Ford, from a long time and many lives ago. `,
     howToGet: `Starting equipment for the EXPLORER`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Realmwalker+Beret`],
+    wikiLinks: [`https://remnant.wiki/Realmwalker_Beret`],
   },
   {
     category: 'helm',
@@ -1427,7 +1427,7 @@ export const remnantItems: Item[] = [
     toxinResistance: 0,
     description: `The horns of this helmet are ornamental, designed to be displayed in addition to the Pan wearer's own horns-which themselves protrude from additional openings in the armor-to create a truly frightening visage. `,
     howToGet: `Can be found in Yaesha - The Lament`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Red+Widow+Headdress`],
+    wikiLinks: [`https://remnant.wiki/Red_Widow_Headdress`],
   },
   {
     category: 'helm',
@@ -1445,7 +1445,7 @@ export const remnantItems: Item[] = [
     toxinResistance: 2,
     description: `People (Mudtooth mostly) tell stories of how, before the Root, humans could fly into space. It's probably not true, but if it were, they'd need something like this to keep them alive out there. `,
     howToGet: `Can be found in N'Erud - Void Vessel Facility`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Space+Worker+Mask`],
+    wikiLinks: [`https://remnant.wiki/Space_Worker_Mask`],
   },
   {
     category: 'helm',
@@ -1464,7 +1464,7 @@ export const remnantItems: Item[] = [
     description: `An overwhelming amount of information shines within the helmet's display, the vast majority of it incomprehensible. Whether that's because it's a foreign language or the helmet has been damaged by whatever destroyed this place is anybody's guess. `,
     howToGet: `Starting equipment for the ENGINEER.
     Can be found on a dead body in The Eon Vault in N'erud`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Technician+Helmet`],
+    wikiLinks: [`https://remnant.wiki/Technician_Helmet`],
   },
   {
     category: 'helm',
@@ -1483,7 +1483,7 @@ export const remnantItems: Item[] = [
     description: `For some reason, your head feels naked without this simple baseball cap with a fox logo. That aside, it keeps the sun out of your eyes, and that's all you ask of it.`,
     howToGet: `Starting equipment for the HANDLER
     Can be bought from Whispers in Ward 13`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Trainer+Cap`],
+    wikiLinks: [`https://remnant.wiki/Trainer_Cap`],
   },
   {
     category: 'helm',
@@ -1502,7 +1502,7 @@ export const remnantItems: Item[] = [
     description: `The skull-like helm hails from the inhospitable world of Rhom, where survival demands more than just strength and cunning. Fashioned from a mysterious material, its surface glimmers with an otherworldly sheen that seems to shift and change with the light. Its sleek and angular lines, reminiscent of some alien technology, evoke a sense of unease in those who gaze upon it. `,
     howToGet: `Obtained for free by purchasing Remnant 2 Deluxe Edition or Ultimate Edition
     Can be bought from Whispers after beating the game once.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Void+Skull`],
+    wikiLinks: [`https://remnant.wiki/Void_Skull`],
   },
   {
     category: 'helm',
@@ -1522,7 +1522,7 @@ export const remnantItems: Item[] = [
     description: `A large-brimmed hat that manages to strike fear in those who see it despite its simplistic and unintimidating design. Its main use is to cast its wearer's face in
     a shadow as dark as the deeds they seek to commit under black of night.`,
     howToGet: `Can be obtained in Forlorn Coast`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Zealot's+Hat`],
+    wikiLinks: [`https://remnant.wiki/Zealot%27s_Hat`],
   },
   {
     category: 'torso',
@@ -1540,7 +1540,7 @@ export const remnantItems: Item[] = [
     toxinResistance: 6,
     description: `Donning this uniform makes you feel a touch smarter, and you can't help but straighten the necktie whenever it slips loose.`,
     howToGet: `On a body, during the Monster in the Drain event in Losomn`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Academic's+Overcoat`],
+    wikiLinks: [`https://remnant.wiki/Academic%27s_Overcoat`],
   },
   {
     category: 'torso',
@@ -1558,7 +1558,7 @@ export const remnantItems: Item[] = [
     toxinResistance: 2,
     description: `Little more than a coat, stitched together from scraps of leather and whatever else could be scavenged from the wasteland. While it may provide a small degree of protection against the elements, it's hardly suitable for combat and is more of a fashion statement than anything else.`,
     howToGet: `Can be bought from Whispers after beating the game once.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Bandit+Jacket`],
+    wikiLinks: [`https://remnant.wiki/Bandit_Jacket`],
   },
   {
     category: 'torso',
@@ -1577,7 +1577,7 @@ export const remnantItems: Item[] = [
     description: `This thing is difficult to put on or take off and makes you feel like a walking tank. In the thick of battle, that's exactly what you're looking for.`,
     howToGet: `Starting equipment for the CHALLENGER Class
     Sold by Whispers in Ward 13`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Bruiser+Bodyplate`],
+    wikiLinks: [`https://remnant.wiki/Bruiser_Bodyplate`],
   },
   {
     category: 'torso',
@@ -1598,7 +1598,7 @@ export const remnantItems: Item[] = [
     howToGet: `Kill The One True King.
     Give 3 coins to The Red Prince at the Gilded Chambers.
     Speak to the Red King at the Chamber of the Faithless.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Crimson+Guard+Plate`],
+    wikiLinks: [`https://remnant.wiki/Crimson_Guard_Plate`],
   },
   {
     category: 'torso',
@@ -1616,7 +1616,7 @@ export const remnantItems: Item[] = [
     toxinResistance: 3,
     description: `More symbolic than functional, it's adorned with trinkets and ornaments instead of providing significant protection. The coat's drab color blends in with the bleak, post-apocalyptic landscape, serving as a visible sign of the wearer's allegiance to the Root`,
     howToGet: `Can be bought from Whispers after beating the game once.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Cultist+Duster`],
+    wikiLinks: [`https://remnant.wiki/Cultist_Duster`],
   },
   {
     category: 'torso',
@@ -1634,7 +1634,7 @@ export const remnantItems: Item[] = [
     toxinResistance: 5,
     description: `Fibrous tentacles wrap themselves around your chest. Up until now, you've resolutely avoided this situation.`,
     howToGet: `Can be found in Root Earth - Ashen Wasteland Checkpoint`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Dendroid+Chest`],
+    wikiLinks: [`https://remnant.wiki/Dendroid_Chest`],
   },
   {
     category: 'torso',
@@ -1653,7 +1653,7 @@ export const remnantItems: Item[] = [
     description: `A distinctive piece of protective gear originating from Yaesha. Its vibrant red color and fur adornments make it stand out, serving as a symbol of the wearer's status and skill. While it may not provide as much protection as some other types of armor, its lightweight construction and flexible design allow for exceptional mobility and ease of movement in combat.`,
     howToGet: `Obtained for free by purchasing Remnant 2 Deluxe Edition or Ultimate Edition
     Can be bought from Whispers after beating the game once.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Elder+Raiment`],
+    wikiLinks: [`https://remnant.wiki/Elder_Raiment`],
   },
   {
     category: 'torso',
@@ -1671,7 +1671,7 @@ export const remnantItems: Item[] = [
     toxinResistance: 0,
     description: `The royal guard do not wear insignias on their chests nor crests on their shield. It is assumed their identify is clear from their grab and the confidence with which they carry themselves.`,
     howToGet: `Can be found in Losomn - Postulant's Parlor`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Fae+Royal+Bodyplate`],
+    wikiLinks: [`https://remnant.wiki/Fae_Royal_Bodyplate`],
   },
   {
     category: 'torso',
@@ -1690,7 +1690,7 @@ export const remnantItems: Item[] = [
     description: `A long coat over a plate of armor. The metal could be thicker, sure, but your primary concern is safe and speedy travel to the wounded.`,
     howToGet: `Starting Equipment for the MEDIC Archetype.
     Sold by Whispers in Ward 13`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Field+Medic+Overcoat`],
+    wikiLinks: [`https://remnant.wiki/Field_Medic_Overcoat`],
   },
   {
     category: 'torso',
@@ -1709,7 +1709,7 @@ export const remnantItems: Item[] = [
     description: `A rugged amalgamation of canvas, denim, leather, and steel. These different materials all serve the same purpose of keeping you covered without inhibiting aiming mobility.`,
     howToGet: `Starting equipment for the GUNSLINGER Archetype.
     Whispers sells this item at the following cost: x1,150 Scrap`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/High+Noon+Duds`],
+    wikiLinks: [`https://remnant.wiki/High_Noon_Duds`],
   },
   {
     category: 'torso',
@@ -1727,7 +1727,7 @@ export const remnantItems: Item[] = [
     toxinResistance: 7,
     description: `Tightly coiled bark shrouds you like a second ribcage. Its embrace is surprisingly-and frighteningly-comforting.`,
     howToGet: `Can be crafted at Bloodmoon Altar. Required Material: Blood Moon Essence`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Knotted+Cage`],
+    wikiLinks: [`https://remnant.wiki/Knotted_Cage`],
   },
   {
     category: 'torso',
@@ -1745,7 +1745,7 @@ export const remnantItems: Item[] = [
     toxinResistance: 0,
     description: `Though the cloth and tassels possess a seemingly primitive design, the pure energy wracking down your spine reminds you otherwise.`,
     howToGet: `Can be bought from Whispers after getting the ARCHON archetype.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Labyrinth+Mantle`],
+    wikiLinks: [`https://remnant.wiki/Labyrinth_Mantle`],
   },
   {
     category: 'torso',
@@ -1763,7 +1763,7 @@ export const remnantItems: Item[] = [
     toxinResistance: 5,
     description: `An impressive prototype engineered to safeguard against any danger from the Root, but its cutting-edge technology sacrifices agility and mobility in exchange for unparalleled protection `,
     howToGet: `Can be bought from Whispers after beating the game once.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Leto+Mark+I+Armor`],
+    wikiLinks: [`https://remnant.wiki/Leto_Mark_1_Armor`],
   },
   {
     category: 'torso',
@@ -1781,7 +1781,7 @@ export const remnantItems: Item[] = [
     toxinResistance: 3,
     description: `A masterpiece of impenetrability. Even though quick maneuvering is near impossible in this metal behemoth, you can't help but be impressed by the ingenuity of the design and the inspired craftsmanship.`,
     howToGet: `Can be found in Ward 13. Check Leto's Stash to learn how to obtain it.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Leto+Mark+II+Armor`],
+    wikiLinks: [`https://remnant.wiki/Leto_Mark_II_Armor`],
   },
   {
     category: 'torso',
@@ -1800,7 +1800,7 @@ export const remnantItems: Item[] = [
     description: `This old coat is shabby, but who's really looking? The wealth of interior ammunition pockets more than makes up for it.`,
     howToGet: `Starting equipment for the HUNTER Archetype
     Can be fought from Whispers in Ward 13`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Nightstalker+Garb`],
+    wikiLinks: [`https://remnant.wiki/Nightstalker_Garb`],
   },
   {
     category: 'torso',
@@ -1819,7 +1819,7 @@ export const remnantItems: Item[] = [
     description: `A dazzling sight, its golden surface featuring a stunning sun burst pattern etched into the chest. Adorned with blue gems embedded in the shoulders this armor is fit for only the most esteemed members of the Laemir`,
     howToGet: `Obtained for free by purchasing Remnant 2 Deluxe Edition or Ultimate Edition
     Can be bought from Whispers after beating the game once.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Radiant+Protector`],
+    wikiLinks: [`https://remnant.wiki/Radiant_Protector`],
   },
   {
     category: 'torso',
@@ -1837,7 +1837,7 @@ export const remnantItems: Item[] = [
     toxinResistance: 0,
     description: `It's not even frayed. How is that possible? Unless the World Stones did the same thing to Ford's clothes as they did to Ford himself.`,
     howToGet: `Starting equipment for the EXPLORER`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Realmwalker+Tunic`],
+    wikiLinks: [`https://remnant.wiki/Realmwalker_Tunic`],
   },
   {
     category: 'torso',
@@ -1855,7 +1855,7 @@ export const remnantItems: Item[] = [
     toxinResistance: 1,
     description: `This chest piece must be hundreds -thousands- of years old, yet it shows no signis of rust or decay. One can only imagine a Pan king or queen wearing such  majestic regalia.`,
     howToGet: `Can be found in Yaesha - The Lament`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Red+Widow+Raiment`],
+    wikiLinks: [`https://remnant.wiki/Red_Widow_Raiment`],
   },
   {
     category: 'torso',
@@ -1873,7 +1873,7 @@ export const remnantItems: Item[] = [
     toxinResistance: 2,
     description: `It's made of some material you don't recognize - thick but highly pliable, did the Drzyr expect to get struck by out there?`,
     howToGet: `Can be found in N'Erud - Void Vessel Facility`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Space+Worker+Body`],
+    wikiLinks: [`https://remnant.wiki/Space_Worker_Body`],
   },
   {
     category: 'torso',
@@ -1891,7 +1891,7 @@ export const remnantItems: Item[] = [
     toxinResistance: 2,
     description: `A combination of a sturdy metal chest plate and a worn, leather trench coat that provides some protection against the elements. It's clear that the are together with practicality in mind, rather than aesthetics.`,
     howToGet: `Automatically equipped as you begin your first character in the game`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Survivor+Overcoat`],
+    wikiLinks: [`https://remnant.wiki/Survivor_Overcoat`],
   },
   {
     category: 'torso',
@@ -1910,7 +1910,7 @@ export const remnantItems: Item[] = [
     description: `The Xul were engineers and builders, but this armor was made to withstand a grenade blast. Was this built for safety or something else?`,
     howToGet: `Starting equipment for the ENGINEER.
     Can be found on a dead body in The Eon Vault in N'erud`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Technician+Bodyplate`],
+    wikiLinks: [`https://remnant.wiki/Technician_Bodyplate`],
   },
   {
     category: 'torso',
@@ -1929,7 +1929,7 @@ export const remnantItems: Item[] = [
     description: `This isn't just any denim jacket, it's your denim jacket. It's not especial pale. 7 ready, but it's comfortable, and in it you feel ready for anything.`,
     howToGet: `Starting equipment for the HANDLER
     Can be bought from Whispers in Ward 13`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Trainer+Clothes`],
+    wikiLinks: [`https://remnant.wiki/Trainer_Clothes`],
   },
   {
     category: 'torso',
@@ -1948,7 +1948,7 @@ export const remnantItems: Item[] = [
     description: `Crafted from the same mysterious material as the Void gloves, helm, and greaves, the chest armor completes the set's unsettling aesthetic. Its angular design is both practical and intimidating, providing unparalleled protection against the deadly environments and creatures of Rhom.`,
     howToGet: `Obtained for free by purchasing Remnant 2 Deluxe Edition or Ultimate Edition
     Can be bought from Whispers after beating the game once.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Void+Carapace`],
+    wikiLinks: [`https://remnant.wiki/Void_Carapace`],
   },
   {
     category: 'torso',
@@ -1967,7 +1967,7 @@ export const remnantItems: Item[] = [
     toxinResistance: 0,
     description: `This long and tattered cloak is ideal for skulking about in the dead of night in pursuance of iniquitous aims. If you ever see the back of this cloak ahead of you, you would do well to run. If you ever see its wearer facing you, it is already too late.`,
     howToGet: `Can be obtained in Forlorn Coast`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Zealot's+Overcoat`],
+    wikiLinks: [`https://remnant.wiki/Zealot%27s_Overcoat`],
   },
   {
     category: 'legs',
@@ -1985,7 +1985,7 @@ export const remnantItems: Item[] = [
     toxinResistance: 4,
     description: `Expensive-looking shoes fit for a lecture hall...that wouldn't last a week outside it.`,
     howToGet: `On a body, during the Monster in the Drain event in Losomn`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Academic's+Trousers`],
+    wikiLinks: [`https://remnant.wiki/Academic%27s_Trousers`],
   },
   {
     category: 'legs',
@@ -2003,7 +2003,7 @@ export const remnantItems: Item[] = [
     toxinResistance: 2,
     description: `Consists of a pair of basic slacks and sturdy boots. While it may not offer much in terms of protection, it allows for easy movement and agility in the dangerous terrain of the ruined cityscapes. The simplicity of the design is a testament to the practicality of the bandits, who prioritize functionality over aesthetics.`,
     howToGet: `Can be bought from Whispers after beating the game once.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Bandit+Trousers`],
+    wikiLinks: [`https://remnant.wiki/Bandit_Trousers`],
   },
   {
     category: 'legs',
@@ -2022,7 +2022,7 @@ export const remnantItems: Item[] = [
     description: `While they're not exactly aesthetic, you're more comfortable in twice-temper steel and repurposed tire tread than you care to admit.`,
     howToGet: `Starting Armor set for the CHALLENGER
     Sold by Whispers in Ward 13`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Bruiser+Boots`],
+    wikiLinks: [`https://remnant.wiki/Bruiser_Boots`],
   },
   {
     category: 'legs',
@@ -2043,7 +2043,7 @@ export const remnantItems: Item[] = [
     howToGet: `Kill The One True King.
     Give 3 coins to The Red Prince at the Gilded Chambers.
     Speak to the Red King at the Chamber of the Faithless.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Crimson+Guard+Sabatons`],
+    wikiLinks: [`https://remnant.wiki/Crimson_Guard_Sabatons`],
   },
   {
     category: 'legs',
@@ -2061,7 +2061,7 @@ export const remnantItems: Item[] = [
     toxinResistance: 2,
     description: `Simple slacks and boots made of cloth and wrapped in rope. Cultists rely on their unwavering devotion to the Root for their safety instead.`,
     howToGet: `Can be bought from Whispers after beating the game once.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Cultist+Britches`],
+    wikiLinks: [`https://remnant.wiki/Cultist_Britches`],
   },
   {
     category: 'legs',
@@ -2079,7 +2079,7 @@ export const remnantItems: Item[] = [
     toxinResistance: 0,
     description: `The deadwood boots are surprisingly snug. You're not sure what you expected shodding your feet inside the bloodthirsty branches of the Root, but it wasn't this cushioned comfort.`,
     howToGet: `Can be found in Root Earth - Ashen Wasteland Checkpoint`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Dendroid+Leggings`],
+    wikiLinks: [`https://remnant.wiki/Dendroid_Leggings`],
   },
   {
     category: 'legs',
@@ -2098,7 +2098,7 @@ export const remnantItems: Item[] = [
     description: `Designed for both form and function. Made from durable yet lightweight materials, they allow for a full range of movement and flexibility in combat.`,
     howToGet: `Obtained for free by purchasing Remnant 2 Deluxe Edition or Ultimate Edition
     Can be bought from Whispers after beating the game once.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Elder+Leggings`],
+    wikiLinks: [`https://remnant.wiki/Elder_Leggings`],
   },
   {
     category: 'legs',
@@ -2118,7 +2118,7 @@ export const remnantItems: Item[] = [
 
     No... you feel lighter when wearing them.`,
     howToGet: `Can be found in Losomn - Postulant's Parlor`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Fae+Royal+Greaves`],
+    wikiLinks: [`https://remnant.wiki/Fae_Royal_Greaves`],
   },
   {
     category: 'legs',
@@ -2137,7 +2137,7 @@ export const remnantItems: Item[] = [
     description: `With an assortment of pockets, pouches, and loops for your various concoctions you're essentially a walking apothecary.`,
     howToGet: `Starting Equipment for the MEDIC Archetype.
     Sold by Whispers in Ward 13`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Field+Medic+Trousers`],
+    wikiLinks: [`https://remnant.wiki/Field_Medic_Trousers`],
   },
   {
     category: 'legs',
@@ -2156,7 +2156,7 @@ export const remnantItems: Item[] = [
     description: `Durable pants with spurred boots and a strip of leather for a belt. The only accent is an imposing skull on the belt buckle, a constant reminder that death is always lurking in the shadows.`,
     howToGet: `Starting equipment for the GUNSLINGER Archetype.
     Can be bought from Whispers in Ward 13`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/High+Noon+Soles`],
+    wikiLinks: [`https://remnant.wiki/High_Noon_Soles`],
   },
   {
     category: 'legs',
@@ -2174,7 +2174,7 @@ export const remnantItems: Item[] = [
     toxinResistance: 4,
     description: `These boots are surprisingly light and agile, carrying you through foliage and bramble with ease. They seem to know where to go before you even lift you foot.`,
     howToGet: `Can be crafted at Bloodmoon Altar. Required Material: Blood Moon Essence`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Knotted+Greaves`],
+    wikiLinks: [`https://remnant.wiki/Knotted_Greaves`],
   },
   {
     category: 'legs',
@@ -2192,7 +2192,7 @@ export const remnantItems: Item[] = [
     toxinResistance: 0,
     description: `The grime of a thousand different worlds mars the side of boots that walk in one place where all paths converge.`,
     howToGet: `Can be bought from Whispers after getting the ARCHON class.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Labyrinth+Treads`],
+    wikiLinks: [`https://remnant.wiki/Labyrinth_Treads`],
   },
   {
     category: 'legs',
@@ -2210,7 +2210,7 @@ export const remnantItems: Item[] = [
     toxinResistance: 3,
     description: `Offering unparalleled protection at the cost of speed and agility. Although it hinders movement, the armor's strength allows its wearer to withstand even the most vicious attacks without fear of serious injury.`,
     howToGet: `Can be bought from Whispers after beating the game once.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Leto+Mark+I+Leggings`],
+    wikiLinks: [`https://remnant.wiki/Leto_Mark_1_Leggings`],
   },
   {
     category: 'legs',
@@ -2228,7 +2228,7 @@ export const remnantItems: Item[] = [
     toxinResistance: 2,
     description: `Strong yet streamlined. Practical yet aesthetic. Although you can't expect to make a quick getaway in these, they're just what you need to stand strong against the looming threat of destruction. The care and attention to detail t| went into them is something to behold.`,
     howToGet: `Can be found in Ward 13. Check Leto's Stash to learn how to obtain it.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Leto+Mark+II+Leggings`],
+    wikiLinks: [`https://remnant.wiki/Leto_Mark_II_Leggings`],
   },
   {
     category: 'legs',
@@ -2247,7 +2247,7 @@ export const remnantItems: Item[] = [
     description: `Thin shoes that fit perfectly and feel like they practically disappear on your feet. They're ideal for stealthy maneuvering while stalking your prey.`,
     howToGet: `Starting equipment for the HUNTER Archetype
     Can be fought from Whispers in Ward 13`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Nightstalker+Pants`],
+    wikiLinks: [`https://remnant.wiki/Nightstalker_Pants`],
   },
   {
     category: 'legs',
@@ -2266,7 +2266,7 @@ export const remnantItems: Item[] = [
     description: `Gleaming golden plates overlap and protect the wearer's feet and shins. Originally designed to be worn by the Pan, it's impressive how the armor can be adapted to fit human proportions without sacrificing its durability or protective properties.`,
     howToGet: `Obtained for free by purchasing Remnant 2 Deluxe Edition or Ultimate Edition
     Can be bought from Whispers after beating the game once.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Radiant+Greaves`],
+    wikiLinks: [`https://remnant.wiki/Radiant_Greaves`],
   },
   {
     category: 'legs',
@@ -2284,7 +2284,7 @@ export const remnantItems: Item[] = [
     toxinResistance: 0,
     description: `There is hardly a world where these boots haven't tread.`,
     howToGet: `Starting equipment for the EXPLORER`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Realmwalker+Pantaloons`],
+    wikiLinks: [`https://remnant.wiki/Realmwalker_Pantaloons`],
   },
   {
     category: 'legs',
@@ -2302,7 +2302,7 @@ export const remnantItems: Item[] = [
     toxinResistance: 1,
     description: `Even though this armor was designed to be worn by a Pan warrior, you are still able wear it and benefit from its protection.`,
     howToGet: `Can be found in Yaesha - The Lament`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Red+Widow+Leggings`],
+    wikiLinks: [`https://remnant.wiki/Red_Widow_Leggings`],
   },
   {
     category: 'legs',
@@ -2320,7 +2320,7 @@ export const remnantItems: Item[] = [
     toxinResistance: 2,
     description: `The magnets in the boots are far stronger than those in the gloves. It's unclear how they know when to activate, but they do so on their own. Massive as N'Erud is, it must not provide enough gravity to ensure its workers remain attached to...`,
     howToGet: `Can be found in N'Erud - Void Vessel Facility`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Space+Worker+Legs`],
+    wikiLinks: [`https://remnant.wiki/Space_Worker_Legs`],
   },
   {
     category: 'legs',
@@ -2338,7 +2338,7 @@ export const remnantItems: Item[] = [
     toxinResistance: 2,
     description: `Provides minimal protection, but serve the purpose of covering up skin to prevent minor cuts and scrapes while trekking through rough terrain.`,
     howToGet: `Automatically equipped as you begin your first character in the game`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Survivor+Leggings`],
+    wikiLinks: [`https://remnant.wiki/Survivor_Leggings`],
   },
   {
     category: 'legs',
@@ -2357,7 +2357,7 @@ export const remnantItems: Item[] = [
     description: `Designed for stability rather than speed. Plant your weight in these things, and you'd be very difficult to move.`,
     howToGet: `Starting equipment for the ENGINEER.
     Can be found on a dead body in The Eon Vault in N'erud`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Technician+Greaves`],
+    wikiLinks: [`https://remnant.wiki/Technician_Greaves`],
   },
   {
     category: 'legs',
@@ -2376,7 +2376,7 @@ export const remnantItems: Item[] = [
     description: `Durable pants that are used to handling more than a little dirt and fur. The canteen is for your companion, while the flask is all yours.`,
     howToGet: `Starting equipment for the HANDLER
     Can be bought from Whispers in Ward 13`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Trainer+Workboots`],
+    wikiLinks: [`https://remnant.wiki/Trainer_Workboots`],
   },
   {
     category: 'legs',
@@ -2395,7 +2395,7 @@ export const remnantItems: Item[] = [
     description: `A sturdy pair of footwear, expertly crafted from the same unknown material the other Void armor pieces. Their angular design and jagged edges give their wearer an intimidating and fearsome look. But these boots are more than fashion statement-they provided unparalleled protection and stability in the treacherous environments of Rhom.`,
     howToGet: `Obtained for free by purchasing Remnant 2 Deluxe Edition or Ultimate Edition
     Can be bought from Whispers after beating the game once.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Void+Greaves`],
+    wikiLinks: [`https://remnant.wiki/Void_Greaves`],
   },
   {
     category: 'legs',
@@ -2414,7 +2414,7 @@ export const remnantItems: Item[] = [
     toxinResistance: 0,
     description: `Tall wading boots and toughened leather may protect your legs from the unruly waters of Losomn, but they will do nothing to guard against the treacherous creatures that lurk just beneath those sullied waves, thirsting for the blood of those who stray too far from shore.`,
     howToGet: `Can be found in Forlorn Coast`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Zealot's+Seaboots`],
+    wikiLinks: [`https://remnant.wiki/Zealot%27s_Seaboots`],
   },
   {
     category: 'gloves',
@@ -2432,7 +2432,7 @@ export const remnantItems: Item[] = [
     toxinResistance: 2,
     description: `The initials of the Dran who once owned these - and misplaced them often - are embroidered on the wool-lined inside.`,
     howToGet: `On a body, during the Monster in the Drain event in Losomn`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Academic's+Gloves`],
+    wikiLinks: [`https://remnant.wiki/Academic%27s_Gloves`],
   },
   {
     category: 'gloves',
@@ -2450,7 +2450,7 @@ export const remnantItems: Item[] = [
     toxinResistance: 2,
     description: `The bandit gloves are rough, patched together from scraps of leather and cloth, a testament to their owner's resourcefulness, and willingness to do whatever it takes to survive. Despite their rough and worn appearance, the gloves provide unexpected durability and protection amidst the unforgiving ruins of the city.`,
     howToGet: `Can be bought from Whispers after beating the game once.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Bandit+Gloves`],
+    wikiLinks: [`https://remnant.wiki/Bandit_Gloves`],
   },
   {
     category: 'gloves',
@@ -2469,7 +2469,7 @@ export const remnantItems: Item[] = [
     description: `These gauntlets are as tough as steel, as hard as stone, and up for whatever dangers or challenges come their way. They suit you well.`,
     howToGet: `Starting Armor set for the CHALLENGER
     Sold by Whispers in Ward 13`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Bruiser+Gloves`],
+    wikiLinks: [`https://remnant.wiki/Bruiser_Gloves`],
   },
   {
     category: 'gloves',
@@ -2490,7 +2490,7 @@ export const remnantItems: Item[] = [
     howToGet: `Kill The One True King.
     Give 3 coins to The Red Prince at the Gilded Chambers.
     Speak to the Red King at the Chamber of the Faithless.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Crimson+Guard+Gauntlets`],
+    wikiLinks: [`https://remnant.wiki/Crimson_Guard_Gauntlets`],
   },
   {
     category: 'gloves',
@@ -2508,7 +2508,7 @@ export const remnantItems: Item[] = [
     toxinResistance: 1,
     description: `An unusual piece of attire that consist of leather and rope wrappings that encircle the wearer's wrists. These unconventional gloves were favored by the members of a mysterious cult that valued secrecy and esoteric knowledge above all else`,
     howToGet: `Can be bought from Whispers after beating the game once.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Cultist+Gloves`],
+    wikiLinks: [`https://remnant.wiki/Cultist_Gloves`],
   },
   {
     category: 'gloves',
@@ -2528,7 +2528,7 @@ export const remnantItems: Item[] = [
 
     Seems like that should bother you more.`,
     howToGet: `Can be found in Root Earth - Ashen Wasteland Checkpoint`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Dendroid+Grips`],
+    wikiLinks: [`https://remnant.wiki/Dendroid_Grips`],
   },
   {
     category: 'gloves',
@@ -2547,7 +2547,7 @@ export const remnantItems: Item[] = [
     description: `Features striking loops of gold that add an ornate touch to the otherwise plain design. Curiously, these embellishments are only present on the left-hand glove, making it stand out from its counterpart on the right.`,
     howToGet: `Obtained for free by purchasing Remnant 2 Deluxe Edition or Ultimate Edition
     Can be bought from Whispers after beating the game once.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Elder+Gloves`],
+    wikiLinks: [`https://remnant.wiki/Elder_Gloves`],
   },
   {
     category: 'gloves',
@@ -2565,7 +2565,7 @@ export const remnantItems: Item[] = [
     toxinResistance: 0,
     description: `Suitable for archery or swordplay - for killing of any sort really.`,
     howToGet: `Can be found in Losomn - Postulant's Parlor`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Fae+Royal+Vambraces`],
+    wikiLinks: [`https://remnant.wiki/Fae_Royal_Vambraces`],
   },
   {
     category: 'gloves',
@@ -2584,7 +2584,7 @@ export const remnantItems: Item[] = [
     description: `At a glance it's clear that these fingerless gloves won't keep you warm or offer much protection. Even still, you wear them because they provide improved grip without impacting precision.`,
     howToGet: `Starting Equipment for the MEDIC Archetype.
     Sold by Whispers in Ward 13`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Field+Medic+Gloves`],
+    wikiLinks: [`https://remnant.wiki/Field_Medic_Gloves`],
   },
   {
     category: 'gloves',
@@ -2603,7 +2603,7 @@ export const remnantItems: Item[] = [
     description: `Metal arm guards paired with well-worn gloves that are more comfortable gripping a warm gun than reaching for a handshake. They're tasked with protecting your greatest asset - your trigger finger.`,
     howToGet: `Starting equipment for the GUNSLINGER Archetype.
     Can be bought from Whispers in Ward 13`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/High+Noon+Armguards`],
+    wikiLinks: [`https://remnant.wiki/High_Noon_Armguards`],
   },
   {
     category: 'gloves',
@@ -2621,7 +2621,7 @@ export const remnantItems: Item[] = [
     toxinResistance: 2,
     description: `The deadwood claws fit you almost too snug, making it difficult to remember where bark ends and your own flesh begins.`,
     howToGet: `Can be crafted at Bloodmoon Altar. Required Material: Blood Moon Essence`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Knotted+Gloves`],
+    wikiLinks: [`https://remnant.wiki/Knotted_Gloves`],
   },
   {
     category: 'gloves',
@@ -2639,7 +2639,7 @@ export const remnantItems: Item[] = [
     toxinResistance: 0,
     description: `Craggy, uneven stone melds tightly to your hands and forearms, as if the skin of something that once was has at last found new purchase.`,
     howToGet: `Can be bought from Whispers after getting the ARCHON archetype.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Labyrinth+Gauntlets`],
+    wikiLinks: [`https://remnant.wiki/Labyrinth_Gauntlets`],
   },
   {
     category: 'gloves',
@@ -2657,7 +2657,7 @@ export const remnantItems: Item[] = [
     toxinResistance: 3,
     description: `Offering unparalleled protection against the unpredictable dangers of The Root, but the trade-off, is that they can be cumbersome and restrict dexterity, making it difficult to perform intricate tasks.`,
     howToGet: `Can be bought from Whispers after beating the game once.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Leto+Mark+I+Gloves`],
+    wikiLinks: [`https://remnant.wiki/Leto_Mark_1_Gloves`],
   },
   {
     category: 'gloves',
@@ -2675,7 +2675,7 @@ export const remnantItems: Item[] = [
     toxinResistance: 3,
     description: `These gauntlets are sturdy enough to hold up even against the Root: They're tough and intimidating while providing the bare-minimum level of dexterity for,a steady grip on your weapon of choice. Just don't plan on completing any tasks that require subtlety when wearing these.`,
     howToGet: `Can be found in Ward 13. Check Leto's Stash to learn how to obtain it.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Leto+Mark+II+Gloves`],
+    wikiLinks: [`https://remnant.wiki/Leto_Mark_II_Gloves`],
   },
   {
     category: 'gloves',
@@ -2694,7 +2694,7 @@ export const remnantItems: Item[] = [
     description: `A single glove and arm wrap are all you need or want for arm protection. The only defense you can truly rely on is a loaded gun and a clear shot.`,
     howToGet: `Starting equipment for the HUNTER Archetype
     Can be bought from Whispers in Ward 13`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Nightstalker+Gloves`],
+    wikiLinks: [`https://remnant.wiki/Nightstalker_Gloves`],
   },
   {
     category: 'gloves',
@@ -2713,7 +2713,7 @@ export const remnantItems: Item[] = [
     description: `The fingerless leather gloves provide exceptional dexterity to the wearer, while the vambraces are adorned with a blue gem that gives the wearer access to the volatile energy stored within.`,
     howToGet: `Obtained for free by purchasing Remnant 2 Deluxe Edition or Ultimate Edition
     Can be bought from Whispers after beating the game once.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Radiant+Bracers`],
+    wikiLinks: [`https://remnant.wiki/Radiant_Bracers`],
   },
   {
     category: 'gloves',
@@ -2731,7 +2731,7 @@ export const remnantItems: Item[] = [
     toxinResistance: 0,
     description: `Ford's gloves were designed for warmth and dexterity. The soldier who wore these was not swinging blades or forging metal. He was pulling triggers and throwing grenades`,
     howToGet: `Starting equipment for the EXPLORER`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Realmwalker+Gloves`],
+    wikiLinks: [`https://remnant.wiki/Realmwalker_Gloves`],
   },
   {
     category: 'gloves',
@@ -2749,7 +2749,7 @@ export const remnantItems: Item[] = [
     toxinResistance: 0,
     description: `These gloves are light, with openings for the fingers to allow the wearer maximum dexterity - a neccesary consideration for traditional Pan weaponry.`,
     howToGet: `Can be found in Yaesha - The Lament`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Red+Widow+Bracers`],
+    wikiLinks: [`https://remnant.wiki/Red_Widow_Bracers`],
   },
   {
     category: 'gloves',
@@ -2767,7 +2767,7 @@ export const remnantItems: Item[] = [
     toxinResistance: 1,
     description: `Electromagnets are worked into the grip, activating automatically when the hand closes. Seems like a useful feature, so long as everything/you work with is metal.`,
     howToGet: `N'Erud - Void Vessel Facility`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Space+Worker+Gloves`],
+    wikiLinks: [`https://remnant.wiki/Space_Worker_Gloves`],
   },
   {
     category: 'gloves',
@@ -2785,7 +2785,7 @@ export const remnantItems: Item[] = [
     toxinResistance: 1,
     description: `Made of durable leather and include a makeshift wrist guard consisting of a metal plate secured by leather straps, providing addition protection to the wearer's wrists without sacrificing dexterity.`,
     howToGet: `Automatically equipped as you begin your first character in the game`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Survivor+Gloves`],
+    wikiLinks: [`https://remnant.wiki/Survivor_Gloves`],
   },
   {
     category: 'gloves',
@@ -2804,7 +2804,7 @@ export const remnantItems: Item[] = [
     description: `A tingle runs across your palm within these gloves - like bugs skittering over your hand.`,
     howToGet: `Starting equipment for the ENGINEER.
     Can be found on a dead body in The Eon Vault in N'erud`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Technician+Gloves`],
+    wikiLinks: [`https://remnant.wiki/Technician_Gloves`],
   },
   {
     category: 'gloves',
@@ -2823,7 +2823,7 @@ export const remnantItems: Item[] = [
     description: `An arm guard that also functions as a bite sleeve for training on the subtle nuances of when and who to bite.`,
     howToGet: `Starting equipment for the HANDLER
     Can be bought from Whispers in Ward 13`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Trainer+Bracer`],
+    wikiLinks: [`https://remnant.wiki/Trainer_Bracer`],
   },
   {
     category: 'gloves',
@@ -2842,7 +2842,7 @@ export const remnantItems: Item[] = [
     description: `Crafted from an enigmatic substance that resembles hardened bone in appearance. These gloves are a powerful tool in the hands of those who would wield the void, drawing energy from the emptiness between worlds to unleash devastating attacks. But with great power comes great cost, and those who dare to wear these gloves must be prepared to pay the price.`,
     howToGet: `Obtained for free by purchasing Remnant 2 Deluxe Edition or Ultimate Edition
     Can be bought from Whispers after beating the game once.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Void+Wraps`],
+    wikiLinks: [`https://remnant.wiki/Void_Wraps`],
   },
   {
     category: 'gloves',
@@ -2861,7 +2861,7 @@ export const remnantItems: Item[] = [
     toxinResistance: 1,
     description: `Long gloves fit like a vice around your arms, the pressure quickening your pulse and increasing your awareness. Your hands are well protected with the exception of a few exposed fingertips, intentionally left unguarded in case a given ritual requires quick access to fresh blood.`,
     howToGet: `Can be obtained in Forlorn Coast`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Zealot's+Wraps`],
+    wikiLinks: [`https://remnant.wiki/Zealot%27s_Wraps`],
   },
   {
     category: 'relic',
