@@ -60,6 +60,9 @@ export function ItemButton({
       break
   }
 
+  console.info('item', item)
+  console.info(onItemInfoClick)
+
   return (
     <div
       className={cn(
@@ -76,7 +79,7 @@ export function ItemButton({
       {!isScreenshotMode && item && onItemInfoClick && (
         <button
           className={cn(
-            'absolute right-[2px] top-[2px]',
+            'absolute right-[2px] top-[2px] z-[5]',
             size === 'sm' && 'right-[-20px]',
           )}
           onClick={() =>

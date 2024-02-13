@@ -1,46 +1,62 @@
-import { SearchInput } from '@/features/ui/SearchInput'
+import { remnantBosses } from '@/features/bosses/remnantBosses'
+import { DESCRIPTION_TAGS, ITEM_TAGS } from '@/features/items/constants'
+import { remnantItems } from '@/features/items/data/remnantItems'
 
-import { SearchTagsFilter } from './SearchTagsFilter'
+import { SearchTextAutocomplete } from './SearchTextAutocomplete'
+
+function buildItemList(): Array<{ id: string; name: string }> {
+  let items = remnantItems.map((item) => ({
+    id: item.id,
+    name: item.name,
+  }))
+
+  items = remnantBosses
+    .map((boss) => ({ id: boss.id, name: boss.name }))
+    .concat(items)
+
+  items = DESCRIPTION_TAGS.map((tag) => ({
+    id: tag.token as string,
+    name: tag.type as string,
+  })).concat(items)
+
+  items = ITEM_TAGS.map((tag) => ({
+    id: tag as string,
+    name: tag as string,
+  })).concat(items)
+
+  items = items.sort((a, b) => a.name.localeCompare(b.name))
+
+  // remove duplicates
+  items = items.filter(
+    (item, index, self) =>
+      index === self.findIndex((i) => i.name === item.name),
+  )
+
+  return items
+}
 
 interface Props {
-  selectedSearchTag: string
   searchText: string
-  onSearchTagApply: () => void
-  onSearchTagChange: (searchTag: string) => void
   onSearchTextChange: (searchQuery: string) => void
   onApplyFilters: () => void
 }
 
 export function SearchItemsFilter({
   searchText,
-  selectedSearchTag,
   onApplyFilters,
-  onSearchTagApply,
-  onSearchTagChange,
   onSearchTextChange,
 }: Props) {
+  const items = buildItemList()
+
   return (
     <div className="col-span-full flex w-full flex-col items-start justify-start gap-x-4 gap-y-2">
-      <div className="grid grid-cols-1 gap-y-4 sm:grid-cols-4 sm:gap-x-4 sm:gap-y-0">
-        <div className="col-span-full flex flex-col items-start justify-center sm:col-span-2">
-          <div className="mb-2 text-left text-sm font-bold text-green-500">
-            Search
-          </div>
-          <SearchInput
-            onChange={onSearchTextChange}
-            onKeyDown={onApplyFilters}
-            value={searchText}
-            placeholder={'Search item names and descriptions'}
-          />
-        </div>
-
-        <div className="col-span-full sm:col-span-2">
-          <SearchTagsFilter
-            selectedSearchTag={selectedSearchTag}
-            onSearchTagApply={onSearchTagApply}
-            onSearchTagChange={onSearchTagChange}
-          />
-        </div>
+      <div className="flex w-full max-w-[400px] flex-col items-start justify-center">
+        <SearchTextAutocomplete
+          onChange={onSearchTextChange}
+          onKeyDown={onApplyFilters}
+          items={items}
+          value={searchText}
+        />
       </div>
     </div>
   )

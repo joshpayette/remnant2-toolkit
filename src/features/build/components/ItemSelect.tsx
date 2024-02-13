@@ -4,18 +4,40 @@ import { AdjustmentsHorizontalIcon } from '@heroicons/react/24/solid'
 import { useEffect, useState } from 'react'
 import { useDebounce, useIsClient } from 'usehooks-ts'
 
-import { SearchTagsFilter } from '@/features/filters/components/parts/SearchTagsFilter'
+import { SearchTextAutocomplete } from '@/features/filters/components/parts/SearchTextAutocomplete'
 import { ItemInfoDialog } from '@/features/items/components/ItemInfoDialog'
+import { DESCRIPTION_TAGS, ITEM_TAGS } from '@/features/items/constants'
 import { itemMatchesSearchText } from '@/features/items/lib/itemMatchesSearchText'
 import { Item } from '@/features/items/types'
 import { useLocalStorage } from '@/features/localstorage/useLocalStorage'
 import { Dialog } from '@/features/ui/Dialog'
-import { SearchInput } from '@/features/ui/SearchInput'
 import { capitalize } from '@/lib/capitalize'
 import { cn } from '@/lib/classnames'
 
 import { ItemButton } from '../../items/components/ItemButton'
 import { ItemCategory } from '../types'
+
+function buildItemList(): Array<{ id: string; name: string }> {
+  let items = DESCRIPTION_TAGS.map((tag) => ({
+    id: tag.token as string,
+    name: tag.type as string,
+  }))
+
+  items = ITEM_TAGS.map((tag) => ({
+    id: tag as string,
+    name: tag as string,
+  })).concat(items)
+
+  items = items.sort((a, b) => a.name.localeCompare(b.name))
+
+  // remove duplicates
+  items = items.filter(
+    (item, index, self) =>
+      index === self.findIndex((i) => i.name === item.name),
+  )
+
+  return items
+}
 
 function sortByPreference({
   items,
@@ -56,6 +78,8 @@ export function ItemSelect({
   onClose: () => void
   onSelectItem: (item: Item | null) => void
 }) {
+  const filterItems = buildItemList()
+
   const isClient = useIsClient()
   const [infoItem, setInfoItem] = useState<Item | null>(null)
 
@@ -64,14 +88,6 @@ export function ItemSelect({
 
   const [filteredItemList, setFilteredItemList] = useState(itemList)
   const debouncedFilter = useDebounce(filter, 500)
-
-  const [selectedTag, setSelectedTag] = useState('[A]')
-  function handleSelectedTagChange(newValue: string) {
-    setSelectedTag(newValue)
-  }
-  function handleAddTagToSearchText() {
-    setFilter((prev) => `${prev} ${selectedTag}`)
-  }
 
   useEffect(() => {
     const filteredItems = itemList.filter((item) =>
@@ -133,20 +149,15 @@ export function ItemSelect({
         <div className="mb-4 grid w-full max-w-lg grid-cols-3 gap-x-4">
           <div
             className={cn(
+              'text-left',
               buildSlot === 'trait' ? 'col-span-2' : 'col-span-full',
             )}
           >
-            <SearchInput
+            <SearchTextAutocomplete
+              items={filterItems}
               onChange={(newValue: string) => setFilter(newValue)}
               value={filter}
             />
-            <div className="flex items-start justify-start text-left">
-              <SearchTagsFilter
-                selectedSearchTag={selectedTag}
-                onSearchTagChange={handleSelectedTagChange}
-                onSearchTagApply={handleAddTagToSearchText}
-              />
-            </div>
           </div>
           {buildSlot === 'trait' && (
             <div className="col-span-1 flex items-center justify-start">

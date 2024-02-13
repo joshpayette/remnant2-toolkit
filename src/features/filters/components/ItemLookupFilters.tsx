@@ -40,8 +40,6 @@ export function ItemLookupFilters({ onUpdateFilters }: Props) {
   const pathname = usePathname()
   const searchParams = useSearchParams()
 
-  const [selectedSearchTag, setSelectedSearchTag] = useState('[A]')
-
   // Get the filters from the URL
   const filters = useMemo(() => {
     const params = new URLSearchParams(searchParams)
@@ -135,7 +133,6 @@ export function ItemLookupFilters({ onUpdateFilters }: Props) {
   }, [filters])
 
   function handleClearFilters() {
-    setSelectedSearchTag('[A]')
     setUnappliedFilters(DEFAULT_ITEM_LOOKUP_FILTERS)
     handleApplyFilters(DEFAULT_ITEM_LOOKUP_FILTERS)
   }
@@ -197,21 +194,6 @@ export function ItemLookupFilters({ onUpdateFilters }: Props) {
     }
   }
 
-  function handleSearchTagApply() {
-    let newSearchText = unappliedFilters.searchText.trim()
-    if (newSearchText === '') {
-      newSearchText = selectedSearchTag
-    } else {
-      newSearchText = `${newSearchText} ${selectedSearchTag}`
-    }
-
-    handleSearchTextChange(newSearchText)
-  }
-
-  function handleSearchTagChange(newSearchTag: string) {
-    setSelectedSearchTag(newSearchTag)
-  }
-
   function handleSearchTextChange(searchQuery: string) {
     setUnappliedFilters({ ...unappliedFilters, searchText: searchQuery })
     if (searchQuery !== filters.searchText) {
@@ -264,13 +246,8 @@ export function ItemLookupFilters({ onUpdateFilters }: Props) {
       onClearFilters={handleClearFilters}
     >
       <SearchItemsFilter
-        selectedSearchTag={selectedSearchTag}
         searchText={unappliedFilters.searchText}
         onApplyFilters={() => handleApplyFilters(unappliedFilters)}
-        onSearchTagApply={handleSearchTagApply}
-        onSearchTagChange={(newSearchTag: string) =>
-          handleSearchTagChange(newSearchTag)
-        }
         onSearchTextChange={(newSearchText: string) =>
           handleSearchTextChange(newSearchText)
         }

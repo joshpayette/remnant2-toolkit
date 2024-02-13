@@ -14,6 +14,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - When saving a build with the default MY BUILD name, it will now prompt you to enter a unique name.
 - Boss Tracker buttons larger and have images that fill the button.
+- Changed the search text with search tags dropdown menus to a single search box with autocomplete for tags and items. This should make it easier to find items and tags.
+
+### Fixed
+
+- Fixed bug preventing item info icon from appearing.
 
 ## 2024-02-11
 
