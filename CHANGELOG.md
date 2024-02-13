@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2024-02-12
 
+###
+
+- Added appropriate meta tags for each page.
+
 ### Changed
 
 - When saving a build with the default MY BUILD name, it will now prompt you to enter a unique name.

@@ -20,8 +20,7 @@ export default function Page() {
 
   const isClient = useIsClient()
 
-  const { csvItems, masonryItems, urlBuildState, updateUrlBuildState } =
-    useUrlBuildState()
+  const { csvItems, urlBuildState, updateUrlBuildState } = useUrlBuildState()
 
   const {
     isScreenshotMode,

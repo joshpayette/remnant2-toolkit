@@ -1,15 +1,11 @@
 'use server'
 
 import { Metadata } from 'next'
-import { redirect } from 'next/navigation'
-import React from 'react'
-
-import { getServerSession } from '@/features/auth/lib'
 
 export async function generateMetadata(): Promise<Metadata> {
-  const title = `Build Creation Tool`
+  const title = `Your Created Builds`
   const description =
-    'Create a build for Remnant 2 and share it with the community.'
+    'View all of the builds you have created on Remnant 2 Toolkit.'
 
   return {
     title,
@@ -18,7 +14,7 @@ export async function generateMetadata(): Promise<Metadata> {
       title,
       description: description,
       siteName: 'Remnant 2 Toolkit',
-      url: `https://remnant2toolkit.com/builder/create`,
+      url: `https://remnant2toolkit.com/profile/created-builds`,
       images: [
         {
           url: 'https://d2sqltdcj8czo5.cloudfront.net/og_image_small.png',
@@ -40,9 +36,5 @@ export default async function Layout({
 }: {
   children: React.ReactNode
 }) {
-  const session = await getServerSession()
-  // If user is not logged in, redirect to the URL builder page
-  if (!session) redirect('/builder')
-
   return <>{children}</>
 }

@@ -1,10 +1,6 @@
 'use server'
 
 import { Metadata } from 'next'
-import { redirect } from 'next/navigation'
-import React from 'react'
-
-import { getServerSession } from '@/features/auth/lib'
 
 export async function generateMetadata(): Promise<Metadata> {
   const title = `Build Creation Tool`
@@ -40,9 +36,5 @@ export default async function Layout({
 }: {
   children: React.ReactNode
 }) {
-  const session = await getServerSession()
-  // If user is not logged in, redirect to the URL builder page
-  if (!session) redirect('/builder')
-
   return <>{children}</>
 }
