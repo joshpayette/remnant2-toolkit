@@ -1,14 +1,15 @@
-import { remnantBosses } from '@/features/bosses/remnantBosses'
 import { DESCRIPTION_TAGS, ITEM_TAGS } from '@/features/items/constants'
 import { remnantItems } from '@/features/items/data/remnantItems'
 
 import { SearchTextAutocomplete } from './SearchTextAutocomplete'
 
 function buildItemList(): Array<{ id: string; name: string }> {
-  let items = remnantItems.map((item) => ({
-    id: item.id,
-    name: item.name,
-  }))
+  let items = remnantItems
+    .filter((item) => item.category === 'relicfragment')
+    .map((item) => ({
+      id: item.id,
+      name: item.name,
+    }))
 
   // items = remnantBosses
   //   .map((boss) => ({ id: boss.id, name: boss.name }))
