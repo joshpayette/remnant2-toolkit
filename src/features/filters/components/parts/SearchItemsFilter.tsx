@@ -5,7 +5,7 @@ import { SearchTextAutocomplete } from './SearchTextAutocomplete'
 
 function buildItemList(): Array<{ id: string; name: string }> {
   let items = remnantItems
-    .filter((item) => item.category === 'relicfragment')
+    .filter((item) => item.category !== 'relicfragment')
     .map((item) => ({
       id: item.id,
       name: item.name,
