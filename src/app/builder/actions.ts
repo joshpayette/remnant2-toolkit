@@ -4,6 +4,7 @@ import { revalidatePath } from 'next/cache'
 import { z } from 'zod'
 
 import { checkBadWords, cleanBadWords } from '@/features/bad-word-filter'
+import { DEFAULT_BUILD_NAME } from '@/features/build/constants'
 import { BuildState, DBBuild, ItemCategory } from '@/features/build/types'
 import { prisma } from '@/features/db'
 import { ErrorResponse } from '@/features/error-handling/types'
@@ -146,7 +147,7 @@ export async function createBuild(data: string): Promise<BuildActionResponse> {
         name:
           buildState.name && buildState.name !== ''
             ? cleanBadWords(buildState.name)
-            : 'My Build',
+            : DEFAULT_BUILD_NAME,
         description:
           buildState.description && buildState.description !== ''
             ? cleanBadWords(buildState.description)
@@ -346,7 +347,7 @@ export async function updateBuild(data: string): Promise<BuildActionResponse> {
         name:
           buildState.name && buildState.name !== ''
             ? cleanBadWords(buildState.name)
-            : 'My Build',
+            : DEFAULT_BUILD_NAME,
         description:
           buildState.description && buildState.description !== ''
             ? cleanBadWords(buildState.description)

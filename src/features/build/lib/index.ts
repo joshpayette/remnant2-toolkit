@@ -2,6 +2,8 @@ import { z } from 'zod'
 
 import { BuildState } from '@/features/build/types'
 
+import { DEFAULT_BUILD_NAME } from '../constants'
+
 export const buildStateSchema = z.object({
   name: z.string(),
   description: z.string().nullable(),
@@ -32,7 +34,7 @@ export const buildStateSchema = z.object({
 })
 
 export const initialBuildState: BuildState = {
-  name: 'My Build',
+  name: DEFAULT_BUILD_NAME,
   description: null,
   isPublic: true,
   isMember: false,

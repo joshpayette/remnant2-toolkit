@@ -1,3 +1,5 @@
+export const DEFAULT_BUILD_NAME = 'My Build'
+
 /**
  * The maximum characters allowed in a build description
  */
