@@ -4,13 +4,15 @@ This is a toolkit for the game Remnant 2. You can find the site at [remnant2tool
 
 ## Contributions
 
-Contributions are welcome! If you found a bug, have a suggestion, or want to contribute code, please open an issue or a pull request.
+Contributions are welcome! If you found a bug, have a suggestion, or want to contribute code, I'd certainly appreciate the help via pull request or issue.
+
+Before contributing, please read the [Code of Conduct](CODE_OF_CONDUCT.md).
 
 You can also join the [Discord server](https://discord.gg/kgVaU3zAQ7) to discuss the project and get help.
 
 ## Featured Builds
 
-Want to see your build listed on the featured builds? Submit an issue with a link to the video covering your build and I'll take a look. If I like it, I'll add it to the list!
+Want to see your build listed on the featured builds? Submit an issue with a link to the video covering your build and I'll take a look. If it looks of good quality, I'll add it!
 
 ## Credits
 
