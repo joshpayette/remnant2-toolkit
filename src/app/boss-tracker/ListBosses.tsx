@@ -106,7 +106,7 @@ export function ListBosses({ bosses, onClick }: ListBossesProps) {
                   )}
                 />
               </Disclosure.Button>
-              <Disclosure.Panel className="grid w-full grid-cols-3 gap-4 py-4 sm:grid-cols-5 md:grid-cols-7 lg:grid-cols-9 xl:grid-cols-10">
+              <Disclosure.Panel className="grid w-full grid-cols-2 gap-4 py-4 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-7 xl:grid-cols-8">
                 {bosses
                   .filter((boss) => {
                     return boss.category === bossCategory.category
@@ -118,7 +118,7 @@ export function ListBosses({ bosses, onClick }: ListBossesProps) {
                         isEditable={false}
                         isToggled={boss.discovered}
                         onClick={() => onClick(boss.id)}
-                        size="lg"
+                        size="xl"
                       />
                     </div>
                   ))}

@@ -9,7 +9,7 @@ type Props = {
   isToggled?: boolean
   isEditable?: boolean
   isScreenshotMode?: boolean
-  size?: 'sm' | 'md' | 'lg' | 'wide'
+  size?: 'sm' | 'md' | 'lg' | 'xl' | 'wide'
   onClick?: () => void
   onItemInfoClick?: (item: Item) => void
 }
@@ -46,6 +46,12 @@ export function ItemButton({
         width: 99,
       }
       break
+    case 'xl':
+      imageSize = {
+        height: 150,
+        width: 150,
+      }
+      break
     case 'wide':
       imageSize = {
         height: 66,
@@ -61,6 +67,7 @@ export function ItemButton({
         size === 'sm' && 'mb-0 flex-row justify-start',
         size === 'md' && 'mb-2 w-[66px] flex-col',
         size === 'lg' && 'mb-2 w-[99px] flex-col',
+        size === 'xl' && 'mb-2 w-[150px] flex-col',
         size === 'wide' && 'mb-2 w-[150px] flex-col',
         isToggled === true && 'grayscale-0',
         isToggled === false && 'grayscale',
@@ -78,7 +85,7 @@ export function ItemButton({
         >
           <Image
             src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/information.png`}
-            alt="Bleed Resistance"
+            alt="Information"
             width={32}
             height={32}
             className="h-5 w-5 sm:h-4 sm:w-4"
@@ -89,12 +96,13 @@ export function ItemButton({
       <button
         onClick={onClick}
         className={cn(
-          'flex items-center justify-center overflow-hidden border-2 border-gray-700',
+          'relative flex items-center justify-center overflow-hidden border-2 border-gray-700',
           `bg-[url('https://d2sqltdcj8czo5.cloudfront.net/card-body-bg.jpg')]`,
           isEditable && 'o border-gray-700 hover:border-purple-500',
           size === 'sm' && 'h-[22px] w-[22px]',
           size === 'md' && 'h-[66px] w-[66px]',
           size === 'lg' && 'h-[99px] w-[99px]',
+          size === 'xl' && 'h-[150px] w-[150px]',
           size === 'wide' && 'h-[99px] w-[150px]',
           isToggled === true && 'border-green-500',
           isToggled === false && 'border-gray-700',
@@ -104,9 +112,10 @@ export function ItemButton({
           <Image
             src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}${item.imagePath}`}
             alt={`${item.name} icon`}
-            width={imageSize.width}
-            height={imageSize.height}
             loading="eager"
+            width={size !== 'xl' ? imageSize.width : undefined}
+            height={size !== 'xl' ? imageSize.height : undefined}
+            fill={size === 'xl'}
           />
         )}
       </button>
@@ -118,6 +127,7 @@ export function ItemButton({
             size === 'sm' && 'min-h-[22px] min-w-[22px] border border-black',
             size === 'md' && 'min-h-[40px] w-[66px]',
             size === 'lg' && 'min-h-[40px] w-[99px]',
+            size === 'xl' && 'min-h-[50px] w-[150px] text-sm',
             size === 'wide' && 'min-h-[22px] w-[150px]',
           )}
         >
