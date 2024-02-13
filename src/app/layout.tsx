@@ -40,6 +40,18 @@ export default function RootLayout({
         <div className="fixed bottom-[8px] right-[52px] z-20">
           <ReportBugButton />
         </div>
+        <div className="w-full bg-purple-900 p-1 text-center text-sm">
+          <a
+            href="https://remnant.wiki"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline"
+          >
+            Remnant.Wiki
+          </a>
+          , a community-built alternative to Fextralife, needs contributors! No
+          ads or embedded streams. Thank you!
+        </div>
 
         <SessionProvider>
           <div className="flex w-full max-w-7xl grow flex-col items-start justify-start">

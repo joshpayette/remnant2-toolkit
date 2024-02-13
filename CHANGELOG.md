@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2024-02-13
 
+### Added
+
+- Added a bar to the top of all pages asking for support for Remnant.Wiki
+
 ### Fixed
 
 - Removed bosses from autocomplete suggestions in Item Lookup
