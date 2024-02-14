@@ -1,5 +1,9 @@
-import { LoadingIndicator } from '../features/ui/LoadingIndicator'
+import { Skeleton } from '@/features/ui/Skeleton'
 
 export default function Loading() {
-  return <LoadingIndicator />
+  return (
+    <>
+      <Skeleton className="h-32 w-32" />
+    </>
+  )
 }

@@ -4,7 +4,7 @@ import { FlagIcon as FlagIconOff } from '@heroicons/react/24/outline'
 import { FlagIcon as FlagIconOn } from '@heroicons/react/24/solid'
 import Link from 'next/link'
 
-import { LoadingIndicator } from '@/features/ui/LoadingIndicator'
+import { Skeleton } from '@/features/ui/Skeleton'
 import { Tooltip } from '@/features/ui/Tooltip'
 import { cn } from '@/lib/classnames'
 
@@ -54,7 +54,7 @@ export const ActionButton = {
       <div
         className={cn(buttonClasses, 'border-transparent hover:bg-green-700')}
       >
-        <LoadingIndicator />
+        <Loading />
       </div>
     ) : (
       <button
@@ -150,4 +150,12 @@ export const ActionButton = {
       Detailed View
     </button>
   ),
+}
+
+function Loading() {
+  return (
+    <div className="flex h-full w-full items-center justify-center">
+      <Skeleton className="h-[40px] w-[100px]" />
+    </div>
+  )
 }

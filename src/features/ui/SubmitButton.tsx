@@ -2,7 +2,7 @@
 
 import { useFormStatus } from 'react-dom'
 
-import { LoadingIndicator } from './LoadingIndicator'
+import { Skeleton } from './Skeleton'
 
 export function SubmitButton({
   className,
@@ -22,7 +22,7 @@ export function SubmitButton({
       disabled={pending || disabled}
       className={className}
     >
-      {!pending ? label : <LoadingIndicator />}
+      {!pending ? label : <Skeleton className="h-8 w-8" />}
     </button>
   )
 }

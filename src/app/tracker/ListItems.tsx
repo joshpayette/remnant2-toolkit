@@ -192,6 +192,7 @@ export function ListItems({ items, onClick, onShowItemInfo }: ListItemsProps) {
                         onClick={() => onClick(item.id)}
                         onItemInfoClick={() => onShowItemInfo(item.id)}
                         size="lg"
+                        loading="lazy"
                       />
                     </div>
                   ))}

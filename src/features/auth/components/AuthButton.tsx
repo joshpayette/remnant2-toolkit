@@ -3,7 +3,7 @@
 import { Menu, Transition } from '@headlessui/react'
 import Link from 'next/link'
 import { useSession } from 'next-auth/react'
-import { Fragment } from 'react'
+import { Fragment, Suspense } from 'react'
 
 import { NAV_ITEMS } from '@/features/navigation/constants'
 import { PlaceHolderIcon } from '@/features/ui/PlaceholderIcon'
@@ -13,12 +13,7 @@ import { cn } from '@/lib/classnames'
 function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
   const { data: session, status } = useSession()
 
-  if (status === 'loading')
-    return (
-      <div className="w-full max-w-[100px]">
-        <Skeleton />
-      </div>
-    )
+  if (status === 'loading') return <Loading />
 
   if (status !== 'authenticated' || !session?.user) {
     return (
@@ -196,6 +191,18 @@ function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
 }
 
 export const AuthButton = {
-  Desktop: () => <AuthButtonComponent variant="desktop" />,
-  Mobile: () => <AuthButtonComponent variant="mobile" />,
+  Desktop: () => (
+    <Suspense fallback={<Loading />}>
+      <AuthButtonComponent variant="desktop" />
+    </Suspense>
+  ),
+  Mobile: () => (
+    <Suspense fallback={<Loading />}>
+      <AuthButtonComponent variant="mobile" />
+    </Suspense>
+  ),
+}
+
+function Loading() {
+  return <Skeleton className="h-[32px] w-[32px]" />
 }

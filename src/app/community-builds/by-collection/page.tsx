@@ -19,8 +19,8 @@ import { BuildListFilterFields } from '@/features/filters/types'
 import { saveDiscoveredItemIds } from '@/features/items/actions/saveDiscoveredItemIds'
 import { useLocalStorage } from '@/features/localstorage/useLocalStorage'
 import { usePagination } from '@/features/pagination/usePagination'
-import { LoadingIndicator } from '@/features/ui/LoadingIndicator'
 import { PageHeader } from '@/features/ui/PageHeader'
+import { Skeleton } from '@/features/ui/Skeleton'
 
 const ITEMS_PER_PAGE = 24
 
@@ -171,7 +171,7 @@ export default function Page() {
       {discoveredItemsSaved.current === false && (
         <div className="flex items-center justify-center p-4 text-lg font-semibold text-yellow-500">
           Saving your discovered items...
-          <LoadingIndicator />
+          <Skeleton className="ml-2 h-8 w-8" />
         </div>
       )}
 

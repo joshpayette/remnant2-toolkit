@@ -10,7 +10,10 @@ import 'react-toastify/dist/ReactToastify.css'
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import { Viewport } from 'next'
+import { Suspense } from 'react'
 import { ToastContainer } from 'react-toastify'
+
+import { Skeleton } from '@/features/ui/Skeleton'
 
 import { SessionProvider } from '../features/auth/components/SessionProvider'
 import { ReportBugButton } from '../features/bug-reports/ReportBugButton'
@@ -35,42 +38,53 @@ export default function RootLayout({
           inter.className,
         )}
       >
-        <div className="fixed bottom-[8px] right-[8px] z-20">
-          <BackToTopButton />
-        </div>
-        <div className="fixed bottom-[8px] right-[52px] z-20">
-          <ReportBugButton />
-        </div>
-        <div className="w-full bg-purple-900 p-1 text-center text-sm">
-          <a
-            href="https://remnant.wiki"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="underline"
-          >
-            Remnant.Wiki
-          </a>
-          , a community-built alternative to Fextralife, needs contributors! No
-          ads or embedded streams. Thank you!
-        </div>
-
         <SessionProvider>
+          <div className="fixed bottom-[8px] right-[8px] z-20">
+            <BackToTopButton />
+          </div>
+          <div className="fixed bottom-[8px] right-[52px] z-20">
+            <ReportBugButton />
+          </div>
+          <div className="w-full bg-purple-900 p-1 text-center text-sm">
+            <a
+              href="https://remnant.wiki"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline"
+            >
+              Remnant.Wiki
+            </a>
+            , a community-built alternative to Fextralife, needs contributors!
+            No ads or embedded streams. Thank you!
+          </div>
           <div className="flex w-full max-w-7xl grow flex-col items-start justify-start">
             <header className="w-full">
               <NavBar />
             </header>
+
             <main className="flex h-full w-full grow flex-col items-center justify-start p-4">
               <ToastContainer theme="dark" />
-              {children}
+              <Suspense fallback={<Loading />}>{children}</Suspense>
             </main>
           </div>
-          <footer className="mt-8 flex w-full items-center justify-center border-t border-purple-900 bg-black p-4 text-left text-sm text-gray-400">
-            <Footer />
-          </footer>
+
+          <Suspense fallback={<Loading />}>
+            <footer className="mt-8 flex w-full items-center justify-center border-t border-purple-900 bg-black p-4 text-left text-sm text-gray-400">
+              <Footer />
+            </footer>
+          </Suspense>
         </SessionProvider>
         <Analytics />
         <SpeedInsights />
       </body>
     </html>
+  )
+}
+
+function Loading() {
+  return (
+    <div className="flex w-full items-center justify-center">
+      <Skeleton className="h-32 w-full" />
+    </div>
   )
 }
