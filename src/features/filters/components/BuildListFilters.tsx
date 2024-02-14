@@ -1,6 +1,8 @@
+'use client'
+
 import isEqual from 'lodash/isEqual'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
-import { useEffect, useMemo, useState } from 'react'
+import { useMemo, useState } from 'react'
 
 import { ArchetypeFilters } from '@/features/filters/components/parts/ArchetypeFilters'
 import { FiltersContainer } from '@/features/filters/components/parts/FiltersContainer'
@@ -8,17 +10,14 @@ import {
   DEFAULT_WEAPON_FILTERS,
   WeaponFilters,
 } from '@/features/filters/components/parts/WeaponFilters'
-import { RELEASE_TO_NAME } from '@/features/items/constants'
-import { remnantItems } from '@/features/items/data/remnantItems'
 import { Archetype, ReleaseKey } from '@/features/items/types'
-import { WeaponItem } from '@/features/items/types/WeaponItem'
 
 import { BuildListFilterFields } from '../types'
 import { DEFAULT_JEWELRY_FILTERS, JewelryFilters } from './parts/JewelryFilters'
 import { DEFAULT_RELEASE_FILTERS, ReleaseFilters } from './parts/ReleaseFilters'
 import { SearchBuildsFilter } from './parts/SearchBuildsFilter'
 
-const DEFAULT_BUILD_LIST_FILTERS: BuildListFilterFields = {
+export const DEFAULT_BUILD_LIST_FILTERS: BuildListFilterFields = {
   amulet: DEFAULT_JEWELRY_FILTERS.amulet,
   archetypes: [],
   handGun: DEFAULT_WEAPON_FILTERS.handGun,
@@ -30,115 +29,12 @@ const DEFAULT_BUILD_LIST_FILTERS: BuildListFilterFields = {
 }
 
 interface Props {
-  onUpdateFilters: (newFilters: BuildListFilterFields) => void
+  filters: BuildListFilterFields
 }
 
-export function BuildListFilters({ onUpdateFilters }: Props) {
+export function BuildListFilters({ filters }: Props) {
   const router = useRouter()
   const pathname = usePathname()
-  const searchParams = useSearchParams()
-
-  // Get the filters from the URL
-  const filters = useMemo(() => {
-    const params = new URLSearchParams(searchParams)
-    let archetypes = params.get('archetypes')
-    let longGun = params.get('longGun')
-    let handGun = params.get('handGun')
-    let melee = params.get('melee')
-    let ring = params.get('ring')
-    let amulet = params.get('amulet')
-    let searchText = params.get('searchText')
-    let releases = params.get('releases')
-
-    // check if archetypes are valid
-    if (archetypes) {
-      const allArchetypes: Archetype[] = remnantItems
-        .filter((item) => item.category === 'archetype')
-        .map((item) => item.name.toLowerCase() as Archetype)
-      const archetypesArray = archetypes.split(',')
-      archetypesArray.forEach((archetype) => {
-        if (!allArchetypes.includes(archetype as Archetype)) {
-          archetypes = DEFAULT_BUILD_LIST_FILTERS['archetypes'].join(',')
-        }
-      })
-    }
-    // check if longGun is valid
-    if (longGun) {
-      const allLongGuns: string[] = remnantItems
-        .filter(
-          (item) => WeaponItem.isWeaponItem(item) && item.type === 'long gun',
-        )
-        .map((item) => item.name.toLowerCase())
-      if (!allLongGuns.includes(longGun.toLowerCase())) {
-        longGun = DEFAULT_BUILD_LIST_FILTERS['longGun']
-      }
-    }
-    // check if handGun is valid
-    if (handGun) {
-      const allHandGuns: string[] = remnantItems
-        .filter(
-          (item) => WeaponItem.isWeaponItem(item) && item.type === 'hand gun',
-        )
-        .map((item) => item.name.toLowerCase())
-      if (!allHandGuns.includes(handGun.toLowerCase())) {
-        handGun = DEFAULT_BUILD_LIST_FILTERS['handGun']
-      }
-    }
-    // check if melee is valid
-    if (melee) {
-      const allMelees: string[] = remnantItems
-        .filter(
-          (item) => WeaponItem.isWeaponItem(item) && item.type === 'melee',
-        )
-        .map((item) => item.name.toLowerCase())
-      if (!allMelees.includes(melee.toLowerCase())) {
-        melee = DEFAULT_BUILD_LIST_FILTERS['melee']
-      }
-    }
-    // check if ring is valid
-    if (ring) {
-      const allRings: string[] = remnantItems
-        .filter((item) => item.category === 'ring')
-        .map((item) => item.name.toLowerCase())
-      if (!allRings.includes(ring.toLowerCase())) {
-        ring = DEFAULT_BUILD_LIST_FILTERS['ring']
-      }
-    }
-    // check if amulet is valid
-    if (amulet) {
-      const allAmulets: string[] = remnantItems
-        .filter((item) => item.category === 'amulet')
-        .map((item) => item.name.toLowerCase())
-      if (!allAmulets.includes(amulet.toLowerCase())) {
-        amulet = DEFAULT_BUILD_LIST_FILTERS['amulet']
-      }
-    }
-    // check if releases are valid
-    if (!releases) {
-      releases = Object.keys(RELEASE_TO_NAME).join(',')
-    } else {
-      const allReleases: ReleaseKey[] = Object.keys(
-        RELEASE_TO_NAME,
-      ) as ReleaseKey[]
-      const releasesArray = releases.split(',')
-      releasesArray.forEach((release) => {
-        if (!allReleases.includes(release as ReleaseKey)) {
-          releases = DEFAULT_BUILD_LIST_FILTERS['selectedReleases'].join(',')
-        }
-      })
-    }
-
-    return {
-      archetypes: archetypes ? (archetypes.split(',') as Archetype[]) : [],
-      longGun: longGun || DEFAULT_BUILD_LIST_FILTERS['longGun'],
-      handGun: handGun || DEFAULT_BUILD_LIST_FILTERS['handGun'],
-      melee: melee || DEFAULT_BUILD_LIST_FILTERS['melee'],
-      ring: ring || DEFAULT_BUILD_LIST_FILTERS['ring'],
-      amulet: amulet || DEFAULT_BUILD_LIST_FILTERS['amulet'],
-      searchText: searchText || DEFAULT_BUILD_LIST_FILTERS['searchText'],
-      selectedReleases: releases ? (releases.split(',') as ReleaseKey[]) : [],
-    } satisfies BuildListFilterFields
-  }, [searchParams])
 
   // Tracks the filter changes by the user that are not yet applied
   // via clicking the Apply Filters button
@@ -148,7 +44,9 @@ export function BuildListFilters({ onUpdateFilters }: Props) {
   // This is used to check if the filters are applied
   // This is used to determine if the Apply Filters button should pulsate
   // for the user to indicate they need to apply the changes
-  const [areFiltersApplied, setAreFiltersApplied] = useState(true)
+  const [areFiltersApplied, setAreFiltersApplied] = useState(
+    isEqual(filters, unappliedFilters),
+  )
 
   // If the filters differ from the default filters,
   // the filters table should have a yellow outline to
@@ -165,24 +63,6 @@ export function BuildListFilters({ onUpdateFilters }: Props) {
       filters.selectedReleases.length < 2
     )
   }, [filters])
-
-  // Once the initial filters are parsed from the URL,
-  // pass this information up to the page so it can render
-  // the builds list with the correct filters
-  useEffect(() => {
-    onUpdateFilters(filters)
-    setAreFiltersApplied(true)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [filters])
-
-  // If the filters are changed, check if they are applied
-  useEffect(() => {
-    if (isEqual(filters, unappliedFilters)) {
-      setAreFiltersApplied(true)
-    } else {
-      setAreFiltersApplied(false)
-    }
-  }, [unappliedFilters, filters])
 
   function handleClearFilters() {
     setUnappliedFilters(DEFAULT_BUILD_LIST_FILTERS)

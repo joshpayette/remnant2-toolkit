@@ -1,16 +1,16 @@
 'use client'
 
-import { useState } from 'react'
+import { useSearchParams } from 'next/navigation'
 
 import { BuildListFilters } from '@/features/filters/components/BuildListFilters'
-import { BuildListFilterFields } from '@/features/filters/types'
+import { parseFiltersFromUrl } from '@/features/filters/lib/parseFiltersFromUrl'
+import { PageHeader } from '@/features/ui/PageHeader'
 
-import { PageHeader } from '../../features/ui/PageHeader'
 import { CommunityBuildList } from './CommunityBuilds'
 
 export default function Page({ totalBuildCount }: { totalBuildCount: number }) {
-  const [buildListFilters, setCommunityBuildFilters] =
-    useState<BuildListFilterFields | null>(null)
+  const searchParams = useSearchParams()
+  const buildListFilters = parseFiltersFromUrl(searchParams)
 
   return (
     <>
@@ -29,9 +29,8 @@ export default function Page({ totalBuildCount }: { totalBuildCount: number }) {
 
       <div className="mb-8 flex w-full max-w-3xl items-center justify-center">
         <BuildListFilters
-          onUpdateFilters={(newFilters) => {
-            setCommunityBuildFilters(newFilters)
-          }}
+          filters={buildListFilters}
+          key="community-build-filters"
         />
       </div>
       {buildListFilters && (

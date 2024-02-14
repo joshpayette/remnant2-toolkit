@@ -14,7 +14,7 @@ export default async function Page() {
         <Image
           src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/home-bg.webp`}
           alt="Home page background"
-          layout="fill"
+          fill
           className="absolute inset-0 -z-10 h-full w-full object-cover object-right md:object-center"
           loading="eager"
         />
