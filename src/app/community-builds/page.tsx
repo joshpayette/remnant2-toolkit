@@ -1,29 +1,16 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
-import { getTotalBuildCount } from '@/features/build/actions/getTotalBuildCount'
 import { BuildListFilters } from '@/features/filters/components/BuildListFilters'
 import { BuildListFilterFields } from '@/features/filters/types'
 
 import { PageHeader } from '../../features/ui/PageHeader'
 import { CommunityBuildList } from './CommunityBuilds'
 
-export default function Page() {
+export default function Page({ totalBuildCount }: { totalBuildCount: number }) {
   const [buildListFilters, setCommunityBuildFilters] =
     useState<BuildListFilterFields | null>(null)
-
-  const [totalBuildCount, setTotalBuildCount] = useState<number | string>(
-    'HUNDREDS',
-  )
-
-  useEffect(() => {
-    async function getBuildCountAsync() {
-      const response = await getTotalBuildCount()
-      setTotalBuildCount(response)
-    }
-    getBuildCountAsync()
-  }, [])
 
   return (
     <>

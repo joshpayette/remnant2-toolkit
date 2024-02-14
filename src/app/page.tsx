@@ -1,25 +1,12 @@
-'use client'
-
 import { ArrowRightIcon } from '@heroicons/react/24/solid'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useEffect, useState } from 'react'
 
 import { getTotalBuildCount } from '@/features/build/actions/getTotalBuildCount'
 import { NAV_ITEMS } from '@/features/navigation/constants'
 
-export default function HomePage() {
-  const [totalBuildCount, setTotalBuildCount] = useState<number | string>(
-    'HUNDREDS',
-  )
-
-  useEffect(() => {
-    async function getBuildCountAsync() {
-      const response = await getTotalBuildCount()
-      setTotalBuildCount(response)
-    }
-    getBuildCountAsync()
-  }, [])
+export default async function Page() {
+  const totalBuildCount = await getTotalBuildCount()
 
   return (
     <>

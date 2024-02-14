@@ -2,6 +2,10 @@
 
 import { Metadata } from 'next'
 
+import { getTotalBuildCount } from '@/features/build/actions/getTotalBuildCount'
+
+import BuildPage from './page'
+
 export async function generateMetadata(): Promise<Metadata> {
   const title = `Community Builds - Remnant2Toolkit`
   const description =
@@ -31,10 +35,8 @@ export async function generateMetadata(): Promise<Metadata> {
   }
 }
 
-export default async function Layout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
-  return <>{children}</>
+export default async function Layout() {
+  const totalBuildCount = await getTotalBuildCount()
+
+  return <BuildPage totalBuildCount={totalBuildCount} />
 }
