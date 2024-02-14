@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Added
 
 - Added a bar to the top of all pages asking for support for Remnant.Wiki
+- Added some missing bosses to the Boss Tracker
 
 ### Fixed
 
