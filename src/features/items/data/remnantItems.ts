@@ -859,12 +859,7 @@ export const remnantItems: Item[] = [
     name: 'Bulletstorm',
     imagePath: '/skill/bulletstorm.png',
     id: 'xpqq62',
-    tags: [
-      'Fire Rate',
-      'Reload Speed',
-      'Critical Chance',
-      'Projectile Speed',
-    ],
+    tags: ['Fire Rate', 'Reload Speed', 'Critical Chance', 'Projectile Speed'],
     description: `Unleashes the full power and speed of the GUNSLINGER. Increases Fire Rate 20% and Reload Speed 50% of all ranged weapons. Lasts 20s. 
 
     Single Shot Weapons become fully-automatic. Kills instantly reload the current weapon. 
@@ -916,7 +911,13 @@ export const remnantItems: Item[] = [
     name: 'Reboot',
     imagePath: '/skill/reboot.png',
     id: 'xx6sib',
-    tags: ['Stamina', 'Health', 'Status Effect', 'Movement Speed', 'Damage Reduction'],
+    tags: [
+      'Stamina',
+      'Health',
+      'Status Effect',
+      'Movement Speed',
+      'Damage Reduction',
+    ],
     description: `Initiates a Data Backup of the caster's current Health, Stamina, Relic Charges, Ammo, and Negative Status Effects, which are stored for 30s.
 
     While the Backup is active, increases Movement Speed by 15% and Damage Reduction by 10%.
@@ -3138,7 +3139,7 @@ export const remnantItems: Item[] = [
     name: 'Charge Melee Cost',
     imagePath: '/relicfragment/charge_melee_cost.png',
     id: 'fuikyq',
-    tags: ['Charged Melee', 'Stamina',],
+    tags: ['Charged Melee', 'Stamina'],
     description: `-X% Melee Charge Attack Stamina Cost (Mythic: Maximum of -30%)`,
     howToGet: ``,
     wikiLinks: [
@@ -3500,7 +3501,7 @@ export const remnantItems: Item[] = [
     name: 'Weapon Spread',
     imagePath: '/relicfragment/weapon_spread.png',
     id: 'oiiiu2',
-    tags: ['Spread'], 
+    tags: ['Spread'],
     description: `-X% Weapon Spread (Mythic: Maximum of -30%)`,
     howToGet: ``,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Cracked+Weapon+Spread`],
@@ -6714,12 +6715,7 @@ Can be bought for Bedel of the Vaunnt for 400."`,
     name: 'Downward Spiral',
     imagePath: '/amulet/downward_spiral.png',
     id: '1k2x4r',
-    tags: [
-      'Fire Rate',
-      'Melee Attack Speed',
-      'Ranged Damage',
-      'Melee Damage',
-    ],
+    tags: ['Fire Rate', 'Melee Attack Speed', 'Ranged Damage', 'Melee Damage'],
     description: `Increase Fire Rate by 10% and Melee Attack Speed by 15%. For every missing 10% of Max Health, gain 3% Ranged Damage (Max 15%) and 4% Melee Damage (Max 20%).`,
     howToGet: `Can be found in Yaesha - The Chimney`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Downward+Spiral`],
@@ -9027,7 +9023,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     imagePath: '/ring/white_glass_bead.png',
     dlc: 'dlc1',
     id: 'etgc4h',
-    tags: ['Perfect Dodge',],
+    tags: ['Perfect Dodge'],
     description: `Perfect Dodge applies a SHIELD for 15% of Max Health. Lasts 10s. Cannot Stack with itself.`,
     howToGet: `Acquired by insisting Leywise eat the Feast Master's Leftovers given to you by the Feastmaster in The Great Hall assuming you've met Leywise prior to the conversation on the same world roll of The Awakened King DLC. This also unlocks an Achievement called A Foul Feast.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/White+Glass+Bead`],
@@ -9132,7 +9128,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     name: 'Amplitude',
     imagePath: '/trait/amplitude.png',
     id: 'pb5neu',
-        description: `Increases AOE Size`,
+    description: `Increases AOE Size`,
     maxLevelBonus: `At max level, Amplitude Increases AOE Size by +50%`,
     howToGet: `Amplitude can be found at The Labyrinth. Look through the "broken portal" and jump through, sprint jump to the crystal so you dont die and complete the boss fight, (stay alive long enough for a door to open)`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Amplitude`],
@@ -9222,7 +9218,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     name: 'Fitness',
     imagePath: '/trait/fitness.png',
     id: 'qcvmt0',
-    tags: ['Neutral Dodge','Perfect Dodge','Perfect Neutral Evade'],
+    tags: ['Neutral Dodge', 'Perfect Dodge', 'Perfect Neutral Evade'],
     description: `Increases Evade Distance`,
     maxLevelBonus: `At max level, Fitness Increases Evade Distance by +30%`,
     howToGet: `N'Erud - Vault of the Formless
@@ -9234,7 +9230,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     name: 'Flash Caster',
     imagePath: '/trait/flash_caster.png',
     id: 'm6i4dl',
-    tags: ['Mod Cast Speed','Skill Cast Speed'],
+    tags: ['Mod Cast Speed', 'Skill Cast Speed'],
     description: `Increases Mod and Casting Speed`,
     maxLevelBonus: `At max level, Flash Caster Increases Mod and Casting Speed by 50%`,
     howToGet: `Flash Caster is the Archetype Trait of the ARCHON`,
@@ -9333,7 +9329,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     name: 'Potency',
     imagePath: '/trait/potency.png',
     id: 'v1uiyd',
-    tags: ['Concotion'],
+    tags: ['Concoction'],
     description: `Increases Consumable Duration`,
     maxLevelBonus: `At max level, Potency Increases Consumable Duration by 100%`,
     howToGet: `Potency is the Archetype Trait of the ALCHEMIST`,
@@ -9836,7 +9832,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     imagePath: '/consumable/faerie_needle.png',
     id: 'aqphr5',
     tags: ['Mod Power'],
-    description: `Increases Mod Power Regen by 10 MP per second. Lasts 30s.`,     // TODO Check desciption in game.
+    description: `Increases Mod Power Regen by 10 MP per second. Lasts 30s.`, // TODO Check desciption in game.
     howToGet: `Can be crafted at Nimue shop for x1 Lumenite Crystal.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Faerie+Needle`],
   },
@@ -10000,7 +9996,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     imagePath: '/perk/dead_to_rights.png',
     type: 'prime',
     id: 's8eytq',
-    tags: ['Weakspot Damage',],
+    tags: ['Weakspot Damage'],
     description: `
     Dealing 65 Base Ranged Weakspot Damage extends the duration of active HUNTER Skills by 2.5s. Can extend timer beyond its initial duration
 
@@ -10458,7 +10454,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     imagePath: '/perk/close_quarters.png',
     type: 'damage',
     id: 'f4jx9k',
-    tags: ['All damage', 'Critical Chance'],
+    tags: ['All Damage', 'Critical Chance'],
     description: `
     Grants a 3.5% increase to All Damage to enemies within 10m. Damage bonus tapers off until 20m. Increases with CHALLENGER Level. 
     
@@ -10540,7 +10536,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     imagePath: '/perk/spirited.png',
     type: 'prime',
     id: 'rx6e2w',
-    tags: ['Concotion'],
+    tags: ['Concoction'],
     description: `
     ALCHEMIST can have 1 additional Concotion buff active.
 
@@ -10585,7 +10581,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     imagePath: '/perk/panacea.png',
     type: 'team',
     id: '49i5jm',
-    tags: ['Damage Resistance'],
+    tags: ['Damage Reduction'], // TODO Changed to Damage Reduction as that tag exists, assuming that is what was meant here
     description: `
     Curative effects apply to all allies within 15m and grant 15 additional Resistance.
 
@@ -10635,7 +10631,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     Using a Relic applies a random buff on the ALCHEMIST for 30s. Cannot be overridden.                 
 
     Upgrade unlocked at level 9
-    Using a Relic applies a random buff o the ALCHEMIST and allies within 20m for 60s. Cannot be overridden`,     // TODO Tag based on all possible options for buffs
+    Using a Relic applies a random buff o the ALCHEMIST and allies within 20m for 60s. Cannot be overridden`, // TODO Tag based on all possible options for buffs
     howToGet: `Unlocked at Level 4`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Experimentalist`],
     linkedItems: {
@@ -10673,7 +10669,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     imagePath: '/perk/amplify.png',
     type: 'damage',
     id: 'yro37y',
-    tags: ['Mod damage', 'Critical Chance'],
+    tags: ['Mod Damage', 'Critical Chance'],
     description: `
     Increases Mod Damage by +5%.
     Increases with ARCHON Level.
@@ -10990,7 +10986,12 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     imagePath: '/perk/shark.png',
     type: 'damage',
     id: '59swqq',
-    tags: ['Ranged Damage', 'Melee Damage', 'Melee Critical Chance', 'Critical Chance'],
+    tags: [
+      'Ranged Damage',
+      'Melee Damage',
+      'Melee Critical Chance',
+      'Critical Chance',
+    ],
     description: `
     Sprinting for 1s or Evading adds 1 Stack of Momentum which increases Ranged and Melee damage  by 0.7% for 15s. Max 5 Stacks. Damage increases with INVADER level.
     
@@ -11032,7 +11033,12 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     imagePath: '/perk/circumvent.png',
     type: 'utility',
     id: 'i9tjgk',
-    tags: ['Perfect Neutral Evade', 'Neutral Dodge', 'Perfect Dodge', 'Stamina'],
+    tags: [
+      'Perfect Neutral Evade',
+      'Neutral Dodge',
+      'Perfect Dodge',
+      'Stamina',
+    ],
     description: `
     Reduce Cost of Evade and Combat Slide by 10%
 
@@ -11094,7 +11100,14 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     imagePath: '/perk/dominator.png',
     type: 'damage',
     id: 'tu8pcp',
-    tags: ['Mod Damage', 'Skill Damage', 'Ranged Damage', 'Melee Damage', 'Critical Chance', 'Melee Critical Chance'],
+    tags: [
+      'Mod Damage',
+      'Skill Damage',
+      'Ranged Damage',
+      'Melee Damage',
+      'Critical Chance',
+      'Melee Critical Chance',
+    ],
     description: `
     Increases Mod and Skill Damage by 3.5% while a Minion is active. Sacrificing a Minion increases Ranged and Melee Damage by 3% for 30s or until another Minion is summoned. Damage increases with SUMMONER level
     
@@ -11263,7 +11276,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     imagePath: '/perk/purge.png',
     type: 'relic',
     id: 'tr5r38',
-    tags: ['Status Effects'],
+    tags: ['Status Effect'],
     description: `
     On Relic Use, cleanses all Negative Status Effects..
     

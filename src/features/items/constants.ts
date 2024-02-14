@@ -334,13 +334,14 @@ export const DESCRIPTION_TAGS = [
 }[]
 
 export const ITEM_TAGS: ItemTag[] = [
-  'Ammo Reserves',            // Only plular one due to wording in game
+  'Ammo Reserves', // Only plular one due to wording in game
   'All Damage',
   'Charged Melee Damage',
   'Charged Melee',
   'Charged Shot',
   'Concoction',
   'Critical Chance',
+  'Critical Damage',
   'Critical Hit',
   'Damage Reduction',
   'Elemental Damage',
@@ -358,6 +359,7 @@ export const ITEM_TAGS: ItemTag[] = [
   'Melee Attack Speed',
   'Melee Charge Speed',
   'Melee Critical Chance',
+  'Melee Critical Damage',
   'Melee Critical Hit',
   'Melee Damage',
   'Melee Hit',
@@ -371,7 +373,7 @@ export const ITEM_TAGS: ItemTag[] = [
   'Mod Power',
   'Movement Speed',
   'Neutral Backdash',
-  'Neutral Dodge',                    // TODO Probably merge these 3 into one tag
+  'Neutral Dodge', // TODO Probably merge these 3 into one tag
   'Perfect Dodge',
   'Perfect Neutral Evade',
   'Projectile Speed',
