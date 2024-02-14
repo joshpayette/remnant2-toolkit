@@ -77,12 +77,16 @@ export function Footer() {
       <hr className="border-gray-900 pb-4" />
       <p className="pb-4">
         These tools would not be possible without the{' '}
+        <a href="https://remnant.wiki" target="_blank" className={cn(aClass)}>
+          community maintained Remnant 2 Wiki
+        </a>
+        , the{' '}
         <a
           href="https://remnant2.wiki.fextralife.com/Remnant+2+Wiki"
           target="_blank"
           className={cn(aClass)}
         >
-          Remnant 2 Wiki
+          Fextralife Remnant 2 Wiki
         </a>
         , as well as the{' '}
         <a
