@@ -3751,7 +3751,7 @@ export const remnantItems: Item[] = [
     id: 'g3esv1',
     description: `Fires tooth-like flechettes. When weapon reticle is fully compressed, flechettes apply 250 BLEEDING Damage over 10s.`,
     howToGet: `Can be crafted at McCabe Store. Material Required: x1 Crimson Membrane, x7 Lumenite Crystal, x650 Scrap`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Merciless`],
+    wikiLinks: [`https://remnant.wiki/Merciless`],
     linkedItems: {
       mod: {
         name: 'Bloodline',
@@ -5450,7 +5450,7 @@ export const remnantItems: Item[] = [
     id: 'kep3kb',
     description: `Fires a highly compressed sphere which draws in objects and deals 50 damage on impact. When colliding with a target, a large Gravity Well opens and draws in objects for 5s.
 
-    When the Gravity Well expires, it deals 250 damage within 10m. Adds 200 damage per enemy and divides total damage among all enemies.`,
+    When the Gravity Well expires, it deals 250 [E] damage within 10m [A]. Adds 200 damage per enemy and divides total damage among all enemies.`,
     howToGet: `Attached to the Starkiller weapon`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Gravity+Core`],
     linkedItems: {
