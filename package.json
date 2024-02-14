@@ -22,6 +22,7 @@
     "@prisma/client": "5.8.0",
     "@tippyjs/react": "4.2.6",
     "@vercel/analytics": "1.1.1",
+    "@vercel/speed-insights": "1.0.9",
     "bad-words": "3.0.4",
     "clipboard-copy": "4.0.1",
     "clsx": "2.0.0",
