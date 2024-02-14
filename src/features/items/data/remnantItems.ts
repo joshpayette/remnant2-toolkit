@@ -3751,7 +3751,7 @@ export const remnantItems: Item[] = [
     id: 'g3esv1',
     description: `Fires tooth-like flechettes. When weapon reticle is fully compressed, flechettes apply 250 BLEEDING Damage over 10s.`,
     howToGet: `Can be crafted at McCabe Store. Material Required: x1 Crimson Membrane, x7 Lumenite Crystal, x650 Scrap`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Merciless`],
+    wikiLinks: [`https://remnant.wiki/Merciless`],
     linkedItems: {
       mod: {
         name: 'Bloodline',
