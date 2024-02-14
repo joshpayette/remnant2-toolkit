@@ -9,6 +9,7 @@ type Props = {
   isToggled?: boolean
   isEditable?: boolean
   isScreenshotMode?: boolean
+  loading?: 'lazy' | 'eager'
   size?: 'sm' | 'md' | 'lg' | 'xl' | 'wide'
   onClick?: () => void
   onItemInfoClick?: (item: Item) => void
@@ -19,6 +20,7 @@ export function ItemButton({
   isEditable = true,
   isScreenshotMode = false,
   isToggled,
+  loading = 'eager',
   size = 'md',
   onClick,
   onItemInfoClick,
