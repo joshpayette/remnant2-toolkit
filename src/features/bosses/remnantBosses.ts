@@ -226,6 +226,15 @@ export const remnantBosses: Boss[] = [
     id: 'BvjT2V',
   },
   {
+    name: 'Master of Feasts',
+    category: 'boss',
+    imagePath: '/bosses/master_of_feasts.jpg',
+    location: 'Losomn',
+    dungeon: 'The Great Hall',
+    wikiLinks: [], // TODO
+    id: 'GkCc3H',
+  },
+  {
     name: 'Mother Mind',
     category: 'boss',
     imagePath: '/bosses/mother_mind.jpg',
@@ -251,6 +260,24 @@ export const remnantBosses: Boss[] = [
     dungeon: 'Gilded Chambers',
     wikiLinks: ['https://remnant2.wiki.fextralife.com/The+Red+Prince'],
     id: '35mW3e',
+  },
+  {
+    name: 'Root Nexus',
+    category: 'boss',
+    imagePath: '/bosses/root_nexus.jpg',
+    location: 'Yaesha',
+    dungeon: 'Forgotten Grove',
+    wikiLinks: [], // TODO
+    id: '4Hg99W',
+  },
+  {
+    name: 'Seed Contraption',
+    category: 'boss',
+    imagePath: '/bosses/seed_contraption.jpg',
+    location: 'Yaesha',
+    dungeon: 'The Chimney',
+    wikiLinks: [], // TODO
+    id: '2HnPj9',
   },
   {
     name: 'Shrewd',
