@@ -57,7 +57,7 @@ export const metadata: Metadata = {
     creatorId: '1696952720974888960',
     images: [
       {
-        url: 'https://d2sqltdcj8czo5.cloudfront.net/og-image-sm.png',
+        url: 'https://d2sqltdcj8czo5.cloudfront.net/toolkit/og-image-sm.png',
         width: 150,
         height: 150,
       },
