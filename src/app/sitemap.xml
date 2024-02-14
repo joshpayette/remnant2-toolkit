@@ -1,38 +1,24 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--Created using XmlSitemapGenerator.org - Free HTML, RSS and XML sitemap generator-->
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-  <url>
-    <loc>https://www.remnant2toolkit.com/</loc>
-  </url>
-  <url>
-    <loc>https://www.remnant2toolkit.com/item-lookup</loc>
-  </url>
-  <url>
-    <loc>https://www.remnant2toolkit.com/tracker</loc>
-  </url>
-  <url>
-    <loc>https://www.remnant2toolkit.com/featured-builds</loc>
-  </url>
-  <url>
-    <loc>https://www.remnant2toolkit.com/builder</loc>
-  </url>
-  <url>
-    <loc>https://www.remnant2toolkit.com/featured-builds/build/speed-farming</loc>
-  </url>
-  <url>
-    <loc>https://www.remnant2toolkit.com/featured-builds/build/max-status-effects</loc>
-  </url>
-  <url>
-    <loc>https://www.remnant2toolkit.com/featured-builds/build/support-medic-summoner</loc>
-  </url>
-  <url>
-    <loc>https://www.remnant2toolkit.com/featured-builds/build/bolt-jamisons-pyro</loc>
-  </url>
-  <url>
-    <loc>https://www.remnant2toolkit.com/featured-builds/build/sheenshots-acidic-berserker</loc>
-  </url>
-  <url>
-    <loc>https://www.remnant2toolkit.com/featured-builds/build/bolt-jamisons-bleed-crit</loc>
-  </url>
+<?xml version="1.0" encoding="UTF-8" ?>
+
+			   <?xml-stylesheet type="text/xsl" href="stylesheet.xslt"?>
+
+                     
+
+			    <urlset   
+			    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"   
+			    xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" 
+                      xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"   
+			    xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd http://www.google.com/schemas/sitemap-image/1.1 http://www.google.com/schemas/sitemap-image/1.1/sitemap-image.xsd"   
+			    >
+<url><loc>https://www.remnant2toolkit.com/</loc><changefreq>daily</changefreq></url>
+<url><loc>https://www.remnant2toolkit.com/profile/created-builds</loc><changefreq>daily</changefreq></url>
+<url><loc>https://www.remnant2toolkit.com/profile/favorited-builds</loc><changefreq>daily</changefreq></url>
+<url><loc>https://www.remnant2toolkit.com/tracker</loc><changefreq>daily</changefreq></url>
+<url><loc>https://www.remnant2toolkit.com/creator-builds</loc><changefreq>daily</changefreq></url>
+<url><loc>https://www.remnant2toolkit.com/community-builds</loc><changefreq>daily</changefreq></url>
+<url><loc>https://www.remnant2toolkit.com/boss-tracker</loc><changefreq>daily</changefreq></url>
+<url><loc>https://www.remnant2toolkit.com/builder/create</loc><changefreq>daily</changefreq></url>
+<url><loc>https://www.remnant2toolkit.com/item-lookup</loc><changefreq>daily</changefreq></url>
+<url><loc>https://www.remnant2toolkit.com/builder</loc><changefreq>daily</changefreq></url>
 </urlset>
-<!--Created using XmlSitemapGenerator.org - Free HTML, RSS and XML sitemap generator-->
+
