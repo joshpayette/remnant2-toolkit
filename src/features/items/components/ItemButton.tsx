@@ -49,7 +49,7 @@ export function ItemButton({
     case 'xl':
       imageSize = {
         height: 150,
-        width: 150,
+        width: 300,
       }
       break
     case 'wide':
@@ -59,9 +59,6 @@ export function ItemButton({
       }
       break
   }
-
-  console.info('item', item)
-  console.info(onItemInfoClick)
 
   return (
     <div
@@ -116,9 +113,9 @@ export function ItemButton({
             src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}${item.imagePath}`}
             alt={`${item.name} icon`}
             loading="eager"
-            width={size !== 'xl' ? imageSize.width : undefined}
-            height={size !== 'xl' ? imageSize.height : undefined}
-            fill={size === 'xl'}
+            width={imageSize.width}
+            height={imageSize.height}
+            className={cn(size === 'xl' && 'h-[150px] w-[300px]')}
           />
         )}
       </button>
