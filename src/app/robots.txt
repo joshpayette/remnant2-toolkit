@@ -1,1 +1,4 @@
+User-Agent: *
+Allow: /
+
 sitemap: https://www.remnant2toolkit.com/sitemap.xml
