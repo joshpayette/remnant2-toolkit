@@ -128,8 +128,8 @@ export async function generateMetadata(
       images: [
         {
           url: 'https://d2sqltdcj8czo5.cloudfront.net/toolkit/og-image-sm.jpg',
-          width: 100,
-          height: 100,
+          width: 150,
+          height: 150,
         },
       ],
       type: 'website',
@@ -141,8 +141,8 @@ export async function generateMetadata(
       images: [
         {
           url: `https://d2sqltdcj8czo5.cloudfront.net/toolkit/og-image-sm.jpg`,
-          width: 100,
-          height: 100,
+          width: 150,
+          height: 150,
         },
       ],
     },
