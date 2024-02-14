@@ -1,11 +1,21 @@
-export function Skeleton() {
+import clsx from 'clsx'
+
+export function Skeleton({
+  as: Component = 'div',
+  width,
+  height,
+  className,
+  ...props
+}: {
+  as?: React.ElementType
+  width?: string
+  height?: string
+  className?: string
+  [key: string]: any
+}) {
+  const styles = clsx('rounded animate-pulse bg-gray-800', className)
+
   return (
-    <div
-      role="status"
-      className="flex h-auto w-full max-w-sm animate-pulse items-center justify-center rounded-lg bg-gray-300 dark:bg-gray-700"
-    >
-      &nbsp;
-      <span className="sr-only">Loading...</span>
-    </div>
+    <Component {...props} width={width} height={height} className={styles} />
   )
 }

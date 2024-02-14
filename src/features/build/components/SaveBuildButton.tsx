@@ -2,7 +2,7 @@
 
 import { useRouter } from 'next/navigation'
 import { signIn, useSession } from 'next-auth/react'
-import { useState } from 'react'
+import { Suspense, useState } from 'react'
 import { toast } from 'react-toastify'
 
 import {
@@ -12,7 +12,6 @@ import {
 } from '@/app/builder/actions'
 import { BuildState } from '@/features/build/types'
 import { isErrorResponse } from '@/features/error-handling/isErrorResponse'
-import { LoadingIndicator } from '@/features/ui/LoadingIndicator'
 import { Skeleton } from '@/features/ui/Skeleton'
 import { cn } from '@/lib/classnames'
 
@@ -31,7 +30,7 @@ export function SaveBuildButton({ buildState, editMode }: Props) {
 
   const { status } = useSession()
 
-  if (status === 'loading') return <Skeleton />
+  if (status === 'loading') return <Loading />
   if (status === 'unauthenticated') {
     return (
       <button
@@ -75,7 +74,7 @@ export function SaveBuildButton({ buildState, editMode }: Props) {
           'border-yellow-700 bg-yellow-500 text-black hover:bg-yellow-300',
         )}
       >
-        <LoadingIndicator />
+        <Loading />
       </div>
     ) : (
       <button
@@ -95,29 +94,41 @@ export function SaveBuildButton({ buildState, editMode }: Props) {
     )
   }
 
-  return saveInProgress ? (
-    <div
-      className={cn(
-        buttonClasses,
-        'border-transparent bg-green-500 hover:bg-green-700',
+  return (
+    <Suspense fallback={<Loading />}>
+      {saveInProgress ? (
+        <div
+          className={cn(
+            buttonClasses,
+            'border-transparent bg-green-500 hover:bg-green-700',
+          )}
+        >
+          <Loading />
+        </div>
+      ) : (
+        <button
+          className={cn(
+            buttonClasses,
+            'border-transparent bg-green-500 text-black hover:bg-green-700 hover:text-white',
+          )}
+          onClick={async () => {
+            promptForBuildName()
+            setSaveInProgress(true)
+            const response = await createBuild(JSON.stringify(buildState))
+            handleResponse(response)
+          }}
+        >
+          Save Build
+        </button>
       )}
-    >
-      <LoadingIndicator />
+    </Suspense>
+  )
+}
+
+function Loading() {
+  return (
+    <div className="flex h-full w-full items-center justify-center">
+      <Skeleton className="h-[80px] w-[100px]" />
     </div>
-  ) : (
-    <button
-      className={cn(
-        buttonClasses,
-        'border-transparent bg-green-500 text-black hover:bg-green-700 hover:text-white',
-      )}
-      onClick={async () => {
-        promptForBuildName()
-        setSaveInProgress(true)
-        const response = await createBuild(JSON.stringify(buildState))
-        handleResponse(response)
-      }}
-    >
-      Save Build
-    </button>
   )
 }

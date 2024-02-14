@@ -5,10 +5,10 @@ import Link from 'next/link'
 import { useEffect, useState } from 'react'
 
 import { isErrorResponse } from '@/features/error-handling/isErrorResponse'
-import { LoadingIndicator } from '@/features/ui/LoadingIndicator'
 
 import { getUserBio } from '../../app/profile/actions'
 import { getTotalBuildFavorites } from '../build/actions/getTotalBuildFavorites'
+import { Skeleton } from '../ui/Skeleton'
 import { Bio } from './Bio'
 import { DEFAULT_DISPLAY_NAME } from './constants'
 import { DisplayName } from './DisplayName'
@@ -56,7 +56,7 @@ export function ProfileHeader({ editable, userId, image }: Props) {
 
   const { displayName } = userProfile
 
-  if (isLoading) return <LoadingIndicator />
+  if (isLoading) return <Skeleton className="h-32 w-32" />
 
   return (
     <div className="max-w-xl">

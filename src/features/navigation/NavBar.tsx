@@ -11,7 +11,7 @@ import { Logo } from '@/features/ui/Logo'
 import { cn } from '@/lib/classnames'
 
 import { AuthButton } from '../auth/components/AuthButton'
-import { LoadingIndicator } from '../ui/LoadingIndicator'
+import { Skeleton } from '../ui/Skeleton'
 
 export function NavBar() {
   const pathname = usePathname()
@@ -257,10 +257,8 @@ export function NavBar() {
             {NAV_ITEMS.supportR2TK.label}
           </Link>
         </div>
-        <div className="flex grow items-end justify-end">
-          <Suspense fallback={<LoadingIndicator />}>
-            <AuthButton.Desktop />
-          </Suspense>
+        <div className="hidden grow items-end justify-end sm:flex">
+          <AuthButton.Desktop />
         </div>
       </nav>
 
@@ -408,9 +406,7 @@ export function NavBar() {
 
                 <hr className="border-purple-900" />
 
-                <Suspense fallback={<LoadingIndicator />}>
-                  <AuthButton.Mobile />
-                </Suspense>
+                <AuthButton.Mobile />
               </div>
             </div>
           </div>
