@@ -1,15 +1,15 @@
 'use client'
 
-import { useState } from 'react'
+import { useSearchParams } from 'next/navigation'
 
 import { FeaturedBuilds } from '@/app/creator-builds/FeaturedBuilds'
 import { BuildListFilters } from '@/features/filters/components/BuildListFilters'
-import { BuildListFilterFields } from '@/features/filters/types'
+import { parseFiltersFromUrl } from '@/features/filters/lib/parseFiltersFromUrl'
 import { PageHeader } from '@/features/ui/PageHeader'
 
 export default function Page() {
-  const [buildListFilters, setBuildListFilters] =
-    useState<BuildListFilterFields | null>(null)
+  const searchParams = useSearchParams()
+  const buildListFilters = parseFiltersFromUrl(searchParams)
 
   return (
     <>
@@ -19,11 +19,7 @@ export default function Page() {
       />
 
       <div className="mb-8 flex w-full max-w-3xl items-center justify-center">
-        <BuildListFilters
-          onUpdateFilters={(newFilters) => {
-            setBuildListFilters(newFilters)
-          }}
-        />
+        <BuildListFilters filters={buildListFilters} />
       </div>
       {buildListFilters && (
         <div className="mb-4 grid w-full grid-cols-1 gap-2">

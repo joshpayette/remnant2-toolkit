@@ -1,6 +1,7 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useSearchParams } from 'next/navigation'
+import { useEffect } from 'react'
 
 import { BuildCard } from '@/features/build/components/BuildCard'
 import { BuildList } from '@/features/build/components/BuildList'
@@ -8,7 +9,7 @@ import { useBuildListState } from '@/features/build/hooks/useBuildListState'
 import { BuildListFilters } from '@/features/filters/components/BuildListFilters'
 import { BuildListSecondaryFilters } from '@/features/filters/components/BuildListSecondaryFilters'
 import { useBuildListSecondaryFilters } from '@/features/filters/hooks/useBuildListSecondaryFilters'
-import { BuildListFilterFields } from '@/features/filters/types'
+import { parseFiltersFromUrl } from '@/features/filters/lib/parseFiltersFromUrl'
 import { usePagination } from '@/features/pagination/usePagination'
 
 import { CopyBuildUrlButton } from '../../../features/profile/CopyBuildUrlButton'
@@ -25,8 +26,9 @@ export default function Page({
   const { buildListState, setBuildListState } = useBuildListState()
   const { builds, totalBuildCount, isLoading } = buildListState
 
-  const [buildListFilters, setBuildListFilters] =
-    useState<BuildListFilterFields | null>(null)
+  const searchParams = useSearchParams()
+
+  const buildListFilters = parseFiltersFromUrl(searchParams)
 
   const itemsPerPage = 16
 
@@ -91,11 +93,7 @@ export default function Page({
         <ProfileHeader editable={false} userId={userId} />
       </div>
       <div className="mb-8 flex w-full max-w-2xl items-center justify-center">
-        <BuildListFilters
-          onUpdateFilters={(newFilters) => {
-            setBuildListFilters(newFilters)
-          }}
-        />
+        <BuildListFilters filters={buildListFilters} />
       </div>
       {buildListFilters && (
         <BuildList
