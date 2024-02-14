@@ -1,28 +1,23 @@
-import Link from 'next/link'
 import { useEffect } from 'react'
-import { toast } from 'react-toastify'
 
-import { getCommunityBuilds } from '@/features/build/actions/getCommunityBuilds'
 import { BuildCard } from '@/features/build/components/BuildCard'
 import { BuildList } from '@/features/build/components/BuildList'
-import { useBuildActions } from '@/features/build/hooks/useBuildActions'
 import { useBuildListState } from '@/features/build/hooks/useBuildListState'
-import { dbBuildToBuildState } from '@/features/build/lib/dbBuildToBuildState'
-import { isErrorResponse } from '@/features/error-handling/isErrorResponse'
 import { BuildListSecondaryFilters } from '@/features/filters/components/BuildListSecondaryFilters'
 import { useBuildListSecondaryFilters } from '@/features/filters/hooks/useBuildListSecondaryFilters'
 import { BuildListFilterFields } from '@/features/filters/types'
 import { usePagination } from '@/features/pagination/usePagination'
+import { CopyBuildUrlButton } from '@/features/profile/CopyBuildUrlButton'
+import { DuplicateBuildButton } from '@/features/profile/DuplicateBuildButton'
+
+import { getFavoritedBuilds } from '../../app/profile/favorited-builds/actions'
 
 interface Props {
   itemsPerPage?: number
   buildListFilters: BuildListFilterFields
 }
 
-export function CommunityBuildList({
-  itemsPerPage = 8,
-  buildListFilters,
-}: Props) {
+export function FavoritedBuilds({ itemsPerPage = 8, buildListFilters }: Props) {
   const { buildListState, setBuildListState } = useBuildListState()
   const { builds, totalBuildCount, isLoading } = buildListState
 
@@ -49,18 +44,19 @@ export function CommunityBuildList({
     itemsPerPage,
   })
 
-  const { handleReportBuild } = useBuildActions()
-
-  // Fetch data
   useEffect(() => {
     const getItemsAsync = async () => {
+      if (!buildListFilters) {
+        return
+      }
+
       setBuildListState((prevState) => ({ ...prevState, isLoading: true }))
-      const response = await getCommunityBuilds({
+      const response = await getFavoritedBuilds({
+        buildListFilters,
         itemsPerPage,
+        orderBy,
         pageNumber: currentPage,
         timeRange,
-        orderBy,
-        buildListFilters,
       })
       setBuildListState((prevState) => ({
         ...prevState,
@@ -79,38 +75,10 @@ export function CommunityBuildList({
     setBuildListState,
   ])
 
-  async function onReportBuild(buildId: string) {
-    const reportedBuild = builds.find((build) => build.id === buildId)
-
-    if (!reportedBuild) {
-      console.error(`Could not find build with id ${buildId}, report not saved`)
-      return
-    }
-    const newReported = !reportedBuild.reported
-    const response = await handleReportBuild(
-      dbBuildToBuildState(reportedBuild),
-      newReported,
-    )
-
-    if (!response || isErrorResponse(response)) {
-      console.error(response?.errors)
-      toast.error(response?.errors?.[0])
-    } else {
-      toast.success(response.message)
-      const newBuilds = builds.map((build) => {
-        if (build.id === buildId) {
-          build.reported = newReported
-        }
-        return build
-      })
-      setBuildListState((prevState) => ({ ...prevState, builds: newBuilds }))
-    }
-  }
-
   return (
     <>
       <BuildList
-        label="Community Builds"
+        label="Builds you've favorited"
         currentPage={currentPage}
         pageNumbers={pageNumbers}
         totalItems={totalBuildCount}
@@ -136,15 +104,11 @@ export function CommunityBuildList({
           <div key={build.id} className="h-full w-full">
             <BuildCard
               build={build}
-              onReportBuild={onReportBuild}
+              onReportBuild={undefined}
               footerActions={
-                <div className="flex items-center justify-end gap-2 p-2 text-sm">
-                  <Link
-                    href={`/builder/${build.id}`}
-                    className="relative inline-flex items-center justify-center gap-x-3 rounded-br-lg border border-transparent p-4 text-sm font-semibold text-green-500 hover:text-green-700 hover:underline"
-                  >
-                    View Build
-                  </Link>
+                <div className="flex items-center justify-between gap-2 p-2 text-sm">
+                  <CopyBuildUrlButton buildId={build.id} />
+                  <DuplicateBuildButton build={build} />
                 </div>
               }
             />
