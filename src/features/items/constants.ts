@@ -334,6 +334,7 @@ export const DESCRIPTION_TAGS = [
 }[]
 
 export const ITEM_TAGS: ItemTag[] = [
+  'Ammo Reserves',            // Only plular one due to wording in game
   'All Damage',
   'Charged Melee Damage',
   'Charged Melee',
@@ -345,6 +346,7 @@ export const ITEM_TAGS: ItemTag[] = [
   'Elemental Damage',
   'Encumbrance',
   'Firearm Swap Speed',
+  'Fire Rate',
   'Grey Health',
   'Hardcore',
   'Heal',
@@ -369,13 +371,12 @@ export const ITEM_TAGS: ItemTag[] = [
   'Mod Power',
   'Movement Speed',
   'Neutral Backdash',
-  'Neutral Dodge',
+  'Neutral Dodge',                    // TODO Probably merge these 3 into one tag
   'Perfect Dodge',
   'Perfect Neutral Evade',
   'Projectile Speed',
   'Range',
   'Ranged Damage',
-  'Rate of Fire',
   'Recoil',
   'Reduce Skill Cooldown',
   'Relic Use Speed',
