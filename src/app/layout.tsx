@@ -8,6 +8,7 @@ import './globals.css'
 import 'react-toastify/dist/ReactToastify.css'
 
 import { Analytics } from '@vercel/analytics/react'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 import { Viewport } from 'next'
 import { ToastContainer } from 'react-toastify'
 
@@ -68,6 +69,7 @@ export default function RootLayout({
           </footer>
         </SessionProvider>
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   )
