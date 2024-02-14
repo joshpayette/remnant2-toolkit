@@ -163,7 +163,10 @@ export default function Page() {
       />
 
       <div className="mb-8 flex w-full max-w-3xl items-center justify-center">
-        <BuildListFilters filters={buildListFilters} />
+        <BuildListFilters
+          filters={buildListFilters}
+          key="by-collection-filters"
+        />
       </div>
 
       {discoveredItemsSaved.current === false && (

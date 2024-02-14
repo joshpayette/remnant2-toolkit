@@ -28,7 +28,10 @@ export default function Page({ totalBuildCount }: { totalBuildCount: number }) {
       />
 
       <div className="mb-8 flex w-full max-w-3xl items-center justify-center">
-        <BuildListFilters filters={buildListFilters} />
+        <BuildListFilters
+          filters={buildListFilters}
+          key="community-build-filters"
+        />
       </div>
       {buildListFilters && (
         <div className="grid w-full grid-cols-1 gap-2">

@@ -93,7 +93,10 @@ export default function Page({
         <ProfileHeader editable={false} userId={userId} />
       </div>
       <div className="mb-8 flex w-full max-w-2xl items-center justify-center">
-        <BuildListFilters filters={buildListFilters} />
+        <BuildListFilters
+          filters={buildListFilters}
+          key="user-profile-filters"
+        />
       </div>
       {buildListFilters && (
         <BuildList

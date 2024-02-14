@@ -106,7 +106,10 @@ export default function Page() {
         <Tabs />
       </div>
       <div className="mb-8 flex w-full max-w-3xl items-center justify-center">
-        <BuildListFilters filters={buildListFilters} />
+        <BuildListFilters
+          filters={buildListFilters}
+          key="user-created-builds-filters"
+        />
       </div>
       {buildListFilters && (
         <BuildList
