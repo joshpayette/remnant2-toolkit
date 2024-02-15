@@ -40,7 +40,7 @@ export const remnantItems: Item[] = [
     description:
       'The ARCHON is the master of Weapon Mods and Mod Power generation.',
     howToGet: `To Unlock the Red Door you will need the following. Engram EXPLORER with skill Fortune Hunter (LV10), Engram INVADER with skill Worm Hole (LV5), Armor set Realmwalker, Relic Consumable Void Heart, Leto's Amulet, Amber Moonstone, Black Cat Band, Zanias Malice, Anastasijas Inspiration, Cube Gun, Ford's Scattergun, Labyrinth Staff. With all this the door will open.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Archon`],
+    wikiLinks: [`https://remnant.wiki/Archon`],
     linkedItems: {
       traits: [
         { name: 'Flash Caster', amount: 10 },
@@ -70,7 +70,7 @@ export const remnantItems: Item[] = [
     description:
       'The CHALLENGER specializes in close range combat and heightened survivability.',
     howToGet: `Buy from Reggie at Ward 13 for 1500 Scrap`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Challenger`],
+    wikiLinks: [`https://remnant.wiki/Challenger`],
     linkedItems: {
       traits: [
         { name: 'Strong Back', amount: 10 },
@@ -308,7 +308,7 @@ export const remnantItems: Item[] = [
     description:
       'The RITUALIST is a powerful class focusing on status effects and AOE damage, that can make enemies infect their allies with whatever status they are suffering',
     howToGet: `In Forlorn Coast, there are two interconnected rowboats near the center of the docks area. Using an overhead view on the map, they are hard to miss - their shape is unique. From there you can jump to another boat under the docks. This path leads underground, straight to a ritual performed by a witch elite. The doll is there, behind the ritual. NOTE: If you allow the ritual to complete, you will begin a miniboss fight.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Ritualist`],
+    wikiLinks: [`https://remnant.wiki/Ritualist`],
     linkedItems: {
       traits: [
         { name: 'Affliction', amount: 10 },
@@ -1012,7 +1012,7 @@ export const remnantItems: Item[] = [
     description: `Casts an AOE burst that applies BLEEDING, BURNING, OVERLOADED, and CORRODED to all enemies within 15m [A], and dealing a total of 1500 base damage. Lasts 11s.`,
     cooldown: 36.9,
     howToGet: `Unlocks at level 5`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Miasma`],
+    wikiLinks: [`https://remnant.wiki/Miasma`],
     linkedItems: {
       archetype: {
         name: 'Ritualist',
@@ -3058,7 +3058,7 @@ export const remnantItems: Item[] = [
     id: 'thgp2z',
     description: `Passively grants 2 Health Regeneration per second. On use, doubles All Health Regeneration for 15s.`,
     howToGet: `Can be crafted at Nimue by giving her the Tormented Heart.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Tranquil+Heart`],
+    wikiLinks: [`https://remnant.wiki/Tranquil_Heart`],
   },
   {
     category: 'relic',
@@ -6113,7 +6113,7 @@ export const remnantItems: Item[] = [
     description: `Increases Critical Chance of this weapon by 3% per unique Negative Status Effect on the enemy. Max 15% increase.`,
     maxLevelBonus: `This weapon's Ranged Weakspot and Ranged Critical Hits apply CORRODED, dealing 200 CORROSIVE damage over 10s.`,
     howToGet: `Aberration Event Random Drop`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Fetid+Wounds`],
+    wikiLinks: [`https://remnant.wiki/Fetid_Wounds`],
   },
   {
     category: 'mutator',
@@ -6442,7 +6442,7 @@ export const remnantItems: Item[] = [
     description: `Increase Melee Damage by 5%-[20%] per stack of CORRODED on the target.`,
     maxLevelBonus: `Charged Melee Attacks apply CORRODED dealing 500 ACID damage over 20s.`,
     howToGet: `Can be crafted at Dwell in Ward 13`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Tainted+Blade`],
+    wikiLinks: [`https://remnant.wiki/Tainted_Blade`],
   },
   {
     category: 'mutator',
@@ -6502,7 +6502,7 @@ export const remnantItems: Item[] = [
     description: `Increases Ranged damage of this weapon by 10-[20]% to BLEEDING targets.`,
     maxLevelBonus: `This weapon's Ranged Weakspot and Ranged Critical Hits apply BLEEDING, dealing 100 BLEED damage over 10s.`,
     howToGet: `Can be found in Forlorn Coast`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Twisting+Wounds`],
+    wikiLinks: [`https://remnant.wiki/Twisting_Wounds`],
   },
   {
     category: 'mutator',
@@ -7350,7 +7350,7 @@ Exclusive to The Awakened King DLC"`,
     tags: ['All Damage', 'Status Effect', 'Hardcore'],
     description: `Deal 5% [M] additional damage for each Status Effect the target is suffering from.`,
     howToGet: `Can be bought from Reggie after killing any Yaesha world boss in Hardcore mode on any difficulty.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Ahanae+Crystal`],
+    wikiLinks: [`https://remnant.wiki/Ahanae_Crystal`],
   },
   {
     category: 'ring',
@@ -8454,7 +8454,7 @@ Exclusive Ring for The Awakened King DLC."`,
     tags: ['Critical Hit'],
     description: `Increases Crit Damage by 30%[C].`,
     howToGet: `Can be found in Root Earth - Corrupted Harbor.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Probability+Cord`],
+    wikiLinks: [`https://remnant.wiki/Probability_Cord`],
   },
   {
     category: 'ring',
@@ -9100,7 +9100,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     maxLevelBonus: `At max level, Affliction Increases STATUS EFFECT duration against enemies by +100%
     However, it does NOT increase a Status Total Damage, effectively reducing Status Damage by 1/2.`,
     howToGet: `Affliction is the Archetype Trait of the RITUALIST`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Affliction`],
+    wikiLinks: [`https://remnant.wiki/Affliction`],
     linkedItems: {
       archetype: {
         name: 'Ritualist',
@@ -9116,7 +9116,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     description: `Increases Ammo Reserves`,
     maxLevelBonus: `At max level, Ammo Reserves Increases Ammo Reserves by 50%`,
     howToGet: `Ammo Reserves is the Archetype Trait of the GUNSLINGER`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Ammo+Reserves`],
+    wikiLinks: [`https://remnant.wiki/Ammo_Reserves`],
     linkedItems: {
       archetype: {
         name: 'Gunslinger',
@@ -9131,7 +9131,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     description: `Increases AOE Size`,
     maxLevelBonus: `At max level, Amplitude Increases AOE Size by +50%`,
     howToGet: `Amplitude can be found at The Labyrinth. Look through the "broken portal" and jump through, sprint jump to the crystal so you dont die and complete the boss fight, (stay alive long enough for a door to open)`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Amplitude`],
+    wikiLinks: [`https://remnant.wiki/Amplitude`],
   },
   {
     category: 'trait',
@@ -9154,7 +9154,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     maxLevelBonus: `At max level, Barkskin Reduces ALL incoming Damage by 10%`,
     howToGet: `Yaesha - The Far Woods or The Forbidden Grove (Meidra's Sorrow)
     Barkskin is given to you by Meidra's Sorrow if you choose the selfless answers to her questions.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Barkskin`],
+    wikiLinks: [`https://remnant.wiki/Barkskin`],
   },
   {
     category: 'trait',
@@ -9199,7 +9199,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     description: `Increases Maximum Stamina`,
     maxLevelBonus: `At max level, Endurance Increases Max Stamina by 30`,
     howToGet: `Core trait`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Endurance`],
+    wikiLinks: [`https://remnant.wiki/Endurance`],
     staminaStep: 3,
   },
   {
@@ -9211,7 +9211,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     description: `Reduces Skill Cooldowns`,
     maxLevelBonus: `At max level, Expertise Reduces Skill Cooldown by -20%`,
     howToGet: `Core trait`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Expertise`],
+    wikiLinks: [`https://remnant.wiki/Expertise`],
   },
   {
     category: 'trait',
@@ -9234,7 +9234,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     description: `Increases Mod and Casting Speed`,
     maxLevelBonus: `At max level, Flash Caster Increases Mod and Casting Speed by 50%`,
     howToGet: `Flash Caster is the Archetype Trait of the ARCHON`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Flash+Caster`],
+    wikiLinks: [`https://remnant.wiki/Flash_Caster`],
     linkedItems: {
       archetype: {
         name: 'Archon',
@@ -9261,7 +9261,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     description: `Increases Armor Effectiveness`,
     maxLevelBonus: `At max level, Fortify Increases Armor Effectiveness by 50%`,
     howToGet: `Fortify is the Archetype Trait of the ENGINEER`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Fortify`],
+    wikiLinks: [`https://remnant.wiki/Fortify`],
     linkedItems: {
       archetype: {
         name: 'Engineer',
@@ -9317,7 +9317,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     description: `Increases Weapon Ideal Range`,
     maxLevelBonus: `At max level, Longshot Increases Weapon Ideal Range by 600(cm)`,
     howToGet: `Longshot is the Archetype Trait of the HUNTER`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Longshot`],
+    wikiLinks: [`https://remnant.wiki/Longshot`],
     linkedItems: {
       archetype: {
         name: 'Hunter',
@@ -9361,7 +9361,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     description: `Increases Health Regeneration`,
     maxLevelBonus: `At max level, Regrowth Increases Health Regen by 1.5/s`,
     howToGet: `Regrowth is the Archetype Trait of the SUMMONER`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Regrowth`],
+    wikiLinks: [`https://remnant.wiki/Regrowth`],
     linkedItems: {
       archetype: {
         name: 'Summoner',
@@ -9445,7 +9445,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     description: `Increases Mod Power Generation`,
     maxLevelBonus: `At max level, Spirit Increases Mod Power Generation by 20%`,
     howToGet: `Core trait`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Spirit`],
+    wikiLinks: [`https://remnant.wiki/Spirit`],
   },
   {
     category: 'trait',
@@ -9456,7 +9456,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     description: `Reduces dodge weight threshold (incrementing the weight you can carry before increasing your dodge class).`,
     maxLevelBonus: `At max level, Strong Back Reduces weight threshold by 15`,
     howToGet: `Strong Back is the Archetype Trait of the CHALLENGER`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Strong+Back`],
+    wikiLinks: [`https://remnant.wiki/Strong_Back`],
     linkedItems: {
       archetype: {
         name: 'Challenger',
@@ -9473,7 +9473,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     description: `Increases movement`,
     maxLevelBonus: `At max level, Swiftness Increases all Movement Speed by 15%`,
     howToGet: `Swiftness is the Archetype Trait of the EXPLORER`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Swiftness`],
+    wikiLinks: [`https://remnant.wiki/Swiftness`],
     linkedItems: {
       archetype: {
         name: 'Explorer',
@@ -9489,7 +9489,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     description: `Increases Healing done by all sources, including Relics, skills, equipment, and weapon mods. `,
     maxLevelBonus: `At max level, Triage Increases healing by 50%`,
     howToGet: `Triage is the Archetype Trait of the MEDIC`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Triage`],
+    wikiLinks: [`https://remnant.wiki/Triage`],
     linkedItems: {
       archetype: {
         name: 'Medic',
@@ -9505,7 +9505,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     description: `Increases Evade Window`,
     maxLevelBonus: `At max level, Untouchable Increases Evade Window by 30%`,
     howToGet: `Untouchable is the Archetype Trait of the INVADER`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Untouchable`],
+    wikiLinks: [`https://remnant.wiki/Untouchable`],
     linkedItems: {
       archetype: {
         name: 'Invader',
@@ -9521,7 +9521,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     description: `Increases Maximum Health`,
     maxLevelBonus: `At max level, Vigor Increases Max Health by 30`,
     howToGet: `Core trait`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Vigor`],
+    wikiLinks: [`https://remnant.wiki/Vigor`],
     healthStep: 3,
   },
   {
@@ -9632,7 +9632,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     tags: ['Health'],
     description: `Increases Max Health by 25. Lasts 60m and will stay in effect after death. Only one Concoction may be active at a time.`,
     howToGet: `Can be bought form Mudtooth for 500 scrap currency`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Mudtooth's+Tonic`],
+    wikiLinks: [`https://remnant.wiki/Mudtooth%27s_Tonic`],
     health: 25,
   },
   {
@@ -10441,7 +10441,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     
     Can only happen once every 10 minutes. Resets at Wordstone or on death.`,
     howToGet: `Automatically unlocked.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Die+Hard`],
+    wikiLinks: [`https://remnant.wiki/Die+Hard`],
     linkedItems: {
       archetype: {
         name: 'Challenger',

@@ -16,9 +16,12 @@ This project exists and thrives thanks to all the people who contribute.
 
 - Thatguylegit
 
-## Testing
+## Testing & Datamine
 
 - ConRaven
+- AuriCrystal
+- Spiked
+- Schattenzeichner
 
 ## Bug Reporters
 
