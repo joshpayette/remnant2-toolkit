@@ -7,7 +7,7 @@ import Filter from 'bad-words'
  * @reference default block list https://github.com/web-mech/badwords/blob/master/lib/lang.json
  */
 const filter = new Filter()
-filter.addWords('gay')
+filter.addWords('gay', 'homosexual')
 filter.removeWords('fart')
 
 export function cleanBadWords(text: string) {
