@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-02-15
+
+### Fixed
+
+- Builds by Collection was not rendering correctly. This has been fixed.
+
 ## 2024-02-13
 
 ### Added

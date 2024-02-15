@@ -1,16 +1,28 @@
 'use client'
 
 import { useSearchParams } from 'next/navigation'
+import { useEffect, useState } from 'react'
 
+import { getTotalBuildCount } from '@/features/build/actions/getTotalBuildCount'
 import { BuildListFilters } from '@/features/filters/components/BuildListFilters'
 import { parseFiltersFromUrl } from '@/features/filters/lib/parseFiltersFromUrl'
 import { PageHeader } from '@/features/ui/PageHeader'
 
 import { CommunityBuildList } from './CommunityBuilds'
 
-export default function Page({ totalBuildCount }: { totalBuildCount: number }) {
+export default function Page() {
   const searchParams = useSearchParams()
   const buildListFilters = parseFiltersFromUrl(searchParams)
+
+  const [totalBuildCount, setTotalBuildCount] = useState(0)
+
+  useEffect(() => {
+    async function fetchTotalBuildCount() {
+      const response = await getTotalBuildCount()
+      setTotalBuildCount(response)
+    }
+    fetchTotalBuildCount()
+  })
 
   return (
     <>
