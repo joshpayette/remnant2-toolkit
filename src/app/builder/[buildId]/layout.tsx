@@ -1,6 +1,8 @@
 import { Metadata, ResolvingMetadata } from 'next'
 
+import { Error } from '@/features/error-handling/Error'
 import { isErrorResponse } from '@/features/error-handling/isErrorResponse'
+import { PageHeader } from '@/features/ui/PageHeader'
 
 import { getBuild } from '../actions'
 import BuildPage from './page'
@@ -12,9 +14,27 @@ export async function generateMetadata(
   const buildData = await getBuild(buildId)
   if (isErrorResponse(buildData)) {
     console.error(buildData.errors)
-    throw new Error(
-      `Build ${buildId} is not found. If you are sure the build exists, it may be marked private.`,
-    )
+    return {
+      title: 'Private Build',
+      description: 'This build is private.',
+      openGraph: {
+        title: 'Private Build',
+        description: 'This build is private.',
+        url: `https://remnant2toolkit.com/builder/${buildId}`,
+        images: [
+          {
+            url: 'https://d2sqltdcj8czo5.cloudfront.net/toolkit/og-image-sm.jpg',
+            width: 150,
+            height: 150,
+          },
+        ],
+        type: 'website',
+      },
+      twitter: {
+        title: 'Private Build',
+        description: 'This build is private.',
+      },
+    }
   }
 
   const { build } = buildData
@@ -82,9 +102,14 @@ export default async function Layout({
   const buildData = await getBuild(buildId)
   if (isErrorResponse(buildData)) {
     console.error(buildData.errors)
-    throw new Error(`Build ${buildId} is not found. If you are sure the build exists, it may
-    be marked private. You must be logged in as the build creator to view
-    a private build.`)
+    return (
+      <div className="flex max-w-lg flex-col">
+        <PageHeader
+          title="Something went wrong!"
+          subtitle="The build either can't be found or is marked private."
+        />
+      </div>
+    )
   }
   const { build } = buildData
 
