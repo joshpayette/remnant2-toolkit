@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Fixed
 
 - Builds by Collection was not rendering correctly. This has been fixed.
+- Fixed bug where user's total build favorites wasn't showing correctly on their profile
 
 ## 2024-02-13
 
