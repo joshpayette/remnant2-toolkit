@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2024-02-15
 
+### Added
+
+- New terms added to bad word filter.
+
 ### Fixed
 
 - Builds by Collection was not rendering correctly. This has been fixed.
