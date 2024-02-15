@@ -4,7 +4,7 @@ export const remnantBosses: Boss[] = [
   {
     name: 'Annihilation',
     category: 'world boss',
-    imagePath: '/bosses/annihilation.jpg',
+    imagePath: '/enemies/worldboss/annihilation.jpg',
     location: 'Root Earth',
     dungeon: 'Blacked Citadel',
     wikiLinks: ['https://remnant2.wiki.fextralife.com/Annihilation'],
@@ -13,7 +13,7 @@ export const remnantBosses: Boss[] = [
   {
     name: 'Corruptor',
     category: 'world boss',
-    imagePath: '/bosses/corruptor.jpg',
+    imagePath: '/enemies/worldboss/corruptor.jpg',
     location: 'Yaesha',
     dungeon: 'The Great Bole',
     wikiLinks: ['https://remnant2.wiki.fextralife.com/Corruptor'],
@@ -22,7 +22,7 @@ export const remnantBosses: Boss[] = [
   {
     name: 'Faelin',
     category: 'world boss',
-    imagePath: '/bosses/faelin.jpg',
+    imagePath: '/enemies/worldboss/faelin.jpg',
     location: 'Losomn',
     dungeon: 'Beatific Gallery',
     wikiLinks: ['https://remnant2.wiki.fextralife.com/Faelin'],
@@ -31,7 +31,7 @@ export const remnantBosses: Boss[] = [
   {
     name: 'Faerin',
     category: 'world boss',
-    imagePath: '/bosses/faerin.jpg',
+    imagePath: '/enemies/worldboss/faerin.jpg',
     location: 'Losomn',
     dungeon: 'Malefic Gallery',
     wikiLinks: ['https://remnant2.wiki.fextralife.com/Faerin'],
@@ -40,7 +40,7 @@ export const remnantBosses: Boss[] = [
   {
     name: 'Labyrinth Sentinel',
     category: 'world boss',
-    imagePath: '/bosses/labyrinth_sentinel.jpg',
+    imagePath: '/enemies/worldboss/labyrinth_sentinel.jpg',
     location: 'Labyrinth',
     dungeon: 'Labyrinth',
     wikiLinks: ['https://remnant2.wiki.fextralife.com/Labyrinth+Sentinel'],
@@ -49,7 +49,7 @@ export const remnantBosses: Boss[] = [
   {
     name: 'Nightweaver',
     category: 'world boss',
-    imagePath: '/bosses/nightweaver.jpg',
+    imagePath: '/enemies/worldboss/nightweaver.jpg',
     location: 'Losomn',
     dungeon: 'The Tormented Asylum',
     wikiLinks: ['https://remnant2.wiki.fextralife.com/Nightweaver'],
@@ -58,7 +58,7 @@ export const remnantBosses: Boss[] = [
   {
     name: 'One True King',
     category: 'world boss',
-    imagePath: '/bosses/one_true_king.jpg',
+    imagePath: '/enemies/worldboss/one_true_king.jpg',
     location: 'Losomn',
     dungeon: 'Chamber of the Faithless',
     wikiLinks: ['https://remnant2.wiki.fextralife.com/One+True+King'],
@@ -67,7 +67,7 @@ export const remnantBosses: Boss[] = [
   {
     name: 'Ravager',
     category: 'world boss',
-    imagePath: '/bosses/ravager.jpg',
+    imagePath: '/enemies/worldboss/ravager.jpg',
     location: 'Yaesha',
     dungeon: `Ravager's Lair`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Corrupted+Ravager`],
@@ -76,7 +76,7 @@ export const remnantBosses: Boss[] = [
   {
     name: `Sha'Hala`,
     category: 'world boss',
-    imagePath: '/bosses/shahala.jpg',
+    imagePath: '/enemies/worldboss/sha_hala_normal.jpg',
     location: 'Nerud',
     dungeon: `Sentinel's Keep`,
     wikiLinks: [
@@ -87,7 +87,7 @@ export const remnantBosses: Boss[] = [
   {
     name: `Sha'Hala (Metaphysical)`,
     category: 'world boss',
-    imagePath: '/bosses/shahala_metaphysical.jpg',
+    imagePath: '/enemies/worldboss/sha_hala_metaphysical.jpg',
     location: 'Nerud',
     dungeon: `Sentinel's Keep`,
     wikiLinks: [
@@ -98,7 +98,7 @@ export const remnantBosses: Boss[] = [
   {
     name: `Tal'Ratha`,
     category: 'world boss',
-    imagePath: '/bosses/talratha.jpg',
+    imagePath: '/enemies/worldboss/tal_ratha_normal.jpg',
     location: 'Nerud',
     dungeon: 'Forgotten Prison',
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Tal+Ratha`],
@@ -107,7 +107,7 @@ export const remnantBosses: Boss[] = [
   {
     name: `Tal'Ratha (Metaphysical)`,
     category: 'world boss',
-    imagePath: '/bosses/talratha_metaphysical.jpg',
+    imagePath: '/enemies/worldboss/tal_ratha_metaphysical.jpg',
     location: 'Nerud',
     dungeon: 'Forgotten Prison',
     wikiLinks: [
@@ -118,7 +118,7 @@ export const remnantBosses: Boss[] = [
   {
     name: 'Abomination',
     category: 'boss',
-    imagePath: '/bosses/abomination.jpg',
+    imagePath: '/enemies/boss/abomination.jpg',
     location: 'Nerud',
     dungeon: 'The Putrid Domain',
     wikiLinks: ['https://remnant2.wiki.fextralife.com/Abomination'],
@@ -127,7 +127,7 @@ export const remnantBosses: Boss[] = [
   {
     name: 'Astropath',
     category: 'boss',
-    imagePath: '/bosses/astropath.jpg',
+    imagePath: '/enemies/boss/astropath.jpg',
     location: 'Losomn',
     dungeon: `Astropath's Respite`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/The+Astropath`],
@@ -136,16 +136,25 @@ export const remnantBosses: Boss[] = [
   {
     name: 'Befouled Altar',
     category: 'boss',
-    imagePath: '/bosses/befouled_altar.jpg',
+    imagePath: '/enemies/boss/befouled_altar.jpg',
     location: 'Losomn',
     dungeon: 'The Forgotten Comune',
     wikiLinks: ['https://remnant2.wiki.fextralife.com/Befouled+Altar'],
     id: 'eN7hxx',
   },
   {
+    name: 'Bloat King',
+    category: 'boss',
+    imagePath: '/enemies/boss/bloat_king.jpg',
+    location: 'Losomn',
+    dungeon: 'The Great Sewers',
+    wikiLinks: ['https://remnant2.wiki.fextralife.com/Bloat+King'],
+    id: '3efMrV',
+  },
+  {
     name: 'Bruin, Blade of the King',
     category: 'boss',
-    imagePath: '/bosses/bruin_blade_of_the_king.jpg',
+    imagePath: '/enemies/boss/bruin.jpg',
     location: 'Losomn',
     dungeon: 'Glistering Cloister',
     wikiLinks: [
@@ -154,18 +163,9 @@ export const remnantBosses: Boss[] = [
     id: 'wEexW3',
   },
   {
-    name: 'Bloat King',
-    category: 'boss',
-    imagePath: '/bosses/bloat_king.jpg',
-    location: 'Losomn',
-    dungeon: 'The Great Sewers',
-    wikiLinks: ['https://remnant2.wiki.fextralife.com/Bloat+King'],
-    id: '3efMrV',
-  },
-  {
     name: 'Cancer',
     category: 'boss',
-    imagePath: '/bosses/cancer.jpg',
+    imagePath: '/enemies/boss/cancer.jpg',
     location: 'Root Earth',
     dungeon: 'Ashen Wasteland',
     wikiLinks: ['https://remnant2.wiki.fextralife.com/Cancer'],
@@ -174,7 +174,7 @@ export const remnantBosses: Boss[] = [
   {
     name: `Custodian's Eye`,
     category: 'boss',
-    imagePath: '/bosses/custodians_eye.jpg',
+    imagePath: '/enemies/boss/custodians_eye.jpg',
     location: 'Nerud',
     dungeon: 'Spectrum Nexus',
     wikiLinks: [`https://remnant2.wiki.fextralife.com/The+Custodian's+Eye`],
@@ -183,7 +183,7 @@ export const remnantBosses: Boss[] = [
   {
     name: 'Gwendil The Unburnt',
     category: 'boss',
-    imagePath: '/bosses/gwendil_the_unburnt.jpg',
+    imagePath: '/enemies/boss/gwendil.jpg',
     location: 'Losomn',
     dungeon: `Cotton's Kiln`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Gwendil+The+Unburnt`],
@@ -192,7 +192,7 @@ export const remnantBosses: Boss[] = [
   {
     name: 'Huntress',
     category: 'boss',
-    imagePath: '/bosses/huntress.jpg',
+    imagePath: '/enemies/boss/huntress.jpg',
     location: 'Losomn',
     dungeon: 'Brocwithe Quarter, Forsaken Quarter, Ironborough',
     wikiLinks: ['https://remnant2.wiki.fextralife.com/The+Huntress'],
@@ -201,7 +201,7 @@ export const remnantBosses: Boss[] = [
   {
     name: 'Kaeula',
     category: 'boss',
-    imagePath: '/bosses/kaeula.jpg',
+    imagePath: '/enemies/boss/kaeula.jpg',
     location: 'Yaesha',
     dungeon: `Kaeula's Rest`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Kaeula's+Shadow`],
@@ -210,7 +210,7 @@ export const remnantBosses: Boss[] = [
   {
     name: 'Legion',
     category: 'boss',
-    imagePath: '/bosses/legion.jpg',
+    imagePath: '/enemies/boss/legion.jpg',
     location: 'Yaesha',
     dungeon: 'The Twisted Chantry',
     wikiLinks: ['https://remnant2.wiki.fextralife.com/Legion'],
@@ -219,7 +219,7 @@ export const remnantBosses: Boss[] = [
   {
     name: 'Magister Dullain',
     category: 'boss',
-    imagePath: '/bosses/magister_dullain.jpg',
+    imagePath: '/enemies/boss/magister_dullain.jpg',
     location: 'Losomn',
     dungeon: 'Shattered Gallery',
     wikiLinks: ['https://remnant2.wiki.fextralife.com/Magister+Dullain'],
@@ -228,7 +228,7 @@ export const remnantBosses: Boss[] = [
   {
     name: 'Master of Feasts',
     category: 'boss',
-    imagePath: '/bosses/master_of_feasts.jpg',
+    imagePath: '/enemies/boss/master_of_feasts.jpg',
     location: 'Losomn',
     dungeon: 'The Great Hall',
     wikiLinks: [], // TODO
@@ -237,7 +237,7 @@ export const remnantBosses: Boss[] = [
   {
     name: 'Mother Mind',
     category: 'boss',
-    imagePath: '/bosses/mother_mind.jpg',
+    imagePath: '/enemies/boss/mother_mind.jpg',
     location: 'Yaesha',
     dungeon: 'The Nameless Nest',
     wikiLinks: ['https://remnant2.wiki.fextralife.com/Mother+Mind'],
@@ -246,7 +246,7 @@ export const remnantBosses: Boss[] = [
   {
     name: 'Primogenitor',
     category: 'boss',
-    imagePath: '/bosses/primogenitor.jpg',
+    imagePath: '/enemies/boss/primogenitor.jpg',
     location: 'Nerud',
     dungeon: 'The Hatchery',
     wikiLinks: ['https://remnant2.wiki.fextralife.com/Primogenitor'],
@@ -255,25 +255,34 @@ export const remnantBosses: Boss[] = [
   {
     name: 'Red Prince',
     category: 'boss',
-    imagePath: '/bosses/red_prince.jpg',
+    imagePath: '/enemies/boss/red_prince.jpg',
     location: 'Losomn',
     dungeon: 'Gilded Chambers',
     wikiLinks: ['https://remnant2.wiki.fextralife.com/The+Red+Prince'],
     id: '35mW3e',
   },
   {
-    name: 'Root Nexus',
+    name: 'Root Nexus (Normal)',
     category: 'boss',
-    imagePath: '/bosses/root_nexus.jpg',
+    imagePath: '/enemies/boss/root_nexus_normal.jpg',
     location: 'Yaesha',
     dungeon: 'Forgotten Grove',
+    wikiLinks: [], // TODO
+    id: 'tuJA9Q',
+  },
+  {
+    name: 'Root Nexus (Fields)',
+    category: 'boss',
+    imagePath: '/enemies/boss/root_nexus_fields.jpg',
+    location: 'Yaesha',
+    dungeon: 'Forgotten Fields',
     wikiLinks: [], // TODO
     id: '4Hg99W',
   },
   {
     name: 'Seed Contraption',
     category: 'boss',
-    imagePath: '/bosses/seed_contraption.jpg',
+    imagePath: '/enemies/boss/seed_contraption.jpg',
     location: 'Yaesha',
     dungeon: 'The Chimney',
     wikiLinks: [], // TODO
@@ -282,7 +291,7 @@ export const remnantBosses: Boss[] = [
   {
     name: 'Shrewd',
     category: 'boss',
-    imagePath: '/bosses/shrewd.jpg',
+    imagePath: '/enemies/boss/shrewd.jpg',
     location: 'Yaesha',
     dungeon: 'The Expanding Glade',
     wikiLinks: ['https://remnant2.wiki.fextralife.com/Shrewd'],
@@ -291,7 +300,7 @@ export const remnantBosses: Boss[] = [
   {
     name: 'Sunken Witch',
     category: 'boss',
-    imagePath: '/bosses/sunken_witch.jpg',
+    imagePath: '/enemies/boss/sunken_witch.jpg',
     location: 'Losomn',
     dungeon: 'Sunken Haunt',
     wikiLinks: ['https://remnant2.wiki.fextralife.com/Sunken+Witch'],
@@ -300,7 +309,7 @@ export const remnantBosses: Boss[] = [
   {
     name: 'The Council',
     category: 'boss',
-    imagePath: '/bosses/the_council.jpg',
+    imagePath: '/enemies/boss/council.jpg',
     location: 'Losomn',
     dungeon: 'Council Chamber',
     wikiLinks: ['https://remnant2.wiki.fextralife.com/The+Council'],
@@ -309,7 +318,7 @@ export const remnantBosses: Boss[] = [
   {
     name: 'Venom',
     category: 'boss',
-    imagePath: '/bosses/venom.jpg',
+    imagePath: '/enemies/boss/venom.jpg',
     location: 'Root Earth',
     dungeon: 'Corrupted Harbor',
     wikiLinks: ['https://remnant2.wiki.fextralife.com/Venom'],
@@ -318,7 +327,7 @@ export const remnantBosses: Boss[] = [
   {
     name: 'Atrophy',
     category: 'aberration',
-    imagePath: '/bosses/atrophy.jpg',
+    imagePath: '/enemies/aberration/atrophy.jpg',
     location: 'Yaesha',
     dungeon: `Endaira's End`,
     wikiLinks: ['https://remnant2.wiki.fextralife.com/Atrophy'],
@@ -327,7 +336,7 @@ export const remnantBosses: Boss[] = [
   {
     name: 'Bane',
     category: 'aberration',
-    imagePath: '/bosses/bane.jpg',
+    imagePath: '/enemies/aberration/bane.jpg',
     location: 'Root Earth',
     dungeon: 'Twilight Vale',
     wikiLinks: ['https://remnant2.wiki.fextralife.com/Bane'],
@@ -336,7 +345,7 @@ export const remnantBosses: Boss[] = [
   {
     name: 'Barghest the Vile',
     category: 'aberration',
-    imagePath: '/bosses/barghest.jpg',
+    imagePath: '/enemies/aberration/barghest_the_vile.jpg',
     location: 'Losomn',
     dungeon: `Harvester's Reach`,
     wikiLinks: ['https://remnant2.wiki.fextralife.com/Barghest+the+Vile'],
@@ -345,7 +354,7 @@ export const remnantBosses: Boss[] = [
   {
     name: 'Bastion',
     category: 'aberration',
-    imagePath: '/bosses/bastion.jpg',
+    imagePath: '/enemies/aberration/bastion.jpg',
     location: 'Labyrinth',
     dungeon: 'The Labyrinth',
     wikiLinks: ['https://remnant2.wiki.fextralife.com/Bastion'],
@@ -354,7 +363,7 @@ export const remnantBosses: Boss[] = [
   {
     name: 'Cursed Wretch',
     category: 'aberration',
-    imagePath: '/bosses/cursed_wretch.jpg',
+    imagePath: '/enemies/aberration/cursed_wretch.jpg',
     location: 'Losomn',
     dungeon: 'The Forgotten Comune',
     wikiLinks: ['https://remnant2.wiki.fextralife.com/Cursed+Wretch'],
@@ -363,7 +372,7 @@ export const remnantBosses: Boss[] = [
   {
     name: 'Defiler',
     category: 'aberration',
-    imagePath: '/bosses/defiler.jpg',
+    imagePath: '/enemies/aberration/defiler.jpg',
     location: 'Yaesha',
     dungeon: 'Forgotten Field',
     wikiLinks: ['https://remnant2.wiki.fextralife.com/Defiler'],
@@ -372,7 +381,7 @@ export const remnantBosses: Boss[] = [
   {
     name: 'Dire Fiend',
     category: 'aberration',
-    imagePath: '/bosses/dire_fiend.jpg',
+    imagePath: '/enemies/aberration/dire_fiend.jpg',
     location: 'Losomn',
     dungeon: 'Losomn',
     wikiLinks: ['https://remnant2.wiki.fextralife.com/Dire+Fiend'],
@@ -381,7 +390,7 @@ export const remnantBosses: Boss[] = [
   {
     name: 'E.D. Alpha',
     category: 'aberration',
-    imagePath: '/bosses/ed_alpha.jpg',
+    imagePath: '/enemies/aberration/ed_alpha.jpg',
     location: 'Nerud',
     dungeon: 'Tower of the Unseen',
     wikiLinks: ['https://remnant2.wiki.fextralife.com/E+D+Alpha'],
@@ -390,7 +399,7 @@ export const remnantBosses: Boss[] = [
   {
     name: 'Executioner',
     category: 'aberration',
-    imagePath: '/bosses/executioner.jpg',
+    imagePath: '/enemies/aberration/executioner.jpg',
     location: 'Losomn',
     dungeon: 'Fae Palace locations',
     wikiLinks: ['https://remnant2.wiki.fextralife.com/The+Executioner'],
@@ -399,7 +408,7 @@ export const remnantBosses: Boss[] = [
   {
     name: 'Fester',
     category: 'aberration',
-    imagePath: '/bosses/fester.jpg',
+    imagePath: '/enemies/aberration/fester.jpg',
     location: 'Yaesha',
     dungeon: `Endaira's End`,
     wikiLinks: ['https://remnant2.wiki.fextralife.com/Fester'],
@@ -408,7 +417,7 @@ export const remnantBosses: Boss[] = [
   {
     name: 'Fetid Corpse',
     category: 'aberration',
-    imagePath: '/bosses/fetid_corpse.jpg',
+    imagePath: '/enemies/aberration/fetid_corpse.jpg',
     location: 'Nerud',
     dungeon: 'Void Vessel Facility',
     wikiLinks: ['https://remnant2.wiki.fextralife.com/Fetid+Corpse'],
@@ -417,7 +426,7 @@ export const remnantBosses: Boss[] = [
   {
     name: 'Firth: The Oathkeeper',
     category: 'aberration',
-    imagePath: '/bosses/firth.jpg',
+    imagePath: '/enemies/aberration/firth_the_oathkeeper.jpg',
     location: 'Losomn',
     dungeon: 'Malefic Palace',
     wikiLinks: ['https://remnant2.wiki.fextralife.com/Firth:+The+Oathkeeper'],
@@ -426,7 +435,7 @@ export const remnantBosses: Boss[] = [
   {
     name: 'Gorecarver',
     category: 'aberration',
-    imagePath: '/bosses/gorecarver.jpg',
+    imagePath: '/enemies/aberration/gorecarver.jpg',
     location: 'Losomn',
     dungeon: 'Derelict Lighthouse',
     wikiLinks: ['https://remnant2.wiki.fextralife.com/Gorecarver'],
@@ -435,7 +444,7 @@ export const remnantBosses: Boss[] = [
   {
     name: 'Gorge',
     category: 'aberration',
-    imagePath: '/bosses/gorge.jpg',
+    imagePath: '/enemies/aberration/gorge.jpg',
     location: 'Losomn',
     dungeon: `Cotton's Kiln, Butcher's Quarter, Sunken Haunt, Derelict Lighthouse`,
     wikiLinks: ['https://remnant2.wiki.fextralife.com/Gorge'],
@@ -444,7 +453,7 @@ export const remnantBosses: Boss[] = [
   {
     name: 'Little Gorge',
     category: 'aberration',
-    imagePath: '/bosses/little_gorge.jpg',
+    imagePath: '/enemies/aberration/little_gorge.jpg',
     location: 'Losomn',
     dungeon: 'Forlorn Coast',
     wikiLinks: ['https://remnant2.wiki.fextralife.com/Little+Gorge'],
@@ -453,7 +462,7 @@ export const remnantBosses: Boss[] = [
   {
     name: 'Mangled Atoner',
     category: 'aberration',
-    imagePath: '/bosses/mangled_atoner.jpg',
+    imagePath: '/enemies/aberration/mangled_atoner.jpg',
     location: 'Losomn',
     dungeon: 'Forlorn Coast',
     wikiLinks: ['https://remnant2.wiki.fextralife.com/Mangled+Atoner'],
@@ -462,7 +471,7 @@ export const remnantBosses: Boss[] = [
   {
     name: 'Mantagora',
     category: 'aberration',
-    imagePath: '/bosses/mantagora.jpg',
+    imagePath: '/enemies/aberration/mantagora.jpg',
     location: 'Yaesha',
     dungeon: 'Imperial Gardens',
     wikiLinks: ['https://remnant2.wiki.fextralife.com/Mantagora'],
@@ -471,7 +480,7 @@ export const remnantBosses: Boss[] = [
   {
     name: 'Progeny',
     category: 'aberration',
-    imagePath: '/bosses/progeny.jpg',
+    imagePath: '/enemies/aberration/progeny.jpg',
     location: 'Nerud',
     dungeon: `The Putrid Domain, Vault of the Formless, Void Vessel Facility, The Hatchery, The Dark Conduit`,
     wikiLinks: ['https://remnant2.wiki.fextralife.com/The+Progeny'],
@@ -480,7 +489,7 @@ export const remnantBosses: Boss[] = [
   {
     name: 'Restless Spirit',
     category: 'aberration',
-    imagePath: '/bosses/restless_spirit.jpg',
+    imagePath: '/enemies/aberration/restless_spirit.jpg',
     location: 'Nerud',
     dungeon: `Astropath's Respite, Spectrum Nexus, Terminus Station, Tower of the Unseen`,
     wikiLinks: ['https://remnant2.wiki.fextralife.com/Restless+Spirit'],
@@ -489,7 +498,7 @@ export const remnantBosses: Boss[] = [
   {
     name: 'Ripsaw',
     category: 'aberration',
-    imagePath: '/bosses/ripsaw.jpg',
+    imagePath: '/enemies/aberration/ripsaw.jpg',
     location: 'Losomn',
     dungeon: 'Morrow Parish',
     wikiLinks: ['https://remnant2.wiki.fextralife.com/Ripsaw'],
@@ -498,7 +507,7 @@ export const remnantBosses: Boss[] = [
   {
     name: 'Rot',
     category: 'aberration',
-    imagePath: '/bosses/rot.jpg',
+    imagePath: '/enemies/aberration/rot.jpg',
     location: 'Yaesha',
     dungeon: 'The Chimney, The Twisted Chantry',
     wikiLinks: ['https://remnant2.wiki.fextralife.com/Rot'],
@@ -507,7 +516,7 @@ export const remnantBosses: Boss[] = [
   {
     name: 'S.D. OA7',
     category: 'aberration',
-    imagePath: '/bosses/sd_0a7.jpg',
+    imagePath: '/enemies/aberration/sd_0a7.jpg',
     location: 'Nerud',
     dungeon: `Dormant N'Erudian Facility`,
     wikiLinks: ['https://remnant2.wiki.fextralife.com/S.D.+0A7'],
@@ -516,7 +525,7 @@ export const remnantBosses: Boss[] = [
   {
     name: 'Thunderpiercer',
     category: 'aberration',
-    imagePath: '/bosses/thunderpiercer.jpg',
+    imagePath: '/enemies/aberration/thunderpiercer.jpg',
     location: 'Losomn',
     dungeon: 'Derelict Lighthouse',
     wikiLinks: ['https://remnant2.wiki.fextralife.com/Thunderpiercer'],
@@ -525,7 +534,7 @@ export const remnantBosses: Boss[] = [
   {
     name: 'W.D. 109',
     category: 'aberration',
-    imagePath: '/bosses/wd_109.jpg',
+    imagePath: '/enemies/aberration/wd_109.jpg',
     location: 'Nerud',
     dungeon: `Void Vessel Facility, The Putrid Domain, Vault of the Formless, The Hatchery, The Dark Conduit`,
     wikiLinks: ['https://remnant2.wiki.fextralife.com/W+D+109'],
@@ -534,7 +543,7 @@ export const remnantBosses: Boss[] = [
   {
     name: 'Weald Stalker and Gnarled Archer',
     category: 'aberration',
-    imagePath: '/bosses/gnarled_archer_and_weald_stalker.jpg',
+    imagePath: '/enemies/aberration/weald_stalker_and_gnarled_archer.jpg',
     location: 'Yaesha',
     dungeon: 'Floating Forests',
     wikiLinks: [
@@ -545,7 +554,7 @@ export const remnantBosses: Boss[] = [
   {
     name: 'Wither',
     category: 'aberration',
-    imagePath: '/bosses/wither.jpg',
+    imagePath: '/enemies/aberration/wither.jpg',
     location: 'Yaesha',
     dungeon: 'The Lament',
     wikiLinks: ['https://remnant2.wiki.fextralife.com/Wither'],
@@ -554,7 +563,7 @@ export const remnantBosses: Boss[] = [
   {
     name: 'Wraithliege',
     category: 'aberration',
-    imagePath: '/bosses/wraithliege.jpg',
+    imagePath: '/enemies/aberration/wraithliege.jpg',
     location: 'Losomn',
     dungeon: 'Pathway of the Fallen',
     wikiLinks: ['https://remnant2.wiki.fextralife.com/Wraithliege'],
