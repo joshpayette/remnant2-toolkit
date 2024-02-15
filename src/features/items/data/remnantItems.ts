@@ -10,7 +10,7 @@ export const remnantItems: Item[] = [
       'The ALCHEMIST specializes in powerful buffing Vials and consumable potency.',
     howToGet:
       'Approach every sewer drain on the edge of any of the Dran overland areas in Losemn until you get grabbed by a Manticora. Once you load into the new area, defeat the white Manticora',
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Alchemist`],
+    wikiLinks: [`https://remnant.wiki/Alchemist`],
     linkedItems: {
       traits: [
         { name: 'Potency', amount: 10 },
@@ -159,7 +159,7 @@ export const remnantItems: Item[] = [
     description:
       'The GUNSLINGER specializes in raw damage, firearm handling, and ammo conservation.',
     howToGet: `Listen to 20 total Mudtooth stories in Ward 13 after finishing your second world in campaign mode`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Gunslinger`],
+    wikiLinks: [`https://remnant.wiki/Gunslinger`],
     linkedItems: {
       traits: [
         { name: 'Ammo Reserves', amount: 10 },
@@ -219,7 +219,7 @@ export const remnantItems: Item[] = [
     description:
       'The HUNTER specializes in ranged damage, precision shots and marking enemies.',
     howToGet: `Buy from Brabus at Ward 13 for 1500 Scrap`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Hunter`],
+    wikiLinks: [`https://remnant.wiki/Hunter`],
     linkedItems: {
       traits: [
         { name: 'Longshot', amount: 10 },
@@ -277,7 +277,7 @@ export const remnantItems: Item[] = [
     description:
       'The MEDIC specializes in survivability with enhanced healing and Relic effectiveness.',
     howToGet: `Buy from Dr. Norah at Ward 13 for 1500 Scrap`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Medic`],
+    wikiLinks: [`https://remnant.wiki/Medic`],
     linkedItems: {
       traits: [
         { name: 'Triage', amount: 10 },
@@ -338,7 +338,7 @@ export const remnantItems: Item[] = [
     description:
       'The SUMMONER specializes in using Minions to do their bidding and sacrificing them.',
     howToGet: `Available at the Bloodmoon Altar for 15 Bloodmoon Essence. Acquire Bloodmoon Essence from killing Root Wisps during a bloodmoon (red moon in the sky) in any of Yaesha's outside areas`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Summoner`],
+    wikiLinks: [`https://remnant.wiki/Summoner`],
     linkedItems: {
       traits: [
         { name: 'Regrowth', amount: 10 },
@@ -383,7 +383,7 @@ export const remnantItems: Item[] = [
     description: `Become nearly unstoppable, gaining 3 Stack of BULWARK, 15% increased Movement, Melee Speed, and Reduces Stamina Cost. Increases Melee damage by 50%. Stagger Level reduced by 1. Lasts 25s.`,
     cooldown: 60,
     howToGet: `Unlocked at level 5`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Juggernaut`],
+    wikiLinks: [`https://remnant.wiki/Juggernaut`],
     linkedItems: {
       archetype: {
         name: 'Challenger',
@@ -400,7 +400,7 @@ export const remnantItems: Item[] = [
     Kills and dealing significant damage grant 1 Stack of RAGE which increases Ranged Damage by 2.5% per Stack. Upon reaching 10 Stacks, the CHALLENGER goes BERSERK, which reloads their current firearm and doubles Rampage effects for 15s.`,
     cooldown: 90,
     howToGet: `Unlocked at level 10`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Rampage`],
+    wikiLinks: [`https://remnant2.wiki/Rampage`],
     linkedItems: {
       archetype: {
         name: 'Challenger',
@@ -493,7 +493,7 @@ export const remnantItems: Item[] = [
     description: `The MEDIC Quickly expels healing energy to SHIELD all allies within 25m [A] for 100% of their Max Health for 10s. While shielded, allies regenerate 21% of their Max Health over the duration.`,
     cooldown: 96,
     howToGet: `Unlocks at level 5`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Healing+SHIELD`],
+    wikiLinks: [`https://remnant.wiki/Healing_Shield`],
     linkedItems: {
       archetype: {
         name: 'Medic',
@@ -527,7 +527,7 @@ export const remnantItems: Item[] = [
     MARK: Crit Chance against MARKED enemies is increased by 15% for all allies.`,
     cooldown: 70,
     howToGet: `Unlocks automatically`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Hunter's+Mark`],
+    wikiLinks: [`https://remnant.wiki/Hunter%27s_Mark`],
     linkedItems: {
       archetype: {
         name: 'Hunter',
@@ -681,7 +681,7 @@ export const remnantItems: Item[] = [
     description: `Conjures a 7m [A] unstable zone which grants allies a 15% to all Damage Dealt, 25% increased Mod Generation, but increases the damage that allies take by 15%. Lasts 20s.`,
     cooldown: 85,
     howToGet: `Unlocks at level 5`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Chaos+Gate`],
+    wikiLinks: [`https://remnant.wiki/Chaos_Gate`],
     linkedItems: {
       archetype: {
         name: 'Archon',
@@ -867,7 +867,7 @@ export const remnantItems: Item[] = [
     Instead of becoming fully-automatic, Bows and Crossbows gain 15% Critical Chance and 50% increased Projectile Speed.`,
     cooldown: 57.6,
     howToGet: `Unlocks at level 10`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Bulletstorm`],
+    wikiLinks: [`https://remnant.wiki/Bulletstorm`],
     linkedItems: {
       archetype: {
         name: 'Gunslinger',
@@ -1325,7 +1325,7 @@ export const remnantItems: Item[] = [
     toxinResistance: 2,
     description: `While this ironclad helmet is somewhat difficult to breathe in, you feel secure knowing even the heaviest weapon would have little chance of cracking into your skull. `,
     howToGet: `Can be found in Ward 13. Check Leto's Stash to learn how to obtain it.`,
-    wikiLinks: [`https://remnant.wiki/Leto_Mark_II_Helmet`],
+    wikiLinks: [`https://remnant.wiki/Leto_Mark_II_Armor`],
   },
   {
     category: 'helm',
@@ -2995,7 +2995,7 @@ export const remnantItems: Item[] = [
     id: '6ruk95',
     description: `On use, regenerates 50% of Max Health over 5s. When heal ends, any overhealed Health is Doubled and awarded over the next 20s.`,
     howToGet: `Can be found in Root Earth - Ashen Wasteland.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Resonating+Heart`],
+    wikiLinks: [`https://remnant.wiki/Resonating_Heart`],
   },
   {
     category: 'relic',
@@ -3031,7 +3031,7 @@ export const remnantItems: Item[] = [
     id: 'sge99k',
     description: `On use, grants a SHIELD for 100% of Current Health. Lasts 20s or until SHIELD is removed by damage`,
     howToGet: `Can be found in N'Erud - Tower of the Unseen.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Shielded+Heart`],
+    wikiLinks: [`https://remnant.wiki/Shielded_Heart`],
   },
   {
     category: 'relic',
@@ -3386,7 +3386,7 @@ export const remnantItems: Item[] = [
     name: 'Revive Speed',
     imagePath: '/relicfragment/revive_speed.png',
     id: '0jam5w',
-    description: `X% Revive Speed (Mythic: Maximum of +25%)`,
+    description: `+X% Revive Speed (Mythic: Maximum of +25%)`,
     howToGet: ``,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Cracked+Revive+Speed`],
   },
@@ -4459,7 +4459,7 @@ export const remnantItems: Item[] = [
     id: 'l3zte1',
     description: `A super-heated laser sword with an infinitely sharp edge. Perfect for cutting... anything.`,
     howToGet: `Can be crafted at McCabeStore. Material Required: Eidolon Shard`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Spectral+Blade`],
+    wikiLinks: [`https://remnant.wiki/Spectral_Blade`],
     linkedItems: {
       mod: {
         name: 'Whirlwind',
@@ -5140,7 +5140,7 @@ export const remnantItems: Item[] = [
     id: 'lxt1j0',
     description: `Harpoon Mode: Fire Harpoon to mark target causing primary fire to become Homing Rounds dealing 15% reduced damage. Enemies hit by Homing Rounds build Influence. Recasting exits Mode. When Influence fills, Monarch automatically reloads and creates a shockwave, and wielder becomes a Tyrant, gaining 20% Increased Damage and Infinite Reserves. Lasts 20s.`,
     howToGet: `It comes attached to the Monarch weapon.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Chain+Of+Command`],
+    wikiLinks: [`https://remnant.wiki/Chain_of_Command`],
     linkedItems: {
       weapon: {
         name: 'Monarch',
@@ -5762,7 +5762,7 @@ export const remnantItems: Item[] = [
     The song continues for 15s, afflicting targets within 15m [A] with SLOW, and a 15% decrease to damage dealt.`,
     howToGet: `Crafted from Scroll of Binding
     Speak with The Flautistafter playing the secret melody`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Song+of+Eafir`],
+    wikiLinks: [`https://remnant.wiki/Song_of_Eafir`],
   },
   {
     category: 'mod',
@@ -5890,7 +5890,7 @@ export const remnantItems: Item[] = [
     id: '2y6xm7',
     description: `Neutral Backdash Charge creates a Whirlwind of slashes which strike all enemies within 8m [R] for 75 damage.`,
     howToGet: `Attached to the Spectral Blademelee weapon`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Whirlwind`],
+    wikiLinks: [`https://remnant.wiki/Whirlwind`],
     linkedItems: {
       weapon: {
         name: 'Spectral Blade',
@@ -6095,7 +6095,7 @@ export const remnantItems: Item[] = [
     description: `Using this weapon's Mod generates 10-[20]% of single charge value as passive Mod Power over 10s. Does not stack.`,
     maxLevelBonus: `Mod Damage generates 10% of damage dealt as Mod Power.`,
     howToGet: `Sold by Dwell at the following cost: x75 Relic Dust + x500 Scrap.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Feedback`],
+    wikiLinks: [`https://remnant.wiki/Feedback`],
   },
   {
     category: 'mutator',
@@ -6150,7 +6150,7 @@ export const remnantItems: Item[] = [
     description: `Increases Mod Damage by 10-[20]%.`,
     maxLevelBonus: `Generate 25% additional Mod Power for Stowed Weapon.`,
     howToGet: `Losomn - Harvester's Reach. Dropped by Barghest the Vile`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Harmonizer`],
+    wikiLinks: [`https://remnant.wiki/Harmonizer`],
   },
   {
     category: 'mutator',
@@ -6210,7 +6210,7 @@ export const remnantItems: Item[] = [
     description: `Increases this weapon's Elemental Damage by 5% for each unique Elemental Status Effect on the target.`,
     maxLevelBonus: `Increases Mod Power Generation of Elemental Damage and Elemental Status damage by 20%.`,
     howToGet: `Can be found in N'Erud - Tower of the Unseen, dropped by E.D. Alpha`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Maelstrom`],
+    wikiLinks: [`https://remnant.wiki/Maelstrom`],
   },
   {
     category: 'mutator',
@@ -6234,7 +6234,7 @@ export const remnantItems: Item[] = [
     description: `When this weapon scores a Critical Hit, it increases Critical Chance and Critical Damage by 1.5-[3]% [C] for 3s. Max 10 stacks.`,
     maxLevelBonus: `Critical Hits from this weapon add 2 stacks. Increases duration by 2s.`,
     howToGet: `Sold by Dwell at the following cost: x75 Relic Dust + x500 Scrap.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Momentum`],
+    wikiLinks: [`https://remnant.wiki/Momentum`],
   },
   {
     category: 'mutator',
@@ -6394,7 +6394,7 @@ export const remnantItems: Item[] = [
     description: `Charged Melee Attacks cannot be interrupted and gain 10-[20]% damage reduction from all sources.`,
     maxLevelBonus: `All damage taken during Charged Melee Attack is covered to Grey Health.`,
     howToGet: `Can be found in N'Erud - Void Vessel Facility`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Steadfast`],
+    wikiLinks: [`https://remnant.wiki/Steadfast`],
   },
   {
     category: 'mutator',
@@ -6550,7 +6550,7 @@ export const remnantItems: Item[] = [
     description:
       'When attacking a BLEEDING enemy, Crit Chance is increased by 15% and Crit Damage is increased by 30% [C].',
     howToGet: 'Can be bought from Cass.',
-    wikiLinks: ['https://remnant2.wiki.fextralife.com/Abrasive+Whetstone'],
+    wikiLinks: ['https://remnant.wiki/Abrasive_Whetstone'],
   },
   {
     category: 'amulet',
@@ -7057,7 +7057,7 @@ Exclusive to The Awakened King DLC"`,
     tags: ['Critical Chance', 'Status Effect'],
     description: `Gain 20% Critical Chance and HASTE when within 15m [A] of an entity suffering from a Status Effect.`,
     howToGet: `Can be obtained in Losomn - The Tormented Asylum. Given to the player by feeding Kolket's Razor to the Nightweaver's Web.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Nightweaver's+Grudge`],
+    wikiLinks: [`https://remnant.wiki/Nightweaver%27s_Grudge`],
   },
   {
     category: 'amulet',
@@ -7361,7 +7361,7 @@ Exclusive to The Awakened King DLC"`,
     tags: ['Perfect Dodge', 'Critical Chance'],
     description: `Perfect Dodges increase Critical Chance by 15% and Critical Damage by 15% [C] for 15s.`,
     howToGet: `Can be bought from Cass.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Akari+War+Band`],
+    wikiLinks: [`https://remnant.wiki/Akari_War_Band`],
   },
   {
     category: 'ring',
@@ -7435,7 +7435,7 @@ Exclusive to The Awakened King DLC"`,
     description: `Self-inflicts BLEEDING Status upon the wearer, causing 1.1 BLEED damage per second. Increases Critical Chance by 10%`,
     howToGet: `"Can be bought from Leywise in Forlorn Coast for x500 Scrap
 Exclusive Ring for The Awakened King DLC."`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Atonement+Fold`],
+    wikiLinks: [`https://remnant.wiki/Atonement_Fold`],
   },
   {
     category: 'ring',
@@ -7467,7 +7467,7 @@ Exclusive Ring for The Awakened King DLC."`,
     description: `Increases Status Effect Damage by 25% and reduces Status Effect Duration by 65%`,
     howToGet: `"Given the Preacher if you are wearing the whole Zealot's Set.
 Exclusive Ring for The Awakened King DLC."`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Band+of+the+Fanatic`],
+    wikiLinks: [`https://remnant.wiki/Band_of_the_Fanatic`],
   },
   {
     category: 'ring',
@@ -7487,7 +7487,7 @@ Exclusive Ring for The Awakened King DLC."`,
     tags: ['Stamina'],
     description: `Gain Infinite Stamina. All damage received is increased by 15%.`,
     howToGet: `Found in the Labyrinth Backrooms, in The Labyrinth.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Bisected+Ring`],
+    wikiLinks: [`https://remnant.wiki/Bisected_Ring`],
   },
   {
     category: 'ring',
@@ -7645,7 +7645,7 @@ Exclusive Ring for The Awakened King DLC."`,
     tags: ['All Damage', 'Range'],
     description: `Decreases Ideal Range of all Firearms by 25%. Increases all damage dealt by 15%.`,
     howToGet: `Can be bought from Cass.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Burden+of+the+Destroyer`],
+    wikiLinks: [`https://remnant.wiki/Burden_of_the_Destroyer`],
   },
   {
     category: 'ring',
@@ -7798,7 +7798,7 @@ Exclusive Ring for The Awakened King DLC."`,
     tags: ['Critical Hit', 'Skill Damage'],
     description: `Crit hits increase Skill Damage 1% for 10s. Max stack 15.`,
     howToGet: `Use Liquid Escape while taking on the Ethereal Manor Event`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Crimson+Dreamstone`],
+    wikiLinks: [`https://remnant.wiki/Liquid_Escape`],
   },
   {
     category: 'ring',
@@ -8223,7 +8223,7 @@ Can also can be bought from Reggie at Ward 13 for 500"`,
     tags: ['Damage Reduction'],
     description: `Taking damage adds 1 stack of BULWARK which individually falls of after 10s. Max 5 stacks.`,
     howToGet: `Can be found in N'Erud as a random drop.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Hardcore+Metal+Band`],
+    wikiLinks: [`https://remnant.wiki/Hardcore_Metal_Band`],
   },
   {
     category: 'ring',
@@ -8496,7 +8496,7 @@ Exclusive Ring for The Awakened King DLC."`,
     tags: ['Status Effect'],
     description: `Duplicates the last damaging Negative Status applied to target. Reduces outgoing Status Effect Damage by 10%.`,
     howToGet: `Found randomly in Losomn`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Red+Ring+of+Death`],
+    wikiLinks: [`https://remnant.wiki/Red_Ring_of_Death`],
   },
   {
     category: 'ring',
@@ -8597,7 +8597,7 @@ Exclusive Ring for The Awakened King DLC."`,
     tags: ['Grey Health', 'Stamina'],
     description: `Evades cost 15% Max Health as Grey Health instead of Stamina.`,
     howToGet: `Can be found in Yaesha - Cathedral of Omens. After solving the Blood Moon puzzle (opening the right side door) can be found behind a red trap door on the ground. Trap door only opens if a Blood Moon is present.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Ring+of+Omens`],
+    wikiLinks: [`https://remnant.wiki/Ring_of_Omens`],
   },
   {
     category: 'ring',
@@ -8786,7 +8786,7 @@ Yaesha - Possible spawn in The Twisted Chantry"`,
     tags: ['All Damage'],
     description: `Increases all damage dealt to BURNING enemies by 10% [M].`,
     howToGet: `Can be found in Losomn - Butcher's Quarter. watch or fail to save the hanging man during the burning event. use the checkpoint and then kill the pig next to the man`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Singed+Ring`],
+    wikiLinks: [`https://remnant.wiki/Singed_Ring`],
   },
   {
     category: 'ring',
@@ -8888,7 +8888,7 @@ Can be crafted at Bloodmoon Altar. Required Material: Blood Moon Essence"`,
     tags: ['Status Effect', 'Mod Power'],
     description: `Elemental Status damage generates 15% additional Mod Power.`,
     howToGet: `Can be found in Losomn - random world drop.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Stone+Of+Malevolence`],
+    wikiLinks: [`Stone of Malevolence`],
   },
   {
     category: 'ring',
@@ -8977,7 +8977,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     tags: ['Status Effect'],
     description: `Increases the duration of all Status Effects applied by wearer. Durations varies per status.`,
     howToGet: `Can be found in Losomn at the top of the Hewdas Clock. Open the chest near one of the windows to find it.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Timekeeper's+Jewel`],
+    wikiLinks: [`https://remnant.wiki/Timekeeper%27s_Jewel`],
   },
   {
     category: 'ring',
@@ -9079,7 +9079,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     tags: ['Weakspot Damage'],
     description: `Dealing Weakspot damage increases Weakspot damage by 10% [M] for 7s. Stacks 3x.`,
     howToGet: `Can be found in Root Earth - Ashen Wasteland.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Zania's+Malice`],
+    wikiLinks: [`https://remnant.wiki/Zania%27s_Malice`],
   },
   {
     category: 'ring',
@@ -9166,7 +9166,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     description: `Archetype Summons absorb X% of damage taken by the caster`,
     maxLevelBonus: `At max level, Blood Bond Summons absorb 10% of damage taken by the caster`,
     howToGet: `Reward for the Root Nexus boss/event. Possible spawn in The Far Woods on Yaesha.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Blood+Bond`],
+    wikiLinks: [`https://remnant.wiki/Blood_Bond`],
   },
   {
     category: 'trait',
@@ -9178,7 +9178,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     maxLevelBonus: `At max level, Bloodstream Increases Grey Health regen by 3.0/s`,
     howToGet: `Yaesha - The Far Woods or The Forbidden Grove (Meidra's Sorrow)
     Bloodstream is given to you by Meidra's Sorrow if you choose the selfish answers to her questions.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Bloodstream`],
+    wikiLinks: [`https://remnant.wiki/Bloodstream`],
   },
   {
     category: 'trait',
@@ -9302,7 +9302,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     description: `Reduces Friendly Fire damage dealt and received`,
     maxLevelBonus: `At max level, Kinship Reduces Friendly Dealt and Received by 80%`,
     howToGet: `Kinship is the Archetype Trait of the HANDLER`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Kinship`],
+    wikiLinks: [`https://remnant.wiki/Kinship`],
     linkedItems: {
       archetype: {
         name: 'Handler',
@@ -9334,7 +9334,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     description: `Increases Consumable Duration`,
     maxLevelBonus: `At max level, Potency Increases Consumable Duration by 100%`,
     howToGet: `Potency is the Archetype Trait of the ALCHEMIST`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Potency`],
+    wikiLinks: [`https://remnant.wiki/Potency`],
     linkedItems: {
       archetype: {
         name: 'Alchemist',
@@ -9575,7 +9575,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     tags: ['Health', 'Stamina', 'Movement Speed'],
     description: `Increases Health by 6.66%, Stamina by 6.66%, and Movement Speed by 6.66%. Lasts 60m and will stay in effect after death. Only one Concoction may be active at a time.`,
     howToGet: `Can be bought from Mudtooth for 500`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Dark+Cider`],
+    wikiLinks: [`https://remnant.wiki/Dark_Cider`],
     healthPercent: 0.0666,
     staminaPercent: 0.0666,
   },
@@ -9603,7 +9603,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     You can get Meat Shake by taking Feast Master's Leftovers to Duane in Ward 13 and constantly harrass him by asking if he is done will finish it in about 10-20 minutes.
     Can be bought for 500 Scrap from Muddy after aquiring it once from Duane.
 `,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Meat+Shake`],
+    wikiLinks: [`https://remnant.wiki/Meat_Shake`],
   },
   {
     category: 'concoction',
@@ -9742,7 +9742,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     tags: ['Ammo Reserves'],
     description: `Replenishes all reserve ammo.`,
     howToGet: `Can be bought form Reggie for 250 scrap currency`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Ammo+Box`],
+    wikiLinks: [`https://remnant.wiki/Ammo_Box`],
   },
   {
     category: 'consumable',
@@ -9793,7 +9793,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     tags: ['Heal'],
     description: `Regenerates 1.5 Health per second. Lasts 30s.`,
     howToGet: `Can be bought from Dr Norah for 75 scrap currency`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Blood+Root`],
+    wikiLinks: [`https://remnant.wiki/Blood_Root`],
   },
   {
     category: 'consumable',
@@ -9922,7 +9922,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     id: 'kfwizc',
     description: `When thrown, explodes in a 4m [A] radius dealing 450 damage [E] and applying BLEEDING, which deals an additional 1,350 BLEED damage over 30s.`,
     howToGet: `Can be bought form Reggie for 250 scrap currency`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Pipe+Bomb`],
+    wikiLinks: [`https://remnant.wiki/Pipe_Bomb`],
   },
   {
     category: 'consumable',
@@ -9965,7 +9965,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     tags: ['Fire Rate', 'Melee Attack Speed'],
     description: `Increases Fire Rate by 10% and Melee Attack Speed by 15%. Lasts 20s.`,
     howToGet: `Can be bought form Reggie for 200`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Rocket+Fuel`],
+    wikiLinks: [`https://remnant.wiki/Rocket_Fuel`],
   },
   {
     category: 'consumable',
