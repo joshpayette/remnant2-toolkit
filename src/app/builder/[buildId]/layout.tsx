@@ -1,6 +1,5 @@
 import { Metadata, ResolvingMetadata } from 'next'
 
-import { Error } from '@/features/error-handling/Error'
 import { isErrorResponse } from '@/features/error-handling/isErrorResponse'
 import { PageHeader } from '@/features/ui/PageHeader'
 
