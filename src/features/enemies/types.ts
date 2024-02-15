@@ -9,10 +9,10 @@ export interface Enemy {
   location: 'losomn' | `n'erud` | 'yaesha' | 'labyrinth' | 'root earth'
   dungeon?: string
   wikiLinks: string[]
-  bleedResistance?: number
-  fireResistance?: number
-  shockResistance?: number
-  acidResistance?: number
-  meleeResistance?: number
+  bleedResistance?: number | 'immune'
+  fireResistance?: number | 'immune'
+  shockResistance?: number | 'immune'
+  acidResistance?: number | 'immune'
+  meleeResistance?: number | 'immune'
   notes?: string
 }
