@@ -40,7 +40,7 @@ export const remnantItems: Item[] = [
     description:
       'The ARCHON is the master of Weapon Mods and Mod Power generation.',
     howToGet: `To Unlock the Red Door you will need the following. Engram EXPLORER with skill Fortune Hunter (LV10), Engram INVADER with skill Worm Hole (LV5), Armor set Realmwalker, Relic Consumable Void Heart, Leto's Amulet, Amber Moonstone, Black Cat Band, Zanias Malice, Anastasijas Inspiration, Cube Gun, Ford's Scattergun, Labyrinth Staff. With all this the door will open.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Archon`],
+    wikiLinks: [`https://remnant.wiki/Archon`],
     linkedItems: {
       traits: [
         { name: 'Flash Caster', amount: 10 },
@@ -1012,7 +1012,7 @@ export const remnantItems: Item[] = [
     description: `Casts an AOE burst that applies BLEEDING, BURNING, OVERLOADED, and CORRODED to all enemies within 15m [A], and dealing a total of 1500 base damage. Lasts 11s.`,
     cooldown: 36.9,
     howToGet: `Unlocks at level 5`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Miasma`],
+    wikiLinks: [`https://remnant.wiki/Miasma`],
     linkedItems: {
       archetype: {
         name: 'Ritualist',
@@ -6113,7 +6113,7 @@ export const remnantItems: Item[] = [
     description: `Increases Critical Chance of this weapon by 3% per unique Negative Status Effect on the enemy. Max 15% increase.`,
     maxLevelBonus: `This weapon's Ranged Weakspot and Ranged Critical Hits apply CORRODED, dealing 200 CORROSIVE damage over 10s.`,
     howToGet: `Aberration Event Random Drop`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Fetid+Wounds`],
+    wikiLinks: [`https://remnant.wiki/Fetid_Wounds`],
   },
   {
     category: 'mutator',
@@ -6502,7 +6502,7 @@ export const remnantItems: Item[] = [
     description: `Increases Ranged damage of this weapon by 10-[20]% to BLEEDING targets.`,
     maxLevelBonus: `This weapon's Ranged Weakspot and Ranged Critical Hits apply BLEEDING, dealing 100 BLEED damage over 10s.`,
     howToGet: `Can be found in Forlorn Coast`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Twisting+Wounds`],
+    wikiLinks: [`https://remnant.wiki/Twisting_Wounds`],
   },
   {
     category: 'mutator',
@@ -7350,7 +7350,7 @@ Exclusive to The Awakened King DLC"`,
     tags: ['All Damage', 'Status Effect', 'Hardcore'],
     description: `Deal 5% [M] additional damage for each Status Effect the target is suffering from.`,
     howToGet: `Can be bought from Reggie after killing any Yaesha world boss in Hardcore mode on any difficulty.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Ahanae+Crystal`],
+    wikiLinks: [`https://remnant.wiki/Ahanae_Crystal`],
   },
   {
     category: 'ring',
@@ -9116,7 +9116,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     description: `Increases Ammo Reserves`,
     maxLevelBonus: `At max level, Ammo Reserves Increases Ammo Reserves by 50%`,
     howToGet: `Ammo Reserves is the Archetype Trait of the GUNSLINGER`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Ammo+Reserves`],
+    wikiLinks: [`https://remnant.wiki/Ammo_Reserves`],
     linkedItems: {
       archetype: {
         name: 'Gunslinger',
@@ -9317,7 +9317,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     description: `Increases Weapon Ideal Range`,
     maxLevelBonus: `At max level, Longshot Increases Weapon Ideal Range by 600(cm)`,
     howToGet: `Longshot is the Archetype Trait of the HUNTER`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Longshot`],
+    wikiLinks: [`https://remnant.wiki/Longshot`],
     linkedItems: {
       archetype: {
         name: 'Hunter',
