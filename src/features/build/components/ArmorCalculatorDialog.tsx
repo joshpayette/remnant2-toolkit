@@ -16,10 +16,19 @@ import {
 } from '../lib/getTotalValues'
 import { BuildState } from '../types'
 
+type ArmorSuggestion = {
+  helm: ArmorItem
+  torso: ArmorItem
+  gloves: ArmorItem
+  legs: ArmorItem
+  totalArmor: number
+  totalWeight: number
+}
+
 function getArmorSuggestions(
   buildState: BuildState,
   desiredWeightClass: keyof typeof WEIGHT_CLASSES,
-) {
+): ArmorSuggestion[] {
   const emptyArmorSlots: Array<'helm' | 'torso' | 'gloves' | 'legs'> = []
   if (!buildState.items.helm) emptyArmorSlots.push('helm')
   if (!buildState.items.torso) emptyArmorSlots.push('torso')
@@ -103,15 +112,6 @@ function getArmorSuggestions(
     newArmorSuggestions.splice(5, newArmorSuggestions.length - 5)
 
   return newArmorSuggestions
-}
-
-type ArmorSuggestion = {
-  helm: ArmorItem
-  torso: ArmorItem
-  gloves: ArmorItem
-  legs: ArmorItem
-  totalArmor: number
-  totalWeight: number
 }
 
 interface Props {
