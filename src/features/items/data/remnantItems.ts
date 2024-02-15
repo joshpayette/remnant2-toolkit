@@ -99,7 +99,7 @@ export const remnantItems: Item[] = [
     description:
       'The ENGINEER specializes in Heavy Weaponry which can be carried or placed in turret mode.',
     howToGet: `Found just out of bounds in either of the two overland areas you roll on N'Erud. For an easier time locating this item try using the EXPLORER Archtype's skill "Fortune Hunter" to highlight the item in the fog.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Engineer`],
+    wikiLinks: [`https://remnant.wiki/Engineer`],
     linkedItems: {
       traits: [
         { name: 'Fortify', amount: 10 },
@@ -248,7 +248,7 @@ export const remnantItems: Item[] = [
     id: '0ipjpk',
     description: `The INVADER specializes elusiveness and misdirecting the enemy's focus.`,
     howToGet: `Use the "Walker's Dream" item and defeat the "Bane" abberation. To get the "Walker's Dream" item use the Dreamcatcher melee weapon on the sleeping walker special enemy (glowing blue) in an area just off the main path between the Corrupted Harbour and Blackened Citadel checkpoint.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Invader`],
+    wikiLinks: [`https://remnant.wiki/Invader`],
     linkedItems: {
       traits: [
         { name: 'Untouchable', amount: 10 },
@@ -573,20 +573,22 @@ export const remnantItems: Item[] = [
     imagePath: '/skill/hunters_shroud.png',
     id: 'ufkx9q',
     tags: ['Ranged Damage', 'Melee Damage', 'Critical Chance', 'Melee Hit'],
-    description: `HUNTER becomes Shrouded, reducing enemy awareness and making them harder to hit while moving. Attacking or activating a Mod or Skill will instantly exit Shroud. 
+    description: `Hunter becomes Shrouded, reducing enemy awareness and making them harder to hit while moving. Attacking or activating a Mod or Skill will instantly exit Shroud.
 
-    Exiting Shroud applies MARK to all enemies within 10m and grants AMBUSH to the HUNTER for 2s. 
+    Exiting Shroud applies MARK to all enemies within 10m and grants AMBUSH to the Hunter for 2s.
     
-    AMBUSH: Increases Ranged and Melee Damage by 50% which diminishes over its duration. Ranged and Melee attacks apply MARK. 
+    AMBUSH: Increases Ranged and Melee Damage by 50% which diminishes over its duration. Ranged and Melee attacks apply MARK.
     
-    HUNTER will automatically Shroud again after 1.15s if no offensive action are performed. 
+    Hunter will automatically Shroud again after 1.15s if no offensive actions are performed.
     
-    Lasts 15s. 
+    Lasts 15s.
     
-    MARK: Crit Chance against MARKED enemies is increased by 15% for all allies. `,
-    cooldown: 86.4,
+    Cooldown: 90s.
+    
+    MARK: Crit Chance against MARKED enemies is increased by 15% for all allies.`,
+    cooldown: 90,
     howToGet: `Unlocks at level 10`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Hunter's+Shroud`],
+    wikiLinks: [`https://remnant.wiki/Hunter%27s_Shroud`],
     linkedItems: {
       archetype: {
         name: 'Hunter',
@@ -626,9 +628,9 @@ export const remnantItems: Item[] = [
     PRESS: Slam Vial on the ground, creating the effect at the ALCHEMIST's feet. [A]
     
     HOLD & RELEASE: Aim and throw the Vial causing the same effect where it lands. [A]`,
-    cooldown: 72,
+    cooldown:75,
     howToGet: `Unlocks at level 5`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Vial:+Frenzy+Dust`],
+    wikiLinks: [`https://remnant.wiki/Vial:_Frenzy_Dust`],
     linkedItems: {
       archetype: {
         name: 'Alchemist',
@@ -644,14 +646,14 @@ export const remnantItems: Item[] = [
 
     LIVING WILL grants 5 Health Regeneration per second, and automatically protects against fatal damage while active. Can revive downed players if it heals them to full when downed. Lasts 20s.
     
-    Revived allies cannot be affected by Living Will for 180s.
+    Revived allies cannot be affected by Living Will for 180s. Resets at Worldstone or on death.
     
     PRESS: Slam Vial on the ground, creating the effect at the ALCHEMIST's feet. [A]
     
     HOLD & RELEASE: Aim and throw the Vial causing the same effect where it lands. [A]`,
-    cooldown: 86.4,
+    cooldown: 90,
     howToGet: `Unlocks at level 10`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Vial:+Elixir+Of+Life`],
+    wikiLinks: [`https://remnant.wiki/Vial:_Elixir_of_Life`],
     linkedItems: {
       archetype: {
         name: 'Alchemist',
@@ -666,7 +668,7 @@ export const remnantItems: Item[] = [
     description: `Conjures a 7m [A] protective dome which applies SLOW to any enemy or enemy projectiles.  Allies inside gain 25% Damage Reduction. Lasts 15s.`,
     cooldown: 75,
     howToGet: `Unlocks automatically`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Reality+Rune`],
+    wikiLinks: [`https://remnant.wiki/Reality_Rune`],
     linkedItems: {
       archetype: {
         name: 'Archon',
@@ -955,12 +957,14 @@ export const remnantItems: Item[] = [
     name: 'Minion: Flyer',
     imagePath: '/skill/minion_flyer.png',
     id: 'o7pvqx',
-    description: `PRESS: Summons a Root Flyer Minion to fight by your side. Costs 10% of Max Health to summon, but will not kil SUMMONER. Max (2).
+    description: `Summons a Root Flyer Minion to fight by your side. Costs 10% of Max Health to summon, but will not kill Summoner. Max (2).
 
-    HOLD: SACRIFICE all Root Flyer Minions, dealing 50 damage [E] within 3m [A] and spawning 3 homing projectiles which explode on contact for 150 damage each.`,
+    HOLD: SACRIFICE Root Flyer Minions, dealing 50 Damage [E] within 3m [A] and spawning 3 homing projectiles which explode on contact for 150 damage each.
+    
+    Reduces Skill Cooldown by up to 50% based on remaining Health of each Minion Sacrificed.`,
     cooldown: 45,
     howToGet: `Unlocks at level 5`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Minion:+Flyer`],
+    wikiLinks: [`https://remnant.wiki/Minion:_Flyer`],
     linkedItems: {
       archetype: {
         name: 'Summoner',
@@ -3022,7 +3026,7 @@ export const remnantItems: Item[] = [
     id: '2rnl2d',
     description: `Innate 50% Use Speed bonus. On use, heals 30 Health over 0.25s and restore 300% of current Grey Health.`,
     howToGet: `Found in N'Erud - crafted at Drzyr Replicator`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Salvaged+Heart`],
+    wikiLinks: [`https://remnant.wiki/Salvaged_Heart`],
   },
   {
     category: 'relic',
@@ -4616,7 +4620,7 @@ export const remnantItems: Item[] = [
     name: 'Bolt Driver',
     imagePath: '/offhand/bolt_driver.png',
     id: 'd388ma',
-    description: `An ingenious Gul rifle designed to harness energy from Pan crystals. Charge to fire a 3- shot burst.`,
+    description: `An ingenius Gul rifle designed to harness energy from Pan crystals. Charge to fire a 3-shot burst`,
     howToGet: `Bolt Driver can be obtained by playing the secret song on the Water Harp on Yaesha: 1, 4, 0, 2, 5, 0, 3, 0.`,
     wikiLinks: [`https://remnant.wiki/Bolt_Driver`],
     damage: 26,
@@ -6271,7 +6275,7 @@ export const remnantItems: Item[] = [
     description: `Using this weapon's mod increases Mod Power Generation by 3% for 10s. Max 5 stacks.`,
     maxLevelBonus: `Reduces Mod Power requirement of this weapon's mod by 10%.`,
     howToGet: `Aberration Event Random Drop`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Prophecy`],
+    wikiLinks: [`https://remnant.wiki/Prophecy`],
   },
   {
     category: 'mutator',
@@ -7319,7 +7323,7 @@ Exclusive to The Awakened King DLC"`,
     description: `Gain 3 stacks of BULWARK. Increase damage by 3% per stack of BULWARK`,
     howToGet: `"Can be found in Losomn, as a random world drop.
 Exclusive to The Awakened King DLC"`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Whispering+Marble`],
+    wikiLinks: [`https://remnant.wiki/Whispering_Marble`],
   },
   {
     category: 'ring',
@@ -7413,7 +7417,7 @@ Exclusive to The Awakened King DLC"`,
     tags: ['Projectile Speed', 'Charged Shot'],
     description: `Increases Projectile Speed by 20% and Decreases Weapon Charge Time by 25%.`,
     howToGet: `Can be found in Yaesha - Endaira's End.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Archer's+Crest`],
+    wikiLinks: [`https://remnant.wiki/Archer%27s_Crest`],
   },
   {
     category: 'ring',
@@ -7635,7 +7639,7 @@ Exclusive Ring for The Awakened King DLC."`,
     tags: ['All Damage'],
     description: `Reduces Total Relic Charges by 33%. Increases all damage dealt by 10%`,
     howToGet: `Defeat The One True King while having Burden of the Divine equipped.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Burden+of+Departed`],
+    wikiLinks: [`https://remnant.wiki/Burden_of_the_Divine`],
   },
   {
     category: 'ring',
@@ -7674,7 +7678,7 @@ Exclusive Ring for The Awakened King DLC."`,
     tags: ['Weakspot Damage', 'Critical Chance'],
     description: `Disables Weakspots. Increases Critical Chance by 10% and Critical Damage by 20%. [C]`,
     howToGet: `Cass in Ward 13 can potentially sell this ring.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Burden+of+the+Gambler`],
+    wikiLinks: [`https://remnant.wiki/Burden_of_the_Gambler`],
   },
   {
     category: 'ring',
@@ -7860,7 +7864,7 @@ Exclusive Ring for The Awakened King DLC."`,
     tags: ['Critical Hit', 'Reduce Skill Cooldown'],
     description: `Critical Hits have 1% chance to reset Skill Cooldowns. Can only occur once every 10s. Increases all incoming damage by 10%.`,
     howToGet: `Can be bought from Reggie after completing Campaign on Apocalypse difficulty.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Devoured+Loop`],
+    wikiLinks: [`https://remnant.wiki/Devoured_Loop`],
   },
   {
     category: 'ring',
@@ -7928,7 +7932,7 @@ Burning can be prevented by killing all the enemies, not allowing any to light t
     description: `Grants 1 stack of BULWARK. Increases All Damage by 60% of the total Damage Reduction granted by BULWARK stacks`,
     howToGet: `"Random drop in Losomn.
 Exclusive Ring for The Awakened King DLC."`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Dried+Clay+Ring`],
+    wikiLinks: [`https://remnant.wiki/Dried_Clay_Ring`],
   },
   {
     category: 'ring',
@@ -8088,7 +8092,7 @@ Exclusive Ring for The Awakened King DLC."`,
     tags: ['Critical Hit', 'Weakspot Damage', 'Mod Power'],
     description: `Critical and Weakspot Hits generates 10% additional Mod Power.`,
     howToGet: `Can be found in Losomn - Malefic Gallery. Given by Faerin if you kill Faelin and report to him.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Faerin's+Sigil`],
+    wikiLinks: [`https://remnant.wiki/Faerin%27s_Sigil`],
   },
   {
     category: 'ring',
@@ -8732,7 +8736,7 @@ Yaesha - Possible spawn in The Twisted Chantry"`,
     tags: ['Health', 'Stamina'],
     description: `Increases Max Health by 20. Reduces Max Stamina by 5.`,
     howToGet: `Can be found in Yaesha - The Red Throne. Rewarded by The Eternal Empress if the player finishes the main quest without giving her the Thaen Seed.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Seal+of+the+Empress`],
+    wikiLinks: [`https://remnant.wiki/Seal_of_the_Empress`],
     health: 20,
     stamina: -5,
   },
@@ -9143,7 +9147,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     description: `Increases Mod Power Generation from Melee Damage`,
     maxLevelBonus: `At max level, Arcane Strike Increases Mod Power Generation from Melee Damage by 50%`,
     howToGet: `Losomn - Harvester's Reach (Destroy all bone piles that spawn the large rat)`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Arcane+Strike`],
+    wikiLinks: [`https://remnant.wiki/Arcane_Strike`],
   },
   {
     category: 'trait',
@@ -9544,7 +9548,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     tags: ['Damage Reduction'],
     description: `Increases Armor by 30. Lasts 60m and will stay in effect after death. Only one Concoction may be active at a time.`,
     howToGet: `Can be bought form Mudtooth for 500 scrap`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Bark+Extract`],
+    wikiLinks: [`https://remnant.wiki/Bark_Extract`],
     armor: 30,
   },
   {
@@ -9732,7 +9736,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     Can be bought form Reggie for 200 scrap currency
     Can be crafted at Drzyr Replicator, you will need the following Materials: 200 Scrap.
 `,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Ambit+Ember`],
+    wikiLinks: [`https://remnant.wiki/Ambit_Ember`],
   },
   {
     category: 'consumable',
