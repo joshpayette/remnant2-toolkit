@@ -106,19 +106,23 @@ export function ListBosses({ bosses, onClick }: ListBossesProps) {
                   )}
                 />
               </Disclosure.Button>
-              <Disclosure.Panel className="grid w-full grid-cols-2 gap-4 py-4 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-7 xl:grid-cols-8">
+              <Disclosure.Panel className="grid w-full grid-cols-1 gap-4 py-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
                 {bosses
                   .filter((boss) => {
                     return boss.category === bossCategory.category
                   }) // Filter by category
                   .map((boss) => (
-                    <div key={boss.id} className="flex flex-col">
+                    <div
+                      key={boss.id}
+                      className="flex flex-col items-center justify-center"
+                    >
                       <ItemButton
                         item={boss}
                         isEditable={false}
                         isToggled={boss.discovered}
                         onClick={() => onClick(boss.id)}
                         size="xl"
+                        loadingType="lazy"
                       />
                     </div>
                   ))}

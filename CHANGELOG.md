@@ -10,6 +10,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - New terms added to bad word filter.
 
+### Changed
+
+- Added new and higher quality boss images to the Boss Tracker. This would not have been possible without the incredible work of ConRaven.
+
 ### Fixed
 
 - Builds by Collection was not rendering correctly. This has been fixed.

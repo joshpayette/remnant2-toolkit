@@ -9,7 +9,7 @@ type Props = {
   isToggled?: boolean
   isEditable?: boolean
   isScreenshotMode?: boolean
-  loading?: 'lazy' | 'eager'
+  loadingType?: 'lazy' | 'eager'
   size?: 'sm' | 'md' | 'lg' | 'xl' | 'wide'
   onClick?: () => void
   onItemInfoClick?: (item: Item) => void
@@ -20,7 +20,7 @@ export function ItemButton({
   isEditable = true,
   isScreenshotMode = false,
   isToggled,
-  loading = 'eager',
+  loadingType = 'eager',
   size = 'md',
   onClick,
   onItemInfoClick,
@@ -50,8 +50,8 @@ export function ItemButton({
       break
     case 'xl':
       imageSize = {
-        height: 150,
-        width: 300,
+        height: 200,
+        width: 200,
       }
       break
     case 'wide':
@@ -69,7 +69,7 @@ export function ItemButton({
         size === 'sm' && 'mb-0 flex-row justify-start',
         size === 'md' && 'mb-2 w-[66px] flex-col',
         size === 'lg' && 'mb-2 w-[99px] flex-col',
-        size === 'xl' && 'mb-2 w-[150px] flex-col',
+        size === 'xl' && 'mb-2 w-[200px] flex-col',
         size === 'wide' && 'mb-2 w-[150px] flex-col',
         isToggled === true && 'grayscale-0',
         isToggled === false && 'grayscale',
@@ -104,7 +104,7 @@ export function ItemButton({
           size === 'sm' && 'h-[22px] w-[22px]',
           size === 'md' && 'h-[66px] w-[66px]',
           size === 'lg' && 'h-[99px] w-[99px]',
-          size === 'xl' && 'h-[150px] w-[150px]',
+          size === 'xl' && 'h-[200px] w-[200px]',
           size === 'wide' && 'h-[99px] w-[150px]',
           isToggled === true && 'border-green-500',
           isToggled === false && 'border-gray-700',
@@ -114,10 +114,9 @@ export function ItemButton({
           <Image
             src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}${item.imagePath}`}
             alt={`${item.name} icon`}
-            loading="eager"
+            loading={loadingType}
             width={imageSize.width}
             height={imageSize.height}
-            className={cn(size === 'xl' && 'h-[150px] w-[300px]')}
           />
         )}
       </button>
@@ -129,7 +128,7 @@ export function ItemButton({
             size === 'sm' && 'min-h-[22px] min-w-[22px] border border-black',
             size === 'md' && 'min-h-[40px] w-[66px]',
             size === 'lg' && 'min-h-[40px] w-[99px]',
-            size === 'xl' && 'min-h-[50px] w-[150px] text-sm',
+            size === 'xl' && 'text-md min-h-[40px] w-[200px]',
             size === 'wide' && 'min-h-[22px] w-[150px]',
           )}
         >
