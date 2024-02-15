@@ -7,7 +7,7 @@ import { toast } from 'react-toastify'
 
 import { isErrorResponse } from '@/features/error-handling/isErrorResponse'
 
-import { updateUserDisplayName } from '../../app/profile/actions'
+import { updateUserDisplayName } from '../../../app/profile/actions'
 
 type Props = {
   editable: boolean

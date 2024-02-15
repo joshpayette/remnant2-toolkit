@@ -2,6 +2,10 @@
 
 import { Metadata } from 'next'
 
+import { getServerSession } from '@/features/auth/lib'
+import { ProfileHeader } from '@/features/profile/components/ProfileHeader'
+import { Tabs } from '@/features/profile/components/Tabs'
+
 export async function generateMetadata(): Promise<Metadata> {
   const title = `Created Builds - Remnant2Toolkit`
   const description =
@@ -36,5 +40,19 @@ export default async function Layout({
 }: {
   children: React.ReactNode
 }) {
-  return <>{children}</>
+  const session = await getServerSession()
+
+  if (!session || !session.user) {
+    throw new Error(`You must be logged in to view this page.`)
+  }
+
+  return (
+    <>
+      <ProfileHeader editable={true} userId={session.user.id} />
+      <div className="mb-8 flex w-full flex-col items-center">
+        <Tabs />
+      </div>
+      {children}
+    </>
+  )
 }

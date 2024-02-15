@@ -4,9 +4,7 @@ import { useSearchParams } from 'next/navigation'
 
 import { BuildListFilters } from '@/features/filters/components/BuildListFilters'
 import { parseFiltersFromUrl } from '@/features/filters/lib/parseFiltersFromUrl'
-import { ProfileHeader } from '@/features/profile/ProfileHeader'
-
-import { UserProfile } from '../../../features/profile/UserProfile'
+import { UserProfile } from '@/features/profile/components/UserProfile'
 
 const ITEMS_PER_PAGE = 16
 
@@ -20,9 +18,6 @@ export default function Page({
 
   return (
     <>
-      <div className="my-4 flex w-full max-w-lg flex-col items-center justify-center">
-        <ProfileHeader editable={false} userId={userId} />
-      </div>
       <div className="mb-8 flex w-full max-w-2xl items-center justify-center">
         <BuildListFilters
           filters={buildListFilters}

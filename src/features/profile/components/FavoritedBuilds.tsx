@@ -7,10 +7,10 @@ import { BuildListSecondaryFilters } from '@/features/filters/components/BuildLi
 import { useBuildListSecondaryFilters } from '@/features/filters/hooks/useBuildListSecondaryFilters'
 import { BuildListFilterFields } from '@/features/filters/types'
 import { usePagination } from '@/features/pagination/usePagination'
-import { CopyBuildUrlButton } from '@/features/profile/CopyBuildUrlButton'
-import { DuplicateBuildButton } from '@/features/profile/DuplicateBuildButton'
+import { CopyBuildUrlButton } from '@/features/profile/components/CopyBuildUrlButton'
+import { DuplicateBuildButton } from '@/features/profile/components/DuplicateBuildButton'
 
-import { getFavoritedBuilds } from '../../app/profile/favorited-builds/actions'
+import { getFavoritedBuilds } from '../../../app/profile/favorited-builds/actions'
 
 interface Props {
   itemsPerPage?: number
