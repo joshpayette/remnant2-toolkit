@@ -3486,7 +3486,7 @@ export const remnantItems: Item[] = [
   },
   {
     category: 'relicfragment',
-    name: 'Weakspot Damage', // This is the correct name, fextralife has it called ranged weakspot damage
+    name: 'Weakspot Damage',
     imagePath: '/relicfragment/weakspot_damage.png',
     id: 'oszz4u',
     tags: ['Weakspot Damage'],
@@ -6323,7 +6323,8 @@ export const remnantItems: Item[] = [
   },
   {
     category: 'mutator',
-    name: 'Shielded Strike', // This is the real name, but Fextralife and internal it's Shield Breaker
+    name: 'Shielded Strike',
+  
     saveFileSlug: 'shieldbreaker',
     type: 'melee',
     imagePath: '/mutator/shielded_strike.png',
