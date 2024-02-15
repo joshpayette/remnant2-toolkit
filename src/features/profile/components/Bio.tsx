@@ -7,20 +7,19 @@ import { toast } from 'react-toastify'
 import { isErrorResponse } from '@/features/error-handling/isErrorResponse'
 import { Textarea } from '@/features/ui/Textarea'
 
-import { updateUserBio } from '../../app/profile/actions'
-import { MAX_PROFILE_BIO_LENGTH } from './constants'
+import { updateUserBio } from '../../../app/profile/actions'
+import { MAX_PROFILE_BIO_LENGTH } from '../constants'
 
 type Props = {
   bio: string
   editable: boolean
-  onChangeBio: (bio: string) => void
 }
 
-export function Bio({ bio, editable, onChangeBio }: Props) {
+export function Bio({ bio, editable }: Props) {
   const [newBio, setNewBio] = useState<string>(bio)
   const [isEditing, setIsEditing] = useState(false)
 
-  async function handleSaveBio() {
+  async function handleUpdateBio() {
     const response = await updateUserBio(JSON.stringify({ bio: newBio }))
     if (!response) return
 
@@ -29,10 +28,7 @@ export function Bio({ bio, editable, onChangeBio }: Props) {
       toast.error('Error saving user bio. Please try again later.')
       return
     }
-
     toast.success(response.message)
-    setIsEditing(false)
-    onChangeBio(response.updatedBio ?? '')
   }
 
   return (
@@ -52,7 +48,10 @@ export function Bio({ bio, editable, onChangeBio }: Props) {
             cols={70}
           />
           <button
-            onClick={handleSaveBio}
+            onClick={async () => {
+              handleUpdateBio()
+              setIsEditing(false)
+            }}
             className="mt-2 rounded-md bg-green-500 p-2 text-white hover:bg-green-300"
           >
             Save

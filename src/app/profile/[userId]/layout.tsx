@@ -1,9 +1,9 @@
 import { Metadata, ResolvingMetadata } from 'next'
 
 import { isErrorResponse } from '@/features/error-handling/isErrorResponse'
+import { ProfileHeader } from '@/features/profile/components/ProfileHeader'
 
 import { getProfile } from './actions'
-import ProfilePage from './page'
 
 export async function generateMetadata(
   { params: { userId } }: { params: { userId: string } },
@@ -50,8 +50,15 @@ export async function generateMetadata(
 
 export default async function Layout({
   params: { userId },
+  children,
 }: {
   params: { userId: string }
+  children: React.ReactNode
 }) {
-  return <ProfilePage params={{ userId }} />
+  return (
+    <>
+      <ProfileHeader editable={false} userId={userId} />
+      {children}
+    </>
+  )
 }

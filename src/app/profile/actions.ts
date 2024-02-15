@@ -1,5 +1,6 @@
 'use server'
 
+import { revalidatePath } from 'next/cache'
 import { z } from 'zod'
 
 import { cleanBadWords } from '@/features/bad-word-filter'
@@ -115,6 +116,10 @@ export async function updateUserBio(
         errors: ['Error updating user!'],
       }
     }
+
+    revalidatePath('/profile/created-builds', 'page')
+    revalidatePath('/profile/favorited-builds', 'page')
+    revalidatePath(`/profile/${session.user.id}`, 'page')
 
     return {
       message: 'Successfully updated user!',

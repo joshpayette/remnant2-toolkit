@@ -7,19 +7,23 @@ import { BuildListSecondaryFilters } from '@/features/filters/components/BuildLi
 import { useBuildListSecondaryFilters } from '@/features/filters/hooks/useBuildListSecondaryFilters'
 import { BuildListFilterFields } from '@/features/filters/types'
 import { usePagination } from '@/features/pagination/usePagination'
-import { CopyBuildUrlButton } from '@/features/profile/CopyBuildUrlButton'
-import { DeleteBuildButton } from '@/features/profile/DeleteBuildButton'
-import { DuplicateBuildButton } from '@/features/profile/DuplicateBuildButton'
-import { EditBuildButton } from '@/features/profile/EditBuildButton'
+import { CopyBuildUrlButton } from '@/features/profile/components/CopyBuildUrlButton'
+import { DuplicateBuildButton } from '@/features/profile/components/DuplicateBuildButton'
+import { EditBuildButton } from '@/features/profile/components/EditBuildButton'
 
-import { getCreatedBuilds } from '../../app/profile/created-builds/actions'
+import { getUserProfilePage } from '../../../app/profile/[userId]/actions'
 
 interface Props {
   itemsPerPage?: number
   buildListFilters: BuildListFilterFields
+  userId: string
 }
 
-export function CreatedBuilds({ itemsPerPage = 8, buildListFilters }: Props) {
+export function UserProfile({
+  itemsPerPage = 8,
+  buildListFilters,
+  userId,
+}: Props) {
   const { buildListState, setBuildListState } = useBuildListState()
   const { builds, totalBuildCount, isLoading } = buildListState
 
@@ -30,7 +34,7 @@ export function CreatedBuilds({ itemsPerPage = 8, buildListFilters }: Props) {
     timeRangeOptions,
     handleOrderByChange,
     handleTimeRangeChange,
-  } = useBuildListSecondaryFilters('newest')
+  } = useBuildListSecondaryFilters()
 
   const {
     currentPage,
@@ -48,13 +52,17 @@ export function CreatedBuilds({ itemsPerPage = 8, buildListFilters }: Props) {
 
   useEffect(() => {
     const getItemsAsync = async () => {
+      if (!buildListFilters) {
+        return
+      }
       setBuildListState((prevState) => ({ ...prevState, isLoading: true }))
-      const response = await getCreatedBuilds({
+      const response = await getUserProfilePage({
         buildListFilters,
         itemsPerPage,
         orderBy,
         pageNumber: currentPage,
         timeRange,
+        userId,
       })
       setBuildListState((prevState) => ({
         ...prevState,
@@ -69,21 +77,15 @@ export function CreatedBuilds({ itemsPerPage = 8, buildListFilters }: Props) {
     currentPage,
     itemsPerPage,
     orderBy,
-    timeRange,
     setBuildListState,
+    timeRange,
+    userId,
   ])
-
-  function handleDeleteBuild(buildId: string) {
-    setBuildListState((prevBuilds) => ({
-      ...prevBuilds,
-      builds: prevBuilds.builds.filter((build) => build.id !== buildId),
-    }))
-  }
 
   return (
     <>
       <BuildList
-        label="Builds you've created"
+        label="Created Builds"
         currentPage={currentPage}
         pageNumbers={pageNumbers}
         totalItems={totalBuildCount}
@@ -110,16 +112,12 @@ export function CreatedBuilds({ itemsPerPage = 8, buildListFilters }: Props) {
             <BuildCard
               build={build}
               onReportBuild={undefined}
-              memberFrameEnabled={false}
+              memberFrameEnabled={build.isMember}
               footerActions={
                 <div className="flex items-center justify-between gap-2 p-2 text-sm">
                   <CopyBuildUrlButton buildId={build.id} />
                   <EditBuildButton buildId={build.id} />
                   <DuplicateBuildButton build={build} />
-                  <DeleteBuildButton
-                    buildId={build.id}
-                    onDeleteBuild={handleDeleteBuild}
-                  />
                 </div>
               }
             />
