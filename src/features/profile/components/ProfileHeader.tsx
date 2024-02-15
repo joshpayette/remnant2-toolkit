@@ -16,7 +16,7 @@ interface Props {
 
 export async function ProfileHeader({ editable, userId }: Props) {
   const [totalFavorites, userProfile] = await Promise.all([
-    getTotalBuildFavorites(),
+    getTotalBuildFavorites(userId),
     getUserBio(userId),
   ])
 
