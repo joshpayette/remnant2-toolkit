@@ -335,6 +335,13 @@ export async function updateBuild(data: string): Promise<BuildActionResponse> {
     buildState.isPublic = false
   }
 
+  // Get the existing build
+  const existingBuild = await prisma.build.findUnique({
+    where: {
+      id: buildState.buildId,
+    },
+  })
+
   try {
     const updatedBuild = await prisma.build.update({
       where: {
@@ -363,6 +370,29 @@ export async function updateBuild(data: string): Promise<BuildActionResponse> {
     if (!updatedBuild) {
       return {
         errors: ['Error updating build.'],
+      }
+    }
+
+    // If the build was private but is now public, send the build info to Discord
+    if (
+      existingBuild?.isPublic === false &&
+      buildState.isPublic === true &&
+      process.env.NODE_ENV === 'production'
+    ) {
+      const params = {
+        content: `https://www.remnant2toolkit.com/builder/${buildState.buildId}`,
+      }
+
+      const res = await fetch(`${process.env.WEBHOOK_COMMUNITY_BUILDS}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(params),
+      })
+
+      if (!res.ok) {
+        console.error('Error in sending build webhook to Discord!')
       }
     }
 
