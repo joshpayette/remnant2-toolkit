@@ -13,16 +13,16 @@ import { cn } from '@/lib/classnames'
 function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
   const { data: session, status } = useSession()
 
-  if (status === 'loading') return <Loading />
-
   if (status !== 'authenticated' || !session?.user) {
     return (
-      <Link
-        href="/api/auth/signin"
-        className="rounded border border-purple-300 bg-purple-700 p-2 text-center text-sm text-gray-200 hover:bg-purple-500"
-      >
-        Sign in
-      </Link>
+      <Suspense fallback={<Loading />}>
+        <Link
+          href="/api/auth/signin"
+          className="rounded border border-purple-300 bg-purple-700 p-2 text-center text-sm text-gray-200 hover:bg-purple-500"
+        >
+          Sign in
+        </Link>
+      </Suspense>
     )
   }
 
@@ -204,5 +204,5 @@ export const AuthButton = {
 }
 
 function Loading() {
-  return <Skeleton className="h-[32px] w-[32px]" />
+  return <Skeleton className="h-[38px] w-[80px]" />
 }

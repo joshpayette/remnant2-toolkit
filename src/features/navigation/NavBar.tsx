@@ -4,14 +4,13 @@ import { Dialog, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { Fragment, Suspense, useEffect, useState } from 'react'
+import { Fragment, useEffect, useState } from 'react'
 
 import { NAV_ITEMS } from '@/features/navigation/constants'
 import { Logo } from '@/features/ui/Logo'
 import { cn } from '@/lib/classnames'
 
 import { AuthButton } from '../auth/components/AuthButton'
-import { Skeleton } from '../ui/Skeleton'
 
 export function NavBar() {
   const pathname = usePathname()
@@ -257,7 +256,7 @@ export function NavBar() {
             {NAV_ITEMS.supportR2TK.label}
           </Link>
         </div>
-        <div className="hidden grow items-end justify-end sm:flex">
+        <div className="hidden h-[38px] w-[70px] items-end justify-end sm:flex">
           <AuthButton.Desktop />
         </div>
       </nav>
