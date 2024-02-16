@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useDebounce } from 'usehooks-ts'
+import { useDebounceValue } from 'usehooks-ts'
 
 import { ItemCategory } from '@/features/build/types'
 import { ClearFiltersButton } from '@/features/filters/components/parts/ClearFiltersButton'
@@ -53,7 +53,10 @@ export function Filters({
    * ------------------------------------
    */
   const [searchText, setSearchText] = useState('')
-  const debouncedSearchText = useDebounce(searchText, 500)
+  const [debouncedSearchText, setDebouncedSearchText] = useDebounceValue(
+    searchText,
+    500,
+  )
 
   function handleSearchTextChange(newValue: string) {
     setSearchText(newValue)
