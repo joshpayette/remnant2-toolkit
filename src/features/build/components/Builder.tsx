@@ -399,6 +399,7 @@ export function Builder({
                   onClick={() => handleButtonClick('archetype', archetypeIndex)}
                   onItemInfoClick={handleShowInfo}
                   isScreenshotMode={isScreenshotMode}
+                  manualWordBreaks={true}
                 />
                 <ItemButton
                   item={buildState.items.skill[archetypeIndex]}
@@ -406,6 +407,7 @@ export function Builder({
                   onClick={() => handleButtonClick('skill', archetypeIndex)}
                   onItemInfoClick={handleShowInfo}
                   isScreenshotMode={isScreenshotMode}
+                  manualWordBreaks={true}
                 />
               </Fragment>
             ))}
@@ -427,6 +429,7 @@ export function Builder({
                 onClick={() => handleButtonClick('helm')}
                 onItemInfoClick={handleShowInfo}
                 isScreenshotMode={isScreenshotMode}
+                manualWordBreaks={true}
               />
               <ItemButton
                 item={buildState.items.torso}
@@ -434,6 +437,7 @@ export function Builder({
                 onClick={() => handleButtonClick('torso')}
                 onItemInfoClick={handleShowInfo}
                 isScreenshotMode={isScreenshotMode}
+                manualWordBreaks={true}
               />
               <ItemButton
                 item={buildState.items.legs}
@@ -441,6 +445,7 @@ export function Builder({
                 onClick={() => handleButtonClick('legs')}
                 onItemInfoClick={handleShowInfo}
                 isScreenshotMode={isScreenshotMode}
+                manualWordBreaks={true}
               />
               <ItemButton
                 item={buildState.items.gloves}
@@ -448,6 +453,7 @@ export function Builder({
                 onClick={() => handleButtonClick('gloves')}
                 onItemInfoClick={handleShowInfo}
                 isScreenshotMode={isScreenshotMode}
+                manualWordBreaks={true}
               />
               <div
                 id="relic-container"
@@ -459,6 +465,7 @@ export function Builder({
                   onClick={() => handleButtonClick('relic')}
                   onItemInfoClick={handleShowInfo}
                   isScreenshotMode={isScreenshotMode}
+                  manualWordBreaks={true}
                 />
                 <div
                   id="relic-fragment-container"
@@ -471,6 +478,7 @@ export function Builder({
                     onClick={() => handleButtonClick('relicfragment', 0)}
                     onItemInfoClick={handleShowInfo}
                     isScreenshotMode={isScreenshotMode}
+                    manualWordBreaks={true}
                   />
                   <ItemButton
                     item={buildState.items.relicfragment[1]}
@@ -479,6 +487,7 @@ export function Builder({
                     onClick={() => handleButtonClick('relicfragment', 1)}
                     onItemInfoClick={handleShowInfo}
                     isScreenshotMode={isScreenshotMode}
+                    manualWordBreaks={true}
                   />
                   <ItemButton
                     item={buildState.items.relicfragment[2]}
@@ -487,6 +496,7 @@ export function Builder({
                     onClick={() => handleButtonClick('relicfragment', 2)}
                     onItemInfoClick={handleShowInfo}
                     isScreenshotMode={isScreenshotMode}
+                    manualWordBreaks={true}
                   />
                 </div>
               </div>
@@ -507,6 +517,7 @@ export function Builder({
                 onClick={() => handleButtonClick('amulet')}
                 onItemInfoClick={handleShowInfo}
                 isScreenshotMode={isScreenshotMode}
+                manualWordBreaks={true}
               />
               {getArrayOfLength(4).map((ringIndex) => (
                 <ItemButton
@@ -516,6 +527,7 @@ export function Builder({
                   onClick={() => handleButtonClick('ring', ringIndex)}
                   onItemInfoClick={handleShowInfo}
                   isScreenshotMode={isScreenshotMode}
+                  manualWordBreaks={true}
                 />
               ))}
             </div>
@@ -537,6 +549,7 @@ export function Builder({
                   onClick={() => handleButtonClick('weapon', weaponIndex)}
                   onItemInfoClick={handleShowInfo}
                   isScreenshotMode={isScreenshotMode}
+                  manualWordBreaks={true}
                 />
                 <div className="flex w-full grow items-start justify-around gap-4">
                   {weaponIndex !== 1 || buildState.items.mod[weaponIndex] ? (
@@ -551,6 +564,7 @@ export function Builder({
                       }
                       onItemInfoClick={handleShowInfo}
                       isScreenshotMode={isScreenshotMode}
+                      manualWordBreaks={true}
                     />
                   ) : (
                     <div className="h-[66px] w-[66px]" />
@@ -562,6 +576,7 @@ export function Builder({
                     onClick={() => handleButtonClick('mutator', weaponIndex)}
                     onItemInfoClick={handleShowInfo}
                     isScreenshotMode={isScreenshotMode}
+                    manualWordBreaks={true}
                   />
                 </div>
               </div>
@@ -597,6 +612,7 @@ export function Builder({
                 onClick={() => handleButtonClick('concoction', 0)}
                 onItemInfoClick={handleShowInfo}
                 isScreenshotMode={isScreenshotMode}
+                manualWordBreaks={true}
               />
               {getArrayOfLength(concoctionSlotCount).map((index) => {
                 // Add 1 to the index because we already rendered the first slot
@@ -611,6 +627,7 @@ export function Builder({
                     }
                     onItemInfoClick={handleShowInfo}
                     isScreenshotMode={isScreenshotMode}
+                    manualWordBreaks={true}
                   />
                 )
               })}
@@ -636,6 +653,7 @@ export function Builder({
                   }
                   onItemInfoClick={handleShowInfo}
                   isScreenshotMode={isScreenshotMode}
+                  manualWordBreaks={true}
                 />
               ))}
             </div>

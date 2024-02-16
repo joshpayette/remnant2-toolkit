@@ -6,12 +6,16 @@ import { Enemy, isEnemy } from '@/features/enemies/types'
 import { Item } from '@/features/items/types'
 import { cn } from '@/lib/classnames'
 
+import { MANUAL_ITEM_NAME_BREAKS } from '../constants'
+
 type Props = {
   item: Item | Enemy | null
   isToggled?: boolean
   isEditable?: boolean
   isScreenshotMode?: boolean
   loadingType?: 'lazy' | 'eager'
+  // If true, will use the manual word breaks for item names from MANUAL_ITEM_NAME_BREAKS constant
+  manualWordBreaks?: boolean
   size?: 'sm' | 'md' | 'lg' | 'xl' | 'wide'
   onClick?: () => void
   onItemInfoClick?: (item: Item) => void
@@ -23,6 +27,7 @@ export function ItemButton({
   isScreenshotMode = false,
   isToggled,
   loadingType = 'eager',
+  manualWordBreaks = false,
   size = 'md',
   onClick,
   onItemInfoClick,
@@ -128,7 +133,7 @@ export function ItemButton({
       {item?.name && (
         <div
           className={cn(
-            'flex items-center justify-center bg-purple-950 px-1 py-0.5 text-center text-[10px] text-white',
+            'z-10 flex items-center justify-center bg-purple-950 px-1 py-0.5 text-center text-[10px] text-white',
             size === 'sm' && 'min-h-[22px] min-w-[22px] border border-black',
             size === 'md' && 'min-h-[40px] w-[66px]',
             size === 'lg' && 'min-h-[40px] w-[99px]',
@@ -136,7 +141,10 @@ export function ItemButton({
             size === 'wide' && 'min-h-[22px] w-[150px]',
           )}
         >
-          {item?.name}
+          {manualWordBreaks
+            ? MANUAL_ITEM_NAME_BREAKS.find((b) => b.name === item.name)
+                ?.break || item.name
+            : item.name}
         </div>
       )}
     </div>

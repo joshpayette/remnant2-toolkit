@@ -5,6 +5,15 @@ import { ItemTag } from './types'
  */
 export const MAX_PROFILE_SAV_SIZE = 250
 
+/**
+ * Some words are too long to fit in the item label on the builder
+ * and need to be manually broken up
+ */
+export const MANUAL_ITEM_NAME_BREAKS: Array<{ name: string; break: string }> = [
+  { name: 'Hyperconductor', break: 'Hyper-conductor' },
+  { name: 'Microcompressor', break: 'Micro-compressor' },
+]
+
 export const ARCHTYPE_COLORS = {
   ALCHEMIST: {
     bg: 'bg-[#102a22]',
