@@ -10,6 +10,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Made a bunch of changes to rendering in the hopes of reducing cumulative layout shift for better search engine optimization and user experience.
 
+### Fixed
+
+- Some item names are too long to fit on the label in the builder. Added a manual override for these items.
+- Fixed bug where Vash's spreadsheet text would overlay the relic fragment label.
+
 ## 2024-02-15
 
 ### Added
