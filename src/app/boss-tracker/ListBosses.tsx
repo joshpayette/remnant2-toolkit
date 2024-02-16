@@ -4,7 +4,7 @@ import { Disclosure } from '@headlessui/react'
 import { ChevronDownIcon } from '@heroicons/react/24/solid'
 import { useIsClient } from 'usehooks-ts'
 
-import { Boss, BossCategory } from '@/features/bosses/types'
+import { BossCategory, Enemy } from '@/features/enemies/types'
 import { ItemButton } from '@/features/items/components/ItemButton'
 import { useLocalStorage } from '@/features/localstorage/useLocalStorage'
 import { cn } from '@/lib/classnames'
@@ -15,7 +15,7 @@ interface BossTrackerCategory {
 }
 
 function getProgress(
-  bosses: Array<Boss & { discovered: boolean }>,
+  bosses: Array<Enemy & { discovered: boolean }>,
   bossCategory: BossTrackerCategory,
   isClient: boolean,
 ) {
@@ -37,7 +37,7 @@ function getProgress(
 }
 
 interface ListBossesProps {
-  bosses: Array<Boss & { discovered: boolean }>
+  bosses: Array<Enemy & { discovered: boolean }>
   onClick: (itemId: string) => void
 }
 

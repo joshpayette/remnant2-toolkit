@@ -1,11 +1,11 @@
 import Image from 'next/image'
 
-import { Boss, isBoss } from '@/features/bosses/types'
+import { Enemy, isEnemy } from '@/features/enemies/types'
 import { Item } from '@/features/items/types'
 import { cn } from '@/lib/classnames'
 
 type Props = {
-  item: Item | Boss | null
+  item: Item | Enemy | null
   isToggled?: boolean
   isEditable?: boolean
   isScreenshotMode?: boolean
@@ -82,7 +82,7 @@ export function ItemButton({
             size === 'sm' && 'right-[-20px]',
           )}
           onClick={() =>
-            onItemInfoClick && !isBoss(item) && onItemInfoClick(item)
+            onItemInfoClick && !isEnemy(item) && onItemInfoClick(item)
           }
         >
           <Image

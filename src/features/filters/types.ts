@@ -1,5 +1,5 @@
-import { BossCategory } from '../bosses/types'
 import { ItemCategory } from '../build/types'
+import { BossCategory } from '../enemies/types'
 import { Archetype, ReleaseKey } from '../items/types'
 
 export interface BuildListFilterFields {
