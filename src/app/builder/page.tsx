@@ -2,7 +2,6 @@
 
 import { useSession } from 'next-auth/react'
 import { useRef } from 'react'
-import { useIsClient } from 'usehooks-ts'
 
 import { BuilderPage } from '@/features/build/components/BuilderPage'
 import { useUrlBuildState } from '@/features/build/hooks/useUrlBuildState'
@@ -17,8 +16,6 @@ import { Skeleton } from '../../features/ui/Skeleton'
 
 export default function Page() {
   const { data: session, status: sessionStatus } = useSession()
-
-  const isClient = useIsClient()
 
   const { csvItems, urlBuildState, updateUrlBuildState } = useUrlBuildState()
 
@@ -35,8 +32,6 @@ export default function Page() {
 
   const buildContainerRef = useRef<HTMLDivElement>(null)
   const detailedViewContainerRef = useRef<HTMLDivElement>(null)
-
-  if (!isClient) return null
 
   return (
     <div className="flex w-full flex-col items-center">

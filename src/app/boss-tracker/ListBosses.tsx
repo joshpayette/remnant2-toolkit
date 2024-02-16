@@ -17,7 +17,6 @@ interface BossTrackerCategory {
 function getProgress(
   bosses: Array<Enemy & { discovered: boolean }>,
   bossCategory: BossTrackerCategory,
-  isClient: boolean,
 ) {
   const discoveredCount = bosses.filter((boss) => {
     return boss.category === bossCategory.category && boss.discovered
@@ -31,9 +30,7 @@ function getProgress(
     (boss) => boss.category === bossCategory.category,
   ).length
 
-  return isClient
-    ? `${discoveredCount} / ${totalDiscoverableBosses} (${discoveredPercent}%)`
-    : 'Calculating...'
+  return `${discoveredCount} / ${totalDiscoverableBosses} (${discoveredPercent}%)`
 }
 
 interface ListBossesProps {
@@ -90,13 +87,14 @@ export function ListBosses({ bosses, onClick }: ListBossesProps) {
                     {bossCategory.label}
                   </h2>
                   <span className="text-sm text-gray-400">
-                    {getProgress(
-                      bosses.filter((boss) => {
-                        return boss.category === bossCategory.category
-                      }),
-                      bossCategory,
-                      isClient,
-                    )}
+                    {isClient
+                      ? getProgress(
+                          bosses.filter((boss) => {
+                            return boss.category === bossCategory.category
+                          }),
+                          bossCategory,
+                        )
+                      : 'Calculating...'}
                   </span>
                 </div>
                 <ChevronDownIcon

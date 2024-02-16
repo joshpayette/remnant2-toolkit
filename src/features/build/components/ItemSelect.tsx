@@ -2,7 +2,7 @@
 
 import { AdjustmentsHorizontalIcon } from '@heroicons/react/24/solid'
 import { useEffect, useState } from 'react'
-import { useDebounce, useIsClient } from 'usehooks-ts'
+import { useDebounceValue } from 'usehooks-ts'
 
 import { SearchTextAutocomplete } from '@/features/filters/components/parts/SearchTextAutocomplete'
 import { ItemInfoDialog } from '@/features/items/components/ItemInfoDialog'
@@ -80,14 +80,13 @@ export function ItemSelect({
 }) {
   const filterItems = buildItemList()
 
-  const isClient = useIsClient()
   const [infoItem, setInfoItem] = useState<Item | null>(null)
 
   const [filter, setFilter] = useState('')
   const { sortingPreference, setSortingPreference } = useLocalStorage()
 
   const [filteredItemList, setFilteredItemList] = useState(itemList)
-  const debouncedFilter = useDebounce(filter, 500)
+  const [debouncedFilter, setDebouncedFilter] = useDebounceValue(filter, 500)
 
   useEffect(() => {
     const filteredItems = itemList.filter((item) =>
@@ -128,7 +127,6 @@ export function ItemSelect({
   }
 
   if (!buildSlot) return null
-  if (!isClient) return null
 
   return (
     <Dialog

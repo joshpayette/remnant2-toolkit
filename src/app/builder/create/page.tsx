@@ -1,7 +1,6 @@
 'use client'
 
 import { useRef, useState } from 'react'
-import { useIsClient } from 'usehooks-ts'
 
 import { ActionButton } from '@/features/build/components/ActionButton'
 import { BuilderPage } from '@/features/build/components/BuilderPage'
@@ -15,8 +14,6 @@ import { BuildState } from '@/features/build/types'
 import { PageHeader } from '@/features/ui/PageHeader'
 
 export default function Page() {
-  const isClient = useIsClient()
-
   const { dbBuildState, setNewBuildState, updateDBBuildState } =
     useDBBuildState(initialBuildState)
 
@@ -38,8 +35,6 @@ export default function Page() {
     setNewBuildState(newBuildState)
     setShowBuildSuggestions(false)
   }
-
-  if (!isClient) return null
 
   return (
     <div className="flex w-full flex-col items-center">

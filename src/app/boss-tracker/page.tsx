@@ -91,11 +91,9 @@ export default function Page() {
     return acc
   }, 0)
   const discoveredPercent = Math.round((discoveredCount / totalItems) * 100)
-  const progress = isClient
-    ? `${discoveredCount} / ${totalItems} (${
-        isNaN(discoveredPercent) ? '0' : discoveredPercent
-      }%)`
-    : 'Calculating...'
+  const progress = `${discoveredCount} / ${totalItems} (${
+    isNaN(discoveredPercent) ? '0' : discoveredPercent
+  }%)`
 
   function handleUpdateFilters(newFilters: BossTrackerFilterFields) {
     setFilters(newFilters)
@@ -109,7 +107,12 @@ export default function Page() {
       >
         <div className="flex flex-col items-center justify-center text-4xl font-bold text-green-400">
           <h2 className="text-4xl font-bold">Progress</h2>
-          <span className="text-2xl font-bold text-white">{progress}</span>
+          <span
+            className="text-2xl font-bold text-white"
+            suppressHydrationWarning
+          >
+            {isClient ? progress : 'Calculating...'}
+          </span>
         </div>
       </PageHeader>
 
@@ -120,11 +123,7 @@ export default function Page() {
       </div>
 
       <div className="my-8 w-full">
-        <ListBosses
-          bosses={filteredBosses}
-          // onShowItemInfo={handleShowItemInfo}
-          onClick={handleListItemClicked}
-        />
+        <ListBosses bosses={filteredBosses} onClick={handleListItemClicked} />
       </div>
     </div>
   )

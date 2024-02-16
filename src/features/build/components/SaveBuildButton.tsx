@@ -128,7 +128,7 @@ export function SaveBuildButton({ buildState, editMode }: Props) {
 function Loading() {
   return (
     <div className="flex h-full w-full items-center justify-center">
-      <Skeleton className="h-[80px] w-[100px]" />
+      <Skeleton className="h-[60px] w-[100px]" />
     </div>
   )
 }

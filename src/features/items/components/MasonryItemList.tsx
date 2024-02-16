@@ -2,7 +2,6 @@
 
 import { Masonry } from 'masonic'
 import { useState } from 'react'
-import { useIsClient } from 'usehooks-ts'
 
 import { Item } from '../types'
 import { ItemInfoDialog } from './ItemInfoDialog'
@@ -17,13 +16,9 @@ export function MasonryItemList({ items, label = 'Items' }: Props) {
   const [selectedItem, setSelectedItem] = useState<Item | null>(null)
   const infoOpen = selectedItem !== null
 
-  const isClient = useIsClient()
-
   function handleMoreInfoClick(item: Item) {
     setSelectedItem(item)
   }
-
-  if (!isClient) return null
 
   return (
     <>

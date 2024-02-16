@@ -1,3 +1,5 @@
+'use client'
+
 import Image from 'next/image'
 
 import { Enemy, isEnemy } from '@/features/enemies/types'
@@ -74,6 +76,7 @@ export function ItemButton({
         isToggled === true && 'grayscale-0',
         isToggled === false && 'grayscale',
       )}
+      suppressHydrationWarning
     >
       {!isScreenshotMode && item && onItemInfoClick && (
         <button
@@ -109,6 +112,7 @@ export function ItemButton({
           isToggled === true && 'border-green-500',
           isToggled === false && 'border-gray-700',
         )}
+        suppressHydrationWarning
       >
         {item && (
           <Image
