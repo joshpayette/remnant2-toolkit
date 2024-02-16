@@ -3,8 +3,10 @@
 import { signIn, useSession } from 'next-auth/react'
 
 import { DescriptionWithTags } from '@/features/items/components/DescriptionWithTags'
+import { Skeleton } from '@/features/ui/Skeleton'
 import { Textarea } from '@/features/ui/Textarea'
 import { Toggle } from '@/features/ui/Toggle'
+import { cn } from '@/lib/classnames'
 
 import { MAX_BUILD_DESCRIPTION_LENGTH } from '../constants'
 
@@ -25,85 +27,97 @@ export function MemberFeatures({
   onChangeDescription,
   onChangeIsPublic,
 }: Props) {
-  const { data: session } = useSession()
+  const { data: session, status } = useSession()
+
+  if (status === 'loading') return <Loading />
 
   return (
-    <div className="pt-4">
-      {!session && !isScreenshotModeActive && (
-        <p className="mb-2 text-sm text-red-500">
-          In order to save additional build data, please{' '}
-          <button className="underline" onClick={() => signIn()}>
-            sign in.
-          </button>
-        </p>
-      )}
-      <div className="relative">
-        {!session && !isScreenshotModeActive && (
+    <div className="relative h-[300px] pt-4">
+      {status === 'unauthenticated' && !isScreenshotModeActive && (
+        <>
           <div
             id="disabled-overlay"
-            className="absolute inset-0 z-20 bg-black/60"
+            className="absolute inset-0 z-20 h-[310px] bg-black/90"
           />
-        )}
-        {!isEditable || isScreenshotModeActive ? (
-          <div className="flex flex-col">
-            {description && description.length > 0 && (
-              <>
-                <h3 className="text-md mb-2 font-bold text-green-500">
-                  Build Description
-                </h3>
-                <div className="overflow-x-auto whitespace-pre-wrap text-sm text-gray-200">
-                  <DescriptionWithTags description={description} />
-                </div>
-              </>
-            )}
+          <div className="absolute z-30 mb-2 flex h-full w-full flex-col items-center justify-center text-2xl font-bold text-red-500">
+            Sign in required to save additional build details.
+            <button
+              className="rounded-lg bg-green-500 p-2 text-lg text-black"
+              onClick={() => signIn()}
+            >
+              Sign In
+            </button>
           </div>
-        ) : (
-          <div className="mb-4">
-            <Textarea
-              label={`Build Description (${
-                description?.length ?? 0
-              }/${MAX_BUILD_DESCRIPTION_LENGTH})`}
-              name="description"
-              placeholder=""
-              onChange={(e) => onChangeDescription(e.target.value)}
-              value={description ?? ''}
-              maxLength={MAX_BUILD_DESCRIPTION_LENGTH}
-              rows={6}
-            />
-          </div>
-        )}
-        {isScreenshotModeActive ? null : (
-          <>
-            {isEditable ? (
-              <div className="flex flex-row items-center justify-start text-sm text-green-500">
-                <div className="mr-4">Public Build</div>
-                <div className="flex items-center justify-start">
-                  <Toggle
-                    enabled={Boolean(isPublic)}
-                    setEnabled={onChangeIsPublic}
-                  />
-                  <a
-                    href="https://github.com/joshpayette/remnant2-toolkit/blob/main/CODE_OF_CONDUCT.md"
-                    target="_blank"
-                    className="ml-2 text-xs text-purple-500 underline"
-                  >
-                    Code of Conduct
-                  </a>
-                </div>
+        </>
+      )}
+      {!isEditable || isScreenshotModeActive ? (
+        <div className="flex flex-col">
+          {description && description.length > 0 && (
+            <>
+              <h3 className="text-md mb-2 font-bold text-green-500">
+                Build Description
+              </h3>
+              <div
+                className={cn(
+                  'h-[200px] max-h-[200px] overflow-auto whitespace-pre-wrap text-sm text-gray-200',
+                  isScreenshotModeActive && 'max-h-none',
+                )}
+              >
+                <DescriptionWithTags description={description} />
               </div>
-            ) : (
-              <div className="flex flex-col">
-                <div className="text-md my-2 font-bold text-green-500">
-                  Build Visibility
-                </div>
-                <div className="text-sm text-gray-200">
-                  {isPublic ? 'Public' : 'Private'}
-                </div>
+            </>
+          )}
+        </div>
+      ) : (
+        <div className="mb-4">
+          <Textarea
+            label={`Build Description (${
+              description?.length ?? 0
+            }/${MAX_BUILD_DESCRIPTION_LENGTH})`}
+            name="description"
+            placeholder=""
+            onChange={(e) => onChangeDescription(e.target.value)}
+            value={description ?? ''}
+            maxLength={MAX_BUILD_DESCRIPTION_LENGTH}
+            rows={6}
+          />
+        </div>
+      )}
+      {isScreenshotModeActive ? null : (
+        <>
+          {isEditable ? (
+            <div className="flex flex-row items-center justify-start text-sm text-green-500">
+              <div className="mr-4">Public Build</div>
+              <div className="flex items-center justify-start">
+                <Toggle
+                  enabled={Boolean(isPublic)}
+                  setEnabled={onChangeIsPublic}
+                />
+                <a
+                  href="https://github.com/joshpayette/remnant2-toolkit/blob/main/CODE_OF_CONDUCT.md"
+                  target="_blank"
+                  className="ml-2 text-xs text-purple-500 underline"
+                >
+                  Code of Conduct
+                </a>
               </div>
-            )}
-          </>
-        )}
-      </div>
+            </div>
+          ) : (
+            <div className="flex flex-col">
+              <div className="text-md my-2 font-bold text-green-500">
+                Build Visibility
+              </div>
+              <div className="text-sm text-gray-200">
+                {isPublic ? 'Public' : 'Private'}
+              </div>
+            </div>
+          )}
+        </>
+      )}
     </div>
   )
+}
+
+function Loading() {
+  return <Skeleton className="h-[300px] w-full" />
 }

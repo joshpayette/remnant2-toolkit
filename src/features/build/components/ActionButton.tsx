@@ -9,7 +9,7 @@ import { Tooltip } from '@/features/ui/Tooltip'
 import { cn } from '@/lib/classnames'
 
 export const buttonClasses =
-  'flex w-full flex-col items-center rounded border-2 text-center px-4 py-2 text-sm font-bold text-white'
+  'flex w-full flex-col h-[40px] sm:h-[60px] sm:w-[100px] items-center rounded border-2 text-center px-4 py-2 text-sm font-bold text-white'
 
 type ButtonProps = {
   onClick: () => void

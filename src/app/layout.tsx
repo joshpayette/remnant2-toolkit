@@ -64,7 +64,7 @@ export default async function RootLayout({
 
             <main className="flex h-full w-full grow flex-col items-center justify-start p-4">
               <ToastContainer theme="dark" />
-              <Suspense fallback={<Loading />}>{children}</Suspense>
+              {children}
             </main>
           </div>
 
