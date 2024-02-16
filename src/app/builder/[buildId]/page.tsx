@@ -72,7 +72,7 @@ export default function Page({
   return (
     <>
       <ImageDownloadLink onClose={handleClearImageLink} imageLink={imageLink} />
-      <div className="flex w-full flex-col items-center justify-center">
+      <div className="height-full flex w-full flex-col items-center justify-center">
         {buildState.isFeaturedBuild && buildState.videoUrl && (
           <div className="youtube-video-container mb-8 max-h-[315px] max-w-[560px]">
             <iframe

@@ -51,7 +51,7 @@ export function BuilderPage({
       <div className="flex w-full max-w-xl flex-col-reverse items-start justify-center gap-2 sm:flex-row-reverse">
         <div
           id="actions-column"
-          className="flex min-w-full flex-col justify-between gap-2 sm:min-w-[100px]"
+          className="mt-8 flex min-w-full flex-col justify-between gap-2 sm:mt-0 sm:min-w-[100px]"
         >
           {builderActions}
         </div>

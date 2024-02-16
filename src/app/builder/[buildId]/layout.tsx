@@ -14,11 +14,13 @@ export async function generateMetadata(
   if (isErrorResponse(buildData)) {
     console.error(buildData.errors)
     return {
-      title: 'Private Build',
-      description: 'This build is private.',
+      title: 'Error loading build',
+      description:
+        'There was an error loading this build. It may have been removed',
       openGraph: {
-        title: 'Private Build',
-        description: 'This build is private.',
+        title: 'Error loading build',
+        description:
+          'There was an error loading this build. It may have been removed',
         url: `https://remnant2toolkit.com/builder/${buildId}`,
         images: [
           {
@@ -30,8 +32,9 @@ export async function generateMetadata(
         type: 'website',
       },
       twitter: {
-        title: 'Private Build',
-        description: 'This build is private.',
+        title: 'Error loading build',
+        description:
+          'There was an error loading this build. It may have been removed',
       },
     }
   }

@@ -95,7 +95,7 @@ export function SaveBuildButton({ buildState, editMode }: Props) {
   }
 
   return (
-    <Suspense fallback={<Loading />}>
+    <>
       {saveInProgress ? (
         <div
           className={cn(
@@ -121,14 +121,10 @@ export function SaveBuildButton({ buildState, editMode }: Props) {
           Save Build
         </button>
       )}
-    </Suspense>
+    </>
   )
 }
 
 function Loading() {
-  return (
-    <div className="flex h-full w-full items-center justify-center">
-      <Skeleton className="h-[60px] w-[100px]" />
-    </div>
-  )
+  return <Skeleton className="h-[40px] w-full sm:h-[60px] sm:w-[100px]" />
 }

@@ -1,5 +1,3 @@
-import Loading from '@/app/loading'
-
 import { BuildListPagination } from './BuildListPagination'
 
 interface Props {
@@ -44,6 +42,7 @@ export function BuildList({
         </div>
       </div>
       <BuildListPagination
+        isLoading={isLoading}
         currentPage={currentPage}
         firstVisibleItemNumber={firstVisibleItemNumber}
         lastVisibleItemNumber={lastVisibleItemNumber}
@@ -54,20 +53,16 @@ export function BuildList({
         onNextPage={onNextPage}
         onSpecificPage={onSpecificPage}
       />
-      {isLoading ? (
-        <div className="flex w-full items-center justify-center">
-          <Loading />
-        </div>
-      ) : (
-        <ul
-          role="list"
-          className="my-4 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4"
-        >
-          {children}
-        </ul>
-      )}
+
+      <ul
+        role="list"
+        className="my-4 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4"
+      >
+        {children}
+      </ul>
       <BuildListPagination
         currentPage={currentPage}
+        isLoading={isLoading}
         firstVisibleItemNumber={firstVisibleItemNumber}
         lastVisibleItemNumber={lastVisibleItemNumber}
         pageNumbers={pageNumbers}

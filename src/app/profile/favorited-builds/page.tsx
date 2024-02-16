@@ -21,10 +21,12 @@ export default function Page() {
         />
       </div>
       {buildListFilters && (
-        <FavoritedBuilds
-          buildListFilters={buildListFilters}
-          itemsPerPage={ITEMS_PER_PAGE}
-        />
+        <div className="mb-4 grid w-full grid-cols-1 gap-2">
+          <FavoritedBuilds
+            buildListFilters={buildListFilters}
+            itemsPerPage={ITEMS_PER_PAGE}
+          />
+        </div>
       )}
     </>
   )

@@ -11,7 +11,7 @@ interface State {
 const DEFAULT_STATE: State = {
   builds: [],
   totalBuildCount: 0,
-  isLoading: false,
+  isLoading: true,
 }
 
 export function useBuildListState() {

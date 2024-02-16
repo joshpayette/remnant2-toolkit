@@ -24,8 +24,6 @@ interface Props {
 }
 
 export function MasonryCard({ data: item, onMoreInfoClick }: Props) {
-  if (!item) return null
-
   const { imagePath, category, name, description } = item
 
   return (
