@@ -320,6 +320,23 @@ export function NavBar() {
                 </Link>
 
                 <Link
+                  href={NAV_ITEMS.collectionBuilds.href}
+                  className="flex flex-row items-center justify-start"
+                >
+                  <NAV_ITEMS.collectionBuilds.icon
+                    className="mr-2 h-7 w-5 flex-none text-green-500"
+                    aria-hidden="true"
+                  />
+                  <div className="flex flex-col items-start justify-start px-3 py-2">
+                    {NAV_ITEMS.collectionBuilds.label}
+
+                    <p className="text-xs text-gray-400">
+                      {NAV_ITEMS.collectionBuilds.description}
+                    </p>
+                  </div>
+                </Link>
+
+                <Link
                   href={NAV_ITEMS.createBuild.href}
                   className="flex flex-row items-center justify-start"
                 >

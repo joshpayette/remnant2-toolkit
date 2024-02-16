@@ -5,6 +5,7 @@
  * If there are, this script is run to identify the duplicate ids
  */
 
+import { remnantEnemies } from '../features/enemies/data/remnantEnemies'
 import { remnantItems } from '../features/items/data/remnantItems'
 
 // need to iterate over remnantItems to find the duplicate id
@@ -23,3 +24,15 @@ remnantItems.forEach((item) => {
 })
 
 console.log(duplicateIds)
+
+const enemyIds = new Set()
+const duplicateEnemyIds = new Set()
+remnantEnemies.forEach((enemy) => {
+  if (enemyIds.has(enemy.id)) {
+    duplicateEnemyIds.add(enemy.id)
+  } else {
+    enemyIds.add(enemy.id)
+  }
+})
+
+console.log(duplicateEnemyIds)

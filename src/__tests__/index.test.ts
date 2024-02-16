@@ -1,5 +1,7 @@
 /* eslint-env jest */
 
+import { remnantEnemies } from '@/features/enemies/data/remnantEnemies'
+
 import { remnantItems } from '../features/items/data/remnantItems'
 
 describe('Items', () => {
@@ -13,6 +15,22 @@ describe('Items', () => {
     const newItem = { ...remnantItems[0] }
     remnantItems.push(newItem)
     const newIds = remnantItems.map((item) => item.id)
+    const newUniqueIds = new Set(newIds)
+    expect(newUniqueIds.size).not.toBe(newIds.length)
+  })
+})
+
+describe('Enemies', () => {
+  it('all should have unique ids', () => {
+    const ids = remnantEnemies.map((enemy) => enemy.id)
+    const uniqueIds = new Set(ids)
+    expect(uniqueIds.size).toBe(ids.length)
+
+    // Insert a new enemy with the same id as the first enemy
+    // and check that the ids are no longer unique
+    const newEnemy = { ...remnantEnemies[0] }
+    remnantEnemies.push(newEnemy)
+    const newIds = remnantEnemies.map((enemy) => enemy.id)
     const newUniqueIds = new Set(newIds)
     expect(newUniqueIds.size).not.toBe(newIds.length)
   })
