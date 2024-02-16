@@ -6,6 +6,7 @@ interface Props {
   firstVisibleItemNumber: number
   lastVisibleItemNumber: number
   headerActions: React.ReactNode | undefined
+  isLoading: boolean
   label: string
   pageNumbers: number[]
   totalItems: number
@@ -21,6 +22,7 @@ export function BuildList({
   firstVisibleItemNumber,
   lastVisibleItemNumber,
   headerActions,
+  isLoading,
   label,
   pageNumbers,
   totalItems,
@@ -40,6 +42,7 @@ export function BuildList({
         </div>
       </div>
       <BuildListPagination
+        isLoading={isLoading}
         currentPage={currentPage}
         firstVisibleItemNumber={firstVisibleItemNumber}
         lastVisibleItemNumber={lastVisibleItemNumber}
@@ -59,6 +62,7 @@ export function BuildList({
       </ul>
       <BuildListPagination
         currentPage={currentPage}
+        isLoading={isLoading}
         firstVisibleItemNumber={firstVisibleItemNumber}
         lastVisibleItemNumber={lastVisibleItemNumber}
         pageNumbers={pageNumbers}

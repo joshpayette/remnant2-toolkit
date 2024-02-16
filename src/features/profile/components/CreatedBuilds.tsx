@@ -85,6 +85,7 @@ export function CreatedBuilds({ itemsPerPage = 8, buildListFilters }: Props) {
       <BuildList
         label="Builds you've created"
         currentPage={currentPage}
+        isLoading={isLoading}
         pageNumbers={pageNumbers}
         totalItems={totalBuildCount}
         totalPages={totalPages}

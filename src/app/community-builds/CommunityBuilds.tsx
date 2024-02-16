@@ -114,6 +114,7 @@ export function CommunityBuildList({
       <BuildList
         label="Community Builds"
         currentPage={currentPage}
+        isLoading={isLoading}
         pageNumbers={pageNumbers}
         totalItems={totalBuildCount}
         totalPages={totalPages}

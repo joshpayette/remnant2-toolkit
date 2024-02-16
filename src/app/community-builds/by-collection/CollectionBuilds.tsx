@@ -142,6 +142,7 @@ export function CollectionBuilds({
       <BuildList
         label="Build Results"
         currentPage={currentPage}
+        isLoading={isLoading}
         pageNumbers={pageNumbers}
         totalItems={totalBuildCount}
         totalPages={totalPages}

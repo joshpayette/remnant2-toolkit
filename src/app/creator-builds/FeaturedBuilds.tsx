@@ -78,6 +78,7 @@ export function FeaturedBuilds({ itemsPerPage = 8, buildListFilters }: Props) {
       <BuildList
         label="Creator Spotlight"
         currentPage={currentPage}
+        isLoading={isLoading}
         pageNumbers={pageNumbers}
         totalItems={totalBuildCount}
         totalPages={totalPages}

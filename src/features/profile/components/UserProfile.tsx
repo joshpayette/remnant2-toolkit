@@ -88,6 +88,7 @@ export function UserProfile({
       <BuildList
         label="Created Builds"
         currentPage={currentPage}
+        isLoading={isLoading}
         pageNumbers={pageNumbers}
         totalItems={totalBuildCount}
         totalPages={totalPages}
