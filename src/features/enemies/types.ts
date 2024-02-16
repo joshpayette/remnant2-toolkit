@@ -1,4 +1,4 @@
-import { ReleaseKey } from '../items/types'
+import { Item, ReleaseKey } from '../items/types'
 
 export type EnemyCategory =
   | 'add'
@@ -7,12 +7,14 @@ export type EnemyCategory =
   | 'world boss'
   | 'aberration'
 
+export type BossCategory = 'boss' | 'world boss' | 'aberration'
+
 export type EnemyLocation =
-  | 'losomn'
-  | `n'erud`
-  | 'yaesha'
-  | 'labyrinth'
-  | 'root earth'
+  | 'Losomn'
+  | `N'Erud`
+  | 'Yaesha'
+  | 'Labyrinth'
+  | 'Root Earth'
 
 export interface Enemy {
   id: string
@@ -29,4 +31,15 @@ export interface Enemy {
   acidResistance?: number | 'immune'
   meleeResistance?: number | 'immune'
   notes?: string
+  showOnTracker?: boolean
+}
+
+export function isEnemy(enemy: Enemy | Item): enemy is Enemy {
+  return (
+    enemy.category === 'enemy' ||
+    enemy.category === 'boss' ||
+    enemy.category === 'world boss' ||
+    enemy.category === 'aberration' ||
+    enemy.category === 'add'
+  )
 }

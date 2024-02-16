@@ -1,7 +1,7 @@
 import { useLocalStorage as useLS } from 'usehooks-ts'
 
-import { BossCategory } from '../bosses/types'
 import { ItemCategory } from '../build/types'
+import { BossCategory } from '../enemies/types'
 
 // The type of the database in LocalStorage
 interface LocalStorage {

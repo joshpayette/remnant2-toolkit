@@ -3,8 +3,8 @@
 import { useMemo, useState } from 'react'
 import { useIsClient } from 'usehooks-ts'
 
-import { remnantBosses } from '@/features/bosses/remnantBosses'
-import { BossCategory } from '@/features/bosses/types'
+import { remnantEnemies } from '@/features/enemies/data/remnantEnemies'
+import { BossCategory } from '@/features/enemies/types'
 import {
   BossTrackerFilters,
   DEFAULT_BOSS_TRACKER_FILTERS,
@@ -15,10 +15,19 @@ import { PageHeader } from '@/features/ui/PageHeader'
 
 import { ListBosses } from './ListBosses'
 
-const allBosses = remnantBosses.map((boss) => ({
-  ...boss,
-  discovered: false,
-}))
+const allBosses = remnantEnemies
+  .filter(
+    (enemy) =>
+      enemy.category === 'boss' ||
+      enemy.category === 'world boss' ||
+      enemy.category === 'aberration',
+  )
+  .filter((enemy) => enemy.showOnTracker !== false)
+  .map((boss) => ({
+    ...boss,
+    discovered: false,
+  }))
+  .sort((a, b) => a.name.localeCompare(b.name))
 
 export default function Page() {
   const isClient = useIsClient()

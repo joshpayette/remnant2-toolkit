@@ -1,4 +1,4 @@
-import { BossCategory } from '@/features/bosses/types'
+import { BossCategory } from '@/features/enemies/types'
 import { Checkbox } from '@/features/ui/Checkbox'
 import { capitalize } from '@/lib/capitalize'
 

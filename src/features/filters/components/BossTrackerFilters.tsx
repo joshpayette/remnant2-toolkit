@@ -2,7 +2,7 @@ import isEqual from 'lodash/isEqual'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import { useEffect, useMemo, useState } from 'react'
 
-import { BossCategory } from '@/features/bosses/types'
+import { BossCategory } from '@/features/enemies/types'
 import { FiltersContainer } from '@/features/filters/components/parts/FiltersContainer'
 import { SearchInput } from '@/features/ui/SearchInput'
 
