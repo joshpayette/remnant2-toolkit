@@ -21,7 +21,6 @@ interface ItemTrackerCategory {
 function getProgress(
   items: Array<Item & { discovered: boolean }>,
   itemCategory: ItemTrackerCategory,
-  isClient: boolean,
 ) {
   const discoveredCount = items.filter((item) => {
     if (WeaponItem.isWeaponItem(item) || MutatorItem.isMutatorItem(item)) {
@@ -42,9 +41,7 @@ function getProgress(
     (item) => item.category === itemCategory.category,
   ).length
 
-  return isClient
-    ? `${discoveredCount} / ${totalDiscoverableItems} (${discoveredPercent}%)`
-    : 'Calculating...'
+  return `${discoveredCount} / ${totalDiscoverableItems} (${discoveredPercent}%)`
 }
 
 interface ListItemsProps {
@@ -144,22 +141,23 @@ export function ListItems({ items, onClick, onShowItemInfo }: ListItemsProps) {
                     {itemCategory.label}
                   </h2>
                   <span className="text-sm text-gray-400">
-                    {getProgress(
-                      items.filter((item) => {
-                        if (
-                          WeaponItem.isWeaponItem(item) ||
-                          MutatorItem.isMutatorItem(item)
-                        ) {
-                          return (
-                            item.category === itemCategory.category &&
-                            item.type === itemCategory.type
-                          )
-                        }
-                        return item.category === itemCategory.category
-                      }),
-                      itemCategory,
-                      isClient,
-                    )}
+                    {isClient
+                      ? getProgress(
+                          items.filter((item) => {
+                            if (
+                              WeaponItem.isWeaponItem(item) ||
+                              MutatorItem.isMutatorItem(item)
+                            ) {
+                              return (
+                                item.category === itemCategory.category &&
+                                item.type === itemCategory.type
+                              )
+                            }
+                            return item.category === itemCategory.category
+                          }),
+                          itemCategory,
+                        )
+                      : 'Calculating...'}
                   </span>
                 </div>
                 <ChevronDownIcon

@@ -4,7 +4,6 @@ import { useRouter } from 'next/navigation'
 import { useSession } from 'next-auth/react'
 import { useRef } from 'react'
 import { toast } from 'react-toastify'
-import { useIsClient } from 'usehooks-ts'
 
 import { ActionButton } from '@/features/build/components/ActionButton'
 import { BuilderPage } from '@/features/build/components/BuilderPage'
@@ -42,7 +41,6 @@ export default function Page({
   params: { build: DBBuild }
 }) {
   const router = useRouter()
-  const isClient = useIsClient()
   const { data: session } = useSession()
 
   const buildState = dbBuildToBuildState(build)
@@ -70,8 +68,6 @@ export default function Page({
 
   // We need to convert the build.items object into an array of items to pass to the ToCsvButton
   const csvBuildData = buildStateToCsvData(buildState)
-
-  if (!isClient) return null
 
   return (
     <>
