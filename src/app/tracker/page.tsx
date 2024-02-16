@@ -271,7 +271,7 @@ export default function Page() {
 
         <hr className="mb-8 mt-4 w-full max-w-3xl border-gray-700" />
 
-        <div className="max-w-3xl">
+        <div className="w-full max-w-3xl">
           <h2 className="mb-2 text-center text-4xl font-bold text-green-400">
             Filters
           </h2>

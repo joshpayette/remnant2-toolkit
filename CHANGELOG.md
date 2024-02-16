@@ -19,6 +19,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Builds by Collection was not rendering correctly. This has been fixed.
 - Fixed bug where user's total build favorites wasn't showing correctly on their profile
 - Added Build By Collection to mobile navigation.
+- Fixed ui overflow issue on item tracker.
 
 ## 2024-02-13
 
