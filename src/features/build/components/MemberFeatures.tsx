@@ -79,7 +79,7 @@ export function MemberFeatures({
             onChange={(e) => onChangeDescription(e.target.value)}
             value={description ?? ''}
             maxLength={MAX_BUILD_DESCRIPTION_LENGTH}
-            rows={6}
+            className="h-[215px]"
           />
         </div>
       )}

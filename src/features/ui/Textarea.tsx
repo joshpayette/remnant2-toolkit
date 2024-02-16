@@ -1,5 +1,7 @@
 import { DetailedHTMLProps, TextareaHTMLAttributes } from 'react'
 
+import { cn } from '@/lib/classnames'
+
 interface TextAreaProps
   extends DetailedHTMLProps<
     TextareaHTMLAttributes<HTMLTextAreaElement>,
@@ -28,7 +30,10 @@ export function Textarea({
       </label>
       <div className="mt-2">
         <textarea
-          className="block w-full rounded-md border-0 bg-white/5 py-1.5 text-sm text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-green-500"
+          className={cn(
+            'block w-full resize-none rounded-md border-0 bg-white/5 py-1.5 text-sm text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-green-500',
+            className,
+          )}
           onChange={onChange}
           name={name}
           value={value}
