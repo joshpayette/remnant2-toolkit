@@ -5,6 +5,7 @@ import { toast } from 'react-toastify'
 import { getBuildsByCollection } from '@/features/build/actions/getBuildsByCollection'
 import { BuildCard } from '@/features/build/components/BuildCard'
 import { BuildList } from '@/features/build/components/BuildList'
+import { BuildListSkeleton } from '@/features/build/components/BuildListSkeleton'
 import { useBuildActions } from '@/features/build/hooks/useBuildActions'
 import { useBuildListState } from '@/features/build/hooks/useBuildListState'
 import { dbBuildToBuildState } from '@/features/build/lib/dbBuildToBuildState'
@@ -15,11 +16,10 @@ import { BuildListFilterFields } from '@/features/filters/types'
 import { saveDiscoveredItemIds } from '@/features/items/actions/saveDiscoveredItemIds'
 import { useLocalStorage } from '@/features/localstorage/useLocalStorage'
 import { usePagination } from '@/features/pagination/usePagination'
-import { Skeleton } from '@/features/ui/Skeleton'
 
 interface Props {
   itemsPerPage?: number
-  buildListFilters?: BuildListFilterFields
+  buildListFilters: BuildListFilterFields
 }
 
 export function CollectionBuilds({
@@ -72,9 +72,6 @@ export function CollectionBuilds({
 
   useEffect(() => {
     async function getItemsAsync() {
-      if (!buildListFilters) {
-        return
-      }
       setBuildListState((prevState) => ({ ...prevState, isLoading: true }))
       const response = await getBuildsByCollection({
         buildListFilters,
@@ -134,9 +131,8 @@ export function CollectionBuilds({
 
   if (discoveredItemsSaved.current === false) {
     return (
-      <div className="flex items-center justify-center p-4 text-lg font-semibold text-yellow-500">
+      <div className="flex animate-bounce items-center justify-center p-4 text-lg font-semibold text-yellow-500">
         Saving your discovered items...
-        <Skeleton className="ml-2 h-8 w-8" />
       </div>
     )
   }
@@ -149,7 +145,6 @@ export function CollectionBuilds({
         pageNumbers={pageNumbers}
         totalItems={totalBuildCount}
         totalPages={totalPages}
-        isLoading={isLoading}
         firstVisibleItemNumber={firstVisibleItemNumber}
         lastVisibleItemNumber={lastVisibleItemNumber}
         onPreviousPage={handlePreviousPageClick}
@@ -166,24 +161,28 @@ export function CollectionBuilds({
           />
         }
       >
-        {builds.map((build) => (
-          <div key={build.id} className="h-full w-full">
-            <BuildCard
-              build={build}
-              onReportBuild={onReportBuild}
-              footerActions={
-                <div className="flex items-center justify-end gap-2 p-2 text-sm">
-                  <Link
-                    href={`/builder/${build.id}`}
-                    className="relative inline-flex items-center justify-center gap-x-3 rounded-br-lg border border-transparent p-4 text-sm font-semibold text-green-500 hover:text-green-700 hover:underline"
-                  >
-                    View Build
-                  </Link>
-                </div>
-              }
-            />
-          </div>
-        ))}
+        {isLoading ? (
+          <BuildListSkeleton itemsPerPage={itemsPerPage} />
+        ) : (
+          builds.map((build) => (
+            <div key={build.id} className="h-full w-full">
+              <BuildCard
+                build={build}
+                onReportBuild={onReportBuild}
+                footerActions={
+                  <div className="flex items-center justify-end gap-2 p-2 text-sm">
+                    <Link
+                      href={`/builder/${build.id}`}
+                      className="relative inline-flex items-center justify-center gap-x-3 rounded-br-lg border border-transparent p-4 text-sm font-semibold text-green-500 hover:text-green-700 hover:underline"
+                    >
+                      View Build
+                    </Link>
+                  </div>
+                }
+              />
+            </div>
+          ))
+        )}
       </BuildList>
     </>
   )

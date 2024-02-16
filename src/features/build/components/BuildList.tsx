@@ -1,5 +1,3 @@
-import Loading from '@/app/loading'
-
 import { BuildListPagination } from './BuildListPagination'
 
 interface Props {
@@ -8,7 +6,6 @@ interface Props {
   firstVisibleItemNumber: number
   lastVisibleItemNumber: number
   headerActions: React.ReactNode | undefined
-  isLoading: boolean
   label: string
   pageNumbers: number[]
   totalItems: number
@@ -24,7 +21,6 @@ export function BuildList({
   firstVisibleItemNumber,
   lastVisibleItemNumber,
   headerActions,
-  isLoading,
   label,
   pageNumbers,
   totalItems,
@@ -54,18 +50,13 @@ export function BuildList({
         onNextPage={onNextPage}
         onSpecificPage={onSpecificPage}
       />
-      {isLoading ? (
-        <div className="flex w-full items-center justify-center">
-          <Loading />
-        </div>
-      ) : (
-        <ul
-          role="list"
-          className="my-4 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4"
-        >
-          {children}
-        </ul>
-      )}
+
+      <ul
+        role="list"
+        className="my-4 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4"
+      >
+        {children}
+      </ul>
       <BuildListPagination
         currentPage={currentPage}
         firstVisibleItemNumber={firstVisibleItemNumber}

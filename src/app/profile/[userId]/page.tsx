@@ -25,11 +25,13 @@ export default function Page({
         />
       </div>
       {buildListFilters && (
-        <UserProfile
-          buildListFilters={buildListFilters}
-          itemsPerPage={ITEMS_PER_PAGE}
-          userId={userId}
-        />
+        <div className="mb-4 grid w-full grid-cols-1 gap-2">
+          <UserProfile
+            buildListFilters={buildListFilters}
+            itemsPerPage={ITEMS_PER_PAGE}
+            userId={userId}
+          />
+        </div>
       )}
     </>
   )
