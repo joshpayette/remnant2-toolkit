@@ -256,7 +256,7 @@ export function NavBar() {
             {NAV_ITEMS.supportR2TK.label}
           </Link>
         </div>
-        <div className="hidden h-[38px] w-[70px] items-end justify-end sm:flex">
+        <div className="hidden h-[38px] w-[80px] grow items-end justify-end sm:flex">
           <AuthButton.Desktop />
         </div>
       </nav>
