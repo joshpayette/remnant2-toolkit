@@ -73,7 +73,7 @@ export const NAV_ITEMS = {
   },
   itemLookup: {
     label: 'Item Lookup',
-    description: 'Look up info on all the items in Remnant 2.',
+    description: 'Get detailed information and interactions for items.',
     href: '/item-lookup',
     icon: MagnifyingGlassIcon,
   },
