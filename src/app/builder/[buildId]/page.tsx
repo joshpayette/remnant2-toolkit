@@ -85,7 +85,7 @@ export default function Page({
       <ImageDownloadLink onClose={handleClearImageLink} imageLink={imageLink} />
       <div className="height-full flex w-full flex-col items-center justify-center">
         {buildState.isFeaturedBuild && buildState.videoUrl && (
-          <div className="youtube-video-container max-h-[215px] sm:mb-8 sm:max-h-[315px] sm:max-w-[560px]">
+          <div className="mb-8 max-h-[215px] text-center sm:mb-8 sm:max-h-[335px] sm:max-w-[560px]">
             <a
               href={`${videoEmbedUrlToWatchUrl(buildState.videoUrl)}`}
               target="_blank"
@@ -100,6 +100,9 @@ export default function Page({
                 alt={`${buildState.name} video thumbnail`}
                 unoptimized={true}
               />
+              <span className="mb-4 text-sm text-white underline">
+                See build description and breakdown on YouTube
+              </span>
             </a>
           </div>
         )}
