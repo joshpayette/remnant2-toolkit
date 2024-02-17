@@ -89,7 +89,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Added
 
 - Boss Tracker has been added to the ITEM link in the nav bar. Now you can track the world bosses, bosses, and aberrations you have defeated!
-- ADded Favorite Builds to navigation bar
+- Added Favorite Builds to navigation bar
 
 ### Changed
 

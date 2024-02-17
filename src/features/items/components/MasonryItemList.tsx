@@ -36,7 +36,7 @@ export function MasonryItemList({ items, label = 'Items' }: Props) {
         onClose={() => setSelectedItem(null)}
       />
       <Suspense fallback={<Loading />}>
-        <div className="flex h-[500px] w-full flex-col items-center justify-center overflow-auto p-4 sm:h-[1000px]">
+        <div className="flex w-full flex-col items-center justify-center overflow-auto p-4">
           <h2 className="my-4 text-4xl font-bold text-green-500">{label}</h2>
 
           <Masonry
