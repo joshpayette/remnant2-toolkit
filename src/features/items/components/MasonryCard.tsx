@@ -43,7 +43,7 @@ export function MasonryCard({ data: item, onMoreInfoClick }: Props) {
             height={150}
             src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}${imagePath}`}
             alt={`${name} icon`}
-            loading="eager"
+            loading="lazy"
           />
 
           {name}

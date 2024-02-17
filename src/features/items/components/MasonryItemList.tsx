@@ -1,6 +1,6 @@
 'use client'
 
-import { Masonry } from 'masonic'
+import { Masonry, useInfiniteLoader } from 'masonic'
 import { Suspense, useState } from 'react'
 import { useIsClient } from 'usehooks-ts'
 
@@ -11,6 +11,8 @@ import { Item } from '../types'
 import { ItemInfoDialog } from './ItemInfoDialog'
 import { MasonryCard } from './MasonryCard'
 
+const MINIMUM_BATCH_SIZE = 32
+
 type Props = {
   label?: string
   items: Item[]
@@ -20,6 +22,29 @@ export function MasonryItemList({ items, label = 'Items' }: Props) {
   const isClient = useIsClient()
   const [selectedItem, setSelectedItem] = useState<Item | null>(null)
   const infoOpen = selectedItem !== null
+
+  function getBatchOfItems(
+    start: number = 0,
+    end: number = MINIMUM_BATCH_SIZE,
+  ) {
+    return items.slice(start, end)
+  }
+
+  const [visibleItems, setVisibleItems] = useState<Item[]>(getBatchOfItems)
+
+  const maybeLoadMore = useInfiniteLoader(
+    async (startIndex, stopIndex, currentItems) => {
+      const nextItems = await Promise.resolve(
+        getBatchOfItems(startIndex, stopIndex),
+      )
+      setVisibleItems((current) => [...current, ...nextItems])
+    },
+    {
+      isItemLoaded: (index, visibleItems) => !!visibleItems[index],
+      minimumBatchSize: MINIMUM_BATCH_SIZE,
+      threshold: 3,
+    },
+  )
 
   function handleMoreInfoClick(item: Item) {
     setSelectedItem(item)
@@ -40,8 +65,8 @@ export function MasonryItemList({ items, label = 'Items' }: Props) {
           <h2 className="my-4 text-4xl font-bold text-green-500">{label}</h2>
 
           <Masonry
-            key={new Date().getTime()}
-            items={items}
+            items={visibleItems}
+            onRender={maybeLoadMore}
             render={({ index, data, width }) => (
               <MasonryCard
                 index={index}
@@ -52,6 +77,7 @@ export function MasonryItemList({ items, label = 'Items' }: Props) {
             )}
             columnGutter={8}
             rowGutter={8}
+            overscanBy={1.25}
           />
         </div>
       </Suspense>
@@ -61,9 +87,9 @@ export function MasonryItemList({ items, label = 'Items' }: Props) {
 
 function Loading() {
   return (
-    <div className="flex h-[500px] w-full flex-row flex-wrap items-center justify-center gap-4 overflow-auto p-4 sm:h-[1000px]">
+    <div className="flex h-[500px] w-full flex-row flex-wrap items-center justify-center gap-4 p-4 sm:h-[1000px]">
       {getArrayOfLength(10).map((_, i) => (
-        <Skeleton key={i} className="h-[350px] w-[250px]" />
+        <Skeleton key={i} className="h-[300px] w-[250px]" />
       ))}
     </div>
   )
