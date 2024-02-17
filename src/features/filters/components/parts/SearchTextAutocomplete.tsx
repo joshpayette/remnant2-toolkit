@@ -22,7 +22,10 @@ export function SearchTextAutocomplete({
   items,
   value,
 }: Props) {
-  const [selectedItem, setSelectedItem] = useState<Item | null>(null)
+  const [selectedItem, setSelectedItem] = useState<Item | null>({
+    id: '',
+    name: value,
+  })
 
   // Ensures the item clear when clear filters pressed
   useEffect(() => {
@@ -30,11 +33,6 @@ export function SearchTextAutocomplete({
       setSelectedItem(null)
     }
   }, [value])
-
-  useEffect(() => {
-    onKeyDown && onKeyDown()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [selectedItem])
 
   const filteredItems =
     value === ''
@@ -50,11 +48,12 @@ export function SearchTextAutocomplete({
       onChange={(item) => {
         if (item) onChange(item.name)
         setSelectedItem(item)
+        if (onKeyDown) onKeyDown()
       }}
       className="w-full"
       nullable
     >
-      <Combobox.Label className="block text-sm font-bold leading-6  text-green-500">
+      <Combobox.Label className="block text-sm font-bold leading-6 text-green-500">
         Search Text
       </Combobox.Label>
       <div className="relative mt-2">

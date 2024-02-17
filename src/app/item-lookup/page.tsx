@@ -1,14 +1,14 @@
 'use client'
 
-import { useMemo, useState } from 'react'
+import { useSearchParams } from 'next/navigation'
+import { useEffect, useMemo } from 'react'
 
 import { ItemCategory } from '@/features/build/types'
 import { ToCsvButton } from '@/features/csv/ToCsvButton'
-import {
-  DEFAULT_ITEM_LOOKUP_FILTERS,
-  ItemLookupFilters,
-} from '@/features/filters/components/ItemLookupFilters'
+import { ItemLookupFilters } from '@/features/filters/components/ItemLookupFilters'
+import { parseItemLookupFilters } from '@/features/filters/lib/parseItemLookupFilters'
 import { ItemLookupFilterFields } from '@/features/filters/types'
+import { DescriptionWithTags } from '@/features/items/components/DescriptionWithTags'
 import { MasonryItemList } from '@/features/items/components/MasonryItemList'
 import { remnantItems } from '@/features/items/data/remnantItems'
 import { itemMatchesSearchText } from '@/features/items/lib/itemMatchesSearchText'
@@ -50,64 +50,64 @@ const allItems = remnantItems.map((item) => ({
   discovered: false,
 }))
 
-export default function Page() {
-  const [filters, setFilters] = useState<ItemLookupFilterFields>(
-    DEFAULT_ITEM_LOOKUP_FILTERS,
+function getFilteredItems(
+  filters: ItemLookupFilterFields,
+  discoveredItemIds: string[],
+) {
+  let newFilteredItems = allItems.map((item) => ({
+    ...item,
+    discovered: discoveredItemIds.includes(item.id),
+  }))
+
+  // Filter out the collections
+  newFilteredItems = newFilteredItems.filter((item) => {
+    if (
+      filters.collectionKeys.includes('Discovered') &&
+      filters.collectionKeys.includes('Undiscovered')
+    ) {
+      return true
+    } else if (filters.collectionKeys.includes('Undiscovered')) {
+      return item.discovered === false
+    } else if (filters.collectionKeys.includes('Discovered')) {
+      return item.discovered === true
+    } else {
+      return false
+    }
+  })
+
+  // Filter out the DLCs
+  newFilteredItems = newFilteredItems.filter((item) => {
+    if (item.dlc === undefined) {
+      return filters.selectedReleases.includes('base')
+    }
+
+    return filters.selectedReleases.includes(item.dlc as ReleaseKey)
+  })
+
+  // Filter out the categories
+  newFilteredItems = newFilteredItems.filter((item) => {
+    if (item.category === undefined) {
+      return true
+    }
+
+    return filters.itemCategories.includes(item.category as ItemCategory)
+  })
+
+  // Filter by search text
+  newFilteredItems = newFilteredItems.filter((item) =>
+    itemMatchesSearchText({ item, searchText: filters.searchText }),
   )
 
+  return newFilteredItems
+}
+
+export default function Page() {
   const { discoveredItemIds } = useLocalStorage()
 
-  const filteredItems = useMemo(() => {
-    let filteredItems = allItems.map((item) => ({
-      ...item,
-      discovered: discoveredItemIds.includes(item.id),
-    }))
+  const searchParams = useSearchParams()
+  const filters = parseItemLookupFilters(searchParams)
 
-    // Filter by search text
-    filteredItems = filteredItems.filter((item) =>
-      itemMatchesSearchText({ item, searchText: filters.searchText }),
-    )
-
-    // Filter out the collections
-    filteredItems = filteredItems.filter((item) => {
-      if (
-        filters.collectionKeys.includes('Discovered') &&
-        filters.collectionKeys.includes('Undiscovered')
-      ) {
-        return true
-      } else if (filters.collectionKeys.includes('Undiscovered')) {
-        return item.discovered === false
-      } else if (filters.collectionKeys.includes('Discovered')) {
-        return item.discovered === true
-      } else {
-        return false
-      }
-    })
-
-    // Filter out the DLCs
-    filteredItems = filteredItems.filter((item) => {
-      if (item.dlc === undefined) {
-        return filters.selectedReleases.includes('base')
-      }
-
-      return filters.selectedReleases.includes(item.dlc as ReleaseKey)
-    })
-
-    // Filter out the categories
-    filteredItems = filteredItems.filter((item) => {
-      if (item.category === undefined) {
-        return true
-      }
-
-      return filters.itemCategories.includes(item.category as ItemCategory)
-    })
-
-    return filteredItems
-  }, [filters, discoveredItemIds])
-
-  function handleUpdateFilters(newFilters: ItemLookupFilterFields) {
-    setFilters(newFilters)
-  }
+  const filteredItems = getFilteredItems(filters, discoveredItemIds)
 
   return (
     <div className="relative flex w-full flex-col items-center justify-center">
@@ -122,10 +122,14 @@ export default function Page() {
 
       <div className="flex w-full flex-col items-center">
         <div className="w-full max-w-4xl">
-          <ItemLookupFilters onUpdateFilters={handleUpdateFilters} />
+          <ItemLookupFilters filters={filters} />
         </div>
 
-        <MasonryItemList key={new Date().getTime()} items={filteredItems} />
+        <MasonryItemList
+          key={new Date().getTime()}
+          items={filteredItems}
+          infiniteScroll={false}
+        />
       </div>
     </div>
   )

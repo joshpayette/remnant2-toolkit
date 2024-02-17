@@ -15,6 +15,7 @@ export function itemMatchesSearchText({
   const itemNameMatch = item.name
     .toLowerCase()
     .includes(searchText.toLowerCase())
+  if (itemNameMatch) return true
 
   let itemDescriptionMatch = item.description
     ?.toLowerCase()
@@ -24,29 +25,27 @@ export function itemMatchesSearchText({
       ?.toLowerCase()
       .includes(tagItem.token.toLowerCase())
   }
+  if (itemDescriptionMatch) return true
 
   const itemTagsMatch = item.tags?.some((tag) =>
     tag.toLowerCase().includes(searchText.toLowerCase()),
   )
+  if (itemTagsMatch) return true
 
   const linkedArchetypeNameMatch = item.linkedItems?.archetype?.name
     .toLowerCase()
     .includes(searchText.toLowerCase())
+  if (linkedArchetypeNameMatch) return true
 
   const linkedWeaponNameMatch = item.linkedItems?.weapon?.name
     .toLowerCase()
     .includes(searchText.toLowerCase())
+  if (linkedWeaponNameMatch) return true
 
   const linkedModNameMatch = item.linkedItems?.mod?.name
     .toLowerCase()
     .includes(searchText.toLowerCase())
+  if (linkedModNameMatch) return true
 
-  return (
-    itemNameMatch ||
-    itemDescriptionMatch ||
-    itemTagsMatch ||
-    linkedArchetypeNameMatch ||
-    linkedWeaponNameMatch ||
-    linkedModNameMatch
-  )
+  return false
 }

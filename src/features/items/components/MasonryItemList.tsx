@@ -16,9 +16,14 @@ const MINIMUM_BATCH_SIZE = 32
 type Props = {
   label?: string
   items: Item[]
+  infiniteScroll?: boolean
 }
 
-export function MasonryItemList({ items, label = 'Items' }: Props) {
+export function MasonryItemList({
+  items,
+  label = 'Items',
+  infiniteScroll = true,
+}: Props) {
   const isClient = useIsClient()
   const [selectedItem, setSelectedItem] = useState<Item | null>(null)
   const infoOpen = selectedItem !== null
@@ -65,8 +70,8 @@ export function MasonryItemList({ items, label = 'Items' }: Props) {
           <h2 className="my-4 text-4xl font-bold text-green-500">{label}</h2>
 
           <Masonry
-            items={visibleItems}
-            onRender={maybeLoadMore}
+            items={infiniteScroll ? visibleItems : items}
+            onRender={infiniteScroll ? maybeLoadMore : undefined}
             render={({ index, data, width }) => (
               <MasonryCard
                 index={index}
@@ -77,7 +82,7 @@ export function MasonryItemList({ items, label = 'Items' }: Props) {
             )}
             columnGutter={8}
             rowGutter={8}
-            overscanBy={1.25}
+            overscanBy={infiniteScroll ? 1.25 : undefined}
           />
         </div>
       </Suspense>

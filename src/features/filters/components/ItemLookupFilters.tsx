@@ -1,11 +1,10 @@
 import isEqual from 'lodash.isequal'
-import { usePathname, useRouter, useSearchParams } from 'next/navigation'
-import { useEffect, useMemo, useState } from 'react'
+import { usePathname, useRouter } from 'next/navigation'
+import { useMemo, useState } from 'react'
 
 import { ItemCategory } from '@/features/build/types'
 import { remnantItemCategories } from '@/features/items/data/remnantItems'
 import { ReleaseKey } from '@/features/items/types'
-import { capitalize } from '@/lib/capitalize'
 
 import { ItemLookupFilterFields } from '../types'
 import {
@@ -32,71 +31,12 @@ export const DEFAULT_ITEM_LOOKUP_FILTERS: ItemLookupFilterFields = {
 }
 
 interface Props {
-  onUpdateFilters: (newFilters: ItemLookupFilterFields) => void
+  filters: ItemLookupFilterFields
 }
 
-export function ItemLookupFilters({ onUpdateFilters }: Props) {
+export function ItemLookupFilters({ filters }: Props) {
   const router = useRouter()
   const pathname = usePathname()
-  const searchParams = useSearchParams()
-
-  // Get the filters from the URL
-  const filters = useMemo(() => {
-    const params = new URLSearchParams(searchParams)
-    let collection = params.get('collection')
-    let categories = params.get('categories')
-    let releases = params.get('releases')
-    let searchText = params.get('searchText')
-
-    // check if categories are valid
-    if (categories) {
-      const allCategories: ItemCategory[] = remnantItemCategories
-      const categoriesArray = categories.split(',')
-      categoriesArray.forEach((category) => {
-        if (!allCategories.includes(category as ItemCategory)) {
-          categories = DEFAULT_ITEM_LOOKUP_FILTERS['itemCategories'].join(',')
-        }
-      })
-    } else {
-      categories = DEFAULT_ITEM_LOOKUP_FILTERS['itemCategories'].join(',')
-    }
-
-    // check if collection is valid
-    if (collection) {
-      if (
-        !DEFAULT_COLLECTION_FILTERS.includes(
-          capitalize(collection.toLowerCase()),
-        )
-      ) {
-        collection = DEFAULT_ITEM_LOOKUP_FILTERS['collectionKeys'].join(',')
-      }
-    } else {
-      collection = DEFAULT_ITEM_LOOKUP_FILTERS['collectionKeys'].join(',')
-    }
-
-    // check if releases are valid
-    if (releases) {
-      const allReleases: ReleaseKey[] =
-        DEFAULT_ITEM_LOOKUP_FILTERS['selectedReleases']
-      const releasesArray = releases.split(',')
-      releasesArray.forEach((release) => {
-        if (!allReleases.includes(release as ReleaseKey)) {
-          releases = DEFAULT_ITEM_LOOKUP_FILTERS['selectedReleases'].join(',')
-        }
-      })
-    }
-
-    return {
-      collectionKeys: collection ? collection.split(',') : [],
-      itemCategories: categories
-        ? (categories.split(',') as ItemCategory[])
-        : [],
-      searchText: searchText || DEFAULT_ITEM_LOOKUP_FILTERS['searchText'],
-      selectedReleases: releases
-        ? (releases.split(',') as ReleaseKey[])
-        : DEFAULT_ITEM_LOOKUP_FILTERS['selectedReleases'],
-    } satisfies ItemLookupFilterFields
-  }, [searchParams])
 
   // Tracks the filter changes by the user that are not yet applied
   // via clicking the Apply Filters button
@@ -106,7 +46,9 @@ export function ItemLookupFilters({ onUpdateFilters }: Props) {
   // This is used to check if the filters are applied
   // This is used to determine if the Apply Filters button should pulsate
   // for the user to indicate they need to apply the changes
-  const [areFiltersApplied, setAreFiltersApplied] = useState(true)
+  const [areFiltersApplied, setAreFiltersApplied] = useState(
+    isEqual(filters, unappliedFilters),
+  )
 
   // If the filters differ from the default filters,
   // the filters table should have a yellow outline to
@@ -121,15 +63,6 @@ export function ItemLookupFilters({ onUpdateFilters }: Props) {
       filters.selectedReleases.length !==
         DEFAULT_ITEM_LOOKUP_FILTERS['selectedReleases'].length
     )
-  }, [filters])
-
-  // Once the initial filters are parsed from the URL,
-  // pass this information up to the page so it can render
-  // the builds list with the correct filters
-  useEffect(() => {
-    onUpdateFilters(filters)
-    setAreFiltersApplied(true)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filters])
 
   function handleClearFilters() {
@@ -147,13 +80,12 @@ export function ItemLookupFilters({ onUpdateFilters }: Props) {
     }
 
     setUnappliedFilters({ ...unappliedFilters, itemCategories: newCategories })
-
     if (filters.itemCategories.some((c) => !newCategories.includes(c))) {
       setAreFiltersApplied(false)
     }
-    if (filters.itemCategories.length === newCategories.length) {
-      setAreFiltersApplied(true)
-    }
+    // if (filters.itemCategories.length === newCategories.length) {
+    //   setAreFiltersApplied(true)
+    // }
   }
 
   function handleCollectionChange(collection: string) {
@@ -170,9 +102,9 @@ export function ItemLookupFilters({ onUpdateFilters }: Props) {
     if (filters.collectionKeys.some((c) => !newCollection.includes(c))) {
       setAreFiltersApplied(false)
     }
-    if (isEqual(filters.collectionKeys, newCollection)) {
-      setAreFiltersApplied(true)
-    }
+    // if (isEqual(filters.collectionKeys, newCollection)) {
+    //   setAreFiltersApplied(true)
+    // }
   }
 
   function handleReleaseChange(release: ReleaseKey) {
@@ -189,17 +121,15 @@ export function ItemLookupFilters({ onUpdateFilters }: Props) {
     if (filters.selectedReleases.some((r) => !newReleases.includes(r))) {
       setAreFiltersApplied(false)
     }
-    if (isEqual(filters.selectedReleases, newReleases)) {
-      setAreFiltersApplied(true)
-    }
+    // if (isEqual(filters.selectedReleases, newReleases)) {
+    //   setAreFiltersApplied(true)
+    // }
   }
 
   function handleSearchTextChange(searchQuery: string) {
     setUnappliedFilters({ ...unappliedFilters, searchText: searchQuery })
     if (searchQuery !== filters.searchText) {
       setAreFiltersApplied(false)
-    } else {
-      setAreFiltersApplied(true)
     }
   }
 
@@ -234,6 +164,7 @@ export function ItemLookupFilters({ onUpdateFilters }: Props) {
       finalPath = finalPath.slice(0, -1)
     }
 
+    console.info('final path', finalPath)
     router.push(finalPath, { scroll: false })
   }
 

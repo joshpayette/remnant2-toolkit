@@ -8,7 +8,7 @@ import { WeaponItem } from '@/features/items/types/WeaponItem'
 import { DEFAULT_BUILD_LIST_FILTERS } from '../components/BuildListFilters'
 import { BuildListFilterFields } from '../types'
 
-export function parseFiltersFromUrl(
+export function parseBuildListFilters(
   searchParams: ReadonlyURLSearchParams,
 ): BuildListFilterFields {
   const params = new URLSearchParams(searchParams)

@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Changed
 
 - Made a bunch of changes to rendering in the hopes of reducing cumulative layout shift for better search engine optimization and user experience.
+- Detailed build view on builder now lazy loads
 
 ### Fixed
 

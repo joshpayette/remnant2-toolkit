@@ -3,7 +3,7 @@
 import { useSearchParams } from 'next/navigation'
 
 import { BuildListFilters } from '@/features/filters/components/BuildListFilters'
-import { parseFiltersFromUrl } from '@/features/filters/lib/parseFiltersFromUrl'
+import { parseFiltersFromUrl } from '@/features/filters/lib/parseBuildListFilters'
 import { CreatedBuilds } from '@/features/profile/components/CreatedBuilds'
 
 const ITEMS_PER_PAGE = 16

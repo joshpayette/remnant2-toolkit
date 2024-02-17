@@ -65,6 +65,7 @@ export function MasonryCard({ data: item, onMoreInfoClick }: Props) {
           {(MutatorItem.isMutatorItem(item) || TraitItem.isTraitItem(item)) && (
             <dd className="mt-3 whitespace-pre-line text-left text-xs text-gray-200">
               <strong>At Max Level: </strong>
+              {item.maxLevelBonus || 'No max level bonus found.'}
               <DescriptionWithTags
                 description={item.maxLevelBonus || 'No max level bonus found.'}
               />
