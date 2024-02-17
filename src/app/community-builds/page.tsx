@@ -3,14 +3,14 @@
 import { useSearchParams } from 'next/navigation'
 
 import { BuildListFilters } from '@/features/filters/components/BuildListFilters'
-import { parseFiltersFromUrl } from '@/features/filters/lib/parseBuildListFilters'
+import { parseBuildListFilters } from '@/features/filters/lib/parseBuildListFilters'
 
 import { CommunityBuildList } from './CommunityBuilds'
 import { CommunityBuildsPageHeader } from './CommunityBuildsPageHeader'
 
 export default function Page() {
   const searchParams = useSearchParams()
-  const buildListFilters = parseFiltersFromUrl(searchParams)
+  const buildListFilters = parseBuildListFilters(searchParams)
 
   return (
     <>
