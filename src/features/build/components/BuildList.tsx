@@ -32,7 +32,7 @@ export function BuildList({
   onSpecificPage,
 }: Props) {
   return (
-    <>
+    <div className="min-h-[1000px]">
       <div className="flex w-full flex-row items-center justify-center border-b border-b-green-500 py-2">
         <h2 className="flex w-full items-center justify-start text-2xl">
           {label}
@@ -72,6 +72,6 @@ export function BuildList({
         onNextPage={onNextPage}
         onSpecificPage={onSpecificPage}
       />
-    </>
+    </div>
   )
 }

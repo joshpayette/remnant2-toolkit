@@ -5,7 +5,6 @@ import { toast } from 'react-toastify'
 import { getCommunityBuilds } from '@/features/build/actions/getCommunityBuilds'
 import { BuildCard } from '@/features/build/components/BuildCard'
 import { BuildList } from '@/features/build/components/BuildList'
-import { BuildListSkeleton } from '@/features/build/components/BuildListSkeleton'
 import { useBuildActions } from '@/features/build/hooks/useBuildActions'
 import { useBuildListState } from '@/features/build/hooks/useBuildListState'
 import { dbBuildToBuildState } from '@/features/build/lib/dbBuildToBuildState'
@@ -70,7 +69,6 @@ export function CommunityBuildList({
         totalBuildCount: response.totalItemCount,
       }))
     }
-    console.info('Fetching community builds')
     getItemsAsync()
   }, [
     buildListFilters,
@@ -134,28 +132,23 @@ export function CommunityBuildList({
           />
         }
       >
-        {isLoading ? (
-          <BuildListSkeleton itemsPerPage={itemsPerPage} />
-        ) : (
-          builds.map((build) => (
-            <div key={build.id} className="h-full w-full">
-              <BuildCard
-                build={build}
-                onReportBuild={onReportBuild}
-                footerActions={
-                  <div className="flex items-center justify-end gap-2 p-2 text-sm">
-                    <Link
-                      href={`/builder/${build.id}`}
-                      className="relative inline-flex items-center justify-center gap-x-3 rounded-br-lg border border-transparent p-4 text-sm font-semibold text-green-500 hover:text-green-700 hover:underline"
-                    >
-                      View Build
-                    </Link>
-                  </div>
-                }
-              />
-            </div>
-          ))
-        )}
+        {builds.map((build) => (
+          <BuildCard
+            key={build.id}
+            build={build}
+            onReportBuild={onReportBuild}
+            footerActions={
+              <div className="flex items-center justify-end gap-2 p-2 text-sm">
+                <Link
+                  href={`/builder/${build.id}`}
+                  className="relative inline-flex items-center justify-center gap-x-3 rounded-br-lg border border-transparent p-4 text-sm font-semibold text-green-500 hover:text-green-700 hover:underline"
+                >
+                  View Build
+                </Link>
+              </div>
+            }
+          />
+        ))}
       </BuildList>
     </>
   )

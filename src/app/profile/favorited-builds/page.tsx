@@ -4,9 +4,8 @@ import { useSearchParams } from 'next/navigation'
 
 import { BuildListFilters } from '@/features/filters/components/BuildListFilters'
 import { parseBuildListFilters } from '@/features/filters/lib/parseBuildListFilters'
+import { DEFAULT_ITEMS_PER_PAGE } from '@/features/pagination/constants'
 import { FavoritedBuilds } from '@/features/profile/components/FavoritedBuilds'
-
-const ITEMS_PER_PAGE = 16
 
 export default function Page() {
   const searchParams = useSearchParams()
@@ -24,7 +23,7 @@ export default function Page() {
         <div className="mb-4 grid w-full grid-cols-1 gap-2">
           <FavoritedBuilds
             buildListFilters={buildListFilters}
-            itemsPerPage={ITEMS_PER_PAGE}
+            itemsPerPage={DEFAULT_ITEMS_PER_PAGE}
           />
         </div>
       )}

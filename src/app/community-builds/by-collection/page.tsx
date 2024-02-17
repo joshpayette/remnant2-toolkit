@@ -5,11 +5,10 @@ import { signIn, useSession } from 'next-auth/react'
 
 import { BuildListFilters } from '@/features/filters/components/BuildListFilters'
 import { parseBuildListFilters } from '@/features/filters/lib/parseBuildListFilters'
+import { DEFAULT_ITEMS_PER_PAGE } from '@/features/pagination/constants'
 import { PageHeader } from '@/features/ui/PageHeader'
 
 import { CollectionBuilds } from './CollectionBuilds'
-
-const ITEMS_PER_PAGE = 24
 
 export default function Page() {
   const { data: sessionData } = useSession()
@@ -53,7 +52,7 @@ export default function Page() {
         <div className="mb-4 grid w-full grid-cols-1 gap-2">
           <CollectionBuilds
             buildListFilters={buildListFilters}
-            itemsPerPage={ITEMS_PER_PAGE}
+            itemsPerPage={DEFAULT_ITEMS_PER_PAGE}
           />
         </div>
       )}
