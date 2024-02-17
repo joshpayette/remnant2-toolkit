@@ -27,20 +27,14 @@ export function BuildListSecondaryFilters({
 }: Props) {
   return (
     <div className="flex w-full flex-col items-center justify-end gap-x-2 sm:flex-row">
-      <label sr-only="true" htmlFor="timeRange">
-        Time Range
-      </label>
       <SelectMenu
         name="timeRange"
         value={timeRange}
         options={timeRangeOptions}
         onChange={(e) => onTimeRangeChange(e.target.value)}
       />
-
-      <label sr-only="true" htmlFor="orderBy">
-        Order By
-      </label>
       <SelectMenu
+        name="orderBy"
         value={orderBy}
         options={orderByOptions}
         onChange={(e) => onOrderByChange(e.target.value)}
