@@ -99,7 +99,7 @@ export function ItemButton({
             width={32}
             height={32}
             className="h-5 w-5 sm:h-4 sm:w-4"
-            loading="eager"
+            loading={loadingType}
           />
         </button>
       )}
