@@ -98,7 +98,6 @@ export default function Page({
                 )}/maxresdefault.jpg`}
                 loading="eager"
                 alt={`${buildState.name} video thumbnail`}
-                unoptimized={true}
               />
             </a>
           </div>
