@@ -111,6 +111,7 @@ export function UserProfile({
           <div key={build.id} className="h-full w-full">
             <BuildCard
               build={build}
+              isLoading={isLoading}
               onReportBuild={undefined}
               memberFrameEnabled={build.isMember}
               footerActions={
