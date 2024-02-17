@@ -8,7 +8,8 @@ const nextConfig = {
   pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
   // Configure `images` to support loading images from a remote server
   images: {
-    unoptimized: true,
+    // 24 hours
+    // minimumCacheTTL: 60 * 60 * 24,
     remotePatterns: [
       {
         protocol: 'https',
