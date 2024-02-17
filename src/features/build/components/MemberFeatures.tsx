@@ -32,24 +32,26 @@ export function MemberFeatures({
   if (status === 'loading') return <Loading />
 
   return (
-    <div className="relative h-[300px] pt-4">
-      {status === 'unauthenticated' && !isScreenshotModeActive && (
-        <>
-          <div
-            id="disabled-overlay"
-            className="absolute inset-0 z-20 h-[310px] bg-black/90"
-          />
-          <div className="absolute z-30 mb-2 flex h-full w-full flex-col items-center justify-center text-2xl font-bold text-red-500">
-            Sign in required to save additional build details.
-            <button
-              className="rounded-lg bg-green-500 p-2 text-lg text-black"
-              onClick={() => signIn()}
-            >
-              Sign In
-            </button>
-          </div>
-        </>
-      )}
+    <div className="relative pt-4">
+      {status === 'unauthenticated' &&
+        !isScreenshotModeActive &&
+        isEditable && (
+          <>
+            <div
+              id="disabled-overlay"
+              className="absolute inset-0 z-20 h-full bg-black/90"
+            />
+            <div className="absolute z-30 mb-2 flex h-full w-full flex-col items-center justify-center text-2xl font-bold text-red-500">
+              Sign in required to save additional build details.
+              <button
+                className="rounded-lg bg-green-500 p-2 text-lg text-black"
+                onClick={() => signIn()}
+              >
+                Sign In
+              </button>
+            </div>
+          </>
+        )}
       {!isEditable || isScreenshotModeActive ? (
         <div className="flex flex-col">
           {description && description.length > 0 && (
@@ -59,7 +61,7 @@ export function MemberFeatures({
               </h3>
               <div
                 className={cn(
-                  'h-[200px] max-h-[200px] overflow-auto whitespace-pre-wrap text-sm text-gray-200',
+                  'max-h-[200px] overflow-auto whitespace-pre-wrap text-sm text-gray-200',
                   isScreenshotModeActive && 'max-h-none',
                 )}
               >
