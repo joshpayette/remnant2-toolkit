@@ -766,12 +766,12 @@ export function ItemTagSuggestions({
           >
             Equip Selected Items
           </button>
-          <p className="mt-2 text-left text-xs text-gray-500">
+          <p className="mt-2 text-left text-xs text-gray-400">
             Note: This is a new feature and may not work as expected. Please
             back up your build before using this feature. Please report any
             issues.
           </p>
-          <p className="mt-2 text-left text-xs text-gray-500">
+          <p className="mt-2 text-left text-xs text-gray-400">
             Note: This will replace any existing items in the specified slots.
             If you are replacing an archetype, the base trait points will be
             removed and re-added based on the new archetype.
@@ -788,7 +788,7 @@ function ItemTagContainer({ children }: { children: React.ReactNode }) {
       <h2 className="mb-1 text-2xl font-semibold text-purple-500">
         Item Suggestions
       </h2>
-      <p className="mb-4 text-xs text-gray-500">
+      <p className="mb-4 text-xs text-gray-400">
         Note: The tags are a work in progress. This list may not be exhaustive.
       </p>
       {children}

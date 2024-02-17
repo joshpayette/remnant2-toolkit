@@ -134,7 +134,7 @@ export const ActionButton = {
     <button
       className={cn(
         buttonClasses,
-        'border-transparent bg-purple-500 text-gray-800 hover:bg-purple-700 hover:text-white',
+        'border-transparent bg-purple-500 text-black hover:bg-purple-700 hover:text-white',
       )}
       onClick={onClick}
     >

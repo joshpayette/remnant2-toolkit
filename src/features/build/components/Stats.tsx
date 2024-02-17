@@ -35,8 +35,8 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
     buildState.items.archetype[1]?.name === 'Challenger'
 
   return (
-    <dl className="flex w-full flex-grow flex-col justify-start">
-      <dd className="flex w-full flex-row items-center justify-start">
+    <div className="flex w-full flex-grow flex-col justify-start">
+      <div className="flex w-full flex-row items-center justify-start">
         <div className="flex w-full flex-col items-start justify-start sm:max-w-[275px]">
           <div className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 text-left text-sm text-gray-300">
             <p className="flex items-center justify-start">Health</p>
@@ -183,18 +183,18 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
               {totalBlightResistance}
             </span>
           </p>
-          <div className="mt-2 text-right text-xs text-green-700">
+          <div className="mt-2 text-right text-xs text-green-500">
             Looking for more advanced stats? Check out{' '}
             <a
               href="https://docs.google.com/spreadsheets/d/1I7vkh50KWJZSxNy4FqxvniFWBstJQEMtpwtxQ3ByoPw/edit?pli=1"
               target="_blank"
-              className="text-green-500 hover:underline"
+              className="text-green-500 underline"
             >
               Vash Cowaii&apos;s spreadsheet.
             </a>
           </div>
         </div>
-      </dd>
-    </dl>
+      </div>
+    </div>
   )
 }
