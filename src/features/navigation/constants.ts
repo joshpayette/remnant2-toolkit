@@ -10,6 +10,7 @@ import {
   PlusIcon,
   ShieldCheckIcon,
   StarIcon,
+  TableCellsIcon,
   UserIcon,
 } from '@heroicons/react/24/solid'
 
@@ -50,6 +51,13 @@ export const NAV_ITEMS = {
       'Create and share your favorite builds with your friends and the community.',
     href: '/builder/create',
     icon: PlusIcon,
+  },
+  enemyResistances: {
+    label: 'Enemy Resistances',
+    description:
+      'The most comprehensive list of enemy resistances and weaknesses.',
+    href: 'https://docs.google.com/spreadsheets/d/1U2YVnjxdUOj3POG_OJrKHZL6lAE0JT78qTvWZq55z1k/edit?usp=drivesdk',
+    icon: TableCellsIcon,
   },
   favoritedBuilds: {
     label: 'Favorited Builds',

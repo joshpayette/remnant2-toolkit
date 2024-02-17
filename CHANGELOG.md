@@ -6,6 +6,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2024-02-17
 
+### Added
+
+- Added link to the Remnant.Wiki on the nav bar, under Resources.
+- Added link to Enemy Resistances spreadsheet on the nav bar, under Resources.
+
 ### Changed
 
 - Replaced Youtube embeds with still images, which should improve load times. I always wanted to do this, but didn't find how until this moment.
