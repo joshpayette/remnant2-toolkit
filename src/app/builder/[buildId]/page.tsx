@@ -2,11 +2,12 @@
 
 import { useRouter } from 'next/navigation'
 import { useSession } from 'next-auth/react'
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import { toast } from 'react-toastify'
 
 import { ActionButton } from '@/features/build/components/ActionButton'
 import { BuilderPage } from '@/features/build/components/BuilderPage'
+import { DetailedBuildDialog } from '@/features/build/components/DetailedBuildDialog'
 import { ImageDownloadLink } from '@/features/build/components/ImageDownloadLink'
 import { useBuildActions } from '@/features/build/hooks/useBuildActions'
 import { buildStateToCsvData } from '@/features/build/lib/buildStateToCsvData'
@@ -40,6 +41,8 @@ export default function Page({
 }: {
   params: { build: DBBuild }
 }) {
+  const [detailedBuildDialogOpen, setDetailedBuildDialogOpen] = useState(false)
+
   const router = useRouter()
   const { data: session } = useSession()
 
@@ -54,11 +57,9 @@ export default function Page({
     handleCopyBuildUrl,
     handleDuplicateBuild,
     handleImageExport,
-    handleScrollToDetailedView,
   } = useBuildActions()
 
   const buildContainerRef = useRef<HTMLDivElement>(null)
-  const detailedViewContainerRef = useRef<HTMLDivElement>(null)
 
   // Need to convert the build data to a format that the BuildPage component can use
   if (!session?.user) {
@@ -70,7 +71,12 @@ export default function Page({
   const csvBuildData = buildStateToCsvData(buildState)
 
   return (
-    <>
+    <div className="flex w-full flex-col items-center">
+      <DetailedBuildDialog
+        buildState={buildState}
+        open={detailedBuildDialogOpen}
+        onClose={() => setDetailedBuildDialogOpen(false)}
+      />
       <ImageDownloadLink onClose={handleClearImageLink} imageLink={imageLink} />
       <div className="height-full flex w-full flex-col items-center justify-center">
         {buildState.isFeaturedBuild && buildState.videoUrl && (
@@ -95,7 +101,6 @@ export default function Page({
         <BuilderPage
           buildContainerRef={buildContainerRef}
           buildState={buildState}
-          detailedViewContainerRef={detailedViewContainerRef}
           isEditable={false}
           includeMemberFeatures={true}
           isScreenshotMode={isScreenshotMode}
@@ -177,9 +182,7 @@ export default function Page({
                 label="Export to CSV"
               />
               <ActionButton.ShowDetailedView
-                onClick={() =>
-                  handleScrollToDetailedView(detailedViewContainerRef.current)
-                }
+                onClick={() => setDetailedBuildDialogOpen(true)}
               />
               {session?.user && (
                 <>
@@ -233,6 +236,6 @@ export default function Page({
           }
         />
       </div>
-    </>
+    </div>
   )
 }

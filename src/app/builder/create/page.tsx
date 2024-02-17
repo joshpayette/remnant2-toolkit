@@ -5,6 +5,7 @@ import { useRef, useState } from 'react'
 import { ActionButton } from '@/features/build/components/ActionButton'
 import { BuilderPage } from '@/features/build/components/BuilderPage'
 import { BuildSuggestionsDialog } from '@/features/build/components/BuildSuggestionsDialog'
+import { DetailedBuildDialog } from '@/features/build/components/DetailedBuildDialog'
 import { ImageDownloadLink } from '@/features/build/components/ImageDownloadLink'
 import { SaveBuildButton } from '@/features/build/components/SaveBuildButton'
 import { useBuildActions } from '@/features/build/hooks/useBuildActions'
@@ -14,6 +15,8 @@ import { BuildState } from '@/features/build/types'
 import { PageHeader } from '@/features/ui/PageHeader'
 
 export default function Page() {
+  const [detailedBuildDialogOpen, setDetailedBuildDialogOpen] = useState(false)
+
   const { dbBuildState, setNewBuildState, updateDBBuildState } =
     useDBBuildState(initialBuildState)
 
@@ -23,11 +26,9 @@ export default function Page() {
     imageLink,
     handleClearImageLink,
     handleRandomBuild,
-    handleScrollToDetailedView,
   } = useBuildActions()
 
   const buildContainerRef = useRef<HTMLDivElement>(null)
-  const detailedViewContainerRef = useRef<HTMLDivElement>(null)
 
   const [showBuildSuggestions, setShowBuildSuggestions] = useState(false)
 
@@ -38,6 +39,12 @@ export default function Page() {
 
   return (
     <div className="flex w-full flex-col items-center">
+      <DetailedBuildDialog
+        buildState={dbBuildState}
+        open={detailedBuildDialogOpen}
+        onClose={() => setDetailedBuildDialogOpen(false)}
+      />
+
       <ImageDownloadLink onClose={handleClearImageLink} imageLink={imageLink} />
 
       <PageHeader
@@ -55,7 +62,6 @@ export default function Page() {
       <BuilderPage
         buildContainerRef={buildContainerRef}
         buildState={dbBuildState}
-        detailedViewContainerRef={detailedViewContainerRef}
         includeMemberFeatures={true}
         isScreenshotMode={isScreenshotMode}
         isEditable={true}
@@ -71,9 +77,7 @@ export default function Page() {
             />
 
             <ActionButton.ShowDetailedView
-              onClick={() =>
-                handleScrollToDetailedView(detailedViewContainerRef.current)
-              }
+              onClick={() => setDetailedBuildDialogOpen(true)}
             />
 
             <ActionButton.RandomBuild

@@ -352,11 +352,6 @@ export function useBuildActions() {
     return response
   }
 
-  function handleScrollToDetailedView(el: HTMLDivElement | null) {
-    if (!el) return
-    el.scrollIntoView({ behavior: 'smooth' })
-  }
-
   return {
     handleClearImageLink,
     handleCopyBuildUrl,
@@ -364,7 +359,6 @@ export function useBuildActions() {
     handleRandomBuild,
     handleImageExport,
     handleReportBuild,
-    handleScrollToDetailedView,
     isScreenshotMode: Boolean(isScreenshotMode),
     showControls: Boolean(isScreenshotMode) === false,
     imageLink,
