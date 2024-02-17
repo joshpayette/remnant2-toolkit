@@ -11,7 +11,7 @@ import { Item } from '../types'
 import { ItemInfoDialog } from './ItemInfoDialog'
 import { MasonryCard } from './MasonryCard'
 
-const MINIMUM_BATCH_SIZE = 32
+const MINIMUM_BATCH_SIZE = 10
 
 type Props = {
   label?: string
