@@ -5,6 +5,7 @@ import { useSearchParams } from 'next/navigation'
 import { FeaturedBuilds } from '@/app/creator-builds/FeaturedBuilds'
 import { BuildListFilters } from '@/features/filters/components/BuildListFilters'
 import { parseBuildListFilters } from '@/features/filters/lib/parseBuildListFilters'
+import { DEFAULT_ITEMS_PER_PAGE } from '@/features/pagination/constants'
 import { PageHeader } from '@/features/ui/PageHeader'
 
 export default function Page() {
@@ -28,7 +29,7 @@ export default function Page() {
         <div className="mb-4 grid w-full grid-cols-1 gap-2">
           <FeaturedBuilds
             buildListFilters={buildListFilters}
-            itemsPerPage={24}
+            itemsPerPage={DEFAULT_ITEMS_PER_PAGE}
           />
         </div>
       )}

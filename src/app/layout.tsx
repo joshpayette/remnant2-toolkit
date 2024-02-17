@@ -62,16 +62,14 @@ export default async function RootLayout({
               <NavBar />
             </header>
 
-            <main className="flex h-full w-full grow flex-col items-center justify-start p-4">
+            <main className="flex h-full min-h-screen w-full grow flex-col items-center justify-start p-4">
               <ToastContainer theme="dark" />
               {children}
             </main>
           </div>
 
           <Suspense fallback={<Loading />}>
-            <footer className="mt-8 flex w-full items-center justify-center border-t border-purple-900 bg-black p-4 text-left text-sm text-gray-400">
-              <Footer />
-            </footer>
+            <Footer />
           </Suspense>
         </SessionProvider>
         <Analytics />

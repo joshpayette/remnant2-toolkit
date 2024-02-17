@@ -1,5 +1,8 @@
 import { useState } from 'react'
 
+import { DEFAULT_ITEMS_PER_PAGE } from '@/features/pagination/constants'
+
+import { getArrayOfLength } from '../lib/getArrayOfLength'
 import { DBBuild } from '../types'
 
 interface State {
@@ -9,7 +12,27 @@ interface State {
 }
 
 const DEFAULT_STATE: State = {
-  builds: [],
+  builds: getArrayOfLength(DEFAULT_ITEMS_PER_PAGE).map((item) => ({
+    id: `placeholder-${item}`,
+    name: '',
+    description: '',
+    imageUrl: '',
+    buildUrl: '',
+    isFeaturedBuild: false,
+    isPublic: true,
+    isMember: false,
+    thumbnailUrl: '',
+    videoUrl: '',
+    createdById: '',
+    createdByName: '',
+    createdByDisplayName: '',
+    createdAt: new Date(),
+    updatedAt: new Date(),
+    reported: false,
+    upvoted: false,
+    totalUpvotes: 0,
+    buildItems: [],
+  })),
   totalBuildCount: 0,
   isLoading: true,
 }

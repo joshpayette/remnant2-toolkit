@@ -2,7 +2,6 @@ import { useEffect } from 'react'
 
 import { BuildCard } from '@/features/build/components/BuildCard'
 import { BuildList } from '@/features/build/components/BuildList'
-import { BuildListSkeleton } from '@/features/build/components/BuildListSkeleton'
 import { useBuildListState } from '@/features/build/hooks/useBuildListState'
 import { BuildListSecondaryFilters } from '@/features/filters/components/BuildListSecondaryFilters'
 import { useBuildListSecondaryFilters } from '@/features/filters/hooks/useBuildListSecondaryFilters'
@@ -108,26 +107,22 @@ export function UserProfile({
           />
         }
       >
-        {isLoading ? (
-          <BuildListSkeleton itemsPerPage={itemsPerPage} />
-        ) : (
-          builds.map((build) => (
-            <div key={build.id} className="h-full w-full">
-              <BuildCard
-                build={build}
-                onReportBuild={undefined}
-                memberFrameEnabled={build.isMember}
-                footerActions={
-                  <div className="flex items-center justify-between gap-2 p-2 text-sm">
-                    <CopyBuildUrlButton buildId={build.id} />
-                    <EditBuildButton buildId={build.id} />
-                    <DuplicateBuildButton build={build} />
-                  </div>
-                }
-              />
-            </div>
-          ))
-        )}
+        {builds.map((build) => (
+          <div key={build.id} className="h-full w-full">
+            <BuildCard
+              build={build}
+              onReportBuild={undefined}
+              memberFrameEnabled={build.isMember}
+              footerActions={
+                <div className="flex items-center justify-between gap-2 p-2 text-sm">
+                  <CopyBuildUrlButton buildId={build.id} />
+                  <EditBuildButton buildId={build.id} />
+                  <DuplicateBuildButton build={build} />
+                </div>
+              }
+            />
+          </div>
+        ))}
       </BuildList>
     </>
   )
