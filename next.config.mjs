@@ -8,13 +8,14 @@ const nextConfig = {
   pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
   // Configure `images` to support loading images from a remote server
   images: {
-    // 24 hours
-    // minimumCacheTTL: 60 * 60 * 24,
+    //unoptimized: true,
+    minimumCacheTTL: 15000000,
     remotePatterns: [
       {
         protocol: 'https',
         hostname: 'd2sqltdcj8czo5.cloudfront.net',
-        pathname: '/**/*',
+        port: '',
+        pathname: '/**',
       },
     ],
   },
