@@ -1,20 +1,22 @@
 'use client'
 
 import { useSession } from 'next-auth/react'
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 
+import { ActionButton } from '@/features/build/components/ActionButton'
 import { BuilderPage } from '@/features/build/components/BuilderPage'
+import { DetailedBuildDialog } from '@/features/build/components/DetailedBuildDialog'
+import { ImageDownloadLink } from '@/features/build/components/ImageDownloadLink'
+import { SaveBuildButton } from '@/features/build/components/SaveBuildButton'
+import { useBuildActions } from '@/features/build/hooks/useBuildActions'
 import { useUrlBuildState } from '@/features/build/hooks/useUrlBuildState'
+import { ToCsvButton } from '@/features/csv/ToCsvButton'
 import { PageHeader } from '@/features/ui/PageHeader'
-
-import { ActionButton } from '../../features/build/components/ActionButton'
-import { ImageDownloadLink } from '../../features/build/components/ImageDownloadLink'
-import { SaveBuildButton } from '../../features/build/components/SaveBuildButton'
-import { useBuildActions } from '../../features/build/hooks/useBuildActions'
-import { ToCsvButton } from '../../features/csv/ToCsvButton'
-import { Skeleton } from '../../features/ui/Skeleton'
+import { Skeleton } from '@/features/ui/Skeleton'
 
 export default function Page() {
+  const [detailedBuildDialogOpen, setDetailedBuildDialogOpen] = useState(false)
+
   const { data: session, status: sessionStatus } = useSession()
 
   const { csvItems, urlBuildState, updateUrlBuildState } = useUrlBuildState()
@@ -27,14 +29,18 @@ export default function Page() {
     handleClearImageLink,
     handleCopyBuildUrl,
     handleImageExport,
-    handleScrollToDetailedView,
   } = useBuildActions()
 
   const buildContainerRef = useRef<HTMLDivElement>(null)
-  const detailedViewContainerRef = useRef<HTMLDivElement>(null)
 
   return (
     <div className="flex w-full flex-col items-center">
+      <DetailedBuildDialog
+        buildState={urlBuildState}
+        open={detailedBuildDialogOpen}
+        onClose={() => setDetailedBuildDialogOpen(false)}
+      />
+
       <ImageDownloadLink onClose={handleClearImageLink} imageLink={imageLink} />
 
       <PageHeader
@@ -65,7 +71,6 @@ export default function Page() {
       <BuilderPage
         buildContainerRef={buildContainerRef}
         buildState={urlBuildState}
-        detailedViewContainerRef={detailedViewContainerRef}
         includeMemberFeatures={false}
         isEditable={true}
         isScreenshotMode={isScreenshotMode}
@@ -118,9 +123,7 @@ export default function Page() {
               />
 
               <ActionButton.ShowDetailedView
-                onClick={() =>
-                  handleScrollToDetailedView(detailedViewContainerRef.current)
-                }
+                onClick={() => setDetailedBuildDialogOpen(true)}
               />
             </div>
           </>

@@ -1,9 +1,7 @@
 import { ReactNode, RefObject } from 'react'
 
-import { MasonryItemList } from '@/features/items/components/MasonryItemList'
 import { cn } from '@/lib/classnames'
 
-import { buildStateToMasonryItems } from '../lib/buildStateToMasonryItems'
 import { BuildState } from '../types'
 import { Builder } from './Builder'
 
@@ -11,7 +9,6 @@ type Props = {
   buildContainerRef: RefObject<HTMLDivElement>
   builderActions: ReactNode
   buildState: BuildState
-  detailedViewContainerRef: RefObject<HTMLDivElement>
   includeMemberFeatures: boolean
   isScreenshotMode: boolean
   showControls: boolean
@@ -36,7 +33,6 @@ export function BuilderPage({
   buildContainerRef,
   builderActions,
   buildState,
-  detailedViewContainerRef,
   includeMemberFeatures,
   isEditable,
   isScreenshotMode,
@@ -44,8 +40,6 @@ export function BuilderPage({
   showCreatedBy = true,
   onUpdateBuildState,
 }: Props) {
-  const masonryItems = buildStateToMasonryItems(buildState)
-
   return (
     <>
       <div className="flex w-full max-w-xl flex-col-reverse items-start justify-center gap-2 sm:flex-row-reverse">
@@ -83,12 +77,6 @@ export function BuilderPage({
             />
           )}
         </div>
-      </div>
-      <div
-        className="mt-12 flex w-full flex-col items-center justify-center gap-2"
-        ref={detailedViewContainerRef}
-      >
-        <MasonryItemList items={masonryItems} />
       </div>
     </>
   )
