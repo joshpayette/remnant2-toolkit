@@ -95,9 +95,10 @@ export default function Page({
                 height={315}
                 src={`https://i.ytimg.com/vi/${videoEmbedUrlToVideoId(
                   buildState.videoUrl,
-                )}/maxresdefault.jpg`}
+                )}/mqdefault.jpg`}
                 loading="eager"
                 alt={`${buildState.name} video thumbnail`}
+                unoptimized={true}
               />
             </a>
           </div>
