@@ -4,7 +4,7 @@ import { useSearchParams } from 'next/navigation'
 import { signIn, useSession } from 'next-auth/react'
 
 import { BuildListFilters } from '@/features/filters/components/BuildListFilters'
-import { parseFiltersFromUrl } from '@/features/filters/lib/parseBuildListFilters'
+import { parseBuildListFilters } from '@/features/filters/lib/parseBuildListFilters'
 import { PageHeader } from '@/features/ui/PageHeader'
 
 import { CollectionBuilds } from './CollectionBuilds'
@@ -15,7 +15,7 @@ export default function Page() {
   const { data: sessionData } = useSession()
 
   const searchParams = useSearchParams()
-  const buildListFilters = parseFiltersFromUrl(searchParams)
+  const buildListFilters = parseBuildListFilters(searchParams)
 
   if (!sessionData?.user) {
     return (

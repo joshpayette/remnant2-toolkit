@@ -3,14 +3,14 @@
 import { useSearchParams } from 'next/navigation'
 
 import { BuildListFilters } from '@/features/filters/components/BuildListFilters'
-import { parseFiltersFromUrl } from '@/features/filters/lib/parseBuildListFilters'
+import { parseBuildListFilters } from '@/features/filters/lib/parseBuildListFilters'
 import { CreatedBuilds } from '@/features/profile/components/CreatedBuilds'
 
 const ITEMS_PER_PAGE = 16
 
 export default function Page() {
   const searchParams = useSearchParams()
-  const buildListFilters = parseFiltersFromUrl(searchParams)
+  const buildListFilters = parseBuildListFilters(searchParams)
 
   return (
     <>
