@@ -41,7 +41,7 @@ export const ARCHTYPE_COLORS = {
   },
   HANDLER: {
     bg: 'bg-[#545520]',
-    text: 'text-[#c3c17a]',
+    text: 'text-[#fffc9f]',
   },
   HUNTER: {
     bg: 'bg-[#392217]',

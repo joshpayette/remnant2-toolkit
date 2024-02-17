@@ -92,6 +92,7 @@ export function BuildCard({
                       <button
                         onClick={() => onReportBuild(build.id)}
                         className="flex items-center justify-end text-right text-red-500"
+                        aria-label="Report this build as inappropriate"
                       >
                         {buildState.reported ? (
                           <FlagIconOn className="mr-0.5 h-4 w-4" />
