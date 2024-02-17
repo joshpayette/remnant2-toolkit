@@ -8,6 +8,8 @@ interface Props {
 
 export function BuildListSkeleton({ itemsPerPage }: Props) {
   return getArrayOfLength(itemsPerPage).map((_, index) => (
-    <Skeleton key={index} className="h-[350px] w-full" />
+    <div key={index} className="h-full w-full">
+      <Skeleton key={index} className="h-[359px] w-full" />
+    </div>
   ))
 }
