@@ -249,6 +249,28 @@ export function NavBar() {
                 <Menu.Item>
                   {({ active }) => (
                     <Link
+                      href={NAV_ITEMS.enemyResistances.href}
+                      target="_blank"
+                      className={cn(
+                        active ? 'bg-gray-800' : '',
+                        'flex w-full flex-row items-start justify-start p-2 text-sm font-semibold text-white',
+                      )}
+                    >
+                      <div className="mr-4 w-[20px]">
+                        <NAV_ITEMS.enemyResistances.icon className="h-5 w-5 text-green-600" />
+                      </div>
+                      <div className="flex flex-col items-start justify-start gap-y-1">
+                        {NAV_ITEMS.enemyResistances.label}
+                        <p className="text-xs font-normal text-gray-400">
+                          {NAV_ITEMS.enemyResistances.description}
+                        </p>
+                      </div>
+                    </Link>
+                  )}
+                </Menu.Item>
+                <Menu.Item>
+                  {({ active }) => (
+                    <Link
                       href={NAV_ITEMS.wiki.href}
                       target="_blank"
                       className={cn(
@@ -448,6 +470,24 @@ export function NavBar() {
 
                     <p className="text-xs text-gray-400">
                       {NAV_ITEMS.itemLookup.description}
+                    </p>
+                  </div>
+                </Link>
+
+                <Link
+                  href={NAV_ITEMS.enemyResistances.href}
+                  target="_blank"
+                  className="flex flex-row items-center justify-start"
+                >
+                  <NAV_ITEMS.enemyResistances.icon
+                    className="mr-2 h-7 w-5 flex-none text-green-500"
+                    aria-hidden="true"
+                  />
+                  <div className="flex flex-col items-start justify-start px-3 py-2">
+                    {NAV_ITEMS.enemyResistances.label}
+
+                    <p className="text-xs text-gray-400">
+                      {NAV_ITEMS.enemyResistances.description}
                     </p>
                   </div>
                 </Link>
