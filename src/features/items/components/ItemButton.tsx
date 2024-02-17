@@ -96,8 +96,8 @@ export function ItemButton({
           <Image
             src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/information.png`}
             alt="Information"
-            width={32}
-            height={32}
+            width={20}
+            height={20}
             className="h-5 w-5 sm:h-4 sm:w-4"
             loading={loadingType}
           />
