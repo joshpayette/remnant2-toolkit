@@ -463,7 +463,7 @@ export const remnantItems: Item[] = [
     HOLD: Howl increases damage by 20% for all allies within 20m. Lasts 20s.`,
     cooldown: 90,
     howToGet: `Unlocks at level 10`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Attack+Dog`],
+    wikiLinks: [`https://remnant.wiki/Attack_Dog`],
     linkedItems: {
       archetype: {
         name: 'Handler',
@@ -507,9 +507,9 @@ export const remnantItems: Item[] = [
     id: 'zs77cb',
     description: `The MEDIC unleashes a 30m [A] shockwave that revives downed allies and restores 52.5% Max Health over 10s. For each additional 1s holding the SKILL button, the heal gains an additional 52.5% (up to 210% max)
     Revived allies will only receive 50% of the healing amount. If revived, allies cannot be revived again by Redemption for another 180s. Resets at Worldstone or on death.`,
-    cooldown: 115.2,
+    cooldown: 120,
     howToGet: `Unlocks at level 10`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Redemption`],
+    wikiLinks: [`https://remnant.wiki/Redemption`],
     linkedItems: {
       archetype: {
         name: 'Medic',
@@ -898,10 +898,10 @@ export const remnantItems: Item[] = [
     id: 'y9oqq6',
     description: `Warps the caster forward through space-time. The next Melee or Ranged attack within 5s will deal 300% damage.
 
-    Holding the Skill button will show the targeting device. If an enemy is directly targeted, the caster will emerge behind them. `,
+    Holding the Skill button will show the targeting device. If an enemy is directly targeted, the caster will emerge behind them.`,
     cooldown: 35,
     howToGet: `Unlocks at level 5`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Worm+Hole`],
+    wikiLinks: [`https://remnant.wiki/Worm_Hole`],
     linkedItems: {
       archetype: {
         name: 'Invader',
@@ -984,7 +984,7 @@ export const remnantItems: Item[] = [
     cooldown: 120,
     tags: ['Reduce Skill Cooldown', 'Summon'],
     howToGet: `Unlocks at level 10`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Minion:+Reaver`],
+    wikiLinks: [`https://remnant.wiki/Minion:_Reaver`],
     linkedItems: {
       archetype: {
         name: 'Summoner',
@@ -2907,7 +2907,7 @@ export const remnantItems: Item[] = [
     id: '67tfbl',
     description: `On use, regenerates 100% of Max Health over 10s, Movement Speed is reduced by 50%, and incoming damage is reduced by 25%. Lasts 10s.`,
     howToGet: `Can be found in N'Erud as a reward for the Loose Fuse event.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Crystal+Heart`],
+    wikiLinks: [`https://remnant.wiki/Crystal_Heart`],
   },
   {
     category: 'relic',
@@ -2944,7 +2944,7 @@ export const remnantItems: Item[] = [
     id: '4y2xb3',
     description: `Innate double use speed. On use, heals 140 over 0.5s. Relic capacity is halved.`,
     howToGet: `Purchased from Cass in Ward 13. Unknown if obtainable through in-world loot.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Enlarged+Heart`],
+    wikiLinks: [`https://remnant.wiki/Enlarged_Heart`],
   },
   {
     category: 'relic',
@@ -3017,7 +3017,7 @@ export const remnantItems: Item[] = [
     id: 'yb7v4c',
     description: `On use, increases Health Regeneration by 5 and generates 500 Mod Power over 10s.`,
     howToGet: `Can be found in The Labyrinth.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Runed+Heart`],
+    wikiLinks: [`https://remnant.wiki/Runed_Heart`],
   },
   {
     category: 'relic',
@@ -3080,7 +3080,7 @@ export const remnantItems: Item[] = [
     id: 'weaetb',
     description: `On use, reduces incoming damage by 50% for 4s. When buff ends, heals 100% of missing Health over 0.75s.`,
     howToGet: `Can be found in N'Erud - Alepsis-Taura.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Void+Heart`],
+    wikiLinks: [`https://remnant.wiki/Void_Heart`],
   },
   {
     category: 'relicfragment',
@@ -3810,7 +3810,7 @@ export const remnantItems: Item[] = [
     id: '7nwwzn',
     description: `An energy-based cutting tool that increases damage when focused on a target. Can overheat.`,
     howToGet: `Obtained by opening the door at the Navigation Room in N'erud. You'll need to wear the Navigator's Helm (Obtained from the Navigator Zombie) and run the face recognition to open it. Enter the room and take the Plasma Cutter.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Plasma+Cutter`],
+    wikiLinks: [`https://remnant.wiki/Plasma_Cutter`],
     linkedItems: {
       mod: {
         name: 'Heat Sink',
@@ -5390,7 +5390,7 @@ export const remnantItems: Item[] = [
     id: 'o1zwol',
     description: `Charged Melee Hits grant Fathomless Deep which increases Melee Stagger by 10% per stack for 5s. Max 3 attacks.`,
     howToGet: `It comes attached to the Abyssal hook weapon.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Fathomless+Deep`],
+    wikiLinks: [`https://remnant.wiki/Fathomless_Deep`],
     linkedItems: {
       weapon: {
         name: 'Abyssal Hook',
@@ -5495,7 +5495,7 @@ export const remnantItems: Item[] = [
     id: 's49h0c',
     description: `Forces open Plasma Cutter's heat vents dispersing all heat. While active, Plasma Cutter generates 50% less heat, and ramping damage cap is increased to 3xDamage. Overheats automatically when deactivated. Lasts 20s.`,
     howToGet: `Attached to the Plasma Cutter long gun`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Heat+Sink`],
+    wikiLinks: [`https://remnant.wiki/Heat_Sink`],
     linkedItems: {
       weapon: {
         name: 'Plasma Cutter',
@@ -5517,9 +5517,9 @@ export const remnantItems: Item[] = [
     name: 'Horizon Strike',
     imagePath: '/mod/horizon_strike.png',
     id: '2fjw9q',
-    description: `Horizon Strike is a melee weapon mod added to the World's Edge. By performing charged attacks, this mod creates a wide horizontal projectile that deals damage.`,
+    description: `Charge Attacks release a wide horizontal projectile that penetrates through multiple enemies dealing 116 damage.`,
     howToGet: `Attached to the World's Edge melee weapon`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Horizon+Strike`],
+    wikiLinks: [`https://remnant.wiki/Horizon_Strike`],
     linkedItems: {
       weapon: {
         name: "World's Edge",
@@ -5625,7 +5625,7 @@ export const remnantItems: Item[] = [
     id: '8ko9zz',
     description: `Unleash a swarm of Nanomachines that seek after enemies within 20 meters and repeatedly attack dealing 6 ACID damage per hit. Lasts 15 seconds`,
     howToGet: `Attached to the Nebula hand gun`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Nano+Swarm`],
+    wikiLinks: [`https://remnant.wiki/Nano_Swarm`],
     linkedItems: {
       weapon: {
         name: 'Nebula',
@@ -6077,7 +6077,7 @@ export const remnantItems: Item[] = [
     description: `Increases Magazine Capacity of this weapon by 20-[40]%.`,
     maxLevelBonus: `Increases Reload Speed of this weapon by 15% when reloading from empty.`,
     howToGet: `Sold by Dwell at the following cost: x75 Relic Dust + x500 Scrap.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Extender`],
+    wikiLinks: [`https://remnant.wiki/Extender`],
   },
   {
     category: 'mutator',
@@ -6089,7 +6089,7 @@ export const remnantItems: Item[] = [
     description: `Attached Mod deals 10-[20]% additional Mod Damage.`,
     maxLevelBonus: `Attached Mod use gains a 15% chance to not consume charge.`,
     howToGet: `Interact with the Rotten Thaen Fruit, while having the Red Doe Sigil equipped..`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Failsafe`],
+    wikiLinks: [`https://remnant.wiki/Failsafe`],
   },
   {
     category: 'mutator',
@@ -6339,7 +6339,7 @@ export const remnantItems: Item[] = [
     description: `Melee Attacks grants a SHIELD for 2-4% of Max Health. Max 20-40%. Last 10s.`,
     maxLevelBonus: `Charged Melee Attacks consume all SHIELD to increase damage of next strike by 1% per SHIELD Consumed. Max 100%.`,
     howToGet: `Morrow Parish - Losomn. The boss is found inside the shed located outside of the asylum courtyard. Players have to open the door to let him out.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Shield+Breaker`],
+    wikiLinks: [`https://remnant.wiki/Shielded_Strike`],
   },
   {
     category: 'mutator',
@@ -6566,7 +6566,7 @@ export const remnantItems: Item[] = [
     tags: ['All Damage'],
     description: `Grants a 15% increase to all damage. Consuming a Relic doubles the bonus for 15s.`,
     howToGet: `Can be found in Root Earth - Ashen Wasteland.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Ankh+of+Power`],
+    wikiLinks: [`https://remnant.wiki/Ankh_of_Power`],
   },
   {
     category: 'amulet',
@@ -6763,7 +6763,7 @@ Can be bought for Bedel of the Vaunnt for 400."`,
     tags: ['Status Effect'],
     description: `Increases Status Effect damage by 25%. Applying a damaging Status Effect creates a 5m Explosion for 20% of the Status Effect's full damage [E].`,
     howToGet: `Can be found in The Labyrinth.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Energized+Neck+Coil`],
+    wikiLinks: [`https://remnant.wiki/Energized_Neck_Coil`],
   },
   {
     category: 'amulet',
@@ -7032,7 +7032,7 @@ Exclusive to The Awakened King DLC"`,
     description: `Increases Grey Health conversion by an additional 100%. When Grey Health Conversion triggers, gain 5x the amount as Mod Power.`,
     howToGet: `Can be found in Yaesha, in a random dungeon. Hidden in a room behind an illusory wall.`,
     wikiLinks: [
-      `https://remnant2.wiki.fextralife.com/Necklace+of+Flowing+Life`,
+      `https://remnant.wiki/Necklace_of_Flowing_Life`,
     ],
   },
   {
@@ -7137,7 +7137,7 @@ Exclusive to The Awakened King DLC"`,
     tags: ['All Damage'],
     description: `Increases all damage dealt to BLEEDING targets by 20%. Bonus increases to 30% for targets with 50% or lower Health.`,
     howToGet: `Can be obtained in Yaesha - Ravager's Lair. Given to the player by the Ravager after killing The Doe.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Ravager's+Mark`],
+    wikiLinks: [`https://remnant.wiki/Ravager%27s_Mark`],
   },
   {
     category: 'amulet',
@@ -7147,7 +7147,7 @@ Exclusive to The Awakened King DLC"`,
     tags: ['Healing Effectivness'],
     description: `Increases Relic Healing Effectiveness by 30% which doubles when the wearer's Health is below 50%.`,
     howToGet: `Can be found in Yaesha - Red Throne. Given to the player by The Eternal Empress for giving her the Ornate Lockbox without opening it.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Red+Doe+Sigil`],
+    wikiLinks: [`https://remnant.wiki/Red_Doe_Sigil`],
   },
   {
     category: 'amulet',
@@ -7223,7 +7223,7 @@ Exclusive to The Awakened King DLC"`,
     description: `Applying or refreshing a Negative Status Effect to an enemy increases Status Damage by 1% for 15s. Max 50 stacks.`,
     howToGet: `"Random loot in The Forbidden Grove- Yaesha
 Exclusive to The Awakened King DLC"`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Sinister+Totem`],
+    wikiLinks: [`https://remnant.wiki/Sinister_Totem`],
   },
   {
     category: 'amulet',
@@ -7408,7 +7408,7 @@ Exclusive to The Awakened King DLC"`,
     description: `When receiving healing effects, gain HASTE for 10s.`,
     howToGet: `Can be found in Root Earth - Also can be bought from Whispers at Ward 13`,
     wikiLinks: [
-      `https://remnant2.wiki.fextralife.com/Anastasija's+Inspiration`,
+      `https://remnant.wiki/Anastasija%27s_Inspiration`,
     ],
   },
   {
@@ -7514,7 +7514,7 @@ Exclusive Ring for The Awakened King DLC."`,
     tags: ['Movement Speed'],
     description: `When taking fatal damage, instead of dying, the wearer's Health will drop to 1, and Movement Speed will increase by 25% for 10s. 2m cooldown.`,
     howToGet: `Can be bought from Reggie after dying 15 times.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Black+Cat+Band`],
+    wikiLinks: [`https://remnant.wiki/Black_Cat_Band`],
   },
   {
     category: 'ring',
@@ -7701,7 +7701,7 @@ Can be crafted at Drzyr Replicator, you will need the following Materials: x10 I
     tags: ['Reduce Skill Cooldown', 'Relic Use Speed'],
     description: `Reduces Skill Cooldowns by 15% but decreases Relic Use Speed by 25%.`,
     howToGet: `Can be found in Yaesha - Red Throne, as a reward from the Eternal Empress if you give her the Thaen Seed.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Burden+of+the+Rebel`],
+    wikiLinks: [`hhttps://remnant.wiki/Burden_Of_The_Rebel`],
   },
   {
     category: 'ring',
@@ -7814,7 +7814,7 @@ Exclusive Ring for The Awakened King DLC."`,
     tags: ['Health'],
     description: `Increases Health by 15.`,
     howToGet: `Can be bought from Cass.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Dead+King's+Memento`],
+    wikiLinks: [`https://remnant.wiki/Dead_King%27s_Memento`],
     health: 15,
   },
   {
@@ -7966,7 +7966,7 @@ Exclusive Ring for The Awakened King DLC."`,
     tags: ['Melee Damage', 'Lifesteal'],
     description: `Gain 6% of base Melee damage dealt as Lifesteal.`,
     howToGet: `Can be found in Root Earth - Ashen Wasteland.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Dying+Ember`],
+    wikiLinks: [`https://remnant.wiki/Dying_Ember`],
   },
   {
     category: 'ring',
@@ -8002,7 +8002,7 @@ Exclusive Ring for The Awakened King DLC."`,
     tags: ['Heal'],
     description: `Using a Mod regenerates 20% of max HP over 10s. Reapplication increases duration up to a max of 30s.`,
     howToGet: `Can be found in The Labyrinth.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Encrypted+Ring`],
+    wikiLinks: [`https://remnant.wiki/Encrypted_Ring`],
   },
   {
     category: 'ring',
@@ -8156,7 +8156,7 @@ Exclusive Ring for The Awakened King DLC."`,
     description: `Increases Evade Speed by 10%. Perfect Evades increase Fire Rate by 10% and Melee Speed by 10% for 10s.`,
     howToGet: `"Can be found in Yaesha - The Forbidden Grove. Rewarded to the player by Bedel of the Vaunnt after reviving The Doe in the Ravagerencounter. 
 Player needs to choose sarcastic answers when first speaking to Bedel and choose ""Maybe..."" dialogue option when inquired about who saved The Doe. This reminds Bedel about his friend and he gives player the ring."`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Frivolous+Band`],
+    wikiLinks: [`https://remnant.wiki/Frivolous_Band`],
   },
   {
     category: 'ring',
@@ -8188,7 +8188,7 @@ Player needs to choose sarcastic answers when first speaking to Bedel and choose
     tags: ['Heal'],
     description: `Regenerate 3% of Max Health per second while a SHIELD is active.`,
     howToGet: `Can be found in N'Erud - The Flooded Room Event.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Generating+Band`],
+    wikiLinks: [`https://remnant.wiki/Generating_Band`],
   },
   {
     category: 'ring',
@@ -8511,7 +8511,7 @@ Exclusive Ring for The Awakened King DLC."`,
     id: '48r4bl',
     description: `Gain 5% of Max Health as a SHIELD for 5s after spending 20 Stamina. Accumulation resets after 5s of inaction. Max 50% SHIELD.`,
     howToGet: `Can be found in N'Erud - Vault of the Formless.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Rerouting+Cable`],
+    wikiLinks: [`https://remnant.wiki/Rerouting_Cable`],
   },
   {
     category: 'ring',
@@ -8542,7 +8542,7 @@ Exclusive Ring for The Awakened King DLC."`,
     tags: ['Health'],
     description: `When wearer's Health drops below 25%, gain a SHIELD for 25% of Max Health. Lasts 10s.`,
     howToGet: `Can be found in N'Erud - The Hatchery.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Ring+of+Crisis`],
+    wikiLinks: [`https://remnant.wiki/Ring_of_Crisis`],
   },
   {
     category: 'ring',
@@ -8571,7 +8571,7 @@ Exclusive Ring for The Awakened King DLC."`,
     tags: ['Weakspot Damage', 'Ranged Damage'],
     description: `Ranged Weakspot damage is increased by 25% [M]. Ranged damage is reduced by 15% when failing to hit a Weakspot.`,
     howToGet: `Can be bought from Cass.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Ring+of+Flawed+Beauty`],
+    wikiLinks: [`https://remnant.wiki/Ring_of_Flawed_Beauty`],
   },
   {
     category: 'ring',
@@ -8581,7 +8581,7 @@ Exclusive Ring for The Awakened King DLC."`,
     tags: ['Heal'],
     description: `Taking enemy damage causes 15% of Maximum Health to regenerate over 10s.`,
     howToGet: `Can be found in Losomn - Harvester's Reach, by completing Riewen's request.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Ring+of+Grace`],
+    wikiLinks: [`https://remnant.wiki/Ring_of_Grace`],
   },
   {
     category: 'ring',
@@ -8751,7 +8751,7 @@ Yaesha - Possible spawn in The Twisted Chantry"`,
     tags: ['Status Effect'],
     description: `Increase Status Effect Damage by 15%`,
     howToGet: `Random world drop in Losomn`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Shadow+of+Misery`],
+    wikiLinks: [`https://remnant.wiki/Shadow_of_Misery`],
   },
   {
     category: 'ring',
@@ -8823,7 +8823,7 @@ Can be crafted at Bloodmoon Altar. Required Material: Blood Moon Essence"`,
     tags: ['Summon', 'Lifesteal'],
     description: `Summons Lifesteal 5% of base damage dealt which returns to the wearer as Health.`,
     howToGet: `Can be found in Yaesha - The Withering Weald - The Nameless Nest.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Soul+Link`],
+    wikiLinks: [`https://remnant.wiki/Soul_Link`],
   },
   {
     category: 'ring',
@@ -9383,7 +9383,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     description: `Increases Aura Size`,
     maxLevelBonus: `At max level, Resonance Increases Aura Size by +50%`,
     howToGet: `Dormant N'Erudian Facility - Multiplayer Trait. One player needs to be in the control room, located at the end of the secret path where the Biome-Control Glyph is found. The player in the control room needs to activate the console, which is only possible while the Quarantine Event is still running. All players inside the control room or any other part of the secret path will not receive the Resonance Trait, but the Siphoner Trait instead.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Resonance`],
+    wikiLinks: [`https://remnant.wiki/Resonance`],
   },
   {
     category: 'trait',
@@ -9404,7 +9404,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     description: `Increases the Health of Archetype Summons`,
     maxLevelBonus: `At max level, Rugged Increases the Health of Archetype Summons by +100%`,
     howToGet: `Likh (Defeat Nexus Root/Defiler 2 phase Mega Boss)`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Rugged`],
+    wikiLinks: [`https://remnant.wiki/Rugged`],
   },
   {
     category: 'trait',
@@ -9650,7 +9650,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     tags: ['Heal'],
     description: `Regenerates 0.75 Health per second. Lasts 60m and will stay in effect after death. Only one Concoction may be active at a time.`,
     howToGet: `Can be bought from Mudtooth at the following cost: 500 Scrap`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Root+Water`],
+    wikiLinks: [`https://remnant.wiki/Root_Water`],
   },
   {
     category: 'concoction',
@@ -9768,7 +9768,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     tags: ['Grey Health', 'Heal'],
     description: `Stops BLEEDING and restores all Grey Health.`,
     howToGet: `Can be bought from Dr Norah for 100 scrap currency`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Bandage`],
+    wikiLinks: [`https://remnant.wiki/Bandage`],
   },
   {
     category: 'consumable',
@@ -9780,16 +9780,18 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     Can be bought form Reggie for 250 scrap currency.
     Can be crafted at Drzyr Replicator, you will need the following Materials: 250 Scrap.
 `,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Binding+Orb`],
+    wikiLinks: [`https://remnant.wiki/Binding_Orb`],
   },
   {
     category: 'consumable',
     name: 'Black Tar',
     imagePath: '/consumable/black_tar.png',
     id: 'nrdcko',
-    description: `When thrown, explodes in a 4m [A] radius dealing 90 damage [E] and applies TARRED which lasts 15s. Ranged damage and other FIRE sources ignite TARRED entities, causing dealing 750 BURNING damage over 10s.`,
+    description: `When thrown, explodes in a 4m radius dealing 30 damage [E] and creating a puddle lasting 15s which applies TARRED for 30s to creatures inside.
+
+    Ranged damage and other FIRE sources ignite TARRED entities, dealing 250 BURNING damage over 10s.`,
     howToGet: `Can be bought form Reggie for 250 scrap`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Black+Tar`],
+    wikiLinks: [`https://remnant.wiki/Black_Tar`],
   },
   {
     category: 'consumable',
