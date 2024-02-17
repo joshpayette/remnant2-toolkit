@@ -22,6 +22,7 @@ import { PopularBuildBadge } from './PopularBuildBadge'
 interface Props {
   build: DBBuild
   footerActions?: React.ReactNode
+  isLoading: boolean
   memberFrameEnabled?: boolean
   onReportBuild: ((buildId: string) => void) | undefined
 }
@@ -29,6 +30,7 @@ interface Props {
 export function BuildCard({
   build,
   footerActions,
+  isLoading,
   memberFrameEnabled = true,
   onReportBuild,
 }: Props) {
@@ -38,7 +40,7 @@ export function BuildCard({
 
   return (
     <div key={build.id} className="h-full min-h-[362px] w-full">
-      {build.id.includes('placeholder') ? (
+      {build.id.includes('placeholder') || isLoading ? (
         <Skeleton className="h-full w-full" />
       ) : (
         <div

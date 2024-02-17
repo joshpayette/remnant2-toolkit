@@ -104,6 +104,7 @@ export function FavoritedBuilds({ itemsPerPage = 8, buildListFilters }: Props) {
           <div key={build.id} className="h-full w-full">
             <BuildCard
               build={build}
+              isLoading={isLoading}
               onReportBuild={undefined}
               footerActions={
                 <div className="flex items-center justify-between gap-2 p-2 text-sm">

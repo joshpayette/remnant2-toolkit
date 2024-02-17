@@ -108,6 +108,7 @@ export function CreatedBuilds({ itemsPerPage = 8, buildListFilters }: Props) {
           <div key={build.id} className="h-full w-full">
             <BuildCard
               build={build}
+              isLoading={isLoading}
               onReportBuild={undefined}
               memberFrameEnabled={false}
               footerActions={
