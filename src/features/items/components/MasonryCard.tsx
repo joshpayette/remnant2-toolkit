@@ -43,7 +43,7 @@ export function MasonryCard({ data: item, onMoreInfoClick }: Props) {
             height={150}
             src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}${imagePath}`}
             alt={`${name} icon`}
-            loading="eager"
+            loading="lazy"
           />
 
           {name}
@@ -65,6 +65,7 @@ export function MasonryCard({ data: item, onMoreInfoClick }: Props) {
           {(MutatorItem.isMutatorItem(item) || TraitItem.isTraitItem(item)) && (
             <dd className="mt-3 whitespace-pre-line text-left text-xs text-gray-200">
               <strong>At Max Level: </strong>
+              {item.maxLevelBonus || 'No max level bonus found.'}
               <DescriptionWithTags
                 description={item.maxLevelBonus || 'No max level bonus found.'}
               />

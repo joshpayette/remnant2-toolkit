@@ -4,12 +4,12 @@ import { useSearchParams } from 'next/navigation'
 
 import { FeaturedBuilds } from '@/app/creator-builds/FeaturedBuilds'
 import { BuildListFilters } from '@/features/filters/components/BuildListFilters'
-import { parseFiltersFromUrl } from '@/features/filters/lib/parseFiltersFromUrl'
+import { parseBuildListFilters } from '@/features/filters/lib/parseBuildListFilters'
 import { PageHeader } from '@/features/ui/PageHeader'
 
 export default function Page() {
   const searchParams = useSearchParams()
-  const buildListFilters = parseFiltersFromUrl(searchParams)
+  const buildListFilters = parseBuildListFilters(searchParams)
 
   return (
     <>

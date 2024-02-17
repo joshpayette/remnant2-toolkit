@@ -3,7 +3,7 @@
 import { useSearchParams } from 'next/navigation'
 
 import { BuildListFilters } from '@/features/filters/components/BuildListFilters'
-import { parseFiltersFromUrl } from '@/features/filters/lib/parseFiltersFromUrl'
+import { parseFiltersFromUrl } from '@/features/filters/lib/parseBuildListFilters'
 
 import { CommunityBuildList } from './CommunityBuilds'
 import { CommunityBuildsPageHeader } from './CommunityBuildsPageHeader'

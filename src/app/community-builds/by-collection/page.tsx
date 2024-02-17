@@ -4,7 +4,7 @@ import { useSearchParams } from 'next/navigation'
 import { signIn, useSession } from 'next-auth/react'
 
 import { BuildListFilters } from '@/features/filters/components/BuildListFilters'
-import { parseFiltersFromUrl } from '@/features/filters/lib/parseFiltersFromUrl'
+import { parseFiltersFromUrl } from '@/features/filters/lib/parseBuildListFilters'
 import { PageHeader } from '@/features/ui/PageHeader'
 
 import { CollectionBuilds } from './CollectionBuilds'
