@@ -101,4 +101,11 @@ export const NAV_ITEMS = {
     href: 'https://www.patreon.com/JoshPayette/membership',
     icon: HeartIcon,
   },
+  wiki: {
+    label: 'Wiki',
+    description:
+      'Definitive wiki for Remnant 2. Community driven, no ads or stream embeds.',
+    href: 'https://remnant.wiki/',
+    icon: '/remnant-wiki-icon.png',
+  },
 }

@@ -2,6 +2,7 @@
 
 import { Dialog, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid'
+import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { Fragment, useEffect, useState } from 'react'
@@ -212,7 +213,7 @@ export function NavBar() {
             <Menu.Button className="flex bg-background text-lg font-semibold text-white hover:text-green-500">
               <span className="absolute -inset-1.5" />
               <span className="sr-only">Open Builds menu</span>
-              Reference
+              Resources
             </Menu.Button>
             <Transition
               as={Fragment}
@@ -240,6 +241,34 @@ export function NavBar() {
                         {NAV_ITEMS.itemLookup.label}
                         <p className="text-xs font-normal text-gray-400">
                           {NAV_ITEMS.itemLookup.description}
+                        </p>
+                      </div>
+                    </Link>
+                  )}
+                </Menu.Item>
+                <Menu.Item>
+                  {({ active }) => (
+                    <Link
+                      href={NAV_ITEMS.wiki.href}
+                      target="_blank"
+                      className={cn(
+                        active ? 'bg-gray-800' : '',
+                        'flex w-full flex-row items-start justify-start p-2 text-sm font-semibold text-white',
+                      )}
+                    >
+                      <div className="mr-[26px] flex w-5 items-start justify-start">
+                        <Image
+                          src={NAV_ITEMS.wiki.icon}
+                          width={20}
+                          height={20}
+                          alt={`${NAV_ITEMS.wiki.label}, ${NAV_ITEMS.wiki.description}`}
+                          className="h-5 w-5 text-green-600"
+                        />
+                      </div>
+                      <div className="flex flex-col items-start justify-start gap-y-1">
+                        {NAV_ITEMS.wiki.label}
+                        <p className="text-xs font-normal text-gray-400">
+                          {NAV_ITEMS.wiki.description}
                         </p>
                       </div>
                     </Link>
@@ -419,6 +448,28 @@ export function NavBar() {
 
                     <p className="text-xs text-gray-400">
                       {NAV_ITEMS.itemLookup.description}
+                    </p>
+                  </div>
+                </Link>
+
+                <Link
+                  href={NAV_ITEMS.wiki.href}
+                  target="_blank"
+                  className="flex flex-row items-center justify-start"
+                >
+                  <Image
+                    src={NAV_ITEMS.wiki.icon}
+                    width={11}
+                    height={20}
+                    alt={`${NAV_ITEMS.wiki.label}, ${NAV_ITEMS.wiki.description}`}
+                    className="mr-2 h-5 w-[11px] flex-none text-green-500"
+                    aria-hidden="true"
+                  />
+                  <div className="flex flex-col items-start justify-start px-3 py-2">
+                    {NAV_ITEMS.wiki.label}
+
+                    <p className="text-xs text-gray-400">
+                      {NAV_ITEMS.wiki.description}
                     </p>
                   </div>
                 </Link>

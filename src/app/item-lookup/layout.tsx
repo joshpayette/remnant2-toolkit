@@ -6,7 +6,7 @@ import { Suspense } from 'react'
 export async function generateMetadata(): Promise<Metadata> {
   const title = `Item Lookup - Remnant2Toolkit`
   const description =
-    'Search for detailed information about items in Remnant 2. Unlike other databases, our item looking includes tags detailing item interactions, corrected item descriptions, and more!'
+    'Search for detailed information about items in Remnant 2. Item look-up includes tags detailing item interactions, corrected item descriptions, and more!'
 
   return {
     title,
