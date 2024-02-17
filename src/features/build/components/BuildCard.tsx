@@ -39,7 +39,7 @@ export function BuildCard({
   const isNew = isBuildNew(buildState.createdAt)
 
   return (
-    <div key={build.id} className="h-full min-h-[362px] w-full">
+    <div key={build.id} className="h-full min-h-[362px] w-full" role="listitem">
       {build.id.includes('placeholder') || isLoading ? (
         <Skeleton className="h-full w-full" />
       ) : (
@@ -77,7 +77,7 @@ export function BuildCard({
                 </h3>
               </Link>
               <div className="mb-2 grid w-full grid-cols-3 truncate text-sm">
-                <div className="col-span-2 truncate text-left text-gray-500">
+                <div className="col-span-2 truncate text-left text-gray-300">
                   by{' '}
                   <Link
                     href={`/profile/${build.createdById}`}
@@ -110,9 +110,9 @@ export function BuildCard({
               </div>
               <div className="mb-2 flex flex-row items-center justify-start gap-x-2">
                 {build.updatedAt && (
-                  <p className="text-left text-xs text-gray-500">
+                  <p className="text-left text-xs text-gray-300">
                     Last Updated:{' '}
-                    <span className="text-gray-400">
+                    <span className="text-gray-300">
                       {formatUpdatedAt(build.updatedAt)}
                     </span>
                   </p>
