@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import { useSession } from 'next-auth/react'
 import { useRef, useState } from 'react'
@@ -23,6 +24,12 @@ import {
   removeVoteForBuild,
 } from '../actions'
 
+function videoEmbedUrlToVideoId(videoEmbedUrl: string) {
+  const url = new URL(videoEmbedUrl)
+  // need to get the video id segment
+  return url.pathname.split('/')[2].split('?')[0]
+}
+
 /**
  * Converts a youtube embed url to a watch url
  * @example
@@ -30,9 +37,7 @@ import {
  *  => 'https://www.youtube.com/watch?v=3QKpQjvtqE8'
  */
 function videoEmbedUrlToWatchUrl(videoEmbedUrl: string) {
-  const url = new URL(videoEmbedUrl)
-  // need to get the video id segment
-  const videoId = url.pathname.split('/')[2].split('?')[0]
+  const videoId = videoEmbedUrlToVideoId(videoEmbedUrl)
   return `https://www.youtube.com/watch?v=${videoId}`
 }
 
@@ -80,22 +85,22 @@ export default function Page({
       <ImageDownloadLink onClose={handleClearImageLink} imageLink={imageLink} />
       <div className="height-full flex w-full flex-col items-center justify-center">
         {buildState.isFeaturedBuild && buildState.videoUrl && (
-          <div className="youtube-video-container mb-8 max-h-[315px] max-w-[560px]">
-            <iframe
-              width="560"
-              height="315"
-              src={`${buildState.videoUrl}&amp;controls=0`}
-              title={buildState.name}
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen
-              className="pointer-events-none absolute left-0 top-0 h-full w-full"
-            />
+          <div className="youtube-video-container max-h-[215px] sm:mb-8 sm:max-h-[315px] sm:max-w-[560px]">
             <a
               href={`${videoEmbedUrlToWatchUrl(buildState.videoUrl)}`}
               target="_blank"
-              className="absolute left-0 top-0 h-full w-full"
-            />
+            >
+              <Image
+                width={560}
+                height={315}
+                src={`https://i.ytimg.com/vi/${videoEmbedUrlToVideoId(
+                  buildState.videoUrl,
+                )}/maxresdefault.jpg`}
+                loading="eager"
+                alt={`${buildState.name} video thumbnail`}
+                unoptimized={true}
+              />
+            </a>
           </div>
         )}
         <BuilderPage

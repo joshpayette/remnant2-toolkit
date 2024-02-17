@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-02-17
+
+### Changed
+
+- Replaced Youtube embeds with still images, which should improve load times. I always wanted to do this, but didn't find how until this moment.
+
 ## 2024-02-16
 
 ### Changed
