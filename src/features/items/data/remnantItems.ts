@@ -6412,7 +6412,7 @@ export const remnantItems: Item[] = [
     description: `Increases the Status Effect Damage applied by Melee Attacks by 25%.`,
     maxLevelBonus: `Charged Melee Attacks lower enemy's Resistance to All Status Damage by 10%. Lasts 10s.`,
     howToGet: `Losomn: Dropped by Gorge at the Butcher's Quarter or Cotton's Kiln.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Stormbringer`],
+    wikiLinks: [`https://remnant.wiki/Stormbringer`],
   },
   {
     category: 'mutator',
