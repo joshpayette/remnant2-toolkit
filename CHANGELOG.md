@@ -16,6 +16,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Replaced Youtube embeds with still images, which should improve load times. I always wanted to do this, but didn't find how until this moment.
 - Renamed "References" to "Resources" on nav bar
 
+### Fixed
+
+- Fixed bug where signed out users couldn't view the build descriptions of other builds.
+
 ## 2024-02-16
 
 ### Changed
