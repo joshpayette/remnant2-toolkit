@@ -4705,7 +4705,7 @@ export const remnantItems: Item[] = [
     id: 'd06hjq',
     description: `Fires an electrical stream that jumps to nearby targets within 7.5m [A], dealing 30% reduced damage per jump. Applies OVERLOADED, dealing 30 SHOCK damage every 5 seconds for 5.2s.`,
     howToGet: `Can be crafted at McCabe, you will need the following Materials: x1 Cipher Rod, x7 Lumenite Crystal, x650 Scrap`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Enigma`],
+    wikiLinks: [`https://remnant.wiki/Enigma`],
     linkedItems: {
       mod: {
         name: 'Chaos Driver',
@@ -5157,9 +5157,9 @@ export const remnantItems: Item[] = [
     imagePath: '/mod/chaos_driver.png',
     id: 'dxnd9s',
     description: `Drives electrified rods into targets which tether to other rods within 10m. [A] Tethers deal 20 SHOCK damage per second.
-    Targets embedded with a rod take 20 SHOCK damage per second. They take 20% additionally damage per extra rod in the target. Damage is increased by 1.5% if linked to another rod. Rods in the same target will not link.`,
+    Targets embedded with a rod take 50 SHOCK damage per second. They take 20% additionally damage per extra rod in the target. Damage is increased by 1.5% if linked to another rod. Rods in the same target will not link.`,
     howToGet: `Attached to the Enigma hand gun`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Chaos+Driver`],
+    wikiLinks: [`https://remnant.wiki/Chaos_Driver`],
     linkedItems: {
       weapon: {
         name: 'Enigma',
@@ -5181,10 +5181,12 @@ export const remnantItems: Item[] = [
     imagePath: '/mod/corrosive_rounds.png',
     id: 'hr3g7o',
     tags: ['Critical Chance'],
-    description: `Imbues ammunition with TOXIC and increases Range Crit Chance by 15% for 20s. Shots also apply CORRODED, dealing 150 damage over 10s.`,
+    description: `Imbues ammunition with ACID and increases Range Critical Chance by 15% for 20s. Shots apply CORRODED dealing 150 damage over 10s.
+
+    Mod Power Requirement: 1,250`,
     howToGet: `Crafted from Tainted Ichor
     Drops from Magister Dullain`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Corrosive+Rounds`],
+    wikiLinks: [`https://remnant.wiki/Corrosive_Rounds`],
   },
   {
     category: 'mod',
@@ -5550,7 +5552,7 @@ export const remnantItems: Item[] = [
     id: '38rncx',
     description: `Charge to throw the Krell Axe which applies OVERLOADED on hit, dealing 50 SHOCK Damage every 5s for 10s. Shortly after throwing, another will appear in the wielders hand. Costs 25 Stamina`,
     howToGet: `Attached to the Krell Axe melee weapon`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Krell+Edge`],
+    wikiLinks: [`https://remnant.wiki/Krell_Edge`],
     linkedItems: {
       weapon: {
         name: 'Krell Axe',
@@ -6410,7 +6412,7 @@ export const remnantItems: Item[] = [
     description: `Increases the Status Effect Damage applied by Melee Attacks by 25%.`,
     maxLevelBonus: `Charged Melee Attacks lower enemy's Resistance to All Status Damage by 10%. Lasts 10s.`,
     howToGet: `Losomn: Dropped by Gorge at the Butcher's Quarter or Cotton's Kiln.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Stormbringer`],
+    wikiLinks: [`https://remnant.wiki/Stormbringer`],
   },
   {
     category: 'mutator',
@@ -9228,7 +9230,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     maxLevelBonus: `At max level, Fitness Increases Evade Distance by +30%`,
     howToGet: `N'Erud - Vault of the Formless
     The trait is awarded by completing the boss at the end of the dungeon. `,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Fitness`],
+    wikiLinks: [`https://remnant.wiki/Fitness`],
   },
   {
     category: 'trait',
@@ -9255,7 +9257,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     description: `Increases Movement Speed while Aiming`,
     maxLevelBonus: `At max level, Footwork Increases Movement Speed while Aiming by +50%`,
     howToGet: `Increases Movement Speed while Aiming`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Footwork`],
+    wikiLinks: [`https://remnant.wiki/Footwork`],
   },
   {
     category: 'trait',
@@ -9283,7 +9285,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     description: `Increases the Use Speed of Consumables and Relics`,
     maxLevelBonus: `At max level, Glutton Increases the Use Speed of Consumables and Relics by +30%`,
     howToGet: `You need to complete The Feast Event in multiplayer. Attempting to resurrect a fallen ally while under the Ravenous status grants this trait to character that decides to eat an ally. Food on the table inflicts the status and starts the event.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Glutton`],
+    wikiLinks: [`https://remnant.wiki/Glutton`],
   },
   {
     category: 'trait',
@@ -9295,7 +9297,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     maxLevelBonus: `At max level, Handling Reduces Weapon Spread and Recoil by 40%`,
     howToGet: `Root Earth - Ashen Wasteland
     Defeat the Root Shade.`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Handling`],
+    wikiLinks: [`https://remnant.wiki/Handling`],
   },
   {
     category: 'trait',
@@ -9355,7 +9357,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     maxLevelBonus: `At max level, Recovery Increases Stamina Regen by 30/s`,
     howToGet: `Losomn - Morrow Parish
     When venturing outside, bring the Lost Dran Children you find back to the Oracle of the Dran (she’s in a house with several other children).`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Recovery`],
+    wikiLinks: [`https://remnant.wiki/Recovery`],
   },
   {
     category: 'trait',
@@ -9437,9 +9439,9 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     id: 'x9umnf',
     tags: ['Lifesteal'],
     description: `Increases Lifesteal`,
-    maxLevelBonus: `At max level, Siphoner Increases Lifesteal by +3.0%`,
+    maxLevelBonus: `At max level, Siphoner grants 3.0% base damage as Lifesteal.`,
     howToGet: `N'Erud - Dormant N'erudian Facility`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Siphoner`],
+    wikiLinks: [`https://remnant.wiki/Siphoner`],
   },
   {
     category: 'trait',
