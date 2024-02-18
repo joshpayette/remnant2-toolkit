@@ -393,7 +393,7 @@ export async function updateBuild(data: string): Promise<BuildActionResponse> {
     }
 
     // If the build name has updated, send the build info to Discord
-    if (existingBuild?.name !== buildState.name) {
+    if (existingBuild?.name !== buildState.name && buildState.isPublic) {
       const params = {
         content: `Build name updated. Old name: ${existingBuild.name}, New name: ${buildState.name}. https://www.remnant2toolkit.com/builder/${buildState.buildId}`,
       }
