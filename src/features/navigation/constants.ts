@@ -14,6 +14,8 @@ import {
   UserIcon,
 } from '@heroicons/react/24/solid'
 
+import WikiIcon from '../../../public/wiki-icon.svg'
+
 /**
  * The base pages for the site
  */
@@ -114,6 +116,6 @@ export const NAV_ITEMS = {
     description:
       'Definitive wiki for Remnant 2. Community driven, no ads or stream embeds.',
     href: 'https://remnant.wiki/',
-    icon: '/remnant-wiki-icon.png',
+    icon: '/wiki-icon.png',
   },
 }

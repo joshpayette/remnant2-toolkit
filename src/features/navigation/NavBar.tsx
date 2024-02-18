@@ -278,7 +278,7 @@ export function NavBar() {
                         'flex w-full flex-row items-start justify-start p-2 text-sm font-semibold text-white',
                       )}
                     >
-                      <div className="mr-[26px] flex w-5 items-start justify-start">
+                      <div className="mr-4 flex w-[20px] items-center justify-start">
                         <Image
                           src={NAV_ITEMS.wiki.icon}
                           width={20}
@@ -287,7 +287,7 @@ export function NavBar() {
                           className="h-5 w-5 text-green-600"
                         />
                       </div>
-                      <div className="flex flex-col items-start justify-start gap-y-1">
+                      <div className="flex max-w-[222px] flex-col items-start justify-start gap-y-1">
                         {NAV_ITEMS.wiki.label}
                         <p className="text-xs font-normal text-gray-400">
                           {NAV_ITEMS.wiki.description}
@@ -360,7 +360,7 @@ export function NavBar() {
                   className="flex flex-row items-center justify-start"
                 >
                   <NAV_ITEMS.featuredBuilds.icon
-                    className="mr-2 h-7 w-5 flex-none text-green-500"
+                    className="mr-2 h-7 w-5 flex-none text-green-600"
                     aria-hidden="true"
                   />
                   <div className="flex flex-col items-start justify-start px-3 py-2">
@@ -377,7 +377,7 @@ export function NavBar() {
                   className="flex flex-row items-center justify-start"
                 >
                   <NAV_ITEMS.communityBuilds.icon
-                    className="mr-2 h-7 w-5 flex-none text-green-500"
+                    className="mr-2 h-7 w-5 flex-none text-green-600"
                     aria-hidden="true"
                   />
                   <div className="flex flex-col items-start justify-start px-3 py-2">
@@ -394,7 +394,7 @@ export function NavBar() {
                   className="flex flex-row items-center justify-start"
                 >
                   <NAV_ITEMS.collectionBuilds.icon
-                    className="mr-2 h-7 w-5 flex-none text-green-500"
+                    className="mr-2 h-7 w-5 flex-none text-green-600"
                     aria-hidden="true"
                   />
                   <div className="flex flex-col items-start justify-start px-3 py-2">
@@ -411,7 +411,7 @@ export function NavBar() {
                   className="flex flex-row items-center justify-start"
                 >
                   <NAV_ITEMS.createBuild.icon
-                    className="mr-2 h-7 w-5 flex-none text-green-500"
+                    className="mr-2 h-7 w-5 flex-none text-green-600"
                     aria-hidden="true"
                   />
                   <div className="flex flex-col items-start justify-start px-3 py-2">
@@ -428,7 +428,7 @@ export function NavBar() {
                   className="flex flex-row items-center justify-start"
                 >
                   <NAV_ITEMS.bossTracker.icon
-                    className="mr-2 h-7 w-5 flex-none text-green-500"
+                    className="mr-2 h-7 w-5 flex-none text-green-600"
                     aria-hidden="true"
                   />
                   <div className="flex flex-col items-start justify-start px-3 py-2">
@@ -445,7 +445,7 @@ export function NavBar() {
                   className="flex flex-row items-center justify-start"
                 >
                   <NAV_ITEMS.itemTracker.icon
-                    className="mr-2 h-7 w-5 flex-none text-green-500"
+                    className="mr-2 h-7 w-5 flex-none text-green-600"
                     aria-hidden="true"
                   />
                   <div className="flex flex-col items-start justify-start px-3 py-2">
@@ -462,7 +462,7 @@ export function NavBar() {
                   className="flex flex-row items-center justify-start"
                 >
                   <NAV_ITEMS.itemLookup.icon
-                    className="mr-2 h-7 w-5 flex-none text-green-500"
+                    className="mr-2 h-7 w-5 flex-none text-green-600"
                     aria-hidden="true"
                   />
                   <div className="flex flex-col items-start justify-start px-3 py-2">
@@ -480,7 +480,7 @@ export function NavBar() {
                   className="flex flex-row items-center justify-start"
                 >
                   <NAV_ITEMS.enemyResistances.icon
-                    className="mr-2 h-7 w-5 flex-none text-green-500"
+                    className="mr-2 h-7 w-5 flex-none text-green-600"
                     aria-hidden="true"
                   />
                   <div className="flex flex-col items-start justify-start px-3 py-2">
@@ -502,10 +502,10 @@ export function NavBar() {
                     width={11}
                     height={20}
                     alt={`${NAV_ITEMS.wiki.label}, ${NAV_ITEMS.wiki.description}`}
-                    className="mr-2 h-5 w-[11px] flex-none text-green-500"
+                    className="mr-2 h-7 w-5 flex-none text-green-600"
                     aria-hidden="true"
                   />
-                  <div className="flex flex-col items-start justify-start px-3 py-2">
+                  <div className="flex max-w-[275px] flex-col items-start justify-start px-3 py-2">
                     {NAV_ITEMS.wiki.label}
 
                     <p className="text-xs text-gray-400">
@@ -519,7 +519,7 @@ export function NavBar() {
                   className="flex flex-row items-center justify-start"
                 >
                   <NAV_ITEMS.supportR2TK.icon
-                    className="mr-2 h-7 w-5 flex-none text-green-500"
+                    className="mr-2 h-7 w-5 flex-none text-green-600"
                     aria-hidden="true"
                   />
                   <div className="flex flex-col items-start justify-start px-3 py-2">
