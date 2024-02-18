@@ -77,8 +77,8 @@ export async function generateMetadata(
     archetype2: (archetypes[1] as Archetype) ?? null,
   })
 
-  const title = `${build.name}: by ${build.createdByDisplayName}`
-  let description = buildLabel
+  const title = `${build.name} by ${build.createdByDisplayName}`
+  let description = `${buildLabel} Build`
   description += `\r\n`
   description += `\r\n`
   description +=
