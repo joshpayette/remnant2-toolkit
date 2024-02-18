@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Fixed
 
 - Fixed build where some Youtube thumbnails were not rendering correctly.
+- Fixed issue where Discord avatar was not updating after initial account link.
 
 ## 2024-02-17
 
