@@ -6,6 +6,7 @@ import { FlagIcon as FlagIconOn } from '@heroicons/react/24/solid'
 import Link from 'next/link'
 
 import { DescriptionWithTags } from '@/features/items/components/DescriptionWithTags'
+import { Archetype } from '@/features/items/types'
 import { Skeleton } from '@/features/ui/Skeleton'
 import { Tooltip } from '@/features/ui/Tooltip'
 import { cn } from '@/lib/classnames'
@@ -13,6 +14,7 @@ import { cn } from '@/lib/classnames'
 import { POPULAR_VOTE_THRESHOLD } from '../constants'
 import { dbBuildToBuildState } from '../lib/dbBuildToBuildState'
 import { formatUpdatedAt } from '../lib/formatUpdatedAt'
+import { getArchetypeBuildName } from '../lib/getArchetypeBuildName'
 import { isBuildNew } from '../lib/isBuildNew'
 import { DBBuild } from '../types'
 import { ArchtypeLabel } from './ArchtypeLabel'
@@ -77,6 +79,16 @@ export function BuildCard({
                 </h3>
               </Link>
               <div className="mb-2 grid w-full grid-cols-3 truncate text-sm">
+                <div className="col-span-full truncate text-left text-gray-300">
+                  {`${getArchetypeBuildName({
+                    archetype1:
+                      (buildState.items.archetype[0]?.name.toLowerCase() as Archetype) ||
+                      null,
+                    archetype2:
+                      (buildState.items.archetype[1]?.name.toLowerCase() as Archetype) ||
+                      null,
+                  })} Build`}{' '}
+                </div>
                 <div className="col-span-2 truncate text-left text-gray-300">
                   by{' '}
                   <Link
@@ -111,9 +123,9 @@ export function BuildCard({
               </div>
               <div className="mb-2 flex flex-row items-center justify-start gap-x-2">
                 {build.updatedAt && (
-                  <p className="text-left text-xs text-gray-300">
+                  <p className="text-left text-xs text-gray-400">
                     Last Updated:{' '}
-                    <span className="text-gray-300">
+                    <span className="text-gray-400">
                       {formatUpdatedAt(build.updatedAt)}
                     </span>
                   </p>

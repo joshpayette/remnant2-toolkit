@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-02-18
+
+### Added
+
+- Build cards and build views now show the in-game build names based on the archetypes selected. For example, Ritualist + Alchemist = Diabolist.
+
 ## 2024-02-17
 
 ### Added
