@@ -182,7 +182,18 @@ export async function createBuild(data: string): Promise<BuildActionResponse> {
     // Trigger webhook to send build to Discord
     if (buildState.isPublic && process.env.NODE_ENV === 'production') {
       const params = {
-        content: `https://www.remnant2toolkit.com/builder/${dbResponse.id}`,
+        embeds: [
+          {
+            title: `New Build Created!`,
+            color: 0x00ff00,
+            fields: [
+              {
+                name: 'Build Link',
+                value: `https://www.remnant2toolkit.com/builder/${dbResponse.id}`,
+              },
+            ],
+          },
+        ],
       }
 
       const res = await fetch(`${process.env.WEBHOOK_COMMUNITY_BUILDS}`, {
@@ -380,7 +391,51 @@ export async function updateBuild(data: string): Promise<BuildActionResponse> {
       process.env.NODE_ENV === 'production'
     ) {
       const params = {
-        content: `https://www.remnant2toolkit.com/builder/${buildState.buildId}`,
+        embeds: [
+          {
+            title: `Private Build Became Public!`,
+            color: 0x00ff00,
+            fields: [
+              {
+                name: 'Build Link',
+                value: `https://www.remnant2toolkit.com/builder/${buildState.buildId}`,
+              },
+            ],
+          },
+        ],
+      }
+
+      const res = await fetch(`${process.env.WEBHOOK_COMMUNITY_BUILDS}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(params),
+      })
+
+      if (!res.ok) {
+        console.error('Error in sending build webhook to Discord!')
+      }
+    }
+
+    // If the build name has updated, send the build info to Discord
+    if (
+      existingBuild?.name !== buildState.name &&
+      process.env.NODE_ENV === 'production'
+    ) {
+      const params = {
+        embeds: [
+          {
+            title: `Build Name Updated!`,
+            color: 0x00ff00,
+            fields: [
+              {
+                name: 'Build Link',
+                value: `https://www.remnant2toolkit.com/builder/${buildState.buildId}`,
+              },
+            ],
+          },
+        ],
       }
 
       const res = await fetch(`${process.env.WEBHOOK_COMMUNITY_BUILDS}`, {
