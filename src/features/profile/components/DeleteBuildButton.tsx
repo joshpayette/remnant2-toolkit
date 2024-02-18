@@ -30,6 +30,7 @@ export function DeleteBuildButton({
   return (
     <button
       type="button"
+      aria-label="Delete Build"
       className="text-red-500 hover:text-red-300"
       onClick={handleDeleteBuild}
     >

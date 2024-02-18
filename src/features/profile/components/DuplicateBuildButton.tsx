@@ -12,6 +12,7 @@ export function DuplicateBuildButton({ build }: { build: DBBuild }) {
     <button
       className="text-yellow-500 hover:text-yellow-300"
       onClick={() => handleDuplicateBuild(buildState)}
+      aria-label="Duplicate Build"
     >
       Duplicate
     </button>

@@ -31,6 +31,7 @@ export function MasonryCard({ data: item, onMoreInfoClick }: Props) {
       <div className="flex flex-1 flex-col p-4">
         <button
           onClick={() => onMoreInfoClick(item)}
+          aria-label="More Info"
           className="text-md font-bold text-purple-500 hover:text-purple-300 hover:underline"
         >
           <Image
@@ -93,6 +94,7 @@ export function MasonryCard({ data: item, onMoreInfoClick }: Props) {
         <div className="-mt-px flex divide-x divide-green-800">
           <button
             className="relative inline-flex w-0 flex-1 items-center justify-center gap-x-1 rounded-br-lg border border-transparent py-4 text-xs font-semibold text-gray-200"
+            aria-label="Share Item Link"
             onClick={() => {
               copy(
                 `https://remnant2toolkit.com/endpoint/item/${cleanItemName(
@@ -110,6 +112,7 @@ export function MasonryCard({ data: item, onMoreInfoClick }: Props) {
             <div className="flex w-0 flex-1">
               <button
                 onClick={() => onMoreInfoClick(item)}
+                aria-label="More Info"
                 className="relative inline-flex w-0 flex-1 items-center justify-center gap-x-1 rounded-br-lg border border-transparent py-4 text-xs font-semibold text-gray-200"
               >
                 <InformationCircleIcon

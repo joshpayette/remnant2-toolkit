@@ -18,6 +18,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Fixed build where some Youtube thumbnails were not rendering correctly.
 - Fixed issue where Discord avatar was not updating after initial account link.
+- Added many more aria-labels to buttons for accessibility.
 
 ## 2024-02-17
 

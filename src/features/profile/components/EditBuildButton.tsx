@@ -13,6 +13,7 @@ export function EditBuildButton({ buildId }: { buildId: string }) {
     <button
       className="text-purple-500 hover:text-purple-300"
       onClick={handleEditBuild}
+      aria-label="Edit Build"
     >
       Edit
     </button>

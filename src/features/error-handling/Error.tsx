@@ -22,6 +22,7 @@ export function Error({
       <PageHeader title="Something went wrong!" subtitle={error.message} />
       <button
         onClick={() => reset()}
+        aria-label="Try again"
         className="rounded-md bg-gray-800 px-4 py-2 text-white"
       >
         Try again

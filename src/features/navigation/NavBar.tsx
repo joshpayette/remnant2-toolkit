@@ -35,6 +35,7 @@ export function NavBar() {
         <div className="flex w-full justify-end lg:hidden">
           <button
             type="button"
+            aria-label="Open main menu"
             className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-white"
             onClick={() => setMobileMenuOpen(true)}
           >
@@ -345,6 +346,7 @@ export function NavBar() {
             <Logo />
             <button
               type="button"
+              aria-label="Close menu"
               className="-m-2.5 rounded-md p-2.5 text-white"
               onClick={() => setMobileMenuOpen(false)}
             >

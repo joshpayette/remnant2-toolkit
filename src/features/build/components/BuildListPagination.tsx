@@ -41,12 +41,14 @@ export function BuildListPagination({
       <div className="flex flex-1 justify-between sm:hidden">
         <button
           onClick={onPreviousPage}
+          aria-label="Previous page"
           className="relative inline-flex items-center rounded-md border border-green-300 bg-green-500 px-4 py-2 text-sm font-medium text-white hover:bg-green-300"
         >
           Previous
         </button>
         <button
           onClick={onNextPage}
+          aria-label="Next page"
           className="relative ml-3 inline-flex items-center rounded-md border border-green-300 bg-green-500 px-4 py-2 text-sm font-medium text-white hover:bg-green-300"
         >
           Next
@@ -76,6 +78,7 @@ export function BuildListPagination({
             >
               <button
                 onClick={() => onSpecificPage(1)}
+                aria-label="First page"
                 className="relative inline-flex w-[45px] items-center justify-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-green-500 hover:bg-gray-50 hover:text-gray-800 focus:z-20 focus:outline-offset-0"
               >
                 <span className="sr-only">First</span>
@@ -83,6 +86,7 @@ export function BuildListPagination({
               </button>
               <button
                 onClick={onPreviousPage}
+                aria-label="Previous page"
                 className="relative inline-flex w-[45px] items-center justify-center px-2 py-2 text-gray-400 ring-1 ring-inset ring-green-500 hover:bg-gray-50 hover:text-gray-800 focus:z-20 focus:outline-offset-0"
               >
                 <span className="sr-only">Previous</span>
@@ -91,6 +95,7 @@ export function BuildListPagination({
               {pageNumbers.map((pageNumber) => (
                 <button
                   key={pageNumber}
+                  aria-label={`Goto page ${pageNumber}`}
                   aria-current="page"
                   className={cn(
                     'relative inline-flex w-[45px] items-center justify-center px-4 py-2 text-sm font-semibold text-gray-200 ring-1 ring-inset ring-green-500 hover:bg-green-50 hover:text-gray-800 focus:z-20 focus:outline-offset-0',
@@ -105,6 +110,7 @@ export function BuildListPagination({
 
               <button
                 onClick={onNextPage}
+                aria-label="Next page"
                 className="relative inline-flex h-[36px] w-[45px] items-center justify-center px-2 py-2 text-gray-400 ring-1 ring-inset ring-green-500 hover:bg-green-50 hover:text-gray-800 focus:z-20 focus:outline-offset-0"
               >
                 <span className="sr-only">Next</span>
@@ -112,6 +118,7 @@ export function BuildListPagination({
               </button>
               <button
                 onClick={() => onSpecificPage(totalPages)}
+                aria-label="Last page"
                 className="relative inline-flex w-[45px] items-center justify-center rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-green-500 hover:bg-green-50 hover:text-gray-800 focus:z-20 focus:outline-offset-0"
               >
                 <span className="sr-only">Last</span>

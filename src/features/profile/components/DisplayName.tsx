@@ -56,7 +56,10 @@ export function DisplayName({ editable, name }: Props) {
         <>
           <h2 className="text-4xl font-semibold text-green-500">{name}</h2>
           {editable && (
-            <button onClick={() => setIsEditing(true)}>
+            <button
+              onClick={() => setIsEditing(true)}
+              aria-label="Edit display name"
+            >
               <PencilIcon
                 className="h-4 w-4 text-green-500 hover:text-green-300"
                 aria-hidden="true"

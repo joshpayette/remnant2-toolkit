@@ -217,6 +217,7 @@ export function ArmorSuggestions({
         />
         <button
           className="mt-4 rounded-md border-2 border-red-500 p-2 text-sm text-white hover:bg-red-500 hover:text-white"
+          aria-label="Clear armor suggestions"
           onClick={clearArmorSuggestions}
         >
           Clear
@@ -279,6 +280,7 @@ export function ArmorSuggestions({
                 </div>
                 <button
                   className="mt-4 rounded-md border-2 border-green-500 p-2 text-sm text-white hover:bg-green-500 hover:text-white"
+                  aria-label="Equip armor suggestions"
                   onClick={() =>
                     onApplySuggestions({
                       ...buildState,

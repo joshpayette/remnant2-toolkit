@@ -161,6 +161,7 @@ export function ItemSelect({
             <div className="col-span-1 flex items-center justify-start">
               <button
                 className="flex items-center justify-center text-sm text-gray-400 hover:text-green-500"
+                aria-label="Toggle sorting preference"
                 onClick={handleSortingPreferenceToggle}
               >
                 <AdjustmentsHorizontalIcon className="mr-2 h-6 w-6" />

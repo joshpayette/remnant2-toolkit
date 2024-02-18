@@ -45,6 +45,7 @@ export function MemberFeatures({
               Sign in required to save additional build details.
               <button
                 className="rounded-lg bg-green-500 p-2 text-lg text-black"
+                aria-label="Sign in to save additional build details"
                 onClick={() => signIn()}
               >
                 Sign In

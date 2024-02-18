@@ -18,6 +18,7 @@ export function SubmitButton({
   return (
     <button
       type="submit"
+      aria-label="Submit Form"
       aria-disabled={pending || disabled}
       disabled={pending || disabled}
       className={className}

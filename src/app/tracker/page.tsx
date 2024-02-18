@@ -281,12 +281,14 @@ export default function Page() {
           <div className="mt-16 flex w-full items-center justify-center gap-x-4">
             <button
               onClick={() => setImportSaveDialogOpen(true)}
+              aria-label="Import Save File"
               className="w-[200px] rounded border-2 border-purple-500 bg-purple-700 p-2 text-lg font-bold text-white/90 hover:bg-purple-500 hover:text-white"
             >
               Import Save File
             </button>
             <button
               onClick={() => setImportCSVDialogOpen(true)}
+              aria-label="Import CSV File"
               className="w-[200px] rounded border-2 border-purple-500 bg-purple-700 p-2 text-lg font-bold text-white/90 hover:bg-purple-500 hover:text-white"
             >
               Import CSV File

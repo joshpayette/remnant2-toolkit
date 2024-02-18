@@ -53,6 +53,7 @@ export function ItemInfoDialog({ item, open, onClose }: ItemInfoProps) {
           <span className="text-sm text-gray-400">{subtitle}</span>
           <button
             className="text-xs text-green-500 underline hover:text-green-400"
+            aria-label="Copy link to item"
             onClick={() => {
               copy(
                 `https://remnant2toolkit.com/endpoint/item/${cleanItemName(
