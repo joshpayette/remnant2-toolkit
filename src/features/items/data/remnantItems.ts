@@ -24,7 +24,7 @@ export const remnantItems: Item[] = [
         { name: 'Vial: Elixir of Life' },
       ],
       perks: [
-        { name: 'Spirited' },
+        { name: 'Spirited' }, // * First perk should be prime perk
         { name: 'Liquid Courage' },
         { name: 'Panacea' },
         { name: 'Gold to Lead' },
@@ -54,7 +54,7 @@ export const remnantItems: Item[] = [
         { name: 'Havoc Form' },
       ],
       perks: [
-        { name: 'Tempest' },
+        { name: 'Tempest' }, // * First perk should be prime perk
         { name: 'Amplify' },
         { name: 'Power Creep' },
         { name: 'Spirit Within' },
@@ -83,7 +83,7 @@ export const remnantItems: Item[] = [
         { name: 'Rampage' },
       ],
       perks: [
-        { name: 'Die Hard' },
+        { name: 'Die Hard' }, // * First perk should be prime perk
         { name: 'Close Quarters' },
         { name: 'Intimidating Presence' },
         { name: 'Powerlifter' },
@@ -113,7 +113,7 @@ export const remnantItems: Item[] = [
         { name: 'Heavy Weapon: Impact Cannon' },
       ],
       perks: [
-        { name: 'High Tech' },
+        { name: 'High Tech' }, // * First perk should be prime perk
         { name: 'Metalworker' },
         { name: 'Magnetic Field' },
         { name: 'Heavy Mobility' },
@@ -143,7 +143,7 @@ export const remnantItems: Item[] = [
         { name: 'Fortune Hunter' },
       ],
       perks: [
-        { name: 'Lucky' },
+        { name: 'Lucky' }, // * First perk should be prime perk
         { name: 'Scavenger' },
         { name: 'Metal Detector' },
         { name: 'Prospector' },
@@ -173,7 +173,7 @@ export const remnantItems: Item[] = [
         { name: 'Bulletstorm' },
       ],
       perks: [
-        { name: 'Loaded' },
+        { name: 'Loaded' }, // * First perk should be prime perk
         { name: 'Swift Shot' },
         { name: 'Posse Up' },
         { name: 'Quick Hands' },
@@ -203,7 +203,7 @@ export const remnantItems: Item[] = [
         { name: 'Attack Dog' },
       ],
       perks: [
-        { name: 'Bonded' },
+        { name: 'Bonded' }, // * First perk should be prime perk
         { name: 'Pack Hunter' },
         { name: 'Spirit of the Wolf' },
         { name: 'Teamwork' },
@@ -233,7 +233,7 @@ export const remnantItems: Item[] = [
         { name: `Hunter's Shroud` },
       ],
       perks: [
-        { name: 'Dead to Rights' },
+        { name: 'Dead to Rights' }, // * First perk should be prime perk
         { name: 'Deadeye' },
         { name: 'Return to Sender' },
         { name: 'Urgency' },
@@ -261,7 +261,7 @@ export const remnantItems: Item[] = [
         { name: 'Reboot' },
       ],
       perks: [
-        { name: 'Shadow' },
+        { name: 'Shadow' }, // * First perk should be prime perk
         { name: 'S.H.A.R.K.' },
         { name: 'Loophole' },
         { name: 'Circumvent' },
@@ -291,7 +291,7 @@ export const remnantItems: Item[] = [
         { name: 'Redemption' },
       ],
       perks: [
-        { name: 'Regenerator' },
+        { name: 'Regenerator' }, // * First perk should be prime perk
         { name: 'Invigorated' },
         { name: 'Benevolence' },
         { name: 'Backbone' },
@@ -322,7 +322,7 @@ export const remnantItems: Item[] = [
         { name: 'Death Wish' },
       ],
       perks: [
-        { name: 'Vile' },
+        { name: 'Vile' }, // * First perk should be prime perk
         { name: 'Wrath' },
         { name: 'Terrify' },
         { name: 'Dark Blood' },
@@ -628,7 +628,7 @@ export const remnantItems: Item[] = [
     PRESS: Slam Vial on the ground, creating the effect at the ALCHEMIST's feet. [A]
     
     HOLD & RELEASE: Aim and throw the Vial causing the same effect where it lands. [A]`,
-    cooldown:75,
+    cooldown: 75,
     howToGet: `Unlocks at level 5`,
     wikiLinks: [`https://remnant.wiki/Vial:_Frenzy_Dust`],
     linkedItems: {
@@ -6330,7 +6330,7 @@ export const remnantItems: Item[] = [
   {
     category: 'mutator',
     name: 'Shielded Strike',
-  
+
     saveFileSlug: 'shieldbreaker',
     type: 'melee',
     imagePath: '/mutator/shielded_strike.png',
@@ -7031,9 +7031,7 @@ Exclusive to The Awakened King DLC"`,
     tags: ['Grey Health', 'Mod Power'],
     description: `Increases Grey Health conversion by an additional 100%. When Grey Health Conversion triggers, gain 5x the amount as Mod Power.`,
     howToGet: `Can be found in Yaesha, in a random dungeon. Hidden in a room behind an illusory wall.`,
-    wikiLinks: [
-      `https://remnant.wiki/Necklace_of_Flowing_Life`,
-    ],
+    wikiLinks: [`https://remnant.wiki/Necklace_of_Flowing_Life`],
   },
   {
     category: 'amulet',
@@ -7407,9 +7405,7 @@ Exclusive to The Awakened King DLC"`,
     tags: ['Heal'],
     description: `When receiving healing effects, gain HASTE for 10s.`,
     howToGet: `Can be found in Root Earth - Also can be bought from Whispers at Ward 13`,
-    wikiLinks: [
-      `https://remnant.wiki/Anastasija%27s_Inspiration`,
-    ],
+    wikiLinks: [`https://remnant.wiki/Anastasija%27s_Inspiration`],
   },
   {
     category: 'ring',

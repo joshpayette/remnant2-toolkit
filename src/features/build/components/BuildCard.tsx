@@ -87,7 +87,7 @@ export function BuildCard({
                     archetype2:
                       (buildState.items.archetype[1]?.name.toLowerCase() as Archetype) ||
                       null,
-                  })} Build`}{' '}
+                  })}`}{' '}
                 </div>
                 <div className="col-span-2 truncate text-left text-gray-300">
                   by{' '}
