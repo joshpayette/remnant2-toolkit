@@ -20,7 +20,23 @@ export const authOptions: NextAuthOptions = {
       const isBanned = await prisma.bannedUsers.findFirst({
         where: { userId: user.id },
       })
-      return isBanned ? false : true
+      if (isBanned) return false
+
+      // Get the user's latest avatar
+      const response = await fetch(`https://discord.com/api/v10/users/@me`, {
+        method: 'get',
+        headers: {
+          Authorization: `Bot ${process.env.DISCORD_BOT_TOKEN}`,
+        },
+      })
+      const data = await response.json()
+      const userAvatar = `https://cdn.discordapp.com/avatars/${data.id}/${data.avatar}.png`
+      user.image = userAvatar
+      await prisma.user.update({
+        where: { id: user.id },
+        data: { image: userAvatar },
+      })
+      return true
     },
 
     async session({ session, user }) {
