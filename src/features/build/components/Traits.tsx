@@ -215,6 +215,7 @@ export function Traits({
               ) : (
                 <button
                   onClick={() => setEditingTraitItem(traitItem)}
+                  aria-label="Edit Trait Amount"
                   className="min-w-[30px] text-left"
                 >
                   {traitItem.amount ?? DEFAULT_TRAIT_AMOUNT}
@@ -223,6 +224,7 @@ export function Traits({
             </div>
             <button
               className="relative flex items-center justify-start gap-x-2 text-sm text-gray-200"
+              aria-label="Trait Information"
               onClick={() => onItemInfoClick && onItemInfoClick(traitItem)}
             >
               <div>{traitItem.name}</div>
@@ -240,6 +242,7 @@ export function Traits({
             {shouldAllowDelete(traitItem) && (
               <button
                 onClick={() => onRemoveTrait(traitItem)}
+                aria-label="Remove Trait"
                 className="flex grow items-end justify-end text-red-500"
               >
                 <XCircleIcon className="h-5 w-5" aria-hidden="true" />
@@ -251,6 +254,7 @@ export function Traits({
       {showControls && isEditable && (
         <button
           onClick={onAddTrait}
+          aria-label="Add Trait"
           className="mx-auto mt-4 flex max-w-[250px] items-center justify-center rounded border border-purple-700 px-4 py-2 text-xs font-bold text-white hover:border-purple-400 hover:bg-purple-500"
         >
           Add Trait

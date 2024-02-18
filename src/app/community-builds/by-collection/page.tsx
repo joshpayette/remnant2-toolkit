@@ -26,6 +26,7 @@ export default function Page() {
           <button
             className="rounded bg-purple-500 p-2 text-sm font-bold hover:bg-purple-700"
             onClick={() => signIn()}
+            aria-label="Sign in to find builds by collection"
           >
             Sign in to find builds by collection
           </button>

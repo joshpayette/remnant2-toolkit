@@ -35,12 +35,17 @@ export function ItemCategoryFilters({
           By Category
         </div>
         <div className="text-xs">
-          <button className="underline" onClick={() => onReset([])}>
+          <button
+            className="underline"
+            aria-label="Uncheck all categories"
+            onClick={() => onReset([])}
+          >
             Uncheck All
           </button>{' '}
           /{' '}
           <button
             className="underline"
+            aria-label="Check all categories"
             onClick={() => onReset(defaultItemCategories)}
           >
             Check All

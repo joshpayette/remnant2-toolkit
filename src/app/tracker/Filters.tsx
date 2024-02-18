@@ -230,6 +230,7 @@ export function Filters({
             <div className="text-xs">
               <button
                 className="underline"
+                aria-label="Uncheck all DLCs"
                 onClick={() => setIncludedDlcKeys([])}
               >
                 Uncheck All
@@ -237,6 +238,7 @@ export function Filters({
               /{' '}
               <button
                 className="underline"
+                aria-label="Check all DLCs"
                 onClick={() => setIncludedDlcKeys(defaultReleaseKeys)}
               >
                 Check All
@@ -268,6 +270,7 @@ export function Filters({
             <div className="text-xs">
               <button
                 className="underline"
+                aria-label="Uncheck all collections"
                 onClick={() => setIncludedCollectionKeys([])}
               >
                 Uncheck All
@@ -275,6 +278,7 @@ export function Filters({
               /{' '}
               <button
                 className="underline"
+                aria-label="Check all collections"
                 onClick={() => setIncludedCollectionKeys(defaultCollectionKeys)}
               >
                 Check All
@@ -305,6 +309,7 @@ export function Filters({
             <div className="text-xs">
               <button
                 className="underline"
+                aria-label="Uncheck all categories"
                 onClick={() => setIncludedCategoryKeys([])}
               >
                 Uncheck All
@@ -312,6 +317,7 @@ export function Filters({
               /{' '}
               <button
                 className="underline"
+                aria-label="Check all categories"
                 onClick={() => setIncludedCategoryKeys(defaultCategoryKeys)}
               >
                 Check All

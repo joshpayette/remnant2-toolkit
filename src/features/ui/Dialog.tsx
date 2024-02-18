@@ -71,6 +71,7 @@ export function Dialog({
                 <button
                   className="absolute right-0 top-0 p-2 text-white hover:text-green-500"
                   onClick={onClose}
+                  aria-label="Close dialog"
                 >
                   <XMarkIcon className="h-6 w-6" aria-hidden="true" />
                 </button>

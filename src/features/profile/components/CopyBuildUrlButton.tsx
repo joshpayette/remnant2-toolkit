@@ -13,6 +13,7 @@ export function CopyBuildUrlButton({ buildId }: { buildId: string }) {
   return (
     <button
       className="text-green-500 hover:text-green-300"
+      aria-label="Copy build URL to clipboard"
       onClick={handleCopyBuild}
     >
       Share

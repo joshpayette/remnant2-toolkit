@@ -36,6 +36,7 @@ export function ToCsvButton({
   return (
     <button
       className="flex flex-col items-center justify-center rounded border-2 border-purple-500 px-4 py-2 text-sm font-bold text-white hover:bg-purple-700"
+      aria-label="Export All Data to CSV"
       onClick={() => toCsv(data, filename)}
     >
       {label}

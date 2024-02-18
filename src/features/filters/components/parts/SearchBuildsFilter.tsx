@@ -28,7 +28,10 @@ export function SearchBuildsFilter({
           />
           <div className="absolute inset-y-0 right-0 flex items-center pr-3">
             {searchText && (
-              <button onClick={() => onChange('')}>
+              <button
+                onClick={() => onChange('')}
+                aria-label="Clear search text"
+              >
                 <XMarkIcon
                   className="h-5 w-5 text-green-400"
                   aria-hidden="true"

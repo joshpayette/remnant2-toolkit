@@ -17,6 +17,7 @@ export function ApplyFiltersButton<T>({
         'rounded bg-green-500 p-2 text-sm font-bold text-black hover:bg-green-700 hover:text-white',
         !areFiltersApplied && 'animate-pulse ',
       )}
+      aria-label="Apply Filters"
       onClick={() => onClick(filters)}
     >
       Apply Filters

@@ -35,6 +35,7 @@ export function ImportCSVDialog({
           />
           <button
             onClick={onSubmit}
+            aria-label="Import CSV file"
             className="w-[200px] rounded border-2 border-purple-500 bg-purple-700 p-2 text-lg font-bold text-white/90 hover:bg-purple-500 hover:text-white disabled:bg-gray-500"
           >
             Import CSV

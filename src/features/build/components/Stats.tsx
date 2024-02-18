@@ -68,6 +68,7 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
                   'text-md flex items-center justify-end text-right font-bold sm:text-lg',
                   isScreenshotMode && 'text-lg',
                 )}
+                aria-label={`Armor Damage Reduction: ${totalArmor} / (${totalArmor} + 200)`}
               >
                 {totalArmor}
               </button>
@@ -89,7 +90,15 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
                     : weightClass.description
                 }
               >
-                <button>{totalWeight}</button>
+                <button
+                  aria-label={
+                    challengerIsEquipped
+                      ? weightClass.challengerDescription
+                      : weightClass.description
+                  }
+                >
+                  {totalWeight}
+                </button>
               </Tooltip>
             </span>
           </div>

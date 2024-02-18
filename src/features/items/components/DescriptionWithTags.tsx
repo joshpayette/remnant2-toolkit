@@ -14,7 +14,12 @@ function createTagElement(
   if (tag.description) {
     return (
       <Tooltip key={key} content={tag.description}>
-        <button className={cn('font-semibold', tag.color)}>{token}</button>
+        <button
+          className={cn('font-semibold', tag.color)}
+          aria-label={tag.description}
+        >
+          {token}
+        </button>
       </Tooltip>
     )
   } else {

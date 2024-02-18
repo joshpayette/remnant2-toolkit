@@ -35,6 +35,7 @@ export function SaveBuildButton({ buildState, editMode }: Props) {
     return (
       <button
         type="submit"
+        aria-label="Sign In to Save Build"
         className={cn(buttonClasses, 'border-red-500 hover:bg-red-700')}
         onClick={() => signIn()}
       >
@@ -82,6 +83,7 @@ export function SaveBuildButton({ buildState, editMode }: Props) {
           buttonClasses,
           'border-yellow-700 bg-yellow-500 text-black hover:bg-yellow-300',
         )}
+        aria-label="Save Edits"
         onClick={async () => {
           promptForBuildName()
           setSaveInProgress(true)
@@ -111,6 +113,7 @@ export function SaveBuildButton({ buildState, editMode }: Props) {
             buttonClasses,
             'border-transparent bg-green-500 text-black hover:bg-green-700 hover:text-white',
           )}
+          aria-label="Save Build"
           onClick={async () => {
             promptForBuildName()
             setSaveInProgress(true)
