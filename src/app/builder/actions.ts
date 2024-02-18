@@ -180,28 +180,9 @@ export async function createBuild(data: string): Promise<BuildActionResponse> {
     })
 
     // Trigger webhook to send build to Discord
-    if (buildState.isPublic && process.env.NODE_ENV === 'production') {
+    if (buildState.isPublic) {
       const params = {
-        embeds: [
-          {
-            title: `New Build Created!`,
-            color: 0x00ff00,
-            fields: [
-              {
-                name: 'Build Name',
-                value: buildState.name,
-              },
-              {
-                name: 'Created By',
-                value: buildState.createdByDisplayName,
-              },
-              {
-                name: 'Build Link',
-                value: `https://www.remnant2toolkit.com/builder/${dbResponse.id}`,
-              },
-            ],
-          },
-        ],
+        content: `https://www.remnant2toolkit.com/builder/${dbResponse.id}`,
       }
 
       const res = await fetch(`${process.env.WEBHOOK_COMMUNITY_BUILDS}`, {
@@ -393,32 +374,9 @@ export async function updateBuild(data: string): Promise<BuildActionResponse> {
     }
 
     // If the build was private but is now public, send the build info to Discord
-    if (
-      existingBuild?.isPublic === false &&
-      buildState.isPublic === true &&
-      process.env.NODE_ENV === 'production'
-    ) {
+    if (existingBuild?.isPublic === false && buildState.isPublic === true) {
       const params = {
-        embeds: [
-          {
-            title: `Private Build Became Public!`,
-            color: 0x00ff00,
-            fields: [
-              {
-                name: 'Build Name',
-                value: buildState.name,
-              },
-              {
-                name: 'Created By',
-                value: buildState.createdByDisplayName,
-              },
-              {
-                name: 'Build Link',
-                value: `https://www.remnant2toolkit.com/builder/${buildState.buildId}`,
-              },
-            ],
-          },
-        ],
+        content: `https://www.remnant2toolkit.com/builder/${buildState.buildId}`,
       }
 
       const res = await fetch(`${process.env.WEBHOOK_COMMUNITY_BUILDS}`, {
@@ -435,31 +393,9 @@ export async function updateBuild(data: string): Promise<BuildActionResponse> {
     }
 
     // If the build name has updated, send the build info to Discord
-    if (
-      existingBuild?.name !== buildState.name &&
-      process.env.NODE_ENV === 'production'
-    ) {
+    if (existingBuild?.name !== buildState.name) {
       const params = {
-        embeds: [
-          {
-            title: `Build Name Updated!`,
-            color: 0x00ff00,
-            fields: [
-              {
-                name: 'Build Name',
-                value: buildState.name,
-              },
-              {
-                name: 'Created By',
-                value: buildState.createdByDisplayName,
-              },
-              {
-                name: 'Build Link',
-                value: `https://www.remnant2toolkit.com/builder/${buildState.buildId}`,
-              },
-            ],
-          },
-        ],
+        content: `https://www.remnant2toolkit.com/builder/${buildState.buildId}`,
       }
 
       const res = await fetch(`${process.env.WEBHOOK_COMMUNITY_BUILDS}`, {
