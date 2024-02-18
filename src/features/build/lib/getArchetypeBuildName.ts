@@ -1,3 +1,4 @@
+import { remnantItems } from '@/features/items/data/remnantItems'
 import { Archetype } from '@/features/items/types'
 
 import { ARCHETYPE_BUILD_NAMES } from '../constants'
@@ -19,6 +20,14 @@ export function getArchetypeBuildName({
     return ''
   }
 
+  const primePerkName = remnantItems.find(
+    (item) => item.name.toLowerCase() === archetype1,
+  )?.linkedItems?.perks?.[0].name
+
+  if (!primePerkName) {
+    return ''
+  }
+
   const archetypeBuildName = ARCHETYPE_BUILD_NAMES.find(
     (buildName) =>
       (buildName.archetypes[0] === archetype1 &&
@@ -27,5 +36,9 @@ export function getArchetypeBuildName({
         buildName.archetypes[1] === archetype1),
   )
 
-  return archetypeBuildName?.name ?? ''
+  if (!archetypeBuildName) {
+    return ''
+  }
+
+  return `${primePerkName} ${archetypeBuildName.name}`
 }
