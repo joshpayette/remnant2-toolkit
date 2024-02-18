@@ -92,6 +92,7 @@ export function ItemButton({
           onClick={() =>
             onItemInfoClick && !isEnemy(item) && onItemInfoClick(item)
           }
+          aria-label="Item Information"
         >
           <Image
             src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/information.png`}
@@ -117,6 +118,7 @@ export function ItemButton({
           isToggled === true && 'border-green-500',
           isToggled === false && 'border-gray-700',
         )}
+        aria-label="Remnant 2 Item Button"
         suppressHydrationWarning
       >
         {item && (
