@@ -161,8 +161,6 @@ export function ArmorSuggestions({
   function handleWeightClassChange(weightClass: WeightClassWithDefault) {
     setDesiredWeightClass(weightClass)
 
-    console.info('weightClass', weightClass)
-
     if (weightClass === 'CHOOSE') {
       setArmorSuggestions([])
       return

@@ -164,7 +164,6 @@ export function ItemLookupFilters({ filters }: Props) {
       finalPath = finalPath.slice(0, -1)
     }
 
-    console.info('final path', finalPath)
     router.push(finalPath, { scroll: false })
   }
 
