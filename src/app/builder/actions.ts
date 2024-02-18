@@ -182,7 +182,7 @@ export async function createBuild(data: string): Promise<BuildActionResponse> {
     // Trigger webhook to send build to Discord
     if (buildState.isPublic) {
       const params = {
-        content: `https://www.remnant2toolkit.com/builder/${dbResponse.id}`,
+        content: `New build created! https://www.remnant2toolkit.com/builder/${dbResponse.id}`,
       }
 
       const res = await fetch(`${process.env.WEBHOOK_COMMUNITY_BUILDS}`, {
@@ -376,7 +376,7 @@ export async function updateBuild(data: string): Promise<BuildActionResponse> {
     // If the build was private but is now public, send the build info to Discord
     if (existingBuild?.isPublic === false && buildState.isPublic === true) {
       const params = {
-        content: `https://www.remnant2toolkit.com/builder/${buildState.buildId}`,
+        content: `Build changed from private to public. https://www.remnant2toolkit.com/builder/${buildState.buildId}`,
       }
 
       const res = await fetch(`${process.env.WEBHOOK_COMMUNITY_BUILDS}`, {
@@ -395,7 +395,7 @@ export async function updateBuild(data: string): Promise<BuildActionResponse> {
     // If the build name has updated, send the build info to Discord
     if (existingBuild?.name !== buildState.name) {
       const params = {
-        content: `https://www.remnant2toolkit.com/builder/${buildState.buildId}`,
+        content: `Build name updated. Old name: ${existingBuild.name}, New name: ${buildState.name}. https://www.remnant2toolkit.com/builder/${buildState.buildId}`,
       }
 
       const res = await fetch(`${process.env.WEBHOOK_COMMUNITY_BUILDS}`, {
