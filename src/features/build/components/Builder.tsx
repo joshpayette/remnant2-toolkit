@@ -5,13 +5,14 @@ import { Fragment, useCallback, useMemo, useState } from 'react'
 import { PopularBuildBadge } from '@/features/build/components/PopularBuildBadge'
 import { BuildState, ItemCategory } from '@/features/build/types'
 import { ItemInfoDialog } from '@/features/items/components/ItemInfoDialog'
-import { Item } from '@/features/items/types'
+import { Archetype, Item } from '@/features/items/types'
 import { TraitItem } from '@/features/items/types/TraitItem'
 import { Logo } from '@/features/ui/Logo'
 import { cn } from '@/lib/classnames'
 
 import { ItemButton } from '../../items/components/ItemButton'
 import { DEFAULT_TRAIT_AMOUNT, POPULAR_VOTE_THRESHOLD } from '../constants'
+import { getArchetypeBuildName } from '../lib/getArchetypeBuildName'
 import { getArrayOfLength } from '../lib/getArrayOfLength'
 import { getConcoctionSlotCount } from '../lib/getConcoctionSlotCount'
 import { getItemListForSlot } from '../lib/getItemListForSlot'
@@ -351,7 +352,17 @@ export function Builder({
           />
           {showCreatedBy && (
             <div className="mb-2 flex items-center justify-center text-sm text-gray-400">
-              <span className="mb-1">Build by </span>
+              <span className="mb-1">
+                {`${getArchetypeBuildName({
+                  archetype1:
+                    (buildState.items.archetype[0]?.name.toLowerCase() as Archetype) ||
+                    null,
+                  archetype2:
+                    (buildState.items.archetype[1]?.name.toLowerCase() as Archetype) ||
+                    null,
+                })}`}{' '}
+                Build by{' '}
+              </span>
               <Link
                 href={`/profile/${buildState.createdById}`}
                 className="mb-1 ml-1 text-green-500 hover:text-green-700"
