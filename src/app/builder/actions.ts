@@ -188,6 +188,14 @@ export async function createBuild(data: string): Promise<BuildActionResponse> {
             color: 0x00ff00,
             fields: [
               {
+                name: 'Build Name',
+                value: buildState.name,
+              },
+              {
+                name: 'Created By',
+                value: buildState.createdByDisplayName,
+              },
+              {
                 name: 'Build Link',
                 value: `https://www.remnant2toolkit.com/builder/${dbResponse.id}`,
               },
@@ -397,6 +405,14 @@ export async function updateBuild(data: string): Promise<BuildActionResponse> {
             color: 0x00ff00,
             fields: [
               {
+                name: 'Build Name',
+                value: buildState.name,
+              },
+              {
+                name: 'Created By',
+                value: buildState.createdByDisplayName,
+              },
+              {
                 name: 'Build Link',
                 value: `https://www.remnant2toolkit.com/builder/${buildState.buildId}`,
               },
@@ -429,6 +445,14 @@ export async function updateBuild(data: string): Promise<BuildActionResponse> {
             title: `Build Name Updated!`,
             color: 0x00ff00,
             fields: [
+              {
+                name: 'Build Name',
+                value: buildState.name,
+              },
+              {
+                name: 'Created By',
+                value: buildState.createdByDisplayName,
+              },
               {
                 name: 'Build Link',
                 value: `https://www.remnant2toolkit.com/builder/${buildState.buildId}`,
