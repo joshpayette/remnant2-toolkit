@@ -85,7 +85,7 @@ export default function Page({
       <ImageDownloadLink onClose={handleClearImageLink} imageLink={imageLink} />
       <div className="height-full flex w-full flex-col items-center justify-center">
         {buildState.isFeaturedBuild && buildState.videoUrl && (
-          <div className="mb-8 max-h-[215px] text-center sm:mb-8 sm:max-h-[335px] sm:max-w-[560px]">
+          <div className="mb-8 max-h-[270px] text-center sm:mb-8 sm:max-h-[430px] sm:max-w-[560px]">
             <a
               href={`${videoEmbedUrlToWatchUrl(buildState.videoUrl)}`}
               target="_blank"
@@ -95,7 +95,7 @@ export default function Page({
                 height={315}
                 src={`https://i.ytimg.com/vi/${videoEmbedUrlToVideoId(
                   buildState.videoUrl,
-                )}/maxresdefault.jpg`}
+                )}/sddefault.jpg`}
                 loading="eager"
                 alt={`${buildState.name} video thumbnail`}
                 unoptimized={true}
