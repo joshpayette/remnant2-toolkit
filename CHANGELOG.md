@@ -10,6 +10,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Build cards and build views now show the in-game build names based on the archetypes selected. For example, Ritualist + Alchemist = Diabolist.
 
+### Changed
+
+- Linking to the Github repo will now use a toolkit specific image and stop showing my face every time!
+
 ### Fixed
 
 - Fixed build where some Youtube thumbnails were not rendering correctly.
