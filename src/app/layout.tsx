@@ -13,6 +13,7 @@ import { Viewport } from 'next'
 import { Suspense } from 'react'
 import { ToastContainer } from 'react-toastify'
 
+import { PreloadResources } from '@/features/ui/PreloadResources'
 import { Skeleton } from '@/features/ui/Skeleton'
 
 import { SessionProvider } from '../features/auth/components/SessionProvider'
@@ -38,6 +39,7 @@ export default async function RootLayout({
           inter.className,
         )}
       >
+        <PreloadResources />
         <SessionProvider>
           <div className="fixed bottom-[8px] right-[8px] z-20">
             <BackToTopButton />
