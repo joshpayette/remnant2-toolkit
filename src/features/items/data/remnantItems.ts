@@ -365,7 +365,7 @@ export const remnantItems: Item[] = [
     name: 'War Stomp',
     imagePath: '/skill/war_stomp.png',
     id: 'qnz5iw',
-    description: `Creates a high impact tremor that deals 150 damage and additional stagger in a forward cone up to 7.5m. [A] Deals damage in all directions at point blank range. `,
+    description: `Creates a high impact tremor that deals 150 damage [E] and additional stagger in a forward cone up to 7.5m. [A] Deals damage in all directions at point blank range. `, // TODO Confirm patch notes
     cooldown: 50,
     howToGet: `Automatically unlocked`,
     wikiLinks: [`https://remnant.wiki/War_Stomp`],
@@ -418,7 +418,7 @@ export const remnantItems: Item[] = [
     
     DOUBLE TAP: Companion returns to the HANDLER and remains by their side. 
     
-    HOLD: Howl reduces damage by 15% to all allies within 20m and the Companion generates additional Threat. Lasts 20s.`,
+    HOLD: Howl reduces damage by 15% to all allies within 20m [A] and the Companion generates additional Threat. Lasts 20s.`, // TODO Confirm patch notes
     cooldown: 90,
     howToGet: `Unlocks automatically`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Guard+Dog`],
@@ -439,7 +439,7 @@ export const remnantItems: Item[] = [
     
     DOUBLE TAP: Companion returns to the HANDLER and remains by their side.
     
-    HOLD: Howl grants 2% of Max Health per second and 25% increased Movement Speed to all allies within 20m. Lasts 25s`,
+    HOLD: Howl grants 2% of Max Health per second and 25% increased Movement Speed to all allies within 20m [A]. Lasts 25s`, // TODO Confirm patch notes
     cooldown: 90,
     howToGet: `Unlocks at level 5`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Support+Dog`],
@@ -460,7 +460,7 @@ export const remnantItems: Item[] = [
     
     DOUBLE TAP: Companion returns to the HANDLER and remains by their side. 
     
-    HOLD: Howl increases damage by 20% for all allies within 20m. Lasts 20s.`,
+    HOLD: Howl increases damage by 20% for all allies within 20m [A]. Lasts 20s.`, // TODO Confirm patch notes
     cooldown: 90,
     howToGet: `Unlocks at level 10`,
     wikiLinks: [`https://remnant.wiki/Attack_Dog`],
@@ -546,9 +546,9 @@ export const remnantItems: Item[] = [
       'Critical Chance',
       'Recoil',
     ],
-    description: `Continously Aiming Down Sights uninterrupted and without shooting for 1s causes the HUNTER to enter a FOCUSED state. 
+    description: `Continously Aiming Down Sights uninterrupted and without shooting for 0.5s causes the HUNTER to enter a FOCUSED state.  
 
-    FOCUSED reduces Weapon Spread, Recoil, and Sway by 75% and grants 25% Ranged & Ranged Weakspot Damage [M], and 10% Ranged Crit Chance.
+    FOCUSED reduces Weapon Spread, Recoil, and Sway by 50% and grants 25% Ranged & Ranged Weakspot Damage [M], and 10% Ranged Crit Chance.
     
     While FOCUSED, Aiming at enemies will automatically apply MARK.
     
@@ -557,7 +557,7 @@ export const remnantItems: Item[] = [
     
     FOCUSED state can last up to 10s after the Skill duration expires.
     
-    MARK: Crit Chance against MARKED enemies is increased by 15% for all allies.`,
+    MARK: Crit Chance against MARKED enemies is increased by 15% for all allies.`, // TODO Confirm patch notes
     cooldown: 50,
     howToGet: `Unlocks at level 5`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Hunter's+Focus`],
@@ -623,11 +623,11 @@ export const remnantItems: Item[] = [
     id: 'xsniv3',
     description: `Creates a mysterious vapor cloud which lasts 10s and applies FRENZIED.
 
-    FRENZlED increases Fire Rate, Reload Speed, and Melee Speed by 20%, and Movement Speed by 15%. Lasts 15s.
+    FRENZlED increases Fire Rate, Reload Speed, Melee Speed, and Melee Charge Speed by 20%, and Movement Speed by 15%. Lasts 15s.
 
     PRESS: Slam Vial on the ground, creating the effect at the ALCHEMIST's feet. [A]
     
-    HOLD & RELEASE: Aim and throw the Vial causing the same effect where it lands. [A]`,
+    HOLD & RELEASE: Aim and throw the Vial causing the same effect where it lands. [A]`, // TODO Confirm patch notes
     cooldown: 75,
     howToGet: `Unlocks at level 5`,
     wikiLinks: [`https://remnant.wiki/Vial:_Frenzy_Dust`],
@@ -680,7 +680,7 @@ export const remnantItems: Item[] = [
     name: 'Chaos Gate',
     imagePath: '/skill/chaos_gate.png',
     id: '9w7c5j',
-    description: `Conjures a 7m [A] unstable zone which grants allies a 15% to all Damage Dealt, 25% increased Mod Generation, but increases the damage that allies take by 15%. Lasts 20s.`,
+    description: `Conjures a 7m [A] unstable zone which grants allies a 50% to all Damage Dealt, 25% increased Mod Generation, but increases the damage that allies take by 15% for 10s. Lasts 20s.`, // TODO Confirm patch notes
     cooldown: 85,
     howToGet: `Unlocks at level 5`,
     wikiLinks: [`https://remnant.wiki/Chaos_Gate`],
@@ -827,11 +827,11 @@ export const remnantItems: Item[] = [
     name: 'Quick Draw',
     imagePath: '/skill/quick_draw.png',
     id: 'qdxjt7',
-    description: `Pull out your trusty side piece and unload up to 6 Critical Shots from the hip. Each shot deals 35 base damage and double stagger value. 
+    description: `Pull out your trusty side piece and unload up to 6 Critical Shots from the hip. Each shot deals 52 base damage and double stagger value. 
 
     PRESS: Instantly fires towards all enemies in view within 25m. Upon release, rounds will be divided evenly among all targets.
     
-    HOLD & RELEASE: Allows manual Aim and fires one single powerful shot upon release.`,
+    HOLD & RELEASE: Allows manual Aim and fires one single powerful shot upon release.`, // TODO Confirm patch notes
     cooldown: 38.4,
     howToGet: `Unlocks automatically`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Quick+Draw`],
@@ -997,7 +997,7 @@ export const remnantItems: Item[] = [
     imagePath: '/skill/eruption.png',
     id: 'amqa83',
     tags: ['Status Effect'],
-    description: `Creates 1m explosion for 150 damage on all enemies within 15m. Explosion Radius and damage increases 100% for each unique Status Effect on the target. Refreshes all current Status Effects on the target. [A]`,
+    description: `Creates 1m explosion for 150 damage [E] on all enemies within 15m. Explosion Radius and damage increases 100% for each unique Status Effect on the target. Refreshes all current Status Effects on the target. [A]`,
     cooldown: 30,
     howToGet: `Unlocks automatically`,
     wikiLinks: [`https://remnant.wiki/Eruption`],
@@ -10135,12 +10135,12 @@ Using a Relic extends the duration of any active HUNTER Skill by 10s. Effect deg
     id: '485uc9',
     tags: ['Ranged Damage', 'Skill Damage', 'Critical Chance'],
     description: `
-    Gain 3% Ranged and Skill Damage while Companion is active and within 40m of the player. Damage increases with HANDLER Level.
+    Gain 3% Ranged and Skill Damage while Companion is within 40m of the player. Damage increases with HANDLER Level.
     
     Upgrade Unlocked at level 6
-    Gain 18% Ranged and Skill Damage and 5% Ranged and Skill Critical Chance while Companion is active and within 40m of the player.
+    Gain 18% Ranged and Skill Damage and 5% Ranged and Skill Critical Chance while Companion is within 40m of the player.
       
-    (Level 10: Gain 30% Ranged and Skill Damage and 5% Ranged and Skill Critical Chance while Companion is active and within 40m of the player.)`,
+    (Level 10: Gain 30% Ranged and Skill Damage and 5% Ranged and Skill Critical Chance while Companion is within 40m of the player.)`, // TODO Confirm patch notes
     howToGet: `Unlocked at Level 1`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Pack+Hunter`],
     linkedItems: {
@@ -10429,7 +10429,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     tags: ['Heal'],
     description: `
     When receiving fatal damage, the CHALLENGER becomes invulnerable for 2s and regenerates 50% of Max Health.
-    Can only happen once every 10 minutes. Resets at Wordstone or on death.
+    Can only happen once every 10 minutes. Resets at Wordstone or on death. While this skill is on cooldown gain 1 stack of Bulwark.
 
     Upgraded at Level 5
     When receiving fatal damage, the CHALLENGER becomes invulnerable for 2.5s and regenerates 75% of Max Health.
@@ -10438,7 +10438,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     Upgraded at level 10
     When receiving fatal damage, the CHALLENGER becomes invulnerable for 3s and regenerates 100% of Max Health.
     
-    Can only happen once every 10 minutes. Resets at Wordstone or on death.`,
+    Can only happen once every 10 minutes. Resets at Wordstone or on death.`, // TODO Confirm patch notes.
     howToGet: `Automatically unlocked.`,
     wikiLinks: [`https://remnant.wiki/Die+Hard`],
     linkedItems: {
@@ -10693,7 +10693,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     id: '7ay3kh',
     tags: ['Mod Power'],
     description: `
-    After casting a Mod, 5% of the Mod Power spent will be regenerated by all allies over 10s.
+    After casting a Mod, 5% of the Mod Power spent will be regenerated by all allies over 10s. 
 
     Upgrade unlocked at level 7
     Upgrade: While Power Creep is active. allies will also gain 5% Mod Power Generation.`,
