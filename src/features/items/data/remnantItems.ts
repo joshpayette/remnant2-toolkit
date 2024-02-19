@@ -546,9 +546,12 @@ export const remnantItems: Item[] = [
       'Critical Chance',
       'Recoil',
     ],
+    // TODO - Tragic indicated spread reduction would be reduced to 50%. Check to confirm
+    // TODO - He also said he reduced spread reduction specifically to 50%, not sure if this affects recoil and sway as well
+    // TODO - For now, assuming all three values were reduced based on the tooltip grouping them as one
     description: `Continously Aiming Down Sights uninterrupted and without shooting for 1s causes the HUNTER to enter a FOCUSED state. 
 
-    FOCUSED reduces Weapon Spread, Recoil, and Sway by 75% and grants 25% Ranged & Ranged Weakspot Damage [M], and 10% Ranged Crit Chance.
+    FOCUSED reduces Weapon Spread, Recoil, and Sway by 50% and grants 25% Ranged & Ranged Weakspot Damage [M], and 10% Ranged Crit Chance.
     
     While FOCUSED, Aiming at enemies will automatically apply MARK.
     
@@ -3151,9 +3154,7 @@ export const remnantItems: Item[] = [
     id: 'xqklut',
     description: `X% Consumable Duration (Mythic: Maximum of +20%)`,
     howToGet: ``,
-    wikiLinks: [
-      `https://remnant.wiki/Relic_Fragment`,
-    ],
+    wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
     category: 'relicfragment',
@@ -3163,9 +3164,7 @@ export const remnantItems: Item[] = [
     tags: ['Relic Use Speed'],
     description: `X% Consumable Use Speed (Mythic: Maximum of +15%)`,
     howToGet: ``,
-    wikiLinks: [
-      `https://remnant.wiki/Relic_Fragment`,
-    ],
+    wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
     category: 'relicfragment',
@@ -3175,9 +3174,7 @@ export const remnantItems: Item[] = [
     tags: ['Damage Reduction'],
     description: `X% Damage Reduction (Mythic: Maximum of +5%)`,
     howToGet: ``,
-    wikiLinks: [
-      `https://remnant.wiki/Relic_Fragment`,
-    ],
+    wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
     category: 'relicfragment',
@@ -3187,9 +3184,7 @@ export const remnantItems: Item[] = [
     tags: ['Status Effect'],
     description: `X% Elemental Damage (Mythic: Maximum of +10%)`,
     howToGet: ``,
-    wikiLinks: [
-      `https://remnant.wiki/Relic_Fragment`,
-    ],
+    wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
     category: 'relicfragment',
@@ -3199,9 +3194,7 @@ export const remnantItems: Item[] = [
     tags: ['Damage Reduction'],
     description: `X% Elemental Damage Resistance (Mythic: Maximum of +10%)`,
     howToGet: ``,
-    wikiLinks: [
-      `https://remnant.wiki/Relic_Fragment`,
-    ],
+    wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
     bleedResistance: 10,
     fireResistance: 10,
     shockResistance: 10,
@@ -3216,9 +3209,7 @@ export const remnantItems: Item[] = [
     tags: ['Grey Health'],
     description: `+X% Health (Mythic: Maximum of +20%)`,
     howToGet: ``,
-    wikiLinks: [
-      `https://remnant.wiki/Relic_Fragment`,
-    ],
+    wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
     category: 'relicfragment',
@@ -3228,9 +3219,7 @@ export const remnantItems: Item[] = [
     tags: ['Healing Effectivness'],
     description: `+X% Healing Effectiveness (Mythic: Maximum of +20%)`,
     howToGet: ``,
-    wikiLinks: [
-      `https://remnant.wiki/Relic_Fragment`,
-    ],
+    wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
     category: 'relicfragment',
@@ -3251,9 +3240,7 @@ export const remnantItems: Item[] = [
     tags: ['Melee Attack Speed'],
     description: `+X% Melee Attack Speed (Mythic: Maximum of +15%)`,
     howToGet: ``,
-    wikiLinks: [
-      `https://remnant.wiki/Relic_Fragment`,
-    ],
+    wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
     category: 'relicfragment',
@@ -3264,9 +3251,7 @@ export const remnantItems: Item[] = [
     tags: ['Critical Chance', 'Melee Critical Chance'],
     description: `+X% Melee Crit Chance (Mythic: Maximum of +10%)`,
     howToGet: ``,
-    wikiLinks: [
-      `https://remnant.wiki/Relic_Fragment`,
-    ],
+    wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
     category: 'relicfragment',
@@ -3277,9 +3262,7 @@ export const remnantItems: Item[] = [
     tags: ['Melee Critical Damage', 'Critical Damage'],
     description: `+X% Melee Crit Damage (Mythic: Maximum of +20%[C])`,
     howToGet: ``,
-    wikiLinks: [
-      `https://remnant.wiki/Relic_Fragment`,
-    ],
+    wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
     category: 'relicfragment',
@@ -3330,9 +3313,7 @@ export const remnantItems: Item[] = [
     tags: ['Critical Chance'],
     description: `+X% Ranged Crit Chance (Mythic: Maximum of +10%)`,
     howToGet: ``,
-    wikiLinks: [
-      `https://remnant.wiki/Relic_Fragment`,
-    ],
+    wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
     category: 'relicfragment',
@@ -3343,9 +3324,7 @@ export const remnantItems: Item[] = [
     tags: ['Critical Damage'],
     description: `+X% Ranged Crit Damage (Mythic: Maximum of +20%[C])`,
     howToGet: ``,
-    wikiLinks: [
-      `https://remnant.wiki/Relic_Fragment`,
-    ],
+    wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
     category: 'relicfragment',
@@ -3365,9 +3344,7 @@ export const remnantItems: Item[] = [
     tags: ['Fire Rate'],
     description: `+X% Fire Rate (Mythic: Maximum of +10%)`,
     howToGet: ``,
-    wikiLinks: [
-      `https://remnant.wiki/Relic_Fragment`,
-    ],
+    wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
     category: 'relicfragment',
@@ -3395,9 +3372,7 @@ export const remnantItems: Item[] = [
     id: 'alp59n',
     description: `+X% SHIELD Amount (Mythic: Maximum of +20%)`,
     howToGet: ``,
-    wikiLinks: [
-      `https://remnant.wiki/Relic_Fragment`,
-    ],
+    wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
     category: 'relicfragment',
@@ -3478,9 +3453,7 @@ export const remnantItems: Item[] = [
     tags: ['Stamina'],
     description: `-X% Stamina Recovery Delay (Mythic: Maximum of -30%)`,
     howToGet: ``,
-    wikiLinks: [
-      `https://remnant.wiki/Relic_Fragment`,
-    ],
+    wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
     category: 'relicfragment',
@@ -3490,9 +3463,7 @@ export const remnantItems: Item[] = [
     tags: ['Weakspot Damage'],
     description: `+X% Weakspot Damage (Mythic: Maximum of +15% [M]).`,
     howToGet: ``,
-    wikiLinks: [
-      `https://remnant.wiki/Relic_Fragment`,
-    ],
+    wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
     category: 'relicfragment',
@@ -3500,6 +3471,7 @@ export const remnantItems: Item[] = [
     imagePath: '/relicfragment/weapon_spread.png',
     id: 'oiiiu2',
     tags: ['Spread'],
+    // TODO - Tragic indicated spread reduction would be reduced
     description: `-X% Weapon Spread (Mythic: Maximum of -30%)`,
     howToGet: ``,
     wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
@@ -5347,7 +5319,8 @@ export const remnantItems: Item[] = [
     name: 'Explosive Shot',
     imagePath: '/mod/explosive_shot.png',
     id: 'hpfdzp',
-    description: `Fires an explosive round [E] that deals up to 240 damage within 9m. [A] `, // TODO IN-GAME check for explosive damage
+    // TODO IN-GAME check for explosive damage
+    description: `Fires an explosive round [E] that deals up to 240 damage within 9m. [A] `,
     howToGet: `Attached to the Hellfire weapon`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Explosive+Shot`],
     linkedItems: {
@@ -8133,6 +8106,7 @@ Exclusive Ring for The Awakened King DLC."`,
     imagePath: '/ring/focusing_shard.png',
     id: 'o7grsg',
     tags: ['Recoil', 'Spread'],
+    // TODO - Tragic indicated spread reduction would be reduced
     description: `Continuously Aiming Down Sights reduces Recoil by 25% and gradually reduces Spread up to 35% over 3.5s.`,
     howToGet: `Can be found in N'Erud -`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Focused+Jewel`],
@@ -8418,6 +8392,7 @@ Can be crafted at Drzyr Replicator, you will need the following Materials: x10 F
     imagePath: '/ring/point_focus_ring.png',
     id: 'gg6srx',
     tags: ['Recoil', 'Spread'],
+    // TODO - Tragic indicated spread reduction would be reduced
     description: `Reduces Initial Spread and Recoil by 35%.`,
     howToGet: `Can be found in N'Erud as a random drop.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Point+Focus+Ring`],
@@ -9685,6 +9660,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     imagePath: '/concoction/tranquility_font.png',
     id: 'l7r9sm',
     tags: ['Spread', 'Recoil'],
+    // TODO - Tragic indicated spread reduction would be reduced
     description: `Reduces Reticle Sway, Spread, and Gun Recoil by 35%. Lasts 60m and will stay in effect after death. Only one Concoction may be active at a time.`,
     howToGet: `
     Can be bought from Mudtooth at the following cost: 500 Scrap.
