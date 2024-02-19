@@ -22,20 +22,28 @@ export const authOptions: NextAuthOptions = {
       })
       if (isBanned) return false
 
-      // Get the user's latest avatar
-      const response = await fetch(`https://discord.com/api/v10/users/@me`, {
-        method: 'get',
-        headers: {
-          Authorization: `Bot ${process.env.DISCORD_BOT_TOKEN}`,
-        },
-      })
-      const data = await response.json()
-      const userAvatar = `https://cdn.discordapp.com/avatars/${data.id}/${data.avatar}.png`
-      user.image = userAvatar
-      await prisma.user.update({
-        where: { id: user.id },
-        data: { image: userAvatar },
-      })
+      // TODO need to get avatar based on id, not @me
+      // // Get the user's latest avatar
+      // const response = await fetch(`https://discord.com/api/v10/users/@me`, {
+      //   method: 'get',
+      //   headers: {
+      //     Authorization: `Bot ${process.env.DISCORD_BOT_TOKEN}`,
+      //   },
+      // })
+      // const data = await response.json()
+      // if (data.avatar && data.id) {
+      //   try {
+      //     const userAvatar = `https://cdn.discordapp.com/avatars/${data.id}/${data.avatar}.png`
+      //     user.image = userAvatar
+      //     await prisma.user.update({
+      //       where: { id: user.id },
+      //       data: { image: userAvatar },
+      //     })
+      //   } catch (e) {
+      //     console.error('Error updating user avatar', e)
+      //     return true
+      //   }
+      // }
       return true
     },
 
