@@ -9,8 +9,8 @@ This project exists and thrives thanks to all the people who contribute.
 
 ## Testing & Datamine
 
-- ConRaven
-- AuriCrystal
+- [ConRaven](https://www.youtube.com/c/ConstantineRavens)
+- [AuriCrystal](https://www.youtube.com/@AuriCrystal/)
 - Spiked
 - Schattenzeichner
 - kbsfnk
@@ -18,8 +18,8 @@ This project exists and thrives thanks to all the people who contribute.
 
 ## Content Creators
 
-- SenorCerveza
-- Mr. Nacho [*]
+- [SenorCerveza](https://www.youtube.com/@SenorCerveza)
+- [Mr. Nacho [*] ](https://www.youtube.com/@Mr-Nacho420)
 
 ## Bug Reporters
 
