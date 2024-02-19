@@ -1,22 +1,24 @@
 'use client'
 
 import { useSearchParams } from 'next/navigation'
-import { useEffect, useMemo } from 'react'
 
-import { ItemCategory } from '@/features/build/types'
 import { ToCsvButton } from '@/features/csv/ToCsvButton'
 import { ItemLookupFilters } from '@/features/filters/components/ItemLookupFilters'
 import { parseItemLookupFilters } from '@/features/filters/lib/parseItemLookupFilters'
-import { ItemLookupFilterFields } from '@/features/filters/types'
-import { DescriptionWithTags } from '@/features/items/components/DescriptionWithTags'
+import {
+  ItemLookupCategory,
+  ItemLookupFilterFields,
+} from '@/features/filters/types'
 import { MasonryItemList } from '@/features/items/components/MasonryItemList'
 import { remnantItems } from '@/features/items/data/remnantItems'
 import { itemMatchesSearchText } from '@/features/items/lib/itemMatchesSearchText'
 import { itemToCsvItem } from '@/features/items/lib/itemToCsvItem'
 import { ReleaseKey } from '@/features/items/types'
 import { MutatorItem } from '@/features/items/types/MutatorItem'
+import { WeaponItem } from '@/features/items/types/WeaponItem'
 import { useLocalStorage } from '@/features/localstorage/useLocalStorage'
 import { PageHeader } from '@/features/ui/PageHeader'
+import { capitalize } from '@/lib/capitalize'
 
 const csvItems = remnantItems // Modify the data for use. Adds a discovered flag,
   // modifies the description for mutators
@@ -90,7 +92,36 @@ function getFilteredItems(
       return true
     }
 
-    return filters.itemCategories.includes(item.category as ItemCategory)
+    return filters.itemCategories.some((itemCategory) => {
+      if (itemCategory === 'Long Gun' && WeaponItem.isWeaponItem(item)) {
+        return item.category === 'weapon' && item.type === 'long gun'
+      }
+      if (itemCategory === 'Hand Gun' && WeaponItem.isWeaponItem(item)) {
+        return item.category === 'weapon' && item.type === 'hand gun'
+      }
+      if (itemCategory === 'Melee' && WeaponItem.isWeaponItem(item)) {
+        return item.category === 'weapon' && item.type === 'melee'
+      }
+      if (itemCategory === 'Mutator (Gun)' && MutatorItem.isMutatorItem(item)) {
+        return item.category === 'mutator' && item.type === 'gun'
+      }
+      if (
+        itemCategory === 'Mutator (Melee)' &&
+        MutatorItem.isMutatorItem(item)
+      ) {
+        return item.category === 'mutator' && item.type === 'melee'
+      }
+      return capitalize(item.category) === itemCategory
+    })
+  })
+
+  // Sort alphabetically by item.category and item.name
+  newFilteredItems = newFilteredItems.sort((a, b) => {
+    if (a.category < b.category) return -1
+    if (a.category > b.category) return 1
+    if (a.name < b.name) return -1
+    if (a.name > b.name) return 1
+    return 0
   })
 
   // Filter by search text

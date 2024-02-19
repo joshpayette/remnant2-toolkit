@@ -2,11 +2,11 @@ import isEqual from 'lodash.isequal'
 import { usePathname, useRouter } from 'next/navigation'
 import { useMemo, useState } from 'react'
 
-import { ItemCategory } from '@/features/build/types'
 import { remnantItemCategories } from '@/features/items/data/remnantItems'
 import { ReleaseKey } from '@/features/items/types'
+import { capitalize } from '@/lib/capitalize'
 
-import { ItemLookupFilterFields } from '../types'
+import { ItemLookupCategory, ItemLookupFilterFields } from '../types'
 import {
   CollectedItemFilters,
   DEFAULT_COLLECTION_FILTERS,
@@ -16,16 +16,26 @@ import { ItemCategoryFilters } from './parts/ItemCategoryFilters'
 import { DEFAULT_RELEASE_FILTERS, ReleaseFilters } from './parts/ReleaseFilters'
 import { SearchItemsFilter } from './parts/SearchItemsFilter'
 
-const DEFAULT_ITEM_CATEGORY_FILTERS: ItemCategory[] =
-  remnantItemCategories.sort((a, b) => {
-    if (a < b) return -1
-    if (a > b) return 1
-    return 0
-  })
+const subCategories: ItemLookupCategory[] = [
+  'Long Gun',
+  'Hand Gun',
+  'Melee',
+  'Mutator (Gun)',
+  'Mutator (Melee)',
+]
+
+let defaultItemCategories: ItemLookupCategory[] = remnantItemCategories
+  .map((category) => capitalize(category))
+  .filter((category) => category !== 'weapon' && category !== 'mutator')
+// Add the subcategories
+defaultItemCategories.push(...subCategories)
+// Sort alphabetically
+defaultItemCategories = defaultItemCategories.sort()
+console.info('defaultItemCategories', defaultItemCategories)
 
 export const DEFAULT_ITEM_LOOKUP_FILTERS: ItemLookupFilterFields = {
   collectionKeys: DEFAULT_COLLECTION_FILTERS,
-  itemCategories: DEFAULT_ITEM_CATEGORY_FILTERS,
+  itemCategories: defaultItemCategories,
   searchText: '',
   selectedReleases: DEFAULT_RELEASE_FILTERS,
 }
@@ -70,7 +80,7 @@ export function ItemLookupFilters({ filters }: Props) {
     handleApplyFilters(DEFAULT_ITEM_LOOKUP_FILTERS)
   }
 
-  function handleCategoryChange(category: ItemCategory) {
+  function handleCategoryChange(category: ItemLookupCategory) {
     let newCategories = [...unappliedFilters.itemCategories]
 
     if (newCategories.includes(category)) {
@@ -199,11 +209,12 @@ export function ItemLookupFilters({ filters }: Props) {
       </div>
 
       <ItemCategoryFilters
+        defaultItemCategories={defaultItemCategories}
         selectedItemCategories={unappliedFilters.itemCategories}
-        onReset={(itemCategories: ItemCategory[]) =>
+        onReset={(itemCategories: ItemLookupCategory[]) =>
           setUnappliedFilters({ ...unappliedFilters, itemCategories })
         }
-        onUpdate={(itemCategory: ItemCategory) =>
+        onUpdate={(itemCategory: ItemLookupCategory) =>
           handleCategoryChange(itemCategory)
         }
       />

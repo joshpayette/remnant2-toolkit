@@ -1,24 +1,23 @@
 import { useEffect, useState } from 'react'
 import { useDebounceValue } from 'usehooks-ts'
 
-import { ItemCategory } from '@/features/build/types'
 import { ClearFiltersButton } from '@/features/filters/components/parts/ClearFiltersButton'
-import { remnantItemCategories } from '@/features/items/data/remnantItems'
+import { RELEASE_TO_NAME } from '@/features/items/constants'
 import { FilteredItem } from '@/features/items/hooks/useFilteredItems'
+import { ReleaseKey } from '@/features/items/types'
+import { MutatorItem } from '@/features/items/types/MutatorItem'
+import { WeaponItem } from '@/features/items/types/WeaponItem'
 import { useLocalStorage } from '@/features/localstorage/useLocalStorage'
 import { Checkbox } from '@/features/ui/Checkbox'
 import { SearchInput } from '@/features/ui/SearchInput'
 import { capitalize } from '@/lib/capitalize'
 import { cn } from '@/lib/classnames'
 
-import { RELEASE_TO_NAME } from '../../features/items/constants'
-import { ReleaseKey } from '../../features/items/types'
-
-type FilterItemCategory = ItemCategory
+import { ItemTrackerCategory } from './page'
 
 interface Props {
   allItems: FilteredItem[]
-  itemCategories?: FilterItemCategory[]
+  itemCategories: ItemTrackerCategory[]
   showBorder?: boolean
   onUpdate: (filteredItems: FilteredItem[]) => void
 }
@@ -35,7 +34,7 @@ export function Filters({
     setSearchText('')
     setIncludedDlcKeys(defaultReleaseKeys)
     setIncludedCollectionKeys(defaultCollectionKeys)
-    setIncludedCategoryKeys(defaultCategoryKeys)
+    setIncludedItemCategories(defaultItemCategories)
   }
 
   const areAnyFiltersActive = () => {
@@ -43,7 +42,7 @@ export function Filters({
       searchText !== '' ||
       includedDlcKeys.length !== defaultReleaseKeys.length ||
       includedCollectionKeys.length !== defaultCollectionKeys.length ||
-      includedCategoryKeys.length !== defaultCategoryKeys.length
+      includedItemCategories.length !== defaultItemCategories.length
     )
   }
 
@@ -106,27 +105,34 @@ export function Filters({
    * Category Filters
    * ------------------------------------
    */
-  const defaultCategoryKeys: FilterItemCategory[] =
-    itemCategories?.sort((a, b) => {
+  const defaultItemCategories: ItemTrackerCategory[] = itemCategories.sort(
+    (a, b) => {
       if (a < b) return -1
       if (a > b) return 1
       return 0
-    }) ??
-    remnantItemCategories.sort((a, b) => {
-      if (a < b) return -1
-      if (a > b) return 1
-      return 0
-    })
-  const [includedCategoryKeys, setIncludedCategoryKeys] =
-    useState<FilterItemCategory[]>(defaultCategoryKeys)
+    },
+  )
+  const [includedItemCategories, setIncludedItemCategories] = useState<
+    ItemTrackerCategory[]
+  >(defaultItemCategories)
 
-  function handleCategoryFilterChange(categoryKey: FilterItemCategory) {
-    if (includedCategoryKeys.includes(categoryKey)) {
-      setIncludedCategoryKeys(
-        includedCategoryKeys.filter((key) => key !== categoryKey),
+  function handleCategoryFilterChange(itemCategory: ItemTrackerCategory) {
+    if (
+      includedItemCategories.some(
+        (includedCategory) =>
+          includedCategory.category === itemCategory.category &&
+          includedCategory.type === itemCategory.type,
+      )
+    ) {
+      setIncludedItemCategories(
+        includedItemCategories.filter(
+          (includedCategory) =>
+            includedCategory.category !== itemCategory.category &&
+            includedCategory.type !== itemCategory.type,
+        ),
       )
     } else {
-      setIncludedCategoryKeys([...includedCategoryKeys, categoryKey])
+      setIncludedItemCategories([...includedItemCategories, itemCategory])
     }
   }
 
@@ -182,7 +188,14 @@ export function Filters({
         return true
       }
 
-      return includedCategoryKeys.includes(item.category as ItemCategory)
+      return includedItemCategories.some((category) => {
+        if (WeaponItem.isWeaponItem(item) || MutatorItem.isMutatorItem(item)) {
+          return (
+            item.category === category.category && item.type === category.type
+          )
+        }
+        return item.category === category.category
+      })
     })
 
     onUpdate(filteredItems)
@@ -192,7 +205,7 @@ export function Filters({
     discoveredItemIds,
     includedCollectionKeys,
     includedDlcKeys,
-    includedCategoryKeys,
+    includedItemCategories,
     onUpdate,
   ])
 
@@ -310,7 +323,7 @@ export function Filters({
               <button
                 className="underline"
                 aria-label="Uncheck all categories"
-                onClick={() => setIncludedCategoryKeys([])}
+                onClick={() => setIncludedItemCategories([])}
               >
                 Uncheck All
               </button>{' '}
@@ -318,22 +331,29 @@ export function Filters({
               <button
                 className="underline"
                 aria-label="Check all categories"
-                onClick={() => setIncludedCategoryKeys(defaultCategoryKeys)}
+                onClick={() => setIncludedItemCategories(defaultItemCategories)}
               >
                 Check All
               </button>
             </div>
-            <div className="grid grid-cols-2 gap-x-8 text-left sm:grid-cols-5">
-              {defaultCategoryKeys.map((key) => {
+            <div className="grid grid-cols-2 gap-x-8 text-left sm:grid-cols-3 md:grid-cols-4">
+              {defaultItemCategories.map((itemCategory) => {
                 const label =
-                  key === 'relicfragment' ? 'Relic Fragment' : capitalize(key)
+                  itemCategory.label === 'relicfragment'
+                    ? 'Relic Fragment'
+                    : capitalize(itemCategory.label)
                 return (
-                  <div key={key}>
+                  <div key={itemCategory.label}>
                     <Checkbox
                       label={label}
-                      name={`category-${key}`}
-                      checked={includedCategoryKeys.includes(key)}
-                      onChange={() => handleCategoryFilterChange(key)}
+                      name={`category-${itemCategory.label}`}
+                      checked={includedItemCategories.some((c) => {
+                        return (
+                          c.category === itemCategory.category &&
+                          c.type === itemCategory.type
+                        )
+                      })}
+                      onChange={() => handleCategoryFilterChange(itemCategory)}
                     />
                   </div>
                 )

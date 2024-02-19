@@ -13,9 +13,17 @@ export interface BuildListFilterFields {
   selectedReleases: ReleaseKey[]
 }
 
+export type ItemLookupCategory =
+  | Omit<ItemCategory, 'weapon' | 'mutator'>
+  | 'Long Gun'
+  | 'Hand Gun'
+  | 'Melee'
+  | 'Mutator (Gun)'
+  | 'Mutator (Melee)'
+
 export interface ItemLookupFilterFields {
   collectionKeys: string[]
-  itemCategories: ItemCategory[]
+  itemCategories: ItemLookupCategory[]
   searchText: string
   selectedReleases: ReleaseKey[]
 }

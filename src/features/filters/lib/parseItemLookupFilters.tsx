@@ -1,13 +1,11 @@
 import { ReadonlyURLSearchParams } from 'next/navigation'
 
-import { ItemCategory } from '@/features/build/types'
-import { remnantItemCategories } from '@/features/items/data/remnantItems'
 import { ReleaseKey } from '@/features/items/types'
 import { capitalize } from '@/lib/capitalize'
 
 import { DEFAULT_ITEM_LOOKUP_FILTERS } from '../components/ItemLookupFilters'
 import { DEFAULT_COLLECTION_FILTERS } from '../components/parts/CollectedItemFilters'
-import { ItemLookupFilterFields } from '../types'
+import { ItemLookupCategory, ItemLookupFilterFields } from '../types'
 
 export function parseItemLookupFilters(
   searchParams: ReadonlyURLSearchParams,
@@ -20,10 +18,11 @@ export function parseItemLookupFilters(
 
   // check if categories are valid
   if (categories) {
-    const allCategories: ItemCategory[] = remnantItemCategories
+    const allCategories: ItemLookupCategory[] =
+      DEFAULT_ITEM_LOOKUP_FILTERS['itemCategories']
     const categoriesArray = categories.split(',')
     categoriesArray.forEach((category) => {
-      if (!allCategories.includes(category as ItemCategory)) {
+      if (!allCategories.includes(category)) {
         categories = DEFAULT_ITEM_LOOKUP_FILTERS['itemCategories'].join(',')
       }
     })
@@ -56,7 +55,9 @@ export function parseItemLookupFilters(
 
   return {
     collectionKeys: collection ? collection.split(',') : [],
-    itemCategories: categories ? (categories.split(',') as ItemCategory[]) : [],
+    itemCategories: categories
+      ? (categories.split(',') as ItemLookupCategory[])
+      : [],
     searchText: searchText || DEFAULT_ITEM_LOOKUP_FILTERS['searchText'],
     selectedReleases: releases
       ? (releases.split(',') as ReleaseKey[])

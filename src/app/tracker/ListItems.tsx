@@ -12,11 +12,7 @@ import { WeaponItem } from '@/features/items/types/WeaponItem'
 import { useLocalStorage } from '@/features/localstorage/useLocalStorage'
 import { cn } from '@/lib/classnames'
 
-interface ItemTrackerCategory {
-  category: ItemCategory
-  label: string
-  type?: WeaponItem['type'] | MutatorItem['type']
-}
+import { ItemTrackerCategory } from './page'
 
 function getProgress(
   items: Array<Item & { discovered: boolean }>,
@@ -115,13 +111,19 @@ export function ListItems({ items, onClick, onShowItemInfo }: ListItemsProps) {
       label: 'Miscellaneous',
     },
   ].filter((itemCategory) => {
-    const visibleCategories = Array.from(
-      new Set(items.map((item) => item.category)),
-    )
-    return visibleCategories.includes(
-      (itemCategory as ItemTrackerCategory).category,
-    )
+    // Filter out categories that don't have any items
+    return items.some((item) => {
+      if (WeaponItem.isWeaponItem(item) || MutatorItem.isMutatorItem(item)) {
+        return (
+          item.category === itemCategory.category &&
+          item.type === itemCategory.type
+        )
+      }
+      return item.category === itemCategory.category
+    })
   })
+
+  if (!isClient) return null
 
   return (
     <div className="w-full">
@@ -141,23 +143,21 @@ export function ListItems({ items, onClick, onShowItemInfo }: ListItemsProps) {
                     {itemCategory.label}
                   </h2>
                   <span className="text-sm text-gray-400">
-                    {isClient
-                      ? getProgress(
-                          items.filter((item) => {
-                            if (
-                              WeaponItem.isWeaponItem(item) ||
-                              MutatorItem.isMutatorItem(item)
-                            ) {
-                              return (
-                                item.category === itemCategory.category &&
-                                item.type === itemCategory.type
-                              )
-                            }
-                            return item.category === itemCategory.category
-                          }),
-                          itemCategory,
-                        )
-                      : 'Calculating...'}
+                    {getProgress(
+                      items.filter((item) => {
+                        if (
+                          WeaponItem.isWeaponItem(item) ||
+                          MutatorItem.isMutatorItem(item)
+                        ) {
+                          return (
+                            item.category === itemCategory.category &&
+                            item.type === itemCategory.type
+                          )
+                        }
+                        return item.category === itemCategory.category
+                      }),
+                      itemCategory,
+                    )}
                   </span>
                 </div>
                 <ChevronDownIcon

@@ -18,6 +18,7 @@ import { useFilteredItems } from '@/features/items/hooks/useFilteredItems'
 import { itemToCsvItem } from '@/features/items/lib/itemToCsvItem'
 import { Item } from '@/features/items/types'
 import { MutatorItem } from '@/features/items/types/MutatorItem'
+import { WeaponItem } from '@/features/items/types/WeaponItem'
 import { useLocalStorage } from '@/features/localstorage/useLocalStorage'
 import { PageHeader } from '@/features/ui/PageHeader'
 
@@ -25,11 +26,41 @@ import { parseSaveFile } from './actions'
 import { ImportCSVDialog } from './ImportCSVDialog'
 import { ImportSaveDialog } from './ImportSaveDialog'
 
+export interface ItemTrackerCategory {
+  category: ItemCategory
+  label: string
+  type?: WeaponItem['type'] | MutatorItem['type']
+}
+
 const skippedItemCategories: Array<ItemCategory> = ['skill', 'perk']
 
-const itemCategories = remnantItemCategories.filter((category) => {
-  return skippedItemCategories.includes(category) === false
-})
+const subCategories: ItemTrackerCategory[] = [
+  { category: 'weapon', label: 'Long Guns', type: 'long gun' },
+  { category: 'weapon', label: 'Hand Guns', type: 'hand gun' },
+  { category: 'weapon', label: 'Melee Weapons', type: 'melee' },
+  { category: 'mutator', label: 'Mutators (Melee)', type: 'melee' },
+  { category: 'mutator', label: 'Mutators (Guns)', type: 'gun' },
+]
+
+let itemCategories: ItemTrackerCategory[] = remnantItemCategories
+  // Omit the skipped categories
+  .filter((category) => {
+    return skippedItemCategories.includes(category) === false
+  })
+  // convert the categories to the ItemTrackerCategory type
+  .map((category) => {
+    return {
+      category,
+      label: category,
+    } satisfies ItemTrackerCategory
+  })
+  // Remove the categories to be replaced by subcategories
+  .filter(
+    (item) => item.category !== 'mutator' && item.category !== 'weapon',
+  ) as ItemTrackerCategory[]
+// Add the subcategories to the main categories
+itemCategories = itemCategories.concat(subCategories)
+itemCategories.sort((a, b) => a.label.localeCompare(b.label))
 
 const itemList = remnantItems
   // We don't want to show the items that are in the skippedItemCategories
