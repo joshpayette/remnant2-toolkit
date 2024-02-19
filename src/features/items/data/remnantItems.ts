@@ -3090,7 +3090,7 @@ export const remnantItems: Item[] = [
     tags: ['Ammo Reserves'],
     description: `X% Ammo Pickups (Mythic: Maximum of +30%)`,
     howToGet: ``,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Cracked+Ammo+Pickups`],
+    wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
     category: 'relicfragment',
@@ -3100,7 +3100,7 @@ export const remnantItems: Item[] = [
     tags: ['Ammo Reserves'],
     description: `X% Ammo Reserves (Mythic: Maximum of +20%)`,
     howToGet: ``,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Cracked+Ammo+Reserves`],
+    wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
     category: 'relicfragment',
@@ -3110,9 +3110,7 @@ export const remnantItems: Item[] = [
     tags: ['Damage Reduction'],
     description: `+X% Armor (Mythic: Maximum of +15%)`,
     howToGet: ``,
-    wikiLinks: [
-      `https://remnant2.wiki.fextralife.com/Cracked+Armor+Effectiveness`,
-    ],
+    wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
     armorPercent: 0.15,
   },
   {
@@ -3123,9 +3121,7 @@ export const remnantItems: Item[] = [
     tags: ['Damage Reduction'],
     description: `+X% Blight Resistance (Mythic: Maximum of +30%)`,
     howToGet: ``,
-    wikiLinks: [
-      `https://remnant2.wiki.fextralife.com/Cracked+Blight+Resistance`,
-    ],
+    wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
     category: 'relicfragment',
@@ -3136,7 +3132,7 @@ export const remnantItems: Item[] = [
     tags: ['Mod Cast Speed', 'Skill Cast Speed'],
     description: `X% Mod & Skill Cast Speed (Mythic: Maximum of +20%)`,
     howToGet: ``,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Cracked+Casting+Speed`],
+    wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
     category: 'relicfragment',
@@ -3146,9 +3142,7 @@ export const remnantItems: Item[] = [
     tags: ['Charged Melee', 'Stamina'],
     description: `-X% Melee Charge Attack Stamina Cost (Mythic: Maximum of -30%)`,
     howToGet: ``,
-    wikiLinks: [
-      `https://remnant2.wiki.fextralife.com/Cracked+Charge+Melee+Cost`,
-    ],
+    wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
     category: 'relicfragment',
@@ -3158,7 +3152,7 @@ export const remnantItems: Item[] = [
     description: `X% Consumable Duration (Mythic: Maximum of +20%)`,
     howToGet: ``,
     wikiLinks: [
-      `https://remnant2.wiki.fextralife.com/Cracked+Consumable+Duration`,
+      `https://remnant.wiki/Relic_Fragment`,
     ],
   },
   {
@@ -3170,7 +3164,7 @@ export const remnantItems: Item[] = [
     description: `X% Consumable Use Speed (Mythic: Maximum of +15%)`,
     howToGet: ``,
     wikiLinks: [
-      `https://remnant2.wiki.fextralife.com/Cracked+Consumable+Speed`,
+      `https://remnant.wiki/Relic_Fragment`,
     ],
   },
   {
@@ -3182,7 +3176,7 @@ export const remnantItems: Item[] = [
     description: `X% Damage Reduction (Mythic: Maximum of +5%)`,
     howToGet: ``,
     wikiLinks: [
-      `https://remnant2.wiki.fextralife.com/Cracked+Damage+Reduction`,
+      `https://remnant.wiki/Relic_Fragment`,
     ],
   },
   {
@@ -3194,7 +3188,7 @@ export const remnantItems: Item[] = [
     description: `X% Elemental Damage (Mythic: Maximum of +10%)`,
     howToGet: ``,
     wikiLinks: [
-      `https://remnant2.wiki.fextralife.com/Cracked+Elemental+Damage`,
+      `https://remnant.wiki/Relic_Fragment`,
     ],
   },
   {
@@ -3206,7 +3200,7 @@ export const remnantItems: Item[] = [
     description: `X% Elemental Damage Resistance (Mythic: Maximum of +10%)`,
     howToGet: ``,
     wikiLinks: [
-      `https://remnant2.wiki.fextralife.com/Cracked+Elemental+Resistance`,
+      `https://remnant.wiki/Relic_Fragment`,
     ],
     bleedResistance: 10,
     fireResistance: 10,
@@ -3223,7 +3217,7 @@ export const remnantItems: Item[] = [
     description: `+X% Health (Mythic: Maximum of +20%)`,
     howToGet: ``,
     wikiLinks: [
-      `https://remnant2.wiki.fextralife.com/Cracked+Grey+Health+Rate`,
+      `https://remnant.wiki/Relic_Fragment`,
     ],
   },
   {
@@ -3235,7 +3229,7 @@ export const remnantItems: Item[] = [
     description: `+X% Healing Effectiveness (Mythic: Maximum of +20%)`,
     howToGet: ``,
     wikiLinks: [
-      `https://remnant2.wiki.fextralife.com/Cracked+Healing+Effectiveness`,
+      `https://remnant.wiki/Relic_Fragment`,
     ],
   },
   {
@@ -3246,7 +3240,7 @@ export const remnantItems: Item[] = [
     tags: ['Health'],
     description: `+X% Health (Mythic: Maximum of +15%)`,
     howToGet: ``,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Cracked+Health`],
+    wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
     healthPercent: 0.15,
   },
   {
@@ -3258,7 +3252,7 @@ export const remnantItems: Item[] = [
     description: `+X% Melee Attack Speed (Mythic: Maximum of +15%)`,
     howToGet: ``,
     wikiLinks: [
-      `https://remnant2.wiki.fextralife.com/Cracked+Melee+Attack+Speed`,
+      `https://remnant.wiki/Relic_Fragment`,
     ],
   },
   {
@@ -3271,7 +3265,7 @@ export const remnantItems: Item[] = [
     description: `+X% Melee Crit Chance (Mythic: Maximum of +10%)`,
     howToGet: ``,
     wikiLinks: [
-      `https://remnant2.wiki.fextralife.com/Cracked+Melee+Critical+Chance`,
+      `https://remnant.wiki/Relic_Fragment`,
     ],
   },
   {
@@ -3284,7 +3278,7 @@ export const remnantItems: Item[] = [
     description: `+X% Melee Crit Damage (Mythic: Maximum of +20%[C])`,
     howToGet: ``,
     wikiLinks: [
-      `https://remnant2.wiki.fextralife.com/Cracked+Melee+Critical+Damage`,
+      `https://remnant.wiki/Relic_Fragment`,
     ],
   },
   {
@@ -3295,7 +3289,7 @@ export const remnantItems: Item[] = [
     tags: ['Melee Damage'],
     description: `+X% Melee Damage (Mythic: Maximum of +15%)`,
     howToGet: ``,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Cracked+Melee+Damage`],
+    wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
     category: 'relicfragment',
@@ -3305,7 +3299,7 @@ export const remnantItems: Item[] = [
     tags: ['Mod Cost'],
     description: `-X% Mod Cost (Mythic: Maximum of -10%)`,
     howToGet: ``,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Cracked+Mod+Cost`],
+    wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
     category: 'relicfragment',
@@ -3315,7 +3309,7 @@ export const remnantItems: Item[] = [
     tags: ['Mod Damage'],
     description: `X% Mod Damage (Mythic: Maximum of +10%)`,
     howToGet: ``,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Cracked+Mod+Damage`],
+    wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
     category: 'relicfragment',
@@ -3325,7 +3319,7 @@ export const remnantItems: Item[] = [
     tags: ['Mod Duration'],
     description: `+X% Mod Duration (Mythic: Maximum of +15%)`,
     howToGet: ``,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Cracked+Mod+Duration`],
+    wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
     category: 'relicfragment',
@@ -3337,7 +3331,7 @@ export const remnantItems: Item[] = [
     description: `+X% Ranged Crit Chance (Mythic: Maximum of +10%)`,
     howToGet: ``,
     wikiLinks: [
-      `https://remnant2.wiki.fextralife.com/Cracked+Ranged+Critical+Chance`,
+      `https://remnant.wiki/Relic_Fragment`,
     ],
   },
   {
@@ -3350,7 +3344,7 @@ export const remnantItems: Item[] = [
     description: `+X% Ranged Crit Damage (Mythic: Maximum of +20%[C])`,
     howToGet: ``,
     wikiLinks: [
-      `https://remnant2.wiki.fextralife.com/Cracked+Ranged+Critical+Damage`,
+      `https://remnant.wiki/Relic_Fragment`,
     ],
   },
   {
@@ -3361,7 +3355,7 @@ export const remnantItems: Item[] = [
     tags: ['Ranged Damage'],
     description: `+X% Ranged Damage (Mythic: Maximum of +10%)`,
     howToGet: ``,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Cracked+Ranged+Damage`],
+    wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
     category: 'relicfragment',
@@ -3372,7 +3366,7 @@ export const remnantItems: Item[] = [
     description: `+X% Fire Rate (Mythic: Maximum of +10%)`,
     howToGet: ``,
     wikiLinks: [
-      `https://remnant2.wiki.fextralife.com/Cracked+Ranged+Fire+Rate`,
+      `https://remnant.wiki/Relic_Fragment`,
     ],
   },
   {
@@ -3383,7 +3377,7 @@ export const remnantItems: Item[] = [
     tags: ['Recoil'],
     description: `-X% Recoil (Mythic: Maximum of -30%)`,
     howToGet: ``,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Cracked+Recoil`],
+    wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
     category: 'relicfragment',
@@ -3392,7 +3386,7 @@ export const remnantItems: Item[] = [
     id: '0jam5w',
     description: `+X% Revive Speed (Mythic: Maximum of +25%)`,
     howToGet: ``,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Cracked+Revive+Speed`],
+    wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
     category: 'relicfragment',
@@ -3402,7 +3396,7 @@ export const remnantItems: Item[] = [
     description: `+X% SHIELD Amount (Mythic: Maximum of +20%)`,
     howToGet: ``,
     wikiLinks: [
-      `https://remnant2.wiki.fextralife.com/Cracked+Shield+Effectiveness`,
+      `https://remnant.wiki/Relic_Fragment`,
     ],
   },
   {
@@ -3413,7 +3407,7 @@ export const remnantItems: Item[] = [
     tags: ['Reduce Skill Cooldown'],
     description: `+X% Skill Cooldown (Mythic: Maximum of -10%)`,
     howToGet: ``,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Cracked+Skill+Cooldown`],
+    wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
     category: 'relicfragment',
@@ -3423,7 +3417,7 @@ export const remnantItems: Item[] = [
     tags: ['Skill Damage'],
     description: `X% Skill Damage (Mythic: Maximum of +10%)`,
     howToGet: ``,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Cracked+Skill+Damage`],
+    wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
     category: 'relicfragment',
@@ -3433,7 +3427,7 @@ export const remnantItems: Item[] = [
     tags: ['Skill Duration'],
     description: `+X% Skill Duration (Mythic: Maximum of +15%)`,
     howToGet: ``,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Cracked+Skill+Duration`],
+    wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
     category: 'relicfragment',
@@ -3443,7 +3437,7 @@ export const remnantItems: Item[] = [
     tags: ['Spread'],
     description: `X% Reticle Spread Recovery (Mythic: Maximum of +30%)`,
     howToGet: ``,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Cracked+Spread+Recovery`],
+    wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
     category: 'relicfragment',
@@ -3453,7 +3447,7 @@ export const remnantItems: Item[] = [
     tags: ['Stagger'],
     description: `+X% Stagger Damage (Mythic: Maximum of +20%)`,
     howToGet: ``,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Cracked+Stagger+Damage`],
+    wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
     category: 'relicfragment',
@@ -3463,7 +3457,7 @@ export const remnantItems: Item[] = [
     tags: ['Stamina'],
     description: `+X% Stamina (Mythic: Maximum of +15%)`,
     howToGet: ``,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Cracked+Stamina`],
+    wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
     staminaPercent: 0.15,
   },
   {
@@ -3474,7 +3468,7 @@ export const remnantItems: Item[] = [
     tags: ['Stamina'],
     description: `-X% Reduced Stamina Cost (Mythic: Maximum of -20%)`,
     howToGet: ``,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Cracked+Stamina+Cost`],
+    wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
     category: 'relicfragment',
@@ -3485,7 +3479,7 @@ export const remnantItems: Item[] = [
     description: `-X% Stamina Recovery Delay (Mythic: Maximum of -30%)`,
     howToGet: ``,
     wikiLinks: [
-      `https://remnant2.wiki.fextralife.com/Cracked+Stamina+Recovery+Delay`,
+      `https://remnant.wiki/Relic_Fragment`,
     ],
   },
   {
@@ -3497,7 +3491,7 @@ export const remnantItems: Item[] = [
     description: `+X% Weakspot Damage (Mythic: Maximum of +15% [M]).`,
     howToGet: ``,
     wikiLinks: [
-      `https://remnant2.wiki.fextralife.com/Cracked+Ranged+Weakspot+Damage`,
+      `https://remnant.wiki/Relic_Fragment`,
     ],
   },
   {
@@ -3508,7 +3502,7 @@ export const remnantItems: Item[] = [
     tags: ['Spread'],
     description: `-X% Weapon Spread (Mythic: Maximum of -30%)`,
     howToGet: ``,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Cracked+Weapon+Spread`],
+    wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
     category: 'relicfragment',
@@ -3517,7 +3511,7 @@ export const remnantItems: Item[] = [
     id: 'h9e463',
     description: `+X% Weapon Swap Speed (Mythic: Maximum of +20%)`,
     howToGet: ``,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Cracked+Weapon+Swap`],
+    wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
     category: 'weapon',
