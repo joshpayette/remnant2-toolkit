@@ -18,7 +18,6 @@ import {
   archetypeFiltersToIds,
   limitByArchetypesSegment,
 } from '@/features/filters/queries/segments/limitByArchtypes'
-import { limitByBuildNameOrDescriptionSegment } from '@/features/filters/queries/segments/limitByBuildNameOrDescription'
 import {
   collectionToIds,
   limitByCollectionSegment,
@@ -97,10 +96,11 @@ export async function getBuildsByCollection({
   ${limitByReleasesSegment(selectedReleases)}
   ${limitByCollectionSegment({ userId, allOwnedItemIds })}
   ${limitByTimeConditionSegment(timeRange)}
-  ${limitByBuildNameOrDescriptionSegment(searchText)}
   `
 
   const orderBySegment = getOrderBySegment(orderBy)
+
+  const trimmedSearchText = searchText.trim()
 
   const [builds, totalBuildCountResponse] = await Promise.all([
     communityBuildsQuery({
@@ -109,9 +109,11 @@ export async function getBuildsByCollection({
       pageNumber,
       orderBySegment,
       whereConditions,
+      searchText: trimmedSearchText,
     }),
     communityBuildsCountQuery({
       whereConditions,
+      searchText: trimmedSearchText,
     }),
   ])
 

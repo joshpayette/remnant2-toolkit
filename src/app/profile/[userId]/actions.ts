@@ -106,7 +106,7 @@ export async function getUserProfilePage({
     }
   }
 
-  const { archetypes, longGun, handGun, melee, selectedReleases } =
+  const { archetypes, longGun, handGun, melee, selectedReleases, searchText } =
     buildListFilters
   const archetypeIds = archetypeFiltersToIds({ archetypes })
 
@@ -134,6 +134,8 @@ export async function getUserProfilePage({
 
   const orderBySegment = getOrderBySegment(orderBy)
 
+  const trimmedSearchText = searchText
+
   // First, get the Builds
   const [builds, totalBuildsCountResponse] = await Promise.all([
     communityBuildsQuery({
@@ -142,9 +144,11 @@ export async function getUserProfilePage({
       pageNumber,
       orderBySegment,
       whereConditions,
+      searchText: trimmedSearchText,
     }),
     communityBuildsCountQuery({
       whereConditions,
+      searchText: trimmedSearchText,
     }),
   ])
 

@@ -17,7 +17,6 @@ import {
   archetypeFiltersToIds,
   limitByArchetypesSegment,
 } from '@/features/filters/queries/segments/limitByArchtypes'
-import { limitByBuildNameOrDescriptionSegment } from '@/features/filters/queries/segments/limitByBuildNameOrDescription'
 import { limitByReleasesSegment } from '@/features/filters/queries/segments/limitByRelease'
 import {
   limitByRingSegment,
@@ -74,6 +73,7 @@ export async function getCommunityBuilds({
   })
   const amuletId = amuletFilterToId({ amulet })
   const ringId = ringFilterToId({ ring })
+  const trimmedSearchText = searchText.trim()
 
   const whereConditions = Prisma.sql`
   WHERE Build.isPublic = true
@@ -83,7 +83,6 @@ export async function getCommunityBuilds({
   ${limitByRingSegment(ringId)}
   ${limitByAmuletSegment(amuletId)}
   ${limitByTimeConditionSegment(timeRange)}
-  ${limitByBuildNameOrDescriptionSegment(searchText)}
   `
 
   const orderBySegment = getOrderBySegment(orderBy)
@@ -96,9 +95,11 @@ export async function getCommunityBuilds({
       pageNumber,
       orderBySegment,
       whereConditions,
+      searchText: trimmedSearchText,
     }),
     communityBuildsCountQuery({
       whereConditions,
+      searchText: trimmedSearchText,
     }),
   ])
 

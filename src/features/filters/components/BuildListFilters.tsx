@@ -1,7 +1,7 @@
 'use client'
 
 import isEqual from 'lodash/isEqual'
-import { usePathname, useRouter, useSearchParams } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 import { useMemo, useState } from 'react'
 
 import { ArchetypeFilters } from '@/features/filters/components/parts/ArchetypeFilters'
