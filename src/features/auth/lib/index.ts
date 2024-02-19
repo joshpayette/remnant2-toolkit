@@ -23,6 +23,7 @@ export const authOptions: NextAuthOptions = {
       if (isBanned) return false
 
       // TODO need to get avatar based on id, not @me
+      // TODO Not sure that the user.id is the actual discord id
       // // Get the user's latest avatar
       // const response = await fetch(`https://discord.com/api/v10/users/@me`, {
       //   method: 'get',
