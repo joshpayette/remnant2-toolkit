@@ -11,7 +11,7 @@ This project exists and thrives thanks to all the people who contribute.
 
 - [ConRaven](https://www.youtube.com/c/ConstantineRavens)
 - [AuriCrystal](https://www.youtube.com/@AuriCrystal/)
-- Spiked
+- [Spiked](https://www.youtube.com/@newspiked7385)
 - Schattenzeichner
 - kbsfnk
 - Thatguylegit
@@ -19,7 +19,7 @@ This project exists and thrives thanks to all the people who contribute.
 ## Content Creators
 
 - [SenorCerveza](https://www.youtube.com/@SenorCerveza)
-- [Mr. Nacho [*] ](https://www.youtube.com/@Mr-Nacho420)
+- [Mr. Nacho [\*] ](https://www.youtube.com/@Mr-Nacho420)
 
 ## Bug Reporters
 
