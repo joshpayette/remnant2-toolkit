@@ -7,21 +7,19 @@ This project exists and thrives thanks to all the people who contribute.
 - Alexij
 - Spoon
 
-## Content Creators
-
-- SenorCerveza
-- Mr. Nacho [*]
-
-## Guide Contributors
-
-- Thatguylegit
-
 ## Testing & Datamine
 
 - ConRaven
 - AuriCrystal
 - Spiked
 - Schattenzeichner
+- kbsfnk
+- Thatguylegit
+
+## Content Creators
+
+- SenorCerveza
+- Mr. Nacho [*]
 
 ## Bug Reporters
 
