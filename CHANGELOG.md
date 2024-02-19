@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Added
 
 - Build cards and build views now show the in-game build names based on the archetypes selected. For example, Ritualist + Alchemist = Diabolist.
+- Search text filter now also searches by the created by user's name.
 
 ### Changed
 

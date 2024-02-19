@@ -40,6 +40,7 @@ type Props = {
   userId: string | undefined
   whereConditions: Prisma.Sql
   orderBySegment: Prisma.Sql
+  searchText: string
 }
 
 export function communityBuildsQuery({
@@ -48,11 +49,12 @@ export function communityBuildsQuery({
   userId,
   orderBySegment,
   whereConditions,
+  searchText,
 }: Props): Prisma.PrismaPromise<CommunityBuildQueryResponse> {
   const query = Prisma.sql`
   SELECT Build.*, 
   User.name as createdByName, 
-  User.displayName as createdByDisplayName, 
+  User.displayName as createdByDisplayName,
   (SELECT COUNT(*) FROM BuildVoteCounts WHERE BuildVoteCounts.buildId = Build.id) as totalUpvotes,
   COUNT(BuildReports.id) as totalReports,
   ${userReportedBuildSegment(userId)},
@@ -64,6 +66,11 @@ LEFT JOIN User on Build.createdById = User.id
 LEFT JOIN BuildReports on Build.id = BuildReports.buildId AND BuildReports.userId = ${userId}
 LEFT JOIN PaidUsers on User.id = PaidUsers.userId
 ${whereConditions}
+AND (User.displayName LIKE ${'%' + searchText + '%'} 
+OR User.name LIKE ${'%' + searchText + '%'} 
+OR Build.name LIKE ${'%' + searchText + '%'} 
+OR Build.description LIKE ${'%' + searchText + '%'}
+)
 GROUP BY Build.id, User.id
 ${orderBySegment}
 LIMIT ${itemsPerPage} 
@@ -79,14 +86,22 @@ OFFSET ${(pageNumber - 1) * itemsPerPage}
  */
 export function communityBuildsCountQuery({
   whereConditions,
+  searchText,
 }: {
   whereConditions: Props['whereConditions']
+  searchText: Props['searchText']
 }): Prisma.PrismaPromise<CommunityBuildTotalCount> {
   const query = Prisma.sql`
   SELECT COUNT(DISTINCT Build.id) as totalBuildCount
   FROM Build
   LEFT JOIN BuildVoteCounts ON Build.id = BuildVoteCounts.buildId
+  LEFT JOIN User on Build.createdById = User.id
   ${whereConditions}
+AND (User.displayName LIKE ${'%' + searchText + '%'} 
+OR User.name LIKE ${'%' + searchText + '%'} 
+OR Build.name LIKE ${'%' + searchText + '%'} 
+OR Build.description LIKE ${'%' + searchText + '%'}
+)
   `
 
   return prisma.$queryRaw<CommunityBuildTotalCount>(query)
