@@ -22,15 +22,17 @@ export const authOptions: NextAuthOptions = {
       if (isBanned) return false
 
       if (profile?.image_url) {
-        try {
-          await prisma.user.update({
+        // * Deliberately not awaiting because we don't want to delay sign in for
+        // * the background image update
+        prisma.user
+          .update({
             where: { id: user.id },
             data: { image: profile.image_url },
           })
-        } catch (e) {
-          console.error(e)
-          return true
-        }
+          .catch((e) => {
+            console.error(e)
+            return true
+          })
       }
 
       return true
