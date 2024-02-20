@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2024-02-19
 
+### Added
+
+- Added placeholder images for enemies/bosses that are missing.
+
 ### Fixed
 
 - Maybe actually fixed the Discord avatar bug this time? Time will tell!

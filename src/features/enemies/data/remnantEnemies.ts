@@ -84,10 +84,10 @@ export const remnantEnemies: Enemy[] = [
     name: 'Arcanum Diviner Aberration',
     category: 'aberration',
     location: 'Losomn',
+    imagePath: '/bosses/placeholder.jpg',
     wikiLinks: [],
     fireResistance: 10,
     acidResistance: 10,
-    showOnTracker: false, // TODO Remove once the image is added
   },
   {
     id: 'H2iB8c',
@@ -443,20 +443,20 @@ export const remnantEnemies: Enemy[] = [
     name: 'Flintblade Marauder',
     dlc: 'base',
     category: 'aberration',
+    imagePath: '/bosses/placeholder.jpg',
     location: 'Losomn',
     wikiLinks: [],
     bleedResistance: -10,
-    showOnTracker: false, // TODO Remove once the image is added
   },
   {
     id: 'E5j8Ge',
     name: 'Flintblade Prowler',
     dlc: 'base',
     category: 'aberration',
+    imagePath: '/bosses/placeholder.jpg',
     location: 'Losomn',
     wikiLinks: [],
     bleedResistance: -10,
-    showOnTracker: false, // TODO Remove once the image is added
   },
   {
     id: 'N48baF',
@@ -517,10 +517,10 @@ export const remnantEnemies: Enemy[] = [
     name: 'Grimshot',
     dlc: 'base',
     category: 'aberration',
+    imagePath: '/bosses/placeholder.jpg',
     location: 'Losomn',
     wikiLinks: [],
     bleedResistance: -10,
-    showOnTracker: false, // TODO Remove once the image is added
   },
   {
     id: '7utUfw',
@@ -540,9 +540,9 @@ export const remnantEnemies: Enemy[] = [
     name: 'Highborn Stalker',
     dlc: 'base',
     category: 'aberration',
+    imagePath: '/bosses/placeholder.jpg',
     location: 'Losomn',
     wikiLinks: [],
-    showOnTracker: false, // TODO Remove once the image is added
   },
   {
     id: 'gLut8N',
@@ -584,22 +584,22 @@ export const remnantEnemies: Enemy[] = [
     name: 'Maleficient Glimmer',
     dlc: 'base',
     category: 'aberration',
+    imagePath: '/bosses/placeholder.jpg',
     location: 'Losomn',
     wikiLinks: [],
     bleedResistance: 5,
     fireResistance: 5,
     shockResistance: 5,
     acidResistance: 5,
-    showOnTracker: false, // TODO Remove once the image is added
   },
   {
     id: 'fALQ5i',
     name: 'Malpractitioner',
     dlc: 'base',
     category: 'aberration',
+    imagePath: '/bosses/placeholder.jpg',
     location: 'Losomn',
     wikiLinks: [],
-    showOnTracker: false, // TODO Remove once the image is added
   },
   {
     id: '3GvXys',
@@ -630,10 +630,10 @@ export const remnantEnemies: Enemy[] = [
     name: 'Mournshot',
     dlc: 'base',
     category: 'aberration',
+    imagePath: '/bosses/placeholder.jpg',
     location: 'Losomn',
     wikiLinks: [],
     bleedResistance: -10,
-    showOnTracker: false, // TODO Remove once the image is added
   },
   {
     id: 'Fjy5pF',
@@ -672,55 +672,55 @@ export const remnantEnemies: Enemy[] = [
     name: 'Scorchslinger',
     dlc: 'base',
     category: 'aberration',
+    imagePath: '/bosses/placeholder.jpg',
     location: 'Losomn',
     wikiLinks: [],
     bleedResistance: -10,
     fireResistance: 10,
-    showOnTracker: false, // TODO Remove once the image is added
   },
   {
     id: 'tRC6Br',
     name: 'Scorchstrike',
     dlc: 'base',
     category: 'aberration',
+    imagePath: '/bosses/placeholder.jpg',
     location: 'Losomn',
     wikiLinks: [],
     bleedResistance: -10,
     fireResistance: 10,
-    showOnTracker: false, // TODO Remove once the image is added
   },
   {
     id: '9jGvP5',
     name: 'Seer of the Veil',
     dlc: 'base',
     category: 'aberration',
+    imagePath: '/bosses/placeholder.jpg',
     location: 'Losomn',
     wikiLinks: [],
     fireResistance: 5,
     shockResistance: -5,
     acidResistance: 10,
     notes: 'Immune to Corroded Status',
-    showOnTracker: false, // TODO Remove once the image is added
   },
   {
     id: 'xL33mc',
     name: 'Shadowrend Warden',
     dlc: 'base',
     category: 'aberration',
+    imagePath: '/bosses/placeholder.jpg',
     location: 'Losomn',
     wikiLinks: [],
     bleedResistance: 15,
     shockResistance: -10,
-    showOnTracker: false, // TODO Remove once the image is added
   },
   {
     id: 'Tai6KG',
     name: 'Sliverwing Marauder',
     dlc: 'base',
     category: 'aberration',
+    imagePath: '/bosses/placeholder.jpg',
     location: 'Losomn',
     wikiLinks: [],
-    showOnTracker: false, // TODO Remove once the image is added
   },
   {
     id: 'S8mXCm',
@@ -830,33 +830,33 @@ export const remnantEnemies: Enemy[] = [
     name: 'Tortured Flame',
     dlc: 'base',
     category: 'aberration',
+    imagePath: '/bosses/placeholder.jpg',
     location: 'Losomn',
     wikiLinks: [],
     bleedResistance: -10,
     fireResistance: 50,
     meleeResistance: -35,
     notes: 'Immune to Burning Status',
-    showOnTracker: false, // TODO Remove once the image is added
   },
   {
     id: 'U7NzP4',
     name: 'Vilethron Brawler',
     dlc: 'base',
     category: 'aberration',
+    imagePath: '/bosses/placeholder.jpg',
     location: 'Losomn',
     wikiLinks: [],
     bleedResistance: -10,
-    showOnTracker: false, // TODO Remove once the image is added
   },
   {
     id: 'xSk9aN',
     name: 'Vilethron Scrapper',
     dlc: 'base',
     category: 'aberration',
+    imagePath: '/bosses/placeholder.jpg',
     location: 'Losomn',
     wikiLinks: [],
     bleedResistance: -10,
-    showOnTracker: false, // TODO Remove once the image is added
   },
   {
     id: '64wuWP',
@@ -876,12 +876,12 @@ export const remnantEnemies: Enemy[] = [
     name: 'Wraithliege  Clone',
     dlc: 'dlc1',
     category: 'aberration',
+    imagePath: '/bosses/placeholder.jpg',
     location: 'Losomn',
     wikiLinks: [],
     bleedResistance: 10,
     fireResistance: -5,
     shockResistance: -10,
-    showOnTracker: false, // TODO Remove once the image is added
   },
   {
     id: 'Ws384W',
@@ -902,13 +902,13 @@ export const remnantEnemies: Enemy[] = [
     name: 'Abyssal Dreadnought',
     dlc: 'base',
     category: 'aberration',
+    imagePath: '/bosses/placeholder.jpg',
     location: "N'Erud",
     wikiLinks: [],
     bleedResistance: 15,
     fireResistance: -15,
     shockResistance: -15,
     acidResistance: 15,
-    showOnTracker: false, // TODO remove this once there is an image
   },
   {
     id: '3GZ6k2',
@@ -1002,19 +1002,20 @@ export const remnantEnemies: Enemy[] = [
     name: 'Befouled Larva',
     dlc: 'base',
     category: 'aberration',
+    imagePath: '/bosses/placeholder.jpg',
     location: "N'Erud",
     wikiLinks: [],
     bleedResistance: 15,
     fireResistance: -15,
     shockResistance: -10,
     acidResistance: 10,
-    showOnTracker: false, // TODO remove this once there is an image
   },
   {
     id: 'htUq3D',
     name: 'C.E. Sigma',
     dlc: 'base',
     category: 'aberration',
+    imagePath: '/bosses/placeholder.jpg',
     location: "N'Erud",
     wikiLinks: [],
     bleedResistance: 50,
@@ -1022,33 +1023,32 @@ export const remnantEnemies: Enemy[] = [
     shockResistance: -15,
     acidResistance: -15,
     notes: 'htUq3D',
-    showOnTracker: false, // TODO remove this once there is an image
   },
   {
     id: 'LTegp8',
     name: 'C.E. Theta',
     dlc: 'base',
     category: 'aberration',
+    imagePath: '/bosses/placeholder.jpg',
     location: "N'Erud",
     wikiLinks: [],
     bleedResistance: 50,
     fireResistance: 15,
     shockResistance: -15,
     acidResistance: -15,
-    showOnTracker: false, // TODO remove this once there is an image
   },
   {
     id: 'zjP5SD',
     name: "Custodian's Eye (Stasis)",
     dlc: 'base',
     category: 'boss',
+    imagePath: '/bosses/placeholder.jpg',
     location: "N'Erud",
     wikiLinks: [],
     bleedResistance: 50,
     fireResistance: 15,
     shockResistance: -15,
     acidResistance: -15,
-    showOnTracker: false, // TODO remove this once there is an image
   },
   {
     id: 'wb22RX',
@@ -1084,13 +1084,13 @@ export const remnantEnemies: Enemy[] = [
     name: 'E.D.V.A.',
     dlc: 'base',
     category: 'aberration',
+    imagePath: '/bosses/placeholder.jpg',
     location: "N'Erud",
     wikiLinks: [],
     bleedResistance: 50,
     fireResistance: 10,
     shockResistance: -15,
     acidResistance: -15,
-    showOnTracker: false, // TODO remove this once there is an image
   },
   {
     id: 'dvNi8s',
