@@ -31,7 +31,6 @@ let defaultItemCategories: ItemLookupCategory[] = remnantItemCategories
 defaultItemCategories.push(...subCategories)
 // Sort alphabetically
 defaultItemCategories = defaultItemCategories.sort()
-console.info('defaultItemCategories', defaultItemCategories)
 
 export const DEFAULT_ITEM_LOOKUP_FILTERS: ItemLookupFilterFields = {
   collectionKeys: DEFAULT_COLLECTION_FILTERS,
