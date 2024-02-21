@@ -43,7 +43,13 @@ export default async function Layout({
   const session = await getServerSession()
 
   if (!session || !session.user) {
-    throw new Error(`You must be logged in to view this page.`)
+    return (
+      <div className="mt-24 flex items-center justify-center">
+        <p className="text-center text-2xl">
+          You must be logged in to view this page.
+        </p>
+      </div>
+    )
   }
 
   return (

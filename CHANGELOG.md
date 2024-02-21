@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2024-02-20
 
+### Changed
+
+- Added clearer error when trying to access created or favorited builds while signed out
+
 ### Fixed
 
 - Corrected UI issue with sign in button in nav bar.
