@@ -29,7 +29,7 @@ export function NavBar() {
         className="z-40 mx-auto flex w-full items-center justify-between bg-background px-4 py-6"
         aria-label="Global"
       >
-        <div className="flex min-w-[300px]">
+        <div className="flex min-w-[250px]">
           <Logo />
         </div>
         <div className="flex w-full justify-end lg:hidden">
@@ -328,7 +328,7 @@ export function NavBar() {
             {NAV_ITEMS.supportR2TK.label}
           </Link>
         </div>
-        <div className="hidden h-[38px] w-[80px] grow items-end justify-end sm:flex">
+        <div className="hidden w-[80px] grow items-end justify-end lg:flex">
           <AuthButton.Desktop />
         </div>
       </nav>

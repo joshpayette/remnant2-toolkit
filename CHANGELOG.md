@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-02-20
+
+### Fixed
+
+- Corrected UI issue with sign in button in nav bar.
+
 ## 2024-02-19
 
 ### Added
