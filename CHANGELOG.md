@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Fixed
 
 - Corrected UI issue with sign in button in nav bar.
+- Fixed bug where menu was showing under item labels on the builder.
 
 ## 2024-02-19
 
