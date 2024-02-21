@@ -400,7 +400,7 @@ export const remnantItems: Item[] = [
     Kills and dealing significant damage grant 1 Stack of RAGE which increases Ranged Damage by 2.5% per Stack. Upon reaching 10 Stacks, the CHALLENGER goes BERSERK, which reloads their current firearm and doubles Rampage effects for 15s.`,
     cooldown: 90,
     howToGet: `Unlocked at level 10`,
-    wikiLinks: [`https://remnant2.wiki/Rampage`],
+    wikiLinks: [`https://remnant.wiki/Rampage`],
     linkedItems: {
       archetype: {
         name: 'Challenger',
@@ -3151,9 +3151,7 @@ export const remnantItems: Item[] = [
     id: 'xqklut',
     description: `X% Consumable Duration (Mythic: Maximum of +20%)`,
     howToGet: ``,
-    wikiLinks: [
-      `https://remnant.wiki/Relic_Fragment`,
-    ],
+    wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
     category: 'relicfragment',
@@ -3163,9 +3161,7 @@ export const remnantItems: Item[] = [
     tags: ['Relic Use Speed'],
     description: `X% Consumable Use Speed (Mythic: Maximum of +15%)`,
     howToGet: ``,
-    wikiLinks: [
-      `https://remnant.wiki/Relic_Fragment`,
-    ],
+    wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
     category: 'relicfragment',
@@ -3175,9 +3171,7 @@ export const remnantItems: Item[] = [
     tags: ['Damage Reduction'],
     description: `X% Damage Reduction (Mythic: Maximum of +5%)`,
     howToGet: ``,
-    wikiLinks: [
-      `https://remnant.wiki/Relic_Fragment`,
-    ],
+    wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
     category: 'relicfragment',
@@ -3187,9 +3181,7 @@ export const remnantItems: Item[] = [
     tags: ['Status Effect'],
     description: `X% Elemental Damage (Mythic: Maximum of +10%)`,
     howToGet: ``,
-    wikiLinks: [
-      `https://remnant.wiki/Relic_Fragment`,
-    ],
+    wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
     category: 'relicfragment',
@@ -3199,9 +3191,7 @@ export const remnantItems: Item[] = [
     tags: ['Damage Reduction'],
     description: `X% Elemental Damage Resistance (Mythic: Maximum of +10%)`,
     howToGet: ``,
-    wikiLinks: [
-      `https://remnant.wiki/Relic_Fragment`,
-    ],
+    wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
     bleedResistance: 10,
     fireResistance: 10,
     shockResistance: 10,
@@ -3216,9 +3206,7 @@ export const remnantItems: Item[] = [
     tags: ['Grey Health'],
     description: `+X% Health (Mythic: Maximum of +20%)`,
     howToGet: ``,
-    wikiLinks: [
-      `https://remnant.wiki/Relic_Fragment`,
-    ],
+    wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
     category: 'relicfragment',
@@ -3228,9 +3216,7 @@ export const remnantItems: Item[] = [
     tags: ['Healing Effectivness'],
     description: `+X% Healing Effectiveness (Mythic: Maximum of +20%)`,
     howToGet: ``,
-    wikiLinks: [
-      `https://remnant.wiki/Relic_Fragment`,
-    ],
+    wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
     category: 'relicfragment',
@@ -3251,9 +3237,7 @@ export const remnantItems: Item[] = [
     tags: ['Melee Attack Speed'],
     description: `+X% Melee Attack Speed (Mythic: Maximum of +15%)`,
     howToGet: ``,
-    wikiLinks: [
-      `https://remnant.wiki/Relic_Fragment`,
-    ],
+    wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
     category: 'relicfragment',
@@ -3264,9 +3248,7 @@ export const remnantItems: Item[] = [
     tags: ['Critical Chance', 'Melee Critical Chance'],
     description: `+X% Melee Crit Chance (Mythic: Maximum of +10%)`,
     howToGet: ``,
-    wikiLinks: [
-      `https://remnant.wiki/Relic_Fragment`,
-    ],
+    wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
     category: 'relicfragment',
@@ -3277,9 +3259,7 @@ export const remnantItems: Item[] = [
     tags: ['Melee Critical Damage', 'Critical Damage'],
     description: `+X% Melee Crit Damage (Mythic: Maximum of +20%[C])`,
     howToGet: ``,
-    wikiLinks: [
-      `https://remnant.wiki/Relic_Fragment`,
-    ],
+    wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
     category: 'relicfragment',
@@ -3330,9 +3310,7 @@ export const remnantItems: Item[] = [
     tags: ['Critical Chance'],
     description: `+X% Ranged Crit Chance (Mythic: Maximum of +10%)`,
     howToGet: ``,
-    wikiLinks: [
-      `https://remnant.wiki/Relic_Fragment`,
-    ],
+    wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
     category: 'relicfragment',
@@ -3343,9 +3321,7 @@ export const remnantItems: Item[] = [
     tags: ['Critical Damage'],
     description: `+X% Ranged Crit Damage (Mythic: Maximum of +20%[C])`,
     howToGet: ``,
-    wikiLinks: [
-      `https://remnant.wiki/Relic_Fragment`,
-    ],
+    wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
     category: 'relicfragment',
@@ -3365,9 +3341,7 @@ export const remnantItems: Item[] = [
     tags: ['Fire Rate'],
     description: `+X% Fire Rate (Mythic: Maximum of +10%)`,
     howToGet: ``,
-    wikiLinks: [
-      `https://remnant.wiki/Relic_Fragment`,
-    ],
+    wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
     category: 'relicfragment',
@@ -3395,9 +3369,7 @@ export const remnantItems: Item[] = [
     id: 'alp59n',
     description: `+X% SHIELD Amount (Mythic: Maximum of +20%)`,
     howToGet: ``,
-    wikiLinks: [
-      `https://remnant.wiki/Relic_Fragment`,
-    ],
+    wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
     category: 'relicfragment',
@@ -3478,9 +3450,7 @@ export const remnantItems: Item[] = [
     tags: ['Stamina'],
     description: `-X% Stamina Recovery Delay (Mythic: Maximum of -30%)`,
     howToGet: ``,
-    wikiLinks: [
-      `https://remnant.wiki/Relic_Fragment`,
-    ],
+    wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
     category: 'relicfragment',
@@ -3490,9 +3460,7 @@ export const remnantItems: Item[] = [
     tags: ['Weakspot Damage'],
     description: `+X% Weakspot Damage (Mythic: Maximum of +15% [M]).`,
     howToGet: ``,
-    wikiLinks: [
-      `https://remnant.wiki/Relic_Fragment`,
-    ],
+    wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
     category: 'relicfragment',
