@@ -79,7 +79,7 @@ export function BuildCard({
                 </h3>
               </Link>
               <div className="mb-2 grid w-full grid-cols-3 truncate text-sm">
-                <div className="col-span-full truncate text-left text-gray-300">
+                <div className="col-span-full truncate text-left text-xs text-gray-400">
                   {`${getArchetypeBuildName({
                     archetype1:
                       (buildState.items.archetype[0]?.name.toLowerCase() as Archetype) ||
