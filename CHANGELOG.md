@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Changed
 
 - Added clearer error when trying to access created or favorited builds while signed out
+- Changed some status and weight class colors to match the Remnant.Wiki colors, to address accessibility concerns.
 
 ### Fixed
 

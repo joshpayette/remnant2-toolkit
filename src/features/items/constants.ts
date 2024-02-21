@@ -69,28 +69,28 @@ export const WEIGHT_CLASSES = {
   LIGHT: {
     challengerDescription: 'Fast Dodge. No Stamina Cost Penalty.',
     description: 'Fast Dodge. No Stamina Cost Penalty.',
-    textColor: 'text-[#5a97a9]',
+    textColor: 'text-[#89CFF0]',
     maxWeight: 25,
   },
   MEDIUM: {
     challengerDescription:
       'Normal Dodge. 12.5% Stamina Cost Penalty due to Powerlifter perk.',
     description: 'Normal Dodge. 25% Stamina Cost Penalty.',
-    textColor: 'text-[#61855a]',
+    textColor: 'text-[#98FB98]',
     maxWeight: 50,
   },
   HEAVY: {
     challengerDescription:
       'Slow Dodge. 25% Stamina Cost Penalty due to Powerlifter perk.',
     description: 'Slow Dodge. 50% Stamina Cost Penalty.',
-    textColor: 'text-[#9ea457]',
+    textColor: 'text-[#ffff00]',
     maxWeight: 75,
   },
   ULTRA: {
     challengerDescription:
       'FLOP. 36% Stamina Cost Penalty due to Powerlifter perk.',
     description: 'FLOP. 75% Stamina Cost Penalty.',
-    textColor: 'text-[#c9403c]',
+    textColor: 'text-[#ff0000]',
     maxWeight: -1,
   },
 }
@@ -128,7 +128,7 @@ export const DESCRIPTION_TAGS = [
   {
     type: 'Bleeding',
     token: 'BLEEDING',
-    color: 'text-[#a63838]',
+    color: 'text-[#b90f0f]',
     description:
       'Deals physical damage per second. Reduces healing effectiveness by 50%.',
   },
@@ -162,9 +162,16 @@ export const DESCRIPTION_TAGS = [
   {
     type: 'Corroded',
     token: 'CORRODED',
-    color: 'text-[#30b65d]',
+    color: 'text-[#0fa82b]',
     description:
       'Deals elemental ACID damage per second. Increases damage taken by 10%.',
+  },
+  {
+    type: 'Critical damage',
+    token: '[C]',
+    color: 'text-[#f2350f]',
+    description:
+      'Base 50%. Critical damage is multiplicative with other sources of damage.',
   },
   {
     type: 'Curse',
@@ -198,9 +205,15 @@ export const DESCRIPTION_TAGS = [
     description: undefined,
   },
   {
+    type: 'Explosive Damage',
+    token: '[E]',
+    color: 'text-[#ff7575]',
+    description: 'Counts as explosive damage.',
+  },
+  {
     type: 'Fire',
     token: 'FIRE',
-    color: 'text-[#9f674e]',
+    color: 'text-[#cc5500]',
     description: 'Elemental Damage',
   },
   {
@@ -241,6 +254,12 @@ export const DESCRIPTION_TAGS = [
     description: undefined,
   },
   {
+    type: 'Madness',
+    token: 'MADNESS',
+    color: 'text-[#ede6e6]',
+    description: 'Physical Damage',
+  },
+  {
     type: 'Marked',
     token: 'MARKED',
     color: ARCHTYPE_COLORS.GUNSLINGER.text,
@@ -258,13 +277,6 @@ export const DESCRIPTION_TAGS = [
     token: '[M]',
     color: 'text-orange-300',
     description: 'Damage is multiplicative with other sources of damage.',
-  },
-  {
-    type: 'Critical damage',
-    token: '[C]',
-    color: 'text-[#f2350f]',
-    description:
-      'Base 50%. Critical damage is multiplicative with other sources of damage.',
   },
   {
     type: 'Overloaded',
@@ -288,20 +300,20 @@ export const DESCRIPTION_TAGS = [
   {
     type: 'Root Rot',
     token: 'ROOT ROT',
-    color: 'text-[#b4a065]',
+    color: 'text-[#c66806]',
     description:
       'Reduces maximum Stamina by 33%. Forces coughing animation at random intervals.',
   },
   {
     type: 'Shield',
     token: 'SHIELD',
-    color: 'text-[#f1f1cf]',
+    color: 'text-[#80e0e1]',
     description: `Provides a shield on top of your health. Shields from different sources stack.`,
   },
   {
     type: 'Shock',
     token: 'SHOCK',
-    color: 'text-[#7e7ea2]',
+    color: 'text-[#5c5cce]',
     description: 'Elemental Damage',
   },
   {
@@ -322,18 +334,6 @@ export const DESCRIPTION_TAGS = [
     token: 'SUPPRESSION',
     color: 'text-[#444662]',
     description: 'Reduces Mod Power Generation by 50%.',
-  },
-  {
-    type: 'Madness',
-    token: 'MADNESS',
-    color: 'text-[#ede6e6]',
-    description: 'Physical Damage',
-  },
-  {
-    type: 'Explosive Damage',
-    token: '[E]',
-    color: 'text-[#ff7575]',
-    description: 'Counts as explosive damage.',
   },
 ] as const satisfies {
   type: string
