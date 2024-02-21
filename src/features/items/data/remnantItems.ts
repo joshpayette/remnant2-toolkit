@@ -5771,7 +5771,7 @@ export const remnantItems: Item[] = [
     name: 'Spore Shot',
     imagePath: '/mod/spore_shot.png',
     id: '9fi67v',
-    description: `Fires a rotten spore that explodes dealing 125 damage within 6m and leaves a deadly gas cloud that applies SLOW [R] while dealing 15 damage per second for 7s.`,
+    description: `Fires a rotten spore that explodes dealing 125 damage [E] within 6m and leaves a deadly gas cloud that applies SLOW [R] while dealing 15 damage per second for 7s.`,
     howToGet: `Attached to the Sporebloom Long Gun`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Spore+Shot`],
     linkedItems: {
