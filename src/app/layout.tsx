@@ -5,7 +5,7 @@ import { Footer } from '@/features/ui/Footer'
 import { cn } from '@/lib/classnames'
 export { metadata } from './metadata'
 import './globals.css'
-import 'react-toastify/dist/ReactToastify.css'
+import 'react-toastify/dist/ReactToastify.min.css'
 
 import { Analytics } from '@vercel/analytics/react'
 import { Viewport } from 'next'
