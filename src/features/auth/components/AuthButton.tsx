@@ -91,7 +91,7 @@ function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
               className="mr-2 h-7 w-5 flex-none text-green-500"
               aria-hidden="true"
             />
-            <div className="flex flex-col items-start justify-start px-3 py-2">
+            <div className="flex flex-col items-start justify-start px-3 py-2 text-sm">
               {NAV_ITEMS.signin.label}
             </div>
           </Link>
@@ -117,7 +117,7 @@ function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
     <Link
       href={NAV_ITEMS.signin.href}
       className={cn(
-        'text-md hidden flex-row items-center justify-start rounded-lg bg-purple-700 p-2 font-semibold text-white hover:bg-purple-500 lg:flex',
+        'hidden flex-row items-center justify-start rounded-lg bg-purple-700 p-2 text-xs font-semibold text-white hover:bg-purple-500 lg:flex',
       )}
     >
       {NAV_ITEMS.signin.label}
