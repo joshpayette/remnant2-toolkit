@@ -10,6 +10,7 @@ const nextConfig = {
   images: {
     //unoptimized: true,
     //minimumCacheTTL: 60 * 60 * 24 * 3, // 3 days
+    quality: 74,
     remotePatterns: [
       {
         protocol: 'https',
