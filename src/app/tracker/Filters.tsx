@@ -10,21 +10,99 @@ import { WeaponItem } from '@/features/items/types/WeaponItem'
 import { useLocalStorage } from '@/features/localstorage/useLocalStorage'
 import { Checkbox } from '@/features/ui/Checkbox'
 import { SearchInput } from '@/features/ui/SearchInput'
-import { capitalize } from '@/lib/capitalize'
+import { SelectMenu } from '@/features/ui/SelectMenu'
 import { cn } from '@/lib/classnames'
 
-import { ItemTrackerCategory } from './page'
+import { DEFAULT_ITEM_CATEGORY } from './page'
+import { ItemTrackerCategory } from './types'
+
+function doFilterItems({
+  allItems,
+  debouncedSearchText,
+  discoveredItemIds,
+  includedCollectionKeys,
+  includedDlcKeys,
+  selectedItemCategory,
+}: {
+  allItems: FilteredItem[]
+  debouncedSearchText: string
+  discoveredItemIds: string[]
+  includedCollectionKeys: string[]
+  includedDlcKeys: ReleaseKey[]
+  selectedItemCategory: ItemTrackerCategory
+}) {
+  // Add discovered to the items
+  let filteredItems = allItems.map((item) => ({
+    ...item,
+    discovered: discoveredItemIds.includes(item.id),
+  }))
+
+  // Filter out the search text
+  filteredItems = filteredItems.filter(
+    (item) =>
+      item.name.toLowerCase().includes(debouncedSearchText.toLowerCase()) ||
+      item.description
+        ?.toLowerCase()
+        .includes(debouncedSearchText.toLowerCase()),
+  )
+
+  // Filter out the collections
+  filteredItems = filteredItems.filter((item) => {
+    if (
+      includedCollectionKeys.includes('Discovered') &&
+      includedCollectionKeys.includes('Undiscovered')
+    ) {
+      return true
+    } else if (includedCollectionKeys.includes('Undiscovered')) {
+      return item.discovered === false
+    } else if (includedCollectionKeys.includes('Discovered')) {
+      return item.discovered === true
+    } else {
+      return false
+    }
+  })
+
+  // Filter out the DLCs
+  filteredItems = filteredItems.filter((item) => {
+    if (item.dlc === undefined) {
+      return includedDlcKeys.includes('base')
+    }
+
+    return includedDlcKeys.includes(item.dlc as ReleaseKey)
+  })
+
+  console.info('selectedItemCategory', selectedItemCategory)
+
+  // Filter out the categories
+  filteredItems = filteredItems.filter((item) => {
+    if (WeaponItem.isWeaponItem(item) && item.type === 'long gun') {
+      return selectedItemCategory === 'long gun'
+    } else if (WeaponItem.isWeaponItem(item) && item.type === 'hand gun') {
+      return selectedItemCategory === 'hand gun'
+    } else if (WeaponItem.isWeaponItem(item) && item.type === 'melee') {
+      return selectedItemCategory === 'melee'
+    } else if (MutatorItem.isMutatorItem(item) && item.type === 'gun') {
+      return selectedItemCategory === 'mutator (gun)'
+    } else if (MutatorItem.isMutatorItem(item) && item.type === 'melee') {
+      return selectedItemCategory === 'mutator (melee)'
+    } else {
+      return item.category === selectedItemCategory
+    }
+  })
+
+  return filteredItems
+}
 
 interface Props {
   allItems: FilteredItem[]
-  itemCategories: ItemTrackerCategory[]
+  itemCategoryOptions: Array<{ label: string; value: string}>
   showBorder?: boolean
   onUpdate: (filteredItems: FilteredItem[]) => void
 }
 
 export function Filters({
   allItems,
-  itemCategories,
+  itemCategoryOptions,
   showBorder = true,
   onUpdate,
 }: Props) {
@@ -34,15 +112,13 @@ export function Filters({
     setSearchText('')
     setIncludedDlcKeys(defaultReleaseKeys)
     setIncludedCollectionKeys(defaultCollectionKeys)
-    setIncludedItemCategories(defaultItemCategories)
   }
 
   const areAnyFiltersActive = () => {
     return (
       searchText !== '' ||
       includedDlcKeys.length !== defaultReleaseKeys.length ||
-      includedCollectionKeys.length !== defaultCollectionKeys.length ||
-      includedItemCategories.length !== defaultItemCategories.length
+      includedCollectionKeys.length !== defaultCollectionKeys.length
     )
   }
 
@@ -105,35 +181,11 @@ export function Filters({
    * Category Filters
    * ------------------------------------
    */
-  const defaultItemCategories: ItemTrackerCategory[] = itemCategories.sort(
-    (a, b) => {
-      if (a < b) return -1
-      if (a > b) return 1
-      return 0
-    },
-  )
-  const [includedItemCategories, setIncludedItemCategories] = useState<
-    ItemTrackerCategory[]
-  >(defaultItemCategories)
+  const [selectedItemCategory, setSelectedItemCategory] =
+    useState<ItemTrackerCategory>(DEFAULT_ITEM_CATEGORY)
 
-  function handleCategoryFilterChange(itemCategory: ItemTrackerCategory) {
-    if (
-      includedItemCategories.some(
-        (includedCategory) =>
-          includedCategory.category === itemCategory.category &&
-          includedCategory.type === itemCategory.type,
-      )
-    ) {
-      setIncludedItemCategories(
-        includedItemCategories.filter(
-          (includedCategory) =>
-            includedCategory.category !== itemCategory.category &&
-            includedCategory.type !== itemCategory.type,
-        ),
-      )
-    } else {
-      setIncludedItemCategories([...includedItemCategories, itemCategory])
-    }
+  function handleItemCategoryFilterChange(category: ItemTrackerCategory) {
+    setSelectedItemCategory(category)
   }
 
   /**
@@ -142,62 +194,14 @@ export function Filters({
    * ------------------------------------
    */
   useEffect(() => {
-    // Add discovered to the items
-    let filteredItems = allItems.map((item) => ({
-      ...item,
-      discovered: discoveredItemIds.includes(item.id),
-    }))
-
-    // Filter out the search text
-    filteredItems = filteredItems.filter(
-      (item) =>
-        item.name.toLowerCase().includes(debouncedSearchText.toLowerCase()) ||
-        item.description
-          ?.toLowerCase()
-          .includes(debouncedSearchText.toLowerCase()),
-    )
-
-    // Filter out the collections
-    filteredItems = filteredItems.filter((item) => {
-      if (
-        includedCollectionKeys.includes('Discovered') &&
-        includedCollectionKeys.includes('Undiscovered')
-      ) {
-        return true
-      } else if (includedCollectionKeys.includes('Undiscovered')) {
-        return item.discovered === false
-      } else if (includedCollectionKeys.includes('Discovered')) {
-        return item.discovered === true
-      } else {
-        return false
-      }
+    const filteredItems = doFilterItems({
+      allItems,
+      debouncedSearchText,
+      discoveredItemIds,
+      includedCollectionKeys,
+      includedDlcKeys,
+      selectedItemCategory,
     })
-
-    // Filter out the DLCs
-    filteredItems = filteredItems.filter((item) => {
-      if (item.dlc === undefined) {
-        return includedDlcKeys.includes('base')
-      }
-
-      return includedDlcKeys.includes(item.dlc as ReleaseKey)
-    })
-
-    // Filter out the categories
-    filteredItems = filteredItems.filter((item) => {
-      if (item.category === undefined) {
-        return true
-      }
-
-      return includedItemCategories.some((category) => {
-        if (WeaponItem.isWeaponItem(item) || MutatorItem.isMutatorItem(item)) {
-          return (
-            item.category === category.category && item.type === category.type
-          )
-        }
-        return item.category === category.category
-      })
-    })
-
     onUpdate(filteredItems)
   }, [
     allItems,
@@ -205,7 +209,7 @@ export function Filters({
     discoveredItemIds,
     includedCollectionKeys,
     includedDlcKeys,
-    includedItemCategories,
+    selectedItemCategory,
     onUpdate,
   ])
 
@@ -219,17 +223,34 @@ export function Filters({
           'border-yellow-500 shadow-xl shadow-yellow-500/50',
       )}
     >
-      <div className="grid-cols-full grid gap-x-8 gap-y-4 divide-y divide-green-800 bg-black sm:grid-cols-4">
-        <div className="col-span-full pt-2">
-          <div className="flex w-full items-center justify-start gap-x-4">
-            <span className="flex items-center justify-start text-left text-sm font-bold text-green-500">
+      <div className="grid-cols-full grid gap-x-8 gap-y-4  bg-black sm:grid-cols-4">
+        <div className="col-span-full border border-transparent border-b-green-800 pb-8 pt-2 sm:col-span-2">
+          <div className="flex w-full flex-col items-start justify-start gap-x-4">
+            <span className="mb-2 flex items-center justify-start text-left text-sm font-bold text-green-500">
               Search
             </span>
-            <div className="grow">
+            <div className="w-full">
               <SearchInput
                 onChange={handleSearchTextChange}
                 value={searchText}
                 placeholder={'Search item names and descriptions'}
+              />
+            </div>
+          </div>
+        </div>
+
+        <div className="col-span-full border border-transparent border-b-green-800 pb-8 pt-2 sm:col-span-2">
+          <div className="flex w-full flex-col items-start justify-start gap-x-4">
+            <div className="w-full">
+              <SelectMenu
+                label="Category"
+                value={selectedItemCategory as string}
+                options={itemCategoryOptions}
+                onChange={(e) =>
+                  handleItemCategoryFilterChange(
+                    e.target.value as ItemTrackerCategory,
+                  )
+                }
               />
             </div>
           </div>
@@ -306,54 +327,6 @@ export function Filters({
                       name={`collection-${key}`}
                       checked={includedCollectionKeys.includes(key)}
                       onChange={() => handleCollectionFilterChange(key)}
-                    />
-                  </div>
-                )
-              })}
-            </div>
-          </div>
-        </div>
-
-        <div className="col-span-full pt-2">
-          <div className="flex w-full flex-col items-start justify-start gap-x-4 gap-y-2">
-            <span className="flex items-center justify-start text-left text-sm font-bold text-green-500">
-              By Category
-            </span>
-            <div className="text-xs">
-              <button
-                className="underline"
-                aria-label="Uncheck all categories"
-                onClick={() => setIncludedItemCategories([])}
-              >
-                Uncheck All
-              </button>{' '}
-              /{' '}
-              <button
-                className="underline"
-                aria-label="Check all categories"
-                onClick={() => setIncludedItemCategories(defaultItemCategories)}
-              >
-                Check All
-              </button>
-            </div>
-            <div className="grid grid-cols-2 gap-x-8 text-left sm:grid-cols-3 md:grid-cols-4">
-              {defaultItemCategories.map((itemCategory) => {
-                const label =
-                  itemCategory.label === 'relicfragment'
-                    ? 'Relic Fragment'
-                    : capitalize(itemCategory.label)
-                return (
-                  <div key={itemCategory.label}>
-                    <Checkbox
-                      label={label}
-                      name={`category-${itemCategory.label}`}
-                      checked={includedItemCategories.some((c) => {
-                        return (
-                          c.category === itemCategory.category &&
-                          c.type === itemCategory.type
-                        )
-                      })}
-                      onChange={() => handleCategoryFilterChange(itemCategory)}
                     />
                   </div>
                 )

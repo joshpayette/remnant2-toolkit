@@ -21,7 +21,7 @@ export function Input({
       onKeyDown={(e) => {
         if (e.key === 'Enter' && onKeyDown) onKeyDown()
       }}
-      className="block w-full rounded-md border-2 border-purple-500 bg-white/5 py-1 font-medium text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-purple-500 sm:text-sm sm:leading-6"
+      className="block w-full rounded-md border-2 border-purple-500 bg-white/5 py-2 text-sm text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-purple-500"
       placeholder={placeholder}
       value={value}
     />

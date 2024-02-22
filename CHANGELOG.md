@@ -4,11 +4,19 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
-## 2024-02-20
+## 2024-02-22
+
+### Changed
+
+- Item Tracker now shows items for one category at a time rather than all items. This should increase performance for users (mobile users in particular), as well as search engine performance.
+
+## 2024-02-21
 
 ### Added
 
 - Item Cards and Item Info now shows linked items. For example, the Alchemist card will now show linked Perks, Skills, and the Primary Trait. For weapons or mods, the linked weapon or mod will be displayed.
+
+## 2024-02-20
 
 ### Changed
 

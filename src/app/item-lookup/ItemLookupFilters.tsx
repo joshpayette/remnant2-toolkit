@@ -6,15 +6,21 @@ import { remnantItemCategories } from '@/features/items/data/remnantItems'
 import { ReleaseKey } from '@/features/items/types'
 import { capitalize } from '@/lib/capitalize'
 
-import { ItemLookupCategory, ItemLookupFilterFields } from '../types'
 import {
   CollectedItemFilters,
   DEFAULT_COLLECTION_FILTERS,
-} from './parts/CollectedItemFilters'
-import { FiltersContainer } from './parts/FiltersContainer'
-import { ItemCategoryFilters } from './parts/ItemCategoryFilters'
-import { DEFAULT_RELEASE_FILTERS, ReleaseFilters } from './parts/ReleaseFilters'
-import { SearchItemsFilter } from './parts/SearchItemsFilter'
+} from '../../features/filters/components/parts/CollectedItemFilters'
+import { FiltersContainer } from '../../features/filters/components/parts/FiltersContainer'
+import { ItemCategoryFilters } from '../../features/filters/components/parts/ItemCategoryFilters'
+import {
+  DEFAULT_RELEASE_FILTERS,
+  ReleaseFilters,
+} from '../../features/filters/components/parts/ReleaseFilters'
+import { SearchItemsFilter } from '../../features/filters/components/parts/SearchItemsFilter'
+import {
+  ItemLookupCategory,
+  ItemLookupFilterFields,
+} from '../../features/filters/types'
 
 const subCategories: ItemLookupCategory[] = [
   'Long Gun',

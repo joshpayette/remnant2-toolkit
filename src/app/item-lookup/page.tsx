@@ -2,8 +2,8 @@
 
 import { useSearchParams } from 'next/navigation'
 
+import { ItemLookupFilters } from '@/app/item-lookup/ItemLookupFilters'
 import { ToCsvButton } from '@/features/csv/ToCsvButton'
-import { ItemLookupFilters } from '@/features/filters/components/ItemLookupFilters'
 import { parseItemLookupFilters } from '@/features/filters/lib/parseItemLookupFilters'
 import {
   ItemLookupCategory,
