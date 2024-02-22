@@ -128,6 +128,7 @@ export function ItemButton({
             loading={loadingType}
             width={imageSize.width}
             height={imageSize.height}
+            quality={74}
           />
         )}
       </button>
