@@ -74,8 +74,6 @@ itemCategories = itemCategories.filter(
   (category) => category !== 'Weapon' && category !== 'Mutator',
 )
 
-export const DEFAULT_ITEM_CATEGORY: ItemTrackerCategory = 'archetype'
-
 export default function Page() {
   const isClient = useIsClient()
 

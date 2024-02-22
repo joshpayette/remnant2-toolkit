@@ -13,8 +13,9 @@ import { SearchInput } from '@/features/ui/SearchInput'
 import { SelectMenu } from '@/features/ui/SelectMenu'
 import { cn } from '@/lib/classnames'
 
-import { DEFAULT_ITEM_CATEGORY } from './page'
 import { ItemTrackerCategory } from './types'
+
+const DEFAULT_ITEM_CATEGORY: ItemTrackerCategory = 'archetype'
 
 function doFilterItems({
   allItems,
@@ -95,7 +96,7 @@ function doFilterItems({
 
 interface Props {
   allItems: FilteredItem[]
-  itemCategoryOptions: Array<{ label: string; value: string}>
+  itemCategoryOptions: Array<{ label: string; value: string }>
   showBorder?: boolean
   onUpdate: (filteredItems: FilteredItem[]) => void
 }
