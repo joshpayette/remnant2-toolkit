@@ -10397,6 +10397,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     },
   },
   {
+    // TODO Tragic indicated this cooldown may go to 5 minutes
     category: 'perk',
     name: 'Die Hard',
     imagePath: '/perk/die_hard.png',
