@@ -8,8 +8,8 @@ import { getArrayOfLength } from '@/features/build/lib/getArrayOfLength'
 import { Skeleton } from '@/features/ui/Skeleton'
 
 import { Item } from '../types'
+import { ItemCard } from './ItemCard'
 import { ItemInfoDialog } from './ItemInfoDialog'
-import { MasonryCard } from './MasonryCard'
 
 const MINIMUM_BATCH_SIZE = 10
 
@@ -73,7 +73,7 @@ export function MasonryItemList({
             items={infiniteScroll ? visibleItems : items}
             onRender={infiniteScroll ? maybeLoadMore : undefined}
             render={({ index, data, width }) => (
-              <MasonryCard
+              <ItemCard
                 index={index}
                 data={data}
                 width={width}

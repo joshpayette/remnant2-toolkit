@@ -80,7 +80,7 @@ export function Dialog({
                     as="h3"
                     className={cn(
                       'text-4xl font-semibold text-green-500',
-                      !subtitle ? 'mb-4' : 'mb-2',
+                      !subtitle ? 'mb-4' : 'mb-0',
                     )}
                   >
                     {title}

@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2024-02-20
 
+### Added
+
+- Item Cards and Item Info now shows linked items. For example, the Alchemist card will now show linked Perks, Skills, and the Primary Trait. For weapons or mods, the linked weapon or mod will be displayed.
+
 ### Changed
 
 - Added clearer error when trying to access created or favorited builds while signed out

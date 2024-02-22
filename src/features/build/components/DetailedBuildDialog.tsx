@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
+import { ItemCard } from '@/features/items/components/ItemCard'
 import { ItemInfoDialog } from '@/features/items/components/ItemInfoDialog'
-import { MasonryCard } from '@/features/items/components/MasonryCard'
 import { Item } from '@/features/items/types'
 import { Dialog } from '@/features/ui/Dialog'
 
@@ -35,7 +35,7 @@ export function DetailedBuildDialog({ buildState, open, onClose }: Props) {
         />
         <div className="mt-12 grid w-full grid-cols-1 gap-4 sm:grid-cols-3 md:grid-cols-4">
           {masonryItems.map((item, index) => (
-            <MasonryCard
+            <ItemCard
               key={index}
               index={index}
               width={200}
