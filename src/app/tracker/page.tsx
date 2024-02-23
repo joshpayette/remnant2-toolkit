@@ -263,6 +263,8 @@ export default function Page() {
     } else if (MutatorItem.isMutatorItem(item)) {
       if (item.type === 'gun') return 'Mutator (Gun)'
       if (item.type === 'melee') return 'Mutator (Melee)'
+    } else if (item.category === 'relicfragment') {
+      return 'Relic Fragment'
     } else {
       return capitalize(item.category)
     }

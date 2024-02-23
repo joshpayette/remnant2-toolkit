@@ -72,8 +72,6 @@ function doFilterItems({
     return includedDlcKeys.includes(item.dlc as ReleaseKey)
   })
 
-  console.info('selectedItemCategory', selectedItemCategory)
-
   // Filter out the categories
   filteredItems = filteredItems.filter((item) => {
     if (WeaponItem.isWeaponItem(item) && item.type === 'long gun') {
@@ -246,7 +244,11 @@ export function Filters({
               <SelectMenu
                 label="Category"
                 value={selectedItemCategory as string}
-                options={itemCategoryOptions}
+                options={itemCategoryOptions.map((option) =>
+                  option.value === 'relicfragment'
+                    ? { label: 'Relic Fragment', value: 'relicfragment' }
+                    : option,
+                )}
                 onChange={(e) =>
                   handleItemCategoryFilterChange(
                     e.target.value as ItemTrackerCategory,
