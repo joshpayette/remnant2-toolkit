@@ -1,7 +1,7 @@
 # Amplitude vs Resonance (Updated for DLC)
 
-Guide by: ThatGuyLegit
-Last updated: 2024-02-02
+Guide by: ThatGuyLegit, with contributions from ConRaven and Alexij.
+Last updated: 2024-02-3
 
 ## Archetypes
 
@@ -15,14 +15,20 @@ Last updated: 2024-02-02
       - Aim - 3m > 4.5m **Resonance**
       - Dodge - 5m > 7.5m **Amplitude**
 - Challenger
+  - Skills
+    - War Stomp - 7.5m -> 11.25m **Amplitude**
   - Perks
     - Intimidating Presence - 15m > 22.5m **Resonance**
 - Engineer
   - Skills
     - Impact Cannon **Amplitude**
+    - Flame Turret *Range of acquired target* 10m -> 15m *EST* **Amplitude**
+    - Flame Turret - 2m -> 3m **Amplitude**
 - Explorer
   - Skills
     - Gold Digger - 5m > 10m **Resonance**
+  - Perks
+    - Magnetic Field 2.5m -> 3.75m **Resonance**
 - Hunter
   - Skills
     - Hunter's Shroud - 10m > 15m **Resonance**
@@ -32,7 +38,7 @@ Last updated: 2024-02-02
     - Healing Shield - 25m > 37.5m **Amplitude**
     - Redemption - 30m > 45m **Amplitude**
 - Ritualist
-  - Prime Perk
+  - Perks
     - Vile - 15m > 22.5m **Amplitude**
   - Skills
     - Eruption - 1m/15m > 1.5m/22.5m **Amplitude**
@@ -73,6 +79,7 @@ Last updated: 2024-02-02
 - Meridian - 4m/2.5m > 6m/3.75m **Amplitude**
 - Rune Pistol - (Soulbrand) 25m > 37.5m **Resonance**
 - Star Shot - 5m > 7.5m **Amplitude**
+- Starshot (Primary Fire) Explosion from impact 1m -> 1.5m **Amplitude**
 
 ## Melee
 
@@ -97,32 +104,12 @@ Last updated: 2024-02-02
 - Time Lapse - 6m > 9m **Resonance**
 - Tremor - 9m > 13.5m **Amplitude**
 - Voltaic Rondure - 3m > 4.5m **Resonance**
+- Supernova 4m -> 6m **Amplitude**
+- Explosive Shot 9m -> 13.5m **Amplitude**
+ - Gas Giant 3m -> 4.5m **Resonance**
 
-# Mutators
+## Mutators
 
 - Killswitch - 7m > 10m **Amplitude**
 - Shocker - 7.5m > 11.25m **Amplitude**
 - Timewave - 7.5m > 11.25m **Amplitude**
-
-NEED TO BE FORMATED:
-• Starshot (Primary Fire) Explosion from impact 1m -> 1.5m EST Amplitude
-
-• Aphelion (Mod)
-Explosion from use of Primary Shot 4m -> 6m Amplitude
-
-• Hellfire (Mod)
-Explosion from Mod use 9m -> 13.5m Amplitude
-
-• Gas Giant (Nuetral Backdash + Charge)
-Gas cloud 3m -> 4.5m Resonance
-
-• Engineer, Flame Turret
-Range of acquired target 10m -> 15m EST Amplitude
-
-Flame Turret, impact of fireball 2m -> 3m Amplitude
-
-Magnetic Field (Perk)
-2.5m -> 3.75m Resonance
-
-Challenger, War Stomp (Skill)
-7.5m -> 11.25m Amplitude

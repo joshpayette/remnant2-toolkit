@@ -5771,7 +5771,7 @@ export const remnantItems: Item[] = [
     name: 'Spore Shot',
     imagePath: '/mod/spore_shot.png',
     id: '9fi67v',
-    description: `Fires a rotten spore that explodes dealing 125 damage within 6m and leaves a deadly gas cloud that applies SLOW [R] while dealing 15 damage per second for 7s.`,
+    description: `Fires a rotten spore that explodes dealing 125 damage [E] within 6m and leaves a deadly gas cloud that applies SLOW [R] while dealing 15 damage per second for 7s.`,
     howToGet: `Attached to the Sporebloom Long Gun`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Spore+Shot`],
     linkedItems: {
@@ -5809,7 +5809,7 @@ export const remnantItems: Item[] = [
     name: 'Supernova',
     imagePath: '/mod/supernova.png',
     id: '9rxk65',
-    description: `Fires the compressed remains of a dying star. On contact or hit wit the primary fire, causes Supernova to explode for 150 FIRE Damage, and 350 BURNING Damage over 10s to all targets within 4m.
+    description: `Fires the compressed remains of a dying star. On contact or hit wit the primary fire, causes Supernova to explode for 150 FIRE Damage, and 350 BURNING Damage over 10s to all targets within 4m [A].
 
     Striking the Supernova with Aphelion's primary fire increases its explosion radius by 25% and damage by 50%, and spawns a massive shockwave that deals 300 FIRE damage and also applies the initial BURNING amount.`,
     howToGet: `Attached to the Aphelion long gun`,
