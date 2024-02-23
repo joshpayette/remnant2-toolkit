@@ -1,26 +1,25 @@
 import isEqual from 'lodash.isequal'
-import { usePathname, useRouter } from 'next/navigation'
+import { usePathname } from 'next/navigation'
 import { useMemo, useState } from 'react'
-
-import { remnantItemCategories } from '@/features/items/data/remnantItems'
-import { ReleaseKey } from '@/features/items/types'
-import { capitalize } from '@/lib/capitalize'
 
 import {
   CollectedItemFilters,
   DEFAULT_COLLECTION_FILTERS,
-} from '../../features/filters/components/parts/CollectedItemFilters'
-import { FiltersContainer } from '../../features/filters/components/parts/FiltersContainer'
-import { ItemCategoryFilters } from '../../features/filters/components/parts/ItemCategoryFilters'
+} from '@/features/filters/components/parts/CollectedItemFilters'
+import { FiltersContainer } from '@/features/filters/components/parts/FiltersContainer'
+import { ItemCategoryFilters } from '@/features/filters/components/parts/ItemCategoryFilters'
 import {
   DEFAULT_RELEASE_FILTERS,
   ReleaseFilters,
-} from '../../features/filters/components/parts/ReleaseFilters'
-import { SearchItemsFilter } from '../../features/filters/components/parts/SearchItemsFilter'
+} from '@/features/filters/components/parts/ReleaseFilters'
+import { SearchItemsFilter } from '@/features/filters/components/parts/SearchItemsFilter'
 import {
   ItemLookupCategory,
   ItemLookupFilterFields,
-} from '../../features/filters/types'
+} from '@/features/filters/types'
+import { remnantItemCategories } from '@/features/items/data/remnantItems'
+import { ReleaseKey } from '@/features/items/types'
+import { capitalize } from '@/lib/capitalize'
 
 const subCategories: ItemLookupCategory[] = [
   'Long Gun',
@@ -50,7 +49,6 @@ interface Props {
 }
 
 export function ItemLookupFilters({ filters }: Props) {
-  const router = useRouter()
   const pathname = usePathname()
 
   // Tracks the filter changes by the user that are not yet applied
@@ -81,7 +79,6 @@ export function ItemLookupFilters({ filters }: Props) {
   }, [filters])
 
   function handleClearFilters() {
-    setUnappliedFilters(DEFAULT_ITEM_LOOKUP_FILTERS)
     handleApplyFilters(DEFAULT_ITEM_LOOKUP_FILTERS)
   }
 
@@ -98,9 +95,6 @@ export function ItemLookupFilters({ filters }: Props) {
     if (filters.itemCategories.some((c) => !newCategories.includes(c))) {
       setAreFiltersApplied(false)
     }
-    // if (filters.itemCategories.length === newCategories.length) {
-    //   setAreFiltersApplied(true)
-    // }
   }
 
   function handleCollectionChange(collection: string) {
@@ -117,9 +111,6 @@ export function ItemLookupFilters({ filters }: Props) {
     if (filters.collectionKeys.some((c) => !newCollection.includes(c))) {
       setAreFiltersApplied(false)
     }
-    // if (isEqual(filters.collectionKeys, newCollection)) {
-    //   setAreFiltersApplied(true)
-    // }
   }
 
   function handleReleaseChange(release: ReleaseKey) {
@@ -136,9 +127,6 @@ export function ItemLookupFilters({ filters }: Props) {
     if (filters.selectedReleases.some((r) => !newReleases.includes(r))) {
       setAreFiltersApplied(false)
     }
-    // if (isEqual(filters.selectedReleases, newReleases)) {
-    //   setAreFiltersApplied(true)
-    // }
   }
 
   function handleSearchTextChange(searchQuery: string) {
@@ -179,7 +167,10 @@ export function ItemLookupFilters({ filters }: Props) {
       finalPath = finalPath.slice(0, -1)
     }
 
-    router.push(finalPath, { scroll: false })
+    // We don't use router here because we want to reload the page,
+    // which in turn reapplies the filters. We tried this with the
+    // router but it was causing an infinite loop of re-rendering
+    window.location.href = finalPath
   }
 
   return (

@@ -159,7 +159,7 @@ export default function Page() {
         <MasonryItemList
           key={new Date().getTime()}
           items={filteredItems}
-          infiniteScroll={false}
+          infiniteScroll={true}
         />
       </div>
     </div>
