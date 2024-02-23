@@ -4201,6 +4201,7 @@ export const remnantItems: Item[] = [
     },
     damage: 51,
   },
+  // TODO Tragic indicated this would get corrosive damage
   {
     category: 'weapon',
     type: 'melee',
@@ -4733,6 +4734,7 @@ export const remnantItems: Item[] = [
     rps: 14.2,
     magazine: 42,
   },
+  // TODO Tragic indicated that this weapon would be getting updates
   {
     category: 'weapon',
     type: 'hand gun',
