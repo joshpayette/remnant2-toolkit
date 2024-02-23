@@ -15,12 +15,17 @@ import {
   UsersIcon,
 } from '@heroicons/react/24/solid'
 
-import WikiIcon from '../../../public/wiki-icon.svg'
-
 /**
  * The base pages for the site
  */
 export const NAV_ITEMS = {
+  ampVsRes: {
+    label: 'Amplitude vs Resonance',
+    description:
+      'A guide on what items are affected by Amplitude and Resonance.',
+    href: '/guides/amplitude-vs-resonance',
+    icon: TableCellsIcon,
+  },
   bossTracker: {
     label: 'Boss Tracker',
     description:
