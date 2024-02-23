@@ -1,7 +1,7 @@
 'use client'
 
 import { Masonry, useInfiniteLoader } from 'masonic'
-import { Suspense, useState } from 'react'
+import { useState } from 'react'
 import { useIsClient } from 'usehooks-ts'
 
 import { getArrayOfLength } from '@/features/build/lib/getArrayOfLength'
@@ -65,27 +65,25 @@ export function MasonryItemList({
         open={infoOpen}
         onClose={() => setSelectedItem(null)}
       />
-      <Suspense fallback={<Loading />}>
-        <div className="flex w-full flex-col items-center justify-center overflow-auto p-4">
-          <h2 className="my-4 text-4xl font-bold text-green-500">{label}</h2>
+      <div className="flex w-full flex-col items-center justify-center overflow-auto p-4">
+        <h2 className="my-4 text-4xl font-bold text-green-500">{label}</h2>
 
-          <Masonry
-            items={infiniteScroll ? visibleItems : items}
-            onRender={infiniteScroll ? maybeLoadMore : undefined}
-            render={({ index, data, width }) => (
-              <ItemCard
-                index={index}
-                data={data}
-                width={width}
-                onMoreInfoClick={handleMoreInfoClick}
-              />
-            )}
-            columnGutter={8}
-            rowGutter={8}
-            overscanBy={infiniteScroll ? 1.25 : undefined}
-          />
-        </div>
-      </Suspense>
+        <Masonry
+          items={infiniteScroll ? visibleItems : items}
+          onRender={infiniteScroll ? maybeLoadMore : undefined}
+          render={({ index, data, width }) => (
+            <ItemCard
+              index={index}
+              data={data}
+              width={width}
+              onMoreInfoClick={handleMoreInfoClick}
+            />
+          )}
+          columnGutter={8}
+          rowGutter={8}
+          overscanBy={infiniteScroll ? 1.25 : undefined}
+        />
+      </div>
     </>
   )
 }

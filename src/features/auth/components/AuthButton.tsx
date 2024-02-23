@@ -202,18 +202,6 @@ function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
 }
 
 export const AuthButton = {
-  Desktop: () => (
-    <Suspense fallback={<Loading />}>
-      <AuthButtonComponent variant="desktop" />
-    </Suspense>
-  ),
-  Mobile: () => (
-    <Suspense fallback={<Loading />}>
-      <AuthButtonComponent variant="mobile" />
-    </Suspense>
-  ),
-}
-
-function Loading() {
-  return <Skeleton className="h-[38px] w-[80px]" />
+  Desktop: () => <AuthButtonComponent variant="desktop" />,
+  Mobile: () => <AuthButtonComponent variant="mobile" />,
 }

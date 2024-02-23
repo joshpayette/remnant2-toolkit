@@ -9,11 +9,9 @@ import 'react-toastify/dist/ReactToastify.min.css'
 
 import { Analytics } from '@vercel/analytics/react'
 import { Viewport } from 'next'
-import { Suspense } from 'react'
 import { ToastContainer } from 'react-toastify'
 
 import { PreloadResources } from '@/features/ui/PreloadResources'
-import { Skeleton } from '@/features/ui/Skeleton'
 
 import { SessionProvider } from '../features/auth/components/SessionProvider'
 import { ReportBugButton } from '../features/bug-reports/ReportBugButton'
@@ -69,21 +67,11 @@ export default async function RootLayout({
             </main>
           </div>
 
-          <Suspense fallback={<Loading />}>
-            <Footer />
-          </Suspense>
+          <Footer />
         </SessionProvider>
         <Analytics />
         {/* <SpeedInsights /> */}
       </body>
     </html>
-  )
-}
-
-function Loading() {
-  return (
-    <div className="flex w-full items-center justify-center">
-      <Skeleton className="h-32 w-full" />
-    </div>
   )
 }
