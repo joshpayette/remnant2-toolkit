@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Fixed
 
 - Improved image sizing, quality, and rendering in the Item Lookup section.
+- Fixed bug where Mutator and Trait `maxLevelDescription` values weren't being considered in search text.
 
 ### Changed
 
