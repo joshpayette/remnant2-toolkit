@@ -10,6 +10,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Added link to Amplitude vs Resonance guide under Resources.
 
+### Fixed
+
+- Improved image sizing, quality, and rendering in the Item Lookup section.
+
 ### Changed
 
 - Added infinite scroll to Item Lookup to improve performance for mobile users and improve search engine performance. This is due to not rendering every single item and the multiple DOM elements required for each item.

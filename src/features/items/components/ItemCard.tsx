@@ -30,6 +30,25 @@ interface Props {
 export function ItemCard({ data: item, onMoreInfoClick }: Props) {
   const { imagePath, category, name, description } = item
 
+  let sizes = {
+    width: 96,
+    height: 96,
+  }
+
+  if (TraitItem.isTraitItem(item)) {
+    sizes = {
+      width: 48,
+      height: 96,
+    }
+  }
+
+  if (WeaponItem.isWeaponItem(item)) {
+    sizes = {
+      width: 128,
+      height: 64,
+    }
+  }
+
   return (
     <div className="col-span-1 flex flex-col divide-y divide-green-800 rounded-lg border border-green-500 bg-black text-center shadow">
       <div className="flex flex-1 flex-col p-4">
@@ -40,12 +59,12 @@ export function ItemCard({ data: item, onMoreInfoClick }: Props) {
         >
           <Image
             className={cn(
-              'mx-auto mb-2 h-auto w-24 flex-shrink-0 rounded-full',
-              TraitItem.isTraitItem(item) && 'h-24 w-auto',
-              WeaponItem.isWeaponItem(item) && 'h-auto w-32',
+              'mx-auto mb-2 h-[96px] w-[96px] flex-shrink-0 rounded-full',
+              TraitItem.isTraitItem(item) && 'h-[96px] w-[48px]',
+              WeaponItem.isWeaponItem(item) && 'h-[64px] w-[128px]',
             )}
-            width={150}
-            height={150}
+            width={sizes.width}
+            height={sizes.height}
             src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}${imagePath}`}
             alt={`${name} icon`}
             loading="lazy"
