@@ -72,36 +72,36 @@ export function ItemCard({ data: item, onMoreInfoClick }: Props) {
 
           {name}
         </button>
-        <dl className="mt-0 flex flex-grow flex-col justify-start text-xs">
-          <dt className="sr-only">Item Category</dt>
-          <dd className="text-xs text-gray-500">
+        <div className="mt-0 flex flex-grow flex-col justify-start text-xs">
+          <div className="sr-only">Item Category</div>
+          <div className="text-xs text-gray-400">
             {category === 'relicfragment' ? 'relic fragment' : category}
-          </dd>
+          </div>
           {!ArmorItem.isArmorItem(item) && (
             <>
-              <dt className="sr-only">Description</dt>
-              <dd className="mt-3 whitespace-pre-line text-left text-xs text-gray-200">
+              <div className="sr-only">Description</div>
+              <div className="mt-3 whitespace-pre-line text-left text-xs text-gray-200">
                 <DescriptionWithTags description={description ?? ''} />
-              </dd>
+              </div>
             </>
           )}
 
           {(MutatorItem.isMutatorItem(item) || TraitItem.isTraitItem(item)) && (
-            <dd className="mt-3 whitespace-pre-line text-left text-xs text-gray-200">
+            <div className="mt-3 whitespace-pre-line text-left text-xs text-gray-200">
               <strong>At Max Level: </strong>
               {item.maxLevelBonus || 'No max level bonus found.'}
               <DescriptionWithTags
                 description={item.maxLevelBonus || 'No max level bonus found.'}
               />
-            </dd>
+            </div>
           )}
 
           {item.cooldown && (
-            <dd className="mt-3 whitespace-pre-line text-left text-xs text-gray-200">
+            <div className="mt-3 whitespace-pre-line text-left text-xs text-gray-200">
               <strong>Cooldown</strong>: {item.cooldown}s
-            </dd>
+            </div>
           )}
-        </dl>
+        </div>
         {ArmorItem.isArmorItem(item) && (
           <div className="mt-1">
             <ArmorInfo item={item} />
