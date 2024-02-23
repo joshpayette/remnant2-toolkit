@@ -1,5 +1,6 @@
 'use client'
 
+import { ClipboardDocumentListIcon } from '@heroicons/react/24/solid'
 import { signIn, useSession } from 'next-auth/react'
 
 import { DescriptionWithTags } from '@/features/items/components/DescriptionWithTags'
@@ -78,12 +79,37 @@ export function MemberFeatures({
               description?.length ?? 0
             }/${MAX_BUILD_DESCRIPTION_LENGTH})`}
             name="description"
-            placeholder=""
+            placeholder="Adding a description about how the build works, possible item swaps, and other info can help others understand your build better. Click the document icon below to insert a template."
             onChange={(e) => onChangeDescription(e.target.value)}
             value={description ?? ''}
             maxLength={MAX_BUILD_DESCRIPTION_LENGTH}
             className="h-[215px]"
           />
+          <div className="flex w-full items-center justify-end">
+            <button
+              className="my-1 text-xs text-purple-500 underline"
+              onClick={() => {
+                const response = confirm(
+                  'Insert the description template? This will clear the current description.',
+                )
+                if (response) {
+                  onChangeDescription(
+                    `
+This build is designed for [insert game difficulty here] and is a [insert build type here] build. It is designed to be played [insert solo or coop here] with a [insert weapon name here] but can be played with other weapons.
+  
+If you don't have the [insert item name here], you can use [insert alternative item name here] instead. If you don't have the [insert item name here], you can use [insert alternative item name here] instead.
+  
+For a non-boss version of this build, see [insert link here].
+For an easier to obtain loot version of this build, see [insert link here].
+  `.trim(),
+                  )
+                }
+              }}
+            >
+              <ClipboardDocumentListIcon className="inline-block h-4 w-4" />{' '}
+              Insert Description Template
+            </button>
+          </div>
         </div>
       )}
       {isScreenshotModeActive ? null : (

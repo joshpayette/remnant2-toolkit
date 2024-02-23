@@ -6,6 +6,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2024-02-22
 
+### Added
+
+- Added placeholder text for build description to encourage better descriptions.
+- Added button to insert a build description template to encourage better descriptions.
+
 ### Changed
 
 - Item Tracker now shows items for one category at a time rather than all items. This should increase performance for users (mobile users in particular), as well as search engine performance.
