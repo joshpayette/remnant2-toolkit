@@ -4561,6 +4561,7 @@ export const remnantItems: Item[] = [
     },
     damage: 101,
   },
+  // TODO Tragic indicated that Anguish would be getting proper scaling in next patch
   {
     category: 'weapon',
     type: 'hand gun',
