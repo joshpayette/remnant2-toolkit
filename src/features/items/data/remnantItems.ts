@@ -678,6 +678,8 @@ export const remnantItems: Item[] = [
       },
     },
   },
+  // TODO Tragic indicated that the boost is up from 15% to 50% in the next patch.
+  // TODO Tragic indicated that incoming damage will now be increased by 15% for 10s, even if you leave the gate.
   {
     category: 'skill',
     name: 'Chaos Gate',
