@@ -1,7 +1,7 @@
 # Amplitude vs Resonance (Updated for DLC)
 
 Guide by: ThatGuyLegit, with contributions from ConRaven and Alexij.
-Last updated: 2024-02-3
+Last updated: 2024-02-23
 
 ## Archetypes
 
@@ -22,7 +22,7 @@ Last updated: 2024-02-3
 - Engineer
   - Skills
     - Impact Cannon **Amplitude**
-    - Flame Turret *Range of acquired target* 10m -> 15m *EST* **Amplitude**
+    - Flame Turret _Range of acquired target_ 10m -> 15m _EST_ **Amplitude**
     - Flame Turret - 2m -> 3m **Amplitude**
 - Explorer
   - Skills
@@ -106,7 +106,7 @@ Last updated: 2024-02-3
 - Voltaic Rondure - 3m > 4.5m **Resonance**
 - Supernova 4m -> 6m **Amplitude**
 - Explosive Shot 9m -> 13.5m **Amplitude**
- - Gas Giant 3m -> 4.5m **Resonance**
+- Gas Giant 3m -> 4.5m **Resonance**
 
 ## Mutators
 
