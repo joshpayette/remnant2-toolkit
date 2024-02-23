@@ -79,7 +79,7 @@ export function MemberFeatures({
               description?.length ?? 0
             }/${MAX_BUILD_DESCRIPTION_LENGTH})`}
             name="description"
-            placeholder="Adding a description about how the build works, possible item swaps, and other info can help others understand your build better. Click the document icon below to insert a template."
+            placeholder="Adding a description about how the build works, possible item swaps, and other info can help others understand your build better. If stuck, use the Item Description Template link below!"
             onChange={(e) => onChangeDescription(e.target.value)}
             value={description ?? ''}
             maxLength={MAX_BUILD_DESCRIPTION_LENGTH}
