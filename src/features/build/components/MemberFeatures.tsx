@@ -79,7 +79,7 @@ export function MemberFeatures({
               description?.length ?? 0
             }/${MAX_BUILD_DESCRIPTION_LENGTH})`}
             name="description"
-            placeholder="Consider adding a description about how the build works, possible item swaps, and other info that can help others understand your build better. Not sure what to write? Use the Item Description Template link below!"
+            placeholder="Consider adding a description about how the build works, possible item swaps, a link to a Youtube video demonstrating the build, and any other info that can help others understand your build better. Not sure what to write? Use the Item Description Template link below!"
             onChange={(e) => onChangeDescription(e.target.value)}
             value={description ?? ''}
             maxLength={MAX_BUILD_DESCRIPTION_LENGTH}
@@ -101,6 +101,8 @@ If you don't have the [insert item name here], you can use [insert alternative i
   
 For a non-boss version of this build, see [insert link here].
 For an easier to obtain loot version of this build, see [insert link here].
+
+Watch the build in action: [insert Youtube link here]
   `.trim(),
                   )
                 }
