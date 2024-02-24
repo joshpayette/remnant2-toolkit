@@ -1,7 +1,6 @@
 'use server'
 
 import { Metadata } from 'next'
-import { Suspense } from 'react'
 
 export async function generateMetadata(): Promise<Metadata> {
   const title = `Item Lookup - Remnant 2 Toolkit`
@@ -37,5 +36,5 @@ export default async function Layout({
 }: {
   children: React.ReactNode
 }) {
-  return <Suspense>{children}</Suspense>
+  return <>{children}</>
 }

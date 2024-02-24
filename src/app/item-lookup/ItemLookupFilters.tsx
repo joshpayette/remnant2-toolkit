@@ -1,5 +1,5 @@
 import isEqual from 'lodash.isequal'
-import { usePathname, useRouter } from 'next/navigation'
+import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import { useMemo, useState } from 'react'
 
 import {
@@ -13,6 +13,7 @@ import {
   ReleaseFilters,
 } from '@/features/filters/components/parts/ReleaseFilters'
 import { SearchTextAutocomplete } from '@/features/filters/components/parts/SearchTextAutocomplete'
+import { parseItemLookupFilters } from '@/features/filters/lib/parseItemLookupFilters'
 import {
   ItemLookupCategory,
   ItemLookupFilterFields,
@@ -81,13 +82,14 @@ export const DEFAULT_ITEM_LOOKUP_FILTERS: ItemLookupFilterFields = {
   selectedReleases: DEFAULT_RELEASE_FILTERS,
 }
 
-interface Props {
-  filters: ItemLookupFilterFields
-}
+interface Props {}
 
-export function ItemLookupFilters({ filters }: Props) {
+export function ItemLookupFilters({}: Props) {
   const router = useRouter()
   const pathname = usePathname()
+
+  const searchParams = useSearchParams()
+  const filters = parseItemLookupFilters(searchParams)
 
   // Tracks the filter changes by the user that are not yet applied
   // via clicking the Apply Filters button
