@@ -6,39 +6,6 @@ import { DESCRIPTION_TAGS, ITEM_TAGS } from '@/features/items/constants'
 import { remnantItems } from '@/features/items/data/remnantItems'
 import { cn } from '@/lib/classnames'
 
-function buildItemList(): Array<{ id: string; name: string }> {
-  let items = remnantItems
-    .filter((item) => item.category !== 'relicfragment')
-    .map((item) => ({
-      id: item.id,
-      name: item.name,
-    }))
-
-  // items = remnantBosses
-  //   .map((boss) => ({ id: boss.id, name: boss.name }))
-  //   .concat(items)
-
-  items = DESCRIPTION_TAGS.map((tag) => ({
-    id: tag.token as string,
-    name: tag.type as string,
-  })).concat(items)
-
-  items = ITEM_TAGS.map((tag) => ({
-    id: tag as string,
-    name: tag as string,
-  })).concat(items)
-
-  items = items.sort((a, b) => a.name.localeCompare(b.name))
-
-  // remove duplicates
-  items = items.filter(
-    (item, index, self) =>
-      index === self.findIndex((i) => i.name === item.name),
-  )
-
-  return items
-}
-
 type Item = {
   id: string
   name: string
@@ -47,12 +14,16 @@ type Item = {
 interface Props {
   onChange: (value: string) => void
   onKeyDown?: () => void
+  items: Item[]
   value: string
 }
 
-export function SearchTextAutocomplete({ onChange, onKeyDown, value }: Props) {
-  const items = buildItemList()
-
+export function SearchTextAutocomplete({
+  onChange,
+  onKeyDown,
+  items,
+  value,
+}: Props) {
   const [selectedItem, setSelectedItem] = useState<Item | null>({
     id: '',
     name: value,
@@ -107,7 +78,7 @@ export function SearchTextAutocomplete({ onChange, onKeyDown, value }: Props) {
           />
         </Combobox.Button>
 
-        <Combobox.Options className="absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-md bg-gray-900 py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+        <Combobox.Options className="absolute z-20 mt-1 max-h-60 w-full overflow-auto rounded-md bg-gray-900 py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
           {value.length > 0 && (
             <Combobox.Option
               value={{ id: null, name: value }}
