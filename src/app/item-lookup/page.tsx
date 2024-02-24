@@ -1,17 +1,19 @@
 'use client'
 
 import { useSearchParams } from 'next/navigation'
+import { useState } from 'react'
 
 import { ItemLookupFilters } from '@/app/item-lookup/ItemLookupFilters'
 import { ItemList } from '@/features/build/components/ItemList'
 import { ToCsvButton } from '@/features/csv/ToCsvButton'
 import { parseItemLookupFilters } from '@/features/filters/lib/parseItemLookupFilters'
 import { ItemLookupFilterFields } from '@/features/filters/types'
+import { ItemCard } from '@/features/items/components/ItemCard'
 import { MasonryItemList } from '@/features/items/components/MasonryItemList'
 import { remnantItems } from '@/features/items/data/remnantItems'
 import { itemMatchesSearchText } from '@/features/items/lib/itemMatchesSearchText'
 import { itemToCsvItem } from '@/features/items/lib/itemToCsvItem'
-import { ReleaseKey } from '@/features/items/types'
+import { Item, ReleaseKey } from '@/features/items/types'
 import { MutatorItem } from '@/features/items/types/MutatorItem'
 import { WeaponItem } from '@/features/items/types/WeaponItem'
 import { useLocalStorage } from '@/features/localstorage/useLocalStorage'
@@ -134,9 +136,11 @@ function getFilteredItems({
   return newFilteredItems
 }
 
-const ITEMS_PER_PAGE = 30
+const ITEMS_PER_PAGE = 50
 
 export default function Page() {
+  const [selectedItem, setSelectedItem] = useState<Item | null>(null)
+
   const { discoveredItemIds } = useLocalStorage()
 
   const searchParams = useSearchParams()
@@ -167,7 +171,9 @@ export default function Page() {
     currentPage * ITEMS_PER_PAGE,
   )
 
-  console.info('paginatedFilteredItems', paginatedFilteredItems.length)
+  function handleMoreInfoClick(item: Item) {
+    setSelectedItem(item)
+  }
 
   return (
     <div className="relative flex w-full flex-col items-center justify-center">
@@ -199,10 +205,15 @@ export default function Page() {
             onSpecificPage={handleSpecificPageClick}
             headerActions={undefined}
           >
-            <MasonryItemList
-              key={totalItemCount}
-              items={paginatedFilteredItems}
-            />
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+              {paginatedFilteredItems.map((item) => (
+                <ItemCard
+                  key={item.id}
+                  data={item}
+                  onMoreInfoClick={handleMoreInfoClick}
+                />
+              ))}
+            </div>
           </ItemList>
         </div>
       </div>

@@ -21,9 +21,9 @@ import { DescriptionWithTags } from './DescriptionWithTags'
 import { WeaponInfo } from './WeaponInfo'
 
 interface Props {
-  index: number
+  index?: number
   data: Item
-  width: number
+  width?: number
   onMoreInfoClick: (item: Item) => void
 }
 
