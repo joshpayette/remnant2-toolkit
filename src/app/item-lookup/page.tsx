@@ -3,7 +3,6 @@
 import { useSearchParams } from 'next/navigation'
 
 import { ItemLookupFilters } from '@/app/item-lookup/ItemLookupFilters'
-import { ItemList } from '@/features/build/components/ItemList'
 import { ToCsvButton } from '@/features/csv/ToCsvButton'
 import { parseItemLookupFilters } from '@/features/filters/lib/parseItemLookupFilters'
 import { ItemLookupFilterFields } from '@/features/filters/types'
@@ -15,7 +14,6 @@ import { ReleaseKey } from '@/features/items/types'
 import { MutatorItem } from '@/features/items/types/MutatorItem'
 import { WeaponItem } from '@/features/items/types/WeaponItem'
 import { useLocalStorage } from '@/features/localstorage/useLocalStorage'
-import { usePagination } from '@/features/pagination/usePagination'
 import { PageHeader } from '@/features/ui/PageHeader'
 import { capitalize } from '@/lib/capitalize'
 
@@ -51,13 +49,10 @@ const allItems = remnantItems.map((item) => ({
   discovered: false,
 }))
 
-function getFilteredItems({
-  discoveredItemIds,
-  filters,
-}: {
-  discoveredItemIds: string[]
-  filters: ItemLookupFilterFields
-}) {
+function getFilteredItems(
+  filters: ItemLookupFilterFields,
+  discoveredItemIds: string[],
+) {
   let newFilteredItems = allItems.map((item) => ({
     ...item,
     discovered: discoveredItemIds.includes(item.id),
@@ -134,38 +129,13 @@ function getFilteredItems({
   return newFilteredItems
 }
 
-const ITEMS_PER_PAGE = 30
-
 export default function Page() {
   const { discoveredItemIds } = useLocalStorage()
 
   const searchParams = useSearchParams()
   const filters = parseItemLookupFilters(searchParams)
 
-  const filteredItems = getFilteredItems({
-    discoveredItemIds,
-    filters,
-  })
-  const totalItemCount = filteredItems.length
-
-  const {
-    currentPage,
-    pageNumbers,
-    totalPages,
-    firstVisibleItemNumber,
-    lastVisibleItemNumber,
-    handlePreviousPageClick,
-    handleNextPageClick,
-    handleSpecificPageClick,
-  } = usePagination({
-    itemsPerPage: ITEMS_PER_PAGE,
-    totalItemCount,
-  })
-
-  const paginatedFilteredItems = filteredItems.slice(
-    (currentPage - 1) * ITEMS_PER_PAGE,
-    currentPage * ITEMS_PER_PAGE,
-  )
+  const filteredItems = getFilteredItems(filters, discoveredItemIds)
 
   return (
     <div className="relative flex w-full flex-col items-center justify-center">
@@ -182,27 +152,8 @@ export default function Page() {
         <div className="w-full max-w-4xl">
           <ItemLookupFilters filters={filters} />
         </div>
-        <div className="mb-8 mt-4 w-full max-w-7xl">
-          <ItemList
-            label="Items"
-            isLoading={false}
-            currentPage={currentPage}
-            pageNumbers={pageNumbers}
-            totalItems={totalItemCount}
-            totalPages={totalPages}
-            firstVisibleItemNumber={firstVisibleItemNumber}
-            lastVisibleItemNumber={lastVisibleItemNumber}
-            onPreviousPage={handlePreviousPageClick}
-            onNextPage={handleNextPageClick}
-            onSpecificPage={handleSpecificPageClick}
-            headerActions={undefined}
-          >
-            <MasonryItemList
-              key={totalItemCount}
-              items={paginatedFilteredItems}
-            />
-          </ItemList>
-        </div>
+
+        <MasonryItemList key={filteredItems.length} items={filteredItems} />
       </div>
     </div>
   )
