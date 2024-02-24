@@ -134,7 +134,7 @@ function getFilteredItems({
   return newFilteredItems
 }
 
-const ITEMS_PER_PAGE = 50
+const ITEMS_PER_PAGE = 30
 
 export default function Page() {
   const { discoveredItemIds } = useLocalStorage()
@@ -166,6 +166,8 @@ export default function Page() {
     (currentPage - 1) * ITEMS_PER_PAGE,
     currentPage * ITEMS_PER_PAGE,
   )
+
+  console.info('paginatedFilteredItems', paginatedFilteredItems.length)
 
   return (
     <div className="relative flex w-full flex-col items-center justify-center">
