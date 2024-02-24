@@ -3,6 +3,7 @@
 import { useSearchParams } from 'next/navigation'
 
 import { ItemLookupFilters } from '@/app/item-lookup/ItemLookupFilters'
+import { ItemList } from '@/features/build/components/ItemList'
 import { ToCsvButton } from '@/features/csv/ToCsvButton'
 import { parseItemLookupFilters } from '@/features/filters/lib/parseItemLookupFilters'
 import { ItemLookupFilterFields } from '@/features/filters/types'
@@ -14,6 +15,7 @@ import { ReleaseKey } from '@/features/items/types'
 import { MutatorItem } from '@/features/items/types/MutatorItem'
 import { WeaponItem } from '@/features/items/types/WeaponItem'
 import { useLocalStorage } from '@/features/localstorage/useLocalStorage'
+import { usePagination } from '@/features/pagination/usePagination'
 import { PageHeader } from '@/features/ui/PageHeader'
 import { capitalize } from '@/lib/capitalize'
 
@@ -132,6 +134,8 @@ function getFilteredItems({
   return newFilteredItems
 }
 
+const ITEMS_PER_PAGE = 30
+
 export default function Page() {
   const { discoveredItemIds } = useLocalStorage()
 
@@ -143,6 +147,25 @@ export default function Page() {
     filters,
   })
   const totalItemCount = filteredItems.length
+
+  const {
+    currentPage,
+    pageNumbers,
+    totalPages,
+    firstVisibleItemNumber,
+    lastVisibleItemNumber,
+    handlePreviousPageClick,
+    handleNextPageClick,
+    handleSpecificPageClick,
+  } = usePagination({
+    itemsPerPage: ITEMS_PER_PAGE,
+    totalItemCount,
+  })
+
+  const paginatedFilteredItems = filteredItems.slice(
+    (currentPage - 1) * ITEMS_PER_PAGE,
+    currentPage * ITEMS_PER_PAGE,
+  )
 
   return (
     <div className="relative flex w-full flex-col items-center justify-center">
@@ -160,7 +183,25 @@ export default function Page() {
           <ItemLookupFilters filters={filters} />
         </div>
         <div className="mb-8 mt-4 w-full max-w-7xl">
-          <MasonryItemList key={totalItemCount} items={filteredItems} />
+          <ItemList
+            label="Items"
+            isLoading={false}
+            currentPage={currentPage}
+            pageNumbers={pageNumbers}
+            totalItems={totalItemCount}
+            totalPages={totalPages}
+            firstVisibleItemNumber={firstVisibleItemNumber}
+            lastVisibleItemNumber={lastVisibleItemNumber}
+            onPreviousPage={handlePreviousPageClick}
+            onNextPage={handleNextPageClick}
+            onSpecificPage={handleSpecificPageClick}
+            headerActions={undefined}
+          >
+            <MasonryItemList
+              key={totalItemCount}
+              items={paginatedFilteredItems}
+            />
+          </ItemList>
         </div>
       </div>
     </div>
