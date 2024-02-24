@@ -141,7 +141,7 @@ export default function Page() {
     <div className="relative flex w-full flex-col items-center justify-center">
       <PageHeader
         title="Remnant 2 Item Lookup"
-        subtitle="Look up info on all the items in Remnant 2"
+        subtitle="Find extended item information and interactions."
       >
         <div className="mb-4 flex items-center justify-center">
           <ToCsvButton data={csvItems} filename="remnant2toolkit_iteminfo" />
