@@ -10,10 +10,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Added link to Amplitude vs Resonance guide under Resources.
 
-### Changed
-
-- Added pagination to Item Lookup to improve performance, particularly on mobile. It also will improve search engine optimization.
-
 ### Fixed
 
 - Improved image sizing, quality, and rendering in the Item Lookup section.
