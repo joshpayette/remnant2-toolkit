@@ -7,9 +7,9 @@ import { ProfileHeader } from '@/features/profile/components/ProfileHeader'
 import { Tabs } from '@/features/profile/components/Tabs'
 
 export async function generateMetadata(): Promise<Metadata> {
-  const title = `Favorited Builds - Remnant2Toolkit`
+  const title = `Favorited Builds - Remnant 2 Toolkit`
   const description =
-    'View all of the builds you have favorited on Remnant 2 Toolkit.'
+    'A collection of builds you have favorited. Save your favorite builds and access them from your profile.'
 
   return {
     title,

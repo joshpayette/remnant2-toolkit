@@ -7,9 +7,9 @@ import React from 'react'
 import { getServerSession } from '@/features/auth/lib'
 
 export async function generateMetadata(): Promise<Metadata> {
-  const title = `Build Creation Tool - Remnant2Toolkit`
+  const title = `Build Creation Tool - Remnant 2 Toolkit`
   const description =
-    'Create a build for Remnant 2 and share it with the community.'
+    'Remnant 2 Builder, a tool to create and share builds with the community. Share your builds with the community and help others find the best builds for their playstyle.'
 
   return {
     title,

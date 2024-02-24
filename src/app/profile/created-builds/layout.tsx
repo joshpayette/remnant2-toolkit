@@ -7,9 +7,9 @@ import { ProfileHeader } from '@/features/profile/components/ProfileHeader'
 import { Tabs } from '@/features/profile/components/Tabs'
 
 export async function generateMetadata(): Promise<Metadata> {
-  const title = `Created Builds - Remnant2Toolkit`
+  const title = `Created Builds - Remnant 2 Toolkit`
   const description =
-    'View all of the builds you have created on Remnant 2 Toolkit.'
+    'A list of the builds you have created. Share your builds with the community and help others find the best builds for their playstyle.'
 
   return {
     title,
