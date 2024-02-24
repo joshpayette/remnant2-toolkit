@@ -4,6 +4,8 @@ import { DESCRIPTION_TAGS, ITEM_TAGS } from '@/features/items/constants'
 import { remnantItems } from '@/features/items/data/remnantItems'
 import { itemMatchesSearchText } from '@/features/items/lib/itemMatchesSearchText'
 import { Item, ItemTag } from '@/features/items/types'
+import { ConcoctionItem } from '@/features/items/types/ConcoctionItem'
+import { ConsumableItem } from '@/features/items/types/ConsumableItem'
 import { ModItem } from '@/features/items/types/ModItem'
 import { MutatorItem } from '@/features/items/types/MutatorItem'
 import { WeaponItem } from '@/features/items/types/WeaponItem'
@@ -139,35 +141,32 @@ const DEFAULT_TAG = { label: 'Choose', value: 'Choose' } satisfies {
 const allTagOptions = buildTagOptions()
 allTagOptions.unshift(DEFAULT_TAG)
 
-/** Used for cycling through the different slots for items that can be equipped */
-type ItemSlot =
-  | 'archetype1'
-  | 'archetype2'
-  | 'concoction1'
-  | 'concoction2'
-  | 'concoction3'
-  | 'concoction4'
-  | 'concoction5'
-  | 'concoction6'
-  | 'concoction7'
-  | 'consumable1'
-  | 'consumable2'
-  | 'consumable3'
-  | 'consumable4'
-  | 'long gun'
-  | 'hand gun'
-  | 'relicfragment1'
-  | 'relicfragment2'
-  | 'relicfragment3'
-  | 'ring1'
-  | 'ring2'
-  | 'ring3'
-  | 'ring4'
-
 type ItemTagOption = (typeof allTagOptions)[number]
 
 type SelectedItem = Item & {
-  slot?: ItemSlot
+  slot?:
+    | 'archetype1'
+    | 'archetype2'
+    | 'concoction1'
+    | 'concoction2'
+    | 'concoction3'
+    | 'concoction4'
+    | 'concoction5'
+    | 'concoction6'
+    | 'concoction7'
+    | 'consumable1'
+    | 'consumable2'
+    | 'consumable3'
+    | 'consumable4'
+    | 'long gun'
+    | 'hand gun'
+    | 'relicfragment1'
+    | 'relicfragment2'
+    | 'relicfragment3'
+    | 'ring1'
+    | 'ring2'
+    | 'ring3'
+    | 'ring4'
 }
 
 interface Props {
@@ -531,7 +530,7 @@ export function ItemTagSuggestions({
         }
       }
 
-      // Handle equipping the archetypes to the specified slots
+      // Handle equipping the skills and linked archetypes to the specified slots
       if (selectedItem.category === 'skill') {
         const linkedArchetype = remnantItems.find(
           (i) => i.name === selectedItem.linkedItems?.archetype?.name,
@@ -600,7 +599,7 @@ export function ItemTagSuggestions({
       }
 
       // Handle equipping consumables to the specified slots
-      if (selectedItem.category === 'consumable') {
+      if (ConsumableItem.isConsumableItem(selectedItem)) {
         if (selectedItem.slot === 'consumable1') {
           newBuildState.items.consumable[0] = itemToEquip
           continue
@@ -617,7 +616,7 @@ export function ItemTagSuggestions({
       }
 
       // Handle equipping the concoctions
-      if (selectedItem.category === 'concoction') {
+      if (ConcoctionItem.isConcoctionItem(selectedItem)) {
         const concoctionSlotCount = getConcoctionSlotCount(buildState) + 1
 
         if (selectedItem.slot === 'concoction1') {
@@ -697,6 +696,16 @@ export function ItemTagSuggestions({
           continue
         }
       }
+    }
+
+    // If archetype1 and archetype2 are the same, unequip the second
+    // archetype and the skill
+    if (
+      newBuildState.items.archetype[0]?.name ===
+      newBuildState.items.archetype[1]?.name
+    ) {
+      newBuildState.items.archetype[1] = null
+      newBuildState.items.skill[1] = null
     }
 
     newBuildState = linkArchetypesToTraits(newBuildState)
