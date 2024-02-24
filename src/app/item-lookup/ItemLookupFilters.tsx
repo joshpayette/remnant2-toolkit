@@ -1,6 +1,6 @@
 import isEqual from 'lodash.isequal'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
-import { useMemo, useState } from 'react'
+import { useMemo, useRef, useState } from 'react'
 
 import {
   CollectedItemFilters,
@@ -91,6 +91,9 @@ export function ItemLookupFilters({}: Props) {
   const searchParams = useSearchParams()
   const filters = parseItemLookupFilters(searchParams)
 
+  /** Used to clear the SearchTextAutocomplete field when clear filters is pressed */
+  const searchTextFieldKey = useRef(new Date().getTime())
+
   // Tracks the filter changes by the user that are not yet applied
   // via clicking the Apply Filters button
   const [unappliedFilters, setUnappliedFilters] =
@@ -121,6 +124,7 @@ export function ItemLookupFilters({}: Props) {
   function handleClearFilters() {
     handleApplyFilters(DEFAULT_ITEM_LOOKUP_FILTERS)
     setUnappliedFilters(DEFAULT_ITEM_LOOKUP_FILTERS)
+    searchTextFieldKey.current = new Date().getTime()
   }
 
   function handleCategoryChange(category: ItemLookupCategory) {
@@ -222,6 +226,7 @@ export function ItemLookupFilters({}: Props) {
       <div className="col-span-full flex w-full flex-col items-start justify-start gap-x-4 gap-y-2">
         <div className="flex w-full max-w-[400px] flex-col items-start justify-center">
           <SearchTextAutocomplete
+            key={searchTextFieldKey.current}
             items={buildItemList()}
             onChange={(newSearchText: string) =>
               handleSearchTextChange(newSearchText)

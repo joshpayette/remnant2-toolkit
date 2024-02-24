@@ -8,16 +8,12 @@ import { DEFAULT_ITEMS_PER_PAGE } from '@/features/pagination/constants'
 import { Skeleton } from '@/features/ui/Skeleton'
 
 import { CommunityBuildList } from './CommunityBuilds'
-import { CommunityBuildsPageHeader } from './CommunityBuildsPageHeader'
-
 export default function Page() {
   const searchParams = useSearchParams()
   const buildListFilters = parseBuildListFilters(searchParams)
 
   return (
     <>
-      <CommunityBuildsPageHeader />
-
       <div className="mb-8 flex w-full max-w-3xl items-center justify-center">
         <BuildListFilters
           filters={buildListFilters}

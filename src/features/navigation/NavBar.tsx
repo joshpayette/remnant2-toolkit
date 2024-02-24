@@ -18,6 +18,7 @@ export function NavBar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   // Close the navmenu on route change
+  // * useEffect is necessary to close the menu on route change
   useEffect(() => {
     setMobileMenuOpen(false)
   }, [pathname])

@@ -1,9 +1,7 @@
 import { Combobox } from '@headlessui/react'
 import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/24/solid'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 
-import { DESCRIPTION_TAGS, ITEM_TAGS } from '@/features/items/constants'
-import { remnantItems } from '@/features/items/data/remnantItems'
 import { cn } from '@/lib/classnames'
 
 type Item = {
@@ -24,17 +22,14 @@ export function SearchTextAutocomplete({
   items,
   value,
 }: Props) {
-  const [selectedItem, setSelectedItem] = useState<Item | null>({
-    id: '',
-    name: value,
-  })
-
-  // Ensures the item clear when clear filters pressed
-  useEffect(() => {
-    if (value === '') {
-      setSelectedItem(null)
-    }
-  }, [value])
+  const [selectedItem, setSelectedItem] = useState<Item | null>(
+    value === ''
+      ? null
+      : {
+          id: '',
+          name: value,
+        },
+  )
 
   const filteredItems =
     value === ''

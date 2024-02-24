@@ -53,6 +53,7 @@ export function useUrlBuildState() {
   const masonryItems = buildStateToMasonryItems(urlBuildState)
 
   // Add the build name to the page title
+  // * useEffect necessary here to update the document title
   useEffect(() => {
     if (!urlBuildState) {
       document.title = 'Remnant 2 Toolkit'

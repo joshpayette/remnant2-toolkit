@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { useDebounceValue } from 'usehooks-ts'
 
 import { ClearFiltersButton } from '@/features/filters/components/parts/ClearFiltersButton'
@@ -111,6 +111,7 @@ export function Filters({
     setSearchText('')
     setIncludedDlcKeys(defaultReleaseKeys)
     setIncludedCollectionKeys(defaultCollectionKeys)
+    updateFilteredItems()
   }
 
   const areAnyFiltersActive = () => {
@@ -127,10 +128,7 @@ export function Filters({
    * ------------------------------------
    */
   const [searchText, setSearchText] = useState('')
-  const [debouncedSearchText, setDebouncedSearchText] = useDebounceValue(
-    searchText,
-    500,
-  )
+  const [debouncedSearchText] = useDebounceValue(searchText, 500)
 
   function handleSearchTextChange(newValue: string) {
     setSearchText(newValue)
@@ -185,14 +183,10 @@ export function Filters({
 
   function handleItemCategoryFilterChange(category: ItemTrackerCategory) {
     setSelectedItemCategory(category)
+    updateFilteredItems()
   }
 
-  /**
-   * ------------------------------------
-   * Applies the filters as they change
-   * ------------------------------------
-   */
-  useEffect(() => {
+  const updateFilteredItems = useCallback(() => {
     const filteredItems = doFilterItems({
       allItems,
       debouncedSearchText,
@@ -211,6 +205,16 @@ export function Filters({
     selectedItemCategory,
     onUpdate,
   ])
+
+  /**
+   * ------------------------------------
+   * Updates the filters when the search
+   * text changes
+   * ------------------------------------
+   */
+  useEffect(() => {
+    updateFilteredItems()
+  }, [debouncedSearchText, updateFilteredItems])
 
   return (
     <div
@@ -268,7 +272,10 @@ export function Filters({
               <button
                 className="underline"
                 aria-label="Uncheck all DLCs"
-                onClick={() => setIncludedDlcKeys([])}
+                onClick={() => {
+                  setIncludedDlcKeys([])
+                  updateFilteredItems()
+                }}
               >
                 Uncheck All
               </button>{' '}
@@ -276,7 +283,10 @@ export function Filters({
               <button
                 className="underline"
                 aria-label="Check all DLCs"
-                onClick={() => setIncludedDlcKeys(defaultReleaseKeys)}
+                onClick={() => {
+                  setIncludedDlcKeys(defaultReleaseKeys)
+                  updateFilteredItems()
+                }}
               >
                 Check All
               </button>
@@ -308,7 +318,10 @@ export function Filters({
               <button
                 className="underline"
                 aria-label="Uncheck all collections"
-                onClick={() => setIncludedCollectionKeys([])}
+                onClick={() => {
+                  setIncludedCollectionKeys([])
+                  updateFilteredItems()
+                }}
               >
                 Uncheck All
               </button>{' '}
@@ -316,7 +329,10 @@ export function Filters({
               <button
                 className="underline"
                 aria-label="Check all collections"
-                onClick={() => setIncludedCollectionKeys(defaultCollectionKeys)}
+                onClick={() => {
+                  setIncludedCollectionKeys(defaultCollectionKeys)
+                  updateFilteredItems()
+                }}
               >
                 Check All
               </button>

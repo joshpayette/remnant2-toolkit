@@ -43,6 +43,7 @@ export function BuildSuggestionsDialog({
         />
         <div className="grid grid-cols-1 border-t border-t-green-900 pt-4 sm:grid-cols-2 sm:divide-x sm:divide-green-900">
           <ArmorSuggestions
+            key={JSON.stringify(buildState)}
             buildState={buildState}
             onApplySuggestions={onApplySuggestions}
             onOpenItemInfo={setItemInfo}

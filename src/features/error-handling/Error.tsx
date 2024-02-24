@@ -11,6 +11,7 @@ export function Error({
   error: Error & { digest?: string }
   reset: () => void
 }) {
+  // * useEffect necessary here to update the document title
   useEffect(() => {
     // Log the error to an error reporting service
     console.error(error)

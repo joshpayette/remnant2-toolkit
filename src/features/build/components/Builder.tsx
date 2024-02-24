@@ -304,6 +304,7 @@ export function Builder({
   return (
     <>
       <ItemSelect
+        key={selectedItemSlot.category}
         open={isItemSelectModalOpen}
         onClose={() => setSelectedItemSlot({ category: null })}
         onSelectItem={handleSelectItem}
