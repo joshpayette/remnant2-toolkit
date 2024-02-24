@@ -1,8 +1,43 @@
 import { Combobox } from '@headlessui/react'
 import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/24/solid'
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
+import { DESCRIPTION_TAGS, ITEM_TAGS } from '@/features/items/constants'
+import { remnantItems } from '@/features/items/data/remnantItems'
 import { cn } from '@/lib/classnames'
+
+function buildItemList(): Array<{ id: string; name: string }> {
+  let items = remnantItems
+    .filter((item) => item.category !== 'relicfragment')
+    .map((item) => ({
+      id: item.id,
+      name: item.name,
+    }))
+
+  // items = remnantBosses
+  //   .map((boss) => ({ id: boss.id, name: boss.name }))
+  //   .concat(items)
+
+  items = DESCRIPTION_TAGS.map((tag) => ({
+    id: tag.token as string,
+    name: tag.type as string,
+  })).concat(items)
+
+  items = ITEM_TAGS.map((tag) => ({
+    id: tag as string,
+    name: tag as string,
+  })).concat(items)
+
+  items = items.sort((a, b) => a.name.localeCompare(b.name))
+
+  // remove duplicates
+  items = items.filter(
+    (item, index, self) =>
+      index === self.findIndex((i) => i.name === item.name),
+  )
+
+  return items
+}
 
 type Item = {
   id: string
@@ -12,16 +47,12 @@ type Item = {
 interface Props {
   onChange: (value: string) => void
   onKeyDown?: () => void
-  items: Item[]
   value: string
 }
 
-export function SearchTextAutocomplete({
-  onChange,
-  onKeyDown,
-  items,
-  value,
-}: Props) {
+export function SearchTextAutocomplete({ onChange, onKeyDown, value }: Props) {
+  const items = buildItemList()
+
   const [selectedItem, setSelectedItem] = useState<Item | null>({
     id: '',
     name: value,
@@ -46,9 +77,16 @@ export function SearchTextAutocomplete({
       as="div"
       value={selectedItem}
       onChange={(item) => {
-        if (item) onChange(item.name)
+        if (item) {
+          onChange(item.name)
+          if (onKeyDown) onKeyDown()
+        }
         setSelectedItem(item)
-        if (onKeyDown) onKeyDown()
+      }}
+      onKeyDown={(e: React.KeyboardEvent<HTMLElement>) => {
+        if (e.key === 'Enter') {
+          if (onKeyDown) onKeyDown()
+        }
       }}
       className="w-full"
       nullable

@@ -12,7 +12,7 @@ import {
   DEFAULT_RELEASE_FILTERS,
   ReleaseFilters,
 } from '@/features/filters/components/parts/ReleaseFilters'
-import { SearchItemsFilter } from '@/features/filters/components/parts/SearchItemsFilter'
+import { SearchTextAutocomplete } from '@/features/filters/components/parts/SearchTextAutocomplete'
 import {
   ItemLookupCategory,
   ItemLookupFilterFields,
@@ -181,13 +181,17 @@ export function ItemLookupFilters({ filters }: Props) {
       onApplyFilters={handleApplyFilters}
       onClearFilters={handleClearFilters}
     >
-      <SearchItemsFilter
-        searchText={unappliedFilters.searchText}
-        onApplyFilters={() => handleApplyFilters(unappliedFilters)}
-        onSearchTextChange={(newSearchText: string) =>
-          handleSearchTextChange(newSearchText)
-        }
-      />
+      <div className="col-span-full flex w-full flex-col items-start justify-start gap-x-4 gap-y-2">
+        <div className="flex w-full max-w-[400px] flex-col items-start justify-center">
+          <SearchTextAutocomplete
+            onChange={(newSearchText: string) =>
+              handleSearchTextChange(newSearchText)
+            }
+            onKeyDown={() => handleApplyFilters(unappliedFilters)}
+            value={unappliedFilters.searchText}
+          />
+        </div>
+      </div>
 
       <div className="col-span-full flex w-full sm:col-span-2">
         <ReleaseFilters

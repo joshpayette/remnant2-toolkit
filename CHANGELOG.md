@@ -15,10 +15,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Improved image sizing, quality, and rendering in the Item Lookup section.
 - Fixed bug where Mutator and Trait `maxLevelDescription` values weren't being considered in search text.
 
-### Changed
-
-- Added infinite scroll to Item Lookup to improve performance for mobile users and improve search engine performance. This is due to not rendering every single item and the multiple DOM elements required for each item.
-
 ## 2024-02-22
 
 ### Added
