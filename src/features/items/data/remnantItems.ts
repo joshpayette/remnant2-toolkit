@@ -3959,6 +3959,7 @@ export const remnantItems: Item[] = [
     rps: 2,
     magazine: 1,
   },
+  // TODO Tragic indicated this weapon may be affected by patch
   {
     category: 'weapon',
     type: 'long gun',
