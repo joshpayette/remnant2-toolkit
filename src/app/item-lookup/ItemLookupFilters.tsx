@@ -118,6 +118,7 @@ export function ItemLookupFilters({ filters }: Props) {
 
   function handleClearFilters() {
     handleApplyFilters(DEFAULT_ITEM_LOOKUP_FILTERS)
+    setUnappliedFilters(DEFAULT_ITEM_LOOKUP_FILTERS)
   }
 
   function handleCategoryChange(category: ItemLookupCategory) {

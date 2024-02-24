@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-02-24
+
+### Changed
+
+- Item Lookup now defaults to no items loaded, requiring at least one filter activated before elements load. This should improve performance for users, particularly on mobile.
+
 ## 2024-02-23
 
 ### Added

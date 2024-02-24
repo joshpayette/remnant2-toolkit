@@ -1,6 +1,8 @@
 'use client'
 
 import { useSearchParams } from 'next/navigation'
+import { useRef } from 'react'
+import { useIsClient } from 'usehooks-ts'
 
 import { ItemLookupFilters } from '@/app/item-lookup/ItemLookupFilters'
 import { ToCsvButton } from '@/features/csv/ToCsvButton'
@@ -132,9 +134,10 @@ function getFilteredItems(
 export default function Page() {
   const { discoveredItemIds } = useLocalStorage()
 
+  const isClient = useIsClient()
+
   const searchParams = useSearchParams()
   const filters = parseItemLookupFilters(searchParams)
-
   const filteredItems = getFilteredItems(filters, discoveredItemIds)
 
   return (
@@ -153,7 +156,21 @@ export default function Page() {
           <ItemLookupFilters filters={filters} />
         </div>
 
-        <MasonryItemList key={filteredItems.length} items={filteredItems} />
+        <div className="mt-12 flex w-full items-center justify-center">
+          {filteredItems.length === remnantItems.length || !isClient ? (
+            <h2 className="text-center text-4xl font-bold text-yellow-500">
+              Apply a filter to see items
+            </h2>
+          ) : (
+            <>
+              <MasonryItemList
+                label={`Items (${filteredItems.length} Results)`}
+                key={filteredItems.length}
+                items={filteredItems}
+              />
+            </>
+          )}
+        </div>
       </div>
     </div>
   )
