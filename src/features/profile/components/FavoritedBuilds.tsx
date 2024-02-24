@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 
 import { BuildCard } from '@/features/build/components/BuildCard'
-import { BuildList } from '@/features/build/components/BuildList'
+import { ItemList } from '@/features/build/components/ItemList'
 import { useBuildListState } from '@/features/build/hooks/useBuildListState'
 import { BuildListSecondaryFilters } from '@/features/filters/components/BuildListSecondaryFilters'
 import { useBuildListSecondaryFilters } from '@/features/filters/hooks/useBuildListSecondaryFilters'
@@ -77,7 +77,7 @@ export function FavoritedBuilds({ itemsPerPage = 8, buildListFilters }: Props) {
 
   return (
     <>
-      <BuildList
+      <ItemList
         label="Builds you've favorited"
         currentPage={currentPage}
         isLoading={isLoading}
@@ -100,22 +100,27 @@ export function FavoritedBuilds({ itemsPerPage = 8, buildListFilters }: Props) {
           />
         }
       >
-        {builds.map((build) => (
-          <div key={build.id} className="h-full w-full">
-            <BuildCard
-              build={build}
-              isLoading={isLoading}
-              onReportBuild={undefined}
-              footerActions={
-                <div className="flex items-center justify-between gap-2 p-2 text-sm">
-                  <CopyBuildUrlButton buildId={build.id} />
-                  <DuplicateBuildButton build={build} />
-                </div>
-              }
-            />
-          </div>
-        ))}
-      </BuildList>
+        <ul
+          role="list"
+          className="my-4 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4"
+        >
+          {builds.map((build) => (
+            <div key={build.id} className="h-full w-full">
+              <BuildCard
+                build={build}
+                isLoading={isLoading}
+                onReportBuild={undefined}
+                footerActions={
+                  <div className="flex items-center justify-between gap-2 p-2 text-sm">
+                    <CopyBuildUrlButton buildId={build.id} />
+                    <DuplicateBuildButton build={build} />
+                  </div>
+                }
+              />
+            </div>
+          ))}
+        </ul>
+      </ItemList>
     </>
   )
 }

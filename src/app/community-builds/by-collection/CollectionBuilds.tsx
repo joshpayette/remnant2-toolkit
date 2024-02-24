@@ -4,7 +4,7 @@ import { toast } from 'react-toastify'
 
 import { getBuildsByCollection } from '@/features/build/actions/getBuildsByCollection'
 import { BuildCard } from '@/features/build/components/BuildCard'
-import { BuildList } from '@/features/build/components/BuildList'
+import { ItemList } from '@/features/build/components/ItemList'
 import { useBuildActions } from '@/features/build/hooks/useBuildActions'
 import { useBuildListState } from '@/features/build/hooks/useBuildListState'
 import { dbBuildToBuildState } from '@/features/build/lib/dbBuildToBuildState'
@@ -138,7 +138,7 @@ export function CollectionBuilds({
 
   return (
     <>
-      <BuildList
+      <ItemList
         label="Build Results"
         currentPage={currentPage}
         isLoading={isLoading}
@@ -161,26 +161,31 @@ export function CollectionBuilds({
           />
         }
       >
-        {builds.map((build) => (
-          <div key={build.id} className="h-full w-full">
-            <BuildCard
-              build={build}
-              isLoading={isLoading}
-              onReportBuild={onReportBuild}
-              footerActions={
-                <div className="flex items-center justify-end gap-2 p-2 text-sm">
-                  <Link
-                    href={`/builder/${build.id}`}
-                    className="relative inline-flex items-center justify-center gap-x-3 rounded-br-lg border border-transparent p-4 text-sm font-semibold text-green-500 hover:text-green-700 hover:underline"
-                  >
-                    View Build
-                  </Link>
-                </div>
-              }
-            />
-          </div>
-        ))}
-      </BuildList>
+        <ul
+          role="list"
+          className="my-4 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4"
+        >
+          {builds.map((build) => (
+            <div key={build.id} className="h-full w-full">
+              <BuildCard
+                build={build}
+                isLoading={isLoading}
+                onReportBuild={onReportBuild}
+                footerActions={
+                  <div className="flex items-center justify-end gap-2 p-2 text-sm">
+                    <Link
+                      href={`/builder/${build.id}`}
+                      className="relative inline-flex items-center justify-center gap-x-3 rounded-br-lg border border-transparent p-4 text-sm font-semibold text-green-500 hover:text-green-700 hover:underline"
+                    >
+                      View Build
+                    </Link>
+                  </div>
+                }
+              />
+            </div>
+          ))}
+        </ul>
+      </ItemList>
     </>
   )
 }

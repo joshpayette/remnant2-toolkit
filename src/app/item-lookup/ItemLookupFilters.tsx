@@ -1,5 +1,5 @@
 import isEqual from 'lodash.isequal'
-import { usePathname } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 import { useMemo, useState } from 'react'
 
 import {
@@ -86,6 +86,7 @@ interface Props {
 }
 
 export function ItemLookupFilters({ filters }: Props) {
+  const router = useRouter()
   const pathname = usePathname()
 
   // Tracks the filter changes by the user that are not yet applied
@@ -204,10 +205,7 @@ export function ItemLookupFilters({ filters }: Props) {
       finalPath = finalPath.slice(0, -1)
     }
 
-    // We don't use router here because we want to reload the page,
-    // which in turn reapplies the filters. We tried this with the
-    // router but it was causing an infinite loop of re-rendering
-    window.location.href = finalPath
+    router.push(finalPath, { scroll: false })
   }
 
   return (

@@ -1,6 +1,6 @@
 'use client'
 
-import { Masonry, useInfiniteLoader } from 'masonic'
+import { Masonry } from 'masonic'
 import { useState } from 'react'
 import { useIsClient } from 'usehooks-ts'
 
@@ -11,45 +11,15 @@ import { Item } from '../types'
 import { ItemCard } from './ItemCard'
 import { ItemInfoDialog } from './ItemInfoDialog'
 
-const MINIMUM_BATCH_SIZE = 10
-
-type Props = {
+interface Props {
   label?: string
   items: Item[]
-  infiniteScroll?: boolean
 }
 
-export function MasonryItemList({
-  items,
-  label = 'Items',
-  infiniteScroll = true,
-}: Props) {
+export function MasonryItemList({ items, label }: Props) {
   const isClient = useIsClient()
   const [selectedItem, setSelectedItem] = useState<Item | null>(null)
   const infoOpen = selectedItem !== null
-
-  function getBatchOfItems(
-    start: number = 0,
-    end: number = MINIMUM_BATCH_SIZE,
-  ) {
-    return items.slice(start, end)
-  }
-
-  const [visibleItems, setVisibleItems] = useState<Item[]>(getBatchOfItems)
-
-  const maybeLoadMore = useInfiniteLoader(
-    async (startIndex, stopIndex, currentItems) => {
-      const nextItems = await Promise.resolve(
-        getBatchOfItems(startIndex, stopIndex),
-      )
-      setVisibleItems((current) => [...current, ...nextItems])
-    },
-    {
-      isItemLoaded: (index, visibleItems) => !!visibleItems[index],
-      minimumBatchSize: MINIMUM_BATCH_SIZE,
-      threshold: 3,
-    },
-  )
 
   function handleMoreInfoClick(item: Item) {
     setSelectedItem(item)
@@ -66,11 +36,12 @@ export function MasonryItemList({
         onClose={() => setSelectedItem(null)}
       />
       <div className="flex w-full flex-col items-center justify-center overflow-auto p-4">
-        <h2 className="my-4 text-4xl font-bold text-green-500">{label}</h2>
+        {label && (
+          <h2 className="my-4 text-4xl font-bold text-green-500">{label}</h2>
+        )}
 
         <Masonry
-          items={infiniteScroll ? visibleItems : items}
-          onRender={infiniteScroll ? maybeLoadMore : undefined}
+          items={items}
           render={({ index, data, width }) => (
             <ItemCard
               index={index}
@@ -81,7 +52,6 @@ export function MasonryItemList({
           )}
           columnGutter={8}
           rowGutter={8}
-          overscanBy={infiniteScroll ? 1.25 : undefined}
         />
       </div>
     </>
