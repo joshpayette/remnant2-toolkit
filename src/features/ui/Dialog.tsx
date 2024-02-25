@@ -69,11 +69,11 @@ export function Dialog({
             >
               <BaseDialog.Panel className="relative h-full max-h-fit w-full transform overflow-y-auto border-2 border-green-500 bg-black px-4 py-4 text-left shadow-xl transition-all sm:my-8">
                 <button
-                  className="absolute right-0 top-0 p-2 text-white hover:text-green-500"
+                  className="absolute right-0 top-0 p-0.5 text-white hover:text-green-500"
                   onClick={onClose}
                   aria-label="Close dialog"
                 >
-                  <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                  <XMarkIcon className="h-5 w-5" aria-hidden="true" />
                 </button>
                 <div className="text-center">
                   <BaseDialog.Title
