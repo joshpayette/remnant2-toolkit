@@ -17,11 +17,11 @@ import { getArrayOfLength } from '../lib/getArrayOfLength'
 import { getConcoctionSlotCount } from '../lib/getConcoctionSlotCount'
 import { getItemListForSlot } from '../lib/getItemListForSlot'
 import { isBuildNew } from '../lib/isBuildNew'
+import { Stats } from '../stats/Stats'
 import { BuilderName } from './BuilderName'
 import { ItemSelect } from './ItemSelect'
 import { MemberFeatures } from './MemberFeatures'
 import { NewBuildBadge } from './NewBuildBadge'
-import { Stats } from './Stats'
 import { Traits } from './Traits'
 
 type BuilderProps = {

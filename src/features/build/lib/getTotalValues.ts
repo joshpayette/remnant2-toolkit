@@ -144,7 +144,21 @@ export function getTotalArmor(buildState: BuildState) {
   return totalArmor.toFixed(2)
 }
 
-export function getTotalHealth(buildState: BuildState) {
+export function getTotalHealth(buildState: BuildState): {
+  totalHealth: string
+  breakdown: {
+    equippedHealthIncreaseItems: Item[]
+    equippedHealthPercentItems: Item[]
+    equippedHealthStepItems: TraitItem[]
+    equippedHealthStepPercentItems: TraitItem[]
+    equippedHealthCapItems: Item[]
+    totalHealthCapReduction: number
+    totalHealthIncrease: number
+    totalHealthPercent: number
+    totalHealthStep: number
+    totalHealthStepPercent: number
+  }
+} {
   const equippedHealthIncreaseItems = getItemsByKey(buildState, 'health')
   const equippedHealthPercentItems = getItemsByKey(buildState, 'healthPercent')
   const equippedHealthStepItems = getTraitItemsByKey(buildState, 'healthStep')
@@ -203,7 +217,21 @@ export function getTotalHealth(buildState: BuildState) {
     (1 + totalHealthPercent + totalHealthStepPercent) *
     healthCapReduction
 
-  return totalHealth.toFixed(2)
+  return {
+    totalHealth: totalHealth.toFixed(2),
+    breakdown: {
+      equippedHealthIncreaseItems,
+      equippedHealthPercentItems,
+      equippedHealthStepItems,
+      equippedHealthStepPercentItems,
+      equippedHealthCapItems,
+      totalHealthCapReduction: healthCapReduction,
+      totalHealthIncrease,
+      totalHealthPercent,
+      totalHealthStep,
+      totalHealthStepPercent,
+    },
+  }
 }
 
 export function getTotalResistances(
@@ -251,7 +279,19 @@ export function getTotalResistances(
   return totalResistance
 }
 
-export function getTotalStamina(buildState: BuildState) {
+export function getTotalStamina(buildState: BuildState): {
+  totalStamina: string
+  breakdown: {
+    equippedStaminaIncreaseItems: Item[]
+    equippedStaminaPercentItems: Item[]
+    equippedStaminaStepItems: TraitItem[]
+    equippedStaminaStepPercentItems: TraitItem[]
+    totalStaminaIncrease: number
+    totalStaminaPercent: number
+    totalStaminaStep: number
+    totalStaminaStepPercent: number
+  }
+} {
   const equippedStaminaIncreaseItems = getItemsByKey(buildState, 'stamina')
   const equippedStaminaPercentItems = getItemsByKey(
     buildState,
@@ -273,12 +313,12 @@ export function getTotalStamina(buildState: BuildState) {
     0,
   )
 
-  const staminaHealthStep = equippedStaminaStepItems.reduce(
+  const totalStaminaStep = equippedStaminaStepItems.reduce(
     (acc, item) => acc + (item.staminaStep * item.amount ?? 0),
     0,
   )
 
-  const staminaHealthStepPercent = equippedStaminaStepPercentItems.reduce(
+  const totalStaminaStepPercent = equippedStaminaStepPercentItems.reduce(
     (acc, item) => acc + (item.staminaStepPercent * item.amount ?? 0),
     0,
   )
@@ -286,10 +326,22 @@ export function getTotalStamina(buildState: BuildState) {
   const baseStaminaAmount = 100
 
   const totalStamina =
-    (baseStaminaAmount + totalStaminaIncrease + staminaHealthStep) *
-    (1 + totalStaminaPercent + staminaHealthStepPercent)
+    (baseStaminaAmount + totalStaminaIncrease + totalStaminaStep) *
+    (1 + totalStaminaPercent + totalStaminaStepPercent)
 
-  return totalStamina.toFixed(2)
+  return {
+    totalStamina: totalStamina.toFixed(2),
+    breakdown: {
+      equippedStaminaIncreaseItems,
+      equippedStaminaPercentItems,
+      equippedStaminaStepItems,
+      equippedStaminaStepPercentItems,
+      totalStaminaIncrease,
+      totalStaminaPercent,
+      totalStaminaStep,
+      totalStaminaStepPercent,
+    },
+  }
 }
 
 export function getTotalWeight(buildState: BuildState) {
