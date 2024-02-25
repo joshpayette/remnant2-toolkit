@@ -29,14 +29,14 @@ export function StaminaBreakdownDialog({
   onClose,
 }: Props) {
   function getStaminaStepLabel(item: TraitItem) {
-    const amount = buildState.items.trait.find((t) => t.name === item.name)
-      ?.amount
+    const amount =
+      buildState.items.trait.find((t) => t.name === item.name)?.amount ?? 0
 
     return (
       <>
         <span className="font-bold text-white">{item.name}</span>{' '}
         <span className="text-gray-300">
-          ({amount} points x {item.staminaStep} stamina per point)
+          {`(${amount * item.staminaStep})`}
         </span>
       </>
     )
@@ -46,7 +46,7 @@ export function StaminaBreakdownDialog({
     return (
       <>
         <span className="font-bold text-white">{item.name}</span>{' '}
-        <span className="text-gray-300">({item.stamina} stamina)</span>
+        <span className="text-gray-300">({item.stamina})</span>
       </>
     )
   }
@@ -55,7 +55,8 @@ export function StaminaBreakdownDialog({
     return (
       <>
         <span className="font-bold text-white">
-          {item.name} {item.category === 'relicfragment' && 'Relic Fragment'}
+          {item.name}{' '}
+          {item.category === 'relicfragment' && 'Mythic Relic Fragment'}
         </span>{' '}
         <span className="text-gray-300">
           ({((item.staminaPercent ?? 0) * 100).toFixed(2)}%)
@@ -84,13 +85,12 @@ export function StaminaBreakdownDialog({
     >
       <div className="text-left text-xs">
         <h2 className="col-span-full mb-2 text-xs font-semibold text-purple-500">
-          Base Stamina Amount:{' '}
+          Base Stamina:{' '}
           <span className="text-sm font-bold text-purple-400">100</span>
         </h2>
         {(breakdown.equippedStaminaIncreaseItems.length > 0 ||
           breakdown.equippedStaminaStepItems.length > 0) && (
           <Section
-            label="Items that increase stamina by a fixed amount"
             total={breakdown.totalStaminaIncrease + breakdown.totalStaminaStep}
             listItems={
               <>
@@ -110,7 +110,6 @@ export function StaminaBreakdownDialog({
         {(breakdown.equippedStaminaPercentItems.length > 0 ||
           breakdown.equippedStaminaStepPercentItems.length > 0) && (
           <Section
-            label="Items that increase stamina by a percentage"
             isPercent={true}
             total={
               (breakdown.totalStaminaPercent +

@@ -31,15 +31,13 @@ export function HealthBreakdownDialog({
   onClose,
 }: Props) {
   function getHealthStepLabel(item: TraitItem) {
-    const amount = buildState.items.trait.find((t) => t.name === item.name)
-      ?.amount
+    const amount =
+      buildState.items.trait.find((t) => t.name === item.name)?.amount ?? 0
 
     return (
       <>
         <span className="font-bold text-white">{item.name}</span>{' '}
-        <span className="text-gray-300">
-          ({amount} points x {item.healthStep} health per point)
-        </span>
+        <span className="text-gray-300">{`(${amount * item.healthStep})`}</span>
       </>
     )
   }
@@ -48,7 +46,7 @@ export function HealthBreakdownDialog({
     return (
       <>
         <span className="font-bold text-white">{item.name}</span>{' '}
-        <span className="text-gray-300">({item.health} health)</span>
+        <span className="text-gray-300">({item.health})</span>
       </>
     )
   }
@@ -57,7 +55,9 @@ export function HealthBreakdownDialog({
     return (
       <>
         <span className="font-bold text-white">
-          {item.name} {item.category === 'relicfragment' && 'Relic Fragment'}
+          {item.category === 'relicfragment'
+            ? `Mythic ${item.name} Relic Fragment`
+            : item.name}
         </span>{' '}
         <span className="text-gray-300">
           ({((item.healthPercent ?? 0) * 100).toFixed(2)}%)
@@ -95,13 +95,12 @@ export function HealthBreakdownDialog({
     >
       <div className="text-left text-xs">
         <h2 className="col-span-full mb-2 text-xs font-semibold text-purple-500">
-          Base Health Amount:{' '}
+          Base Health:{' '}
           <span className="text-sm font-bold text-purple-400">100</span>
         </h2>
         {(breakdown.equippedHealthIncreaseItems.length > 0 ||
           breakdown.equippedHealthStepItems.length > 0) && (
           <Section
-            label="Items that increase health by a fixed amount"
             total={breakdown.totalHealthIncrease + breakdown.totalHealthStep}
             listItems={
               <>
@@ -121,7 +120,6 @@ export function HealthBreakdownDialog({
         {(breakdown.equippedHealthPercentItems.length > 0 ||
           breakdown.equippedHealthStepPercentItems.length > 0) && (
           <Section
-            label="Items that increase health by a percentage"
             isPercent={true}
             total={
               (breakdown.totalHealthPercent +
@@ -147,8 +145,6 @@ export function HealthBreakdownDialog({
 
         {breakdown.equippedHealthCapItems.length > 0 && (
           <Section
-            label="Items that cap health"
-            totalLabel="Total Cap"
             isPercent={true}
             total={breakdown.totalHealthCapReduction * 100}
             listItems={
