@@ -16,6 +16,7 @@ export function Tooltip({
       content={content}
       {...rest}
       theme="r2tk"
+      className="text-left"
     >
       {children}
     </Tippy>

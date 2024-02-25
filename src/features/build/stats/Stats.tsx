@@ -59,7 +59,7 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
       <div className="flex w-full flex-grow flex-col justify-start">
         <div className="flex w-full flex-row items-center justify-start">
           <div className="flex w-full flex-col items-start justify-start sm:max-w-[275px]">
-            <div className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 text-left text-sm text-gray-300">
+            <div className="relative grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 text-left text-sm text-gray-300">
               <p className="flex items-center justify-start">Health</p>
               <button
                 className={cn(
@@ -74,7 +74,7 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
                 )}
               </button>
             </div>
-            <div className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 text-left text-sm text-gray-300">
+            <div className="relative grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 text-left text-sm text-gray-300">
               <p className="flex items-center justify-start">Stamina</p>
               <button
                 className={cn(
@@ -89,7 +89,7 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
                 )}
               </button>
             </div>
-            <div className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 text-left text-sm text-gray-300">
+            <div className="relative grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 text-left text-sm text-gray-300">
               <p className="flex items-center justify-start">Armor</p>
               <Tooltip content="ArmorDR = Armor / (Armor+200)">
                 <button
@@ -103,7 +103,7 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
                 </button>
               </Tooltip>
             </div>
-            <div className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 text-left text-sm">
+            <div className="relative grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 text-left text-sm">
               <p className="flex items-center justify-start">Weight</p>
               <span
                 className={cn(
@@ -131,7 +131,7 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
                 </Tooltip>
               </span>
             </div>
-            <div className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 text-left text-sm text-gray-300">
+            <div className="relative grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 text-left text-sm text-gray-300">
               <Image
                 src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/status/bleed_resistance.png`}
                 alt="Bleed Resistance"

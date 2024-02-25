@@ -10,6 +10,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - The Health and Stamina stats in the builder now show the breakdown of items and how they contributed to the calculation.
 
+### Fixed
+
+- Fixed a bug where the tooltips would exceed the container element and cause a scrollbar in the Stats portion of the builder.
+
 ## 2024-02-24
 
 ### Changed
