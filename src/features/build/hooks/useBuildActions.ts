@@ -50,7 +50,10 @@ export function useBuildActions() {
 
   // iOS does not automatically download images, so we need to
   // make a clickable link available
-  const [imageLink, setImageLink] = useState<string | null>(null)
+  const [imageDownloadInfo, setImageDownloadInfo] = useState<{
+    imageLink: string
+    imageName: string
+  } | null>(null)
 
   // Need to show a loading indicator when exporting the image
   const [imageExportLoading, setImageExportLoading] = useState(false)
@@ -62,8 +65,8 @@ export function useBuildActions() {
     imageFileName: string
   } | null>(null)
 
-  function handleClearImageLink() {
-    setImageLink(null)
+  function handleClearImageDownloadInfo() {
+    setImageDownloadInfo(null)
   }
 
   function handleCopyBuildUrl(url: string | null, message?: string) {
@@ -114,19 +117,24 @@ export function useBuildActions() {
         allowTaint: true,
         logging: false,
       })
-      const image = canvas.toDataURL('image/png', 1.0)
-      setImageLink(image)
+      const imageLink = canvas.toDataURL('image/png', 1.0)
+      setImageDownloadInfo({
+        imageLink,
+        imageName: imageFileName,
+      })
       setIsScreenshotMode(null)
 
+      // * Removed this code to make it easier to copy the image and share
+      // * Leaving it here in case I ever need it again in the future
       // Need a fakeLink to trigger the download
       // This does not work for ios
-      const fakeLink = window.document.createElement('a')
-      fakeLink.download = imageFileName
-      fakeLink.href = image
-      document.body.appendChild(fakeLink)
-      fakeLink.click()
-      document.body.removeChild(fakeLink)
-      fakeLink.remove()
+      // const fakeLink = window.document.createElement('a')
+      // fakeLink.download = imageFileName
+      // fakeLink.href = image
+      // document.body.appendChild(fakeLink)
+      // fakeLink.click()
+      // document.body.removeChild(fakeLink)
+      // fakeLink.remove()
     }
     setImageExportLoading(true)
     setTimeout(exportImage, 1000)
@@ -353,7 +361,7 @@ export function useBuildActions() {
   }
 
   return {
-    handleClearImageLink,
+    handleClearImageDownloadInfo,
     handleCopyBuildUrl,
     handleDuplicateBuild,
     handleRandomBuild,
@@ -361,7 +369,7 @@ export function useBuildActions() {
     handleReportBuild,
     isScreenshotMode: Boolean(isScreenshotMode),
     showControls: Boolean(isScreenshotMode) === false,
-    imageLink,
+    imageDownloadInfo,
     imageExportLoading,
   }
 }
