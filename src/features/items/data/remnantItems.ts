@@ -2988,6 +2988,7 @@ export const remnantItems: Item[] = [
     name: 'Reprocessed Heart',
     imagePath: '/relic/reprocessed_heart.png',
     id: '06pxhy',
+    tags: ['Grey Health'], // The damage it causes creates grey health
     description: `On use, converts 5 Health to 40 Mod Power per second for 25s for Both Weapons. Cannot die from conversion.`,
     howToGet: `Can be found in The Labyrinth.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Reprocessed+Heart`],
@@ -7395,7 +7396,7 @@ Exclusive to The Awakened King DLC"`,
     imagePath: '/ring/atonement_fold.png',
     dlc: 'dlc1',
     id: 'ez01nk',
-    tags: ['Critical Chance'],
+    tags: ['Critical Chance', 'Grey Health'], // The damage it causes is grey health
     description: `Self-inflicts BLEEDING Status upon the wearer, causing 1.1 BLEED damage per second. Increases Critical Chance by 10%`,
     howToGet: `"Can be bought from Leywise in Forlorn Coast for x500 Scrap
 Exclusive Ring for The Awakened King DLC."`,
