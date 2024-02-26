@@ -101,7 +101,6 @@ export default function Page({
                 )}/sddefault.jpg`}
                 loading="eager"
                 alt={`${buildState.name} video thumbnail`}
-                unoptimized={true}
               />
               <span className="mb-4 text-sm text-white underline">
                 See build description and breakdown on YouTube
