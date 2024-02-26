@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Fixed
 
 - Fixed duplicate "critical damage" item in the item lookup filter.
+- Fixed bug causing image export on mobile to export image buttons incorrectly. Sorry about this one!
 
 ## 2024-02-25
 

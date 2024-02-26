@@ -63,7 +63,7 @@ export function useBuildActions() {
   const [isScreenshotMode, setIsScreenshotMode] = useState<{
     el: HTMLDivElement | null
     imageFileName: string
-  } | null>(null)
+  } | null>()
 
   function handleClearImageDownloadInfo() {
     setImageDownloadInfo(null)

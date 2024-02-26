@@ -15,7 +15,9 @@ export function PopularBuildBadge() {
           width={50}
           height={50}
           alt="image denoting the build is popular"
-          className="h-[50px] w-[50px]"
+          className="h-[50px] max-h-[50px] w-[50px] max-w-[50px]"
+          loading="eager"
+          unoptimized={true}
         />
       </button>
     </Tooltip>

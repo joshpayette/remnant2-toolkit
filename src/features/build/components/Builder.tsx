@@ -412,6 +412,7 @@ export function Builder({
                   onItemInfoClick={handleShowInfo}
                   isScreenshotMode={isScreenshotMode}
                   manualWordBreaks={true}
+                  unoptimized={true}
                 />
                 <ItemButton
                   item={buildState.items.skill[archetypeIndex]}
@@ -420,6 +421,7 @@ export function Builder({
                   onItemInfoClick={handleShowInfo}
                   isScreenshotMode={isScreenshotMode}
                   manualWordBreaks={true}
+                  unoptimized={true}
                 />
               </Fragment>
             ))}
@@ -442,6 +444,7 @@ export function Builder({
                 onItemInfoClick={handleShowInfo}
                 isScreenshotMode={isScreenshotMode}
                 manualWordBreaks={true}
+                unoptimized={true}
               />
               <ItemButton
                 item={buildState.items.torso}
@@ -450,6 +453,7 @@ export function Builder({
                 onItemInfoClick={handleShowInfo}
                 isScreenshotMode={isScreenshotMode}
                 manualWordBreaks={true}
+                unoptimized={true}
               />
               <ItemButton
                 item={buildState.items.legs}
@@ -458,6 +462,7 @@ export function Builder({
                 onItemInfoClick={handleShowInfo}
                 isScreenshotMode={isScreenshotMode}
                 manualWordBreaks={true}
+                unoptimized={true}
               />
               <ItemButton
                 item={buildState.items.gloves}
@@ -466,6 +471,7 @@ export function Builder({
                 onItemInfoClick={handleShowInfo}
                 isScreenshotMode={isScreenshotMode}
                 manualWordBreaks={true}
+                unoptimized={true}
               />
               <div
                 id="relic-container"
@@ -478,6 +484,7 @@ export function Builder({
                   onItemInfoClick={handleShowInfo}
                   isScreenshotMode={isScreenshotMode}
                   manualWordBreaks={true}
+                  unoptimized={true}
                 />
                 <div
                   id="relic-fragment-container"
@@ -491,6 +498,7 @@ export function Builder({
                     onItemInfoClick={handleShowInfo}
                     isScreenshotMode={isScreenshotMode}
                     manualWordBreaks={true}
+                    unoptimized={true}
                   />
                   <ItemButton
                     item={buildState.items.relicfragment[1]}
@@ -500,6 +508,7 @@ export function Builder({
                     onItemInfoClick={handleShowInfo}
                     isScreenshotMode={isScreenshotMode}
                     manualWordBreaks={true}
+                    unoptimized={true}
                   />
                   <ItemButton
                     item={buildState.items.relicfragment[2]}
@@ -509,6 +518,7 @@ export function Builder({
                     onItemInfoClick={handleShowInfo}
                     isScreenshotMode={isScreenshotMode}
                     manualWordBreaks={true}
+                    unoptimized={true}
                   />
                 </div>
               </div>
@@ -530,6 +540,7 @@ export function Builder({
                 onItemInfoClick={handleShowInfo}
                 isScreenshotMode={isScreenshotMode}
                 manualWordBreaks={true}
+                unoptimized={true}
               />
               {getArrayOfLength(4).map((ringIndex) => (
                 <ItemButton
@@ -540,6 +551,7 @@ export function Builder({
                   onItemInfoClick={handleShowInfo}
                   isScreenshotMode={isScreenshotMode}
                   manualWordBreaks={true}
+                  unoptimized={true}
                 />
               ))}
             </div>
@@ -562,6 +574,7 @@ export function Builder({
                   onItemInfoClick={handleShowInfo}
                   isScreenshotMode={isScreenshotMode}
                   manualWordBreaks={true}
+                  unoptimized={true}
                 />
                 <div className="flex w-full grow items-start justify-around gap-4">
                   {weaponIndex !== 1 || buildState.items.mod[weaponIndex] ? (
@@ -577,6 +590,7 @@ export function Builder({
                       onItemInfoClick={handleShowInfo}
                       isScreenshotMode={isScreenshotMode}
                       manualWordBreaks={true}
+                      unoptimized={true}
                     />
                   ) : (
                     <div className="h-[66px] w-[66px]" />
@@ -589,6 +603,7 @@ export function Builder({
                     onItemInfoClick={handleShowInfo}
                     isScreenshotMode={isScreenshotMode}
                     manualWordBreaks={true}
+                    unoptimized={true}
                   />
                 </div>
               </div>
@@ -625,6 +640,7 @@ export function Builder({
                 onItemInfoClick={handleShowInfo}
                 isScreenshotMode={isScreenshotMode}
                 manualWordBreaks={true}
+                unoptimized={true}
               />
               {getArrayOfLength(concoctionSlotCount).map((index) => {
                 // Add 1 to the index because we already rendered the first slot
@@ -640,6 +656,7 @@ export function Builder({
                     onItemInfoClick={handleShowInfo}
                     isScreenshotMode={isScreenshotMode}
                     manualWordBreaks={true}
+                    unoptimized={true}
                   />
                 )
               })}
@@ -666,6 +683,7 @@ export function Builder({
                   onItemInfoClick={handleShowInfo}
                   isScreenshotMode={isScreenshotMode}
                   manualWordBreaks={true}
+                  unoptimized={true}
                 />
               ))}
             </div>
