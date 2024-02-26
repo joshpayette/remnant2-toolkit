@@ -2886,6 +2886,8 @@ export const remnantItems: Item[] = [
     howToGet: `Can be found in Yaesha - Behind an illusory wall in Imperial Gardens or The Expanding Glade`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Blooming+Heart`],
   },
+  // TODO i believe we are gonna make it match (conceptually) what the other heart does w/ passive. but since this one is "broken",
+  // TODO the idea is that it will regen your health to 50% passively if you are below half... and degen your health to 50% if you are above half.
   {
     category: 'relic',
     name: 'Broken Heart',
