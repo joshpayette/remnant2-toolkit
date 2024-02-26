@@ -167,7 +167,7 @@ export const DESCRIPTION_TAGS = [
       'Deals elemental ACID damage per second. Increases damage taken by 10%.',
   },
   {
-    type: 'Critical damage',
+    type: 'Critical Damage',
     token: '[C]',
     color: 'text-[#f2350f]',
     description:
@@ -350,7 +350,6 @@ export const ITEM_TAGS: ItemTag[] = [
   'Charged Shot',
   'Concoction',
   'Critical Chance',
-  'Critical Damage',
   'Critical Hit',
   'Damage Reduction',
   'Elemental Damage',
