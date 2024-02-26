@@ -25,6 +25,7 @@ This project exists and thrives thanks to all the people who contribute.
 
 - bo}|{omar
 - BrotherFromHood
+- DoTs Я Us
 - Joelexion
 - Newby
 - Sk0oMa

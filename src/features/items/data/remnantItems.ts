@@ -2988,8 +2988,8 @@ export const remnantItems: Item[] = [
     name: 'Reprocessed Heart',
     imagePath: '/relic/reprocessed_heart.png',
     id: '06pxhy',
-    tags: ['Grey Health'], // The damage it causes creates grey health
-    description: `On use, converts 5 Health to 40 Mod Power per second for 25s for Both Weapons. Cannot die from conversion.`,
+    tags: ['Grey Health'],
+    description: `On use, converts 5 Health as Grey Health to 40 Mod Power per second for 25s for Both Weapons. Cannot die from conversion.`,
     howToGet: `Can be found in The Labyrinth.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Reprocessed+Heart`],
   },
