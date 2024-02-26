@@ -9103,6 +9103,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
       },
     },
   },
+  // TODO Tragic indicated this may merge with Resonance
   {
     category: 'trait',
     name: 'Amplitude',
@@ -9159,6 +9160,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     Bloodstream is given to you by Meidra's Sorrow if you choose the selfish answers to her questions.`,
     wikiLinks: [`https://remnant.wiki/Bloodstream`],
   },
+  // TODO Tragic indicated he was thinking of changing this
   {
     category: 'trait',
     name: 'Dark Pact',
@@ -9304,6 +9306,16 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
       },
     },
   },
+  // TODO Tragic indicated this new trait is coming
+  // {
+  //   category: 'trait',
+  //   name: 'Parasitic',
+  //   id: 'v6JuVn',
+  //   imagePath: '',
+  //   description: '',
+  //   maxLevelBonus: '',
+  //   wikiLinks: [''],
+  // },
   {
     category: 'trait',
     name: 'Potency',
@@ -9348,6 +9360,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
       },
     },
   },
+  // TODO Tragic indicated this may merge with Amplitude
   {
     category: 'trait',
     name: 'Resonance',
@@ -9444,6 +9457,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     },
     weightThresholds: [2, 3, 5, 6, 8, 9, 11, 12, 14, 15],
   },
+  // TODO Tragic indicated this may merge with Wayfarer
   {
     category: 'trait',
     name: 'Swiftness',
@@ -9504,6 +9518,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     wikiLinks: [`https://remnant.wiki/Vigor`],
     healthStep: 3,
   },
+  // TODO Tragic indicated this may merge with Swiftness
   {
     category: 'trait',
     name: 'Wayfarer',
