@@ -3044,6 +3044,7 @@ export const remnantItems: Item[] = [
     howToGet: `Can be found in N'Erud - Tower of the Unseen.`,
     wikiLinks: [`https://remnant.wiki/Shielded_Heart`],
   },
+  // TODO Tragic indicated this will get some love
   {
     category: 'relic',
     name: 'Siphon Heart',
