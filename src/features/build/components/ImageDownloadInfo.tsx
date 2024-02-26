@@ -28,14 +28,14 @@ export function ImageDownloadInfo({ imageDownloadInfo, onClose }: Props) {
           <span className="font-bold">Copy Image Address</span>, as it could
           crash your browser due to the large data URL of the image.
         </p>
-        <a
+        {/* <a
           href={imageLink}
           target="_blank"
           download={imageName}
           className="text-green-500 hover:text-green-300 hover:underline"
-        >
-          <img src={imageLink} alt="Your Build Image" />
-        </a>
+        > */}
+        <img src={imageLink} alt="Your Build Image" />
+        {/* </a> */}
       </div>
     </Dialog>
   )
