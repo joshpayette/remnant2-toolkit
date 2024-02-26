@@ -7019,6 +7019,7 @@ Exclusive to The Awakened King DLC"`,
     howToGet: `Can be found in Yaesha - Forgotten Field. Rewarded to the player after killing The Laemir Root Nexus boss before killing any enemies it summons.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Necklace+of+Supremacy`],
   },
+  // TODO Tragic indicated he may juice this up a bit
   {
     category: 'amulet',
     name: 'Nightmare Spiral',
