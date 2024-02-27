@@ -96,14 +96,12 @@ export default function Page({
               <Image
                 width={560}
                 height={315}
-                src={
-                  buildState.thumbnailUrl ??
-                  `https://i.ytimg.com/vi/${videoEmbedUrlToVideoId(
-                    buildState.videoUrl,
-                  )}/sddefault.jpg`
-                }
+                src={`https://i.ytimg.com/vi/${videoEmbedUrlToVideoId(
+                  buildState.videoUrl,
+                )}/sddefault.jpg`}
                 loading="eager"
                 alt={`${buildState.name} video thumbnail`}
+                unoptimized={true}
               />
               <span className="mb-4 text-sm text-white underline">
                 See build description and breakdown on YouTube
