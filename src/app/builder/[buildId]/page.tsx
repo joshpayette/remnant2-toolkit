@@ -118,17 +118,15 @@ export default function Page({
           showControls={showControls}
           builderActions={
             <>
-              <div className="col-span-full">
-                <ActionButton.ExportImage
-                  imageExportLoading={imageExportLoading}
-                  onClick={() =>
-                    handleImageExport(
-                      buildContainerRef.current,
-                      `${buildState.name}.png`,
-                    )
-                  }
-                />
-              </div>
+              <ActionButton.ExportImage
+                imageExportLoading={imageExportLoading}
+                onClick={() =>
+                  handleImageExport(
+                    buildContainerRef.current,
+                    `${buildState.name}.png`,
+                  )
+                }
+              />
 
               {session && session.user?.id === buildState.createdById && (
                 <ActionButton.EditBuild
@@ -197,7 +195,7 @@ export default function Page({
               />
               {session?.user && (
                 <>
-                  <div className="col-span-full flex w-full flex-col items-center justify-center gap-4 sm:items-start">
+                  <div className="flex w-[200px] flex-col items-center justify-center gap-4 sm:items-end md:w-[150px] md:items-center">
                     <div className="my-4 flex flex-row items-center justify-center gap-x-4 sm:my-0 sm:flex-col sm:items-start sm:gap-x-0 sm:gap-y-2">
                       <ActionButton.ReportBuild
                         active={buildState.reported}
