@@ -5727,7 +5727,7 @@ export const remnantItems: Item[] = [
     name: 'Song of Eafir',
     imagePath: '/mod/song_of_eafir.png',
     id: 'edm644',
-    description: `Fires a shot infused with the binding power of the Song of Eafir. Staggers most ground enemies within 10m [A] and deals 150 damage to Flying enemies within the same range.
+    description: `Fires a shot infused with the binding power of the Song of Eafir. Staggers most ground enemies within 10m [A] and deals 150 damage [E] to Flying enemies within the same range.
     The song continues for 15s, afflicting targets within 15m [A] with SLOW, and a 15% decrease to damage dealt.`,
     howToGet: `Crafted from Scroll of Binding
     Speak with The Flautistafter playing the secret melody`,
