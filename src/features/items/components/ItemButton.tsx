@@ -138,7 +138,7 @@ export function ItemButton({
       {item?.name && (
         <div
           className={cn(
-            'flex items-center justify-center bg-purple-950 px-1 py-0.5 text-center text-[10px] text-white',
+            'z-[5] flex items-center justify-center bg-purple-950 px-1 py-0.5 text-center text-[10px] text-white',
             size === 'sm' && 'min-h-[22px] min-w-[22px] border border-black',
             size === 'md' && 'min-h-[40px] w-[66px]',
             size === 'lg' && 'min-h-[40px] w-[99px]',
