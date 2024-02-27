@@ -12,6 +12,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Fixed bug causing image export on mobile to export image buttons incorrectly. Sorry about this one!
 - Fixed incorrect item description for Reprocessed Heart.
 - Fixed bug with trait points in the builder, they were breaking out of the item button.
+- Fixed issue where some youtube thumbnails did not render, added thumbnail override to db table.
 
 ## 2024-02-25
 

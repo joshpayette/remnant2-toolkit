@@ -96,9 +96,12 @@ export default function Page({
               <Image
                 width={560}
                 height={315}
-                src={`https://i.ytimg.com/vi/${videoEmbedUrlToVideoId(
-                  buildState.videoUrl,
-                )}/sddefault.jpg`}
+                src={
+                  buildState.thumbnailUrl ??
+                  `https://i.ytimg.com/vi/${videoEmbedUrlToVideoId(
+                    buildState.videoUrl,
+                  )}/sddefault.jpg`
+                }
                 loading="eager"
                 alt={`${buildState.name} video thumbnail`}
               />
