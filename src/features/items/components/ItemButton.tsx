@@ -75,10 +75,10 @@ export function ItemButton({
       className={cn(
         'relative flex items-start justify-center',
         size === 'sm' && 'mb-0 flex-row justify-start',
-        size === 'md' && 'mb-2 flex-col',
-        size === 'lg' && 'mb-2 flex-col',
-        size === 'xl' && 'mb-2 flex-col',
-        size === 'wide' && 'mb-2 flex-col',
+        size === 'md' && 'mb-2 w-[66px] flex-col',
+        size === 'lg' && 'mb-2 w-[99px] flex-col',
+        size === 'xl' && 'mb-2 w-[200px] flex-col',
+        size === 'wide' && 'mb-2 w-[150px] flex-col',
         isToggled === true && 'grayscale-0',
         isToggled === false && 'grayscale',
       )}
@@ -108,7 +108,7 @@ export function ItemButton({
       <button
         onClick={onClick}
         className={cn(
-          'flex items-center justify-center border-2 border-gray-700',
+          'relative flex items-center justify-center overflow-hidden border-2 border-gray-700',
           `bg-[url('https://d2sqltdcj8czo5.cloudfront.net/card-body-bg.jpg')]`,
           isEditable && 'border-gray-700 hover:border-purple-500',
           size === 'sm' && 'h-[22px] w-[22px]',

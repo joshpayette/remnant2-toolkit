@@ -11,6 +11,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Fixed duplicate "critical damage" item in the item lookup filter.
 - Fixed bug causing image export on mobile to export image buttons incorrectly. Sorry about this one!
 - Fixed incorrect item description for Reprocessed Heart.
+- Fixed bug with trait points in the builder, they were breaking out of the item button.
 
 ## 2024-02-25
 
