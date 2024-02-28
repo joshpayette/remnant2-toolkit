@@ -3,11 +3,10 @@
 import { Menu, Transition } from '@headlessui/react'
 import Link from 'next/link'
 import { useSession } from 'next-auth/react'
-import { Fragment, Suspense } from 'react'
+import { Fragment } from 'react'
 
 import { NAV_ITEMS } from '@/features/navigation/constants'
 import { PlaceHolderIcon } from '@/features/ui/PlaceholderIcon'
-import { Skeleton } from '@/features/ui/Skeleton'
 import { cn } from '@/lib/classnames'
 
 function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
@@ -32,7 +31,7 @@ function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
     return (
       <div className="space-y-2">
         <Link
-          href={NAV_ITEMS.profile.href}
+          href={`/profile/${session?.user?.id ?? ''}`}
           className="flex flex-row items-center justify-start"
         >
           <NAV_ITEMS.profile.icon
@@ -142,7 +141,7 @@ function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
           <Menu.Item>
             {({ active }) => (
               <Link
-                href={NAV_ITEMS.profile.href}
+                href={`/profile/${session?.user?.id ?? ''}`}
                 className={cn(
                   active ? 'bg-gray-800' : '',
                   'flex flex-row items-center justify-start px-4 py-2 text-sm text-gray-300',

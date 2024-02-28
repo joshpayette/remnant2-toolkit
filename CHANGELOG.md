@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-02-28
+
+### Added
+
+- Added a new "Loadout Builds" section to your profile, where you can pin up to 8 builds to mirror your in-game loadout slots.
+
+### Changed
+
+- Profile link in the nav bar will now go to your public profile.
+
 ## 2024-02-27
 
 ### Changed

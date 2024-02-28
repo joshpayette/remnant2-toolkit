@@ -11,6 +11,7 @@ import { CopyBuildUrlButton } from '@/features/profile/components/CopyBuildUrlBu
 import { DuplicateBuildButton } from '@/features/profile/components/DuplicateBuildButton'
 
 import { getFavoritedBuilds } from '../../../app/profile/favorited-builds/actions'
+import { AddToLoadoutButton } from './AddToLoadoutButton'
 
 interface Props {
   itemsPerPage?: number
@@ -113,6 +114,7 @@ export function FavoritedBuilds({ itemsPerPage = 8, buildListFilters }: Props) {
                 footerActions={
                   <div className="flex items-center justify-between gap-2 p-2 text-sm">
                     <CopyBuildUrlButton buildId={build.id} />
+                    <AddToLoadoutButton buildId={build.id} />
                     <DuplicateBuildButton build={build} />
                   </div>
                 }
