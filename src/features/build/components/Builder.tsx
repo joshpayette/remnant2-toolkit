@@ -387,12 +387,12 @@ export function Builder({
           )}
           {isPopular && !isNew && (
             <div className="absolute bottom-0 left-1/2 flex w-full -translate-x-1/2 translate-y-1/2 transform items-center justify-center">
-              <PopularBuildBadge />
+              <PopularBuildBadge unoptimized={isScreenshotMode} />
             </div>
           )}
           {isNew && (
             <div className="absolute bottom-0 left-1/2 flex w-full -translate-x-1/2 translate-y-1/2 transform items-center justify-center">
-              <NewBuildBadge />
+              <NewBuildBadge unoptimized={isScreenshotMode} />
             </div>
           )}
         </div>
@@ -754,7 +754,7 @@ export function Builder({
         )}
         {isScreenshotMode && (
           <div className="absolute bottom-[10px] right-[10px]">
-            <Logo showUrl />
+            <Logo showUrl unoptimized={isScreenshotMode} />
           </div>
         )}
       </div>
