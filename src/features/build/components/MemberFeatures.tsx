@@ -34,26 +34,6 @@ export function MemberFeatures({
 
   return (
     <div className="relative pt-4">
-      {status === 'unauthenticated' &&
-        !isScreenshotModeActive &&
-        isEditable && (
-          <>
-            <div
-              id="disabled-overlay"
-              className="absolute inset-0 z-20 h-full bg-black/90"
-            />
-            <div className="absolute z-30 mb-2 flex h-full w-full flex-col items-center justify-center text-2xl font-bold text-red-500">
-              Sign in required to save additional build details.
-              <button
-                className="rounded-lg bg-green-500 p-2 text-lg text-black"
-                aria-label="Sign in to save additional build details"
-                onClick={() => signIn()}
-              >
-                Sign In
-              </button>
-            </div>
-          </>
-        )}
       {!isEditable || isScreenshotModeActive ? (
         <div className="flex flex-col">
           {description && description.length > 0 && (

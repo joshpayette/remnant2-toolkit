@@ -1,7 +1,9 @@
 'use server'
 
 import { Metadata } from 'next'
+import Link from 'next/link'
 import { redirect } from 'next/navigation'
+import { signIn } from 'next-auth/react'
 import React from 'react'
 
 import { getServerSession } from '@/features/auth/lib'
@@ -41,8 +43,30 @@ export default async function Layout({
   children: React.ReactNode
 }) {
   const session = await getServerSession()
-  // If user is not logged in, redirect to the URL builder page
-  if (!session) redirect('/builder')
+
+  if (!session) {
+    return (
+      <>
+        <div className="relative flex w-full flex-col items-center">
+          <div
+            id="disabled-overlay"
+            className="absolute inset-0 z-10 h-full bg-black/90"
+          />
+          <div className="absolute z-10 mb-2 flex h-full w-full flex-col items-center justify-center text-2xl font-bold text-red-500">
+            <p>
+              Sign in required to use the database builder. Either sign in, or
+              use the{' '}
+              <Link href="/builder" className="underline">
+                URL builder
+              </Link>
+              .
+            </p>
+          </div>
+          {children}
+        </div>
+      </>
+    )
+  }
 
   return <>{children}</>
 }

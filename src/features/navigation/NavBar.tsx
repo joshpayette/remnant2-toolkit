@@ -5,6 +5,7 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid'
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { useSession } from 'next-auth/react'
 import { Fragment, useEffect, useState } from 'react'
 
 import { NAV_ITEMS } from '@/features/navigation/constants'
@@ -16,6 +17,8 @@ import { AuthButton } from '../auth/components/AuthButton'
 export function NavBar() {
   const pathname = usePathname()
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+
+  const { data: session, status } = useSession()
 
   // Close the navmenu on route change
   // * useEffect is necessary to close the menu on route change
@@ -127,7 +130,11 @@ export function NavBar() {
                 <Menu.Item>
                   {({ active }) => (
                     <Link
-                      href={NAV_ITEMS.createBuild.href}
+                      href={
+                        status === 'loading' || status === 'authenticated'
+                          ? NAV_ITEMS.createBuild.href
+                          : '/builder'
+                      }
                       className={cn(
                         active ? 'bg-gray-800' : '',
                         'flex w-full flex-row items-start justify-start p-2 text-sm font-semibold text-white',
@@ -434,7 +441,11 @@ export function NavBar() {
                 </Link>
 
                 <Link
-                  href={NAV_ITEMS.createBuild.href}
+                  href={
+                    status === 'loading' || status === 'authenticated'
+                      ? NAV_ITEMS.createBuild.href
+                      : '/builder'
+                  }
                   className="flex flex-row items-center justify-start"
                 >
                   <NAV_ITEMS.createBuild.icon

@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Changed
 
 - Profile link in the nav bar will now go to your public profile.
+- Updated create build logic to remove the redirect. Essentially the original URL version of the builder exists at `/builder`, and the newer database integrated version is `/builder/create`. I had originally had a redirect on `/builder/create` to redirect if the user is not signed in. However, this was causing the page to not be indexed properly by crawlers. Now, an overlay explaining to either sign in or use the URL builder will show if the user is unauthenticated. Additionally, the Create Build link in the Navbar will link to the correct version based on whether the user is authenticated.
 
 ## 2024-02-27
 
