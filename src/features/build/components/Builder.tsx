@@ -57,7 +57,7 @@ export function Builder({
   onUpdateBuildState,
 }: BuilderProps) {
   const concoctionSlotCount = getConcoctionSlotCount(buildState)
-  const isPopular = buildState.totalUpvotes > POPULAR_VOTE_THRESHOLD
+  const isPopular = buildState.totalUpvotes >= POPULAR_VOTE_THRESHOLD
   const isNew = isBuildNew(buildState.createdAt) && showCreatedBy
 
   // Tracks information about the slot the user is selecting an item for
