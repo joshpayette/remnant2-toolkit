@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Updated the builder to use more horizontal space, including in exported screenshots. This should make the screenshots more readable and usable.
 - Added explosive tag to Song of Eafir after confirming with ConRaven that it does explosive damage.
+- Fixed bug with new build badge not showing correctly
 
 ## 2024-02-26
 

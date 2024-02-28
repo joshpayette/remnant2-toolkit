@@ -10,6 +10,8 @@ export function NewBuildBadge() {
         width={43}
         height={50}
         alt="image denoting the build is new in the past 24 hours"
+        loading="eager"
+        unoptimized={true}
       />
     </Tooltip>
   )
