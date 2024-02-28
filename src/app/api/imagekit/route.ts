@@ -16,7 +16,7 @@ export async function POST(request: NextRequest) {
       file: base64Image,
       fileName: `${imageName}`,
       folder: 'build-uploads',
-      useUniqueFileName: false,
+      useUniqueFileName: true,
     })
 
     const { url } = response
