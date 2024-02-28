@@ -30,7 +30,7 @@ export const authOptions: NextAuthOptions = {
             data: { image: profile.image_url },
           })
           .catch((e) => {
-            console.error(e)
+            console.error(`${e.message} - ${user.id}`)
             return true
           })
       }
