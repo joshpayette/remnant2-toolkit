@@ -8,7 +8,7 @@ import { cn } from '@/lib/classnames'
 const tabs = [
   { name: 'Created Builds', href: '/profile/created-builds' },
   { name: 'Favorited Builds', href: '/profile/favorited-builds' },
-  { name: 'Loadout Builds', href: '/profile/loadout-builds' },
+  { name: 'Loadouts', href: '/profile/loadout-builds' },
 ]
 
 export function Tabs() {
@@ -19,7 +19,7 @@ export function Tabs() {
 
   return (
     <div className="mt-4">
-      <nav className="-mb-px flex space-x-8" aria-label="Tabs">
+      <nav className="-mb-px flex space-x-6" aria-label="Tabs">
         {tabs.map((tab) => (
           <Link
             key={tab.name}
