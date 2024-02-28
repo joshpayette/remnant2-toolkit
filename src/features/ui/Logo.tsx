@@ -12,6 +12,7 @@ export function Logo({ showUrl = false }: { showUrl?: boolean }) {
         height={24}
         loading="eager"
         priority
+        unoptimized={true}
       />
       <div className="flex flex-col gap-0">
         <span className="text-md mb-0 pb-0 font-semibold text-white">
