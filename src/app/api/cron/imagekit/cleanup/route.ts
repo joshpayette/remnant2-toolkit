@@ -19,7 +19,7 @@ export async function GET(request: NextRequest) {
     // Get all files created over an hour ago
     const files = await imagekit.listFiles({
       path: 'build-uploads',
-      searchQuery: 'updatedAt > 1h',
+      searchQuery: 'updatedAt > "1h"',
     })
 
     const fileIds = files.map((file) => file.fileId)
