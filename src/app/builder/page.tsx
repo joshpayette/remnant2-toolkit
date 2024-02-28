@@ -96,7 +96,7 @@ export default function Page() {
                   onClick={() =>
                     handleImageExport(
                       buildContainerRef.current,
-                      `${urlBuildState.name}.png`,
+                      `${urlBuildState.name}`,
                     )
                   }
                 />

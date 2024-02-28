@@ -1,6 +1,7 @@
 import Link from 'next/link'
 
 import { Dialog } from '@/features/ui/Dialog'
+import { Skeleton } from '@/features/ui/Skeleton'
 
 interface Props {
   imageDownloadInfo: { imageLink: string; imageName: string } | null
@@ -20,14 +21,20 @@ export function ImageDownloadInfo({ imageDownloadInfo, onClose }: Props) {
       onClose={onClose}
     >
       <div className="flex w-full flex-col items-start justify-center gap-y-4 text-left text-sm">
-        <p>Right-click the image to copy the image and paste it elsewhere.</p>
-        <p className="text-red-500">
-          Warning: Do not choose{' '}
-          <span className="font-bold">Copy Image Location</span> or{' '}
-          <span className="font-bold">Copy Image Address</span>, as it could
-          crash your browser due to the large data URL of the image.
+        <p>
+          Right-click the image to save it, or to copy it and paste it
+          elsewhere.
         </p>
-        <img src={imageLink} alt="Your Build Image" />
+        <p className="text-yellow-500">
+          Note: This image link will expire in one hour.
+        </p>
+        {imageLink ? (
+          <a href={imageLink} target="_blank">
+            <img src={imageLink} alt={imageName} />
+          </a>
+        ) : (
+          <Skeleton className="h-[500px] w-[500px]" />
+        )}
       </div>
     </Dialog>
   )

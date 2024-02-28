@@ -117,24 +117,29 @@ export function useBuildActions() {
         allowTaint: true,
         logging: false,
       })
-      const imageLink = canvas.toDataURL('image/png', 1.0)
+
+      const base64Image = canvas.toDataURL('image/png', 1.0).split(',')[1]
+
+      const response = await fetch('/api/imagekit', {
+        method: 'POST',
+        body: JSON.stringify({
+          base64Image,
+          imageName: imageFileName,
+        }),
+      })
+
+      if (!response.ok) {
+        toast.error('Failed to upload image to Imgur.')
+        return
+      }
+
+      const { imageLink } = await response.json()
+
       setImageDownloadInfo({
         imageLink,
         imageName: imageFileName,
       })
       setIsScreenshotMode(null)
-
-      // * Removed this code to make it easier to copy the image and share
-      // * Leaving it here in case I ever need it again in the future
-      // Need a fakeLink to trigger the download
-      // This does not work for ios
-      // const fakeLink = window.document.createElement('a')
-      // fakeLink.download = imageFileName
-      // fakeLink.href = image
-      // document.body.appendChild(fakeLink)
-      // fakeLink.click()
-      // document.body.removeChild(fakeLink)
-      // fakeLink.remove()
     }
     setImageExportLoading(true)
     setTimeout(exportImage, 1000)
