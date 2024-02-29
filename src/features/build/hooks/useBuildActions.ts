@@ -50,7 +50,10 @@ export function useBuildActions() {
 
   // iOS does not automatically download images, so we need to
   // make a clickable link available
-  const [imageLink, setImageLink] = useState<string | null>(null)
+  const [imageDownloadInfo, setImageDownloadInfo] = useState<{
+    imageLink: string
+    imageName: string
+  } | null>(null)
 
   // Need to show a loading indicator when exporting the image
   const [imageExportLoading, setImageExportLoading] = useState(false)
@@ -60,10 +63,10 @@ export function useBuildActions() {
   const [isScreenshotMode, setIsScreenshotMode] = useState<{
     el: HTMLDivElement | null
     imageFileName: string
-  } | null>(null)
+  } | null>()
 
-  function handleClearImageLink() {
-    setImageLink(null)
+  function handleClearImageDownloadInfo() {
+    setImageDownloadInfo(null)
   }
 
   function handleCopyBuildUrl(url: string | null, message?: string) {
@@ -114,19 +117,29 @@ export function useBuildActions() {
         allowTaint: true,
         logging: false,
       })
-      const image = canvas.toDataURL('image/png', 1.0)
-      setImageLink(image)
-      setIsScreenshotMode(null)
 
-      // Need a fakeLink to trigger the download
-      // This does not work for ios
-      const fakeLink = window.document.createElement('a')
-      fakeLink.download = imageFileName
-      fakeLink.href = image
-      document.body.appendChild(fakeLink)
-      fakeLink.click()
-      document.body.removeChild(fakeLink)
-      fakeLink.remove()
+      const base64Image = canvas.toDataURL('image/png', 1.0).split(',')[1]
+
+      const response = await fetch('/api/imagekit', {
+        method: 'POST',
+        body: JSON.stringify({
+          base64Image,
+          imageName: imageFileName,
+        }),
+      })
+
+      if (!response.ok) {
+        toast.error('Failed to upload image to Imgur.')
+        return
+      }
+
+      const { imageLink } = await response.json()
+
+      setImageDownloadInfo({
+        imageLink,
+        imageName: imageFileName,
+      })
+      setIsScreenshotMode(null)
     }
     setImageExportLoading(true)
     setTimeout(exportImage, 1000)
@@ -353,7 +366,7 @@ export function useBuildActions() {
   }
 
   return {
-    handleClearImageLink,
+    handleClearImageDownloadInfo,
     handleCopyBuildUrl,
     handleDuplicateBuild,
     handleRandomBuild,
@@ -361,7 +374,7 @@ export function useBuildActions() {
     handleReportBuild,
     isScreenshotMode: Boolean(isScreenshotMode),
     showControls: Boolean(isScreenshotMode) === false,
-    imageLink,
+    imageDownloadInfo,
     imageExportLoading,
   }
 }

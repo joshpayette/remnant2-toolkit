@@ -44,9 +44,10 @@ cp .env.sample .env
 
 - `CRON_SECRET` - A secret string used by the Vercel CRON platform to prevent unauthorized access.
 - `DATABASE_URL` - The database connection string for your database. This project uses Planetscale.
-- `DISCORD_BOT_TOKEN` - The bot token for your Discord bot. This is necessary for fetching updated user avatar info.
 - `DISCORD_CLIENT_ID` - The client ID for your Discord application.
 - `DISCORD_CLIENT_SECRET` - The client secret for your Discord application
+- `IMAGEKIT_CLIENT_ID` - The client ID for your ImageKit application.
+- `IMAGEKIT_CLIENT_SECRET` - The client secret for your ImageKit application.
 - `NEXTAUTH_SECRET` - A secret string used by NextAuth. Can be anything, just make it long and random.
 - `NEXTAUTH_URL` - The base URL of your site. This is used by NextAuth to redirect back to your site after authentication. Example: http://localhost:3000 for development.
 - `NEXT_PUBLIC_IMAGE_URL` - The base URL for images. This is used to build the full URL for images in the CDN.

@@ -3,15 +3,14 @@
 import { revalidatePath } from 'next/cache'
 import { z } from 'zod'
 
+import { getServerSession } from '@/features/auth/lib'
 import { cleanBadWords } from '@/features/bad-word-filter'
+import { prisma } from '@/features/db'
 import { ErrorResponse } from '@/features/error-handling/types'
 import {
   DEFAULT_DISPLAY_NAME,
   MAX_PROFILE_BIO_LENGTH,
 } from '@/features/profile/constants'
-
-import { getServerSession } from '../../features/auth/lib'
-import { prisma } from '../../features/db'
 
 export async function updateUserDisplayName(
   data: string,

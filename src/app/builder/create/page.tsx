@@ -6,7 +6,7 @@ import { ActionButton } from '@/features/build/components/ActionButton'
 import { BuilderPage } from '@/features/build/components/BuilderPage'
 import { BuildSuggestionsDialog } from '@/features/build/components/BuildSuggestionsDialog'
 import { DetailedBuildDialog } from '@/features/build/components/DetailedBuildDialog'
-import { ImageDownloadLink } from '@/features/build/components/ImageDownloadLink'
+import { ImageDownloadInfo } from '@/features/build/components/ImageDownloadInfo'
 import { SaveBuildButton } from '@/features/build/components/SaveBuildButton'
 import { useBuildActions } from '@/features/build/hooks/useBuildActions'
 import { useDBBuildState } from '@/features/build/hooks/useDBBuildState'
@@ -23,8 +23,8 @@ export default function Page() {
   const {
     isScreenshotMode,
     showControls,
-    imageLink,
-    handleClearImageLink,
+    imageDownloadInfo,
+    handleClearImageDownloadInfo,
     handleRandomBuild,
   } = useBuildActions()
 
@@ -45,7 +45,10 @@ export default function Page() {
         onClose={() => setDetailedBuildDialogOpen(false)}
       />
 
-      <ImageDownloadLink onClose={handleClearImageLink} imageLink={imageLink} />
+      <ImageDownloadInfo
+        onClose={handleClearImageDownloadInfo}
+        imageDownloadInfo={imageDownloadInfo}
+      />
 
       <PageHeader
         title="Remnant 2 Build Tool"

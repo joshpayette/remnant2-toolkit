@@ -17,7 +17,9 @@ export default async function Page() {
           fill
           className="absolute inset-0 -z-10 h-full w-full object-cover object-right md:object-center"
           loading="eager"
+          quality={76}
         />
+        <div className="absolute left-0 top-0 -z-[5] h-full w-full bg-black/70" />
         <div className="sm:transform-g1 hidden w-full sm:absolute sm:-top-10 sm:right-1/2 sm:-z-10 sm:mr-10 sm:block sm:blur-3xl">
           <div
             className="aspect-[1097/845] w-[68.5625rem] bg-gradient-to-tr from-[#9646ff] to-[#776fff] opacity-20"

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 import { WEIGHT_CLASSES } from '@/features/items/constants'
 import { remnantItems } from '@/features/items/data/remnantItems'
@@ -144,19 +144,6 @@ export function ArmorSuggestions({
       !buildState.items.gloves &&
       !buildState.items.legs,
   )
-
-  // Reset filter when dialog is opened/closed
-  useEffect(() => {
-    if (allSlotsFull) return
-    if (noSlotsSelected) return
-    if (desiredWeightClass === 'CHOOSE') return
-
-    const newArmorSuggestions = getArmorSuggestions(
-      buildState,
-      desiredWeightClass,
-    )
-    setArmorSuggestions(newArmorSuggestions)
-  }, [buildState, desiredWeightClass, allSlotsFull, noSlotsSelected])
 
   function handleWeightClassChange(weightClass: WeightClassWithDefault) {
     setDesiredWeightClass(weightClass)

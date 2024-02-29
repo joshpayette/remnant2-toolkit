@@ -4,9 +4,9 @@ import { Metadata } from 'next'
 import { Suspense } from 'react'
 
 export async function generateMetadata(): Promise<Metadata> {
-  const title = `Builds By Collection - Remnant2Toolkit`
+  const title = `Builds By Collection - Remnant 2 Toolkit`
   const description =
-    'Search community submitted builds based on items in your collection.'
+    'Remnant 2 Builds By Collection. Search and find community builds with items you have in your collection.'
 
   return {
     title,

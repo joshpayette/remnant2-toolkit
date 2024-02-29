@@ -5,10 +5,7 @@ import {
   ChevronRightIcon,
 } from '@heroicons/react/24/solid'
 
-import { Skeleton } from '@/features/ui/Skeleton'
 import { cn } from '@/lib/classnames'
-
-import { getArrayOfLength } from '../lib/getArrayOfLength'
 
 interface Props {
   currentPage: number
@@ -23,7 +20,7 @@ interface Props {
   onSpecificPage: (pageNumber: number) => void
 }
 
-export function BuildListPagination({
+export function Pagination({
   currentPage,
   isLoading,
   firstVisibleItemNumber,

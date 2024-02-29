@@ -7,9 +7,9 @@ import { ProfileHeader } from '@/features/profile/components/ProfileHeader'
 import { Tabs } from '@/features/profile/components/Tabs'
 
 export async function generateMetadata(): Promise<Metadata> {
-  const title = `Favorited Builds - Remnant2Toolkit`
+  const title = `Favorited Builds - Remnant 2 Toolkit`
   const description =
-    'View all of the builds you have favorited on Remnant 2 Toolkit.'
+    'A collection of builds you have favorited. Save your favorite builds and access them from your profile.'
 
   return {
     title,
@@ -43,7 +43,13 @@ export default async function Layout({
   const session = await getServerSession()
 
   if (!session || !session.user) {
-    throw new Error(`You must be logged in to view this page.`)
+    return (
+      <div className="mt-24 flex items-center justify-center">
+        <p className="text-center text-2xl">
+          You must be logged in to view this page.
+        </p>
+      </div>
+    )
   }
 
   return (

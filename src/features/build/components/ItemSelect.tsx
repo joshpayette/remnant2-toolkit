@@ -1,7 +1,7 @@
 'use client'
 
 import { AdjustmentsHorizontalIcon } from '@heroicons/react/24/solid'
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { useDebounceValue } from 'usehooks-ts'
 
 import { SearchTextAutocomplete } from '@/features/filters/components/parts/SearchTextAutocomplete'
@@ -17,7 +17,7 @@ import { cn } from '@/lib/classnames'
 import { ItemButton } from '../../items/components/ItemButton'
 import { ItemCategory } from '../types'
 
-function buildItemList(): Array<{ id: string; name: string }> {
+function buildSearchTextOptions(): Array<{ id: string; name: string }> {
   let items = DESCRIPTION_TAGS.map((tag) => ({
     id: tag.token as string,
     name: tag.type as string,
@@ -78,17 +78,16 @@ export function ItemSelect({
   onClose: () => void
   onSelectItem: (item: Item | null) => void
 }) {
-  const filterItems = buildItemList()
+  const searchTextOptions = buildSearchTextOptions()
 
   const [infoItem, setInfoItem] = useState<Item | null>(null)
 
   const [filter, setFilter] = useState('')
+  const [debouncedFilter] = useDebounceValue(filter, 500)
+
   const { sortingPreference, setSortingPreference } = useLocalStorage()
 
-  const [filteredItemList, setFilteredItemList] = useState(itemList)
-  const [debouncedFilter, setDebouncedFilter] = useDebounceValue(filter, 500)
-
-  useEffect(() => {
+  const getNewSortedItems = useCallback(() => {
     const filteredItems = itemList.filter((item) =>
       itemMatchesSearchText({ item, searchText: debouncedFilter }),
     )
@@ -102,27 +101,21 @@ export function ItemSelect({
           })
         : filteredItems
 
-    setFilteredItemList(sortedItems)
-  }, [debouncedFilter, itemList, buildSlot, sortingPreference])
+    return sortedItems
+  }, [buildSlot, debouncedFilter, itemList, sortingPreference])
 
-  // Reset filter when dialog is opened/closed
+  const [filteredItemList, setFilteredItemList] = useState(getNewSortedItems())
+
+  // * useEffect appropriate here to react to changes
   useEffect(() => {
-    setFilter('')
-  }, [open])
+    setFilteredItemList(getNewSortedItems())
+  }, [debouncedFilter, sortingPreference, getNewSortedItems])
 
   function handleSortingPreferenceToggle() {
     if (buildSlot !== 'trait') return
 
     const newSortingPreference =
       sortingPreference === 'alphabetical' ? 'in-game' : 'alphabetical'
-
-    const sortedItems = sortByPreference({
-      items: filteredItemList,
-      buildSlot,
-      sortingPreference: newSortingPreference,
-    })
-
-    setFilteredItemList(sortedItems)
     setSortingPreference(newSortingPreference)
   }
 
@@ -152,13 +145,13 @@ export function ItemSelect({
             )}
           >
             <SearchTextAutocomplete
-              items={filterItems}
+              items={searchTextOptions}
               onChange={(newValue: string) => setFilter(newValue)}
               value={filter}
             />
           </div>
           {buildSlot === 'trait' && (
-            <div className="col-span-1 flex items-center justify-start">
+            <div className="col-span-1 flex items-end justify-start">
               <button
                 className="flex items-center justify-center text-sm text-gray-400 hover:text-green-500"
                 aria-label="Toggle sorting preference"

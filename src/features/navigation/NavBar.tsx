@@ -5,6 +5,7 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid'
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { useSession } from 'next-auth/react'
 import { Fragment, useEffect, useState } from 'react'
 
 import { NAV_ITEMS } from '@/features/navigation/constants'
@@ -17,7 +18,10 @@ export function NavBar() {
   const pathname = usePathname()
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
+  const { data: session, status } = useSession()
+
   // Close the navmenu on route change
+  // * useEffect is necessary to close the menu on route change
   useEffect(() => {
     setMobileMenuOpen(false)
   }, [pathname])
@@ -29,7 +33,7 @@ export function NavBar() {
         className="z-40 mx-auto flex w-full items-center justify-between bg-background px-4 py-6"
         aria-label="Global"
       >
-        <div className="flex min-w-[300px]">
+        <div className="flex min-w-[250px]">
           <Logo />
         </div>
         <div className="flex w-full justify-end lg:hidden">
@@ -59,7 +63,7 @@ export function NavBar() {
               leaveFrom="transform opacity-100 scale-100"
               leaveTo="transform opacity-0 scale-95"
             >
-              <Menu.Items className="absolute left-0 z-10 mt-2 w-[290px] origin-top-left rounded-md bg-black p-2 shadow-lg ring-1 ring-gray-800 ring-opacity-5 focus:outline-none">
+              <Menu.Items className="absolute left-0 z-20 mt-2 w-[290px] origin-top-left rounded-md bg-black p-2 shadow-lg ring-1 ring-gray-800 ring-opacity-5 focus:outline-none">
                 <Menu.Item>
                   {({ active }) => (
                     <Link
@@ -126,7 +130,11 @@ export function NavBar() {
                 <Menu.Item>
                   {({ active }) => (
                     <Link
-                      href={NAV_ITEMS.createBuild.href}
+                      href={
+                        status === 'loading' || status === 'authenticated'
+                          ? NAV_ITEMS.createBuild.href
+                          : '/builder'
+                      }
                       className={cn(
                         active ? 'bg-gray-800' : '',
                         'flex w-full flex-row items-start justify-start p-2 text-sm font-semibold text-white',
@@ -163,7 +171,7 @@ export function NavBar() {
               leaveFrom="transform opacity-100 scale-100"
               leaveTo="transform opacity-0 scale-95"
             >
-              <Menu.Items className="absolute left-0 z-10 mt-2 w-[290px] origin-top-left rounded-md bg-black p-2 shadow-lg ring-1 ring-gray-800 ring-opacity-5 focus:outline-none">
+              <Menu.Items className="absolute left-0 z-20 mt-2 w-[290px] origin-top-left rounded-md bg-black p-2 shadow-lg ring-1 ring-gray-800 ring-opacity-5 focus:outline-none">
                 <Menu.Item>
                   {({ active }) => (
                     <Link
@@ -225,7 +233,7 @@ export function NavBar() {
               leaveFrom="transform opacity-100 scale-100"
               leaveTo="transform opacity-0 scale-95"
             >
-              <Menu.Items className="absolute left-0 z-10 mt-2 w-[290px] origin-top-left rounded-md bg-black p-2 shadow-lg ring-1 ring-gray-800 ring-opacity-5 focus:outline-none">
+              <Menu.Items className="absolute left-0 z-20 mt-2 w-[290px] origin-top-left rounded-md bg-black p-2 shadow-lg ring-1 ring-gray-800 ring-opacity-5 focus:outline-none">
                 <Menu.Item>
                   {({ active }) => (
                     <Link
@@ -247,6 +255,29 @@ export function NavBar() {
                     </Link>
                   )}
                 </Menu.Item>
+
+                <Menu.Item>
+                  {({ active }) => (
+                    <Link
+                      href={NAV_ITEMS.ampVsRes.href}
+                      className={cn(
+                        active ? 'bg-gray-800' : '',
+                        'flex w-full flex-row items-start justify-start p-2 text-sm font-semibold text-white',
+                      )}
+                    >
+                      <div className="mr-4 w-[20px]">
+                        <NAV_ITEMS.ampVsRes.icon className="h-5 w-5 text-green-600" />
+                      </div>
+                      <div className="flex flex-col items-start justify-start gap-y-1">
+                        {NAV_ITEMS.ampVsRes.label}
+                        <p className="text-xs font-normal text-gray-400">
+                          {NAV_ITEMS.ampVsRes.description}
+                        </p>
+                      </div>
+                    </Link>
+                  )}
+                </Menu.Item>
+
                 <Menu.Item>
                   {({ active }) => (
                     <Link
@@ -269,6 +300,7 @@ export function NavBar() {
                     </Link>
                   )}
                 </Menu.Item>
+
                 <Menu.Item>
                   {({ active }) => (
                     <Link
@@ -328,7 +360,7 @@ export function NavBar() {
             {NAV_ITEMS.supportR2TK.label}
           </Link>
         </div>
-        <div className="hidden h-[38px] w-[80px] grow items-end justify-end sm:flex">
+        <div className="hidden w-[80px] grow items-end justify-end lg:flex">
           <AuthButton.Desktop />
         </div>
       </nav>
@@ -409,7 +441,11 @@ export function NavBar() {
                 </Link>
 
                 <Link
-                  href={NAV_ITEMS.createBuild.href}
+                  href={
+                    status === 'loading' || status === 'authenticated'
+                      ? NAV_ITEMS.createBuild.href
+                      : '/builder'
+                  }
                   className="flex flex-row items-center justify-start"
                 >
                   <NAV_ITEMS.createBuild.icon
@@ -424,6 +460,8 @@ export function NavBar() {
                     </p>
                   </div>
                 </Link>
+
+                <hr className="border-purple-900" />
 
                 <Link
                   href={NAV_ITEMS.bossTracker.href}
@@ -459,6 +497,8 @@ export function NavBar() {
                   </div>
                 </Link>
 
+                <hr className="border-purple-900" />
+
                 <Link
                   href={NAV_ITEMS.itemLookup.href}
                   className="flex flex-row items-center justify-start"
@@ -472,6 +512,23 @@ export function NavBar() {
 
                     <p className="text-xs text-gray-400">
                       {NAV_ITEMS.itemLookup.description}
+                    </p>
+                  </div>
+                </Link>
+
+                <Link
+                  href={NAV_ITEMS.ampVsRes.href}
+                  className="flex flex-row items-center justify-start"
+                >
+                  <NAV_ITEMS.ampVsRes.icon
+                    className="mr-2 h-7 w-5 flex-none text-green-600"
+                    aria-hidden="true"
+                  />
+                  <div className="flex flex-col items-start justify-start px-3 py-2">
+                    {NAV_ITEMS.ampVsRes.label}
+
+                    <p className="text-xs text-gray-400">
+                      {NAV_ITEMS.ampVsRes.description}
                     </p>
                   </div>
                 </Link>
@@ -515,6 +572,8 @@ export function NavBar() {
                     </p>
                   </div>
                 </Link>
+
+                <hr className="border-purple-900" />
 
                 <Link
                   href={NAV_ITEMS.supportR2TK.href}

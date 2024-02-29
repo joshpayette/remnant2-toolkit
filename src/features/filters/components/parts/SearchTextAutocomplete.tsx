@@ -1,6 +1,6 @@
 import { Combobox } from '@headlessui/react'
 import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/24/solid'
-import { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 
 import { cn } from '@/lib/classnames'
 
@@ -22,17 +22,14 @@ export function SearchTextAutocomplete({
   items,
   value,
 }: Props) {
-  const [selectedItem, setSelectedItem] = useState<Item | null>({
-    id: '',
-    name: value,
-  })
-
-  // Ensures the item clear when clear filters pressed
-  useEffect(() => {
-    if (value === '') {
-      setSelectedItem(null)
-    }
-  }, [value])
+  const [selectedItem, setSelectedItem] = useState<Item | null>(
+    value === ''
+      ? null
+      : {
+          id: '',
+          name: value,
+        },
+  )
 
   const filteredItems =
     value === ''
@@ -46,9 +43,16 @@ export function SearchTextAutocomplete({
       as="div"
       value={selectedItem}
       onChange={(item) => {
-        if (item) onChange(item.name)
+        if (item) {
+          onChange(item.name)
+          if (onKeyDown) onKeyDown()
+        }
         setSelectedItem(item)
-        if (onKeyDown) onKeyDown()
+      }}
+      onKeyDown={(e: React.KeyboardEvent<HTMLElement>) => {
+        if (e.key === 'Enter') {
+          if (onKeyDown) onKeyDown()
+        }
       }}
       className="w-full"
       nullable
@@ -69,7 +73,7 @@ export function SearchTextAutocomplete({
           />
         </Combobox.Button>
 
-        <Combobox.Options className="absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-md bg-gray-900 py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+        <Combobox.Options className="absolute z-20 mt-1 max-h-60 w-full overflow-auto rounded-md bg-gray-900 py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
           {value.length > 0 && (
             <Combobox.Option
               value={{ id: null, name: value }}

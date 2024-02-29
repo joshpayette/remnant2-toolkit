@@ -1,42 +1,98 @@
 import isEqual from 'lodash.isequal'
-import { usePathname, useRouter } from 'next/navigation'
-import { useMemo, useState } from 'react'
+import { usePathname, useRouter, useSearchParams } from 'next/navigation'
+import { useMemo, useRef, useState } from 'react'
 
-import { ItemCategory } from '@/features/build/types'
-import { remnantItemCategories } from '@/features/items/data/remnantItems'
-import { ReleaseKey } from '@/features/items/types'
-
-import { ItemLookupFilterFields } from '../types'
 import {
   CollectedItemFilters,
   DEFAULT_COLLECTION_FILTERS,
-} from './parts/CollectedItemFilters'
-import { FiltersContainer } from './parts/FiltersContainer'
-import { ItemCategoryFilters } from './parts/ItemCategoryFilters'
-import { DEFAULT_RELEASE_FILTERS, ReleaseFilters } from './parts/ReleaseFilters'
-import { SearchItemsFilter } from './parts/SearchItemsFilter'
+} from '@/features/filters/components/parts/CollectedItemFilters'
+import { FiltersContainer } from '@/features/filters/components/parts/FiltersContainer'
+import { ItemCategoryFilters } from '@/features/filters/components/parts/ItemCategoryFilters'
+import {
+  DEFAULT_RELEASE_FILTERS,
+  ReleaseFilters,
+} from '@/features/filters/components/parts/ReleaseFilters'
+import { SearchTextAutocomplete } from '@/features/filters/components/parts/SearchTextAutocomplete'
+import { parseItemLookupFilters } from '@/features/filters/lib/parseItemLookupFilters'
+import {
+  ItemLookupCategory,
+  ItemLookupFilterFields,
+} from '@/features/filters/types'
+import { DESCRIPTION_TAGS, ITEM_TAGS } from '@/features/items/constants'
+import {
+  remnantItemCategories,
+  remnantItems,
+} from '@/features/items/data/remnantItems'
+import { ReleaseKey } from '@/features/items/types'
+import { capitalize } from '@/lib/capitalize'
 
-const DEFAULT_ITEM_CATEGORY_FILTERS: ItemCategory[] =
-  remnantItemCategories.sort((a, b) => {
-    if (a < b) return -1
-    if (a > b) return 1
-    return 0
-  })
+function buildItemList(): Array<{ id: string; name: string }> {
+  let items = remnantItems
+    .filter((item) => item.category !== 'relicfragment')
+    .map((item) => ({
+      id: item.id,
+      name: item.name,
+    }))
+
+  // items = remnantBosses
+  //   .map((boss) => ({ id: boss.id, name: boss.name }))
+  //   .concat(items)
+
+  items = DESCRIPTION_TAGS.map((tag) => ({
+    id: tag.token as string,
+    name: tag.type as string,
+  })).concat(items)
+
+  items = ITEM_TAGS.map((tag) => ({
+    id: tag as string,
+    name: tag as string,
+  })).concat(items)
+
+  items = items.sort((a, b) => a.name.localeCompare(b.name))
+
+  // remove duplicates
+  items = items.filter(
+    (item, index, self) =>
+      index === self.findIndex((i) => i.name === item.name),
+  )
+
+  return items
+}
+
+const subCategories: ItemLookupCategory[] = [
+  'Long Gun',
+  'Hand Gun',
+  'Melee',
+  'Mutator (Gun)',
+  'Mutator (Melee)',
+]
+
+let defaultItemCategories: ItemLookupCategory[] = remnantItemCategories
+  .map((category) => capitalize(category))
+  .filter((category) => category !== 'weapon' && category !== 'mutator')
+// Add the subcategories
+defaultItemCategories.push(...subCategories)
+// Sort alphabetically
+defaultItemCategories = defaultItemCategories.sort()
 
 export const DEFAULT_ITEM_LOOKUP_FILTERS: ItemLookupFilterFields = {
   collectionKeys: DEFAULT_COLLECTION_FILTERS,
-  itemCategories: DEFAULT_ITEM_CATEGORY_FILTERS,
+  itemCategories: defaultItemCategories,
   searchText: '',
   selectedReleases: DEFAULT_RELEASE_FILTERS,
 }
 
-interface Props {
-  filters: ItemLookupFilterFields
-}
+interface Props {}
 
-export function ItemLookupFilters({ filters }: Props) {
+export function ItemLookupFilters({}: Props) {
   const router = useRouter()
   const pathname = usePathname()
+
+  const searchParams = useSearchParams()
+  const filters = parseItemLookupFilters(searchParams)
+
+  /** Used to clear the SearchTextAutocomplete field when clear filters is pressed */
+  const searchTextFieldKey = useRef(new Date().getTime())
 
   // Tracks the filter changes by the user that are not yet applied
   // via clicking the Apply Filters button
@@ -66,11 +122,12 @@ export function ItemLookupFilters({ filters }: Props) {
   }, [filters])
 
   function handleClearFilters() {
-    setUnappliedFilters(DEFAULT_ITEM_LOOKUP_FILTERS)
     handleApplyFilters(DEFAULT_ITEM_LOOKUP_FILTERS)
+    setUnappliedFilters(DEFAULT_ITEM_LOOKUP_FILTERS)
+    searchTextFieldKey.current = new Date().getTime()
   }
 
-  function handleCategoryChange(category: ItemCategory) {
+  function handleCategoryChange(category: ItemLookupCategory) {
     let newCategories = [...unappliedFilters.itemCategories]
 
     if (newCategories.includes(category)) {
@@ -83,9 +140,6 @@ export function ItemLookupFilters({ filters }: Props) {
     if (filters.itemCategories.some((c) => !newCategories.includes(c))) {
       setAreFiltersApplied(false)
     }
-    // if (filters.itemCategories.length === newCategories.length) {
-    //   setAreFiltersApplied(true)
-    // }
   }
 
   function handleCollectionChange(collection: string) {
@@ -102,9 +156,6 @@ export function ItemLookupFilters({ filters }: Props) {
     if (filters.collectionKeys.some((c) => !newCollection.includes(c))) {
       setAreFiltersApplied(false)
     }
-    // if (isEqual(filters.collectionKeys, newCollection)) {
-    //   setAreFiltersApplied(true)
-    // }
   }
 
   function handleReleaseChange(release: ReleaseKey) {
@@ -121,9 +172,6 @@ export function ItemLookupFilters({ filters }: Props) {
     if (filters.selectedReleases.some((r) => !newReleases.includes(r))) {
       setAreFiltersApplied(false)
     }
-    // if (isEqual(filters.selectedReleases, newReleases)) {
-    //   setAreFiltersApplied(true)
-    // }
   }
 
   function handleSearchTextChange(searchQuery: string) {
@@ -175,13 +223,19 @@ export function ItemLookupFilters({ filters }: Props) {
       onApplyFilters={handleApplyFilters}
       onClearFilters={handleClearFilters}
     >
-      <SearchItemsFilter
-        searchText={unappliedFilters.searchText}
-        onApplyFilters={() => handleApplyFilters(unappliedFilters)}
-        onSearchTextChange={(newSearchText: string) =>
-          handleSearchTextChange(newSearchText)
-        }
-      />
+      <div className="col-span-full flex w-full flex-col items-start justify-start gap-x-4 gap-y-2">
+        <div className="flex w-full max-w-[400px] flex-col items-start justify-center">
+          <SearchTextAutocomplete
+            key={searchTextFieldKey.current}
+            items={buildItemList()}
+            onChange={(newSearchText: string) =>
+              handleSearchTextChange(newSearchText)
+            }
+            onKeyDown={() => handleApplyFilters(unappliedFilters)}
+            value={unappliedFilters.searchText}
+          />
+        </div>
+      </div>
 
       <div className="col-span-full flex w-full sm:col-span-2">
         <ReleaseFilters
@@ -199,11 +253,12 @@ export function ItemLookupFilters({ filters }: Props) {
       </div>
 
       <ItemCategoryFilters
+        defaultItemCategories={defaultItemCategories}
         selectedItemCategories={unappliedFilters.itemCategories}
-        onReset={(itemCategories: ItemCategory[]) =>
+        onReset={(itemCategories: ItemLookupCategory[]) =>
           setUnappliedFilters({ ...unappliedFilters, itemCategories })
         }
-        onUpdate={(itemCategory: ItemCategory) =>
+        onUpdate={(itemCategory: ItemLookupCategory) =>
           handleCategoryChange(itemCategory)
         }
       />

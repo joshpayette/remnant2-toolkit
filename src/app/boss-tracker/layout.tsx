@@ -4,9 +4,9 @@ import { Metadata } from 'next'
 import { Suspense } from 'react'
 
 export async function generateMetadata(): Promise<Metadata> {
-  const title = `Boss Tracker - Remnant2Toolkit`
+  const title = `Boss Tracker - Remnant 2 Toolkit`
   const description =
-    'Keep track of all the world bosses, bosses, and aberrations you have defeated in Remnant 2.'
+    'Remnant 2 Boss Tracker, Enemy Tracker, and Aberration Tracker.'
 
   return {
     title,

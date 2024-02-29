@@ -42,10 +42,10 @@ export function BuilderPage({
 }: Props) {
   return (
     <>
-      <div className="flex w-full max-w-xl flex-col-reverse items-start justify-center gap-2 sm:flex-row-reverse">
+      <div className="flex w-full max-w-lg flex-col-reverse items-start justify-center gap-2 sm:max-w-4xl lg:max-w-6xl lg:flex-row-reverse">
         <div
-          id="actions-column"
-          className="mt-8 flex min-w-full flex-col justify-between gap-2 sm:mt-0 sm:min-w-[100px]"
+          id="actions"
+          className="mt-4 flex w-full flex-col items-center justify-between gap-2 md:flex-row lg:mt-0 lg:max-w-[150px] lg:flex-col"
         >
           {builderActions}
         </div>
@@ -53,7 +53,7 @@ export function BuilderPage({
           ref={buildContainerRef}
           className={cn(
             'w-full grow bg-black',
-            isScreenshotMode && 'min-h-[731px] min-w-[502px]',
+            isScreenshotMode && 'min-h-[731px] min-w-[994px]',
           )}
         >
           {isEditable ? (

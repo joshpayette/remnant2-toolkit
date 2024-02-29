@@ -8,7 +8,7 @@ import Filter from 'bad-words'
  */
 const filter = new Filter()
 filter.addWords('gay', 'homosexual')
-filter.removeWords('fart')
+filter.removeWords('fart', 'shit')
 
 export function cleanBadWords(text: string) {
   if (!text || typeof text !== 'string' || text === '') return ''

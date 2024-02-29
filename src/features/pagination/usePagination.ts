@@ -122,12 +122,6 @@ export function usePagination({ itemsPerPage = 5, totalItemCount }: Props) {
       : currentPage * itemsPerPage
   }, [currentPage, itemsPerPage, totalItemCount])
 
-  // useEffect(() => {
-  //   if (currentPage !== 1 && isNaN(totalPages)) {
-  //     router.push(`${pathname}?${createQueryString('page', '1')}`)
-  //   }
-  // }, [currentPage, totalPages, pathname, createQueryString, router])
-
   function handlePreviousPageClick() {
     const previousPage = currentPage - 1 > 0 ? currentPage - 1 : 1
     router.push(

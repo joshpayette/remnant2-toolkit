@@ -58,6 +58,7 @@ model User {
   PaidUsers     PaidUsers[]
   UserItems     UserItems[]
   UserProfile   UserProfile?
+  UserLoadouts  UserLoadouts[]
 }
 
 model VerificationToken {
@@ -116,6 +117,20 @@ model UserItems {
   @@index([itemId])
 }
 
+model UserLoadouts {
+  id        String    @id @default(cuid())
+  createdAt DateTime  @default(now())
+  updatedAt DateTime? @updatedAt
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String
+  build     Build     @relation(fields: [buildId], references: [id], onDelete: Cascade)
+  buildId   String
+  slot      Int
+
+  @@index([userId])
+  @@index([buildId])
+}
+
 model Build {
   id              String            @id @default(cuid())
   createdAt       DateTime          @default(now())
@@ -149,6 +164,7 @@ model Build {
   BuildItems      BuildItems[]
   UserProfile     UserProfile?      @relation(fields: [userProfileId], references: [id])
   userProfileId   String?
+  UserLoadouts    UserLoadouts[]
 
   @@index([createdById])
   @@index([userProfileId])

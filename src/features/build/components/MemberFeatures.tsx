@@ -1,5 +1,6 @@
 'use client'
 
+import { ClipboardDocumentListIcon } from '@heroicons/react/24/solid'
 import { signIn, useSession } from 'next-auth/react'
 
 import { DescriptionWithTags } from '@/features/items/components/DescriptionWithTags'
@@ -33,26 +34,6 @@ export function MemberFeatures({
 
   return (
     <div className="relative pt-4">
-      {status === 'unauthenticated' &&
-        !isScreenshotModeActive &&
-        isEditable && (
-          <>
-            <div
-              id="disabled-overlay"
-              className="absolute inset-0 z-20 h-full bg-black/90"
-            />
-            <div className="absolute z-30 mb-2 flex h-full w-full flex-col items-center justify-center text-2xl font-bold text-red-500">
-              Sign in required to save additional build details.
-              <button
-                className="rounded-lg bg-green-500 p-2 text-lg text-black"
-                aria-label="Sign in to save additional build details"
-                onClick={() => signIn()}
-              >
-                Sign In
-              </button>
-            </div>
-          </>
-        )}
       {!isEditable || isScreenshotModeActive ? (
         <div className="flex flex-col">
           {description && description.length > 0 && (
@@ -78,12 +59,39 @@ export function MemberFeatures({
               description?.length ?? 0
             }/${MAX_BUILD_DESCRIPTION_LENGTH})`}
             name="description"
-            placeholder=""
+            placeholder="Consider adding a description about how the build works, possible item swaps, a link to a Youtube video demonstrating the build, and any other info that can help others understand your build better. Not sure what to write? Use the Item Description Template link below!"
             onChange={(e) => onChangeDescription(e.target.value)}
             value={description ?? ''}
             maxLength={MAX_BUILD_DESCRIPTION_LENGTH}
             className="h-[215px]"
           />
+          <div className="flex w-full items-center justify-end">
+            <button
+              className="my-1 text-xs text-purple-500 underline"
+              onClick={() => {
+                const response = confirm(
+                  'Insert the description template? This will clear the current description.',
+                )
+                if (response) {
+                  onChangeDescription(
+                    `
+This build is designed for [insert game difficulty here] and is a [insert build type here] build. It is designed to be played [insert solo or coop here] with a [insert weapon name here] but can be played with other weapons.
+  
+If you don't have the [insert item name here], you can use [insert alternative item name here] instead. If you don't have the [insert item name here], you can use [insert alternative item name here] instead.
+  
+For a non-boss version of this build, see [insert link here].
+For an easier to obtain loot version of this build, see [insert link here].
+
+Watch the build in action: [insert Youtube link here]
+  `.trim(),
+                  )
+                }
+              }}
+            >
+              <ClipboardDocumentListIcon className="inline-block h-4 w-4" />{' '}
+              Insert Description Template
+            </button>
+          </div>
         </div>
       )}
       {isScreenshotModeActive ? null : (

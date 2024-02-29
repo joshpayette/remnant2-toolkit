@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 
 import { getCreatedBuilds } from '@/app/profile/created-builds/actions'
 import { BuildCard } from '@/features/build/components/BuildCard'
-import { BuildList } from '@/features/build/components/BuildList'
+import { ItemList } from '@/features/build/components/ItemList'
 import { useBuildListState } from '@/features/build/hooks/useBuildListState'
 import { BuildListSecondaryFilters } from '@/features/filters/components/BuildListSecondaryFilters'
 import { useBuildListSecondaryFilters } from '@/features/filters/hooks/useBuildListSecondaryFilters'
@@ -81,7 +81,7 @@ export function CreatedBuilds({ itemsPerPage = 8, buildListFilters }: Props) {
 
   return (
     <>
-      <BuildList
+      <ItemList
         label="Builds you've created"
         currentPage={currentPage}
         isLoading={isLoading}
@@ -104,28 +104,33 @@ export function CreatedBuilds({ itemsPerPage = 8, buildListFilters }: Props) {
           />
         }
       >
-        {builds.map((build) => (
-          <div key={build.id} className="h-full w-full">
-            <BuildCard
-              build={build}
-              isLoading={isLoading}
-              onReportBuild={undefined}
-              memberFrameEnabled={false}
-              footerActions={
-                <div className="flex items-center justify-between gap-2 p-2 text-sm">
-                  <CopyBuildUrlButton buildId={build.id} />
-                  <EditBuildButton buildId={build.id} />
-                  <DuplicateBuildButton build={build} />
-                  <DeleteBuildButton
-                    buildId={build.id}
-                    onDeleteBuild={handleDeleteBuild}
-                  />
-                </div>
-              }
-            />
-          </div>
-        ))}
-      </BuildList>
+        <ul
+          role="list"
+          className="my-4 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4"
+        >
+          {builds.map((build) => (
+            <div key={build.id} className="h-full w-full">
+              <BuildCard
+                build={build}
+                isLoading={isLoading}
+                onReportBuild={undefined}
+                memberFrameEnabled={false}
+                footerActions={
+                  <div className="flex items-center justify-between gap-2 p-2 text-sm">
+                    <CopyBuildUrlButton buildId={build.id} />
+                    <EditBuildButton buildId={build.id} />
+                    <DuplicateBuildButton build={build} />
+                    <DeleteBuildButton
+                      buildId={build.id}
+                      onDeleteBuild={handleDeleteBuild}
+                    />
+                  </div>
+                }
+              />
+            </div>
+          ))}
+        </ul>
+      </ItemList>
     </>
   )
 }

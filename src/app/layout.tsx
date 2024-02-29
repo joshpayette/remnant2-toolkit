@@ -5,16 +5,13 @@ import { Footer } from '@/features/ui/Footer'
 import { cn } from '@/lib/classnames'
 export { metadata } from './metadata'
 import './globals.css'
-import 'react-toastify/dist/ReactToastify.css'
+import 'react-toastify/dist/ReactToastify.min.css'
 
 import { Analytics } from '@vercel/analytics/react'
-import { SpeedInsights } from '@vercel/speed-insights/next'
 import { Viewport } from 'next'
-import { Suspense } from 'react'
 import { ToastContainer } from 'react-toastify'
 
 import { PreloadResources } from '@/features/ui/PreloadResources'
-import { Skeleton } from '@/features/ui/Skeleton'
 
 import { SessionProvider } from '../features/auth/components/SessionProvider'
 import { ReportBugButton } from '../features/bug-reports/ReportBugButton'
@@ -70,21 +67,11 @@ export default async function RootLayout({
             </main>
           </div>
 
-          <Suspense fallback={<Loading />}>
-            <Footer />
-          </Suspense>
+          <Footer />
         </SessionProvider>
         <Analytics />
-        <SpeedInsights />
+        {/* <SpeedInsights /> */}
       </body>
     </html>
-  )
-}
-
-function Loading() {
-  return (
-    <div className="flex w-full items-center justify-center">
-      <Skeleton className="h-32 w-full" />
-    </div>
   )
 }

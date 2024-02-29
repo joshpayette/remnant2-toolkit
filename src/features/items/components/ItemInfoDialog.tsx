@@ -8,9 +8,12 @@ import { cn } from '@/lib/classnames'
 import { Dialog } from '../../ui/Dialog'
 import { cleanItemName } from '../lib/cleanItemName'
 import { Item } from '../types'
+import { ArchetypeItem } from '../types/ArchetypeItem'
 import { ArmorItem } from '../types/ArmorItem'
+import { ModItem } from '../types/ModItem'
 import { MutatorItem } from '../types/MutatorItem'
 import { PerkItem } from '../types/PerkItem'
+import { SkillItem } from '../types/SkillItem'
 import { TraitItem } from '../types/TraitItem'
 import { WeaponItem } from '../types/WeaponItem'
 import { ArmorInfo } from './ArmorInfo'
@@ -51,20 +54,33 @@ export function ItemInfoDialog({ item, open, onClose }: ItemInfoProps) {
       subtitle={
         <span className="flex w-full flex-col items-center justify-center gap-x-2">
           <span className="text-sm text-gray-400">{subtitle}</span>
-          <button
-            className="text-xs text-green-500 underline hover:text-green-400"
-            aria-label="Copy link to item"
-            onClick={() => {
-              copy(
-                `https://remnant2toolkit.com/endpoint/item/${cleanItemName(
-                  item,
-                )}`,
-              )
-              toast.success('Copied link to clipboard')
-            }}
-          >
-            Share
-          </button>
+          <span className="mt-2 flex w-full items-center justify-center gap-x-2 border-b border-t border-b-gray-800 border-t-gray-800 py-2 text-xs">
+            {item.wikiLinks?.map((link) => (
+              <a
+                key={link}
+                href={link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-green-500 underline hover:text-green-700"
+              >
+                Wiki Link
+              </a>
+            ))}
+            <button
+              className="text-green-500 underline hover:text-green-700"
+              aria-label="Copy link to item"
+              onClick={() => {
+                copy(
+                  `https://remnant2toolkit.com/endpoint/item/${cleanItemName(
+                    item,
+                  )}`,
+                )
+                toast.success('Copied link to clipboard')
+              }}
+            >
+              Share
+            </button>
+          </span>
         </span>
       }
       maxWidthClass="max-w-2xl"
@@ -100,7 +116,7 @@ export function ItemInfoDialog({ item, open, onClose }: ItemInfoProps) {
             columns === 2 ? ' sm:col-span-2' : 'sm:col-span-1',
           )}
         >
-          <h4 className="text-left text-xs text-gray-500">Description</h4>
+          <h4 className="text-left text-xs text-gray-400">Description</h4>
           <div className="whitespace-pre-line text-left text-xs text-gray-300">
             <DescriptionWithTags
               description={item.description || 'No description available.'}
@@ -109,7 +125,7 @@ export function ItemInfoDialog({ item, open, onClose }: ItemInfoProps) {
 
           {(MutatorItem.isMutatorItem(item) || TraitItem.isTraitItem(item)) && (
             <div className="flex flex-col items-start justify-start">
-              <h4 className="mt-4 text-left text-xs text-gray-500">
+              <h4 className="mt-4 text-left text-xs text-gray-400">
                 At Max Level
               </h4>
               <div className="text-left text-xs text-gray-300">
@@ -124,7 +140,7 @@ export function ItemInfoDialog({ item, open, onClose }: ItemInfoProps) {
 
           {item.cooldown && (
             <div className="flex flex-col items-start justify-start">
-              <h4 className="mt-4 text-left text-xs text-gray-500">Cooldown</h4>
+              <h4 className="mt-4 text-left text-xs text-gray-400">Cooldown</h4>
               <p className="text-left text-xs text-gray-300">
                 {item.cooldown}s
               </p>
@@ -133,7 +149,7 @@ export function ItemInfoDialog({ item, open, onClose }: ItemInfoProps) {
 
           {/* {item.howToGet && (
             <div className="flex flex-col items-start justify-start">
-              <h4 className="mt-4 text-left text-xs text-gray-500">
+              <h4 className="mt-4 text-left text-xs text-gray-400">
                 How To Get
               </h4>
               <div className="text-left text-xs text-gray-300">
@@ -142,24 +158,116 @@ export function ItemInfoDialog({ item, open, onClose }: ItemInfoProps) {
             </div>
           )} */}
 
-          {item.wikiLinks && (
-            <div className="flex flex-col items-start justify-start">
-              <h4 className="mt-4 text-left text-xs text-gray-500">
-                Wiki Links
-              </h4>
-              {item.wikiLinks.map((link) => (
-                <a
-                  key={link}
-                  href={link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-left text-xs text-gray-300 underline hover:text-green-400"
-                >
-                  {link}
-                </a>
-              ))}
-            </div>
-          )}
+          <div className="flex flex-col items-start justify-start">
+            <h4 className="mt-4 text-left text-xs text-gray-400">
+              Linked Items
+            </h4>
+            {item.linkedItems && (
+              <ul className="grid w-full grid-cols-3 gap-x-4">
+                {(SkillItem.isSkillItem(item) ||
+                  TraitItem.isTraitItem(item) ||
+                  PerkItem.isPerkItem(item)) &&
+                  item.linkedItems?.archetype && (
+                    <li className="col-span-full text-left text-xs text-gray-300">
+                      <strong>Archetype</strong>:{' '}
+                      <a
+                        href={`/item-lookup?searchText=${item.linkedItems.archetype.name}`}
+                        className="text-purple-500 underline"
+                      >
+                        {item.linkedItems.archetype.name}
+                      </a>
+                    </li>
+                  )}
+                {ArchetypeItem.isArchetypeItem(item) &&
+                  item.linkedItems.perks && (
+                    <li className="text-left text-xs text-gray-300">
+                      <strong>Perks</strong>
+                      <ul>
+                        {item.linkedItems.perks?.map((perk) => (
+                          <li
+                            key={perk.name}
+                            className="text-left text-xs text-gray-300"
+                          >
+                            <a
+                              href={`/item-lookup?searchText=${perk.name}`}
+                              className="text-purple-500 underline"
+                            >
+                              {perk.name}
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    </li>
+                  )}
+
+                {ArchetypeItem.isArchetypeItem(item) &&
+                  item.linkedItems.skills && (
+                    <li className="text-left text-xs text-gray-300">
+                      <strong>Skills</strong>
+                      <ul>
+                        {item.linkedItems.skills?.map((skill) => (
+                          <li
+                            key={skill.name}
+                            className="text-left text-xs text-gray-300"
+                          >
+                            <a
+                              href={`/item-lookup?searchText=${skill.name}`}
+                              className="text-purple-500 underline"
+                            >
+                              {skill.name}
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    </li>
+                  )}
+
+                {ArchetypeItem.isArchetypeItem(item) &&
+                  item.linkedItems.traits && (
+                    <li className="text-left text-xs text-gray-300">
+                      <strong>Traits</strong>
+                      <ul>
+                        {item.linkedItems.traits?.map((trait) => (
+                          <li
+                            key={trait.name}
+                            className="text-left text-xs text-gray-300"
+                          >
+                            <a
+                              href={`/item-lookup?searchText=${trait.name}`}
+                              className="text-purple-500 underline"
+                            >
+                              {trait.name}
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    </li>
+                  )}
+                {WeaponItem.isWeaponItem(item) && item.linkedItems?.mod && (
+                  <li className="col-span-full text-left text-xs text-gray-300">
+                    <strong>Mod</strong>:{' '}
+                    <a
+                      href={`/item-lookup?searchText=${item.linkedItems.mod.name}`}
+                      className="text-purple-500 underline"
+                    >
+                      {item.linkedItems.mod.name}
+                    </a>
+                  </li>
+                )}
+                {ModItem.isModItem(item) && item.linkedItems?.weapon && (
+                  <li className="col-span-full text-left text-xs text-gray-300">
+                    <strong>Weapon</strong>:{' '}
+                    <a
+                      href={`/item-lookup?searchText=${item.linkedItems.weapon.name}`}
+                      className="text-purple-500 underline"
+                    >
+                      {item.linkedItems.weapon.name}
+                    </a>
+                  </li>
+                )}
+              </ul>
+            )}
+          </div>
         </div>
       </div>
     </Dialog>

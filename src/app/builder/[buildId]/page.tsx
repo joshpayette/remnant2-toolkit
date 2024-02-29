@@ -9,7 +9,7 @@ import { toast } from 'react-toastify'
 import { ActionButton } from '@/features/build/components/ActionButton'
 import { BuilderPage } from '@/features/build/components/BuilderPage'
 import { DetailedBuildDialog } from '@/features/build/components/DetailedBuildDialog'
-import { ImageDownloadLink } from '@/features/build/components/ImageDownloadLink'
+import { ImageDownloadInfo } from '@/features/build/components/ImageDownloadInfo'
 import { useBuildActions } from '@/features/build/hooks/useBuildActions'
 import { buildStateToCsvData } from '@/features/build/lib/buildStateToCsvData'
 import { dbBuildToBuildState } from '@/features/build/lib/dbBuildToBuildState'
@@ -56,9 +56,9 @@ export default function Page({
   const {
     isScreenshotMode,
     showControls,
-    imageLink,
+    imageDownloadInfo,
     imageExportLoading,
-    handleClearImageLink,
+    handleClearImageDownloadInfo,
     handleCopyBuildUrl,
     handleDuplicateBuild,
     handleImageExport,
@@ -82,7 +82,10 @@ export default function Page({
         open={detailedBuildDialogOpen}
         onClose={() => setDetailedBuildDialogOpen(false)}
       />
-      <ImageDownloadLink onClose={handleClearImageLink} imageLink={imageLink} />
+      <ImageDownloadInfo
+        onClose={handleClearImageDownloadInfo}
+        imageDownloadInfo={imageDownloadInfo}
+      />
       <div className="height-full flex w-full flex-col items-center justify-center">
         {buildState.isFeaturedBuild && buildState.videoUrl && (
           <div className="mb-8 max-h-[270px] text-center sm:mb-8 sm:max-h-[430px] sm:max-w-[560px]">
@@ -115,17 +118,15 @@ export default function Page({
           showControls={showControls}
           builderActions={
             <>
-              <div className="col-span-full">
-                <ActionButton.ExportImage
-                  imageExportLoading={imageExportLoading}
-                  onClick={() =>
-                    handleImageExport(
-                      buildContainerRef.current,
-                      `${buildState.name}.png`,
-                    )
-                  }
-                />
-              </div>
+              <ActionButton.ExportImage
+                imageExportLoading={imageExportLoading}
+                onClick={() =>
+                  handleImageExport(
+                    buildContainerRef.current,
+                    `${buildState.name}`,
+                  )
+                }
+              />
 
               {session && session.user?.id === buildState.createdById && (
                 <ActionButton.EditBuild
@@ -194,7 +195,7 @@ export default function Page({
               />
               {session?.user && (
                 <>
-                  <div className="col-span-full flex w-full flex-col items-center justify-center gap-4 sm:items-start">
+                  <div className="flex w-[200px] flex-col items-center justify-center gap-4 sm:items-end md:w-[150px] md:items-center">
                     <div className="my-4 flex flex-row items-center justify-center gap-x-4 sm:my-0 sm:flex-col sm:items-start sm:gap-x-0 sm:gap-y-2">
                       <ActionButton.ReportBuild
                         active={buildState.reported}

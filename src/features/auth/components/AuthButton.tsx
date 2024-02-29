@@ -3,37 +3,23 @@
 import { Menu, Transition } from '@headlessui/react'
 import Link from 'next/link'
 import { useSession } from 'next-auth/react'
-import { Fragment, Suspense } from 'react'
+import { Fragment } from 'react'
 
 import { NAV_ITEMS } from '@/features/navigation/constants'
 import { PlaceHolderIcon } from '@/features/ui/PlaceholderIcon'
-import { Skeleton } from '@/features/ui/Skeleton'
 import { cn } from '@/lib/classnames'
 
 function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
   const { data: session, status } = useSession()
 
-  if (status !== 'authenticated' || !session?.user) {
-    return (
-      <Suspense fallback={<Loading />}>
-        <Link
-          href="/api/auth/signin"
-          className="rounded border border-purple-300 bg-purple-700 p-2 text-center text-sm text-gray-200 hover:bg-purple-500"
-        >
-          Sign in
-        </Link>
-      </Suspense>
-    )
-  }
-
   const iconClasses =
     'h-8 w-8 overflow-hidden rounded-full border border-purple-900 p-1'
 
-  const AvatarImage = session.user.image ? (
+  const AvatarImage = session?.user?.image ? (
     <img
-      src={session.user.image}
+      src={session?.user.image}
       className={cn(iconClasses)}
-      alt={`${session.user.name} Avatar`}
+      alt={`${session?.user.name} Avatar`}
     />
   ) : (
     <span className={cn(iconClasses, 'bg-gray-100')}>
@@ -45,7 +31,7 @@ function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
     return (
       <div className="space-y-2">
         <Link
-          href={NAV_ITEMS.profile.href}
+          href={`/profile/${session?.user?.id ?? ''}`}
           className="flex flex-row items-center justify-start"
         >
           <NAV_ITEMS.profile.icon
@@ -95,23 +81,47 @@ function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
           </div>
         </Link>
 
-        <Link
-          href={NAV_ITEMS.signout.href}
-          className="flex flex-row items-center justify-start"
-        >
-          <NAV_ITEMS.signout.icon
-            className="mr-2 h-7 w-5 flex-none text-green-500"
-            aria-hidden="true"
-          />
-          <div className="flex flex-col items-start justify-start px-3 py-2">
-            {NAV_ITEMS.signout.label}
-          </div>
-        </Link>
+        {status !== 'authenticated' || !session?.user ? (
+          <Link
+            href={NAV_ITEMS.signin.href}
+            className="flex flex-row items-center justify-start"
+          >
+            <NAV_ITEMS.signin.icon
+              className="mr-2 h-7 w-5 flex-none text-green-500"
+              aria-hidden="true"
+            />
+            <div className="flex flex-col items-start justify-start px-3 py-2 text-sm">
+              {NAV_ITEMS.signin.label}
+            </div>
+          </Link>
+        ) : (
+          <Link
+            href={NAV_ITEMS.signout.href}
+            className="flex flex-row items-center justify-start"
+          >
+            <NAV_ITEMS.signout.icon
+              className="mr-2 h-7 w-5 flex-none text-green-500"
+              aria-hidden="true"
+            />
+            <div className="flex flex-col items-start justify-start px-3 py-2">
+              {NAV_ITEMS.signout.label}
+            </div>
+          </Link>
+        )}
       </div>
     )
 
   // Desktop
-  return (
+  return status !== 'authenticated' || !session?.user ? (
+    <Link
+      href={NAV_ITEMS.signin.href}
+      className={cn(
+        'hidden flex-row items-center justify-start rounded-lg bg-purple-700 p-2 text-xs font-semibold text-white hover:bg-purple-500 lg:flex',
+      )}
+    >
+      {NAV_ITEMS.signin.label}
+    </Link>
+  ) : (
     <Menu as="div" className="relative hidden lg:block">
       <Menu.Button className="flex h-8 w-8 rounded-full bg-background text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
         <span className="absolute -inset-1.5" />
@@ -131,7 +141,7 @@ function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
           <Menu.Item>
             {({ active }) => (
               <Link
-                href={NAV_ITEMS.profile.href}
+                href={`/profile/${session?.user?.id ?? ''}`}
                 className={cn(
                   active ? 'bg-gray-800' : '',
                   'flex flex-row items-center justify-start px-4 py-2 text-sm text-gray-300',
@@ -191,18 +201,6 @@ function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
 }
 
 export const AuthButton = {
-  Desktop: () => (
-    <Suspense fallback={<Loading />}>
-      <AuthButtonComponent variant="desktop" />
-    </Suspense>
-  ),
-  Mobile: () => (
-    <Suspense fallback={<Loading />}>
-      <AuthButtonComponent variant="mobile" />
-    </Suspense>
-  ),
-}
-
-function Loading() {
-  return <Skeleton className="h-[38px] w-[80px]" />
+  Desktop: () => <AuthButtonComponent variant="desktop" />,
+  Mobile: () => <AuthButtonComponent variant="mobile" />,
 }

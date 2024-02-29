@@ -61,7 +61,9 @@ export function BossTrackerFilters({ onUpdateFilters }: Props) {
   // This is used to check if the filters are applied
   // This is used to determine if the Apply Filters button should pulsate
   // for the user to indicate they need to apply the changes
-  const [areFiltersApplied, setAreFiltersApplied] = useState(true)
+  const [areFiltersApplied, setAreFiltersApplied] = useState(
+    areFiltersNowApplied(),
+  )
 
   // If the filters differ from the default filters,
   // the filters table should have a yellow outline to
@@ -78,24 +80,18 @@ export function BossTrackerFilters({ onUpdateFilters }: Props) {
   // Once the initial filters are parsed from the URL,
   // pass this information up to the page so it can render
   // the builds list with the correct filters
+  // * useEffect necessary here to pass up the filters
   useEffect(() => {
     onUpdateFilters(filters)
-    setAreFiltersApplied(true)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [filters])
-
-  // If the filters are changed, check if they are applied
-  useEffect(() => {
-    if (isEqual(filters, unappliedFilters)) {
-      setAreFiltersApplied(true)
-    } else {
-      setAreFiltersApplied(false)
-    }
-  }, [unappliedFilters, filters])
+  }, [filters, onUpdateFilters])
 
   function handleClearFilters() {
     setUnappliedFilters(DEFAULT_BOSS_TRACKER_FILTERS)
     handleApplyFilters(DEFAULT_BOSS_TRACKER_FILTERS)
+  }
+
+  function areFiltersNowApplied() {
+    return isEqual(filters, unappliedFilters)
   }
 
   function handleBossCategoryChange(category: BossCategory) {
@@ -113,6 +109,7 @@ export function BossTrackerFilters({ onUpdateFilters }: Props) {
       ...unappliedFilters,
       selectedBossCategories: newBossCategories,
     })
+    setAreFiltersApplied(areFiltersNowApplied())
     if (
       filters.selectedBossCategories.some((a) => !newBossCategories.includes(a))
     ) {
@@ -122,9 +119,7 @@ export function BossTrackerFilters({ onUpdateFilters }: Props) {
 
   function handleSearchTextChange(searchQuery: string) {
     setUnappliedFilters({ ...unappliedFilters, searchText: searchQuery })
-    if (searchQuery !== filters.searchText) {
-      setAreFiltersApplied(false)
-    }
+    setAreFiltersApplied(areFiltersNowApplied())
   }
 
   function handleApplyFilters(newFilters: BossTrackerFilterFields) {

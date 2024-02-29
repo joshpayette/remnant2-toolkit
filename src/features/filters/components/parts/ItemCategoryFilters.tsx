@@ -1,33 +1,21 @@
-import { ItemCategory } from '@/features/build/types'
-import { remnantItemCategories } from '@/features/items/data/remnantItems'
 import { Checkbox } from '@/features/ui/Checkbox'
 import { capitalize } from '@/lib/capitalize'
 
+import { ItemLookupCategory } from '../../types'
+
 interface Props {
-  itemCategories?: ItemCategory[]
-  selectedItemCategories: ItemCategory[]
-  onReset: (categories: ItemCategory[]) => void
-  onUpdate: (category: ItemCategory) => void
+  defaultItemCategories: ItemLookupCategory[]
+  selectedItemCategories: ItemLookupCategory[]
+  onReset: (categories: ItemLookupCategory[]) => void
+  onUpdate: (category: ItemLookupCategory) => void
 }
 
 export function ItemCategoryFilters({
-  itemCategories,
+  defaultItemCategories,
   selectedItemCategories,
   onReset,
   onUpdate,
 }: Props) {
-  const defaultItemCategories: ItemCategory[] =
-    itemCategories?.sort((a, b) => {
-      if (a < b) return -1
-      if (a > b) return 1
-      return 0
-    }) ??
-    remnantItemCategories.sort((a, b) => {
-      if (a < b) return -1
-      if (a > b) return 1
-      return 0
-    })
-
   return (
     <div className="col-span-full pt-2">
       <div className="flex w-full flex-col items-start justify-start gap-x-4 gap-y-2">
@@ -55,15 +43,15 @@ export function ItemCategoryFilters({
         <div className="relative flex w-full flex-row items-center shadow-sm">
           <div className="grid grid-cols-2 gap-x-8 text-left sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
             {defaultItemCategories.map((category) => {
-              const label =
-                category === 'relicfragment'
-                  ? 'Relic Fragment'
-                  : capitalize(category)
+              let label = capitalize(category as string)
+              if (category === 'relicfragment') {
+                label = 'Relic Fragment'
+              }
               return (
-                <div key={category}>
+                <div key={label}>
                   <Checkbox
                     label={label}
-                    name={`category-${category}`}
+                    name={`category-${label}`}
                     checked={selectedItemCategories.includes(category)}
                     onChange={() => onUpdate(category)}
                   />

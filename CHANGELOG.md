@@ -4,6 +4,116 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-02-29
+
+## Added
+
+- Added new corrupted weapons and their mods.
+
+## 2024-02-28
+
+### Added
+
+- Added a new "Loadout Builds" section to your profile, where you can pin up to 8 builds to mirror your in-game loadout slots.
+- Added more aberration images (ConRaven is a god)
+- Added Blightspawn aberration to tracker
+
+### Changed
+
+- Profile link in the nav bar will now go to your public profile.
+- Updated create build logic to remove the redirect. Essentially the original URL version of the builder exists at `/builder`, and the newer database integrated version is `/builder/create`. I had originally had a redirect on `/builder/create` to redirect if the user is not signed in. However, this was causing the page to not be indexed properly by crawlers. Now, an overlay explaining to either sign in or use the URL builder will show if the user is unauthenticated. Additionally, the Create Build link in the Navbar will link to the correct version based on whether the user is authenticated.
+
+### Fixed
+
+- Fixed bug where the logo was rendering incorrectly in build images.
+- Added higher resolution home background image
+- Fixed bug with status effect icons not showing correctly.
+
+## 2024-02-27
+
+### Changed
+
+- Updated the builder to use more horizontal space, including in exported screenshots. This should make the screenshots more readable and usable.
+- Added explosive tag to Song of Eafir after confirming with ConRaven that it does explosive damage.
+- Fixed bug with new build badge not showing correctly.
+- Fixed small bug where popular badge wasn't awarded at 15 votes (off by one error whyyy)
+
+## 2024-02-26
+
+### Fixed
+
+- Fixed duplicate "critical damage" item in the item lookup filter.
+- Fixed bug causing image export on mobile to export image buttons incorrectly. Sorry about this one!
+- Fixed incorrect item description for Reprocessed Heart.
+- Fixed bug with trait points in the builder, they were breaking out of the item button.
+- Fixed issue where some youtube thumbnails did not render, added thumbnail override to db table.
+
+## 2024-02-25
+
+### Added
+
+- The Health and Stamina stats in the builder now show the breakdown of items and how they contributed to the calculation.
+
+### Fixed
+
+- Fixed a bug where the tooltips would exceed the container element and cause a scrollbar in the Stats portion of the builder.
+
+## 2024-02-24
+
+### Changed
+
+- Item Lookup now defaults to no items loaded, requiring at least one filter activated before elements load. This should improve performance for users, particularly on mobile.
+
+## 2024-02-23
+
+### Added
+
+- Added link to Amplitude vs Resonance guide under Resources.
+
+### Fixed
+
+- Improved image sizing, quality, and rendering in the Item Lookup section.
+- Fixed bug where Mutator and Trait `maxLevelDescription` values weren't being considered in search text.
+
+## 2024-02-22
+
+### Added
+
+- Added placeholder text for build description to encourage better descriptions.
+- Added button to insert a build description template to encourage better descriptions.
+
+### Changed
+
+- Item Tracker now shows items for one category at a time rather than all items. This should increase performance for users (mobile users in particular), as well as search engine performance.
+
+## 2024-02-21
+
+### Added
+
+- Item Cards and Item Info now shows linked items. For example, the Alchemist card will now show linked Perks, Skills, and the Primary Trait. For weapons or mods, the linked weapon or mod will be displayed.
+
+## 2024-02-20
+
+### Changed
+
+- Added clearer error when trying to access created or favorited builds while signed out
+- Changed some status and weight class colors to match the Remnant.Wiki colors, to address accessibility concerns.
+
+### Fixed
+
+- Corrected UI issue with sign in button in nav bar.
+- Fixed bug where menu was showing under item labels on the builder.
+
+## 2024-02-19
+
+### Added
+
+- Added placeholder images for enemies/bosses that are missing.
+
+### Fixed
+
+- Maybe actually fixed the Discord avatar bug this time? Time will tell!
+
 ## 2024-02-18
 
 ### Added

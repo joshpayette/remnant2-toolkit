@@ -1,4 +1,4 @@
-import { BuildListPagination } from './BuildListPagination'
+import { Pagination } from '@/features/pagination/Pagination'
 
 interface Props {
   children: React.ReactNode
@@ -16,7 +16,7 @@ interface Props {
   onSpecificPage: (pageNumber: number) => void
 }
 
-export function BuildList({
+export function ItemList({
   children,
   currentPage,
   firstVisibleItemNumber,
@@ -41,7 +41,7 @@ export function BuildList({
           {headerActions}
         </div>
       </div>
-      <BuildListPagination
+      <Pagination
         isLoading={isLoading}
         currentPage={currentPage}
         firstVisibleItemNumber={firstVisibleItemNumber}
@@ -53,14 +53,8 @@ export function BuildList({
         onNextPage={onNextPage}
         onSpecificPage={onSpecificPage}
       />
-
-      <ul
-        role="list"
-        className="my-4 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4"
-      >
-        {children}
-      </ul>
-      <BuildListPagination
+      {children}
+      <Pagination
         currentPage={currentPage}
         isLoading={isLoading}
         firstVisibleItemNumber={firstVisibleItemNumber}

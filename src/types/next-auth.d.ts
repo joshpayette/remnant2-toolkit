@@ -1,4 +1,4 @@
-import { type DefaultSession } from 'next-auth'
+import { type DefaultSession, type Profile as DefualtProfile } from 'next-auth'
 
 declare module 'next-auth' {
   /**
@@ -9,5 +9,9 @@ declare module 'next-auth' {
       id: string
       displayName: string
     } & DefaultSession['user']
+  }
+
+  interface Profile {
+    image_url: string & DefaultProfile
   }
 }

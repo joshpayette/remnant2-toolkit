@@ -12,14 +12,20 @@ import {
   StarIcon,
   TableCellsIcon,
   UserIcon,
+  UsersIcon,
 } from '@heroicons/react/24/solid'
-
-import WikiIcon from '../../../public/wiki-icon.svg'
 
 /**
  * The base pages for the site
  */
 export const NAV_ITEMS = {
+  ampVsRes: {
+    label: 'Amplitude vs Resonance',
+    description:
+      'A guide on what items are affected by Amplitude and Resonance.',
+    href: '/guides/amplitude-vs-resonance',
+    icon: TableCellsIcon,
+  },
   bossTracker: {
     label: 'Boss Tracker',
     description:
@@ -97,6 +103,13 @@ export const NAV_ITEMS = {
     description: 'View and manage your profile.',
     href: '/profile',
     icon: UserIcon,
+  },
+  signin: {
+    label: 'Sign In',
+    description:
+      'Sign into your Discord or Reddit account to access more features.',
+    href: '/api/auth/signin',
+    icon: UsersIcon,
   },
   signout: {
     label: 'Sign Out',
