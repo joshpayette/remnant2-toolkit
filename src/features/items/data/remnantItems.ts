@@ -5768,13 +5768,13 @@ export const remnantItems: Item[] = [
     },
   },
   // * Updated in patch
-  // TODO My math may be bad here, check wiki
+  // * Confirmed with the wiki
   {
     category: 'mod',
     name: 'Nano Swarm',
     imagePath: '/mod/nano_swarm.png',
     id: '8ko9zz',
-    description: `Unleash a swarm of Nanomachines that seek after enemies within 20 meters and repeatedly attack dealing 6 ACID damage per hit and applying CORRODED dealing 100 ACID damage over 20s. Lasts 15 seconds`,
+    description: `Unleash a swarm of Nanomachines that seek after enemies within 20 meters and repeatedly attack dealing 6 ACID damage per hit and applying CORRODED dealing 100 ACID damage over 10s. Lasts 15 seconds`,
     howToGet: `Attached to the Nebula hand gun`,
     wikiLinks: [`https://remnant.wiki/Nano_Swarm`],
     linkedItems: {
@@ -6041,13 +6041,13 @@ export const remnantItems: Item[] = [
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Voltaic+Rondure`],
   },
   // * Updated in patch
-  // TODO Check math on this with the wiki
+  // * Confirmed with wiki
   {
     category: 'mod',
     name: 'Whirlwind',
     imagePath: '/mod/whirlwind.png',
     id: '2y6xm7',
-    description: `Performing a Charge Melee Attack during aNeutral Backdash creates a Whirlwind of slashes which strike all enemies within 8m for 273 damage.`,
+    description: `Performing a Charge Melee Attack during a Neutral Backdash creates a Whirlwind of slashes which strike all enemies within 8m for 91-273 damage.`,
     howToGet: `Attached to the Spectral Blademelee weapon`,
     wikiLinks: [`https://remnant.wiki/Whirlwind`],
     linkedItems: {
