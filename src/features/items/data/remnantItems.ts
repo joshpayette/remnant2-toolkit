@@ -365,7 +365,7 @@ export const remnantItems: Item[] = [
     name: 'War Stomp',
     imagePath: '/skill/war_stomp.png',
     id: 'qnz5iw',
-    description: `Creates a high impact tremor that deals 150 damage [E] and additional stagger in a forward cone up to 7.5m. [A] Deals damage in all directions at point blank range. `, // TODO Confirm patch notes
+    description: `Creates a high impact tremor that deals 150 damage [E] and additional stagger in a forward cone up to 7.5m. [A] Deals damage in all directions at point blank range. `,
     cooldown: 50,
     howToGet: `Automatically unlocked`,
     wikiLinks: [`https://remnant.wiki/War_Stomp`],
@@ -412,6 +412,7 @@ export const remnantItems: Item[] = [
     name: 'Guard Dog',
     imagePath: '/skill/guard_dog.png',
     id: 'gpr2fw',
+    // TODO Companion Howl sizes are now affected by Aura size increases.
     description: `Companion will follow the HANDLER and generate 15% increased Threat while attacking. All damage to them is reduced by 20%. 
 
     SINGLE PRESS: Companion engages enemies near the targeted location.
@@ -433,6 +434,7 @@ export const remnantItems: Item[] = [
     name: 'Support Dog',
     imagePath: '/skill/support_dog.png',
     id: 'jz6x2w',
+    // TODO Companion Howl sizes are now affected by Aura size increases.
     description: `Companion will follow the HANDLER and continuously heal allies within 3.5m for 0.25% of Max Health per second. 
 
     SINGLE PRESS: Companion engages enemies near the targeted location. 
@@ -454,6 +456,7 @@ export const remnantItems: Item[] = [
     name: 'Attack Dog',
     imagePath: '/skill/attack_dog.png',
     id: '8trtzh',
+    // TODO Companion Howl sizes are now affected by Aura size increases.
     description: `Companion will follow the HANDLER and deal 20% additional damage. 
 
     SINGLE PRESS: Companion engages enemies near the targeted location. 
@@ -534,6 +537,7 @@ export const remnantItems: Item[] = [
       },
     },
   },
+  // * Updated in patch
   {
     category: 'skill',
     name: `Hunter's Focus`,
@@ -546,22 +550,18 @@ export const remnantItems: Item[] = [
       'Critical Chance',
       'Recoil',
     ],
-    // TODO - Tragic indicated spread reduction would be reduced to 50%. Check to confirm
-    // TODO - He also said he reduced spread reduction specifically to 50%, not sure if this affects recoil and sway as well
-    // TODO - For now, assuming all three values were reduced based on the tooltip grouping them as one
-    description: `Continously Aiming Down Sights uninterrupted and without shooting for 1s causes the HUNTER to enter a FOCUSED state. 
+    description: `Continuously Aiming Down Sights uninterrupted and without shooting for 0.5s causes the HUNTER to enter a FOCUSED state. 
 
     FOCUSED reduces Weapon Spread, Recoil, and Sway by 50% and grants 25% Ranged & Ranged Weakspot Damage [M], and 10% Ranged Crit Chance.
     
     While FOCUSED, Aiming at enemies will automatically apply MARK.
     
-    
     Lasts 20s.
     
     FOCUSED state can last up to 10s after the Skill duration expires.
     
-    MARK: Crit Chance against MARKED enemies is increased by 15% for all allies.`, // TODO Confirm patch notes
-    cooldown: 50,
+    MARK: Crit Chance against MARKED enemies is increased by 15% for all allies.`,
+    cooldown: 48,
     howToGet: `Unlocks at level 5`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Hunter's+Focus`],
     linkedItems: {
@@ -603,6 +603,7 @@ export const remnantItems: Item[] = [
     name: 'Vial: Stone Mist',
     imagePath: '/skill/vial_stone_mist.png',
     id: 'y7ia9t',
+    // TODO Enabled Flash Caster and Throw Speed to benefit Vial Skills.
     description: `Creates a mysterious vapor cloud which lasts 10s and applies STONESKIN.
 
     STONESKIN reduces incoming damage by 25%, greatly increases Blight Buildup Decay Rate, reduces Stagger by 1, and makes the target immune to Status Effects. Lasts 15s. 
@@ -619,19 +620,21 @@ export const remnantItems: Item[] = [
       },
     },
   },
+  // * Updated in patch
   {
     category: 'skill',
     name: 'Vial: Frenzy Dust',
     imagePath: '/skill/vial_frenzy_dust.png',
     id: 'xsniv3',
+    // TODO Enabled Flash Caster and Throw Speed to benefit Vial Skills.
     description: `Creates a mysterious vapor cloud which lasts 10s and applies FRENZIED.
 
-    FRENZlED increases Fire Rate, Reload Speed, Melee Speed, and Melee Charge Speed by 20%, and Movement Speed by 15%. Lasts 15s.
+    FRENZIED increases Fire Rate, Reload Speed, and Melee Speed by 20%, and Movement Speed by 15%. Lasts 15s.
 
     PRESS: Slam Vial on the ground, creating the effect at the ALCHEMIST's feet. [A]
     
     HOLD & RELEASE: Aim and throw the Vial causing the same effect where it lands. [A]`, // TODO Confirm patch notes
-    cooldown: 75,
+    cooldown: 72,
     howToGet: `Unlocks at level 5`,
     wikiLinks: [`https://remnant.wiki/Vial:_Frenzy_Dust`],
     linkedItems: {
@@ -645,6 +648,7 @@ export const remnantItems: Item[] = [
     name: 'Vial: Elixir of Life',
     imagePath: '/skill/vial_elixir_of_life.png',
     id: '76554i',
+    // TODO Enabled Flash Caster and Throw Speed to benefit Vial Skills.
     description: `Creates a mysterious vapor cloud that lasts 10s and applies LIVING WILL.
 
     LIVING WILL grants 5 Health Regeneration per second, and automatically protects against fatal damage while active. Can revive downed players if it heals them to full when downed. Lasts 20s.
@@ -678,14 +682,13 @@ export const remnantItems: Item[] = [
       },
     },
   },
-  // TODO Tragic indicated that the boost is up from 15% to 50% in the next patch.
-  // TODO Tragic indicated that incoming damage will now be increased by 15% for 10s, even if you leave the gate.
+  // * Updated in patch
   {
     category: 'skill',
     name: 'Chaos Gate',
     imagePath: '/skill/chaos_gate.png',
     id: '9w7c5j',
-    description: `Conjures a 7m [A] unstable zone which grants allies a 50% to all Damage Dealt, 25% increased Mod Generation, but increases the damage that allies take by 15% for 10s. Lasts 20s.`, // TODO Confirm patch notes
+    description: `Conjures a 7m [A] unstable zone which grants allies a 50% increase to All Damage Dealt and 25% increased Mod Generation while standing inside. Increases allies' damage taken by 15% while inside and for 10s after leaving. Lasts 20s.`,
     cooldown: 85,
     howToGet: `Unlocks at level 5`,
     wikiLinks: [`https://remnant.wiki/Chaos_Gate`],
@@ -795,6 +798,7 @@ export const remnantItems: Item[] = [
       },
     },
   },
+  // * Updated in patch
   {
     category: 'skill',
     name: 'Gold Digger',
@@ -803,7 +807,7 @@ export const remnantItems: Item[] = [
     description: `Dig into the ground to spring a fountain which grants a random buff. Fountains last 45s and their buffs last 20s. [R]
 
     Fountains can grant either: 10% increased damage, 15% damage reduction, 2 Health Regeneration per second, or HASTE.`,
-    cooldown: 45,
+    cooldown: 44.1,
     howToGet: `Unlocks at level 5`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Gold+Digger`],
     linkedItems: {
@@ -827,16 +831,17 @@ export const remnantItems: Item[] = [
       },
     },
   },
+  // * Updated in patch
   {
     category: 'skill',
     name: 'Quick Draw',
     imagePath: '/skill/quick_draw.png',
     id: 'qdxjt7',
-    description: `Pull out your trusty side piece and unload up to 6 Critical Shots from the hip. Each shot deals 52 base damage and double stagger value. 
+    description: `Pull out your trusty side piece and unload up to 6 Critical Shots from the hip. Each shot deals 156 base damage and double stagger value. 
 
     PRESS: Instantly fires towards all enemies in view within 25m. Upon release, rounds will be divided evenly among all targets.
     
-    HOLD & RELEASE: Allows manual Aim and fires one single powerful shot upon release.`, // TODO Confirm patch notes
+    HOLD & RELEASE: Allows manual Aim and fires one single powerful shot upon release.`,
     cooldown: 38.4,
     howToGet: `Unlocks automatically`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Quick+Draw`],
@@ -996,14 +1001,15 @@ export const remnantItems: Item[] = [
       },
     },
   },
+  //* Updated in patch
   {
     category: 'skill',
     name: 'Eruption',
     imagePath: '/skill/eruption.png',
     id: 'amqa83',
     tags: ['Status Effect'],
-    description: `Creates 1m explosion for 150 damage [E] on all enemies within 15m. Explosion Radius and damage increases 100% for each unique Status Effect on the target. Refreshes all current Status Effects on the target. [A]`,
-    cooldown: 30,
+    description: `Creates 15m explosion for 150 damage [E] on all enemies within 1m. Explosion Radius and Damage increases 100% for each unique Status Effect on the target. Refreshes all current Status Effects on the target. [A]`,
+    cooldown: 28.8,
     howToGet: `Unlocks automatically`,
     wikiLinks: [`https://remnant.wiki/Eruption`],
     linkedItems: {
@@ -1028,14 +1034,16 @@ export const remnantItems: Item[] = [
       },
     },
   },
+  // * Updated in patch
   {
     category: 'skill',
     name: 'Death Wish',
     imagePath: '/skill/death_wish.png',
     id: 'ux5f9v',
     tags: ['All Damage', 'Lifesteal'],
+    // TODO Now respects Kinship trait again but does not get reduced by armor (as it once did)
     description: `Negates all healing to self. Drain Health 300% over 20s. Increases all Damage by 35% and grants 10% Base Damage dealt as Lifesteal.`,
-    cooldown: 73.8,
+    cooldown: 86.4,
     howToGet: `Unlocks at level 10`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Death+Wish`],
     linkedItems: {
@@ -2990,12 +2998,14 @@ export const remnantItems: Item[] = [
     howToGet: `Can be found in Losomn - Brocwithe Quarter as a reward from the Oracle of the Dran for helping return two Dran children to the orphanage. You must speak to her and go through all of the side dialogue to receive this reward.`,
     wikiLinks: [`https://remnant.wiki/Quilted_Heart`],
   },
+  // * Updated in patch
   {
     category: 'relic',
     name: 'Reprocessed Heart',
     imagePath: '/relic/reprocessed_heart.png',
     id: '06pxhy',
     tags: ['Grey Health'],
+    // TODO Can now generate Mod Power while a Mod is active
     description: `On use, converts 5 Health as Grey Health to 40 Mod Power per second for 25s for Both Weapons. Cannot die from conversion.`,
     howToGet: `Can be found in The Labyrinth.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Reprocessed+Heart`],
@@ -3471,14 +3481,14 @@ export const remnantItems: Item[] = [
     howToGet: ``,
     wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
+  // * Updated in patch
   {
     category: 'relicfragment',
     name: 'Weapon Spread',
     imagePath: '/relicfragment/weapon_spread.png',
     id: 'oiiiu2',
     tags: ['Spread'],
-    // TODO - Tragic indicated spread reduction would be reduced
-    description: `-X% Weapon Spread (Mythic: Maximum of -30%)`,
+    description: `-X% Weapon Spread (Mythic: Maximum of -20%)`,
     howToGet: ``,
     wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
@@ -3673,6 +3683,7 @@ export const remnantItems: Item[] = [
     rps: 3,
     magazine: 50,
   },
+  // * Updated in patch
   {
     category: 'weapon',
     type: 'long gun',
@@ -3687,7 +3698,7 @@ export const remnantItems: Item[] = [
         name: 'Moonlight Barrage',
       },
     },
-    damage: 87,
+    damage: 261,
     rps: 4.1,
     magazine: 1,
   },
@@ -3977,6 +3988,8 @@ export const remnantItems: Item[] = [
     rps: 1.5,
     magazine: 5,
   },
+  // * Updated in patch
+  // TODO Primary Fire now refreshes any current Guardian Mark on hit while Mod is active
   {
     category: 'weapon',
     type: 'long gun',
@@ -4238,22 +4251,22 @@ export const remnantItems: Item[] = [
     },
     damage: 51,
   },
-  // TODO Tragic indicated this would get corrosive damage
+  // * Updated in patch
   {
     category: 'weapon',
     type: 'melee',
     name: 'Huntress Spear',
     imagePath: '/melee/huntress_spear.png',
     id: '0jefkc',
-    description: `The spear is oddly...quiet. Even when you slide your hand across its haft or drop it upon the ground, it makes an unthinkably small amount of noise.`,
+    description: `A battle-worn spear worthy of the finest hunters. Charge Melee Attacks apply CORROSION dealing 600 ACID damage over 5s.`,
     howToGet: `Can be crafted by McCabe after you defeat The Huntress and obtain the Venerated Spearhead`,
     wikiLinks: [`https://remnant.wiki/Huntress_Spear`],
     linkedItems: {
       mod: {
-        name: 'Athibar',
+        name: 'Javelin',
       },
     },
-    damage: 63,
+    damage: 189,
   },
   {
     category: 'weapon',
@@ -4461,6 +4474,7 @@ export const remnantItems: Item[] = [
     },
     damage: 46,
   },
+  // * Updated in patch
   {
     category: 'weapon',
     type: 'melee',
@@ -4475,7 +4489,7 @@ export const remnantItems: Item[] = [
         name: 'Whirlwind',
       },
     },
-    damage: 53,
+    damage: 159,
   },
   {
     category: 'weapon',
@@ -4601,7 +4615,7 @@ export const remnantItems: Item[] = [
     },
     damage: 101,
   },
-  // TODO Tragic indicated that Anguish would be getting proper scaling in next patch
+  // * Updated in patch
   {
     category: 'weapon',
     type: 'hand gun',
@@ -4614,10 +4628,10 @@ export const remnantItems: Item[] = [
     wikiLinks: [`https://remnant.wiki/Anguish`],
     linkedItems: {
       mod: {
-        name: 'Loath the Weak',
+        name: 'Loathe the Weak',
       },
     },
-    damage: 105,
+    damage: 315,
     rps: 1.7,
     magazine: 5,
   },
@@ -4820,7 +4834,6 @@ export const remnantItems: Item[] = [
     rps: 14.2,
     magazine: 42,
   },
-  // TODO Tragic indicated that this weapon would be getting updates
   {
     category: 'weapon',
     type: 'hand gun',
@@ -5027,9 +5040,10 @@ export const remnantItems: Item[] = [
     Found in Cathedral of Omen`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Astral+Burst`],
   },
+  // * Updated in patch
   {
     category: 'mod',
-    name: 'Athibar',
+    name: 'Javelin',
     imagePath: '/mod/athibar.png',
     id: '29kz6t',
     description: `Charge attacks use 25 stamina to throw the spear, which returns to the wielder's hand.`,
@@ -5552,12 +5566,16 @@ export const remnantItems: Item[] = [
       },
     },
   },
+  // * Updated in patch
+  // TODO This description was wildly different than what is in game
   {
     category: 'mod',
     name: "Guardian's Call",
     imagePath: '/mod/guardians_call.png',
     id: 'anhbhf',
-    description: `Calls down a Guardian Sword on enemies struck by an Energy Disc. Swords deal 100 damage [E] and 3x stagger within 3m. [A]`,
+    description: `When Mod Power is full, Primary Fire becomes Empowered and highlights enemies it strikes.
+    Activating the mod calls down a Guardian Sword on enemies struck by an Empowered Energy Disc. Swords deal 450 damage [E] and 3x stagger within 3m. [A]
+    `,
     howToGet: `Attached to the Twisted Arbalest long gun`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Guardian's+Call`],
     linkedItems: {
@@ -5674,13 +5692,14 @@ export const remnantItems: Item[] = [
       },
     },
   },
+  // * Updated in patch
   {
     category: 'mod',
-    name: 'Loath the Weak',
+    name: 'Loathe the Weak',
     imagePath: '/mod/loath_the_weak.png',
     dlc: 'dlc1',
     id: 'aobtw7',
-    description: `Rapidly fires volatile needles that explode after 1.5s dealing 30 - 60 explosive damage [E].`,
+    description: `Rapidly fires volatile needles that explode after 1.5s dealing 90 explosive damage [E].`,
     howToGet: `Can be found attached to the Anguish weapon.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Loath+The+Weak`],
     linkedItems: {
@@ -5733,12 +5752,14 @@ export const remnantItems: Item[] = [
       },
     },
   },
+  // * Updated in patch
+  // TODO My math may be bad here, check wiki
   {
     category: 'mod',
     name: 'Nano Swarm',
     imagePath: '/mod/nano_swarm.png',
     id: '8ko9zz',
-    description: `Unleash a swarm of Nanomachines that seek after enemies within 20 meters and repeatedly attack dealing 6 ACID damage per hit. Lasts 15 seconds`,
+    description: `Unleash a swarm of Nanomachines that seek after enemies within 20 meters and repeatedly attack dealing 6 ACID damage per hit and applying CORRODED dealing 100 ACID damage over 20s. Lasts 15 seconds`,
     howToGet: `Attached to the Nebula hand gun`,
     wikiLinks: [`https://remnant.wiki/Nano_Swarm`],
     linkedItems: {
@@ -6004,12 +6025,14 @@ export const remnantItems: Item[] = [
     Drops from Bloat King`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Voltaic+Rondure`],
   },
+  // * Updated in patch
+  // TODO Check math on this with the wiki
   {
     category: 'mod',
     name: 'Whirlwind',
     imagePath: '/mod/whirlwind.png',
     id: '2y6xm7',
-    description: `Neutral Backdash Charge creates a Whirlwind of slashes which strike all enemies within 8m [R] for 75 damage.`,
+    description: `Performing a Charge Melee Attack during aNeutral Backdash creates a Whirlwind of slashes which strike all enemies within 8m for 273 damage.`,
     howToGet: `Attached to the Spectral Blademelee weapon`,
     wikiLinks: [`https://remnant.wiki/Whirlwind`],
     linkedItems: {
@@ -6221,6 +6244,7 @@ export const remnantItems: Item[] = [
     howToGet: `Interact with the Rotten Thaen Fruit, while having the Red Doe Sigil equipped..`,
     wikiLinks: [`https://remnant.wiki/Failsafe`],
   },
+  // * Updated in patch
   {
     category: 'mutator',
     name: 'Feedback',
@@ -6228,6 +6252,7 @@ export const remnantItems: Item[] = [
     imagePath: '/mutator/feedback.png',
     id: '75qok3',
     tags: ['Mod Power', 'Mod Damage'],
+    // TODO Can now generate Mod Power while a Mod is active
     description: `Using this weapon's Mod generates 10-[20]% of single charge value as passive Mod Power over 10s. Does not stack.`,
     maxLevelBonus: `Mod Damage generates 10% of damage dealt as Mod Power.`,
     howToGet: `Sold by Dwell at the following cost: x75 Relic Dust + x500 Scrap.`,
@@ -8263,6 +8288,7 @@ Exclusive Ring for The Awakened King DLC."`,
     howToGet: `Can be found in Root Earth - Corrupted Harbor.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Flyweight's+Sting`],
   },
+  // * Updated in patch
   {
     category: 'ring',
     name: 'Focusing Shard',
@@ -8270,8 +8296,7 @@ Exclusive Ring for The Awakened King DLC."`,
     imagePath: '/ring/focusing_shard.png',
     id: 'o7grsg',
     tags: ['Recoil', 'Spread'],
-    // TODO - Tragic indicated spread reduction would be reduced
-    description: `Continuously Aiming Down Sights reduces Recoil by 25% and gradually reduces Spread up to 35% over 3.5s.`,
+    description: `Continuously Aiming Down Sights gradually reduces Spread by 30% over 3s.`,
     howToGet: `Can be found in N'Erud -`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Focused+Jewel`],
   },
@@ -8550,14 +8575,14 @@ Can be crafted at Drzyr Replicator, you will need the following Materials: x10 F
     howToGet: `Losomn Random World Drop`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Painless+Obsidian`],
   },
+  // * Updated in patch
   {
     category: 'ring',
     name: 'Point Focus Ring',
     imagePath: '/ring/point_focus_ring.png',
     id: 'gg6srx',
     tags: ['Recoil', 'Spread'],
-    // TODO - Tragic indicated spread reduction would be reduced
-    description: `Reduces Initial Spread and Recoil by 35%.`,
+    description: `Reduces Initial Spread and Recoil by 25%.`,
     howToGet: `Can be found in N'Erud as a random drop.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Point+Focus+Ring`],
   },
@@ -9833,14 +9858,14 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Strong+Drink`],
     weight: -10,
   },
+  //* Updated in patch
   {
     category: 'concoction',
     name: 'Tranquility Font',
     imagePath: '/concoction/tranquility_font.png',
     id: 'l7r9sm',
     tags: ['Spread', 'Recoil'],
-    // TODO - Tragic indicated spread reduction would be reduced
-    description: `Reduces Reticle Sway, Spread, and Gun Recoil by 35%. Lasts 60m and will stay in effect after death. Only one Concoction may be active at a time.`,
+    description: `Reduces Reticle Sway, Spread, and Gun Recoil by 25%. Lasts 60m and will stay in effect after death. Only one Concoction may be active at a time.`,
     howToGet: `
     Can be bought from Mudtooth at the following cost: 500 Scrap.
     Can be crafted by Nimue with the following material: 350 Scrap and x1 Lumenite Crystal.
@@ -10282,6 +10307,7 @@ Using a Relic extends the duration of any active HUNTER Skill by 10s. Effect deg
       },
     },
   },
+  // * Updated in patch
   {
     category: 'perk',
     name: 'Pack Hunter',
@@ -10290,12 +10316,12 @@ Using a Relic extends the duration of any active HUNTER Skill by 10s. Effect deg
     id: '485uc9',
     tags: ['Ranged Damage', 'Skill Damage', 'Critical Chance'],
     description: `
-    Gain 3% Ranged and Skill Damage while Companion is within 40m of the player. Damage increases with HANDLER Level.
+    Gain 3% Ranged, Melee, and Skill Damage while Companion is within 40m of the player. Damage increases with HANDLER Level.
     
     Upgrade Unlocked at level 6
-    Gain 18% Ranged and Skill Damage and 5% Ranged and Skill Critical Chance while Companion is within 40m of the player.
+    Gain 18% Ranged, Melee, and Skill Damage and 5% Ranged and Skill Critical Chance while Companion is within 40m of the player.
       
-    (Level 10: Gain 30% Ranged and Skill Damage and 5% Ranged and Skill Critical Chance while Companion is within 40m of the player.)`, // TODO Confirm patch notes
+    (Level 10: Gain 30% Ranged, Melee, and Skill Damage and 5% Ranged and Skill Critical Chance while Companion is within 40m of the player.)`,
     howToGet: `Unlocked at Level 1`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Pack+Hunter`],
     linkedItems: {
@@ -10575,8 +10601,8 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
       },
     },
   },
+  // * Updated in patch
   {
-    // TODO Tragic indicated this cooldown may go to 5 minutes
     category: 'perk',
     name: 'Die Hard',
     imagePath: '/perk/die_hard.png',
@@ -10584,8 +10610,8 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     id: 'je27uv',
     tags: ['Heal'],
     description: `
-    When receiving fatal damage, the CHALLENGER becomes invulnerable for 2s and regenerates 50% of Max Health.
-    Can only happen once every 10 minutes. Resets at Wordstone or on death. While this skill is on cooldown gain 1 stack of Bulwark.
+    When receiving fatal damage, the CHALLENGER becomes invulnerable for 3s and regenerates 100% of Max Health.
+    While on cooldown, the Challenger gains 1 Stack of BULWARK. Can only happen once every 10 minutes. Resets at Wordstone or on death. While this skill is on cooldown gain 1 stack of Bulwark.
 
     Upgraded at Level 5
     When receiving fatal damage, the CHALLENGER becomes invulnerable for 2.5s and regenerates 75% of Max Health.
@@ -10594,7 +10620,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     Upgraded at level 10
     When receiving fatal damage, the CHALLENGER becomes invulnerable for 3s and regenerates 100% of Max Health.
     
-    Can only happen once every 10 minutes. Resets at Wordstone or on death.`, // TODO Confirm patch notes.
+    Can only happen once every 10 minutes. Resets at Wordstone or on death.`,
     howToGet: `Automatically unlocked.`,
     wikiLinks: [`https://remnant.wiki/Die+Hard`],
     linkedItems: {
@@ -10841,6 +10867,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
       },
     },
   },
+  // * Updated in patch
   {
     category: 'perk',
     name: 'Power Creep',
@@ -10929,6 +10956,8 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
       },
     },
   },
+  // * Updated in patch
+  // TODO My math is probably bad here, confirm with the wiki
   {
     category: 'perk',
     name: 'Metalworker',
@@ -10937,11 +10966,11 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     id: '2hcif5',
     tags: ['Skill Damage', 'Critical Chance'],
     description: `
-    Increases Skill Damage by 5%
+    Increases Skill Damage by 5% and Ranged Damage by 2.5%, and grants 1% Ranged and Skill Critical Damage.
     Heavy Weapons gain 5% Ammo Capacity, and +2.5% Max Health
 
     Upgrade Unlocked at level 6
-    Increases Skill Damage by 50% and Skill Critical Chance by 10%
+    Increases Skill Damage by 50% and Ranged Damage by 25%, and grants 10% Ranged and Skill Critical Chance
     
     Heavy Weapons gain 50% Ammo Capacity, 25% Max Health, and 25% [M] Weakspot Damage.`,
     howToGet: `Unlocked at Level 1`,
@@ -11135,6 +11164,8 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
       },
     },
   },
+  // * Updated in patch
+  // TODO My math may be bad here, check with wiki
   {
     category: 'perk',
     name: 'S.H.A.R.K.',
@@ -11148,12 +11179,12 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
       'Critical Chance',
     ],
     description: `
-    Sprinting for 1s or Evading adds 1 Stack of Momentum which increases Ranged and Melee damage  by 0.7% for 15s. Max 5 Stacks. Damage increases with INVADER level.
+    Sprinting for 1s or Evading adds 1 Stack of Momentum which increases Ranged and Melee damage by 0.7% and Ranged and Melee Critical Chance by 0.1% for 10s. Max 5 Stacks. Damage increases with INVADER level.
     
     Upgrade Unlocked at level 6
-    Sprinting for 1s or Evading adds 1 Stack of Momentum which increases Ranged and Melee damage by 5% and Ranged and Melee Critical Chance by 1% for 15s. Max 5 Stacks.
+    Sprinting for 1s or Evading adds 1 Stack of Momentum which increases Ranged and Melee damage by 5% and Ranged and Melee Critical Chance by 1% for 10s. Max 5 Stacks.
     
-    (Level 10: Sprinting for 1s or Evading adds 1 Stack of Momentum which increases Ranged and Melee damage by 7% and Ranged and Melee Critical Chance by 1% for 15s. Max 5 Stacks. )`,
+    (Level 10: Sprinting for 1s or Evading adds 1 Stack of Momentum which increases Ranged and Melee damage by 7% and Ranged and Melee Critical Chance by 1% for 10s. Max 5 Stacks. )`,
     howToGet: `Unlocked at Level 1`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Shark`],
     linkedItems: {
@@ -11249,6 +11280,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
       },
     },
   },
+  // * Updated in patch
   {
     category: 'perk',
     name: 'Dominator',
@@ -11264,13 +11296,13 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
       'Melee Critical Chance',
     ],
     description: `
-    Increases Mod and Skill Damage by 3.5% while a Minion is active. Sacrificing a Minion increases Ranged and Melee Damage by 3% for 30s or until another Minion is summoned. Damage increases with SUMMONER level
+    Increases Mod, Skill, and Explosive Damage by 3.5% [E] while a Minion is active. Sacrificing a Minion increases Ranged and Melee Damage by 3% for 30s or until another Minion is summoned. Damage increases with SUMMONER level
     
     Upgrade Unlocked at level 6
-    Increases Mod and Skill Damage by 21% and Mod and Skill Critical Chance by 5% while a Minion is active.    
+    Increases Mod, Skill, and Explosive Damage by 21% [E] and Mod and Skill Critical Chance by 5% while a Minion is active.    
     Sacrificing a Minion increases Ranged and Melee Damage by 18% and Ranged and Melee Critical Chance by 5% for 30s.  
            
-    (Level 10: Increases Mod and Skill Damage by 35% and Skill and Mod Critical Chance by 5% while a Minion is active. Sacrificing a Minion increases Ranged and Melee Damage by 30% and Ranged and Melee Critical Chance by 5% for 30s or until another Minion is summoned)`,
+    (Level 10: Increases Mod, Skill, and Explosive Damage by 35% [E] and Skill and Mod Critical Chance by 5% while a Minion is active. Sacrificing a Minion increases Ranged and Melee Damage by 30% and Ranged and Melee Critical Chance by 5% for 30s or until another Minion is summoned)`,
     howToGet: `Unlocked at Level 1`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Dominator`],
     linkedItems: {
