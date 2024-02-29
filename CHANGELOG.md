@@ -9,6 +9,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Added
 
 - Added a new "Loadout Builds" section to your profile, where you can pin up to 8 builds to mirror your in-game loadout slots.
+- Added more aberration images (ConRaven is a god)
+- Added Blightspawn aberration to tracker
 
 ### Changed
 
