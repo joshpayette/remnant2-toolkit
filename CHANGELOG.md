@@ -14,6 +14,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Made initial changes based on patch notes.
 
+### Fixed
+
+- Non-corrupted versions of weapons are no longer counted as owned if you own the corrupted version.
+
 ## 2024-02-28
 
 ### Added

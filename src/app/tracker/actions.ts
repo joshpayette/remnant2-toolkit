@@ -6,6 +6,8 @@
 
 'use server'
 
+import fs from 'fs'
+import path from 'path'
 import zlib from 'zlib'
 
 import { MAX_PROFILE_SAV_SIZE } from '@/features/items/constants'
@@ -101,10 +103,11 @@ export async function parseSaveFile(
       .filter((item) => {
         const name = item.name.replace(/[^a-zA-Z]/g, '').toLowerCase()
         // If the item has a save file slug, use that, otherwise use the name
-        return (
-          (item.saveFileSlug && convertedSave?.includes(item.saveFileSlug)) ||
-          convertedSave?.includes(name)
-        )
+        if (item.saveFileSlug) {
+          return convertedSave?.includes(item.saveFileSlug)
+        } else {
+          return convertedSave?.includes(name)
+        }
       })
       // Get just the item ids
       .map((item) => item.id)
