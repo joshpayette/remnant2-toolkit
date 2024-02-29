@@ -139,6 +139,7 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
                 height={32}
                 className={cn('my-1 h-6 w-6')}
                 loading="eager"
+                unoptimized={isScreenshotMode}
               />
               <span
                 className={cn(
@@ -157,6 +158,7 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
                 height={32}
                 className={cn('my-1 h-6 w-6')}
                 loading="eager"
+                unoptimized={isScreenshotMode}
               />
               <span
                 className={cn(
@@ -175,6 +177,7 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
                 height={32}
                 className={cn('my-1 h-6 w-6')}
                 loading="eager"
+                unoptimized={isScreenshotMode}
               />
               <span
                 className={cn(
@@ -193,6 +196,7 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
                 height={32}
                 className={cn('my-1 h-6 w-6')}
                 loading="eager"
+                unoptimized={isScreenshotMode}
               />
               <span
                 className={cn(
@@ -211,6 +215,7 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
                 height={32}
                 className={cn('my-1 h-6 w-6')}
                 loading="eager"
+                unoptimized={isScreenshotMode}
               />
               <span
                 className={cn(
