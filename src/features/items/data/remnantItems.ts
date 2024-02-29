@@ -3597,6 +3597,22 @@ export const remnantItems: Item[] = [
   {
     category: 'weapon',
     type: 'long gun',
+    name: 'Corrupted Arbalest',
+    imagePath: '/mainhand/corrupted_arbalest.png',
+    id: 'Gkemt8',
+    description: `Fully automatic mechanisms launch a bouncing Energy Disc that can hit up to 2 enemies in close proximity. Damage is reduced after bouncing.`,
+    damage: 69,
+    rps: 1.3,
+    magazine: 8,
+    linkedItems: {
+      mod: {
+        name: `Guardian's Fury`,
+      },
+    },
+  },
+  {
+    category: 'weapon',
+    type: 'long gun',
     name: 'Corrupted Deceit',
     imagePath: '/mainhand/corrupted_deceit.png',
     id: 'k9w4yh',
@@ -3631,6 +3647,22 @@ export const remnantItems: Item[] = [
     damage: 90,
     rps: 1.3,
     magazine: 3,
+  },
+  {
+    category: 'weapon',
+    type: 'long gun',
+    name: 'Corrupted Savior',
+    imagePath: '/mainhand/corrupted_savior.png',
+    id: 'W6n2mT',
+    description: `Black crystal weapon which increases Fire Rate as mod power is generated. Mod power slowly drains after 2s of not dealing damage.`,
+    linkedItems: {
+      mod: {
+        name: 'Fusion Cannon',
+      },
+    },
+    damage: 17,
+    rps: 3,
+    magazine: 50,
   },
   {
     category: 'weapon',
@@ -4593,6 +4625,22 @@ export const remnantItems: Item[] = [
   {
     category: 'weapon',
     type: 'hand gun',
+    name: 'Corrupted Cube Gun',
+    imagePath: '/offhand/corrupted_cube_gun.png',
+    id: 'mSSxW6',
+    description: `Fusion charged auto-cannon generates cubes which penetrate. Infininte ammo capacity. Can overheat. Cannot score weakspot hits.`,
+    damage: 66,
+    rps: 2.2,
+    magazine: 99,
+    linkedItems: {
+      mod: {
+        name: 'Cube Room',
+      },
+    },
+  },
+  {
+    category: 'weapon',
+    type: 'hand gun',
     name: 'Corrupted Meridian',
     imagePath: '/offhand/corrupted_meridian.png',
     id: 'yw1btj',
@@ -4612,6 +4660,22 @@ export const remnantItems: Item[] = [
   {
     category: 'weapon',
     type: 'hand gun',
+    name: 'Corrupted Nebula',
+    imagePath: '/offhand/corrupted_nebula.png',
+    id: '8u8j4G',
+    description: `Semi-automatic laser weapon. Weakspot hits and kills create a Nano-bot for 8s that seeks enemies within 20m and repeatedly attacks dealing 8.4 ACID damage per hit.Max 5 Nano-bots.`,
+    linkedItems: {
+      mod: {
+        name: 'Nano Phase',
+      },
+    },
+    damage: 24,
+    rps: 5.2,
+    magazine: 15,
+  },
+  {
+    category: 'weapon',
+    type: 'hand gun',
     name: 'Corrupted Rune Pistol',
     imagePath: '/offhand/corrupted_rune_pistol.png',
     id: 'id5pbt',
@@ -4627,6 +4691,23 @@ export const remnantItems: Item[] = [
     damage: 16,
     rps: 6.3,
     magazine: 25,
+  },
+  {
+    category: 'weapon',
+    type: 'hand gun',
+    name: 'Corrupted Sorrow',
+    id: 'zrP64k',
+    imagePath: '/offhand/corrupted_sorrow.png',
+    description:
+      'Innately cannot harm allies. Fires bolts which anchor to targets for 6s. Max 10 bolts anchored at once.',
+    linkedItems: {
+      mod: {
+        name: 'Will of the Wisp',
+      },
+    },
+    damage: 42,
+    rps: 2.3,
+    magazine: 10,
   },
   {
     category: 'weapon',
@@ -5163,6 +5244,21 @@ export const remnantItems: Item[] = [
   },
   {
     category: 'mod',
+    name: 'Cube Room',
+    imagePath: '/mod/cube_room.png',
+    id: '2nMTRG',
+    description: `Conjures a 5m anomalous Cube Room which grants allies an increase of 50% Heat Decay Rate, reduces Heat Generation per round when firing weapons that Overheat by 15% and automatically generates missing reserve ammo per second. Lasts 15s.
+    
+    Mod Power Requirement: 1,000`,
+    wikiLinks: [],
+    linkedItems: {
+      weapon: {
+        name: 'Corrupted Cube Gun',
+      },
+    },
+  },
+  {
+    category: 'mod',
     name: 'Cube Shield',
     imagePath: '/mod/cube_shield.png',
     id: '1bfanq',
@@ -5414,6 +5510,20 @@ export const remnantItems: Item[] = [
   },
   {
     category: 'mod',
+    name: 'Fusion Cannon',
+    imagePath: '/mod/fusion_cannon.png',
+    id: 'D8obdv',
+    description: `Funnels all current Mod Charges into a powerful penetrating beam. The beam deals 100 damage and increases damage dealt, recoil, and beam thickness per Charge consumed. Max 5 Charges.
+    
+    Mod Power Requirement: 400`,
+    linkedItems: {
+      weapon: {
+        name: 'Corrupted Savior',
+      },
+    },
+  },
+  {
+    category: 'mod',
     name: 'Gravity Core',
     imagePath: '/mod/gravity_core.png',
     id: 'kep3kb',
@@ -5439,6 +5549,20 @@ export const remnantItems: Item[] = [
     linkedItems: {
       weapon: {
         name: 'Twisted Arbalest',
+      },
+    },
+  },
+  {
+    category: 'mod',
+    name: `Guardian's Fury`,
+    imagePath: '/mod/guardians_fury.png',
+    id: 'WzXG4x',
+    description: `Imbues the Arbalest with the power of Yaesha's corrupted guardian, increases Fire Rate by 20%, reduces Recoil and Sway by 25% and each disc impact with an enemy exlodes over 3.5m for 69 damage. Lasts 1.5s
+    
+    Mod Power Requirement: 1,250`,
+    linkedItems: {
+      weapon: {
+        name: 'Corrupted Arbalest',
       },
     },
   },
@@ -5578,6 +5702,20 @@ export const remnantItems: Item[] = [
     linkedItems: {
       weapon: {
         name: 'Crescent Moon',
+      },
+    },
+  },
+  {
+    category: 'mod',
+    name: 'Nano Phase',
+    imagePath: '/mod/nano_phase.png',
+    id: 'WARGv3',
+    description: `Detonate active Nano-bots, each dealing 100 ACID damage plus an additional 25 ACID damage per Nano-bot detonated to enemies within 2m and applies CORRODED, dealing 50 damage over 10s per Nano-bot detonated.
+    
+    Mod Power Requirement: 1,000`,
+    linkedItems: {
+      weapon: {
+        name: 'Corrupted Nebula',
       },
     },
   },
@@ -5863,6 +6001,21 @@ export const remnantItems: Item[] = [
     linkedItems: {
       weapon: {
         name: 'Spectral Blade',
+      },
+    },
+  },
+  {
+    category: 'mod',
+    name: 'Will of the Wisp',
+    imagePath: '/mod/will_of_the_wisp.png',
+    id: '9jwTXR',
+    description: `Launches a Wisp that uniquely seeks to one anchored primary fire bolt location. Bolts anchored to enemies deal 100 damage per Wisp. Bolts anchored to allies heal 10% Max Health per Wisp. Bolts are consumed when impacted by a Wisp.
+    
+    Mod Power Requirement: 500
+    `,
+    linkedItems: {
+      weapon: {
+        name: 'Corrupted Sorrow',
       },
     },
   },

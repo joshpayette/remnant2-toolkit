@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-02-29
+
+## Added
+
+- Added new corrupted weapons and their mods.
+
 ## 2024-02-28
 
 ### Added
