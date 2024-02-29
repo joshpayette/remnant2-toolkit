@@ -10623,6 +10623,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     },
   },
   // * Updated in patch
+  // * Confirmed with wiki
   {
     category: 'perk',
     name: 'Die Hard',
@@ -10631,7 +10632,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     id: 'je27uv',
     tags: ['Heal'],
     description: `
-    When receiving fatal damage, the CHALLENGER becomes invulnerable for 3s and regenerates 100% of Max Health.
+    When receiving fatal damage, the CHALLENGER becomes invulnerable for 3s and regenerates 50% of Max Health.
     While on cooldown, the Challenger gains 1 Stack of BULWARK. Can only happen once every 10 minutes. Resets at Wordstone or on death. While this skill is on cooldown gain 1 stack of Bulwark.
 
     Upgraded at Level 5
@@ -10978,7 +10979,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     },
   },
   // * Updated in patch
-  // TODO My math is probably bad here, confirm with the wiki
+  // * Confirmed with wiki
   {
     category: 'perk',
     name: 'Metalworker',
@@ -10987,15 +10988,20 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     id: '2hcif5',
     tags: ['Skill Damage', 'Critical Chance'],
     description: `
-    Increases Skill Damage by 5% and Ranged Damage by 2.5%, and grants 1% Ranged and Skill Critical Damage.
-    Heavy Weapons gain 5% Ammo Capacity, and +2.5% Max Health
+    Increases Skill Damage by 5% and Ranged Damage by 2.5%.
+    Heavy Weapons gain 5% Ammo Capacity, 2.5% Max Health, and 2.5% [M] Weakspot Damage.
 
-    Upgrade Unlocked at level 6
-    Increases Skill Damage by 50% and Ranged Damage by 25%, and grants 10% Ranged and Skill Critical Chance
+    Unlocked at level 5
+    Increases Skill Damage by 25% and Ranged Damage by 12.5%, and grants 10% Ranged and Skill Critical Chance
+    Heavy Weapons gain 25% Ammo Capacity, 12% Max Health, and 25% [M] Weakspot Damage.
     
-    Heavy Weapons gain 50% Ammo Capacity, 25% Max Health, and 25% [M] Weakspot Damage.`,
+    Unlocked at level 10
+    Increases Skill Damage by 50% and Ranged Damage by 25%, and grants 10% Ranged and Skill Critical Chance.
+    Heavy Weapons gain 50% Ammo Capacity, 25% Max Health, and 25% [M] Weakspot Damage.
+    `,
+
     howToGet: `Unlocked at Level 1`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Metalworker`],
+    wikiLinks: [`https://remnant.wiki/Metalworker`],
     linkedItems: {
       archetype: {
         name: 'Engineer',
@@ -11186,7 +11192,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     },
   },
   // * Updated in patch
-  // TODO My math may be bad here, check with wiki
+  // * Confirmed with wiki
   {
     category: 'perk',
     name: 'S.H.A.R.K.',
@@ -11200,14 +11206,15 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
       'Critical Chance',
     ],
     description: `
-    Sprinting for 1s or Evading adds 1 Stack of Momentum which increases Ranged and Melee damage by 0.7% and Ranged and Melee Critical Chance by 0.1% for 10s. Max 5 Stacks. Damage increases with INVADER level.
+    Sprinting for 1s or Evading adds 1 Stack of Momentum which increases Ranged and Melee damage by 0.7% for 10s. Max 5 Stacks. Damage increases with INVADER level.
     
-    Upgrade Unlocked at level 6
-    Sprinting for 1s or Evading adds 1 Stack of Momentum which increases Ranged and Melee damage by 5% and Ranged and Melee Critical Chance by 1% for 10s. Max 5 Stacks.
+    Upgrade Unlocked at level 5
+    Sprinting for 1s or Evading adds 1 Stack of Momentum which increases Ranged and Melee damage by 3.5% and Ranged and Melee Critical Chance by 1% for 10s. Max 5 Stacks. Damage increases with INVADER level.
     
-    (Level 10: Sprinting for 1s or Evading adds 1 Stack of Momentum which increases Ranged and Melee damage by 7% and Ranged and Melee Critical Chance by 1% for 10s. Max 5 Stacks. )`,
+    Unlocked at level 10
+    Sprinting for 1s or Evading adds 1 Stack of Momentum which increases Ranged and Melee damage by 7% and Ranged and Melee Critical Chance by 1% for 10s. Max 5 Stacks. Damage increases with INVADER level.`,
     howToGet: `Unlocked at Level 1`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Shark`],
+    wikiLinks: [`https://remnant.wiki/S.H.A.R.K.`],
     linkedItems: {
       archetype: {
         name: 'Invader',
