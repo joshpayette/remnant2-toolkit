@@ -3642,7 +3642,7 @@ export const remnantItems: Item[] = [
     damage: 69,
     rps: 1.3,
     magazine: 8,
-    wikilinks: ['https://remnant.wiki/Corrupted_Arbalest'],
+    wikiLinks: ['https://remnant.wiki/Corrupted_Arbalest'],
     linkedItems: {
       mod: {
         name: `Guardian's Fury`,
@@ -3694,7 +3694,7 @@ export const remnantItems: Item[] = [
     imagePath: '/mainhand/corrupted_savior.png',
     id: 'W6n2mT',
     description: `Black crystal weapon which increases Fire Rate as mod power is generated. Mod power slowly drains after 2s of not dealing damage.`,
-    wikilinks: ['https://remnant.wiki/Corrupted_Savior'],
+    wikiLinks: ['https://remnant.wiki/Corrupted_Savior'],
     linkedItems: {
       mod: {
         name: 'Fusion Cannon',
@@ -4680,7 +4680,7 @@ export const remnantItems: Item[] = [
     imagePath: '/offhand/corrupted_cube_gun.png',
     id: 'mSSxW6',
     description: `Fusion charged auto-cannon generates cubes which penetrate. Infininte ammo capacity. Can overheat. Cannot score weakspot hits.`,
-    wikilink: ['https://remnant.wiki/Corrupted_Cube_Gun'],
+    wikiLinks: ['https://remnant.wiki/Corrupted_Cube_Gun'],
     damage: 66,
     rps: 2.2,
     magazine: 99,
@@ -4716,13 +4716,13 @@ export const remnantItems: Item[] = [
     imagePath: '/offhand/corrupted_nebula.png',
     id: '8u8j4G',
     description: `Semi-automatic laser weapon. Weakspot hits and kills create a Nano-bot for 8s that seeks enemies within 20m and repeatedly attacks dealing 8.4 ACID damage per hit.Max 5 Nano-bots.`,
-    wikilinks: ['https://remnant.wiki/Corrupted_Nebula'],
+    wikiLinks: ['https://remnant.wiki/Corrupted_Nebula'],
     linkedItems: {
       mod: {
         name: 'Nano Phase',
       },
     },
-        damage: 24,
+    damage: 24,
     rps: 5.2,
     magazine: 15,
   },
@@ -4758,7 +4758,7 @@ export const remnantItems: Item[] = [
         name: 'Will of the Wisp',
       },
     },
-    wikilinks: ['https://remnant.wiki/Corrupted_Sorrow'],
+    wikiLinks: ['https://remnant.wiki/Corrupted_Sorrow'],
     damage: 42,
     rps: 2.3,
     magazine: 10,
@@ -5625,7 +5625,7 @@ export const remnantItems: Item[] = [
     description: `Imbues the Arbalest with the power of Yaesha's corrupted guardian, increases Fire Rate by 20%, reduces Recoil and Sway by 25% and each disc impact with an enemy exlodes over 3.5m for 69 damage [E]. Lasts 1.5s
     
     Mod Power Requirement: 1,250`,
-      linkedItems: {
+    linkedItems: {
       weapon: {
         name: 'Corrupted Arbalest',
       },
