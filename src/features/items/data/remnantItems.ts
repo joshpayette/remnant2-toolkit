@@ -407,6 +407,10 @@ export const remnantItems: Item[] = [
       },
     },
   },
+  // * Updated in patch
+  // * Confirmed with wiki
+  // TODO Community Wiki says increased by Resonance, but we have Amplitude?
+  // TODO Companion Howl sizes are now affected by Aura size increases.
   {
     category: 'skill',
     name: 'Guard Dog',
@@ -419,7 +423,7 @@ export const remnantItems: Item[] = [
     
     DOUBLE TAP: Companion returns to the HANDLER and remains by their side. 
     
-    HOLD: Howl reduces damage by 15% to all allies within 20m [A] and the Companion generates additional Threat. Lasts 20s.`, // TODO Confirm patch notes
+    HOLD: Howl reduces damage by 15% to all allies within 20m [A] and the Companion generates additional Threat. Lasts 20s.`,
     cooldown: 90,
     howToGet: `Unlocks automatically`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Guard+Dog`],
@@ -429,6 +433,10 @@ export const remnantItems: Item[] = [
       },
     },
   },
+  // * Updated in patch
+  // * Confirmed with wiki
+  // TODO Community Wiki says increased by Resonance, but we have Amplitude?
+  // TODO Companion Howl sizes are now affected by Aura size increases.
   {
     category: 'skill',
     name: 'Support Dog',
@@ -441,7 +449,7 @@ export const remnantItems: Item[] = [
     
     DOUBLE TAP: Companion returns to the HANDLER and remains by their side.
     
-    HOLD: Howl grants 2% of Max Health per second and 25% increased Movement Speed to all allies within 20m [A]. Lasts 25s`, // TODO Confirm patch notes
+    HOLD: Howl grants 2% of Max Health per second and 25% increased Movement Speed to all allies within 20m [A]. Lasts 25s`,
     cooldown: 90,
     howToGet: `Unlocks at level 5`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Support+Dog`],
@@ -451,6 +459,10 @@ export const remnantItems: Item[] = [
       },
     },
   },
+  // * Updated in patch
+  // * Confirmed with wiki
+  // TODO Community wiki says increased by Resonance, but we have Amplitude?
+  // TODO Companion Howl sizes are now affected by Aura size increases.
   {
     category: 'skill',
     name: 'Attack Dog',
@@ -463,7 +475,7 @@ export const remnantItems: Item[] = [
     
     DOUBLE TAP: Companion returns to the HANDLER and remains by their side. 
     
-    HOLD: Howl increases damage by 20% for all allies within 20m [A]. Lasts 20s.`, // TODO Confirm patch notes
+    HOLD: Howl increases damage by 20% for all allies within 20m [A]. Lasts 20s.`,
     cooldown: 90,
     howToGet: `Unlocks at level 10`,
     wikiLinks: [`https://remnant.wiki/Attack_Dog`],
@@ -598,6 +610,8 @@ export const remnantItems: Item[] = [
       },
     },
   },
+  // * Updated in patch
+  // * Confirmed with Wiki
   {
     category: 'skill',
     name: 'Vial: Stone Mist',
@@ -606,12 +620,12 @@ export const remnantItems: Item[] = [
     // TODO Enabled Flash Caster and Throw Speed to benefit Vial Skills.
     description: `Creates a mysterious vapor cloud which lasts 10s and applies STONESKIN.
 
-    STONESKIN reduces incoming damage by 25%, greatly increases Blight Buildup Decay Rate, reduces Stagger by 1, and makes the target immune to Status Effects. Lasts 15s. 
+    STONESKIN reduces incoming damage by 25%, reduces Stagger by 1, greatly increases Blight Buildup Decay Rate, and makes the target immune to STATUS Effects. Lasts 15s.
     
     PRESS: Slam Vial on the ground, creating the effect at the ALCHEMIST's feet [A].
     
     HOLD & RELEASE: Aim and throw the Vial causing the same effect where it lands [A].`,
-    cooldown: 72,
+    cooldown: 75,
     howToGet: `Unlocks automatically`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Vial:+Stone+Mist`],
     linkedItems: {
@@ -621,6 +635,7 @@ export const remnantItems: Item[] = [
     },
   },
   // * Updated in patch
+  // * Confirmed with wiki
   {
     category: 'skill',
     name: 'Vial: Frenzy Dust',
@@ -634,7 +649,7 @@ export const remnantItems: Item[] = [
     PRESS: Slam Vial on the ground, creating the effect at the ALCHEMIST's feet. [A]
     
     HOLD & RELEASE: Aim and throw the Vial causing the same effect where it lands. [A]`, // TODO Confirm patch notes
-    cooldown: 72,
+    cooldown: 75,
     howToGet: `Unlocks at level 5`,
     wikiLinks: [`https://remnant.wiki/Vial:_Frenzy_Dust`],
     linkedItems: {
@@ -643,6 +658,8 @@ export const remnantItems: Item[] = [
       },
     },
   },
+  // * Updated in patch
+  // * Confiremd with Wiki
   {
     category: 'skill',
     name: 'Vial: Elixir of Life',
@@ -651,7 +668,7 @@ export const remnantItems: Item[] = [
     // TODO Enabled Flash Caster and Throw Speed to benefit Vial Skills.
     description: `Creates a mysterious vapor cloud that lasts 10s and applies LIVING WILL.
 
-    LIVING WILL grants 5 Health Regeneration per second, and automatically protects against fatal damage while active. Can revive downed players if it heals them to full when downed. Lasts 20s.
+    LIVING WILL grants 5 Health Regeneration per second, and protects against fatal damage while active. Can revive downed players. Lasts 20s.
     
     Revived allies cannot be affected by Living Will for 180s. Resets at Worldstone or on death.
     
@@ -832,17 +849,18 @@ export const remnantItems: Item[] = [
     },
   },
   // * Updated in patch
+  // * Confirmed with wiki
   {
     category: 'skill',
     name: 'Quick Draw',
     imagePath: '/skill/quick_draw.png',
     id: 'qdxjt7',
-    description: `Pull out your trusty side piece and unload up to 6 Critical Shots from the hip. Each shot deals 156 base damage and double stagger value. 
+    description: `Pull out your trusty side piece and unload up to 6 Critical Shots from the hip. Each shot deals 52 base damage and double stagger value. 
 
     PRESS: Instantly fires towards all enemies in view within 25m. Upon release, rounds will be divided evenly among all targets.
     
     HOLD & RELEASE: Allows manual Aim and fires one single powerful shot upon release.`,
-    cooldown: 38.4,
+    cooldown: 40,
     howToGet: `Unlocks automatically`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Quick+Draw`],
     linkedItems: {
@@ -10308,6 +10326,7 @@ Using a Relic extends the duration of any active HUNTER Skill by 10s. Effect deg
     },
   },
   // * Updated in patch
+  // * Confirmed with wiki
   {
     category: 'perk',
     name: 'Pack Hunter',
@@ -10316,12 +10335,14 @@ Using a Relic extends the duration of any active HUNTER Skill by 10s. Effect deg
     id: '485uc9',
     tags: ['Ranged Damage', 'Skill Damage', 'Critical Chance'],
     description: `
-    Gain 3% Ranged, Melee, and Skill Damage while Companion is within 40m of the player. Damage increases with HANDLER Level.
+    Gain 3% Ranged, Melee, and Skill Damage while Companion is within 40m of the HANDLER. Damage increases with HANDLER Level.
     
     Upgrade Unlocked at level 6
-    Gain 18% Ranged, Melee, and Skill Damage and 5% Ranged and Skill Critical Chance while Companion is within 40m of the player.
+    Gain 18% Ranged, Melee, and Skill Damage and 5% Ranged, Melee, and Skill Critical Chance while Companion is active and within 40m of the Handler. Damage increases with HANDLER level.
       
-    (Level 10: Gain 30% Ranged, Melee, and Skill Damage and 5% Ranged and Skill Critical Chance while Companion is within 40m of the player.)`,
+    Upgrade Unlocked at level 10
+    Gain 30% Ranged, Melee, and Skill Damage and 5% Ranged, Melee, and Skill Critical Chance while Companion is active and within 40m of the Handler. Damage increases with HANDLER level.
+    `,
     howToGet: `Unlocked at Level 1`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Pack+Hunter`],
     linkedItems: {
@@ -11281,6 +11302,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     },
   },
   // * Updated in patch
+  // * Confirmed with wiki
   {
     category: 'perk',
     name: 'Dominator',
@@ -11296,15 +11318,16 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
       'Melee Critical Chance',
     ],
     description: `
-    Increases Mod, Skill, and Explosive Damage by 3.5% [E] while a Minion is active. Sacrificing a Minion increases Ranged and Melee Damage by 3% for 30s or until another Minion is summoned. Damage increases with SUMMONER level
+    Grants a 3.5% increase to Mod, Skill, and Explosive Damage [E]. Damage increases with Summoner Level.
     
-    Upgrade Unlocked at level 6
-    Increases Mod, Skill, and Explosive Damage by 21% [E] and Mod and Skill Critical Chance by 5% while a Minion is active.    
-    Sacrificing a Minion increases Ranged and Melee Damage by 18% and Ranged and Melee Critical Chance by 5% for 30s.  
-           
-    (Level 10: Increases Mod, Skill, and Explosive Damage by 35% [E] and Skill and Mod Critical Chance by 5% while a Minion is active. Sacrificing a Minion increases Ranged and Melee Damage by 30% and Ranged and Melee Critical Chance by 5% for 30s or until another Minion is summoned)`,
+    Upgrade Unlocked at level 5
+    Grants a 17.5% increase to Mod, Skill, and Explosive Damage [E], and 5% Mod, Skill, and Explosive Critical Chance. Damage increases with Summoner Level.  
+      
+    Upgrade Unlocked at level 10
+    Grants a 35% increase to Mod, Skill, and Explosive Damage [E], and 5% Mod, Skill, and Explosive Critical Chance. Damage increases with Summoner Level.
+    `,
     howToGet: `Unlocked at Level 1`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Dominator`],
+    wikiLinks: [`https://remnant.wiki/Dominator`],
     linkedItems: {
       archetype: {
         name: 'Summoner',
