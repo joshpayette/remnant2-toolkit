@@ -8,6 +8,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ### Added
 
+- Added a new flag on builds to indicate if a build may have been affected by a patch since the build was created.
+  - This is a manual flag that will be set by me after each patch. If you feel your build should not be affected, reach out on Discord.
+  - For the 2024-02-29 patch, if a build matches any of the following conditions, the flag is applied:
+    - Spectral Blade + Resonance
+    - Stone of Malevolence
+    - Sequenced Shot.
 - So many more aberrations and aberration images (thank you ConRaven! thank you, Brother!)
 
 ### Changed

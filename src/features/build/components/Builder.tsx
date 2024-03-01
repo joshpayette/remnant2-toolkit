@@ -385,6 +385,13 @@ export function Builder({
               </div>
             </div>
           )}
+          {buildState.isPatchAffected && (
+            <div className="mb-2 flex items-center justify-center text-sm text-gray-400">
+              <p className="border border-red-500 p-2 text-left text-xs font-bold text-red-500">
+                This build might have been affected by a past update.
+              </p>
+            </div>
+          )}
           {isPopular && !isNew && (
             <div className="absolute bottom-0 left-1/2 flex w-full -translate-x-1/2 translate-y-1/2 transform items-center justify-center">
               <PopularBuildBadge unoptimized={isScreenshotMode} />

@@ -61,7 +61,7 @@ export function MasonryItemList({ items, label }: Props) {
 function Loading() {
   return (
     <div className="flex h-[500px] w-full flex-row flex-wrap items-center justify-center gap-4 p-4 sm:h-[1000px]">
-      {getArrayOfLength(10).map((_, i) => (
+      {getArrayOfLength(12).map((_, i) => (
         <Skeleton key={i} className="h-[300px] w-[250px]" />
       ))}
     </div>

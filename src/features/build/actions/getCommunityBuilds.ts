@@ -17,6 +17,7 @@ import {
   archetypeFiltersToIds,
   limitByArchetypesSegment,
 } from '@/features/filters/queries/segments/limitByArchtypes'
+import { limitByPatchAffected } from '@/features/filters/queries/segments/limitByPatchAffected'
 import { limitByReleasesSegment } from '@/features/filters/queries/segments/limitByRelease'
 import {
   limitByRingSegment,
@@ -62,6 +63,7 @@ export async function getCommunityBuilds({
     ring,
     searchText,
     selectedReleases,
+    includePatchAffectedBuilds,
   } = buildListFilters
   if (selectedReleases.length === 0) return { items: [], totalItemCount: 0 }
 
@@ -77,6 +79,7 @@ export async function getCommunityBuilds({
 
   const whereConditions = Prisma.sql`
   WHERE Build.isPublic = true
+  ${limitByPatchAffected(includePatchAffectedBuilds)}
   ${limitByArchetypesSegment(archetypeIds)}
   ${limitByWeaponsSegment(weaponIds)}
   ${limitByReleasesSegment(selectedReleases)}

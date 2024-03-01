@@ -19,6 +19,7 @@ import {
   limitByArchetypesSegment,
 } from '@/features/filters/queries/segments/limitByArchtypes'
 import { limitByFavorited } from '@/features/filters/queries/segments/limitByFavorited'
+import { limitByPatchAffected } from '@/features/filters/queries/segments/limitByPatchAffected'
 import { limitByReleasesSegment } from '@/features/filters/queries/segments/limitByRelease'
 import {
   limitByRingSegment,
@@ -62,6 +63,7 @@ export async function getFavoritedBuilds({
     ring,
     searchText,
     selectedReleases,
+    includePatchAffectedBuilds,
   } = buildListFilters
 
   if (selectedReleases.length === 0) return { items: [], totalItemCount: 0 }
@@ -78,6 +80,7 @@ export async function getFavoritedBuilds({
   const whereConditions = Prisma.sql`
 WHERE Build.isPublic = true
 AND Build.createdById != ${userId}
+${limitByPatchAffected(includePatchAffectedBuilds)}
 ${limitByFavorited(userId)}
 ${limitByArchetypesSegment(archetypeIds)}
 ${limitByWeaponsSegment(weaponIds)}

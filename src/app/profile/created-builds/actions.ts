@@ -1,7 +1,6 @@
 'use server'
 
 import { Prisma } from '@prisma/client'
-import { z } from 'zod'
 
 import { getServerSession } from '@/features/auth/lib'
 import { DBBuild } from '@/features/build/types'
@@ -19,6 +18,7 @@ import {
   archetypeFiltersToIds,
   limitByArchetypesSegment,
 } from '@/features/filters/queries/segments/limitByArchtypes'
+import { limitByPatchAffected } from '@/features/filters/queries/segments/limitByPatchAffected'
 import { limitByReleasesSegment } from '@/features/filters/queries/segments/limitByRelease'
 import {
   limitByRingSegment,
@@ -64,6 +64,7 @@ export async function getCreatedBuilds({
     ring,
     searchText,
     selectedReleases,
+    includePatchAffectedBuilds,
   } = buildListFilters
 
   if (selectedReleases.length === 0) return { items: [], totalItemCount: 0 }
@@ -79,6 +80,7 @@ export async function getCreatedBuilds({
 
   const whereConditions = Prisma.sql`
   WHERE Build.createdById = ${userId}
+  ${limitByPatchAffected(includePatchAffectedBuilds)}
   ${limitByArchetypesSegment(archetypeIds)}
   ${limitByWeaponsSegment(weaponIds)}
   ${limitByAmuletSegment(amuletId)}

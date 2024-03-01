@@ -51,6 +51,7 @@ export async function LoadoutBuilds() {
       description: loadout.build.description,
       isPublic: loadout.build.isPublic,
       isFeaturedBuild: loadout.build.isFeaturedBuild,
+      isPatchAffected: loadout.build.isPatchAffected,
       isMember: false,
       thumbnailUrl: loadout.build.thumbnailUrl,
       videoUrl: loadout.build.videoUrl,

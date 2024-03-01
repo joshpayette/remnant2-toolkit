@@ -20,6 +20,7 @@ export function parseBuildListFilters(
   let amulet = params.get('amulet')
   let searchText = params.get('searchText')
   let releases = params.get('releases')
+  let includePatchAffectedBuilds = params.get('includePatchAffectedBuilds')
 
   // check if archetypes are valid
   if (archetypes) {
@@ -106,5 +107,6 @@ export function parseBuildListFilters(
     amulet: amulet || DEFAULT_BUILD_LIST_FILTERS['amulet'],
     searchText: searchText || DEFAULT_BUILD_LIST_FILTERS['searchText'],
     selectedReleases: releases ? (releases.split(',') as ReleaseKey[]) : [],
+    includePatchAffectedBuilds: Boolean(includePatchAffectedBuilds),
   } satisfies BuildListFilterFields
 }

@@ -11,6 +11,7 @@ import {
   WeaponFilters,
 } from '@/features/filters/components/parts/WeaponFilters'
 import { Archetype, ReleaseKey } from '@/features/items/types'
+import { Checkbox } from '@/features/ui/Checkbox'
 
 import { BuildListFilterFields } from '../types'
 import { DEFAULT_JEWELRY_FILTERS, JewelryFilters } from './parts/JewelryFilters'
@@ -26,6 +27,7 @@ export const DEFAULT_BUILD_LIST_FILTERS: BuildListFilterFields = {
   ring: DEFAULT_JEWELRY_FILTERS.ring,
   searchText: '',
   selectedReleases: DEFAULT_RELEASE_FILTERS,
+  includePatchAffectedBuilds: false,
 }
 
 interface Props {
@@ -137,6 +139,14 @@ export function BuildListFilters({ filters }: Props) {
     }
   }
 
+  function handlePatchAffectedBuildsChange() {
+    setUnappliedFilters({
+      ...unappliedFilters,
+      includePatchAffectedBuilds: !unappliedFilters.includePatchAffectedBuilds,
+    })
+    setAreFiltersApplied(false)
+  }
+
   function handleApplyFilters(newFilters: BuildListFilterFields) {
     let finalPath = `${pathname}?`
     if (newFilters.archetypes.length > 0) {
@@ -162,6 +172,12 @@ export function BuildListFilters({ filters }: Props) {
     }
     if (newFilters.selectedReleases.length < 2) {
       finalPath += `releases=${newFilters.selectedReleases.join(',')}&`
+    }
+    if (
+      newFilters.includePatchAffectedBuilds !==
+      DEFAULT_BUILD_LIST_FILTERS['includePatchAffectedBuilds']
+    ) {
+      finalPath += `includePatchAffectedBuilds=${newFilters.includePatchAffectedBuilds}&`
     }
 
     if (finalPath.endsWith('&')) {
@@ -208,6 +224,26 @@ export function BuildListFilters({ filters }: Props) {
         selectedReleases={unappliedFilters.selectedReleases}
         onChange={(release: ReleaseKey) => handleReleaseChange(release)}
       />
+
+      <div className="col-span-full pt-2">
+        <div className="flex w-full flex-col items-start justify-start gap-x-4 gap-y-2">
+          <div className="flex w-full flex-col items-start justify-start text-left text-sm font-bold text-green-500">
+            By Patch
+            <span className="text-sm font-normal text-gray-500">
+              Whether to show builds that depend on an item or interaction that
+              was affected by a patch after the build was created
+            </span>
+          </div>
+          <div className="w-full text-left">
+            <Checkbox
+              label="Include Patch Affected Builds?"
+              name="include-patch-affected-builds"
+              checked={unappliedFilters.includePatchAffectedBuilds}
+              onChange={handlePatchAffectedBuildsChange}
+            />
+          </div>
+        </div>
+      </div>
     </FiltersContainer>
   )
 }

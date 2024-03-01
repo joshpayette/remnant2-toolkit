@@ -17,6 +17,7 @@ import {
   archetypeFiltersToIds,
   limitByArchetypesSegment,
 } from '@/features/filters/queries/segments/limitByArchtypes'
+import { limitByPatchAffected } from '@/features/filters/queries/segments/limitByPatchAffected'
 import { limitByReleasesSegment } from '@/features/filters/queries/segments/limitByRelease'
 import {
   limitByRingSegment,
@@ -62,6 +63,7 @@ export async function getFeaturedBuilds({
     ring,
     searchText,
     selectedReleases,
+    includePatchAffectedBuilds,
   } = buildListFilters
 
   if (selectedReleases.length === 0) return { items: [], totalItemCount: 0 }
@@ -74,6 +76,7 @@ export async function getFeaturedBuilds({
   const whereConditions = Prisma.sql`
   WHERE Build.isPublic = true
   AND Build.isFeaturedBuild = true
+  ${limitByPatchAffected(includePatchAffectedBuilds)}
   ${limitByArchetypesSegment(archetypeIds)}
   ${limitByWeaponsSegment(weaponIds)}
   ${limitByReleasesSegment(selectedReleases)}

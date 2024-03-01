@@ -134,6 +134,13 @@ export function BuildCard({
                   </p>
                 )}
               </div>
+              {buildState.isPatchAffected && (
+                <div className="mb-2 flex flex-row items-center justify-start gap-x-2">
+                  <p className="border border-red-500 p-2 text-left text-xs font-bold text-red-500">
+                    This build might have been affected by a past update.
+                  </p>
+                </div>
+              )}
               <div className="mt-2 flex w-full flex-row items-center justify-center gap-x-2">
                 {buildState.items.archetype[0] && (
                   <ArchtypeLabel name={buildState.items.archetype[0].name} />

@@ -11,6 +11,7 @@ export interface BuildListFilterFields {
   ring: string
   searchText: string
   selectedReleases: ReleaseKey[]
+  includePatchAffectedBuilds: boolean
 }
 
 export type ItemLookupCategory =

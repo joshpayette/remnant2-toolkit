@@ -14,6 +14,7 @@ import {
   archetypeFiltersToIds,
   limitByArchetypesSegment,
 } from '@/features/filters/queries/segments/limitByArchtypes'
+import { limitByPatchAffected } from '@/features/filters/queries/segments/limitByPatchAffected'
 import { limitByReleasesSegment } from '@/features/filters/queries/segments/limitByRelease'
 import { limitByTimeConditionSegment } from '@/features/filters/queries/segments/limitByTimeCondition'
 import {
@@ -106,8 +107,15 @@ export async function getUserProfilePage({
     }
   }
 
-  const { archetypes, longGun, handGun, melee, selectedReleases, searchText } =
-    buildListFilters
+  const {
+    archetypes,
+    longGun,
+    handGun,
+    melee,
+    selectedReleases,
+    searchText,
+    includePatchAffectedBuilds,
+  } = buildListFilters
   const archetypeIds = archetypeFiltersToIds({ archetypes })
 
   if (selectedReleases.length === 0)
@@ -126,6 +134,7 @@ export async function getUserProfilePage({
   const whereConditions = Prisma.sql`
   WHERE Build.isPublic = true
   AND Build.createdById = ${userId}
+  ${limitByPatchAffected(includePatchAffectedBuilds)}
   ${limitByArchetypesSegment(archetypeIds)}
   ${limitByWeaponsSegment(weaponIds)}
   ${limitByReleasesSegment(selectedReleases)}

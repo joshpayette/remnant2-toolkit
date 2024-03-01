@@ -39,6 +39,7 @@ export const initialBuildState: BuildState = {
   isPublic: true,
   isMember: false,
   isFeaturedBuild: false,
+  isPatchAffected: false,
   thumbnailUrl: null,
   videoUrl: null,
   buildId: null,

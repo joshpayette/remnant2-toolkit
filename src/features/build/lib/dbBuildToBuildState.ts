@@ -29,6 +29,7 @@ export function dbBuildToBuildState(dbBuild: DBBuild): BuildState {
     isMember: dbBuild.isMember,
     isPublic: dbBuild.isPublic,
     isFeaturedBuild: Boolean(dbBuild.isFeaturedBuild),
+    isPatchAffected: Boolean(dbBuild.isPatchAffected),
     thumbnailUrl: dbBuild.thumbnailUrl,
     videoUrl: dbBuild.videoUrl,
     upvoted: Boolean(dbBuild.upvoted),

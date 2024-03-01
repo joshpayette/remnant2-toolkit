@@ -3,16 +3,15 @@
 import { revalidatePath } from 'next/cache'
 import { z } from 'zod'
 
+import { getServerSession } from '@/features/auth/lib'
 import { checkBadWords, cleanBadWords } from '@/features/bad-word-filter'
 import { DEFAULT_BUILD_NAME } from '@/features/build/constants'
+import { buildStateSchema } from '@/features/build/lib'
 import { BuildState, DBBuild, ItemCategory } from '@/features/build/types'
 import { prisma } from '@/features/db'
 import { ErrorResponse } from '@/features/error-handling/types'
 import { DEFAULT_DISPLAY_NAME } from '@/features/profile/constants'
 import { bigIntFix } from '@/lib/bigIntFix'
-
-import { getServerSession } from '../../features/auth/lib'
-import { buildStateSchema } from '../../features/build/lib'
 
 function buildStateToBuildItems(buildState: BuildState): Array<{
   itemId: string
@@ -395,7 +394,7 @@ export async function updateBuild(data: string): Promise<BuildActionResponse> {
     // If the build name has updated, send the build info to Discord
     if (existingBuild?.name !== buildState.name && buildState.isPublic) {
       const params = {
-        content: `Build name updated. Old name: ${existingBuild.name}, New name: ${buildState.name}. https://www.remnant2toolkit.com/builder/${buildState.buildId}`,
+        content: `Build name updated. Old name: ${existingBuild?.name}, New name: ${buildState.name}. https://www.remnant2toolkit.com/builder/${buildState.buildId}`,
       }
 
       const res = await fetch(`${process.env.WEBHOOK_COMMUNITY_BUILDS}`, {
@@ -888,6 +887,7 @@ export async function getBuild(
     description: build.description ?? '',
     isMember: false,
     isFeaturedBuild: build.isFeaturedBuild,
+    isPatchAffected: build.isPatchAffected,
     isPublic: build.isPublic,
     thumbnailUrl: build.thumbnailUrl ?? '',
     videoUrl: build.videoUrl ?? '',
