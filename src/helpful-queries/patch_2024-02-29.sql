@@ -16,6 +16,7 @@ WHERE
           JOIN BuildItems ON Build.id = BuildItems.buildId
         WHERE
           BuildItems.itemId IN ('l3zte1', 'dmizlm')
+          AND Build.createdAt < '2024-02-29'
         GROUP BY
           Build.id
         HAVING
@@ -41,6 +42,7 @@ WHERE
           JOIN BuildItems ON Build.id = BuildItems.buildId
         WHERE
           BuildItems.itemId IN ('kx65km')
+          AND Build.createdAt < '2024-02-29'
         GROUP BY
           Build.id
         HAVING
@@ -62,10 +64,11 @@ WHERE
         SELECT
           Build.id
         FROM
-        Build
+          Build
           JOIN BuildItems ON Build.id = BuildItems.buildId
         WHERE
           BuildItems.itemId IN ('23ztdj')
+          AND Build.createdAt < '2024-02-29'
         GROUP BY
           Build.id
         HAVING
