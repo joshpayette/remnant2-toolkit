@@ -10234,7 +10234,7 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     Unlocked at level 1
     Gain 4% Ranged Damage and 1.5% [M] Weakspot Damage. Damage increases with HUNTER Level
 
-  Upgrade Unlocked at level 6
+  Upgrade Unlocked at level 5
   Gain 24% Ranged Damage, 9% [M] Weakspot Damage and 5% Ranged Critical Chance.
 
   (Level 10: Gain 40% Ranged Damage and 15% [M] Weakspot Damage)
@@ -10350,7 +10350,7 @@ Using a Relic extends the duration of any active HUNTER Skill by 10s. Effect deg
     description: `
     Gain 3% Ranged, Melee, and Skill Damage while Companion is within 40m of the HANDLER. Damage increases with HANDLER Level.
     
-    Upgrade Unlocked at level 6
+    Upgrade Unlocked at level 5
     Gain 18% Ranged, Melee, and Skill Damage and 5% Ranged, Melee, and Skill Critical Chance while Companion is active and within 40m of the Handler. Damage increases with HANDLER level.
       
     Upgrade Unlocked at level 10
@@ -10459,7 +10459,7 @@ Using a Relic extends the duration of any active HUNTER Skill by 10s. Effect deg
     description: `
     Grants a 2.5% increase to All Damage. Damage increases with MEDIC Level.
 
-    Upgrade Unlocked at level 6
+    Upgrade Unlocked at level 5
     Grants a 18% increase to All Damage and 5% Critical Chance
     
     (Level 10: Grants a 25% increase to All Damage and 5% Critical Chance)`,
@@ -10563,7 +10563,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     description: `
     Gain 1.5% Fire Rate and 2.5% Ranged Damage. Fire Rate and Damage increases with GUNSLINGER Level.
     
-    Upgrade Unlocked at level 6
+    Upgrade Unlocked at level 5
     Gain 15% Fire Rate and 25% Ranged Damage and 5% Crit Chance for all firearms.
   
    (Level 10: Gain 15% Fire Rate, 25% Ranged Damage and 5% Crit Chance for all firearms.)`,
@@ -10674,7 +10674,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     description: `
     Grants a 3.5% increase to All Damage to enemies within 10m. Damage bonus tapers off until 20m. Increases with CHALLENGER Level. 
     
-    Upgrade Unlocked at level 6
+    Upgrade Unlocked at level 5
     Grants a 21% increase to All Damage to enemies within 10m. Damage bonus tapers off until 20m. Critical Chance is increased by up to 10%.
           
     (Level 10: Grants a 35% increase to All Damage to enemies within 10m. Damage bonus tapers off until 20m. Critical Chance is increased by up to 10%.)`,
@@ -10781,7 +10781,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
   
     Increases with ALCHEMIST Level.
 
-    Upgrade Unlocked at level 6
+    Upgrade Unlocked at level 5
     Grants a 25% increase to All Damage and 5% Critical Chance`,
     howToGet: `Unlocked at Level 1`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Liquid+Courage`],
@@ -10890,7 +10890,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     Increases Mod Damage by +5%.
     Increases with ARCHON Level.
     
-    Upgrade Unlocked at level 6
+    Upgrade Unlocked at level 5
     Upgrade: Increases Mod Damage by +30% and grants +10% Mod Critical Chance.
     
     Damage increases with ARCHON Level.`,
@@ -11112,7 +11112,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     description: `
     Pickups increase All Damage Dealt by 0.5% per stack for 20s. Additional Stacks increase Duration, up to 60s. Max 5 Stacks. Damage increases with EXPLORER Level
          
-    Upgraded at level 6
+    Upgraded at level 5
     Scavenger also increase All Crit Chance by 5% while active.
         
     (Level 10: Pickups increase All Damage Dealt by 5% per stack for 20s. Scavenger also increase All Crit Chance by 5% while active. Additional Stacks increase Duration, up to 60s. Max 5 Stacks.)`,
@@ -11448,7 +11448,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     description: `
     Increases all damage to enemies affected by a Negative Status Effect by 2%. Damage increases with RITUALIST Level
     
-    Upgrade Unlocked at level 6
+    Upgrade Unlocked at level 5
     Increases all damage to enemies affected by a Negative Status Effect by 12%. Increases all Critical Chance against enemies affected by a Negative Status Effect by 10%.
          
     (Level 10: Increases all damage to enemies affected by a Negative Status Effect by 20%. Increases all Critical Chance against enemies affected by a Negative Status Effect by 10%.)`,
