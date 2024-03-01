@@ -17,6 +17,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Fixed
 
 - Non-corrupted versions of weapons are no longer counted as owned if you own the corrupted version.
+- Fixed bug where level 10 bonus for items was doubling up.
+- Fixed bug where specific item lookup filters would cause a server error.
 
 ## 2024-02-28
 

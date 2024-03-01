@@ -34,10 +34,6 @@ function buildItemList(): Array<{ id: string; name: string }> {
       name: item.name,
     }))
 
-  // items = remnantBosses
-  //   .map((boss) => ({ id: boss.id, name: boss.name }))
-  //   .concat(items)
-
   items = DESCRIPTION_TAGS.map((tag) => ({
     id: tag.token as string,
     name: tag.type as string,

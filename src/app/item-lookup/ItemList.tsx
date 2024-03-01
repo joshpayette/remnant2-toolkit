@@ -112,6 +112,7 @@ export function ItemList() {
     </h2>
   ) : (
     <MasonryItemList
+      key={filteredItems.length}
       label={`Items (${filteredItems.length} Total)`}
       items={filteredItems}
     />
