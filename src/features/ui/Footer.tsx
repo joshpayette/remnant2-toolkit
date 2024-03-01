@@ -76,6 +76,22 @@ export function Footer() {
           for the latest updates.
         </p>
         <hr className="border-gray-900 pb-4" />
+
+        <p className="pb-4">
+          Got an issue or feature request? Want to be involved in giving
+          feedback on the latest features? Want your build featured on the site?
+          Join the{' '}
+          <a
+            href="https://discord.gg/kgVaU3zAQ7"
+            target="_blank"
+            className={cn(aClass)}
+          >
+            Remnant 2 Toolkit Discord
+          </a>
+          !
+        </p>
+
+        <hr className="border-gray-900 pb-4" />
         <p className="pb-4">
           These tools would not be possible without the{' '}
           <a href="https://remnant.wiki" target="_blank" className={cn(aClass)}>
