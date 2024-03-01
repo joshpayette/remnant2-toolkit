@@ -54,7 +54,7 @@ export function ItemInfoDialog({ item, open, onClose }: ItemInfoProps) {
       subtitle={
         <span className="flex w-full flex-col items-center justify-center gap-x-2">
           <span className="text-sm text-gray-400">{subtitle}</span>
-          <span className="mt-2 flex w-full items-center justify-center gap-x-2 border-b border-t border-b-gray-800 border-t-gray-800 py-2 text-xs">
+          <span className="mt-2 flex w-full items-center justify-center gap-x-2 border-b border-t border-b-gray-800 border-t-gray-800 py-2 text-sm">
             {item.wikiLinks?.map((link) => (
               <a
                 key={link}
@@ -116,8 +116,8 @@ export function ItemInfoDialog({ item, open, onClose }: ItemInfoProps) {
             columns === 2 ? ' sm:col-span-2' : 'sm:col-span-1',
           )}
         >
-          <h4 className="text-left text-xs text-gray-400">Description</h4>
-          <div className="whitespace-pre-line text-left text-xs text-gray-300">
+          <h4 className="text-left text-sm text-gray-400">Description</h4>
+          <div className="whitespace-pre-line text-left text-sm text-gray-300">
             <DescriptionWithTags
               description={item.description || 'No description available.'}
             />
@@ -125,10 +125,10 @@ export function ItemInfoDialog({ item, open, onClose }: ItemInfoProps) {
 
           {(MutatorItem.isMutatorItem(item) || TraitItem.isTraitItem(item)) && (
             <div className="flex flex-col items-start justify-start">
-              <h4 className="mt-4 text-left text-xs text-gray-400">
+              <h4 className="mt-4 text-left text-sm text-gray-400">
                 At Max Level
               </h4>
-              <div className="text-left text-xs text-gray-300">
+              <div className="text-left text-sm text-gray-300">
                 <DescriptionWithTags
                   description={
                     item.maxLevelBonus || 'No max level bonus found.'
@@ -140,8 +140,8 @@ export function ItemInfoDialog({ item, open, onClose }: ItemInfoProps) {
 
           {item.cooldown && (
             <div className="flex flex-col items-start justify-start">
-              <h4 className="mt-4 text-left text-xs text-gray-400">Cooldown</h4>
-              <p className="text-left text-xs text-gray-300">
+              <h4 className="mt-4 text-left text-sm text-gray-400">Cooldown</h4>
+              <p className="text-left text-sm text-gray-300">
                 {item.cooldown}s
               </p>
             </div>
@@ -149,26 +149,26 @@ export function ItemInfoDialog({ item, open, onClose }: ItemInfoProps) {
 
           {/* {item.howToGet && (
             <div className="flex flex-col items-start justify-start">
-              <h4 className="mt-4 text-left text-xs text-gray-400">
+              <h4 className="mt-4 text-left text-sm text-gray-400">
                 How To Get
               </h4>
-              <div className="text-left text-xs text-gray-300">
+              <div className="text-left text-sm text-gray-300">
                 {item.howToGet}
               </div>
             </div>
           )} */}
 
-          <div className="flex flex-col items-start justify-start">
-            <h4 className="mt-4 text-left text-xs text-gray-400">
-              Linked Items
-            </h4>
-            {item.linkedItems && (
+          {item.linkedItems && (
+            <div className="flex flex-col items-start justify-start">
+              <h4 className="mt-4 text-left text-sm text-gray-400">
+                Linked Items
+              </h4>
               <ul className="grid w-full grid-cols-3 gap-x-4">
                 {(SkillItem.isSkillItem(item) ||
                   TraitItem.isTraitItem(item) ||
                   PerkItem.isPerkItem(item)) &&
                   item.linkedItems?.archetype && (
-                    <li className="col-span-full text-left text-xs text-gray-300">
+                    <li className="col-span-full text-left text-sm text-gray-300">
                       <strong>Archetype</strong>:{' '}
                       <a
                         href={`/item-lookup?searchText=${item.linkedItems.archetype.name}`}
@@ -180,13 +180,13 @@ export function ItemInfoDialog({ item, open, onClose }: ItemInfoProps) {
                   )}
                 {ArchetypeItem.isArchetypeItem(item) &&
                   item.linkedItems.perks && (
-                    <li className="text-left text-xs text-gray-300">
+                    <li className="text-left text-sm text-gray-300">
                       <strong>Perks</strong>
                       <ul>
                         {item.linkedItems.perks?.map((perk) => (
                           <li
                             key={perk.name}
-                            className="text-left text-xs text-gray-300"
+                            className="text-left text-sm text-gray-300"
                           >
                             <a
                               href={`/item-lookup?searchText=${perk.name}`}
@@ -202,13 +202,13 @@ export function ItemInfoDialog({ item, open, onClose }: ItemInfoProps) {
 
                 {ArchetypeItem.isArchetypeItem(item) &&
                   item.linkedItems.skills && (
-                    <li className="text-left text-xs text-gray-300">
+                    <li className="text-left text-sm text-gray-300">
                       <strong>Skills</strong>
                       <ul>
                         {item.linkedItems.skills?.map((skill) => (
                           <li
                             key={skill.name}
-                            className="text-left text-xs text-gray-300"
+                            className="text-left text-sm text-gray-300"
                           >
                             <a
                               href={`/item-lookup?searchText=${skill.name}`}
@@ -224,13 +224,13 @@ export function ItemInfoDialog({ item, open, onClose }: ItemInfoProps) {
 
                 {ArchetypeItem.isArchetypeItem(item) &&
                   item.linkedItems.traits && (
-                    <li className="text-left text-xs text-gray-300">
+                    <li className="text-left text-sm text-gray-300">
                       <strong>Traits</strong>
                       <ul>
                         {item.linkedItems.traits?.map((trait) => (
                           <li
                             key={trait.name}
-                            className="text-left text-xs text-gray-300"
+                            className="text-left text-sm text-gray-300"
                           >
                             <a
                               href={`/item-lookup?searchText=${trait.name}`}
@@ -244,7 +244,7 @@ export function ItemInfoDialog({ item, open, onClose }: ItemInfoProps) {
                     </li>
                   )}
                 {WeaponItem.isWeaponItem(item) && item.linkedItems?.mod && (
-                  <li className="col-span-full text-left text-xs text-gray-300">
+                  <li className="col-span-full text-left text-sm text-gray-300">
                     <strong>Mod</strong>:{' '}
                     <a
                       href={`/item-lookup?searchText=${item.linkedItems.mod.name}`}
@@ -255,7 +255,7 @@ export function ItemInfoDialog({ item, open, onClose }: ItemInfoProps) {
                   </li>
                 )}
                 {ModItem.isModItem(item) && item.linkedItems?.weapon && (
-                  <li className="col-span-full text-left text-xs text-gray-300">
+                  <li className="col-span-full text-left text-sm text-gray-300">
                     <strong>Weapon</strong>:{' '}
                     <a
                       href={`/item-lookup?searchText=${item.linkedItems.weapon.name}`}
@@ -266,8 +266,8 @@ export function ItemInfoDialog({ item, open, onClose }: ItemInfoProps) {
                   </li>
                 )}
               </ul>
-            )}
-          </div>
+            </div>
+          )}
         </div>
       </div>
     </Dialog>
