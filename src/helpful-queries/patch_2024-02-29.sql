@@ -62,7 +62,7 @@ WHERE
         SELECT
           Build.id
         FROM
-          Build
+        Build
           JOIN BuildItems ON Build.id = BuildItems.buildId
         WHERE
           BuildItems.itemId IN ('23ztdj')
