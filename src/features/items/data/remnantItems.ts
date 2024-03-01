@@ -5307,7 +5307,7 @@ export const remnantItems: Item[] = [
     name: 'Cube Room',
     imagePath: '/mod/cube_room.png',
     id: '2nMTRG',
-    description: `Conjures a 5m anomalous Cube Room which grants allies an increase of 50% Heat Decay Rate, reduces Heat Generation per round when firing weapons that Overheat by 15% and automatically generates missing reserve ammo per second. Lasts 15s.
+    description: `Conjures a 5m [A] anomalous Cube Room which grants allies an increase of 50% Heat Decay Rate, reduces Heat Generation per round when firing weapons that Overheat by 15% and automatically generates missing reserve ammo per second. Lasts 15s.
     
     Mod Power Requirement: 1,000`,
     wikiLinks: [],
@@ -5622,7 +5622,7 @@ export const remnantItems: Item[] = [
     name: `Guardian's Fury`,
     imagePath: '/mod/guardians_fury.png',
     id: 'WzXG4x',
-    description: `Imbues the Arbalest with the power of Yaesha's corrupted guardian, increases Fire Rate by 20%, reduces Recoil and Sway by 25% and each disc impact with an enemy exlodes over 3.5m for 69 damage [E]. Lasts 1.5s
+    description: `Imbues the Arbalest with the power of Yaesha's corrupted guardian, increases Fire Rate by 20%, reduces Recoil and Sway by 25% and each disc impact with an enemy exlpodes over 3.5m for 69 damage [E] [A]. Lasts 1.5s
     
     Mod Power Requirement: 1,250`,
     linkedItems: {
@@ -5776,7 +5776,7 @@ export const remnantItems: Item[] = [
     name: 'Nano Phase',
     imagePath: '/mod/nano_phase.png',
     id: 'WARGv3',
-    description: `Detonate active Nano-bots, each dealing 100 ACID damage [E] plus an additional 25 ACID damage per Nano-bot detonated to enemies within 2m and applies CORRODED, dealing 50 damage over 10s per Nano-bot detonated.
+    description: `Detonate active Nano-bots, each dealing 100 ACID damage [E] plus an additional 25 ACID damage per Nano-bot detonated to enemies within 2m and applies CORRODED, dealing 50 damage [E] over 10s per Nano-bot detonated.
     
     Mod Power Requirement: 1,000`,
     linkedItems: {
