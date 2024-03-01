@@ -8,7 +8,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## Added
 
-- So many more aberrations and aberration images (thank you ConRaven!)
+- So many more aberrations and aberration images (thank you ConRaven! thank you, Brother!)
 
 ## 2024-02-29
 

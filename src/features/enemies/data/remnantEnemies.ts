@@ -687,6 +687,14 @@ export const remnantEnemies: Enemy[] = [
     fireResistance: 10,
   },
   {
+    id: 'y38EwN',
+    name: 'Desolate Stalker',
+    category: 'aberration',
+    imagePath: '/enemies/aberration/desolate_stalker.jpg',
+    location: 'Yaesha',
+    wikiLinks: [],
+  },
+  {
     id: 'tRC6Br',
     name: 'Scorchstrike',
     dlc: 'base',
