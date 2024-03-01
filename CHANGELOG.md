@@ -6,9 +6,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2024-03-01
 
-## Added
+### Added
 
 - So many more aberrations and aberration images (thank you ConRaven! thank you, Brother!)
+
+### Changed
+
+- Featured Builds now sort by newest first
 
 ## 2024-02-29
 

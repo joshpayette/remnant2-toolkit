@@ -28,7 +28,7 @@ export function FeaturedBuilds({ itemsPerPage = 8, buildListFilters }: Props) {
     timeRangeOptions,
     handleOrderByChange,
     handleTimeRangeChange,
-  } = useBuildListSecondaryFilters()
+  } = useBuildListSecondaryFilters('newest')
 
   const {
     currentPage,
