@@ -584,7 +584,7 @@ export const remnantEnemies: Enemy[] = [
     name: 'Maleficient Glimmer',
     dlc: 'base',
     category: 'aberration',
-    imagePath: '/enemies/aberration/maleficient_glimmer.jpg',
+    imagePath: '/enemies/aberration/maleficient_glimmer1.jpg',
     location: 'Losomn',
     wikiLinks: [],
     bleedResistance: 5,
