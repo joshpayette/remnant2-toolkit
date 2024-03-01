@@ -16,7 +16,6 @@ WHERE
           JOIN BuildItems ON Build.id = BuildItems.buildId
         WHERE
           BuildItems.itemId IN ('l3zte1', 'dmizlm')
-          AND Build.isPublic = true
         GROUP BY
           Build.id
         HAVING
@@ -42,7 +41,6 @@ WHERE
           JOIN BuildItems ON Build.id = BuildItems.buildId
         WHERE
           BuildItems.itemId IN ('kx65km')
-          AND Build.isPublic = true
         GROUP BY
           Build.id
         HAVING
@@ -68,7 +66,6 @@ WHERE
           JOIN BuildItems ON Build.id = BuildItems.buildId
         WHERE
           BuildItems.itemId IN ('23ztdj')
-          AND Build.isPublic = true
         GROUP BY
           Build.id
         HAVING
