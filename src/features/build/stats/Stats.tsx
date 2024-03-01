@@ -103,7 +103,7 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
                 </button>
               </Tooltip>
             </div>
-            <div className="relative grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 text-left text-sm">
+            <div className="relative grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 text-left text-sm text-gray-300">
               <p className="flex items-center justify-start">Weight</p>
               <span
                 className={cn(
