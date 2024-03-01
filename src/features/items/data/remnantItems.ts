@@ -11306,13 +11306,13 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     id: 'tmc2tk',
     tags: ['Summon'],
     description: `
-    When the SUMMONER deals damage to their Minion, it causes them to ENRAGE. Minions gain 30% increased Damage, Attack Speed, and Movement Speed. Lasts 20s
+    When the SUMMONER deals damage to their Minion, it causes them to ENRAGE. Minions gain 10% Attack Speed along with 30% increased Damage and Movement Speed. Lasts 20s.
     
-    Upgraded at Level 5
-    When the SUMMONER deals damage to their Minion, it causes them to ENRAGE. Minions gain 40% increased Damage, Attack Speed, and Movement Speed. Lasts 30s.
+    Upgraded at Level 6
+    When the SUMMONER deals damage to their Minion, it causes them to ENRAGE. Minions gain 15% Attack Speed along with 40% increased Damage and Movement Speed. Lasts 30s.
     
     Upgraded at level 10
-    When the SUMMONER deals damage to their Minion, it causes them to ENRAGE. Minions gain 50% increased Damage, Attack Speed, and Movement Speed. Lasts 40s.`,
+    When the SUMMONER deals damage to their Minion, it causes them to ENRAGE. Minions gain 20% Attack Speed along with 50% increased Damage and Movement Speed. Lasts 40s.`,
     howToGet: `Automatically unlocked.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Ruthless`],
     linkedItems: {
