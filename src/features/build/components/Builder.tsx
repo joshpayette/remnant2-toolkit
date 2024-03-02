@@ -401,7 +401,7 @@ export function Builder({
               <p className="border border-red-500 p-2 text-left text-xs font-bold text-red-500">
                 This build might have been affected by a past update. If you
                 created this build, please update and save it to remove this
-                flag.
+                banner.
               </p>
             </div>
           )}
