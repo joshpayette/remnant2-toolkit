@@ -359,6 +359,7 @@ export async function updateBuild(data: string): Promise<BuildActionResponse> {
             ? cleanBadWords(buildState.description)
             : '',
         isPublic: Boolean(buildState.isPublic),
+        isPatchAffected: false, // Automatically unflag if build was updated after being flagged
         BuildItems: {
           deleteMany: {},
           create: updatedBuildItems,

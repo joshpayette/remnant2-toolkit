@@ -10,6 +10,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - ConRaven the God and BrotherFromHood have added even more aberration images.
 
+### Changed
+
+- Builds flagged as patch affected will now automatically be unflagged when updated. A script was also ran to catch those still flagged but updated before this change was deployed.
+
 ## 2024-03-01
 
 ### Added
