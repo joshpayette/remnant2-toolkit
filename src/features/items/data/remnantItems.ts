@@ -1026,8 +1026,17 @@ export const remnantItems: Item[] = [
     imagePath: '/skill/eruption.png',
     id: 'amqa83',
     tags: ['Status Effect'],
-    description: `Creates 15m explosion for 150 damage [E] on all enemies within 1m. Explosion Radius and Damage increases 100% for each unique Status Effect on the target. Refreshes all current Status Effects on the target. [A]`,
+<<<<<<< HEAD
+    description: `Creates 1m explosion for 150 damage [E] on all enemies within 15m. Explosion Radius and damage increases 100% for each unique Status Effect on the target. Refreshes all current Status Effects on the target. [A]`,
     cooldown: 30,
+=======
+    description: `Creates 15m explosion for 150 damage [E] on all enemies within 1m. Explosion Radius and Damage increases 100% for each unique Status Effect on the target. Refreshes all current Status Effects on the target. [A]`,
+<<<<<<< HEAD
+    cooldown: 28.8,
+>>>>>>> a94c1d814dfef0f6eb25f4ec91509cd7e928fa19
+=======
+    cooldown: 30,
+>>>>>>> 832e5861dc3d27ae0af47a84968b086c495d3a9a
     howToGet: `Unlocks automatically`,
     wikiLinks: [`https://remnant.wiki/Eruption`],
     linkedItems: {
@@ -5623,7 +5632,7 @@ export const remnantItems: Item[] = [
     name: `Guardian's Fury`,
     imagePath: '/mod/guardians_fury.png',
     id: 'WzXG4x',
-    description: `Imbues the Arbalest with the power of Yaesha's corrupted guardian, increases Fire Rate by 20%, reduces Recoil and Sway by 25% and each disc impact with an enemy exlpodes over 3.5m for 69 damage [E] [A]. Lasts 1.5s
+    description: `Imbues the Arbalest with the power of Yaesha's corrupted guardian, increases Fire Rate by 20%, reduces Recoil and Sway by 25% and each disc impact with an enemy explodes over 3.5m [A] for 69 damage [E]. Lasts 1.5s
     
     Mod Power Requirement: 1,250`,
     linkedItems: {
@@ -5777,7 +5786,7 @@ export const remnantItems: Item[] = [
     name: 'Nano Phase',
     imagePath: '/mod/nano_phase.png',
     id: 'WARGv3',
-    description: `Detonate active Nano-bots, each dealing 100 - 200 ACID damage [E] plus an additional 25 - 50 ACID damage per Nano-bot detonated to enemies within 2m and applies CORRODED, dealing 50 - 100 damage [E] over 10s per Nano-bot detonated.`,
+    description: `Detonate active Nano-bots, each dealing 100 ACID damage [E] plus an additional 25 ACID damage per Nano-bot detonated to enemies within 2m and applies CORRODED, dealing 50 damage [E] over 10s per Nano-bot detonated.`,
     linkedItems: {
       weapon: {
         name: 'Corrupted Nebula',
