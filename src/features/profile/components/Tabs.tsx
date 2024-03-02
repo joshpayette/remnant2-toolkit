@@ -6,16 +6,28 @@ import { usePathname } from 'next/navigation'
 import { cn } from '@/lib/classnames'
 
 const tabs = [
-  { name: 'Created Builds', href: '/profile/created-builds' },
-  { name: 'Favorited Builds', href: '/profile/favorited-builds' },
-  { name: 'Loadouts', href: '/profile/loadout-builds' },
+  {
+    name: 'Created Builds',
+    baseHref: '/profile/created-builds',
+    href: '/profile/created-builds?includePatchAffectedBuilds=true',
+  },
+  {
+    name: 'Favorited Builds',
+    baseHref: '/profile/favorited-builds',
+    href: '/profile/favorited-builds?includePatchAffectedBuilds=true',
+  },
+  {
+    name: 'Loadouts',
+    baseHref: '/profile/loadout-builds',
+    href: '/profile/loadout-builds',
+  },
 ]
 
 export function Tabs() {
   const pathname = usePathname()
 
   // get the current tab based on the pathname
-  const currentTab = tabs.find((tab) => pathname.includes(tab.href))
+  const currentTab = tabs.find((tab) => pathname.includes(tab.baseHref))
 
   return (
     <div className="mt-4">
