@@ -89,13 +89,13 @@ export async function parseSaveFile(
       .toString()
       .toLowerCase()
 
-    // // save converted size to file
-    // const convertedSavePath = path.join(
-    //   process.cwd(),
-    //   'public',
-    //   'convertedSave.txt',
-    // )
-    // fs.writeFileSync(convertedSavePath, convertedSave)
+    // save converted size to file
+    const convertedSavePath = path.join(
+      process.cwd(),
+      'public',
+      'convertedSave.txt',
+    )
+    fs.writeFileSync(convertedSavePath, convertedSave)
 
     // Get the saveFileDiscoveredItemIds
     const saveFileDiscoveredItemIds = remnantItems
@@ -103,6 +103,13 @@ export async function parseSaveFile(
       .filter((item) => {
         const name = item.name.replace(/[^a-zA-Z]/g, '').toLowerCase()
         // If the item has a save file slug, use that, otherwise use the name
+        if (item.name === 'Sorrow')
+          console.log(
+            'Sorrow',
+            item.saveFileSlug,
+            name,
+            convertedSave?.includes(name),
+          )
         if (item.saveFileSlug) {
           return convertedSave?.includes(item.saveFileSlug)
         } else {
