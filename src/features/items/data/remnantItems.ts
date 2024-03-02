@@ -1026,17 +1026,8 @@ export const remnantItems: Item[] = [
     imagePath: '/skill/eruption.png',
     id: 'amqa83',
     tags: ['Status Effect'],
-<<<<<<< HEAD
     description: `Creates 1m explosion for 150 damage [E] on all enemies within 15m. Explosion Radius and damage increases 100% for each unique Status Effect on the target. Refreshes all current Status Effects on the target. [A]`,
     cooldown: 30,
-=======
-    description: `Creates 15m explosion for 150 damage [E] on all enemies within 1m. Explosion Radius and Damage increases 100% for each unique Status Effect on the target. Refreshes all current Status Effects on the target. [A]`,
-<<<<<<< HEAD
-    cooldown: 28.8,
->>>>>>> a94c1d814dfef0f6eb25f4ec91509cd7e928fa19
-=======
-    cooldown: 30,
->>>>>>> 832e5861dc3d27ae0af47a84968b086c495d3a9a
     howToGet: `Unlocks automatically`,
     wikiLinks: [`https://remnant.wiki/Eruption`],
     linkedItems: {
