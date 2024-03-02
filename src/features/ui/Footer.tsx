@@ -97,14 +97,6 @@ export function Footer() {
           <a href="https://remnant.wiki" target="_blank" className={cn(aClass)}>
             community maintained Remnant 2 Wiki
           </a>
-          , the{' '}
-          <a
-            href="https://remnant2.wiki.fextralife.com/Remnant+2+Wiki"
-            target="_blank"
-            className={cn(aClass)}
-          >
-            Fextralife Remnant 2 Wiki
-          </a>
           , as well as the{' '}
           <a
             href="https://docs.google.com/spreadsheets/d/1I7vkh50KWJZSxNy4FqxvniFWBstJQEMtpwtxQ3ByoPw/edit?pli=1"
