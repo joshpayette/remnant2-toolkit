@@ -4,6 +4,7 @@ import { WEIGHT_CLASSES } from '@/features/items/constants'
 import { remnantItems } from '@/features/items/data/remnantItems'
 import { ArmorItem } from '@/features/items/types/ArmorItem'
 import { SelectMenu } from '@/features/ui/SelectMenu'
+import { cn } from '@/lib/classnames'
 
 import { ItemButton } from '../../items/components/ItemButton'
 import {
@@ -234,7 +235,13 @@ export function ArmorSuggestions({
                   </div>
                   <div className="flex flex-col items-center justify-center">
                     <div className="text-md font-semibold">Weight</div>
-                    <div className="text-2xl font-bold text-green-500">
+                    <div
+                      className={cn(
+                        'text-2xl font-bold',
+                        desiredWeightClass !== 'CHOOSE' &&
+                          WEIGHT_CLASSES[desiredWeightClass].textColor,
+                      )}
+                    >
                       {suggestion.totalWeight}
                     </div>
                   </div>

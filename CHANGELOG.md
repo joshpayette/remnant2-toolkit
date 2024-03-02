@@ -17,6 +17,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Added note to patch affected flag that the creator can update and save the build to remove it.
 - Links to user's created builds and favorited builds now includes filter to show patch affected builds by default.
 - Added last updated date to builds.
+- Armor suggestions now show the weight class color on the weight value.
 
 ## 2024-03-01
 
