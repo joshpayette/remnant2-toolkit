@@ -16,6 +16,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Builds flagged as patch affected will now automatically be unflagged when updated. A script was also ran to catch those still flagged but updated before this change was deployed.
 - Added note to patch affected flag that the creator can update and save the build to remove it.
 - Links to user's created builds and favorited builds now includes filter to show patch affected builds by default.
+- Added last updated date to builds.
 
 ## 2024-03-01
 

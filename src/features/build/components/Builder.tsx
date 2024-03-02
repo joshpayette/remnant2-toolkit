@@ -12,6 +12,7 @@ import { cn } from '@/lib/classnames'
 
 import { ItemButton } from '../../items/components/ItemButton'
 import { DEFAULT_TRAIT_AMOUNT, POPULAR_VOTE_THRESHOLD } from '../constants'
+import { formatUpdatedAt } from '../lib/formatUpdatedAt'
 import { getArchetypeBuildName } from '../lib/getArchetypeBuildName'
 import { getArrayOfLength } from '../lib/getArrayOfLength'
 import { getConcoctionSlotCount } from '../lib/getConcoctionSlotCount'
@@ -354,7 +355,7 @@ export function Builder({
             showControls={showControls}
           />
           {showCreatedBy && (
-            <div className="mb-2 flex items-center justify-center text-sm text-gray-400">
+            <div className="flex items-center justify-center text-sm text-gray-400">
               <span className="mb-1">
                 {`${getArchetypeBuildName({
                   archetype1:
@@ -383,6 +384,16 @@ export function Builder({
                   {buildState.totalUpvotes}
                 </span>
               </div>
+            </div>
+          )}
+          {buildState.updatedAt && (
+            <div className="mb-2 flex items-center justify-center text-sm text-gray-400">
+              <p className="text-left text-xs text-gray-400">
+                Last Updated:{' '}
+                <span className="text-gray-300">
+                  {formatUpdatedAt(buildState.updatedAt)}
+                </span>
+              </p>
             </div>
           )}
           {buildState.isPatchAffected && (
