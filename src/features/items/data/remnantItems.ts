@@ -491,7 +491,7 @@ export const remnantItems: Item[] = [
     imagePath: '/skill/wellspring.png',
     id: '7vtxrx',
     description: `The MEDIC channels healing energy into their fist, punching a hole in the ground [E] to create a 3m [A] Healing Spring AOE which restores 10.5 Health per second and greatly increases Blight Decay Rate. Lasts 15s.`,
-    cooldown: 57.6,
+    cooldown: 60,
     howToGet: `Unlocks automatically`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Wellspring`],
     linkedItems: {
@@ -506,7 +506,7 @@ export const remnantItems: Item[] = [
     imagePath: '/skill/healing_shield.png',
     id: '8pu6y2',
     description: `The MEDIC Quickly expels healing energy to SHIELD all allies within 25m [A] for 100% of their Max Health for 10s. While shielded, allies regenerate 21% of their Max Health over the duration.`,
-    cooldown: 96,
+    cooldown: 100,
     howToGet: `Unlocks at level 5`,
     wikiLinks: [`https://remnant.wiki/Healing_Shield`],
     linkedItems: {
@@ -573,7 +573,7 @@ export const remnantItems: Item[] = [
     FOCUSED state can last up to 10s after the Skill duration expires.
     
     MARK: Crit Chance against MARKED enemies is increased by 15% for all allies.`,
-    cooldown: 48,
+    cooldown: 50,
     howToGet: `Unlocks at level 5`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Hunter's+Focus`],
     linkedItems: {
@@ -875,7 +875,7 @@ export const remnantItems: Item[] = [
     imagePath: '/skill/sidewinder.png',
     id: 'jn34u8',
     description: `Calls upon the power of the Desert Sidewinder snake to increase ADS Movement Speed and Draw/Swap Speed by 50%. Cycling weapons will automatically reload incoming Firearms. Lasts 12s.`,
-    cooldown: 76.8,
+    cooldown: 80,
     howToGet: `Unlocks at level 5`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Sidewinder`],
     linkedItems: {
@@ -895,7 +895,7 @@ export const remnantItems: Item[] = [
     Single Shot Weapons become fully-automatic. Kills instantly reload the current weapon. 
     
     Instead of becoming fully-automatic, Bows and Crossbows gain 15% Critical Chance and 50% increased Projectile Speed.`,
-    cooldown: 57.6,
+    cooldown: 60,
     howToGet: `Unlocks at level 10`,
     wikiLinks: [`https://remnant.wiki/Bulletstorm`],
     linkedItems: {
@@ -1027,7 +1027,7 @@ export const remnantItems: Item[] = [
     id: 'amqa83',
     tags: ['Status Effect'],
     description: `Creates 15m explosion for 150 damage [E] on all enemies within 1m. Explosion Radius and Damage increases 100% for each unique Status Effect on the target. Refreshes all current Status Effects on the target. [A]`,
-    cooldown: 28.8,
+    cooldown: 30,
     howToGet: `Unlocks automatically`,
     wikiLinks: [`https://remnant.wiki/Eruption`],
     linkedItems: {
@@ -1043,7 +1043,7 @@ export const remnantItems: Item[] = [
     id: '3er3og',
     tags: ['Status Effect'],
     description: `Casts an AOE burst that applies BLEEDING, BURNING, OVERLOADED, and CORRODED to all enemies within 15m [A], and dealing a total of 1500 base damage. Lasts 11s.`,
-    cooldown: 36.9,
+    cooldown: 40,
     howToGet: `Unlocks at level 5`,
     wikiLinks: [`https://remnant.wiki/Miasma`],
     linkedItems: {
@@ -1061,7 +1061,7 @@ export const remnantItems: Item[] = [
     tags: ['All Damage', 'Lifesteal'],
     // TODO Now respects Kinship trait again but does not get reduced by armor (as it once did)
     description: `Negates all healing to self. Drain Health 300% over 20s. Increases all Damage by 35% and grants 10% Base Damage dealt as Lifesteal.`,
-    cooldown: 86.4,
+    cooldown: 90,
     howToGet: `Unlocks at level 10`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Death+Wish`],
     linkedItems: {
@@ -10973,12 +10973,12 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     description: `
     Holding the SKILL button will Overclock a Carried or Deployed Heavy Weapon. Overclocking grants infinite Ammo, increased Fire Rate, and a 25% damage increase for 15s.
     
-    Cooldown: 58.8s
+    Cooldown: 60s
 
     Upgraded at Level 5
     Holding the SKILL button will Overclock a Carried or Deployed Heavy Weapon. Overclocking grants infinite Ammo, increased Fire Rate, and a 25% damage increase for 20s.
     
-    Cooldown: 58.8s
+    Cooldown: 40s
 
     Upgraded at level 10
     Holding the SKILL button will Overclock a Carried or Deployed Heavy Weapon. Overclocking grants infinite Ammo, increased Fire Rate, and a 25% damage increase for 25s
