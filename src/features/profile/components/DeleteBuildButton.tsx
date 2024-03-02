@@ -13,7 +13,9 @@ export function DeleteBuildButton({
   onDeleteBuild: (buildId: string) => void
 }) {
   async function handleDeleteBuild() {
-    const confirmed = confirm('Are you sure you want to delete this build?')
+    const confirmed = confirm(
+      'Are you sure you want to delete this build? This cannot be reversed!',
+    )
     if (!confirmed) return
 
     const response = await deleteBuild(JSON.stringify({ buildId }))

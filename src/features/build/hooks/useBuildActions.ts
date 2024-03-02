@@ -7,6 +7,7 @@ import { toast } from 'react-toastify'
 import {
   addReportForBuild,
   createBuild,
+  deleteBuild,
   removeReportForBuild,
 } from '@/app/builder/actions'
 import { BuildState, ItemCategory } from '@/features/build/types'
@@ -78,6 +79,24 @@ export function useBuildActions() {
       'Build url copied to clipboard. Sign in next time for a shorter URL!'
     copy(url)
     toast.success(!message ? defaultMessage : message)
+  }
+
+  async function handleDeleteBuild(buildId: string | null) {
+    if (!buildId) return
+
+    const confirmed = confirm(
+      'Are you sure you want to delete this build? This cannot be reversed!',
+    )
+    if (!confirmed) return
+
+    const response = await deleteBuild(JSON.stringify({ buildId }))
+
+    if (isErrorResponse(response)) {
+      console.error(response.errors)
+      toast.error('Error deleting build. Please try again later.')
+    } else {
+      toast.success(response.message)
+    }
   }
 
   async function handleDuplicateBuild(buildState: BuildState) {
@@ -368,6 +387,7 @@ export function useBuildActions() {
   return {
     handleClearImageDownloadInfo,
     handleCopyBuildUrl,
+    handleDeleteBuild,
     handleDuplicateBuild,
     handleRandomBuild,
     handleImageExport,

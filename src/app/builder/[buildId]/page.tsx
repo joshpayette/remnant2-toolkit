@@ -1,5 +1,6 @@
 'use client'
 
+import { revalidatePath } from 'next/cache'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import { useSession } from 'next-auth/react'
@@ -60,6 +61,7 @@ export default function Page({
     imageExportLoading,
     handleClearImageDownloadInfo,
     handleCopyBuildUrl,
+    handleDeleteBuild,
     handleDuplicateBuild,
     handleImageExport,
   } = useBuildActions()
@@ -193,6 +195,13 @@ export default function Page({
               <ActionButton.ShowDetailedView
                 onClick={() => setDetailedBuildDialogOpen(true)}
               />
+
+              {session && session.user?.id === buildState.createdById && (
+                <ActionButton.DeleteBuild
+                  onClick={() => handleDeleteBuild(buildState.buildId)}
+                />
+              )}
+
               {session?.user && (
                 <>
                   <div className="flex w-[200px] flex-col items-center justify-center gap-4 sm:items-end md:w-[150px] md:items-center">

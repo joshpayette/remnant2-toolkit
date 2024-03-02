@@ -26,6 +26,16 @@ export const ActionButton = {
     </button>
   ),
 
+  DeleteBuild: ({ onClick }: ButtonProps) => (
+    <button
+      className={cn(buttonClasses, 'border-red-500 hover:bg-red-700')}
+      aria-label="Delete build."
+      onClick={onClick}
+    >
+      Delete Build
+    </button>
+  ),
+
   DuplicateBuild: ({ onClick }: ButtonProps) => (
     <button
       className={cn(buttonClasses, 'border-green-500 hover:bg-green-700')}

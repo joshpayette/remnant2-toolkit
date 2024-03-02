@@ -1,5 +1,6 @@
 'use client'
 
+import { useSession } from 'next-auth/react'
 import { useRef, useState } from 'react'
 
 import { ActionButton } from '@/features/build/components/ActionButton'
@@ -19,6 +20,8 @@ export default function Page({
 }: {
   params: { initialBuildState: DBBuild }
 }) {
+  const { data: session, status } = useSession()
+
   const [detailedBuildDialogOpen, setDetailedBuildDialogOpen] = useState(false)
 
   const { dbBuildState, updateDBBuildState, setNewBuildState } =
@@ -29,6 +32,7 @@ export default function Page({
     showControls,
     imageDownloadInfo,
     handleClearImageDownloadInfo,
+    handleDeleteBuild,
   } = useBuildActions()
 
   const buildContainerRef = useRef<HTMLDivElement>(null)
@@ -86,6 +90,12 @@ export default function Page({
             <ActionButton.ShowDetailedView
               onClick={() => setDetailedBuildDialogOpen(true)}
             />
+
+            {session && session.user?.id === dbBuildState.createdById && (
+              <ActionButton.DeleteBuild
+                onClick={() => handleDeleteBuild(dbBuildState.buildId)}
+              />
+            )}
           </>
         }
       />
