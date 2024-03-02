@@ -10978,12 +10978,12 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     Upgraded at Level 5
     Holding the SKILL button will Overclock a Carried or Deployed Heavy Weapon. Overclocking grants infinite Ammo, increased Fire Rate, and a 25% damage increase for 20s.
     
-    Cooldown: 40s
+    Cooldown: 60s
 
     Upgraded at level 10
     Holding the SKILL button will Overclock a Carried or Deployed Heavy Weapon. Overclocking grants infinite Ammo, increased Fire Rate, and a 25% damage increase for 25s
     
-    Cooldown: 20s`,
+    Cooldown: 60s`,
     howToGet: `Automatically unlocked.`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/High+Tech`],
     linkedItems: {
