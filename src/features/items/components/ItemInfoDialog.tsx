@@ -147,17 +147,6 @@ export function ItemInfoDialog({ item, open, onClose }: ItemInfoProps) {
             </div>
           )}
 
-          {/* {item.howToGet && (
-            <div className="flex flex-col items-start justify-start">
-              <h4 className="mt-4 text-left text-sm text-gray-400">
-                How To Get
-              </h4>
-              <div className="text-left text-sm text-gray-300">
-                {item.howToGet}
-              </div>
-            </div>
-          )} */}
-
           {item.linkedItems && (
             <div className="flex flex-col items-start justify-start">
               <h4 className="mt-4 text-left text-sm text-gray-400">

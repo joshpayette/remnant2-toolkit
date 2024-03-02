@@ -8,8 +8,6 @@ export const remnantItems: Item[] = [
     id: '67pme7',
     description:
       'The ALCHEMIST specializes in powerful buffing Vials and consumable potency.',
-    howToGet:
-      'Approach every sewer drain on the edge of any of the Dran overland areas in Losemn until you get grabbed by a Manticora. Once you load into the new area, defeat the white Manticora',
     wikiLinks: [`https://remnant.wiki/Alchemist`],
     linkedItems: {
       traits: [
@@ -1159,8 +1157,6 @@ export const remnantItems: Item[] = [
     description: `This headpiece hails from the wild and mysterious world of Yaesha. Its smooth,
     featureless. design is both eerie and elegant, painted a stark white and adorned
     with luxuriant fur and imposing horns.`,
-    howToGet: `Obtained for free by purchasing Remnant 2 Deluxe Edition or Ultimate Edition
-    Can be bought from Whispers after beating the game once.`,
     wikiLinks: [`https://remnant.wiki/Elder_Headdress`],
   },
   {
@@ -1211,8 +1207,6 @@ export const remnantItems: Item[] = [
     blightResistance: 2,
     toxinResistance: 1,
     description: `This face covering protects you from contagions without obstructing your sight. You feel like a creature from another world in this thing. Perhaps that's fitting. `,
-    howToGet: `Starting Equipment for the MEDIC Archetype.
-    Sold by Whispers in Ward 13`,
     wikiLinks: [`https://remnant.wiki/Field_Medic_Mask`],
   },
   {
@@ -1230,8 +1224,6 @@ export const remnantItems: Item[] = [
     blightResistance: 0,
     toxinResistance: 1,
     description: `Something about this hat just feels right. Paired with a bandana, it keeps the sun and elements from hindering your all-important aim. `,
-    howToGet: `Starting equipment for the GUNSLINGER Archetype.
-    Can be bought from Whispers in Ward 13`,
     wikiLinks: [`https://remnant.wiki/High_Noon_Hat`],
   },
   {
@@ -1348,8 +1340,6 @@ export const remnantItems: Item[] = [
     blightResistance: 3,
     toxinResistance: 0,
     description: `A hunting mask with advanced respirator capabilities. It purifies yet does nothing to mask the stench of death that permeates the air. `,
-    howToGet: `Starting equipment for the HUNTER Archetype
-    Can be fought from Whispers in Ward 13`,
     wikiLinks: [`https://remnant.wiki/Nightstalker_Shroud`],
   },
   {
@@ -1367,8 +1357,6 @@ export const remnantItems: Item[] = [
     blightResistance: 1,
     toxinResistance: 0,
     description: `The cowl is a striking blue, which contrasts with the large, featureless golden mask that covers the face of the wearer. This armor was highly coveted and only granted to those few who were recognized as the "Radiant Ones." `,
-    howToGet: `Obtained for free by purchasing Remnant 2 Deluxe Edition or Ultimate Edition
-    Can be bought from Whispers after beating the game once.`,
     wikiLinks: [`https://remnant.wiki/Radiant_Visage`],
   },
   {
@@ -1437,8 +1425,6 @@ export const remnantItems: Item[] = [
     blightResistance: 0,
     toxinResistance: 2,
     description: `An overwhelming amount of information shines within the helmet's display, the vast majority of it incomprehensible. Whether that's because it's a foreign language or the helmet has been damaged by whatever destroyed this place is anybody's guess. `,
-    howToGet: `Starting equipment for the ENGINEER.
-    Can be found on a dead body in The Eon Vault in N'erud`,
     wikiLinks: [`https://remnant.wiki/Technician_Helmet`],
   },
   {
@@ -1456,8 +1442,6 @@ export const remnantItems: Item[] = [
     blightResistance: 0,
     toxinResistance: 1,
     description: `For some reason, your head feels naked without this simple baseball cap with a fox logo. That aside, it keeps the sun out of your eyes, and that's all you ask of it.`,
-    howToGet: `Starting equipment for the HANDLER
-    Can be bought from Whispers in Ward 13`,
     wikiLinks: [`https://remnant.wiki/Trainer_Cap`],
   },
   {
@@ -1475,8 +1459,6 @@ export const remnantItems: Item[] = [
     blightResistance: 0,
     toxinResistance: 1,
     description: `The skull-like helm hails from the inhospitable world of Rhom, where survival demands more than just strength and cunning. Fashioned from a mysterious material, its surface glimmers with an otherworldly sheen that seems to shift and change with the light. Its sleek and angular lines, reminiscent of some alien technology, evoke a sense of unease in those who gaze upon it. `,
-    howToGet: `Obtained for free by purchasing Remnant 2 Deluxe Edition or Ultimate Edition
-    Can be bought from Whispers after beating the game once.`,
     wikiLinks: [`https://remnant.wiki/Void_Skull`],
   },
   {
@@ -1547,8 +1529,6 @@ export const remnantItems: Item[] = [
     blightResistance: 0,
     toxinResistance: 2,
     description: `This thing is difficult to put on or take off and makes you feel like a walking tank. In the thick of battle, that's exactly what you're looking for.`,
-    howToGet: `Starting equipment for the CHALLENGER Class
-    Sold by Whispers in Ward 13`,
     wikiLinks: [`https://remnant.wiki/Bruiser_Bodyplate`],
   },
   {
@@ -1567,9 +1547,6 @@ export const remnantItems: Item[] = [
     blightResistance: 2,
     toxinResistance: 0,
     description: `This heavy suit of armor encumbers your shoulders with weight befitting the burdens of a sovereign. It emits a faint heat, as if forged from an ever-hot metal.`,
-    howToGet: `Kill The One True King.
-    Give 3 coins to The Red Prince at the Gilded Chambers.
-    Speak to the Red King at the Chamber of the Faithless.`,
     wikiLinks: [`https://remnant.wiki/Crimson_Guard_Plate`],
   },
   {
@@ -1621,8 +1598,6 @@ export const remnantItems: Item[] = [
     blightResistance: 4,
     toxinResistance: 2,
     description: `A distinctive piece of protective gear originating from Yaesha. Its vibrant red color and fur adornments make it stand out, serving as a symbol of the wearer's status and skill. While it may not provide as much protection as some other types of armor, its lightweight construction and flexible design allow for exceptional mobility and ease of movement in combat.`,
-    howToGet: `Obtained for free by purchasing Remnant 2 Deluxe Edition or Ultimate Edition
-    Can be bought from Whispers after beating the game once.`,
     wikiLinks: [`https://remnant.wiki/Elder_Raiment`],
   },
   {
@@ -1657,8 +1632,6 @@ export const remnantItems: Item[] = [
     blightResistance: 3,
     toxinResistance: 0,
     description: `A long coat over a plate of armor. The metal could be thicker, sure, but your primary concern is safe and speedy travel to the wounded.`,
-    howToGet: `Starting Equipment for the MEDIC Archetype.
-    Sold by Whispers in Ward 13`,
     wikiLinks: [`https://remnant.wiki/Field_Medic_Overcoat`],
   },
   {
@@ -1676,8 +1649,6 @@ export const remnantItems: Item[] = [
     blightResistance: 0,
     toxinResistance: 2,
     description: `A rugged amalgamation of canvas, denim, leather, and steel. These different materials all serve the same purpose of keeping you covered without inhibiting aiming mobility.`,
-    howToGet: `Starting equipment for the GUNSLINGER Archetype.
-    Whispers sells this item at the following cost: x1,150 Scrap`,
     wikiLinks: [`https://remnant.wiki/High_Noon_Duds`],
   },
   {
@@ -1763,8 +1734,6 @@ export const remnantItems: Item[] = [
     blightResistance: 2,
     toxinResistance: 0,
     description: `This old coat is shabby, but who's really looking? The wealth of interior ammunition pockets more than makes up for it.`,
-    howToGet: `Starting equipment for the HUNTER Archetype
-    Can be fought from Whispers in Ward 13`,
     wikiLinks: [`https://remnant.wiki/Nightstalker_Garb`],
   },
   {
@@ -1782,8 +1751,6 @@ export const remnantItems: Item[] = [
     blightResistance: 1,
     toxinResistance: 0,
     description: `A dazzling sight, its golden surface featuring a stunning sun burst pattern etched into the chest. Adorned with blue gems embedded in the shoulders this armor is fit for only the most esteemed members of the Laemir`,
-    howToGet: `Obtained for free by purchasing Remnant 2 Deluxe Edition or Ultimate Edition
-    Can be bought from Whispers after beating the game once.`,
     wikiLinks: [`https://remnant.wiki/Radiant_Protector`],
   },
   {
@@ -1869,8 +1836,6 @@ export const remnantItems: Item[] = [
     blightResistance: 0,
     toxinResistance: 2,
     description: `The Xul were engineers and builders, but this armor was made to withstand a grenade blast. Was this built for safety or something else?`,
-    howToGet: `Starting equipment for the ENGINEER.
-    Can be found on a dead body in The Eon Vault in N'erud`,
     wikiLinks: [`https://remnant.wiki/Technician_Bodyplate`],
   },
   {
@@ -1888,8 +1853,6 @@ export const remnantItems: Item[] = [
     blightResistance: 1,
     toxinResistance: 3,
     description: `This isn't just any denim jacket, it's your denim jacket. It's not especial pale. 7 ready, but it's comfortable, and in it you feel ready for anything.`,
-    howToGet: `Starting equipment for the HANDLER
-    Can be bought from Whispers in Ward 13`,
     wikiLinks: [`https://remnant.wiki/Trainer_Clothes`],
   },
   {
@@ -1907,8 +1870,6 @@ export const remnantItems: Item[] = [
     blightResistance: 0,
     toxinResistance: 4,
     description: `Crafted from the same mysterious material as the Void gloves, helm, and greaves, the chest armor completes the set's unsettling aesthetic. Its angular design is both practical and intimidating, providing unparalleled protection against the deadly environments and creatures of Rhom.`,
-    howToGet: `Obtained for free by purchasing Remnant 2 Deluxe Edition or Ultimate Edition
-    Can be bought from Whispers after beating the game once.`,
     wikiLinks: [`https://remnant.wiki/Void_Carapace`],
   },
   {
@@ -1978,8 +1939,6 @@ export const remnantItems: Item[] = [
     blightResistance: 0,
     toxinResistance: 2,
     description: `While they're not exactly aesthetic, you're more comfortable in twice-temper steel and repurposed tire tread than you care to admit.`,
-    howToGet: `Starting Armor set for the CHALLENGER
-    Sold by Whispers in Ward 13`,
     wikiLinks: [`https://remnant.wiki/Bruiser_Boots`],
   },
   {
@@ -1998,9 +1957,6 @@ export const remnantItems: Item[] = [
     blightResistance: 2,
     toxinResistance: 0,
     description: `The crimson greaves clink and clank as you walk, announcing your presence to those honored enough to know it. Each sabaton tapers to a sharp, defiant point.`,
-    howToGet: `Kill The One True King.
-    Give 3 coins to The Red Prince at the Gilded Chambers.
-    Speak to the Red King at the Chamber of the Faithless.`,
     wikiLinks: [`https://remnant.wiki/Crimson_Guard_Sabatons`],
   },
   {
@@ -2052,8 +2008,6 @@ export const remnantItems: Item[] = [
     blightResistance: 2,
     toxinResistance: 1,
     description: `Designed for both form and function. Made from durable yet lightweight materials, they allow for a full range of movement and flexibility in combat.`,
-    howToGet: `Obtained for free by purchasing Remnant 2 Deluxe Edition or Ultimate Edition
-    Can be bought from Whispers after beating the game once.`,
     wikiLinks: [`https://remnant.wiki/Elder_Leggings`],
   },
   {
@@ -2090,8 +2044,6 @@ export const remnantItems: Item[] = [
     blightResistance: 2,
     toxinResistance: 0,
     description: `With an assortment of pockets, pouches, and loops for your various concoctions you're essentially a walking apothecary.`,
-    howToGet: `Starting Equipment for the MEDIC Archetype.
-    Sold by Whispers in Ward 13`,
     wikiLinks: [`https://remnant.wiki/Field_Medic_Trousers`],
   },
   {
@@ -2109,8 +2061,6 @@ export const remnantItems: Item[] = [
     blightResistance: 0,
     toxinResistance: 2,
     description: `Durable pants with spurred boots and a strip of leather for a belt. The only accent is an imposing skull on the belt buckle, a constant reminder that death is always lurking in the shadows.`,
-    howToGet: `Starting equipment for the GUNSLINGER Archetype.
-    Can be bought from Whispers in Ward 13`,
     wikiLinks: [`https://remnant.wiki/High_Noon_Soles`],
   },
   {
@@ -2196,8 +2146,6 @@ export const remnantItems: Item[] = [
     blightResistance: 1,
     toxinResistance: 0,
     description: `Thin shoes that fit perfectly and feel like they practically disappear on your feet. They're ideal for stealthy maneuvering while stalking your prey.`,
-    howToGet: `Starting equipment for the HUNTER Archetype
-    Can be fought from Whispers in Ward 13`,
     wikiLinks: [`https://remnant.wiki/Nightstalker_Pants`],
   },
   {
@@ -2215,8 +2163,6 @@ export const remnantItems: Item[] = [
     blightResistance: 1,
     toxinResistance: 0,
     description: `Gleaming golden plates overlap and protect the wearer's feet and shins. Originally designed to be worn by the Pan, it's impressive how the armor can be adapted to fit human proportions without sacrificing its durability or protective properties.`,
-    howToGet: `Obtained for free by purchasing Remnant 2 Deluxe Edition or Ultimate Edition
-    Can be bought from Whispers after beating the game once.`,
     wikiLinks: [`https://remnant.wiki/Radiant_Greaves`],
   },
   {
@@ -2302,8 +2248,6 @@ export const remnantItems: Item[] = [
     blightResistance: 0,
     toxinResistance: 2,
     description: `Designed for stability rather than speed. Plant your weight in these things, and you'd be very difficult to move.`,
-    howToGet: `Starting equipment for the ENGINEER.
-    Can be found on a dead body in The Eon Vault in N'erud`,
     wikiLinks: [`https://remnant.wiki/Technician_Greaves`],
   },
   {
@@ -2321,8 +2265,6 @@ export const remnantItems: Item[] = [
     blightResistance: 1,
     toxinResistance: 2,
     description: `Durable pants that are used to handling more than a little dirt and fur. The canteen is for your companion, while the flask is all yours.`,
-    howToGet: `Starting equipment for the HANDLER
-    Can be bought from Whispers in Ward 13`,
     wikiLinks: [`https://remnant.wiki/Trainer_Workboots`],
   },
   {
@@ -2340,8 +2282,6 @@ export const remnantItems: Item[] = [
     blightResistance: 0,
     toxinResistance: 3,
     description: `A sturdy pair of footwear, expertly crafted from the same unknown material the other Void armor pieces. Their angular design and jagged edges give their wearer an intimidating and fearsome look. But these boots are more than fashion statement-they provided unparalleled protection and stability in the treacherous environments of Rhom.`,
-    howToGet: `Obtained for free by purchasing Remnant 2 Deluxe Edition or Ultimate Edition
-    Can be bought from Whispers after beating the game once.`,
     wikiLinks: [`https://remnant.wiki/Void_Greaves`],
   },
   {
@@ -2411,8 +2351,6 @@ export const remnantItems: Item[] = [
     blightResistance: 0,
     toxinResistance: 1,
     description: `These gauntlets are as tough as steel, as hard as stone, and up for whatever dangers or challenges come their way. They suit you well.`,
-    howToGet: `Starting Armor set for the CHALLENGER
-    Sold by Whispers in Ward 13`,
     wikiLinks: [`https://remnant.wiki/Bruiser_Gloves`],
   },
   {
@@ -2431,9 +2369,6 @@ export const remnantItems: Item[] = [
     blightResistance: 1,
     toxinResistance: 0,
     description: `These gauntlets line your forearms with sharp, yet elegant edges, though they lack the sharpened claws that would make a proper bloodthirsty Fae of you.`,
-    howToGet: `Kill The One True King.
-    Give 3 coins to The Red Prince at the Gilded Chambers.
-    Speak to the Red King at the Chamber of the Faithless.`,
     wikiLinks: [`https://remnant.wiki/Crimson_Guard_Gauntlets`],
   },
   {
@@ -2487,8 +2422,6 @@ export const remnantItems: Item[] = [
     blightResistance: 1,
     toxinResistance: 1,
     description: `Features striking loops of gold that add an ornate touch to the otherwise plain design. Curiously, these embellishments are only present on the left-hand glove, making it stand out from its counterpart on the right.`,
-    howToGet: `Obtained for free by purchasing Remnant 2 Deluxe Edition or Ultimate Edition
-    Can be bought from Whispers after beating the game once.`,
     wikiLinks: [`https://remnant.wiki/Elder_Gloves`],
   },
   {
@@ -2523,8 +2456,6 @@ export const remnantItems: Item[] = [
     blightResistance: 1,
     toxinResistance: 1,
     description: `At a glance it's clear that these fingerless gloves won't keep you warm or offer much protection. Even still, you wear them because they provide improved grip without impacting precision.`,
-    howToGet: `Starting Equipment for the MEDIC Archetype.
-    Sold by Whispers in Ward 13`,
     wikiLinks: [`https://remnant.wiki/Field_Medic_Gloves`],
   },
   {
@@ -2542,8 +2473,6 @@ export const remnantItems: Item[] = [
     blightResistance: 0,
     toxinResistance: 1,
     description: `Metal arm guards paired with well-worn gloves that are more comfortable gripping a warm gun than reaching for a handshake. They're tasked with protecting your greatest asset - your trigger finger.`,
-    howToGet: `Starting equipment for the GUNSLINGER Archetype.
-    Can be bought from Whispers in Ward 13`,
     wikiLinks: [`https://remnant.wiki/High_Noon_Armguards`],
   },
   {
@@ -2629,8 +2558,6 @@ export const remnantItems: Item[] = [
     blightResistance: 7,
     toxinResistance: 0,
     description: `A single glove and arm wrap are all you need or want for arm protection. The only defense you can truly rely on is a loaded gun and a clear shot.`,
-    howToGet: `Starting equipment for the HUNTER Archetype
-    Can be bought from Whispers in Ward 13`,
     wikiLinks: [`https://remnant.wiki/Nightstalker_Gloves`],
   },
   {
@@ -2648,8 +2575,6 @@ export const remnantItems: Item[] = [
     blightResistance: 0,
     toxinResistance: 1,
     description: `The fingerless leather gloves provide exceptional dexterity to the wearer, while the vambraces are adorned with a blue gem that gives the wearer access to the volatile energy stored within.`,
-    howToGet: `Obtained for free by purchasing Remnant 2 Deluxe Edition or Ultimate Edition
-    Can be bought from Whispers after beating the game once.`,
     wikiLinks: [`https://remnant.wiki/Radiant_Bracers`],
   },
   {
@@ -2735,8 +2660,6 @@ export const remnantItems: Item[] = [
     blightResistance: 0,
     toxinResistance: 1,
     description: `A tingle runs across your palm within these gloves - like bugs skittering over your hand.`,
-    howToGet: `Starting equipment for the ENGINEER.
-    Can be found on a dead body in The Eon Vault in N'erud`,
     wikiLinks: [`https://remnant.wiki/Technician_Gloves`],
   },
   {
@@ -2754,8 +2677,6 @@ export const remnantItems: Item[] = [
     blightResistance: 1,
     toxinResistance: 1,
     description: `An arm guard that also functions as a bite sleeve for training on the subtle nuances of when and who to bite.`,
-    howToGet: `Starting equipment for the HANDLER
-    Can be bought from Whispers in Ward 13`,
     wikiLinks: [`https://remnant.wiki/Trainer_Bracer`],
   },
   {
@@ -2773,8 +2694,6 @@ export const remnantItems: Item[] = [
     blightResistance: 0,
     toxinResistance: 1,
     description: `Crafted from an enigmatic substance that resembles hardened bone in appearance. These gloves are a powerful tool in the hands of those who would wield the void, drawing energy from the emptiness between worlds to unleash devastating attacks. But with great power comes great cost, and those who dare to wear these gloves must be prepared to pay the price.`,
-    howToGet: `Obtained for free by purchasing Remnant 2 Deluxe Edition or Ultimate Edition
-    Can be bought from Whispers after beating the game once.`,
     wikiLinks: [`https://remnant.wiki/Void_Wraps`],
   },
   {
@@ -3392,8 +3311,6 @@ export const remnantItems: Item[] = [
     imagePath: '/mainhand/as_10_bulldog.png',
     id: 'va7cfd',
     description: `A brutal drum-fed fully-automatic 10 gauge shotgun designed for close-quarters combat.`,
-    howToGet: `Starting equipment for the CHALLENGER Class
-    Can be bought from Brabus at Ward 13`,
     wikiLinks: [`https://remnant.wiki/AS-10_%22Bulldog%22`],
     damage: 60,
     rps: 2.5,
@@ -3407,8 +3324,6 @@ export const remnantItems: Item[] = [
     imagePath: '/mainhand/blackmaw_ar_47.png',
     id: 'phh1xe',
     description: `A fully automatic rifle with a medium capacity. Highly effective with controlled bursts.`,
-    howToGet: `Starting equipment for the HANDLER Class
-    Can be bought from Brabus at Ward 13`,
     wikiLinks: [`https://remnant.wiki/Blackmaw_AR-47`],
     damage: 17,
     rps: 7.3,
@@ -3446,8 +3361,6 @@ export const remnantItems: Item[] = [
     imagePath: '/mainhand/corrupted_aphelion.png',
     id: 'w85ya8',
     description: `Fires a hypercharged wide-arcing line that passes through targets.`,
-    howToGet: `Added with the Aberration Domination update
-    Can be purchased from Dwell by exchanging x10 Corrupted Shard and the original Aphelion`,
     wikiLinks: [`https://remnant.wiki/Corrupted_Aphelion`],
     linkedItems: {
       mod: {
@@ -3483,8 +3396,6 @@ export const remnantItems: Item[] = [
     imagePath: '/mainhand/corrupted_deceit.png',
     id: 'k9w4yh',
     description: `A pinpoint accurate split-barreled rifle that fires two penetrating rails. High base damage, but cannot score Weakspot hits. Charge to fire.`,
-    howToGet: `Added with the Aberration Domination update
-    Can be purchased from Dwell by exchanging x10 Corrupted Shard and the original Deceit`,
     wikiLinks: [`https://remnant.wiki/Corrupted_Deceit`],
     linkedItems: {
       mod: {
@@ -3502,8 +3413,6 @@ export const remnantItems: Item[] = [
     imagePath: '/mainhand/corrupted_merciless.png',
     id: '8i85za',
     description: `Fires high-powered nails. Limited magazine size.`,
-    howToGet: `Added with the Aberration Domination update
-    Can be purchased from Dwell by exchanging x10 Corrupted Shard and the original Merciless`,
     wikiLinks: [`https://remnant.wiki/Corrupted_Merciless`],
     linkedItems: {
       mod: {
@@ -3600,8 +3509,6 @@ export const remnantItems: Item[] = [
     imagePath: '/mainhand/huntmaster_m1.png',
     id: 'cda7lb',
     description: `A powerful single-shot sniper rifle with excellent range and pinpoint accuracy. Comes with a 3x scope. Tap SCOPE to toggle.`,
-    howToGet: `Can be bought from Brabus at Ward 13
-    Starting Long Gun for the HUNTER archetype.`,
     wikiLinks: [`https://remnant.wiki/Huntmaster_M1`],
     damage: 70,
     rps: 1.5,
@@ -3696,8 +3603,6 @@ export const remnantItems: Item[] = [
     imagePath: '/mainhand/repulsor.png',
     id: 'v6zmn3',
     description: `Converted from experimental Dreamer tech, ideal for mid-range combat. Weapon becomes more accurate the longer AIM is held.`,
-    howToGet: `In Brabus' Shop after a Nightmare clear.
-    Deleting the character who unlocked them does NOT remove them from the shop.`,
     wikiLinks: [`https://remnant.wiki/Repulsor`],
     linkedItems: {
       mod: {
@@ -3760,8 +3665,6 @@ export const remnantItems: Item[] = [
     id: '2jrbvl',
     tags: ['Hardcore'],
     description: `A old Fusion Rifle refactored to store and violently release energy in each shot. Can be charged for more damage. Perfect release after Charge for maximum damage.`,
-    howToGet: `In Brabus' Shop after a Hardcore Veteran clear.
-    Deleting the character who unlocked them does NOT remove them from the shop.`,
     wikiLinks: [`https://remnant.wiki/Savior`],
     linkedItems: {
       mod: {
@@ -3794,8 +3697,6 @@ export const remnantItems: Item[] = [
     id: 'q3fgj2',
     description: `An exceptionally powerful single-shot weapon that deals bonus stagger damage.
     Must reload after each round fired.`,
-    howToGet: `Sporebloom can be obtained in Brabus' Shop after Veteran clear.
-    Deleting the character who unlocked them does NOT remove them from the shop.`,
     wikiLinks: [`https://remnant.wiki/Sporebloom`],
     linkedItems: {
       mod: {
@@ -3814,8 +3715,6 @@ export const remnantItems: Item[] = [
     id: 'hzmyu1',
     description: `Alien rifle that shoots high velocity beams which penetrate enemies. Equipped with
     a 2.5x magnification scope. Double Tap AIM to Scope.`,
-    howToGet: `Starkiller can be obtained in Brabus' Shop after a Apocalypse clear.
-    Deleting the character who unlocked them does NOT remove them from the shop.`,
     wikiLinks: [`https://remnant.wiki/Starkiller`],
     linkedItems: {
       mod: {
@@ -4314,8 +4213,6 @@ export const remnantItems: Item[] = [
     imagePath: '/melee/steel_katana.png',
     id: '0cnwdx',
     description: `An old piece of steel with serrations cut into one side. Pipe handle provides limited grip.`,
-    howToGet: `Can be bought from Brabusat Ward 13.
-    Can be found in Root Earth- Ashen Wasteland`,
     wikiLinks: [`https://remnant.wiki/Steel_Katana`],
     damage: 56,
   },
@@ -4386,8 +4283,6 @@ export const remnantItems: Item[] = [
     id: 'gilcfn',
     description: `A glowing Greatsword forged from shards of a shattered Worldstone. Charge
     attacks cast waves.`,
-    howToGet: `Can be obtained in Brabus' Shop after completing the campaign on Apocalypse
-    Deleting the character who unlocked them does NOT remove them from the shop`,
     wikiLinks: [`https://remnant.wiki/World%27s_Edge`],
     linkedItems: {
       mod: {
@@ -4467,8 +4362,6 @@ export const remnantItems: Item[] = [
     imagePath: '/offhand/corrupted_meridian.png',
     id: 'yw1btj',
     description: `Fires rocket that deals AOE damage [E] within 2m. [A] Charging the weapon can load additional rockets.  (Max 3). Cannot Weakspot`,
-    howToGet: `Added with the Aberration Domination update
-    Can be purchased from Dwell by exchanging x10 Corrupted Shard and the original Meridian`,
     wikiLinks: [`https://remnant.wiki/Corrupted_Meridian`],
     linkedItems: {
       mod: {
@@ -4503,8 +4396,6 @@ export const remnantItems: Item[] = [
     imagePath: '/offhand/corrupted_rune_pistol.png',
     id: 'id5pbt',
     description: `A pistol infused with erroneous properties. Fires energy, allowing the trigger to be held for continuous fire.`,
-    howToGet: `Added with the Aberration Domination update
-    Can be purchased from Dwell by exchanging x10 Corrupted Shard and the original Rune Pistol`,
     wikiLinks: [`https://remnant.wiki/Corrupted_Rune_Pistol`],
     linkedItems: {
       mod: {
@@ -4654,8 +4545,6 @@ export const remnantItems: Item[] = [
     imagePath: '/offhand/repeater_pistol.png',
     id: 'pbtmmj',
     description: `An accurate semi-automatic pistol that can rapidly fire small-caliber bullets.`,
-    howToGet: `Can be bought from Brabus in Ward 13
-    Starting Hand Gun for the HUNTER Archetype.`,
     wikiLinks: [`https://remnant.wiki/Repeater_Pistol`],
     damage: 15,
     rps: 7.5,
@@ -4821,8 +4710,6 @@ export const remnantItems: Item[] = [
     imagePath: '/mod/astral_burst.png',
     id: 'mqta6g',
     description: `Fires a short range burst of 7 star fragments which deal 35 damage each. Fragments bounce off walls up to 3 times, dealing 35% additional damage per bounce. Weakspot hits deal reduced damage.`,
-    howToGet: `Crafted from Faith Seed
-    Found in Cathedral of Omen`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Astral+Burst`],
   },
   // * Updated in patch
@@ -4928,8 +4815,6 @@ export const remnantItems: Item[] = [
     imagePath: '/mod/blood_draw.png',
     id: 'ss7zwt',
     description: `Shoots out razor-sharp Chain Shards which impale up to 5 targets within 15m, dealing 10 damage [E]. On hit, chains are pulled towards the caster, dealing 250damage split equally among enemies and applying 275 BLEEDING damage over 15s.`,
-    howToGet: `Crafted from Bloody Steel Splinter
-    Appease The Red Princewith five Crimson King Coins`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Blood+Draw`],
   },
   {
@@ -4978,8 +4863,6 @@ export const remnantItems: Item[] = [
     id: 'iq4wjy',
     tags: ['Critical Chance', 'Weakspot Damage'],
     description: `Fires a drill projectile which bores into enemies on contact, dealing 80 damage. After fully burrowing into an enemy, creates a Weakspot which grants 50% of normal Weakspot Damage on hit. If attached to an existing Weakspot, Ranged Crit Chance is increased by 15% when attacking the drill. Lasts 6s.`,
-    howToGet: `Crafted from Mutated Growth
-    Drops from Abomination`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Bore`],
   },
   {
@@ -5027,8 +4910,6 @@ export const remnantItems: Item[] = [
     description: `Imbues ammunition with ACID and increases Range Critical Chance by 15% for 20s. Shots apply CORRODED dealing 150 damage over 10s.
 
     Mod Power Requirement: 1,250`,
-    howToGet: `Crafted from Tainted Ichor
-    Drops from Magister Dullain`,
     wikiLinks: [`https://remnant.wiki/Corrosive_Rounds`],
   },
   {
@@ -5116,8 +4997,6 @@ export const remnantItems: Item[] = [
     description: `Infects weapon with Malware for 30s, causing shots to apply FRAGMENTED for 15s. When a FRAGMENTED enemy dies, they create a Glitch that lasts 5s. 
     Picking up a Glitch increases All damage by 20% for 5s. 
     Destroying a Glitch causes it to destabilize, creating a 5m [R] Virus Pool which deals 25 damage per second and applies the FRAGMENTED debuff to enemies inside. Virus Pools last 15s.`,
-    howToGet: `Crafted from Necrocyte Strand
-    Drops from Cancer`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Defrag`],
   },
   {
@@ -5166,8 +5045,6 @@ export const remnantItems: Item[] = [
     imagePath: '/mod/energy_wall.png',
     id: '8uluwc',
     description: `Deploys an energy barrier on impact with ground. Allies can shoot through Energy Wall but enemy projectiles are absorbed (up to 500 damage received). Max 1 Wall at a time. Lasts 30s.`,
-    howToGet: `Crafted from Ionic Crystal
-    Found in Timeless Horizon`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Energy+Wall`],
   },
   {
@@ -5216,8 +5093,6 @@ export const remnantItems: Item[] = [
     imagePath: '/mod/familiar.png',
     id: 'sccdmt',
     description: `Summons Faerie Familiar to aid in combat. The Familiar selects a random enemy within 10m [R] and slashes through them for 25 damage each attack. Familiar will select a new target when the previous one dies. Lasts 15s.`,
-    howToGet: `Crafted from Sacred Hunt Feather
-    Invade The Huntress dream`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Familiar`],
   },
   {
@@ -5226,8 +5101,6 @@ export const remnantItems: Item[] = [
     imagePath: '/mod/fargazer.png',
     id: 'yedqs6',
     description: `Calls forth an eye of Legion to gaze at player's AIM target. For every 0.25sFargazer focuses on a target within 25m, a stack of MADNESS Status is applied for 5s. Each stack deals 3 Damage per second. Max 10 stacks. Lasts 30s.`,
-    howToGet: `Crafted frim Agnosia Driftwood
-    Drops from Legion`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Fargazer`],
   },
   {
@@ -5263,8 +5136,6 @@ export const remnantItems: Item[] = [
     imagePath: '/mod/firestorm.png',
     id: 'snlx8w',
     description: `Creates a whirling cyclone that sucks in nearby targets [A] and applies BURNING for 10s. The center of the cyclone deals 75 FIRE damage per second. Lasts 15s.`,
-    howToGet: `Crafted from Forlorn Fragment
-    Slay The Red Prince`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Firestorm`],
   },
   {
@@ -5380,8 +5251,6 @@ export const remnantItems: Item[] = [
     imagePath: '/mod/helix.png',
     id: '1mtqkk',
     description: `Shoots a helix of missiles, dealing 120 damage [E]. On contact, divides into 6 smaller rockets which seek additional targets, dealing 30 damage [E] on contact.`,
-    howToGet: `Crafted from Seeker Residue
-    Drops from The Astropath`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Helix`],
   },
   {
@@ -5537,8 +5406,6 @@ export const remnantItems: Item[] = [
     imagePath: '/mod/prismatic_driver.png',
     id: 'vtcg3o',
     description: `Fires a superheated beam which deals 25 Mod Damage per second. Sustaining the beam on a target causes an explosion which deals 150 Mod damage [E] in a 3m [A] AOE.`, //(sic!) mod damage instead of damage
-    howToGet: `Crafted from Sentry's Old Iris
-    Drops from The Custodian's Eye`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Prismatic+Driver`],
   },
   {
@@ -5570,8 +5437,6 @@ export const remnantItems: Item[] = [
     imagePath: '/mod/rootlash.png',
     id: 'nfw6ja',
     description: `Launches a projectile which summons a Root Tentacle. Tentacles deal 30 damage and steal 1.5% of the hero's Max Health per hit. Lasts 20s. (Max 2)`,
-    howToGet: `Crafted from Twilight Dactylus
-    Drops from Kaeula's Shadow`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Rootlash`],
   },
   {
@@ -5580,8 +5445,6 @@ export const remnantItems: Item[] = [
     imagePath: '/mod/rotted_arrow.png',
     id: 'vgin4w',
     description: `Fires a rotten arrow that deals 19.8 damage and detonates for another 60 damage [E] within 4m. [A] A deadly gas cloud is left behind that deals 200 damage over 5s.`,
-    howToGet: `Crafted from Soul Sliver
-    Drops from Shrewd`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Rotted+Arrow`],
   },
   {
@@ -5626,8 +5489,6 @@ export const remnantItems: Item[] = [
     imagePath: '/mod/skewer.png',
     id: 'cpvech',
     description: `Fires a Wretched Spear which embeds itself on contact. Spears deal 125 damage on hit, rapidly dividing inside the target until bursting, dealing 140 damage to all targets within 3m. [A] Spears embedded in the environment remain in place for 10s.`,
-    howToGet: `Crafted from Dread Core
-    Drops from Venom`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Skewer`],
   },
   {
@@ -5637,8 +5498,6 @@ export const remnantItems: Item[] = [
     id: 'edm644',
     description: `Fires a shot infused with the binding power of the Song of Eafir. Staggers most ground enemies within 10m [A] and deals 150 damage [E] to Flying enemies within the same range.
     The song continues for 15s, afflicting targets within 15m [A] with SLOW, and a 15% decrease to damage dealt.`,
-    howToGet: `Crafted from Scroll of Binding
-    Speak with The Flautistafter playing the secret melody`,
     wikiLinks: [`https://remnant.wiki/Song_of_Eafir`],
   },
   {
@@ -5660,8 +5519,6 @@ export const remnantItems: Item[] = [
     imagePath: '/mod/soulbinder.png',
     id: '5bb0mv',
     description: `Fires a projectile that attaches to the enemy dealing 40 damage. Enemies within 7m [R] become bound to the primary target after impact and share 60% of damage dealt to them. Lasts 15s.`,
-    howToGet: `Crafted from Heart Seed
-    Found in The Chimney`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Soulbinder`],
   },
   {
@@ -5670,8 +5527,6 @@ export const remnantItems: Item[] = [
     imagePath: '/mod/space_crabs.png',
     id: '4wd3gm',
     description: `Launch an alien egg that bursts on impact, releasing 5 Space Crabs. Crabs follow the caster, leaping towards enemies within 4m, and exploding, dealing 60 damage [E] each.`,
-    howToGet: `Crafted from Cracked Shell
-    Drops from Primogenitor`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Space+Crabs`],
   },
   {
@@ -5706,8 +5561,6 @@ export const remnantItems: Item[] = [
     imagePath: '/mod/stasis_beam.png',
     id: 'rer73h',
     description: `Fires a beam which deals 15 damage per second, and applies SLOW Debuff. After 2s of application to a target, SLOW becomes STASIS, freezing the target in place for 10s.`,
-    howToGet: `Crafted from Stasis Core
-    Found at The Eon Vault`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Stasis+Beam`],
   },
   {
@@ -5732,8 +5585,6 @@ export const remnantItems: Item[] = [
     id: 'nn1q6k',
     description: `Creates a 6m [R] blast which freezes all standard enemies for 7s. 
     Dealing damage to frozen enemies immediately breaks the Time Lapse effect, applying SLOW for the remaining duration.`,
-    howToGet: `Crafted from Broken Timepiece
-    Found in The Clock Tower Event`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Time+Lapse`],
   },
   {
@@ -5742,8 +5593,6 @@ export const remnantItems: Item[] = [
     imagePath: '/mod/tremor.png',
     id: 'g6glpj',
     description: `Fires a projectile that cracks the ground and spawns shockwaves that deal 75 damage [E] within 9m [A] for 6s. Shockwaves inflict 3x impact.`,
-    howToGet: `Crafted from Cordyceps Gland
-    Drops from Mother Mind`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Tremor`],
   },
   {
@@ -5752,8 +5601,6 @@ export const remnantItems: Item[] = [
     imagePath: '/mod/voltaic_rondure.png',
     id: 'wjopwy',
     description: `Launches a slow-moving orb that pulses every 0.5s, striking enemies within 3m [R] for 20 SHOCK damage and applying OVERLOADED for 15s. The orb lasts 20s. The orb can be overcharged by striking it with additional damage.`,
-    howToGet: `Crafted from Bone Sap
-    Drops from Bloat King`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Voltaic+Rondure`],
   },
   // * Updated in patch
@@ -5805,8 +5652,6 @@ export const remnantItems: Item[] = [
     imagePath: '/mod/witchfire.png',
     id: 'ggf5qe',
     description: `Fires a highly volatile projectile that explodes to leave a line of flaming terrain. [A] Deals 55 FIRE Damage per second, and applies BURNING, dealing 200 damage over 10s. Lasts 5s.`,
-    howToGet: `Crafted from Alkahest Powder
-    Drops from Gwendil The Unburnt`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Witchfire`],
   },
   {
@@ -6474,8 +6319,6 @@ EXPOSED: Target receives up to 24% additional damage from all sources. Expose am
     id: 'hug5mz',
     tags: ['All Damage', 'Damage Reduction'],
     description: `Reduces Max Relic Charges to 1. Increases All Damage by 20% when wearer has 1 Relic Charge. Increases incoming damage by 20% when wearer has no Relic Charges and after 30s, regain 1 Relic Charge.`,
-    howToGet: `"Before The One True King's throne room, you will find the three former counsels dead. Shoot their bodies and one of them will drop this item.
-Exclusive to The Awakened King DLC"`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Cost+of+Betrayal`],
   },
   {
@@ -7325,8 +7168,6 @@ For Heavy Weapons, doubles Heavy Weapon Ammo instead."`,
     id: '17ckov',
     tags: ['Melee Attack Speed'],
     description: `Increases Melee Attack Speed by 15%.`,
-    howToGet: `"Can be found in Yaesha as a random drop.
-Exclusive Ring for The Awakened King DLC."`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Brawler's+Pride`],
   },
   {
@@ -7400,8 +7241,6 @@ Exclusive Ring for The Awakened King DLC."`,
     id: 'k89bxv',
     tags: ['Mod Power'],
     description: `Increases Skill Cooldowns by 25%. Generate 10% additional Mod Power for each Skill on Cooldown.`,
-    howToGet: `"Can be found in N'Erud - Ascension Spire.
-Can be crafted at Drzyr Replicator, you will need the following Materials: x10 Iron, 500 Scrap."`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Burden+of+the+Mariner`],
   },
   {
@@ -7421,8 +7260,6 @@ Can be crafted at Drzyr Replicator, you will need the following Materials: x10 I
     id: '7xb5zr',
     tags: ['Mod Damage', 'Skill Damage', 'Ammo Reserves'],
     description: `Reduces Ammo Reserves by 25%. Increases Mod and Skill Damage by 15%`,
-    howToGet: `"Give the Bookbound Medallion to Leywise to receive the Burden of the Sciolist
-Exclusive Ring for The Awakened King DLC."`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Burden+of+the+Sciolist`],
   },
   {
@@ -7571,8 +7408,6 @@ Exclusive Ring for The Awakened King DLC."`,
     id: 'v4yzc6',
     tags: ['Mod Damage'],
     description: `Reloading increases Mod Damage by 10% for 5s.`,
-    howToGet: `"Can be found in Forlorn Coast. Dropped by one of the hogs that attack you near the anchor statue.
-Exclusive Ring for The Awakened King DLC."`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Digested+Hog+Lure`],
   },
   {
@@ -7591,8 +7426,6 @@ Exclusive Ring for The Awakened King DLC."`,
     id: 'fojjag',
     tags: ['Stamina', 'Encumbrance'],
     description: `Increases Max Stamina by 20 and reduces Encumbrance by 5.`,
-    howToGet: `"Can be found in Losomn, by saving the dran in The Burning Event
-Burning can be prevented by killing all the enemies, not allowing any to light the fire under the hanging man."`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Dran+Memento`],
     weight: -5,
     stamina: 20,
@@ -7624,8 +7457,6 @@ Burning can be prevented by killing all the enemies, not allowing any to light t
     id: 'ez6z8b',
     tags: ['Damage Reduction', 'All Damage'],
     description: `Grants 1 stack of BULWARK. Increases All Damage by 60% of the total Damage Reduction granted by BULWARK stacks`,
-    howToGet: `"Random drop in Losomn.
-Exclusive Ring for The Awakened King DLC."`,
     wikiLinks: [`https://remnant.wiki/Dried_Clay_Ring`],
   },
   {
@@ -7665,8 +7496,6 @@ Exclusive Ring for The Awakened King DLC."`,
     id: '5dipaq',
     tags: ['Encumbrance'],
     description: `Increases Dodge Weight Threshold by 5. Reduces Encumbrance by 5`,
-    howToGet: `"Can be found in Forlorn Coast. As you access the lift to get down, on a body in front of you.
-Exclusive Ring for The Awakened King DLC."`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Elevated+Ring`],
     weight: -5,
     weightThreshold: 5,
@@ -7828,8 +7657,6 @@ Exclusive Ring for The Awakened King DLC."`,
     id: '4j9wo9',
     tags: ['Perfect Dodge', 'Fire Rate', 'Melee Speed'],
     description: `Increases Evade Speed by 10%. Perfect Evades increase Fire Rate by 10% and Melee Speed by 10% for 10s.`,
-    howToGet: `"Can be found in Yaesha - The Forbidden Grove. Rewarded to the player by Bedel of the Vaunnt after reviving The Doe in the Ravagerencounter. 
-Player needs to choose sarcastic answers when first speaking to Bedel and choose ""Maybe..."" dialogue option when inquired about who saved The Doe. This reminds Bedel about his friend and he gives player the ring."`,
     wikiLinks: [`https://remnant.wiki/Frivolous_Band`],
   },
   {
@@ -7867,8 +7694,6 @@ Player needs to choose sarcastic answers when first speaking to Bedel and choose
     imagePath: '/ring/grounding_stone.png',
     id: 'o7vaf6',
     description: `Increases SHOCK damage by 10% and SHOCK Resistance by 15.`,
-    howToGet: `"Can be found in Losomn.
-Can also can be bought from Reggie at Ward 13 for 500"`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Grounding+Stone`],
     shockResistance: 15,
   },
@@ -7943,8 +7768,6 @@ Can also can be bought from Reggie at Ward 13 for 500"`,
     id: 'sosywj',
     tags: ['Mod Damage'],
     description: `On Relic Use, increase Mod Damage by 15% for 10s`,
-    howToGet: `"Can be found in Forlorn Coast. Given by Nimue if players kill The One True King, but don't talk to her previously.
-Exclusive Ring for The Awakened King DLC."`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Jewel+of+the+Beholden`],
   },
   {
@@ -7964,8 +7787,6 @@ Exclusive Ring for The Awakened King DLC."`,
     id: 't8u4k1',
     tags: ['Mod Power', 'Status Effect'],
     description: `Automatically generate 3 Mod Power per second for each entity within 10m suffering from a Negative Status Effect. Max 5 stacks.`,
-    howToGet: `"Unlock the door of the Lighthouse in Derelict Lighthouse using the Lighthouse Key and in the next room you will find the Ring.
-Exclusive Ring for The Awakened King DLC."`,
     wikiLinks: [
       `https://remnant2.wiki.fextralife.com/Lighthouse+Keeper's+Ring`,
     ],
@@ -8022,8 +7843,6 @@ Exclusive Ring for The Awakened King DLC."`,
     id: 'ayje99',
     tags: ['Encumbrance'],
     description: `Increases Encumbrance by 50. Increases Unarmed damage by 50%.`,
-    howToGet: `"Can be found in N'Erud.
-Can be crafted at Drzyr Replicator, you will need the following Materials: x10 Iron, 750 Scrap."`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Meteorite+Shard+Ring`],
     weight: 50,
   },
@@ -8034,8 +7853,6 @@ Can be crafted at Drzyr Replicator, you will need the following Materials: x10 I
     id: 'rtfwr5',
     tags: ['Heat Generation'],
     description: `Reduces Heat Generation when firing weapons that Overheat by -30%. Increases Heat Reduction Rate by 30%.`,
-    howToGet: `"Can be found in N'Erud.
-Can be crafted at Drzyr Replicator, you will need the following Materials: x10 Forged Iron, 750 Scrap."`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Microcompressor`],
   },
   {
@@ -8094,8 +7911,6 @@ Can be crafted at Drzyr Replicator, you will need the following Materials: x10 F
     id: 'oavdxw',
     tags: ['All Damage'],
     description: `Increases All Damage dealt by 1% per second to a maximum of 15%. Dodging resets Power Complex to 0%`,
-    howToGet: `"Can be found in N'Erud as a random drop.
-Exclusive Ring for The Awakened King DLC."`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Power+Complex`],
   },
   {
@@ -8231,8 +8046,6 @@ Exclusive Ring for The Awakened King DLC."`,
     id: '0yfahk',
     tags: ['Fire Rate'],
     description: `Increases fire rate by 8%.`,
-    howToGet: `"Refuse to give the Bookbound Medallion to Leywise the first time, and accept the second time.
-Exclusive Ring for The Awakened King DLC."`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Ring+of+Infinite+Damage`],
   },
   {
@@ -8345,8 +8158,6 @@ Exclusive Ring for The Awakened King DLC."`,
     imagePath: '/ring/sagestone.png',
     id: 'pl1g6b',
     description: `Increases earned Experience by 10%.`,
-    howToGet: `"Yaesha - Possible spawn in The Lament
-Yaesha - Possible spawn in The Twisted Chantry"`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Sagestone`],
   },
   {
@@ -8432,8 +8243,6 @@ Yaesha - Possible spawn in The Twisted Chantry"`,
     id: '8kotg5',
     tags: ['Damage Reduction', 'Summon'],
     description: `Gain a stack of BULWARK for each active Summon.`,
-    howToGet: `"Can be found in Yaesha 
-Can be crafted at Bloodmoon Altar. Required Material: Blood Moon Essence"`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Soul+Guard`],
   },
   {
@@ -8533,8 +8342,6 @@ Can be crafted at Bloodmoon Altar. Required Material: Blood Moon Essence"`,
     imagePath: '/ring/suppression_ward.png',
     id: '44my16',
     description: `Prevents SUPPRESSION Blight.`,
-    howToGet: `"Can be found in N'Erud.
-Can be crafted at Drzyr Replicator, you will need the following Materials: x5 Iron, 250 Scrap."`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Suppression+Ward`],
   },
   {
@@ -8553,8 +8360,6 @@ Can be crafted at Drzyr Replicator, you will need the following Materials: x5 Ir
     id: 'w4xzfq',
     tags: ['Melee Damage'],
     description: `Increases damage of Unarmed Attacks by 30%.`,
-    howToGet: `"It can be found in Ward 13.
-Near the armor merchant, there is a ladder, climb that ladder and talk to the man on the bed. He'll mention a story, keep interacting with him until he gives you the ring."`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Tarnished+Ring`],
   },
   {
@@ -8751,8 +8556,6 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     tags: ['Damage Reduction'],
     description: `Reduces ALL incoming Damage`,
     maxLevelBonus: `At max level, Barkskin Reduces ALL incoming Damage by 10%`,
-    howToGet: `Yaesha - The Far Woods or The Forbidden Grove (Meidra's Sorrow)
-    Barkskin is given to you by Meidra's Sorrow if you choose the selfless answers to her questions.`,
     wikiLinks: [`https://remnant.wiki/Barkskin`],
   },
   {
@@ -8773,8 +8576,6 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     tags: ['Grey Health'],
     description: `Increases Grey Health regen`,
     maxLevelBonus: `At max level, Bloodstream Increases Grey Health regen by 3.0/s`,
-    howToGet: `Yaesha - The Far Woods or The Forbidden Grove (Meidra's Sorrow)
-    Bloodstream is given to you by Meidra's Sorrow if you choose the selfish answers to her questions.`,
     wikiLinks: [`https://remnant.wiki/Bloodstream`],
   },
   // TODO Tragic indicated he was thinking of changing this
@@ -8817,8 +8618,6 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     tags: ['Neutral Dodge', 'Perfect Dodge', 'Perfect Neutral Evade'],
     description: `Increases Evade Distance`,
     maxLevelBonus: `At max level, Fitness Increases Evade Distance by +30%`,
-    howToGet: `N'Erud - Vault of the Formless
-    The trait is awarded by completing the boss at the end of the dungeon. `,
     wikiLinks: [`https://remnant.wiki/Fitness`],
   },
   {
@@ -8880,8 +8679,6 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     tags: ['Spread', 'Recoil'],
     description: `Reduces Weapon Spread and Recoil`,
     maxLevelBonus: `At max level, Handling Reduces Weapon Spread and Recoil by 40%`,
-    howToGet: `Root Earth - Ashen Wasteland
-    Defeat the Root Shade.`,
     wikiLinks: [`https://remnant.wiki/Handling`],
   },
   {
@@ -8947,8 +8744,6 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     tags: ['Stamina'],
     description: `Increases Stamina Regen`,
     maxLevelBonus: `At max level, Recovery Increases Stamina Regen by 30/s`,
-    howToGet: `Losomn - Morrow Parish
-    When venturing outside, bring the Lost Dran Children you find back to the Oracle of the Dran (she’s in a house with several other children).`,
     wikiLinks: [`https://remnant.wiki/Recovery`],
   },
   {
@@ -9012,9 +8807,6 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     tags: ['Damage Reduction'],
     description: `Increases Resistance to Elemental Status Effect Damage`,
     maxLevelBonus: `At max level, Shadeskin Increases Resistance to Elemental Status Effect Damage by 20%`,
-    howToGet: `Location: Losomn - Butcher's Quarter
-    By allowing the Dran to be burned in The Burning Event. (note: the neutral Dran will turn hostile to you at the conclusion of the event).
-    By preventing Dran from being burned you are rewarded with both the Shadeskin trait and Dran Memento`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Shadeskin`],
     // Increases by 2% per level, but since 10 fire resistance is 10%
     // we add the percentage
@@ -9170,10 +8962,6 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     id: 'byi9a5',
     tags: ['Perfect Dodge', 'Neutral Dodge', 'Perfect Neutral Evade'],
     description: `Increases Distance of Evade and Combat Slide by 15% and reduces the cost by 20%. Lasts 60m and will stay in effect after death. Only one Concoction may be active at a time.`,
-    howToGet: `
-    Can be bought from Mudtooth at the following cost: 500 Scrap.
-    Can be crafted at Drzyr Replicator, you will need the following Materials: 650 Scrap.
-`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Dark+Fluid`],
   },
   {
@@ -9183,10 +8971,6 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     id: '4yzeco',
     tags: ['Damage Reduction'],
     description: `Reduces Damage by 8%.`,
-    howToGet: `
-    You can get Meat Shake by taking Feast Master's Leftovers to Duane in Ward 13 and constantly harrass him by asking if he is done will finish it in about 10-20 minutes.
-    Can be bought for 500 Scrap from Muddy after aquiring it once from Duane.
-`,
     wikiLinks: [`https://remnant.wiki/Meat_Shake`],
   },
   {
@@ -9233,10 +9017,6 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     id: 'dk9yg4',
     tags: ['Grey Health', 'Heal'],
     description: `Increases Grey Health Conversion by 50% and Grey Health Regen by 1 per second. Lasts 60m and will stay in effect after death. Only one Concoction may be active at a time.`,
-    howToGet: `
-    Can be bought from Mudtooth at the following cost: 500 Scrap.
-    Can be bought from Bedel of the Vaunnt for 650 Scrap.
-`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Sacred+Lakewater`],
   },
   {
@@ -9246,10 +9026,6 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     id: 'kyulid',
     tags: ['Lifesteal'],
     description: `Increases Ranged and Melee Lifesteal by 3.5% of base damage. Increases damage taken by 10%. Lasts 60m and will stay in effect after death. Only one Concoction may be active at a time.`,
-    howToGet: `
-    Yaesha - Can be crafted at Bloodmoon Altar. Required Material: Blood Moon Essence.
-    Can be bought from Mudtooth at the following cost: 500 Scrap.
-`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Sanguine+Vapor`],
   },
   {
@@ -9270,10 +9046,6 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     id: 'l7r9sm',
     tags: ['Spread', 'Recoil'],
     description: `Reduces Reticle Sway, Spread, and Gun Recoil by 25%. Lasts 60m and will stay in effect after death. Only one Concoction may be active at a time.`,
-    howToGet: `
-    Can be bought from Mudtooth at the following cost: 500 Scrap.
-    Can be crafted by Nimue with the following material: 350 Scrap and x1 Lumenite Crystal.
-`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Tranquility+Font`],
   },
   {
@@ -9292,11 +9064,6 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     id: '2jeq07',
     tags: ['Reduce Skill Cooldown'],
     description: `Reduces Skill Cooldowns by 10%. Lasts 60m and will stay in effect after death. Only one Concoction may be active at a time.`,
-    howToGet: `
-    Can be bought from Mudtooth at the following cost: 500 Scrap.
-    Can be crafted at Drzyr Replicator, you will need the following Materials: 650 Scrap.
-    Found in N'Erud as random Drop.
-`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Xenoplasm`],
   },
   {
@@ -9307,10 +9074,6 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     id: '6lnae6',
     tags: ['Perfect Dodge', 'Neutral Dodge', 'Perfect Neutral Evade'],
     description: `Slightly increases Evade Window and Evade Speed by 15%. Lasts 60s.`,
-    howToGet: `
-    Can be bought form Reggie for 200 scrap currency
-    Can be crafted at Drzyr Replicator, you will need the following Materials: 200 Scrap.
-`,
     wikiLinks: [`https://remnant.wiki/Ambit_Ember`],
   },
   {
@@ -9346,10 +9109,6 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     imagePath: '/consumable/binding_orb.png',
     id: 'edaeta',
     description: `When thrown, device becomes an anchor and applies SLOW to all enemies within 4m. [A] Lasts 20s.`,
-    howToGet: `
-    Can be bought form Reggie for 250 scrap currency.
-    Can be crafted at Drzyr Replicator, you will need the following Materials: 250 Scrap.
-`,
     wikiLinks: [`https://remnant.wiki/Binding_Orb`],
   },
   {
@@ -9377,10 +9136,6 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     imagePath: '/consumable/brightstone.png',
     id: '937h03',
     description: `When thrown, explodes in a 4m [A] radius dealing 250 damage and leaving a mysterious Mist which causes enemies to receive 10% additional damage. Debuff last 10s after enemies leave the Mist. Lasts 15s.`,
-    howToGet: `
-    Can be bought form Reggie for 250 scrap currency
-    Can be bought form Bedel of the Vaunnt for 250 scrap currency
-`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Brightstone`],
   },
   {
@@ -9417,10 +9172,6 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     id: 'm1gznf',
     tags: ['Stamina'],
     description: `Reduces Stamina Consumption by 50%. Lasts 60s.`,
-    howToGet: `
-    Can be bought form Reggie for 200 scrap currency
-    Can be bought form Bedel of The Vaunnt for 200 scrap currency
-`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Gul+Serum`],
   },
   {
@@ -9456,11 +9207,6 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     id: '6aasor',
     tags: ['Grey Health'],
     description: `Converts 1 Health into Grey Health per second. Lasts 60s.`,
-    howToGet: `
-    In Losomn - Found in the Awakened King DLC: Inside a chest between elevated ring and the second dark pact bell, on a walkway between two buildings.
-    Will also be rewarded by Duane (The cook close to the red crystal) if you hand him the Feast Master's Leftovers.
-    (Once found) Can be bought from Reggie for 200 Scrap.
-`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Mystery+Jerky`],
   },
   {
@@ -9470,10 +9216,6 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     id: '0sec3n',
     tags: ['Damage Reduction'],
     description: `Cures ROOT ROT Blight and increases Blight Resistance by 25%. Lasts 10m.`,
-    howToGet: `
-    Can be bought form Dr Norah for 100 scrap currency
-    Can be bought form Bedel of The Vaunnt for 100 scrap currency
-`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Oilskin+Balm`],
   },
   {
@@ -9538,11 +9280,6 @@ Near the armor merchant, there is a ladder, climb that ladder and talk to the ma
     id: 'li99wc',
     tags: ['Damage Reduction'],
     description: `Cures SUPPRESSION Blight and increases Blight Resistance by 25%. Lasts 10m.`,
-    howToGet: `
-    Can be bought form Dr Norah for x100 scrap currency
-    Can be crafted at Drzyr Replicator, you will need the following Materials: 100 Scrap.
-    Can be found as random drop in N'Erud.
-`,
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Timeworn+Unguent`],
   },
   // This item appears to not be in the game

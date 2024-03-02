@@ -82,7 +82,6 @@ export function linkArchetypesToTraits(buildState: BuildState) {
             imagePath: linkedTraitItem.imagePath,
             description: linkedTraitItem.description ?? '',
             maxLevelBonus: linkedTraitItem.maxLevelBonus ?? '',
-            howToGet: linkedTraitItem.howToGet ?? '',
             wikiLinks: linkedTraitItem.wikiLinks ?? [],
             linkedItems: linkedTraitItem.linkedItems ?? {},
             saveFileSlug: linkedTraitItem.saveFileSlug,
