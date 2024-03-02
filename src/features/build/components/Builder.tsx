@@ -388,7 +388,9 @@ export function Builder({
           {buildState.isPatchAffected && (
             <div className="mb-2 flex items-center justify-center text-sm text-gray-400">
               <p className="border border-red-500 p-2 text-left text-xs font-bold text-red-500">
-                This build might have been affected by a past update.
+                This build might have been affected by a past update. If you
+                created this build, please update and save it to remove this
+                flag.
               </p>
             </div>
           )}
