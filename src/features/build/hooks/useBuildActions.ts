@@ -160,6 +160,7 @@ export function useBuildActions() {
       })
       setIsScreenshotMode(null)
     }
+    if (!isScreenshotMode) return
     setImageExportLoading(true)
     setTimeout(exportImage, 1000)
   }, [isScreenshotMode, router])

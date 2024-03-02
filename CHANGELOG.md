@@ -19,6 +19,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Added last updated date to builds.
 - Armor suggestions now show the weight class color on the weight value.
 
+### Fixed
+
+- Fixed weird behavior for Save Image button where it would take longer to load than other buttons.
+
 ## 2024-03-01
 
 ### Added
