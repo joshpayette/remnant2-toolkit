@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-03-02
+
+### Added
+
+- ConRaven the God and BrotherFromHood have added even more aberration images.
+
 ## 2024-03-01
 
 ### Added
