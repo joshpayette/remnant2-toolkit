@@ -426,7 +426,7 @@ export const remnantItems: Item[] = [
     HOLD: Howl reduces damage by 15% to all allies within 20m [A] and the Companion generates additional Threat. Lasts 20s.`,
     cooldown: 90,
     howToGet: `Unlocks automatically`,
-    wikiLinks: [`https://remnant.wiki/GuardDog`],
+    wikiLinks: [`https://remnant.wiki/Guard_Dog`],
     linkedItems: {
       archetype: {
         name: 'Handler',
@@ -452,7 +452,7 @@ export const remnantItems: Item[] = [
     HOLD: Howl grants 2% of Max Health per second and 25% increased Movement Speed to all allies within 20m [A]. Lasts 25s`,
     cooldown: 90,
     howToGet: `Unlocks at level 5`,
-    wikiLinks: [`https://remnant.wiki/SupportDog`],
+    wikiLinks: [`https://remnant.wiki/Support_Dog`],
     linkedItems: {
       archetype: {
         name: 'Handler',
