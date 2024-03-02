@@ -260,16 +260,16 @@ export function ArmorSuggestions({
                     onItemInfoClick={() => onOpenItemInfo(suggestion.torso)}
                   />
                   <ItemButton
-                    item={suggestion.gloves}
-                    isEditable={false}
-                    size="md"
-                    onItemInfoClick={() => onOpenItemInfo(suggestion.gloves)}
-                  />
-                  <ItemButton
                     item={suggestion.legs}
                     isEditable={false}
                     size="md"
                     onItemInfoClick={() => onOpenItemInfo(suggestion.legs)}
+                  />
+                  <ItemButton
+                    item={suggestion.gloves}
+                    isEditable={false}
+                    size="md"
+                    onItemInfoClick={() => onOpenItemInfo(suggestion.gloves)}
                   />
                 </div>
                 <button
