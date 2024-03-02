@@ -17,7 +17,7 @@ export const remnantItems: Item[] = [
         { name: 'Spirit', amount: 2 },
         { name: 'Expertise', amount: 2 },
         { name: 'Vigor', amount: 1 },
-      ],
+      ], // test
       skills: [
         { name: 'Vial: Stone Mist' },
         { name: 'Vial: Frenzy Dust' },
