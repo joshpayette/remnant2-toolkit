@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - ConRaven the God and BrotherFromHood have added even more aberration images.
 - Delete Build button now available when viewing a build or editing a build.
+- Added improved Loadout integration and assignment. Store up to 8 of your favorite builds in your personal loadouts!
 
 ### Changed
 
