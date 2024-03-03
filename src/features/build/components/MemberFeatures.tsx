@@ -33,7 +33,7 @@ export function MemberFeatures({
   if (status === 'loading') return <Loading />
 
   return (
-    <div className="relative pt-4">
+    <div className="relative w-full max-w-[700px] pt-4">
       {!isEditable || isScreenshotModeActive ? (
         <div className="flex flex-col">
           {description && description.length > 0 && (
@@ -53,7 +53,7 @@ export function MemberFeatures({
           )}
         </div>
       ) : (
-        <div className="mb-4">
+        <div className="mb-4 w-full">
           <Textarea
             label={`Build Description (${
               description?.length ?? 0
@@ -63,7 +63,7 @@ export function MemberFeatures({
             onChange={(e) => onChangeDescription(e.target.value)}
             value={description ?? ''}
             maxLength={MAX_BUILD_DESCRIPTION_LENGTH}
-            className="h-[215px]"
+            className="h-[215px] w-full"
           />
           <div className="flex w-full items-center justify-end">
             <button
