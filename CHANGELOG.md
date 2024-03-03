@@ -4,7 +4,15 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-03-03
 
+### Added
+
+- More aberrations added by ConRaven. Only one to go?!
+
+### Changed
+
+- Applied a patch affected banner to builds containing Twisted Arbalest + Bore.
 
 ## 2024-03-02
 
