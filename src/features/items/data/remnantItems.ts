@@ -4844,7 +4844,7 @@ export const remnantItems: Item[] = [
     name: 'Bloodthirst',
     imagePath: '/mod/bloodthirst.png',
     id: '1rw0kk',
-    description: `Damage increases by _25% against BLEEDING enemies, and _25% when attacking from behind. Charge Attacks deal 100 BLEEDING damage over 10s`,
+    description: `Damage increases by +25% against BLEEDING enemies, and +25% when attacking from behind. Charge Attacks deal 100 BLEEDING damage over 10s`,
     wikiLinks: [`https://remnant.wiki/Bloodthirst`],
     linkedItems: {
       weapon: {
@@ -5014,7 +5014,7 @@ export const remnantItems: Item[] = [
     name: 'Dreamwave',
     imagePath: '/mod/dreamwave.png',
     id: 'dwmc70',
-    description: `After dealing 250 damage, Charge Attack will release a Dreamwave, flowing outwards 20m [R] and returning to caster. Dreamwave applies SLOW to all enemies for 10s and grants a Stack of REVERIE for each enemy affected. Each Stack grants _2% to All Damage and _2% Movement Speed, which lasts 15s.`,
+    description: `After dealing 250 damage, Charge Attack will release a Dreamwave, flowing outwards 20m [R] and returning to caster. Dreamwave applies SLOW to all enemies for 10s and grants a Stack of REVERIE for each enemy affected. Each Stack grants +2% to All Damage and +2% Movement Speed, which lasts 15s.`,
     wikiLinks: [`https://remnant.wiki/Dreamwave`],
     linkedItems: {
       weapon: {
@@ -5061,7 +5061,7 @@ export const remnantItems: Item[] = [
     name: 'Eulogy',
     imagePath: '/mod/eulogy.png',
     id: '3xf7i2',
-    description: `Recalls bolts which deal 30 damage [E] when pulled from a target and when striking targets on their return. Recalled bolts grant 2% of Max HP. Recalled bolts can also overfill Sorrow by up to _5. Any additional bolts will be returned to reserves.`,
+    description: `Recalls bolts which deal 30 damage [E] when pulled from a target and when striking targets on their return. Recalled bolts grant 2% of Max HP. Recalled bolts can also overfill Sorrow by up to +5. Any additional bolts will be returned to reserves.`,
     wikiLinks: [`https://remnant.wiki/Eulogy`],
     linkedItems: {
       weapon: {
@@ -9848,7 +9848,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     Curative effects apply to all allies within 15m and grant 15 additional Resistance.
 
     Upgrade unlocked at level 7
-    Allies affected by Panacea gain _10% Status and Blight Resistance.`,
+    Allies affected by Panacea gain +10% Status and Blight Resistance.`,
     wikiLinks: [`https://remnant.wiki/Panacea`],
     linkedItems: {
       archetype: {
@@ -9929,11 +9929,11 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     id: 'yro37y',
     tags: ['Mod Damage', 'Critical Chance'],
     description: `
-    Increases Mod Damage by _5%.
+    Increases Mod Damage by +5%.
     Increases with ARCHON Level.
     
     Upgrade Unlocked at level 5
-    Upgrade: Increases Mod Damage by _30% and grants _10% Mod Critical Chance.
+    Upgrade: Increases Mod Damage by +30% and grants +10% Mod Critical Chance.
     
     Damage increases with ARCHON Level.`,
     wikiLinks: [`https://remnant.wiki/Amplify`],
@@ -10201,7 +10201,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     Using a Relic instantly fills Scavenger Stacks and prevents Stack Decay for 15s.
     
     Upgrade unlocked at level 9
-    After using a Relic, Self Discovery gains _1 Stack and prevents Stack Decay for 30s.`,
+    After using a Relic, Self Discovery gains +1 Stack and prevents Stack Decay for 30s.`,
     wikiLinks: [`https://remnant.wiki/Self_Discovery`],
     linkedItems: {
       archetype: {
@@ -10217,13 +10217,13 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     id: 'yg77rq',
     tags: ['All Damage'],
     description: `
-    Casting an INVADER Skill leaves a Decoy for 3s which draws enemy fire. Deal _5% additional damage to enemies not targeting INVADER.
+    Casting an INVADER Skill leaves a Decoy for 3s which draws enemy fire. Deal +5% additional damage to enemies not targeting INVADER.
 
     Upgraded at Level 5
-    Casting an INVADER Skill leaves a Decoy for 3s which draws enemy fire. Deal _10% additional damage to enemies not targeting INVADER.
+    Casting an INVADER Skill leaves a Decoy for 3s which draws enemy fire. Deal +10% additional damage to enemies not targeting INVADER.
 
     Upgraded at level 10
-    Casting an INVADER Skill leaves a Decoy for 3s which draws enemy fire. Deal _15% additional damage to enemies not targeting INVADER.`,
+    Casting an INVADER Skill leaves a Decoy for 3s which draws enemy fire. Deal +15% additional damage to enemies not targeting INVADER.`,
     wikiLinks: [`https://remnant.wiki/Shadow`],
     linkedItems: {
       archetype: {
