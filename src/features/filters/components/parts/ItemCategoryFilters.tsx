@@ -44,7 +44,7 @@ export function ItemCategoryFilters({
           <div className="grid grid-cols-2 gap-x-8 text-left sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
             {defaultItemCategories.map((category) => {
               let label = capitalize(category as string)
-              if (category === 'relicfragment') {
+              if (category.toLowerCase() === 'relicfragment') {
                 label = 'Relic Fragment'
               }
               return (
