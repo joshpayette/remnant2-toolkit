@@ -79,7 +79,7 @@ export function useBuildActions() {
     }
     const defaultMessage =
       'Build url copied to clipboard. Sign in next time for a shorter URL!'
-    copy(url)
+    copy(`${url}?t=${Date.now()}`)
     toast.success(!message ? defaultMessage : message)
   }
 

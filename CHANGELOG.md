@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Changed
 
 - Applied a patch affected banner to builds containing Twisted Arbalest + Bore.
+- Share Build button will now append a unique token to the URL to prevent caching issues when the social media preview on Discord and other sites.
 
 ## 2024-03-02
 

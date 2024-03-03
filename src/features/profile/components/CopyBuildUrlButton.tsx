@@ -6,7 +6,7 @@ import { toast } from 'react-toastify'
 export function CopyBuildUrlButton({ buildId }: { buildId: string }) {
   function handleCopyBuild() {
     const url = `${window.location.origin}/builder/${buildId}`
-    copy(url)
+    copy(`${url}?t=${Date.now()}`)
     toast.success('Copied build URL to clipboard!')
   }
 
