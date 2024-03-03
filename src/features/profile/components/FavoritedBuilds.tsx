@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 import { BuildCard } from '@/features/build/components/BuildCard'
 import { ItemList } from '@/features/build/components/ItemList'
@@ -11,7 +11,8 @@ import { CopyBuildUrlButton } from '@/features/profile/components/CopyBuildUrlBu
 import { DuplicateBuildButton } from '@/features/profile/components/DuplicateBuildButton'
 
 import { getFavoritedBuilds } from '../../../app/profile/favorited-builds/actions'
-import { AddToLoadoutButton } from './AddToLoadoutButton'
+import { AddToLoadoutButton } from '../loadouts/AddToLoadoutButton'
+import { LoadoutDialog } from '../loadouts/LoadoutDialog'
 
 interface Props {
   itemsPerPage?: number
@@ -21,6 +22,11 @@ interface Props {
 export function FavoritedBuilds({ itemsPerPage = 8, buildListFilters }: Props) {
   const { buildListState, setBuildListState } = useBuildListState()
   const { builds, totalBuildCount, isLoading } = buildListState
+
+  const [buildToAddToLoadout, setBuildToAddToLoadout] = useState<string | null>(
+    null,
+  )
+  const isLoadoutDialogOpen = Boolean(buildToAddToLoadout)
 
   const {
     orderBy,
@@ -78,6 +84,12 @@ export function FavoritedBuilds({ itemsPerPage = 8, buildListFilters }: Props) {
 
   return (
     <>
+      <LoadoutDialog
+        key={buildToAddToLoadout}
+        buildId={buildToAddToLoadout}
+        open={isLoadoutDialogOpen}
+        onClose={() => setBuildToAddToLoadout(null)}
+      />
       <ItemList
         label="Builds you've favorited"
         currentPage={currentPage}
@@ -114,7 +126,9 @@ export function FavoritedBuilds({ itemsPerPage = 8, buildListFilters }: Props) {
                 footerActions={
                   <div className="flex items-center justify-between gap-2 p-2 text-sm">
                     <CopyBuildUrlButton buildId={build.id} />
-                    <AddToLoadoutButton buildId={build.id} />
+                    <AddToLoadoutButton
+                      onClick={() => setBuildToAddToLoadout(build.id)}
+                    />
                     <DuplicateBuildButton build={build} />
                   </div>
                 }

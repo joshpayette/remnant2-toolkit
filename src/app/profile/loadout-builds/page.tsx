@@ -1,6 +1,6 @@
 import { Suspense } from 'react'
 
-import { LoadoutBuilds } from '@/features/profile/components/LoadoutBuilds'
+import { LoadoutBuilds } from '@/features/profile/loadouts/LoadoutBuilds'
 import { Skeleton } from '@/features/ui/Skeleton'
 
 export default async function Page() {

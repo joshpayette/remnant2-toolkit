@@ -1,13 +1,10 @@
 'use server'
 
 import { Metadata } from 'next'
-import { Suspense } from 'react'
 
 import { getServerSession } from '@/features/auth/lib'
-import { LoadoutBuilds } from '@/features/profile/components/LoadoutBuilds'
 import { ProfileHeader } from '@/features/profile/components/ProfileHeader'
 import { Tabs } from '@/features/profile/components/Tabs'
-import { Skeleton } from '@/features/ui/Skeleton'
 
 export async function generateMetadata(): Promise<Metadata> {
   const title = `Loadout Builds - Remnant 2 Toolkit`

@@ -1,4 +1,5 @@
 import {
+  ArchiveBoxIcon,
   ArrowLeftOnRectangleIcon,
   CircleStackIcon,
   DocumentCheckIcon,
@@ -91,6 +92,12 @@ export const NAV_ITEMS = {
       'Keep track of the items you have collected and the ones you still need.',
     href: '/tracker',
     icon: DocumentCheckIcon,
+  },
+  loadouts: {
+    label: 'Loadouts',
+    description: 'Create and manage your loadouts.',
+    href: '/profile/loadout-builds',
+    icon: ArchiveBoxIcon,
   },
   myBuilds: {
     label: 'My Builds',

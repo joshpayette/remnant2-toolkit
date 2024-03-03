@@ -14,6 +14,22 @@ export async function addBuildToLoadout(
     return { success: false }
   }
 
+  // Add a vote for the build
+  const isVoteRegistered = await prisma.buildVoteCounts.findFirst({
+    where: {
+      buildId,
+      userId: session.user.id,
+    },
+  })
+  if (!isVoteRegistered) {
+    await prisma.buildVoteCounts.create({
+      data: {
+        buildId,
+        userId: session.user.id,
+      },
+    })
+  }
+
   const existingLoadout = await prisma.userLoadouts.findFirst({
     where: {
       userId: session.user.id,

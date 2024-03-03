@@ -105,6 +105,19 @@ export const ActionButton = {
     </Tooltip>
   ),
 
+  LoadoutManagement: ({ onClick }: ButtonProps) => (
+    <button
+      className={cn(
+        buttonClasses,
+        'border-transparent bg-blue-500 text-black hover:bg-blue-700 hover:text-white',
+      )}
+      aria-label="Loadout Builds"
+      onClick={onClick}
+    >
+      Add To Loadout
+    </button>
+  ),
+
   NewBuild: () => (
     <Link
       className={cn(

@@ -812,6 +812,14 @@ export async function removeVoteForBuild(
       }
     }
 
+    // Remove the build from the user's loadouts if it's there
+    await prisma.userLoadouts.deleteMany({
+      where: {
+        buildId,
+        userId: session.user.id,
+      },
+    })
+
     // Check if user has a vote for this build already
     const isVoteRegistered = await prisma.buildVoteCounts.findFirst({
       where: {

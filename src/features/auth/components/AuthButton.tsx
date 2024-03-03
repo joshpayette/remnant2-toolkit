@@ -81,6 +81,23 @@ function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
           </div>
         </Link>
 
+        <Link
+          href={NAV_ITEMS.loadouts.href}
+          className="flex flex-row items-center justify-start"
+        >
+          <NAV_ITEMS.loadouts.icon
+            className="mr-2 h-7 w-5 flex-none text-green-500"
+            aria-hidden="true"
+          />
+          <div className="flex flex-col items-start justify-start px-3 py-2">
+            {NAV_ITEMS.loadouts.label}
+
+            <p className="mt-1 text-xs text-gray-400">
+              {NAV_ITEMS.loadouts.description}
+            </p>
+          </div>
+        </Link>
+
         {status !== 'authenticated' || !session?.user ? (
           <Link
             href={NAV_ITEMS.signin.href}
@@ -177,6 +194,20 @@ function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
               >
                 <NAV_ITEMS.favoritedBuilds.icon className="mr-1 h-4 w-4 text-green-600" />
                 Favorited Builds
+              </Link>
+            )}
+          </Menu.Item>
+          <Menu.Item>
+            {({ active }) => (
+              <Link
+                href={NAV_ITEMS.loadouts.href}
+                className={cn(
+                  active ? 'bg-gray-800' : '',
+                  'flex flex-row items-center justify-start  px-4 py-2 text-sm text-gray-300',
+                )}
+              >
+                <NAV_ITEMS.loadouts.icon className="mr-1 h-4 w-4 text-green-600" />
+                Loadouts
               </Link>
             )}
           </Menu.Item>

@@ -1,6 +1,5 @@
 'use client'
 
-import { revalidatePath } from 'next/cache'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import { useSession } from 'next-auth/react'
@@ -17,13 +16,9 @@ import { dbBuildToBuildState } from '@/features/build/lib/dbBuildToBuildState'
 import { DBBuild } from '@/features/build/types'
 import { ToCsvButton } from '@/features/csv/ToCsvButton'
 import { isErrorResponse } from '@/features/error-handling/isErrorResponse'
+import { LoadoutDialog } from '@/features/profile/loadouts/LoadoutDialog'
 
-import {
-  addReportForBuild,
-  addVoteForBuild,
-  removeReportForBuild,
-  removeVoteForBuild,
-} from '../actions'
+import { addReportForBuild, removeReportForBuild } from '../actions'
 
 function videoEmbedUrlToVideoId(videoEmbedUrl: string) {
   const url = new URL(videoEmbedUrl)
@@ -48,6 +43,7 @@ export default function Page({
   params: { build: DBBuild }
 }) {
   const [detailedBuildDialogOpen, setDetailedBuildDialogOpen] = useState(false)
+  const [loadoutDialogOpen, setLoadoutDialogOpen] = useState(false)
 
   const router = useRouter()
   const { data: session } = useSession()
@@ -63,6 +59,7 @@ export default function Page({
     handleCopyBuildUrl,
     handleDeleteBuild,
     handleDuplicateBuild,
+    handleFavoriteBuild,
     handleImageExport,
   } = useBuildActions()
 
@@ -83,6 +80,12 @@ export default function Page({
         buildState={buildState}
         open={detailedBuildDialogOpen}
         onClose={() => setDetailedBuildDialogOpen(false)}
+      />
+      <LoadoutDialog
+        key={loadoutDialogOpen.toString()}
+        buildId={buildState.buildId}
+        open={loadoutDialogOpen}
+        onClose={() => setLoadoutDialogOpen(false)}
       />
       <ImageDownloadInfo
         onClose={handleClearImageDownloadInfo}
@@ -146,41 +149,19 @@ export default function Page({
                   )
                 }
               />
-              {buildState.createdById !== session?.user?.id && (
-                <ActionButton.FavoriteBuild
-                  upvoted={buildState.upvoted}
-                  onClick={async () => {
-                    if (buildState.createdById === session?.user?.id) {
-                      toast.error('You cannot vote/unvote for your own build.')
-                      return
+              {session?.user?.id &&
+                buildState.createdById !== session.user.id && (
+                  <ActionButton.FavoriteBuild
+                    upvoted={buildState.upvoted}
+                    onClick={() =>
+                      handleFavoriteBuild(buildState, session?.user?.id)
                     }
+                  />
+                )}
 
-                    const newVote = !buildState.upvoted
-
-                    const response = newVote
-                      ? await addVoteForBuild(
-                          JSON.stringify({ buildId: build.id }),
-                        )
-                      : await removeVoteForBuild(
-                          JSON.stringify({ buildId: build.id }),
-                        )
-
-                    if (isErrorResponse(response)) {
-                      console.error(response.errors)
-                      toast.error(
-                        'Error voting for build. Please try again later.',
-                      )
-                    } else {
-                      toast.success(
-                        newVote
-                          ? 'Successfully favorited build! You can find it in your profile.'
-                          : 'Successfully removed favorite!',
-                      )
-                      buildState.upvoted = newVote
-                      buildState.totalUpvotes = response.totalUpvotes ?? 1
-                      router.refresh()
-                    }
-                  }}
+              {session?.user?.id && (
+                <ActionButton.LoadoutManagement
+                  onClick={() => setLoadoutDialogOpen(true)}
                 />
               )}
 

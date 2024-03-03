@@ -6,9 +6,11 @@ import { toast } from 'react-toastify'
 
 import {
   addReportForBuild,
+  addVoteForBuild,
   createBuild,
   deleteBuild,
   removeReportForBuild,
+  removeVoteForBuild,
 } from '@/app/builder/actions'
 import { BuildState, ItemCategory } from '@/features/build/types'
 import { isErrorResponse } from '@/features/error-handling/isErrorResponse'
@@ -110,6 +112,38 @@ export function useBuildActions() {
     } else {
       toast.success(response.message)
       router.push(`/builder/${response.buildId}`)
+    }
+  }
+
+  async function handleFavoriteBuild(
+    buildState: BuildState,
+    userId: string | undefined,
+  ) {
+    if (!userId) return
+
+    if (buildState.createdById === userId) {
+      toast.error('You cannot vote/unvote for your own build.')
+      return
+    }
+
+    const newVote = !buildState.upvoted
+
+    const response = newVote
+      ? await addVoteForBuild(JSON.stringify({ buildId: buildState.buildId }))
+      : await removeVoteForBuild(
+          JSON.stringify({ buildId: buildState.buildId }),
+        )
+
+    if (isErrorResponse(response)) {
+      console.error(response.errors)
+      toast.error('Error voting for build. Please try again later.')
+    } else {
+      toast.success(
+        newVote
+          ? 'Successfully favorited build! You can find it in your profile.'
+          : 'Successfully removed favorite!',
+      )
+      router.refresh()
     }
   }
 
@@ -390,6 +424,7 @@ export function useBuildActions() {
     handleCopyBuildUrl,
     handleDeleteBuild,
     handleDuplicateBuild,
+    handleFavoriteBuild,
     handleRandomBuild,
     handleImageExport,
     handleReportBuild,
