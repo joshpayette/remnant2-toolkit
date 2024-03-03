@@ -3,8 +3,8 @@
 import { getArrayOfLength } from '@/features/build/lib/getArrayOfLength'
 
 import { getLoadoutList } from './actions'
-import { EmptyBuildCard } from './EmptyLoadoutCard'
-import { LoadoutBuildCard } from './LoadoutBuildCard'
+import { EmptyLoadoutCard } from './EmptyLoadoutCard'
+import { LoadoutCard } from './LoadoutCard'
 
 export async function LoadoutBuilds() {
   const userLoadoutBuilds = await getLoadoutList()
@@ -17,11 +17,17 @@ export async function LoadoutBuilds() {
         )
 
         if (!userLoadoutBuild) {
-          return <EmptyBuildCard key={index} />
+          return (
+            <EmptyLoadoutCard
+              key={index}
+              showHover={false}
+              label="No loadout selected for this slot."
+            />
+          )
         }
 
         return (
-          <LoadoutBuildCard
+          <LoadoutCard
             key={`${userLoadoutBuild.id}-${index}`}
             build={userLoadoutBuild}
           />

@@ -8,8 +8,8 @@ import { Dialog } from '@/features/ui/Dialog'
 import { Skeleton } from '@/features/ui/Skeleton'
 
 import { getLoadoutList } from './actions'
-import { EmptyBuildCard } from './EmptyLoadoutCard'
-import { LoadoutBuildCard } from './LoadoutBuildCard'
+import { EmptyLoadoutCard } from './EmptyLoadoutCard'
+import { LoadoutCard } from './LoadoutCard'
 
 interface Props {
   buildId: string | null
@@ -78,13 +78,17 @@ export function LoadoutDialog({ buildId, open, onClose }: Props) {
           if (!userLoadoutBuild) {
             return (
               <button key={index} onClick={() => addToLoadout(index + 1)}>
-                <EmptyBuildCard key={index} />
+                <EmptyLoadoutCard
+                  key={index}
+                  showHover={true}
+                  label="Click to add build to this loadout slot."
+                />
               </button>
             )
           }
 
           return (
-            <LoadoutBuildCard
+            <LoadoutCard
               key={`${userLoadoutBuild.id}-${index}`}
               build={userLoadoutBuild}
               showRemoveButton={false}

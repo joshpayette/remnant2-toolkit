@@ -10,7 +10,7 @@ interface Props {
   showRemoveButton?: boolean
 }
 
-export function LoadoutBuildCard({ build, showRemoveButton = true }: Props) {
+export function LoadoutCard({ build, showRemoveButton = true }: Props) {
   return (
     <BuildCard
       build={build}
