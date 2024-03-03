@@ -334,6 +334,7 @@ export function Builder({
             !isScreenshotMode &&
             'border-yellow-300 shadow-lg shadow-yellow-600',
           buildState.isMember && isScreenshotMode && 'border-yellow-500',
+          isScreenshotMode && 'pb-[70px]',
         )}
       >
         <div
@@ -592,24 +593,6 @@ export function Builder({
                 ))}
               </div>
             </div>
-            {includeMemberFeatures && (
-              <div
-                id="member-features-row"
-                className={cn(
-                  'mt-4 hidden w-full md:block',
-                  isScreenshotMode && 'block',
-                )}
-              >
-                <MemberFeatures
-                  description={buildState.description}
-                  isEditable={isEditable}
-                  isPublic={buildState.isPublic}
-                  isScreenshotModeActive={isScreenshotMode}
-                  onChangeDescription={handleChangeDescription}
-                  onChangeIsPublic={handleToggleIsPublic}
-                />
-              </div>
-            )}
           </div>
 
           <div
@@ -754,24 +737,21 @@ export function Builder({
             </div>
           </div>
         </div>
-        {includeMemberFeatures && (
-          <div
-            id="member-features-row"
-            className={cn(
-              'mt-4 w-full md:hidden',
-              isScreenshotMode && 'hidden',
-            )}
-          >
-            <MemberFeatures
-              description={buildState.description}
-              isEditable={isEditable}
-              isPublic={buildState.isPublic}
-              isScreenshotModeActive={isScreenshotMode}
-              onChangeDescription={handleChangeDescription}
-              onChangeIsPublic={handleToggleIsPublic}
-            />
-          </div>
-        )}
+
+        <div
+          id="member-features-row"
+          className="mt-4 flex w-full items-start justify-center"
+        >
+          <MemberFeatures
+            description={buildState.description}
+            isEditable={isEditable}
+            isPublic={buildState.isPublic}
+            isScreenshotModeActive={isScreenshotMode}
+            onChangeDescription={handleChangeDescription}
+            onChangeIsPublic={handleToggleIsPublic}
+          />
+        </div>
+
         {isScreenshotMode && (
           <div className="absolute bottom-[10px] right-[10px]">
             <Logo showUrl unoptimized={isScreenshotMode} />

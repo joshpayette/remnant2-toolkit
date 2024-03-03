@@ -28,7 +28,7 @@ export function MemberFeatures({
   onChangeDescription,
   onChangeIsPublic,
 }: Props) {
-  const { data: session, status } = useSession()
+  const { status } = useSession()
 
   if (status === 'loading') return <Loading />
 
@@ -43,7 +43,7 @@ export function MemberFeatures({
               </h3>
               <div
                 className={cn(
-                  'max-h-[200px] overflow-auto whitespace-pre-wrap text-sm text-gray-200',
+                  'text-md whitespace-pre-wrap text-gray-200',
                   isScreenshotModeActive && 'max-h-none',
                 )}
               >
@@ -118,7 +118,7 @@ Watch the build in action: [insert Youtube link here]
               <div className="text-md my-2 font-bold text-green-500">
                 Build Visibility
               </div>
-              <div className="text-sm text-gray-200">
+              <div className="text-md text-gray-200">
                 {isPublic ? 'Public' : 'Private'}
               </div>
             </div>
