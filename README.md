@@ -18,7 +18,6 @@ Want to see your build listed on the featured builds? Submit an issue with a lin
 
 This project would not be possible without the following sources:
 
-- [Fextralife Remnant Wiki](https://remnant2.wiki.fextralife.com/Remnant+2+Wiki)
 - [Vash Cowaii's Excel Stat Calculator](https://docs.google.com/spreadsheets/d/1I7vkh50KWJZSxNy4FqxvniFWBstJQEMtpwtxQ3ByoPw/edit?pli=1). Support him on [YouTube](https://www.youtube.com/@VashCowaii)
 - [Robin Kuiper's Remnant Tools](https://remnant.rkuiper.nl/)
 - [All of the contributors from the community](CONTRIBUTORS.md)
