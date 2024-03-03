@@ -14,6 +14,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Applied a patch affected banner to builds containing Twisted Arbalest + Bore.
 - Share Build button will now append a unique token to the URL to prevent caching issues when the social media preview on Discord and other sites.
+- Added more info to the README.md regarding how to request a build be featured, as well as some of the considerations that affect whether a build gets featured.
 
 ## 2024-03-02
 

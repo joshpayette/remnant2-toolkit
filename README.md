@@ -12,15 +12,25 @@ You can also join the [Discord server](https://discord.gg/kgVaU3zAQ7) to discuss
 
 ## Featured Builds
 
-Want to see your build listed on the featured builds? Submit an issue with a link to the video covering your build and I'll take a look. If it looks of good quality, I'll add it!
+Want to see your build listed on the featured builds? [Join the Discord](https://discord.gg/kgVaU3zAQ7) and let us know. Alternatively, you can file an issue on this repo requesting it and we'll take a look.
+
+### How Featured Builds Are Selected
+
+This is not an exhaustive or literal list that we follow, but some of the things we consider are:
+
+- **Originality**: Is the build unique? Does it have a unique playstyle or combination of items?
+- **Effectiveness**: Is the build effective on Apocalypse difficulty?
+- **Detailed Description**: Does the build have a detailed description of how to play it and why it's effective, to help players who want to try it?
+- **Video Guide or Gameplay**: Does the build have a video guide or gameplay footage to help players understand how it works?
 
 ## Credits
 
 This project would not be possible without the following sources:
 
+- [Remnant 2 Community Wiki](https://remnant.wiki)
+- [All of the contributors from the community](CONTRIBUTORS.md)
 - [Vash Cowaii's Excel Stat Calculator](https://docs.google.com/spreadsheets/d/1I7vkh50KWJZSxNy4FqxvniFWBstJQEMtpwtxQ3ByoPw/edit?pli=1). Support him on [YouTube](https://www.youtube.com/@VashCowaii)
 - [Robin Kuiper's Remnant Tools](https://remnant.rkuiper.nl/)
-- [All of the contributors from the community](CONTRIBUTORS.md)
 
 ## License
 
