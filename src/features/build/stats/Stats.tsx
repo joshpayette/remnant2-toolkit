@@ -229,11 +229,11 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
             <div className="z-0 mt-2 text-right text-xs text-green-500">
               Looking for more advanced stats? Check out{' '}
               <a
-                href="https://docs.google.com/spreadsheets/d/1I7vkh50KWJZSxNy4FqxvniFWBstJQEMtpwtxQ3ByoPw/edit?pli=1"
+                href="https://cowaii.io/"
                 target="_blank"
                 className="text-green-500 underline"
               >
-                Vash Cowaii&apos;s spreadsheet.
+                Vash Cowaii&apos;s Loadout Calculator.
               </a>
             </div>
           </div>

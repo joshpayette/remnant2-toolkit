@@ -16,6 +16,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Share Build button will now append a unique token to the URL to prevent caching issues when the social media preview on Discord and other sites.
 - Added more info to the README.md regarding how to request a build be featured, as well as some of the considerations that affect whether a build gets featured.
 - Changed the build description layout to occupy the full width along the bottom of the build, and will no longer scroll if it exceeds a certain height. Additionally, the text size was increased to make the long text more readable.
+- Updated the Vash Cowaii spreadsheet links to point to the new web based loadout calculator. Congrats, Vash!
 
 ## 2024-03-02
 

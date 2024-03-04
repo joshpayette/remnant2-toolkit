@@ -98,12 +98,8 @@ export function Footer() {
             community maintained Remnant 2 Wiki
           </a>
           , as well as the{' '}
-          <a
-            href="https://docs.google.com/spreadsheets/d/1I7vkh50KWJZSxNy4FqxvniFWBstJQEMtpwtxQ3ByoPw/edit?pli=1"
-            target="_blank"
-            className={cn(aClass)}
-          >
-            amazingly detailed stat calculator
+          <a href="https://cowaii.io/" target="_blank" className={cn(aClass)}>
+            amazingly detailed loadout calculator
           </a>{' '}
           by{' '}
           <a
