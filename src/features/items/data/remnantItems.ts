@@ -515,7 +515,7 @@ export const remnantItems: Item[] = [
     imagePath: '/skill/hunters_mark.png',
     id: 'jg82hi',
     tags: ['Critical Chance', 'Ranged Damage', 'Melee Damage'],
-    description: `Increases the HUNTER's spatial awareness by casting an Aura that automatically applies MARK to all enemies within 35m. While senses are heightened, HUNTER also gains 15% increased Ragend and Melee damage. Lasts 25s.
+    description: `Increases the HUNTER's spatial awareness by casting an Aura that automatically applies MARK to all enemies within 35m. While senses are heightened, HUNTER also gains 15% increased Ranged and Melee damage. Lasts 25s.
 
     MARK: Crit Chance against MARKED enemies is increased by 15% for all allies.`,
     cooldown: 70,
