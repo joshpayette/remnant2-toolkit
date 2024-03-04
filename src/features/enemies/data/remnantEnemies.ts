@@ -142,7 +142,7 @@ const aberrationEnemies: Enemy[] = [
     name: 'Deceitful Augur',
     category: 'aberration',
     location: 'Yaesha',
-    imagePath: '/enemies/aberration/deceitful_augur.jpg',
+    imagePath: '/enemies/aberration/deceitful_augur1.jpg',
     wikiLinks: [],
   },
   {
@@ -556,6 +556,14 @@ const aberrationEnemies: Enemy[] = [
     category: 'aberration',
     imagePath: '/enemies/aberration/sorrow_weaver.jpg',
     location: 'Yaesha',
+    wikiLinks: [],
+  },
+  {
+    id: '',
+    name: 'Soulshrieker',
+    category: 'aberration',
+    imagePath: '/enemies/aberration/soulshrieker.jpg',
+    location: "N'Erud",
     wikiLinks: [],
   },
   {
