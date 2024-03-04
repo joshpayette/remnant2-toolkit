@@ -75,7 +75,6 @@ export function Footer() {
           </a>{' '}
           for the latest updates.
         </p>
-        <hr className="border-gray-900 pb-4" />
 
         <p className="pb-4">
           Got an issue or feature request? Want to be involved in giving
@@ -121,7 +120,7 @@ export function Footer() {
           </a>
           , this project would not be possible without your help.
         </p>
-        <hr className="border-gray-900 pb-4" />
+
         <p>
           {`This project was inspired by Robin Kuiper's `}
           <a
