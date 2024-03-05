@@ -132,6 +132,13 @@ export const DESCRIPTION_TAGS = [
     description:
       'Deals physical damage per second. Reduces healing effectiveness by 50%.',
   },
+    {
+    type: 'Bug',
+    token: '[BUG]',
+    color: 'text-[#ecff00]',
+    description:
+      'This item is currently bugged and MAY not function as expected.',
+  },
   {
     type: 'Burning',
     token: 'BURNING',
