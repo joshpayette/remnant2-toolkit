@@ -1,3 +1,4 @@
+import { set } from 'date-fns'
 import { useEffect, useState } from 'react'
 import { toast } from 'react-toastify'
 
@@ -52,6 +53,33 @@ export function LoadoutDialog({ buildId, open, onClose }: Props) {
     onClose()
   }
 
+  function removeFromLoadout(slot: number) {
+    const newLoadoutList = loadoutList.filter((build) => build.slot !== slot)
+    setLoadoutList(newLoadoutList)
+  }
+
+  function swapLoadoutSlot({
+    oldSlot,
+    newSlot,
+  }: {
+    oldSlot: number
+    newSlot: number
+  }) {
+    let newLoadoutList = [...loadoutList]
+
+    newLoadoutList = newLoadoutList.map((build) => {
+      if (build.slot === oldSlot) {
+        return { ...build, slot: newSlot }
+      }
+      if (build.slot === newSlot) {
+        return { ...build, slot: oldSlot }
+      }
+      return build
+    })
+
+    setLoadoutList(newLoadoutList)
+  }
+
   return (
     <Dialog
       title="Loadouts"
@@ -91,7 +119,12 @@ export function LoadoutDialog({ buildId, open, onClose }: Props) {
             <LoadoutCard
               key={`${userLoadoutBuild.id}-${index}`}
               build={userLoadoutBuild}
-              showRemoveButton={false}
+              onRemove={() => removeFromLoadout(userLoadoutBuild.slot)}
+              onSlotChange={(success, newLoadouts) => {
+                if (success && newLoadouts) {
+                  swapLoadoutSlot(newLoadouts)
+                }
+              }}
             />
           )
         })}
