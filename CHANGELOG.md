@@ -9,7 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Added
 
 - Loadout cards now have option to change loadout slot for a build.
-- Loadout cards now have option to remove build from the dialog, not just the profile page.
+- Loadout Dialog now has the option to reorder or remove builds. This functionality is no longer limited just to the profile page.
 
 ## 2024-03-04
 
