@@ -47,6 +47,8 @@ export const authOptions: NextAuthOptions = {
           redirect('/api/auth/signout')
         }
 
+        session.user.role = (user as AdapterUser & { role: string }).role
+
         session.user.id = user.id
         session.user.displayName = (
           user as AdapterUser & { displayName: string }
@@ -67,11 +69,10 @@ export const authOptions: NextAuthOptions = {
     DiscordProvider({
       clientId: process.env.DISCORD_CLIENT_ID ?? '',
       clientSecret: process.env.DISCORD_CLIENT_SECRET ?? '',
+      profile(profile) {
+        return { ...profile, role: profile.role ?? 'user' }
+      },
     }),
-    // GoogleProvider({
-    //   clientId: process.env.GOOGLE_CLIENT_ID ?? '',
-    //   clientSecret: process.env.GOOGLE_CLIENT_SECRET ?? '',
-    // }),
     RedditProvider({
       clientId: process.env.REDDIT_CLIENT_ID ?? '',
       clientSecret: process.env.REDDIT_CLIENT_SECRET ?? '',
@@ -79,6 +80,9 @@ export const authOptions: NextAuthOptions = {
         params: {
           duration: 'permanent',
         },
+      },
+      profile(profile) {
+        return { ...profile, role: profile.role ?? 'user' }
       },
     }),
   ],
