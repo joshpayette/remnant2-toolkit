@@ -134,7 +134,7 @@ export const DESCRIPTION_TAGS = [
   },
     {
     type: 'Bug',
-    token: 'BUG',
+    token: '[BUG]',
     color: 'text-[#ecff00]',
     description:
       'This item is currently bugged and MAY not function as expected.',
