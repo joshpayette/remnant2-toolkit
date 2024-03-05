@@ -6130,7 +6130,7 @@ export const remnantItems: Item[] = [
     dlc: 'dlc1',
     id: 'f32skd',
     tags: ['Melee Damage', 'Charged Melee'],
-    description: `Increase Melee Damage by 5%-[20%] per stack of CORRODED on the target.`,
+    description: `Increase Melee Damage by 5%-[10%] per stack of CORRODED on the target.`,
     maxLevelBonus: `Charged Melee Attacks apply CORRODED dealing 500 ACID damage over 20s.`,
     wikiLinks: [`https://remnant.wiki/Tainted_Blade`],
   },
