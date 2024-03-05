@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 
 import { getCreatedBuilds } from '@/app/profile/created-builds/actions'
 import { BuildCard } from '@/features/build/components/BuildCard'
+import { CreateBuildCard } from '@/features/build/components/CreateBuildCard'
 import { ItemList } from '@/features/build/components/ItemList'
 import { useBuildListState } from '@/features/build/hooks/useBuildListState'
 import { BuildListSecondaryFilters } from '@/features/filters/components/BuildListSecondaryFilters'
@@ -108,6 +109,8 @@ export function CreatedBuilds({ itemsPerPage = 8, buildListFilters }: Props) {
           role="list"
           className="my-4 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4"
         >
+          <CreateBuildCard />
+
           {builds.map((build) => (
             <div key={build.id} className="h-full w-full">
               <BuildCard

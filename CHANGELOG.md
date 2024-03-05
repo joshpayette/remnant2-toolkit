@@ -11,6 +11,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Loadout cards now have option to change loadout slot for a build.
 - Loadout Dialog now has the option to reorder or remove builds. This functionality is no longer limited just to the profile page.
 - Added new `[BUG]` token to be used in the future for items that may not be working as intended.
+- Added CREATE A BUILD card to the list of builds on the MY BUILDS page.
 
 ### Changed
 

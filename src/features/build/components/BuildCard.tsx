@@ -41,7 +41,11 @@ export function BuildCard({
   const isNew = isBuildNew(buildState.createdAt)
 
   return (
-    <div key={build.id} className="h-full min-h-[362px] w-full" role="listitem">
+    <div
+      key={build.id}
+      className="h-full min-h-[362px] w-full text-left"
+      role="listitem"
+    >
       {build.id.includes('placeholder') || isLoading ? (
         <Skeleton className="h-full w-full" />
       ) : (
