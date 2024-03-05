@@ -1,4 +1,5 @@
-import { type DefaultSession, type Profile as DefualtProfile } from 'next-auth'
+import { type DefaultSession, type Profile as DefaultProfile } from 'next-auth'
+import { AdapterUser } from 'next-auth/adapters'
 
 declare module 'next-auth' {
   /**
@@ -8,6 +9,7 @@ declare module 'next-auth' {
     user?: {
       id: string
       displayName: string
+      role: string
     } & DefaultSession['user']
   }
 
