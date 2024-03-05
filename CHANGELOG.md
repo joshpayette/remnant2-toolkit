@@ -10,6 +10,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Loadout cards now have option to change loadout slot for a build.
 - Loadout Dialog now has the option to reorder or remove builds. This functionality is no longer limited just to the profile page.
+- Added new `[BUG]` token to be used in the future for items that may not be working as intended.
+
+### Changed
+
+- Amplitude vs. Resonance guide updated to reflect changes from the recent patch.
 
 ## 2024-03-04
 
