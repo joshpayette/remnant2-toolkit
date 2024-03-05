@@ -5353,7 +5353,7 @@ export const remnantItems: Item[] = [
     name: 'Nano Phase',
     imagePath: '/mod/nano_phase.png',
     id: 'WARGv3',
-    description: `Detonate active Nano-bots, each dealing 100 ACID damage [E] plus an additional 25 ACID damage per Nano-bot detonated to enemies within 2m and applies CORRODED, dealing 50 damage [E] over 10s per Nano-bot detonated.`,
+    description: `Detonate active Nano-bots, each dealing 100 ACID damage [E] plus an additional 25 ACID damage per Nano-bot detonated to enemies within 2m [A] and applies CORRODED, dealing 50 damage [E] over 10s per Nano-bot detonated.`,
     linkedItems: {
       weapon: {
         name: 'Corrupted Nebula',
