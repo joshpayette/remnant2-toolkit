@@ -24,7 +24,7 @@ export function DetailedBuildDialog({ buildState, open, onClose }: Props) {
     <>
       <Dialog
         title="Detailed Build View"
-        maxWidthClass="max-w-4xl"
+        maxWidthClass="max-w-7xl"
         open={open}
         onClose={onClose}
       >
@@ -33,7 +33,7 @@ export function DetailedBuildDialog({ buildState, open, onClose }: Props) {
           onClose={() => setSelectedItem(null)}
           item={selectedItem}
         />
-        <div className="mt-12 grid w-full grid-cols-1 gap-4 sm:grid-cols-3 md:grid-cols-4">
+        <div className="mt-12 grid w-full grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {masonryItems.map((item, index) => (
             <ItemCard
               key={index}

@@ -1,3 +1,4 @@
+import { remnantItems } from '@/features/items/data/remnantItems'
 import { Item } from '@/features/items/types'
 import { ArchetypeItem } from '@/features/items/types/ArchetypeItem'
 import { MutatorItem } from '@/features/items/types/MutatorItem'
@@ -15,8 +16,22 @@ export function buildStateToMasonryItems(build: BuildState): Item[] {
 
   // archtypes
   getArrayOfLength(2).forEach((_, i) => {
-    items.archetype[i] && masonryItems.push(items.archetype[i] as ArchetypeItem)
-    items.skill[i] && masonryItems.push(items.skill[i] as SkillItem)
+    if (!items.archetype[i] && !items.skill[i]) return
+
+    const archetype = items.archetype[i] as ArchetypeItem
+    const skill = items.skill[i] as SkillItem
+
+    if (archetype) {
+      masonryItems.push(items.archetype[i] as ArchetypeItem)
+      archetype.linkedItems?.perks?.forEach((perk) => {
+        const perkItem = remnantItems.find((item) => item.name === perk.name)
+        if (perkItem) masonryItems.push(perkItem)
+      })
+    }
+
+    if (skill) {
+      masonryItems.push(skill)
+    }
   })
 
   // armor
