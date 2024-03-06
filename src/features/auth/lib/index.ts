@@ -30,7 +30,7 @@ export const authOptions: NextAuthOptions = {
             data: { image: profile.image_url },
           })
           .catch((e) => {
-            console.error(`${e.message} - ${user.id}`)
+            console.info(`${e.message} - ${user.id}`)
             return true
           })
       }
@@ -44,6 +44,7 @@ export const authOptions: NextAuthOptions = {
           where: { userId: user.id },
         })
         if (isBanned) {
+          console.error(`User ${user.id} is banned`)
           redirect('/api/auth/signout')
         }
 
