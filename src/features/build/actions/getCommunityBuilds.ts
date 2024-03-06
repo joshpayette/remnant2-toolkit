@@ -38,6 +38,8 @@ import { bigIntFix } from '@/lib/bigIntFix'
 
 import { DBBuild } from '../types'
 
+export const maxDuration = 30
+
 export async function getCommunityBuilds({
   buildListFilters,
   itemsPerPage,

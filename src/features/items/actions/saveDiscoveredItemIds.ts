@@ -4,6 +4,8 @@ import { getServerSession } from '@/features/auth/lib'
 import { prisma } from '@/features/db'
 import { collectionToIds } from '@/features/filters/queries/segments/limitByCollection'
 
+export const maxDuration = 30
+
 export async function saveDiscoveredItemIds({
   discoveredItemIds,
 }: {
