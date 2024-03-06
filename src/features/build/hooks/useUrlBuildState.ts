@@ -18,7 +18,7 @@ import { SkillItem } from '@/features/items/types/SkillItem'
 import { TraitItem } from '@/features/items/types/TraitItem'
 import { WeaponItem } from '@/features/items/types/WeaponItem'
 
-import { initialBuildState } from '../lib'
+import { INITIAL_BUILD_STATE } from '../constants'
 import { buildStateToCsvData } from '../lib/buildStateToCsvData'
 import { buildStateToMasonryItems } from '../lib/buildStateToMasonryItems'
 import { linkArchetypesToTraits } from '../lib/linkArchetypesToTraits'
@@ -120,7 +120,7 @@ export function useUrlBuildState() {
   function parseQueryString(searchParams: URLSearchParams): BuildState {
     /** The build state that will be returned */
     const buildState = JSON.parse(
-      JSON.stringify(initialBuildState),
+      JSON.stringify(INITIAL_BUILD_STATE),
     ) as BuildState
 
     // Build name

@@ -1,4 +1,5 @@
 import { Archetype } from '../items/types'
+import { BuildState } from './types'
 
 export const DEFAULT_BUILD_NAME = 'My Build'
 
@@ -23,6 +24,55 @@ export const MAX_TRAIT_AMOUNT = 110
  * Number of votes for a build to be popular
  */
 export const POPULAR_VOTE_THRESHOLD = 15
+
+/**
+ * The default empty BuildState
+ */
+export const INITIAL_BUILD_STATE: BuildState = {
+  name: DEFAULT_BUILD_NAME,
+  description: null,
+  isPublic: true,
+  isMember: false,
+  isFeaturedBuild: false,
+  isPatchAffected: false,
+  thumbnailUrl: null,
+  videoUrl: null,
+  buildId: null,
+  createdAt: new Date(),
+  updatedAt: null,
+  createdByDisplayName: null,
+  createdById: null,
+  upvoted: false,
+  totalUpvotes: 0,
+  reported: false,
+  items: {
+    helm: null,
+    torso: null,
+    legs: null,
+    gloves: null,
+    relic: null,
+    amulet: null,
+    weapon: [],
+    ring: [],
+    archetype: [],
+    skill: [],
+    concoction: [],
+    consumable: [],
+    mod: [],
+    mutator: [],
+    relicfragment: [],
+    trait: [],
+    perk: [],
+  },
+}
+
+/**
+ * The paths to revalidate on build creation, deletion, and update
+ */
+export const BUILD_REVALIDATE_PATHS = [
+  '/profile/created-builds',
+  '/profile/favorited-builds',
+]
 
 /**
  * Builds in game get a unique name based on the archetypes used

@@ -13,7 +13,7 @@ import {
   getTotalStamina,
   getTotalWeight,
   getWeightClass,
-} from '../lib/getTotalValues'
+} from '../../../lib/getTotalValues'
 import { HealthBreakdownDialog } from './HealthBreakdown'
 import { StaminaBreakdownDialog } from './StaminaBreakdown'
 

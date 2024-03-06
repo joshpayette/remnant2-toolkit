@@ -4,14 +4,6 @@ import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { toast } from 'react-toastify'
 
-import {
-  addReportForBuild,
-  addVoteForBuild,
-  createBuild,
-  deleteBuild,
-  removeReportForBuild,
-  removeVoteForBuild,
-} from '@/app/builder/actions'
 import { BuildState, ItemCategory } from '@/features/build/types'
 import { isErrorResponse } from '@/features/error-handling/isErrorResponse'
 import { remnantItems } from '@/features/items/data/remnantItems'
@@ -30,7 +22,13 @@ import { SkillItem } from '@/features/items/types/SkillItem'
 import { TraitItem } from '@/features/items/types/TraitItem'
 import { WeaponItem } from '@/features/items/types/WeaponItem'
 
-import { initialBuildState } from '../lib'
+import { addReportForBuild } from '../actions/addReportForBuild'
+import { addVoteForBuild } from '../actions/addVoteForBuild'
+import { createBuild } from '../actions/createBuild'
+import { deleteBuild } from '../actions/deleteBuild'
+import { removeReportForBuild } from '../actions/removeReportForBuild'
+import { removeVoteForBuild } from '../actions/removeVoteForBuild'
+import { INITIAL_BUILD_STATE } from '../constants'
 import { getArrayOfLength } from '../lib/getArrayOfLength'
 import { getConcoctionSlotCount } from '../lib/getConcoctionSlotCount'
 import { getItemListForSlot } from '../lib/getItemListForSlot'
@@ -201,7 +199,7 @@ export function useBuildActions() {
 
   function handleRandomBuild(): BuildState {
     const randomBuild: BuildState = JSON.parse(
-      JSON.stringify(initialBuildState),
+      JSON.stringify(INITIAL_BUILD_STATE),
     )
 
     // Randomize the name

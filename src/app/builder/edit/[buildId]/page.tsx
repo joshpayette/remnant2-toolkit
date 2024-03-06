@@ -3,12 +3,12 @@
 import { useSession } from 'next-auth/react'
 import { useRef, useState } from 'react'
 
-import { ActionButton } from '@/features/build/components/ActionButton'
-import { BuilderPage } from '@/features/build/components/BuilderPage'
-import { BuildSuggestionsDialog } from '@/features/build/components/BuildSuggestionsDialog'
-import { DetailedBuildDialog } from '@/features/build/components/DetailedBuildDialog'
-import { ImageDownloadInfo } from '@/features/build/components/ImageDownloadInfo'
-import { SaveBuildButton } from '@/features/build/components/SaveBuildButton'
+import { BuilderPage } from '@/features/build/components/builder/BuilderPage'
+import { ActionButton } from '@/features/build/components/buttons/ActionButton'
+import { SaveBuildButton } from '@/features/build/components/buttons/SaveBuildButton'
+import { BuildSuggestionsDialog } from '@/features/build/components/dialogs/build-suggestions/BuildSuggestionsDialog'
+import { DetailedBuildDialog } from '@/features/build/components/dialogs/DetailedBuildDialog'
+import { ImageDownloadInfo } from '@/features/build/components/dialogs/ImageDownloadInfo'
 import { useBuildActions } from '@/features/build/hooks/useBuildActions'
 import { useDBBuildState } from '@/features/build/hooks/useDBBuildState'
 import { dbBuildToBuildState } from '@/features/build/lib/dbBuildToBuildState'
@@ -16,16 +16,16 @@ import { BuildState, DBBuild } from '@/features/build/types'
 import { PageHeader } from '@/features/ui/PageHeader'
 
 export default function Page({
-  params: { initialBuildState },
+  params: { INITIAL_BUILD_STATE },
 }: {
-  params: { initialBuildState: DBBuild }
+  params: { INITIAL_BUILD_STATE: DBBuild }
 }) {
   const { data: session, status } = useSession()
 
   const [detailedBuildDialogOpen, setDetailedBuildDialogOpen] = useState(false)
 
   const { dbBuildState, updateDBBuildState, setNewBuildState } =
-    useDBBuildState(dbBuildToBuildState(initialBuildState))
+    useDBBuildState(dbBuildToBuildState(INITIAL_BUILD_STATE))
 
   const {
     isScreenshotMode,

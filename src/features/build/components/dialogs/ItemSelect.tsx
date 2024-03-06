@@ -13,8 +13,8 @@ import { Dialog } from '@/features/ui/Dialog'
 import { capitalize } from '@/lib/capitalize'
 import { cn } from '@/lib/classnames'
 
-import { ItemButton } from '../../items/components/ItemButton'
-import { ItemCategory } from '../types'
+import { ItemButton } from '../../../items/components/ItemButton'
+import { ItemCategory } from '../../types'
 
 function buildSearchTextOptions(): Array<{ id: string; name: string }> {
   let items = DESCRIPTION_TAGS.map((tag) => ({

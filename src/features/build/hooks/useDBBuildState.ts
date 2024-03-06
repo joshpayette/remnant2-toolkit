@@ -22,9 +22,9 @@ import { buildStateToMasonryItems } from '../lib/buildStateToMasonryItems'
 import { linkArchetypesToTraits } from '../lib/linkArchetypesToTraits'
 import { linkWeaponsToMods } from '../lib/linkWeaponsToMods'
 
-export function useDBBuildState(initialBuildState: BuildState) {
+export function useDBBuildState(INITIAL_BUILD_STATE: BuildState) {
   const [dbBuildState, setDBBuildState] =
-    useState<BuildState>(initialBuildState)
+    useState<BuildState>(INITIAL_BUILD_STATE)
 
   /**
    * Converts the build state to CSV data.

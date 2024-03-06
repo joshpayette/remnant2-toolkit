@@ -2,7 +2,7 @@ import { Item } from '@/features/items/types'
 import { TraitItem } from '@/features/items/types/TraitItem'
 import { Dialog } from '@/features/ui/Dialog'
 
-import { BuildState } from '../types'
+import { BuildState } from '../../../types'
 import { ListItem } from './ListItem'
 import { Section } from './Section'
 

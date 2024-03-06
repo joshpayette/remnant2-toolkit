@@ -11,15 +11,15 @@ import { Skeleton } from '@/features/ui/Skeleton'
 import { Tooltip } from '@/features/ui/Tooltip'
 import { cn } from '@/lib/classnames'
 
-import { POPULAR_VOTE_THRESHOLD } from '../constants'
-import { dbBuildToBuildState } from '../lib/dbBuildToBuildState'
-import { formatUpdatedAt } from '../lib/formatUpdatedAt'
-import { getArchetypeBuildName } from '../lib/getArchetypeBuildName'
-import { isBuildNew } from '../lib/isBuildNew'
-import { DBBuild } from '../types'
+import { POPULAR_VOTE_THRESHOLD } from '../../constants'
+import { dbBuildToBuildState } from '../../lib/dbBuildToBuildState'
+import { formatUpdatedAt } from '../../lib/formatUpdatedAt'
+import { getArchetypeBuildName } from '../../lib/getArchetypeBuildName'
+import { isBuildNew } from '../../lib/isBuildNew'
+import { DBBuild } from '../../types'
+import { NewBuildBadge } from '../NewBuildBadge'
+import { PopularBuildBadge } from '../PopularBuildBadge'
 import { ArchtypeLabel } from './ArchtypeLabel'
-import { NewBuildBadge } from './NewBuildBadge'
-import { PopularBuildBadge } from './PopularBuildBadge'
 
 interface Props {
   build: DBBuild

@@ -2,7 +2,7 @@ import { ReactNode, RefObject } from 'react'
 
 import { cn } from '@/lib/classnames'
 
-import { BuildState } from '../types'
+import { BuildState } from '../../types'
 import { Builder } from './Builder'
 
 type Props = {

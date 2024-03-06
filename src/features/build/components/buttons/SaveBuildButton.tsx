@@ -2,20 +2,17 @@
 
 import { useRouter } from 'next/navigation'
 import { signIn, useSession } from 'next-auth/react'
-import { Suspense, useState } from 'react'
+import { useState } from 'react'
 import { toast } from 'react-toastify'
 
-import {
-  BuildActionResponse,
-  createBuild,
-  updateBuild,
-} from '@/app/builder/actions'
-import { BuildState } from '@/features/build/types'
+import { BuildActionResponse, BuildState } from '@/features/build/types'
 import { isErrorResponse } from '@/features/error-handling/isErrorResponse'
 import { Skeleton } from '@/features/ui/Skeleton'
 import { cn } from '@/lib/classnames'
 
-import { DEFAULT_BUILD_NAME } from '../constants'
+import { createBuild } from '../../actions/createBuild'
+import { updateBuild } from '../../actions/updateBuild'
+import { DEFAULT_BUILD_NAME } from '../../constants'
 import { buttonClasses } from './ActionButton'
 
 interface Props {

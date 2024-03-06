@@ -6,13 +6,13 @@ import { ArmorItem } from '@/features/items/types/ArmorItem'
 import { SelectMenu } from '@/features/ui/SelectMenu'
 import { cn } from '@/lib/classnames'
 
-import { ItemButton } from '../../items/components/ItemButton'
+import { ItemButton } from '../../../../items/components/ItemButton'
 import {
   getTotalArmor,
   getTotalWeight,
   getWeightClass,
-} from '../lib/getTotalValues'
-import { BuildState } from '../types'
+} from '../../../lib/getTotalValues'
+import { BuildState } from '../../../types'
 
 type ArmorSuggestion = {
   helm: ArmorItem

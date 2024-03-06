@@ -6,10 +6,12 @@ import { useSession } from 'next-auth/react'
 import { useRef, useState } from 'react'
 import { toast } from 'react-toastify'
 
-import { ActionButton } from '@/features/build/components/ActionButton'
-import { BuilderPage } from '@/features/build/components/BuilderPage'
-import { DetailedBuildDialog } from '@/features/build/components/DetailedBuildDialog'
-import { ImageDownloadInfo } from '@/features/build/components/ImageDownloadInfo'
+import { addReportForBuild } from '@/features/build/actions/addReportForBuild'
+import { removeReportForBuild } from '@/features/build/actions/removeReportForBuild'
+import { BuilderPage } from '@/features/build/components/builder/BuilderPage'
+import { ActionButton } from '@/features/build/components/buttons/ActionButton'
+import { DetailedBuildDialog } from '@/features/build/components/dialogs/DetailedBuildDialog'
+import { ImageDownloadInfo } from '@/features/build/components/dialogs/ImageDownloadInfo'
 import { useBuildActions } from '@/features/build/hooks/useBuildActions'
 import { buildStateToCsvData } from '@/features/build/lib/buildStateToCsvData'
 import { dbBuildToBuildState } from '@/features/build/lib/dbBuildToBuildState'
@@ -17,8 +19,6 @@ import { DBBuild } from '@/features/build/types'
 import { ToCsvButton } from '@/features/csv/ToCsvButton'
 import { isErrorResponse } from '@/features/error-handling/isErrorResponse'
 import { LoadoutDialog } from '@/features/profile/loadouts/LoadoutDialog'
-
-import { addReportForBuild, removeReportForBuild } from '../actions'
 
 function videoEmbedUrlToVideoId(videoEmbedUrl: string) {
   const url = new URL(videoEmbedUrl)

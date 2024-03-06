@@ -2,7 +2,7 @@
 
 import { toast } from 'react-toastify'
 
-import { deleteBuild } from '@/app/builder/actions'
+import { deleteBuild } from '@/features/build/actions/deleteBuild'
 import { isErrorResponse } from '@/features/error-handling/isErrorResponse'
 
 export function DeleteBuildButton({

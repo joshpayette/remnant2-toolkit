@@ -5,7 +5,7 @@ import { useSearchParams } from 'next/navigation'
 import { useEffect, useState } from 'react'
 
 import { getFeaturedBuilds } from '@/features/build/actions/getFeaturedBuilds'
-import { BuildCard } from '@/features/build/components/BuildCard'
+import { BuildCard } from '@/features/build/components/build-card/BuildCard'
 import { ItemList } from '@/features/build/components/ItemList'
 import { useBuildListState } from '@/features/build/hooks/useBuildListState'
 import { BuildListSecondaryFilters } from '@/features/filters/components/BuildListSecondaryFilters'

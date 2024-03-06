@@ -9,7 +9,7 @@ import { Textarea } from '@/features/ui/Textarea'
 import { Toggle } from '@/features/ui/Toggle'
 import { cn } from '@/lib/classnames'
 
-import { MAX_BUILD_DESCRIPTION_LENGTH } from '../constants'
+import { MAX_BUILD_DESCRIPTION_LENGTH } from '../../constants'
 
 type Props = {
   description: string | null

@@ -7,7 +7,7 @@ import { Item } from '@/features/items/types'
 import { TraitItem } from '@/features/items/types/TraitItem'
 import { cn } from '@/lib/classnames'
 
-import { DEFAULT_TRAIT_AMOUNT, MAX_TRAIT_AMOUNT } from '../constants'
+import { DEFAULT_TRAIT_AMOUNT, MAX_TRAIT_AMOUNT } from '../../constants'
 
 export function Traits({
   buildState,

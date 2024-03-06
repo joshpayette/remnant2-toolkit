@@ -1,6 +1,6 @@
 'use client'
 
-import { BuildCard } from '@/features/build/components/BuildCard'
+import { BuildCard } from '@/features/build/components/build-card/BuildCard'
 import { DBBuild } from '@/features/build/types'
 
 import { ChangeLoadoutSlotButton } from '../components/ChangeLoadoutSlotButton'

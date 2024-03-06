@@ -2,15 +2,15 @@
 
 import { useRef, useState } from 'react'
 
-import { ActionButton } from '@/features/build/components/ActionButton'
-import { BuilderPage } from '@/features/build/components/BuilderPage'
-import { BuildSuggestionsDialog } from '@/features/build/components/BuildSuggestionsDialog'
-import { DetailedBuildDialog } from '@/features/build/components/DetailedBuildDialog'
-import { ImageDownloadInfo } from '@/features/build/components/ImageDownloadInfo'
-import { SaveBuildButton } from '@/features/build/components/SaveBuildButton'
+import { BuilderPage } from '@/features/build/components/builder/BuilderPage'
+import { ActionButton } from '@/features/build/components/buttons/ActionButton'
+import { SaveBuildButton } from '@/features/build/components/buttons/SaveBuildButton'
+import { BuildSuggestionsDialog } from '@/features/build/components/dialogs/build-suggestions/BuildSuggestionsDialog'
+import { DetailedBuildDialog } from '@/features/build/components/dialogs/DetailedBuildDialog'
+import { ImageDownloadInfo } from '@/features/build/components/dialogs/ImageDownloadInfo'
+import { INITIAL_BUILD_STATE } from '@/features/build/constants'
 import { useBuildActions } from '@/features/build/hooks/useBuildActions'
 import { useDBBuildState } from '@/features/build/hooks/useDBBuildState'
-import { initialBuildState } from '@/features/build/lib'
 import { BuildState } from '@/features/build/types'
 import { PageHeader } from '@/features/ui/PageHeader'
 
@@ -18,7 +18,7 @@ export default function Page() {
   const [detailedBuildDialogOpen, setDetailedBuildDialogOpen] = useState(false)
 
   const { dbBuildState, setNewBuildState, updateDBBuildState } =
-    useDBBuildState(initialBuildState)
+    useDBBuildState(INITIAL_BUILD_STATE)
 
   const {
     isScreenshotMode,

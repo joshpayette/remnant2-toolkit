@@ -6,7 +6,7 @@ import { useEffect, useRef, useState } from 'react'
 import { toast } from 'react-toastify'
 
 import { getCommunityBuilds } from '@/features/build/actions/getCommunityBuilds'
-import { BuildCard } from '@/features/build/components/BuildCard'
+import { BuildCard } from '@/features/build/components/build-card/BuildCard'
 import { ItemList } from '@/features/build/components/ItemList'
 import { useBuildActions } from '@/features/build/hooks/useBuildActions'
 import { useBuildListState } from '@/features/build/hooks/useBuildListState'

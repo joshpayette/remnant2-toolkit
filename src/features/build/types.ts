@@ -15,6 +15,8 @@ import { SkillItem } from '@/features/items/types/SkillItem'
 import { TraitItem } from '@/features/items/types/TraitItem'
 import { WeaponItem } from '@/features/items/types/WeaponItem'
 
+import { ErrorResponse } from '../error-handling/types'
+
 export type ItemCategory = keyof BuildState['items']
 
 /**
@@ -104,3 +106,13 @@ export type CommunityBuildQueryResponse = Array<
 export type CommunityBuildTotalCount = Array<{
   totalBuildCount: number
 }>
+
+/**
+ * The response from the server when a build is created, updated, or deleted
+ */
+export type SuccessResponse = {
+  message?: string
+  buildId?: string
+  totalUpvotes?: number
+}
+export type BuildActionResponse = ErrorResponse | SuccessResponse

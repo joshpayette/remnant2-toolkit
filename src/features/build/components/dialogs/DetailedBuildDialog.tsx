@@ -5,8 +5,8 @@ import { ItemInfoDialog } from '@/features/items/components/ItemInfoDialog'
 import { Item } from '@/features/items/types'
 import { Dialog } from '@/features/ui/Dialog'
 
-import { buildStateToMasonryItems } from '../lib/buildStateToMasonryItems'
-import { BuildState } from '../types'
+import { buildStateToMasonryItems } from '../../lib/buildStateToMasonryItems'
+import { BuildState } from '../../types'
 
 interface Props {
   buildState: BuildState

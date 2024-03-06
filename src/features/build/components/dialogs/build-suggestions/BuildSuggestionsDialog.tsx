@@ -4,7 +4,7 @@ import { ItemInfoDialog } from '@/features/items/components/ItemInfoDialog'
 import { Item } from '@/features/items/types'
 import { Dialog } from '@/features/ui/Dialog'
 
-import { BuildState } from '../types'
+import { BuildState } from '../../../types'
 import { ArmorSuggestions } from './ArmorSuggestions'
 import { ItemTagSuggestions } from './ItemTagSuggestions'
 

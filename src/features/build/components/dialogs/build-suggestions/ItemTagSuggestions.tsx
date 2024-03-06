@@ -11,11 +11,11 @@ import { MutatorItem } from '@/features/items/types/MutatorItem'
 import { WeaponItem } from '@/features/items/types/WeaponItem'
 import { SelectMenu } from '@/features/ui/SelectMenu'
 
-import { ItemButton } from '../../items/components/ItemButton'
-import { getConcoctionSlotCount } from '../lib/getConcoctionSlotCount'
-import { linkArchetypesToTraits } from '../lib/linkArchetypesToTraits'
-import { linkWeaponsToMods } from '../lib/linkWeaponsToMods'
-import { BuildState } from '../types'
+import { ItemButton } from '../../../../items/components/ItemButton'
+import { getConcoctionSlotCount } from '../../../lib/getConcoctionSlotCount'
+import { linkArchetypesToTraits } from '../../../lib/linkArchetypesToTraits'
+import { linkWeaponsToMods } from '../../../lib/linkWeaponsToMods'
+import { BuildState } from '../../../types'
 
 /**
  * Combines the tags found in item.descriptions, as well as the item.tags
