@@ -94,7 +94,7 @@ export default async function Page() {
                 aria-hidden="true"
               />
               <div className="relative w-full">
-                <p className="text-base leading-7">
+                <p className="text-lg font-bold leading-7">
                   {NAV_ITEMS.featuredBuilds.label}
                 </p>
                 <div className="mt-2 text-gray-300 ">
@@ -118,7 +118,7 @@ export default async function Page() {
                 aria-hidden="true"
               />
               <div className="relative w-full">
-                <p className="text-base leading-7">
+                <p className="text-lg font-bold leading-7">
                   {NAV_ITEMS.communityBuilds.label}
                 </p>
                 <div className="mt-2 text-gray-300 ">
@@ -142,7 +142,7 @@ export default async function Page() {
                 aria-hidden="true"
               />
               <div className="relative w-full">
-                <p className="text-base leading-7">
+                <p className="text-lg font-bold leading-7">
                   {NAV_ITEMS.createBuild.label}
                 </p>
                 <div className="mt-2 text-gray-300 ">
@@ -166,7 +166,7 @@ export default async function Page() {
                 aria-hidden="true"
               />
               <div className="relative w-full">
-                <p className="text-base leading-7">
+                <p className="text-lg font-bold leading-7">
                   {NAV_ITEMS.myBuilds.label}
                 </p>
                 <div className="mt-2 text-gray-300 ">
@@ -190,7 +190,7 @@ export default async function Page() {
                 aria-hidden="true"
               />
               <div className="relative w-full">
-                <p className="text-base leading-7">
+                <p className="text-lg font-bold leading-7">
                   {NAV_ITEMS.bossTracker.label}
                 </p>
                 <div className="mt-2 text-gray-300 ">
@@ -214,7 +214,7 @@ export default async function Page() {
                 aria-hidden="true"
               />
               <div className="relative w-full">
-                <p className="text-base leading-7">
+                <p className="text-lg font-bold leading-7">
                   {NAV_ITEMS.itemTracker.label}
                 </p>
                 <div className="mt-2 text-gray-300 ">
@@ -238,7 +238,7 @@ export default async function Page() {
                 aria-hidden="true"
               />
               <div className="relative w-full">
-                <p className="text-base leading-7">
+                <p className="text-lg font-bold leading-7">
                   {NAV_ITEMS.itemLookup.label}
                 </p>
                 <div className="mt-2 text-gray-300 ">
@@ -262,7 +262,7 @@ export default async function Page() {
                 aria-hidden="true"
               />
               <div className="relative w-full">
-                <p className="text-base leading-7">
+                <p className="text-lg font-bold leading-7">
                   {NAV_ITEMS.changeLog.label}
                 </p>
                 <div className="mt-2 text-gray-300 ">
@@ -286,7 +286,7 @@ export default async function Page() {
                 aria-hidden="true"
               />
               <div className="relative w-full">
-                <p className="text-base leading-7">
+                <p className="text-lg font-bold leading-7">
                   {NAV_ITEMS.supportR2TK.label}
                 </p>
                 <div className="mt-2 text-gray-300 ">
