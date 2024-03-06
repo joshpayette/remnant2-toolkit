@@ -10,7 +10,7 @@
     }
   ],
   "functions": {
-    "/community-builds/by-collection": {
+    "app/community-builds/by-collection": {
       "memory": 3008,
       "maxDuration": 60
     }
