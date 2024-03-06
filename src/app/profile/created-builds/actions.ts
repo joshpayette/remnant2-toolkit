@@ -94,7 +94,7 @@ export async function getCreatedBuilds({
   const trimmedSearchText = searchText.trim()
 
   // First, get the Builds
-  const [builds, totalBuildsCountResponse] = await Promise.all([
+  const [builds, totalBuildsCountResponse] = await prisma.$transaction([
     communityBuildsQuery({
       userId,
       itemsPerPage,

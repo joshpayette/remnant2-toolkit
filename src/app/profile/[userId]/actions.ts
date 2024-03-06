@@ -146,7 +146,7 @@ export async function getUserProfilePage({
   const trimmedSearchText = searchText
 
   // First, get the Builds
-  const [builds, totalBuildsCountResponse] = await Promise.all([
+  const [builds, totalBuildsCountResponse] = await prisma.$transaction([
     communityBuildsQuery({
       userId,
       itemsPerPage,

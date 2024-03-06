@@ -37,7 +37,7 @@ export default async function Layout({
 }: {
   children: React.ReactNode
 }) {
-  return <p>Temporarily down for maintenance</p>
+  return <p>Builds by collection is temporarily down for maintenance</p>
 
   return <Suspense>{children}</Suspense>
 }
