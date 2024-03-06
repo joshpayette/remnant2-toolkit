@@ -81,9 +81,6 @@ export const authOptions: NextAuthOptions = {
           duration: 'permanent',
         },
       },
-      profile(profile) {
-        return { ...profile, role: profile.role ?? 'user' }
-      },
     }),
   ],
 }
