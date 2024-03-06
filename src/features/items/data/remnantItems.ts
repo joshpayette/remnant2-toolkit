@@ -2868,7 +2868,7 @@ export const remnantItems: Item[] = [
     name: 'Siphon Heart',
     imagePath: '/relic/siphon_heart.png',
     id: '3awf5n',
-    description: `On use, grants 10% of base damage dealt as Lifesteal for 10s.`,
+    description: `On use, grants 10% of base damage dealt as Lifesteal for 15s.`,
     wikiLinks: [`https://remnant.wiki/Siphon_Heart`],
   },
   {
