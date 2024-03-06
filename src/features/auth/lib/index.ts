@@ -69,9 +69,9 @@ export const authOptions: NextAuthOptions = {
     DiscordProvider({
       clientId: process.env.DISCORD_CLIENT_ID ?? '',
       clientSecret: process.env.DISCORD_CLIENT_SECRET ?? '',
-      profile(profile) {
-        return { ...profile, role: profile.role ?? 'user' }
-      },
+      // profile(profile) {
+      //   return { ...profile, role: profile.role ?? 'user' }
+      // },
     }),
     RedditProvider({
       clientId: process.env.REDDIT_CLIENT_ID ?? '',

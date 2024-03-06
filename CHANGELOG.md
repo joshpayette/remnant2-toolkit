@@ -17,6 +17,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Amplitude vs. Resonance guide updated to reflect changes from the recent patch.
 
+### Fixed
+
+- Fixed bug preventing Reddit users from creating accounts.
+
 ## 2024-03-04
 
 ### Added
