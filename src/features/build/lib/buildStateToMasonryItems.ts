@@ -21,16 +21,20 @@ export function buildStateToMasonryItems(build: BuildState): Item[] {
     const archetype = items.archetype[i] as ArchetypeItem
     const skill = items.skill[i] as SkillItem
 
+    if (archetype) masonryItems.push(items.archetype[i] as ArchetypeItem)
+    if (skill) masonryItems.push(skill)
+  })
+
+  // perks
+  getArrayOfLength(2).forEach((_, i) => {
+    if (!items.archetype[i]) return
+
+    const archetype = items.archetype[i] as ArchetypeItem
     if (archetype) {
-      masonryItems.push(items.archetype[i] as ArchetypeItem)
       archetype.linkedItems?.perks?.forEach((perk) => {
         const perkItem = remnantItems.find((item) => item.name === perk.name)
         if (perkItem) masonryItems.push(perkItem)
       })
-    }
-
-    if (skill) {
-      masonryItems.push(skill)
     }
   })
 
