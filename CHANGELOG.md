@@ -16,6 +16,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Changed
 
 - Amplitude vs. Resonance guide updated to reflect changes from the recent patch.
+- When clicking through pages on build lists, scroll to top no longer occurs
 
 ### Fixed
 
