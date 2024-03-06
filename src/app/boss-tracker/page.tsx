@@ -1,7 +1,7 @@
 'use client'
 
 import { useMemo, useState } from 'react'
-import { useIsClient } from 'usehooks-ts'
+import { useIsClient, useLocalStorage } from 'usehooks-ts'
 
 import { remnantEnemies } from '@/features/enemies/data/remnantEnemies'
 import { BossCategory } from '@/features/enemies/types'
@@ -10,10 +10,10 @@ import {
   DEFAULT_BOSS_TRACKER_FILTERS,
 } from '@/features/filters/components/BossTrackerFilters'
 import { BossTrackerFilterFields } from '@/features/filters/types'
-import { useLocalStorage } from '@/features/localstorage/useLocalStorage'
 import { PageHeader } from '@/features/ui/PageHeader'
 
 import { ListBosses } from './ListBosses'
+import { LocalStorage } from './types'
 
 const allBosses = remnantEnemies
   .filter(
@@ -36,7 +36,15 @@ export default function Page() {
     DEFAULT_BOSS_TRACKER_FILTERS,
   )
 
-  const { discoveredBossIds, setDiscoveredBossIds } = useLocalStorage()
+  const [tracker, setTracker] = useLocalStorage<LocalStorage>(
+    'boss-tracker',
+    {
+      discoveredBossIds: [],
+      collapsedBossCategories: [],
+    },
+    { initializeWithValue: false },
+  )
+  const { discoveredBossIds } = tracker
 
   const filteredBosses = useMemo(() => {
     let filteredBosses = allBosses.map((boss) => ({
@@ -71,7 +79,7 @@ export default function Page() {
       const newDiscoveredBossIds = discoveredBossIds.filter(
         (id) => id !== bossId,
       )
-      setDiscoveredBossIds({ ids: newDiscoveredBossIds })
+      setTracker({ ...tracker, discoveredBossIds: newDiscoveredBossIds })
       // We need to set the user item insert needed flag
       // so that the next time they filter builds by collection,
       // their items will be updated
@@ -79,7 +87,7 @@ export default function Page() {
     }
 
     const newDiscoveredBossIds = [...discoveredBossIds, bossId]
-    setDiscoveredBossIds({ ids: newDiscoveredBossIds })
+    setTracker({ ...tracker, discoveredBossIds: newDiscoveredBossIds })
     // We need to set the user item insert needed flag
     // so that the next time they filter builds by collection,
     // their items will be updated

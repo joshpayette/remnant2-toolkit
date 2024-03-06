@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react'
-import { useDebounceValue } from 'usehooks-ts'
+import { useDebounceValue, useLocalStorage } from 'usehooks-ts'
 
 import { ClearFiltersButton } from '@/features/filters/components/parts/ClearFiltersButton'
 import { RELEASE_TO_NAME } from '@/features/items/constants'
@@ -7,13 +7,12 @@ import { FilteredItem } from '@/features/items/hooks/useFilteredItems'
 import { ReleaseKey } from '@/features/items/types'
 import { MutatorItem } from '@/features/items/types/MutatorItem'
 import { WeaponItem } from '@/features/items/types/WeaponItem'
-import { useLocalStorage } from '@/features/localstorage/useLocalStorage'
 import { Checkbox } from '@/features/ui/Checkbox'
 import { SearchInput } from '@/features/ui/SearchInput'
 import { SelectMenu } from '@/features/ui/SelectMenu'
 import { cn } from '@/lib/classnames'
 
-import { ItemTrackerCategory } from './types'
+import { ItemTrackerCategory, LocalStorage } from './types'
 
 const DEFAULT_ITEM_CATEGORY: ItemTrackerCategory = 'archetype'
 
@@ -105,7 +104,15 @@ export function Filters({
   showBorder = true,
   onUpdate,
 }: Props) {
-  const { discoveredItemIds } = useLocalStorage()
+  const [tracker] = useLocalStorage<LocalStorage>(
+    'item-tracker',
+    {
+      discoveredItemIds: [],
+      collapsedCategories: [],
+    },
+    { initializeWithValue: false },
+  )
+  const { discoveredItemIds } = tracker
 
   function clearFilters() {
     setSearchText('')

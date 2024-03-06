@@ -2,14 +2,13 @@
 
 import { AdjustmentsHorizontalIcon } from '@heroicons/react/24/solid'
 import { useCallback, useEffect, useState } from 'react'
-import { useDebounceValue } from 'usehooks-ts'
+import { useDebounceValue, useLocalStorage } from 'usehooks-ts'
 
 import { SearchTextAutocomplete } from '@/features/filters/components/parts/SearchTextAutocomplete'
 import { ItemInfoDialog } from '@/features/items/components/ItemInfoDialog'
 import { DESCRIPTION_TAGS, ITEM_TAGS } from '@/features/items/constants'
 import { itemMatchesSearchText } from '@/features/items/lib/itemMatchesSearchText'
 import { Item } from '@/features/items/types'
-import { useLocalStorage } from '@/features/localstorage/useLocalStorage'
 import { Dialog } from '@/features/ui/Dialog'
 import { capitalize } from '@/lib/capitalize'
 import { cn } from '@/lib/classnames'
@@ -85,7 +84,11 @@ export function ItemSelect({
   const [filter, setFilter] = useState('')
   const [debouncedFilter] = useDebounceValue(filter, 500)
 
-  const { sortingPreference, setSortingPreference } = useLocalStorage()
+  const [sortingPreference, setSortingPreference] = useLocalStorage<
+    'alphabetical' | 'in-game'
+  >('sorting-preference', 'alphabetical', {
+    initializeWithValue: false,
+  })
 
   const getNewSortedItems = useCallback(() => {
     const filteredItems = itemList.filter((item) =>

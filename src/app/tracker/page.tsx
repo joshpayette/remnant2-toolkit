@@ -4,7 +4,7 @@ import Papa from 'papaparse'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { useFormState } from 'react-dom'
 import { toast } from 'react-toastify'
-import { useIsClient } from 'usehooks-ts'
+import { useIsClient, useLocalStorage } from 'usehooks-ts'
 
 import { Filters } from '@/app/tracker/Filters'
 import { ItemCategory } from '@/features/build/types'
@@ -16,14 +16,13 @@ import { itemToCsvItem } from '@/features/items/lib/itemToCsvItem'
 import { Item } from '@/features/items/types'
 import { MutatorItem } from '@/features/items/types/MutatorItem'
 import { WeaponItem } from '@/features/items/types/WeaponItem'
-import { useLocalStorage } from '@/features/localstorage/useLocalStorage'
 import { PageHeader } from '@/features/ui/PageHeader'
 import { capitalize } from '@/lib/capitalize'
 
 import { parseSaveFile } from './actions'
 import { ImportCSVDialog } from './ImportCSVDialog'
 import { ImportSaveDialog } from './ImportSaveDialog'
-import { ItemTrackerCategory } from './types'
+import { ItemTrackerCategory, LocalStorage } from './types'
 import { getProgressLabel } from './utils'
 
 /** We don't track these categories at all */
@@ -82,7 +81,16 @@ export default function Page() {
   // If the item info is defined, the modal should be open
   const isShowItemInfoOpen = Boolean(itemInfo)
 
-  const { discoveredItemIds, setDiscoveredItemIds } = useLocalStorage()
+  const [tracker, setTracker] = useLocalStorage<LocalStorage>(
+    'item-tracker',
+    {
+      discoveredItemIds: [],
+      collapsedCategories: [],
+    },
+    { initializeWithValue: false },
+  )
+  const { discoveredItemIds } = tracker
+
   const { filteredItems, handleUpdateFilters } = useFilteredItems([])
 
   /**
@@ -126,7 +134,7 @@ export default function Page() {
 
     saveFileInputRef.current = null
     // Update the discovered item ids
-    setDiscoveredItemIds({ ids: filteredDiscoveredItems })
+    setTracker({ ...tracker, discoveredItemIds: filteredDiscoveredItems })
     setImportSaveDialogOpen(false)
     toast.success('Save file imported successfully!')
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -172,7 +180,7 @@ export default function Page() {
           )
 
           csvFileInputRef.current = null
-          setDiscoveredItemIds({ ids: newCsvItemIds })
+          setTracker({ ...tracker, discoveredItemIds: newCsvItemIds })
           setImportCSVDialogOpen(false)
           toast.success('CSV file imported successfully!')
         },
@@ -200,7 +208,7 @@ export default function Page() {
       const newDiscoveredItemIds = discoveredItemIds.filter(
         (id) => id !== itemId,
       )
-      setDiscoveredItemIds({ ids: newDiscoveredItemIds })
+      setTracker({ ...tracker, discoveredItemIds: newDiscoveredItemIds })
       // We need to set the user item insert needed flag
       // so that the next time they filter builds by collection,
       // their items will be updated
@@ -208,7 +216,7 @@ export default function Page() {
     }
 
     const newDiscoveredItemIds = [...discoveredItemIds, itemId]
-    setDiscoveredItemIds({ ids: newDiscoveredItemIds })
+    setTracker({ ...tracker, discoveredItemIds: newDiscoveredItemIds })
     // We need to set the user item insert needed flag
     // so that the next time they filter builds by collection,
     // their items will be updated
