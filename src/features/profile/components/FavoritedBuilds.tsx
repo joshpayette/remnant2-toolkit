@@ -1,3 +1,6 @@
+'use client'
+
+import { useSearchParams } from 'next/navigation'
 import { useEffect, useState } from 'react'
 
 import { BuildCard } from '@/features/build/components/BuildCard'
@@ -5,10 +8,11 @@ import { ItemList } from '@/features/build/components/ItemList'
 import { useBuildListState } from '@/features/build/hooks/useBuildListState'
 import { BuildListSecondaryFilters } from '@/features/filters/components/BuildListSecondaryFilters'
 import { useBuildListSecondaryFilters } from '@/features/filters/hooks/useBuildListSecondaryFilters'
-import { BuildListFilterFields } from '@/features/filters/types'
+import { parseBuildListFilters } from '@/features/filters/lib/parseBuildListFilters'
 import { usePagination } from '@/features/pagination/usePagination'
 import { CopyBuildUrlButton } from '@/features/profile/components/CopyBuildUrlButton'
 import { DuplicateBuildButton } from '@/features/profile/components/DuplicateBuildButton'
+import { Skeleton } from '@/features/ui/Skeleton'
 
 import { getFavoritedBuilds } from '../../../app/profile/favorited-builds/actions'
 import { AddToLoadoutButton } from '../loadouts/AddToLoadoutButton'
@@ -16,10 +20,17 @@ import { LoadoutDialog } from '../loadouts/LoadoutDialog'
 
 interface Props {
   itemsPerPage?: number
-  buildListFilters: BuildListFilterFields
 }
 
-export function FavoritedBuilds({ itemsPerPage = 8, buildListFilters }: Props) {
+export function FavoritedBuilds({ itemsPerPage = 8 }: Props) {
+  const searchParams = useSearchParams()
+  const [buildListFilters, setBuildListFilters] = useState(
+    parseBuildListFilters(searchParams),
+  )
+  useEffect(() => {
+    setBuildListFilters(parseBuildListFilters(searchParams))
+  }, [searchParams])
+
   const { buildListState, setBuildListState } = useBuildListState()
   const { builds, totalBuildCount, isLoading } = buildListState
 
@@ -81,6 +92,10 @@ export function FavoritedBuilds({ itemsPerPage = 8, buildListFilters }: Props) {
     timeRange,
     setBuildListState,
   ])
+
+  if (!buildListFilters) {
+    return <Skeleton className="min-h-[1100px] w-full" />
+  }
 
   return (
     <>

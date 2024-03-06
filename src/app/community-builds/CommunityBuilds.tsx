@@ -1,5 +1,8 @@
+'use client'
+
 import Link from 'next/link'
-import { useEffect } from 'react'
+import { useSearchParams } from 'next/navigation'
+import { useEffect, useRef, useState } from 'react'
 import { toast } from 'react-toastify'
 
 import { getCommunityBuilds } from '@/features/build/actions/getCommunityBuilds'
@@ -11,18 +14,23 @@ import { dbBuildToBuildState } from '@/features/build/lib/dbBuildToBuildState'
 import { isErrorResponse } from '@/features/error-handling/isErrorResponse'
 import { BuildListSecondaryFilters } from '@/features/filters/components/BuildListSecondaryFilters'
 import { useBuildListSecondaryFilters } from '@/features/filters/hooks/useBuildListSecondaryFilters'
-import { BuildListFilterFields } from '@/features/filters/types'
+import { parseBuildListFilters } from '@/features/filters/lib/parseBuildListFilters'
 import { usePagination } from '@/features/pagination/usePagination'
+import { Skeleton } from '@/features/ui/Skeleton'
 
 interface Props {
   itemsPerPage?: number
-  buildListFilters: BuildListFilterFields
 }
 
-export function CommunityBuildList({
-  itemsPerPage = 8,
-  buildListFilters,
-}: Props) {
+export function CommunityBuildList({ itemsPerPage = 8 }: Props) {
+  const searchParams = useSearchParams()
+  const [buildListFilters, setBuildListFilters] = useState(
+    parseBuildListFilters(searchParams),
+  )
+  useEffect(() => {
+    setBuildListFilters(parseBuildListFilters(searchParams))
+  }, [searchParams])
+
   const { buildListState, setBuildListState } = useBuildListState()
   const { builds, totalBuildCount, isLoading } = buildListState
 
@@ -105,6 +113,10 @@ export function CommunityBuildList({
       })
       setBuildListState((prevState) => ({ ...prevState, builds: newBuilds }))
     }
+  }
+
+  if (!buildListFilters) {
+    return <Skeleton className="min-h-[1100px] w-full" />
   }
 
   return (

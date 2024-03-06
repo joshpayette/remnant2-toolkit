@@ -1,7 +1,7 @@
 'use client'
 
 import isEqual from 'lodash/isEqual'
-import { usePathname, useRouter } from 'next/navigation'
+import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import { useMemo, useState } from 'react'
 
 import { ArchetypeFilters } from '@/features/filters/components/parts/ArchetypeFilters'
@@ -13,6 +13,7 @@ import {
 import { Archetype, ReleaseKey } from '@/features/items/types'
 import { Checkbox } from '@/features/ui/Checkbox'
 
+import { parseBuildListFilters } from '../lib/parseBuildListFilters'
 import { BuildListFilterFields } from '../types'
 import { DEFAULT_JEWELRY_FILTERS, JewelryFilters } from './parts/JewelryFilters'
 import { DEFAULT_RELEASE_FILTERS, ReleaseFilters } from './parts/ReleaseFilters'
@@ -30,13 +31,12 @@ export const DEFAULT_BUILD_LIST_FILTERS: BuildListFilterFields = {
   includePatchAffectedBuilds: false,
 }
 
-interface Props {
-  filters: BuildListFilterFields
-}
-
-export function BuildListFilters({ filters }: Props) {
+export function BuildListFilters() {
   const router = useRouter()
   const pathname = usePathname()
+  const searchParams = useSearchParams()
+
+  const filters = parseBuildListFilters(searchParams)
 
   // Tracks the filter changes by the user that are not yet applied
   // via clicking the Apply Filters button

@@ -1,4 +1,7 @@
-import { useEffect } from 'react'
+'use client'
+
+import { useSearchParams } from 'next/navigation'
+import { useEffect, useState } from 'react'
 
 import { getCreatedBuilds } from '@/app/profile/created-builds/actions'
 import { BuildCard } from '@/features/build/components/BuildCard'
@@ -7,7 +10,7 @@ import { ItemList } from '@/features/build/components/ItemList'
 import { useBuildListState } from '@/features/build/hooks/useBuildListState'
 import { BuildListSecondaryFilters } from '@/features/filters/components/BuildListSecondaryFilters'
 import { useBuildListSecondaryFilters } from '@/features/filters/hooks/useBuildListSecondaryFilters'
-import { BuildListFilterFields } from '@/features/filters/types'
+import { parseBuildListFilters } from '@/features/filters/lib/parseBuildListFilters'
 import { usePagination } from '@/features/pagination/usePagination'
 import { CopyBuildUrlButton } from '@/features/profile/components/CopyBuildUrlButton'
 import { DeleteBuildButton } from '@/features/profile/components/DeleteBuildButton'
@@ -16,10 +19,17 @@ import { EditBuildButton } from '@/features/profile/components/EditBuildButton'
 
 interface Props {
   itemsPerPage?: number
-  buildListFilters: BuildListFilterFields
 }
 
-export function CreatedBuilds({ itemsPerPage = 8, buildListFilters }: Props) {
+export function CreatedBuilds({ itemsPerPage = 8 }: Props) {
+  const searchParams = useSearchParams()
+  const [buildListFilters, setBuildListFilters] = useState(
+    parseBuildListFilters(searchParams),
+  )
+  useEffect(() => {
+    setBuildListFilters(parseBuildListFilters(searchParams))
+  }, [searchParams])
+
   const { buildListState, setBuildListState } = useBuildListState()
   const { builds, totalBuildCount, isLoading } = buildListState
 
