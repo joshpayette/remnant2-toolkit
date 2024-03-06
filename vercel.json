@@ -8,5 +8,11 @@
       "path": "/api/cron/imagekit/cleanup",
       "schedule": "0 */1 * * *"
     }
-  ]
+  ],
+  "functions": {
+    "/community-builds/by-collection": {
+      "memory": 3008,
+      "maxDuration": 60
+    }
+  }
 }
