@@ -37,7 +37,5 @@ export default async function Layout({
 }: {
   children: React.ReactNode
 }) {
-  return <p>Section down for maintenance. Check back later</p>
-
   return <Suspense>{children}</Suspense>
 }

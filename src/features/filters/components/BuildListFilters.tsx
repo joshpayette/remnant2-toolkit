@@ -62,7 +62,9 @@ export function BuildListFilters({ filters }: Props) {
       filters.ring !== DEFAULT_BUILD_LIST_FILTERS['ring'] ||
       filters.amulet !== DEFAULT_BUILD_LIST_FILTERS['amulet'] ||
       filters.searchText !== DEFAULT_BUILD_LIST_FILTERS['searchText'] ||
-      filters.selectedReleases.length < 2
+      filters.selectedReleases.length < 2 ||
+      filters.includePatchAffectedBuilds !==
+        DEFAULT_BUILD_LIST_FILTERS['includePatchAffectedBuilds']
     )
   }, [filters])
 

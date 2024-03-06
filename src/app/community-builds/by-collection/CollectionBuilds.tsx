@@ -131,7 +131,7 @@ export function CollectionBuilds({
   if (discoveredItemsSaved.current === false) {
     return (
       <div className="flex animate-bounce items-center justify-center p-4 text-lg font-semibold text-yellow-500">
-        Saving your discovered items...
+        Loading your discovered items...
       </div>
     )
   }

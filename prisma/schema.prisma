@@ -221,8 +221,6 @@ model UserProfile {
   user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   bio          String   @db.Text
   pinnedBuilds Build[]
-
-  @@index([userId])
 }
 
 model BannedUsers {
