@@ -27,6 +27,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Amplitude vs. Resonance guide updated to reflect changes from the recent patch.
 - When clicking through pages on build lists, scroll to top no longer occurs
+- Changed trait point coloring to also apply to text, not just the bottom border.
+- Added border around trait points when editable to make it more clear it's a button.
 
 ### Fixed
 

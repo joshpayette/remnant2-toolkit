@@ -162,18 +162,14 @@ export function Traits({
             className={cn(
               'flex items-center border border-transparent border-b-green-500 text-sm',
               isArchtypeTrait(traitItem) &&
-                isArchtypeCoreTrait(traitItem) &&
-                'border-b-purple-500',
-              isArchtypeTrait(traitItem) &&
-                !isArchtypeCoreTrait(traitItem) &&
-                'border-b-purple-500',
+                'border-b-purple-500 text-purple-500',
               isArchtypeTrait(traitItem) &&
                 !isArchtypeCoreTrait(traitItem) &&
                 isEditable &&
-                'border-b-yellow-500',
+                'border-b-yellow-500 text-yellow-500',
             )}
           >
-            <div className="mr-4 flex items-center text-lg font-bold text-green-400">
+            <div className="mr-4 flex items-center text-lg font-bold ">
               {traitItem.name === editingTraitItem?.name &&
               isEditable &&
               shouldAllowEdit(editingTraitItem) ? (
@@ -212,20 +208,25 @@ export function Traits({
                     setEditingTraitItem(null)
                   }}
                   autoFocus
-                  className="w-12 border border-green-500 bg-transparent p-1 text-center text-green-400"
+                  className="w-12 border border-green-500 bg-transparent p-1 text-center "
                 />
               ) : (
                 <button
                   onClick={() => setEditingTraitItem(traitItem)}
                   aria-label="Edit Trait Amount"
-                  className="min-w-[30px] text-left"
+                  className={cn(
+                    'min-w-[30px] text-left',
+                    !isScreenshotMode &&
+                      isEditable &&
+                      'border border-dashed border-gray-400 p-1',
+                  )}
                 >
                   {traitItem.amount ?? DEFAULT_TRAIT_AMOUNT}
                 </button>
               )}
             </div>
             <button
-              className="relative flex items-center justify-start gap-x-2 text-sm text-gray-200"
+              className="relative flex items-center justify-start gap-x-2 text-sm"
               aria-label="Trait Information"
               onClick={() => onItemInfoClick && onItemInfoClick(traitItem)}
             >
