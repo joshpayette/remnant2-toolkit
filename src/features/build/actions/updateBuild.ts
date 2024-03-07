@@ -112,8 +112,29 @@ export async function updateBuild(data: string): Promise<BuildActionResponse> {
       }
     }
 
-    // If the build name has updated, send the build info to Discord
-    if (existingBuild?.name !== buildState.name && buildState.isPublic) {
+    // If the build description has updated, send the build info to Discord
+    if (
+      existingBuild?.description !== buildState.description &&
+      buildState.isPublic
+    ) {
+      const params = {
+        content: `Build description updated. https://www.remnant2toolkit.com/builder/${
+          buildState.buildId
+        }?t=${Date.now()}`,
+      }
+
+      const res = await fetch(`${process.env.WEBHOOK_COMMUNITY_BUILDS}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(params),
+      })
+
+      if (!res.ok) {
+        console.error('Error in sending build webhook to Discord!')
+      }
+    } else if (existingBuild?.name !== buildState.name && buildState.isPublic) {
       const params = {
         content: `Build name updated. Old name: ${existingBuild?.name}, New name: ${
           buildState.name
