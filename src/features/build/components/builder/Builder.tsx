@@ -392,9 +392,10 @@ export function Builder({
             </div>
           )}
           {buildState.buildLink && (
-            <div className="mb-2 flex items-center justify-center text-sm text-gray-300">
-              <span className="mr-2 text-gray-400">Build Reference Link:</span>{' '}
-              {buildState.buildLink}
+            <div className="mb-2 flex w-full items-center justify-center text-sm text-gray-300">
+              <span className="overflow-y-auto whitespace-pre-wrap text-center">
+                {buildState.buildLink}
+              </span>
             </div>
           )}
           {buildState.updatedAt && (
