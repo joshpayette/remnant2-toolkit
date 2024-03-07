@@ -35,6 +35,19 @@ export const authOptions: NextAuthOptions = {
           })
       }
 
+      // Create user profile if it doesn't exist
+      const userProfile = await prisma.userProfile.findUnique({
+        where: { userId: user.id },
+      })
+      if (!userProfile) {
+        await prisma.userProfile.create({
+          data: {
+            userId: user.id,
+            bio: 'No bio yet.',
+          },
+        })
+      }
+
       return true
     },
 
@@ -70,9 +83,6 @@ export const authOptions: NextAuthOptions = {
     DiscordProvider({
       clientId: process.env.DISCORD_CLIENT_ID ?? '',
       clientSecret: process.env.DISCORD_CLIENT_SECRET ?? '',
-      // profile(profile) {
-      //   return { ...profile, role: profile.role ?? 'user' }
-      // },
     }),
     RedditProvider({
       clientId: process.env.REDDIT_CLIENT_ID ?? '',
