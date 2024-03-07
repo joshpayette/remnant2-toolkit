@@ -92,6 +92,29 @@ export async function updateBuild(data: string): Promise<BuildActionResponse> {
       }
     }
 
+    // If the build name has updated, send the build info to Discord
+    if (existingBuild?.name !== buildState.name && buildState.isPublic) {
+      const params = {
+        content: `Build name updated. Old name: ${existingBuild?.name}, New name: ${
+          buildState.name
+        }. https://www.remnant2toolkit.com/builder/${
+          buildState.buildId
+        }?t=${Date.now()}`,
+      }
+
+      const res = await fetch(`${process.env.WEBHOOK_COMMUNITY_BUILDS}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(params),
+      })
+
+      if (!res.ok) {
+        console.error('Error in sending build webhook to Discord!')
+      }
+    }
+
     // If the build was private but is now public, send the build info to Discord
     if (existingBuild?.isPublic === false && buildState.isPublic === true) {
       const params = {
@@ -115,7 +138,9 @@ export async function updateBuild(data: string): Promise<BuildActionResponse> {
 
     // If the build description has updated, send the build info to Discord
     if (
+      buildState.description &&
       existingBuild?.description !== buildState.description &&
+      buildState.description.trim().length > 0 &&
       buildState.isPublic
     ) {
       const params = {
@@ -139,34 +164,13 @@ export async function updateBuild(data: string): Promise<BuildActionResponse> {
 
     // If the build link has updated, send the build info to Discord
     if (
+      buildState.buildLink &&
       existingBuild?.buildLink !== buildState.buildLink &&
+      buildState.buildLink.trim().length > 0 &&
       buildState.isPublic
     ) {
       const params = {
         content: `Build reference link updated. https://www.remnant2toolkit.com/builder/${
-          buildState.buildId
-        }?t=${Date.now()}`,
-      }
-
-      const res = await fetch(`${process.env.WEBHOOK_COMMUNITY_BUILDS}`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(params),
-      })
-
-      if (!res.ok) {
-        console.error('Error in sending build webhook to Discord!')
-      }
-    }
-
-    // If the build name has updated, send the build info to Discord
-    if (existingBuild?.name !== buildState.name && buildState.isPublic) {
-      const params = {
-        content: `Build name updated. Old name: ${existingBuild?.name}, New name: ${
-          buildState.name
-        }. https://www.remnant2toolkit.com/builder/${
           buildState.buildId
         }?t=${Date.now()}`,
       }
