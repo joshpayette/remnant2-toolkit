@@ -98,6 +98,7 @@ export const WEIGHT_CLASSES = {
 export const RELEASE_TO_NAME = {
   base: 'Base Game',
   dlc1: 'The Awakened King',
+  dlc2: 'PLACEHOLDER FOR YAESHA DLC',
 } as const
 
 export const DESCRIPTION_TAGS = [
@@ -132,7 +133,7 @@ export const DESCRIPTION_TAGS = [
     description:
       'Deals physical damage per second. Reduces healing effectiveness by 50%.',
   },
-    {
+  {
     type: 'Bug',
     token: '[BUG]',
     color: 'text-[#ecff00]',
