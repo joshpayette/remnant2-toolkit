@@ -161,12 +161,11 @@ export function Traits({
             key={traitItem.name}
             className={cn(
               'flex items-center border border-transparent border-b-green-500 text-sm',
-              isArchtypeTrait(traitItem) &&
-                'border-b-purple-500 text-purple-500',
+              isArchtypeTrait(traitItem) && 'border-b-yellow-500',
               isArchtypeTrait(traitItem) &&
                 !isArchtypeCoreTrait(traitItem) &&
                 isEditable &&
-                'border-b-yellow-500 text-yellow-500',
+                'border-b-purple-500',
             )}
           >
             <div className="mr-4 flex items-center text-lg font-bold ">
@@ -208,7 +207,7 @@ export function Traits({
                     setEditingTraitItem(null)
                   }}
                   autoFocus
-                  className="w-12 border border-green-500 bg-transparent p-1 text-center "
+                  className="w-12 border border-green-500 bg-transparent p-1 text-center"
                 />
               ) : (
                 <button
