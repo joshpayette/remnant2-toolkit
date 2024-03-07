@@ -10,6 +10,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Featured builds now have a featured build badge on their build cards
 
+### Changed
+
+- Added language to the CODE_OF_CONDUCT.md for "Gore or violence beyond the scope of the game".
+
 ### Fixed
 
 - Fixed issue where build reference link could overflow the container
