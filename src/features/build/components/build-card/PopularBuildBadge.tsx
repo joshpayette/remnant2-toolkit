@@ -2,7 +2,7 @@ import Image from 'next/image'
 
 import { Tooltip } from '@/features/ui/Tooltip'
 
-import { POPULAR_VOTE_THRESHOLD } from '../constants'
+import { POPULAR_VOTE_THRESHOLD } from '../../constants'
 
 export function PopularBuildBadge({
   unoptimized = false,

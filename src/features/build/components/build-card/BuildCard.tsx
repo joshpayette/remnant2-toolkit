@@ -17,9 +17,10 @@ import { formatUpdatedAt } from '../../lib/formatUpdatedAt'
 import { getArchetypeBuildName } from '../../lib/getArchetypeBuildName'
 import { isBuildNew } from '../../lib/isBuildNew'
 import { DBBuild } from '../../types'
-import { NewBuildBadge } from '../NewBuildBadge'
-import { PopularBuildBadge } from '../PopularBuildBadge'
 import { ArchtypeLabel } from './ArchtypeLabel'
+import { FeaturedBuildBadge } from './FeaturedBuildBadge'
+import { NewBuildBadge } from './NewBuildBadge'
+import { PopularBuildBadge } from './PopularBuildBadge'
 
 interface Props {
   build: DBBuild
@@ -57,14 +58,11 @@ export function BuildCard({
               'border-2 border-yellow-300 shadow-lg shadow-yellow-600',
           )}
         >
-          {isPopular && !isNew && (
-            <div className="absolute left-1/2 top-0 flex w-full -translate-x-1/2 -translate-y-1/2 transform items-center justify-center">
-              <PopularBuildBadge />
-            </div>
-          )}
-          {isNew && (
-            <div className="absolute left-1/2 top-0 flex w-full -translate-x-1/2 -translate-y-1/2 transform items-center justify-center">
-              <NewBuildBadge />
+          {(isPopular || build.isFeaturedBuild || isNew) && (
+            <div className="absolute left-1/2 top-0 flex w-full -translate-x-1/2 -translate-y-1/2 transform items-center justify-center gap-x-2">
+              {isNew ? <NewBuildBadge /> : null}
+              {isPopular ? <PopularBuildBadge /> : null}
+              {build.isFeaturedBuild ? <FeaturedBuildBadge /> : null}
             </div>
           )}
           <div className="flex w-full flex-1 items-start justify-start space-x-6 p-4">
@@ -76,7 +74,8 @@ export function BuildCard({
                 <h3
                   className={cn(
                     'text-md whitespace-pre-wrap font-medium',
-                    (isPopular || isNew) && 'mt-2',
+                    (isPopular || isNew || buildState.isFeaturedBuild) &&
+                      'mt-3',
                   )}
                 >
                   {build.name}

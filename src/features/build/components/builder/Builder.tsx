@@ -2,7 +2,7 @@ import { StarIcon } from '@heroicons/react/24/solid'
 import Link from 'next/link'
 import { Fragment, useCallback, useMemo, useState } from 'react'
 
-import { PopularBuildBadge } from '@/features/build/components/PopularBuildBadge'
+import { PopularBuildBadge } from '@/features/build/components/build-card/PopularBuildBadge'
 import { BuildState, ItemCategory } from '@/features/build/types'
 import { ItemInfoDialog } from '@/features/items/components/ItemInfoDialog'
 import { Archetype, Item } from '@/features/items/types'
@@ -18,8 +18,9 @@ import { getArrayOfLength } from '../../lib/getArrayOfLength'
 import { getConcoctionSlotCount } from '../../lib/getConcoctionSlotCount'
 import { getItemListForSlot } from '../../lib/getItemListForSlot'
 import { isBuildNew } from '../../lib/isBuildNew'
+import { FeaturedBuildBadge } from '../build-card/FeaturedBuildBadge'
+import { NewBuildBadge } from '../build-card/NewBuildBadge'
 import { ItemSelect } from '../dialogs/ItemSelect'
-import { NewBuildBadge } from '../NewBuildBadge'
 import { BuilderName } from './BuilderName'
 import { MemberFeatures } from './MemberFeatures'
 import { Stats } from './stats/Stats'
@@ -345,7 +346,7 @@ export function Builder({
           id="build-header"
           className={cn(
             'relative mb-4 border-b border-b-green-900',
-            (isPopular || isNew) && 'mb-8 pb-6',
+            (isPopular || isNew || buildState.isFeaturedBuild) && 'mb-10 pb-6',
           )}
         >
           <BuilderName
@@ -417,14 +418,15 @@ export function Builder({
               </p>
             </div>
           )}
-          {isPopular && !isNew && (
-            <div className="absolute bottom-0 left-1/2 flex w-full -translate-x-1/2 translate-y-1/2 transform items-center justify-center">
-              <PopularBuildBadge unoptimized={isScreenshotMode} />
-            </div>
-          )}
-          {isNew && (
-            <div className="absolute bottom-0 left-1/2 flex w-full -translate-x-1/2 translate-y-1/2 transform items-center justify-center">
-              <NewBuildBadge unoptimized={isScreenshotMode} />
+          {(isPopular || isNew || buildState.isFeaturedBuild) && (
+            <div className="absolute bottom-0 left-1/2 flex w-full -translate-x-1/2 translate-y-1/2 transform items-center justify-center gap-x-2">
+              {isNew ? <NewBuildBadge unoptimized={isScreenshotMode} /> : null}
+              {isPopular ? (
+                <PopularBuildBadge unoptimized={isScreenshotMode} />
+              ) : null}
+              {buildState.isFeaturedBuild ? (
+                <FeaturedBuildBadge unoptimized={isScreenshotMode} />
+              ) : null}
             </div>
           )}
         </div>

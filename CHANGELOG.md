@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2024-03-07
 
+### Added
+
+- Featured builds now have a featured build badge on their build cards
+
 ### Fixed
 
 - Fixed issue where build reference link could overflow the container
