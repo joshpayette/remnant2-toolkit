@@ -158,7 +158,7 @@ export function CommunityBuildList({ itemsPerPage = 8 }: Props) {
                 <div className="flex items-center justify-end gap-2 p-2 text-sm">
                   <Link
                     href={`/builder/${build.id}`}
-                    className="relative inline-flex items-center justify-center gap-x-3 rounded-br-lg border border-transparent p-4 text-sm font-semibold text-green-500 hover:text-green-700 hover:underline"
+                    className="text-primary-500 hover:text-primary-300 relative inline-flex items-center justify-center gap-x-3 rounded-br-lg border border-transparent p-4 text-sm font-semibold hover:underline"
                   >
                     View Build
                   </Link>

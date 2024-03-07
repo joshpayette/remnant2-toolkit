@@ -229,9 +229,9 @@ export function BuildListFilters() {
 
       <div className="col-span-full pt-2">
         <div className="flex w-full flex-col items-start justify-start gap-x-4 gap-y-2">
-          <div className="flex w-full flex-col items-start justify-start text-left text-sm font-bold text-green-500">
+          <div className="text-primary-500 flex w-full flex-col items-start justify-start text-left text-sm font-bold">
             By Patch
-            <span className="text-sm font-normal text-gray-500">
+            <span className="text-sm font-normal text-gray-300">
               Whether to show builds that depend on an item or interaction that
               was affected by a patch after the build was created
             </span>

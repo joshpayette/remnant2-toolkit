@@ -33,7 +33,10 @@ export function SaveBuildButton({ buildState, editMode }: Props) {
       <button
         type="submit"
         aria-label="Sign In to Save Build"
-        className={cn(buttonClasses, 'border-red-500 hover:bg-red-700')}
+        className={cn(
+          buttonClasses,
+          'border-red-500 text-white hover:bg-red-500 hover:text-black',
+        )}
         onClick={() => signIn()}
       >
         Sign In to Save Build
@@ -69,7 +72,7 @@ export function SaveBuildButton({ buildState, editMode }: Props) {
       <div
         className={cn(
           buttonClasses,
-          'border-yellow-700 bg-yellow-500 text-black hover:bg-yellow-300',
+          'border-primary-500 hover:bg-primary-300 text-white hover:text-black',
         )}
       >
         <Loading />
@@ -78,7 +81,7 @@ export function SaveBuildButton({ buildState, editMode }: Props) {
       <button
         className={cn(
           buttonClasses,
-          'border-yellow-700 bg-yellow-500 text-black hover:bg-yellow-300',
+          'border-accent2-500 hover:bg-accent2-500 text-white hover:text-black',
         )}
         aria-label="Save Edits"
         onClick={async () => {
@@ -99,7 +102,7 @@ export function SaveBuildButton({ buildState, editMode }: Props) {
         <div
           className={cn(
             buttonClasses,
-            'border-transparent bg-green-500 hover:bg-green-700',
+            'bg-primary-500 hover:bg-primary-700 border-transparent',
           )}
         >
           <Loading />
@@ -108,7 +111,7 @@ export function SaveBuildButton({ buildState, editMode }: Props) {
         <button
           className={cn(
             buttonClasses,
-            'border-transparent bg-green-500 text-black hover:bg-green-700 hover:text-white',
+            'border-green-500 text-white hover:bg-green-500 hover:text-black',
           )}
           aria-label="Save Build"
           onClick={async () => {

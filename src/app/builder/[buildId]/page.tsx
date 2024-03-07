@@ -164,16 +164,18 @@ export default function Page({
                 />
               )}
 
+              <ActionButton.ShowDetailedView
+                onClick={() => setDetailedBuildDialogOpen(true)}
+              />
+
               <ActionButton.DuplicateBuild
                 onClick={() => handleDuplicateBuild(buildState)}
               />
+
               <ToCsvButton
                 data={csvBuildData.filter((item) => item?.name !== '')}
                 filename={`remnant2_builder_${buildState.name}`}
                 label="Export to CSV"
-              />
-              <ActionButton.ShowDetailedView
-                onClick={() => setDetailedBuildDialogOpen(true)}
               />
 
               {session && session.user?.id === buildState.createdById && (

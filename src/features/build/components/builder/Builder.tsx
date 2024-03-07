@@ -334,18 +334,18 @@ export function Builder({
         id="build-container"
         className={cn(
           'relative w-full grow rounded border-2 bg-black p-4',
-          !buildState.isMember && 'border-green-500',
+          !buildState.isMember && 'border-primary-500',
           buildState.isMember &&
             !isScreenshotMode &&
-            'border-yellow-300 shadow-lg shadow-yellow-600',
-          buildState.isMember && isScreenshotMode && 'border-yellow-500',
+            'border-primary-300 shadow-primary-600 shadow-lg',
+          buildState.isMember && isScreenshotMode && 'border-primary-500',
           isScreenshotMode && 'pb-[70px]',
         )}
       >
         <div
           id="build-header"
           className={cn(
-            'relative mb-4 border-b border-b-green-900',
+            'border-b-primary-900 relative mb-4 border-b',
             (isPopular || isNew || buildState.isFeaturedBuild) && 'mb-10 pb-6',
           )}
         >
@@ -375,18 +375,23 @@ export function Builder({
               </span>
               <Link
                 href={`/profile/${buildState.createdById}`}
-                className="ml-1 text-green-500 hover:text-green-700"
+                className="text-primary-500 ml-1 underline"
               >
                 {buildState.createdByDisplayName}
               </Link>
               <div className="ml-2 flex flex-row text-sm">
                 <StarIcon
                   className={cn(
-                    'mr-0.5 h-4 w-4 text-yellow-500',
+                    'text-accent1-500 mr-0.5 h-4 w-4',
                     isScreenshotMode ? 'mt-[1.5px]' : 'mt-0.5',
                   )}
                 />
-                <span className={cn(isScreenshotMode ? 'mb-[2px]' : 'mb-0.5')}>
+                <span
+                  className={cn(
+                    'text-white',
+                    isScreenshotMode ? 'mb-[2px]' : 'mb-0.5',
+                  )}
+                >
                   {buildState.totalUpvotes}
                 </span>
               </div>

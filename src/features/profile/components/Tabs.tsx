@@ -38,8 +38,8 @@ export function Tabs() {
             href={tab.href}
             className={cn(
               tab.name === currentTab?.name
-                ? 'border-purple-500 text-purple-500'
-                : 'text-gray-300 hover:border-gray-300 hover:text-gray-500',
+                ? 'border-primary-500 text-primary-500 hover:text-primary-300 hover:border-primary-300'
+                : 'text-white hover:border-gray-400 hover:text-gray-400',
               'whitespace-nowrap border-b-2 px-1 py-4 text-sm font-medium',
             )}
             aria-current={tab.name === currentTab?.name ? 'page' : undefined}

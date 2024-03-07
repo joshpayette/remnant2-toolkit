@@ -16,7 +16,7 @@ export function SearchBuildsFilter({
   return (
     <div className="col-span-full pt-2">
       <div className="flex w-full flex-col items-start justify-start gap-x-4 gap-y-2">
-        <div className="flex w-full items-center justify-start text-left text-sm font-bold text-green-500">
+        <div className="text-primary-500 flex w-full items-center justify-start text-left text-sm font-bold">
           By Build Name or Description
         </div>
 
@@ -33,7 +33,7 @@ export function SearchBuildsFilter({
                 aria-label="Clear search text"
               >
                 <XMarkIcon
-                  className="h-5 w-5 text-green-400"
+                  className="text-primary-400 h-5 w-5"
                   aria-hidden="true"
                 />
               </button>

@@ -1,9 +1,11 @@
 'use client'
 
+import { TrashIcon } from '@heroicons/react/24/solid'
 import { toast } from 'react-toastify'
 
 import { deleteBuild } from '@/features/build/actions/deleteBuild'
 import { isErrorResponse } from '@/features/error-handling/isErrorResponse'
+import { Tooltip } from '@/features/ui/Tooltip'
 
 export function DeleteBuildButton({
   buildId,
@@ -30,13 +32,15 @@ export function DeleteBuildButton({
   }
 
   return (
-    <button
-      type="button"
-      aria-label="Delete Build"
-      className="text-red-500 hover:text-red-300"
-      onClick={handleDeleteBuild}
-    >
-      Delete
-    </button>
+    <Tooltip content="Delete Build">
+      <button
+        type="button"
+        aria-label="Delete Build"
+        className="text-red-500 hover:text-red-300"
+        onClick={handleDeleteBuild}
+      >
+        <TrashIcon className="h-5 w-5" />
+      </button>
+    </Tooltip>
   )
 }

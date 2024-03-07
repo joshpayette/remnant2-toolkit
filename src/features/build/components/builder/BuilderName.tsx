@@ -38,7 +38,7 @@ export function BuilderName({
             <button
               aria-label="Save Build Name"
               onClick={() => onClose(newName)}
-              className="mr-2 rounded-md bg-green-500 px-4 py-2 text-sm font-bold text-white hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
+              className="bg-primary-500 hover:bg-primary-600 focus:ring-primary-500 mr-2 rounded-md px-4 py-2 text-sm font-bold text-white focus:outline-none focus:ring-2 focus:ring-offset-2"
             >
               Save
             </button>
@@ -55,7 +55,7 @@ export function BuilderName({
         <div className="mb-2 flex w-full items-center justify-center gap-2">
           <h2
             className={cn(
-              'whitespace-normal text-center text-2xl font-bold text-green-400 sm:text-4xl',
+              'whitespace-normal text-center text-2xl font-bold text-white sm:text-4xl',
               isScreenshotMode && 'text-4xl',
             )}
           >
@@ -64,12 +64,12 @@ export function BuilderName({
           {showControls && isEditable && (
             <button
               onClick={onClick}
-              className="text-green-400"
+              className="text-primary-400"
               aria-label="Edit Build Name"
             >
               <div className="flex grow items-end justify-start">
                 <PencilIcon
-                  className="h-4 w-4 text-green-500 hover:text-green-300"
+                  className="text-primary-500 hover:text-primary-300 h-4 w-4"
                   aria-hidden="true"
                 />
               </div>

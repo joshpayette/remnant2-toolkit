@@ -224,12 +224,12 @@ export function ArmorSuggestions({
             {armorSuggestions.map((suggestion, index) => (
               <div
                 key={index}
-                className="flex w-full flex-col items-center justify-center border-t-2 border-t-green-500 py-4"
+                className="border-t-primary-500 flex w-full flex-col items-center justify-center border-t-2 py-4"
               >
                 <div className="mb-4 flex w-full flex-row items-center justify-center gap-x-8">
                   <div className="flex flex-col items-center justify-center">
                     <div className="text-md font-semibold">Armor</div>
-                    <div className="text-2xl font-bold text-green-500">
+                    <div className="text-primary-500 text-2xl font-bold">
                       {suggestion.totalArmor}
                     </div>
                   </div>
@@ -273,7 +273,7 @@ export function ArmorSuggestions({
                   />
                 </div>
                 <button
-                  className="mt-4 rounded-md border-2 border-green-500 p-2 text-sm text-white hover:bg-green-500 hover:text-white"
+                  className="border-primary-500 hover:bg-primary-500 mt-4 rounded-md border-2 p-2 text-sm text-white hover:text-white"
                   aria-label="Equip armor suggestions"
                   onClick={() =>
                     onApplySuggestions({
@@ -302,7 +302,7 @@ export function ArmorSuggestions({
 function ArmorInfoContainer({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex max-w-xs flex-col items-center justify-start sm:pr-4">
-      <h2 className="mb-4 text-2xl font-semibold text-purple-500">
+      <h2 className="text-secondary-500 mb-4 text-2xl font-semibold">
         Armor Suggestions
       </h2>
       {children}

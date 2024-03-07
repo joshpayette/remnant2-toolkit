@@ -1,4 +1,4 @@
-import { XCircleIcon } from '@heroicons/react/24/solid'
+import { InformationCircleIcon, XCircleIcon } from '@heroicons/react/24/solid'
 import Image from 'next/image'
 import { useState } from 'react'
 
@@ -140,7 +140,7 @@ export function Traits({
         )}
       >
         {!isScreenshotMode && (
-          <div className="col-span-full mx-auto mb-2 max-w-[300px] border border-purple-800 p-2 text-center text-xs text-gray-300">
+          <div className="border-secondary-800 col-span-full mx-auto mb-2 max-w-[300px] border p-2 text-center text-xs text-gray-300">
             <span
               className={cn(
                 'text-lg font-bold',
@@ -150,7 +150,7 @@ export function Traits({
               {totalTraitAmount}
             </span>
             /<span className="font-bold">{MAX_TRAIT_AMOUNT}</span> Trait Points
-            <p className="text-cyan-500">
+            <p className="text-primary-500">
               5 Core + 20 Archtype + 85 Player Choice
             </p>
           </div>
@@ -160,7 +160,7 @@ export function Traits({
           <div
             key={traitItem.name}
             className={cn(
-              'flex items-center border border-transparent border-b-green-500 text-sm',
+              'flex items-center border border-transparent border-b-white text-sm',
               isArchtypeTrait(traitItem) && 'border-b-yellow-500',
               isArchtypeTrait(traitItem) &&
                 !isArchtypeCoreTrait(traitItem) &&
@@ -207,7 +207,7 @@ export function Traits({
                     setEditingTraitItem(null)
                   }}
                   autoFocus
-                  className="w-12 border border-green-500 bg-transparent p-1 text-center"
+                  className="border-primary-500 w-12 border bg-transparent p-1 text-center"
                 />
               ) : (
                 <button
@@ -231,14 +231,15 @@ export function Traits({
             >
               <div>{traitItem.name}</div>
               {!isScreenshotMode && onItemInfoClick && (
-                <Image
-                  src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/information.png`}
-                  alt="Bleed Resistance"
-                  width={32}
-                  height={32}
-                  className="h-3 w-3"
-                  loading="eager"
-                />
+                <InformationCircleIcon className="text-accent1-500 h-5 w-5 bg-black sm:h-5 sm:w-5" />
+                // <Image
+                //   src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/information.png`}
+                //   alt="Info Icon"
+                //   width={32}
+                //   height={32}
+                //   className="h-3 w-3"
+                //   loading="eager"
+                // />
               )}
             </button>
             {shouldAllowDelete(traitItem) && (
@@ -257,7 +258,7 @@ export function Traits({
         <button
           onClick={onAddTrait}
           aria-label="Add Trait"
-          className="mx-auto mt-4 flex max-w-[250px] items-center justify-center rounded border border-purple-700 px-4 py-2 text-xs font-bold text-white hover:border-purple-400 hover:bg-purple-500"
+          className="border-secondary-700 hover:border-secondary-400 hover:bg-secondary-500 mx-auto mt-4 flex max-w-[250px] items-center justify-center rounded border px-4 py-2 text-xs font-bold text-white"
         >
           Add Trait
         </button>

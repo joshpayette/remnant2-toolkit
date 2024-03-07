@@ -763,7 +763,7 @@ export function ItemTagSuggestions({
                   onItemInfoClick={() => onOpenItemInfo(suggestion)}
                 />
                 {selectedItems.find((i) => i.id === suggestion.id)?.slot && (
-                  <span className="-mt-2 mb-2 w-full bg-purple-800 p-1 text-[9px] text-white">
+                  <span className="bg-secondary-800 -mt-2 mb-2 w-full p-1 text-[9px] text-white">
                     {selectedItems.find((i) => i.id === suggestion.id)?.slot}
                   </span>
                 )}
@@ -771,7 +771,7 @@ export function ItemTagSuggestions({
             ))}
           </div>
           <button
-            className="mt-4 rounded-md border-2 border-green-500 p-2 text-sm text-white hover:bg-green-500 hover:text-white"
+            className="border-primary-500 hover:bg-primary-500 mt-4 rounded-md border-2 p-2 text-sm text-white hover:text-white"
             aria-label="Equip selected items"
             onClick={handleApplyItemSelections}
           >
@@ -796,7 +796,7 @@ export function ItemTagSuggestions({
 function ItemTagContainer({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex max-w-xs flex-col items-center justify-start sm:pl-4">
-      <h2 className="mb-1 text-2xl font-semibold text-purple-500">
+      <h2 className="text-secondary-500 mb-1 text-2xl font-semibold">
         Item Suggestions
       </h2>
       <p className="mb-4 text-xs text-gray-400">

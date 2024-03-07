@@ -1,5 +1,6 @@
 'use client'
 
+import { InformationCircleIcon } from '@heroicons/react/24/solid'
 import Image from 'next/image'
 
 import { Enemy, isEnemy } from '@/features/enemies/types'
@@ -87,7 +88,7 @@ export function ItemButton({
       {!isScreenshotMode && item && onItemInfoClick && (
         <button
           className={cn(
-            'absolute right-[2px] top-[2px] z-[5]',
+            'absolute right-[-2px] top-[-2px] z-[5]',
             size === 'sm' && 'right-[-20px]',
           )}
           onClick={() =>
@@ -95,14 +96,15 @@ export function ItemButton({
           }
           aria-label="Item Information"
         >
-          <Image
+          <InformationCircleIcon className="text-accent1-500 h-5 w-5 bg-black sm:h-5 sm:w-5" />
+          {/* <Image
             src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/information.png`}
             alt="Information"
             width={20}
             height={20}
             className="h-5 w-5 sm:h-4 sm:w-4"
             loading={loadingType}
-          />
+          /> */}
         </button>
       )}
       <button
@@ -110,13 +112,13 @@ export function ItemButton({
         className={cn(
           'relative flex items-center justify-center overflow-hidden border-2 border-gray-700',
           `bg-[url('https://d2sqltdcj8czo5.cloudfront.net/card-body-bg.jpg')]`,
-          isEditable && 'border-gray-700 hover:border-purple-500',
+          isEditable && 'hover:border-secondary-500 border-gray-700',
           size === 'sm' && 'h-[22px] w-[22px]',
           size === 'md' && 'h-[66px] w-[66px]',
           size === 'lg' && 'h-[99px] w-[99px]',
           size === 'xl' && 'h-[200px] w-[200px]',
           size === 'wide' && 'h-[99px] w-[150px]',
-          isToggled === true && 'border-green-500',
+          isToggled === true && 'border-primary-500',
           isToggled === false && 'border-gray-700',
         )}
         aria-label="Remnant 2 Item Button"
@@ -138,7 +140,7 @@ export function ItemButton({
       {item?.name && (
         <div
           className={cn(
-            'z-[5] flex items-center justify-center bg-purple-950 px-1 py-0.5 text-center text-[10px] text-white',
+            'bg-secondary-950 z-[5] flex items-center justify-center px-1 py-0.5 text-center text-[10px] text-white',
             size === 'sm' && 'min-h-[22px] min-w-[22px] border border-black',
             size === 'md' && 'min-h-[40px] w-[66px]',
             size === 'lg' && 'min-h-[40px] w-[99px]',

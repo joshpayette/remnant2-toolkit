@@ -156,7 +156,7 @@ export function ItemSelect({
           {buildSlot === 'trait' && (
             <div className="col-span-1 flex items-end justify-start">
               <button
-                className="flex items-center justify-center text-sm text-gray-400 hover:text-green-500"
+                className="hover:text-primary-500 flex items-center justify-center text-sm text-gray-400"
                 aria-label="Toggle sorting preference"
                 onClick={handleSortingPreferenceToggle}
               >
@@ -168,7 +168,7 @@ export function ItemSelect({
         </div>
       </div>
 
-      <hr className="mb-8 mt-4 border-green-500" />
+      <hr className="border-primary-500 mb-8 mt-4" />
 
       <ul
         role="list"

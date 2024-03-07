@@ -24,14 +24,14 @@ export function Textarea({
     <div>
       <label
         htmlFor={name}
-        className="block text-sm font-medium leading-6 text-green-500"
+        className="text-primary-500 block text-sm font-medium leading-6"
       >
         {label}
       </label>
       <div className="mt-2">
         <textarea
           className={cn(
-            'block w-full resize-none rounded-md border-2 border-purple-500 bg-white/5 py-1.5 text-sm text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-purple-500',
+            'border-secondary-500 focus:ring-secondary-500 block w-full resize-none rounded-md border-2 bg-white/5 py-1.5 text-sm text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset',
             className,
           )}
           onChange={onChange}

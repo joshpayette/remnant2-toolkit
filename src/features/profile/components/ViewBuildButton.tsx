@@ -12,7 +12,7 @@ export function ViewBuildButton({
   return (
     <Link
       href={`${window.location.origin}/builder/${buildId}`}
-      className="text-green-500 hover:text-green-300"
+      className="text-primary-500 hover:text-primary-300"
     >
       {buildName}
     </Link>

@@ -12,6 +12,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ### Changed
 
+- Overhauled the colors used throughout the site. There wasn't a ton of thought to the original colors, just what felt okay. I feel a lot better about the new direction!
 - Added language to the CODE_OF_CONDUCT.md for "Gore or violence beyond the scope of the game".
 
 ### Fixed

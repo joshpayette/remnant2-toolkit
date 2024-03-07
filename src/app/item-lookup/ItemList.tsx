@@ -116,7 +116,7 @@ export function ItemList() {
   const filteredItems = getFilteredItems(filters, discoveredItemIds)
 
   return filteredItems.length === remnantItems.length || !isClient ? (
-    <h2 className="text-center text-4xl font-bold text-yellow-500">
+    <h2 className="text-primary-500 text-center text-4xl font-bold">
       Apply a filter to see items
     </h2>
   ) : (

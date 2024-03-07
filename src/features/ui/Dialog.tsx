@@ -67,9 +67,9 @@ export function Dialog({
               leaveFrom="opacity-100 translate-y-0 sm:scale-100"
               leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
             >
-              <BaseDialog.Panel className="relative h-full max-h-fit w-full transform overflow-y-auto border-2 border-green-500 bg-black px-4 py-4 text-left shadow-xl transition-all sm:my-8">
+              <BaseDialog.Panel className="border-primary-500 relative h-full max-h-fit w-full transform overflow-y-auto border-2 bg-black px-4 py-4 text-left shadow-xl transition-all sm:my-8">
                 <button
-                  className="absolute right-0 top-0 p-0.5 text-white hover:text-green-500"
+                  className="hover:text-primary-500 absolute right-0 top-0 p-0.5 text-white"
                   onClick={onClose}
                   aria-label="Close dialog"
                 >
@@ -79,7 +79,7 @@ export function Dialog({
                   <BaseDialog.Title
                     as="h3"
                     className={cn(
-                      'text-4xl font-semibold text-green-500',
+                      'text-primary-500 text-4xl font-semibold',
                       !subtitle ? 'mb-4' : 'mb-0',
                     )}
                   >

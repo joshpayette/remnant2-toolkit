@@ -50,7 +50,7 @@ export function ItemInfoDialog({ item, open, onClose }: ItemInfoProps) {
     <Dialog
       open={open}
       onClose={onClose}
-      title={<div className="text-xl text-purple-500">{item.name}</div>}
+      title={<div className="text-secondary-500 text-xl">{item.name}</div>}
       subtitle={
         <span className="flex w-full flex-col items-center justify-center gap-x-2">
           <span className="text-sm text-gray-400">{subtitle}</span>
@@ -61,13 +61,13 @@ export function ItemInfoDialog({ item, open, onClose }: ItemInfoProps) {
                 href={link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-green-500 underline hover:text-green-700"
+                className="text-primary-500 hover:text-primary-700 underline"
               >
                 Wiki Link
               </a>
             ))}
             <button
-              className="text-green-500 underline hover:text-green-700"
+              className="text-primary-500 hover:text-primary-700 underline"
               aria-label="Copy link to item"
               onClick={() => {
                 copy(
@@ -161,7 +161,7 @@ export function ItemInfoDialog({ item, open, onClose }: ItemInfoProps) {
                       <strong>Archetype</strong>:{' '}
                       <a
                         href={`/item-lookup?searchText=${item.linkedItems.archetype.name}`}
-                        className="text-purple-500 underline"
+                        className="text-secondary-500 underline"
                       >
                         {item.linkedItems.archetype.name}
                       </a>
@@ -179,7 +179,7 @@ export function ItemInfoDialog({ item, open, onClose }: ItemInfoProps) {
                           >
                             <a
                               href={`/item-lookup?searchText=${perk.name}`}
-                              className="text-purple-500 underline"
+                              className="text-secondary-500 underline"
                             >
                               {perk.name}
                             </a>
@@ -201,7 +201,7 @@ export function ItemInfoDialog({ item, open, onClose }: ItemInfoProps) {
                           >
                             <a
                               href={`/item-lookup?searchText=${skill.name}`}
-                              className="text-purple-500 underline"
+                              className="text-secondary-500 underline"
                             >
                               {skill.name}
                             </a>
@@ -223,7 +223,7 @@ export function ItemInfoDialog({ item, open, onClose }: ItemInfoProps) {
                           >
                             <a
                               href={`/item-lookup?searchText=${trait.name}`}
-                              className="text-purple-500 underline"
+                              className="text-secondary-500 underline"
                             >
                               {trait.name}
                             </a>
@@ -237,7 +237,7 @@ export function ItemInfoDialog({ item, open, onClose }: ItemInfoProps) {
                     <strong>Mod</strong>:{' '}
                     <a
                       href={`/item-lookup?searchText=${item.linkedItems.mod.name}`}
-                      className="text-purple-500 underline"
+                      className="text-secondary-500 underline"
                     >
                       {item.linkedItems.mod.name}
                     </a>
@@ -248,7 +248,7 @@ export function ItemInfoDialog({ item, open, onClose }: ItemInfoProps) {
                     <strong>Weapon</strong>:{' '}
                     <a
                       href={`/item-lookup?searchText=${item.linkedItems.weapon.name}`}
-                      className="text-purple-500 underline"
+                      className="text-secondary-500 underline"
                     >
                       {item.linkedItems.weapon.name}
                     </a>

@@ -25,7 +25,7 @@ export function ImageDownloadInfo({ imageDownloadInfo, onClose }: Props) {
           Right-click the image to save it, or to copy it and paste it
           elsewhere.
         </p>
-        <p className="text-yellow-500">
+        <p className="text-primary-500">
           Note: This image link will expire in one hour.
         </p>
         {imageLink ? (

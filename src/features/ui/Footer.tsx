@@ -4,11 +4,11 @@ import { cn } from '@/lib/classnames'
 
 import { NAV_ITEMS } from '../navigation/constants'
 
-const aClass = 'text-gray-300 hover:text-green-400 underline'
+const aClass = 'text-gray-300 hover:text-primary-400 underline'
 
 export function Footer() {
   return (
-    <footer className="mt-8 flex w-full items-center justify-center border-t border-purple-900 bg-black p-4 text-left text-sm text-gray-400">
+    <footer className="border-secondary-900 mt-8 flex w-full items-center justify-center border-t bg-black p-4 text-left text-sm text-gray-400">
       <div className="max-w-2xl gap-2">
         <div className="flex w-full flex-row items-center justify-center gap-4 p-2">
           <a

@@ -59,7 +59,7 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
       <div className="flex w-full flex-grow flex-col justify-start">
         <div className="flex w-full flex-row items-center justify-start">
           <div className="flex w-full flex-col items-start justify-start sm:max-w-[275px]">
-            <div className="relative grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 text-left text-sm text-gray-300">
+            <div className="border-b-primary-500 relative grid w-full grid-cols-2 gap-2 border border-transparent text-left text-sm text-gray-300">
               <p className="flex items-center justify-start">Health</p>
               <button
                 className={cn(
@@ -70,11 +70,11 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
               >
                 {totalHealth}
                 {!isScreenshotMode && (
-                  <InformationCircleIcon className="ml-1 h-4 w-4 text-green-500" />
+                  <InformationCircleIcon className="text-accent1-500 ml-1 h-4 w-4" />
                 )}
               </button>
             </div>
-            <div className="relative grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 text-left text-sm text-gray-300">
+            <div className="border-b-primary-500 relative grid w-full grid-cols-2 gap-2 border border-transparent text-left text-sm text-gray-300">
               <p className="flex items-center justify-start">Stamina</p>
               <button
                 className={cn(
@@ -85,11 +85,11 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
               >
                 {totalStamina}
                 {!isScreenshotMode && (
-                  <InformationCircleIcon className="ml-1 h-4 w-4 text-green-500" />
+                  <InformationCircleIcon className="text-accent1-500 ml-1 h-4 w-4" />
                 )}
               </button>
             </div>
-            <div className="relative grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 text-left text-sm text-gray-300">
+            <div className="border-b-primary-500 relative grid w-full grid-cols-2 gap-2 border border-transparent text-left text-sm text-gray-300">
               <p className="flex items-center justify-start">Armor</p>
               <Tooltip content="ArmorDR = Armor / (Armor+200)">
                 <button
@@ -103,7 +103,7 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
                 </button>
               </Tooltip>
             </div>
-            <div className="relative grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 text-left text-sm text-gray-300">
+            <div className="border-b-primary-500 relative grid w-full grid-cols-2 gap-2 border border-transparent text-left text-sm text-gray-300">
               <p className="flex items-center justify-start">Weight</p>
               <span
                 className={cn(
@@ -131,7 +131,7 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
                 </Tooltip>
               </span>
             </div>
-            <div className="relative grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 text-left text-sm text-gray-300">
+            <div className="border-b-primary-500 relative grid w-full grid-cols-2 gap-2 border border-transparent text-left text-sm text-gray-300">
               <Image
                 src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/status/bleed_resistance.png`}
                 alt="Bleed Resistance"
@@ -150,7 +150,7 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
                 {totalBleedResistance}
               </span>
             </div>
-            <p className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 text-left text-sm text-gray-300">
+            <p className="border-b-primary-500 grid w-full grid-cols-2 gap-2 border border-transparent text-left text-sm text-gray-300">
               <Image
                 src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/status/fire_resistance.png`}
                 alt="Fire Resistance"
@@ -169,7 +169,7 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
                 {totalFireResistance}
               </span>
             </p>
-            <p className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 text-left text-sm text-gray-300">
+            <p className="border-b-primary-500 grid w-full grid-cols-2 gap-2 border border-transparent text-left text-sm text-gray-300">
               <Image
                 src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/status/shock_resistance.png`}
                 alt="Shock Resistance"
@@ -188,7 +188,7 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
                 {totalShockResistance}
               </span>
             </p>
-            <p className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 text-left text-sm text-gray-300">
+            <p className="border-b-primary-500 grid w-full grid-cols-2 gap-2 border border-transparent text-left text-sm text-gray-300">
               <Image
                 src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/status/toxin_resistance.png`}
                 alt="Toxin Resistance"
@@ -207,7 +207,7 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
                 {totalToxinResistance}
               </span>
             </p>
-            <p className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 text-left text-sm text-gray-300">
+            <p className="border-b-primary-500 grid w-full grid-cols-2 gap-2 border border-transparent text-left text-sm text-gray-300">
               <Image
                 src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/status/blight_resistance.png`}
                 alt="Blight Resistance"
@@ -226,12 +226,12 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
                 {totalBlightResistance}
               </span>
             </p>
-            <div className="z-0 mt-2 text-right text-xs text-green-500">
+            <div className="z-0 mt-2 text-right text-xs text-white">
               Looking for more advanced stats? Check out{' '}
               <a
                 href="https://cowaii.io/"
                 target="_blank"
-                className="text-green-500 underline"
+                className="underline hover:text-gray-300"
               >
                 Vash Cowaii&apos;s Loadout Calculator.
               </a>

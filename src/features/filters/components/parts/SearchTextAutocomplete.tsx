@@ -57,12 +57,12 @@ export function SearchTextAutocomplete({
       className="w-full"
       nullable
     >
-      <Combobox.Label className="block text-sm font-bold leading-6 text-green-500">
+      <Combobox.Label className="text-primary-500 block text-sm font-bold leading-6">
         Search Text
       </Combobox.Label>
       <div className="relative mt-2">
         <Combobox.Input
-          className="w-full rounded-md border border-purple-600 bg-black py-1.5 pl-3 pr-10 text-sm text-gray-300 shadow-sm ring-1 ring-inset ring-purple-600 focus:ring-2 focus:ring-inset focus:ring-purple-600 sm:leading-6"
+          className="border-secondary-600 ring-secondary-600 focus:ring-secondary-600 w-full rounded-md border bg-black py-1.5 pl-3 pr-10 text-sm text-gray-300 shadow-sm ring-1 ring-inset focus:ring-2 focus:ring-inset sm:leading-6"
           onChange={(event) => onChange(event.target.value)}
           displayValue={(item: Item) => item?.name}
         />
@@ -80,7 +80,7 @@ export function SearchTextAutocomplete({
               className={({ active }) =>
                 cn(
                   'relative cursor-default select-none py-2 pl-3 pr-9',
-                  active ? 'bg-purple-600 text-white' : 'text-gray-300',
+                  active ? 'bg-secondary-600 text-white' : 'text-gray-300',
                 )
               }
             >
@@ -95,7 +95,7 @@ export function SearchTextAutocomplete({
               className={({ active }) =>
                 cn(
                   'relative cursor-default select-none py-2 pl-3 pr-9',
-                  active ? 'bg-purple-600 text-white' : 'text-gray-300',
+                  active ? 'bg-secondary-600 text-white' : 'text-gray-300',
                 )
               }
             >
@@ -114,7 +114,7 @@ export function SearchTextAutocomplete({
                     <span
                       className={cn(
                         'absolute inset-y-0 right-0 flex items-center pr-4',
-                        active ? 'text-white' : 'text-purple-600',
+                        active ? 'text-white' : 'text-secondary-600',
                       )}
                     >
                       <CheckIcon className="h-5 w-5" aria-hidden="true" />

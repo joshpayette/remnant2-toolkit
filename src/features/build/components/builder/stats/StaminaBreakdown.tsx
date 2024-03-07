@@ -84,9 +84,9 @@ export function StaminaBreakdownDialog({
       maxWidthClass="max-w-sm"
     >
       <div className="text-left text-xs">
-        <h2 className="col-span-full mb-2 text-xs font-semibold text-purple-500">
+        <h2 className="text-secondary-500 col-span-full mb-2 text-xs font-semibold">
           Base Stamina:{' '}
-          <span className="text-sm font-bold text-purple-400">100</span>
+          <span className="text-secondary-400 text-sm font-bold">100</span>
         </h2>
         {(breakdown.equippedStaminaIncreaseItems.length > 0 ||
           breakdown.equippedStaminaStepItems.length > 0) && (

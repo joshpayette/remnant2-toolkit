@@ -11,6 +11,11 @@ import { cn } from '@/lib/classnames'
 export const buttonClasses =
   'flex flex-col h-[40px] sm:h-[60px] w-full md:w-[150px] items-center justify-center rounded border-2 text-center px-4 py-2 text-sm font-bold text-white'
 
+const primaryButtonClasses =
+  'border-primary-500 hover:border-primary-300 hover:bg-primary-300 hover:text-black'
+const secondaryButtonClasses =
+  'border-secondary-500 hover:border-secondary-500 hover:bg-secondary-500 hover:text-black'
+
 type ButtonProps = {
   onClick: () => void
 }
@@ -18,7 +23,7 @@ type ButtonProps = {
 export const ActionButton = {
   BuildSuggestions: ({ onClick }: ButtonProps) => (
     <button
-      className={cn(buttonClasses, 'border-blue-500 hover:bg-blue-700')}
+      className={cn(buttonClasses, primaryButtonClasses)}
       aria-label="Generate build suggestions based on the current build."
       onClick={onClick}
     >
@@ -28,7 +33,10 @@ export const ActionButton = {
 
   DeleteBuild: ({ onClick }: ButtonProps) => (
     <button
-      className={cn(buttonClasses, 'border-red-500 hover:bg-red-700')}
+      className={cn(
+        buttonClasses,
+        'border-red-500 hover:border-red-500 hover:bg-red-500 hover:text-black',
+      )}
       aria-label="Delete build."
       onClick={onClick}
     >
@@ -38,7 +46,7 @@ export const ActionButton = {
 
   DuplicateBuild: ({ onClick }: ButtonProps) => (
     <button
-      className={cn(buttonClasses, 'border-green-500 hover:bg-green-700')}
+      className={cn(buttonClasses, secondaryButtonClasses)}
       aria-label="Duplicate build to create a new build based on this one."
       onClick={onClick}
     >
@@ -48,10 +56,7 @@ export const ActionButton = {
 
   EditBuild: ({ onClick }: ButtonProps) => (
     <button
-      className={cn(
-        buttonClasses,
-        'border-transparent bg-yellow-500 text-gray-800 hover:bg-yellow-700 hover:text-white',
-      )}
+      className={cn(buttonClasses, primaryButtonClasses)}
       aria-label="Edit build."
       onClick={onClick}
     >
@@ -64,16 +69,14 @@ export const ActionButton = {
     imageExportLoading,
   }: ButtonProps & { imageExportLoading: boolean }) =>
     imageExportLoading ? (
-      <div
-        className={cn(buttonClasses, 'border-transparent hover:bg-green-700')}
-      >
+      <div className={cn(buttonClasses, primaryButtonClasses)}>
         <Loading />
       </div>
     ) : (
       <button
         className={cn(
           buttonClasses,
-          'border-transparent bg-green-500 text-gray-800 hover:bg-green-700 hover:text-white',
+          'border-accent2-500 hover:bg-accent2-500 hover:text-black',
         )}
         aria-label="Export build as an image."
         onClick={onClick}
@@ -94,8 +97,8 @@ export const ActionButton = {
         className={cn(
           buttonClasses,
           upvoted
-            ? 'border-transparent bg-red-500 text-black hover:bg-red-700 hover:text-white'
-            : 'border-transparent bg-orange-500 text-black hover:bg-orange-700 hover:text-white',
+            ? 'border-red-500 text-white'
+            : 'border-orange-500 text-white',
         )}
         aria-label={upvoted ? 'Remove favorite build' : 'Favorite build'}
         onClick={onClick}
@@ -107,10 +110,7 @@ export const ActionButton = {
 
   LoadoutManagement: ({ onClick }: ButtonProps) => (
     <button
-      className={cn(
-        buttonClasses,
-        'border-transparent bg-blue-500 text-black hover:bg-blue-700 hover:text-white',
-      )}
+      className={cn(buttonClasses, primaryButtonClasses)}
       aria-label="Loadout Builds"
       onClick={onClick}
     >
@@ -120,10 +120,7 @@ export const ActionButton = {
 
   NewBuild: () => (
     <Link
-      className={cn(
-        buttonClasses,
-        'w-full border-red-500 bg-red-700 hover:bg-red-500',
-      )}
+      className={cn(buttonClasses, 'border-red-500 hover:bg-red-500')}
       href="/builder"
     >
       New Build
@@ -132,10 +129,7 @@ export const ActionButton = {
 
   RandomBuild: ({ onClick }: ButtonProps) => (
     <button
-      className={cn(
-        buttonClasses,
-        'border-2 border-purple-500 text-white hover:border-purple-700',
-      )}
+      className={cn(buttonClasses, secondaryButtonClasses)}
       aria-label="Randomly generate a build."
       onClick={onClick}
     >
@@ -162,10 +156,7 @@ export const ActionButton = {
 
   ShareBuild: ({ onClick }: ButtonProps) => (
     <button
-      className={cn(
-        buttonClasses,
-        'border-transparent bg-purple-500 text-black hover:bg-purple-700 hover:text-white',
-      )}
+      className={cn(buttonClasses, primaryButtonClasses)}
       aria-label="Share build with others."
       onClick={onClick}
     >
@@ -175,7 +166,7 @@ export const ActionButton = {
 
   ShowDetailedView: ({ onClick }: ButtonProps) => (
     <button
-      className={cn(buttonClasses, 'border-cyan-500 hover:bg-cyan-700')}
+      className={cn(buttonClasses, secondaryButtonClasses)}
       onClick={onClick}
       aria-label="Show detailed view of build"
     >

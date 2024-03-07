@@ -50,7 +50,7 @@ export async function ProfileHeader({ editable, userId }: Props) {
       {editable && (
         <div className="my-8 flex items-center justify-center">
           <Link
-            className="text-md text-green-500 underline "
+            className="text-md text-white underline hover:text-gray-300 "
             href={`/profile/${userId}`}
           >
             View your public profile

@@ -43,7 +43,7 @@ export function MemberFeatures({
         <div className="flex flex-col">
           {description && description.length > 0 && (
             <>
-              <h3 className="text-md mb-2 font-bold text-green-500">
+              <h3 className="text-md text-primary-500 mb-2 font-bold">
                 Build Description
               </h3>
               <div
@@ -72,7 +72,7 @@ export function MemberFeatures({
           />
           <div className="flex w-full items-center justify-end">
             <button
-              className="my-1 text-xs text-purple-500 underline"
+              className="my-1 text-xs text-white underline hover:text-gray-300"
               onClick={() => {
                 const response = confirm(
                   'Insert the description template? This will clear the current description.',
@@ -93,7 +93,7 @@ Watch the build in action: [insert Youtube link here]
                 }
               }}
             >
-              <ClipboardDocumentListIcon className="inline-block h-4 w-4" />{' '}
+              <ClipboardDocumentListIcon className="inline-block h-4 w-4 text-white" />{' '}
               Insert Description Template
             </button>
           </div>
@@ -101,8 +101,10 @@ Watch the build in action: [insert Youtube link here]
       )}
 
       {isEditable && (
-        <div className="mb-8 flex w-full flex-row items-center justify-start text-sm text-green-500">
-          <div className="mr-4 w-[100px]">Build Reference Link</div>
+        <div className="text-primary-500 mb-8 flex w-full flex-col items-start justify-start text-sm sm:flex-row">
+          <div className="mb-2 mr-4 w-[200px] sm:mb-0">
+            Build Reference Link
+          </div>
           <div className="flex w-full items-center justify-start">
             <Input
               value={buildLink ?? ''}
@@ -115,7 +117,7 @@ Watch the build in action: [insert Youtube link here]
       {isScreenshotModeActive ? null : (
         <>
           {isEditable ? (
-            <div className="flex flex-row items-center justify-start text-sm text-green-500">
+            <div className="text-primary-500 flex flex-row items-center justify-start text-sm">
               <div className="mr-4">Public Build</div>
               <div className="flex items-center justify-start">
                 <Toggle
@@ -125,7 +127,7 @@ Watch the build in action: [insert Youtube link here]
                 <a
                   href="https://github.com/joshpayette/remnant2-toolkit/blob/main/CODE_OF_CONDUCT.md"
                   target="_blank"
-                  className="ml-2 text-xs text-purple-500 underline"
+                  className="text-secondary-500 ml-2 text-xs underline"
                 >
                   Code of Conduct
                 </a>
@@ -133,7 +135,7 @@ Watch the build in action: [insert Youtube link here]
             </div>
           ) : (
             <div className="flex flex-col">
-              <div className="text-md my-2 font-bold text-green-500">
+              <div className="text-md text-primary-500 my-2 font-bold">
                 Build Visibility
               </div>
               <div className="text-md text-gray-200">

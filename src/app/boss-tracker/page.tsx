@@ -113,7 +113,7 @@ export default function Page() {
         title="Remnant 2 Boss Tracker"
         subtitle="Discover all the bosses in Remnant 2"
       >
-        <div className="flex flex-col items-center justify-center text-4xl font-bold text-green-400">
+        <div className="text-primary-400 flex flex-col items-center justify-center text-4xl font-bold">
           <h2 className="text-4xl font-bold">Progress</h2>
           <span
             className="text-2xl font-bold text-white"

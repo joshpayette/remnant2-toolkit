@@ -310,7 +310,7 @@ export default function Page() {
           title="Remnant 2 Item Tracker"
           subtitle="Discover all the items in Remnant 2"
         >
-          <div className="flex flex-col items-center justify-center text-4xl font-bold text-green-400">
+          <div className="text-primary-400 flex flex-col items-center justify-center text-4xl font-bold">
             <h2 className="text-4xl font-bold">Progress</h2>
             <span className="text-2xl font-bold text-white">
               {isClient ? totalProgress : 'Calculating...'}
@@ -321,7 +321,7 @@ export default function Page() {
         <hr className="mb-8 mt-4 w-full max-w-3xl border-gray-700" />
 
         <div className="w-full max-w-3xl">
-          <h2 className="mb-2 text-center text-4xl font-bold text-green-400">
+          <h2 className="text-primary-400 mb-2 text-center text-4xl font-bold">
             Filters
           </h2>
 
@@ -380,14 +380,14 @@ export default function Page() {
             <button
               onClick={() => setImportSaveDialogOpen(true)}
               aria-label="Import Save File"
-              className="w-[200px] rounded border-2 border-purple-500 bg-purple-700 p-2 text-lg font-bold text-white/90 hover:bg-purple-500 hover:text-white"
+              className="border-secondary-500 bg-secondary-700 hover:bg-secondary-500 w-[200px] rounded border-2 p-2 text-lg font-bold text-white/90 hover:text-white"
             >
               Import Save File
             </button>
             <button
               onClick={() => setImportCSVDialogOpen(true)}
               aria-label="Import CSV File"
-              className="w-[200px] rounded border-2 border-purple-500 bg-purple-700 p-2 text-lg font-bold text-white/90 hover:bg-purple-500 hover:text-white"
+              className="border-secondary-500 bg-secondary-700 hover:bg-secondary-500 w-[200px] rounded border-2 p-2 text-lg font-bold text-white/90 hover:text-white"
             >
               Import CSV File
             </button>
@@ -397,7 +397,7 @@ export default function Page() {
         <div className="mt-16 min-h-[500px] w-full">
           {filteredItems.length > 0 && (
             <>
-              <h2 className="mb-2 text-center text-4xl font-bold text-green-400">
+              <h2 className="text-primary-400 mb-2 text-center text-4xl font-bold">
                 {selectedCategory} Items
               </h2>
               <div className="mb-4 flex w-full items-center justify-center gap-x-4 text-lg font-semibold">

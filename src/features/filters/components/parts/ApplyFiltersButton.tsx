@@ -14,7 +14,7 @@ export function ApplyFiltersButton<T>({
   return (
     <button
       className={cn(
-        'rounded bg-green-500 p-2 text-sm font-bold text-black hover:bg-green-700 hover:text-white',
+        'bg-primary-500 hover:bg-primary-300 rounded p-2 text-sm font-bold text-black',
         !areFiltersApplied && 'animate-pulse ',
       )}
       aria-label="Apply Filters"

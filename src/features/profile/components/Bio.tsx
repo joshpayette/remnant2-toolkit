@@ -53,7 +53,7 @@ export function Bio({ bio, editable }: Props) {
               setIsEditing(false)
             }}
             aria-label="Save bio"
-            className="mt-2 rounded-md bg-green-500 p-2 text-white hover:bg-green-300"
+            className="bg-primary-500 hover:bg-primary-300 mt-2 rounded-md p-2 text-white"
           >
             Save
           </button>
@@ -66,7 +66,7 @@ export function Bio({ bio, editable }: Props) {
           {editable && (
             <button onClick={() => setIsEditing(true)} aria-label="Edit Bio">
               <PencilIcon
-                className="h-4 w-4 text-green-500 hover:text-green-300"
+                className="text-primary-500 hover:text-primary-300 h-4 w-4"
                 aria-hidden="true"
               />
             </button>

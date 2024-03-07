@@ -89,7 +89,7 @@ export function ListBosses({ bosses, onClick }: ListBossesProps) {
             <>
               <Disclosure.Button
                 onClick={() => handleCategoryToggle(bossCategory.category)}
-                className="flex w-full justify-start border-b border-purple-700 p-4 text-left hover:border-green-400 hover:bg-black focus:outline-none focus-visible:ring focus-visible:ring-green-500/75"
+                className="hover:border-primary-400 focus-visible:ring-primary-500/75 border-secondary-700 flex w-full justify-start border-b p-4 text-left hover:bg-black focus:outline-none focus-visible:ring"
               >
                 <div className="w-full">
                   <h2 className="text-lg font-semibold">

@@ -52,10 +52,10 @@ export function BuildCard({
       ) : (
         <div
           className={cn(
-            'relative col-span-1 flex h-full min-h-[350px] flex-col rounded-lg border border-purple-500 bg-black shadow',
+            'border-secondary-500 relative col-span-1 flex h-full min-h-[350px] flex-col rounded-lg border bg-black shadow',
             buildState.isMember &&
               memberFrameEnabled &&
-              'border-2 border-yellow-300 shadow-lg shadow-yellow-600',
+              'border-primary-300 shadow-primary-600 border-2 shadow-lg',
           )}
         >
           {(isPopular || build.isFeaturedBuild || isNew) && (
@@ -69,7 +69,7 @@ export function BuildCard({
             <div className="flex flex-col items-start justify-start overflow-x-auto">
               <Link
                 href={`/builder/${build.id}`}
-                className="w-full text-green-500 hover:text-green-700 hover:underline"
+                className="w-full text-white hover:text-gray-200 hover:underline"
               >
                 <h3
                   className={cn(
@@ -81,7 +81,7 @@ export function BuildCard({
                   {build.name}
                 </h3>
               </Link>
-              <div className="mb-2 grid w-full grid-cols-3 truncate text-sm">
+              <div className="mb-2 mt-1 grid w-full grid-cols-3 truncate text-sm">
                 <div className="col-span-full truncate text-left text-xs text-gray-400">
                   {`${getArchetypeBuildName({
                     archetype1:
@@ -96,7 +96,7 @@ export function BuildCard({
                   by{' '}
                   <Link
                     href={`/profile/${build.createdById}`}
-                    className="text-purple-500 hover:text-purple-700 hover:underline"
+                    className="text-primary-500 hover:text-primary-300 underline"
                   >
                     {build.createdByDisplayName ?? build.createdByName}
                   </Link>

@@ -9,7 +9,7 @@ export function ReportBugButton() {
   return (
     <div className="flex items-center justify-start">
       <button
-        className="flex w-auto items-center justify-center gap-1 rounded-md border-2 border-black bg-cyan-500 p-2 text-sm font-bold text-black drop-shadow-lg hover:border-cyan-300"
+        className="bg-primary-500 hover:border-primary-300 flex w-auto items-center justify-center gap-1 rounded-md border-2 border-black p-2 text-sm font-bold text-black drop-shadow-lg"
         aria-label="Report a bug"
         onClick={async () => {
           const report = prompt('Please describe the bug')
