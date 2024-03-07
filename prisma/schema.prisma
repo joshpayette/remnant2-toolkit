@@ -99,6 +99,7 @@ enum ITEM_CATEGORY {
 enum ITEM_DLC {
   base
   dlc1
+  dlc2
 }
 
 model Item {
