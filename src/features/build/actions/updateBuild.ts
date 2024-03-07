@@ -77,6 +77,7 @@ export async function updateBuild(data: string): Promise<BuildActionResponse> {
             ? cleanBadWords(buildState.description)
             : '',
         isPublic: Boolean(buildState.isPublic),
+        buildLink: buildState.buildLink,
         isPatchAffected: false, // Automatically unflag if build was updated after being flagged
         BuildItems: {
           deleteMany: {},
@@ -134,7 +135,34 @@ export async function updateBuild(data: string): Promise<BuildActionResponse> {
       if (!res.ok) {
         console.error('Error in sending build webhook to Discord!')
       }
-    } else if (existingBuild?.name !== buildState.name && buildState.isPublic) {
+    }
+
+    // If the build link has updated, send the build info to Discord
+    if (
+      existingBuild?.buildLink !== buildState.buildLink &&
+      buildState.isPublic
+    ) {
+      const params = {
+        content: `Build reference link updated. https://www.remnant2toolkit.com/builder/${
+          buildState.buildId
+        }?t=${Date.now()}`,
+      }
+
+      const res = await fetch(`${process.env.WEBHOOK_COMMUNITY_BUILDS}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(params),
+      })
+
+      if (!res.ok) {
+        console.error('Error in sending build webhook to Discord!')
+      }
+    }
+
+    // If the build name has updated, send the build info to Discord
+    if (existingBuild?.name !== buildState.name && buildState.isPublic) {
       const params = {
         content: `Build name updated. Old name: ${existingBuild?.name}, New name: ${
           buildState.name

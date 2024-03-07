@@ -118,7 +118,6 @@ export default function Page({
           buildContainerRef={buildContainerRef}
           buildState={buildState}
           isEditable={false}
-          includeMemberFeatures={true}
           isScreenshotMode={isScreenshotMode}
           showControls={showControls}
           builderActions={

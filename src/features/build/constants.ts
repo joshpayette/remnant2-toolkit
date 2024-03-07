@@ -37,6 +37,7 @@ export const INITIAL_BUILD_STATE: BuildState = {
   isPatchAffected: false,
   thumbnailUrl: null,
   videoUrl: null,
+  buildLink: null,
   buildId: null,
   createdAt: new Date(),
   updatedAt: null,

@@ -74,6 +74,13 @@ export function useDBBuildState(INITIAL_BUILD_STATE: BuildState) {
       })
       return
     }
+    if (category === 'buildLink') {
+      setDBBuildState({
+        ...dbBuildState,
+        buildLink: value as string,
+      })
+      return
+    }
 
     // --------------------------
     // Items

@@ -65,7 +65,6 @@ export default function Page() {
       <BuilderPage
         buildContainerRef={buildContainerRef}
         buildState={dbBuildState}
-        includeMemberFeatures={true}
         isScreenshotMode={isScreenshotMode}
         isEditable={true}
         onUpdateBuildState={updateDBBuildState}

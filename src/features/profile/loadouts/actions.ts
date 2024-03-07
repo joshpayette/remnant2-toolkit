@@ -50,6 +50,7 @@ export async function getLoadoutList() {
     isMember: false,
     thumbnailUrl: loadout.build.thumbnailUrl,
     videoUrl: loadout.build.videoUrl,
+    buildLink: loadout.build.buildLink,
     createdById: loadout.build.createdById,
     createdByName: loadout.build.createdBy.name || DEFAULT_DISPLAY_NAME,
     createdByDisplayName:

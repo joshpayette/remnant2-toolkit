@@ -148,22 +148,23 @@ model Build {
   description     String?           @db.Text
   videoUrl        String?
   thumbnailUrl    String?
-  helm            String?
-  torso           String?
-  legs            String?
-  gloves          String?
-  relic           String?
-  amulet          String?
-  weapon          String?
-  ring            String?
-  archtype        String?
-  skill           String?
-  concoction      String?
-  consumable      String?
-  mod             String?
-  mutator         String?
-  relicfragment   String?
-  trait           String?
+  buildLink       String?
+  helm            String? // Unused, legacy field
+  torso           String? // Unused, legacy field
+  legs            String? // Unused, legacy field
+  gloves          String? // Unused, legacy field
+  relic           String? // Unused, legacy field
+  amulet          String? // Unused, legacy field
+  weapon          String? // Unused, legacy field
+  ring            String? // Unused, legacy field
+  archtype        String? // Unused, legacy field
+  skill           String? // Unused, legacy field
+  concoction      String? // Unused, legacy field
+  consumable      String? // Unused, legacy field
+  mod             String? // Unused, legacy field
+  mutator         String? // Unused, legacy field
+  relicfragment   String? // Unused, legacy field
+  trait           String? // Unused, legacy field
   BuildVotes      BuildVoteCounts[]
   BuildReports    BuildReports[]
   BuildItems      BuildItems[]

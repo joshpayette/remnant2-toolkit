@@ -20,7 +20,7 @@ export default function Page({
 }: {
   params: { INITIAL_BUILD_STATE: DBBuild }
 }) {
-  const { data: session, status } = useSession()
+  const { data: session } = useSession()
 
   const [detailedBuildDialogOpen, setDetailedBuildDialogOpen] = useState(false)
 
@@ -74,7 +74,6 @@ export default function Page({
       <BuilderPage
         buildContainerRef={buildContainerRef}
         buildState={dbBuildState}
-        includeMemberFeatures={true}
         isEditable={true}
         isScreenshotMode={isScreenshotMode}
         showControls={showControls}

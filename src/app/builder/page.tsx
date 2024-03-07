@@ -74,7 +74,6 @@ export default function Page() {
       <BuilderPage
         buildContainerRef={buildContainerRef}
         buildState={urlBuildState}
-        includeMemberFeatures={false}
         isEditable={true}
         isScreenshotMode={isScreenshotMode}
         showControls={showControls}

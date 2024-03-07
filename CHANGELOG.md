@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2024-03-06
 
+### Added
+
+- Added a `Build Reference Link` to the builder. This will allow users to post a link to a video or other reference material for the build. This link is non-clickable for moderation purposes.
+
 ### Changed
 
 - The "Builds By Collection" feature has been removed from site. The page link is still active with a message explaining the change.

@@ -4,6 +4,7 @@ import { ClipboardDocumentListIcon } from '@heroicons/react/24/solid'
 import { signIn, useSession } from 'next-auth/react'
 
 import { DescriptionWithTags } from '@/features/items/components/DescriptionWithTags'
+import { Input } from '@/features/ui/Input'
 import { Skeleton } from '@/features/ui/Skeleton'
 import { Textarea } from '@/features/ui/Textarea'
 import { Toggle } from '@/features/ui/Toggle'
@@ -12,19 +13,23 @@ import { cn } from '@/lib/classnames'
 import { MAX_BUILD_DESCRIPTION_LENGTH } from '../../constants'
 
 type Props = {
+  buildLink: string | null
   description: string | null
   isEditable: boolean
   isPublic: boolean | null
   isScreenshotModeActive: boolean
+  onChangeBuildLink: (buildLink: string) => void
   onChangeDescription: (description: string) => void
   onChangeIsPublic: (isPublic: boolean) => void
 }
 
 export function MemberFeatures({
+  buildLink,
   description,
   isEditable,
   isPublic,
   isScreenshotModeActive,
+  onChangeBuildLink,
   onChangeDescription,
   onChangeIsPublic,
 }: Props) {
@@ -53,7 +58,7 @@ export function MemberFeatures({
           )}
         </div>
       ) : (
-        <div className="mb-4 w-full">
+        <div className="mb-8 w-full">
           <Textarea
             label={`Build Description (${
               description?.length ?? 0
@@ -94,6 +99,19 @@ Watch the build in action: [insert Youtube link here]
           </div>
         </div>
       )}
+
+      {isEditable && (
+        <div className="mb-8 flex w-full flex-row items-center justify-start text-sm text-green-500">
+          <div className="mr-4 w-[100px]">Build Reference Link</div>
+          <div className="flex w-full items-center justify-start">
+            <Input
+              value={buildLink ?? ''}
+              onChange={(e) => onChangeBuildLink(e.target.value)}
+            />
+          </div>
+        </div>
+      )}
+
       {isScreenshotModeActive ? null : (
         <>
           {isEditable ? (

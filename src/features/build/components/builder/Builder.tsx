@@ -27,7 +27,6 @@ import { Traits } from './Traits'
 
 type BuilderProps = {
   buildState: BuildState
-  includeMemberFeatures: boolean
   isScreenshotMode: boolean
   showControls: boolean
   showCreatedBy?: boolean
@@ -50,7 +49,6 @@ type BuilderProps = {
 
 export function Builder({
   buildState,
-  includeMemberFeatures,
   isEditable,
   isScreenshotMode,
   showControls,
@@ -200,6 +198,12 @@ export function Builder({
     ],
   )
 
+  function handleChangeBuildLink(newBuildLink: string) {
+    if (!isEditable) return
+    if (!onUpdateBuildState) return
+    onUpdateBuildState({ category: 'buildLink', value: newBuildLink })
+  }
+
   function handleChangeDescription(description: string) {
     if (!isEditable) return
     if (!onUpdateBuildState) return
@@ -219,7 +223,7 @@ export function Builder({
     setInfoItem(item)
   }
 
-  function handleButtonClick(category: ItemCategory, index?: number) {
+  function handleItemSlotClick(category: ItemCategory, index?: number) {
     if (!isEditable) return
     setSelectedItemSlot({ category, index })
   }
@@ -356,8 +360,8 @@ export function Builder({
             showControls={showControls}
           />
           {showCreatedBy && (
-            <div className="flex items-center justify-center text-sm text-gray-400">
-              <span className="mb-1">
+            <div className="mb-2 flex items-center justify-center text-sm text-gray-400">
+              <span>
                 {`${getArchetypeBuildName({
                   archetype1:
                     (buildState.items.archetype[0]?.name.toLowerCase() as Archetype) ||
@@ -370,7 +374,7 @@ export function Builder({
               </span>
               <Link
                 href={`/profile/${buildState.createdById}`}
-                className="mb-1 ml-1 text-green-500 hover:text-green-700"
+                className="ml-1 text-green-500 hover:text-green-700"
               >
                 {buildState.createdByDisplayName}
               </Link>
@@ -385,6 +389,12 @@ export function Builder({
                   {buildState.totalUpvotes}
                 </span>
               </div>
+            </div>
+          )}
+          {buildState.buildLink && (
+            <div className="mb-2 flex items-center justify-center text-sm text-gray-300">
+              <span className="mr-2 text-gray-400">Build Reference Link:</span>{' '}
+              {buildState.buildLink}
             </div>
           )}
           {buildState.updatedAt && (
@@ -442,7 +452,7 @@ export function Builder({
                     item={buildState.items.archetype[archetypeIndex]}
                     isEditable={isEditable}
                     onClick={() =>
-                      handleButtonClick('archetype', archetypeIndex)
+                      handleItemSlotClick('archetype', archetypeIndex)
                     }
                     onItemInfoClick={handleShowInfo}
                     isScreenshotMode={isScreenshotMode}
@@ -452,7 +462,7 @@ export function Builder({
                   <ItemButton
                     item={buildState.items.skill[archetypeIndex]}
                     isEditable={isEditable}
-                    onClick={() => handleButtonClick('skill', archetypeIndex)}
+                    onClick={() => handleItemSlotClick('skill', archetypeIndex)}
                     onItemInfoClick={handleShowInfo}
                     isScreenshotMode={isScreenshotMode}
                     manualWordBreaks={true}
@@ -474,7 +484,7 @@ export function Builder({
                 <ItemButton
                   item={buildState.items.helm}
                   isEditable={isEditable}
-                  onClick={() => handleButtonClick('helm')}
+                  onClick={() => handleItemSlotClick('helm')}
                   onItemInfoClick={handleShowInfo}
                   isScreenshotMode={isScreenshotMode}
                   manualWordBreaks={true}
@@ -483,7 +493,7 @@ export function Builder({
                 <ItemButton
                   item={buildState.items.torso}
                   isEditable={isEditable}
-                  onClick={() => handleButtonClick('torso')}
+                  onClick={() => handleItemSlotClick('torso')}
                   onItemInfoClick={handleShowInfo}
                   isScreenshotMode={isScreenshotMode}
                   manualWordBreaks={true}
@@ -492,7 +502,7 @@ export function Builder({
                 <ItemButton
                   item={buildState.items.legs}
                   isEditable={isEditable}
-                  onClick={() => handleButtonClick('legs')}
+                  onClick={() => handleItemSlotClick('legs')}
                   onItemInfoClick={handleShowInfo}
                   isScreenshotMode={isScreenshotMode}
                   manualWordBreaks={true}
@@ -501,7 +511,7 @@ export function Builder({
                 <ItemButton
                   item={buildState.items.gloves}
                   isEditable={isEditable}
-                  onClick={() => handleButtonClick('gloves')}
+                  onClick={() => handleItemSlotClick('gloves')}
                   onItemInfoClick={handleShowInfo}
                   isScreenshotMode={isScreenshotMode}
                   manualWordBreaks={true}
@@ -514,7 +524,7 @@ export function Builder({
                   <ItemButton
                     item={buildState.items.relic}
                     isEditable={isEditable}
-                    onClick={() => handleButtonClick('relic')}
+                    onClick={() => handleItemSlotClick('relic')}
                     onItemInfoClick={handleShowInfo}
                     isScreenshotMode={isScreenshotMode}
                     manualWordBreaks={true}
@@ -528,7 +538,7 @@ export function Builder({
                       isEditable={isEditable}
                       size="sm"
                       item={buildState.items.relicfragment[0]}
-                      onClick={() => handleButtonClick('relicfragment', 0)}
+                      onClick={() => handleItemSlotClick('relicfragment', 0)}
                       onItemInfoClick={handleShowInfo}
                       isScreenshotMode={isScreenshotMode}
                       manualWordBreaks={true}
@@ -538,7 +548,7 @@ export function Builder({
                       item={buildState.items.relicfragment[1]}
                       isEditable={isEditable}
                       size="sm"
-                      onClick={() => handleButtonClick('relicfragment', 1)}
+                      onClick={() => handleItemSlotClick('relicfragment', 1)}
                       onItemInfoClick={handleShowInfo}
                       isScreenshotMode={isScreenshotMode}
                       manualWordBreaks={true}
@@ -548,7 +558,7 @@ export function Builder({
                       item={buildState.items.relicfragment[2]}
                       isEditable={isEditable}
                       size="sm"
-                      onClick={() => handleButtonClick('relicfragment', 2)}
+                      onClick={() => handleItemSlotClick('relicfragment', 2)}
                       onItemInfoClick={handleShowInfo}
                       isScreenshotMode={isScreenshotMode}
                       manualWordBreaks={true}
@@ -573,7 +583,7 @@ export function Builder({
                 <ItemButton
                   item={buildState.items.amulet}
                   isEditable={isEditable}
-                  onClick={() => handleButtonClick('amulet')}
+                  onClick={() => handleItemSlotClick('amulet')}
                   onItemInfoClick={handleShowInfo}
                   isScreenshotMode={isScreenshotMode}
                   manualWordBreaks={true}
@@ -584,7 +594,7 @@ export function Builder({
                     key={`ring-${ringIndex}`}
                     item={buildState.items.ring[ringIndex]}
                     isEditable={isEditable}
-                    onClick={() => handleButtonClick('ring', ringIndex)}
+                    onClick={() => handleItemSlotClick('ring', ringIndex)}
                     onItemInfoClick={handleShowInfo}
                     isScreenshotMode={isScreenshotMode}
                     manualWordBreaks={true}
@@ -614,7 +624,7 @@ export function Builder({
                     item={buildState.items.weapon[weaponIndex]}
                     size="wide"
                     isEditable={isEditable}
-                    onClick={() => handleButtonClick('weapon', weaponIndex)}
+                    onClick={() => handleItemSlotClick('weapon', weaponIndex)}
                     onItemInfoClick={handleShowInfo}
                     isScreenshotMode={isScreenshotMode}
                     manualWordBreaks={true}
@@ -629,7 +639,7 @@ export function Builder({
                         onClick={
                           weaponIndex === 1
                             ? undefined
-                            : () => handleButtonClick('mod', weaponIndex)
+                            : () => handleItemSlotClick('mod', weaponIndex)
                         }
                         onItemInfoClick={handleShowInfo}
                         isScreenshotMode={isScreenshotMode}
@@ -643,7 +653,9 @@ export function Builder({
                       item={buildState.items.mutator[weaponIndex]}
                       size="md"
                       isEditable={isEditable}
-                      onClick={() => handleButtonClick('mutator', weaponIndex)}
+                      onClick={() =>
+                        handleItemSlotClick('mutator', weaponIndex)
+                      }
                       onItemInfoClick={handleShowInfo}
                       isScreenshotMode={isScreenshotMode}
                       manualWordBreaks={true}
@@ -660,7 +672,7 @@ export function Builder({
                 showControls={showControls}
                 isEditable={isEditable}
                 isScreenshotMode={isScreenshotMode}
-                onAddTrait={() => handleButtonClick('trait')}
+                onAddTrait={() => handleItemSlotClick('trait')}
                 onItemInfoClick={handleShowInfo}
                 onRemoveTrait={(traitItem) => handleRemoveTrait(traitItem)}
                 onUpdateAmount={(newTraitItem) =>
@@ -682,7 +694,7 @@ export function Builder({
                   <ItemButton
                     item={buildState.items.concoction[0]}
                     isEditable={isEditable}
-                    onClick={() => handleButtonClick('concoction', 0)}
+                    onClick={() => handleItemSlotClick('concoction', 0)}
                     onItemInfoClick={handleShowInfo}
                     isScreenshotMode={isScreenshotMode}
                     manualWordBreaks={true}
@@ -697,7 +709,7 @@ export function Builder({
                         item={buildState.items.concoction[concoctionIndex]}
                         isEditable={isEditable}
                         onClick={() =>
-                          handleButtonClick('concoction', concoctionIndex)
+                          handleItemSlotClick('concoction', concoctionIndex)
                         }
                         onItemInfoClick={handleShowInfo}
                         isScreenshotMode={isScreenshotMode}
@@ -724,7 +736,7 @@ export function Builder({
                       item={buildState.items.consumable[consumableIndex]}
                       isEditable={isEditable}
                       onClick={() =>
-                        handleButtonClick('consumable', consumableIndex)
+                        handleItemSlotClick('consumable', consumableIndex)
                       }
                       onItemInfoClick={handleShowInfo}
                       isScreenshotMode={isScreenshotMode}
@@ -743,10 +755,12 @@ export function Builder({
           className="mt-4 flex w-full items-start justify-center"
         >
           <MemberFeatures
+            buildLink={buildState.buildLink}
             description={buildState.description}
             isEditable={isEditable}
             isPublic={buildState.isPublic}
             isScreenshotModeActive={isScreenshotMode}
+            onChangeBuildLink={handleChangeBuildLink}
             onChangeDescription={handleChangeDescription}
             onChangeIsPublic={handleToggleIsPublic}
           />

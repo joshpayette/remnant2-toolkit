@@ -4,6 +4,7 @@ export const buildStateSchema = z.object({
   name: z.string(),
   description: z.string().nullable(),
   isPublic: z.boolean().nullable(),
+  buildLink: z.string().nullable(),
   buildId: z.string().nullable(),
   isFeaturedBuild: z.boolean().nullable(),
   createdById: z.string().nullable(),

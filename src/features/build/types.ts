@@ -35,6 +35,7 @@ export interface BuildState {
   isPatchAffected: boolean
   thumbnailUrl: string | null
   videoUrl: string | null
+  buildLink: string | null
   description: string | null
   upvoted: boolean
   totalUpvotes: number
@@ -74,6 +75,7 @@ export interface DBBuild {
   isMember: boolean
   thumbnailUrl: Build['thumbnailUrl']
   videoUrl: Build['videoUrl']
+  buildLink: Build['buildLink']
   createdById: Build['createdById']
   createdByName: string
   createdByDisplayName: string

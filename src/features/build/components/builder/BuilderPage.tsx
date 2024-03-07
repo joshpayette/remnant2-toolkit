@@ -9,7 +9,6 @@ type Props = {
   buildContainerRef: RefObject<HTMLDivElement>
   builderActions: ReactNode
   buildState: BuildState
-  includeMemberFeatures: boolean
   isScreenshotMode: boolean
   showControls: boolean
   showCreatedBy?: boolean
@@ -33,7 +32,6 @@ export function BuilderPage({
   buildContainerRef,
   builderActions,
   buildState,
-  includeMemberFeatures,
   isEditable,
   isScreenshotMode,
   showControls,
@@ -59,7 +57,6 @@ export function BuilderPage({
           {isEditable ? (
             <Builder
               buildState={buildState}
-              includeMemberFeatures={includeMemberFeatures}
               isEditable={isEditable}
               isScreenshotMode={isScreenshotMode}
               showControls={showControls}
@@ -69,7 +66,6 @@ export function BuilderPage({
           ) : (
             <Builder
               buildState={buildState}
-              includeMemberFeatures={includeMemberFeatures}
               isEditable={isEditable}
               isScreenshotMode={isScreenshotMode}
               showControls={showControls}
