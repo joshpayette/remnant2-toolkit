@@ -230,7 +230,7 @@ export function Filters({
         !showBorder && 'border-transparent',
         showBorder &&
           areAnyFiltersActive() &&
-          'border-primary-500 shadow-primary-500/50 shadow-xl',
+          'border-accent1-300 shadow-accent1-600 shadow-xl',
       )}
     >
       <div className="grid-cols-full grid gap-x-8 gap-y-4  bg-black sm:grid-cols-4">

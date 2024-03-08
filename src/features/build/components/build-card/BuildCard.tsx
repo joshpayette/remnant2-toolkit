@@ -55,7 +55,7 @@ export function BuildCard({
             'border-secondary-500 relative col-span-1 flex h-full min-h-[350px] flex-col rounded-lg border bg-black shadow',
             buildState.isMember &&
               memberFrameEnabled &&
-              'border-primary-300 shadow-primary-600 border-2 shadow-lg',
+              'shadow-accent1-600 border-accent1-300 border-2 shadow-lg',
           )}
         >
           {(isPopular || build.isFeaturedBuild || isNew) && (

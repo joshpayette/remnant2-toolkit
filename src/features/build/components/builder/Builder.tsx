@@ -337,7 +337,7 @@ export function Builder({
           !buildState.isMember && 'border-primary-500',
           buildState.isMember &&
             !isScreenshotMode &&
-            'border-primary-300 shadow-primary-600 shadow-lg',
+            'border-accent1-300 shadow-accent1-600 shadow-lg',
           buildState.isMember && isScreenshotMode && 'border-primary-500',
           isScreenshotMode && 'pb-[70px]',
         )}

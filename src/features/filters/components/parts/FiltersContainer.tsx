@@ -24,7 +24,7 @@ export function FiltersContainer<T>({
       className={cn(
         'border-secondary-500 shadow-secondary-500/50 relative h-full max-h-fit w-full transform overflow-y-auto border-2 bg-black px-4 pb-4 pt-4 text-left shadow-lg sm:my-8 sm:p-6',
         areAnyFiltersActive &&
-          'border-primary-500 shadow-primary-500/50 shadow-xl',
+          'border-accent1-300 shadow-accent1-600 shadow-xl',
       )}
     >
       <div className="grid-cols-full divide-primary-800 grid gap-x-8 gap-y-4 divide-y bg-black sm:grid-cols-4">
