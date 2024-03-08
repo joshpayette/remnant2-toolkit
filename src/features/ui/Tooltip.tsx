@@ -7,7 +7,7 @@ export function Tooltip({
   interactive = true,
   content,
   children,
-  trigger = 'click',
+  trigger,
   ...rest
 }: TippyProps) {
   return (
