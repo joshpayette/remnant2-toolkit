@@ -204,7 +204,7 @@ export const DESCRIPTION_TAGS = [
     type: 'Defrag',
     token: 'DEFRAG',
     color: 'text-[#ede6e6]',
-    description: 'Deals Physical Damage',
+    description: 'Physical Damage',
   },
   {
     type: 'Engineer',
@@ -271,7 +271,7 @@ export const DESCRIPTION_TAGS = [
     type: 'Madness',
     token: 'MADNESS',
     color: 'text-[#ede6e6]',
-    description: 'Deals Pysical Damage',
+    description: 'Pysical Damage',
   },
   {
     type: 'Marked',
