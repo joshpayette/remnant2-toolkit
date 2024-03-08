@@ -37,7 +37,7 @@ export default async function Page() {
             chunk of the existing out of pocket cost.
           </li>
           <li>
-            The feature is not used by the vast majority of the Tookit user
+            The feature is not used by the vast majority of the Toolkit user
             base. In the lifetime of the toolkit, traffic to this feature
             accounts for less than 1% of all traffic.
           </li>
