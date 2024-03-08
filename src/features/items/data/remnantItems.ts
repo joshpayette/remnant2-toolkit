@@ -7088,7 +7088,7 @@ For Heavy Weapons, doubles Heavy Weapon Ammo instead."`,
     name: 'Blasting Cap Ring',
     imagePath: '/ring/blasting_cap_ring.png',
     id: 'ep14lr',
-    description: `Increases Explosive damage [E] by 10%.`,
+    description: `Increases Explosive damage [E] by 10%. [M] [BUG]`,
     wikiLinks: [`https://remnant.wiki/Blasting_Cap_Ring`],
   },
   {
@@ -9680,16 +9680,16 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     tags: ['Heal'],
     description: `
     When receiving fatal damage, the CHALLENGER becomes invulnerable for 3s and regenerates 50% of Max Health.
-    While on cooldown, the Challenger gains 1 Stack of BULWARK. Can only happen once every 10 minutes. Resets at Wordstone or on death. While this skill is on cooldown gain 1 stack of Bulwark.
+    
 
     Upgraded at Level 5
     When receiving fatal damage, the CHALLENGER becomes invulnerable for 2.5s and regenerates 75% of Max Health.
-    Can only happen once every 10 minutes. Resets at Wordstone or on death.
+    While on cooldown, the Challenger gains 1 Stack of BULWARK. Can only happen once every 10 minutes. Resets at Wordstone or on death.
 
     Upgraded at level 10
     When receiving fatal damage, the CHALLENGER becomes invulnerable for 3s and regenerates 100% of Max Health.
     
-    Can only happen once every 10 minutes. Resets at Wordstone or on death.`,
+    While on cooldown, the Challenger gains 1 Stack of BULWARK. Can only happen once every 10 minutes. Resets at Wordstone or on death.`,
     wikiLinks: [`https://remnant.wiki/Die_Hard`],
     linkedItems: {
       archetype: {
