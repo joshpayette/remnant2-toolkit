@@ -127,9 +127,9 @@ export function FeaturedBuilds({ itemsPerPage = 8 }: Props) {
                     <Tooltip content="View Build">
                       <Link
                         href={`/builder/${build.id}`}
-                        className="text-primary-500 hover:text-primary-300 relative inline-flex items-center justify-center gap-x-3 rounded-br-lg border border-transparent p-4 text-sm font-semibold hover:underline"
+                        className="flex flex-col items-center gap-x-3 gap-y-1 rounded-br-lg border border-transparent p-4 text-xs font-semibold text-primary-500 hover:text-primary-300 hover:underline"
                       >
-                        <EyeIcon className="h-5 w-5" /> View
+                        <EyeIcon className="h-4 w-4" /> View
                       </Link>
                     </Tooltip>
                   </div>

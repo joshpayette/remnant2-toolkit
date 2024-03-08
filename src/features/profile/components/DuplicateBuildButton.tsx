@@ -14,11 +14,11 @@ export function DuplicateBuildButton({ build }: { build: DBBuild }) {
   return (
     <Tooltip content="Duplicate Build">
       <button
-        className="text-accent1-500 hover:text-accent1-300"
+        className="flex flex-col items-center gap-y-1 text-xs text-accent1-500 hover:text-accent1-300"
         onClick={() => handleDuplicateBuild(buildState)}
         aria-label="Duplicate Build"
       >
-        <DocumentDuplicateIcon className="h-5 w-5" />
+        <DocumentDuplicateIcon className="h-4 w-4" /> Duplicate
       </button>
     </Tooltip>
   )

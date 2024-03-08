@@ -16,11 +16,11 @@ export function CopyBuildUrlButton({ buildId }: { buildId: string }) {
   return (
     <Tooltip content="Copy Build URL">
       <button
-        className="text-primary-500 hover:text-primary-300"
+        className="flex flex-col items-center gap-y-1 text-xs text-primary-500 hover:text-primary-300"
         aria-label="Copy build URL to clipboard"
         onClick={handleCopyBuild}
       >
-        <ShareIcon className="h-5 w-5" />
+        <ShareIcon className="h-4 w-4" /> Share
       </button>
     </Tooltip>
   )

@@ -20,7 +20,7 @@ export function ChangeLoadoutSlotButton({
   return (
     <Tooltip content="Move to different loadout slot">
       <button
-        className="text-primary-500 hover:text-primary-300"
+        className="flex flex-col items-center gap-y-1 text-xs text-primary-500 hover:text-primary-300"
         aria-label="Move to different loadout slot"
         onClick={async () => {
           const newSlot = prompt(
@@ -49,7 +49,7 @@ export function ChangeLoadoutSlotButton({
           toast.success('Loadout slot changed successfully')
         }}
       >
-        <ArrowPathRoundedSquareIcon className="h-5 w-5" />
+        <ArrowPathRoundedSquareIcon className="h-5 w-5" /> Change Slot
       </button>
     </Tooltip>
   )

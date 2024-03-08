@@ -15,11 +15,11 @@ export function EditBuildButton({ buildId }: { buildId: string }) {
   return (
     <Tooltip content="Edit Build">
       <button
-        className="text-accent2-500 hover:text-accent2-300"
+        className="flex flex-col items-center gap-y-1 text-xs text-accent2-500 hover:text-accent2-300"
         onClick={handleEditBuild}
         aria-label="Edit Build"
       >
-        <PencilIcon className="h-5 w-5" />
+        <PencilIcon className="h-4 w-4" /> Edit
       </button>
     </Tooltip>
   )

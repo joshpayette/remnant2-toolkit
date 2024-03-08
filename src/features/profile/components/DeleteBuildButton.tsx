@@ -36,10 +36,10 @@ export function DeleteBuildButton({
       <button
         type="button"
         aria-label="Delete Build"
-        className="text-red-500 hover:text-red-300"
+        className="flex flex-col items-center gap-y-1 text-xs text-red-500 hover:text-red-300"
         onClick={handleDeleteBuild}
       >
-        <TrashIcon className="h-5 w-5" />
+        <TrashIcon className="h-4 w-4" /> Delete
       </button>
     </Tooltip>
   )
