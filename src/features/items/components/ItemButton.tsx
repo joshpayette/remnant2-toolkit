@@ -100,7 +100,7 @@ export function ItemButton({
         >
           <button
             className={cn(
-              'absolute right-[2px] top-[2px] z-[5]',
+              'absolute right-0 top-0 z-[5]',
               size === 'sm' && 'right-[-20px]',
             )}
             onClick={() =>
