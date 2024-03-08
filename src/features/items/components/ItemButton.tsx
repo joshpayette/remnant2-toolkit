@@ -88,7 +88,7 @@ export function ItemButton({
       {!isScreenshotMode && item && onItemInfoClick && (
         <button
           className={cn(
-            'absolute right-[-2px] top-[-2px] z-[5]',
+            'absolute right-[2px] top-[2px] z-[5]',
             size === 'sm' && 'right-[-20px]',
           )}
           onClick={() =>
