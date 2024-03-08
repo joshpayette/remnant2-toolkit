@@ -75,7 +75,7 @@ export const ActionButton = {
       <button
         className={cn(
           buttonClasses,
-          'bg-accent2-500 hover:bg-accent2-300 border-accent2-700 text-black',
+          'border-accent2-700 bg-accent2-500 text-black hover:bg-accent2-300',
         )}
         aria-label="Export build as an image."
         onClick={onClick}
@@ -85,26 +85,18 @@ export const ActionButton = {
     ),
 
   FavoriteBuild: ({ upvoted, onClick }: ButtonProps & { upvoted: boolean }) => (
-    <Tooltip
-      content={
+    <button
+      className={cn(
+        buttonClasses,
         upvoted
-          ? 'Remove build from your favorited builds.'
-          : 'Save build to your favorited builds!'
-      }
+          ? 'border-red-700 bg-red-500 text-black hover:bg-red-300'
+          : 'border-orange-700 bg-orange-500 text-black hover:bg-orange-300',
+      )}
+      aria-label={upvoted ? 'Remove favorite build' : 'Favorite build'}
+      onClick={onClick}
     >
-      <button
-        className={cn(
-          buttonClasses,
-          upvoted
-            ? 'border-red-700 bg-red-500 text-black hover:bg-red-300'
-            : 'border-orange-700 bg-orange-500 text-black hover:bg-orange-300',
-        )}
-        aria-label={upvoted ? 'Remove favorite build' : 'Favorite build'}
-        onClick={onClick}
-      >
-        {upvoted ? 'Remove Favorite' : 'Favorite Build'}
-      </button>
-    </Tooltip>
+      {upvoted ? 'Remove Favorite' : 'Favorite Build'}
+    </button>
   ),
 
   LoadoutManagement: ({ onClick }: ButtonProps) => (
