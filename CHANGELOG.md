@@ -6,6 +6,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2024-03-08
 
+### Changed
+
+- Updated Amplitude vs Resonance guide.
+- Updated some item tokens and descriptions.
+
 ### Fixed
 
 - Removed black background from behind information buttons in builder.
