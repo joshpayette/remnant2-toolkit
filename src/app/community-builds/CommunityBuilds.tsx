@@ -1,5 +1,6 @@
 'use client'
 
+import { EyeIcon } from '@heroicons/react/24/solid'
 import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
 import { useEffect, useRef, useState } from 'react'
@@ -17,6 +18,7 @@ import { useBuildListSecondaryFilters } from '@/features/filters/hooks/useBuildL
 import { parseBuildListFilters } from '@/features/filters/lib/parseBuildListFilters'
 import { usePagination } from '@/features/pagination/usePagination'
 import { Skeleton } from '@/features/ui/Skeleton'
+import { Tooltip } from '@/features/ui/Tooltip'
 
 interface Props {
   itemsPerPage?: number
@@ -156,12 +158,14 @@ export function CommunityBuildList({ itemsPerPage = 8 }: Props) {
               onReportBuild={onReportBuild}
               footerActions={
                 <div className="flex items-center justify-end gap-2 p-2 text-sm">
-                  <Link
-                    href={`/builder/${build.id}`}
-                    className="text-primary-500 hover:text-primary-300 relative inline-flex items-center justify-center gap-x-3 rounded-br-lg border border-transparent p-4 text-sm font-semibold hover:underline"
-                  >
-                    View Build
-                  </Link>
+                  <Tooltip content="View Build">
+                    <Link
+                      href={`/builder/${build.id}`}
+                      className="text-primary-500 hover:text-primary-300 relative inline-flex items-center justify-center gap-x-3 rounded-br-lg border border-transparent p-4 text-sm font-semibold hover:underline"
+                    >
+                      <EyeIcon className="h-5 w-5" /> View
+                    </Link>
+                  </Tooltip>
                 </div>
               }
             />

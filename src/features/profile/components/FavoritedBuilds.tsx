@@ -141,10 +141,10 @@ export function FavoritedBuilds({ itemsPerPage = 8 }: Props) {
                 footerActions={
                   <div className="flex items-center justify-center gap-6 p-2 text-sm">
                     <CopyBuildUrlButton buildId={build.id} />
+                    <DuplicateBuildButton build={build} />
                     <AddToLoadoutButton
                       onClick={() => setBuildToAddToLoadout(build.id)}
                     />
-                    <DuplicateBuildButton build={build} />
                   </div>
                 }
               />
