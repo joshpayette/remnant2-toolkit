@@ -5,6 +5,7 @@ import { useState } from 'react'
 import { BuildState } from '@/features/build/types'
 import { Item } from '@/features/items/types'
 import { TraitItem } from '@/features/items/types/TraitItem'
+import { Tooltip } from '@/features/ui/Tooltip'
 import { cn } from '@/lib/classnames'
 
 import { DEFAULT_TRAIT_AMOUNT, MAX_TRAIT_AMOUNT } from '../../constants'
@@ -231,15 +232,13 @@ export function Traits({
             >
               <div>{traitItem.name}</div>
               {!isScreenshotMode && onItemInfoClick && (
-                <InformationCircleIcon className="text-accent1-500 h-5 w-5 bg-black sm:h-5 sm:w-5" />
-                // <Image
-                //   src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/information.png`}
-                //   alt="Info Icon"
-                //   width={32}
-                //   height={32}
-                //   className="h-3 w-3"
-                //   loading="eager"
-                // />
+                <Tooltip
+                  content={traitItem.description}
+                  interactive={false}
+                  trigger="mouseenter"
+                >
+                  <InformationCircleIcon className="text-accent1-500 h-5 w-5 bg-black sm:h-5 sm:w-5" />
+                </Tooltip>
               )}
             </button>
             {shouldAllowDelete(traitItem) && (

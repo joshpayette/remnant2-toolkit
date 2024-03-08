@@ -5,6 +5,7 @@ import Image from 'next/image'
 
 import { Enemy, isEnemy } from '@/features/enemies/types'
 import { Item } from '@/features/items/types'
+import { Tooltip } from '@/features/ui/Tooltip'
 import { cn } from '@/lib/classnames'
 
 import { MANUAL_ITEM_NAME_BREAKS } from '../constants'
@@ -13,7 +14,7 @@ type Props = {
   isToggled?: boolean
   isEditable?: boolean
   isScreenshotMode?: boolean
-  item: Item | Enemy | null
+  item: Item | null
   loadingType?: 'lazy' | 'eager'
   manualWordBreaks?: boolean // If true, will use the manual word breaks for item names from MANUAL_ITEM_NAME_BREAKS constant
   size?: 'sm' | 'md' | 'lg' | 'xl' | 'wide'
@@ -34,6 +35,12 @@ export function ItemButton({
   onClick,
   onItemInfoClick,
 }: Props) {
+  let tooltipDescription = item && !isEnemy(item) ? item.description : null
+  // Truncate text at 150 characters
+  if (tooltipDescription && tooltipDescription.length > 150) {
+    tooltipDescription = `${tooltipDescription.substring(0, 150)}...`
+  }
+
   let imageSize = {
     height: 50,
     width: 50,
@@ -86,26 +93,24 @@ export function ItemButton({
       suppressHydrationWarning
     >
       {!isScreenshotMode && item && onItemInfoClick && (
-        <button
-          className={cn(
-            'absolute right-[2px] top-[2px] z-[5]',
-            size === 'sm' && 'right-[-20px]',
-          )}
-          onClick={() =>
-            onItemInfoClick && !isEnemy(item) && onItemInfoClick(item)
-          }
-          aria-label="Item Information"
+        <Tooltip
+          content={tooltipDescription}
+          trigger="mouseenter"
+          interactive={false}
         >
-          <InformationCircleIcon className="text-accent1-500 h-5 w-5 sm:h-5 sm:w-5" />
-          {/* <Image
-            src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/information.png`}
-            alt="Information"
-            width={20}
-            height={20}
-            className="h-5 w-5 sm:h-4 sm:w-4"
-            loading={loadingType}
-          /> */}
-        </button>
+          <button
+            className={cn(
+              'absolute right-[2px] top-[2px] z-[5]',
+              size === 'sm' && 'right-[-20px]',
+            )}
+            onClick={() =>
+              onItemInfoClick && !isEnemy(item) && onItemInfoClick(item)
+            }
+            aria-label="Item Information"
+          >
+            <InformationCircleIcon className="text-accent1-500 h-5 w-5 sm:h-5 sm:w-5" />
+          </button>
+        </Tooltip>
       )}
       <button
         onClick={onClick}
