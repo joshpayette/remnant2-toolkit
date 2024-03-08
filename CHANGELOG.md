@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-03-08
+
+### Fixed
+
+- Removed black background from behind information buttons in builder.
+
 ## 2024-03-07
 
 ### Added

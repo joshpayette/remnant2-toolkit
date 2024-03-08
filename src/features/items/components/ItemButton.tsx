@@ -96,7 +96,7 @@ export function ItemButton({
           }
           aria-label="Item Information"
         >
-          <InformationCircleIcon className="text-accent1-500 h-5 w-5 bg-black sm:h-5 sm:w-5" />
+          <InformationCircleIcon className="text-accent1-500 h-5 w-5 sm:h-5 sm:w-5" />
           {/* <Image
             src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/information.png`}
             alt="Information"
