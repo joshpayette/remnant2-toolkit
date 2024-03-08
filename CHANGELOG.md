@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2024-03-08
 
+### Added
+
+- Hovering over the item info icon in the Builder will now show the item's description. Full click will get you more info, but a summary is now available on hover for convenience.
+
 ### Changed
 
 - Updated Amplitude vs Resonance guide.
