@@ -40,6 +40,7 @@ export const authOptions: NextAuthOptions = {
         where: { userId: user.id },
       })
       if (!userProfile) {
+        console.warn('No profile found for user, creating one from auth.')
         await prisma.userProfile.create({
           data: {
             userId: user.id,

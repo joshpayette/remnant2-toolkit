@@ -152,6 +152,9 @@ export async function getUserBio(
     })
 
     if (!profileResponse) {
+      console.warn(
+        'No profile found for user, creating one from private profile.',
+      )
       // create a profile for the user if one doesn't exist
       const newProfile = await prisma.userProfile.create({
         data: {

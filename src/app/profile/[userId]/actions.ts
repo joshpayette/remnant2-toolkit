@@ -56,7 +56,9 @@ export async function getProfile(userId: string): Promise<
   })
 
   if (!profile) {
-    // create a new profile
+    console.warn(
+      'No profile found for user, creating one one from public profile',
+    )
     profile = await prisma.userProfile.create({
       data: {
         userId,
