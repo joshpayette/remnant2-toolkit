@@ -9680,7 +9680,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     tags: ['Heal'],
     description: `
     When receiving fatal damage, the CHALLENGER becomes invulnerable for 3s and regenerates 50% of Max Health.
-    
+    While on cooldown, the Challenger gains 1 Stack of BULWARK. Can only happen once every 10 minutes. Resets at Wordstone or on death.
 
     Upgraded at Level 5
     When receiving fatal damage, the CHALLENGER becomes invulnerable for 2.5s and regenerates 75% of Max Health.
@@ -9688,8 +9688,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
 
     Upgraded at level 10
     When receiving fatal damage, the CHALLENGER becomes invulnerable for 3s and regenerates 100% of Max Health.
-    
-    While on cooldown, the Challenger gains 1 Stack of BULWARK. Can only happen once every 10 minutes. Resets at Wordstone or on death.`,
+        While on cooldown, the Challenger gains 1 Stack of BULWARK. Can only happen once every 10 minutes. Resets at Wordstone or on death.`,
     wikiLinks: [`https://remnant.wiki/Die_Hard`],
     linkedItems: {
       archetype: {
