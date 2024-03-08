@@ -4025,7 +4025,7 @@ export const remnantItems: Item[] = [
     name: 'Labyrinth Staff',
     imagePath: '/melee/labyrinth_staff.png',
     id: 'gts5dh',
-    description: `Basic Strikes generate 10% additional Mod Power. Charge Attacks perform an AOE which strikes all enemies within 2m [R], dealing 75 Damage. AOE Damage generates 50% additional Mod Power.`,
+    description: `Basic Strikes generate 10% additional Mod Power. Charge Attacks perform an AOE which strikes all enemies within 2m [A], dealing 75 Damage. AOE Damage generates 50% additional Mod Power.`,
     wikiLinks: [`https://remnant.wiki/Labyrinth_Staff`],
     damage: 64,
   },
