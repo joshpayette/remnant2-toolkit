@@ -18,6 +18,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Fixed
 
 - Fixed issue where build reference link could overflow the container
+- Several items were classified as being part of the DLC, but were not. They were actually part of the update and available to non-DLC owners.
 
 ## 2024-03-06
 
