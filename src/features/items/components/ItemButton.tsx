@@ -14,7 +14,7 @@ type Props = {
   isToggled?: boolean
   isEditable?: boolean
   isScreenshotMode?: boolean
-  item: Item | null
+  item: Item | Enemy | null
   loadingType?: 'lazy' | 'eager'
   manualWordBreaks?: boolean // If true, will use the manual word breaks for item names from MANUAL_ITEM_NAME_BREAKS constant
   size?: 'sm' | 'md' | 'lg' | 'xl' | 'wide'
