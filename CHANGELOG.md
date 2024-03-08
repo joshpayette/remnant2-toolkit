@@ -17,6 +17,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Patreon membership builds now use the yellow frame and glow again.
 - Fixed a transparency issue with the Provisioner Ring. This may take a bit to propagate due to caching.
 - Fixed UI bug causing horizontal scroll bar on Build weapons.
+- Fixed typo in the Knight Guard wiki link.
 
 ## 2024-03-07
 

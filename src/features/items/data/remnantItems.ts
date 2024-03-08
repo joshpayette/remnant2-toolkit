@@ -5276,7 +5276,7 @@ export const remnantItems: Item[] = [
     dlc: 'dlc1',
     id: 'e4n1w4',
     description: `Summons Knight Guard to aid in combat. The Guards hurl penetrating slashes at a random enemy dealing 15 damage. The Guards will melee enemies if close enough for 15 damage. Lasts 20s`,
-    wikiLinks: [`https://remnant.wiki/Kight_Guard`],
+    wikiLinks: [`https://remnant.wiki/Knight_Guard`],
   },
   {
     category: 'mod',
