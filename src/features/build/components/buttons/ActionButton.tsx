@@ -2,7 +2,6 @@
 
 import { FlagIcon as FlagIconOff } from '@heroicons/react/24/outline'
 import { FlagIcon as FlagIconOn } from '@heroicons/react/24/solid'
-import Link from 'next/link'
 
 import { Skeleton } from '@/features/ui/Skeleton'
 import { Tooltip } from '@/features/ui/Tooltip'
@@ -12,9 +11,9 @@ export const buttonClasses =
   'flex flex-col h-[40px] sm:h-[60px] w-full md:w-[150px] items-center justify-center rounded border-2 text-center px-4 py-2 text-sm font-bold text-white'
 
 const primaryButtonClasses =
-  'border-primary-500 hover:border-primary-300 hover:bg-primary-300 hover:text-black'
+  'bg-primary-500 hover:bg-primary-300 text-black border-primary-700'
 const secondaryButtonClasses =
-  'border-secondary-500 hover:border-secondary-500 hover:bg-secondary-500 hover:text-black'
+  'border-secondary-500 hover:bg-secondary-500 hover:border-secondary-700 text-white hover:text-black'
 
 type ButtonProps = {
   onClick: () => void
@@ -35,7 +34,7 @@ export const ActionButton = {
     <button
       className={cn(
         buttonClasses,
-        'border-red-500 hover:border-red-500 hover:bg-red-500 hover:text-black',
+        'border-red-700 bg-red-500 text-black hover:bg-red-300',
       )}
       aria-label="Delete build."
       onClick={onClick}
@@ -76,7 +75,7 @@ export const ActionButton = {
       <button
         className={cn(
           buttonClasses,
-          'border-accent2-500 hover:bg-accent2-500 hover:text-black',
+          'bg-accent2-500 hover:bg-accent2-300 border-accent2-700 text-black',
         )}
         aria-label="Export build as an image."
         onClick={onClick}
@@ -97,8 +96,8 @@ export const ActionButton = {
         className={cn(
           buttonClasses,
           upvoted
-            ? 'border-red-500 text-white'
-            : 'border-orange-500 text-white',
+            ? 'border-red-700 bg-red-500 text-black hover:bg-red-300'
+            : 'border-orange-700 bg-orange-500 text-black hover:bg-orange-300',
         )}
         aria-label={upvoted ? 'Remove favorite build' : 'Favorite build'}
         onClick={onClick}
@@ -116,15 +115,6 @@ export const ActionButton = {
     >
       Add To Loadout
     </button>
-  ),
-
-  NewBuild: () => (
-    <Link
-      className={cn(buttonClasses, 'border-red-500 hover:bg-red-500')}
-      href="/builder"
-    >
-      New Build
-    </Link>
   ),
 
   RandomBuild: ({ onClick }: ButtonProps) => (

@@ -118,14 +118,16 @@ export default function Page() {
                 />
               )}
 
+              <hr className="my-2 w-full border-t-2 border-gray-500/50" />
+
+              <ActionButton.ShowDetailedView
+                onClick={() => setDetailedBuildDialogOpen(true)}
+              />
+
               <ToCsvButton
                 data={csvItems}
                 filename={`remnant2_builder_${urlBuildState.name}`}
                 label="Export to CSV"
-              />
-
-              <ActionButton.ShowDetailedView
-                onClick={() => setDetailedBuildDialogOpen(true)}
               />
             </div>
           </>

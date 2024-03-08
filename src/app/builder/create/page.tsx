@@ -78,6 +78,8 @@ export default function Page() {
               onClick={() => setShowBuildSuggestions(true)}
             />
 
+            <hr className="my-2 w-full border-t-2 border-gray-500/50" />
+
             <ActionButton.ShowDetailedView
               onClick={() => setDetailedBuildDialogOpen(true)}
             />

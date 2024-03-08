@@ -148,6 +148,13 @@ export default function Page({
                   )
                 }
               />
+
+              {session?.user?.id && (
+                <ActionButton.LoadoutManagement
+                  onClick={() => setLoadoutDialogOpen(true)}
+                />
+              )}
+
               {session?.user?.id &&
                 buildState.createdById !== session.user.id && (
                   <ActionButton.FavoriteBuild
@@ -158,11 +165,7 @@ export default function Page({
                   />
                 )}
 
-              {session?.user?.id && (
-                <ActionButton.LoadoutManagement
-                  onClick={() => setLoadoutDialogOpen(true)}
-                />
-              )}
+              <hr className="my-2 w-full border-t-2 border-gray-500/50" />
 
               <ActionButton.ShowDetailedView
                 onClick={() => setDetailedBuildDialogOpen(true)}

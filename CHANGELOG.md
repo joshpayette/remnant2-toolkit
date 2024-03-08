@@ -15,6 +15,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Updated Amplitude vs Resonance guide.
 - Updated some item tokens and descriptions.
 - Added a new and more consistent New Build badge icon.
+- Updated button colors and styles to match the original look
 
 ### Fixed
 
