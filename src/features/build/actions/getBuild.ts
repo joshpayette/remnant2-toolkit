@@ -86,8 +86,8 @@ export async function getBuild(
   }
 
   if (!session || !session.user || build.createdBy.id !== session.user.id) {
-    console.error(
-      'You must be logged in as the build creator to view a private build.',
+    console.warn(
+      `You must be logged in as the build creator to view a private build. ${buildId}`,
     )
     return {
       errors: [
