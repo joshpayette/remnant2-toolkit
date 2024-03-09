@@ -139,23 +139,13 @@ export function ArmorSuggestions({
       buildState.items.legs,
   )
 
-  const noSlotsSelected = Boolean(
-    !buildState.items.helm &&
-      !buildState.items.torso &&
-      !buildState.items.gloves &&
-      !buildState.items.legs,
-  )
-
   function handleWeightClassChange(weightClass: WeightClassWithDefault) {
-    setDesiredWeightClass(weightClass)
-
     if (weightClass === 'CHOOSE') {
       setArmorSuggestions([])
       return
     }
-
-    const newArmorSuggestions = getArmorSuggestions(buildState, weightClass)
-    setArmorSuggestions(newArmorSuggestions)
+    setDesiredWeightClass(weightClass)
+    setArmorSuggestions(getArmorSuggestions(buildState, weightClass))
   }
 
   function clearArmorSuggestions() {
@@ -169,17 +159,6 @@ export function ArmorSuggestions({
       <ArmorInfoContainer>
         <div className="text-md mt-4 text-center font-semibold text-red-500">
           All armor slots are full. Clear at least one slot for suggestions.
-        </div>
-      </ArmorInfoContainer>
-    )
-  }
-
-  // ensure at least one slot is selected
-  if (noSlotsSelected) {
-    return (
-      <ArmorInfoContainer>
-        <div className="text-md text-center font-semibold text-red-500">
-          Select at least one armor slot for suggestions.
         </div>
       </ArmorInfoContainer>
     )
@@ -224,12 +203,12 @@ export function ArmorSuggestions({
             {armorSuggestions.map((suggestion, index) => (
               <div
                 key={index}
-                className="border-t-primary-500 flex w-full flex-col items-center justify-center border-t-2 py-4"
+                className="flex w-full flex-col items-center justify-center border-t-2 border-t-primary-500 py-4"
               >
                 <div className="mb-4 flex w-full flex-row items-center justify-center gap-x-8">
                   <div className="flex flex-col items-center justify-center">
                     <div className="text-md font-semibold">Armor</div>
-                    <div className="text-primary-500 text-2xl font-bold">
+                    <div className="text-2xl font-bold text-primary-500">
                       {suggestion.totalArmor}
                     </div>
                   </div>
@@ -273,7 +252,7 @@ export function ArmorSuggestions({
                   />
                 </div>
                 <button
-                  className="border-primary-500 hover:bg-primary-500 mt-4 rounded-md border-2 p-2 text-sm text-white hover:text-white"
+                  className="mt-4 rounded-md border-2 border-primary-500 p-2 text-sm text-white hover:bg-primary-500 hover:text-white"
                   aria-label="Equip armor suggestions"
                   onClick={() =>
                     onApplySuggestions({
@@ -302,7 +281,7 @@ export function ArmorSuggestions({
 function ArmorInfoContainer({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex max-w-xs flex-col items-center justify-start sm:pr-4">
-      <h2 className="text-secondary-500 mb-4 text-2xl font-semibold">
+      <h2 className="mb-4 text-2xl font-semibold text-secondary-500">
         Armor Suggestions
       </h2>
       {children}
