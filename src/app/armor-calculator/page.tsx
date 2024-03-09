@@ -7,6 +7,8 @@ import { FiltersContainer } from '@/features/filters/components/parts/FiltersCon
 import { PageHeader } from '@/features/ui/PageHeader'
 import { SelectMenu } from '@/features/ui/SelectMenu'
 
+// TODO Add note about using the tool from the build page for more build specific armor suggestions
+
 type Filters = {
   selectedWeightTier: WeightClassWithDefault
 }
