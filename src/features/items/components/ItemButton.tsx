@@ -18,6 +18,7 @@ type Props = {
   loadingType?: 'lazy' | 'eager'
   manualWordBreaks?: boolean // If true, will use the manual word breaks for item names from MANUAL_ITEM_NAME_BREAKS constant
   size?: 'sm' | 'md' | 'lg' | 'xl' | 'wide'
+  tooltipDisabled?: boolean
   unoptimized?: boolean
   onClick?: () => void
   onItemInfoClick?: (item: Item) => void
@@ -31,6 +32,7 @@ export function ItemButton({
   loadingType = 'eager',
   manualWordBreaks = false,
   size = 'md',
+  tooltipDisabled = true,
   unoptimized = false,
   onClick,
   onItemInfoClick,
@@ -97,6 +99,7 @@ export function ItemButton({
           content={tooltipDescription}
           trigger="mouseenter"
           interactive={false}
+          disabled={tooltipDisabled}
         >
           <button
             className={cn(
@@ -108,7 +111,7 @@ export function ItemButton({
             }
             aria-label="Item Information"
           >
-            <InformationCircleIcon className="text-accent1-500 h-5 w-5 sm:h-5 sm:w-5" />
+            <InformationCircleIcon className="h-5 w-5 text-accent1-500 sm:h-5 sm:w-5" />
           </button>
         </Tooltip>
       )}
@@ -117,7 +120,7 @@ export function ItemButton({
         className={cn(
           'relative flex items-center justify-center overflow-hidden border-2 border-gray-700',
           `bg-[url('https://d2sqltdcj8czo5.cloudfront.net/card-body-bg.jpg')]`,
-          isEditable && 'hover:border-secondary-500 border-gray-700',
+          isEditable && 'border-gray-700 hover:border-secondary-500',
           size === 'sm' && 'h-[22px] w-[22px]',
           size === 'md' && 'h-[66px] w-[66px]',
           size === 'lg' && 'h-[99px] w-[99px]',
@@ -145,7 +148,7 @@ export function ItemButton({
       {item?.name && (
         <div
           className={cn(
-            'bg-secondary-900 z-[5] flex items-center justify-center px-1 py-0.5 text-center text-[10px] text-gray-100',
+            'z-[5] flex items-center justify-center bg-secondary-900 px-1 py-0.5 text-center text-[10px] text-gray-100',
             size === 'sm' && 'min-h-[22px] min-w-[22px] border border-black',
             size === 'md' && 'min-h-[40px] w-[66px]',
             size === 'lg' && 'min-h-[40px] w-[99px]',

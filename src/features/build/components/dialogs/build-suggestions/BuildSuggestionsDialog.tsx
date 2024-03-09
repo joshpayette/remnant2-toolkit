@@ -41,17 +41,19 @@ export function BuildSuggestionsDialog({
           open={isShowItemInfoOpen}
           onClose={() => setItemInfo(null)}
         />
-        <div className="border-t-primary-900 sm:divide-primary-900 grid grid-cols-1 border-t pt-4 sm:grid-cols-2 sm:divide-x">
+        <div className="grid grid-cols-1 border-t border-t-primary-900 pt-4 sm:grid-cols-2 sm:divide-x sm:divide-primary-900">
           <ArmorSuggestions
             key={JSON.stringify(buildState)}
             buildState={buildState}
             onApplySuggestions={onApplySuggestions}
             onOpenItemInfo={setItemInfo}
+            isItemInfoOpen={isShowItemInfoOpen}
           />
           <ItemTagSuggestions
             buildState={buildState}
             onApplySuggestions={onApplySuggestions}
             onOpenItemInfo={setItemInfo}
+            isItemInfoOpen={isShowItemInfoOpen}
           />
         </div>
       </Dialog>

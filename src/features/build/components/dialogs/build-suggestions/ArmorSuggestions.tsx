@@ -116,12 +116,14 @@ function getArmorSuggestions(
 
 interface Props {
   buildState: BuildState
+  isItemInfoOpen: boolean
   onOpenItemInfo: (item: ArmorItem) => void
   onApplySuggestions: (newBuildState: BuildState) => void
 }
 
 export function ArmorSuggestions({
   buildState,
+  isItemInfoOpen,
   onOpenItemInfo,
   onApplySuggestions,
 }: Props) {
@@ -224,12 +226,12 @@ export function ArmorSuggestions({
             {armorSuggestions.map((suggestion, index) => (
               <div
                 key={index}
-                className="border-t-primary-500 flex w-full flex-col items-center justify-center border-t-2 py-4"
+                className="flex w-full flex-col items-center justify-center border-t-2 border-t-primary-500 py-4"
               >
                 <div className="mb-4 flex w-full flex-row items-center justify-center gap-x-8">
                   <div className="flex flex-col items-center justify-center">
                     <div className="text-md font-semibold">Armor</div>
-                    <div className="text-primary-500 text-2xl font-bold">
+                    <div className="text-2xl font-bold text-primary-500">
                       {suggestion.totalArmor}
                     </div>
                   </div>
@@ -252,28 +254,32 @@ export function ArmorSuggestions({
                     isEditable={false}
                     size="md"
                     onItemInfoClick={() => onOpenItemInfo(suggestion.helm)}
+                    tooltipDisabled={isItemInfoOpen}
                   />
                   <ItemButton
                     item={suggestion.torso}
                     isEditable={false}
                     size="md"
                     onItemInfoClick={() => onOpenItemInfo(suggestion.torso)}
+                    tooltipDisabled={isItemInfoOpen}
                   />
                   <ItemButton
                     item={suggestion.legs}
                     isEditable={false}
                     size="md"
                     onItemInfoClick={() => onOpenItemInfo(suggestion.legs)}
+                    tooltipDisabled={isItemInfoOpen}
                   />
                   <ItemButton
                     item={suggestion.gloves}
                     isEditable={false}
                     size="md"
                     onItemInfoClick={() => onOpenItemInfo(suggestion.gloves)}
+                    tooltipDisabled={isItemInfoOpen}
                   />
                 </div>
                 <button
-                  className="border-primary-500 hover:bg-primary-500 mt-4 rounded-md border-2 p-2 text-sm text-white hover:text-white"
+                  className="mt-4 rounded-md border-2 border-primary-500 p-2 text-sm text-white hover:bg-primary-500 hover:text-white"
                   aria-label="Equip armor suggestions"
                   onClick={() =>
                     onApplySuggestions({
@@ -302,7 +308,7 @@ export function ArmorSuggestions({
 function ArmorInfoContainer({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex max-w-xs flex-col items-center justify-start sm:pr-4">
-      <h2 className="text-secondary-500 mb-4 text-2xl font-semibold">
+      <h2 className="mb-4 text-2xl font-semibold text-secondary-500">
         Armor Suggestions
       </h2>
       {children}

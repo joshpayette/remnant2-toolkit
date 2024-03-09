@@ -80,6 +80,7 @@ export function ItemSelect({
   const searchTextOptions = buildSearchTextOptions()
 
   const [infoItem, setInfoItem] = useState<Item | null>(null)
+  const isItemInfoOpen = Boolean(infoItem)
 
   const [filter, setFilter] = useState('')
   const [debouncedFilter] = useDebounceValue(filter, 500)
@@ -136,7 +137,7 @@ export function ItemSelect({
     >
       <ItemInfoDialog
         item={infoItem}
-        open={Boolean(infoItem)}
+        open={isItemInfoOpen}
         onClose={() => setInfoItem(null)}
       />
       <div className="flex w-full items-center justify-center">
@@ -156,7 +157,7 @@ export function ItemSelect({
           {buildSlot === 'trait' && (
             <div className="col-span-1 flex items-end justify-start">
               <button
-                className="hover:text-primary-500 flex items-center justify-center text-sm text-gray-400"
+                className="flex items-center justify-center text-sm text-gray-400 hover:text-primary-500"
                 aria-label="Toggle sorting preference"
                 onClick={handleSortingPreferenceToggle}
               >
@@ -168,7 +169,7 @@ export function ItemSelect({
         </div>
       </div>
 
-      <hr className="border-primary-500 mb-8 mt-4" />
+      <hr className="mb-8 mt-4 border-primary-500" />
 
       <ul
         role="list"
@@ -185,6 +186,7 @@ export function ItemSelect({
               }}
               size="lg"
               onClick={() => onSelectItem(null)}
+              tooltipDisabled={isItemInfoOpen}
             />
           </li>
         )}
@@ -195,6 +197,7 @@ export function ItemSelect({
               size="lg"
               onClick={() => onSelectItem(item)}
               onItemInfoClick={() => setInfoItem(item)}
+              tooltipDisabled={isItemInfoOpen}
             />
           </li>
         ))}
