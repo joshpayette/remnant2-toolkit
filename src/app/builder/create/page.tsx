@@ -2,10 +2,10 @@
 
 import { useRef, useState } from 'react'
 
+import { BuildSuggestionsDialog } from '@/features/build/components/build-suggestions/BuildSuggestionsDialog'
 import { BuilderPage } from '@/features/build/components/builder/BuilderPage'
 import { ActionButton } from '@/features/build/components/buttons/ActionButton'
 import { SaveBuildButton } from '@/features/build/components/buttons/SaveBuildButton'
-import { BuildSuggestionsDialog } from '@/features/build/components/build-suggestions/BuildSuggestionsDialog'
 import { DetailedBuildDialog } from '@/features/build/components/dialogs/DetailedBuildDialog'
 import { ImageDownloadInfo } from '@/features/build/components/dialogs/ImageDownloadInfo'
 import { INITIAL_BUILD_STATE } from '@/features/build/constants'
