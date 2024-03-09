@@ -73,6 +73,7 @@ export type LinkedItems = Partial<{
 export type ItemTag =
   | 'All Damage'
   | 'Ammo Reserves'
+  | 'Armor Increase'
   | 'Charged Melee Damage'
   | 'Charged Melee'
   | 'Charged Shot'
@@ -134,6 +135,7 @@ export type ItemTag =
   | 'Weakspot Damage'
   | 'Weakspot Hit'
   | 'Weapon Damage'
+  | 'Weight Reduction'
 
 export type ReleaseKey = keyof typeof RELEASE_TO_NAME
 export type ReleaseName = (typeof RELEASE_TO_NAME)[ReleaseKey]

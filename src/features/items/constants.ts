@@ -132,7 +132,7 @@ export const DESCRIPTION_TAGS = [
     description:
       'Deals physical damage per second. Reduces healing effectiveness by 50%.',
   },
-    {
+  {
     type: 'Bug',
     token: '[BUG]',
     color: 'text-[#ecff00]',
@@ -143,8 +143,7 @@ export const DESCRIPTION_TAGS = [
     type: 'Burning',
     token: 'BURNING',
     color: 'text-[#b65d30]',
-    description:
-      'Can make enemies panic.', // Have no good source on the secondary effect.
+    description: 'Can make enemies panic.', // Have no good source on the secondary effect.
   },
   {
     type: 'Bulwark',
@@ -170,15 +169,13 @@ export const DESCRIPTION_TAGS = [
     type: 'Corroded',
     token: 'CORRODED',
     color: 'text-[#0fa82b]',
-    description:
-      'Increases damage taken by 10%.',
+    description: 'Increases damage taken by 10%.',
   },
   {
     type: 'Corrosive',
     token: 'CORROSIVE',
     color: 'text-[#589961]',
-    description:
-      'Elemental Damage',
+    description: 'Elemental Damage',
   },
   {
     type: 'Critical Damage',
@@ -357,8 +354,9 @@ export const DESCRIPTION_TAGS = [
 }[]
 
 export const ITEM_TAGS: ItemTag[] = [
-  'Ammo Reserves', // Only plular one due to wording in game
+  'Ammo Reserves', // Only plural one due to wording in game
   'All Damage',
+  'Armor Increase',
   'Charged Melee Damage',
   'Charged Melee',
   'Charged Shot',
@@ -418,4 +416,5 @@ export const ITEM_TAGS: ItemTag[] = [
   'Weakspot Damage',
   'Weakspot Hit',
   'Weapon Damage',
+  'Weight Reduction',
 ]
