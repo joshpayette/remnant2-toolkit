@@ -1,5 +1,10 @@
 import { useState } from 'react'
 
+import { getConcoctionSlotCount } from '@/features/build/lib/getConcoctionSlotCount'
+import { linkArchetypesToTraits } from '@/features/build/lib/linkArchetypesToTraits'
+import { linkWeaponsToMods } from '@/features/build/lib/linkWeaponsToMods'
+import { BuildState } from '@/features/build/types'
+import { ItemButton } from '@/features/items/components/ItemButton'
 import { DESCRIPTION_TAGS, ITEM_TAGS } from '@/features/items/constants'
 import { remnantItems } from '@/features/items/data/remnantItems'
 import { itemMatchesSearchText } from '@/features/items/lib/itemMatchesSearchText'
@@ -10,12 +15,6 @@ import { ModItem } from '@/features/items/types/ModItem'
 import { MutatorItem } from '@/features/items/types/MutatorItem'
 import { WeaponItem } from '@/features/items/types/WeaponItem'
 import { SelectMenu } from '@/features/ui/SelectMenu'
-
-import { ItemButton } from '../../../../items/components/ItemButton'
-import { getConcoctionSlotCount } from '../../../lib/getConcoctionSlotCount'
-import { linkArchetypesToTraits } from '../../../lib/linkArchetypesToTraits'
-import { linkWeaponsToMods } from '../../../lib/linkWeaponsToMods'
-import { BuildState } from '../../../types'
 
 /**
  * Combines the tags found in item.descriptions, as well as the item.tags
@@ -740,7 +739,7 @@ export function ItemTagSuggestions({
         </button>
       </div>
       {itemSuggestions.length === 0 && (
-        <div className="flex max-w-xs flex-col items-center justify-center">
+        <div className="flex flex-col items-center justify-center">
           <div className="text-md mt-4 text-center font-bold text-red-500">
             No item suggestions found.
           </div>
@@ -798,7 +797,7 @@ export function ItemTagSuggestions({
 
 function ItemTagContainer({ children }: { children: React.ReactNode }) {
   return (
-    <div className="flex max-w-xs flex-col items-center justify-start sm:pl-4">
+    <div className="flex flex-col items-center justify-start sm:pl-4">
       <h2 className="mb-1 text-2xl font-semibold text-secondary-500">
         Item Suggestions
       </h2>

@@ -1,6 +1,7 @@
 import {
   ArchiveBoxIcon,
   ArrowLeftOnRectangleIcon,
+  CalculatorIcon,
   CircleStackIcon,
   DocumentCheckIcon,
   DocumentPlusIcon,
@@ -26,6 +27,13 @@ export const NAV_ITEMS = {
       'A guide on what items are affected by Amplitude and Resonance.',
     href: '/guides/amplitude-vs-resonance',
     icon: TableCellsIcon,
+  },
+  armorCalculator: {
+    label: 'Armor Calculator',
+    description:
+      'Calculate the maximum armor you can get for a particular weight tier.',
+    href: '/armor-calculator',
+    icon: CalculatorIcon,
   },
   bossTracker: {
     label: 'Boss Tracker',

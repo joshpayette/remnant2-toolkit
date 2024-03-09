@@ -1,11 +1,11 @@
 import { useState } from 'react'
 
+import { ArmorSuggestions } from '@/features/build/components/build-suggestions/ArmorSuggestions'
+import { BuildState } from '@/features/build/types'
 import { ItemInfoDialog } from '@/features/items/components/ItemInfoDialog'
 import { Item } from '@/features/items/types'
 import { Dialog } from '@/features/ui/Dialog'
 
-import { BuildState } from '../../../types'
-import { ArmorSuggestions } from './ArmorSuggestions'
 import { ItemTagSuggestions } from './ItemTagSuggestions'
 
 interface Props {
@@ -32,7 +32,7 @@ export function BuildSuggestionsDialog({
       <Dialog
         title="Build Suggestions"
         subtitle="Find the exact items you want to use for your build."
-        maxWidthClass="max-w-2xl"
+        maxWidthClass="max-w-4xl"
         open={open}
         onClose={onClose}
       >
