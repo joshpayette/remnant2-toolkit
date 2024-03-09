@@ -1,5 +1,10 @@
 import { useState } from 'react'
 
+import { getConcoctionSlotCount } from '@/features/build/lib/getConcoctionSlotCount'
+import { linkArchetypesToTraits } from '@/features/build/lib/linkArchetypesToTraits'
+import { linkWeaponsToMods } from '@/features/build/lib/linkWeaponsToMods'
+import { BuildState } from '@/features/build/types'
+import { ItemButton } from '@/features/items/components/ItemButton'
 import { DESCRIPTION_TAGS, ITEM_TAGS } from '@/features/items/constants'
 import { remnantItems } from '@/features/items/data/remnantItems'
 import { itemMatchesSearchText } from '@/features/items/lib/itemMatchesSearchText'
@@ -10,12 +15,6 @@ import { ModItem } from '@/features/items/types/ModItem'
 import { MutatorItem } from '@/features/items/types/MutatorItem'
 import { WeaponItem } from '@/features/items/types/WeaponItem'
 import { SelectMenu } from '@/features/ui/SelectMenu'
-
-import { ItemButton } from '../../../../items/components/ItemButton'
-import { getConcoctionSlotCount } from '../../../lib/getConcoctionSlotCount'
-import { linkArchetypesToTraits } from '../../../lib/linkArchetypesToTraits'
-import { linkWeaponsToMods } from '../../../lib/linkWeaponsToMods'
-import { BuildState } from '../../../types'
 
 /**
  * Combines the tags found in item.descriptions, as well as the item.tags
@@ -763,7 +762,7 @@ export function ItemTagSuggestions({
                   onItemInfoClick={() => onOpenItemInfo(suggestion)}
                 />
                 {selectedItems.find((i) => i.id === suggestion.id)?.slot && (
-                  <span className="bg-secondary-800 -mt-2 mb-2 w-full p-1 text-[9px] text-white">
+                  <span className="-mt-2 mb-2 w-full bg-secondary-800 p-1 text-[9px] text-white">
                     {selectedItems.find((i) => i.id === suggestion.id)?.slot}
                   </span>
                 )}
@@ -771,7 +770,7 @@ export function ItemTagSuggestions({
             ))}
           </div>
           <button
-            className="border-primary-500 hover:bg-primary-500 mt-4 rounded-md border-2 p-2 text-sm text-white hover:text-white"
+            className="mt-4 rounded-md border-2 border-primary-500 p-2 text-sm text-white hover:bg-primary-500 hover:text-white"
             aria-label="Equip selected items"
             onClick={handleApplyItemSelections}
           >
@@ -796,7 +795,7 @@ export function ItemTagSuggestions({
 function ItemTagContainer({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex max-w-xs flex-col items-center justify-start sm:pl-4">
-      <h2 className="text-secondary-500 mb-1 text-2xl font-semibold">
+      <h2 className="mb-1 text-2xl font-semibold text-secondary-500">
         Item Suggestions
       </h2>
       <p className="mb-4 text-xs text-gray-400">
