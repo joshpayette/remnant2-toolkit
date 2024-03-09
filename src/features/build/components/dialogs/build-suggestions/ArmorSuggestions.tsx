@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-import { getArmorSuggestions } from '@/features/armor-calculator/lib/getArmorSuggestions'
+import { getArmorSuggestions } from '@/features/armor-calculator/getArmorSuggestions'
 import {
   ArmorSuggestion,
   WeightClassWithDefault,

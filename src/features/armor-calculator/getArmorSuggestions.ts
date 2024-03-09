@@ -8,7 +8,7 @@ import { WEIGHT_CLASSES } from '@/features/items/constants'
 import { remnantItems } from '@/features/items/data/remnantItems'
 import { ArmorItem } from '@/features/items/types/ArmorItem'
 
-import { ArmorSuggestion } from '../types'
+import { ArmorSuggestion } from './types'
 
 export function getArmorSuggestions(
   buildState: BuildState,
