@@ -14,12 +14,14 @@ import { cn } from '@/lib/classnames'
 
 interface Props {
   buildState: BuildState
+  isItemInfoOpen: boolean
   onOpenItemInfo: (item: ArmorItem) => void
   onApplySuggestions: (newBuildState: BuildState) => void
 }
 
 export function ArmorSuggestions({
   buildState,
+  isItemInfoOpen,
   onOpenItemInfo,
   onApplySuggestions,
 }: Props) {
@@ -35,6 +37,13 @@ export function ArmorSuggestions({
       buildState.items.torso &&
       buildState.items.gloves &&
       buildState.items.legs,
+  )
+
+  const noSlotsSelected = Boolean(
+    !buildState.items.helm &&
+      !buildState.items.torso &&
+      !buildState.items.gloves &&
+      !buildState.items.legs,
   )
 
   function handleWeightClassChange(weightClass: WeightClassWithDefault) {
@@ -88,6 +97,9 @@ export function ArmorSuggestions({
           Clear
         </button>
       </div>
+      <p className="mt-4 w-full text-left text-sm font-normal italic text-gray-300">
+        Please allow a few seconds for the suggestions to load.
+      </p>
       {armorSuggestions.length === 0 && (
         <div className="flex flex-col items-center justify-center">
           <div className="text-md mt-4 text-center font-bold text-red-500">
@@ -129,24 +141,28 @@ export function ArmorSuggestions({
                     isEditable={false}
                     size="md"
                     onItemInfoClick={() => onOpenItemInfo(suggestion.helm)}
+                    tooltipDisabled={isItemInfoOpen}
                   />
                   <ItemButton
                     item={suggestion.torso}
                     isEditable={false}
                     size="md"
                     onItemInfoClick={() => onOpenItemInfo(suggestion.torso)}
+                    tooltipDisabled={isItemInfoOpen}
                   />
                   <ItemButton
                     item={suggestion.legs}
                     isEditable={false}
                     size="md"
                     onItemInfoClick={() => onOpenItemInfo(suggestion.legs)}
+                    tooltipDisabled={isItemInfoOpen}
                   />
                   <ItemButton
                     item={suggestion.gloves}
                     isEditable={false}
                     size="md"
                     onItemInfoClick={() => onOpenItemInfo(suggestion.gloves)}
+                    tooltipDisabled={isItemInfoOpen}
                   />
                 </div>
                 <button
@@ -186,4 +202,3 @@ function ArmorInfoContainer({ children }: { children: React.ReactNode }) {
     </div>
   )
 }
-

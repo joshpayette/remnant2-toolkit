@@ -255,7 +255,7 @@ export function NavBar() {
                   )}
                 </Menu.Item>
 
-                <Menu.Item>
+                {/* <Menu.Item>
                   {({ active }) => (
                     <Link
                       href={NAV_ITEMS.armorCalculator.href}
@@ -275,7 +275,7 @@ export function NavBar() {
                       </div>
                     </Link>
                   )}
-                </Menu.Item>
+                </Menu.Item> */}
 
                 <Menu.Item>
                   {({ active }) => (
@@ -537,7 +537,7 @@ export function NavBar() {
                   </div>
                 </Link>
 
-                <Link
+                {/* <Link
                   href={NAV_ITEMS.armorCalculator.href}
                   className="flex flex-row items-center justify-start"
                 >
@@ -552,7 +552,7 @@ export function NavBar() {
                       {NAV_ITEMS.armorCalculator.description}
                     </p>
                   </div>
-                </Link>
+                </Link> */}
 
                 <Link
                   href={NAV_ITEMS.ampVsRes.href}
