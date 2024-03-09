@@ -32,7 +32,7 @@ export function BuildSuggestionsDialog({
       <Dialog
         title="Build Suggestions"
         subtitle="Find the exact items you want to use for your build."
-        maxWidthClass="max-w-2xl"
+        maxWidthClass="max-w-4xl"
         open={open}
         onClose={onClose}
       >

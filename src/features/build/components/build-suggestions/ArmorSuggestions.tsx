@@ -89,7 +89,7 @@ export function ArmorSuggestions({
         </button>
       </div>
       {armorSuggestions.length === 0 && (
-        <div className="flex max-w-xs flex-col items-center justify-center">
+        <div className="flex flex-col items-center justify-center">
           <div className="text-md mt-4 text-center font-bold text-red-500">
             No armor suggestions found for the selected weight class.
           </div>
@@ -178,7 +178,7 @@ export function ArmorSuggestions({
 
 function ArmorInfoContainer({ children }: { children: React.ReactNode }) {
   return (
-    <div className="flex max-w-xs flex-col items-center justify-start sm:pr-4">
+    <div className="flex flex-col items-center justify-start sm:pr-4">
       <h2 className="mb-4 text-2xl font-semibold text-secondary-500">
         Armor Suggestions
       </h2>

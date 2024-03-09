@@ -737,7 +737,7 @@ export function ItemTagSuggestions({
         </button>
       </div>
       {itemSuggestions.length === 0 && (
-        <div className="flex max-w-xs flex-col items-center justify-center">
+        <div className="flex flex-col items-center justify-center">
           <div className="text-md mt-4 text-center font-bold text-red-500">
             No item suggestions found.
           </div>
@@ -794,7 +794,7 @@ export function ItemTagSuggestions({
 
 function ItemTagContainer({ children }: { children: React.ReactNode }) {
   return (
-    <div className="flex max-w-xs flex-col items-center justify-start sm:pl-4">
+    <div className="flex flex-col items-center justify-start sm:pl-4">
       <h2 className="mb-1 text-2xl font-semibold text-secondary-500">
         Item Suggestions
       </h2>
