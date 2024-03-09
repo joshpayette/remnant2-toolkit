@@ -1,20 +1,27 @@
 'use client'
 
+import { useState } from 'react'
+
 import { WeightClassWithDefault } from '@/features/armor-calculator/types'
 import { FiltersContainer } from '@/features/filters/components/parts/FiltersContainer'
 import { PageHeader } from '@/features/ui/PageHeader'
+import { SelectMenu } from '@/features/ui/SelectMenu'
 
 type Filters = {
   selectedWeightTier: WeightClassWithDefault
 }
 
-const defaultFilters: Filters = {
+const DEFAULT_FILTERS: Filters = {
   selectedWeightTier: 'CHOOSE',
 }
 
 export default function Page() {
-  const filters: Filters = defaultFilters
-  const areFiltersApplied = false
+  const filters: Filters = DEFAULT_FILTERS
+  const [unappliedFilters, setUnappliedFilters] =
+    useState<Filters>(DEFAULT_FILTERS)
+
+  const areFiltersApplied =
+    unappliedFilters.selectedWeightTier !== DEFAULT_FILTERS.selectedWeightTier
   const areAnyFiltersActive = false
 
   function handleClearFilters() {}
@@ -36,7 +43,24 @@ export default function Page() {
             onApplyFilters={handleApplyFilters}
             onClearFilters={handleClearFilters}
           >
-            Filters go here
+            <SelectMenu
+              label="Desired Weight Class"
+              name="desired_weight_class"
+              options={[
+                { label: 'Choose', value: 'CHOOSE' },
+                { label: 'Light', value: 'LIGHT' },
+                { label: 'Medium', value: 'MEDIUM' },
+                { label: 'Heavy', value: 'HEAVY' },
+                { label: 'Ultra', value: 'ULTRA' },
+              ]}
+              onChange={(e) =>
+                setUnappliedFilters({
+                  ...unappliedFilters,
+                  selectedWeightTier: e.target.value as WeightClassWithDefault,
+                })
+              }
+              value={unappliedFilters.selectedWeightTier}
+            />
           </FiltersContainer>
         </div>
       </div>

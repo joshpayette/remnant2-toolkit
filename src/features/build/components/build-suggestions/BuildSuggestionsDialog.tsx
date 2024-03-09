@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-import { ArmorSuggestions } from '@/features/build/components/dialogs/build-suggestions/ArmorSuggestions'
+import { ArmorSuggestions } from '@/features/build/components/build-suggestions/ArmorSuggestions'
 import { BuildState } from '@/features/build/types'
 import { ItemInfoDialog } from '@/features/items/components/ItemInfoDialog'
 import { Item } from '@/features/items/types'
