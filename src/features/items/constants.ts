@@ -416,5 +416,4 @@ export const ITEM_TAGS: ItemTag[] = [
   'Weakspot Damage',
   'Weakspot Hit',
   'Weapon Damage',
-  'Weight Reduction',
 ]
