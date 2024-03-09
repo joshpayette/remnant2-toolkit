@@ -6590,7 +6590,7 @@ For Heavy Weapons, doubles Heavy Weapon Ammo instead."`,
     imagePath: '/amulet/legacy_protocol.png',
     id: 'a7axvo',
     tags: ['Reduce Skill Cooldown', 'Skill Duration'],
-    description: `Lowers skill cooldown by 20% and increased skill duration by 25%`,
+    description: `Lowers skill cooldown by 20% and increases skill duration by 25%`,
     wikiLinks: [`https://remnant.wiki/Legacy_Protocol`],
   },
   {
