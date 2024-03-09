@@ -55,7 +55,10 @@ export const ActionButton = {
 
   EditBuild: ({ onClick }: ButtonProps) => (
     <button
-      className={cn(buttonClasses, primaryButtonClasses)}
+      className={cn(
+        buttonClasses,
+        'border-accent1-700 bg-accent1-500 text-black hover:bg-accent1-300',
+      )}
       aria-label="Edit build."
       onClick={onClick}
     >
