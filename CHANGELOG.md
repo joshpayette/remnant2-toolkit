@@ -8,11 +8,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ### Added
 
-- Added `Armor Increase` and `Weight Reduction` to item tags.
+- Added `Armor Increase` to item tags.
+
+### Changed
+
+- Armor calculator in the Build Suggestions dialog no longer requires you equip at least 1 item armor.
 
 ### Fixed
 
 - Fixed bug where info tooltip would display over top of item info on mobile devices.
+- Fixed `archtype` typo in Traits section of Builder.
 
 ## 2024-03-08
 

@@ -29,7 +29,7 @@ export function Traits({
   onRemoveTrait: (traitItem: TraitItem) => void
   onUpdateAmount: (traitItem: TraitItem) => void
 }) {
-  const { trait: traitItems, archetype: archtypeItems } = buildState.items
+  const { trait: traitItems, archetype: archetypeItems } = buildState.items
 
   const [editingTraitItem, setEditingTraitItem] = useState<TraitItem | null>(
     null,
@@ -43,9 +43,9 @@ export function Traits({
   function shouldAllowEdit(traitItem: TraitItem) {
     // if the trait being edited is the linked archtype with an amount of 10,
     // it should not be editable
-    const primaryArchtype = archtypeItems[0]
+    const primaryArchetype = archetypeItems[0]
     if (
-      primaryArchtype?.linkedItems?.traits?.some(
+      primaryArchetype?.linkedItems?.traits?.some(
         (linkedTraitItem) =>
           linkedTraitItem.name === traitItem.name &&
           linkedTraitItem.amount === 10,
@@ -54,9 +54,9 @@ export function Traits({
       return false
     }
 
-    const secondaryArchtype = archtypeItems[1]
+    const secondaryArchetype = archetypeItems[1]
     if (
-      secondaryArchtype?.linkedItems?.traits?.some(
+      secondaryArchetype?.linkedItems?.traits?.some(
         (linkedTraitItem) =>
           linkedTraitItem.name === traitItem.name &&
           linkedTraitItem.amount === 10,
@@ -82,7 +82,7 @@ export function Traits({
 
   function isArchtypeTrait(traitItem: TraitItem) {
     // If the trait is linked to an archtype, it should not be deletable
-    const primaryArchtype = archtypeItems[0]
+    const primaryArchtype = archetypeItems[0]
     if (
       primaryArchtype?.linkedItems?.traits?.some(
         (linkedTraitItem) => linkedTraitItem.name === traitItem.name,
@@ -93,7 +93,7 @@ export function Traits({
 
     // If the trait is linked to the secondary archtype, it should not be deletable
     // but only if it's the main archtype trait, i.e. amount is 10
-    const secondaryArchtype = archtypeItems[1]
+    const secondaryArchtype = archetypeItems[1]
     if (
       secondaryArchtype?.linkedItems?.traits?.some(
         (linkedTraitItem) =>
@@ -107,7 +107,7 @@ export function Traits({
 
   function isArchtypeCoreTrait(traitItem: TraitItem) {
     // If the trait is linked to an archtype, it should not be deletable
-    const primaryArchtype = archtypeItems[0]
+    const primaryArchtype = archetypeItems[0]
     if (
       primaryArchtype?.linkedItems?.traits?.some(
         (linkedTraitItem) =>
@@ -120,7 +120,7 @@ export function Traits({
 
     // If the trait is linked to the secondary archtype, it should not be deletable
     // but only if it's the main archtype trait, i.e. amount is 10
-    const secondaryArchtype = archtypeItems[1]
+    const secondaryArchtype = archetypeItems[1]
     if (
       secondaryArchtype?.linkedItems?.traits?.some(
         (linkedTraitItem) =>
@@ -141,7 +141,7 @@ export function Traits({
         )}
       >
         {!isScreenshotMode && (
-          <div className="border-secondary-800 col-span-full mx-auto mb-2 max-w-[300px] border p-2 text-center text-xs text-gray-300">
+          <div className="col-span-full mx-auto mb-2 max-w-[300px] border border-secondary-800 p-2 text-center text-xs text-gray-300">
             <span
               className={cn(
                 'text-lg font-bold',
@@ -152,7 +152,7 @@ export function Traits({
             </span>
             /<span className="font-bold">{MAX_TRAIT_AMOUNT}</span> Trait Points
             <p className="text-primary-500">
-              5 Core + 20 Archtype + 85 Player Choice
+              5 Core + 20 Archetype + 85 Player Choice
             </p>
           </div>
         )}
@@ -208,7 +208,7 @@ export function Traits({
                     setEditingTraitItem(null)
                   }}
                   autoFocus
-                  className="border-primary-500 w-12 border bg-transparent p-1 text-center"
+                  className="w-12 border border-primary-500 bg-transparent p-1 text-center"
                 />
               ) : (
                 <button
@@ -237,7 +237,7 @@ export function Traits({
                   interactive={false}
                   trigger="mouseenter"
                 >
-                  <InformationCircleIcon className="text-accent1-500 h-5 w-5 bg-black sm:h-5 sm:w-5" />
+                  <InformationCircleIcon className="h-5 w-5 bg-black text-accent1-500 sm:h-5 sm:w-5" />
                 </Tooltip>
               )}
             </button>
@@ -257,7 +257,7 @@ export function Traits({
         <button
           onClick={onAddTrait}
           aria-label="Add Trait"
-          className="border-secondary-700 hover:border-secondary-400 hover:bg-secondary-500 mx-auto mt-4 flex max-w-[250px] items-center justify-center rounded border px-4 py-2 text-xs font-bold text-white"
+          className="mx-auto mt-4 flex max-w-[250px] items-center justify-center rounded border border-secondary-700 px-4 py-2 text-xs font-bold text-white hover:border-secondary-400 hover:bg-secondary-500"
         >
           Add Trait
         </button>
