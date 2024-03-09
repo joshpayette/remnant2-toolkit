@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-03-09
+
+### Added
+
+- Added `Armor Increase` and `Weight Reduction` to item tags.
+
+### Fixed
+
+- Fixed bug where info tooltip would display over top of item info on mobile devices.
+
 ## 2024-03-08
 
 ### Added

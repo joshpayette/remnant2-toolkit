@@ -76,6 +76,7 @@ export function Builder({
 
   // Tracks the item that the user is viewing information for
   const [infoItem, setInfoItem] = useState<Item | null>(null)
+  const itemInfoOpen = Boolean(infoItem)
 
   /**
    * Returns a list of items that match the selected slot
@@ -320,7 +321,7 @@ export function Builder({
 
       <ItemInfoDialog
         item={infoItem}
-        open={Boolean(infoItem)}
+        open={itemInfoOpen}
         onClose={() => setInfoItem(null)}
       />
 
@@ -337,7 +338,7 @@ export function Builder({
           !buildState.isMember && 'border-primary-500',
           buildState.isMember &&
             !isScreenshotMode &&
-            'border-accent1-300 shadow-accent1-600 shadow-lg',
+            'border-accent1-300 shadow-lg shadow-accent1-600',
           buildState.isMember && isScreenshotMode && 'border-primary-500',
           isScreenshotMode && 'pb-[70px]',
         )}
@@ -345,7 +346,7 @@ export function Builder({
         <div
           id="build-header"
           className={cn(
-            'border-b-primary-900 relative mb-4 border-b',
+            'relative mb-4 border-b border-b-primary-900',
             (isPopular || isNew || buildState.isFeaturedBuild) && 'mb-10 pb-6',
           )}
         >
@@ -375,14 +376,14 @@ export function Builder({
               </span>
               <Link
                 href={`/profile/${buildState.createdById}`}
-                className="text-primary-500 ml-1 underline"
+                className="ml-1 text-primary-500 underline"
               >
                 {buildState.createdByDisplayName}
               </Link>
               <div className="ml-2 flex flex-row text-sm">
                 <StarIcon
                   className={cn(
-                    'text-accent1-500 mr-0.5 h-4 w-4',
+                    'mr-0.5 h-4 w-4 text-accent1-500',
                     isScreenshotMode ? 'mt-[1.5px]' : 'mt-0.5',
                   )}
                 />
@@ -458,22 +459,24 @@ export function Builder({
                 <Fragment key={`archetype-${archetypeIndex}`}>
                   <ItemButton
                     item={buildState.items.archetype[archetypeIndex]}
-                    isEditable={isEditable}
+                    manualWordBreaks={true}
                     onClick={() =>
                       handleItemSlotClick('archetype', archetypeIndex)
                     }
                     onItemInfoClick={handleShowInfo}
+                    isEditable={isEditable}
                     isScreenshotMode={isScreenshotMode}
-                    manualWordBreaks={true}
+                    tooltipDisabled={itemInfoOpen}
                     unoptimized={isScreenshotMode}
                   />
                   <ItemButton
                     item={buildState.items.skill[archetypeIndex]}
                     isEditable={isEditable}
-                    onClick={() => handleItemSlotClick('skill', archetypeIndex)}
-                    onItemInfoClick={handleShowInfo}
                     isScreenshotMode={isScreenshotMode}
                     manualWordBreaks={true}
+                    onClick={() => handleItemSlotClick('skill', archetypeIndex)}
+                    onItemInfoClick={handleShowInfo}
+                    tooltipDisabled={itemInfoOpen}
                     unoptimized={isScreenshotMode}
                   />
                 </Fragment>
@@ -496,6 +499,7 @@ export function Builder({
                   onItemInfoClick={handleShowInfo}
                   isScreenshotMode={isScreenshotMode}
                   manualWordBreaks={true}
+                  tooltipDisabled={itemInfoOpen}
                   unoptimized={isScreenshotMode}
                 />
                 <ItemButton
@@ -505,6 +509,7 @@ export function Builder({
                   onItemInfoClick={handleShowInfo}
                   isScreenshotMode={isScreenshotMode}
                   manualWordBreaks={true}
+                  tooltipDisabled={itemInfoOpen}
                   unoptimized={isScreenshotMode}
                 />
                 <ItemButton
@@ -514,6 +519,7 @@ export function Builder({
                   onItemInfoClick={handleShowInfo}
                   isScreenshotMode={isScreenshotMode}
                   manualWordBreaks={true}
+                  tooltipDisabled={itemInfoOpen}
                   unoptimized={isScreenshotMode}
                 />
                 <ItemButton
@@ -523,6 +529,7 @@ export function Builder({
                   onItemInfoClick={handleShowInfo}
                   isScreenshotMode={isScreenshotMode}
                   manualWordBreaks={true}
+                  tooltipDisabled={itemInfoOpen}
                   unoptimized={isScreenshotMode}
                 />
                 <div
@@ -536,6 +543,7 @@ export function Builder({
                     onItemInfoClick={handleShowInfo}
                     isScreenshotMode={isScreenshotMode}
                     manualWordBreaks={true}
+                    tooltipDisabled={itemInfoOpen}
                     unoptimized={isScreenshotMode}
                   />
                   <div
@@ -550,6 +558,7 @@ export function Builder({
                       onItemInfoClick={handleShowInfo}
                       isScreenshotMode={isScreenshotMode}
                       manualWordBreaks={true}
+                      tooltipDisabled={itemInfoOpen}
                       unoptimized={isScreenshotMode}
                     />
                     <ItemButton
@@ -560,6 +569,7 @@ export function Builder({
                       onItemInfoClick={handleShowInfo}
                       isScreenshotMode={isScreenshotMode}
                       manualWordBreaks={true}
+                      tooltipDisabled={itemInfoOpen}
                       unoptimized={isScreenshotMode}
                     />
                     <ItemButton
@@ -570,6 +580,7 @@ export function Builder({
                       onItemInfoClick={handleShowInfo}
                       isScreenshotMode={isScreenshotMode}
                       manualWordBreaks={true}
+                      tooltipDisabled={itemInfoOpen}
                       unoptimized={isScreenshotMode}
                     />
                   </div>
@@ -595,6 +606,7 @@ export function Builder({
                   onItemInfoClick={handleShowInfo}
                   isScreenshotMode={isScreenshotMode}
                   manualWordBreaks={true}
+                  tooltipDisabled={itemInfoOpen}
                   unoptimized={isScreenshotMode}
                 />
                 {getArrayOfLength(4).map((ringIndex) => (
@@ -606,6 +618,7 @@ export function Builder({
                     onItemInfoClick={handleShowInfo}
                     isScreenshotMode={isScreenshotMode}
                     manualWordBreaks={true}
+                    tooltipDisabled={itemInfoOpen}
                     unoptimized={isScreenshotMode}
                   />
                 ))}
@@ -636,6 +649,7 @@ export function Builder({
                     onItemInfoClick={handleShowInfo}
                     isScreenshotMode={isScreenshotMode}
                     manualWordBreaks={true}
+                    tooltipDisabled={itemInfoOpen}
                     unoptimized={isScreenshotMode}
                   />
                   <div className="flex w-full grow items-start justify-around gap-4">
@@ -652,6 +666,7 @@ export function Builder({
                         onItemInfoClick={handleShowInfo}
                         isScreenshotMode={isScreenshotMode}
                         manualWordBreaks={true}
+                        tooltipDisabled={itemInfoOpen}
                         unoptimized={isScreenshotMode}
                       />
                     ) : (
@@ -667,6 +682,7 @@ export function Builder({
                       onItemInfoClick={handleShowInfo}
                       isScreenshotMode={isScreenshotMode}
                       manualWordBreaks={true}
+                      tooltipDisabled={itemInfoOpen}
                       unoptimized={isScreenshotMode}
                     />
                   </div>
@@ -706,6 +722,7 @@ export function Builder({
                     onItemInfoClick={handleShowInfo}
                     isScreenshotMode={isScreenshotMode}
                     manualWordBreaks={true}
+                    tooltipDisabled={itemInfoOpen}
                     unoptimized={isScreenshotMode}
                   />
                   {getArrayOfLength(concoctionSlotCount).map((index) => {
@@ -722,6 +739,7 @@ export function Builder({
                         onItemInfoClick={handleShowInfo}
                         isScreenshotMode={isScreenshotMode}
                         manualWordBreaks={true}
+                        tooltipDisabled={itemInfoOpen}
                         unoptimized={isScreenshotMode}
                       />
                     )
@@ -749,6 +767,7 @@ export function Builder({
                       onItemInfoClick={handleShowInfo}
                       isScreenshotMode={isScreenshotMode}
                       manualWordBreaks={true}
+                      tooltipDisabled={itemInfoOpen}
                       unoptimized={isScreenshotMode}
                     />
                   ))}

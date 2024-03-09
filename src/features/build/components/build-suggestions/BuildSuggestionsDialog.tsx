@@ -47,11 +47,13 @@ export function BuildSuggestionsDialog({
             buildState={buildState}
             onApplySuggestions={onApplySuggestions}
             onOpenItemInfo={setItemInfo}
+            isItemInfoOpen={isShowItemInfoOpen}
           />
           <ItemTagSuggestions
             buildState={buildState}
             onApplySuggestions={onApplySuggestions}
             onOpenItemInfo={setItemInfo}
+            isItemInfoOpen={isShowItemInfoOpen}
           />
         </div>
       </Dialog>
