@@ -3,8 +3,12 @@
 import { Metadata } from 'next'
 
 import { getServerSession } from '@/features/auth/lib'
+import { isErrorResponse } from '@/features/error-handling/isErrorResponse'
 import { ProfileHeader } from '@/features/profile/components/ProfileHeader'
 import { Tabs } from '@/features/profile/components/Tabs'
+import { PageHeader } from '@/features/ui/PageHeader'
+
+import { getProfile } from '../actions'
 
 export async function generateMetadata(): Promise<Metadata> {
   const title = `Loadout Builds - Remnant 2 Toolkit`
@@ -44,10 +48,36 @@ export default async function Layout({
 
   if (!session || !session.user) {
     return (
-      <div className="mt-24 flex items-center justify-center">
-        <p className="text-center text-2xl">
-          You must be logged in to view this page.
-        </p>
+      <div className="flex max-w-lg flex-col">
+        <PageHeader
+          title="Sign-In Required"
+          subtitle="You must be logged in to view this page."
+        />
+      </div>
+    )
+  }
+
+  let profileData = await getProfile(session.user.id)
+
+  if (!profileData) {
+    return (
+      <div className="flex max-w-lg flex-col">
+        <PageHeader
+          title="Something went wrong!"
+          subtitle="The user profile cannot be found. If this is a new user, please try reloading the page."
+        />
+      </div>
+    )
+  }
+
+  if (isErrorResponse(profileData)) {
+    console.error(profileData.errors)
+    return (
+      <div className="flex max-w-lg flex-col">
+        <PageHeader
+          title="Something went wrong!"
+          subtitle="The user profile cannot be found."
+        />
       </div>
     )
   }

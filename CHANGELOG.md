@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Fixed
 
 - Fixed bug where Relic Fragment was not showing a completion percentage on the Item Tracker.
+- Fixed bug where user profile pages would throw an error the first time after the user account was created.
 
 ## 2024-03-09
 

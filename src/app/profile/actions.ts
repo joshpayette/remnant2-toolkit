@@ -1,5 +1,6 @@
 'use server'
 
+import { User, UserProfile } from '@prisma/client'
 import { revalidatePath } from 'next/cache'
 import { z } from 'zod'
 
@@ -11,6 +12,39 @@ import {
   DEFAULT_DISPLAY_NAME,
   MAX_PROFILE_BIO_LENGTH,
 } from '@/features/profile/constants'
+
+export async function getProfile(userId: string): Promise<
+  | ErrorResponse
+  | {
+      message: string
+      user: User
+      profile: UserProfile | null
+    }
+> {
+  const user = await prisma.user.findUnique({
+    where: {
+      id: userId,
+    },
+  })
+
+  if (!user) {
+    return {
+      errors: [`User with id ${userId} not found`],
+    }
+  }
+
+  let profile = await prisma.userProfile.findFirst({
+    where: {
+      userId,
+    },
+  })
+
+  return {
+    message: 'User found',
+    user,
+    profile,
+  }
+}
 
 export async function updateUserDisplayName(
   data: string,
@@ -151,29 +185,11 @@ export async function getUserBio(
       where: { userId },
     })
 
-    if (!profileResponse) {
-      console.info(
-        'No profile found for user, creating one from private profile.',
-      )
-      // create a profile for the user if one doesn't exist
-      const newProfile = await prisma.userProfile.create({
-        data: {
-          bio: 'No bio is set yet',
-          userId,
-        },
-      })
-      return {
-        bio: newProfile.bio !== '' ? newProfile.bio : 'No bio is set yet',
-        displayName:
-          userResponse?.displayName ??
-          userResponse?.name ??
-          DEFAULT_DISPLAY_NAME,
-      }
-    }
-
     return {
       bio:
-        profileResponse.bio !== '' ? profileResponse.bio : 'No bio is set yet',
+        profileResponse?.bio !== ''
+          ? profileResponse?.bio
+          : 'No bio is set yet',
       displayName:
         userResponse?.displayName ?? userResponse?.name ?? DEFAULT_DISPLAY_NAME,
     }

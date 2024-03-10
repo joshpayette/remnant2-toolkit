@@ -4,13 +4,14 @@ import { isErrorResponse } from '@/features/error-handling/isErrorResponse'
 import { ProfileHeader } from '@/features/profile/components/ProfileHeader'
 import { PageHeader } from '@/features/ui/PageHeader'
 
-import { getProfile } from './actions'
+import { getProfile } from '../actions'
 
 export async function generateMetadata(
   { params: { userId } }: { params: { userId: string } },
   parent: ResolvingMetadata,
 ): Promise<Metadata> {
   const profileData = await getProfile(userId)
+
   if (isErrorResponse(profileData)) {
     console.error(profileData.errors)
     return {
@@ -44,7 +45,7 @@ export async function generateMetadata(
   // const previousTwitterImages = (await parent).twitter?.images || []
   const title = `${user.displayName ?? user.name} Profile - Remnant2Toolkit`
   const description =
-    profile.bio ??
+    profile?.bio ??
     `View ${user.displayName ?? user.name}'s profile on Remnant 2 Toolkit.`
 
   return {
@@ -76,7 +77,19 @@ export default async function Layout({
   params: { userId: string }
   children: React.ReactNode
 }) {
-  const profileData = await getProfile(userId)
+  let profileData = await getProfile(userId)
+
+  if (!profileData) {
+    return (
+      <div className="flex max-w-lg flex-col">
+        <PageHeader
+          title="Something went wrong!"
+          subtitle="The user profile cannot be found. If this is a new user, please try reloading the page."
+        />
+      </div>
+    )
+  }
+
   if (isErrorResponse(profileData)) {
     console.error(profileData.errors)
     return (

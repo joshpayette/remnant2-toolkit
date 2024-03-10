@@ -30,23 +30,9 @@ export const authOptions: NextAuthOptions = {
             data: { image: profile.image_url },
           })
           .catch((e) => {
-            console.info(`${e.message} - ${user.id}`)
+            console.error(`${e.message} - ${user.id}`)
             return true
           })
-      }
-
-      // Create user profile if it doesn't exist
-      const userProfile = await prisma.userProfile.findUnique({
-        where: { userId: user.id },
-      })
-      if (!userProfile) {
-        console.info('No profile found for user, creating one from auth.')
-        await prisma.userProfile.create({
-          data: {
-            userId: user.id,
-            bio: 'No bio yet.',
-          },
-        })
       }
 
       return true
