@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-03-10
+
+### Fixed
+
+- Fixed bug where Relic Fragment was not showing a completion percentage on the Item Tracker.
+
 ## 2024-03-09
 
 ### Added

@@ -226,17 +226,17 @@ export function Filters({
   return (
     <div
       className={cn(
-        'border-secondary-500 shadow-secondary-500/50 relative h-full max-h-fit w-full transform overflow-y-auto border-2 bg-black px-4 pb-4 pt-4 text-left shadow-lg sm:my-8 sm:p-6',
+        'relative h-full max-h-fit w-full transform overflow-y-auto border-2 border-secondary-500 bg-black px-4 pb-4 pt-4 text-left shadow-lg shadow-secondary-500/50 sm:my-8 sm:p-6',
         !showBorder && 'border-transparent',
         showBorder &&
           areAnyFiltersActive() &&
-          'border-accent1-300 shadow-accent1-600 shadow-xl',
+          'border-accent1-300 shadow-xl shadow-accent1-600',
       )}
     >
       <div className="grid-cols-full grid gap-x-8 gap-y-4  bg-black sm:grid-cols-4">
-        <div className="border-b-primary-800 col-span-full border border-transparent pb-8 pt-2 sm:col-span-2">
+        <div className="col-span-full border border-transparent border-b-primary-800 pb-8 pt-2 sm:col-span-2">
           <div className="flex w-full flex-col items-start justify-start gap-x-4">
-            <span className="text-primary-500 mb-2 flex items-center justify-start text-left text-sm font-bold">
+            <span className="mb-2 flex items-center justify-start text-left text-sm font-bold text-primary-500">
               Search
             </span>
             <div className="w-full">
@@ -249,7 +249,7 @@ export function Filters({
           </div>
         </div>
 
-        <div className="border-b-primary-800 col-span-full border border-transparent pb-8 pt-2 sm:col-span-2">
+        <div className="col-span-full border border-transparent border-b-primary-800 pb-8 pt-2 sm:col-span-2">
           <div className="flex w-full flex-col items-start justify-start gap-x-4">
             <div className="w-full">
               <SelectMenu
@@ -257,7 +257,13 @@ export function Filters({
                 value={selectedItemCategory as string}
                 options={itemCategoryOptions.map((option) =>
                   option.value === 'relicfragment'
-                    ? { label: 'Relic Fragment', value: 'relicfragment' }
+                    ? {
+                        label: option.label.replace(
+                          'Relicfragment',
+                          'Relic Fragment',
+                        ),
+                        value: option.value,
+                      }
                     : option,
                 )}
                 onChange={(e) =>
@@ -272,7 +278,7 @@ export function Filters({
 
         <div className="col-span-full pt-2 sm:col-span-2">
           <div className="flex w-full flex-col items-start justify-start gap-x-4 gap-y-2">
-            <span className="text-primary-500 flex items-start justify-start text-left text-sm font-bold">
+            <span className="flex items-start justify-start text-left text-sm font-bold text-primary-500">
               By Release
             </span>
             <div className="text-xs">
@@ -318,7 +324,7 @@ export function Filters({
 
         <div className="col-span-full pt-2 sm:col-span-2">
           <div className="flex w-full flex-col items-start justify-start gap-x-4 gap-y-2">
-            <span className="text-primary-500 flex items-start justify-start text-left text-sm font-bold">
+            <span className="flex items-start justify-start text-left text-sm font-bold text-primary-500">
               By Collection
             </span>
             <div className="text-xs">
