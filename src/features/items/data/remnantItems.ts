@@ -5073,8 +5073,7 @@ export const remnantItems: Item[] = [
     name: 'Explosive Shot',
     imagePath: '/mod/explosive_shot.png',
     id: 'hpfdzp',
-    // TODO IN-GAME check for explosive damage
-    description: `Fires an explosive round [E] that deals up to 240 damage within 9m. [A] `,
+    description: `Fires an explosive round [E] that deals up to 465 FIRE damage within 9m and applies BURNING, dealing 300 FIRE damage over 5s. [A] `,
     wikiLinks: [`https://remnant.wiki/Explosive_Shot`],
     linkedItems: {
       weapon: {

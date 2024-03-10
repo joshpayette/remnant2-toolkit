@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2024-03-10
 
+### Changed
+
+- Updated description of the Hellfire pistol to reflect (unstated?) changes in the latest patch, namely fire damage with a burning DoT.
+
 ### Fixed
 
 - Fixed bug where Relic Fragment was not showing a completion percentage on the Item Tracker.
