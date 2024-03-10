@@ -1,4 +1,4 @@
-import { parseEnv } from '../env/parseEnv'
+import { parseEnv } from '../../env/parseEnv'
 import { DiscordWebhookParams } from './types'
 
 export async function sendBuildUpdateNotification({
