@@ -1,5 +1,7 @@
 import {
+  ArchiveBoxIcon,
   ArrowLeftOnRectangleIcon,
+  CalculatorIcon,
   CircleStackIcon,
   DocumentCheckIcon,
   DocumentPlusIcon,
@@ -25,6 +27,13 @@ export const NAV_ITEMS = {
       'A guide on what items are affected by Amplitude and Resonance.',
     href: '/guides/amplitude-vs-resonance',
     icon: TableCellsIcon,
+  },
+  armorCalculator: {
+    label: 'Armor Calculator',
+    description:
+      'Calculate the maximum armor you can get for a particular weight tier.',
+    href: '/armor-calculator',
+    icon: CalculatorIcon,
   },
   bossTracker: {
     label: 'Boss Tracker',
@@ -91,6 +100,12 @@ export const NAV_ITEMS = {
       'Keep track of the items you have collected and the ones you still need.',
     href: '/tracker',
     icon: DocumentCheckIcon,
+  },
+  loadouts: {
+    label: 'Loadouts',
+    description: 'Create and manage your loadouts.',
+    href: '/profile/loadout-builds',
+    icon: ArchiveBoxIcon,
   },
   myBuilds: {
     label: 'My Builds',

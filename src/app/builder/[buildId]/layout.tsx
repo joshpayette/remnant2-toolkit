@@ -1,12 +1,12 @@
 import { Metadata, ResolvingMetadata } from 'next'
 
+import { getBuild } from '@/features/build/actions/getBuild'
 import { dbBuildToBuildState } from '@/features/build/lib/dbBuildToBuildState'
 import { getArchetypeBuildName } from '@/features/build/lib/getArchetypeBuildName'
 import { isErrorResponse } from '@/features/error-handling/isErrorResponse'
 import { Archetype } from '@/features/items/types'
 import { PageHeader } from '@/features/ui/PageHeader'
 
-import { getBuild } from '../actions'
 import BuildPage from './page'
 
 export async function generateMetadata(

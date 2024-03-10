@@ -1,26 +1,43 @@
-import { useEffect } from 'react'
+'use client'
 
-import { BuildCard } from '@/features/build/components/BuildCard'
+import { useSearchParams } from 'next/navigation'
+import { useEffect, useState } from 'react'
+
+import { BuildCard } from '@/features/build/components/build-card/BuildCard'
 import { ItemList } from '@/features/build/components/ItemList'
 import { useBuildListState } from '@/features/build/hooks/useBuildListState'
 import { BuildListSecondaryFilters } from '@/features/filters/components/BuildListSecondaryFilters'
 import { useBuildListSecondaryFilters } from '@/features/filters/hooks/useBuildListSecondaryFilters'
-import { BuildListFilterFields } from '@/features/filters/types'
+import { parseBuildListFilters } from '@/features/filters/lib/parseBuildListFilters'
 import { usePagination } from '@/features/pagination/usePagination'
 import { CopyBuildUrlButton } from '@/features/profile/components/CopyBuildUrlButton'
 import { DuplicateBuildButton } from '@/features/profile/components/DuplicateBuildButton'
+import { Skeleton } from '@/features/ui/Skeleton'
 
 import { getFavoritedBuilds } from '../../../app/profile/favorited-builds/actions'
-import { AddToLoadoutButton } from './AddToLoadoutButton'
+import { AddToLoadoutButton } from '../loadouts/AddToLoadoutButton'
+import { LoadoutDialog } from '../loadouts/LoadoutDialog'
 
 interface Props {
   itemsPerPage?: number
-  buildListFilters: BuildListFilterFields
 }
 
-export function FavoritedBuilds({ itemsPerPage = 8, buildListFilters }: Props) {
+export function FavoritedBuilds({ itemsPerPage = 8 }: Props) {
+  const searchParams = useSearchParams()
+  const [buildListFilters, setBuildListFilters] = useState(
+    parseBuildListFilters(searchParams),
+  )
+  useEffect(() => {
+    setBuildListFilters(parseBuildListFilters(searchParams))
+  }, [searchParams])
+
   const { buildListState, setBuildListState } = useBuildListState()
   const { builds, totalBuildCount, isLoading } = buildListState
+
+  const [buildToAddToLoadout, setBuildToAddToLoadout] = useState<string | null>(
+    null,
+  )
+  const isLoadoutDialogOpen = Boolean(buildToAddToLoadout)
 
   const {
     orderBy,
@@ -76,8 +93,18 @@ export function FavoritedBuilds({ itemsPerPage = 8, buildListFilters }: Props) {
     setBuildListState,
   ])
 
+  if (!buildListFilters) {
+    return <Skeleton className="min-h-[1100px] w-full" />
+  }
+
   return (
     <>
+      <LoadoutDialog
+        key={buildToAddToLoadout}
+        buildId={buildToAddToLoadout}
+        open={isLoadoutDialogOpen}
+        onClose={() => setBuildToAddToLoadout(null)}
+      />
       <ItemList
         label="Builds you've favorited"
         currentPage={currentPage}
@@ -103,7 +130,7 @@ export function FavoritedBuilds({ itemsPerPage = 8, buildListFilters }: Props) {
       >
         <ul
           role="list"
-          className="my-4 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4"
+          className="my-4 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-2 lg:grid-cols-4"
         >
           {builds.map((build) => (
             <div key={build.id} className="h-full w-full">
@@ -112,10 +139,12 @@ export function FavoritedBuilds({ itemsPerPage = 8, buildListFilters }: Props) {
                 isLoading={isLoading}
                 onReportBuild={undefined}
                 footerActions={
-                  <div className="flex items-center justify-between gap-2 p-2 text-sm">
+                  <div className="flex items-center justify-center gap-6 p-2 text-sm">
                     <CopyBuildUrlButton buildId={build.id} />
-                    <AddToLoadoutButton buildId={build.id} />
                     <DuplicateBuildButton build={build} />
+                    <AddToLoadoutButton
+                      onClick={() => setBuildToAddToLoadout(build.id)}
+                    />
                   </div>
                 }
               />

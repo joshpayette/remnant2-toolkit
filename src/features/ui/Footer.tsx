@@ -4,11 +4,11 @@ import { cn } from '@/lib/classnames'
 
 import { NAV_ITEMS } from '../navigation/constants'
 
-const aClass = 'text-gray-300 hover:text-green-400 underline'
+const aClass = 'text-gray-300 hover:text-primary-400 underline'
 
 export function Footer() {
   return (
-    <footer className="mt-8 flex w-full items-center justify-center border-t border-purple-900 bg-black p-4 text-left text-sm text-gray-400">
+    <footer className="border-secondary-900 mt-8 flex w-full items-center justify-center border-t bg-black p-4 text-left text-sm text-gray-400">
       <div className="max-w-2xl gap-2">
         <div className="flex w-full flex-row items-center justify-center gap-4 p-2">
           <a
@@ -75,7 +75,6 @@ export function Footer() {
           </a>{' '}
           for the latest updates.
         </p>
-        <hr className="border-gray-900 pb-4" />
 
         <p className="pb-4">
           Got an issue or feature request? Want to be involved in giving
@@ -97,21 +96,9 @@ export function Footer() {
           <a href="https://remnant.wiki" target="_blank" className={cn(aClass)}>
             community maintained Remnant 2 Wiki
           </a>
-          , the{' '}
-          <a
-            href="https://remnant2.wiki.fextralife.com/Remnant+2+Wiki"
-            target="_blank"
-            className={cn(aClass)}
-          >
-            Fextralife Remnant 2 Wiki
-          </a>
           , as well as the{' '}
-          <a
-            href="https://docs.google.com/spreadsheets/d/1I7vkh50KWJZSxNy4FqxvniFWBstJQEMtpwtxQ3ByoPw/edit?pli=1"
-            target="_blank"
-            className={cn(aClass)}
-          >
-            amazingly detailed stat calculator
+          <a href="https://cowaii.io/" target="_blank" className={cn(aClass)}>
+            amazingly detailed loadout calculator
           </a>{' '}
           by{' '}
           <a
@@ -133,7 +120,7 @@ export function Footer() {
           </a>
           , this project would not be possible without your help.
         </p>
-        <hr className="border-gray-900 pb-4" />
+
         <p>
           {`This project was inspired by Robin Kuiper's `}
           <a

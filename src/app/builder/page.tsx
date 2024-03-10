@@ -3,11 +3,11 @@
 import { useSession } from 'next-auth/react'
 import { useRef, useState } from 'react'
 
-import { ActionButton } from '@/features/build/components/ActionButton'
-import { BuilderPage } from '@/features/build/components/BuilderPage'
-import { DetailedBuildDialog } from '@/features/build/components/DetailedBuildDialog'
-import { ImageDownloadInfo } from '@/features/build/components/ImageDownloadInfo'
-import { SaveBuildButton } from '@/features/build/components/SaveBuildButton'
+import { BuilderPage } from '@/features/build/components/builder/BuilderPage'
+import { ActionButton } from '@/features/build/components/buttons/ActionButton'
+import { SaveBuildButton } from '@/features/build/components/buttons/SaveBuildButton'
+import { DetailedBuildDialog } from '@/features/build/components/dialogs/DetailedBuildDialog'
+import { ImageDownloadInfo } from '@/features/build/components/dialogs/ImageDownloadInfo'
 import { useBuildActions } from '@/features/build/hooks/useBuildActions'
 import { useUrlBuildState } from '@/features/build/hooks/useUrlBuildState'
 import { ToCsvButton } from '@/features/csv/ToCsvButton'
@@ -74,7 +74,6 @@ export default function Page() {
       <BuilderPage
         buildContainerRef={buildContainerRef}
         buildState={urlBuildState}
-        includeMemberFeatures={false}
         isEditable={true}
         isScreenshotMode={isScreenshotMode}
         showControls={showControls}
@@ -119,14 +118,16 @@ export default function Page() {
                 />
               )}
 
+              <hr className="my-2 w-full border-t-2 border-gray-500/50" />
+
+              <ActionButton.ShowDetailedView
+                onClick={() => setDetailedBuildDialogOpen(true)}
+              />
+
               <ToCsvButton
                 data={csvItems}
                 filename={`remnant2_builder_${urlBuildState.name}`}
                 label="Export to CSV"
-              />
-
-              <ActionButton.ShowDetailedView
-                onClick={() => setDetailedBuildDialogOpen(true)}
               />
             </div>
           </>

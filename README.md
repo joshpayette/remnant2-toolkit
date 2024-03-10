@@ -12,16 +12,25 @@ You can also join the [Discord server](https://discord.gg/kgVaU3zAQ7) to discuss
 
 ## Featured Builds
 
-Want to see your build listed on the featured builds? Submit an issue with a link to the video covering your build and I'll take a look. If it looks of good quality, I'll add it!
+Want to see your build listed on the featured builds? [Join the Discord](https://discord.gg/kgVaU3zAQ7) and let us know. Alternatively, you can file an issue on this repo requesting it and we'll take a look.
+
+### How Featured Builds Are Selected
+
+This is not an exhaustive or literal list that we follow, but some of the things we consider are:
+
+- **Originality**: Is the build unique? Does it have a unique playstyle or combination of items?
+- **Effectiveness**: Is the build effective on Apocalypse difficulty?
+- **Detailed Description**: Does the build have a detailed description of how to play it and why it's effective, to help players who want to try it?
+- **Video Guide or Gameplay**: Does the build have a video guide or gameplay footage to help players understand how it works?
 
 ## Credits
 
 This project would not be possible without the following sources:
 
-- [Fextralife Remnant Wiki](https://remnant2.wiki.fextralife.com/Remnant+2+Wiki)
+- [Remnant 2 Community Wiki](https://remnant.wiki)
+- [All of the contributors from the community](CONTRIBUTORS.md)
 - [Vash Cowaii's Excel Stat Calculator](https://docs.google.com/spreadsheets/d/1I7vkh50KWJZSxNy4FqxvniFWBstJQEMtpwtxQ3ByoPw/edit?pli=1). Support him on [YouTube](https://www.youtube.com/@VashCowaii)
 - [Robin Kuiper's Remnant Tools](https://remnant.rkuiper.nl/)
-- [All of the contributors from the community](CONTRIBUTORS.md)
 
 ## License
 
@@ -48,6 +57,10 @@ cp .env.sample .env
 - `DISCORD_CLIENT_SECRET` - The client secret for your Discord application
 - `IMAGEKIT_CLIENT_ID` - The client ID for your ImageKit application.
 - `IMAGEKIT_CLIENT_SECRET` - The client secret for your ImageKit application.
+- `KV_REST_API_READ_ONLY_TOKEN` - The read-only token for your Vercel KV REST API.
+- `KV_REST_API_TOKEN` - The token for your Vercel KV REST API.
+- `KV_REST_API_URL` - The URL for your Vercel KV REST API.
+- `KV_URL` - The URL for your Vercel KV store.
 - `NEXTAUTH_SECRET` - A secret string used by NextAuth. Can be anything, just make it long and random.
 - `NEXTAUTH_URL` - The base URL of your site. This is used by NextAuth to redirect back to your site after authentication. Example: http://localhost:3000 for development.
 - `NEXT_PUBLIC_IMAGE_URL` - The base URL for images. This is used to build the full URL for images in the CDN.

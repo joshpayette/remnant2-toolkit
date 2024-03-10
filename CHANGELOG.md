@@ -4,12 +4,127 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-03-10
+
+### Changed
+
+- Updated description of the Hellfire pistol to reflect (unstated?) changes in the latest patch, namely fire damage with a burning DoT.
+
+### Fixed
+
+- Fixed bug where Relic Fragment was not showing a completion percentage on the Item Tracker.
+- Fixed bug where user profile pages would throw an error the first time after the user account was created.
+
+## 2024-03-09
+
+### Added
+
+- Added `Armor Increase` to item tags.
+
+### Changed
+
+- Armor calculator in the Build Suggestions dialog no longer requires you equip at least 1 item armor.
+
+### Fixed
+
+- Fixed bug where info tooltip would display over top of item info on mobile devices.
+- Fixed `archtype` typo in Traits section of Builder.
+
+## 2024-03-08
+
+### Added
+
+- Hovering over the item info icon in the Builder will now show the item's description. Full click will get you more info, but a summary is now available on hover for convenience.
+
+### Changed
+
+- Updated Amplitude vs Resonance guide.
+- Updated some item tokens and descriptions.
+- Added a new and more consistent New Build badge icon.
+- Updated button colors and styles to match the original look
+
+### Fixed
+
+- Removed black background from behind information buttons in builder.
+- Patreon membership builds now use the yellow frame and glow again.
+- Fixed a transparency issue with the Provisioner Ring. This may take a bit to propagate due to caching.
+- Fixed UI bug causing horizontal scroll bar on Build weapons.
+- Fixed typo in the Knight Guard wiki link.
+
+## 2024-03-07
+
+### Added
+
+- Featured builds now have a featured build badge on their build cards
+
+### Changed
+
+- Overhauled the colors used throughout the site. There wasn't a ton of thought to the original colors, just what felt okay. I feel a lot better about the new direction!
+- Added language to the CODE_OF_CONDUCT.md for "Gore or violence beyond the scope of the game".
+
+### Fixed
+
+- Fixed issue where build reference link could overflow the container
+- Several items were classified as being part of the DLC, but were not. They were actually part of the update and available to non-DLC owners.
+
+## 2024-03-06
+
+### Added
+
+- Added a `Build Reference Link` to the builder. This will allow users to post a link to a video or other reference material for the build. This link is non-clickable for moderation purposes.
+
+### Changed
+
+- The "Builds By Collection" feature has been removed from site. The page link is still active with a message explaining the change.
+
+## 2024-03-05
+
+### Added
+
+- Loadout cards now have option to change loadout slot for a build.
+- Loadout Dialog now has the option to reorder or remove builds. This functionality is no longer limited just to the profile page.
+- Added new `[BUG]` token to be used in the future for items that may not be working as intended.
+- Added CREATE A BUILD card to the list of builds on the MY BUILDS page.
+
+### Changed
+
+- Amplitude vs. Resonance guide updated to reflect changes from the recent patch.
+- When clicking through pages on build lists, scroll to top no longer occurs
+- Changed trait point coloring to also apply to text, not just the bottom border.
+- Added border around trait points when editable to make it more clear it's a button.
+
+### Fixed
+
+- Fixed bug preventing Reddit users from creating accounts.
+- Detailed build view now shows perks
+
+## 2024-03-04
+
+### Added
+
+- Final aberrations added by ConRaven. That should be it...for now?
+
+## 2024-03-03
+
+### Added
+
+- More aberrations added by ConRaven. Only one to go?!
+
+### Changed
+
+- Applied a patch affected banner to builds containing Twisted Arbalest + Bore.
+- Share Build button will now append a unique token to the URL to prevent caching issues when the social media preview on Discord and other sites.
+- Added more info to the README.md regarding how to request a build be featured, as well as some of the considerations that affect whether a build gets featured.
+- Changed the build description layout to occupy the full width along the bottom of the build, and will no longer scroll if it exceeds a certain height. Additionally, the text size was increased to make the long text more readable.
+- Updated the Vash Cowaii spreadsheet links to point to the new web based loadout calculator. Congrats, Vash!
+
 ## 2024-03-02
 
 ### Added
 
 - ConRaven the God and BrotherFromHood have added even more aberration images.
 - Delete Build button now available when viewing a build or editing a build.
+- Added improved Loadout integration and assignment. Store up to 8 of your favorite builds in your personal loadouts!
 
 ### Changed
 
@@ -18,6 +133,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Links to user's created builds and favorited builds now includes filter to show patch affected builds by default.
 - Added last updated date to builds.
 - Armor suggestions now show the weight class color on the weight value.
+
+### Fixed
+
+- Fixed weird behavior for Save Image button where it would take longer to load than other buttons.
 
 ## 2024-03-01
 

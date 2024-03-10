@@ -19,7 +19,7 @@ export function ItemCategoryFilters({
   return (
     <div className="col-span-full pt-2">
       <div className="flex w-full flex-col items-start justify-start gap-x-4 gap-y-2">
-        <div className="flex w-full items-center justify-start text-left text-sm font-bold text-green-500">
+        <div className="text-primary-500 flex w-full items-center justify-start text-left text-sm font-bold">
           By Category
         </div>
         <div className="text-xs">
@@ -44,7 +44,7 @@ export function ItemCategoryFilters({
           <div className="grid grid-cols-2 gap-x-8 text-left sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
             {defaultItemCategories.map((category) => {
               let label = capitalize(category as string)
-              if (category === 'relicfragment') {
+              if (category.toLowerCase() === 'relicfragment') {
                 label = 'Relic Fragment'
               }
               return (

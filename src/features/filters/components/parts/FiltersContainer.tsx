@@ -22,12 +22,12 @@ export function FiltersContainer<T>({
   return (
     <div
       className={cn(
-        'relative h-full max-h-fit w-full transform overflow-y-auto border-2 border-purple-500 bg-black px-4 pb-4 pt-4 text-left shadow-lg shadow-purple-500/50 sm:my-8 sm:p-6',
+        'border-secondary-500 shadow-secondary-500/50 relative h-full max-h-fit w-full transform overflow-y-auto border-2 bg-black px-4 pb-4 pt-4 text-left shadow-lg sm:my-8 sm:p-6',
         areAnyFiltersActive &&
-          'border-yellow-500 shadow-xl shadow-yellow-500/50',
+          'border-accent1-300 shadow-accent1-600 shadow-xl',
       )}
     >
-      <div className="grid-cols-full grid gap-x-8 gap-y-4 divide-y divide-green-800 bg-black sm:grid-cols-4">
+      <div className="grid-cols-full divide-primary-800 grid gap-x-8 gap-y-4 divide-y bg-black sm:grid-cols-4">
         {children}
         <div className="col-span-full flex items-center justify-end pt-2">
           {areAnyFiltersActive && (

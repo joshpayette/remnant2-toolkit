@@ -1,9 +1,13 @@
+'use client'
+
+import { EyeIcon } from '@heroicons/react/24/solid'
 import Link from 'next/link'
-import { useEffect } from 'react'
+import { useSearchParams } from 'next/navigation'
+import { useEffect, useRef, useState } from 'react'
 import { toast } from 'react-toastify'
 
 import { getCommunityBuilds } from '@/features/build/actions/getCommunityBuilds'
-import { BuildCard } from '@/features/build/components/BuildCard'
+import { BuildCard } from '@/features/build/components/build-card/BuildCard'
 import { ItemList } from '@/features/build/components/ItemList'
 import { useBuildActions } from '@/features/build/hooks/useBuildActions'
 import { useBuildListState } from '@/features/build/hooks/useBuildListState'
@@ -11,18 +15,24 @@ import { dbBuildToBuildState } from '@/features/build/lib/dbBuildToBuildState'
 import { isErrorResponse } from '@/features/error-handling/isErrorResponse'
 import { BuildListSecondaryFilters } from '@/features/filters/components/BuildListSecondaryFilters'
 import { useBuildListSecondaryFilters } from '@/features/filters/hooks/useBuildListSecondaryFilters'
-import { BuildListFilterFields } from '@/features/filters/types'
+import { parseBuildListFilters } from '@/features/filters/lib/parseBuildListFilters'
 import { usePagination } from '@/features/pagination/usePagination'
+import { Skeleton } from '@/features/ui/Skeleton'
+import { Tooltip } from '@/features/ui/Tooltip'
 
 interface Props {
   itemsPerPage?: number
-  buildListFilters: BuildListFilterFields
 }
 
-export function CommunityBuildList({
-  itemsPerPage = 8,
-  buildListFilters,
-}: Props) {
+export function CommunityBuildList({ itemsPerPage = 8 }: Props) {
+  const searchParams = useSearchParams()
+  const [buildListFilters, setBuildListFilters] = useState(
+    parseBuildListFilters(searchParams),
+  )
+  useEffect(() => {
+    setBuildListFilters(parseBuildListFilters(searchParams))
+  }, [searchParams])
+
   const { buildListState, setBuildListState } = useBuildListState()
   const { builds, totalBuildCount, isLoading } = buildListState
 
@@ -107,6 +117,10 @@ export function CommunityBuildList({
     }
   }
 
+  if (!buildListFilters) {
+    return <Skeleton className="min-h-[1100px] w-full" />
+  }
+
   return (
     <>
       <ItemList
@@ -134,7 +148,7 @@ export function CommunityBuildList({
       >
         <ul
           role="list"
-          className="my-4 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4"
+          className="my-4 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-2 lg:grid-cols-4"
         >
           {builds.map((build) => (
             <BuildCard
@@ -144,12 +158,14 @@ export function CommunityBuildList({
               onReportBuild={onReportBuild}
               footerActions={
                 <div className="flex items-center justify-end gap-2 p-2 text-sm">
-                  <Link
-                    href={`/builder/${build.id}`}
-                    className="relative inline-flex items-center justify-center gap-x-3 rounded-br-lg border border-transparent p-4 text-sm font-semibold text-green-500 hover:text-green-700 hover:underline"
-                  >
-                    View Build
-                  </Link>
+                  <Tooltip content="View Build">
+                    <Link
+                      href={`/builder/${build.id}`}
+                      className="flex flex-col items-center gap-x-3 gap-y-1 rounded-br-lg border border-transparent p-4 text-xs font-semibold text-primary-500 hover:text-primary-300 hover:underline"
+                    >
+                      <EyeIcon className="h-4 w-4" /> View
+                    </Link>
+                  </Tooltip>
                 </div>
               }
             />

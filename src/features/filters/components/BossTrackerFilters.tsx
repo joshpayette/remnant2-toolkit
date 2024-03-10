@@ -154,7 +154,7 @@ export function BossTrackerFilters({ onUpdateFilters }: Props) {
       <div className="col-span-full flex w-full flex-col items-start justify-start gap-x-4 gap-y-2">
         <div className="grid w-full grid-cols-1 gap-y-4 sm:grid-cols-3 sm:gap-x-4 sm:gap-y-0">
           <div className="col-span-full flex w-full flex-col items-start justify-end">
-            <div className="mb-2 text-left text-sm font-bold text-green-500">
+            <div className="text-primary-500 mb-2 text-left text-sm font-bold">
               Search
             </div>
             <SearchInput

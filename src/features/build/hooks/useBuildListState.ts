@@ -24,6 +24,7 @@ const DEFAULT_STATE: State = {
     isMember: false,
     thumbnailUrl: '',
     videoUrl: '',
+    buildLink: '',
     createdById: '',
     createdByName: '',
     createdByDisplayName: '',

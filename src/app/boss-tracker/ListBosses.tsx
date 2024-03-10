@@ -2,12 +2,13 @@
 
 import { Disclosure } from '@headlessui/react'
 import { ChevronDownIcon } from '@heroicons/react/24/solid'
-import { useIsClient } from 'usehooks-ts'
+import { useIsClient, useLocalStorage } from 'usehooks-ts'
 
 import { BossCategory, Enemy } from '@/features/enemies/types'
 import { ItemButton } from '@/features/items/components/ItemButton'
-import { useLocalStorage } from '@/features/localstorage/useLocalStorage'
 import { cn } from '@/lib/classnames'
+
+import { LocalStorage } from './types'
 
 interface BossTrackerCategory {
   category: BossCategory
@@ -39,8 +40,15 @@ interface ListBossesProps {
 }
 
 export function ListBosses({ bosses, onClick }: ListBossesProps) {
-  const { collapsedBossCategories, setCollapsedBossCategories } =
-    useLocalStorage()
+  const [tracker, setTracker] = useLocalStorage<LocalStorage>(
+    'boss-tracker',
+    {
+      discoveredBossIds: [],
+      collapsedBossCategories: [],
+    },
+    { initializeWithValue: false },
+  )
+  const { collapsedBossCategories } = tracker
 
   const isClient = useIsClient()
 
@@ -49,8 +57,9 @@ export function ListBosses({ bosses, onClick }: ListBossesProps) {
       ? collapsedBossCategories.filter((type) => type !== bossCategory)
       : [...collapsedBossCategories, bossCategory]
 
-    setCollapsedBossCategories({
-      categories: newCollapsedBossTypes,
+    setTracker({
+      ...tracker,
+      collapsedBossCategories: newCollapsedBossTypes,
     })
   }
 
@@ -80,7 +89,7 @@ export function ListBosses({ bosses, onClick }: ListBossesProps) {
             <>
               <Disclosure.Button
                 onClick={() => handleCategoryToggle(bossCategory.category)}
-                className="flex w-full justify-start border-b border-purple-700 p-4 text-left hover:border-green-400 hover:bg-black focus:outline-none focus-visible:ring focus-visible:ring-green-500/75"
+                className="flex w-full justify-start border-b border-secondary-700 p-4 text-left hover:border-primary-400 hover:bg-black focus:outline-none focus-visible:ring focus-visible:ring-primary-500/75"
               >
                 <div className="w-full">
                   <h2 className="text-lg font-semibold">

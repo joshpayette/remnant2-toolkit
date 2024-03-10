@@ -1,7 +1,7 @@
 'use client'
 
 import isEqual from 'lodash/isEqual'
-import { usePathname, useRouter } from 'next/navigation'
+import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import { useMemo, useState } from 'react'
 
 import { ArchetypeFilters } from '@/features/filters/components/parts/ArchetypeFilters'
@@ -13,6 +13,7 @@ import {
 import { Archetype, ReleaseKey } from '@/features/items/types'
 import { Checkbox } from '@/features/ui/Checkbox'
 
+import { parseBuildListFilters } from '../lib/parseBuildListFilters'
 import { BuildListFilterFields } from '../types'
 import { DEFAULT_JEWELRY_FILTERS, JewelryFilters } from './parts/JewelryFilters'
 import { DEFAULT_RELEASE_FILTERS, ReleaseFilters } from './parts/ReleaseFilters'
@@ -30,13 +31,12 @@ export const DEFAULT_BUILD_LIST_FILTERS: BuildListFilterFields = {
   includePatchAffectedBuilds: false,
 }
 
-interface Props {
-  filters: BuildListFilterFields
-}
-
-export function BuildListFilters({ filters }: Props) {
+export function BuildListFilters() {
   const router = useRouter()
   const pathname = usePathname()
+  const searchParams = useSearchParams()
+
+  const filters = parseBuildListFilters(searchParams)
 
   // Tracks the filter changes by the user that are not yet applied
   // via clicking the Apply Filters button
@@ -62,7 +62,9 @@ export function BuildListFilters({ filters }: Props) {
       filters.ring !== DEFAULT_BUILD_LIST_FILTERS['ring'] ||
       filters.amulet !== DEFAULT_BUILD_LIST_FILTERS['amulet'] ||
       filters.searchText !== DEFAULT_BUILD_LIST_FILTERS['searchText'] ||
-      filters.selectedReleases.length < 2
+      filters.selectedReleases.length < 2 ||
+      filters.includePatchAffectedBuilds !==
+        DEFAULT_BUILD_LIST_FILTERS['includePatchAffectedBuilds']
     )
   }, [filters])
 
@@ -227,9 +229,9 @@ export function BuildListFilters({ filters }: Props) {
 
       <div className="col-span-full pt-2">
         <div className="flex w-full flex-col items-start justify-start gap-x-4 gap-y-2">
-          <div className="flex w-full flex-col items-start justify-start text-left text-sm font-bold text-green-500">
+          <div className="text-primary-500 flex w-full flex-col items-start justify-start text-left text-sm font-bold">
             By Patch
-            <span className="text-sm font-normal text-gray-500">
+            <span className="text-sm font-normal text-gray-300">
               Whether to show builds that depend on an item or interaction that
               was affected by a patch after the build was created
             </span>

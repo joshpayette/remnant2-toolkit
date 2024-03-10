@@ -7,6 +7,7 @@ export function Tooltip({
   interactive = true,
   content,
   children,
+  trigger,
   ...rest
 }: TippyProps) {
   return (
@@ -16,7 +17,8 @@ export function Tooltip({
       content={content}
       {...rest}
       theme="r2tk"
-      className="text-left"
+      trigger={trigger}
+      className="w-full max-w-[300px] text-left"
     >
       {children}
     </Tippy>

@@ -29,49 +29,6 @@ import {
 import { PaginationResponse } from '@/features/pagination/usePagination'
 import { bigIntFix } from '@/lib/bigIntFix'
 
-export async function getProfile(userId: string): Promise<
-  | ErrorResponse
-  | {
-      message: string
-      user: User
-      profile: UserProfile
-    }
-> {
-  const user = await prisma.user.findUnique({
-    where: {
-      id: userId,
-    },
-  })
-
-  if (!user) {
-    return {
-      errors: [`User with id ${userId} not found`],
-    }
-  }
-
-  let profile = await prisma.userProfile.findUnique({
-    where: {
-      userId,
-    },
-  })
-
-  if (!profile) {
-    // create a new profile
-    profile = await prisma.userProfile.create({
-      data: {
-        userId,
-        bio: '',
-      },
-    })
-  }
-
-  return {
-    message: 'User found',
-    user,
-    profile,
-  }
-}
-
 export type BuildsFilter = 'date created' | 'upvotes'
 
 export async function getUserProfilePage({
@@ -146,7 +103,7 @@ export async function getUserProfilePage({
   const trimmedSearchText = searchText
 
   // First, get the Builds
-  const [builds, totalBuildsCountResponse] = await Promise.all([
+  const [builds, totalBuildsCountResponse] = await prisma.$transaction([
     communityBuildsQuery({
       userId,
       itemsPerPage,

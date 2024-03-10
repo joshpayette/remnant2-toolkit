@@ -133,11 +133,17 @@ export const DESCRIPTION_TAGS = [
       'Deals physical damage per second. Reduces healing effectiveness by 50%.',
   },
   {
+    type: 'Bug',
+    token: '[BUG]',
+    color: 'text-[#ecff00]',
+    description:
+      'This item is currently bugged and MAY not function as expected.',
+  },
+  {
     type: 'Burning',
     token: 'BURNING',
     color: 'text-[#b65d30]',
-    description:
-      'Deals elemental FIRE damage per second. Can make enemies panic.', // Have no good source on the secondary effect.
+    description: 'Can make enemies panic.', // Have no good source on the secondary effect.
   },
   {
     type: 'Bulwark',
@@ -163,8 +169,13 @@ export const DESCRIPTION_TAGS = [
     type: 'Corroded',
     token: 'CORRODED',
     color: 'text-[#0fa82b]',
-    description:
-      'Deals elemental ACID damage per second. Increases damage taken by 10%.',
+    description: 'Increases damage taken by 10%.',
+  },
+  {
+    type: 'Corrosive',
+    token: 'CORROSIVE',
+    color: 'text-[#589961]',
+    description: 'Elemental Damage',
   },
   {
     type: 'Critical Damage',
@@ -208,7 +219,7 @@ export const DESCRIPTION_TAGS = [
     type: 'Explosive Damage',
     token: '[E]',
     color: 'text-[#ff7575]',
-    description: 'Counts as explosive damage.',
+    description: 'Counts as Explosive Damage.',
   },
   {
     type: 'Fire',
@@ -257,7 +268,7 @@ export const DESCRIPTION_TAGS = [
     type: 'Madness',
     token: 'MADNESS',
     color: 'text-[#ede6e6]',
-    description: 'Physical Damage',
+    description: 'Pysical Damage',
   },
   {
     type: 'Marked',
@@ -343,8 +354,9 @@ export const DESCRIPTION_TAGS = [
 }[]
 
 export const ITEM_TAGS: ItemTag[] = [
-  'Ammo Reserves', // Only plular one due to wording in game
+  'Ammo Reserves', // Only plural one due to wording in game
   'All Damage',
+  'Armor Increase',
   'Charged Melee Damage',
   'Charged Melee',
   'Charged Shot',

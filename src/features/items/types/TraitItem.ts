@@ -97,7 +97,6 @@ export class TraitItem extends BaseItem implements BaseTraitItem {
             amount: validAmount,
             description: item.description ?? '',
             maxLevelBonus: item.maxLevelBonus ?? '',
-            howToGet: item.howToGet ?? '',
             wikiLinks: item.wikiLinks ?? [],
             linkedItems: item.linkedItems ?? {},
             saveFileSlug: item.saveFileSlug ?? '',

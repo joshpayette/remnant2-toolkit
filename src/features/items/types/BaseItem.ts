@@ -29,7 +29,6 @@ export interface BaseItemProps {
   saveFileSlug?: string
   description?: string
   cooldown?: number
-  howToGet?: string
   wikiLinks?: string[]
   linkedItems?: LinkedItems
   health?: number
@@ -63,7 +62,6 @@ export abstract class BaseItem implements BaseItemProps {
   public description?: BaseItemProps['description'] = ''
   public cooldown?: BaseItemProps['cooldown'] = -1
   public imagePath: BaseItemProps['imagePath'] = ''
-  public howToGet?: BaseItemProps['howToGet'] = ''
   public wikiLinks?: BaseItemProps['wikiLinks'] = []
   public linkedItems?: BaseItemProps['linkedItems'] = {}
   public saveFileSlug?: BaseItemProps['saveFileSlug'] = ''
@@ -96,7 +94,6 @@ export abstract class BaseItem implements BaseItemProps {
     this.description = props.description
     this.cooldown = props.cooldown
     this.imagePath = props.imagePath
-    this.howToGet = props.howToGet
     this.wikiLinks = props.wikiLinks
     this.linkedItems = props.linkedItems
     this.saveFileSlug = props.saveFileSlug

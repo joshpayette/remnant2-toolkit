@@ -37,7 +37,7 @@ export function MasonryItemList({ items, label }: Props) {
       />
       <div className="flex w-full flex-col items-center justify-center overflow-auto p-4">
         {label && (
-          <h2 className="my-4 text-4xl font-bold text-green-500">{label}</h2>
+          <h2 className="text-primary-500 my-4 text-4xl font-bold">{label}</h2>
         )}
 
         <Masonry

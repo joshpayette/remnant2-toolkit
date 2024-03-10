@@ -126,12 +126,15 @@ export function usePagination({ itemsPerPage = 5, totalItemCount }: Props) {
     const previousPage = currentPage - 1 > 0 ? currentPage - 1 : 1
     router.push(
       `${pathname}?${createQueryString('page', String(previousPage))}`,
+      { scroll: false },
     )
   }
 
   function handleNextPageClick() {
     const nextPage = currentPage + 1 > totalPages ? totalPages : currentPage + 1
-    router.push(`${pathname}?${createQueryString('page', String(nextPage))}`)
+    router.push(`${pathname}?${createQueryString('page', String(nextPage))}`, {
+      scroll: false,
+    })
   }
 
   function handleSpecificPageClick(newPageNumber: number) {
@@ -143,6 +146,7 @@ export function usePagination({ itemsPerPage = 5, totalItemCount }: Props) {
 
     router.push(
       `${pathname}?${createQueryString('page', String(newPageNumber))}`,
+      { scroll: false },
     )
   }
 

@@ -1,12 +1,16 @@
-import { useEffect } from 'react'
+'use client'
+
+import { useSearchParams } from 'next/navigation'
+import { useEffect, useState } from 'react'
 
 import { getCreatedBuilds } from '@/app/profile/created-builds/actions'
-import { BuildCard } from '@/features/build/components/BuildCard'
+import { BuildCard } from '@/features/build/components/build-card/BuildCard'
+import { CreateBuildCard } from '@/features/build/components/build-card/CreateBuildCard'
 import { ItemList } from '@/features/build/components/ItemList'
 import { useBuildListState } from '@/features/build/hooks/useBuildListState'
 import { BuildListSecondaryFilters } from '@/features/filters/components/BuildListSecondaryFilters'
 import { useBuildListSecondaryFilters } from '@/features/filters/hooks/useBuildListSecondaryFilters'
-import { BuildListFilterFields } from '@/features/filters/types'
+import { parseBuildListFilters } from '@/features/filters/lib/parseBuildListFilters'
 import { usePagination } from '@/features/pagination/usePagination'
 import { CopyBuildUrlButton } from '@/features/profile/components/CopyBuildUrlButton'
 import { DeleteBuildButton } from '@/features/profile/components/DeleteBuildButton'
@@ -15,10 +19,17 @@ import { EditBuildButton } from '@/features/profile/components/EditBuildButton'
 
 interface Props {
   itemsPerPage?: number
-  buildListFilters: BuildListFilterFields
 }
 
-export function CreatedBuilds({ itemsPerPage = 8, buildListFilters }: Props) {
+export function CreatedBuilds({ itemsPerPage = 8 }: Props) {
+  const searchParams = useSearchParams()
+  const [buildListFilters, setBuildListFilters] = useState(
+    parseBuildListFilters(searchParams),
+  )
+  useEffect(() => {
+    setBuildListFilters(parseBuildListFilters(searchParams))
+  }, [searchParams])
+
   const { buildListState, setBuildListState } = useBuildListState()
   const { builds, totalBuildCount, isLoading } = buildListState
 
@@ -106,8 +117,10 @@ export function CreatedBuilds({ itemsPerPage = 8, buildListFilters }: Props) {
       >
         <ul
           role="list"
-          className="my-4 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4"
+          className="my-4 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-2 lg:grid-cols-4"
         >
+          <CreateBuildCard />
+
           {builds.map((build) => (
             <div key={build.id} className="h-full w-full">
               <BuildCard
@@ -116,7 +129,7 @@ export function CreatedBuilds({ itemsPerPage = 8, buildListFilters }: Props) {
                 onReportBuild={undefined}
                 memberFrameEnabled={false}
                 footerActions={
-                  <div className="flex items-center justify-between gap-2 p-2 text-sm">
+                  <div className="flex items-center justify-center gap-6 p-2 text-sm">
                     <CopyBuildUrlButton buildId={build.id} />
                     <EditBuildButton buildId={build.id} />
                     <DuplicateBuildButton build={build} />

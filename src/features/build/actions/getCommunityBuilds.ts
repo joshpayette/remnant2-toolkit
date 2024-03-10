@@ -91,7 +91,7 @@ export async function getCommunityBuilds({
   const orderBySegment = getOrderBySegment(orderBy)
 
   // First, get the Builds
-  const [builds, totalBuildsCountResponse] = await Promise.all([
+  const [builds, totalBuildsCountResponse] = await prisma.$transaction([
     communityBuildsQuery({
       userId,
       itemsPerPage,

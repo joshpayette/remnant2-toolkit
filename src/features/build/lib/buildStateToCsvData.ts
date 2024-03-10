@@ -17,7 +17,6 @@ export function buildStateToCsvData(buildState: BuildState) {
         name: '',
         category,
         description: '',
-        howToGet: '',
         wikiLinks: '',
       }
 
@@ -48,7 +47,6 @@ export function buildStateToCsvData(buildState: BuildState) {
             name: '',
             category,
             description: '',
-            howToGet: '',
             wikiLinks: '',
           }
         }

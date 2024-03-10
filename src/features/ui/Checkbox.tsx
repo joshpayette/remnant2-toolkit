@@ -14,13 +14,13 @@ export function Checkbox({ checked, label, name, onChange }: Props) {
           aria-describedby={`${name}-description`}
           name={`${name}`}
           type="checkbox"
-          className="h-4 w-4 rounded border-purple-600 bg-black text-purple-600 focus:ring-purple-600"
+          className="border-secondary-600 text-secondary-600 focus:ring-secondary-600 h-4 w-4 rounded bg-black"
           checked={checked}
           onChange={onChange}
         />
       </div>
       <div className="ml-3 text-sm leading-6">
-        <label htmlFor={`${name}`} className="font-medium text-gray-400">
+        <label htmlFor={`${name}`} className="font-medium text-gray-300">
           {label}
         </label>
       </div>

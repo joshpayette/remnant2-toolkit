@@ -4,12 +4,6 @@ import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { toast } from 'react-toastify'
 
-import {
-  addReportForBuild,
-  createBuild,
-  deleteBuild,
-  removeReportForBuild,
-} from '@/app/builder/actions'
 import { BuildState, ItemCategory } from '@/features/build/types'
 import { isErrorResponse } from '@/features/error-handling/isErrorResponse'
 import { remnantItems } from '@/features/items/data/remnantItems'
@@ -28,7 +22,13 @@ import { SkillItem } from '@/features/items/types/SkillItem'
 import { TraitItem } from '@/features/items/types/TraitItem'
 import { WeaponItem } from '@/features/items/types/WeaponItem'
 
-import { initialBuildState } from '../lib'
+import { addReportForBuild } from '../actions/addReportForBuild'
+import { addVoteForBuild } from '../actions/addVoteForBuild'
+import { createBuild } from '../actions/createBuild'
+import { deleteBuild } from '../actions/deleteBuild'
+import { removeReportForBuild } from '../actions/removeReportForBuild'
+import { removeVoteForBuild } from '../actions/removeVoteForBuild'
+import { INITIAL_BUILD_STATE } from '../constants'
 import { getArrayOfLength } from '../lib/getArrayOfLength'
 import { getConcoctionSlotCount } from '../lib/getConcoctionSlotCount'
 import { getItemListForSlot } from '../lib/getItemListForSlot'
@@ -77,7 +77,7 @@ export function useBuildActions() {
     }
     const defaultMessage =
       'Build url copied to clipboard. Sign in next time for a shorter URL!'
-    copy(url)
+    copy(`${url}?t=${Date.now()}`)
     toast.success(!message ? defaultMessage : message)
   }
 
@@ -110,6 +110,38 @@ export function useBuildActions() {
     } else {
       toast.success(response.message)
       router.push(`/builder/${response.buildId}`)
+    }
+  }
+
+  async function handleFavoriteBuild(
+    buildState: BuildState,
+    userId: string | undefined,
+  ) {
+    if (!userId) return
+
+    if (buildState.createdById === userId) {
+      toast.error('You cannot vote/unvote for your own build.')
+      return
+    }
+
+    const newVote = !buildState.upvoted
+
+    const response = newVote
+      ? await addVoteForBuild(JSON.stringify({ buildId: buildState.buildId }))
+      : await removeVoteForBuild(
+          JSON.stringify({ buildId: buildState.buildId }),
+        )
+
+    if (isErrorResponse(response)) {
+      console.error(response.errors)
+      toast.error('Error voting for build. Please try again later.')
+    } else {
+      toast.success(
+        newVote
+          ? 'Successfully favorited build! You can find it in your profile.'
+          : 'Successfully removed favorite!',
+      )
+      router.refresh()
     }
   }
 
@@ -160,13 +192,14 @@ export function useBuildActions() {
       })
       setIsScreenshotMode(null)
     }
+    if (!isScreenshotMode) return
     setImageExportLoading(true)
     setTimeout(exportImage, 1000)
   }, [isScreenshotMode, router])
 
   function handleRandomBuild(): BuildState {
     const randomBuild: BuildState = JSON.parse(
-      JSON.stringify(initialBuildState),
+      JSON.stringify(INITIAL_BUILD_STATE),
     )
 
     // Randomize the name
@@ -389,6 +422,7 @@ export function useBuildActions() {
     handleCopyBuildUrl,
     handleDeleteBuild,
     handleDuplicateBuild,
+    handleFavoriteBuild,
     handleRandomBuild,
     handleImageExport,
     handleReportBuild,

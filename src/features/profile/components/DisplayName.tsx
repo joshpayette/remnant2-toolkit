@@ -44,7 +44,7 @@ export function DisplayName({ editable, name }: Props) {
         <input
           type="text"
           autoFocus
-          className="w-full border border-green-500 bg-transparent p-1 text-left text-green-400"
+          className="border-primary-500 text-primary-400 w-full border bg-transparent p-1 text-left"
           value={newDisplayName}
           onChange={(e) => setNewDisplayName(e.target.value)}
           onBlur={handleSaveDisplayName}
@@ -54,14 +54,14 @@ export function DisplayName({ editable, name }: Props) {
         />
       ) : (
         <>
-          <h2 className="text-4xl font-semibold text-green-500">{name}</h2>
+          <h2 className="text-primary-500 text-4xl font-semibold">{name}</h2>
           {editable && (
             <button
               onClick={() => setIsEditing(true)}
               aria-label="Edit display name"
             >
               <PencilIcon
-                className="h-4 w-4 text-green-500 hover:text-green-300"
+                className="text-primary-500 hover:text-primary-300 h-4 w-4"
                 aria-hidden="true"
               />
             </button>

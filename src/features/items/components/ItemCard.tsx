@@ -50,12 +50,12 @@ export function ItemCard({ data: item, onMoreInfoClick }: Props) {
   }
 
   return (
-    <div className="col-span-1 flex flex-col divide-y divide-green-800 rounded-lg border border-green-500 bg-black text-center shadow">
+    <div className="divide-primary-800 border-primary-500 col-span-1 flex flex-col divide-y rounded-lg border bg-black text-center shadow">
       <div className="flex flex-1 flex-col p-4">
         <button
           onClick={() => onMoreInfoClick(item)}
           aria-label="More Info"
-          className="text-md font-bold text-purple-500 hover:text-purple-300 hover:underline"
+          className="text-md text-secondary-500 hover:text-secondary-300 font-bold hover:underline"
         >
           <Image
             className={cn(
@@ -113,13 +113,13 @@ export function ItemCard({ data: item, onMoreInfoClick }: Props) {
         )}
         {PerkItem.isPerkItem(item) && item.linkedItems?.archetype && (
           <div className="mt-4">
-            <div className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 border-t-green-500 py-1 text-left text-sm text-gray-300">
+            <div className="border-b-primary-500 border-t-primary-500 grid w-full grid-cols-2 gap-2 border border-transparent py-1 text-left text-sm text-gray-300">
               <p className="flex items-center justify-start text-xs">
                 Archetype
               </p>
               <a
                 href={`/item-lookup?searchText=${item.linkedItems.archetype.name}`}
-                className="flex items-center justify-end text-right text-xs font-bold text-purple-500 underline"
+                className="text-secondary-500 flex items-center justify-end text-right text-xs font-bold underline"
               >
                 {item.linkedItems.archetype.name}
               </a>
@@ -128,13 +128,13 @@ export function ItemCard({ data: item, onMoreInfoClick }: Props) {
         )}
         {SkillItem.isSkillItem(item) && item.linkedItems?.archetype && (
           <div className="mt-4">
-            <div className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 border-t-green-500 py-1 text-left text-sm text-gray-300">
+            <div className="border-b-primary-500 border-t-primary-500 grid w-full grid-cols-2 gap-2 border border-transparent py-1 text-left text-sm text-gray-300">
               <p className="flex items-center justify-start text-xs">
                 Archetype
               </p>
               <a
                 href={`/item-lookup?searchText=${item.linkedItems.archetype.name}`}
-                className="flex items-center justify-end text-right text-xs font-bold text-purple-500 underline"
+                className="text-secondary-500 flex items-center justify-end text-right text-xs font-bold underline"
               >
                 {item.linkedItems.archetype.name}
               </a>
@@ -143,13 +143,13 @@ export function ItemCard({ data: item, onMoreInfoClick }: Props) {
         )}
         {TraitItem.isTraitItem(item) && item.linkedItems?.archetype && (
           <div className="mt-4">
-            <div className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 border-t-green-500 py-1 text-left text-sm text-gray-300">
+            <div className="border-b-primary-500 border-t-primary-500 grid w-full grid-cols-2 gap-2 border border-transparent py-1 text-left text-sm text-gray-300">
               <p className="flex items-center justify-start text-xs">
                 Archetype
               </p>
               <a
                 href={`/item-lookup?searchText=${item.linkedItems.archetype.name}`}
-                className="flex items-center justify-end text-right text-xs font-bold text-purple-500 underline"
+                className="text-secondary-500 flex items-center justify-end text-right text-xs font-bold underline"
               >
                 {item.linkedItems.archetype.name}
               </a>
@@ -158,11 +158,11 @@ export function ItemCard({ data: item, onMoreInfoClick }: Props) {
         )}
         {ModItem.isModItem(item) && item.linkedItems?.weapon && (
           <div className="mt-4">
-            <div className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 border-t-green-500 py-1 text-left text-sm text-gray-300">
+            <div className="border-b-primary-500 border-t-primary-500 grid w-full grid-cols-2 gap-2 border border-transparent py-1 text-left text-sm text-gray-300">
               <p className="flex items-center justify-start text-xs">Weapon</p>
               <a
                 href={`/item-lookup?searchText=${item.linkedItems.weapon.name}`}
-                className="flex items-center justify-end text-right text-xs font-bold text-purple-500 underline"
+                className="text-secondary-500 flex items-center justify-end text-right text-xs font-bold underline"
               >
                 {item.linkedItems.weapon.name}
               </a>
@@ -175,14 +175,14 @@ export function ItemCard({ data: item, onMoreInfoClick }: Props) {
             <div className={cn(index === 0 && 'mt-4')} key={perk.name}>
               <div
                 className={cn(
-                  'grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 py-1 text-left text-sm text-gray-300',
-                  index === 0 && 'border-t-green-500',
+                  'border-b-primary-500 grid w-full grid-cols-2 gap-2 border border-transparent py-1 text-left text-sm text-gray-300',
+                  index === 0 && 'border-t-primary-500',
                 )}
               >
                 <p className="flex items-center justify-start text-xs">Perk</p>
                 <a
                   href={`/item-lookup?searchText=${perk.name}`}
-                  className="flex items-center justify-end text-right text-xs font-bold text-purple-500 underline"
+                  className="text-secondary-500 flex items-center justify-end text-right text-xs font-bold underline"
                 >
                   {perk.name}
                 </a>
@@ -195,13 +195,13 @@ export function ItemCard({ data: item, onMoreInfoClick }: Props) {
             <div key={skill.name}>
               <div
                 className={cn(
-                  'grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 py-1 text-left text-sm text-gray-300',
+                  'border-b-primary-500 grid w-full grid-cols-2 gap-2 border border-transparent py-1 text-left text-sm text-gray-300',
                 )}
               >
                 <p className="flex items-center justify-start text-xs">Skill</p>
                 <a
                   href={`/item-lookup?searchText=${skill.name}`}
-                  className="flex items-center justify-end text-right text-xs font-bold text-purple-500 underline"
+                  className="text-secondary-500 flex items-center justify-end text-right text-xs font-bold underline"
                 >
                   {skill.name}
                 </a>
@@ -214,13 +214,13 @@ export function ItemCard({ data: item, onMoreInfoClick }: Props) {
             <div key={trait.name}>
               <div
                 className={cn(
-                  'grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 py-1 text-left text-sm text-gray-300',
+                  'border-b-primary-500 grid w-full grid-cols-2 gap-2 border border-transparent py-1 text-left text-sm text-gray-300',
                 )}
               >
                 <p className="flex items-center justify-start text-xs">Trait</p>
                 <a
                   href={`/item-lookup?searchText=${trait.name}`}
-                  className="flex items-center justify-end text-right text-xs font-bold text-purple-500 underline"
+                  className="text-secondary-500 flex items-center justify-end text-right text-xs font-bold underline"
                 >
                   {trait.name}
                 </a>
@@ -229,7 +229,7 @@ export function ItemCard({ data: item, onMoreInfoClick }: Props) {
           ))}
       </div>
       <div>
-        <div className="-mt-px flex divide-x divide-green-800">
+        <div className="divide-primary-800 -mt-px flex divide-x">
           <button
             className="relative inline-flex w-0 flex-1 items-center justify-center gap-x-1 rounded-br-lg border border-transparent py-4 text-xs font-semibold text-gray-200"
             aria-label="Share Item Link"
@@ -242,7 +242,10 @@ export function ItemCard({ data: item, onMoreInfoClick }: Props) {
               toast.success('Copied link to clipboard')
             }}
           >
-            <ShareIcon className="h-4 w-4 text-green-400" aria-hidden="true" />
+            <ShareIcon
+              className="text-primary-400 h-4 w-4"
+              aria-hidden="true"
+            />
             Share
           </button>
 
@@ -254,7 +257,7 @@ export function ItemCard({ data: item, onMoreInfoClick }: Props) {
                 className="relative inline-flex w-0 flex-1 items-center justify-center gap-x-1 rounded-br-lg border border-transparent py-4 text-xs font-semibold text-gray-200"
               >
                 <InformationCircleIcon
-                  className="h-4 w-4 text-green-400"
+                  className="text-primary-400 h-4 w-4"
                   aria-hidden="true"
                 />
                 More Info

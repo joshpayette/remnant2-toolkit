@@ -73,6 +73,7 @@ export type LinkedItems = Partial<{
 export type ItemTag =
   | 'All Damage'
   | 'Ammo Reserves'
+  | 'Armor Increase'
   | 'Charged Melee Damage'
   | 'Charged Melee'
   | 'Charged Shot'

@@ -13,22 +13,23 @@ generator client {
 // ---------------------------------------------------------------------------------------------
 
 model Account {
-  id                String  @id @default(cuid())
+  id                String   @id @default(cuid())
   userId            String
   type              String
   provider          String
   providerAccountId String
-  refresh_token     String? @db.Text
-  access_token      String? @db.Text
+  refresh_token     String?  @db.Text
+  access_token      String?  @db.Text
   expires_at        Int?
   token_type        String?
   scope             String?
-  id_token          String? @db.Text
+  id_token          String?  @db.Text
   session_state     String?
+  createdAt         DateTime @default(now())
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
-  @@unique([provider, providerAccountId])
+  @@unique([provider, providerAccountId], name: "provider_providerAccountId")
   @@index([userId])
 }
 
@@ -37,6 +38,7 @@ model Session {
   sessionToken String   @unique
   userId       String
   expires      DateTime
+  createdAt    DateTime @default(now())
   user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@index([userId])
@@ -49,6 +51,8 @@ model User {
   email         String?           @unique
   emailVerified DateTime?
   image         String?
+  role          String?           @default("user")
+  createdAt     DateTime          @default(now())
   accounts      Account[]
   sessions      Session[]
   Build         Build[]
@@ -95,6 +99,7 @@ enum ITEM_CATEGORY {
 enum ITEM_DLC {
   base
   dlc1
+  dlc2
 }
 
 model Item {
@@ -144,22 +149,23 @@ model Build {
   description     String?           @db.Text
   videoUrl        String?
   thumbnailUrl    String?
-  helm            String?
-  torso           String?
-  legs            String?
-  gloves          String?
-  relic           String?
-  amulet          String?
-  weapon          String?
-  ring            String?
-  archtype        String?
-  skill           String?
-  concoction      String?
-  consumable      String?
-  mod             String?
-  mutator         String?
-  relicfragment   String?
-  trait           String?
+  buildLink       String?
+  helm            String? // Unused, legacy field
+  torso           String? // Unused, legacy field
+  legs            String? // Unused, legacy field
+  gloves          String? // Unused, legacy field
+  relic           String? // Unused, legacy field
+  amulet          String? // Unused, legacy field
+  weapon          String? // Unused, legacy field
+  ring            String? // Unused, legacy field
+  archtype        String? // Unused, legacy field
+  skill           String? // Unused, legacy field
+  concoction      String? // Unused, legacy field
+  consumable      String? // Unused, legacy field
+  mod             String? // Unused, legacy field
+  mutator         String? // Unused, legacy field
+  relicfragment   String? // Unused, legacy field
+  trait           String? // Unused, legacy field
   BuildVotes      BuildVoteCounts[]
   BuildReports    BuildReports[]
   BuildItems      BuildItems[]
@@ -220,8 +226,6 @@ model UserProfile {
   user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   bio          String   @db.Text
   pinnedBuilds Build[]
-
-  @@index([userId])
 }
 
 model BannedUsers {

@@ -44,8 +44,11 @@ export const authOptions: NextAuthOptions = {
           where: { userId: user.id },
         })
         if (isBanned) {
+          console.error(`User ${user.id} is banned`)
           redirect('/api/auth/signout')
         }
+
+        session.user.role = (user as AdapterUser & { role: string }).role
 
         session.user.id = user.id
         session.user.displayName = (
@@ -68,10 +71,6 @@ export const authOptions: NextAuthOptions = {
       clientId: process.env.DISCORD_CLIENT_ID ?? '',
       clientSecret: process.env.DISCORD_CLIENT_SECRET ?? '',
     }),
-    // GoogleProvider({
-    //   clientId: process.env.GOOGLE_CLIENT_ID ?? '',
-    //   clientSecret: process.env.GOOGLE_CLIENT_SECRET ?? '',
-    // }),
     RedditProvider({
       clientId: process.env.REDDIT_CLIENT_ID ?? '',
       clientSecret: process.env.REDDIT_CLIENT_SECRET ?? '',

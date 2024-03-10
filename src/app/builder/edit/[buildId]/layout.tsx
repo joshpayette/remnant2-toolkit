@@ -1,7 +1,7 @@
+import { getBuild } from '@/features/build/actions/getBuild'
 import { isErrorResponse } from '@/features/error-handling/isErrorResponse'
 import { PageHeader } from '@/features/ui/PageHeader'
 
-import { getBuild } from '../../actions'
 import BuildPage from './page'
 
 export default async function Layout({
@@ -23,5 +23,5 @@ export default async function Layout({
   }
   const { build } = buildData
 
-  return <BuildPage params={{ initialBuildState: build }} />
+  return <BuildPage params={{ INITIAL_BUILD_STATE: build }} />
 }

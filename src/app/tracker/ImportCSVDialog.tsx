@@ -36,14 +36,14 @@ export function ImportCSVDialog({
           <button
             onClick={onSubmit}
             aria-label="Import CSV file"
-            className="w-[200px] rounded border-2 border-purple-500 bg-purple-700 p-2 text-lg font-bold text-white/90 hover:bg-purple-500 hover:text-white disabled:bg-gray-500"
+            className="border-secondary-500 bg-secondary-700 hover:bg-secondary-500 w-[200px] rounded border-2 p-2 text-lg font-bold text-white/90 hover:text-white disabled:bg-gray-500"
           >
             Import CSV
           </button>
         </div>
       </div>
       <div className="col-span-full mt-8 gap-y-4 overflow-x-auto bg-black text-left">
-        <h3 className="mb-4 text-lg font-bold text-green-500">
+        <h3 className="text-primary-500 mb-4 text-lg font-bold">
           Import Template
         </h3>
 

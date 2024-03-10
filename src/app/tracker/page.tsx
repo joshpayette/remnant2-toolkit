@@ -4,7 +4,7 @@ import Papa from 'papaparse'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { useFormState } from 'react-dom'
 import { toast } from 'react-toastify'
-import { useIsClient } from 'usehooks-ts'
+import { useIsClient, useLocalStorage } from 'usehooks-ts'
 
 import { Filters } from '@/app/tracker/Filters'
 import { ItemCategory } from '@/features/build/types'
@@ -16,14 +16,13 @@ import { itemToCsvItem } from '@/features/items/lib/itemToCsvItem'
 import { Item } from '@/features/items/types'
 import { MutatorItem } from '@/features/items/types/MutatorItem'
 import { WeaponItem } from '@/features/items/types/WeaponItem'
-import { useLocalStorage } from '@/features/localstorage/useLocalStorage'
 import { PageHeader } from '@/features/ui/PageHeader'
 import { capitalize } from '@/lib/capitalize'
 
 import { parseSaveFile } from './actions'
 import { ImportCSVDialog } from './ImportCSVDialog'
 import { ImportSaveDialog } from './ImportSaveDialog'
-import { ItemTrackerCategory } from './types'
+import { ItemTrackerCategory, LocalStorage } from './types'
 import { getProgressLabel } from './utils'
 
 /** We don't track these categories at all */
@@ -82,7 +81,16 @@ export default function Page() {
   // If the item info is defined, the modal should be open
   const isShowItemInfoOpen = Boolean(itemInfo)
 
-  const { discoveredItemIds, setDiscoveredItemIds } = useLocalStorage()
+  const [tracker, setTracker] = useLocalStorage<LocalStorage>(
+    'item-tracker',
+    {
+      discoveredItemIds: [],
+      collapsedCategories: [],
+    },
+    { initializeWithValue: false },
+  )
+  const { discoveredItemIds } = tracker
+
   const { filteredItems, handleUpdateFilters } = useFilteredItems([])
 
   /**
@@ -126,7 +134,7 @@ export default function Page() {
 
     saveFileInputRef.current = null
     // Update the discovered item ids
-    setDiscoveredItemIds({ ids: filteredDiscoveredItems })
+    setTracker({ ...tracker, discoveredItemIds: filteredDiscoveredItems })
     setImportSaveDialogOpen(false)
     toast.success('Save file imported successfully!')
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -172,7 +180,7 @@ export default function Page() {
           )
 
           csvFileInputRef.current = null
-          setDiscoveredItemIds({ ids: newCsvItemIds })
+          setTracker({ ...tracker, discoveredItemIds: newCsvItemIds })
           setImportCSVDialogOpen(false)
           toast.success('CSV file imported successfully!')
         },
@@ -200,7 +208,7 @@ export default function Page() {
       const newDiscoveredItemIds = discoveredItemIds.filter(
         (id) => id !== itemId,
       )
-      setDiscoveredItemIds({ ids: newDiscoveredItemIds })
+      setTracker({ ...tracker, discoveredItemIds: newDiscoveredItemIds })
       // We need to set the user item insert needed flag
       // so that the next time they filter builds by collection,
       // their items will be updated
@@ -208,7 +216,7 @@ export default function Page() {
     }
 
     const newDiscoveredItemIds = [...discoveredItemIds, itemId]
-    setDiscoveredItemIds({ ids: newDiscoveredItemIds })
+    setTracker({ ...tracker, discoveredItemIds: newDiscoveredItemIds })
     // We need to set the user item insert needed flag
     // so that the next time they filter builds by collection,
     // their items will be updated
@@ -302,7 +310,7 @@ export default function Page() {
           title="Remnant 2 Item Tracker"
           subtitle="Discover all the items in Remnant 2"
         >
-          <div className="flex flex-col items-center justify-center text-4xl font-bold text-green-400">
+          <div className="flex flex-col items-center justify-center text-4xl font-bold text-primary-400">
             <h2 className="text-4xl font-bold">Progress</h2>
             <span className="text-2xl font-bold text-white">
               {isClient ? totalProgress : 'Calculating...'}
@@ -313,7 +321,7 @@ export default function Page() {
         <hr className="mb-8 mt-4 w-full max-w-3xl border-gray-700" />
 
         <div className="w-full max-w-3xl">
-          <h2 className="mb-2 text-center text-4xl font-bold text-green-400">
+          <h2 className="mb-2 text-center text-4xl font-bold text-primary-400">
             Filters
           </h2>
 
@@ -372,14 +380,14 @@ export default function Page() {
             <button
               onClick={() => setImportSaveDialogOpen(true)}
               aria-label="Import Save File"
-              className="w-[200px] rounded border-2 border-purple-500 bg-purple-700 p-2 text-lg font-bold text-white/90 hover:bg-purple-500 hover:text-white"
+              className="w-[200px] rounded border-2 border-secondary-500 bg-secondary-700 p-2 text-lg font-bold text-white/90 hover:bg-secondary-500 hover:text-white"
             >
               Import Save File
             </button>
             <button
               onClick={() => setImportCSVDialogOpen(true)}
               aria-label="Import CSV File"
-              className="w-[200px] rounded border-2 border-purple-500 bg-purple-700 p-2 text-lg font-bold text-white/90 hover:bg-purple-500 hover:text-white"
+              className="w-[200px] rounded border-2 border-secondary-500 bg-secondary-700 p-2 text-lg font-bold text-white/90 hover:bg-secondary-500 hover:text-white"
             >
               Import CSV File
             </button>
@@ -389,7 +397,7 @@ export default function Page() {
         <div className="mt-16 min-h-[500px] w-full">
           {filteredItems.length > 0 && (
             <>
-              <h2 className="mb-2 text-center text-4xl font-bold text-green-400">
+              <h2 className="mb-2 text-center text-4xl font-bold text-primary-400">
                 {selectedCategory} Items
               </h2>
               <div className="mb-4 flex w-full items-center justify-center gap-x-4 text-lg font-semibold">
@@ -405,6 +413,7 @@ export default function Page() {
                     onClick={() => handleItemClicked(item.id)}
                     onItemInfoClick={() => handleShowItemInfo(item.id)}
                     size="lg"
+                    tooltipDisabled={isShowItemInfoOpen}
                     loadingType="lazy"
                   />
                 ))}

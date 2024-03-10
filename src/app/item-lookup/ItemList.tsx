@@ -1,5 +1,5 @@
 import { useSearchParams } from 'next/navigation'
-import { useIsClient } from 'usehooks-ts'
+import { useIsClient, useLocalStorage } from 'usehooks-ts'
 
 import { parseItemLookupFilters } from '@/features/filters/lib/parseItemLookupFilters'
 import { ItemLookupFilterFields } from '@/features/filters/types'
@@ -9,8 +9,9 @@ import { itemMatchesSearchText } from '@/features/items/lib/itemMatchesSearchTex
 import { ReleaseKey } from '@/features/items/types'
 import { MutatorItem } from '@/features/items/types/MutatorItem'
 import { WeaponItem } from '@/features/items/types/WeaponItem'
-import { useLocalStorage } from '@/features/localstorage/useLocalStorage'
 import { capitalize } from '@/lib/capitalize'
+
+import { LocalStorage } from '../tracker/types'
 
 const allItems = remnantItems.map((item) => ({
   ...item,
@@ -98,7 +99,15 @@ function getFilteredItems(
 }
 
 export function ItemList() {
-  const { discoveredItemIds } = useLocalStorage()
+  const [tracker] = useLocalStorage<LocalStorage>(
+    'item-tracker',
+    {
+      discoveredItemIds: [],
+      collapsedCategories: [],
+    },
+    { initializeWithValue: false },
+  )
+  const { discoveredItemIds } = tracker
 
   const isClient = useIsClient()
 
@@ -107,7 +116,7 @@ export function ItemList() {
   const filteredItems = getFilteredItems(filters, discoveredItemIds)
 
   return filteredItems.length === remnantItems.length || !isClient ? (
-    <h2 className="text-center text-4xl font-bold text-yellow-500">
+    <h2 className="text-primary-500 text-center text-4xl font-bold">
       Apply a filter to see items
     </h2>
   ) : (

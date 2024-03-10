@@ -19,7 +19,7 @@ export default async function Page() {
           loading="eager"
           quality={76}
         />
-        <div className="absolute left-0 top-0 -z-[5] h-full w-full bg-black/70" />
+        <div className="absolute left-0 top-0 -z-[5] h-full w-full bg-black/80" />
         <div className="sm:transform-g1 hidden w-full sm:absolute sm:-top-10 sm:right-1/2 sm:-z-10 sm:mr-10 sm:block sm:blur-3xl">
           <div
             className="aspect-[1097/845] w-[68.5625rem] bg-gradient-to-tr from-[#9646ff] to-[#776fff] opacity-20"
@@ -40,16 +40,16 @@ export default async function Page() {
         </div>
         <div className="mx-auto w-full px-6 lg:px-8">
           <div className="mx-auto max-w-2xl lg:mx-0">
-            <h2 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
+            <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
               Remnant 2 Toolkit
-            </h2>
+            </h1>
             <div className="mt-6 text-lg leading-8 text-gray-300">
               <Link
                 href="/community-builds"
-                className="hover:text-green-500 hover:underline"
+                className="hover:text-primary-500 hover:underline"
               >
                 Search the community&apos;s{' '}
-                <span className="text-2xl font-bold text-green-500">
+                <span className="text-primary-500 text-2xl font-bold">
                   {totalBuildCount}
                 </span>{' '}
                 submitted builds
@@ -57,26 +57,26 @@ export default async function Page() {
               ,{' '}
               <Link
                 href="/builder"
-                className="hover:text-green-500 hover:underline"
+                className="hover:text-primary-500 hover:underline"
               >
                 create your own builds
               </Link>
               ,{' '}
               <Link
                 href="/tracker"
-                className="hover:text-green-500 hover:underline"
+                className="hover:text-primary-500 hover:underline"
               >
                 track your collectibles
               </Link>
               , and more!
             </div>
             <p className="mt-6 text-lg leading-8 text-gray-300">
-              <span className="font-bold text-green-500">100% free</span> and{' '}
-              <span className="font-bold text-green-500">open source</span>{' '}
+              <span className="text-primary-500 font-bold">100% free</span> and{' '}
+              <span className="text-primary-500 font-bold">open source</span>{' '}
               toolkit for Remnant 2. No ads, no tracking, no BS.
             </p>
             <p className="mt-6 text-lg leading-8 text-gray-300">
-              <span className="font-bold text-green-500">
+              <span className="text-primary-500 font-bold">
                 No login required
               </span>{' '}
               to start creating builds, searching for builds, or tracking your
@@ -87,14 +87,14 @@ export default async function Page() {
             <Link
               href={NAV_ITEMS.featuredBuilds.href}
               key={NAV_ITEMS.featuredBuilds.label}
-              className="flex min-h-[200px] flex-row gap-x-4 rounded-xl border border-transparent bg-white/5 p-6 ring-1 ring-inset ring-white/10 hover:border-green-500"
+              className="hover:border-primary-500 flex min-h-[200px] flex-row gap-x-4 rounded-xl border border-transparent bg-white/5 p-6 ring-1 ring-inset ring-white/10"
             >
               <NAV_ITEMS.featuredBuilds.icon
-                className="h-7 w-7 flex-none text-green-500"
+                className="text-primary-500 h-7 w-7 flex-none"
                 aria-hidden="true"
               />
               <div className="relative w-full">
-                <p className="text-base leading-7">
+                <p className="text-lg font-bold leading-7">
                   {NAV_ITEMS.featuredBuilds.label}
                 </p>
                 <div className="mt-2 text-gray-300 ">
@@ -102,7 +102,7 @@ export default async function Page() {
                 </div>
                 <div className="absolute bottom-0 right-0 mt-4 flex w-full items-center justify-end">
                   <ArrowRightIcon
-                    className="h-6 w-6 text-green-500 hover:text-green-300"
+                    className="text-primary-500 hover:text-primary-300 h-6 w-6"
                     aria-hidden="true"
                   />
                 </div>
@@ -111,14 +111,14 @@ export default async function Page() {
             <Link
               href={NAV_ITEMS.communityBuilds.href}
               key={NAV_ITEMS.communityBuilds.label}
-              className="flex min-h-[200px] flex-row gap-x-4 rounded-xl border border-transparent bg-white/5 p-6 ring-1 ring-inset ring-white/10 hover:border-green-500"
+              className="hover:border-primary-500 flex min-h-[200px] flex-row gap-x-4 rounded-xl border border-transparent bg-white/5 p-6 ring-1 ring-inset ring-white/10"
             >
               <NAV_ITEMS.communityBuilds.icon
-                className="h-7 w-7 flex-none text-green-500"
+                className="text-primary-500 h-7 w-7 flex-none"
                 aria-hidden="true"
               />
               <div className="relative w-full">
-                <p className="text-base leading-7">
+                <p className="text-lg font-bold leading-7">
                   {NAV_ITEMS.communityBuilds.label}
                 </p>
                 <div className="mt-2 text-gray-300 ">
@@ -126,7 +126,7 @@ export default async function Page() {
                 </div>
                 <div className="absolute bottom-0 right-0 mt-4 flex w-full items-center justify-end">
                   <ArrowRightIcon
-                    className="h-6 w-6 text-green-500 hover:text-green-300"
+                    className="text-primary-500 hover:text-primary-300 h-6 w-6"
                     aria-hidden="true"
                   />
                 </div>
@@ -135,14 +135,14 @@ export default async function Page() {
             <Link
               href={NAV_ITEMS.createBuild.href}
               key={NAV_ITEMS.createBuild.label}
-              className="flex min-h-[200px] flex-row gap-x-4 rounded-xl border border-transparent bg-white/5 p-6 ring-1 ring-inset ring-white/10 hover:border-green-500"
+              className="hover:border-primary-500 flex min-h-[200px] flex-row gap-x-4 rounded-xl border border-transparent bg-white/5 p-6 ring-1 ring-inset ring-white/10"
             >
               <NAV_ITEMS.createBuild.icon
-                className="h-7 w-7 flex-none text-green-500"
+                className="text-primary-500 h-7 w-7 flex-none"
                 aria-hidden="true"
               />
               <div className="relative w-full">
-                <p className="text-base leading-7">
+                <p className="text-lg font-bold leading-7">
                   {NAV_ITEMS.createBuild.label}
                 </p>
                 <div className="mt-2 text-gray-300 ">
@@ -150,7 +150,7 @@ export default async function Page() {
                 </div>
                 <div className="absolute bottom-0 right-0 mt-4 flex w-full items-center justify-end">
                   <ArrowRightIcon
-                    className="h-6 w-6 text-green-500 hover:text-green-300"
+                    className="text-primary-500 hover:text-primary-300 h-6 w-6"
                     aria-hidden="true"
                   />
                 </div>
@@ -159,14 +159,14 @@ export default async function Page() {
             <Link
               href={NAV_ITEMS.myBuilds.href}
               key={NAV_ITEMS.myBuilds.label}
-              className="flex min-h-[200px] flex-row gap-x-4 rounded-xl border border-transparent bg-white/5 p-6 ring-1 ring-inset ring-white/10 hover:border-green-500"
+              className="hover:border-primary-500 flex min-h-[200px] flex-row gap-x-4 rounded-xl border border-transparent bg-white/5 p-6 ring-1 ring-inset ring-white/10"
             >
               <NAV_ITEMS.myBuilds.icon
-                className="h-7 w-7 flex-none text-green-500"
+                className="text-primary-500 h-7 w-7 flex-none"
                 aria-hidden="true"
               />
               <div className="relative w-full">
-                <p className="text-base leading-7">
+                <p className="text-lg font-bold leading-7">
                   {NAV_ITEMS.myBuilds.label}
                 </p>
                 <div className="mt-2 text-gray-300 ">
@@ -174,7 +174,7 @@ export default async function Page() {
                 </div>
                 <div className="absolute bottom-0 right-0 mt-4 flex w-full items-center justify-end">
                   <ArrowRightIcon
-                    className="h-6 w-6 text-green-500 hover:text-green-300"
+                    className="text-primary-500 hover:text-primary-300 h-6 w-6"
                     aria-hidden="true"
                   />
                 </div>
@@ -183,14 +183,14 @@ export default async function Page() {
             <Link
               href={NAV_ITEMS.bossTracker.href}
               key={NAV_ITEMS.bossTracker.label}
-              className="flex min-h-[200px] flex-row gap-x-4 rounded-xl border border-transparent bg-white/5 p-6 ring-1 ring-inset ring-white/10 hover:border-green-500"
+              className="hover:border-primary-500 flex min-h-[200px] flex-row gap-x-4 rounded-xl border border-transparent bg-white/5 p-6 ring-1 ring-inset ring-white/10"
             >
               <NAV_ITEMS.bossTracker.icon
-                className="h-7 w-7 flex-none text-green-500"
+                className="text-primary-500 h-7 w-7 flex-none"
                 aria-hidden="true"
               />
               <div className="relative w-full">
-                <p className="text-base leading-7">
+                <p className="text-lg font-bold leading-7">
                   {NAV_ITEMS.bossTracker.label}
                 </p>
                 <div className="mt-2 text-gray-300 ">
@@ -198,7 +198,7 @@ export default async function Page() {
                 </div>
                 <div className="absolute bottom-0 right-0 mt-4 flex w-full items-center justify-end">
                   <ArrowRightIcon
-                    className="h-6 w-6 text-green-500 hover:text-green-300"
+                    className="text-primary-500 hover:text-primary-300 h-6 w-6"
                     aria-hidden="true"
                   />
                 </div>
@@ -207,14 +207,14 @@ export default async function Page() {
             <Link
               href={NAV_ITEMS.itemTracker.href}
               key={NAV_ITEMS.itemTracker.label}
-              className="flex min-h-[200px] flex-row gap-x-4 rounded-xl border border-transparent bg-white/5 p-6 ring-1 ring-inset ring-white/10 hover:border-green-500"
+              className="hover:border-primary-500 flex min-h-[200px] flex-row gap-x-4 rounded-xl border border-transparent bg-white/5 p-6 ring-1 ring-inset ring-white/10"
             >
               <NAV_ITEMS.itemTracker.icon
-                className="h-7 w-7 flex-none text-green-500"
+                className="text-primary-500 h-7 w-7 flex-none"
                 aria-hidden="true"
               />
               <div className="relative w-full">
-                <p className="text-base leading-7">
+                <p className="text-lg font-bold leading-7">
                   {NAV_ITEMS.itemTracker.label}
                 </p>
                 <div className="mt-2 text-gray-300 ">
@@ -222,7 +222,7 @@ export default async function Page() {
                 </div>
                 <div className="absolute bottom-0 right-0 mt-4 flex w-full items-center justify-end">
                   <ArrowRightIcon
-                    className="h-6 w-6 text-green-500 hover:text-green-300"
+                    className="text-primary-500 hover:text-primary-300 h-6 w-6"
                     aria-hidden="true"
                   />
                 </div>
@@ -231,14 +231,14 @@ export default async function Page() {
             <Link
               href={NAV_ITEMS.itemLookup.href}
               key={NAV_ITEMS.itemLookup.label}
-              className="flex min-h-[200px] flex-row gap-x-4 rounded-xl border border-transparent bg-white/5 p-6 ring-1 ring-inset ring-white/10 hover:border-green-500"
+              className="hover:border-primary-500 flex min-h-[200px] flex-row gap-x-4 rounded-xl border border-transparent bg-white/5 p-6 ring-1 ring-inset ring-white/10"
             >
               <NAV_ITEMS.itemLookup.icon
-                className="h-7 w-7 flex-none text-green-500"
+                className="text-primary-500 h-7 w-7 flex-none"
                 aria-hidden="true"
               />
               <div className="relative w-full">
-                <p className="text-base leading-7">
+                <p className="text-lg font-bold leading-7">
                   {NAV_ITEMS.itemLookup.label}
                 </p>
                 <div className="mt-2 text-gray-300 ">
@@ -246,7 +246,7 @@ export default async function Page() {
                 </div>
                 <div className="absolute bottom-0 right-0 mt-4 flex w-full items-center justify-end">
                   <ArrowRightIcon
-                    className="h-6 w-6 text-green-500 hover:text-green-300"
+                    className="text-primary-500 hover:text-primary-300 h-6 w-6"
                     aria-hidden="true"
                   />
                 </div>
@@ -255,14 +255,14 @@ export default async function Page() {
             <Link
               href={NAV_ITEMS.changeLog.href}
               key={NAV_ITEMS.changeLog.label}
-              className="flex min-h-[200px] w-full flex-row gap-x-4 rounded-xl border border-transparent bg-white/5 p-6 ring-1 ring-inset ring-white/10 hover:border-green-500"
+              className="hover:border-primary-500 flex min-h-[200px] w-full flex-row gap-x-4 rounded-xl border border-transparent bg-white/5 p-6 ring-1 ring-inset ring-white/10"
             >
               <NAV_ITEMS.changeLog.icon
-                className="h-7 w-7 flex-none text-green-500"
+                className="text-primary-500 h-7 w-7 flex-none"
                 aria-hidden="true"
               />
               <div className="relative w-full">
-                <p className="text-base leading-7">
+                <p className="text-lg font-bold leading-7">
                   {NAV_ITEMS.changeLog.label}
                 </p>
                 <div className="mt-2 text-gray-300 ">
@@ -270,7 +270,7 @@ export default async function Page() {
                 </div>
                 <div className="absolute bottom-0 right-0 mt-4 flex w-full items-center justify-end">
                   <ArrowRightIcon
-                    className="h-6 w-6 text-green-500 hover:text-green-300"
+                    className="text-primary-500 hover:text-primary-300 h-6 w-6"
                     aria-hidden="true"
                   />
                 </div>
@@ -279,14 +279,14 @@ export default async function Page() {
             <Link
               href={NAV_ITEMS.supportR2TK.href}
               key={NAV_ITEMS.supportR2TK.label}
-              className="flex min-h-[200px] flex-row gap-x-4 rounded-xl border border-transparent bg-white/5 p-6 ring-1 ring-inset ring-white/10 hover:border-green-500"
+              className="hover:border-primary-500 flex min-h-[200px] flex-row gap-x-4 rounded-xl border border-transparent bg-white/5 p-6 ring-1 ring-inset ring-white/10"
             >
               <NAV_ITEMS.supportR2TK.icon
-                className="h-7 w-7 flex-none text-green-500"
+                className="text-primary-500 h-7 w-7 flex-none"
                 aria-hidden="true"
               />
               <div className="relative w-full">
-                <p className="text-base leading-7">
+                <p className="text-lg font-bold leading-7">
                   {NAV_ITEMS.supportR2TK.label}
                 </p>
                 <div className="mt-2 text-gray-300 ">
@@ -294,7 +294,7 @@ export default async function Page() {
                 </div>
                 <div className="absolute bottom-0 right-0 mt-4 flex w-full items-center justify-end">
                   <ArrowRightIcon
-                    className="h-6 w-6 text-green-500 hover:text-green-300"
+                    className="text-primary-500 hover:text-primary-300 h-6 w-6"
                     aria-hidden="true"
                   />
                 </div>
