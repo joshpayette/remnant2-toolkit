@@ -152,7 +152,7 @@ export async function getUserBio(
     })
 
     if (!profileResponse) {
-      console.warn(
+      console.info(
         'No profile found for user, creating one from private profile.',
       )
       // create a profile for the user if one doesn't exist
