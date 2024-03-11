@@ -14,6 +14,15 @@ export const MANUAL_ITEM_NAME_BREAKS: Array<{ name: string; break: string }> = [
   { name: 'Microcompressor', break: 'Micro-compressor' },
 ]
 
+/**
+ * Some labels are too long to fit the label, but can't be broken up
+ * and need to be manually transformed to a smaller text size
+ */
+export const MANUAL_ITEM_NAME_TEXT_TRANSFORMS: Array<{
+  name: string
+  transform: string
+}> = [{ name: "Nightweaver's Grudge", transform: 'text-[9px]' }]
+
 export const ARCHTYPE_COLORS = {
   ALCHEMIST: {
     bg: 'bg-[#102a22]',

@@ -8,7 +8,10 @@ import { Item } from '@/features/items/types'
 import { Tooltip } from '@/features/ui/Tooltip'
 import { cn } from '@/lib/classnames'
 
-import { MANUAL_ITEM_NAME_BREAKS } from '../constants'
+import {
+  MANUAL_ITEM_NAME_BREAKS,
+  MANUAL_ITEM_NAME_TEXT_TRANSFORMS,
+} from '../constants'
 
 type Props = {
   isToggled?: boolean
@@ -149,6 +152,9 @@ export function ItemButton({
         <div
           className={cn(
             'z-[5] flex items-center justify-center bg-secondary-900 px-1 py-0.5 text-center text-[10px] text-gray-100',
+            MANUAL_ITEM_NAME_TEXT_TRANSFORMS.some(
+              (i) => i.name === item.name,
+            ) && 'text-[9px]',
             size === 'sm' &&
               'min-h-[22px] min-w-[22px] border border-black text-left',
             size === 'md' && 'min-h-[40px] w-[66px]',
