@@ -398,12 +398,7 @@ export function vashUrlToBuild(searchParams: URLSearchParams): BuildState {
   }
 
   buildState.isPublic = false
-  buildState.description = `Imported from Vash Cowaii's Loadout Calculator.
-
-https://cowaii.io/index.html?${searchParams
-    .toString()
-    .replace('&source=vash', '')}
-  `
+  buildState.description = `Imported from Vash Cowaii's Loadout Calculator.`
 
   return buildState
 }

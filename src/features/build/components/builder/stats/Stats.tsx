@@ -231,7 +231,7 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
               <a
                 href={buildToVashUrl(buildState)}
                 target="_blank"
-                className="flex items-center justify-center rounded-lg border border-gray-500 bg-gray-800 p-2 text-xs text-white"
+                className="flex items-center justify-center rounded-lg border border-gray-500 bg-gray-800 p-2 text-xs text-white hover:bg-gray-700"
               >
                 Export to Loadout Calculator
                 <Image
