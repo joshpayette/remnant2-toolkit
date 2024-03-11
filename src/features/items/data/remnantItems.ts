@@ -3287,7 +3287,7 @@ export const remnantItems: Item[] = [
     crit: 10,
     weakspot: 100,
     stagger: 0,
-    },
+  },
   {
     category: 'weapon',
     type: 'long gun',
@@ -3530,7 +3530,6 @@ export const remnantItems: Item[] = [
     damage: 261,
     rps: 4.1,
     magazine: 1,
-    magazine: 1,
     accuracy: 100,
     ideal: 25,
     falloff: 65,
@@ -3549,7 +3548,6 @@ export const remnantItems: Item[] = [
     wikiLinks: [`https://remnant.wiki/Crossbow`],
     damage: 115,
     rps: 3.4,
-    magazine: 1,
     magazine: 1,
     accuracy: 100,
     ideal: 23,
@@ -3583,7 +3581,6 @@ export const remnantItems: Item[] = [
     crit: 15,
     weakspot: 90,
     stagger: 5,
-    
   },
   {
     category: 'weapon',

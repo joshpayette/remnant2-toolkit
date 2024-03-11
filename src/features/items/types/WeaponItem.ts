@@ -6,24 +6,45 @@ import { BaseItem } from './BaseItem'
 
 interface BaseWeaponItem extends BaseItem {
   type: 'long gun' | 'melee' | 'hand gun'
+  accuracy: number
+  ammo: number
+  crit: number
   damage: number
-  rps?: number
+  falloff: number
+  ideal: number
   magazine?: number
+  rps?: number
+  stagger: number
+  weakspot: number
 }
 
 export class WeaponItem extends BaseItem implements BaseWeaponItem {
   public category: BaseWeaponItem['category'] = 'weapon'
   public type: BaseWeaponItem['type'] = 'long gun'
   public damage: BaseWeaponItem['damage'] = 0
-  public rps?: BaseWeaponItem['rps'] = 0
+  public accuracy: BaseWeaponItem['accuracy'] = 0
+  public ammo: BaseWeaponItem['ammo'] = 0
+  public crit: BaseWeaponItem['crit'] = 0
+  public falloff: BaseWeaponItem['falloff'] = 0
+  public ideal: BaseWeaponItem['ideal'] = 0
   public magazine?: BaseWeaponItem['magazine'] = 0
+  public rps?: BaseWeaponItem['rps'] = 0
+  public stagger: BaseWeaponItem['stagger'] = 0
+  public weakspot: BaseWeaponItem['weakspot'] = 0
 
   constructor(props: BaseWeaponItem) {
     super(props)
     this.type = props.type
+    this.accuracy = props.accuracy
+    this.ammo = props.ammo
+    this.crit = props.crit
     this.damage = props.damage
-    this.rps = props.rps
+    this.falloff = props.falloff
+    this.ideal = props.ideal
     this.magazine = props.magazine
+    this.rps = props.rps
+    this.stagger = props.stagger
+    this.weakspot = props.weakspot
   }
 
   public static isWeaponItem = (item?: Item): item is WeaponItem => {
