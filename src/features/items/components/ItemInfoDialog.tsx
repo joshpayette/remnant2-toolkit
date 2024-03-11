@@ -5,7 +5,7 @@ import { toast } from 'react-toastify'
 import { capitalize } from '@/lib/capitalize'
 import { cn } from '@/lib/classnames'
 
-import { Dialog } from '../../ui/Dialog'
+import { Dialog, DialogMaxWidthClass } from '../../ui/Dialog'
 import { cleanItemName } from '../lib/cleanItemName'
 import { Item } from '../types'
 import { ArchetypeItem } from '../types/ArchetypeItem'
@@ -83,27 +83,42 @@ export function ItemInfoDialog({ item, open, onClose }: ItemInfoProps) {
           </span>
         </span>
       }
-      maxWidthClass="max-w-2xl"
+      maxWidthClass={
+        cn(
+          ArchetypeItem.isArchetypeItem(item) ||
+            WeaponItem.isWeaponItem(item) ||
+            ArmorItem.isArmorItem(item)
+            ? 'max-w-2xl'
+            : 'max-w-md',
+        ) as DialogMaxWidthClass
+      }
     >
-      <div className="grid-cols-full grid gap-x-8 gap-y-4 sm:grid-cols-2">
+      <div
+        className={cn(
+          'grid-cols-full grid gap-x-8 gap-y-4',
+          (WeaponItem.isWeaponItem(item) || ArmorItem.isArmorItem(item)) &&
+            'sm:grid-cols-2',
+        )}
+      >
         <div className="col-span-3 flex w-full flex-col items-center justify-start sm:col-span-1 sm:justify-center">
-          <div className="w-[100px] sm:w-full">
+          <div className="flex w-full items-center justify-center">
             <Image
               src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}${item.imagePath}`}
               width={imageSize.width}
               height={imageSize.height}
               alt={item.name}
-              className="h-auto max-h-full w-full max-w-full"
+              className="h-auto max-h-full w-full max-w-[200px]"
               loading="eager"
             />
           </div>
           <div
             className={cn(
-              'col-span-3 mb-2 flex flex-col items-start justify-start',
-              columns === 2 ? ' sm:col-span-2' : 'sm:col-span-1',
+              'col-span-full mb-2 mt-2 flex w-full flex-col items-start justify-start',
             )}
           >
-            <h4 className="text-left text-sm text-gray-400">Description</h4>
+            <h4 className="w-full text-left text-sm text-gray-400">
+              Description
+            </h4>
             <div className="whitespace-pre-line text-left text-sm text-gray-300">
               <DescriptionWithTags
                 description={item.description || 'No description available.'}
@@ -138,7 +153,7 @@ export function ItemInfoDialog({ item, open, onClose }: ItemInfoProps) {
             )}
 
             {item.linkedItems && (
-              <div className="flex flex-col items-start justify-start">
+              <div className="flex w-full flex-col items-start justify-start">
                 <h4 className="mt-4 text-left text-sm text-gray-400">
                   Linked Items
                 </h4>
