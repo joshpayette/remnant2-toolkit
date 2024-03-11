@@ -14,6 +14,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Changed
 
 - Removed navigation links to Collection Builds.
+- Added a notice to the top of the /builder route informing users that the features are limited. This page is a landing page for builds exported from other tools, but due to limitations in the handling of URL state rather than a database, it does not have all the build features. This was confusing for users who ended up on this page.
 
 ### Fixed
 
