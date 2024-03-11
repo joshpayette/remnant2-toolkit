@@ -14,6 +14,7 @@ export function Traits({
   isEditable,
   isScreenshotMode,
   showControls,
+  tooltipDisabled,
   onAddTrait,
   onItemInfoClick,
   onRemoveTrait,
@@ -23,6 +24,7 @@ export function Traits({
   isEditable: boolean
   isScreenshotMode: boolean
   showControls: boolean
+  tooltipDisabled: boolean
   onAddTrait?: () => void
   onItemInfoClick?: (item: Item) => void
   onRemoveTrait: (traitItem: TraitItem) => void
@@ -233,8 +235,9 @@ export function Traits({
               {!isScreenshotMode && onItemInfoClick && (
                 <Tooltip
                   content={traitItem.description}
-                  interactive={false}
                   trigger="mouseenter"
+                  interactive={false}
+                  disabled={tooltipDisabled}
                 >
                   <InformationCircleIcon className="h-5 w-5 bg-black text-accent1-500 sm:h-5 sm:w-5" />
                 </Tooltip>

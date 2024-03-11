@@ -105,7 +105,7 @@ export function WeaponInfo({ item, includeMod = true }: Props) {
             </div>
           ) : null}
           {item.linkedItems?.mod && includeMod && (
-            <div className="grid w-full grid-cols-2 gap-2 border border-transparent  py-1 text-left text-sm text-gray-300">
+            <div className="grid w-full grid-cols-2 gap-2 border border-transparent py-1 text-left text-sm text-gray-300">
               <p className="flex items-center justify-start text-xs">Mod</p>
               <a
                 href={`/item-lookup?searchText=${item.linkedItems.mod.name}`}

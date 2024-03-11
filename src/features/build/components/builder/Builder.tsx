@@ -700,6 +700,7 @@ export function Builder({
                 showControls={showControls}
                 isEditable={isEditable}
                 isScreenshotMode={isScreenshotMode}
+                tooltipDisabled={itemInfoOpen}
                 onAddTrait={() => handleItemSlotClick('trait')}
                 onItemInfoClick={handleShowInfo}
                 onRemoveTrait={(traitItem) => handleRemoveTrait(traitItem)}
