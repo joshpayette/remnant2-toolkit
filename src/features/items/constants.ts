@@ -355,6 +355,12 @@ export const DESCRIPTION_TAGS = [
     color: 'text-[#444662]',
     description: 'Reduces Mod Power Generation by 50%.',
   },
+  {
+    type: 'Status Effect',
+    token: 'STATUS EFFECT',
+    color: 'text-[#890d0d]',
+    description: 'Bleeding, Burning, Corroded, Overloaded.',
+  },
 ] as const satisfies {
   type: string
   token: string
