@@ -3995,7 +3995,7 @@ export const remnantItems: Item[] = [
   {
     category: 'weapon',
     type: 'long gun',
-    name: 'XMG57 Bonesaw',
+    name: 'XMG57 "Bonesaw"',
     saveFileSlug: 'weapon_lmg',
     imagePath: '/mainhand/xmg57_bonesaw.png',
     id: 'rbpz53',
