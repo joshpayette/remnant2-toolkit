@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-03-11
+
+## Added
+
+- Build can now be exported to Vash Cowaii's Loadout Calculator at https://cowaii.io/index.html
+- Builds can now be imported from Vash Cowaii's Loadout Calculator at https://cowaii.io/index.html
+
 ## 2024-03-10
 
 ### Changed

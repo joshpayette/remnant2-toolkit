@@ -2,10 +2,6 @@ import { InformationCircleIcon } from '@heroicons/react/24/solid'
 import Image from 'next/image'
 import { useState } from 'react'
 
-import { BuildState } from '@/features/build/types'
-import { Tooltip } from '@/features/ui/Tooltip'
-import { cn } from '@/lib/classnames'
-
 import {
   getTotalArmor,
   getTotalHealth,
@@ -13,7 +9,12 @@ import {
   getTotalStamina,
   getTotalWeight,
   getWeightClass,
-} from '../../../lib/getTotalValues'
+} from '@/features/build/lib/getTotalValues'
+import { BuildState } from '@/features/build/types'
+import { buildToVashUrl } from '@/features/build/vash-integration/buildToVashUrl'
+import { Tooltip } from '@/features/ui/Tooltip'
+import { cn } from '@/lib/classnames'
+
 import { HealthBreakdownDialog } from './HealthBreakdown'
 import { StaminaBreakdownDialog } from './StaminaBreakdown'
 
@@ -59,7 +60,7 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
       <div className="flex w-full flex-grow flex-col justify-start">
         <div className="flex w-full flex-row items-center justify-start">
           <div className="flex w-full flex-col items-start justify-start sm:max-w-[275px]">
-            <div className="border-b-primary-500 relative grid w-full grid-cols-2 gap-2 border border-transparent text-left text-sm text-gray-300">
+            <div className="relative grid w-full grid-cols-2 gap-2 border border-transparent border-b-primary-500 text-left text-sm text-gray-300">
               <p className="flex items-center justify-start">Health</p>
               <button
                 className={cn(
@@ -70,11 +71,11 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
               >
                 {totalHealth}
                 {!isScreenshotMode && (
-                  <InformationCircleIcon className="text-accent1-500 ml-1 h-4 w-4" />
+                  <InformationCircleIcon className="ml-1 h-4 w-4 text-accent1-500" />
                 )}
               </button>
             </div>
-            <div className="border-b-primary-500 relative grid w-full grid-cols-2 gap-2 border border-transparent text-left text-sm text-gray-300">
+            <div className="relative grid w-full grid-cols-2 gap-2 border border-transparent border-b-primary-500 text-left text-sm text-gray-300">
               <p className="flex items-center justify-start">Stamina</p>
               <button
                 className={cn(
@@ -85,11 +86,11 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
               >
                 {totalStamina}
                 {!isScreenshotMode && (
-                  <InformationCircleIcon className="text-accent1-500 ml-1 h-4 w-4" />
+                  <InformationCircleIcon className="ml-1 h-4 w-4 text-accent1-500" />
                 )}
               </button>
             </div>
-            <div className="border-b-primary-500 relative grid w-full grid-cols-2 gap-2 border border-transparent text-left text-sm text-gray-300">
+            <div className="relative grid w-full grid-cols-2 gap-2 border border-transparent border-b-primary-500 text-left text-sm text-gray-300">
               <p className="flex items-center justify-start">Armor</p>
               <Tooltip content="ArmorDR = Armor / (Armor+200)">
                 <button
@@ -103,7 +104,7 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
                 </button>
               </Tooltip>
             </div>
-            <div className="border-b-primary-500 relative grid w-full grid-cols-2 gap-2 border border-transparent text-left text-sm text-gray-300">
+            <div className="relative grid w-full grid-cols-2 gap-2 border border-transparent border-b-primary-500 text-left text-sm text-gray-300">
               <p className="flex items-center justify-start">Weight</p>
               <span
                 className={cn(
@@ -131,7 +132,7 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
                 </Tooltip>
               </span>
             </div>
-            <div className="border-b-primary-500 relative grid w-full grid-cols-2 gap-2 border border-transparent text-left text-sm text-gray-300">
+            <div className="relative grid w-full grid-cols-2 gap-2 border border-transparent border-b-primary-500 text-left text-sm text-gray-300">
               <Image
                 src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/status/bleed_resistance.png`}
                 alt="Bleed Resistance"
@@ -150,7 +151,7 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
                 {totalBleedResistance}
               </span>
             </div>
-            <p className="border-b-primary-500 grid w-full grid-cols-2 gap-2 border border-transparent text-left text-sm text-gray-300">
+            <p className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-primary-500 text-left text-sm text-gray-300">
               <Image
                 src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/status/fire_resistance.png`}
                 alt="Fire Resistance"
@@ -169,7 +170,7 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
                 {totalFireResistance}
               </span>
             </p>
-            <p className="border-b-primary-500 grid w-full grid-cols-2 gap-2 border border-transparent text-left text-sm text-gray-300">
+            <p className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-primary-500 text-left text-sm text-gray-300">
               <Image
                 src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/status/shock_resistance.png`}
                 alt="Shock Resistance"
@@ -188,7 +189,7 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
                 {totalShockResistance}
               </span>
             </p>
-            <p className="border-b-primary-500 grid w-full grid-cols-2 gap-2 border border-transparent text-left text-sm text-gray-300">
+            <p className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-primary-500 text-left text-sm text-gray-300">
               <Image
                 src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/status/toxin_resistance.png`}
                 alt="Toxin Resistance"
@@ -207,7 +208,7 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
                 {totalToxinResistance}
               </span>
             </p>
-            <p className="border-b-primary-500 grid w-full grid-cols-2 gap-2 border border-transparent text-left text-sm text-gray-300">
+            <p className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-primary-500 text-left text-sm text-gray-300">
               <Image
                 src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/status/blight_resistance.png`}
                 alt="Blight Resistance"
@@ -226,14 +227,22 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
                 {totalBlightResistance}
               </span>
             </p>
-            <div className="z-0 mt-2 text-right text-xs text-white">
-              Looking for more advanced stats? Check out{' '}
+            <div className="z-0 mt-2 flex w-full items-center justify-center">
               <a
-                href="https://cowaii.io/"
+                href={buildToVashUrl(buildState)}
                 target="_blank"
-                className="underline hover:text-gray-300"
+                className="flex items-center justify-center rounded-lg border border-gray-500 bg-gray-800 p-2 text-xs text-white"
               >
-                Vash Cowaii&apos;s Loadout Calculator.
+                Export to Loadout Calculator
+                <Image
+                  src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/cowaii.webp`}
+                  alt="Vash Cowaii's Loadout Calculator"
+                  width={20}
+                  height={20}
+                  className="ml-1 h-5 w-5"
+                  loading="eager"
+                  unoptimized={isScreenshotMode}
+                />
               </a>
             </div>
           </div>

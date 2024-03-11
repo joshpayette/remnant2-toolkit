@@ -23,6 +23,7 @@ import { buildStateToCsvData } from '../lib/buildStateToCsvData'
 import { buildStateToMasonryItems } from '../lib/buildStateToMasonryItems'
 import { linkArchetypesToTraits } from '../lib/linkArchetypesToTraits'
 import { linkWeaponsToMods } from '../lib/linkWeaponsToMods'
+import { vashUrlToBuild } from '../vash-integration/vashUrlToBuild'
 
 /**
  * Handles reading/writing the build to the URL query string,
@@ -37,7 +38,13 @@ export function useUrlBuildState() {
   const pathname = usePathname()
   const searchParams = useSearchParams()
 
-  const parsedBuild = parseQueryString(searchParams)
+  // Check if the vash search params exists
+  const sourceParam = searchParams.get('source')
+  const isVashBuild = sourceParam === 'vash'
+
+  const parsedBuild = isVashBuild
+    ? vashUrlToBuild(searchParams)
+    : parseQueryString(searchParams)
   const urlBuildState = linkArchetypesToTraits(linkWeaponsToMods(parsedBuild))
 
   /**
