@@ -10,11 +10,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Build can now be exported to Vash Cowaii's Loadout Calculator at https://cowaii.io/index.html
 - Builds can now be imported from Vash Cowaii's Loadout Calculator at https://cowaii.io/index.html
+- Added more weapon details to their item info, including crit chance, weakspot damage, and more!
 
 ### Changed
 
 - Removed navigation links to Collection Builds.
 - Added a notice to the top of the /builder route informing users that the features are limited. This page is a landing page for builds exported from other tools, but due to limitations in the handling of URL state rather than a database, it does not have all the build features. This was confusing for users who ended up on this page.
+- Changed the layout of the item information in the dialog and item cards to be more consistent and easier to read.
 
 ### Fixed
 
