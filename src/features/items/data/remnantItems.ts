@@ -3316,7 +3316,7 @@ export const remnantItems: Item[] = [
   {
     category: 'weapon',
     type: 'long gun',
-    name: 'AS-10 Bulldog',
+    name: 'AS-10 "Bulldog"',
     saveFileSlug: 'weapon_autoshotgun',
     imagePath: '/mainhand/as_10_bulldog.png',
     id: 'va7cfd',
