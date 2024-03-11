@@ -6,10 +6,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2024-03-11
 
-## Added
+### Added
 
 - Build can now be exported to Vash Cowaii's Loadout Calculator at https://cowaii.io/index.html
 - Builds can now be imported from Vash Cowaii's Loadout Calculator at https://cowaii.io/index.html
+
+### Fixed
+
+- Fixed bug in `Brewmaster's Cork` where the apostrophe was missing.
+- Fixed the name of `Alpha / Omega` to match the in-game name.
 
 ## 2024-03-10
 

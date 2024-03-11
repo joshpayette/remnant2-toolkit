@@ -3267,7 +3267,7 @@ export const remnantItems: Item[] = [
   {
     category: 'weapon',
     type: 'long gun',
-    name: 'Alpha-Omega',
+    name: 'Alpha / Omega',
     imagePath: '/mainhand/alpha_omega.png',
     id: '1ub6k9',
     description: `After charging, fires an accurate high-damage rail which penetrates any target. Each successful hit reduces the charge time by 0.1s and increases damage by 10% for 1.5s. Stacks 5x.`,
@@ -6656,7 +6656,7 @@ EXPOSED: Target receives up to 24% additional damage from all sources. Expose am
   },
   {
     category: 'amulet',
-    name: 'Brewmasters Cork',
+    name: "Brewmaster's Cork",
     imagePath: '/amulet/brewmasters_cork.png',
     id: '6il3tm',
     tags: ['Damage Reduction'],
