@@ -268,7 +268,7 @@ export const DESCRIPTION_TAGS = [
     type: 'Madness',
     token: 'MADNESS',
     color: 'text-[#ede6e6]',
-    description: 'Pysical Damage',
+    description: 'Physical Damage',
   },
   {
     type: 'Marked',
