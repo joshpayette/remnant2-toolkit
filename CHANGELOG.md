@@ -11,6 +11,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Build can now be exported to Vash Cowaii's Loadout Calculator at https://cowaii.io/index.html
 - Builds can now be imported from Vash Cowaii's Loadout Calculator at https://cowaii.io/index.html
 
+### Changed
+
+- Removed navigation links to Collection Builds.
+
 ### Fixed
 
 - Fixed bug in `Brewmaster's Cork` where the apostrophe was missing.

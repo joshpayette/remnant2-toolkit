@@ -149,7 +149,8 @@ export function ItemButton({
         <div
           className={cn(
             'z-[5] flex items-center justify-center bg-secondary-900 px-1 py-0.5 text-center text-[10px] text-gray-100',
-            size === 'sm' && 'min-h-[22px] min-w-[22px] border border-black',
+            size === 'sm' &&
+              'min-h-[22px] min-w-[22px] border border-black text-left',
             size === 'md' && 'min-h-[40px] w-[66px]',
             size === 'lg' && 'min-h-[40px] w-[99px]',
             size === 'xl' && 'text-md min-h-[40px] w-[200px]',
