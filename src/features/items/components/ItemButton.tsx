@@ -78,7 +78,7 @@ export function ItemButton({
     case 'wide':
       imageSize = {
         height: 66,
-        width: 150,
+        width: 149,
       }
       break
   }
@@ -91,7 +91,7 @@ export function ItemButton({
         size === 'md' && 'mb-2 w-[66px] flex-col',
         size === 'lg' && 'mb-2 w-[99px] flex-col',
         size === 'xl' && 'mb-2 w-[200px] flex-col',
-        size === 'wide' && 'mb-2 w-[150px] flex-col',
+        size === 'wide' && 'mb-2 w-[149px] flex-col',
         isToggled === true && 'grayscale-0',
         isToggled === false && 'grayscale',
       )}
@@ -128,7 +128,7 @@ export function ItemButton({
           size === 'md' && 'h-[66px] w-[66px]',
           size === 'lg' && 'h-[99px] w-[99px]',
           size === 'xl' && 'h-[200px] w-[200px]',
-          size === 'wide' && 'h-[99px] w-[150px]',
+          size === 'wide' && 'h-[99px] w-[149px]',
           isToggled === true && 'border-primary-500',
           isToggled === false && 'border-gray-700',
         )}
@@ -160,7 +160,7 @@ export function ItemButton({
             size === 'md' && 'min-h-[40px] w-[66px]',
             size === 'lg' && 'min-h-[40px] w-[99px]',
             size === 'xl' && 'text-md min-h-[40px] w-[200px]',
-            size === 'wide' && 'min-h-[22px] w-[150px]',
+            size === 'wide' && 'min-h-[22px] w-[149px]',
           )}
         >
           {manualWordBreaks

@@ -1,5 +1,4 @@
 import { InformationCircleIcon, XCircleIcon } from '@heroicons/react/24/solid'
-import Image from 'next/image'
 import { useState } from 'react'
 
 import { BuildState } from '@/features/build/types'

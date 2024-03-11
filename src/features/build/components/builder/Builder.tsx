@@ -440,13 +440,13 @@ export function Builder({
         <div
           id="build-wrapper"
           className={cn(
-            'flex w-full flex-col items-start justify-between md:flex-row md:gap-x-8',
-            isScreenshotMode && 'flex-row gap-x-8',
+            'flex w-full flex-col items-center justify-between md:flex-row md:items-start md:gap-x-8',
+            isScreenshotMode && 'flex-row items-start gap-x-8',
           )}
         >
           <div
             id="build-left-column"
-            className="flex w-full max-w-[475px] flex-col"
+            className="flex w-full min-w-[300px] max-w-[475px] flex-col"
           >
             <div
               id="archetype-container"
@@ -633,13 +633,17 @@ export function Builder({
             <div
               id="guns-row"
               className={cn(
-                'mb-4 flex w-full flex-row items-start justify-start gap-2 overflow-x-auto',
+                'mb-4 flex w-full flex-row items-start justify-center gap-2 min-[855px]:flex-nowrap',
+                !isScreenshotMode && 'flex-wrap',
               )}
             >
               {getArrayOfLength(3).map((weaponIndex) => (
                 <div
                   key={`gun-${weaponIndex}`}
-                  className="flex flex-col items-start justify-center"
+                  className={cn(
+                    'flex flex-col items-start justify-center',
+                    weaponIndex === 1 && 'order-2 sm:order-none',
+                  )}
                 >
                   <ItemButton
                     item={buildState.items.weapon[weaponIndex]}
