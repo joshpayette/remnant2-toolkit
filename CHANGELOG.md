@@ -15,6 +15,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Fixed bug in `Brewmaster's Cork` where the apostrophe was missing.
 - Fixed the name of `Alpha / Omega` to match the in-game name.
+- Fixed the name of `Leto Mark 1` to match the in-game name.
 
 ## 2024-03-10
 
