@@ -400,7 +400,6 @@ export const remnantItems: Item[] = [
     name: 'Guard Dog',
     imagePath: '/skill/guard_dog.png',
     id: 'gpr2fw',
-    // TODO Companion Howl sizes are now affected by Aura size increases.
     description: `Companion will follow the HANDLER and generate 15% increased Threat while attacking. All damage to them is reduced by 20%. 
 
     SINGLE PRESS: Companion engages enemies near the targeted location.
@@ -425,7 +424,6 @@ export const remnantItems: Item[] = [
     name: 'Support Dog',
     imagePath: '/skill/support_dog.png',
     id: 'jz6x2w',
-    // TODO Companion Howl sizes are now affected by Aura size increases.
     description: `Companion will follow the HANDLER and continuously heal allies within 3.5m for 0.25% of Max Health per second. 
 
     SINGLE PRESS: Companion engages enemies near the targeted location. 
@@ -450,7 +448,6 @@ export const remnantItems: Item[] = [
     name: 'Attack Dog',
     imagePath: '/skill/attack_dog.png',
     id: '8trtzh',
-    // TODO Companion Howl sizes are now affected by Aura size increases.
     description: `Companion will follow the HANDLER and deal 20% additional damage. 
 
     SINGLE PRESS: Companion engages enemies near the targeted location. 
@@ -592,7 +589,6 @@ export const remnantItems: Item[] = [
     name: 'Vial: Stone Mist',
     imagePath: '/skill/vial_stone_mist.png',
     id: 'y7ia9t',
-    // TODO Enabled Flash Caster and Throw Speed to benefit Vial Skills.
     description: `Creates a mysterious vapor cloud which lasts 10s and applies STONESKIN.
 
     STONESKIN reduces incoming damage by 25%, reduces Stagger by 1, greatly increases Blight Buildup Decay Rate, and makes the target immune to STATUS Effects. Lasts 15s.
@@ -615,7 +611,6 @@ export const remnantItems: Item[] = [
     name: 'Vial: Frenzy Dust',
     imagePath: '/skill/vial_frenzy_dust.png',
     id: 'xsniv3',
-    // TODO Enabled Flash Caster and Throw Speed to benefit Vial Skills.
     description: `Creates a mysterious vapor cloud which lasts 10s and applies FRENZIED.
 
     FRENZIED increases Fire Rate, Reload Speed, and Melee Speed by 20%, and Movement Speed by 15%. Lasts 15s.
@@ -638,7 +633,6 @@ export const remnantItems: Item[] = [
     name: 'Vial: Elixir of Life',
     imagePath: '/skill/vial_elixir_of_life.png',
     id: '76554i',
-    // TODO Enabled Flash Caster and Throw Speed to benefit Vial Skills.
     description: `Creates a mysterious vapor cloud that lasts 10s and applies LIVING WILL.
 
     LIVING WILL grants 5 Health Regeneration per second, and protects against fatal damage while active. Can revive downed players. Lasts 20s.
@@ -1007,7 +1001,6 @@ export const remnantItems: Item[] = [
     imagePath: '/skill/death_wish.png',
     id: 'ux5f9v',
     tags: ['All Damage', 'Lifesteal'],
-    // TODO Now respects Kinship trait again but does not get reduced by armor (as it once did)
     description: `Negates all healing to self. Drain Health 300% over 20s. Increases all Damage by 35% and grants 10% Base Damage dealt as Lifesteal.`,
     cooldown: 90,
     wikiLinks: [`https://remnant.wiki/Death_Wish`],
@@ -2718,8 +2711,6 @@ export const remnantItems: Item[] = [
     description: `On use, heals the user for 35% of caster's Max Health over 5s. Spawns 3 Healing Orbs which grant 35% of caster's Max Health over 5s. Orbs last 20s. Recasting removes previous Orbs`,
     wikiLinks: [`https://remnant.wiki/Blooming_Heart`],
   },
-  // TODO i believe we are gonna make it match (conceptually) what the other heart does w/ passive. but since this one is "broken",
-  // TODO the idea is that it will regen your health to 50% passively if you are below half... and degen your health to 50% if you are above half.
   {
     category: 'relic',
     name: 'Broken Heart',
@@ -2818,7 +2809,6 @@ export const remnantItems: Item[] = [
     imagePath: '/relic/reprocessed_heart.png',
     id: '06pxhy',
     tags: ['Grey Health'],
-    // TODO Can now generate Mod Power while a Mod is active
     description: `On use, converts 5 Health as Grey Health to 40 Mod Power per second for 25s for Both Weapons. Cannot die from conversion.`,
     wikiLinks: [`https://remnant.wiki/Reprocessed_Heart`],
   },
@@ -2862,7 +2852,6 @@ export const remnantItems: Item[] = [
     description: `On use, grants a SHIELD for 100% of Current Health. Lasts 20s or until SHIELD is removed by damage`,
     wikiLinks: [`https://remnant.wiki/Shielded_Heart`],
   },
-  // TODO Tragic indicated this will get some love
   {
     category: 'relic',
     name: 'Siphon Heart',
@@ -3924,8 +3913,6 @@ export const remnantItems: Item[] = [
     weakspot: 110,
     stagger: 0,
   },
-  // * Updated in patch
-  // TODO Primary Fire now refreshes any current Guardian Mark on hit while Mod is active
   {
     category: 'weapon',
     type: 'long gun',
@@ -3951,7 +3938,6 @@ export const remnantItems: Item[] = [
     weakspot: 100,
     stagger: 5,
   },
-  // TODO Tragic indicated this weapon may be affected by patch
   {
     category: 'weapon',
     type: 'long gun',
@@ -5479,7 +5465,6 @@ export const remnantItems: Item[] = [
     name: 'Explosive Shot',
     imagePath: '/mod/explosive_shot.png',
     id: 'hpfdzp',
-    // TODO IN-GAME check for explosive damage
     description: `Fires an explosive round [E] that deals up to 240 damage within 9m. [A] `,
     wikiLinks: [`https://remnant.wiki/Explosive_Shot`],
     linkedItems: {
@@ -5594,8 +5579,6 @@ export const remnantItems: Item[] = [
       },
     },
   },
-  // * Updated in patch
-  // TODO This description was wildly different than what is in game
   {
     category: 'mod',
     name: "Guardian's Call",
@@ -6214,7 +6197,6 @@ export const remnantItems: Item[] = [
     imagePath: '/mutator/feedback.png',
     id: '75qok3',
     tags: ['Mod Power', 'Mod Damage'],
-    // TODO Can now generate Mod Power while a Mod is active
     description: `Using this weapon's Mod generates 10-[20]% of single charge value as passive Mod Power over 10s. Does not stack.`,
     maxLevelBonus: `Mod Damage generates 10% of damage dealt as Mod Power.`,
     wikiLinks: [`https://remnant.wiki/Feedback`],
@@ -7056,7 +7038,6 @@ EXPOSED: Target receives up to 24% additional damage from all sources. Expose am
     description: `After 7s of not being damaged, increases all damage dealt by 15%. Increases to 25% if Health is full.`,
     wikiLinks: [`https://remnant.wiki/Necklace_of_Supremacy`],
   },
-  // TODO Tragic indicated he may juice this up a bit
   {
     category: 'amulet',
     name: 'Nightmare Spiral',
@@ -8898,7 +8879,6 @@ EXPOSED: Target receives up to 24% additional damage from all sources. Expose am
       },
     },
   },
-  // TODO Tragic indicated this may merge with Resonance
   {
     category: 'trait',
     name: 'Amplitude',
@@ -8948,7 +8928,6 @@ EXPOSED: Target receives up to 24% additional damage from all sources. Expose am
     maxLevelBonus: `At max level, Bloodstream Increases Grey Health regen by 3.0/s`,
     wikiLinks: [`https://remnant.wiki/Bloodstream`],
   },
-  // TODO Tragic indicated he was thinking of changing this
   {
     category: 'trait',
     name: 'Dark Pact',
@@ -9081,7 +9060,6 @@ EXPOSED: Target receives up to 24% additional damage from all sources. Expose am
       },
     },
   },
-  // TODO Tragic indicated this new trait is coming
   // {
   //   category: 'trait',
   //   name: 'Parasitic',
@@ -9131,7 +9109,6 @@ EXPOSED: Target receives up to 24% additional damage from all sources. Expose am
       },
     },
   },
-  // TODO Tragic indicated this may merge with Amplitude
   {
     category: 'trait',
     name: 'Resonance',
@@ -9218,7 +9195,6 @@ EXPOSED: Target receives up to 24% additional damage from all sources. Expose am
     },
     weightThresholds: [2, 3, 5, 6, 8, 9, 11, 12, 14, 15],
   },
-  // TODO Tragic indicated this may merge with Wayfarer
   {
     category: 'trait',
     name: 'Swiftness',
@@ -9275,7 +9251,6 @@ EXPOSED: Target receives up to 24% additional damage from all sources. Expose am
     wikiLinks: [`https://remnant.wiki/Vigor`],
     healthStep: 3,
   },
-  // TODO Tragic indicated this may merge with Swiftness
   {
     category: 'trait',
     name: 'Wayfarer',
@@ -10277,7 +10252,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     Using a Relic applies a random buff on the ALCHEMIST for 30s. Cannot be overridden.                 
 
     Upgrade unlocked at level 9
-    Using a Relic applies a random buff o the ALCHEMIST and allies within 20m for 60s. Cannot be overridden`, // TODO Tag based on all possible options for buffs
+    Using a Relic applies a random buff to the ALCHEMIST and allies within 20m for 60s. Cannot be overridden`,
     wikiLinks: [`https://remnant.wiki/Experimentalist`],
     linkedItems: {
       archetype: {
