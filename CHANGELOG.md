@@ -30,6 +30,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Made other improvements to the responsive flow of the Builder at other screen sizes, notably some tablets.
 - Updated the image of Cultist Hat to match in-game.
 - Updated the image of Bandit Jacket to match in-game.
+- Updated the image for Faelin.
+- Updated the image of Faerin.
 
 ## 2024-03-10
 
