@@ -32,6 +32,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Updated the image of Bandit Jacket to match in-game.
 - Updated the image for Faelin.
 - Updated the image of Faerin.
+- Fixed issue where multi-word item tags were not getting highlighted correctly.
 
 ## 2024-03-10
 

@@ -32,36 +32,30 @@ function createTagElement(
 }
 
 function parseStringForToken(input: string): (JSX.Element | string)[] | null {
-  const wordsAndSpaces = input.split(/(\s+)/)
+  const escapeRegExp = (string: string) =>
+    string.replace(/[.*+\-?^${}()|[\]\\]/g, '\\$&') // $& means the whole matched string
+  const regex = new RegExp(
+    `(${DESCRIPTION_TAGS.map((tag) => escapeRegExp(tag.token)).join('|')})`,
+    'g',
+  )
+
+  const wordsAndSpaces = input.split(regex)
 
   const result = wordsAndSpaces.flatMap((wordOrSpace, index) => {
     if (wordOrSpace.trim() === '') {
       // If it's a space, return it as is
       return wordOrSpace
     } else {
-      // If it's a word, check if it contains a tag.token
-      const tag = DESCRIPTION_TAGS.find((tag) =>
-        wordOrSpace.includes(tag.token),
+      // If it's a word, check if it's a tag.token
+      const tag = DESCRIPTION_TAGS.find(
+        (tag) => tag.token === wordOrSpace.trim(),
       )
       if (tag) {
-        const parts = wordOrSpace.split(tag.token)
-        return parts.flatMap((part, partIndex, array) => {
-          if (partIndex < array.length - 1) {
-            // If it's not the last part, append the token as a JSX element
-            const tagElement = createTagElement(
-              tag,
-              index,
-              partIndex,
-              tag.token,
-            )
-            return [part, tagElement]
-          } else {
-            // If it's the last part, return it as is
-            return part
-          }
-        })
+        // If it's a tag.token, return it as a JSX element
+        const tagElement = createTagElement(tag, index, 0, tag.token)
+        return tagElement
       } else {
-        // If it doesn't contain a tag.token, return it as is
+        // If it's not a tag.token, return it as is
         return wordOrSpace
       }
     }
