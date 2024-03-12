@@ -21,7 +21,7 @@ export const authOptions: NextAuthOptions = {
       })
       if (isBanned) return false
 
-      if (profile?.image_url) {
+      if (profile?.image_url && user.id) {
         // * Deliberately not awaiting because we don't want to delay sign in for
         // * the background image update
         prisma.user
@@ -55,7 +55,7 @@ export const authOptions: NextAuthOptions = {
           user as AdapterUser & { displayName: string }
         ).displayName
 
-        if (!session.user.displayName) {
+        if (!session.user.displayName && user.id) {
           await prisma.user.update({
             where: { id: user.id },
             data: { displayName: user.name || DEFAULT_DISPLAY_NAME },
