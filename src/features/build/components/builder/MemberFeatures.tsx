@@ -43,7 +43,7 @@ export function MemberFeatures({
         <div className="flex flex-col">
           {description && description.length > 0 && (
             <>
-              <h3 className="text-md text-primary-500 mb-2 font-bold">
+              <h3 className="text-md mb-2 font-bold text-primary-500">
                 Build Description
               </h3>
               <div
@@ -101,7 +101,7 @@ Watch the build in action: [insert Youtube link here]
       )}
 
       {isEditable && (
-        <div className="text-primary-500 mb-8 flex w-full flex-col items-start justify-start text-sm sm:flex-row">
+        <div className="mb-8 flex w-full flex-col items-start justify-start text-sm text-primary-500 sm:flex-row sm:items-center">
           <div className="mb-2 mr-4 w-[200px] sm:mb-0">
             Build Reference Link
           </div>
@@ -109,6 +109,7 @@ Watch the build in action: [insert Youtube link here]
             <Input
               value={buildLink ?? ''}
               onChange={(e) => onChangeBuildLink(e.target.value)}
+              placeholder="The link must be relevant to the build or it will be removed."
             />
           </div>
         </div>
@@ -117,7 +118,7 @@ Watch the build in action: [insert Youtube link here]
       {isScreenshotModeActive ? null : (
         <>
           {isEditable ? (
-            <div className="text-primary-500 flex flex-row items-center justify-start text-sm">
+            <div className="flex flex-row items-center justify-start text-sm text-primary-500">
               <div className="mr-4">Public Build</div>
               <div className="flex items-center justify-start">
                 <Toggle
@@ -127,7 +128,7 @@ Watch the build in action: [insert Youtube link here]
                 <a
                   href="https://github.com/joshpayette/remnant2-toolkit/blob/main/CODE_OF_CONDUCT.md"
                   target="_blank"
-                  className="text-secondary-500 ml-2 text-xs underline"
+                  className="ml-2 text-xs text-secondary-500 underline"
                 >
                   Code of Conduct
                 </a>
@@ -135,7 +136,7 @@ Watch the build in action: [insert Youtube link here]
             </div>
           ) : (
             <div className="flex flex-col">
-              <div className="text-md text-primary-500 my-2 font-bold">
+              <div className="text-md my-2 font-bold text-primary-500">
                 Build Visibility
               </div>
               <div className="text-md text-gray-200">
