@@ -16,9 +16,13 @@ import { DEFAULT_DISPLAY_NAME } from '@/features/profile/constants'
 export const authOptions: NextAuthOptions = {
   callbacks: {
     async signIn({ user, profile }) {
-      const isBanned = await prisma.bannedUsers.findFirst({
-        where: { userId: user.id },
-      })
+      const isBanned = await prisma.bannedUsers
+        .findFirst({
+          where: { userId: user.id },
+        })
+        .catch((e) => {
+          console.error(`${e.message} - User ID: ${user.id}`)
+        })
       if (isBanned) return false
 
       if (profile?.image_url && user.id) {
@@ -30,7 +34,7 @@ export const authOptions: NextAuthOptions = {
             data: { image: profile.image_url },
           })
           .catch((e) => {
-            console.error(`${e.message} - ${user.id}`)
+            console.error(`${e.message} - User ID: ${user.id}`)
             return true
           })
       }
@@ -40,9 +44,13 @@ export const authOptions: NextAuthOptions = {
 
     async session({ session, user }) {
       if (session.user) {
-        const isBanned = await prisma.bannedUsers.findFirst({
-          where: { userId: user.id },
-        })
+        const isBanned = await prisma.bannedUsers
+          .findFirst({
+            where: { userId: user.id },
+          })
+          .catch((e) => {
+            console.error(`${e.message} - User ID: ${user.id}`)
+          })
         if (isBanned) {
           console.error(`User ${user.id} is banned`)
           redirect('/api/auth/signout')
@@ -56,10 +64,14 @@ export const authOptions: NextAuthOptions = {
         ).displayName
 
         if (!session.user.displayName && user.id) {
-          await prisma.user.update({
-            where: { id: user.id },
-            data: { displayName: user.name || DEFAULT_DISPLAY_NAME },
-          })
+          await prisma.user
+            .update({
+              where: { id: user.id },
+              data: { displayName: user.name || DEFAULT_DISPLAY_NAME },
+            })
+            .catch((e) => {
+              console.error(`${e.message} - User ID: ${user.id}`)
+            })
         }
       }
       return session
