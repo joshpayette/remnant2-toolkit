@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Fixed
 
 - Fixed Brewmaster's Cork not giving the correct number of concoction slots. Broke this when I fixed the item name yesterday!
+- Fixed issue where Vash export URL wasn't working if melee weapon was missing. I don't want to talk about it.
 
 ## 2024-03-11
 

@@ -14,7 +14,7 @@ import { TraitItem } from '@/features/items/types/TraitItem'
 import { WeaponItem } from '@/features/items/types/WeaponItem'
 
 import { INITIAL_BUILD_STATE } from '../constants'
-import { BuildState, ItemCategory } from '../types'
+import { BuildState } from '../types'
 
 export function vashUrlToBuild(searchParams: URLSearchParams): BuildState {
   const buildState = INITIAL_BUILD_STATE
@@ -165,6 +165,7 @@ export function vashUrlToBuild(searchParams: URLSearchParams): BuildState {
 
   // melee weapon
   const meleeWeaponString = searchParams.get('melee')
+  console.info('meleeWeaponString', meleeWeaponString)
   if (meleeWeaponString) {
     const meleeWeapon = meleeWeaponString.split(',')
 
@@ -203,166 +204,169 @@ export function vashUrlToBuild(searchParams: URLSearchParams): BuildState {
         buildState.items.mod[1] = meleeWeaponMod as ModItem
       }
     }
+  }
 
-    // pistol weapon
-    const pistolWeaponString = searchParams.get('secondary')
-    if (pistolWeaponString) {
-      const pistolWeapon = pistolWeaponString.split(',')
+  // pistol weapon
+  const pistolWeaponString = searchParams.get('secondary')
+  console.info('pistolWeaponString', pistolWeaponString)
+  if (pistolWeaponString) {
+    const pistolWeapon = pistolWeaponString.split(',')
 
-      if (pistolWeapon[0]) {
-        const pistolWeaponItem = remnantItems.find(
-          (item) =>
-            item.name.toLowerCase() ===
-              pistolWeapon[0].replace('+', ' ').toLowerCase() &&
-            WeaponItem.isWeaponItem(item),
-        )
-        if (pistolWeaponItem) {
-          buildState.items.weapon[2] = pistolWeaponItem as WeaponItem
-        }
-      }
-
-      if (pistolWeapon[1]) {
-        const pistolWeaponMutator = remnantItems.find(
-          (item) =>
-            item.name.toLowerCase() ===
-              pistolWeapon[1].replace('+', ' ').toLowerCase() &&
-            MutatorItem.isMutatorItem(item),
-        )
-        if (pistolWeaponMutator) {
-          buildState.items.mutator[2] = pistolWeaponMutator as MutatorItem
-        }
-      }
-
-      if (pistolWeapon[2]) {
-        const pistolWeaponMod = remnantItems.find(
-          (item) =>
-            item.name.toLowerCase() ===
-              pistolWeapon[2].replace('+', ' ').toLowerCase() &&
-            ModItem.isModItem(item),
-        )
-        if (pistolWeaponMod) {
-          buildState.items.mod[2] = pistolWeaponMod as ModItem
-        }
+    if (pistolWeapon[0]) {
+      const pistolWeaponItem = remnantItems.find(
+        (item) =>
+          item.name.toLowerCase() ===
+            pistolWeapon[0].replace('+', ' ').toLowerCase() &&
+          WeaponItem.isWeaponItem(item),
+      )
+      if (pistolWeaponItem) {
+        buildState.items.weapon[2] = pistolWeaponItem as WeaponItem
       }
     }
 
-    // accessories
-    const accessoryString = searchParams.get('accessory')
-    if (accessoryString) {
-      const accessories = accessoryString.split(',')
-
-      if (accessories[0]) {
-        const amulet = remnantItems.find(
-          (item) =>
-            item.name.toLowerCase() ===
-              accessories[0].replace('+', ' ').toLowerCase() &&
-            AmuletItem.isAmuletItem(item),
-        )
-        if (amulet) {
-          buildState.items.amulet = amulet as AmuletItem
-        }
-      }
-
-      if (accessories[1]) {
-        const ring = remnantItems.find(
-          (item) =>
-            item.name.toLowerCase() ===
-              accessories[1].replace('+', ' ').toLowerCase() &&
-            RingItem.isRingItem(item),
-        )
-        if (ring) {
-          buildState.items.ring[0] = ring as RingItem
-        }
-      }
-
-      if (accessories[2]) {
-        const ring = remnantItems.find(
-          (item) =>
-            item.name.toLowerCase() ===
-              accessories[2].replace('+', ' ').toLowerCase() &&
-            RingItem.isRingItem(item),
-        )
-        if (ring) {
-          buildState.items.ring[1] = ring as RingItem
-        }
-      }
-
-      if (accessories[3]) {
-        const ring = remnantItems.find(
-          (item) =>
-            item.name.toLowerCase() ===
-              accessories[3].replace('+', ' ').toLowerCase() &&
-            RingItem.isRingItem(item),
-        )
-        if (ring) {
-          buildState.items.ring[2] = ring as RingItem
-        }
-      }
-
-      if (accessories[4]) {
-        const ring = remnantItems.find(
-          (item) =>
-            item.name.toLowerCase() ===
-              accessories[4].replace('+', ' ').toLowerCase() &&
-            RingItem.isRingItem(item),
-        )
-        if (ring) {
-          buildState.items.ring[3] = ring as RingItem
-        }
+    if (pistolWeapon[1]) {
+      const pistolWeaponMutator = remnantItems.find(
+        (item) =>
+          item.name.toLowerCase() ===
+            pistolWeapon[1].replace('+', ' ').toLowerCase() &&
+          MutatorItem.isMutatorItem(item),
+      )
+      if (pistolWeaponMutator) {
+        buildState.items.mutator[2] = pistolWeaponMutator as MutatorItem
       }
     }
 
-    // relic and relic fragments
-    const relicString = searchParams.get('relic')
-    if (relicString) {
-      const relics = relicString.split(',')
-
-      if (relics[0]) {
-        const relic = remnantItems.find(
-          (item) =>
-            item.name.toLowerCase() ===
-              relics[0].replace('+', ' ').toLowerCase() &&
-            RelicItem.isRelicItem(item),
-        )
-        if (relic) {
-          buildState.items.relic = relic as RelicItem
-        }
+    if (pistolWeapon[2]) {
+      const pistolWeaponMod = remnantItems.find(
+        (item) =>
+          item.name.toLowerCase() ===
+            pistolWeapon[2].replace('+', ' ').toLowerCase() &&
+          ModItem.isModItem(item),
+      )
+      if (pistolWeaponMod) {
+        buildState.items.mod[2] = pistolWeaponMod as ModItem
       }
+    }
+  }
 
-      if (relics[1]) {
-        const relicFragment = remnantItems.find(
-          (item) =>
-            item.name.toLowerCase() ===
-              relics[1].replace('+', ' ').toLowerCase() &&
-            RelicFragmentItem.isRelicFragmentItem(item),
-        )
-        if (relicFragment) {
-          buildState.items.relicfragment[0] = relicFragment as RelicFragmentItem
-        }
+  console.info('checking accessories!')
+
+  // accessories
+  const accessoryString = searchParams.get('accessory')
+  if (accessoryString) {
+    const accessories = accessoryString.split(',')
+
+    if (accessories[0]) {
+      const amulet = remnantItems.find(
+        (item) =>
+          item.name.toLowerCase() ===
+            accessories[0].replace('+', ' ').toLowerCase() &&
+          AmuletItem.isAmuletItem(item),
+      )
+      if (amulet) {
+        buildState.items.amulet = amulet as AmuletItem
       }
+    }
 
-      if (relics[2]) {
-        const relicFragment = remnantItems.find(
-          (item) =>
-            item.name.toLowerCase() ===
-              relics[2].replace('+', ' ').toLowerCase() &&
-            RelicFragmentItem.isRelicFragmentItem(item),
-        )
-        if (relicFragment) {
-          buildState.items.relicfragment[1] = relicFragment as RelicFragmentItem
-        }
+    if (accessories[1]) {
+      const ring = remnantItems.find(
+        (item) =>
+          item.name.toLowerCase() ===
+            accessories[1].replace('+', ' ').toLowerCase() &&
+          RingItem.isRingItem(item),
+      )
+      if (ring) {
+        buildState.items.ring[0] = ring as RingItem
       }
+    }
 
-      if (relics[3]) {
-        const relicFragment = remnantItems.find(
-          (item) =>
-            item.name.toLowerCase() ===
-              relics[3].replace('+', ' ').toLowerCase() &&
-            RelicFragmentItem.isRelicFragmentItem(item),
-        )
-        if (relicFragment) {
-          buildState.items.relicfragment[2] = relicFragment as RelicFragmentItem
-        }
+    if (accessories[2]) {
+      const ring = remnantItems.find(
+        (item) =>
+          item.name.toLowerCase() ===
+            accessories[2].replace('+', ' ').toLowerCase() &&
+          RingItem.isRingItem(item),
+      )
+      if (ring) {
+        buildState.items.ring[1] = ring as RingItem
+      }
+    }
+
+    if (accessories[3]) {
+      const ring = remnantItems.find(
+        (item) =>
+          item.name.toLowerCase() ===
+            accessories[3].replace('+', ' ').toLowerCase() &&
+          RingItem.isRingItem(item),
+      )
+      if (ring) {
+        buildState.items.ring[2] = ring as RingItem
+      }
+    }
+
+    if (accessories[4]) {
+      const ring = remnantItems.find(
+        (item) =>
+          item.name.toLowerCase() ===
+            accessories[4].replace('+', ' ').toLowerCase() &&
+          RingItem.isRingItem(item),
+      )
+      if (ring) {
+        buildState.items.ring[3] = ring as RingItem
+      }
+    }
+  }
+
+  // relic and relic fragments
+  const relicString = searchParams.get('relic')
+  if (relicString) {
+    const relics = relicString.split(',')
+
+    if (relics[0]) {
+      const relic = remnantItems.find(
+        (item) =>
+          item.name.toLowerCase() ===
+            relics[0].replace('+', ' ').toLowerCase() &&
+          RelicItem.isRelicItem(item),
+      )
+      if (relic) {
+        buildState.items.relic = relic as RelicItem
+      }
+    }
+
+    if (relics[1]) {
+      const relicFragment = remnantItems.find(
+        (item) =>
+          item.name.toLowerCase() ===
+            relics[1].replace('+', ' ').toLowerCase() &&
+          RelicFragmentItem.isRelicFragmentItem(item),
+      )
+      if (relicFragment) {
+        buildState.items.relicfragment[0] = relicFragment as RelicFragmentItem
+      }
+    }
+
+    if (relics[2]) {
+      const relicFragment = remnantItems.find(
+        (item) =>
+          item.name.toLowerCase() ===
+            relics[2].replace('+', ' ').toLowerCase() &&
+          RelicFragmentItem.isRelicFragmentItem(item),
+      )
+      if (relicFragment) {
+        buildState.items.relicfragment[1] = relicFragment as RelicFragmentItem
+      }
+    }
+
+    if (relics[3]) {
+      const relicFragment = remnantItems.find(
+        (item) =>
+          item.name.toLowerCase() ===
+            relics[3].replace('+', ' ').toLowerCase() &&
+          RelicFragmentItem.isRelicFragmentItem(item),
+      )
+      if (relicFragment) {
+        buildState.items.relicfragment[2] = relicFragment as RelicFragmentItem
       }
     }
   }
