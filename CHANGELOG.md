@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-03-12
+
+### Fixed
+
+- Fixed Brewmaster's Cork not giving the correct number of concoction slots. Broke this when I fixed the item name yesterday!
+
 ## 2024-03-11
 
 ### Added
