@@ -9,11 +9,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Added
 
 - Prime Perk is now displayed on the builder for the selected archetypes.
+- Added new multiplicative damage `[MD]` token to the item tags.
 
 ### Changed
 
 - Added placeholder text to Build Reference Link.
 - Build stats, specifically resistances, now in a 2-column layout to fix an overlap issue between the relic fragments and the Vash export button.
+- Archetype filters on various community build list pages have been reworked. They will now exclude archetypes that are not selected, enabling further drilling down into finding builds only containing archetypes you are interested in using, and exclude all others.
 
 ### Fixed
 
