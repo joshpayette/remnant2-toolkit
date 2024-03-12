@@ -6821,7 +6821,7 @@ EXPOSED: Target receives up to 24% additional damage from all sources. Expose am
     imagePath: '/amulet/full_moon_circlet.png',
     id: '8xn7hh',
     tags: ['Lifesteal'],
-    description: `Ranged damage gives Lifesteal as 3% of base damage dealt. At full health, damage is increased by 20%.`,
+    description: `Ranged damage Lifesteals 3% of base damage dealt. At full health, Ranged damage is increased by 20%.`,
     wikiLinks: [`https://remnant.wiki/Full_Moon_Circlet`],
   },
   {

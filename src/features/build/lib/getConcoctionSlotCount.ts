@@ -23,7 +23,7 @@ export function getConcoctionSlotCount(buildState: BuildState): number {
 
   // Add 2 concoctionc if they are wearing Brewmasters Cork
   const hasBrewmastersCork =
-    buildState.items.amulet?.name === 'Brewmasters Cork'
+    buildState.items.amulet?.name === "Brewmaster's Cork"
 
   if (hasBrewmastersCork) concoctionCount += 2
 
