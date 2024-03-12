@@ -357,7 +357,7 @@ export const DESCRIPTION_TAGS = [
   },
   {
     type: 'Status Effect',
-    token: 'STATUS EFFECT',
+    token: 'Status Effect',
     color: 'text-[#890d0d]',
     description: 'Bleeding, Burning, Corroded, Overloaded.',
   },
