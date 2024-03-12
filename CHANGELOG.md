@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2024-03-12
 
+### Added
+
+- Prime Perk is now displayed on the builder for the selected archetypes.
+
 ### Changed
 
 - Added placeholder text to Build Reference Link.

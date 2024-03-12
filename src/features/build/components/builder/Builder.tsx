@@ -1,4 +1,5 @@
 import { StarIcon } from '@heroicons/react/24/solid'
+import Image from 'next/image'
 import Link from 'next/link'
 import { Fragment, useCallback, useMemo, useState } from 'react'
 
@@ -12,6 +13,7 @@ import { isBuildNew } from '@/features/build/lib/isBuildNew'
 import { BuildState, ItemCategory } from '@/features/build/types'
 import { ItemButton } from '@/features/items/components/ItemButton'
 import { ItemInfoDialog } from '@/features/items/components/ItemInfoDialog'
+import { remnantItems } from '@/features/items/data/remnantItems'
 import { Archetype, Item } from '@/features/items/types'
 import { TraitItem } from '@/features/items/types/TraitItem'
 import { Logo } from '@/features/ui/Logo'
@@ -308,6 +310,10 @@ export function Builder({
     onUpdateBuildState({ category: 'trait', value: newTraitItemParams })
   }
 
+  const primePerkName =
+    buildState.items.archetype[0]?.linkedItems?.perks?.[0].name
+  const primePerk = remnantItems.find((i) => i.name === primePerkName)
+
   return (
     <>
       <ItemSelect
@@ -451,12 +457,18 @@ export function Builder({
             <div
               id="archetype-container"
               className={cn(
-                'flex flex-row flex-wrap items-start justify-between gap-1 sm:justify-center',
-                isScreenshotMode && 'justify-center gap-2',
+                'flex flex-row flex-wrap items-start justify-center gap-1',
               )}
             >
               {getArrayOfLength(2).map((archetypeIndex) => (
-                <Fragment key={`archetype-${archetypeIndex}`}>
+                <div
+                  key={`archetype-${archetypeIndex}`}
+                  className={cn(
+                    'flex flex-row gap-1',
+                    archetypeIndex === 0 ? 'sm:order-1' : 'sm:order-3',
+                    isScreenshotMode && archetypeIndex === 1 && 'order-3',
+                  )}
+                >
                   <ItemButton
                     item={buildState.items.archetype[archetypeIndex]}
                     manualWordBreaks={true}
@@ -479,8 +491,24 @@ export function Builder({
                     tooltipDisabled={itemInfoOpen}
                     unoptimized={isScreenshotMode}
                   />
-                </Fragment>
+                </div>
               ))}
+              {primePerk && (
+                <div
+                  className={cn('sm:order-2', isScreenshotMode && 'order-2')}
+                >
+                  <ItemButton
+                    item={primePerk}
+                    isEditable={isEditable}
+                    onClick={undefined}
+                    onItemInfoClick={handleShowInfo}
+                    isScreenshotMode={isScreenshotMode}
+                    manualWordBreaks={true}
+                    tooltipDisabled={itemInfoOpen}
+                    unoptimized={isScreenshotMode}
+                  />
+                </div>
+              )}
             </div>
             <div
               id="build-items-container"
@@ -488,10 +516,7 @@ export function Builder({
                 'relative flex w-full items-start justify-between gap-4',
               )}
             >
-              <div
-                id="left-column"
-                className={cn('flex-none', isScreenshotMode && 'mt-[-75px]')}
-              >
+              <div id="left-column" className={cn('flex-none')}>
                 <ItemButton
                   item={buildState.items.helm}
                   isEditable={isEditable}
@@ -595,10 +620,7 @@ export function Builder({
                   isScreenshotMode={isScreenshotMode}
                 />
               </div>
-              <div
-                id="right-column"
-                className={cn('flex-none', isScreenshotMode && 'mt-[-75px]')}
-              >
+              <div id="right-column" className={cn('flex-none')}>
                 <ItemButton
                   item={buildState.items.amulet}
                   isEditable={isEditable}
