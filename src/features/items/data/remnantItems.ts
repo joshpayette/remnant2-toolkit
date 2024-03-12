@@ -5132,7 +5132,7 @@ export const remnantItems: Item[] = [
     name: 'Banish',
     imagePath: '/mod/banish.png',
     id: 'k7z7r2',
-    description: `Banishes enemies or allies into another dimension for 4s. When Banish ends, enemies take 1.25x the damage [M] from the Repulsor's primary fire for 8s. Powerful enemies won't be banished, but will take increased damage from any Repulsor while debuffed.`,
+    description: `Banishes enemies or allies into another dimension for 4s. When Banish ends, enemies take 1.25x the damage [MD] from the Repulsor's primary fire for 8s. Powerful enemies won't be banished, but will take increased damage from any Repulsor while debuffed.`,
     wikiLinks: [`https://remnant.wiki/Banish`],
     linkedItems: {
       weapon: {
@@ -7310,7 +7310,7 @@ EXPOSED: Target receives up to 24% additional damage from all sources. Expose am
     imagePath: '/ring/ahanae_crystal.png',
     id: 'azy0pj',
     tags: ['All Damage', 'Status Effect', 'Hardcore'],
-    description: `Deal 5% [M] additional damage for each Status Effect the target is suffering from.`,
+    description: `Deal 5% [MD] additional damage for each Status Effect the target is suffering from.`,
     wikiLinks: [`https://remnant.wiki/Ahanae_Crystal`],
   },
   {
@@ -8576,7 +8576,7 @@ EXPOSED: Target receives up to 24% additional damage from all sources. Expose am
     imagePath: '/ring/singed_ring.png',
     id: 'cpxk1d',
     tags: ['All Damage'],
-    description: `Increases all damage dealt to BURNING enemies by 10% [M].`,
+    description: `Increases all damage dealt to BURNING enemies by 10% [MD].`,
     wikiLinks: [`https://remnant.wiki/Singed_Ring`],
   },
   {
