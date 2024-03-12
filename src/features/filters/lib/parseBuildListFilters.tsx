@@ -27,7 +27,9 @@ export function parseBuildListFilters(
     const allArchetypes: Archetype[] = remnantItems
       .filter((item) => item.category === 'archetype')
       .map((item) => item.name.toLowerCase() as Archetype)
+
     const archetypesArray = archetypes.split(',')
+
     archetypesArray.forEach((archetype) => {
       if (!allArchetypes.includes(archetype as Archetype)) {
         archetypes = DEFAULT_BUILD_LIST_FILTERS['archetypes'].join(',')
@@ -99,14 +101,18 @@ export function parseBuildListFilters(
   }
 
   return {
-    archetypes: archetypes ? (archetypes.split(',') as Archetype[]) : [],
+    archetypes: archetypes
+      ? (archetypes.split(',') as Archetype[])
+      : DEFAULT_BUILD_LIST_FILTERS['archetypes'],
     longGun: longGun || DEFAULT_BUILD_LIST_FILTERS['longGun'],
     handGun: handGun || DEFAULT_BUILD_LIST_FILTERS['handGun'],
     melee: melee || DEFAULT_BUILD_LIST_FILTERS['melee'],
     ring: ring || DEFAULT_BUILD_LIST_FILTERS['ring'],
     amulet: amulet || DEFAULT_BUILD_LIST_FILTERS['amulet'],
     searchText: searchText || DEFAULT_BUILD_LIST_FILTERS['searchText'],
-    selectedReleases: releases ? (releases.split(',') as ReleaseKey[]) : [],
+    selectedReleases: releases
+      ? (releases.split(',') as ReleaseKey[])
+      : DEFAULT_BUILD_LIST_FILTERS['selectedReleases'],
     includePatchAffectedBuilds: Boolean(includePatchAffectedBuilds),
   } satisfies BuildListFilterFields
 }
