@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Changed
 
 - Added placeholder text to Build Reference Link.
+- Build stats, specifically resistances, now in a 2-column layout to fix an overlap issue between the relic fragments and the Vash export button.
 
 ### Fixed
 

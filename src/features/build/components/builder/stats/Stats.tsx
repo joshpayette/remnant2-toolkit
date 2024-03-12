@@ -132,119 +132,123 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
                 </Tooltip>
               </span>
             </div>
-            <div className="relative grid w-full grid-cols-2 gap-2 border border-transparent border-b-primary-500 text-left text-sm text-gray-300">
-              <Image
-                src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/status/bleed_resistance.png`}
-                alt="Bleed Resistance"
-                width={32}
-                height={32}
-                className={cn('my-1 h-6 w-6')}
-                loading="eager"
-                unoptimized={isScreenshotMode}
-              />
-              <span
-                className={cn(
-                  'text-md flex items-center justify-end text-right font-bold sm:text-lg',
-                  isScreenshotMode && 'text-lg',
-                )}
-              >
-                {totalBleedResistance}
-              </span>
-            </div>
-            <p className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-primary-500 text-left text-sm text-gray-300">
-              <Image
-                src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/status/fire_resistance.png`}
-                alt="Fire Resistance"
-                width={32}
-                height={32}
-                className={cn('my-1 h-6 w-6')}
-                loading="eager"
-                unoptimized={isScreenshotMode}
-              />
-              <span
-                className={cn(
-                  'text-md flex items-center justify-end text-right font-bold sm:text-lg',
-                  isScreenshotMode && 'text-lg',
-                )}
-              >
-                {totalFireResistance}
-              </span>
-            </p>
-            <p className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-primary-500 text-left text-sm text-gray-300">
-              <Image
-                src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/status/shock_resistance.png`}
-                alt="Shock Resistance"
-                width={32}
-                height={32}
-                className={cn('my-1 h-6 w-6')}
-                loading="eager"
-                unoptimized={isScreenshotMode}
-              />
-              <span
-                className={cn(
-                  'text-md flex items-center justify-end text-right font-bold sm:text-lg',
-                  isScreenshotMode && 'text-lg',
-                )}
-              >
-                {totalShockResistance}
-              </span>
-            </p>
-            <p className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-primary-500 text-left text-sm text-gray-300">
-              <Image
-                src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/status/toxin_resistance.png`}
-                alt="Toxin Resistance"
-                width={32}
-                height={32}
-                className={cn('my-1 h-6 w-6')}
-                loading="eager"
-                unoptimized={isScreenshotMode}
-              />
-              <span
-                className={cn(
-                  'text-md flex items-center justify-end text-right font-bold sm:text-lg',
-                  isScreenshotMode && 'text-lg',
-                )}
-              >
-                {totalToxinResistance}
-              </span>
-            </p>
-            <p className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-primary-500 text-left text-sm text-gray-300">
-              <Image
-                src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/status/blight_resistance.png`}
-                alt="Blight Resistance"
-                width={32}
-                height={32}
-                className={cn('my-1 h-6 w-6')}
-                loading="eager"
-                unoptimized={isScreenshotMode}
-              />
-              <span
-                className={cn(
-                  'text-md flex items-center justify-end text-right font-bold sm:text-lg',
-                  isScreenshotMode && 'text-lg',
-                )}
-              >
-                {totalBlightResistance}
-              </span>
-            </p>
-            <div className="z-0 mt-2 flex w-full items-center justify-center">
-              <a
-                href={buildToVashUrl(buildState)}
-                target="_blank"
-                className="flex items-center justify-center rounded-lg border border-gray-500 bg-gray-800 p-2 text-xs text-white hover:bg-gray-700"
-              >
-                Export to Loadout Calculator
+            <div className="grid w-full grid-cols-2 gap-x-2">
+              <div className="relative grid w-full grid-cols-2 gap-2 border border-transparent border-b-primary-500 text-left text-sm text-gray-300">
                 <Image
-                  src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/cowaii.webp`}
-                  alt="Vash Cowaii's Loadout Calculator"
-                  width={20}
-                  height={20}
-                  className="ml-1 h-5 w-5"
+                  src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/status/bleed_resistance.png`}
+                  alt="Bleed Resistance"
+                  width={32}
+                  height={32}
+                  className={cn('my-1 h-6 w-6')}
                   loading="eager"
                   unoptimized={isScreenshotMode}
                 />
-              </a>
+                <span
+                  className={cn(
+                    'text-md flex items-center justify-end text-right font-bold sm:text-lg',
+                    isScreenshotMode && 'text-lg',
+                  )}
+                >
+                  {totalBleedResistance}
+                </span>
+              </div>
+              <div className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-primary-500 text-left text-sm text-gray-300">
+                <Image
+                  src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/status/fire_resistance.png`}
+                  alt="Fire Resistance"
+                  width={32}
+                  height={32}
+                  className={cn('my-1 h-6 w-6')}
+                  loading="eager"
+                  unoptimized={isScreenshotMode}
+                />
+                <span
+                  className={cn(
+                    'text-md flex items-center justify-end text-right font-bold sm:text-lg',
+                    isScreenshotMode && 'text-lg',
+                  )}
+                >
+                  {totalFireResistance}
+                </span>
+              </div>
+              <div className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-primary-500 text-left text-sm text-gray-300">
+                <Image
+                  src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/status/shock_resistance.png`}
+                  alt="Shock Resistance"
+                  width={32}
+                  height={32}
+                  className={cn('my-1 h-6 w-6')}
+                  loading="eager"
+                  unoptimized={isScreenshotMode}
+                />
+                <span
+                  className={cn(
+                    'text-md flex items-center justify-end text-right font-bold sm:text-lg',
+                    isScreenshotMode && 'text-lg',
+                  )}
+                >
+                  {totalShockResistance}
+                </span>
+              </div>
+              <div className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-primary-500 text-left text-sm text-gray-300">
+                <Image
+                  src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/status/toxin_resistance.png`}
+                  alt="Toxin Resistance"
+                  width={32}
+                  height={32}
+                  className={cn('my-1 h-6 w-6')}
+                  loading="eager"
+                  unoptimized={isScreenshotMode}
+                />
+                <span
+                  className={cn(
+                    'text-md flex items-center justify-end text-right font-bold sm:text-lg',
+                    isScreenshotMode && 'text-lg',
+                  )}
+                >
+                  {totalToxinResistance}
+                </span>
+              </div>
+              <div className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-primary-500 text-left text-sm text-gray-300">
+                <Image
+                  src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/status/blight_resistance.png`}
+                  alt="Blight Resistance"
+                  width={32}
+                  height={32}
+                  className={cn('my-1 h-6 w-6')}
+                  loading="eager"
+                  unoptimized={isScreenshotMode}
+                />
+                <span
+                  className={cn(
+                    'text-md flex items-center justify-end text-right font-bold sm:text-lg',
+                    isScreenshotMode && 'text-lg',
+                  )}
+                >
+                  {totalBlightResistance}
+                </span>
+              </div>
             </div>
+            {!isScreenshotMode && (
+              <div className="z-0 mt-2 flex w-full items-center justify-center">
+                <a
+                  href={buildToVashUrl(buildState)}
+                  target="_blank"
+                  className="flex items-center justify-center rounded-lg border border-gray-500 bg-gray-800 p-2 text-xs text-white hover:bg-gray-700"
+                >
+                  Export to Loadout Calculator
+                  <Image
+                    src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/cowaii.webp`}
+                    alt="Vash Cowaii's Loadout Calculator"
+                    width={20}
+                    height={20}
+                    className="ml-1 h-5 w-5"
+                    loading="eager"
+                    unoptimized={isScreenshotMode}
+                  />
+                </a>
+              </div>
+            )}
           </div>
         </div>
       </div>
