@@ -302,7 +302,8 @@ export const DESCRIPTION_TAGS = [
     type: 'Multiplicative Debuffs',
     token: '[MD]',
     color: 'text-orange-500',
-    description: 'Counts as a debuff making it multiplicative with other sources of damage.',
+    description:
+      'Counts as a debuff making it multiplicative with other sources of damage.',
   },
   {
     type: 'Overloaded',
@@ -365,8 +366,7 @@ export const DESCRIPTION_TAGS = [
     type: 'Status Effect',
     token: 'Status Effect',
     color: 'text-[#3179de]',
-    description: `Elemental: Burning, Corroded, Overloaded.
-    Physical: Bleeding.`,
+    description: `Elemental: Burning, Corroded, Overloaded. Physical: Bleeding.`,
   },
 ] as const satisfies {
   type: string
