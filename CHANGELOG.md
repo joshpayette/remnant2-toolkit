@@ -28,6 +28,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Added logic to better handle item names that slightly exceed the width of the item labels. Will be applying this to items that qualify as they come up.
 - Improved Builder layout for mobile devices. Guns no longer require a horizontal scroll, and will instead wrap.
 - Made other improvements to the responsive flow of the Builder at other screen sizes, notably some tablets.
+- Updated the image of Cultist Hat to match in-game.
+- Updated the image of Bandit Jacket to match in-game.
 
 ## 2024-03-10
 
