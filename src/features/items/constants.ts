@@ -299,6 +299,12 @@ export const DESCRIPTION_TAGS = [
     description: 'Damage is multiplicative with other sources of damage.',
   },
   {
+    type: 'Multiplicative Debuffs',
+    token: '[MD]',
+    color: 'text-orange-500',
+    description: 'Counts a debuff making it multiplicative with other sources of damage.',
+  },
+  {
     type: 'Overloaded',
     token: 'OVERLOADED',
     color: 'text-[#7676af]',
