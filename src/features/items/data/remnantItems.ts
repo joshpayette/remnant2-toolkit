@@ -2925,7 +2925,7 @@ export const remnantItems: Item[] = [
     name: 'Blight Resistance',
     imagePath: '/relicfragment/blight_resistance.png',
     id: '8q8xe3',
-    tags: ['Damage Reduction'],
+    tags: ['Armor Increase', 'Damage Reduction'],
     description: `+X% Blight Resistance (Mythic: Maximum of +30%)`,
     wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
@@ -5465,7 +5465,7 @@ export const remnantItems: Item[] = [
     name: 'Explosive Shot',
     imagePath: '/mod/explosive_shot.png',
     id: 'hpfdzp',
-    description: `Fires an explosive round [E] that deals up to 240 damage within 9m. [A] `,
+    description: `Fires an explosive round [E] that deals up to 465 FIRE damage within 9m and applies BURNING, dealing 300 FIRE damage over 5s. [A]`,
     wikiLinks: [`https://remnant.wiki/Explosive_Shot`],
     linkedItems: {
       weapon: {
@@ -5665,7 +5665,7 @@ export const remnantItems: Item[] = [
     dlc: 'dlc1',
     id: 'e4n1w4',
     description: `Summons Knight Guard to aid in combat. The Guards hurl penetrating slashes at a random enemy dealing 15 damage. The Guards will melee enemies if close enough for 15 damage. Lasts 20s`,
-    wikiLinks: [`https://remnant.wiki/Kight_Guard`],
+    wikiLinks: [`https://remnant.wiki/Knight_Guard`],
   },
   {
     category: 'mod',
@@ -6977,7 +6977,7 @@ EXPOSED: Target receives up to 24% additional damage from all sources. Expose am
     imagePath: '/amulet/legacy_protocol.png',
     id: 'a7axvo',
     tags: ['Reduce Skill Cooldown', 'Skill Duration'],
-    description: `Lowers skill cooldown by 30% and increased skill duration by 25%`,
+    description: `Lowers skill cooldown by 20% and increases skill duration by 25%`,
     wikiLinks: [`https://remnant.wiki/Legacy_Protocol`],
   },
   {
@@ -8999,7 +8999,7 @@ EXPOSED: Target receives up to 24% additional damage from all sources. Expose am
     name: 'Fortify',
     imagePath: '/trait/fortify.png',
     id: 'osj7se',
-    tags: ['Damage Reduction'],
+    tags: ['Armor Increase', 'Damage Reduction'],
     description: `Increases Armor Effectiveness`,
     maxLevelBonus: `At max level, Fortify Increases Armor Effectiveness by 50%`,
     wikiLinks: [`https://remnant.wiki/Fortify`],
@@ -9266,7 +9266,7 @@ EXPOSED: Target receives up to 24% additional damage from all sources. Expose am
     name: 'Bark Extract',
     imagePath: '/concoction/bark_extract.png',
     id: 'hqjxyn',
-    tags: ['Damage Reduction'],
+    tags: ['Armor Increase', 'Damage Reduction'],
     description: `Increases Armor by 30. Lasts 60m and will stay in effect after death. Only one Concoction may be active at a time.`,
     wikiLinks: [`https://remnant.wiki/Bark_Extract`],
     armor: 30,
@@ -10049,8 +10049,6 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
       },
     },
   },
-  // * Updated in patch
-  // * Confirmed with wiki
   {
     category: 'perk',
     name: 'Die Hard',
@@ -10060,7 +10058,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     tags: ['Heal'],
     description: `
     When receiving fatal damage, the CHALLENGER becomes invulnerable for 3s and regenerates 50% of Max Health.
-    
+      While on cooldown, the Challenger gains 1 Stack of BULWARK. Can only happen once every 10 minutes. Resets at Wordstone or on death.
 
     Upgraded at Level 5
     When receiving fatal damage, the CHALLENGER becomes invulnerable for 2.5s and regenerates 75% of Max Health.
@@ -10068,7 +10066,6 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
 
     Upgraded at level 10
     When receiving fatal damage, the CHALLENGER becomes invulnerable for 3s and regenerates 100% of Max Health.
-    
     While on cooldown, the Challenger gains 1 Stack of BULWARK. Can only happen once every 10 minutes. Resets at Wordstone or on death.`,
     wikiLinks: [`https://remnant.wiki/Die_Hard`],
     linkedItems: {
