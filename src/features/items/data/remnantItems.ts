@@ -5132,7 +5132,7 @@ export const remnantItems: Item[] = [
     name: 'Banish',
     imagePath: '/mod/banish.png',
     id: 'k7z7r2',
-    description: `Banishes enemies or allies into another dimension for 4s. When Banish ends, enemies take 1.5x the damage from the Repulsor's primary fire for 8s. Powerful enemies won't be banished, but will take increased damage from any Repulsor while debuffed.`,
+    description: `Banishes enemies or allies into another dimension for 4s. When Banish ends, enemies take 1.25x the damage [M] from the Repulsor's primary fire for 8s. Powerful enemies won't be banished, but will take increased damage from any Repulsor while debuffed.`,
     wikiLinks: [`https://remnant.wiki/Banish`],
     linkedItems: {
       weapon: {
