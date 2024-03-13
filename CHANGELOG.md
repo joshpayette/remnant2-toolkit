@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2024-03-13
 
+### Changed
+
+- Changed item cards to be more uniform. No more multi-column layout on desktop, too much empty space.
+
 ### Fixed
 
 - Item links from the Info Dialog and Item Card components now correctly narrow down results to exclude irrelevant items.

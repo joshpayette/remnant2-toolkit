@@ -9,7 +9,7 @@ export function WeaponInfo({ item, includeMod = true }: Props) {
   return (
     <dl className="flex w-full flex-grow flex-col justify-start">
       <dd className="flex w-full flex-row items-center justify-start">
-        <div className="flex w-full flex-col items-start justify-start sm:max-w-[275px]">
+        <div className="flex w-full flex-col items-start justify-start">
           <div className="mb-2 grid w-full grid-cols-3">
             <div className="flex w-full flex-col items-center justify-start text-gray-300">
               <p className="flex items-center justify-center text-sm">Damage</p>

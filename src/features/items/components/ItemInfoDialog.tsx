@@ -83,24 +83,10 @@ export function ItemInfoDialog({ item, open, onClose }: ItemInfoProps) {
           </span>
         </span>
       }
-      maxWidthClass={
-        cn(
-          ArchetypeItem.isArchetypeItem(item) ||
-            WeaponItem.isWeaponItem(item) ||
-            ArmorItem.isArmorItem(item)
-            ? 'max-w-2xl'
-            : 'max-w-md',
-        ) as DialogMaxWidthClass
-      }
+      maxWidthClass="max-w-md"
     >
-      <div
-        className={cn(
-          'grid-cols-full grid gap-x-8 gap-y-4',
-          (WeaponItem.isWeaponItem(item) || ArmorItem.isArmorItem(item)) &&
-            'sm:grid-cols-2',
-        )}
-      >
-        <div className="col-span-3 flex w-full flex-col items-center justify-start sm:col-span-1 sm:justify-center">
+      <div className="grid-cols-full grid gap-4">
+        <div className="col-span-3 flex w-full flex-col items-center justify-start sm:justify-center">
           <div className="flex w-full items-center justify-center">
             <Image
               src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}${item.imagePath}`}
@@ -157,7 +143,7 @@ export function ItemInfoDialog({ item, open, onClose }: ItemInfoProps) {
                 <h4 className="mt-4 text-left text-sm text-gray-400">
                   Linked Items
                 </h4>
-                <ul className="grid w-full grid-cols-3 gap-x-4">
+                <ul className="w-full p-2">
                   {(SkillItem.isSkillItem(item) ||
                     TraitItem.isTraitItem(item) ||
                     PerkItem.isPerkItem(item)) &&
@@ -166,7 +152,7 @@ export function ItemInfoDialog({ item, open, onClose }: ItemInfoProps) {
                         <strong>Archetype</strong>:{' '}
                         <a
                           href={`/item-lookup?categories=Trait,Archetype,Perk,Skill&searchText=${item.linkedItems.archetype.name}`}
-                          className="text-secondary-500 underline"
+                          className="text-secondary-500 underline hover:text-secondary-300"
                         >
                           {item.linkedItems.archetype.name}
                         </a>
@@ -176,7 +162,7 @@ export function ItemInfoDialog({ item, open, onClose }: ItemInfoProps) {
                     item.linkedItems.perks && (
                       <li className="text-left text-sm text-gray-300">
                         <strong>Perks</strong>
-                        <ul>
+                        <ul className="mb-4 grid list-disc grid-cols-2 sm:grid-cols-3">
                           {item.linkedItems.perks?.map((perk) => (
                             <li
                               key={perk.name}
@@ -184,7 +170,7 @@ export function ItemInfoDialog({ item, open, onClose }: ItemInfoProps) {
                             >
                               <a
                                 href={`/item-lookup?categories=Trait,Archetype,Perk,Skill&searchText=${perk.name}`}
-                                className="text-secondary-500 underline"
+                                className="text-secondary-500 underline hover:text-secondary-300"
                               >
                                 {perk.name}
                               </a>
@@ -198,7 +184,7 @@ export function ItemInfoDialog({ item, open, onClose }: ItemInfoProps) {
                     item.linkedItems.skills && (
                       <li className="text-left text-sm text-gray-300">
                         <strong>Skills</strong>
-                        <ul>
+                        <ul className="mb-4 grid list-disc grid-cols-2 sm:grid-cols-3">
                           {item.linkedItems.skills?.map((skill) => (
                             <li
                               key={skill.name}
@@ -206,7 +192,7 @@ export function ItemInfoDialog({ item, open, onClose }: ItemInfoProps) {
                             >
                               <a
                                 href={`/item-lookup?categories=Trait,Archetype,Perk,Skill&searchText=${skill.name}`}
-                                className="text-secondary-500 underline"
+                                className="text-secondary-500 underline hover:text-secondary-300"
                               >
                                 {skill.name}
                               </a>
@@ -220,7 +206,7 @@ export function ItemInfoDialog({ item, open, onClose }: ItemInfoProps) {
                     item.linkedItems.traits && (
                       <li className="text-left text-sm text-gray-300">
                         <strong>Traits</strong>
-                        <ul>
+                        <ul className="grid list-disc grid-cols-2 sm:grid-cols-3">
                           {item.linkedItems.traits?.map((trait) => (
                             <li
                               key={trait.name}
@@ -228,7 +214,7 @@ export function ItemInfoDialog({ item, open, onClose }: ItemInfoProps) {
                             >
                               <a
                                 href={`/item-lookup?categories=Trait,Archetype,Perk,Skill&searchText=${trait.name}`}
-                                className="text-secondary-500 underline"
+                                className="text-secondary-500 underline hover:text-secondary-300"
                               >
                                 {trait.name}
                               </a>
@@ -242,7 +228,7 @@ export function ItemInfoDialog({ item, open, onClose }: ItemInfoProps) {
                       <strong>Mod</strong>:{' '}
                       <a
                         href={`/item-lookup?searchText=${item.linkedItems.mod.name}`}
-                        className="text-secondary-500 underline"
+                        className="text-secondary-500 underline hover:text-secondary-300"
                       >
                         {item.linkedItems.mod.name}
                       </a>
@@ -253,7 +239,7 @@ export function ItemInfoDialog({ item, open, onClose }: ItemInfoProps) {
                       <strong>Weapon</strong>:{' '}
                       <a
                         href={`/item-lookup?searchText=${item.linkedItems.weapon.name}`}
-                        className="text-secondary-500 underline"
+                        className="text-secondary-500 underline hover:text-secondary-300"
                       >
                         {item.linkedItems.weapon.name}
                       </a>
@@ -266,12 +252,12 @@ export function ItemInfoDialog({ item, open, onClose }: ItemInfoProps) {
         </div>
 
         {ArmorItem.isArmorItem(item) && (
-          <div className="col-span-3 mb-2 flex w-full flex-col items-start justify-start sm:col-span-1">
+          <div className="col-span-3 mb-2 flex w-full flex-col items-start justify-start">
             <ArmorInfo item={item} />
           </div>
         )}
         {WeaponItem.isWeaponItem(item) && (
-          <div className="col-span-3 mb-2 flex w-full flex-col items-start justify-start sm:col-span-1">
+          <div className="col-span-3 mb-2 flex w-full flex-col items-start justify-start">
             <WeaponInfo item={item} includeMod={false} />
           </div>
         )}
