@@ -172,6 +172,23 @@ docker compose -f docker-compose.dev.yml down
 docker compose -f docker-compose.dev.yml up
 ```
 
+## Ensuring your changes will build in production
+
+Before you push your changes, you should ensure that the production build will work. To do this, you can:
+
+1. Open Docker Desktop.
+2. Click on Containers on the left.
+3. Expand the `remnant2-toolkit` container.
+4. Click on the `remnant2-toolkit` service.
+5. Click the `Exec` tab.
+6. Run the following command to build the production version of the site:
+
+```bash
+npm run build
+```
+
+If the build is successful, you can push your changes. Otherwise, you will see errors to give an idea of what needs to be fixed.
+
 ## FAQ
 
 ### Connecting to the database
