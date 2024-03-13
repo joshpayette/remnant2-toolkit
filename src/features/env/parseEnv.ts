@@ -13,8 +13,6 @@ export const parseEnv = () => {
     NEXTAUTH_SECRET: z.string(),
     NEXTAUTH_URL: z.string(),
     NEXT_PUBLIC_IMAGE_URL: z.string(),
-    PATREON_CLIENT_ID: z.string(),
-    PATREON_CLIENT_SECRET: z.string(),
     PATREON_CREATOR_ACCESS_TOKEN: z.string(),
     PATREON_CREATOR_REFRESH_TOKEN: z.string(),
     REDDIT_CLIENT_ID: z.string(),
