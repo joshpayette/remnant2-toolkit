@@ -187,11 +187,23 @@ export const DESCRIPTION_TAGS = [
     description: 'Elemental Damage',
   },
   {
+    type: 'Crit Damage',
+    token: 'Crit Damage',
+    color: 'text-red-400',
+    description: 'Base 50%. Critical damage is multiplicative with different sources of damage.',
+  },
+  {
     type: 'Critical Damage',
+    token: 'Critical Damage',
+    color: 'text-red-400',
+    description: 'Base 50%. Critical damage is multiplicative with different sources of damage.',
+  },
+  {
+    type: 'Critical damage token',
     token: '[C]',
     color: 'text-[#f2350f]',
     description:
-      'Base 50%. Critical damage is multiplicative with other sources of damage.',
+      'Base 50%. Critical damage is multiplicative with different of damage.',
   },
   {
     type: 'Curse',
@@ -296,14 +308,14 @@ export const DESCRIPTION_TAGS = [
     type: 'Multiplicative',
     token: '[M]',
     color: 'text-orange-300',
-    description: 'Damage is multiplicative with other sources of damage.',
+    description: 'Damage is multiplicative with different sources of damage.',
   },
   {
     type: 'Multiplicative Debuffs',
     token: '[MD]',
     color: 'text-orange-500',
     description:
-      'Counts as a debuff making it multiplicative with other sources of damage.',
+      'Counts as a debuff making it multiplicative with different sources of damage.',
   },
   {
     type: 'Overloaded',
@@ -365,16 +377,28 @@ export const DESCRIPTION_TAGS = [
   {
     type: 'Status Effect',
     token: 'Status Effect',
-    color: 'text-[#3179de]',
+    color: 'text-[#05baf9]',
     description: `Elemental: Burning, Corroded, Overloaded. Physical: Bleeding.`,
   },
   {
-    type: 'Negative Status Effect',
-    token: 'Negative Status Effect',
-    color: 'text-[#3179de]',
+    type: 'Status Effects',
+    token: 'Status Effects',
+    color: 'text-[#05baf9]',
     description: `Elemental: Burning, Corroded, Overloaded. Physical: Bleeding.`,
   },
-  // Testing how overlapping tokens will apply @joshpayette
+  {
+    type: 'Negative Status Effects',
+    token: 'Negative Status Effects',
+    color: 'text-[#05baf9]',
+    description: `Elemental: Burning, Corroded, Overloaded. Physical: Bleeding.`,
+  },
+  {
+    type: 'Elemental Status Effects',
+    token: 'Elemental Status Effects',
+    color: 'text-[#05baf9]',
+    description: `Elemental: Burning, Corroded, Overloaded.`,
+  },
+
 ] as const satisfies {
   type: string
   token: string
