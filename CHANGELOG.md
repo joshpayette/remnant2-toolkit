@@ -9,12 +9,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Changed
 
 - Changed item cards to be more uniform. No more multi-column layout on desktop, too much empty space.
-- ConRaven updated the images for Bloat King boss and Little Gorge aberration.
+- Updated the images for Bloat King boss and Little Gorge aberration. (ConRaven)
 
 ### Fixed
 
-- Item links from the Info Dialog and Item Card components now correctly narrow down results to exclude irrelevant items.
+- Item links from the Info Dialog and Item Card components now correctly narrow down results to exclude irrelevant items. (alexij)
 - Fixed bug where the build reference input field was not hiding for screenshots
+- Item tags reworked a bit for clarity. (alexij)
 
 ## 2024-03-12
 
