@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-03-13
+
+### Fixed
+
+- Item links from the Info Dialog and Item Card components now correctly narrow down results to exclude irrelevant items.
+
 ## 2024-03-12
 
 ### Added

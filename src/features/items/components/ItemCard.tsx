@@ -113,12 +113,12 @@ export function ItemCard({ data: item, onMoreInfoClick }: Props) {
         )}
         {PerkItem.isPerkItem(item) && item.linkedItems?.archetype && (
           <div className="mt-4">
-            <div className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-primary-500 border-t-primary-500 py-1 text-left text-sm text-gray-300">
+            <div className="grid w-full grid-cols-2 gap-2 border border-transparent   py-1 text-left text-sm text-gray-300">
               <p className="flex items-center justify-start text-xs">
                 Archetype
               </p>
               <a
-                href={`/item-lookup?searchText=${item.linkedItems.archetype.name}`}
+                href={`/item-lookup?categories=Trait,Archetype,Perk,Skill&searchText=${item.linkedItems.archetype.name}`}
                 className="flex items-center justify-end text-right text-xs font-bold text-secondary-500 underline"
               >
                 {item.linkedItems.archetype.name}
@@ -128,12 +128,12 @@ export function ItemCard({ data: item, onMoreInfoClick }: Props) {
         )}
         {SkillItem.isSkillItem(item) && item.linkedItems?.archetype && (
           <div className="mt-4">
-            <div className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-primary-500 border-t-primary-500 py-1 text-left text-sm text-gray-300">
+            <div className="grid w-full grid-cols-2 gap-2 border border-transparent   py-1 text-left text-sm text-gray-300">
               <p className="flex items-center justify-start text-xs">
                 Archetype
               </p>
               <a
-                href={`/item-lookup?searchText=${item.linkedItems.archetype.name}`}
+                href={`/item-lookup?categories=Trait,Archetype,Perk,Skill&searchText=${item.linkedItems.archetype.name}`}
                 className="flex items-center justify-end text-right text-xs font-bold text-secondary-500 underline"
               >
                 {item.linkedItems.archetype.name}
@@ -143,12 +143,12 @@ export function ItemCard({ data: item, onMoreInfoClick }: Props) {
         )}
         {TraitItem.isTraitItem(item) && item.linkedItems?.archetype && (
           <div className="mt-4">
-            <div className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-primary-500 border-t-primary-500 py-1 text-left text-sm text-gray-300">
+            <div className="grid w-full grid-cols-2 gap-2 border border-transparent   py-1 text-left text-sm text-gray-300">
               <p className="flex items-center justify-start text-xs">
                 Archetype
               </p>
               <a
-                href={`/item-lookup?searchText=${item.linkedItems.archetype.name}`}
+                href={`/item-lookup?categories=Trait,Archetype,Perk,Skill&searchText=${item.linkedItems.archetype.name}`}
                 className="flex items-center justify-end text-right text-xs font-bold text-secondary-500 underline"
               >
                 {item.linkedItems.archetype.name}
@@ -158,7 +158,7 @@ export function ItemCard({ data: item, onMoreInfoClick }: Props) {
         )}
         {ModItem.isModItem(item) && item.linkedItems?.weapon && (
           <div className="mt-4">
-            <div className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-primary-500 border-t-primary-500 py-1 text-left text-sm text-gray-300">
+            <div className="grid w-full grid-cols-2 gap-2 border border-transparent   py-1 text-left text-sm text-gray-300">
               <p className="flex items-center justify-start text-xs">Weapon</p>
               <a
                 href={`/item-lookup?searchText=${item.linkedItems.weapon.name}`}
@@ -175,13 +175,13 @@ export function ItemCard({ data: item, onMoreInfoClick }: Props) {
             <div className={cn(index === 0 && 'mt-4')} key={perk.name}>
               <div
                 className={cn(
-                  'grid w-full grid-cols-2 gap-2 border border-transparent border-b-primary-500 py-1 text-left text-sm text-gray-300',
-                  index === 0 && 'border-t-primary-500',
+                  'grid w-full grid-cols-2 gap-2 border border-transparent  py-1 text-left text-sm text-gray-300',
+                  index === 0 && '',
                 )}
               >
                 <p className="flex items-center justify-start text-xs">Perk</p>
                 <a
-                  href={`/item-lookup?searchText=${perk.name}`}
+                  href={`/item-lookup?categories=Trait,Archetype,Perk,Skill&searchText=${perk.name}`}
                   className="flex items-center justify-end text-right text-xs font-bold text-secondary-500 underline"
                 >
                   {perk.name}
@@ -195,12 +195,12 @@ export function ItemCard({ data: item, onMoreInfoClick }: Props) {
             <div key={skill.name}>
               <div
                 className={cn(
-                  'grid w-full grid-cols-2 gap-2 border border-transparent border-b-primary-500 py-1 text-left text-sm text-gray-300',
+                  'grid w-full grid-cols-2 gap-2 border border-transparent  py-1 text-left text-sm text-gray-300',
                 )}
               >
                 <p className="flex items-center justify-start text-xs">Skill</p>
                 <a
-                  href={`/item-lookup?searchText=${skill.name}`}
+                  href={`/item-lookup?categories=Trait,Archetype,Perk,Skill&searchText=${skill.name}`}
                   className="flex items-center justify-end text-right text-xs font-bold text-secondary-500 underline"
                 >
                   {skill.name}
@@ -214,12 +214,12 @@ export function ItemCard({ data: item, onMoreInfoClick }: Props) {
             <div key={trait.name}>
               <div
                 className={cn(
-                  'grid w-full grid-cols-2 gap-2 border border-transparent border-b-primary-500 py-1 text-left text-sm text-gray-300',
+                  'grid w-full grid-cols-2 gap-2 border border-transparent  py-1 text-left text-sm text-gray-300',
                 )}
               >
                 <p className="flex items-center justify-start text-xs">Trait</p>
                 <a
-                  href={`/item-lookup?searchText=${trait.name}`}
+                  href={`/item-lookup?categories=Trait,Archetype,Perk,Skill&searchText=${trait.name}`}
                   className="flex items-center justify-end text-right text-xs font-bold text-secondary-500 underline"
                 >
                   {trait.name}
