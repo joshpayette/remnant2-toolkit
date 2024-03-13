@@ -1,0 +1,68 @@
+version: '3'
+
+services:
+  db:
+    image: mysql:8.0
+    restart: always
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    env_file:
+      - .env
+    volumes:
+      - db-data:/var/lib/mysql
+    networks:
+      - remnant2-toolkit
+  remnant2-toolkit:
+    container_name: remnant2-toolkit
+    build:
+      context: ./
+      dockerfile: dev.Dockerfile
+
+    # Set environment variables directly in the docker-compose file
+    environment:
+      CRON_SECRET: ${CRON_SECRET}
+      DATABASE_URL: ${DATABASE_URL}
+      DISCORD_CLIENT_ID: ${DISCORD_CLIENT_ID}
+      DISCORD_CLIENT_SECRET: ${DISCORD_CLIENT_SECRET}
+      IMAGEKIT_CLIENT_ID: ${IMAGEKIT_CLIENT_ID}
+      IMAGEKIT_CLIENT_SECRET: ${IMAGEKIT_CLIENT_SECRET}
+      NEXTAUTH_SECRET: ${NEXTAUTH_SECRET}
+      NEXTAUTH_URL: ${NEXTAUTH_URL}
+      NEXT_PUBLIC_IMAGE_URL: ${NEXT_PUBLIC_IMAGE_URL}
+      PATREON_CREATOR_ACCESS_TOKEN: ${PATREON_CREATOR_ACCESS_TOKEN}
+      PATREON_CREATOR_REFRESH_TOKEN: ${PATREON_CREATOR_REFRESH_TOKEN}
+      REDDIT_CLIENT_ID: ${REDDIT_CLIENT_ID}
+      REDDIT_CLIENT_SECRET: ${REDDIT_CLIENT_SECRET}
+      WEBHOOK_BUG_REPORT: ${WEBHOOK_BUG_REPORT}
+      WEBHOOK_COMMUNITY_BUILDS: ${WEBHOOK_COMMUNITY_BUILDS}
+      WEBHOOK_CRON_LOGS: ${WEBHOOK_CRON_LOGS}
+      WEBHOOK_REPORTED_CONTENT: ${WEBHOOK_REPORTED_CONTENT}
+
+    # Set environment variables based on the .env file
+    env_file:
+      - .env
+    volumes:
+      - ./src:/app/src
+      - ./public:/app/public
+    restart: always
+    ports:
+      - 3000:3000
+    networks:
+      - remnant2-toolkit
+
+  # Add more containers below (nginx, postgres, etc.)
+
+volumes:
+  db-data:
+    driver: local
+
+# Define a network, which allows containers to communicate
+# with each other, by using their container name as a hostname
+networks:
+  remnant2-toolkit:
+    external: true

@@ -117,6 +117,9 @@ export async function addReportForBuild(
 
     if (!res.ok) {
       console.error('Error in sending report webhook to Discord!')
+      return {
+        message: 'Error in sending build report!',
+      }
     }
 
     // Refresh the cache for the routes

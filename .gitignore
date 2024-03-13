@@ -38,6 +38,7 @@ next-env.d.ts
 
 .vercel
 .env*.local
+.env.db
 
 # custom scripts
 profile.sav

@@ -34,6 +34,9 @@ export async function ReportBug(report: string) {
 
   if (!res.ok) {
     console.error('Error in sending build webhook to Discord!')
+    return {
+      message: 'Error in sending bug report!',
+    }
   }
 
   return {

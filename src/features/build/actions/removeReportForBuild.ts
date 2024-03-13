@@ -113,6 +113,9 @@ export async function removeReportForBuild(
 
     if (!res.ok) {
       console.error('Error in sending report webhook to Discord!')
+      return {
+        message: 'Error in removing bug report!',
+      }
     }
 
     // Refresh the cache for the routes
