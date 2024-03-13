@@ -165,7 +165,7 @@ export function ItemInfoDialog({ item, open, onClose }: ItemInfoProps) {
                       <li className="col-span-full text-left text-sm text-gray-300">
                         <strong>Archetype</strong>:{' '}
                         <a
-                          href={`/item-lookup?searchText=${item.linkedItems.archetype.name}`}
+                          href={`/item-lookup?categories=Trait,Archetype,Perk,Skill&searchText=${item.linkedItems.archetype.name}`}
                           className="text-secondary-500 underline"
                         >
                           {item.linkedItems.archetype.name}
@@ -183,7 +183,7 @@ export function ItemInfoDialog({ item, open, onClose }: ItemInfoProps) {
                               className="text-left text-sm text-gray-300"
                             >
                               <a
-                                href={`/item-lookup?searchText=${perk.name}`}
+                                href={`/item-lookup?categories=Trait,Archetype,Perk,Skill&searchText=${perk.name}`}
                                 className="text-secondary-500 underline"
                               >
                                 {perk.name}
@@ -205,7 +205,7 @@ export function ItemInfoDialog({ item, open, onClose }: ItemInfoProps) {
                               className="text-left text-sm text-gray-300"
                             >
                               <a
-                                href={`/item-lookup?searchText=${skill.name}`}
+                                href={`/item-lookup?categories=Trait,Archetype,Perk,Skill&searchText=${skill.name}`}
                                 className="text-secondary-500 underline"
                               >
                                 {skill.name}
@@ -227,7 +227,7 @@ export function ItemInfoDialog({ item, open, onClose }: ItemInfoProps) {
                               className="text-left text-sm text-gray-300"
                             >
                               <a
-                                href={`/item-lookup?searchText=${trait.name}`}
+                                href={`/item-lookup?categories=Trait,Archetype,Perk,Skill&searchText=${trait.name}`}
                                 className="text-secondary-500 underline"
                               >
                                 {trait.name}
