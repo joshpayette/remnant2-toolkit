@@ -344,7 +344,7 @@ const aberrationEnemies: Enemy[] = [
     name: 'Little Gorge',
     dlc: 'dlc1',
     category: 'aberration',
-    imagePath: '/enemies/aberration/little_gorge.jpg',
+    imagePath: '/enemies/aberration/little_gorge1.jpg',
     location: 'Losomn',
     dungeon: 'Forlorn Coast',
     wikiLinks: ['https://remnant2.wiki.fextralife.com/Little+Gorge'],
@@ -874,7 +874,7 @@ const bossEnemies: Enemy[] = [
   {
     name: 'Bloat King',
     category: 'boss',
-    imagePath: '/enemies/boss/bloat_king.jpg',
+    imagePath: '/enemies/boss/bloat_king1.jpg',
     location: 'Losomn',
     dungeon: 'The Great Sewers',
     wikiLinks: ['https://remnant2.wiki.fextralife.com/Bloat+King'],
