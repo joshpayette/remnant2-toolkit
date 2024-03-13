@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2024-03-13
 
+### Added
+
+- Created a set of instructions for how to set up a local development environment for the toolkit. This is available in the LOCAL_DEVELOPMENT.md file.
+
 ### Changed
 
 - Changed item cards to be more uniform. No more multi-column layout on desktop, too much empty space.
