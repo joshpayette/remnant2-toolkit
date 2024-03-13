@@ -368,6 +368,13 @@ export const DESCRIPTION_TAGS = [
     color: 'text-[#3179de]',
     description: `Elemental: Burning, Corroded, Overloaded. Physical: Bleeding.`,
   },
+  {
+    type: 'Negative Status Effect',
+    token: 'Negative Status Effect',
+    color: 'text-[#3179de]',
+    description: `Elemental: Burning, Corroded, Overloaded. Physical: Bleeding.`,
+  },
+  // Testing how overlapping tokens will apply @joshpayette
 ] as const satisfies {
   type: string
   token: string
