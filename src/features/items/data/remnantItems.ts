@@ -538,7 +538,7 @@ export const remnantItems: Item[] = [
     ],
     description: `Continuously Aiming Down Sights uninterrupted and without shooting for 0.5s causes the HUNTER to enter a FOCUSED state. 
 
-    FOCUSED reduces Weapon Spread, Recoil, and Sway by 50% and grants 25% Ranged & Ranged Weakspot Damage [M], and 10% Ranged Crit Chance.
+    FOCUSED reduces Weapon Spread, Recoil, and Sway by 50% and grants 25% Ranged & Ranged Weakspot Damage, and 10% Ranged Crit Chance.
     
     While FOCUSED, Aiming at enemies will automatically apply MARK.
     
@@ -3232,7 +3232,7 @@ export const remnantItems: Item[] = [
     imagePath: '/relicfragment/weakspot_damage.png',
     id: 'oszz4u',
     tags: ['Weakspot Damage'],
-    description: `+X% Weakspot Damage (Mythic: Maximum of +15% [M]).`,
+    description: `+X% Weakspot Damage (Mythic: Maximum of +15%).`,
     wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   // * Updated in patch
@@ -5355,7 +5355,7 @@ export const remnantItems: Item[] = [
     name: 'Death Brand',
     imagePath: '/mod/death_brand.png',
     id: 'd3q99g',
-    description: `Applies Death Brand to all enemies within 25m. [R] increasing incoming damage by 10%. Enemies killed while bearing the Death Brand leave behind an Echo which lasts 10s before returning to the Nightmare Realm. Echoes are drawn to any survivor who walks within 3m. increasing Weakspot Damage dealt by 10%[M] for 10s.`,
+    description: `Applies Death Brand to all enemies within 25m. [R] increasing incoming damage by 10%. Enemies killed while bearing the Death Brand leave behind an Echo which lasts 10s before returning to the Nightmare Realm. Echoes are drawn to any survivor who walks within 3m. increasing Weakspot Damage dealt by 10% for 10s.`,
     wikiLinks: [`https://remnant.wiki/Death_Brand`],
     linkedItems: {
       weapon: {
@@ -6056,7 +6056,7 @@ export const remnantItems: Item[] = [
     imagePath: '/mutator/battery.png',
     id: 'n5zhws',
     tags: ['Weakspot Damage'],
-    description: `Ranged Hits increase the next Weakspot Hit by 10-[20]%[M] per stack. Max 5 Stacks.`,
+    description: `Ranged Hits increase the next Weakspot Hit by 10% per stack. Max 5 Stacks.`,
     maxLevelBonus: `At Max Stacks, the next weakspot Hit deals 15% additional damage over 3s.`,
     wikiLinks: [`https://remnant.wiki/Battery`],
   },
@@ -6538,7 +6538,7 @@ export const remnantItems: Item[] = [
     id: 'fknx4t',
     tags: ['Ranged Damage', 'Weakspot Damage'],
     description: `Increases this weapon's Ranged Damage by up to 7.5% based on how close the magazine capacity is to full.`,
-    maxLevelBonus: `Increases this weapon's Weakspot Damage by up to 20% [M] based on how close the magazine capacity is to full.`,
+    maxLevelBonus: `Increases this weapon's Weakspot Damage by up to 20% based on how close the magazine capacity is to full.`,
     wikiLinks: [`https://remnant.wiki/Top_Heavy`],
   },
   {
@@ -6687,7 +6687,7 @@ EXPOSED: Target receives up to 24% additional damage from all sources. Expose am
     imagePath: '/amulet/core_booster.png',
     id: 'wb4ixr',
     tags: ['Weakspot Damage'],
-    description: `Increases weakspot damage by 50% [M] for 10s after killing an enemy.`,
+    description: `Increases Weakspot Damage by 50% for 10s after killing an enemy.`,
     wikiLinks: [`https://remnant.wiki/Core_Booster`],
   },
   {
@@ -7474,7 +7474,7 @@ EXPOSED: Target receives up to 24% additional damage from all sources. Expose am
     name: 'Blasting Cap Ring',
     imagePath: '/ring/blasting_cap_ring.png',
     id: 'ep14lr',
-    description: `Increases Explosive damage [E] by 10%. [M] [BUG]`,
+    description: `Increases Explosive damage [E] by 10%. [BUG]`,
     wikiLinks: [`https://remnant.wiki/Blasting_Cap_Ring`],
   },
   {
@@ -8166,7 +8166,7 @@ EXPOSED: Target receives up to 24% additional damage from all sources. Expose am
     imagePath: '/ring/lodestone_ring.png',
     id: 'sye1ay',
     tags: ['All Damage'],
-    description: `Increases all damage dealt against illuminated enemies by 5% [M].`,
+    description: `Increases all damage dealt against illuminated enemies by 5% [MD].`,
     wikiLinks: [`https://remnant.wiki/Lodestone_Ring`],
   },
   {
@@ -8382,7 +8382,7 @@ EXPOSED: Target receives up to 24% additional damage from all sources. Expose am
     imagePath: '/ring/ring_of_flawed_beauty.png',
     id: 'lx6all',
     tags: ['Weakspot Damage', 'Ranged Damage'],
-    description: `Ranged Weakspot damage is increased by 25% [M]. Ranged damage is reduced by 15% when failing to hit a Weakspot.`,
+    description: `Ranged Weakspot Damage is increased by 25%. Ranged damage is reduced by 15% when failing to hit a Weakspot.`,
     wikiLinks: [`https://remnant.wiki/Ring_of_Flawed_Beauty`],
   },
   {
@@ -8836,7 +8836,7 @@ EXPOSED: Target receives up to 24% additional damage from all sources. Expose am
     imagePath: '/ring/zanias_malice.png',
     id: 'ukufrn',
     tags: ['Weakspot Damage'],
-    description: `Dealing Weakspot damage increases Weakspot damage by 10% [M] for 7s. Stacks 3x.`,
+    description: `Dealing Weakspot Damage increases Weakspot Damage by 10% for 7s. Stacks 3x.`,
     wikiLinks: [`https://remnant.wiki/Zania%27s_Malice`],
   },
   {
@@ -9665,12 +9665,12 @@ EXPOSED: Target receives up to 24% additional damage from all sources. Expose am
     tags: ['Ranged Damage', 'Weakspot Damage', 'Critical Chance'],
     description: `
     Unlocked at level 1
-    Gain 4% Ranged Damage and 1.5% [M] Weakspot Damage. Damage increases with HUNTER Level
+    Gain 4% Ranged Damage and 1.5% Weakspot Damage. Damage increases with HUNTER Level
 
   Upgrade Unlocked at level 5
-  Gain 24% Ranged Damage, 9% [M] Weakspot Damage and 5% Ranged Critical Chance.
+  Gain 24% Ranged Damage, 9% Weakspot Damage and 5% Ranged Critical Chance.
 
-  (Level 10: Gain 40% Ranged Damage and 15% [M] Weakspot Damage)
+  (Level 10: Gain 40% Ranged Damage and 15% Weakspot Damage)
     `,
     wikiLinks: [`https://remnant.wiki/Deadeye`],
     linkedItems: {
@@ -10397,15 +10397,15 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     tags: ['Skill Damage', 'Critical Chance'],
     description: `
     Increases Skill Damage by 5% and Ranged Damage by 2.5%.
-    Heavy Weapons gain 5% Ammo Capacity, 2.5% Max Health, and 2.5% [M] Weakspot Damage.
+    Heavy Weapons gain 5% Ammo Capacity, 2.5% Max Health, and 2.5% Weakspot Damage.
 
     Unlocked at level 5
     Increases Skill Damage by 25% and Ranged Damage by 12.5%, and grants 10% Ranged and Skill Critical Chance
-    Heavy Weapons gain 25% Ammo Capacity, 12% Max Health, and 25% [M] Weakspot Damage.
+    Heavy Weapons gain 25% Ammo Capacity, 12% Max Health, and 25% Weakspot Damage.
     
     Unlocked at level 10
     Increases Skill Damage by 50% and Ranged Damage by 25%, and grants 10% Ranged and Skill Critical Chance.
-    Heavy Weapons gain 50% Ammo Capacity, 25% Max Health, and 25% [M] Weakspot Damage.
+    Heavy Weapons gain 50% Ammo Capacity, 25% Max Health, and 25% Weakspot Damage.
     `,
 
     wikiLinks: [`https://remnant.wiki/Metalworker`],

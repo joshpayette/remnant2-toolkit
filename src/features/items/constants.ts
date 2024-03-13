@@ -146,7 +146,7 @@ export const DESCRIPTION_TAGS = [
     token: '[BUG]',
     color: 'text-[#ecff00]',
     description:
-      'This item is currently bugged and MAY not function as expected.',
+      'This item is currently bugged and MAY not function as expected. Check wiki for more information.',
   },
   {
     type: 'Burning',
