@@ -100,19 +100,23 @@ Watch the build in action: [insert Youtube link here]
         </div>
       )}
 
-      {isEditable && (
-        <div className="mb-8 flex w-full flex-col items-start justify-start text-sm text-primary-500 sm:flex-row sm:items-center">
-          <div className="mb-2 mr-4 w-[200px] sm:mb-0">
-            Build Reference Link
-          </div>
-          <div className="flex w-full items-center justify-start">
-            <Input
-              value={buildLink ?? ''}
-              onChange={(e) => onChangeBuildLink(e.target.value)}
-              placeholder="The link must be relevant to the build or it will be removed."
-            />
-          </div>
-        </div>
+      {isScreenshotModeActive ? null : (
+        <>
+          {isEditable && (
+            <div className="mb-8 flex w-full flex-col items-start justify-start text-sm text-primary-500 sm:flex-row sm:items-center">
+              <div className="mb-2 mr-4 w-[200px] sm:mb-0">
+                Build Reference Link
+              </div>
+              <div className="flex w-full items-center justify-start">
+                <Input
+                  value={buildLink ?? ''}
+                  onChange={(e) => onChangeBuildLink(e.target.value)}
+                  placeholder="The link must be relevant to the build or it will be removed."
+                />
+              </div>
+            </div>
+          )}
+        </>
       )}
 
       {isScreenshotModeActive ? null : (

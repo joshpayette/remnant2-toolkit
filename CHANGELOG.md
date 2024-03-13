@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Fixed
 
 - Item links from the Info Dialog and Item Card components now correctly narrow down results to exclude irrelevant items.
+- Fixed bug where the build reference input field was not hiding for screenshots
 
 ## 2024-03-12
 
