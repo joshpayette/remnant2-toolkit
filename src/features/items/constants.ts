@@ -188,19 +188,7 @@ export const DESCRIPTION_TAGS = [
   },
   {
     type: 'Crit Damage',
-    token: 'Crit damage',
-    color: 'text-red-500',
-    description: 'Base 50%. Critical damage is multiplicative with different sources of damage.',
-  },
-  {
-    type: 'Crit Damage',
     token: 'Crit Damage',
-    color: 'text-red-500',
-    description: 'Base 50%. Critical damage is multiplicative with different sources of damage.',
-  },
-  {
-    type: 'Critical Damage',
-    token: 'Critical damage',
     color: 'text-red-500',
     description: 'Base 50%. Critical damage is multiplicative with different sources of damage.',
   },

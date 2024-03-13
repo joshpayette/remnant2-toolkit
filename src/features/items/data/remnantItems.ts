@@ -3051,7 +3051,7 @@ export const remnantItems: Item[] = [
     imagePath: '/relicfragment/melee_critical_damage.png',
     id: '77ch7i',
     tags: ['Melee Critical Damage', 'Critical Damage'],
-    description: `+X% Melee Crit Damage (Mythic: Maximum of +20%[C])`,
+    description: `+X% Melee Crit Damage (Mythic: Maximum of +20%)`,
     wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
@@ -5209,7 +5209,7 @@ export const remnantItems: Item[] = [
     name: 'Bloodline',
     imagePath: '/mod/bloodline.png',
     id: 'yxxajn',
-    description: `Fires a devastating blast which penetrates through all enemies in its path. Deals 120 damage with a 25% Critical damage bonus, and 2x additional stagger. Bloodline damage increases by 50% for each enemy penetrated.`,
+    description: `Fires a devastating blast which penetrates through all enemies in its path. Deals 120 damage with a 25% Critical Damage bonus, and 2x additional stagger. Bloodline damage increases by 50% for each enemy penetrated.`,
     wikiLinks: [`https://remnant.wiki/Bloodline`],
     linkedItems: {
       weapon: {
@@ -6237,7 +6237,7 @@ export const remnantItems: Item[] = [
     id: '961d6v',
     tags: ['Melee Critical Chance', 'Grey Health'],
     description: `Increases Melee Critical Chance by 5% when Grey Health is present.`,
-    maxLevelBonus: `Increases Melee Critical Damage by 2.5% [C] for every 10% of Grey Health.`,
+    maxLevelBonus: `Increases Melee Critical Damage by 2.5% for every 10% of Grey Health.`,
     wikiLinks: [`https://remnant.wiki/Guts`],
   },
   {
@@ -6324,7 +6324,7 @@ export const remnantItems: Item[] = [
     imagePath: '/mutator/momentum.png',
     id: 'cvbjvd',
     tags: ['Critical Hit', 'Critical Chance'],
-    description: `When this weapon scores a Critical Hit, it increases Critical Chance and Critical Damage by 1.5-[3]% [C] for 3s. Max 10 stacks.`,
+    description: `When this weapon scores a Critical Hit, it increases Critical Chance and Critical Damage by 1.5% for 3s. Max 10 stacks.`,
     maxLevelBonus: `Critical Hits from this weapon add 2 stacks. Increases duration by 2s.`,
     wikiLinks: [`https://remnant.wiki/Momentum`],
   },
@@ -6346,7 +6346,7 @@ export const remnantItems: Item[] = [
     imagePath: '/mutator/overdrive.png',
     id: 'mjzb0f',
     tags: ['Melee Critical Hit', 'Critical Hit', 'Critical Chance'],
-    description: `Melee Critical Hits increase Melee Critical Chance and Critical Damage by 5% [C] for 7.5-[15]s. stacking up to 5 times.`,
+    description: `Melee Critical Hits increase Melee Critical Chance and Critical Damage by 5% for 7.5s. stacking up to 5 times.`,
     maxLevelBonus: `Melee Critical Strikes deal 20% additional damage.`,
     wikiLinks: [`https://remnant.wiki/Overdrive`],
   },
@@ -6450,7 +6450,7 @@ export const remnantItems: Item[] = [
     id: 'xim1sx',
     tags: ['Critical Chance'],
     description: `This weapon becomes EMPOWERED when stowed for 7 seconds, granting 20% Critical Chance for 3 seconds after it is drawn.`,
-    maxLevelBonus: `While EMPOWERED, increases Critical Damage of this weapon by 15%. [C]`,
+    maxLevelBonus: `While EMPOWERED, increases Critical Damage of this weapon by 15%.`,
     wikiLinks: [`https://remnant.wiki/Sleeper`],
   },
   {
@@ -6614,7 +6614,7 @@ export const remnantItems: Item[] = [
     id: '6sqyf9',
     tags: ['Critical Chance'],
     description:
-      'When attacking a BLEEDING enemy, Crit Chance is increased by 15% and Crit Damage is increased by 30% [C].',
+      'When attacking a BLEEDING enemy, Crit Chance is increased by 15% and Crit Damage is increased by 30%.',
     wikiLinks: ['https://remnant.wiki/Abrasive_Whetstone'],
   },
   {
@@ -6660,7 +6660,7 @@ EXPOSED: Target receives up to 24% additional damage from all sources. Expose am
     imagePath: '/amulet/butchers_fetish.png',
     id: '67s1pu',
     tags: ['Critical Chance', 'Charged Melee'],
-    description: `Increases Critical Chance by 15% and Critical Damage by 25% [C] for 15s after striking enemy with a Charged Melee Attack.`,
+    description: `Increases Critical Chance by 15% and Critical Damage by 25% for 15s after striking enemy with a Charged Melee Attack.`,
     wikiLinks: [`https://remnant.wiki/Butcher%27s_Fetish`],
   },
   {
@@ -7319,7 +7319,7 @@ EXPOSED: Target receives up to 24% additional damage from all sources. Expose am
     imagePath: '/ring/akari_war_band.png',
     id: '9siz0d',
     tags: ['Perfect Dodge', 'Critical Chance'],
-    description: `Perfect Dodges increase Critical Chance by 15% and Critical Damage by 15% [C] for 15s.`,
+    description: `Perfect Dodges increase Critical Chance by 15% and Critical Damage by 15% for 15s.`,
     wikiLinks: [`https://remnant.wiki/Akari_War_Band`],
   },
   {
@@ -7596,7 +7596,7 @@ EXPOSED: Target receives up to 24% additional damage from all sources. Expose am
     imagePath: '/ring/burden_of_the_gambler.png',
     id: 'ctv31c',
     tags: ['Weakspot Damage', 'Critical Chance'],
-    description: `Disables Weakspots. Increases Critical Chance by 10% and Critical Damage by 20%. [C]`,
+    description: `Disables Weakspots. Increases Critical Chance by 10% and Critical Damage by 20%.`,
     wikiLinks: [`https://remnant.wiki/Burden_of_the_Gambler`],
   },
   {
@@ -8284,7 +8284,7 @@ EXPOSED: Target receives up to 24% additional damage from all sources. Expose am
     imagePath: '/ring/probability_cord.png',
     id: '0k8d0g',
     tags: ['Critical Hit'],
-    description: `Increases Crit Damage by 30%[C].`,
+    description: `Increases Crit Damage by 30%.`,
     wikiLinks: [`https://remnant.wiki/Probability_Cord`],
   },
   {
