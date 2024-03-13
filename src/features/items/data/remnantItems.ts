@@ -3107,7 +3107,7 @@ export const remnantItems: Item[] = [
     imagePath: '/relicfragment/ranged_critical_damage.png',
     id: 'w5jmys',
     tags: ['Critical Damage'],
-    description: `+X% Ranged Crit Damage (Mythic: Maximum of +20%[C])`,
+    description: `+X% Ranged Crit Damage (Mythic: Maximum of +20%)`,
     wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
@@ -5209,7 +5209,7 @@ export const remnantItems: Item[] = [
     name: 'Bloodline',
     imagePath: '/mod/bloodline.png',
     id: 'yxxajn',
-    description: `Fires a devastating blast which penetrates through all enemies in its path. Deals 120 damage with a 25% Critical damage [C] bonus, and 2x additional stagger. Bloodline damage increases by 50% for each enemy penetrated.`,
+    description: `Fires a devastating blast which penetrates through all enemies in its path. Deals 120 damage with a 25% Critical damage bonus, and 2x additional stagger. Bloodline damage increases by 50% for each enemy penetrated.`,
     wikiLinks: [`https://remnant.wiki/Bloodline`],
     linkedItems: {
       weapon: {
