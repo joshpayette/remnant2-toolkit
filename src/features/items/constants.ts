@@ -190,20 +190,13 @@ export const DESCRIPTION_TAGS = [
     type: 'Crit Damage',
     token: 'Crit Damage',
     color: 'text-red-500',
-    description: 'Base 50%. Critical damage is multiplicative with different sources of damage.',
+    description: 'Base 50%. Critical Damage is multiplicative with different sources of damage.',
   },
   {
     type: 'Critical Damage',
     token: 'Critical Damage',
     color: 'text-red-500',
-    description: 'Base 50%. Critical damage is multiplicative with different sources of damage.',
-  },
-  {
-    type: 'Critical damage token',
-    token: '[C]',
-    color: 'text-[#f2350f]',
-    description:
-      'Base 50%. Critical damage is multiplicative with different of damage.',
+    description: 'Base 50%. Critical Damage is multiplicative with different sources of damage.',
   },
   {
     type: 'Curse',
@@ -385,6 +378,12 @@ export const DESCRIPTION_TAGS = [
     token: 'Status Effects',
     color: 'text-[#05baf9]',
     description: `Elemental: Burning, Corroded, Overloaded. Physical: Bleeding.`,
+  },
+  {
+    type: 'Weakspot Damage',
+    token: 'Weakspot Damage',
+    color: 'text-red-500',
+    description: 'Weakspot Damage is multiplicative with different sources of damage.',
   },
   {
     type: 'Negative Status Effects',
