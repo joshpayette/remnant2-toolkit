@@ -15,6 +15,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Build filters now support filtering by up to 4 rings! This should help you find more specific builds, but also getting data on how many builds contain a specific setup.
 - Hid unneeded values on Weapon item cards.
 
+### Fixed
+
+- Corrected the description for the Battery mutator.
+
 ## 2024-03-13
 
 ### Added
