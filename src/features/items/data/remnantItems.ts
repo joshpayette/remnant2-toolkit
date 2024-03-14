@@ -4030,6 +4030,9 @@ export const remnantItems: Item[] = [
       },
     },
     damage: 101,
+    crit: 6,
+    weakspot: 85,
+    stagger: 80,
   },
   {
     category: 'weapon',
@@ -4045,6 +4048,9 @@ export const remnantItems: Item[] = [
       },
     },
     damage: 41,
+    crit: -3,
+    weakspot: 110,
+    stagger: -15,
   },
   {
     category: 'weapon',
@@ -4060,6 +4066,9 @@ export const remnantItems: Item[] = [
       },
     },
     damage: 72,
+    crit: 5,
+    weakspot: 95,
+    stagger: 11,
   },
   {
     category: 'weapon',
@@ -4075,6 +4084,9 @@ export const remnantItems: Item[] = [
       },
     },
     damage: 100,
+    crit: 5,
+    weakspot: 90,
+    stagger: 6,
   },
   // This weapon appears to be unobtainable
   // {
@@ -4093,6 +4105,9 @@ export const remnantItems: Item[] = [
     description: `A short, but thick sword, used by Gul Warriors. It's compact design makes for swift yet hard-hitting blows. An excellent close-range option.`,
     wikiLinks: [`https://remnant.wiki/Blade_of_Gul`],
     damage: 57,
+    crit: 4,
+    weakspot: 100,
+    stagger: 6,
   },
   {
     category: 'weapon',
@@ -4103,6 +4118,9 @@ export const remnantItems: Item[] = [
     description: `A razor-sharp hand axe. Excellent for separating flesh from bone. Charge for double attacks.`,
     wikiLinks: [`https://remnant.wiki/Bone_Chopper`],
     damage: 58,
+    crit: 7,
+    weakspot: 105,
+    stagger: -3,
   },
   {
     category: 'weapon',
@@ -4113,6 +4131,9 @@ export const remnantItems: Item[] = [
     description: `Makeshift claws fashioned from decayed root and rusted metal.`,
     wikiLinks: [`https://remnant.wiki/Decayed_Claws`],
     damage: 49,
+    crit: 16,
+    weakspot: 110,
+    stagger: -4,
   },
   {
     category: 'weapon',
@@ -4129,6 +4150,9 @@ export const remnantItems: Item[] = [
       },
     },
     damage: 58,
+    crit: 5,
+    weakspot: 95,
+    stagger: 3,
   },
   {
     category: 'weapon',
@@ -4139,6 +4163,9 @@ export const remnantItems: Item[] = [
     description: `An elegant, yet light blade, designed to bring beauty to bloodshed. Unstoppable in the hands of a master swordsman.`,
     wikiLinks: [`https://remnant.wiki/Edge_of_the_Forest`],
     damage: 59,
+    crit: 9,
+    weakspot: 105,
+    stagger: -15,
   },
   {
     category: 'weapon',
@@ -4155,6 +4182,9 @@ export const remnantItems: Item[] = [
       },
     },
     damage: 53,
+    crit: 13,
+    weakspot: 110,
+    stagger: -15,
   },
   {
     category: 'weapon',
@@ -4171,6 +4201,9 @@ export const remnantItems: Item[] = [
       },
     },
     damage: 74,
+    crit: 3,
+    weakspot: 95,
+    stagger: 8,
   },
   {
     category: 'weapon',
@@ -4186,6 +4219,9 @@ export const remnantItems: Item[] = [
       },
     },
     damage: 38,
+    crit: 2,
+    weakspot: 50,
+    stagger: -20,
   },
   {
     category: 'weapon',
@@ -4201,6 +4237,9 @@ export const remnantItems: Item[] = [
       },
     },
     damage: 51,
+    crit: 5,
+    weakspot: 90,
+    stagger: -10,
   },
   // * Updated in patch
   {
@@ -4217,6 +4256,9 @@ export const remnantItems: Item[] = [
       },
     },
     damage: 189,
+    crit: 6,
+    weakspot: 100,
+    stagger: -5,
   },
   {
     category: 'weapon',
@@ -4227,6 +4269,9 @@ export const remnantItems: Item[] = [
     description: `A giant broadsword made from flattened railroad tracks. Dozens of ridges cut in the side for causing irreparable damage.`,
     wikiLinks: [`https://remnant.wiki/Iron_Greatsword`],
     damage: 105,
+    crit: 5,
+    weakspot: 95,
+    stagger: 13,
   },
   {
     category: 'weapon',
@@ -4237,6 +4282,9 @@ export const remnantItems: Item[] = [
     description: `Steel knuckles with rusty sawblade tips, designed to boost Unarmed damage.`,
     wikiLinks: [`https://remnant.wiki/Knuckle_Dusters`],
     damage: 43,
+    crit: 5,
+    weakspot: 110,
+    stagger: 5,
   },
   {
     category: 'weapon',
@@ -4252,6 +4300,9 @@ export const remnantItems: Item[] = [
       },
     },
     damage: 54,
+    crit: 3,
+    weakspot: 85,
+    stagger: -10,
   },
   {
     category: 'weapon',
@@ -4262,6 +4313,9 @@ export const remnantItems: Item[] = [
     description: `Basic Strikes generate 10% additional Mod Power. Charge Attacks perform an AOE which strikes all enemies within 2m [R], dealing 75 Damage. AOE Damage generates 50% additional Mod Power.`,
     wikiLinks: [`https://remnant.wiki/Labyrinth_Staff`],
     damage: 64,
+    crit: 8,
+    weakspot: 95,
+    stagger: 5,
   },
   {
     category: 'weapon',
@@ -4278,6 +4332,9 @@ export const remnantItems: Item[] = [
       },
     },
     damage: 47,
+    crit: 18,
+    weakspot: 110,
+    stagger: -20,
   },
   {
     category: 'weapon',
@@ -4288,6 +4345,9 @@ export const remnantItems: Item[] = [
     description: `An intricately-forged elongated sword. Designed to keep stronger enemies at bay, while remaining light enough for agile maneuvers.`,
     wikiLinks: [`https://remnant.wiki/Ornate_Blade`],
     damage: 52,
+    crit: 11,
+    weakspot: 105,
+    stagger: -5,
   },
   {
     category: 'weapon',
@@ -4298,6 +4358,9 @@ export const remnantItems: Item[] = [
     description: `An intricately-forged mace with uniquely designed airways. Allows smaller wielders to get the mace up to speed much quicker.`,
     wikiLinks: [`https://remnant.wiki/Ornate_Flail`],
     damage: 63,
+    crit: 11,
+    weakspot: 100,
+    stagger: -3,
   },
   {
     category: 'weapon',
@@ -4308,6 +4371,9 @@ export const remnantItems: Item[] = [
     description: `A spear perfect for staying at a distance. Has excellent range, great recovery, and focused direct damage for one on one combat.`,
     wikiLinks: [`https://remnant.wiki/Rebellion_Spear`],
     damage: 60,
+    crit: 13,
+    weakspot: 110,
+    stagger: 2,
   },
   {
     category: 'weapon',
@@ -4323,6 +4389,9 @@ export const remnantItems: Item[] = [
       },
     },
     damage: 62,
+    crit: 3,
+    weakspot: 95,
+    stagger: 8,
   },
   {
     category: 'weapon',
@@ -4339,6 +4408,9 @@ export const remnantItems: Item[] = [
       },
     },
     damage: 51,
+    crit: 5,
+    weakspot: 100,
+    stagger: -19,
   },
   {
     category: 'weapon',
@@ -4349,6 +4421,9 @@ export const remnantItems: Item[] = [
     description: `Standard issue Greatsword for the Empress's Royal Guards. Razor-sharp edges, extremely heavy, yet perfectly balanced.`,
     wikiLinks: [`https://remnant.wiki/Royal_Broadsword`],
     damage: 102,
+    crit: 7,
+    weakspot: 95,
+    stagger: 11,
   },
   {
     category: 'weapon',
@@ -4359,6 +4434,9 @@ export const remnantItems: Item[] = [
     description: `A pair of old-canine training bracers converted into deadly claws. Used for slashing and ripping.`,
     wikiLinks: [`https://remnant.wiki/Rusted_Claws`],
     damage: 51,
+    crit: 14,
+    weakspot: 110,
+    stagger: -9,
   },
   {
     category: 'weapon',
@@ -4370,6 +4448,9 @@ export const remnantItems: Item[] = [
     description: `A large, heavy warhammer cobbled together from engine components. It is a slow- but-devastating weapon meant to destroy anything it hits.`,
     wikiLinks: [`https://remnant.wiki/Scrap_Hammer`],
     damage: 83,
+    crit: 8,
+    weakspot: 95,
+    stagger: 9,
   },
   {
     category: 'weapon',
@@ -4381,6 +4462,9 @@ export const remnantItems: Item[] = [
     description: `A common chopping tool that has been repurposed for combat. Rapidly cycles attacks from right to left. Charge attacks strike twice.`,
     wikiLinks: [`https://remnant.wiki/Scrap_Hatchet`],
     damage: 57,
+    crit: 6,
+    weakspot: 105,
+    stagger: 1,
   },
   {
     category: 'weapon',
@@ -4392,6 +4476,9 @@ export const remnantItems: Item[] = [
     description: `A staff made from old plumbing parts used for controlling wide swaths in front of the wielder.`,
     wikiLinks: [`https://remnant.wiki/Scrap_Staff`],
     damage: 65,
+    crit: 6,
+    weakspot: 95,
+    stagger: 8,
   },
   {
     category: 'weapon',
@@ -4407,6 +4494,9 @@ export const remnantItems: Item[] = [
       },
     },
     damage: 46,
+    crit: 4,
+    weakspot: 95,
+    stagger: 1,
   },
   // * Updated in patch
   {
@@ -4423,6 +4513,9 @@ export const remnantItems: Item[] = [
       },
     },
     damage: 159,
+    crit: 8,
+    weakspot: 105,
+    stagger: -25,
   },
   {
     category: 'weapon',
@@ -4434,6 +4527,9 @@ export const remnantItems: Item[] = [
     description: `An unorthodox weapon meant to convert momentum into destruction. Some attacks can continuously chain overhead swings.`,
     wikiLinks: [`https://remnant.wiki/Steel_Flail`],
     damage: 69,
+    crit: 4,
+    weakspot: 100,
+    stagger: 6,
   },
   {
     category: 'weapon',
@@ -4445,6 +4541,9 @@ export const remnantItems: Item[] = [
     description: `An old piece of steel with serrations cut into one side. Pipe handle provides limited grip.`,
     wikiLinks: [`https://remnant.wiki/Steel_Katana`],
     damage: 56,
+    crit: 10,
+    weakspot: 105,
+    stagger: -10,
   },
   {
     category: 'weapon',
@@ -4456,6 +4555,9 @@ export const remnantItems: Item[] = [
     description: `A ruthless threshing device.`,
     wikiLinks: [`https://remnant.wiki/Steel_Scythe`],
     damage: 55,
+    crit: 10,
+    weakspot: 100,
+    stagger: -15,
   },
   {
     category: 'weapon',
@@ -4467,6 +4569,9 @@ export const remnantItems: Item[] = [
     description: `A spear perfect for staying at range with quick, focused attacks. High, single-target damage.`,
     wikiLinks: [`https://remnant.wiki/Steel_Spear`],
     damage: 61,
+    crit: 9,
+    weakspot: 110,
+    stagger: -4,
   },
   {
     category: 'weapon',
@@ -4478,6 +4583,9 @@ export const remnantItems: Item[] = [
     description: `A long, sharp blade hammered out of vehicle leaf springs. Well-rounded for most situations.`,
     wikiLinks: [`https://remnant.wiki/Steel_Sword`],
     damage: 56,
+    crit: 7,
+    weakspot: 100,
+    stagger: 2,
   },
   {
     category: 'weapon',
@@ -4493,6 +4601,9 @@ export const remnantItems: Item[] = [
       },
     },
     damage: 103,
+    crit: 4,
+    weakspot: 95,
+    stagger: 10,
   },
   {
     category: 'weapon',
@@ -4503,6 +4614,9 @@ export const remnantItems: Item[] = [
     description: `A N'Erudian tool converted into a ruthless ripping device. High raw damage.`,
     wikiLinks: [`https://remnant.wiki/Vice_Grips`],
     damage: 55,
+    crit: 6,
+    weakspot: 110,
+    stagger: -18,
   },
   {
     category: 'weapon',
@@ -4519,6 +4633,9 @@ export const remnantItems: Item[] = [
       },
     },
     damage: 101,
+    crit: 6,
+    weakspot: 85,
+    stagger: 80,
   },
   {
     category: 'weapon',
@@ -4535,6 +4652,9 @@ export const remnantItems: Item[] = [
       },
     },
     damage: 101,
+    crit: 6,
+    weakspot: 85,
+    stagger: 80,
   },
   // * Updated in patch
   {
@@ -6835,7 +6955,7 @@ EXPOSED: Target receives up to 24% additional damage from all sources. Expose am
     imagePath: '/amulet/energized_neck_coil.png',
     id: 'c52jp0',
     tags: ['Status Effect'],
-    description: `Increases Status Effect damage by 25%. Applying a damaging Status Effect creates a 5m Explosion for 20% of the Status Effect's full damage [E].`,
+    description: `Increases Status Effect damage by 25%. Applying a damaging Status Effect creates a 5m Explosion [E] for 20% of the Status Effect's full damage.`,
     wikiLinks: [`https://remnant.wiki/Energized_Neck_Coil`],
   },
   {
