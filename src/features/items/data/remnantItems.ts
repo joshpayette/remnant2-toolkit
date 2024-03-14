@@ -3895,7 +3895,7 @@ export const remnantItems: Item[] = [
       },
     },
     damage: 200,
-    rps: 3.5,
+    rps: 1.55,
     magazine: 1,
     accuracy: 95,
     ideal: 10,
