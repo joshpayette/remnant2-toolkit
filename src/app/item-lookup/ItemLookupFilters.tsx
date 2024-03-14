@@ -18,7 +18,7 @@ import {
   ItemLookupCategory,
   ItemLookupFilterFields,
 } from '@/features/filters/types'
-import { DESCRIPTION_TAGS, ITEM_TAGS } from '@/features/items/constants'
+import { ITEM_TAGS } from '@/features/items/constants'
 import {
   remnantItemCategories,
   remnantItems,
@@ -33,11 +33,6 @@ function buildItemList(): Array<{ id: string; name: string }> {
       id: item.id,
       name: item.name,
     }))
-
-  items = DESCRIPTION_TAGS.map((tag) => ({
-    id: tag.token as string,
-    name: tag.type as string,
-  })).concat(items)
 
   items = ITEM_TAGS.map((tag) => ({
     id: tag as string,

@@ -14,6 +14,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Changed item cards to be more uniform. No more multi-column layout on desktop, too much empty space.
 - Updated the images for Bloat King boss and Little Gorge aberration. (ConRaven)
+- Removed DESCRIPTION_TAGS from autocomplete search boxes as it is no longer necessary.
 
 ### Fixed
 

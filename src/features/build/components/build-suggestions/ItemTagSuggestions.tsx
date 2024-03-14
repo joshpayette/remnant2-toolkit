@@ -5,7 +5,7 @@ import { linkArchetypesToTraits } from '@/features/build/lib/linkArchetypesToTra
 import { linkWeaponsToMods } from '@/features/build/lib/linkWeaponsToMods'
 import { BuildState } from '@/features/build/types'
 import { ItemButton } from '@/features/items/components/ItemButton'
-import { DESCRIPTION_TAGS, ITEM_TAGS } from '@/features/items/constants'
+import { ITEM_TAGS } from '@/features/items/constants'
 import { remnantItems } from '@/features/items/data/remnantItems'
 import { itemMatchesSearchText } from '@/features/items/lib/itemMatchesSearchText'
 import { Item, ItemTag } from '@/features/items/types'
@@ -21,24 +21,16 @@ import { SelectMenu } from '@/features/ui/SelectMenu'
  * Returns a full list of all of them in alphabetical order
  */
 function buildTagOptions() {
-  const descriptionTagOptions = DESCRIPTION_TAGS.map((tag) => ({
-    label: tag.type,
-    value: tag.token,
-  })) satisfies Array<{ label: string; value: string }>
-
   const itemTagsOptions: Array<{ label: string; value: ItemTagWithDefault }> =
     ITEM_TAGS.map((tag) => ({
       label: tag,
       value: tag,
-    }))
-  const allTagOptions = [...descriptionTagOptions, ...itemTagsOptions].sort(
-    (a, b) => {
+    })).sort((a, b) => {
       if (a.label < b.label) return -1
       if (a.label > b.label) return 1
       return 0
-    },
-  )
-  return allTagOptions
+    })
+  return itemTagsOptions
 }
 
 /**

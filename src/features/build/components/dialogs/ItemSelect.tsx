@@ -4,28 +4,22 @@ import { AdjustmentsHorizontalIcon } from '@heroicons/react/24/solid'
 import { useCallback, useEffect, useState } from 'react'
 import { useDebounceValue, useLocalStorage } from 'usehooks-ts'
 
+import { ItemCategory } from '@/features/build/types'
 import { SearchTextAutocomplete } from '@/features/filters/components/parts/SearchTextAutocomplete'
+import { ItemButton } from '@/features/items/components/ItemButton'
 import { ItemInfoDialog } from '@/features/items/components/ItemInfoDialog'
-import { DESCRIPTION_TAGS, ITEM_TAGS } from '@/features/items/constants'
+import { ITEM_TAGS } from '@/features/items/constants'
 import { itemMatchesSearchText } from '@/features/items/lib/itemMatchesSearchText'
 import { Item } from '@/features/items/types'
 import { Dialog } from '@/features/ui/Dialog'
 import { capitalize } from '@/lib/capitalize'
 import { cn } from '@/lib/classnames'
 
-import { ItemButton } from '../../../items/components/ItemButton'
-import { ItemCategory } from '../../types'
-
 function buildSearchTextOptions(): Array<{ id: string; name: string }> {
-  let items = DESCRIPTION_TAGS.map((tag) => ({
-    id: tag.token as string,
-    name: tag.type as string,
-  }))
-
-  items = ITEM_TAGS.map((tag) => ({
+  let items = ITEM_TAGS.map((tag) => ({
     id: tag as string,
     name: tag as string,
-  })).concat(items)
+  }))
 
   items = items.sort((a, b) => a.name.localeCompare(b.name))
 
