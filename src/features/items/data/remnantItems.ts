@@ -929,7 +929,7 @@ export const remnantItems: Item[] = [
     name: 'Minion: Hollow',
     imagePath: '/skill/minion_hollow.png',
     id: 'kk4yre',
-       description: `PRESS: Summons a Root Hollow Minion to fight by your side. Costs 15% of Max Health to summon, but will not kil SUMMONER. Max (2)
+    description: `PRESS: Summons a Root Hollow Minion to fight by your side. Costs 15% of Max Health to summon, but will not kil SUMMONER. Max (2)
 
     HOLD: SACRIFICE Root Hollow Minion to explode, dealing 150 damage [E] within 5m. [A] Reduces Skill Cooldown by up to 50% based on remaining Health of each Minion Sacrificed.`,
     cooldown: 30,
@@ -965,14 +965,13 @@ export const remnantItems: Item[] = [
     name: 'Minion: Reaver',
     imagePath: '/skill/minion_reaver.png',
     id: 'gs8zdv',
-    tags: ['Amplitude'],
     description: `PRESS: Summons a Root Reaver Minion to fight by your side. Costs 35% of Max Health to summon, but will not kill SUMMONER. Max (1).
 
     HOLD: SACRIFICE all Root Reaver Minion, dealing 200 damage [E] within 6m [A] and spawning Spore Bombs which bounce and explode on contact for 200 damage each.
     
     Reduces Skill Cooldown by up to 50% based on remaining Health of Minion.`,
     cooldown: 120,
-    tags: ['Reduce Skill Cooldown', 'Summon'],
+    tags: ['Amplitude', 'Reduce Skill Cooldown', 'Summon'],
     wikiLinks: [`https://remnant.wiki/Minion:_Reaver`],
     linkedItems: {
       archetype: {
