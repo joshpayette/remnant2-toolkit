@@ -1,5 +1,3 @@
-'use server'
-
 import {
   getTotalArmor,
   getTotalWeight,
@@ -12,10 +10,10 @@ import { ArmorItem } from '@/features/items/types/ArmorItem'
 
 import { ArmorSuggestion } from './types'
 
-export async function getArmorSuggestions(
+export function getArmorSuggestions(
   buildState: BuildState,
   desiredWeightClass: keyof typeof WEIGHT_CLASSES,
-): Promise<ArmorSuggestion[]> {
+) {
   const emptyArmorSlots: Array<'helm' | 'torso' | 'gloves' | 'legs'> = []
   if (!buildState.items.helm) emptyArmorSlots.push('helm')
   if (!buildState.items.torso) emptyArmorSlots.push('torso')
