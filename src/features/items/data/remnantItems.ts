@@ -6215,8 +6215,8 @@ export const remnantItems: Item[] = [
     imagePath: '/mutator/battery.png',
     id: 'n5zhws',
     tags: ['Weakspot Damage'],
-    description: `Ranged Hits increase the next Weakspot Hit by 10% per stack. Max 5 Stacks.`,
-    maxLevelBonus: `At Max Stacks, the next weakspot Hit deals 15% additional damage over 3s.`,
+    description: `Increases Weakspot Damage by 10% for every 400 Mod Power spent by the attached weapon's mod. Max 3 stacks. Lasts 10s.`,
+    maxLevelBonus: `At Max Stacks, gain 10% Critical Chance on Weakspot Hits.`,
     wikiLinks: [`https://remnant.wiki/Battery`],
   },
   {
