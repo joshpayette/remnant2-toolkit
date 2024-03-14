@@ -1,7 +1,6 @@
 'use server'
 
 import { BuildListFilters } from '@/features/filters/components/BuildListFilters'
-import { DEFAULT_ITEMS_PER_PAGE } from '@/features/pagination/constants'
 import { CreatedBuilds } from '@/features/profile/components/CreatedBuilds'
 
 export default async function Page() {
@@ -11,7 +10,7 @@ export default async function Page() {
         <BuildListFilters key="user-created-builds-filters" />
       </div>
       <div className="mb-4 grid w-full grid-cols-1 gap-2">
-        <CreatedBuilds itemsPerPage={DEFAULT_ITEMS_PER_PAGE} />
+        <CreatedBuilds itemsPerPage={15} />
       </div>
     </>
   )
