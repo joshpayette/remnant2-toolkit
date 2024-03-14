@@ -8,7 +8,10 @@ export interface BuildListFilterFields {
   handGun: string
   longGun: string
   melee: string
-  ring: string
+  ring1: string
+  ring2: string
+  ring3: string
+  ring4: string
   searchText: string
   selectedReleases: ReleaseKey[]
   includePatchAffectedBuilds: boolean

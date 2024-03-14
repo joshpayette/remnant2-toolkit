@@ -28,7 +28,10 @@ export const DEFAULT_BUILD_LIST_FILTERS: BuildListFilterFields = {
   handGun: DEFAULT_WEAPON_FILTERS.handGun,
   longGun: DEFAULT_WEAPON_FILTERS.longGun,
   melee: DEFAULT_WEAPON_FILTERS.melee,
-  ring: DEFAULT_JEWELRY_FILTERS.ring,
+  ring1: DEFAULT_JEWELRY_FILTERS.ring,
+  ring2: DEFAULT_JEWELRY_FILTERS.ring,
+  ring3: DEFAULT_JEWELRY_FILTERS.ring,
+  ring4: DEFAULT_JEWELRY_FILTERS.ring,
   searchText: '',
   selectedReleases: DEFAULT_RELEASE_FILTERS,
   includePatchAffectedBuilds: false,
@@ -63,7 +66,10 @@ export function BuildListFilters() {
       filters.longGun !== DEFAULT_BUILD_LIST_FILTERS['longGun'] ||
       filters.handGun !== DEFAULT_BUILD_LIST_FILTERS['handGun'] ||
       filters.melee !== DEFAULT_BUILD_LIST_FILTERS['melee'] ||
-      filters.ring !== DEFAULT_BUILD_LIST_FILTERS['ring'] ||
+      filters.ring1 !== DEFAULT_BUILD_LIST_FILTERS['ring1'] ||
+      filters.ring2 !== DEFAULT_BUILD_LIST_FILTERS['ring2'] ||
+      filters.ring3 !== DEFAULT_BUILD_LIST_FILTERS['ring3'] ||
+      filters.ring4 !== DEFAULT_BUILD_LIST_FILTERS['ring4'] ||
       filters.amulet !== DEFAULT_BUILD_LIST_FILTERS['amulet'] ||
       filters.searchText !== DEFAULT_BUILD_LIST_FILTERS['searchText'] ||
       filters.selectedReleases.length !==
@@ -131,9 +137,9 @@ export function BuildListFilters() {
     }
   }
 
-  function handleRingChange(ring: string) {
-    setUnappliedFilters({ ...unappliedFilters, ring })
-    if (ring !== filters.ring) {
+  function handleRingChange(ring: string, ringIndex: number) {
+    setUnappliedFilters({ ...unappliedFilters, [`ring${ringIndex}`]: ring })
+    if (ring !== filters[`ring${ringIndex}` as keyof BuildListFilterFields]) {
       setAreFiltersApplied(false)
     }
   }
@@ -177,8 +183,17 @@ export function BuildListFilters() {
     if (newFilters.melee !== DEFAULT_BUILD_LIST_FILTERS['melee']) {
       finalPath += `melee=${newFilters.melee}&`
     }
-    if (newFilters.ring !== DEFAULT_BUILD_LIST_FILTERS['ring']) {
-      finalPath += `ring=${newFilters.ring}&`
+    if (newFilters.ring1 !== DEFAULT_BUILD_LIST_FILTERS['ring1']) {
+      finalPath += `ring1=${newFilters.ring1}&`
+    }
+    if (newFilters.ring2 !== DEFAULT_BUILD_LIST_FILTERS['ring2']) {
+      finalPath += `ring2=${newFilters.ring2}&`
+    }
+    if (newFilters.ring3 !== DEFAULT_BUILD_LIST_FILTERS['ring3']) {
+      finalPath += `ring3=${newFilters.ring3}&`
+    }
+    if (newFilters.ring4 !== DEFAULT_BUILD_LIST_FILTERS['ring4']) {
+      finalPath += `ring4=${newFilters.ring4}&`
     }
     if (newFilters.amulet !== DEFAULT_BUILD_LIST_FILTERS['amulet']) {
       finalPath += `amulet=${newFilters.amulet}&`
@@ -233,9 +248,14 @@ export function BuildListFilters() {
         }
       />
       <JewelryFilters
-        selectedRing={unappliedFilters.ring}
+        selectedRings={{
+          ring1: unappliedFilters.ring1,
+          ring2: unappliedFilters.ring2,
+          ring3: unappliedFilters.ring3,
+          ring4: unappliedFilters.ring4,
+        }}
         selectedAmulet={unappliedFilters.amulet}
-        onChangeRing={(ring: string) => handleRingChange(ring)}
+        onChangeRing={handleRingChange}
         onChangeAmulet={(amulet: string) => handleAmuletChange(amulet)}
       />
       <ReleaseFilters

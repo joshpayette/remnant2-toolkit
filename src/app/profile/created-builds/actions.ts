@@ -21,9 +21,9 @@ import {
 import { limitByPatchAffected } from '@/features/filters/queries/segments/limitByPatchAffected'
 import { limitByReleasesSegment } from '@/features/filters/queries/segments/limitByRelease'
 import {
-  limitByRingSegment,
-  ringFilterToId,
-} from '@/features/filters/queries/segments/limitByRing'
+  limitByRingsSegment,
+  ringsFilterToIds,
+} from '@/features/filters/queries/segments/limitByRings'
 import { limitByTimeConditionSegment } from '@/features/filters/queries/segments/limitByTimeCondition'
 import {
   limitByWeaponsSegment,
@@ -61,7 +61,10 @@ export async function getCreatedBuilds({
     handGun,
     longGun,
     melee,
-    ring,
+    ring1,
+    ring2,
+    ring3,
+    ring4,
     searchText,
     selectedReleases,
     includePatchAffectedBuilds,
@@ -76,7 +79,7 @@ export async function getCreatedBuilds({
     melee,
   })
   const amuletId = amuletFilterToId({ amulet })
-  const ringId = ringFilterToId({ ring })
+  const ringIds = ringsFilterToIds({ rings: [ring1, ring2, ring3, ring4] })
 
   const whereConditions = Prisma.sql`
   WHERE Build.createdById = ${userId}
@@ -84,7 +87,7 @@ export async function getCreatedBuilds({
   ${limitByArchetypesSegment(archetypeIds)}
   ${limitByWeaponsSegment(weaponIds)}
   ${limitByAmuletSegment(amuletId)}
-  ${limitByRingSegment(ringId)}
+  ${limitByRingsSegment(ringIds)}
   ${limitByReleasesSegment(selectedReleases)}
   ${limitByTimeConditionSegment(timeRange)}
   `
