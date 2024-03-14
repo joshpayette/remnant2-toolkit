@@ -5,6 +5,7 @@ import { linkArchetypesToTraits } from '@/features/build/lib/linkArchetypesToTra
 import { linkWeaponsToMods } from '@/features/build/lib/linkWeaponsToMods'
 import { BuildState } from '@/features/build/types'
 import { ItemButton } from '@/features/items/components/ItemButton'
+import { ItemInfoDialog } from '@/features/items/components/ItemInfoDialog'
 import { ITEM_TAGS } from '@/features/items/constants'
 import { remnantItems } from '@/features/items/data/remnantItems'
 import { itemMatchesSearchText } from '@/features/items/lib/itemMatchesSearchText'
@@ -14,6 +15,7 @@ import { ConsumableItem } from '@/features/items/types/ConsumableItem'
 import { ModItem } from '@/features/items/types/ModItem'
 import { MutatorItem } from '@/features/items/types/MutatorItem'
 import { WeaponItem } from '@/features/items/types/WeaponItem'
+import { Dialog } from '@/features/ui/Dialog'
 import { SelectMenu } from '@/features/ui/SelectMenu'
 
 /**
@@ -162,17 +164,22 @@ type SelectedItem = Item & {
 
 interface Props {
   buildState: BuildState
-  isItemInfoOpen: boolean
+  open: boolean
+  onClose: () => void
   onApplySuggestions: (newBuildState: BuildState) => void
-  onOpenItemInfo: (item: Item) => void
 }
 
-export function ItemTagSuggestions({
+export function ItemTagSuggestionsDialog({
   buildState,
-  isItemInfoOpen,
+  open,
+  onClose,
   onApplySuggestions,
-  onOpenItemInfo,
 }: Props) {
+  // Tracks the item the user wants info on
+  const [itemInfo, setItemInfo] = useState<Item | null>(null)
+  // If the item info is defined, the modal should be open
+  const isItemInfoOpen = Boolean(itemInfo)
+
   const [selectedTag, setSelectedTag] = useState<ItemTagOption>(DEFAULT_TAG)
   const [itemSuggestions, setItemSuggestions] = useState<Item[]>([])
   const [selectedItems, setSelectedItems] = useState<SelectedItem[]>([])
@@ -708,82 +715,95 @@ export function ItemTagSuggestions({
   }
 
   return (
-    <ItemTagContainer>
-      <div className="flex w-full flex-row items-end justify-center gap-x-2 text-left">
-        <SelectMenu
-          label="Tags"
-          options={allTagOptions}
-          value={selectedTag?.value}
-          onChange={(e) => {
-            const newTag = allTagOptions.find(
-              (tag) => tag.value === e.target.value,
-            )
-            if (!newTag) return
-            handleItemTagChange(newTag)
-          }}
-        />
-        <button
-          className="mt-4 rounded-md border-2 border-red-500 p-2 text-sm text-white hover:bg-red-500 hover:text-white"
-          aria-label="Clear tag suggestions"
-          onClick={clearTagSuggestions}
-        >
-          Clear
-        </button>
-      </div>
-      {itemSuggestions.length === 0 && (
-        <div className="flex flex-col items-center justify-center">
-          <div className="text-md mt-4 text-center font-bold text-red-500">
-            No item suggestions found.
-          </div>
-        </div>
-      )}
-      {itemSuggestions.length > 0 && (
-        <div className="mt-4 flex w-full flex-col items-center justify-center">
-          <div className="flex w-full flex-row flex-wrap items-center justify-center gap-x-2">
-            {itemSuggestions.map((suggestion) => (
-              <div
-                key={suggestion.id}
-                className="flex flex-col items-start justify-start"
-              >
-                <ItemButton
-                  item={suggestion}
-                  isEditable={false}
-                  size="md"
-                  isToggled={selectedItems.some(
-                    (item) => item.id === suggestion.id,
-                  )}
-                  onClick={() => handleSelectItem(suggestion)}
-                  onItemInfoClick={() => onOpenItemInfo(suggestion)}
-                  tooltipDisabled={isItemInfoOpen}
-                />
-                {selectedItems.find((i) => i.id === suggestion.id)?.slot && (
-                  <span className="-mt-2 mb-2 w-full bg-secondary-800 p-1 text-[9px] text-white">
-                    {selectedItems.find((i) => i.id === suggestion.id)?.slot}
-                  </span>
-                )}
-              </div>
-            ))}
-          </div>
+    <Dialog
+      title="Item Suggestions"
+      subtitle="Find a list of items that match a specified item tag or effect."
+      maxWidthClass="max-w-lg"
+      open={open}
+      onClose={onClose}
+    >
+      <ItemInfoDialog
+        item={itemInfo}
+        open={isItemInfoOpen}
+        onClose={() => setItemInfo(null)}
+      />
+      <ItemTagContainer>
+        <div className="flex w-full flex-row items-end justify-center gap-x-2 text-left">
+          <SelectMenu
+            label="Tags"
+            options={allTagOptions}
+            value={selectedTag?.value}
+            onChange={(e) => {
+              const newTag = allTagOptions.find(
+                (tag) => tag.value === e.target.value,
+              )
+              if (!newTag) return
+              handleItemTagChange(newTag)
+            }}
+          />
           <button
-            className="mt-4 rounded-md border-2 border-primary-500 p-2 text-sm text-white hover:bg-primary-500 hover:text-white"
-            aria-label="Equip selected items"
-            onClick={handleApplyItemSelections}
+            className="mt-4 rounded-md border-2 border-red-500 p-2 text-sm text-white hover:bg-red-500 hover:text-white"
+            aria-label="Clear tag suggestions"
+            onClick={clearTagSuggestions}
           >
-            Equip Selected Items
+            Clear
           </button>
-          <p className="mt-2 text-left text-xs text-gray-400">
-            Note: This is a new feature and may not work as expected. Please
-            back up your build before using this feature. Please report any
-            issues.
-          </p>
-          <p className="mt-2 text-left text-xs text-gray-400">
-            Note: This will replace any existing items in the specified slots.
-            If you are replacing an archetype, the base trait points will be
-            removed and re-added based on the new archetype.
-          </p>
         </div>
-      )}
-    </ItemTagContainer>
+        {itemSuggestions.length === 0 && (
+          <div className="flex flex-col items-center justify-center">
+            <div className="text-md mt-4 text-center font-bold text-red-500">
+              No item suggestions found.
+            </div>
+          </div>
+        )}
+        {itemSuggestions.length > 0 && (
+          <div className="mt-4 flex w-full flex-col items-center justify-center">
+            <div className="flex w-full flex-row flex-wrap items-center justify-center gap-x-2">
+              {itemSuggestions.map((suggestion) => (
+                <div
+                  key={suggestion.id}
+                  className="flex flex-col items-start justify-start"
+                >
+                  <ItemButton
+                    item={suggestion}
+                    isEditable={false}
+                    size="md"
+                    isToggled={selectedItems.some(
+                      (item) => item.id === suggestion.id,
+                    )}
+                    onClick={() => handleSelectItem(suggestion)}
+                    onItemInfoClick={() => setItemInfo(suggestion)}
+                    tooltipDisabled={isItemInfoOpen}
+                  />
+                  {selectedItems.find((i) => i.id === suggestion.id)?.slot && (
+                    <span className="-mt-2 mb-2 w-full bg-secondary-800 p-1 text-[9px] text-white">
+                      {selectedItems.find((i) => i.id === suggestion.id)?.slot}
+                    </span>
+                  )}
+                </div>
+              ))}
+            </div>
+            <button
+              className="mt-4 rounded-md border-2 border-primary-500 p-2 text-sm text-white hover:bg-primary-500 hover:text-white"
+              aria-label="Equip selected items"
+              onClick={handleApplyItemSelections}
+            >
+              Equip Selected Items
+            </button>
+            <p className="mt-2 text-left text-xs text-gray-400">
+              Note: This is a new feature and may not work as expected. Please
+              back up your build before using this feature. Please report any
+              issues.
+            </p>
+            <p className="mt-2 text-left text-xs text-gray-400">
+              Note: This will replace any existing items in the specified slots.
+              If you are replacing an archetype, the base trait points will be
+              removed and re-added based on the new archetype.
+            </p>
+          </div>
+        )}
+      </ItemTagContainer>
+    </Dialog>
   )
 }
 

@@ -2,12 +2,13 @@
 
 import { useRef, useState } from 'react'
 
-import { BuildSuggestionsDialog } from '@/features/build/components/build-suggestions/BuildSuggestionsDialog'
 import { BuilderPage } from '@/features/build/components/builder/BuilderPage'
 import { ActionButton } from '@/features/build/components/buttons/ActionButton'
 import { SaveBuildButton } from '@/features/build/components/buttons/SaveBuildButton'
+import { ArmorSuggestionsDialog } from '@/features/build/components/dialogs/ArmorSuggestionsDialog'
 import { DetailedBuildDialog } from '@/features/build/components/dialogs/DetailedBuildDialog'
 import { ImageDownloadInfo } from '@/features/build/components/dialogs/ImageDownloadInfo'
+import { ItemTagSuggestionsDialog } from '@/features/build/components/dialogs/ItemTagSuggestionsDialog'
 import { INITIAL_BUILD_STATE } from '@/features/build/constants'
 import { useBuildActions } from '@/features/build/hooks/useBuildActions'
 import { useDBBuildState } from '@/features/build/hooks/useDBBuildState'
@@ -24,17 +25,21 @@ export default function Page() {
     isScreenshotMode,
     showControls,
     imageDownloadInfo,
+    imageExportLoading,
     handleClearImageDownloadInfo,
+    handleImageExport,
     handleRandomBuild,
   } = useBuildActions()
 
   const buildContainerRef = useRef<HTMLDivElement>(null)
 
-  const [showBuildSuggestions, setShowBuildSuggestions] = useState(false)
+  const [showArmorCalculator, setShowArmorCalculator] = useState(false)
+  const [showItemSuggestions, setShowItemSuggestions] = useState(false)
 
   function handleApplySuggestions(newBuildState: BuildState) {
     setNewBuildState(newBuildState)
-    setShowBuildSuggestions(false)
+    setShowArmorCalculator(false)
+    setShowItemSuggestions(false)
   }
 
   return (
@@ -55,10 +60,17 @@ export default function Page() {
         subtitle="Create your builds and share them with your friends and the community."
       />
 
-      <BuildSuggestionsDialog
+      <ArmorSuggestionsDialog
         buildState={dbBuildState}
-        open={showBuildSuggestions}
-        onClose={() => setShowBuildSuggestions(false)}
+        open={showArmorCalculator}
+        onClose={() => setShowArmorCalculator(false)}
+        onApplySuggestions={handleApplySuggestions}
+      />
+
+      <ItemTagSuggestionsDialog
+        buildState={dbBuildState}
+        open={showItemSuggestions}
+        onClose={() => setShowItemSuggestions(false)}
         onApplySuggestions={handleApplySuggestions}
       />
 
@@ -74,8 +86,22 @@ export default function Page() {
           <>
             <SaveBuildButton buildState={dbBuildState} editMode={false} />
 
-            <ActionButton.BuildSuggestions
-              onClick={() => setShowBuildSuggestions(true)}
+            <ActionButton.ExportImage
+              imageExportLoading={imageExportLoading}
+              onClick={() =>
+                handleImageExport(
+                  buildContainerRef.current,
+                  `${dbBuildState.name}`,
+                )
+              }
+            />
+
+            <ActionButton.ArmorCalculator
+              onClick={() => setShowArmorCalculator(true)}
+            />
+
+            <ActionButton.ItemSuggestions
+              onClick={() => setShowItemSuggestions(true)}
             />
 
             <hr className="my-2 w-full border-t-2 border-gray-500/50" />

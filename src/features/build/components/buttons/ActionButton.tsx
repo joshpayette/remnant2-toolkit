@@ -4,7 +4,6 @@ import { FlagIcon as FlagIconOff } from '@heroicons/react/24/outline'
 import { FlagIcon as FlagIconOn } from '@heroicons/react/24/solid'
 
 import { Skeleton } from '@/features/ui/Skeleton'
-import { Tooltip } from '@/features/ui/Tooltip'
 import { cn } from '@/lib/classnames'
 
 export const buttonClasses =
@@ -20,13 +19,13 @@ type ButtonProps = {
 }
 
 export const ActionButton = {
-  BuildSuggestions: ({ onClick }: ButtonProps) => (
+  ArmorCalculator: ({ onClick }: ButtonProps) => (
     <button
       className={cn(buttonClasses, primaryButtonClasses)}
-      aria-label="Generate build suggestions based on the current build."
+      aria-label="Get optimal armor values for this build."
       onClick={onClick}
     >
-      Build Suggestions
+      Armor Calculator
     </button>
   ),
 
@@ -99,6 +98,16 @@ export const ActionButton = {
       onClick={onClick}
     >
       {upvoted ? 'Remove Favorite' : 'Favorite Build'}
+    </button>
+  ),
+
+  ItemSuggestions: ({ onClick }: ButtonProps) => (
+    <button
+      className={cn(buttonClasses, primaryButtonClasses)}
+      aria-label="Find a list of items that match a specified item tag or effect."
+      onClick={onClick}
+    >
+      Item Suggestions
     </button>
   ),
 

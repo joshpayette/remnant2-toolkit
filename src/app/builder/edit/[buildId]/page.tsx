@@ -3,12 +3,13 @@
 import { useSession } from 'next-auth/react'
 import { useRef, useState } from 'react'
 
-import { BuildSuggestionsDialog } from '@/features/build/components/build-suggestions/BuildSuggestionsDialog'
 import { BuilderPage } from '@/features/build/components/builder/BuilderPage'
 import { ActionButton } from '@/features/build/components/buttons/ActionButton'
 import { SaveBuildButton } from '@/features/build/components/buttons/SaveBuildButton'
+import { ArmorSuggestionsDialog } from '@/features/build/components/dialogs/ArmorSuggestionsDialog'
 import { DetailedBuildDialog } from '@/features/build/components/dialogs/DetailedBuildDialog'
 import { ImageDownloadInfo } from '@/features/build/components/dialogs/ImageDownloadInfo'
+import { ItemTagSuggestionsDialog } from '@/features/build/components/dialogs/ItemTagSuggestionsDialog'
 import { useBuildActions } from '@/features/build/hooks/useBuildActions'
 import { useDBBuildState } from '@/features/build/hooks/useDBBuildState'
 import { dbBuildToBuildState } from '@/features/build/lib/dbBuildToBuildState'
@@ -37,11 +38,13 @@ export default function Page({
 
   const buildContainerRef = useRef<HTMLDivElement>(null)
 
-  const [showBuildSuggestions, setShowBuildSuggestions] = useState(false)
+  const [showArmorCalculator, setShowArmorCalculator] = useState(false)
+  const [showItemTagSuggestions, setShowItemTagSuggestions] = useState(false)
 
   function handleSelectArmorSuggestion(newBuildState: BuildState) {
     setNewBuildState(newBuildState)
-    setShowBuildSuggestions(false)
+    setShowArmorCalculator(false)
+    setShowItemTagSuggestions(false)
   }
 
   return (
@@ -64,10 +67,17 @@ export default function Page({
         &nbsp;
       </PageHeader>
 
-      <BuildSuggestionsDialog
+      <ArmorSuggestionsDialog
         buildState={dbBuildState}
-        open={showBuildSuggestions}
-        onClose={() => setShowBuildSuggestions(false)}
+        open={showArmorCalculator}
+        onClose={() => setShowArmorCalculator(false)}
+        onApplySuggestions={handleSelectArmorSuggestion}
+      />
+
+      <ItemTagSuggestionsDialog
+        buildState={dbBuildState}
+        open={showItemTagSuggestions}
+        onClose={() => setShowItemTagSuggestions(false)}
         onApplySuggestions={handleSelectArmorSuggestion}
       />
 
@@ -82,8 +92,12 @@ export default function Page({
           <>
             <SaveBuildButton buildState={dbBuildState} editMode={true} />
 
-            <ActionButton.BuildSuggestions
-              onClick={() => setShowBuildSuggestions(true)}
+            <ActionButton.ArmorCalculator
+              onClick={() => setShowArmorCalculator(true)}
+            />
+
+            <ActionButton.ItemSuggestions
+              onClick={() => setShowItemTagSuggestions(true)}
             />
 
             <hr className="my-2 w-full border-t-2 border-gray-500/50" />
