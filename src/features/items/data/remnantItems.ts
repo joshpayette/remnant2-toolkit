@@ -3886,8 +3886,7 @@ export const remnantItems: Item[] = [
     name: 'Sporebloom',
     imagePath: '/mainhand/sporebloom.png',
     id: 'q3fgj2',
-    description: `An exceptionally powerful single-shot weapon that deals bonus stagger damage.
-    Must reload after each round fired.`,
+    description: `An exceptionally powerful single-shot weapon that deals bonus stagger damage. Must reload after each round fired.`,
     wikiLinks: [`https://remnant.wiki/Sporebloom`],
     linkedItems: {
       mod: {
