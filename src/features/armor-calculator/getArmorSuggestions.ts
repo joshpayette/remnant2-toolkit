@@ -1,3 +1,5 @@
+'use server'
+
 import {
   getTotalArmor,
   getTotalWeight,
@@ -10,10 +12,10 @@ import { ArmorItem } from '@/features/items/types/ArmorItem'
 
 import { ArmorSuggestion } from './types'
 
-export function getArmorSuggestions(
+export async function getArmorSuggestions(
   buildState: BuildState,
   desiredWeightClass: keyof typeof WEIGHT_CLASSES,
-) {
+): Promise<ArmorSuggestion[]> {
   const emptyArmorSlots: Array<'helm' | 'torso' | 'gloves' | 'legs'> = []
   if (!buildState.items.helm) emptyArmorSlots.push('helm')
   if (!buildState.items.torso) emptyArmorSlots.push('torso')
@@ -64,7 +66,20 @@ export function getArmorSuggestions(
 
   // This function will recursively loop through each empty slot and generate a list of
   // possible combinations of armor items
-  function generateCombinations(slotIndex: number, selectedItems: ArmorItem[]) {
+  function generateCombinations(
+    slotIndex: number,
+    selectedItems: ArmorItem[],
+    currentWeight: number,
+  ) {
+    if (
+      desiredWeightClass !== 'ULTRA' &&
+      currentWeight > WEIGHT_CLASSES[desiredWeightClass].maxWeight
+    ) {
+      // If the current combination of items already exceeds the maximum weight, return early
+      // unless the desired weight class is "ultra"
+      return
+    }
+
     if (slotIndex === emptyArmorSlots.length) {
       selectedItems.forEach((item) => {
         testBuild.items[item.category] = item
@@ -94,13 +109,17 @@ export function getArmorSuggestions(
 
       for (let i = 0; i < slotItems.length; i++) {
         const item = slotItems[i]
-        generateCombinations(slotIndex + 1, [...selectedItems, item])
+        generateCombinations(
+          slotIndex + 1,
+          [...selectedItems, item],
+          currentWeight + (item.weight ?? 0),
+        )
       }
     }
   }
 
   // Start the recursive loop
-  generateCombinations(0, [])
+  generateCombinations(0, [], 0)
 
   // sort the armor suggestions by total armor, with the highest armor first
   // then limit to the top 5

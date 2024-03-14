@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 import { getArmorSuggestions } from '@/features/armor-calculator/getArmorSuggestions'
 import {
@@ -41,21 +41,6 @@ export function ArmorSuggestionsDialog({
     [],
   )
 
-  useEffect(() => {
-    if (!isCalculating) return
-    if (desiredWeightClass === 'CHOOSE') return
-
-    // Start a timeout to delay the calculation
-    // This allows the loading indicator to render
-    const timeoutId = setTimeout(() => {
-      setArmorSuggestions(getArmorSuggestions(buildState, desiredWeightClass))
-      setIsCalculating(false)
-    }, 250)
-
-    // Clear the timeout when the component unmounts or when the dependencies change
-    return () => clearTimeout(timeoutId)
-  }, [isCalculating, desiredWeightClass, buildState])
-
   const allSlotsFull = Boolean(
     buildState.items.helm &&
       buildState.items.torso &&
@@ -63,13 +48,17 @@ export function ArmorSuggestionsDialog({
       buildState.items.legs,
   )
 
-  function handleWeightClassChange(weightClass: WeightClassWithDefault) {
+  async function handleWeightClassChange(weightClass: WeightClassWithDefault) {
     if (weightClass === 'CHOOSE') {
       setArmorSuggestions([])
       return
     }
     setDesiredWeightClass(weightClass)
     setIsCalculating(true)
+
+    const suggestions = await getArmorSuggestions(buildState, weightClass)
+    setArmorSuggestions(suggestions)
+    setIsCalculating(false)
   }
 
   function clearArmorSuggestions() {
