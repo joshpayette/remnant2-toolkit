@@ -10880,7 +10880,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     id: 'tr5r38',
     tags: ['Status Effect'],
     description: `
-    On Relic Use, cleanses all Negative Status Effects..
+    On Relic Use, cleanses all Negative Status Effects.
     
     Upgrade unlocked at level 9
     On Relic Use, cleanses all Negative Status Effects. Negative Status Effects cleansed by Purge are applied to all enemies within 7.5m.`,
