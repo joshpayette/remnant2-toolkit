@@ -6,13 +6,13 @@ This project exists and thrives thanks to all the people who contribute.
 
 - [Alexij](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
 - Spoon
+- Amalie
 
 ## Testing & Datamine
 
 - [AuriCrystal](https://www.youtube.com/@AuriCrystal/)
 - [ConRaven](https://www.youtube.com/c/ConstantineRavens)
 - [Spiked](https://www.youtube.com/@newspiked7385)
-- Amalie
 - kbsfnk
 - Schattenzeichner
 - Thatguylegit
