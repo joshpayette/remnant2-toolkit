@@ -392,6 +392,12 @@ export const DESCRIPTION_TAGS = [
     description: `Elemental: Burning, Corroded, Overloaded. Physical: Bleeding.`,
   },
   {
+    type: 'Negative Status Effect',
+    token: 'Negative Status Effect',
+    color: 'text-[#05baf9]',
+    description: `Elemental: Burning, Corroded, Overloaded. Physical: Bleeding.`,
+  },
+  {
     type: 'Elemental Status Effects',
     token: 'Elemental Status Effects',
     color: 'text-[#05baf9]',
