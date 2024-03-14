@@ -104,9 +104,12 @@ export function ArmorSuggestionsDialog({
       {isCalculating ? (
         <ArmorInfoContainer>
           <div className="flex flex-col items-center justify-center">
-            <div className="text-md mt-4 animate-bounce text-center font-semibold">
+            <p className="text-md mt-4 animate-bounce text-center font-semibold">
               Calculating armor suggestions...this may take a moment.
-            </div>
+            </p>
+            <p className="font-bold text-accent1-500">
+              Tip: Equip at least one armor item first to speed up calculations
+            </p>
           </div>
         </ArmorInfoContainer>
       ) : (

@@ -65,6 +65,7 @@ export default function Page() {
         open={showArmorCalculator}
         onClose={() => setShowArmorCalculator(false)}
         onApplySuggestions={handleApplySuggestions}
+        key={`${JSON.stringify(dbBuildState)}-armor-suggestions`}
       />
 
       <ItemTagSuggestionsDialog
@@ -72,6 +73,7 @@ export default function Page() {
         open={showItemSuggestions}
         onClose={() => setShowItemSuggestions(false)}
         onApplySuggestions={handleApplySuggestions}
+        key={`${JSON.stringify(dbBuildState)}-item-suggestions`}
       />
 
       <BuilderPage
