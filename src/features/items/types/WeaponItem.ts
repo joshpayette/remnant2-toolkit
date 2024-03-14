@@ -10,6 +10,7 @@ interface BaseWeaponItem extends BaseItem {
   ammo: number
   crit: number
   damage: number
+  damageInGame?: number
   falloff: number
   ideal: number
   magazine?: number
@@ -22,6 +23,7 @@ export class WeaponItem extends BaseItem implements BaseWeaponItem {
   public category: BaseWeaponItem['category'] = 'weapon'
   public type: BaseWeaponItem['type'] = 'long gun'
   public damage: BaseWeaponItem['damage'] = 0
+  public damageInGame?: BaseWeaponItem['damageInGame'] = 0
   public accuracy: BaseWeaponItem['accuracy'] = 0
   public ammo: BaseWeaponItem['ammo'] = 0
   public crit: BaseWeaponItem['crit'] = 0
@@ -39,6 +41,7 @@ export class WeaponItem extends BaseItem implements BaseWeaponItem {
     this.ammo = props.ammo
     this.crit = props.crit
     this.damage = props.damage
+    this.damageInGame = props.damageInGame
     this.falloff = props.falloff
     this.ideal = props.ideal
     this.magazine = props.magazine
