@@ -352,6 +352,7 @@ export const remnantItems: Item[] = [
     name: 'War Stomp',
     imagePath: '/skill/war_stomp.png',
     id: 'qnz5iw',
+    tags: ['Amplitude'],
     description: `Creates a high impact tremor that deals 150 damage [E] and additional stagger in a forward cone up to 7.5m. [A] Deals damage in all directions at point blank range. `,
     cooldown: 50,
     wikiLinks: [`https://remnant.wiki/War_Stomp`],
@@ -400,6 +401,7 @@ export const remnantItems: Item[] = [
     name: 'Guard Dog',
     imagePath: '/skill/guard_dog.png',
     id: 'gpr2fw',
+    tags: ['Amplitude'],
     description: `Companion will follow the HANDLER and generate 15% increased Threat while attacking. All damage to them is reduced by 20%. 
 
     SINGLE PRESS: Companion engages enemies near the targeted location.
@@ -424,6 +426,7 @@ export const remnantItems: Item[] = [
     name: 'Support Dog',
     imagePath: '/skill/support_dog.png',
     id: 'jz6x2w',
+    tags: ['Amplitude'],
     description: `Companion will follow the HANDLER and continuously heal allies within 3.5m for 0.25% of Max Health per second. 
 
     SINGLE PRESS: Companion engages enemies near the targeted location. 
@@ -448,6 +451,7 @@ export const remnantItems: Item[] = [
     name: 'Attack Dog',
     imagePath: '/skill/attack_dog.png',
     id: '8trtzh',
+    tags: ['Amplitude'],
     description: `Companion will follow the HANDLER and deal 20% additional damage. 
 
     SINGLE PRESS: Companion engages enemies near the targeted location. 
@@ -468,6 +472,7 @@ export const remnantItems: Item[] = [
     name: 'Wellspring',
     imagePath: '/skill/wellspring.png',
     id: '7vtxrx',
+    tags: ['Amplitude'],
     description: `The MEDIC channels healing energy into their fist, punching a hole in the ground [E] to create a 3m [A] Healing Spring AOE which restores 10.5 Health per second and greatly increases Blight Decay Rate. Lasts 15s.`,
     cooldown: 60,
     wikiLinks: [`https://remnant.wiki/Wellspring`],
@@ -482,6 +487,7 @@ export const remnantItems: Item[] = [
     name: 'Healing Shield',
     imagePath: '/skill/healing_shield.png',
     id: '8pu6y2',
+    tags: ['Amplitude'],
     description: `The MEDIC Quickly expels healing energy to SHIELD all allies within 25m [A] for 100% of their Max Health for 10s. While shielded, allies regenerate 21% of their Max Health over the duration.`,
     cooldown: 100,
     wikiLinks: [`https://remnant.wiki/Healing_Shield`],
@@ -496,6 +502,7 @@ export const remnantItems: Item[] = [
     name: 'Redemption',
     imagePath: '/skill/redemption.png',
     id: 'zs77cb',
+    tags: ['Amplitude'],
     description: `The MEDIC unleashes a 30m [A] shockwave that revives downed allies and restores 52.5% Max Health over 10s. For each additional 1s holding the SKILL button, the heal gains an additional 52.5% (up to 210% max)
     Revived allies will only receive 50% of the healing amount. If revived, allies cannot be revived again by Redemption for another 180s. Resets at Worldstone or on death.`,
     cooldown: 120,
@@ -589,6 +596,7 @@ export const remnantItems: Item[] = [
     name: 'Vial: Stone Mist',
     imagePath: '/skill/vial_stone_mist.png',
     id: 'y7ia9t',
+    tags: ['Amplitude'],
     description: `Creates a mysterious vapor cloud which lasts 10s and applies STONESKIN.
 
     STONESKIN reduces incoming damage by 25%, reduces Stagger by 1, greatly increases Blight Buildup Decay Rate, and makes the target immune to STATUS Effects. Lasts 15s.
@@ -611,13 +619,14 @@ export const remnantItems: Item[] = [
     name: 'Vial: Frenzy Dust',
     imagePath: '/skill/vial_frenzy_dust.png',
     id: 'xsniv3',
+    tags: ['Amplitude'],
     description: `Creates a mysterious vapor cloud which lasts 10s and applies FRENZIED.
 
     FRENZIED increases Fire Rate, Reload Speed, and Melee Speed by 20%, and Movement Speed by 15%. Lasts 15s.
 
     PRESS: Slam Vial on the ground, creating the effect at the ALCHEMIST's feet. [A]
     
-    HOLD & RELEASE: Aim and throw the Vial causing the same effect where it lands. [A]`, // TODO Confirm patch notes
+    HOLD & RELEASE: Aim and throw the Vial causing the same effect where it lands. [A]`,
     cooldown: 75,
     wikiLinks: [`https://remnant.wiki/Vial:_Frenzy_Dust`],
     linkedItems: {
@@ -633,6 +642,7 @@ export const remnantItems: Item[] = [
     name: 'Vial: Elixir of Life',
     imagePath: '/skill/vial_elixir_of_life.png',
     id: '76554i',
+    tags: ['Amplitude'],
     description: `Creates a mysterious vapor cloud that lasts 10s and applies LIVING WILL.
 
     LIVING WILL grants 5 Health Regeneration per second, and protects against fatal damage while active. Can revive downed players. Lasts 20s.
@@ -655,6 +665,7 @@ export const remnantItems: Item[] = [
     name: 'Reality Rune',
     imagePath: '/skill/reality_rune.png',
     id: 'i3ddi7',
+    tags: ['Amplitude'],
     description: `Conjures a 7m [A] protective dome which applies SLOW to any enemy or enemy projectiles.  Allies inside gain 25% Damage Reduction. Lasts 15s.`,
     cooldown: 75,
     wikiLinks: [`https://remnant.wiki/Reality_Rune`],
@@ -670,6 +681,7 @@ export const remnantItems: Item[] = [
     name: 'Chaos Gate',
     imagePath: '/skill/chaos_gate.png',
     id: '9w7c5j',
+    tags: ['Amplitude'],
     description: `Conjures a 7m [A] unstable zone which grants allies a 50% increase to All Damage Dealt and 25% increased Mod Generation while standing inside. Increases allies' damage taken by 15% while inside and for 10s after leaving. Lasts 20s.`,
     cooldown: 85,
     wikiLinks: [`https://remnant.wiki/Chaos_Gate`],
@@ -684,6 +696,7 @@ export const remnantItems: Item[] = [
     name: 'Havoc Form',
     imagePath: '/skill/havoc_form.png',
     id: 'y72au6',
+    tags: ['Amplitude'],
     description: `Unleashes the powers of the  Labyrinth to empower the caster with new abilities. Lasts 30s. Duration is reduced when Havoc Form special abilities are used.
 
     SHOOT: Blasts Lightning Tendrils from the ARCHON's hand, dealing 84.2 SHOCK Damage per second to targets within 15m.
@@ -723,6 +736,7 @@ export const remnantItems: Item[] = [
     name: 'Heavy Weapon: Flamethrower',
     imagePath: '/skill/heavy_weapon_flamethrower.png',
     id: '6fk8ea',
+    tags: ['Amplitude'],
     description: `PRESS: Deploys a Flamethrower turret which lasts until its Ammo is exhausted. Turrets that can aim will prioritize targets that the player Aims at. Press SKILL again to enable autonomous targeting. [A]
 
     HOLD: Deploys to Heavy Carry Mode. If ENGINEER Prime is available, will Overclock the weapon if already in hand or on the battlefield.
@@ -742,6 +756,7 @@ export const remnantItems: Item[] = [
     name: 'Heavy Weapon: Impact Cannon',
     imagePath: '/skill/heavy_weapon_impact_cannon.png',
     id: 'ki92op',
+    tags: ['Amplitude'],
     description: `PRESS: Deploys a Impact Cannon Turret [E] which lasts until its Ammo is exhausted. Turrets that can aim will prioritze targets that the player Aims at. Press SKILL again to enable autonomous targeting. [A]
 
     HOLD: Deploys to Heavy Carry Mode. If ENGINEER Prime is available, will Overclock the weapon if already in hand or on the battlefield.
@@ -914,12 +929,12 @@ export const remnantItems: Item[] = [
     name: 'Minion: Hollow',
     imagePath: '/skill/minion_hollow.png',
     id: 'kk4yre',
-    description: `PRESS: Summons a Root Hollow Minion to fight by your side. Costs 15% of Max Health to summon, but will not kil SUMMONER. Max (2)
+       description: `PRESS: Summons a Root Hollow Minion to fight by your side. Costs 15% of Max Health to summon, but will not kil SUMMONER. Max (2)
 
     HOLD: SACRIFICE Root Hollow Minion to explode, dealing 150 damage [E] within 5m. [A] Reduces Skill Cooldown by up to 50% based on remaining Health of each Minion Sacrificed.`,
     cooldown: 30,
     wikiLinks: [`https://remnant.wiki/Minion:_Hollow`],
-    tags: ['Reduce Skill Cooldown', 'Summon'],
+    tags: ['Reduce Skill Cooldown', 'Summon', 'Amplitude'],
     linkedItems: {
       archetype: {
         name: 'Summoner',
@@ -931,6 +946,7 @@ export const remnantItems: Item[] = [
     name: 'Minion: Flyer',
     imagePath: '/skill/minion_flyer.png',
     id: 'o7pvqx',
+    tags: ['Amplitude'],
     description: `Summons a Root Flyer Minion to fight by your side. Costs 10% of Max Health to summon, but will not kill Summoner. Max (2).
 
     HOLD: SACRIFICE Root Flyer Minions, dealing 50 Damage [E] within 3m [A] and spawning 3 homing projectiles which explode on contact for 150 damage each.
@@ -949,6 +965,7 @@ export const remnantItems: Item[] = [
     name: 'Minion: Reaver',
     imagePath: '/skill/minion_reaver.png',
     id: 'gs8zdv',
+    tags: ['Amplitude'],
     description: `PRESS: Summons a Root Reaver Minion to fight by your side. Costs 35% of Max Health to summon, but will not kill SUMMONER. Max (1).
 
     HOLD: SACRIFICE all Root Reaver Minion, dealing 200 damage [E] within 6m [A] and spawning Spore Bombs which bounce and explode on contact for 200 damage each.
@@ -984,7 +1001,7 @@ export const remnantItems: Item[] = [
     name: 'Miasma',
     imagePath: '/skill/miasma.png',
     id: '3er3og',
-    tags: ['Status Effect'],
+    tags: ['Status Effect', 'Amplitude'],
     description: `Casts an AOE burst that applies BLEEDING, BURNING, OVERLOADED, and CORRODED to all enemies within 15m [A], and dealing a total of 1500 base damage. Lasts 11s.`,
     cooldown: 40,
     wikiLinks: [`https://remnant.wiki/Miasma`],
@@ -2865,6 +2882,7 @@ export const remnantItems: Item[] = [
     name: 'Tormented Heart',
     imagePath: '/relic/tormented_heart.png',
     id: 'rtmajx',
+    tags: ['Amplitude'],
     description: `Innate 20% Use Speed bonus. On use, deals 420 Explosive damage [E] to enemies within 10m [A] and Lifesteals 25% of damage dealt.`,
     wikiLinks: [`https://remnant.wiki/Tormented_Heart`],
   },
@@ -4594,6 +4612,7 @@ export const remnantItems: Item[] = [
     name: 'Corrupted Meridian',
     imagePath: '/offhand/corrupted_meridian.png',
     id: 'yw1btj',
+    tags: ['Amplitude'],
     description: `Fires rocket that deals AOE damage [E] within 2m. [A] Charging the weapon can load additional rockets.  (Max 3). Cannot Weakspot`,
     wikiLinks: [`https://remnant.wiki/Corrupted_Meridian`],
     linkedItems: {
@@ -4736,6 +4755,7 @@ export const remnantItems: Item[] = [
     name: 'Enigma',
     imagePath: '/offhand/enigma.png',
     id: 'd06hjq',
+    tags: ['Amplitude'],
     description: `Fires an electrical stream that jumps to nearby targets within 7.5m [A], dealing 30% reduced damage per jump. Applies OVERLOADED, dealing 30 SHOCK damage every 5 seconds for 5.2s.`,
     wikiLinks: [`https://remnant.wiki/Enigma`],
     linkedItems: {
@@ -4785,6 +4805,7 @@ export const remnantItems: Item[] = [
     saveFileSlug: '/weapon_meridian',
     imagePath: '/offhand/meridian.png',
     id: '1ziutf',
+    tags: ['Amplitude'],
     description: `Fires volatile grenades that explode [E] on direct contact with enemies and deal AOE damage within 4m. [A] Dormant grenades eventually explode and can also be shot to detonate early.`,
     wikiLinks: [`https://remnant.wiki/Meridian`],
     linkedItems: {
@@ -5001,6 +5022,7 @@ export const remnantItems: Item[] = [
     name: 'Star Shot',
     imagePath: '/offhand/star_shot.png',
     id: 'tldnuq',
+    tags: ['Amplitude'],
     description: `Fires a fast moving projectile which explodes [E] on contact. Explosion has no damage falloff. [A]`,
     wikiLinks: [`https://remnant.wiki/Star_Shot`],
     linkedItems: {
@@ -5174,6 +5196,7 @@ export const remnantItems: Item[] = [
     name: 'Big Bang',
     imagePath: '/mod/big_bang.png',
     id: 's7ozpe',
+    tags: ['Amplitude'],
     description: `Funnels all current Mod Charges into the next shot. Projectiles deal 65 direct damage and 65 Explosive damage [E] in a 5m [A] per Charge consumed. Explosion applies 75 BURNING damage over 10s per Charge consumed. 
     Additional Charges consumed increase all damage by 5%. Max 5 Charges`,
     wikiLinks: [`https://remnant.wiki/Big_Bang`],
@@ -5271,6 +5294,7 @@ export const remnantItems: Item[] = [
     name: 'Chaos Driver',
     imagePath: '/mod/chaos_driver.png',
     id: 'dxnd9s',
+    tags: ['Amplitude'],
     description: `Drives electrified rods into targets which tether to other rods within 10m. [A] Tethers deal 20 SHOCK damage per second.
     Targets embedded with a rod take 50 SHOCK damage per second. They take 20% additionally damage per extra rod in the target. Damage is increased by 1.5% if linked to another rod. Rods in the same target will not link.`,
     wikiLinks: [`https://remnant.wiki/Chaos_Driver`],
@@ -5305,6 +5329,7 @@ export const remnantItems: Item[] = [
     imagePath: '/mod/creeping_mist.png',
     dlc: 'dlc1',
     id: 'a3ctlf',
+    tags: ['Amplitude'],
     description: `Shoots a cannister out that shatters on impact to reveal an expanding mist, starting at 7.5m and growing to 15m [A] over 5s. The mist lasts 20s. While affected, enemies receive 25% additional Status Effect Damage and are 5% more likely to be struck with a critical hit from any source. The mists debuff persists for 10s after target exits the mist.`,
     wikiLinks: [`https://remnant.wiki/Creeping_Mist`],
   },
@@ -5313,6 +5338,7 @@ export const remnantItems: Item[] = [
     name: 'Cube Room',
     imagePath: '/mod/cube_room.png',
     id: '2nMTRG',
+    tags: ['Amplitude'],
     description: `Conjures a 5m [A] anomalous Cube Room which grants allies an increase of 50% Heat Decay Rate, reduces Heat Generation per round when firing weapons that Overheat by 15% and automatically generates missing reserve ammo per second. Lasts 15s.
     
     Mod Power Requirement: 1,000`,
@@ -5342,6 +5368,7 @@ export const remnantItems: Item[] = [
     name: 'Deadpoint',
     imagePath: '/mod/deadpoint.png',
     id: 'ysz4fw',
+    tags: ['Amplitude'],
     description: `Fires a cluster bomb which detonates on impact across 2.5m. each cluster deals up to 150 damage [E] per explosion within 3.5m. [A]`,
     wikiLinks: [`https://remnant.wiki/Deadpoint`],
     linkedItems: {
@@ -5465,6 +5492,7 @@ export const remnantItems: Item[] = [
     name: 'Explosive Shot',
     imagePath: '/mod/explosive_shot.png',
     id: 'hpfdzp',
+    tags: ['Amplitude'],
     description: `Fires an explosive round [E] that deals up to 465 FIRE damage within 9m and applies BURNING, dealing 300 FIRE damage over 5s. [A]`,
     wikiLinks: [`https://remnant.wiki/Explosive_Shot`],
     linkedItems: {
@@ -5521,6 +5549,7 @@ export const remnantItems: Item[] = [
     name: 'Firestorm',
     imagePath: '/mod/firestorm.png',
     id: 'snlx8w',
+    tags: ['Amplitude'],
     description: `Creates a whirling cyclone that sucks in nearby targets [A] and applies BURNING for 10s. The center of the cyclone deals 75 FIRE damage per second. Lasts 15s.`,
     wikiLinks: [`https://remnant.wiki/Firestorm`],
   },
@@ -5569,6 +5598,7 @@ export const remnantItems: Item[] = [
     name: 'Gravity Core',
     imagePath: '/mod/gravity_core.png',
     id: 'kep3kb',
+    tags: ['Amplitude'],
     description: `Fires a highly compressed sphere which draws in objects and deals 50 damage on impact. When colliding with a target, a large Gravity Well opens and draws in objects for 5s.
 
     When the Gravity Well expires, it deals 250 [E] damage within 10m [A]. Adds 200 damage per enemy and divides total damage among all enemies.`,
@@ -5584,6 +5614,7 @@ export const remnantItems: Item[] = [
     name: "Guardian's Call",
     imagePath: '/mod/guardians_call.png',
     id: 'anhbhf',
+    tags: ['Amplitude'],
     description: `When Mod Power is full, Primary Fire becomes Empowered and highlights enemies it strikes.
     Activating the mod calls down a Guardian Sword on enemies struck by an Empowered Energy Disc. Swords deal 450 damage [E] and 3x stagger within 3m. [A]
     `,
@@ -5713,6 +5744,7 @@ export const remnantItems: Item[] = [
     name: 'Micronova',
     imagePath: '/mod/micronova.png',
     id: '8izb2g',
+    tags: ['Amplitude'],
     description: `Fires 5 shattered compressed remains of a dying star. On contact or when hit with the primary fire, Micronova explodes for 50 FIRE damage [E], and 350 BURNING damage over 10s to all targets within 2m.
     Striking the Micronova with Corrupted Aphelion's primary fire increases its explosion radius by 25%, damage by 50%, and spawns a shockwave that deals 100 FIRE damage, detonates any nearby Micronovas and applies the initial BURNING amount. [A]`,
     wikiLinks: [`https://remnant.wiki/Micronova`],
@@ -5741,6 +5773,7 @@ export const remnantItems: Item[] = [
     name: 'Nano Phase',
     imagePath: '/mod/nano_phase.png',
     id: 'WARGv3',
+    tags: ['Amplitude'],
     description: `Detonate active Nano-bots, each dealing 100 ACID damage [E] plus an additional 25 ACID damage per Nano-bot detonated to enemies within 2m [A] and applies CORRODED, dealing 50 damage [E] over 10s per Nano-bot detonated.`,
     linkedItems: {
       weapon: {
@@ -5789,6 +5822,7 @@ export const remnantItems: Item[] = [
     name: 'Prismatic Driver',
     imagePath: '/mod/prismatic_driver.png',
     id: 'vtcg3o',
+    tags: ['Amplitude'],
     description: `Fires a superheated beam which deals 25 Mod Damage per second. Sustaining the beam on a target causes an explosion which deals 150 Mod damage [E] in a 3m [A] AOE.`, //(sic!) mod damage instead of damage
     wikiLinks: [`https://remnant.wiki/Prismatic_Driver`],
   },
@@ -5828,6 +5862,7 @@ export const remnantItems: Item[] = [
     name: 'Rotted Arrow',
     imagePath: '/mod/rotted_arrow.png',
     id: 'vgin4w',
+    tags: ['Amplitude'],
     description: `Fires a rotten arrow that deals 19.8 damage and detonates for another 60 damage [E] within 4m. [A] A deadly gas cloud is left behind that deals 200 damage over 5s.`,
     wikiLinks: [`https://remnant.wiki/Rotted_Arrow`],
   },
@@ -5844,6 +5879,7 @@ export const remnantItems: Item[] = [
     name: 'Screamer',
     imagePath: '/mod/screamer.png',
     id: '4aeebu',
+    tags: ['Amplitude'],
     description: `Fire a high-powered rocket that deals up to 200 damage [E] within 2.5m. [A]`,
     wikiLinks: [`https://remnant.wiki/Screamer`],
     linkedItems: {
@@ -5872,6 +5908,7 @@ export const remnantItems: Item[] = [
     name: 'Skewer',
     imagePath: '/mod/skewer.png',
     id: 'cpvech',
+    tags: ['Amplitude'],
     description: `Fires a Wretched Spear which embeds itself on contact. Spears deal 125 damage on hit, rapidly dividing inside the target until bursting, dealing 140 damage to all targets within 3m. [A] Spears embedded in the environment remain in place for 10s.`,
     wikiLinks: [`https://remnant.wiki/Skewer`],
   },
@@ -5880,6 +5917,7 @@ export const remnantItems: Item[] = [
     name: 'Song of Eafir',
     imagePath: '/mod/song_of_eafir.png',
     id: 'edm644',
+    tags: ['Amplitude'],
     description: `Fires a shot infused with the binding power of the Song of Eafir. Staggers most ground enemies within 10m [A] and deals 150 damage [E] to Flying enemies within the same range.
     The song continues for 15s, afflicting targets within 15m [A] with SLOW, and a 15% decrease to damage dealt.`,
     wikiLinks: [`https://remnant.wiki/Song_of_Eafir`],
@@ -5931,6 +5969,7 @@ export const remnantItems: Item[] = [
     name: 'Starfall',
     imagePath: '/mod/starfall.png',
     id: 'j9wkb3',
+    tags: ['Amplitude'],
     description: `Fires a powerful arrow which deals 30 damage and opens a 7m [A] portal that rains down star fragments. Each fragment deals 50 damage [E] within 4m. [A] Lasts 6s.`,
     wikiLinks: [`https://remnant.wiki/Starfall`],
     linkedItems: {
@@ -5952,6 +5991,7 @@ export const remnantItems: Item[] = [
     name: 'Supernova',
     imagePath: '/mod/supernova.png',
     id: '9rxk65',
+    tags: ['Amplitude'],
     description: `Fires the compressed remains of a dying star. On contact or hit wit the primary fire, causes Supernova to explode for 150 FIRE Damage, and 350 BURNING Damage over 10s to all targets within 4m [A].
 
     Striking the Supernova with Aphelion's primary fire increases its explosion radius by 25% and damage by 50%, and spawns a massive shockwave that deals 300 FIRE damage and also applies the initial BURNING amount.`,
@@ -6035,6 +6075,7 @@ export const remnantItems: Item[] = [
     name: 'Witchfire',
     imagePath: '/mod/witchfire.png',
     id: 'ggf5qe',
+    tags: ['Amplitude'],
     description: `Fires a highly volatile projectile that explodes to leave a line of flaming terrain. [A] Deals 55 FIRE Damage per second, and applies BURNING, dealing 200 damage over 10s. Lasts 5s.`,
     wikiLinks: [`https://remnant.wiki/Witchfire`],
   },
@@ -6268,6 +6309,7 @@ export const remnantItems: Item[] = [
     type: 'gun',
     imagePath: '/mutator/kill_switch.png',
     id: 'rzfptj',
+    tags: ['Amplitude'],
     description: `Switching to this weapon creates an Explosive Burst [E] which deals 50 Damage to all enemies within 7m. [A]`,
     maxLevelBonus: `This weapon's kills with any Explosive Damage reduce Kill Switch cooldown by 1s`,
     wikiLinks: [`https://remnant.wiki/Kill_Switch`],
@@ -6425,7 +6467,7 @@ export const remnantItems: Item[] = [
     type: 'melee',
     imagePath: '/mutator/shocker.png',
     id: '7js906',
-    tags: ['Charged Melee'],
+    tags: ['Charged Melee', 'Amplitude'],
     description: `Empowers weapon after 5 hits. While empowered. the next Charged Melee hit strikes all enemies within 10m [A] with SHOCK Damage.`,
     maxLevelBonus: `The SHOCK Damage now applies OVERLOADED dealing 100 damage over 5.05s.`,
     wikiLinks: [`https://remnant.wiki/Shocker`],
@@ -6525,8 +6567,8 @@ export const remnantItems: Item[] = [
     type: 'gun',
     imagePath: '/mutator/timewave.png',
     id: 'dynus4',
-    tags: ['Ranged Damage'],
-    description: `Mod Use applies SLOW status on all enemies within 7.5m [A] for 5-[7]s.`,
+    tags: ['Ranged Damage', 'Amplitude'],
+    description: `Mod Use applies SLOW status on all enemies within 7.5m [A] for 5s.`,
     maxLevelBonus: `Increase this weapon's Ranged damage by 15% to enemies inflicted with SLOW status.`,
     wikiLinks: [`https://remnant.wiki/Timewave`],
   },
@@ -6677,7 +6719,7 @@ EXPOSED: Target receives up to 24% additional damage from all sources. Expose am
     name: 'Cleansing Stone',
     imagePath: '/amulet/cleansing_stone.png',
     id: 'nm7b6f',
-    tags: ['Status Effect'],
+    tags: ['Status Effect', 'Amplitude'],
     description: `Reduces Duration of Elemental Status Effects against wearer by 50%. Relic use cleanses Elemental Status effects and grants 25% of wearers Max Health to all allies within 20m [A] when cleansed.`,
     wikiLinks: [`https://remnant.wiki/Cleansing_Stone`],
   },
@@ -7052,7 +7094,7 @@ EXPOSED: Target receives up to 24% additional damage from all sources. Expose am
     name: "Nightweaver's Grudge",
     imagePath: '/amulet/nightweavers_grudge.png',
     id: '0aaso1',
-    tags: ['Critical Chance', 'Status Effect'],
+    tags: ['Critical Chance', 'Status Effect', 'Amplitude'],
     description: `Gain 20% Critical Chance and HASTE when within 15m [A] of an entity suffering from a Status Effect.`,
     wikiLinks: [`https://remnant.wiki/Nightweaver%27s_Grudge`],
   },
@@ -7235,6 +7277,7 @@ EXPOSED: Target receives up to 24% additional damage from all sources. Expose am
     name: 'Toxic Release Valve',
     imagePath: '/amulet/toxic_release_valve.png',
     id: 'nevpy5',
+    tags: ['Amplitude'],
     description: `Swapping off a Firearm releases a Toxic Cloud, which deals 148.5 ACID damage to all enemies within 7m [A] and applies CORROSION. Can only happen once every 3s.`,
     wikiLinks: [`https://remnant.wiki/Toxic_Release_Valve`],
   },
@@ -7981,7 +8024,7 @@ EXPOSED: Target receives up to 24% additional damage from all sources. Expose am
     name: 'Feedback Loop',
     imagePath: '/ring/feedback_loop.png',
     id: 'j13xrf',
-    tags: ['Perfect Dodge'],
+    tags: ['Perfect Dodge', 'Amplitude'],
     description: `Perfect Dodge triggers a 3m [A] AOE blast that deal 115 SHOCK Damage and applies OVERLOADED.`,
     wikiLinks: [`https://remnant.wiki/Feedback_Loop`],
   },
@@ -9453,6 +9496,7 @@ EXPOSED: Target receives up to 24% additional damage from all sources. Expose am
     name: 'Binding Orb',
     imagePath: '/consumable/binding_orb.png',
     id: 'edaeta',
+    tags: ['Amplitude'],
     description: `When thrown, device becomes an anchor and applies SLOW to all enemies within 4m. [A] Lasts 20s.`,
     wikiLinks: [`https://remnant.wiki/Binding_Orb`],
   },
@@ -9480,6 +9524,7 @@ EXPOSED: Target receives up to 24% additional damage from all sources. Expose am
     name: 'Brightstone',
     imagePath: '/consumable/brightstone.png',
     id: '937h03',
+    tags: ['Amplitude'],
     description: `When thrown, explodes in a 4m [A] radius dealing 250 damage and leaving a mysterious Mist which causes enemies to receive 10% additional damage. Debuff last 10s after enemies leave the Mist. Lasts 15s.`,
     wikiLinks: [`https://remnant.wiki/Brightstone`],
   },
@@ -9576,6 +9621,7 @@ EXPOSED: Target receives up to 24% additional damage from all sources. Expose am
     name: 'Pipe Bomb',
     imagePath: '/consumable/pipe_bomb.png',
     id: 'kfwizc',
+    tags: ['Amplitude'],
     description: `When thrown, explodes in a 4m [A] radius dealing 450 damage [E] and applying BLEEDING, which deals an additional 1,350 BLEED damage over 30s.`,
     wikiLinks: [`https://remnant.wiki/Pipe_Bomb`],
   },
@@ -10794,7 +10840,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     imagePath: '/perk/vile.png',
     type: 'prime',
     id: 'qewh6t',
-    tags: ['Status Effect'],
+    tags: ['Status Effect', 'Amplitude'],
     description: `
     Negative Status Effects applied by RITUALIST inflict Infected.
     Infected: Victim receives 5% more Status Effect damage, On death, spreads all statuses to nearby enemies within 5m. [A]
