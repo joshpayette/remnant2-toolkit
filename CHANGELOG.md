@@ -9,6 +9,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Changed
 
 - `Save Image` button on the Builder now reads `Generate Build Image, since it no longer only saves the image like it used to.
+- Updated Faelin image (ConRaven)
+- Updated Faerin image (ConRaven)
+- Updated Huntress image (ConRaven)
 
 ## 2024-03-13
 
