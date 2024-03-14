@@ -874,7 +874,7 @@ const bossEnemies: Enemy[] = [
   {
     name: 'Bloat King',
     category: 'boss',
-    imagePath: '/enemies/boss/bloat_king1.jpg',
+    imagePath: '/enemies/boss/bloat_king2.jpg',
     location: 'Losomn',
     dungeon: 'The Great Sewers',
     wikiLinks: ['https://remnant2.wiki.fextralife.com/Bloat+King'],
