@@ -12,7 +12,7 @@ export function ReportBugButton() {
         className="bg-accent2-500 hover:border-accent2-300 flex w-auto items-center justify-center gap-1 rounded-md border-2 border-black p-2 text-sm font-bold text-black drop-shadow-lg"
         aria-label="Report a bug"
         onClick={async () => {
-          const report = prompt('Please describe the bug')
+          const report = prompt('Please describe the bug. Do not submit in-game bugs.')
           if (report) {
             const { message } = await ReportBug(report)
             toast.success(message)
