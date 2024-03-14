@@ -1,3 +1,5 @@
+import { cn } from '@/lib/classnames'
+
 import { WeaponItem } from '../types/WeaponItem'
 
 interface Props {
@@ -10,7 +12,12 @@ export function WeaponInfo({ item, includeMod = true }: Props) {
     <dl className="flex w-full flex-grow flex-col justify-start">
       <dd className="flex w-full flex-row items-center justify-start">
         <div className="flex w-full flex-col items-start justify-start">
-          <div className="mb-2 grid w-full grid-cols-3">
+          <div
+            className={cn(
+              'mb-2 grid w-full',
+              item.type === 'melee' ? 'grid-cols-1' : 'grid-cols-3',
+            )}
+          >
             <div className="flex w-full flex-col items-center justify-start text-gray-300">
               <p className="flex items-center justify-center text-sm">Damage</p>
               <span className="text-md flex items-center justify-center text-center font-bold">
@@ -18,21 +25,25 @@ export function WeaponInfo({ item, includeMod = true }: Props) {
               </span>
             </div>
 
-            <div className="flex w-full flex-col items-center justify-start text-gray-300">
-              <p className="flex items-center justify-center text-sm">RPS</p>
-              <span className="text-md flex items-center justify-center text-center font-bold">
-                {item.rps || '-'}
-              </span>
-            </div>
+            {item.type !== 'melee' && (
+              <div className="flex w-full flex-col items-center justify-start text-gray-300">
+                <p className="flex items-center justify-center text-sm">RPS</p>
+                <span className="text-md flex items-center justify-center text-center font-bold">
+                  {item.rps || '-'}
+                </span>
+              </div>
+            )}
 
-            <div className="flex w-full flex-col items-center justify-start text-gray-300">
-              <p className="flex items-center justify-center text-sm">
-                Magazine
-              </p>
-              <span className="text-md flex items-center justify-center text-center font-bold">
-                {item.magazine || '-'}
-              </span>
-            </div>
+            {item.type !== 'melee' && (
+              <div className="flex w-full flex-col items-center justify-start text-gray-300">
+                <p className="flex items-center justify-center text-sm">
+                  Magazine
+                </p>
+                <span className="text-md flex items-center justify-center text-center font-bold">
+                  {item.magazine || '-'}
+                </span>
+              </div>
+            )}
           </div>
           {item.accuracy >= 0 ? (
             <div className="grid w-full grid-cols-2 gap-2 border border-transparent  py-1 text-left text-sm text-gray-300">
