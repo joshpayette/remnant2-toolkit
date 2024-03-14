@@ -10871,6 +10871,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
         name: 'Ritualist',
       },
     },
+    blightResistance: 50,
   },
   {
     category: 'perk',

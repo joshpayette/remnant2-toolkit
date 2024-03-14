@@ -21,6 +21,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Fixed bug where the build reference input field was not hiding for screenshots
 - Item tags reworked a bit for clarity. (alexij)
 - Fixed error message when saving build. This did not prevent builds from being saved.
+- Build resistance calculations were not accounting for perks linked to archetypes. This has been fixed.
 
 ## 2024-03-12
 
