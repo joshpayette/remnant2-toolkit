@@ -24,6 +24,9 @@ export function getArmorSuggestions(
   // Need to get a pool of armor items from each slot that does not already exist in the build
   // We can exclude items that exceed the minimum weight class if it's light
   // --------------------------------------
+
+  const maxWeight = WEIGHT_CLASSES[desiredWeightClass].maxWeight
+
   let armorItems: ArmorItem[] = []
   emptyArmorSlots.forEach((slot) => {
     const slotItems = remnantItems.filter(
@@ -32,12 +35,25 @@ export function getArmorSuggestions(
     armorItems = [...armorItems, ...slotItems]
   })
 
-  // If the desired weight class is light, we can exclude items that exceed the minimum weight class
-  if (desiredWeightClass === 'LIGHT') {
-    armorItems = armorItems.filter(
-      (item) => item.weight && item.weight <= WEIGHT_CLASSES.LIGHT.maxWeight,
-    )
-  }
+  armorItems = armorItems.filter((item) => {
+    const testBuild = JSON.parse(JSON.stringify(buildState))
+    testBuild.items[item.category] = item
+    const weightClass = getWeightClass(testBuild)
+    return weightClass.maxWeight <= maxWeight
+  })
+
+  const itemsByCategory: Record<string, ArmorItem[]> = {}
+  remnantItems
+    .filter((item) => ArmorItem.isArmorItem(item))
+    .forEach((item) => {
+      if (!itemsByCategory[item.category]) {
+        itemsByCategory[item.category] = []
+      }
+      itemsByCategory[item.category].push(item as ArmorItem)
+    })
+
+  // Process the list of selected items (this is one possible combination)
+  const testBuild = JSON.parse(JSON.stringify(buildState))
 
   // --------------------------------------
   // Need to loop through each empty armor slot.
@@ -50,9 +66,6 @@ export function getArmorSuggestions(
   // possible combinations of armor items
   function generateCombinations(slotIndex: number, selectedItems: ArmorItem[]) {
     if (slotIndex === emptyArmorSlots.length) {
-      // Process the list of selected items (this is one possible combination)
-      const testBuild = JSON.parse(JSON.stringify(buildState))
-
       selectedItems.forEach((item) => {
         testBuild.items[item.category] = item
       })
@@ -75,9 +88,9 @@ export function getArmorSuggestions(
         })
       }
     } else {
-      const slotItems = remnantItems.filter(
-        (item) => item.category === emptyArmorSlots[slotIndex],
-      ) as ArmorItem[]
+      const slotItems = itemsByCategory[
+        emptyArmorSlots[slotIndex]
+      ] as ArmorItem[]
 
       for (let i = 0; i < slotItems.length; i++) {
         const item = slotItems[i]

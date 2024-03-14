@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Created a set of instructions for how to set up a local development environment for the toolkit. This is available in the LOCAL_DEVELOPMENT.md file.
 - Added image export button when creating a build.
+- Added loading indicator to the Armor Calculator while it's calculating.
 
 ### Changed
 
