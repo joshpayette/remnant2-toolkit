@@ -82,7 +82,7 @@ export const ActionButton = {
         aria-label="Export build as an image."
         onClick={onClick}
       >
-        Save Image
+        Generate Build Image
       </button>
     ),
 
