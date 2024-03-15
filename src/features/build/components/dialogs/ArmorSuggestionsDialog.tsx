@@ -238,7 +238,7 @@ export function ArmorSuggestionsDialog({
                       />
                     </div>
                     <button
-                      className="mt-4 rounded-md border-2 border-primary-500 p-2 text-sm text-white hover:bg-primary-500 hover:text-white"
+                      className="mt-4 rounded-md border-2 border-primary-500 bg-primary-800 p-2 text-sm text-white hover:bg-primary-500"
                       aria-label="Equip armor suggestions"
                       onClick={() =>
                         onApplySuggestions({
