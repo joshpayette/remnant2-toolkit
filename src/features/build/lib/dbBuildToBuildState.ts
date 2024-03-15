@@ -34,6 +34,7 @@ export function dbBuildToBuildState(dbBuild: DBBuild): BuildState {
     thumbnailUrl: dbBuild.thumbnailUrl,
     videoUrl: dbBuild.videoUrl,
     buildLink: dbBuild.buildLink,
+    buildTags: dbBuild.buildTags,
     upvoted: Boolean(dbBuild.upvoted),
     totalUpvotes: dbBuild.totalUpvotes,
     reported: dbBuild.reported,

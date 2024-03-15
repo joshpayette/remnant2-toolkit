@@ -24,6 +24,7 @@ const DEFAULT_STATE: State = {
     isPublic: true,
     isMember: false,
     thumbnailUrl: '',
+    buildTags: [],
     videoUrl: '',
     buildLink: '',
     createdById: '',

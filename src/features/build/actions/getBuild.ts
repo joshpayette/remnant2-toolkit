@@ -26,6 +26,7 @@ export async function getBuild(
       createdBy: true,
       BuildVotes: true,
       BuildItems: true,
+      BuildTags: true,
     },
   })
 
@@ -44,6 +45,7 @@ export async function getBuild(
     isPublic: build.isPublic,
     thumbnailUrl: build.thumbnailUrl ?? '',
     videoUrl: build.videoUrl ?? '',
+    buildTags: build.BuildTags,
     buildLink: build.buildLink ?? '',
     createdAt: build.createdAt,
     updatedAt: build.updatedAt,

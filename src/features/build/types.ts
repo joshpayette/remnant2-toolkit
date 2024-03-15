@@ -1,4 +1,4 @@
-import { Build, BuildItems } from '@prisma/client'
+import { Build, BUILD_TAG, BuildItems, BuildTags } from '@prisma/client'
 
 import { AmuletItem } from '@/features/items/types/AmuletItem'
 import { ArchetypeItem } from '@/features/items/types/ArchetypeItem'
@@ -36,6 +36,7 @@ export interface BuildState {
   isPatchAffected: boolean
   thumbnailUrl: string | null
   videoUrl: string | null
+  buildTags: BuildTags[] | null
   buildLink: string | null
   description: string | null
   upvoted: boolean
@@ -87,6 +88,7 @@ export interface DBBuild {
   upvoted: boolean
   totalUpvotes: number
   buildItems: BuildItems[]
+  buildTags: BuildTags[]
 }
 
 /**

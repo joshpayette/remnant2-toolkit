@@ -21,6 +21,7 @@ export async function getLoadoutList() {
         include: {
           createdBy: true,
           BuildItems: true,
+          BuildTags: true,
         },
       },
       user: true,
@@ -51,6 +52,7 @@ export async function getLoadoutList() {
     isMember: false,
     thumbnailUrl: loadout.build.thumbnailUrl,
     videoUrl: loadout.build.videoUrl,
+    buildTags: loadout.build.BuildTags,
     buildLink: loadout.build.buildLink,
     createdById: loadout.build.createdById,
     createdByName: loadout.build.createdBy.name || DEFAULT_DISPLAY_NAME,
