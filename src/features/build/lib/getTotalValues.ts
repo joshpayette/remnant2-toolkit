@@ -6,6 +6,8 @@ import { TraitItem } from '@/features/items/types/TraitItem'
 
 import { BuildState } from '../types'
 
+const perkItems = remnantItems.filter((item) => PerkItem.isPerkItem(item))
+
 function getItemsByKey(
   buildState: BuildState,
   key:
@@ -96,9 +98,7 @@ function getItemsByKey(
     })
 
   // Check if any perks are equipped and add them to the items array
-  const perksWithKey = remnantItems.filter(
-    (item) => PerkItem.isPerkItem(item) && item[key],
-  )
+  const perksWithKey = perkItems.filter((item) => item[key])
   // Loop through each perk, and check if it has a linkedItem that is equipped
   // If it does, add it to the items array
   perksWithKey.forEach((perk) => {

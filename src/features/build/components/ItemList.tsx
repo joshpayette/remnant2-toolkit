@@ -33,7 +33,7 @@ export function ItemList({
 }: Props) {
   return (
     <div className="min-h-[1000px]">
-      <div className="border-b-primary-500 flex w-full flex-row items-center justify-center border-b py-2">
+      <div className="flex w-full flex-row items-center justify-center border-b border-b-primary-500 py-2">
         <h2 className="flex w-full items-center justify-start text-2xl">
           {label}
         </h2>
