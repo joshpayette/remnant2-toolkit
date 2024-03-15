@@ -171,7 +171,11 @@ export function BuildListFilters() {
 
   function handleApplyFilters(newFilters: BuildListFilterFields) {
     let finalPath = `${pathname}?`
-    if (newFilters.archetypes.length > 0) {
+    if (
+      newFilters.archetypes.length > 0 &&
+      newFilters.archetypes.length <
+        DEFAULT_BUILD_LIST_FILTERS['archetypes'].length
+    ) {
       finalPath += `archetypes=${newFilters.archetypes.join(',')}&`
     }
     if (newFilters.longGun !== DEFAULT_BUILD_LIST_FILTERS['longGun']) {
