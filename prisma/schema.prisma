@@ -192,6 +192,7 @@ model Build {
   UserProfile     UserProfile?      @relation(fields: [userProfileId], references: [id])
   userProfileId   String?
   UserLoadouts    UserLoadouts[]
+  BuildTags       BuildTags[]
 
   @@index([createdById])
   @@index([userProfileId])
@@ -236,6 +237,27 @@ model BuildReports {
 
   @@index([buildId])
   @@index([userId])
+}
+
+enum BUILD_TAG {
+  Melee
+  Ranged
+  Mods
+  Skills
+  StatusEffects
+  Tank
+  Support
+}
+
+model BuildTags {
+  id        String    @id @default(cuid())
+  createdAt DateTime  @default(now())
+  updatedAt DateTime? @updatedAt
+  build     Build     @relation(fields: [buildId], references: [id], onDelete: Cascade)
+  buildId   String
+  tag       BUILD_TAG
+
+  @@index([buildId])
 }
 
 model UserProfile {

@@ -70,7 +70,7 @@
     "postcss": "8",
     "prettier": "3.1.0",
     "prettier-plugin-tailwindcss": "0.5.7",
-    "prisma": "5.8.0",
+    "prisma": "5.11.0",
     "tailwind-merge": "2.0.0",
     "tailwindcss": "3.3.0",
     "ts-node": "10.9.1",
