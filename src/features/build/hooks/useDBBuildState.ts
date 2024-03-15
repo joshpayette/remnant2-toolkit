@@ -10,6 +10,7 @@ import { ConcoctionItem } from '@/features/items/types/ConcoctionItem'
 import { ConsumableItem } from '@/features/items/types/ConsumableItem'
 import { ModItem } from '@/features/items/types/ModItem'
 import { MutatorItem } from '@/features/items/types/MutatorItem'
+import { PerkItem } from '@/features/items/types/PerkItem'
 import { RelicFragmentItem } from '@/features/items/types/RelicFragmentItem'
 import { RelicItem } from '@/features/items/types/RelicItem'
 import { RingItem } from '@/features/items/types/RingItem'
@@ -19,6 +20,7 @@ import { WeaponItem } from '@/features/items/types/WeaponItem'
 
 import { buildStateToCsvData } from '../lib/buildStateToCsvData'
 import { buildStateToMasonryItems } from '../lib/buildStateToMasonryItems'
+import { cleanUpBuildState } from '../lib/cleanUpBuildState'
 import { linkArchetypesToTraits } from '../lib/linkArchetypesToTraits'
 import { linkWeaponsToMods } from '../lib/linkWeaponsToMods'
 
@@ -179,22 +181,7 @@ export function useDBBuildState(INITIAL_BUILD_STATE: BuildState) {
       },
     }
 
-    if (category === 'weapon') {
-      // Look at each mod and if it is linked to the wrong weapon, remove it
-      newBuildState.items.mod = newBuildState.items.mod.map((mod, index) => {
-        if (mod?.linkedItems?.weapon) {
-          const linkedWeapon = remnantItems.find(
-            (item) => item.name === mod.linkedItems?.weapon?.name,
-          )
-          if (!linkedWeapon) return mod
-
-          if (newBuildState.items.weapon[index]?.id !== linkedWeapon.id) {
-            return null
-          }
-        }
-        return mod
-      })
-    }
+    cleanUpBuildState(newBuildState)
 
     const linkedBuildState = linkArchetypesToTraits(
       linkWeaponsToMods(newBuildState),

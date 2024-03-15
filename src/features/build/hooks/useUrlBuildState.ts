@@ -21,6 +21,7 @@ import { WeaponItem } from '@/features/items/types/WeaponItem'
 import { INITIAL_BUILD_STATE } from '../constants'
 import { buildStateToCsvData } from '../lib/buildStateToCsvData'
 import { buildStateToMasonryItems } from '../lib/buildStateToMasonryItems'
+import { cleanUpBuildState } from '../lib/cleanUpBuildState'
 import { linkArchetypesToTraits } from '../lib/linkArchetypesToTraits'
 import { linkWeaponsToMods } from '../lib/linkWeaponsToMods'
 import { vashUrlToBuild } from '../vash-integration/vashUrlToBuild'
@@ -283,6 +284,9 @@ export function useUrlBuildState() {
         }
       }
     })
+
+    cleanUpBuildState(buildState)
+
     return buildState
   }
 

@@ -1,7 +1,6 @@
 import { StarIcon } from '@heroicons/react/24/solid'
-import Image from 'next/image'
 import Link from 'next/link'
-import { Fragment, useCallback, useMemo, useState } from 'react'
+import { useCallback, useMemo, useState } from 'react'
 
 import { PopularBuildBadge } from '@/features/build/components/build-card/PopularBuildBadge'
 import { formatUpdatedAt } from '@/features/build/lib/formatUpdatedAt'
@@ -194,12 +193,7 @@ export function Builder({
       })
       setSelectedItemSlot({ category: null })
     },
-    [
-      buildState.items,
-      selectedItemSlot.category,
-      selectedItemSlot.index,
-      onUpdateBuildState,
-    ],
+    [buildState.items, selectedItemSlot, onUpdateBuildState],
   )
 
   function handleChangeBuildLink(newBuildLink: string) {

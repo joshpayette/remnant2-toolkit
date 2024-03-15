@@ -53,6 +53,7 @@ export class ConcoctionItem extends BaseItem implements BaseConcoctionItem {
         ? (concoctionItems[buildItem.index] = item)
         : concoctionItems.push(item)
     }
+
     return concoctionItems
   }
 }

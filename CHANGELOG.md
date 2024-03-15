@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Fixed
 
 - Fixed an issue where all archetypes were being appended to the URL when filtering for builds. It will no longer happen if all archetypes or no archetypes are selected.
+- Fixed a Builder bug where equipping alchemist and unequipping alchemist would not remove the extra concoctions from stat calculations.
 
 ## 2024-03-14
 
