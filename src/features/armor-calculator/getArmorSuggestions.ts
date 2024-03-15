@@ -1,7 +1,6 @@
 import {
   getTotalArmor,
   getTotalWeight,
-  getWeightClass,
 } from '@/features/build/lib/getTotalValues'
 import { BuildState } from '@/features/build/types'
 import { WEIGHT_CLASSES } from '@/features/items/constants'
@@ -10,121 +9,82 @@ import { ArmorItem } from '@/features/items/types/ArmorItem'
 
 import { ArmorSuggestion } from './types'
 
-export function getArmorSuggestions(
-  buildState: BuildState,
-  desiredWeightClass: keyof typeof WEIGHT_CLASSES,
-) {
-  const emptyArmorSlots: Array<'helm' | 'torso' | 'gloves' | 'legs'> = []
-  if (!buildState.items.helm) emptyArmorSlots.push('helm')
-  if (!buildState.items.torso) emptyArmorSlots.push('torso')
-  if (!buildState.items.gloves) emptyArmorSlots.push('gloves')
-  if (!buildState.items.legs) emptyArmorSlots.push('legs')
-
-  // --------------------------------------
-  // Need to get a pool of armor items from each slot that does not already exist in the build
-  // We can exclude items that exceed the minimum weight class if it's light
-  // --------------------------------------
-
+export function getArmorSuggestions({
+  buildState,
+  desiredWeightClass,
+}: {
+  buildState: BuildState
+  desiredWeightClass: keyof typeof WEIGHT_CLASSES
+}): ArmorSuggestion[] {
   const maxWeight = WEIGHT_CLASSES[desiredWeightClass].maxWeight
 
-  let armorItems: ArmorItem[] = []
-  emptyArmorSlots.forEach((slot) => {
-    const slotItems = remnantItems.filter(
-      (item) => item.category === slot,
-    ) as ArmorItem[]
-    armorItems = [...armorItems, ...slotItems]
-  })
+  const helmItems = buildState.items.helm
+    ? [buildState.items.helm]
+    : (remnantItems.filter(
+        (item) => ArmorItem.isArmorItem(item) && item.category === 'helm',
+      ) as ArmorItem[])
+  const torsoItems = buildState.items.torso
+    ? [buildState.items.torso]
+    : (remnantItems.filter(
+        (item) => ArmorItem.isArmorItem(item) && item.category === 'torso',
+      ) as ArmorItem[])
+  const legItems = buildState.items.legs
+    ? [buildState.items.legs]
+    : (remnantItems.filter(
+        (item) => ArmorItem.isArmorItem(item) && item.category === 'legs',
+      ) as ArmorItem[])
+  const gloveItems = buildState.items.gloves
+    ? [buildState.items.gloves]
+    : (remnantItems.filter(
+        (item) => ArmorItem.isArmorItem(item) && item.category === 'gloves',
+      ) as ArmorItem[])
 
-  armorItems = armorItems.filter((item) => {
-    const testBuild = JSON.parse(JSON.stringify(buildState))
-    testBuild.items[item.category] = item
-    const weightClass = getWeightClass(testBuild)
-    return weightClass.maxWeight <= maxWeight
-  })
+  const armorSuggestions: ArmorSuggestion[] = []
 
-  const itemsByCategory: Record<string, ArmorItem[]> = {}
-  remnantItems
-    .filter((item) => ArmorItem.isArmorItem(item))
-    .forEach((item) => {
-      if (!itemsByCategory[item.category]) {
-        itemsByCategory[item.category] = []
-      }
-      itemsByCategory[item.category].push(item as ArmorItem)
-    })
+  for (const helmItem of helmItems) {
+    for (const torsoItem of torsoItems) {
+      for (const legItem of legItems) {
+        for (const gloveItem of gloveItems) {
+          const newBuildState = {
+            ...buildState,
+            items: {
+              ...buildState.items,
+              helm: helmItem,
+              torso: torsoItem,
+              legs: legItem,
+              gloves: gloveItem,
+            },
+          }
 
-  // Process the list of selected items (this is one possible combination)
-  const testBuild = JSON.parse(JSON.stringify(buildState))
+          const totalArmor = Number(getTotalArmor(newBuildState))
+          const totalWeight = Number(getTotalWeight(newBuildState))
 
-  // --------------------------------------
-  // Need to loop through each empty armor slot.
-  // For each empty slot, we need to loop through each armor item and test it
-  // against each item of every other empty slot
-  // --------------------------------------
-  const newArmorSuggestions: ArmorSuggestion[] = []
-
-  // This function will recursively loop through each empty slot and generate a list of
-  // possible combinations of armor items
-  function generateCombinations(
-    slotIndex: number,
-    selectedItems: ArmorItem[],
-    currentWeight: number,
-  ) {
-    if (
-      desiredWeightClass !== 'ULTRA' &&
-      currentWeight > WEIGHT_CLASSES[desiredWeightClass].maxWeight
-    ) {
-      // If the current combination of items already exceeds the maximum weight, return early
-      // unless the desired weight class is "ultra"
-      return
-    }
-
-    if (slotIndex === emptyArmorSlots.length) {
-      selectedItems.forEach((item) => {
-        testBuild.items[item.category] = item
-      })
-      const result = getWeightClass(testBuild)
-
-      const isResultValid =
-        result.maxWeight === WEIGHT_CLASSES[desiredWeightClass].maxWeight
-
-      if (isResultValid) {
-        const totalArmor = Number(getTotalArmor(testBuild))
-        const totalWeight = Number(getTotalWeight(testBuild))
-
-        newArmorSuggestions.push({
-          helm: testBuild.items.helm,
-          torso: testBuild.items.torso,
-          gloves: testBuild.items.gloves,
-          legs: testBuild.items.legs,
-          totalArmor,
-          totalWeight,
-        })
-      }
-    } else {
-      const slotItems = itemsByCategory[
-        emptyArmorSlots[slotIndex]
-      ] as ArmorItem[]
-
-      for (let i = 0; i < slotItems.length; i++) {
-        const item = slotItems[i]
-        generateCombinations(
-          slotIndex + 1,
-          [...selectedItems, item],
-          currentWeight + (item.weight ?? 0),
-        )
+          if (desiredWeightClass === 'ULTRA') {
+            armorSuggestions.push({
+              helm: helmItem,
+              torso: torsoItem,
+              legs: legItem,
+              gloves: gloveItem,
+              totalArmor,
+              totalWeight,
+            })
+          } else if (totalWeight <= maxWeight) {
+            armorSuggestions.push({
+              helm: helmItem,
+              torso: torsoItem,
+              legs: legItem,
+              gloves: gloveItem,
+              totalArmor,
+              totalWeight,
+            })
+          }
+        }
       }
     }
   }
 
-  // Start the recursive loop
-  generateCombinations(0, [], 0)
+  armorSuggestions.sort((a, b) => b.totalArmor - a.totalArmor)
 
-  // sort the armor suggestions by total armor, with the highest armor first
-  // then limit to the top 5
-  newArmorSuggestions.sort((a, b) => b.totalArmor - a.totalArmor)
-
-  if (newArmorSuggestions.length > 5)
-    newArmorSuggestions.splice(5, newArmorSuggestions.length - 5)
-
-  return newArmorSuggestions
+  // Return only the resultCount number of suggestions
+  return armorSuggestions.slice(0)
 }
