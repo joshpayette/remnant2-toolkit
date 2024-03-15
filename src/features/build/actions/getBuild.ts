@@ -39,6 +39,7 @@ export async function getBuild(
     description: build.description ?? '',
     isMember: false,
     isFeaturedBuild: build.isFeaturedBuild,
+    dateFeatured: build.dateFeatured,
     isPatchAffected: build.isPatchAffected,
     isPublic: build.isPublic,
     thumbnailUrl: build.thumbnailUrl ?? '',

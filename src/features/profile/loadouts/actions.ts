@@ -46,6 +46,7 @@ export async function getLoadoutList() {
     description: loadout.build.description,
     isPublic: loadout.build.isPublic,
     isFeaturedBuild: loadout.build.isFeaturedBuild,
+    dateFeatured: loadout.build.dateFeatured,
     isPatchAffected: loadout.build.isPatchAffected,
     isMember: false,
     thumbnailUrl: loadout.build.thumbnailUrl,

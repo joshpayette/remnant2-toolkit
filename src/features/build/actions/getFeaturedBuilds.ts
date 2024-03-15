@@ -88,7 +88,7 @@ export async function getFeaturedBuilds({
   ${limitByRingsSegment(ringIds)}
   `
 
-  const orderBySegment = getOrderBySegment(orderBy)
+  const orderBySegment = getOrderBySegment(orderBy, true)
 
   const trimmedSearchText = searchText.trim()
 

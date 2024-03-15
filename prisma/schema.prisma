@@ -163,6 +163,7 @@ model Build {
   createdById     String
   isPublic        Boolean           @default(true)
   isFeaturedBuild Boolean           @default(false)
+  dateFeatured    DateTime?
   isPatchAffected Boolean           @default(false)
   name            String
   description     String?           @db.Text

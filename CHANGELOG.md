@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2024-03-14
 
+### Added
+
+- Featured builds now have a `dateFeatured` field to allow them to show at the front of the featured builds once featured.
+
 ### Changed
 
 - `Save Image` button on the Builder now reads `Generate Build Image, since it no longer only saves the image like it used to.

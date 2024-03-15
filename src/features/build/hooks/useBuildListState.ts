@@ -19,6 +19,7 @@ const DEFAULT_STATE: State = {
     imageUrl: '',
     buildUrl: '',
     isFeaturedBuild: false,
+    dateFeatured: new Date(),
     isPatchAffected: false,
     isPublic: true,
     isMember: false,

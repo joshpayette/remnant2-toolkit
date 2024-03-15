@@ -34,6 +34,7 @@ export const INITIAL_BUILD_STATE: BuildState = {
   isPublic: true,
   isMember: false,
   isFeaturedBuild: false,
+  dateFeatured: null,
   isPatchAffected: false,
   thumbnailUrl: null,
   videoUrl: null,
