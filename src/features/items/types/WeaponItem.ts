@@ -1,17 +1,17 @@
 import { BuildItems } from '@prisma/client'
 
-import { remnantItems } from '../data/remnantItems'
+import { allItems } from '../data/allItems'
 import { Item } from '.'
 import { BaseItem } from './BaseItem'
 
 interface BaseWeaponItem extends BaseItem {
   type: 'long gun' | 'melee' | 'hand gun'
-  accuracy: number
-  ammo: number
+  accuracy?: number
+  ammo?: number
   crit: number
   damage: number
-  falloff: number
-  ideal: number
+  falloff?: number
+  ideal?: number
   magazine?: number
   rps?: number
   stagger: number
@@ -22,11 +22,11 @@ export class WeaponItem extends BaseItem implements BaseWeaponItem {
   public category: BaseWeaponItem['category'] = 'weapon'
   public type: BaseWeaponItem['type'] = 'long gun'
   public damage: BaseWeaponItem['damage'] = 0
-  public accuracy: BaseWeaponItem['accuracy'] = 0
-  public ammo: BaseWeaponItem['ammo'] = 0
+  public accuracy?: BaseWeaponItem['accuracy'] = 0
+  public ammo?: BaseWeaponItem['ammo'] = 0
   public crit: BaseWeaponItem['crit'] = 0
-  public falloff: BaseWeaponItem['falloff'] = 0
-  public ideal: BaseWeaponItem['ideal'] = 0
+  public falloff?: BaseWeaponItem['falloff'] = 0
+  public ideal?: BaseWeaponItem['ideal'] = 0
   public magazine?: BaseWeaponItem['magazine'] = 0
   public rps?: BaseWeaponItem['rps'] = 0
   public stagger: BaseWeaponItem['stagger'] = 0
@@ -62,7 +62,7 @@ export class WeaponItem extends BaseItem implements BaseWeaponItem {
 
     const items: WeaponItem[] = []
     itemIds.forEach((itemId, index) => {
-      const item = remnantItems.find((i) => i.id === itemId)
+      const item = allItems.find((i) => i.id === itemId)
       if (!item) return
       if (!this.isWeaponItem(item)) return
       items[index] = item
@@ -79,7 +79,7 @@ export class WeaponItem extends BaseItem implements BaseWeaponItem {
 
     let weaponItems: Array<WeaponItem | null> = []
     for (const buildItem of buildItems) {
-      const item = remnantItems.find((i) => i.id === buildItem.itemId)
+      const item = allItems.find((i) => i.id === buildItem.itemId)
       if (!item) continue
       if (item.category !== 'weapon') continue
       if (!this.isWeaponItem(item)) continue

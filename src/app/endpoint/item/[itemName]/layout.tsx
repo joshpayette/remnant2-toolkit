@@ -1,6 +1,6 @@
 import { Metadata, ResolvingMetadata } from 'next'
 
-import { remnantItems } from '@/features/items/data/remnantItems'
+import { allItems } from '@/features/items/data/allItems'
 import { ArmorItem } from '@/features/items/types/ArmorItem'
 import { MutatorItem } from '@/features/items/types/MutatorItem'
 import { TraitItem } from '@/features/items/types/TraitItem'
@@ -13,7 +13,7 @@ function getItemFromParam(itemName: string) {
   // and convert it to lowercase
   const cleanItemName = itemName.replace(/[^a-zA-Z0-9]/g, '').toLowerCase()
 
-  const item = remnantItems.find((item) => {
+  const item = allItems.find((item) => {
     // need to remove all punctuation and spaces from item.name
     // and convert it to lowercase
     const cleanCurrentItemName = item.name

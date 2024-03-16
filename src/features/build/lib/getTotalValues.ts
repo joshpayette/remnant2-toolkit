@@ -1,12 +1,10 @@
 import { WEIGHT_CLASSES } from '@/features/items/constants'
-import { remnantItems } from '@/features/items/data/remnantItems'
+import { perkItems } from '@/features/items/data/perkItems'
 import { Item } from '@/features/items/types'
 import { PerkItem } from '@/features/items/types/PerkItem'
 import { TraitItem } from '@/features/items/types/TraitItem'
 
 import { BuildState } from '../types'
-
-const perkItems = remnantItems.filter((item) => PerkItem.isPerkItem(item))
 
 function getItemsByKey(
   buildState: BuildState,
@@ -159,12 +157,12 @@ export function getTotalArmor(buildState: BuildState) {
     0,
   )
   const totalArmorStep = equippedArmorStepItems.reduce(
-    (acc, item) => acc + (item.armorStep * item.amount ?? 0),
+    (acc, item) => acc + (item.armorStep ?? 0) * (item.amount ?? 0),
     0,
   )
 
   const totalArmorStepPercent = equippedArmorStepPercentItems.reduce(
-    (acc, item) => acc + (item.armorStepPercent * item.amount ?? 0),
+    (acc, item) => acc + (item.armorStepPercent ?? 0) * (item.amount ?? 0),
     0,
   )
 
@@ -210,12 +208,12 @@ export function getTotalHealth(buildState: BuildState): {
   )
 
   const totalHealthStep = equippedHealthStepItems.reduce(
-    (acc, item) => acc + (item.healthStep * item.amount ?? 0),
+    (acc, item) => acc + (item.healthStep ?? 0) * (item.amount ?? 0),
     0,
   )
 
   const totalHealthStepPercent = equippedHealthStepPercentItems.reduce(
-    (acc, item) => acc + (item.healthStepPercent * item.amount ?? 0),
+    (acc, item) => acc + (item.healthStepPercent ?? 0) * (item.amount ?? 0),
     0,
   )
 
@@ -296,7 +294,8 @@ export function getTotalResistances(
   let totalElementalResistance = 0
   if (resistance !== 'bleed' && resistance !== 'blight') {
     totalElementalResistance = itemsWithElementalResistanceStep.reduce(
-      (acc, item) => acc + (item.elementalResistanceStep * item.amount ?? 0),
+      (acc, item) =>
+        acc + (item.elementalResistanceStep ?? 0) * (item.amount ?? 0),
       0,
     )
   }
@@ -345,12 +344,12 @@ export function getTotalStamina(buildState: BuildState): {
   )
 
   const totalStaminaStep = equippedStaminaStepItems.reduce(
-    (acc, item) => acc + (item.staminaStep * item.amount ?? 0),
+    (acc, item) => acc + (item.staminaStep ?? 0) * (item.amount ?? 0),
     0,
   )
 
   const totalStaminaStepPercent = equippedStaminaStepPercentItems.reduce(
-    (acc, item) => acc + (item.staminaStepPercent * item.amount ?? 0),
+    (acc, item) => acc + (item.staminaStepPercent ?? 0) * (item.amount ?? 0),
     0,
   )
 
@@ -411,7 +410,7 @@ export function getWeightClass(buildState: BuildState) {
   )
   const totalWeightThresholdTrait =
     equippedWeightThresholdTraits.reduce(
-      (acc, item) => acc + (item.weightThresholds[item.amount - 1] ?? 0),
+      (acc, item) => acc + (item.weightThresholds?.[item.amount - 1] ?? 0),
       0,
     ) || 0
 

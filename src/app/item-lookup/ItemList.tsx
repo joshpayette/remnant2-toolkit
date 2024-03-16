@@ -4,7 +4,7 @@ import { useIsClient, useLocalStorage } from 'usehooks-ts'
 import { parseItemLookupFilters } from '@/features/filters/lib/parseItemLookupFilters'
 import { ItemLookupFilterFields } from '@/features/filters/types'
 import { MasonryItemList } from '@/features/items/components/MasonryItemList'
-import { remnantItems } from '@/features/items/data/remnantItems'
+import { allItems } from '@/features/items/data/allItems'
 import { itemMatchesSearchText } from '@/features/items/lib/itemMatchesSearchText'
 import { ReleaseKey } from '@/features/items/types'
 import { MutatorItem } from '@/features/items/types/MutatorItem'
@@ -13,7 +13,7 @@ import { capitalize } from '@/lib/capitalize'
 
 import { LocalStorage } from '../tracker/types'
 
-const allItems = remnantItems.map((item) => ({
+const allItemsWithDiscovered = allItems.map((item) => ({
   ...item,
   discovered: false,
 }))
@@ -22,7 +22,7 @@ function getFilteredItems(
   filters: ItemLookupFilterFields,
   discoveredItemIds: string[],
 ) {
-  let newFilteredItems = allItems.map((item) => ({
+  let newFilteredItems = allItemsWithDiscovered.map((item) => ({
     ...item,
     discovered: discoveredItemIds.includes(item.id),
   }))
@@ -115,8 +115,8 @@ export function ItemList() {
   const filters = parseItemLookupFilters(searchParams)
   const filteredItems = getFilteredItems(filters, discoveredItemIds)
 
-  return filteredItems.length === remnantItems.length || !isClient ? (
-    <h2 className="text-primary-500 text-center text-4xl font-bold">
+  return filteredItems.length === allItems.length || !isClient ? (
+    <h2 className="text-center text-4xl font-bold text-primary-500">
       Apply a filter to see items
     </h2>
   ) : (

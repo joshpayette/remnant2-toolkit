@@ -1,6 +1,6 @@
 import { BuildItems } from '@prisma/client'
 
-import { remnantItems } from '../data/remnantItems'
+import { allItems } from '../data/allItems'
 import { Item } from '.'
 import { BaseItem } from './BaseItem'
 
@@ -28,7 +28,7 @@ export class SkillItem extends BaseItem implements BaseSkillItem {
 
     const items: SkillItem[] = []
     itemIds.forEach((itemId, index) => {
-      const item = remnantItems.find((i) => i.id === itemId)
+      const item = allItems.find((i) => i.id === itemId)
       if (!item) return
       if (!this.isSkillItem(item)) return
       items[index] = item
@@ -45,7 +45,7 @@ export class SkillItem extends BaseItem implements BaseSkillItem {
 
     let skillItems: Array<SkillItem | null> = []
     for (const buildItem of buildItems) {
-      const item = remnantItems.find((i) => i.id === buildItem.itemId)
+      const item = allItems.find((i) => i.id === buildItem.itemId)
       if (!item) continue
       if (item.category !== 'skill') continue
       if (!this.isSkillItem(item)) continue

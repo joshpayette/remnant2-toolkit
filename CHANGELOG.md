@@ -6,10 +6,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2024-03-15
 
+### Changed
+
+- Refactored remnantItems.ts, the single list of items, into a more modular system. This will allow for easier maintenance and expansion of the item list, as well as better performance throughout the tool.
+
 ### Fixed
 
 - Fixed an issue where all archetypes were being appended to the URL when filtering for builds. It will no longer happen if all archetypes or no archetypes are selected.
 - Fixed a Builder bug where equipping alchemist and unequipping alchemist would not remove the extra concoctions from stat calculations.
+- Fixed a Builder bug in Item Suggestions, where selecting a suggested perk would not equip the archetype.
 
 ## 2024-03-14
 

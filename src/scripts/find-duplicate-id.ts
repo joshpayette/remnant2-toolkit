@@ -6,16 +6,16 @@
  */
 
 import { remnantEnemies } from '../features/enemies/data/remnantEnemies'
-import { remnantItems } from '../features/items/data/remnantItems'
+import { allItems } from '../features/items/data/allItems'
 
-// need to iterate over remnantItems to find the duplicate id
+// need to iterate over allItems to find the duplicate id
 // for each item, check if the id is already in the set
 // if it is, log the id
 // if it isn't, add it to the set
 // at the end, log the set
 const ids = new Set()
 const duplicateIds = new Set()
-remnantItems.forEach((item) => {
+allItems.forEach((item) => {
   if (ids.has(item.id)) {
     duplicateIds.add(item.id)
   } else {

@@ -1,11 +1,9 @@
 import { Prisma } from '@prisma/client'
 
-import { remnantItems } from '@/features/items/data/remnantItems'
-import { ArchetypeItem } from '@/features/items/types/ArchetypeItem'
+import { archetypeItems } from '@/features/items/data/archetypeItems'
 
 export function limitByArchetypesSegment(archetypeIds: string[]) {
-  const allExcludedArchetypeIds = remnantItems
-    .filter((item) => ArchetypeItem.isArchetypeItem(item))
+  const allExcludedArchetypeIds = archetypeItems
     .map((item) => item.id)
     .filter((id) => !archetypeIds.includes(id))
 
@@ -52,7 +50,7 @@ export function archetypeFiltersToIds({
   const archtypeIds: string[] = []
 
   for (const archetype of archetypes) {
-    const item = remnantItems.find(
+    const item = archetypeItems.find(
       (item) => item.name.toLowerCase() === archetype,
     )?.id
     if (item) archtypeIds.push(item)

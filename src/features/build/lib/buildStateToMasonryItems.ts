@@ -1,4 +1,4 @@
-import { remnantItems } from '@/features/items/data/remnantItems'
+import { perkItems } from '@/features/items/data/perkItems'
 import { Item } from '@/features/items/types'
 import { ArchetypeItem } from '@/features/items/types/ArchetypeItem'
 import { MutatorItem } from '@/features/items/types/MutatorItem'
@@ -32,7 +32,7 @@ export function buildStateToMasonryItems(build: BuildState): Item[] {
     const archetype = items.archetype[i] as ArchetypeItem
     if (archetype) {
       archetype.linkedItems?.perks?.forEach((perk) => {
-        const perkItem = remnantItems.find((item) => item.name === perk.name)
+        const perkItem = perkItems.find((item) => item.name === perk.name)
         if (perkItem) masonryItems.push(perkItem)
       })
     }

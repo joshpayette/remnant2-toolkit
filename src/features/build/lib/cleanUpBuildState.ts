@@ -1,4 +1,5 @@
-import { remnantItems } from '@/features/items/data/remnantItems'
+import { traitItems } from '@/features/items/data/traitItems'
+import { weaponItems } from '@/features/items/data/weaponItems'
 import { TraitItem } from '@/features/items/types/TraitItem'
 
 import { BuildState } from '../types'
@@ -15,7 +16,7 @@ export function cleanUpBuildState(buildState: BuildState) {
   // Look at each mod and if it is linked to the wrong weapon, remove it
   buildState.items.mod = buildState.items.mod.map((mod, index) => {
     if (mod?.linkedItems?.weapon) {
-      const linkedWeapon = remnantItems.find(
+      const linkedWeapon = weaponItems.find(
         (item) => item.name === mod.linkedItems?.weapon?.name,
       )
       if (!linkedWeapon) return mod
@@ -43,7 +44,7 @@ export function cleanUpBuildState(buildState: BuildState) {
     const archetypeTraits = primaryArchetype.linkedItems?.traits
     if (!archetypeTraits) return
 
-    const archetypeTraitItems = remnantItems.filter(
+    const archetypeTraitItems = traitItems.filter(
       (item) =>
         archetypeTraits.some((trait) => trait.name === item.name) &&
         item.category === 'trait',

@@ -1,9 +1,11 @@
 import { ReadonlyURLSearchParams } from 'next/navigation'
 
 import { RELEASE_TO_NAME } from '@/features/items/constants'
-import { remnantItems } from '@/features/items/data/remnantItems'
+import { amuletItems } from '@/features/items/data/amuletItems'
+import { archetypeItems } from '@/features/items/data/archetypeItems'
+import { ringItems } from '@/features/items/data/ringItems'
+import { weaponItems } from '@/features/items/data/weaponItems'
 import { Archetype, ReleaseKey } from '@/features/items/types'
-import { WeaponItem } from '@/features/items/types/WeaponItem'
 
 import { DEFAULT_BUILD_LIST_FILTERS } from '../components/BuildListFilters'
 import { BuildListFilterFields } from '../types'
@@ -27,9 +29,7 @@ export function parseBuildListFilters(
 
   // check if archetypes are valid
   if (archetypes) {
-    const allArchetypes: Archetype[] = remnantItems
-      .filter((item) => item.category === 'archetype')
-      .map((item) => item.name.toLowerCase() as Archetype)
+    const allArchetypes = archetypeItems.map((item) => item.name.toLowerCase())
 
     const archetypesArray = archetypes.split(',')
 
@@ -41,10 +41,8 @@ export function parseBuildListFilters(
   }
   // check if longGun is valid
   if (longGun) {
-    const allLongGuns: string[] = remnantItems
-      .filter(
-        (item) => WeaponItem.isWeaponItem(item) && item.type === 'long gun',
-      )
+    const allLongGuns: string[] = weaponItems
+      .filter((item) => item.type === 'long gun')
       .map((item) => item.name.toLowerCase())
     if (!allLongGuns.includes(longGun.toLowerCase())) {
       longGun = DEFAULT_BUILD_LIST_FILTERS['longGun']
@@ -52,10 +50,8 @@ export function parseBuildListFilters(
   }
   // check if handGun is valid
   if (handGun) {
-    const allHandGuns: string[] = remnantItems
-      .filter(
-        (item) => WeaponItem.isWeaponItem(item) && item.type === 'hand gun',
-      )
+    const allHandGuns: string[] = weaponItems
+      .filter((item) => item.type === 'hand gun')
       .map((item) => item.name.toLowerCase())
     if (!allHandGuns.includes(handGun.toLowerCase())) {
       handGun = DEFAULT_BUILD_LIST_FILTERS['handGun']
@@ -63,8 +59,8 @@ export function parseBuildListFilters(
   }
   // check if melee is valid
   if (melee) {
-    const allMelees: string[] = remnantItems
-      .filter((item) => WeaponItem.isWeaponItem(item) && item.type === 'melee')
+    const allMelees: string[] = weaponItems
+      .filter((item) => item.type === 'melee')
       .map((item) => item.name.toLowerCase())
     if (!allMelees.includes(melee.toLowerCase())) {
       melee = DEFAULT_BUILD_LIST_FILTERS['melee']
@@ -72,46 +68,38 @@ export function parseBuildListFilters(
   }
   // check if ring is valid
   if (ring1) {
-    const allRings: string[] = remnantItems
-      .filter((item) => item.category === 'ring')
-      .map((item) => item.name.toLowerCase())
+    const allRings: string[] = ringItems.map((item) => item.name.toLowerCase())
     if (!allRings.includes(ring1.toLowerCase())) {
       ring1 = DEFAULT_BUILD_LIST_FILTERS['ring1']
     }
   }
   // check if ring is valid
   if (ring2) {
-    const allRings: string[] = remnantItems
-      .filter((item) => item.category === 'ring')
-      .map((item) => item.name.toLowerCase())
+    const allRings: string[] = ringItems.map((item) => item.name.toLowerCase())
     if (!allRings.includes(ring2.toLowerCase())) {
-      ring2 = DEFAULT_BUILD_LIST_FILTERS['ring1']
+      ring2 = DEFAULT_BUILD_LIST_FILTERS['ring2']
     }
   }
   // check if ring is valid
   if (ring3) {
-    const allRings: string[] = remnantItems
-      .filter((item) => item.category === 'ring')
-      .map((item) => item.name.toLowerCase())
+    const allRings: string[] = ringItems.map((item) => item.name.toLowerCase())
     if (!allRings.includes(ring3.toLowerCase())) {
-      ring3 = DEFAULT_BUILD_LIST_FILTERS['ring1']
+      ring3 = DEFAULT_BUILD_LIST_FILTERS['ring3']
     }
   }
   // check if ring is valid
   if (ring4) {
-    const allRings: string[] = remnantItems
-      .filter((item) => item.category === 'ring')
-      .map((item) => item.name.toLowerCase())
+    const allRings: string[] = ringItems.map((item) => item.name.toLowerCase())
     if (!allRings.includes(ring4.toLowerCase())) {
-      ring4 = DEFAULT_BUILD_LIST_FILTERS['ring1']
+      ring4 = DEFAULT_BUILD_LIST_FILTERS['ring4']
     }
   }
 
   // check if amulet is valid
   if (amulet) {
-    const allAmulets: string[] = remnantItems
-      .filter((item) => item.category === 'amulet')
-      .map((item) => item.name.toLowerCase())
+    const allAmulets: string[] = amuletItems.map((item) =>
+      item.name.toLowerCase(),
+    )
     if (!allAmulets.includes(amulet.toLowerCase())) {
       amulet = DEFAULT_BUILD_LIST_FILTERS['amulet']
     }

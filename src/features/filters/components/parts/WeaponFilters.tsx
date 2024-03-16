@@ -1,5 +1,4 @@
-import { remnantItems } from '@/features/items/data/remnantItems'
-import { WeaponItem } from '@/features/items/types/WeaponItem'
+import { weaponItems } from '@/features/items/data/weaponItems'
 import { SelectMenu } from '@/features/ui/SelectMenu'
 
 export const DEFAULT_WEAPON_FILTERS = {
@@ -8,18 +7,18 @@ export const DEFAULT_WEAPON_FILTERS = {
   melee: 'All',
 }
 
-const allLongGuns: string[] = remnantItems
-  .filter((item) => WeaponItem.isWeaponItem(item) && item.type === 'long gun')
+const allLongGuns: string[] = weaponItems
+  .filter((item) => item.type === 'long gun')
   .map((item) => item.name)
 allLongGuns.unshift(DEFAULT_WEAPON_FILTERS.longGun)
 
-const allHandGuns: string[] = remnantItems
-  .filter((item) => WeaponItem.isWeaponItem(item) && item.type === 'hand gun')
+const allHandGuns: string[] = weaponItems
+  .filter((item) => item.type === 'hand gun')
   .map((item) => item.name)
 allHandGuns.unshift(DEFAULT_WEAPON_FILTERS.handGun)
 
-const allMelee: string[] = remnantItems
-  .filter((item) => WeaponItem.isWeaponItem(item) && item.type === 'melee')
+const allMelee: string[] = weaponItems
+  .filter((item) => item.type === 'melee')
   .map((item) => item.name)
 allMelee.unshift(DEFAULT_WEAPON_FILTERS.melee)
 

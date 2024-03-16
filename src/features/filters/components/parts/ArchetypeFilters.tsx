@@ -1,13 +1,13 @@
-import { remnantItems } from '@/features/items/data/remnantItems'
+import { archetypeItems } from '@/features/items/data/archetypeItems'
 import { Archetype } from '@/features/items/types'
 import { Checkbox } from '@/features/ui/Checkbox'
 import { capitalize } from '@/lib/capitalize'
 
-const allArchetypes: Archetype[] = remnantItems
-  .filter((item) => item.category === 'archetype')
-  .map((item) => item.name.toLowerCase() as Archetype)
+const allArchetypeNames: Archetype[] = archetypeItems.map(
+  (item) => item.name.toLowerCase() as Archetype,
+)
 
-export const DEFAULT_ARCHETYPE_FILTERS: Archetype[] = allArchetypes
+export const DEFAULT_ARCHETYPE_FILTERS: Archetype[] = allArchetypeNames
 
 interface Props {
   selectedArchetypes: Archetype[]
@@ -46,7 +46,7 @@ export function ArchetypeFilters({
           </button>
         </div>
         <div className="grid w-full grid-cols-2 gap-x-8 text-left sm:grid-cols-3 md:grid-cols-4">
-          {allArchetypes.map((archtype) => {
+          {allArchetypeNames.map((archtype) => {
             return (
               <div key={archtype}>
                 <Checkbox

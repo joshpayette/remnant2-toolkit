@@ -1,7 +1,7 @@
 import { Metadata, ResolvingMetadata } from 'next'
 
 import { DESCRIPTION_TAGS, ITEM_TAGS } from '@/features/items/constants'
-import { remnantItems } from '@/features/items/data/remnantItems'
+import { allItems } from '@/features/items/data/allItems'
 import { itemMatchesSearchText } from '@/features/items/lib/itemMatchesSearchText'
 import { Item } from '@/features/items/types'
 
@@ -31,7 +31,7 @@ function getItemsFromTagParam(tagName: string): Item[] {
     return []
   }
 
-  const items = remnantItems
+  const items = allItems
     .filter((item) => itemMatchesSearchText({ item, searchText: tagToken }))
     .sort((a, b) => a.name.localeCompare(b.name))
   return items

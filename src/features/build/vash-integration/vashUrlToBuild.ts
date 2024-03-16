@@ -1,4 +1,16 @@
-import { remnantItems } from '@/features/items/data/remnantItems'
+import { amuletItems } from '@/features/items/data/amuletItems'
+import { archetypeItems } from '@/features/items/data/archetypeItems'
+import { armorItems } from '@/features/items/data/armorItems'
+import { concoctionItems } from '@/features/items/data/concoctionItems'
+import { consumableItems } from '@/features/items/data/consumableItems'
+import { modItems } from '@/features/items/data/modItems'
+import { mutatorItems } from '@/features/items/data/mutatorItems'
+import { relicFragmentItems } from '@/features/items/data/relicFragmentItems'
+import { relicItems } from '@/features/items/data/relicItems'
+import { ringItems } from '@/features/items/data/ringItems'
+import { skillItems } from '@/features/items/data/skillItems'
+import { traitItems } from '@/features/items/data/traitItems'
+import { weaponItems } from '@/features/items/data/weaponItems'
 import { AmuletItem } from '@/features/items/types/AmuletItem'
 import { ArchetypeItem } from '@/features/items/types/ArchetypeItem'
 import { ArmorItem } from '@/features/items/types/ArmorItem'
@@ -27,20 +39,18 @@ export function vashUrlToBuild(searchParams: URLSearchParams): BuildState {
       const amount = trait.replace(/[^0-9]/g, '')
       const name = trait.replace(/[0-9]/g, '').replace('+', ' ')
 
-      const item = remnantItems.find(
-        (item) =>
-          TraitItem.isTraitItem(item) &&
-          item.name.toLowerCase() === name.toLowerCase(),
+      const traitItem = traitItems.find(
+        (item) => item.name.toLowerCase() === name.toLowerCase(),
       )
 
-      if (!item) continue
+      if (!traitItem) continue
 
       const isTraitInBuild = buildState.items.trait.some(
-        (trait) => trait.name === item.name,
+        (trait) => trait.name === traitItem.name,
       )
       if (!isTraitInBuild) {
         buildState.items.trait.push({
-          ...(item as TraitItem),
+          ...traitItem,
           amount: parseInt(amount),
         })
       }
@@ -54,37 +64,33 @@ export function vashUrlToBuild(searchParams: URLSearchParams): BuildState {
     for (const archetype of archetypesAndSkills) {
       const name = archetype.replace('+', ' ')
 
-      const item = remnantItems.find(
-        (item) =>
-          item.name.toLowerCase() === name.toLowerCase() &&
-          ArchetypeItem.isArchetypeItem(item),
+      const archetypeItem = archetypeItems.find(
+        (item) => item.name.toLowerCase() === name.toLowerCase(),
       )
 
-      if (!item) continue
+      if (!archetypeItem) continue
 
       const isArchetypeInBuild = buildState.items.archetype.some(
-        (archetype) => archetype?.name === item.name,
+        (archetype) => archetype?.name === archetypeItem.name,
       )
       if (!isArchetypeInBuild) {
-        buildState.items.archetype.push(item as ArchetypeItem)
+        buildState.items.archetype.push(archetypeItem)
       }
     }
     for (const skill of archetypesAndSkills) {
       const name = skill.replace('+', ' ')
 
-      const item = remnantItems.find(
-        (item) =>
-          item.name.toLowerCase() === name.toLowerCase() &&
-          SkillItem.isSkillItem(item),
+      const skillItem = skillItems.find(
+        (item) => item.name.toLowerCase() === name.toLowerCase(),
       )
 
-      if (!item) continue
+      if (!skillItem) continue
 
       const isSkillInBuild = buildState.items.skill.some(
-        (skill) => skill?.name === item.name,
+        (skill) => skill?.name === skillItem.name,
       )
       if (!isSkillInBuild) {
-        buildState.items.skill.push(item as SkillItem)
+        buildState.items.skill.push(skillItem)
       }
     }
   }
@@ -96,26 +102,24 @@ export function vashUrlToBuild(searchParams: URLSearchParams): BuildState {
     for (const piece of armor) {
       const name = piece.replace('+', ' ')
 
-      const item = remnantItems.find(
-        (item) =>
-          item.name.toLowerCase() === name.toLowerCase() &&
-          ArmorItem.isArmorItem(item),
+      const armorItem = armorItems.find(
+        (item) => item.name.toLowerCase() === name.toLowerCase(),
       )
 
-      if (!item) continue
+      if (!armorItem) continue
 
-      switch (item.category) {
+      switch (armorItem.category) {
         case 'helm':
-          buildState.items.helm = item as ArmorItem
+          buildState.items.helm = armorItem
           break
         case 'torso':
-          buildState.items.torso = item as ArmorItem
+          buildState.items.torso = armorItem
           break
         case 'legs':
-          buildState.items.legs = item as ArmorItem
+          buildState.items.legs = armorItem
           break
         case 'gloves':
-          buildState.items.gloves = item as ArmorItem
+          buildState.items.gloves = armorItem
           break
       }
     }
@@ -127,129 +131,116 @@ export function vashUrlToBuild(searchParams: URLSearchParams): BuildState {
     const mainWeapon = mainWeaponString.split(',')
 
     if (mainWeapon[0]) {
-      const mainWeaponItem = remnantItems.find(
+      const mainWeaponItem = weaponItems.find(
         (item) =>
           item.name.toLowerCase() ===
-            mainWeapon[0].replace('+', ' ').toLowerCase() &&
-          WeaponItem.isWeaponItem(item),
+          mainWeapon[0].replace('+', ' ').toLowerCase(),
       )
       if (mainWeaponItem) {
-        buildState.items.weapon[0] = mainWeaponItem as WeaponItem
+        buildState.items.weapon[0] = mainWeaponItem
       }
     }
 
     if (mainWeapon[1]) {
-      const mainWeaponMutator = remnantItems.find(
+      const mainWeaponMutator = mutatorItems.find(
         (item) =>
           item.name.toLowerCase() ===
-            mainWeapon[1].replace('+', ' ').toLowerCase() &&
-          MutatorItem.isMutatorItem(item),
+          mainWeapon[1].replace('+', ' ').toLowerCase(),
       )
       if (mainWeaponMutator) {
-        buildState.items.mutator[0] = mainWeaponMutator as MutatorItem
+        buildState.items.mutator[0] = mainWeaponMutator
       }
     }
 
     if (mainWeapon[2]) {
-      const mainWeaponMod = remnantItems.find(
+      const mainWeaponMod = modItems.find(
         (item) =>
           item.name.toLowerCase() ===
-            mainWeapon[2].replace('+', ' ').toLowerCase() &&
-          ModItem.isModItem(item),
+          mainWeapon[2].replace('+', ' ').toLowerCase(),
       )
       if (mainWeaponMod) {
-        buildState.items.mod[0] = mainWeaponMod as ModItem
+        buildState.items.mod[0] = mainWeaponMod
       }
     }
   }
 
   // melee weapon
   const meleeWeaponString = searchParams.get('melee')
-  console.info('meleeWeaponString', meleeWeaponString)
   if (meleeWeaponString) {
     const meleeWeapon = meleeWeaponString.split(',')
 
     if (meleeWeapon[0]) {
-      const meleeWeaponItem = remnantItems.find(
+      const meleeWeaponItem = weaponItems.find(
         (item) =>
           item.name.toLowerCase() ===
-            meleeWeapon[0].replace('+', ' ').toLowerCase() &&
-          WeaponItem.isWeaponItem(item),
+          meleeWeapon[0].replace('+', ' ').toLowerCase(),
       )
       if (meleeWeaponItem) {
-        buildState.items.weapon[1] = meleeWeaponItem as WeaponItem
+        buildState.items.weapon[1] = meleeWeaponItem
       }
     }
 
     if (meleeWeapon[1]) {
-      const meleeWeaponMutator = remnantItems.find(
+      const meleeWeaponMutator = mutatorItems.find(
         (item) =>
           item.name.toLowerCase() ===
-            meleeWeapon[1].replace('+', ' ').toLowerCase() &&
-          MutatorItem.isMutatorItem(item),
+          meleeWeapon[1].replace('+', ' ').toLowerCase(),
       )
       if (meleeWeaponMutator) {
-        buildState.items.mutator[1] = meleeWeaponMutator as MutatorItem
+        buildState.items.mutator[1] = meleeWeaponMutator
       }
     }
 
     if (meleeWeapon[2]) {
-      const meleeWeaponMod = remnantItems.find(
+      const meleeWeaponMod = modItems.find(
         (item) =>
           item.name.toLowerCase() ===
-            meleeWeapon[2].replace('+', ' ').toLowerCase() &&
-          ModItem.isModItem(item),
+          meleeWeapon[2].replace('+', ' ').toLowerCase(),
       )
       if (meleeWeaponMod) {
-        buildState.items.mod[1] = meleeWeaponMod as ModItem
+        buildState.items.mod[1] = meleeWeaponMod
       }
     }
   }
 
   // pistol weapon
   const pistolWeaponString = searchParams.get('secondary')
-  console.info('pistolWeaponString', pistolWeaponString)
   if (pistolWeaponString) {
     const pistolWeapon = pistolWeaponString.split(',')
 
     if (pistolWeapon[0]) {
-      const pistolWeaponItem = remnantItems.find(
+      const pistolWeaponItem = weaponItems.find(
         (item) =>
           item.name.toLowerCase() ===
-            pistolWeapon[0].replace('+', ' ').toLowerCase() &&
-          WeaponItem.isWeaponItem(item),
+          pistolWeapon[0].replace('+', ' ').toLowerCase(),
       )
       if (pistolWeaponItem) {
-        buildState.items.weapon[2] = pistolWeaponItem as WeaponItem
+        buildState.items.weapon[2] = pistolWeaponItem
       }
     }
 
     if (pistolWeapon[1]) {
-      const pistolWeaponMutator = remnantItems.find(
+      const pistolWeaponMutator = mutatorItems.find(
         (item) =>
           item.name.toLowerCase() ===
-            pistolWeapon[1].replace('+', ' ').toLowerCase() &&
-          MutatorItem.isMutatorItem(item),
+          pistolWeapon[1].replace('+', ' ').toLowerCase(),
       )
       if (pistolWeaponMutator) {
-        buildState.items.mutator[2] = pistolWeaponMutator as MutatorItem
+        buildState.items.mutator[2] = pistolWeaponMutator
       }
     }
 
     if (pistolWeapon[2]) {
-      const pistolWeaponMod = remnantItems.find(
+      const pistolWeaponMod = modItems.find(
         (item) =>
           item.name.toLowerCase() ===
-            pistolWeapon[2].replace('+', ' ').toLowerCase() &&
-          ModItem.isModItem(item),
+          pistolWeapon[2].replace('+', ' ').toLowerCase(),
       )
       if (pistolWeaponMod) {
-        buildState.items.mod[2] = pistolWeaponMod as ModItem
+        buildState.items.mod[2] = pistolWeaponMod
       }
     }
   }
-
-  console.info('checking accessories!')
 
   // accessories
   const accessoryString = searchParams.get('accessory')
@@ -257,62 +248,57 @@ export function vashUrlToBuild(searchParams: URLSearchParams): BuildState {
     const accessories = accessoryString.split(',')
 
     if (accessories[0]) {
-      const amulet = remnantItems.find(
+      const amuletItem = amuletItems.find(
         (item) =>
           item.name.toLowerCase() ===
-            accessories[0].replace('+', ' ').toLowerCase() &&
-          AmuletItem.isAmuletItem(item),
+          accessories[0].replace('+', ' ').toLowerCase(),
       )
-      if (amulet) {
-        buildState.items.amulet = amulet as AmuletItem
+      if (amuletItem) {
+        buildState.items.amulet = amuletItem
       }
     }
 
     if (accessories[1]) {
-      const ring = remnantItems.find(
+      const ringItem = ringItems.find(
         (item) =>
           item.name.toLowerCase() ===
-            accessories[1].replace('+', ' ').toLowerCase() &&
-          RingItem.isRingItem(item),
+          accessories[1].replace('+', ' ').toLowerCase(),
       )
-      if (ring) {
-        buildState.items.ring[0] = ring as RingItem
+      if (ringItem) {
+        buildState.items.ring[0] = ringItem
       }
     }
 
     if (accessories[2]) {
-      const ring = remnantItems.find(
+      const ringItem = ringItems.find(
         (item) =>
           item.name.toLowerCase() ===
-            accessories[2].replace('+', ' ').toLowerCase() &&
-          RingItem.isRingItem(item),
+          accessories[2].replace('+', ' ').toLowerCase(),
       )
-      if (ring) {
-        buildState.items.ring[1] = ring as RingItem
+      if (ringItem) {
+        buildState.items.ring[1] = ringItem
       }
     }
 
     if (accessories[3]) {
-      const ring = remnantItems.find(
+      const ringItem = ringItems.find(
         (item) =>
           item.name.toLowerCase() ===
-            accessories[3].replace('+', ' ').toLowerCase() &&
-          RingItem.isRingItem(item),
+          accessories[3].replace('+', ' ').toLowerCase(),
       )
-      if (ring) {
-        buildState.items.ring[2] = ring as RingItem
+      if (ringItem) {
+        buildState.items.ring[2] = ringItem
       }
     }
 
     if (accessories[4]) {
-      const ring = remnantItems.find(
+      const ringItem = ringItems.find(
         (item) =>
           item.name.toLowerCase() ===
-            accessories[4].replace('+', ' ').toLowerCase() &&
-          RingItem.isRingItem(item),
+          accessories[4].replace('+', ' ').toLowerCase(),
       )
-      if (ring) {
-        buildState.items.ring[3] = ring as RingItem
+      if (ringItem) {
+        buildState.items.ring[3] = ringItem
       }
     }
   }
@@ -323,50 +309,42 @@ export function vashUrlToBuild(searchParams: URLSearchParams): BuildState {
     const relics = relicString.split(',')
 
     if (relics[0]) {
-      const relic = remnantItems.find(
+      const relicItem = relicItems.find(
         (item) =>
-          item.name.toLowerCase() ===
-            relics[0].replace('+', ' ').toLowerCase() &&
-          RelicItem.isRelicItem(item),
+          item.name.toLowerCase() === relics[0].replace('+', ' ').toLowerCase(),
       )
-      if (relic) {
-        buildState.items.relic = relic as RelicItem
+      if (relicItem) {
+        buildState.items.relic = relicItem
       }
     }
 
     if (relics[1]) {
-      const relicFragment = remnantItems.find(
+      const relicFragmentItem = relicFragmentItems.find(
         (item) =>
-          item.name.toLowerCase() ===
-            relics[1].replace('+', ' ').toLowerCase() &&
-          RelicFragmentItem.isRelicFragmentItem(item),
+          item.name.toLowerCase() === relics[1].replace('+', ' ').toLowerCase(),
       )
-      if (relicFragment) {
-        buildState.items.relicfragment[0] = relicFragment as RelicFragmentItem
+      if (relicFragmentItem) {
+        buildState.items.relicfragment[0] = relicFragmentItem
       }
     }
 
     if (relics[2]) {
-      const relicFragment = remnantItems.find(
+      const relicFragmentItem = relicFragmentItems.find(
         (item) =>
-          item.name.toLowerCase() ===
-            relics[2].replace('+', ' ').toLowerCase() &&
-          RelicFragmentItem.isRelicFragmentItem(item),
+          item.name.toLowerCase() === relics[2].replace('+', ' ').toLowerCase(),
       )
-      if (relicFragment) {
-        buildState.items.relicfragment[1] = relicFragment as RelicFragmentItem
+      if (relicFragmentItem) {
+        buildState.items.relicfragment[1] = relicFragmentItem
       }
     }
 
     if (relics[3]) {
-      const relicFragment = remnantItems.find(
+      const relicFragmentItem = relicFragmentItems.find(
         (item) =>
-          item.name.toLowerCase() ===
-            relics[3].replace('+', ' ').toLowerCase() &&
-          RelicFragmentItem.isRelicFragmentItem(item),
+          item.name.toLowerCase() === relics[3].replace('+', ' ').toLowerCase(),
       )
-      if (relicFragment) {
-        buildState.items.relicfragment[2] = relicFragment as RelicFragmentItem
+      if (relicFragmentItem) {
+        buildState.items.relicfragment[2] = relicFragmentItem
       }
     }
   }
@@ -377,26 +355,24 @@ export function vashUrlToBuild(searchParams: URLSearchParams): BuildState {
     const consumables = consumableString.split(',')
 
     for (let i = 0; i < 7; i++) {
-      const concoction = remnantItems.find(
+      const concoctionItem = concoctionItems.find(
         (item) =>
           item.name.toLowerCase() ===
-            consumables[i].replace('+', ' ').toLowerCase() &&
-          ConcoctionItem.isConcoctionItem(item),
+          consumables[i].replace('+', ' ').toLowerCase(),
       )
-      if (concoction) {
-        buildState.items.concoction[i] = concoction as ConcoctionItem
+      if (concoctionItem) {
+        buildState.items.concoction[i] = concoctionItem
       }
     }
 
     for (let i = 0; i < 4; i++) {
-      const consumable = remnantItems.find(
+      const consumableItem = consumableItems.find(
         (item) =>
           item.name.toLowerCase() ===
-            consumables[i + 7].replace('+', ' ').toLowerCase() &&
-          ConsumableItem.isConsumableItem(item),
+          consumables[i + 7].replace('+', ' ').toLowerCase(),
       )
-      if (consumable) {
-        buildState.items.consumable[i] = consumable as ConsumableItem
+      if (consumableItem) {
+        buildState.items.consumable[i] = consumableItem
       }
     }
   }

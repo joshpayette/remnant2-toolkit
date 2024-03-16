@@ -1,6 +1,5 @@
-import { remnantItems } from '@/features/items/data/remnantItems'
-import { AmuletItem } from '@/features/items/types/AmuletItem'
-import { RingItem } from '@/features/items/types/RingItem'
+import { amuletItems } from '@/features/items/data/amuletItems'
+import { ringItems } from '@/features/items/data/ringItems'
 import { SelectMenu } from '@/features/ui/SelectMenu'
 
 export const DEFAULT_JEWELRY_FILTERS = {
@@ -8,15 +7,11 @@ export const DEFAULT_JEWELRY_FILTERS = {
   ring: 'All',
 }
 
-const allRings: string[] = remnantItems
-  .filter((item) => RingItem.isRingItem(item))
-  .map((item) => item.name)
-allRings.unshift(DEFAULT_JEWELRY_FILTERS.ring)
+const allRingNames: string[] = ringItems.map((item) => item.name)
+allRingNames.unshift(DEFAULT_JEWELRY_FILTERS.ring)
 
-const allAmulets: string[] = remnantItems
-  .filter((item) => AmuletItem.isAmuletItem(item))
-  .map((item) => item.name)
-allAmulets.unshift(DEFAULT_JEWELRY_FILTERS.amulet)
+const allAmuletNames: string[] = amuletItems.map((item) => item.name)
+allAmuletNames.unshift(DEFAULT_JEWELRY_FILTERS.amulet)
 
 interface Props {
   selectedRings: {
@@ -45,7 +40,7 @@ export function JewelryFilters({
               name="amulet"
               label="By Amulet"
               value={selectedAmulet}
-              options={allAmulets.map((amulet) => ({
+              options={allAmuletNames.map((amulet) => ({
                 label: amulet,
                 value: amulet,
               }))}
@@ -57,7 +52,7 @@ export function JewelryFilters({
               name="ring"
               label="By Ring"
               value={selectedRings.ring1}
-              options={allRings.map((ring) => ({
+              options={allRingNames.map((ring) => ({
                 label: ring,
                 value: ring,
               }))}
@@ -67,7 +62,7 @@ export function JewelryFilters({
               name="ring"
               label="By Ring"
               value={selectedRings.ring2}
-              options={allRings.map((ring) => ({
+              options={allRingNames.map((ring) => ({
                 label: ring,
                 value: ring,
               }))}
@@ -77,7 +72,7 @@ export function JewelryFilters({
               name="ring"
               label="By Ring"
               value={selectedRings.ring3}
-              options={allRings.map((ring) => ({
+              options={allRingNames.map((ring) => ({
                 label: ring,
                 value: ring,
               }))}
@@ -87,7 +82,7 @@ export function JewelryFilters({
               name="ring"
               label="By Ring"
               value={selectedRings.ring4}
-              options={allRings.map((ring) => ({
+              options={allRingNames.map((ring) => ({
                 label: ring,
                 value: ring,
               }))}

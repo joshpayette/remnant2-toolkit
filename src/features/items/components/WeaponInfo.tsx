@@ -45,7 +45,7 @@ export function WeaponInfo({ item, includeMod = true }: Props) {
               </div>
             )}
           </div>
-          {item.accuracy >= 0 ? (
+          {item.accuracy && item.accuracy >= 0 ? (
             <div className="grid w-full grid-cols-2 gap-2 border border-transparent  py-1 text-left text-sm text-gray-300">
               <p className="flex items-center justify-start text-xs">
                 Accuracy
@@ -55,7 +55,7 @@ export function WeaponInfo({ item, includeMod = true }: Props) {
               </span>
             </div>
           ) : null}
-          {item.ideal >= 0 && (
+          {item.ideal && item.ideal >= 0 && (
             <div className="grid w-full grid-cols-2 gap-2 border border-transparent  py-1 text-left text-sm text-gray-300">
               <p className="flex items-center justify-start text-xs">
                 Ideal Range
@@ -65,7 +65,7 @@ export function WeaponInfo({ item, includeMod = true }: Props) {
               </span>
             </div>
           )}
-          {item.falloff >= 0 ? (
+          {item.falloff && item.falloff >= 0 ? (
             <div className="grid w-full grid-cols-2 gap-2 border border-transparent  py-1 text-left text-sm text-gray-300">
               <p className="flex items-center justify-start text-xs">
                 Falloff Range
@@ -75,7 +75,7 @@ export function WeaponInfo({ item, includeMod = true }: Props) {
               </span>
             </div>
           ) : null}
-          {item.ammo >= 0 && (
+          {item.ammo && item.ammo >= 0 && (
             <div className="grid w-full grid-cols-2 gap-2 border border-transparent  py-1 text-left text-sm text-gray-300">
               <p className="flex items-center justify-start text-xs">
                 Max Ammo

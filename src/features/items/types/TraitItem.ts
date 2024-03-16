@@ -2,44 +2,44 @@ import { BuildItems } from '@prisma/client'
 
 import { DEFAULT_TRAIT_AMOUNT } from '@/features/build/constants'
 
-import { remnantItems } from '../data/remnantItems'
+import { traitItems } from '../data/traitItems'
 import { Item } from '.'
 import { BaseItem } from './BaseItem'
 
 interface BaseTraitItem extends BaseItem {
   amount: number
   maxLevelBonus: string
-  elementalResistanceStep: number // The amount to increase the elemental resistance per level
-  elementalResistanceStepPercent: number // The percentage to increase the elemental resistance per level
-  elementalResistanceThresholds: number[] // The elemental resistance thresholds for the elemental resistance step
-  healthStep: number // The amount to increase the health per level
-  healthStepPercent: number // The percentage to increase the health per level
-  staminaStep: number // The amount to increase the stamina per level
-  staminaStepPercent: number // The percentage to increase the stamina per level
-  armorStep: number // The amount to increase the armor per level
-  armorStepPercent: number // The percentage to increase the armor per level
-  weightStep: number // The amount to increase the weight per level
-  weightStepPercent: number // The percentage to increase the weight per level
-  weightThresholds: number[] // The weight thresholds for the weight step
+  elementalResistanceStep?: number // The amount to increase the elemental resistance per level
+  elementalResistanceStepPercent?: number // The percentage to increase the elemental resistance per level
+  elementalResistanceThresholds?: number[] // The elemental resistance thresholds for the elemental resistance step
+  healthStep?: number // The amount to increase the health per level
+  healthStepPercent?: number // The percentage to increase the health per level
+  staminaStep?: number // The amount to increase the stamina per level
+  staminaStepPercent?: number // The percentage to increase the stamina per level
+  armorStep?: number // The amount to increase the armor per level
+  armorStepPercent?: number // The percentage to increase the armor per level
+  weightStep?: number // The amount to increase the weight per level
+  weightStepPercent?: number // The percentage to increase the weight per level
+  weightThresholds?: number[] // The weight thresholds for the weight step
 }
 
 export class TraitItem extends BaseItem implements BaseTraitItem {
   public category: BaseTraitItem['category'] = 'trait'
   public maxLevelBonus: BaseTraitItem['maxLevelBonus'] = ''
   public amount: BaseTraitItem['amount'] = DEFAULT_TRAIT_AMOUNT
-  public elementalResistanceStep: BaseTraitItem['elementalResistanceStep'] = 0
-  public elementalResistanceStepPercent: BaseTraitItem['elementalResistanceStepPercent'] = 0
-  public elementalResistanceThresholds: BaseTraitItem['elementalResistanceThresholds'] =
+  public elementalResistanceStep?: BaseTraitItem['elementalResistanceStep'] = 0
+  public elementalResistanceStepPercent?: BaseTraitItem['elementalResistanceStepPercent'] = 0
+  public elementalResistanceThresholds?: BaseTraitItem['elementalResistanceThresholds'] =
     []
-  public healthStep: BaseTraitItem['healthStep'] = 0
-  public healthStepPercent: BaseTraitItem['healthStepPercent'] = 0
-  public staminaStep: BaseTraitItem['staminaStep'] = 0
-  public staminaStepPercent: BaseTraitItem['staminaStepPercent'] = 0
-  public armorStep: BaseTraitItem['armorStep'] = 0
-  public weightStep: BaseTraitItem['weightStep'] = 0
-  public armorStepPercent: BaseTraitItem['armorStepPercent'] = 0
-  public weightThresholds: BaseTraitItem['weightThresholds'] = []
-  public weightStepPercent: BaseTraitItem['weightStepPercent'] = 0
+  public healthStep?: BaseTraitItem['healthStep'] = 0
+  public healthStepPercent?: BaseTraitItem['healthStepPercent'] = 0
+  public staminaStep?: BaseTraitItem['staminaStep'] = 0
+  public staminaStepPercent?: BaseTraitItem['staminaStepPercent'] = 0
+  public armorStep?: BaseTraitItem['armorStep'] = 0
+  public weightStep?: BaseTraitItem['weightStep'] = 0
+  public armorStepPercent?: BaseTraitItem['armorStepPercent'] = 0
+  public weightThresholds?: BaseTraitItem['weightThresholds'] = []
+  public weightStepPercent?: BaseTraitItem['weightStepPercent'] = 0
 
   constructor(props: BaseTraitItem) {
     super(props)
@@ -79,7 +79,7 @@ export class TraitItem extends BaseItem implements BaseTraitItem {
       // We need to split the trait id at the ; to get the amount
       const [traitId, amount] = itemId.split(';')
 
-      const item = remnantItems.find((i) => i.id === traitId)
+      const item = traitItems.find((i) => i.id === traitId)
       if (!item) return []
 
       let validAmount = amount ? Number(amount) : DEFAULT_TRAIT_AMOUNT
@@ -127,7 +127,7 @@ export class TraitItem extends BaseItem implements BaseTraitItem {
     let traitItems: Array<TraitItem> = []
     let archtypeItems: Array<BaseItem> = []
     for (const buildItem of buildItems) {
-      const item = remnantItems.find((i) => i.id === buildItem.itemId)
+      const item = traitItems.find((i) => i.id === buildItem.itemId)
       if (!item) continue
       if (item.category === 'archetype') {
         // insert the archtype at the index

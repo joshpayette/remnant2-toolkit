@@ -2,7 +2,7 @@ import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import { useCallback, useEffect } from 'react'
 
 import { BuildState } from '@/features/build/types'
-import { remnantItemCategories } from '@/features/items/data/remnantItems'
+import { itemCategories } from '@/features/items/lib/getItemCategories'
 import { AmuletItem } from '@/features/items/types/AmuletItem'
 import { ArchetypeItem } from '@/features/items/types/ArchetypeItem'
 import { ArmorItem } from '@/features/items/types/ArmorItem'
@@ -137,7 +137,7 @@ export function useUrlBuildState() {
 
     // Loop through each category and check the query params
     // for that category's item IDs
-    remnantItemCategories.forEach((itemCategory) => {
+    itemCategories.forEach((itemCategory) => {
       const params = searchParams.get(itemCategory)
 
       switch (itemCategory) {

@@ -1,6 +1,6 @@
 import { BuildItems } from '@prisma/client'
 
-import { remnantItems } from '../data/remnantItems'
+import { allItems } from '../data/allItems'
 import { Item } from '.'
 import { BaseItem } from './BaseItem'
 
@@ -35,7 +35,7 @@ export class MutatorItem extends BaseItem implements BaseMutatorItem {
 
     const items: MutatorItem[] = []
     itemIds.forEach((itemId, index) => {
-      const item = remnantItems.find((i) => i.id === itemId)
+      const item = allItems.find((i) => i.id === itemId)
       if (!item) return
       if (!this.isMutatorItem(item)) return
       items[index] = item
@@ -52,7 +52,7 @@ export class MutatorItem extends BaseItem implements BaseMutatorItem {
 
     let mutatorItems: Array<MutatorItem | null> = []
     for (const buildItem of buildItems) {
-      const item = remnantItems.find((i) => i.id === buildItem.itemId)
+      const item = allItems.find((i) => i.id === buildItem.itemId)
       if (!item) continue
       if (item.category !== 'mutator') continue
       if (!this.isMutatorItem(item)) continue

@@ -1,4 +1,4 @@
-import { remnantItems } from '@/features/items/data/remnantItems'
+import { traitItems } from '@/features/items/data/traitItems'
 import { TraitItem } from '@/features/items/types/TraitItem'
 
 import { DEFAULT_TRAIT_AMOUNT } from '../constants'
@@ -19,11 +19,8 @@ export function linkArchetypesToTraits(buildState: BuildState) {
     const linkedTraits = archetype?.linkedItems?.traits
     if (!linkedTraits) return
 
-    const linkedTraitItems = remnantItems.filter((item) =>
-      linkedTraits.some(
-        (linkedTrait) =>
-          linkedTrait.name === item.name && item.category === 'trait',
-      ),
+    const linkedTraitItems = traitItems.filter((item) =>
+      linkedTraits.some((linkedTrait) => linkedTrait.name === item.name),
     ) as TraitItem[]
     if (!linkedTraitItems) return
 

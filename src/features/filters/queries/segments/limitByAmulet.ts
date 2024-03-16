@@ -1,6 +1,6 @@
 import { Prisma } from '@prisma/client'
 
-import { remnantItems } from '@/features/items/data/remnantItems'
+import { amuletItems } from '@/features/items/data/amuletItems'
 
 export function limitByAmuletSegment(amuletId: string) {
   return amuletId === ''
@@ -14,5 +14,5 @@ AND BuildItems.itemId = ${amuletId}
 }
 
 export function amuletFilterToId({ amulet }: { amulet: string }): string {
-  return remnantItems.find((item) => item.name === amulet)?.id || ''
+  return amuletItems.find((item) => item.name === amulet)?.id || ''
 }

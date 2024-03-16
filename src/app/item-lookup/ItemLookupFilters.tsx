@@ -19,15 +19,13 @@ import {
   ItemLookupFilterFields,
 } from '@/features/filters/types'
 import { ITEM_TAGS } from '@/features/items/constants'
-import {
-  remnantItemCategories,
-  remnantItems,
-} from '@/features/items/data/remnantItems'
+import { allItems } from '@/features/items/data/allItems'
+import { itemCategories } from '@/features/items/lib/getItemCategories'
 import { ReleaseKey } from '@/features/items/types'
 import { capitalize } from '@/lib/capitalize'
 
 function buildItemList(): Array<{ id: string; name: string }> {
-  let items = remnantItems
+  let items = allItems
     .filter((item) => item.category !== 'relicfragment')
     .map((item) => ({
       id: item.id,
@@ -58,7 +56,7 @@ const subCategories: ItemLookupCategory[] = [
   'Mutator (Melee)',
 ]
 
-let defaultItemCategories: ItemLookupCategory[] = remnantItemCategories
+let defaultItemCategories: ItemLookupCategory[] = itemCategories
   .map((category) => capitalize(category))
   .filter((category) => category !== 'weapon' && category !== 'mutator')
 // Add the subcategories

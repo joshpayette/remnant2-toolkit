@@ -7,7 +7,8 @@ import { BuildState } from '@/features/build/types'
 import { ItemButton } from '@/features/items/components/ItemButton'
 import { ItemInfoDialog } from '@/features/items/components/ItemInfoDialog'
 import { ITEM_TAGS } from '@/features/items/constants'
-import { remnantItems } from '@/features/items/data/remnantItems'
+import { allItems } from '@/features/items/data/allItems'
+import { archetypeItems } from '@/features/items/data/archetypeItems'
 import { itemMatchesSearchText } from '@/features/items/lib/itemMatchesSearchText'
 import { Item, ItemTag } from '@/features/items/types'
 import { ConcoctionItem } from '@/features/items/types/ConcoctionItem'
@@ -44,7 +45,7 @@ function getItemSuggestions(
 ): Item[] {
   let suggestions: Item[] = []
 
-  for (const item of remnantItems) {
+  for (const item of allItems) {
     if (itemMatchesSearchText({ item, searchText: tag.value })) {
       suggestions.push(item)
     }
@@ -240,6 +241,7 @@ export function ItemTagSuggestionsDialog({
         }
         return
       }
+
       if (item.category === 'skill') {
         const selectedArchetype = selectedItems.find(
           (selectedItem) => selectedItem.id === item.id,
@@ -263,6 +265,31 @@ export function ItemTagSuggestionsDialog({
         }
         return
       }
+
+      if (item.category === 'perk') {
+        const selectedArchetype = selectedItems.find(
+          (selectedItem) => selectedItem.id === item.id,
+        )
+        const archetypeSlot = selectedArchetype?.slot
+        if (archetypeSlot) {
+          if (archetypeSlot === 'archetype1') {
+            item.slot = 'archetype2'
+            setSelectedItems((prev) =>
+              prev.map((selectedItem) =>
+                selectedItem.id === item.id ? item : selectedItem,
+              ),
+            )
+          } else if (archetypeSlot === 'archetype2') {
+            setSelectedItems((prev) =>
+              prev.filter(
+                (selectedItem) => selectedItem.slot !== archetypeSlot,
+              ),
+            )
+          }
+        }
+        return
+      }
+
       if (item.category === 'mod') {
         const selectedMod = selectedItems.find(
           (selectedItem) => selectedItem.id === item.id,
@@ -473,6 +500,9 @@ export function ItemTagSuggestionsDialog({
       if (item.category === 'skill') {
         item.slot = 'archetype1'
       }
+      if (item.category === 'perk') {
+        item.slot = 'archetype1'
+      }
       if (item.category === 'mod') {
         item.slot = 'long gun'
       }
@@ -531,8 +561,11 @@ export function ItemTagSuggestionsDialog({
       }
 
       // Handle equipping the skills and linked archetypes to the specified slots
-      if (selectedItem.category === 'skill') {
-        const linkedArchetype = remnantItems.find(
+      if (
+        selectedItem.category === 'skill' ||
+        selectedItem.category === 'perk'
+      ) {
+        const linkedArchetype = archetypeItems.find(
           (i) => i.name === selectedItem.linkedItems?.archetype?.name,
         )
         if (selectedItem.slot === 'archetype1') {
@@ -553,13 +586,15 @@ export function ItemTagSuggestionsDialog({
             }
 
             newBuildState.items.archetype[0] = linkedArchetype
-            newBuildState.items.skill[0] = itemToEquip
+            if (selectedItem.category === 'skill')
+              newBuildState.items.skill[0] = itemToEquip
             continue
           }
         } else if (selectedItem.slot === 'archetype2') {
           if (linkedArchetype) {
             newBuildState.items.archetype[1] = linkedArchetype
-            newBuildState.items.skill[1] = itemToEquip
+            if (selectedItem.category === 'skill')
+              newBuildState.items.skill[1] = itemToEquip
             continue
           }
         }

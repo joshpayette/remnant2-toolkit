@@ -4,7 +4,7 @@ import { Suspense } from 'react'
 
 import { ItemLookupFilters } from '@/app/item-lookup/ItemLookupFilters'
 import { ToCsvButton } from '@/features/csv/ToCsvButton'
-import { remnantItems } from '@/features/items/data/remnantItems'
+import { allItems } from '@/features/items/data/allItems'
 import { itemToCsvItem } from '@/features/items/lib/itemToCsvItem'
 import { MutatorItem } from '@/features/items/types/MutatorItem'
 import { PageHeader } from '@/features/ui/PageHeader'
@@ -12,7 +12,8 @@ import { Skeleton } from '@/features/ui/Skeleton'
 
 import { ItemList } from './ItemList'
 
-const csvItems = remnantItems // Modify the data for use. Adds a discovered flag,
+const csvItems = allItems
+  // Modify the data for use. Adds a discovered flag,
   // modifies the description for mutators
   .map((item) => {
     let csvItem = itemToCsvItem(item)

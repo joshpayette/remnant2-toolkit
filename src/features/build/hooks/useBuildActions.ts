@@ -6,7 +6,8 @@ import { toast } from 'react-toastify'
 
 import { BuildState, ItemCategory } from '@/features/build/types'
 import { isErrorResponse } from '@/features/error-handling/isErrorResponse'
-import { remnantItems } from '@/features/items/data/remnantItems'
+import { modItems } from '@/features/items/data/modItems'
+import { traitItems } from '@/features/items/data/traitItems'
 import { Item } from '@/features/items/types'
 import { AmuletItem } from '@/features/items/types/AmuletItem'
 import { ArchetypeItem } from '@/features/items/types/ArchetypeItem'
@@ -252,7 +253,7 @@ export function useBuildActions() {
       randomBuild.items.weapon[index] = randomWeapon
       // weapon mods
       if (randomWeapon.linkedItems?.mod) {
-        const linkedMod = remnantItems.find(
+        const linkedMod = modItems.find(
           (item) => item.name === randomWeapon.linkedItems?.mod?.name,
         )
         if (!linkedMod) {
@@ -320,7 +321,7 @@ export function useBuildActions() {
     // First assign the primary archtype traits
     const primaryArchetype = randomBuild.items.archetype[0] as ArchetypeItem
     primaryArchetype.linkedItems?.traits?.forEach((trait, index) => {
-      const traitItem = remnantItems.find(
+      const traitItem = traitItems.find(
         (item) => item.name === trait.name,
       ) as TraitItem
       if (!traitItem) {
@@ -337,7 +338,7 @@ export function useBuildActions() {
       0,
     )
 
-    const allTraits = remnantItems.filter(
+    const allTraits = traitItems.filter(
       (item) => item.category === 'trait',
     ) as TraitItem[]
 

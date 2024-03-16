@@ -1,6 +1,6 @@
 import { BuildItems } from '@prisma/client'
 
-import { remnantItems } from '../data/remnantItems'
+import { allItems } from '../data/allItems'
 import { Item } from '.'
 import { BaseItem } from './BaseItem'
 
@@ -20,7 +20,7 @@ export class AmuletItem extends BaseItem implements BaseAmuletItem {
 
   static toParams(item: AmuletItem): string {
     if (!item) return ''
-    const validItem = remnantItems.find((ri) => ri.id === item.id)
+    const validItem = allItems.find((ri) => ri.id === item.id)
     if (!validItem) return ''
     return `${item.id}`
   }
@@ -29,7 +29,7 @@ export class AmuletItem extends BaseItem implements BaseAmuletItem {
     const itemIds = params.split(',')
     if (!itemIds) return null
 
-    const item = remnantItems.find((i) => i.id === itemIds[0])
+    const item = allItems.find((i) => i.id === itemIds[0])
     if (!item) return null
 
     if (!this.isAmuletItem(item)) return null
@@ -41,7 +41,7 @@ export class AmuletItem extends BaseItem implements BaseAmuletItem {
 
     let amuletItem: AmuletItem | null = null
     for (const buildItem of buildItems) {
-      const item = remnantItems.find((i) => i.id === buildItem.itemId)
+      const item = allItems.find((i) => i.id === buildItem.itemId)
       if (!item) continue
       if (!AmuletItem.isAmuletItem(item)) continue
       amuletItem = item

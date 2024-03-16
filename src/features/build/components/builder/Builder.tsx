@@ -12,7 +12,7 @@ import { isBuildNew } from '@/features/build/lib/isBuildNew'
 import { BuildState, ItemCategory } from '@/features/build/types'
 import { ItemButton } from '@/features/items/components/ItemButton'
 import { ItemInfoDialog } from '@/features/items/components/ItemInfoDialog'
-import { remnantItems } from '@/features/items/data/remnantItems'
+import { perkItems } from '@/features/items/data/perkItems'
 import { Archetype, Item } from '@/features/items/types'
 import { TraitItem } from '@/features/items/types/TraitItem'
 import { Logo } from '@/features/ui/Logo'
@@ -306,7 +306,7 @@ export function Builder({
 
   const primePerkName =
     buildState.items.archetype[0]?.linkedItems?.perks?.[0].name
-  const primePerk = remnantItems.find((i) => i.name === primePerkName)
+  const primePerk = perkItems.find((i) => i.name === primePerkName)
 
   return (
     <>

@@ -10,7 +10,7 @@ import { Filters } from '@/app/tracker/Filters'
 import { ItemCategory } from '@/features/build/types'
 import { ItemButton } from '@/features/items/components/ItemButton'
 import { ItemInfoDialog } from '@/features/items/components/ItemInfoDialog'
-import { remnantItems } from '@/features/items/data/remnantItems'
+import { allItems } from '@/features/items/data/allItems'
 import { useFilteredItems } from '@/features/items/hooks/useFilteredItems'
 import { itemToCsvItem } from '@/features/items/lib/itemToCsvItem'
 import { Item } from '@/features/items/types'
@@ -33,7 +33,7 @@ const skippedItemCategories: Array<ItemCategory> = ['skill', 'perk']
  * Get the items
  * ----------------------------------------------
  */
-const allItems = remnantItems
+const allItemsWithDiscovered = allItems
   // We don't want to show the items that are in the skippedItemCategories
   .filter((item) => skippedItemCategories.includes(item.category) === false)
   // Remove mods that have linked guns
@@ -59,7 +59,7 @@ const subCategories: ItemTrackerCategory[] = [
   'Mutator (Melee)',
 ]
 
-let itemCategories = allItems
+let itemCategories = allItemsWithDiscovered
   // Remove the categories that will be replaced by subcategories
   .reduce((acc, item) => {
     if (acc.includes(capitalize(item.category))) return acc
@@ -125,7 +125,7 @@ export default function Page() {
     // Remove any items that are in the skipped categories
     const filteredDiscoveredItems = saveFileDiscoveredItemIds.filter(
       (itemId) => {
-        const item = allItems.find((item) => item.id === itemId)
+        const item = allItemsWithDiscovered.find((item) => item.id === itemId)
         if (!item) return false
         if (skippedItemCategories.includes(item.category)) return false
         return true
@@ -149,7 +149,10 @@ export default function Page() {
   const csvFileInputRef = useRef<HTMLInputElement | null>(null)
 
   // Provide the tracker progress
-  const totalProgress = getProgressLabel({ items: allItems, discoveredItemIds })
+  const totalProgress = getProgressLabel({
+    items: allItemsWithDiscovered,
+    discoveredItemIds,
+  })
 
   function handleCsvFileSubmit() {
     if (!csvFileInputRef.current || !csvFileInputRef.current.files) {
@@ -170,7 +173,7 @@ export default function Page() {
 
               if (!discovered) return
 
-              const item = remnantItems.find((item) => item.name === itemName)
+              const item = allItems.find((item) => item.name === itemName)
               if (!item) return
 
               if (skippedItemCategories.includes(item.category)) return
@@ -198,7 +201,7 @@ export default function Page() {
    * ----------------------------------------------
    */
   const handleShowItemInfo = (itemId: string) => {
-    const item = allItems.find((item) => item.id === itemId)
+    const item = allItemsWithDiscovered.find((item) => item.id === itemId)
     if (item) setItemInfo(item)
   }
 
@@ -326,13 +329,13 @@ export default function Page() {
           </h2>
 
           <Filters
-            allItems={allItems}
+            allItems={allItemsWithDiscovered}
             itemCategoryOptions={
               !isClient
                 ? []
                 : itemCategories.map((category) => ({
                     label: `${category as string} - ${getProgressLabel({
-                      items: allItems.filter((item) => {
+                      items: allItemsWithDiscovered.filter((item) => {
                         if (category === 'Long Gun') {
                           return (
                             WeaponItem.isWeaponItem(item) &&

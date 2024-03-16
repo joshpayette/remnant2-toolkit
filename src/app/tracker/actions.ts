@@ -11,7 +11,7 @@ import path from 'path'
 import zlib from 'zlib'
 
 import { MAX_PROFILE_SAV_SIZE } from '@/features/items/constants'
-import { remnantItems } from '@/features/items/data/remnantItems'
+import { allItems } from '@/features/items/data/allItems'
 
 /**
  * Helper function for parsing save file
@@ -98,18 +98,11 @@ export async function parseSaveFile(
     // fs.writeFileSync(convertedSavePath, convertedSave)
 
     // Get the saveFileDiscoveredItemIds
-    const saveFileDiscoveredItemIds = remnantItems
+    const saveFileDiscoveredItemIds = allItems
       // Match all item names against info in the save file
       .filter((item) => {
         const name = item.name.replace(/[^a-zA-Z]/g, '').toLowerCase()
         // If the item has a save file slug, use that, otherwise use the name
-        if (item.name === 'Sorrow')
-          console.log(
-            'Sorrow',
-            item.saveFileSlug,
-            name,
-            convertedSave?.includes(name),
-          )
         if (item.saveFileSlug) {
           return convertedSave?.includes(item.saveFileSlug)
         } else {

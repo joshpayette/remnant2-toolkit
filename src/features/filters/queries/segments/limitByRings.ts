@@ -1,7 +1,7 @@
 import { Prisma } from '@prisma/client'
 
 import { DEFAULT_JEWELRY_FILTERS } from '@/features/filters/components/parts/JewelryFilters'
-import { remnantItems } from '@/features/items/data/remnantItems'
+import { ringItems } from '@/features/items/data/ringItems'
 
 export function limitByRingsSegment(ringIds: string[]) {
   return ringIds.length === 0
@@ -20,7 +20,7 @@ export function ringsFilterToIds({ rings }: { rings: string[] }): string[] {
   )
   const ringIds: string[] = []
   nonDefaultValues.forEach((ring) => {
-    const item = remnantItems.find(
+    const item = ringItems.find(
       (item) => item.name.toLowerCase() === ring.toLowerCase(),
     )?.id
     if (item) ringIds.push(item)

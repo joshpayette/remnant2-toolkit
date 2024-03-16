@@ -1,4 +1,4 @@
-import { remnantItems } from '@/features/items/data/remnantItems'
+import { allItems } from '@/features/items/data/allItems'
 import { Item } from '@/features/items/types'
 import { ArchetypeItem } from '@/features/items/types/ArchetypeItem'
 import { MutatorItem } from '@/features/items/types/MutatorItem'
@@ -22,7 +22,7 @@ export function getItemListForSlot(
 
   // Remove items that are already in the build
   // for the current category
-  const unequippedItems = remnantItems.filter((item) => {
+  const unequippedItems = allItems.filter((item) => {
     const categoryItemorItems = buildState.items[item.category]
     if (!categoryItemorItems) return true
 

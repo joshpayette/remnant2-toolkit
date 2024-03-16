@@ -1,6 +1,6 @@
 import { Prisma } from '@prisma/client'
 
-import { remnantItems } from '@/features/items/data/remnantItems'
+import { weaponItems } from '@/features/items/data/weaponItems'
 
 export function limitByWeaponsSegment(weaponIds: string[]) {
   return weaponIds.length === 0
@@ -24,19 +24,19 @@ export function weaponFiltersToIds({
 }): string[] {
   const weaponIds: string[] = []
   if (longGun && longGun !== 'All' && longGun !== '') {
-    const weapon = remnantItems.find(
+    const weapon = weaponItems.find(
       (item) => item.name.toLowerCase() === longGun.toLowerCase(),
     )?.id
     if (weapon) weaponIds.push(weapon)
   }
   if (handGun && handGun !== 'All' && handGun !== '') {
-    const weapon = remnantItems.find(
+    const weapon = weaponItems.find(
       (item) => item.name.toLowerCase() === handGun.toLowerCase(),
     )?.id
     if (weapon) weaponIds.push(weapon)
   }
   if (melee && melee !== 'All' && melee !== '') {
-    const weapon = remnantItems.find(
+    const weapon = weaponItems.find(
       (item) => item.name.toLowerCase() === melee.toLowerCase(),
     )?.id
     if (weapon) weaponIds.push(weapon)

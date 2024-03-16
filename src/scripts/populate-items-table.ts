@@ -6,11 +6,11 @@
  */
 
 import { prisma } from '../features/db'
-import { remnantItems } from '../features/items/data/remnantItems'
+import { allItems } from '../features/items/data/allItems'
 
 // Load all the item ids into the Item table
 async function main() {
-  for (const item of remnantItems) {
+  for (const item of allItems) {
     console.info(`Upserting item ${item.id}`)
     const dlc = item.dlc ?? 'base'
 

@@ -36,7 +36,7 @@ export function StaminaBreakdownDialog({
       <>
         <span className="font-bold text-white">{item.name}</span>{' '}
         <span className="text-gray-300">
-          {`(${amount * item.staminaStep})`}
+          {`(${amount * (item.staminaStep ?? 0)})`}
         </span>
       </>
     )
@@ -84,9 +84,9 @@ export function StaminaBreakdownDialog({
       maxWidthClass="max-w-sm"
     >
       <div className="text-left text-xs">
-        <h2 className="text-secondary-500 col-span-full mb-2 text-xs font-semibold">
+        <h2 className="col-span-full mb-2 text-xs font-semibold text-secondary-500">
           Base Stamina:{' '}
-          <span className="text-secondary-400 text-sm font-bold">100</span>
+          <span className="text-sm font-bold text-secondary-400">100</span>
         </h2>
         {(breakdown.equippedStaminaIncreaseItems.length > 0 ||
           breakdown.equippedStaminaStepItems.length > 0) && (
