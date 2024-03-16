@@ -6,6 +6,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2024-03-16
 
+### Added
+
+- Added screen-reader specific text to the builder to make it more accessible.
+  - Specifically, unicode characters are stripped from build names and descriptions in screen-reader only elements, and the main visual elements are hidden from screen readers.
+
 ### Changed
 
 - Max character limit on build descriptions increased to 2000 characters, up from 1000.

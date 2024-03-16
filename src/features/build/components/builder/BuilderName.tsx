@@ -4,6 +4,8 @@ import { useState } from 'react'
 import { Input } from '@/features/ui/Input'
 import { cn } from '@/lib/classnames'
 
+import { stripUnicode } from '../../lib/stripUnicode'
+
 export function BuilderName({
   isEditable,
   isEditingBuildName,
@@ -38,7 +40,7 @@ export function BuilderName({
             <button
               aria-label="Save Build Name"
               onClick={() => onClose(newName)}
-              className="bg-primary-500 hover:bg-primary-600 focus:ring-primary-500 mr-2 rounded-md px-4 py-2 text-sm font-bold text-white focus:outline-none focus:ring-2 focus:ring-offset-2"
+              className="mr-2 rounded-md bg-primary-500 px-4 py-2 text-sm font-bold text-white hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2"
             >
               Save
             </button>
@@ -53,7 +55,9 @@ export function BuilderName({
         </>
       ) : (
         <div className="mb-2 flex w-full items-center justify-center gap-2">
+          <span className="sr-only">{stripUnicode(name)}</span>
           <h2
+            aria-hidden="true"
             className={cn(
               'whitespace-normal text-center text-2xl font-bold text-white sm:text-4xl',
               isScreenshotMode && 'text-4xl',
@@ -69,7 +73,7 @@ export function BuilderName({
             >
               <div className="flex grow items-end justify-start">
                 <PencilIcon
-                  className="text-primary-500 hover:text-primary-300 h-4 w-4"
+                  className="h-4 w-4 text-primary-500 hover:text-primary-300"
                   aria-hidden="true"
                 />
               </div>

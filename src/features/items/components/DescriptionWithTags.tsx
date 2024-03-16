@@ -1,3 +1,4 @@
+import { stripUnicode } from '@/features/build/lib/stripUnicode'
 import { Tooltip } from '@/features/ui/Tooltip'
 import { cn } from '@/lib/classnames'
 
@@ -69,5 +70,12 @@ interface Props {
 }
 
 export function DescriptionWithTags({ description }: Props) {
-  return parseStringForToken(description)
+  return (
+    <>
+      <span className="sr-only">{stripUnicode(description)}</span>
+      <div className="" aria-hidden="true">
+        {parseStringForToken(description)}
+      </div>
+    </>
+  )
 }
