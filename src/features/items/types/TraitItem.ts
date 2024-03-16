@@ -2,7 +2,7 @@ import { BuildItems } from '@prisma/client'
 
 import { DEFAULT_TRAIT_AMOUNT } from '@/features/build/constants'
 
-import { traitItems } from '../data/traitItems'
+import { allItems } from '../data/allItems'
 import { Item } from '.'
 import { BaseItem } from './BaseItem'
 
@@ -79,7 +79,7 @@ export class TraitItem extends BaseItem implements BaseTraitItem {
       // We need to split the trait id at the ; to get the amount
       const [traitId, amount] = itemId.split(';')
 
-      const item = traitItems.find((i) => i.id === traitId)
+      const item = allItems.find((i) => i.id === traitId)
       if (!item) return []
 
       let validAmount = amount ? Number(amount) : DEFAULT_TRAIT_AMOUNT
@@ -127,7 +127,7 @@ export class TraitItem extends BaseItem implements BaseTraitItem {
     let traitItems: Array<TraitItem> = []
     let archtypeItems: Array<BaseItem> = []
     for (const buildItem of buildItems) {
-      const item = traitItems.find((i) => i.id === buildItem.itemId)
+      const item = allItems.find((i) => i.id === buildItem.itemId)
       if (!item) continue
       if (item.category === 'archetype') {
         // insert the archtype at the index
