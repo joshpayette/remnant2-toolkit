@@ -4,7 +4,15 @@ This file walks you through setting up the project locally.
 
 ## First-time Setup
 
+### Install Prereqs
+
+- [Git](https://git-scm.com/downloads)
+- [VSCode](https://code.visualstudio.com/download) is what I use, but you can use whatever editor you want.
+- [Docker Desktop](https://www.docker.com/products/docker-desktop)
+
 ### Clone the repository
+
+In your terminal, run the following commands to clone the repository and navigate to the project directory.
 
 ```bash
 git clone https://github.com/joshpayette/remnant2-toolkit.git
@@ -100,10 +108,6 @@ These are unnecessary in local development. This is only used for automated sche
 This is used to reference the Toolkit's Cloudfront distribution for images. You can leave this as the default value for local development to use the Toolkit's cache. However, you can update it to any URL you want to use for local development if you want to use a different source for images.
 
 ### Setup Docker
-
-#### Install Docker Desktop
-
-- [Docker Desktop](https://www.docker.com/products/docker-desktop)
 
 #### Create the network
 
