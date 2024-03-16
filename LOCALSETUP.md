@@ -65,10 +65,6 @@ DATABASE_URL="mysql://r2tkuser:password@db:3306/r2tkdb"
 
 You will need to create a Reddit app and a Discord app to allow users to sign in with those services.
 
-###### `NEXTAUTH_SECRET` Environment Variable
-
-This is a secret key used by NextAuth. You can generate a random string of characters using a tool like [https://passwordsgenerator.net/](https://passwordsgenerator.net/).
-
 ###### Discord
 
 1. Go to [https://discord.com/developers/applications](https://discord.com/developers/applications).
@@ -87,6 +83,10 @@ This is a secret key used by NextAuth. You can generate a random string of chara
 3. Fill out the form. The redirect URI should be `http://localhost:3000/api/auth/callback/reddit`.
 4. Click "Create App".
 5. Copy the `client_id` and `client_secret` values into the `.env` file, in the `REDDIT_CLIENT_ID` and `REDDIT_CLIENT_SECRET` fields, respectively.
+
+###### `NEXTAUTH_SECRET` Environment Variable
+
+This is a secret key used by NextAuth. You can generate a random string of characters using a tool like [https://passwordsgenerator.net/](https://passwordsgenerator.net/), then paste that value into the `.env` file for `NEXTAUTH_SECRET`.
 
 #### `WEBHOOK_` Environment Variables
 
