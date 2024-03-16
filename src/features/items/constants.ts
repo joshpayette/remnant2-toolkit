@@ -368,14 +368,14 @@ export const DESCRIPTION_TAGS = [
     description: 'Reduces Mod Power Generation by 50%.',
   },
   {
-    type: 'Status Effect',
-    token: 'Status Effect',
+    type: 'Status Effects',
+    token: 'Status Effects',
     color: 'text-[#05baf9]',
     description: `Elemental: Burning, Corroded, Overloaded. Physical: Bleeding.`,
   },
   {
-    type: 'Status Effects',
-    token: 'Status Effects',
+    type: 'Status Effect',
+    token: 'Status Effect',
     color: 'text-[#05baf9]',
     description: `Elemental: Burning, Corroded, Overloaded. Physical: Bleeding.`,
   },
