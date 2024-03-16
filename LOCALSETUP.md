@@ -2,13 +2,29 @@
 
 This file walks you through setting up the project locally.
 
+## Requirements
+
+### Installing Software
+
+- [Git](https://git-scm.com/downloads) - Allows you to run `git` commands in your terminal.
+- [VSCode](https://code.visualstudio.com/download) is what I use, but you can use whatever code editor you want.
+- [Docker Desktop](https://www.docker.com/products/docker-desktop) to run and deploy the dev environment.
+
+### Understanding the guide
+
+This guide assumes you are using a terminal to run commands.
+
+- If you are using VSCode, you can use the built-in terminal. Press `Ctrl + Backtick` to open the terminal.
+- If you are using Windows, you can use the built-in Command Prompt or PowerShell.
+- If you are using macOS or Linux, you can use the built-in Terminal app.
+
+When you see a command like this, this is instructing you to run the command in your terminal:
+
+```bash
+npm run dev
+```
+
 ## First-time Setup
-
-### Install Prereqs
-
-- [Git](https://git-scm.com/downloads)
-- [VSCode](https://code.visualstudio.com/download) is what I use, but you can use whatever editor you want.
-- [Docker Desktop](https://www.docker.com/products/docker-desktop)
 
 ### Clone the repository
 
