@@ -10,6 +10,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Max character limit on build descriptions increased to 2000 characters, up from 1000.
 
+### Fixed
+
+- Updated Docker config to support hot module refresh in local development environment.
+
 ## 2024-03-15
 
 ### Changed
