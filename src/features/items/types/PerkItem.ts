@@ -1,6 +1,6 @@
 import { BuildItems } from '@prisma/client'
 
-import { allItems } from '../data/allItems'
+import { perkItems } from '../data/perkItems'
 import { Item } from '.'
 import { BaseItem } from './BaseItem'
 
@@ -32,14 +32,12 @@ export class PerkItem extends BaseItem implements BasePerkItem {
 
     const items: PerkItem[] = []
     itemIds.forEach((itemId, index) => {
-      const item = allItems.find((i) => i.id === itemId)
+      const item = perkItems.find((i) => i.id === itemId)
       if (!item) return
-      if (!this.isPerkItem(item)) return
       items[index] = item
     })
 
     if (items.length === 0) return null
-    if (items.filter((i) => !this.isPerkItem(i)).length > 0) return null
 
     return items
   }
@@ -47,16 +45,15 @@ export class PerkItem extends BaseItem implements BasePerkItem {
   static fromDBValue(buildItems: BuildItems[]): Array<PerkItem | null> {
     if (!buildItems) return []
 
-    let perkItems: Array<PerkItem | null> = []
+    let perkValues: Array<PerkItem | null> = []
     for (const buildItem of buildItems) {
-      const item = allItems.find((i) => i.id === buildItem.itemId)
+      const item = perkItems.find((i) => i.id === buildItem.itemId)
       if (!item) continue
       if (item.category !== 'perk') continue
-      if (!this.isPerkItem(item)) continue
       buildItem.index
-        ? (perkItems[buildItem.index] = item)
-        : perkItems.push(item)
+        ? (perkValues[buildItem.index] = item)
+        : perkValues.push(item)
     }
-    return perkItems
+    return perkValues
   }
 }

@@ -1,6 +1,6 @@
 import { BuildItems } from '@prisma/client'
 
-import { allItems } from '../data/allItems'
+import { modItems } from '../data/modItems'
 import { Item } from '.'
 import { BaseItem } from './BaseItem'
 
@@ -28,14 +28,12 @@ export class ModItem extends BaseItem implements BaseModItem {
 
     const items: ModItem[] = []
     itemIds.forEach((itemId, index) => {
-      const item = allItems.find((i) => i.id === itemId)
+      const item = modItems.find((i) => i.id === itemId)
       if (!item) return
-      if (!this.isModItem(item)) return
       items[index] = item
     })
 
     if (items.length === 0) return null
-    if (items.filter((i) => !this.isModItem(i)).length > 0) return null
 
     return items
   }
@@ -43,14 +41,14 @@ export class ModItem extends BaseItem implements BaseModItem {
   static fromDBValue(buildItems: BuildItems[]): Array<ModItem | null> {
     if (!buildItems) return []
 
-    let modItems: Array<ModItem | null> = []
+    let modValues: Array<ModItem | null> = []
     for (const buildItem of buildItems) {
-      const item = allItems.find((i) => i.id === buildItem.itemId)
+      const item = modItems.find((i) => i.id === buildItem.itemId)
       if (!item) continue
-      if (item.category !== 'mod') continue
-      if (!this.isModItem(item)) continue
-      buildItem.index ? (modItems[buildItem.index] = item) : modItems.push(item)
+      buildItem.index
+        ? (modValues[buildItem.index] = item)
+        : modValues.push(item)
     }
-    return modItems
+    return modValues
   }
 }

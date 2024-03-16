@@ -1,6 +1,6 @@
 import { BuildItems } from '@prisma/client'
 
-import { allItems } from '../data/allItems'
+import { ringItems } from '../data/ringItems'
 import { Item } from '.'
 import { BaseItem } from './BaseItem'
 
@@ -28,14 +28,12 @@ export class RingItem extends BaseItem implements BaseRingItem {
 
     const items: RingItem[] = []
     itemIds.forEach((itemId, index) => {
-      const item = allItems.find((i) => i.id === itemId)
+      const item = ringItems.find((i) => i.id === itemId)
       if (!item) return
-      if (!this.isRingItem(item)) return
       items[index] = item
     })
 
     if (items.length === 0) return null
-    if (items.filter((i) => !this.isRingItem(i)).length > 0) return null
 
     return items
   }
@@ -43,16 +41,14 @@ export class RingItem extends BaseItem implements BaseRingItem {
   static fromDBValue(buildItems: BuildItems[]): Array<RingItem | null> {
     if (!buildItems) return []
 
-    let ringItems: Array<RingItem | null> = []
+    let ringValues: Array<RingItem | null> = []
     for (const buildItem of buildItems) {
-      const item = allItems.find((i) => i.id === buildItem.itemId)
+      const item = ringItems.find((i) => i.id === buildItem.itemId)
       if (!item) continue
-      if (item.category !== 'ring') continue
-      if (!this.isRingItem(item)) continue
       buildItem.index
-        ? (ringItems[buildItem.index] = item)
-        : ringItems.push(item)
+        ? (ringValues[buildItem.index] = item)
+        : ringValues.push(item)
     }
-    return ringItems
+    return ringValues
   }
 }

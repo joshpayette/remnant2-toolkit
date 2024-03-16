@@ -1,6 +1,6 @@
 import { BuildItems } from '@prisma/client'
 
-import { allItems } from '../data/allItems'
+import { weaponItems } from '../data/weaponItems'
 import { Item } from '.'
 import { BaseItem } from './BaseItem'
 
@@ -62,14 +62,12 @@ export class WeaponItem extends BaseItem implements BaseWeaponItem {
 
     const items: WeaponItem[] = []
     itemIds.forEach((itemId, index) => {
-      const item = allItems.find((i) => i.id === itemId)
+      const item = weaponItems.find((i) => i.id === itemId)
       if (!item) return
-      if (!this.isWeaponItem(item)) return
       items[index] = item
     })
 
     if (items.length === 0) return null
-    if (items.filter((i) => !this.isWeaponItem(i)).length > 0) return null
 
     return items
   }
@@ -77,16 +75,14 @@ export class WeaponItem extends BaseItem implements BaseWeaponItem {
   static fromDBValue(buildItems: BuildItems[]): Array<WeaponItem | null> {
     if (!buildItems) return []
 
-    let weaponItems: Array<WeaponItem | null> = []
+    let weaponValues: Array<WeaponItem | null> = []
     for (const buildItem of buildItems) {
-      const item = allItems.find((i) => i.id === buildItem.itemId)
+      const item = weaponItems.find((i) => i.id === buildItem.itemId)
       if (!item) continue
-      if (item.category !== 'weapon') continue
-      if (!this.isWeaponItem(item)) continue
       buildItem.index
-        ? (weaponItems[buildItem.index] = item)
-        : weaponItems.push(item)
+        ? (weaponValues[buildItem.index] = item)
+        : weaponValues.push(item)
     }
-    return weaponItems
+    return weaponValues
   }
 }

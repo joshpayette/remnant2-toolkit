@@ -1,6 +1,6 @@
 import { BuildItems } from '@prisma/client'
 
-import { allItems } from '../data/allItems'
+import { skillItems } from '../data/skillItems'
 import { Item } from '.'
 import { BaseItem } from './BaseItem'
 
@@ -28,14 +28,12 @@ export class SkillItem extends BaseItem implements BaseSkillItem {
 
     const items: SkillItem[] = []
     itemIds.forEach((itemId, index) => {
-      const item = allItems.find((i) => i.id === itemId)
+      const item = skillItems.find((i) => i.id === itemId)
       if (!item) return
-      if (!this.isSkillItem(item)) return
       items[index] = item
     })
 
     if (items.length === 0) return null
-    if (items.filter((i) => !this.isSkillItem(i)).length > 0) return null
 
     return items
   }
@@ -43,16 +41,14 @@ export class SkillItem extends BaseItem implements BaseSkillItem {
   static fromDBValue(buildItems: BuildItems[]): Array<SkillItem | null> {
     if (!buildItems) return []
 
-    let skillItems: Array<SkillItem | null> = []
+    let skillValues: Array<SkillItem | null> = []
     for (const buildItem of buildItems) {
-      const item = allItems.find((i) => i.id === buildItem.itemId)
+      const item = skillItems.find((i) => i.id === buildItem.itemId)
       if (!item) continue
-      if (item.category !== 'skill') continue
-      if (!this.isSkillItem(item)) continue
       buildItem.index
-        ? (skillItems[buildItem.index] = item)
-        : skillItems.push(item)
+        ? (skillValues[buildItem.index] = item)
+        : skillValues.push(item)
     }
-    return skillItems
+    return skillValues
   }
 }

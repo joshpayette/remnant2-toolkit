@@ -2,9 +2,12 @@ import { BuildItems } from '@prisma/client'
 
 import { DEFAULT_TRAIT_AMOUNT } from '@/features/build/constants'
 
-import { allItems } from '../data/allItems'
+import { archetypeItems } from '../data/archetypeItems'
+import { traitItems } from '../data/traitItems'
 import { Item } from '.'
 import { BaseItem } from './BaseItem'
+
+const allItems = [...traitItems, ...archetypeItems]
 
 interface BaseTraitItem extends BaseItem {
   amount: number
@@ -124,35 +127,33 @@ export class TraitItem extends BaseItem implements BaseTraitItem {
   static fromDBValue(buildItems: BuildItems[]): Array<TraitItem> {
     if (!buildItems) return []
 
-    let traitItems: Array<TraitItem> = []
-    let archtypeItems: Array<BaseItem> = []
+    let traitValues: Array<TraitItem> = []
+    let archtypeValues: Array<BaseItem> = []
     for (const buildItem of buildItems) {
       const item = allItems.find((i) => i.id === buildItem.itemId)
       if (!item) continue
       if (item.category === 'archetype') {
         // insert the archtype at the index
         buildItem.index
-          ? archtypeItems.splice(buildItem.index, 0, item)
-          : archtypeItems.push(item)
+          ? archtypeValues.splice(buildItem.index, 0, item)
+          : archtypeValues.push(item)
         continue
       }
-      if (item.category !== 'trait') continue
-      if (!this.isTraitItem(item)) continue
       const traitItem = {
         ...item,
         amount: buildItem.amount,
       } as TraitItem
       buildItem.index
-        ? (traitItems[buildItem.index] = traitItem)
-        : traitItems.push(traitItem)
+        ? (traitValues[buildItem.index] = traitItem)
+        : traitValues.push(traitItem)
     }
 
     const newTraitItems: TraitItem[] = []
     const primaryTraits: TraitItem[] = []
 
     // Add the archtype items to the trait items
-    for (let i = 0; i < archtypeItems.length; i++) {
-      const archtypeItem = archtypeItems[i]
+    for (let i = 0; i < archtypeValues.length; i++) {
+      const archtypeItem = archtypeValues[i]
       // if the archtype is primary, get all linked items
       // if the archtype is secondary, get only the main trait
       const linkedTraits =
@@ -162,7 +163,7 @@ export class TraitItem extends BaseItem implements BaseTraitItem {
       if (!linkedTraits) continue
 
       for (const linkedTrait of linkedTraits) {
-        const traitItem = traitItems.find((i) => i.name === linkedTrait.name)
+        const traitItem = traitValues.find((i) => i.name === linkedTrait.name)
         if (!traitItem) continue
 
         if (linkedTrait.amount === 10) {
@@ -205,7 +206,7 @@ export class TraitItem extends BaseItem implements BaseTraitItem {
     }
 
     // All non-archtype linked traits
-    const remainingTraits = traitItems.filter(
+    const remainingTraits = traitValues.filter(
       (i) => !newTraitItems.find((j) => j.name === i.name),
     )
     // sort the remaining traits alphabetically

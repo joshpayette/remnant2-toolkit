@@ -1,6 +1,6 @@
 import { BuildItems } from '@prisma/client'
 
-import { allItems } from '../data/allItems'
+import { consumableItems } from '../data/consumableItems'
 import { Item } from '.'
 import { BaseItem } from './BaseItem'
 
@@ -28,14 +28,12 @@ export class ConsumableItem extends BaseItem implements BaseConsumableItem {
 
     const items: ConsumableItem[] = []
     itemIds.forEach((itemId, index) => {
-      const item = allItems.find((i) => i.id === itemId)
+      const item = consumableItems.find((i) => i.id === itemId)
       if (!item) return
-      if (!this.isConsumableItem(item)) return
       items[index] = item
     })
 
     if (items.length === 0) return null
-    if (items.filter((i) => !this.isConsumableItem(i)).length > 0) return null
 
     return items
   }
@@ -43,16 +41,15 @@ export class ConsumableItem extends BaseItem implements BaseConsumableItem {
   static fromDBValue(buildItems: BuildItems[]): Array<ConsumableItem | null> {
     if (!buildItems) return []
 
-    let consumableItems: Array<ConsumableItem | null> = []
+    let consumableValues: Array<ConsumableItem | null> = []
     for (const buildItem of buildItems) {
-      const item = allItems.find((i) => i.id === buildItem.itemId)
+      const item = consumableItems.find((i) => i.id === buildItem.itemId)
       if (!item) continue
       if (item.category !== 'consumable') continue
-      if (!this.isConsumableItem(item)) continue
       buildItem.index
-        ? (consumableItems[buildItem.index] = item)
-        : consumableItems.push(item)
+        ? (consumableValues[buildItem.index] = item)
+        : consumableValues.push(item)
     }
-    return consumableItems
+    return consumableValues
   }
 }

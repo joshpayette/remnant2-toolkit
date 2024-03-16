@@ -1,6 +1,6 @@
 import { BuildItems } from '@prisma/client'
 
-import { allItems } from '../data/allItems'
+import { concoctionItems } from '../data/concoctionItems'
 import { Item } from '.'
 import { BaseItem } from './BaseItem'
 
@@ -28,14 +28,12 @@ export class ConcoctionItem extends BaseItem implements BaseConcoctionItem {
 
     const items: ConcoctionItem[] = []
     itemIds.forEach((itemId, index) => {
-      const item = allItems.find((i) => i.id === itemId)
+      const item = concoctionItems.find((i) => i.id === itemId)
       if (!item) return
-      if (!this.isConcoctionItem(item)) return
       items[index] = item
     })
 
     if (items.length === 0) return null
-    if (items.filter((i) => !this.isConcoctionItem(i)).length > 0) return null
 
     return items
   }
@@ -43,17 +41,16 @@ export class ConcoctionItem extends BaseItem implements BaseConcoctionItem {
   static fromDBValue(buildItems: BuildItems[]): Array<ConcoctionItem | null> {
     if (!buildItems) return []
 
-    let concoctionItems: Array<ConcoctionItem | null> = []
+    let concoctionValues: Array<ConcoctionItem | null> = []
     for (const buildItem of buildItems) {
-      const item = allItems.find((i) => i.id === buildItem.itemId)
+      const item = concoctionItems.find((i) => i.id === buildItem.itemId)
       if (!item) continue
       if (item.category !== 'concoction') continue
-      if (!this.isConcoctionItem(item)) continue
       buildItem.index
-        ? (concoctionItems[buildItem.index] = item)
-        : concoctionItems.push(item)
+        ? (concoctionValues[buildItem.index] = item)
+        : concoctionValues.push(item)
     }
 
-    return concoctionItems
+    return concoctionValues
   }
 }

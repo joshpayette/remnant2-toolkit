@@ -1,6 +1,6 @@
 import { BuildItems } from '@prisma/client'
 
-import { allItems } from '../data/allItems'
+import { archetypeItems } from '../data/archetypeItems'
 import { Item } from '.'
 import { BaseItem } from './BaseItem'
 
@@ -28,14 +28,12 @@ export class ArchetypeItem extends BaseItem implements BaseArchetypeItem {
 
     const items: ArchetypeItem[] = []
     itemIds.forEach((itemId, index) => {
-      const item = allItems.find((i) => i.id === itemId)
+      const item = archetypeItems.find((i) => i.id === itemId)
       if (!item) return
-      if (!this.isArchetypeItem(item)) return
       items[index] = item
     })
 
     if (items.length === 0) return null
-    if (items.filter((i) => !this.isArchetypeItem(i)).length > 0) return null
 
     return items
   }
@@ -43,16 +41,15 @@ export class ArchetypeItem extends BaseItem implements BaseArchetypeItem {
   static fromDBValue(buildItems: BuildItems[]): Array<ArchetypeItem | null> {
     if (!buildItems) return []
 
-    let archetypeItems: Array<ArchetypeItem | null> = []
+    let archetypeValues: Array<ArchetypeItem | null> = []
     for (const buildItem of buildItems) {
-      const item = allItems.find((i) => i.id === buildItem.itemId)
+      const item = archetypeItems.find((i) => i.id === buildItem.itemId)
       if (!item) continue
       if (item.category !== 'archetype') continue
-      if (!this.isArchetypeItem(item)) continue
       buildItem.index
-        ? (archetypeItems[buildItem.index] = item)
-        : archetypeItems.push(item)
+        ? (archetypeValues[buildItem.index] = item)
+        : archetypeValues.push(item)
     }
-    return archetypeItems
+    return archetypeValues
   }
 }

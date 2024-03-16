@@ -1,6 +1,6 @@
 import { BuildItems } from '@prisma/client'
 
-import { allItems } from '../data/allItems'
+import { mutatorItems } from '../data/mutatorItems'
 import { Item } from '.'
 import { BaseItem } from './BaseItem'
 
@@ -35,14 +35,12 @@ export class MutatorItem extends BaseItem implements BaseMutatorItem {
 
     const items: MutatorItem[] = []
     itemIds.forEach((itemId, index) => {
-      const item = allItems.find((i) => i.id === itemId)
+      const item = mutatorItems.find((i) => i.id === itemId)
       if (!item) return
-      if (!this.isMutatorItem(item)) return
       items[index] = item
     })
 
     if (items.length === 0) return null
-    if (items.filter((i) => !this.isMutatorItem(i)).length > 0) return null
 
     return items
   }
@@ -50,16 +48,14 @@ export class MutatorItem extends BaseItem implements BaseMutatorItem {
   static fromDBValue(buildItems: BuildItems[]): Array<MutatorItem | null> {
     if (!buildItems) return []
 
-    let mutatorItems: Array<MutatorItem | null> = []
+    let mutatorValues: Array<MutatorItem | null> = []
     for (const buildItem of buildItems) {
-      const item = allItems.find((i) => i.id === buildItem.itemId)
+      const item = mutatorItems.find((i) => i.id === buildItem.itemId)
       if (!item) continue
-      if (item.category !== 'mutator') continue
-      if (!this.isMutatorItem(item)) continue
       buildItem.index
-        ? (mutatorItems[buildItem.index] = item)
-        : mutatorItems.push(item)
+        ? (mutatorValues[buildItem.index] = item)
+        : mutatorValues.push(item)
     }
-    return mutatorItems
+    return mutatorValues
   }
 }

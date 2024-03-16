@@ -1,6 +1,6 @@
 import { BuildItems } from '@prisma/client'
 
-import { allItems } from '../data/allItems'
+import { relicFragmentItems } from '../data/relicFragmentItems'
 import { Item } from '.'
 import { BaseItem } from './BaseItem'
 
@@ -33,15 +33,12 @@ export class RelicFragmentItem
 
     const items: RelicFragmentItem[] = []
     itemIds.forEach((itemId, index) => {
-      const item = allItems.find((i) => i.id === itemId)
+      const item = relicFragmentItems.find((i) => i.id === itemId)
       if (!item) return
-      if (!this.isRelicFragmentItem(item)) return
       items[index] = item
     })
 
     if (items.length === 0) return null
-    if (items.filter((i) => !this.isRelicFragmentItem(i)).length > 0)
-      return null
 
     return items
   }
@@ -51,16 +48,14 @@ export class RelicFragmentItem
   ): Array<RelicFragmentItem | null> {
     if (!buildItems) return []
 
-    let relicFragmentItems: Array<RelicFragmentItem | null> = []
+    let relicFragmentValues: Array<RelicFragmentItem | null> = []
     for (const buildItem of buildItems) {
-      const item = allItems.find((i) => i.id === buildItem.itemId)
+      const item = relicFragmentItems.find((i) => i.id === buildItem.itemId)
       if (!item) continue
-      if (item.category !== 'relicfragment') continue
-      if (!this.isRelicFragmentItem(item)) continue
       buildItem.index
-        ? (relicFragmentItems[buildItem.index] = item)
-        : relicFragmentItems.push(item)
+        ? (relicFragmentValues[buildItem.index] = item)
+        : relicFragmentValues.push(item)
     }
-    return relicFragmentItems
+    return relicFragmentValues
   }
 }
