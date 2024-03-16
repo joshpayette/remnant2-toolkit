@@ -11,7 +11,11 @@ import { getBuildPublicParams } from '@/features/moderation/build-feed/getBuildP
 import { getBuildReferenceLinkParams } from '@/features/moderation/build-feed/getBuildReferenceLinkParams'
 import { sendBuildUpdateNotification } from '@/features/moderation/build-feed/sendBuildUpdateNotification'
 
-import { BUILD_REVALIDATE_PATHS, DEFAULT_BUILD_NAME } from '../constants'
+import {
+  BUILD_REVALIDATE_PATHS,
+  DEFAULT_BUILD_NAME,
+  MAX_BUILD_DESCRIPTION_LENGTH,
+} from '../constants'
 import { buildStateSchema } from '../lib/buildStateSchema'
 import { buildStateToBuildItems } from '../lib/buildStateToBuildItems'
 import { BuildActionResponse, BuildState } from '../types'
@@ -55,6 +59,15 @@ export async function updateBuild(data: string): Promise<BuildActionResponse> {
     checkBadWords(buildState.description ?? '')
   ) {
     buildState.isPublic = false
+  }
+
+  // if the description is longer than allowed, truncate it
+  if (
+    buildState.description &&
+    buildState.description.length > MAX_BUILD_DESCRIPTION_LENGTH
+  ) {
+    buildState.description =
+      buildState.description.slice(0, MAX_BUILD_DESCRIPTION_LENGTH - 3) + '...'
   }
 
   // Get the existing build
