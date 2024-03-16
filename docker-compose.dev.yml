@@ -49,6 +49,8 @@ services:
     volumes:
       - ./src:/app/src
       - ./public:/app/public
+      - /node_modules
+      - /.next
     restart: always
     ports:
       - 3000:3000
