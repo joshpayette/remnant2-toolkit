@@ -54,8 +54,7 @@ If you change these values after the first-time setup, you will need to delete t
 
 #### `DATABASE_URL` Environment Variable
 
-The `DATABASE_URL` environment variable is used by Prisma to connect to the database. There is a sample
-value in the `.env` file. You will need to replace `{{ PASSWORD HERE }}` with the value you set for `MYSQL_PASSWORD` in the previous step.
+The `DATABASE_URL` environment variable is used by Prisma to connect to the database. There is a sample value in the `.env` file. You will need to replace `{{ PASSWORD HERE }}` with the value you set for `MYSQL_PASSWORD` in the previous step.
 
 ```bash
 DATABASE_URL="mysql://r2tkuser:password@db:3306/r2tkdb"
