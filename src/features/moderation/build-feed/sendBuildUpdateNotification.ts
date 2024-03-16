@@ -9,6 +9,11 @@ export async function sendBuildUpdateNotification({
   buildId: string
 }) {
   const { WEBHOOK_COMMUNITY_BUILDS } = parseEnv()
+
+  if (process.env.NODE_ENV !== 'production') {
+    return
+  }
+
   const buildLink = `https://www.remnant2toolkit.com/builder/${buildId}?t=${Date.now()}`
 
   if (params.embeds[0].fields[0].value.length + buildLink.length > 1200) {

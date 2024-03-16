@@ -91,7 +91,7 @@ export async function createBuild(data: string): Promise<BuildActionResponse> {
     })
 
     // Trigger webhook to send build to Discord
-    if (buildState.isPublic) {
+    if (buildState.isPublic && process.env.NODE_ENV === 'production') {
       const params = {
         content: `New build created! https://www.remnant2toolkit.com/builder/${
           dbResponse.id
