@@ -14,14 +14,16 @@ export function getOrderBySegment(
     orderBySegment = Prisma.sql`
     ORDER BY TRIM(Build.name) ASC
     `
-  } else if (orderBy === 'newest' && isFeaturedBuilds) {
-    orderBySegment = Prisma.sql`
+  } else if (orderBy === 'newest') {
+    if (Boolean(isFeaturedBuilds)) {
+      orderBySegment = Prisma.sql`
     ORDER BY dateFeatured DESC
     `
-  } else if (orderBy === 'newest') {
-    orderBySegment = Prisma.sql`
-    ORDER BY createdAt DESC
-    `
+    } else {
+      orderBySegment = Prisma.sql`
+      ORDER BY createdAt DESC
+      `
+    }
   }
 
   return orderBySegment

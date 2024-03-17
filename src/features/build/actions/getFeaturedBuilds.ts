@@ -17,6 +17,10 @@ import {
   archetypeFiltersToIds,
   limitByArchetypesSegment,
 } from '@/features/filters/queries/segments/limitByArchtypes'
+import {
+  buildTagsFilterToValues,
+  limitByBuildTagsSegment,
+} from '@/features/filters/queries/segments/limitByBuildTags'
 import { limitByPatchAffected } from '@/features/filters/queries/segments/limitByPatchAffected'
 import { limitByReleasesSegment } from '@/features/filters/queries/segments/limitByRelease'
 import {
@@ -57,6 +61,7 @@ export async function getFeaturedBuilds({
   const {
     amulet,
     archetypes,
+    buildTags,
     handGun,
     longGun,
     melee,
@@ -74,6 +79,7 @@ export async function getFeaturedBuilds({
   const archetypeIds = archetypeFiltersToIds({ archetypes })
   const weaponIds = weaponFiltersToIds({ longGun, handGun, melee })
   const amuletId = amuletFilterToId({ amulet })
+  const tagValues = buildTagsFilterToValues(buildTags)
   const ringIds = ringsFilterToIds({ rings: [ring1, ring2, ring3, ring4] })
 
   const whereConditions = Prisma.sql`
@@ -86,6 +92,7 @@ export async function getFeaturedBuilds({
   ${limitByTimeConditionSegment(timeRange)}
   ${limitByAmuletSegment(amuletId)}
   ${limitByRingsSegment(ringIds)}
+  ${limitByBuildTagsSegment(tagValues)}
   `
 
   const orderBySegment = getOrderBySegment(orderBy, true)
@@ -117,6 +124,14 @@ export async function getFeaturedBuilds({
       where: { buildId: build.id },
     })
     build.buildItems = buildItems
+  }
+
+  // Then, for each Build, get the associated BuildTags
+  for (const build of builds) {
+    const buildTags = await prisma.buildTags.findMany({
+      where: { buildId: build.id },
+    })
+    build.buildTags = buildTags
   }
 
   return bigIntFix({ items: builds, totalItemCount: totalBuilds })

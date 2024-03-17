@@ -5,18 +5,19 @@ import { StarIcon } from '@heroicons/react/24/solid'
 import { FlagIcon as FlagIconOn } from '@heroicons/react/24/solid'
 import Link from 'next/link'
 
+import { POPULAR_VOTE_THRESHOLD } from '@/features/build/constants'
+import { dbBuildToBuildState } from '@/features/build/lib/dbBuildToBuildState'
+import { formatUpdatedAt } from '@/features/build/lib/formatUpdatedAt'
+import { getArchetypeBuildName } from '@/features/build/lib/getArchetypeBuildName'
+import { isBuildNew } from '@/features/build/lib/isBuildNew'
+import { DBBuild } from '@/features/build/types'
 import { DescriptionWithTags } from '@/features/items/components/DescriptionWithTags'
 import { Archetype } from '@/features/items/types'
 import { Skeleton } from '@/features/ui/Skeleton'
 import { Tooltip } from '@/features/ui/Tooltip'
 import { cn } from '@/lib/classnames'
 
-import { POPULAR_VOTE_THRESHOLD } from '../../constants'
-import { dbBuildToBuildState } from '../../lib/dbBuildToBuildState'
-import { formatUpdatedAt } from '../../lib/formatUpdatedAt'
-import { getArchetypeBuildName } from '../../lib/getArchetypeBuildName'
-import { isBuildNew } from '../../lib/isBuildNew'
-import { DBBuild } from '../../types'
+import { BuildTagsDisplay } from '../../build-tags/BuildTagsDisplay'
 import { ArchtypeLabel } from './ArchtypeLabel'
 import { FeaturedBuildBadge } from './FeaturedBuildBadge'
 import { NewBuildBadge } from './NewBuildBadge'
@@ -44,7 +45,7 @@ export function BuildCard({
   return (
     <div
       key={build.id}
-      className="h-full min-h-[362px] w-full text-left"
+      className="h-full min-h-[440px] w-full text-left"
       role="listitem"
     >
       {build.id.includes('placeholder') || isLoading ? (
@@ -52,10 +53,10 @@ export function BuildCard({
       ) : (
         <div
           className={cn(
-            'border-secondary-500 relative col-span-1 flex h-full min-h-[350px] flex-col rounded-lg border bg-black shadow',
+            'relative col-span-1 flex h-full min-h-[350px] flex-col rounded-lg border border-secondary-500 bg-black shadow',
             buildState.isMember &&
               memberFrameEnabled &&
-              'shadow-accent1-600 border-accent1-300 border-2 shadow-lg',
+              'border-2 border-accent1-300 shadow-lg shadow-accent1-600',
           )}
         >
           {(isPopular || build.isFeaturedBuild || isNew) && (
@@ -96,7 +97,7 @@ export function BuildCard({
                   by{' '}
                   <Link
                     href={`/profile/${build.createdById}`}
-                    className="text-primary-500 hover:text-primary-300 underline"
+                    className="text-primary-500 underline hover:text-primary-300"
                   >
                     {build.createdByDisplayName ?? build.createdByName}
                   </Link>
@@ -157,6 +158,14 @@ export function BuildCard({
                   <DescriptionWithTags description={buildState.description} />
                 </div>
               )}
+              <div className="mt-4 w-full max-w-full">
+                <BuildTagsDisplay
+                  buildTags={buildState.buildTags}
+                  isEditable={false}
+                  isScreenshotMode={false}
+                  showLabel={false}
+                />
+              </div>
             </div>
           </div>
           <div>{footerActions}</div>

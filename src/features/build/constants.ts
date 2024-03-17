@@ -21,6 +21,12 @@ export const DEFAULT_TRAIT_AMOUNT = 10
 export const MAX_TRAIT_AMOUNT = 110
 
 /**
+ * The maximum number of build tags that can
+ * be added to a build.
+ */
+export const MAX_BUILD_TAGS = 4
+
+/**
  * Number of votes for a build to be popular
  */
 export const POPULAR_VOTE_THRESHOLD = 15

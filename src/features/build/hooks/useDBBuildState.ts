@@ -1,3 +1,4 @@
+import { BuildTags } from '@prisma/client'
 import { useMemo, useState } from 'react'
 
 import { BuildState } from '@/features/build/types'
@@ -47,7 +48,7 @@ export function useDBBuildState(INITIAL_BUILD_STATE: BuildState) {
     value,
   }: {
     category: string
-    value: string | Array<string | undefined>
+    value: string | Array<string | undefined> | BuildTags[]
   }) {
     // --------------------------
     // Non-items
@@ -78,6 +79,13 @@ export function useDBBuildState(INITIAL_BUILD_STATE: BuildState) {
       setDBBuildState({
         ...dbBuildState,
         buildLink: value as string,
+      })
+      return
+    }
+    if (category === 'tags') {
+      setDBBuildState({
+        ...dbBuildState,
+        buildTags: value as BuildTags[],
       })
       return
     }

@@ -72,7 +72,7 @@ export function SaveBuildButton({ buildState, editMode }: Props) {
       <div
         className={cn(
           buttonClasses,
-          'bg-primary-500 hover:bg-primary-300text-black border-primary-700',
+          'hover:bg-primary-300text-black border-primary-700 bg-primary-500',
         )}
       >
         <Loading />
@@ -81,7 +81,7 @@ export function SaveBuildButton({ buildState, editMode }: Props) {
       <button
         className={cn(
           buttonClasses,
-          'bg-accent2-500 hover:bg-accent2-300 border-accent2-700 text-black',
+          'border-accent2-700 bg-accent2-500 text-black hover:bg-accent2-300',
         )}
         aria-label="Save Edits"
         onClick={async () => {
@@ -102,7 +102,7 @@ export function SaveBuildButton({ buildState, editMode }: Props) {
         <div
           className={cn(
             buttonClasses,
-            'bg-primary-500 hover:bg-primary-300 border-primary-700',
+            'border-primary-700 bg-primary-500 hover:bg-primary-300',
           )}
         >
           <Loading />
@@ -111,7 +111,7 @@ export function SaveBuildButton({ buildState, editMode }: Props) {
         <button
           className={cn(
             buttonClasses,
-            'bg-accent2-500 hover:bg-accent2-300 border-accent2-700 text-black',
+            'border-accent2-700 bg-accent2-500 text-black hover:bg-accent2-300',
           )}
           aria-label="Save Build"
           onClick={async () => {

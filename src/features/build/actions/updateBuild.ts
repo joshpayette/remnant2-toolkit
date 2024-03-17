@@ -98,9 +98,19 @@ export async function updateBuild(data: string): Promise<BuildActionResponse> {
         buildLink: buildState.buildLink,
         isPatchAffected: false, // Automatically unflag if build was updated after being flagged
         BuildItems: {
-          deleteMany: {},
+          deleteMany: {}, // removes all items before creating them again
           create: updatedBuildItems,
         },
+        BuildTags: buildState.buildTags
+          ? {
+              deleteMany: {}, // removes all tags before creating them again
+              create: buildState.buildTags.map((tag) => {
+                return {
+                  tag: tag.tag,
+                }
+              }),
+            }
+          : undefined,
       },
     })
 

@@ -112,6 +112,7 @@ export default function Page() {
         isScreenshotMode={isScreenshotMode}
         showControls={showControls}
         showCreatedBy={false}
+        showMemberFeatures={false}
         onUpdateBuildState={updateUrlBuildState}
         builderActions={
           <>

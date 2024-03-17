@@ -1,5 +1,7 @@
+import { BUILD_TAG } from '@prisma/client'
 import { ReadonlyURLSearchParams } from 'next/navigation'
 
+import { ALL_TAGS } from '@/features/build/build-tags/constants'
 import { RELEASE_TO_NAME } from '@/features/items/constants'
 import { amuletItems } from '@/features/items/data/amuletItems'
 import { archetypeItems } from '@/features/items/data/archetypeItems'
@@ -15,6 +17,7 @@ export function parseBuildListFilters(
 ): BuildListFilterFields {
   const params = new URLSearchParams(searchParams)
   let archetypes = params.get('archetypes')
+  let buildTags = params.get('buildTags')
   let longGun = params.get('longGun')
   let handGun = params.get('handGun')
   let melee = params.get('melee')
@@ -36,6 +39,16 @@ export function parseBuildListFilters(
     archetypesArray.forEach((archetype) => {
       if (!allArchetypes.includes(archetype as Archetype)) {
         archetypes = DEFAULT_BUILD_LIST_FILTERS['archetypes'].join(',')
+      }
+    })
+  }
+  // check if buildtags are valid
+  if (buildTags) {
+    const allTagValues = ALL_TAGS.map((tag) => tag.value)
+    const buildTagsArray = buildTags.split(',')
+    buildTagsArray.forEach((tag) => {
+      if (!allTagValues.includes(tag as BUILD_TAG)) {
+        buildTags = DEFAULT_BUILD_LIST_FILTERS['buildTags'].join(',')
       }
     })
   }
@@ -123,6 +136,11 @@ export function parseBuildListFilters(
     archetypes: archetypes
       ? (archetypes.split(',') as Archetype[])
       : DEFAULT_BUILD_LIST_FILTERS['archetypes'],
+    buildTags: buildTags
+      ? buildTags
+          .split(',')
+          .map((tag) => ({ label: tag, value: tag as BUILD_TAG }))
+      : DEFAULT_BUILD_LIST_FILTERS['buildTags'],
     longGun: longGun || DEFAULT_BUILD_LIST_FILTERS['longGun'],
     handGun: handGun || DEFAULT_BUILD_LIST_FILTERS['handGun'],
     melee: melee || DEFAULT_BUILD_LIST_FILTERS['melee'],

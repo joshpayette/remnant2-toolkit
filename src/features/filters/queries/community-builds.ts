@@ -65,6 +65,7 @@ LEFT JOIN BuildVoteCounts ON Build.id = BuildVoteCounts.buildId
 LEFT JOIN User on Build.createdById = User.id
 LEFT JOIN BuildReports on Build.id = BuildReports.buildId AND BuildReports.userId = ${userId}
 LEFT JOIN PaidUsers on User.id = PaidUsers.userId
+LEFT JOIN BuildTags on Build.id = BuildTags.buildId
 ${whereConditions}
 AND (User.displayName LIKE ${'%' + searchText + '%'} 
 OR User.name LIKE ${'%' + searchText + '%'} 

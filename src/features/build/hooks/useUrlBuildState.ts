@@ -1,3 +1,4 @@
+import { BuildTags } from '@prisma/client'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import { useCallback, useEffect } from 'react'
 
@@ -96,7 +97,7 @@ export function useUrlBuildState() {
     scroll = false,
   }: {
     category: string
-    value: string | Array<string | undefined>
+    value: string | Array<string | undefined> | BuildTags[]
     scroll?: boolean
   }): void {
     // Remove empty items

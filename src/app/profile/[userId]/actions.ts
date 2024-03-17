@@ -14,6 +14,10 @@ import {
   archetypeFiltersToIds,
   limitByArchetypesSegment,
 } from '@/features/filters/queries/segments/limitByArchtypes'
+import {
+  buildTagsFilterToValues,
+  limitByBuildTagsSegment,
+} from '@/features/filters/queries/segments/limitByBuildTags'
 import { limitByPatchAffected } from '@/features/filters/queries/segments/limitByPatchAffected'
 import { limitByReleasesSegment } from '@/features/filters/queries/segments/limitByRelease'
 import { limitByTimeConditionSegment } from '@/features/filters/queries/segments/limitByTimeCondition'
@@ -66,6 +70,7 @@ export async function getUserProfilePage({
 
   const {
     archetypes,
+    buildTags,
     longGun,
     handGun,
     melee,
@@ -88,6 +93,8 @@ export async function getUserProfilePage({
     melee,
   })
 
+  const tagValues = buildTagsFilterToValues(buildTags)
+
   const whereConditions = Prisma.sql`
   WHERE Build.isPublic = true
   AND Build.createdById = ${userId}
@@ -96,6 +103,7 @@ export async function getUserProfilePage({
   ${limitByWeaponsSegment(weaponIds)}
   ${limitByReleasesSegment(selectedReleases)}
   ${limitByTimeConditionSegment(timeRange)}
+  ${limitByBuildTagsSegment(tagValues)}
   `
 
   const orderBySegment = getOrderBySegment(orderBy)
@@ -124,6 +132,14 @@ export async function getUserProfilePage({
       where: { buildId: build.id },
     })
     build.buildItems = buildItems
+  }
+
+  // Then, for each Build, get the associated BuildTags
+  for (const build of builds) {
+    const buildTags = await prisma.buildTags.findMany({
+      where: { buildId: build.id },
+    })
+    build.buildTags = buildTags
   }
 
   const totalBuildCount = totalBuildsCountResponse[0].totalBuildCount

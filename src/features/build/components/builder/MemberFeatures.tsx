@@ -1,7 +1,9 @@
 'use client'
 
 import { ClipboardDocumentListIcon } from '@heroicons/react/24/solid'
-import { signIn, useSession } from 'next-auth/react'
+import { BuildTags } from '@prisma/client'
+import build from 'next/dist/build'
+import { useSession } from 'next-auth/react'
 
 import { DescriptionWithTags } from '@/features/items/components/DescriptionWithTags'
 import { Input } from '@/features/ui/Input'
@@ -10,26 +12,31 @@ import { Textarea } from '@/features/ui/Textarea'
 import { Toggle } from '@/features/ui/Toggle'
 import { cn } from '@/lib/classnames'
 
+import { BuildTagsDisplay } from '../../build-tags/BuildTagsDisplay'
 import { MAX_BUILD_DESCRIPTION_LENGTH } from '../../constants'
 
 type Props = {
   buildLink: string | null
+  buildTags: BuildTags[]
   description: string | null
   isEditable: boolean
   isPublic: boolean | null
-  isScreenshotModeActive: boolean
+  isScreenshotMode: boolean
   onChangeBuildLink: (buildLink: string) => void
+  onChangeBuildTags: (tags: BuildTags[]) => void
   onChangeDescription: (description: string) => void
   onChangeIsPublic: (isPublic: boolean) => void
 }
 
 export function MemberFeatures({
   buildLink,
+  buildTags,
   description,
   isEditable,
   isPublic,
-  isScreenshotModeActive,
+  isScreenshotMode,
   onChangeBuildLink,
+  onChangeBuildTags,
   onChangeDescription,
   onChangeIsPublic,
 }: Props) {
@@ -39,7 +46,17 @@ export function MemberFeatures({
 
   return (
     <div className="relative w-full max-w-[700px] pt-4">
-      {!isEditable || isScreenshotModeActive ? (
+      <div className="mb-4 flex w-full flex-col items-start justify-start">
+        <BuildTagsDisplay
+          buildTags={buildTags ?? []}
+          isEditable={isEditable}
+          isScreenshotMode={isScreenshotMode}
+          onChange={onChangeBuildTags}
+          showLabel={isEditable || buildTags.length > 0}
+        />
+      </div>
+
+      {!isEditable || isScreenshotMode ? (
         <div className="flex flex-col">
           {description && description.length > 0 && (
             <>
@@ -49,7 +66,7 @@ export function MemberFeatures({
               <div
                 className={cn(
                   'text-md whitespace-pre-wrap text-gray-200',
-                  isScreenshotModeActive && 'max-h-none',
+                  isScreenshotMode && 'max-h-none',
                 )}
               >
                 <DescriptionWithTags description={description} />
@@ -100,7 +117,7 @@ Watch the build in action: [insert Youtube link here]
         </div>
       )}
 
-      {isScreenshotModeActive ? null : (
+      {isScreenshotMode ? null : (
         <>
           {isEditable && (
             <div className="mb-8 flex w-full flex-col items-start justify-start text-sm text-primary-500 sm:flex-row sm:items-center">
@@ -119,7 +136,7 @@ Watch the build in action: [insert Youtube link here]
         </>
       )}
 
-      {isScreenshotModeActive ? null : (
+      {isScreenshotMode ? null : (
         <>
           {isEditable ? (
             <div className="flex flex-row items-center justify-start text-sm text-primary-500">

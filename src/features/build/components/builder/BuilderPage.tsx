@@ -1,3 +1,4 @@
+import { BuildTags } from '@prisma/client'
 import { ReactNode, RefObject } from 'react'
 
 import { cn } from '@/lib/classnames'
@@ -12,6 +13,7 @@ type Props = {
   isScreenshotMode: boolean
   showControls: boolean
   showCreatedBy?: boolean
+  showMemberFeatures?: boolean
 } & (
   | { isEditable: false; onUpdateBuildState?: never }
   | {
@@ -22,7 +24,7 @@ type Props = {
         scroll,
       }: {
         category: string
-        value: string | Array<string | undefined>
+        value: string | Array<string | undefined> | BuildTags[]
         scroll?: boolean
       }) => void
     }
@@ -36,6 +38,7 @@ export function BuilderPage({
   isScreenshotMode,
   showControls,
   showCreatedBy = true,
+  showMemberFeatures = true,
   onUpdateBuildState,
 }: Props) {
   return (
@@ -61,6 +64,7 @@ export function BuilderPage({
               isScreenshotMode={isScreenshotMode}
               showControls={showControls}
               showCreatedBy={showCreatedBy}
+              showMemberFeatures={showMemberFeatures}
               onUpdateBuildState={onUpdateBuildState}
             />
           ) : (
@@ -70,6 +74,7 @@ export function BuilderPage({
               isScreenshotMode={isScreenshotMode}
               showControls={showControls}
               showCreatedBy={showCreatedBy}
+              showMemberFeatures={showMemberFeatures}
             />
           )}
         </div>

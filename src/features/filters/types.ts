@@ -1,10 +1,12 @@
 import { ItemCategory } from '../build/types'
 import { BossCategory } from '../enemies/types'
 import { Archetype, ReleaseKey } from '../items/types'
+import { BuildTagFilterItem } from './components/parts/BuildTagFilters'
 
 export interface BuildListFilterFields {
   amulet: string
   archetypes: Archetype[]
+  buildTags: BuildTagFilterItem[]
   handGun: string
   longGun: string
   melee: string

@@ -1,4 +1,5 @@
 import { StarIcon } from '@heroicons/react/24/solid'
+import { BuildTags } from '@prisma/client'
 import Link from 'next/link'
 import { useCallback, useMemo, useState } from 'react'
 
@@ -18,7 +19,11 @@ import { TraitItem } from '@/features/items/types/TraitItem'
 import { Logo } from '@/features/ui/Logo'
 import { cn } from '@/lib/classnames'
 
-import { DEFAULT_TRAIT_AMOUNT, POPULAR_VOTE_THRESHOLD } from '../../constants'
+import {
+  DEFAULT_TRAIT_AMOUNT,
+  MAX_BUILD_TAGS,
+  POPULAR_VOTE_THRESHOLD,
+} from '../../constants'
 import { FeaturedBuildBadge } from '../build-card/FeaturedBuildBadge'
 import { NewBuildBadge } from '../build-card/NewBuildBadge'
 import { ItemSelect } from '../dialogs/ItemSelect'
@@ -32,6 +37,7 @@ type BuilderProps = {
   isScreenshotMode: boolean
   showControls: boolean
   showCreatedBy?: boolean
+  showMemberFeatures?: boolean
   totalUpvotes?: number
 } & (
   | { isEditable: false; onUpdateBuildState?: never }
@@ -43,7 +49,7 @@ type BuilderProps = {
         scroll,
       }: {
         category: string
-        value: string | Array<string | undefined>
+        value: string | Array<string | undefined> | BuildTags[]
         scroll?: boolean
       }) => void
     }
@@ -55,6 +61,7 @@ export function Builder({
   isScreenshotMode,
   showControls,
   showCreatedBy = true,
+  showMemberFeatures = true,
   onUpdateBuildState,
 }: BuilderProps) {
   const concoctionSlotCount = getConcoctionSlotCount(buildState)
@@ -214,6 +221,17 @@ export function Builder({
     onUpdateBuildState({
       category: 'isPublic',
       value: isPublic ? 'true' : 'false',
+    })
+  }
+
+  function handleChangeBuildTags(tags: BuildTags[]) {
+    if (!isEditable) return
+    if (!onUpdateBuildState) return
+
+    onUpdateBuildState({
+      category: 'tags',
+      value:
+        tags.length > MAX_BUILD_TAGS ? tags.slice(0, MAX_BUILD_TAGS) : tags,
     })
   }
 
@@ -798,21 +816,25 @@ export function Builder({
           </div>
         </div>
 
-        <div
-          id="member-features-row"
-          className="mt-4 flex w-full items-start justify-center"
-        >
-          <MemberFeatures
-            buildLink={buildState.buildLink}
-            description={buildState.description}
-            isEditable={isEditable}
-            isPublic={buildState.isPublic}
-            isScreenshotModeActive={isScreenshotMode}
-            onChangeBuildLink={handleChangeBuildLink}
-            onChangeDescription={handleChangeDescription}
-            onChangeIsPublic={handleToggleIsPublic}
-          />
-        </div>
+        {showMemberFeatures ? (
+          <div
+            id="member-features-row"
+            className="mt-4 flex w-full items-start justify-center"
+          >
+            <MemberFeatures
+              buildLink={buildState.buildLink}
+              buildTags={buildState.buildTags ?? []}
+              description={buildState.description}
+              isEditable={isEditable}
+              isPublic={buildState.isPublic}
+              isScreenshotMode={isScreenshotMode}
+              onChangeBuildLink={handleChangeBuildLink}
+              onChangeBuildTags={handleChangeBuildTags}
+              onChangeDescription={handleChangeDescription}
+              onChangeIsPublic={handleToggleIsPublic}
+            />
+          </div>
+        ) : null}
 
         {isScreenshotMode && (
           <div className="absolute bottom-[10px] right-[10px]">

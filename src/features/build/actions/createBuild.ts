@@ -72,6 +72,15 @@ export async function createBuild(data: string): Promise<BuildActionResponse> {
         BuildItems: {
           create: buildItems,
         },
+        BuildTags: buildState.buildTags
+          ? {
+              create: buildState.buildTags.map((tag) => {
+                return {
+                  tag: tag.tag,
+                }
+              }),
+            }
+          : undefined,
       },
     })
 

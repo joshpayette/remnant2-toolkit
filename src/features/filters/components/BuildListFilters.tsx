@@ -18,6 +18,11 @@ import { Checkbox } from '@/features/ui/Checkbox'
 
 import { parseBuildListFilters } from '../lib/parseBuildListFilters'
 import { BuildListFilterFields } from '../types'
+import {
+  BuildTagFilterItem,
+  BuildTagFilters,
+  DEFAULT_BUILD_TAG_FILTERS,
+} from './parts/BuildTagFilters'
 import { DEFAULT_JEWELRY_FILTERS, JewelryFilters } from './parts/JewelryFilters'
 import { DEFAULT_RELEASE_FILTERS, ReleaseFilters } from './parts/ReleaseFilters'
 import { SearchBuildsFilter } from './parts/SearchBuildsFilter'
@@ -25,6 +30,7 @@ import { SearchBuildsFilter } from './parts/SearchBuildsFilter'
 export const DEFAULT_BUILD_LIST_FILTERS: BuildListFilterFields = {
   amulet: DEFAULT_JEWELRY_FILTERS.amulet,
   archetypes: DEFAULT_ARCHETYPE_FILTERS,
+  buildTags: DEFAULT_BUILD_TAG_FILTERS,
   handGun: DEFAULT_WEAPON_FILTERS.handGun,
   longGun: DEFAULT_WEAPON_FILTERS.longGun,
   melee: DEFAULT_WEAPON_FILTERS.melee,
@@ -63,6 +69,7 @@ export function BuildListFilters() {
     return (
       filters.archetypes.length !==
         DEFAULT_BUILD_LIST_FILTERS['archetypes'].length ||
+      filters.buildTags.length !== DEFAULT_BUILD_TAG_FILTERS.length ||
       filters.longGun !== DEFAULT_BUILD_LIST_FILTERS['longGun'] ||
       filters.handGun !== DEFAULT_BUILD_LIST_FILTERS['handGun'] ||
       filters.melee !== DEFAULT_BUILD_LIST_FILTERS['melee'] ||
@@ -104,6 +111,23 @@ export function BuildListFilters() {
 
     setUnappliedFilters({ ...unappliedFilters, archetypes: newArchetypes })
     if (filters.archetypes.some((a) => !newArchetypes.includes(a))) {
+      setAreFiltersApplied(false)
+    }
+  }
+
+  function handleBuildTagChange(tag: BuildTagFilterItem) {
+    let newTags = [...unappliedFilters.buildTags]
+
+    if (newTags.some((t) => t.value === tag.value)) {
+      newTags = newTags.filter((t) => t.value !== tag.value)
+    } else {
+      newTags.push(tag)
+    }
+
+    setUnappliedFilters({ ...unappliedFilters, buildTags: newTags })
+    if (
+      filters.buildTags.some((t) => !newTags.some((nt) => nt.value === t.value))
+    ) {
       setAreFiltersApplied(false)
     }
   }
@@ -178,6 +202,11 @@ export function BuildListFilters() {
     ) {
       finalPath += `archetypes=${newFilters.archetypes.join(',')}&`
     }
+    if (newFilters.buildTags.length > 0) {
+      finalPath += `buildTags=${newFilters.buildTags
+        .map((t) => t.value)
+        .join(',')}&`
+    }
     if (newFilters.longGun !== DEFAULT_BUILD_LIST_FILTERS['longGun']) {
       finalPath += `longGun=${newFilters.longGun}&`
     }
@@ -247,9 +276,7 @@ export function BuildListFilters() {
         selectedLongGun={unappliedFilters.longGun}
         selectedHandGun={unappliedFilters.handGun}
         selectedMelee={unappliedFilters.melee}
-        onChange={(weapon: string, type: 'longGun' | 'handGun' | 'melee') =>
-          handleWeaponChange(weapon, type)
-        }
+        onChange={handleWeaponChange}
       />
       <JewelryFilters
         selectedRings={{
@@ -260,12 +287,23 @@ export function BuildListFilters() {
         }}
         selectedAmulet={unappliedFilters.amulet}
         onChangeRing={handleRingChange}
-        onChangeAmulet={(amulet: string) => handleAmuletChange(amulet)}
+        onChangeAmulet={handleAmuletChange}
       />
-      <ReleaseFilters
-        selectedReleases={unappliedFilters.selectedReleases}
-        onChange={(release: ReleaseKey) => handleReleaseChange(release)}
-      />
+
+      <div className="col-span-full grid w-full grid-cols-1 sm:grid-cols-2 sm:gap-x-4">
+        <div className="col-span-1">
+          <ReleaseFilters
+            selectedReleases={unappliedFilters.selectedReleases}
+            onChange={handleReleaseChange}
+          />
+        </div>
+        <div className="col-span-1">
+          <BuildTagFilters
+            selectedTags={unappliedFilters.buildTags}
+            onChange={handleBuildTagChange}
+          />
+        </div>
+      </div>
 
       <div className="col-span-full pt-2">
         <div className="flex w-full flex-col items-start justify-start gap-x-4 gap-y-2">

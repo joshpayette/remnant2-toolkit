@@ -18,6 +18,10 @@ import {
   archetypeFiltersToIds,
   limitByArchetypesSegment,
 } from '@/features/filters/queries/segments/limitByArchtypes'
+import {
+  buildTagsFilterToValues,
+  limitByBuildTagsSegment,
+} from '@/features/filters/queries/segments/limitByBuildTags'
 import { limitByFavorited } from '@/features/filters/queries/segments/limitByFavorited'
 import { limitByPatchAffected } from '@/features/filters/queries/segments/limitByPatchAffected'
 import { limitByReleasesSegment } from '@/features/filters/queries/segments/limitByRelease'
@@ -57,6 +61,7 @@ export async function getFavoritedBuilds({
   const {
     amulet,
     archetypes,
+    buildTags,
     handGun,
     longGun,
     melee,
@@ -77,6 +82,7 @@ export async function getFavoritedBuilds({
     handGun,
     melee,
   })
+  const tagValues = buildTagsFilterToValues(buildTags)
   const amuletId = amuletFilterToId({ amulet })
   const ringIds = ringsFilterToIds({ rings: [ring1, ring2, ring3, ring4] })
 
@@ -90,6 +96,7 @@ ${limitByWeaponsSegment(weaponIds)}
 ${limitByAmuletSegment(amuletId)}
 ${limitByRingsSegment(ringIds)}
 ${limitByReleasesSegment(selectedReleases)}
+${limitByBuildTagsSegment(tagValues)}
 ${limitByTimeConditionSegment(timeRange)}
 `
 
@@ -119,6 +126,14 @@ ${limitByTimeConditionSegment(timeRange)}
       where: { buildId: build.id },
     })
     build.buildItems = buildItems
+  }
+
+  // Then, for each Build, get the associated BuildTags
+  for (const build of builds) {
+    const buildTags = await prisma.buildTags.findMany({
+      where: { buildId: build.id },
+    })
+    build.buildTags = buildTags
   }
 
   const totalBuildCount = totalBuildsCountResponse[0].totalBuildCount
