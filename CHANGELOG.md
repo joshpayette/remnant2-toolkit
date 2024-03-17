@@ -6,7 +6,17 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2024-03-17
 
-- Added Build Tags to the builder. This will allow you to tag your build with up to 4 specific keyboards. Additionally, you can filter on builds by these tags.
+### Added
+
+- Build Tags are now available on the builder. This will allow you to tag your build with up to 4 specific keyboards. Additionally, you can filter on builds by these tags.
+
+### Changed
+
+- Builds now require at least one archetype to be selected before they can save.
+
+### Fixed
+
+- Improved error message if build failed to save due to an error.
 
 ## 2024-03-16
 

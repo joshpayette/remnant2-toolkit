@@ -52,6 +52,13 @@ export async function createBuild(data: string): Promise<BuildActionResponse> {
       buildState.description.slice(0, MAX_BUILD_DESCRIPTION_LENGTH - 3) + '...'
   }
 
+  // If no archetypes are selected, throw an error
+  if (!buildState.items.archetype || buildState.items.archetype.length === 0) {
+    return {
+      errors: ['You must select at least one archetype.'],
+    }
+  }
+
   try {
     const dbResponse = await prisma.build.create({
       data: {

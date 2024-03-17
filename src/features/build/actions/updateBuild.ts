@@ -52,6 +52,13 @@ export async function updateBuild(data: string): Promise<BuildActionResponse> {
     }
   }
 
+  // If no archetypes are selected, throw an error
+  if (!buildState.items.archetype || buildState.items.archetype.length === 0) {
+    return {
+      errors: ['You must select at least one archetype.'],
+    }
+  }
+
   const updatedBuildItems = buildStateToBuildItems(buildState)
 
   if (

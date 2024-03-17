@@ -47,7 +47,8 @@ export function SaveBuildButton({ buildState, editMode }: Props) {
   function handleResponse(response: BuildActionResponse) {
     if (isErrorResponse(response)) {
       console.error(response.errors)
-      toast.error('Error saving build. Please try again later.')
+      toast.error(`Error saving build. ${response.errors?.join(' ')}`)
+      setSaveInProgress(false)
     } else {
       toast.success(response.message)
       setSaveInProgress(false)
