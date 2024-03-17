@@ -883,7 +883,7 @@ const bossEnemies: Enemy[] = [
   {
     name: 'Bruin, Blade of the King',
     category: 'boss',
-    imagePath: '/enemies/boss/bruin.jpg',
+    imagePath: '/enemies/boss/bruin1.jpg',
     dlc: 'dlc1',
     location: 'Losomn',
     dungeon: 'Glistering Cloister',
@@ -1589,7 +1589,7 @@ const worldBossEnemies: Enemy[] = [
   {
     name: `Tal'Ratha`,
     category: 'world boss',
-    imagePath: '/enemies/worldboss/tal_ratha_normal.jpg',
+    imagePath: '/enemies/worldboss/tal_ratha_normal1.jpg',
     location: "N'Erud",
     dungeon: 'Forgotten Prison',
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Tal+Ratha`],

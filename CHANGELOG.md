@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Changed
 
 - Builds now require at least one archetype to be selected before they can save.
+- Added new images for Bruin and Tal'Ratha (Normal) per (ConRaven)
 
 ### Fixed
 
