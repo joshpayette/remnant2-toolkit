@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-03-17
+
+- Added Build Tags to the builder. This will allow you to tag your build with up to 4 specific keyboards. Additionally, you can filter on builds by these tags.
+
 ## 2024-03-16
 
 ### Added
