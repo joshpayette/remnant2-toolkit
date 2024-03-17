@@ -48,7 +48,7 @@ export const ALL_TAGS: BuildTag[] = [
       bg: 'bg-purple-400/10',
       hover: 'hover:bg-purple-400/20',
       ring: 'ring-purple-400/30',
-      text: 'text-purple-500',
+      text: 'text-purple-400',
     },
   },
   {
