@@ -117,7 +117,7 @@ export function CreatedBuilds({ itemsPerPage = 8 }: Props) {
       >
         <ul
           role="list"
-          className="my-4 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-2 lg:grid-cols-4"
+          className="mb-4 mt-8 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-2 lg:grid-cols-4"
         >
           <CreateBuildCard />
 
