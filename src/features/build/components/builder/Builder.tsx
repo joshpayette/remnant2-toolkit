@@ -16,7 +16,6 @@ import { ItemInfoDialog } from '@/features/items/components/ItemInfoDialog'
 import { perkItems } from '@/features/items/data/perkItems'
 import { Archetype, Item } from '@/features/items/types'
 import { TraitItem } from '@/features/items/types/TraitItem'
-import { Input } from '@/features/ui/Input'
 import { Logo } from '@/features/ui/Logo'
 import { cn } from '@/lib/classnames'
 
