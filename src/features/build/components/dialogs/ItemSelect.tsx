@@ -5,7 +5,6 @@ import { useCallback, useEffect, useState } from 'react'
 import { useDebounceValue, useLocalStorage } from 'usehooks-ts'
 
 import { ItemCategory } from '@/features/build/types'
-import { SearchTextAutocomplete } from '@/features/filters/components/parts/SearchTextAutocomplete'
 import { ItemButton } from '@/features/items/components/ItemButton'
 import { ItemInfoDialog } from '@/features/items/components/ItemInfoDialog'
 import { ITEM_TAGS } from '@/features/items/constants'
@@ -14,6 +13,8 @@ import { Item } from '@/features/items/types'
 import { Dialog } from '@/features/ui/Dialog'
 import { capitalize } from '@/lib/capitalize'
 import { cn } from '@/lib/classnames'
+
+import { SearchTextAutocomplete } from '../../filters/parts/SearchTextAutocomplete'
 
 function buildSearchTextOptions(): Array<{ id: string; name: string }> {
   let items = ITEM_TAGS.map((tag) => ({

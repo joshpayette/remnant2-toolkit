@@ -1,35 +1,34 @@
 'use server'
 
-import { Prisma, User, UserProfile } from '@prisma/client'
+import { Prisma, User } from '@prisma/client'
 
-import { DBBuild } from '@/features/build/types'
-import { prisma } from '@/features/db'
-import { ErrorResponse } from '@/features/error-handling/types'
 import {
   communityBuildsCountQuery,
   communityBuildsQuery,
-} from '@/features/filters/queries/community-builds'
-import { getOrderBySegment } from '@/features/filters/queries/segments/getOrderBySegment'
+} from '@/features/build/filters/queries/community-builds'
+import { getOrderBySegment } from '@/features/build/filters/queries/segments/getOrderBySegment'
 import {
   archetypeFiltersToIds,
   limitByArchetypesSegment,
-} from '@/features/filters/queries/segments/limitByArchtypes'
+} from '@/features/build/filters/queries/segments/limitByArchtypes'
 import {
   buildTagsFilterToValues,
   limitByBuildTagsSegment,
-} from '@/features/filters/queries/segments/limitByBuildTags'
-import { limitByPatchAffected } from '@/features/filters/queries/segments/limitByPatchAffected'
-import { limitByReleasesSegment } from '@/features/filters/queries/segments/limitByRelease'
-import { limitByTimeConditionSegment } from '@/features/filters/queries/segments/limitByTimeCondition'
+} from '@/features/build/filters/queries/segments/limitByBuildTags'
+import { limitByPatchAffected } from '@/features/build/filters/queries/segments/limitByPatchAffected'
+import { limitByReleasesSegment } from '@/features/build/filters/queries/segments/limitByRelease'
+import { limitByTimeConditionSegment } from '@/features/build/filters/queries/segments/limitByTimeCondition'
 import {
   limitByWeaponsSegment,
   weaponFiltersToIds,
-} from '@/features/filters/queries/segments/limitByWeapons'
+} from '@/features/build/filters/queries/segments/limitByWeapons'
 import {
   BuildListFilterFields,
   OrderBy,
   TimeRange,
-} from '@/features/filters/types'
+} from '@/features/build/filters/types'
+import { DBBuild } from '@/features/build/types'
+import { prisma } from '@/features/db'
 import { PaginationResponse } from '@/features/pagination/usePagination'
 import { bigIntFix } from '@/lib/bigIntFix'
 

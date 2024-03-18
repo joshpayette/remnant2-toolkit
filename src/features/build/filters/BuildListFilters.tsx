@@ -4,20 +4,16 @@ import isEqual from 'lodash/isEqual'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import { useMemo, useState } from 'react'
 
+import { parseBuildListFilters } from '@/features/build/filters/lib/parseBuildListFilters'
+import { BuildListFilterFields } from '@/features/build/filters/types'
+import { Archetype, ReleaseKey } from '@/features/items/types'
+import { Checkbox } from '@/features/ui/Checkbox'
+import { FiltersContainer } from '@/features/ui/filters/FiltersContainer'
+
 import {
   ArchetypeFilters,
   DEFAULT_ARCHETYPE_FILTERS,
-} from '@/features/filters/components/parts/ArchetypeFilters'
-import { FiltersContainer } from '@/features/filters/components/parts/FiltersContainer'
-import {
-  DEFAULT_WEAPON_FILTERS,
-  WeaponFilters,
-} from '@/features/filters/components/parts/WeaponFilters'
-import { Archetype, ReleaseKey } from '@/features/items/types'
-import { Checkbox } from '@/features/ui/Checkbox'
-
-import { parseBuildListFilters } from '../lib/parseBuildListFilters'
-import { BuildListFilterFields } from '../types'
+} from './parts/ArchetypeFilters'
 import {
   BuildTagFilterItem,
   BuildTagFilters,
@@ -26,6 +22,7 @@ import {
 import { DEFAULT_JEWELRY_FILTERS, JewelryFilters } from './parts/JewelryFilters'
 import { DEFAULT_RELEASE_FILTERS, ReleaseFilters } from './parts/ReleaseFilters'
 import { SearchBuildsFilter } from './parts/SearchBuildsFilter'
+import { DEFAULT_WEAPON_FILTERS, WeaponFilters } from './parts/WeaponFilters'
 
 export const DEFAULT_BUILD_LIST_FILTERS: BuildListFilterFields = {
   amulet: DEFAULT_JEWELRY_FILTERS.amulet,

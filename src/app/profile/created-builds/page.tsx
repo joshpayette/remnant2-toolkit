@@ -1,6 +1,6 @@
 'use server'
 
-import { BuildListFilters } from '@/features/filters/components/BuildListFilters'
+import { BuildListFilters } from '@/features/build/filters/BuildListFilters'
 import { CreatedBuilds } from '@/features/profile/components/CreatedBuilds'
 
 export default async function Page() {

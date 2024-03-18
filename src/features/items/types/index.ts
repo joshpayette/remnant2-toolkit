@@ -142,3 +142,18 @@ export type ReleaseKey = keyof typeof RELEASE_TO_NAME
 export type ReleaseName = (typeof RELEASE_TO_NAME)[ReleaseKey]
 
 export type DescriptionTag = (typeof DESCRIPTION_TAGS)[number]
+
+export type ItemLookupCategory =
+  | Omit<ItemCategory, 'weapon' | 'mutator'>
+  | 'Long Gun'
+  | 'Hand Gun'
+  | 'Melee'
+  | 'Mutator (Gun)'
+  | 'Mutator (Melee)'
+
+export interface ItemLookupFilterFields {
+  collectionKeys: string[]
+  itemCategories: ItemLookupCategory[]
+  searchText: string
+  selectedReleases: ReleaseKey[]
+}

@@ -1,17 +1,16 @@
 import { useSearchParams } from 'next/navigation'
 import { useIsClient, useLocalStorage } from 'usehooks-ts'
 
-import { parseItemLookupFilters } from '@/features/filters/lib/parseItemLookupFilters'
-import { ItemLookupFilterFields } from '@/features/filters/types'
 import { MasonryItemList } from '@/features/items/components/MasonryItemList'
 import { allItems } from '@/features/items/data/allItems'
+import { parseItemLookupFilters } from '@/features/items/item-lookup/lib/parseItemLookupFilters'
 import { itemMatchesSearchText } from '@/features/items/lib/itemMatchesSearchText'
-import { ReleaseKey } from '@/features/items/types'
+import { ItemLookupFilterFields, ReleaseKey } from '@/features/items/types'
 import { MutatorItem } from '@/features/items/types/MutatorItem'
 import { WeaponItem } from '@/features/items/types/WeaponItem'
 import { capitalize } from '@/lib/capitalize'
 
-import { LocalStorage } from '../tracker/types'
+import { LocalStorage } from '../../item-tracker/types'
 
 const allItemsWithDiscovered = allItems.map((item) => ({
   ...item,

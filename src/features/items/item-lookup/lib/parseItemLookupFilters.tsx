@@ -1,11 +1,14 @@
 import { ReadonlyURLSearchParams } from 'next/navigation'
 
-import { ReleaseKey } from '@/features/items/types'
+import { DEFAULT_COLLECTION_FILTERS } from '@/features/build/filters/parts/CollectedItemFilters'
+import {
+  ItemLookupCategory,
+  ItemLookupFilterFields,
+  ReleaseKey,
+} from '@/features/items/types'
 import { capitalize } from '@/lib/capitalize'
 
-import { DEFAULT_ITEM_LOOKUP_FILTERS } from '../../../app/item-lookup/ItemLookupFilters'
-import { DEFAULT_COLLECTION_FILTERS } from '../components/parts/CollectedItemFilters'
-import { ItemLookupCategory, ItemLookupFilterFields } from '../types'
+import { DEFAULT_ITEM_LOOKUP_FILTERS } from './ItemLookupFilters'
 
 export function parseItemLookupFilters(
   searchParams: ReadonlyURLSearchParams,

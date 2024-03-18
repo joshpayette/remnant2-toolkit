@@ -6,12 +6,12 @@ import { useFormState } from 'react-dom'
 import { toast } from 'react-toastify'
 import { useIsClient, useLocalStorage } from 'usehooks-ts'
 
-import { Filters } from '@/app/tracker/Filters'
 import { ItemCategory } from '@/features/build/types'
 import { ItemButton } from '@/features/items/components/ItemButton'
 import { ItemInfoDialog } from '@/features/items/components/ItemInfoDialog'
 import { allItems } from '@/features/items/data/allItems'
 import { useFilteredItems } from '@/features/items/hooks/useFilteredItems'
+import { ItemTrackerFilters } from '@/features/items/item-tracker/ItemTrackerFilters'
 import { itemToCsvItem } from '@/features/items/lib/itemToCsvItem'
 import { Item } from '@/features/items/types'
 import { MutatorItem } from '@/features/items/types/MutatorItem'
@@ -19,11 +19,14 @@ import { WeaponItem } from '@/features/items/types/WeaponItem'
 import { PageHeader } from '@/features/ui/PageHeader'
 import { capitalize } from '@/lib/capitalize'
 
+import { ImportCSVDialog } from '../../features/items/item-tracker/ImportCSVDialog'
+import { ImportSaveDialog } from '../../features/items/item-tracker/ImportSaveDialog'
+import {
+  ItemTrackerCategory,
+  LocalStorage,
+} from '../../features/items/item-tracker/types'
+import { getProgressLabel } from '../../features/items/item-tracker/utils'
 import { parseSaveFile } from './actions'
-import { ImportCSVDialog } from './ImportCSVDialog'
-import { ImportSaveDialog } from './ImportSaveDialog'
-import { ItemTrackerCategory, LocalStorage } from './types'
-import { getProgressLabel } from './utils'
 
 /** We don't track these categories at all */
 const skippedItemCategories: Array<ItemCategory> = ['skill', 'perk']
@@ -328,7 +331,7 @@ export default function Page() {
             Filters
           </h2>
 
-          <Filters
+          <ItemTrackerFilters
             allItems={allItemsWithDiscovered}
             itemCategoryOptions={
               !isClient

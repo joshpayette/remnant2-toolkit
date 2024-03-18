@@ -1,6 +1,6 @@
 import { SelectMenu } from '@/features/ui/SelectMenu'
 
-import { OrderBy, TimeRange } from '../types'
+import { OrderBy, TimeRange } from './types'
 
 interface Props {
   orderBy: OrderBy

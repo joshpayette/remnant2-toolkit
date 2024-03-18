@@ -4,42 +4,38 @@ import { Prisma } from '@prisma/client'
 
 import { getServerSession } from '@/features/auth/lib'
 import { prisma } from '@/features/db'
-import {
-  communityBuildsCountQuery,
-  communityBuildsQuery,
-} from '@/features/filters/queries/community-builds'
-import { getOrderBySegment } from '@/features/filters/queries/segments/getOrderBySegment'
-import {
-  amuletFilterToId,
-  limitByAmuletSegment,
-} from '@/features/filters/queries/segments/limitByAmulet'
-import {
-  archetypeFiltersToIds,
-  limitByArchetypesSegment,
-} from '@/features/filters/queries/segments/limitByArchtypes'
-import {
-  buildTagsFilterToValues,
-  limitByBuildTagsSegment,
-} from '@/features/filters/queries/segments/limitByBuildTags'
-import { limitByPatchAffected } from '@/features/filters/queries/segments/limitByPatchAffected'
-import { limitByReleasesSegment } from '@/features/filters/queries/segments/limitByRelease'
-import {
-  limitByRingsSegment,
-  ringsFilterToIds,
-} from '@/features/filters/queries/segments/limitByRings'
-import { limitByTimeConditionSegment } from '@/features/filters/queries/segments/limitByTimeCondition'
-import {
-  limitByWeaponsSegment,
-  weaponFiltersToIds,
-} from '@/features/filters/queries/segments/limitByWeapons'
-import {
-  BuildListFilterFields,
-  OrderBy,
-  TimeRange,
-} from '@/features/filters/types'
 import { PaginationResponse } from '@/features/pagination/usePagination'
 import { bigIntFix } from '@/lib/bigIntFix'
 
+import {
+  communityBuildsCountQuery,
+  communityBuildsQuery,
+} from '../filters/queries/community-builds'
+import { getOrderBySegment } from '../filters/queries/segments/getOrderBySegment'
+import {
+  amuletFilterToId,
+  limitByAmuletSegment,
+} from '../filters/queries/segments/limitByAmulet'
+import {
+  archetypeFiltersToIds,
+  limitByArchetypesSegment,
+} from '../filters/queries/segments/limitByArchtypes'
+import {
+  buildTagsFilterToValues,
+  limitByBuildTagsSegment,
+} from '../filters/queries/segments/limitByBuildTags'
+import { limitByPatchAffected } from '../filters/queries/segments/limitByPatchAffected'
+import { limitByReleasesSegment } from '../filters/queries/segments/limitByRelease'
+import {
+  limitByRingsSegment,
+  ringsFilterToIds,
+} from '../filters/queries/segments/limitByRings'
+import { limitByTimeConditionSegment } from '../filters/queries/segments/limitByTimeCondition'
+import {
+  limitByWeaponsSegment,
+  weaponFiltersToIds,
+} from '../filters/queries/segments/limitByWeapons'
+import { BuildListFilterFields, OrderBy, TimeRange } from '../filters/types'
 import { DBBuild } from '../types'
 
 export async function getFeaturedBuilds({

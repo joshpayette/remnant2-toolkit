@@ -1,6 +1,6 @@
 import { Prisma } from '@prisma/client'
 
-import { OrderBy } from '@/features/filters/types'
+import { OrderBy } from '../../types'
 
 export function getOrderBySegment(
   orderBy: OrderBy,

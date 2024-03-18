@@ -1,7 +1,7 @@
 'use server'
 
 import { FeaturedBuilds } from '@/app/creator-builds/FeaturedBuilds'
-import { BuildListFilters } from '@/features/filters/components/BuildListFilters'
+import { BuildListFilters } from '@/features/build/filters/BuildListFilters'
 import { DEFAULT_ITEMS_PER_PAGE } from '@/features/pagination/constants'
 import { PageHeader } from '@/features/ui/PageHeader'
 

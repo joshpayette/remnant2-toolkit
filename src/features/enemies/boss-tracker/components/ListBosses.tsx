@@ -8,7 +8,7 @@ import { BossCategory, Enemy } from '@/features/enemies/types'
 import { ItemButton } from '@/features/items/components/ItemButton'
 import { cn } from '@/lib/classnames'
 
-import { LocalStorage } from './types'
+import { LocalStorage } from '../types'
 
 interface BossTrackerCategory {
   category: BossCategory

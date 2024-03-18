@@ -9,7 +9,7 @@ import { ringItems } from '@/features/items/data/ringItems'
 import { weaponItems } from '@/features/items/data/weaponItems'
 import { Archetype, ReleaseKey } from '@/features/items/types'
 
-import { DEFAULT_BUILD_LIST_FILTERS } from '../components/BuildListFilters'
+import { DEFAULT_BUILD_LIST_FILTERS } from '../BuildListFilters'
 import { BuildListFilterFields } from '../types'
 
 export function parseBuildListFilters(

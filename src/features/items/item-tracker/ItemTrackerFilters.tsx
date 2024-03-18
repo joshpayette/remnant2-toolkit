@@ -1,13 +1,13 @@
 import { useCallback, useEffect, useState } from 'react'
 import { useDebounceValue, useLocalStorage } from 'usehooks-ts'
 
-import { ClearFiltersButton } from '@/features/filters/components/parts/ClearFiltersButton'
 import { RELEASE_TO_NAME } from '@/features/items/constants'
 import { FilteredItem } from '@/features/items/hooks/useFilteredItems'
 import { ReleaseKey } from '@/features/items/types'
 import { MutatorItem } from '@/features/items/types/MutatorItem'
 import { WeaponItem } from '@/features/items/types/WeaponItem'
 import { Checkbox } from '@/features/ui/Checkbox'
+import { ClearFiltersButton } from '@/features/ui/filters/ClearFiltersButton'
 import { SearchInput } from '@/features/ui/SearchInput'
 import { SelectMenu } from '@/features/ui/SelectMenu'
 import { cn } from '@/lib/classnames'
@@ -98,7 +98,7 @@ interface Props {
   onUpdate: (filteredItems: FilteredItem[]) => void
 }
 
-export function Filters({
+export function ItemTrackerFilters({
   allItems,
   itemCategoryOptions,
   showBorder = true,

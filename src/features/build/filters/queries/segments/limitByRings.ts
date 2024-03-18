@@ -1,7 +1,8 @@
 import { Prisma } from '@prisma/client'
 
-import { DEFAULT_JEWELRY_FILTERS } from '@/features/filters/components/parts/JewelryFilters'
 import { ringItems } from '@/features/items/data/ringItems'
+
+import { DEFAULT_JEWELRY_FILTERS } from '../../parts/JewelryFilters'
 
 export function limitByRingsSegment(ringIds: string[]) {
   return ringIds.length === 0

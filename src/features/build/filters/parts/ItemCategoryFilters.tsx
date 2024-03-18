@@ -1,7 +1,6 @@
+import { ItemLookupCategory } from '@/features/items/types'
 import { Checkbox } from '@/features/ui/Checkbox'
 import { capitalize } from '@/lib/capitalize'
-
-import { ItemLookupCategory } from '../../types'
 
 interface Props {
   defaultItemCategories: ItemLookupCategory[]
@@ -19,7 +18,7 @@ export function ItemCategoryFilters({
   return (
     <div className="col-span-full pt-2">
       <div className="flex w-full flex-col items-start justify-start gap-x-4 gap-y-2">
-        <div className="text-primary-500 flex w-full items-center justify-start text-left text-sm font-bold">
+        <div className="flex w-full items-center justify-start text-left text-sm font-bold text-primary-500">
           By Category
         </div>
         <div className="text-xs">

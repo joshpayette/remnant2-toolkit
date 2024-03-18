@@ -3,42 +3,42 @@
 import { Prisma } from '@prisma/client'
 
 import { getServerSession } from '@/features/auth/lib'
-import { DBBuild } from '@/features/build/types'
-import { prisma } from '@/features/db'
 import {
   communityBuildsCountQuery,
   communityBuildsQuery,
-} from '@/features/filters/queries/community-builds'
-import { getOrderBySegment } from '@/features/filters/queries/segments/getOrderBySegment'
+} from '@/features/build/filters/queries/community-builds'
+import { getOrderBySegment } from '@/features/build/filters/queries/segments/getOrderBySegment'
 import {
   amuletFilterToId,
   limitByAmuletSegment,
-} from '@/features/filters/queries/segments/limitByAmulet'
+} from '@/features/build/filters/queries/segments/limitByAmulet'
 import {
   archetypeFiltersToIds,
   limitByArchetypesSegment,
-} from '@/features/filters/queries/segments/limitByArchtypes'
+} from '@/features/build/filters/queries/segments/limitByArchtypes'
 import {
   buildTagsFilterToValues,
   limitByBuildTagsSegment,
-} from '@/features/filters/queries/segments/limitByBuildTags'
-import { limitByFavorited } from '@/features/filters/queries/segments/limitByFavorited'
-import { limitByPatchAffected } from '@/features/filters/queries/segments/limitByPatchAffected'
-import { limitByReleasesSegment } from '@/features/filters/queries/segments/limitByRelease'
+} from '@/features/build/filters/queries/segments/limitByBuildTags'
+import { limitByFavorited } from '@/features/build/filters/queries/segments/limitByFavorited'
+import { limitByPatchAffected } from '@/features/build/filters/queries/segments/limitByPatchAffected'
+import { limitByReleasesSegment } from '@/features/build/filters/queries/segments/limitByRelease'
 import {
   limitByRingsSegment,
   ringsFilterToIds,
-} from '@/features/filters/queries/segments/limitByRings'
-import { limitByTimeConditionSegment } from '@/features/filters/queries/segments/limitByTimeCondition'
+} from '@/features/build/filters/queries/segments/limitByRings'
+import { limitByTimeConditionSegment } from '@/features/build/filters/queries/segments/limitByTimeCondition'
 import {
   limitByWeaponsSegment,
   weaponFiltersToIds,
-} from '@/features/filters/queries/segments/limitByWeapons'
+} from '@/features/build/filters/queries/segments/limitByWeapons'
 import {
   BuildListFilterFields,
   OrderBy,
   TimeRange,
-} from '@/features/filters/types'
+} from '@/features/build/filters/types'
+import { DBBuild } from '@/features/build/types'
+import { prisma } from '@/features/db'
 import { PaginationResponse } from '@/features/pagination/usePagination'
 import { bigIntFix } from '@/lib/bigIntFix'
 

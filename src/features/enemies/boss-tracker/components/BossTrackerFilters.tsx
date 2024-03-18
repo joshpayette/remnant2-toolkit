@@ -2,15 +2,15 @@ import isEqual from 'lodash/isEqual'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import { useEffect, useMemo, useState } from 'react'
 
-import { BossCategory } from '@/features/enemies/types'
-import { FiltersContainer } from '@/features/filters/components/parts/FiltersContainer'
-import { SearchInput } from '@/features/ui/SearchInput'
-
-import { BossTrackerFilterFields } from '../types'
 import {
   BossCategoryFilters,
   DEFAULT_BOSS_FILTERS,
-} from './parts/BossCategoryFilters'
+} from '@/features/build/filters/parts/BossCategoryFilters'
+import { BossCategory } from '@/features/enemies/types'
+import { FiltersContainer } from '@/features/ui/filters/FiltersContainer'
+import { SearchInput } from '@/features/ui/SearchInput'
+
+import { BossTrackerFilterFields } from '../types'
 
 export const DEFAULT_BOSS_TRACKER_FILTERS: BossTrackerFilterFields = {
   searchText: '',
@@ -154,7 +154,7 @@ export function BossTrackerFilters({ onUpdateFilters }: Props) {
       <div className="col-span-full flex w-full flex-col items-start justify-start gap-x-4 gap-y-2">
         <div className="grid w-full grid-cols-1 gap-y-4 sm:grid-cols-3 sm:gap-x-4 sm:gap-y-0">
           <div className="col-span-full flex w-full flex-col items-start justify-end">
-            <div className="text-primary-500 mb-2 text-left text-sm font-bold">
+            <div className="mb-2 text-left text-sm font-bold text-primary-500">
               Search
             </div>
             <SearchInput

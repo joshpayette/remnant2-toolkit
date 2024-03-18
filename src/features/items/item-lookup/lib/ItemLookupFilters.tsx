@@ -5,23 +5,23 @@ import { useMemo, useRef, useState } from 'react'
 import {
   CollectedItemFilters,
   DEFAULT_COLLECTION_FILTERS,
-} from '@/features/filters/components/parts/CollectedItemFilters'
-import { FiltersContainer } from '@/features/filters/components/parts/FiltersContainer'
-import { ItemCategoryFilters } from '@/features/filters/components/parts/ItemCategoryFilters'
+} from '@/features/build/filters/parts/CollectedItemFilters'
+import { ItemCategoryFilters } from '@/features/build/filters/parts/ItemCategoryFilters'
 import {
   DEFAULT_RELEASE_FILTERS,
   ReleaseFilters,
-} from '@/features/filters/components/parts/ReleaseFilters'
-import { SearchTextAutocomplete } from '@/features/filters/components/parts/SearchTextAutocomplete'
-import { parseItemLookupFilters } from '@/features/filters/lib/parseItemLookupFilters'
+} from '@/features/build/filters/parts/ReleaseFilters'
+import { SearchTextAutocomplete } from '@/features/build/filters/parts/SearchTextAutocomplete'
+import { ITEM_TAGS } from '@/features/items/constants'
+import { allItems } from '@/features/items/data/allItems'
+import { parseItemLookupFilters } from '@/features/items/item-lookup/lib/parseItemLookupFilters'
+import { itemCategories } from '@/features/items/lib/getItemCategories'
 import {
   ItemLookupCategory,
   ItemLookupFilterFields,
-} from '@/features/filters/types'
-import { ITEM_TAGS } from '@/features/items/constants'
-import { allItems } from '@/features/items/data/allItems'
-import { itemCategories } from '@/features/items/lib/getItemCategories'
-import { ReleaseKey } from '@/features/items/types'
+  ReleaseKey,
+} from '@/features/items/types'
+import { FiltersContainer } from '@/features/ui/filters/FiltersContainer'
 import { capitalize } from '@/lib/capitalize'
 
 function buildItemList(): Array<{ id: string; name: string }> {

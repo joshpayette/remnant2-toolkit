@@ -3,17 +3,19 @@
 import { useMemo, useState } from 'react'
 import { useIsClient, useLocalStorage } from 'usehooks-ts'
 
-import { remnantEnemies } from '@/features/enemies/data/remnantEnemies'
-import { BossCategory } from '@/features/enemies/types'
 import {
   BossTrackerFilters,
   DEFAULT_BOSS_TRACKER_FILTERS,
-} from '@/features/filters/components/BossTrackerFilters'
-import { BossTrackerFilterFields } from '@/features/filters/types'
+} from '@/features/enemies/boss-tracker/components/BossTrackerFilters'
+import { remnantEnemies } from '@/features/enemies/data/remnantEnemies'
+import { BossCategory } from '@/features/enemies/types'
 import { PageHeader } from '@/features/ui/PageHeader'
 
-import { ListBosses } from './ListBosses'
-import { LocalStorage } from './types'
+import { ListBosses } from '../../features/enemies/boss-tracker/components/ListBosses'
+import {
+  BossTrackerFilterFields,
+  LocalStorage,
+} from '../../features/enemies/boss-tracker/types'
 
 const allBosses = remnantEnemies
   .filter(
@@ -113,7 +115,7 @@ export default function Page() {
         title="Remnant 2 Boss Tracker"
         subtitle="Discover all the bosses in Remnant 2"
       >
-        <div className="text-primary-400 flex flex-col items-center justify-center text-4xl font-bold">
+        <div className="flex flex-col items-center justify-center text-4xl font-bold text-primary-400">
           <h2 className="text-4xl font-bold">Progress</h2>
           <span
             className="text-2xl font-bold text-white"
