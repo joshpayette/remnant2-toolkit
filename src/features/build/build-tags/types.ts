@@ -6,7 +6,6 @@ export type BuildTag = {
   colors: {
     bg: string
     hover: string
-    ring: string
     text: string
   }
 }
