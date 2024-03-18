@@ -365,7 +365,7 @@ export function Builder({
           )}
         >
           <div className="relative flex w-full flex-col items-center justify-center gap-2">
-            {isEditable ? (
+            {isEditable && !isScreenshotMode ? (
               <input
                 id="build-name"
                 type="text"
