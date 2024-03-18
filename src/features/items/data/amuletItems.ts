@@ -638,7 +638,7 @@ EXPOSED: Target receives up to 24% additional damage from all sources. Expose am
     name: 'Twisted Idol',
     imagePath: '/amulet/twisted_idol.png',
     id: '776kn2',
-    tags: ['Encumbrance'],
+    tags: ['Encumbrance', 'Damage Reduction'],
     description: `Increases Armor Effectiveness by 35% and reduces Encumbrance by 15.`,
     wikiLinks: [`https://remnant.wiki/Twisted_Idol`],
     healthPercent: 0.35,
