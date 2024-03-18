@@ -56,17 +56,6 @@ export function SaveBuildButton({ buildState, editMode }: Props) {
     }
   }
 
-  function promptForBuildName() {
-    if (buildState.name === DEFAULT_BUILD_NAME) {
-      const promptResponse = prompt(
-        'Naming your build can help it stand out! Want to give it a name?',
-      )
-      if (promptResponse !== null) {
-        buildState.name = promptResponse
-      }
-    }
-  }
-
   // If the build is being edited by the owner, show a save edit button
   if (editMode) {
     return saveInProgress ? (
@@ -86,7 +75,6 @@ export function SaveBuildButton({ buildState, editMode }: Props) {
         )}
         aria-label="Save Edits"
         onClick={async () => {
-          promptForBuildName()
           setSaveInProgress(true)
           const response = await updateBuild(JSON.stringify(buildState))
           handleResponse(response)
@@ -116,7 +104,6 @@ export function SaveBuildButton({ buildState, editMode }: Props) {
           )}
           aria-label="Save Build"
           onClick={async () => {
-            promptForBuildName()
             setSaveInProgress(true)
             const response = await createBuild(JSON.stringify(buildState))
             handleResponse(response)
