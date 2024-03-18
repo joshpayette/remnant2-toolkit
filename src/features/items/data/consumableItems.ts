@@ -183,7 +183,7 @@ export const consumableItems: ConsumableItem[] = [
   },
   {
     category: 'consumable',
-    name: 'Poisoned Ambit Ember',
+    name: 'Poisoned Ambit Ember Capsule',
     imagePath: '/consumable/poisoned_ambit_ember_capsule.png',
     saveFileSlug: 'poisonedspice',
     id: '6awni8',

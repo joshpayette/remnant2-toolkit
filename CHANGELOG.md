@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Fixed
 
 - Fixed issue with white ring appearing around build tags when exporting image
+- Fixed the name of Poisoned Ambit Ember Capsule to match the in-game name.
 
 ## 2024-03-17
 
