@@ -15,6 +15,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Adding/changing the build name now works like the other form fields on the builder, and does not require a separate save event.
 - Removed prompt asking if you want to change the name from the default name due to the confusion about the button labels.
 - Equipping a skill with no archetype will now automatically equip the archetype
+- Removed the Report Build button. This was created when it was just me managing the Toolkit, to try and catch builds with bad content. Now that the Toolkit has moderators, and an updated automatic feed of build changes that need review, this is no longer necessary.
 
 ### Fixed
 
