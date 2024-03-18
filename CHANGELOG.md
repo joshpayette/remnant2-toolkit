@@ -24,7 +24,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Fixed the name of Poisoned Ambit Ember Capsule to match the in-game name
 - Fixed issue where total weight could be negative
 - When selecting a skill in the builder, it will now filter skills to not include skills for the other archetype
-- Fixed image export issue with new build name field.
+- Fixed image export issue with new build name field
+- Twisted Idol was mistakenly increasing health rather than armor
 
 ## 2024-03-17
 
