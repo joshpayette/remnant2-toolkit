@@ -128,7 +128,10 @@ export async function updateBuild(data: string): Promise<BuildActionResponse> {
     }
 
     // If the build name has updated, send the build info to Discord
-    if (existingBuild?.name !== buildState.name && buildState.isPublic) {
+    if (
+      existingBuild?.name !== buildState.name &&
+      buildState.isPublic === true
+    ) {
       const params = getBuildNameParams({ newBuildName: buildState.name })
       await sendBuildUpdateNotification({ params, buildId: buildState.buildId })
     }
@@ -161,7 +164,7 @@ export async function updateBuild(data: string): Promise<BuildActionResponse> {
       buildState.buildLink &&
       existingBuild?.buildLink !== buildState.buildLink &&
       buildState.buildLink.trim().length > 0 &&
-      buildState.isPublic
+      buildState.isPublic === true
     ) {
       const params = getBuildReferenceLinkParams({
         referenceLink: buildState.buildLink,
