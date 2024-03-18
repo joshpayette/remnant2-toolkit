@@ -3,7 +3,7 @@
 import { useState } from 'react'
 
 import { WeightClassWithDefault } from '@/features/armor-calculator/types'
-import { FiltersContainer } from '@/features/filters/components/parts/FiltersContainer'
+import { FiltersContainer } from '@/features/ui/filters/FiltersContainer'
 import { PageHeader } from '@/features/ui/PageHeader'
 import { SelectMenu } from '@/features/ui/SelectMenu'
 
