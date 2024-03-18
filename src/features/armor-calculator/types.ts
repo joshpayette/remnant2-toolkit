@@ -8,6 +8,11 @@ export type ArmorSuggestion = {
   legs: ArmorItem
   totalArmor: number
   totalWeight: number
+  totalFireResistance: number
+  totalBleedResistance: number
+  totalShockResistance: number
+  totalToxinResistance: number
+  totalBlightResistance: number
 }
 
 export type WeightClassWithDefault = keyof typeof WEIGHT_CLASSES | 'CHOOSE'

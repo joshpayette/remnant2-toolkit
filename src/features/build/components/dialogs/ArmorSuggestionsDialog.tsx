@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { useEffect, useState } from 'react'
 
 import { getArmorSuggestions } from '@/features/armor-calculator/getArmorSuggestions'
@@ -187,7 +188,7 @@ export function ArmorSuggestionsDialog({
                     key={index}
                     className="flex w-full flex-col items-center justify-center border-t-2 border-t-primary-500 py-4"
                   >
-                    <div className="mb-4 flex w-full flex-row items-center justify-center gap-x-8">
+                    <div className="mb-2 flex w-full flex-row items-center justify-center gap-x-8">
                       <div className="flex flex-col items-center justify-center">
                         <div className="text-md font-semibold">Armor</div>
                         <div className="text-2xl font-bold text-primary-500">
@@ -205,6 +206,68 @@ export function ArmorSuggestionsDialog({
                         >
                           {suggestion.totalWeight}
                         </div>
+                      </div>
+                    </div>
+                    <div className="mb-4 flex flex-row items-center justify-center gap-x-4">
+                      <div className="flex items-center justify-center gap-x-0.5">
+                        <Image
+                          src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/status/bleed_resistance.png`}
+                          alt="Bleed Resistance"
+                          width={32}
+                          height={32}
+                          className={cn('h-6 w-6')}
+                          loading="eager"
+                          unoptimized={false}
+                        />{' '}
+                        {suggestion.totalBleedResistance}
+                      </div>
+                      <div className="flex items-center justify-center gap-x-0.5">
+                        <Image
+                          src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/status/fire_resistance.png`}
+                          alt="Fire Resistance"
+                          width={32}
+                          height={32}
+                          className={cn('h-6 w-6')}
+                          loading="eager"
+                          unoptimized={false}
+                        />{' '}
+                        {suggestion.totalFireResistance}
+                      </div>
+                      <div className="flex items-center justify-center gap-x-0.5">
+                        <Image
+                          src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/status/shock_resistance.png`}
+                          alt="Shock Resistance"
+                          width={32}
+                          height={32}
+                          className={cn('h-6 w-6')}
+                          loading="eager"
+                          unoptimized={false}
+                        />{' '}
+                        {suggestion.totalShockResistance}
+                      </div>
+                      <div className="flex items-center justify-center gap-x-0.5">
+                        <Image
+                          src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/status/toxin_resistance.png`}
+                          alt="Toxin Resistance"
+                          width={32}
+                          height={32}
+                          className={cn('h-6 w-6')}
+                          loading="eager"
+                          unoptimized={false}
+                        />{' '}
+                        {suggestion.totalToxinResistance}
+                      </div>
+                      <div className="flex items-center justify-center gap-x-0.5">
+                        <Image
+                          src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/status/blight_resistance.png`}
+                          alt="Blight Resistance"
+                          width={32}
+                          height={32}
+                          className={cn('h-6 w-6')}
+                          loading="eager"
+                          unoptimized={false}
+                        />{' '}
+                        {suggestion.totalBlightResistance}
                       </div>
                     </div>
                     <div className="flex flex-row items-center justify-center gap-x-2">

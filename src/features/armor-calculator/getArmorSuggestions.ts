@@ -1,5 +1,6 @@
 import {
   getTotalArmor,
+  getTotalResistances,
   getTotalWeight,
 } from '@/features/build/lib/getTotalValues'
 import { BuildState } from '@/features/build/types'
@@ -58,6 +59,23 @@ export function getArmorSuggestions({
 
           const totalArmor = Number(getTotalArmor(newBuildState))
           const totalWeight = Number(getTotalWeight(newBuildState))
+          const totalFireResistance = getTotalResistances(newBuildState, 'fire')
+          const totalBleedResistance = getTotalResistances(
+            newBuildState,
+            'bleed',
+          )
+          const totalShockResistance = getTotalResistances(
+            newBuildState,
+            'shock',
+          )
+          const totalToxinResistance = getTotalResistances(
+            newBuildState,
+            'toxin',
+          )
+          const totalBlightResistance = getTotalResistances(
+            newBuildState,
+            'blight',
+          )
 
           if (desiredWeightClass === 'ULTRA') {
             armorSuggestions.push({
@@ -67,6 +85,11 @@ export function getArmorSuggestions({
               gloves: gloveItem,
               totalArmor,
               totalWeight,
+              totalFireResistance,
+              totalBleedResistance,
+              totalShockResistance,
+              totalToxinResistance,
+              totalBlightResistance,
             })
           } else if (totalWeight <= maxWeight) {
             armorSuggestions.push({
@@ -76,6 +99,11 @@ export function getArmorSuggestions({
               gloves: gloveItem,
               totalArmor,
               totalWeight,
+              totalFireResistance,
+              totalBleedResistance,
+              totalShockResistance,
+              totalToxinResistance,
+              totalBlightResistance,
             })
           }
         }
