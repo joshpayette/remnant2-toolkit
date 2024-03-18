@@ -58,7 +58,7 @@ export function ItemInfoDialog({ item, open, onClose }: ItemInfoProps) {
             {item.wikiLinks?.map((link) => (
               <a
                 key={link}
-                href={`${link}#Acquisition`}
+                href={link}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-primary-500 underline hover:text-primary-700"
