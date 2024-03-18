@@ -23,7 +23,6 @@ export function LoadoutCard({ build, onRemove, onSlotChange }: Props) {
     <BuildCard
       build={build}
       isLoading={false}
-      onReportBuild={undefined}
       footerActions={
         <div className="flex items-center justify-center gap-6 p-2 text-sm">
           <ChangeLoadoutSlotButton buildId={build.id} callback={onSlotChange} />

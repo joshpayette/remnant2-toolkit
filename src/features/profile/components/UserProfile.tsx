@@ -127,7 +127,6 @@ export function UserProfile({ itemsPerPage = 8, userId }: Props) {
               <BuildCard
                 build={build}
                 isLoading={isLoading}
-                onReportBuild={undefined}
                 memberFrameEnabled={build.isMember}
                 footerActions={
                   <div className="flex items-center justify-between gap-2 p-2 text-sm">

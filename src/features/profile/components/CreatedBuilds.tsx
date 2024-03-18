@@ -126,7 +126,6 @@ export function CreatedBuilds({ itemsPerPage = 8 }: Props) {
               <BuildCard
                 build={build}
                 isLoading={isLoading}
-                onReportBuild={undefined}
                 memberFrameEnabled={false}
                 footerActions={
                   <div className="flex items-center justify-center gap-6 p-2 text-sm">

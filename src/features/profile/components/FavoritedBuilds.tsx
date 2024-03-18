@@ -137,7 +137,6 @@ export function FavoritedBuilds({ itemsPerPage = 8 }: Props) {
               <BuildCard
                 build={build}
                 isLoading={isLoading}
-                onReportBuild={undefined}
                 footerActions={
                   <div className="flex items-center justify-center gap-6 p-2 text-sm">
                     <CopyBuildUrlButton buildId={build.id} />

@@ -131,23 +131,6 @@ export const ActionButton = {
     </button>
   ),
 
-  ReportBuild: ({ onClick, active }: ButtonProps & { active: boolean }) => (
-    <button
-      onClick={onClick}
-      aria-label="Report build as inappropriate."
-      className={cn(
-        'text-md flex flex-row items-center justify-center rounded border border-transparent p-1 text-red-500 hover:text-red-300 hover:underline',
-      )}
-    >
-      <span className="mr-1 h-5 w-5">
-        {active ? <FlagIconOn /> : <FlagIconOff />}
-      </span>
-      <span className="text-md">
-        {active ? 'Build Reported' : 'Report Build'}
-      </span>
-    </button>
-  ),
-
   ShareBuild: ({ onClick }: ButtonProps) => (
     <button
       className={cn(buttonClasses, primaryButtonClasses)}

@@ -59,8 +59,6 @@ export function CommunityBuildList({ itemsPerPage = 8 }: Props) {
     itemsPerPage,
   })
 
-  const { handleReportBuild } = useBuildActions()
-
   // Fetch data
   useEffect(() => {
     const getItemsAsync = async () => {
@@ -88,34 +86,6 @@ export function CommunityBuildList({ itemsPerPage = 8 }: Props) {
     timeRange,
     setBuildListState,
   ])
-
-  async function onReportBuild(buildId: string) {
-    const reportedBuild = builds.find((build) => build.id === buildId)
-
-    if (!reportedBuild) {
-      console.error(`Could not find build with id ${buildId}, report not saved`)
-      return
-    }
-    const newReported = !reportedBuild.reported
-    const response = await handleReportBuild(
-      dbBuildToBuildState(reportedBuild),
-      newReported,
-    )
-
-    if (!response || isErrorResponse(response)) {
-      console.error(response?.errors)
-      toast.error(response?.errors?.[0])
-    } else {
-      toast.success(response.message)
-      const newBuilds = builds.map((build) => {
-        if (build.id === buildId) {
-          build.reported = newReported
-        }
-        return build
-      })
-      setBuildListState((prevState) => ({ ...prevState, builds: newBuilds }))
-    }
-  }
 
   if (!buildListFilters) {
     return <Skeleton className="min-h-[1100px] w-full" />
@@ -155,7 +125,6 @@ export function CommunityBuildList({ itemsPerPage = 8 }: Props) {
               key={build.id}
               build={build}
               isLoading={isLoading}
-              onReportBuild={onReportBuild}
               footerActions={
                 <div className="flex items-center justify-end gap-2 p-2 text-sm">
                   <Tooltip content="View Build">

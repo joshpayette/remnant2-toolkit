@@ -6,8 +6,6 @@ import { useSession } from 'next-auth/react'
 import { useRef, useState } from 'react'
 import { toast } from 'react-toastify'
 
-import { addReportForBuild } from '@/features/build/actions/addReportForBuild'
-import { removeReportForBuild } from '@/features/build/actions/removeReportForBuild'
 import { BuilderPage } from '@/features/build/components/builder/BuilderPage'
 import { ActionButton } from '@/features/build/components/buttons/ActionButton'
 import { DetailedBuildDialog } from '@/features/build/components/dialogs/DetailedBuildDialog'
@@ -185,55 +183,6 @@ export default function Page({
                 <ActionButton.DeleteBuild
                   onClick={() => handleDeleteBuild(buildState.buildId)}
                 />
-              )}
-
-              {session?.user && (
-                <>
-                  <div className="flex w-[200px] flex-col items-center justify-center gap-4 sm:items-end md:w-[150px] md:items-center">
-                    <div className="my-4 flex flex-row items-center justify-center gap-x-4 sm:my-0 sm:flex-col sm:items-start sm:gap-x-0 sm:gap-y-2">
-                      <ActionButton.ReportBuild
-                        active={buildState.reported}
-                        onClick={async () => {
-                          const newReported = !buildState.reported
-
-                          // prompt for the reason
-                          const reason = newReported
-                            ? prompt(
-                                'Please enter a reason for reporting this build.',
-                              )
-                            : null
-
-                          if (newReported && !reason) {
-                            toast.error(
-                              'You must enter a reason for reporting this build.',
-                            )
-                            return
-                          }
-
-                          const response = newReported
-                            ? await addReportForBuild(
-                                JSON.stringify({
-                                  buildId: build.id,
-                                  reason,
-                                }),
-                              )
-                            : await removeReportForBuild(
-                                JSON.stringify({ buildId: build.id }),
-                              )
-
-                          if (isErrorResponse(response)) {
-                            console.error(response.errors)
-                            toast.error(response.errors?.[0])
-                          } else {
-                            toast.success(response.message)
-                            buildState.reported = newReported
-                            router.refresh()
-                          }
-                        }}
-                      />
-                    </div>
-                  </div>
-                </>
               )}
             </>
           }

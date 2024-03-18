@@ -23,11 +23,9 @@ import { SkillItem } from '@/features/items/types/SkillItem'
 import { TraitItem } from '@/features/items/types/TraitItem'
 import { WeaponItem } from '@/features/items/types/WeaponItem'
 
-import { addReportForBuild } from '../actions/addReportForBuild'
 import { addVoteForBuild } from '../actions/addVoteForBuild'
 import { createBuild } from '../actions/createBuild'
 import { deleteBuild } from '../actions/deleteBuild'
-import { removeReportForBuild } from '../actions/removeReportForBuild'
 import { removeVoteForBuild } from '../actions/removeVoteForBuild'
 import { INITIAL_BUILD_STATE } from '../constants'
 import { getArrayOfLength } from '../lib/getArrayOfLength'
@@ -395,29 +393,6 @@ export function useBuildActions() {
     return randomBuild
   }
 
-  async function handleReportBuild(build: BuildState, newReported: boolean) {
-    // prompt for the reason
-    const reason = newReported
-      ? prompt('Please enter a reason for reporting this build.')
-      : null
-
-    if (newReported && !reason) {
-      toast.error('You must enter a reason for reporting this build.')
-      return
-    }
-
-    const response = newReported
-      ? await addReportForBuild(
-          JSON.stringify({
-            buildId: build.buildId,
-            reason,
-          }),
-        )
-      : await removeReportForBuild(JSON.stringify({ buildId: build.buildId }))
-
-    return response
-  }
-
   return {
     handleClearImageDownloadInfo,
     handleCopyBuildUrl,
@@ -426,7 +401,6 @@ export function useBuildActions() {
     handleFavoriteBuild,
     handleRandomBuild,
     handleImageExport,
-    handleReportBuild,
     isScreenshotMode: Boolean(isScreenshotMode),
     showControls: Boolean(isScreenshotMode) === false,
     imageDownloadInfo,

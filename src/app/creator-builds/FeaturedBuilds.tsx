@@ -121,7 +121,6 @@ export function FeaturedBuilds({ itemsPerPage = 8 }: Props) {
               <BuildCard
                 build={build}
                 isLoading={isLoading}
-                onReportBuild={undefined}
                 footerActions={
                   <div className="flex items-center justify-end gap-2 p-2 text-sm">
                     <Tooltip content="View Build">

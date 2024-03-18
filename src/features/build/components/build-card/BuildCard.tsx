@@ -28,7 +28,6 @@ interface Props {
   footerActions?: React.ReactNode
   isLoading: boolean
   memberFrameEnabled?: boolean
-  onReportBuild: ((buildId: string) => void) | undefined
 }
 
 export function BuildCard({
@@ -36,7 +35,6 @@ export function BuildCard({
   footerActions,
   isLoading,
   memberFrameEnabled = true,
-  onReportBuild,
 }: Props) {
   const buildState = dbBuildToBuildState(build)
   const isPopular = buildState.totalUpvotes >= POPULAR_VOTE_THRESHOLD
@@ -103,21 +101,6 @@ export function BuildCard({
                   </Link>
                 </div>
                 <div className="flex flex-row items-center justify-end gap-x-2">
-                  {onReportBuild && (
-                    <Tooltip content="Report this build">
-                      <button
-                        onClick={() => onReportBuild(build.id)}
-                        className="flex items-center justify-end text-right text-red-500"
-                        aria-label="Report this build as inappropriate"
-                      >
-                        {buildState.reported ? (
-                          <FlagIconOn className="mr-0.5 h-4 w-4" />
-                        ) : (
-                          <FlagIconOff className="mr-0.5 h-4 w-4" />
-                        )}
-                      </button>
-                    </Tooltip>
-                  )}
                   <Tooltip content="Total Favorites">
                     <button
                       className="flex items-center justify-end text-right text-yellow-500"

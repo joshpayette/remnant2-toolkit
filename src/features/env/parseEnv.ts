@@ -20,7 +20,6 @@ export const parseEnv = () => {
     WEBHOOK_BUG_REPORT: z.string(),
     WEBHOOK_COMMUNITY_BUILDS: z.string(),
     WEBHOOK_CRON_LOGS: z.string(),
-    WEBHOOK_REPORTED_CONTENT: z.string(),
   })
 
   return envSchema.parse(process.env)
