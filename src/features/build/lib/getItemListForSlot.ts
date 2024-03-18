@@ -85,7 +85,7 @@ export function getItemListForSlot(
   }
 
   // If the selected slot is a skill, try to limit
-  // skills based on the corresponding archtype
+  // skills based on the equipped archetypes
   if (selectedItem.category === 'skill') {
     const skillItems = unequippedItems.filter(
       (item) => item.category === 'skill',
@@ -96,13 +96,29 @@ export function getItemListForSlot(
     const archetype =
       buildState.items.archetype[selectedItem.index]?.name.toLowerCase()
 
-    if (!archetype) return skillItems
+    const otherArchetypeIndex = selectedItem.index === 0 ? 1 : 0
+    const otherArchetype =
+      buildState.items.archetype[otherArchetypeIndex]?.name.toLowerCase()
+
+    if (!archetype && !otherArchetype) return skillItems
 
     const itemsForArchetype = skillItems.filter(
       (item) => item.linkedItems?.archetype?.name.toLowerCase() === archetype,
     )
 
-    return itemsForArchetype
+    const itemsForOtherArchetype = skillItems.filter(
+      (item) =>
+        item.linkedItems?.archetype?.name.toLowerCase() === otherArchetype,
+    )
+
+    // If current archetype is empty, then all skill items can be returned
+    const finalSkillList =
+      itemsForArchetype.length === 0 ? skillItems : itemsForArchetype
+
+    // remove itemsForOtherArchetype from itemsForArchetype
+    return finalSkillList.filter(
+      (item) => !itemsForOtherArchetype.find((i) => i.id === item.id),
+    )
   }
 
   // If the selected slot is an archetype, try to limit
