@@ -16,6 +16,7 @@ import { ItemInfoDialog } from '@/features/items/components/ItemInfoDialog'
 import { perkItems } from '@/features/items/data/perkItems'
 import { Archetype, Item } from '@/features/items/types'
 import { TraitItem } from '@/features/items/types/TraitItem'
+import { Input } from '@/features/ui/Input'
 import { Logo } from '@/features/ui/Logo'
 import { cn } from '@/lib/classnames'
 
@@ -24,10 +25,10 @@ import {
   MAX_BUILD_TAGS,
   POPULAR_VOTE_THRESHOLD,
 } from '../../constants'
+import { stripUnicode } from '../../lib/stripUnicode'
 import { FeaturedBuildBadge } from '../build-card/FeaturedBuildBadge'
 import { NewBuildBadge } from '../build-card/NewBuildBadge'
 import { ItemSelect } from '../dialogs/ItemSelect'
-import { BuilderName } from './BuilderName'
 import { MemberFeatures } from './MemberFeatures'
 import { Stats } from './stats/Stats'
 import { Traits } from './Traits'
@@ -78,9 +79,6 @@ export function Builder({
 
   /** If the item category is null, modal is closed */
   const isItemSelectModalOpen = Boolean(selectedItemSlot.category)
-
-  //Tracks whether the build name is editable or not.
-  const [isEditingBuildName, setIsEditingBuildName] = useState(false)
 
   // Tracks the item that the user is viewing information for
   const [infoItem, setInfoItem] = useState<Item | null>(null)
@@ -244,11 +242,10 @@ export function Builder({
     setSelectedItemSlot({ category, index })
   }
 
-  function handleUpdateBuildName(newBuildName: string) {
+  function handleChangeBuildName(newBuildName: string) {
     if (!isEditable) return
     if (!onUpdateBuildState) return
     onUpdateBuildState({ category: 'name', value: newBuildName })
-    setIsEditingBuildName(false)
   }
 
   function handleRemoveTrait(traitItem: TraitItem) {
@@ -368,17 +365,31 @@ export function Builder({
             (isPopular || isNew || buildState.isFeaturedBuild) && 'mb-10 pb-6',
           )}
         >
-          <BuilderName
-            isEditable={isEditable}
-            isEditingBuildName={isEditingBuildName}
-            isScreenshotMode={isScreenshotMode}
-            onClick={() => setIsEditingBuildName(true)}
-            onClose={(newBuildName: string) =>
-              handleUpdateBuildName(newBuildName)
-            }
-            name={buildState.name}
-            showControls={showControls}
-          />
+          <div className="relative flex w-full flex-col items-center justify-center gap-2">
+            {isEditable ? (
+              <input
+                id="build-name"
+                type="text"
+                onChange={(e) => handleChangeBuildName(e.target.value)}
+                className="block w-full rounded-md border-2 border-secondary-500 bg-white/5 py-2 text-center text-2xl text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-secondary-500"
+                placeholder="My Build"
+                value={buildState.name}
+              />
+            ) : (
+              <div className="mb-2 flex w-full items-center justify-center gap-2">
+                <span className="sr-only">{stripUnicode(buildState.name)}</span>
+                <h2
+                  aria-hidden="true"
+                  className={cn(
+                    'whitespace-normal text-center text-2xl font-bold text-white sm:text-4xl',
+                    isScreenshotMode && 'text-4xl',
+                  )}
+                >
+                  {buildState.name}
+                </h2>
+              </div>
+            )}
+          </div>
           {showCreatedBy && (
             <div className="mb-2 flex items-center justify-center text-sm text-gray-400">
               <span>
