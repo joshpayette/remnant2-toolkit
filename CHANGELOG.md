@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-03-18
+
+### Added
+
+- Added Dried Fruit to item list.
+
 ## 2024-03-17
 
 ### Added

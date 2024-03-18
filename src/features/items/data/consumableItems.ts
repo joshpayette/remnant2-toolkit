@@ -86,6 +86,15 @@ export const consumableItems: ConsumableItem[] = [
   },
   {
     category: 'consumable',
+    name: 'Dried Fruit',
+    imagePath: '/consumable/dried_fruit.png',
+    id: 'Y8ey65',
+    tags: ['Heal'],
+    description: `Regenerates 5% Health instantly.`,
+    wikiLinks: [`https://remnant.wiki/Dried_Fruit`],
+  },
+  {
+    category: 'consumable',
     name: 'Ethereal Orb',
     imagePath: '/consumable/ethereal_orb.png',
     id: 'ffjbc9',

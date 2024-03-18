@@ -1,5 +1,3 @@
-import Link from 'next/link'
-
 import { Dialog } from '@/features/ui/Dialog'
 import { Skeleton } from '@/features/ui/Skeleton'
 
