@@ -23,8 +23,6 @@ import { INITIAL_BUILD_STATE } from '../constants'
 import { buildStateToCsvData } from '../lib/buildStateToCsvData'
 import { buildStateToMasonryItems } from '../lib/buildStateToMasonryItems'
 import { cleanUpBuildState } from '../lib/cleanUpBuildState'
-import { linkArchetypesToTraits } from '../lib/linkArchetypesToTraits'
-import { linkWeaponsToMods } from '../lib/linkWeaponsToMods'
 import { vashUrlToBuild } from '../vash-integration/vashUrlToBuild'
 
 /**
@@ -47,7 +45,8 @@ export function useUrlBuildState() {
   const parsedBuild = isVashBuild
     ? vashUrlToBuild(searchParams)
     : parseQueryString(searchParams)
-  const urlBuildState = linkArchetypesToTraits(linkWeaponsToMods(parsedBuild))
+
+  const urlBuildState = cleanUpBuildState(parsedBuild)
 
   /**
    * Converts the build state to CSV data.
@@ -286,9 +285,9 @@ export function useUrlBuildState() {
       }
     })
 
-    cleanUpBuildState(buildState)
+    const cleanedBuildState = cleanUpBuildState(buildState)
 
-    return buildState
+    return cleanedBuildState
   }
 
   return { csvItems, masonryItems, urlBuildState, updateUrlBuildState }

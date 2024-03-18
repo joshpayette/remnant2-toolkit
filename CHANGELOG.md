@@ -14,6 +14,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Adding/changing the build name now works like the other form fields on the builder, and does not require a separate save event.
 - Removed prompt asking if you want to change the name from the default name due to the confusion about the button labels.
+- Equipping a skill with no archetype will now automatically equip the archetype
 
 ### Fixed
 

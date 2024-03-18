@@ -5,7 +5,7 @@ import { DEFAULT_TRAIT_AMOUNT } from '../constants'
 import { BuildState } from '../types'
 
 /**
- * Checks the build archtypes and equips any traints
+ * Checks the build archtypes and equips any traits
  * that are linked to them
  */
 export function linkArchetypesToTraits(buildState: BuildState) {

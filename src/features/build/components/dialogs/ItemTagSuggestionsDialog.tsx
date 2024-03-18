@@ -19,6 +19,8 @@ import { WeaponItem } from '@/features/items/types/WeaponItem'
 import { Dialog } from '@/features/ui/Dialog'
 import { SelectMenu } from '@/features/ui/SelectMenu'
 
+import { cleanUpBuildState } from '../../lib/cleanUpBuildState'
+
 /**
  * Combines the tags found in item.descriptions, as well as the item.tags
  * Returns a full list of all of them in alphabetical order
@@ -743,8 +745,7 @@ export function ItemTagSuggestionsDialog({
       newBuildState.items.skill[1] = null
     }
 
-    newBuildState = linkArchetypesToTraits(newBuildState)
-    newBuildState = linkWeaponsToMods(newBuildState)
+    newBuildState = cleanUpBuildState(newBuildState)
 
     onApplySuggestions(newBuildState)
   }

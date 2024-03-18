@@ -187,12 +187,9 @@ export function useDBBuildState(INITIAL_BUILD_STATE: BuildState) {
       },
     }
 
-    cleanUpBuildState(newBuildState)
+    const cleanBuildState = cleanUpBuildState(newBuildState)
 
-    const linkedBuildState = linkArchetypesToTraits(
-      linkWeaponsToMods(newBuildState),
-    )
-    setDBBuildState(linkedBuildState)
+    setDBBuildState(cleanBuildState)
   }
 
   function setNewBuildState(buildState: BuildState) {

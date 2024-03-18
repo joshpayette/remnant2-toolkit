@@ -4,6 +4,9 @@ import { TraitItem } from '@/features/items/types/TraitItem'
 
 import { BuildState } from '../types'
 import { getConcoctionSlotCount } from './getConcoctionSlotCount'
+import { linkArchetypesToTraits } from './linkArchetypesToTraits'
+import { linkSkillsToArchetypes } from './linkSkillsToArchetypes'
+import { linkWeaponsToMods } from './linkWeaponsToMods'
 
 /**
  * When a build is updated or loaded, this function is called to ensure
@@ -12,7 +15,7 @@ import { getConcoctionSlotCount } from './getConcoctionSlotCount'
  *   - Cleans up excess concotions that may still be equipped
  *   - Ensures the minimum required trait points are equipped
  */
-export function cleanUpBuildState(buildState: BuildState) {
+export function cleanUpBuildState(buildState: BuildState): BuildState {
   // Look at each mod and if it is linked to the wrong weapon, remove it
   buildState.items.mod = buildState.items.mod.map((mod, index) => {
     if (mod?.linkedItems?.weapon) {
@@ -42,7 +45,7 @@ export function cleanUpBuildState(buildState: BuildState) {
   const primaryArchetype = buildState.items.archetype[0]
   if (primaryArchetype) {
     const archetypeTraits = primaryArchetype.linkedItems?.traits
-    if (!archetypeTraits) return
+    if (!archetypeTraits) return buildState
 
     const archetypeTraitItems = traitItems.filter(
       (item) =>
@@ -80,4 +83,13 @@ export function cleanUpBuildState(buildState: BuildState) {
       }
     }
   }
+
+  // link weapons to mods
+  buildState = linkWeaponsToMods(buildState)
+  // link skills to archetypes
+  buildState = linkSkillsToArchetypes(buildState)
+  // link archetypes to traits
+  buildState = linkArchetypesToTraits(buildState)
+
+  return buildState
 }
