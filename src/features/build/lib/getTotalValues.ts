@@ -389,7 +389,7 @@ export function getTotalWeight(buildState: BuildState) {
   )
 
   const totalWeight = totalWeightIncrease * (1 + totalWeightPercent)
-  return totalWeight.toFixed(2)
+  return totalWeight < 0 ? '0.00' : totalWeight.toFixed(2)
 }
 
 export function getWeightClass(buildState: BuildState) {
