@@ -46,7 +46,7 @@ function parseStringForToken(input: string): (JSX.Element | string)[] | null {
 
   const regex = new RegExp(
     `(${allTokens.map((token) => escapeRegExp(token)).join('|')})`,
-    'g',
+    'gi',
   )
 
   const wordsAndSpaces = input.split(regex)
@@ -65,6 +65,8 @@ function parseStringForToken(input: string): (JSX.Element | string)[] | null {
       const item = allItems.find(
         (item) => item.name.toLowerCase() === wordOrSpace.trim().toLowerCase(),
       )
+
+      console.info('item', item)
 
       const buildTag = ALL_BUILD_TAGS.find(
         (tag) => tag.label === wordOrSpace.trim(),
