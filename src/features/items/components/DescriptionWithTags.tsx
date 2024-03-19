@@ -66,8 +66,6 @@ function parseStringForToken(input: string): (JSX.Element | string)[] | null {
         (item) => item.name.toLowerCase() === wordOrSpace.trim().toLowerCase(),
       )
 
-      console.info('item', item)
-
       const buildTag = ALL_BUILD_TAGS.find(
         (tag) => tag.label === wordOrSpace.trim(),
       )
