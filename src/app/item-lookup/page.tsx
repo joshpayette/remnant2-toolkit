@@ -1,6 +1,6 @@
 'use client'
 
-import { Suspense } from 'react'
+import { Suspense, useRef } from 'react'
 
 import { ToCsvButton } from '@/features/csv/ToCsvButton'
 import { allItems } from '@/features/items/data/allItems'
@@ -39,6 +39,8 @@ const csvItems = allItems
     return 0
   })
 export default function Page() {
+  const itemListRef = useRef<HTMLDivElement>(null)
+
   return (
     <div className="relative flex w-full flex-col items-center justify-center">
       <PageHeader
@@ -53,11 +55,14 @@ export default function Page() {
       <div className="flex w-full flex-col items-center">
         <div className="w-full max-w-4xl">
           <Suspense fallback={<Skeleton className="h-[497px] w-full" />}>
-            <ItemLookupFilters />
+            <ItemLookupFilters itemListRef={itemListRef} />
           </Suspense>
         </div>
 
-        <div className="mt-12 flex w-full items-center justify-center">
+        <div
+          className="mt-12 flex w-full items-center justify-center"
+          ref={itemListRef}
+        >
           <Suspense fallback={<Skeleton className="h-[50px] w-full" />}>
             <ItemList />
           </Suspense>

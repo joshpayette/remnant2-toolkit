@@ -1,6 +1,6 @@
 import isEqual from 'lodash.isequal'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
-import { useMemo, useRef, useState } from 'react'
+import { RefObject, useEffect, useMemo, useRef, useState } from 'react'
 
 import {
   CollectedItemFilters,
@@ -71,9 +71,11 @@ export const DEFAULT_ITEM_LOOKUP_FILTERS: ItemLookupFilterFields = {
   selectedReleases: DEFAULT_RELEASE_FILTERS,
 }
 
-interface Props {}
+interface Props {
+  itemListRef: RefObject<HTMLDivElement>
+}
 
-export function ItemLookupFilters({}: Props) {
+export function ItemLookupFilters({ itemListRef }: Props) {
   const router = useRouter()
   const pathname = usePathname()
 
@@ -109,6 +111,13 @@ export function ItemLookupFilters({}: Props) {
         DEFAULT_ITEM_LOOKUP_FILTERS['selectedReleases'].length
     )
   }, [filters])
+
+  useEffect(() => {
+    // scroll to itemListRef when filters are applied
+    if (areAnyFiltersActive) {
+      itemListRef.current?.scrollIntoView({ behavior: 'instant' })
+    }
+  }, [areAnyFiltersActive, itemListRef])
 
   function handleClearFilters() {
     handleApplyFilters(DEFAULT_ITEM_LOOKUP_FILTERS)
