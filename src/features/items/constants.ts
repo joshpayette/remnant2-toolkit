@@ -407,42 +407,6 @@ export const DESCRIPTION_TAGS = [
     color: 'text-[#05baf9]',
     description: `Elemental: Burning, Corroded, Overloaded.`,
   },
-  {
-    type: 'Melee',
-    token: 'MELEE',
-    color: 'text-yellow-500',
-    description: undefined,
-  },
-  {
-    type: 'Ranged',
-    token: 'RANGED',
-    color: 'text-green-500',
-    description: undefined,
-  },
-  {
-    type: 'Mods',
-    token: 'MODS',
-    color: 'text-blue-500',
-    description: undefined,
-  },
-  {
-    type: 'Skills',
-    token: 'SKILLS',
-    color: 'text-indigo-500',
-    description: undefined,
-  },
-  {
-    type: 'Support',
-    token: 'SUPPORT',
-    color: 'text-pink-500',
-    description: undefined,
-  },
-  {
-    type: 'Tank',
-    token: 'TANK',
-    color: 'text-red-500',
-    description: undefined,
-  },
 ] as const satisfies {
   type: string
   token: string
