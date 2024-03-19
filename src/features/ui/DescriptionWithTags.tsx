@@ -1,3 +1,7 @@
+import { ReactNode } from 'react'
+import reactStringReplace from 'react-string-replace'
+import { v4 as uuidv4 } from 'uuid'
+
 import { ALL_BUILD_TAGS } from '@/features/build/build-tags/constants'
 import { stripUnicode } from '@/features/build/lib/stripUnicode'
 import { Tooltip } from '@/features/ui/Tooltip'
@@ -5,116 +9,99 @@ import { cn } from '@/lib/classnames'
 
 import { DESCRIPTION_TAGS } from '../items/constants'
 import { allItems } from '../items/data/allItems'
-import { DescriptionTag } from '../items/types'
-
-function createDescriptionTagElement(
-  tag: DescriptionTag,
-  index: number,
-  partIndex: number,
-  token: string,
-): JSX.Element {
-  const key = `${index}-${partIndex}-${token}`
-  if (tag.description) {
-    return (
-      <Tooltip key={key} content={tag.description}>
-        <button
-          className={cn('font-semibold', tag.color)}
-          aria-label={tag.description}
-        >
-          {token}
-        </button>
-      </Tooltip>
-    )
-  } else {
-    return (
-      <span key={key} className={cn('font-semibold', tag.color)}>
-        {token}
-      </span>
-    )
-  }
-}
 
 function parseStringForToken(
   input: string,
   highlightItems: boolean,
   highlightBuildTags: boolean,
-): (JSX.Element | string)[] | null {
+): ReactNode[] {
   // Escape special characters in the tokens
   const escapeRegExp = (string: string) =>
     string.replace(/[.*+\-?^${}()|[\]\\]/g, '\\$&') // $& means the whole matched string
 
   // Start with all Description Tags, which are always included
-  let allTokens: string[] = [...DESCRIPTION_TAGS.map((tag) => tag.token)]
-
-  if (highlightItems) {
-    allTokens = [
-      ...allTokens,
-      ...allItems
-        .filter((i) => i.category !== 'relicfragment')
-        .map((item) => item.name.toLowerCase()),
-    ]
-  }
-
-  if (highlightBuildTags) {
-    allTokens = [...allTokens, ...ALL_BUILD_TAGS.map((tag) => tag.label)]
-  }
-
-  const regex = new RegExp(
-    `(${allTokens.map((token) => escapeRegExp(token)).join('|')})`,
+  const allDescriptionTokens: string[] = [
+    ...DESCRIPTION_TAGS.map((tag) => tag.token),
+  ]
+  const allDesriptionTokensRegex = new RegExp(
+    `(${allDescriptionTokens.map((token) => escapeRegExp(token)).join('|')})`,
     'gi',
   )
 
-  const wordsAndSpaces = input.split(regex)
-
-  const result = wordsAndSpaces.flatMap((wordOrSpace, index) => {
-    if (wordOrSpace.trim() === '') {
-      // If it's a space, return it as is
-      return wordOrSpace
-    } else {
-      // If it's a word, check if it's a tag.token
-      const tag = DESCRIPTION_TAGS.find(
-        (tag) => tag.token === wordOrSpace.trim(),
-      )
-
-      // check if it's an item
-      const item = allItems.find(
-        (item) => item.name.toLowerCase() === wordOrSpace.trim().toLowerCase(),
-      )
-
-      // check if it's a build tag
-      const buildTag = ALL_BUILD_TAGS.find(
-        (tag) => tag.label === wordOrSpace.trim(),
-      )
-
-      if (tag) {
-        // If it's a tag.token, wrap it with a tooltip component
-        const tagElement = createDescriptionTagElement(tag, index, 0, tag.token)
-        return tagElement
-      } else if (item) {
-        // if it's an item, bold it
+  let replacedText = reactStringReplace(
+    input,
+    allDesriptionTokensRegex,
+    (match, i) => {
+      const tag = DESCRIPTION_TAGS.find((tag) => tag.token === match)
+      if (!tag) return match
+      const key = `${i}-${match}-${uuidv4()}`
+      if (tag.description) {
         return (
-          <span key={index} className="font-bold">
-            {item.name}
-          </span>
-        )
-      } else if (buildTag) {
-        // if it's a build tag, apply the text color
-        return (
-          <span
-            key={index}
-            className={cn('font-semibold', buildTag.colors.text)}
-          >
-            {buildTag.label}
-          </span>
+          <Tooltip key={key} content={tag.description}>
+            <button
+              className={cn('font-semibold', tag.color)}
+              aria-label={tag.description}
+            >
+              {tag.token}
+            </button>
+          </Tooltip>
         )
       } else {
-        // If it doesn't match any tokens or tags, return it as is
-        return wordOrSpace
+        return (
+          <span key={key} className={cn('font-semibold', tag.color)}>
+            {tag.token}
+          </span>
+        )
       }
-    }
-  })
+    },
+  )
 
-  return result.length > 0 ? result : null
+  if (highlightItems) {
+    const allItemTokens = allItems.map((item) => item.name.toLowerCase())
+    const allItemTokensRegex = new RegExp(
+      `(${allItemTokens.map((token) => escapeRegExp(token)).join('|')})`,
+      'gi',
+    )
+
+    replacedText = reactStringReplace(
+      replacedText,
+      allItemTokensRegex,
+      (match, i) => {
+        return (
+          <span key={`${match}-${i}-${uuidv4()}`} className="font-bold">
+            {match}
+          </span>
+        )
+      },
+    )
+  }
+
+  if (highlightBuildTags) {
+    const allBuildTags = ALL_BUILD_TAGS.map((tag) => tag.label)
+    const allBuildTagsRegex = new RegExp(
+      `(${allBuildTags.map((token) => escapeRegExp(token)).join('|')})`,
+      'gi',
+    )
+
+    replacedText = reactStringReplace(
+      replacedText,
+      allBuildTagsRegex,
+      (match, i) => {
+        const tag = ALL_BUILD_TAGS.find((tag) => tag.label === match)
+        if (!tag) return match
+        return (
+          <span
+            key={`${match}-${i}-${tag}-${uuidv4()}`}
+            className={cn('font-semibold', tag.colors.text)}
+          >
+            {match}
+          </span>
+        )
+      },
+    )
+  }
+
+  return replacedText
 }
 
 interface Props {
