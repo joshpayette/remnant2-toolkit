@@ -76,8 +76,25 @@ export function getArmorSuggestions({
             newBuildState,
             'blight',
           )
+          const buildHasDullSteelRing = newBuildState.items.ring.some(
+            (ring) => ring?.id === 's76ytc',
+          )
 
           if (desiredWeightClass === 'ULTRA') {
+            armorSuggestions.push({
+              helm: helmItem,
+              torso: torsoItem,
+              legs: legItem,
+              gloves: gloveItem,
+              totalArmor,
+              totalWeight,
+              totalFireResistance,
+              totalBleedResistance,
+              totalShockResistance,
+              totalToxinResistance,
+              totalBlightResistance,
+            })
+          } else if (desiredWeightClass === 'HEAVY' && buildHasDullSteelRing) {
             armorSuggestions.push({
               helm: helmItem,
               torso: torsoItem,

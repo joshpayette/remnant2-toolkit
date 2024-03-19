@@ -9,7 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Changed
 
 - Item names are now bolded in build descriptions.
-- Build Tags are automatically find and colorized in the build descriptions.
+- Build Tags are automatically found and colorized in the build descriptions.
 - Reordered the links on the home page and the Builds nav menu.
 - DescriptionWithTags component now allows you to specify which tags to include/exclude.
 
@@ -17,6 +17,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Removed highlighting of relic fragments in descriptions, they are too vaguely named.
 - Fixed bug where Ultra weight class was not being lowered to Heavy weight class when wearing Dull Steel Ring.
+- Fixed bug in Armor Calculator where Heavy weight class was not offering Ultra weight class suggestions when wearing Dull Steel Ring.
 
 ### Removed
 
