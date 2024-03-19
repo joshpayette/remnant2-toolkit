@@ -66,6 +66,31 @@ export function NavBar() {
                 <Menu.Item>
                   {({ active }) => (
                     <Link
+                      href={
+                        status === 'loading' || status === 'authenticated'
+                          ? NAV_ITEMS.createBuild.href
+                          : '/builder'
+                      }
+                      className={cn(
+                        active ? 'bg-gray-800' : '',
+                        'flex w-full flex-row items-start justify-start p-2 text-sm font-semibold text-white',
+                      )}
+                    >
+                      <div className="mr-4 w-[20px]">
+                        <NAV_ITEMS.createBuild.icon className="h-5 w-5 text-primary-600" />
+                      </div>
+                      <div className="flex flex-col items-start justify-start gap-y-1">
+                        {NAV_ITEMS.createBuild.label}
+                        <p className="text-xs font-normal text-gray-400">
+                          {NAV_ITEMS.createBuild.description}
+                        </p>
+                      </div>
+                    </Link>
+                  )}
+                </Menu.Item>
+                <Menu.Item>
+                  {({ active }) => (
+                    <Link
                       href={NAV_ITEMS.featuredBuilds.href}
                       className={cn(
                         active ? 'bg-gray-800' : '',
@@ -100,32 +125,6 @@ export function NavBar() {
                         {NAV_ITEMS.communityBuilds.label}
                         <p className="text-xs font-normal text-gray-400">
                           {NAV_ITEMS.communityBuilds.description}
-                        </p>
-                      </div>
-                    </Link>
-                  )}
-                </Menu.Item>
-
-                <Menu.Item>
-                  {({ active }) => (
-                    <Link
-                      href={
-                        status === 'loading' || status === 'authenticated'
-                          ? NAV_ITEMS.createBuild.href
-                          : '/builder'
-                      }
-                      className={cn(
-                        active ? 'bg-gray-800' : '',
-                        'flex w-full flex-row items-start justify-start p-2 text-sm font-semibold text-white',
-                      )}
-                    >
-                      <div className="mr-4 w-[20px]">
-                        <NAV_ITEMS.createBuild.icon className="h-5 w-5 text-primary-600" />
-                      </div>
-                      <div className="flex flex-col items-start justify-start gap-y-1">
-                        {NAV_ITEMS.createBuild.label}
-                        <p className="text-xs font-normal text-gray-400">
-                          {NAV_ITEMS.createBuild.description}
                         </p>
                       </div>
                     </Link>
@@ -391,6 +390,27 @@ export function NavBar() {
             <div className="-my-6">
               <div className="space-y-2 py-6">
                 <Link
+                  href={
+                    status === 'loading' || status === 'authenticated'
+                      ? NAV_ITEMS.createBuild.href
+                      : '/builder'
+                  }
+                  className="flex flex-row items-center justify-start"
+                >
+                  <NAV_ITEMS.createBuild.icon
+                    className="mr-2 h-7 w-5 flex-none text-primary-600"
+                    aria-hidden="true"
+                  />
+                  <div className="flex flex-col items-start justify-start px-3 py-2">
+                    {NAV_ITEMS.createBuild.label}
+
+                    <p className="text-xs text-gray-400">
+                      {NAV_ITEMS.createBuild.description}
+                    </p>
+                  </div>
+                </Link>
+
+                <Link
                   href={NAV_ITEMS.featuredBuilds.href}
                   className="flex flex-row items-center justify-start"
                 >
@@ -420,27 +440,6 @@ export function NavBar() {
 
                     <p className="text-xs text-gray-400">
                       {NAV_ITEMS.communityBuilds.description}
-                    </p>
-                  </div>
-                </Link>
-
-                <Link
-                  href={
-                    status === 'loading' || status === 'authenticated'
-                      ? NAV_ITEMS.createBuild.href
-                      : '/builder'
-                  }
-                  className="flex flex-row items-center justify-start"
-                >
-                  <NAV_ITEMS.createBuild.icon
-                    className="mr-2 h-7 w-5 flex-none text-primary-600"
-                    aria-hidden="true"
-                  />
-                  <div className="flex flex-col items-start justify-start px-3 py-2">
-                    {NAV_ITEMS.createBuild.label}
-
-                    <p className="text-xs text-gray-400">
-                      {NAV_ITEMS.createBuild.description}
                     </p>
                   </div>
                 </Link>
