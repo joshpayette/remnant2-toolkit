@@ -27,6 +27,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - When selecting a skill in the builder, it will now filter skills to not include skills for the other archetype
 - Fixed image export issue with new build name field
 - Twisted Idol was mistakenly increasing health rather than armor
+- Fixed an issue where the armor calculator was not accounting for weight threshold items and traits (thank you, darkdragn!)
 
 ## 2024-03-17
 

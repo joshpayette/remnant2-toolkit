@@ -392,9 +392,7 @@ export function getTotalWeight(buildState: BuildState) {
   return totalWeight < 0 ? '0.00' : totalWeight.toFixed(2)
 }
 
-export function getWeightClass(buildState: BuildState) {
-  let totalWeight = Number(getTotalWeight(buildState))
-
+export function getWeightThreshold(buildState: BuildState) {
   const equippedWeightThresholdItems = getItemsByKey(
     buildState,
     'weightThreshold',
@@ -408,14 +406,21 @@ export function getWeightClass(buildState: BuildState) {
     (acc, item) => acc + (item?.weightThreshold ?? 0),
     0,
   )
-  const totalWeightThresholdTrait =
-    equippedWeightThresholdTraits.reduce(
-      (acc, item) => acc + (item.weightThresholds?.[item.amount - 1] ?? 0),
-      0,
-    ) || 0
+  const totalWeightThresholdTrait = equippedWeightThresholdTraits.reduce(
+    (acc, item) => acc + (item.weightThresholds?.[item.amount - 1] ?? 0),
+    0,
+  )
 
   const combinedWeightThreshold =
     totalWeightThreshold + totalWeightThresholdTrait
+
+  return combinedWeightThreshold
+}
+
+export function getWeightClass(buildState: BuildState) {
+  const combinedWeightThreshold = Number(getWeightThreshold(buildState))
+
+  let totalWeight = Number(getTotalWeight(buildState))
 
   let weightClass = WEIGHT_CLASSES.LIGHT
   if (totalWeight > WEIGHT_CLASSES.LIGHT.maxWeight + combinedWeightThreshold) {

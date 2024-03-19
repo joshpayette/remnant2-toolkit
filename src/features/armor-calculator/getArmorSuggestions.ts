@@ -2,6 +2,7 @@ import {
   getTotalArmor,
   getTotalResistances,
   getTotalWeight,
+  getWeightThreshold,
 } from '@/features/build/lib/getTotalValues'
 import { BuildState } from '@/features/build/types'
 import { WEIGHT_CLASSES } from '@/features/items/constants'
@@ -59,6 +60,7 @@ export function getArmorSuggestions({
 
           const totalArmor = Number(getTotalArmor(newBuildState))
           const totalWeight = Number(getTotalWeight(newBuildState))
+          const totalWeightThreshold = Number(getWeightThreshold(newBuildState))
           const totalFireResistance = getTotalResistances(newBuildState, 'fire')
           const totalBleedResistance = getTotalResistances(
             newBuildState,
@@ -91,7 +93,7 @@ export function getArmorSuggestions({
               totalToxinResistance,
               totalBlightResistance,
             })
-          } else if (totalWeight <= maxWeight) {
+          } else if (totalWeight <= maxWeight + totalWeightThreshold) {
             armorSuggestions.push({
               helm: helmItem,
               torso: torsoItem,
