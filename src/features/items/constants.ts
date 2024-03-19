@@ -115,7 +115,7 @@ export const DESCRIPTION_TAGS = [
     type: 'Acid',
     token: 'ACID',
     color: 'text-[#589961]',
-    description: 'Elemental Damage',
+    description: 'Elemental Damage.',
   },
   {
     type: 'Alchemist',
@@ -153,7 +153,7 @@ export const DESCRIPTION_TAGS = [
     type: 'Burning',
     token: 'BURNING',
     color: 'text-[#b65d30]',
-    description: 'Can make enemies panic.', // Have no good source on the secondary effect.
+    description: 'Elemental damage. Can make enemies panic.', // Have no good source on the secondary effect.
   },
   {
     type: 'Bulwark',
@@ -185,7 +185,7 @@ export const DESCRIPTION_TAGS = [
     type: 'Corrosive',
     token: 'CORROSIVE',
     color: 'text-[#589961]',
-    description: 'Elemental Damage',
+    description: 'Elemental Damage.',
   },
   {
     type: 'Crit Damage',
@@ -218,7 +218,7 @@ export const DESCRIPTION_TAGS = [
     type: 'Defrag',
     token: 'DEFRAG',
     color: 'text-[#ede6e6]',
-    description: 'Physical Damage',
+    description: 'Physical Damage.',
   },
   {
     type: 'Engineer',
@@ -242,7 +242,7 @@ export const DESCRIPTION_TAGS = [
     type: 'Fire',
     token: 'FIRE',
     color: 'text-[#cc5500]',
-    description: 'Elemental Damage',
+    description: 'Elemental Damage.',
   },
   {
     type: 'Frenzied',
@@ -349,7 +349,7 @@ export const DESCRIPTION_TAGS = [
     type: 'Shock',
     token: 'SHOCK',
     color: 'text-[#5c5cce]',
-    description: 'Elemental Damage',
+    description: 'Elemental Damage.',
   },
   {
     type: 'Slow',
@@ -373,13 +373,13 @@ export const DESCRIPTION_TAGS = [
   {
     type: 'Status Effects',
     token: 'Status Effects',
-    color: 'text-[#05baf9]',
+    color: 'text-purple-400',
     description: `Elemental: Burning, Corroded, Overloaded. Physical: Bleeding.`,
   },
   {
     type: 'Status Effect',
     token: 'Status Effect',
-    color: 'text-[#05baf9]',
+    color: 'text-purple-400',
     description: `Elemental: Burning, Corroded, Overloaded. Physical: Bleeding.`,
   },
   {
@@ -392,13 +392,13 @@ export const DESCRIPTION_TAGS = [
   {
     type: 'Negative Status Effects',
     token: 'Negative Status Effects',
-    color: 'text-[#05baf9]',
+    color: 'text-purple-400',
     description: `Elemental: Burning, Corroded, Overloaded. Physical: Bleeding.`,
   },
   {
     type: 'Negative Status Effect',
     token: 'Negative Status Effect',
-    color: 'text-[#05baf9]',
+    color: 'text-purple-400',
     description: `Elemental: Burning, Corroded, Overloaded. Physical: Bleeding.`,
   },
   {
@@ -406,6 +406,42 @@ export const DESCRIPTION_TAGS = [
     token: 'Elemental Status Effects',
     color: 'text-[#05baf9]',
     description: `Elemental: Burning, Corroded, Overloaded.`,
+  },
+  {
+    type: 'Melee',
+    token: 'MELEE',
+    color: 'text-yellow-500',
+    description: undefined,
+  },
+  {
+    type: 'Ranged',
+    token: 'RANGED',
+    color: 'text-green-500',
+    description: undefined,
+  },
+  {
+    type: 'Mods',
+    token: 'MODS',
+    color: 'text-blue-500',
+    description: undefined,
+  },
+  {
+    type: 'Skills',
+    token: 'SKILLS',
+    color: 'text-indigo-500',
+    description: undefined,
+  },
+  {
+    type: 'Support',
+    token: 'SUPPORT',
+    color: 'text-pink-500',
+    description: undefined,
+  },
+  {
+    type: 'Tank',
+    token: 'TANK',
+    color: 'text-red-500',
+    description: undefined,
   },
 ] as const satisfies {
   type: string
