@@ -112,13 +112,6 @@ export function ItemLookupFilters({ itemListRef }: Props) {
     )
   }, [filters])
 
-  useEffect(() => {
-    // scroll to itemListRef when filters are applied
-    if (areAnyFiltersActive) {
-      itemListRef.current?.scrollIntoView({ behavior: 'instant' })
-    }
-  }, [areAnyFiltersActive, itemListRef])
-
   function handleClearFilters() {
     handleApplyFilters(DEFAULT_ITEM_LOOKUP_FILTERS)
     setUnappliedFilters(DEFAULT_ITEM_LOOKUP_FILTERS)

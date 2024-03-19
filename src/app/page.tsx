@@ -5,8 +5,6 @@ import Link from 'next/link'
 import { getTotalBuildCount } from '@/features/build/actions/getTotalBuildCount'
 import { NAV_ITEMS } from '@/features/navigation/constants'
 
-import { HomePageSearch } from './HomePageSearch'
-
 export default async function Page() {
   const totalBuildCount = await getTotalBuildCount()
 
@@ -84,12 +82,31 @@ export default async function Page() {
               collectibles!
             </p>
           </div>
-          <div className="mt-8 w-full items-center justify-center">
-            <div className="mx-auto w-full max-w-2xl">
-              <HomePageSearch />
-            </div>
-          </div>
           <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-6 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-8">
+            <Link
+              href={NAV_ITEMS.createBuild.href}
+              key={NAV_ITEMS.createBuild.label}
+              className="flex min-h-[200px] flex-row gap-x-4 rounded-xl border border-transparent bg-white/5 p-6 ring-1 ring-inset ring-white/10 hover:border-primary-500"
+            >
+              <NAV_ITEMS.createBuild.icon
+                className="h-7 w-7 flex-none text-primary-500"
+                aria-hidden="true"
+              />
+              <div className="relative w-full">
+                <p className="text-lg font-bold leading-7">
+                  {NAV_ITEMS.createBuild.label}
+                </p>
+                <div className="mt-2 text-gray-300 ">
+                  {NAV_ITEMS.createBuild.description}
+                </div>
+                <div className="absolute bottom-0 right-0 mt-4 flex w-full items-center justify-end">
+                  <ArrowRightIcon
+                    className="h-6 w-6 text-primary-500 hover:text-primary-300"
+                    aria-hidden="true"
+                  />
+                </div>
+              </div>
+            </Link>
             <Link
               href={NAV_ITEMS.featuredBuilds.href}
               key={NAV_ITEMS.featuredBuilds.label}
@@ -139,68 +156,20 @@ export default async function Page() {
               </div>
             </Link>
             <Link
-              href={NAV_ITEMS.createBuild.href}
-              key={NAV_ITEMS.createBuild.label}
+              href={NAV_ITEMS.itemLookup.href}
+              key={NAV_ITEMS.itemLookup.label}
               className="flex min-h-[200px] flex-row gap-x-4 rounded-xl border border-transparent bg-white/5 p-6 ring-1 ring-inset ring-white/10 hover:border-primary-500"
             >
-              <NAV_ITEMS.createBuild.icon
+              <NAV_ITEMS.itemLookup.icon
                 className="h-7 w-7 flex-none text-primary-500"
                 aria-hidden="true"
               />
               <div className="relative w-full">
                 <p className="text-lg font-bold leading-7">
-                  {NAV_ITEMS.createBuild.label}
+                  {NAV_ITEMS.itemLookup.label}
                 </p>
                 <div className="mt-2 text-gray-300 ">
-                  {NAV_ITEMS.createBuild.description}
-                </div>
-                <div className="absolute bottom-0 right-0 mt-4 flex w-full items-center justify-end">
-                  <ArrowRightIcon
-                    className="h-6 w-6 text-primary-500 hover:text-primary-300"
-                    aria-hidden="true"
-                  />
-                </div>
-              </div>
-            </Link>
-            <Link
-              href={NAV_ITEMS.myBuilds.href}
-              key={NAV_ITEMS.myBuilds.label}
-              className="flex min-h-[200px] flex-row gap-x-4 rounded-xl border border-transparent bg-white/5 p-6 ring-1 ring-inset ring-white/10 hover:border-primary-500"
-            >
-              <NAV_ITEMS.myBuilds.icon
-                className="h-7 w-7 flex-none text-primary-500"
-                aria-hidden="true"
-              />
-              <div className="relative w-full">
-                <p className="text-lg font-bold leading-7">
-                  {NAV_ITEMS.myBuilds.label}
-                </p>
-                <div className="mt-2 text-gray-300 ">
-                  {NAV_ITEMS.myBuilds.description}
-                </div>
-                <div className="absolute bottom-0 right-0 mt-4 flex w-full items-center justify-end">
-                  <ArrowRightIcon
-                    className="h-6 w-6 text-primary-500 hover:text-primary-300"
-                    aria-hidden="true"
-                  />
-                </div>
-              </div>
-            </Link>
-            <Link
-              href={NAV_ITEMS.bossTracker.href}
-              key={NAV_ITEMS.bossTracker.label}
-              className="flex min-h-[200px] flex-row gap-x-4 rounded-xl border border-transparent bg-white/5 p-6 ring-1 ring-inset ring-white/10 hover:border-primary-500"
-            >
-              <NAV_ITEMS.bossTracker.icon
-                className="h-7 w-7 flex-none text-primary-500"
-                aria-hidden="true"
-              />
-              <div className="relative w-full">
-                <p className="text-lg font-bold leading-7">
-                  {NAV_ITEMS.bossTracker.label}
-                </p>
-                <div className="mt-2 text-gray-300 ">
-                  {NAV_ITEMS.bossTracker.description}
+                  {NAV_ITEMS.itemLookup.description}
                 </div>
                 <div className="absolute bottom-0 right-0 mt-4 flex w-full items-center justify-end">
                   <ArrowRightIcon
@@ -235,20 +204,20 @@ export default async function Page() {
               </div>
             </Link>
             <Link
-              href={NAV_ITEMS.itemLookup.href}
-              key={NAV_ITEMS.itemLookup.label}
+              href={NAV_ITEMS.bossTracker.href}
+              key={NAV_ITEMS.bossTracker.label}
               className="flex min-h-[200px] flex-row gap-x-4 rounded-xl border border-transparent bg-white/5 p-6 ring-1 ring-inset ring-white/10 hover:border-primary-500"
             >
-              <NAV_ITEMS.itemLookup.icon
+              <NAV_ITEMS.bossTracker.icon
                 className="h-7 w-7 flex-none text-primary-500"
                 aria-hidden="true"
               />
               <div className="relative w-full">
                 <p className="text-lg font-bold leading-7">
-                  {NAV_ITEMS.itemLookup.label}
+                  {NAV_ITEMS.bossTracker.label}
                 </p>
                 <div className="mt-2 text-gray-300 ">
-                  {NAV_ITEMS.itemLookup.description}
+                  {NAV_ITEMS.bossTracker.description}
                 </div>
                 <div className="absolute bottom-0 right-0 mt-4 flex w-full items-center justify-end">
                   <ArrowRightIcon

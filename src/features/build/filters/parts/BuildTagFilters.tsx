@@ -1,6 +1,6 @@
 import { BUILD_TAG } from '@prisma/client'
 
-import { ALL_TAGS } from '@/features/build/build-tags/constants'
+import { ALL_BUILD_TAGS } from '@/features/build/build-tags/constants'
 import { Checkbox } from '@/features/ui/Checkbox'
 import { capitalize } from '@/lib/capitalize'
 
@@ -9,7 +9,7 @@ export type BuildTagFilterItem = {
   value: BUILD_TAG
 }
 
-const allTags: BuildTagFilterItem[] = ALL_TAGS.map((tag) => ({
+const allTags: BuildTagFilterItem[] = ALL_BUILD_TAGS.map((tag) => ({
   label: capitalize(tag.label),
   value: tag.value,
 }))
