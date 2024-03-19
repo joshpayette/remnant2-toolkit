@@ -371,7 +371,7 @@ EXPOSED: Target receives up to 24% additional damage from all sources. Expose am
     imagePath: '/amulet/legacy_protocol.png',
     id: 'a7axvo',
     tags: ['Reduce Skill Cooldown', 'Skill Duration'],
-    description: `Lowers skill cooldown by 20% and increases skill duration by 25%`,
+    description: `Reduces Skill Cooldowns by 20% and increases Skill Duration by 15%`,
     wikiLinks: [`https://remnant.wiki/Legacy_Protocol`],
   },
   {

@@ -28,6 +28,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Fixed image export issue with new build name field
 - Twisted Idol was mistakenly increasing health rather than armor
 - Fixed an issue where the armor calculator was not accounting for weight threshold items and traits (thank you, darkdragn!)
+- Fixed improper description for Legacy Protocol
 
 ## 2024-03-17
 
