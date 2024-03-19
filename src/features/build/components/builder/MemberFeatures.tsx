@@ -5,7 +5,7 @@ import { BuildTags } from '@prisma/client'
 import build from 'next/dist/build'
 import { useSession } from 'next-auth/react'
 
-import { DescriptionWithTags } from '@/features/items/components/DescriptionWithTags'
+import { DescriptionWithTags } from '@/features/ui/DescriptionWithTags'
 import { Input } from '@/features/ui/Input'
 import { Skeleton } from '@/features/ui/Skeleton'
 import { Textarea } from '@/features/ui/Textarea'

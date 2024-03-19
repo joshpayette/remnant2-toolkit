@@ -6,6 +6,7 @@ import { toast } from 'react-toastify'
 
 import { cn } from '@/lib/classnames'
 
+import { DescriptionWithTags } from '../../ui/DescriptionWithTags'
 import { cleanItemName } from '../lib/cleanItemName'
 import { Item } from '../types'
 import { ArchetypeItem } from '../types/ArchetypeItem'
@@ -17,7 +18,6 @@ import { SkillItem } from '../types/SkillItem'
 import { TraitItem } from '../types/TraitItem'
 import { WeaponItem } from '../types/WeaponItem'
 import { ArmorInfo } from './ArmorInfo'
-import { DescriptionWithTags } from './DescriptionWithTags'
 import { WeaponInfo } from './WeaponInfo'
 
 interface Props {

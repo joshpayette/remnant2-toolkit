@@ -3,9 +3,9 @@ import { stripUnicode } from '@/features/build/lib/stripUnicode'
 import { Tooltip } from '@/features/ui/Tooltip'
 import { cn } from '@/lib/classnames'
 
-import { DESCRIPTION_TAGS } from '../constants'
-import { allItems } from '../data/allItems'
-import { DescriptionTag } from '../types'
+import { DESCRIPTION_TAGS } from '../items/constants'
+import { allItems } from '../items/data/allItems'
+import { DescriptionTag } from '../items/types'
 
 function createTagElement(
   tag: DescriptionTag,
