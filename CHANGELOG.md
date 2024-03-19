@@ -16,6 +16,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Fixed
 
 - Removed highlighting of relic fragments in descriptions, they are too vaguely named.
+- Fixed bug where Ultra weight class was not being lowered to Heavy weight class when wearing Dull Steel Ring.
 
 ### Removed
 
