@@ -57,15 +57,15 @@ function parseStringForToken(
   )
 
   if (highlightItems) {
-    const allItemTokens = allItems.map((item) => item.name.toLowerCase())
-    const allItemTokensRegex = new RegExp(
-      `(${allItemTokens.map((token) => escapeRegExp(token)).join('|')})`,
+    const allItemNames = allItems.map((item) => item.name.toLowerCase())
+    const allItemNamesRegex = new RegExp(
+      `(${allItemNames.map((token) => escapeRegExp(token)).join('|')})`,
       'gi',
     )
 
     replacedText = reactStringReplace(
       replacedText,
-      allItemTokensRegex,
+      allItemNamesRegex,
       (match, i) => {
         return (
           <span key={`${match}-${i}-${uuidv4()}`} className="font-bold">
