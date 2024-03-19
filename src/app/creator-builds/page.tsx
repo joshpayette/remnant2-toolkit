@@ -10,7 +10,7 @@ export default async function Page() {
     <>
       <PageHeader
         title="Featured builds"
-        subtitle="Popular creator builds from the community"
+        subtitle="A curated list of high quality, community submitted builds."
       />
 
       <div className="mb-8 flex w-full max-w-3xl items-center justify-center">
