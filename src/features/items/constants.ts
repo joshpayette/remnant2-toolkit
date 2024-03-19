@@ -74,6 +74,7 @@ export const ARCHTYPE_COLORS = {
   },
 }
 
+
 export const WEIGHT_CLASSES = {
   LIGHT: {
     challengerDescription: 'Fast Dodge. No Stamina Cost Penalty.',
@@ -102,7 +103,7 @@ export const WEIGHT_CLASSES = {
     textColor: 'text-[#ff0000]',
     maxWeight: -1,
   },
-}
+} as const
 
 export const RELEASE_TO_NAME = {
   base: 'Base Game',
@@ -190,13 +191,15 @@ export const DESCRIPTION_TAGS = [
     type: 'Crit Damage',
     token: 'Crit Damage',
     color: 'text-red-500',
-    description: 'Base 50%. Critical Damage is multiplicative with different sources of damage.',
+    description:
+      'Base 50%. Critical Damage is multiplicative with different sources of damage.',
   },
   {
     type: 'Critical Damage',
     token: 'Critical Damage',
     color: 'text-red-500',
-    description: 'Base 50%. Critical Damage is multiplicative with different sources of damage.',
+    description:
+      'Base 50%. Critical Damage is multiplicative with different sources of damage.',
   },
   {
     type: 'Curse',
@@ -383,7 +386,8 @@ export const DESCRIPTION_TAGS = [
     type: 'Weakspot Damage',
     token: 'Weakspot Damage',
     color: 'text-red-500',
-    description: 'Weakspot Damage is multiplicative with different sources of damage.',
+    description:
+      'Weakspot Damage is multiplicative with different sources of damage.',
   },
   {
     type: 'Negative Status Effects',
@@ -403,7 +407,6 @@ export const DESCRIPTION_TAGS = [
     color: 'text-[#05baf9]',
     description: `Elemental: Burning, Corroded, Overloaded.`,
   },
-
 ] as const satisfies {
   type: string
   token: string

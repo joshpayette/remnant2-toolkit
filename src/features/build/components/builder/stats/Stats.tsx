@@ -2,14 +2,12 @@ import { InformationCircleIcon } from '@heroicons/react/24/solid'
 import Image from 'next/image'
 import { useState } from 'react'
 
-import {
-  getTotalArmor,
-  getTotalHealth,
-  getTotalResistances,
-  getTotalStamina,
-  getTotalWeight,
-  getWeightClass,
-} from '@/features/build/lib/getTotalValues'
+import { getTotalArmor } from '@/features/build/lib/get-totals/getTotalArmor'
+import { getTotalHealth } from '@/features/build/lib/get-totals/getTotalHealth'
+import { getTotalResistances } from '@/features/build/lib/get-totals/getTotalResistances'
+import { getTotalStamina } from '@/features/build/lib/get-totals/getTotalStamina'
+import { getTotalWeight } from '@/features/build/lib/get-totals/getTotalWeight'
+import { getWeightClass } from '@/features/build/lib/get-totals/getWeightClass'
 import { BuildState } from '@/features/build/types'
 import { buildToVashUrl } from '@/features/build/vash-integration/buildToVashUrl'
 import { Tooltip } from '@/features/ui/Tooltip'

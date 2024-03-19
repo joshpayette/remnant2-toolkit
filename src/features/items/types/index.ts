@@ -157,3 +157,10 @@ export interface ItemLookupFilterFields {
   searchText: string
   selectedReleases: ReleaseKey[]
 }
+
+export type WeightClass = {
+  challengerDescription: string
+  description: string
+  textColor: string
+  maxWeight: number
+}

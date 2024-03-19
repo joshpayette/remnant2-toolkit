@@ -1,13 +1,11 @@
-import {
-  getTotalArmor,
-  getTotalResistances,
-  getTotalWeight,
-  getWeightThreshold,
-} from '@/features/build/lib/getTotalValues'
 import { BuildState } from '@/features/build/types'
 import { WEIGHT_CLASSES } from '@/features/items/constants'
 import { ArmorItem } from '@/features/items/types/ArmorItem'
 
+import { getTotalArmor } from '../build/lib/get-totals/getTotalArmor'
+import { getTotalResistances } from '../build/lib/get-totals/getTotalResistances'
+import { getTotalWeight } from '../build/lib/get-totals/getTotalWeight'
+import { getWeightThreshold } from '../build/lib/get-totals/getWeightThreshold'
 import { armorItems } from '../items/data/armorItems'
 import { ArmorSuggestion } from './types'
 

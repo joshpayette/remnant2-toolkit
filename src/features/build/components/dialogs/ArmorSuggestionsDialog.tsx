@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import { getArmorSuggestions } from '@/features/armor-calculator/getArmorSuggestions'
 import {
   ArmorSuggestion,
-  WeightClassWithDefault,
+  WeightClassKeysWithDefault,
 } from '@/features/armor-calculator/types'
 import { BuildState } from '@/features/build/types'
 import { ItemButton } from '@/features/items/components/ItemButton'
@@ -40,7 +40,7 @@ export function ArmorSuggestionsDialog({
   const isItemInfoOpen = Boolean(itemInfo)
 
   const [desiredWeightClass, setDesiredWeightClass] =
-    useState<WeightClassWithDefault>('CHOOSE')
+    useState<WeightClassKeysWithDefault>('CHOOSE')
 
   const [armorSuggestions, setArmorSuggestions] = useState<ArmorSuggestion[]>(
     [],
@@ -85,7 +85,7 @@ export function ArmorSuggestionsDialog({
       buildState.items.legs,
   )
 
-  function handleWeightClassChange(weightClass: WeightClassWithDefault) {
+  function handleWeightClassChange(weightClass: WeightClassKeysWithDefault) {
     if (weightClass === 'CHOOSE') {
       setArmorSuggestions([])
       return
@@ -143,7 +143,9 @@ export function ArmorSuggestionsDialog({
             { label: 'Ultra', value: 'ULTRA' },
           ]}
           onChange={(e) =>
-            handleWeightClassChange(e.target.value as WeightClassWithDefault)
+            handleWeightClassChange(
+              e.target.value as WeightClassKeysWithDefault,
+            )
           }
           value={desiredWeightClass}
         />

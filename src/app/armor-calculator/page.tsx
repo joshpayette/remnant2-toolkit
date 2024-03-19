@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 
-import { WeightClassWithDefault } from '@/features/armor-calculator/types'
+import { WeightClassKeysWithDefault } from '@/features/armor-calculator/types'
 import { FiltersContainer } from '@/features/ui/filters/FiltersContainer'
 import { PageHeader } from '@/features/ui/PageHeader'
 import { SelectMenu } from '@/features/ui/SelectMenu'
@@ -10,7 +10,7 @@ import { SelectMenu } from '@/features/ui/SelectMenu'
 // TODO Add note about using the tool from the build page for more build specific armor suggestions
 
 type Filters = {
-  selectedWeightTier: WeightClassWithDefault
+  selectedWeightTier: WeightClassKeysWithDefault
 }
 
 const DEFAULT_FILTERS: Filters = {
@@ -58,7 +58,8 @@ export default function Page() {
               onChange={(e) =>
                 setUnappliedFilters({
                   ...unappliedFilters,
-                  selectedWeightTier: e.target.value as WeightClassWithDefault,
+                  selectedWeightTier: e.target
+                    .value as WeightClassKeysWithDefault,
                 })
               }
               value={unappliedFilters.selectedWeightTier}

@@ -15,4 +15,4 @@ export type ArmorSuggestion = {
   totalBlightResistance: number
 }
 
-export type WeightClassWithDefault = keyof typeof WEIGHT_CLASSES | 'CHOOSE'
+export type WeightClassKeysWithDefault = keyof typeof WEIGHT_CLASSES | 'CHOOSE'
