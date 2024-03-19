@@ -73,10 +73,10 @@ export function SearchTextAutocomplete({
       <div className="relative mt-2">
         <Combobox.Input
           className={cn(
-            'w-full rounded-md border-2 border-secondary-700 bg-black py-1.5 pl-3 pr-10 text-primary-300 shadow-sm ring-1 ring-secondary-700 focus:border-secondary-500 focus:outline-none focus:ring-1 focus:ring-secondary-500',
+            'w-full rounded-md border-2 border-secondary-700 bg-black py-1.5 pl-3 pr-10 text-gray-300 shadow-sm ring-1 ring-secondary-700 focus:border-secondary-500 focus:outline-none focus:ring-1 focus:ring-secondary-500',
             size === 'sm'
               ? 'text-sm'
-              : 'h-[50px] border-primary-700 text-center text-2xl ring-primary-700 focus:border-primary-500 focus:ring-primary-500',
+              : 'h-[50px] border-primary-700 text-center text-2xl text-primary-300 ring-primary-700 focus:border-primary-500 focus:ring-primary-500',
           )}
           onChange={(event) => onChange(event.target.value)}
           displayValue={(item: Item) => item?.name}
