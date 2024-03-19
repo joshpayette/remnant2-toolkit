@@ -5,8 +5,6 @@ import Link from 'next/link'
 import { getTotalBuildCount } from '@/features/build/actions/getTotalBuildCount'
 import { NAV_ITEMS } from '@/features/navigation/constants'
 
-import { HomePageSearch } from './HomePageSearch'
-
 export default async function Page() {
   const totalBuildCount = await getTotalBuildCount()
 
@@ -83,11 +81,6 @@ export default async function Page() {
               to start creating builds, searching for builds, or tracking your
               collectibles!
             </p>
-          </div>
-          <div className="mt-8 w-full items-center justify-center">
-            <div className="mx-auto w-full max-w-2xl">
-              <HomePageSearch />
-            </div>
           </div>
           <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-6 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-8">
             <Link

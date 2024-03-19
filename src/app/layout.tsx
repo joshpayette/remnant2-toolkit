@@ -44,7 +44,7 @@ export default async function RootLayout({
           <div className="fixed bottom-[8px] right-[52px] z-20">
             <ReportBugButton />
           </div>
-          <div className="bg-secondary-900 w-full p-1 text-center text-sm">
+          {/* <div className="bg-secondary-900 w-full p-1 text-center text-sm">
             <a
               href="https://remnant.wiki"
               target="_blank"
@@ -55,7 +55,7 @@ export default async function RootLayout({
             </a>
             , a community-built alternative to Fextralife, needs contributors!
             No ads or embedded streams. Thank you!
-          </div>
+          </div> */}
           <div className="flex w-full max-w-7xl grow flex-col items-start justify-start">
             <header className="w-full">
               <NavBar />
