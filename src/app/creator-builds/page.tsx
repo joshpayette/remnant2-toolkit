@@ -2,6 +2,7 @@
 
 import { FeaturedBuilds } from '@/app/creator-builds/FeaturedBuilds'
 import { BuildListFilters } from '@/features/build/filters/BuildListFilters'
+import { NAV_ITEMS } from '@/features/navigation/constants'
 import { DEFAULT_ITEMS_PER_PAGE } from '@/features/pagination/constants'
 import { PageHeader } from '@/features/ui/PageHeader'
 
@@ -10,7 +11,7 @@ export default async function Page() {
     <>
       <PageHeader
         title="Featured builds"
-        subtitle="A curated list of high quality, community submitted builds."
+        subtitle={NAV_ITEMS.featuredBuilds.description}
       />
 
       <div className="mb-8 flex w-full max-w-3xl items-center justify-center">

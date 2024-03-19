@@ -1,8 +1,6 @@
 'use client'
 
-import { FlagIcon as FlagIconOff } from '@heroicons/react/24/outline'
 import { StarIcon } from '@heroicons/react/24/solid'
-import { FlagIcon as FlagIconOn } from '@heroicons/react/24/solid'
 import Link from 'next/link'
 
 import { POPULAR_VOTE_THRESHOLD } from '@/features/build/constants'

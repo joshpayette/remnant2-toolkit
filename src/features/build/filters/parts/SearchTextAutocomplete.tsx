@@ -1,6 +1,6 @@
 import { Combobox } from '@headlessui/react'
 import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/24/solid'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import { cn } from '@/lib/classnames'
 
@@ -14,12 +14,16 @@ interface Props {
   onKeyDown?: () => void
   items: Item[]
   value: string
+  showLabel?: boolean
+  size?: 'sm' | 'lg'
 }
 
 export function SearchTextAutocomplete({
   onChange,
   onKeyDown,
   items,
+  showLabel = true,
+  size = 'sm',
   value,
 }: Props) {
   const [selectedItem, setSelectedItem] = useState<Item | null>(
@@ -30,6 +34,11 @@ export function SearchTextAutocomplete({
           name: value,
         },
   )
+
+  useEffect(() => {
+    if (!selectedItem) return
+    if (selectedItem.name === value && onKeyDown) onKeyDown()
+  }, [selectedItem, onKeyDown, value])
 
   const filteredItems =
     value === ''
@@ -44,27 +53,35 @@ export function SearchTextAutocomplete({
       value={selectedItem}
       onChange={(item) => {
         if (item) {
+          setSelectedItem(item)
           onChange(item.name)
-          if (onKeyDown) onKeyDown()
         }
-        setSelectedItem(item)
       }}
       onKeyDown={(e: React.KeyboardEvent<HTMLElement>) => {
         if (e.key === 'Enter') {
           if (onKeyDown) onKeyDown()
         }
       }}
-      className="w-full"
+      className={cn('w-full', size === 'lg' && 'shadow-lg shadow-primary-500')}
       nullable
     >
-      <Combobox.Label className="text-primary-500 block text-sm font-bold leading-6">
-        Search Text
-      </Combobox.Label>
+      {showLabel && (
+        <Combobox.Label className="block text-sm font-bold leading-6 text-primary-500">
+          Search Text
+        </Combobox.Label>
+      )}
       <div className="relative mt-2">
         <Combobox.Input
-          className="border-secondary-600 ring-secondary-600 focus:ring-secondary-600 w-full rounded-md border bg-black py-1.5 pl-3 pr-10 text-sm text-gray-300 shadow-sm ring-1 ring-inset focus:ring-2 focus:ring-inset sm:leading-6"
+          className={cn(
+            'w-full rounded-md border-2 border-secondary-700 bg-black py-1.5 pl-3 pr-10 text-gray-300 shadow-sm ring-1 ring-secondary-700 focus:border-secondary-500 focus:outline-none focus:ring-1 focus:ring-secondary-500',
+            size === 'sm'
+              ? 'text-sm'
+              : 'h-[50px] border-primary-700 text-center text-2xl ring-primary-700 focus:border-primary-500 focus:ring-primary-500',
+          )}
           onChange={(event) => onChange(event.target.value)}
           displayValue={(item: Item) => item?.name}
+          autoFocus={true}
+          placeholder="Search for an item or tag"
         />
         <Combobox.Button className="absolute inset-y-0 right-0 flex items-center rounded-r-md px-2 focus:outline-none">
           <ChevronUpDownIcon

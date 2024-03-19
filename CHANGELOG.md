@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Added Dried Fruit to item list
 - Added resistances to armor calculator suggestions
+- Added item search box on the front page
 
 ### Changed
 

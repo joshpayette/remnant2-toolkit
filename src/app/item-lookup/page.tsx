@@ -4,13 +4,12 @@ import { Suspense } from 'react'
 
 import { ToCsvButton } from '@/features/csv/ToCsvButton'
 import { allItems } from '@/features/items/data/allItems'
+import { ItemList } from '@/features/items/item-lookup/components/ItemList'
 import { ItemLookupFilters } from '@/features/items/item-lookup/lib/ItemLookupFilters'
 import { itemToCsvItem } from '@/features/items/lib/itemToCsvItem'
 import { MutatorItem } from '@/features/items/types/MutatorItem'
 import { PageHeader } from '@/features/ui/PageHeader'
 import { Skeleton } from '@/features/ui/Skeleton'
-
-import { ItemList } from '../../features/items/item-lookup/components/ItemList'
 
 const csvItems = allItems
   // Modify the data for use. Adds a discovered flag,
