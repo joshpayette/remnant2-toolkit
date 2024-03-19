@@ -1,6 +1,6 @@
 import { BuildTag } from './types'
 
-export const ALL_TAGS: BuildTag[] = [
+export const ALL_BUILD_TAGS: BuildTag[] = [
   {
     label: 'Melee',
     value: 'Melee',

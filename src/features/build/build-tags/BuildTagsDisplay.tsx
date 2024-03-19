@@ -4,7 +4,7 @@ import { cn } from '@/lib/classnames'
 
 import { MAX_BUILD_TAGS } from '../constants'
 import { BuildTagItem } from './BuildTagItem'
-import { ALL_TAGS } from './constants'
+import { ALL_BUILD_TAGS } from './constants'
 import { BuildTag } from './types'
 
 interface Props {
@@ -64,7 +64,7 @@ export function BuildTagsDisplay({
           !showLabel && 'justify-center sm:justify-center',
         )}
       >
-        {ALL_TAGS.map((tag, index) => {
+        {ALL_BUILD_TAGS.map((tag, index) => {
           const isActive = buildTags.some((t) => t.tag === tag.value)
 
           if (!isEditable && !isActive) return null

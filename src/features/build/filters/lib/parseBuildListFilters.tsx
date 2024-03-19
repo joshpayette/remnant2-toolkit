@@ -1,7 +1,7 @@
 import { BUILD_TAG } from '@prisma/client'
 import { ReadonlyURLSearchParams } from 'next/navigation'
 
-import { ALL_TAGS } from '@/features/build/build-tags/constants'
+import { ALL_BUILD_TAGS } from '@/features/build/build-tags/constants'
 import { RELEASE_TO_NAME } from '@/features/items/constants'
 import { amuletItems } from '@/features/items/data/amuletItems'
 import { archetypeItems } from '@/features/items/data/archetypeItems'
@@ -44,7 +44,7 @@ export function parseBuildListFilters(
   }
   // check if buildtags are valid
   if (buildTags) {
-    const allTagValues = ALL_TAGS.map((tag) => tag.value)
+    const allTagValues = ALL_BUILD_TAGS.map((tag) => tag.value)
     const buildTagsArray = buildTags.split(',')
     buildTagsArray.forEach((tag) => {
       if (!allTagValues.includes(tag as BUILD_TAG)) {
