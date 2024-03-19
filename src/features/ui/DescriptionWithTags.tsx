@@ -7,7 +7,7 @@ import { DESCRIPTION_TAGS } from '../items/constants'
 import { allItems } from '../items/data/allItems'
 import { DescriptionTag } from '../items/types'
 
-function createTagElement(
+function createDescriptionTagElement(
   tag: DescriptionTag,
   index: number,
   partIndex: number,
@@ -88,7 +88,7 @@ function parseStringForToken(
 
       if (tag) {
         // If it's a tag.token, wrap it with a tooltip component
-        const tagElement = createTagElement(tag, index, 0, tag.token)
+        const tagElement = createDescriptionTagElement(tag, index, 0, tag.token)
         return tagElement
       } else if (item) {
         // if it's an item, bold it
