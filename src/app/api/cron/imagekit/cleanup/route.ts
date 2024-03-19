@@ -33,7 +33,7 @@ export async function GET(request: NextRequest) {
 
     // Purge the cache
     await imagekit.purgeCache(
-      'https://ik.imagekit.io/remnant2toolkit/build-uploads/*',
+      'https://ik.imagekit.io/remnant2toolkit/build-uploads*',
     )
 
     console.info('Purged cache for build-uploads')
