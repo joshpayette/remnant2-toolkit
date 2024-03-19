@@ -153,7 +153,7 @@ export const DESCRIPTION_TAGS = [
     type: 'Burning',
     token: 'BURNING',
     color: 'text-[#b65d30]',
-    description: 'Elemental damage. Can make enemies panic.', // Have no good source on the secondary effect.
+    description: 'Deals elemental FIRE damage. Can make enemies panic.', // Have no good source on the secondary effect.
   },
   {
     type: 'Bulwark',
