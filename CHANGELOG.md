@@ -4,6 +4,18 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-03-19
+
+### Changed
+
+- Item names are now bolded in build descriptions.
+- Build Tags are automatically find and colorized in the build descriptions.
+- Reordered the links on the home page and the Builds nav menu.
+
+### Removed
+
+- Was there an item search bar on the front page? Must have been a fever dream.
+
 ## 2024-03-18
 
 ### Added

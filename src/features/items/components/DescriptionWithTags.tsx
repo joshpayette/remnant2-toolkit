@@ -1,8 +1,10 @@
+import { ALL_BUILD_TAGS } from '@/features/build/build-tags/constants'
 import { stripUnicode } from '@/features/build/lib/stripUnicode'
 import { Tooltip } from '@/features/ui/Tooltip'
 import { cn } from '@/lib/classnames'
 
 import { DESCRIPTION_TAGS } from '../constants'
+import { allItems } from '../data/allItems'
 import { DescriptionTag } from '../types'
 
 function createTagElement(
@@ -35,8 +37,15 @@ function createTagElement(
 function parseStringForToken(input: string): (JSX.Element | string)[] | null {
   const escapeRegExp = (string: string) =>
     string.replace(/[.*+\-?^${}()|[\]\\]/g, '\\$&') // $& means the whole matched string
+
+  const allTokens = [
+    ...DESCRIPTION_TAGS.map((tag) => tag.token),
+    ...allItems.map((item) => item.name.toLowerCase()),
+    ...ALL_BUILD_TAGS.map((tag) => tag.label),
+  ]
+
   const regex = new RegExp(
-    `(${DESCRIPTION_TAGS.map((tag) => escapeRegExp(tag.token)).join('|')})`,
+    `(${allTokens.map((token) => escapeRegExp(token)).join('|')})`,
     'g',
   )
 
@@ -51,10 +60,35 @@ function parseStringForToken(input: string): (JSX.Element | string)[] | null {
       const tag = DESCRIPTION_TAGS.find(
         (tag) => tag.token === wordOrSpace.trim(),
       )
+
+      // check if it's an item
+      const item = allItems.find(
+        (item) => item.name.toLowerCase() === wordOrSpace.trim().toLowerCase(),
+      )
+
+      const buildTag = ALL_BUILD_TAGS.find(
+        (tag) => tag.label === wordOrSpace.trim(),
+      )
+
       if (tag) {
         // If it's a tag.token, return it as a JSX element
         const tagElement = createTagElement(tag, index, 0, tag.token)
         return tagElement
+      } else if (item) {
+        return (
+          <span key={index} className="font-bold">
+            {item.name}
+          </span>
+        )
+      } else if (buildTag) {
+        return (
+          <span
+            key={index}
+            className={cn('font-semibold', buildTag.colors.text)}
+          >
+            {buildTag.label}
+          </span>
+        )
       } else {
         // If it's not a tag.token, return it as is
         return wordOrSpace
