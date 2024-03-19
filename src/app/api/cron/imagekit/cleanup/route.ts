@@ -18,7 +18,7 @@ export async function GET(request: NextRequest) {
 
     // Get all files created over an hour ago
     const files = await imagekit.listFiles({
-      path: 'build-uploads',
+      path: 'build-uploads-temp',
       searchQuery: 'createdAt < "1h"',
     })
 
@@ -33,10 +33,10 @@ export async function GET(request: NextRequest) {
 
     // Purge the cache
     await imagekit.purgeCache(
-      'https://ik.imagekit.io/remnant2toolkit/build-uploads*',
+      'https://ik.imagekit.io/remnant2toolkit/build-uploads-temp*',
     )
 
-    console.info('Purged cache for build-uploads')
+    console.info('Purged cache for build-uploads-temp')
 
     // Trigger webhook
     const params = {
