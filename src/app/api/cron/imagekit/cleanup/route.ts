@@ -22,44 +22,21 @@ export async function GET(request: NextRequest) {
       searchQuery: 'createdAt < "1h"',
     })
 
-    const fileIds = files.map((file) => file.fileId)
+    if (files.length > 0) {
+      const fileIds = files.map((file) => file.fileId)
 
-    if (fileIds.length === 0) {
-      console.info('No files to delete')
+      // Delete each file
+      await imagekit.bulkDeleteFiles(fileIds)
 
-      // Trigger webhook
-      const params = {
-        embeds: [
-          {
-            title: `ImageKit Image Cleanup Script Succeeded`,
-            color: 0x00ff00,
-            fields: [
-              {
-                name: 'Last Run',
-                value: new Date().toLocaleString('en-US', {
-                  timeZone: 'America/New_York',
-                }),
-              },
-            ],
-          },
-        ],
-      }
-
-      await fetch(`${process.env.WEBHOOK_CRON_LOGS}`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(params),
-      })
-
-      return Response.json({ success: true })
+      console.info('Deleted files:', fileIds.join(', '))
     }
 
-    // Delete each file
-    await imagekit.bulkDeleteFiles(fileIds)
+    // Purge the cache
+    await imagekit.purgeCache(
+      'https://ik.imagekit.io/remnant2toolkit/build-uploads/*',
+    )
 
-    console.info('Deleted files:', fileIds.join(', '))
+    console.info('Purged cache for build-uploads')
 
     // Trigger webhook
     const params = {
