@@ -39,9 +39,11 @@ function parseStringForToken(
   highlightItems: boolean,
   highlightBuildTags: boolean,
 ): (JSX.Element | string)[] | null {
+  // Escape special characters in the tokens
   const escapeRegExp = (string: string) =>
     string.replace(/[.*+\-?^${}()|[\]\\]/g, '\\$&') // $& means the whole matched string
 
+  // Start with all Description Tags, which are always included
   let allTokens: string[] = [...DESCRIPTION_TAGS.map((tag) => tag.token)]
 
   if (highlightItems) {
@@ -79,21 +81,24 @@ function parseStringForToken(
         (item) => item.name.toLowerCase() === wordOrSpace.trim().toLowerCase(),
       )
 
+      // check if it's a build tag
       const buildTag = ALL_BUILD_TAGS.find(
         (tag) => tag.label === wordOrSpace.trim(),
       )
 
       if (tag) {
-        // If it's a tag.token, return it as a JSX element
+        // If it's a tag.token, wrap it with a tooltip component
         const tagElement = createTagElement(tag, index, 0, tag.token)
         return tagElement
       } else if (item) {
+        // if it's an item, bold it
         return (
           <span key={index} className="font-bold">
             {item.name}
           </span>
         )
       } else if (buildTag) {
+        // if it's a build tag, apply the text color
         return (
           <span
             key={index}
@@ -103,7 +108,7 @@ function parseStringForToken(
           </span>
         )
       } else {
-        // If it's not a tag.token, return it as is
+        // If it doesn't match any tokens or tags, return it as is
         return wordOrSpace
       }
     }
