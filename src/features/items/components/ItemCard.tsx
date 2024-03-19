@@ -81,7 +81,11 @@ export function ItemCard({ data: item, onMoreInfoClick }: Props) {
             <>
               <div className="sr-only">Description</div>
               <div className="mt-3 whitespace-pre-line text-left text-xs text-gray-200">
-                <DescriptionWithTags description={description ?? ''} />
+                <DescriptionWithTags
+                  description={description ?? ''}
+                  highlightBuildTags={false}
+                  highlightItems={false}
+                />
               </div>
             </>
           )}
@@ -91,6 +95,8 @@ export function ItemCard({ data: item, onMoreInfoClick }: Props) {
               <strong>At Max Level: </strong>
               <DescriptionWithTags
                 description={item.maxLevelBonus || 'No max level bonus found.'}
+                highlightBuildTags={false}
+                highlightItems={false}
               />
             </div>
           )}

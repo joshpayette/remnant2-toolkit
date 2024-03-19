@@ -11,6 +11,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Item names are now bolded in build descriptions.
 - Build Tags are automatically find and colorized in the build descriptions.
 - Reordered the links on the home page and the Builds nav menu.
+- DescriptionWithTags component now allows you to specify which tags to include/exclude.
+
+### Fixed
+
+- Removed highlighting of relic fragments in descriptions, they are too vaguely named.
 
 ### Removed
 

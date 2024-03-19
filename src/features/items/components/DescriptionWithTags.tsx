@@ -34,15 +34,28 @@ function createTagElement(
   }
 }
 
-function parseStringForToken(input: string): (JSX.Element | string)[] | null {
+function parseStringForToken(
+  input: string,
+  highlightItems: boolean,
+  highlightBuildTags: boolean,
+): (JSX.Element | string)[] | null {
   const escapeRegExp = (string: string) =>
     string.replace(/[.*+\-?^${}()|[\]\\]/g, '\\$&') // $& means the whole matched string
 
-  const allTokens = [
-    ...DESCRIPTION_TAGS.map((tag) => tag.token),
-    ...allItems.map((item) => item.name.toLowerCase()),
-    ...ALL_BUILD_TAGS.map((tag) => tag.label),
-  ]
+  let allTokens: string[] = [...DESCRIPTION_TAGS.map((tag) => tag.token)]
+
+  if (highlightItems) {
+    allTokens = [
+      ...allTokens,
+      ...allItems
+        .filter((i) => i.category !== 'relicfragment')
+        .map((item) => item.name.toLowerCase()),
+    ]
+  }
+
+  if (highlightBuildTags) {
+    allTokens = [...allTokens, ...ALL_BUILD_TAGS.map((tag) => tag.label)]
+  }
 
   const regex = new RegExp(
     `(${allTokens.map((token) => escapeRegExp(token)).join('|')})`,
@@ -101,14 +114,20 @@ function parseStringForToken(input: string): (JSX.Element | string)[] | null {
 
 interface Props {
   description: string
+  highlightItems: boolean
+  highlightBuildTags: boolean
 }
 
-export function DescriptionWithTags({ description }: Props) {
+export function DescriptionWithTags({
+  description,
+  highlightItems,
+  highlightBuildTags,
+}: Props) {
   return (
     <>
       <span className="sr-only">{stripUnicode(description)}</span>
       <div className="" aria-hidden="true">
-        {parseStringForToken(description)}
+        {parseStringForToken(description, highlightItems, highlightBuildTags)}
       </div>
     </>
   )

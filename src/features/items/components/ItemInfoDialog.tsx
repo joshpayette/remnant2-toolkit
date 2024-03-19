@@ -108,6 +108,8 @@ export function ItemInfoDialog({ item, open, onClose }: ItemInfoProps) {
             <div className="whitespace-pre-line text-left text-sm text-gray-300">
               <DescriptionWithTags
                 description={item.description || 'No description available.'}
+                highlightBuildTags={false}
+                highlightItems={false}
               />
             </div>
 
@@ -122,6 +124,8 @@ export function ItemInfoDialog({ item, open, onClose }: ItemInfoProps) {
                     description={
                       item.maxLevelBonus || 'No max level bonus found.'
                     }
+                    highlightBuildTags={false}
+                    highlightItems={false}
                   />
                 </div>
               </div>

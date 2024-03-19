@@ -136,7 +136,11 @@ export function BuildCard({
               </div>
               {buildState.description && (
                 <div className="mt-4 max-h-[100px] flex-row items-start justify-start gap-x-2 overflow-y-auto whitespace-pre-wrap text-xs text-gray-300">
-                  <DescriptionWithTags description={buildState.description} />
+                  <DescriptionWithTags
+                    description={buildState.description}
+                    highlightItems={true}
+                    highlightBuildTags={true}
+                  />
                 </div>
               )}
               <div className="mt-4 w-full max-w-full">

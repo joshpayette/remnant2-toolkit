@@ -69,7 +69,11 @@ export function MemberFeatures({
                   isScreenshotMode && 'max-h-none',
                 )}
               >
-                <DescriptionWithTags description={description} />
+                <DescriptionWithTags
+                  description={description}
+                  highlightBuildTags={true}
+                  highlightItems={true}
+                />
               </div>
             </>
           )}
