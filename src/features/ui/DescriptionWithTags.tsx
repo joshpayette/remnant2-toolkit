@@ -34,7 +34,7 @@ function parseStringForToken(
     (match, i) => {
       const tag = DESCRIPTION_TAGS.find((tag) => tag.token === match)
       if (!tag) return match
-      const key = `${i}-${match}-${uuidv4()}`
+      const key = uuidv4()
       if (tag.description) {
         return (
           <Tooltip key={key} content={tag.description}>
@@ -68,7 +68,7 @@ function parseStringForToken(
       allItemNamesRegex,
       (match, i) => {
         return (
-          <span key={`${match}-${i}-${uuidv4()}`} className="font-bold">
+          <span key={uuidv4()} className="font-bold">
             {match}
           </span>
         )
@@ -90,10 +90,7 @@ function parseStringForToken(
         const tag = ALL_BUILD_TAGS.find((tag) => tag.label === match)
         if (!tag) return match
         return (
-          <span
-            key={`${match}-${i}-${tag}-${uuidv4()}`}
-            className={cn('font-semibold', tag.colors.text)}
-          >
+          <span key={uuidv4()} className={cn('font-semibold', tag.colors.text)}>
             {match}
           </span>
         )
