@@ -4,6 +4,17 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-03-20
+
+### Added
+
+- Added a link to the Remnant 2 Armor Generator, https://scouthunter.github.io/R2AG/.
+
+### Fixed
+
+- Fixed inaccurate Dull Steel Ring image.
+- Fixed bug in Dull Steel Ring wiki link.
+
 ## 2024-03-19
 
 ### Changed

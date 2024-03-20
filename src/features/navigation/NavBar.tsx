@@ -307,7 +307,7 @@ export function NavBar() {
                     </Link>
                   )}
                 </Menu.Item>
-                {/* <Menu.Item>
+                <Menu.Item>
                   {({ active }) => (
                     <Link
                       href={NAV_ITEMS.r2ag.href}
@@ -328,7 +328,7 @@ export function NavBar() {
                       </div>
                     </Link>
                   )}
-                </Menu.Item> */}
+                </Menu.Item>
               </Menu.Items>
             </Transition>
           </Menu>
@@ -556,7 +556,7 @@ export function NavBar() {
                   </div>
                 </Link>
 
-                {/* <Link
+                <Link
                   href={NAV_ITEMS.r2ag.href}
                   target="_blank"
                   className="flex flex-row items-center justify-start"
@@ -572,7 +572,7 @@ export function NavBar() {
                       {NAV_ITEMS.r2ag.description}
                     </p>
                   </div>
-                </Link> */}
+                </Link>
 
                 <hr className="border-secondary-900" />
 
