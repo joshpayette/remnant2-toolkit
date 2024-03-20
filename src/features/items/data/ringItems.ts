@@ -556,7 +556,7 @@ export const ringItems: RingItem[] = [
     id: 's76ytc',
     tags: ['Encumbrance'],
     description: `Improves Dodge roll by 1 weight class.`,
-    wikiLinks: [`https://remnant.wiki/Dull_Steel_Rings`],
+    wikiLinks: [`https://remnant.wiki/Dull_Steel_Ring`],
     weightThreshold: 25,
   },
   {
