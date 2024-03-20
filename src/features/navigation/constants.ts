@@ -38,7 +38,7 @@ export const NAV_ITEMS = {
   bossTracker: {
     label: 'Boss Tracker',
     description:
-      'Keep track of the bosses you have defeated and the ones you still need.',
+      'Helps you keep track of the bosses you have defeated and the ones you still need to defeat.',
     href: '/boss-tracker',
     icon: ShieldCheckIcon,
   },
@@ -98,13 +98,14 @@ export const NAV_ITEMS = {
   itemTracker: {
     label: 'Item Tracker',
     description:
-      'Keep track of the items you have collected and the ones you still need.',
+      'Import your save file or manually track your discovered items.',
     href: '/tracker',
     icon: DocumentCheckIcon,
   },
   loadouts: {
     label: 'Loadouts',
-    description: 'Create and manage your loadouts.',
+    description:
+      'Keep your in-game loadouts and their toolkit build counterparts in sync.',
     href: '/profile/loadout-builds',
     icon: ArchiveBoxIcon,
   },

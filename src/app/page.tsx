@@ -78,8 +78,8 @@ export default async function Page() {
               <span className="font-bold text-primary-500">
                 No login required
               </span>{' '}
-              to start creating builds, searching for builds, or tracking your
-              collectibles!
+              to start creating builds, searching community builds, tracking
+              your collectibles, or searching for detailed item information.
             </p>
           </div>
           <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-6 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-8">
@@ -156,20 +156,20 @@ export default async function Page() {
               </div>
             </Link>
             <Link
-              href={NAV_ITEMS.itemLookup.href}
-              key={NAV_ITEMS.itemLookup.label}
+              href={NAV_ITEMS.loadouts.href}
+              key={NAV_ITEMS.loadouts.label}
               className="flex min-h-[200px] flex-row gap-x-4 rounded-xl border border-transparent bg-white/5 p-6 ring-1 ring-inset ring-white/10 hover:border-primary-500"
             >
-              <NAV_ITEMS.itemLookup.icon
+              <NAV_ITEMS.loadouts.icon
                 className="h-7 w-7 flex-none text-primary-500"
                 aria-hidden="true"
               />
               <div className="relative w-full">
                 <p className="text-lg font-bold leading-7">
-                  {NAV_ITEMS.itemLookup.label}
+                  {NAV_ITEMS.loadouts.label}
                 </p>
                 <div className="mt-2 text-gray-300 ">
-                  {NAV_ITEMS.itemLookup.description}
+                  {NAV_ITEMS.loadouts.description}
                 </div>
                 <div className="absolute bottom-0 right-0 mt-4 flex w-full items-center justify-end">
                   <ArrowRightIcon
@@ -228,20 +228,20 @@ export default async function Page() {
               </div>
             </Link>
             <Link
-              href={NAV_ITEMS.changeLog.href}
-              key={NAV_ITEMS.changeLog.label}
-              className="flex min-h-[200px] w-full flex-row gap-x-4 rounded-xl border border-transparent bg-white/5 p-6 ring-1 ring-inset ring-white/10 hover:border-primary-500"
+              href={NAV_ITEMS.itemLookup.href}
+              key={NAV_ITEMS.itemLookup.label}
+              className="flex min-h-[200px] flex-row gap-x-4 rounded-xl border border-transparent bg-white/5 p-6 ring-1 ring-inset ring-white/10 hover:border-primary-500"
             >
-              <NAV_ITEMS.changeLog.icon
+              <NAV_ITEMS.itemLookup.icon
                 className="h-7 w-7 flex-none text-primary-500"
                 aria-hidden="true"
               />
               <div className="relative w-full">
                 <p className="text-lg font-bold leading-7">
-                  {NAV_ITEMS.changeLog.label}
+                  {NAV_ITEMS.itemLookup.label}
                 </p>
                 <div className="mt-2 text-gray-300 ">
-                  {NAV_ITEMS.changeLog.description}
+                  {NAV_ITEMS.itemLookup.description}
                 </div>
                 <div className="absolute bottom-0 right-0 mt-4 flex w-full items-center justify-end">
                   <ArrowRightIcon
@@ -266,6 +266,30 @@ export default async function Page() {
                 </p>
                 <div className="mt-2 text-gray-300 ">
                   {NAV_ITEMS.supportR2TK.description}
+                </div>
+                <div className="absolute bottom-0 right-0 mt-4 flex w-full items-center justify-end">
+                  <ArrowRightIcon
+                    className="h-6 w-6 text-primary-500 hover:text-primary-300"
+                    aria-hidden="true"
+                  />
+                </div>
+              </div>
+            </Link>
+            <Link
+              href={NAV_ITEMS.changeLog.href}
+              key={NAV_ITEMS.changeLog.label}
+              className="flex min-h-[200px] w-full flex-row gap-x-4 rounded-xl border border-transparent bg-white/5 p-6 ring-1 ring-inset ring-white/10 hover:border-primary-500"
+            >
+              <NAV_ITEMS.changeLog.icon
+                className="h-7 w-7 flex-none text-primary-500"
+                aria-hidden="true"
+              />
+              <div className="relative w-full">
+                <p className="text-lg font-bold leading-7">
+                  {NAV_ITEMS.changeLog.label}
+                </p>
+                <div className="mt-2 text-gray-300 ">
+                  {NAV_ITEMS.changeLog.description}
                 </div>
                 <div className="absolute bottom-0 right-0 mt-4 flex w-full items-center justify-end">
                   <ArrowRightIcon
