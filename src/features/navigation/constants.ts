@@ -84,7 +84,8 @@ export const NAV_ITEMS = {
   },
   featuredBuilds: {
     label: 'Featured Builds',
-    description: 'A curated list of high quality, community submitted builds.',
+    description:
+      'A curated list of unique and high-quality community submitted builds.',
     href: '/creator-builds',
     icon: StarIcon,
   },
