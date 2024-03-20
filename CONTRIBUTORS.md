@@ -5,6 +5,7 @@ This project exists and thrives thanks to all the people who contribute.
 ## Code Contributors
 
 - [Alexij](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
+- [Vash Cowaii](https://cowaii.io)
 - Spoon
 - Amalie
 
