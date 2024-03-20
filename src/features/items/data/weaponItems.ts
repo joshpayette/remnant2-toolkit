@@ -1401,7 +1401,7 @@ export const weaponItems: WeaponItem[] = [
     rps: 1.7,
     magazine: 5,
     accuracy: 95,
-    ideal: 15,
+    ideal: 18,
     falloff: 30,
     ammo: 30,
     crit: 10,
