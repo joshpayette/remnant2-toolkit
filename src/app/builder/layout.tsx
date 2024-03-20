@@ -3,10 +3,11 @@
 import { Metadata } from 'next'
 import { Suspense } from 'react'
 
+import { NAV_ITEMS } from '@/features/navigation/constants'
+
 export async function generateMetadata(): Promise<Metadata> {
   const title = `Build Creation Tool - Remnant 2 Toolkit`
-  const description =
-    'Remnant 2 Builder, a tool to create and share builds with the community. Share your builds with the community and help others find the best builds for their playstyle.'
+  const description = NAV_ITEMS.createBuild.description
 
   return {
     title,

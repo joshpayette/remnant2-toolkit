@@ -3,10 +3,11 @@
 import { Metadata } from 'next'
 import { Suspense } from 'react'
 
+import { NAV_ITEMS } from '@/features/navigation/constants'
+
 export async function generateMetadata(): Promise<Metadata> {
   const title = `Boss Tracker - Remnant 2 Toolkit`
-  const description =
-    'Remnant 2 Boss Tracker, Enemy Tracker, and Aberration Tracker.'
+  const description = NAV_ITEMS.bossTracker.description
 
   return {
     title,

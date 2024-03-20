@@ -4,6 +4,7 @@ import { Metadata } from 'next'
 
 import { getServerSession } from '@/features/auth/lib'
 import { isErrorResponse } from '@/features/error-handling/isErrorResponse'
+import { NAV_ITEMS } from '@/features/navigation/constants'
 import { ProfileHeader } from '@/features/profile/components/ProfileHeader'
 import { Tabs } from '@/features/profile/components/Tabs'
 import { PageHeader } from '@/features/ui/PageHeader'
@@ -11,9 +12,8 @@ import { PageHeader } from '@/features/ui/PageHeader'
 import { getProfile } from '../actions'
 
 export async function generateMetadata(): Promise<Metadata> {
-  const title = `Loadout Builds - Remnant 2 Toolkit`
-  const description =
-    'The builds you have pinned to mirror your in-game loadouts.'
+  const title = `Loadouts - Remnant 2 Toolkit`
+  const description = NAV_ITEMS.loadouts.description
 
   return {
     title,

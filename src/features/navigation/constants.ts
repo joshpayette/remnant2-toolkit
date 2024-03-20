@@ -98,7 +98,7 @@ export const NAV_ITEMS = {
   itemTracker: {
     label: 'Item Tracker',
     description:
-      'Import your save file or manually track your discovered items.',
+      'Track your discovered and undiscovered items. Supports save file importing!',
     href: '/tracker',
     icon: DocumentCheckIcon,
   },
