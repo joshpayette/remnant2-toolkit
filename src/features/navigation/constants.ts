@@ -28,11 +28,11 @@ export const NAV_ITEMS = {
     href: '/guides/amplitude-vs-resonance',
     icon: TableCellsIcon,
   },
-  armorCalculator: {
-    label: 'Armor Calculator',
+  r2ag: {
+    label: 'Remnant 2 Armor Generator',
     description:
-      'Calculate the maximum armor you can get for a particular weight tier.',
-    href: '/armor-calculator',
+      'Find the perfect armor set for your build with the Remnant 2 Armor Generator.',
+    href: 'https://scouthunter.github.io/R2AG/',
     icon: CalculatorIcon,
   },
   bossTracker: {

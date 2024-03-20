@@ -16,3 +16,9 @@ export type ArmorSuggestion = {
 }
 
 export type WeightClassKeysWithDefault = keyof typeof WEIGHT_CLASSES | 'CHOOSE'
+
+export type ArmorCalculatorFilters = {
+  selectedAmulet: string
+  selectedRing: string
+  selectedWeightTier: WeightClassKeysWithDefault
+}

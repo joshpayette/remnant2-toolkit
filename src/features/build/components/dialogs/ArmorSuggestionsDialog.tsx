@@ -1,23 +1,21 @@
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
 
-import { getArmorSuggestions } from '@/features/armor-calculator/getArmorSuggestions'
+import { ArmorSuggestionCard } from '@/features/armor-calculator/components/ArmorSuggestionCard'
+import { getArmorSuggestions } from '@/features/armor-calculator/lib/getArmorSuggestions'
 import {
   ArmorSuggestion,
   WeightClassKeysWithDefault,
 } from '@/features/armor-calculator/types'
 import { BuildState } from '@/features/build/types'
-import { ItemButton } from '@/features/items/components/ItemButton'
 import { ItemInfoDialog } from '@/features/items/components/ItemInfoDialog'
-import { WEIGHT_CLASSES } from '@/features/items/constants'
 import { Item } from '@/features/items/types'
 import { Pagination } from '@/features/pagination/Pagination'
 import { usePagination } from '@/features/pagination/usePagination'
 import { Dialog } from '@/features/ui/Dialog'
 import { SelectMenu } from '@/features/ui/SelectMenu'
-import { cn } from '@/lib/classnames'
 
-const ITEMS_PER_PAGE = 10
+const ITEMS_PER_PAGE = 8
 
 interface Props {
   buildState: BuildState
@@ -132,30 +130,32 @@ export function ArmorSuggestionsDialog({
   return (
     <ArmorInfoContainer {...armorInfoProps}>
       <div className="flex w-full flex-row items-end justify-center gap-x-2 text-left">
-        <SelectMenu
-          label="Desired Weight Class"
-          name="desired_weight_class"
-          options={[
-            { label: 'Choose', value: 'CHOOSE' },
-            { label: 'Light', value: 'LIGHT' },
-            { label: 'Medium', value: 'MEDIUM' },
-            { label: 'Heavy', value: 'HEAVY' },
-            { label: 'Ultra', value: 'ULTRA' },
-          ]}
-          onChange={(e) =>
-            handleWeightClassChange(
-              e.target.value as WeightClassKeysWithDefault,
-            )
-          }
-          value={desiredWeightClass}
-        />
-        <button
-          className="mt-4 rounded-md border-2 border-red-500 p-2 text-sm text-white hover:bg-red-500 hover:text-white"
-          aria-label="Clear armor suggestions"
-          onClick={clearArmorSuggestions}
-        >
-          Clear
-        </button>
+        <div className="flex w-full max-w-md items-end justify-center gap-x-2">
+          <SelectMenu
+            label="Desired Weight Class"
+            name="desired_weight_class"
+            options={[
+              { label: 'Choose', value: 'CHOOSE' },
+              { label: 'Light', value: 'LIGHT' },
+              { label: 'Medium', value: 'MEDIUM' },
+              { label: 'Heavy', value: 'HEAVY' },
+              { label: 'Ultra', value: 'ULTRA' },
+            ]}
+            onChange={(e) =>
+              handleWeightClassChange(
+                e.target.value as WeightClassKeysWithDefault,
+              )
+            }
+            value={desiredWeightClass}
+          />
+          <button
+            className="text-md mt-4 rounded-md border-2 border-red-500 bg-red-700 p-2 text-sm font-bold text-white hover:bg-red-500"
+            aria-label="Clear armor suggestions"
+            onClick={clearArmorSuggestions}
+          >
+            Clear
+          </button>
+        </div>
       </div>
       {armorSuggestions.length === 0 && (
         <div className="flex flex-col items-center justify-center">
@@ -179,7 +179,7 @@ export function ArmorSuggestionsDialog({
               onNextPage={handleNextPageClick}
               onSpecificPage={handleSpecificPageClick}
             />
-            <div className="grid w-full grid-cols-1 gap-x-4 sm:grid-cols-2">
+            <div className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
               {armorSuggestions
                 .slice(
                   (currentPage - 1) * ITEMS_PER_PAGE,
@@ -188,120 +188,14 @@ export function ArmorSuggestionsDialog({
                 .map((suggestion, index) => (
                   <div
                     key={index}
-                    className="flex w-full flex-col items-center justify-center border-t-2 border-t-primary-500 py-4"
+                    className="flex w-full flex-col items-center justify-center rounded-md border-2 border-primary-700 bg-gray-900 p-4"
                   >
-                    <div className="mb-2 flex w-full flex-row items-center justify-center gap-x-8">
-                      <div className="flex flex-col items-center justify-center">
-                        <div className="text-md font-semibold">Armor</div>
-                        <div className="text-2xl font-bold text-primary-500">
-                          {suggestion.totalArmor}
-                        </div>
-                      </div>
-                      <div className="flex flex-col items-center justify-center">
-                        <div className="text-md font-semibold">Weight</div>
-                        <div
-                          className={cn(
-                            'text-2xl font-bold',
-                            desiredWeightClass !== 'CHOOSE' &&
-                              WEIGHT_CLASSES[desiredWeightClass].textColor,
-                          )}
-                        >
-                          {suggestion.totalWeight}
-                        </div>
-                      </div>
-                    </div>
-                    <div className="mb-4 flex flex-row items-center justify-center gap-x-4">
-                      <div className="flex items-center justify-center gap-x-0.5">
-                        <Image
-                          src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/status/bleed_resistance.png`}
-                          alt="Bleed Resistance"
-                          width={32}
-                          height={32}
-                          className={cn('h-6 w-6')}
-                          loading="eager"
-                          unoptimized={false}
-                        />{' '}
-                        {suggestion.totalBleedResistance}
-                      </div>
-                      <div className="flex items-center justify-center gap-x-0.5">
-                        <Image
-                          src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/status/fire_resistance.png`}
-                          alt="Fire Resistance"
-                          width={32}
-                          height={32}
-                          className={cn('h-6 w-6')}
-                          loading="eager"
-                          unoptimized={false}
-                        />{' '}
-                        {suggestion.totalFireResistance}
-                      </div>
-                      <div className="flex items-center justify-center gap-x-0.5">
-                        <Image
-                          src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/status/shock_resistance.png`}
-                          alt="Shock Resistance"
-                          width={32}
-                          height={32}
-                          className={cn('h-6 w-6')}
-                          loading="eager"
-                          unoptimized={false}
-                        />{' '}
-                        {suggestion.totalShockResistance}
-                      </div>
-                      <div className="flex items-center justify-center gap-x-0.5">
-                        <Image
-                          src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/status/toxin_resistance.png`}
-                          alt="Toxin Resistance"
-                          width={32}
-                          height={32}
-                          className={cn('h-6 w-6')}
-                          loading="eager"
-                          unoptimized={false}
-                        />{' '}
-                        {suggestion.totalToxinResistance}
-                      </div>
-                      <div className="flex items-center justify-center gap-x-0.5">
-                        <Image
-                          src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/status/blight_resistance.png`}
-                          alt="Blight Resistance"
-                          width={32}
-                          height={32}
-                          className={cn('h-6 w-6')}
-                          loading="eager"
-                          unoptimized={false}
-                        />{' '}
-                        {suggestion.totalBlightResistance}
-                      </div>
-                    </div>
-                    <div className="flex flex-row items-center justify-center gap-x-2">
-                      <ItemButton
-                        item={suggestion.helm}
-                        isEditable={false}
-                        size="md"
-                        onItemInfoClick={() => setItemInfo(suggestion.helm)}
-                        tooltipDisabled={isItemInfoOpen}
-                      />
-                      <ItemButton
-                        item={suggestion.torso}
-                        isEditable={false}
-                        size="md"
-                        onItemInfoClick={() => setItemInfo(suggestion.torso)}
-                        tooltipDisabled={isItemInfoOpen}
-                      />
-                      <ItemButton
-                        item={suggestion.legs}
-                        isEditable={false}
-                        size="md"
-                        onItemInfoClick={() => setItemInfo(suggestion.legs)}
-                        tooltipDisabled={isItemInfoOpen}
-                      />
-                      <ItemButton
-                        item={suggestion.gloves}
-                        isEditable={false}
-                        size="md"
-                        onItemInfoClick={() => setItemInfo(suggestion.gloves)}
-                        tooltipDisabled={isItemInfoOpen}
-                      />
-                    </div>
+                    <ArmorSuggestionCard
+                      suggestion={suggestion}
+                      desiredWeightClass={desiredWeightClass}
+                      isItemInfoOpen={isItemInfoOpen}
+                      onItemInfoOpen={setItemInfo}
+                    />
                     <button
                       className="mt-4 rounded-md border-2 border-primary-500 bg-primary-800 p-2 text-sm text-white hover:bg-primary-500"
                       aria-label="Equip armor suggestions"
@@ -361,7 +255,7 @@ function ArmorInfoContainer({
     <Dialog
       title="Armor Calculator"
       subtitle="Get optimal armor values for this build."
-      maxWidthClass="max-w-2xl"
+      maxWidthClass="max-w-7xl"
       open={isDialogOpen}
       onClose={onDialogClose}
     >

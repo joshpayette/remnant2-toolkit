@@ -157,7 +157,7 @@ export function ItemButton({
             ) && 'text-[9px]',
             size === 'sm' &&
               'min-h-[22px] min-w-[22px] border border-black text-left',
-            size === 'md' && 'min-h-[40px] w-[66px]',
+            size === 'md' && 'min-h-[49px] w-[66px]',
             size === 'lg' && 'min-h-[40px] w-[99px]',
             size === 'xl' && 'text-md min-h-[40px] w-[200px]',
             size === 'wide' && 'min-h-[22px] w-[149px]',

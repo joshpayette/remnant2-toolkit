@@ -1,13 +1,13 @@
+import { getTotalArmor } from '@/features/build/lib/get-totals/getTotalArmor'
+import { getTotalResistances } from '@/features/build/lib/get-totals/getTotalResistances'
+import { getTotalWeight } from '@/features/build/lib/get-totals/getTotalWeight'
+import { getWeightThreshold } from '@/features/build/lib/get-totals/getWeightThreshold'
 import { BuildState } from '@/features/build/types'
 import { WEIGHT_CLASSES } from '@/features/items/constants'
+import { armorItems } from '@/features/items/data/armorItems'
 import { ArmorItem } from '@/features/items/types/ArmorItem'
 
-import { getTotalArmor } from '../build/lib/get-totals/getTotalArmor'
-import { getTotalResistances } from '../build/lib/get-totals/getTotalResistances'
-import { getTotalWeight } from '../build/lib/get-totals/getTotalWeight'
-import { getWeightThreshold } from '../build/lib/get-totals/getWeightThreshold'
-import { armorItems } from '../items/data/armorItems'
-import { ArmorSuggestion } from './types'
+import { ArmorSuggestion } from '../types'
 
 export function getArmorSuggestions({
   buildState,
@@ -17,6 +17,7 @@ export function getArmorSuggestions({
   desiredWeightClass: keyof typeof WEIGHT_CLASSES
 }): ArmorSuggestion[] {
   const maxWeight = WEIGHT_CLASSES[desiredWeightClass].maxWeight
+  const totalWeightThreshold = Number(getWeightThreshold(buildState))
 
   const helmItems = buildState.items.helm
     ? [buildState.items.helm]
@@ -58,7 +59,6 @@ export function getArmorSuggestions({
 
           const totalArmor = Number(getTotalArmor(newBuildState))
           const totalWeight = Number(getTotalWeight(newBuildState))
-          const totalWeightThreshold = Number(getWeightThreshold(newBuildState))
           const totalFireResistance = getTotalResistances(newBuildState, 'fire')
           const totalBleedResistance = getTotalResistances(
             newBuildState,

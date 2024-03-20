@@ -1,8 +1,9 @@
+import { BuildState } from '@/features/build/types'
 import { perkItems } from '@/features/items/data/perkItems'
 import { Item } from '@/features/items/types'
 import { TraitItem } from '@/features/items/types/TraitItem'
 
-import { BuildState } from '../../types'
+const panaceaItem = perkItems.find((item) => item.name === 'Panacea')
 
 export function getItemsByKey(
   buildState: BuildState,
@@ -94,18 +95,47 @@ export function getItemsByKey(
     })
 
   // Check if any perks are equipped and add them to the items array
-  const perksWithKey = perkItems.filter((item) => item[key])
-  // Loop through each perk, and check if it has a linkedItem that is equipped
-  // If it does, add it to the items array
-  perksWithKey.forEach((perk) => {
-    const linkedArcheytype = perk.linkedItems?.archetype?.name
+  // Right now, the only perk that matters is Panacea, which affects resistances
+  if (
+    key === 'fireResistance' ||
+    key === 'fireResistancePercent' ||
+    key === 'blightResistance' ||
+    key === 'blightResistancePercent' ||
+    key === 'shockResistance' ||
+    key === 'shockResistancePercent' ||
+    key === 'bleedResistance' ||
+    key === 'bleedResistancePercent' ||
+    key === 'toxinResistance' ||
+    key === 'toxinResistancePercent'
+  ) {
+    const buildArchetypes = buildState.items.archetype
     if (
-      buildState.items.archetype[0]?.name === linkedArcheytype ||
-      buildState.items.archetype[1]?.name === linkedArcheytype
+      buildArchetypes[0]?.name === 'Alchemist' ||
+      buildArchetypes[1]?.name === 'Alchemist'
     ) {
-      items.push(perk)
+      items.push(panaceaItem as Item)
     }
-  })
+    // if (buildArchetypes[0]?.id || buildArchetypes[1]?.id) {
+    //   // const perksWithKey = perkItems.filter((item) => item[key])
+
+    //   for (const archetype of buildState.items.archetype) {
+    //     const linkedPerks = archetype?.linkedItems?.perks
+    //     if (
+    //       linkedPerks &&
+    //       linkedPerks.some((item) => item.name === 'Panacea')
+    //     ) {
+    //       items.push(panaceaItem as Item)
+    //       break
+    //       // linkedPerks.forEach((linkedPerk) => {
+    //       //   const perk = perksWithKey.find(
+    //       //     (item) => item.name === linkedPerk.name,
+    //       //   )
+    //       //   perk && items.push(perk)
+    //       // })
+    //     }
+    //   }
+    // }
+  }
 
   return items
 }

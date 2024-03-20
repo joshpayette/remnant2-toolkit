@@ -1,4 +1,5 @@
-import { BuildState } from '../../types'
+import { BuildState } from '@/features/build/types'
+
 import { getItemsByKey, getTraitItemsByKey } from './utils'
 
 export function getTotalArmor(buildState: BuildState) {

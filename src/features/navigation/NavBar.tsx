@@ -17,7 +17,7 @@ export function NavBar() {
   const pathname = usePathname()
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
-  const { data: session, status } = useSession()
+  const { status } = useSession()
 
   // Close the navmenu on route change
   // * useEffect is necessary to close the menu on route change
@@ -234,28 +234,6 @@ export function NavBar() {
                   )}
                 </Menu.Item>
 
-                {/* <Menu.Item>
-                  {({ active }) => (
-                    <Link
-                      href={NAV_ITEMS.armorCalculator.href}
-                      className={cn(
-                        active ? 'bg-gray-800' : '',
-                        'flex w-full flex-row items-start justify-start p-2 text-sm font-semibold text-white',
-                      )}
-                    >
-                      <div className="mr-4 w-[20px]">
-                        <NAV_ITEMS.armorCalculator.icon className="h-5 w-5 text-primary-600" />
-                      </div>
-                      <div className="flex flex-col items-start justify-start gap-y-1">
-                        {NAV_ITEMS.armorCalculator.label}
-                        <p className="text-xs font-normal text-gray-400">
-                          {NAV_ITEMS.armorCalculator.description}
-                        </p>
-                      </div>
-                    </Link>
-                  )}
-                </Menu.Item> */}
-
                 <Menu.Item>
                   {({ active }) => (
                     <Link
@@ -329,6 +307,28 @@ export function NavBar() {
                     </Link>
                   )}
                 </Menu.Item>
+                {/* <Menu.Item>
+                  {({ active }) => (
+                    <Link
+                      href={NAV_ITEMS.r2ag.href}
+                      target="_blank"
+                      className={cn(
+                        active ? 'bg-gray-800' : '',
+                        'flex w-full flex-row items-start justify-start p-2 text-sm font-semibold text-white',
+                      )}
+                    >
+                      <div className="mr-4 w-[20px]">
+                        <NAV_ITEMS.r2ag.icon className="h-5 w-5 text-primary-600" />
+                      </div>
+                      <div className="flex flex-col items-start justify-start gap-y-1">
+                        {NAV_ITEMS.r2ag.label}
+                        <p className="text-xs font-normal text-gray-400">
+                          {NAV_ITEMS.r2ag.description}
+                        </p>
+                      </div>
+                    </Link>
+                  )}
+                </Menu.Item> */}
               </Menu.Items>
             </Transition>
           </Menu>
@@ -499,23 +499,6 @@ export function NavBar() {
                   </div>
                 </Link>
 
-                {/* <Link
-                  href={NAV_ITEMS.armorCalculator.href}
-                  className="flex flex-row items-center justify-start"
-                >
-                  <NAV_ITEMS.armorCalculator.icon
-                    className="mr-2 h-7 w-5 flex-none text-primary-600"
-                    aria-hidden="true"
-                  />
-                  <div className="flex flex-col items-start justify-start px-3 py-2">
-                    {NAV_ITEMS.armorCalculator.label}
-
-                    <p className="text-xs text-gray-400">
-                      {NAV_ITEMS.armorCalculator.description}
-                    </p>
-                  </div>
-                </Link> */}
-
                 <Link
                   href={NAV_ITEMS.ampVsRes.href}
                   className="flex flex-row items-center justify-start"
@@ -572,6 +555,24 @@ export function NavBar() {
                     </p>
                   </div>
                 </Link>
+
+                {/* <Link
+                  href={NAV_ITEMS.r2ag.href}
+                  target="_blank"
+                  className="flex flex-row items-center justify-start"
+                >
+                  <NAV_ITEMS.r2ag.icon
+                    className="mr-2 h-7 w-5 flex-none text-primary-600"
+                    aria-hidden="true"
+                  />
+                  <div className="flex flex-col items-start justify-start px-3 py-2">
+                    {NAV_ITEMS.r2ag.label}
+
+                    <p className="text-xs text-gray-400">
+                      {NAV_ITEMS.r2ag.description}
+                    </p>
+                  </div>
+                </Link> */}
 
                 <hr className="border-secondary-900" />
 

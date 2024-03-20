@@ -1,8 +1,5 @@
 'use client'
 
-import { FlagIcon as FlagIconOff } from '@heroicons/react/24/outline'
-import { FlagIcon as FlagIconOn } from '@heroicons/react/24/solid'
-
 import { Skeleton } from '@/features/ui/Skeleton'
 import { cn } from '@/lib/classnames'
 
@@ -13,6 +10,8 @@ const primaryButtonClasses =
   'bg-primary-500 hover:bg-primary-300 text-black border-primary-700'
 const secondaryButtonClasses =
   'border-secondary-500 hover:bg-secondary-500 hover:border-secondary-700 text-white hover:text-black'
+const accent1ButtonClasses =
+  'border-accent1-500 hover:bg-accent1-500 hover:border-accent1-700 text-white hover:text-black'
 
 type ButtonProps = {
   onClick: () => void
@@ -21,7 +20,7 @@ type ButtonProps = {
 export const ActionButton = {
   ArmorCalculator: ({ onClick }: ButtonProps) => (
     <button
-      className={cn(buttonClasses, primaryButtonClasses)}
+      className={cn(buttonClasses, accent1ButtonClasses)}
       aria-label="Get optimal armor values for this build."
       onClick={onClick}
     >
@@ -103,7 +102,7 @@ export const ActionButton = {
 
   ItemSuggestions: ({ onClick }: ButtonProps) => (
     <button
-      className={cn(buttonClasses, primaryButtonClasses)}
+      className={cn(buttonClasses, accent1ButtonClasses)}
       aria-label="Find a list of items that match a specified item tag or effect."
       onClick={onClick}
     >
