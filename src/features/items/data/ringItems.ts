@@ -552,7 +552,7 @@ export const ringItems: RingItem[] = [
     category: 'ring',
     name: 'Dull Steel Ring',
     saveFileSlug: 'brightsteelring',
-    imagePath: '/ring/dull_steel_ring.png',
+    imagePath: '/ring/dull_steel_ring1.png',
     id: 's76ytc',
     tags: ['Encumbrance'],
     description: `Improves Dodge roll by 1 weight class.`,
