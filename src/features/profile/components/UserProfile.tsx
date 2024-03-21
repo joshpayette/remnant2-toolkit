@@ -15,7 +15,7 @@ import { DuplicateBuildButton } from '@/features/profile/components/DuplicateBui
 import { EditBuildButton } from '@/features/profile/components/EditBuildButton'
 import { Skeleton } from '@/features/ui/Skeleton'
 
-import { getUserProfilePage } from '../../../app/profile/[userId]/actions'
+import { getUserProfilePage } from '../actions'
 
 interface Props {
   itemsPerPage?: number

@@ -6,9 +6,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2024-03-21
 
+### Added
+
+- You can now share a link to your Loadouts page if you choose to. On the Loadouts page in your profile, toggle it to public to be able to share the link. Show off your top builds!
+
 ### Fixed
 
 - Corrected Shielded Strike level 10 bonus description. (thanks, Freeman!)
+- Fixed issue where new user account profiles would sometimes not update.
 
 ## 2024-03-20
 

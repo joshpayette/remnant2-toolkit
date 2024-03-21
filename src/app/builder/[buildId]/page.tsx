@@ -4,7 +4,6 @@ import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import { useSession } from 'next-auth/react'
 import { useRef, useState } from 'react'
-import { toast } from 'react-toastify'
 
 import { BuilderPage } from '@/features/build/components/builder/BuilderPage'
 import { ActionButton } from '@/features/build/components/buttons/ActionButton'
@@ -15,8 +14,7 @@ import { buildStateToCsvData } from '@/features/build/lib/buildStateToCsvData'
 import { dbBuildToBuildState } from '@/features/build/lib/dbBuildToBuildState'
 import { DBBuild } from '@/features/build/types'
 import { ToCsvButton } from '@/features/csv/ToCsvButton'
-import { isErrorResponse } from '@/features/error-handling/isErrorResponse'
-import { LoadoutDialog } from '@/features/profile/loadouts/LoadoutDialog'
+import { LoadoutDialog } from '@/features/profile/loadouts/components/LoadoutDialog'
 
 function videoEmbedUrlToVideoId(videoEmbedUrl: string) {
   const url = new URL(videoEmbedUrl)
@@ -84,6 +82,7 @@ export default function Page({
         buildId={buildState.buildId}
         open={loadoutDialogOpen}
         onClose={() => setLoadoutDialogOpen(false)}
+        isEditable={true}
       />
       <ImageDownloadInfo
         onClose={handleClearImageDownloadInfo}

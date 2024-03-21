@@ -3,7 +3,6 @@
 import { revalidatePath } from 'next/cache'
 
 import { getServerSession } from '@/features/auth/lib'
-import { DBBuild } from '@/features/build/types'
 import { prisma } from '@/features/db'
 
 export async function addBuildToLoadout(

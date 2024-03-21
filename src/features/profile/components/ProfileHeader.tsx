@@ -1,7 +1,7 @@
 import { StarIcon } from '@heroicons/react/24/solid'
-import Link from 'next/link'
 
 import { getUserBio } from '@/app/profile/actions'
+import { PublicProfileLinks } from '@/features/profile/components/PublicProfileLinks'
 
 import { getTotalBuildFavorites } from '../../build/actions/getTotalBuildFavorites'
 import { isErrorResponse } from '../../error-handling/isErrorResponse'
@@ -47,16 +47,7 @@ export async function ProfileHeader({ editable, userId }: Props) {
       <div className="my-4 flex w-full flex-row items-center justify-center gap-1 text-2xl text-yellow-500">
         Total <StarIcon className="h-6 w-6" />: {totalFavorites}
       </div>
-      {editable && (
-        <div className="my-8 flex items-center justify-center">
-          <Link
-            className="text-md text-white underline hover:text-gray-300 "
-            href={`/profile/${userId}`}
-          >
-            View your public profile
-          </Link>
-        </div>
-      )}
+      {editable ? <PublicProfileLinks userId={userId} /> : null}
     </div>
   )
 }

@@ -1,13 +1,19 @@
 'use server'
 
+import { getServerSession } from '@/features/auth/lib'
 import { getArrayOfLength } from '@/features/build/lib/getArrayOfLength'
 
-import { getLoadoutList } from './actions'
+import { getLoadoutList } from '../actions'
 import { EmptyLoadoutCard } from './EmptyLoadoutCard'
 import { LoadoutCard } from './LoadoutCard'
 
-export async function LoadoutBuilds() {
-  const userLoadoutBuilds = await getLoadoutList()
+interface Props {
+  isEditable: boolean
+  userId?: string
+}
+
+export async function LoadoutBuilds({ isEditable, userId }: Props) {
+  const userLoadoutBuilds = await getLoadoutList(userId)
 
   return (
     <>
@@ -30,6 +36,7 @@ export async function LoadoutBuilds() {
           <LoadoutCard
             key={`${userLoadoutBuild.id}-${index}`}
             build={userLoadoutBuild}
+            isEditable={isEditable}
           />
         )
       })}

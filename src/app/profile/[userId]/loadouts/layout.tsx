@@ -1,11 +1,11 @@
 import { Metadata, ResolvingMetadata } from 'next'
 
-import { getServerSession } from '@/features/auth/lib'
+import { getProfile } from '@/app/profile/actions'
 import { isErrorResponse } from '@/features/error-handling/isErrorResponse'
-import { ProfileHeader } from '@/features/profile/components/ProfileHeader'
-import { PageHeader } from '@/features/ui/PageHeader'
-
-import { getProfile } from '../actions'
+import {
+  getIsLoadoutPublic,
+  getLoadoutList,
+} from '@/features/profile/loadouts/actions'
 
 export async function generateMetadata(
   { params: { userId } }: { params: { userId: string } },
@@ -40,14 +40,48 @@ export async function generateMetadata(
     }
   }
 
-  const { user, profile } = profileData
+  const isLoadoutPublic = await getIsLoadoutPublic(userId)
+
+  if (!isLoadoutPublic) {
+    return {
+      title: 'User loadouts marked private',
+      description: 'The user loadouts are marked private.',
+      openGraph: {
+        title: 'User loadouts marked private',
+        description: 'The user loadouts are marked private.',
+        url: `https://remnant2toolkit.com/profile/${userId}`,
+        images: [
+          {
+            url: 'https://d2sqltdcj8czo5.cloudfront.net/toolkit/og-image-sm.jpg',
+            width: 150,
+            height: 150,
+          },
+        ],
+      },
+      twitter: {
+        title: 'User loadouts marked private',
+        description: 'The user loadouts are marked private.',
+      },
+    }
+  }
+
+  const loadoutsBuilds = await getLoadoutList(userId)
+  const loadoutNames = loadoutsBuilds.map(
+    (build) =>
+      `${build.name} by ${build.createdByDisplayName ?? build.createdByName}`,
+  )
 
   // const previousOGImages = (await parent).openGraph?.images || []
   // const previousTwitterImages = (await parent).twitter?.images || []
-  const title = `${user.displayName ?? user.name} Profile - Remnant2Toolkit`
-  const description =
-    profile?.bio ??
-    `View ${user.displayName ?? user.name}'s profile on Remnant 2 Toolkit.`
+  const title = `${
+    profileData.user.displayName ?? profileData.user.name
+  } Profile - Remnant2Toolkit`
+
+  let description = ''
+
+  for (let i = 0; i < loadoutNames.length; i++) {
+    description += `${i + 1}. ${loadoutNames[i]}`
+  }
 
   return {
     title,
@@ -55,7 +89,7 @@ export async function generateMetadata(
     openGraph: {
       title,
       description: description,
-      url: `https://remnant2toolkit.com/profile/${user.id}`,
+      url: `https://remnant2toolkit.com/profile/${userId}/loadout`,
       images: [
         {
           url: 'https://d2sqltdcj8czo5.cloudfront.net/toolkit/og-image-sm.jpg',
@@ -79,35 +113,33 @@ export default async function Layout({
   children: React.ReactNode
 }) {
   let profileData = await getProfile(userId)
-  const session = await getServerSession()
 
   if (!profileData) {
     return (
-      <div className="flex max-w-lg flex-col">
-        <PageHeader
-          title="Something went wrong!"
-          subtitle="The user profile cannot be found. If this is a new user, please try reloading the page."
-        />
-      </div>
+      <p className="flex max-w-lg flex-col text-xl text-red-500">
+        Error loading profile.
+      </p>
     )
   }
 
   if (isErrorResponse(profileData)) {
     console.error(profileData.errors)
     return (
-      <div className="flex max-w-lg flex-col">
-        <PageHeader
-          title="Something went wrong!"
-          subtitle="The user profile cannot be found. If this is a new user, please try reloading the page."
-        />
-      </div>
+      <p className="flex max-w-lg flex-col text-xl text-red-500">
+        Error loading profile.
+      </p>
     )
   }
 
-  return (
-    <>
-      <ProfileHeader editable={session?.user?.id === userId} userId={userId} />
-      {children}
-    </>
-  )
+  const isLoadoutPublic = await getIsLoadoutPublic(userId)
+
+  if (!isLoadoutPublic) {
+    return (
+      <p className="text-red flex max-w-lg flex-col text-xl text-red-500">
+        User loadouts are marked private.
+      </p>
+    )
+  }
+
+  return <>{children}</>
 }

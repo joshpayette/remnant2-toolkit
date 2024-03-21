@@ -76,7 +76,7 @@ export default async function Layout({
       <div className="flex max-w-lg flex-col">
         <PageHeader
           title="Something went wrong!"
-          subtitle="The user profile cannot be found."
+          subtitle="The user profile cannot be found. If this is a new user, please try reloading the page."
         />
       </div>
     )

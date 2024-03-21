@@ -1,4 +1,3 @@
-import { set } from 'date-fns'
 import { useEffect, useState } from 'react'
 import { toast } from 'react-toastify'
 
@@ -8,17 +7,18 @@ import { DBBuild } from '@/features/build/types'
 import { Dialog } from '@/features/ui/Dialog'
 import { Skeleton } from '@/features/ui/Skeleton'
 
-import { getLoadoutList } from './actions'
+import { getLoadoutList } from '../actions'
 import { EmptyLoadoutCard } from './EmptyLoadoutCard'
 import { LoadoutCard } from './LoadoutCard'
 
 interface Props {
   buildId: string | null
+  isEditable: boolean
   open: boolean
   onClose: () => void
 }
 
-export function LoadoutDialog({ buildId, open, onClose }: Props) {
+export function LoadoutDialog({ buildId, isEditable, open, onClose }: Props) {
   const [loading, setLoading] = useState(true)
   const [loadoutList, setLoadoutList] = useState<
     Array<DBBuild & { slot: number }>
@@ -119,6 +119,7 @@ export function LoadoutDialog({ buildId, open, onClose }: Props) {
             <LoadoutCard
               key={`${userLoadoutBuild.id}-${index}`}
               build={userLoadoutBuild}
+              isEditable={isEditable}
               onRemove={() => removeFromLoadout(userLoadoutBuild.slot)}
               onSlotChange={(success, newLoadouts) => {
                 if (success && newLoadouts) {

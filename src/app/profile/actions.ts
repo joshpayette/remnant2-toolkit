@@ -139,9 +139,15 @@ export async function updateUserBio(
   try {
     const bio = cleanBadWords(dirtyBio)
 
-    const dbResponse = await prisma.userProfile.update({
+    const dbResponse = await prisma.userProfile.upsert({
       where: { userId: session.user.id },
-      data: { bio },
+      create: {
+        userId: session.user.id,
+        bio,
+      },
+      update: {
+        bio,
+      },
     })
 
     if (!dbResponse) {

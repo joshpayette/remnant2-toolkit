@@ -1,4 +1,5 @@
 import { Pagination } from '@/features/pagination/Pagination'
+import { cn } from '@/lib/classnames'
 
 interface Props {
   children: React.ReactNode
@@ -32,7 +33,7 @@ export function ItemList({
   onSpecificPage,
 }: Props) {
   return (
-    <div className="min-h-[1000px]">
+    <div className={cn(isLoading ? 'min-h-[1000px]' : 'min-h-0')}>
       <div className="flex w-full flex-row items-center justify-center border-b border-b-primary-500 py-2">
         <h2 className="flex w-full items-center justify-start text-2xl">
           {label}

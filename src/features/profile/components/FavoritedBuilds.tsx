@@ -15,8 +15,8 @@ import { DuplicateBuildButton } from '@/features/profile/components/DuplicateBui
 import { Skeleton } from '@/features/ui/Skeleton'
 
 import { getFavoritedBuilds } from '../../../app/profile/favorited-builds/actions'
-import { AddToLoadoutButton } from '../loadouts/AddToLoadoutButton'
-import { LoadoutDialog } from '../loadouts/LoadoutDialog'
+import { AddToLoadoutButton } from '../loadouts/components/AddToLoadoutButton'
+import { LoadoutDialog } from '../loadouts/components/LoadoutDialog'
 
 interface Props {
   itemsPerPage?: number
@@ -104,6 +104,7 @@ export function FavoritedBuilds({ itemsPerPage = 8 }: Props) {
         buildId={buildToAddToLoadout}
         open={isLoadoutDialogOpen}
         onClose={() => setBuildToAddToLoadout(null)}
+        isEditable={true}
       />
       <ItemList
         label="Builds you've favorited"
