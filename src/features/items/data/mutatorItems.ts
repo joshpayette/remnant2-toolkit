@@ -379,7 +379,7 @@ export const mutatorItems: MutatorItem[] = [
     id: 'bhov5r',
     tags: ['Charged Melee', 'Melee Damage'],
     description: `Melee Attacks grants a SHIELD for 2-4% of Max Health. Max 20-40%. Last 10s.`,
-    maxLevelBonus: `Charged Melee Attacks consume all SHIELD to increase damage of next strike by 1% per SHIELD Consumed. Max 100%.`,
+    maxLevelBonus: `Charged Melee Attacks deal 25% additional Melee Damage based on current Shield amount.`,
     wikiLinks: [`https://remnant.wiki/Shielded_Strike`],
   },
   {
