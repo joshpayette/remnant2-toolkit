@@ -11,7 +11,14 @@ import { ItemButton } from '@/features/items/components/ItemButton'
 import { ItemInfoDialog } from '@/features/items/components/ItemInfoDialog'
 import { allItems } from '@/features/items/data/allItems'
 import { useFilteredItems } from '@/features/items/hooks/useFilteredItems'
+import { ImportCSVDialog } from '@/features/items/item-tracker/ImportCSVDialog'
+import { ImportSaveDialog } from '@/features/items/item-tracker/ImportSaveDialog'
 import { ItemTrackerFilters } from '@/features/items/item-tracker/ItemTrackerFilters'
+import {
+  ItemTrackerCategory,
+  LocalStorage,
+} from '@/features/items/item-tracker/types'
+import { getProgressLabel } from '@/features/items/item-tracker/utils'
 import { itemToCsvItem } from '@/features/items/lib/itemToCsvItem'
 import { Item } from '@/features/items/types'
 import { MutatorItem } from '@/features/items/types/MutatorItem'
@@ -19,13 +26,6 @@ import { WeaponItem } from '@/features/items/types/WeaponItem'
 import { PageHeader } from '@/features/ui/PageHeader'
 import { capitalize } from '@/lib/capitalize'
 
-import { ImportCSVDialog } from '../../features/items/item-tracker/ImportCSVDialog'
-import { ImportSaveDialog } from '../../features/items/item-tracker/ImportSaveDialog'
-import {
-  ItemTrackerCategory,
-  LocalStorage,
-} from '../../features/items/item-tracker/types'
-import { getProgressLabel } from '../../features/items/item-tracker/utils'
 import { parseSaveFile } from './actions'
 
 /** We don't track these categories at all */
@@ -392,15 +392,17 @@ export default function Page() {
             </button>
             <button
               onClick={() => setImportCSVDialogOpen(true)}
-              aria-label="Import CSV File"
-              className="w-[200px] rounded border-2 border-secondary-500 bg-secondary-700 p-2 text-lg font-bold text-white/90 hover:bg-secondary-500 hover:text-white"
+              aria-label="Import/Export CSV File"
+              className="w-[250px] rounded border-2 border-secondary-500 bg-secondary-700 p-2 text-lg font-bold text-white/90 hover:bg-secondary-500 hover:text-white"
             >
-              Import CSV File
+              Import/Export CSV File
             </button>
           </div>
         </div>
 
-        <div className="mt-16 min-h-[500px] w-full">
+        <hr className="mt-8 w-full max-w-3xl border-gray-700" />
+
+        <div className="mt-8 min-h-[500px] w-full">
           {filteredItems.length > 0 && (
             <>
               <h2 className="mb-2 text-center text-4xl font-bold text-primary-400">

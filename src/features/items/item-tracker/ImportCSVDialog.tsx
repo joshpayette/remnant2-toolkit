@@ -30,22 +30,20 @@ export function ImportCSVDialog({
           <input
             type="file"
             name="trackerImport"
-            className="text-sm"
+            className="rounded-md border border-primary-500 p-4 text-sm"
             ref={fileInputRef}
           />
           <button
             onClick={onSubmit}
             aria-label="Import CSV file"
-            className="border-secondary-500 bg-secondary-700 hover:bg-secondary-500 w-[200px] rounded border-2 p-2 text-lg font-bold text-white/90 hover:text-white disabled:bg-gray-500"
+            className="text-md w-[200px] rounded border-2 border-primary-500 bg-primary-700 p-2 font-bold text-white/90 hover:bg-primary-500 hover:text-white disabled:bg-gray-500"
           >
             Import CSV
           </button>
         </div>
       </div>
       <div className="col-span-full mt-8 gap-y-4 overflow-x-auto bg-black text-left">
-        <h3 className="text-primary-500 mb-4 text-lg font-bold">
-          Import Template
-        </h3>
+        <h3 className="text-lg font-bold text-primary-500">Import Template</h3>
 
         <p>
           Export the following data, fill in the discovered column, then import
