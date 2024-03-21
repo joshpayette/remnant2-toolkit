@@ -14,7 +14,7 @@ const aberrationEnemies: Enemy[] = [
   {
     name: 'Atrophy',
     category: 'aberration',
-    imagePath: '/enemies/aberration/atrophy.jpg',
+    imagePath: '/enemies/aberration/atrophy1.jpg',
     location: 'Yaesha',
     dungeon: `Endaira's End`,
     wikiLinks: ['https://remnant2.wiki.fextralife.com/Atrophy'],

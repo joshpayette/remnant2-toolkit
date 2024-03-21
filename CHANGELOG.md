@@ -10,6 +10,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Added a link to the Remnant 2 Armor Generator, https://scouthunter.github.io/R2AG/.
 
+### Changed
+
+- Updated the image for Atrophy aberration (ConRaven)
+
 ### Fixed
 
 - Fixed inaccurate Dull Steel Ring image.
