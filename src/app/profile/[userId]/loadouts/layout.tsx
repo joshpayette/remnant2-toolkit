@@ -75,12 +75,13 @@ export async function generateMetadata(
   // const previousTwitterImages = (await parent).twitter?.images || []
   const title = `${
     profileData.user.displayName ?? profileData.user.name
-  } Profile - Remnant2Toolkit`
+  } Loadouts - Remnant2Toolkit`
 
   let description = ''
 
   for (let i = 0; i < loadoutNames.length; i++) {
-    description += `${i + 1}. ${loadoutNames[i]}`
+    description += `${i + 1}. ${loadoutNames[i]}\r\n`
+    description += ``
   }
 
   return {
@@ -88,7 +89,7 @@ export async function generateMetadata(
     description,
     openGraph: {
       title,
-      description: description,
+      description,
       url: `https://remnant2toolkit.com/profile/${userId}/loadout`,
       images: [
         {
