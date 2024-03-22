@@ -57,7 +57,9 @@ function parseStringForToken(
   )
 
   if (highlightItems) {
-    const allItemNames = allItems.map((item) => item.name.toLowerCase())
+    const allItemNames = allItems
+      .filter((item) => item.category === 'relicfragment')
+      .map((item) => item.name.toLowerCase())
     const allItemNamesRegex = new RegExp(
       `(${allItemNames.map((token) => escapeRegExp(token)).join('|')})`,
       'gi',
