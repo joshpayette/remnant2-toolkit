@@ -921,7 +921,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     Using a Relic instantly fills Scavenger Stacks and prevents Stack Decay for 15s.
     
     Upgrade unlocked at level 9
-    After using a Relic, Self Discovery gains +1 Stack and prevents Stack Decay for 30s.`,
+    Using a Relic instantly fills Scavenger Stacks, grants +1 Stack, and prevents Stack Decay for 30s.`,
     wikiLinks: [`https://remnant.wiki/Self_Discovery`],
     linkedItems: {
       archetype: {

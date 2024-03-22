@@ -55,7 +55,7 @@ export const concoctionItems: ConcoctionItem[] = [
     imagePath: '/concoction/meat_shake.png',
     id: '4yzeco',
     tags: ['Damage Reduction'],
-    description: `Reduces Damage by 8%.`,
+    description: `Reduces Damage by 8%. Lasts 60m and will stay in effect after death. Only one Concoction may be active at a time.`,
     wikiLinks: [`https://remnant.wiki/Meat_Shake`],
   },
   {
