@@ -1,15 +1,14 @@
 import { useEffect, useState } from 'react'
 import { toast } from 'react-toastify'
 
-import { addBuildToLoadout } from '@/app/profile/loadout-builds/actions'
 import { getArrayOfLength } from '@/features/build/lib/getArrayOfLength'
 import { DBBuild } from '@/features/build/types'
+import { addBuildToLoadout } from '@/features/profile/loadouts/actions/addBuildToLoadout'
+import { getLoadoutList } from '@/features/profile/loadouts/actions/getLoadoutList'
+import { EmptyLoadoutCard } from '@/features/profile/loadouts/components/EmptyLoadoutCard'
+import { LoadoutCard } from '@/features/profile/loadouts/components/LoadoutCard'
 import { Dialog } from '@/features/ui/Dialog'
 import { Skeleton } from '@/features/ui/Skeleton'
-
-import { getLoadoutList } from '../actions'
-import { EmptyLoadoutCard } from './EmptyLoadoutCard'
-import { LoadoutCard } from './LoadoutCard'
 
 interface Props {
   buildId: string | null

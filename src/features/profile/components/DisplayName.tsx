@@ -6,8 +6,7 @@ import { useState } from 'react'
 import { toast } from 'react-toastify'
 
 import { isErrorResponse } from '@/features/error-handling/isErrorResponse'
-
-import { updateUserDisplayName } from '../../../app/profile/actions'
+import { updateUserDisplayName } from '@/features/profile/actions/updateUserDisplayName'
 
 type Props = {
   editable: boolean
@@ -44,7 +43,7 @@ export function DisplayName({ editable, name }: Props) {
         <input
           type="text"
           autoFocus
-          className="border-primary-500 text-primary-400 w-full border bg-transparent p-1 text-left"
+          className="w-full border border-primary-500 bg-transparent p-1 text-left text-primary-400"
           value={newDisplayName}
           onChange={(e) => setNewDisplayName(e.target.value)}
           onBlur={handleSaveDisplayName}
@@ -54,14 +53,14 @@ export function DisplayName({ editable, name }: Props) {
         />
       ) : (
         <>
-          <h2 className="text-primary-500 text-4xl font-semibold">{name}</h2>
+          <h2 className="text-4xl font-semibold text-primary-500">{name}</h2>
           {editable && (
             <button
               onClick={() => setIsEditing(true)}
               aria-label="Edit display name"
             >
               <PencilIcon
-                className="text-primary-500 hover:text-primary-300 h-4 w-4"
+                className="h-4 w-4 text-primary-500 hover:text-primary-300"
                 aria-hidden="true"
               />
             </button>

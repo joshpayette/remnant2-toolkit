@@ -10,12 +10,11 @@ import { useBuildListSecondaryFilters } from '@/features/build/filters/hooks/use
 import { parseBuildListFilters } from '@/features/build/filters/lib/parseBuildListFilters'
 import { useBuildListState } from '@/features/build/hooks/useBuildListState'
 import { usePagination } from '@/features/pagination/usePagination'
+import { getUserProfilePage } from '@/features/profile/actions/getUserProfilePage'
 import { CopyBuildUrlButton } from '@/features/profile/components/CopyBuildUrlButton'
 import { DuplicateBuildButton } from '@/features/profile/components/DuplicateBuildButton'
 import { EditBuildButton } from '@/features/profile/components/EditBuildButton'
 import { Skeleton } from '@/features/ui/Skeleton'
-
-import { getUserProfilePage } from '../actions'
 
 interface Props {
   itemsPerPage?: number

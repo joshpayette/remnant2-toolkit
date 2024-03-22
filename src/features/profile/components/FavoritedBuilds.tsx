@@ -3,6 +3,7 @@
 import { useSearchParams } from 'next/navigation'
 import { useEffect, useState } from 'react'
 
+import { getFavoritedBuilds } from '@/features/build/actions/getFavoritedBuilds'
 import { BuildCard } from '@/features/build/components/build-card/BuildCard'
 import { ItemList } from '@/features/build/components/ItemList'
 import { BuildListSecondaryFilters } from '@/features/build/filters/BuildListSecondaryFilters'
@@ -12,11 +13,9 @@ import { useBuildListState } from '@/features/build/hooks/useBuildListState'
 import { usePagination } from '@/features/pagination/usePagination'
 import { CopyBuildUrlButton } from '@/features/profile/components/CopyBuildUrlButton'
 import { DuplicateBuildButton } from '@/features/profile/components/DuplicateBuildButton'
+import { AddToLoadoutButton } from '@/features/profile/loadouts/components/AddToLoadoutButton'
+import { LoadoutDialog } from '@/features/profile/loadouts/components/LoadoutDialog'
 import { Skeleton } from '@/features/ui/Skeleton'
-
-import { getFavoritedBuilds } from '../../../app/profile/favorited-builds/actions'
-import { AddToLoadoutButton } from '../loadouts/components/AddToLoadoutButton'
-import { LoadoutDialog } from '../loadouts/components/LoadoutDialog'
 
 interface Props {
   itemsPerPage?: number

@@ -3,7 +3,7 @@
 import { useSearchParams } from 'next/navigation'
 import { useEffect, useState } from 'react'
 
-import { getCreatedBuilds } from '@/app/profile/created-builds/actions'
+import { getCreatedBuilds } from '@/features/build/actions/getCreatedBuilds'
 import { BuildCard } from '@/features/build/components/build-card/BuildCard'
 import { CreateBuildCard } from '@/features/build/components/build-card/CreateBuildCard'
 import { ItemList } from '@/features/build/components/ItemList'

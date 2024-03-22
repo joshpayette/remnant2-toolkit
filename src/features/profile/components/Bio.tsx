@@ -5,10 +5,9 @@ import { useState } from 'react'
 import { toast } from 'react-toastify'
 
 import { isErrorResponse } from '@/features/error-handling/isErrorResponse'
+import { updateUserBio } from '@/features/profile/actions/updateUserBio'
+import { MAX_PROFILE_BIO_LENGTH } from '@/features/profile/constants'
 import { Textarea } from '@/features/ui/Textarea'
-
-import { updateUserBio } from '../../../app/profile/actions'
-import { MAX_PROFILE_BIO_LENGTH } from '../constants'
 
 type Props = {
   bio: string
@@ -53,7 +52,7 @@ export function Bio({ bio, editable }: Props) {
               setIsEditing(false)
             }}
             aria-label="Save bio"
-            className="bg-primary-500 hover:bg-primary-300 mt-2 rounded-md p-2 text-white"
+            className="mt-2 rounded-md bg-primary-500 p-2 text-white hover:bg-primary-300"
           >
             Save
           </button>
@@ -66,7 +65,7 @@ export function Bio({ bio, editable }: Props) {
           {editable && (
             <button onClick={() => setIsEditing(true)} aria-label="Edit Bio">
               <PencilIcon
-                className="text-primary-500 hover:text-primary-300 h-4 w-4"
+                className="h-4 w-4 text-primary-500 hover:text-primary-300"
                 aria-hidden="true"
               />
             </button>

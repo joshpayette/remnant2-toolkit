@@ -1,6 +1,6 @@
 import { StarIcon } from '@heroicons/react/24/solid'
 
-import { getUserBio } from '@/app/profile/actions'
+import { getProfile } from '@/features/profile/actions/getProfile'
 import { PublicProfileLinks } from '@/features/profile/components/PublicProfileLinks'
 
 import { getTotalBuildFavorites } from '../../build/actions/getTotalBuildFavorites'
@@ -17,14 +17,15 @@ interface Props {
 export async function ProfileHeader({ editable, userId }: Props) {
   const [totalFavorites, userProfile] = await Promise.all([
     getTotalBuildFavorites(userId),
-    getUserBio(userId),
+    getProfile(userId),
   ])
 
   if (isErrorResponse(totalFavorites) || isErrorResponse(userProfile)) {
     throw new Error('Failed to get user profile')
   }
 
-  const { displayName } = userProfile
+  const { displayName } = userProfile.user
+  const userBio = userProfile.profile?.bio ?? 'No bio is set yet.'
 
   return (
     <div className="max-w-xl">
@@ -39,10 +40,7 @@ export async function ProfileHeader({ editable, userId }: Props) {
         </div>
       </div>
       <div className="flex items-center justify-center">
-        <Bio
-          bio={userProfile.bio ?? 'No bio is set yet.'}
-          editable={editable}
-        />
+        <Bio bio={userBio} editable={editable} />
       </div>
       <div className="my-4 flex w-full flex-row items-center justify-center gap-1 text-2xl text-yellow-500">
         Total <StarIcon className="h-6 w-6" />: {totalFavorites}

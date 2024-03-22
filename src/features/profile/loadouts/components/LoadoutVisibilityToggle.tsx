@@ -3,10 +3,8 @@
 import { useEffect, useState } from 'react'
 import { toast } from 'react-toastify'
 
-import {
-  getIsLoadoutPublic,
-  setIsLoadoutPublic,
-} from '@/features/profile/loadouts/actions'
+import { getIsLoadoutPublic } from '@/features/profile/loadouts/actions/getIsLoadoutPublic'
+import { setIsLoadoutPublic } from '@/features/profile/loadouts/actions/setIsLoadoutPublic'
 import { Checkbox } from '@/features/ui/Checkbox'
 import { Skeleton } from '@/features/ui/Skeleton'
 

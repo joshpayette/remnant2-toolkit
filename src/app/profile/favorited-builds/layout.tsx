@@ -4,11 +4,10 @@ import { Metadata } from 'next'
 
 import { getServerSession } from '@/features/auth/lib'
 import { isErrorResponse } from '@/features/error-handling/isErrorResponse'
+import { getProfile } from '@/features/profile/actions/getProfile'
 import { ProfileHeader } from '@/features/profile/components/ProfileHeader'
 import { Tabs } from '@/features/profile/components/Tabs'
 import { PageHeader } from '@/features/ui/PageHeader'
-
-import { getProfile } from '../actions'
 
 export async function generateMetadata(): Promise<Metadata> {
   const title = `Favorited Builds - Remnant 2 Toolkit`

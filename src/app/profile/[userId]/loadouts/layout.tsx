@@ -1,11 +1,9 @@
 import { Metadata, ResolvingMetadata } from 'next'
 
-import { getProfile } from '@/app/profile/actions'
 import { isErrorResponse } from '@/features/error-handling/isErrorResponse'
-import {
-  getIsLoadoutPublic,
-  getLoadoutList,
-} from '@/features/profile/loadouts/actions'
+import { getProfile } from '@/features/profile/actions/getProfile'
+import { getIsLoadoutPublic } from '@/features/profile/loadouts/actions/getIsLoadoutPublic'
+import { getLoadoutList } from '@/features/profile/loadouts/actions/getLoadoutList'
 
 export async function generateMetadata(
   { params: { userId } }: { params: { userId: string } },

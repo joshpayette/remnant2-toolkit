@@ -1,7 +1,7 @@
 import { TrashIcon } from '@heroicons/react/24/solid'
 import { toast } from 'react-toastify'
 
-import { removeBuildFromLoadout } from '@/app/profile/loadout-builds/actions'
+import { removeBuildFromLoadout } from '@/features/profile/loadouts/actions/removeBuildFromLoadout'
 import { Tooltip } from '@/features/ui/Tooltip'
 
 export function RemoveFromLoadoutButton({

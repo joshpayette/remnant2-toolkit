@@ -1,9 +1,8 @@
 'use server'
 
-import { getServerSession } from '@/features/auth/lib'
 import { getArrayOfLength } from '@/features/build/lib/getArrayOfLength'
+import { getLoadoutList } from '@/features/profile/loadouts/actions/getLoadoutList'
 
-import { getLoadoutList } from '../actions'
 import { EmptyLoadoutCard } from './EmptyLoadoutCard'
 import { LoadoutCard } from './LoadoutCard'
 

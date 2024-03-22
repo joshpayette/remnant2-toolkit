@@ -1,12 +1,10 @@
 'use server'
 
-import { revalidatePath } from 'next/cache'
-
 import { getServerSession } from '@/features/auth/lib'
 import { DBBuild } from '@/features/build/types'
 import { prisma } from '@/features/db'
-
-import { DEFAULT_DISPLAY_NAME } from '../constants'
+import { DEFAULT_DISPLAY_NAME } from '@/features/profile/constants'
+import { getIsLoadoutPublic } from '@/features/profile/loadouts/actions/getIsLoadoutPublic'
 
 export async function getLoadoutList(userId?: string) {
   const session = await getServerSession()
@@ -79,57 +77,4 @@ export async function getLoadoutList(userId?: string) {
   })) satisfies Array<DBBuild & { slot: number }>
 
   return userLoadoutBuilds
-}
-
-export async function getIsLoadoutPublic(userId?: string) {
-  if (!userId) {
-    return false
-  }
-
-  const dbResponse = await prisma.userProfile.findFirst({
-    where: {
-      userId,
-    },
-    select: {
-      isLoadoutPublic: true,
-    },
-  })
-
-  return dbResponse?.isLoadoutPublic || false
-}
-
-export async function setIsLoadoutPublic(isPublic: boolean): Promise<{
-  success: boolean
-  message: string
-}> {
-  const session = await getServerSession()
-  if (!session || !session.user) {
-    return { success: false, message: 'User not found.' }
-  }
-
-  try {
-    await prisma.userProfile.upsert({
-      where: { userId: session.user.id },
-      create: {
-        userId: session.user.id,
-        isLoadoutPublic: isPublic,
-        bio: 'No bio is set yet.',
-      },
-      update: {
-        isLoadoutPublic: isPublic,
-      },
-    })
-  } catch (e) {
-    return {
-      success: false,
-      message:
-        'Failed to update loadout visibility. If this is a new user, reload the page.',
-    }
-  }
-
-  // Clear the cache for the user's profile
-  revalidatePath(`/profile/loadout-builds`)
-  revalidatePath(`/profile/${session.user.id}`)
-
-  return { success: true, message: 'Loadout visibility updated.' }
 }

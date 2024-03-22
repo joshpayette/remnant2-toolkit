@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { Suspense } from 'react'
 
 import { getServerSession } from '@/features/auth/lib'
-import { getIsLoadoutPublic } from '@/features/profile/loadouts/actions'
+import { getIsLoadoutPublic } from '@/features/profile/loadouts/actions/getIsLoadoutPublic'
 import { LoadoutBuilds } from '@/features/profile/loadouts/components/LoadoutBuilds'
 import { LoadoutVisibilityToggle } from '@/features/profile/loadouts/components/LoadoutVisibilityToggle'
 import { Skeleton } from '@/features/ui/Skeleton'
