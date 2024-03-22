@@ -73,10 +73,13 @@ function parseStringForToken(
       replacedText,
       allItemNamesRegex,
       (match, i) => {
-        console.info('match', match)
+        const itemName = allItemNames.find(
+          (itemName) => itemName.toLowerCase() === match.toLowerCase(),
+        )
+
         return (
           <span key={uuidv4()} className="font-bold">
-            {match}
+            {itemName}
           </span>
         )
       },

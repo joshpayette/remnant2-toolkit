@@ -10,6 +10,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Video embed URLs now support a start time parameter. This allows a direct link to a build in a video that may feature more than one build.
 
+### Fixed
+
+- In build descriptions, item names that are found are now automatically capitalized appropriately. The items are still found regardless of capitalization.
+
 ## 2024-03-21
 
 ### Added
