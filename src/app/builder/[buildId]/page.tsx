@@ -29,8 +29,13 @@ function videoEmbedUrlToVideoId(videoEmbedUrl: string) {
  *  => 'https://www.youtube.com/watch?v=3QKpQjvtqE8'
  */
 function videoEmbedUrlToWatchUrl(videoEmbedUrl: string) {
+  // if start=XXX is in the url, grab it for the &t=XXX part of the watch url
+  const startValue = videoEmbedUrl.match(/start=(\d+)/)?.[1]
+
   const videoId = videoEmbedUrlToVideoId(videoEmbedUrl)
-  return `https://www.youtube.com/watch?v=${videoId}`
+  return `https://www.youtube.com/watch?v=${videoId}${
+    startValue ? `&t=${startValue}` : ''
+  }`
 }
 
 export default function Page({

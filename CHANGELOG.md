@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-03-22
+
+### Added
+
+- Video embed URLs now support a start time parameter. This allows a direct link to a build in a video that may feature more than one build.
+
 ## 2024-03-21
 
 ### Added
