@@ -10,6 +10,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - You can now share a link to your Loadouts page if you choose to. On the Loadouts page in your profile, toggle it to public to be able to share the link. Show off your top builds!
 
+### Changed
+
+- Removed the original /featured-builds route that has been persisted for the original builds. The /creator-builds now redirects to the Featured Builds page.
+  - I had kept the original pages up in case folks had them bookmarked, but the tool has been alive long enough, and the old builds unmaintained, so it no longer seems relevant. The inconsistency with the Featured Builds being at /creator-builds was a problem.
+
 ### Fixed
 
 - Corrected Shielded Strike level 10 bonus description. (thanks, Freeman!)
