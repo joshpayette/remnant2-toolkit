@@ -18,7 +18,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Fixed
 
 - Corrected Shielded Strike level 10 bonus description. (thanks, Freeman!)
-- Fixed issue where new user account profiles would sometimes not update.
+- Fixed issue where new user account profiles would sometimes not update
+- Fixed bug where some items weren't bolding due to conflict with description tags
 
 ## 2024-03-20
 

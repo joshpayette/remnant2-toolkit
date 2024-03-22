@@ -21,16 +21,18 @@ function parseStringForToken(
 
   // Start with all Description Tags, which are always included
   const allDescriptionTokens: string[] = [
-    ...DESCRIPTION_TAGS.map((tag) => tag.token),
+    ...DESCRIPTION_TAGS.map((tag) => tag.token).sort(
+      (a, b) => b.length - a.length,
+    ), // Sort in descending order of length,
   ]
-  const allDesriptionTokensRegex = new RegExp(
+  const allDescriptionTokensRegex = new RegExp(
     `(${allDescriptionTokens.map((token) => escapeRegExp(token)).join('|')})`,
-    'gi',
+    'g',
   )
 
   let replacedText = reactStringReplace(
     input,
-    allDesriptionTokensRegex,
+    allDescriptionTokensRegex,
     (match, i) => {
       const tag = DESCRIPTION_TAGS.find((tag) => tag.token === match)
       if (!tag) return match
@@ -59,7 +61,9 @@ function parseStringForToken(
   if (highlightItems) {
     const allItemNames = allItems
       .filter((item) => item.category !== 'relicfragment')
-      .map((item) => item.name.toLowerCase())
+      .map((item) => item.name)
+      .sort((a, b) => b.length - a.length) // Sort in descending order of length
+
     const allItemNamesRegex = new RegExp(
       `(${allItemNames.map((token) => escapeRegExp(token)).join('|')})`,
       'gi',
@@ -69,6 +73,7 @@ function parseStringForToken(
       replacedText,
       allItemNamesRegex,
       (match, i) => {
+        console.info('match', match)
         return (
           <span key={uuidv4()} className="font-bold">
             {match}
@@ -79,7 +84,9 @@ function parseStringForToken(
   }
 
   if (highlightBuildTags) {
-    const allBuildTags = ALL_BUILD_TAGS.map((tag) => tag.label)
+    const allBuildTags = ALL_BUILD_TAGS.map((tag) => tag.label).sort(
+      (a, b) => b.length - a.length,
+    ) // Sort in descending order of length
     const allBuildTagsRegex = new RegExp(
       `(${allBuildTags.map((token) => escapeRegExp(token)).join('|')})`,
       'gi',

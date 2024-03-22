@@ -74,7 +74,6 @@ export const ARCHTYPE_COLORS = {
   },
 }
 
-
 export const WEIGHT_CLASSES = {
   LIGHT: {
     challengerDescription: 'Fast Dodge. No Stamina Cost Penalty.',
