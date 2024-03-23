@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-03-23
+
+### Changed
+
+- Did a complete rework of user profiles to provide more relevant information, for both the profile owner and visitors. This includes a new layout, some stats, and new navigation.
+
 ## 2024-03-22
 
 ### Added
