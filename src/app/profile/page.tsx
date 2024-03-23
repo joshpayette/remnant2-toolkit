@@ -8,5 +8,5 @@ export default async function Page() {
     throw new Error('User not found at /profile/page')
   }
 
-  permanentRedirect(`/profile/${session?.user?.id}`)
+  permanentRedirect(`/profile/${session?.user?.id}?t=${Date.now()}`)
 }

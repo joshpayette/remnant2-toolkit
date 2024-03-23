@@ -31,7 +31,7 @@ function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
     return (
       <div className="space-y-2">
         <Link
-          href={`/profile/${session?.user?.id ?? ''}`}
+          href={`/profile/${session?.user?.id}?t=${Date.now()}`}
           className="flex flex-row items-center justify-start"
         >
           <NAV_ITEMS.profile.icon
@@ -48,7 +48,7 @@ function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
         </Link>
 
         <Link
-          href={`/profile/${session?.user?.id}/created-builds`}
+          href={`/profile/${session?.user?.id}/created-builds?t=${Date.now()}`}
           className="flex flex-row items-center justify-start"
         >
           <NAV_ITEMS.myBuilds.icon
@@ -65,7 +65,8 @@ function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
         </Link>
 
         <Link
-          href={`/profile/${session?.user?.id}/favorited-builds`}
+          href={`/profile/${session?.user
+            ?.id}/favorited-builds?t=${Date.now()}`}
           className="flex flex-row items-center justify-start"
         >
           <NAV_ITEMS.favoritedBuilds.icon
@@ -82,7 +83,7 @@ function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
         </Link>
 
         <Link
-          href={`/profile/${session?.user?.id}/loadouts`}
+          href={`/profile/${session?.user?.id}/loadouts?t=${Date.now()}`}
           className="flex flex-row items-center justify-start"
         >
           <NAV_ITEMS.loadouts.icon
@@ -158,7 +159,7 @@ function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
           <Menu.Item>
             {({ active }) => (
               <Link
-                href={`/profile/${session?.user?.id ?? ''}`}
+                href={`/profile/${session?.user?.id}?t=${Date.now()}`}
                 className={cn(
                   active ? 'bg-gray-800' : '',
                   'flex flex-row items-center justify-start px-4 py-2 text-sm text-gray-300',
@@ -186,7 +187,8 @@ function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
           <Menu.Item>
             {({ active }) => (
               <Link
-                href={`/profile/${session?.user?.id}/favorited-builds`}
+                href={`/profile/${session?.user
+                  ?.id}/favorited-builds?t=${Date.now()}`}
                 className={cn(
                   active ? 'bg-gray-800' : '',
                   'flex flex-row items-center justify-start  px-4 py-2 text-sm text-gray-300',
@@ -200,7 +202,7 @@ function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
           <Menu.Item>
             {({ active }) => (
               <Link
-                href={`/profile/${session?.user?.id}/loadouts`}
+                href={`/profile/${session?.user?.id}/loadouts?t=${Date.now()}`}
                 className={cn(
                   active ? 'bg-gray-800' : '',
                   'flex flex-row items-center justify-start  px-4 py-2 text-sm text-gray-300',

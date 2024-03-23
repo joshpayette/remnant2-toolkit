@@ -158,7 +158,7 @@ export default async function Page() {
               </div>
             </Link>
             <Link
-              href={`/profile/${session?.user?.id}/loadouts`}
+              href={`/profile/${session?.user?.id}/loadouts?t=${Date.now()}`}
               key={NAV_ITEMS.loadouts.label}
               className="flex min-h-[200px] flex-row gap-x-4 rounded-xl border border-transparent bg-white/5 p-6 ring-1 ring-inset ring-white/10 hover:border-primary-500"
             >
