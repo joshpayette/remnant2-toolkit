@@ -1,7 +1,7 @@
 import { LoadoutPublicCheckbox } from '@/app/profile/[userId]/loadouts/LoadoutPublicCheckbox'
 import { getServerSession } from '@/features/auth/lib'
 import { getIsLoadoutPublic } from '@/features/loadouts/actions/getIsLoadoutPublic'
-import { LoadoutBuilds } from '@/features/loadouts/components/LoadoutBuilds'
+import { LoadoutGrid } from '@/features/loadouts/components/LoadoutGrid'
 
 export default async function Page({
   params: { userId },
@@ -31,7 +31,7 @@ export default async function Page({
         </div>
       </div>
       <div className="mb-4 grid w-full grid-cols-1 gap-2">
-        <LoadoutBuilds isEditable={isEditable} userId={userId} />
+        <LoadoutGrid isEditable={isEditable} userId={userId} />
       </div>
     </>
   )

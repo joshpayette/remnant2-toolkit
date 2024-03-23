@@ -11,7 +11,7 @@ interface Props {
   userId?: string
 }
 
-export async function LoadoutBuilds({ isEditable, userId }: Props) {
+export async function LoadoutGrid({ isEditable, userId }: Props) {
   const userLoadoutBuilds = await getLoadoutList(userId)
 
   return (

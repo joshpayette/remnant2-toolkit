@@ -7,8 +7,6 @@ import { isErrorResponse } from '@/features/error-handling/isErrorResponse'
 import { Archetype } from '@/features/items/types'
 import { PageHeader } from '@/features/ui/PageHeader'
 
-import BuildPage from './page'
-
 export async function generateMetadata(
   { params: { buildId } }: { params: { buildId: string } },
   parent: ResolvingMetadata,
@@ -110,8 +108,10 @@ export async function generateMetadata(
 
 export default async function Layout({
   params: { buildId },
+  children,
 }: {
   params: { buildId: string }
+  children: React.ReactNode
 }) {
   const buildData = await getBuild(buildId)
   if (isErrorResponse(buildData)) {
@@ -125,7 +125,6 @@ export default async function Layout({
       </div>
     )
   }
-  const { build } = buildData
 
-  return <BuildPage params={{ build }} />
+  return <>{children}</>
 }

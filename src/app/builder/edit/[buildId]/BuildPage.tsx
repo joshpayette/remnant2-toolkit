@@ -1,5 +1,6 @@
 'use client'
 
+import { useSession } from 'next-auth/react'
 import { useRef, useState } from 'react'
 
 import { BuilderContainer } from '@/features/build/components/builder/BuilderContainer'
@@ -9,37 +10,41 @@ import { ArmorSuggestionsDialog } from '@/features/build/components/dialogs/Armo
 import { DetailedBuildDialog } from '@/features/build/components/dialogs/DetailedBuildDialog'
 import { ImageDownloadInfo } from '@/features/build/components/dialogs/ImageDownloadInfo'
 import { ItemTagSuggestionsDialog } from '@/features/build/components/dialogs/ItemTagSuggestionsDialog'
-import { INITIAL_BUILD_STATE } from '@/features/build/constants'
 import { useBuildActions } from '@/features/build/hooks/useBuildActions'
 import { useDBBuildState } from '@/features/build/hooks/useDBBuildState'
-import { BuildState } from '@/features/build/types'
+import { dbBuildToBuildState } from '@/features/build/lib/dbBuildToBuildState'
+import { BuildState, DBBuild } from '@/features/build/types'
 import { PageHeader } from '@/features/ui/PageHeader'
 
-export default function Page() {
+interface Props {
+  build: DBBuild
+}
+
+export function BuildPage({ build }: Props) {
+  const { data: session } = useSession()
+
   const [detailedBuildDialogOpen, setDetailedBuildDialogOpen] = useState(false)
 
-  const { dbBuildState, setNewBuildState, updateDBBuildState } =
-    useDBBuildState(INITIAL_BUILD_STATE)
+  const { dbBuildState, updateDBBuildState, setNewBuildState } =
+    useDBBuildState(dbBuildToBuildState(build))
 
   const {
     isScreenshotMode,
     showControls,
     imageDownloadInfo,
-    imageExportLoading,
     handleClearImageDownloadInfo,
-    handleImageExport,
-    handleRandomBuild,
+    handleDeleteBuild,
   } = useBuildActions()
 
   const buildContainerRef = useRef<HTMLDivElement>(null)
 
   const [showArmorCalculator, setShowArmorCalculator] = useState(false)
-  const [showItemSuggestions, setShowItemSuggestions] = useState(false)
+  const [showItemTagSuggestions, setShowItemTagSuggestions] = useState(false)
 
-  function handleApplySuggestions(newBuildState: BuildState) {
+  function handleSelectArmorSuggestion(newBuildState: BuildState) {
     setNewBuildState(newBuildState)
     setShowArmorCalculator(false)
-    setShowItemSuggestions(false)
+    setShowItemTagSuggestions(false)
   }
 
   return (
@@ -57,53 +62,42 @@ export default function Page() {
 
       <PageHeader
         title="Remnant 2 Build Tool"
-        subtitle="Create your builds and share them with your friends and the community."
-      />
+        subtitle="Edit your builds and share them with your friends and the community."
+      >
+        &nbsp;
+      </PageHeader>
 
       <ArmorSuggestionsDialog
         buildState={dbBuildState}
         open={showArmorCalculator}
         onClose={() => setShowArmorCalculator(false)}
-        onApplySuggestions={handleApplySuggestions}
-        key={`${JSON.stringify(dbBuildState)}-armor-suggestions`}
+        onApplySuggestions={handleSelectArmorSuggestion}
       />
 
       <ItemTagSuggestionsDialog
         buildState={dbBuildState}
-        open={showItemSuggestions}
-        onClose={() => setShowItemSuggestions(false)}
-        onApplySuggestions={handleApplySuggestions}
-        key={`${JSON.stringify(dbBuildState)}-item-suggestions`}
+        open={showItemTagSuggestions}
+        onClose={() => setShowItemTagSuggestions(false)}
+        onApplySuggestions={handleSelectArmorSuggestion}
       />
 
       <BuilderContainer
         buildContainerRef={buildContainerRef}
         buildState={dbBuildState}
-        isScreenshotMode={isScreenshotMode}
         isEditable={true}
-        onUpdateBuildState={updateDBBuildState}
+        isScreenshotMode={isScreenshotMode}
         showControls={showControls}
-        showCreatedBy={false}
+        onUpdateBuildState={updateDBBuildState}
         builderActions={
           <>
-            <SaveBuildButton buildState={dbBuildState} editMode={false} />
-
-            <ActionButton.ExportImage
-              imageExportLoading={imageExportLoading}
-              onClick={() =>
-                handleImageExport(
-                  buildContainerRef.current,
-                  `${dbBuildState.name}`,
-                )
-              }
-            />
+            <SaveBuildButton buildState={dbBuildState} editMode={true} />
 
             <ActionButton.ArmorCalculator
               onClick={() => setShowArmorCalculator(true)}
             />
 
             <ActionButton.ItemSuggestions
-              onClick={() => setShowItemSuggestions(true)}
+              onClick={() => setShowItemTagSuggestions(true)}
             />
 
             <hr className="my-2 w-full border-t-2 border-gray-500/50" />
@@ -112,12 +106,11 @@ export default function Page() {
               onClick={() => setDetailedBuildDialogOpen(true)}
             />
 
-            <ActionButton.RandomBuild
-              onClick={() => {
-                const randomBuild = handleRandomBuild()
-                setNewBuildState(randomBuild)
-              }}
-            />
+            {session && session.user?.id === dbBuildState.createdById && (
+              <ActionButton.DeleteBuild
+                onClick={() => handleDeleteBuild(dbBuildState.buildId)}
+              />
+            )}
           </>
         }
       />

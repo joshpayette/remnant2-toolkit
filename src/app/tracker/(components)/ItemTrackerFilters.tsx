@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useState } from 'react'
 import { useDebounceValue, useLocalStorage } from 'usehooks-ts'
 
+import { FilteredItem } from '@/app/tracker/(lib)/useFilteredItems'
 import { RELEASE_TO_NAME } from '@/features/items/constants'
-import { FilteredItem } from '@/features/items/hooks/useFilteredItems'
 import { ReleaseKey } from '@/features/items/types'
 import { MutatorItem } from '@/features/items/types/MutatorItem'
 import { WeaponItem } from '@/features/items/types/WeaponItem'
@@ -12,7 +12,7 @@ import { SearchInput } from '@/features/ui/SearchInput'
 import { SelectMenu } from '@/features/ui/SelectMenu'
 import { cn } from '@/lib/classnames'
 
-import { ItemTrackerCategory, LocalStorage } from './types'
+import { ItemTrackerCategory, LocalStorage } from '../(lib)/types'
 
 const DEFAULT_ITEM_CATEGORY: ItemTrackerCategory = 'archetype'
 

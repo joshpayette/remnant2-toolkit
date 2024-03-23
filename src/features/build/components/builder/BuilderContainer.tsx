@@ -30,7 +30,7 @@ type Props = {
     }
 )
 
-export function BuilderPage({
+export function BuilderContainer({
   buildContainerRef,
   builderActions,
   buildState,

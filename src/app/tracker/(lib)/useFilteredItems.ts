@@ -1,9 +1,9 @@
 import { useCallback, useState } from 'react'
 import { useLocalStorage } from 'usehooks-ts'
 
-import { LocalStorage } from '@/features/items/item-tracker/types'
+import { LocalStorage } from '@/app/tracker/(lib)/types'
 
-import { Item } from '../types'
+import { Item } from '../../../features/items/types'
 
 export type FilteredItem = Item & {
   discovered: boolean
