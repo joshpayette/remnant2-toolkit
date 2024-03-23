@@ -7,12 +7,14 @@ import { usePathname } from 'next/navigation'
 import { cn } from '@/lib/classnames'
 
 interface Props {
+  isEditable: boolean
   isLoadoutPublic: boolean
   showPrivateLinks: boolean
   userId: string
 }
 
 export function ProfileNavbar({
+  isEditable,
   isLoadoutPublic,
   showPrivateLinks,
   userId,
@@ -69,13 +71,15 @@ export function ProfileNavbar({
               )}
               scroll={false}
             >
-              <span className="mr-1">
-                {item.private ? (
-                  <EyeSlashIcon className="h-4 w-4" />
-                ) : (
-                  <EyeIcon className="h-4 w-4" />
-                )}
-              </span>
+              {isEditable ? (
+                <span className="mr-1">
+                  {item.private ? (
+                    <EyeSlashIcon className="h-4 w-4" />
+                  ) : (
+                    <EyeIcon className="h-4 w-4" />
+                  )}
+                </span>
+              ) : null}
               {item.name}
             </Link>
           </li>

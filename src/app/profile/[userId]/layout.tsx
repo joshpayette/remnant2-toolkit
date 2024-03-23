@@ -151,6 +151,7 @@ export default async function Layout({
     <div className="w-full">
       <header>
         <ProfileNavbar
+          isEditable={isEditable}
           isLoadoutPublic={isLoadoutPublic}
           showPrivateLinks={session?.user?.id === userId}
           userId={userId}
