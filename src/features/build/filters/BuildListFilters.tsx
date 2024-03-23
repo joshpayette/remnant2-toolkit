@@ -191,7 +191,7 @@ export function BuildListFilters() {
   }
 
   function handleApplyFilters(newFilters: BuildListFilterFields) {
-    let finalPath = `${pathname}?`
+    let finalPath = `${pathname}?t=${Date.now()}&`
     if (
       newFilters.archetypes.length > 0 &&
       newFilters.archetypes.length <

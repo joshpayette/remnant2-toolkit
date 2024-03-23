@@ -71,7 +71,6 @@ export default async function Page({
             <BuildCard
               build={build}
               isLoading={false}
-              memberFrameEnabled={false}
               footerActions={
                 isEditable ? (
                   <CreatedBuildCardActions
