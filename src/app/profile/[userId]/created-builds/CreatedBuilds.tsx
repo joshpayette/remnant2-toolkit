@@ -1,26 +1,25 @@
 'use client'
 
-import { EyeIcon } from '@heroicons/react/24/solid'
-import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
 import { useEffect, useState } from 'react'
 
-import { getCommunityBuilds } from '@/features/build/actions/getCommunityBuilds'
+import { getCreatedBuilds } from '@/app/profile/[userId]/created-builds/getCreatedBuilds'
 import { BuildCard } from '@/features/build/components/build-card/BuildCard'
+import { CreateBuildCard } from '@/features/build/components/build-card/CreateBuildCard'
 import { ItemList } from '@/features/build/components/ItemList'
 import { BuildListSecondaryFilters } from '@/features/build/filters/BuildListSecondaryFilters'
 import { useBuildListSecondaryFilters } from '@/features/build/filters/hooks/useBuildListSecondaryFilters'
 import { parseBuildListFilters } from '@/features/build/filters/lib/parseBuildListFilters'
 import { useBuildListState } from '@/features/build/hooks/useBuildListState'
 import { usePagination } from '@/features/pagination/usePagination'
-import { Skeleton } from '@/features/ui/Skeleton'
-import { Tooltip } from '@/features/ui/Tooltip'
+import { CreatedBuildCardActions } from '@/features/profile/components/CreatedBuildCardActions'
 
 interface Props {
-  itemsPerPage?: number
+  isEditable: boolean
+  userId: string
 }
 
-export function CommunityBuildList({ itemsPerPage = 8 }: Props) {
+export function CreatedBuilds({ isEditable, userId }: Props) {
   const searchParams = useSearchParams()
   const [buildListFilters, setBuildListFilters] = useState(
     parseBuildListFilters(searchParams),
@@ -32,6 +31,8 @@ export function CommunityBuildList({ itemsPerPage = 8 }: Props) {
   const { buildListState, setBuildListState } = useBuildListState()
   const { builds, totalBuildCount, isLoading } = buildListState
 
+  const itemsPerPage = isEditable ? 15 : 16
+
   const {
     orderBy,
     orderByOptions,
@@ -39,7 +40,7 @@ export function CommunityBuildList({ itemsPerPage = 8 }: Props) {
     timeRangeOptions,
     handleOrderByChange,
     handleTimeRangeChange,
-  } = useBuildListSecondaryFilters()
+  } = useBuildListSecondaryFilters('newest')
 
   const {
     currentPage,
@@ -55,16 +56,17 @@ export function CommunityBuildList({ itemsPerPage = 8 }: Props) {
     itemsPerPage,
   })
 
-  // Fetch data
   useEffect(() => {
     const getItemsAsync = async () => {
       setBuildListState((prevState) => ({ ...prevState, isLoading: true }))
-      const response = await getCommunityBuilds({
+      const response = await getCreatedBuilds({
+        buildListFilters,
+        featuredBuildsOnly: false,
         itemsPerPage,
+        orderBy,
         pageNumber: currentPage,
         timeRange,
-        orderBy,
-        buildListFilters,
+        userId,
       })
       setBuildListState((prevState) => ({
         ...prevState,
@@ -79,18 +81,15 @@ export function CommunityBuildList({ itemsPerPage = 8 }: Props) {
     currentPage,
     itemsPerPage,
     orderBy,
-    timeRange,
     setBuildListState,
+    timeRange,
+    userId,
   ])
-
-  if (!buildListFilters) {
-    return <Skeleton className="min-h-[1100px] w-full" />
-  }
 
   return (
     <>
       <ItemList
-        label="Community Builds"
+        label="Created Builds"
         currentPage={currentPage}
         isLoading={isLoading}
         pageNumbers={pageNumbers}
@@ -116,22 +115,23 @@ export function CommunityBuildList({ itemsPerPage = 8 }: Props) {
           role="list"
           className="mb-4 mt-8 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-2 lg:grid-cols-4"
         >
+          {isEditable ? <CreateBuildCard /> : null}
+
           {builds.map((build) => (
-            <BuildCard
-              key={build.id}
-              build={build}
-              isLoading={isLoading}
-              footerActions={
-                <Tooltip content="View Build">
-                  <Link
-                    href={`/builder/${build.id}`}
-                    className="flex flex-col items-center gap-x-3 rounded-br-lg border border-transparent px-4 py-2 text-xs font-semibold text-primary-500 hover:text-primary-300 hover:underline"
-                  >
-                    <EyeIcon className="h-4 w-4" /> View
-                  </Link>
-                </Tooltip>
-              }
-            />
+            <div key={build.id} className="h-full w-full">
+              <BuildCard
+                build={build}
+                isLoading={isLoading}
+                footerActions={
+                  isEditable ? (
+                    <CreatedBuildCardActions
+                      build={build}
+                      pathsToRevalidate={[`/profile/${userId}/created-builds`]}
+                    />
+                  ) : undefined
+                }
+              />
+            </div>
           ))}
         </ul>
       </ItemList>

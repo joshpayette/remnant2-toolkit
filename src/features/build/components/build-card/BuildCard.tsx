@@ -41,7 +41,7 @@ export function BuildCard({
   return (
     <div
       key={build.id}
-      className="h-full min-h-[440px] w-full text-left"
+      className={cn('h-full min-h-[440px] w-full text-left')}
       role="listitem"
     >
       {build.id.includes('placeholder') || isLoading ? (
@@ -49,7 +49,7 @@ export function BuildCard({
       ) : (
         <div
           className={cn(
-            'relative col-span-1 flex h-full min-h-[350px] flex-col rounded-lg border border-secondary-500 bg-black shadow',
+            'relative col-span-1 flex h-full flex-col rounded-lg border border-secondary-500 bg-black shadow',
             buildState.isMember &&
               memberFrameEnabled &&
               'border-2 border-accent1-300 shadow-lg shadow-accent1-600',
@@ -62,7 +62,7 @@ export function BuildCard({
               {build.isFeaturedBuild ? <FeaturedBuildBadge /> : null}
             </div>
           )}
-          <div className="flex w-full flex-1 items-start justify-start space-x-6 p-4">
+          <div className="flex w-full flex-1 items-start justify-start p-4 pb-0">
             <div className="flex flex-col items-start justify-start overflow-x-auto">
               <Link
                 href={`/builder/${build.id}`}
@@ -135,7 +135,11 @@ export function BuildCard({
                 )}
               </div>
               {buildState.description && (
-                <div className="mt-4 max-h-[100px] flex-row items-start justify-start gap-x-2 overflow-y-auto whitespace-pre-wrap text-xs text-gray-300">
+                <div
+                  className={cn(
+                    'mt-4 max-h-[140px] flex-row items-start justify-start gap-x-2 overflow-y-auto whitespace-pre-wrap text-xs text-gray-300',
+                  )}
+                >
                   <DescriptionWithTags
                     description={buildState.description}
                     highlightItems={true}
@@ -153,7 +157,11 @@ export function BuildCard({
               </div>
             </div>
           </div>
-          <div>{footerActions}</div>
+          {footerActions ? (
+            <div className="mt-2 flex items-center justify-end gap-x-2 text-sm">
+              {footerActions}
+            </div>
+          ) : null}
         </div>
       )}
     </div>

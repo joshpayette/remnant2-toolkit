@@ -198,6 +198,18 @@ model Build {
   @@index([userProfileId])
 }
 
+model UserProfile {
+  id              String   @id @default(cuid())
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  userId          String   @unique // Added @unique directive
+  user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  bio             String   @db.Text
+  avatarId        String   @default("2zr34P") // Gorge
+  isLoadoutPublic Boolean  @default(false)
+  Build           Build[]
+}
+
 model BuildItems {
   id       String  @id @default(cuid())
   build    Build   @relation(fields: [buildId], references: [id], onDelete: Cascade)
@@ -258,17 +270,6 @@ model BuildTags {
   tag       BUILD_TAG
 
   @@index([buildId])
-}
-
-model UserProfile {
-  id              String   @id @default(cuid())
-  createdAt       DateTime @default(now())
-  updatedAt       DateTime @updatedAt
-  userId          String   @unique // Added @unique directive
-  user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  bio             String   @db.Text
-  isLoadoutPublic Boolean  @default(false)
-  Build           Build[]
 }
 
 model BannedUsers {

@@ -1,15 +1,50 @@
-'use server'
-
-import { Suspense } from 'react'
+import { Prisma } from '@prisma/client'
+import { revalidatePath } from 'next/cache'
 
 import { getServerSession } from '@/features/auth/lib'
-import { BuildListFilters } from '@/features/build/filters/BuildListFilters'
-import { DEFAULT_ITEMS_PER_PAGE } from '@/features/pagination/constants'
-import { UserProfile } from '@/features/profile/components/UserProfile'
-import { getIsLoadoutPublic } from '@/features/profile/loadouts/actions/getIsLoadoutPublic'
-import { LoadoutBuilds } from '@/features/profile/loadouts/components/LoadoutBuilds'
-import { LoadoutSkeleton } from '@/features/profile/loadouts/components/LoadoutSkeleton'
-import { PublicProfileHeader } from '@/features/profile/loadouts/components/PublicProfileHeader'
+import { BuildCard } from '@/features/build/components/build-card/BuildCard'
+import { communityBuildsQuery } from '@/features/build/filters/queries/community-builds'
+import { prisma } from '@/features/db'
+import { CreatedBuildCardActions } from '@/features/profile/components/CreatedBuildCardActions'
+import { bigIntFix } from '@/lib/bigIntFix'
+
+async function getCreatedBuilds(userId: string) {
+  const itemsToFetch = 4
+
+  const whereConditions = Prisma.sql`
+  WHERE Build.createdById = ${userId}
+  AND Build.isPublic = true
+  `
+
+  const orderBySegment = Prisma.sql`ORDER BY totalUpvotes DESC`
+
+  const builds = await communityBuildsQuery({
+    userId,
+    itemsPerPage: itemsToFetch,
+    pageNumber: 1,
+    orderBySegment,
+    whereConditions,
+    searchText: '',
+  })
+
+  // Then, for each Build, get the associated BuildItems
+  for (const build of builds) {
+    const buildItems = await prisma.buildItems.findMany({
+      where: { buildId: build.id },
+    })
+    build.buildItems = buildItems
+  }
+
+  // Then, for each Build, get the associated BuildTags
+  for (const build of builds) {
+    const buildTags = await prisma.buildTags.findMany({
+      where: { buildId: build.id },
+    })
+    build.buildTags = buildTags
+  }
+
+  return bigIntFix(builds)
+}
 
 export default async function Page({
   params: { userId },
@@ -17,39 +52,39 @@ export default async function Page({
   params: { userId: string }
 }) {
   const session = await getServerSession()
-  const isLoadoutPublic = await getIsLoadoutPublic(userId)
+  const isEditable = session?.user?.id === userId
+
+  const builds = await getCreatedBuilds(userId)
 
   return (
     <>
-      {isLoadoutPublic ? (
-        <div className="my-12 flex w-full items-center justify-center">
-          <PublicProfileHeader userId={userId} />
-        </div>
-      ) : null}
-      <div className="mb-8 flex w-full max-w-2xl items-center justify-center">
-        <BuildListFilters key="user-profile-filters" />
+      <div className="mb-12 flex w-full flex-row items-center justify-center border-b border-b-primary-500 py-2">
+        <h2 className="flex w-full items-center justify-start text-2xl">
+          Top Created Builds
+        </h2>
       </div>
-      <div id="createdBuilds" className="mb-4 grid w-full grid-cols-1 gap-2">
-        <UserProfile itemsPerPage={DEFAULT_ITEMS_PER_PAGE} userId={userId} />
-        {isLoadoutPublic ? (
-          <div
-            className="mt-12 flex flex-col items-start justify-center"
-            id="loadouts"
-          >
-            <h3 className="mb-12 w-full border-b border-b-primary-500 pb-2 text-2xl">
-              Loadouts
-            </h3>
-            <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
-              <Suspense fallback={<LoadoutSkeleton />}>
-                <LoadoutBuilds
-                  userId={userId}
-                  isEditable={session?.user?.id === userId}
-                />
-              </Suspense>
-            </div>
-          </div>
-        ) : null}
-      </div>
+      <ul
+        role="list"
+        className="mb-4 mt-8 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-2 lg:grid-cols-4"
+      >
+        {builds.map((build) => (
+          <li key={build.id} className="h-full w-full">
+            <BuildCard
+              build={build}
+              isLoading={false}
+              memberFrameEnabled={false}
+              footerActions={
+                isEditable ? (
+                  <CreatedBuildCardActions
+                    build={build}
+                    pathsToRevalidate={[`/profile/${userId}`]}
+                  />
+                ) : undefined
+              }
+            />
+          </li>
+        ))}
+      </ul>
     </>
   )
 }

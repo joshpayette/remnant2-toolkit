@@ -17,7 +17,7 @@ export function NavBar() {
   const pathname = usePathname()
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
-  const { status } = useSession()
+  const { data: session, status } = useSession()
 
   // Close the navmenu on route change
   // * useEffect is necessary to close the menu on route change
@@ -334,7 +334,7 @@ export function NavBar() {
           </Menu>
 
           <Link
-            href={NAV_ITEMS.myBuilds.href}
+            href={`/profile/${session?.user?.id}/created-builds`}
             className={cn(
               'flex flex-row items-center justify-start text-lg font-semibold text-white hover:text-primary-500',
             )}
@@ -343,7 +343,7 @@ export function NavBar() {
           </Link>
 
           <Link
-            href={NAV_ITEMS.favoritedBuilds.href}
+            href={`/profile/${session?.user?.id}/favorited-builds`}
             className={cn(
               'flex flex-row items-center justify-start text-lg font-semibold text-white hover:text-primary-500',
             )}

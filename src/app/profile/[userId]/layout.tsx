@@ -1,19 +1,47 @@
 import { Metadata, ResolvingMetadata } from 'next'
+import { revalidatePath } from 'next/cache'
 
 import { getServerSession } from '@/features/auth/lib'
-import { isErrorResponse } from '@/features/error-handling/isErrorResponse'
-import { getProfile } from '@/features/profile/actions/getProfile'
+import { prisma } from '@/features/db'
+import { getIsLoadoutPublic } from '@/features/loadouts/actions/getIsLoadoutPublic'
 import { ProfileHeader } from '@/features/profile/components/ProfileHeader'
+import { ProfileNavbar } from '@/features/profile/components/ProfileNavbar'
+import { ProfileStats } from '@/features/profile/components/ProfileStats'
+import { DEFAULT_BIO, DEFAULT_DISPLAY_NAME } from '@/features/profile/constants'
 import { PageHeader } from '@/features/ui/PageHeader'
 
 export async function generateMetadata(
   { params: { userId } }: { params: { userId: string } },
   parent: ResolvingMetadata,
 ): Promise<Metadata> {
-  const profileData = await getProfile(userId)
+  const userData = await prisma.user.findUnique({
+    where: {
+      id: userId,
+    },
+  })
 
-  if (isErrorResponse(profileData)) {
-    console.error(profileData.errors)
+  let profileData = await prisma.userProfile.findFirst({
+    where: {
+      userId,
+    },
+  })
+
+  if (!profileData) {
+    profileData = await prisma.userProfile.upsert({
+      where: {
+        userId,
+      },
+      create: {
+        userId,
+        bio: DEFAULT_BIO,
+      },
+      update: {},
+    })
+  }
+
+  if (!userData) {
+    console.info('User or profile not found', { userId, userData, profileData })
+
     return {
       title: 'Error loading profile',
       description:
@@ -39,14 +67,12 @@ export async function generateMetadata(
     }
   }
 
-  const { user, profile } = profileData
-
   // const previousOGImages = (await parent).openGraph?.images || []
   // const previousTwitterImages = (await parent).twitter?.images || []
-  const title = `${user.displayName ?? user.name} Profile - Remnant2Toolkit`
+  const userName = userData.displayName ?? userData.name
+  const title = `${userName} Profile - Remnant2Toolkit`
   const description =
-    profile?.bio ??
-    `View ${user.displayName ?? user.name}'s profile on Remnant 2 Toolkit.`
+    profileData.bio ?? `View ${userName}'s profile on Remnant 2 Toolkit.`
 
   return {
     title,
@@ -54,7 +80,7 @@ export async function generateMetadata(
     openGraph: {
       title,
       description: description,
-      url: `https://remnant2toolkit.com/profile/${user.id}`,
+      url: `https://remnant2toolkit.com/profile/${userId}`,
       images: [
         {
           url: 'https://d2sqltdcj8czo5.cloudfront.net/toolkit/og-image-sm.jpg',
@@ -71,42 +97,77 @@ export async function generateMetadata(
 }
 
 export default async function Layout({
-  params: { userId },
   children,
+  params: { userId },
 }: {
-  params: { userId: string }
   children: React.ReactNode
+  params: { userId: string }
 }) {
-  let profileData = await getProfile(userId)
   const session = await getServerSession()
+  const isEditable = session?.user?.id === userId
 
-  if (!profileData) {
+  const user = await prisma.user.findUnique({
+    where: {
+      id: userId,
+    },
+  })
+
+  if (!user) {
     return (
-      <div className="flex max-w-lg flex-col">
-        <PageHeader
-          title="Something went wrong!"
-          subtitle="The user profile cannot be found. If this is a new user, please try reloading the page."
-        />
-      </div>
+      <PageHeader title="User Profile Not Found">
+        <p className="text-lg text-red-500">
+          The user or user profile you are looking for could not be found.
+        </p>
+      </PageHeader>
     )
   }
 
-  if (isErrorResponse(profileData)) {
-    console.error(profileData.errors)
-    return (
-      <div className="flex max-w-lg flex-col">
-        <PageHeader
-          title="Something went wrong!"
-          subtitle="The user profile cannot be found. If this is a new user, please try reloading the page."
-        />
-      </div>
-    )
+  let profile = await prisma.userProfile.findFirst({
+    where: {
+      userId,
+    },
+  })
+
+  if (!profile) {
+    profile = await prisma.userProfile.upsert({
+      where: {
+        userId,
+      },
+      create: {
+        userId,
+        bio: DEFAULT_BIO,
+      },
+      update: {},
+    })
+    revalidatePath(`/profile/${userId}`)
   }
+
+  const isLoadoutPublic = await getIsLoadoutPublic(userId)
 
   return (
-    <>
-      <ProfileHeader editable={session?.user?.id === userId} userId={userId} />
-      {children}
-    </>
+    <div className="w-full">
+      <header>
+        <ProfileNavbar
+          isLoadoutPublic={isLoadoutPublic}
+          showPrivateLinks={session?.user?.id === userId}
+          userId={userId}
+        />
+
+        {/* Heading */}
+        <div className="flex flex-col items-start justify-start gap-x-8 gap-y-4 bg-gray-700/10 px-4 py-4 sm:flex-row sm:items-start sm:px-6 lg:px-8">
+          <ProfileHeader
+            avatarId={profile.avatarId}
+            bio={profile.bio}
+            displayName={user.displayName || user.name || DEFAULT_DISPLAY_NAME}
+            isEditable={isEditable}
+            userId={userId}
+          />
+        </div>
+
+        {/* Stats */}
+        <ProfileStats userId={userId} />
+      </header>
+      <div className="border-t border-white/10 pt-11">{children}</div>
+    </div>
   )
 }

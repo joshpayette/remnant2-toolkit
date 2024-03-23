@@ -36,40 +36,38 @@ export function WeaponFilters({
   onChange,
 }: Props) {
   return (
-    <div className="col-span-full pt-2">
-      <div className="flex w-full flex-col items-start justify-start">
-        <div className="grid w-full grid-cols-1 gap-x-8 gap-y-4 text-left sm:grid-cols-3 sm:gap-y-0">
-          <SelectMenu
-            name="longGun"
-            label="By Long Gun"
-            value={selectedLongGun}
-            options={allLongGuns.map((weapon) => ({
-              label: weapon,
-              value: weapon,
-            }))}
-            onChange={(e) => onChange(e.target.value, 'longGun')}
-          />
-          <SelectMenu
-            name="melee"
-            label="By Melee"
-            value={selectedMelee}
-            options={allMelee.map((weapon) => ({
-              label: weapon,
-              value: weapon,
-            }))}
-            onChange={(e) => onChange(e.target.value, 'melee')}
-          />
-          <SelectMenu
-            name="handGun"
-            label="By Hand Gun"
-            value={selectedHandGun}
-            options={allHandGuns.map((weapon) => ({
-              label: weapon,
-              value: weapon,
-            }))}
-            onChange={(e) => onChange(e.target.value, 'handGun')}
-          />
-        </div>
+    <div className="flex w-full flex-col items-start justify-start">
+      <div className="grid w-full grid-cols-1 gap-x-8 gap-y-4 text-left sm:grid-cols-3 sm:gap-y-0">
+        <SelectMenu
+          name="longGun"
+          label="By Long Gun"
+          value={selectedLongGun}
+          options={allLongGuns.map((weapon) => ({
+            label: weapon,
+            value: weapon,
+          }))}
+          onChange={(e) => onChange(e.target.value, 'longGun')}
+        />
+        <SelectMenu
+          name="melee"
+          label="By Melee"
+          value={selectedMelee}
+          options={allMelee.map((weapon) => ({
+            label: weapon,
+            value: weapon,
+          }))}
+          onChange={(e) => onChange(e.target.value, 'melee')}
+        />
+        <SelectMenu
+          name="handGun"
+          label="By Hand Gun"
+          value={selectedHandGun}
+          options={allHandGuns.map((weapon) => ({
+            label: weapon,
+            value: weapon,
+          }))}
+          onChange={(e) => onChange(e.target.value, 'handGun')}
+        />
       </div>
     </div>
   )

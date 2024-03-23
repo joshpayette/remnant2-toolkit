@@ -122,16 +122,14 @@ export function FeaturedBuilds({ itemsPerPage = 8 }: Props) {
                 build={build}
                 isLoading={isLoading}
                 footerActions={
-                  <div className="flex items-center justify-end gap-2 p-2 text-sm">
-                    <Tooltip content="View Build">
-                      <Link
-                        href={`/builder/${build.id}`}
-                        className="flex flex-col items-center gap-x-3 gap-y-1 rounded-br-lg border border-transparent p-4 text-xs font-semibold text-primary-500 hover:text-primary-300 hover:underline"
-                      >
-                        <EyeIcon className="h-4 w-4" /> View
-                      </Link>
-                    </Tooltip>
-                  </div>
+                  <Tooltip content="View Build">
+                    <Link
+                      href={`/builder/${build.id}`}
+                      className="flex flex-col items-center gap-x-3 rounded-br-lg border border-transparent px-4 py-2 text-xs font-semibold text-primary-500 hover:text-primary-300 hover:underline"
+                    >
+                      <EyeIcon className="h-4 w-4" /> View
+                    </Link>
+                  </Tooltip>
                 }
               />
             </div>

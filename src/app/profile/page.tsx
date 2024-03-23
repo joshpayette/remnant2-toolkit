@@ -1,5 +1,12 @@
-import { redirect } from 'next/navigation'
+import { permanentRedirect } from 'next/navigation'
+
+import { getServerSession } from '@/features/auth/lib'
 
 export default async function Page() {
-  redirect('/profile/created-builds')
+  const session = await getServerSession()
+  if (!session || !session.user) {
+    throw new Error('User not found at /profile/page')
+  }
+
+  permanentRedirect(`/profile/${session?.user?.id}`)
 }

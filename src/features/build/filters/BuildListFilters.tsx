@@ -256,53 +256,58 @@ export function BuildListFilters() {
       onApplyFilters={handleApplyFilters}
       onClearFilters={handleClearFilters}
     >
-      <SearchBuildsFilter
-        searchText={unappliedFilters.searchText}
-        onApplyFilters={() => handleApplyFilters(unappliedFilters)}
-        onChange={(newSearchText: string) =>
-          handleSearchTextChange(newSearchText)
-        }
-      />
-      <ArchetypeFilters
-        selectedArchetypes={unappliedFilters.archetypes}
-        onChange={(archtype: Archetype) => handleArchetypeChange(archtype)}
-        onSelectAll={handleSelectAllArchetypes}
-        onSelectNone={handleSelectNoArchetypes}
-      />
-      <WeaponFilters
-        selectedLongGun={unappliedFilters.longGun}
-        selectedHandGun={unappliedFilters.handGun}
-        selectedMelee={unappliedFilters.melee}
-        onChange={handleWeaponChange}
-      />
-      <JewelryFilters
-        selectedRings={{
-          ring1: unappliedFilters.ring1,
-          ring2: unappliedFilters.ring2,
-          ring3: unappliedFilters.ring3,
-          ring4: unappliedFilters.ring4,
-        }}
-        selectedAmulet={unappliedFilters.amulet}
-        onChangeRing={handleRingChange}
-        onChangeAmulet={handleAmuletChange}
-      />
-
-      <div className="col-span-full grid w-full grid-cols-1 sm:grid-cols-2 sm:gap-x-4">
-        <div className="col-span-1">
-          <ReleaseFilters
-            selectedReleases={unappliedFilters.selectedReleases}
-            onChange={handleReleaseChange}
-          />
-        </div>
-        <div className="col-span-1">
-          <BuildTagFilters
-            selectedTags={unappliedFilters.buildTags}
-            onChange={handleBuildTagChange}
-          />
-        </div>
+      <div className="col-span-full border-b border-b-primary-800 pb-4 lg:col-span-3">
+        <SearchBuildsFilter
+          searchText={unappliedFilters.searchText}
+          onApplyFilters={() => handleApplyFilters(unappliedFilters)}
+          onChange={(newSearchText: string) =>
+            handleSearchTextChange(newSearchText)
+          }
+        />
+      </div>
+      <div className="col-span-full border-b border-b-primary-800 pb-4 pt-2 lg:col-span-3 lg:pt-0">
+        <ArchetypeFilters
+          selectedArchetypes={unappliedFilters.archetypes}
+          onChange={(archtype: Archetype) => handleArchetypeChange(archtype)}
+          onSelectAll={handleSelectAllArchetypes}
+          onSelectNone={handleSelectNoArchetypes}
+        />
+      </div>
+      <div className="col-span-full border-b border-b-primary-800 pb-4 pt-2 lg:col-span-3 lg:pt-0">
+        <WeaponFilters
+          selectedLongGun={unappliedFilters.longGun}
+          selectedHandGun={unappliedFilters.handGun}
+          selectedMelee={unappliedFilters.melee}
+          onChange={handleWeaponChange}
+        />
+      </div>
+      <div className="col-span-full border-b border-b-primary-800 pb-4 pt-2 lg:col-span-3 lg:pt-0">
+        <JewelryFilters
+          selectedRings={{
+            ring1: unappliedFilters.ring1,
+            ring2: unappliedFilters.ring2,
+            ring3: unappliedFilters.ring3,
+            ring4: unappliedFilters.ring4,
+          }}
+          selectedAmulet={unappliedFilters.amulet}
+          onChangeRing={handleRingChange}
+          onChangeAmulet={handleAmuletChange}
+        />
       </div>
 
-      <div className="col-span-full pt-2">
+      <div className="col-span-1 border-b border-b-primary-800 pb-4 pt-2 sm:col-span-3 lg:col-span-2 lg:pt-0">
+        <ReleaseFilters
+          selectedReleases={unappliedFilters.selectedReleases}
+          onChange={handleReleaseChange}
+        />
+      </div>
+      <div className="col-span-1 border-b border-b-primary-800 pb-4 pt-2 sm:col-span-3 lg:col-span-2 lg:pt-0">
+        <BuildTagFilters
+          selectedTags={unappliedFilters.buildTags}
+          onChange={handleBuildTagChange}
+        />
+      </div>
+      <div className="col-span-full border-b border-b-primary-800 pb-4 pt-2 lg:col-span-2 lg:pt-0">
         <div className="flex w-full flex-col items-start justify-start gap-x-4 gap-y-2">
           <div className="flex w-full flex-col items-start justify-start text-left text-sm font-bold text-primary-500">
             By Patch

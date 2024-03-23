@@ -27,7 +27,7 @@ export function FiltersContainer<T>({
           'border-accent1-300 shadow-xl shadow-accent1-600',
       )}
     >
-      <div className="grid-cols-full grid gap-x-8 gap-y-4 divide-y divide-primary-800 bg-black sm:grid-cols-4">
+      <div className="grid-cols-full grid gap-x-8 gap-y-4 bg-black sm:grid-cols-6">
         {children}
         <div className="col-span-full flex items-center justify-end pt-2">
           {areAnyFiltersActive && (

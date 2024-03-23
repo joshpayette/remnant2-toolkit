@@ -2,10 +2,12 @@ import { ArrowRightIcon } from '@heroicons/react/24/solid'
 import Image from 'next/image'
 import Link from 'next/link'
 
+import { getServerSession } from '@/features/auth/lib'
 import { getTotalBuildCount } from '@/features/build/actions/getTotalBuildCount'
 import { NAV_ITEMS } from '@/features/navigation/constants'
 
 export default async function Page() {
+  const session = await getServerSession()
   const totalBuildCount = await getTotalBuildCount()
 
   return (
@@ -156,7 +158,7 @@ export default async function Page() {
               </div>
             </Link>
             <Link
-              href={NAV_ITEMS.loadouts.href}
+              href={`/profile/${session?.user?.id}/loadouts`}
               key={NAV_ITEMS.loadouts.label}
               className="flex min-h-[200px] flex-row gap-x-4 rounded-xl border border-transparent bg-white/5 p-6 ring-1 ring-inset ring-white/10 hover:border-primary-500"
             >

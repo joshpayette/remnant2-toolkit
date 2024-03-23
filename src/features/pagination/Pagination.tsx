@@ -65,7 +65,7 @@ export function Pagination({
             </span>{' '}
             of{' '}
             <span className="font-medium">
-              {totalItems > 100 ? '100+' : totalItems}
+              {totalItems > 1000 ? '1000+' : totalItems}
             </span>{' '}
             results
           </p>

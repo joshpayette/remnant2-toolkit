@@ -1,9 +1,6 @@
-import { toast } from 'react-toastify'
-
-import { LoadoutPublicCheckbox } from '@/app/profile/[userId]/loadouts/LoadoutPublicCheckbox'
+import { FavoritedBuilds } from '@/app/profile/[userId]/favorited-builds/FavoritedBuilds'
 import { getServerSession } from '@/features/auth/lib'
-import { getIsLoadoutPublic } from '@/features/loadouts/actions/getIsLoadoutPublic'
-import { LoadoutBuilds } from '@/features/loadouts/components/LoadoutBuilds'
+import { BuildListFilters } from '@/features/build/filters/BuildListFilters'
 
 export default async function Page({
   params: { userId },
@@ -11,10 +8,8 @@ export default async function Page({
   params: { userId: string }
 }) {
   const session = await getServerSession()
-  const isLoadoutPublic = await getIsLoadoutPublic(userId)
-  const isEditable = session?.user?.id === userId
 
-  if (session?.user?.id !== userId && !isLoadoutPublic) {
+  if (session?.user?.id !== userId) {
     return (
       <p className="text-red-500">You are not authorized to view this page.</p>
     )
@@ -25,15 +20,13 @@ export default async function Page({
       <div className="mb-8 flex w-full flex-col items-center justify-center">
         <div className="flex w-full flex-row items-center justify-center border-b border-b-primary-500 py-2">
           <h2 className="flex w-full items-center justify-start text-2xl">
-            Loadouts
+            Build Filters
           </h2>
-          {isEditable ? (
-            <LoadoutPublicCheckbox isLoadoutPublic={isLoadoutPublic} />
-          ) : null}
         </div>
+        <BuildListFilters key="user-favorited-builds-filters" />
       </div>
       <div className="mb-4 grid w-full grid-cols-1 gap-2">
-        <LoadoutBuilds isEditable={isEditable} userId={userId} />
+        <FavoritedBuilds userId={userId} />
       </div>
     </>
   )

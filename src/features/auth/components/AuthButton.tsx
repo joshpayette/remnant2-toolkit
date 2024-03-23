@@ -35,7 +35,7 @@ function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
           className="flex flex-row items-center justify-start"
         >
           <NAV_ITEMS.profile.icon
-            className="text-primary-500 mr-2 h-7 w-5 flex-none"
+            className="mr-2 h-7 w-5 flex-none text-primary-500"
             aria-hidden="true"
           />
           <div className="flex flex-col items-start justify-start px-3 py-2">
@@ -48,11 +48,11 @@ function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
         </Link>
 
         <Link
-          href={NAV_ITEMS.myBuilds.href}
+          href={`/profile/${session?.user?.id}/created-builds`}
           className="flex flex-row items-center justify-start"
         >
           <NAV_ITEMS.myBuilds.icon
-            className="text-primary-500 mr-2 h-7 w-5 flex-none"
+            className="mr-2 h-7 w-5 flex-none text-primary-500"
             aria-hidden="true"
           />
           <div className="flex flex-col items-start justify-start px-3 py-2">
@@ -65,11 +65,11 @@ function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
         </Link>
 
         <Link
-          href={NAV_ITEMS.favoritedBuilds.href}
+          href={`/profile/${session?.user?.id}/favorited-builds`}
           className="flex flex-row items-center justify-start"
         >
           <NAV_ITEMS.favoritedBuilds.icon
-            className="text-primary-500 mr-2 h-7 w-5 flex-none"
+            className="mr-2 h-7 w-5 flex-none text-primary-500"
             aria-hidden="true"
           />
           <div className="flex flex-col items-start justify-start px-3 py-2">
@@ -82,11 +82,11 @@ function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
         </Link>
 
         <Link
-          href={NAV_ITEMS.loadouts.href}
+          href={`/profile/${session?.user?.id}/loadouts`}
           className="flex flex-row items-center justify-start"
         >
           <NAV_ITEMS.loadouts.icon
-            className="text-primary-500 mr-2 h-7 w-5 flex-none"
+            className="mr-2 h-7 w-5 flex-none text-primary-500"
             aria-hidden="true"
           />
           <div className="flex flex-col items-start justify-start px-3 py-2">
@@ -104,7 +104,7 @@ function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
             className="flex flex-row items-center justify-start"
           >
             <NAV_ITEMS.signin.icon
-              className="text-primary-500 mr-2 h-7 w-5 flex-none"
+              className="mr-2 h-7 w-5 flex-none text-primary-500"
               aria-hidden="true"
             />
             <div className="flex flex-col items-start justify-start px-3 py-2 text-sm">
@@ -117,7 +117,7 @@ function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
             className="flex flex-row items-center justify-start"
           >
             <NAV_ITEMS.signout.icon
-              className="text-primary-500 mr-2 h-7 w-5 flex-none"
+              className="mr-2 h-7 w-5 flex-none text-primary-500"
               aria-hidden="true"
             />
             <div className="flex flex-col items-start justify-start px-3 py-2">
@@ -133,7 +133,7 @@ function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
     <Link
       href={NAV_ITEMS.signin.href}
       className={cn(
-        'bg-secondary-700 hover:bg-secondary-500 hidden flex-row items-center justify-start rounded-lg p-2 text-xs font-semibold text-white lg:flex',
+        'hidden flex-row items-center justify-start rounded-lg bg-secondary-700 p-2 text-xs font-semibold text-white hover:bg-secondary-500 lg:flex',
       )}
     >
       {NAV_ITEMS.signin.label}
@@ -164,7 +164,7 @@ function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
                   'flex flex-row items-center justify-start px-4 py-2 text-sm text-gray-300',
                 )}
               >
-                <NAV_ITEMS.profile.icon className="text-primary-600 mr-1 h-4 w-4" />
+                <NAV_ITEMS.profile.icon className="mr-1 h-4 w-4 text-primary-600" />
                 {NAV_ITEMS.profile.label}
               </Link>
             )}
@@ -172,13 +172,13 @@ function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
           <Menu.Item>
             {({ active }) => (
               <Link
-                href={NAV_ITEMS.myBuilds.href}
+                href={`/profile/${session?.user?.id}/created-builds`}
                 className={cn(
                   active ? 'bg-gray-800' : '',
                   'flex flex-row items-center justify-start px-4 py-2 text-sm text-gray-300',
                 )}
               >
-                <NAV_ITEMS.myBuilds.icon className="text-primary-600 mr-1 h-4 w-4" />
+                <NAV_ITEMS.myBuilds.icon className="mr-1 h-4 w-4 text-primary-600" />
                 {NAV_ITEMS.myBuilds.label}
               </Link>
             )}
@@ -186,13 +186,13 @@ function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
           <Menu.Item>
             {({ active }) => (
               <Link
-                href={NAV_ITEMS.favoritedBuilds.href}
+                href={`/profile/${session?.user?.id}/favorited-builds`}
                 className={cn(
                   active ? 'bg-gray-800' : '',
                   'flex flex-row items-center justify-start  px-4 py-2 text-sm text-gray-300',
                 )}
               >
-                <NAV_ITEMS.favoritedBuilds.icon className="text-primary-600 mr-1 h-4 w-4" />
+                <NAV_ITEMS.favoritedBuilds.icon className="mr-1 h-4 w-4 text-primary-600" />
                 Favorited Builds
               </Link>
             )}
@@ -200,13 +200,13 @@ function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
           <Menu.Item>
             {({ active }) => (
               <Link
-                href={NAV_ITEMS.loadouts.href}
+                href={`/profile/${session?.user?.id}/loadouts`}
                 className={cn(
                   active ? 'bg-gray-800' : '',
                   'flex flex-row items-center justify-start  px-4 py-2 text-sm text-gray-300',
                 )}
               >
-                <NAV_ITEMS.loadouts.icon className="text-primary-600 mr-1 h-4 w-4" />
+                <NAV_ITEMS.loadouts.icon className="mr-1 h-4 w-4 text-primary-600" />
                 Loadouts
               </Link>
             )}
@@ -220,7 +220,7 @@ function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
                   'flex flex-row items-center justify-start px-4 py-2 text-sm text-gray-300',
                 )}
               >
-                <NAV_ITEMS.signout.icon className="text-primary-600 mr-1 h-4 w-4" />
+                <NAV_ITEMS.signout.icon className="mr-1 h-4 w-4 text-primary-600" />
                 {NAV_ITEMS.signout.label}
               </Link>
             )}

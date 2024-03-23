@@ -14,7 +14,7 @@ export default async function Page() {
         subtitle={NAV_ITEMS.featuredBuilds.description}
       />
 
-      <div className="mb-8 flex w-full max-w-3xl items-center justify-center">
+      <div className="mb-8 flex w-full items-center justify-center">
         <BuildListFilters key="featured-build-filters" />
       </div>
       <div className="mb-4 grid w-full grid-cols-1 gap-2">

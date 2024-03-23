@@ -1,27 +1,28 @@
-import { Metadata, ResolvingMetadata } from 'next'
+import { Metadata } from 'next'
 
-import { isErrorResponse } from '@/features/error-handling/isErrorResponse'
-import { getProfile } from '@/features/profile/actions/getProfile'
-import { getIsLoadoutPublic } from '@/features/profile/loadouts/actions/getIsLoadoutPublic'
-import { getLoadoutList } from '@/features/profile/loadouts/actions/getLoadoutList'
+import { prisma } from '@/features/db'
+import { getLoadoutList } from '@/features/loadouts/actions/getLoadoutList'
+import { NAV_ITEMS } from '@/features/navigation/constants'
 
-export async function generateMetadata(
-  { params: { userId } }: { params: { userId: string } },
-  parent: ResolvingMetadata,
-): Promise<Metadata> {
-  const profileData = await getProfile(userId)
+export async function generateMetadata({
+  params: { userId },
+}: {
+  params: { userId: string }
+}): Promise<Metadata> {
+  const user = await prisma.user.findUnique({
+    where: {
+      id: userId,
+    },
+  })
 
-  if (isErrorResponse(profileData)) {
-    console.error(profileData.errors)
+  if (!user) {
     return {
-      title: 'Error loading profile',
-      description:
-        'There was an error loading this profile. It may have been removed.',
+      title: 'Error loading user loadouts',
+      description: `There was an error loading this user's loadouts. The user may no longer exist.`,
       openGraph: {
-        title: 'Error loading profile',
-        description:
-          'There was an error loading this profile. It may have been removed.',
-        url: `https://remnant2toolkit.com/profile/${userId}`,
+        title: 'Error loading user loadouts',
+        description: `There was an error loading this user's loadouts. The user may no longer exist.`,
+        url: `https://remnant2toolkit.com/profile/${userId}/loadouts`,
         images: [
           {
             url: 'https://d2sqltdcj8czo5.cloudfront.net/toolkit/og-image-sm.jpg',
@@ -31,23 +32,26 @@ export async function generateMetadata(
         ],
       },
       twitter: {
-        title: 'Error loading profile',
-        description:
-          'There was an error loading this profile. It may have been removed.',
+        title: 'Error loading user loadouts',
+        description: `There was an error loading this user's loadouts. The user may no longer exist.`,
       },
     }
   }
 
-  const isLoadoutPublic = await getIsLoadoutPublic(userId)
+  const profileData = await prisma.userProfile.findFirst({
+    where: {
+      userId,
+    },
+  })
 
-  if (!isLoadoutPublic) {
+  if (!profileData?.isLoadoutPublic) {
     return {
-      title: 'User loadouts marked private',
-      description: 'The user loadouts are marked private.',
+      title: 'Error loading user loadouts',
+      description: `This user has not made their loadouts public.`,
       openGraph: {
-        title: 'User loadouts marked private',
-        description: 'The user loadouts are marked private.',
-        url: `https://remnant2toolkit.com/profile/${userId}`,
+        title: 'Error loading user loadouts',
+        description: `This user has not made their loadouts public.`,
+        url: `https://remnant2toolkit.com/profile/${userId}/loadouts`,
         images: [
           {
             url: 'https://d2sqltdcj8czo5.cloudfront.net/toolkit/og-image-sm.jpg',
@@ -57,8 +61,8 @@ export async function generateMetadata(
         ],
       },
       twitter: {
-        title: 'User loadouts marked private',
-        description: 'The user loadouts are marked private.',
+        title: 'Error loading user loadouts',
+        description: `This user has not made their loadouts public.`,
       },
     }
   }
@@ -69,14 +73,9 @@ export async function generateMetadata(
       `${build.name} by ${build.createdByDisplayName ?? build.createdByName}`,
   )
 
-  // const previousOGImages = (await parent).openGraph?.images || []
-  // const previousTwitterImages = (await parent).twitter?.images || []
-  const title = `${
-    profileData.user.displayName ?? profileData.user.name
-  } Loadouts - Remnant2Toolkit`
+  const title = `${user.displayName ?? user.name} Loadouts - Remnant2Toolkit`
 
   let description = ''
-
   for (let i = 0; i < loadoutNames.length; i++) {
     description += `${i + 1}. ${loadoutNames[i]}\r\n`
     description += ``
@@ -111,34 +110,5 @@ export default async function Layout({
   params: { userId: string }
   children: React.ReactNode
 }) {
-  let profileData = await getProfile(userId)
-
-  if (!profileData) {
-    return (
-      <p className="flex max-w-lg flex-col text-xl text-red-500">
-        Error loading profile.
-      </p>
-    )
-  }
-
-  if (isErrorResponse(profileData)) {
-    console.error(profileData.errors)
-    return (
-      <p className="flex max-w-lg flex-col text-xl text-red-500">
-        Error loading profile.
-      </p>
-    )
-  }
-
-  const isLoadoutPublic = await getIsLoadoutPublic(userId)
-
-  if (!isLoadoutPublic) {
-    return (
-      <p className="text-red flex max-w-lg flex-col text-xl text-red-500">
-        User loadouts are marked private.
-      </p>
-    )
-  }
-
   return <>{children}</>
 }
