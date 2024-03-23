@@ -18,12 +18,26 @@ const helmImages = armorItems
     imagePath: item.imagePath as string,
   }))
 
+const additionalImages = [
+  {
+    id: 'AD7cnH',
+    name: 'Dran Nurse',
+    imagePath: '/avatars/dran_nurse.jpg',
+  },
+]
+
 /**
  * The list of avatars that a user can choose from
  */
-export const AVATARS = [...enemyImages, ...helmImages].sort((a, b) =>
-  a.name.localeCompare(b.name),
-) satisfies Array<{ id: string; name: string; imagePath: string }>
+export const AVATARS = [
+  ...enemyImages,
+  ...helmImages,
+  ...additionalImages,
+].sort((a, b) => a.name.localeCompare(b.name)) satisfies Array<{
+  id: string
+  name: string
+  imagePath: string
+}>
 
 export const DEFAULT_AVATAR_ID = '2zr34P' // Gorge
 

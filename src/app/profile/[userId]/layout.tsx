@@ -8,6 +8,7 @@ import {
   DEFAULT_BIO,
   DEFAULT_DISPLAY_NAME,
 } from '@/app/profile/[userId]/(lib)/constants'
+import { getAvatarImagePath } from '@/app/profile/[userId]/(lib)/getAvatarImagePath'
 import { getServerSession } from '@/features/auth/lib'
 import { prisma } from '@/features/db'
 import { getIsLoadoutPublic } from '@/features/loadouts/actions/getIsLoadoutPublic'
@@ -77,6 +78,9 @@ export async function generateMetadata(
   const description =
     profileData.bio ?? `View ${userName}'s profile on Remnant 2 Toolkit.`
 
+  const avatarId = profileData.avatarId
+  const avatarImagePath = getAvatarImagePath(avatarId)
+
   return {
     title,
     description,
@@ -86,7 +90,7 @@ export async function generateMetadata(
       url: `https://remnant2toolkit.com/profile/${userId}`,
       images: [
         {
-          url: 'https://d2sqltdcj8czo5.cloudfront.net/toolkit/og-image-sm.jpg',
+          url: `https://d2sqltdcj8czo5.cloudfront.net/toolkit/${avatarImagePath}`,
           width: 150,
           height: 150,
         },

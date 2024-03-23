@@ -1,5 +1,7 @@
 import { Metadata } from 'next'
 
+import { DEFAULT_BIO } from '@/app/profile/[userId]/(lib)/constants'
+import { getAvatarImagePath } from '@/app/profile/[userId]/(lib)/getAvatarImagePath'
 import { getServerSession } from '@/features/auth/lib'
 import { prisma } from '@/features/db'
 import { getLoadoutList } from '@/features/loadouts/actions/getLoadoutList'
@@ -38,11 +40,27 @@ export async function generateMetadata({
     }
   }
 
-  const profileData = await prisma.userProfile.findFirst({
+  let profileData = await prisma.userProfile.findFirst({
     where: {
       userId,
     },
   })
+
+  if (!profileData) {
+    profileData = await prisma.userProfile.upsert({
+      where: {
+        userId,
+      },
+      create: {
+        userId,
+        bio: DEFAULT_BIO,
+      },
+      update: {},
+    })
+  }
+
+  const avatarId = profileData?.avatarId
+  const avatarImagePath = getAvatarImagePath(avatarId)
 
   if (!profileData?.isLoadoutPublic) {
     return {
@@ -54,7 +72,7 @@ export async function generateMetadata({
         url: `https://remnant2toolkit.com/profile/${userId}/loadouts`,
         images: [
           {
-            url: 'https://d2sqltdcj8czo5.cloudfront.net/toolkit/og-image-sm.jpg',
+            url: `https://remnant2toolkit.com/profile/${userId}`,
             width: 150,
             height: 150,
           },
