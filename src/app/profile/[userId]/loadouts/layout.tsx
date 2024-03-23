@@ -72,7 +72,7 @@ export async function generateMetadata({
         url: `https://remnant2toolkit.com/profile/${userId}/loadouts`,
         images: [
           {
-            url: `https://d2sqltdcj8czo5.cloudfront.net/toolkit${avatarImagePath}`,
+            url: `https://d2sqltdcj8czo5.cloudfront.net${avatarImagePath}`,
             width: 150,
             height: 150,
           },
