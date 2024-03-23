@@ -1,5 +1,3 @@
-import { toast } from 'react-toastify'
-
 import { LoadoutPublicCheckbox } from '@/app/profile/[userId]/loadouts/LoadoutPublicCheckbox'
 import { getServerSession } from '@/features/auth/lib'
 import { getIsLoadoutPublic } from '@/features/loadouts/actions/getIsLoadoutPublic'

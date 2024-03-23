@@ -1,8 +1,8 @@
 import { Metadata } from 'next'
 
+import { getServerSession } from '@/features/auth/lib'
 import { prisma } from '@/features/db'
 import { getLoadoutList } from '@/features/loadouts/actions/getLoadoutList'
-import { NAV_ITEMS } from '@/features/navigation/constants'
 
 export async function generateMetadata({
   params: { userId },
@@ -46,10 +46,10 @@ export async function generateMetadata({
 
   if (!profileData?.isLoadoutPublic) {
     return {
-      title: 'Error loading user loadouts',
+      title: 'User Loadouts Private',
       description: `This user has not made their loadouts public.`,
       openGraph: {
-        title: 'Error loading user loadouts',
+        title: 'User Loadouts Private',
         description: `This user has not made their loadouts public.`,
         url: `https://remnant2toolkit.com/profile/${userId}/loadouts`,
         images: [
@@ -61,7 +61,7 @@ export async function generateMetadata({
         ],
       },
       twitter: {
-        title: 'Error loading user loadouts',
+        title: 'User Loadouts Private',
         description: `This user has not made their loadouts public.`,
       },
     }
