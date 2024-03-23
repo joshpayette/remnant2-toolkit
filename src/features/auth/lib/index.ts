@@ -10,8 +10,8 @@ import { AdapterUser } from 'next-auth/adapters'
 import DiscordProvider from 'next-auth/providers/discord'
 import RedditProvider from 'next-auth/providers/reddit'
 
+import { DEFAULT_DISPLAY_NAME } from '@/app/profile/[userId]/(lib)/constants'
 import { prisma } from '@/features/db'
-import { DEFAULT_DISPLAY_NAME } from '@/features/profile/constants'
 
 export const authOptions: NextAuthOptions = {
   callbacks: {

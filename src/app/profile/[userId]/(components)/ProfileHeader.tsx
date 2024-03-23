@@ -4,10 +4,10 @@ import { PencilIcon } from '@heroicons/react/24/solid'
 import { useState } from 'react'
 import { toast } from 'react-toastify'
 
+import { Avatar } from '@/app/profile/[userId]/(components)/Avatar'
+import { AvatarSelectDialog } from '@/app/profile/[userId]/(components)/AvatarSelectDialog'
+import { getAvatarImagePath } from '@/app/profile/[userId]/(lib)/getAvatarImagePath'
 import { saveProfile } from '@/app/profile/[userId]/saveProfile'
-import { Avatar } from '@/features/profile/components/Avatar'
-import { AvatarSelectDialog } from '@/features/profile/components/AvatarSelectDialog'
-import { getAvatarImagePath } from '@/features/profile/lib/getAvatarImagePath'
 import { Input } from '@/features/ui/Input'
 import { Textarea } from '@/features/ui/Textarea'
 

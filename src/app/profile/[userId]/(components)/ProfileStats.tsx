@@ -40,7 +40,7 @@ export async function ProfileStats({ userId }: Props) {
     ])
 
   return (
-    <div className="grid grid-cols-1 bg-gray-700/10 sm:grid-cols-2 lg:grid-cols-4">
+    <div className="grid grid-cols-2 bg-gray-700/10 sm:grid-cols-2 lg:grid-cols-4">
       <StatBox
         stat={{ name: 'Builds Created', value: buildsCreated }}
         index={0}

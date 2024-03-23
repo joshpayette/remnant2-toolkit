@@ -1,13 +1,16 @@
 import { Metadata, ResolvingMetadata } from 'next'
 import { revalidatePath } from 'next/cache'
 
+import { ProfileHeader } from '@/app/profile/[userId]/(components)/ProfileHeader'
+import { ProfileNavbar } from '@/app/profile/[userId]/(components)/ProfileNavbar'
+import { ProfileStats } from '@/app/profile/[userId]/(components)/ProfileStats'
+import {
+  DEFAULT_BIO,
+  DEFAULT_DISPLAY_NAME,
+} from '@/app/profile/[userId]/(lib)/constants'
 import { getServerSession } from '@/features/auth/lib'
 import { prisma } from '@/features/db'
 import { getIsLoadoutPublic } from '@/features/loadouts/actions/getIsLoadoutPublic'
-import { ProfileHeader } from '@/features/profile/components/ProfileHeader'
-import { ProfileNavbar } from '@/features/profile/components/ProfileNavbar'
-import { ProfileStats } from '@/features/profile/components/ProfileStats'
-import { DEFAULT_BIO, DEFAULT_DISPLAY_NAME } from '@/features/profile/constants'
 import { PageHeader } from '@/features/ui/PageHeader'
 
 export async function generateMetadata(
@@ -153,7 +156,6 @@ export default async function Layout({
           userId={userId}
         />
 
-        {/* Heading */}
         <div className="flex flex-col items-start justify-start gap-x-8 gap-y-4 bg-gray-700/10 px-4 py-4 sm:flex-row sm:items-start sm:px-6 lg:px-8">
           <ProfileHeader
             avatarId={profile.avatarId}
@@ -164,7 +166,6 @@ export default async function Layout({
           />
         </div>
 
-        {/* Stats */}
         <ProfileStats userId={userId} />
       </header>
       <div className="border-t border-white/10 pt-11">{children}</div>

@@ -1,11 +1,10 @@
 import { Prisma } from '@prisma/client'
-import { revalidatePath } from 'next/cache'
 
+import { CreatedBuildCardActions } from '@/app/profile/[userId]/(components)/CreatedBuildCardActions'
 import { getServerSession } from '@/features/auth/lib'
 import { BuildCard } from '@/features/build/components/build-card/BuildCard'
 import { communityBuildsQuery } from '@/features/build/filters/queries/community-builds'
 import { prisma } from '@/features/db'
-import { CreatedBuildCardActions } from '@/features/profile/components/CreatedBuildCardActions'
 import { bigIntFix } from '@/lib/bigIntFix'
 
 async function getCreatedBuilds(userId: string) {

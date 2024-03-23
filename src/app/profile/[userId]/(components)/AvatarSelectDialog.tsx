@@ -1,5 +1,5 @@
-import { Avatar } from '@/features/profile/components/Avatar'
-import { AVATARS } from '@/features/profile/constants'
+import { Avatar } from '@/app/profile/[userId]/(components)/Avatar'
+import { AVATARS } from '@/app/profile/[userId]/(lib)/constants'
 import { Dialog } from '@/features/ui/Dialog'
 
 interface Props {

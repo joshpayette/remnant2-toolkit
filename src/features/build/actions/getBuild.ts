@@ -1,9 +1,9 @@
 'use server'
 
+import { DEFAULT_DISPLAY_NAME } from '@/app/profile/[userId]/(lib)/constants'
 import { getServerSession } from '@/features/auth/lib'
 import { prisma } from '@/features/db'
 import { ErrorResponse } from '@/features/error-handling/types'
-import { DEFAULT_DISPLAY_NAME } from '@/features/profile/constants'
 import { bigIntFix } from '@/lib/bigIntFix'
 
 import { DBBuild } from '../types'

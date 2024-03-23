@@ -3,6 +3,7 @@
 import { useSearchParams } from 'next/navigation'
 import { useEffect, useState } from 'react'
 
+import { CreatedBuildCardActions } from '@/app/profile/[userId]/(components)/CreatedBuildCardActions'
 import { getCreatedBuilds } from '@/app/profile/[userId]/created-builds/getCreatedBuilds'
 import { BuildCard } from '@/features/build/components/build-card/BuildCard'
 import { CreateBuildCard } from '@/features/build/components/build-card/CreateBuildCard'
@@ -12,7 +13,6 @@ import { useBuildListSecondaryFilters } from '@/features/build/filters/hooks/use
 import { parseBuildListFilters } from '@/features/build/filters/lib/parseBuildListFilters'
 import { useBuildListState } from '@/features/build/hooks/useBuildListState'
 import { usePagination } from '@/features/pagination/usePagination'
-import { CreatedBuildCardActions } from '@/features/profile/components/CreatedBuildCardActions'
 
 interface Props {
   isEditable: boolean

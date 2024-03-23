@@ -1,10 +1,10 @@
 'use server'
 
+import { DEFAULT_DISPLAY_NAME } from '@/app/profile/[userId]/(lib)/constants'
 import { getServerSession } from '@/features/auth/lib'
 import { DBBuild } from '@/features/build/types'
 import { prisma } from '@/features/db'
 import { getIsLoadoutPublic } from '@/features/loadouts/actions/getIsLoadoutPublic'
-import { DEFAULT_DISPLAY_NAME } from '@/features/profile/constants'
 
 export async function getLoadoutList(userId?: string) {
   const session = await getServerSession()
