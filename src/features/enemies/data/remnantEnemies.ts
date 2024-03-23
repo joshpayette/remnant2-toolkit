@@ -936,7 +936,7 @@ const bossEnemies: Enemy[] = [
     category: 'boss',
     location: 'Losomn',
     dungeon: `Cotton's Kiln`,
-    imagePath: '/enemies/boss/gwendil.jpg',
+    imagePath: '/enemies/boss/gwendil1.jpg',
     wikiLinks: [`https://remnant2.wiki.fextralife.com/Gwendil+The+Unburnt`],
     bleedResistance: -10,
     fireResistance: 20,

@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Changed
 
 - Did a complete rework of user profiles to provide more relevant information, for both the profile owner and visitors. This includes a new layout, some stats, and new navigation.
+- Updated Gwendil boss image (ConRaven)
 
 ## 2024-03-22
 
