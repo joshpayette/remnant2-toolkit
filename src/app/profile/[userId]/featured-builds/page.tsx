@@ -13,11 +13,6 @@ export default async function Page({
   return (
     <>
       <div className="mb-8 flex w-full flex-col items-center justify-center">
-        <div className="flex w-full flex-row items-center justify-center border-b border-b-primary-500 py-2">
-          <h2 className="flex w-full items-center justify-start text-2xl">
-            Build Filters
-          </h2>
-        </div>
         <BuildListFilters key="user-featured-builds-filters" />
       </div>
       <div className="mb-4 grid w-full grid-cols-1 gap-2">

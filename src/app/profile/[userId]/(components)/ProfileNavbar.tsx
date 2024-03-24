@@ -87,7 +87,6 @@ export function ProfileNavbar({
                   'flex items-center justify-center hover:text-primary-300 hover:underline',
                   item.current ? 'text-primary-400' : '',
                 )}
-                scroll={false}
               >
                 {isEditable ? (
                   <span className="mr-1">
