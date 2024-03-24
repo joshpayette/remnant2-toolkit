@@ -802,7 +802,7 @@ export const modItems: ModItem[] = [
   },
   {
     category: 'mod',
-    name: 'Skewer',
+    name: 'Skewer 2.0',
     imagePath: '/mod/skewer.png',
     id: 'cpvech',
     tags: ['Amplitude'],
