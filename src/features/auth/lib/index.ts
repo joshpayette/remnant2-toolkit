@@ -82,6 +82,7 @@ export const authOptions: NextAuthOptions = {
           )
         })
 
+      // Update the session user object
       if (session.user) {
         session.user.id = user.id
         session.user.role = (user as AdapterUser & { role: string }).role
