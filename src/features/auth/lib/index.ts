@@ -15,65 +15,73 @@ import { prisma } from '@/features/db'
 
 export const authOptions: NextAuthOptions = {
   callbacks: {
-    async signIn({ user, profile }) {
+    async signIn({ user }) {
+      // Check if user is banned
       const isBanned = await prisma.bannedUsers
         .findFirst({
           where: { userId: user.id },
         })
         .catch((e) => {
-          console.error(`${e.message} - User ID: ${user.id}`)
+          console.info(
+            `${e.message}. No banned user found for User ID: ${user.id}`,
+          )
         })
       if (isBanned) return false
-
-      if (profile?.image_url && user.id) {
-        // * Deliberately not awaiting because we don't want to delay sign in for
-        // * the background image update
-        prisma.user
-          .update({
-            where: { id: user.id },
-            data: { image: profile.image_url },
-          })
-          .catch((e) => {
-            console.error(`${e.message} - User ID: ${user.id}`)
-            return true
-          })
-      }
 
       return true
     },
 
     async session({ session, user }) {
-      if (session.user) {
-        const isBanned = await prisma.bannedUsers
-          .findFirst({
-            where: { userId: user.id },
+      // Check if user is banned
+      const isBanned = await prisma.bannedUsers
+        .findFirst({
+          where: { userId: user.id },
+        })
+        .catch((e) => {
+          console.error(
+            `Session callback error on ban check, ${e.message} - User ID: ${user.id}`,
+          )
+        })
+      if (isBanned) {
+        console.info(`User ${user.id} is banned`)
+        redirect('/api/auth/signout')
+      }
+
+      // Create user profile if it doesn't exist
+      const existingProfile = await prisma.userProfile.findFirst({
+        where: { userId: user.id },
+      })
+      if (!existingProfile) {
+        await prisma.userProfile
+          .create({
+            data: {
+              userId: user.id,
+              bio: 'No bio set.',
+            },
           })
           .catch((e) => {
-            console.error(`${e.message} - User ID: ${user.id}`)
+            console.error(
+              `Session callback error on profile creation: ${e.message} - User ID: ${user.id}`,
+            )
           })
-        if (isBanned) {
-          console.error(`User ${user.id} is banned`)
-          redirect('/api/auth/signout')
-        }
-
-        session.user.role = (user as AdapterUser & { role: string }).role
-
-        session.user.id = user.id
-        session.user.displayName = (
-          user as AdapterUser & { displayName: string }
-        ).displayName
-
-        if (!session.user.displayName && user.id) {
-          await prisma.user
-            .update({
-              where: { id: user.id },
-              data: { displayName: user.name || DEFAULT_DISPLAY_NAME },
-            })
-            .catch((e) => {
-              console.error(`${e.message} - User ID: ${user.id}`)
-            })
-        }
       }
+
+      // Update the user's avatar
+      // Ensure the user's display name is defaulted
+      await prisma.user
+        .update({
+          where: { id: user.id },
+          data: {
+            image: user.image,
+            displayName: user.name ?? DEFAULT_DISPLAY_NAME,
+          },
+        })
+        .catch((e) => {
+          console.error(
+            `Session callback error on avatar update: ${e.message} - User ID: ${user.id}`,
+          )
+        })
+
       return session
     },
   },

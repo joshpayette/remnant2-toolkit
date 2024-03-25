@@ -14,7 +14,7 @@ export function ImageDownloadInfo({ imageDownloadInfo, onClose }: Props) {
   return (
     <Dialog
       open={Boolean(imageDownloadInfo)}
-      title="Image download"
+      title="Shareable Build Image"
       maxWidthClass="max-w-lg"
       onClose={onClose}
     >
