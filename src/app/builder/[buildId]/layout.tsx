@@ -13,7 +13,7 @@ export async function generateMetadata(
 ): Promise<Metadata> {
   const buildData = await getBuild(buildId)
   if (isErrorResponse(buildData)) {
-    console.error(buildData.errors)
+    console.info(buildData.errors)
     return {
       title: 'Error loading build',
       description:
@@ -115,7 +115,7 @@ export default async function Layout({
 }) {
   const buildData = await getBuild(buildId)
   if (isErrorResponse(buildData)) {
-    console.error(buildData.errors)
+    console.info(buildData.errors)
     return (
       <div className="flex max-w-lg flex-col">
         <PageHeader

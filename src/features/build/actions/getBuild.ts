@@ -12,7 +12,7 @@ export async function getBuild(
   buildId: string,
 ): Promise<ErrorResponse | { message: string; build: DBBuild }> {
   if (!buildId) {
-    console.error('No buildId provided!')
+    console.info('No buildId provided!')
     return { errors: ['No buildId provided!'] }
   }
 
@@ -89,7 +89,7 @@ export async function getBuild(
   }
 
   if (!session || !session.user || build.createdBy.id !== session.user.id) {
-    console.warn(
+    console.info(
       `You must be logged in as the build creator to view a private build. ${buildId}`,
     )
     return {
