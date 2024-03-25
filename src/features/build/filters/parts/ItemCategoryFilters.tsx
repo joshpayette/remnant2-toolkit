@@ -16,50 +16,48 @@ export function ItemCategoryFilters({
   onUpdate,
 }: Props) {
   return (
-    <div className="col-span-full pt-2">
-      <div className="flex w-full flex-col items-start justify-start gap-x-4 gap-y-2">
-        <div className="flex w-full items-center justify-start text-left text-sm font-bold text-primary-500">
-          By Category
-        </div>
-        <div className="text-xs">
-          <button
-            className="underline"
-            aria-label="Uncheck all categories"
-            onClick={() => onReset([])}
-          >
-            Uncheck All
-          </button>{' '}
-          /{' '}
-          <button
-            className="underline"
-            aria-label="Check all categories"
-            onClick={() => onReset(defaultItemCategories)}
-          >
-            Check All
-          </button>
-        </div>
+    <>
+      <div className="flex w-full items-center justify-start text-left text-sm font-bold text-primary-500">
+        By Category
+      </div>
+      <div className="text-xs">
+        <button
+          className="underline"
+          aria-label="Uncheck all categories"
+          onClick={() => onReset([])}
+        >
+          Uncheck All
+        </button>{' '}
+        /{' '}
+        <button
+          className="underline"
+          aria-label="Check all categories"
+          onClick={() => onReset(defaultItemCategories)}
+        >
+          Check All
+        </button>
+      </div>
 
-        <div className="relative flex w-full flex-row items-center shadow-sm">
-          <div className="grid grid-cols-2 gap-x-8 text-left sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
-            {defaultItemCategories.map((category) => {
-              let label = capitalize(category as string)
-              if (category.toLowerCase() === 'relicfragment') {
-                label = 'Relic Fragment'
-              }
-              return (
-                <div key={label}>
-                  <Checkbox
-                    label={label}
-                    name={`category-${label}`}
-                    checked={selectedItemCategories.includes(category)}
-                    onChange={() => onUpdate(category)}
-                  />
-                </div>
-              )
-            })}
-          </div>
+      <div className="relative flex w-full flex-row items-center shadow-sm">
+        <div className="grid grid-cols-2 gap-x-8 text-left sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+          {defaultItemCategories.map((category) => {
+            let label = capitalize(category as string)
+            if (category.toLowerCase() === 'relicfragment') {
+              label = 'Relic Fragment'
+            }
+            return (
+              <div key={label}>
+                <Checkbox
+                  label={label}
+                  name={`category-${label}`}
+                  checked={selectedItemCategories.includes(category)}
+                  onChange={() => onUpdate(category)}
+                />
+              </div>
+            )
+          })}
         </div>
       </div>
-    </div>
+    </>
   )
 }

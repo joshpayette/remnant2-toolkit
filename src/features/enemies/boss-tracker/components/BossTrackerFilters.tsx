@@ -151,7 +151,7 @@ export function BossTrackerFilters({ onUpdateFilters }: Props) {
       onApplyFilters={handleApplyFilters}
       onClearFilters={handleClearFilters}
     >
-      <div className="col-span-full flex w-full flex-col items-start justify-start gap-x-4 gap-y-2">
+      <div className="col-span-full flex w-full flex-col items-start justify-start gap-x-4 gap-y-2 border-b border-b-primary-800 pb-4">
         <div className="grid w-full grid-cols-1 gap-y-4 sm:grid-cols-3 sm:gap-x-4 sm:gap-y-0">
           <div className="col-span-full flex w-full flex-col items-start justify-end">
             <div className="mb-2 text-left text-sm font-bold text-primary-500">
@@ -166,10 +166,12 @@ export function BossTrackerFilters({ onUpdateFilters }: Props) {
           </div>
         </div>
       </div>
-      <BossCategoryFilters
-        selectedBossCategories={unappliedFilters.selectedBossCategories}
-        onUpdate={(category) => handleBossCategoryChange(category)}
-      />
+      <div className="pt-2flex col-span-full w-full flex-col items-start justify-start gap-x-4 gap-y-2 border-b border-b-primary-800 pb-4">
+        <BossCategoryFilters
+          selectedBossCategories={unappliedFilters.selectedBossCategories}
+          onUpdate={(category) => handleBossCategoryChange(category)}
+        />
+      </div>
     </FiltersContainer>
   )
 }

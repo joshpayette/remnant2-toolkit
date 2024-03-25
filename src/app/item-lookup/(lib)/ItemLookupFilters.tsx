@@ -71,11 +71,9 @@ export const DEFAULT_ITEM_LOOKUP_FILTERS: ItemLookupFilterFields = {
   selectedReleases: DEFAULT_RELEASE_FILTERS,
 }
 
-interface Props {
-  itemListRef: RefObject<HTMLDivElement>
-}
+interface Props {}
 
-export function ItemLookupFilters({ itemListRef }: Props) {
+export function ItemLookupFilters({}: Props) {
   const router = useRouter()
   const pathname = usePathname()
 
@@ -214,7 +212,7 @@ export function ItemLookupFilters({ itemListRef }: Props) {
       onApplyFilters={handleApplyFilters}
       onClearFilters={handleClearFilters}
     >
-      <div className="col-span-full flex w-full flex-col items-start justify-start gap-x-4 gap-y-2">
+      <div className="col-span-full flex w-full flex-col items-start justify-start gap-x-4 gap-y-2 border-b border-b-primary-800 pb-4">
         <div className="flex w-full max-w-[400px] flex-col items-start justify-center">
           <SearchTextAutocomplete
             key={searchTextFieldKey.current}
@@ -228,13 +226,13 @@ export function ItemLookupFilters({ itemListRef }: Props) {
         </div>
       </div>
 
-      <div className="col-span-full flex w-full sm:col-span-2">
+      <div className="col-span-full flex w-full border-b border-b-primary-800 pb-4 sm:col-span-3">
         <ReleaseFilters
           selectedReleases={unappliedFilters.selectedReleases}
           onChange={(release: ReleaseKey) => handleReleaseChange(release)}
         />
       </div>
-      <div className="col-span-full flex w-full sm:col-span-2">
+      <div className="col-span-full flex w-full border-b border-b-primary-800 pb-4 sm:col-span-3">
         <CollectedItemFilters
           selectedCollectionKeys={unappliedFilters.collectionKeys}
           onUpdate={(collectionKey: string) =>
@@ -243,16 +241,18 @@ export function ItemLookupFilters({ itemListRef }: Props) {
         />
       </div>
 
-      <ItemCategoryFilters
-        defaultItemCategories={defaultItemCategories}
-        selectedItemCategories={unappliedFilters.itemCategories}
-        onReset={(itemCategories: ItemLookupCategory[]) =>
-          setUnappliedFilters({ ...unappliedFilters, itemCategories })
-        }
-        onUpdate={(itemCategory: ItemLookupCategory) =>
-          handleCategoryChange(itemCategory)
-        }
-      />
+      <div className="col-span-full flex w-full flex-col items-start justify-start gap-x-4 gap-y-2 border-b border-b-primary-800 pb-4 pt-2">
+        <ItemCategoryFilters
+          defaultItemCategories={defaultItemCategories}
+          selectedItemCategories={unappliedFilters.itemCategories}
+          onReset={(itemCategories: ItemLookupCategory[]) =>
+            setUnappliedFilters({ ...unappliedFilters, itemCategories })
+          }
+          onUpdate={(itemCategory: ItemLookupCategory) =>
+            handleCategoryChange(itemCategory)
+          }
+        />
+      </div>
     </FiltersContainer>
   )
 }

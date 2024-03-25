@@ -10,6 +10,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Deployed first version of the Hardcore Veteran guide.
 
+### Changed
+
+- Concoctions will now also show up when filtering for consumables in the Item Lookup.
+- Grenades are now filterable on the Item Lookup.
+
 ### Fixed
 
 - Think I worked out one-time errors new users get when trying to access their Profile for the first time.

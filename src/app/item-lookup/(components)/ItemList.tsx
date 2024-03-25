@@ -76,6 +76,12 @@ function getFilteredItems(
       ) {
         return item.category === 'mutator' && item.type === 'melee'
       }
+      if (itemCategory === 'Consumable') {
+        return (
+          item.category === 'consumable' || item.tags?.includes('Consumable')
+        )
+      }
+
       return capitalize(item.category) === itemCategory
     })
   })

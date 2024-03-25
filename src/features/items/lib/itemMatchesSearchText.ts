@@ -37,6 +37,11 @@ export function itemMatchesSearchText({
     if (maxLevelBonusMatch) return true
   }
 
+  const itemCategoryMatch = item.category
+    .toLowerCase()
+    .includes(searchText.toLowerCase())
+  if (itemCategoryMatch) return true
+
   const itemTagsMatch = item.tags?.some((tag) =>
     tag.toLowerCase().includes(searchText.toLowerCase()),
   )
