@@ -24,27 +24,8 @@ export async function generateMetadata(
     },
   })
 
-  let profileData = await prisma.userProfile.findFirst({
-    where: {
-      userId,
-    },
-  })
-
-  if (!profileData) {
-    profileData = await prisma.userProfile.upsert({
-      where: {
-        userId,
-      },
-      create: {
-        userId,
-        bio: DEFAULT_BIO,
-      },
-      update: {},
-    })
-  }
-
   if (!userData) {
-    console.info('User or profile not found', { userId, userData, profileData })
+    console.info('User or profile not found', { userId, userData })
 
     return {
       title: 'Error loading profile',
@@ -69,6 +50,25 @@ export async function generateMetadata(
           'There was an error loading this profile. It may have been removed.',
       },
     }
+  }
+
+  let profileData = await prisma.userProfile.findFirst({
+    where: {
+      userId,
+    },
+  })
+
+  if (!profileData) {
+    profileData = await prisma.userProfile.upsert({
+      where: {
+        userId,
+      },
+      create: {
+        userId,
+        bio: DEFAULT_BIO,
+      },
+      update: {},
+    })
   }
 
   // const previousOGImages = (await parent).openGraph?.images || []
