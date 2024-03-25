@@ -82,6 +82,14 @@ export const authOptions: NextAuthOptions = {
           )
         })
 
+      if (session.user) {
+        session.user.id = user.id
+        session.user.role = (user as AdapterUser & { role: string }).role
+        session.user.displayName = (
+          user as AdapterUser & { displayName: string }
+        ).displayName
+      }
+
       return session
     },
   },
