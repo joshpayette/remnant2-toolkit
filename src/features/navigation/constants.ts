@@ -28,13 +28,6 @@ export const NAV_ITEMS = {
     href: '/guides/amplitude-vs-resonance',
     icon: TableCellsIcon,
   },
-  r2ag: {
-    label: 'Remnant 2 Armor Generator',
-    description:
-      'Find the perfect armor set for your build with the Remnant 2 Armor Generator.',
-    href: 'https://scouthunter.github.io/R2AG/',
-    icon: CalculatorIcon,
-  },
   bossTracker: {
     label: 'Boss Tracker',
     description:
@@ -89,6 +82,13 @@ export const NAV_ITEMS = {
     href: '/featured-builds',
     icon: StarIcon,
   },
+  hardcoreVeteran: {
+    label: 'Hardcore Veteran Guide',
+    description:
+      'A guide on getting started with, and completing, your first hardcore veteran run.',
+    href: '/guides/hardcore-veteran',
+    icon: TableCellsIcon,
+  },
   itemLookup: {
     label: 'Item Lookup',
     description: 'Get detailed information and interactions for items.',
@@ -120,6 +120,13 @@ export const NAV_ITEMS = {
     description: 'View and manage your profile.',
     href: '/profile',
     icon: UserIcon,
+  },
+  r2ag: {
+    label: 'Remnant 2 Armor Generator',
+    description:
+      'Find the perfect armor set for your build with the Remnant 2 Armor Generator.',
+    href: 'https://scouthunter.github.io/R2AG/',
+    icon: CalculatorIcon,
   },
   signin: {
     label: 'Sign In',
