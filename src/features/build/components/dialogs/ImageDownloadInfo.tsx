@@ -20,8 +20,8 @@ export function ImageDownloadInfo({ imageDownloadInfo, onClose }: Props) {
     >
       <div className="flex w-full flex-col items-start justify-center gap-y-4 text-left text-sm">
         <p>
-          Right-click the image to save it, or to copy it and paste it
-          elsewhere.
+          Copy and paste the below image to share it, or save the image for
+          later!
         </p>
         <p className="text-primary-500">
           Note: This image link will expire in one hour.
