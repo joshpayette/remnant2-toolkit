@@ -36,7 +36,10 @@ export function ProfileNavbar({
       name: 'Created Builds',
       href: {
         pathname: `/profile/${userId}/created-builds`,
-        query: { t: Date.now(), includePatchAffectedBuilds: true },
+        query: {
+          t: Date.now(),
+          ...(isEditable ? { includePatchAffectedBuilds: true } : undefined),
+        },
       },
       current: pathname === `/profile/${userId}/created-builds`,
     },
@@ -44,7 +47,10 @@ export function ProfileNavbar({
       name: 'Featured Builds',
       href: {
         pathname: `/profile/${userId}/featured-builds`,
-        query: { t: Date.now(), includePatchAffectedBuilds: true },
+        query: {
+          t: Date.now(),
+          ...(isEditable ? { includePatchAffectedBuilds: true } : undefined),
+        },
       },
       current: pathname === `/profile/${userId}/featured-builds`,
     },
@@ -52,7 +58,10 @@ export function ProfileNavbar({
       name: 'Favorited Builds',
       href: {
         pathname: `/profile/${userId}/favorited-builds`,
-        query: { t: Date.now(), includePatchAffectedBuilds: true },
+        query: {
+          t: Date.now(),
+          ...(isEditable ? { includePatchAffectedBuilds: true } : undefined),
+        },
       },
       current: pathname === `/profile/${userId}/favorited-builds`,
       private: true,
