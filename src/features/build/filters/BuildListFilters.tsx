@@ -263,7 +263,7 @@ export function BuildListFilters() {
             <h2 className="flex w-full items-center justify-start text-2xl">
               Build Filters
             </h2>
-            <div className="flex flex-row items-center justify-center">
+            <div className="flex flex-row items-center justify-center underline">
               {open ? 'Hide' : 'Show'}
               <ChevronRightIcon
                 className={cn(
