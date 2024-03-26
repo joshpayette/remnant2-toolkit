@@ -35,7 +35,7 @@ export function dbBuildToBuildState(dbBuild: DBBuild): BuildState {
     videoUrl: dbBuild.videoUrl,
     buildLink: dbBuild.buildLink,
     buildTags: dbBuild.buildTags,
-    upvoted: Boolean(dbBuild.upvoted),
+    upvoted: dbBuild.upvoted,
     totalUpvotes: dbBuild.totalUpvotes,
     reported: dbBuild.reported,
     items: {

@@ -18,6 +18,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Fixed
 
 - Think I worked out one-time errors new users get when trying to access their Profile for the first time.
+- Fixed bug where favorites button was not correctly showing if you favorited a build.
 
 ## 2024-03-23
 

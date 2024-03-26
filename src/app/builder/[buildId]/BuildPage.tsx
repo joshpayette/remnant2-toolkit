@@ -11,7 +11,8 @@ import { DetailedBuildDialog } from '@/features/build/components/dialogs/Detaile
 import { ImageDownloadInfo } from '@/features/build/components/dialogs/ImageDownloadInfo'
 import { useBuildActions } from '@/features/build/hooks/useBuildActions'
 import { buildStateToCsvData } from '@/features/build/lib/buildStateToCsvData'
-import { BuildState } from '@/features/build/types'
+import { dbBuildToBuildState } from '@/features/build/lib/dbBuildToBuildState'
+import { BuildState, DBBuild } from '@/features/build/types'
 import { LoadoutDialog } from '@/features/loadouts/components/LoadoutDialog'
 import { ToCsvButton } from '@/features/ui/ToCsvButton'
 
@@ -38,10 +39,12 @@ function videoEmbedUrlToWatchUrl(videoEmbedUrl: string) {
 }
 
 interface Props {
-  buildState: BuildState
+  build: DBBuild
 }
 
-export function BuildPage({ buildState }: Props) {
+export function BuildPage({ build }: Props) {
+  const buildState = dbBuildToBuildState(build)
+
   const [detailedBuildDialogOpen, setDetailedBuildDialogOpen] = useState(false)
   const [loadoutDialogOpen, setLoadoutDialogOpen] = useState(false)
 
