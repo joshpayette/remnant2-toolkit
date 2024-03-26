@@ -1,4 +1,5 @@
 import { remnantEnemies } from '@/features/enemies/data/remnantEnemies'
+import { amuletItems } from '@/features/items/data/amuletItems'
 import { armorItems } from '@/features/items/data/armorItems'
 
 const enemyImages = remnantEnemies
@@ -12,6 +13,14 @@ const enemyImages = remnantEnemies
 
 const helmImages = armorItems
   .filter((item) => item.category === 'helm' && item.imagePath)
+  .map((item) => ({
+    id: item.id,
+    name: item.name,
+    imagePath: item.imagePath as string,
+  }))
+
+const amuletImages = amuletItems
+  .filter((item) => item.imagePath)
   .map((item) => ({
     id: item.id,
     name: item.name,
@@ -32,6 +41,7 @@ const additionalImages = [
 export const AVATARS = [
   ...enemyImages,
   ...helmImages,
+  ...amuletImages,
   ...additionalImages,
 ].sort((a, b) => a.name.localeCompare(b.name)) satisfies Array<{
   id: string

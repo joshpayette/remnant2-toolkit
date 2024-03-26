@@ -6,9 +6,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2024-03-26
 
+###
+
+- Added amulets as options for profile avatars.
+
 ### Changed
 
 - Added [BLEEDING] tag to Handler skills.
+- Added labels to avatar selection in profile settings.
 
 ## 2024-03-25
 

@@ -1,4 +1,4 @@
-import { Avatar } from '@/app/profile/[userId]/(components)/Avatar'
+import { AvatarBox } from '@/app/profile/[userId]/(components)/AvatarBox'
 import { AVATARS } from '@/app/profile/[userId]/(lib)/constants'
 import { Dialog } from '@/features/ui/Dialog'
 
@@ -23,11 +23,7 @@ export function AvatarSelectDialog({ open, onClose, onSelect }: Props) {
             className="flex items-center justify-center"
             onClick={() => onSelect(avatar.id)}
           >
-            <Avatar
-              key={avatar.id}
-              alt={avatar.name}
-              imagePath={avatar.imagePath}
-            />
+            <AvatarBox key={avatar.id} avatar={avatar} showLabel={true} />
           </button>
         ))}
       </div>

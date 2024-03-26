@@ -4,9 +4,9 @@ import { PencilIcon } from '@heroicons/react/24/solid'
 import { useState } from 'react'
 import { toast } from 'react-toastify'
 
-import { Avatar } from '@/app/profile/[userId]/(components)/Avatar'
+import { AvatarBox } from '@/app/profile/[userId]/(components)/AvatarBox'
 import { AvatarSelectDialog } from '@/app/profile/[userId]/(components)/AvatarSelectDialog'
-import { getAvatarImagePath } from '@/app/profile/[userId]/(lib)/getAvatarImagePath'
+import { getAvatarById } from '@/app/profile/[userId]/(lib)/getAvatarById'
 import { saveProfile } from '@/app/profile/[userId]/saveProfile'
 import { Input } from '@/features/ui/Input'
 import { Textarea } from '@/features/ui/Textarea'
@@ -31,7 +31,7 @@ export function ProfileHeader({
   const [newBio, setNewBio] = useState(bio)
 
   const [newAvatarId, setNewAvatarId] = useState(avatarId)
-  const avatarImage = getAvatarImagePath(newAvatarId)
+  const avatar = getAvatarById(newAvatarId)
 
   const [isAvatarSelectDialogOpen, setIsAvatarSelectDialogOpen] =
     useState(false)
@@ -54,7 +54,7 @@ export function ProfileHeader({
         }}
       />
       <div className="flex w-full flex-col items-center justify-center gap-y-2 sm:w-auto sm:items-start">
-        <Avatar imagePath={avatarImage} alt={`${newDisplayName}'s avatar`} />
+        <AvatarBox avatar={avatar} />
 
         {isEditable && isEditing ? (
           <button

@@ -1,8 +1,7 @@
 import { Metadata } from 'next'
 
 import { DEFAULT_BIO } from '@/app/profile/[userId]/(lib)/constants'
-import { getAvatarImagePath } from '@/app/profile/[userId]/(lib)/getAvatarImagePath'
-import { getServerSession } from '@/features/auth/lib'
+import { getAvatarById } from '@/app/profile/[userId]/(lib)/getAvatarById'
 import { prisma } from '@/features/db'
 import { getLoadoutList } from '@/features/loadouts/actions/getLoadoutList'
 
@@ -60,7 +59,7 @@ export async function generateMetadata({
   }
 
   const avatarId = profileData?.avatarId
-  const avatarImagePath = getAvatarImagePath(avatarId)
+  const avatar = getAvatarById(avatarId)
 
   if (!profileData?.isLoadoutPublic) {
     return {
@@ -72,7 +71,7 @@ export async function generateMetadata({
         url: `https://remnant2toolkit.com/profile/${userId}/loadouts`,
         images: [
           {
-            url: `https://d2sqltdcj8czo5.cloudfront.net${avatarImagePath}`,
+            url: `https://d2sqltdcj8czo5.cloudfront.net${avatar.imagePath}`,
             width: 150,
             height: 150,
           },
