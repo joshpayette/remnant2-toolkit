@@ -130,14 +130,15 @@ export const consumableItems: ConsumableItem[] = [
     description: `Consume to restore 10% Max Health instantly.`,
     wikiLinks: [`https://remnant.wiki/Koara_Pellet`],
   },
-  {
-    category: 'consumable',
-    name: 'Liquid Escape',
-    imagePath: '/consumable/liquid_escape.png',
-    id: 'xgdk68',
-    description: `When consumed, the hero will be returned to the last activated checkpoint.`,
-    wikiLinks: [`https://remnant.wiki/Liquid_Escape`],
-  },
+  // * Removed due to not having a purpose in the toolkit
+  // {
+  //   category: 'consumable',
+  //   name: 'Liquid Escape',
+  //   imagePath: '/consumable/liquid_escape.png',
+  //   id: 'xgdk68',
+  //   description: `When consumed, the hero will be returned to the last activated checkpoint.`,
+  //   wikiLinks: [`https://remnant.wiki/Liquid_Escape`],
+  // },
   {
     category: 'consumable',
     name: 'Mud Rub',
@@ -165,14 +166,15 @@ export const consumableItems: ConsumableItem[] = [
     description: `Cures ROOT ROT Blight and increases Blight Resistance by 25%. Lasts 10m.`,
     wikiLinks: [`https://remnant.wiki/Oilskin_Balm`],
   },
-  {
-    category: 'consumable',
-    name: 'Orb of Undoing',
-    imagePath: '/consumable/orb_of_undoing.png',
-    id: 'g0s7fg',
-    description: `Resets all spent trait points. Can be used infinitely.`,
-    wikiLinks: [`https://remnant.wiki/Orb_of_Undoing`],
-  },
+  // * No longer useful in the builder
+  // {
+  //   category: 'consumable',
+  //   name: 'Orb of Undoing',
+  //   imagePath: '/consumable/orb_of_undoing.png',
+  //   id: 'g0s7fg',
+  //   description: `Resets all spent trait points. Can be used infinitely.`,
+  //   wikiLinks: [`https://remnant.wiki/Orb_of_Undoing`],
+  // },
   {
     category: 'consumable',
     name: 'Pipe Bomb',
