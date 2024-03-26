@@ -32,6 +32,8 @@ export const authOptions: NextAuthOptions = {
     },
 
     async session({ session, user }) {
+      console.info('session.user')
+
       // Check if user is banned
       const isBanned = await prisma.bannedUsers
         .findFirst({
@@ -68,12 +70,15 @@ export const authOptions: NextAuthOptions = {
 
       // Update the user's avatar
       // Ensure the user's display name is defaulted
+      const displayName = (user as AdapterUser & { displayName: string })
+        .displayName
+
       await prisma.user
         .update({
           where: { id: user.id },
           data: {
             image: user.image,
-            displayName: user.name ?? DEFAULT_DISPLAY_NAME,
+            displayName: displayName ?? user.name ?? DEFAULT_DISPLAY_NAME,
           },
         })
         .catch((e) => {
@@ -86,9 +91,7 @@ export const authOptions: NextAuthOptions = {
       if (session.user) {
         session.user.id = user.id
         session.user.role = (user as AdapterUser & { role: string }).role
-        session.user.displayName = (
-          user as AdapterUser & { displayName: string }
-        ).displayName
+        session.user.displayName = displayName
       }
 
       return session
