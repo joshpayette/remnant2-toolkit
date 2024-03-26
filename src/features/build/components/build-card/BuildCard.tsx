@@ -92,7 +92,7 @@ export function BuildCard({
                 <div className="col-span-2 truncate text-left text-gray-300">
                   by{' '}
                   <Link
-                    href={`/profile/${build.createdById}`}
+                    href={`/profile/${build.createdById}/created-builds`}
                     className="text-primary-500 underline hover:text-primary-300"
                   >
                     {build.createdByDisplayName ?? build.createdByName}

@@ -403,7 +403,7 @@ export function Builder({
                 Build by{' '}
               </span>
               <Link
-                href={`/profile/${buildState.createdById}`}
+                href={`/profile/${buildState.createdById}/created-builds`}
                 className="ml-1 text-primary-500 underline"
               >
                 {buildState.createdByDisplayName}
