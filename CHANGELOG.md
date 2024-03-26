@@ -12,6 +12,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ### Changed
 
+- Added [BLEEDING] tag to Handler skills.
+
+### Changed
+
 - Concoctions will now also show up when filtering for consumables in the Item Lookup.
 - Grenades are now filterable on the Item Lookup.
 - Removed Orb of Undoing from selectable items.

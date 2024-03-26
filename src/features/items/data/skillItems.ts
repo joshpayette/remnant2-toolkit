@@ -52,7 +52,7 @@ export const skillItems: SkillItem[] = [
     imagePath: '/skill/guard_dog.png',
     id: 'gpr2fw',
     tags: ['Amplitude'],
-    description: `Companion will follow the HANDLER and generate 15% increased Threat while attacking. All damage to them is reduced by 20%. 
+    description: `Companion [BLEEDING] will follow the HANDLER and generate 15% increased Threat while attacking. All damage to them is reduced by 20%. 
 
     SINGLE PRESS: Companion engages enemies near the targeted location.
     
@@ -73,7 +73,7 @@ export const skillItems: SkillItem[] = [
     imagePath: '/skill/support_dog.png',
     id: 'jz6x2w',
     tags: ['Amplitude'],
-    description: `Companion will follow the HANDLER and continuously heal allies within 3.5m for 0.25% of Max Health per second. 
+    description: `Companion [BLEEDING] will follow the HANDLER and continuously heal allies within 3.5m for 0.25% of Max Health per second. 
 
     SINGLE PRESS: Companion engages enemies near the targeted location. 
     
@@ -94,7 +94,7 @@ export const skillItems: SkillItem[] = [
     imagePath: '/skill/attack_dog.png',
     id: '8trtzh',
     tags: ['Amplitude'],
-    description: `Companion will follow the HANDLER and deal 20% additional damage. 
+    description: `Companion [BLEEDING] will follow the HANDLER and deal 20% additional damage. 
 
     SINGLE PRESS: Companion engages enemies near the targeted location. 
     
