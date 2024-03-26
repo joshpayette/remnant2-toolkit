@@ -63,7 +63,7 @@ export function BuildCard({
             </div>
           )}
           <div className="flex w-full flex-1 items-start justify-start p-4 pb-0">
-            <div className="flex flex-col items-start justify-start overflow-x-auto">
+            <div className="flex w-full flex-col items-start justify-start overflow-x-auto">
               <Link
                 href={`/builder/${build.id}`}
                 className="w-full text-white hover:text-gray-200 hover:underline"
