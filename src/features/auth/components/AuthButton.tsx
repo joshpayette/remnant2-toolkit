@@ -30,74 +30,83 @@ function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
   if (variant === 'mobile')
     return (
       <div className="space-y-2">
-        <Link
-          href={`/profile/${session?.user?.id}?t=${Date.now()}`}
-          className="flex flex-row items-center justify-start"
-        >
-          <NAV_ITEMS.profile.icon
-            className="mr-2 h-7 w-5 flex-none text-primary-500"
-            aria-hidden="true"
-          />
-          <div className="flex flex-col items-start justify-start px-3 py-2">
-            {NAV_ITEMS.profile.label}
+        {session?.user?.id ? (
+          <Link
+            href={`/profile/${session?.user?.id}?t=${Date.now()}`}
+            className="flex flex-row items-center justify-start"
+          >
+            <NAV_ITEMS.profile.icon
+              className="mr-2 h-7 w-5 flex-none text-primary-500"
+              aria-hidden="true"
+            />
+            <div className="flex flex-col items-start justify-start px-3 py-2">
+              {NAV_ITEMS.profile.label}
 
-            <p className="mt-1 text-xs text-gray-400">
-              {NAV_ITEMS.profile.description}
-            </p>
-          </div>
-        </Link>
+              <p className="mt-1 text-xs text-gray-400">
+                {NAV_ITEMS.profile.description}
+              </p>
+            </div>
+          </Link>
+        ) : null}
 
-        <Link
-          href={`/profile/${session?.user?.id}/created-builds?t=${Date.now()}`}
-          className="flex flex-row items-center justify-start"
-        >
-          <NAV_ITEMS.myBuilds.icon
-            className="mr-2 h-7 w-5 flex-none text-primary-500"
-            aria-hidden="true"
-          />
-          <div className="flex flex-col items-start justify-start px-3 py-2">
-            {NAV_ITEMS.myBuilds.label}
+        {session?.user?.id ? (
+          <Link
+            href={`/profile/${session?.user
+              ?.id}/created-builds?t=${Date.now()}`}
+            className="flex flex-row items-center justify-start"
+          >
+            <NAV_ITEMS.myBuilds.icon
+              className="mr-2 h-7 w-5 flex-none text-primary-500"
+              aria-hidden="true"
+            />
+            <div className="flex flex-col items-start justify-start px-3 py-2">
+              {NAV_ITEMS.myBuilds.label}
 
-            <p className="mt-1 text-xs text-gray-400">
-              {NAV_ITEMS.myBuilds.description}
-            </p>
-          </div>
-        </Link>
+              <p className="mt-1 text-xs text-gray-400">
+                {NAV_ITEMS.myBuilds.description}
+              </p>
+            </div>
+          </Link>
+        ) : null}
 
-        <Link
-          href={`/profile/${session?.user
-            ?.id}/favorited-builds?t=${Date.now()}`}
-          className="flex flex-row items-center justify-start"
-        >
-          <NAV_ITEMS.favoritedBuilds.icon
-            className="mr-2 h-7 w-5 flex-none text-primary-500"
-            aria-hidden="true"
-          />
-          <div className="flex flex-col items-start justify-start px-3 py-2">
-            {NAV_ITEMS.favoritedBuilds.label}
+        {session?.user?.id ? (
+          <Link
+            href={`/profile/${session?.user
+              ?.id}/favorited-builds?t=${Date.now()}`}
+            className="flex flex-row items-center justify-start"
+          >
+            <NAV_ITEMS.favoritedBuilds.icon
+              className="mr-2 h-7 w-5 flex-none text-primary-500"
+              aria-hidden="true"
+            />
+            <div className="flex flex-col items-start justify-start px-3 py-2">
+              {NAV_ITEMS.favoritedBuilds.label}
 
-            <p className="mt-1 text-xs text-gray-400">
-              {NAV_ITEMS.favoritedBuilds.description}
-            </p>
-          </div>
-        </Link>
+              <p className="mt-1 text-xs text-gray-400">
+                {NAV_ITEMS.favoritedBuilds.description}
+              </p>
+            </div>
+          </Link>
+        ) : null}
 
-        <Link
-          href={`/profile/${session?.user?.id}/loadouts?t=${Date.now()}`}
-          className="flex flex-row items-center justify-start"
-        >
-          <NAV_ITEMS.loadouts.icon
-            className="mr-2 h-7 w-5 flex-none text-primary-500"
-            aria-hidden="true"
-          />
-          <div className="flex flex-col items-start justify-start px-3 py-2">
-            {NAV_ITEMS.loadouts.label}
+        {session?.user?.id ? (
+          <Link
+            href={`/profile/${session?.user?.id}/loadouts?t=${Date.now()}`}
+            className="flex flex-row items-center justify-start"
+          >
+            <NAV_ITEMS.loadouts.icon
+              className="mr-2 h-7 w-5 flex-none text-primary-500"
+              aria-hidden="true"
+            />
+            <div className="flex flex-col items-start justify-start px-3 py-2">
+              {NAV_ITEMS.loadouts.label}
 
-            <p className="mt-1 text-xs text-gray-400">
-              {NAV_ITEMS.loadouts.description}
-            </p>
-          </div>
-        </Link>
+              <p className="mt-1 text-xs text-gray-400">
+                {NAV_ITEMS.loadouts.description}
+              </p>
+            </div>
+          </Link>
+        ) : null}
 
         {status !== 'authenticated' || !session?.user ? (
           <Link
@@ -156,63 +165,72 @@ function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
         leaveTo="transform opacity-0 scale-95"
       >
         <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-black py-1 shadow-lg ring-1 ring-gray-800 ring-opacity-5 focus:outline-none">
-          <Menu.Item>
-            {({ active }) => (
-              <Link
-                href={`/profile/${session?.user?.id}?t=${Date.now()}`}
-                className={cn(
-                  active ? 'bg-gray-800' : '',
-                  'flex flex-row items-center justify-start px-4 py-2 text-sm text-gray-300',
-                )}
-              >
-                <NAV_ITEMS.profile.icon className="mr-1 h-4 w-4 text-primary-600" />
-                {NAV_ITEMS.profile.label}
-              </Link>
-            )}
-          </Menu.Item>
-          <Menu.Item>
-            {({ active }) => (
-              <Link
-                href={`/profile/${session?.user?.id}/created-builds`}
-                className={cn(
-                  active ? 'bg-gray-800' : '',
-                  'flex flex-row items-center justify-start px-4 py-2 text-sm text-gray-300',
-                )}
-              >
-                <NAV_ITEMS.myBuilds.icon className="mr-1 h-4 w-4 text-primary-600" />
-                {NAV_ITEMS.myBuilds.label}
-              </Link>
-            )}
-          </Menu.Item>
-          <Menu.Item>
-            {({ active }) => (
-              <Link
-                href={`/profile/${session?.user
-                  ?.id}/favorited-builds?t=${Date.now()}`}
-                className={cn(
-                  active ? 'bg-gray-800' : '',
-                  'flex flex-row items-center justify-start  px-4 py-2 text-sm text-gray-300',
-                )}
-              >
-                <NAV_ITEMS.favoritedBuilds.icon className="mr-1 h-4 w-4 text-primary-600" />
-                Favorited Builds
-              </Link>
-            )}
-          </Menu.Item>
-          <Menu.Item>
-            {({ active }) => (
-              <Link
-                href={`/profile/${session?.user?.id}/loadouts?t=${Date.now()}`}
-                className={cn(
-                  active ? 'bg-gray-800' : '',
-                  'flex flex-row items-center justify-start  px-4 py-2 text-sm text-gray-300',
-                )}
-              >
-                <NAV_ITEMS.loadouts.icon className="mr-1 h-4 w-4 text-primary-600" />
-                Loadouts
-              </Link>
-            )}
-          </Menu.Item>
+          {session?.user?.id ? (
+            <Menu.Item>
+              {({ active }) => (
+                <Link
+                  href={`/profile/${session?.user?.id}?t=${Date.now()}`}
+                  className={cn(
+                    active ? 'bg-gray-800' : '',
+                    'flex flex-row items-center justify-start px-4 py-2 text-sm text-gray-300',
+                  )}
+                >
+                  <NAV_ITEMS.profile.icon className="mr-1 h-4 w-4 text-primary-600" />
+                  {NAV_ITEMS.profile.label}
+                </Link>
+              )}
+            </Menu.Item>
+          ) : null}
+          {session?.user?.id ? (
+            <Menu.Item>
+              {({ active }) => (
+                <Link
+                  href={`/profile/${session?.user?.id}/created-builds`}
+                  className={cn(
+                    active ? 'bg-gray-800' : '',
+                    'flex flex-row items-center justify-start px-4 py-2 text-sm text-gray-300',
+                  )}
+                >
+                  <NAV_ITEMS.myBuilds.icon className="mr-1 h-4 w-4 text-primary-600" />
+                  {NAV_ITEMS.myBuilds.label}
+                </Link>
+              )}
+            </Menu.Item>
+          ) : null}
+          {session?.user?.id ? (
+            <Menu.Item>
+              {({ active }) => (
+                <Link
+                  href={`/profile/${session?.user
+                    ?.id}/favorited-builds?t=${Date.now()}`}
+                  className={cn(
+                    active ? 'bg-gray-800' : '',
+                    'flex flex-row items-center justify-start  px-4 py-2 text-sm text-gray-300',
+                  )}
+                >
+                  <NAV_ITEMS.favoritedBuilds.icon className="mr-1 h-4 w-4 text-primary-600" />
+                  Favorited Builds
+                </Link>
+              )}
+            </Menu.Item>
+          ) : null}
+          {session?.user?.id ? (
+            <Menu.Item>
+              {({ active }) => (
+                <Link
+                  href={`/profile/${session?.user
+                    ?.id}/loadouts?t=${Date.now()}`}
+                  className={cn(
+                    active ? 'bg-gray-800' : '',
+                    'flex flex-row items-center justify-start  px-4 py-2 text-sm text-gray-300',
+                  )}
+                >
+                  <NAV_ITEMS.loadouts.icon className="mr-1 h-4 w-4 text-primary-600" />
+                  Loadouts
+                </Link>
+              )}
+            </Menu.Item>
+          ) : null}
           <Menu.Item>
             {({ active }) => (
               <Link

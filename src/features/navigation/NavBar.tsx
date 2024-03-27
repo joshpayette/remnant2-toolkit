@@ -355,23 +355,27 @@ export function NavBar() {
             </Transition>
           </Menu>
 
-          <Link
-            href={`/profile/${session?.user?.id}/created-builds`}
-            className={cn(
-              'flex flex-row items-center justify-start text-lg font-semibold text-white hover:text-primary-500',
-            )}
-          >
-            {NAV_ITEMS.myBuilds.label}
-          </Link>
+          {session?.user?.id ? (
+            <Link
+              href={`/profile/${session?.user?.id}/created-builds`}
+              className={cn(
+                'flex flex-row items-center justify-start text-lg font-semibold text-white hover:text-primary-500',
+              )}
+            >
+              {NAV_ITEMS.myBuilds.label}
+            </Link>
+          ) : null}
 
-          <Link
-            href={`/profile/${session?.user?.id}/favorited-builds`}
-            className={cn(
-              'flex flex-row items-center justify-start text-lg font-semibold text-white hover:text-primary-500',
-            )}
-          >
-            {NAV_ITEMS.favoritedBuilds.label}
-          </Link>
+          {session?.user?.id ? (
+            <Link
+              href={`/profile/${session?.user?.id}/favorited-builds`}
+              className={cn(
+                'flex flex-row items-center justify-start text-lg font-semibold text-white hover:text-primary-500',
+              )}
+            >
+              {NAV_ITEMS.favoritedBuilds.label}
+            </Link>
+          ) : null}
 
           <Link
             href={NAV_ITEMS.supportR2TK.href}
