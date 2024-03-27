@@ -18,6 +18,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Fixed
 
 - Fixed issue where Handler skills were incorrectly showing as affected by Amplitude rather than Resonance.
+- Added `Critical Damage` to autocomplete suggestions in the autocomplete Item Lookup search text. This will include both `Crit Damage` and `Critical Damage` items.
 
 ## 2024-03-25
 

@@ -187,7 +187,7 @@ export const DESCRIPTION_TAGS = [
     description: 'Elemental Damage.',
   },
   {
-    type: 'Crit Damage',
+    type: 'Critical Damage',
     token: 'Crit Damage',
     color: 'text-red-500',
     description:
@@ -422,6 +422,7 @@ export const ITEM_TAGS: ItemTag[] = [
   'Charged Shot',
   'Concoction',
   'Critical Chance',
+  'Critical Damage',
   'Critical Hit',
   'Damage Reduction',
   'Elemental Damage',
