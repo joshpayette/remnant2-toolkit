@@ -38,6 +38,11 @@ const additionalImages = [
     name: 'Bridgekeeper Facepalm',
     imagePath: '/avatars/bridgekeeper_facepalm.jpg',
   },
+  {
+    id: '7dG8vW',
+    name: 'Nimue Sleeping',
+    imagePath: '/avatars/nimue_sleeping.jpg',
+  },
 ]
 
 /**
