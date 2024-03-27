@@ -6,7 +6,6 @@ export const skillItems: SkillItem[] = [
     name: 'War Stomp',
     imagePath: '/skill/war_stomp.png',
     id: 'qnz5iw',
-    tags: ['Amplitude'],
     description: `Creates a high impact tremor that deals 150 damage [E] and additional stagger in a forward cone up to 7.5m. [A] Deals damage in all directions at point blank range. `,
     cooldown: 50,
     wikiLinks: [`https://remnant.wiki/War_Stomp`],
@@ -51,16 +50,15 @@ export const skillItems: SkillItem[] = [
     name: 'Guard Dog',
     imagePath: '/skill/guard_dog.png',
     id: 'gpr2fw',
-    tags: ['Amplitude'],
     description: `Companion [BLEEDING] will follow the HANDLER and generate 15% increased Threat while attacking. All damage to them is reduced by 20%. 
 
     SINGLE PRESS: Companion engages enemies near the targeted location.
     
     DOUBLE TAP: Companion returns to the HANDLER and remains by their side. 
     
-    HOLD: Howl reduces damage by 15% to all allies within 20m [A] and the Companion generates additional Threat. Lasts 20s.`,
+    HOLD: Howl reduces damage by 15% to all allies within 20m [R] and the Companion generates additional Threat. Lasts 20s.`,
     cooldown: 90,
-    wikiLinks: [`https://remnant.wiki/Guard+Dog`],
+    wikiLinks: [`https://remnant.wiki/Guard_Dog`],
     linkedItems: {
       archetype: {
         name: 'Handler',
@@ -72,16 +70,15 @@ export const skillItems: SkillItem[] = [
     name: 'Support Dog',
     imagePath: '/skill/support_dog.png',
     id: 'jz6x2w',
-    tags: ['Amplitude'],
     description: `Companion [BLEEDING] will follow the HANDLER and continuously heal allies within 3.5m for 0.25% of Max Health per second. 
 
     SINGLE PRESS: Companion engages enemies near the targeted location. 
     
     DOUBLE TAP: Companion returns to the HANDLER and remains by their side.
     
-    HOLD: Howl grants 2% of Max Health per second and 25% increased Movement Speed to all allies within 20m [A]. Lasts 25s`,
+    HOLD: Howl grants 2% of Max Health per second and 25% increased Movement Speed to all allies within 20m [R]. Lasts 25s`,
     cooldown: 90,
-    wikiLinks: [`https://remnant.wiki/Support+Dog`],
+    wikiLinks: [`https://remnant.wiki/Support_Dog`],
     linkedItems: {
       archetype: {
         name: 'Handler',
@@ -93,14 +90,13 @@ export const skillItems: SkillItem[] = [
     name: 'Attack Dog',
     imagePath: '/skill/attack_dog.png',
     id: '8trtzh',
-    tags: ['Amplitude'],
     description: `Companion [BLEEDING] will follow the HANDLER and deal 20% additional damage. 
 
     SINGLE PRESS: Companion engages enemies near the targeted location. 
     
     DOUBLE TAP: Companion returns to the HANDLER and remains by their side. 
     
-    HOLD: Howl increases damage by 20% for all allies within 20m [A]. Lasts 20s.`,
+    HOLD: Howl increases damage by 20% for all allies within 20m [R]. Lasts 20s.`,
     cooldown: 90,
     wikiLinks: [`https://remnant.wiki/Attack_Dog`],
     linkedItems: {
@@ -114,7 +110,6 @@ export const skillItems: SkillItem[] = [
     name: 'Wellspring',
     imagePath: '/skill/wellspring.png',
     id: '7vtxrx',
-    tags: ['Amplitude'],
     description: `The MEDIC channels healing energy into their fist, punching a hole in the ground [E] to create a 3m [A] Healing Spring AOE which restores 10.5 Health per second and greatly increases Blight Decay Rate. Lasts 15s.`,
     cooldown: 60,
     wikiLinks: [`https://remnant.wiki/Wellspring`],
@@ -129,7 +124,6 @@ export const skillItems: SkillItem[] = [
     name: 'Healing Shield',
     imagePath: '/skill/healing_shield.png',
     id: '8pu6y2',
-    tags: ['Amplitude'],
     description: `The MEDIC Quickly expels healing energy to SHIELD all allies within 25m [A] for 100% of their Max Health for 10s. While shielded, allies regenerate 21% of their Max Health over the duration.`,
     cooldown: 100,
     wikiLinks: [`https://remnant.wiki/Healing_Shield`],
@@ -144,7 +138,6 @@ export const skillItems: SkillItem[] = [
     name: 'Redemption',
     imagePath: '/skill/redemption.png',
     id: 'zs77cb',
-    tags: ['Amplitude'],
     description: `The MEDIC unleashes a 30m [A] shockwave that revives downed allies and restores 52.5% Max Health over 10s. For each additional 1s holding the SKILL button, the heal gains an additional 52.5% (up to 210% max)
     Revived allies will only receive 50% of the healing amount. If revived, allies cannot be revived again by Redemption for another 180s. Resets at Worldstone or on death.`,
     cooldown: 120,
@@ -235,7 +228,6 @@ export const skillItems: SkillItem[] = [
     name: 'Vial: Stone Mist',
     imagePath: '/skill/vial_stone_mist.png',
     id: 'y7ia9t',
-    tags: ['Amplitude'],
     description: `Creates a mysterious vapor cloud which lasts 10s and applies STONESKIN.
 
     STONESKIN reduces incoming damage by 25%, reduces Stagger by 1, greatly increases Blight Buildup Decay Rate, and makes the target immune to STATUS Effects. Lasts 15s.
@@ -256,7 +248,6 @@ export const skillItems: SkillItem[] = [
     name: 'Vial: Frenzy Dust',
     imagePath: '/skill/vial_frenzy_dust.png',
     id: 'xsniv3',
-    tags: ['Amplitude'],
     description: `Creates a mysterious vapor cloud which lasts 10s and applies FRENZIED.
 
     FRENZIED increases Fire Rate, Reload Speed, and Melee Speed by 20%, and Movement Speed by 15%. Lasts 15s.
@@ -277,7 +268,6 @@ export const skillItems: SkillItem[] = [
     name: 'Vial: Elixir of Life',
     imagePath: '/skill/vial_elixir_of_life.png',
     id: '76554i',
-    tags: ['Amplitude'],
     description: `Creates a mysterious vapor cloud that lasts 10s and applies LIVING WILL.
 
     LIVING WILL grants 5 Health Regeneration per second, and protects against fatal damage while active. Can revive downed players. Lasts 20s.
@@ -300,7 +290,6 @@ export const skillItems: SkillItem[] = [
     name: 'Reality Rune',
     imagePath: '/skill/reality_rune.png',
     id: 'i3ddi7',
-    tags: ['Amplitude'],
     description: `Conjures a 7m [A] protective dome which applies SLOW to any enemy or enemy projectiles.  Allies inside gain 25% Damage Reduction. Lasts 15s.`,
     cooldown: 75,
     wikiLinks: [`https://remnant.wiki/Reality_Rune`],
@@ -315,7 +304,6 @@ export const skillItems: SkillItem[] = [
     name: 'Chaos Gate',
     imagePath: '/skill/chaos_gate.png',
     id: '9w7c5j',
-    tags: ['Amplitude'],
     description: `Conjures a 7m [A] unstable zone which grants allies a 50% increase to All Damage Dealt and 25% increased Mod Generation while standing inside. Increases allies' damage taken by 15% while inside and for 10s after leaving. Lasts 20s.`,
     cooldown: 85,
     wikiLinks: [`https://remnant.wiki/Chaos_Gate`],
@@ -330,7 +318,6 @@ export const skillItems: SkillItem[] = [
     name: 'Havoc Form',
     imagePath: '/skill/havoc_form.png',
     id: 'y72au6',
-    tags: ['Amplitude'],
     description: `Unleashes the powers of the  Labyrinth to empower the caster with new abilities. Lasts 30s. Duration is reduced when Havoc Form special abilities are used.
 
     SHOOT: Blasts Lightning Tendrils from the ARCHON's hand, dealing 84.2 SHOCK Damage per second to targets within 15m.
@@ -370,7 +357,6 @@ export const skillItems: SkillItem[] = [
     name: 'Heavy Weapon: Flamethrower',
     imagePath: '/skill/heavy_weapon_flamethrower.png',
     id: '6fk8ea',
-    tags: ['Amplitude'],
     description: `PRESS: Deploys a Flamethrower turret which lasts until its Ammo is exhausted. Turrets that can aim will prioritize targets that the player Aims at. Press SKILL again to enable autonomous targeting. [A]
 
     HOLD: Deploys to Heavy Carry Mode. If ENGINEER Prime is available, will Overclock the weapon if already in hand or on the battlefield.
@@ -390,7 +376,6 @@ export const skillItems: SkillItem[] = [
     name: 'Heavy Weapon: Impact Cannon',
     imagePath: '/skill/heavy_weapon_impact_cannon.png',
     id: 'ki92op',
-    tags: ['Amplitude'],
     description: `PRESS: Deploys a Impact Cannon Turret [E] which lasts until its Ammo is exhausted. Turrets that can aim will prioritze targets that the player Aims at. Press SKILL again to enable autonomous targeting. [A]
 
     HOLD: Deploys to Heavy Carry Mode. If ENGINEER Prime is available, will Overclock the weapon if already in hand or on the battlefield.
@@ -565,7 +550,7 @@ export const skillItems: SkillItem[] = [
     HOLD: SACRIFICE Root Hollow Minion to explode, dealing 150 damage [E] within 5m. [A] Reduces Skill Cooldown by up to 50% based on remaining Health of each Minion Sacrificed.`,
     cooldown: 30,
     wikiLinks: [`https://remnant.wiki/Minion:_Hollow`],
-    tags: ['Reduce Skill Cooldown', 'Summon', 'Amplitude'],
+    tags: ['Reduce Skill Cooldown', 'Summon'],
     linkedItems: {
       archetype: {
         name: 'Summoner',
@@ -577,7 +562,6 @@ export const skillItems: SkillItem[] = [
     name: 'Minion: Flyer',
     imagePath: '/skill/minion_flyer.png',
     id: 'o7pvqx',
-    tags: ['Amplitude'],
     description: `Summons a Root Flyer Minion to fight by your side. Costs 10% of Max Health to summon, but will not kill Summoner. Max (2).
 
     HOLD: SACRIFICE Root Flyer Minions, dealing 50 Damage [E] within 3m [A] and spawning 3 homing projectiles which explode on contact for 150 damage each.
@@ -602,7 +586,7 @@ export const skillItems: SkillItem[] = [
     
     Reduces Skill Cooldown by up to 50% based on remaining Health of Minion.`,
     cooldown: 120,
-    tags: ['Amplitude', 'Reduce Skill Cooldown', 'Summon'],
+    tags: ['Reduce Skill Cooldown', 'Summon'],
     wikiLinks: [`https://remnant.wiki/Minion:_Reaver`],
     linkedItems: {
       archetype: {
@@ -630,7 +614,7 @@ export const skillItems: SkillItem[] = [
     name: 'Miasma',
     imagePath: '/skill/miasma.png',
     id: '3er3og',
-    tags: ['Status Effect', 'Amplitude'],
+    tags: ['Status Effect'],
     description: `Casts an AOE burst that applies BLEEDING, BURNING, OVERLOADED, and CORRODED to all enemies within 15m [A], and dealing a total of 1500 base damage. Lasts 11s.`,
     cooldown: 40,
     wikiLinks: [`https://remnant.wiki/Miasma`],

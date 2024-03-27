@@ -697,7 +697,7 @@ export const ringItems: RingItem[] = [
     name: 'Feedback Loop',
     imagePath: '/ring/feedback_loop.png',
     id: 'j13xrf',
-    tags: ['Perfect Dodge', 'Amplitude'],
+    tags: ['Perfect Dodge'],
     description: `Perfect Dodge triggers a 3m [A] AOE blast that deal 115 SHOCK Damage and applies OVERLOADED.`,
     wikiLinks: [`https://remnant.wiki/Feedback_Loop`],
   },

@@ -1457,7 +1457,6 @@ export const weaponItems: WeaponItem[] = [
     name: 'Corrupted Meridian',
     imagePath: '/offhand/corrupted_meridian.png',
     id: 'yw1btj',
-    tags: ['Amplitude'],
     description: `Fires rocket that deals AOE damage [E] within 2m. [A] Charging the weapon can load additional rockets.  (Max 3). Cannot Weakspot`,
     wikiLinks: [`https://remnant.wiki/Corrupted_Meridian`],
     linkedItems: {
@@ -1600,7 +1599,6 @@ export const weaponItems: WeaponItem[] = [
     name: 'Enigma',
     imagePath: '/offhand/enigma.png',
     id: 'd06hjq',
-    tags: ['Amplitude'],
     description: `Fires an electrical stream that jumps to nearby targets within 7.5m [A], dealing 30% reduced damage per jump. Applies OVERLOADED, dealing 30 SHOCK damage every 5 seconds for 5.2s.`,
     wikiLinks: [`https://remnant.wiki/Enigma`],
     linkedItems: {
@@ -1650,7 +1648,6 @@ export const weaponItems: WeaponItem[] = [
     saveFileSlug: '/weapon_meridian',
     imagePath: '/offhand/meridian.png',
     id: '1ziutf',
-    tags: ['Amplitude'],
     description: `Fires volatile grenades that explode [E] on direct contact with enemies and deal AOE damage within 4m. [A] Dormant grenades eventually explode and can also be shot to detonate early.`,
     wikiLinks: [`https://remnant.wiki/Meridian`],
     linkedItems: {
@@ -1867,7 +1864,6 @@ export const weaponItems: WeaponItem[] = [
     name: 'Star Shot',
     imagePath: '/offhand/star_shot.png',
     id: 'tldnuq',
-    tags: ['Amplitude'],
     description: `Fires a fast moving projectile which explodes [E] on contact. Explosion has no damage falloff. [A]`,
     wikiLinks: [`https://remnant.wiki/Star_Shot`],
     linkedItems: {

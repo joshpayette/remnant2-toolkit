@@ -73,7 +73,6 @@ export type LinkedItems = Partial<{
 export type ItemTag =
   | 'All Damage'
   | 'Ammo Reserves'
-  | 'Amplitude'
   | 'Armor Increase'
   | 'Charged Melee Damage'
   | 'Charged Melee'
@@ -125,7 +124,6 @@ export type ItemTag =
   | 'Reduce Skill Cooldown'
   | 'Relic Use Speed'
   | 'Reload Speed'
-  | 'Resonance'
   | 'Skill Cast Speed'
   | 'Skill Damage'
   | 'Skill Duration'

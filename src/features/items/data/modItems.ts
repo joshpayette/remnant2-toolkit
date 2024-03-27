@@ -96,7 +96,6 @@ export const modItems: ModItem[] = [
     name: 'Big Bang',
     imagePath: '/mod/big_bang.png',
     id: 's7ozpe',
-    tags: ['Amplitude'],
     description: `Funnels all current Mod Charges into the next shot. Projectiles deal 65 direct damage and 65 Explosive damage [E] in a 5m [A] per Charge consumed. Explosion applies 75 BURNING damage over 10s per Charge consumed. 
     Additional Charges consumed increase all damage by 5%. Max 5 Charges`,
     wikiLinks: [`https://remnant.wiki/Big_Bang`],
@@ -194,7 +193,6 @@ export const modItems: ModItem[] = [
     name: 'Chaos Driver',
     imagePath: '/mod/chaos_driver.png',
     id: 'dxnd9s',
-    tags: ['Amplitude'],
     description: `Drives electrified rods into targets which tether to other rods within 10m. [A] Tethers deal 20 SHOCK damage per second.
     Targets embedded with a rod take 50 SHOCK damage per second. They take 20% additionally damage per extra rod in the target. Damage is increased by 1.5% if linked to another rod. Rods in the same target will not link.`,
     wikiLinks: [`https://remnant.wiki/Chaos_Driver`],
@@ -229,7 +227,6 @@ export const modItems: ModItem[] = [
     imagePath: '/mod/creeping_mist.png',
     dlc: 'dlc1',
     id: 'a3ctlf',
-    tags: ['Amplitude'],
     description: `Shoots a cannister out that shatters on impact to reveal an expanding mist, starting at 7.5m and growing to 15m [A] over 5s. The mist lasts 20s. While affected, enemies receive 25% additional Status Effect Damage and are 5% more likely to be struck with a critical hit from any source. The mists debuff persists for 10s after target exits the mist.`,
     wikiLinks: [`https://remnant.wiki/Creeping_Mist`],
   },
@@ -238,7 +235,6 @@ export const modItems: ModItem[] = [
     name: 'Cube Room',
     imagePath: '/mod/cube_room.png',
     id: '2nMTRG',
-    tags: ['Amplitude'],
     description: `Conjures a 5m [A] anomalous Cube Room which grants allies an increase of 50% Heat Decay Rate, reduces Heat Generation per round when firing weapons that Overheat by 15% and automatically generates missing reserve ammo per second. Lasts 15s.
     
     Mod Power Requirement: 1,000`,
@@ -268,7 +264,6 @@ export const modItems: ModItem[] = [
     name: 'Deadpoint',
     imagePath: '/mod/deadpoint.png',
     id: 'ysz4fw',
-    tags: ['Amplitude'],
     description: `Fires a cluster bomb which detonates on impact across 2.5m. each cluster deals up to 150 damage [E] per explosion within 3.5m. [A]`,
     wikiLinks: [`https://remnant.wiki/Deadpoint`],
     linkedItems: {
@@ -392,7 +387,6 @@ export const modItems: ModItem[] = [
     name: 'Explosive Shot',
     imagePath: '/mod/explosive_shot.png',
     id: 'hpfdzp',
-    tags: ['Amplitude'],
     description: `Fires an explosive round [E] that deals up to 465 FIRE damage within 9m and applies BURNING, dealing 300 FIRE damage over 5s. [A]`,
     wikiLinks: [`https://remnant.wiki/Explosive_Shot`],
     linkedItems: {
@@ -449,7 +443,6 @@ export const modItems: ModItem[] = [
     name: 'Firestorm',
     imagePath: '/mod/firestorm.png',
     id: 'snlx8w',
-    tags: ['Amplitude'],
     description: `Creates a whirling cyclone that sucks in nearby targets [A] and applies BURNING for 10s. The center of the cyclone deals 75 FIRE damage per second. Lasts 15s.`,
     wikiLinks: [`https://remnant.wiki/Firestorm`],
   },
@@ -498,7 +491,6 @@ export const modItems: ModItem[] = [
     name: 'Gravity Core',
     imagePath: '/mod/gravity_core.png',
     id: 'kep3kb',
-    tags: ['Amplitude'],
     description: `Fires a highly compressed sphere which draws in objects and deals 50 damage on impact. When colliding with a target, a large Gravity Well opens and draws in objects for 5s.
 
     When the Gravity Well expires, it deals 250 [E] damage within 10m [A]. Adds 200 damage per enemy and divides total damage among all enemies.`,
@@ -514,7 +506,6 @@ export const modItems: ModItem[] = [
     name: "Guardian's Call",
     imagePath: '/mod/guardians_call.png',
     id: 'anhbhf',
-    tags: ['Amplitude'],
     description: `When Mod Power is full, Primary Fire becomes Empowered and highlights enemies it strikes.
     Activating the mod calls down a Guardian Sword on enemies struck by an Empowered Energy Disc. Swords deal 450 damage [E] and 3x stagger within 3m. [A]
     `,
@@ -643,7 +634,6 @@ export const modItems: ModItem[] = [
     name: 'Micronova',
     imagePath: '/mod/micronova.png',
     id: '8izb2g',
-    tags: ['Amplitude'],
     description: `Fires 5 shattered compressed remains of a dying star. On contact or when hit with the primary fire, Micronova explodes for 50 FIRE damage [E], and 350 BURNING damage over 10s to all targets within 2m.
     Striking the Micronova with Corrupted Aphelion's primary fire increases its explosion radius by 25%, damage by 50%, and spawns a shockwave that deals 100 FIRE damage, detonates any nearby Micronovas and applies the initial BURNING amount. [A]`,
     wikiLinks: [`https://remnant.wiki/Micronova`],
@@ -672,7 +662,6 @@ export const modItems: ModItem[] = [
     name: 'Nano Phase',
     imagePath: '/mod/nano_phase.png',
     id: 'WARGv3',
-    tags: ['Amplitude'],
     description: `Detonate active Nano-bots, each dealing 100 ACID damage [E] plus an additional 25 ACID damage per Nano-bot detonated to enemies within 2m [A] and applies CORRODED, dealing 50 damage [E] over 10s per Nano-bot detonated.`,
     linkedItems: {
       weapon: {
@@ -719,7 +708,6 @@ export const modItems: ModItem[] = [
     name: 'Prismatic Driver',
     imagePath: '/mod/prismatic_driver.png',
     id: 'vtcg3o',
-    tags: ['Amplitude'],
     description: `Fires a superheated beam which deals 25 Mod Damage per second. Sustaining the beam on a target causes an explosion which deals 150 Mod damage [E] in a 3m [A] AOE.`, //(sic!) mod damage instead of damage
     wikiLinks: [`https://remnant.wiki/Prismatic_Driver`],
   },
@@ -759,7 +747,6 @@ export const modItems: ModItem[] = [
     name: 'Rotted Arrow',
     imagePath: '/mod/rotted_arrow.png',
     id: 'vgin4w',
-    tags: ['Amplitude'],
     description: `Fires a rotten arrow that deals 19.8 damage and detonates for another 60 damage [E] within 4m. [A] A deadly gas cloud is left behind that deals 200 damage over 5s.`,
     wikiLinks: [`https://remnant.wiki/Rotted_Arrow`],
   },
@@ -776,7 +763,6 @@ export const modItems: ModItem[] = [
     name: 'Screamer',
     imagePath: '/mod/screamer.png',
     id: '4aeebu',
-    tags: ['Amplitude'],
     description: `Fire a high-powered rocket that deals up to 200 damage [E] within 2.5m. [A]`,
     wikiLinks: [`https://remnant.wiki/Screamer`],
     linkedItems: {
@@ -805,7 +791,6 @@ export const modItems: ModItem[] = [
     name: 'Skewer 2.0',
     imagePath: '/mod/skewer.png',
     id: 'cpvech',
-    tags: ['Amplitude'],
     description: `Fires a Wretched Spear which embeds itself on contact. Spears deal 125 damage on hit, rapidly dividing inside the target until bursting, dealing 140 damage to all targets within 3m. [A] Spears embedded in the environment remain in place for 10s.`,
     wikiLinks: [`https://remnant.wiki/Skewer`],
   },
@@ -814,7 +799,6 @@ export const modItems: ModItem[] = [
     name: 'Song of Eafir',
     imagePath: '/mod/song_of_eafir.png',
     id: 'edm644',
-    tags: ['Amplitude'],
     description: `Fires a shot infused with the binding power of the Song of Eafir. Staggers most ground enemies within 10m [A] and deals 150 damage [E] to Flying enemies within the same range.
     The song continues for 15s, afflicting targets within 15m [A] with SLOW, and a 15% decrease to damage dealt.`,
     wikiLinks: [`https://remnant.wiki/Song_of_Eafir`],
@@ -866,7 +850,6 @@ export const modItems: ModItem[] = [
     name: 'Starfall',
     imagePath: '/mod/starfall.png',
     id: 'j9wkb3',
-    tags: ['Amplitude'],
     description: `Fires a powerful arrow which deals 30 damage and opens a 7m [A] portal that rains down star fragments. Each fragment deals 50 damage [E] within 4m. [A] Lasts 6s.`,
     wikiLinks: [`https://remnant.wiki/Starfall`],
     linkedItems: {
@@ -888,7 +871,6 @@ export const modItems: ModItem[] = [
     name: 'Supernova',
     imagePath: '/mod/supernova.png',
     id: '9rxk65',
-    tags: ['Amplitude'],
     description: `Fires the compressed remains of a dying star. On contact or hit wit the primary fire, causes Supernova to explode for 150 FIRE Damage, and 350 BURNING Damage over 10s to all targets within 4m [A].
 
     Striking the Supernova with Aphelion's primary fire increases its explosion radius by 25% and damage by 50%, and spawns a massive shockwave that deals 300 FIRE damage and also applies the initial BURNING amount.`,
@@ -970,7 +952,6 @@ export const modItems: ModItem[] = [
     name: 'Witchfire',
     imagePath: '/mod/witchfire.png',
     id: 'ggf5qe',
-    tags: ['Amplitude'],
     description: `Fires a highly volatile projectile that explodes to leave a line of flaming terrain. [A] Deals 55 FIRE Damage per second, and applies BURNING, dealing 200 damage over 10s. Lasts 5s.`,
     wikiLinks: [`https://remnant.wiki/Witchfire`],
   },

@@ -141,7 +141,7 @@ Using a Relic extends the duration of any active HUNTER Skill by 10s. Effect deg
     id: '485uc9',
     tags: ['Ranged Damage', 'Skill Damage', 'Critical Chance'],
     description: `
-    Gain 3% Ranged, Melee, and Skill Damage while Companion is within 40m of the HANDLER. Damage increases with HANDLER Level.
+    Gain 3% Ranged, Melee, and Skill Damage while Companion is within 40m [R] of the HANDLER. Damage increases with HANDLER Level.
     
     Upgrade Unlocked at level 5
     Gain 18% Ranged, Melee, and Skill Damage and 5% Ranged, Melee, and Skill Critical Chance while Companion is active and within 40m of the Handler. Damage increases with HANDLER level.
@@ -164,7 +164,7 @@ Using a Relic extends the duration of any active HUNTER Skill by 10s. Effect deg
     id: 'z3sz58',
     tags: ['Movement Speed', 'Stamina'],
     description: `
-    Increases Movement Speed by 10%. All allies within 10m of the HANDLER gain the HANDLER's Movement Speed (if faster).
+    Increases Movement Speed by 10%. All allies within 10m [R] of the HANDLER gain the HANDLER's Movement Speed (if faster).
 
     Upgrade unlocked at level 7
     Increases Movement Speed by 10%. All allies within 10m of the HANDLER gain the HANDLER's Movement Speed (if faster). Reduces the Stamina Cost of actions for allies by 15%.`,
@@ -1152,7 +1152,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     imagePath: '/perk/vile.png',
     type: 'prime',
     id: 'qewh6t',
-    tags: ['Status Effect', 'Amplitude'],
+    tags: ['Status Effect'],
     description: `
     Negative Status Effects applied by RITUALIST inflict Infected.
     Infected: Victim receives 5% more Status Effect damage, On death, spreads all statuses to nearby enemies within 5m. [A]
