@@ -304,6 +304,36 @@ export default async function Page() {
               </div>
             </Link>
             <Link
+              href="https://discord.gg/kgVaU3zAQ7"
+              key="Join the Discord!"
+              target="_blank"
+              className="flex min-h-[200px] flex-row gap-x-4 rounded-xl border border-transparent bg-white/5 p-6 ring-1 ring-inset ring-white/10 hover:border-primary-500"
+            >
+              <Image
+                src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/toolkit/discord-cyan.png`}
+                alt="Join the Remnant 2 Toolkit Discord"
+                width={32}
+                height={32}
+                className="h-6 w-6"
+                loading="eager"
+              />
+              <div className="relative w-full">
+                <p className="text-lg font-bold leading-7">
+                  Join the Toolkit Discord!
+                </p>
+                <div className="mt-2 text-gray-300 ">
+                  Weigh in on new features, get help with builds, report bugs,
+                  or just hang out!
+                </div>
+                <div className="absolute bottom-0 right-0 mt-4 flex w-full items-center justify-end">
+                  <ArrowRightIcon
+                    className="h-6 w-6 text-primary-500 hover:text-primary-300"
+                    aria-hidden="true"
+                  />
+                </div>
+              </div>
+            </Link>
+            <Link
               href={NAV_ITEMS.supportR2TK.href}
               key={NAV_ITEMS.supportR2TK.label}
               className="flex min-h-[200px] flex-row gap-x-4 rounded-xl border border-transparent bg-white/5 p-6 ring-1 ring-inset ring-white/10 hover:border-primary-500"
