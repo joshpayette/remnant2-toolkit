@@ -81,7 +81,7 @@ export const relicItems: RelicItem[] = [
     imagePath: '/relic/paper_heart.png',
     dlc: 'dlc1',
     id: 'n9fm2r',
-    description: `On use, heals for up to 100% of current health over 0.25s. Gain 1Stack per 10% Health Restored. After 15s, remove 10% Health per Stack. Kills remove 1 Stack.`,
+    description: `On use, heals for up to 100% of current health over 0.25s. Gain 1 Stack per 10% Health Restored. After 15s, remove 10% Health per Stack. Kills remove 1 Stack.`,
     wikiLinks: [`https://remnant.wiki/Paper_Heart`],
   },
   {
