@@ -10,7 +10,7 @@ import { BossCategory } from '@/features/enemies/types'
 import { FiltersContainer } from '@/features/ui/filters/FiltersContainer'
 import { SearchInput } from '@/features/ui/SearchInput'
 
-import { BossTrackerFilterFields } from '../types'
+import { BossTrackerFilterFields } from './types'
 
 export const DEFAULT_BOSS_TRACKER_FILTERS: BossTrackerFilterFields = {
   searchText: '',

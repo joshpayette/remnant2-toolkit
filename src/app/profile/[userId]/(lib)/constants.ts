@@ -1,4 +1,4 @@
-import { remnantEnemies } from '@/features/enemies/data/remnantEnemies'
+import { remnantEnemies } from '@/features/enemies/remnantEnemies'
 import { amuletItems } from '@/features/items/data/amuletItems'
 import { armorItems } from '@/features/items/data/armorItems'
 

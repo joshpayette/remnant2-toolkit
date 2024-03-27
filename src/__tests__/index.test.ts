@@ -1,6 +1,6 @@
 /* eslint-env jest */
 
-import { remnantEnemies } from '@/features/enemies/data/remnantEnemies'
+import { remnantEnemies } from '@/features/enemies/remnantEnemies'
 import { allItems } from '@/features/items/data/allItems'
 
 describe('Items', () => {

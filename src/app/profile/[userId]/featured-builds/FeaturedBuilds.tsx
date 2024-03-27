@@ -7,7 +7,7 @@ import { CreatedBuildCardActions } from '@/app/profile/[userId]/(components)/Cre
 import { getCreatedBuilds } from '@/app/profile/[userId]/created-builds/getCreatedBuilds'
 import { BuildCard } from '@/features/build/components/build-card/BuildCard'
 import { CreateBuildCard } from '@/features/build/components/build-card/CreateBuildCard'
-import { ItemList } from '@/features/build/components/ItemList'
+import { BuildList } from '@/features/build/components/BuildList'
 import { BuildListSecondaryFilters } from '@/features/build/filters/BuildListSecondaryFilters'
 import { useBuildListSecondaryFilters } from '@/features/build/filters/hooks/useBuildListSecondaryFilters'
 import { parseBuildListFilters } from '@/features/build/filters/lib/parseBuildListFilters'
@@ -88,7 +88,7 @@ export function FeaturedBuilds({ isEditable, userId }: Props) {
 
   return (
     <>
-      <ItemList
+      <BuildList
         label="Featured Builds"
         currentPage={currentPage}
         isLoading={isLoading}
@@ -134,7 +134,7 @@ export function FeaturedBuilds({ isEditable, userId }: Props) {
             </div>
           ))}
         </ul>
-      </ItemList>
+      </BuildList>
     </>
   )
 }

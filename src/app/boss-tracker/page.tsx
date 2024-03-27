@@ -6,16 +6,13 @@ import { useIsClient, useLocalStorage } from 'usehooks-ts'
 import {
   BossTrackerFilters,
   DEFAULT_BOSS_TRACKER_FILTERS,
-} from '@/features/enemies/boss-tracker/components/BossTrackerFilters'
-import { remnantEnemies } from '@/features/enemies/data/remnantEnemies'
+} from '@/app/boss-tracker/BossTrackerFilters'
+import { remnantEnemies } from '@/features/enemies/remnantEnemies'
 import { BossCategory } from '@/features/enemies/types'
 import { PageHeader } from '@/features/ui/PageHeader'
 
-import { ListBosses } from '../../features/enemies/boss-tracker/components/ListBosses'
-import {
-  BossTrackerFilterFields,
-  LocalStorage,
-} from '../../features/enemies/boss-tracker/types'
+import { ListBosses } from './ListBosses'
+import { BossTrackerFilterFields, LocalStorage } from './types'
 
 const allBosses = remnantEnemies
   .filter(

@@ -257,7 +257,10 @@ export function BuildListFilters() {
         <div className="mb-12 w-full">
           <Disclosure.Button
             className={cn(
-              'flex w-full flex-row items-center justify-center border-b border-b-primary-500 py-2',
+              'flex w-full flex-row items-center justify-center border-b py-2',
+              areAnyFiltersActive
+                ? 'border-b-accent1-500'
+                : 'border-b-primary-500',
             )}
           >
             <h2 className="flex w-full items-center justify-start text-2xl">

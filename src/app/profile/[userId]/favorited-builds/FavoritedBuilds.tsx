@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react'
 
 import { getFavoritedBuilds } from '@/app/profile/[userId]/favorited-builds/getFavoriteBuilds'
 import { BuildCard } from '@/features/build/components/build-card/BuildCard'
-import { ItemList } from '@/features/build/components/ItemList'
+import { BuildList } from '@/features/build/components/BuildList'
 import { BuildListSecondaryFilters } from '@/features/build/filters/BuildListSecondaryFilters'
 import { useBuildListSecondaryFilters } from '@/features/build/filters/hooks/useBuildListSecondaryFilters'
 import { parseBuildListFilters } from '@/features/build/filters/lib/parseBuildListFilters'
@@ -82,7 +82,7 @@ export function FavoritedBuilds({ userId }: Props) {
 
   return (
     <>
-      <ItemList
+      <BuildList
         label="Favorited Builds"
         currentPage={currentPage}
         isLoading={isLoading}
@@ -119,7 +119,7 @@ export function FavoritedBuilds({ userId }: Props) {
             </div>
           ))}
         </ul>
-      </ItemList>
+      </BuildList>
     </>
   )
 }

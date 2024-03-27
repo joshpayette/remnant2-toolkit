@@ -1,4 +1,4 @@
-import { Build, BUILD_TAG, BuildItems, BuildTags } from '@prisma/client'
+import { Build, BuildItems, BuildTags } from '@prisma/client'
 
 import { AmuletItem } from '@/features/items/types/AmuletItem'
 import { ArchetypeItem } from '@/features/items/types/ArchetypeItem'

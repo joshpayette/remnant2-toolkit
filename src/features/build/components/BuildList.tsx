@@ -17,7 +17,7 @@ interface Props {
   onSpecificPage: (pageNumber: number) => void
 }
 
-export function ItemList({
+export function BuildList({
   children,
   currentPage,
   firstVisibleItemNumber,

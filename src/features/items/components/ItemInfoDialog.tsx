@@ -5,8 +5,9 @@ import { toast } from 'react-toastify'
 import { capitalize } from '@/lib/capitalize'
 import { cn } from '@/lib/classnames'
 
+import { ArmorInfo } from '../../armor-calculator/ArmorInfo'
 import { DescriptionWithTags } from '../../ui/DescriptionWithTags'
-import { Dialog, DialogMaxWidthClass } from '../../ui/Dialog'
+import { Dialog } from '../../ui/Dialog'
 import { cleanItemName } from '../lib/cleanItemName'
 import { Item } from '../types'
 import { ArchetypeItem } from '../types/ArchetypeItem'
@@ -17,7 +18,6 @@ import { PerkItem } from '../types/PerkItem'
 import { SkillItem } from '../types/SkillItem'
 import { TraitItem } from '../types/TraitItem'
 import { WeaponItem } from '../types/WeaponItem'
-import { ArmorInfo } from './ArmorInfo'
 import { WeaponInfo } from './WeaponInfo'
 
 interface ItemInfoProps {
