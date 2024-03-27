@@ -33,6 +33,11 @@ const additionalImages = [
     name: 'Dran Nurse',
     imagePath: '/avatars/dran_nurse.jpg',
   },
+  {
+    id: '4a5EAU',
+    name: 'Bridgekeeper Facepalm',
+    imagePath: '/avatars/bridgekeeper_facepalm.jpg',
+  },
 ]
 
 /**
