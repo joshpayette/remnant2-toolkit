@@ -145,7 +145,7 @@ export const NAV_ITEMS = {
   supportR2TK: {
     label: 'Support R2TK!',
     description:
-      'Help support the development of the Remnant 2 Toolkit, plus get some cool perks!',
+      'Help with the costs of running the Toolkit and keeping it ad-free, plus get some cool perks!',
     href: 'https://www.patreon.com/JoshPayette/membership',
     icon: HeartIcon,
   },
