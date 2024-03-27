@@ -37,7 +37,8 @@ export const NAV_ITEMS = {
   },
   changeLog: {
     label: 'Change Log',
-    description: 'See the latest changes to the site.',
+    description:
+      'A running log of all additions, changes, and fixes to the toolkit.',
     href: 'https://github.com/joshpayette/remnant2-toolkit/blob/main/CHANGELOG.md',
     icon: DocumentPlusIcon,
   },
