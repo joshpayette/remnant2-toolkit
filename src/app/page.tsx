@@ -39,8 +39,8 @@ export default async function Page() {
             }}
           />
         </div>
-        <div className="mx-auto w-full px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl lg:mx-0">
+        <div className="mx-auto grid w-full grid-cols-3 px-6 lg:px-8">
+          <div className="col-span-full mx-auto max-w-2xl sm:col-span-2 sm:mx-8 lg:mx-0">
             <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
               Remnant 2 Toolkit
             </h1>
@@ -84,22 +84,22 @@ export default async function Page() {
               your collectibles, or searching for detailed item information.
             </p>
           </div>
-          <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-6 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-8">
+          <div className="mt-8 hidden sm:col-span-1 sm:mt-0 sm:block">
             <Link
-              href={NAV_ITEMS.createBuild.href}
-              key={NAV_ITEMS.createBuild.label}
-              className="flex min-h-[200px] flex-row gap-x-4 rounded-xl border border-transparent bg-white/5 p-6 ring-1 ring-inset ring-white/10 hover:border-primary-500"
+              href={NAV_ITEMS.featuredBuilds.href}
+              key={NAV_ITEMS.featuredBuilds.label}
+              className="mb-4 flex min-h-[200px] flex-row gap-x-4 rounded-xl border border-transparent bg-white/5 p-6 ring-1 ring-inset ring-white/10 hover:border-primary-500"
             >
-              <NAV_ITEMS.createBuild.icon
+              <NAV_ITEMS.featuredBuilds.icon
                 className="h-7 w-7 flex-none text-primary-500"
                 aria-hidden="true"
               />
               <div className="relative w-full">
                 <p className="text-lg font-bold leading-7">
-                  {NAV_ITEMS.createBuild.label}
+                  {NAV_ITEMS.featuredBuilds.label}
                 </p>
                 <div className="mt-2 text-gray-300 ">
-                  {NAV_ITEMS.createBuild.description}
+                  {NAV_ITEMS.featuredBuilds.description}
                 </div>
                 <div className="absolute bottom-0 right-0 mt-4 flex w-full items-center justify-end">
                   <ArrowRightIcon
@@ -110,9 +110,35 @@ export default async function Page() {
               </div>
             </Link>
             <Link
+              href={NAV_ITEMS.itemLookup.href}
+              key={NAV_ITEMS.itemLookup.label}
+              className="flex min-h-[200px] flex-row gap-x-4 rounded-xl border border-transparent bg-white/5 p-6 ring-1 ring-inset ring-white/10 hover:border-primary-500"
+            >
+              <NAV_ITEMS.itemLookup.icon
+                className="h-7 w-7 flex-none text-primary-500"
+                aria-hidden="true"
+              />
+              <div className="relative w-full">
+                <p className="text-lg font-bold leading-7">
+                  {NAV_ITEMS.itemLookup.label}
+                </p>
+                <div className="mt-2 text-gray-300 ">
+                  {NAV_ITEMS.itemLookup.description}
+                </div>
+                <div className="absolute bottom-0 right-0 mt-4 flex w-full items-center justify-end">
+                  <ArrowRightIcon
+                    className="h-6 w-6 text-primary-500 hover:text-primary-300"
+                    aria-hidden="true"
+                  />
+                </div>
+              </div>
+            </Link>
+          </div>
+          <div className="col-span-full mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-6 sm:mt-20 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-8">
+            <Link
               href={NAV_ITEMS.featuredBuilds.href}
               key={NAV_ITEMS.featuredBuilds.label}
-              className="flex min-h-[200px] flex-row gap-x-4 rounded-xl border border-transparent bg-white/5 p-6 ring-1 ring-inset ring-white/10 hover:border-primary-500"
+              className="flex min-h-[200px] flex-row gap-x-4 rounded-xl border border-transparent bg-white/5 p-6 ring-1 ring-inset ring-white/10 hover:border-primary-500 sm:hidden"
             >
               <NAV_ITEMS.featuredBuilds.icon
                 className="h-7 w-7 flex-none text-primary-500"
@@ -158,20 +184,44 @@ export default async function Page() {
               </div>
             </Link>
             <Link
-              href={`/profile/${session?.user?.id}/loadouts?t=${Date.now()}`}
-              key={NAV_ITEMS.loadouts.label}
-              className="flex min-h-[200px] flex-row gap-x-4 rounded-xl border border-transparent bg-white/5 p-6 ring-1 ring-inset ring-white/10 hover:border-primary-500"
+              href={NAV_ITEMS.itemLookup.href}
+              key={NAV_ITEMS.itemLookup.label}
+              className="flex min-h-[200px] flex-row gap-x-4 rounded-xl border border-transparent bg-white/5 p-6 ring-1 ring-inset ring-white/10 hover:border-primary-500 sm:hidden"
             >
-              <NAV_ITEMS.loadouts.icon
+              <NAV_ITEMS.itemLookup.icon
                 className="h-7 w-7 flex-none text-primary-500"
                 aria-hidden="true"
               />
               <div className="relative w-full">
                 <p className="text-lg font-bold leading-7">
-                  {NAV_ITEMS.loadouts.label}
+                  {NAV_ITEMS.itemLookup.label}
                 </p>
                 <div className="mt-2 text-gray-300 ">
-                  {NAV_ITEMS.loadouts.description}
+                  {NAV_ITEMS.itemLookup.description}
+                </div>
+                <div className="absolute bottom-0 right-0 mt-4 flex w-full items-center justify-end">
+                  <ArrowRightIcon
+                    className="h-6 w-6 text-primary-500 hover:text-primary-300"
+                    aria-hidden="true"
+                  />
+                </div>
+              </div>
+            </Link>
+            <Link
+              href={NAV_ITEMS.createBuild.href}
+              key={NAV_ITEMS.createBuild.label}
+              className="flex min-h-[200px] flex-row gap-x-4 rounded-xl border border-transparent bg-white/5 p-6 ring-1 ring-inset ring-white/10 hover:border-primary-500"
+            >
+              <NAV_ITEMS.createBuild.icon
+                className="h-7 w-7 flex-none text-primary-500"
+                aria-hidden="true"
+              />
+              <div className="relative w-full">
+                <p className="text-lg font-bold leading-7">
+                  {NAV_ITEMS.createBuild.label}
+                </p>
+                <div className="mt-2 text-gray-300 ">
+                  {NAV_ITEMS.createBuild.description}
                 </div>
                 <div className="absolute bottom-0 right-0 mt-4 flex w-full items-center justify-end">
                   <ArrowRightIcon
@@ -206,6 +256,30 @@ export default async function Page() {
               </div>
             </Link>
             <Link
+              href={`/profile/${session?.user?.id}/loadouts?t=${Date.now()}`}
+              key={NAV_ITEMS.loadouts.label}
+              className="flex min-h-[200px] flex-row gap-x-4 rounded-xl border border-transparent bg-white/5 p-6 ring-1 ring-inset ring-white/10 hover:border-primary-500"
+            >
+              <NAV_ITEMS.loadouts.icon
+                className="h-7 w-7 flex-none text-primary-500"
+                aria-hidden="true"
+              />
+              <div className="relative w-full">
+                <p className="text-lg font-bold leading-7">
+                  {NAV_ITEMS.loadouts.label}
+                </p>
+                <div className="mt-2 text-gray-300 ">
+                  {NAV_ITEMS.loadouts.description}
+                </div>
+                <div className="absolute bottom-0 right-0 mt-4 flex w-full items-center justify-end">
+                  <ArrowRightIcon
+                    className="h-6 w-6 text-primary-500 hover:text-primary-300"
+                    aria-hidden="true"
+                  />
+                </div>
+              </div>
+            </Link>
+            <Link
               href={NAV_ITEMS.bossTracker.href}
               key={NAV_ITEMS.bossTracker.label}
               className="flex min-h-[200px] flex-row gap-x-4 rounded-xl border border-transparent bg-white/5 p-6 ring-1 ring-inset ring-white/10 hover:border-primary-500"
@@ -220,30 +294,6 @@ export default async function Page() {
                 </p>
                 <div className="mt-2 text-gray-300 ">
                   {NAV_ITEMS.bossTracker.description}
-                </div>
-                <div className="absolute bottom-0 right-0 mt-4 flex w-full items-center justify-end">
-                  <ArrowRightIcon
-                    className="h-6 w-6 text-primary-500 hover:text-primary-300"
-                    aria-hidden="true"
-                  />
-                </div>
-              </div>
-            </Link>
-            <Link
-              href={NAV_ITEMS.itemLookup.href}
-              key={NAV_ITEMS.itemLookup.label}
-              className="flex min-h-[200px] flex-row gap-x-4 rounded-xl border border-transparent bg-white/5 p-6 ring-1 ring-inset ring-white/10 hover:border-primary-500"
-            >
-              <NAV_ITEMS.itemLookup.icon
-                className="h-7 w-7 flex-none text-primary-500"
-                aria-hidden="true"
-              />
-              <div className="relative w-full">
-                <p className="text-lg font-bold leading-7">
-                  {NAV_ITEMS.itemLookup.label}
-                </p>
-                <div className="mt-2 text-gray-300 ">
-                  {NAV_ITEMS.itemLookup.description}
                 </div>
                 <div className="absolute bottom-0 right-0 mt-4 flex w-full items-center justify-end">
                   <ArrowRightIcon
