@@ -14,6 +14,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Added [BLEEDING] tag to Handler skills.
 - Added labels to avatar selection in profile settings.
+- Grouped Item Lookup filters by type instead of alphabetically.
 
 ### Fixed
 

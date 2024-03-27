@@ -15,14 +15,12 @@ import {
 import { SearchTextAutocomplete } from '@/features/build/filters/parts/SearchTextAutocomplete'
 import { ITEM_TAGS } from '@/features/items/constants'
 import { allItems } from '@/features/items/data/allItems'
-import { itemCategories } from '@/features/items/lib/getItemCategories'
 import {
   ItemLookupCategory,
   ItemLookupFilterFields,
   ReleaseKey,
 } from '@/features/items/types'
 import { FiltersContainer } from '@/features/ui/filters/FiltersContainer'
-import { capitalize } from '@/lib/capitalize'
 
 function buildItemList(): Array<{ id: string; name: string }> {
   let items = allItems
@@ -48,21 +46,36 @@ function buildItemList(): Array<{ id: string; name: string }> {
   return items
 }
 
-const subCategories: ItemLookupCategory[] = [
+const defaultItemCategories: ItemLookupCategory[] = [
+  'Helm',
+  'Torso',
+  'Legs',
+  'Gloves',
+  'Archetype',
+  'Skill',
+  'Trait',
+  'Perk',
+  'Amulet',
+  'Ring',
+  'Relic',
+  'Relicfragment',
   'Long Gun',
   'Hand Gun',
   'Melee',
+  'Mod',
   'Mutator (Gun)',
   'Mutator (Melee)',
+  'Concoction',
+  'Consumable',
 ]
 
-let defaultItemCategories: ItemLookupCategory[] = itemCategories
-  .map((category) => capitalize(category))
-  .filter((category) => category !== 'weapon' && category !== 'mutator')
-// Add the subcategories
-defaultItemCategories.push(...subCategories)
-// Sort alphabetically
-defaultItemCategories = defaultItemCategories.sort()
+// let defaultItemCategories: ItemLookupCategory[] = itemCategories
+//   .map((category) => capitalize(category))
+//   .filter((category) => category !== 'weapon' && category !== 'mutator')
+// // Add the subcategories
+// defaultItemCategories.push(...subCategories)
+// // Sort alphabetically
+// defaultItemCategories = defaultItemCategories.sort()
 
 export const DEFAULT_ITEM_LOOKUP_FILTERS: ItemLookupFilterFields = {
   collectionKeys: DEFAULT_COLLECTION_FILTERS,
