@@ -16,6 +16,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Updated the image for Mystery Jerky to a better quality image.
 - Updated the image for Rusty Repeater to a better quality image.
 - Updated the image for Bandit Gloves to a better quality image.
+- Fixed Bulletweaver description.
 
 ## 2024-03-27
 

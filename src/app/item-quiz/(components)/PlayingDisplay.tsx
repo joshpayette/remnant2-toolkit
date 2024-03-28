@@ -1,5 +1,4 @@
 import React from 'react'
-import { v4 as uuidv4 } from 'uuid'
 
 import { QuizItemButton } from '@/app/item-quiz/(components)/QuizItemButton'
 import { TOTAL_CHOICES } from '@/app/item-quiz/constants'
@@ -28,7 +27,7 @@ export const PlayingDisplay = React.memo(
         {getArrayOfLength(TOTAL_CHOICES).map((_, index) => {
           return (
             <QuizItemButton
-              key={uuidv4()}
+              key={questionsForUI[index].id}
               item={questionsForUI[index]}
               itemIndex={index}
               onClick={() => onAnswerQuestion(questionsForUI[index].id)}
