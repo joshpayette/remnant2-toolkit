@@ -32,7 +32,7 @@ export default async function RootLayout({
     <html lang="en">
       <body
         className={cn(
-          'relative flex min-h-screen flex-col items-center justify-start',
+          'relative flex min-h-fit flex-col items-center justify-start',
           inter.className,
         )}
       >
@@ -56,7 +56,7 @@ export default async function RootLayout({
             , a community-built alternative to Fextralife, needs contributors!
             No ads or embedded streams. Thank you!
           </div> */}
-          <div className="flex w-full max-w-7xl grow flex-col items-start justify-start">
+          <div className="flex h-full w-full max-w-7xl grow flex-col items-start justify-start">
             <header className="w-full">
               <NavBar />
             </header>
