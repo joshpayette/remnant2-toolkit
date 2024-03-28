@@ -49,12 +49,12 @@ const initialState = {
 const gameReducer = createReducer(initialState, (builder) => {
   builder
     .addCase(initializeGame, (state) => {
-      state.currentQuestion = getQuestion(state.history)
+      state.status = 'starting'
       state.countdownTimer = COUNTDOWN_DURATION
       state.gameTimer = GAME_DURATION
       state.score = 0
       state.history = []
-      state.status = 'starting'
+      state.currentQuestion = getQuestion(state.history)
     })
     .addCase(startGame, (state) => {
       state.status = 'playing'
