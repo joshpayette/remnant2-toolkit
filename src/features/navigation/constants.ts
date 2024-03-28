@@ -99,8 +99,7 @@ export const NAV_ITEMS = {
   },
   itemQuiz: {
     label: 'Item Quiz',
-    description:
-      'Test your knowledge of items based on only their icons, and see how you rank!',
+    description: 'Test your knowledge of items based on only their icons!',
     href: '/item-quiz',
     icon: PuzzlePieceIcon,
   },
