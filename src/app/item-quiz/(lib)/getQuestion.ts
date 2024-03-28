@@ -14,7 +14,7 @@ export function getQuestion(history: QuizQuestion[]): QuizQuestion {
     wrongItems: [],
   }
 
-  while (question.wrongItems.length < TOTAL_CHOICES) {
+  while (question.wrongItems.length < TOTAL_CHOICES - 1) {
     if (!question.correctItem || question.correctItem.id === '') {
       // Pick a random category
       const category =

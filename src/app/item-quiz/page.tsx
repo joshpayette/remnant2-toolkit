@@ -1,50 +1,68 @@
 'use client'
 
 import { createAction, createReducer } from '@reduxjs/toolkit'
-import Image from 'next/image'
-import { useEffect, useReducer, useRef } from 'react'
+import { useCallback, useEffect, useMemo, useReducer, useRef } from 'react'
+import { v4 as uuidv4 } from 'uuid'
 
+import { QuizItemButton } from '@/app/item-quiz/(components)/QuizItemButton'
 import { getQuestion } from '@/app/item-quiz/(lib)/getQuestion'
-import { GAME_DURATION, TOTAL_CHOICES } from '@/app/item-quiz/constants'
-import { QuizQuestion } from '@/app/item-quiz/types'
+import {
+  ARROW_TO_INDEX,
+  COUNTDOWN_DURATION,
+  GAME_DURATION,
+  KEY_TO_ARROW,
+  TOTAL_CHOICES,
+} from '@/app/item-quiz/constants'
+import { QuizItem, QuizQuestion } from '@/app/item-quiz/types'
 import { getArrayOfLength } from '@/features/build/lib/getArrayOfLength'
 
 interface GameState {
-  score: number
+  countdownTimer: number
   currentQuestion: QuizQuestion | null
+  gameTimer: number
   history: QuizQuestion[]
-  timer: number
-  status: 'idle' | 'playing' | 'finished'
+  score: number
+  status: 'idle' | 'starting' | 'playing' | 'finished'
 }
 
+const initializeGame = createAction('game/init')
 const startGame = createAction('game/start')
 const endGame = createAction('game/end')
-const tick = createAction('game/tick')
+const tickGameTimer = createAction('game/tickGameTimer')
+const tickCountdownTimer = createAction('game/tickCountdownTimer')
 const answerQuestion = createAction<QuizQuestion>('game/answer')
 const newQuestion = createAction('game/newQuestion')
 
 const initialState = {
-  score: 0,
+  countdownTimer: COUNTDOWN_DURATION,
   currentQuestion: null,
+  gameTimer: 0,
   history: [],
-  timer: 0,
+  score: 0,
   status: 'idle',
 } satisfies GameState as GameState
 
 const gameReducer = createReducer(initialState, (builder) => {
   builder
-    .addCase(startGame, (state) => {
+    .addCase(initializeGame, (state) => {
       state.currentQuestion = getQuestion(state.history)
-      state.status = 'playing'
-      state.timer = GAME_DURATION
+      state.countdownTimer = COUNTDOWN_DURATION
+      state.gameTimer = GAME_DURATION
       state.score = 0
       state.history = []
+      state.status = 'starting'
+    })
+    .addCase(startGame, (state) => {
+      state.status = 'playing'
     })
     .addCase(endGame, (state) => {
       state.status = 'finished'
     })
-    .addCase(tick, (state) => {
-      state.timer--
+    .addCase(tickCountdownTimer, (state) => {
+      state.countdownTimer--
+    })
+    .addCase(tickGameTimer, (state) => {
+      state.gameTimer--
     })
     .addCase(answerQuestion, (state, action) => {
       state.history.push({
@@ -61,25 +79,168 @@ const gameReducer = createReducer(initialState, (builder) => {
 export default function Page() {
   const [state, dispatch] = useReducer(gameReducer, initialState)
 
+  /** An array of the questions to be rendered to the choices in the UI */
+  const questionsForUI = useMemo(() => {
+    if (!state.currentQuestion) return []
+    if (!state.currentQuestion.correctItem.position) return []
+
+    let questions: QuizItem[] = [...state.currentQuestion.wrongItems]
+    // Insert the correct question at the specified position
+    questions.splice(
+      state.currentQuestion.correctItem.position - 1,
+      0,
+      state.currentQuestion.correctItem,
+    )
+
+    return questions
+  }, [state.currentQuestion])
+
   const containerRef = useRef<HTMLDivElement>(null)
 
-  // Timer
+  // Countdown timer
   useEffect(() => {
+    if (state.status !== 'starting') return
+
     const timer = setInterval(() => {
-      if (state.status !== 'playing') return
-      if (state.timer === 0) {
-        dispatch(endGame())
+      if (state.countdownTimer === 0) {
+        dispatch(startGame())
       } else {
-        dispatch(tick())
+        dispatch(tickCountdownTimer())
       }
     }, 1000)
 
     return () => clearInterval(timer)
-  }, [state.status, state.timer])
+  }, [state.status, state.countdownTimer])
+
+  // Game Timer
+  useEffect(() => {
+    const timer = setInterval(() => {
+      if (state.status !== 'playing') return
+      if (state.gameTimer === 0) {
+        dispatch(endGame())
+      } else {
+        dispatch(tickGameTimer())
+      }
+    }, 1000)
+
+    return () => clearInterval(timer)
+  }, [state.status, state.gameTimer])
+
+  const handleAnswerQuestion = useCallback(
+    (selectedItemId: string) => {
+      // If this is the current question's correct item, answer the question
+      // and get a new question
+      if (selectedItemId === state.currentQuestion?.correctItem.id) {
+        dispatch(answerQuestion(state.currentQuestion!))
+        dispatch(newQuestion())
+        return
+      }
+      // Otherwise, end the game
+      dispatch(endGame())
+    },
+    [state.currentQuestion],
+  )
+
+  // Detect if the user presses up arrow, right arrow, down arrow, or left arrow to make choices
+  // Similarly, match 1, 2, 3, 4 to the choices
+  useEffect(() => {
+    function handleKeyPress(event: KeyboardEvent) {
+      if (state.status !== 'playing') return
+      switch (event.key) {
+        case 'ArrowUp':
+          handleAnswerQuestion(questionsForUI[ARROW_TO_INDEX.ArrowUp - 1].id)
+          // Prevent the page scroll of the arrow key
+          event.preventDefault()
+          break
+        case 'ArrowRight':
+          handleAnswerQuestion(questionsForUI[ARROW_TO_INDEX.ArrowRight - 1].id)
+          event.preventDefault()
+          break
+        case 'ArrowDown':
+          handleAnswerQuestion(questionsForUI[ARROW_TO_INDEX.ArrowDown - 1].id)
+          event.preventDefault()
+          break
+        case 'ArrowLeft':
+          handleAnswerQuestion(questionsForUI[ARROW_TO_INDEX.ArrowLeft - 1].id)
+          event.preventDefault()
+          break
+        // Map the number keys to the choices
+        case '1':
+          handleAnswerQuestion(
+            questionsForUI[ARROW_TO_INDEX[KEY_TO_ARROW['1']] - 1].id,
+          )
+          event.preventDefault()
+          break
+        // Map the number keys to the choices
+        case '2':
+          handleAnswerQuestion(
+            questionsForUI[ARROW_TO_INDEX[KEY_TO_ARROW['2']] - 1].id,
+          )
+          event.preventDefault()
+          break
+        // Map the number keys to the choices
+        case '3':
+          handleAnswerQuestion(
+            questionsForUI[ARROW_TO_INDEX[KEY_TO_ARROW['3']] - 1].id,
+          )
+          event.preventDefault()
+          break
+        // Map the number keys to the choices
+        case '4':
+          handleAnswerQuestion(
+            questionsForUI[ARROW_TO_INDEX[KEY_TO_ARROW['4']] - 1].id,
+          )
+          event.preventDefault()
+          break
+        // Map the WASD keys to the choices
+        case 'W':
+        case 'w':
+          handleAnswerQuestion(
+            questionsForUI[ARROW_TO_INDEX[KEY_TO_ARROW['W']] - 1].id,
+          )
+          event.preventDefault()
+          break
+        // Map the WASD keys to the choices
+        case 'A':
+        case 'a':
+          handleAnswerQuestion(
+            questionsForUI[ARROW_TO_INDEX[KEY_TO_ARROW['A']] - 1].id,
+          )
+          event.preventDefault()
+          break
+        // Map the WASD keys to the choices
+        case 'S':
+        case 's':
+          handleAnswerQuestion(
+            questionsForUI[ARROW_TO_INDEX[KEY_TO_ARROW['S']] - 1].id,
+          )
+          event.preventDefault()
+          break
+        // Map the WASD keys to the choices
+        case 'D':
+        case 'd':
+          handleAnswerQuestion(
+            questionsForUI[ARROW_TO_INDEX[KEY_TO_ARROW['D']] - 1].id,
+          )
+          event.preventDefault()
+          break
+        default:
+          break
+      }
+    }
+
+    window.addEventListener('keydown', handleKeyPress)
+    return () => window.removeEventListener('keydown', handleKeyPress)
+  }, [state.status, questionsForUI, handleAnswerQuestion])
+
+  function handleStartGame() {
+    containerRef.current?.scrollIntoView({ behavior: 'instant' })
+    dispatch(initializeGame())
+  }
 
   return (
     <div
-      className="flex w-full max-w-lg flex-col items-center justify-center"
+      className="flex w-full max-w-lg flex-col items-center justify-center pt-8"
       ref={containerRef}
     >
       {state.status === 'idle' ? (
@@ -89,7 +250,8 @@ export default function Page() {
             <p className="mb-2 text-lg text-gray-200">
               You will be shown four items and an item name. You must select the
               item that matches the name. The game ends when the timer runs out
-              or you get a question wrong.
+              or you get a question wrong. You can use the arrow keys, WASD
+              keys, or number keys.
             </p>
             <hr className="mb-4 mt-4 w-full border border-primary-500" />
             <p className="text-lg italic text-gray-200">
@@ -100,10 +262,25 @@ export default function Page() {
           </div>
           <button
             className="rounded-md border-2 border-primary-500 bg-primary-700 p-2 text-lg hover:bg-primary-500"
-            onClick={() => dispatch(startGame())}
+            onClick={handleStartGame}
           >
             Start Game
           </button>
+        </div>
+      ) : null}
+
+      {state.status === 'starting' ? (
+        <div className="flex w-full flex-col items-center justify-center">
+          <h2 className="mb-2 text-2xl font-bold text-primary-500">
+            Game Starting
+          </h2>
+          <p className="text-lg text-gray-200">
+            Get ready! The game will start in{' '}
+            <span className="font-bold text-accent1-500">
+              {state.countdownTimer + 1}
+            </span>{' '}
+            seconds
+          </p>
         </div>
       ) : null}
 
@@ -121,7 +298,7 @@ export default function Page() {
                 Timer
               </div>
               <div className="flex h-full w-full items-center justify-center text-2xl font-bold text-accent1-400">
-                {state.status === 'playing' ? state.timer : '-'}
+                {state.status === 'playing' ? state.gameTimer : '-'}
               </div>
             </div>
             <div
@@ -147,42 +324,58 @@ export default function Page() {
               {state.currentQuestion?.correctItem.name}
             </p>
           </div>
-          <div className="grid grid-cols-2 gap-4">
+
+          {/** Mobile Grid */}
+          <div className="grid grid-cols-2 gap-4 sm:hidden">
             {getArrayOfLength(TOTAL_CHOICES).map((_, index) => {
-              if (!state.currentQuestion) {
-                throw new Error('No current question found!')
-              }
-
-              const item =
-                index === state.currentQuestion?.correctItem.position - 1
-                  ? state.currentQuestion?.correctItem
-                  : state.currentQuestion?.wrongItems[index]
-
               return (
-                <button
-                  key={item.id}
-                  className="flex h-[150px] max-h-[150px] w-[150px] max-w-[150px] flex-col items-center justify-center overflow-hidden border border-secondary-500 bg-secondary-900 p-2 text-lg hover:bg-secondary-700"
-                  onClick={() => {
-                    // If this is the current question's correct item, answer the question
-                    // and get a new question
-                    if (item.id === state.currentQuestion?.correctItem.id) {
-                      dispatch(answerQuestion(state.currentQuestion!))
-                      dispatch(newQuestion())
-                      return
-                    }
-                    // Otherwise, end the game
-                    dispatch(endGame())
-                  }}
-                >
-                  <Image
-                    src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}${item.imagePath}`}
-                    width={150}
-                    height={150}
-                    alt={`Item Selection #${index + 1}`}
-                  />
-                </button>
+                <QuizItemButton
+                  key={uuidv4()}
+                  item={questionsForUI[index]}
+                  itemIndex={index}
+                  onClick={() => handleAnswerQuestion(questionsForUI[index].id)}
+                />
               )
             })}
+          </div>
+
+          {/** Desktop grid */}
+          <div
+            id="quiz-choice-grid"
+            className="hidden sm:grid sm:grid-cols-2 sm:gap-4"
+          >
+            {/** Up arrow or 1 Key */}
+            <div className="col-span-full flex w-full items-center justify-center">
+              <QuizItemButton
+                item={questionsForUI[0]}
+                itemIndex={0}
+                onClick={() => handleAnswerQuestion(questionsForUI[0].id)}
+              />
+            </div>
+            {/** Left arrow or 4 key */}
+            <div className="col-span-1">
+              <QuizItemButton
+                item={questionsForUI[3]}
+                itemIndex={3}
+                onClick={() => handleAnswerQuestion(questionsForUI[3].id)}
+              />
+            </div>
+            {/** Right arrow or 2 key */}
+            <div className="col-span-1">
+              <QuizItemButton
+                item={questionsForUI[1]}
+                itemIndex={1}
+                onClick={() => handleAnswerQuestion(questionsForUI[1].id)}
+              />
+            </div>
+            {/** Down arrow or 3 key */}
+            <div className="col-span-full flex w-full items-center justify-center">
+              <QuizItemButton
+                item={questionsForUI[2]}
+                itemIndex={2}
+                onClick={() => handleAnswerQuestion(questionsForUI[2].id)}
+              />
+            </div>
           </div>
         </div>
       ) : null}
@@ -190,24 +383,24 @@ export default function Page() {
       {state.status === 'finished' ? (
         <div className="flex w-full flex-col items-center justify-center">
           <h2 className="mb-2 text-2xl font-bold text-red-500">
-            {state.timer <= 0 ? "Time's Up!" : 'Game Over!'}
+            {state.gameTimer <= 0 ? "Time's Up!" : 'Game Over!'}
           </h2>
           <div className="mb-8 flex flex-col items-center justify-center">
             <p className="mb-2 text-lg text-gray-200">
               Your final score is{' '}
               <span className="font-bold text-accent1-500">{state.score}</span>
             </p>
-            {state.timer >= 0 ? (
+            {state.gameTimer >= 0 ? (
               <p className="text-lg text-gray-200">
                 The time remaining was{' '}
                 <span className="font-bold text-accent1-500">
-                  {state.timer}
+                  {state.gameTimer}
                 </span>{' '}
                 seconds
               </p>
             ) : null}
           </div>
-          {state.timer >= 0 ? (
+          {state.gameTimer >= 0 ? (
             <>
               <hr className="mb-8 w-full border border-primary-500" />
               <h3 className="mb-2 text-xl font-bold text-primary-500">
@@ -216,14 +409,14 @@ export default function Page() {
               <p className="mb-2 text-lg text-gray-200">
                 {state.currentQuestion?.correctItem.name}
               </p>
-              <div className="mb-8 flex h-[150px] max-h-[150px] w-[150px] max-w-[150px] flex-col items-center justify-center overflow-hidden border border-secondary-500 bg-secondary-900 p-2 text-lg hover:bg-secondary-700">
-                <Image
-                  src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}${state.currentQuestion?.correctItem.imagePath}`}
-                  width={150}
-                  height={150}
-                  alt={`Image of the correct item, ${state.currentQuestion?.correctItem.name}`}
-                />
-              </div>
+              {state.currentQuestion?.correctItem ? (
+                <div className="mb-8">
+                  <QuizItemButton
+                    item={state.currentQuestion?.correctItem}
+                    itemIndex={0}
+                  />
+                </div>
+              ) : null}
             </>
           ) : null}
 
@@ -248,11 +441,7 @@ export default function Page() {
           <hr className="mb-8 w-full border border-primary-500" />
           <button
             className="rounded-md border-2 border-primary-500 bg-primary-700 p-2 text-lg hover:bg-primary-500"
-            onClick={() => {
-              // Scroll to the containerRef
-              containerRef.current?.scrollIntoView({ behavior: 'instant' })
-              dispatch(startGame())
-            }}
+            onClick={handleStartGame}
           >
             Play Again
           </button>
