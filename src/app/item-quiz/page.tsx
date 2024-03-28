@@ -232,7 +232,11 @@ export default function Page() {
           <hr className="mb-8 w-full border border-primary-500" />
           <button
             className="rounded-md border-2 border-primary-500 bg-primary-700 p-2 text-lg hover:bg-primary-500"
-            onClick={() => dispatch(startGame())}
+            onClick={() => {
+              // Scroll to top
+              window.scrollTo(0, 0)
+              dispatch(startGame())
+            }}
           >
             Play Again
           </button>
