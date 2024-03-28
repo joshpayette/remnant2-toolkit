@@ -99,7 +99,8 @@ export const NAV_ITEMS = {
   },
   itemQuiz: {
     label: 'Item Quiz',
-    description: 'Test your knowledge of items based on only their icons!',
+    description:
+      'Test your ability to recognize items by only their icons! How many can you get in 60 seconds?',
     href: '/item-quiz',
     icon: PuzzlePieceIcon,
   },

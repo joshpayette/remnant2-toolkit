@@ -342,38 +342,37 @@ export default function Page() {
           {/** Desktop grid */}
           <div
             id="quiz-choice-grid"
-            className="hidden sm:grid sm:grid-cols-2 sm:gap-4"
+            className="hidden sm:grid sm:grid-cols-3 sm:gap-4"
           >
-            {/** Up arrow or 1 Key */}
-            <div className="col-span-full flex w-full items-center justify-center">
-              <QuizItemButton
-                item={questionsForUI[0]}
-                itemIndex={0}
-                onClick={() => handleAnswerQuestion(questionsForUI[0].id)}
-              />
-            </div>
-            {/** Left arrow or 4 key */}
-            <div className="col-span-1">
+            {/** Left arrow or 3 Key */}
+            <div className="col-span-1 flex w-full items-center justify-center">
               <QuizItemButton
                 item={questionsForUI[3]}
                 itemIndex={3}
                 onClick={() => handleAnswerQuestion(questionsForUI[3].id)}
               />
             </div>
-            {/** Right arrow or 2 key */}
-            <div className="col-span-1">
+            {/** Up arrow or 1 key */}
+            <div className="col-span-1 flex flex-col items-center justify-center gap-y-4">
               <QuizItemButton
-                item={questionsForUI[1]}
-                itemIndex={1}
-                onClick={() => handleAnswerQuestion(questionsForUI[1].id)}
+                item={questionsForUI[0]}
+                itemIndex={0}
+                onClick={() => handleAnswerQuestion(questionsForUI[0].id)}
               />
-            </div>
-            {/** Down arrow or 3 key */}
-            <div className="col-span-full flex w-full items-center justify-center">
+              {/** Down arrow or 3 key */}
               <QuizItemButton
                 item={questionsForUI[2]}
                 itemIndex={2}
                 onClick={() => handleAnswerQuestion(questionsForUI[2].id)}
+              />
+            </div>
+            {/** Right arrow or 2 key */}
+
+            <div className="col-span-1 flex w-full items-center justify-center">
+              <QuizItemButton
+                item={questionsForUI[1]}
+                itemIndex={1}
+                onClick={() => handleAnswerQuestion(questionsForUI[1].id)}
               />
             </div>
           </div>
