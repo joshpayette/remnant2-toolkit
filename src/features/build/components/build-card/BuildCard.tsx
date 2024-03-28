@@ -3,11 +3,15 @@
 import { StarIcon } from '@heroicons/react/24/solid'
 import Link from 'next/link'
 
-import { POPULAR_VOTE_THRESHOLD } from '@/features/build/constants'
+import {
+  POPULAR_VOTE_THRESHOLD1,
+  POPULAR_VOTE_THRESHOLD2,
+} from '@/features/build/constants'
 import { dbBuildToBuildState } from '@/features/build/lib/dbBuildToBuildState'
 import { formatUpdatedAt } from '@/features/build/lib/formatUpdatedAt'
 import { getArchetypeBuildName } from '@/features/build/lib/getArchetypeBuildName'
 import { isBuildNew } from '@/features/build/lib/isBuildNew'
+import { isBuildPopular } from '@/features/build/lib/isBuildPopular'
 import { DBBuild } from '@/features/build/types'
 import { Archetype } from '@/features/items/types'
 import { DescriptionWithTags } from '@/features/ui/DescriptionWithTags'
@@ -35,7 +39,7 @@ export function BuildCard({
   memberFrameEnabled = true,
 }: Props) {
   const buildState = dbBuildToBuildState(build)
-  const isPopular = buildState.totalUpvotes >= POPULAR_VOTE_THRESHOLD
+  const { isPopular, popularLevel } = isBuildPopular(build.totalUpvotes)
   const isNew = isBuildNew(buildState.createdAt)
 
   return (
@@ -58,7 +62,9 @@ export function BuildCard({
           {(isPopular || build.isFeaturedBuild || isNew) && (
             <div className="absolute left-1/2 top-0 flex w-full -translate-x-1/2 -translate-y-1/2 transform items-center justify-center gap-x-2">
               {isNew ? <NewBuildBadge /> : null}
-              {isPopular ? <PopularBuildBadge /> : null}
+              {isPopular ? (
+                <PopularBuildBadge level={popularLevel} unoptimized={true} />
+              ) : null}
               {build.isFeaturedBuild ? <FeaturedBuildBadge /> : null}
             </div>
           )}

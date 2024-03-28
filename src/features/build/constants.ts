@@ -29,7 +29,8 @@ export const MAX_BUILD_TAGS = 4
 /**
  * Number of votes for a build to be popular
  */
-export const POPULAR_VOTE_THRESHOLD = 15
+export const POPULAR_VOTE_THRESHOLD1 = 15
+export const POPULAR_VOTE_THRESHOLD2 = 30
 
 /**
  * The default empty BuildState

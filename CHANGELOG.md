@@ -10,6 +10,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Added loads of new avatar options for profile pictures. (ConRaven)
 
+### Changed
+
+- Updated popular build badge.
+- Added a second tier popular build badge.
+
 ### Fixed
 
 - Fixed typo in Paper Heart description.

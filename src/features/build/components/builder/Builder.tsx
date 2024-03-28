@@ -10,7 +10,8 @@ import { ItemSelect } from '@/features/build/components/dialogs/ItemSelect'
 import {
   DEFAULT_TRAIT_AMOUNT,
   MAX_BUILD_TAGS,
-  POPULAR_VOTE_THRESHOLD,
+  POPULAR_VOTE_THRESHOLD1,
+  POPULAR_VOTE_THRESHOLD2,
 } from '@/features/build/constants'
 import { formatUpdatedAt } from '@/features/build/lib/formatUpdatedAt'
 import { getArchetypeBuildName } from '@/features/build/lib/getArchetypeBuildName'
@@ -18,6 +19,7 @@ import { getArrayOfLength } from '@/features/build/lib/getArrayOfLength'
 import { getConcoctionSlotCount } from '@/features/build/lib/getConcoctionSlotCount'
 import { getItemListForSlot } from '@/features/build/lib/getItemListForSlot'
 import { isBuildNew } from '@/features/build/lib/isBuildNew'
+import { isBuildPopular } from '@/features/build/lib/isBuildPopular'
 import { stripUnicode } from '@/features/build/lib/stripUnicode'
 import { BuildState, ItemCategory } from '@/features/build/types'
 import { ItemButton } from '@/features/items/components/ItemButton'
@@ -65,7 +67,7 @@ export function Builder({
   onUpdateBuildState,
 }: BuilderProps) {
   const concoctionSlotCount = getConcoctionSlotCount(buildState)
-  const isPopular = buildState.totalUpvotes >= POPULAR_VOTE_THRESHOLD
+  const { isPopular, popularLevel } = isBuildPopular(buildState.totalUpvotes)
   const isNew = isBuildNew(buildState.createdAt) && showCreatedBy
 
   // Tracks information about the slot the user is selecting an item for
@@ -456,7 +458,10 @@ export function Builder({
             <div className="absolute bottom-0 left-1/2 flex w-full -translate-x-1/2 translate-y-1/2 transform items-center justify-center gap-x-2">
               {isNew ? <NewBuildBadge unoptimized={isScreenshotMode} /> : null}
               {isPopular ? (
-                <PopularBuildBadge unoptimized={isScreenshotMode} />
+                <PopularBuildBadge
+                  level={popularLevel}
+                  unoptimized={isScreenshotMode}
+                />
               ) : null}
               {buildState.isFeaturedBuild ? (
                 <FeaturedBuildBadge unoptimized={isScreenshotMode} />

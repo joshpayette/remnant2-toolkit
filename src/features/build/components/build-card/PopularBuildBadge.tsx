@@ -1,25 +1,45 @@
 import Image from 'next/image'
 
+import {
+  POPULAR_VOTE_THRESHOLD1,
+  POPULAR_VOTE_THRESHOLD2,
+} from '@/features/build/constants'
 import { Tooltip } from '@/features/ui/Tooltip'
 
-import { POPULAR_VOTE_THRESHOLD } from '../../constants'
-
 export function PopularBuildBadge({
+  level,
   unoptimized = false,
 }: {
+  level: 1 | 2
   unoptimized?: boolean
 }) {
+  let src = ''
+  let voteThreshold = 0
+  switch (level) {
+    case 1:
+      src = `https://${process.env.NEXT_PUBLIC_IMAGE_URL}/badges/popular_badge_tier1.png`
+      voteThreshold = POPULAR_VOTE_THRESHOLD1
+      break
+    case 2:
+      src = `https://${process.env.NEXT_PUBLIC_IMAGE_URL}/badges/popular_badge_tier2.png`
+      voteThreshold = POPULAR_VOTE_THRESHOLD2
+      break
+    default:
+      src = '/popular_badge1.webp'
+      voteThreshold = POPULAR_VOTE_THRESHOLD1
+  }
+
   return (
     <Tooltip
-      content={`Awarded to builds that have ${POPULAR_VOTE_THRESHOLD}+ favorites!`}
+      content={`Awarded to builds that have ${voteThreshold}+ favorites!`}
     >
       <button aria-label="Badge denoting the build is popular">
         <Image
-          src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/badges/popular_build_badge.png`}
-          width={50}
-          height={50}
+          src={src}
+          width={52}
+          height={60}
           alt="image denoting the build is popular"
-          className="h-[50px] max-h-[50px] w-[50px] max-w-[50px]"
+          className="h-[60px] max-h-[60px] w-[52px] max-w-[52px]"
           loading="eager"
           unoptimized={unoptimized}
         />
