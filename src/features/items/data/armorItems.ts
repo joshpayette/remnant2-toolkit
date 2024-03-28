@@ -1303,7 +1303,7 @@ export const armorItems: ArmorItem[] = [
     category: 'gloves',
     name: 'Bandit Gloves',
     saveFileSlug: 'armor_gloves_bandit',
-    imagePath: '/gloves/bandit_gloves.png',
+    imagePath: '/gloves/bandit_gloves1.png',
     id: 'b7j8ys',
     set: 'Bandit Set',
     armor: 6.8,
