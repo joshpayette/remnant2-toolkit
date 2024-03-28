@@ -1,18 +1,29 @@
 import React from 'react'
 
+import { MobileLayoutToggle } from '@/app/item-quiz/(components)/MobileLayoutToggle'
 import { QuizItemButton } from '@/app/item-quiz/(components)/QuizItemButton'
-import { QuizItem, QuizQuestion } from '@/app/item-quiz/types'
+import { LayoutPreference, QuizItem, QuizQuestion } from '@/app/item-quiz/types'
 
 interface Props {
   correctItem: QuizItem | undefined
   gameTimer: number
   history: QuizQuestion[]
+  layoutPreference: LayoutPreference
   score: number
   onStartGame: () => void
+  onToggleLayoutPreference: () => void
 }
 
 export const FinishedDisplay = React.memo(
-  ({ correctItem, gameTimer, onStartGame, history, score }: Props) => (
+  ({
+    correctItem,
+    gameTimer,
+    layoutPreference,
+    onToggleLayoutPreference,
+    onStartGame,
+    history,
+    score,
+  }: Props) => (
     <div className="flex w-full flex-col items-center justify-center">
       <h2 className="mb-2 text-2xl font-bold text-red-500">
         {gameTimer <= 0 ? "Time's Up!" : 'Game Over!'}
@@ -64,6 +75,10 @@ export const FinishedDisplay = React.memo(
         </>
       ) : null}
       <hr className="mb-8 w-full border border-primary-500" />
+      <MobileLayoutToggle
+        layoutPreference={layoutPreference}
+        onToggleLayoutPreference={onToggleLayoutPreference}
+      />
       <button
         className="rounded-md border-2 border-primary-500 bg-primary-700 p-2 text-lg hover:bg-primary-500"
         onClick={onStartGame}

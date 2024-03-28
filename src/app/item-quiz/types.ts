@@ -31,3 +31,5 @@ export type QuizQuestion = {
   correctItem: QuizItem
   wrongItems: QuizItem[]
 }
+
+export type LayoutPreference = 'mobile' | 'desktop'

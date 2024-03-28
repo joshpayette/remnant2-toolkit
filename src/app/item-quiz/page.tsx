@@ -1,7 +1,14 @@
 'use client'
 
 import { createAction, createReducer } from '@reduxjs/toolkit'
-import { useCallback, useEffect, useMemo, useReducer, useRef } from 'react'
+import {
+  useCallback,
+  useEffect,
+  useMemo,
+  useReducer,
+  useRef,
+  useState,
+} from 'react'
 import { v4 as uuidv4 } from 'uuid'
 
 import { FinishedDisplay } from '@/app/item-quiz/(components)/FinishedDisplay'
@@ -18,7 +25,7 @@ import {
   GAME_DURATION,
   KEY_TO_ARROW,
 } from '@/app/item-quiz/constants'
-import { QuizItem, QuizQuestion } from '@/app/item-quiz/types'
+import { LayoutPreference, QuizItem, QuizQuestion } from '@/app/item-quiz/types'
 
 interface GameState {
   countdownTimer: number
@@ -82,6 +89,13 @@ const gameReducer = createReducer(initialState, (builder) => {
 
 export default function Page() {
   const [state, dispatch] = useReducer(gameReducer, initialState)
+
+  const [layoutPreference, setLayoutPreference] =
+    useState<LayoutPreference>('desktop')
+
+  function handleToggleLayoutPreference() {
+    setLayoutPreference((prev) => (prev === 'desktop' ? 'mobile' : 'desktop'))
+  }
 
   /** An array of the questions to be rendered to the choices in the UI */
   const questionsForUI = useMemo(() => {
@@ -288,7 +302,11 @@ export default function Page() {
       ref={containerRef}
     >
       {state.status === 'idle' ? (
-        <IdleDisplay onStartGame={handleStartGame} />
+        <IdleDisplay
+          layoutPreference={layoutPreference}
+          onToggleLayoutPreference={handleToggleLayoutPreference}
+          onStartGame={handleStartGame}
+        />
       ) : null}
 
       {state.status === 'starting' ? (
@@ -312,6 +330,7 @@ export default function Page() {
           </div>
           <PlayingDisplay
             correctItemName={state.currentQuestion?.correctItem.name || ''}
+            layoutPreference={layoutPreference}
             questionsForUI={questionsForUI}
             onAnswerQuestion={handleAnswerQuestion}
           />
@@ -323,8 +342,10 @@ export default function Page() {
           correctItem={state.currentQuestion?.correctItem}
           gameTimer={state.gameTimer}
           history={state.history}
+          layoutPreference={layoutPreference}
           score={state.score}
           onStartGame={handleStartGame}
+          onToggleLayoutPreference={handleToggleLayoutPreference}
         />
       ) : null}
     </div>
