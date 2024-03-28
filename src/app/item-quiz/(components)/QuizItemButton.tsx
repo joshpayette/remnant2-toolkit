@@ -1,6 +1,5 @@
 import { ArrowUpIcon } from '@heroicons/react/24/solid'
 import Image from 'next/image'
-import { v4 as uuidv4 } from 'uuid'
 
 import { ARROW_TO_INDEX } from '@/app/item-quiz/constants'
 import { QuizItem } from '@/app/item-quiz/types'
@@ -18,7 +17,7 @@ export function QuizItemButton({ item, itemIndex, onClick }: Props) {
 
   if (!onClick) {
     return (
-      <div className={wrapperClasses} key={uuidv4()}>
+      <div className={wrapperClasses} key={item.id}>
         <Image
           src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}${item.imagePath}`}
           width={150}
@@ -64,7 +63,7 @@ export function QuizItemButton({ item, itemIndex, onClick }: Props) {
     <button
       className={cn(wrapperClasses, 'sm:relative')}
       onClick={onClick}
-      key={uuidv4()}
+      key={item.id}
     >
       <div className="absolute bottom-0 right-0 hidden sm:flex sm:gap-x-0.5">
         <div className="flex h-4 w-4 items-center justify-center bg-secondary-200 text-xs text-black">
