@@ -187,10 +187,21 @@ export default function Page() {
           <h2 className="mb-2 text-2xl font-bold text-red-500">
             {state.timer <= 0 ? "Time's Up!" : 'Game Over!'}
           </h2>
-          <p className="mb-8 text-lg text-gray-200">
-            Your final score is{' '}
-            <span className="font-bold text-accent1-500">{state.score}</span>
-          </p>
+          <div className="mb-8 flex flex-col items-center justify-center">
+            <p className="mb-2 text-lg text-gray-200">
+              Your final score is{' '}
+              <span className="font-bold text-accent1-500">{state.score}</span>
+            </p>
+            {state.timer >= 0 ? (
+              <p className="text-lg text-gray-200">
+                The time remaining was{' '}
+                <span className="font-bold text-accent1-500">
+                  {state.timer}
+                </span>{' '}
+                seconds
+              </p>
+            ) : null}
+          </div>
           {state.timer >= 0 ? (
             <>
               <hr className="mb-8 w-full border border-primary-500" />
