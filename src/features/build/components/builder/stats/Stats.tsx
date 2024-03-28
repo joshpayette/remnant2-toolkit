@@ -1,4 +1,3 @@
-import { InformationCircleIcon } from '@heroicons/react/24/solid'
 import Image from 'next/image'
 import { useState } from 'react'
 
@@ -69,7 +68,13 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
               >
                 {totalHealth}
                 {!isScreenshotMode && (
-                  <InformationCircleIcon className="ml-1 h-4 w-4 text-accent1-500" />
+                  <Image
+                    src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/toolkit/info-yellow.png`}
+                    alt="Info icon"
+                    width={20}
+                    height={20}
+                    className="ml-1 h-4 w-4"
+                  />
                 )}
               </button>
             </div>
@@ -84,7 +89,13 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
               >
                 {totalStamina}
                 {!isScreenshotMode && (
-                  <InformationCircleIcon className="ml-1 h-4 w-4 text-accent1-500" />
+                  <Image
+                    src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/toolkit/info-yellow.png`}
+                    alt="Info icon"
+                    width={20}
+                    height={20}
+                    className="ml-1 h-4 w-4"
+                  />
                 )}
               </button>
             </div>

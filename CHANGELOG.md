@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Added arrow key, WASD key, and 1-4 number key support for the Item Quiz.
 - Added a 3s countdown timer before the Item Quiz game starts.
+- Changed the Info icon to an image with a fill color.
 
 ### Fixed
 

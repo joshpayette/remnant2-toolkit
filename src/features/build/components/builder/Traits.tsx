@@ -1,4 +1,5 @@
-import { InformationCircleIcon, XCircleIcon } from '@heroicons/react/24/solid'
+import { XCircleIcon } from '@heroicons/react/24/solid'
+import Image from 'next/image'
 import { useState } from 'react'
 
 import { BuildState } from '@/features/build/types'
@@ -239,7 +240,13 @@ export function Traits({
                   interactive={false}
                   disabled={tooltipDisabled}
                 >
-                  <InformationCircleIcon className="h-5 w-5 bg-black text-accent1-500 sm:h-5 sm:w-5" />
+                  <Image
+                    src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/toolkit/info-yellow.png`}
+                    alt="Info icon"
+                    width={20}
+                    height={20}
+                    className="h-5 w-5 sm:h-5"
+                  />
                 </Tooltip>
               )}
             </button>

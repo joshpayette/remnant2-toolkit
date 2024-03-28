@@ -1,6 +1,5 @@
 'use client'
 
-import { InformationCircleIcon } from '@heroicons/react/24/solid'
 import Image from 'next/image'
 
 import { Enemy, isEnemy } from '@/features/enemies/types'
@@ -114,7 +113,13 @@ export function ItemButton({
             }
             aria-label="Item Information"
           >
-            <InformationCircleIcon className="h-5 w-5 text-accent1-500 sm:h-5 sm:w-5" />
+            <Image
+              src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/toolkit/info-yellow.png`}
+              alt="Info icon"
+              width={20}
+              height={20}
+              className="h-5 w-5 sm:h-5"
+            />
           </button>
         </Tooltip>
       )}

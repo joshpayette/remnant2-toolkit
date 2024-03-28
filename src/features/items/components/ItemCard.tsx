@@ -1,4 +1,3 @@
-import { InformationCircleIcon } from '@heroicons/react/24/outline'
 import { ShareIcon } from '@heroicons/react/24/solid'
 import copy from 'clipboard-copy'
 import Image from 'next/image'
@@ -262,9 +261,12 @@ export function ItemCard({ data: item, onMoreInfoClick }: Props) {
                 aria-label="More Info"
                 className="relative inline-flex w-0 flex-1 items-center justify-center gap-x-1 rounded-br-lg border border-transparent py-4 text-xs font-semibold text-gray-200"
               >
-                <InformationCircleIcon
-                  className="h-4 w-4 text-primary-400"
-                  aria-hidden="true"
+                <Image
+                  src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/toolkit/info-yellow.png`}
+                  alt="Info icon"
+                  width={20}
+                  height={20}
+                  className="h-4 w-4"
                 />
                 More Info
               </button>
