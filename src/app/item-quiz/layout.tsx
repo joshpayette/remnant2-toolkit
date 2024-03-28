@@ -1,6 +1,5 @@
 import { Metadata } from 'next'
 
-import { getServerSession } from '@/features/auth/lib'
 import { NAV_ITEMS } from '@/features/navigation/constants'
 import { PageHeader } from '@/features/ui/PageHeader'
 
@@ -37,20 +36,18 @@ export default async function Layout({
 }: {
   children: React.ReactNode
 }) {
-  const session = await getServerSession()
-
   return (
     <div
       id="quiz-container"
       className="flex w-full flex-col items-center justify-center"
     >
       <PageHeader title="Item Quiz" subtitle={NAV_ITEMS.itemQuiz.description} />
-      {!session?.user?.id ? (
+      {/* {!session?.user?.id ? (
         <p className="mb-12 w-full text-center text-red-500">
           If you are not signed in <span className="font-bold">BEFORE</span>{' '}
           starting the game, your results will not be saved!
         </p>
-      ) : null}
+      ) : null} */}
       <div className="flex h-full w-full items-center justify-center">
         {children}
       </div>

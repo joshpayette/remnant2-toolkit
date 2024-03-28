@@ -2,7 +2,7 @@
 
 import { createAction, createReducer } from '@reduxjs/toolkit'
 import Image from 'next/image'
-import { useEffect, useReducer } from 'react'
+import { useEffect, useReducer, useRef } from 'react'
 
 import { getQuestion } from '@/app/item-quiz/(lib)/getQuestion'
 import { GAME_DURATION, TOTAL_CHOICES } from '@/app/item-quiz/constants'
@@ -61,6 +61,8 @@ const gameReducer = createReducer(initialState, (builder) => {
 export default function Page() {
   const [state, dispatch] = useReducer(gameReducer, initialState)
 
+  const containerRef = useRef<HTMLDivElement>(null)
+
   // Timer
   useEffect(() => {
     const timer = setInterval(() => {
@@ -76,7 +78,10 @@ export default function Page() {
   }, [state.status, state.timer])
 
   return (
-    <div className="flex w-full max-w-lg flex-col items-center justify-center">
+    <div
+      className="flex w-full max-w-lg flex-col items-center justify-center"
+      ref={containerRef}
+    >
       {state.status === 'idle' ? (
         <div className="flex flex-col items-center justify-center">
           <div className="mb-12 text-center">
@@ -244,8 +249,8 @@ export default function Page() {
           <button
             className="rounded-md border-2 border-primary-500 bg-primary-700 p-2 text-lg hover:bg-primary-500"
             onClick={() => {
-              // Scroll to top
-              window.scrollTo(0, 0)
+              // Scroll to the containerRef
+              containerRef.current?.scrollIntoView({ behavior: 'instant' })
               dispatch(startGame())
             }}
           >
