@@ -141,91 +141,131 @@ export default function Page() {
     [state.currentQuestion],
   )
 
-  // Detect if the user presses up arrow, right arrow, down arrow, or left arrow to make choices
-  // Similarly, match 1, 2, 3, 4 to the choices
+  // Handle key presses
   useEffect(() => {
     function handleKeyPress(event: KeyboardEvent) {
-      if (state.status !== 'playing') return
-      switch (event.key) {
-        case 'ArrowUp':
-          handleAnswerQuestion(questionsForUI[ARROW_TO_INDEX.ArrowUp - 1].id)
-          // Prevent the page scroll of the arrow key
-          event.preventDefault()
-          break
-        case 'ArrowRight':
-          handleAnswerQuestion(questionsForUI[ARROW_TO_INDEX.ArrowRight - 1].id)
-          event.preventDefault()
-          break
-        case 'ArrowDown':
-          handleAnswerQuestion(questionsForUI[ARROW_TO_INDEX.ArrowDown - 1].id)
-          event.preventDefault()
-          break
-        case 'ArrowLeft':
-          handleAnswerQuestion(questionsForUI[ARROW_TO_INDEX.ArrowLeft - 1].id)
-          event.preventDefault()
-          break
-        // Map the number keys to the choices
-        case '1':
-          handleAnswerQuestion(
-            questionsForUI[ARROW_TO_INDEX[KEY_TO_ARROW['1']] - 1].id,
-          )
-          event.preventDefault()
-          break
-        // Map the number keys to the choices
-        case '2':
-          handleAnswerQuestion(
-            questionsForUI[ARROW_TO_INDEX[KEY_TO_ARROW['2']] - 1].id,
-          )
-          event.preventDefault()
-          break
-        // Map the number keys to the choices
-        case '3':
-          handleAnswerQuestion(
-            questionsForUI[ARROW_TO_INDEX[KEY_TO_ARROW['3']] - 1].id,
-          )
-          event.preventDefault()
-          break
-        // Map the number keys to the choices
-        case '4':
-          handleAnswerQuestion(
-            questionsForUI[ARROW_TO_INDEX[KEY_TO_ARROW['4']] - 1].id,
-          )
-          event.preventDefault()
-          break
-        // Map the WASD keys to the choices
-        case 'W':
-        case 'w':
-          handleAnswerQuestion(
-            questionsForUI[ARROW_TO_INDEX[KEY_TO_ARROW['W']] - 1].id,
-          )
-          event.preventDefault()
-          break
-        // Map the WASD keys to the choices
-        case 'A':
-        case 'a':
-          handleAnswerQuestion(
-            questionsForUI[ARROW_TO_INDEX[KEY_TO_ARROW['A']] - 1].id,
-          )
-          event.preventDefault()
-          break
-        // Map the WASD keys to the choices
-        case 'S':
-        case 's':
-          handleAnswerQuestion(
-            questionsForUI[ARROW_TO_INDEX[KEY_TO_ARROW['S']] - 1].id,
-          )
-          event.preventDefault()
-          break
-        // Map the WASD keys to the choices
-        case 'D':
-        case 'd':
-          handleAnswerQuestion(
-            questionsForUI[ARROW_TO_INDEX[KEY_TO_ARROW['D']] - 1].id,
-          )
-          event.preventDefault()
-          break
-        default:
-          break
+      if (state.status === 'starting') {
+        switch (event.key) {
+          case 'Escape':
+            dispatch(startGame())
+            event.preventDefault()
+            break
+          case ' ':
+            dispatch(startGame())
+            event.preventDefault()
+            break
+          case 'Enter':
+            dispatch(startGame())
+            event.preventDefault()
+            break
+          default:
+            break
+        }
+      }
+
+      if (state.status === 'idle' || state.status === 'finished') {
+        switch (event.key) {
+          case ' ':
+            handleStartGame()
+            event.preventDefault()
+            break
+          case 'Enter':
+            handleStartGame()
+            event.preventDefault()
+            break
+          default:
+            break
+        }
+      }
+
+      if (state.status === 'playing') {
+        switch (event.key) {
+          case 'ArrowUp':
+            handleAnswerQuestion(questionsForUI[ARROW_TO_INDEX.ArrowUp - 1].id)
+            // Prevent the page scroll of the arrow key
+            event.preventDefault()
+            break
+          case 'ArrowRight':
+            handleAnswerQuestion(
+              questionsForUI[ARROW_TO_INDEX.ArrowRight - 1].id,
+            )
+            event.preventDefault()
+            break
+          case 'ArrowDown':
+            handleAnswerQuestion(
+              questionsForUI[ARROW_TO_INDEX.ArrowDown - 1].id,
+            )
+            event.preventDefault()
+            break
+          case 'ArrowLeft':
+            handleAnswerQuestion(
+              questionsForUI[ARROW_TO_INDEX.ArrowLeft - 1].id,
+            )
+            event.preventDefault()
+            break
+          // Map the number keys to the choices
+          case '1':
+            handleAnswerQuestion(
+              questionsForUI[ARROW_TO_INDEX[KEY_TO_ARROW['1']] - 1].id,
+            )
+            event.preventDefault()
+            break
+          // Map the number keys to the choices
+          case '2':
+            handleAnswerQuestion(
+              questionsForUI[ARROW_TO_INDEX[KEY_TO_ARROW['2']] - 1].id,
+            )
+            event.preventDefault()
+            break
+          // Map the number keys to the choices
+          case '3':
+            handleAnswerQuestion(
+              questionsForUI[ARROW_TO_INDEX[KEY_TO_ARROW['3']] - 1].id,
+            )
+            event.preventDefault()
+            break
+          // Map the number keys to the choices
+          case '4':
+            handleAnswerQuestion(
+              questionsForUI[ARROW_TO_INDEX[KEY_TO_ARROW['4']] - 1].id,
+            )
+            event.preventDefault()
+            break
+          // Map the WASD keys to the choices
+          case 'W':
+          case 'w':
+            handleAnswerQuestion(
+              questionsForUI[ARROW_TO_INDEX[KEY_TO_ARROW['W']] - 1].id,
+            )
+            event.preventDefault()
+            break
+          // Map the WASD keys to the choices
+          case 'A':
+          case 'a':
+            handleAnswerQuestion(
+              questionsForUI[ARROW_TO_INDEX[KEY_TO_ARROW['A']] - 1].id,
+            )
+            event.preventDefault()
+            break
+          // Map the WASD keys to the choices
+          case 'S':
+          case 's':
+            handleAnswerQuestion(
+              questionsForUI[ARROW_TO_INDEX[KEY_TO_ARROW['S']] - 1].id,
+            )
+            event.preventDefault()
+            break
+          // Map the WASD keys to the choices
+          case 'D':
+          case 'd':
+            handleAnswerQuestion(
+              questionsForUI[ARROW_TO_INDEX[KEY_TO_ARROW['D']] - 1].id,
+            )
+            event.preventDefault()
+            break
+          default:
+            break
+        }
       }
     }
 
@@ -280,6 +320,17 @@ export default function Page() {
               {state.countdownTimer + 1}
             </span>{' '}
             seconds
+          </p>
+          <button
+            className="mt-4 rounded-md border-2 border-primary-500 bg-primary-700 p-2 text-white hover:bg-primary-500 sm:hidden"
+            onClick={() => dispatch(startGame())}
+          >
+            Skip countdown
+          </button>
+          <p className="mt-2 hidden text-lg italic text-gray-200 sm:block">
+            Press <span className="font-bold">Esc</span> or{' '}
+            <span className="font-bold">Space</span> or{' '}
+            <span className="font-bold">Enter</span> to skip.
           </p>
         </div>
       ) : null}
