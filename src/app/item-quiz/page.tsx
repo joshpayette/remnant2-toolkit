@@ -187,10 +187,23 @@ export default function Page() {
           <h2 className="mb-2 text-2xl font-bold text-red-500">Game Over</h2>
           <p className="mb-8 text-lg text-gray-200">
             Your final score is{' '}
-            <span className="font-bold text-accent1-500">
-              {state.history.length}
-            </span>
+            <span className="font-bold text-accent1-500">{state.score}</span>
           </p>
+          <hr className="mb-8 w-full border border-primary-500" />
+          {/** List the history of correct answers */}
+          <div className="mb-8 flex flex-col items-center justify-center">
+            <h3 className="mb-2 text-xl font-bold text-primary-500">
+              Correct Answers
+            </h3>
+            <ol className="text-mg list-decimal text-gray-200">
+              {state.history.map((question, index) => (
+                <li key={index} className="mb-2">
+                  {question.correctItem.name}
+                </li>
+              ))}
+            </ol>
+          </div>
+          <hr className="mb-8 w-full border border-primary-500" />
           <button
             className="rounded-md border-2 border-primary-500 bg-primary-700 p-2 text-lg hover:bg-primary-500"
             onClick={() => dispatch(startGame())}
