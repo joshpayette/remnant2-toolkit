@@ -6,6 +6,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2024-03-28
 
+### Changed
+
+- Added arrow key, WASD key, and 1-4 number key support for the Item Quiz.
+- Added a 3s countdown timer before the Item Quiz game starts.
+
 ### Fixed
 
 - Updated the image for Mystery Jerky to a better quality image.
