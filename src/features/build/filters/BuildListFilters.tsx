@@ -252,7 +252,7 @@ export function BuildListFilters() {
   }
 
   return (
-    <Disclosure defaultOpen={false}>
+    <Disclosure defaultOpen={true}>
       {({ open }) => (
         <div className="mb-12 w-full">
           <Disclosure.Button
