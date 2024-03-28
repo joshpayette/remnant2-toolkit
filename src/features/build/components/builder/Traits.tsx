@@ -245,7 +245,7 @@ export function Traits({
                     alt="Info icon"
                     width={20}
                     height={20}
-                    className="h-5 w-5 sm:h-5"
+                    className="h-5 w-5"
                   />
                 </Tooltip>
               )}

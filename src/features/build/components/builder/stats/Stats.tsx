@@ -71,8 +71,8 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
                   <Image
                     src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/toolkit/info-yellow.png`}
                     alt="Info icon"
-                    width={20}
-                    height={20}
+                    width={16}
+                    height={16}
                     className="ml-1 h-4 w-4"
                   />
                 )}
@@ -92,8 +92,8 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
                   <Image
                     src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/toolkit/info-yellow.png`}
                     alt="Info icon"
-                    width={20}
-                    height={20}
+                    width={16}
+                    height={16}
                     className="ml-1 h-4 w-4"
                   />
                 )}

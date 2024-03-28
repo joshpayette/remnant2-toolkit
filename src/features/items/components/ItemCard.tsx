@@ -264,8 +264,8 @@ export function ItemCard({ data: item, onMoreInfoClick }: Props) {
                 <Image
                   src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/toolkit/info-yellow.png`}
                   alt="Info icon"
-                  width={20}
-                  height={20}
+                  width={16}
+                  height={16}
                   className="h-4 w-4"
                 />
                 More Info
