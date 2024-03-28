@@ -216,9 +216,7 @@ export const modItems: ModItem[] = [
     imagePath: '/mod/corrosive_rounds.png',
     id: 'hr3g7o',
     tags: ['Critical Chance'],
-    description: `Imbues ammunition with ACID and increases Range Critical Chance by 15% for 20s. Shots apply CORRODED dealing 150 damage over 10s.
-
-    Mod Power Requirement: 1,250`,
+    description: `Imbues ammunition with ACID and increases Range Critical Chance by 15% for 20s. Shots apply CORRODED dealing 150 damage over 10s.`,
     wikiLinks: [`https://remnant.wiki/Corrosive_Rounds`],
   },
   {
@@ -235,9 +233,7 @@ export const modItems: ModItem[] = [
     name: 'Cube Room',
     imagePath: '/mod/cube_room.png',
     id: '2nMTRG',
-    description: `Conjures a 5m [A] anomalous Cube Room which grants allies an increase of 50% Heat Decay Rate, reduces Heat Generation per round when firing weapons that Overheat by 15% and automatically generates missing reserve ammo per second. Lasts 15s.
-    
-    Mod Power Requirement: 1,000`,
+    description: `Conjures a 5m [A] anomalous Cube Room which grants allies an increase of 50% Heat Decay Rate, reduces Heat Generation per round when firing weapons that Overheat by 15% and automatically generates missing reserve ammo per second. Lasts 15s.`,
     wikiLinks: [],
     linkedItems: {
       weapon: {
@@ -477,9 +473,7 @@ export const modItems: ModItem[] = [
     name: 'Fusion Cannon',
     imagePath: '/mod/fusion_cannon.png',
     id: 'D8obdv',
-    description: `Funnels all current Mod Charges into a powerful penetrating beam. The beam deals 100 damage and increases damage dealt, recoil, and beam thickness per Charge consumed. Max 5 Charges.
-    
-    Mod Power Requirement: 400`,
+    description: `Funnels all current Mod Charges into a powerful penetrating beam. The beam deals 100 damage and increases damage dealt, recoil, and beam thickness per Charge consumed. Max 5 Charges.`,
     linkedItems: {
       weapon: {
         name: 'Corrupted Savior',
@@ -521,9 +515,7 @@ export const modItems: ModItem[] = [
     name: `Guardian's Fury`,
     imagePath: '/mod/guardians_fury.png',
     id: 'WzXG4x',
-    description: `Imbues the Arbalest with the power of Yaesha's corrupted guardian, increases Fire Rate by 20%, reduces Recoil and Sway by 25% and each disc impact with an enemy exlpodes over 3.5m [A] for 69 damage [E]. Lasts 1.5s
-    
-    Mod Power Requirement: 1,250`,
+    description: `Imbues the Arbalest with the power of Yaesha's corrupted guardian, increases Fire Rate by 20%, reduces Recoil and Sway by 25% and each disc impact with an enemy exlpodes over 3.5m [A] for 69 damage [E]. Lasts 1.5s`,
     linkedItems: {
       weapon: {
         name: 'Corrupted Arbalest',
@@ -924,10 +916,7 @@ export const modItems: ModItem[] = [
     name: 'Will of the Wisp',
     imagePath: '/mod/will_of_the_wisp.png',
     id: '9jwTXR',
-    description: `Launches a Wisp that uniquely seeks to one anchored primary fire bolt location. Bolts anchored to enemies deal 100 damage per Wisp. Bolts anchored to allies heal 10% Max Health per Wisp. Bolts are consumed when impacted by a Wisp.
-    
-    Mod Power Requirement: 500
-    `,
+    description: `Launches a Wisp that uniquely seeks to one anchored primary fire bolt location. Bolts anchored to enemies deal 100 damage per Wisp. Bolts anchored to allies heal 10% Max Health per Wisp. Bolts are consumed when impacted by a Wisp.`,
     linkedItems: {
       weapon: {
         name: 'Corrupted Sorrow',
