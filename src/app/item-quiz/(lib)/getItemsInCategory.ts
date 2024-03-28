@@ -5,9 +5,17 @@ import { MutatorItem } from '@/features/items/types/MutatorItem'
 import { WeaponItem } from '@/features/items/types/WeaponItem'
 
 const excludedCategories: ItemCategory[] = ['relicfragment', 'mutator', 'trait']
-const GAME_ITEMS = allItems.filter(
-  (item) => !excludedCategories.some((i) => i === item.category.toLowerCase()),
-)
+const excludedItemIds: string[] = [
+  't412us', // Rusty Repeater, same image as Repeater Pistol
+  'gv6yzu', // Rusty Lever Action, same image as Wrangler 1860
+]
+
+const GAME_ITEMS = allItems
+  .filter(
+    (item) =>
+      !excludedCategories.some((i) => i === item.category.toLowerCase()),
+  )
+  .filter((item) => !excludedItemIds.some((i) => i === item.id))
 
 export function getItemsInCategory(category: QuizItemCategory): QuizItem[] {
   let itemsInCategory = []

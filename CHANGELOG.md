@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Added
 
 - Added loads of new avatar options for profile pictures. (ConRaven)
+- Added an Item Quiz to test your knowledge of items in game based on their image. Find it under Resources!
 
 ### Changed
 
@@ -16,6 +17,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Added a second tier popular build badge.
 - Reduced size of navigation items.
 - Moved Item Lookup into its own link on the navigation items.
+- Added excluded items to Item Quiz to remove some duplicate images.
 
 ### Fixed
 
