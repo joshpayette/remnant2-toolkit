@@ -52,8 +52,8 @@ export const mutatorItems: MutatorItem[] = [
     imagePath: '/mutator/bulletweaver.png',
     id: 'cr22cp',
     tags: ['Fire Rate', 'Mod Power'],
-    description: `Mod use increases Fire Rate of this weapon by 10-[20]% for 7s.`,
-    maxLevelBonus: `Reloading from empty increases Mod Generation of this weapon by 15%. Lasts 7s.`,
+    description: `Mod use increases Fire Rate of this weapon by 10-[20]% for 15s.`,
+    maxLevelBonus: `Increases Mod Generation of this weapon by 15%.`,
     wikiLinks: [`https://remnant.wiki/Bulletweaver`],
   },
   {
