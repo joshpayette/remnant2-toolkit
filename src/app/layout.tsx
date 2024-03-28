@@ -9,6 +9,7 @@ import 'react-toastify/dist/ReactToastify.min.css'
 
 import { Analytics } from '@vercel/analytics/react'
 import { Viewport } from 'next'
+import Link from 'next/link'
 import { ToastContainer } from 'react-toastify'
 
 import { PreloadResources } from '@/features/ui/PreloadResources'
@@ -44,18 +45,12 @@ export default async function RootLayout({
           <div className="fixed bottom-[8px] right-[52px] z-20">
             <ReportBugButton />
           </div>
-          {/* <div className="bg-secondary-900 w-full p-1 text-center text-sm">
-            <a
-              href="https://remnant.wiki"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="underline"
-            >
-              Remnant.Wiki
-            </a>
-            , a community-built alternative to Fextralife, needs contributors!
-            No ads or embedded streams. Thank you!
-          </div> */}
+          <div className="w-full bg-secondary-900 p-1 text-center text-sm">
+            We just launched a silly game to test your knowledge of items!{' '}
+            <Link href="/item-quiz" className="underline">
+              Check out the Item Quiz!
+            </Link>
+          </div>
           <div className="flex h-full w-full max-w-7xl grow flex-col items-start justify-start">
             <header className="w-full">
               <NavBar />

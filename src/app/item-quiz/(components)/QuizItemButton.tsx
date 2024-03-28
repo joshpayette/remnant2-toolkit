@@ -24,6 +24,7 @@ export function QuizItemButton({ item, itemIndex, onClick }: Props) {
           width={150}
           height={150}
           alt={`Image of the correct item, ${item.name}`}
+          loading="eager"
         />
       </div>
     )
