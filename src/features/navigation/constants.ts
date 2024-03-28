@@ -10,6 +10,7 @@ import {
   ListBulletIcon,
   MagnifyingGlassIcon,
   PlusIcon,
+  PuzzlePieceIcon,
   ShieldCheckIcon,
   StarIcon,
   TableCellsIcon,
@@ -95,6 +96,12 @@ export const NAV_ITEMS = {
     description: 'Get detailed information and interactions for items.',
     href: '/item-lookup',
     icon: MagnifyingGlassIcon,
+  },
+  itemQuiz: {
+    label: 'Item Quiz',
+    description: 'Test your knowledge of items based on only their icons!',
+    href: '/item-quiz',
+    icon: PuzzlePieceIcon,
   },
   itemTracker: {
     label: 'Item Tracker',
