@@ -48,7 +48,7 @@ export function NavBar() {
         </div>
         <div className="hidden items-center justify-center lg:flex lg:flex-grow lg:gap-x-12">
           <Menu as="div" className="relative">
-            <Menu.Button className="flex bg-background text-lg font-semibold text-white hover:text-primary-500">
+            <Menu.Button className="text-md flex bg-background font-semibold text-white hover:text-primary-500">
               <span className="absolute -inset-1.5" />
               <span className="sr-only">Open Builds menu</span>
               Builds
@@ -134,8 +134,17 @@ export function NavBar() {
             </Transition>
           </Menu>
 
+          <Link
+            href={NAV_ITEMS.itemLookup.href}
+            className={cn(
+              'text-md flex flex-row items-center justify-start font-semibold text-white hover:text-primary-500',
+            )}
+          >
+            {NAV_ITEMS.itemLookup.label}
+          </Link>
+
           <Menu as="div" className="relative">
-            <Menu.Button className="flex bg-background text-lg font-semibold text-white hover:text-primary-500">
+            <Menu.Button className="text-md flex bg-background font-semibold text-white hover:text-primary-500">
               <span className="absolute -inset-1.5" />
               <span className="sr-only">Open Builds menu</span>
               Trackers
@@ -150,27 +159,6 @@ export function NavBar() {
               leaveTo="transform opacity-0 scale-95"
             >
               <Menu.Items className="absolute left-0 z-20 mt-2 w-[290px] origin-top-left rounded-md bg-black p-2 shadow-lg ring-1 ring-gray-800 ring-opacity-5 focus:outline-none">
-                <Menu.Item>
-                  {({ active }) => (
-                    <Link
-                      href={NAV_ITEMS.bossTracker.href}
-                      className={cn(
-                        active ? 'bg-gray-800' : '',
-                        'flex w-full flex-row items-start justify-start p-2 text-sm font-semibold text-white',
-                      )}
-                    >
-                      <div className="mr-4 w-[20px]">
-                        <NAV_ITEMS.bossTracker.icon className="h-5 w-5 text-primary-600" />
-                      </div>
-                      <div className="flex flex-col items-start justify-start gap-y-1">
-                        {NAV_ITEMS.bossTracker.label}
-                        <p className="text-xs font-normal text-gray-400">
-                          {NAV_ITEMS.bossTracker.description}
-                        </p>
-                      </div>
-                    </Link>
-                  )}
-                </Menu.Item>
                 <Menu.Item>
                   {({ active }) => (
                     <Link
@@ -192,12 +180,33 @@ export function NavBar() {
                     </Link>
                   )}
                 </Menu.Item>
+                <Menu.Item>
+                  {({ active }) => (
+                    <Link
+                      href={NAV_ITEMS.bossTracker.href}
+                      className={cn(
+                        active ? 'bg-gray-800' : '',
+                        'flex w-full flex-row items-start justify-start p-2 text-sm font-semibold text-white',
+                      )}
+                    >
+                      <div className="mr-4 w-[20px]">
+                        <NAV_ITEMS.bossTracker.icon className="h-5 w-5 text-primary-600" />
+                      </div>
+                      <div className="flex flex-col items-start justify-start gap-y-1">
+                        {NAV_ITEMS.bossTracker.label}
+                        <p className="text-xs font-normal text-gray-400">
+                          {NAV_ITEMS.bossTracker.description}
+                        </p>
+                      </div>
+                    </Link>
+                  )}
+                </Menu.Item>
               </Menu.Items>
             </Transition>
           </Menu>
 
           <Menu as="div" className="relative">
-            <Menu.Button className="flex bg-background text-lg font-semibold text-white hover:text-primary-500">
+            <Menu.Button className="text-md flex bg-background font-semibold text-white hover:text-primary-500">
               <span className="absolute -inset-1.5" />
               <span className="sr-only">Open Builds menu</span>
               Resources
@@ -212,28 +221,7 @@ export function NavBar() {
               leaveTo="transform opacity-0 scale-95"
             >
               <Menu.Items className="absolute left-0 z-20 mt-2 w-[290px] origin-top-left rounded-md bg-black p-2 shadow-lg ring-1 ring-gray-800 ring-opacity-5 focus:outline-none">
-                <Menu.Item>
-                  {({ active }) => (
-                    <Link
-                      href={NAV_ITEMS.itemLookup.href}
-                      className={cn(
-                        active ? 'bg-gray-800' : '',
-                        'flex w-full flex-row items-start justify-start p-2 text-sm font-semibold text-white',
-                      )}
-                    >
-                      <div className="mr-4 w-[20px]">
-                        <NAV_ITEMS.itemLookup.icon className="h-5 w-5 text-primary-600" />
-                      </div>
-                      <div className="flex flex-col items-start justify-start gap-y-1">
-                        {NAV_ITEMS.itemLookup.label}
-                        <p className="text-xs font-normal text-gray-400">
-                          {NAV_ITEMS.itemLookup.description}
-                        </p>
-                      </div>
-                    </Link>
-                  )}
-                </Menu.Item>
-
+                {' '}
                 <Menu.Item>
                   {({ active }) => (
                     <Link
@@ -255,7 +243,6 @@ export function NavBar() {
                     </Link>
                   )}
                 </Menu.Item>
-
                 <Menu.Item>
                   {({ active }) => (
                     <Link
@@ -277,7 +264,6 @@ export function NavBar() {
                     </Link>
                   )}
                 </Menu.Item>
-
                 <Menu.Item>
                   {({ active }) => (
                     <Link
@@ -300,7 +286,6 @@ export function NavBar() {
                     </Link>
                   )}
                 </Menu.Item>
-
                 <Menu.Item>
                   {({ active }) => (
                     <Link
@@ -359,7 +344,7 @@ export function NavBar() {
             <Link
               href={`/profile/${session?.user?.id}/created-builds`}
               className={cn(
-                'flex flex-row items-center justify-start text-lg font-semibold text-white hover:text-primary-500',
+                'text-md flex flex-row items-center justify-start font-semibold text-white hover:text-primary-500',
               )}
             >
               {NAV_ITEMS.myBuilds.label}
@@ -370,7 +355,7 @@ export function NavBar() {
             <Link
               href={`/profile/${session?.user?.id}/favorited-builds`}
               className={cn(
-                'flex flex-row items-center justify-start text-lg font-semibold text-white hover:text-primary-500',
+                'text-md flex flex-row items-center justify-start font-semibold text-white hover:text-primary-500',
               )}
             >
               {NAV_ITEMS.favoritedBuilds.label}
@@ -380,7 +365,7 @@ export function NavBar() {
           <Link
             href={NAV_ITEMS.supportR2TK.href}
             className={cn(
-              'flex flex-row items-center justify-start text-lg font-semibold text-primary-500 underline hover:text-primary-300',
+              'text-md flex flex-row items-center justify-start font-semibold text-primary-500 underline hover:text-primary-300',
             )}
           >
             {NAV_ITEMS.supportR2TK.label}
@@ -473,18 +458,18 @@ export function NavBar() {
                 <hr className="border-secondary-900" />
 
                 <Link
-                  href={NAV_ITEMS.bossTracker.href}
+                  href={NAV_ITEMS.itemLookup.href}
                   className="flex flex-row items-center justify-start"
                 >
-                  <NAV_ITEMS.bossTracker.icon
+                  <NAV_ITEMS.itemLookup.icon
                     className="mr-2 h-7 w-5 flex-none text-primary-600"
                     aria-hidden="true"
                   />
                   <div className="flex flex-col items-start justify-start px-3 py-2">
-                    {NAV_ITEMS.bossTracker.label}
+                    {NAV_ITEMS.itemLookup.label}
 
                     <p className="text-xs text-gray-400">
-                      {NAV_ITEMS.bossTracker.description}
+                      {NAV_ITEMS.itemLookup.description}
                     </p>
                   </div>
                 </Link>
@@ -509,21 +494,23 @@ export function NavBar() {
                 <hr className="border-secondary-900" />
 
                 <Link
-                  href={NAV_ITEMS.itemLookup.href}
+                  href={NAV_ITEMS.bossTracker.href}
                   className="flex flex-row items-center justify-start"
                 >
-                  <NAV_ITEMS.itemLookup.icon
+                  <NAV_ITEMS.bossTracker.icon
                     className="mr-2 h-7 w-5 flex-none text-primary-600"
                     aria-hidden="true"
                   />
                   <div className="flex flex-col items-start justify-start px-3 py-2">
-                    {NAV_ITEMS.itemLookup.label}
+                    {NAV_ITEMS.bossTracker.label}
 
                     <p className="text-xs text-gray-400">
-                      {NAV_ITEMS.itemLookup.description}
+                      {NAV_ITEMS.bossTracker.description}
                     </p>
                   </div>
                 </Link>
+
+                <hr className="border-secondary-900" />
 
                 <Link
                   href={NAV_ITEMS.ampVsRes.href}

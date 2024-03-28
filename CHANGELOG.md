@@ -14,6 +14,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Updated popular build badge.
 - Added a second tier popular build badge.
+- Reduced size of navigation items.
+- Moved Item Lookup into its own link on the navigation items.
 
 ### Fixed
 
