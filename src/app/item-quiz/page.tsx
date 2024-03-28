@@ -146,10 +146,6 @@ export default function Page() {
     function handleKeyPress(event: KeyboardEvent) {
       if (state.status === 'starting') {
         switch (event.key) {
-          case 'Escape':
-            dispatch(startGame())
-            event.preventDefault()
-            break
           case ' ':
             dispatch(startGame())
             event.preventDefault()
@@ -294,7 +290,7 @@ export default function Page() {
               keys, or number keys.
             </p>
             <hr className="mb-4 mt-4 w-full border border-primary-500" />
-            <p className="text-lg italic text-gray-200">
+            <p className="text-md  text-gray-300">
               Note: I threw this together in a few hours for fun and as a
               learning excercise! I may add more features or allow you to save
               results to your profile in the future. Enjoy!
@@ -306,6 +302,10 @@ export default function Page() {
           >
             Start Game
           </button>
+          <p className="text-md mt-2 hidden italic text-gray-200 sm:block">
+            Press <span className="font-bold">Space</span> or{' '}
+            <span className="font-bold">Enter</span> to start.
+          </p>
         </div>
       ) : null}
 
@@ -328,8 +328,7 @@ export default function Page() {
             Skip countdown
           </button>
           <p className="mt-2 hidden text-lg italic text-gray-200 sm:block">
-            Press <span className="font-bold">Esc</span> or{' '}
-            <span className="font-bold">Space</span> or{' '}
+            Press <span className="font-bold">Space</span> or{' '}
             <span className="font-bold">Enter</span> to skip.
           </p>
         </div>
@@ -495,6 +494,10 @@ export default function Page() {
           >
             Play Again
           </button>
+          <p className="text-md mt-2 hidden italic text-gray-200 sm:block">
+            Press <span className="font-bold">Space</span> or{' '}
+            <span className="font-bold">Enter</span> to start.
+          </p>
         </div>
       ) : null}
     </div>
