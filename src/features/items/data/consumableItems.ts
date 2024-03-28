@@ -151,7 +151,7 @@ export const consumableItems: ConsumableItem[] = [
   {
     category: 'consumable',
     name: 'Mystery Jerky',
-    imagePath: '/consumable/mystery_jerky.png',
+    imagePath: '/consumable/mystery_jerky1.png',
     id: '6aasor',
     tags: ['Grey Health'],
     description: `Converts 1 Health into Grey Health per second. Lasts 60s.`,

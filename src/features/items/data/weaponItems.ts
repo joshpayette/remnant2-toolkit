@@ -1779,7 +1779,7 @@ export const weaponItems: WeaponItem[] = [
     type: 'hand gun',
     name: 'Rusty Repeater',
     saveFileSlug: 'weapon_repeater_rusty',
-    imagePath: '/offhand/rusty_repeater.png',
+    imagePath: '/offhand/rusty_repeater1.png',
     id: 't412us',
     description: `An old antique pistol.`,
     wikiLinks: [`https://remnant.wiki/Rusty_Repeater`],
