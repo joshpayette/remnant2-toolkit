@@ -14,7 +14,9 @@ export function getProgressLabel({
     if (discoveredItemIds.includes(item.id)) return acc + 1
     return acc
   }, 0)
-  const discoveredPercent = Math.round((discoveredCount / totalItems) * 100)
+  const discoveredPercent = parseFloat(
+    ((discoveredCount / totalItems) * 100).toFixed(2),
+  )
 
   return percentOnly
     ? `${discoveredPercent}%`
