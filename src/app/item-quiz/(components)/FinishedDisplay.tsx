@@ -47,10 +47,15 @@ export const FinishedDisplay = React.memo(
           <h3 className="mb-2 text-xl font-bold text-primary-500">
             The correct answer was:
           </h3>
-          <p className="mb-2 text-lg text-gray-200">{correctItem?.name}</p>
+          <p className="mb-2 text-lg font-bold text-gray-200">
+            {correctItem?.name}
+          </p>
           {correctItem ? (
-            <div className="mb-8">
+            <div className="mb-8 flex flex-col items-center justify-center">
               <QuizItemButton item={correctItem} itemIndex={0} />
+              <p className="text-md mt-2 max-w-md text-gray-200">
+                {correctItem.description}
+              </p>
             </div>
           ) : null}
         </>
@@ -75,20 +80,22 @@ export const FinishedDisplay = React.memo(
         </>
       ) : null}
       <hr className="mb-8 w-full border border-primary-500" />
-      <MobileLayoutToggle
-        layoutPreference={layoutPreference}
-        onToggleLayoutPreference={onToggleLayoutPreference}
-      />
-      <button
-        className="rounded-md border-2 border-primary-500 bg-primary-700 p-2 text-lg hover:bg-primary-500"
-        onClick={onStartGame}
-      >
-        Play Again
-      </button>
-      <p className="text-md mt-2 hidden italic text-gray-200 sm:block">
-        Press <span className="font-bold">Space</span> or{' '}
-        <span className="font-bold">Enter</span> to start.
-      </p>
+      <div className="flex w-full flex-col items-center justify-center bg-gray-900 p-4">
+        <MobileLayoutToggle
+          layoutPreference={layoutPreference}
+          onToggleLayoutPreference={onToggleLayoutPreference}
+        />
+        <button
+          className="rounded-md border-2 border-primary-500 bg-primary-700 p-2 text-lg hover:bg-primary-500"
+          onClick={onStartGame}
+        >
+          Play Again
+        </button>
+        <p className="text-md mt-2 hidden italic text-gray-200 sm:block">
+          Press <span className="font-bold">Space</span> or{' '}
+          <span className="font-bold">Enter</span> to start.
+        </p>
+      </div>
     </div>
   ),
 )

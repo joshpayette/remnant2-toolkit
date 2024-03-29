@@ -9,12 +9,10 @@ import {
   useRef,
   useState,
 } from 'react'
-import { v4 as uuidv4 } from 'uuid'
 
 import { FinishedDisplay } from '@/app/item-quiz/(components)/FinishedDisplay'
 import { IdleDisplay } from '@/app/item-quiz/(components)/IdleDisplay'
 import { PlayingDisplay } from '@/app/item-quiz/(components)/PlayingDisplay'
-import { QuizItemButton } from '@/app/item-quiz/(components)/QuizItemButton'
 import { Score } from '@/app/item-quiz/(components)/Score'
 import { StartingDisplay } from '@/app/item-quiz/(components)/StartingDisplay'
 import { Timer } from '@/app/item-quiz/(components)/Timer'

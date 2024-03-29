@@ -7,6 +7,7 @@ export function getQuestion(history: QuizQuestion[]): QuizQuestion {
     correctItem: {
       id: '',
       name: '',
+      description: '',
       category: 'Amulet',
       imagePath: '',
       position: 0,
@@ -37,6 +38,7 @@ export function getQuestion(history: QuizQuestion[]): QuizQuestion {
       question.correctItem = {
         id: item.id,
         name: item.name,
+        description: item.description,
         category,
         imagePath: item.imagePath,
         position,
@@ -56,6 +58,7 @@ export function getQuestion(history: QuizQuestion[]): QuizQuestion {
       question.wrongItems.push({
         id: wrongItem.id,
         name: wrongItem.name,
+        description: wrongItem.description,
         category: wrongItem.category,
         imagePath: wrongItem.imagePath,
         position: -1,

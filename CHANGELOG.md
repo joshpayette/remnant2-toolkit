@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2024-03-29
 
+### Changed
+
+- The item description of the final item on the Item Quiz now displays.
+
 ### Fixed
 
 - Added more specific calculations to the "total items discovered" percentage on the item tracker. It will no longer show 100% if you have not discovered every item.

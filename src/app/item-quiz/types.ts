@@ -22,6 +22,7 @@ export type QuizItemCategory =
 export type QuizItem = {
   id: string
   name: string
+  description: string
   category: QuizItemCategory
   imagePath: string
   position: number

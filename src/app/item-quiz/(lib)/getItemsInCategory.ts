@@ -55,6 +55,7 @@ export function getItemsInCategory(category: QuizItemCategory): QuizItem[] {
   return itemsInCategory.map((item) => ({
     id: item.id,
     name: item.name,
+    description: item.description ?? '',
     category,
     imagePath: item.imagePath,
     position: 0,
