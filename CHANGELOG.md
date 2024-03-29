@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Changed the Info icon to an image with a fill color.
 - Removed `Mod Power Requirement` text from the mods that had it. It was applied inconsistently, and the info is better served on the wiki.
 - Item Quiz now has a toggle for "mobile layout" toggle for those that prefer the traditional grid.
+- Item Quiz tiles now larger on desktop
 
 ### Fixed
 

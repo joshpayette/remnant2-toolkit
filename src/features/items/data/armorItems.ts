@@ -1355,7 +1355,7 @@ export const armorItems: ArmorItem[] = [
     category: 'gloves',
     name: 'Cultist Gloves',
     saveFileSlug: 'armor_gloves_cultist',
-    imagePath: '/gloves/cultist_gloves.png',
+    imagePath: '/gloves/cultist_gloves1.png',
     id: '6jrywg',
     set: 'Cultist Set',
     armor: 11.1,

@@ -298,7 +298,7 @@ export default function Page() {
 
   return (
     <div
-      className="flex w-full max-w-lg flex-col items-center justify-center pt-8"
+      className="flex w-full max-w-4xl flex-col items-center justify-center pt-8"
       ref={containerRef}
     >
       {state.status === 'idle' ? (
