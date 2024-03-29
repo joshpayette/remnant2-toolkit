@@ -1,6 +1,8 @@
+import { Disclosure } from '@headlessui/react'
+import { ChevronRightIcon } from '@heroicons/react/24/solid'
 import isEqual from 'lodash.isequal'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
-import { RefObject, useEffect, useMemo, useRef, useState } from 'react'
+import { useMemo, useRef, useState } from 'react'
 
 import { parseItemLookupFilters } from '@/app/item-lookup/(lib)/parseItemLookupFilters'
 import {
@@ -21,6 +23,7 @@ import {
   ReleaseKey,
 } from '@/features/items/types'
 import { FiltersContainer } from '@/features/ui/filters/FiltersContainer'
+import { cn } from '@/lib/classnames'
 
 function buildItemList(): Array<{ id: string; name: string }> {
   let items = allItems
@@ -218,54 +221,85 @@ export function ItemLookupFilters({}: Props) {
   }
 
   return (
-    <FiltersContainer<ItemLookupFilterFields>
-      areFiltersApplied={areFiltersApplied}
-      areAnyFiltersActive={areAnyFiltersActive}
-      filters={unappliedFilters}
-      onApplyFilters={handleApplyFilters}
-      onClearFilters={handleClearFilters}
-    >
-      <div className="col-span-full flex w-full flex-col items-start justify-start gap-x-4 gap-y-2 border-b border-b-primary-800 pb-4">
-        <div className="flex w-full max-w-[400px] flex-col items-start justify-center">
-          <SearchTextAutocomplete
-            key={searchTextFieldKey.current}
-            items={buildItemList()}
-            onChange={(newSearchText: string) =>
-              handleSearchTextChange(newSearchText)
-            }
-            onKeyDown={() => handleApplyFilters(unappliedFilters)}
-            value={unappliedFilters.searchText}
-          />
+    <Disclosure defaultOpen={true}>
+      {({ open }) => (
+        <div className="mb-12 w-full">
+          <Disclosure.Button
+            className={cn(
+              'flex w-full flex-row items-center justify-center border-b py-2',
+              areAnyFiltersActive
+                ? 'border-b-accent1-500'
+                : 'border-b-primary-500',
+            )}
+          >
+            <h2 className="flex w-full items-center justify-start text-2xl">
+              Build Filters
+            </h2>
+            <div className="flex flex-row items-center justify-center rounded-md border-2 border-secondary-500 bg-secondary-700 p-2 hover:bg-secondary-500">
+              {open ? 'Hide' : 'Show'}
+              <ChevronRightIcon
+                className={cn(
+                  'ml-1 h-5 w-5',
+                  open ? 'rotate-90 transform' : '',
+                )}
+              />
+            </div>
+          </Disclosure.Button>
+          <Disclosure.Panel className="w-full">
+            <FiltersContainer<ItemLookupFilterFields>
+              areFiltersApplied={areFiltersApplied}
+              areAnyFiltersActive={areAnyFiltersActive}
+              filters={unappliedFilters}
+              onApplyFilters={handleApplyFilters}
+              onClearFilters={handleClearFilters}
+            >
+              <div className="col-span-full flex w-full flex-col items-start justify-start gap-x-4 gap-y-2 border-b border-b-primary-800 pb-4">
+                <div className="flex w-full max-w-[400px] flex-col items-start justify-center">
+                  <SearchTextAutocomplete
+                    key={searchTextFieldKey.current}
+                    items={buildItemList()}
+                    onChange={(newSearchText: string) =>
+                      handleSearchTextChange(newSearchText)
+                    }
+                    onKeyDown={() => handleApplyFilters(unappliedFilters)}
+                    value={unappliedFilters.searchText}
+                  />
+                </div>
+              </div>
+
+              <div className="col-span-full flex w-full border-b border-b-primary-800 pb-4 sm:col-span-3">
+                <ReleaseFilters
+                  selectedReleases={unappliedFilters.selectedReleases}
+                  onChange={(release: ReleaseKey) =>
+                    handleReleaseChange(release)
+                  }
+                />
+              </div>
+              <div className="col-span-full flex w-full border-b border-b-primary-800 pb-4 sm:col-span-3">
+                <CollectedItemFilters
+                  selectedCollectionKeys={unappliedFilters.collectionKeys}
+                  onUpdate={(collectionKey: string) =>
+                    handleCollectionChange(collectionKey)
+                  }
+                />
+              </div>
+
+              <div className="col-span-full flex w-full flex-col items-start justify-start gap-x-4 gap-y-2 border-b border-b-primary-800 pb-4 pt-2">
+                <ItemCategoryFilters
+                  defaultItemCategories={defaultItemCategories}
+                  selectedItemCategories={unappliedFilters.itemCategories}
+                  onReset={(itemCategories: ItemLookupCategory[]) =>
+                    setUnappliedFilters({ ...unappliedFilters, itemCategories })
+                  }
+                  onUpdate={(itemCategory: ItemLookupCategory) =>
+                    handleCategoryChange(itemCategory)
+                  }
+                />
+              </div>
+            </FiltersContainer>
+          </Disclosure.Panel>
         </div>
-      </div>
-
-      <div className="col-span-full flex w-full border-b border-b-primary-800 pb-4 sm:col-span-3">
-        <ReleaseFilters
-          selectedReleases={unappliedFilters.selectedReleases}
-          onChange={(release: ReleaseKey) => handleReleaseChange(release)}
-        />
-      </div>
-      <div className="col-span-full flex w-full border-b border-b-primary-800 pb-4 sm:col-span-3">
-        <CollectedItemFilters
-          selectedCollectionKeys={unappliedFilters.collectionKeys}
-          onUpdate={(collectionKey: string) =>
-            handleCollectionChange(collectionKey)
-          }
-        />
-      </div>
-
-      <div className="col-span-full flex w-full flex-col items-start justify-start gap-x-4 gap-y-2 border-b border-b-primary-800 pb-4 pt-2">
-        <ItemCategoryFilters
-          defaultItemCategories={defaultItemCategories}
-          selectedItemCategories={unappliedFilters.itemCategories}
-          onReset={(itemCategories: ItemLookupCategory[]) =>
-            setUnappliedFilters({ ...unappliedFilters, itemCategories })
-          }
-          onUpdate={(itemCategory: ItemLookupCategory) =>
-            handleCategoryChange(itemCategory)
-          }
-        />
-      </div>
-    </FiltersContainer>
+      )}
+    </Disclosure>
   )
 }

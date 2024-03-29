@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Changed
 
 - The item description of the final item on the Item Quiz now displays.
+- Item Lookup filters are now collapsible.
 
 ### Fixed
 
