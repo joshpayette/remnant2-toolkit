@@ -368,7 +368,7 @@ EXPOSED: Target receives up to 24% additional damage from all sources. Expose am
   {
     category: 'amulet',
     name: 'Legacy Protocol',
-    imagePath: '/amulet/legacy_protocol.png',
+    imagePath: '/amulet/legacy_protocol1.png',
     id: 'a7axvo',
     tags: ['Reduce Skill Cooldown', 'Skill Duration'],
     description: `Reduces Skill Cooldowns by 20% and increases Skill Duration by 15%`,
@@ -489,7 +489,7 @@ EXPOSED: Target receives up to 24% additional damage from all sources. Expose am
   {
     category: 'amulet',
     name: 'Participation Medal',
-    imagePath: '/amulet/participation_medal.png',
+    imagePath: '/amulet/participation_medal1.png',
     id: '588hoi',
     tags: ['Health', 'Stamina', 'Movement Speed', 'Damage Reduction'],
     description: `Increase Health by 10, Stamina by 10, Movement Speed by 10%, and Damage Reduction by 10%`,
@@ -583,7 +583,7 @@ EXPOSED: Target receives up to 24% additional damage from all sources. Expose am
   {
     category: 'amulet',
     name: 'Sinister Totem',
-    imagePath: '/amulet/sinister_totem.png',
+    imagePath: '/amulet/sinister_totem1.png',
     id: 'qwguja',
     tags: ['Status Effect'],
     description: `Applying or refreshing a Negative Status Effect to an enemy increases Status Damage by 1% for 15s. Max 50 stacks.`,

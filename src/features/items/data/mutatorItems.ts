@@ -396,7 +396,7 @@ export const mutatorItems: MutatorItem[] = [
     category: 'mutator',
     name: 'Slayer',
     type: 'gun',
-    imagePath: '/mutator/slayer.png',
+    imagePath: '/mutator/slayer1.png',
     id: 'h98e7b',
     tags: ['Ranged Damage', 'Reload Speed'],
     description: `Reloading increases the damage of this weapon's next shot by 10-[20]%. Last 3s.`,

@@ -57,7 +57,7 @@ export const concoctionItems: ConcoctionItem[] = [
   {
     category: 'concoction',
     name: 'Meat Shake',
-    imagePath: '/concoction/meat_shake.png',
+    imagePath: '/concoction/meat_shake1.png',
     id: '4yzeco',
     tags: ['Damage Reduction', 'Consumable'],
     description: `Reduces Damage by 8%. Lasts 60m and will stay in effect after death. Only one Concoction may be active at a time.`,

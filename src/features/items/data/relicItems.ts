@@ -21,7 +21,7 @@ export const relicItems: RelicItem[] = [
   {
     category: 'relic',
     name: 'Constrained Heart',
-    imagePath: '/relic/constrained_heart.png',
+    imagePath: '/relic/constrained_heart1.png',
     id: 'rlezcg',
     description: `On use regenerates 20 Health per second for 5s and grants 2 Stacks of BULWARK while heal is active.`,
     wikiLinks: [`https://remnant.wiki/Constrained_Heart`],
@@ -62,7 +62,7 @@ export const relicItems: RelicItem[] = [
   {
     category: 'relic',
     name: 'Enlarged Heart',
-    imagePath: '/relic/enlarged_heart.png',
+    imagePath: '/relic/enlarged_heart1.png',
     id: '4y2xb3',
     description: `Innate double use speed. On use, heals 140 over 0.5s. Relic capacity is halved.`,
     wikiLinks: [`https://remnant.wiki/Enlarged_Heart`],

@@ -52,7 +52,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Banish',
-    imagePath: '/mod/banish.png',
+    imagePath: '/mod/banish1.png',
     id: 'k7z7r2',
     description: `Banishes enemies or allies into another dimension for 4s. When Banish ends, enemies take 1.25x the damage [MD] from the Repulsor's primary fire for 8s. Powerful enemies won't be banished, but will take increased damage from any Repulsor while debuffed.`,
     wikiLinks: [`https://remnant.wiki/Banish`],
@@ -108,7 +108,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Blaze',
-    imagePath: '/mod/blaze.png',
+    imagePath: '/mod/blaze1.png',
     id: 'gdY2uZ',
     description: `Charge Melee Attacks apply BURNING which deals 150 FIRE damage over 5s`,
     wikiLinks: [`https://remnant.wiki/Blaze`],
@@ -142,7 +142,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Bloodshot',
-    imagePath: '/mod/bloodshot.png',
+    imagePath: '/mod/bloodshot1.png',
     id: 'tw8tbh',
     description: `While active, grants unlimited Reserve Ammo and increases Reload Speed by 30%. If the entire magazine hits a Weakspot, Merciless will automatically perform a quick Reload. Lasts 13s.`,
     wikiLinks: [`https://remnant.wiki/Bloodshot`],
@@ -271,7 +271,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Death Brand',
-    imagePath: '/mod/death_brand.png',
+    imagePath: '/mod/death_brand1.png',
     id: 'd3q99g',
     description: `Applies Death Brand to all enemies within 25m. [R] increasing incoming damage by 10%. Enemies killed while bearing the Death Brand leave behind an Echo which lasts 10s before returning to the Nightmare Realm. Echoes are drawn to any survivor who walks within 3m. increasing Weakspot Damage dealt by 10% for 10s.`,
     wikiLinks: [`https://remnant.wiki/Death_Brand`],
@@ -483,7 +483,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Gravity Core',
-    imagePath: '/mod/gravity_core.png',
+    imagePath: '/mod/gravity_core1.png',
     id: 'kep3kb',
     description: `Fires a highly compressed sphere which draws in objects and deals 50 damage on impact. When colliding with a target, a large Gravity Well opens and draws in objects for 5s.
 
@@ -554,7 +554,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Horizon Strike',
-    imagePath: '/mod/horizon_strike.png',
+    imagePath: '/mod/horizon_strike1.png',
     id: '2fjw9q',
     description: `Charge Attacks release a wide horizontal projectile that penetrates through multiple enemies dealing 116 damage.`,
     wikiLinks: [`https://remnant.wiki/Horizon_Strike`],
@@ -624,7 +624,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Micronova',
-    imagePath: '/mod/micronova.png',
+    imagePath: '/mod/micronova1.png',
     id: '8izb2g',
     description: `Fires 5 shattered compressed remains of a dying star. On contact or when hit with the primary fire, Micronova explodes for 50 FIRE damage [E], and 350 BURNING damage over 10s to all targets within 2m.
     Striking the Micronova with Corrupted Aphelion's primary fire increases its explosion radius by 25%, damage by 50%, and spawns a shockwave that deals 100 FIRE damage, detonates any nearby Micronovas and applies the initial BURNING amount. [A]`,
@@ -706,7 +706,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Reaver',
-    imagePath: '/mod/reaver.png',
+    imagePath: '/mod/reaver1.png',
     dlc: 'dlc1',
     id: 'geb8ho',
     description: `Increases Melee Damage by 10% if the target is suffering from a Negative Status Effect.`,
@@ -766,7 +766,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Shatterstar',
-    imagePath: '/mod/shatterstar.png',
+    imagePath: '/mod/shatterstar1.png',
     id: 'z9e8qq',
     description: `Imbues shots with White hot FIRE. Hits apply BURNING, dealing 250 FIRE damage over 10 seconds. Lasts 20s.
 
@@ -827,7 +827,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Spore Shot',
-    imagePath: '/mod/spore_shot.png',
+    imagePath: '/mod/spore_shot1.png',
     id: '9fi67v',
     description: `Fires a rotten spore that explodes dealing 125 damage [E] within 6m and leaves a deadly gas cloud that applies SLOW [R] while dealing 15 damage per second for 7s.`,
     wikiLinks: [`https://remnant.wiki/Spore_Shot`],
@@ -926,7 +926,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Windfall',
-    imagePath: '/mod/windfall.png',
+    imagePath: '/mod/windfall1.png',
     id: '82v8kz',
     description: `Fires a ring of spinning blades which penetrates targets as it travels up to 20m before returning to the weapon. While traveling, activating Windfall again causes the projectile to spin in place for up to 3s. Activating it once more will recall it. Enemies struck by the Windfall obtain Tainted Blood for 3s causing all attacks from Deceit to trigger as Weakspot hits.`,
     wikiLinks: [`https://remnant.wiki/Windfall`],
