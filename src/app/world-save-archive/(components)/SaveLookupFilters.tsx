@@ -3,6 +3,7 @@
 import { Disclosure } from '@headlessui/react'
 import { ChevronRightIcon } from '@heroicons/react/24/solid'
 import isEqual from 'lodash.isequal'
+import Link from 'next/link'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import { useMemo, useState } from 'react'
 
@@ -193,7 +194,7 @@ export function SaveLookupFilters({}: Props) {
                     Check All
                   </button>
                 </div>
-                <div className="relative flex w-full flex-row items-center shadow-sm">
+                <div className="relative flex w-full flex-col items-start shadow-sm">
                   <div className="grid w-full grid-cols-2 text-left sm:grid-cols-3">
                     {BOSS_AFFIXES.map((affix) => (
                       <div
@@ -212,6 +213,13 @@ export function SaveLookupFilters({}: Props) {
                       </div>
                     ))}
                   </div>
+                  <Link
+                    href="https://remnant.wiki/Affix"
+                    target="_blank"
+                    className="mt-4 text-xs text-gray-300 underline hover:text-white"
+                  >
+                    For more detailed affix information, visit the Remnant Wiki
+                  </Link>
                 </div>
               </div>
             </FiltersContainer>
