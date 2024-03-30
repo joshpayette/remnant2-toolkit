@@ -830,7 +830,7 @@ export const bossEnemies = [
     category: 'boss',
     location: "N'Erud",
     dungeon: 'The Putrid Domain',
-    imagePath: '/enemies/boss/abomination.jpg',
+    imagePath: '/enemies/boss/abomination1.jpg',
     wikiLinks: ['https://remnant2.wiki.fextralife.com/Abomination'],
     bleedResistance: 15,
     fireResistance: -15,
