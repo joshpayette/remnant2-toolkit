@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2024-03-29
 
+### Added
+
+- Added Changelog button to the footer buttons.
+
 ### Changed
 
 - The item description of the final item on the Item Quiz now displays.

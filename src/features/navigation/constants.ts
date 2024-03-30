@@ -1,10 +1,10 @@
 import {
   ArchiveBoxIcon,
   ArrowLeftOnRectangleIcon,
+  BookOpenIcon,
   CalculatorIcon,
   CircleStackIcon,
   DocumentCheckIcon,
-  DocumentPlusIcon,
   DocumentTextIcon,
   HeartIcon,
   ListBulletIcon,
@@ -41,7 +41,7 @@ export const NAV_ITEMS = {
     description:
       'A running log of all additions, changes, and fixes to the toolkit.',
     href: 'https://github.com/joshpayette/remnant2-toolkit/blob/main/CHANGELOG.md',
-    icon: DocumentPlusIcon,
+    icon: BookOpenIcon,
   },
   collectionBuilds: {
     label: 'Builds by Collection',

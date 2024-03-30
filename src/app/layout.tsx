@@ -12,6 +12,7 @@ import { Viewport } from 'next'
 import Link from 'next/link'
 import { ToastContainer } from 'react-toastify'
 
+import { ChangeLogButton } from '@/features/ui/ChangeLogButton'
 import { PreloadResources } from '@/features/ui/PreloadResources'
 
 import { SessionProvider } from '../features/auth/components/SessionProvider'
@@ -43,6 +44,9 @@ export default async function RootLayout({
             <BackToTopButton />
           </div>
           <div className="fixed bottom-[8px] right-[52px] z-20">
+            <ChangeLogButton />
+          </div>
+          <div className="fixed bottom-[8px] right-[96px] z-20">
             <ReportBugButton />
           </div>
           <div className="w-full bg-secondary-900 p-1 text-center text-sm">
