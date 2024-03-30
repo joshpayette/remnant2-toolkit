@@ -88,9 +88,20 @@ export function ItemLookupFilters({}: Props) {
   const searchParams = useSearchParams()
   const filters = parseItemLookupFilters(searchParams)
 
-  const [searchText, setSearchText] = useState(filters.searchText)
   /** Used to clear the SearchTextAutocomplete field when clear filters is pressed */
   const searchTextFieldKey = useRef(new Date().getTime())
+
+  // Tracks the filter changes by the user that are not yet applied
+  // via clicking the Apply Filters button
+  const [unappliedFilters, setUnappliedFilters] =
+    useState<ItemLookupFilterFields>(filters)
+
+  // This is used to check if the filters are applied
+  // This is used to determine if the Apply Filters button should pulsate
+  // for the user to indicate they need to apply the changes
+  const [areFiltersApplied, setAreFiltersApplied] = useState(
+    isEqual(filters, unappliedFilters),
+  )
 
   // If the filters differ from the default filters,
   // the filters table should have a yellow outline to
@@ -109,11 +120,12 @@ export function ItemLookupFilters({}: Props) {
 
   function handleClearFilters() {
     handleApplyFilters(DEFAULT_ITEM_LOOKUP_FILTERS)
+    setUnappliedFilters(DEFAULT_ITEM_LOOKUP_FILTERS)
     searchTextFieldKey.current = new Date().getTime()
   }
 
   function handleCategoryChange(category: ItemLookupCategory) {
-    let newCategories = [...filters.itemCategories]
+    let newCategories = [...unappliedFilters.itemCategories]
 
     if (newCategories.includes(category)) {
       newCategories = newCategories.filter((c) => c !== category)
@@ -121,11 +133,16 @@ export function ItemLookupFilters({}: Props) {
       newCategories.push(category)
     }
 
-    handleApplyFilters({ ...filters, itemCategories: newCategories })
+    const newFilters = { ...unappliedFilters, itemCategories: newCategories }
+    setUnappliedFilters(newFilters)
+    handleApplyFilters(newFilters)
+    if (filters.itemCategories.some((c) => !newCategories.includes(c))) {
+      setAreFiltersApplied(false)
+    }
   }
 
   function handleCollectionChange(collection: string) {
-    let newCollection = [...filters.collectionKeys]
+    let newCollection = [...unappliedFilters.collectionKeys]
 
     if (newCollection.includes(collection)) {
       newCollection = newCollection.filter((c) => c !== collection)
@@ -133,11 +150,17 @@ export function ItemLookupFilters({}: Props) {
       newCollection.push(collection)
     }
 
-    handleApplyFilters({ ...filters, collectionKeys: newCollection })
+    const newFilters = { ...unappliedFilters, collectionKeys: newCollection }
+    setUnappliedFilters(newFilters)
+    handleApplyFilters(newFilters)
+
+    if (filters.collectionKeys.some((c) => !newCollection.includes(c))) {
+      setAreFiltersApplied(false)
+    }
   }
 
   function handleReleaseChange(release: ReleaseKey) {
-    let newReleases = [...filters.selectedReleases]
+    let newReleases = [...unappliedFilters.selectedReleases]
 
     if (newReleases.includes(release)) {
       newReleases = newReleases.filter((r) => r !== release)
@@ -145,11 +168,20 @@ export function ItemLookupFilters({}: Props) {
       newReleases.push(release)
     }
 
-    handleApplyFilters({ ...filters, selectedReleases: newReleases })
+    const newFilters = { ...unappliedFilters, selectedReleases: newReleases }
+    setUnappliedFilters(newFilters)
+    handleApplyFilters(newFilters)
+
+    if (filters.selectedReleases.some((r) => !newReleases.includes(r))) {
+      setAreFiltersApplied(false)
+    }
   }
 
   function handleSearchTextChange(searchQuery: string) {
-    setSearchText(searchQuery)
+    setUnappliedFilters({ ...unappliedFilters, searchText: searchQuery })
+    if (searchQuery !== filters.searchText) {
+      setAreFiltersApplied(false)
+    }
   }
 
   function handleApplyFilters(newFilters: ItemLookupFilterFields) {
@@ -213,9 +245,9 @@ export function ItemLookupFilters({}: Props) {
           </Disclosure.Button>
           <Disclosure.Panel className="w-full">
             <FiltersContainer<ItemLookupFilterFields>
-              areFiltersApplied={false}
+              areFiltersApplied={areFiltersApplied}
               areAnyFiltersActive={areAnyFiltersActive}
-              filters={filters}
+              filters={unappliedFilters}
               onClearFilters={handleClearFilters}
             >
               <div className="col-span-full flex w-full flex-col items-end justify-center gap-x-4 gap-y-2 border-b border-b-primary-800 pb-4 sm:flex-row">
@@ -226,20 +258,18 @@ export function ItemLookupFilters({}: Props) {
                     onChange={(newSearchText: string) =>
                       handleSearchTextChange(newSearchText)
                     }
-                    onKeyDown={() =>
-                      handleApplyFilters({ ...filters, searchText })
-                    }
-                    value={searchText}
+                    onKeyDown={() => handleApplyFilters(unappliedFilters)}
+                    value={unappliedFilters.searchText}
                     autoFocus={true}
                   />
                 </div>
-                {searchText !== '' ? (
+                {unappliedFilters.searchText !== '' ? (
                   <button
                     className="rounded-md border-2 border-red-700 px-2 py-1 text-sm text-white hover:border-red-500"
                     onClick={() => {
                       handleSearchTextChange('')
                       handleApplyFilters({
-                        ...filters,
+                        ...unappliedFilters,
                         searchText: '',
                       })
                       searchTextFieldKey.current = new Date().getTime()
@@ -252,7 +282,7 @@ export function ItemLookupFilters({}: Props) {
 
               <div className="col-span-full flex w-full border-b border-b-primary-800 pb-4 sm:col-span-3">
                 <ReleaseFilters
-                  selectedReleases={filters.selectedReleases}
+                  selectedReleases={unappliedFilters.selectedReleases}
                   onChange={(release: ReleaseKey) =>
                     handleReleaseChange(release)
                   }
@@ -260,7 +290,7 @@ export function ItemLookupFilters({}: Props) {
               </div>
               <div className="col-span-full flex w-full border-b border-b-primary-800 pb-4 sm:col-span-3">
                 <CollectedItemFilters
-                  selectedCollectionKeys={filters.collectionKeys}
+                  selectedCollectionKeys={unappliedFilters.collectionKeys}
                   onUpdate={(collectionKey: string) =>
                     handleCollectionChange(collectionKey)
                   }
@@ -270,9 +300,9 @@ export function ItemLookupFilters({}: Props) {
               <div className="col-span-full flex w-full flex-col items-start justify-start gap-x-4 gap-y-2 border-b border-b-primary-800 pb-4 pt-2">
                 <ItemCategoryFilters
                   defaultItemCategories={defaultItemCategories}
-                  selectedItemCategories={filters.itemCategories}
+                  selectedItemCategories={unappliedFilters.itemCategories}
                   onReset={(itemCategories: ItemLookupCategory[]) =>
-                    handleApplyFilters({ ...filters, itemCategories })
+                    setUnappliedFilters({ ...unappliedFilters, itemCategories })
                   }
                   onUpdate={(itemCategory: ItemLookupCategory) =>
                     handleCategoryChange(itemCategory)

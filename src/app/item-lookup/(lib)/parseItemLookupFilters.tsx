@@ -8,7 +8,7 @@ import {
 } from '@/features/items/types'
 import { capitalize } from '@/lib/capitalize'
 
-import { DEFAULT_ITEM_LOOKUP_FILTERS } from './ItemLookupFilters'
+import { DEFAULT_ITEM_LOOKUP_FILTERS } from '../(components)/ItemLookupFilters'
 
 export function parseItemLookupFilters(
   searchParams: ReadonlyURLSearchParams,

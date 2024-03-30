@@ -3,7 +3,7 @@
 import { Suspense } from 'react'
 
 import { ItemList } from '@/app/item-lookup/(components)/ItemList'
-import { ItemLookupFilters } from '@/app/item-lookup/(lib)/ItemLookupFilters'
+import { ItemLookupFilters } from '@/app/item-lookup/(components)/ItemLookupFilters'
 import { allItems } from '@/features/items/data/allItems'
 import { itemToCsvItem } from '@/features/items/lib/itemToCsvItem'
 import { MutatorItem } from '@/features/items/types/MutatorItem'
