@@ -22,14 +22,14 @@ import { FiltersContainer } from '@/features/ui/filters/FiltersContainer'
 import { SelectMenu } from '@/features/ui/SelectMenu'
 import { cn } from '@/lib/classnames'
 
-let bossNames = BOSSES.map((b) => b.name as BossName | 'All')
-bossNames.unshift('All')
+let bossNames = BOSSES.map((b) => b.name as BossName | 'Choose')
+bossNames.unshift('Choose')
 
 const defaultBossAffixes = BOSS_AFFIXES.map((affix) => affix.name)
 
 export const DEFAULT_SEARCH_FILTERS: SearchFilters = {
   affixes: defaultBossAffixes,
-  bossName: 'All',
+  bossName: 'Choose',
 }
 
 interface Props {}
@@ -103,7 +103,7 @@ export function SaveLookupFilters({}: Props) {
     }
   }
 
-  function handleBossNameChange(bossName: BossName | 'All') {
+  function handleBossNameChange(bossName: BossName | 'Choose') {
     const newFilters = {
       ...unappliedFilters,
       bossName,
@@ -152,7 +152,7 @@ export function SaveLookupFilters({}: Props) {
                   label="Boss Name"
                   value={unappliedFilters.bossName}
                   onChange={(e) =>
-                    handleBossNameChange(e.target.value as BossName | 'All')
+                    handleBossNameChange(e.target.value as BossName | 'Choose')
                   }
                   options={bossNames.map((name) => ({
                     label: name,

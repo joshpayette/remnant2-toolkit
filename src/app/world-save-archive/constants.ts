@@ -11,22 +11,26 @@ export const BOSS_AFFIXES = [
   //   name: 'Bursting',
   //   description: `Releases bouncing projectiles that burst into a pool of FAERIE FIRE.`,
   // },
-  {
-    name: 'Cloner',
-    description: `Creates an unarmed copy of the Traveler, which will attempt to fight them with their fists.`,
-  },
-  {
-    name: 'Cubes',
-    description: `Creates four damaging cubes at the Aberration's location. The cubes spiral outward and grow in size.`,
-  },
-  {
-    name: 'Detonate',
-    description: `Can prime an explosion that affects a large area.`,
-  },
-  {
-    name: 'Displacer',
-    description: `Teleports the Traveler to a nearby location, often melee range.`,
-  },
+  // Limited to aberrations
+  // {
+  //   name: 'Cloner',
+  //   description: `Creates an unarmed copy of the Traveler, which will attempt to fight them with their fists.`,
+  // },
+  // Limited to aberrations
+  // {
+  //   name: 'Cubes',
+  //   description: `Creates four damaging cubes at the Aberration's location. The cubes spiral outward and grow in size.`,
+  // },
+  // Limit to aberrations
+  // {
+  //   name: 'Detonate',
+  //   description: `Can prime an explosion that affects a large area.`,
+  // },
+  // Limited to aberrations
+  // {
+  //   name: 'Displacer',
+  //   description: `Teleports the Traveler to a nearby location, often melee range.`,
+  // },
   {
     name: 'Drain',
     description: `Has lifesteal.`,
@@ -39,10 +43,11 @@ export const BOSS_AFFIXES = [
     name: 'Empathy',
     description: `Recovers some amount of health over a short time whenever the Traveler uses a Relic. `,
   },
-  {
-    name: 'Empower',
-    description: `Gains a damage buff whenever the Traveler uses a Skill.`,
-  },
+  // Limited to aberrations
+  // {
+  //   name: 'Empower',
+  //   description: `Gains a damage buff whenever the Traveler uses a Skill.`,
+  // },
   // Limited to aberrations
   // {
   //   name: 'Enchanter',
@@ -52,14 +57,16 @@ export const BOSS_AFFIXES = [
     name: 'Hearty',
     description: `Increased max health by 15%.`,
   },
-  {
-    name: 'Hexer',
-    description: `Gains the ability to release homing projectile bursts of a random elemental damage type. Passively releases single projectiles everytime they are damaged. Releases a final burst of random projectiles on death.`,
-  },
-  {
-    name: 'Minions',
-    description: `Summons two or three standard Enemies as reinforcements. Replenishes them once they are dead.`,
-  },
+  // Limited to aberrations
+  // {
+  //   name: 'Hexer',
+  //   description: `Gains the ability to release homing projectile bursts of a random elemental damage type. Passively releases single projectiles everytime they are damaged. Releases a final burst of random projectiles on death.`,
+  // },
+  // Limited to aberrations
+  // {
+  //   name: 'Minions',
+  //   description: `Summons two or three standard Enemies as reinforcements. Replenishes them once they are dead.`,
+  // },
   // Limited to aberrations
   // {
   //   name: 'Rat Swarm',
@@ -74,10 +81,11 @@ export const BOSS_AFFIXES = [
   //   name: 'Root Grab',
   //   description: `Creates numerous Root Snares in the area. Stepping into one forces the Traveler into a quick time event until they free themselves or are hit by an enemy.`,
   // },
-  {
-    name: 'Shocking',
-    description: `Summons lightning strikes around the area, inflicting OVERLOADED.`,
-  },
+  // Limited to aberrations
+  // {
+  //   name: 'Shocking',
+  //   description: `Summons lightning strikes around the area, inflicting OVERLOADED.`,
+  // },
   {
     name: 'Skullcracker',
     description: `Attacks stagger the Traveler more easily.`,
@@ -91,18 +99,20 @@ export const BOSS_AFFIXES = [
     name: 'Spiteful',
     description: `Gains a 0% - 25% damage increase as it loses health.`,
   },
-  {
-    name: 'Teleporter',
-    description: `Periodically becomes surrounded by a distortion effect. If damaged during this time, it will teleport to a random nearby location.`,
-  },
+  // Limited to aberrations
+  // {
+  //   name: 'Teleporter',
+  //   description: `Periodically becomes surrounded by a distortion effect. If damaged during this time, it will teleport to a random nearby location.`,
+  // },
   {
     name: 'Thick Skin',
     description: `Reduced critical chance by 10% and critical damage by 15% against this target.`,
   },
-  {
-    name: 'Toxic',
-    description: `Spews a stream of acid, which inflicts CORRODED.`,
-  },
+  // Limited to aberrations
+  // {
+  //   name: 'Toxic',
+  //   description: `Spews a stream of acid, which inflicts CORRODED.`,
+  // },
   {
     name: 'Trapper',
     description: `Creates a damaging field of corruption beneath the Traveler whenever they dodge. Neutral backstep and slide evades are unaffected.`,
@@ -120,10 +130,11 @@ export const BOSS_AFFIXES = [
     name: 'Vicious',
     description: `Increased damage by 15%.`,
   },
-  {
-    name: 'Vortex',
-    description: `Passively pulls foes in its line of sight towards itself. Can activate the ability to greatly increase the pull for a short time.`,
-  },
+  // Limited to aberrations
+  // {
+  //   name: 'Vortex',
+  //   description: `Passively pulls foes in its line of sight towards itself. Can activate the ability to greatly increase the pull for a short time.`,
+  // },
   // Limited to aberrations
   // {
   //   name: 'Waller',
