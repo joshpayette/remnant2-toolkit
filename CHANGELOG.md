@@ -21,6 +21,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Fixed
 
 - Added more specific calculations to the "total items discovered" percentage on the item tracker. It will no longer show 100% if you have not discovered every item.
+- Fixed incorrect description for Feedback Loop.
 
 ## 2024-03-28
 
