@@ -9,7 +9,7 @@ interface Props<T> {
   children: React.ReactNode
   filters: T
   onClearFilters: () => void
-  onApplyFilters: (filters: T) => void
+  onApplyFilters?: (filters: T) => void
 }
 export function FiltersContainer<T>({
   areAnyFiltersActive,
@@ -35,13 +35,15 @@ export function FiltersContainer<T>({
               <ClearFiltersButton onClick={onClearFilters} />
             </div>
           )}
-          <div className="ml-4">
-            <ApplyFiltersButton
-              areFiltersApplied={areFiltersApplied}
-              filters={filters}
-              onClick={onApplyFilters}
-            />
-          </div>
+          {onApplyFilters ? (
+            <div className="ml-4">
+              <ApplyFiltersButton
+                areFiltersApplied={areFiltersApplied}
+                filters={filters}
+                onClick={onApplyFilters}
+              />
+            </div>
+          ) : null}
         </div>
       </div>
     </div>

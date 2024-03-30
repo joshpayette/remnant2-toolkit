@@ -10,6 +10,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - The item description of the final item on the Item Quiz now displays.
 - Item Lookup filters are now collapsible.
+- Added Clear Search Text button on Item Lookup filters.
+- Item Lookup filters no longer have an Apply button. Instead, they apply when you change any of the filters.
+- Search text on the Item Lookup filters now autofocuses on non-mobile screen resolutions.
 
 ### Fixed
 

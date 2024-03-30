@@ -1,7 +1,11 @@
+'use client'
+
 import { Combobox } from '@headlessui/react'
 import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/24/solid'
 import React, { useEffect, useState } from 'react'
+import { useIsClient, useMediaQuery } from 'usehooks-ts'
 
+import { Skeleton } from '@/features/ui/Skeleton'
 import { cn } from '@/lib/classnames'
 
 type Item = {
@@ -10,6 +14,7 @@ type Item = {
 }
 
 interface Props {
+  autoFocus?: boolean
   onChange: (value: string) => void
   onKeyDown?: () => void
   items: Item[]
@@ -18,6 +23,7 @@ interface Props {
 }
 
 export function SearchTextAutocomplete({
+  autoFocus = false,
   onChange,
   onKeyDown,
   items,
@@ -44,6 +50,11 @@ export function SearchTextAutocomplete({
       : items.filter((item) =>
           item.name.toLowerCase().includes(value.toLowerCase()),
         )
+
+  const isClient = useIsClient()
+  const isLargeScreen = useMediaQuery('(min-width: 768px)')
+
+  if (!isClient) return <Skeleton className="h-[67px] w-[400px]" />
 
   return (
     <Combobox
@@ -73,8 +84,8 @@ export function SearchTextAutocomplete({
           className="w-full rounded-md border-2 border-secondary-700 bg-black py-1.5 pl-3 pr-10 text-sm text-gray-300 shadow-sm ring-1 ring-secondary-700 focus:border-secondary-500 focus:outline-none focus:ring-1 focus:ring-secondary-500"
           onChange={(event) => onChange(event.target.value)}
           displayValue={(item: Item) => item?.name}
-          autoFocus={false}
           placeholder="Search for an item or tag"
+          autoFocus={autoFocus && isLargeScreen}
         />
         <Combobox.Button className="absolute inset-y-0 right-0 flex items-center rounded-r-md px-2 focus:outline-none">
           <ChevronUpDownIcon

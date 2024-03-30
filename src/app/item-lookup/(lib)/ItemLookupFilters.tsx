@@ -1,6 +1,7 @@
 import { Disclosure } from '@headlessui/react'
 import { ChevronRightIcon } from '@heroicons/react/24/solid'
 import isEqual from 'lodash.isequal'
+import dynamic from 'next/dynamic'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import { useMemo, useRef, useState } from 'react'
 
@@ -24,6 +25,12 @@ import {
 } from '@/features/items/types'
 import { FiltersContainer } from '@/features/ui/filters/FiltersContainer'
 import { cn } from '@/lib/classnames'
+
+// const SearchTextAutocomplete = dynamic(() =>
+//   import('@/features/build/filters/parts/SearchTextAutocomplete').then(
+//     (mod) => mod.SearchTextAutocomplete,
+//   ),
+// )
 
 function buildItemList(): Array<{ id: string; name: string }> {
   let items = allItems
@@ -141,7 +148,9 @@ export function ItemLookupFilters({}: Props) {
       newCategories.push(category)
     }
 
-    setUnappliedFilters({ ...unappliedFilters, itemCategories: newCategories })
+    const newFilters = { ...unappliedFilters, itemCategories: newCategories }
+    setUnappliedFilters(newFilters)
+    handleApplyFilters(newFilters)
     if (filters.itemCategories.some((c) => !newCategories.includes(c))) {
       setAreFiltersApplied(false)
     }
@@ -156,7 +165,9 @@ export function ItemLookupFilters({}: Props) {
       newCollection.push(collection)
     }
 
-    setUnappliedFilters({ ...unappliedFilters, collectionKeys: newCollection })
+    const newFilters = { ...unappliedFilters, collectionKeys: newCollection }
+    setUnappliedFilters(newFilters)
+    handleApplyFilters(newFilters)
 
     if (filters.collectionKeys.some((c) => !newCollection.includes(c))) {
       setAreFiltersApplied(false)
@@ -172,7 +183,9 @@ export function ItemLookupFilters({}: Props) {
       newReleases.push(release)
     }
 
-    setUnappliedFilters({ ...unappliedFilters, selectedReleases: newReleases })
+    const newFilters = { ...unappliedFilters, selectedReleases: newReleases }
+    setUnappliedFilters(newFilters)
+    handleApplyFilters(newFilters)
 
     if (filters.selectedReleases.some((r) => !newReleases.includes(r))) {
       setAreFiltersApplied(false)
@@ -250,10 +263,9 @@ export function ItemLookupFilters({}: Props) {
               areFiltersApplied={areFiltersApplied}
               areAnyFiltersActive={areAnyFiltersActive}
               filters={unappliedFilters}
-              onApplyFilters={handleApplyFilters}
               onClearFilters={handleClearFilters}
             >
-              <div className="col-span-full flex w-full flex-col items-start justify-start gap-x-4 gap-y-2 border-b border-b-primary-800 pb-4">
+              <div className="col-span-full flex w-full flex-col items-end justify-center gap-x-4 gap-y-2 border-b border-b-primary-800 pb-4 sm:flex-row">
                 <div className="flex w-full max-w-[400px] flex-col items-start justify-center">
                   <SearchTextAutocomplete
                     key={searchTextFieldKey.current}
@@ -263,8 +275,24 @@ export function ItemLookupFilters({}: Props) {
                     }
                     onKeyDown={() => handleApplyFilters(unappliedFilters)}
                     value={unappliedFilters.searchText}
+                    autoFocus={true}
                   />
                 </div>
+                {unappliedFilters.searchText !== '' ? (
+                  <button
+                    className="rounded-md border-2 border-red-700 px-2 py-1 text-sm text-white hover:border-red-500"
+                    onClick={() => {
+                      handleSearchTextChange('')
+                      handleApplyFilters({
+                        ...unappliedFilters,
+                        searchText: '',
+                      })
+                      searchTextFieldKey.current = new Date().getTime()
+                    }}
+                  >
+                    Clear search text
+                  </button>
+                ) : null}
               </div>
 
               <div className="col-span-full flex w-full border-b border-b-primary-800 pb-4 sm:col-span-3">
