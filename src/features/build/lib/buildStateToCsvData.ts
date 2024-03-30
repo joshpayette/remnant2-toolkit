@@ -54,4 +54,5 @@ export function buildStateToCsvData(buildState: BuildState) {
       }
     })
     .flat()
+    .filter((item) => item !== undefined)
 }

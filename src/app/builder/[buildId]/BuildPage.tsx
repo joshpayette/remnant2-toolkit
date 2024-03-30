@@ -12,7 +12,7 @@ import { ImageDownloadInfo } from '@/features/build/components/dialogs/ImageDown
 import { useBuildActions } from '@/features/build/hooks/useBuildActions'
 import { buildStateToCsvData } from '@/features/build/lib/buildStateToCsvData'
 import { dbBuildToBuildState } from '@/features/build/lib/dbBuildToBuildState'
-import { BuildState, DBBuild } from '@/features/build/types'
+import { DBBuild } from '@/features/build/types'
 import { LoadoutDialog } from '@/features/loadouts/components/LoadoutDialog'
 import { ToCsvButton } from '@/features/ui/ToCsvButton'
 

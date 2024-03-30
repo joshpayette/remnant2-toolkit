@@ -22,6 +22,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Create a build link in the home page text now correctly redirects to authenticated builder if user is signed in.
 - Added missing cooldown text from Kill Switch mutator.
+- Fixed issue with build to CSV export not working.
 
 ## 2024-03-29
 

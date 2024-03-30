@@ -44,17 +44,17 @@ export default function Page() {
       <PageHeader
         title="Remnant 2 Item Lookup"
         subtitle="Find extended item information and interactions."
-      >
-        <div className="mb-4 flex items-center justify-center">
-          <ToCsvButton data={csvItems} filename="remnant2toolkit_iteminfo" />
-        </div>
-      </PageHeader>
+      />
 
       <div className="flex w-full flex-col items-center">
         <div className="w-full max-w-4xl">
           <Suspense fallback={<Skeleton className="h-[497px] w-full" />}>
             <ItemLookupFilters />
           </Suspense>
+        </div>
+
+        <div className="mb-4 flex w-full items-center justify-center">
+          <ToCsvButton data={csvItems} filename="remnant2toolkit_iteminfo" />
         </div>
 
         <div className="mt-12 flex w-full items-center justify-center">
