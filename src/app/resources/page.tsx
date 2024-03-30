@@ -8,7 +8,7 @@ export default async function Page() {
   return (
     <div className="relative isolate w-full max-w-7xl overflow-hidden bg-gray-900 py-24">
       <Image
-        src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/home-bg.webp`}
+        src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/toolkit/resources-bg1.jpg`}
         alt="Resource page background"
         fill
         className="absolute inset-0 -z-10 h-full w-full object-cover object-right md:object-center"
