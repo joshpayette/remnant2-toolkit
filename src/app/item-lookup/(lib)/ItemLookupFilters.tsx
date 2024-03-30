@@ -1,7 +1,6 @@
 import { Disclosure } from '@headlessui/react'
 import { ChevronRightIcon } from '@heroicons/react/24/solid'
 import isEqual from 'lodash.isequal'
-import dynamic from 'next/dynamic'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import { useMemo, useRef, useState } from 'react'
 
@@ -25,12 +24,6 @@ import {
 } from '@/features/items/types'
 import { FiltersContainer } from '@/features/ui/filters/FiltersContainer'
 import { cn } from '@/lib/classnames'
-
-// const SearchTextAutocomplete = dynamic(() =>
-//   import('@/features/build/filters/parts/SearchTextAutocomplete').then(
-//     (mod) => mod.SearchTextAutocomplete,
-//   ),
-// )
 
 function buildItemList(): Array<{ id: string; name: string }> {
   let items = allItems
@@ -79,14 +72,6 @@ const defaultItemCategories: ItemLookupCategory[] = [
   'Consumable',
 ]
 
-// let defaultItemCategories: ItemLookupCategory[] = itemCategories
-//   .map((category) => capitalize(category))
-//   .filter((category) => category !== 'weapon' && category !== 'mutator')
-// // Add the subcategories
-// defaultItemCategories.push(...subCategories)
-// // Sort alphabetically
-// defaultItemCategories = defaultItemCategories.sort()
-
 export const DEFAULT_ITEM_LOOKUP_FILTERS: ItemLookupFilterFields = {
   collectionKeys: DEFAULT_COLLECTION_FILTERS,
   itemCategories: defaultItemCategories,
@@ -103,20 +88,9 @@ export function ItemLookupFilters({}: Props) {
   const searchParams = useSearchParams()
   const filters = parseItemLookupFilters(searchParams)
 
+  const [searchText, setSearchText] = useState(filters.searchText)
   /** Used to clear the SearchTextAutocomplete field when clear filters is pressed */
   const searchTextFieldKey = useRef(new Date().getTime())
-
-  // Tracks the filter changes by the user that are not yet applied
-  // via clicking the Apply Filters button
-  const [unappliedFilters, setUnappliedFilters] =
-    useState<ItemLookupFilterFields>(filters)
-
-  // This is used to check if the filters are applied
-  // This is used to determine if the Apply Filters button should pulsate
-  // for the user to indicate they need to apply the changes
-  const [areFiltersApplied, setAreFiltersApplied] = useState(
-    isEqual(filters, unappliedFilters),
-  )
 
   // If the filters differ from the default filters,
   // the filters table should have a yellow outline to
@@ -135,12 +109,11 @@ export function ItemLookupFilters({}: Props) {
 
   function handleClearFilters() {
     handleApplyFilters(DEFAULT_ITEM_LOOKUP_FILTERS)
-    setUnappliedFilters(DEFAULT_ITEM_LOOKUP_FILTERS)
     searchTextFieldKey.current = new Date().getTime()
   }
 
   function handleCategoryChange(category: ItemLookupCategory) {
-    let newCategories = [...unappliedFilters.itemCategories]
+    let newCategories = [...filters.itemCategories]
 
     if (newCategories.includes(category)) {
       newCategories = newCategories.filter((c) => c !== category)
@@ -148,16 +121,11 @@ export function ItemLookupFilters({}: Props) {
       newCategories.push(category)
     }
 
-    const newFilters = { ...unappliedFilters, itemCategories: newCategories }
-    setUnappliedFilters(newFilters)
-    handleApplyFilters(newFilters)
-    if (filters.itemCategories.some((c) => !newCategories.includes(c))) {
-      setAreFiltersApplied(false)
-    }
+    handleApplyFilters({ ...filters, itemCategories: newCategories })
   }
 
   function handleCollectionChange(collection: string) {
-    let newCollection = [...unappliedFilters.collectionKeys]
+    let newCollection = [...filters.collectionKeys]
 
     if (newCollection.includes(collection)) {
       newCollection = newCollection.filter((c) => c !== collection)
@@ -165,17 +133,11 @@ export function ItemLookupFilters({}: Props) {
       newCollection.push(collection)
     }
 
-    const newFilters = { ...unappliedFilters, collectionKeys: newCollection }
-    setUnappliedFilters(newFilters)
-    handleApplyFilters(newFilters)
-
-    if (filters.collectionKeys.some((c) => !newCollection.includes(c))) {
-      setAreFiltersApplied(false)
-    }
+    handleApplyFilters({ ...filters, collectionKeys: newCollection })
   }
 
   function handleReleaseChange(release: ReleaseKey) {
-    let newReleases = [...unappliedFilters.selectedReleases]
+    let newReleases = [...filters.selectedReleases]
 
     if (newReleases.includes(release)) {
       newReleases = newReleases.filter((r) => r !== release)
@@ -183,20 +145,11 @@ export function ItemLookupFilters({}: Props) {
       newReleases.push(release)
     }
 
-    const newFilters = { ...unappliedFilters, selectedReleases: newReleases }
-    setUnappliedFilters(newFilters)
-    handleApplyFilters(newFilters)
-
-    if (filters.selectedReleases.some((r) => !newReleases.includes(r))) {
-      setAreFiltersApplied(false)
-    }
+    handleApplyFilters({ ...filters, selectedReleases: newReleases })
   }
 
   function handleSearchTextChange(searchQuery: string) {
-    setUnappliedFilters({ ...unappliedFilters, searchText: searchQuery })
-    if (searchQuery !== filters.searchText) {
-      setAreFiltersApplied(false)
-    }
+    setSearchText(searchQuery)
   }
 
   function handleApplyFilters(newFilters: ItemLookupFilterFields) {
@@ -260,9 +213,9 @@ export function ItemLookupFilters({}: Props) {
           </Disclosure.Button>
           <Disclosure.Panel className="w-full">
             <FiltersContainer<ItemLookupFilterFields>
-              areFiltersApplied={areFiltersApplied}
+              areFiltersApplied={false}
               areAnyFiltersActive={areAnyFiltersActive}
-              filters={unappliedFilters}
+              filters={filters}
               onClearFilters={handleClearFilters}
             >
               <div className="col-span-full flex w-full flex-col items-end justify-center gap-x-4 gap-y-2 border-b border-b-primary-800 pb-4 sm:flex-row">
@@ -273,18 +226,20 @@ export function ItemLookupFilters({}: Props) {
                     onChange={(newSearchText: string) =>
                       handleSearchTextChange(newSearchText)
                     }
-                    onKeyDown={() => handleApplyFilters(unappliedFilters)}
-                    value={unappliedFilters.searchText}
+                    onKeyDown={() =>
+                      handleApplyFilters({ ...filters, searchText })
+                    }
+                    value={searchText}
                     autoFocus={true}
                   />
                 </div>
-                {unappliedFilters.searchText !== '' ? (
+                {searchText !== '' ? (
                   <button
                     className="rounded-md border-2 border-red-700 px-2 py-1 text-sm text-white hover:border-red-500"
                     onClick={() => {
                       handleSearchTextChange('')
                       handleApplyFilters({
-                        ...unappliedFilters,
+                        ...filters,
                         searchText: '',
                       })
                       searchTextFieldKey.current = new Date().getTime()
@@ -297,7 +252,7 @@ export function ItemLookupFilters({}: Props) {
 
               <div className="col-span-full flex w-full border-b border-b-primary-800 pb-4 sm:col-span-3">
                 <ReleaseFilters
-                  selectedReleases={unappliedFilters.selectedReleases}
+                  selectedReleases={filters.selectedReleases}
                   onChange={(release: ReleaseKey) =>
                     handleReleaseChange(release)
                   }
@@ -305,7 +260,7 @@ export function ItemLookupFilters({}: Props) {
               </div>
               <div className="col-span-full flex w-full border-b border-b-primary-800 pb-4 sm:col-span-3">
                 <CollectedItemFilters
-                  selectedCollectionKeys={unappliedFilters.collectionKeys}
+                  selectedCollectionKeys={filters.collectionKeys}
                   onUpdate={(collectionKey: string) =>
                     handleCollectionChange(collectionKey)
                   }
@@ -315,9 +270,9 @@ export function ItemLookupFilters({}: Props) {
               <div className="col-span-full flex w-full flex-col items-start justify-start gap-x-4 gap-y-2 border-b border-b-primary-800 pb-4 pt-2">
                 <ItemCategoryFilters
                   defaultItemCategories={defaultItemCategories}
-                  selectedItemCategories={unappliedFilters.itemCategories}
+                  selectedItemCategories={filters.itemCategories}
                   onReset={(itemCategories: ItemLookupCategory[]) =>
-                    setUnappliedFilters({ ...unappliedFilters, itemCategories })
+                    handleApplyFilters({ ...filters, itemCategories })
                   }
                   onUpdate={(itemCategory: ItemLookupCategory) =>
                     handleCategoryChange(itemCategory)
