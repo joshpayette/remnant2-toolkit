@@ -1,6 +1,5 @@
 import { ItemLookupCategory } from '@/features/items/types'
 import { Checkbox } from '@/features/ui/Checkbox'
-import { capitalize } from '@/lib/capitalize'
 
 interface Props {
   defaultItemCategories: ItemLookupCategory[]
