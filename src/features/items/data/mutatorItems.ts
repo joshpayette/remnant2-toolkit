@@ -230,7 +230,9 @@ export const mutatorItems: MutatorItem[] = [
     type: 'gun',
     imagePath: '/mutator/kill_switch.png',
     id: 'rzfptj',
-    description: `Switching to this weapon creates an Explosive Burst [E] which deals 50 Damage to all enemies within 7m. [A]`,
+    description: `Switching to this weapon creates an Explosive Burst [E] which deals 50 Damage to all enemies within 7m. [A]
+    
+    Can only happen once every 10s.`,
     maxLevelBonus: `This weapon's kills with any Explosive Damage reduce Kill Switch cooldown by 1s`,
     wikiLinks: [`https://remnant.wiki/Kill_Switch`],
   },
