@@ -1,6 +1,6 @@
 import { Enemy } from './types'
 
-const aberrationEnemies: Enemy[] = [
+const aberrationEnemies = [
   {
     id: 'bp8Z4T',
     name: 'Arcanum Diviner',
@@ -743,9 +743,9 @@ const aberrationEnemies: Enemy[] = [
     wikiLinks: [],
     id: 'Pa46sk',
   },
-]
+] as const satisfies Enemy[]
 
-const addsEnemies: Enemy[] = [
+const addsEnemies = [
   {
     id: '39Yoor',
     name: 'Astropath Phantom (Orange)',
@@ -820,9 +820,9 @@ const addsEnemies: Enemy[] = [
     wikiLinks: [],
     bleedResistance: 25,
   },
-]
+] as const satisfies Enemy[]
 
-const bossEnemies: Enemy[] = [
+export const bossEnemies = [
   {
     id: 'Ws384W',
     name: 'Abomination',
@@ -849,18 +849,6 @@ const bossEnemies: Enemy[] = [
     fireResistance: -15,
     shockResistance: -15,
     acidResistance: 15,
-  },
-  {
-    id: '3GZ6k2',
-    name: 'Astropath',
-    dlc: 'base',
-    category: 'boss',
-    imagePath: '/enemies/boss/astropath.jpg',
-    location: "N'Erud",
-    dungeon: `Astropath's Respite`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/The+Astropath`],
-    bleedResistance: 'immune',
-    notes: 'Immune to Bleeding Status',
   },
   {
     name: 'Befouled Altar',
@@ -902,21 +890,6 @@ const bossEnemies: Enemy[] = [
     id: 'jEFi2h',
   },
   {
-    id: 'wb22RX',
-    name: "Custodian's Eye",
-    dlc: 'base',
-    category: 'boss',
-    location: "N'Erud",
-    dungeon: 'Spectrum Nexus',
-    imagePath: '/enemies/boss/custodians_eye.jpg',
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/The+Custodian's+Eye`],
-    // TODO confirm these resistances, item was here twice with two different values
-    bleedResistance: 25,
-    fireResistance: 25,
-    shockResistance: -15,
-    acidResistance: -15,
-  },
-  {
     id: '73ZNjb',
     name: 'Fae Knight Council',
     dlc: 'base',
@@ -943,7 +916,7 @@ const bossEnemies: Enemy[] = [
     shockResistance: -15,
   },
   {
-    name: 'Kaeula',
+    name: `Kaeula's Shadow`,
     category: 'boss',
     imagePath: '/enemies/boss/kaeula.jpg',
     location: 'Yaesha',
@@ -1039,15 +1012,31 @@ const bossEnemies: Enemy[] = [
     id: 'tfuw8P',
   },
   {
-    id: 'S8mXCm',
-    name: 'Sunken Witch',
-    dlc: 'dlc1',
+    id: '3GZ6k2',
+    name: 'The Astropath',
+    dlc: 'base',
     category: 'boss',
-    imagePath: '/enemies/boss/sunken_witch.jpg',
-    location: 'Losomn',
-    dungeon: 'Sunken Haunt',
-    wikiLinks: ['https://remnant2.wiki.fextralife.com/Sunken+Witch'],
-    fireResistance: -5,
+    imagePath: '/enemies/boss/astropath.jpg',
+    location: "N'Erud",
+    dungeon: `Astropath's Respite`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/The+Astropath`],
+    bleedResistance: 'immune',
+    notes: 'Immune to Bleeding Status',
+  },
+  {
+    id: 'wb22RX',
+    name: "The Custodian's Eye",
+    dlc: 'base',
+    category: 'boss',
+    location: "N'Erud",
+    dungeon: 'Spectrum Nexus',
+    imagePath: '/enemies/boss/custodians_eye.jpg',
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/The+Custodian's+Eye`],
+    // TODO confirm these resistances, item was here twice with two different values
+    bleedResistance: 25,
+    fireResistance: 25,
+    shockResistance: -15,
+    acidResistance: -15,
   },
   {
     id: 'm2vW25',
@@ -1076,6 +1065,17 @@ const bossEnemies: Enemy[] = [
     shockResistance: -10,
   },
   {
+    id: 'S8mXCm',
+    name: 'The Sunken Witch',
+    dlc: 'dlc1',
+    category: 'boss',
+    imagePath: '/enemies/boss/sunken_witch.jpg',
+    location: 'Losomn',
+    dungeon: 'Sunken Haunt',
+    wikiLinks: ['https://remnant2.wiki.fextralife.com/Sunken+Witch'],
+    fireResistance: -5,
+  },
+  {
     name: 'Venom',
     category: 'boss',
     imagePath: '/enemies/boss/venom.jpg',
@@ -1084,9 +1084,9 @@ const bossEnemies: Enemy[] = [
     wikiLinks: ['https://remnant2.wiki.fextralife.com/Venom'],
     id: '5GEAx3',
   },
-]
+] as const satisfies Enemy[]
 
-const enemies: Enemy[] = [
+const enemies = [
   {
     id: 'aaL9vR',
     name: 'Barnacle Base',
@@ -1483,9 +1483,9 @@ const enemies: Enemy[] = [
     bleedResistance: 'immune',
     notes: 'Immune to Bleeding Status',
   },
-]
+] as const satisfies Enemy[]
 
-const worldBossEnemies: Enemy[] = [
+export const worldBossEnemies = [
   {
     name: 'Annihilation',
     category: 'world boss',
@@ -1494,6 +1494,15 @@ const worldBossEnemies: Enemy[] = [
     dungeon: 'Blacked Citadel',
     wikiLinks: ['https://remnant2.wiki.fextralife.com/Annihilation'],
     id: 'g9FwDF',
+  },
+  {
+    name: 'Corrupted Ravager',
+    category: 'world boss',
+    imagePath: '/enemies/worldboss/ravager.jpg',
+    location: 'Yaesha',
+    dungeon: `Ravager's Lair`,
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Corrupted+Ravager`],
+    id: '4zrNaX',
   },
   {
     name: 'Corruptor',
@@ -1546,26 +1555,7 @@ const worldBossEnemies: Enemy[] = [
     notes: 'Immune to all Statuses',
   },
   {
-    id: 'Fjy5pF',
-    name: 'One True King',
-    dlc: 'dlc1',
-    category: 'world boss',
-    imagePath: '/enemies/worldboss/one_true_king.jpg',
-    location: 'Losomn',
-    dungeon: 'Chamber of the Faithless',
-    wikiLinks: ['https://remnant2.wiki.fextralife.com/One+True+King'],
-  },
-  {
-    name: 'Ravager',
-    category: 'world boss',
-    imagePath: '/enemies/worldboss/ravager.jpg',
-    location: 'Yaesha',
-    dungeon: `Ravager's Lair`,
-    wikiLinks: [`https://remnant2.wiki.fextralife.com/Corrupted+Ravager`],
-    id: '4zrNaX',
-  },
-  {
-    name: `Sha'Hala`,
+    name: `Sha'Hala: Spectral Guardian of N'Erud`,
     category: 'world boss',
     imagePath: '/enemies/worldboss/sha_hala_normal.jpg',
     location: "N'Erud",
@@ -1576,7 +1566,7 @@ const worldBossEnemies: Enemy[] = [
     id: '2ZmDKS',
   },
   {
-    name: `Sha'Hala (Metaphysical)`,
+    name: `Sha'Hala: Spectral Guardian of N'Erud (Metaphysical)`,
     category: 'world boss',
     imagePath: '/enemies/worldboss/sha_hala_metaphysical.jpg',
     location: "N'Erud",
@@ -1620,7 +1610,17 @@ const worldBossEnemies: Enemy[] = [
     shockResistance: -10,
     acidResistance: 10,
   },
-]
+  {
+    id: 'Fjy5pF',
+    name: 'The One True King',
+    dlc: 'dlc1',
+    category: 'world boss',
+    imagePath: '/enemies/worldboss/one_true_king.jpg',
+    location: 'Losomn',
+    dungeon: 'Chamber of the Faithless',
+    wikiLinks: ['https://remnant2.wiki.fextralife.com/One+True+King'],
+  },
+] as const satisfies Enemy[]
 
 export const remnantEnemies: Enemy[] = [
   ...aberrationEnemies,

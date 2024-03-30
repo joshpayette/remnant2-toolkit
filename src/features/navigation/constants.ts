@@ -1,4 +1,5 @@
 import {
+  ArchiveBoxArrowDownIcon,
   ArchiveBoxIcon,
   ArrowLeftOnRectangleIcon,
   BookOpenIcon,
@@ -163,5 +164,12 @@ export const NAV_ITEMS = {
       'Definitive wiki for Remnant 2. Community driven, no ads or stream embeds.',
     href: 'https://remnant.wiki/',
     icon: '/wiki-icon.png',
+  },
+  worldSaveArchive: {
+    label: 'World Save Archive',
+    description:
+      'A collection of curated world saves for apocalypse bosses with specific affixes.',
+    href: '/world-save-archive',
+    icon: ArchiveBoxArrowDownIcon,
   },
 }

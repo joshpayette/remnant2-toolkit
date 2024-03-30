@@ -58,7 +58,7 @@ export default function Page() {
         </div>
 
         <div className="mt-12 flex w-full items-center justify-center">
-          <Suspense fallback={<Skeleton className="h-[50px] w-full" />}>
+          <Suspense fallback={<Skeleton className="h-[500px] w-full" />}>
             <ItemList />
           </Suspense>
         </div>

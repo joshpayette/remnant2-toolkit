@@ -4,7 +4,7 @@ export async function generateMetadata(
   { params: { itemName } }: { params: { itemName: string } },
   parent: ResolvingMetadata,
 ): Promise<Metadata> {
-  const title = 'Amplitude vs Resonance'
+  const title = 'Amplitude vs Resonance Guide - Remnant2Toolkit'
   const description =
     'A guide on what items and abilities are affected by Amplitude and Resonance'
 
