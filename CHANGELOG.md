@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-03-30
+
+### Fixed
+
+- Create a build link in the home page text now correctly redirects to authenticated builder if user is signed in.
+
 ## 2024-03-29
 
 ### Added

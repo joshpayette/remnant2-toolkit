@@ -47,7 +47,7 @@ export default async function Page() {
             <div className="mt-6 text-lg leading-8 text-gray-300">
               <Link
                 href="/community-builds"
-                className="hover:text-primary-500 hover:underline"
+                className="underline hover:text-primary-500"
               >
                 Search the community&apos;s{' '}
                 <span className="text-2xl font-bold text-primary-500">
@@ -57,15 +57,15 @@ export default async function Page() {
               </Link>
               ,{' '}
               <Link
-                href="/builder"
-                className="hover:text-primary-500 hover:underline"
+                href={session?.user?.id ? '/builder/create' : '/builder'}
+                className="underline hover:text-primary-500"
               >
                 create your own builds
               </Link>
               ,{' '}
               <Link
                 href="/tracker"
-                className="hover:text-primary-500 hover:underline"
+                className="underline hover:text-primary-500"
               >
                 track your collectibles
               </Link>
