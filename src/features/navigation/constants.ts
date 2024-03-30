@@ -12,6 +12,7 @@ import {
   MagnifyingGlassIcon,
   PlusIcon,
   PuzzlePieceIcon,
+  QueueListIcon,
   ShieldCheckIcon,
   StarIcon,
   TableCellsIcon,
@@ -130,6 +131,13 @@ export const NAV_ITEMS = {
     description: 'View and manage your profile.',
     href: '/profile',
     icon: UserIcon,
+  },
+  resources: {
+    label: 'Resources',
+    description:
+      'A collection of helpful tools, detailed guides, and third-party projects for Remnant 2.',
+    href: '/resources',
+    icon: QueueListIcon,
   },
   r2ag: {
     label: 'Remnant 2 Armor Generator',
