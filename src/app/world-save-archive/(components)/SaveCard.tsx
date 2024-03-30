@@ -6,6 +6,7 @@ import { v4 as uuidv4 } from 'uuid'
 import { getDownloadUrl } from '@/app/world-save-archive/(lib)/getDownloadUrl'
 import { BOSS_AFFIXES } from '@/app/world-save-archive/constants'
 import { FilteredSave } from '@/app/world-save-archive/types'
+import { RELEASE_TO_NAME } from '@/features/items/constants'
 import { Tooltip } from '@/features/ui/Tooltip'
 
 interface Props {
@@ -26,7 +27,7 @@ export function SaveCard({ saveItem }: Props) {
           <h3 className="mb-2 text-center text-lg font-bold text-white">
             {saveItem.bossName}
           </h3>
-          <div className="mb-4 flex items-center justify-center gap-x-2">
+          <div className="mb-2 flex items-center justify-center gap-x-2">
             {saveItem.bossAffixes.map((affix) => (
               <Tooltip
                 key={`${uuidv4()}}`}
@@ -45,11 +46,20 @@ export function SaveCard({ saveItem }: Props) {
         </div>
         <Link
           href={getDownloadUrl(saveItem.bossName, saveItem.bossAffixes)}
-          className="flex items-center justify-center gap-x-1 rounded-md bg-primary-500 px-2 py-1 font-bold text-black hover:underline"
+          className="mb-2 flex items-center justify-center gap-x-1 rounded-md bg-primary-500 px-2 py-1 text-lg font-bold text-black hover:underline"
         >
           <ArrowDownTrayIcon className="h-5 w-5" />
           Download
         </Link>
+        <Tooltip
+          content={`Using this save requires the ${
+            RELEASE_TO_NAME[saveItem.release]
+          } DLC.`}
+        >
+          <button className="rounded-sm px-1 py-0.5 text-xs text-gray-300">
+            Requires {RELEASE_TO_NAME[saveItem.release]}
+          </button>
+        </Tooltip>
       </div>
     </div>
   )

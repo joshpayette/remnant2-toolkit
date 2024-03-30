@@ -1555,7 +1555,7 @@ export const worldBossEnemies = [
     notes: 'Immune to all Statuses',
   },
   {
-    name: `Sha'Hala: Spectral Guardian of N'Erud`,
+    name: `Sha'Hala: Guardian of N'Erud`,
     category: 'world boss',
     imagePath: '/enemies/worldboss/sha_hala_normal.jpg',
     location: "N'Erud",
@@ -1566,7 +1566,7 @@ export const worldBossEnemies = [
     id: '2ZmDKS',
   },
   {
-    name: `Sha'Hala: Spectral Guardian of N'Erud (Metaphysical)`,
+    name: `Sha'Hala: Spectral Guardian of N'Erud`,
     category: 'world boss',
     imagePath: '/enemies/worldboss/sha_hala_metaphysical.jpg',
     location: "N'Erud",

@@ -50,7 +50,7 @@ export const BOSS_AFFIXES = [
   // },
   {
     name: 'Hearty',
-    description: `Increased max health.`,
+    description: `Increased max health by 15%.`,
   },
   {
     name: 'Hexer',
@@ -89,7 +89,7 @@ export const BOSS_AFFIXES = [
   // },
   {
     name: 'Spiteful',
-    description: `Gains a damage increase as it loses health.`,
+    description: `Gains a 0% - 25% damage increase as it loses health.`,
   },
   {
     name: 'Teleporter',
@@ -97,7 +97,7 @@ export const BOSS_AFFIXES = [
   },
   {
     name: 'Thick Skin',
-    description: `Reduced critical chance and critical damage against this target.`,
+    description: `Reduced critical chance by 10% and critical damage by 15% against this target.`,
   },
   {
     name: 'Toxic',
@@ -118,7 +118,7 @@ export const BOSS_AFFIXES = [
   // },
   {
     name: 'Vicious',
-    description: `Increased damage.`,
+    description: `Increased damage by 15%.`,
   },
   {
     name: 'Vortex',
@@ -135,48 +135,47 @@ export const BOSS_AFFIX_NAMES = BOSS_AFFIXES.map(({ name }) => name)
 
 // Consolidate the remnantEnemies data with the world save slug data
 const bossData = [...bossEnemies, ...worldBossEnemies]
-const bossSlugs = [
-  { name: 'Abomination', slug: 'abomination' },
-  { name: 'Annihilation', slug: 'annihilation' },
-  { name: 'Bloat King', slug: 'bloat_king' },
-  { name: 'Bruin, Blade of the King', slug: 'bruin_blade_of_the_king' },
-  { name: 'Cancer', slug: 'cancer' },
-  { name: 'Corrupted Ravager', slug: 'corrupted_ravager' },
-  { name: 'Corruptor', slug: 'corruptor' },
-  { name: 'Faelin', slug: 'faelin' },
-  { name: 'Faerin', slug: 'faerin' },
-  { name: 'Gwendil: The Unburnt', slug: 'gwendil_the_unburnt' },
-  { name: `Kaeula's Shadow`, slug: 'kaeulas_shadow' },
-  { name: 'Labyrinth Sentinel', slug: 'labyrinth_sentinel' },
-  { name: 'Magister Dullain', slug: 'magister_dullain' },
-  { name: 'Mother Mind', slug: 'mother_mind' },
-  { name: 'Legion', slug: 'legion' },
-  { name: 'Primogenitor', slug: 'primogenitor' },
+const bossNames = [
+  { name: 'Abomination' },
+  { name: 'Annihilation' },
+  { name: 'Bloat King' },
+  { name: 'Bruin, Blade of the King' },
+  { name: 'Cancer' },
+  { name: 'Corrupted Ravager' },
+  { name: 'Corruptor' },
+  { name: 'Faelin' },
+  { name: 'Faerin' },
+  { name: 'Gwendil: The Unburnt' },
+  { name: `Kaeula's Shadow` },
+  { name: 'Labyrinth Sentinel' },
+  { name: 'Magister Dullain' },
+  { name: 'Mother Mind' },
+  { name: 'Legion' },
+  { name: 'Primogenitor' },
+  { name: `Sha'Hala: Guardian of N'Erud` },
   {
     name: `Sha'Hala: Spectral Guardian of N'Erud`,
-    slug: `sha_hala_spectral_guardian_of_nerud`,
   },
-  { name: 'Shrewd', slug: 'shrewd' },
-  { name: `Tal'Ratha`, slug: `tal'ratha` },
-  { name: `Tal'Ratha (Metaphysical)`, slug: `tal'ratha_(metaphysical)` },
-  { name: 'The Astropath', slug: 'the_astropath' },
-  { name: `The Custodian's Eye`, slug: `the_custodians_eye` },
-  { name: 'The Huntress', slug: 'the_huntress' },
-  { name: 'The Nightweaver', slug: 'the_nightweaver' },
-  { name: 'The One True King', slug: 'the_one_true_king' },
-  { name: 'The Red Prince', slug: 'the_red_prince' },
-  { name: 'The Sunken Witch', slug: 'the_sunken_witch' },
-  { name: 'Venom', slug: 'venom' },
+  { name: 'Shrewd' },
+  { name: `Tal'Ratha` },
+  { name: `Tal'Ratha (Metaphysical)` },
+  { name: 'The Astropath' },
+  { name: `The Custodian's Eye` },
+  { name: 'The Huntress' },
+  { name: 'The Nightweaver' },
+  { name: 'The One True King' },
+  { name: 'The Red Prince' },
+  { name: 'The Sunken Witch' },
+  { name: 'Venom' },
 ] as const satisfies Array<{
   name: (typeof bossData)[number]['name']
-  slug: string
 }>
 
 /**
  * Combination of the remnantEnemies boss data and the
  * world-save-archive info
  */
-export const BOSSES = bossSlugs.map((boss) => {
+export const BOSSES = bossNames.map((boss) => {
   const data = bossData.find(({ name }) => name === boss.name)
   if (!data) {
     throw new Error(`Boss not found: ${boss.name}`)

@@ -152,6 +152,11 @@ export const worldSaves = [
     release: 'dlc1',
   },
   {
+    bossName: 'Faerin',
+    bossAffixes: ['Spiteful', 'Vicious'],
+    release: 'dlc1',
+  },
+  {
     bossName: 'Gwendil: The Unburnt',
     bossAffixes: ['Elemental Resist', 'Regenerator'],
     release: 'dlc1',
@@ -187,6 +192,51 @@ export const worldSaves = [
     release: 'dlc1',
   },
   {
+    bossName: 'Legion',
+    bossAffixes: ['Drain', 'Elemental Resist'],
+    release: 'dlc1',
+  },
+  {
+    bossName: 'Legion',
+    bossAffixes: ['Drain', 'Hearty'],
+    release: 'dlc1',
+  },
+  {
+    bossName: 'Legion',
+    bossAffixes: ['Drain', 'Spiteful'],
+    release: 'dlc1',
+  },
+  {
+    bossName: 'Legion',
+    bossAffixes: ['Drain', 'Vicious'],
+    release: 'dlc1',
+  },
+  {
+    bossName: 'Legion',
+    bossAffixes: ['Elemental Resist', 'Vicious'],
+    release: 'dlc1',
+  },
+  {
+    bossName: 'Legion',
+    bossAffixes: ['Elemental Resist', 'Thick Skin'],
+    release: 'dlc1',
+  },
+  {
+    bossName: 'Legion',
+    bossAffixes: ['Regenerator', 'Spiteful'],
+    release: 'dlc1',
+  },
+  {
+    bossName: 'Legion',
+    bossAffixes: ['Spiteful', 'Thick Skin'],
+    release: 'dlc1',
+  },
+  {
+    bossName: 'Legion',
+    bossAffixes: ['Spiteful', 'Vicious'],
+    release: 'dlc1',
+  },
+  {
     bossName: 'Magister Dullain',
     bossAffixes: ['Elemental Resist', 'Hearty'],
     release: 'dlc1',
@@ -217,13 +267,28 @@ export const worldSaves = [
     release: 'dlc1',
   },
   {
+    bossName: 'Mother Mind',
+    bossAffixes: ['Spiteful', 'Vicious'],
+    release: 'dlc1',
+  },
+  {
     bossName: 'Primogenitor',
     bossAffixes: ['Elemental Resist', 'Hearty'],
     release: 'dlc1',
   },
   {
+    bossName: `Sha'Hala: Guardian of N'Erud`,
+    bossAffixes: ['Spiteful', 'Vicious'],
+    release: 'dlc1',
+  },
+  {
     bossName: `Sha'Hala: Spectral Guardian of N'Erud`,
     bossAffixes: ['Elemental Resist', 'Vicious'],
+    release: 'dlc1',
+  },
+  {
+    bossName: `Sha'Hala: Spectral Guardian of N'Erud`,
+    bossAffixes: ['Spiteful', 'Vicious'],
     release: 'dlc1',
   },
   {
@@ -304,6 +369,11 @@ export const worldSaves = [
   {
     bossName: 'The One True King',
     bossAffixes: ['Hearty', 'Spiteful'],
+    release: 'dlc1',
+  },
+  {
+    bossName: 'The One True King',
+    bossAffixes: ['Spiteful', 'Vicious'],
     release: 'dlc1',
   },
   {
