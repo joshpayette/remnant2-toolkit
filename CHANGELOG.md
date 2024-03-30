@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2024-03-30
 
+### Added
+
+- Add a new `World Save Archive` section, where you can find world saves rolled to specific bosses and affixes.
+
 ### Fixed
 
 - Create a build link in the home page text now correctly redirects to authenticated builder if user is signed in.
