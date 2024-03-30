@@ -853,7 +853,7 @@ export const bossEnemies = [
   {
     name: 'Befouled Altar',
     category: 'boss',
-    imagePath: '/enemies/boss/befouled_altar.jpg',
+    imagePath: '/enemies/boss/befouled_altar1.jpg',
     location: 'Losomn',
     dungeon: 'The Forgotten Comune',
     wikiLinks: ['https://remnant2.wiki.fextralife.com/Befouled+Altar'],
