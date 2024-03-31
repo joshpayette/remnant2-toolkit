@@ -117,10 +117,11 @@ export const BOSS_AFFIXES = [
     name: 'Trapper',
     description: `Creates a damaging field of corruption beneath the Traveler whenever they dodge. Neutral backstep and slide evades are unaffected.`,
   },
-  {
-    name: 'Unstoppable',
-    description: `Cannot be staggered.`,
-  },
+  // Limited to aberrations
+  // {
+  //   name: 'Unstoppable',
+  //   description: `Cannot be staggered.`,
+  // },
   // Limited to aberrations
   // {
   //   name: 'Vanguard',
