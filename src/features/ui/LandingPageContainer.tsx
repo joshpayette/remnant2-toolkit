@@ -1,13 +1,17 @@
 import Image from 'next/image'
 
+import { cn } from '@/lib/classnames'
+
 interface Props {
+  bgClass?: string
   children: React.ReactNode
-  image: 'home-bg.jpg' | 'resources-bg1.jpg'
+  image: 'home-bg.jpg' | 'resources-bg1.jpg' | 'support-r2tk-bg.jpg'
   title: string
   description: React.ReactNode
 }
 
 export function LandingPageContainer({
+  bgClass = 'bg-black/30',
   children,
   image,
   title,
@@ -22,7 +26,9 @@ export function LandingPageContainer({
         className="absolute inset-0 -z-10 h-full w-full object-cover object-right md:object-center"
         loading="eager"
       />
-      <div className="absolute left-0 top-0 -z-[5] h-full w-full bg-black/30" />
+      <div
+        className={cn('absolute left-0 top-0 -z-[5] h-full w-full', bgClass)}
+      />
       <div className="sm:transform-g1 hidden w-full sm:absolute sm:-top-10 sm:right-1/2 sm:-z-10 sm:mr-10 sm:block sm:blur-3xl">
         <div
           className="aspect-[1097/845] w-[68.5625rem] bg-gradient-to-tr from-[#9646ff] to-[#776fff] opacity-20"

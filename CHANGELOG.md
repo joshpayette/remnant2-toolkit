@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2024-03-31
 
+### Added
+
+#### Support R2TK
+
+- Added a new landing page for the Support R2TK link. Now supports Ko-Fi donations, as well as Patreon subscriptions.
+
 ### Fixed
 
 #### Item Lookup

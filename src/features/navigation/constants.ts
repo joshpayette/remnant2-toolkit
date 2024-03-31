@@ -162,8 +162,8 @@ export const NAV_ITEMS = {
   supportR2TK: {
     label: 'Support R2TK!',
     description:
-      'Help with the costs of running the Toolkit and keeping it ad-free, plus get some cool perks!',
-    href: 'https://www.patreon.com/JoshPayette/membership',
+      'Help with the costs of running the Toolkit and keeping it ad-free, plus get some small perks!',
+    href: '/support-r2tk',
     icon: HeartIcon,
   },
   wiki: {
