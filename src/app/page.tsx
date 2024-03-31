@@ -13,7 +13,7 @@ export default async function Page() {
 
   return (
     <LandingPageContainer
-      image="home-bg.jpg"
+      image="home"
       title="Remnant 2 Toolkit"
       description={
         <>

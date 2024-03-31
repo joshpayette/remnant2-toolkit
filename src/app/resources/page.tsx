@@ -9,7 +9,7 @@ import { LandingPageContainer } from '@/features/ui/LandingPageContainer'
 export default async function Page() {
   return (
     <LandingPageContainer
-      image="resources-bg1.jpg"
+      image="resources"
       title="Toolkit Resources"
       description={
         <div className="mt-6 text-lg leading-8 text-gray-300">

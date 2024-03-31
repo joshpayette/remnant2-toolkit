@@ -6,7 +6,7 @@ export default async function Page() {
   return (
     <LandingPageContainer
       bgClass="bg-black/60"
-      image="support-r2tk-bg.jpg"
+      image="support"
       title="Support the Toolkit"
       description={
         <div className="mt-6 text-lg leading-8 text-gray-300">

@@ -5,7 +5,7 @@ import { cn } from '@/lib/classnames'
 interface Props {
   bgClass?: string
   children: React.ReactNode
-  image: 'home-bg.jpg' | 'resources-bg1.jpg' | 'support-r2tk-bg.jpg'
+  image: 'home' | 'resources' | 'support'
   title: string
   description: React.ReactNode
 }
@@ -17,10 +17,25 @@ export function LandingPageContainer({
   title,
   description,
 }: Props) {
+  let imageName = ''
+  switch (image) {
+    case 'home':
+      imageName = 'home-bg1.jpg'
+      break
+    case 'resources':
+      imageName = 'resources-bg2.jpg'
+      break
+    case 'support':
+      imageName = 'support-r2tk-bg.jpg'
+      break
+    default:
+      imageName = 'home-bg1.jpg'
+  }
+
   return (
     <div className="relative isolate w-full max-w-7xl overflow-hidden py-24">
       <Image
-        src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/toolkit/${image}`}
+        src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/toolkit/${imageName}`}
         alt="Home page background"
         fill
         className="absolute inset-0 -z-10 h-full w-full object-cover object-right md:object-center"
