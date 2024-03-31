@@ -65,22 +65,23 @@ export default function Page() {
           </Suspense>
         </div>
 
-        <div className="mb-4 flex w-full items-center justify-center">
-          <ToCsvButton data={csvItems} filename="remnant2toolkit_iteminfo" />
-        </div>
-
         {areAnyItemsBeingCompared ? (
-          <div className="mt-12 flex w-full items-center justify-center">
+          <div className="mt-4 flex w-full items-center justify-center">
             <Suspense fallback={<Skeleton className="h-[500px] w-full" />}>
               <ItemCompareList />
             </Suspense>
           </div>
         ) : null}
 
-        <div className="mt-12 flex w-full items-center justify-center">
+        <div className="mt-4 flex w-full items-center justify-center">
           <Suspense fallback={<Skeleton className="h-[500px] w-full" />}>
             <ItemList />
           </Suspense>
+        </div>
+
+        <div className="mt-8 flex w-full flex-col items-center justify-center">
+          <hr className="mb-4 w-full border-t border-primary-500" />
+          <ToCsvButton data={csvItems} filename="remnant2toolkit_iteminfo" />
         </div>
       </div>
     </div>
