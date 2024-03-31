@@ -31,8 +31,6 @@ export function ToCsvButton({
   filename,
   label = 'Export All Data to CSV',
 }: ToCsvProps) {
-  console.info('data', data)
-
   if (!data || data.length === 0) return null
 
   return (
