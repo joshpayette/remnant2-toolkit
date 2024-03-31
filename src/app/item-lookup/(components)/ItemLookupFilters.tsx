@@ -1,5 +1,5 @@
 import { Disclosure } from '@headlessui/react'
-import { ChevronRightIcon } from '@heroicons/react/24/solid'
+import { ChevronRightIcon, TrashIcon } from '@heroicons/react/24/solid'
 import isEqual from 'lodash.isequal'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import { useMemo, useRef, useState } from 'react'
@@ -265,7 +265,7 @@ export function ItemLookupFilters({}: Props) {
                 </div>
                 {unappliedFilters.searchText !== '' ? (
                   <button
-                    className="rounded-md border-2 border-red-700 px-2 py-1 text-sm text-white hover:border-red-500"
+                    className="rounded-md border-2 border-red-700 p-2 text-sm text-white hover:border-red-500"
                     onClick={() => {
                       handleSearchTextChange('')
                       handleApplyFilters({
@@ -275,7 +275,7 @@ export function ItemLookupFilters({}: Props) {
                       searchTextFieldKey.current = new Date().getTime()
                     }}
                   >
-                    Clear search text
+                    <TrashIcon className="h-5 w-5 text-red-500" />
                   </button>
                 ) : null}
               </div>
