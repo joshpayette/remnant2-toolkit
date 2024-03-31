@@ -30,18 +30,18 @@ export function ArchetypeFilters({
       <div className="text-xs">
         <button
           className="underline"
-          aria-label="Uncheck all archetypes"
-          onClick={onSelectNone}
-        >
-          Uncheck All
-        </button>{' '}
-        /{' '}
-        <button
-          className="underline"
           aria-label="Check all archetypes"
           onClick={onSelectAll}
         >
           Check All
+        </button>{' '}
+        /{' '}
+        <button
+          className="underline"
+          aria-label="Uncheck all archetypes"
+          onClick={onSelectNone}
+        >
+          Uncheck All
         </button>
       </div>
       <div className="grid w-full grid-cols-2 gap-x-8 text-left sm:grid-cols-3 md:grid-cols-4">

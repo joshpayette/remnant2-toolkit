@@ -52,34 +52,39 @@ function getFilteredItems(
   })
 
   // Filter out the categories
-  newFilteredItems = newFilteredItems.filter((item) => {
-    if (item.category === undefined) {
-      return true
-    }
-
-    return filters.itemCategories.some((itemCategory) => {
-      if (itemCategory === 'Long Gun' && WeaponItem.isWeaponItem(item)) {
-        return item.category === 'weapon' && item.type === 'long gun'
-      }
-      if (itemCategory === 'Hand Gun' && WeaponItem.isWeaponItem(item)) {
-        return item.category === 'weapon' && item.type === 'hand gun'
-      }
-      if (itemCategory === 'Melee' && WeaponItem.isWeaponItem(item)) {
-        return item.category === 'weapon' && item.type === 'melee'
-      }
-      if (itemCategory === 'Mutator (Gun)' && MutatorItem.isMutatorItem(item)) {
-        return item.category === 'mutator' && item.type === 'gun'
-      }
-      if (
-        itemCategory === 'Mutator (Melee)' &&
-        MutatorItem.isMutatorItem(item)
-      ) {
-        return item.category === 'mutator' && item.type === 'melee'
+  if (filters.itemCategories.length > 0) {
+    newFilteredItems = newFilteredItems.filter((item) => {
+      if (item.category === undefined) {
+        return true
       }
 
-      return capitalize(item.category) === itemCategory
+      return filters.itemCategories.some((itemCategory) => {
+        if (itemCategory === 'Long Gun' && WeaponItem.isWeaponItem(item)) {
+          return item.category === 'weapon' && item.type === 'long gun'
+        }
+        if (itemCategory === 'Hand Gun' && WeaponItem.isWeaponItem(item)) {
+          return item.category === 'weapon' && item.type === 'hand gun'
+        }
+        if (itemCategory === 'Melee' && WeaponItem.isWeaponItem(item)) {
+          return item.category === 'weapon' && item.type === 'melee'
+        }
+        if (
+          itemCategory === 'Mutator (Gun)' &&
+          MutatorItem.isMutatorItem(item)
+        ) {
+          return item.category === 'mutator' && item.type === 'gun'
+        }
+        if (
+          itemCategory === 'Mutator (Melee)' &&
+          MutatorItem.isMutatorItem(item)
+        ) {
+          return item.category === 'mutator' && item.type === 'melee'
+        }
+
+        return capitalize(item.category) === itemCategory
+      })
     })
-  })
+  }
 
   // Sort alphabetically by item.category and item.name
   newFilteredItems = newFilteredItems.sort((a, b) => {

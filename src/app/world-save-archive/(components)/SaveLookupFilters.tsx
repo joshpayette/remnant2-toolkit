@@ -26,10 +26,10 @@ import { cn } from '@/lib/classnames'
 let bossNames = BOSSES.map((b) => b.name as BossName | 'Choose')
 bossNames.unshift('Choose')
 
-const defaultBossAffixes = BOSS_AFFIXES.map((affix) => affix.name)
+export const defaultBossAffixes = BOSS_AFFIXES.map((affix) => affix.name)
 
 export const DEFAULT_SEARCH_FILTERS: SearchFilters = {
-  affixes: defaultBossAffixes,
+  affixes: [],
   bossName: 'Choose',
 }
 
@@ -73,7 +73,7 @@ export function SaveLookupFilters({}: Props) {
     let finalPath = `${pathname}?`
     if (
       newFilters.affixes.length > 0 &&
-      newFilters.affixes.length <= MAX_BOSS_AFFIXES
+      newFilters.affixes.length !== defaultBossAffixes.length
     ) {
       finalPath += `affixes=${newFilters.affixes.join(',')}&`
     }
@@ -168,17 +168,6 @@ export function SaveLookupFilters({}: Props) {
                 <div className="text-xs">
                   <button
                     className="underline"
-                    aria-label="Uncheck all categories"
-                    onClick={() => {
-                      setUnappliedFilters({ ...unappliedFilters, affixes: [] })
-                      handleApplyFilters({ ...unappliedFilters, affixes: [] })
-                    }}
-                  >
-                    Uncheck All
-                  </button>{' '}
-                  /{' '}
-                  <button
-                    className="underline"
                     aria-label="Check all categories"
                     onClick={() => {
                       setUnappliedFilters({
@@ -192,6 +181,17 @@ export function SaveLookupFilters({}: Props) {
                     }}
                   >
                     Check All
+                  </button>{' '}
+                  /{' '}
+                  <button
+                    className="underline"
+                    aria-label="Uncheck all categories"
+                    onClick={() => {
+                      setUnappliedFilters({ ...unappliedFilters, affixes: [] })
+                      handleApplyFilters({ ...unappliedFilters, affixes: [] })
+                    }}
+                  >
+                    Uncheck All
                   </button>
                 </div>
                 <div className="relative flex w-full flex-col items-start shadow-sm">

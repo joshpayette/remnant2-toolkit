@@ -49,7 +49,7 @@ function buildItemList(): Array<{ id: string; name: string }> {
   return items
 }
 
-const defaultItemCategories: ItemLookupCategory[] = [
+export const defaultItemCategories: ItemLookupCategory[] = [
   'Helm',
   'Torso',
   'Legs',
@@ -74,7 +74,7 @@ const defaultItemCategories: ItemLookupCategory[] = [
 
 export const DEFAULT_ITEM_LOOKUP_FILTERS: ItemLookupFilterFields = {
   collectionKeys: DEFAULT_COLLECTION_FILTERS,
-  itemCategories: defaultItemCategories,
+  itemCategories: [],
   searchText: '',
   selectedReleases: DEFAULT_RELEASE_FILTERS,
 }
@@ -186,10 +186,10 @@ export function ItemLookupFilters({}: Props) {
 
   function handleApplyFilters(newFilters: ItemLookupFilterFields) {
     let finalPath = `${pathname}?`
+
     if (
       newFilters.itemCategories.length > 0 &&
-      newFilters.itemCategories.length <
-        DEFAULT_ITEM_LOOKUP_FILTERS['itemCategories'].length
+      newFilters.itemCategories.length < defaultItemCategories.length
     ) {
       finalPath += `categories=${newFilters.itemCategories.join(',')}&`
     }

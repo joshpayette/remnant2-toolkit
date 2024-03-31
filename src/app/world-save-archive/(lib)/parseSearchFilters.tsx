@@ -1,6 +1,9 @@
 import { ReadonlyURLSearchParams } from 'next/navigation'
 
-import { DEFAULT_SEARCH_FILTERS } from '@/app/world-save-archive/(components)/SaveLookupFilters'
+import {
+  DEFAULT_SEARCH_FILTERS,
+  defaultBossAffixes,
+} from '@/app/world-save-archive/(components)/SaveLookupFilters'
 import {
   BossAffixName,
   BossName,
@@ -16,7 +19,7 @@ export function parseSearchFilters(
 
   // check if affixes are valid
   if (affixes) {
-    const allAffixes: BossAffixName[] = DEFAULT_SEARCH_FILTERS['affixes']
+    const allAffixes: BossAffixName[] = defaultBossAffixes
     const affixesArray = affixes.split(',')
     affixesArray.forEach((affix) => {
       if (!allAffixes.includes(affix as BossAffixName)) {

@@ -284,17 +284,6 @@ export function ItemTrackerFilters({
             <div className="text-xs">
               <button
                 className="underline"
-                aria-label="Uncheck all DLCs"
-                onClick={() => {
-                  setIncludedDlcKeys([])
-                  updateFilteredItems()
-                }}
-              >
-                Uncheck All
-              </button>{' '}
-              /{' '}
-              <button
-                className="underline"
                 aria-label="Check all DLCs"
                 onClick={() => {
                   setIncludedDlcKeys(defaultReleaseKeys)
@@ -302,6 +291,17 @@ export function ItemTrackerFilters({
                 }}
               >
                 Check All
+              </button>{' '}
+              /{' '}
+              <button
+                className="underline"
+                aria-label="Uncheck all DLCs"
+                onClick={() => {
+                  setIncludedDlcKeys([])
+                  updateFilteredItems()
+                }}
+              >
+                Uncheck All
               </button>
             </div>
             <div className="grid grid-cols-2 text-left">
@@ -330,17 +330,6 @@ export function ItemTrackerFilters({
             <div className="text-xs">
               <button
                 className="underline"
-                aria-label="Uncheck all collections"
-                onClick={() => {
-                  setIncludedCollectionKeys([])
-                  updateFilteredItems()
-                }}
-              >
-                Uncheck All
-              </button>{' '}
-              /{' '}
-              <button
-                className="underline"
                 aria-label="Check all collections"
                 onClick={() => {
                   setIncludedCollectionKeys(defaultCollectionKeys)
@@ -348,6 +337,17 @@ export function ItemTrackerFilters({
                 }}
               >
                 Check All
+              </button>{' '}
+              /{' '}
+              <button
+                className="underline"
+                aria-label="Uncheck all collections"
+                onClick={() => {
+                  setIncludedCollectionKeys([])
+                  updateFilteredItems()
+                }}
+              >
+                Uncheck All
               </button>
             </div>
             <div className="grid grid-cols-2 text-left">

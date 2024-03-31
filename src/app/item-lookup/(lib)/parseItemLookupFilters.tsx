@@ -8,7 +8,10 @@ import {
 } from '@/features/items/types'
 import { capitalize } from '@/lib/capitalize'
 
-import { DEFAULT_ITEM_LOOKUP_FILTERS } from '../(components)/ItemLookupFilters'
+import {
+  DEFAULT_ITEM_LOOKUP_FILTERS,
+  defaultItemCategories,
+} from '../(components)/ItemLookupFilters'
 
 export function parseItemLookupFilters(
   searchParams: ReadonlyURLSearchParams,
@@ -21,8 +24,7 @@ export function parseItemLookupFilters(
 
   // check if categories are valid
   if (categories) {
-    const allCategories: ItemLookupCategory[] =
-      DEFAULT_ITEM_LOOKUP_FILTERS['itemCategories']
+    const allCategories: ItemLookupCategory[] = defaultItemCategories
     const categoriesArray = categories.split(',')
     categoriesArray.forEach((category) => {
       if (!allCategories.includes(category)) {

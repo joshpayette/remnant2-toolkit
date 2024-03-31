@@ -18,6 +18,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Reworked the navigation bar to be more organized and easier to navigate.
   - Resources is no longer a dropdown menu, but rather a separate page of links.
 - Updated the images for the main page and resource pages.
+- On Item Lookup filters, categories are all unchecked by default.
+- On Build List filters, archetypes are all unchecked by default.
+- Swapped order of `Check All / Uncheck All` prompts
 - Moved the Export to CSV button on the Item Lookup page to the bottom of the page.
 - Cleaned up excess white space throughout portions of the site.
 

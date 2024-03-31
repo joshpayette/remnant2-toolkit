@@ -29,7 +29,7 @@ import { DEFAULT_WEAPON_FILTERS, WeaponFilters } from './parts/WeaponFilters'
 
 export const DEFAULT_BUILD_LIST_FILTERS: BuildListFilterFields = {
   amulet: DEFAULT_JEWELRY_FILTERS.amulet,
-  archetypes: DEFAULT_ARCHETYPE_FILTERS,
+  archetypes: [],
   buildTags: DEFAULT_BUILD_TAG_FILTERS,
   handGun: DEFAULT_WEAPON_FILTERS.handGun,
   longGun: DEFAULT_WEAPON_FILTERS.longGun,
@@ -67,8 +67,7 @@ export function BuildListFilters() {
   // indicate that
   const areAnyFiltersActive = useMemo(() => {
     return (
-      filters.archetypes.length !==
-        DEFAULT_BUILD_LIST_FILTERS['archetypes'].length ||
+      filters.archetypes.length > 0 ||
       filters.buildTags.length !== DEFAULT_BUILD_TAG_FILTERS.length ||
       filters.longGun !== DEFAULT_BUILD_LIST_FILTERS['longGun'] ||
       filters.handGun !== DEFAULT_BUILD_LIST_FILTERS['handGun'] ||
@@ -197,8 +196,7 @@ export function BuildListFilters() {
     let finalPath = `${pathname}?t=${Date.now()}&`
     if (
       newFilters.archetypes.length > 0 &&
-      newFilters.archetypes.length <
-        DEFAULT_BUILD_LIST_FILTERS['archetypes'].length
+      newFilters.archetypes.length < DEFAULT_ARCHETYPE_FILTERS.length
     ) {
       finalPath += `archetypes=${newFilters.archetypes.join(',')}&`
     }
