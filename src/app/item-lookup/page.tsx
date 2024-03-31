@@ -1,10 +1,12 @@
 'use client'
 
 import { Suspense } from 'react'
+import { useLocalStorage } from 'usehooks-ts'
 
 import { ItemCompareList } from '@/app/item-lookup/(components)/ItemCompareList'
 import { ItemList } from '@/app/item-lookup/(components)/ItemList'
 import { ItemLookupFilters } from '@/app/item-lookup/(components)/ItemLookupFilters'
+import { getArrayOfLength } from '@/features/build/lib/getArrayOfLength'
 import { allItems } from '@/features/items/data/allItems'
 import { itemToCsvItem } from '@/features/items/lib/itemToCsvItem'
 import { MutatorItem } from '@/features/items/types/MutatorItem'
@@ -40,6 +42,15 @@ const csvItems = allItems
     return 0
   })
 export default function Page() {
+  const [itemsToCompare, setItemsToCompare] = useLocalStorage<string[]>(
+    'item-lookup-compare',
+    getArrayOfLength(5).map(() => ''),
+    { initializeWithValue: false },
+  )
+  const areAnyItemsBeingCompared = itemsToCompare.some(
+    (itemId) => itemId !== '',
+  )
+
   return (
     <div className="relative flex w-full flex-col items-center justify-center">
       <PageHeader
@@ -58,11 +69,13 @@ export default function Page() {
           <ToCsvButton data={csvItems} filename="remnant2toolkit_iteminfo" />
         </div>
 
-        <div className="mt-12 flex w-full items-center justify-center">
-          <Suspense fallback={<Skeleton className="h-[500px] w-full" />}>
-            <ItemCompareList />
-          </Suspense>
-        </div>
+        {areAnyItemsBeingCompared ? (
+          <div className="mt-12 flex w-full items-center justify-center">
+            <Suspense fallback={<Skeleton className="h-[500px] w-full" />}>
+              <ItemCompareList />
+            </Suspense>
+          </div>
+        ) : null}
 
         <div className="mt-12 flex w-full items-center justify-center">
           <Suspense fallback={<Skeleton className="h-[500px] w-full" />}>
