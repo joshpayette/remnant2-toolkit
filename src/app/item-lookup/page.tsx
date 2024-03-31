@@ -75,7 +75,7 @@ export default function Page() {
 
         <div className="mt-2 flex w-full items-center justify-center">
           <Suspense fallback={<Skeleton className="h-[500px] w-full" />}>
-            <ItemList key={areAnyItemsBeingCompared ? 'true' : 'false'} />
+            <ItemList />
           </Suspense>
         </div>
 
