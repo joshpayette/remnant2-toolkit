@@ -250,8 +250,8 @@ export function ItemLookupFilters({}: Props) {
               filters={unappliedFilters}
               onClearFilters={handleClearFilters}
             >
-              <div className="col-span-full flex w-full flex-col items-end justify-center gap-x-4 gap-y-2 border-b border-b-primary-800 pb-4 sm:flex-row">
-                <div className="flex w-full max-w-[400px] flex-col items-start justify-center">
+              <div className="col-span-full flex w-full flex-row items-end justify-center gap-x-4 gap-y-2 border-b border-b-primary-800 pb-2">
+                <div className="w-full max-w-[400px]">
                   <SearchTextAutocomplete
                     key={searchTextFieldKey.current}
                     items={buildItemList()}
@@ -280,7 +280,7 @@ export function ItemLookupFilters({}: Props) {
                 ) : null}
               </div>
 
-              <div className="col-span-full flex w-full border-b border-b-primary-800 pb-4 sm:col-span-3">
+              <div className="col-span-full flex w-full border-b border-b-primary-800 pb-2 sm:col-span-3">
                 <ReleaseFilters
                   selectedReleases={unappliedFilters.selectedReleases}
                   onChange={(release: ReleaseKey) =>
@@ -288,7 +288,7 @@ export function ItemLookupFilters({}: Props) {
                   }
                 />
               </div>
-              <div className="col-span-full flex w-full border-b border-b-primary-800 pb-4 sm:col-span-3">
+              <div className="col-span-full flex w-full border-b border-b-primary-800 pb-2 sm:col-span-3">
                 <CollectedItemFilters
                   selectedCollectionKeys={unappliedFilters.collectionKeys}
                   onUpdate={(collectionKey: string) =>
@@ -297,7 +297,7 @@ export function ItemLookupFilters({}: Props) {
                 />
               </div>
 
-              <div className="col-span-full flex w-full flex-col items-start justify-start gap-x-4 gap-y-2 border-b border-b-primary-800 pb-4 pt-2">
+              <div className="col-span-full flex w-full flex-col items-start justify-start gap-x-4 gap-y-2 border-b border-b-primary-800 pb-2">
                 <ItemCategoryFilters
                   defaultItemCategories={defaultItemCategories}
                   selectedItemCategories={unappliedFilters.itemCategories}

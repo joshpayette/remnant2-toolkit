@@ -16,7 +16,7 @@ export function ItemCategoryFilters({
 }: Props) {
   return (
     <>
-      <div className="flex w-full items-center justify-start text-left text-sm font-bold text-primary-500">
+      <div className="flex w-full items-center justify-start pt-2 text-left text-sm font-bold text-primary-500">
         By Category
       </div>
       <div className="text-xs">

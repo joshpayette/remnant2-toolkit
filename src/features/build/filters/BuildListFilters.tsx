@@ -282,7 +282,7 @@ export function BuildListFilters() {
               onApplyFilters={handleApplyFilters}
               onClearFilters={handleClearFilters}
             >
-              <div className="col-span-full border-b border-b-primary-800 pb-4 lg:col-span-3">
+              <div className="col-span-full border-b border-b-primary-800 pb-2 lg:col-span-3">
                 <SearchBuildsFilter
                   searchText={unappliedFilters.searchText}
                   onApplyFilters={() => handleApplyFilters(unappliedFilters)}
@@ -291,7 +291,7 @@ export function BuildListFilters() {
                   }
                 />
               </div>
-              <div className="col-span-full border-b border-b-primary-800 pb-4 pt-2 lg:col-span-3 lg:pt-0">
+              <div className="col-span-full border-b border-b-primary-800 pb-2 pt-2 lg:col-span-3">
                 <ArchetypeFilters
                   selectedArchetypes={unappliedFilters.archetypes}
                   onChange={(archtype: Archetype) =>
@@ -301,7 +301,7 @@ export function BuildListFilters() {
                   onSelectNone={handleSelectNoArchetypes}
                 />
               </div>
-              <div className="col-span-full border-b border-b-primary-800 pb-4 pt-2 lg:col-span-3 lg:pt-0">
+              <div className="col-span-full border-b border-b-primary-800 pb-2 pt-2 lg:col-span-3">
                 <WeaponFilters
                   selectedLongGun={unappliedFilters.longGun}
                   selectedHandGun={unappliedFilters.handGun}
@@ -309,7 +309,7 @@ export function BuildListFilters() {
                   onChange={handleWeaponChange}
                 />
               </div>
-              <div className="col-span-full border-b border-b-primary-800 pb-4 pt-2 lg:col-span-3 lg:pt-0">
+              <div className="col-span-full border-b border-b-primary-800 pb-2 pt-2 lg:col-span-3">
                 <JewelryFilters
                   selectedRings={{
                     ring1: unappliedFilters.ring1,
@@ -323,19 +323,19 @@ export function BuildListFilters() {
                 />
               </div>
 
-              <div className="col-span-1 border-b border-b-primary-800 pb-4 pt-2 sm:col-span-3 lg:col-span-2 lg:pt-0">
+              <div className="col-span-1 border-b border-b-primary-800 pb-2 pt-2 sm:col-span-3 lg:col-span-2">
                 <ReleaseFilters
                   selectedReleases={unappliedFilters.selectedReleases}
                   onChange={handleReleaseChange}
                 />
               </div>
-              <div className="col-span-1 border-b border-b-primary-800 pb-4 pt-2 sm:col-span-3 lg:col-span-2 lg:pt-0">
+              <div className="col-span-1 border-b border-b-primary-800 pb-2 pt-2 sm:col-span-3 lg:col-span-2">
                 <BuildTagFilters
                   selectedTags={unappliedFilters.buildTags}
                   onChange={handleBuildTagChange}
                 />
               </div>
-              <div className="col-span-full border-b border-b-primary-800 pb-4 pt-2 lg:col-span-2 lg:pt-0">
+              <div className="col-span-full border-b border-b-primary-800 pb-2 pt-2 lg:col-span-2">
                 <div className="flex w-full flex-col items-start justify-start gap-x-4 gap-y-2">
                   <div className="flex w-full flex-col items-start justify-start text-left text-sm font-bold text-primary-500">
                     By Patch
