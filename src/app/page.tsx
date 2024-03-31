@@ -56,7 +56,7 @@ export default async function Page() {
         </>
       }
     >
-      <div className="mt-8 hidden sm:col-span-1 sm:mt-0 sm:block">
+      <div className="mt-8 hidden sm:col-span-1 sm:mt-0 md:block">
         <LandingPageCard
           {...NAV_ITEMS.featuredBuilds}
           icon={
@@ -77,15 +77,17 @@ export default async function Page() {
         />
       </div>
       <div className="col-span-full mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-6 sm:mt-20 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-8">
-        <LandingPageCard
-          {...NAV_ITEMS.featuredBuilds}
-          icon={
-            <NAV_ITEMS.featuredBuilds.icon
-              className="h-7 w-7 flex-none text-primary-500"
-              aria-hidden="true"
-            />
-          }
-        />
+        <div className="md:hidden">
+          <LandingPageCard
+            {...NAV_ITEMS.featuredBuilds}
+            icon={
+              <NAV_ITEMS.featuredBuilds.icon
+                className="h-7 w-7 flex-none text-primary-500"
+                aria-hidden="true"
+              />
+            }
+          />
+        </div>
         <LandingPageCard
           {...NAV_ITEMS.communityBuilds}
           icon={
@@ -95,15 +97,17 @@ export default async function Page() {
             />
           }
         />
-        <LandingPageCard
-          {...NAV_ITEMS.itemLookup}
-          icon={
-            <NAV_ITEMS.itemLookup.icon
-              className="h-7 w-7 flex-none text-primary-500"
-              aria-hidden="true"
-            />
-          }
-        />
+        <div className="md:hidden">
+          <LandingPageCard
+            {...NAV_ITEMS.itemLookup}
+            icon={
+              <NAV_ITEMS.itemLookup.icon
+                className="h-7 w-7 flex-none text-primary-500"
+                aria-hidden="true"
+              />
+            }
+          />
+        </div>
         <LandingPageCard
           {...NAV_ITEMS.itemTracker}
           icon={
