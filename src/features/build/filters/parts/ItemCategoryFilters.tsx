@@ -133,17 +133,23 @@ export function ItemCategoryFilters({
               onChange={() => onUpdate('Hand Gun')}
             />
             <Checkbox
-              label="Melee"
-              name="category-melee"
-              checked={selectedItemCategories.includes('Melee')}
-              onChange={() => onUpdate('Melee')}
-            />
-            <Checkbox
               label="Mod"
               name="category-mod"
               checked={selectedItemCategories.includes('Mod')}
               onChange={() => onUpdate('Mod')}
             />
+            <Checkbox
+              label="Melee"
+              name="category-melee"
+              checked={selectedItemCategories.includes('Melee')}
+              onChange={() => onUpdate('Melee')}
+            />
+          </div>
+
+          <div
+            id="other"
+            className="col-span-full grid grid-cols-2 sm:col-span-1 sm:block sm:gap-y-0"
+          >
             <Checkbox
               label="Mutator (Gun)"
               name="category-mutator-gun"
@@ -156,12 +162,6 @@ export function ItemCategoryFilters({
               checked={selectedItemCategories.includes('Mutator (Melee)')}
               onChange={() => onUpdate('Mutator (Melee)')}
             />
-          </div>
-
-          <div
-            id="other"
-            className="col-span-full grid grid-cols-2 sm:col-span-1 sm:block sm:gap-y-0"
-          >
             <Checkbox
               label="Concoction"
               name="category-concoction"

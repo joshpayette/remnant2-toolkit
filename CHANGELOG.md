@@ -23,6 +23,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Swapped order of `Check All / Uncheck All` prompts
 - Moved the Export to CSV button on the Item Lookup page to the bottom of the page.
 - Cleaned up excess white space throughout portions of the site.
+- Joined a few category filters on Item Lookup for a more uniform distribution.
 
 ### Fixed
 
