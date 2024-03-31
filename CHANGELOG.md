@@ -12,6 +12,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Added a new landing page for the Support R2TK link. Now supports Ko-Fi donations, as well as Patreon subscriptions.
 
+#### World Save Archive
+
+- Added total world save count to page description.
+
 ### Fixed
 
 #### Item Lookup

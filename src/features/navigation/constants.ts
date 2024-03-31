@@ -20,6 +20,8 @@ import {
   UsersIcon,
 } from '@heroicons/react/24/solid'
 
+import { worldSaves } from '@/app/world-save-archive/(data)/worldSaves'
+
 /**
  * The base pages for the site
  */
@@ -175,8 +177,7 @@ export const NAV_ITEMS = {
   },
   worldSaveArchive: {
     label: 'World Save Archive',
-    description:
-      'A collection of curated world saves for apocalypse bosses with specific affixes.',
+    description: `A collection of ${worldSaves.length} curated world saves for apocalypse bosses with specific affixes.`,
     href: '/world-save-archive',
     icon: ArchiveBoxArrowDownIcon,
   },

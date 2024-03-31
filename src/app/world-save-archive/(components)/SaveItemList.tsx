@@ -55,7 +55,7 @@ export function SaveItemList({}: Props) {
     <div className="flex w-full flex-col items-center justify-center overflow-auto p-4">
       {filteredSaves.length === worldSaves.length && (
         <h2 className="text-center text-2xl font-bold text-primary-500">
-          Apply a filter to see items
+          Apply a filter to search the {worldSaves.length} world saves
         </h2>
       )}
       {filteredSaves.length === 0 && (
