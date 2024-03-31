@@ -265,7 +265,7 @@ export function ItemLookupFilters({}: Props) {
                 </div>
                 {unappliedFilters.searchText !== '' ? (
                   <button
-                    className="rounded-md border-2 border-red-700 p-2 text-sm text-white hover:border-red-500"
+                    className="rounded-md border-2 border-red-700 p-2 text-sm text-white ring-red-700 hover:border-red-500 focus:border-red-500 focus:outline-none focus:ring-1 focus:ring-red-500"
                     onClick={() => {
                       handleSearchTextChange('')
                       handleApplyFilters({
