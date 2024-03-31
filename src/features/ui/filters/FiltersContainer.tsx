@@ -31,7 +31,7 @@ export function FiltersContainer<T>({
         {children}
         <div className="col-span-full flex items-center justify-end pt-2">
           {areAnyFiltersActive && (
-            <div className="col-span-full flex items-center justify-end">
+            <div className="col-span-full flex w-full items-center justify-center">
               <ClearFiltersButton onClick={onClearFilters} />
             </div>
           )}
