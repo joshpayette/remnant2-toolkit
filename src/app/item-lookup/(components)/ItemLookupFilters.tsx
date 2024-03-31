@@ -275,7 +275,7 @@ export function ItemLookupFilters({}: Props) {
                       searchTextFieldKey.current = new Date().getTime()
                     }}
                   >
-                    <TrashIcon className="h-5 w-5 text-red-500" />
+                    <TrashIcon className="h-4 w-4 text-red-500" />
                   </button>
                 ) : null}
               </div>
