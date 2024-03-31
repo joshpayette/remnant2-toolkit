@@ -1,5 +1,6 @@
 import { useSearchParams } from 'next/navigation'
 import { useIsClient, useLocalStorage } from 'usehooks-ts'
+import { v4 as uuidv4 } from 'uuid'
 
 import { parseItemLookupFilters } from '@/app/item-lookup/(lib)/parseItemLookupFilters'
 import { MasonryItemList } from '@/features/items/components/MasonryItemList'
@@ -126,7 +127,7 @@ export function ItemList() {
     </h2>
   ) : (
     <MasonryItemList
-      key={filteredItems.length}
+      key={uuidv4()}
       label={`Items (${filteredItems.length} Total)`}
       items={filteredItems}
       allowItemCompare={true}

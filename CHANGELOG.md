@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-03-31
+
+### Fixed
+
+#### Item Lookup
+
+- Fixed strange mobile bug where the items would scroll off the screen when adding an item to compare ONLY on the first page load. Make it make sense!
+
 ## 2024-03-30
 
 ### Added
