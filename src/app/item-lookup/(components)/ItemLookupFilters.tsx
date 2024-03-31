@@ -221,7 +221,7 @@ export function ItemLookupFilters({}: Props) {
   return (
     <Disclosure defaultOpen={true}>
       {({ open }) => (
-        <div className="mb-12 w-full">
+        <div className="mb-4 w-full">
           <Disclosure.Button
             className={cn(
               'flex w-full flex-row items-center justify-center border-b py-2',

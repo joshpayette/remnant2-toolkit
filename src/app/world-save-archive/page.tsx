@@ -34,7 +34,7 @@ export default function Page() {
           </Suspense>
         </div>
 
-        <div className="mt-12 flex w-full items-center justify-center">
+        <div className="flex w-full items-center justify-center">
           <Suspense fallback={<Skeleton className="h-[500px] w-full" />}>
             <SaveItemList />
           </Suspense>

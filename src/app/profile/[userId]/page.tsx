@@ -57,7 +57,7 @@ export default async function Page({
 
   return (
     <>
-      <div className="mb-12 flex w-full flex-row items-center justify-center border-b border-b-primary-500 py-2">
+      <div className="mb-4 flex w-full flex-row items-center justify-center border-b border-b-primary-500 py-2">
         <h2 className="flex w-full items-center justify-start text-2xl">
           Top Created Builds
         </h2>

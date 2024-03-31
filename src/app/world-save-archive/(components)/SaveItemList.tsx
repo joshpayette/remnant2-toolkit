@@ -54,19 +54,19 @@ export function SaveItemList({}: Props) {
   return (
     <div className="flex w-full flex-col items-center justify-center overflow-auto p-4">
       {filteredSaves.length === worldSaves.length && (
-        <h2 className="text-center text-4xl font-bold text-primary-500">
+        <h2 className="text-center text-2xl font-bold text-primary-500">
           Apply a filter to see items
         </h2>
       )}
       {filteredSaves.length === 0 && (
-        <h2 className="text-center text-4xl font-bold text-primary-500">
+        <h2 className="text-center text-2xl font-bold text-primary-500">
           No items found
         </h2>
       )}
 
       {filteredSaves.length > 0 &&
         filteredSaves.length !== worldSaves.length && (
-          <h2 className="my-4 text-4xl font-bold text-primary-500">
+          <h2 className="my-4 text-2xl font-bold text-primary-500">
             World Saves ({filteredSaves.length} Results)
           </h2>
         )}

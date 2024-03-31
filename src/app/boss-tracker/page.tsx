@@ -112,10 +112,10 @@ export default function Page() {
         title="Remnant 2 Boss Tracker"
         subtitle="Discover all the bosses in Remnant 2"
       >
-        <div className="flex flex-col items-center justify-center text-4xl font-bold text-primary-400">
-          <h2 className="text-4xl font-bold">Progress</h2>
+        <div className="flex flex-col items-center justify-center text-2xl font-bold text-primary-400">
+          <h2 className="text-2xl font-bold">Progress</h2>
           <span
-            className="text-2xl font-bold text-white"
+            className="text-xxl font-bold text-white"
             suppressHydrationWarning
           >
             {isClient ? progress : 'Calculating...'}

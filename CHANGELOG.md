@@ -19,6 +19,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
   - Resources is no longer a dropdown menu, but rather a separate page of links.
 - Updated the images for the main page and resource pages.
 - Moved the Export to CSV button on the Item Lookup page to the bottom of the page.
+- Cleaned up excess white space throughout portions of the site.
 
 ### Fixed
 

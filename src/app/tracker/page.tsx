@@ -313,21 +313,17 @@ export default function Page() {
           title="Remnant 2 Item Tracker"
           subtitle="Discover all the items in Remnant 2"
         >
-          <div className="flex flex-col items-center justify-center text-4xl font-bold text-primary-400">
-            <h2 className="text-4xl font-bold">Progress</h2>
-            <span className="text-2xl font-bold text-white">
+          <div className="mt-2 flex flex-col items-center justify-center text-2xl font-bold text-primary-400">
+            <h2 className="text-2xl font-bold">Progress</h2>
+            <span className="text-xl font-bold text-white">
               {isClient ? totalProgress : 'Calculating...'}
             </span>
           </div>
         </PageHeader>
 
-        <hr className="mb-8 mt-4 w-full max-w-3xl border-gray-700" />
+        <hr className="w-full max-w-3xl border-gray-700" />
 
         <div className="w-full max-w-3xl">
-          <h2 className="mb-2 text-center text-4xl font-bold text-primary-400">
-            Filters
-          </h2>
-
           <ItemTrackerFilters
             allItems={allItemsWithDiscovered}
             itemCategoryOptions={
@@ -379,7 +375,7 @@ export default function Page() {
             onUpdate={handleUpdateFilters}
           />
 
-          <div className="mt-16 flex w-full items-center justify-center gap-x-4">
+          <div className="mt-4 flex w-full items-center justify-center gap-x-4">
             <button
               onClick={() => setImportSaveDialogOpen(true)}
               aria-label="Import Save File"
@@ -392,17 +388,17 @@ export default function Page() {
               aria-label="Import/Export CSV File"
               className="w-[250px] rounded border-2 border-secondary-500 bg-secondary-700 p-2 text-lg font-bold text-white/90 hover:bg-secondary-500 hover:text-white"
             >
-              Import/Export CSV File
+              Import/Export CSV
             </button>
           </div>
         </div>
 
-        <hr className="mt-8 w-full max-w-3xl border-gray-700" />
+        <hr className="mt-4 w-full max-w-3xl border-gray-700" />
 
-        <div className="mt-8 min-h-[500px] w-full">
+        <div className="mt-4 min-h-[500px] w-full">
           {filteredItems.length > 0 && (
             <>
-              <h2 className="mb-2 text-center text-4xl font-bold text-primary-400">
+              <h2 className="mb-2 text-center text-2xl font-bold text-primary-400">
                 {selectedCategory} Items
               </h2>
               <div className="mb-4 flex w-full items-center justify-center gap-x-4 text-lg font-semibold">
