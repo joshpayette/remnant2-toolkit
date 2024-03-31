@@ -124,6 +124,7 @@ export function ItemList() {
       key={filteredItems.length}
       label={`Items (${filteredItems.length} Total)`}
       items={filteredItems}
+      allowItemCompare={true}
     />
   )
 }

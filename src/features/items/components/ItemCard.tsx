@@ -1,8 +1,15 @@
-import { ShareIcon } from '@heroicons/react/24/solid'
+import {
+  MagnifyingGlassMinusIcon,
+  MagnifyingGlassPlusIcon,
+  ShareIcon,
+} from '@heroicons/react/24/solid'
 import copy from 'clipboard-copy'
 import Image from 'next/image'
 import { toast } from 'react-toastify'
+import { useLocalStorage } from 'usehooks-ts'
 
+import { getArrayOfLength } from '@/features/build/lib/getArrayOfLength'
+import { Tooltip } from '@/features/ui/Tooltip'
 import { cn } from '@/lib/classnames'
 
 import { ArmorInfo } from '../../armor-calculator/ArmorInfo'
@@ -20,13 +27,26 @@ import { WeaponItem } from '../types/WeaponItem'
 import { WeaponInfo } from './WeaponInfo'
 
 interface Props {
+  allowItemCompare?: boolean
   index?: number
   data: Item
   width?: number
   onMoreInfoClick: (item: Item) => void
 }
 
-export function ItemCard({ data: item, onMoreInfoClick }: Props) {
+export function ItemCard({
+  allowItemCompare = false,
+  data: item,
+  onMoreInfoClick,
+}: Props) {
+  const [itemsToCompare, setItemsToCompare] = useLocalStorage<string[]>(
+    'item-lookup-compare',
+    getArrayOfLength(5).map(() => ''),
+    { initializeWithValue: false },
+  )
+
+  const itemBeingCompared = itemsToCompare.includes(item.id)
+
   const { imagePath, category, name, description } = item
 
   let sizes = {
@@ -48,9 +68,45 @@ export function ItemCard({ data: item, onMoreInfoClick }: Props) {
     }
   }
 
+  function handleAddItemToCompare() {
+    // If no empty slots, return
+    const emptySlots = itemsToCompare.filter((id) => id === '')
+    if (emptySlots.length === 0) return
+
+    // Find the next empty slot and add to it
+    const itemIndex = itemsToCompare.findIndex((id) => id === '')
+    const newItemsToCompare = [...itemsToCompare]
+    newItemsToCompare[itemIndex] = item.id
+    setItemsToCompare(newItemsToCompare)
+  }
+
+  function handleRemoveItemFromCompare() {
+    const newItemsToCompare = itemsToCompare.map((id) =>
+      id === item.id ? '' : id,
+    )
+    setItemsToCompare(newItemsToCompare)
+  }
+
   return (
     <div className="col-span-1 flex flex-col divide-y divide-primary-800 rounded-lg border border-primary-500 bg-black text-center shadow">
       <div className="flex flex-1 flex-col p-4">
+        {allowItemCompare ? (
+          <div className="flex w-full items-center justify-end">
+            {itemBeingCompared ? (
+              <Tooltip content="Remove from item comparison.">
+                <button onClick={handleRemoveItemFromCompare}>
+                  <MagnifyingGlassMinusIcon className="h-5 w-5 text-red-500" />
+                </button>
+              </Tooltip>
+            ) : (
+              <Tooltip content="Add to item comparison.">
+                <button onClick={handleAddItemToCompare}>
+                  <MagnifyingGlassPlusIcon className="h-5 w-5 text-accent1-500" />
+                </button>
+              </Tooltip>
+            )}
+          </div>
+        ) : null}
         <button
           onClick={() => onMoreInfoClick(item)}
           aria-label="More Info"

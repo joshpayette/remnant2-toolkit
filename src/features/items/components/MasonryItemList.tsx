@@ -12,11 +12,16 @@ import { ItemCard } from './ItemCard'
 import { ItemInfoDialog } from './ItemInfoDialog'
 
 interface Props {
+  allowItemCompare?: boolean
   label?: string
   items: Item[]
 }
 
-export function MasonryItemList({ items, label }: Props) {
+export function MasonryItemList({
+  allowItemCompare = false,
+  items,
+  label,
+}: Props) {
   const isClient = useIsClient()
   const [selectedItem, setSelectedItem] = useState<Item | null>(null)
   const infoOpen = selectedItem !== null
@@ -37,7 +42,7 @@ export function MasonryItemList({ items, label }: Props) {
       />
       <div className="flex w-full flex-col items-center justify-center overflow-auto p-4">
         {label && (
-          <h2 className="text-primary-500 my-4 text-4xl font-bold">{label}</h2>
+          <h2 className="my-4 text-4xl font-bold text-primary-500">{label}</h2>
         )}
 
         <Masonry
@@ -45,6 +50,7 @@ export function MasonryItemList({ items, label }: Props) {
           render={({ index, data, width }) => (
             <ItemCard
               index={index}
+              allowItemCompare={allowItemCompare}
               data={data}
               width={width}
               onMoreInfoClick={handleMoreInfoClick}

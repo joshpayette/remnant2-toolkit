@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Added
 
 - Add a new `World Save Archive` section, where you can find world saves rolled to specific bosses and affixes.
+- Added Item Compare feature to Item Lookup page. You can now pin 5 items to the item compare to more easily see them side by side.
 
 ### Changed
 

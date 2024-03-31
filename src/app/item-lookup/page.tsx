@@ -2,6 +2,7 @@
 
 import { Suspense } from 'react'
 
+import { ItemCompareList } from '@/app/item-lookup/(components)/ItemCompareList'
 import { ItemList } from '@/app/item-lookup/(components)/ItemList'
 import { ItemLookupFilters } from '@/app/item-lookup/(components)/ItemLookupFilters'
 import { allItems } from '@/features/items/data/allItems'
@@ -55,6 +56,12 @@ export default function Page() {
 
         <div className="mb-4 flex w-full items-center justify-center">
           <ToCsvButton data={csvItems} filename="remnant2toolkit_iteminfo" />
+        </div>
+
+        <div className="mt-12 flex w-full items-center justify-center">
+          <Suspense fallback={<Skeleton className="h-[500px] w-full" />}>
+            <ItemCompareList />
+          </Suspense>
         </div>
 
         <div className="mt-12 flex w-full items-center justify-center">
