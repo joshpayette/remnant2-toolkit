@@ -168,6 +168,13 @@ export const NAV_ITEMS = {
     href: '/support-r2tk',
     icon: HeartIcon,
   },
+  vashCalculator: {
+    label: `Vash Cowaii's Loadout Calculator`,
+    description:
+      'An incredible tool for advanced build stats and calculations.',
+    href: 'https://cowaii.io/index.html?s=s',
+    icon: '/toolkit/vash-icon.png',
+  },
   wiki: {
     label: 'Wiki',
     description:

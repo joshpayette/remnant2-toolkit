@@ -81,6 +81,20 @@ export default async function Page() {
         />
 
         <LandingPageCard
+          {...NAV_ITEMS.vashCalculator}
+          icon={
+            <Image
+              src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}${NAV_ITEMS.vashCalculator.icon}`}
+              width={20}
+              height={20}
+              alt={`${NAV_ITEMS.vashCalculator.label}, ${NAV_ITEMS.vashCalculator.description}`}
+              className="mr-2 h-7 w-7 flex-none text-primary-600"
+              aria-hidden="true"
+            />
+          }
+        />
+
+        <LandingPageCard
           {...NAV_ITEMS.wiki}
           icon={
             <Image
