@@ -36,7 +36,7 @@ export function DiscoveredItemsStatBox({
    * Whether the total items in the user's local storage
    * match the total count in the DB.
    */
-  const isItemCountSynced = discoveredItemIds.length === stat.value
+  const isItemCountSynced = discoveredItemIds.length >= stat.value
 
   if (!isClient || !isEditable || isItemCountSynced) {
     return <StatBox stat={stat} index={index} />
