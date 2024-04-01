@@ -6,6 +6,7 @@ import { useIsClient, useLocalStorage } from 'usehooks-ts'
 import { updateTotalDiscoveredItems } from '@/app/profile/[userId]/(actions)/updateTotalDiscoveredItems'
 import { StatBox } from '@/app/profile/[userId]/(components)/StatBox'
 import { LocalStorage } from '@/app/tracker/(lib)/types'
+import { TOTAL_TRACKABLE_ITEM_COUNT } from '@/app/tracker/constants'
 
 interface Props {
   stat: { name: string; value: number; unit?: string }
@@ -36,7 +37,11 @@ export function DiscoveredItemsStatBox({
    * Whether the total items in the user's local storage
    * match the total count in the DB.
    */
-  const isItemCountSynced = discoveredItemIds.length >= stat.value
+  const validItemCount =
+    discoveredItemIds.length > TOTAL_TRACKABLE_ITEM_COUNT
+      ? TOTAL_TRACKABLE_ITEM_COUNT
+      : discoveredItemIds.length
+  const isItemCountSynced = validItemCount === stat.value
 
   if (!isClient || !isEditable || isItemCountSynced) {
     return <StatBox stat={stat} index={index} />
@@ -57,7 +62,7 @@ export function DiscoveredItemsStatBox({
             onClick={async () => {
               const response = await updateTotalDiscoveredItems({
                 userId,
-                totalDiscoveredItems: discoveredItemIds.length,
+                totalDiscoveredItems: validItemCount,
               })
               if (response.success) {
                 toast.success(response.message)
