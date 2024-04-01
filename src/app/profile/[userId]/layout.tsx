@@ -171,9 +171,9 @@ export default async function Layout({
           />
         </div>
 
-        <ProfileStats userId={userId} />
+        <ProfileStats userId={userId} isEditable={isEditable} />
       </header>
-      <div className="border-t border-white/10 pt-11">{children}</div>
+      <div className="border-t border-white/10 pt-4">{children}</div>
     </div>
   )
 }

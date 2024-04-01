@@ -1,46 +1,60 @@
 'use server'
 
+import { DiscoveredItemsStatBox } from '@/app/profile/[userId]/(components)/DiscoveredItemsStatBox'
+import { StatBox } from '@/app/profile/[userId]/(components)/StatBox'
+import { TOTAL_TRACKABLE_ITEM_COUNT } from '@/app/tracker/constants'
 import { prisma } from '@/features/db'
-import { cn } from '@/lib/classnames'
 
 interface Props {
+  isEditable: boolean
   userId: string
 }
 
-export async function ProfileStats({ userId }: Props) {
+export async function ProfileStats({ isEditable, userId }: Props) {
   // get a count of all the builds created by the current user
-  const [buildsCreated, favoritesEarned, loadoutCounts, featuredBuilds] =
-    await Promise.all([
-      await prisma.build.count({
-        where: { createdById: userId, isPublic: true },
-      }),
-      await prisma.buildVoteCounts.count({
-        where: {
-          build: {
-            createdById: userId,
-            isPublic: true,
-          },
-        },
-      }),
-      await prisma.userLoadouts.count({
-        where: {
-          build: {
-            createdById: userId,
-            isPublic: true,
-          },
-        },
-      }),
-      await prisma.build.count({
-        where: {
+  const [
+    buildsCreated,
+    favoritesEarned,
+    loadoutCounts,
+    featuredBuilds,
+    totalDiscoveredItems,
+  ] = await Promise.all([
+    await prisma.build.count({
+      where: { createdById: userId, isPublic: true },
+    }),
+    await prisma.buildVoteCounts.count({
+      where: {
+        build: {
           createdById: userId,
-          isFeaturedBuild: true,
           isPublic: true,
         },
-      }),
-    ])
+      },
+    }),
+    await prisma.userLoadouts.count({
+      where: {
+        build: {
+          createdById: userId,
+          isPublic: true,
+        },
+      },
+    }),
+    await prisma.build.count({
+      where: {
+        createdById: userId,
+        isFeaturedBuild: true,
+        isPublic: true,
+      },
+    }),
+    (await prisma.userProfile
+      .findFirst({
+        where: { userId },
+        select: { totalDiscoveredItems: true },
+      })
+      .then((profile) => profile?.totalDiscoveredItems ?? 0)) as number,
+  ])
 
   return (
-    <div className="grid grid-cols-2 bg-gray-700/10 sm:grid-cols-2 lg:grid-cols-4">
+    <div className="grid grid-cols-2 bg-gray-700/10 sm:grid-cols-3 lg:grid-cols-5">
       <StatBox
         stat={{ name: 'Builds Created', value: buildsCreated }}
         index={0}
@@ -57,31 +71,16 @@ export async function ProfileStats({ userId }: Props) {
         stat={{ name: 'Featured Builds', value: featuredBuilds }}
         index={3}
       />
-    </div>
-  )
-}
-
-function StatBox({
-  stat,
-  index,
-}: {
-  stat: { name: string; value: number }
-  index: number
-}) {
-  return (
-    <div
-      key={stat.name}
-      className={cn(
-        index % 2 === 1 ? 'sm:border-l' : index === 2 ? 'lg:border-l' : '',
-        'border-t border-white/5 px-4 py-6 sm:px-6 lg:px-8',
-      )}
-    >
-      <p className="text-sm font-medium leading-6 text-gray-400">{stat.name}</p>
-      <p className="mt-2 flex items-baseline gap-x-2">
-        <span className="text-4xl font-semibold tracking-tight text-white">
-          {stat.value}
-        </span>
-      </p>
+      <DiscoveredItemsStatBox
+        stat={{
+          name: 'Items Discovered',
+          value: totalDiscoveredItems,
+          unit: `/ ${TOTAL_TRACKABLE_ITEM_COUNT}`,
+        }}
+        index={4}
+        isEditable={isEditable}
+        userId={userId}
+      />
     </div>
   )
 }

@@ -12,7 +12,7 @@ import { ItemTrackerFilters } from '@/app/tracker/(components)/ItemTrackerFilter
 import { getProgressLabel } from '@/app/tracker/(lib)/getProgressLabel'
 import { ItemTrackerCategory, LocalStorage } from '@/app/tracker/(lib)/types'
 import { useFilteredItems } from '@/app/tracker/(lib)/useFilteredItems'
-import { ItemCategory } from '@/features/build/types'
+import { allTrackerItems, skippedItemCategories } from '@/app/tracker/constants'
 import { ItemButton } from '@/features/items/components/ItemButton'
 import { ItemInfoDialog } from '@/features/items/components/ItemInfoDialog'
 import { allItems } from '@/features/items/data/allItems'
@@ -24,27 +24,6 @@ import { PageHeader } from '@/features/ui/PageHeader'
 import { capitalize } from '@/lib/capitalize'
 
 import { parseSaveFile } from './(lib)/actions'
-
-/** We don't track these categories at all */
-const skippedItemCategories: Array<ItemCategory> = ['skill', 'perk']
-
-/**
- * ----------------------------------------------
- * Get the items
- * ----------------------------------------------
- */
-const allItemsWithDiscovered = allItems
-  // We don't want to show the items that are in the skippedItemCategories
-  .filter((item) => skippedItemCategories.includes(item.category) === false)
-  // Remove mods that have linked guns
-  .filter((item) => {
-    if (item.category !== 'mod') return true
-    return item.linkedItems?.weapon === undefined
-  })
-  .map((item) => ({
-    ...item,
-    discovered: false,
-  })) satisfies Item[]
 
 /**
  * ----------------------------------------------
@@ -59,7 +38,7 @@ const subCategories: ItemTrackerCategory[] = [
   'Mutator (Melee)',
 ]
 
-let itemCategories = allItemsWithDiscovered
+let itemCategories = allTrackerItems
   // Remove the categories that will be replaced by subcategories
   .reduce((acc, item) => {
     if (acc.includes(capitalize(item.category))) return acc
@@ -125,7 +104,7 @@ export default function Page() {
     // Remove any items that are in the skipped categories
     const filteredDiscoveredItems = saveFileDiscoveredItemIds.filter(
       (itemId) => {
-        const item = allItemsWithDiscovered.find((item) => item.id === itemId)
+        const item = allTrackerItems.find((item) => item.id === itemId)
         if (!item) return false
         if (skippedItemCategories.includes(item.category)) return false
         return true
@@ -150,7 +129,7 @@ export default function Page() {
 
   // Provide the tracker progress
   const totalProgress = getProgressLabel({
-    items: allItemsWithDiscovered,
+    items: allTrackerItems,
     discoveredItemIds,
   })
 
@@ -201,7 +180,7 @@ export default function Page() {
    * ----------------------------------------------
    */
   const handleShowItemInfo = (itemId: string) => {
-    const item = allItemsWithDiscovered.find((item) => item.id === itemId)
+    const item = allTrackerItems.find((item) => item.id === itemId)
     if (item) setItemInfo(item)
   }
 
@@ -325,13 +304,13 @@ export default function Page() {
 
         <div className="w-full max-w-3xl">
           <ItemTrackerFilters
-            allItems={allItemsWithDiscovered}
+            allItems={allTrackerItems}
             itemCategoryOptions={
               !isClient
                 ? []
                 : itemCategories.map((category) => ({
                     label: `${category as string} - ${getProgressLabel({
-                      items: allItemsWithDiscovered.filter((item) => {
+                      items: allTrackerItems.filter((item) => {
                         if (category === 'Long Gun') {
                           return (
                             WeaponItem.isWeaponItem(item) &&

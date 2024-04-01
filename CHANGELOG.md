@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ### Added
 
+#### Profile page
+
+- Your total discovered items from the Item Tracker can now be synced to the database and shown on your profile!
+
 #### Support R2TK
 
 - Added a new landing page for the Support R2TK link. Now supports Ko-Fi donations, as well as Patreon subscriptions.
