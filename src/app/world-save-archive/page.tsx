@@ -3,7 +3,7 @@ import { Suspense } from 'react'
 
 import { SaveItemList } from '@/app/world-save-archive/(components)/SaveItemList'
 import { SaveLookupFilters } from '@/app/world-save-archive/(components)/SaveLookupFilters'
-import { NAV_ITEMS } from '@/features/navigation/constants'
+import { worldSaves } from '@/app/world-save-archive/(data)/worldSaves'
 import { PageHeader } from '@/features/ui/PageHeader'
 import { Skeleton } from '@/features/ui/Skeleton'
 
@@ -12,7 +12,7 @@ export default function Page() {
     <>
       <PageHeader
         title="World Save Archive"
-        subtitle={NAV_ITEMS.worldSaveArchive.description}
+        subtitle={`A collection of ${worldSaves.length} curated world saves for apocalypse bosses with specific affixes.`}
       />
       <div className="flex max-w-xl flex-col items-start justify-center">
         <p className="text-md mb-2 text-white">
