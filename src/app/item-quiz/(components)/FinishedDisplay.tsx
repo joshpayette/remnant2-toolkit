@@ -18,11 +18,11 @@ export const FinishedDisplay = React.memo(
   ({
     correctItem,
     gameTimer,
+    history,
     layoutPreference,
+    score,
     onToggleLayoutPreference,
     onStartGame,
-    history,
-    score,
   }: Props) => (
     <div className="flex w-full flex-col items-center justify-center">
       <h2 className="mb-2 text-2xl font-bold text-red-500">
@@ -79,6 +79,7 @@ export const FinishedDisplay = React.memo(
           </div>
         </>
       ) : null}
+
       <hr className="mb-8 w-full border border-primary-500" />
       <div className="flex w-full flex-col items-center justify-center bg-gray-900 p-4">
         <MobileLayoutToggle

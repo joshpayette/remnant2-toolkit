@@ -17,7 +17,7 @@ export async function ProfileStats({ isEditable, userId }: Props) {
     favoritesEarned,
     loadoutCounts,
     featuredBuilds,
-    totalDiscoveredItems,
+    userProfile,
   ] = await Promise.all([
     await prisma.build.count({
       where: { createdById: userId, isPublic: true },
@@ -45,16 +45,14 @@ export async function ProfileStats({ isEditable, userId }: Props) {
         isPublic: true,
       },
     }),
-    (await prisma.userProfile
-      .findFirst({
-        where: { userId },
-        select: { totalDiscoveredItems: true },
-      })
-      .then((profile) => profile?.totalDiscoveredItems ?? 0)) as number,
+    await prisma.userProfile.findFirst({
+      where: { userId },
+      select: { totalDiscoveredItems: true, topItemQuizScore: true },
+    }),
   ])
 
   return (
-    <div className="grid grid-cols-2 bg-gray-700/10 sm:grid-cols-3 lg:grid-cols-5">
+    <div className="grid grid-cols-2 bg-gray-700/10 sm:grid-cols-3 lg:grid-cols-6">
       <StatBox
         stat={{ name: 'Builds Created', value: buildsCreated }}
         index={0}
@@ -74,12 +72,19 @@ export async function ProfileStats({ isEditable, userId }: Props) {
       <DiscoveredItemsStatBox
         stat={{
           name: 'Items Discovered',
-          value: totalDiscoveredItems,
+          value: userProfile?.totalDiscoveredItems ?? 0,
           unit: `/ ${TOTAL_TRACKABLE_ITEM_COUNT}`,
         }}
         index={4}
         isEditable={isEditable}
         userId={userId}
+      />
+      <StatBox
+        stat={{
+          name: 'Item Quiz Score',
+          value: userProfile?.topItemQuizScore ?? 0,
+        }}
+        index={5}
       />
     </div>
   )

@@ -1,6 +1,7 @@
 'use client'
 
 import { createAction, createReducer } from '@reduxjs/toolkit'
+import { useSession } from 'next-auth/react'
 import {
   useCallback,
   useEffect,
@@ -9,7 +10,10 @@ import {
   useRef,
   useState,
 } from 'react'
+import { toast } from 'react-toastify'
 
+import { getTopScore } from '@/app/item-quiz/(actions)/getTopScore'
+import { updateTopScore } from '@/app/item-quiz/(actions)/updateTopScore'
 import { FinishedDisplay } from '@/app/item-quiz/(components)/FinishedDisplay'
 import { IdleDisplay } from '@/app/item-quiz/(components)/IdleDisplay'
 import { PlayingDisplay } from '@/app/item-quiz/(components)/PlayingDisplay'
@@ -86,6 +90,14 @@ const gameReducer = createReducer(initialState, (builder) => {
 })
 
 export default function Page() {
+  const { data: session, status } = useSession()
+  const [topScore, setTopScore] = useState<number>(0)
+
+  useEffect(() => {
+    if (status !== 'authenticated') return
+    getTopScore({ userId: session?.user?.id as string }).then(setTopScore)
+  }, [session, status])
+
   const [state, dispatch] = useReducer(gameReducer, initialState)
 
   const [layoutPreference, setLayoutPreference] =
@@ -285,6 +297,18 @@ export default function Page() {
     return () => window.removeEventListener('keydown', handleKeyPress)
   }, [state.status, questionsForUI, handleAnswerQuestion])
 
+  // Save the top score when the game ends
+  useEffect(() => {
+    if (state.status !== 'finished') return
+    if (!session?.user?.id) return
+    if (state.score <= topScore) return
+    updateTopScore({ userId: session.user.id, topScore: state.score })
+    toast.success(
+      `New top score: ${state.score}. Your previous top score was ${topScore}`,
+    )
+    setTopScore(state.score)
+  }, [state.status, state.score, session?.user?.id, topScore])
+
   function handleStartGame() {
     containerRef.current?.scrollIntoView({ behavior: 'instant' })
     dispatch(initializeGame())
@@ -301,6 +325,8 @@ export default function Page() {
     >
       {state.status === 'idle' ? (
         <IdleDisplay
+          showTopScore={Boolean(session?.user?.id)}
+          topScore={topScore}
           layoutPreference={layoutPreference}
           onToggleLayoutPreference={handleToggleLayoutPreference}
           onStartGame={handleStartGame}

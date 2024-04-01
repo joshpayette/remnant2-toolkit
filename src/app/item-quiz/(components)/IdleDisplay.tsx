@@ -4,14 +4,28 @@ import { MobileLayoutToggle } from '@/app/item-quiz/(components)/MobileLayoutTog
 import { LayoutPreference } from '@/app/item-quiz/types'
 
 interface Props {
+  topScore: number
+  showTopScore: boolean
   layoutPreference: LayoutPreference
   onToggleLayoutPreference: () => void
   onStartGame: () => void
 }
 
 export const IdleDisplay = React.memo(
-  ({ layoutPreference, onStartGame, onToggleLayoutPreference }: Props) => (
+  ({
+    layoutPreference,
+    topScore,
+    showTopScore,
+    onStartGame,
+    onToggleLayoutPreference,
+  }: Props) => (
     <div className="flex flex-col items-center justify-center">
+      {showTopScore ? (
+        <div className="mb-4 flex flex-col items-center justify-center">
+          <h2 className="text-xl font-bold text-accent1-500">Top Score</h2>
+          <p className="mb-2 text-left text-4xl text-gray-200">{topScore}</p>
+        </div>
+      ) : null}
       <div className="mb-12 text-center">
         <h2 className="text-xl font-bold text-primary-500">Rules</h2>
         <p className="text-md mb-2 text-left text-gray-200">

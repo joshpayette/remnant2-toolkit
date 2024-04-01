@@ -11,7 +11,11 @@ export function StatBox({ stat, index, footer }: Props) {
     <div
       key={stat.name}
       className={cn(
-        index % 2 === 1 ? 'sm:border-l' : index === 2 ? 'lg:border-l' : '',
+        index % 2 === 1
+          ? 'sm:border-l'
+          : index === 2 || index === 4
+            ? 'sm:border-l'
+            : '',
         'border-t border-white/5 px-4 py-6 sm:px-6 lg:px-8',
       )}
     >

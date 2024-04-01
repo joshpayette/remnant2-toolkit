@@ -153,6 +153,15 @@ export function NavBar() {
           </Link>
 
           <Link
+            href={NAV_ITEMS.itemQuiz.href}
+            className={cn(
+              'text-md flex flex-row items-center justify-start font-semibold text-white underline hover:text-primary-500',
+            )}
+          >
+            {NAV_ITEMS.itemQuiz.label}
+          </Link>
+
+          <Link
             href={NAV_ITEMS.resources.href}
             className={cn(
               'text-md flex flex-row items-center justify-start font-semibold text-white underline hover:text-primary-500',
@@ -286,6 +295,23 @@ export function NavBar() {
 
                     <p className="text-xs text-gray-400">
                       {NAV_ITEMS.itemTracker.description}
+                    </p>
+                  </div>
+                </Link>
+
+                <Link
+                  href={NAV_ITEMS.itemQuiz.href}
+                  className="flex flex-row items-center justify-start"
+                >
+                  <NAV_ITEMS.itemQuiz.icon
+                    className="mr-2 h-7 w-5 flex-none text-primary-600"
+                    aria-hidden="true"
+                  />
+                  <div className="flex flex-col items-start justify-start px-3 py-2">
+                    {NAV_ITEMS.itemQuiz.label}
+
+                    <p className="text-xs text-gray-400">
+                      {NAV_ITEMS.itemQuiz.description}
                     </p>
                   </div>
                 </Link>

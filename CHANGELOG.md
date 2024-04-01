@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 #### Profile page
 
 - Your total discovered items from the Item Tracker can now be synced to the database and shown on your profile!
+- Your highest Item Quiz score is now visible on your profile!
 
 #### Support R2TK
 

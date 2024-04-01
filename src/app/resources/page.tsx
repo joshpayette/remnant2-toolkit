@@ -21,16 +21,6 @@ export default async function Page() {
     >
       <div className="col-span-full mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-6 sm:mt-20 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-8">
         <LandingPageCard
-          {...NAV_ITEMS.itemQuiz}
-          icon={
-            <NAV_ITEMS.itemQuiz.icon
-              className="h-7 w-7 flex-none text-primary-500"
-              aria-hidden="true"
-            />
-          }
-        />
-
-        <LandingPageCard
           {...NAV_ITEMS.worldSaveArchive}
           icon={
             <NAV_ITEMS.worldSaveArchive.icon

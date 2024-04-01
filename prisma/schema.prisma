@@ -81,6 +81,7 @@ model UserProfile {
   bio                  String   @db.Text
   avatarId             String   @default("2zr34P") // Gorge
   totalDiscoveredItems Int      @default(0)
+  topItemQuizScore     Int      @default(0)
   isLoadoutPublic      Boolean  @default(false)
   Build                Build[]
 }
