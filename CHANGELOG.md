@@ -16,11 +16,21 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Added total world save count to page description.
 
+### Changed
+
+#### World Save Archive
+
+- Added an FAQ section to the instructions.
+
 ### Fixed
 
 #### Item Lookup
 
 - Fixed strange mobile bug where the items would scroll off the screen when adding an item to compare ONLY on the first page load. Make it make sense!
+
+#### World Save Archive
+
+- Fixed Corrupted Ravager's Spiteful/Vicious save file not being the correct file.
 
 ## 2024-03-30
 

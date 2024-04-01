@@ -106,11 +106,7 @@ export const worldSaves = [
     bossAffixes: ['Regenerator', 'Thick Skin'],
     release: 'dlc1',
   },
-  {
-    bossName: 'Corrupted Ravager',
-    bossAffixes: ['Spiteful', 'Vicious'],
-    release: 'dlc1',
-  },
+
   {
     bossName: 'Corrupted Ravager',
     bossAffixes: ['Thick Skin', 'Vicious'],
