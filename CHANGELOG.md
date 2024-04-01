@@ -26,6 +26,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Changed
 
 - Adjusted the page headers to use less space.
+- Added link to Item Quiz on main navigation bar.
 
 #### World Save Archive
 
