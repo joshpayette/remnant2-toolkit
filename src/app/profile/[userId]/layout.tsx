@@ -121,11 +121,12 @@ export default async function Layout({
 
   if (!user) {
     return (
-      <PageHeader title="User Profile Not Found">
+      <>
+        <PageHeader title="User Profile Not Found" />
         <p className="text-lg text-red-500">
           The user or user profile you are looking for could not be found.
         </p>
-      </PageHeader>
+      </>
     )
   }
 

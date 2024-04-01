@@ -50,60 +50,57 @@ export default function Page() {
       <PageHeader
         title="Remnant 2 Build Tool"
         subtitle="Create your builds and share them with your friends and the community."
-      >
-        {sessionStatus === 'loading' ? (
-          <Skeleton />
-        ) : session?.user ? (
-          <div className="rounded-md border border-red-500 px-2 py-1 text-left text-white">
-            <h3 className="text-center text-2xl font-bold">
-              Features limited on this page!
-            </h3>
-            <p className="mt-2">
-              This page uses the URL to store your build, and is intended for
-              unauthenticated users, or as a landing page for builds imported
-              from other tools.
-            </p>
-            <p className="mt-2">
-              To access{' '}
-              <strong className="text-accent1-500">
-                all enhanced features
-              </strong>
-              , you should either:
-            </p>
-            <ul className="mt-2 list-inside list-disc">
-              <li>
-                Click the{' '}
-                <strong className="text-accent1-500">Save Build</strong> button
-                to save it to the database, enabling the enhanced features.
-              </li>
-              <li>
-                <Link
-                  href="/builder/create"
-                  className="font-bold text-accent1-500 underline hover:text-accent1-300"
-                >
-                  Click here to visit the enhanced version of the Builder
-                </Link>
-              </li>
-            </ul>
-          </div>
-        ) : (
-          <div className="rounded-md border border-red-500 px-2 py-1 text-left text-white">
-            <h3 className="text-center text-lg font-bold">
-              You are not signed in, so your features are limited.
-            </h3>
-            <p className="mt-2">
-              Sign in with Discord or Reddit to get the following features:
-            </p>
-            <ul className="mt-2 list-inside list-disc">
-              <li>See all your builds in your profile</li>
-              <li>Add build descriptions</li>
-              <li>Make private builds</li>
-              <li>More individualized social media previews</li>
-              <li>More features coming soon!</li>
-            </ul>
-          </div>
-        )}
-      </PageHeader>
+      />
+
+      {sessionStatus === 'loading' ? (
+        <Skeleton />
+      ) : session?.user ? (
+        <div className="my-4 max-w-lg rounded-md border border-red-500 px-2 py-1 text-left text-white">
+          <h3 className="text-center text-2xl font-bold">
+            Features limited on this page!
+          </h3>
+          <p className="mt-2">
+            This page uses the URL to store your build, and is intended for
+            unauthenticated users, or as a landing page for builds imported from
+            other tools.
+          </p>
+          <p className="mt-2">
+            To access{' '}
+            <strong className="text-accent1-500">all enhanced features</strong>,
+            you should either:
+          </p>
+          <ul className="mt-2 list-inside list-disc">
+            <li>
+              Click the <strong className="text-accent1-500">Save Build</strong>{' '}
+              button to save it to the database, enabling the enhanced features.
+            </li>
+            <li>
+              <Link
+                href="/builder/create"
+                className="font-bold text-accent1-500 underline hover:text-accent1-300"
+              >
+                Click here to visit the enhanced version of the Builder
+              </Link>
+            </li>
+          </ul>
+        </div>
+      ) : (
+        <div className="rounded-md border border-red-500 px-2 py-1 text-left text-white">
+          <h3 className="text-center text-lg font-bold">
+            You are not signed in, so your features are limited.
+          </h3>
+          <p className="mt-2">
+            Sign in with Discord or Reddit to get the following features:
+          </p>
+          <ul className="mt-2 list-inside list-disc">
+            <li>See all your builds in your profile</li>
+            <li>Add build descriptions</li>
+            <li>Make private builds</li>
+            <li>More individualized social media previews</li>
+            <li>More features coming soon!</li>
+          </ul>
+        </div>
+      )}
 
       <BuilderContainer
         buildContainerRef={buildContainerRef}

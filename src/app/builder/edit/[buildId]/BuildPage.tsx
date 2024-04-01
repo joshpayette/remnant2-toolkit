@@ -63,9 +63,7 @@ export function BuildPage({ build }: Props) {
       <PageHeader
         title="Remnant 2 Build Tool"
         subtitle="Edit your builds and share them with your friends and the community."
-      >
-        &nbsp;
-      </PageHeader>
+      />
 
       <ArmorSuggestionsDialog
         buildState={dbBuildState}

@@ -35,7 +35,7 @@ export function BuildList({
   return (
     <div className={cn(isLoading ? 'min-h-[1000px]' : 'min-h-0')}>
       <div className="flex w-full flex-row items-center justify-center border-b border-b-primary-500 py-2">
-        <h2 className="flex w-full items-center justify-start text-2xl">
+        <h2 className="flex w-full items-center justify-start text-xl">
           {label}
         </h2>
         <div className="flex w-full items-center justify-end">

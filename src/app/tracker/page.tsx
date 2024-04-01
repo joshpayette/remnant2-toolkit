@@ -282,25 +282,26 @@ export default function Page() {
         onSubmit={handleCsvFileSubmit}
         fileInputRef={csvFileInputRef}
       />
+
+      <div className="flex w-full items-start justify-start sm:items-center sm:justify-center">
+        <PageHeader
+          title="Remnant 2 Item Tracker"
+          subtitle="Discover all the items in Remnant 2"
+        />
+      </div>
+
       <div className="relative flex w-full flex-col items-center justify-center">
         <ItemInfoDialog
           item={itemInfo}
           open={isShowItemInfoOpen}
           onClose={() => setItemInfo(null)}
         />
-        <PageHeader
-          title="Remnant 2 Item Tracker"
-          subtitle="Discover all the items in Remnant 2"
-        >
-          <div className="mt-2 flex flex-col items-center justify-center text-2xl font-bold text-primary-400">
-            <h2 className="text-2xl font-bold">Progress</h2>
-            <span className="text-xl font-bold text-white">
-              {isClient ? totalProgress : 'Calculating...'}
-            </span>
-          </div>
-        </PageHeader>
-
-        <hr className="w-full max-w-3xl border-gray-700" />
+        <div className="mb-2 flex flex-col items-center justify-center text-2xl font-bold text-primary-400">
+          <h2 className="text-2xl font-bold">Progress</h2>
+          <span className="text-xl font-bold text-white">
+            {isClient ? totalProgress : 'Calculating...'}
+          </span>
+        </div>
 
         <div className="w-full max-w-3xl">
           <ItemTrackerFilters

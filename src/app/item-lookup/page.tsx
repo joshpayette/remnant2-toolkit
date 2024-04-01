@@ -52,38 +52,41 @@ export default function Page() {
   )
 
   return (
-    <div className="relative flex w-full flex-col items-center justify-center">
-      <PageHeader
-        title="Remnant 2 Item Lookup"
-        subtitle="Find extended item information and interactions."
-      />
-
-      <div className="flex w-full flex-col items-center">
-        <div className="w-full max-w-4xl">
-          <Suspense fallback={<Skeleton className="h-[497px] w-full" />}>
-            <ItemLookupFilters />
-          </Suspense>
-        </div>
-
-        {areAnyItemsBeingCompared ? (
-          <div className="mt-2 flex w-full items-center justify-center">
-            <Suspense fallback={<Skeleton className="h-[500px] w-full" />}>
-              <ItemCompareList />
+    <>
+      <div className="flex w-full items-start justify-start sm:items-center sm:justify-center">
+        <PageHeader
+          title="Remnant 2 Item Lookup"
+          subtitle="Find extended item information and interactions."
+        />
+      </div>
+      <div className="relative flex w-full flex-col items-center justify-center">
+        <div className="flex w-full flex-col items-center">
+          <div className="w-full max-w-4xl">
+            <Suspense fallback={<Skeleton className="h-[497px] w-full" />}>
+              <ItemLookupFilters />
             </Suspense>
           </div>
-        ) : null}
 
-        <div className="mt-2 flex w-full items-center justify-center">
-          <Suspense fallback={<Skeleton className="h-[500px] w-full" />}>
-            <ItemList />
-          </Suspense>
-        </div>
+          {areAnyItemsBeingCompared ? (
+            <div className="mt-2 flex w-full items-center justify-center">
+              <Suspense fallback={<Skeleton className="h-[500px] w-full" />}>
+                <ItemCompareList />
+              </Suspense>
+            </div>
+          ) : null}
 
-        <div className="mt-2 flex w-full flex-col items-center justify-center">
-          <hr className="mb-4 w-full border-t border-primary-500" />
-          <ToCsvButton data={csvItems} filename="remnant2toolkit_iteminfo" />
+          <div className="mt-2 flex w-full items-center justify-center">
+            <Suspense fallback={<Skeleton className="h-[500px] w-full" />}>
+              <ItemList />
+            </Suspense>
+          </div>
+
+          <div className="mt-2 flex w-full flex-col items-center justify-center">
+            <hr className="mb-4 w-full border-t border-primary-500" />
+            <ToCsvButton data={csvItems} filename="remnant2toolkit_iteminfo" />
+          </div>
         </div>
       </div>
-    </div>
+    </>
   )
 }

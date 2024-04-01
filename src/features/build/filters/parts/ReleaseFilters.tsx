@@ -14,7 +14,7 @@ const allReleases: ReleaseKey[] = Object.keys(RELEASE_TO_NAME) as ReleaseKey[]
 
 export function ReleaseFilters({ selectedReleases, onChange }: Props) {
   return (
-    <div className="col-span-full w-full pt-2">
+    <div className="col-span-full w-full">
       <div className="flex w-full flex-col items-start justify-start gap-x-4 gap-y-2">
         <div className="flex w-full items-center justify-start text-left text-sm font-bold text-primary-500">
           By Release

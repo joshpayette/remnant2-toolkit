@@ -22,6 +22,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ### Changed
 
+- Adjusted the page headers to use less space.
+
 #### World Save Archive
 
 - Added an FAQ section to the instructions.

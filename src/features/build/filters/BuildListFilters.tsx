@@ -261,10 +261,10 @@ export function BuildListFilters() {
                 : 'border-b-primary-500',
             )}
           >
-            <h2 className="flex w-full items-center justify-start text-2xl">
+            <h2 className="flex w-full items-center justify-start text-xl">
               Build Filters
             </h2>
-            <div className="flex flex-row items-center justify-center rounded-md border-2 border-secondary-500 bg-secondary-700 p-2 hover:bg-secondary-500">
+            <div className="flex flex-row items-center justify-center rounded-md border-2 border-secondary-500 bg-secondary-700 p-2 text-sm hover:bg-secondary-500">
               {open ? 'Hide' : 'Show'}
               <ChevronRightIcon
                 className={cn(

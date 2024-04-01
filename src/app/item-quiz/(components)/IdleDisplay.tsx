@@ -13,18 +13,12 @@ export const IdleDisplay = React.memo(
   ({ layoutPreference, onStartGame, onToggleLayoutPreference }: Props) => (
     <div className="flex flex-col items-center justify-center">
       <div className="mb-12 text-center">
-        <h2 className="text-2xl font-bold text-primary-500">Rules</h2>
-        <p className="mb-2 text-lg text-gray-200">
+        <h2 className="text-xl font-bold text-primary-500">Rules</h2>
+        <p className="text-md mb-2 text-left text-gray-200">
           You will be shown four items and an item name. You must select the
           item that matches the name. The game ends when the timer runs out or
           you get a question wrong. You can use the arrow keys, WASD keys, or
           number keys.
-        </p>
-        <hr className="mb-4 mt-4 w-full border border-primary-500" />
-        <p className="text-md  text-gray-300">
-          Note: I threw this together in a few hours for fun and as a learning
-          excercise! I may add more features or allow you to save results to
-          your profile in the future. Enjoy!
         </p>
       </div>
       <MobileLayoutToggle

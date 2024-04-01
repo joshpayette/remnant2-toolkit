@@ -60,7 +60,7 @@ export default async function RootLayout({
               <NavBar />
             </header>
 
-            <main className="flex h-full min-h-screen w-full grow flex-col items-center justify-start p-4">
+            <main className="flex h-full min-h-screen w-full grow flex-col items-center justify-start p-4 pt-0">
               <ToastContainer theme="dark" />
               {children}
             </main>

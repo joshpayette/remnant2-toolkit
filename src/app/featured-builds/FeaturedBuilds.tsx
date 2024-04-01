@@ -90,7 +90,7 @@ export function FeaturedBuilds({ itemsPerPage = 8 }: Props) {
   return (
     <>
       <BuildList
-        label="Creator Spotlight"
+        label="Featured Builds"
         currentPage={currentPage}
         isLoading={isLoading}
         pageNumbers={pageNumbers}

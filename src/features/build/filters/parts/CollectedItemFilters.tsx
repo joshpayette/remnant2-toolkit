@@ -12,7 +12,7 @@ export function CollectedItemFilters({
   onUpdate,
 }: Props) {
   return (
-    <div className="col-span-full w-full pt-2">
+    <div className="col-span-full w-full">
       <div className="flex w-full flex-col items-start justify-start gap-x-4 gap-y-2">
         <div className="flex w-full items-center justify-start text-left text-sm font-bold text-primary-500">
           By Collection

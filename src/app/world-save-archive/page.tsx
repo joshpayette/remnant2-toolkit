@@ -15,10 +15,12 @@ export default function Page() {
         subtitle={NAV_ITEMS.worldSaveArchive.description}
       />
       <div className="flex max-w-xl flex-col items-start justify-center">
-        <p className="mb-4 text-lg font-bold text-white">
+        <p className="text-md mb-2 text-white">
           Before you start, it is important to understand how to back up your
           own world saves, and how to install the world saves provided by the
           Remnant 2 Toolkit.{' '}
+        </p>
+        <p className="text-md mb-4 font-bold text-white">
           <Link
             href="/world-save-archive/instructions"
             className="text-accent1-500 underline hover:text-accent1-300"
