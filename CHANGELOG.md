@@ -8,6 +8,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ### Added
 
+- Added link to Vash Cowaii's Loadout Calculator on both the front page and resources page.
+
 #### Profile page
 
 - Your total discovered items from the Item Tracker can now be synced to the database and shown on your profile!
