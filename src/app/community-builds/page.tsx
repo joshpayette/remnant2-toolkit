@@ -8,11 +8,11 @@ import { CommunityBuildList } from './CommunityBuilds'
 export default async function Page() {
   return (
     <>
-      <div className="mb-8 flex w-full items-center justify-center">
+      <div className="mb-2 flex w-full items-center justify-center">
         <BuildListFilters key="community-build-filters" />
       </div>
 
-      <div className="mb-4 grid w-full grid-cols-1 gap-2">
+      <div className="mb-2 grid w-full grid-cols-1 gap-2">
         <CommunityBuildList itemsPerPage={DEFAULT_ITEMS_PER_PAGE} />
       </div>
     </>

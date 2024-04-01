@@ -120,18 +120,29 @@ export function SaveLookupFilters({}: Props) {
     <Disclosure defaultOpen={true}>
       {({ open }) => (
         <div className="mb-4 w-full">
-          <Disclosure.Button
+          <div
             className={cn(
-              'flex w-full flex-row items-center justify-center border-b py-2',
+              'flex w-full flex-row items-end justify-center gap-x-2 border-b py-2',
               areAnyFiltersActive
                 ? 'border-b-accent1-500'
                 : 'border-b-primary-500',
             )}
           >
-            <h2 className="flex w-full items-center justify-start text-xl">
-              Filters
-            </h2>
-            <div className="flex flex-row items-center justify-center rounded-md border-2 border-secondary-500 bg-secondary-700 p-2 text-sm hover:bg-secondary-500">
+            <div className="flex w-full items-center justify-start">
+              <SelectMenu
+                label="Boss Name"
+                showLabel={false}
+                value={unappliedFilters.bossName}
+                onChange={(e) =>
+                  handleBossNameChange(e.target.value as BossName | 'Choose')
+                }
+                options={bossNames.map((name) => ({
+                  label: name,
+                  value: name,
+                }))}
+              />
+            </div>
+            <Disclosure.Button className="flex flex-row items-center justify-center rounded-md border-2 border-secondary-500 bg-secondary-700 p-2 text-sm hover:bg-secondary-500">
               {open ? 'Hide' : 'Show'}
               <ChevronRightIcon
                 className={cn(
@@ -139,8 +150,8 @@ export function SaveLookupFilters({}: Props) {
                   open ? 'rotate-90 transform' : '',
                 )}
               />
-            </div>
-          </Disclosure.Button>
+            </Disclosure.Button>
+          </div>
           <Disclosure.Panel className="w-full">
             <FiltersContainer<SearchFilters>
               areFiltersApplied={areFiltersApplied}
@@ -148,19 +159,6 @@ export function SaveLookupFilters({}: Props) {
               filters={filters}
               onClearFilters={handleClearFilters}
             >
-              <div className="col-span-full flex w-full border-b border-b-primary-800 pb-4">
-                <SelectMenu
-                  label="Boss Name"
-                  value={unappliedFilters.bossName}
-                  onChange={(e) =>
-                    handleBossNameChange(e.target.value as BossName | 'Choose')
-                  }
-                  options={bossNames.map((name) => ({
-                    label: name,
-                    value: name,
-                  }))}
-                />
-              </div>
               <div className="col-span-full flex w-full flex-col items-start justify-start gap-x-4 gap-y-2 border-b border-b-primary-800 pb-4 pt-2">
                 <div className="flex w-full items-center justify-start text-left text-sm font-bold text-primary-500">
                   By Affix

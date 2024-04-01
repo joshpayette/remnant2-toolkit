@@ -26,19 +26,27 @@ export function BuildListSecondaryFilters({
   onTimeRangeChange,
 }: Props) {
   return (
-    <div className="flex w-full flex-col items-center justify-end gap-x-2 sm:flex-row">
-      <SelectMenu
-        name="timeRange"
-        value={timeRange}
-        options={timeRangeOptions}
-        onChange={(e) => onTimeRangeChange(e.target.value)}
-      />
-      <SelectMenu
-        name="orderBy"
-        value={orderBy}
-        options={orderByOptions}
-        onChange={(e) => onOrderByChange(e.target.value)}
-      />
+    <div className="grid w-full grid-cols-2 gap-x-2 sm:flex sm:items-end sm:justify-end">
+      <div className="w-full max-w-[250px]">
+        <SelectMenu
+          label="Time Range"
+          showLabel={false}
+          name="timeRange"
+          value={timeRange}
+          options={timeRangeOptions}
+          onChange={(e) => onTimeRangeChange(e.target.value)}
+        />
+      </div>
+      <div className="w-full max-w-[250px]">
+        <SelectMenu
+          label="Order By"
+          showLabel={false}
+          name="orderBy"
+          value={orderBy}
+          options={orderByOptions}
+          onChange={(e) => onOrderByChange(e.target.value)}
+        />
+      </div>
     </div>
   )
 }

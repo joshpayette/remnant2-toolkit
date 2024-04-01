@@ -74,11 +74,15 @@ export function SearchTextAutocomplete({
       className={cn('w-full')}
       nullable
     >
-      {showLabel && (
-        <Combobox.Label className="block text-sm font-bold leading-6 text-primary-500">
-          Search Text
-        </Combobox.Label>
-      )}
+      <Combobox.Label
+        className={cn(
+          'block text-sm font-bold leading-6 text-primary-500',
+          showLabel && 'sr-only',
+        )}
+      >
+        Search Text
+      </Combobox.Label>
+
       <div className="relative mt-2">
         <Combobox.Input
           className="w-full rounded-md border-2 border-secondary-700 bg-black py-1.5 pl-3 pr-10 text-sm text-gray-300 shadow-sm ring-1 ring-secondary-700 focus:border-secondary-500 focus:outline-none focus:ring-1 focus:ring-secondary-500"

@@ -35,7 +35,7 @@ export function Pagination({
   return (
     <div className="flex w-full items-center justify-between bg-black bg-opacity-40 px-4 py-4 sm:px-6">
       {/** Mobile */}
-      <div className="flex flex-1 justify-between sm:hidden">
+      <div className="flex flex-1 items-center justify-between gap-x-1 sm:hidden">
         <button
           onClick={onPreviousPage}
           aria-label="Previous page"
@@ -43,6 +43,23 @@ export function Pagination({
         >
           Previous
         </button>
+        <div className="w-full text-center">
+          <p className="text-xs text-gray-200">
+            Showing{' '}
+            <span id="start_page_count" className="font-medium">
+              {firstVisibleItemNumber}
+            </span>{' '}
+            to{' '}
+            <span id="end_page_count" className="font-medium">
+              {lastVisibleItemNumber}
+            </span>{' '}
+            of{' '}
+            <span className="font-medium">
+              {totalItems > 1000 ? '1000+' : totalItems}
+            </span>{' '}
+            results
+          </p>
+        </div>
         <button
           onClick={onNextPage}
           aria-label="Next page"

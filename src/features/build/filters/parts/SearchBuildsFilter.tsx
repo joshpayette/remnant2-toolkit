@@ -15,7 +15,7 @@ export function SearchBuildsFilter({
 }: Props) {
   return (
     <div className="flex w-full flex-col items-start justify-start gap-x-4 gap-y-2">
-      <div className="flex w-full items-center justify-start text-left text-sm font-bold text-primary-500">
+      <div className="sr-only flex w-full items-center justify-start text-left text-sm font-bold text-primary-500">
         By Build Name, Builder Name, or Description
       </div>
 

@@ -23,7 +23,7 @@ export function ArchetypeFilters({
   onSelectNone,
 }: Props) {
   return (
-    <div className="flex w-full flex-col items-start justify-start gap-x-4 gap-y-2">
+    <div className="flex w-full max-w-[800px] flex-col items-start justify-start gap-x-4 gap-y-2">
       <div className="flex w-full items-center justify-start text-left text-sm font-bold text-primary-500">
         By Archetype
       </div>

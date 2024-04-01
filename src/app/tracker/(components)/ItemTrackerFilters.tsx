@@ -226,57 +226,54 @@ export function ItemTrackerFilters({
   return (
     <div
       className={cn(
-        'relative h-full max-h-fit w-full transform overflow-y-auto border-2 border-secondary-500 bg-black px-4 pb-4 pt-4 text-left shadow-lg shadow-secondary-500/50 sm:my-8 sm:p-6',
+        'relative h-full max-h-fit w-full transform overflow-y-auto border-2 border-secondary-500 bg-black p-4 text-left shadow-lg shadow-secondary-500/50',
         !showBorder && 'border-transparent',
         showBorder &&
           areAnyFiltersActive() &&
           'border-accent1-300 shadow-xl shadow-accent1-600',
       )}
     >
-      <div className="grid-cols-full grid gap-x-8 gap-y-4  bg-black sm:grid-cols-4">
-        <div className="col-span-full border border-transparent border-b-primary-800 pb-8 pt-2 sm:col-span-2">
+      <div className="grid-cols-full grid gap-x-8 gap-y-2 bg-black sm:grid-cols-4">
+        <div className="col-span-full border border-transparent border-b-primary-800 pb-2 sm:col-span-2">
           <div className="flex w-full flex-col items-start justify-start gap-x-4">
             <span className="mb-2 flex items-center justify-start text-left text-sm font-bold text-primary-500">
               Search
             </span>
-            <div className="w-full">
-              <SearchInput
-                onChange={handleSearchTextChange}
-                value={searchText}
-                placeholder={'Search item names and descriptions'}
-              />
-            </div>
+
+            <SearchInput
+              onChange={handleSearchTextChange}
+              value={searchText}
+              placeholder={'Search item names and descriptions'}
+            />
           </div>
         </div>
 
-        <div className="col-span-full border border-transparent border-b-primary-800 pb-8 pt-2 sm:col-span-2">
+        <div className="col-span-full border border-transparent border-b-primary-800 pb-2 sm:col-span-2">
           <div className="flex w-full flex-col items-start justify-start gap-x-4">
-            <div className="w-full">
-              <SelectMenu
-                label="Category"
-                value={selectedItemCategory as string}
-                options={itemCategoryOptions.map((option) =>
-                  option.value === 'relicfragment'
-                    ? {
-                        label: option.label.replace(
-                          'Relicfragment',
-                          'Relic Fragment',
-                        ),
-                        value: option.value,
-                      }
-                    : option,
-                )}
-                onChange={(e) =>
-                  handleItemCategoryFilterChange(
-                    e.target.value as ItemTrackerCategory,
-                  )
-                }
-              />
-            </div>
+            <SelectMenu
+              label="Category"
+              value={selectedItemCategory as string}
+              options={itemCategoryOptions.map((option) =>
+                option.value === 'relicfragment'
+                  ? {
+                      label: option.label.replace(
+                        'Relicfragment',
+                        'Relic Fragment',
+                      ),
+                      value: option.value,
+                    }
+                  : option,
+              )}
+              onChange={(e) =>
+                handleItemCategoryFilterChange(
+                  e.target.value as ItemTrackerCategory,
+                )
+              }
+            />
           </div>
         </div>
 
-        <div className="col-span-full pt-2 sm:col-span-2">
+        <div className="col-span-full sm:col-span-2">
           <div className="flex w-full flex-col items-start justify-start gap-x-4 gap-y-2">
             <span className="flex items-start justify-start text-left text-sm font-bold text-primary-500">
               By Release

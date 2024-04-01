@@ -222,18 +222,46 @@ export function ItemLookupFilters({}: Props) {
     <Disclosure defaultOpen={true}>
       {({ open }) => (
         <div className="mb-4 w-full">
-          <Disclosure.Button
+          <div
             className={cn(
-              'flex w-full flex-row items-center justify-center border-b py-2',
+              'mb-2 flex w-full flex-row items-end justify-center gap-x-2 border-b py-2',
               areAnyFiltersActive
                 ? 'border-b-accent1-500'
                 : 'border-b-primary-500',
             )}
           >
-            <h2 className="flex w-full items-center justify-start text-xl">
-              Item Filters
-            </h2>
-            <div className="flex flex-row items-center justify-center rounded-md border-2 border-secondary-500 bg-secondary-700 p-2 text-sm hover:bg-secondary-500">
+            <div className="flex w-full items-end justify-start gap-x-2 text-left">
+              <div className="flex w-full max-w-[400px] flex-row items-start justify-start">
+                <SearchTextAutocomplete
+                  key={searchTextFieldKey.current}
+                  items={buildItemList()}
+                  onChange={(newSearchText: string) =>
+                    handleSearchTextChange(newSearchText)
+                  }
+                  onKeyDown={() => handleApplyFilters(unappliedFilters)}
+                  value={unappliedFilters.searchText}
+                  autoFocus={true}
+                />
+              </div>
+              {unappliedFilters.searchText !== '' ? (
+                <button
+                  className="rounded-md border-2 border-red-700 p-2 text-sm text-white ring-1 ring-red-700 hover:border-red-500 focus:border-red-500 focus:outline-none focus:ring-1 focus:ring-red-500"
+                  onClick={() => {
+                    handleSearchTextChange('')
+                    handleApplyFilters({
+                      ...unappliedFilters,
+                      searchText: '',
+                    })
+                    searchTextFieldKey.current = new Date().getTime()
+                  }}
+                >
+                  <TrashIcon className="h-4 w-4 text-red-500" />
+                </button>
+              ) : (
+                <div className="w-[45px]" />
+              )}
+            </div>
+            <Disclosure.Button className="flex items-end justify-end rounded-md border-2 border-secondary-500 bg-secondary-700 p-1.5 text-sm hover:bg-secondary-500">
               {open ? 'Hide' : 'Show'}
               <ChevronRightIcon
                 className={cn(
@@ -241,8 +269,8 @@ export function ItemLookupFilters({}: Props) {
                   open ? 'rotate-90 transform' : '',
                 )}
               />
-            </div>
-          </Disclosure.Button>
+            </Disclosure.Button>
+          </div>
           <Disclosure.Panel className="w-full">
             <FiltersContainer<ItemLookupFilterFields>
               areFiltersApplied={areFiltersApplied}
@@ -250,36 +278,6 @@ export function ItemLookupFilters({}: Props) {
               filters={unappliedFilters}
               onClearFilters={handleClearFilters}
             >
-              <div className="col-span-full flex w-full flex-row items-end justify-center gap-x-4 gap-y-2 border-b border-b-primary-800 pb-2">
-                <div className="w-full max-w-[400px]">
-                  <SearchTextAutocomplete
-                    key={searchTextFieldKey.current}
-                    items={buildItemList()}
-                    onChange={(newSearchText: string) =>
-                      handleSearchTextChange(newSearchText)
-                    }
-                    onKeyDown={() => handleApplyFilters(unappliedFilters)}
-                    value={unappliedFilters.searchText}
-                    autoFocus={true}
-                  />
-                </div>
-                {unappliedFilters.searchText !== '' ? (
-                  <button
-                    className="rounded-md border-2 border-red-700 p-2 text-sm text-white ring-1 ring-red-700 hover:border-red-500 focus:border-red-500 focus:outline-none focus:ring-1 focus:ring-red-500"
-                    onClick={() => {
-                      handleSearchTextChange('')
-                      handleApplyFilters({
-                        ...unappliedFilters,
-                        searchText: '',
-                      })
-                      searchTextFieldKey.current = new Date().getTime()
-                    }}
-                  >
-                    <TrashIcon className="h-4 w-4 text-red-500" />
-                  </button>
-                ) : null}
-              </div>
-
               <div className="col-span-full flex w-full border-b border-b-primary-800 pb-2 sm:col-span-3">
                 <ReleaseFilters
                   selectedReleases={unappliedFilters.selectedReleases}

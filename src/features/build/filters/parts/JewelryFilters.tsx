@@ -33,7 +33,7 @@ export function JewelryFilters({
 }: Props) {
   return (
     <div className="flex w-full flex-col items-start justify-start">
-      <div className="grid grid-cols-1 gap-x-8 gap-y-4 text-left sm:grid-cols-3 sm:gap-y-0">
+      <div className="grid w-full grid-cols-1 gap-x-8 gap-y-4 text-left sm:grid-cols-3 sm:gap-y-0">
         <div className="col-span-full sm:col-span-1">
           <SelectMenu
             name="amulet"

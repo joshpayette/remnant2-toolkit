@@ -58,12 +58,13 @@ export function BossTrackerFilters({ onUpdateFilters }: Props) {
   const [unappliedFilters, setUnappliedFilters] =
     useState<BossTrackerFilterFields>(filters)
 
+  const areFiltersNowApplied = isEqual(filters, unappliedFilters)
+
   // This is used to check if the filters are applied
   // This is used to determine if the Apply Filters button should pulsate
   // for the user to indicate they need to apply the changes
-  const [areFiltersApplied, setAreFiltersApplied] = useState(
-    areFiltersNowApplied(),
-  )
+  const [areFiltersApplied, setAreFiltersApplied] =
+    useState(areFiltersNowApplied)
 
   // If the filters differ from the default filters,
   // the filters table should have a yellow outline to
@@ -90,10 +91,6 @@ export function BossTrackerFilters({ onUpdateFilters }: Props) {
     handleApplyFilters(DEFAULT_BOSS_TRACKER_FILTERS)
   }
 
-  function areFiltersNowApplied() {
-    return isEqual(filters, unappliedFilters)
-  }
-
   function handleBossCategoryChange(category: BossCategory) {
     let newBossCategories = [...unappliedFilters.selectedBossCategories]
 
@@ -105,11 +102,13 @@ export function BossTrackerFilters({ onUpdateFilters }: Props) {
       newBossCategories.push(category)
     }
 
-    setUnappliedFilters({
+    const newFilters = {
       ...unappliedFilters,
       selectedBossCategories: newBossCategories,
-    })
-    setAreFiltersApplied(areFiltersNowApplied())
+    }
+    setUnappliedFilters(newFilters)
+    handleApplyFilters(newFilters)
+    setAreFiltersApplied(areFiltersNowApplied)
     if (
       filters.selectedBossCategories.some((a) => !newBossCategories.includes(a))
     ) {
@@ -118,8 +117,10 @@ export function BossTrackerFilters({ onUpdateFilters }: Props) {
   }
 
   function handleSearchTextChange(searchQuery: string) {
-    setUnappliedFilters({ ...unappliedFilters, searchText: searchQuery })
-    setAreFiltersApplied(areFiltersNowApplied())
+    const newFilters = { ...unappliedFilters, searchText: searchQuery }
+    setUnappliedFilters(newFilters)
+    handleApplyFilters(newFilters)
+    setAreFiltersApplied(areFiltersNowApplied)
   }
 
   function handleApplyFilters(newFilters: BossTrackerFilterFields) {
@@ -148,7 +149,6 @@ export function BossTrackerFilters({ onUpdateFilters }: Props) {
       areAnyFiltersActive={areAnyFiltersActive}
       areFiltersApplied={areFiltersApplied}
       filters={unappliedFilters}
-      onApplyFilters={handleApplyFilters}
       onClearFilters={handleClearFilters}
     >
       <div className="col-span-full flex w-full flex-col items-start justify-start gap-x-4 gap-y-2 border-b border-b-primary-800 pb-4">
@@ -166,7 +166,7 @@ export function BossTrackerFilters({ onUpdateFilters }: Props) {
           </div>
         </div>
       </div>
-      <div className="pt-2flex col-span-full w-full flex-col items-start justify-start gap-x-4 gap-y-2 border-b border-b-primary-800 pb-4">
+      <div className="col-span-full flex w-full flex-col items-start justify-start gap-x-4 gap-y-2 border-b border-b-primary-800 pb-4 pt-2">
         <BossCategoryFilters
           selectedBossCategories={unappliedFilters.selectedBossCategories}
           onUpdate={(category) => handleBossCategoryChange(category)}

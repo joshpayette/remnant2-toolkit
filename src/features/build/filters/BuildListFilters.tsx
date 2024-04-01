@@ -253,9 +253,9 @@ export function BuildListFilters() {
     <Disclosure defaultOpen={true}>
       {({ open }) => (
         <div className="mb-4 w-full">
-          <Disclosure.Button
+          <div
             className={cn(
-              'flex w-full flex-row items-center justify-center border-b py-2',
+              'mb-2 flex w-full flex-row items-center justify-center border-b py-2',
               areAnyFiltersActive
                 ? 'border-b-accent1-500'
                 : 'border-b-primary-500',
@@ -264,7 +264,7 @@ export function BuildListFilters() {
             <h2 className="flex w-full items-center justify-start text-xl">
               Build Filters
             </h2>
-            <div className="flex flex-row items-center justify-center rounded-md border-2 border-secondary-500 bg-secondary-700 p-2 text-sm hover:bg-secondary-500">
+            <Disclosure.Button className="flex flex-row items-center justify-center rounded-md border-2 border-secondary-500 bg-secondary-700 p-2 text-sm hover:bg-secondary-500">
               {open ? 'Hide' : 'Show'}
               <ChevronRightIcon
                 className={cn(
@@ -272,8 +272,8 @@ export function BuildListFilters() {
                   open ? 'rotate-90 transform' : '',
                 )}
               />
-            </div>
-          </Disclosure.Button>
+            </Disclosure.Button>
+          </div>
           <Disclosure.Panel className="w-full">
             <FiltersContainer<BuildListFilterFields>
               areAnyFiltersActive={areAnyFiltersActive}
