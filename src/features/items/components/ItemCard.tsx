@@ -1,21 +1,25 @@
 import {
+  ChartBarSquareIcon,
+  ChartPieIcon,
   MagnifyingGlassMinusIcon,
   MagnifyingGlassPlusIcon,
   ShareIcon,
 } from '@heroicons/react/24/solid'
 import copy from 'clipboard-copy'
 import Image from 'next/image'
+import { useState } from 'react'
 import { toast } from 'react-toastify'
 import { useLocalStorage } from 'usehooks-ts'
 
 import { getArrayOfLength } from '@/features/build/lib/getArrayOfLength'
+import getItemBuildStats from '@/features/items/actions/getItemBuildStats'
 import { Tooltip } from '@/features/ui/Tooltip'
 import { cn } from '@/lib/classnames'
 
 import { ArmorInfo } from '../../armor-calculator/ArmorInfo'
 import { DescriptionWithTags } from '../../ui/DescriptionWithTags'
 import { cleanItemName } from '../lib/cleanItemName'
-import { Item } from '../types'
+import { Item, ItemBuildStats } from '../types'
 import { ArchetypeItem } from '../types/ArchetypeItem'
 import { ArmorItem } from '../types/ArmorItem'
 import { ModItem } from '../types/ModItem'
@@ -44,8 +48,11 @@ export function ItemCard({
     getArrayOfLength(5).map(() => ''),
     { initializeWithValue: false },
   )
-
   const itemBeingCompared = itemsToCompare.includes(item.id)
+
+  const [itemBuildStats, setItemBuildStats] = useState<ItemBuildStats | null>(
+    null,
+  )
 
   const { imagePath, category, name, description } = item
 
@@ -91,20 +98,59 @@ export function ItemCard({
     <div className="col-span-1 flex flex-col divide-y divide-primary-800 rounded-lg border border-primary-500 bg-black text-center shadow">
       <div className="flex flex-1 flex-col p-4">
         {allowItemCompare ? (
-          <div className="flex w-full items-center justify-end">
-            {itemBeingCompared ? (
-              <Tooltip content="Remove from item comparison.">
-                <button onClick={handleRemoveItemFromCompare}>
-                  <MagnifyingGlassMinusIcon className="h-5 w-5 text-red-500" />
-                </button>
-              </Tooltip>
-            ) : (
-              <Tooltip content="Add to item comparison.">
-                <button onClick={handleAddItemToCompare}>
-                  <MagnifyingGlassPlusIcon className="h-5 w-5 text-accent1-500" />
-                </button>
-              </Tooltip>
-            )}
+          <div className="flex w-full items-center justify-center">
+            <div className="flex w-full items-center justify-start">
+              {itemBuildStats ? (
+                <div className="flex items-center gap-1 text-[11px] text-gray-200">
+                  <div className="flex flex-col items-center justify-start">
+                    <span className="underline">Featured</span>
+                    <span>
+                      <span>{itemBuildStats.featured.usedIn}</span>
+                      <span>/</span>
+                      <span>{itemBuildStats.featured.total}</span>
+                    </span>
+                  </div>
+                  <div className="flex flex-col items-center justify-start">
+                    <span className="underline">Community</span>
+                    <span>
+                      <span>{itemBuildStats.community.usedIn}</span>
+                      <span>/</span>
+                      <span>{itemBuildStats.community.total}</span>
+                    </span>
+                  </div>
+                </div>
+              ) : (
+                <Tooltip content="Get stats on how many featured and community builds the item is used in.">
+                  <button
+                    onClick={async () => {
+                      const response = await getItemBuildStats(item.id)
+                      if (!response.success) {
+                        toast.error('Failed to get build stats')
+                        return
+                      }
+                      setItemBuildStats(response.stats)
+                    }}
+                  >
+                    <ChartBarSquareIcon className="h-5 w-5 text-accent2-500" />
+                  </button>
+                </Tooltip>
+              )}
+            </div>
+            <div className="flex w-full items-center justify-end">
+              {itemBeingCompared ? (
+                <Tooltip content="Remove from item comparison.">
+                  <button onClick={handleRemoveItemFromCompare}>
+                    <MagnifyingGlassMinusIcon className="h-5 w-5 text-red-500" />
+                  </button>
+                </Tooltip>
+              ) : (
+                <Tooltip content="Add to item comparison.">
+                  <button onClick={handleAddItemToCompare}>
+                    <MagnifyingGlassPlusIcon className="h-5 w-5 text-accent1-500" />
+                  </button>
+                </Tooltip>
+              )}
+            </div>
           </div>
         ) : null}
         <button

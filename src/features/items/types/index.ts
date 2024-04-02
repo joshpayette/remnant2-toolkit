@@ -164,3 +164,9 @@ export type WeightClass = {
   textColor: string
   maxWeight: number
 }
+
+/** Used to show the # of builds an item is used in */
+export type ItemBuildStats = {
+  featured: { usedIn: number; total: number }
+  community: { usedIn: number; total: number }
+}
