@@ -383,7 +383,7 @@ export const modItems: ModItem[] = [
     name: 'Explosive Shot',
     imagePath: '/mod/explosive_shot.png',
     id: 'hpfdzp',
-    description: `Fires an explosive round [E] that deals up to 465 FIRE damage within 9m and applies BURNING, dealing 300 FIRE damage over 5s. [A]`,
+    description: `Fires an explosive round [E] that deals up to 465 FIRE damage within 9m [A] and applies BURNING, dealing 300 FIRE damage over 5s.`,
     wikiLinks: [`https://remnant.wiki/Explosive_Shot`],
     linkedItems: {
       weapon: {
@@ -626,8 +626,8 @@ export const modItems: ModItem[] = [
     name: 'Micronova',
     imagePath: '/mod/micronova1.png',
     id: '8izb2g',
-    description: `Fires 5 shattered compressed remains of a dying star. On contact or when hit with the primary fire, Micronova explodes for 50 FIRE damage [E], and 350 BURNING damage over 10s to all targets within 2m.
-    Striking the Micronova with Corrupted Aphelion's primary fire increases its explosion radius by 25%, damage by 50%, and spawns a shockwave that deals 100 FIRE damage, detonates any nearby Micronovas and applies the initial BURNING amount. [A]`,
+    description: `Fires 5 shattered compressed remains of a dying star. On contact or when hit with the primary fire, Micronova explodes for 50 FIRE damage [E], and 350 BURNING damage over 10s to all targets within 2m. [A]
+    Striking the Micronova with Corrupted Aphelion's primary fire increases its explosion radius by 25%, damage by 50%, and spawns a shockwave that deals 100 FIRE damage, detonates any nearby Micronovas and applies the initial BURNING amount.`,
     wikiLinks: [`https://remnant.wiki/Micronova`],
     linkedItems: {
       weapon: {
