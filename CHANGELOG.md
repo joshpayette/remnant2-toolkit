@@ -10,6 +10,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - On non-build filters, the search text box has now been moved above the filters container. This will allow quicker searching of these pages with the remaining filters collapsible until needed.
 
+### Fixed
+
+- Fixed item description for Moonlight Barrage.
+
 ## 2024-03-31
 
 ### Added

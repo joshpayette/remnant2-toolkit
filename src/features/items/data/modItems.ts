@@ -641,7 +641,7 @@ export const modItems: ModItem[] = [
     imagePath: '/mod/moonlight_barrage.png',
     id: 'wfak3h',
     description: `Empowers the Bow for 15s. Arrows apply Moonlight to enemies for 3s. Enemies struck by Crescent Moon while Moonlit release a Moon Essence which returns 1 arrow, heals 5% of Max Health, and grants 15% Fire and Reload Speed for 5s.
-    Basic Shots automatically become Charged Shots. Manually Charged Shots fire two arrows.`,
+    Basic Shots automatically become Charged Shots. Perfect Shots fire two arrows.`,
     wikiLinks: [`https://remnant.wiki/Moonlight_Barrage`],
     linkedItems: {
       weapon: {
