@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Added
 
 - Item Lookup cards now have an icon you can click to view how many Featured and Community Builds the item is found in.
+- Added more saves to the World Save Archive.
 
 ### Changed
 

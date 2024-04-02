@@ -28,6 +28,11 @@ export const worldSaves = [
   },
   {
     bossName: 'Bloat King',
+    bossAffixes: ['Drain', 'Hearty'],
+    release: 'dlc1',
+  },
+  {
+    bossName: 'Bloat King',
     bossAffixes: ['Spiteful', 'Vicious'],
     release: 'dlc1',
   },
@@ -413,6 +418,11 @@ export const worldSaves = [
     release: 'dlc1',
   },
   {
+    bossName: 'The Nightweaver',
+    bossAffixes: ['Skullcracker', 'Spiteful'],
+    release: 'dlc1',
+  },
+  {
     bossName: 'The One True King',
     bossAffixes: ['Hearty', 'Spiteful'],
     release: 'dlc1',
@@ -434,12 +444,22 @@ export const worldSaves = [
   },
   {
     bossName: 'The Red Prince',
+    bossAffixes: ['Drain', 'Spiteful'],
+    release: 'dlc1',
+  },
+  {
+    bossName: 'The Red Prince',
     bossAffixes: ['Elemental Resist', 'Spiteful'],
     release: 'dlc1',
   },
   {
     bossName: 'The Red Prince',
     bossAffixes: ['Hearty', 'Thick Skin'],
+    release: 'dlc1',
+  },
+  {
+    bossName: 'The Red Prince',
+    bossAffixes: ['Spiteful', 'Vicious'],
     release: 'dlc1',
   },
   {
@@ -458,6 +478,11 @@ export const worldSaves = [
     release: 'dlc1',
   },
   {
+    bossName: 'The Sunken Witch',
+    bossAffixes: ['Thick Skin', 'Trapper'],
+    release: 'dlc1',
+  },
+  {
     bossName: 'Venom',
     bossAffixes: ['Drain', 'Vicious'],
     release: 'dlc1',
@@ -465,6 +490,16 @@ export const worldSaves = [
   {
     bossName: 'Venom',
     bossAffixes: ['Hearty', 'Spiteful'],
+    release: 'dlc1',
+  },
+  {
+    bossName: 'Venom',
+    bossAffixes: ['Regenerator', 'Spiteful'],
+    release: 'dlc1',
+  },
+  {
+    bossName: 'Venom',
+    bossAffixes: ['Spiteful', 'Thick Skin'],
     release: 'dlc1',
   },
 ] as const satisfies WorldSave[]
