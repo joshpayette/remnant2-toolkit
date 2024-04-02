@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Added
 
 - Added more saves to the World Save Archive.
+- Added support for multiple phases to the World Save Archive. This is necessary because Sha'Hala has multiple phases, with different affixes in each phase.
 
 ## 2024-04-01
 

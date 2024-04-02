@@ -164,8 +164,12 @@ const bossNames = [
   { name: 'Legion' },
   { name: 'Primogenitor' },
   { name: `Sha'Hala: Guardian of N'Erud` },
+  { name: `Sha'Hala: Guardian of N'Erud (Phase 2)` },
   {
     name: `Sha'Hala: Spectral Guardian of N'Erud`,
+  },
+  {
+    name: `Sha'Hala: Spectral Guardian of N'Erud (Phase 2)`,
   },
   { name: 'Shrewd' },
   { name: `Tal'Ratha` },
@@ -179,7 +183,10 @@ const bossNames = [
   { name: 'The Sunken Witch' },
   { name: 'Venom' },
 ] as const satisfies Array<{
-  name: (typeof bossData)[number]['name']
+  name:
+    | (typeof bossData)[number]['name']
+    | `Sha'Hala: Guardian of N'Erud (Phase 2)`
+    | `Sha'Hala: Spectral Guardian of N'Erud (Phase 2)`
 }>
 
 /**
@@ -188,8 +195,17 @@ const bossNames = [
  */
 export const BOSSES = bossNames.map((boss) => {
   const data = bossData.find(({ name }) => name === boss.name)
-  if (!data) {
-    throw new Error(`Boss not found: ${boss.name}`)
+  if (data) return { ...boss, imagePath: data.imagePath }
+
+  // If no data found, it must be one of the additional bosses
+  if (boss.name === `Sha'Hala: Guardian of N'Erud (Phase 2)`) {
+    return { ...boss, imagePath: '/enemies/worldboss/sha_hala_normal.jpg' }
   }
-  return { ...boss, imagePath: data.imagePath }
+  if (boss.name === `Sha'Hala: Spectral Guardian of N'Erud (Phase 2)`) {
+    return {
+      ...boss,
+      imagePath: '/enemies/worldboss/sha_hala_metaphysical.jpg',
+    }
+  }
+  return
 })
