@@ -207,5 +207,5 @@ export const BOSSES = bossNames.map((boss) => {
       imagePath: '/enemies/worldboss/sha_hala_metaphysical.jpg',
     }
   }
-  return
+  throw new Error(`No data found for boss: ${boss.name}`)
 })
