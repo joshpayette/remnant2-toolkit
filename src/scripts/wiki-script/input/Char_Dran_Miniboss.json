@@ -1,0 +1,3643 @@
+[
+  {
+    "Type": "ActionComponent",
+    "Name": "ActionComp",
+    "Outer": "Default__Char_Dran_Miniboss_C",
+    "Class": "UScriptClass'ActionComponent'",
+    "Template": {
+      "ObjectName": "ActionComponent'Default__Char_Dran_F_Bomber_C:ActionComp'",
+      "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Char_Dran_F_Bomber.0"
+    }
+  },
+  {
+    "Type": "ActorCustomizationComponent",
+    "Name": "Visual_GEN_VARIABLE",
+    "Outer": "Char_Dran_Miniboss_C",
+    "Class": "UScriptClass'ActorCustomizationComponent'",
+    "Template": {
+      "ObjectName": "ActorCustomizationComponent'Char_Dran_F_Bomber_C:Visual_GEN_VARIABLE'",
+      "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Char_Dran_F_Bomber.1"
+    },
+    "Properties": {
+      "Slots": [
+        {
+          "NameID": "Default",
+          "DefaultCustomizationID": "Champion",
+          "CustomizationID": "Champion",
+          "IsTransient": false
+        },
+        {
+          "NameID": "StatusEffects",
+          "DefaultCustomizationID": "None",
+          "CustomizationID": "None",
+          "IsTransient": true
+        }
+      ]
+    }
+  },
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "Char_Dran_Miniboss_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Super": {
+      "ObjectName": "BlueprintGeneratedClass'Char_Dran_F_Bomber_C'",
+      "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Char_Dran_F_Bomber.2"
+    },
+    "Properties": {
+      "SimpleConstructionScript": {
+        "ObjectName": "SimpleConstructionScript'Char_Dran_Miniboss_C:SimpleConstructionScript_0'",
+        "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss.48"
+      },
+      "InheritableComponentHandler": {
+        "ObjectName": "InheritableComponentHandler'Char_Dran_Miniboss_C:InheritableComponentHandler'",
+        "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss.38"
+      },
+      "UberGraphFunction": {
+        "ObjectName": "Function'Char_Dran_Miniboss_C:ExecuteUbergraph_Char_Dran_Miniboss'",
+        "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss.17"
+      }
+    },
+    "Children": [
+      {
+        "ObjectName": "Function'Char_Dran_Miniboss_C:DoAoeAttack'",
+        "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss.15"
+      },
+      {
+        "ObjectName": "Function'Char_Dran_Miniboss_C:SetBombNotInHandL'",
+        "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss.32"
+      },
+      {
+        "ObjectName": "Function'Char_Dran_Miniboss_C:SetBombInHandL'",
+        "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss.31"
+      },
+      {
+        "ObjectName": "Function'Char_Dran_Miniboss_C:DoLeftAOEAttack'",
+        "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss.16"
+      },
+      {
+        "ObjectName": "Function'Char_Dran_Miniboss_C:FilterIncomingDamage'",
+        "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss.18"
+      },
+      {
+        "ObjectName": "Function'Char_Dran_Miniboss_C:Fire Projectile Choice Offset'",
+        "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss.20"
+      },
+      {
+        "ObjectName": "Function'Char_Dran_Miniboss_C:Fire Projectile Choice'",
+        "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss.19"
+      },
+      {
+        "ObjectName": "Function'Char_Dran_Miniboss_C:ReceiveBeginPlay'",
+        "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss.28"
+      },
+      {
+        "ObjectName": "Function'Char_Dran_Miniboss_C:ReceiveTick'",
+        "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss.29"
+      },
+      {
+        "ObjectName": "Function'Char_Dran_Miniboss_C:ThrowBomb'",
+        "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss.33"
+      },
+      {
+        "ObjectName": "Function'Char_Dran_Miniboss_C:ThrowBombClose'",
+        "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss.34"
+      },
+      {
+        "ObjectName": "Function'Char_Dran_Miniboss_C:ThrowBombFar'",
+        "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss.35"
+      },
+      {
+        "ObjectName": "Function'Char_Dran_Miniboss_C:CarpetBomb'",
+        "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss.9"
+      },
+      {
+        "ObjectName": "Function'Char_Dran_Miniboss_C:OnWorldReset'",
+        "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss.27"
+      },
+      {
+        "ObjectName": "Function'Char_Dran_Miniboss_C:ThrowFollowUpBomb'",
+        "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss.36"
+      },
+      {
+        "ObjectName": "Function'Char_Dran_Miniboss_C:OnDead_Event'",
+        "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss.25"
+      },
+      {
+        "ObjectName": "Function'Char_Dran_Miniboss_C:RevealSecondBomb'",
+        "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss.30"
+      },
+      {
+        "ObjectName": "Function'Char_Dran_Miniboss_C:CombatEnter'",
+        "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss.13"
+      },
+      {
+        "ObjectName": "Function'Char_Dran_Miniboss_C:CinematicHideBomb'",
+        "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss.10"
+      },
+      {
+        "ObjectName": "Function'Char_Dran_Miniboss_C:CinematicShowBomb'",
+        "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss.11"
+      },
+      {
+        "ObjectName": "Function'Char_Dran_Miniboss_C:CinematicThrowBomb'",
+        "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss.12"
+      },
+      {
+        "ObjectName": "Function'Char_Dran_Miniboss_C:Music_Combat_Loop_Start'",
+        "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss.22"
+      },
+      {
+        "ObjectName": "Function'Char_Dran_Miniboss_C:Music_Combat_Loop_STOP'",
+        "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss.23"
+      },
+      {
+        "ObjectName": "Function'Char_Dran_Miniboss_C:Music_Combat_Outro'",
+        "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss.24"
+      },
+      {
+        "ObjectName": "Function'Char_Dran_Miniboss_C:DestroyHelmet'",
+        "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss.14"
+      },
+      {
+        "ObjectName": "Function'Char_Dran_Miniboss_C:OnNotifyAllWorldReset'",
+        "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss.26"
+      },
+      {
+        "ObjectName": "Function'Char_Dran_Miniboss_C:MulticastAOEAttackEffects'",
+        "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss.21"
+      },
+      {
+        "ObjectName": "Function'Char_Dran_Miniboss_C:ExecuteUbergraph_Char_Dran_Miniboss'",
+        "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss.17"
+      }
+    ],
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "UberGraphFrame",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 16,
+        "PropertyFlags": "Transient | DuplicateTransient",
+        "Struct": {
+          "ObjectName": "Class'PointerToUberGraphFrame'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Vitality",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'VitalityComponent'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Visual_Weapon_L",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'StaticMeshComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Grenade_CollisonL",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'SphereComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Dialog",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'DialogComponent'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "GrenadeSocket",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'SceneComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "BombInLHand",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 1,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance",
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "MusGrenadierCombatLoop",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance | ContainsInstancedReference",
+        "Struct": {
+          "ObjectName": "Class'AudioComponentGunfire'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      }
+    ],
+    "FuncMap": {
+      "ExecuteUbergraph_Char_Dran_Miniboss": {
+        "ObjectName": "Function'Char_Dran_Miniboss_C:ExecuteUbergraph_Char_Dran_Miniboss'",
+        "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss.17"
+      },
+      "MulticastAOEAttackEffects": {
+        "ObjectName": "Function'Char_Dran_Miniboss_C:MulticastAOEAttackEffects'",
+        "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss.21"
+      },
+      "OnNotifyAllWorldReset": {
+        "ObjectName": "Function'Char_Dran_Miniboss_C:OnNotifyAllWorldReset'",
+        "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss.26"
+      },
+      "DestroyHelmet": {
+        "ObjectName": "Function'Char_Dran_Miniboss_C:DestroyHelmet'",
+        "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss.14"
+      },
+      "Music_Combat_Outro": {
+        "ObjectName": "Function'Char_Dran_Miniboss_C:Music_Combat_Outro'",
+        "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss.24"
+      },
+      "Music_Combat_Loop_STOP": {
+        "ObjectName": "Function'Char_Dran_Miniboss_C:Music_Combat_Loop_STOP'",
+        "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss.23"
+      },
+      "Music_Combat_Loop_Start": {
+        "ObjectName": "Function'Char_Dran_Miniboss_C:Music_Combat_Loop_Start'",
+        "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss.22"
+      },
+      "CinematicThrowBomb": {
+        "ObjectName": "Function'Char_Dran_Miniboss_C:CinematicThrowBomb'",
+        "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss.12"
+      },
+      "CinematicShowBomb": {
+        "ObjectName": "Function'Char_Dran_Miniboss_C:CinematicShowBomb'",
+        "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss.11"
+      },
+      "CinematicHideBomb": {
+        "ObjectName": "Function'Char_Dran_Miniboss_C:CinematicHideBomb'",
+        "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss.10"
+      },
+      "CombatEnter": {
+        "ObjectName": "Function'Char_Dran_Miniboss_C:CombatEnter'",
+        "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss.13"
+      },
+      "RevealSecondBomb": {
+        "ObjectName": "Function'Char_Dran_Miniboss_C:RevealSecondBomb'",
+        "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss.30"
+      },
+      "OnDead_Event": {
+        "ObjectName": "Function'Char_Dran_Miniboss_C:OnDead_Event'",
+        "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss.25"
+      },
+      "ThrowFollowUpBomb": {
+        "ObjectName": "Function'Char_Dran_Miniboss_C:ThrowFollowUpBomb'",
+        "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss.36"
+      },
+      "OnWorldReset": {
+        "ObjectName": "Function'Char_Dran_Miniboss_C:OnWorldReset'",
+        "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss.27"
+      },
+      "CarpetBomb": {
+        "ObjectName": "Function'Char_Dran_Miniboss_C:CarpetBomb'",
+        "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss.9"
+      },
+      "ThrowBombFar": {
+        "ObjectName": "Function'Char_Dran_Miniboss_C:ThrowBombFar'",
+        "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss.35"
+      },
+      "ThrowBombClose": {
+        "ObjectName": "Function'Char_Dran_Miniboss_C:ThrowBombClose'",
+        "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss.34"
+      },
+      "ThrowBomb": {
+        "ObjectName": "Function'Char_Dran_Miniboss_C:ThrowBomb'",
+        "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss.33"
+      },
+      "ReceiveTick": {
+        "ObjectName": "Function'Char_Dran_Miniboss_C:ReceiveTick'",
+        "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss.29"
+      },
+      "ReceiveBeginPlay": {
+        "ObjectName": "Function'Char_Dran_Miniboss_C:ReceiveBeginPlay'",
+        "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss.28"
+      },
+      "Fire Projectile Choice": {
+        "ObjectName": "Function'Char_Dran_Miniboss_C:Fire Projectile Choice'",
+        "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss.19"
+      },
+      "Fire Projectile Choice Offset": {
+        "ObjectName": "Function'Char_Dran_Miniboss_C:Fire Projectile Choice Offset'",
+        "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss.20"
+      },
+      "FilterIncomingDamage": {
+        "ObjectName": "Function'Char_Dran_Miniboss_C:FilterIncomingDamage'",
+        "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss.18"
+      },
+      "DoLeftAOEAttack": {
+        "ObjectName": "Function'Char_Dran_Miniboss_C:DoLeftAOEAttack'",
+        "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss.16"
+      },
+      "SetBombInHandL": {
+        "ObjectName": "Function'Char_Dran_Miniboss_C:SetBombInHandL'",
+        "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss.31"
+      },
+      "SetBombNotInHandL": {
+        "ObjectName": "Function'Char_Dran_Miniboss_C:SetBombNotInHandL'",
+        "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss.32"
+      },
+      "DoAoeAttack": {
+        "ObjectName": "Function'Char_Dran_Miniboss_C:DoAoeAttack'",
+        "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss.15"
+      }
+    },
+    "ClassFlags": "CLASS_Config | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Game",
+    "Interfaces": [
+      {
+        "Class": {
+          "ObjectName": "Class'WorldResetInterface'",
+          "ObjectPath": "/Script/Remnant"
+        },
+        "PointerOffset": 0,
+        "bImplementedByK2": true
+      }
+    ],
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "Char_Dran_Miniboss_C'Default__Char_Dran_Miniboss_C'",
+      "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss.4"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal",
+      "ImplementedInterfaces": "((Interface=/Script/CoreUObject.Class'\"/Script/Remnant.WorldResetInterface\"'))"
+    }
+  },
+  {
+    "Type": "CapsuleComponent",
+    "Name": "CollisionCylinder",
+    "Outer": "Default__Char_Dran_Miniboss_C",
+    "Class": "UScriptClass'CapsuleComponent'",
+    "Template": {
+      "ObjectName": "CapsuleComponent'Default__Char_Dran_F_Bomber_C:CollisionCylinder'",
+      "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Char_Dran_F_Bomber.3"
+    },
+    "Properties": {
+      "CapsuleRadius": 48.0,
+      "BodyInstance": {
+        "ObjectType": "ECollisionChannel::ECC_GameTraceChannel17",
+        "CollisionProfileName": "BossPawn"
+      }
+    }
+  },
+  {
+    "Type": "Char_Dran_Miniboss_C",
+    "Name": "Default__Char_Dran_Miniboss_C",
+    "Class": "BlueprintGeneratedClass'/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss.Char_Dran_Miniboss_C'",
+    "Template": {
+      "ObjectName": "Char_Dran_F_Bomber_C'Default__Char_Dran_F_Bomber_C'",
+      "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Char_Dran_F_Bomber.4"
+    },
+    "Properties": {
+      "UberGraphFrame": {},
+      "MusGrenadierCombatLoop": {
+        "AudioComponent": null
+      },
+      "Type": "MonsterType::NewEnumerator3",
+      "ModTable": {
+        "ObjectName": "SpawnTable'CharacterMod_SpawnTable_Stat'",
+        "ObjectPath": "/Game/World_Base/Affixes/CharacterMod_SpawnTable_Stat.0"
+      },
+      "CombatClass": {
+        "ObjectName": "BlueprintGeneratedClass'CombatClass_MiniBoss_C'",
+        "ObjectPath": "/Game/_Core/CombatClasses/CombatClass_MiniBoss.0"
+      },
+      "StatsComp": {
+        "ObjectName": "StatsComponent'Default__Char_Dran_Miniboss_C:StatsComp'",
+        "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss.58"
+      },
+      "ActionComp": {
+        "ObjectName": "ActionComponent'Default__Char_Dran_Miniboss_C:ActionComp'",
+        "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss.0"
+      },
+      "WeaponPhantomProviderComp": {
+        "ObjectName": "WeaponPhantomComponent'Default__Char_Dran_Miniboss_C:WeaponPhantomProviderComp'",
+        "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss.60"
+      },
+      "HitLogComp": {
+        "ObjectName": "HitLogComponent'Default__Char_Dran_Miniboss_C:HitLogComp'",
+        "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss.37"
+      },
+      "ReplicatedMovementComp": {
+        "ObjectName": "ReplicatedMovementComponent'Default__Char_Dran_Miniboss_C:ReplicatedMovement'",
+        "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss.39"
+      },
+      "Data": {
+        "RowName": "Dran_Miniboss"
+      },
+      "Mesh": {
+        "ObjectName": "SkeletalMeshComponentBudgeted'Default__Char_Dran_Miniboss_C:CharacterMesh0'",
+        "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss.52"
+      },
+      "CharacterMovement": {
+        "ObjectName": "CharacterMovementComponentGunfire'Default__Char_Dran_Miniboss_C:CharMoveComp'",
+        "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss.5"
+      },
+      "CapsuleComponent": {
+        "ObjectName": "CapsuleComponent'Default__Char_Dran_Miniboss_C:CollisionCylinder'",
+        "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss.3"
+      },
+      "AIControllerClass": {
+        "ObjectName": "BlueprintGeneratedClass'Char_Dran_Miniboss_AI_Controller_C'",
+        "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss_AI_Controller.0"
+      },
+      "RootComponent": {
+        "ObjectName": "CapsuleComponent'Default__Char_Dran_Miniboss_C:CollisionCylinder'",
+        "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss.3"
+      },
+      "Tags": ["Ranged", "NoForce"]
+    }
+  },
+  {
+    "Type": "CharacterMovementComponentGunfire",
+    "Name": "CharMoveComp",
+    "Outer": "Default__Char_Dran_Miniboss_C",
+    "Class": "UScriptClass'CharacterMovementComponentGunfire'",
+    "Template": {
+      "ObjectName": "CharacterMovementComponentGunfire'Default__Char_Dran_F_Bomber_C:CharMoveComp'",
+      "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Char_Dran_F_Bomber.5"
+    },
+    "Properties": {
+      "LedgeConstraintParams": {
+        "ObjectName": "BlueprintGeneratedClass'LedgeConstraint_CliffConditionParams_C'",
+        "ObjectPath": "/Game/_Core/TraversalConfig/LedgeConstraint_CliffConditionParams.0"
+      },
+      "DesiredCapsuleScaleFromLedge": 1.0,
+      "bAllowFallingIfAlreadyOffLedge": false,
+      "bCanWalkOffLedges": false
+    }
+  },
+  {
+    "Type": "DialogComponent",
+    "Name": "Dialog_GEN_VARIABLE",
+    "Outer": "Char_Dran_Miniboss_C",
+    "Class": "UScriptClass'DialogComponent'",
+    "Properties": {
+      "EventTree": {
+        "ObjectName": "EventTree'EventTree_Dran_Bomber_MiniBoss'",
+        "ObjectPath": "/Game/World_Fae/Characters/Dran_Male/Blueprints/Bomber/EventTree_Dran_Bomber_MiniBoss.25"
+      },
+      "AutoPlayDialog": true,
+      "EnableProximityTriggers": true,
+      "StageBP": {
+        "ObjectName": "BlueprintGeneratedClass'Bp_DialogueStage_C'",
+        "ObjectPath": "/Game/_Core/Blueprints/Base/Bp_DialogueStage.0"
+      }
+    }
+  },
+  {
+    "Type": "DisplayInfoComponent_C",
+    "Name": "DisplayInfoComponent_GEN_VARIABLE",
+    "Outer": "Char_Dran_Miniboss_C",
+    "Class": "BlueprintGeneratedClass'/Game/_Core/Blueprints/Base/DisplayInfoComponent.DisplayInfoComponent_C'",
+    "Template": {
+      "ObjectName": "DisplayInfoComponent_C'BP_Monster_C:DisplayInfoComponent_GEN_VARIABLE'",
+      "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster.10"
+    },
+    "Properties": {
+      "Label": {
+        "Namespace": "",
+        "Key": "DD8D5C7F4EE52AA1C83794B5CF4CF3F2",
+        "SourceString": "Gwendil : The Unburnt",
+        "LocalizedString": "Gwendil : The Unburnt"
+      }
+    }
+  },
+  {
+    "Type": "DissolveComponent",
+    "Name": "Dissolve_GEN_VARIABLE",
+    "Outer": "Char_Dran_Miniboss_C",
+    "Class": "UScriptClass'DissolveComponent'",
+    "Template": {
+      "ObjectName": "DissolveComponent'Char_Dran_F_Bomber_C:Dissolve_GEN_VARIABLE'",
+      "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Char_Dran_F_Bomber.6"
+    },
+    "Properties": {
+      "Materials": [
+        {
+          "Material": {
+            "ObjectName": "MaterialInstanceConstant'M_Dran_NPC_Female_Body1'",
+            "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Material/M_Dran_NPC_Female_Body1.0"
+          },
+          "DissolveMaterial": {
+            "ObjectName": "MaterialInstanceConstant'M_Dran_NPC_Female_Body1_Dis'",
+            "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Material/M_Dran_NPC_Female_Body1_Dis.0"
+          }
+        },
+        {
+          "Material": {
+            "ObjectName": "MaterialInstanceConstant'M_Dran_NPC_Female_Head'",
+            "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Material/M_Dran_NPC_Female_Head.0"
+          },
+          "DissolveMaterial": {
+            "ObjectName": "MaterialInstanceConstant'M_Dran_NPC_Female_Head_Dis'",
+            "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Material/M_Dran_NPC_Female_Head_Dis.0"
+          }
+        },
+        {
+          "Material": {
+            "ObjectName": "MaterialInstanceConstant'M_Dran_NPC_Female_Grenadier_Armor_01'",
+            "ObjectPath": "/Game/World_Fae/Characters/Dran_Female_Gernadier/Material/M_Dran_NPC_Female_Grenadier_Armor_01.0"
+          },
+          "DissolveMaterial": {
+            "ObjectName": "MaterialInstanceConstant'M_Dran_NPC_Female_Grenadier_Armor_01_Dissolve'",
+            "ObjectPath": "/Game/World_Fae/Characters/Dran_Female_Gernadier/Material/M_Dran_NPC_Female_Grenadier_Armor_01_Dissolve.0"
+          }
+        },
+        {
+          "Material": {
+            "ObjectName": "MaterialInstanceConstant'M_Dran_NPC_Female_Grenadier_Armor_02'",
+            "ObjectPath": "/Game/World_Fae/Characters/Dran_Female_Gernadier/Material/M_Dran_NPC_Female_Grenadier_Armor_02.0"
+          },
+          "DissolveMaterial": {
+            "ObjectName": "MaterialInstanceConstant'M_Dran_NPC_Female_Grenadier_Armor_02_Dissolve'",
+            "ObjectPath": "/Game/World_Fae/Characters/Dran_Female_Gernadier/Material/M_Dran_NPC_Female_Grenadier_Armor_02_Dissolve.0"
+          }
+        },
+        {
+          "Material": {
+            "ObjectName": "MaterialInstanceConstant'M_Dran_NPC_Female_Grenadier_Cloth'",
+            "ObjectPath": "/Game/World_Fae/Characters/Dran_Female_Gernadier/Material/M_Dran_NPC_Female_Grenadier_Cloth.0"
+          },
+          "DissolveMaterial": {
+            "ObjectName": "MaterialInstanceConstant'M_Dran_NPC_Female_Grenadier_Cloth_Dissolve'",
+            "ObjectPath": "/Game/World_Fae/Characters/Dran_Female_Gernadier/Material/M_Dran_NPC_Female_Grenadier_Cloth_Dissolve.0"
+          }
+        },
+        {
+          "Material": {
+            "ObjectName": "MaterialInstanceConstant'M_Dran_Firebomb'",
+            "ObjectPath": "/Game/World_Fae/Characters/Dran_Male/Materials/M_Dran_Firebomb.0"
+          },
+          "DissolveMaterial": {
+            "ObjectName": "MaterialInstanceConstant'M_Dran_Firebomb_Dis'",
+            "ObjectPath": "/Game/World_Fae/Characters/Dran_Male/Materials/M_Dran_Firebomb_Dis.0"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "Type": "Function",
+    "Name": "CarpetBomb",
+    "Outer": "Char_Dran_Miniboss_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "CinematicHideBomb",
+    "Outer": "Char_Dran_Miniboss_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "CinematicShowBomb",
+    "Outer": "Char_Dran_Miniboss_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "CinematicThrowBomb",
+    "Outer": "Char_Dran_Miniboss_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "CombatEnter",
+    "Outer": "Char_Dran_Miniboss_C",
+    "Class": "UScriptClass'Function'",
+    "Super": {
+      "ObjectName": "Function'BP_Monster_Base_C:CombatEnter'",
+      "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster_Base.11"
+    },
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "DestroyHelmet",
+    "Outer": "Char_Dran_Miniboss_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "DoAoeAttack",
+    "Outer": "Char_Dran_Miniboss_C",
+    "Class": "UScriptClass'Function'",
+    "Super": {
+      "ObjectName": "Function'Char_Dran_M_Bomber_C:DoAoeAttack'",
+      "ObjectPath": "/Game/World_Fae/Characters/Dran_Male/Blueprints/Bomber/Char_Dran_M_Bomber.9"
+    },
+    "ChildProperties": [
+      {
+        "Type": "ArrayProperty",
+        "Name": "Temp_name_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "PropertyFlags": "ConstParm | ReferenceParm",
+        "Inner": {
+          "Type": "NameProperty",
+          "Name": "Temp_name_Variable",
+          "Flags": "RF_Public",
+          "ElementSize": 12
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_MakeStruct_DamageInfo",
+        "Flags": "RF_Public",
+        "ElementSize": 528,
+        "PropertyFlags": "ContainsInstancedReference",
+        "Struct": {
+          "ObjectName": "Class'DamageInfo'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_SpawnObject_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'Action_StatusEffect_Burning_Light_C'",
+          "ObjectPath": "/Game/_Core/Blueprints/Actions/StatusEffects/Burning/Action_StatusEffect_Burning_Light.1"
+        }
+      },
+      {
+        "Type": "NameProperty",
+        "Name": "CallFunc_MakeLiteralName_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 12
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_DoActionInternal_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_CanDoActionInternal_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_K2_SetState_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_Public | FUNC_HasDefaults | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "DoLeftAOEAttack",
+    "Outer": "Char_Dran_Miniboss_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "ArrayProperty",
+        "Name": "Temp_name_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "PropertyFlags": "ConstParm | ReferenceParm",
+        "Inner": {
+          "Type": "NameProperty",
+          "Name": "Temp_name_Variable",
+          "Flags": "RF_Public",
+          "ElementSize": 12
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_MakeStruct_DamageInfo",
+        "Flags": "RF_Public",
+        "ElementSize": 528,
+        "PropertyFlags": "ContainsInstancedReference",
+        "Struct": {
+          "ObjectName": "Class'DamageInfo'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_SpawnObject_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'Action_StatusEffect_Burning_Light_C'",
+          "ObjectPath": "/Game/_Core/Blueprints/Actions/StatusEffects/Burning/Action_StatusEffect_Burning_Light.1"
+        }
+      },
+      {
+        "Type": "NameProperty",
+        "Name": "CallFunc_MakeLiteralName_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 12
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_CanDoActionInternal_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_K2_SetState_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_MakeStruct_DamageInfo_1",
+        "Flags": "RF_Public",
+        "ElementSize": 528,
+        "PropertyFlags": "ContainsInstancedReference",
+        "Struct": {
+          "ObjectName": "Class'DamageInfo'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "ArrayProperty",
+        "Name": "Temp_name_Variable_1",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "PropertyFlags": "ConstParm | ReferenceParm",
+        "Inner": {
+          "Type": "NameProperty",
+          "Name": "Temp_name_Variable_1",
+          "Flags": "RF_Public",
+          "ElementSize": 12
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_SpawnObject_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'Action_Dran_FireBomb_AoE_C'",
+          "ObjectPath": "/Game/World_Fae/Characters/Dran_Male/Blueprints/Bomber/Action_Dran_FireBomb_AoE.1"
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_DoActionInternal_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_DoActionInternal_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_CanDoActionInternal_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_Public | FUNC_HasDefaults | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "ExecuteUbergraph_Char_Dran_Miniboss",
+    "Outer": "Char_Dran_Miniboss_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "IntProperty",
+        "Name": "EntryPoint",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_CustomEvent_Socket",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'SceneComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_K2_GetComponentToWorld_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 96,
+        "Struct": {
+          "ObjectName": "Class'Transform'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_MakeStruct_SoundGunfire",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "Struct": {
+          "ObjectName": "Class'SoundGunfire'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_BreakTransform_Location",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Class'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_BreakTransform_Rotation",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Class'Rotator'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_BreakTransform_Scale",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Class'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "Temp_struct_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 280,
+        "PropertyFlags": "ConstParm",
+        "Struct": {
+          "ObjectName": "Class'GunfireAudioPlayParams'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_SpawnSystemAtLocation_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'NiagaraComponent'",
+          "ObjectPath": "/Script/Niagara"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_SpawnSystemAtLocation_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'NiagaraComponent'",
+          "ObjectPath": "/Script/Niagara"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "Temp_struct_Variable_1",
+        "Flags": "RF_Public",
+        "ElementSize": 48,
+        "PropertyFlags": "ConstParm",
+        "Struct": {
+          "ObjectName": "Class'GunfireAudioAttachParams'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "Temp_struct_Variable_2",
+        "Flags": "RF_Public",
+        "ElementSize": 280,
+        "PropertyFlags": "ConstParm",
+        "Struct": {
+          "ObjectName": "Class'GunfireAudioPlayParams'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_MakeStruct_SoundGunfire_1",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "Struct": {
+          "ObjectName": "Class'SoundGunfire'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_MakeStruct_SoundGunfire_2",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "Struct": {
+          "ObjectName": "Class'SoundGunfire'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "Temp_struct_Variable_3",
+        "Flags": "RF_Public",
+        "ElementSize": 280,
+        "PropertyFlags": "ConstParm",
+        "Struct": {
+          "ObjectName": "Class'GunfireAudioPlayParams'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "Temp_struct_Variable_4",
+        "Flags": "RF_Public",
+        "ElementSize": 280,
+        "PropertyFlags": "ConstParm",
+        "Struct": {
+          "ObjectName": "Class'GunfireAudioPlayParams'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_MakeStruct_SoundGunfire_3",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "Struct": {
+          "ObjectName": "Class'SoundGunfire'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_SpawnSoundAtLocation_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "ContainsInstancedReference",
+        "Struct": {
+          "ObjectName": "Class'AudioComponentGunfire'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "Temp_int_Array_Index_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "Temp_struct_Variable_5",
+        "Flags": "RF_Public",
+        "ElementSize": 40,
+        "PropertyFlags": "ConstParm",
+        "Struct": {
+          "ObjectName": "Class'ActorQueryFilter'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "Temp_int_Loop_Counter_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "Temp_int_Loop_Counter_Variable_1",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Add_IntInt_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Add_IntInt_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "Temp_int_Array_Index_Variable_1",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "Temp_struct_Variable_6",
+        "Flags": "RF_Public",
+        "ElementSize": 40,
+        "PropertyFlags": "ConstParm",
+        "Struct": {
+          "ObjectName": "Class'ActorQueryFilter'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_RandomFloatInRange_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "Temp_int_Loop_Counter_Variable_2",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Add_IntInt_ReturnValue_2",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "Temp_int_Array_Index_Variable_2",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_RandomFloatInRange_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "K2Node_Event_DeltaSeconds",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetTarget_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'Actor'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetTarget_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'Actor'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetTarget_ReturnValue_2",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'Actor'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetTarget_ReturnValue_3",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'Actor'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetTarget_ReturnValue_4",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'Actor'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_K2_GetActorLocation_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Class'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_RandomFloatInRange_ReturnValue_2",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_BreakVector_X",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_BreakVector_Y",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_BreakVector_Z",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetTarget_ReturnValue_5",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'Actor'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetTarget_ReturnValue_6",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'Actor'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_K2_GetActorLocation_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Class'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_K2_GetActorLocation_ReturnValue_2",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Class'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_BreakVector_X_1",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_BreakVector_Y_1",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_BreakVector_Z_1",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_BreakVector_X_2",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_BreakVector_Y_2",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_BreakVector_Z_2",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_Add_DoubleDouble_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_Add_DoubleDouble_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetTarget_ReturnValue_7",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'Actor'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_MakeVector_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Class'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_K2_GetActorLocation_ReturnValue_3",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Class'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_BreakVector_X_3",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_BreakVector_Y_3",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_BreakVector_Z_3",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetEventRegionContainingActor_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'EventRegion'",
+          "ObjectPath": "/Script/Remnant"
+        }
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_Add_DoubleDouble_ReturnValue_2",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsValid_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_Array_Get_Item",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'PlayerController'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Array_Length_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsValid_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_Less_IntInt_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_K2_GetActorLocation_ReturnValue_4",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Class'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Array_Length_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetTarget_ReturnValue_8",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'Actor'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_Greater_IntInt_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_K2_GetActorLocation_ReturnValue_5",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Class'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_Vector_Distance_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_NotEqual_ObjectObject_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_LessEqual_DoubleDouble_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_BooleanAND_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_RandomFloatInRange_ReturnValue_3",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_Add_DoubleDouble_ReturnValue_3",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_MakeVector_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Class'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetTarget_ReturnValue_9",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'Actor'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetTarget_ReturnValue_10",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'Actor'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_RandomFloatInRange_ReturnValue_4",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsValid_ReturnValue_2",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_RandomFloatInRange_ReturnValue_5",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_RandomFloatInRange_ReturnValue_6",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_RandomFloatInRange_ReturnValue_7",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_RandomFloatInRange_ReturnValue_8",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_K2_GetComponentLocation_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Class'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_Add_DoubleDouble_ReturnValue_4",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "ArrayProperty",
+        "Name": "CallFunc_GetActorsInRange_OutResults",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "PropertyFlags": "ReferenceParm",
+        "Inner": {
+          "Type": "ObjectProperty",
+          "Name": "CallFunc_GetActorsInRange_OutResults",
+          "Flags": "RF_Public",
+          "ElementSize": 8,
+          "PropertyClass": {
+            "ObjectName": "Class'Actor'",
+            "ObjectPath": "/Script/Engine"
+          }
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_Array_Get_Item_1",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'Actor'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Array_Length_ReturnValue_2",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_DynamicCast_AsBP_Dran_Miniboss_AOE_Oil",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_Dran_Miniboss_AOE_Oil_C'",
+          "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Bombs/BP_Dran_Miniboss_AOE_Oil.2"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_DynamicCast_bSuccess",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_Less_IntInt_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ByteProperty",
+        "Name": "K2Node_Event_Reason",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "Enum": null
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_Event_Character",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'CharacterGunfire'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_Event_Cause",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'Actor'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_SpawnObject_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'Action_Spawn_EncounterList_C'",
+          "ObjectPath": "/Game/_Core/Blueprints/Actions/Action_Spawn_EncounterList.1"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_MakeStruct_DamageInfo",
+        "Flags": "RF_Public",
+        "ElementSize": 528,
+        "PropertyFlags": "ContainsInstancedReference",
+        "Struct": {
+          "ObjectName": "Class'DamageInfo'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_CanDoActionInternal_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsServer_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ArrayProperty",
+        "Name": "K2Node_MakeArray_Array",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "PropertyFlags": "ReferenceParm",
+        "Inner": {
+          "Type": "NameProperty",
+          "Name": "K2Node_MakeArray_Array",
+          "Flags": "RF_Public",
+          "ElementSize": 12
+        }
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_RandomFloatInRange_ReturnValue_9",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "ArrayProperty",
+        "Name": "Temp_name_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "PropertyFlags": "ConstParm | ReferenceParm",
+        "Inner": {
+          "Type": "NameProperty",
+          "Name": "Temp_name_Variable",
+          "Flags": "RF_Public",
+          "ElementSize": 12
+        }
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_Add_DoubleDouble_ReturnValue_5",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_MakeVector_ReturnValue_2",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Class'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "ArrayProperty",
+        "Name": "Temp_name_Variable_1",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "PropertyFlags": "ConstParm | ReferenceParm",
+        "Inner": {
+          "Type": "NameProperty",
+          "Name": "Temp_name_Variable_1",
+          "Flags": "RF_Public",
+          "ElementSize": 12
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_DoActionInternal_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_SpawnObject_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'Action_Fire_Projectile_C'",
+          "ObjectPath": "/Game/_Core/Blueprints/Actions/Action_Fire_Projectile.1"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_K2_GetComponentLocation_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Class'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "ArrayProperty",
+        "Name": "CallFunc_GetActorsInRange_OutResults_1",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "PropertyFlags": "ReferenceParm",
+        "Inner": {
+          "Type": "ObjectProperty",
+          "Name": "CallFunc_GetActorsInRange_OutResults_1",
+          "Flags": "RF_Public",
+          "ElementSize": 8,
+          "PropertyClass": {
+            "ObjectName": "Class'Actor'",
+            "ObjectPath": "/Script/Engine"
+          }
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_Array_Get_Item_2",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'Actor'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Array_Length_ReturnValue_3",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_MakeStruct_DamageInfo_1",
+        "Flags": "RF_Public",
+        "ElementSize": 528,
+        "PropertyFlags": "ContainsInstancedReference",
+        "Struct": {
+          "ObjectName": "Class'DamageInfo'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_Less_IntInt_ReturnValue_2",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_DoActionInternal_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_CanDoActionInternal_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "NameProperty",
+        "Name": "Temp_name_Variable_2",
+        "Flags": "RF_Public",
+        "ElementSize": 12,
+        "PropertyFlags": "ConstParm"
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsServer_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsServer_ReturnValue_2",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsServer_ReturnValue_3",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsServer_ReturnValue_4",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsServer_ReturnValue_5",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsServer_ReturnValue_6",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_RandomFloatInRange_ReturnValue_10",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_Add_DoubleDouble_ReturnValue_6",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_SpawnSoundAttached_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "ContainsInstancedReference",
+        "Struct": {
+          "ObjectName": "Class'AudioComponentGunfire'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_AudioComponent_Play_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 32,
+        "Struct": {
+          "ObjectName": "Class'GunfireAudioPlayingID'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_AudioComponent_Play_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 32,
+        "Struct": {
+          "ObjectName": "Class'GunfireAudioPlayingID'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_AudioComponent_IsPlaying_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_RandomFloatInRange_ReturnValue_11",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_Add_DoubleDouble_ReturnValue_7",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_MakeVector_ReturnValue_3",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Class'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_Final | FUNC_UbergraphFunction | FUNC_HasDefaults"
+  },
+  {
+    "Type": "Function",
+    "Name": "FilterIncomingDamage",
+    "Outer": "Char_Dran_Miniboss_C",
+    "Class": "UScriptClass'Function'",
+    "Super": {
+      "ObjectName": "Function'Char_Dran_M_Bomber_C:FilterIncomingDamage'",
+      "ObjectPath": "/Game/World_Fae/Characters/Dran_Male/Blueprints/Bomber/Char_Dran_M_Bomber.12"
+    },
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "DamageInfo",
+        "Flags": "RF_Public",
+        "ElementSize": 528,
+        "PropertyFlags": "ConstParm | BlueprintVisible | BlueprintReadOnly | Parm | OutParm | ReferenceParm | ContainsInstancedReference",
+        "Struct": {
+          "ObjectName": "Class'DamageInfo'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "DamageOut",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "Parm | OutParm"
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "ShouldApplyDamage",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "PropertyFlags": "Parm | OutParm",
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ArrayProperty",
+        "Name": "K2Node_MakeArray_Array",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "PropertyFlags": "ConstParm | ReferenceParm",
+        "Inner": {
+          "Type": "SoftClassProperty",
+          "Name": "K2Node_MakeArray_Array",
+          "Flags": "RF_Public",
+          "ElementSize": 56,
+          "PropertyFlags": "UObjectWrapper",
+          "PropertyClass": {
+            "ObjectName": "Class'Class'",
+            "ObjectPath": "/Script/CoreUObject"
+          },
+          "MetaClass": {
+            "ObjectName": "Class'Actor'",
+            "ObjectPath": "/Script/Engine"
+          }
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_CheckCooldown_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_EqualEqual_NameName_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsChildOfSoftClasses_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_GetHealthMax_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_Divide_DoubleDouble_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_Add_DoubleDouble_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_CheckCooldown_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "NameProperty",
+        "Name": "CallFunc_MakeLiteralName_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 12
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsWindowSet_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_Not_PreBool_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_BooleanAND_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_EqualEqual_ObjectObject_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_Not_PreBool_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "K2Node_FunctionResult_DamageOut_ImplicitCast",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "K2Node_FunctionResult_DamageOut_ImplicitCast_1",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_Add_DoubleDouble_A_ImplicitCast",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_Divide_DoubleDouble_A_ImplicitCast",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      }
+    ],
+    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_HasOutParms | FUNC_HasDefaults | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "Fire Projectile Choice",
+    "Outer": "Char_Dran_Miniboss_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "VisualWeapon",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm | InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'SceneComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "TargetCharacter",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "PropertyClass": {
+          "ObjectName": "Class'Actor'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "Speed",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      },
+      {
+        "Type": "NameProperty",
+        "Name": "SourceSocket",
+        "Flags": "RF_Public",
+        "ElementSize": 12,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      },
+      {
+        "Type": "ClassProperty",
+        "Name": "ProjectileBP",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "PropertyClass": {
+          "ObjectName": "Class'Class'",
+          "ObjectPath": "/Script/CoreUObject"
+        },
+        "MetaClass": {
+          "ObjectName": "Class'Actor'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "AutoArcHeight",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "GravityScale",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsValid_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_SpawnObject_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'Action_Fire_Projectile_C'",
+          "ObjectPath": "/Game/_Core/Blueprints/Actions/Action_Fire_Projectile.1"
+        }
+      },
+      {
+        "Type": "ArrayProperty",
+        "Name": "Temp_name_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "PropertyFlags": "ConstParm | ReferenceParm",
+        "Inner": {
+          "Type": "NameProperty",
+          "Name": "Temp_name_Variable",
+          "Flags": "RF_Public",
+          "ElementSize": 12
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_MakeStruct_DamageInfo",
+        "Flags": "RF_Public",
+        "ElementSize": 528,
+        "PropertyFlags": "ContainsInstancedReference",
+        "Struct": {
+          "ObjectName": "Class'DamageInfo'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_CanDoActionInternal_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_DoActionInternal_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      }
+    ],
+    "FunctionFlags": "FUNC_Public | FUNC_HasDefaults | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "Fire Projectile Choice Offset",
+    "Outer": "Char_Dran_Miniboss_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "TargetLocation",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "Struct": {
+          "ObjectName": "Class'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "Speed",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "GravityScale",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "AutoArcHeight",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_K2_GetComponentLocation_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Class'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_MakeStruct_ProjectileParams",
+        "Flags": "RF_Public",
+        "ElementSize": 144,
+        "Struct": {
+          "ObjectName": "Class'ProjectileParams'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_FireProjectile_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_Projectile_Dran_Miniboss_Bomb_Multi_C'",
+          "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Bombs/BP_Projectile_Dran_Miniboss_Bomb_Multi.1"
+        }
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "K2Node_MakeStruct_Speed_ImplicitCast",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "K2Node_MakeStruct_GravityScale_ImplicitCast",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "K2Node_MakeStruct_AutoArcHeight_ImplicitCast",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      }
+    ],
+    "FunctionFlags": "FUNC_Public | FUNC_HasDefaults | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "MulticastAOEAttackEffects",
+    "Outer": "Char_Dran_Miniboss_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "Socket",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm | InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'SceneComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_Net | FUNC_NetMulticast | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "Music_Combat_Loop_Start",
+    "Outer": "Char_Dran_Miniboss_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "Music_Combat_Loop_STOP",
+    "Outer": "Char_Dran_Miniboss_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "Music_Combat_Outro",
+    "Outer": "Char_Dran_Miniboss_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "OnDead_Event",
+    "Outer": "Char_Dran_Miniboss_C",
+    "Class": "UScriptClass'Function'",
+    "Super": {
+      "ObjectName": "Function'Char_Dran_M_Bomber_C:OnDead_Event'",
+      "ObjectPath": "/Game/World_Fae/Characters/Dran_Male/Blueprints/Bomber/Char_Dran_M_Bomber.16"
+    },
+    "ChildProperties": [
+      {
+        "Type": "ByteProperty",
+        "Name": "Reason",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "Enum": null
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Character",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "PropertyClass": {
+          "ObjectName": "Class'CharacterGunfire'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Cause",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "PropertyClass": {
+          "ObjectName": "Class'Actor'",
+          "ObjectPath": "/Script/Engine"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "OnNotifyAllWorldReset",
+    "Outer": "Char_Dran_Miniboss_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "OnWorldReset",
+    "Outer": "Char_Dran_Miniboss_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "ReceiveBeginPlay",
+    "Outer": "Char_Dran_Miniboss_C",
+    "Class": "UScriptClass'Function'",
+    "Super": {
+      "ObjectName": "Function'Char_Dran_M_Base_C:ReceiveBeginPlay'",
+      "ObjectPath": "/Game/World_Fae/Characters/Dran_Male/Blueprints/Char_Dran_M_Base.15"
+    },
+    "FunctionFlags": "FUNC_Event | FUNC_Protected | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "ReceiveTick",
+    "Outer": "Char_Dran_Miniboss_C",
+    "Class": "UScriptClass'Function'",
+    "SuperStruct": {
+      "ObjectName": "Class'Actor:ReceiveTick'",
+      "ObjectPath": "/Script/Engine"
+    },
+    "ChildProperties": [
+      {
+        "Type": "FloatProperty",
+        "Name": "DeltaSeconds",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      }
+    ],
+    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "RevealSecondBomb",
+    "Outer": "Char_Dran_Miniboss_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "SetBombInHandL",
+    "Outer": "Char_Dran_Miniboss_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "SetBombNotInHandL",
+    "Outer": "Char_Dran_Miniboss_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "ThrowBomb",
+    "Outer": "Char_Dran_Miniboss_C",
+    "Class": "UScriptClass'Function'",
+    "Super": {
+      "ObjectName": "Function'Char_Dran_M_Bomber_C:ThrowBomb'",
+      "ObjectPath": "/Game/World_Fae/Characters/Dran_Male/Blueprints/Bomber/Char_Dran_M_Bomber.19"
+    },
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "ThrowBombClose",
+    "Outer": "Char_Dran_Miniboss_C",
+    "Class": "UScriptClass'Function'",
+    "Super": {
+      "ObjectName": "Function'Char_Dran_M_Bomber_C:ThrowBombClose'",
+      "ObjectPath": "/Game/World_Fae/Characters/Dran_Male/Blueprints/Bomber/Char_Dran_M_Bomber.20"
+    },
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "ThrowBombFar",
+    "Outer": "Char_Dran_Miniboss_C",
+    "Class": "UScriptClass'Function'",
+    "Super": {
+      "ObjectName": "Function'Char_Dran_M_Bomber_C:ThrowBombFar'",
+      "ObjectPath": "/Game/World_Fae/Characters/Dran_Male/Blueprints/Bomber/Char_Dran_M_Bomber.21"
+    },
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "ThrowFollowUpBomb",
+    "Outer": "Char_Dran_Miniboss_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "HitLogComponent",
+    "Name": "HitLogComp",
+    "Outer": "Default__Char_Dran_Miniboss_C",
+    "Class": "UScriptClass'HitLogComponent'",
+    "Template": {
+      "ObjectName": "HitLogComponent'Default__Char_Dran_F_Bomber_C:HitLogComp'",
+      "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Char_Dran_F_Bomber.7"
+    },
+    "Properties": {
+      "": [
+        {
+          "NameID": "Head",
+          "PhysMat": {
+            "ObjectName": "PhysicalMaterial'PhysMat_Flesh_Head'",
+            "ObjectPath": "/Game/_Core/PhysMats/PhysMat_Flesh_Head.0"
+          },
+          "bCollisionInitiallyEnabled": true,
+          "DamageScalar": 1.0,
+          "HealthRatio": 1.0,
+          "EventOnDestroyed": "None",
+          "EventOnRepaired": "None",
+          "KillOnDestroyed": false,
+          "DestroyedAnimTag": "None",
+          "DebrisSocketLocationOnDestroy": "None",
+          "DebrisOnDestroy": null,
+          "bResistSpot": false,
+          "bIsWeakSpot": true,
+          "AoEPriority": 0,
+          "bAoERequiresLoS": false,
+          "DestroyedDependentToActivate": [],
+          "BoneNamesToActivateCollision": []
+        },
+        {
+          "NameID": "ArmL",
+          "PhysMat": {
+            "ObjectName": "PhysicalMaterial'PhysMat_Flesh_ArmL'",
+            "ObjectPath": "/Game/_Core/PhysMats/PhysMat_Flesh_ArmL.0"
+          },
+          "bCollisionInitiallyEnabled": true,
+          "DamageScalar": 1.0,
+          "HealthRatio": 1.0,
+          "EventOnDestroyed": "None",
+          "EventOnRepaired": "None",
+          "KillOnDestroyed": false,
+          "DestroyedAnimTag": "None",
+          "DebrisSocketLocationOnDestroy": "None",
+          "DebrisOnDestroy": null,
+          "bResistSpot": false,
+          "bIsWeakSpot": false,
+          "AoEPriority": 0,
+          "bAoERequiresLoS": false,
+          "DestroyedDependentToActivate": [],
+          "BoneNamesToActivateCollision": []
+        },
+        {
+          "NameID": "ArmR",
+          "PhysMat": {
+            "ObjectName": "PhysicalMaterial'PhysMat_Flesh_ArmR'",
+            "ObjectPath": "/Game/_Core/PhysMats/PhysMat_Flesh_ArmR.0"
+          },
+          "bCollisionInitiallyEnabled": true,
+          "DamageScalar": 1.0,
+          "HealthRatio": 1.0,
+          "EventOnDestroyed": "None",
+          "EventOnRepaired": "None",
+          "KillOnDestroyed": false,
+          "DestroyedAnimTag": "None",
+          "DebrisSocketLocationOnDestroy": "None",
+          "DebrisOnDestroy": null,
+          "bResistSpot": false,
+          "bIsWeakSpot": false,
+          "AoEPriority": 0,
+          "bAoERequiresLoS": false,
+          "DestroyedDependentHitLocationsToActivate": [],
+          "BoneNamesToActivateCollision": []
+        },
+        {
+          "NameID": "LegL",
+          "PhysMat": {
+            "ObjectName": "PhysicalMaterial'PhysMat_Flesh_LegL'",
+            "ObjectPath": "/Game/_Core/PhysMats/PhysMat_Flesh_LegL.0"
+          },
+          "bCollisionInitiallyEnabled": true,
+          "DamageScalar": 1.0,
+          "HealthRatio": 1.0,
+          "EventOnDestroyed": "None",
+          "EventOnRepaired": "None",
+          "KillOnDestroyed": false,
+          "DestroyedAnimTag": "None",
+          "DebrisSocketLocationOnDestroy": "None",
+          "DebrisOnDestroy": null,
+          "bResistSpot": false,
+          "bIsWeakSpot": false,
+          "AoEPriority": 0,
+          "bAoERequiresLoS": false,
+          "DestroyedDependentHitLocationsToActivate": [],
+          "BoneNamesToActivateCollision": []
+        },
+        {
+          "NameID": "LegR",
+          "PhysMat": {
+            "ObjectName": "PhysicalMaterial'PhysMat_Flesh_LegR'",
+            "ObjectPath": "/Game/_Core/PhysMats/PhysMat_Flesh_LegR.0"
+          },
+          "bCollisionInitiallyEnabled": true,
+          "DamageScalar": 1.0,
+          "HealthRatio": 1.0,
+          "EventOnDestroyed": "None",
+          "EventOnRepaired": "None",
+          "KillOnDestroyed": false,
+          "DestroyedAnimTag": "None",
+          "DebrisSocketLocationOnDestroy": "None",
+          "DebrisOnDestroy": null,
+          "bResistSpot": false,
+          "bIsWeakSpot": false,
+          "AoEPriority": 0,
+          "bAoERequiresLoS": false,
+          "DestroyedDependentHitLocationsToActivate": [],
+          "BoneNamesToActivateCollision": []
+        },
+        {
+          "NameID": "Armor",
+          "PhysMat": {
+            "ObjectName": "PhysicalMaterial'PhysMat_Armor'",
+            "ObjectPath": "/Game/_Core/PhysMats/PhysMat_Armor.0"
+          },
+          "bCollisionInitiallyEnabled": true,
+          "DamageScalar": 0.4,
+          "HealthRatio": 1.0,
+          "EventOnDestroyed": "None",
+          "EventOnRepaired": "None",
+          "KillOnDestroyed": false,
+          "DestroyedAnimTag": "None",
+          "DebrisSocketLocationOnDestroy": "None",
+          "DebrisOnDestroy": null,
+          "bResistSpot": true,
+          "bIsWeakSpot": false,
+          "AoEPriority": 0,
+          "bAoERequiresLoS": false,
+          "DestroyedDependentHitLocationsToActivate": [],
+          "BoneNamesToActivateCollision": []
+        },
+        {
+          "NameID": "Grenade",
+          "PhysMat": {
+            "ObjectName": "PhysicalMaterial'PhysMat_ENV_Metal_Thin'",
+            "ObjectPath": "/Game/_Core/PhysMats/PhysMat_ENV_Metal_Thin.0"
+          },
+          "bCollisionInitiallyEnabled": true,
+          "DamageScalar": 1.0,
+          "HealthRatio": 1.0,
+          "EventOnDestroyed": "None",
+          "EventOnRepaired": "None",
+          "KillOnDestroyed": false,
+          "DestroyedAnimTag": "None",
+          "DebrisSocketLocationOnDestroy": "None",
+          "DebrisOnDestroy": null,
+          "bResistSpot": false,
+          "bIsWeakSpot": false,
+          "AoEPriority": 0,
+          "bAoERequiresLoS": false,
+          "DestroyedDependentHitLocationsToActivate": [],
+          "BoneNamesToActivateCollision": []
+        },
+        {
+          "NameID": "Helmet",
+          "PhysMat": {
+            "ObjectName": "PhysicalMaterial'PhysMat_Armor_Head'",
+            "ObjectPath": "/Game/_Core/PhysMats/PhysMat_Armor_Head.0"
+          },
+          "bCollisionInitiallyEnabled": true,
+          "DamageScalar": 0.5,
+          "HealthRatio": 0.125,
+          "EventOnDestroyed": "DestroyHelmet",
+          "EventOnRepaired": "None",
+          "KillOnDestroyed": false,
+          "DestroyedAnimTag": "None",
+          "DebrisSocketLocationOnDestroy": "None",
+          "DebrisOnDestroy": null,
+          "bResistSpot": true,
+          "bIsWeakSpot": false,
+          "AoEPriority": 0,
+          "bAoERequiresLoS": false,
+          "DestroyedDependentHitLocationsToActivate": [],
+          "BoneNamesToActivateCollision": []
+        }
+      ]
+    }
+  },
+  {
+    "Type": "InheritableComponentHandler",
+    "Name": "InheritableComponentHandler",
+    "Outer": "Char_Dran_Miniboss_C",
+    "Class": "UScriptClass'InheritableComponentHandler'",
+    "Properties": {
+      "Records": [
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'StateMachineComponent'",
+            "ObjectPath": "/Script/GunfireRuntime"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "StateMachineComponent'Char_Dran_Miniboss_C:StateMachine_GEN_VARIABLE'",
+            "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss.56"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'BP_Monster_C'",
+              "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster.3"
+            },
+            "SCSVariableName": "StateMachine",
+            "AssociatedGuid": "1226ECA4-48F65379-CC82D286-262B8701"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "BlueprintGeneratedClass'DisplayInfoComponent_C'",
+            "ObjectPath": "/Game/_Core/Blueprints/Base/DisplayInfoComponent.0"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "DisplayInfoComponent_C'Char_Dran_Miniboss_C:DisplayInfoComponent_GEN_VARIABLE'",
+            "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss.7"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'BP_Monster_C'",
+              "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster.3"
+            },
+            "SCSVariableName": "DisplayInfoComponent",
+            "AssociatedGuid": "9D516F77-47F7A864-60CD9289-9CBD107C"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'ActorCustomizationComponent'",
+            "ObjectPath": "/Script/GunfireRuntime"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "ActorCustomizationComponent'Char_Dran_Miniboss_C:Visual_GEN_VARIABLE'",
+            "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss.1"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'BP_Monster_Base_C'",
+              "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster_Base.3"
+            },
+            "SCSVariableName": "Visual",
+            "AssociatedGuid": "88E8F05F-499F34E6-178F9CA8-75D39337"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'SphereComponent'",
+            "ObjectPath": "/Script/Engine"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "SphereComponent'Char_Dran_Miniboss_C:Grenade_Collison_GEN_VARIABLE'",
+            "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss.54"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'Char_Dran_M_Bomber_C'",
+              "ObjectPath": "/Game/World_Fae/Characters/Dran_Male/Blueprints/Bomber/Char_Dran_M_Bomber.2"
+            },
+            "SCSVariableName": "Grenade_Collison",
+            "AssociatedGuid": "51897FCD-4D76324A-633D838F-8C4AEB84"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'SoundSetComponent'",
+            "ObjectPath": "/Script/GunfireRuntime"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "SoundSetComponent'Char_Dran_Miniboss_C:SoundSet_GEN_VARIABLE'",
+            "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss.53"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'BP_Monster_C'",
+              "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster.3"
+            },
+            "SCSVariableName": "SoundSet",
+            "AssociatedGuid": "5B85C075-472CBB69-861FEA8F-8A8CDCA4"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'DissolveComponent'",
+            "ObjectPath": "/Script/GunfireRuntime"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "DissolveComponent'Char_Dran_Miniboss_C:Dissolve_GEN_VARIABLE'",
+            "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss.8"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'BP_Monster_C'",
+              "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster.3"
+            },
+            "SCSVariableName": "Dissolve",
+            "AssociatedGuid": "63F89BCB-4D3243A5-A96E8C83-1826967D"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'SkeletalMeshComponentBudgeted'",
+            "ObjectPath": "/Script/AnimationBudgetAllocator"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "SkeletalMeshComponentBudgeted'Char_Dran_Miniboss_C:Visual_Rucksack_GEN_VARIABLE'",
+            "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss.51"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'Char_Dran_M_Bomber_C'",
+              "ObjectPath": "/Game/World_Fae/Characters/Dran_Male/Blueprints/Bomber/Char_Dran_M_Bomber.2"
+            },
+            "SCSVariableName": "Visual_Rucksack",
+            "AssociatedGuid": "695446E8-46A46CD5-F2AFCDA7-AB82FBFD"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'SkeletalMeshComponentBudgeted'",
+            "ObjectPath": "/Script/AnimationBudgetAllocator"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "SkeletalMeshComponentBudgeted'Char_Dran_Miniboss_C:Visual_Helmet_GEN_VARIABLE'",
+            "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss.50"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'Char_Dran_M_Bomber_C'",
+              "ObjectPath": "/Game/World_Fae/Characters/Dran_Male/Blueprints/Bomber/Char_Dran_M_Bomber.2"
+            },
+            "SCSVariableName": "Visual_Helmet",
+            "AssociatedGuid": "D4E4569A-4D8D12FC-EA46989A-A6986711"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'SkeletalMeshComponentBudgeted'",
+            "ObjectPath": "/Script/AnimationBudgetAllocator"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "SkeletalMeshComponentBudgeted'Char_Dran_Miniboss_C:Visual_Helmet_Destroyed_GEN_VARIABLE'",
+            "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss.49"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'Char_Dran_M_Bomber_C'",
+              "ObjectPath": "/Game/World_Fae/Characters/Dran_Male/Blueprints/Bomber/Char_Dran_M_Bomber.2"
+            },
+            "SCSVariableName": "Visual_Helmet_Destroyed",
+            "AssociatedGuid": "88596526-405645B4-620C82AC-C6AE6AEC"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        }
+      ]
+    }
+  },
+  {
+    "Type": "ReplicatedMovementComponent",
+    "Name": "ReplicatedMovement",
+    "Outer": "Default__Char_Dran_Miniboss_C",
+    "Class": "UScriptClass'ReplicatedMovementComponent'",
+    "Template": {
+      "ObjectName": "ReplicatedMovementComponent'Default__Char_Dran_F_Bomber_C:ReplicatedMovement'",
+      "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Char_Dran_F_Bomber.9"
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "DefaultSceneRoot_GEN_VARIABLE",
+    "Outer": "Char_Dran_Miniboss_C",
+    "Class": "UScriptClass'SceneComponent'"
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "GrenadeSocket_GEN_VARIABLE",
+    "Outer": "Char_Dran_Miniboss_C",
+    "Class": "UScriptClass'SceneComponent'"
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_0",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'Char_Dran_Miniboss_C:DefaultSceneRoot_GEN_VARIABLE'",
+        "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss.40"
+      },
+      "VariableGuid": "0A264E8E-49B4B475-28747A9E-28D11C4F",
+      "InternalVariableName": "DefaultSceneRoot"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_1",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'DialogComponent'",
+        "ObjectPath": "/Script/GunfireRuntime"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "DialogComponent'Char_Dran_Miniboss_C:Dialog_GEN_VARIABLE'",
+        "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss.6"
+      },
+      "VariableGuid": "0E610574-428FF21D-27D2B69C-D220E24E",
+      "InternalVariableName": "Dialog"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_2",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'Char_Dran_Miniboss_C:GrenadeSocket_GEN_VARIABLE'",
+        "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss.41"
+      },
+      "AttachToName": "Bone_M_Weapon_Grenade",
+      "ParentComponentOrVariableName": "CharacterMesh0",
+      "bIsParentComponentNative": true,
+      "VariableGuid": "99A65CD6-424D6CA1-549B07A0-FF9670F4",
+      "InternalVariableName": "GrenadeSocket"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_3",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SphereComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SphereComponent'Char_Dran_Miniboss_C:Grenade_CollisonL_GEN_VARIABLE'",
+        "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss.55"
+      },
+      "AttachToName": "Bone_M_Hand_L",
+      "ParentComponentOrVariableName": "CharacterMesh0",
+      "bIsParentComponentNative": true,
+      "VariableGuid": "F8D90EE7-4EC14001-CA7F868D-0566DC4A",
+      "InternalVariableName": "Grenade_CollisonL"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_4",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'VitalityComponent'",
+        "ObjectPath": "/Script/GunfireRuntime"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "VitalityComponent'Char_Dran_Miniboss_C:Vitality_GEN_VARIABLE'",
+        "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss.59"
+      },
+      "VariableGuid": "2353C134-4DCB2F7F-250EA288-9A96F7DB",
+      "InternalVariableName": "Vitality"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_5",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'StaticMeshComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "StaticMeshComponent'Char_Dran_Miniboss_C:Visual_Weapon_L_GEN_VARIABLE'",
+        "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss.57"
+      },
+      "AttachToName": "Bone_M_Hand_L",
+      "ParentComponentOrVariableName": "CharacterMesh0",
+      "bIsParentComponentNative": true,
+      "VariableGuid": "EB648E2D-48AE238E-A88ECF83-6CB5E2E5",
+      "InternalVariableName": "Visual_Weapon_L"
+    }
+  },
+  {
+    "Type": "SimpleConstructionScript",
+    "Name": "SimpleConstructionScript_0",
+    "Outer": "Char_Dran_Miniboss_C",
+    "Class": "UScriptClass'SimpleConstructionScript'",
+    "Properties": {
+      "RootNodes": [
+        {
+          "ObjectName": "SCS_Node'Char_Dran_Miniboss_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss.44"
+        },
+        {
+          "ObjectName": "SCS_Node'Char_Dran_Miniboss_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss.43"
+        },
+        {
+          "ObjectName": "SCS_Node'Char_Dran_Miniboss_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss.45"
+        },
+        {
+          "ObjectName": "SCS_Node'Char_Dran_Miniboss_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss.47"
+        },
+        {
+          "ObjectName": "SCS_Node'Char_Dran_Miniboss_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss.46"
+        }
+      ],
+      "AllNodes": [
+        {
+          "ObjectName": "SCS_Node'Char_Dran_Miniboss_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss.44"
+        },
+        {
+          "ObjectName": "SCS_Node'Char_Dran_Miniboss_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss.43"
+        },
+        {
+          "ObjectName": "SCS_Node'Char_Dran_Miniboss_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss.45"
+        },
+        {
+          "ObjectName": "SCS_Node'Char_Dran_Miniboss_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss.47"
+        },
+        {
+          "ObjectName": "SCS_Node'Char_Dran_Miniboss_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss.46"
+        }
+      ],
+      "DefaultSceneRootNode": {
+        "ObjectName": "SCS_Node'Char_Dran_Miniboss_C:SimpleConstructionScript_0.SCS_Node_0'",
+        "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss.42"
+      }
+    }
+  },
+  {
+    "Type": "SkeletalMeshComponentBudgeted",
+    "Name": "Visual_Helmet_Destroyed_GEN_VARIABLE",
+    "Outer": "Char_Dran_Miniboss_C",
+    "Class": "UScriptClass'SkeletalMeshComponentBudgeted'",
+    "Template": {
+      "ObjectName": "SkeletalMeshComponentBudgeted'Char_Dran_M_Bomber_C:Visual_Helmet_Destroyed_GEN_VARIABLE'",
+      "ObjectPath": "/Game/World_Fae/Characters/Dran_Male/Blueprints/Bomber/Char_Dran_M_Bomber.34"
+    },
+    "Properties": {
+      "ComponentTags": ["Helmet", "DestroyedHitLocation"]
+    }
+  },
+  {
+    "Type": "SkeletalMeshComponentBudgeted",
+    "Name": "Visual_Helmet_GEN_VARIABLE",
+    "Outer": "Char_Dran_Miniboss_C",
+    "Class": "UScriptClass'SkeletalMeshComponentBudgeted'",
+    "Template": {
+      "ObjectName": "SkeletalMeshComponentBudgeted'Char_Dran_M_Bomber_C:Visual_Helmet_GEN_VARIABLE'",
+      "ObjectPath": "/Game/World_Fae/Characters/Dran_Male/Blueprints/Bomber/Char_Dran_M_Bomber.35"
+    },
+    "Properties": {
+      "OverrideMaterials": [null]
+    }
+  },
+  {
+    "Type": "SkeletalMeshComponentBudgeted",
+    "Name": "Visual_Rucksack_GEN_VARIABLE",
+    "Outer": "Char_Dran_Miniboss_C",
+    "Class": "UScriptClass'SkeletalMeshComponentBudgeted'",
+    "Template": {
+      "ObjectName": "SkeletalMeshComponentBudgeted'Char_Dran_M_Bomber_C:Visual_Rucksack_GEN_VARIABLE'",
+      "ObjectPath": "/Game/World_Fae/Characters/Dran_Male/Blueprints/Bomber/Char_Dran_M_Bomber.36"
+    },
+    "Properties": {
+      "bVisible": false
+    }
+  },
+  {
+    "Type": "SkeletalMeshComponentBudgeted",
+    "Name": "CharacterMesh0",
+    "Outer": "Default__Char_Dran_Miniboss_C",
+    "Class": "UScriptClass'SkeletalMeshComponentBudgeted'",
+    "Template": {
+      "ObjectName": "SkeletalMeshComponentBudgeted'Default__Char_Dran_F_Bomber_C:CharacterMesh0'",
+      "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Char_Dran_F_Bomber.13"
+    },
+    "Properties": {
+      "AnimationData": {
+        "AnimToPlay": {
+          "ObjectName": "AnimSequence'Dran_F_Bomb_Atk_Throw_FollowUp'",
+          "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Animations/Dran_F_Bomb_Atk_Throw_FollowUp.24"
+        },
+        "SavedPlayRate": 0.2
+      },
+      "ClothingSimulationFactory": {
+        "ObjectName": "Class'ChaosClothingSimulationFactory'",
+        "ObjectPath": "/Script/ChaosCloth"
+      },
+      "AttachParent": {
+        "ObjectName": "CapsuleComponent'Default__Char_Dran_Miniboss_C:CollisionCylinder'",
+        "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss.3"
+      }
+    }
+  },
+  {
+    "Type": "SoundSetComponent",
+    "Name": "SoundSet_GEN_VARIABLE",
+    "Outer": "Char_Dran_Miniboss_C",
+    "Class": "UScriptClass'SoundSetComponent'",
+    "Template": {
+      "ObjectName": "SoundSetComponent'Char_Dran_F_Bomber_C:SoundSet_GEN_VARIABLE'",
+      "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Char_Dran_F_Bomber.14"
+    },
+    "Properties": {
+      "SoundTags": [
+        "Foley_Dran_Bomber",
+        "Voc_Dran_F_Bomber_MiniBoss",
+        "SFX_Dran_Bomber",
+        "Vo_Dran_F_Bomber_MiniBoss"
+      ]
+    }
+  },
+  {
+    "Type": "SphereComponent",
+    "Name": "Grenade_Collison_GEN_VARIABLE",
+    "Outer": "Char_Dran_Miniboss_C",
+    "Class": "UScriptClass'SphereComponent'",
+    "Template": {
+      "ObjectName": "SphereComponent'Char_Dran_M_Bomber_C:Grenade_Collison_GEN_VARIABLE'",
+      "ObjectPath": "/Game/World_Fae/Characters/Dran_Male/Blueprints/Bomber/Char_Dran_M_Bomber.39"
+    },
+    "Properties": {
+      "SphereRadius": 16.0
+    }
+  },
+  {
+    "Type": "SphereComponent",
+    "Name": "Grenade_CollisonL_GEN_VARIABLE",
+    "Outer": "Char_Dran_Miniboss_C",
+    "Class": "UScriptClass'SphereComponent'",
+    "Properties": {
+      "SphereRadius": 16.0,
+      "AreaClassOverride": {
+        "ObjectName": "Class'NavArea_Obstacle'",
+        "ObjectPath": "/Script/NavigationSystem"
+      },
+      "bUseSystemDefaultObstacleAreaClass": false,
+      "bGenerateOverlapEvents": false,
+      "BodyInstance": {
+        "ObjectType": "ECollisionChannel::ECC_WorldStatic",
+        "CollisionEnabled": "ECollisionEnabled::NoCollision",
+        "CollisionProfileName": "Custom",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "Pawn",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Weapon",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "ThrownProjectile",
+              "Response": "ECollisionResponse::ECR_Block"
+            }
+          ]
+        },
+        "PhysMaterialOverride": {
+          "ObjectName": "PhysicalMaterial'PhysMat_ENV_Metal_Thin'",
+          "ObjectPath": "/Game/_Core/PhysMats/PhysMat_ENV_Metal_Thin.0"
+        }
+      },
+      "ComponentTags": ["Grenade"]
+    }
+  },
+  {
+    "Type": "StateMachineComponent",
+    "Name": "StateMachine_GEN_VARIABLE",
+    "Outer": "Char_Dran_Miniboss_C",
+    "Class": "UScriptClass'StateMachineComponent'",
+    "Template": {
+      "ObjectName": "StateMachineComponent'Char_Dran_M_Bomber_C:StateMachine_GEN_VARIABLE'",
+      "ObjectPath": "/Game/World_Fae/Characters/Dran_Male/Blueprints/Bomber/Char_Dran_M_Bomber.40"
+    },
+    "Properties": {
+      "StateMachine": {
+        "ObjectName": "StateMachine'Char_Dran_Miniboss_StateMachine'",
+        "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Miniboss/Char_Dran_Miniboss_StateMachine.2435"
+      }
+    }
+  },
+  {
+    "Type": "StaticMeshComponent",
+    "Name": "Visual_Weapon_L_GEN_VARIABLE",
+    "Outer": "Char_Dran_Miniboss_C",
+    "Class": "UScriptClass'StaticMeshComponent'",
+    "Properties": {
+      "StaticMesh": {
+        "ObjectName": "StaticMesh'SM_Dran_Weapon_Firebomb'",
+        "ObjectPath": "/Game/World_Fae/Characters/Dran_Male/Mesh/SM_Dran_Weapon_Firebomb.2"
+      },
+      "BodyInstance": {
+        "ObjectType": "ECollisionChannel::ECC_WorldStatic",
+        "CollisionEnabled": "ECollisionEnabled::NoCollision",
+        "CollisionProfileName": "NoCollision",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel2",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel3",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel4",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel5",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel6",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Weapon",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Projectile",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            }
+          ]
+        }
+      },
+      "RelativeLocation": {
+        "X": 9.988856,
+        "Y": 7.365387,
+        "Z": 0.06853452
+      },
+      "RelativeRotation": {
+        "Pitch": 4.0981133e-5,
+        "Yaw": 2.3378805e-5,
+        "Roll": 49.999985
+      },
+      "bVisible": false
+    }
+  },
+  {
+    "Type": "StatsComponent",
+    "Name": "StatsComp",
+    "Outer": "Default__Char_Dran_Miniboss_C",
+    "Class": "UScriptClass'StatsComponent'",
+    "Template": {
+      "ObjectName": "StatsComponent'Default__Char_Dran_F_Bomber_C:StatsComp'",
+      "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Char_Dran_F_Bomber.15"
+    }
+  },
+  {
+    "Type": "VitalityComponent",
+    "Name": "Vitality_GEN_VARIABLE",
+    "Outer": "Char_Dran_Miniboss_C",
+    "Class": "UScriptClass'VitalityComponent'",
+    "Properties": {
+      "NameID": "Stamina",
+      "StatMax": "StaminaMax",
+      "StatRegen": "StaminaRegen",
+      "StatRegenDelayScalar": "StaminaRegenDelay",
+      "StatEmptyDelayScalar": "StaminaEmptyDelay",
+      "StatDeltaMod": "StaminaDeltaMod"
+    }
+  },
+  {
+    "Type": "WeaponPhantomComponent",
+    "Name": "WeaponPhantomProviderComp",
+    "Outer": "Default__Char_Dran_Miniboss_C",
+    "Class": "UScriptClass'WeaponPhantomComponent'",
+    "Template": {
+      "ObjectName": "WeaponPhantomComponent'Default__Char_Dran_F_Bomber_C:WeaponPhantomProviderComp'",
+      "ObjectPath": "/Game/World_Fae/Characters/Dran_Female/Blueprints/Bomber/Char_Dran_F_Bomber.16"
+    }
+  }
+]
