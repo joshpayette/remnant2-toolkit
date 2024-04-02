@@ -11,6 +11,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Added more saves to the World Save Archive.
 - Added support for multiple phases to the World Save Archive. This is necessary because Sha'Hala has multiple phases, with different affixes in each phase.
 
+### Changed
+
+- The World Save Archive filters now work similar to archetype build filters, where all combos of affixes are checked except for those excluded.
+
 ### Fixed
 
 - Amplitude vs Resonance guide incorrectly listed the Magnetic Field perk as an Explorer skill rather than Engineer skill.

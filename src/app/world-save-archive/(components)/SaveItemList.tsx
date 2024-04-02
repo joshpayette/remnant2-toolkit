@@ -7,7 +7,7 @@ import { SaveCard } from '@/app/world-save-archive/(components)/SaveCard'
 import { DEFAULT_SEARCH_FILTERS } from '@/app/world-save-archive/(components)/SaveLookupFilters'
 import { worldSaves } from '@/app/world-save-archive/(data)/worldSaves'
 import { parseSearchFilters } from '@/app/world-save-archive/(lib)/parseSearchFilters'
-import { BOSSES } from '@/app/world-save-archive/constants'
+import { BOSS_AFFIXES, BOSSES } from '@/app/world-save-archive/constants'
 import { FilteredSave, SearchFilters } from '@/app/world-save-archive/types'
 
 function getFilteredSaves(filters: SearchFilters): FilteredSave[] {
@@ -25,13 +25,24 @@ function getFilteredSaves(filters: SearchFilters): FilteredSave[] {
     )
   }
 
-  if (
-    filters.affixes.length > 0 &&
-    filters.affixes.length !== DEFAULT_SEARCH_FILTERS.affixes.length
-  ) {
-    filteredSaves = filteredSaves.filter((save) =>
-      filters.affixes.every((affix) => save.bossAffixes.includes(affix)),
+  if (filters.affixes.length > 0) {
+    const excludedAffixes = BOSS_AFFIXES.filter(
+      (affix) => !filters.affixes.includes(affix.name),
     )
+
+    // Need to only get saves that have at least two of the affixes
+    // If only one affix is in the filters.affixes, show all saves that have that affix
+    filteredSaves = filteredSaves.filter((save) => {
+      const matchingAffixes = save.bossAffixes.filter((affix) =>
+        filters.affixes.includes(affix),
+      )
+
+      if (filters.affixes.length === 1) {
+        return matchingAffixes.length > 0
+      } else {
+        return matchingAffixes.length >= 2
+      }
+    })
   }
 
   // sort by boss name
