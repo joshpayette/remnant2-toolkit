@@ -255,7 +255,7 @@ export function BuildListFilters() {
         <div className="mb-4 w-full">
           <div
             className={cn(
-              'mb-2 flex w-full flex-row items-center justify-center border-b py-2',
+              'mb-2 flex w-full flex-row items-end justify-end border-b py-2',
               areAnyFiltersActive
                 ? 'border-b-accent1-500'
                 : 'border-b-primary-500',
@@ -282,8 +282,9 @@ export function BuildListFilters() {
               onApplyFilters={handleApplyFilters}
               onClearFilters={handleClearFilters}
             >
-              <div className="col-span-full border-b border-b-primary-800 pb-2 lg:col-span-3">
+              <div className="col-span-full flex items-center justify-center border-b border-b-primary-800 pb-2 lg:col-span-3">
                 <SearchBuildsFilter
+                  showLabel={true}
                   searchText={unappliedFilters.searchText}
                   onApplyFilters={() => handleApplyFilters(unappliedFilters)}
                   onChange={(newSearchText: string) =>

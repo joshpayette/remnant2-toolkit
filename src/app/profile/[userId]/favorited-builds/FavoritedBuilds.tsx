@@ -83,9 +83,9 @@ export function FavoritedBuilds({ userId }: Props) {
   return (
     <>
       <BuildList
-        label="Favorited Builds"
         currentPage={currentPage}
         isLoading={isLoading}
+        label="Favorited Builds"
         pageNumbers={pageNumbers}
         totalItems={totalBuildCount}
         totalPages={totalPages}

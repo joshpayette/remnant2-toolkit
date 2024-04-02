@@ -89,9 +89,9 @@ export function CreatedBuilds({ isEditable, userId }: Props) {
   return (
     <>
       <BuildList
-        label="Created Builds"
         currentPage={currentPage}
         isLoading={isLoading}
+        label="Created Builds"
         pageNumbers={pageNumbers}
         totalItems={totalBuildCount}
         totalPages={totalPages}

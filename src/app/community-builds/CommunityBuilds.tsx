@@ -90,7 +90,6 @@ export function CommunityBuildList({ itemsPerPage = 8 }: Props) {
   return (
     <>
       <BuildList
-        label="Community Builds"
         currentPage={currentPage}
         isLoading={isLoading}
         pageNumbers={pageNumbers}
