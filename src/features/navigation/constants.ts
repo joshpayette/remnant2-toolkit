@@ -55,7 +55,7 @@ export const NAV_ITEMS = {
   communityBuilds: {
     label: 'Community Builds',
     description:
-      'A collection of builds submitted and ranked by the community.',
+      'Search a collection of builds submitted and ranked by the community.',
     href: '/community-builds',
     icon: ListBulletIcon,
   },

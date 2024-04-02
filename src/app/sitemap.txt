@@ -1,6 +1,4 @@
 https://www.remnant2toolkit.com/
-https://www.remnant2toolkit.com/profile/created-builds
-https://www.remnant2toolkit.com/profile/favorited-builds
 https://www.remnant2toolkit.com/tracker
 https://www.remnant2toolkit.com/featured-builds
 https://www.remnant2toolkit.com/boss-tracker
@@ -8,3 +6,7 @@ https://www.remnant2toolkit.com/community-builds
 https://www.remnant2toolkit.com/builder/create
 https://www.remnant2toolkit.com/item-lookup
 https://www.remnant2toolkit.com/builder
+https://www.remnant2toolkit.com/world-save-archive
+https://www.remnant2toolkit.com/resources
+https://www.remnant2toolkit.com/support-r2tk
+
