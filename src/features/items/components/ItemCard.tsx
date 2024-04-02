@@ -131,7 +131,7 @@ export function ItemCard({
                       setItemBuildStats(response.stats)
                     }}
                   >
-                    <ChartBarSquareIcon className="h-5 w-5 text-accent2-500" />
+                    <ChartBarSquareIcon className="h-5 w-5 text-accent2-600" />
                   </button>
                 </Tooltip>
               )}
