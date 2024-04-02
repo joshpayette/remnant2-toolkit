@@ -144,7 +144,7 @@ export const concoctionItems: ConcoctionItem[] = [
     imagePath: '/concoction/verdant_tea.png',
     id: 'qgare2',
     tags: ['Stamina', 'Consumable'],
-    description: `Increases Stamina Recovery by 20 per second and reduces Stamina Regen Penalty by 50%. Lasts 60m and will stay in effect after death. Only one Concoction may be active at a time.`,
+    description: `Increases Stamina Recovery by 20 per second and reduces Stamina Regen Penalty [BUG] by 50%. Lasts 60m and will stay in effect after death. Only one Concoction may be active at a time.`,
     wikiLinks: [`https://remnant.wiki/Verdant_Tea`],
   },
   {

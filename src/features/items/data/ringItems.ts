@@ -190,7 +190,7 @@ export const ringItems: RingItem[] = [
     name: 'Blasting Cap Ring',
     imagePath: '/ring/blasting_cap_ring.png',
     id: 'ep14lr',
-    description: `Increases Explosive damage [E] by 10%. [BUG]`,
+    description: `Increases Explosive damage [E] by 10%.`,
     wikiLinks: [`https://remnant.wiki/Blasting_Cap_Ring`],
   },
   {
