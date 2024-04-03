@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 import { cn } from '@/lib/classnames'
 
 import { WeaponItem } from '../types/WeaponItem'
@@ -118,12 +120,13 @@ export function WeaponInfo({ item, includeMod = true }: Props) {
           {item.linkedItems?.mod && includeMod && (
             <div className="grid w-full grid-cols-2 gap-2 border border-transparent py-1 text-left text-sm text-gray-300">
               <p className="flex items-center justify-start text-xs">Mod</p>
-              <a
+              <Link
                 href={`/item-lookup?searchText=${item.linkedItems.mod.name}`}
                 className="flex items-center justify-end text-right text-xs font-bold text-secondary-500 underline"
+                target="_blank"
               >
                 {item.linkedItems.mod.name}
-              </a>
+              </Link>
             </div>
           )}
         </div>

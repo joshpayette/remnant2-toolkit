@@ -1,24 +1,24 @@
 import copy from 'clipboard-copy'
 import Image from 'next/image'
+import Link from 'next/link'
 import { toast } from 'react-toastify'
 
+import { ArmorInfo } from '@/features/armor-calculator/ArmorInfo'
+import { WeaponInfo } from '@/features/items/components/WeaponInfo'
+import { cleanItemName } from '@/features/items/lib/cleanItemName'
+import { Item } from '@/features/items/types'
+import { ArchetypeItem } from '@/features/items/types/ArchetypeItem'
+import { ArmorItem } from '@/features/items/types/ArmorItem'
+import { ModItem } from '@/features/items/types/ModItem'
+import { MutatorItem } from '@/features/items/types/MutatorItem'
+import { PerkItem } from '@/features/items/types/PerkItem'
+import { SkillItem } from '@/features/items/types/SkillItem'
+import { TraitItem } from '@/features/items/types/TraitItem'
+import { WeaponItem } from '@/features/items/types/WeaponItem'
+import { DescriptionWithTags } from '@/features/ui/DescriptionWithTags'
+import { Dialog } from '@/features/ui/Dialog'
 import { capitalize } from '@/lib/capitalize'
 import { cn } from '@/lib/classnames'
-
-import { ArmorInfo } from '../../armor-calculator/ArmorInfo'
-import { DescriptionWithTags } from '../../ui/DescriptionWithTags'
-import { Dialog } from '../../ui/Dialog'
-import { cleanItemName } from '../lib/cleanItemName'
-import { Item } from '../types'
-import { ArchetypeItem } from '../types/ArchetypeItem'
-import { ArmorItem } from '../types/ArmorItem'
-import { ModItem } from '../types/ModItem'
-import { MutatorItem } from '../types/MutatorItem'
-import { PerkItem } from '../types/PerkItem'
-import { SkillItem } from '../types/SkillItem'
-import { TraitItem } from '../types/TraitItem'
-import { WeaponItem } from '../types/WeaponItem'
-import { WeaponInfo } from './WeaponInfo'
 
 interface ItemInfoProps {
   item: Item | null
@@ -154,12 +154,13 @@ export function ItemInfoDialog({ item, open, onClose }: ItemInfoProps) {
                     item.linkedItems?.archetype && (
                       <li className="col-span-full text-left text-sm text-gray-300">
                         <strong>Archetype</strong>:{' '}
-                        <a
+                        <Link
                           href={`/item-lookup?categories=Trait,Archetype,Perk,Skill&searchText=${item.linkedItems.archetype.name}`}
                           className="text-secondary-500 underline hover:text-secondary-300"
+                          target="_blank"
                         >
                           {item.linkedItems.archetype.name}
-                        </a>
+                        </Link>
                       </li>
                     )}
                   {ArchetypeItem.isArchetypeItem(item) &&
@@ -172,12 +173,13 @@ export function ItemInfoDialog({ item, open, onClose }: ItemInfoProps) {
                               key={perk.name}
                               className="text-left text-sm text-gray-300"
                             >
-                              <a
+                              <Link
                                 href={`/item-lookup?categories=Trait,Archetype,Perk,Skill&searchText=${perk.name}`}
                                 className="text-secondary-500 underline hover:text-secondary-300"
+                                target="_blank"
                               >
                                 {perk.name}
-                              </a>
+                              </Link>
                             </li>
                           ))}
                         </ul>
@@ -194,12 +196,13 @@ export function ItemInfoDialog({ item, open, onClose }: ItemInfoProps) {
                               key={skill.name}
                               className="text-left text-sm text-gray-300"
                             >
-                              <a
+                              <Link
                                 href={`/item-lookup?categories=Trait,Archetype,Perk,Skill&searchText=${skill.name}`}
                                 className="text-secondary-500 underline hover:text-secondary-300"
+                                target="_blank"
                               >
                                 {skill.name}
-                              </a>
+                              </Link>
                             </li>
                           ))}
                         </ul>
@@ -216,12 +219,13 @@ export function ItemInfoDialog({ item, open, onClose }: ItemInfoProps) {
                               key={trait.name}
                               className="text-left text-sm text-gray-300"
                             >
-                              <a
+                              <Link
                                 href={`/item-lookup?categories=Trait,Archetype,Perk,Skill&searchText=${trait.name}`}
                                 className="text-secondary-500 underline hover:text-secondary-300"
+                                target="_blank"
                               >
                                 {trait.name}
-                              </a>
+                              </Link>
                             </li>
                           ))}
                         </ul>
@@ -230,23 +234,25 @@ export function ItemInfoDialog({ item, open, onClose }: ItemInfoProps) {
                   {WeaponItem.isWeaponItem(item) && item.linkedItems?.mod && (
                     <li className="col-span-full text-left text-sm text-gray-300">
                       <strong>Mod</strong>:{' '}
-                      <a
+                      <Link
                         href={`/item-lookup?searchText=${item.linkedItems.mod.name}`}
                         className="text-secondary-500 underline hover:text-secondary-300"
+                        target="_blank"
                       >
                         {item.linkedItems.mod.name}
-                      </a>
+                      </Link>
                     </li>
                   )}
                   {ModItem.isModItem(item) && item.linkedItems?.weapon && (
                     <li className="col-span-full text-left text-sm text-gray-300">
                       <strong>Weapon</strong>:{' '}
-                      <a
+                      <Link
                         href={`/item-lookup?searchText=${item.linkedItems.weapon.name}`}
                         className="text-secondary-500 underline hover:text-secondary-300"
+                        target="_blank"
                       >
                         {item.linkedItems.weapon.name}
-                      </a>
+                      </Link>
                     </li>
                   )}
                 </ul>

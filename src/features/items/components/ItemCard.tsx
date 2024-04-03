@@ -7,6 +7,7 @@ import {
 } from '@heroicons/react/24/solid'
 import copy from 'clipboard-copy'
 import Image from 'next/image'
+import Link from 'next/link'
 import { useState } from 'react'
 import { toast } from 'react-toastify'
 import { useLocalStorage } from 'usehooks-ts'
@@ -224,12 +225,13 @@ export function ItemCard({
               <p className="flex items-center justify-start text-xs">
                 Archetype
               </p>
-              <a
+              <Link
                 href={`/item-lookup?categories=Trait,Archetype,Perk,Skill&searchText=${item.linkedItems.archetype.name}`}
                 className="flex items-center justify-end text-right text-xs font-bold text-secondary-500 underline"
+                target="_blank"
               >
                 {item.linkedItems.archetype.name}
-              </a>
+              </Link>
             </div>
           </div>
         )}
@@ -239,12 +241,13 @@ export function ItemCard({
               <p className="flex items-center justify-start text-xs">
                 Archetype
               </p>
-              <a
+              <Link
                 href={`/item-lookup?categories=Trait,Archetype,Perk,Skill&searchText=${item.linkedItems.archetype.name}`}
                 className="flex items-center justify-end text-right text-xs font-bold text-secondary-500 underline"
+                target="_blank"
               >
                 {item.linkedItems.archetype.name}
-              </a>
+              </Link>
             </div>
           </div>
         )}
@@ -254,12 +257,13 @@ export function ItemCard({
               <p className="flex items-center justify-start text-xs">
                 Archetype
               </p>
-              <a
+              <Link
                 href={`/item-lookup?categories=Trait,Archetype,Perk,Skill&searchText=${item.linkedItems.archetype.name}`}
                 className="flex items-center justify-end text-right text-xs font-bold text-secondary-500 underline"
+                target="_blank"
               >
                 {item.linkedItems.archetype.name}
-              </a>
+              </Link>
             </div>
           </div>
         )}
@@ -267,12 +271,13 @@ export function ItemCard({
           <div className="mt-4">
             <div className="grid w-full grid-cols-2 gap-2 border border-transparent   py-1 text-left text-sm text-gray-300">
               <p className="flex items-center justify-start text-xs">Weapon</p>
-              <a
+              <Link
                 href={`/item-lookup?searchText=${item.linkedItems.weapon.name}`}
                 className="flex items-center justify-end text-right text-xs font-bold text-secondary-500 underline"
+                target="_blank"
               >
                 {item.linkedItems.weapon.name}
-              </a>
+              </Link>
             </div>
           </div>
         )}
@@ -287,12 +292,13 @@ export function ItemCard({
                 )}
               >
                 <p className="flex items-center justify-start text-xs">Perk</p>
-                <a
+                <Link
                   href={`/item-lookup?categories=Trait,Archetype,Perk,Skill&searchText=${perk.name}`}
                   className="flex items-center justify-end text-right text-xs font-bold text-secondary-500 underline"
+                  target="_blank"
                 >
                   {perk.name}
-                </a>
+                </Link>
               </div>
             </div>
           ))}
@@ -306,12 +312,13 @@ export function ItemCard({
                 )}
               >
                 <p className="flex items-center justify-start text-xs">Skill</p>
-                <a
+                <Link
                   href={`/item-lookup?categories=Trait,Archetype,Perk,Skill&searchText=${skill.name}`}
                   className="flex items-center justify-end text-right text-xs font-bold text-secondary-500 underline"
+                  target="_blank"
                 >
                   {skill.name}
-                </a>
+                </Link>
               </div>
             </div>
           ))}
@@ -325,12 +332,13 @@ export function ItemCard({
                 )}
               >
                 <p className="flex items-center justify-start text-xs">Trait</p>
-                <a
+                <Link
                   href={`/item-lookup?categories=Trait,Archetype,Perk,Skill&searchText=${trait.name}`}
                   className="flex items-center justify-end text-right text-xs font-bold text-secondary-500 underline"
+                  target="_blank"
                 >
                   {trait.name}
-                </a>
+                </Link>
               </div>
             </div>
           ))}
