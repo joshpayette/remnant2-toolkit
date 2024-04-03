@@ -14,6 +14,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Fixed
 
 - Removed "Pawn" from bad-word-list.
+- Added missing "All-Seeing Eye" to consumable list.
 
 ## 2024-04-02
 
