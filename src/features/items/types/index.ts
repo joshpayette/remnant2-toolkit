@@ -89,7 +89,7 @@ export type ItemTag =
   | 'Fire Rate'
   | 'Grenade'
   | 'Grey Health'
-  | 'Hardcore'
+  | 'Hardcore Reward'
   | 'Heal'
   | 'Healing Effectivness'
   | 'Health'

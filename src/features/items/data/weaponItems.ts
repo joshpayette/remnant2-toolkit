@@ -232,6 +232,7 @@ export const weaponItems: WeaponItem[] = [
     name: 'Corrupted Savior',
     imagePath: '/mainhand/corrupted_savior.png',
     id: 'W6n2mT',
+    tags: ['Hardcore Reward'],
     description: `Black crystal weapon which increases Fire Rate as mod power is generated. Mod power slowly drains after 2s of not dealing damage.`,
     wikiLinks: ['https://remnant.wiki/Corrupted_Savior'],
     linkedItems: {
@@ -570,7 +571,7 @@ export const weaponItems: WeaponItem[] = [
     saveFileSlug: '/weapon_savior',
     imagePath: '/mainhand/savior1.png',
     id: '2jrbvl',
-    tags: ['Hardcore'],
+    tags: ['Hardcore Reward'],
     description: `A old Fusion Rifle refactored to store and violently release energy in each shot. Can be charged for more damage. Perfect release after Charge for maximum damage.`,
     wikiLinks: [`https://remnant.wiki/Savior`],
     linkedItems: {
