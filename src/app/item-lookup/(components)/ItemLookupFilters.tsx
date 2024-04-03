@@ -245,7 +245,7 @@ export function ItemLookupFilters({}: Props) {
               </div>
               {unappliedFilters.searchText !== '' ? (
                 <button
-                  className="rounded-md border-2 border-red-700 p-2 text-sm text-white ring-1 ring-red-700 hover:border-red-500 focus:border-red-500 focus:outline-none focus:ring-1 focus:ring-red-500"
+                  className="text-md rounded-md border-2 border-red-700 p-2 text-white ring-1 ring-red-700 hover:border-red-500 focus:border-red-500 focus:outline-none focus:ring-1 focus:ring-red-500"
                   onClick={() => {
                     handleSearchTextChange('')
                     handleApplyFilters({
@@ -255,13 +255,13 @@ export function ItemLookupFilters({}: Props) {
                     searchTextFieldKey.current = new Date().getTime()
                   }}
                 >
-                  <TrashIcon className="h-4 w-4 text-red-500" />
+                  <TrashIcon className="h-5 w-5 text-red-500" />
                 </button>
               ) : (
                 <div className="w-[45px]" />
               )}
             </div>
-            <Disclosure.Button className="flex items-end justify-end rounded-md border-2 border-secondary-500 bg-secondary-700 p-1.5 text-sm hover:bg-secondary-500">
+            <Disclosure.Button className="text-md flex items-end justify-end rounded-md border-2 border-secondary-500 bg-secondary-700 p-1.5 hover:bg-secondary-500">
               {open ? 'Hide' : 'Show'}
               <ChevronRightIcon
                 className={cn(

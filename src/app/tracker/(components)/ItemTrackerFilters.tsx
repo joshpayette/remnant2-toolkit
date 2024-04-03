@@ -236,7 +236,7 @@ export function ItemTrackerFilters({
       <div className="grid-cols-full grid gap-x-8 gap-y-2 bg-black sm:grid-cols-4">
         <div className="col-span-full border border-transparent border-b-primary-800 pb-2 sm:col-span-2">
           <div className="flex w-full flex-col items-start justify-start gap-x-4">
-            <span className="mb-2 flex items-center justify-start text-left text-sm font-bold text-primary-500">
+            <span className="sr-only mb-2 flex items-center justify-start text-left text-sm font-bold text-primary-500">
               Search
             </span>
 
@@ -252,6 +252,7 @@ export function ItemTrackerFilters({
           <div className="flex w-full flex-col items-start justify-start gap-x-4">
             <SelectMenu
               label="Category"
+              showLabel={false}
               value={selectedItemCategory as string}
               options={itemCategoryOptions.map((option) =>
                 option.value === 'relicfragment'

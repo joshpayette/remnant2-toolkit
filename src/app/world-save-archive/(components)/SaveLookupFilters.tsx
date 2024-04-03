@@ -142,7 +142,7 @@ export function SaveLookupFilters({}: Props) {
                 }))}
               />
             </div>
-            <Disclosure.Button className="flex flex-row items-center justify-center rounded-md border-2 border-secondary-500 bg-secondary-700 p-2 text-sm hover:bg-secondary-500">
+            <Disclosure.Button className="text-md flex flex-row items-center justify-center rounded-md border-2 border-secondary-500 bg-secondary-700 px-2 py-1 hover:bg-secondary-500">
               {open ? 'Hide' : 'Show'}
               <ChevronRightIcon
                 className={cn(

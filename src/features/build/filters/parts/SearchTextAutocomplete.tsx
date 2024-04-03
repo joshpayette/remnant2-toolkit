@@ -85,7 +85,7 @@ export function SearchTextAutocomplete({
 
       <div className="relative mt-2">
         <Combobox.Input
-          className="w-full rounded-md border-2 border-secondary-700 bg-black py-1.5 pl-3 pr-10 text-sm text-gray-300 shadow-sm ring-1 ring-secondary-700 focus:border-secondary-500 focus:outline-none focus:ring-1 focus:ring-secondary-500"
+          className="text-md w-full rounded-md border-2 border-secondary-700 bg-black py-1.5 pl-3 pr-10 text-gray-300 shadow-sm ring-1 ring-secondary-700 focus:border-secondary-500 focus:outline-none focus:ring-1 focus:ring-secondary-500"
           onChange={(event) => onChange(event.target.value)}
           displayValue={(item: Item) => item?.name}
           placeholder="Search for an item or tag"

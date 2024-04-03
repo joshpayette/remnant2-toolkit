@@ -18,6 +18,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Fixed
 
 - Amplitude vs Resonance guide incorrectly listed the Magnetic Field perk as an Explorer skill rather than Engineer skill.
+- Search text fields now use 16px font to fix auto-zooming issue on Safari browsers.
 
 ## 2024-04-01
 
