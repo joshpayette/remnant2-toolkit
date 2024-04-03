@@ -430,7 +430,7 @@ export const ITEM_TAGS: ItemTag[] = [
   'Firearm Swap Speed',
   'Fire Rate',
   'Grey Health',
-  'Hardcore',
+  'Hardcore Reward',
   'Heal',
   'Healing Effectivness',
   'Health',

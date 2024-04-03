@@ -3,6 +3,16 @@ import { ConsumableItem } from '../types/ConsumableItem'
 export const consumableItems: ConsumableItem[] = [
   {
     category: 'consumable',
+    name: 'All-Seeing Eye',
+    imagePath: '/consumable/all-seeing_eye.png',
+    saveFileSlug: '',                                                           // TODO add saveFileSlug
+    id: '',                                                                     // TODO add random ID
+    tags: ['Health', 'Stamina', 'Reduce Skill Cooldown', 'Mod Power', 'All Damage'],
+    description: `Grants a random buff or debuff. Lasts 3m.`,
+    wikiLinks: [`https://remnant.wiki/All-Seeing_Eye`],
+  },
+  {
+    category: 'consumable',
     name: 'Ambit Ember',
     imagePath: '/consumable/ambit_ember.png',
     saveFileSlug: 'consumable_spice',

@@ -99,7 +99,7 @@ EXPOSED: Target receives up to 24% additional damage from all sources. Expose am
     name: "Daredevil's Charm",
     imagePath: '/amulet/daredevils_charm.png',
     id: 'ik580i',
-    tags: ['All Damage', 'Movement Speed', 'Hardcore', 'Encumbrance'],
+    tags: ['All Damage', 'Movement Speed', 'Hardcore Reward', 'Encumbrance'],
     description: `Gain 7.5% to all damage dealt, 3% Movement Speed, and 5% all damage taken for each piece of unequipped armor.`,
     wikiLinks: [`https://remnant.wiki/Daredevil's_Charm`],
   },
