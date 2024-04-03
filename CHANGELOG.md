@@ -11,6 +11,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Clicking "Linked Item" links on item info cards or dialogs will now open in a new tab, so that you don't lose progress on the current page.
 - Reduced white-space on the Profile Stats section on user profiles.
 
+### Fixed
+
+- Removed "Pawn" from bad-word-list.
+
 ## 2024-04-02
 
 ### Added
