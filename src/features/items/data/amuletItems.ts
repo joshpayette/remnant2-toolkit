@@ -483,7 +483,7 @@ EXPOSED: Target receives up to 24% additional damage from all sources. Expose am
     imagePath: '/amulet/onyx_pendulum.png',
     id: 'ps6umu',
     tags: ['Ranged Damage'],
-    description: `Firearm damage adds stacks which increase the damage of stowed firearm by 2.5% [M] for 15s. Stacks 10x.`, // No idea why. ConRaven checked it.
+    description: `Firearm damage adds stacks which increase the damage of stowed firearm by 2.5% for 15s. Stacks 10x.`, // No idea why. ConRaven checked it.
     wikiLinks: [`https://remnant.wiki/Onyx_Pendulum`],
   },
   {
