@@ -4,7 +4,7 @@ This script extracts the HitLocations from the Remnant 2 game files.
 
 ## Requirements
 
-- [NodeJS]](https://nodejs.org/en/)
+- [NodeJS](https://nodejs.org/en/)
 
 ## Usage
 
