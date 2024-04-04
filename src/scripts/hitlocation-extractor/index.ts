@@ -43,6 +43,7 @@ const CSV_HEADERS = [
   'bAoERequiresLoS',
   'DestroyedDependentHitLocationsToActivate',
   'BoneNamesToActivateCollision',
+  'WeakSpotDamageScalar',
 ]
 
 type HitLogComponent = {
@@ -67,6 +68,8 @@ function isHitLogComponent(value: any): value is HitLogComponent {
 const INPUT_FOLDER = path.join(__dirname, './input')
 const OUTPUT_FOLDER = path.join(__dirname, './output')
 const NO_DATA_FOLDER = path.join(__dirname, './output/no-data')
+
+const OUTPUT_FILE_NAME = path.join(OUTPUT_FOLDER, 'hit-location-output.csv')
 
 function recreateOutputFolders() {
   // delete folders
@@ -106,6 +109,8 @@ function main() {
 
   recreateOutputFolders()
 
+  let csvContent = CSV_HEADERS.join(',') + '\n'
+
   const inputFileNames = fs.readdirSync(INPUT_FOLDER)
   inputFileNames.forEach((inputFileName) => {
     console.info(`Reading ${inputFileName} file...`)
@@ -115,6 +120,7 @@ function main() {
     const parsedData = JSON.parse(jsonContent)
 
     let hitLocationSegments: HitLocationSegment[] = []
+    const otherProperties = []
 
     // The data is an array of objects
     // We are looking for the object with Type: HitLogComponent
@@ -130,14 +136,18 @@ function main() {
 
         // If the current object has HitLocation information, store it and break the loop
         hitLocationSegments = value.Properties.HitLocations
+
+        // Add other Properties
+        otherProperties.push(
+          value.Properties.WeakSpotDamageScalar?.toString() || '',
+        )
+
         break
       }
     }
 
-    let csvContent = CSV_HEADERS.join(',') + '\n'
-
     for (const segment of hitLocationSegments) {
-      const row = [
+      let row = [
         segment.NameID,
         segment.PhysMat.ObjectName,
         segment.PhysMat.ObjectPath,
@@ -158,18 +168,16 @@ function main() {
         segment.BoneNamesToActivateCollision.join('|'),
       ]
 
+      // Add other properties
+      row = row.concat(otherProperties)
+
       csvContent += row.join(',') + '\n'
     }
-
-    const outputFileName = path.join(
-      OUTPUT_FOLDER,
-      inputFileName.replace('.json', '.csv'),
-    )
-
-    console.info(`Writing ${outputFileName}.csv file...`)
-    fs.writeFileSync(outputFileName, csvContent)
-    console.info(`File ${outputFileName}.csv written successfully!`)
   })
+
+  console.info(`Writing ${OUTPUT_FILE_NAME}.csv file...`)
+  fs.writeFileSync(OUTPUT_FILE_NAME, csvContent)
+  console.info(`File ${OUTPUT_FILE_NAME}.csv written successfully!`)
 }
 
 // Run the script

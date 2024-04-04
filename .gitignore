@@ -45,4 +45,5 @@ profile.sav
 profile.txt
 UPGRADE.md
 convertedSave.txt
-hitlocation-extractor/*.json
+hitlocation-extractor/**/*.json
+hitlocation-extractor/**/*.csv
