@@ -130,6 +130,5 @@ export function getArmorSuggestions({
 
   armorSuggestions.sort((a, b) => b.totalArmor - a.totalArmor)
 
-  // Return only the resultCount number of suggestions
-  return armorSuggestions.slice(0)
+  return armorSuggestions
 }
