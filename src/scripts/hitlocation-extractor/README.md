@@ -12,7 +12,8 @@ This script extracts the HitLocations from the Remnant 2 game files.
 2. Run the script with:
 
 ```bash
-node index.js
+cd src/scripts/hitlocation-extractor
+npx ts-node index.ts
 ```
 
 3. The extracted HitLocations will be saved in the `output` folder.
