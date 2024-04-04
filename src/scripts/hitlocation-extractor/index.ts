@@ -138,6 +138,7 @@ function main() {
         hitLocationSegments = value.Properties.HitLocations
 
         // Add other Properties
+        // ! Must be pushed in the same order as CSV_HEADERS
         otherProperties.push(
           value.Properties.WeakSpotDamageScalar?.toString() || '',
         )
