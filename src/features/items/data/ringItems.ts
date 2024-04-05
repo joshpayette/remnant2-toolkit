@@ -1199,7 +1199,7 @@ export const ringItems: RingItem[] = [
     imagePath: '/ring/rock_of_anguish.png',
     id: 'lr4wxu',
     tags: ['Movement Speed', 'Reload Speed'],
-    description: `Gain 5% Movement Speed and 7.5% Reload Speed for every 25% of Max Health hmissing.`,
+    description: `Gain 5% Movement Speed and 7.5% Reload Speed for every 25% of Max Health missing.`,
     wikiLinks: [`https://remnant.wiki/Rock_of_Anguish`],
   },
   {
