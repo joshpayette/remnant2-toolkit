@@ -157,7 +157,7 @@ function main() {
 
     for (const segment of hitLocationSegments) {
       let row = [
-        inputFileName,
+        inputFileName.replace('.json', '.uasset'),
         segment.NameID,
         segment.PhysMat?.ObjectName ?? null,
         segment.PhysMat?.ObjectPath ?? null,
