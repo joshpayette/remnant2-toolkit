@@ -50,14 +50,14 @@ export default async function Layout({
             id="disabled-overlay"
             className="absolute inset-0 z-10 h-full bg-black/90"
           />
-          <div className="absolute z-10 mb-2 flex h-full w-full flex-col items-center justify-center text-2xl font-bold text-red-500">
-            <p>
-              Sign in required to use the database builder. Either sign in, or
-              use the{' '}
-              <Link href="/builder" className="underline">
-                URL builder
+          <div className="absolute z-10 mb-2 flex h-full w-full flex-col items-center justify-start p-2 text-2xl font-bold text-red-500">
+            <p className="w-full text-center">
+              This enhanced build tool requires you to be logged in to use it,
+              as it saves your builds to the database. If you prefer not to sign
+              in, you can still use the <br />
+              <Link href="/builder" className="text-white underline">
+                non-database builder by clicking here!
               </Link>
-              .
             </p>
           </div>
           {children}

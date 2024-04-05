@@ -80,12 +80,13 @@ export default function Page() {
                 className="font-bold text-accent1-500 underline hover:text-accent1-300"
               >
                 Click here to visit the enhanced version of the Builder
+                directly.
               </Link>
             </li>
           </ul>
         </div>
       ) : (
-        <div className="rounded-md border border-red-500 px-2 py-1 text-left text-white">
+        <div className="mb-2 rounded-md border border-red-500 px-2 py-1 text-left text-white">
           <h3 className="text-center text-lg font-bold">
             You are not signed in, so your features are limited.
           </h3>
@@ -93,11 +94,14 @@ export default function Page() {
             Sign in with Discord or Reddit to get the following features:
           </p>
           <ul className="mt-2 list-inside list-disc">
-            <li>See all your builds in your profile</li>
-            <li>Add build descriptions</li>
-            <li>Make private builds</li>
-            <li>More individualized social media previews</li>
-            <li>More features coming soon!</li>
+            <li>Have your builds searchable by the community</li>
+            <li>
+              Allow your builds to be favorited and added to user loadouts
+            </li>
+            <li>Add build descriptions and reference URLs</li>
+            <li>Mark builds public or private</li>
+            <li>Shorter URLs when sharing your build</li>
+            <li>Get better and more specific social media previews</li>
           </ul>
         </div>
       )}

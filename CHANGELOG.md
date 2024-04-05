@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2024-04-05
 
+### Changed
+
+- Improved text on Builder related to authenticated builder perks, and a better explanation of the Builder's limitations for unauthenticated users.
+
 ### Fixed
 
 - Fixed error when deleting a build from the profile/created-builds page.
