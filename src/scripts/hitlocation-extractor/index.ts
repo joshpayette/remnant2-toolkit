@@ -15,7 +15,10 @@ type HitLocationSegment = {
   KillOnDestroyed: boolean
   DestroyedAnimTag: string
   DebrisSocketLocationOnDestroy: string
-  DebrisOnDestroy: string | null
+  DebrisOnDestroy: {
+    ObjectName: string
+    ObjectPath: string
+  } | null
   bResistSpot: boolean
   bIsWeakSpot: boolean
   AoEPriority: number
@@ -37,7 +40,8 @@ const CSV_HEADERS = [
   'KillOnDestroyed',
   'DestroyedAnimTag',
   'DebrisSocketLocationOnDestroy',
-  'DebrisOnDestroy',
+  'DebrisOnDestroy_ObjectName',
+  'DebrisOnDestroy_ObjectPath',
   'bResistSpot',
   'bIsWeakSpot',
   'AoEPriority',
@@ -175,7 +179,8 @@ function main() {
         segment.KillOnDestroyed,
         segment.DestroyedAnimTag,
         segment.DebrisSocketLocationOnDestroy,
-        segment.DebrisOnDestroy,
+        segment.DebrisOnDestroy?.ObjectName ?? null,
+        segment.DebrisOnDestroy?.ObjectPath ?? null,
         segment.bResistSpot,
         segment.bIsWeakSpot,
         segment.AoEPriority,
