@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Fixed
 
 - Fixed error when deleting a build from the profile/created-builds page.
+- Fixed incorrect Wiki link for Ring of Spears.
 
 ## 2024-04-04
 
