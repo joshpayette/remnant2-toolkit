@@ -126,7 +126,15 @@ export function CreatedBuilds({ isEditable, userId }: Props) {
                   isEditable ? (
                     <CreatedBuildCardActions
                       build={build}
-                      pathsToRevalidate={[`/profile/${userId}/created-builds`]}
+                      onDelete={(buildId: string) => {
+                        setBuildListState((prevState) => ({
+                          ...prevState,
+                          builds: prevState.builds.filter(
+                            (b) => b.id !== buildId,
+                          ),
+                          totalBuildCount: prevState.totalBuildCount - 1,
+                        }))
+                      }}
                     />
                   ) : undefined
                 }

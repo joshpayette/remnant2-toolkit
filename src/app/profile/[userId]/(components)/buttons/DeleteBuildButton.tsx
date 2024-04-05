@@ -1,7 +1,7 @@
 'use client'
 
 import { TrashIcon } from '@heroicons/react/24/solid'
-import { revalidatePath } from 'next/cache'
+import { usePathname } from 'next/navigation'
 import { toast } from 'react-toastify'
 
 import { deleteBuild } from '@/features/build/actions/deleteBuild'
@@ -10,25 +10,27 @@ import { Tooltip } from '@/features/ui/Tooltip'
 
 export function DeleteBuildButton({
   buildId,
-  pathsToRevalidate,
+  onDelete,
 }: {
   buildId: string
-  pathsToRevalidate: string[]
+  onDelete: (buildId: string) => void
 }) {
+  const pathname = usePathname()
+
   async function handleDeleteBuild() {
     const confirmed = confirm(
       'Are you sure you want to delete this build? This cannot be reversed!',
     )
     if (!confirmed) return
 
-    const response = await deleteBuild(JSON.stringify({ buildId }))
+    const response = await deleteBuild(buildId, pathname)
 
     if (isErrorResponse(response)) {
       console.error(response.errors)
       toast.error('Error deleting build. Please try again later.')
     } else {
       toast.success(response.message)
-      pathsToRevalidate.forEach((path) => revalidatePath(path))
+      onDelete(buildId)
     }
   }
 

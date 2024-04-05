@@ -6,19 +6,16 @@ import { DBBuild } from '@/features/build/types'
 
 interface Props {
   build: DBBuild
-  pathsToRevalidate: string[]
+  onDelete: (buildId: string) => void
 }
 
-export function CreatedBuildCardActions({ build, pathsToRevalidate }: Props) {
+export function CreatedBuildCardActions({ build, onDelete }: Props) {
   return (
     <div className="flex w-full items-center justify-center gap-6 p-2 text-sm">
       <CopyBuildUrlButton buildId={build.id} />
       <EditBuildButton buildId={build.id} />
       <DuplicateBuildButton build={build} />
-      <DeleteBuildButton
-        buildId={build.id}
-        pathsToRevalidate={pathsToRevalidate}
-      />
+      <DeleteBuildButton buildId={build.id} onDelete={onDelete} />
     </div>
   )
 }
