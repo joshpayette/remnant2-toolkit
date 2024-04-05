@@ -136,9 +136,15 @@ function main() {
           return
         }
 
-        // If no Properties key, then the file has no HitLocation information
         if (!value.Properties) {
           createNoDataFile(value, inputFileName)
+          return
+        }
+
+        if (!value.Properties.HitLocations) {
+          console.error(
+            `File ${inputFileName} has no HitLocations key. Skipping it.`,
+          )
           return
         }
 
