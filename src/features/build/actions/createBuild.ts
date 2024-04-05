@@ -129,7 +129,7 @@ export async function createBuild(data: string): Promise<BuildActionResponse> {
 
     // Refresh the cache for the route
     for (const path of BUILD_REVALIDATE_PATHS) {
-      revalidatePath(path)
+      revalidatePath(path, 'page')
     }
 
     return {

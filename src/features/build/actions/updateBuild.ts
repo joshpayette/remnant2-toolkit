@@ -175,9 +175,9 @@ export async function updateBuild(data: string): Promise<BuildActionResponse> {
     // Refresh the cache for the route
     // Refresh the cache for the route
     for (const path of BUILD_REVALIDATE_PATHS) {
-      revalidatePath(path)
+      revalidatePath(path, 'page')
     }
-    revalidatePath(`/builder/${buildState.buildId}`)
+    revalidatePath(`/builder/[buildId]`, 'page')
 
     return {
       message: 'Build successfully updated!',

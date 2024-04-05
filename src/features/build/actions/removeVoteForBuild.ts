@@ -100,9 +100,9 @@ export async function removeVoteForBuild(
 
     // Refresh the cache for the routes
     for (const path of BUILD_REVALIDATE_PATHS) {
-      revalidatePath(path)
+      revalidatePath(path, 'page')
     }
-    revalidatePath(`/builder/${buildId}`)
+    revalidatePath(`/builder/[buildId]`, 'page')
 
     return bigIntFix({
       message: 'Vote removed!',

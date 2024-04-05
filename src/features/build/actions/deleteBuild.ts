@@ -57,7 +57,7 @@ export async function deleteBuild(
 
     // Refresh the cache for the routes
     for (const path of BUILD_REVALIDATE_PATHS) {
-      revalidatePath(path)
+      revalidatePath(path, 'page')
     }
 
     return {

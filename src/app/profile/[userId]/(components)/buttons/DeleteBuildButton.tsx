@@ -1,7 +1,6 @@
 'use client'
 
 import { TrashIcon } from '@heroicons/react/24/solid'
-import { usePathname } from 'next/navigation'
 import { toast } from 'react-toastify'
 
 import { deleteBuild } from '@/features/build/actions/deleteBuild'
@@ -15,8 +14,6 @@ export function DeleteBuildButton({
   buildId: string
   onDelete: (buildId: string) => void
 }) {
-  const pathname = usePathname()
-
   async function handleDeleteBuild() {
     const confirmed = confirm(
       'Are you sure you want to delete this build? This cannot be reversed!',
