@@ -6,7 +6,7 @@ type HitLocationSegment = {
   PhysMat: {
     ObjectName: string
     ObjectPath: string
-  }
+  } | null
   bCollisionInitiallyEnabled: true
   DamageScalar: number
   HealthRatio: 1
@@ -25,6 +25,7 @@ type HitLocationSegment = {
 }
 
 const CSV_HEADERS = [
+  'Source Name',
   'NameID',
   'PhysMat_ObjectName',
   'PhysMat_ObjectPath',
@@ -128,6 +129,13 @@ function main() {
       const value = parsedData[key]
 
       if (isHitLogComponent(value)) {
+        if (!value.Template && !value.Properties) {
+          console.error(
+            `File ${inputFileName} has no Template and Properties key. Skipping it.`,
+          )
+          return
+        }
+
         // If no Properties key, then the file has no HitLocation information
         if (!value.Properties) {
           createNoDataFile(value, inputFileName)
@@ -149,9 +157,10 @@ function main() {
 
     for (const segment of hitLocationSegments) {
       let row = [
+        inputFileName,
         segment.NameID,
-        segment.PhysMat.ObjectName,
-        segment.PhysMat.ObjectPath,
+        segment.PhysMat?.ObjectName ?? null,
+        segment.PhysMat?.ObjectPath ?? null,
         segment.bCollisionInitiallyEnabled,
         segment.DamageScalar,
         segment.HealthRatio,
