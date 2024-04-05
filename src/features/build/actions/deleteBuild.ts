@@ -10,7 +10,6 @@ import { BuildActionResponse } from '../types'
 
 export async function deleteBuild(
   buildId: string,
-  pathname: string,
 ): Promise<BuildActionResponse> {
   // session validation
   const session = await getServerSession()

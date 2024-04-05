@@ -1,4 +1,5 @@
 import { Prisma } from '@prisma/client'
+import { revalidatePath } from 'next/cache'
 
 import { CreatedBuildCardActions } from '@/app/profile/[userId]/(components)/CreatedBuildCardActions'
 import { getServerSession } from '@/features/auth/lib'
@@ -68,18 +69,7 @@ export default async function Page({
       >
         {builds.map((build) => (
           <li key={build.id} className="h-full w-full">
-            <BuildCard
-              build={build}
-              isLoading={false}
-              footerActions={
-                isEditable ? (
-                  <CreatedBuildCardActions
-                    build={build}
-                    pathsToRevalidate={[`/profile/${userId}`]}
-                  />
-                ) : undefined
-              }
-            />
+            <BuildCard build={build} isLoading={false} />
           </li>
         ))}
       </ul>

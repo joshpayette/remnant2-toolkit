@@ -23,7 +23,7 @@ export function DeleteBuildButton({
     )
     if (!confirmed) return
 
-    const response = await deleteBuild(buildId, pathname)
+    const response = await deleteBuild(buildId)
 
     if (isErrorResponse(response)) {
       console.error(response.errors)
