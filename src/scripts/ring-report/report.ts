@@ -2,7 +2,7 @@ import { writeFile } from 'fs'
 import path from 'path'
 
 import { prisma } from '../../features/db/index'
-import { relicFragmentItems } from '../../features/items/data/relicFragmentItems'
+import { ringItems } from '../../features/items/data/ringItems'
 
 async function main() {
   const results: Array<{
@@ -13,7 +13,7 @@ async function main() {
 
   console.info('running report')
 
-  for (const item of relicFragmentItems) {
+  for (const item of ringItems) {
     const { name, id } = item
     const count = await prisma.buildItems.count({
       where: {
@@ -35,7 +35,7 @@ async function main() {
     .map((result) => `${result.id},${result.name},${result.count}`)
     .join('\n')
   // write to the current folder
-  writeFile(path.join(__dirname, 'relic-fragment-report.csv'), csv, (err) => {
+  writeFile(path.join(__dirname, 'ring-report.csv'), csv, (err) => {
     if (err) {
       console.error('error writing report', err)
     } else {
