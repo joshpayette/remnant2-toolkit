@@ -1615,7 +1615,7 @@ export const worldBossEnemies = [
     name: 'The One True King',
     dlc: 'dlc1',
     category: 'world boss',
-    imagePath: '/enemies/worldboss/one_true_king.jpg',
+    imagePath: '/enemies/worldboss/one_true_king1.jpg',
     location: 'Losomn',
     dungeon: 'Chamber of the Faithless',
     wikiLinks: ['https://remnant2.wiki.fextralife.com/One+True+King'],
