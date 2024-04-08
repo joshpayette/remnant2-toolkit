@@ -17,6 +17,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Fixed
 
 - Removed "god" from the bad word list. The base list we use is a bit overzealous.
+- Fixed an issue causing save file import error on the item tracker.
 
 ## 2024-04-07
 
