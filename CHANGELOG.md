@@ -14,6 +14,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - A build denoted as patch-affected, such as after a DLC or patch that impacted an item in the build, it will no longer automatically remove that flag when a build is simply updated. Instead, the user will need to use the toggle provided when creating or editing a build.
 
+### Fixed
+
+- Removed "god" from the bad word list. The base list we use is a bit overzealous.
+
 ## 2024-04-07
 
 ### Changed
