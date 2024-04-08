@@ -33,7 +33,7 @@ export async function updateBuild(data: string): Promise<BuildActionResponse> {
   const unvalidatedData = JSON.parse(data)
   const validatedData = buildStateSchema.safeParse(unvalidatedData)
   if (!validatedData.success) {
-    console.error('Error in data!', validatedData.error.flatten().fieldError)
+    console.error('Error in data!', validatedData.error.flatten().fieldErrors)
     return {
       errors: [validatedData.error.flatten().fieldErrors],
     }
