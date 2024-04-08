@@ -223,6 +223,15 @@ export function Builder({
     })
   }
 
+  function handleToggleIsPatchAffected(isPatchAffected: boolean) {
+    if (!isEditable) return
+    if (!onUpdateBuildState) return
+    onUpdateBuildState({
+      category: 'isPatchAffected',
+      value: isPatchAffected ? 'true' : 'false',
+    })
+  }
+
   function handleChangeBuildTags(tags: BuildTags[]) {
     if (!isEditable) return
     if (!onUpdateBuildState) return
@@ -449,8 +458,8 @@ export function Builder({
             <div className="mb-2 flex items-center justify-center text-sm text-gray-400">
               <p className="border border-red-500 p-2 text-left text-xs font-bold text-red-500">
                 This build might have been affected by a past update. If you
-                created this build, please update and save it to remove this
-                banner.
+                created this build, please update it and untoggle the
+                patch-affected setting.
               </p>
             </div>
           )}
@@ -834,19 +843,21 @@ export function Builder({
         {showMemberFeatures ? (
           <div
             id="member-features-row"
-            className="mt-4 flex w-full items-start justify-center"
+            className="mt-2 flex w-full items-start justify-center"
           >
             <MemberFeatures
               buildLink={buildState.buildLink}
               buildTags={buildState.buildTags ?? []}
               description={buildState.description}
               isEditable={isEditable}
+              isPatchAffected={buildState.isPatchAffected}
               isPublic={buildState.isPublic}
               isScreenshotMode={isScreenshotMode}
               onChangeBuildLink={handleChangeBuildLink}
               onChangeBuildTags={handleChangeBuildTags}
               onChangeDescription={handleChangeDescription}
               onChangeIsPublic={handleToggleIsPublic}
+              onChangeIsPatchAffected={handleToggleIsPatchAffected}
             />
           </div>
         ) : null}

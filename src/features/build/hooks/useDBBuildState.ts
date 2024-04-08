@@ -20,8 +20,6 @@ import { WeaponItem } from '@/features/items/types/WeaponItem'
 import { buildStateToCsvData } from '../lib/buildStateToCsvData'
 import { buildStateToMasonryItems } from '../lib/buildStateToMasonryItems'
 import { cleanUpBuildState } from '../lib/cleanUpBuildState'
-import { linkArchetypesToTraits } from '../lib/linkArchetypesToTraits'
-import { linkWeaponsToMods } from '../lib/linkWeaponsToMods'
 
 export function useDBBuildState(INITIAL_BUILD_STATE: BuildState) {
   const [dbBuildState, setDBBuildState] =
@@ -72,6 +70,13 @@ export function useDBBuildState(INITIAL_BUILD_STATE: BuildState) {
       setDBBuildState({
         ...dbBuildState,
         isPublic: value === 'true',
+      })
+      return
+    }
+    if (category === 'isPatchAffected') {
+      setDBBuildState({
+        ...dbBuildState,
+        isPatchAffected: value === 'true',
       })
       return
     }

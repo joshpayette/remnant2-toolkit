@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-04-08
+
+### Added
+
+- When creating or editing a build, there is now a toggle for whether the build is marked as "patch-affected" or not.
+
+### Changed
+
+- A build denoted as patch-affected, such as after a DLC or patch that impacted an item in the build, it will no longer automatically remove that flag when a build is simply updated. Instead, the user will need to use the toggle provided when creating or editing a build.
+
 ## 2024-04-07
 
 ### Changed

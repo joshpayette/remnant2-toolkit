@@ -20,12 +20,14 @@ type Props = {
   buildTags: BuildTags[]
   description: string | null
   isEditable: boolean
+  isPatchAffected: boolean | null
   isPublic: boolean | null
   isScreenshotMode: boolean
   onChangeBuildLink: (buildLink: string) => void
   onChangeBuildTags: (tags: BuildTags[]) => void
   onChangeDescription: (description: string) => void
   onChangeIsPublic: (isPublic: boolean) => void
+  onChangeIsPatchAffected: (isPatchAffected: boolean) => void
 }
 
 export function MemberFeatures({
@@ -33,12 +35,14 @@ export function MemberFeatures({
   buildTags,
   description,
   isEditable,
+  isPatchAffected,
   isPublic,
   isScreenshotMode,
   onChangeBuildLink,
   onChangeBuildTags,
   onChangeDescription,
   onChangeIsPublic,
+  onChangeIsPatchAffected,
 }: Props) {
   const { status } = useSession()
 
@@ -143,29 +147,49 @@ Watch the build in action: [insert Youtube link here]
       {isScreenshotMode ? null : (
         <>
           {isEditable ? (
-            <div className="flex flex-row items-center justify-start text-sm text-primary-500">
-              <div className="mr-4">Public Build</div>
-              <div className="flex items-center justify-start">
+            <div className="flex flex-col items-start justify-start gap-x-8 gap-y-2 sm:flex-row sm:items-center sm:justify-start">
+              <div className="flex flex-row items-center justify-start text-sm text-primary-500">
+                <div className="mr-4">Public Build</div>
+                <div className="flex items-center justify-start">
+                  <Toggle
+                    enabled={Boolean(isPublic)}
+                    setEnabled={onChangeIsPublic}
+                  />
+                  <a
+                    href="https://github.com/joshpayette/remnant2-toolkit/blob/main/CODE_OF_CONDUCT.md"
+                    target="_blank"
+                    className="ml-2 text-xs text-secondary-500 underline"
+                  >
+                    Code of Conduct
+                  </a>
+                </div>
+              </div>
+              <div className="flex flex-row items-center justify-start text-sm text-primary-500">
+                <div className="mr-4">Mark as Patch Affected?</div>
+
                 <Toggle
-                  enabled={Boolean(isPublic)}
-                  setEnabled={onChangeIsPublic}
+                  enabled={Boolean(isPatchAffected)}
+                  setEnabled={onChangeIsPatchAffected}
                 />
-                <a
-                  href="https://github.com/joshpayette/remnant2-toolkit/blob/main/CODE_OF_CONDUCT.md"
-                  target="_blank"
-                  className="ml-2 text-xs text-secondary-500 underline"
-                >
-                  Code of Conduct
-                </a>
               </div>
             </div>
           ) : (
-            <div className="flex flex-col">
-              <div className="text-md my-2 font-bold text-primary-500">
-                Build Visibility
+            <div className="flex items-center justify-start gap-x-8 gap-y-2">
+              <div className="flex flex-col">
+                <div className="text-md my-2 font-bold text-primary-500">
+                  Build Visibility
+                </div>
+                <div className="text-md text-gray-200">
+                  {isPublic ? 'Public' : 'Private'}
+                </div>
               </div>
-              <div className="text-md text-gray-200">
-                {isPublic ? 'Public' : 'Private'}
+              <div className="flex flex-col">
+                <div className="text-md my-2 font-bold text-primary-500">
+                  Patch Affected?
+                </div>
+                <div className="text-md text-gray-200">
+                  {isPatchAffected ? 'Yes' : 'No'}
+                </div>
               </div>
             </div>
           )}

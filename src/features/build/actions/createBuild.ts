@@ -71,6 +71,7 @@ export async function createBuild(data: string): Promise<BuildActionResponse> {
             ? cleanBadWords(buildState.description)
             : '',
         isPublic: Boolean(buildState.isPublic),
+        isPatchAffected: Boolean(buildState.isPatchAffected),
         createdBy: {
           connect: {
             id: session.user.id,

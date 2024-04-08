@@ -89,13 +89,13 @@ export async function parseSaveFile(
       .toString()
       .toLowerCase()
 
-    // // save converted size to file
-    // const convertedSavePath = path.join(
-    //   process.cwd(),
-    //   'public',
-    //   'convertedSave.txt',
-    // )
-    // fs.writeFileSync(convertedSavePath, convertedSave)
+    // save converted size to file
+    const convertedSavePath = path.join(
+      process.cwd(),
+      'public',
+      'convertedSave2.txt',
+    )
+    fs.writeFileSync(convertedSavePath, convertedSave)
 
     // Get the saveFileDiscoveredItemIds
     const saveFileDiscoveredItemIds = allItems
