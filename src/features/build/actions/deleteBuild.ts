@@ -30,7 +30,7 @@ export async function deleteBuild(
     })
     if (!build) {
       return {
-        errors: ['Build not found!'],
+        errors: [`Build with id ${buildId} not found.`],
       }
     }
 

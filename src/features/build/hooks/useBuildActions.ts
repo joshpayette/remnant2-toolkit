@@ -88,7 +88,7 @@ export function useBuildActions() {
     )
     if (!confirmed) return
 
-    const response = await deleteBuild(JSON.stringify({ buildId }))
+    const response = await deleteBuild(buildId)
 
     if (isErrorResponse(response)) {
       console.error(response.errors)

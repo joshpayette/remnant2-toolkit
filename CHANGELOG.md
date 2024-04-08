@@ -10,6 +10,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Updated image for One True King. (ConRaven)
 
+### Fixed
+
+- Fixed an issue where deleting a build wouldn't work when viewing it.
+
 ## 2024-04-05
 
 ### Changed
