@@ -51,6 +51,13 @@ model Session {
   @@index([userId])
 }
 
+enum UserRole {
+  user
+  moderator
+  admin
+  owner
+}
+
 model User {
   id            String            @id @default(cuid())
   name          String?
@@ -58,7 +65,7 @@ model User {
   email         String?           @unique
   emailVerified DateTime?
   image         String?
-  role          String?           @default("user")
+  role          UserRole          @default(user)
   createdAt     DateTime          @default(now())
   updatedAt     DateTime          @default(now()) @updatedAt
   accounts      Account[]
