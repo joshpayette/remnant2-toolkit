@@ -164,27 +164,28 @@ model UserLoadouts {
 }
 
 model Build {
-  id              String            @id @default(cuid())
-  createdAt       DateTime          @default(now())
-  updatedAt       DateTime?         @updatedAt
-  createdBy       User              @relation(fields: [createdById], references: [id])
-  createdById     String
-  isPublic        Boolean           @default(true)
-  isFeaturedBuild Boolean           @default(false)
-  dateFeatured    DateTime?
-  isPatchAffected Boolean           @default(false)
-  name            String
-  description     String?           @db.Text
-  videoUrl        String?
-  thumbnailUrl    String?
-  buildLink       String?
-  BuildVotes      BuildVoteCounts[]
-  BuildReports    BuildReports[]
-  BuildItems      BuildItems[]
-  UserProfile     UserProfile?      @relation(fields: [userProfileId], references: [id])
-  userProfileId   String?
-  UserLoadouts    UserLoadouts[]
-  BuildTags       BuildTags[]
+  id                String            @id @default(cuid())
+  createdAt         DateTime          @default(now())
+  updatedAt         DateTime?         @updatedAt
+  createdBy         User              @relation(fields: [createdById], references: [id])
+  createdById       String
+  isFeaturedBuild   Boolean           @default(false)
+  isModeratorLocked Boolean           @default(false)
+  isPatchAffected   Boolean           @default(false)
+  isPublic          Boolean           @default(true)
+  dateFeatured      DateTime?
+  name              String
+  description       String?           @db.Text
+  videoUrl          String?
+  thumbnailUrl      String?
+  buildLink         String?
+  BuildVotes        BuildVoteCounts[]
+  BuildReports      BuildReports[]
+  BuildItems        BuildItems[]
+  UserProfile       UserProfile?      @relation(fields: [userProfileId], references: [id])
+  userProfileId     String?
+  UserLoadouts      UserLoadouts[]
+  BuildTags         BuildTags[]
 
   @@index([createdById])
   @@index([userProfileId])
