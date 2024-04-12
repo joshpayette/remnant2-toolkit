@@ -1,5 +1,5 @@
-import { modItems } from '@/features/items/data/modItems'
-import { ModItem } from '@/features/items/types/ModItem'
+import { modItems } from '@/app/(data)/items/modItems'
+import { ModItem } from '@/app/(data)/items/types/ModItem'
 
 import { BuildState } from '../types'
 

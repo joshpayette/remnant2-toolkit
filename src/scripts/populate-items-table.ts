@@ -5,8 +5,8 @@
  * we use upsert so that no items are duplicated or deleted mistakenly.
  */
 
+import { allItems } from '../app/(data)/items/allItems'
 import { prisma } from '../features/db'
-import { allItems } from '../features/items/data/allItems'
 
 // Load all the item ids into the Item table
 async function main() {

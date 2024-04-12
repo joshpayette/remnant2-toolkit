@@ -1,4 +1,4 @@
-import { archetypeItems } from '@/features/items/data/archetypeItems'
+import { archetypeItems } from '@/app/(data)/items/archetypeItems'
 import { Archetype } from '@/features/items/types'
 import { Checkbox } from '@/features/ui/Checkbox'
 import { capitalize } from '@/lib/capitalize'

@@ -3,12 +3,12 @@
 import { useMemo, useState } from 'react'
 import { useIsClient, useLocalStorage } from 'usehooks-ts'
 
+import { remnantEnemies } from '@/app/(data)/enemies/remnantEnemies'
+import { BossCategory } from '@/app/(data)/enemies/types'
 import {
   BossTrackerFilters,
   DEFAULT_BOSS_TRACKER_FILTERS,
 } from '@/app/boss-tracker/BossTrackerFilters'
-import { remnantEnemies } from '@/features/enemies/remnantEnemies'
-import { BossCategory } from '@/features/enemies/types'
 import { PageHeader } from '@/features/ui/PageHeader'
 
 import { ListBosses } from './ListBosses'

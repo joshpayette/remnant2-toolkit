@@ -1,11 +1,11 @@
 import { useCallback, useEffect, useState } from 'react'
 import { useDebounceValue, useLocalStorage } from 'usehooks-ts'
 
+import { MutatorItem } from '@/app/(data)/items/types/MutatorItem'
+import { WeaponItem } from '@/app/(data)/items/types/WeaponItem'
 import { FilteredItem } from '@/app/tracker/(lib)/useFilteredItems'
 import { RELEASE_TO_NAME } from '@/features/items/constants'
 import { ReleaseKey } from '@/features/items/types'
-import { MutatorItem } from '@/features/items/types/MutatorItem'
-import { WeaponItem } from '@/features/items/types/WeaponItem'
 import { Checkbox } from '@/features/ui/Checkbox'
 import { ClearFiltersButton } from '@/features/ui/filters/ClearFiltersButton'
 import { SearchInput } from '@/features/ui/SearchInput'

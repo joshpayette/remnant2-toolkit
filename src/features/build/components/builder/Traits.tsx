@@ -2,9 +2,9 @@ import { XCircleIcon } from '@heroicons/react/24/solid'
 import Image from 'next/image'
 import { useState } from 'react'
 
+import { TraitItem } from '@/app/(data)/items/types/TraitItem'
 import { BuildState } from '@/features/build/types'
 import { Item } from '@/features/items/types'
-import { TraitItem } from '@/features/items/types/TraitItem'
 import { Tooltip } from '@/features/ui/Tooltip'
 import { cn } from '@/lib/classnames'
 

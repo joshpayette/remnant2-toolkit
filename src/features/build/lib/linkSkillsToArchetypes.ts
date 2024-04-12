@@ -1,4 +1,4 @@
-import { archetypeItems } from '@/features/items/data/archetypeItems'
+import { archetypeItems } from '@/app/(data)/items/archetypeItems'
 
 import { BuildState } from '../types'
 

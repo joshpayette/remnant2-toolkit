@@ -1,5 +1,5 @@
+import { allItems } from '@/app/(data)/items/allItems'
 import { ItemCategory } from '@/features/build/types'
-import { allItems } from '@/features/items/data/allItems'
 import { Item } from '@/features/items/types'
 
 /** We don't track these categories at all */

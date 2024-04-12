@@ -1,7 +1,7 @@
+import { MutatorItem } from '../../../app/(data)/items/types/MutatorItem'
+import { TraitItem } from '../../../app/(data)/items/types/TraitItem'
 import { DESCRIPTION_TAGS } from '../constants'
 import { Item } from '../types'
-import { MutatorItem } from '../types/MutatorItem'
-import { TraitItem } from '../types/TraitItem'
 
 export function itemMatchesSearchText({
   item,

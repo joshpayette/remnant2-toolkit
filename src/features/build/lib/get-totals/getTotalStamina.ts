@@ -1,5 +1,5 @@
+import { TraitItem } from '@/app/(data)/items/types/TraitItem'
 import { Item } from '@/features/items/types'
-import { TraitItem } from '@/features/items/types/TraitItem'
 
 import { BuildState } from '../../types'
 import { getItemsByKey, getTraitItemsByKey } from './utils'

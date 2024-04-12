@@ -4,7 +4,7 @@ import { Disclosure } from '@headlessui/react'
 import { ChevronDownIcon } from '@heroicons/react/24/solid'
 import { useIsClient, useLocalStorage } from 'usehooks-ts'
 
-import { BossCategory, Enemy } from '@/features/enemies/types'
+import { BossCategory, Enemy } from '@/app/(data)/enemies/types'
 import { ItemButton } from '@/features/items/components/ItemButton'
 import { cn } from '@/lib/classnames'
 

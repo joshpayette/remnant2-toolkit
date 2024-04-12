@@ -1,6 +1,6 @@
 import { Prisma } from '@prisma/client'
 
-import { amuletItems } from '@/features/items/data/amuletItems'
+import { amuletItems } from '@/app/(data)/items/amuletItems'
 
 export function limitByAmuletSegment(amuletId: string) {
   return amuletId === ''

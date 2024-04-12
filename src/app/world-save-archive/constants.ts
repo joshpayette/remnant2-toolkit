@@ -1,7 +1,7 @@
 import {
   bossEnemies,
   worldBossEnemies,
-} from '@/features/enemies/remnantEnemies'
+} from '@/app/(data)/enemies/remnantEnemies'
 
 export const MAX_BOSS_AFFIXES = 2
 

@@ -1,7 +1,7 @@
+import { TraitItem } from '@/app/(data)/items/types/TraitItem'
 import { itemCategories } from '@/features/items/lib/getItemCategories'
 import { itemToCsvItem } from '@/features/items/lib/itemToCsvItem'
 import { Item } from '@/features/items/types'
-import { TraitItem } from '@/features/items/types/TraitItem'
 
 import { BuildState } from '../types'
 

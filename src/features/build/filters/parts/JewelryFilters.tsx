@@ -1,5 +1,5 @@
-import { amuletItems } from '@/features/items/data/amuletItems'
-import { ringItems } from '@/features/items/data/ringItems'
+import { amuletItems } from '@/app/(data)/items/amuletItems'
+import { ringItems } from '@/app/(data)/items/ringItems'
 import { SelectMenu } from '@/features/ui/SelectMenu'
 
 export const DEFAULT_JEWELRY_FILTERS = {

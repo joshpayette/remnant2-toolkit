@@ -1,9 +1,9 @@
 import { image } from 'html2canvas/dist/types/css/types/image'
 
+import { remnantEnemies } from '@/app/(data)/enemies/remnantEnemies'
+import { amuletItems } from '@/app/(data)/items/amuletItems'
+import { armorItems } from '@/app/(data)/items/armorItems'
 import { additionalAvatars } from '@/app/profile/[userId]/(lib)/additionalAvatars'
-import { remnantEnemies } from '@/features/enemies/remnantEnemies'
-import { amuletItems } from '@/features/items/data/amuletItems'
-import { armorItems } from '@/features/items/data/armorItems'
 
 const enemyImages = remnantEnemies
   .sort((a, b) => a.name.localeCompare(b.name))

@@ -1,4 +1,4 @@
-import { weaponItems } from '@/features/items/data/weaponItems'
+import { weaponItems } from '@/app/(data)/items/weaponItems'
 import { SelectMenu } from '@/features/ui/SelectMenu'
 
 export const DEFAULT_WEAPON_FILTERS = {

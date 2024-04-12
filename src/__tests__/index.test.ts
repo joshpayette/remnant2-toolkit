@@ -1,8 +1,8 @@
 /* eslint-env jest */
 
+import { remnantEnemies } from '@/app/(data)/enemies/remnantEnemies'
+import { allItems } from '@/app/(data)/items/allItems'
 import { additionalAvatars } from '@/app/profile/[userId]/(lib)/additionalAvatars'
-import { remnantEnemies } from '@/features/enemies/remnantEnemies'
-import { allItems } from '@/features/items/data/allItems'
 
 describe('Items', () => {
   it('all should have unique ids', () => {

@@ -1,10 +1,10 @@
 import { Metadata, ResolvingMetadata } from 'next'
 
-import { allItems } from '@/features/items/data/allItems'
-import { ArmorItem } from '@/features/items/types/ArmorItem'
-import { MutatorItem } from '@/features/items/types/MutatorItem'
-import { TraitItem } from '@/features/items/types/TraitItem'
-import { WeaponItem } from '@/features/items/types/WeaponItem'
+import { allItems } from '@/app/(data)/items/allItems'
+import { ArmorItem } from '@/app/(data)/items/types/ArmorItem'
+import { MutatorItem } from '@/app/(data)/items/types/MutatorItem'
+import { TraitItem } from '@/app/(data)/items/types/TraitItem'
+import { WeaponItem } from '@/app/(data)/items/types/WeaponItem'
 
 import ItemPage from './page'
 

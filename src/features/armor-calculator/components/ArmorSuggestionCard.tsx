@@ -1,8 +1,8 @@
 import Image from 'next/image'
 
+import { ArmorItem } from '@/app/(data)/items/types/ArmorItem'
 import { ItemButton } from '@/features/items/components/ItemButton'
 import { WEIGHT_CLASSES } from '@/features/items/constants'
-import { ArmorItem } from '@/features/items/types/ArmorItem'
 import { cn } from '@/lib/classnames'
 
 import { ArmorSuggestion, WeightClassKeysWithDefault } from '../types'

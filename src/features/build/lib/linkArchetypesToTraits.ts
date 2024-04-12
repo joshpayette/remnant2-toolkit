@@ -1,5 +1,5 @@
-import { traitItems } from '@/features/items/data/traitItems'
-import { TraitItem } from '@/features/items/types/TraitItem'
+import { traitItems } from '@/app/(data)/items/traitItems'
+import { TraitItem } from '@/app/(data)/items/types/TraitItem'
 
 import { DEFAULT_TRAIT_AMOUNT } from '../constants'
 import { BuildState } from '../types'

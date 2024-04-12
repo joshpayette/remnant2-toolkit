@@ -1,8 +1,8 @@
-import { allItems } from '@/features/items/data/allItems'
+import { allItems } from '@/app/(data)/items/allItems'
+import { ArchetypeItem } from '@/app/(data)/items/types/ArchetypeItem'
+import { MutatorItem } from '@/app/(data)/items/types/MutatorItem'
+import { WeaponItem } from '@/app/(data)/items/types/WeaponItem'
 import { Item } from '@/features/items/types'
-import { ArchetypeItem } from '@/features/items/types/ArchetypeItem'
-import { MutatorItem } from '@/features/items/types/MutatorItem'
-import { WeaponItem } from '@/features/items/types/WeaponItem'
 
 import { BuildState, ItemCategory } from '../types'
 

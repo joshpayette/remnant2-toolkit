@@ -1,8 +1,8 @@
 import { writeFile } from 'fs'
 import path from 'path'
 
+import { amuletItems } from '../../app/(data)/items/amuletItems'
 import { prisma } from '../../features/db/index'
-import { amuletItems } from '../../features/items/data/amuletItems'
 
 async function main() {
   const results: Array<{

@@ -7,7 +7,7 @@ import * as fs from 'fs'
 import Papa from 'papaparse'
 import * as path from 'path'
 
-import { allItems } from '../features/items/data/allItems'
+import { allItems } from '../app/(data)/items/allItems'
 
 const csvPath = path.join(__dirname, './itemcount.csv')
 const csv = fs.readFileSync(csvPath, 'utf8')

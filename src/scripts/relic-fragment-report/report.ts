@@ -1,8 +1,8 @@
 import { writeFile } from 'fs'
 import path from 'path'
 
+import { relicFragmentItems } from '../../app/(data)/items/relicFragmentItems'
 import { prisma } from '../../features/db/index'
-import { relicFragmentItems } from '../../features/items/data/relicFragmentItems'
 
 async function main() {
   const results: Array<{

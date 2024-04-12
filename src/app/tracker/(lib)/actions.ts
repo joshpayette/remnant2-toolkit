@@ -10,8 +10,8 @@ import fs from 'fs'
 import path from 'path'
 import zlib from 'zlib'
 
+import { allItems } from '@/app/(data)/items/allItems'
 import { MAX_PROFILE_SAV_SIZE } from '@/features/items/constants'
-import { allItems } from '@/features/items/data/allItems'
 
 /**
  * Helper function for parsing save file

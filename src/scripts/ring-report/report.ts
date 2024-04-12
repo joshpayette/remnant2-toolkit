@@ -1,8 +1,8 @@
 import { writeFile } from 'fs'
 import path from 'path'
 
+import { ringItems } from '../../app/(data)/items/ringItems'
 import { prisma } from '../../features/db/index'
-import { ringItems } from '../../features/items/data/ringItems'
 
 async function main() {
   const results: Array<{

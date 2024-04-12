@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 
-import { Enemy, isEnemy } from '@/features/enemies/types'
+import { Enemy, isEnemy } from '@/app/(data)/enemies/types'
 import { Item } from '@/features/items/types'
 import { Tooltip } from '@/features/ui/Tooltip'
 import { cn } from '@/lib/classnames'

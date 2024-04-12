@@ -1,6 +1,6 @@
 import { Prisma } from '@prisma/client'
 
-import { archetypeItems } from '@/features/items/data/archetypeItems'
+import { archetypeItems } from '@/app/(data)/items/archetypeItems'
 
 export function limitByArchetypesSegment(archetypeIds: string[]) {
   const allExcludedArchetypeIds = archetypeItems

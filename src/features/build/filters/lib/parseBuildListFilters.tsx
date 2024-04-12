@@ -1,12 +1,12 @@
 import { BUILD_TAG } from '@prisma/client'
 import { ReadonlyURLSearchParams } from 'next/navigation'
 
+import { amuletItems } from '@/app/(data)/items/amuletItems'
+import { archetypeItems } from '@/app/(data)/items/archetypeItems'
+import { ringItems } from '@/app/(data)/items/ringItems'
+import { weaponItems } from '@/app/(data)/items/weaponItems'
 import { ALL_BUILD_TAGS } from '@/features/build/build-tags/constants'
 import { RELEASE_TO_NAME } from '@/features/items/constants'
-import { amuletItems } from '@/features/items/data/amuletItems'
-import { archetypeItems } from '@/features/items/data/archetypeItems'
-import { ringItems } from '@/features/items/data/ringItems'
-import { weaponItems } from '@/features/items/data/weaponItems'
 import { Archetype, ReleaseKey } from '@/features/items/types'
 
 import { DEFAULT_BUILD_LIST_FILTERS } from '../BuildListFilters'

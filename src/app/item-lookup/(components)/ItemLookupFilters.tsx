@@ -4,6 +4,7 @@ import isEqual from 'lodash.isequal'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import { useMemo, useRef, useState } from 'react'
 
+import { allItems } from '@/app/(data)/items/allItems'
 import { parseItemLookupFilters } from '@/app/item-lookup/(lib)/parseItemLookupFilters'
 import {
   CollectedItemFilters,
@@ -16,7 +17,6 @@ import {
 } from '@/features/build/filters/parts/ReleaseFilters'
 import { SearchTextAutocomplete } from '@/features/build/filters/parts/SearchTextAutocomplete'
 import { ITEM_TAGS } from '@/features/items/constants'
-import { allItems } from '@/features/items/data/allItems'
 import {
   ItemLookupCategory,
   ItemLookupFilterFields,

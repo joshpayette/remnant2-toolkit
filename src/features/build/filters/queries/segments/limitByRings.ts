@@ -1,6 +1,6 @@
 import { Prisma } from '@prisma/client'
 
-import { ringItems } from '@/features/items/data/ringItems'
+import { ringItems } from '@/app/(data)/items/ringItems'
 
 import { DEFAULT_JEWELRY_FILTERS } from '../../parts/JewelryFilters'
 
