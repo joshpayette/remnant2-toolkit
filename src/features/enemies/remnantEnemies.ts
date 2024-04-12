@@ -894,7 +894,7 @@ export const bossEnemies = [
     name: 'Fae Knight Council',
     dlc: 'base',
     category: 'boss',
-    imagePath: '/enemies/boss/council.jpg',
+    imagePath: '/enemies/boss/fae_knight_council.jpg',
     location: 'Losomn',
     dungeon: 'Council Chamber',
     wikiLinks: ['https://remnant2.wiki.fextralife.com/The+Council'],
@@ -1489,7 +1489,7 @@ export const worldBossEnemies = [
   {
     name: 'Annihilation',
     category: 'world boss',
-    imagePath: '/enemies/worldboss/annihilation.jpg',
+    imagePath: '/enemies/worldboss/annihilation1.jpg',
     location: 'Root Earth',
     dungeon: 'Blacked Citadel',
     wikiLinks: ['https://remnant2.wiki.fextralife.com/Annihilation'],
