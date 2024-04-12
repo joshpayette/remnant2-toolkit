@@ -2,12 +2,11 @@
 
 import { Dialog, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid'
-import Image from 'next/image'
-import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useSession } from 'next-auth/react'
 import { Fragment, useEffect, useState } from 'react'
 
+import { Link } from '@/app/(components)/base/link'
 import { AuthButton } from '@/features/auth/components/AuthButton'
 import { NAV_ITEMS } from '@/features/navigation/constants'
 import { Logo } from '@/features/ui/Logo'

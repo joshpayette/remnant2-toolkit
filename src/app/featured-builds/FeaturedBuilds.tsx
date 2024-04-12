@@ -1,10 +1,10 @@
 'use client'
 
 import { EyeIcon } from '@heroicons/react/24/solid'
-import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
 import { useEffect, useState } from 'react'
 
+import { Link } from '@/app/(components)/base/link'
 import { getFeaturedBuilds } from '@/features/build/actions/getFeaturedBuilds'
 import { BuildCard } from '@/features/build/components/build-card/BuildCard'
 import { BuildList } from '@/features/build/components/BuildList'

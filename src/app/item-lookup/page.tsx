@@ -10,9 +10,9 @@ import { getArrayOfLength } from '@/features/build/lib/getArrayOfLength'
 import { allItems } from '@/features/items/data/allItems'
 import { itemToCsvItem } from '@/features/items/lib/itemToCsvItem'
 import { MutatorItem } from '@/features/items/types/MutatorItem'
+import { ToCsvButton } from '@/features/ui/buttons/ToCsvButton'
 import { PageHeader } from '@/features/ui/PageHeader'
 import { Skeleton } from '@/features/ui/Skeleton'
-import { ToCsvButton } from '@/features/ui/ToCsvButton'
 
 const csvItems = allItems
   // Modify the data for use. Adds a discovered flag,

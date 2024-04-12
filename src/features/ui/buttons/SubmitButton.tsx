@@ -2,7 +2,7 @@
 
 import { useFormStatus } from 'react-dom'
 
-import { Skeleton } from './Skeleton'
+import { Skeleton } from '../Skeleton'
 
 export function SubmitButton({
   className,

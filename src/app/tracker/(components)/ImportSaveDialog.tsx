@@ -1,5 +1,5 @@
+import { SubmitButton } from '@/features/ui/buttons/SubmitButton'
 import { Dialog } from '@/features/ui/Dialog'
-import { SubmitButton } from '@/features/ui/SubmitButton'
 
 interface Props {
   open: boolean
@@ -32,11 +32,11 @@ export function ImportSaveDialog({
           />
           <SubmitButton
             label="Import profile.sav"
-            className="border-secondary-500 bg-secondary-700 hover:bg-secondary-500 w-[200px] rounded border-2 p-2 text-lg font-bold text-white/90 hover:text-white disabled:bg-gray-500"
+            className="w-[200px] rounded border-2 border-secondary-500 bg-secondary-700 p-2 text-lg font-bold text-white/90 hover:bg-secondary-500 hover:text-white disabled:bg-gray-500"
           />
         </div>
         <div className="col-span-full mt-8 gap-y-4 overflow-x-auto bg-black text-left">
-          <h3 className="text-primary-500 mb-4 text-lg font-bold">
+          <h3 className="mb-4 text-lg font-bold text-primary-500">
             Locating Your Save File
           </h3>
 
@@ -54,7 +54,7 @@ export function ImportSaveDialog({
             following{' '}
             <a
               href="https://www.reddit.com/r/remnantgame/comments/187rfdq/transferring_save_files_from_pcsteam_to_xbox/"
-              className="text-secondary-500 hover:text-secondary-700 underline"
+              className="text-secondary-500 underline hover:text-secondary-700"
               target="_blank"
             >
               this guide on Reddit by SpectralHunt

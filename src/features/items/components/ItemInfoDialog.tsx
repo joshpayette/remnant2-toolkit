@@ -1,8 +1,8 @@
 import copy from 'clipboard-copy'
 import Image from 'next/image'
-import Link from 'next/link'
 import { toast } from 'react-toastify'
 
+import { Link } from '@/app/(components)/base/link'
 import { ArmorInfo } from '@/features/armor-calculator/ArmorInfo'
 import { WeaponInfo } from '@/features/items/components/WeaponInfo'
 import { cleanItemName } from '@/features/items/lib/cleanItemName'

@@ -9,15 +9,12 @@ import 'react-toastify/dist/ReactToastify.min.css'
 
 import { Analytics } from '@vercel/analytics/react'
 import { Viewport } from 'next'
-import Link from 'next/link'
 import { ToastContainer } from 'react-toastify'
 
-import { ChangeLogButton } from '@/features/ui/ChangeLogButton'
+import { GlobalActionButtons } from '@/app/(components)/global-action-buttons/global-action-buttons'
 import { PreloadResources } from '@/features/ui/PreloadResources'
 
 import { SessionProvider } from '../features/auth/components/SessionProvider'
-import { ReportBugButton } from '../features/bug-reports/ReportBugButton'
-import { BackToTopButton } from '../features/ui/BackToTopButton'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -40,15 +37,7 @@ export default async function RootLayout({
       >
         <PreloadResources />
         <SessionProvider>
-          <div className="fixed bottom-[8px] right-[8px] z-20">
-            <BackToTopButton />
-          </div>
-          <div className="fixed bottom-[8px] right-[52px] z-20">
-            <ChangeLogButton />
-          </div>
-          <div className="fixed bottom-[8px] right-[96px] z-20">
-            <ReportBugButton />
-          </div>
+          <GlobalActionButtons />
           {/* <div className="w-full bg-secondary-900 p-1 text-center text-sm">
             We just launched a silly game to test your knowledge of items!{' '}
             <Link href="/item-quiz" className="underline">

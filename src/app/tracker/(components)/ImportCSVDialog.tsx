@@ -1,6 +1,6 @@
 import { CsvItem } from '@/features/items/types'
+import { ToCsvButton } from '@/features/ui/buttons/ToCsvButton'
 import { Dialog } from '@/features/ui/Dialog'
-import { ToCsvButton } from '@/features/ui/ToCsvButton'
 
 interface Props {
   csvItems: CsvItem[]

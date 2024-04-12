@@ -14,7 +14,7 @@ import { buildStateToCsvData } from '@/features/build/lib/buildStateToCsvData'
 import { dbBuildToBuildState } from '@/features/build/lib/dbBuildToBuildState'
 import { DBBuild } from '@/features/build/types'
 import { LoadoutDialog } from '@/features/loadouts/components/LoadoutDialog'
-import { ToCsvButton } from '@/features/ui/ToCsvButton'
+import { ToCsvButton } from '@/features/ui/buttons/ToCsvButton'
 
 function videoEmbedUrlToVideoId(videoEmbedUrl: string) {
   const url = new URL(videoEmbedUrl)

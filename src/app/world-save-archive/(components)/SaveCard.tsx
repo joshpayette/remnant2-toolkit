@@ -1,8 +1,8 @@
 import { ArrowDownTrayIcon } from '@heroicons/react/24/solid'
 import Image from 'next/image'
-import Link from 'next/link'
 import { v4 as uuidv4 } from 'uuid'
 
+import { Link } from '@/app/(components)/base/link'
 import { getDownloadUrl } from '@/app/world-save-archive/(lib)/getDownloadUrl'
 import { BOSS_AFFIXES } from '@/app/world-save-archive/constants'
 import { FilteredSave } from '@/app/world-save-archive/types'

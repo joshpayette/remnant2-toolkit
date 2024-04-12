@@ -1,10 +1,10 @@
 'use client'
 
 import { Menu, Transition } from '@headlessui/react'
-import Link from 'next/link'
 import { useSession } from 'next-auth/react'
 import { Fragment } from 'react'
 
+import { Link } from '@/app/(components)/base/link'
 import { NAV_ITEMS } from '@/features/navigation/constants'
 import { PlaceHolderIcon } from '@/features/ui/PlaceholderIcon'
 import { cn } from '@/lib/classnames'

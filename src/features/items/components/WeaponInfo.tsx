@@ -1,5 +1,4 @@
-import Link from 'next/link'
-
+import { Link } from '@/app/(components)/base/link'
 import { cn } from '@/lib/classnames'
 
 import { WeaponItem } from '../types/WeaponItem'

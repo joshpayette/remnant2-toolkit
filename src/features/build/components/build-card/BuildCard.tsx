@@ -1,12 +1,8 @@
 'use client'
 
 import { StarIcon } from '@heroicons/react/24/solid'
-import Link from 'next/link'
 
-import {
-  POPULAR_VOTE_THRESHOLD1,
-  POPULAR_VOTE_THRESHOLD2,
-} from '@/features/build/constants'
+import { Link } from '@/app/(components)/base/link'
 import { dbBuildToBuildState } from '@/features/build/lib/dbBuildToBuildState'
 import { formatUpdatedAt } from '@/features/build/lib/formatUpdatedAt'
 import { getArchetypeBuildName } from '@/features/build/lib/getArchetypeBuildName'

@@ -23,7 +23,7 @@ module.exports = {
         background: '#11001c',
         surface: '#000000',
         primary: colors.cyan,
-        secondary: colors.purple,
+        secondary: colors.violet,
         accent1: colors.yellow,
         accent2: colors.green,
       },

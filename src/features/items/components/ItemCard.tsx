@@ -1,17 +1,16 @@
 import {
   ChartBarSquareIcon,
-  ChartPieIcon,
   MagnifyingGlassMinusIcon,
   MagnifyingGlassPlusIcon,
   ShareIcon,
 } from '@heroicons/react/24/solid'
 import copy from 'clipboard-copy'
 import Image from 'next/image'
-import Link from 'next/link'
 import { useState } from 'react'
 import { toast } from 'react-toastify'
 import { useLocalStorage } from 'usehooks-ts'
 
+import { Link } from '@/app/(components)/base/link'
 import { getArrayOfLength } from '@/features/build/lib/getArrayOfLength'
 import getItemBuildStats from '@/features/items/actions/getItemBuildStats'
 import { Tooltip } from '@/features/ui/Tooltip'

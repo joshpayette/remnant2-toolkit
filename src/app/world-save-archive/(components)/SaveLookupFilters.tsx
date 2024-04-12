@@ -3,10 +3,10 @@
 import { Disclosure } from '@headlessui/react'
 import { ChevronRightIcon } from '@heroicons/react/24/solid'
 import isEqual from 'lodash.isequal'
-import Link from 'next/link'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import { useMemo, useState } from 'react'
 
+import { Link } from '@/app/(components)/base/link'
 import { parseSearchFilters } from '@/app/world-save-archive/(lib)/parseSearchFilters'
 import {
   BOSS_AFFIXES,

@@ -1,8 +1,8 @@
 import { StarIcon } from '@heroicons/react/24/solid'
 import { BuildTags } from '@prisma/client'
-import Link from 'next/link'
 import { useCallback, useMemo, useState } from 'react'
 
+import { Link } from '@/app/(components)/base/link'
 import { FeaturedBuildBadge } from '@/features/build/components/build-card/FeaturedBuildBadge'
 import { NewBuildBadge } from '@/features/build/components/build-card/NewBuildBadge'
 import { PopularBuildBadge } from '@/features/build/components/build-card/PopularBuildBadge'
@@ -10,8 +10,6 @@ import { ItemSelect } from '@/features/build/components/dialogs/ItemSelect'
 import {
   DEFAULT_TRAIT_AMOUNT,
   MAX_BUILD_TAGS,
-  POPULAR_VOTE_THRESHOLD1,
-  POPULAR_VOTE_THRESHOLD2,
 } from '@/features/build/constants'
 import { formatUpdatedAt } from '@/features/build/lib/formatUpdatedAt'
 import { getArchetypeBuildName } from '@/features/build/lib/getArchetypeBuildName'
