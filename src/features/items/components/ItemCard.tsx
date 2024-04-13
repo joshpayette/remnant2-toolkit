@@ -123,7 +123,7 @@ export function ItemCard({
               ) : (
                 <Tooltip content="Get stats on how many featured and community builds the item is used in.">
                   <Button
-                    color="green"
+                    outline
                     onClick={async () => {
                       const response = await getItemBuildStats(item.id)
                       if (!response.success) {
@@ -141,13 +141,13 @@ export function ItemCard({
             <div className="flex w-full items-center justify-end">
               {itemBeingCompared ? (
                 <Tooltip content="Remove from item comparison.">
-                  <Button color="red" onClick={handleRemoveItemFromCompare}>
+                  <Button outline onClick={handleRemoveItemFromCompare}>
                     <MagnifyingGlassMinusIcon className="h-5 w-5" />
                   </Button>
                 </Tooltip>
               ) : (
                 <Tooltip content="Add to item comparison.">
-                  <Button color="yellow" onClick={handleAddItemToCompare}>
+                  <Button outline onClick={handleAddItemToCompare}>
                     <MagnifyingGlassPlusIcon className="h-5 w-5" />
                   </Button>
                 </Tooltip>
