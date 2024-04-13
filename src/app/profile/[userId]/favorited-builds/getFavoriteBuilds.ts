@@ -32,6 +32,8 @@ import {
   limitByWeaponsSegment,
   weaponFiltersToIds,
 } from '@/features/build/filters/queries/segments/limitByWeapons'
+import { limitToBuildsWithReferenceLink } from '@/features/build/filters/queries/segments/limitToBuildsWithReferenceLink'
+import { limitToBuildsWithVideo } from '@/features/build/filters/queries/segments/limitToBuildsWithVideo'
 import {
   BuildListFilterFields,
   OrderBy,
@@ -72,6 +74,8 @@ export async function getFavoritedBuilds({
     searchText,
     selectedReleases,
     includePatchAffectedBuilds,
+    limitToBuildsWithReferenceLink: onlyBuildsWithReferenceLink,
+    limitToBuildsWithVideo: onlyBuildsWithVideo,
   } = buildListFilters
 
   if (selectedReleases.length === 0) return { items: [], totalItemCount: 0 }
@@ -90,6 +94,8 @@ export async function getFavoritedBuilds({
 WHERE Build.isPublic = true
 AND Build.createdById != ${userId}
 ${limitByPatchAffected(includePatchAffectedBuilds)}
+${limitToBuildsWithVideo(onlyBuildsWithVideo)}
+${limitToBuildsWithReferenceLink(onlyBuildsWithReferenceLink)}
 ${limitByFavorited(userId)}
 ${limitByArchetypesSegment(archetypeIds)}
 ${limitByWeaponsSegment(weaponIds)}

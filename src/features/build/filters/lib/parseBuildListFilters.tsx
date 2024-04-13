@@ -29,6 +29,10 @@ export function parseBuildListFilters(
   let searchText = params.get('searchText')
   let releases = params.get('releases')
   let includePatchAffectedBuilds = params.get('includePatchAffectedBuilds')
+  let limitToBuildsWithVideo = params.get('limitToBuildsWithVideo')
+  let limitToBuildsWithReferenceLink = params.get(
+    'limitToBuildsWithReferenceLink',
+  )
 
   // check if archetypes are valid
   if (archetypes) {
@@ -154,5 +158,7 @@ export function parseBuildListFilters(
       ? (releases.split(',') as ReleaseKey[])
       : DEFAULT_BUILD_LIST_FILTERS['selectedReleases'],
     includePatchAffectedBuilds: Boolean(includePatchAffectedBuilds),
+    limitToBuildsWithVideo: Boolean(limitToBuildsWithVideo),
+    limitToBuildsWithReferenceLink: Boolean(limitToBuildsWithReferenceLink),
   } satisfies BuildListFilterFields
 }

@@ -3,6 +3,8 @@
 import { Prisma } from '@prisma/client'
 
 import { getServerSession } from '@/features/auth/lib'
+import { limitToBuildsWithReferenceLink } from '@/features/build/filters/queries/segments/limitToBuildsWithReferenceLink'
+import { limitToBuildsWithVideo } from '@/features/build/filters/queries/segments/limitToBuildsWithVideo'
 import { prisma } from '@/features/db'
 import { PaginationResponse } from '@/features/pagination/usePagination'
 import { bigIntFix } from '@/lib/bigIntFix'
@@ -68,6 +70,8 @@ export async function getCommunityBuilds({
     searchText,
     selectedReleases,
     includePatchAffectedBuilds,
+    limitToBuildsWithVideo: onlyBuildsWithVideo,
+    limitToBuildsWithReferenceLink: onlyBuildsWithReferenceLink,
   } = buildListFilters
   if (selectedReleases.length === 0) return { items: [], totalItemCount: 0 }
 
@@ -85,6 +89,8 @@ export async function getCommunityBuilds({
   const whereConditions = Prisma.sql`
   WHERE Build.isPublic = true
   ${limitByPatchAffected(includePatchAffectedBuilds)}
+  ${limitToBuildsWithVideo(onlyBuildsWithVideo)}
+  ${limitToBuildsWithReferenceLink(onlyBuildsWithReferenceLink)}
   ${limitByArchetypesSegment(archetypeIds)}
   ${limitByWeaponsSegment(weaponIds)}
   ${limitByReleasesSegment(selectedReleases)}

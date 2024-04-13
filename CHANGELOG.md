@@ -6,6 +6,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2024-04-12
 
+### Added
+
+- Build filters now allow you to filter by builds with videos.
+- Build filters now allow you to filter by builds with reference links.
+
 ### Changed
 
 - Moved all enemy and item data to the `app/(data)` folder.

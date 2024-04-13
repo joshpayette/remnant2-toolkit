@@ -27,7 +27,7 @@ export function SelectMenu({
       <label
         htmlFor={name}
         className={cn(
-          'block text-sm font-bold text-primary-500',
+          'mb-2 block text-sm font-bold text-primary-500',
           !showLabel && 'sr-only',
         )}
       >

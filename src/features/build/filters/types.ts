@@ -16,6 +16,8 @@ export interface BuildListFilterFields {
   searchText: string
   selectedReleases: ReleaseKey[]
   includePatchAffectedBuilds: boolean
+  limitToBuildsWithVideo: boolean
+  limitToBuildsWithReferenceLink: boolean
 }
 
 export type TimeRange = 'day' | 'week' | 'month' | 'all-time'

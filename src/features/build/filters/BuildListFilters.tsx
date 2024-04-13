@@ -41,6 +41,8 @@ export const DEFAULT_BUILD_LIST_FILTERS: BuildListFilterFields = {
   searchText: '',
   selectedReleases: DEFAULT_RELEASE_FILTERS,
   includePatchAffectedBuilds: false,
+  limitToBuildsWithReferenceLink: false,
+  limitToBuildsWithVideo: false,
 }
 
 export function BuildListFilters() {
@@ -81,7 +83,11 @@ export function BuildListFilters() {
       filters.selectedReleases.length !==
         DEFAULT_BUILD_LIST_FILTERS['selectedReleases'].length ||
       filters.includePatchAffectedBuilds !==
-        DEFAULT_BUILD_LIST_FILTERS['includePatchAffectedBuilds']
+        DEFAULT_BUILD_LIST_FILTERS['includePatchAffectedBuilds'] ||
+      filters.limitToBuildsWithVideo !==
+        DEFAULT_BUILD_LIST_FILTERS['limitToBuildsWithVideo'] ||
+      filters.limitToBuildsWithReferenceLink !==
+        DEFAULT_BUILD_LIST_FILTERS['limitToBuildsWithReferenceLink']
     )
   }, [filters])
 
@@ -192,6 +198,23 @@ export function BuildListFilters() {
     setAreFiltersApplied(false)
   }
 
+  function handleLimitVideoBuildsChange() {
+    setUnappliedFilters({
+      ...unappliedFilters,
+      limitToBuildsWithVideo: !unappliedFilters.limitToBuildsWithVideo,
+    })
+    setAreFiltersApplied(false)
+  }
+
+  function handleLimitReferenceLinkBuildsChange() {
+    setUnappliedFilters({
+      ...unappliedFilters,
+      limitToBuildsWithReferenceLink:
+        !unappliedFilters.limitToBuildsWithReferenceLink,
+    })
+    setAreFiltersApplied(false)
+  }
+
   function handleApplyFilters(newFilters: BuildListFilterFields) {
     let finalPath = `${pathname}?t=${Date.now()}&`
     if (
@@ -240,6 +263,18 @@ export function BuildListFilters() {
       DEFAULT_BUILD_LIST_FILTERS['includePatchAffectedBuilds']
     ) {
       finalPath += `includePatchAffectedBuilds=${newFilters.includePatchAffectedBuilds}&`
+    }
+    if (
+      newFilters.limitToBuildsWithVideo !==
+      DEFAULT_BUILD_LIST_FILTERS['limitToBuildsWithVideo']
+    ) {
+      finalPath += `limitToBuildsWithVideo=${newFilters.limitToBuildsWithVideo}&`
+    }
+    if (
+      newFilters.limitToBuildsWithReferenceLink !==
+      DEFAULT_BUILD_LIST_FILTERS['limitToBuildsWithReferenceLink']
+    ) {
+      finalPath += `limitToBuildsWithReferenceLink=${newFilters.limitToBuildsWithReferenceLink}&`
     }
 
     if (finalPath.endsWith('&')) {
@@ -339,12 +374,7 @@ export function BuildListFilters() {
               <div className="col-span-full border-b border-b-primary-800 pb-2 pt-2 lg:col-span-2">
                 <div className="flex w-full flex-col items-start justify-start gap-x-4 gap-y-2">
                   <div className="flex w-full flex-col items-start justify-start text-left text-sm font-bold text-primary-500">
-                    By Patch
-                    <span className="text-sm font-normal text-gray-300">
-                      Whether to show builds that depend on an item or
-                      interaction that was affected by a patch after the build
-                      was created
-                    </span>
+                    Other Filters
                   </div>
                   <div className="w-full text-left">
                     <Checkbox
@@ -352,6 +382,18 @@ export function BuildListFilters() {
                       name="include-patch-affected-builds"
                       checked={unappliedFilters.includePatchAffectedBuilds}
                       onChange={handlePatchAffectedBuildsChange}
+                    />
+                    <Checkbox
+                      label="Limit to Builds with Video"
+                      name="limit-builds-with-video"
+                      checked={unappliedFilters.limitToBuildsWithVideo}
+                      onChange={handleLimitVideoBuildsChange}
+                    />
+                    <Checkbox
+                      label="Limit to Builds with Reference Link"
+                      name="limit-builds-with-reference-link"
+                      checked={unappliedFilters.limitToBuildsWithReferenceLink}
+                      onChange={handleLimitReferenceLinkBuildsChange}
                     />
                   </div>
                 </div>
