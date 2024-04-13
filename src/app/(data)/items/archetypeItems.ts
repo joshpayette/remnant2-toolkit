@@ -261,6 +261,19 @@ export const archetypeItems: ArchetypeItem[] = [
   },
   {
     category: 'archetype',
+    name: 'Invoker',
+    imagePath: '/archtype/invoker.png', // TODO
+    id: '2BJY8r',
+    description: '', // TODO
+    wikiLinks: [], // TODO
+    linkedItems: {
+      traits: [], // TODO
+      skills: [], // TODO
+      perks: [], // TODO
+    },
+  },
+  {
+    category: 'archetype',
     name: 'Medic',
     imagePath: '/archtype/medic.png',
     id: 'd6fvmc',

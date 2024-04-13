@@ -93,6 +93,18 @@ export const ARCHETYPE_BUILD_NAMES: Array<{
   archetypes: Archetype[]
   name: string
 }> = [
+  { archetypes: ['invoker', 'summoner'], name: '' }, // TODO
+  { archetypes: ['invoker', 'handler'], name: 'Spirit of Friendship' }, // TODO Confirm
+  { archetypes: ['invoker', 'medic'], name: 'Spirit of Healing' }, // TODO Confirm
+  { archetypes: ['invoker', 'explorer'], name: '' }, // TODO
+  { archetypes: ['invoker', 'gunslinger'], name: 'Spirit of Frenzy' }, // TODO Confirm
+  { archetypes: ['invoker', 'challenger'], name: '' }, // TODO
+  { archetypes: ['invoker', 'hunter'], name: '' }, // TODO
+  { archetypes: ['invoker', 'invader'], name: 'Spirit of Violence' }, // TODO Confirm
+  { archetypes: ['invoker', 'alchemist'], name: '' }, // TODO
+  { archetypes: ['invoker', 'archon'], name: '' }, // TODO
+  { archetypes: ['invoker', 'ritualist'], name: '' }, // TODO
+  { archetypes: ['invoker', 'engineer'], name: '' }, // TODO
   { archetypes: ['engineer', 'summoner'], name: 'Mastermind' },
   { archetypes: ['engineer', 'handler'], name: 'Roughneck' },
   { archetypes: ['engineer', 'medic'], name: 'Specialist' },
