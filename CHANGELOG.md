@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Changed
 
 - Added updates to the Hardcore Veteran guide.
+- Reworked the Builder buttons to be more consistent with existing and new button styles.
 
 ## 2024-04-12
 
