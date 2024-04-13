@@ -14,6 +14,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Added updates to the Hardcore Veteran guide.
 - Reworked the Builder buttons to be more consistent with existing and new button styles.
+- Upgraded NextJS to 14.1.2.
 
 ## 2024-04-12
 
