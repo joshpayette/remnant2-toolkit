@@ -68,6 +68,7 @@ export function FeaturedBuilds({ isEditable, userId }: Props) {
         timeRange,
         userId,
         isEditable,
+        buildVisibility: 'All',
       })
       setBuildListState((prevState) => ({
         ...prevState,
@@ -124,6 +125,7 @@ export function FeaturedBuilds({ isEditable, userId }: Props) {
               <BuildCard
                 build={build}
                 isLoading={isLoading}
+                showBuildVisibility={isEditable}
                 footerActions={
                   isEditable ? (
                     <CreatedBuildCardActions

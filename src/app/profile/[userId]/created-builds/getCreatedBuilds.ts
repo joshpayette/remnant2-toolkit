@@ -48,6 +48,7 @@ export type CreatedBuildsFilter = 'date created' | 'upvotes'
 
 export async function getCreatedBuilds({
   buildListFilters,
+  buildVisibility = 'Public',
   featuredBuildsOnly,
   isEditable,
   itemsPerPage,
@@ -57,6 +58,7 @@ export async function getCreatedBuilds({
   userId,
 }: {
   buildListFilters: BuildListFilterFields
+  buildVisibility?: 'All' | 'Public' | 'Private'
   featuredBuildsOnly: boolean
   isEditable: boolean
   itemsPerPage: number
@@ -95,9 +97,21 @@ export async function getCreatedBuilds({
   const amuletId = amuletFilterToId({ amulet })
   const ringIds = ringsFilterToIds({ rings: [ring1, ring2, ring3, ring4] })
 
-  const isPublicSegment = isEditable
-    ? Prisma.empty
-    : Prisma.sql`AND Build.isPublic=true`
+  let isPublicSegment: Prisma.Sql = Prisma.empty
+
+  // If the user is not the owner of the profile, only show public builds
+  // If the user is the owner of the profile, show all builds based on buildVisibility filter
+  if (!isEditable) {
+    isPublicSegment = Prisma.sql`AND Build.isPublic = true`
+  } else {
+    if (buildVisibility === 'Public') {
+      isPublicSegment = Prisma.sql`AND Build.isPublic = true`
+    } else if (buildVisibility === 'Private') {
+      isPublicSegment = Prisma.sql`AND Build.isPublic = false`
+    } else {
+      isPublicSegment = Prisma.empty
+    }
+  }
 
   const whereConditions = Prisma.sql`
   WHERE Build.createdById = ${userId}

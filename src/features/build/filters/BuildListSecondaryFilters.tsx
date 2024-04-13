@@ -26,7 +26,7 @@ export function BuildListSecondaryFilters({
   onTimeRangeChange,
 }: Props) {
   return (
-    <div className="grid w-full grid-cols-2 gap-x-2 sm:flex sm:items-end sm:justify-end">
+    <div className="flex w-full flex-col items-end justify-end gap-x-2 gap-y-1 sm:flex-row sm:gap-y-0">
       <div className="w-full max-w-[250px]">
         <SelectMenu
           label="Time Range"

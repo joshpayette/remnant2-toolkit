@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Build filters now allow you to filter by builds with videos.
 - Build filters now allow you to filter by builds with reference links.
+- Users can now filter their created builds and featured builds to public, private, or all.
 
 ### Changed
 

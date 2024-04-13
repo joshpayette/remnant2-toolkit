@@ -13,6 +13,7 @@ import { useBuildListSecondaryFilters } from '@/features/build/filters/hooks/use
 import { parseBuildListFilters } from '@/features/build/filters/lib/parseBuildListFilters'
 import { useBuildListState } from '@/features/build/hooks/useBuildListState'
 import { usePagination } from '@/features/pagination/usePagination'
+import { SelectMenu } from '@/features/ui/SelectMenu'
 
 interface Props {
   isEditable: boolean
@@ -42,6 +43,10 @@ export function CreatedBuilds({ isEditable, userId }: Props) {
     handleTimeRangeChange,
   } = useBuildListSecondaryFilters('newest')
 
+  const [buildVisibility, setBuildVisibility] = useState<
+    'All' | 'Public' | 'Private'
+  >('All')
+
   const {
     currentPage,
     firstVisibleItemNumber,
@@ -68,6 +73,7 @@ export function CreatedBuilds({ isEditable, userId }: Props) {
         timeRange,
         userId,
         isEditable,
+        buildVisibility,
       })
       setBuildListState((prevState) => ({
         ...prevState,
@@ -79,6 +85,7 @@ export function CreatedBuilds({ isEditable, userId }: Props) {
     getItemsAsync()
   }, [
     buildListFilters,
+    buildVisibility,
     currentPage,
     isEditable,
     itemsPerPage,
@@ -103,14 +110,44 @@ export function CreatedBuilds({ isEditable, userId }: Props) {
         onNextPage={handleNextPageClick}
         onSpecificPage={handleSpecificPageClick}
         headerActions={
-          <BuildListSecondaryFilters
-            orderBy={orderBy}
-            orderByOptions={orderByOptions}
-            onOrderByChange={handleOrderByChange}
-            timeRange={timeRange}
-            timeRangeOptions={timeRangeOptions}
-            onTimeRangeChange={handleTimeRangeChange}
-          />
+          <div className="flex w-full flex-col items-end justify-end gap-x-2 gap-y-1 sm:flex-row sm:gap-y-0">
+            <div className="w-full max-w-[250px]">
+              <SelectMenu
+                label="Time Range"
+                showLabel={false}
+                name="timeRange"
+                value={timeRange}
+                options={timeRangeOptions}
+                onChange={(e) => handleTimeRangeChange(e.target.value)}
+              />
+            </div>
+            <div className="w-full max-w-[250px]">
+              <SelectMenu
+                label="Order By"
+                showLabel={false}
+                name="orderBy"
+                value={orderBy}
+                options={orderByOptions}
+                onChange={(e) => handleOrderByChange(e.target.value)}
+              />
+            </div>
+            {isEditable ? (
+              <div className="w-full max-w-[250px]">
+                <SelectMenu
+                  label="Build Visibility"
+                  showLabel={false}
+                  name="buildVisibility"
+                  value={buildVisibility}
+                  options={[
+                    { label: 'all builds', value: 'All' },
+                    { label: 'public', value: 'Public' },
+                    { label: 'private', value: 'Private' },
+                  ]}
+                  onChange={(e) => setBuildVisibility(e.target.value as any)}
+                />
+              </div>
+            ) : null}
+          </div>
         }
       >
         <ul
