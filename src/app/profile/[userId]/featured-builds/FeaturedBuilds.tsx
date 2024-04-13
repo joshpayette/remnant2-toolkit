@@ -67,6 +67,7 @@ export function FeaturedBuilds({ isEditable, userId }: Props) {
         pageNumber: currentPage,
         timeRange,
         userId,
+        isEditable,
       })
       setBuildListState((prevState) => ({
         ...prevState,
@@ -79,6 +80,7 @@ export function FeaturedBuilds({ isEditable, userId }: Props) {
   }, [
     buildListFilters,
     currentPage,
+    isEditable,
     itemsPerPage,
     orderBy,
     setBuildListState,
