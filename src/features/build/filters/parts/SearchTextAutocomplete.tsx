@@ -54,7 +54,7 @@ export function SearchTextAutocomplete({
   const isClient = useIsClient()
   const isLargeScreen = useMediaQuery('(min-width: 768px)')
 
-  if (!isClient) return <Skeleton className="h-[67px] w-[400px]" />
+  if (!isClient) return <Skeleton className="h-[45px] w-[400px]" />
 
   return (
     <Combobox

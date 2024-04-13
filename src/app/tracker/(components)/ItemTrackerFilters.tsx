@@ -280,6 +280,7 @@ export function ItemTrackerFilters({
               By Release
             </span>
             <div className="text-xs">
+              {/** Not updating to new button component */}
               <button
                 className="underline"
                 aria-label="Check all DLCs"
@@ -290,7 +291,7 @@ export function ItemTrackerFilters({
               >
                 Check All
               </button>{' '}
-              /{' '}
+              / {/** Not updating to new button component */}
               <button
                 className="underline"
                 aria-label="Uncheck all DLCs"
@@ -326,6 +327,7 @@ export function ItemTrackerFilters({
               By Collection
             </span>
             <div className="text-xs">
+              {/** Not updating to new button component */}
               <button
                 className="underline"
                 aria-label="Check all collections"
@@ -336,7 +338,7 @@ export function ItemTrackerFilters({
               >
                 Check All
               </button>{' '}
-              /{' '}
+              / {/** Not updating to new button component */}
               <button
                 className="underline"
                 aria-label="Uncheck all collections"

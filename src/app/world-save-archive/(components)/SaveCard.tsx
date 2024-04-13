@@ -2,6 +2,7 @@ import { ArrowDownTrayIcon } from '@heroicons/react/24/solid'
 import Image from 'next/image'
 import { v4 as uuidv4 } from 'uuid'
 
+import { Button } from '@/app/(components)/base/button'
 import { Link } from '@/app/(components)/base/link'
 import { getDownloadUrl } from '@/app/world-save-archive/(lib)/getDownloadUrl'
 import { BOSS_AFFIXES } from '@/app/world-save-archive/constants'
@@ -44,13 +45,13 @@ export function SaveCard({ saveItem }: Props) {
             ))}
           </div>
         </div>
-        <Link
+        <Button
+          color="cyan"
           href={getDownloadUrl(saveItem.bossName, saveItem.bossAffixes)}
-          className="mb-2 flex items-center justify-center gap-x-1 rounded-md bg-primary-500 px-2 py-1 text-lg font-bold text-black hover:underline"
         >
           <ArrowDownTrayIcon className="h-5 w-5" />
           Download
-        </Link>
+        </Button>
         <Tooltip
           content={`Using this save requires the ${
             RELEASE_TO_NAME[saveItem.release]

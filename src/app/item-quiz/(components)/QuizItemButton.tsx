@@ -1,6 +1,7 @@
 import { ArrowUpIcon } from '@heroicons/react/24/solid'
 import Image from 'next/image'
 
+import { Button } from '@/app/(components)/base/button'
 import { ARROW_TO_INDEX } from '@/app/item-quiz/constants'
 import { QuizItem } from '@/app/item-quiz/types'
 import { cn } from '@/lib/classnames'
@@ -60,10 +61,11 @@ export function QuizItemButton({ item, itemIndex, onClick }: Props) {
   }
 
   return (
-    <button
+    <Button
       className={cn(wrapperClasses, 'sm:relative')}
       onClick={onClick}
       key={item.id}
+      plain
     >
       <div className="absolute bottom-0 right-0 hidden sm:flex sm:gap-x-0.5">
         <div className="md:text-md flex h-4 w-4 items-center justify-center bg-secondary-200 text-xs text-black md:h-6 md:w-6">
@@ -79,6 +81,6 @@ export function QuizItemButton({ item, itemIndex, onClick }: Props) {
         height={200}
         alt={`Item Selection #${itemIndex + 1}`}
       />
-    </button>
+    </Button>
   )
 }

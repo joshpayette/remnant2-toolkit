@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { toast } from 'react-toastify'
 
+import { Button } from '@/app/(components)/base/button'
 import { getArrayOfLength } from '@/features/build/lib/getArrayOfLength'
 import { DBBuild } from '@/features/build/types'
 import { addBuildToLoadout } from '@/features/loadouts/actions/addBuildToLoadout'
@@ -87,7 +88,7 @@ export function LoadoutDialog({ buildId, isEditable, open, onClose }: Props) {
       open={open}
       onClose={onClose}
     >
-      <div className="my-4 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="my-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {getArrayOfLength(8).map((_, index) => {
           if (loading) {
             return (
@@ -104,13 +105,13 @@ export function LoadoutDialog({ buildId, isEditable, open, onClose }: Props) {
 
           if (!userLoadoutBuild) {
             return (
-              <button key={index} onClick={() => addToLoadout(index + 1)}>
+              <Button plain key={index} onClick={() => addToLoadout(index + 1)}>
                 <EmptyLoadoutCard
                   key={index}
                   showHover={true}
                   label="Click to add build to this loadout slot."
                 />
-              </button>
+              </Button>
             )
           }
 

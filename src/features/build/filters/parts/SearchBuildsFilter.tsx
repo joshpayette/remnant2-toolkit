@@ -1,5 +1,6 @@
 import { XMarkIcon } from '@heroicons/react/24/solid'
 
+import { Button } from '@/app/(components)/base/button'
 import { SearchInput } from '@/features/ui/SearchInput'
 import { cn } from '@/lib/classnames'
 
@@ -33,16 +34,6 @@ export function SearchBuildsFilter({
           onChange={onChange}
           value={searchText}
         />
-        <div className="absolute inset-y-0 right-0 flex items-center pr-3">
-          {searchText && (
-            <button onClick={() => onChange('')} aria-label="Clear search text">
-              <XMarkIcon
-                className="h-5 w-5 text-primary-400"
-                aria-hidden="true"
-              />
-            </button>
-          )}
-        </div>
       </div>
     </div>
   )

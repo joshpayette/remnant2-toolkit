@@ -1,4 +1,4 @@
-import { SubmitButton } from '@/features/ui/buttons/SubmitButton'
+import { ImportSaveSubmitButton } from '@/app/tracker/(components)/ImportSaveSubmitButton'
 import { Dialog } from '@/features/ui/Dialog'
 
 interface Props {
@@ -30,9 +30,9 @@ export function ImportSaveDialog({
             className="text-sm"
             ref={fileInputRef}
           />
-          <SubmitButton
+          <ImportSaveSubmitButton
             label="Import profile.sav"
-            className="w-[200px] rounded border-2 border-secondary-500 bg-secondary-700 p-2 text-lg font-bold text-white/90 hover:bg-secondary-500 hover:text-white disabled:bg-gray-500"
+            className="w-[200px]"
           />
         </div>
         <div className="col-span-full mt-8 gap-y-4 overflow-x-auto bg-black text-left">

@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation'
 import { useSession } from 'next-auth/react'
 import { Fragment, useEffect, useState } from 'react'
 
+import { Button } from '@/app/(components)/base/button'
 import { Link } from '@/app/(components)/base/link'
 import { AuthButton } from '@/features/auth/components/AuthButton'
 import { NAV_ITEMS } from '@/features/navigation/constants'
@@ -35,15 +36,16 @@ export function NavBar() {
           <Logo />
         </div>
         <div className="flex w-full justify-end lg:hidden">
-          <button
+          <Button
+            plain
             type="button"
             aria-label="Open main menu"
-            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-white"
+            className="-m-2.5 inline-flex items-center justify-center"
             onClick={() => setMobileMenuOpen(true)}
           >
             <span className="sr-only">Open main menu</span>
             <Bars3Icon className="h-6 w-6" aria-hidden="true" />
-          </button>
+          </Button>
         </div>
         <div className="hidden items-center justify-center lg:flex lg:flex-grow lg:gap-x-12">
           <Menu as="div" className="relative">
@@ -194,15 +196,15 @@ export function NavBar() {
         <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-surface px-6 py-6 text-white sm:max-w-sm sm:ring-1 sm:ring-secondary-900/10">
           <div className="flex items-center justify-between">
             <Logo />
-            <button
-              type="button"
+            <Button
+              plain
               aria-label="Close menu"
-              className="-m-2.5 rounded-md p-2.5 text-white"
+              className="-m-2.5"
               onClick={() => setMobileMenuOpen(false)}
             >
               <span className="sr-only">Close menu</span>
               <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-            </button>
+            </Button>
           </div>
           <div className="mt-6 flow-root">
             <div className="-my-6">

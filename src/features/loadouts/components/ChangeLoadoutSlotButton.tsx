@@ -1,6 +1,7 @@
 import { ArrowPathRoundedSquareIcon } from '@heroicons/react/24/solid'
 import { toast } from 'react-toastify'
 
+import { Button } from '@/app/(components)/base/button'
 import { changeLoadoutSlot } from '@/features/loadouts/actions/changeLoadoutSlot'
 import { Tooltip } from '@/features/ui/Tooltip'
 
@@ -19,8 +20,9 @@ export function ChangeLoadoutSlotButton({
 }) {
   return (
     <Tooltip content="Move to different loadout slot">
-      <button
-        className="flex flex-col items-center gap-y-1 text-xs text-primary-500 hover:text-primary-300"
+      <Button
+        color="cyan"
+        className="flex flex-col items-center gap-y-1 text-xs"
         aria-label="Move to different loadout slot"
         onClick={async () => {
           const newSlot = prompt(
@@ -49,8 +51,8 @@ export function ChangeLoadoutSlotButton({
           toast.success('Loadout slot changed successfully')
         }}
       >
-        <ArrowPathRoundedSquareIcon className="h-5 w-5" /> Change Slot
-      </button>
+        <ArrowPathRoundedSquareIcon className="h-5 w-5" />
+      </Button>
     </Tooltip>
   )
 }

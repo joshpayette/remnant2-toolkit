@@ -1,5 +1,6 @@
 import Image from 'next/image'
 
+import { Button } from '@/app/(components)/base/button'
 import {
   POPULAR_VOTE_THRESHOLD1,
   POPULAR_VOTE_THRESHOLD2,
@@ -33,7 +34,7 @@ export function PopularBuildBadge({
     <Tooltip
       content={`Awarded to builds that have ${voteThreshold}+ favorites!`}
     >
-      <button aria-label="Badge denoting the build is popular">
+      <Button aria-label="Badge denoting the build is popular" plain>
         <Image
           src={src}
           width={52}
@@ -43,7 +44,7 @@ export function PopularBuildBadge({
           loading="eager"
           unoptimized={unoptimized}
         />
-      </button>
+      </Button>
     </Tooltip>
   )
 }

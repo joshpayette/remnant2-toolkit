@@ -5,6 +5,7 @@ import { BuildTags } from '@prisma/client'
 import build from 'next/dist/build'
 import { useSession } from 'next-auth/react'
 
+import { Button } from '@/app/(components)/base/button'
 import { DescriptionWithTags } from '@/features/ui/DescriptionWithTags'
 import { Input } from '@/features/ui/Input'
 import { Skeleton } from '@/features/ui/Skeleton'
@@ -96,8 +97,9 @@ export function MemberFeatures({
             className="h-[215px] w-full"
           />
           <div className="flex w-full items-center justify-end">
-            <button
-              className="my-1 text-xs text-white underline hover:text-gray-300"
+            <Button
+              plain
+              className="my-1underline"
               onClick={() => {
                 const response = confirm(
                   'Insert the description template? This will clear the current description.',
@@ -120,7 +122,7 @@ Watch the build in action: [insert Youtube link here]
             >
               <ClipboardDocumentListIcon className="inline-block h-4 w-4 text-white" />{' '}
               Insert Description Template
-            </button>
+            </Button>
           </div>
         </div>
       )}

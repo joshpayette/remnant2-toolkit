@@ -1,3 +1,4 @@
+import { Button } from '@/app/(components)/base/button'
 import { cn } from '@/lib/classnames'
 
 interface Props<T> {
@@ -12,15 +13,13 @@ export function ApplyFiltersButton<T>({
   onClick,
 }: Props<T>) {
   return (
-    <button
-      className={cn(
-        'bg-primary-500 hover:bg-primary-300 rounded p-2 text-sm font-bold text-black',
-        !areFiltersApplied && 'animate-pulse ',
-      )}
+    <Button
+      color="cyan"
+      className={cn(!areFiltersApplied && 'animate-pulse ')}
       aria-label="Apply Filters"
       onClick={() => onClick(filters)}
     >
       Apply Filters
-    </button>
+    </Button>
   )
 }

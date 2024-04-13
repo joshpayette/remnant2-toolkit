@@ -10,6 +10,7 @@ import { useState } from 'react'
 import { toast } from 'react-toastify'
 import { useLocalStorage } from 'usehooks-ts'
 
+import { Button } from '@/app/(components)/base/button'
 import { Link } from '@/app/(components)/base/link'
 import { getArrayOfLength } from '@/features/build/lib/getArrayOfLength'
 import getItemBuildStats from '@/features/items/actions/getItemBuildStats'
@@ -121,7 +122,8 @@ export function ItemCard({
                 </div>
               ) : (
                 <Tooltip content="Get stats on how many featured and community builds the item is used in.">
-                  <button
+                  <Button
+                    color="green"
                     onClick={async () => {
                       const response = await getItemBuildStats(item.id)
                       if (!response.success) {
@@ -131,32 +133,33 @@ export function ItemCard({
                       setItemBuildStats(response.stats)
                     }}
                   >
-                    <ChartBarSquareIcon className="h-5 w-5 text-accent2-600" />
-                  </button>
+                    <ChartBarSquareIcon className="h-5 w-5" />
+                  </Button>
                 </Tooltip>
               )}
             </div>
             <div className="flex w-full items-center justify-end">
               {itemBeingCompared ? (
                 <Tooltip content="Remove from item comparison.">
-                  <button onClick={handleRemoveItemFromCompare}>
-                    <MagnifyingGlassMinusIcon className="h-5 w-5 text-red-500" />
-                  </button>
+                  <Button color="red" onClick={handleRemoveItemFromCompare}>
+                    <MagnifyingGlassMinusIcon className="h-5 w-5" />
+                  </Button>
                 </Tooltip>
               ) : (
                 <Tooltip content="Add to item comparison.">
-                  <button onClick={handleAddItemToCompare}>
-                    <MagnifyingGlassPlusIcon className="h-5 w-5 text-accent1-500" />
-                  </button>
+                  <Button color="yellow" onClick={handleAddItemToCompare}>
+                    <MagnifyingGlassPlusIcon className="h-5 w-5" />
+                  </Button>
                 </Tooltip>
               )}
             </div>
           </div>
         ) : null}
-        <button
+        <Button
+          plain
           onClick={() => onMoreInfoClick(item)}
           aria-label="More Info"
-          className="text-md font-bold text-secondary-500 hover:text-secondary-300 hover:underline"
+          className="flex flex-col items-center justify-center"
         >
           <Image
             className={cn(
@@ -172,7 +175,7 @@ export function ItemCard({
           />
 
           {name}
-        </button>
+        </Button>
         <div className="mt-0 flex flex-grow flex-col justify-start text-xs">
           <div className="sr-only">Item Category</div>
           <div className="text-xs text-gray-400">
@@ -344,8 +347,9 @@ export function ItemCard({
       </div>
       <div>
         <div className="-mt-px flex divide-x divide-primary-800">
-          <button
-            className="relative inline-flex w-0 flex-1 items-center justify-center gap-x-1 rounded-br-lg border border-transparent py-4 text-xs font-semibold text-gray-200"
+          <Button
+            plain
+            className="relative inline-flex flex-1 items-center justify-center gap-x-1"
             aria-label="Share Item Link"
             onClick={() => {
               copy(
@@ -356,19 +360,17 @@ export function ItemCard({
               toast.success('Copied link to clipboard')
             }}
           >
-            <ShareIcon
-              className="h-4 w-4 text-primary-400"
-              aria-hidden="true"
-            />
+            <ShareIcon className="h-4 w-4" aria-hidden="true" />
             Share
-          </button>
+          </Button>
 
           <div className="-ml-px flex w-0 flex-1">
             <div className="flex w-0 flex-1">
-              <button
+              <Button
+                plain
                 onClick={() => onMoreInfoClick(item)}
                 aria-label="More Info"
-                className="relative inline-flex w-0 flex-1 items-center justify-center gap-x-1 rounded-br-lg border border-transparent py-4 text-xs font-semibold text-gray-200"
+                className="w-full"
               >
                 <Image
                   src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/toolkit/info-yellow.png`}
@@ -377,8 +379,8 @@ export function ItemCard({
                   height={16}
                   className="h-4 w-4"
                 />
-                More Info
-              </button>
+                Info
+              </Button>
             </div>
           </div>
         </div>

@@ -40,6 +40,7 @@ function parseStringForToken(
       if (tag.description) {
         return (
           <Tooltip key={key} content={tag.description}>
+            {/** not changing this to new button */}
             <button
               className={cn('font-semibold', tag.color)}
               aria-label={tag.description}

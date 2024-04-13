@@ -1,5 +1,6 @@
 import Image from 'next/image'
 
+import { Button } from '@/app/(components)/base/button'
 import { Tooltip } from '@/features/ui/Tooltip'
 
 export function FeaturedBuildBadge({
@@ -9,7 +10,7 @@ export function FeaturedBuildBadge({
 }) {
   return (
     <Tooltip content={`Denotes a featured build.`}>
-      <button aria-label="Badge denoting the build is a featured build.">
+      <Button aria-label="Badge denoting the build is a featured build." plain>
         <Image
           src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/badges/featured_build_badge.png`}
           width={50}
@@ -19,7 +20,7 @@ export function FeaturedBuildBadge({
           loading="eager"
           unoptimized={unoptimized}
         />
-      </button>
+      </Button>
     </Tooltip>
   )
 }

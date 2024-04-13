@@ -2,6 +2,7 @@
 
 import { useEffect } from 'react'
 
+import { Button } from '@/app/(components)/base/button'
 import { PageHeader } from '@/features/ui/PageHeader'
 
 export function Error({
@@ -22,13 +23,9 @@ export function Error({
     <div className="flex max-w-lg flex-col">
       <PageHeader title="Something went wrong!" subtitle={error.message} />
       {reset ? (
-        <button
-          onClick={() => reset()}
-          aria-label="Try again"
-          className="rounded-md bg-gray-800 px-4 py-2 text-white"
-        >
+        <Button color="cyan" onClick={() => reset()} aria-label="Try again">
           Try again
-        </button>
+        </Button>
       ) : null}
     </div>
   )

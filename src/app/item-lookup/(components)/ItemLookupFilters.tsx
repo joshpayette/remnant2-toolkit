@@ -4,6 +4,7 @@ import isEqual from 'lodash.isequal'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import { useMemo, useRef, useState } from 'react'
 
+import { Button } from '@/app/(components)/base/button'
 import { allItems } from '@/app/(data)/items/allItems'
 import { parseItemLookupFilters } from '@/app/item-lookup/(lib)/parseItemLookupFilters'
 import {
@@ -230,7 +231,7 @@ export function ItemLookupFilters({}: Props) {
                 : 'border-b-primary-500',
             )}
           >
-            <div className="flex w-full items-end justify-start gap-x-2 text-left">
+            <div className="flex w-full items-center justify-start gap-x-2 text-left">
               <div className="flex w-full max-w-[400px] flex-row items-start justify-start">
                 <SearchTextAutocomplete
                   key={searchTextFieldKey.current}
@@ -244,8 +245,8 @@ export function ItemLookupFilters({}: Props) {
                 />
               </div>
               {unappliedFilters.searchText !== '' ? (
-                <button
-                  className="text-md rounded-md border-2 border-red-700 p-2 text-white ring-1 ring-red-700 hover:border-red-500 focus:border-red-500 focus:outline-none focus:ring-1 focus:ring-red-500"
+                <Button
+                  color="red"
                   onClick={() => {
                     handleSearchTextChange('')
                     handleApplyFilters({
@@ -254,9 +255,10 @@ export function ItemLookupFilters({}: Props) {
                     })
                     searchTextFieldKey.current = new Date().getTime()
                   }}
+                  className="mt-2"
                 >
-                  <TrashIcon className="h-5 w-5 text-red-500" />
-                </button>
+                  <TrashIcon className="h-5 w-5" />
+                </Button>
               ) : (
                 <div className="w-[45px]" />
               )}

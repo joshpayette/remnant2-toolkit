@@ -59,6 +59,7 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
           <div className="flex w-full flex-col items-start justify-start sm:max-w-[275px]">
             <div className="relative grid w-full grid-cols-2 gap-2 border border-transparent border-b-primary-500 text-left text-sm text-gray-300">
               <p className="flex items-center justify-start">Health</p>
+              {/** Not updating to new button component */}
               <button
                 className={cn(
                   'text-md flex items-center justify-end text-right font-bold sm:text-lg',
@@ -80,6 +81,7 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
             </div>
             <div className="relative grid w-full grid-cols-2 gap-2 border border-transparent border-b-primary-500 text-left text-sm text-gray-300">
               <p className="flex items-center justify-start">Stamina</p>
+              {/** Not updating to new button component */}
               <button
                 className={cn(
                   'text-md flex items-center justify-end text-right font-bold sm:text-lg',
@@ -102,6 +104,7 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
             <div className="relative grid w-full grid-cols-2 gap-2 border border-transparent border-b-primary-500 text-left text-sm text-gray-300">
               <p className="flex items-center justify-start">Armor</p>
               <Tooltip content="ArmorDR = Armor / (Armor+200)">
+                {/** Not updating to new button component */}
                 <button
                   className={cn(
                     'text-md flex items-center justify-end text-right font-bold sm:text-lg',
@@ -129,6 +132,7 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
                       : weightClass.description
                   }
                 >
+                  {/** Not updating to new button component */}
                   <button
                     aria-label={
                       challengerIsEquipped

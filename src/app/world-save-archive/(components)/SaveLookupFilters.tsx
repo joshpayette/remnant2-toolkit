@@ -164,6 +164,7 @@ export function SaveLookupFilters({}: Props) {
                   By Affix
                 </div>
                 <div className="text-xs">
+                  {/** Not updating this button to new component */}
                   <button
                     className="underline"
                     aria-label="Check all categories"
@@ -180,7 +181,7 @@ export function SaveLookupFilters({}: Props) {
                   >
                     Check All
                   </button>{' '}
-                  /{' '}
+                  / {/** Not updating this button to new component */}
                   <button
                     className="underline"
                     aria-label="Uncheck all categories"

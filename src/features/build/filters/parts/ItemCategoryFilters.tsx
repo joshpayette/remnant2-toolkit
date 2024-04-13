@@ -20,6 +20,7 @@ export function ItemCategoryFilters({
         By Category
       </div>
       <div className="text-xs">
+        {/** Not updating to new button component */}
         <button
           className="underline"
           aria-label="Check all categories"
@@ -27,7 +28,7 @@ export function ItemCategoryFilters({
         >
           Check All
         </button>{' '}
-        /{' '}
+        / {/** Not updating to new button component */}
         <button
           className="underline"
           aria-label="Uncheck all categories"

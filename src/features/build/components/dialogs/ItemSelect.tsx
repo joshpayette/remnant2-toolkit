@@ -4,6 +4,7 @@ import { AdjustmentsHorizontalIcon } from '@heroicons/react/24/solid'
 import { useCallback, useEffect, useState } from 'react'
 import { useDebounceValue, useLocalStorage } from 'usehooks-ts'
 
+import { Button } from '@/app/(components)/base/button'
 import { ItemCategory } from '@/features/build/types'
 import { ItemButton } from '@/features/items/components/ItemButton'
 import { ItemInfoDialog } from '@/features/items/components/ItemInfoDialog'
@@ -151,14 +152,15 @@ export function ItemSelect({
           </div>
           {buildSlot === 'trait' && (
             <div className="col-span-1 flex items-end justify-start">
-              <button
-                className="flex items-center justify-center text-sm text-gray-400 hover:text-primary-500"
+              <Button
+                plain
+                className="flex items-center justify-center"
                 aria-label="Toggle sorting preference"
                 onClick={handleSortingPreferenceToggle}
               >
                 <AdjustmentsHorizontalIcon className="mr-2 h-6 w-6" />
                 {capitalize(sortingPreference)}
-              </button>
+              </Button>
             </div>
           )}
         </div>

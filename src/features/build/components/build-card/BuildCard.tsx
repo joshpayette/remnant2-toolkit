@@ -101,6 +101,7 @@ export function BuildCard({
                 </div>
                 <div className="flex flex-row items-center justify-end gap-x-2">
                   <Tooltip content="Total Favorites">
+                    {/** Not changing this to the new button */}
                     <button
                       className="flex items-center justify-end text-right text-yellow-500"
                       aria-label="Total build favorites"

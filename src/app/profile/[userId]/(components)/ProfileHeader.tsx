@@ -4,6 +4,7 @@ import { PencilIcon } from '@heroicons/react/24/solid'
 import { useState } from 'react'
 import { toast } from 'react-toastify'
 
+import { Button } from '@/app/(components)/base/button'
 import { AvatarBox } from '@/app/profile/[userId]/(components)/AvatarBox'
 import { AvatarSelectDialog } from '@/app/profile/[userId]/(components)/AvatarSelectDialog'
 import { getAvatarById } from '@/app/profile/[userId]/(lib)/getAvatarById'
@@ -57,12 +58,13 @@ export function ProfileHeader({
         <AvatarBox avatar={avatar} />
 
         {isEditable && isEditing ? (
-          <button
-            className="text-center text-primary-400 underline hover:text-primary-300"
+          <Button
+            plain
+            className="text-center underline"
             onClick={() => setIsAvatarSelectDialogOpen(true)}
           >
             Change Avatar
-          </button>
+          </Button>
         ) : null}
       </div>
       <div className="w-full">
@@ -90,17 +92,19 @@ export function ProfileHeader({
           </p>
         )}
         {isEditable && !isEditing && (
-          <button
-            className="mt-4 flex items-center justify-center text-sm font-medium text-primary-400 underline hover:text-primary-300"
+          <Button
+            plain
+            className="mt-4 flex items-center justify-center underline"
             onClick={() => setIsEditing(true)}
           >
-            <PencilIcon className="mr-2 h-4 w-4" /> Edit Profile
-          </button>
+            <PencilIcon className="h-4 w-4" /> Edit Profile
+          </Button>
         )}
         {isEditable && isEditing && (
           <div className="mt-4 flex items-center justify-start gap-x-2">
-            <button
-              className="flex items-center justify-center rounded-md border border-primary-500 bg-primary-700 p-2 text-sm font-medium hover:bg-primary-500"
+            <Button
+              plain
+              className="flex items-center justify-center"
               onClick={async () => {
                 const response = await saveProfile({
                   userId,
@@ -118,13 +122,14 @@ export function ProfileHeader({
               }}
             >
               Save Changes
-            </button>
-            <button
-              className="flex items-center justify-center p-2 text-red-400 hover:text-red-300"
+            </Button>
+            <Button
+              color="red"
+              className="flex items-center justify-center"
               onClick={resetForm}
             >
               Cancel
-            </button>
+            </Button>
           </div>
         )}
       </div>

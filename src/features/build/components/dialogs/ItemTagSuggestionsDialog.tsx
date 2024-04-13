@@ -1,5 +1,6 @@
 import { useState } from 'react'
 
+import { Button } from '@/app/(components)/base/button'
 import { allItems } from '@/app/(data)/items/allItems'
 import { archetypeItems } from '@/app/(data)/items/archetypeItems'
 import { ConcoctionItem } from '@/app/(data)/items/types/ConcoctionItem'
@@ -777,13 +778,14 @@ export function ItemTagSuggestionsDialog({
               handleItemTagChange(newTag)
             }}
           />
-          <button
-            className="mt-4 rounded-md border-2 border-red-500 p-2 text-sm text-white hover:bg-red-500 hover:text-white"
+          <Button
+            color="red"
+            className="mt-4"
             aria-label="Clear tag suggestions"
             onClick={clearTagSuggestions}
           >
             Clear
-          </button>
+          </Button>
         </div>
         {itemSuggestions.length === 0 && (
           <div className="flex flex-col items-center justify-center">
@@ -819,13 +821,14 @@ export function ItemTagSuggestionsDialog({
                 </div>
               ))}
             </div>
-            <button
-              className="mt-4 rounded-md border-2 border-primary-500 p-2 text-sm text-white hover:bg-primary-500 hover:text-white"
+            <Button
+              color="cyan"
+              className="mt-4"
               aria-label="Equip selected items"
               onClick={handleApplyItemSelections}
             >
               Equip Selected Items
-            </button>
+            </Button>
             <p className="mt-2 text-left text-xs text-gray-400">
               Note: This is a new feature and may not work as expected. Please
               back up your build before using this feature. Please report any

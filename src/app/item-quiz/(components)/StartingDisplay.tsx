@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { Button } from '@/app/(components)/base/button'
+
 interface Props {
   countdownTimer: number
   onSkipCountdown: () => void
@@ -16,12 +18,9 @@ export const StartingDisplay = React.memo(
         <span className="font-bold text-accent1-500">{countdownTimer + 1}</span>{' '}
         seconds
       </p>
-      <button
-        className="mt-4 rounded-md border-2 border-primary-500 bg-primary-700 p-2 text-white hover:bg-primary-500 sm:hidden"
-        onClick={onSkipCountdown}
-      >
+      <Button color="cyan" className="mt-4 sm:hidden" onClick={onSkipCountdown}>
         Skip countdown
-      </button>
+      </Button>
       <p className="mt-2 hidden text-lg italic text-gray-200 sm:block">
         Press <span className="font-bold">Space</span> or{' '}
         <span className="font-bold">Enter</span> to skip.
