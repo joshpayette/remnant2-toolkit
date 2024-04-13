@@ -1,2 +1,5 @@
-- Add bad language notifications to build feed
-- Add user notification letting them know the bad word in question that caused it to be privated.
+# TODO
+
+## Post DLC 2
+
+- Once new archetype added, update all archetype build names
