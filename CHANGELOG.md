@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2024-04-13
 
+### Added
+
+- Added banner to the top of the Toolkit informing users about the build changes coming in the next DLC.
+
 ### Changed
 
 - Added updates to the Hardcore Veteran guide.

@@ -11,6 +11,7 @@ import { Analytics } from '@vercel/analytics/react'
 import { Viewport } from 'next'
 import { ToastContainer } from 'react-toastify'
 
+import { Link } from '@/app/(components)/base/link'
 import { GlobalActionButtons } from '@/app/(components)/global-action-buttons/global-action-buttons'
 import { PreloadResources } from '@/features/ui/PreloadResources'
 
@@ -38,12 +39,36 @@ export default async function RootLayout({
         <PreloadResources />
         <SessionProvider>
           <GlobalActionButtons />
-          {/* <div className="w-full bg-secondary-900 p-1 text-center text-sm">
-            We just launched a silly game to test your knowledge of items!{' '}
-            <Link href="/item-quiz" className="underline">
-              Check out the Item Quiz!
+          <div className="w-full bg-secondary-900 p-1 text-center text-sm">
+            When the DLC launches, all builds will be marked as patch affected.{' '}
+            <Link
+              href="https://www.reddit.com/r/remnantgame/comments/1c1miwt/all_r2tk_builds_will_be_marked_patch_affected/"
+              target="_blank"
+              className="underline"
+            >
+              Find out more here!
             </Link>
-          </div> */}
+            <br />
+            We will be working to update the Toolkit after the DLC as quickly as
+            we can!
+            <br />
+            We encourage users to report issues on our{' '}
+            <Link
+              href="https://discord.gg/kgVaU3zAQ7"
+              target="_blank"
+              className="underline"
+            >
+              Discord
+            </Link>
+            , and contributors on{' '}
+            <Link
+              href="https://github.com/joshpayette/remnant2-toolkit"
+              target="_blank"
+              className="underline"
+            >
+              Github
+            </Link>
+          </div>
           <div className="flex h-full w-full max-w-7xl grow flex-col items-start justify-start">
             <header className="w-full">
               <NavBar />
