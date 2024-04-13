@@ -144,14 +144,6 @@ const colors = {
     '[--switch-bg-ring:theme(colors.rose.600/90%)] [--switch-bg:theme(colors.rose.500)] dark:[--switch-bg-ring:transparent]',
     '[--switch:white] [--switch-ring:theme(colors.rose.600/90%)] [--switch-shadow:theme(colors.rose.900/20%)]',
   ],
-  primary: [
-    '[--switch-bg-ring:theme(colors.primary.600/90%)] [--switch-bg:theme(colors.primary.500)] dark:[--switch-bg-ring:transparent]',
-    '[--switch:white] [--switch-ring:theme(colors.primary.600/90%)] [--switch-shadow:theme(colors.primary.900/20%)]',
-  ],
-  secondary: [
-    '[--switch-bg-ring:theme(colors.secondary.600/90%)] [--switch-bg:theme(colors.secondary.500)] dark:[--switch-bg-ring:transparent]',
-    '[--switch:white] [--switch-ring:theme(colors.secondary.600/90%)] [--switch-shadow:theme(colors.secondary.900/20%)]',
-  ],
 }
 
 type Color = keyof typeof colors

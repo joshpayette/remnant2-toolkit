@@ -4,6 +4,7 @@ import { ShareIcon } from '@heroicons/react/24/solid'
 import copy from 'clipboard-copy'
 import { toast } from 'react-toastify'
 
+import { Button } from '@/app/(components)/base/button'
 import { Tooltip } from '@/features/ui/Tooltip'
 
 export function CopyBuildUrlButton({ buildId }: { buildId: string }) {
@@ -15,13 +16,13 @@ export function CopyBuildUrlButton({ buildId }: { buildId: string }) {
 
   return (
     <Tooltip content="Copy Build URL">
-      <button
-        className="flex flex-col items-center gap-y-1 text-xs text-primary-500 hover:text-primary-300"
+      <Button
+        color="cyan"
         aria-label="Copy build URL to clipboard"
         onClick={handleCopyBuild}
       >
-        <ShareIcon className="h-4 w-4" /> Share
-      </button>
+        <ShareIcon className="h-4 w-4" />
+      </Button>
     </Tooltip>
   )
 }

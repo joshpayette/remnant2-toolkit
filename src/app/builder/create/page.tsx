@@ -2,12 +2,12 @@
 
 import { useRef, useState } from 'react'
 
-import { ArmorCalculatorButton } from '@/app/(components)/builder-buttons/armor-calculator-button'
-import { DetailedViewButton } from '@/app/(components)/builder-buttons/detailed-view-button'
-import { GenerateBuildImageButton } from '@/app/(components)/builder-buttons/generate-build-image'
-import { ItemSuggestionsButton } from '@/app/(components)/builder-buttons/item-suggestions-button'
-import { RandomBuildButton } from '@/app/(components)/builder-buttons/random-build-button'
-import { SaveBuildButton } from '@/app/(components)/builder-buttons/save-build-button'
+import { ArmorCalculatorButton } from '@/app/(components)/buttons/builder-buttons/armor-calculator-button'
+import { DetailedViewButton } from '@/app/(components)/buttons/builder-buttons/detailed-view-button'
+import { GenerateBuildImageButton } from '@/app/(components)/buttons/builder-buttons/generate-build-image'
+import { ItemSuggestionsButton } from '@/app/(components)/buttons/builder-buttons/item-suggestions-button'
+import { RandomBuildButton } from '@/app/(components)/buttons/builder-buttons/random-build-button'
+import { SaveBuildButton } from '@/app/(components)/buttons/builder-buttons/save-build-button'
 import { BuilderContainer } from '@/features/build/components/builder/BuilderContainer'
 import { ArmorSuggestionsDialog } from '@/features/build/components/dialogs/ArmorSuggestionsDialog'
 import { DetailedBuildDialog } from '@/features/build/components/dialogs/DetailedBuildDialog'

@@ -4,7 +4,7 @@ import { Skeleton } from '@/features/ui/Skeleton'
 export function LoadingButton() {
   return (
     <Button
-      color="primary"
+      color="cyan"
       disabled
       aria-label="Save button loading..."
       className="h-[36px] w-[106px] sm:w-full"

@@ -12,7 +12,7 @@ import { Viewport } from 'next'
 import { ToastContainer } from 'react-toastify'
 
 import { Link } from '@/app/(components)/base/link'
-import { GlobalActionButtons } from '@/app/(components)/global-action-buttons/global-action-buttons'
+import { GlobalActionButtons } from '@/app/(components)/buttons/global-action-buttons/global-action-buttons'
 import { PreloadResources } from '@/features/ui/PreloadResources'
 
 import { SessionProvider } from '../features/auth/components/SessionProvider'

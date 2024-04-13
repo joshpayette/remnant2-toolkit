@@ -131,10 +131,6 @@ const colors = {
     '[--checkbox-check:theme(colors.white)] [--checkbox-checked-bg:theme(colors.fuchsia.500)] [--checkbox-checked-border:theme(colors.fuchsia.600/90%)]',
   pink: '[--checkbox-check:theme(colors.white)] [--checkbox-checked-bg:theme(colors.pink.500)] [--checkbox-checked-border:theme(colors.pink.600/90%)]',
   rose: '[--checkbox-check:theme(colors.white)] [--checkbox-checked-bg:theme(colors.rose.500)] [--checkbox-checked-border:theme(colors.rose.600/90%)]',
-  primary:
-    '[--checkbox-check:theme(colors.white)] [--checkbox-checked-bg:theme(colors.primary.500)] [--checkbox-checked-border:theme(colors.primary.600/90%)]',
-  secondary:
-    '[--checkbox-check:theme(colors.white)] [--checkbox-checked-bg:theme(colors.secondary.500)] [--checkbox-checked-border:theme(colors.secondary.600/90%)]',
 }
 
 type Color = keyof typeof colors

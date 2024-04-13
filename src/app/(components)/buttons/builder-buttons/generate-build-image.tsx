@@ -1,5 +1,5 @@
 import { Button } from '@/app/(components)/base/button'
-import { LoadingButton } from '@/app/(components)/builder-buttons/loading-button'
+import { LoadingButton } from '@/app/(components)/buttons/builder-buttons/loading-button'
 
 interface Props {
   onClick: () => void

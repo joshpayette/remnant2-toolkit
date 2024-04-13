@@ -2,6 +2,7 @@
 
 import { DocumentDuplicateIcon } from '@heroicons/react/24/solid'
 
+import { Button } from '@/app/(components)/base/button'
 import { useBuildActions } from '@/features/build/hooks/useBuildActions'
 import { dbBuildToBuildState } from '@/features/build/lib/dbBuildToBuildState'
 import { DBBuild } from '@/features/build/types'
@@ -13,13 +14,13 @@ export function DuplicateBuildButton({ build }: { build: DBBuild }) {
 
   return (
     <Tooltip content="Duplicate Build">
-      <button
-        className="flex flex-col items-center gap-y-1 text-xs text-accent1-500 hover:text-accent1-300"
+      <Button
+        color="yellow"
         onClick={() => handleDuplicateBuild(buildState)}
         aria-label="Duplicate Build"
       >
-        <DocumentDuplicateIcon className="h-4 w-4" /> Duplicate
-      </button>
+        <DocumentDuplicateIcon className="h-4 w-4" />
+      </Button>
     </Tooltip>
   )
 }

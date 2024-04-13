@@ -177,22 +177,6 @@ const styles = {
       'text-white [--btn-hover-overlay:theme(colors.white/10%)] [--btn-bg:theme(colors.rose.500)] [--btn-border:theme(colors.rose.600/90%)]',
       '[--btn-icon:theme(colors.rose.300)] data-[active]:[--btn-icon:theme(colors.rose.200)] data-[hover]:[--btn-icon:theme(colors.rose.200)]',
     ],
-    primary: [
-      'text-white [--btn-hover-overlay:theme(colors.white/10%)] [--btn-bg:theme(colors.primary.500)] [--btn-border:theme(colors.primary.600/90%)]',
-      '[--btn-icon:theme(colors.primary.300)] data-[active]:[--btn-icon:theme(colors.primary.200)] data-[hover]:[--btn-icon:theme(colors.primary.200)]',
-    ],
-    secondary: [
-      'text-white [--btn-hover-overlay:theme(colors.white/10%)] [--btn-bg:theme(colors.secondary.500)] [--btn-border:theme(colors.secondary.600/90%)]',
-      '[--btn-icon:theme(colors.secondary.300)] data-[active]:[--btn-icon:theme(colors.secondary.200)] data-[hover]:[--btn-icon:theme(colors.secondary.200)]',
-    ],
-    accent1: [
-      'text-white [--btn-hover-overlay:theme(colors.white/10%)] [--btn-bg:theme(colors.accent1.500)] [--btn-border:theme(colors.accent1.600/90%)]',
-      '[--btn-icon:theme(colors.accent1.300)] data-[active]:[--btn-icon:theme(colors.accent1.200)] data-[hover]:[--btn-icon:theme(colors.accent1.200)]',
-    ],
-    accent2: [
-      'text-white [--btn-hover-overlay:theme(colors.white/10%)] [--btn-bg:theme(colors.accent2.500)] [--btn-border:theme(colors.accent2.600/90%)]',
-      '[--btn-icon:theme(colors.accent2.300)] data-[active]:[--btn-icon:theme(colors.accent2.200)] data-[hover]:[--btn-icon:theme(colors.accent2.200)]',
-    ],
   },
 }
 
@@ -244,7 +228,7 @@ export function TouchTarget({ children }: { children: React.ReactNode }) {
     <>
       {children}
       <span
-        className="size-[max(100%,2.75rem)] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 [@media(pointer:fine)]:hidden"
+        className="absolute left-1/2 top-1/2 size-[max(100%,2.75rem)] -translate-x-1/2 -translate-y-1/2 [@media(pointer:fine)]:hidden"
         aria-hidden="true"
       />
     </>

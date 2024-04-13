@@ -4,7 +4,7 @@ import { ArrowUpIcon, BugAntIcon } from '@heroicons/react/24/solid'
 import { toast } from 'react-toastify'
 
 import { Button } from '@/app/(components)/base/button'
-import { ReportBug } from '@/app/(components)/global-action-buttons/actions'
+import { ReportBug } from '@/app/(components)/buttons/global-action-buttons/actions'
 import { NAV_ITEMS } from '@/features/navigation/constants'
 
 export function GlobalActionButtons() {
