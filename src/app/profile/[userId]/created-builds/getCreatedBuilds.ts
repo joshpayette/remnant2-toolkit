@@ -47,6 +47,7 @@ export type CreatedBuildsFilter = 'date created' | 'upvotes'
 export async function getCreatedBuilds({
   buildListFilters,
   featuredBuildsOnly,
+  isEditable,
   itemsPerPage,
   orderBy,
   pageNumber,
@@ -55,6 +56,7 @@ export async function getCreatedBuilds({
 }: {
   buildListFilters: BuildListFilterFields
   featuredBuildsOnly: boolean
+  isEditable: boolean
   itemsPerPage: number
   orderBy: OrderBy
   pageNumber: number
@@ -89,8 +91,13 @@ export async function getCreatedBuilds({
   const amuletId = amuletFilterToId({ amulet })
   const ringIds = ringsFilterToIds({ rings: [ring1, ring2, ring3, ring4] })
 
+  const isPublicSegment = isEditable
+    ? Prisma.empty
+    : Prisma.sql`AND Build.isPublic=true`
+
   const whereConditions = Prisma.sql`
   WHERE Build.createdById = ${userId}
+  ${isPublicSegment}
   ${limitByPatchAffected(includePatchAffectedBuilds)}
   ${limitByArchetypesSegment(archetypeIds)}
   ${limitByWeaponsSegment(weaponIds)}

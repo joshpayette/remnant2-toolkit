@@ -9,6 +9,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Changed
 
 - Moved all enemy and item data to the `app/(data)` folder.
+- Added icons to build cards indicating if a build is private or public, if it has a reference link, and if it has a video url.
+
+### Fixed
+
+- Fixed issue where private build cards would show on the created builds in a user's profile. Builds could not be clicked into, but would show in the list of builds.
 
 ## 2024-04-11
 

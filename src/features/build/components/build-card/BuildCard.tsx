@@ -1,7 +1,14 @@
 'use client'
 
-import { StarIcon } from '@heroicons/react/24/solid'
+import {
+  EyeIcon,
+  EyeSlashIcon,
+  PaperClipIcon,
+  StarIcon,
+  VideoCameraIcon,
+} from '@heroicons/react/24/solid'
 
+import { Button } from '@/app/(components)/base/button'
 import { Link } from '@/app/(components)/base/link'
 import { dbBuildToBuildState } from '@/features/build/lib/dbBuildToBuildState'
 import { formatUpdatedAt } from '@/features/build/lib/formatUpdatedAt'
@@ -26,6 +33,7 @@ interface Props {
   footerActions?: React.ReactNode
   isLoading: boolean
   memberFrameEnabled?: boolean
+  showBuildVisibility?: boolean
 }
 
 export function BuildCard({
@@ -33,6 +41,7 @@ export function BuildCard({
   footerActions,
   isLoading,
   memberFrameEnabled = true,
+  showBuildVisibility = false,
 }: Props) {
   const buildState = dbBuildToBuildState(build)
   const { isPopular, popularLevel } = isBuildPopular(build.totalUpvotes)
@@ -65,7 +74,7 @@ export function BuildCard({
             </div>
           )}
           <div className="flex w-full flex-1 items-start justify-start p-4 pb-0">
-            <div className="flex w-full flex-col items-start justify-start overflow-x-auto">
+            <div className="flex w-full flex-col items-start justify-start">
               <Link
                 href={`/builder/${build.id}`}
                 className="w-full text-white hover:text-gray-200 hover:underline"
@@ -80,17 +89,7 @@ export function BuildCard({
                   {build.name}
                 </h3>
               </Link>
-              <div className="mb-2 mt-1 grid w-full grid-cols-3 truncate text-sm">
-                <div className="col-span-full truncate text-left text-xs text-gray-400">
-                  {`${getArchetypeBuildName({
-                    archetype1:
-                      (buildState.items.archetype[0]?.name.toLowerCase() as Archetype) ||
-                      null,
-                    archetype2:
-                      (buildState.items.archetype[1]?.name.toLowerCase() as Archetype) ||
-                      null,
-                  })}`}{' '}
-                </div>
+              <div className="mb-1 grid w-full grid-cols-3 truncate text-sm">
                 <div className="col-span-2 truncate text-left text-gray-300">
                   by{' '}
                   <Link
@@ -111,7 +110,7 @@ export function BuildCard({
                   </Tooltip>
                 </div>
               </div>
-              <div className="mb-2 flex flex-row items-center justify-start gap-x-2">
+              <div className="mb-1 flex flex-row items-center justify-start gap-x-2">
                 {build.updatedAt && (
                   <p className="text-left text-xs text-gray-400">
                     Last Updated:{' '}
@@ -120,6 +119,19 @@ export function BuildCard({
                     </span>
                   </p>
                 )}
+              </div>
+              <div className="mb-2 flex flex-row items-center justify-start gap-x-2">
+                <p className="text-left text-xs text-gray-300">
+                  {`${getArchetypeBuildName({
+                    archetype1:
+                      (buildState.items.archetype[0]?.name.toLowerCase() as Archetype) ||
+                      null,
+                    archetype2:
+                      (buildState.items.archetype[1]?.name.toLowerCase() as Archetype) ||
+                      null,
+                  })}`}{' '}
+                  Build
+                </p>
               </div>
               {buildState.isPatchAffected && (
                 <div className="mb-2 flex flex-row items-center justify-start gap-x-2">
@@ -137,11 +149,7 @@ export function BuildCard({
                 )}
               </div>
               {buildState.description && (
-                <div
-                  className={cn(
-                    'mt-4 max-h-[140px] flex-row items-start justify-start gap-x-2 overflow-y-auto whitespace-pre-wrap text-xs text-gray-300',
-                  )}
-                >
+                <div className="mt-2 h-auto max-h-[140px] w-full flex-row items-start justify-start gap-x-2 overflow-x-auto overflow-y-auto whitespace-pre-wrap text-xs text-gray-300">
                   <DescriptionWithTags
                     description={buildState.description}
                     highlightItems={true}
@@ -149,13 +157,47 @@ export function BuildCard({
                   />
                 </div>
               )}
-              <div className="mt-4 w-full max-w-full">
-                <BuildTagsDisplay
-                  buildTags={buildState.buildTags}
-                  isEditable={false}
-                  isScreenshotMode={false}
-                  showLabel={false}
-                />
+              {buildState.buildTags?.length &&
+              buildState.buildTags.length > 0 ? (
+                <div className="mt-2 w-full max-w-full">
+                  <BuildTagsDisplay
+                    buildTags={buildState.buildTags}
+                    isEditable={false}
+                    isScreenshotMode={false}
+                    showLabel={false}
+                  />
+                </div>
+              ) : null}
+              <div className="mt-2 flex w-full items-start justify-center gap-x-2">
+                {showBuildVisibility ? (
+                  <Tooltip
+                    content={`Build is ${
+                      build.isPublic ? 'public' : 'private'
+                    }`}
+                  >
+                    <Button outline>
+                      {build.isPublic ? (
+                        <EyeIcon className="h-4 w-4" />
+                      ) : (
+                        <EyeSlashIcon className="h-4 w-4" />
+                      )}
+                    </Button>
+                  </Tooltip>
+                ) : null}
+                {build.buildLink ? (
+                  <Tooltip content="Build includes a reference link">
+                    <Button outline>
+                      <PaperClipIcon className="h-4 w-4" />
+                    </Button>
+                  </Tooltip>
+                ) : null}
+                {buildState.videoUrl ? (
+                  <Tooltip content="Build includes a video">
+                    <Button outline>
+                      <VideoCameraIcon className="h-4 w-4" />
+                    </Button>
+                  </Tooltip>
+                ) : null}
               </div>
             </div>
           </div>

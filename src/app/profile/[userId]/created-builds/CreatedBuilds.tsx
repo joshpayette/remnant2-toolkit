@@ -67,6 +67,7 @@ export function CreatedBuilds({ isEditable, userId }: Props) {
         pageNumber: currentPage,
         timeRange,
         userId,
+        isEditable,
       })
       setBuildListState((prevState) => ({
         ...prevState,
@@ -79,6 +80,7 @@ export function CreatedBuilds({ isEditable, userId }: Props) {
   }, [
     buildListFilters,
     currentPage,
+    isEditable,
     itemsPerPage,
     orderBy,
     setBuildListState,
@@ -122,6 +124,7 @@ export function CreatedBuilds({ isEditable, userId }: Props) {
               <BuildCard
                 build={build}
                 isLoading={isLoading}
+                showBuildVisibility={true}
                 footerActions={
                   isEditable ? (
                     <CreatedBuildCardActions
