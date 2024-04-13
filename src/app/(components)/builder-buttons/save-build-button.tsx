@@ -5,15 +5,12 @@ import { signIn, useSession } from 'next-auth/react'
 import { useState } from 'react'
 import { toast } from 'react-toastify'
 
+import { Button } from '@/app/(components)/base/button'
+import { LoadingButton } from '@/app/(components)/builder-buttons/loading-button'
+import { createBuild } from '@/features/build/actions/createBuild'
+import { updateBuild } from '@/features/build/actions/updateBuild'
 import { BuildActionResponse, BuildState } from '@/features/build/types'
 import { isErrorResponse } from '@/features/error-handling/isErrorResponse'
-import { Skeleton } from '@/features/ui/Skeleton'
-import { cn } from '@/lib/classnames'
-
-import { createBuild } from '../../actions/createBuild'
-import { updateBuild } from '../../actions/updateBuild'
-import { DEFAULT_BUILD_NAME } from '../../constants'
-import { buttonClasses } from './ActionButton'
 
 interface Props {
   buildState: BuildState
@@ -27,20 +24,18 @@ export function SaveBuildButton({ buildState, editMode }: Props) {
 
   const { status } = useSession()
 
-  if (status === 'loading') return <Loading />
+  if (status === 'loading') return <LoadingButton />
   if (status === 'unauthenticated') {
     return (
-      <button
+      <Button
         type="submit"
+        className="sm:w-full"
         aria-label="Sign In to Save Build"
-        className={cn(
-          buttonClasses,
-          'bg-red-500 text-black hover:border-red-700 hover:bg-red-300',
-        )}
+        color="red"
         onClick={() => signIn()}
       >
         Sign In to Save Build
-      </button>
+      </Button>
     )
   }
 
@@ -59,21 +54,12 @@ export function SaveBuildButton({ buildState, editMode }: Props) {
   // If the build is being edited by the owner, show a save edit button
   if (editMode) {
     return saveInProgress ? (
-      <div
-        className={cn(
-          buttonClasses,
-          'hover:bg-primary-300text-black border-primary-700 bg-primary-500',
-        )}
-      >
-        <Loading />
-      </div>
+      <LoadingButton />
     ) : (
-      <button
-        className={cn(
-          buttonClasses,
-          'border-accent2-700 bg-accent2-500 text-black hover:bg-accent2-300',
-        )}
+      <Button
+        color="green"
         aria-label="Save Edits"
+        className="sm:w-full"
         onClick={async () => {
           setSaveInProgress(true)
           const response = await updateBuild(JSON.stringify(buildState))
@@ -81,28 +67,19 @@ export function SaveBuildButton({ buildState, editMode }: Props) {
         }}
       >
         Save Edits
-      </button>
+      </Button>
     )
   }
 
   return (
     <>
       {saveInProgress ? (
-        <div
-          className={cn(
-            buttonClasses,
-            'border-primary-700 bg-primary-500 hover:bg-primary-300',
-          )}
-        >
-          <Loading />
-        </div>
+        <LoadingButton />
       ) : (
-        <button
-          className={cn(
-            buttonClasses,
-            'border-accent2-700 bg-accent2-500 text-black hover:bg-accent2-300',
-          )}
+        <Button
+          color="green"
           aria-label="Save Build"
+          className="sm:w-full"
           onClick={async () => {
             setSaveInProgress(true)
             const response = await createBuild(JSON.stringify(buildState))
@@ -110,12 +87,8 @@ export function SaveBuildButton({ buildState, editMode }: Props) {
           }}
         >
           Save Build
-        </button>
+        </Button>
       )}
     </>
   )
-}
-
-function Loading() {
-  return <Skeleton className="h-[40px] w-full sm:h-[60px] sm:w-[100px]" />
 }

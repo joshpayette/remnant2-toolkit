@@ -2,9 +2,13 @@
 
 import { useRef, useState } from 'react'
 
+import { ArmorCalculatorButton } from '@/app/(components)/builder-buttons/armor-calculator-button'
+import { DetailedViewButton } from '@/app/(components)/builder-buttons/detailed-view-button'
+import { GenerateBuildImageButton } from '@/app/(components)/builder-buttons/generate-build-image'
+import { ItemSuggestionsButton } from '@/app/(components)/builder-buttons/item-suggestions-button'
+import { RandomBuildButton } from '@/app/(components)/builder-buttons/random-build-button'
+import { SaveBuildButton } from '@/app/(components)/builder-buttons/save-build-button'
 import { BuilderContainer } from '@/features/build/components/builder/BuilderContainer'
-import { ActionButton } from '@/features/build/components/buttons/ActionButton'
-import { SaveBuildButton } from '@/features/build/components/buttons/SaveBuildButton'
 import { ArmorSuggestionsDialog } from '@/features/build/components/dialogs/ArmorSuggestionsDialog'
 import { DetailedBuildDialog } from '@/features/build/components/dialogs/DetailedBuildDialog'
 import { ImageDownloadInfo } from '@/features/build/components/dialogs/ImageDownloadInfo'
@@ -88,7 +92,7 @@ export default function Page() {
           <>
             <SaveBuildButton buildState={dbBuildState} editMode={false} />
 
-            <ActionButton.ExportImage
+            <GenerateBuildImageButton
               imageExportLoading={imageExportLoading}
               onClick={() =>
                 handleImageExport(
@@ -98,21 +102,19 @@ export default function Page() {
               }
             />
 
-            <ActionButton.ArmorCalculator
+            <ArmorCalculatorButton
               onClick={() => setShowArmorCalculator(true)}
             />
 
-            <ActionButton.ItemSuggestions
+            <ItemSuggestionsButton
               onClick={() => setShowItemSuggestions(true)}
             />
 
-            <hr className="my-2 w-full border-t-2 border-gray-500/50" />
-
-            <ActionButton.ShowDetailedView
+            <DetailedViewButton
               onClick={() => setDetailedBuildDialogOpen(true)}
             />
 
-            <ActionButton.RandomBuild
+            <RandomBuildButton
               onClick={() => {
                 const randomBuild = handleRandomBuild()
                 setNewBuildState(randomBuild)

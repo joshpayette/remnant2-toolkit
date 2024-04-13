@@ -82,8 +82,13 @@ export default function Page() {
           </div>
 
           <div className="mt-2 flex w-full flex-col items-center justify-center">
-            <hr className="mb-4 w-full border-t border-primary-500" />
-            <ToCsvButton data={csvItems} filename="remnant2toolkit_iteminfo" />
+            <div className="max-w-[200px]">
+              <hr className="mb-4 w-full border-t border-primary-500" />
+              <ToCsvButton
+                data={csvItems}
+                filename="remnant2toolkit_iteminfo"
+              />
+            </div>
           </div>
         </div>
       </div>

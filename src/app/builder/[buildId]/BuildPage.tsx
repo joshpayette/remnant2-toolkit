@@ -5,8 +5,15 @@ import { useRouter } from 'next/navigation'
 import { useSession } from 'next-auth/react'
 import { useRef, useState } from 'react'
 
+import { DeleteBuildButton } from '@/app/(components)/builder-buttons/delete-build-button'
+import { DetailedViewButton } from '@/app/(components)/builder-buttons/detailed-view-button'
+import { DuplicateBuildButton } from '@/app/(components)/builder-buttons/duplicate-build-button'
+import { EditBuildButton } from '@/app/(components)/builder-buttons/edit-build-button'
+import { FavoriteBuildButton } from '@/app/(components)/builder-buttons/favorite-build-button'
+import { GenerateBuildImageButton } from '@/app/(components)/builder-buttons/generate-build-image'
+import { LoadoutManagementButton } from '@/app/(components)/builder-buttons/loadout-management-button'
+import { ShareBuildButton } from '@/app/(components)/builder-buttons/share-build-button'
 import { BuilderContainer } from '@/features/build/components/builder/BuilderContainer'
-import { ActionButton } from '@/features/build/components/buttons/ActionButton'
 import { DetailedBuildDialog } from '@/features/build/components/dialogs/DetailedBuildDialog'
 import { ImageDownloadInfo } from '@/features/build/components/dialogs/ImageDownloadInfo'
 import { useBuildActions } from '@/features/build/hooks/useBuildActions'
@@ -124,7 +131,15 @@ export function BuildPage({ build }: Props) {
           showControls={showControls}
           builderActions={
             <>
-              <ActionButton.ExportImage
+              {session && session.user?.id === buildState.createdById && (
+                <EditBuildButton
+                  onClick={() =>
+                    router.push(`/builder/edit/${buildState.buildId}`)
+                  }
+                />
+              )}
+
+              <GenerateBuildImageButton
                 imageExportLoading={imageExportLoading}
                 onClick={() =>
                   handleImageExport(
@@ -134,15 +149,7 @@ export function BuildPage({ build }: Props) {
                 }
               />
 
-              {session && session.user?.id === buildState.createdById && (
-                <ActionButton.EditBuild
-                  onClick={() =>
-                    router.push(`/builder/edit/${buildState.buildId}`)
-                  }
-                />
-              )}
-
-              <ActionButton.ShareBuild
+              <ShareBuildButton
                 onClick={() =>
                   handleCopyBuildUrl(
                     window.location.href,
@@ -152,14 +159,14 @@ export function BuildPage({ build }: Props) {
               />
 
               {session?.user?.id && (
-                <ActionButton.LoadoutManagement
+                <LoadoutManagementButton
                   onClick={() => setLoadoutDialogOpen(true)}
                 />
               )}
 
               {session?.user?.id &&
                 buildState.createdById !== session.user.id && (
-                  <ActionButton.FavoriteBuild
+                  <FavoriteBuildButton
                     upvoted={buildState.upvoted}
                     onClick={() =>
                       handleFavoriteBuild(buildState, session?.user?.id)
@@ -167,13 +174,17 @@ export function BuildPage({ build }: Props) {
                   />
                 )}
 
-              <hr className="my-2 w-full border-t-2 border-gray-500/50" />
+              {session && session.user?.id === buildState.createdById && (
+                <DeleteBuildButton
+                  onClick={() => handleDeleteBuild(buildState.buildId)}
+                />
+              )}
 
-              <ActionButton.ShowDetailedView
+              <DetailedViewButton
                 onClick={() => setDetailedBuildDialogOpen(true)}
               />
 
-              <ActionButton.DuplicateBuild
+              <DuplicateBuildButton
                 onClick={() => handleDuplicateBuild(buildState)}
               />
 
@@ -182,12 +193,6 @@ export function BuildPage({ build }: Props) {
                 filename={`remnant2_builder_${buildState.name}`}
                 label="Export to CSV"
               />
-
-              {session && session.user?.id === buildState.createdById && (
-                <ActionButton.DeleteBuild
-                  onClick={() => handleDeleteBuild(buildState.buildId)}
-                />
-              )}
             </>
           }
         />

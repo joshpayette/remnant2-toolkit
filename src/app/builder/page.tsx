@@ -4,9 +4,11 @@ import { useSession } from 'next-auth/react'
 import { useRef, useState } from 'react'
 
 import { Link } from '@/app/(components)/base/link'
+import { DetailedViewButton } from '@/app/(components)/builder-buttons/detailed-view-button'
+import { GenerateBuildImageButton } from '@/app/(components)/builder-buttons/generate-build-image'
+import { SaveBuildButton } from '@/app/(components)/builder-buttons/save-build-button'
+import { ShareBuildButton } from '@/app/(components)/builder-buttons/share-build-button'
 import { BuilderContainer } from '@/features/build/components/builder/BuilderContainer'
-import { ActionButton } from '@/features/build/components/buttons/ActionButton'
-import { SaveBuildButton } from '@/features/build/components/buttons/SaveBuildButton'
 import { DetailedBuildDialog } from '@/features/build/components/dialogs/DetailedBuildDialog'
 import { ImageDownloadInfo } from '@/features/build/components/dialogs/ImageDownloadInfo'
 import { useBuildActions } from '@/features/build/hooks/useBuildActions'
@@ -121,51 +123,42 @@ export default function Page() {
               <SaveBuildButton buildState={urlBuildState} editMode={false} />
             )}
 
-            <div
-              id="actions"
-              className="grid grid-cols-2 gap-2 sm:flex sm:flex-col sm:gap-2"
-            >
-              <div className="col-span-full">
-                <ActionButton.ExportImage
-                  imageExportLoading={imageExportLoading}
-                  onClick={() =>
-                    handleImageExport(
-                      buildContainerRef.current,
-                      `${urlBuildState.name}`,
-                    )
-                  }
-                />
-              </div>
+            <GenerateBuildImageButton
+              imageExportLoading={imageExportLoading}
+              onClick={() =>
+                handleImageExport(
+                  buildContainerRef.current,
+                  `${urlBuildState.name}`,
+                )
+              }
+            />
 
-              {session?.user ? null : (
-                <ActionButton.ShareBuild
-                  onClick={() => {
-                    const response = confirm(
-                      'This build is unsaved, meaning the URL will be very long. Sign in and Save Build for a shorter URL, plus additional features.\r\n\r\nDo you want to copy the URL anyway?',
-                    )
+            {session?.user ? null : (
+              <ShareBuildButton
+                onClick={() => {
+                  const response = confirm(
+                    'This build is unsaved, meaning the URL will be very long. Sign in and Save Build for a shorter URL, plus additional features.\r\n\r\nDo you want to copy the URL anyway?',
+                  )
 
-                    if (!response) return
+                  if (!response) return
 
-                    handleCopyBuildUrl(
-                      window.location.href,
-                      'Build url copied to clipboard!',
-                    )
-                  }}
-                />
-              )}
-
-              <hr className="my-2 w-full border-t-2 border-gray-500/50" />
-
-              <ActionButton.ShowDetailedView
-                onClick={() => setDetailedBuildDialogOpen(true)}
+                  handleCopyBuildUrl(
+                    window.location.href,
+                    'Build url copied to clipboard!',
+                  )
+                }}
               />
+            )}
 
-              <ToCsvButton
-                data={csvItems}
-                filename={`remnant2_builder_${urlBuildState.name}`}
-                label="Export to CSV"
-              />
-            </div>
+            <DetailedViewButton
+              onClick={() => setDetailedBuildDialogOpen(true)}
+            />
+
+            <ToCsvButton
+              data={csvItems}
+              filename={`remnant2_builder_${urlBuildState.name}`}
+              label="Export to CSV"
+            />
           </>
         }
       />

@@ -1,3 +1,5 @@
+import { Button } from '@/app/(components)/base/button'
+
 /**
  * Converts an array of objects to a CSV file and starts the download
  */
@@ -34,12 +36,13 @@ export function ToCsvButton({
   if (!data || data.length === 0) return null
 
   return (
-    <button
-      className="flex h-[40px] w-full flex-col items-center justify-center rounded border-2 border-secondary-500 p-2 px-4 py-2 text-sm font-bold text-white text-white/90 hover:border-secondary-700 hover:bg-secondary-500 hover:text-black sm:h-[60px] md:min-w-[150px] md:max-w-[200px]"
+    <Button
+      outline
       aria-label="Export All Data to CSV"
       onClick={() => toCsv(data, filename)}
+      className="sm:w-full"
     >
       {label}
-    </button>
+    </Button>
   )
 }
