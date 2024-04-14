@@ -7,7 +7,7 @@ import { toast } from 'react-toastify'
 import { Button } from '@/app/(components)/_base/button'
 import { Tooltip } from '@/features/ui/Tooltip'
 
-export function CopyBuildUrlButton({ buildId }: { buildId: string }) {
+export function ShareBuildButton({ buildId }: { buildId: string }) {
   function handleCopyBuild() {
     const url = `${window.location.origin}/builder/${buildId}`
     copy(`${url}?t=${Date.now()}`)
