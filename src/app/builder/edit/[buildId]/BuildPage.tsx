@@ -8,12 +8,12 @@ import { DeleteBuildButton } from '@/app/(components)/buttons/builder-buttons/de
 import { DetailedViewButton } from '@/app/(components)/buttons/builder-buttons/detailed-view-button'
 import { ItemSuggestionsButton } from '@/app/(components)/buttons/builder-buttons/item-suggestions-button'
 import { SaveBuildButton } from '@/app/(components)/buttons/builder-buttons/save-build-button'
+import { useBuildActions } from '@/app/(hooks)/use-build-actions'
 import { BuilderContainer } from '@/features/build/components/builder/BuilderContainer'
 import { ArmorSuggestionsDialog } from '@/features/build/components/dialogs/ArmorSuggestionsDialog'
 import { DetailedBuildDialog } from '@/features/build/components/dialogs/DetailedBuildDialog'
 import { ImageDownloadInfo } from '@/features/build/components/dialogs/ImageDownloadInfo'
 import { ItemTagSuggestionsDialog } from '@/features/build/components/dialogs/ItemTagSuggestionsDialog'
-import { useBuildActions } from '@/features/build/hooks/useBuildActions'
 import { useDBBuildState } from '@/features/build/hooks/useDBBuildState'
 import { dbBuildToBuildState } from '@/features/build/lib/dbBuildToBuildState'
 import { BuildState, DBBuild } from '@/features/build/types'
@@ -36,7 +36,6 @@ export function BuildPage({ build }: Props) {
     showControls,
     imageDownloadInfo,
     handleClearImageDownloadInfo,
-    handleDeleteBuild,
   } = useBuildActions()
 
   const buildContainerRef = useRef<HTMLDivElement>(null)
@@ -101,11 +100,11 @@ export function BuildPage({ build }: Props) {
               onClick={() => setShowItemTagSuggestions(true)}
             />
 
-            {session && session.user?.id === dbBuildState.createdById && (
-              <DeleteBuildButton
-                onClick={() => handleDeleteBuild(dbBuildState.buildId)}
-              />
-            )}
+            {session &&
+              session.user?.id === dbBuildState.createdById &&
+              dbBuildState.buildId && (
+                <DeleteBuildButton buildId={dbBuildState.buildId} />
+              )}
 
             <DetailedViewButton
               onClick={() => setDetailedBuildDialogOpen(true)}

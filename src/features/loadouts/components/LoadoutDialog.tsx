@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { toast } from 'react-toastify'
 
-import { Button } from '@/app/(components)/base/button'
+import { Button } from '@/app/(components)/_base/button'
 import { getArrayOfLength } from '@/features/build/lib/getArrayOfLength'
 import { DBBuild } from '@/features/build/types'
 import { addBuildToLoadout } from '@/features/loadouts/actions/addBuildToLoadout'

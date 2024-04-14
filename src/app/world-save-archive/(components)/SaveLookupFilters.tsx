@@ -6,7 +6,7 @@ import isEqual from 'lodash.isequal'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import { useMemo, useState } from 'react'
 
-import { Link } from '@/app/(components)/base/link'
+import { Link } from '@/app/(components)/_base/link'
 import { parseSearchFilters } from '@/app/world-save-archive/(lib)/parseSearchFilters'
 import {
   BOSS_AFFIXES,

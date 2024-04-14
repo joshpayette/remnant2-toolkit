@@ -1,6 +1,6 @@
 import { XMarkIcon } from '@heroicons/react/24/solid'
 
-import { Button } from '@/app/(components)/base/button'
+import { Button } from '@/app/(components)/_base/button'
 import { SearchInput } from '@/features/ui/SearchInput'
 import { cn } from '@/lib/classnames'
 

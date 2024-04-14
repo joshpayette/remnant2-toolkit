@@ -2,7 +2,7 @@ import { StarIcon } from '@heroicons/react/24/solid'
 import { BuildTags } from '@prisma/client'
 import { useCallback, useMemo, useState } from 'react'
 
-import { Link } from '@/app/(components)/base/link'
+import { Link } from '@/app/(components)/_base/link'
 import { perkItems } from '@/app/(data)/items/perkItems'
 import { TraitItem } from '@/app/(data)/items/types/TraitItem'
 import { FeaturedBuildBadge } from '@/features/build/components/build-card/FeaturedBuildBadge'

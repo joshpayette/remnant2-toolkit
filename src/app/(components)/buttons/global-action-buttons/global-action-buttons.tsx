@@ -1,9 +1,11 @@
 'use client'
 
 import { ArrowUpIcon, BugAntIcon } from '@heroicons/react/24/solid'
+import { useState } from 'react'
 import { toast } from 'react-toastify'
 
-import { Button } from '@/app/(components)/base/button'
+import { Button } from '@/app/(components)/_base/button'
+import { BugReportPrompt } from '@/app/(components)/alerts/bug-report-prompt'
 import { ReportBug } from '@/app/(components)/buttons/global-action-buttons/actions'
 import { NAV_ITEMS } from '@/features/navigation/constants'
 
@@ -38,21 +40,24 @@ function ChangeLogButton() {
 }
 
 function ReportBugButton() {
-  async function handleReportBug() {
-    const report = prompt(
-      'Please describe the bug. Do not submit in-game bugs.',
-    )
-    if (report) {
-      const { message } = await ReportBug(report)
-      toast.success(message)
-    }
+  const [open, setOpen] = useState(false)
+
+  async function handleReportBug(report: string) {
+    const { message } = await ReportBug(report)
+    toast.success(message)
+    setOpen(false)
   }
 
   return (
-    <div className="flex items-center justify-start">
-      <Button color="green" onClick={handleReportBug}>
+    <>
+      <BugReportPrompt
+        open={open}
+        onConfirm={handleReportBug}
+        onClose={() => setOpen(false)}
+      />
+      <Button color="green" onClick={() => setOpen(true)}>
         <BugAntIcon className="h-5 w-5" />
       </Button>
-    </div>
+    </>
   )
 }

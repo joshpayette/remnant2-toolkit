@@ -1,6 +1,6 @@
 import Image from 'next/image'
 
-import { Button } from '@/app/(components)/base/button'
+import { Button } from '@/app/(components)/_base/button'
 import { Tooltip } from '@/features/ui/Tooltip'
 
 export function NewBuildBadge({

@@ -48,11 +48,11 @@ export function Alert({
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <div className="bg-zinc-950/15 fixed inset-0 flex w-screen justify-center overflow-y-auto px-2 py-2 focus:outline-0 dark:bg-zinc-950/50 sm:px-6 sm:py-8 lg:px-8 lg:py-16" />
+          <div className="fixed inset-0 flex w-screen justify-center overflow-y-auto bg-zinc-950/15 px-2 py-2 focus:outline-0 sm:px-6 sm:py-8 lg:px-8 lg:py-16 dark:bg-zinc-950/50" />
         </HeadlessTransitionChild>
 
         <HeadlessTransitionChild
-          className="fixed inset-0 w-screen overflow-y-auto pt-6 sm:pt-0"
+          className="fixed inset-0 z-[50] w-screen overflow-y-auto pt-6 sm:pt-0"
           enter="ease-out duration-100"
           enterFrom="opacity-0"
           enterTo="opacity-100"
@@ -66,7 +66,7 @@ export function Alert({
               className={clsx(
                 className,
                 sizes[size],
-                'forced-colors:outline row-start-2 w-full rounded-2xl bg-white p-8 shadow-lg ring-1 ring-zinc-950/10 dark:bg-zinc-900 dark:ring-white/10 sm:rounded-2xl sm:p-6',
+                'row-start-2 w-full rounded-2xl bg-white p-8 shadow-lg ring-1 ring-zinc-950/10 sm:rounded-2xl sm:p-6 dark:bg-zinc-900 dark:ring-white/10 forced-colors:outline',
               )}
               enter="ease-out duration-100"
               enterFrom="scale-95"
@@ -93,7 +93,7 @@ export function AlertTitle({
       {...props}
       className={clsx(
         className,
-        'text-balance sm:text-wrap text-center text-base/6 font-semibold text-zinc-950 dark:text-white sm:text-left sm:text-sm/6',
+        'text-balance text-center text-base/6 font-semibold text-zinc-950 sm:text-wrap sm:text-left sm:text-sm/6 dark:text-white',
       )}
     />
   )
@@ -107,7 +107,7 @@ export function AlertDescription({
     <HeadlessDescription
       as={Text}
       {...props}
-      className={clsx(className, 'text-pretty mt-2 text-center sm:text-left')}
+      className={clsx(className, 'mt-2 text-pretty text-center sm:text-left')}
     />
   )
 }
@@ -128,7 +128,7 @@ export function AlertActions({
       {...props}
       className={clsx(
         className,
-        '*:w-full sm:*:w-auto mt-6 flex flex-col-reverse items-center justify-end gap-3 sm:mt-4 sm:flex-row',
+        'mt-6 flex flex-col-reverse items-center justify-end gap-3 *:w-full sm:mt-4 sm:flex-row sm:*:w-auto',
       )}
     />
   )

@@ -1,4 +1,4 @@
-import { Button } from '@/app/(components)/base/button'
+import { Button } from '@/app/(components)/_base/button'
 
 /**
  * Converts an array of objects to a CSV file and starts the download

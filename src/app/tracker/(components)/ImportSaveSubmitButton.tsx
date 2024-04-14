@@ -2,7 +2,7 @@
 
 import { useFormStatus } from 'react-dom'
 
-import { Button } from '@/app/(components)/base/button'
+import { Button } from '@/app/(components)/_base/button'
 import { Skeleton } from '@/features/ui/Skeleton'
 
 export function ImportSaveSubmitButton({

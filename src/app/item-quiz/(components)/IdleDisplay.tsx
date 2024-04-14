@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Button } from '@/app/(components)/base/button'
+import { Button } from '@/app/(components)/_base/button'
 import { MobileLayoutToggle } from '@/app/item-quiz/(components)/MobileLayoutToggle'
 import { LayoutPreference } from '@/app/item-quiz/types'
 

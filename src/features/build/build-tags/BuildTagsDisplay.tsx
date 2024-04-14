@@ -1,6 +1,6 @@
 import { BuildTags } from '@prisma/client'
 
-import { Button } from '@/app/(components)/base/button'
+import { Button } from '@/app/(components)/_base/button'
 import { cn } from '@/lib/classnames'
 
 import { MAX_BUILD_TAGS } from '../constants'

@@ -2,7 +2,7 @@
 
 import { useEffect } from 'react'
 
-import { Button } from '@/app/(components)/base/button'
+import { Button } from '@/app/(components)/_base/button'
 import { PageHeader } from '@/features/ui/PageHeader'
 
 export function Error({

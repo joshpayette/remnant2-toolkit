@@ -4,7 +4,7 @@ import { ShareIcon } from '@heroicons/react/24/solid'
 import copy from 'clipboard-copy'
 import { toast } from 'react-toastify'
 
-import { Button } from '@/app/(components)/base/button'
+import { Button } from '@/app/(components)/_base/button'
 import { Tooltip } from '@/features/ui/Tooltip'
 
 export function CopyBuildUrlButton({ buildId }: { buildId: string }) {

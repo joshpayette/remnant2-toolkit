@@ -1,7 +1,7 @@
-import { CopyBuildUrlButton } from '@/app/profile/[userId]/(components)/buttons/copy-build-url-button'
-import { DeleteBuildButton } from '@/app/profile/[userId]/(components)/buttons/delete-build-button'
-import { DuplicateBuildButton } from '@/app/profile/[userId]/(components)/buttons/duplicate-build-button'
-import { EditBuildButton } from '@/app/profile/[userId]/(components)/buttons/edit-build-button'
+import { CopyBuildUrlButton } from '@/app/(components)/buttons/profile-buttons/copy-build-url-button'
+import { DeleteBuildButton } from '@/app/(components)/buttons/profile-buttons/delete-build-button'
+import { DuplicateBuildButton } from '@/app/(components)/buttons/profile-buttons/duplicate-build-button'
+import { EditBuildButton } from '@/app/(components)/buttons/profile-buttons/edit-build-button'
 import { DBBuild } from '@/features/build/types'
 
 interface Props {

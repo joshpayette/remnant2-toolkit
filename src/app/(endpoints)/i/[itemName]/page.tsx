@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 
-import { Button } from '@/app/(components)/base/button'
+import { Button } from '@/app/(components)/_base/button'
 import { ItemInfoDialog } from '@/features/items/components/ItemInfoDialog'
 import { Item } from '@/features/items/types'
 

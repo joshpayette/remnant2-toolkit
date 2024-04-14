@@ -2,8 +2,8 @@
 
 import { DocumentDuplicateIcon } from '@heroicons/react/24/solid'
 
-import { Button } from '@/app/(components)/base/button'
-import { useBuildActions } from '@/features/build/hooks/useBuildActions'
+import { Button } from '@/app/(components)/_base/button'
+import { useBuildActions } from '@/app/(hooks)/use-build-actions'
 import { dbBuildToBuildState } from '@/features/build/lib/dbBuildToBuildState'
 import { DBBuild } from '@/features/build/types'
 import { Tooltip } from '@/features/ui/Tooltip'

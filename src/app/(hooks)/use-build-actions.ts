@@ -23,14 +23,14 @@ import { BuildState, ItemCategory } from '@/features/build/types'
 import { isErrorResponse } from '@/features/error-handling/isErrorResponse'
 import { Item } from '@/features/items/types'
 
-import { addVoteForBuild } from '../actions/addVoteForBuild'
-import { createBuild } from '../actions/createBuild'
-import { deleteBuild } from '../actions/deleteBuild'
-import { removeVoteForBuild } from '../actions/removeVoteForBuild'
-import { INITIAL_BUILD_STATE } from '../constants'
-import { getArrayOfLength } from '../lib/getArrayOfLength'
-import { getConcoctionSlotCount } from '../lib/getConcoctionSlotCount'
-import { getItemListForSlot } from '../lib/getItemListForSlot'
+import { addVoteForBuild } from '../../features/build/actions/addVoteForBuild'
+import { createBuild } from '../../features/build/actions/createBuild'
+import { deleteBuild } from '../../features/build/actions/deleteBuild'
+import { removeVoteForBuild } from '../../features/build/actions/removeVoteForBuild'
+import { INITIAL_BUILD_STATE } from '../../features/build/constants'
+import { getArrayOfLength } from '../../features/build/lib/getArrayOfLength'
+import { getConcoctionSlotCount } from '../../features/build/lib/getConcoctionSlotCount'
+import { getItemListForSlot } from '../../features/build/lib/getItemListForSlot'
 
 function getRandomItem(
   buildState: BuildState,
@@ -69,25 +69,13 @@ export function useBuildActions() {
     setImageDownloadInfo(null)
   }
 
-  function handleCopyBuildUrl(url: string | null, message?: string) {
-    if (!url) {
-      toast.error('Could not copy build url. Try again.')
-      return
-    }
-    const defaultMessage =
-      'Build url copied to clipboard. Sign in next time for a shorter URL!'
-    copy(`${url}?t=${Date.now()}`)
-    toast.success(!message ? defaultMessage : message)
-  }
-
-  async function handleDeleteBuild(buildId: string | null) {
-    if (!buildId) return
-
-    const confirmed = confirm(
-      'Are you sure you want to delete this build? This cannot be reversed!',
-    )
-    if (!confirmed) return
-
+  async function handleDeleteBuild({
+    buildId,
+    onDelete,
+  }: {
+    buildId: string
+    onDelete?: (buildId: string) => void
+  }) {
     const response = await deleteBuild(buildId)
 
     if (isErrorResponse(response)) {
@@ -95,6 +83,7 @@ export function useBuildActions() {
       toast.error('Error deleting build. Please try again later.')
     } else {
       toast.success(response.message)
+      if (onDelete) onDelete(buildId)
     }
   }
 
@@ -395,7 +384,6 @@ export function useBuildActions() {
 
   return {
     handleClearImageDownloadInfo,
-    handleCopyBuildUrl,
     handleDeleteBuild,
     handleDuplicateBuild,
     handleFavoriteBuild,

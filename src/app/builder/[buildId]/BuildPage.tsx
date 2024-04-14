@@ -1,9 +1,11 @@
 'use client'
 
+import copy from 'clipboard-copy'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import { useSession } from 'next-auth/react'
 import { useRef, useState } from 'react'
+import { toast } from 'react-toastify'
 
 import { DeleteBuildButton } from '@/app/(components)/buttons/builder-buttons/delete-build-button'
 import { DetailedViewButton } from '@/app/(components)/buttons/builder-buttons/detailed-view-button'
@@ -13,10 +15,10 @@ import { FavoriteBuildButton } from '@/app/(components)/buttons/builder-buttons/
 import { GenerateBuildImageButton } from '@/app/(components)/buttons/builder-buttons/generate-build-image'
 import { LoadoutManagementButton } from '@/app/(components)/buttons/builder-buttons/loadout-management-button'
 import { ShareBuildButton } from '@/app/(components)/buttons/builder-buttons/share-build-button'
+import { useBuildActions } from '@/app/(hooks)/use-build-actions'
 import { BuilderContainer } from '@/features/build/components/builder/BuilderContainer'
 import { DetailedBuildDialog } from '@/features/build/components/dialogs/DetailedBuildDialog'
 import { ImageDownloadInfo } from '@/features/build/components/dialogs/ImageDownloadInfo'
-import { useBuildActions } from '@/features/build/hooks/useBuildActions'
 import { buildStateToCsvData } from '@/features/build/lib/buildStateToCsvData'
 import { dbBuildToBuildState } from '@/features/build/lib/dbBuildToBuildState'
 import { DBBuild } from '@/features/build/types'
@@ -64,8 +66,6 @@ export function BuildPage({ build }: Props) {
     imageDownloadInfo,
     imageExportLoading,
     handleClearImageDownloadInfo,
-    handleCopyBuildUrl,
-    handleDeleteBuild,
     handleDuplicateBuild,
     handleFavoriteBuild,
     handleImageExport,
@@ -150,12 +150,16 @@ export function BuildPage({ build }: Props) {
               />
 
               <ShareBuildButton
-                onClick={() =>
-                  handleCopyBuildUrl(
-                    window.location.href,
-                    'Copied Build URL to clipboard.',
-                  )
-                }
+                onClick={() => {
+                  const url = window.location.href
+                  if (!url) {
+                    toast.error('Could not copy build url. Try again.')
+                    return
+                  }
+                  const message = 'Copied Build URL to clipboard.'
+                  copy(`${url}?t=${Date.now()}`)
+                  toast.success(message)
+                }}
               />
 
               {session?.user?.id && (
@@ -174,11 +178,11 @@ export function BuildPage({ build }: Props) {
                   />
                 )}
 
-              {session && session.user?.id === buildState.createdById && (
-                <DeleteBuildButton
-                  onClick={() => handleDeleteBuild(buildState.buildId)}
-                />
-              )}
+              {session &&
+                session.user?.id === buildState.createdById &&
+                buildState.buildId && (
+                  <DeleteBuildButton buildId={buildState.buildId} />
+                )}
 
               <DetailedViewButton
                 onClick={() => setDetailedBuildDialogOpen(true)}

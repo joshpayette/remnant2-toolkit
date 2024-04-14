@@ -1,4 +1,4 @@
-import { Button } from '@/app/(components)/base/button'
+import { Button } from '@/app/(components)/_base/button'
 import { cn } from '@/lib/classnames'
 
 interface Props<T> {

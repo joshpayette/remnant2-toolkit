@@ -3,15 +3,23 @@
 import { useSession } from 'next-auth/react'
 import { useRef, useState } from 'react'
 
-import { Link } from '@/app/(components)/base/link'
+import {
+  Alert,
+  AlertActions,
+  AlertDescription,
+  AlertTitle,
+} from '@/app/(components)/_base/alert'
+import { Button } from '@/app/(components)/_base/button'
+import { Link } from '@/app/(components)/_base/link'
+import { LongUrlAlert } from '@/app/(components)/alerts/long-url-alert'
 import { DetailedViewButton } from '@/app/(components)/buttons/builder-buttons/detailed-view-button'
 import { GenerateBuildImageButton } from '@/app/(components)/buttons/builder-buttons/generate-build-image'
 import { SaveBuildButton } from '@/app/(components)/buttons/builder-buttons/save-build-button'
 import { ShareBuildButton } from '@/app/(components)/buttons/builder-buttons/share-build-button'
+import { useBuildActions } from '@/app/(hooks)/use-build-actions'
 import { BuilderContainer } from '@/features/build/components/builder/BuilderContainer'
 import { DetailedBuildDialog } from '@/features/build/components/dialogs/DetailedBuildDialog'
 import { ImageDownloadInfo } from '@/features/build/components/dialogs/ImageDownloadInfo'
-import { useBuildActions } from '@/features/build/hooks/useBuildActions'
 import { useUrlBuildState } from '@/features/build/hooks/useUrlBuildState'
 import { ToCsvButton } from '@/features/ui/buttons/ToCsvButton'
 import { PageHeader } from '@/features/ui/PageHeader'
@@ -19,6 +27,7 @@ import { Skeleton } from '@/features/ui/Skeleton'
 
 export default function Page() {
   const [detailedBuildDialogOpen, setDetailedBuildDialogOpen] = useState(false)
+  const [shareBuildAlertOpen, setShareBuildAlertOpen] = useState(false)
 
   const { data: session, status: sessionStatus } = useSession()
 
@@ -30,7 +39,6 @@ export default function Page() {
     imageExportLoading,
     imageDownloadInfo,
     handleClearImageDownloadInfo,
-    handleCopyBuildUrl,
     handleImageExport,
   } = useBuildActions()
 
@@ -134,20 +142,15 @@ export default function Page() {
             />
 
             {session?.user ? null : (
-              <ShareBuildButton
-                onClick={() => {
-                  const response = confirm(
-                    'This build is unsaved, meaning the URL will be very long. Sign in and Save Build for a shorter URL, plus additional features.\r\n\r\nDo you want to copy the URL anyway?',
-                  )
-
-                  if (!response) return
-
-                  handleCopyBuildUrl(
-                    window.location.href,
-                    'Build url copied to clipboard!',
-                  )
-                }}
-              />
+              <>
+                <LongUrlAlert
+                  open={shareBuildAlertOpen}
+                  onClose={() => setShareBuildAlertOpen(false)}
+                />
+                <ShareBuildButton
+                  onClick={() => setShareBuildAlertOpen(true)}
+                />
+              </>
             )}
 
             <DetailedViewButton

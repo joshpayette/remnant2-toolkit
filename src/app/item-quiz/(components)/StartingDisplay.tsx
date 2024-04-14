@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Button } from '@/app/(components)/base/button'
+import { Button } from '@/app/(components)/_base/button'
 
 interface Props {
   countdownTimer: number

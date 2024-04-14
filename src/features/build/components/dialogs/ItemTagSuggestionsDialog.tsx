@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-import { Button } from '@/app/(components)/base/button'
+import { Button } from '@/app/(components)/_base/button'
 import { allItems } from '@/app/(data)/items/allItems'
 import { archetypeItems } from '@/app/(data)/items/archetypeItems'
 import { ConcoctionItem } from '@/app/(data)/items/types/ConcoctionItem'

@@ -2,10 +2,11 @@
 
 import { ClipboardDocumentListIcon } from '@heroicons/react/24/solid'
 import { BuildTags } from '@prisma/client'
-import build from 'next/dist/build'
 import { useSession } from 'next-auth/react'
+import { useState } from 'react'
 
-import { Button } from '@/app/(components)/base/button'
+import { Button } from '@/app/(components)/_base/button'
+import { BuildDescriptionTemplateAlert } from '@/app/(components)/alerts/build-description-template-alert'
 import { DescriptionWithTags } from '@/features/ui/DescriptionWithTags'
 import { Input } from '@/features/ui/Input'
 import { Skeleton } from '@/features/ui/Skeleton'
@@ -46,6 +47,8 @@ export function MemberFeatures({
   onChangeIsPatchAffected,
 }: Props) {
   const { status } = useSession()
+  const [buildDescriptionAlertOpen, setBuildDescriptionAlertOpen] =
+    useState(false)
 
   if (status === 'loading') return <Loading />
 
@@ -97,28 +100,30 @@ export function MemberFeatures({
             className="h-[215px] w-full"
           />
           <div className="flex w-full items-center justify-end">
-            <Button
-              plain
-              className="my-1underline"
-              onClick={() => {
-                const response = confirm(
-                  'Insert the description template? This will clear the current description.',
-                )
-                if (response) {
-                  onChangeDescription(
-                    `
+            <BuildDescriptionTemplateAlert
+              open={buildDescriptionAlertOpen}
+              onClose={() => setBuildDescriptionAlertOpen(false)}
+              onConfirm={() => {
+                onChangeDescription(
+                  `
 This build is designed for [insert game difficulty here] and is a [insert build type here] build. It is designed to be played [insert solo or coop here] with a [insert weapon name here] but can be played with other weapons.
-  
+
 If you don't have the [insert item name here], you can use [insert alternative item name here] instead. If you don't have the [insert item name here], you can use [insert alternative item name here] instead.
-  
+
 For a non-boss version of this build, see [insert link here].
 For an easier to obtain loot version of this build, see [insert link here].
 
 Watch the build in action: [insert Youtube link here]
-  `.trim(),
-                  )
-                }
+`.trim(),
+                )
+                setBuildDescriptionAlertOpen(false)
               }}
+            />
+
+            <Button
+              plain
+              className="my-1underline"
+              onClick={() => setBuildDescriptionAlertOpen(true)}
             >
               <ClipboardDocumentListIcon className="inline-block h-4 w-4 text-white" />{' '}
               Insert Description Template

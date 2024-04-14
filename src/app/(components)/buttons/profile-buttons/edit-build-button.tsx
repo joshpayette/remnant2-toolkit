@@ -3,7 +3,7 @@
 import { PencilIcon } from '@heroicons/react/24/solid'
 import { useRouter } from 'next/navigation'
 
-import { Button } from '@/app/(components)/base/button'
+import { Button } from '@/app/(components)/_base/button'
 import { Tooltip } from '@/features/ui/Tooltip'
 
 export function EditBuildButton({ buildId }: { buildId: string }) {

@@ -8,8 +8,8 @@ import {
   VideoCameraIcon,
 } from '@heroicons/react/24/solid'
 
-import { Button } from '@/app/(components)/base/button'
-import { Link } from '@/app/(components)/base/link'
+import { Button } from '@/app/(components)/_base/button'
+import { Link } from '@/app/(components)/_base/link'
 import { dbBuildToBuildState } from '@/features/build/lib/dbBuildToBuildState'
 import { formatUpdatedAt } from '@/features/build/lib/formatUpdatedAt'
 import { getArchetypeBuildName } from '@/features/build/lib/getArchetypeBuildName'

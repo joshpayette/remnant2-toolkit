@@ -1,4 +1,4 @@
-import { Button } from '@/app/(components)/base/button'
+import { Button } from '@/app/(components)/_base/button'
 import { CsvItem } from '@/features/items/types'
 import { ToCsvButton } from '@/features/ui/buttons/ToCsvButton'
 import { Dialog } from '@/features/ui/Dialog'

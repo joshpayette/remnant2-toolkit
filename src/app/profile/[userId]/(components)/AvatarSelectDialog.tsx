@@ -1,4 +1,4 @@
-import { Button } from '@/app/(components)/base/button'
+import { Button } from '@/app/(components)/_base/button'
 import { AvatarBox } from '@/app/profile/[userId]/(components)/AvatarBox'
 import { AVATARS } from '@/app/profile/[userId]/(lib)/constants'
 import { Dialog } from '@/features/ui/Dialog'

@@ -4,7 +4,7 @@ import { PencilIcon } from '@heroicons/react/24/solid'
 import { useState } from 'react'
 import { toast } from 'react-toastify'
 
-import { Button } from '@/app/(components)/base/button'
+import { Button } from '@/app/(components)/_base/button'
 import { AvatarBox } from '@/app/profile/[userId]/(components)/AvatarBox'
 import { AvatarSelectDialog } from '@/app/profile/[userId]/(components)/AvatarSelectDialog'
 import { getAvatarById } from '@/app/profile/[userId]/(lib)/getAvatarById'

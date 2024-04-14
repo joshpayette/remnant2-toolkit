@@ -1,9 +1,9 @@
 'use client'
 
+import { ChangeLoadoutSlotButton } from '@/app/(components)/buttons/loadout-buttons/change-loadout-slot-button'
+import { RemoveFromLoadoutButton } from '@/app/(components)/buttons/loadout-buttons/remove-from-loadout-button'
 import { BuildCard } from '@/features/build/components/build-card/BuildCard'
 import { DBBuild } from '@/features/build/types'
-import { ChangeLoadoutSlotButton } from '@/features/loadouts/components/ChangeLoadoutSlotButton'
-import { RemoveFromLoadoutButton } from '@/features/loadouts/components/RemoveFromLoadoutButton'
 
 interface Props {
   build: DBBuild & { slot: number }

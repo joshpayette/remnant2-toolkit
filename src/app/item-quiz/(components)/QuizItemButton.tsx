@@ -1,7 +1,7 @@
 import { ArrowUpIcon } from '@heroicons/react/24/solid'
 import Image from 'next/image'
 
-import { Button } from '@/app/(components)/base/button'
+import { Button } from '@/app/(components)/_base/button'
 import { ARROW_TO_INDEX } from '@/app/item-quiz/constants'
 import { QuizItem } from '@/app/item-quiz/types'
 import { cn } from '@/lib/classnames'
