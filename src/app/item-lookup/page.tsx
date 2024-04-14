@@ -3,6 +3,7 @@
 import { Suspense } from 'react'
 import { useLocalStorage } from 'usehooks-ts'
 
+import { ToCsvButton } from '@/app/(components)/buttons/to-csv-button'
 import { allItems } from '@/app/(data)/items/allItems'
 import { MutatorItem } from '@/app/(data)/items/types/MutatorItem'
 import { ItemCompareList } from '@/app/item-lookup/(components)/ItemCompareList'
@@ -10,7 +11,6 @@ import { ItemList } from '@/app/item-lookup/(components)/ItemList'
 import { ItemLookupFilters } from '@/app/item-lookup/(components)/ItemLookupFilters'
 import { getArrayOfLength } from '@/features/build/lib/getArrayOfLength'
 import { itemToCsvItem } from '@/features/items/lib/itemToCsvItem'
-import { ToCsvButton } from '@/features/ui/buttons/ToCsvButton'
 import { PageHeader } from '@/features/ui/PageHeader'
 import { Skeleton } from '@/features/ui/Skeleton'
 
