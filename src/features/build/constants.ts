@@ -93,18 +93,18 @@ export const ARCHETYPE_BUILD_NAMES: Array<{
   archetypes: Archetype[]
   name: string
 }> = [
-  { archetypes: ['invoker', 'summoner'], name: '' }, // TODO
-  { archetypes: ['invoker', 'handler'], name: 'Friendship' }, // TODO Confirm
-  { archetypes: ['invoker', 'medic'], name: 'Healing' }, // TODO Confirm
-  { archetypes: ['invoker', 'explorer'], name: '' }, // TODO
-  { archetypes: ['invoker', 'gunslinger'], name: 'Frenzy' }, // TODO Confirm
-  { archetypes: ['invoker', 'challenger'], name: '' }, // TODO
-  { archetypes: ['invoker', 'hunter'], name: '' }, // TODO
-  { archetypes: ['invoker', 'invader'], name: 'Violence' }, // TODO Confirm
-  { archetypes: ['invoker', 'alchemist'], name: '' }, // TODO
-  { archetypes: ['invoker', 'archon'], name: '' }, // TODO
-  { archetypes: ['invoker', 'ritualist'], name: '' }, // TODO
-  { archetypes: ['invoker', 'engineer'], name: '' }, // TODO
+  { archetypes: ['invoker', 'summoner'], name: 'of Darkness' },
+  { archetypes: ['invoker', 'handler'], name: 'pf Friendship' },
+  { archetypes: ['invoker', 'medic'], name: 'of Healing' },
+  { archetypes: ['invoker', 'explorer'], name: 'of Wonder' },
+  { archetypes: ['invoker', 'gunslinger'], name: 'of Frenzy' },
+  { archetypes: ['invoker', 'challenger'], name: 'of Combat' },
+  { archetypes: ['invoker', 'hunter'], name: 'of Stalking' },
+  { archetypes: ['invoker', 'invader'], name: 'of Violence' },
+  { archetypes: ['invoker', 'alchemist'], name: 'of Alchemy' },
+  { archetypes: ['invoker', 'archon'], name: 'of Power' },
+  { archetypes: ['invoker', 'ritualist'], name: 'of Pain' },
+  { archetypes: ['invoker', 'engineer'], name: 'of Creation' },
   { archetypes: ['engineer', 'summoner'], name: 'Mastermind' },
   { archetypes: ['engineer', 'handler'], name: 'Roughneck' },
   { archetypes: ['engineer', 'medic'], name: 'Specialist' },

@@ -40,7 +40,5 @@ export function getArchetypeBuildName({
     return ''
   }
 
-  return `${primePerkName === 'Spirit' ? 'Spirit of' : primePerkName} ${
-    archetypeBuildName.name
-  }`
+  return `${primePerkName} ${archetypeBuildName.name}`
 }
