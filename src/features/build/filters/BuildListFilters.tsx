@@ -384,13 +384,13 @@ export function BuildListFilters() {
                       onChange={handlePatchAffectedBuildsChange}
                     />
                     <Checkbox
-                      label="Limit to Builds with Video"
+                      label="Builds with Video"
                       name="limit-builds-with-video"
                       checked={unappliedFilters.limitToBuildsWithVideo}
                       onChange={handleLimitVideoBuildsChange}
                     />
                     <Checkbox
-                      label="Limit to Builds with Reference Link"
+                      label="Builds with Reference Link"
                       name="limit-builds-with-reference-link"
                       checked={unappliedFilters.limitToBuildsWithReferenceLink}
                       onChange={handleLimitReferenceLinkBuildsChange}
