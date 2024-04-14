@@ -378,7 +378,7 @@ export function BuildListFilters() {
                   </div>
                   <div className="w-full text-left">
                     <Checkbox
-                      label="Include Patch Affected Builds?"
+                      label="Include Patch Affected Builds"
                       name="include-patch-affected-builds"
                       checked={unappliedFilters.includePatchAffectedBuilds}
                       onChange={handlePatchAffectedBuildsChange}
