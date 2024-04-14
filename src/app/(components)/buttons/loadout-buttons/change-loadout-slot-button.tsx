@@ -4,7 +4,7 @@ import { ArrowPathRoundedSquareIcon } from '@heroicons/react/24/solid'
 import { useState } from 'react'
 import { toast } from 'react-toastify'
 
-import { Button } from '@/app/(components)/_base/button'
+import { BaseButton } from '@/app/(components)/_base/button'
 import { ChangeLoadoutSlotPrompt } from '@/app/(components)/alerts/change-loadout-slot-prompt'
 import { changeLoadoutSlot } from '@/features/loadouts/actions/changeLoadoutSlot'
 import { Tooltip } from '@/features/ui/Tooltip'
@@ -60,14 +60,14 @@ export function ChangeLoadoutSlotButton({
         onConfirm={handleConfirm}
       />
       <Tooltip content="Move to different loadout slot">
-        <Button
+        <BaseButton
           color="cyan"
           className="flex flex-col items-center gap-y-1 text-xs"
           aria-label="Move to different loadout slot"
           onClick={() => setAlertOpen(true)}
         >
           <ArrowPathRoundedSquareIcon className="h-5 w-5" />
-        </Button>
+        </BaseButton>
       </Tooltip>
     </>
   )

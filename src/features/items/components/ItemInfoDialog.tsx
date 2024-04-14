@@ -2,7 +2,7 @@ import copy from 'clipboard-copy'
 import Image from 'next/image'
 import { toast } from 'react-toastify'
 
-import { Button } from '@/app/(components)/_base/button'
+import { BaseButton } from '@/app/(components)/_base/button'
 import { Link } from '@/app/(components)/_base/link'
 import { ArchetypeItem } from '@/app/(data)/items/types/ArchetypeItem'
 import { ArmorItem } from '@/app/(data)/items/types/ArmorItem'
@@ -67,7 +67,7 @@ export function ItemInfoDialog({ item, open, onClose }: ItemInfoProps) {
                 Wiki Link
               </a>
             ))}
-            <Button
+            <BaseButton
               plain
               className="underline"
               aria-label="Copy link to item"
@@ -81,7 +81,7 @@ export function ItemInfoDialog({ item, open, onClose }: ItemInfoProps) {
               }}
             >
               Share
-            </Button>
+            </BaseButton>
           </span>
         </span>
       }

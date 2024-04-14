@@ -4,12 +4,12 @@ import { PencilIcon } from '@heroicons/react/24/solid'
 import { useState } from 'react'
 import { toast } from 'react-toastify'
 
-import { Button } from '@/app/(components)/_base/button'
+import { BaseButton } from '@/app/(components)/_base/button'
+import { Input } from '@/app/(components)/_base/input'
 import { AvatarBox } from '@/app/profile/[userId]/(components)/AvatarBox'
 import { AvatarSelectDialog } from '@/app/profile/[userId]/(components)/AvatarSelectDialog'
 import { getAvatarById } from '@/app/profile/[userId]/(lib)/getAvatarById'
 import { saveProfile } from '@/app/profile/[userId]/saveProfile'
-import { Input } from '@/features/ui/Input'
 import { Textarea } from '@/features/ui/Textarea'
 
 interface Props {
@@ -58,13 +58,13 @@ export function ProfileHeader({
         <AvatarBox avatar={avatar} />
 
         {isEditable && isEditing ? (
-          <Button
+          <BaseButton
             plain
             className="text-center underline"
             onClick={() => setIsAvatarSelectDialogOpen(true)}
           >
             Change Avatar
-          </Button>
+          </BaseButton>
         ) : null}
       </div>
       <div className="w-full">
@@ -92,17 +92,17 @@ export function ProfileHeader({
           </p>
         )}
         {isEditable && !isEditing && (
-          <Button
+          <BaseButton
             plain
             className="mt-4 flex items-center justify-center underline"
             onClick={() => setIsEditing(true)}
           >
             <PencilIcon className="h-4 w-4" /> Edit Profile
-          </Button>
+          </BaseButton>
         )}
         {isEditable && isEditing && (
           <div className="mt-4 flex items-center justify-start gap-x-2">
-            <Button
+            <BaseButton
               plain
               className="flex items-center justify-center"
               onClick={async () => {
@@ -122,14 +122,14 @@ export function ProfileHeader({
               }}
             >
               Save Changes
-            </Button>
-            <Button
+            </BaseButton>
+            <BaseButton
               color="red"
               className="flex items-center justify-center"
               onClick={resetForm}
             >
               Cancel
-            </Button>
+            </BaseButton>
           </div>
         )}
       </div>

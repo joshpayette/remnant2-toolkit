@@ -3,7 +3,7 @@
 import { PencilIcon } from '@heroicons/react/24/solid'
 import { useRouter } from 'next/navigation'
 
-import { Button } from '@/app/(components)/_base/button'
+import { BaseButton } from '@/app/(components)/_base/button'
 import { Tooltip } from '@/features/ui/Tooltip'
 
 export function EditBuildButton({ buildId }: { buildId: string }) {
@@ -15,9 +15,13 @@ export function EditBuildButton({ buildId }: { buildId: string }) {
 
   return (
     <Tooltip content="Edit Build">
-      <Button color="green" onClick={handleEditBuild} aria-label="Edit Build">
+      <BaseButton
+        color="green"
+        onClick={handleEditBuild}
+        aria-label="Edit Build"
+      >
         <PencilIcon className="h-4 w-4" />
-      </Button>
+      </BaseButton>
     </Tooltip>
   )
 }

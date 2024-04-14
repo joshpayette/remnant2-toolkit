@@ -1,4 +1,4 @@
-import { Button } from '@/app/(components)/_base/button'
+import { BaseButton } from '@/app/(components)/_base/button'
 
 /**
  * Converts an array of objects to a CSV file and starts the download
@@ -36,13 +36,13 @@ export function ToCsvButton({
   if (!data || data.length === 0) return null
 
   return (
-    <Button
+    <BaseButton
       outline
       aria-label="Export All Data to CSV"
       onClick={() => toCsv(data, filename)}
       className="sm:w-full"
     >
       {label}
-    </Button>
+    </BaseButton>
   )
 }

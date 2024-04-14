@@ -5,7 +5,7 @@ import {
 import { clsx } from 'clsx'
 import { forwardRef } from 'react'
 
-export const Select = forwardRef<HTMLSelectElement, HeadlessSelectProps>(
+export const BaseSelect = forwardRef<HTMLSelectElement, HeadlessSelectProps>(
   function Select({ className, multiple, ...props }, ref) {
     return (
       <span
@@ -23,7 +23,7 @@ export const Select = forwardRef<HTMLSelectElement, HeadlessSelectProps>(
           'dark:before:hidden',
 
           // Focus ring
-          'sm:after:has-[[data-focus]]:ring-2 sm:after:has-[[data-focus]]:ring-blue-500 after:pointer-events-none after:absolute after:inset-0 after:rounded-lg after:ring-inset after:ring-transparent',
+          'after:pointer-events-none after:absolute after:inset-0 after:rounded-lg after:ring-inset after:ring-transparent sm:after:has-[[data-focus]]:ring-2 sm:after:has-[[data-focus]]:ring-blue-500',
 
           // Disabled state
           'has-[[data-disabled]]:opacity-50 before:has-[[data-disabled]]:bg-zinc-950/5 before:has-[[data-disabled]]:shadow-none',
@@ -46,13 +46,13 @@ export const Select = forwardRef<HTMLSelectElement, HeadlessSelectProps>(
             '[&_optgroup]:font-semibold',
 
             // Typography
-            'dark:*:text-white text-base/6 text-zinc-950 placeholder:text-zinc-500 dark:text-white sm:text-sm/6',
+            'text-base/6 text-zinc-950 placeholder:text-zinc-500 sm:text-sm/6 dark:text-white dark:*:text-white',
 
             // Border
             'border border-zinc-950/10 data-[hover]:border-zinc-950/20 dark:border-white/10 dark:data-[hover]:border-white/20',
 
             // Background color
-            'dark:*:bg-zinc-800 bg-transparent dark:bg-white/5',
+            'bg-transparent dark:bg-white/5 dark:*:bg-zinc-800',
 
             // Hide default focus styles
             'focus:outline-none',
@@ -61,13 +61,13 @@ export const Select = forwardRef<HTMLSelectElement, HeadlessSelectProps>(
             'data-[invalid]:border-red-500 data-[invalid]:data-[hover]:border-red-500 data-[invalid]:dark:border-red-600 data-[invalid]:data-[hover]:dark:border-red-600',
 
             // Disabled state
-            'dark:data-[hover]:data-[disabled]:border-white/15 data-[disabled]:dark:border-white/15 data-[disabled]:border-zinc-950/20 data-[disabled]:opacity-100 data-[disabled]:dark:bg-white/[2.5%]',
+            'data-[disabled]:border-zinc-950/20 data-[disabled]:opacity-100 dark:data-[hover]:data-[disabled]:border-white/15 data-[disabled]:dark:border-white/15 data-[disabled]:dark:bg-white/[2.5%]',
           ])}
         />
         {!multiple && (
           <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
             <svg
-              className="size-5 group-has-[[data-disabled]]:stroke-zinc-600 sm:size-4 forced-colors:stroke-[CanvasText] stroke-zinc-500 dark:stroke-zinc-400"
+              className="size-5 stroke-zinc-500 group-has-[[data-disabled]]:stroke-zinc-600 sm:size-4 dark:stroke-zinc-400 forced-colors:stroke-[CanvasText]"
               viewBox="0 0 16 16"
               aria-hidden="true"
               fill="none"

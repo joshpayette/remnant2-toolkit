@@ -13,7 +13,7 @@ import {
 import clsx from 'clsx'
 import type React from 'react'
 
-export function Fieldset({
+export function BaseFieldset({
   className,
   ...props
 }: { disabled?: boolean } & HeadlessFieldsetProps) {
@@ -28,20 +28,20 @@ export function Fieldset({
   )
 }
 
-export function Legend({ ...props }: HeadlessLegendProps) {
+export function BaseLegend({ ...props }: HeadlessLegendProps) {
   return (
     <HeadlessLegend
       {...props}
       data-slot="legend"
       className={clsx(
         props.className,
-        'text-base/6 font-semibold text-zinc-950 data-[disabled]:opacity-50 dark:text-white sm:text-sm/6',
+        'text-base/6 font-semibold text-zinc-950 data-[disabled]:opacity-50 sm:text-sm/6 dark:text-white',
       )}
     />
   )
 }
 
-export function FieldGroup({
+export function BaseFieldGroup({
   className,
   ...props
 }: React.ComponentPropsWithoutRef<'div'>) {
@@ -54,7 +54,7 @@ export function FieldGroup({
   )
 }
 
-export function Field({ className, ...props }: HeadlessFieldProps) {
+export function BaseField({ className, ...props }: HeadlessFieldProps) {
   return (
     <HeadlessField
       className={clsx(
@@ -71,7 +71,7 @@ export function Field({ className, ...props }: HeadlessFieldProps) {
   )
 }
 
-export function Label({
+export function BaseLabel({
   className,
   ...props
 }: { className?: string } & HeadlessLabelProps) {
@@ -81,13 +81,13 @@ export function Label({
       data-slot="label"
       className={clsx(
         className,
-        'select-none text-base/6 text-zinc-950 data-[disabled]:opacity-50 dark:text-white sm:text-sm/6',
+        'select-none text-base/6 text-zinc-950 data-[disabled]:opacity-50 sm:text-sm/6 dark:text-white',
       )}
     />
   )
 }
 
-export function Description({
+export function BaseDescription({
   className,
   disabled,
   ...props
@@ -98,13 +98,13 @@ export function Description({
       data-slot="description"
       className={clsx(
         className,
-        'text-base/6 text-zinc-500 data-[disabled]:opacity-50 dark:text-zinc-400 sm:text-sm/6',
+        'text-base/6 text-zinc-500 data-[disabled]:opacity-50 sm:text-sm/6 dark:text-zinc-400',
       )}
     />
   )
 }
 
-export function ErrorMessage({
+export function BaseErrorMessage({
   className,
   disabled,
   ...props
@@ -115,7 +115,7 @@ export function ErrorMessage({
       data-slot="error"
       className={clsx(
         className,
-        'text-base/6 text-red-600 data-[disabled]:opacity-50 dark:text-red-500 sm:text-sm/6',
+        'text-base/6 text-red-600 data-[disabled]:opacity-50 sm:text-sm/6 dark:text-red-500',
       )}
     />
   )

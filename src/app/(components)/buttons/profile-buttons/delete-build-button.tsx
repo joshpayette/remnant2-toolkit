@@ -3,7 +3,7 @@
 import { TrashIcon } from '@heroicons/react/24/solid'
 import { useState } from 'react'
 
-import { Button } from '@/app/(components)/_base/button'
+import { BaseButton } from '@/app/(components)/_base/button'
 import { DeleteBuildAlert } from '@/app/(components)/alerts/delete-build-alert'
 import { useBuildActions } from '@/app/(hooks)/use-build-actions'
 import { Tooltip } from '@/features/ui/Tooltip'
@@ -26,13 +26,13 @@ export function DeleteBuildButton({
         onDelete={() => handleDeleteBuild({ buildId, onDelete })}
       />
       <Tooltip content="Delete Build">
-        <Button
+        <BaseButton
           color="red"
           aria-label="Delete Build"
           onClick={() => setDeleteAlertOpen(true)}
         >
           <TrashIcon className="h-4 w-4" />
-        </Button>
+        </BaseButton>
       </Tooltip>
     </>
   )

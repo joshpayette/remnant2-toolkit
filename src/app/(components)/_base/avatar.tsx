@@ -16,7 +16,7 @@ type AvatarProps = {
   className?: string
 }
 
-export function Avatar({
+export function BaseAvatar({
   src = null,
   square = false,
   initials,
@@ -31,12 +31,12 @@ export function Avatar({
         className,
 
         // Basic layout
-        '*:col-start-1 *:row-start-1 inline-grid align-middle',
+        'inline-grid align-middle *:col-start-1 *:row-start-1',
 
         // Add the correct border radius
         square
-          ? '*:rounded-[20%] rounded-[20%]'
-          : '*:rounded-full rounded-full',
+          ? 'rounded-[20%] *:rounded-[20%]'
+          : 'rounded-full *:rounded-full',
       )}
       {...props}
     >
@@ -62,14 +62,14 @@ export function Avatar({
       {src && <img src={src} alt={alt} />}
       {/* Add an inset border that sits on top of the image */}
       <span
-        className="forced-colors:outline ring-1 ring-inset ring-black/5 dark:ring-white/5"
+        className="ring-1 ring-inset ring-black/5 dark:ring-white/5 forced-colors:outline"
         aria-hidden="true"
       />
     </span>
   )
 }
 
-export const AvatarButton = React.forwardRef(function AvatarButton(
+export const BaseAvatarButton = React.forwardRef(function AvatarButton(
   {
     src,
     square = false,
@@ -94,13 +94,13 @@ export const AvatarButton = React.forwardRef(function AvatarButton(
       ref={ref as React.ForwardedRef<HTMLAnchorElement>}
     >
       <TouchTarget>
-        <Avatar src={src} square={square} initials={initials} alt={alt} />
+        <BaseAvatar src={src} square={square} initials={initials} alt={alt} />
       </TouchTarget>
     </Link>
   ) : (
     <HeadlessButton {...props} className={classes} ref={ref}>
       <TouchTarget>
-        <Avatar src={src} square={square} initials={initials} alt={alt} />
+        <BaseAvatar src={src} square={square} initials={initials} alt={alt} />
       </TouchTarget>
     </HeadlessButton>
   )

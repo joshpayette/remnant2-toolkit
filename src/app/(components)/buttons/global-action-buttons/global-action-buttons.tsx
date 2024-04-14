@@ -4,7 +4,7 @@ import { ArrowUpIcon, BugAntIcon } from '@heroicons/react/24/solid'
 import { useState } from 'react'
 import { toast } from 'react-toastify'
 
-import { Button } from '@/app/(components)/_base/button'
+import { BaseButton } from '@/app/(components)/_base/button'
 import { BugReportPrompt } from '@/app/(components)/alerts/bug-report-prompt'
 import { ReportBug } from '@/app/(components)/buttons/global-action-buttons/actions'
 import { NAV_ITEMS } from '@/features/navigation/constants'
@@ -25,17 +25,17 @@ function BackToTopButton() {
   }
 
   return (
-    <Button onClick={handleBackToTopClick} color="yellow">
+    <BaseButton onClick={handleBackToTopClick} color="yellow">
       <ArrowUpIcon className="h-5 w-5" />
-    </Button>
+    </BaseButton>
   )
 }
 
 function ChangeLogButton() {
   return (
-    <Button href={NAV_ITEMS.changeLog.href} target="_blank" color="violet">
+    <BaseButton href={NAV_ITEMS.changeLog.href} target="_blank" color="violet">
       <NAV_ITEMS.changeLog.icon className="h-5 w-5" />
-    </Button>
+    </BaseButton>
   )
 }
 
@@ -55,9 +55,9 @@ function ReportBugButton() {
         onConfirm={handleReportBug}
         onClose={() => setOpen(false)}
       />
-      <Button color="green" onClick={() => setOpen(true)}>
+      <BaseButton color="green" onClick={() => setOpen(true)}>
         <BugAntIcon className="h-5 w-5" />
-      </Button>
+      </BaseButton>
     </>
   )
 }

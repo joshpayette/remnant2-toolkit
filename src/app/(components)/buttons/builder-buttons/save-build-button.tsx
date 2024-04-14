@@ -5,7 +5,7 @@ import { signIn, useSession } from 'next-auth/react'
 import { useState } from 'react'
 import { toast } from 'react-toastify'
 
-import { Button } from '@/app/(components)/_base/button'
+import { BaseButton } from '@/app/(components)/_base/button'
 import { LoadingButton } from '@/app/(components)/buttons/builder-buttons/loading-button'
 import { createBuild } from '@/features/build/actions/createBuild'
 import { updateBuild } from '@/features/build/actions/updateBuild'
@@ -27,7 +27,7 @@ export function SaveBuildButton({ buildState, editMode }: Props) {
   if (status === 'loading') return <LoadingButton />
   if (status === 'unauthenticated') {
     return (
-      <Button
+      <BaseButton
         type="submit"
         className="sm:w-full"
         aria-label="Sign In to Save Build"
@@ -35,7 +35,7 @@ export function SaveBuildButton({ buildState, editMode }: Props) {
         onClick={() => signIn()}
       >
         Sign In to Save Build
-      </Button>
+      </BaseButton>
     )
   }
 
@@ -56,7 +56,7 @@ export function SaveBuildButton({ buildState, editMode }: Props) {
     return saveInProgress ? (
       <LoadingButton />
     ) : (
-      <Button
+      <BaseButton
         color="green"
         aria-label="Save Edits"
         className="sm:w-full"
@@ -67,7 +67,7 @@ export function SaveBuildButton({ buildState, editMode }: Props) {
         }}
       >
         Save Edits
-      </Button>
+      </BaseButton>
     )
   }
 
@@ -76,7 +76,7 @@ export function SaveBuildButton({ buildState, editMode }: Props) {
       {saveInProgress ? (
         <LoadingButton />
       ) : (
-        <Button
+        <BaseButton
           color="green"
           aria-label="Save Build"
           className="sm:w-full"
@@ -87,7 +87,7 @@ export function SaveBuildButton({ buildState, editMode }: Props) {
           }}
         >
           Save Build
-        </Button>
+        </BaseButton>
       )}
     </>
   )

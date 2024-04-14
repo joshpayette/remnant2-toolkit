@@ -1,6 +1,6 @@
 import Image from 'next/image'
 
-import { Button } from '@/app/(components)/_base/button'
+import { BaseButton } from '@/app/(components)/_base/button'
 import { Tooltip } from '@/features/ui/Tooltip'
 
 export function NewBuildBadge({
@@ -10,7 +10,7 @@ export function NewBuildBadge({
 }) {
   return (
     <Tooltip content={`Denotes a build created in the past 24 hours.`}>
-      <Button
+      <BaseButton
         aria-label="Badge denoting the build is a new build in the toolkit."
         plain
       >
@@ -22,7 +22,7 @@ export function NewBuildBadge({
           loading="eager"
           unoptimized={unoptimized}
         />
-      </Button>
+      </BaseButton>
     </Tooltip>
   )
 }

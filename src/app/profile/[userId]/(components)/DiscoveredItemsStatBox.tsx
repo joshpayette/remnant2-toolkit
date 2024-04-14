@@ -3,7 +3,7 @@
 import { toast } from 'react-toastify'
 import { useIsClient, useLocalStorage } from 'usehooks-ts'
 
-import { Button } from '@/app/(components)/_base/button'
+import { BaseButton } from '@/app/(components)/_base/button'
 import { updateTotalDiscoveredItems } from '@/app/profile/[userId]/(actions)/updateTotalDiscoveredItems'
 import { StatBox } from '@/app/profile/[userId]/(components)/StatBox'
 import { LocalStorage } from '@/app/tracker/(lib)/types'
@@ -58,7 +58,7 @@ export function DiscoveredItemsStatBox({
           <p className="mt-1 w-full text-left text-xs text-gray-400">
             Your local tracked item total is not synced with the database.
           </p>
-          <Button
+          <BaseButton
             plain
             onClick={async () => {
               const response = await updateTotalDiscoveredItems({
@@ -74,7 +74,7 @@ export function DiscoveredItemsStatBox({
             className="mt-1 underline"
           >
             Sync Items Now
-          </Button>
+          </BaseButton>
         </div>
       }
     />

@@ -18,7 +18,7 @@ const TableContext = createContext<{
   striped: false,
 })
 
-export function Table({
+export function BaseTable({
   bleed = false,
   dense = false,
   grid = false,
@@ -62,7 +62,7 @@ export function Table({
   )
 }
 
-export function TableHead({
+export function BaseTableHead({
   className,
   ...props
 }: React.ComponentPropsWithoutRef<'thead'>) {
@@ -74,7 +74,7 @@ export function TableHead({
   )
 }
 
-export function TableBody(props: React.ComponentPropsWithoutRef<'tbody'>) {
+export function BaseTableBody(props: React.ComponentPropsWithoutRef<'tbody'>) {
   return <tbody {...props} />
 }
 
@@ -88,7 +88,7 @@ const TableRowContext = createContext<{
   title: undefined,
 })
 
-export function TableRow({
+export function BaseTableRow({
   href,
   target,
   title,
@@ -127,7 +127,7 @@ export function TableRow({
   )
 }
 
-export function TableHeader({
+export function BaseTableHeader({
   className,
   ...props
 }: React.ComponentPropsWithoutRef<'th'>) {
@@ -147,7 +147,7 @@ export function TableHeader({
   )
 }
 
-export function TableCell({
+export function BaseTableCell({
   className,
   children,
   ...props

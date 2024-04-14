@@ -8,7 +8,10 @@ import {
 } from '@headlessui/react'
 import { clsx } from 'clsx'
 
-export function RadioGroup({ className, ...props }: HeadlessRadioGroupProps) {
+export function BaseRadioGroup({
+  className,
+  ...props
+}: HeadlessRadioGroupProps) {
   return (
     <HeadlessRadioGroup
       data-slot="control"
@@ -26,7 +29,7 @@ export function RadioGroup({ className, ...props }: HeadlessRadioGroupProps) {
   )
 }
 
-export function RadioField({ className, ...props }: HeadlessFieldProps) {
+export function BaseRadioField({ className, ...props }: HeadlessFieldProps) {
   return (
     <HeadlessField
       data-slot="field"
@@ -135,7 +138,7 @@ const colors = {
 
 type Color = keyof typeof colors
 
-export function Radio({
+export function BaseRadio({
   color = 'dark/zinc',
   className,
   ...props

@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 
-import { Button } from '@/app/(components)/_base/button'
+import { BaseButton } from '@/app/(components)/_base/button'
 import { DeleteBuildAlert } from '@/app/(components)/alerts/delete-build-alert'
 import { useBuildActions } from '@/app/(hooks)/use-build-actions'
 
@@ -21,14 +21,14 @@ export function DeleteBuildButton({ buildId }: Props) {
         onClose={() => setDeleteAlertOpen(false)}
         onDelete={() => handleDeleteBuild({ buildId })}
       />
-      <Button
+      <BaseButton
         color="red"
         aria-label="Delete build."
         onClick={() => setDeleteAlertOpen(true)}
         className="sm:w-full"
       >
         Delete Build
-      </Button>
+      </BaseButton>
     </>
   )
 }

@@ -1,10 +1,10 @@
 import {
-  Alert,
-  AlertActions,
-  AlertDescription,
-  AlertTitle,
+  BaseAlert,
+  BaseAlertActions,
+  BaseAlertDescription,
+  BaseAlertTitle,
 } from '@/app/(components)/_base/alert'
-import { Button } from '@/app/(components)/_base/button'
+import { BaseButton } from '@/app/(components)/_base/button'
 
 interface Props {
   open: boolean
@@ -20,17 +20,17 @@ export function RemoveFromLoadoutAlert({
   onConfirm,
 }: Props) {
   return (
-    <Alert open={open} onClose={onClose}>
-      <AlertTitle>Remove From Loadout?</AlertTitle>
-      <AlertDescription>
+    <BaseAlert open={open} onClose={onClose}>
+      <BaseAlertTitle>Remove From Loadout?</BaseAlertTitle>
+      <BaseAlertDescription>
         Are you sure you want to remove this build from your loadout?
-      </AlertDescription>
-      <AlertActions>
-        <Button plain onClick={onCancel}>
+      </BaseAlertDescription>
+      <BaseAlertActions>
+        <BaseButton plain onClick={onCancel}>
           Cancel
-        </Button>
-        <Button onClick={onConfirm}>Remove</Button>
-      </AlertActions>
-    </Alert>
+        </BaseButton>
+        <BaseButton onClick={onConfirm}>Remove</BaseButton>
+      </BaseAlertActions>
+    </BaseAlert>
   )
 }

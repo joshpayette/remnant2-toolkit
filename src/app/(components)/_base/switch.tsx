@@ -7,7 +7,7 @@ import {
 import { clsx } from 'clsx'
 import type React from 'react'
 
-export function SwitchGroup({
+export function BaseSwitchGroup({
   className,
   ...props
 }: React.ComponentPropsWithoutRef<'div'>) {
@@ -28,7 +28,7 @@ export function SwitchGroup({
   )
 }
 
-export function SwitchField({ className, ...props }: HeadlessFieldProps) {
+export function BaseSwitchField({ className, ...props }: HeadlessFieldProps) {
   return (
     <HeadlessField
       data-slot="field"
@@ -148,7 +148,7 @@ const colors = {
 
 type Color = keyof typeof colors
 
-export function Switch({
+export function BaseSwitch({
   color = 'dark/zinc',
   className,
   children,

@@ -2,7 +2,7 @@ import { clsx } from 'clsx'
 
 import { Link } from './link'
 
-export function Text({
+export function BaseText({
   className,
   ...props
 }: React.ComponentPropsWithoutRef<'p'>) {
@@ -12,13 +12,13 @@ export function Text({
       data-slot="text"
       className={clsx(
         className,
-        'text-base/6 text-zinc-500 dark:text-zinc-400 sm:text-sm/6',
+        'text-base/6 text-zinc-500 sm:text-sm/6 dark:text-zinc-400',
       )}
     />
   )
 }
 
-export function TextLink({
+export function BaseTextLink({
   className,
   ...props
 }: React.ComponentPropsWithoutRef<typeof Link>) {
@@ -33,7 +33,7 @@ export function TextLink({
   )
 }
 
-export function Strong({
+export function BaseStrong({
   className,
   ...props
 }: React.ComponentPropsWithoutRef<'strong'>) {
@@ -45,7 +45,7 @@ export function Strong({
   )
 }
 
-export function Code({
+export function BaseCode({
   className,
   ...props
 }: React.ComponentPropsWithoutRef<'code'>) {
@@ -54,7 +54,7 @@ export function Code({
       {...props}
       className={clsx(
         className,
-        'rounded border border-zinc-950/10 bg-zinc-950/[2.5%] px-0.5 text-sm font-medium text-zinc-950 dark:border-white/20 dark:bg-white/5 dark:text-white sm:text-[0.8125rem]',
+        'rounded border border-zinc-950/10 bg-zinc-950/[2.5%] px-0.5 text-sm font-medium text-zinc-950 sm:text-[0.8125rem] dark:border-white/20 dark:bg-white/5 dark:text-white',
       )}
     />
   )

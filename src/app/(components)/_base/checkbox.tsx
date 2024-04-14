@@ -7,7 +7,7 @@ import {
 import { clsx } from 'clsx'
 import type React from 'react'
 
-export function CheckboxGroup({
+export function BaseCheckboxGroup({
   className,
   ...props
 }: React.ComponentPropsWithoutRef<'div'>) {
@@ -28,7 +28,7 @@ export function CheckboxGroup({
   )
 }
 
-export function CheckboxField({ className, ...props }: HeadlessFieldProps) {
+export function BaseCheckboxField({ className, ...props }: HeadlessFieldProps) {
   return (
     <HeadlessField
       data-slot="field"
@@ -135,7 +135,7 @@ const colors = {
 
 type Color = keyof typeof colors
 
-export function Checkbox({
+export function BaseCheckbox({
   color = 'dark/zinc',
   className,
   ...props

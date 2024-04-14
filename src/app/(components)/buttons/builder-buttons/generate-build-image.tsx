@@ -1,4 +1,4 @@
-import { Button } from '@/app/(components)/_base/button'
+import { BaseButton } from '@/app/(components)/_base/button'
 import { LoadingButton } from '@/app/(components)/buttons/builder-buttons/loading-button'
 
 interface Props {
@@ -13,13 +13,13 @@ export function GenerateBuildImageButton({
   return imageExportLoading ? (
     <LoadingButton />
   ) : (
-    <Button
+    <BaseButton
       color="violet"
       aria-label="Export build as an image."
       onClick={onClick}
       className="sm:w-full"
     >
       Generate Image
-    </Button>
+    </BaseButton>
   )
 }

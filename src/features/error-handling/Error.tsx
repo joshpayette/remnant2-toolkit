@@ -2,7 +2,7 @@
 
 import { useEffect } from 'react'
 
-import { Button } from '@/app/(components)/_base/button'
+import { BaseButton } from '@/app/(components)/_base/button'
 import { PageHeader } from '@/features/ui/PageHeader'
 
 export function Error({
@@ -23,9 +23,9 @@ export function Error({
     <div className="flex max-w-lg flex-col">
       <PageHeader title="Something went wrong!" subtitle={error.message} />
       {reset ? (
-        <Button color="cyan" onClick={() => reset()} aria-label="Try again">
+        <BaseButton color="cyan" onClick={() => reset()} aria-label="Try again">
           Try again
-        </Button>
+        </BaseButton>
       ) : null}
     </div>
   )

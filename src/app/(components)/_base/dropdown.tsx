@@ -24,17 +24,17 @@ import clsx from 'clsx'
 import type React from 'react'
 import { Fragment } from 'react'
 
-import { Button } from './button'
+import { BaseButton } from './button'
 import { Link } from './link'
 
 export function Dropdown(props: HeadlessMenuProps) {
   return <HeadlessMenu {...props} />
 }
 
-export function DropdownButton<T extends React.ElementType = typeof Button>(
+export function DropdownButton<T extends React.ElementType = typeof BaseButton>(
   props: React.ComponentProps<typeof HeadlessMenuButton<T>>,
 ) {
-  return <HeadlessMenuButton as={Button} {...props} />
+  return <HeadlessMenuButton as={BaseButton} {...props} />
 }
 
 export function DropdownMenu({
@@ -87,7 +87,7 @@ export function DropdownMenu({
   )
 }
 
-export function DropdownItem(
+export function BaseDropdownItem(
   props: { href?: string } & HeadlessMenuItemProps<'button'>,
 ) {
   return (
@@ -124,7 +124,7 @@ export function DropdownItem(
   )
 }
 
-export function DropdownHeader({
+export function BaseDropdownHeader({
   className,
   ...props
 }: React.ComponentPropsWithoutRef<'div'>) {
@@ -136,7 +136,7 @@ export function DropdownHeader({
   )
 }
 
-export function DropdownSection({
+export function BaseDropdownSection({
   className,
   ...props
 }: HeadlessMenuSectionProps) {
@@ -152,7 +152,7 @@ export function DropdownSection({
   )
 }
 
-export function DropdownHeading({
+export function BaseDropdownHeading({
   className,
   ...props
 }: HeadlessMenuHeadingProps) {
@@ -167,7 +167,7 @@ export function DropdownHeading({
   )
 }
 
-export function DropdownSeparator({
+export function BaseDropdownSeparator({
   className,
   ...props
 }: HeadlessMenuSeparatorProps) {
@@ -182,7 +182,7 @@ export function DropdownSeparator({
   )
 }
 
-export function DropdownLabel({ className, ...props }: HeadlessLabelProps) {
+export function BaseDropdownLabel({ className, ...props }: HeadlessLabelProps) {
   return (
     <HeadlessLabel
       {...props}
@@ -193,7 +193,7 @@ export function DropdownLabel({ className, ...props }: HeadlessLabelProps) {
   )
 }
 
-export function DropdownDescription({
+export function BaseDropdownDescription({
   className,
   ...props
 }: HeadlessDescriptionProps) {
@@ -209,7 +209,7 @@ export function DropdownDescription({
   )
 }
 
-export function DropdownShortcut({
+export function BaseDropdownShortcut({
   className,
   keys,
   ...props

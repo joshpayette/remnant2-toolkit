@@ -1,7 +1,6 @@
-import Image from 'next/image'
 import { useEffect, useState } from 'react'
 
-import { Button } from '@/app/(components)/_base/button'
+import { BaseButton } from '@/app/(components)/_base/button'
 import { ArmorSuggestionCard } from '@/features/armor-calculator/components/ArmorSuggestionCard'
 import { getArmorSuggestions } from '@/features/armor-calculator/lib/getArmorSuggestions'
 import {
@@ -149,14 +148,14 @@ export function ArmorSuggestionsDialog({
             }
             value={desiredWeightClass}
           />
-          <Button
+          <BaseButton
             color="red"
             className="mt-4"
             aria-label="Clear armor suggestions"
             onClick={clearArmorSuggestions}
           >
             Clear
-          </Button>
+          </BaseButton>
         </div>
       </div>
       {armorSuggestions.length === 0 && (
@@ -198,7 +197,7 @@ export function ArmorSuggestionsDialog({
                       isItemInfoOpen={isItemInfoOpen}
                       onItemInfoOpen={setItemInfo}
                     />
-                    <Button
+                    <BaseButton
                       color="cyan"
                       className="mt-4"
                       aria-label="Equip armor suggestions"
@@ -216,7 +215,7 @@ export function ArmorSuggestionsDialog({
                       }
                     >
                       Equip Armor
-                    </Button>
+                    </BaseButton>
                   </div>
                 ))}
             </div>

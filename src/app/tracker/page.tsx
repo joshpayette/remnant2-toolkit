@@ -6,7 +6,7 @@ import { useFormState } from 'react-dom'
 import { toast } from 'react-toastify'
 import { useIsClient, useLocalStorage } from 'usehooks-ts'
 
-import { Button } from '@/app/(components)/_base/button'
+import { BaseButton } from '@/app/(components)/_base/button'
 import { allItems } from '@/app/(data)/items/allItems'
 import { MutatorItem } from '@/app/(data)/items/types/MutatorItem'
 import { WeaponItem } from '@/app/(data)/items/types/WeaponItem'
@@ -357,22 +357,22 @@ export default function Page() {
           />
 
           <div className="mt-6 flex w-full items-center justify-center gap-x-4">
-            <Button
+            <BaseButton
               color="cyan"
               onClick={() => setImportSaveDialogOpen(true)}
               aria-label="Import Save File"
               className="w-[200px]"
             >
               Import Save File
-            </Button>
-            <Button
+            </BaseButton>
+            <BaseButton
               color="cyan"
               onClick={() => setImportCSVDialogOpen(true)}
               aria-label="Import/Export CSV File"
               className="w-[250px]"
             >
               Import/Export CSV
-            </Button>
+            </BaseButton>
           </div>
         </div>
 

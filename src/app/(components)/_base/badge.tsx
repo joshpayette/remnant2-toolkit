@@ -40,7 +40,7 @@ const colors = {
 
 type BadgeProps = { color?: keyof typeof colors }
 
-export function Badge({
+export function BaseBadge({
   color = 'zinc',
   className,
   ...props
@@ -57,7 +57,7 @@ export function Badge({
   )
 }
 
-export const BadgeButton = React.forwardRef(function BadgeButton(
+export const BaseBadgeButton = React.forwardRef(function BadgeButton(
   {
     color = 'zinc',
     className,
@@ -81,13 +81,13 @@ export const BadgeButton = React.forwardRef(function BadgeButton(
       ref={ref as React.ForwardedRef<HTMLAnchorElement>}
     >
       <TouchTarget>
-        <Badge color={color}>{children}</Badge>
+        <BaseBadge color={color}>{children}</BaseBadge>
       </TouchTarget>
     </Link>
   ) : (
     <HeadlessButton {...props} className={classes} ref={ref}>
       <TouchTarget>
-        <Badge color={color}>{children}</Badge>
+        <BaseBadge color={color}>{children}</BaseBadge>
       </TouchTarget>
     </HeadlessButton>
   )

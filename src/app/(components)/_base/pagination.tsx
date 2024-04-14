@@ -1,7 +1,7 @@
 import clsx from 'clsx'
 import type React from 'react'
 
-import { Button } from './button'
+import { BaseButton } from './button'
 
 export function Pagination({
   'aria-label': ariaLabel = 'Page navigation',
@@ -17,7 +17,7 @@ export function Pagination({
   )
 }
 
-export function PaginationPrevious({
+export function BasePaginationPrevious({
   href = null,
   children = 'Previous',
 }: {
@@ -26,7 +26,7 @@ export function PaginationPrevious({
 }) {
   return (
     <span className="grow basis-0">
-      <Button
+      <BaseButton
         {...(href === null ? { disabled: true } : { href })}
         plain
         aria-label="Previous page"
@@ -46,12 +46,12 @@ export function PaginationPrevious({
           />
         </svg>
         {children}
-      </Button>
+      </BaseButton>
     </span>
   )
 }
 
-export function PaginationNext({
+export function BasePaginationNext({
   href = null,
   children = 'Next',
 }: {
@@ -60,7 +60,7 @@ export function PaginationNext({
 }) {
   return (
     <span className="flex grow basis-0 justify-end">
-      <Button
+      <BaseButton
         {...(href === null ? { disabled: true } : { href })}
         plain
         aria-label="Next page"
@@ -80,18 +80,22 @@ export function PaginationNext({
             strokeLinejoin="round"
           />
         </svg>
-      </Button>
+      </BaseButton>
     </span>
   )
 }
 
-export function PaginationList({ children }: { children: React.ReactNode }) {
+export function BasePaginationList({
+  children,
+}: {
+  children: React.ReactNode
+}) {
   return (
     <span className="hidden items-baseline gap-x-2 sm:flex">{children}</span>
   )
 }
 
-export function PaginationPage({
+export function BasePaginationPage({
   href,
   children,
   current = false,
@@ -101,7 +105,7 @@ export function PaginationPage({
   current?: boolean
 }) {
   return (
-    <Button
+    <BaseButton
       href={href}
       plain
       aria-label={`Page ${children}`}
@@ -112,11 +116,11 @@ export function PaginationPage({
       )}
     >
       <span className="-mx-0.5">{children}</span>
-    </Button>
+    </BaseButton>
   )
 }
 
-export function PaginationGap() {
+export function BasePaginationGap() {
   return (
     <div
       aria-hidden="true"

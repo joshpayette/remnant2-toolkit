@@ -1,15 +1,15 @@
-import { Button } from '@/app/(components)/_base/button'
+import { BaseButton } from '@/app/(components)/_base/button'
 import { Skeleton } from '@/features/ui/Skeleton'
 
 export function LoadingButton() {
   return (
-    <Button
+    <BaseButton
       color="cyan"
       disabled
       aria-label="Save button loading..."
       className="h-[36px] w-[106px] sm:w-full"
     >
       <Skeleton className="h-full w-full" />
-    </Button>
+    </BaseButton>
   )
 }

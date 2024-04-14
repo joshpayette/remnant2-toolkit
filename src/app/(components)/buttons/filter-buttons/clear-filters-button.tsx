@@ -1,4 +1,4 @@
-import { Button } from '@/app/(components)/_base/button'
+import { BaseButton } from '@/app/(components)/_base/button'
 
 interface Props {
   onClick: () => void
@@ -6,13 +6,13 @@ interface Props {
 
 export function ClearFiltersButton({ onClick }: Props) {
   return (
-    <Button
+    <BaseButton
       color="red"
       className="flex w-auto items-center justify-center gap-1"
       aria-label="Clear Filters"
       onClick={onClick}
     >
       Clear Filters
-    </Button>
+    </BaseButton>
   )
 }

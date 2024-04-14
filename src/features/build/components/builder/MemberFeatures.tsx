@@ -5,10 +5,10 @@ import { BuildTags } from '@prisma/client'
 import { useSession } from 'next-auth/react'
 import { useState } from 'react'
 
-import { Button } from '@/app/(components)/_base/button'
+import { BaseButton } from '@/app/(components)/_base/button'
+import { Input } from '@/app/(components)/_base/input'
 import { BuildDescriptionTemplateAlert } from '@/app/(components)/alerts/build-description-template-alert'
 import { DescriptionWithTags } from '@/features/ui/DescriptionWithTags'
-import { Input } from '@/features/ui/Input'
 import { Skeleton } from '@/features/ui/Skeleton'
 import { Textarea } from '@/features/ui/Textarea'
 import { Toggle } from '@/features/ui/Toggle'
@@ -120,14 +120,14 @@ Watch the build in action: [insert Youtube link here]
               }}
             />
 
-            <Button
+            <BaseButton
               plain
               className="my-1underline"
               onClick={() => setBuildDescriptionAlertOpen(true)}
             >
               <ClipboardDocumentListIcon className="inline-block h-4 w-4 text-white" />{' '}
               Insert Description Template
-            </Button>
+            </BaseButton>
           </div>
         </div>
       )}

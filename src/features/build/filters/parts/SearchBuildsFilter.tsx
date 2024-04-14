@@ -1,7 +1,4 @@
-import { XMarkIcon } from '@heroicons/react/24/solid'
-
-import { Button } from '@/app/(components)/_base/button'
-import { SearchInput } from '@/features/ui/SearchInput'
+import { Input } from '@/app/(components)/form-fields/input'
 import { cn } from '@/lib/classnames'
 
 interface Props {
@@ -29,9 +26,10 @@ export function SearchBuildsFilter({
       </div>
 
       <div className="relative flex w-full flex-row items-center shadow-sm">
-        <SearchInput
+        <Input
           onKeyDown={onApplyFilters}
-          onChange={onChange}
+          onChange={(e) => onChange(e.target.value)}
+          onClear={() => onChange('')}
           value={searchText}
         />
       </div>

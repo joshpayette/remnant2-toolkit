@@ -1,10 +1,10 @@
 import {
-  Alert,
-  AlertActions,
-  AlertDescription,
-  AlertTitle,
+  BaseAlert,
+  BaseAlertActions,
+  BaseAlertDescription,
+  BaseAlertTitle,
 } from '@/app/(components)/_base/alert'
-import { Button } from '@/app/(components)/_base/button'
+import { BaseButton } from '@/app/(components)/_base/button'
 
 interface Props {
   open: boolean
@@ -18,18 +18,18 @@ export function BuildDescriptionTemplateAlert({
   onConfirm,
 }: Props) {
   return (
-    <Alert open={open} onClose={onClose}>
-      <AlertTitle>Insert Description Template?</AlertTitle>
-      <AlertDescription>
+    <BaseAlert open={open} onClose={onClose}>
+      <BaseAlertTitle>Insert Description Template?</BaseAlertTitle>
+      <BaseAlertDescription>
         Are you sure you want to insert the description template? This will
         clear the current description!
-      </AlertDescription>
-      <AlertActions>
-        <Button plain onClick={onClose}>
+      </BaseAlertDescription>
+      <BaseAlertActions>
+        <BaseButton plain onClick={onClose}>
           Cancel
-        </Button>
-        <Button onClick={onConfirm}>Continue</Button>
-      </AlertActions>
-    </Alert>
+        </BaseButton>
+        <BaseButton onClick={onConfirm}>Continue</BaseButton>
+      </BaseAlertActions>
+    </BaseAlert>
   )
 }

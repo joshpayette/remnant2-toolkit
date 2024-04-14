@@ -2,12 +2,12 @@ import copy from 'clipboard-copy'
 import { toast } from 'react-toastify'
 
 import {
-  Alert,
-  AlertActions,
-  AlertDescription,
-  AlertTitle,
+  BaseAlert,
+  BaseAlertActions,
+  BaseAlertDescription,
+  BaseAlertTitle,
 } from '@/app/(components)/_base/alert'
-import { Button } from '@/app/(components)/_base/button'
+import { BaseButton } from '@/app/(components)/_base/button'
 
 interface Props {
   open: boolean
@@ -16,17 +16,17 @@ interface Props {
 
 export function LongUrlAlert({ open, onClose }: Props) {
   return (
-    <Alert open={open} onClose={onClose}>
-      <AlertTitle>Copy Long URL?</AlertTitle>
-      <AlertDescription>
+    <BaseAlert open={open} onClose={onClose}>
+      <BaseAlertTitle>Copy Long URL?</BaseAlertTitle>
+      <BaseAlertDescription>
         This build is unsaved, meaning the URL will be very long. Sign in and
         Save Build for a shorter URL, plus additional features.
-      </AlertDescription>
-      <AlertActions>
-        <Button plain onClick={onClose}>
+      </BaseAlertDescription>
+      <BaseAlertActions>
+        <BaseButton plain onClick={onClose}>
           Cancel
-        </Button>
-        <Button
+        </BaseButton>
+        <BaseButton
           onClick={() => {
             const url = window.location.href
 
@@ -42,8 +42,8 @@ export function LongUrlAlert({ open, onClose }: Props) {
           }}
         >
           Copy Build URL
-        </Button>
-      </AlertActions>
-    </Alert>
+        </BaseButton>
+      </BaseAlertActions>
+    </BaseAlert>
   )
 }

@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-import { Button } from '@/app/(components)/_base/button'
+import { BaseButton } from '@/app/(components)/_base/button'
 import { allItems } from '@/app/(data)/items/allItems'
 import { archetypeItems } from '@/app/(data)/items/archetypeItems'
 import { ConcoctionItem } from '@/app/(data)/items/types/ConcoctionItem'
@@ -9,8 +9,6 @@ import { ModItem } from '@/app/(data)/items/types/ModItem'
 import { MutatorItem } from '@/app/(data)/items/types/MutatorItem'
 import { WeaponItem } from '@/app/(data)/items/types/WeaponItem'
 import { getConcoctionSlotCount } from '@/features/build/lib/getConcoctionSlotCount'
-import { linkArchetypesToTraits } from '@/features/build/lib/linkArchetypesToTraits'
-import { linkWeaponsToMods } from '@/features/build/lib/linkWeaponsToMods'
 import { BuildState } from '@/features/build/types'
 import { ItemButton } from '@/features/items/components/ItemButton'
 import { ItemInfoDialog } from '@/features/items/components/ItemInfoDialog'
@@ -778,14 +776,14 @@ export function ItemTagSuggestionsDialog({
               handleItemTagChange(newTag)
             }}
           />
-          <Button
+          <BaseButton
             color="red"
             className="mt-4"
             aria-label="Clear tag suggestions"
             onClick={clearTagSuggestions}
           >
             Clear
-          </Button>
+          </BaseButton>
         </div>
         {itemSuggestions.length === 0 && (
           <div className="flex flex-col items-center justify-center">
@@ -821,14 +819,14 @@ export function ItemTagSuggestionsDialog({
                 </div>
               ))}
             </div>
-            <Button
+            <BaseButton
               color="cyan"
               className="mt-4"
               aria-label="Equip selected items"
               onClick={handleApplyItemSelections}
             >
               Equip Selected Items
-            </Button>
+            </BaseButton>
             <p className="mt-2 text-left text-xs text-gray-400">
               Note: This is a new feature and may not work as expected. Please
               back up your build before using this feature. Please report any

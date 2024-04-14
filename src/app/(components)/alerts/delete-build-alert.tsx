@@ -1,10 +1,10 @@
 import {
-  Alert,
-  AlertActions,
-  AlertDescription,
-  AlertTitle,
+  BaseAlert,
+  BaseAlertActions,
+  BaseAlertDescription,
+  BaseAlertTitle,
 } from '@/app/(components)/_base/alert'
-import { Button } from '@/app/(components)/_base/button'
+import { BaseButton } from '@/app/(components)/_base/button'
 
 interface Props {
   open: boolean
@@ -14,17 +14,17 @@ interface Props {
 
 export function DeleteBuildAlert({ open, onClose, onDelete }: Props) {
   return (
-    <Alert open={open} onClose={onClose}>
-      <AlertTitle>Delete Build?</AlertTitle>
-      <AlertDescription>
+    <BaseAlert open={open} onClose={onClose}>
+      <BaseAlertTitle>Delete Build?</BaseAlertTitle>
+      <BaseAlertDescription>
         Are you sure you want to delete this build? This cannot be reversed!
-      </AlertDescription>
-      <AlertActions>
-        <Button plain onClick={onClose}>
+      </BaseAlertDescription>
+      <BaseAlertActions>
+        <BaseButton plain onClick={onClose}>
           Cancel
-        </Button>
-        <Button onClick={onDelete}>Delete</Button>
-      </AlertActions>
-    </Alert>
+        </BaseButton>
+        <BaseButton onClick={onDelete}>Delete</BaseButton>
+      </BaseAlertActions>
+    </BaseAlert>
   )
 }

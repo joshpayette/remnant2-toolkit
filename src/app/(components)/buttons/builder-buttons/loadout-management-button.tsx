@@ -1,4 +1,4 @@
-import { Button } from '@/app/(components)/_base/button'
+import { BaseButton } from '@/app/(components)/_base/button'
 
 interface Props {
   onClick: () => void
@@ -6,13 +6,13 @@ interface Props {
 
 export function LoadoutManagementButton({ onClick }: Props) {
   return (
-    <Button
+    <BaseButton
       color="violet"
       aria-label="Loadout Builds"
       onClick={onClick}
       className="sm:w-full"
     >
       Add To Loadout
-    </Button>
+    </BaseButton>
   )
 }

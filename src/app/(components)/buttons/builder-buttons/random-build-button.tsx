@@ -1,4 +1,4 @@
-import { Button } from '@/app/(components)/_base/button'
+import { BaseButton } from '@/app/(components)/_base/button'
 
 interface Props {
   onClick: () => void
@@ -6,13 +6,13 @@ interface Props {
 
 export function RandomBuildButton({ onClick }: Props) {
   return (
-    <Button
+    <BaseButton
       outline
       aria-label="Randomly generate a build."
       onClick={onClick}
       className="sm:w-full"
     >
       Random Build
-    </Button>
+    </BaseButton>
   )
 }

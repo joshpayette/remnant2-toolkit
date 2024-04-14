@@ -1,4 +1,4 @@
-import { Button } from '@/app/(components)/_base/button'
+import { BaseButton } from '@/app/(components)/_base/button'
 
 interface Props {
   onClick: () => void
@@ -6,13 +6,13 @@ interface Props {
 
 export function ArmorCalculatorButton({ onClick }: Props) {
   return (
-    <Button
+    <BaseButton
       color="violet"
       aria-label="Get optimal armor values for this build."
       onClick={onClick}
       className="sm:w-full"
     >
       Armor Calculator
-    </Button>
+    </BaseButton>
   )
 }

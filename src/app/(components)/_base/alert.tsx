@@ -11,7 +11,7 @@ import clsx from 'clsx'
 import type React from 'react'
 import { Fragment } from 'react'
 
-import { Text } from './text'
+import { BaseText } from './text'
 
 const sizes = {
   xs: 'sm:max-w-xs',
@@ -25,7 +25,7 @@ const sizes = {
   '5xl': 'sm:max-w-5xl',
 }
 
-export function Alert({
+export function BaseAlert({
   open,
   onClose,
   size = 'md',
@@ -84,7 +84,7 @@ export function Alert({
   )
 }
 
-export function AlertTitle({
+export function BaseAlertTitle({
   className,
   ...props
 }: React.ComponentPropsWithoutRef<'div'>) {
@@ -99,27 +99,27 @@ export function AlertTitle({
   )
 }
 
-export function AlertDescription({
+export function BaseAlertDescription({
   className,
   ...props
 }: React.ComponentPropsWithoutRef<'div'>) {
   return (
     <HeadlessDescription
-      as={Text}
+      as={BaseText}
       {...props}
       className={clsx(className, 'mt-2 text-pretty text-center sm:text-left')}
     />
   )
 }
 
-export function AlertBody({
+export function BaseAlertBody({
   className,
   ...props
 }: React.ComponentPropsWithoutRef<'div'>) {
   return <div {...props} className={clsx(className, 'mt-4')} />
 }
 
-export function AlertActions({
+export function BaseAlertActions({
   className,
   ...props
 }: React.ComponentPropsWithoutRef<'div'>) {

@@ -10,7 +10,7 @@ import { useState } from 'react'
 import { toast } from 'react-toastify'
 import { useLocalStorage } from 'usehooks-ts'
 
-import { Button } from '@/app/(components)/_base/button'
+import { BaseButton } from '@/app/(components)/_base/button'
 import { Link } from '@/app/(components)/_base/link'
 import { getArrayOfLength } from '@/features/build/lib/getArrayOfLength'
 import getItemBuildStats from '@/features/items/actions/getItemBuildStats'
@@ -122,7 +122,7 @@ export function ItemCard({
                 </div>
               ) : (
                 <Tooltip content="Get stats on how many featured and community builds the item is used in.">
-                  <Button
+                  <BaseButton
                     outline
                     onClick={async () => {
                       const response = await getItemBuildStats(item.id)
@@ -134,28 +134,28 @@ export function ItemCard({
                     }}
                   >
                     <ChartBarSquareIcon className="h-5 w-5" />
-                  </Button>
+                  </BaseButton>
                 </Tooltip>
               )}
             </div>
             <div className="flex w-full items-center justify-end">
               {itemBeingCompared ? (
                 <Tooltip content="Remove from item comparison.">
-                  <Button outline onClick={handleRemoveItemFromCompare}>
+                  <BaseButton outline onClick={handleRemoveItemFromCompare}>
                     <MagnifyingGlassMinusIcon className="h-5 w-5" />
-                  </Button>
+                  </BaseButton>
                 </Tooltip>
               ) : (
                 <Tooltip content="Add to item comparison.">
-                  <Button outline onClick={handleAddItemToCompare}>
+                  <BaseButton outline onClick={handleAddItemToCompare}>
                     <MagnifyingGlassPlusIcon className="h-5 w-5" />
-                  </Button>
+                  </BaseButton>
                 </Tooltip>
               )}
             </div>
           </div>
         ) : null}
-        <Button
+        <BaseButton
           plain
           onClick={() => onMoreInfoClick(item)}
           aria-label="More Info"
@@ -175,7 +175,7 @@ export function ItemCard({
           />
 
           {name}
-        </Button>
+        </BaseButton>
         <div className="mt-0 flex flex-grow flex-col justify-start text-xs">
           <div className="sr-only">Item Category</div>
           <div className="text-xs text-gray-400">
@@ -347,7 +347,7 @@ export function ItemCard({
       </div>
       <div>
         <div className="-mt-px flex divide-x divide-primary-800">
-          <Button
+          <BaseButton
             plain
             className="relative inline-flex flex-1 items-center justify-center gap-x-1"
             aria-label="Share Item Link"
@@ -362,11 +362,11 @@ export function ItemCard({
           >
             <ShareIcon className="h-4 w-4" aria-hidden="true" />
             Share
-          </Button>
+          </BaseButton>
 
           <div className="-ml-px flex w-0 flex-1">
             <div className="flex w-0 flex-1">
-              <Button
+              <BaseButton
                 plain
                 onClick={() => onMoreInfoClick(item)}
                 aria-label="More Info"
@@ -380,7 +380,7 @@ export function ItemCard({
                   className="h-4 w-4"
                 />
                 Info
-              </Button>
+              </BaseButton>
             </div>
           </div>
         </div>

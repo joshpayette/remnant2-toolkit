@@ -1,4 +1,4 @@
-import { Button } from '@/app/(components)/_base/button'
+import { BaseButton } from '@/app/(components)/_base/button'
 
 interface Props {
   onClick: () => void
@@ -7,13 +7,13 @@ interface Props {
 
 export function FavoriteBuildButton({ onClick, upvoted }: Props) {
   return (
-    <Button
+    <BaseButton
       color={upvoted ? 'red' : 'orange'}
       aria-label={upvoted ? 'Remove favorite build' : 'Favorite build'}
       onClick={onClick}
       className="sm:w-full"
     >
       {upvoted ? 'Remove Favorite' : 'Favorite Build'}
-    </Button>
+    </BaseButton>
   )
 }

@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Button } from '@/app/(components)/_base/button'
+import { BaseButton } from '@/app/(components)/_base/button'
 import { MobileLayoutToggle } from '@/app/item-quiz/(components)/MobileLayoutToggle'
 import { LayoutPreference } from '@/app/item-quiz/types'
 
@@ -40,9 +40,9 @@ export const IdleDisplay = React.memo(
         layoutPreference={layoutPreference}
         onToggleLayoutPreference={onToggleLayoutPreference}
       />
-      <Button color="cyan" onClick={onStartGame}>
+      <BaseButton color="cyan" onClick={onStartGame}>
         Start Game
-      </Button>
+      </BaseButton>
       <p className="text-md mt-2 hidden italic text-gray-200 sm:block">
         Press <span className="font-bold">Space</span> or{' '}
         <span className="font-bold">Enter</span> to start.

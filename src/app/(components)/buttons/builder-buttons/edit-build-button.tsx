@@ -1,4 +1,4 @@
-import { Button } from '@/app/(components)/_base/button'
+import { BaseButton } from '@/app/(components)/_base/button'
 
 interface Props {
   onClick: () => void
@@ -6,13 +6,13 @@ interface Props {
 
 export function EditBuildButton({ onClick }: Props) {
   return (
-    <Button
+    <BaseButton
       color="cyan"
       aria-label="Edit build."
       onClick={onClick}
       className="sm:w-full"
     >
       Edit Build
-    </Button>
+    </BaseButton>
   )
 }

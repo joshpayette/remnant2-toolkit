@@ -3,13 +3,13 @@
 import { useState } from 'react'
 
 import {
-  Alert,
-  AlertActions,
-  AlertBody,
-  AlertDescription,
-  AlertTitle,
+  BaseAlert,
+  BaseAlertActions,
+  BaseAlertBody,
+  BaseAlertDescription,
+  BaseAlertTitle,
 } from '@/app/(components)/_base/alert'
-import { Button } from '@/app/(components)/_base/button'
+import { BaseButton } from '@/app/(components)/_base/button'
 import { Input } from '@/app/(components)/_base/input'
 
 interface Props {
@@ -28,13 +28,13 @@ export function ChangeLoadoutSlotPrompt({
   const [input, setInput] = useState('')
 
   return (
-    <Alert open={open} onClose={onClose}>
-      <AlertTitle>Change Loadout Slot</AlertTitle>
-      <AlertDescription>
+    <BaseAlert open={open} onClose={onClose}>
+      <BaseAlertTitle>Change Loadout Slot</BaseAlertTitle>
+      <BaseAlertDescription>
         Enter the new loadout slot. If the slot is already occupied, this
         loadout will be swapped with the loadout in that slot.
-      </AlertDescription>
-      <AlertBody>
+      </BaseAlertDescription>
+      <BaseAlertBody>
         <Input
           autoFocus
           name="newSlot"
@@ -45,13 +45,13 @@ export function ChangeLoadoutSlotPrompt({
           min={1}
           max={8}
         />
-      </AlertBody>
-      <AlertActions>
-        <Button plain onClick={onCancel}>
+      </BaseAlertBody>
+      <BaseAlertActions>
+        <BaseButton plain onClick={onCancel}>
           Cancel
-        </Button>
-        <Button onClick={() => onConfirm(input)}>Save</Button>
-      </AlertActions>
-    </Alert>
+        </BaseButton>
+        <BaseButton onClick={() => onConfirm(input)}>Save</BaseButton>
+      </BaseAlertActions>
+    </BaseAlert>
   )
 }

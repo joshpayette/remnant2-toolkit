@@ -6,7 +6,7 @@ import { usePathname } from 'next/navigation'
 import { useSession } from 'next-auth/react'
 import { Fragment, useEffect, useState } from 'react'
 
-import { Button } from '@/app/(components)/_base/button'
+import { BaseButton } from '@/app/(components)/_base/button'
 import { Link } from '@/app/(components)/_base/link'
 import { AuthButton } from '@/features/auth/components/AuthButton'
 import { NAV_ITEMS } from '@/features/navigation/constants'
@@ -36,7 +36,7 @@ export function NavBar() {
           <Logo />
         </div>
         <div className="flex w-full justify-end lg:hidden">
-          <Button
+          <BaseButton
             plain
             type="button"
             aria-label="Open main menu"
@@ -45,7 +45,7 @@ export function NavBar() {
           >
             <span className="sr-only">Open main menu</span>
             <Bars3Icon className="h-6 w-6" aria-hidden="true" />
-          </Button>
+          </BaseButton>
         </div>
         <div className="hidden items-center justify-center lg:flex lg:flex-grow lg:gap-x-12">
           <Menu as="div" className="relative">
@@ -196,7 +196,7 @@ export function NavBar() {
         <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-surface px-6 py-6 text-white sm:max-w-sm sm:ring-1 sm:ring-secondary-900/10">
           <div className="flex items-center justify-between">
             <Logo />
-            <Button
+            <BaseButton
               plain
               aria-label="Close menu"
               className="-m-2.5"
@@ -204,7 +204,7 @@ export function NavBar() {
             >
               <span className="sr-only">Close menu</span>
               <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-            </Button>
+            </BaseButton>
           </div>
           <div className="mt-6 flow-root">
             <div className="-my-6">
