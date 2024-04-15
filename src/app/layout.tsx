@@ -29,7 +29,7 @@ export default async function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
       <body
         className={cn(
           'relative flex min-h-fit flex-col items-center justify-start',
