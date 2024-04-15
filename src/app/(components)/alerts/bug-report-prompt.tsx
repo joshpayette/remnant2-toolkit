@@ -43,7 +43,7 @@ export function BugReportPrompt({ open, onClose, onConfirm }: Props) {
           Cancel
         </BaseButton>
         <BaseButton
-          disabled={isSubmitting}
+          disabled={isSubmitting || input.trim() === ''}
           onClick={() => {
             setIsSubmitting(true)
             onConfirm(input)

@@ -43,6 +43,11 @@ function ReportBugButton() {
   const [open, setOpen] = useState(false)
 
   async function handleReportBug(report: string) {
+    if (!report || report.trim() === '') {
+      setOpen(false)
+      toast.error('Please provide a bug report')
+      return
+    }
     const { message } = await ReportBug(report)
     toast.success(message)
     setOpen(false)
@@ -51,6 +56,7 @@ function ReportBugButton() {
   return (
     <>
       <BugReportPrompt
+        key={open ? 'open' : 'closed'}
         open={open}
         onConfirm={handleReportBug}
         onClose={() => setOpen(false)}
