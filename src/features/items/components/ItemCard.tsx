@@ -346,10 +346,10 @@ export function ItemCard({
           ))}
       </div>
       <div>
-        <div className="-mt-px flex divide-x divide-primary-800">
+        <div className="-mt-px grid grid-cols-2 divide-x divide-primary-800">
           <BaseButton
             plain
-            className="relative inline-flex flex-1 items-center justify-center gap-x-1"
+            className="relative flex items-center justify-center"
             aria-label="Share Item Link"
             onClick={() => {
               copy(
@@ -360,28 +360,18 @@ export function ItemCard({
               toast.success('Copied link to clipboard')
             }}
           >
-            <ShareIcon className="h-4 w-4" aria-hidden="true" />
             Share
           </BaseButton>
 
-          <div className="-ml-px flex w-0 flex-1">
-            <div className="flex w-0 flex-1">
-              <BaseButton
-                plain
-                onClick={() => onMoreInfoClick(item)}
-                aria-label="More Info"
-                className="w-full"
-              >
-                <Image
-                  src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/toolkit/info-yellow.png`}
-                  alt="Info icon"
-                  width={16}
-                  height={16}
-                  className="h-4 w-4"
-                />
-                Info
-              </BaseButton>
-            </div>
+          <div className="flex w-full items-center justify-center">
+            <BaseButton
+              plain
+              onClick={() => onMoreInfoClick(item)}
+              aria-label="More Info"
+              className="w-full"
+            >
+              Info
+            </BaseButton>
           </div>
         </div>
       </div>

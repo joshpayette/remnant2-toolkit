@@ -43,9 +43,9 @@ function ReportBugButton() {
   const [open, setOpen] = useState(false)
 
   async function handleReportBug(report: string) {
+    setOpen(false)
     const { message } = await ReportBug(report)
     toast.success(message)
-    setOpen(false)
   }
 
   return (

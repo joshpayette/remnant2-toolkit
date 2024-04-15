@@ -23,7 +23,10 @@ export function DeleteBuildButton({
       <DeleteBuildAlert
         open={deleteAlertOpen}
         onClose={() => setDeleteAlertOpen(false)}
-        onDelete={() => handleDeleteBuild({ buildId, onDelete })}
+        onDelete={() => {
+          setDeleteAlertOpen(false)
+          handleDeleteBuild({ buildId, onDelete })
+        }}
       />
       <Tooltip content="Delete Build">
         <BaseButton

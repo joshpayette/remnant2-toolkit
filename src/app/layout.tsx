@@ -75,7 +75,7 @@ export default async function RootLayout({
             </header>
 
             <main className="flex h-full min-h-screen w-full grow flex-col items-center justify-start p-4 pt-0">
-              <ToastContainer theme="dark" />
+              <ToastContainer theme="dark" pauseOnFocusLoss={false} />
               {children}
             </main>
           </div>

@@ -10,6 +10,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Updated the look and feel of alerts and prompts throughout the site.
 - Bug report prompt now stylized and allows more text.
+- Popup notifications will no longer pause their timer when window loses focus.
+
+### Fixed
+
+- Fixed (maybe?) issue where you could click on prompt confirm buttons multiple times.
 
 ## 2024-04-13
 

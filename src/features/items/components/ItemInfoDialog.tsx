@@ -62,7 +62,7 @@ export function ItemInfoDialog({ item, open, onClose }: ItemInfoProps) {
                 href={link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white underline"
+                className="font-bold text-white underline"
               >
                 Wiki Link
               </a>

@@ -104,6 +104,7 @@ export function MemberFeatures({
               open={buildDescriptionAlertOpen}
               onClose={() => setBuildDescriptionAlertOpen(false)}
               onConfirm={() => {
+                setBuildDescriptionAlertOpen(false)
                 onChangeDescription(
                   `
 This build is designed for [insert game difficulty here] and is a [insert build type here] build. It is designed to be played [insert solo or coop here] with a [insert weapon name here] but can be played with other weapons.
@@ -116,7 +117,6 @@ For an easier to obtain loot version of this build, see [insert link here].
 Watch the build in action: [insert Youtube link here]
 `.trim(),
                 )
-                setBuildDescriptionAlertOpen(false)
               }}
             />
 

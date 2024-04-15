@@ -19,7 +19,10 @@ export function DeleteBuildButton({ buildId }: Props) {
       <DeleteBuildAlert
         open={deleteAlertOpen}
         onClose={() => setDeleteAlertOpen(false)}
-        onDelete={() => handleDeleteBuild({ buildId })}
+        onDelete={() => {
+          setDeleteAlertOpen(false)
+          handleDeleteBuild({ buildId })
+        }}
       />
       <BaseButton
         color="red"
