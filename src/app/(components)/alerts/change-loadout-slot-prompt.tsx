@@ -26,6 +26,7 @@ export function ChangeLoadoutSlotPrompt({
   onConfirm,
 }: Props) {
   const [input, setInput] = useState('')
+  const [isSubmitDisabled, setIsSubmitDisabled] = useState(false)
 
   return (
     <BaseAlert open={open} onClose={onClose}>
@@ -50,7 +51,15 @@ export function ChangeLoadoutSlotPrompt({
         <BaseButton plain onClick={onCancel}>
           Cancel
         </BaseButton>
-        <BaseButton onClick={() => onConfirm(input)}>Save</BaseButton>
+        <BaseButton
+          disabled={isSubmitDisabled || input.trim() === ''}
+          onClick={() => {
+            setIsSubmitDisabled(true)
+            onConfirm(input)
+          }}
+        >
+          Save
+        </BaseButton>
       </BaseAlertActions>
     </BaseAlert>
   )
