@@ -15,6 +15,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Fixed
 
 - Fixed (maybe?) issue where you could click on prompt confirm buttons multiple times.
+- Fixed issue where systems with light-mode were not able to see some text and buttons.
 
 ## 2024-04-13
 
