@@ -21,6 +21,7 @@ interface Props {
 
 export function BugReportPrompt({ open, onClose, onConfirm }: Props) {
   const [input, setInput] = useState('')
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
   return (
     <BaseAlert open={open} onClose={onClose}>
@@ -41,7 +42,15 @@ export function BugReportPrompt({ open, onClose, onConfirm }: Props) {
         <BaseButton plain onClick={onClose}>
           Cancel
         </BaseButton>
-        <BaseButton onClick={() => onConfirm(input)}>Submit Report</BaseButton>
+        <BaseButton
+          disabled={isSubmitting}
+          onClick={() => {
+            setIsSubmitting(true)
+            onConfirm(input)
+          }}
+        >
+          Submit Report
+        </BaseButton>
       </BaseAlertActions>
     </BaseAlert>
   )

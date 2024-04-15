@@ -19,15 +19,16 @@ export function RemoveFromLoadoutButton({
   const [alertOpen, setAlertOpen] = useState(false)
 
   async function handleRemoveFromLoadout() {
-    setAlertOpen(false)
     const response = await removeBuildFromLoadout(buildId, slot)
     if (!response.success) {
       if (callback) callback(false)
       toast.error('Failed to remove build from loadout')
+      setAlertOpen(false)
       return
     }
     if (callback) callback(true)
     toast.success('Build removed from loadout')
+    setAlertOpen(false)
   }
 
   function handleCancel() {
