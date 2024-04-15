@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-04-15
+
+### Fixed
+
+- Fixed an issue where melee mods were not removable after unequipping the weapon. A more general fix was applied to run the cleanup function any time a build state update occurs.
+- Fixed an issue where Rusty weapons were able to have mods equipped in the builder.
+
 ## 2024-04-14
 
 ### Changed

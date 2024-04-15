@@ -103,24 +103,28 @@ export function useDBBuildState(INITIAL_BUILD_STATE: BuildState) {
     if (Array.isArray(value)) {
       const allItemsEmpty = value.every((item) => item === '')
       if (allItemsEmpty) {
-        setDBBuildState({
+        const cleanBuildState = cleanUpBuildState({
           ...dbBuildState,
           items: {
             ...dbBuildState.items,
             [category]: [],
           },
         })
+
+        setDBBuildState(cleanBuildState)
         return
       }
     } else {
       if (value === '') {
-        setDBBuildState({
+        const cleanBuildState = cleanUpBuildState({
           ...dbBuildState,
           items: {
             ...dbBuildState.items,
             [category]: null,
           },
         })
+
+        setDBBuildState(cleanBuildState)
         return
       }
     }
@@ -193,12 +197,12 @@ export function useDBBuildState(INITIAL_BUILD_STATE: BuildState) {
     }
 
     const cleanBuildState = cleanUpBuildState(newBuildState)
-
     setDBBuildState(cleanBuildState)
   }
 
   function setNewBuildState(buildState: BuildState) {
-    setDBBuildState(buildState)
+    const cleanBuildState = cleanUpBuildState(buildState)
+    setDBBuildState(cleanBuildState)
   }
 
   return {

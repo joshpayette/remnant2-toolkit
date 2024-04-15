@@ -713,7 +713,11 @@ export function Builder({
                     unoptimized={isScreenshotMode}
                   />
                   <div className="flex w-full grow items-start justify-around gap-4">
-                    {weaponIndex !== 1 || buildState.items.mod[weaponIndex] ? (
+                    {(weaponIndex === 1 &&
+                      !buildState.items.mod[weaponIndex]) ||
+                    buildState.items.weapon[weaponIndex]?.isRusty ? (
+                      <div className="h-[66px] w-[66px]" />
+                    ) : (
                       <ItemButton
                         item={buildState.items.mod[weaponIndex]}
                         size="md"
@@ -729,9 +733,8 @@ export function Builder({
                         tooltipDisabled={itemInfoOpen}
                         unoptimized={isScreenshotMode}
                       />
-                    ) : (
-                      <div className="h-[66px] w-[66px]" />
                     )}
+
                     <ItemButton
                       item={buildState.items.mutator[weaponIndex]}
                       size="md"

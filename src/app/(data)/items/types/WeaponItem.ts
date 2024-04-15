@@ -1,11 +1,13 @@
 import { BuildItems } from '@prisma/client'
 
-import { Item } from '../../../../features/items/types'
+import { Item } from '@/features/items/types'
+
 import { weaponItems } from '../weaponItems'
 import { BaseItem } from './BaseItem'
 
 interface BaseWeaponItem extends BaseItem {
   type: 'long gun' | 'melee' | 'hand gun'
+  isRusty?: boolean
   accuracy?: number
   ammo?: number
   crit: number
@@ -21,6 +23,7 @@ interface BaseWeaponItem extends BaseItem {
 export class WeaponItem extends BaseItem implements BaseWeaponItem {
   public category: BaseWeaponItem['category'] = 'weapon'
   public type: BaseWeaponItem['type'] = 'long gun'
+  public isRusty?: BaseWeaponItem['isRusty'] = false
   public damage: BaseWeaponItem['damage'] = 0
   public accuracy?: BaseWeaponItem['accuracy'] = 0
   public ammo?: BaseWeaponItem['ammo'] = 0
@@ -35,6 +38,7 @@ export class WeaponItem extends BaseItem implements BaseWeaponItem {
   constructor(props: BaseWeaponItem) {
     super(props)
     this.type = props.type
+    this.isRusty = props.isRusty
     this.accuracy = props.accuracy
     this.ammo = props.ammo
     this.crit = props.crit

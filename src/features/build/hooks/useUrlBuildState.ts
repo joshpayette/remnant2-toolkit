@@ -286,7 +286,6 @@ export function useUrlBuildState() {
     })
 
     const cleanedBuildState = cleanUpBuildState(buildState)
-
     return cleanedBuildState
   }
 

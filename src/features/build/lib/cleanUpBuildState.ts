@@ -22,7 +22,12 @@ export function cleanUpBuildState(buildState: BuildState): BuildState {
       const linkedWeapon = weaponItems.find(
         (item) => item.name === mod.linkedItems?.weapon?.name,
       )
-      if (!linkedWeapon) return mod
+
+      console.info('linkedItems', linkedWeapon)
+
+      if (!linkedWeapon) {
+        return null
+      }
 
       if (buildState.items.weapon[index]?.id !== linkedWeapon.id) {
         return null
