@@ -1,4 +1,5 @@
-import { Item, ReleaseKey } from '../../../features/items/types'
+import { ItemLocation } from '@/app/(types)/locations'
+import { Item, ReleaseKey } from '@/features/items/types'
 
 export type EnemyCategory =
   | 'add'
@@ -9,21 +10,13 @@ export type EnemyCategory =
 
 export type BossCategory = 'boss' | 'world boss' | 'aberration'
 
-export type EnemyLocation =
-  | 'Losomn'
-  | `N'Erud`
-  | 'Yaesha'
-  | 'Labyrinth'
-  | 'Root Earth'
-
 export interface Enemy {
   id: string
   name: string
   imagePath?: string
   dlc?: ReleaseKey
   category: EnemyCategory
-  location: EnemyLocation
-  dungeon?: string
+  location?: ItemLocation
   wikiLinks: string[]
   bleedResistance?: number | 'immune'
   fireResistance?: number | 'immune'
