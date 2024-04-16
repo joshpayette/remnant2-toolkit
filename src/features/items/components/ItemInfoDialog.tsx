@@ -68,8 +68,6 @@ export function ItemInfoDialog({ item, open, onClose }: ItemInfoProps) {
               </a>
             ))}
             <BaseButton
-              plain
-              className="underline"
               aria-label="Copy link to item"
               onClick={() => {
                 copy(

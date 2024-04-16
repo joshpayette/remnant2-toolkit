@@ -2,7 +2,6 @@ import {
   ChartBarSquareIcon,
   MagnifyingGlassMinusIcon,
   MagnifyingGlassPlusIcon,
-  ShareIcon,
 } from '@heroicons/react/24/solid'
 import copy from 'clipboard-copy'
 import Image from 'next/image'
@@ -12,22 +11,22 @@ import { useLocalStorage } from 'usehooks-ts'
 
 import { BaseButton } from '@/app/(components)/_base/button'
 import { Link } from '@/app/(components)/_base/link'
+import { ArchetypeItem } from '@/app/(data)/items/types/ArchetypeItem'
+import { ArmorItem } from '@/app/(data)/items/types/ArmorItem'
+import { ModItem } from '@/app/(data)/items/types/ModItem'
+import { MutatorItem } from '@/app/(data)/items/types/MutatorItem'
+import { PerkItem } from '@/app/(data)/items/types/PerkItem'
+import { SkillItem } from '@/app/(data)/items/types/SkillItem'
+import { TraitItem } from '@/app/(data)/items/types/TraitItem'
+import { WeaponItem } from '@/app/(data)/items/types/WeaponItem'
+import { ArmorInfo } from '@/features/armor-calculator/ArmorInfo'
 import { getArrayOfLength } from '@/features/build/lib/getArrayOfLength'
 import getItemBuildStats from '@/features/items/actions/getItemBuildStats'
+import { cleanItemName } from '@/features/items/lib/cleanItemName'
+import { DescriptionWithTags } from '@/features/ui/DescriptionWithTags'
 import { Tooltip } from '@/features/ui/Tooltip'
 import { cn } from '@/lib/classnames'
 
-import { ArchetypeItem } from '../../../app/(data)/items/types/ArchetypeItem'
-import { ArmorItem } from '../../../app/(data)/items/types/ArmorItem'
-import { ModItem } from '../../../app/(data)/items/types/ModItem'
-import { MutatorItem } from '../../../app/(data)/items/types/MutatorItem'
-import { PerkItem } from '../../../app/(data)/items/types/PerkItem'
-import { SkillItem } from '../../../app/(data)/items/types/SkillItem'
-import { TraitItem } from '../../../app/(data)/items/types/TraitItem'
-import { WeaponItem } from '../../../app/(data)/items/types/WeaponItem'
-import { ArmorInfo } from '../../armor-calculator/ArmorInfo'
-import { DescriptionWithTags } from '../../ui/DescriptionWithTags'
-import { cleanItemName } from '../lib/cleanItemName'
 import { Item, ItemBuildStats } from '../types'
 import { WeaponInfo } from './WeaponInfo'
 
