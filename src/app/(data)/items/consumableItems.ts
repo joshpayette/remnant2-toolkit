@@ -124,7 +124,7 @@ export const consumableItems: ConsumableItem[] = [
     imagePath: '/consumable/faerie_needle.png',
     id: 'aqphr5',
     tags: ['Mod Power'],
-    description: `Regenerates 10 Mod Power per second. Lasts 60s.`
+    description: `Regenerates 10 Mod Power per second. Lasts 60s.`,
     wikiLinks: [`https://remnant.wiki/Faerie_Needle`],
   },
   {
