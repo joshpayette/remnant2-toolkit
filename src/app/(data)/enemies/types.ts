@@ -1,4 +1,4 @@
-import { Item, ReleaseKey } from '../../../features/items/types'
+import { Item, ReleaseKey } from '@/features/items/types'
 
 export type EnemyCategory =
   | 'add'
