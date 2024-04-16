@@ -3,7 +3,7 @@
 import { Metadata } from 'next'
 import React from 'react'
 
-import { Link } from '@/app/(components)/base/link'
+import { Link } from '@/app/(components)/_base/link'
 import { getServerSession } from '@/features/auth/lib'
 import { NAV_ITEMS } from '@/features/navigation/constants'
 

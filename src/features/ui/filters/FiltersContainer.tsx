@@ -1,7 +1,7 @@
 import { cn } from '@/lib/classnames'
 
-import { ApplyFiltersButton } from './ApplyFiltersButton'
-import { ClearFiltersButton } from './ClearFiltersButton'
+import { ApplyFiltersButton } from '../../../app/(components)/buttons/filter-buttons/apply-filters-button'
+import { ClearFiltersButton } from '../../../app/(components)/buttons/filter-buttons/clear-filters-button'
 
 interface Props<T> {
   areFiltersApplied: boolean

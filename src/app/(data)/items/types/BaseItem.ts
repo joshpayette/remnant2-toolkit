@@ -1,8 +1,5 @@
-import {
-  ItemTag,
-  LinkedItems,
-  ReleaseKey,
-} from '../../../../features/items/types'
+import { ItemLocation } from '@/app/(types)/locations'
+import { ItemTag, LinkedItems, ReleaseKey } from '@/features/items/types'
 
 type ItemCategory =
   | 'helm'
@@ -32,6 +29,7 @@ export interface BaseItemProps {
   imagePath: string
   saveFileSlug?: string
   description?: string
+  location?: ItemLocation
   cooldown?: number
   wikiLinks?: string[]
   linkedItems?: LinkedItems
@@ -64,6 +62,10 @@ export abstract class BaseItem implements BaseItemProps {
   public tags?: BaseItemProps['tags'] = []
   public dlc?: BaseItemProps['dlc'] = 'base'
   public description?: BaseItemProps['description'] = ''
+  public location?: BaseItemProps['location'] = {
+    world: 'Losomn',
+    dungeon: 'World Drop',
+  }
   public cooldown?: BaseItemProps['cooldown'] = -1
   public imagePath: BaseItemProps['imagePath'] = ''
   public wikiLinks?: BaseItemProps['wikiLinks'] = []
@@ -99,6 +101,7 @@ export abstract class BaseItem implements BaseItemProps {
     this.cooldown = props.cooldown
     this.imagePath = props.imagePath
     this.wikiLinks = props.wikiLinks
+    this.location = props.location
     this.linkedItems = props.linkedItems
     this.saveFileSlug = props.saveFileSlug
     this.health = props.health

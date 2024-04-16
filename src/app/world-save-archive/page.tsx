@@ -1,6 +1,6 @@
 import { Suspense } from 'react'
 
-import { Link } from '@/app/(components)/base/link'
+import { Link } from '@/app/(components)/_base/link'
 import { SaveItemList } from '@/app/world-save-archive/(components)/SaveItemList'
 import { SaveLookupFilters } from '@/app/world-save-archive/(components)/SaveLookupFilters'
 import { worldSaves } from '@/app/world-save-archive/(data)/worldSaves'

@@ -2,7 +2,7 @@ import { StarIcon } from '@heroicons/react/24/solid'
 import { BuildTags } from '@prisma/client'
 import { useCallback, useMemo, useState } from 'react'
 
-import { Link } from '@/app/(components)/base/link'
+import { Link } from '@/app/(components)/_base/link'
 import { perkItems } from '@/app/(data)/items/perkItems'
 import { TraitItem } from '@/app/(data)/items/types/TraitItem'
 import { FeaturedBuildBadge } from '@/features/build/components/build-card/FeaturedBuildBadge'
@@ -713,7 +713,11 @@ export function Builder({
                     unoptimized={isScreenshotMode}
                   />
                   <div className="flex w-full grow items-start justify-around gap-4">
-                    {weaponIndex !== 1 || buildState.items.mod[weaponIndex] ? (
+                    {(weaponIndex === 1 &&
+                      !buildState.items.mod[weaponIndex]) ||
+                    buildState.items.weapon[weaponIndex]?.isRusty ? (
+                      <div className="h-[66px] w-[66px]" />
+                    ) : (
                       <ItemButton
                         item={buildState.items.mod[weaponIndex]}
                         size="md"
@@ -729,9 +733,8 @@ export function Builder({
                         tooltipDisabled={itemInfoOpen}
                         unoptimized={isScreenshotMode}
                       />
-                    ) : (
-                      <div className="h-[66px] w-[66px]" />
                     )}
+
                     <ItemButton
                       item={buildState.items.mutator[weaponIndex]}
                       size="md"

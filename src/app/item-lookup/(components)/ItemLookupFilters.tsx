@@ -4,7 +4,7 @@ import isEqual from 'lodash.isequal'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import { useMemo, useRef, useState } from 'react'
 
-import { Button } from '@/app/(components)/base/button'
+import { BaseButton } from '@/app/(components)/_base/button'
 import { allItems } from '@/app/(data)/items/allItems'
 import { parseItemLookupFilters } from '@/app/item-lookup/(lib)/parseItemLookupFilters'
 import {
@@ -245,7 +245,7 @@ export function ItemLookupFilters({}: Props) {
                 />
               </div>
               {unappliedFilters.searchText !== '' ? (
-                <Button
+                <BaseButton
                   color="red"
                   onClick={() => {
                     handleSearchTextChange('')
@@ -258,7 +258,7 @@ export function ItemLookupFilters({}: Props) {
                   className="mt-2"
                 >
                   <TrashIcon className="h-5 w-5" />
-                </Button>
+                </BaseButton>
               ) : (
                 <div className="w-[45px]" />
               )}

@@ -1,4 +1,4 @@
-import { Button } from '@/app/(components)/base/button'
+import { BaseButton } from '@/app/(components)/_base/button'
 import { AvatarBox } from '@/app/profile/[userId]/(components)/AvatarBox'
 import { AVATARS } from '@/app/profile/[userId]/(lib)/constants'
 import { Dialog } from '@/features/ui/Dialog'
@@ -19,14 +19,14 @@ export function AvatarSelectDialog({ open, onClose, onSelect }: Props) {
     >
       <div className="grid w-full grid-cols-2 gap-2 sm:grid-cols-4 md:grid-cols-6">
         {AVATARS.map((avatar) => (
-          <Button
+          <BaseButton
             plain
             key={avatar.id}
             className="flex items-center justify-center"
             onClick={() => onSelect(avatar.id)}
           >
             <AvatarBox key={avatar.id} avatar={avatar} showLabel={true} />
-          </Button>
+          </BaseButton>
         ))}
       </div>
     </Dialog>

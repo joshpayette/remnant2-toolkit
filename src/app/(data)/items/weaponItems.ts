@@ -8,7 +8,8 @@ export const weaponItems: WeaponItem[] = [
     imagePath: '/mainhand/alpha_omega.png',
     id: '1ub6k9',
     description: `After charging, fires an accurate high-damage rail which penetrates any target. Each successful hit reduces the charge time by 0.1s and increases damage by 10% for 1.5s. Stacks 5x.`,
-    wikiLinks: [`https://remnant.wiki/Alpha-Omega`],
+    wikiLinks: [`https://remnant.wiki/Alpha_/_Omega`],
+    location: { world: 'Root Earth', dungeon: ['Blackened Citadel'] },
     linkedItems: {
       mod: {
         name: 'Beta Ray',
@@ -524,6 +525,7 @@ export const weaponItems: WeaponItem[] = [
     category: 'weapon',
     type: 'long gun',
     name: 'Rusty Lever Action',
+    isRusty: true,
     saveFileSlug: 'weapon_leveraction_rusty',
     imagePath: '/mainhand/rusty_lever_action.png',
     id: 'gv6yzu',
@@ -1764,6 +1766,7 @@ export const weaponItems: WeaponItem[] = [
     id: 'xzlpao',
     description: `A mid-range Pistol Shotgun with a brisk fire rate and medium recoil Slower reload.`,
     wikiLinks: [`https://remnant.wiki/Rupture_Cannon`],
+    location: { world: `N'Erud`, dungeon: [`Vault of the Formless`] },
     damage: 42,
     rps: 3.1,
     magazine: 12,
@@ -1779,6 +1782,7 @@ export const weaponItems: WeaponItem[] = [
     category: 'weapon',
     type: 'hand gun',
     name: 'Rusty Repeater',
+    isRusty: true,
     saveFileSlug: 'weapon_repeater_rusty',
     imagePath: '/offhand/rusty_repeater1.png',
     id: 't412us',

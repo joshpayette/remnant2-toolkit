@@ -2,7 +2,7 @@
 
 import { useFormStatus } from 'react-dom'
 
-import { Button } from '@/app/(components)/base/button'
+import { BaseButton } from '@/app/(components)/_base/button'
 import { Skeleton } from '@/features/ui/Skeleton'
 
 export function ImportSaveSubmitButton({
@@ -17,7 +17,7 @@ export function ImportSaveSubmitButton({
   const { pending } = useFormStatus()
 
   return (
-    <Button
+    <BaseButton
       color="cyan"
       type="submit"
       aria-label="Submit Form"
@@ -26,6 +26,6 @@ export function ImportSaveSubmitButton({
       className={className}
     >
       {!pending ? label : <Skeleton className="h-8 w-8" />}
-    </Button>
+    </BaseButton>
   )
 }

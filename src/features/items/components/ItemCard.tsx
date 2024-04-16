@@ -2,7 +2,6 @@ import {
   ChartBarSquareIcon,
   MagnifyingGlassMinusIcon,
   MagnifyingGlassPlusIcon,
-  ShareIcon,
 } from '@heroicons/react/24/solid'
 import copy from 'clipboard-copy'
 import Image from 'next/image'
@@ -10,24 +9,24 @@ import { useState } from 'react'
 import { toast } from 'react-toastify'
 import { useLocalStorage } from 'usehooks-ts'
 
-import { Button } from '@/app/(components)/base/button'
-import { Link } from '@/app/(components)/base/link'
+import { BaseButton } from '@/app/(components)/_base/button'
+import { Link } from '@/app/(components)/_base/link'
+import { ArchetypeItem } from '@/app/(data)/items/types/ArchetypeItem'
+import { ArmorItem } from '@/app/(data)/items/types/ArmorItem'
+import { ModItem } from '@/app/(data)/items/types/ModItem'
+import { MutatorItem } from '@/app/(data)/items/types/MutatorItem'
+import { PerkItem } from '@/app/(data)/items/types/PerkItem'
+import { SkillItem } from '@/app/(data)/items/types/SkillItem'
+import { TraitItem } from '@/app/(data)/items/types/TraitItem'
+import { WeaponItem } from '@/app/(data)/items/types/WeaponItem'
+import { ArmorInfo } from '@/features/armor-calculator/ArmorInfo'
 import { getArrayOfLength } from '@/features/build/lib/getArrayOfLength'
 import getItemBuildStats from '@/features/items/actions/getItemBuildStats'
+import { cleanItemName } from '@/features/items/lib/cleanItemName'
+import { DescriptionWithTags } from '@/features/ui/DescriptionWithTags'
 import { Tooltip } from '@/features/ui/Tooltip'
 import { cn } from '@/lib/classnames'
 
-import { ArchetypeItem } from '../../../app/(data)/items/types/ArchetypeItem'
-import { ArmorItem } from '../../../app/(data)/items/types/ArmorItem'
-import { ModItem } from '../../../app/(data)/items/types/ModItem'
-import { MutatorItem } from '../../../app/(data)/items/types/MutatorItem'
-import { PerkItem } from '../../../app/(data)/items/types/PerkItem'
-import { SkillItem } from '../../../app/(data)/items/types/SkillItem'
-import { TraitItem } from '../../../app/(data)/items/types/TraitItem'
-import { WeaponItem } from '../../../app/(data)/items/types/WeaponItem'
-import { ArmorInfo } from '../../armor-calculator/ArmorInfo'
-import { DescriptionWithTags } from '../../ui/DescriptionWithTags'
-import { cleanItemName } from '../lib/cleanItemName'
 import { Item, ItemBuildStats } from '../types'
 import { WeaponInfo } from './WeaponInfo'
 
@@ -122,8 +121,8 @@ export function ItemCard({
                 </div>
               ) : (
                 <Tooltip content="Get stats on how many featured and community builds the item is used in.">
-                  <Button
-                    color="green"
+                  <BaseButton
+                    outline
                     onClick={async () => {
                       const response = await getItemBuildStats(item.id)
                       if (!response.success) {
@@ -134,28 +133,28 @@ export function ItemCard({
                     }}
                   >
                     <ChartBarSquareIcon className="h-5 w-5" />
-                  </Button>
+                  </BaseButton>
                 </Tooltip>
               )}
             </div>
             <div className="flex w-full items-center justify-end">
               {itemBeingCompared ? (
                 <Tooltip content="Remove from item comparison.">
-                  <Button color="red" onClick={handleRemoveItemFromCompare}>
+                  <BaseButton outline onClick={handleRemoveItemFromCompare}>
                     <MagnifyingGlassMinusIcon className="h-5 w-5" />
-                  </Button>
+                  </BaseButton>
                 </Tooltip>
               ) : (
                 <Tooltip content="Add to item comparison.">
-                  <Button color="yellow" onClick={handleAddItemToCompare}>
+                  <BaseButton outline onClick={handleAddItemToCompare}>
                     <MagnifyingGlassPlusIcon className="h-5 w-5" />
-                  </Button>
+                  </BaseButton>
                 </Tooltip>
               )}
             </div>
           </div>
         ) : null}
-        <Button
+        <BaseButton
           plain
           onClick={() => onMoreInfoClick(item)}
           aria-label="More Info"
@@ -175,7 +174,7 @@ export function ItemCard({
           />
 
           {name}
-        </Button>
+        </BaseButton>
         <div className="mt-0 flex flex-grow flex-col justify-start text-xs">
           <div className="sr-only">Item Category</div>
           <div className="text-xs text-gray-400">
@@ -346,10 +345,10 @@ export function ItemCard({
           ))}
       </div>
       <div>
-        <div className="-mt-px flex divide-x divide-primary-800">
-          <Button
+        <div className="-mt-px grid grid-cols-2 divide-x divide-primary-800">
+          <BaseButton
             plain
-            className="relative inline-flex flex-1 items-center justify-center gap-x-1"
+            className="relative flex items-center justify-center"
             aria-label="Share Item Link"
             onClick={() => {
               copy(
@@ -360,28 +359,18 @@ export function ItemCard({
               toast.success('Copied link to clipboard')
             }}
           >
-            <ShareIcon className="h-4 w-4" aria-hidden="true" />
             Share
-          </Button>
+          </BaseButton>
 
-          <div className="-ml-px flex w-0 flex-1">
-            <div className="flex w-0 flex-1">
-              <Button
-                plain
-                onClick={() => onMoreInfoClick(item)}
-                aria-label="More Info"
-                className="w-full"
-              >
-                <Image
-                  src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/toolkit/info-yellow.png`}
-                  alt="Info icon"
-                  width={16}
-                  height={16}
-                  className="h-4 w-4"
-                />
-                Info
-              </Button>
-            </div>
+          <div className="flex w-full items-center justify-center">
+            <BaseButton
+              plain
+              onClick={() => onMoreInfoClick(item)}
+              aria-label="More Info"
+              className="w-full"
+            >
+              Info
+            </BaseButton>
           </div>
         </div>
       </div>

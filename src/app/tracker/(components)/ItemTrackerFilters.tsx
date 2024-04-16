@@ -1,14 +1,14 @@
 import { useCallback, useEffect, useState } from 'react'
 import { useDebounceValue, useLocalStorage } from 'usehooks-ts'
 
+import { ClearFiltersButton } from '@/app/(components)/buttons/filter-buttons/clear-filters-button'
+import { Input } from '@/app/(components)/form-fields/input'
 import { MutatorItem } from '@/app/(data)/items/types/MutatorItem'
 import { WeaponItem } from '@/app/(data)/items/types/WeaponItem'
 import { FilteredItem } from '@/app/tracker/(lib)/useFilteredItems'
 import { RELEASE_TO_NAME } from '@/features/items/constants'
 import { ReleaseKey } from '@/features/items/types'
 import { Checkbox } from '@/features/ui/Checkbox'
-import { ClearFiltersButton } from '@/features/ui/filters/ClearFiltersButton'
-import { SearchInput } from '@/features/ui/SearchInput'
 import { SelectMenu } from '@/features/ui/SelectMenu'
 import { cn } from '@/lib/classnames'
 
@@ -240,8 +240,9 @@ export function ItemTrackerFilters({
               Search
             </span>
 
-            <SearchInput
-              onChange={handleSearchTextChange}
+            <Input
+              onChange={(e) => handleSearchTextChange(e.target.value)}
+              onClear={() => handleSearchTextChange('')}
               value={searchText}
               placeholder={'Search item names and descriptions'}
             />

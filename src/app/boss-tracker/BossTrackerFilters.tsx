@@ -2,13 +2,13 @@ import isEqual from 'lodash/isEqual'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import { useEffect, useMemo, useState } from 'react'
 
+import { Input } from '@/app/(components)/form-fields/input'
 import { BossCategory } from '@/app/(data)/enemies/types'
 import {
   BossCategoryFilters,
   DEFAULT_BOSS_FILTERS,
 } from '@/features/build/filters/parts/BossCategoryFilters'
 import { FiltersContainer } from '@/features/ui/filters/FiltersContainer'
-import { SearchInput } from '@/features/ui/SearchInput'
 
 import { BossTrackerFilterFields } from './types'
 
@@ -154,9 +154,10 @@ export function BossTrackerFilters({ onUpdateFilters }: Props) {
       <div className="col-span-full flex w-full flex-col items-start justify-start gap-x-4 gap-y-2 border-b border-b-primary-800 pb-4">
         <div className="grid w-full grid-cols-1 gap-y-4 sm:grid-cols-3 sm:gap-x-4 sm:gap-y-0">
           <div className="col-span-full flex w-full flex-col items-start justify-end">
-            <SearchInput
+            <Input
               onKeyDown={() => handleApplyFilters(unappliedFilters)}
-              onChange={handleSearchTextChange}
+              onChange={(e) => handleSearchTextChange(e.target.value)}
+              onClear={() => handleSearchTextChange('')}
               value={unappliedFilters.searchText}
               placeholder={'Search boss names'}
             />

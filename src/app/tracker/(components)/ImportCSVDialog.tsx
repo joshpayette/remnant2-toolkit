@@ -1,6 +1,6 @@
-import { Button } from '@/app/(components)/base/button'
+import { BaseButton } from '@/app/(components)/_base/button'
+import { ToCsvButton } from '@/app/(components)/buttons/to-csv-button'
 import { CsvItem } from '@/features/items/types'
-import { ToCsvButton } from '@/features/ui/buttons/ToCsvButton'
 import { Dialog } from '@/features/ui/Dialog'
 
 interface Props {
@@ -34,14 +34,14 @@ export function ImportCSVDialog({
             className="rounded-md border border-primary-500 p-4 text-sm"
             ref={fileInputRef}
           />
-          <Button
+          <BaseButton
             onClick={onSubmit}
             aria-label="Import CSV file"
             className="w-[200px]"
             color="cyan"
           >
             Import CSV
-          </Button>
+          </BaseButton>
         </div>
       </div>
       <div className="col-span-full mt-8 gap-y-4 overflow-x-auto bg-black text-left">

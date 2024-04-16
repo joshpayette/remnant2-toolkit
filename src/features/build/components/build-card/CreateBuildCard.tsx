@@ -1,6 +1,6 @@
 import Image from 'next/image'
 
-import { Link } from '@/app/(components)/base/link'
+import { Link } from '@/app/(components)/_base/link'
 import { cn } from '@/lib/classnames'
 
 export function CreateBuildCard() {

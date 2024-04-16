@@ -1,4 +1,4 @@
-import { Button } from '@/app/(components)/base/button'
+import { BaseButton } from '@/app/(components)/_base/button'
 
 interface Props {
   onClick: () => void
@@ -6,13 +6,13 @@ interface Props {
 
 export function DetailedViewButton({ onClick }: Props) {
   return (
-    <Button
+    <BaseButton
       outline
       onClick={onClick}
       aria-label="Show detailed view of build"
       className="sm:w-full"
     >
       Detailed View
-    </Button>
+    </BaseButton>
   )
 }

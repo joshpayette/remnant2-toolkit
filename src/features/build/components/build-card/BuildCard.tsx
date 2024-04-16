@@ -8,8 +8,8 @@ import {
   VideoCameraIcon,
 } from '@heroicons/react/24/solid'
 
-import { Button } from '@/app/(components)/base/button'
-import { Link } from '@/app/(components)/base/link'
+import { BaseButton } from '@/app/(components)/_base/button'
+import { Link } from '@/app/(components)/_base/link'
 import { dbBuildToBuildState } from '@/features/build/lib/dbBuildToBuildState'
 import { formatUpdatedAt } from '@/features/build/lib/formatUpdatedAt'
 import { getArchetypeBuildName } from '@/features/build/lib/getArchetypeBuildName'
@@ -176,27 +176,27 @@ export function BuildCard({
                       build.isPublic ? 'public' : 'private'
                     }`}
                   >
-                    <Button outline>
+                    <BaseButton outline>
                       {build.isPublic ? (
                         <EyeIcon className="h-4 w-4" />
                       ) : (
                         <EyeSlashIcon className="h-4 w-4" />
                       )}
-                    </Button>
+                    </BaseButton>
                   </Tooltip>
                 ) : null}
                 {build.buildLink ? (
                   <Tooltip content="Build includes a reference link">
-                    <Button outline>
+                    <BaseButton outline>
                       <PaperClipIcon className="h-4 w-4" />
-                    </Button>
+                    </BaseButton>
                   </Tooltip>
                 ) : null}
                 {buildState.videoUrl ? (
                   <Tooltip content="Build includes a video">
-                    <Button outline>
+                    <BaseButton outline>
                       <VideoCameraIcon className="h-4 w-4" />
-                    </Button>
+                    </BaseButton>
                   </Tooltip>
                 ) : null}
               </div>

@@ -11,7 +11,7 @@ import { Analytics } from '@vercel/analytics/react'
 import { Viewport } from 'next'
 import { ToastContainer } from 'react-toastify'
 
-import { Link } from '@/app/(components)/base/link'
+import { Link } from '@/app/(components)/_base/link'
 import { GlobalActionButtons } from '@/app/(components)/buttons/global-action-buttons/global-action-buttons'
 import { PreloadResources } from '@/features/ui/PreloadResources'
 
@@ -29,7 +29,7 @@ export default async function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
       <body
         className={cn(
           'relative flex min-h-fit flex-col items-center justify-start',
@@ -75,7 +75,7 @@ export default async function RootLayout({
             </header>
 
             <main className="flex h-full min-h-screen w-full grow flex-col items-center justify-start p-4 pt-0">
-              <ToastContainer theme="dark" />
+              <ToastContainer theme="dark" pauseOnFocusLoss={false} />
               {children}
             </main>
           </div>

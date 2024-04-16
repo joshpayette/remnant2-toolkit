@@ -4,6 +4,26 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-04-15
+
+### Fixed
+
+- Fixed an issue where melee mods were not removable after unequipping the weapon. A more general fix was applied to run the cleanup function any time a build state update occurs.
+- Fixed an issue where Rusty weapons were able to have mods equipped in the builder.
+
+## 2024-04-14
+
+### Changed
+
+- Updated the look and feel of alerts and prompts throughout the site.
+- Bug report prompt now stylized and allows more text.
+- Popup notifications will no longer pause their timer when window loses focus.
+
+### Fixed
+
+- Fixed (maybe?) issue where you could click on prompt confirm buttons multiple times.
+- Fixed issue where systems with light-mode were not able to see some text and buttons.
+
 ## 2024-04-13
 
 ### Added

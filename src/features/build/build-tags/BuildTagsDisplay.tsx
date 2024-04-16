@@ -1,6 +1,6 @@
 import { BuildTags } from '@prisma/client'
 
-import { Button } from '@/app/(components)/base/button'
+import { BaseButton } from '@/app/(components)/_base/button'
 import { cn } from '@/lib/classnames'
 
 import { MAX_BUILD_TAGS } from '../constants'
@@ -71,7 +71,7 @@ export function BuildTagsDisplay({
           if (!isEditable && !isActive) return null
 
           return isEditable ? (
-            <Button
+            <BaseButton
               plain
               key={index}
               onClick={() => handleTagClick({ tag, isActive })}
@@ -82,7 +82,7 @@ export function BuildTagsDisplay({
                 isScreenshotMode={isScreenshotMode}
                 tag={tag}
               />
-            </Button>
+            </BaseButton>
           ) : (
             <BuildTagItem
               key={index}

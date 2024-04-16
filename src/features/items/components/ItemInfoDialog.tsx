@@ -2,8 +2,8 @@ import copy from 'clipboard-copy'
 import Image from 'next/image'
 import { toast } from 'react-toastify'
 
-import { Button } from '@/app/(components)/base/button'
-import { Link } from '@/app/(components)/base/link'
+import { BaseButton } from '@/app/(components)/_base/button'
+import { Link } from '@/app/(components)/_base/link'
 import { ArchetypeItem } from '@/app/(data)/items/types/ArchetypeItem'
 import { ArmorItem } from '@/app/(data)/items/types/ArmorItem'
 import { ModItem } from '@/app/(data)/items/types/ModItem'
@@ -62,14 +62,12 @@ export function ItemInfoDialog({ item, open, onClose }: ItemInfoProps) {
                 href={link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white underline"
+                className="font-bold text-white underline"
               >
                 Wiki Link
               </a>
             ))}
-            <Button
-              plain
-              className="underline"
+            <BaseButton
               aria-label="Copy link to item"
               onClick={() => {
                 copy(
@@ -81,7 +79,7 @@ export function ItemInfoDialog({ item, open, onClose }: ItemInfoProps) {
               }}
             >
               Share
-            </Button>
+            </BaseButton>
           </span>
         </span>
       }

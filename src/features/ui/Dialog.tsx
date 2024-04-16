@@ -4,7 +4,7 @@ import { Dialog as BaseDialog, Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/solid'
 import { Fragment } from 'react'
 
-import { Button } from '@/app/(components)/base/button'
+import { BaseButton } from '@/app/(components)/_base/button'
 import { cn } from '@/lib/classnames'
 
 export type DialogMaxWidthClass =
@@ -72,9 +72,9 @@ export function Dialog({
             >
               <BaseDialog.Panel className="relative h-full max-h-fit w-full transform overflow-y-auto border-2 border-primary-500 bg-black px-4 py-4 text-left shadow-xl transition-all sm:my-8">
                 <span className="absolute right-0 top-0">
-                  <Button plain onClick={onClose} aria-label="Close dialog">
+                  <BaseButton plain onClick={onClose} aria-label="Close dialog">
                     <XMarkIcon className="h-5 w-5" aria-hidden="true" />
-                  </Button>
+                  </BaseButton>
                 </span>
                 <div className="text-center">
                   <BaseDialog.Title
