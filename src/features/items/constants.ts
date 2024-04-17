@@ -407,6 +407,12 @@ export const DESCRIPTION_TAGS = [
     color: 'text-[#05baf9]',
     description: `Elemental: Burning, Corroded, Overloaded.`,
   },
+  {
+    type: 'PRERELEASE',
+    token: 'PRERELEASE',
+    color: 'text-[#ecfc00]',
+    description: `This is prerelease content. Information might not be accurate or change.`,
+  },
 ] as const satisfies {
   type: string
   token: string

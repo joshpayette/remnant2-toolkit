@@ -1250,4 +1250,64 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
       },
     },
   },
+  {
+    category: 'perk',
+    name: 'INVOKER PERK #1', // TODO
+    imagePath: 'placeholder.jpg',
+    type: 'prime',
+    id: 'hYsQ4M',
+    tags: [],
+    description: 'NO DESCRIPTION YET', // TODO
+    wikiLinks: [],
+    linkedItems: {
+      archetype: {
+        name: 'Invoker',
+      },
+    },
+  },
+  {
+    category: 'perk',
+    name: 'INVOKER PERK #2', // TODO
+    imagePath: 'placeholder.jpg',
+    type: 'damage',
+    id: 'Y9Tj7F',
+    tags: [],
+    description: 'NO DESCRIPTION YET', // TODO
+    wikiLinks: [],
+    linkedItems: {
+      archetype: {
+        name: 'Invoker',
+      },
+    },
+  },
+  {
+    category: 'perk',
+    name: 'INVOKER PERK #3', // TODO
+    imagePath: 'placeholder.jpg',
+    type: 'team',
+    id: 'GV9bDr',
+    tags: [],
+    description: 'NO DESCRIPTION YET', // TODO
+    wikiLinks: [],
+    linkedItems: {
+      archetype: {
+        name: 'Invoker',
+      },
+    },
+  },
+  {
+    category: 'perk',
+    name: 'INVOKER PERK #4', // TODO
+    imagePath: 'placeholder.jpg',
+    type: 'utility',
+    id: 'T2U4dZ',
+    tags: [],
+    description: 'NO DESCRIPTION YET', // TODO
+    wikiLinks: [],
+    linkedItems: {
+      archetype: {
+        name: 'Invoker',
+      },
+    },
+  },
 ]
