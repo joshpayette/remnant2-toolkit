@@ -261,6 +261,29 @@ export const archetypeItems: ArchetypeItem[] = [
   },
   {
     category: 'archetype',
+    name: 'Invoker',
+    imagePath: 'placeholder.jpg', // TODO
+    id: 'Y2NhrX',
+    dlc: 'dlc2',
+    description: 'NO DESCRIPTION YET', // TODO
+    wikiLinks: [],
+    linkedItems: {
+      traits: [],
+      skills: [
+        { name: 'INVOKER SKILL #1' }, // TODO
+        { name: 'INVOKER SKILL #2' }, // TODO
+        { name: 'INVOKER SKILL #3' }, // TODO
+      ],
+      perks: [
+        { name: 'INVOKER PERK #1' }, // TODO
+        { name: 'INVOKER PERK #2' }, // TODO
+        { name: 'INVOKER PERK #3' }, // TODO
+        { name: 'INVOKER PERK #4' }, // TODO
+      ],
+    },
+  },
+  {
+    category: 'archetype',
     name: 'Medic',
     imagePath: '/archtype/medic.png',
     id: 'd6fvmc',

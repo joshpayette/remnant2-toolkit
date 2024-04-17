@@ -639,4 +639,46 @@ export const skillItems: SkillItem[] = [
       },
     },
   },
+  {
+    category: 'skill',
+    name: 'INVOKER SKILL #1', // TODO
+    imagePath: 'placeholder.jpg', // TODO
+    id: 'h4B9dD',
+    tags: [],
+    description: 'NO DESCRIPTION YET', // TODO
+    wikiLinks: [],
+    linkedItems: {
+      archetype: {
+        name: 'Invoker',
+      },
+    },
+  },
+  {
+    category: 'skill',
+    name: 'INVOKER SKILL #2', // TODO
+    imagePath: 'placeholder.jpg', // TODO
+    id: '7DnBmE',
+    tags: [],
+    description: 'NO DESCRIPTION YET', // TODO
+    wikiLinks: [],
+    linkedItems: {
+      archetype: {
+        name: 'Invoker',
+      },
+    },
+  },
+  {
+    category: 'skill',
+    name: 'INVOKER SKILL #3', // TODO
+    imagePath: 'placeholder.jpg', // TODO
+    id: 'T2xA6c',
+    tags: [],
+    description: 'NO DESCRIPTION YET', // TODO
+    wikiLinks: [],
+    linkedItems: {
+      archetype: {
+        name: 'Invoker',
+      },
+    },
+  },
 ]
