@@ -1253,7 +1253,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
   {
     category: 'perk',
     name: 'INVOKER PERK #1', // TODO
-    imagePath: 'placeholder.jpg',
+    imagePath: '/placeholder.jpg',
     type: 'prime',
     id: 'hYsQ4M',
     dlc: 'dlc2',
@@ -1269,7 +1269,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
   {
     category: 'perk',
     name: 'INVOKER PERK #2', // TODO
-    imagePath: 'placeholder.jpg',
+    imagePath: '/placeholder.jpg',
     type: 'damage',
     id: 'Y9Tj7F',
     dlc: 'dlc2',
@@ -1285,7 +1285,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
   {
     category: 'perk',
     name: 'INVOKER PERK #3', // TODO
-    imagePath: 'placeholder.jpg',
+    imagePath: '/placeholder.jpg',
     type: 'team',
     id: 'GV9bDr',
     dlc: 'dlc2',
@@ -1301,7 +1301,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
   {
     category: 'perk',
     name: 'INVOKER PERK #4', // TODO
-    imagePath: 'placeholder.jpg',
+    imagePath: '/placeholder.jpg',
     type: 'utility',
     id: 'T2U4dZ',
     dlc: 'dlc2',

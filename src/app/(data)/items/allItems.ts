@@ -1,4 +1,5 @@
-import { Item } from '../../../features/items/types'
+import { Item } from '@/features/items/types'
+
 import { amuletItems } from './amuletItems'
 import { archetypeItems } from './archetypeItems'
 import { armorItems } from './armorItems'

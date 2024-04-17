@@ -450,4 +450,21 @@ export const traitItems: TraitItem[] = [
     wikiLinks: [`https://remnant.wiki/Wayfarer`],
     amount: DEFAULT_TRAIT_AMOUNT,
   },
+  {
+    category: 'trait',
+    name: 'INVOKER TRAIT',
+    imagePath: '/placeholder.jpg',
+    id: 'c9af3B',
+    dlc: 'dlc2',
+    tags: [],
+    description: 'NO DESCRIPTION YET',
+    maxLevelBonus: 'NO DESCRIPTION YET',
+    wikiLinks: [],
+    amount: DEFAULT_TRAIT_AMOUNT,
+    linkedItems: {
+      archetype: {
+        name: 'Invoker',
+      },
+    },
+  },
 ]

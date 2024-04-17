@@ -262,13 +262,15 @@ export const archetypeItems: ArchetypeItem[] = [
   {
     category: 'archetype',
     name: 'Invoker',
-    imagePath: 'placeholder.jpg', // TODO
+    imagePath: '/placeholder.jpg', // TODO
     id: 'Y2NhrX',
     dlc: 'dlc2',
     description: 'NO DESCRIPTION YET', // TODO
     wikiLinks: [],
     linkedItems: {
-      traits: [],
+      traits: [
+        { name: 'INVOKER TRAIT', amount: 10 }, // TODO
+      ],
       skills: [
         { name: 'INVOKER SKILL #1' }, // TODO
         { name: 'INVOKER SKILL #2' }, // TODO

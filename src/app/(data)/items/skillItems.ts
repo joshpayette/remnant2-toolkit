@@ -642,7 +642,7 @@ export const skillItems: SkillItem[] = [
   {
     category: 'skill',
     name: 'INVOKER SKILL #1', // TODO
-    imagePath: 'placeholder.jpg', // TODO
+    imagePath: '/placeholder.jpg', // TODO
     id: 'h4B9dD',
     dlc: 'dlc2',
     tags: [],
@@ -657,7 +657,7 @@ export const skillItems: SkillItem[] = [
   {
     category: 'skill',
     name: 'INVOKER SKILL #2', // TODO
-    imagePath: 'placeholder.jpg', // TODO
+    imagePath: '/placeholder.jpg', // TODO
     id: '7DnBmE',
     dlc: 'dlc2',
     tags: [],
@@ -672,7 +672,7 @@ export const skillItems: SkillItem[] = [
   {
     category: 'skill',
     name: 'INVOKER SKILL #3', // TODO
-    imagePath: 'placeholder.jpg', // TODO
+    imagePath: '/placeholder.jpg', // TODO
     id: 'T2xA6c',
     dlc: 'dlc2',
     tags: [],
