@@ -375,16 +375,10 @@ export const DESCRIPTION_TAGS = [
     description: 'Reduces Mod Power Generation by 50%.',
   },
   {
-    type: 'Status Effects',
-    token: 'Status Effects',
-    color: 'text-purple-400',
-    description: `Elemental: Burning, Corroded, Overloaded. Physical: Bleeding.`,
-  },
-  {
-    type: 'Status Effect',
-    token: 'Status Effect',
-    color: 'text-purple-400',
-    description: `Elemental: Burning, Corroded, Overloaded. Physical: Bleeding.`,
+    type: 'PRERELEASE',
+    token: 'PRERELEASE',
+    color: 'text-[#ecfc00]',
+    description: `This is prerelease content. Information might not be accurate or change.`,
   },
   {
     type: 'Weakspot Damage',
@@ -412,10 +406,22 @@ export const DESCRIPTION_TAGS = [
     description: `Elemental: Burning, Corroded, Overloaded.`,
   },
   {
-    type: 'PRERELEASE',
-    token: 'PRERELEASE',
-    color: 'text-[#ecfc00]',
-    description: `This is prerelease content. Information might not be accurate or change.`,
+    type: 'Elemental Status Effect',
+    token: 'Elemental Status Effect',
+    color: 'text-[#05baf9]',
+    description: `Elemental: Burning, Corroded, Overloaded.`,
+  },
+  {
+    type: 'Status Effects',
+    token: 'Status Effects',
+    color: 'text-purple-400',
+    description: `Elemental: Burning, Corroded, Overloaded. Physical: Bleeding.`,
+  },
+  {
+    type: 'Status Effect',
+    token: 'Status Effect',
+    color: 'text-purple-400',
+    description: `Elemental: Burning, Corroded, Overloaded. Physical: Bleeding.`,
   },
 ] as const satisfies {
   type: string

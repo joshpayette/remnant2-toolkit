@@ -309,6 +309,11 @@ export const worldSaves = [
   },
   {
     bossName: 'Primogenitor',
+    bossAffixes: ['Spiteful', 'Vicious'],
+    release: 'dlc1',
+  },
+  {
+    bossName: 'Primogenitor',
     bossAffixes: ['Thick Skin', 'Unstoppable'],
     release: 'dlc1',
   },
@@ -319,6 +324,16 @@ export const worldSaves = [
   },
   {
     bossName: `Sha'Hala: Guardian of N'Erud`,
+    bossAffixes: ['Spiteful', 'Vicious'],
+    release: 'dlc1',
+  },
+  {
+    bossName: `Sha'Hala: Guardian of N'Erud (Phase 2)`,
+    bossAffixes: ['Elemental Resist', 'Vicious'],
+    release: 'dlc1',
+  },
+  {
+    bossName: `Sha'Hala: Guardian of N'Erud (Phase 2)`,
     bossAffixes: ['Spiteful', 'Vicious'],
     release: 'dlc1',
   },
@@ -423,6 +438,11 @@ export const worldSaves = [
     release: 'dlc1',
   },
   {
+    bossName: 'The Nightweaver',
+    bossAffixes: ['Skullcracker', 'Vicious'],
+    release: 'dlc1',
+  },
+  {
     bossName: 'The One True King',
     bossAffixes: ['Hearty', 'Spiteful'],
     release: 'dlc1',
@@ -495,6 +515,11 @@ export const worldSaves = [
   {
     bossName: 'Venom',
     bossAffixes: ['Regenerator', 'Spiteful'],
+    release: 'dlc1',
+  },
+  {
+    bossName: 'Venom',
+    bossAffixes: ['Skullcracker', 'Vicious'],
     release: 'dlc1',
   },
   {

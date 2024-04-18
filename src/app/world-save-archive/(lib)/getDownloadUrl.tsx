@@ -10,6 +10,10 @@ export function getDownloadUrl(bossName: string, bossAffixes: string[]) {
     .replace(/:/g, '')
     // replace spaces with underscores
     .replace(/ /g, '_')
+    // replace open parentheses with empty string
+    .replace(/\(/g, '')
+    // replace close parentheses with empty string
+    .replace(/\)/g, '')
     .toLowerCase()
 
   const cleanAffixes = bossAffixes
