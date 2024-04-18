@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - World Save for Primogenitor, Spiteful/Vicious
 - World Save for The Nightweaver, Skullcracker/Vicious
 - World Save for Venom, Skullcracker/Vicious
+- Added Invoker archetype, skills, perks, and trait to the builder and item lookup pages!
 
 ## 2024-04-15
 
