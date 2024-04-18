@@ -1252,13 +1252,13 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
   },
   {
     category: 'perk',
-    name: 'INVOKER PERK #1', // TODO
+    name: 'Visionary'
     imagePath: '/placeholder.jpg',
     type: 'prime',
     id: 'hYsQ4M',
     dlc: 'dlc2',
-    tags: [],
-    description: 'NO DESCRIPTION YET', // TODO
+    tags: ['Reduce Skill Cooldown',],
+    description: 'PRERELEASE Doubles Base Skill Charges for all Archetypes. Skill activation reduces all Skill Cooldowns by 10%. For Heavy Weapons, doubles Heavy Weapon Base Ammo instead.',
     wikiLinks: [],
     linkedItems: {
       archetype: {
