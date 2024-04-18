@@ -639,4 +639,49 @@ export const skillItems: SkillItem[] = [
       },
     },
   },
+  {
+    category: 'skill',
+    name: 'Way of Kaeula',
+    imagePath: '/skill/way-of-kaeula-placeholder.png', // TODO
+    id: 'h4B9dD',
+    dlc: 'dlc2',
+    tags: [],
+    description: 'NO DESCRIPTION YET', // TODO
+    wikiLinks: [],
+    linkedItems: {
+      archetype: {
+        name: 'Invoker',
+      },
+    },
+  },
+  {
+    category: 'skill',
+    name: 'Way of Meidra',
+    imagePath: '/skill/way-of-meidra-placeholder.png',
+    id: '7DnBmE',
+    dlc: 'dlc2',
+    tags: [],
+    description: 'NO DESCRIPTION YET', // TODO
+    wikiLinks: [],
+    linkedItems: {
+      archetype: {
+        name: 'Invoker',
+      },
+    },
+  },
+  {
+    category: 'skill',
+    name: 'Way of Lydusa',
+    imagePath: '/skill/way-of-lydusa-placeholder.png', // TODO
+    id: 'T2xA6c',
+    dlc: 'dlc2',
+    tags: [],
+    description: 'NO DESCRIPTION YET', // TODO
+    wikiLinks: [],
+    linkedItems: {
+      archetype: {
+        name: 'Invoker',
+      },
+    },
+  },
 ]

@@ -60,6 +60,10 @@ export const ARCHTYPE_COLORS = {
     bg: 'bg-[#362136]',
     text: 'text-[#eaa8ee]',
   },
+  INVOKER: {
+    bg: 'bg-[#2c1f21]', // TODO
+    text: 'text-[#d5b1b1]', // TODO
+  },
   MEDIC: {
     bg: 'bg-[#0f3021]',
     text: 'text-[#8bc0aa]',
@@ -107,6 +111,7 @@ export const WEIGHT_CLASSES = {
 export const RELEASE_TO_NAME = {
   base: 'Base Game',
   dlc1: 'The Awakened King',
+  dlc2: 'The Forgotten Kingdom',
 } as const
 
 export const DESCRIPTION_TAGS = [

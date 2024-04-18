@@ -24,6 +24,8 @@ export function ArchtypeLabel({ name }: { name: string }) {
           `${ARCHTYPE_COLORS.HUNTER.bg} ${ARCHTYPE_COLORS.HUNTER.text}`,
         name.toLowerCase() === 'invader' &&
           `${ARCHTYPE_COLORS.INVADER.bg} ${ARCHTYPE_COLORS.INVADER.text}`,
+        name.toLowerCase() === 'invoker' &&
+          `${ARCHTYPE_COLORS.INVOKER.bg} ${ARCHTYPE_COLORS.INVOKER.text}`,
         name.toLowerCase() === 'medic' &&
           `${ARCHTYPE_COLORS.MEDIC.bg} ${ARCHTYPE_COLORS.MEDIC.text}`,
         name.toLowerCase() === 'summoner' &&

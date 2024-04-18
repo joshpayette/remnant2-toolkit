@@ -261,6 +261,30 @@ export const archetypeItems: ArchetypeItem[] = [
   },
   {
     category: 'archetype',
+    name: 'Invoker',
+    imagePath: '/archtype/invoker-placeholder.png', // TODO
+    id: 'Y2NhrX',
+    dlc: 'dlc2',
+    description: 'NO DESCRIPTION YET', // TODO
+    wikiLinks: [],
+    linkedItems: {
+      traits: [{ name: 'Gifted', amount: 10 }],
+      skills: [
+        { name: 'Way of Kaeula' },
+        { name: 'Way of Meidra' },
+        { name: 'Way of Lydusa' },
+      ],
+      perks: [
+        { name: 'Visionary' },
+        { name: 'Entranced' },
+        { name: 'Communion' },
+        { name: 'Mind and Body' },
+        { name: 'soothsayer' },
+      ],
+    },
+  },
+  {
+    category: 'archetype',
     name: 'Medic',
     imagePath: '/archtype/medic.png',
     id: 'd6fvmc',

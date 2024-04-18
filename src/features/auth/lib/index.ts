@@ -32,8 +32,6 @@ export const authOptions: NextAuthOptions = {
     },
 
     async session({ session, user }) {
-      console.info('session.user')
-
       // Check if user is banned
       const isBanned = await prisma.bannedUsers
         .findFirst({

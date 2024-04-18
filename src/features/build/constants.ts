@@ -93,6 +93,18 @@ export const ARCHETYPE_BUILD_NAMES: Array<{
   archetypes: Archetype[]
   name: string
 }> = [
+  { archetypes: ['invoker', 'summoner'], name: 'of Darkness' },
+  { archetypes: ['invoker', 'handler'], name: 'pf Friendship' },
+  { archetypes: ['invoker', 'medic'], name: 'of Healing' },
+  { archetypes: ['invoker', 'explorer'], name: 'of Wonder' },
+  { archetypes: ['invoker', 'gunslinger'], name: 'of Frenzy' },
+  { archetypes: ['invoker', 'challenger'], name: 'of Combat' },
+  { archetypes: ['invoker', 'hunter'], name: 'of Stalking' },
+  { archetypes: ['invoker', 'invader'], name: 'of Violence' },
+  { archetypes: ['invoker', 'alchemist'], name: 'of Alchemy' },
+  { archetypes: ['invoker', 'archon'], name: 'of Power' },
+  { archetypes: ['invoker', 'ritualist'], name: 'of Pain' },
+  { archetypes: ['invoker', 'engineer'], name: 'of Creation' },
   { archetypes: ['engineer', 'summoner'], name: 'Mastermind' },
   { archetypes: ['engineer', 'handler'], name: 'Roughneck' },
   { archetypes: ['engineer', 'medic'], name: 'Specialist' },

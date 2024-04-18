@@ -450,4 +450,21 @@ export const traitItems: TraitItem[] = [
     wikiLinks: [`https://remnant.wiki/Wayfarer`],
     amount: DEFAULT_TRAIT_AMOUNT,
   },
+  {
+    category: 'trait',
+    name: 'Gifted',
+    imagePath: '/trait/gifted-placeholder.png',
+    id: 'c9af3B',
+    dlc: 'dlc2',
+    tags: [],
+    description: 'Increases Skill Duration',
+    maxLevelBonus: 'At max level, Gifted increases Skill Duration by +30%',
+    wikiLinks: [],
+    amount: DEFAULT_TRAIT_AMOUNT,
+    linkedItems: {
+      archetype: {
+        name: 'Invoker',
+      },
+    },
+  },
 ]
