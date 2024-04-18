@@ -94,7 +94,7 @@ export const ARCHETYPE_BUILD_NAMES: Array<{
   name: string
 }> = [
   { archetypes: ['invoker', 'summoner'], name: 'of Darkness' },
-  { archetypes: ['invoker', 'handler'], name: 'pf Friendship' },
+  { archetypes: ['invoker', 'handler'], name: 'of Friendship' },
   { archetypes: ['invoker', 'medic'], name: 'of Healing' },
   { archetypes: ['invoker', 'explorer'], name: 'of Wonder' },
   { archetypes: ['invoker', 'gunslinger'], name: 'of Frenzy' },
