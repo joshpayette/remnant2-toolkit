@@ -1,13 +1,13 @@
 import Image from 'next/image'
-import Link from 'next/link'
 
+import { Link } from '@/app/(components)/_base/link'
 import { cn } from '@/lib/classnames'
 
 export function CreateBuildCard() {
   return (
     <Link
       className={cn(
-        'col-span-1 flex h-full min-h-[362px] flex-col items-center justify-center rounded-lg border-4 border-green-500 bg-black text-center shadow hover:scale-[1.05] hover:border-green-300',
+        'col-span-1 flex h-full min-h-[362px] flex-col items-center justify-center rounded-lg border-4 border-primary-500 bg-black text-center shadow hover:scale-[1.05] hover:border-primary-300',
       )}
       href="/builder/create"
     >

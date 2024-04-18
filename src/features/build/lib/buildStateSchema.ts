@@ -3,8 +3,16 @@ import { z } from 'zod'
 export const buildStateSchema = z.object({
   name: z.string(),
   description: z.string().nullable(),
+  isPatchAffected: z.boolean().nullable(),
   isPublic: z.boolean().nullable(),
   buildLink: z.string().nullable(),
+  buildTags: z
+    .array(
+      z.object({
+        tag: z.string(),
+      }),
+    )
+    .nullable(),
   buildId: z.string().nullable(),
   isFeaturedBuild: z.boolean().nullable(),
   createdById: z.string().nullable(),

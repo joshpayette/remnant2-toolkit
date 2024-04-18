@@ -1,5 +1,5 @@
-import { remnantItems } from '@/features/items/data/remnantItems'
-import { ModItem } from '@/features/items/types/ModItem'
+import { modItems } from '@/app/(data)/items/modItems'
+import { ModItem } from '@/app/(data)/items/types/ModItem'
 
 import { BuildState } from '../types'
 
@@ -17,7 +17,7 @@ export function linkWeaponsToMods(buildState: BuildState) {
     const linkedMod = weapon?.linkedItems?.mod
     if (!linkedMod) return
 
-    const modItem = remnantItems.find((mod) => mod.name === linkedMod.name)
+    const modItem = modItems.find((mod) => mod.name === linkedMod.name)
     if (!modItem) return
 
     newBuildState.items.mod[index] = modItem as ModItem

@@ -3,17 +3,16 @@
 import { useMemo, useState } from 'react'
 import { useIsClient, useLocalStorage } from 'usehooks-ts'
 
-import { remnantEnemies } from '@/features/enemies/data/remnantEnemies'
-import { BossCategory } from '@/features/enemies/types'
+import { remnantEnemies } from '@/app/(data)/enemies/remnantEnemies'
+import { BossCategory } from '@/app/(data)/enemies/types'
 import {
   BossTrackerFilters,
   DEFAULT_BOSS_TRACKER_FILTERS,
-} from '@/features/filters/components/BossTrackerFilters'
-import { BossTrackerFilterFields } from '@/features/filters/types'
+} from '@/app/boss-tracker/BossTrackerFilters'
 import { PageHeader } from '@/features/ui/PageHeader'
 
 import { ListBosses } from './ListBosses'
-import { LocalStorage } from './types'
+import { BossTrackerFilterFields, LocalStorage } from './types'
 
 const allBosses = remnantEnemies
   .filter(
@@ -108,31 +107,34 @@ export default function Page() {
   }
 
   return (
-    <div className="relative flex w-full flex-col items-center justify-center">
-      <PageHeader
-        title="Remnant 2 Boss Tracker"
-        subtitle="Discover all the bosses in Remnant 2"
-      >
-        <div className="flex flex-col items-center justify-center text-4xl font-bold text-green-400">
-          <h2 className="text-4xl font-bold">Progress</h2>
+    <>
+      <div className="flex w-full items-start justify-start sm:items-center sm:justify-center">
+        <PageHeader
+          title="Remnant 2 Boss Tracker"
+          subtitle="Discover all the bosses in Remnant 2"
+        />
+      </div>
+      <div className="relative flex w-full flex-col items-center justify-center">
+        <div className="flex w-full flex-col items-center">
+          <div className="w-full max-w-xl">
+            <BossTrackerFilters onUpdateFilters={handleUpdateFilters} />
+          </div>
+        </div>
+
+        <div className="mb-2 flex flex-col items-center justify-center text-2xl font-bold text-primary-400">
+          <h2 className="text-2xl font-bold">Progress</h2>
           <span
-            className="text-2xl font-bold text-white"
+            className="text-xl font-bold text-white"
             suppressHydrationWarning
           >
             {isClient ? progress : 'Calculating...'}
           </span>
         </div>
-      </PageHeader>
 
-      <div className="flex w-full flex-col items-center">
-        <div className="w-full max-w-xl">
-          <BossTrackerFilters onUpdateFilters={handleUpdateFilters} />
+        <div className="w-full">
+          <ListBosses bosses={filteredBosses} onClick={handleListItemClicked} />
         </div>
       </div>
-
-      <div className="my-8 w-full">
-        <ListBosses bosses={filteredBosses} onClick={handleListItemClicked} />
-      </div>
-    </div>
+    </>
   )
 }

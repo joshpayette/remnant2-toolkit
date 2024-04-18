@@ -1,11 +1,11 @@
-import { remnantItems } from '@/features/items/data/remnantItems'
+import { perkItems } from '@/app/(data)/items/perkItems'
+import { ArchetypeItem } from '@/app/(data)/items/types/ArchetypeItem'
+import { MutatorItem } from '@/app/(data)/items/types/MutatorItem'
+import { RelicFragmentItem } from '@/app/(data)/items/types/RelicFragmentItem'
+import { RingItem } from '@/app/(data)/items/types/RingItem'
+import { SkillItem } from '@/app/(data)/items/types/SkillItem'
+import { WeaponItem } from '@/app/(data)/items/types/WeaponItem'
 import { Item } from '@/features/items/types'
-import { ArchetypeItem } from '@/features/items/types/ArchetypeItem'
-import { MutatorItem } from '@/features/items/types/MutatorItem'
-import { RelicFragmentItem } from '@/features/items/types/RelicFragmentItem'
-import { RingItem } from '@/features/items/types/RingItem'
-import { SkillItem } from '@/features/items/types/SkillItem'
-import { WeaponItem } from '@/features/items/types/WeaponItem'
 
 import { BuildState } from '../types'
 import { getArrayOfLength } from './getArrayOfLength'
@@ -32,7 +32,7 @@ export function buildStateToMasonryItems(build: BuildState): Item[] {
     const archetype = items.archetype[i] as ArchetypeItem
     if (archetype) {
       archetype.linkedItems?.perks?.forEach((perk) => {
-        const perkItem = remnantItems.find((item) => item.name === perk.name)
+        const perkItem = perkItems.find((item) => item.name === perk.name)
         if (perkItem) masonryItems.push(perkItem)
       })
     }

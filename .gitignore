@@ -38,9 +38,12 @@ next-env.d.ts
 
 .vercel
 .env*.local
+.env.db
 
 # custom scripts
 profile.sav
 profile.txt
 UPGRADE.md
 convertedSave.txt
+/src/scripts/hitlocation-extractor/**/*.json
+/src/scripts/hitlocation-extractor/**/*.csv

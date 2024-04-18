@@ -2,6 +2,7 @@
 
 import { useEffect } from 'react'
 
+import { BaseButton } from '@/app/(components)/_base/button'
 import { PageHeader } from '@/features/ui/PageHeader'
 
 export function Error({
@@ -9,7 +10,7 @@ export function Error({
   reset,
 }: {
   error: Error & { digest?: string }
-  reset: () => void
+  reset?: () => void
 }) {
   // * useEffect necessary here to update the document title
   useEffect(() => {
@@ -21,13 +22,11 @@ export function Error({
   return (
     <div className="flex max-w-lg flex-col">
       <PageHeader title="Something went wrong!" subtitle={error.message} />
-      <button
-        onClick={() => reset()}
-        aria-label="Try again"
-        className="rounded-md bg-gray-800 px-4 py-2 text-white"
-      >
-        Try again
-      </button>
+      {reset ? (
+        <BaseButton color="cyan" onClick={() => reset()} aria-label="Try again">
+          Try again
+        </BaseButton>
+      ) : null}
     </div>
   )
 }

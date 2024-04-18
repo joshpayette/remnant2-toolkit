@@ -1,7 +1,9 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
+const colors = require('tailwindcss/colors')
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  darkMode: 'class',
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
@@ -21,6 +23,10 @@ module.exports = {
       colors: {
         background: '#11001c',
         surface: '#000000',
+        primary: colors.cyan,
+        secondary: colors.violet,
+        accent1: colors.yellow,
+        accent2: colors.green,
       },
       fontFamily: {
         sans: ['Inter', ...defaultTheme.fontFamily.sans],

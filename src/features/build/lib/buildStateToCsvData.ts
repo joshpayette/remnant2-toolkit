@@ -1,7 +1,7 @@
-import { remnantItemCategories } from '@/features/items/data/remnantItems'
+import { TraitItem } from '@/app/(data)/items/types/TraitItem'
+import { itemCategories } from '@/features/items/lib/getItemCategories'
 import { itemToCsvItem } from '@/features/items/lib/itemToCsvItem'
 import { Item } from '@/features/items/types'
-import { TraitItem } from '@/features/items/types/TraitItem'
 
 import { BuildState } from '../types'
 
@@ -9,7 +9,7 @@ import { BuildState } from '../types'
  * Converts the build state into a CSV file
  */
 export function buildStateToCsvData(buildState: BuildState) {
-  return remnantItemCategories
+  return itemCategories
     .map((category) => {
       const itemOrItems = buildState.items[category]
 
@@ -54,4 +54,5 @@ export function buildStateToCsvData(buildState: BuildState) {
       }
     })
     .flat()
+    .filter((item) => item !== undefined)
 }

@@ -17,51 +17,56 @@
                         <guid>https://www.remnant2toolkit.com/</guid>
                         <title>Remnant 2 Toolkit</title>
                         <link>https://www.remnant2toolkit.com/</link>
-                        <description>remnant 2 item tracking, build sharing, item database, and more!</description></item>
-<item>
-                        <guid>https://www.remnant2toolkit.com/profile/created-builds</guid>
-                        <title>Created Builds - Remnant2Toolkit</title>
-                        <link>https://www.remnant2toolkit.com/profile/created-builds</link>
-                        <description>view all of the builds you have created on remnant 2 toolkit.</description></item>
-<item>
-                        <guid>https://www.remnant2toolkit.com/profile/favorited-builds</guid>
-                        <title>Favorited Builds - Remnant2Toolkit</title>
-                        <link>https://www.remnant2toolkit.com/profile/favorited-builds</link>
-                        <description>view all of the builds you have favorited on remnant 2 toolkit.</description></item>
+                        <description>Remnant 2 build creator, build search, item tracking, item database, and more!</description></item>
 <item>
                         <guid>https://www.remnant2toolkit.com/tracker</guid>
-                        <title>Item Tracker - Remnant2Toolkit</title>
+                        <title>Item Tracker - Remnant 2 Toolkit</title>
                         <link>https://www.remnant2toolkit.com/tracker</link>
-                        <description>track all of the items you have collected in remnant 2. import from a save file, csv file, or manually add the items.</description></item>
+                        <description>Track your discovered and undiscovered items. Supports save file importing!</description></item>
 <item>
                         <guid>https://www.remnant2toolkit.com/community-builds</guid>
-                        <title>Community Builds - Remnant2Toolkit</title>
+                        <title>Community Builds - Remnant 2 Toolkit</title>
                         <link>https://www.remnant2toolkit.com/community-builds</link>
-                        <description>search community submitted builds based on specific items, releases, or your own collected items.</description></item>
+                        <description>Search a collection of builds submitted and ranked by the community.</description></item>
 <item>
-                        <guid>https://www.remnant2toolkit.com/creator-builds</guid>
-                        <title>Featured Builds - Remnant2Toolkit</title>
-                        <link>https://www.remnant2toolkit.com/creator-builds</link>
-                        <description>browse through builds from popular content creators and community members, including videos and guides about the builds.</description></item>
+                        <guid>https://www.remnant2toolkit.com/featured-builds</guid>
+                        <title>Featured Builds - Remnant 2 Toolkit</title>
+                        <link>https://www.remnant2toolkit.com/featured-builds</link>
+                        <description>A curated list of unique and high-quality community submitted builds.</description></item>
 <item>
                         <guid>https://www.remnant2toolkit.com/boss-tracker</guid>
-                        <title>Boss Tracker - Remnant2Toolkit</title>
+                        <title>Boss Tracker - Remnant 2 Toolkit</title>
                         <link>https://www.remnant2toolkit.com/boss-tracker</link>
-                        <description>keep track of all the world bosses, bosses, and aberrations you have defeated in remnant 2.</description></item>
+                        <description>A running log of all additions, changes, and fixes to the toolkit.</description></item>
 <item>
                         <guid>https://www.remnant2toolkit.com/item-lookup</guid>
-                        <title>Item Lookup - Remnant2Toolkit</title>
+                        <title>Item Lookup - Remnant 2 Toolkit</title>
                         <link>https://www.remnant2toolkit.com/item-lookup</link>
-                        <description>search for detailed information about items in remnant 2. unlike other databases, our item looking includes tags detailing item interactions, corrected item descriptions, and more!</description></item>
+                        <description>Get detailed information and interactions for items.</description></item>
 <item>
                         <guid>https://www.remnant2toolkit.com/builder</guid>
-                        <title>Build Creation Tool - Remnant2Toolkit</title>
+                        <title>Build Creation Tool - Remnant 2 Toolkit</title>
                         <link>https://www.remnant2toolkit.com/builder</link>
-                        <description>create a build for remnant 2 and share it with the community.</description></item>
+                        <description>Create and share your favorite builds with your friends and the community.</description></item>
 <item>
                         <guid>https://www.remnant2toolkit.com/builder/create</guid>
-                        <title>Build Creation Tool - Remnant2Toolkit</title>
+                        <title>Build Creation Tool - Remnant 2 Toolkit</title>
                         <link>https://www.remnant2toolkit.com/builder/create</link>
-                        <description>create a build for remnant 2 and share it with the community.</description></item>
+                        <description>Create and share your favorite builds with your friends and the community.</description></item>
+<item>
+                        <guid>https://www.remnant2toolkit.com/world-save-archive</guid>
+                        <title>World Save Archive - Remnant 2 Toolkit</title>
+                        <link>https://www.remnant2toolkit.com/world-save-archive</link>
+                        <description>A collection of curated world saves for apocalypse bosses with specific affixes.</description></item>
+<item>
+                        <guid>https://www.remnant2toolkit.com/resources</guid>
+                        <title>Toolkit Resources - Remnant 2 Toolkit</title>
+                        <link>https://www.remnant2toolkit.com/resources</link>
+                        <description>A collection of helpful tools, detailed guides, and third-party projects for Remnant 2.</description></item>
+<item>
+                        <guid>https://www.remnant2toolkit.com/support-r2tk</guid>
+                        <title>Support R2TK - Remnant 2 Toolkit</title>
+                        <link>https://www.remnant2toolkit.com/support-r2tk</link>
+                        <description>Help with the costs of running the Toolkit and keeping it ad-free, plus get some small perks!</description></item>
 </channel></rss>
 <!-- Created using XmlSitemapGenerator.org - Free HTML, RSS and XML sitemap generator -->

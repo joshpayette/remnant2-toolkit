@@ -1,27 +1,33 @@
 import { StarIcon } from '@heroicons/react/24/solid'
-import Link from 'next/link'
-import { Fragment, useCallback, useMemo, useState } from 'react'
+import { BuildTags } from '@prisma/client'
+import { useCallback, useMemo, useState } from 'react'
 
+import { Link } from '@/app/(components)/_base/link'
+import { perkItems } from '@/app/(data)/items/perkItems'
+import { TraitItem } from '@/app/(data)/items/types/TraitItem'
+import { FeaturedBuildBadge } from '@/features/build/components/build-card/FeaturedBuildBadge'
+import { NewBuildBadge } from '@/features/build/components/build-card/NewBuildBadge'
 import { PopularBuildBadge } from '@/features/build/components/build-card/PopularBuildBadge'
+import { ItemSelect } from '@/features/build/components/dialogs/ItemSelect'
+import {
+  DEFAULT_TRAIT_AMOUNT,
+  MAX_BUILD_TAGS,
+} from '@/features/build/constants'
+import { formatUpdatedAt } from '@/features/build/lib/formatUpdatedAt'
+import { getArchetypeBuildName } from '@/features/build/lib/getArchetypeBuildName'
+import { getArrayOfLength } from '@/features/build/lib/getArrayOfLength'
+import { getConcoctionSlotCount } from '@/features/build/lib/getConcoctionSlotCount'
+import { getItemListForSlot } from '@/features/build/lib/getItemListForSlot'
+import { isBuildNew } from '@/features/build/lib/isBuildNew'
+import { isBuildPopular } from '@/features/build/lib/isBuildPopular'
+import { stripUnicode } from '@/features/build/lib/stripUnicode'
 import { BuildState, ItemCategory } from '@/features/build/types'
+import { ItemButton } from '@/features/items/components/ItemButton'
 import { ItemInfoDialog } from '@/features/items/components/ItemInfoDialog'
 import { Archetype, Item } from '@/features/items/types'
-import { TraitItem } from '@/features/items/types/TraitItem'
 import { Logo } from '@/features/ui/Logo'
 import { cn } from '@/lib/classnames'
 
-import { ItemButton } from '../../../items/components/ItemButton'
-import { DEFAULT_TRAIT_AMOUNT, POPULAR_VOTE_THRESHOLD } from '../../constants'
-import { formatUpdatedAt } from '../../lib/formatUpdatedAt'
-import { getArchetypeBuildName } from '../../lib/getArchetypeBuildName'
-import { getArrayOfLength } from '../../lib/getArrayOfLength'
-import { getConcoctionSlotCount } from '../../lib/getConcoctionSlotCount'
-import { getItemListForSlot } from '../../lib/getItemListForSlot'
-import { isBuildNew } from '../../lib/isBuildNew'
-import { FeaturedBuildBadge } from '../build-card/FeaturedBuildBadge'
-import { NewBuildBadge } from '../build-card/NewBuildBadge'
-import { ItemSelect } from '../dialogs/ItemSelect'
-import { BuilderName } from './BuilderName'
 import { MemberFeatures } from './MemberFeatures'
 import { Stats } from './stats/Stats'
 import { Traits } from './Traits'
@@ -31,6 +37,7 @@ type BuilderProps = {
   isScreenshotMode: boolean
   showControls: boolean
   showCreatedBy?: boolean
+  showMemberFeatures?: boolean
   totalUpvotes?: number
 } & (
   | { isEditable: false; onUpdateBuildState?: never }
@@ -42,7 +49,7 @@ type BuilderProps = {
         scroll,
       }: {
         category: string
-        value: string | Array<string | undefined>
+        value: string | Array<string | undefined> | BuildTags[]
         scroll?: boolean
       }) => void
     }
@@ -54,10 +61,11 @@ export function Builder({
   isScreenshotMode,
   showControls,
   showCreatedBy = true,
+  showMemberFeatures = true,
   onUpdateBuildState,
 }: BuilderProps) {
   const concoctionSlotCount = getConcoctionSlotCount(buildState)
-  const isPopular = buildState.totalUpvotes >= POPULAR_VOTE_THRESHOLD
+  const { isPopular, popularLevel } = isBuildPopular(buildState.totalUpvotes)
   const isNew = isBuildNew(buildState.createdAt) && showCreatedBy
 
   // Tracks information about the slot the user is selecting an item for
@@ -71,11 +79,9 @@ export function Builder({
   /** If the item category is null, modal is closed */
   const isItemSelectModalOpen = Boolean(selectedItemSlot.category)
 
-  //Tracks whether the build name is editable or not.
-  const [isEditingBuildName, setIsEditingBuildName] = useState(false)
-
   // Tracks the item that the user is viewing information for
   const [infoItem, setInfoItem] = useState<Item | null>(null)
+  const itemInfoOpen = Boolean(infoItem)
 
   /**
    * Returns a list of items that match the selected slot
@@ -191,12 +197,7 @@ export function Builder({
       })
       setSelectedItemSlot({ category: null })
     },
-    [
-      buildState.items,
-      selectedItemSlot.category,
-      selectedItemSlot.index,
-      onUpdateBuildState,
-    ],
+    [buildState.items, selectedItemSlot, onUpdateBuildState],
   )
 
   function handleChangeBuildLink(newBuildLink: string) {
@@ -220,6 +221,26 @@ export function Builder({
     })
   }
 
+  function handleToggleIsPatchAffected(isPatchAffected: boolean) {
+    if (!isEditable) return
+    if (!onUpdateBuildState) return
+    onUpdateBuildState({
+      category: 'isPatchAffected',
+      value: isPatchAffected ? 'true' : 'false',
+    })
+  }
+
+  function handleChangeBuildTags(tags: BuildTags[]) {
+    if (!isEditable) return
+    if (!onUpdateBuildState) return
+
+    onUpdateBuildState({
+      category: 'tags',
+      value:
+        tags.length > MAX_BUILD_TAGS ? tags.slice(0, MAX_BUILD_TAGS) : tags,
+    })
+  }
+
   function handleShowInfo(item: Item) {
     setInfoItem(item)
   }
@@ -229,11 +250,10 @@ export function Builder({
     setSelectedItemSlot({ category, index })
   }
 
-  function handleUpdateBuildName(newBuildName: string) {
+  function handleChangeBuildName(newBuildName: string) {
     if (!isEditable) return
     if (!onUpdateBuildState) return
     onUpdateBuildState({ category: 'name', value: newBuildName })
-    setIsEditingBuildName(false)
   }
 
   function handleRemoveTrait(traitItem: TraitItem) {
@@ -307,6 +327,10 @@ export function Builder({
     onUpdateBuildState({ category: 'trait', value: newTraitItemParams })
   }
 
+  const primePerkName =
+    buildState.items.archetype[0]?.linkedItems?.perks?.[0].name
+  const primePerk = perkItems.find((i) => i.name === primePerkName)
+
   return (
     <>
       <ItemSelect
@@ -320,7 +344,7 @@ export function Builder({
 
       <ItemInfoDialog
         item={infoItem}
-        open={Boolean(infoItem)}
+        open={itemInfoOpen}
         onClose={() => setInfoItem(null)}
       />
 
@@ -334,32 +358,46 @@ export function Builder({
         id="build-container"
         className={cn(
           'relative w-full grow rounded border-2 bg-black p-4',
-          !buildState.isMember && 'border-green-500',
+          !buildState.isMember && 'border-primary-500',
           buildState.isMember &&
             !isScreenshotMode &&
-            'border-yellow-300 shadow-lg shadow-yellow-600',
-          buildState.isMember && isScreenshotMode && 'border-yellow-500',
+            'border-accent1-300 shadow-lg shadow-accent1-600',
+          buildState.isMember && isScreenshotMode && 'border-primary-500',
           isScreenshotMode && 'pb-[70px]',
         )}
       >
         <div
           id="build-header"
           className={cn(
-            'relative mb-4 border-b border-b-green-900',
+            'relative mb-4 border-b border-b-primary-900',
             (isPopular || isNew || buildState.isFeaturedBuild) && 'mb-10 pb-6',
           )}
         >
-          <BuilderName
-            isEditable={isEditable}
-            isEditingBuildName={isEditingBuildName}
-            isScreenshotMode={isScreenshotMode}
-            onClick={() => setIsEditingBuildName(true)}
-            onClose={(newBuildName: string) =>
-              handleUpdateBuildName(newBuildName)
-            }
-            name={buildState.name}
-            showControls={showControls}
-          />
+          <div className="relative flex w-full flex-col items-center justify-center gap-2">
+            {isEditable && !isScreenshotMode ? (
+              <input
+                id="build-name"
+                type="text"
+                onChange={(e) => handleChangeBuildName(e.target.value)}
+                className="block w-full rounded-md border-2 border-secondary-500 bg-white/5 py-2 text-center text-2xl text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-secondary-500"
+                placeholder="My Build"
+                value={buildState.name}
+              />
+            ) : (
+              <div className="mb-2 flex w-full items-center justify-center gap-2">
+                <span className="sr-only">{stripUnicode(buildState.name)}</span>
+                <h2
+                  aria-hidden="true"
+                  className={cn(
+                    'whitespace-normal text-center text-2xl font-bold text-white sm:text-4xl',
+                    isScreenshotMode && 'text-4xl',
+                  )}
+                >
+                  {buildState.name}
+                </h2>
+              </div>
+            )}
+          </div>
           {showCreatedBy && (
             <div className="mb-2 flex items-center justify-center text-sm text-gray-400">
               <span>
@@ -374,19 +412,24 @@ export function Builder({
                 Build by{' '}
               </span>
               <Link
-                href={`/profile/${buildState.createdById}`}
-                className="ml-1 text-green-500 hover:text-green-700"
+                href={`/profile/${buildState.createdById}/created-builds`}
+                className="ml-1 text-primary-500 underline"
               >
                 {buildState.createdByDisplayName}
               </Link>
               <div className="ml-2 flex flex-row text-sm">
                 <StarIcon
                   className={cn(
-                    'mr-0.5 h-4 w-4 text-yellow-500',
+                    'mr-0.5 h-4 w-4 text-accent1-500',
                     isScreenshotMode ? 'mt-[1.5px]' : 'mt-0.5',
                   )}
                 />
-                <span className={cn(isScreenshotMode ? 'mb-[2px]' : 'mb-0.5')}>
+                <span
+                  className={cn(
+                    'text-white',
+                    isScreenshotMode ? 'mb-[2px]' : 'mb-0.5',
+                  )}
+                >
                   {buildState.totalUpvotes}
                 </span>
               </div>
@@ -413,8 +456,8 @@ export function Builder({
             <div className="mb-2 flex items-center justify-center text-sm text-gray-400">
               <p className="border border-red-500 p-2 text-left text-xs font-bold text-red-500">
                 This build might have been affected by a past update. If you
-                created this build, please update and save it to remove this
-                banner.
+                created this build, please update it and untoggle the
+                patch-affected setting.
               </p>
             </div>
           )}
@@ -422,7 +465,10 @@ export function Builder({
             <div className="absolute bottom-0 left-1/2 flex w-full -translate-x-1/2 translate-y-1/2 transform items-center justify-center gap-x-2">
               {isNew ? <NewBuildBadge unoptimized={isScreenshotMode} /> : null}
               {isPopular ? (
-                <PopularBuildBadge unoptimized={isScreenshotMode} />
+                <PopularBuildBadge
+                  level={popularLevel}
+                  unoptimized={isScreenshotMode}
+                />
               ) : null}
               {buildState.isFeaturedBuild ? (
                 <FeaturedBuildBadge unoptimized={isScreenshotMode} />
@@ -434,45 +480,69 @@ export function Builder({
         <div
           id="build-wrapper"
           className={cn(
-            'flex w-full flex-col items-start justify-between md:flex-row md:gap-x-8',
-            isScreenshotMode && 'flex-row gap-x-8',
+            'flex w-full flex-col items-center justify-between md:flex-row md:items-start md:gap-x-8',
+            isScreenshotMode && 'flex-row items-start gap-x-8',
           )}
         >
           <div
             id="build-left-column"
-            className="flex w-full max-w-[475px] flex-col"
+            className="flex w-full min-w-[300px] max-w-[475px] flex-col"
           >
             <div
               id="archetype-container"
               className={cn(
-                'flex flex-row flex-wrap items-start justify-between gap-1 sm:justify-center',
-                isScreenshotMode && 'justify-center gap-2',
+                'flex flex-row flex-wrap items-start justify-center gap-1',
               )}
             >
               {getArrayOfLength(2).map((archetypeIndex) => (
-                <Fragment key={`archetype-${archetypeIndex}`}>
+                <div
+                  key={`archetype-${archetypeIndex}`}
+                  className={cn(
+                    'flex flex-row gap-1',
+                    archetypeIndex === 0 ? 'sm:order-1' : 'sm:order-3',
+                    isScreenshotMode && archetypeIndex === 1 && 'order-3',
+                  )}
+                >
                   <ItemButton
                     item={buildState.items.archetype[archetypeIndex]}
-                    isEditable={isEditable}
+                    manualWordBreaks={true}
                     onClick={() =>
                       handleItemSlotClick('archetype', archetypeIndex)
                     }
                     onItemInfoClick={handleShowInfo}
+                    isEditable={isEditable}
                     isScreenshotMode={isScreenshotMode}
-                    manualWordBreaks={true}
+                    tooltipDisabled={itemInfoOpen}
                     unoptimized={isScreenshotMode}
                   />
                   <ItemButton
                     item={buildState.items.skill[archetypeIndex]}
                     isEditable={isEditable}
+                    isScreenshotMode={isScreenshotMode}
+                    manualWordBreaks={true}
                     onClick={() => handleItemSlotClick('skill', archetypeIndex)}
+                    onItemInfoClick={handleShowInfo}
+                    tooltipDisabled={itemInfoOpen}
+                    unoptimized={isScreenshotMode}
+                  />
+                </div>
+              ))}
+              {primePerk && (
+                <div
+                  className={cn('sm:order-2', isScreenshotMode && 'order-2')}
+                >
+                  <ItemButton
+                    item={primePerk}
+                    isEditable={isEditable}
+                    onClick={undefined}
                     onItemInfoClick={handleShowInfo}
                     isScreenshotMode={isScreenshotMode}
                     manualWordBreaks={true}
+                    tooltipDisabled={itemInfoOpen}
                     unoptimized={isScreenshotMode}
                   />
-                </Fragment>
-              ))}
+                </div>
+              )}
             </div>
             <div
               id="build-items-container"
@@ -480,10 +550,7 @@ export function Builder({
                 'relative flex w-full items-start justify-between gap-4',
               )}
             >
-              <div
-                id="left-column"
-                className={cn('flex-none', isScreenshotMode && 'mt-[-75px]')}
-              >
+              <div id="left-column" className={cn('flex-none')}>
                 <ItemButton
                   item={buildState.items.helm}
                   isEditable={isEditable}
@@ -491,6 +558,7 @@ export function Builder({
                   onItemInfoClick={handleShowInfo}
                   isScreenshotMode={isScreenshotMode}
                   manualWordBreaks={true}
+                  tooltipDisabled={itemInfoOpen}
                   unoptimized={isScreenshotMode}
                 />
                 <ItemButton
@@ -500,6 +568,7 @@ export function Builder({
                   onItemInfoClick={handleShowInfo}
                   isScreenshotMode={isScreenshotMode}
                   manualWordBreaks={true}
+                  tooltipDisabled={itemInfoOpen}
                   unoptimized={isScreenshotMode}
                 />
                 <ItemButton
@@ -509,6 +578,7 @@ export function Builder({
                   onItemInfoClick={handleShowInfo}
                   isScreenshotMode={isScreenshotMode}
                   manualWordBreaks={true}
+                  tooltipDisabled={itemInfoOpen}
                   unoptimized={isScreenshotMode}
                 />
                 <ItemButton
@@ -518,6 +588,7 @@ export function Builder({
                   onItemInfoClick={handleShowInfo}
                   isScreenshotMode={isScreenshotMode}
                   manualWordBreaks={true}
+                  tooltipDisabled={itemInfoOpen}
                   unoptimized={isScreenshotMode}
                 />
                 <div
@@ -531,6 +602,7 @@ export function Builder({
                     onItemInfoClick={handleShowInfo}
                     isScreenshotMode={isScreenshotMode}
                     manualWordBreaks={true}
+                    tooltipDisabled={itemInfoOpen}
                     unoptimized={isScreenshotMode}
                   />
                   <div
@@ -545,6 +617,7 @@ export function Builder({
                       onItemInfoClick={handleShowInfo}
                       isScreenshotMode={isScreenshotMode}
                       manualWordBreaks={true}
+                      tooltipDisabled={itemInfoOpen}
                       unoptimized={isScreenshotMode}
                     />
                     <ItemButton
@@ -555,6 +628,7 @@ export function Builder({
                       onItemInfoClick={handleShowInfo}
                       isScreenshotMode={isScreenshotMode}
                       manualWordBreaks={true}
+                      tooltipDisabled={itemInfoOpen}
                       unoptimized={isScreenshotMode}
                     />
                     <ItemButton
@@ -565,6 +639,7 @@ export function Builder({
                       onItemInfoClick={handleShowInfo}
                       isScreenshotMode={isScreenshotMode}
                       manualWordBreaks={true}
+                      tooltipDisabled={itemInfoOpen}
                       unoptimized={isScreenshotMode}
                     />
                   </div>
@@ -579,10 +654,7 @@ export function Builder({
                   isScreenshotMode={isScreenshotMode}
                 />
               </div>
-              <div
-                id="right-column"
-                className={cn('flex-none', isScreenshotMode && 'mt-[-75px]')}
-              >
+              <div id="right-column" className={cn('flex-none')}>
                 <ItemButton
                   item={buildState.items.amulet}
                   isEditable={isEditable}
@@ -590,6 +662,7 @@ export function Builder({
                   onItemInfoClick={handleShowInfo}
                   isScreenshotMode={isScreenshotMode}
                   manualWordBreaks={true}
+                  tooltipDisabled={itemInfoOpen}
                   unoptimized={isScreenshotMode}
                 />
                 {getArrayOfLength(4).map((ringIndex) => (
@@ -601,6 +674,7 @@ export function Builder({
                     onItemInfoClick={handleShowInfo}
                     isScreenshotMode={isScreenshotMode}
                     manualWordBreaks={true}
+                    tooltipDisabled={itemInfoOpen}
                     unoptimized={isScreenshotMode}
                   />
                 ))}
@@ -615,13 +689,17 @@ export function Builder({
             <div
               id="guns-row"
               className={cn(
-                'mb-4 flex w-full flex-row items-start justify-start gap-2 overflow-x-auto',
+                'mb-4 flex w-full flex-row items-start justify-center gap-2 min-[855px]:flex-nowrap',
+                !isScreenshotMode && 'flex-wrap',
               )}
             >
               {getArrayOfLength(3).map((weaponIndex) => (
                 <div
                   key={`gun-${weaponIndex}`}
-                  className="flex flex-col items-start justify-center"
+                  className={cn(
+                    'flex flex-col items-start justify-center',
+                    weaponIndex === 1 && 'order-2 sm:order-none',
+                  )}
                 >
                   <ItemButton
                     item={buildState.items.weapon[weaponIndex]}
@@ -631,10 +709,15 @@ export function Builder({
                     onItemInfoClick={handleShowInfo}
                     isScreenshotMode={isScreenshotMode}
                     manualWordBreaks={true}
+                    tooltipDisabled={itemInfoOpen}
                     unoptimized={isScreenshotMode}
                   />
                   <div className="flex w-full grow items-start justify-around gap-4">
-                    {weaponIndex !== 1 || buildState.items.mod[weaponIndex] ? (
+                    {(weaponIndex === 1 &&
+                      !buildState.items.mod[weaponIndex]) ||
+                    buildState.items.weapon[weaponIndex]?.isRusty ? (
+                      <div className="h-[66px] w-[66px]" />
+                    ) : (
                       <ItemButton
                         item={buildState.items.mod[weaponIndex]}
                         size="md"
@@ -647,11 +730,11 @@ export function Builder({
                         onItemInfoClick={handleShowInfo}
                         isScreenshotMode={isScreenshotMode}
                         manualWordBreaks={true}
+                        tooltipDisabled={itemInfoOpen}
                         unoptimized={isScreenshotMode}
                       />
-                    ) : (
-                      <div className="h-[66px] w-[66px]" />
                     )}
+
                     <ItemButton
                       item={buildState.items.mutator[weaponIndex]}
                       size="md"
@@ -662,6 +745,7 @@ export function Builder({
                       onItemInfoClick={handleShowInfo}
                       isScreenshotMode={isScreenshotMode}
                       manualWordBreaks={true}
+                      tooltipDisabled={itemInfoOpen}
                       unoptimized={isScreenshotMode}
                     />
                   </div>
@@ -675,6 +759,7 @@ export function Builder({
                 showControls={showControls}
                 isEditable={isEditable}
                 isScreenshotMode={isScreenshotMode}
+                tooltipDisabled={itemInfoOpen}
                 onAddTrait={() => handleItemSlotClick('trait')}
                 onItemInfoClick={handleShowInfo}
                 onRemoveTrait={(traitItem) => handleRemoveTrait(traitItem)}
@@ -701,6 +786,7 @@ export function Builder({
                     onItemInfoClick={handleShowInfo}
                     isScreenshotMode={isScreenshotMode}
                     manualWordBreaks={true}
+                    tooltipDisabled={itemInfoOpen}
                     unoptimized={isScreenshotMode}
                   />
                   {getArrayOfLength(concoctionSlotCount).map((index) => {
@@ -717,6 +803,7 @@ export function Builder({
                         onItemInfoClick={handleShowInfo}
                         isScreenshotMode={isScreenshotMode}
                         manualWordBreaks={true}
+                        tooltipDisabled={itemInfoOpen}
                         unoptimized={isScreenshotMode}
                       />
                     )
@@ -744,6 +831,7 @@ export function Builder({
                       onItemInfoClick={handleShowInfo}
                       isScreenshotMode={isScreenshotMode}
                       manualWordBreaks={true}
+                      tooltipDisabled={itemInfoOpen}
                       unoptimized={isScreenshotMode}
                     />
                   ))}
@@ -753,21 +841,27 @@ export function Builder({
           </div>
         </div>
 
-        <div
-          id="member-features-row"
-          className="mt-4 flex w-full items-start justify-center"
-        >
-          <MemberFeatures
-            buildLink={buildState.buildLink}
-            description={buildState.description}
-            isEditable={isEditable}
-            isPublic={buildState.isPublic}
-            isScreenshotModeActive={isScreenshotMode}
-            onChangeBuildLink={handleChangeBuildLink}
-            onChangeDescription={handleChangeDescription}
-            onChangeIsPublic={handleToggleIsPublic}
-          />
-        </div>
+        {showMemberFeatures ? (
+          <div
+            id="member-features-row"
+            className="mt-2 flex w-full items-start justify-center"
+          >
+            <MemberFeatures
+              buildLink={buildState.buildLink}
+              buildTags={buildState.buildTags ?? []}
+              description={buildState.description}
+              isEditable={isEditable}
+              isPatchAffected={buildState.isPatchAffected}
+              isPublic={buildState.isPublic}
+              isScreenshotMode={isScreenshotMode}
+              onChangeBuildLink={handleChangeBuildLink}
+              onChangeBuildTags={handleChangeBuildTags}
+              onChangeDescription={handleChangeDescription}
+              onChangeIsPublic={handleToggleIsPublic}
+              onChangeIsPatchAffected={handleToggleIsPatchAffected}
+            />
+          </div>
+        ) : null}
 
         {isScreenshotMode && (
           <div className="absolute bottom-[10px] right-[10px]">

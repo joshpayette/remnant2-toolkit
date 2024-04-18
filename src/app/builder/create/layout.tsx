@@ -1,17 +1,15 @@
 'use server'
 
 import { Metadata } from 'next'
-import Link from 'next/link'
-import { redirect } from 'next/navigation'
-import { signIn } from 'next-auth/react'
 import React from 'react'
 
+import { Link } from '@/app/(components)/_base/link'
 import { getServerSession } from '@/features/auth/lib'
+import { NAV_ITEMS } from '@/features/navigation/constants'
 
 export async function generateMetadata(): Promise<Metadata> {
   const title = `Build Creation Tool - Remnant 2 Toolkit`
-  const description =
-    'Remnant 2 Builder, a tool to create and share builds with the community. Share your builds with the community and help others find the best builds for their playstyle.'
+  const description = NAV_ITEMS.createBuild.description
 
   return {
     title,
@@ -52,14 +50,14 @@ export default async function Layout({
             id="disabled-overlay"
             className="absolute inset-0 z-10 h-full bg-black/90"
           />
-          <div className="absolute z-10 mb-2 flex h-full w-full flex-col items-center justify-center text-2xl font-bold text-red-500">
-            <p>
-              Sign in required to use the database builder. Either sign in, or
-              use the{' '}
-              <Link href="/builder" className="underline">
-                URL builder
+          <div className="absolute z-10 mb-2 flex h-full w-full flex-col items-center justify-start p-2 text-2xl font-bold text-red-500">
+            <p className="w-full text-center">
+              This enhanced build tool requires you to be logged in to use it,
+              as it saves your builds to the database. If you prefer not to sign
+              in, you can still use the <br />
+              <Link href="/builder" className="text-white underline">
+                non-database builder by clicking here!
               </Link>
-              .
             </p>
           </div>
           {children}

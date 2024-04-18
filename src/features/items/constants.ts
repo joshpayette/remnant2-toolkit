@@ -14,6 +14,15 @@ export const MANUAL_ITEM_NAME_BREAKS: Array<{ name: string; break: string }> = [
   { name: 'Microcompressor', break: 'Micro-compressor' },
 ]
 
+/**
+ * Some labels are too long to fit the label, but can't be broken up
+ * and need to be manually transformed to a smaller text size
+ */
+export const MANUAL_ITEM_NAME_TEXT_TRANSFORMS: Array<{
+  name: string
+  transform: string
+}> = [{ name: "Nightweaver's Grudge", transform: 'text-[9px]' }]
+
 export const ARCHTYPE_COLORS = {
   ALCHEMIST: {
     bg: 'bg-[#102a22]',
@@ -93,7 +102,7 @@ export const WEIGHT_CLASSES = {
     textColor: 'text-[#ff0000]',
     maxWeight: -1,
   },
-}
+} as const
 
 export const RELEASE_TO_NAME = {
   base: 'Base Game',
@@ -106,7 +115,7 @@ export const DESCRIPTION_TAGS = [
     type: 'Acid',
     token: 'ACID',
     color: 'text-[#589961]',
-    description: 'Elemental Damage',
+    description: 'Elemental Damage.',
   },
   {
     type: 'Alchemist',
@@ -138,14 +147,13 @@ export const DESCRIPTION_TAGS = [
     token: '[BUG]',
     color: 'text-[#ecff00]',
     description:
-      'This item is currently bugged and MAY not function as expected.',
+      'This item is currently bugged and MAY not function as expected. Check wiki for more information.',
   },
   {
     type: 'Burning',
     token: 'BURNING',
     color: 'text-[#b65d30]',
-    description:
-      'Deals elemental FIRE damage per second. Can make enemies panic.', // Have no good source on the secondary effect.
+    description: 'Deals elemental FIRE damage. Can make enemies panic.', // Have no good source on the secondary effect.
   },
   {
     type: 'Bulwark',
@@ -171,15 +179,27 @@ export const DESCRIPTION_TAGS = [
     type: 'Corroded',
     token: 'CORRODED',
     color: 'text-[#0fa82b]',
-    description:
-      'Deals elemental ACID damage per second. Increases damage taken by 10%.',
+    description: 'Increases damage taken by 10%.',
+  },
+  {
+    type: 'Corrosive',
+    token: 'CORROSIVE',
+    color: 'text-[#589961]',
+    description: 'Elemental Damage.',
   },
   {
     type: 'Critical Damage',
-    token: '[C]',
-    color: 'text-[#f2350f]',
+    token: 'Crit Damage',
+    color: 'text-red-500',
     description:
-      'Base 50%. Critical damage is multiplicative with other sources of damage.',
+      'Base 50%. Critical Damage is multiplicative with different sources of damage.',
+  },
+  {
+    type: 'Critical Damage',
+    token: 'Critical Damage',
+    color: 'text-red-500',
+    description:
+      'Base 50%. Critical Damage is multiplicative with different sources of damage.',
   },
   {
     type: 'Curse',
@@ -198,7 +218,7 @@ export const DESCRIPTION_TAGS = [
     type: 'Defrag',
     token: 'DEFRAG',
     color: 'text-[#ede6e6]',
-    description: 'Physical Damage',
+    description: 'Physical Damage.',
   },
   {
     type: 'Engineer',
@@ -216,13 +236,13 @@ export const DESCRIPTION_TAGS = [
     type: 'Explosive Damage',
     token: '[E]',
     color: 'text-[#ff7575]',
-    description: 'Counts as explosive damage.',
+    description: 'Counts as Explosive Damage.',
   },
   {
     type: 'Fire',
     token: 'FIRE',
     color: 'text-[#cc5500]',
-    description: 'Elemental Damage',
+    description: 'Elemental Damage.',
   },
   {
     type: 'Frenzied',
@@ -284,7 +304,14 @@ export const DESCRIPTION_TAGS = [
     type: 'Multiplicative',
     token: '[M]',
     color: 'text-orange-300',
-    description: 'Damage is multiplicative with other sources of damage.',
+    description: 'Damage is multiplicative with different sources of damage.',
+  },
+  {
+    type: 'Multiplicative Debuffs',
+    token: '[MD]',
+    color: 'text-orange-500',
+    description:
+      'Counts as a debuff making it multiplicative with different sources of damage.',
   },
   {
     type: 'Overloaded',
@@ -322,7 +349,7 @@ export const DESCRIPTION_TAGS = [
     type: 'Shock',
     token: 'SHOCK',
     color: 'text-[#5c5cce]',
-    description: 'Elemental Damage',
+    description: 'Elemental Damage.',
   },
   {
     type: 'Slow',
@@ -343,6 +370,55 @@ export const DESCRIPTION_TAGS = [
     color: 'text-[#444662]',
     description: 'Reduces Mod Power Generation by 50%.',
   },
+  {
+    type: 'PRERELEASE',
+    token: 'PRERELEASE',
+    color: 'text-[#ecfc00]',
+    description: `This is prerelease content. Information might not be accurate or change.`,
+  },
+  {
+    type: 'Weakspot Damage',
+    token: 'Weakspot Damage',
+    color: 'text-red-500',
+    description:
+      'Weakspot Damage is multiplicative with different sources of damage.',
+  },
+  {
+    type: 'Negative Status Effects',
+    token: 'Negative Status Effects',
+    color: 'text-purple-400',
+    description: `Elemental: Burning, Corroded, Overloaded. Physical: Bleeding.`,
+  },
+  {
+    type: 'Negative Status Effect',
+    token: 'Negative Status Effect',
+    color: 'text-purple-400',
+    description: `Elemental: Burning, Corroded, Overloaded. Physical: Bleeding.`,
+  },
+  {
+    type: 'Elemental Status Effects',
+    token: 'Elemental Status Effects',
+    color: 'text-[#05baf9]',
+    description: `Elemental: Burning, Corroded, Overloaded.`,
+  },
+  {
+    type: 'Elemental Status Effect',
+    token: 'Elemental Status Effect',
+    color: 'text-[#05baf9]',
+    description: `Elemental: Burning, Corroded, Overloaded.`,
+  },
+  {
+    type: 'Status Effects',
+    token: 'Status Effects',
+    color: 'text-purple-400',
+    description: `Elemental: Burning, Corroded, Overloaded. Physical: Bleeding.`,
+  },
+  {
+    type: 'Status Effect',
+    token: 'Status Effect',
+    color: 'text-purple-400',
+    description: `Elemental: Burning, Corroded, Overloaded. Physical: Bleeding.`,
+  },
 ] as const satisfies {
   type: string
   token: string
@@ -351,13 +427,15 @@ export const DESCRIPTION_TAGS = [
 }[]
 
 export const ITEM_TAGS: ItemTag[] = [
-  'Ammo Reserves', // Only plular one due to wording in game
+  'Ammo Reserves', // Only plural one due to wording in game
   'All Damage',
+  'Armor Increase',
   'Charged Melee Damage',
   'Charged Melee',
   'Charged Shot',
   'Concoction',
   'Critical Chance',
+  'Critical Damage',
   'Critical Hit',
   'Damage Reduction',
   'Elemental Damage',
@@ -365,7 +443,7 @@ export const ITEM_TAGS: ItemTag[] = [
   'Firearm Swap Speed',
   'Fire Rate',
   'Grey Health',
-  'Hardcore',
+  'Hardcore Reward',
   'Heal',
   'Healing Effectivness',
   'Health',

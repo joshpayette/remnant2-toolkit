@@ -1,19 +1,17 @@
-import { InformationCircleIcon } from '@heroicons/react/24/solid'
 import Image from 'next/image'
 import { useState } from 'react'
 
+import { getTotalArmor } from '@/features/build/lib/get-totals/getTotalArmor'
+import { getTotalHealth } from '@/features/build/lib/get-totals/getTotalHealth'
+import { getTotalResistances } from '@/features/build/lib/get-totals/getTotalResistances'
+import { getTotalStamina } from '@/features/build/lib/get-totals/getTotalStamina'
+import { getTotalWeight } from '@/features/build/lib/get-totals/getTotalWeight'
+import { getWeightClass } from '@/features/build/lib/get-totals/getWeightClass'
 import { BuildState } from '@/features/build/types'
+import { buildToVashUrl } from '@/features/build/vash-integration/buildToVashUrl'
 import { Tooltip } from '@/features/ui/Tooltip'
 import { cn } from '@/lib/classnames'
 
-import {
-  getTotalArmor,
-  getTotalHealth,
-  getTotalResistances,
-  getTotalStamina,
-  getTotalWeight,
-  getWeightClass,
-} from '../../../lib/getTotalValues'
 import { HealthBreakdownDialog } from './HealthBreakdown'
 import { StaminaBreakdownDialog } from './StaminaBreakdown'
 
@@ -59,8 +57,9 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
       <div className="flex w-full flex-grow flex-col justify-start">
         <div className="flex w-full flex-row items-center justify-start">
           <div className="flex w-full flex-col items-start justify-start sm:max-w-[275px]">
-            <div className="relative grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 text-left text-sm text-gray-300">
+            <div className="relative grid w-full grid-cols-2 gap-2 border border-transparent border-b-primary-500 text-left text-sm text-gray-300">
               <p className="flex items-center justify-start">Health</p>
+              {/** Not updating to new button component */}
               <button
                 className={cn(
                   'text-md flex items-center justify-end text-right font-bold sm:text-lg',
@@ -70,12 +69,19 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
               >
                 {totalHealth}
                 {!isScreenshotMode && (
-                  <InformationCircleIcon className="ml-1 h-4 w-4 text-green-500" />
+                  <Image
+                    src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/toolkit/info-yellow.png`}
+                    alt="Info icon"
+                    width={16}
+                    height={16}
+                    className="ml-1 h-4 w-4"
+                  />
                 )}
               </button>
             </div>
-            <div className="relative grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 text-left text-sm text-gray-300">
+            <div className="relative grid w-full grid-cols-2 gap-2 border border-transparent border-b-primary-500 text-left text-sm text-gray-300">
               <p className="flex items-center justify-start">Stamina</p>
+              {/** Not updating to new button component */}
               <button
                 className={cn(
                   'text-md flex items-center justify-end text-right font-bold sm:text-lg',
@@ -85,13 +91,20 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
               >
                 {totalStamina}
                 {!isScreenshotMode && (
-                  <InformationCircleIcon className="ml-1 h-4 w-4 text-green-500" />
+                  <Image
+                    src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/toolkit/info-yellow.png`}
+                    alt="Info icon"
+                    width={16}
+                    height={16}
+                    className="ml-1 h-4 w-4"
+                  />
                 )}
               </button>
             </div>
-            <div className="relative grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 text-left text-sm text-gray-300">
+            <div className="relative grid w-full grid-cols-2 gap-2 border border-transparent border-b-primary-500 text-left text-sm text-gray-300">
               <p className="flex items-center justify-start">Armor</p>
               <Tooltip content="ArmorDR = Armor / (Armor+200)">
+                {/** Not updating to new button component */}
                 <button
                   className={cn(
                     'text-md flex items-center justify-end text-right font-bold sm:text-lg',
@@ -103,7 +116,7 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
                 </button>
               </Tooltip>
             </div>
-            <div className="relative grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 text-left text-sm text-gray-300">
+            <div className="relative grid w-full grid-cols-2 gap-2 border border-transparent border-b-primary-500 text-left text-sm text-gray-300">
               <p className="flex items-center justify-start">Weight</p>
               <span
                 className={cn(
@@ -119,6 +132,7 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
                       : weightClass.description
                   }
                 >
+                  {/** Not updating to new button component */}
                   <button
                     aria-label={
                       challengerIsEquipped
@@ -131,111 +145,123 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
                 </Tooltip>
               </span>
             </div>
-            <div className="relative grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 text-left text-sm text-gray-300">
-              <Image
-                src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/status/bleed_resistance.png`}
-                alt="Bleed Resistance"
-                width={32}
-                height={32}
-                className={cn('my-1 h-6 w-6')}
-                loading="eager"
-                unoptimized={isScreenshotMode}
-              />
-              <span
-                className={cn(
-                  'text-md flex items-center justify-end text-right font-bold sm:text-lg',
-                  isScreenshotMode && 'text-lg',
-                )}
-              >
-                {totalBleedResistance}
-              </span>
+            <div className="grid w-full grid-cols-2 gap-x-2">
+              <div className="relative grid w-full grid-cols-2 gap-2 border border-transparent border-b-primary-500 text-left text-sm text-gray-300">
+                <Image
+                  src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/status/bleed_resistance.png`}
+                  alt="Bleed Resistance"
+                  width={32}
+                  height={32}
+                  className={cn('my-1 h-6 w-6')}
+                  loading="eager"
+                  unoptimized={isScreenshotMode}
+                />
+                <span
+                  className={cn(
+                    'text-md flex items-center justify-end text-right font-bold sm:text-lg',
+                    isScreenshotMode && 'text-lg',
+                  )}
+                >
+                  {totalBleedResistance}
+                </span>
+              </div>
+              <div className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-primary-500 text-left text-sm text-gray-300">
+                <Image
+                  src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/status/fire_resistance.png`}
+                  alt="Fire Resistance"
+                  width={32}
+                  height={32}
+                  className={cn('my-1 h-6 w-6')}
+                  loading="eager"
+                  unoptimized={isScreenshotMode}
+                />
+                <span
+                  className={cn(
+                    'text-md flex items-center justify-end text-right font-bold sm:text-lg',
+                    isScreenshotMode && 'text-lg',
+                  )}
+                >
+                  {totalFireResistance}
+                </span>
+              </div>
+              <div className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-primary-500 text-left text-sm text-gray-300">
+                <Image
+                  src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/status/shock_resistance.png`}
+                  alt="Shock Resistance"
+                  width={32}
+                  height={32}
+                  className={cn('my-1 h-6 w-6')}
+                  loading="eager"
+                  unoptimized={isScreenshotMode}
+                />
+                <span
+                  className={cn(
+                    'text-md flex items-center justify-end text-right font-bold sm:text-lg',
+                    isScreenshotMode && 'text-lg',
+                  )}
+                >
+                  {totalShockResistance}
+                </span>
+              </div>
+              <div className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-primary-500 text-left text-sm text-gray-300">
+                <Image
+                  src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/status/toxin_resistance.png`}
+                  alt="Toxin Resistance"
+                  width={32}
+                  height={32}
+                  className={cn('my-1 h-6 w-6')}
+                  loading="eager"
+                  unoptimized={isScreenshotMode}
+                />
+                <span
+                  className={cn(
+                    'text-md flex items-center justify-end text-right font-bold sm:text-lg',
+                    isScreenshotMode && 'text-lg',
+                  )}
+                >
+                  {totalToxinResistance}
+                </span>
+              </div>
+              <div className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-primary-500 text-left text-sm text-gray-300">
+                <Image
+                  src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/status/blight_resistance.png`}
+                  alt="Blight Resistance"
+                  width={32}
+                  height={32}
+                  className={cn('my-1 h-6 w-6')}
+                  loading="eager"
+                  unoptimized={isScreenshotMode}
+                />
+                <span
+                  className={cn(
+                    'text-md flex items-center justify-end text-right font-bold sm:text-lg',
+                    isScreenshotMode && 'text-lg',
+                  )}
+                >
+                  {totalBlightResistance}
+                </span>
+              </div>
             </div>
-            <p className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 text-left text-sm text-gray-300">
-              <Image
-                src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/status/fire_resistance.png`}
-                alt="Fire Resistance"
-                width={32}
-                height={32}
-                className={cn('my-1 h-6 w-6')}
-                loading="eager"
-                unoptimized={isScreenshotMode}
-              />
-              <span
-                className={cn(
-                  'text-md flex items-center justify-end text-right font-bold sm:text-lg',
-                  isScreenshotMode && 'text-lg',
-                )}
-              >
-                {totalFireResistance}
-              </span>
-            </p>
-            <p className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 text-left text-sm text-gray-300">
-              <Image
-                src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/status/shock_resistance.png`}
-                alt="Shock Resistance"
-                width={32}
-                height={32}
-                className={cn('my-1 h-6 w-6')}
-                loading="eager"
-                unoptimized={isScreenshotMode}
-              />
-              <span
-                className={cn(
-                  'text-md flex items-center justify-end text-right font-bold sm:text-lg',
-                  isScreenshotMode && 'text-lg',
-                )}
-              >
-                {totalShockResistance}
-              </span>
-            </p>
-            <p className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 text-left text-sm text-gray-300">
-              <Image
-                src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/status/toxin_resistance.png`}
-                alt="Toxin Resistance"
-                width={32}
-                height={32}
-                className={cn('my-1 h-6 w-6')}
-                loading="eager"
-                unoptimized={isScreenshotMode}
-              />
-              <span
-                className={cn(
-                  'text-md flex items-center justify-end text-right font-bold sm:text-lg',
-                  isScreenshotMode && 'text-lg',
-                )}
-              >
-                {totalToxinResistance}
-              </span>
-            </p>
-            <p className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 text-left text-sm text-gray-300">
-              <Image
-                src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/status/blight_resistance.png`}
-                alt="Blight Resistance"
-                width={32}
-                height={32}
-                className={cn('my-1 h-6 w-6')}
-                loading="eager"
-                unoptimized={isScreenshotMode}
-              />
-              <span
-                className={cn(
-                  'text-md flex items-center justify-end text-right font-bold sm:text-lg',
-                  isScreenshotMode && 'text-lg',
-                )}
-              >
-                {totalBlightResistance}
-              </span>
-            </p>
-            <div className="z-0 mt-2 text-right text-xs text-green-500">
-              Looking for more advanced stats? Check out{' '}
-              <a
-                href="https://cowaii.io/"
-                target="_blank"
-                className="text-green-500 underline"
-              >
-                Vash Cowaii&apos;s Loadout Calculator.
-              </a>
-            </div>
+            {!isScreenshotMode && (
+              <div className="z-0 mt-2 flex w-full items-center justify-center">
+                <a
+                  href={buildToVashUrl(buildState)}
+                  target="_blank"
+                  className="flex items-center justify-center rounded-lg border border-gray-500 bg-gray-800 p-2 text-xs text-white hover:bg-gray-700"
+                >
+                  Export to Loadout Calculator
+                  <Image
+                    src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/cowaii.webp`}
+                    alt="Vash Cowaii's Loadout Calculator"
+                    width={20}
+                    height={20}
+                    className="ml-1 h-5 w-5"
+                    loading="eager"
+                    unoptimized={isScreenshotMode}
+                  />
+                </a>
+              </div>
+            )}
           </div>
         </div>
       </div>

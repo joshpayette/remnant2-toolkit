@@ -6,7 +6,7 @@ export const DEFAULT_BUILD_NAME = 'My Build'
 /**
  * The maximum characters allowed in a build description
  */
-export const MAX_BUILD_DESCRIPTION_LENGTH = 1000
+export const MAX_BUILD_DESCRIPTION_LENGTH = 2000
 
 /**
  * The value of each new trait added
@@ -21,9 +21,16 @@ export const DEFAULT_TRAIT_AMOUNT = 10
 export const MAX_TRAIT_AMOUNT = 110
 
 /**
+ * The maximum number of build tags that can
+ * be added to a build.
+ */
+export const MAX_BUILD_TAGS = 4
+
+/**
  * Number of votes for a build to be popular
  */
-export const POPULAR_VOTE_THRESHOLD = 15
+export const POPULAR_VOTE_THRESHOLD1 = 15
+export const POPULAR_VOTE_THRESHOLD2 = 30
 
 /**
  * The default empty BuildState
@@ -34,9 +41,11 @@ export const INITIAL_BUILD_STATE: BuildState = {
   isPublic: true,
   isMember: false,
   isFeaturedBuild: false,
+  dateFeatured: null,
   isPatchAffected: false,
   thumbnailUrl: null,
   videoUrl: null,
+  buildTags: null,
   buildLink: null,
   buildId: null,
   createdAt: new Date(),
@@ -71,8 +80,8 @@ export const INITIAL_BUILD_STATE: BuildState = {
  * The paths to revalidate on build creation, deletion, and update
  */
 export const BUILD_REVALIDATE_PATHS = [
-  '/profile/created-builds',
-  '/profile/favorited-builds',
+  '/profile/[userId]/created-builds',
+  '/profile/[userId]/favorited-builds',
 ]
 
 /**
@@ -129,7 +138,7 @@ export const ARCHETYPE_BUILD_NAMES: Array<{
   { archetypes: ['hunter', 'alchemist'], name: 'Isolator' },
   { archetypes: ['invader', 'alchemist'], name: 'Trickster' },
   { archetypes: ['archon', 'medic'], name: 'Virtuoso' },
-  { archetypes: ['archon', 'summoner'], name: 'Invoker' },
+  { archetypes: ['archon', 'summoner'], name: 'Augur' },
   { archetypes: ['archon', 'handler'], name: 'Harrier' },
   { archetypes: ['archon', 'engineer'], name: 'Luminary' },
   { archetypes: ['archon', 'explorer'], name: 'Trailblazer' },

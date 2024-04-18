@@ -1,7 +1,7 @@
+import { MutatorItem } from '../../../app/(data)/items/types/MutatorItem'
+import { TraitItem } from '../../../app/(data)/items/types/TraitItem'
 import { DESCRIPTION_TAGS } from '../constants'
 import { Item } from '../types'
-import { MutatorItem } from '../types/MutatorItem'
-import { TraitItem } from '../types/TraitItem'
 
 export function itemMatchesSearchText({
   item,
@@ -36,6 +36,11 @@ export function itemMatchesSearchText({
       .includes(searchText.toLowerCase())
     if (maxLevelBonusMatch) return true
   }
+
+  const itemCategoryMatch = item.category
+    .toLowerCase()
+    .includes(searchText.toLowerCase())
+  if (itemCategoryMatch) return true
 
   const itemTagsMatch = item.tags?.some((tag) =>
     tag.toLowerCase().includes(searchText.toLowerCase()),

@@ -13,21 +13,26 @@ generator client {
 // ---------------------------------------------------------------------------------------------
 
 model Account {
-  id                String   @id @default(cuid())
-  userId            String
-  type              String
-  provider          String
-  providerAccountId String
-  refresh_token     String?  @db.Text
-  access_token      String?  @db.Text
-  expires_at        Int?
-  token_type        String?
-  scope             String?
-  id_token          String?  @db.Text
-  session_state     String?
-  createdAt         DateTime @default(now())
-
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  id                 String    @id @default(cuid())
+  userId             String
+  type               String
+  provider           String
+  providerType       String?
+  providerId         String?
+  providerAccountId  String
+  refresh_token      String?   @db.Text
+  refreshToken       String?
+  access_token       String?   @db.Text
+  accessToken        String?
+  accessTokenExpires DateTime?
+  expires_at         Int?
+  token_type         String?
+  scope              String?
+  id_token           String?   @db.Text
+  session_state      String?
+  createdAt          DateTime  @default(now())
+  updatedAt          DateTime  @default(now()) @updatedAt
+  user               User      @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([provider, providerAccountId], name: "provider_providerAccountId")
   @@index([userId])
@@ -35,13 +40,22 @@ model Account {
 
 model Session {
   id           String   @id @default(cuid())
-  sessionToken String   @unique
   userId       String
   expires      DateTime
+  sessionToken String   @unique
+  accessToken  String?  @unique
   createdAt    DateTime @default(now())
+  updatedAt    DateTime @default(now()) @updatedAt
   user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@index([userId])
+}
+
+enum UserRole {
+  user
+  moderator
+  admin
+  owner
 }
 
 model User {
@@ -51,8 +65,9 @@ model User {
   email         String?           @unique
   emailVerified DateTime?
   image         String?
-  role          String?           @default("user")
+  role          UserRole          @default(user)
   createdAt     DateTime          @default(now())
+  updatedAt     DateTime          @default(now()) @updatedAt
   accounts      Account[]
   sessions      Session[]
   Build         Build[]
@@ -60,15 +75,39 @@ model User {
   BuildReports  BuildReports[]
   BannedUsers   BannedUsers[]
   PaidUsers     PaidUsers[]
-  UserItems     UserItems[]
   UserProfile   UserProfile?
   UserLoadouts  UserLoadouts[]
+}
+
+model UserProfile {
+  id                   String   @id @default(cuid())
+  createdAt            DateTime @default(now())
+  updatedAt            DateTime @updatedAt
+  userId               String   @unique // Added @unique directive
+  user                 User     @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  bio                  String   @db.Text
+  avatarId             String   @default("2zr34P") // Gorge
+  totalDiscoveredItems Int      @default(0)
+  topItemQuizScore     Int      @default(0)
+  isLoadoutPublic      Boolean  @default(false)
+  Build                Build[]
 }
 
 model VerificationToken {
   identifier String
   token      String   @unique
   expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+model VerificationRequest {
+  id         String   @id @default(cuid())
+  identifier String
+  token      String   @unique
+  expires    DateTime
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
 
   @@unique([identifier, token])
 }
@@ -108,18 +147,6 @@ model Item {
   dlc        ITEM_DLC     @default(base)
   isActive   Boolean      @default(true)
   BuildItems BuildItems[]
-  UserItems  UserItems[]
-}
-
-model UserItems {
-  id     String @id @default(cuid())
-  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
-  userId String
-  item   Item   @relation(fields: [itemId], references: [id], onDelete: Cascade)
-  itemId String
-
-  @@index([userId])
-  @@index([itemId])
 }
 
 model UserLoadouts {
@@ -137,41 +164,28 @@ model UserLoadouts {
 }
 
 model Build {
-  id              String            @id @default(cuid())
-  createdAt       DateTime          @default(now())
-  updatedAt       DateTime?         @updatedAt
-  createdBy       User              @relation(fields: [createdById], references: [id])
-  createdById     String
-  isPublic        Boolean           @default(true)
-  isFeaturedBuild Boolean           @default(false)
-  isPatchAffected Boolean           @default(false)
-  name            String
-  description     String?           @db.Text
-  videoUrl        String?
-  thumbnailUrl    String?
-  buildLink       String?
-  helm            String? // Unused, legacy field
-  torso           String? // Unused, legacy field
-  legs            String? // Unused, legacy field
-  gloves          String? // Unused, legacy field
-  relic           String? // Unused, legacy field
-  amulet          String? // Unused, legacy field
-  weapon          String? // Unused, legacy field
-  ring            String? // Unused, legacy field
-  archtype        String? // Unused, legacy field
-  skill           String? // Unused, legacy field
-  concoction      String? // Unused, legacy field
-  consumable      String? // Unused, legacy field
-  mod             String? // Unused, legacy field
-  mutator         String? // Unused, legacy field
-  relicfragment   String? // Unused, legacy field
-  trait           String? // Unused, legacy field
-  BuildVotes      BuildVoteCounts[]
-  BuildReports    BuildReports[]
-  BuildItems      BuildItems[]
-  UserProfile     UserProfile?      @relation(fields: [userProfileId], references: [id])
-  userProfileId   String?
-  UserLoadouts    UserLoadouts[]
+  id                String            @id @default(cuid())
+  createdAt         DateTime          @default(now())
+  updatedAt         DateTime?         @updatedAt
+  createdBy         User              @relation(fields: [createdById], references: [id])
+  createdById       String
+  isFeaturedBuild   Boolean           @default(false)
+  isModeratorLocked Boolean           @default(false)
+  isPatchAffected   Boolean           @default(false)
+  isPublic          Boolean           @default(true)
+  dateFeatured      DateTime?
+  name              String
+  description       String?           @db.Text
+  videoUrl          String?
+  thumbnailUrl      String?
+  buildLink         String?
+  BuildVotes        BuildVoteCounts[]
+  BuildReports      BuildReports[]
+  BuildItems        BuildItems[]
+  UserProfile       UserProfile?      @relation(fields: [userProfileId], references: [id])
+  userProfileId     String?
+  UserLoadouts      UserLoadouts[]
+  BuildTags         BuildTags[]
 
   @@index([createdById])
   @@index([userProfileId])
@@ -218,14 +232,25 @@ model BuildReports {
   @@index([userId])
 }
 
-model UserProfile {
-  id           String   @id @default(cuid())
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
-  userId       String   @unique // Added @unique directive
-  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  bio          String   @db.Text
-  pinnedBuilds Build[]
+enum BUILD_TAG {
+  Melee
+  Ranged
+  Mods
+  Skills
+  StatusEffects
+  Tank
+  Support
+}
+
+model BuildTags {
+  id        String    @id @default(cuid())
+  createdAt DateTime  @default(now())
+  updatedAt DateTime? @updatedAt
+  build     Build     @relation(fields: [buildId], references: [id], onDelete: Cascade)
+  buildId   String
+  tag       BUILD_TAG
+
+  @@index([buildId])
 }
 
 model BannedUsers {

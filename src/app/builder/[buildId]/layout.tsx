@@ -7,15 +7,13 @@ import { isErrorResponse } from '@/features/error-handling/isErrorResponse'
 import { Archetype } from '@/features/items/types'
 import { PageHeader } from '@/features/ui/PageHeader'
 
-import BuildPage from './page'
-
 export async function generateMetadata(
   { params: { buildId } }: { params: { buildId: string } },
   parent: ResolvingMetadata,
 ): Promise<Metadata> {
   const buildData = await getBuild(buildId)
   if (isErrorResponse(buildData)) {
-    console.error(buildData.errors)
+    console.info(buildData.errors)
     return {
       title: 'Error loading build',
       description:
@@ -110,12 +108,14 @@ export async function generateMetadata(
 
 export default async function Layout({
   params: { buildId },
+  children,
 }: {
   params: { buildId: string }
+  children: React.ReactNode
 }) {
   const buildData = await getBuild(buildId)
   if (isErrorResponse(buildData)) {
-    console.error(buildData.errors)
+    console.info(buildData.errors)
     return (
       <div className="flex max-w-lg flex-col">
         <PageHeader
@@ -125,7 +125,6 @@ export default async function Layout({
       </div>
     )
   }
-  const { build } = buildData
 
-  return <BuildPage params={{ build }} />
+  return <>{children}</>
 }

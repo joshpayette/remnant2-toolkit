@@ -1,14 +1,18 @@
 import {
+  ArchiveBoxArrowDownIcon,
   ArchiveBoxIcon,
   ArrowLeftOnRectangleIcon,
+  BookOpenIcon,
+  CalculatorIcon,
   CircleStackIcon,
   DocumentCheckIcon,
-  DocumentPlusIcon,
   DocumentTextIcon,
   HeartIcon,
   ListBulletIcon,
   MagnifyingGlassIcon,
   PlusIcon,
+  PuzzlePieceIcon,
+  QueueListIcon,
   ShieldCheckIcon,
   StarIcon,
   TableCellsIcon,
@@ -30,15 +34,16 @@ export const NAV_ITEMS = {
   bossTracker: {
     label: 'Boss Tracker',
     description:
-      'Keep track of the bosses you have defeated and the ones you still need.',
+      'Helps you keep track of the bosses you have defeated and the ones you still need to defeat.',
     href: '/boss-tracker',
     icon: ShieldCheckIcon,
   },
   changeLog: {
     label: 'Change Log',
-    description: 'See the latest changes to the site.',
+    description:
+      'A running log of all additions, changes, and fixes to the toolkit.',
     href: 'https://github.com/joshpayette/remnant2-toolkit/blob/main/CHANGELOG.md',
-    icon: DocumentPlusIcon,
+    icon: BookOpenIcon,
   },
   collectionBuilds: {
     label: 'Builds by Collection',
@@ -50,7 +55,7 @@ export const NAV_ITEMS = {
   communityBuilds: {
     label: 'Community Builds',
     description:
-      'A collection of builds submitted and ranked by the community.',
+      'Search a collection of builds submitted and ranked by the community.',
     href: '/community-builds',
     icon: ListBulletIcon,
   },
@@ -76,9 +81,17 @@ export const NAV_ITEMS = {
   },
   featuredBuilds: {
     label: 'Featured Builds',
-    description: 'A collection of featured creator builds.',
-    href: '/creator-builds',
+    description:
+      'A curated list of unique and high-quality community submitted builds.',
+    href: '/featured-builds',
     icon: StarIcon,
+  },
+  hardcoreVeteran: {
+    label: 'Hardcore Veteran Guide',
+    description:
+      'A guide on getting started with, and completing, your first hardcore veteran run.',
+    href: '/guides/hardcore-veteran',
+    icon: TableCellsIcon,
   },
   itemLookup: {
     label: 'Item Lookup',
@@ -86,16 +99,24 @@ export const NAV_ITEMS = {
     href: '/item-lookup',
     icon: MagnifyingGlassIcon,
   },
+  itemQuiz: {
+    label: 'Item Quiz',
+    description:
+      'Test your ability to recognize items by only their icons! How many can you get in 60 seconds?',
+    href: '/item-quiz',
+    icon: PuzzlePieceIcon,
+  },
   itemTracker: {
     label: 'Item Tracker',
     description:
-      'Keep track of the items you have collected and the ones you still need.',
+      'Track your discovered and undiscovered items. Supports save file importing!',
     href: '/tracker',
     icon: DocumentCheckIcon,
   },
   loadouts: {
     label: 'Loadouts',
-    description: 'Create and manage your loadouts.',
+    description:
+      'Keep your in-game loadouts and their toolkit build counterparts in sync.',
     href: '/profile/loadout-builds',
     icon: ArchiveBoxIcon,
   },
@@ -110,6 +131,20 @@ export const NAV_ITEMS = {
     description: 'View and manage your profile.',
     href: '/profile',
     icon: UserIcon,
+  },
+  resources: {
+    label: 'Resources',
+    description:
+      'A collection of helpful tools, detailed guides, and third-party projects for Remnant 2.',
+    href: '/resources',
+    icon: QueueListIcon,
+  },
+  r2ag: {
+    label: 'Remnant 2 Armor Generator',
+    description:
+      'Find the perfect armor set for your build with the Remnant 2 Armor Generator.',
+    href: 'https://scouthunter.github.io/R2AG/',
+    icon: CalculatorIcon,
   },
   signin: {
     label: 'Sign In',
@@ -127,9 +162,16 @@ export const NAV_ITEMS = {
   supportR2TK: {
     label: 'Support R2TK!',
     description:
-      'Help support the development of the Remnant 2 Toolkit, plus get some cool perks!',
-    href: 'https://www.patreon.com/JoshPayette/membership',
+      'Help with the costs of running the Toolkit and keeping it ad-free, plus get some small perks!',
+    href: '/support-r2tk',
     icon: HeartIcon,
+  },
+  vashCalculator: {
+    label: `Vash Cowaii's Loadout Calculator`,
+    description:
+      'An incredible tool for advanced build stats and calculations.',
+    href: 'https://cowaii.io/index.html?s=s',
+    icon: '/toolkit/vash-icon.png',
   },
   wiki: {
     label: 'Wiki',
@@ -137,5 +179,11 @@ export const NAV_ITEMS = {
       'Definitive wiki for Remnant 2. Community driven, no ads or stream embeds.',
     href: 'https://remnant.wiki/',
     icon: '/wiki-icon.png',
+  },
+  worldSaveArchive: {
+    label: 'World Save Archive',
+    description: `A collection of curated world saves for apocalypse bosses with specific affixes.`,
+    href: '/world-save-archive',
+    icon: ArchiveBoxArrowDownIcon,
   },
 }

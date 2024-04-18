@@ -11,11 +11,11 @@ import { Analytics } from '@vercel/analytics/react'
 import { Viewport } from 'next'
 import { ToastContainer } from 'react-toastify'
 
+import { Link } from '@/app/(components)/_base/link'
+import { GlobalActionButtons } from '@/app/(components)/buttons/global-action-buttons/global-action-buttons'
 import { PreloadResources } from '@/features/ui/PreloadResources'
 
 import { SessionProvider } from '../features/auth/components/SessionProvider'
-import { ReportBugButton } from '../features/bug-reports/ReportBugButton'
-import { BackToTopButton } from '../features/ui/BackToTopButton'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -29,40 +29,53 @@ export default async function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
       <body
         className={cn(
-          'relative flex min-h-screen flex-col items-center justify-start',
+          'relative flex min-h-fit flex-col items-center justify-start',
           inter.className,
         )}
       >
         <PreloadResources />
         <SessionProvider>
-          <div className="fixed bottom-[8px] right-[8px] z-20">
-            <BackToTopButton />
-          </div>
-          <div className="fixed bottom-[8px] right-[52px] z-20">
-            <ReportBugButton />
-          </div>
-          <div className="w-full bg-purple-900 p-1 text-center text-sm">
-            <a
-              href="https://remnant.wiki"
+          <GlobalActionButtons />
+          <div className="w-full bg-secondary-900 p-1 text-center text-sm">
+            When the DLC launches, all builds will be marked as patch affected.{' '}
+            <Link
+              href="https://www.reddit.com/r/remnantgame/comments/1c1miwt/all_r2tk_builds_will_be_marked_patch_affected/"
               target="_blank"
-              rel="noopener noreferrer"
               className="underline"
             >
-              Remnant.Wiki
-            </a>
-            , a community-built alternative to Fextralife, needs contributors!
-            No ads or embedded streams. Thank you!
+              Find out more here!
+            </Link>
+            <br />
+            We will be working to update the Toolkit after the DLC as quickly as
+            we can!
+            <br />
+            We encourage users to report issues on our{' '}
+            <Link
+              href="https://discord.gg/kgVaU3zAQ7"
+              target="_blank"
+              className="underline"
+            >
+              Discord
+            </Link>
+            , and contributors on{' '}
+            <Link
+              href="https://github.com/joshpayette/remnant2-toolkit"
+              target="_blank"
+              className="underline"
+            >
+              Github
+            </Link>
           </div>
-          <div className="flex w-full max-w-7xl grow flex-col items-start justify-start">
+          <div className="flex h-full w-full max-w-7xl grow flex-col items-start justify-start">
             <header className="w-full">
               <NavBar />
             </header>
 
-            <main className="flex h-full min-h-screen w-full grow flex-col items-center justify-start p-4">
-              <ToastContainer theme="dark" />
+            <main className="flex h-full min-h-screen w-full grow flex-col items-center justify-start p-4 pt-0">
+              <ToastContainer theme="dark" pauseOnFocusLoss={false} />
               {children}
             </main>
           </div>

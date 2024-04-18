@@ -2,14 +2,19 @@
 
 import { useRef, useState } from 'react'
 
-import { BuilderPage } from '@/features/build/components/builder/BuilderPage'
-import { ActionButton } from '@/features/build/components/buttons/ActionButton'
-import { SaveBuildButton } from '@/features/build/components/buttons/SaveBuildButton'
-import { BuildSuggestionsDialog } from '@/features/build/components/dialogs/build-suggestions/BuildSuggestionsDialog'
+import { ArmorCalculatorButton } from '@/app/(components)/buttons/builder-buttons/armor-calculator-button'
+import { DetailedViewButton } from '@/app/(components)/buttons/builder-buttons/detailed-view-button'
+import { GenerateBuildImageButton } from '@/app/(components)/buttons/builder-buttons/generate-build-image'
+import { ItemSuggestionsButton } from '@/app/(components)/buttons/builder-buttons/item-suggestions-button'
+import { RandomBuildButton } from '@/app/(components)/buttons/builder-buttons/random-build-button'
+import { SaveBuildButton } from '@/app/(components)/buttons/builder-buttons/save-build-button'
+import { useBuildActions } from '@/app/(hooks)/use-build-actions'
+import { BuilderContainer } from '@/features/build/components/builder/BuilderContainer'
+import { ArmorSuggestionsDialog } from '@/features/build/components/dialogs/ArmorSuggestionsDialog'
 import { DetailedBuildDialog } from '@/features/build/components/dialogs/DetailedBuildDialog'
 import { ImageDownloadInfo } from '@/features/build/components/dialogs/ImageDownloadInfo'
+import { ItemTagSuggestionsDialog } from '@/features/build/components/dialogs/ItemTagSuggestionsDialog'
 import { INITIAL_BUILD_STATE } from '@/features/build/constants'
-import { useBuildActions } from '@/features/build/hooks/useBuildActions'
 import { useDBBuildState } from '@/features/build/hooks/useDBBuildState'
 import { BuildState } from '@/features/build/types'
 import { PageHeader } from '@/features/ui/PageHeader'
@@ -24,17 +29,21 @@ export default function Page() {
     isScreenshotMode,
     showControls,
     imageDownloadInfo,
+    imageExportLoading,
     handleClearImageDownloadInfo,
+    handleImageExport,
     handleRandomBuild,
   } = useBuildActions()
 
   const buildContainerRef = useRef<HTMLDivElement>(null)
 
-  const [showBuildSuggestions, setShowBuildSuggestions] = useState(false)
+  const [showArmorCalculator, setShowArmorCalculator] = useState(false)
+  const [showItemSuggestions, setShowItemSuggestions] = useState(false)
 
   function handleApplySuggestions(newBuildState: BuildState) {
     setNewBuildState(newBuildState)
-    setShowBuildSuggestions(false)
+    setShowArmorCalculator(false)
+    setShowItemSuggestions(false)
   }
 
   return (
@@ -55,14 +64,23 @@ export default function Page() {
         subtitle="Create your builds and share them with your friends and the community."
       />
 
-      <BuildSuggestionsDialog
+      <ArmorSuggestionsDialog
         buildState={dbBuildState}
-        open={showBuildSuggestions}
-        onClose={() => setShowBuildSuggestions(false)}
+        open={showArmorCalculator}
+        onClose={() => setShowArmorCalculator(false)}
         onApplySuggestions={handleApplySuggestions}
+        key={`${JSON.stringify(dbBuildState)}-armor-suggestions`}
       />
 
-      <BuilderPage
+      <ItemTagSuggestionsDialog
+        buildState={dbBuildState}
+        open={showItemSuggestions}
+        onClose={() => setShowItemSuggestions(false)}
+        onApplySuggestions={handleApplySuggestions}
+        key={`${JSON.stringify(dbBuildState)}-item-suggestions`}
+      />
+
+      <BuilderContainer
         buildContainerRef={buildContainerRef}
         buildState={dbBuildState}
         isScreenshotMode={isScreenshotMode}
@@ -74,15 +92,29 @@ export default function Page() {
           <>
             <SaveBuildButton buildState={dbBuildState} editMode={false} />
 
-            <ActionButton.BuildSuggestions
-              onClick={() => setShowBuildSuggestions(true)}
+            <GenerateBuildImageButton
+              imageExportLoading={imageExportLoading}
+              onClick={() =>
+                handleImageExport(
+                  buildContainerRef.current,
+                  `${dbBuildState.name}`,
+                )
+              }
             />
 
-            <ActionButton.ShowDetailedView
+            <ArmorCalculatorButton
+              onClick={() => setShowArmorCalculator(true)}
+            />
+
+            <ItemSuggestionsButton
+              onClick={() => setShowItemSuggestions(true)}
+            />
+
+            <DetailedViewButton
               onClick={() => setDetailedBuildDialogOpen(true)}
             />
 
-            <ActionButton.RandomBuild
+            <RandomBuildButton
               onClick={() => {
                 const randomBuild = handleRandomBuild()
                 setNewBuildState(randomBuild)

@@ -1,5 +1,5 @@
+import { TraitItem } from '@/app/(data)/items/types/TraitItem'
 import { Item } from '@/features/items/types'
-import { TraitItem } from '@/features/items/types/TraitItem'
 import { Dialog } from '@/features/ui/Dialog'
 
 import { BuildState } from '../../../types'
@@ -37,7 +37,9 @@ export function HealthBreakdownDialog({
     return (
       <>
         <span className="font-bold text-white">{item.name}</span>{' '}
-        <span className="text-gray-300">{`(${amount * item.healthStep})`}</span>
+        <span className="text-gray-300">{`(${
+          amount * (item.healthStep ?? 0)
+        })`}</span>
       </>
     )
   }
@@ -94,9 +96,9 @@ export function HealthBreakdownDialog({
       maxWidthClass="max-w-sm"
     >
       <div className="text-left text-xs">
-        <h2 className="col-span-full mb-2 text-xs font-semibold text-purple-500">
+        <h2 className="col-span-full mb-2 text-xs font-semibold text-secondary-500">
           Base Health:{' '}
-          <span className="text-sm font-bold text-purple-400">100</span>
+          <span className="text-sm font-bold text-secondary-400">100</span>
         </h2>
         {(breakdown.equippedHealthIncreaseItems.length > 0 ||
           breakdown.equippedHealthStepItems.length > 0) && (

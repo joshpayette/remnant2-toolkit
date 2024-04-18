@@ -1,7 +1,6 @@
 'use server'
 
 import { revalidatePath } from 'next/cache'
-import { z } from 'zod'
 
 import { getServerSession } from '@/features/auth/lib'
 import { prisma } from '@/features/db'
@@ -9,7 +8,9 @@ import { prisma } from '@/features/db'
 import { BUILD_REVALIDATE_PATHS } from '../constants'
 import { BuildActionResponse } from '../types'
 
-export async function deleteBuild(data: string): Promise<BuildActionResponse> {
+export async function deleteBuild(
+  buildId: string,
+): Promise<BuildActionResponse> {
   // session validation
   const session = await getServerSession()
   if (!session || !session.user) {
@@ -17,23 +18,6 @@ export async function deleteBuild(data: string): Promise<BuildActionResponse> {
       errors: ['You must be logged in.'],
     }
   }
-
-  // build validation
-  const unvalidatedData = JSON.parse(data)
-  const validatedData = z
-    .object({
-      buildId: z.string(),
-    })
-    .safeParse(unvalidatedData)
-
-  if (!validatedData.success) {
-    console.error('Error in data!', validatedData.error)
-    return {
-      errors: [validatedData.error.flatten().fieldErrors],
-    }
-  }
-
-  const { buildId } = validatedData.data
 
   try {
     const build = await prisma.build.findUnique({
@@ -46,7 +30,7 @@ export async function deleteBuild(data: string): Promise<BuildActionResponse> {
     })
     if (!build) {
       return {
-        errors: ['Build not found!'],
+        errors: [`Build with id ${buildId} not found.`],
       }
     }
 
@@ -73,7 +57,7 @@ export async function deleteBuild(data: string): Promise<BuildActionResponse> {
 
     // Refresh the cache for the routes
     for (const path of BUILD_REVALIDATE_PATHS) {
-      revalidatePath(path)
+      revalidatePath(path, 'page')
     }
 
     return {

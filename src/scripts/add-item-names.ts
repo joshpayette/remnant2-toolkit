@@ -7,7 +7,7 @@ import * as fs from 'fs'
 import Papa from 'papaparse'
 import * as path from 'path'
 
-import { remnantItems } from '../features/items/data/remnantItems'
+import { allItems } from '../app/(data)/items/allItems'
 
 const csvPath = path.join(__dirname, './itemcount.csv')
 const csv = fs.readFileSync(csvPath, 'utf8')
@@ -18,7 +18,7 @@ const newData = []
 for (const result of results.data) {
   const itemId = result[0]
   const itemCount = result[1]
-  const itemName = remnantItems.find((item) => item.id === itemId)?.name
+  const itemName = allItems.find((item) => item.id === itemId)?.name
 
   if (itemName) {
     newData.push([itemName, itemCount])

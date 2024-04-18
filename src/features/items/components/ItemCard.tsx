@@ -1,33 +1,59 @@
-import { InformationCircleIcon } from '@heroicons/react/24/outline'
-import { ShareIcon } from '@heroicons/react/24/solid'
+import {
+  ChartBarSquareIcon,
+  MagnifyingGlassMinusIcon,
+  MagnifyingGlassPlusIcon,
+} from '@heroicons/react/24/solid'
 import copy from 'clipboard-copy'
 import Image from 'next/image'
+import { useState } from 'react'
 import { toast } from 'react-toastify'
+import { useLocalStorage } from 'usehooks-ts'
 
+import { BaseButton } from '@/app/(components)/_base/button'
+import { Link } from '@/app/(components)/_base/link'
+import { ArchetypeItem } from '@/app/(data)/items/types/ArchetypeItem'
+import { ArmorItem } from '@/app/(data)/items/types/ArmorItem'
+import { ModItem } from '@/app/(data)/items/types/ModItem'
+import { MutatorItem } from '@/app/(data)/items/types/MutatorItem'
+import { PerkItem } from '@/app/(data)/items/types/PerkItem'
+import { SkillItem } from '@/app/(data)/items/types/SkillItem'
+import { TraitItem } from '@/app/(data)/items/types/TraitItem'
+import { WeaponItem } from '@/app/(data)/items/types/WeaponItem'
+import { ArmorInfo } from '@/features/armor-calculator/ArmorInfo'
+import { getArrayOfLength } from '@/features/build/lib/getArrayOfLength'
+import getItemBuildStats from '@/features/items/actions/getItemBuildStats'
+import { cleanItemName } from '@/features/items/lib/cleanItemName'
+import { DescriptionWithTags } from '@/features/ui/DescriptionWithTags'
+import { Tooltip } from '@/features/ui/Tooltip'
 import { cn } from '@/lib/classnames'
 
-import { cleanItemName } from '../lib/cleanItemName'
-import { Item } from '../types'
-import { ArchetypeItem } from '../types/ArchetypeItem'
-import { ArmorItem } from '../types/ArmorItem'
-import { ModItem } from '../types/ModItem'
-import { MutatorItem } from '../types/MutatorItem'
-import { PerkItem } from '../types/PerkItem'
-import { SkillItem } from '../types/SkillItem'
-import { TraitItem } from '../types/TraitItem'
-import { WeaponItem } from '../types/WeaponItem'
-import { ArmorInfo } from './ArmorInfo'
-import { DescriptionWithTags } from './DescriptionWithTags'
+import { Item, ItemBuildStats } from '../types'
 import { WeaponInfo } from './WeaponInfo'
 
 interface Props {
+  allowItemCompare?: boolean
   index?: number
   data: Item
   width?: number
   onMoreInfoClick: (item: Item) => void
 }
 
-export function ItemCard({ data: item, onMoreInfoClick }: Props) {
+export function ItemCard({
+  allowItemCompare = false,
+  data: item,
+  onMoreInfoClick,
+}: Props) {
+  const [itemsToCompare, setItemsToCompare] = useLocalStorage<string[]>(
+    'item-lookup-compare',
+    getArrayOfLength(5).map(() => ''),
+    { initializeWithValue: false },
+  )
+  const itemBeingCompared = itemsToCompare.includes(item.id)
+
+  const [itemBuildStats, setItemBuildStats] = useState<ItemBuildStats | null>(
+    null,
+  )
+
   const { imagePath, category, name, description } = item
 
   let sizes = {
@@ -49,13 +75,90 @@ export function ItemCard({ data: item, onMoreInfoClick }: Props) {
     }
   }
 
+  function handleAddItemToCompare() {
+    // If no empty slots, return
+    const emptySlots = itemsToCompare.filter((id) => id === '')
+    if (emptySlots.length === 0) return
+
+    // Find the next empty slot and add to it
+    const itemIndex = itemsToCompare.findIndex((id) => id === '')
+    const newItemsToCompare = [...itemsToCompare]
+    newItemsToCompare[itemIndex] = item.id
+    setItemsToCompare(newItemsToCompare)
+  }
+
+  function handleRemoveItemFromCompare() {
+    const newItemsToCompare = itemsToCompare.map((id) =>
+      id === item.id ? '' : id,
+    )
+    setItemsToCompare(newItemsToCompare)
+  }
+
   return (
-    <div className="col-span-1 flex flex-col divide-y divide-green-800 rounded-lg border border-green-500 bg-black text-center shadow">
+    <div className="col-span-1 flex flex-col divide-y divide-primary-800 rounded-lg border border-primary-500 bg-black text-center shadow">
       <div className="flex flex-1 flex-col p-4">
-        <button
+        {allowItemCompare ? (
+          <div className="flex w-full items-center justify-center">
+            <div className="flex w-full items-center justify-start">
+              {itemBuildStats ? (
+                <div className="flex items-center gap-1 text-[11px] text-gray-200">
+                  <div className="flex flex-col items-center justify-start">
+                    <span className="underline">Featured</span>
+                    <span>
+                      <span>{itemBuildStats.featured.usedIn}</span>
+                      <span>/</span>
+                      <span>{itemBuildStats.featured.total}</span>
+                    </span>
+                  </div>
+                  <div className="flex flex-col items-center justify-start">
+                    <span className="underline">Community</span>
+                    <span>
+                      <span>{itemBuildStats.community.usedIn}</span>
+                      <span>/</span>
+                      <span>{itemBuildStats.community.total}</span>
+                    </span>
+                  </div>
+                </div>
+              ) : (
+                <Tooltip content="Get stats on how many featured and community builds the item is used in.">
+                  <BaseButton
+                    outline
+                    onClick={async () => {
+                      const response = await getItemBuildStats(item.id)
+                      if (!response.success) {
+                        toast.error('Failed to get build stats')
+                        return
+                      }
+                      setItemBuildStats(response.stats)
+                    }}
+                  >
+                    <ChartBarSquareIcon className="h-5 w-5" />
+                  </BaseButton>
+                </Tooltip>
+              )}
+            </div>
+            <div className="flex w-full items-center justify-end">
+              {itemBeingCompared ? (
+                <Tooltip content="Remove from item comparison.">
+                  <BaseButton outline onClick={handleRemoveItemFromCompare}>
+                    <MagnifyingGlassMinusIcon className="h-5 w-5" />
+                  </BaseButton>
+                </Tooltip>
+              ) : (
+                <Tooltip content="Add to item comparison.">
+                  <BaseButton outline onClick={handleAddItemToCompare}>
+                    <MagnifyingGlassPlusIcon className="h-5 w-5" />
+                  </BaseButton>
+                </Tooltip>
+              )}
+            </div>
+          </div>
+        ) : null}
+        <BaseButton
+          plain
           onClick={() => onMoreInfoClick(item)}
           aria-label="More Info"
-          className="text-md font-bold text-purple-500 hover:text-purple-300 hover:underline"
+          className="flex flex-col items-center justify-center"
         >
           <Image
             className={cn(
@@ -71,7 +174,7 @@ export function ItemCard({ data: item, onMoreInfoClick }: Props) {
           />
 
           {name}
-        </button>
+        </BaseButton>
         <div className="mt-0 flex flex-grow flex-col justify-start text-xs">
           <div className="sr-only">Item Category</div>
           <div className="text-xs text-gray-400">
@@ -81,7 +184,11 @@ export function ItemCard({ data: item, onMoreInfoClick }: Props) {
             <>
               <div className="sr-only">Description</div>
               <div className="mt-3 whitespace-pre-line text-left text-xs text-gray-200">
-                <DescriptionWithTags description={description ?? ''} />
+                <DescriptionWithTags
+                  description={description ?? ''}
+                  highlightBuildTags={false}
+                  highlightItems={false}
+                />
               </div>
             </>
           )}
@@ -91,6 +198,8 @@ export function ItemCard({ data: item, onMoreInfoClick }: Props) {
               <strong>At Max Level: </strong>
               <DescriptionWithTags
                 description={item.maxLevelBonus || 'No max level bonus found.'}
+                highlightBuildTags={false}
+                highlightItems={false}
               />
             </div>
           )}
@@ -102,70 +211,74 @@ export function ItemCard({ data: item, onMoreInfoClick }: Props) {
           )}
         </div>
         {ArmorItem.isArmorItem(item) && (
-          <div className="mt-1">
+          <div className="mt-4">
             <ArmorInfo item={item} />
           </div>
         )}
         {WeaponItem.isWeaponItem(item) && (
-          <div className="mt-1">
+          <div className="mt-4">
             <WeaponInfo item={item} />
           </div>
         )}
         {PerkItem.isPerkItem(item) && item.linkedItems?.archetype && (
           <div className="mt-4">
-            <div className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 border-t-green-500 py-1 text-left text-sm text-gray-300">
+            <div className="grid w-full grid-cols-2 gap-2 border border-transparent   py-1 text-left text-sm text-gray-300">
               <p className="flex items-center justify-start text-xs">
                 Archetype
               </p>
-              <a
-                href={`/item-lookup?searchText=${item.linkedItems.archetype.name}`}
-                className="flex items-center justify-end text-right text-xs font-bold text-purple-500 underline"
+              <Link
+                href={`/item-lookup?categories=Trait,Archetype,Perk,Skill&searchText=${item.linkedItems.archetype.name}`}
+                className="flex items-center justify-end text-right text-xs font-bold text-secondary-500 underline"
+                target="_blank"
               >
                 {item.linkedItems.archetype.name}
-              </a>
+              </Link>
             </div>
           </div>
         )}
         {SkillItem.isSkillItem(item) && item.linkedItems?.archetype && (
           <div className="mt-4">
-            <div className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 border-t-green-500 py-1 text-left text-sm text-gray-300">
+            <div className="grid w-full grid-cols-2 gap-2 border border-transparent   py-1 text-left text-sm text-gray-300">
               <p className="flex items-center justify-start text-xs">
                 Archetype
               </p>
-              <a
-                href={`/item-lookup?searchText=${item.linkedItems.archetype.name}`}
-                className="flex items-center justify-end text-right text-xs font-bold text-purple-500 underline"
+              <Link
+                href={`/item-lookup?categories=Trait,Archetype,Perk,Skill&searchText=${item.linkedItems.archetype.name}`}
+                className="flex items-center justify-end text-right text-xs font-bold text-secondary-500 underline"
+                target="_blank"
               >
                 {item.linkedItems.archetype.name}
-              </a>
+              </Link>
             </div>
           </div>
         )}
         {TraitItem.isTraitItem(item) && item.linkedItems?.archetype && (
           <div className="mt-4">
-            <div className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 border-t-green-500 py-1 text-left text-sm text-gray-300">
+            <div className="grid w-full grid-cols-2 gap-2 border border-transparent   py-1 text-left text-sm text-gray-300">
               <p className="flex items-center justify-start text-xs">
                 Archetype
               </p>
-              <a
-                href={`/item-lookup?searchText=${item.linkedItems.archetype.name}`}
-                className="flex items-center justify-end text-right text-xs font-bold text-purple-500 underline"
+              <Link
+                href={`/item-lookup?categories=Trait,Archetype,Perk,Skill&searchText=${item.linkedItems.archetype.name}`}
+                className="flex items-center justify-end text-right text-xs font-bold text-secondary-500 underline"
+                target="_blank"
               >
                 {item.linkedItems.archetype.name}
-              </a>
+              </Link>
             </div>
           </div>
         )}
         {ModItem.isModItem(item) && item.linkedItems?.weapon && (
           <div className="mt-4">
-            <div className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 border-t-green-500 py-1 text-left text-sm text-gray-300">
+            <div className="grid w-full grid-cols-2 gap-2 border border-transparent   py-1 text-left text-sm text-gray-300">
               <p className="flex items-center justify-start text-xs">Weapon</p>
-              <a
+              <Link
                 href={`/item-lookup?searchText=${item.linkedItems.weapon.name}`}
-                className="flex items-center justify-end text-right text-xs font-bold text-purple-500 underline"
+                className="flex items-center justify-end text-right text-xs font-bold text-secondary-500 underline"
+                target="_blank"
               >
                 {item.linkedItems.weapon.name}
-              </a>
+              </Link>
             </div>
           </div>
         )}
@@ -175,17 +288,18 @@ export function ItemCard({ data: item, onMoreInfoClick }: Props) {
             <div className={cn(index === 0 && 'mt-4')} key={perk.name}>
               <div
                 className={cn(
-                  'grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 py-1 text-left text-sm text-gray-300',
-                  index === 0 && 'border-t-green-500',
+                  'grid w-full grid-cols-2 gap-2 border border-transparent  py-1 text-left text-sm text-gray-300',
+                  index === 0 && '',
                 )}
               >
                 <p className="flex items-center justify-start text-xs">Perk</p>
-                <a
-                  href={`/item-lookup?searchText=${perk.name}`}
-                  className="flex items-center justify-end text-right text-xs font-bold text-purple-500 underline"
+                <Link
+                  href={`/item-lookup?categories=Trait,Archetype,Perk,Skill&searchText=${perk.name}`}
+                  className="flex items-center justify-end text-right text-xs font-bold text-secondary-500 underline"
+                  target="_blank"
                 >
                   {perk.name}
-                </a>
+                </Link>
               </div>
             </div>
           ))}
@@ -195,16 +309,17 @@ export function ItemCard({ data: item, onMoreInfoClick }: Props) {
             <div key={skill.name}>
               <div
                 className={cn(
-                  'grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 py-1 text-left text-sm text-gray-300',
+                  'grid w-full grid-cols-2 gap-2 border border-transparent  py-1 text-left text-sm text-gray-300',
                 )}
               >
                 <p className="flex items-center justify-start text-xs">Skill</p>
-                <a
-                  href={`/item-lookup?searchText=${skill.name}`}
-                  className="flex items-center justify-end text-right text-xs font-bold text-purple-500 underline"
+                <Link
+                  href={`/item-lookup?categories=Trait,Archetype,Perk,Skill&searchText=${skill.name}`}
+                  className="flex items-center justify-end text-right text-xs font-bold text-secondary-500 underline"
+                  target="_blank"
                 >
                   {skill.name}
-                </a>
+                </Link>
               </div>
             </div>
           ))}
@@ -214,24 +329,26 @@ export function ItemCard({ data: item, onMoreInfoClick }: Props) {
             <div key={trait.name}>
               <div
                 className={cn(
-                  'grid w-full grid-cols-2 gap-2 border border-transparent border-b-green-500 py-1 text-left text-sm text-gray-300',
+                  'grid w-full grid-cols-2 gap-2 border border-transparent  py-1 text-left text-sm text-gray-300',
                 )}
               >
                 <p className="flex items-center justify-start text-xs">Trait</p>
-                <a
-                  href={`/item-lookup?searchText=${trait.name}`}
-                  className="flex items-center justify-end text-right text-xs font-bold text-purple-500 underline"
+                <Link
+                  href={`/item-lookup?categories=Trait,Archetype,Perk,Skill&searchText=${trait.name}`}
+                  className="flex items-center justify-end text-right text-xs font-bold text-secondary-500 underline"
+                  target="_blank"
                 >
                   {trait.name}
-                </a>
+                </Link>
               </div>
             </div>
           ))}
       </div>
       <div>
-        <div className="-mt-px flex divide-x divide-green-800">
-          <button
-            className="relative inline-flex w-0 flex-1 items-center justify-center gap-x-1 rounded-br-lg border border-transparent py-4 text-xs font-semibold text-gray-200"
+        <div className="-mt-px grid grid-cols-2 divide-x divide-primary-800">
+          <BaseButton
+            plain
+            className="relative flex items-center justify-center"
             aria-label="Share Item Link"
             onClick={() => {
               copy(
@@ -242,24 +359,18 @@ export function ItemCard({ data: item, onMoreInfoClick }: Props) {
               toast.success('Copied link to clipboard')
             }}
           >
-            <ShareIcon className="h-4 w-4 text-green-400" aria-hidden="true" />
             Share
-          </button>
+          </BaseButton>
 
-          <div className="-ml-px flex w-0 flex-1">
-            <div className="flex w-0 flex-1">
-              <button
-                onClick={() => onMoreInfoClick(item)}
-                aria-label="More Info"
-                className="relative inline-flex w-0 flex-1 items-center justify-center gap-x-1 rounded-br-lg border border-transparent py-4 text-xs font-semibold text-gray-200"
-              >
-                <InformationCircleIcon
-                  className="h-4 w-4 text-green-400"
-                  aria-hidden="true"
-                />
-                More Info
-              </button>
-            </div>
+          <div className="flex w-full items-center justify-center">
+            <BaseButton
+              plain
+              onClick={() => onMoreInfoClick(item)}
+              aria-label="More Info"
+              className="w-full"
+            >
+              Info
+            </BaseButton>
           </div>
         </div>
       </div>

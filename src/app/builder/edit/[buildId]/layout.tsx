@@ -2,16 +2,16 @@ import { getBuild } from '@/features/build/actions/getBuild'
 import { isErrorResponse } from '@/features/error-handling/isErrorResponse'
 import { PageHeader } from '@/features/ui/PageHeader'
 
-import BuildPage from './page'
-
 export default async function Layout({
   params: { buildId },
+  children,
 }: {
   params: { buildId: string }
+  children: React.ReactNode
 }) {
   const buildData = await getBuild(buildId)
   if (isErrorResponse(buildData)) {
-    console.error(buildData.errors)
+    console.info(buildData.errors)
     return (
       <div className="flex max-w-lg flex-col">
         <PageHeader
@@ -21,7 +21,6 @@ export default async function Layout({
       </div>
     )
   }
-  const { build } = buildData
 
-  return <BuildPage params={{ INITIAL_BUILD_STATE: build }} />
+  return <>{children}</>
 }

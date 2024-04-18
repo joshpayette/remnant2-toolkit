@@ -15,7 +15,7 @@ export async function POST(request: NextRequest) {
     const response = await imagekit.upload({
       file: base64Image,
       fileName: `${imageName}`,
-      folder: 'build-uploads',
+      folder: 'build-uploads-temp',
       useUniqueFileName: true,
     })
 

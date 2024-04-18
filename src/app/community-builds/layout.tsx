@@ -4,12 +4,12 @@ import { Metadata } from 'next'
 import { Suspense } from 'react'
 
 import { getTotalBuildCount } from '@/features/build/actions/getTotalBuildCount'
+import { NAV_ITEMS } from '@/features/navigation/constants'
 import { PageHeader } from '@/features/ui/PageHeader'
 
 export async function generateMetadata(): Promise<Metadata> {
   const title = `Community Builds - Remnant 2 Toolkit`
-  const description =
-    'Remnant 2 Community Builds, a collection of builds shared by the community. Share your builds with the community and help others find the best builds for their playstyle.'
+  const description = NAV_ITEMS.communityBuilds.description
 
   return {
     title,
@@ -42,18 +42,20 @@ export default async function Layout({
 }) {
   return (
     <>
-      <PageHeader
-        title="Community Builds"
-        subtitle={
-          <span>
-            Search from{' '}
-            <span className="text-2xl font-bold text-green-500">
-              {await getTotalBuildCount()}
-            </span>{' '}
-            community submitted builds!
-          </span>
-        }
-      />
+      <div className="flex w-full items-start justify-start sm:items-center sm:justify-center">
+        <PageHeader
+          title="Community Builds"
+          subtitle={
+            <span>
+              Search from{' '}
+              <span className="text-2xl font-bold text-primary-500">
+                {await getTotalBuildCount()}
+              </span>{' '}
+              community submitted builds!
+            </span>
+          }
+        />
+      </div>
       <Suspense>{children}</Suspense>
     </>
   )

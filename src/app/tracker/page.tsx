@@ -6,45 +6,25 @@ import { useFormState } from 'react-dom'
 import { toast } from 'react-toastify'
 import { useIsClient, useLocalStorage } from 'usehooks-ts'
 
-import { Filters } from '@/app/tracker/Filters'
-import { ItemCategory } from '@/features/build/types'
+import { BaseButton } from '@/app/(components)/_base/button'
+import { allItems } from '@/app/(data)/items/allItems'
+import { MutatorItem } from '@/app/(data)/items/types/MutatorItem'
+import { WeaponItem } from '@/app/(data)/items/types/WeaponItem'
+import { ImportCSVDialog } from '@/app/tracker/(components)/ImportCSVDialog'
+import { ImportSaveDialog } from '@/app/tracker/(components)/ImportSaveDialog'
+import { ItemTrackerFilters } from '@/app/tracker/(components)/ItemTrackerFilters'
+import { getProgressLabel } from '@/app/tracker/(lib)/getProgressLabel'
+import { ItemTrackerCategory, LocalStorage } from '@/app/tracker/(lib)/types'
+import { useFilteredItems } from '@/app/tracker/(lib)/useFilteredItems'
+import { allTrackerItems, skippedItemCategories } from '@/app/tracker/constants'
 import { ItemButton } from '@/features/items/components/ItemButton'
 import { ItemInfoDialog } from '@/features/items/components/ItemInfoDialog'
-import { remnantItems } from '@/features/items/data/remnantItems'
-import { useFilteredItems } from '@/features/items/hooks/useFilteredItems'
 import { itemToCsvItem } from '@/features/items/lib/itemToCsvItem'
 import { Item } from '@/features/items/types'
-import { MutatorItem } from '@/features/items/types/MutatorItem'
-import { WeaponItem } from '@/features/items/types/WeaponItem'
 import { PageHeader } from '@/features/ui/PageHeader'
 import { capitalize } from '@/lib/capitalize'
 
-import { parseSaveFile } from './actions'
-import { ImportCSVDialog } from './ImportCSVDialog'
-import { ImportSaveDialog } from './ImportSaveDialog'
-import { ItemTrackerCategory, LocalStorage } from './types'
-import { getProgressLabel } from './utils'
-
-/** We don't track these categories at all */
-const skippedItemCategories: Array<ItemCategory> = ['skill', 'perk']
-
-/**
- * ----------------------------------------------
- * Get the items
- * ----------------------------------------------
- */
-const allItems = remnantItems
-  // We don't want to show the items that are in the skippedItemCategories
-  .filter((item) => skippedItemCategories.includes(item.category) === false)
-  // Remove mods that have linked guns
-  .filter((item) => {
-    if (item.category !== 'mod') return true
-    return item.linkedItems?.weapon === undefined
-  })
-  .map((item) => ({
-    ...item,
-    discovered: false,
-  })) satisfies Item[]
+import { parseSaveFile } from './(lib)/actions'
 
 /**
  * ----------------------------------------------
@@ -59,7 +39,7 @@ const subCategories: ItemTrackerCategory[] = [
   'Mutator (Melee)',
 ]
 
-let itemCategories = allItems
+let itemCategories = allTrackerItems
   // Remove the categories that will be replaced by subcategories
   .reduce((acc, item) => {
     if (acc.includes(capitalize(item.category))) return acc
@@ -125,7 +105,7 @@ export default function Page() {
     // Remove any items that are in the skipped categories
     const filteredDiscoveredItems = saveFileDiscoveredItemIds.filter(
       (itemId) => {
-        const item = allItems.find((item) => item.id === itemId)
+        const item = allTrackerItems.find((item) => item.id === itemId)
         if (!item) return false
         if (skippedItemCategories.includes(item.category)) return false
         return true
@@ -149,7 +129,10 @@ export default function Page() {
   const csvFileInputRef = useRef<HTMLInputElement | null>(null)
 
   // Provide the tracker progress
-  const totalProgress = getProgressLabel({ items: allItems, discoveredItemIds })
+  const totalProgress = getProgressLabel({
+    items: allTrackerItems,
+    discoveredItemIds,
+  })
 
   function handleCsvFileSubmit() {
     if (!csvFileInputRef.current || !csvFileInputRef.current.files) {
@@ -170,7 +153,7 @@ export default function Page() {
 
               if (!discovered) return
 
-              const item = remnantItems.find((item) => item.name === itemName)
+              const item = allItems.find((item) => item.name === itemName)
               if (!item) return
 
               if (skippedItemCategories.includes(item.category)) return
@@ -198,7 +181,7 @@ export default function Page() {
    * ----------------------------------------------
    */
   const handleShowItemInfo = (itemId: string) => {
-    const item = allItems.find((item) => item.id === itemId)
+    const item = allTrackerItems.find((item) => item.id === itemId)
     if (item) setItemInfo(item)
   }
 
@@ -300,39 +283,36 @@ export default function Page() {
         onSubmit={handleCsvFileSubmit}
         fileInputRef={csvFileInputRef}
       />
+
+      <div className="flex w-full items-start justify-start sm:items-center sm:justify-center">
+        <PageHeader
+          title="Remnant 2 Item Tracker"
+          subtitle="Discover all the items in Remnant 2"
+        />
+      </div>
+
       <div className="relative flex w-full flex-col items-center justify-center">
         <ItemInfoDialog
           item={itemInfo}
           open={isShowItemInfoOpen}
           onClose={() => setItemInfo(null)}
         />
-        <PageHeader
-          title="Remnant 2 Item Tracker"
-          subtitle="Discover all the items in Remnant 2"
-        >
-          <div className="flex flex-col items-center justify-center text-4xl font-bold text-green-400">
-            <h2 className="text-4xl font-bold">Progress</h2>
-            <span className="text-2xl font-bold text-white">
-              {isClient ? totalProgress : 'Calculating...'}
-            </span>
-          </div>
-        </PageHeader>
-
-        <hr className="mb-8 mt-4 w-full max-w-3xl border-gray-700" />
+        <div className="mb-2 flex flex-col items-center justify-center text-2xl font-bold text-primary-400">
+          <h2 className="text-2xl font-bold">Progress</h2>
+          <span className="text-xl font-bold text-white">
+            {isClient ? totalProgress : 'Calculating...'}
+          </span>
+        </div>
 
         <div className="w-full max-w-3xl">
-          <h2 className="mb-2 text-center text-4xl font-bold text-green-400">
-            Filters
-          </h2>
-
-          <Filters
-            allItems={allItems}
+          <ItemTrackerFilters
+            allItems={allTrackerItems}
             itemCategoryOptions={
               !isClient
                 ? []
                 : itemCategories.map((category) => ({
                     label: `${category as string} - ${getProgressLabel({
-                      items: allItems.filter((item) => {
+                      items: allTrackerItems.filter((item) => {
                         if (category === 'Long Gun') {
                           return (
                             WeaponItem.isWeaponItem(item) &&
@@ -376,28 +356,32 @@ export default function Page() {
             onUpdate={handleUpdateFilters}
           />
 
-          <div className="mt-16 flex w-full items-center justify-center gap-x-4">
-            <button
+          <div className="mt-6 flex w-full items-center justify-center gap-x-4">
+            <BaseButton
+              color="cyan"
               onClick={() => setImportSaveDialogOpen(true)}
               aria-label="Import Save File"
-              className="w-[200px] rounded border-2 border-purple-500 bg-purple-700 p-2 text-lg font-bold text-white/90 hover:bg-purple-500 hover:text-white"
+              className="w-[200px]"
             >
               Import Save File
-            </button>
-            <button
+            </BaseButton>
+            <BaseButton
+              color="cyan"
               onClick={() => setImportCSVDialogOpen(true)}
-              aria-label="Import CSV File"
-              className="w-[200px] rounded border-2 border-purple-500 bg-purple-700 p-2 text-lg font-bold text-white/90 hover:bg-purple-500 hover:text-white"
+              aria-label="Import/Export CSV File"
+              className="w-[250px]"
             >
-              Import CSV File
-            </button>
+              Import/Export CSV
+            </BaseButton>
           </div>
         </div>
 
-        <div className="mt-16 min-h-[500px] w-full">
+        <hr className="mt-4 w-full max-w-3xl border-gray-700" />
+
+        <div className="mt-4 min-h-[500px] w-full">
           {filteredItems.length > 0 && (
             <>
-              <h2 className="mb-2 text-center text-4xl font-bold text-green-400">
+              <h2 className="mb-2 text-center text-2xl font-bold text-primary-400">
                 {selectedCategory} Items
               </h2>
               <div className="mb-4 flex w-full items-center justify-center gap-x-4 text-lg font-semibold">
@@ -413,6 +397,7 @@ export default function Page() {
                     onClick={() => handleItemClicked(item.id)}
                     onItemInfoClick={() => handleShowItemInfo(item.id)}
                     size="lg"
+                    tooltipDisabled={isShowItemInfoOpen}
                     loadingType="lazy"
                   />
                 ))}

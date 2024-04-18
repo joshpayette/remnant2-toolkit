@@ -1,17 +1,17 @@
-import { AmuletItem } from '@/features/items/types/AmuletItem'
-import { ArchetypeItem } from '@/features/items/types/ArchetypeItem'
-import { ArmorItem } from '@/features/items/types/ArmorItem'
-import { ConcoctionItem } from '@/features/items/types/ConcoctionItem'
-import { ConsumableItem } from '@/features/items/types/ConsumableItem'
-import { ModItem } from '@/features/items/types/ModItem'
-import { MutatorItem } from '@/features/items/types/MutatorItem'
-import { PerkItem } from '@/features/items/types/PerkItem'
-import { RelicFragmentItem } from '@/features/items/types/RelicFragmentItem'
-import { RelicItem } from '@/features/items/types/RelicItem'
-import { RingItem } from '@/features/items/types/RingItem'
-import { SkillItem } from '@/features/items/types/SkillItem'
-import { TraitItem } from '@/features/items/types/TraitItem'
-import { WeaponItem } from '@/features/items/types/WeaponItem'
+import { AmuletItem } from '@/app/(data)/items/types/AmuletItem'
+import { ArchetypeItem } from '@/app/(data)/items/types/ArchetypeItem'
+import { ArmorItem } from '@/app/(data)/items/types/ArmorItem'
+import { ConcoctionItem } from '@/app/(data)/items/types/ConcoctionItem'
+import { ConsumableItem } from '@/app/(data)/items/types/ConsumableItem'
+import { ModItem } from '@/app/(data)/items/types/ModItem'
+import { MutatorItem } from '@/app/(data)/items/types/MutatorItem'
+import { PerkItem } from '@/app/(data)/items/types/PerkItem'
+import { RelicFragmentItem } from '@/app/(data)/items/types/RelicFragmentItem'
+import { RelicItem } from '@/app/(data)/items/types/RelicItem'
+import { RingItem } from '@/app/(data)/items/types/RingItem'
+import { SkillItem } from '@/app/(data)/items/types/SkillItem'
+import { TraitItem } from '@/app/(data)/items/types/TraitItem'
+import { WeaponItem } from '@/app/(data)/items/types/WeaponItem'
 
 import { BuildState, DBBuild } from '../types'
 
@@ -29,11 +29,13 @@ export function dbBuildToBuildState(dbBuild: DBBuild): BuildState {
     isMember: dbBuild.isMember,
     isPublic: dbBuild.isPublic,
     isFeaturedBuild: Boolean(dbBuild.isFeaturedBuild),
+    dateFeatured: dbBuild.dateFeatured,
     isPatchAffected: Boolean(dbBuild.isPatchAffected),
     thumbnailUrl: dbBuild.thumbnailUrl,
     videoUrl: dbBuild.videoUrl,
     buildLink: dbBuild.buildLink,
-    upvoted: Boolean(dbBuild.upvoted),
+    buildTags: dbBuild.buildTags,
+    upvoted: dbBuild.upvoted,
     totalUpvotes: dbBuild.totalUpvotes,
     reported: dbBuild.reported,
     items: {

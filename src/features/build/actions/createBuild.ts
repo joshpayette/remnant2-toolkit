@@ -6,7 +6,11 @@ import { getServerSession } from '@/features/auth/lib'
 import { checkBadWords, cleanBadWords } from '@/features/bad-word-filter'
 import { prisma } from '@/features/db'
 
-import { BUILD_REVALIDATE_PATHS, DEFAULT_BUILD_NAME } from '../constants'
+import {
+  BUILD_REVALIDATE_PATHS,
+  DEFAULT_BUILD_NAME,
+  MAX_BUILD_DESCRIPTION_LENGTH,
+} from '../constants'
 import { buildStateSchema } from '../lib/buildStateSchema'
 import { buildStateToBuildItems } from '../lib/buildStateToBuildItems'
 import { BuildActionResponse, BuildState } from '../types'
@@ -24,7 +28,7 @@ export async function createBuild(data: string): Promise<BuildActionResponse> {
   const unvalidatedData = JSON.parse(data)
   const validatedData = buildStateSchema.safeParse(unvalidatedData)
   if (!validatedData.success) {
-    console.error('Error in data!', validatedData.error)
+    console.error('Error in data!', validatedData.error.flatten().fieldErrors)
     return {
       errors: [validatedData.error.flatten().fieldErrors],
     }
@@ -39,6 +43,22 @@ export async function createBuild(data: string): Promise<BuildActionResponse> {
     buildState.isPublic = false
   }
 
+  // if the description is longer than allowed, truncate it
+  if (
+    buildState.description &&
+    buildState.description.length > MAX_BUILD_DESCRIPTION_LENGTH
+  ) {
+    buildState.description =
+      buildState.description.slice(0, MAX_BUILD_DESCRIPTION_LENGTH - 3) + '...'
+  }
+
+  // If no archetypes are selected, throw an error
+  if (!buildState.items.archetype || buildState.items.archetype.length === 0) {
+    return {
+      errors: ['You must select at least one archetype.'],
+    }
+  }
+
   try {
     const dbResponse = await prisma.build.create({
       data: {
@@ -51,6 +71,7 @@ export async function createBuild(data: string): Promise<BuildActionResponse> {
             ? cleanBadWords(buildState.description)
             : '',
         isPublic: Boolean(buildState.isPublic),
+        isPatchAffected: Boolean(buildState.isPatchAffected),
         createdBy: {
           connect: {
             id: session.user.id,
@@ -59,6 +80,15 @@ export async function createBuild(data: string): Promise<BuildActionResponse> {
         BuildItems: {
           create: buildItems,
         },
+        BuildTags: buildState.buildTags
+          ? {
+              create: buildState.buildTags.map((tag) => {
+                return {
+                  tag: tag.tag,
+                }
+              }),
+            }
+          : undefined,
       },
     })
 
@@ -78,7 +108,7 @@ export async function createBuild(data: string): Promise<BuildActionResponse> {
     })
 
     // Trigger webhook to send build to Discord
-    if (buildState.isPublic) {
+    if (buildState.isPublic === true && process.env.NODE_ENV === 'production') {
       const params = {
         content: `New build created! https://www.remnant2toolkit.com/builder/${
           dbResponse.id
@@ -100,7 +130,7 @@ export async function createBuild(data: string): Promise<BuildActionResponse> {
 
     // Refresh the cache for the route
     for (const path of BUILD_REVALIDATE_PATHS) {
-      revalidatePath(path)
+      revalidatePath(path, 'page')
     }
 
     return {

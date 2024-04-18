@@ -1,4 +1,4 @@
-import { remnantItems } from '@/features/items/data/remnantItems'
+import { archetypeItems } from '@/app/(data)/items/archetypeItems'
 import { Archetype } from '@/features/items/types'
 
 import { ARCHETYPE_BUILD_NAMES } from '../constants'
@@ -20,7 +20,7 @@ export function getArchetypeBuildName({
     return ''
   }
 
-  const primePerkName = remnantItems.find(
+  const primePerkName = archetypeItems.find(
     (item) => item.name.toLowerCase() === archetype1,
   )?.linkedItems?.perks?.[0].name
 

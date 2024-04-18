@@ -2,10 +2,11 @@
 
 import { Metadata } from 'next'
 
+import { NAV_ITEMS } from '@/features/navigation/constants'
+
 export async function generateMetadata(): Promise<Metadata> {
   const title = `Item Lookup - Remnant 2 Toolkit`
-  const description =
-    'Remnant 2 Item Lookup. Search and find items and advanced stats, item interactions, and more.'
+  const description = NAV_ITEMS.itemLookup.description
 
   return {
     title,

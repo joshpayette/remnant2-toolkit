@@ -4,7 +4,7 @@ FROM
   Build
   JOIN BuildItems ON Build.id = BuildItems.buildId
 WHERE
-  BuildItems.itemId = 'ITEM_ID';
+  BuildItems.itemId IN ('ITEM_ID_1', 'ITEM_ID_2', 'ITEM_ID_3');
 
 #-------------------------------------
 SELECT
@@ -13,4 +13,4 @@ FROM
   Build
   JOIN BuildItems ON Build.id = BuildItems.buildId
 WHERE
-  BuildItems.itemId = 'ITEM_ID';
+  BuildItems.itemId IN ('ITEM_ID_1', 'ITEM_ID_2', 'ITEM_ID_3');

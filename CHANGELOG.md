@@ -4,6 +4,598 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-04-18
+
+### Added
+
+- Added PRERELEASE tag for items that are not yet in the game, but are planned for the next DLC.
+- World Saves for Sha'Hala, Guardian of Nerud (Phase 2)
+- World Save for Primogenitor, Spiteful/Vicious
+- World Save for The Nightweaver, Skullcracker/Vicious
+- World Save for Venom, Skullcracker/Vicious
+
+## 2024-04-15
+
+### Fixed
+
+- Fixed an issue where melee mods were not removable after unequipping the weapon. A more general fix was applied to run the cleanup function any time a build state update occurs.
+- Fixed an issue where Rusty weapons were able to have mods equipped in the builder.
+
+## 2024-04-14
+
+### Changed
+
+- Updated the look and feel of alerts and prompts throughout the site.
+- Bug report prompt now stylized and allows more text.
+- Popup notifications will no longer pause their timer when window loses focus.
+
+### Fixed
+
+- Fixed (maybe?) issue where you could click on prompt confirm buttons multiple times.
+- Fixed issue where systems with light-mode were not able to see some text and buttons.
+
+## 2024-04-13
+
+### Added
+
+- Added banner to the top of the Toolkit informing users about the build changes coming in the next DLC.
+
+### Changed
+
+- Added updates to the Hardcore Veteran guide.
+- Reworked the Builder buttons to be more consistent with existing and new button styles.
+- Alchemist/Summoner build name changed to "Augur" from "Invoker". This is not actually live in-game yet, but it will be in the DLC and I don't want to miss this one.
+
+## 2024-04-12
+
+### Added
+
+- Build filters now allow you to filter by builds with videos.
+- Build filters now allow you to filter by builds with reference links.
+- Users can now filter their created builds and featured builds to public, private, or all.
+
+### Changed
+
+- Moved all enemy and item data to the `app/(data)` folder.
+- Added icons to build cards indicating if a build is private or public, if it has a reference link, and if it has a video url.
+
+### Fixed
+
+- Fixed issue where private build cards would show on the created builds in a user's profile. Builds could not be clicked into, but would show in the list of builds.
+
+## 2024-04-11
+
+### Changed
+
+- Updated Fae Knight Council image (ConRaven)
+- Updated Annihilation image (ConRaven)
+
+## 2024-04-10
+
+### Fixed
+
+- Fixed minor issue with width of Export to CSV button on mobile.
+
+## 2024-04-08
+
+### Added
+
+- When creating or editing a build, there is now a toggle for whether the build is marked as "patch-affected" or not.
+
+### Changed
+
+- A build denoted as patch-affected, such as after a DLC or patch that impacted an item in the build, it will no longer automatically remove that flag when a build is simply updated. Instead, the user will need to use the toggle provided when creating or editing a build.
+
+### Fixed
+
+- Removed "god" from the bad word list. The base list we use is a bit overzealous.
+- Fixed an issue causing save file import error on the item tracker.
+
+## 2024-04-07
+
+### Changed
+
+- Updated image for One True King. (ConRaven)
+
+### Fixed
+
+- Fixed an issue where deleting a build wouldn't work when viewing it.
+
+## 2024-04-05
+
+### Changed
+
+- Improved text on Builder related to authenticated builder perks, and a better explanation of the Builder's limitations for unauthenticated users.
+
+### Fixed
+
+- Fixed error when deleting a build from the profile/created-builds page.
+- Fixed incorrect Wiki link for Ring of Spears.
+
+## 2024-04-04
+
+### Fixed
+
+- Updated Rock of Anguish typo.
+
+## 2024-04-03
+
+### Changed
+
+- Clicking "Linked Item" links on item info cards or dialogs will now open in a new tab, so that you don't lose progress on the current page.
+- Reduced white-space on the Profile Stats section on user profiles.
+- Updated the Amplitude vs Resonance guide.
+- Renamed the `Hardcore` tag to `Hardcore Reward`.
+
+### Fixed
+
+- Removed "Pawn" from bad-word-list.
+- Added missing "All-Seeing Eye" to consumable list.
+- Removed the [M] tag from Onyx Pendulum.
+
+## 2024-04-02
+
+### Added
+
+- Added more saves to the World Save Archive.
+- Added support for multiple phases to the World Save Archive. This is necessary because Sha'Hala has multiple phases, with different affixes in each phase.
+
+### Changed
+
+- The World Save Archive filters now work similar to archetype build filters, where all combos of affixes are checked except for those excluded.
+
+### Fixed
+
+- Amplitude vs Resonance guide incorrectly listed the Magnetic Field perk as an Explorer skill rather than Engineer skill.
+- Search text fields now use 16px font to fix auto-zooming issue on Safari browsers.
+
+## 2024-04-01
+
+### Added
+
+- Item Lookup cards now have an icon you can click to view how many Featured and Community Builds the item is found in.
+
+### Changed
+
+- On non-build filters, the search text box has now been moved above the filters container. This will allow quicker searching of these pages with the remaining filters collapsible until needed.
+
+### Fixed
+
+- Fixed item description for Moonlight Barrage.
+
+## 2024-03-31
+
+### Added
+
+- Added link to Vash Cowaii's Loadout Calculator on both the front page and resources page.
+
+#### Profile page
+
+- Your total discovered items from the Item Tracker can now be synced to the database and shown on your profile!
+- Your highest Item Quiz score is now visible on your profile!
+
+#### Support R2TK
+
+- Added a new landing page for the Support R2TK link. Now supports Ko-Fi donations, as well as Patreon subscriptions.
+
+#### World Save Archive
+
+- Added total world save count to page description.
+
+### Changed
+
+- Adjusted the page headers to use less space.
+- Added link to Item Quiz on main navigation bar.
+
+#### World Save Archive
+
+- Added an FAQ section to the instructions.
+
+### Fixed
+
+#### Item Lookup
+
+- Fixed strange mobile bug where the items would scroll off the screen when adding an item to compare ONLY on the first page load. Make it make sense!
+
+#### World Save Archive
+
+- Fixed Corrupted Ravager's Spiteful/Vicious save file not being the correct file.
+
+## 2024-03-30
+
+### Added
+
+- Add a new `World Save Archive` section, where you can find world saves rolled to specific bosses and affixes.
+- Added Item Compare feature to Item Lookup page. You can now pin 5 items to the item compare to more easily see them side by side.
+
+### Changed
+
+- Updated Befouled Altar image (ConRaven)
+- Updated Abomination image (ConRaven)
+- Reworked the navigation bar to be more organized and easier to navigate.
+  - Resources is no longer a dropdown menu, but rather a separate page of links.
+- Updated the images for the main page and resource pages.
+- On Item Lookup filters, categories are all unchecked by default.
+- On Build List filters, archetypes are all unchecked by default.
+- Swapped order of `Check All / Uncheck All` prompts
+- Moved the Export to CSV button on the Item Lookup page to the bottom of the page.
+- Cleaned up excess white space throughout portions of the site.
+- Joined a few category filters on Item Lookup for a more uniform distribution.
+
+### Fixed
+
+- Create a build link in the home page text now correctly redirects to authenticated builder if user is signed in.
+- Added missing cooldown text from Kill Switch mutator.
+- Fixed issue with build to CSV export not working.
+
+## 2024-03-29
+
+### Added
+
+- Added Changelog button to the footer buttons.
+
+### Changed
+
+- The item description of the final item on the Item Quiz now displays.
+- Item Lookup filters are now collapsible.
+- Added Clear Search Text button on Item Lookup filters.
+- Item Lookup filters no longer have an Apply button. Instead, they apply when you change any of the filters.
+- Search text on the Item Lookup filters now autofocuses on non-mobile screen resolutions.
+
+### Fixed
+
+- Added more specific calculations to the "total items discovered" percentage on the item tracker. It will no longer show 100% if you have not discovered every item.
+- Fixed incorrect description for Feedback Loop.
+
+## 2024-03-28
+
+### Changed
+
+- Added arrow key, WASD key, and 1-4 number key support for the Item Quiz.
+- Added a 3s countdown timer before the Item Quiz game starts.
+- Changed the Info icon to an image with a fill color.
+- Removed `Mod Power Requirement` text from the mods that had it. It was applied inconsistently, and the info is better served on the wiki.
+- Item Quiz now has a toggle for "mobile layout" toggle for those that prefer the traditional grid.
+- Item Quiz tiles now larger on desktop
+
+### Fixed
+
+- Updated the image for Mystery Jerky to a better quality image.
+- Updated the image for Rusty Repeater to a better quality image.
+- Updated the image for Bandit Gloves to a better quality image.
+- Fixed Bulletweaver description.
+
+## 2024-03-27
+
+### Added
+
+- Added loads of new avatar options for profile pictures. (ConRaven)
+- Added an Item Quiz to test your knowledge of items in game based on their image. Find it under Resources!
+
+### Changed
+
+- Updated popular build badge.
+- Added a second tier popular build badge.
+- Reduced size of navigation items.
+- Moved Item Lookup into its own link on the navigation items.
+- Added excluded items to Item Quiz to remove some duplicate images.
+
+### Fixed
+
+- Fixed typo in Paper Heart description.
+
+## 2024-03-26
+
+### Added
+
+- Added amulets as options for profile avatars.
+
+### Changed
+
+- Added [BLEEDING] tag to Handler skills.
+- Added labels to avatar selection in profile settings.
+- Grouped Item Lookup filters by type instead of alphabetically.
+
+### Fixed
+
+- Fixed issue where Handler skills were incorrectly showing as affected by Amplitude rather than Resonance.
+- Added `Critical Damage` to autocomplete suggestions in the autocomplete Item Lookup search text. This will include both `Crit Damage` and `Critical Damage` items.
+
+## 2024-03-25
+
+### Added
+
+- Deployed first version of the Hardcore Veteran guide.
+
+### Changed
+
+- Concoctions will now also show up when filtering for consumables in the Item Lookup.
+- Grenades are now filterable on the Item Lookup.
+- Removed Orb of Undoing from selectable items.
+- Removed Liquid Escape from selectable items.
+
+### Fixed
+
+- Think I worked out one-time errors new users get when trying to access their Profile for the first time.
+- Fixed bug where favorites button was not correctly showing if you favorited a build.
+
+## 2024-03-23
+
+### Changed
+
+- Did a complete rework of user profiles to provide more relevant information, for both the profile owner and visitors. This includes a new layout, some stats, and new navigation.
+- Updated Gwendil boss image (ConRaven)
+- Build filters are now collapsible for better experience, particularly for mobile devices.
+
+## 2024-03-22
+
+### Added
+
+- Video embed URLs now support a start time parameter. This allows a direct link to a build in a video that may feature more than one build.
+
+### Fixed
+
+- In build descriptions, item names that are found are now automatically capitalized appropriately. The items are still found regardless of capitalization.
+
+## 2024-03-21
+
+### Added
+
+- You can now share a link to your Loadouts page if you choose to. On the Loadouts page in your profile, toggle it to public to be able to share the link. Show off your top builds!
+
+### Changed
+
+- Removed the original /featured-builds route that has been persisted for the original builds. The /creator-builds now redirects to the Featured Builds page.
+  - I had kept the original pages up in case folks had them bookmarked, but the tool has been alive long enough, and the old builds unmaintained, so it no longer seems relevant. The inconsistency with the Featured Builds being at /creator-builds was a problem.
+
+### Fixed
+
+- Corrected Shielded Strike level 10 bonus description. (thanks, Freeman!)
+- Fixed issue where new user account profiles would sometimes not update
+- Fixed bug where some items weren't bolding due to conflict with description tags
+
+## 2024-03-20
+
+### Added
+
+- Added a link to the Remnant 2 Armor Generator, https://scouthunter.github.io/R2AG/.
+
+### Changed
+
+- Updated the image for Atrophy aberration (ConRaven)
+
+### Fixed
+
+- Fixed inaccurate Dull Steel Ring image.
+- Fixed bug in Dull Steel Ring wiki link.
+
+## 2024-03-19
+
+### Changed
+
+- Item names are now bolded in build descriptions.
+- Build Tags are automatically found and colorized in the build descriptions.
+- Reordered the links on the home page and the Builds nav menu.
+- DescriptionWithTags component now allows you to specify which tags to include/exclude.
+
+### Fixed
+
+- Removed highlighting of relic fragments in descriptions, they are too vaguely named.
+- Fixed bug where Ultra weight class was not being lowered to Heavy weight class when wearing Dull Steel Ring.
+- Fixed bug in Armor Calculator where Heavy weight class was not offering Ultra weight class suggestions when wearing Dull Steel Ring.
+
+### Removed
+
+- Was there an item search bar on the front page? Must have been a fever dream.
+
+## 2024-03-18
+
+### Added
+
+- Added Dried Fruit to item list
+- Added resistances to armor calculator suggestions
+- Added item search box on the front page
+
+### Changed
+
+- Adding/changing the build name now works like the other form fields on the builder, and does not require a separate save event.
+- Removed prompt asking if you want to change the name from the default name due to the confusion about the button labels.
+- Equipping a skill with no archetype will now automatically equip the archetype
+- Removed the Report Build button. This was created when it was just me managing the Toolkit, to try and catch builds with bad content. Now that the Toolkit has moderators, and an updated automatic feed of build changes that need review, this is no longer necessary.
+- Added "Damage Reduction" tag to Twisted Idol
+
+### Fixed
+
+- Fixed issue with white ring appearing around build tags when exporting image
+- Fixed the name of Poisoned Ambit Ember Capsule to match the in-game name
+- Fixed issue where total weight could be negative
+- When selecting a skill in the builder, it will now filter skills to not include skills for the other archetype
+- Fixed image export issue with new build name field
+- Twisted Idol was mistakenly increasing health rather than armor
+- Fixed an issue where the armor calculator was not accounting for weight threshold items and traits (thank you, darkdragn!)
+- Fixed improper description for Legacy Protocol
+
+## 2024-03-17
+
+### Added
+
+- Build Tags are now available on the builder. This will allow you to tag your build with up to 4 specific keyboards. Additionally, you can filter on builds by these tags.
+
+### Changed
+
+- Builds now require at least one archetype to be selected before they can save.
+- Added new images for Bruin and Tal'Ratha (Normal) per (ConRaven)
+
+### Fixed
+
+- Improved error message if build failed to save due to an error.
+
+## 2024-03-16
+
+### Added
+
+- Added screen-reader specific text to the builder to make it more accessible.
+  - Specifically, unicode characters are stripped from build names and descriptions in screen-reader only elements, and the main visual elements are hidden from screen readers.
+
+### Changed
+
+- Max character limit on build descriptions increased to 2000 characters, up from 1000.
+
+### Fixed
+
+- Updated Docker config to support hot module refresh in local development environment.
+
+## 2024-03-15
+
+### Changed
+
+- Refactored remnantItems.ts, the single list of items, into a more modular system. This will allow for easier maintenance and expansion of the item list, as well as better performance throughout the tool.
+
+### Fixed
+
+- Fixed an issue where all archetypes were being appended to the URL when filtering for builds. It will no longer happen if all archetypes or no archetypes are selected.
+- Fixed a Builder bug where equipping alchemist and unequipping alchemist would not remove the extra concoctions from stat calculations.
+- Fixed a Builder bug in Item Suggestions, where selecting a suggested perk would not equip the archetype.
+
+## 2024-03-14
+
+### Added
+
+- Featured builds now have a `dateFeatured` field to allow them to show at the front of the featured builds once featured.
+
+### Changed
+
+- `Save Image` button on the Builder now reads `Generate Build Image, since it no longer only saves the image like it used to.
+- Updated Faelin image (ConRaven)
+- Updated Faerin image (ConRaven)
+- Updated Huntress image (ConRaven)
+- Build filters now support filtering by up to 4 rings! This should help you find more specific builds, but also getting data on how many builds contain a specific setup.
+- Hid unneeded values on Weapon item cards
+- Improved Armor Calculator layout in the Builder
+
+### Fixed
+
+- Corrected the description for the Battery mutator.
+- Found the reason the armor calculator took SO LONG TO RUN! Fixed!
+
+## 2024-03-13
+
+### Added
+
+- Created a set of instructions for how to set up a local development environment for the toolkit. This is available in the LOCAL_DEVELOPMENT.md file.
+- Added image export button when creating a build.
+- Added loading indicator to the Armor Calculator while it's calculating.
+
+### Changed
+
+- Changed item cards to be more uniform. No more multi-column layout on desktop, too much empty space.
+- Updated the images for Bloat King boss and Little Gorge aberration. (ConRaven)
+- Removed DESCRIPTION_TAGS from autocomplete search boxes as it is no longer necessary.
+- Split BUILD SUGGESTIONS button in the builder into two buttons: Armor Calculator and Item Suggestions. This should make it more clear utilities are available.
+
+### Fixed
+
+- Item links from the Info Dialog and Item Card components now correctly narrow down results to exclude irrelevant items. (alexij)
+- Fixed bug where the build reference input field was not hiding for screenshots
+- Item tags reworked a bit for clarity. (alexij)
+- Fixed error message when saving build. This did not prevent builds from being saved.
+- Build resistance calculations were not accounting for perks linked to archetypes. This has been fixed.
+
+## 2024-03-12
+
+### Added
+
+- Prime Perk is now displayed on the builder for the selected archetypes.
+- Added new multiplicative damage `[MD]` token to the item tags.
+
+### Changed
+
+- Added placeholder text to Build Reference Link.
+- Build stats, specifically resistances, now in a 2-column layout to fix an overlap issue between the relic fragments and the Vash export button.
+- Archetype filters on various community build list pages have been reworked. They will now exclude archetypes that are not selected, enabling further drilling down into finding builds only containing archetypes you are interested in using, and exclude all others.
+
+### Fixed
+
+- Fixed Brewmaster's Cork not giving the correct number of concoction slots. Broke this when I fixed the item name yesterday!
+- Fixed issue where Vash export URL wasn't working if melee weapon was missing. I don't want to talk about it.
+
+## 2024-03-11
+
+### Added
+
+- Build can now be exported to Vash Cowaii's Loadout Calculator at https://cowaii.io/index.html
+- Builds can now be imported from Vash Cowaii's Loadout Calculator at https://cowaii.io/index.html
+- Added more weapon details to their item info, including crit chance, weakspot damage, and more!
+
+### Changed
+
+- Removed navigation links to Collection Builds.
+- Added a notice to the top of the /builder route informing users that the features are limited. This page is a landing page for builds exported from other tools, but due to limitations in the handling of URL state rather than a database, it does not have all the build features. This was confusing for users who ended up on this page.
+- Changed the layout of the item information in the dialog and item cards to be more consistent and easier to read.
+
+### Fixed
+
+- Fixed bug in `Brewmaster's Cork` where the apostrophe was missing.
+- Fixed the name of `Alpha / Omega` to match the in-game name.
+- Fixed the name of `Leto Mark 1` to match the in-game name.
+- Fixed the name of `AS-10 "Bulldog"` to match the in-game name.
+- Fixed the name of `XMG57 "Bonesaw"` to match the in-game name.
+- Added logic to better handle item names that slightly exceed the width of the item labels. Will be applying this to items that qualify as they come up.
+- Improved Builder layout for mobile devices. Guns no longer require a horizontal scroll, and will instead wrap.
+- Made other improvements to the responsive flow of the Builder at other screen sizes, notably some tablets.
+- Updated the image of Cultist Hat to match in-game.
+- Updated the image of Bandit Jacket to match in-game.
+- Updated the image for Faelin.
+- Updated the image of Faerin.
+- Fixed issue where multi-word item tags were not getting highlighted correctly.
+
+## 2024-03-10
+
+### Changed
+
+- Updated description of the Hellfire pistol to reflect (unstated?) changes in the latest patch, namely fire damage with a burning DoT.
+
+### Fixed
+
+- Fixed bug where Relic Fragment was not showing a completion percentage on the Item Tracker.
+- Fixed bug where user profile pages would throw an error the first time after the user account was created.
+
+## 2024-03-09
+
+### Added
+
+- Added `Armor Increase` to item tags.
+
+### Changed
+
+- Armor calculator in the Build Suggestions dialog no longer requires you equip at least 1 item armor.
+
+### Fixed
+
+- Fixed bug where info tooltip would display over top of item info on mobile devices.
+- Fixed `archtype` typo in Traits section of Builder.
+
+## 2024-03-08
+
+### Added
+
+- Hovering over the item info icon in the Builder will now show the item's description. Full click will get you more info, but a summary is now available on hover for convenience.
+
+### Changed
+
+- Updated Amplitude vs Resonance guide.
+- Updated some item tokens and descriptions.
+- Added a new and more consistent New Build badge icon.
+- Updated button colors and styles to match the original look
+
+### Fixed
+
+- Removed black background from behind information buttons in builder.
+- Patreon membership builds now use the yellow frame and glow again.
+- Fixed a transparency issue with the Provisioner Ring. This may take a bit to propagate due to caching.
+- Fixed UI bug causing horizontal scroll bar on Build weapons.
+- Fixed typo in the Knight Guard wiki link.
+
 ## 2024-03-07
 
 ### Added
@@ -12,11 +604,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ### Changed
 
+- Overhauled the colors used throughout the site. There wasn't a ton of thought to the original colors, just what felt okay. I feel a lot better about the new direction!
 - Added language to the CODE_OF_CONDUCT.md for "Gore or violence beyond the scope of the game".
 
 ### Fixed
 
 - Fixed issue where build reference link could overflow the container
+- Several items were classified as being part of the DLC, but were not. They were actually part of the update and available to non-DLC owners.
 
 ## 2024-03-06
 

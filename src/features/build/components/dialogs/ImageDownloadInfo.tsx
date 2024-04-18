@@ -1,5 +1,3 @@
-import Link from 'next/link'
-
 import { Dialog } from '@/features/ui/Dialog'
 import { Skeleton } from '@/features/ui/Skeleton'
 
@@ -16,16 +14,16 @@ export function ImageDownloadInfo({ imageDownloadInfo, onClose }: Props) {
   return (
     <Dialog
       open={Boolean(imageDownloadInfo)}
-      title="Image download"
+      title="Shareable Build Image"
       maxWidthClass="max-w-lg"
       onClose={onClose}
     >
       <div className="flex w-full flex-col items-start justify-center gap-y-4 text-left text-sm">
         <p>
-          Right-click the image to save it, or to copy it and paste it
-          elsewhere.
+          Copy and paste the below image to share it, or save the image for
+          later!
         </p>
-        <p className="text-yellow-500">
+        <p className="text-primary-500">
           Note: This image link will expire in one hour.
         </p>
         {imageLink ? (

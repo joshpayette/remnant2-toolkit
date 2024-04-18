@@ -1,26 +1,25 @@
+import { BuildTags } from '@prisma/client'
 import { useMemo, useState } from 'react'
 
+import { AmuletItem } from '@/app/(data)/items/types/AmuletItem'
+import { ArchetypeItem } from '@/app/(data)/items/types/ArchetypeItem'
+import { ArmorItem } from '@/app/(data)/items/types/ArmorItem'
+import { ConcoctionItem } from '@/app/(data)/items/types/ConcoctionItem'
+import { ConsumableItem } from '@/app/(data)/items/types/ConsumableItem'
+import { ModItem } from '@/app/(data)/items/types/ModItem'
+import { MutatorItem } from '@/app/(data)/items/types/MutatorItem'
+import { RelicFragmentItem } from '@/app/(data)/items/types/RelicFragmentItem'
+import { RelicItem } from '@/app/(data)/items/types/RelicItem'
+import { RingItem } from '@/app/(data)/items/types/RingItem'
+import { SkillItem } from '@/app/(data)/items/types/SkillItem'
+import { TraitItem } from '@/app/(data)/items/types/TraitItem'
+import { WeaponItem } from '@/app/(data)/items/types/WeaponItem'
 import { BuildState } from '@/features/build/types'
-import { remnantItems } from '@/features/items/data/remnantItems'
 import { Item } from '@/features/items/types'
-import { AmuletItem } from '@/features/items/types/AmuletItem'
-import { ArchetypeItem } from '@/features/items/types/ArchetypeItem'
-import { ArmorItem } from '@/features/items/types/ArmorItem'
-import { ConcoctionItem } from '@/features/items/types/ConcoctionItem'
-import { ConsumableItem } from '@/features/items/types/ConsumableItem'
-import { ModItem } from '@/features/items/types/ModItem'
-import { MutatorItem } from '@/features/items/types/MutatorItem'
-import { RelicFragmentItem } from '@/features/items/types/RelicFragmentItem'
-import { RelicItem } from '@/features/items/types/RelicItem'
-import { RingItem } from '@/features/items/types/RingItem'
-import { SkillItem } from '@/features/items/types/SkillItem'
-import { TraitItem } from '@/features/items/types/TraitItem'
-import { WeaponItem } from '@/features/items/types/WeaponItem'
 
 import { buildStateToCsvData } from '../lib/buildStateToCsvData'
 import { buildStateToMasonryItems } from '../lib/buildStateToMasonryItems'
-import { linkArchetypesToTraits } from '../lib/linkArchetypesToTraits'
-import { linkWeaponsToMods } from '../lib/linkWeaponsToMods'
+import { cleanUpBuildState } from '../lib/cleanUpBuildState'
 
 export function useDBBuildState(INITIAL_BUILD_STATE: BuildState) {
   const [dbBuildState, setDBBuildState] =
@@ -47,7 +46,7 @@ export function useDBBuildState(INITIAL_BUILD_STATE: BuildState) {
     value,
   }: {
     category: string
-    value: string | Array<string | undefined>
+    value: string | Array<string | undefined> | BuildTags[]
   }) {
     // --------------------------
     // Non-items
@@ -74,10 +73,24 @@ export function useDBBuildState(INITIAL_BUILD_STATE: BuildState) {
       })
       return
     }
+    if (category === 'isPatchAffected') {
+      setDBBuildState({
+        ...dbBuildState,
+        isPatchAffected: value === 'true',
+      })
+      return
+    }
     if (category === 'buildLink') {
       setDBBuildState({
         ...dbBuildState,
         buildLink: value as string,
+      })
+      return
+    }
+    if (category === 'tags') {
+      setDBBuildState({
+        ...dbBuildState,
+        buildTags: value as BuildTags[],
       })
       return
     }
@@ -90,24 +103,28 @@ export function useDBBuildState(INITIAL_BUILD_STATE: BuildState) {
     if (Array.isArray(value)) {
       const allItemsEmpty = value.every((item) => item === '')
       if (allItemsEmpty) {
-        setDBBuildState({
+        const cleanBuildState = cleanUpBuildState({
           ...dbBuildState,
           items: {
             ...dbBuildState.items,
             [category]: [],
           },
         })
+
+        setDBBuildState(cleanBuildState)
         return
       }
     } else {
       if (value === '') {
-        setDBBuildState({
+        const cleanBuildState = cleanUpBuildState({
           ...dbBuildState,
           items: {
             ...dbBuildState.items,
             [category]: null,
           },
         })
+
+        setDBBuildState(cleanBuildState)
         return
       }
     }
@@ -179,31 +196,13 @@ export function useDBBuildState(INITIAL_BUILD_STATE: BuildState) {
       },
     }
 
-    if (category === 'weapon') {
-      // Look at each mod and if it is linked to the wrong weapon, remove it
-      newBuildState.items.mod = newBuildState.items.mod.map((mod, index) => {
-        if (mod?.linkedItems?.weapon) {
-          const linkedWeapon = remnantItems.find(
-            (item) => item.name === mod.linkedItems?.weapon?.name,
-          )
-          if (!linkedWeapon) return mod
-
-          if (newBuildState.items.weapon[index]?.id !== linkedWeapon.id) {
-            return null
-          }
-        }
-        return mod
-      })
-    }
-
-    const linkedBuildState = linkArchetypesToTraits(
-      linkWeaponsToMods(newBuildState),
-    )
-    setDBBuildState(linkedBuildState)
+    const cleanBuildState = cleanUpBuildState(newBuildState)
+    setDBBuildState(cleanBuildState)
   }
 
   function setNewBuildState(buildState: BuildState) {
-    setDBBuildState(buildState)
+    const cleanBuildState = cleanUpBuildState(buildState)
+    setDBBuildState(cleanBuildState)
   }
 
   return {

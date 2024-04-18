@@ -1,28 +1,29 @@
+import { BuildTags } from '@prisma/client'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import { useCallback, useEffect } from 'react'
 
+import { AmuletItem } from '@/app/(data)/items/types/AmuletItem'
+import { ArchetypeItem } from '@/app/(data)/items/types/ArchetypeItem'
+import { ArmorItem } from '@/app/(data)/items/types/ArmorItem'
+import { ConcoctionItem } from '@/app/(data)/items/types/ConcoctionItem'
+import { ConsumableItem } from '@/app/(data)/items/types/ConsumableItem'
+import { ModItem } from '@/app/(data)/items/types/ModItem'
+import { MutatorItem } from '@/app/(data)/items/types/MutatorItem'
+import { PerkItem } from '@/app/(data)/items/types/PerkItem'
+import { RelicFragmentItem } from '@/app/(data)/items/types/RelicFragmentItem'
+import { RelicItem } from '@/app/(data)/items/types/RelicItem'
+import { RingItem } from '@/app/(data)/items/types/RingItem'
+import { SkillItem } from '@/app/(data)/items/types/SkillItem'
+import { TraitItem } from '@/app/(data)/items/types/TraitItem'
+import { WeaponItem } from '@/app/(data)/items/types/WeaponItem'
 import { BuildState } from '@/features/build/types'
-import { remnantItemCategories } from '@/features/items/data/remnantItems'
-import { AmuletItem } from '@/features/items/types/AmuletItem'
-import { ArchetypeItem } from '@/features/items/types/ArchetypeItem'
-import { ArmorItem } from '@/features/items/types/ArmorItem'
-import { ConcoctionItem } from '@/features/items/types/ConcoctionItem'
-import { ConsumableItem } from '@/features/items/types/ConsumableItem'
-import { ModItem } from '@/features/items/types/ModItem'
-import { MutatorItem } from '@/features/items/types/MutatorItem'
-import { PerkItem } from '@/features/items/types/PerkItem'
-import { RelicFragmentItem } from '@/features/items/types/RelicFragmentItem'
-import { RelicItem } from '@/features/items/types/RelicItem'
-import { RingItem } from '@/features/items/types/RingItem'
-import { SkillItem } from '@/features/items/types/SkillItem'
-import { TraitItem } from '@/features/items/types/TraitItem'
-import { WeaponItem } from '@/features/items/types/WeaponItem'
+import { itemCategories } from '@/features/items/lib/getItemCategories'
 
 import { INITIAL_BUILD_STATE } from '../constants'
 import { buildStateToCsvData } from '../lib/buildStateToCsvData'
 import { buildStateToMasonryItems } from '../lib/buildStateToMasonryItems'
-import { linkArchetypesToTraits } from '../lib/linkArchetypesToTraits'
-import { linkWeaponsToMods } from '../lib/linkWeaponsToMods'
+import { cleanUpBuildState } from '../lib/cleanUpBuildState'
+import { vashUrlToBuild } from '../vash-integration/vashUrlToBuild'
 
 /**
  * Handles reading/writing the build to the URL query string,
@@ -37,8 +38,15 @@ export function useUrlBuildState() {
   const pathname = usePathname()
   const searchParams = useSearchParams()
 
-  const parsedBuild = parseQueryString(searchParams)
-  const urlBuildState = linkArchetypesToTraits(linkWeaponsToMods(parsedBuild))
+  // Check if the vash search params exists
+  const sourceParam = searchParams.get('source')
+  const isVashBuild = sourceParam === 'vash'
+
+  const parsedBuild = isVashBuild
+    ? vashUrlToBuild(searchParams)
+    : parseQueryString(searchParams)
+
+  const urlBuildState = cleanUpBuildState(parsedBuild)
 
   /**
    * Converts the build state to CSV data.
@@ -88,7 +96,7 @@ export function useUrlBuildState() {
     scroll = false,
   }: {
     category: string
-    value: string | Array<string | undefined>
+    value: string | Array<string | undefined> | BuildTags[]
     scroll?: boolean
   }): void {
     // Remove empty items
@@ -129,7 +137,7 @@ export function useUrlBuildState() {
 
     // Loop through each category and check the query params
     // for that category's item IDs
-    remnantItemCategories.forEach((itemCategory) => {
+    itemCategories.forEach((itemCategory) => {
       const params = searchParams.get(itemCategory)
 
       switch (itemCategory) {
@@ -276,7 +284,9 @@ export function useUrlBuildState() {
         }
       }
     })
-    return buildState
+
+    const cleanedBuildState = cleanUpBuildState(buildState)
+    return cleanedBuildState
   }
 
   return { csvItems, masonryItems, urlBuildState, updateUrlBuildState }

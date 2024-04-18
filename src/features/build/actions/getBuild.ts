@@ -1,9 +1,9 @@
 'use server'
 
+import { DEFAULT_DISPLAY_NAME } from '@/app/profile/[userId]/(lib)/constants'
 import { getServerSession } from '@/features/auth/lib'
 import { prisma } from '@/features/db'
 import { ErrorResponse } from '@/features/error-handling/types'
-import { DEFAULT_DISPLAY_NAME } from '@/features/profile/constants'
 import { bigIntFix } from '@/lib/bigIntFix'
 
 import { DBBuild } from '../types'
@@ -12,7 +12,7 @@ export async function getBuild(
   buildId: string,
 ): Promise<ErrorResponse | { message: string; build: DBBuild }> {
   if (!buildId) {
-    console.error('No buildId provided!')
+    console.info('No buildId provided!')
     return { errors: ['No buildId provided!'] }
   }
 
@@ -26,6 +26,7 @@ export async function getBuild(
       createdBy: true,
       BuildVotes: true,
       BuildItems: true,
+      BuildTags: true,
     },
   })
 
@@ -39,10 +40,12 @@ export async function getBuild(
     description: build.description ?? '',
     isMember: false,
     isFeaturedBuild: build.isFeaturedBuild,
+    dateFeatured: build.dateFeatured,
     isPatchAffected: build.isPatchAffected,
     isPublic: build.isPublic,
     thumbnailUrl: build.thumbnailUrl ?? '',
     videoUrl: build.videoUrl ?? '',
+    buildTags: build.BuildTags,
     buildLink: build.buildLink ?? '',
     createdAt: build.createdAt,
     updatedAt: build.updatedAt,
@@ -86,8 +89,8 @@ export async function getBuild(
   }
 
   if (!session || !session.user || build.createdBy.id !== session.user.id) {
-    console.error(
-      'You must be logged in as the build creator to view a private build.',
+    console.info(
+      `You must be logged in as the build creator to view a private build. ${buildId}`,
     )
     return {
       errors: [

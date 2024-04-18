@@ -5,10 +5,11 @@ import Filter from 'bad-words'
  * filter.clean(`Don't be an ash0le`)
  *
  * @reference default block list https://github.com/web-mech/badwords/blob/master/lib/lang.json
+ * @reference base block list with more terms https://github.com/web-mech/badwords-list/blob/master/lib/array.js
  */
 const filter = new Filter()
 filter.addWords('gay', 'homosexual')
-filter.removeWords('fart', 'shit')
+filter.removeWords('fart', 'pawn', 'shit', 'god')
 
 export function cleanBadWords(text: string) {
   if (!text || typeof text !== 'string' || text === '') return ''

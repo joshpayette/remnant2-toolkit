@@ -5,12 +5,12 @@
  * we use upsert so that no items are duplicated or deleted mistakenly.
  */
 
+import { allItems } from '../app/(data)/items/allItems'
 import { prisma } from '../features/db'
-import { remnantItems } from '../features/items/data/remnantItems'
 
 // Load all the item ids into the Item table
 async function main() {
-  for (const item of remnantItems) {
+  for (const item of allItems) {
     console.info(`Upserting item ${item.id}`)
     const dlc = item.dlc ?? 'base'
 

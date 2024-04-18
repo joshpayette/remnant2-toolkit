@@ -1,11 +1,11 @@
-import { remnantItems } from '@/features/items/data/remnantItems'
-import { TraitItem } from '@/features/items/types/TraitItem'
+import { traitItems } from '@/app/(data)/items/traitItems'
+import { TraitItem } from '@/app/(data)/items/types/TraitItem'
 
 import { DEFAULT_TRAIT_AMOUNT } from '../constants'
 import { BuildState } from '../types'
 
 /**
- * Checks the build archtypes and equips any traints
+ * Checks the build archtypes and equips any traits
  * that are linked to them
  */
 export function linkArchetypesToTraits(buildState: BuildState) {
@@ -19,11 +19,8 @@ export function linkArchetypesToTraits(buildState: BuildState) {
     const linkedTraits = archetype?.linkedItems?.traits
     if (!linkedTraits) return
 
-    const linkedTraitItems = remnantItems.filter((item) =>
-      linkedTraits.some(
-        (linkedTrait) =>
-          linkedTrait.name === item.name && item.category === 'trait',
-      ),
+    const linkedTraitItems = traitItems.filter((item) =>
+      linkedTraits.some((linkedTrait) => linkedTrait.name === item.name),
     ) as TraitItem[]
     if (!linkedTraitItems) return
 

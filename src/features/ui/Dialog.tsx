@@ -4,22 +4,25 @@ import { Dialog as BaseDialog, Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/solid'
 import { Fragment } from 'react'
 
+import { BaseButton } from '@/app/(components)/_base/button'
 import { cn } from '@/lib/classnames'
+
+export type DialogMaxWidthClass =
+  | 'max-w-sm'
+  | 'max-w-md'
+  | 'max-w-lg'
+  | 'max-w-xl'
+  | 'max-w-2xl'
+  | 'max-w-3xl'
+  | 'max-w-4xl'
+  | 'max-w-5xl'
+  | 'max-w-6xl'
+  | 'max-w-7xl'
+  | 'max-w-full'
 
 interface DialogProps {
   children?: React.ReactNode
-  maxWidthClass:
-    | 'max-w-sm'
-    | 'max-w-md'
-    | 'max-w-lg'
-    | 'max-w-xl'
-    | 'max-w-2xl'
-    | 'max-w-3xl'
-    | 'max-w-4xl'
-    | 'max-w-5xl'
-    | 'max-w-6xl'
-    | 'max-w-7xl'
-    | 'max-w-full'
+  maxWidthClass: DialogMaxWidthClass
   open: boolean
   title: React.ReactNode
   subtitle?: React.ReactNode
@@ -67,19 +70,17 @@ export function Dialog({
               leaveFrom="opacity-100 translate-y-0 sm:scale-100"
               leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
             >
-              <BaseDialog.Panel className="relative h-full max-h-fit w-full transform overflow-y-auto border-2 border-green-500 bg-black px-4 py-4 text-left shadow-xl transition-all sm:my-8">
-                <button
-                  className="absolute right-0 top-0 p-0.5 text-white hover:text-green-500"
-                  onClick={onClose}
-                  aria-label="Close dialog"
-                >
-                  <XMarkIcon className="h-5 w-5" aria-hidden="true" />
-                </button>
+              <BaseDialog.Panel className="relative h-full max-h-fit w-full transform overflow-y-auto border-2 border-primary-500 bg-black px-4 py-4 text-left shadow-xl transition-all sm:my-8">
+                <span className="absolute right-0 top-0">
+                  <BaseButton plain onClick={onClose} aria-label="Close dialog">
+                    <XMarkIcon className="h-5 w-5" aria-hidden="true" />
+                  </BaseButton>
+                </span>
                 <div className="text-center">
                   <BaseDialog.Title
                     as="h3"
                     className={cn(
-                      'text-4xl font-semibold text-green-500',
+                      'text-4xl font-semibold text-primary-500',
                       !subtitle ? 'mb-4' : 'mb-0',
                     )}
                   >

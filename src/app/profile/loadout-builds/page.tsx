@@ -1,14 +1,18 @@
-import { Suspense } from 'react'
+import { permanentRedirect } from 'next/navigation'
 
-import { LoadoutBuilds } from '@/features/profile/loadouts/LoadoutBuilds'
-import { Skeleton } from '@/features/ui/Skeleton'
+import { getServerSession } from '@/features/auth/lib'
+import { PageHeader } from '@/features/ui/PageHeader'
 
 export default async function Page() {
-  return (
-    <div className="my-4 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-      <Suspense fallback={<Skeleton className="h-full min-h-[362px] w-full" />}>
-        <LoadoutBuilds />
-      </Suspense>
-    </div>
-  )
+  const session = await getServerSession()
+  if (!session || !session.user) {
+    return (
+      <PageHeader
+        title="Login Required"
+        subtitle="You must be logged in to view this page"
+      />
+    )
+  }
+
+  permanentRedirect(`/profile/${session?.user?.id}/loadouts`)
 }

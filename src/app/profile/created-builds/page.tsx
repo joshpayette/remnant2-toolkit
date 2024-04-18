@@ -1,18 +1,18 @@
-'use server'
+import { permanentRedirect } from 'next/navigation'
 
-import { BuildListFilters } from '@/features/filters/components/BuildListFilters'
-import { DEFAULT_ITEMS_PER_PAGE } from '@/features/pagination/constants'
-import { CreatedBuilds } from '@/features/profile/components/CreatedBuilds'
+import { getServerSession } from '@/features/auth/lib'
+import { PageHeader } from '@/features/ui/PageHeader'
 
 export default async function Page() {
-  return (
-    <>
-      <div className="mb-8 flex w-full max-w-3xl items-center justify-center">
-        <BuildListFilters key="user-created-builds-filters" />
-      </div>
-      <div className="mb-4 grid w-full grid-cols-1 gap-2">
-        <CreatedBuilds itemsPerPage={DEFAULT_ITEMS_PER_PAGE} />
-      </div>
-    </>
-  )
+  const session = await getServerSession()
+  if (!session || !session.user) {
+    return (
+      <PageHeader
+        title="Login Required"
+        subtitle="You must be logged in to view this page"
+      />
+    )
+  }
+
+  permanentRedirect(`/profile/${session?.user?.id}/created-builds`)
 }

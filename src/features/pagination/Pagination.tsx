@@ -35,18 +35,35 @@ export function Pagination({
   return (
     <div className="flex w-full items-center justify-between bg-black bg-opacity-40 px-4 py-4 sm:px-6">
       {/** Mobile */}
-      <div className="flex flex-1 justify-between sm:hidden">
+      <div className="flex flex-1 items-center justify-between gap-x-1 sm:hidden">
         <button
           onClick={onPreviousPage}
           aria-label="Previous page"
-          className="relative inline-flex items-center rounded-md border border-green-300 bg-green-500 px-4 py-2 text-sm font-medium text-white hover:bg-green-300"
+          className="relative inline-flex items-center rounded-md border border-primary-300 bg-primary-500 px-4 py-2 text-sm font-medium text-white hover:bg-primary-300"
         >
           Previous
         </button>
+        <div className="w-full text-center">
+          <p className="text-xs text-gray-200">
+            Showing{' '}
+            <span id="start_page_count" className="font-medium">
+              {firstVisibleItemNumber}
+            </span>{' '}
+            to{' '}
+            <span id="end_page_count" className="font-medium">
+              {lastVisibleItemNumber}
+            </span>{' '}
+            of{' '}
+            <span className="font-medium">
+              {totalItems > 1000 ? '1000+' : totalItems}
+            </span>{' '}
+            results
+          </p>
+        </div>
         <button
           onClick={onNextPage}
           aria-label="Next page"
-          className="relative ml-3 inline-flex items-center rounded-md border border-green-300 bg-green-500 px-4 py-2 text-sm font-medium text-white hover:bg-green-300"
+          className="relative ml-3 inline-flex items-center rounded-md border border-primary-300 bg-primary-500 px-4 py-2 text-sm font-medium text-white hover:bg-primary-300"
         >
           Next
         </button>
@@ -63,7 +80,11 @@ export function Pagination({
             <span id="end_page_count" className="font-medium">
               {lastVisibleItemNumber}
             </span>{' '}
-            of <span className="font-medium">{totalItems}</span> results
+            of{' '}
+            <span className="font-medium">
+              {totalItems > 1000 ? '1000+' : totalItems}
+            </span>{' '}
+            results
           </p>
         </div>
 
@@ -76,7 +97,7 @@ export function Pagination({
               <button
                 onClick={() => onSpecificPage(1)}
                 aria-label="First page"
-                className="relative inline-flex w-[45px] items-center justify-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-green-500 hover:bg-gray-50 hover:text-gray-800 focus:z-20 focus:outline-offset-0"
+                className="relative inline-flex w-[45px] items-center justify-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-primary-500 hover:bg-gray-50 hover:text-gray-800 focus:z-20 focus:outline-offset-0"
               >
                 <span className="sr-only">First</span>
                 <ChevronDoubleLeftIcon className="h-5 w-5" aria-hidden="true" />
@@ -84,7 +105,7 @@ export function Pagination({
               <button
                 onClick={onPreviousPage}
                 aria-label="Previous page"
-                className="relative inline-flex w-[45px] items-center justify-center px-2 py-2 text-gray-400 ring-1 ring-inset ring-green-500 hover:bg-gray-50 hover:text-gray-800 focus:z-20 focus:outline-offset-0"
+                className="relative inline-flex w-[45px] items-center justify-center px-2 py-2 text-gray-400 ring-1 ring-inset ring-primary-500 hover:bg-gray-50 hover:text-gray-800 focus:z-20 focus:outline-offset-0"
               >
                 <span className="sr-only">Previous</span>
                 <ChevronLeftIcon className="h-5 w-5" aria-hidden="true" />
@@ -95,9 +116,9 @@ export function Pagination({
                   aria-label={`Goto page ${pageNumber}`}
                   aria-current="page"
                   className={cn(
-                    'relative inline-flex w-[45px] items-center justify-center px-4 py-2 text-sm font-semibold text-gray-200 ring-1 ring-inset ring-green-500 hover:bg-green-50 hover:text-gray-800 focus:z-20 focus:outline-offset-0',
+                    'relative inline-flex w-[45px] items-center justify-center px-4 py-2 text-sm font-semibold text-gray-200 ring-1 ring-inset ring-primary-500 hover:bg-primary-50 hover:text-gray-800 focus:z-20 focus:outline-offset-0',
                     currentPage === pageNumber &&
-                      'relative z-10 inline-flex bg-green-600 px-4 py-2 text-sm font-semibold text-white focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600',
+                      'relative z-10 inline-flex bg-primary-600 px-4 py-2 text-sm font-semibold text-white focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600',
                   )}
                   onClick={() => onSpecificPage(pageNumber)}
                 >
@@ -108,7 +129,7 @@ export function Pagination({
               <button
                 onClick={onNextPage}
                 aria-label="Next page"
-                className="relative inline-flex h-[36px] w-[45px] items-center justify-center px-2 py-2 text-gray-400 ring-1 ring-inset ring-green-500 hover:bg-green-50 hover:text-gray-800 focus:z-20 focus:outline-offset-0"
+                className="relative inline-flex h-[36px] w-[45px] items-center justify-center px-2 py-2 text-gray-400 ring-1 ring-inset ring-primary-500 hover:bg-primary-50 hover:text-gray-800 focus:z-20 focus:outline-offset-0"
               >
                 <span className="sr-only">Next</span>
                 <ChevronRightIcon className="h-5 w-5" aria-hidden="true" />
@@ -116,7 +137,7 @@ export function Pagination({
               <button
                 onClick={() => onSpecificPage(totalPages)}
                 aria-label="Last page"
-                className="relative inline-flex w-[45px] items-center justify-center rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-green-500 hover:bg-green-50 hover:text-gray-800 focus:z-20 focus:outline-offset-0"
+                className="relative inline-flex w-[45px] items-center justify-center rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-primary-500 hover:bg-primary-50 hover:text-gray-800 focus:z-20 focus:outline-offset-0"
               >
                 <span className="sr-only">Last</span>
                 <ChevronDoubleRightIcon

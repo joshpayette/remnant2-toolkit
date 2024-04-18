@@ -5,8 +5,17 @@ import { revalidatePath } from 'next/cache'
 import { getServerSession } from '@/features/auth/lib'
 import { checkBadWords, cleanBadWords } from '@/features/bad-word-filter'
 import { prisma } from '@/features/db'
+import { getBuildDescriptionParams } from '@/features/moderation/build-feed/getBuildDescriptionParams'
+import { getBuildNameParams } from '@/features/moderation/build-feed/getBuildNameParams'
+import { getBuildPublicParams } from '@/features/moderation/build-feed/getBuildPublicParams'
+import { getBuildReferenceLinkParams } from '@/features/moderation/build-feed/getBuildReferenceLinkParams'
+import { sendBuildUpdateNotification } from '@/features/moderation/build-feed/sendBuildUpdateNotification'
 
-import { BUILD_REVALIDATE_PATHS, DEFAULT_BUILD_NAME } from '../constants'
+import {
+  BUILD_REVALIDATE_PATHS,
+  DEFAULT_BUILD_NAME,
+  MAX_BUILD_DESCRIPTION_LENGTH,
+} from '../constants'
 import { buildStateSchema } from '../lib/buildStateSchema'
 import { buildStateToBuildItems } from '../lib/buildStateToBuildItems'
 import { BuildActionResponse, BuildState } from '../types'
@@ -24,7 +33,7 @@ export async function updateBuild(data: string): Promise<BuildActionResponse> {
   const unvalidatedData = JSON.parse(data)
   const validatedData = buildStateSchema.safeParse(unvalidatedData)
   if (!validatedData.success) {
-    console.error('Error in data!', validatedData.error)
+    console.error('Error in data!', validatedData.error.flatten().fieldErrors)
     return {
       errors: [validatedData.error.flatten().fieldErrors],
     }
@@ -43,6 +52,13 @@ export async function updateBuild(data: string): Promise<BuildActionResponse> {
     }
   }
 
+  // If no archetypes are selected, throw an error
+  if (!buildState.items.archetype || buildState.items.archetype.length === 0) {
+    return {
+      errors: ['You must select at least one archetype.'],
+    }
+  }
+
   const updatedBuildItems = buildStateToBuildItems(buildState)
 
   if (
@@ -50,6 +66,15 @@ export async function updateBuild(data: string): Promise<BuildActionResponse> {
     checkBadWords(buildState.description ?? '')
   ) {
     buildState.isPublic = false
+  }
+
+  // if the description is longer than allowed, truncate it
+  if (
+    buildState.description &&
+    buildState.description.length > MAX_BUILD_DESCRIPTION_LENGTH
+  ) {
+    buildState.description =
+      buildState.description.slice(0, MAX_BUILD_DESCRIPTION_LENGTH - 3) + '...'
   }
 
   // Get the existing build
@@ -77,12 +102,22 @@ export async function updateBuild(data: string): Promise<BuildActionResponse> {
             ? cleanBadWords(buildState.description)
             : '',
         isPublic: Boolean(buildState.isPublic),
+        isPatchAffected: Boolean(buildState.isPatchAffected),
         buildLink: buildState.buildLink,
-        isPatchAffected: false, // Automatically unflag if build was updated after being flagged
         BuildItems: {
-          deleteMany: {},
+          deleteMany: {}, // removes all items before creating them again
           create: updatedBuildItems,
         },
+        BuildTags: buildState.buildTags
+          ? {
+              deleteMany: {}, // removes all tags before creating them again
+              create: buildState.buildTags.map((tag) => {
+                return {
+                  tag: tag.tag,
+                }
+              }),
+            }
+          : undefined,
       },
     })
 
@@ -93,73 +128,35 @@ export async function updateBuild(data: string): Promise<BuildActionResponse> {
     }
 
     // If the build name has updated, send the build info to Discord
-    if (existingBuild?.name !== buildState.name && buildState.isPublic) {
-      const params = {
-        content: `Build name updated. Old name: ${existingBuild?.name}, New name: ${
-          buildState.name
-        }. https://www.remnant2toolkit.com/builder/${
-          buildState.buildId
-        }?t=${Date.now()}`,
-      }
-
-      const res = await fetch(`${process.env.WEBHOOK_COMMUNITY_BUILDS}`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(params),
-      })
-
-      if (!res.ok) {
-        console.error('Error in sending build webhook to Discord!')
-      }
+    if (
+      existingBuild?.name !== buildState.name &&
+      buildState.isPublic === true
+    ) {
+      const params = getBuildNameParams({ newBuildName: buildState.name })
+      await sendBuildUpdateNotification({ params, buildId: buildState.buildId })
     }
 
     // If the build was private but is now public, send the build info to Discord
     if (existingBuild?.isPublic === false && buildState.isPublic === true) {
-      const params = {
-        content: `Build changed from private to public. https://www.remnant2toolkit.com/builder/${
-          buildState.buildId
-        }?t=${Date.now()}`,
-      }
-
-      const res = await fetch(`${process.env.WEBHOOK_COMMUNITY_BUILDS}`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(params),
-      })
-
-      if (!res.ok) {
-        console.error('Error in sending build webhook to Discord!')
-      }
+      const params = getBuildPublicParams()
+      await sendBuildUpdateNotification({ params, buildId: buildState.buildId })
     }
 
     // If the build description has updated, send the build info to Discord
     if (
+      existingBuild?.description &&
       buildState.description &&
-      existingBuild?.description !== buildState.description &&
+      existingBuild.description !== buildState.description &&
       buildState.description.trim().length > 0 &&
+      existingBuild.description.trim().length > 0 &&
       buildState.isPublic
     ) {
-      const params = {
-        content: `Build description updated. https://www.remnant2toolkit.com/builder/${
-          buildState.buildId
-        }?t=${Date.now()}`,
-      }
-
-      const res = await fetch(`${process.env.WEBHOOK_COMMUNITY_BUILDS}`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(params),
+      const params = getBuildDescriptionParams({
+        buildId: buildState.buildId,
+        newDescription: buildState.description.trim(),
+        oldDescription: existingBuild.description.trim(),
       })
-
-      if (!res.ok) {
-        console.error('Error in sending build webhook to Discord!')
-      }
+      await sendBuildUpdateNotification({ params, buildId: buildState.buildId })
     }
 
     // If the build link has updated, send the build info to Discord
@@ -167,33 +164,20 @@ export async function updateBuild(data: string): Promise<BuildActionResponse> {
       buildState.buildLink &&
       existingBuild?.buildLink !== buildState.buildLink &&
       buildState.buildLink.trim().length > 0 &&
-      buildState.isPublic
+      buildState.isPublic === true
     ) {
-      const params = {
-        content: `Build reference link updated. https://www.remnant2toolkit.com/builder/${
-          buildState.buildId
-        }?t=${Date.now()}`,
-      }
-
-      const res = await fetch(`${process.env.WEBHOOK_COMMUNITY_BUILDS}`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(params),
+      const params = getBuildReferenceLinkParams({
+        referenceLink: buildState.buildLink,
       })
-
-      if (!res.ok) {
-        console.error('Error in sending build webhook to Discord!')
-      }
+      await sendBuildUpdateNotification({ params, buildId: buildState.buildId })
     }
 
     // Refresh the cache for the route
     // Refresh the cache for the route
     for (const path of BUILD_REVALIDATE_PATHS) {
-      revalidatePath(path)
+      revalidatePath(path, 'page')
     }
-    revalidatePath(`/builder/${buildState.buildId}`)
+    revalidatePath(`/builder/[buildId]`, 'page')
 
     return {
       message: 'Build successfully updated!',
