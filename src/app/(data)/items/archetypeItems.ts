@@ -262,7 +262,7 @@ export const archetypeItems: ArchetypeItem[] = [
   {
     category: 'archetype',
     name: 'Invoker',
-    imagePath: '/archtype/invoker-placeholder.png', // TODO
+    imagePath: '/archtype/invoker-placeholder1.png', // TODO
     id: 'Y2NhrX',
     dlc: 'dlc2',
     description: 'NO DESCRIPTION YET', // TODO
