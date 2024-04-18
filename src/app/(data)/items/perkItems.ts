@@ -1269,14 +1269,14 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
   },
   {
     category: 'perk',
-    name: 'Entranced', // TODO
+    name: 'Entranced',
     imagePath: '/perk/entranced-placeholder.png',
     type: 'damage',
     id: 'Y9Tj7F',
     dlc: 'dlc2',
     tags: [],
     description:
-      'Increases Skill Damage by 30%, Elemental Damage by 15%, and Skill and Elemental Critical Chance by 5%. Damage increases with Invoker level.',
+      'PRERELEASE Increases Skill Damage by 30%, Elemental Damage by 15%, and Skill and Elemental Critical Chance by 5%. Damage increases with Invoker level.',
     wikiLinks: [],
     linkedItems: {
       archetype: {
@@ -1293,7 +1293,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     dlc: 'dlc2',
     tags: [],
     description:
-      'Reduces Skill Cooldowns by 1% and Heals 2% Max Health once every 3s for allies while an Invoker Skill is active.',
+      'PRERELEASE Reduces Skill Cooldowns by 1% and Heals 2% Max Health once every 3s for allies while an Invoker Skill is active.',
     wikiLinks: [],
     linkedItems: {
       archetype: {
@@ -1310,7 +1310,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     dlc: 'dlc2',
     tags: [],
     description:
-      'Increases Movement Speed by 5% and Damage Reduction by 5%w hile an Invoker Skill is active.',
+      'PRERELEASE Increases Movement Speed by 5% and Damage Reduction by 5%w hile an Invoker Skill is active.',
     wikiLinks: [],
     linkedItems: {
       archetype: {
@@ -1327,7 +1327,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     dlc: 'dlc2',
     tags: [],
     description:
-      'On Relic use, extend the duration of active Invoker skills by 20% of the base duration. Cannot exceed base duration. Relic Use Speed increased by 25% while an Invoker Skill is active.',
+      'PRERELEASE On Relic use, extend the duration of active Invoker skills by 20% of the base duration. Cannot exceed base duration. Relic Use Speed increased by 25% while an Invoker Skill is active.',
     wikiLinks: [],
     linkedItems: {
       archetype: {

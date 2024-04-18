@@ -457,8 +457,9 @@ export const traitItems: TraitItem[] = [
     id: 'c9af3B',
     dlc: 'dlc2',
     tags: [],
-    description: 'Increases Skill Duration',
-    maxLevelBonus: 'At max level, Gifted increases Skill Duration by +30%',
+    description: 'PRERELEASE Increases Skill Duration',
+    maxLevelBonus:
+      'PRERELEASE At max level, Gifted increases Skill Duration by +30%',
     wikiLinks: [],
     amount: DEFAULT_TRAIT_AMOUNT,
     linkedItems: {

@@ -641,7 +641,7 @@ export const skillItems: SkillItem[] = [
   },
   {
     category: 'skill',
-    name: 'Way of Kaeula',
+    name: 'PRERELEASE Way of Kaeula',
     imagePath: '/skill/way-of-kaeula-placeholder.png', // TODO
     id: 'h4B9dD',
     dlc: 'dlc2',
@@ -656,7 +656,7 @@ export const skillItems: SkillItem[] = [
   },
   {
     category: 'skill',
-    name: 'Way of Meidra',
+    name: 'PRERELEASE Way of Meidra',
     imagePath: '/skill/way-of-meidra-placeholder.png',
     id: '7DnBmE',
     dlc: 'dlc2',
@@ -671,7 +671,7 @@ export const skillItems: SkillItem[] = [
   },
   {
     category: 'skill',
-    name: 'Way of Lydusa',
+    name: 'PRERELEASE Way of Lydusa',
     imagePath: '/skill/way-of-lydusa-placeholder.png', // TODO
     id: 'T2xA6c',
     dlc: 'dlc2',
