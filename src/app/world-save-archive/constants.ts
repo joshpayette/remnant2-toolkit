@@ -168,9 +168,6 @@ const bossNames = [
   {
     name: `Sha'Hala: Spectral Guardian of N'Erud`,
   },
-  {
-    name: `Sha'Hala: Spectral Guardian of N'Erud (Phase 2)`,
-  },
   { name: 'Shrewd' },
   { name: `Tal'Ratha` },
   { name: `Tal'Ratha (Metaphysical)` },
@@ -186,7 +183,6 @@ const bossNames = [
   name:
     | (typeof bossData)[number]['name']
     | `Sha'Hala: Guardian of N'Erud (Phase 2)`
-    | `Sha'Hala: Spectral Guardian of N'Erud (Phase 2)`
 }>
 
 /**
@@ -200,12 +196,6 @@ export const BOSSES = bossNames.map((boss) => {
   // If no data found, it must be one of the additional bosses
   if (boss.name === `Sha'Hala: Guardian of N'Erud (Phase 2)`) {
     return { ...boss, imagePath: '/enemies/worldboss/sha_hala_normal.jpg' }
-  }
-  if (boss.name === `Sha'Hala: Spectral Guardian of N'Erud (Phase 2)`) {
-    return {
-      ...boss,
-      imagePath: '/enemies/worldboss/sha_hala_metaphysical.jpg',
-    }
   }
   throw new Error(`No data found for boss: ${boss.name}`)
 })

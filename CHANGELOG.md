@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-04-18
+
+### Added
+
+- Added PRERELEASE tag for items that are not yet in the game, but are planned for the next DLC.
+- World Saves for Sha'Hala, Guardian of Nerud (Phase 2)
+- World Save for Primogenitor, Spiteful/Vicious
+- World Save for The Nightweaver, Skullcracker/Vicious
+- World Save for Venom, Skullcracker/Vicious
+
 ## 2024-04-15
 
 ### Fixed
