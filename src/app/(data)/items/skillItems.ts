@@ -686,7 +686,7 @@ export const skillItems: SkillItem[] = [
     
     Reactivating the skill consumes all Sand Devils generated and casts a 15m Sand Blast dealing 100 Elemental Damage per charge. Max 10 charges.
     
-    BRITTLE: Increases incoming Critical Chance by 5% and Critical Damage by 25%.`,
+    BRITTLE: Increases incoming Critical Chance by 5% and Critical Damage by 15%.`,
     cooldown: 112.8,
     wikiLinks: [],
     linkedItems: {
