@@ -642,7 +642,7 @@ export const skillItems: SkillItem[] = [
   {
     category: 'skill',
     name: 'Way of Kaeula',
-    imagePath: '/skill/way-of-kaeula-placeholder1.png', // TODO
+    imagePath: '/skill/way-of-kaeula-placeholder2.png', // TODO
     id: 'h4B9dD',
     dlc: 'dlc2',
     tags: [],
@@ -650,7 +650,7 @@ export const skillItems: SkillItem[] = [
     
     DRENCHED: Reduces Movement Speed by 10%. Every few seconds, lightning strikes enemies dealing 1,035.3 base SHOCK damage split among DRENCHED targets.`,
     cooldown: 112.8,
-    wikiLinks: [],
+    wikiLinks: ['https://remnant.wiki/Way_of_Kaeula'],
     linkedItems: {
       archetype: {
         name: 'Invoker',
@@ -660,7 +660,7 @@ export const skillItems: SkillItem[] = [
   {
     category: 'skill',
     name: 'Way of Meidra',
-    imagePath: '/skill/way-of-meidra-placeholder1.png',
+    imagePath: '/skill/way-of-meidra-placeholder2.png',
     id: '7DnBmE',
     dlc: 'dlc2',
     tags: [],
@@ -668,7 +668,7 @@ export const skillItems: SkillItem[] = [
     
     GLOOM: Increases incoming Elemental damage by 15%.`,
     cooldown: 112.8,
-    wikiLinks: [],
+    wikiLinks: ['https://remnant.wiki/Way_of_Meidra'],
     linkedItems: {
       archetype: {
         name: 'Invoker',
@@ -678,7 +678,7 @@ export const skillItems: SkillItem[] = [
   {
     category: 'skill',
     name: 'Way of Lydusa',
-    imagePath: '/skill/way-of-lydusa-placeholder1.png', // TODO
+    imagePath: '/skill/way-of-lydusa-placeholder2.png', // TODO
     id: 'T2xA6c',
     dlc: 'dlc2',
     tags: [],
@@ -688,7 +688,7 @@ export const skillItems: SkillItem[] = [
     
     BRITTLE: Increases incoming Critical Chance by 5% and Critical Damage by 15%.`,
     cooldown: 112.8,
-    wikiLinks: [],
+    wikiLinks: ['https://remnant.wiki/Way_of_Lydusa'],
     linkedItems: {
       archetype: {
         name: 'Invoker',
