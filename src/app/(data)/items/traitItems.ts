@@ -452,13 +452,13 @@ export const traitItems: TraitItem[] = [
   },
   {
     category: 'trait',
-    name: 'INVOKER TRAIT',
+    name: 'Gifted',
     imagePath: '/placeholder.jpg',
     id: 'c9af3B',
     dlc: 'dlc2',
     tags: [],
-    description: 'NO DESCRIPTION YET',
-    maxLevelBonus: 'NO DESCRIPTION YET',
+    description: 'Increases Skill Duration',
+    maxLevelBonus: 'At max level, Gifted increases Skill Duration by +30%',
     wikiLinks: [],
     amount: DEFAULT_TRAIT_AMOUNT,
     linkedItems: {
