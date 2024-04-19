@@ -5,7 +5,7 @@ export type WorldLocation =
   | 'Labyrinth'
   | 'Root Earth'
 
-export type LosomnLocation =
+export type LosomnDungeon =
   | 'Morrow Parish'
   | 'Forsaken Quarter'
   | 'Tormented Asylum'
@@ -39,7 +39,7 @@ export type LosomnLocation =
   | `The Forgotten Commune`
   | `Pathway of the Fallen`
 
-export type NErudLocation =
+export type NErudDungeon =
   | `Seeker's Rest`
   | 'Phantom Wasteland'
   | 'Timeless Horizon'
@@ -62,7 +62,7 @@ export type NErudLocation =
   | `Extraction Hub`
   | `Titan's Reach`
 
-export type YaeshaLocation =
+export type YaeshaDungeon =
   | `The Red Throne`
   | `Withering Weald`
   | `The Far Woods`
@@ -87,19 +87,19 @@ export type YaeshaLocation =
   | `The Forgotten Grove`
   | 'Floating Forests'
 
-export type RootEarthLocation =
+export type RootEarthDungeon =
   | 'Ashen Wasteland'
   | 'Corrupted Harbor'
   | 'Blackened Citadel'
   | 'Twilight Vale'
 
-export type LabyrinthLocation = 'Labyrinth'
+export type LabyrinthDungeon = 'Labyrinth'
 
 type WorldDrop = 'World Drop'
 
 export type ItemLocation =
-  | { world: 'Losomn'; dungeon: LosomnLocation[] | WorldDrop }
-  | { world: `N'Erud`; dungeon: NErudLocation[] | WorldDrop }
-  | { world: 'Yaesha'; dungeon: YaeshaLocation[] | WorldDrop }
-  | { world: 'Root Earth'; dungeon: RootEarthLocation[] | WorldDrop }
-  | { world: 'Labyrinth'; dungeon: LabyrinthLocation[] | WorldDrop }
+  | { world: 'Losomn'; dungeon: LosomnDungeon[] | WorldDrop }
+  | { world: `N'Erud`; dungeon: NErudDungeon[] | WorldDrop }
+  | { world: 'Yaesha'; dungeon: YaeshaDungeon[] | WorldDrop }
+  | { world: 'Root Earth'; dungeon: RootEarthDungeon[] | WorldDrop }
+  | { world: 'Labyrinth'; dungeon: LabyrinthDungeon[] | WorldDrop }
