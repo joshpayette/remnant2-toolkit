@@ -156,6 +156,15 @@ export function Traits({
             <p className="text-primary-500">
               5 Core + 20 Archetype + 85 Player Choice
             </p>
+            {buildState.items.archetype.some(
+              (archetype) => archetype?.name === 'Invoker',
+            ) && (
+              <p className="text-red-500">
+                Note: We do not know the 5 intrinsic points for the Invoker. If
+                you are making an Invoker build, you should cap at 105 to
+                account for this!
+              </p>
+            )}
           </div>
         )}
 

@@ -14,6 +14,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - World Save for The Nightweaver, Skullcracker/Vicious
 - World Save for Venom, Skullcracker/Vicious
 - Added Invoker archetype, skills, perks, and trait to the builder and item lookup pages!
+- Added note to trait points display about missing Invoker intrinsic trait points.
 
 ### Fixed
 
