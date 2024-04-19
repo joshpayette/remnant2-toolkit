@@ -99,7 +99,7 @@ export const weaponItems: WeaponItem[] = [
     imagePath: '/mainhand/chicago_typewriter.png',
     id: '59oddb',
     description: `A classic Tommy Gun with large ammo capacity and a slow reload. Poor initial accuracy which improves while holding down the trigger.`,
-    wikiLinks: [`hhttps://remnant.wiki/Chicago_Typewriter`],
+    wikiLinks: [`https://remnant.wiki/Chicago_Typewriter`],
     damage: 10,
     rps: 11,
     magazine: 80,
