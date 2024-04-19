@@ -21,6 +21,7 @@ import { BuilderContainer } from '@/features/build/components/builder/BuilderCon
 import { DetailedBuildDialog } from '@/features/build/components/dialogs/DetailedBuildDialog'
 import { ImageDownloadInfo } from '@/features/build/components/dialogs/ImageDownloadInfo'
 import { buildStateToCsvData } from '@/features/build/lib/buildStateToCsvData'
+import { cleanUpBuildState } from '@/features/build/lib/cleanUpBuildState'
 import { dbBuildToBuildState } from '@/features/build/lib/dbBuildToBuildState'
 import { DBBuild } from '@/features/build/types'
 import { LoadoutDialog } from '@/features/loadouts/components/LoadoutDialog'
@@ -52,7 +53,7 @@ interface Props {
 }
 
 export function BuildPage({ build }: Props) {
-  const buildState = dbBuildToBuildState(build)
+  const buildState = cleanUpBuildState(dbBuildToBuildState(build))
 
   const [detailedBuildDialogOpen, setDetailedBuildDialogOpen] = useState(false)
   const [loadoutDialogOpen, setLoadoutDialogOpen] = useState(false)

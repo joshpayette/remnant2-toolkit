@@ -268,7 +268,11 @@ export const archetypeItems: ArchetypeItem[] = [
     description: 'NO DESCRIPTION YET', // TODO
     wikiLinks: ['https://remnant.wiki/Invoker'],
     linkedItems: {
-      traits: [{ name: 'Gifted', amount: 10 }],
+      traits: [
+        { name: 'Gifted', amount: 10 },
+        { name: 'Vigor', amount: 2 },
+        { name: 'Expertise', amount: 3 },
+      ],
       skills: [
         { name: 'Way of Kaeula' },
         { name: 'Way of Meidra' },
