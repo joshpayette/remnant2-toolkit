@@ -72,7 +72,7 @@ EXPOSED: Target receives up to 24% additional damage from all sources. Expose am
     imagePath: '/amulet/cleansing_stone.png',
     id: 'nm7b6f',
     tags: ['Status Effect'],
-    description: `Reduces Duration of Elemental Status Effects against wearer by 50%. Relic use cleanses Elemental Status effects and grants 25% of wearers Max Health to all allies within 20m [A] when cleansed.`,
+    description: `Reduces Duration of Elemental Status Effects against wearer by 50%. Relic use cleanses Elemental Status Effects and grants 25% of wearers Max Health to all allies within 20m [A] when cleansed.`,
     wikiLinks: [`https://remnant.wiki/Cleansing_Stone`],
   },
   {
@@ -560,7 +560,7 @@ EXPOSED: Target receives up to 24% additional damage from all sources. Expose am
     imagePath: '/amulet/shaed_bloom_crystal.png',
     id: 'ib2as6',
     tags: ['All Damage', 'Elemental Damage'],
-    description: `Gain a 30% damage bonus. Every 5s, the bonus switches between Physical and Elemental damage.`,
+    description: `Gain a 30% damage bonus. Every 5s, the bonus switches between Physical and Elemental Damage.`,
     wikiLinks: [`https://remnant.wiki/Shaed_Bloom_Crystal`],
   },
   {

@@ -131,7 +131,7 @@ export const DESCRIPTION_TAGS = [
     type: 'Amplitude',
     token: '[A]',
     color: 'text-[#66ffcc]',
-    description: 'This effect benefits from Amplitude.',
+    description: 'This effect benefits from Amplitude trait.',
   },
   {
     type: 'Archon',
@@ -144,14 +144,14 @@ export const DESCRIPTION_TAGS = [
     token: 'BLEEDING',
     color: 'text-[#f2350f]',
     description:
-      'Deals physical damage per second. Reduces healing effectiveness by 50%.',
+      'Deals Physical Damage per second. Reduces healing effectiveness by 50%.',
   },
   {
     type: 'Bug',
     token: '[BUG]',
     color: 'text-[#ecff00]',
     description:
-      'This item is currently bugged and MAY not function as expected. Check wiki for more information.',
+      'This item is currently bugged and MAY not function as expected. Check remnant.wiki for more information.',
   },
   {
     type: 'Brittle',
@@ -163,7 +163,7 @@ export const DESCRIPTION_TAGS = [
     type: 'Burning',
     token: 'BURNING',
     color: 'text-[#b65d30]',
-    description: 'Deals elemental FIRE damage. Can make enemies panic.', // Have no good source on the secondary effect.
+    description: 'Deals elemental FIRE damage. Can make enemies panic.',
   },
   {
     type: 'Bulwark',
@@ -237,6 +237,12 @@ export const DESCRIPTION_TAGS = [
     description: undefined,
   },
   {
+    type: 'Elemental Damage',
+    token: 'Elemental Damage',
+    color: 'text-emerald-500',
+    description: `Acid, Corrosive, Fire, Shock.`,
+  },
+  {
     type: 'Engineer',
     token: 'ENGINEER',
     color: ARCHTYPE_COLORS.ENGINEER.text,
@@ -307,7 +313,7 @@ export const DESCRIPTION_TAGS = [
     type: 'Madness',
     token: 'MADNESS',
     color: 'text-[#ede6e6]',
-    description: 'Physical Damage',
+    description: 'Physical Damage.',
   },
   {
     type: 'Marked',
@@ -331,7 +337,7 @@ export const DESCRIPTION_TAGS = [
   {
     type: 'Multiplicative Debuffs',
     token: '[MD]',
-    color: 'text-orange-500',
+    color: 'text-red-400',
     description:
       'Counts as a debuff making it multiplicative with different sources of damage.',
   },
@@ -346,7 +352,7 @@ export const DESCRIPTION_TAGS = [
     type: 'Resonance',
     token: '[R]',
     color: 'text-[#00ffcc]',
-    description: 'This effect benefits from Resonance.',
+    description: 'This effect benefits from Resonance trait.',
   },
   {
     type: 'Ritualist',
@@ -396,7 +402,7 @@ export const DESCRIPTION_TAGS = [
     type: 'PRERELEASE',
     token: 'PRERELEASE',
     color: 'text-[#ecfc00]',
-    description: `This is prerelease content. Information might not be accurate or change.`,
+    description: `This is prerelease content. Information might not be accurate or change. Numbers aren't final.`,
   },
   {
     type: 'Weakspot Damage',
@@ -409,37 +415,49 @@ export const DESCRIPTION_TAGS = [
     type: 'Negative Status Effects',
     token: 'Negative Status Effects',
     color: 'text-purple-400',
-    description: `Elemental: Burning, Corroded, Overloaded. Physical: Bleeding.`,
+    description: `Bleeding, Burning, Corroded, Overloaded.`,
   },
   {
     type: 'Negative Status Effect',
     token: 'Negative Status Effect',
     color: 'text-purple-400',
-    description: `Elemental: Burning, Corroded, Overloaded. Physical: Bleeding.`,
+    description: `Bleeding, Burning, Corroded, Overloaded.`,
+  },
+  {
+    type: 'Negative Status',
+    token: 'Negative Status',
+    color: 'text-purple-400',
+    description: `Bleeding, Burning, Corroded, Overloaded.`,
   },
   {
     type: 'Elemental Status Effects',
     token: 'Elemental Status Effects',
     color: 'text-[#05baf9]',
-    description: `Elemental: Burning, Corroded, Overloaded.`,
+    description: `Burning, Corroded, Overloaded.`,
   },
   {
     type: 'Elemental Status Effect',
     token: 'Elemental Status Effect',
     color: 'text-[#05baf9]',
-    description: `Elemental: Burning, Corroded, Overloaded.`,
+    description: `Burning, Corroded, Overloaded.`,
+  },
+  {
+    type: 'Elemental Status',
+    token: 'Elemental Status',
+    color: 'text-[#05baf9]',
+    description: `Burning, Corroded, Overloaded.`,
   },
   {
     type: 'Status Effects',
     token: 'Status Effects',
     color: 'text-purple-400',
-    description: `Elemental: Burning, Corroded, Overloaded. Physical: Bleeding.`,
+    description: `Bleeding, Burning, Corroded, Overloaded.`,
   },
   {
     type: 'Status Effect',
     token: 'Status Effect',
     color: 'text-purple-400',
-    description: `Elemental: Burning, Corroded, Overloaded. Physical: Bleeding.`,
+    description: `Bleeding, Burning, Corroded, Overloaded.`,
   },
 ] as const satisfies {
   type: string
