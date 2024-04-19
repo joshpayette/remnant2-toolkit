@@ -331,7 +331,7 @@ export const ringItems: RingItem[] = [
     id: 'z169p0',
     tags: ['Reduce Skill Cooldown', 'Relic Use Speed'],
     description: `Reduces Skill Cooldowns by 15% but decreases Relic Use Speed by 25%.`,
-    wikiLinks: [`hhttps://remnant.wiki/Burden_Of_The_Rebel`],
+    wikiLinks: [`https://remnant.wiki/Burden_Of_The_Rebel`],
   },
   {
     category: 'ring',
