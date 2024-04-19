@@ -237,6 +237,12 @@ export const DESCRIPTION_TAGS = [
     description: undefined,
   },
   {
+    type: 'Elemental Damage',
+    token: 'Elemental Damage',
+    color: 'text-emerald-500',
+    description: `Fire, Shock, Acid, Corrosive.`,
+  },
+  {
     type: 'Engineer',
     token: 'ENGINEER',
     color: ARCHTYPE_COLORS.ENGINEER.text,
@@ -331,7 +337,7 @@ export const DESCRIPTION_TAGS = [
   {
     type: 'Multiplicative Debuffs',
     token: '[MD]',
-    color: 'text-orange-500',
+    color: 'text-red-400',
     description:
       'Counts as a debuff making it multiplicative with different sources of damage.',
   },
