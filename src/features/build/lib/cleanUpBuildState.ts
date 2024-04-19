@@ -23,8 +23,6 @@ export function cleanUpBuildState(buildState: BuildState): BuildState {
         (item) => item.name === mod.linkedItems?.weapon?.name,
       )
 
-      console.info('linkedItems', linkedWeapon)
-
       if (!linkedWeapon) {
         return null
       }

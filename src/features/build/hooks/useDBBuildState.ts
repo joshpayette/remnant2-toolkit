@@ -95,6 +95,35 @@ export function useDBBuildState(INITIAL_BUILD_STATE: BuildState) {
       return
     }
 
+    // Remove skill if archetype unequipped
+    if (category === 'archetype' && Array.isArray(value)) {
+      const emptySlot = value.findIndex((item) => item === '')
+      if (emptySlot !== -1) {
+        const newSkills = dbBuildState.items.skill.map((skill, index) => {
+          if (index === emptySlot) return null
+          return skill
+        })
+        const newArchetypes = dbBuildState.items.archetype.map(
+          (archetype, index) => {
+            if (index === emptySlot) return null
+            return archetype
+          },
+        )
+
+        const newBuildState = {
+          ...dbBuildState,
+          items: {
+            ...dbBuildState.items,
+            archetype: newArchetypes,
+            skill: newSkills,
+          },
+        }
+
+        setDBBuildState(newBuildState)
+        return
+      }
+    }
+
     // --------------------------
     // Items
     // --------------------------
