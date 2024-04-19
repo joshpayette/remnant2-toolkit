@@ -646,7 +646,7 @@ export const skillItems: SkillItem[] = [
     id: 'h4B9dD',
     dlc: 'dlc2',
     tags: [],
-    description: `PRERELEASE Invoke Kaeula to cast a Tidal Wave, dealing 517.6 Elemental damage and conjuring a 30m Rainstorm for 19.5s. Allies inside Rainstorm gain HASTE. Enemies inside Rainstorm gain DRENCHED for 10s.
+    description: `PRERELEASE Invoke Kaeula to cast a Tidal Wave, dealing 517.6 Elemental Damage and conjuring a 30m Rainstorm for 19.5s. Allies inside Rainstorm gain HASTE. Enemies inside Rainstorm gain DRENCHED for 10s.
     
     DRENCHED: Reduces Movement Speed by 10%. Every few seconds, lightning strikes enemies dealing 1,035.3 base SHOCK damage split among DRENCHED targets.`,
     cooldown: 112.8,
@@ -666,7 +666,7 @@ export const skillItems: SkillItem[] = [
     tags: [],
     description: `PRERELEASE Invoke Meidra to heal all allies for 20% Max Health over 1.5s and conjure a 20m Forest Growth for 19.5s. After fully blooming, allies in the Forest Growth heal 2% Max Health per second and gain 3% of base damage dealt as Lifesteal. Enemies inside Forest Growth gain GLOOM for 10s.
     
-    GLOOM: Increases incoming Elemental damage by 15%.`,
+    GLOOM: Increases incoming Elemental Damage by 15%.`,
     cooldown: 112.8,
     wikiLinks: ['https://remnant.wiki/Way_of_Meidra'],
     linkedItems: {

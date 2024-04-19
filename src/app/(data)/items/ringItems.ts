@@ -53,7 +53,7 @@ export const ringItems: RingItem[] = [
     imagePath: '/ring/alumni_ring.png',
     id: 'll1vsx',
     tags: ['Elemental Damage'],
-    description: `Increases all Elemental damage dealt by 10%.`,
+    description: `Increases all Elemental Damage dealt by 10%.`,
     wikiLinks: [`https://remnant.wiki/Alumni_Ring`],
   },
   {

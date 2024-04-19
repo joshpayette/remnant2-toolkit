@@ -560,7 +560,7 @@ EXPOSED: Target receives up to 24% additional damage from all sources. Expose am
     imagePath: '/amulet/shaed_bloom_crystal.png',
     id: 'ib2as6',
     tags: ['All Damage', 'Elemental Damage'],
-    description: `Gain a 30% damage bonus. Every 5s, the bonus switches between Physical and Elemental damage.`,
+    description: `Gain a 30% damage bonus. Every 5s, the bonus switches between Physical and Elemental Damage.`,
     wikiLinks: [`https://remnant.wiki/Shaed_Bloom_Crystal`],
   },
   {

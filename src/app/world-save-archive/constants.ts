@@ -60,7 +60,7 @@ export const BOSS_AFFIXES = [
   // Limited to aberrations
   // {
   //   name: 'Hexer',
-  //   description: `Gains the ability to release homing projectile bursts of a random elemental damage type. Passively releases single projectiles everytime they are damaged. Releases a final burst of random projectiles on death.`,
+  //   description: `Gains the ability to release homing projectile bursts of a random Elemental Damage type. Passively releases single projectiles everytime they are damaged. Releases a final burst of random projectiles on death.`,
   // },
   // Limited to aberrations
   // {
