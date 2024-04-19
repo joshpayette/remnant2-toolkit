@@ -96,6 +96,7 @@ export type RootEarthDungeon =
 export type LabyrinthDungeon = 'Labyrinth'
 
 type WorldDrop = 'World Drop'
+type Ward13 = 'Ward 13'
 
 export type ItemLocation =
   | { world: 'Losomn'; dungeon: LosomnDungeon[] | WorldDrop }
@@ -103,3 +104,4 @@ export type ItemLocation =
   | { world: 'Yaesha'; dungeon: YaeshaDungeon[] | WorldDrop }
   | { world: 'Root Earth'; dungeon: RootEarthDungeon[] | WorldDrop }
   | { world: 'Labyrinth'; dungeon: LabyrinthDungeon[] | WorldDrop }
+  | { world: Ward13; dungeon: Ward13 }
