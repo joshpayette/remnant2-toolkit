@@ -1381,7 +1381,7 @@ export const ringItems: RingItem[] = [
     id: 'kx65km',
     tags: ['Status Effect', 'Mod Power'],
     description: `Elemental Status damage generates 15% additional Mod Power.`,
-    wikiLinks: [`Stone of Malevolence`],
+    wikiLinks: [`https://remnant.wiki/Stone_Of_Malevolence`],
   },
   {
     category: 'ring',
