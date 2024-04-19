@@ -93,15 +93,10 @@ export type RootEarthDungeon =
   | 'Blackened Citadel'
   | 'Twilight Vale'
 
-export type LabyrinthDungeon = 'Labyrinth'
-
-type WorldDrop = 'World Drop'
-type Ward13 = 'Ward 13'
-
 export type ItemLocation =
-  | { world: 'Losomn'; dungeon: LosomnDungeon[] | WorldDrop }
-  | { world: `N'Erud`; dungeon: NErudDungeon[] | WorldDrop }
-  | { world: 'Yaesha'; dungeon: YaeshaDungeon[] | WorldDrop }
-  | { world: 'Root Earth'; dungeon: RootEarthDungeon[] | WorldDrop }
-  | { world: 'Labyrinth'; dungeon: LabyrinthDungeon[] | WorldDrop }
-  | { world: Ward13; dungeon: Ward13 }
+  | { world: 'Losomn'; dungeon: LosomnDungeon[] | 'World Drop' }
+  | { world: `N'Erud`; dungeon: NErudDungeon[] | 'World Drop' }
+  | { world: 'Yaesha'; dungeon: YaeshaDungeon[] | 'World Drop' }
+  | { world: 'Root Earth'; dungeon: RootEarthDungeon[] | 'World Drop' }
+  | { world: 'Labyrinth'; dungeon: 'Labyrinth' | 'World Drop' }
+  | { world: 'Ward 13'; dungeon: 'Ward 13' }
