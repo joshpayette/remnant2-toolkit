@@ -1380,7 +1380,7 @@ export const ringItems: RingItem[] = [
     imagePath: '/ring/stone_of_malevolence.png',
     id: 'kx65km',
     tags: ['Status Effect', 'Mod Power'],
-    description: `Elemental Status damage generates 15% additional Mod Power.`,
+    description: `Elemental Damage generates 15% additional Mod Power.`,
     wikiLinks: [`https://remnant.wiki/Stone_Of_Malevolence`],
   },
   {
