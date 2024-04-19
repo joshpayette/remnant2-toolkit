@@ -110,7 +110,7 @@ export const skillItems: SkillItem[] = [
     name: 'Wellspring',
     imagePath: '/skill/wellspring.png',
     id: '7vtxrx',
-    description: `The MEDIC channels healing energy into their fist, punching a hole in the ground [E] to create a 3m [A] Healing Spring AOE which restores 10.5 Health per second and greatly increases Blight Decay Rate. Lasts 15s.`,
+    description: `The MEDIC channels healing energy into their fist, punching a hole in the ground [E] to create a 3m [A] Healing Spring AOE which restores 10 Health per second and greatly increases Blight Decay Rate. Lasts 15s.`,
     cooldown: 60,
     wikiLinks: [`https://remnant.wiki/Wellspring`],
     linkedItems: {
@@ -124,7 +124,7 @@ export const skillItems: SkillItem[] = [
     name: 'Healing Shield',
     imagePath: '/skill/healing_shield.png',
     id: '8pu6y2',
-    description: `The MEDIC Quickly expels healing energy to SHIELD all allies within 25m [A] for 100% of their Max Health for 10s. While shielded, allies regenerate 21% of their Max Health over the duration.`,
+    description: `The MEDIC Quickly expels healing energy to SHIELD all allies within 25m [A] for 100% of their Max Health for 10s. While shielded, allies regenerate 20% of their Max Health over the duration.`,
     cooldown: 100,
     wikiLinks: [`https://remnant.wiki/Healing_Shield`],
     linkedItems: {
@@ -138,7 +138,7 @@ export const skillItems: SkillItem[] = [
     name: 'Redemption',
     imagePath: '/skill/redemption.png',
     id: 'zs77cb',
-    description: `The MEDIC unleashes a 30m [A] shockwave that revives downed allies and restores 52.5% Max Health over 10s. For each additional 1s holding the SKILL button, the heal gains an additional 52.5% (up to 210% max)
+    description: `The MEDIC unleashes a 30m [A] shockwave that revives downed allies and restores 50% Max Health over 10s. For each additional 1s holding the SKILL button, the heal gains an additional 50% (up to 200% max)
     Revived allies will only receive 50% of the healing amount. If revived, allies cannot be revived again by Redemption for another 180s. Resets at Worldstone or on death.`,
     cooldown: 120,
     wikiLinks: [`https://remnant.wiki/Redemption`],
