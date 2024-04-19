@@ -38,6 +38,7 @@ export type LosomnDungeon =
   | `Derelict Lighthouse`
   | `The Forgotten Commune`
   | `Pathway of the Fallen`
+  | `Walk of Rememberance`
 
 export type NErudDungeon =
   | `Seeker's Rest`
@@ -66,7 +67,7 @@ export type YaeshaDungeon =
   | `The Red Throne`
   | `Withering Weald`
   | `The Far Woods`
-  | `Widow's Court`
+  | `The Widow's Court`
   | `The Great Bole`
   | `The Forbidden Grove`
   | `Faithless Thicket`
@@ -93,10 +94,188 @@ export type RootEarthDungeon =
   | 'Blackened Citadel'
   | 'Twilight Vale'
 
+const BIOMES = [
+  {
+    name: 'Burning City',
+    dungeons: [
+      `Cotton's Kiln`,
+      `Butcher's Quarter`,
+      `Lemark District`,
+      `Sunken Haunt`,
+      `Derelict Lighthouse`,
+    ],
+    injectables: [`Fiery Graveyard`, `Rookery`, `Oink`, `Ethereal Manor`],
+  },
+  {
+    name: 'Fae Palace',
+    dungeons: [
+      `Beatific Palace`,
+      `Beatific Gallery`,
+      `Gilded Chambers`,
+      `Council Chamber`,
+      `Postulant's Parlor`,
+      `Glistering Cloister`,
+      `Walk of Rememberance`,
+    ],
+    injectables: [
+      `As Above, So Below`,
+      `Black and White`,
+      `Silver and Gold`,
+      `Reflection`,
+    ],
+  },
+  {
+    name: 'Floating Forests',
+    dungeons: [
+      `The Nameless Nest`,
+      `The Expanding Glade`,
+      `Forgotten Field`,
+      `Imperial Gardens`,
+      `The Red Throne`,
+      `The Widow's Court`,
+      `The Great Bole`,
+    ],
+    injectables: [`Broken Tomb`, `Tower`, `Island Jump`],
+  },
+  {
+    name: 'Jungles of Yaesha',
+    dungeons: [
+      `Withering Weald`,
+      `The Forbidden Grove`,
+      `The Far Woods`,
+      `Faithless Thicket`,
+    ],
+    injectables: [`Dappled Glave`, `Koara Kuri Nest`, `Root Nexus`],
+  },
+  {
+    name: 'Losomn Sewers',
+    dungeons: [
+      `The Great Sewers`,
+      `Harvester's Reach`,
+      `Tiller's Rest`,
+      `The Forgotten Commune`,
+    ],
+    injectables: [`Rising Tides`, `Fae Nest`, `Dran Safe`, `Corpse Drop`],
+  },
+  {
+    name: `N'Erud Underworld`,
+    dungeons: [
+      `The Putrid Domain`,
+      `Vault of the Formless`,
+      `Void Vessel Facility`,
+      `The Hatchery`,
+      `The Dark Conduit`,
+      `Dormant N'Erudian Facility`,
+    ],
+    injectables: [
+      `Black Hole`,
+      `Robot Hangar`,
+      `Sewage Facility`,
+      `Shockwire`,
+      `Store Room`,
+      `The Claw`,
+    ],
+  },
+  {
+    name: `N'Erud Wasteland`,
+    dungeons: [
+      `Phantom Wasteland`,
+      `Abyssyal Rift`,
+      `Timeless Horizon`,
+      `The Eon Vault`,
+    ],
+    injectables: [`Ascension Spire`, `Titan's Reach`, `Extraction Hub`],
+  },
+  {
+    name: 'Streets of Losomn',
+    dungeons: [
+      `Morrow Parish`,
+      `Brocwithe Quarter`,
+      `Briella's Garden`,
+      `Forsaken Quarter`,
+      `Ironborough`,
+    ],
+    injectables: [`Oracle's Refuge`, `Hewdas Clock`, `Briella's Garden`],
+  },
+  {
+    name: `Towers of N'Erud`,
+    dungeons: [
+      `Astropath's Respite`,
+      `Spectrum Nexus`,
+      `Terminus Station`,
+      `Tower of the Unseen`,
+      `Seeker's Rest`,
+      `Sentinel's Keep`,
+    ],
+    injectables: [`Elevator Shaft`, `Remains Below`],
+  },
+  {
+    name: `Undead Tombs`,
+    dungeons: [`The Twisted Chantry`, `The Chimney`, `The Lament`],
+    injectables: [`Living Stone`, `Sarcophagus`, `Hidden Crypt`],
+  },
+  {
+    name: `Ziggurats`,
+    dungeons: [`Kaeula's Rest`, `Endaira's End`, `Cathedral of Omens`],
+    injectables: [`Hidden Chamber`, `Wind Hollow`, `Library`],
+  },
+] as const satisfies Array<{
+  name: string
+  dungeons:
+    | LosomnDungeon[]
+    | NErudDungeon[]
+    | YaeshaDungeon[]
+    | RootEarthDungeon[]
+    | 'Labyrinth'
+  injectables: string[]
+}>
+export type Biome = (typeof BIOMES)[number]['name']
+export type Injectable = (typeof BIOMES)[number]['injectables'][number]
+
 export type ItemLocation =
-  | { world: 'Losomn'; dungeon: LosomnDungeon[] | 'World Drop' }
-  | { world: `N'Erud`; dungeon: NErudDungeon[] | 'World Drop' }
-  | { world: 'Yaesha'; dungeon: YaeshaDungeon[] | 'World Drop' }
-  | { world: 'Root Earth'; dungeon: RootEarthDungeon[] | 'World Drop' }
-  | { world: 'Labyrinth'; dungeon: 'Labyrinth' | 'World Drop' }
+  | {
+      world: 'Losomn'
+      dungeon: LosomnDungeon[] | 'World Drop'
+      biome?: never
+      injectable?: Injectable
+    }
+  | { world: 'Losomn'; dungeon?: never; biome: Biome; injectable?: Injectable }
+  | {
+      world: `N'Erud`
+      dungeon: NErudDungeon[] | 'World Drop'
+      biome?: never
+      injectable?: Injectable
+    }
+  | { world: `N'Erud`; dungeon?: never; biome: Biome }
+  | {
+      world: 'Yaesha'
+      dungeon: YaeshaDungeon[] | 'World Drop'
+      biome?: never
+      injectable?: Injectable
+    }
+  | { world: 'Yaesha'; dungeon?: never; biome: Biome; injectable?: Injectable }
+  | {
+      world: 'Root Earth'
+      dungeon: RootEarthDungeon[] | 'World Drop'
+      biome?: never
+      injectable?: Injectable
+    }
+  | {
+      world: 'Root Earth'
+      dungeon?: never
+      biome: Biome
+      injectable?: Injectable
+    }
+  | {
+      world: 'Labyrinth'
+      dungeon: 'Labyrinth' | 'World Drop'
+      biome?: never
+      injectable?: Injectable
+    }
+  | {
+      world: 'Labyrinth'
+      dungeon?: never
+      biome: Biome
+      injectable?: Injectable
+    }
   | { world: 'Ward 13'; dungeon: 'Ward 13' }
