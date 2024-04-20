@@ -535,7 +535,7 @@ export const mutatorItems: MutatorItem[] = [
     id: '7eodps',
     tags: ['Ranged Damage', 'Critical Hit', 'Weakspot Hit'],
     description: `Increases Ranged damage of this weapon by 10-[20]% to BLEEDING targets.`,
-    maxLevelBonus: `This weapon's Ranged Weakspot and Ranged Critical Hits apply BLEEDING, dealing 100 BLEED damage over 10s.`,
+    maxLevelBonus: `This weapon's Ranged Weakspot and Ranged Critical Hits apply BLEEDING, dealing 200 BLEED damage over 10s.`,
     wikiLinks: [`https://remnant.wiki/Twisting_Wounds`],
   },
   {

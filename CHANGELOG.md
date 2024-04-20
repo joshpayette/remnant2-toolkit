@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Fixed
 
 - Invoker archetype combo names now include the word "Spirit" in the name.
+- Fixed Twisting Wounds description, should have indicated 200 Bleed Damage over 10s.
 
 ## 2024-04-19
 
