@@ -15,6 +15,7 @@ import { DetailedBuildDialog } from '@/features/build/components/dialogs/Detaile
 import { ImageDownloadInfo } from '@/features/build/components/dialogs/ImageDownloadInfo'
 import { ItemTagSuggestionsDialog } from '@/features/build/components/dialogs/ItemTagSuggestionsDialog'
 import { useDBBuildState } from '@/features/build/hooks/useDBBuildState'
+import { cleanUpBuildState } from '@/features/build/lib/cleanUpBuildState'
 import { dbBuildToBuildState } from '@/features/build/lib/dbBuildToBuildState'
 import { BuildState, DBBuild } from '@/features/build/types'
 import { PageHeader } from '@/features/ui/PageHeader'
@@ -29,7 +30,7 @@ export function BuildPage({ build }: Props) {
   const [detailedBuildDialogOpen, setDetailedBuildDialogOpen] = useState(false)
 
   const { dbBuildState, updateDBBuildState, setNewBuildState } =
-    useDBBuildState(dbBuildToBuildState(build))
+    useDBBuildState(cleanUpBuildState(dbBuildToBuildState(build)))
 
   const {
     isScreenshotMode,
