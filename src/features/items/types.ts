@@ -37,6 +37,7 @@ export type Item =
  * written in a CSV export for each item
  */
 export interface CsvItem {
+  id: string
   name: string
   category: ItemCategory
   description: string

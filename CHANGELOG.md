@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Fixed
 
 - Fixed bug where the CSV Export on the Item Tracker would only export items for the selected category rather than all items.
+- Fixed a bug in the Item Tracker where CSV Import was not including some items. Why did I do this by item name instead of id? This oversight has been corrected!
 
 ## 2024-04-20
 

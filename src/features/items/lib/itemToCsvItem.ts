@@ -15,6 +15,7 @@ export function itemToCsvItem(item: Item): CsvItem {
   }
 
   return {
+    id: item.id,
     name: item.name,
     category: item.category,
     description: cleanString(item.description || ''),

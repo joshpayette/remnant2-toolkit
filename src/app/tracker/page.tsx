@@ -147,13 +147,13 @@ export default function Page() {
 
           results.data.forEach(
             (value: any, index: number, array: unknown[]) => {
-              const itemName = value[0]
+              const itemId = value[0]
               const discovered =
                 value[value.length - 1].toLowerCase() === 'true'
 
               if (!discovered) return
 
-              const item = allItems.find((item) => item.name === itemName)
+              const item = allItems.find((item) => item.id === itemId)
               if (!item) return
 
               if (skippedItemCategories.includes(item.category)) return
