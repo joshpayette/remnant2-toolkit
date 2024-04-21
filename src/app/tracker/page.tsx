@@ -210,9 +210,11 @@ export default function Page() {
   // generate the build urls, but that's not a priority right now.
   const csvItems = useMemo(() => {
     return (
-      filteredItems
-        // Modify the data for use. Adds a discovered flag,
-        // modifies the description for mutators
+      allItems
+        .map((item) => ({
+          ...item,
+          discovered: discoveredItemIds.includes(item.id),
+        }))
         .map((item) => {
           let csvItem = itemToCsvItem(item)
 
@@ -241,7 +243,7 @@ export default function Page() {
           return 0
         })
     )
-  }, [filteredItems])
+  }, [discoveredItemIds])
 
   function getSelectedCategory() {
     let item = filteredItems[0]
