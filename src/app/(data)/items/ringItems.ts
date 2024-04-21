@@ -4,7 +4,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: "A'Taerii Booster",
-    imagePath: '/ring/ataerii_booster.png',
+    imagePath: '/ring/ataerii_booster1.png',
     id: '27gn7b',
     tags: ['All Damage', 'Critical Chance'],
     description: `While carrying a Heavy Weapon, gain 10% Damage and 10% Critical Chance.`,
@@ -1323,7 +1323,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Soul Shard',
-    imagePath: '/ring/soul_shard.png',
+    imagePath: '/ring/soul_shard1.png',
     id: 'uswo9w',
     tags: ['Summon', 'All Damage'],
     description: `Increase all damage dealt by 4% for each summon. Max 12%`,
