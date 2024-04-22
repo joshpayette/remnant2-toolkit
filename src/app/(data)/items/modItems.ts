@@ -909,7 +909,7 @@ export const modItems: ModItem[] = [
     name: 'Voltaic Rondure',
     imagePath: '/mod/voltaic_rondure.png',
     id: 'wjopwy',
-    tags: ['Status Effect']
+    tags: ['Status Effect'],
     description: `Launches a slow-moving orb that pulses every 0.5s, striking enemies within 3m [A] for 20 SHOCK damage and applying OVERLOADED for 15s. The orb lasts 20s. The orb can be overcharged by striking it with additional damage.`,
     wikiLinks: [`https://remnant.wiki/Voltaic_Rondure`],
   },
