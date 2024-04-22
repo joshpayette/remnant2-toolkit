@@ -875,6 +875,7 @@ export const modItems: ModItem[] = [
     name: 'Supernova',
     imagePath: '/mod/supernova.png',
     id: '9rxk65',
+    tags: ['Status Effect'],
     description: `Fires the compressed remains of a dying star. On contact or hit wit the primary fire, causes Supernova to explode for 150 FIRE Damage, and 350 BURNING Damage over 10s to all targets within 4m [A].
 
     Striking the Supernova with Aphelion's primary fire increases its explosion radius by 25% and damage by 50%, and spawns a massive shockwave that deals 300 FIRE damage and also applies the initial BURNING amount.`,
@@ -908,6 +909,7 @@ export const modItems: ModItem[] = [
     name: 'Voltaic Rondure',
     imagePath: '/mod/voltaic_rondure.png',
     id: 'wjopwy',
+    tags: ['Status Effect']
     description: `Launches a slow-moving orb that pulses every 0.5s, striking enemies within 3m [A] for 20 SHOCK damage and applying OVERLOADED for 15s. The orb lasts 20s. The orb can be overcharged by striking it with additional damage.`,
     wikiLinks: [`https://remnant.wiki/Voltaic_Rondure`],
   },
