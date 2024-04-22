@@ -8,8 +8,8 @@ export const ringItems: RingItem[] = [
     id: '27gn7b',
     tags: ['All Damage', 'Critical Chance'],
     // TODO check in game
-    description: `While Heavy Weapon is deployed, gain 10% Damage and 10% Critical Chance.`,
-    wikiLinks: [`https://remnant.wiki/A'taerii_Booster`],
+    description: `Heavy Weapons gain 10% Ranged Damage and 10% Ranged Critical Chance.`,
+    wikiLinks: [`https://remnant.wiki/A'Taerii_Booster`],
   },
   {
     category: 'ring',
