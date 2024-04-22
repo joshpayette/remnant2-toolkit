@@ -785,7 +785,7 @@ export const ringItems: RingItem[] = [
     imagePath: '/ring/guardians_ring.png',
     id: 'yvo3jd',
     tags: ['Damage Reduction'],
-    description: `Adds 1 Stack of BULWARK when within 15m [R] of an enemy. Increases to 2 Stacks for 10s after taking Melee damage.`,
+    description: `Adds 1 Stack of BULWARK when within 15m [A] of an enemy. Increases to 2 Stacks for 10s after taking Melee damage.`,
     wikiLinks: [`https://remnant.wiki/Guardian's_Ring`],
   },
   {

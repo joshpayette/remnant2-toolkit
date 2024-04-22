@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2024-04-22
 
+### Added
+
+- Shovel weapon has been added.
+
 ### Changed
 
 - Loads of values updated for all items, too many to enumerate.
@@ -15,6 +19,37 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Replaced all [R] tokens with [A] tokens.
 - Engineer intrinsic trait loadout changed, -1 Expertise, +1 Endurance
 - Ritualist intrinsic trait loadout changed, -1 Endurance, +1 Spirit
+
+## 2024-04-21
+
+### Fixed
+
+- Fixed bug where the CSV Export on the Item Tracker would only export items for the selected category rather than all items.
+- Fixed a bug in the Item Tracker where CSV Import was not including some items. Why did I do this by item name instead of id? This oversight has been corrected!
+
+## 2024-04-20
+
+### Changed
+
+- Updated ⁠code-of-conduct to include "Overusing discord's @ feature" under examples of unacceptable behavior.
+
+### Fixed
+
+- Invoker archetype combo names now include the word "Spirit" in the name.
+- Fixed Twisting Wounds description, should have indicated 200 Bleed Damage over 10s.
+- Added better quality image for Soul Shard ring.
+- Added better quality image for A'Taerii Booster ring.
+
+## 2024-04-19
+
+### Added
+
+- Added Elemental Damage tag.
+- Added Invoker intrinsic trait points.
+
+### Fixed
+
+- Fixed typos in all three medic skills - percentages were slightly off. (Thanks, Vash!)
 
 ## 2024-04-18
 
