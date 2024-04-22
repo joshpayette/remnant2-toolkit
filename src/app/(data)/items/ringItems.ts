@@ -1330,7 +1330,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Soul Shard',
-    imagePath: ' /ring/soul_shard1.png',
+    imagePath: '/ring/soul_shard1.png',
     id: 'uswo9w',
     tags: ['Summon', 'All Damage'],
     description: `Increase all damage dealt by 5% for each summon. Max 15%`,
