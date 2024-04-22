@@ -312,7 +312,7 @@ export const mutatorItems: MutatorItem[] = [
     id: 'qca3zh',
     tags: ['Perfect Dodge', 'Melee Critical Chance'],
     // TODO Check this; `critical buff now lasts for 2s instead of Next Melee Hit`
-    description: `Perfect Dodge activates OPPORTUNITY which increases Melee Critical Chance of the next Melee Attack by 50% for 3s.`,
+    description: `Perfect Dodge activates OPPORTUNITY which increases Melee Critical Chance of the next Melee Attack by 50%-[100%] for 2s.`,
     maxLevelBonus: `While OPPORTUNITY is active, any dodge or combat slide refreshes the duration.`,
     wikiLinks: [`https://remnant.wiki/Opportunist`],
   },
