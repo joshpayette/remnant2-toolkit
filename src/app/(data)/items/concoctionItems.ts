@@ -60,7 +60,7 @@ export const concoctionItems: ConcoctionItem[] = [
     imagePath: '/concoction/meat_shake1.png',
     id: '4yzeco',
     tags: ['Damage Reduction', 'Consumable'],
-    description: `Reduces Damage by 8%. Lasts 60m and will stay in effect after death. Only one Concoction may be active at a time.`,
+    description: `Reduces Damage by 6.5%. Lasts 60m and will stay in effect after death. Only one Concoction may be active at a time.`,
     wikiLinks: [`https://remnant.wiki/Meat_Shake`],
   },
   {
@@ -78,7 +78,7 @@ export const concoctionItems: ConcoctionItem[] = [
     imagePath: '/concoction/mudtooths_stew.png',
     id: '5yrxf1',
     tags: ['Stamina', 'Consumable'],
-    description: `Increases Max Stamina by 25, Lasts 60m and will stay in effect after death Only one Concoction may be active at a time.`,
+    description: `Increases Max Stamina by 20, Lasts 60m and will stay in effect after death Only one Concoction may be active at a time.`,
     wikiLinks: [`https://remnant.wiki/Mudtooth's_Stew`],
     stamina: 25,
   },
@@ -88,7 +88,7 @@ export const concoctionItems: ConcoctionItem[] = [
     imagePath: '/concoction/mudtooths_tonic.png',
     id: 'p0ru94',
     tags: ['Health', 'Consumable'],
-    description: `Increases Max Health by 25. Lasts 60m and will stay in effect after death. Only one Concoction may be active at a time.`,
+    description: `Increases Max Health by 20. Lasts 60m and will stay in effect after death. Only one Concoction may be active at a time.`,
     wikiLinks: [`https://remnant.wiki/Mudtooth%27s_Tonic`],
     health: 25,
   },
@@ -98,7 +98,7 @@ export const concoctionItems: ConcoctionItem[] = [
     imagePath: '/concoction/root_water.png',
     id: '56vkqr',
     tags: ['Heal', 'Consumable'],
-    description: `Regenerates 0.75 Health per second. Lasts 60m and will stay in effect after death. Only one Concoction may be active at a time.`,
+    description: `Regenerates 1.0 Health per second. Lasts 60m and will stay in effect after death. Only one Concoction may be active at a time.`,
     wikiLinks: [`https://remnant.wiki/Root_Water`],
   },
   {
@@ -107,7 +107,7 @@ export const concoctionItems: ConcoctionItem[] = [
     imagePath: '/concoction/sacred_lakewater.png',
     id: 'dk9yg4',
     tags: ['Grey Health', 'Heal', 'Consumable'],
-    description: `Increases Grey Health Conversion by 50% and Grey Health Regen by 1 per second. Lasts 60m and will stay in effect after death. Only one Concoction may be active at a time.`,
+    description: `Increases Grey Health Conversion by 30% and Grey Health Regen by 2 per second. Lasts 60m and will stay in effect after death. Only one Concoction may be active at a time.`,
     wikiLinks: [`https://remnant.wiki/Sacred_Lakewater`],
   },
   {
@@ -116,7 +116,8 @@ export const concoctionItems: ConcoctionItem[] = [
     imagePath: '/concoction/sanguine_vapor.png',
     id: 'kyulid',
     tags: ['Lifesteal', 'Consumable'],
-    description: `Increases Ranged and Melee Lifesteal by 3.5% of base damage. Increases damage taken by 10%. Lasts 60m and will stay in effect after death. Only one Concoction may be active at a time.`,
+    // TODO check wording
+    description: `Increases Ranged and Melee Lifesteal by 2% of base damage. Increases damage taken by 10%. Lasts 60m and will stay in effect after death. Only one Concoction may be active at a time.`,
     wikiLinks: [`https://remnant.wiki/Sanguine_Vapor`],
   },
   {
@@ -135,7 +136,7 @@ export const concoctionItems: ConcoctionItem[] = [
     imagePath: '/concoction/tranquility_font.png',
     id: 'l7r9sm',
     tags: ['Spread', 'Recoil', 'Consumable'],
-    description: `Reduces Reticle Sway, Spread, and Gun Recoil by 25%. Lasts 60m and will stay in effect after death. Only one Concoction may be active at a time.`,
+    description: `Reduces Reticle Sway, Spread, and Gun Recoil by 20%. Lasts 60m and will stay in effect after death. Only one Concoction may be active at a time.`,
     wikiLinks: [`https://remnant.wiki/Tranquility_Font`],
   },
   {

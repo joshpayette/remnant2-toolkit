@@ -25,9 +25,9 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     imagePath: '/relicfragment/armor_effectiveness.png',
     id: '7u1bma',
     tags: ['Damage Reduction'],
-    description: `+X% Armor (Mythic: Maximum of +15%)`,
+    description: `+X% Armor (Mythic: Maximum of +10%)`,
     wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
-    armorPercent: 0.15,
+    armorPercent: 0.1,
   },
   {
     category: 'relicfragment',
@@ -150,7 +150,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     imagePath: '/relicfragment/melee_critical_chance.png',
     id: 'm16fn9',
     tags: ['Critical Chance', 'Melee Critical Chance'],
-    description: `+X% Melee Crit Chance (Mythic: Maximum of +10%)`,
+    description: `+X% Melee Crit Chance (Mythic: Maximum of +7.5%)`,
     wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
@@ -160,7 +160,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     imagePath: '/relicfragment/melee_critical_damage.png',
     id: '77ch7i',
     tags: ['Melee Critical Damage', 'Critical Damage'],
-    description: `+X% Melee Crit Damage (Mythic: Maximum of +20%)`,
+    description: `+X% Melee Crit Damage (Mythic: Maximum of +15%)`,
     wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
@@ -216,7 +216,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     imagePath: '/relicfragment/ranged_critical_damage.png',
     id: 'w5jmys',
     tags: ['Critical Damage'],
-    description: `+X% Ranged Crit Damage (Mythic: Maximum of +20%)`,
+    description: `+X% Ranged Crit Damage (Mythic: Maximum of +15%)`,
     wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
@@ -286,7 +286,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     imagePath: '/relicfragment/skill_duration.png',
     id: '7c8uka',
     tags: ['Skill Duration'],
-    description: `+X% Skill Duration (Mythic: Maximum of +15%)`,
+    description: `+X% Skill Duration (Mythic: Maximum of +10%)`,
     wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
@@ -350,7 +350,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     imagePath: '/relicfragment/weapon_spread.png',
     id: 'oiiiu2',
     tags: ['Spread'],
-    description: `-X% Weapon Spread (Mythic: Maximum of -20%)`,
+    description: `-X% Weapon Spread (Mythic: Maximum of -15%)`,
     wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {

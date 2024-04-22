@@ -348,12 +348,13 @@ export const DESCRIPTION_TAGS = [
     description:
       'Deals elemental SHOCK area damage every 5 seconds. Damage increases by 10% for every overloaded enemy nerby. ', // TODO What's the range and what's the max damage increase for secondary effect?
   },
-  {
+/*  {
     type: 'Resonance',
     token: '[R]',
     color: 'text-[#00ffcc]',
     description: 'This effect benefits from Resonance trait.',
   },
+  */
   {
     type: 'Ritualist',
     token: 'RITUALIST',
@@ -415,19 +416,19 @@ export const DESCRIPTION_TAGS = [
     type: 'Negative Status Effects',
     token: 'Negative Status Effects',
     color: 'text-purple-400',
-    description: `Bleeding, Burning, Corroded, Overloaded.`,
+    description: `Bleeding, Burning, Corroded, Overloaded, Slow.`,
   },
   {
     type: 'Negative Status Effect',
     token: 'Negative Status Effect',
     color: 'text-purple-400',
-    description: `Bleeding, Burning, Corroded, Overloaded.`,
+    description: `Bleeding, Burning, Corroded, Overloaded, Slow.`,
   },
   {
     type: 'Negative Status',
     token: 'Negative Status',
     color: 'text-purple-400',
-    description: `Bleeding, Burning, Corroded, Overloaded.`,
+    description: `Bleeding, Burning, Corroded, Overloaded, Slow.`,
   },
   {
     type: 'Elemental Status Effects',
@@ -451,13 +452,13 @@ export const DESCRIPTION_TAGS = [
     type: 'Status Effects',
     token: 'Status Effects',
     color: 'text-purple-400',
-    description: `Bleeding, Burning, Corroded, Overloaded.`,
+    description: `Bleeding, Burning, Corroded, Overloaded, Slow.`,
   },
   {
     type: 'Status Effect',
     token: 'Status Effect',
     color: 'text-purple-400',
-    description: `Bleeding, Burning, Corroded, Overloaded.`,
+    description: `Bleeding, Burning, Corroded, Overloaded, Slow.`,
   },
 ] as const satisfies {
   type: string

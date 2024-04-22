@@ -15,7 +15,8 @@ export const relicItems: RelicItem[] = [
     imagePath: '/relic/broken_heart.png',
     dlc: 'dlc1',
     id: 'm71h9m',
-    description: `Innate 50% Use Speed Bonus. On use, sets current Health to 50% of max Health over 0.25s.`,
+    // TODO check wording
+    description: `Innate 50% Use Speed Bonus. On use, sets current Health to 50% of max Health over 0.25s. Innate -2.0 Health Regeneration if above 50% Health.`,
     wikiLinks: [`https://remnant.wiki/Broken_Heart`],
   },
   {
@@ -72,7 +73,8 @@ export const relicItems: RelicItem[] = [
     name: 'Lifeless Heart',
     imagePath: '/relic/lifeless_heart.png',
     id: 'k1de0f',
-    description: `On use, heals 30 Health over 0.5s. Relic capacity is doubled`,
+    // TODO check wording
+    description: `Innade 50% Use speed bonus. Relic capacity is doubled`,
     wikiLinks: [`https://remnant.wiki/Lifeless_Heart`],
   },
   {
@@ -81,7 +83,8 @@ export const relicItems: RelicItem[] = [
     imagePath: '/relic/paper_heart.png',
     dlc: 'dlc1',
     id: 'n9fm2r',
-    description: `On use, heals for up to 100% of current health over 0.25s. Gain 1 Stack per 10% Health Restored. After 15s, remove 10% Health per Stack. Kills remove 1 Stack.`,
+    // TODO check wording
+    description: `On use, heals for up to 100% of current health over 0.1s. Gain 10 Stack of "Paper Heart" for 10 seconds. Dealing 75 Base Damage of any Damage Type Removes 1 Stack of “Paper Health”. After 15s, remaining Stacks are converted to Grey Health (10% per Stack). `,
     wikiLinks: [`https://remnant.wiki/Paper_Heart`],
   },
   {
@@ -138,7 +141,7 @@ export const relicItems: RelicItem[] = [
     name: 'Salvaged Heart',
     imagePath: '/relic/salvaged_heart.png',
     id: '2rnl2d',
-    description: `Innate 50% Use Speed bonus. On use, heals 30 Health over 0.25s and restore 300% of current Grey Health.`,
+    description: `Innate 25% Use Speed bonus. On use, heals 30 Health over 0.25s and restore 300% of current Grey Health.`,
     wikiLinks: [`https://remnant.wiki/Salvaged_Heart`],
   },
   {
@@ -162,7 +165,7 @@ export const relicItems: RelicItem[] = [
     name: 'Tormented Heart',
     imagePath: '/relic/tormented_heart.png',
     id: 'rtmajx',
-    description: `Innate 20% Use Speed bonus. On use, deals 420 Explosive damage [E] to enemies within 10m [A] and Lifesteals 25% of damage dealt.`,
+    description: `Innate 25% Use Speed bonus. On use, deals 420 Explosive damage [E] to enemies within 10m [A] and Lifesteals 20% of damage dealt.`,
     wikiLinks: [`https://remnant.wiki/Tormented_Heart`],
   },
   {

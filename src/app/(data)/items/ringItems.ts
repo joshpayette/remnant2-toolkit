@@ -7,7 +7,8 @@ export const ringItems: RingItem[] = [
     imagePath: '/ring/ataerii_booster1.png',
     id: '27gn7b',
     tags: ['All Damage', 'Critical Chance'],
-    description: `While carrying a Heavy Weapon, gain 10% Damage and 10% Critical Chance.`,
+    // TODO check in game
+    description: `While Heavy Weapon is deployed, gain 10% Damage and 10% Critical Chance.`,
     wikiLinks: [`https://remnant.wiki/A'taerii_Booster`],
   },
   {
@@ -15,7 +16,7 @@ export const ringItems: RingItem[] = [
     name: 'Acid Stone',
     imagePath: '/ring/acid_stone.png',
     id: 'q3qca2',
-    description: `Increases ACID damage by 10% and ACID Resistance by 15%.`,
+    description: `Increases ACID damage by 12% and ACID Resistance by 15%.`,
     wikiLinks: [`https://remnant.wiki/Acid_Stone`],
     toxinResistance: 15,
   },
@@ -26,7 +27,7 @@ export const ringItems: RingItem[] = [
     imagePath: '/ring/ahanae_crystal.png',
     id: 'azy0pj',
     tags: ['All Damage', 'Status Effect', 'Hardcore Reward'],
-    description: `Deal 5% [MD] additional damage for each Status Effect the target is suffering from.`,
+    description: `Deal 4% additional damage for each Status Effect the target is suffering from.`,
     wikiLinks: [`https://remnant.wiki/Ahanae_Crystal`],
   },
   {
@@ -35,7 +36,7 @@ export const ringItems: RingItem[] = [
     imagePath: '/ring/akari_war_band.png',
     id: '9siz0d',
     tags: ['Perfect Dodge', 'Critical Chance'],
-    description: `Perfect Dodges increase Critical Chance by 15% and Critical Damage by 15% for 15s.`,
+    description: `Perfect Dodges increase Critical Chance by 05% and Critical Damage by 10% for 15s.`,
     wikiLinks: [`https://remnant.wiki/Akari_War_Band`],
   },
   {
@@ -99,7 +100,7 @@ export const ringItems: RingItem[] = [
     dlc: 'dlc1',
     id: 'ez01nk',
     tags: ['Critical Chance', 'Grey Health'], // The damage it causes is grey health
-    description: `Self-inflicts BLEEDING Status upon the wearer, causing 1.1 BLEED damage per second. Increases Critical Chance by 10%`,
+    description: `Self-inflicts BLEEDING Status upon the wearer, causing 1.1 BLEED damage per second. Increases Critical Chance by 5%`,
     wikiLinks: [`https://remnant.wiki/Atonement_Fold`],
   },
   {
@@ -117,7 +118,7 @@ export const ringItems: RingItem[] = [
     imagePath: '/ring/band_of_accord.png',
     id: 'id6lly',
     tags: ['Ammo Reserves'],
-    description: `Ammo acquired on pickup is increased by 25% per ally also wearing this ring and is shared with other allies.`,
+    description: `Ammo acquired on pickup is increased by 50% per ally also wearing this ring and is shared with other allies.`,
     wikiLinks: [`https://remnant.wiki/Band_of_Accord`],
   },
   {
@@ -155,7 +156,7 @@ export const ringItems: RingItem[] = [
     dlc: 'dlc1',
     id: 'eozlwb',
     tags: ['Grey Health'],
-    description: `Sets 1% of wearer's Max Health as Grey Health`,
+    description: `Sets 1% of wearer's Max Health as Grey Health. COnverts 33.5% of Health to Grey Health on Skill use.`,
     wikiLinks: [`https://remnant.wiki/Bitter_Memento`],
   },
   {
@@ -182,7 +183,8 @@ export const ringItems: RingItem[] = [
     imagePath: '/ring/blackout_ring.png',
     id: '6pzq37',
     tags: ['Reload Speed'],
-    description: `After dealing 20% of the Weapon's Total Magazine base damage, increases Reload Speed by 3%. Stacks 5x Cleared on Reload.`,
+    // TODO check in game
+    description: `Increases Reload Speed by 3% per 20% of missing magazine. Max 15%.`,
     wikiLinks: [`https://remnant.wiki/Blackout_Ring`],
   },
   {
@@ -190,7 +192,7 @@ export const ringItems: RingItem[] = [
     name: 'Blasting Cap Ring',
     imagePath: '/ring/blasting_cap_ring.png',
     id: 'ep14lr',
-    description: `Increases Explosive damage [E] by 10%.`,
+    description: `Increases Explosive damage [E] by 15%.`,
     wikiLinks: [`https://remnant.wiki/Blasting_Cap_Ring`],
   },
   {
@@ -239,7 +241,8 @@ export const ringItems: RingItem[] = [
     imagePath: '/ring/braided_thorns.png',
     id: 'zdkh54',
     tags: ['Critical Chance'],
-    description: `After killing an enemy, gain 15% increased Critical Chance for 10s.`,
+    // TODO check description
+    description: `Gain 10% increased Critical Chance.`,
     wikiLinks: [`https://remnant.wiki/Braided_Thorns`],
   },
   {
@@ -258,7 +261,7 @@ export const ringItems: RingItem[] = [
     dlc: 'dlc1',
     id: 't7sqw7',
     tags: ['Perfect Dodge', 'Damage Reduction', 'Melee Damage'],
-    description: `Perfect Dodge increases Melee Damage by 15% for 7 seconds. Perfect Evade Flop also gains 10% Damage Reduction for the duration.`,
+    description: `Perfect Dodge increases Melee Damage by 20% for 10s. Perfect Evade Flop also gains 10% Damage Reduction for the duration.`,
     wikiLinks: [`https://remnant.wiki/Bridge_Wardens_Crest`],
   },
   {
@@ -267,7 +270,7 @@ export const ringItems: RingItem[] = [
     imagePath: '/ring/burden_of_the_audacious.png',
     id: 'k45qer',
     tags: ['Heal', 'Perfect Dodge'],
-    description: `Decreases all healing by 50%. Perfect Dodges heal for 20% of Max Health.`,
+    description: `Decreases all healing by 50%. Perfect Dodges heal for 25% of Max Health.`,
     wikiLinks: [`Burden of the Audacious`],
   },
   {
@@ -286,7 +289,7 @@ export const ringItems: RingItem[] = [
     imagePath: '/ring/burden_of_the_destroyer.png',
     id: 'dgb0s9',
     tags: ['All Damage', 'Range'],
-    description: `Decreases Ideal Range of all Firearms by 25%. Increases all damage dealt by 15%.`,
+    description: `Decreases Ideal Range of all Firearms by 35%. Increases all damage dealt by 15%.`,
     wikiLinks: [`https://remnant.wiki/Burden_of_the_Destroyer`],
   },
   {
@@ -294,7 +297,7 @@ export const ringItems: RingItem[] = [
     name: 'Burden of the Divine',
     imagePath: '/ring/burden_of_the_divine.png',
     id: 'tvfpo7',
-    description: `All damage dealt by wearer is reduced by 10%. 50% of self healing applies to allies.`,
+    description: `All damage dealt by wearer is reduced by 15%. 30% of self healing applies to allies.`,
     wikiLinks: [`https://remnant.wiki/Burden_of_the_Divine`],
   },
   {
@@ -303,7 +306,7 @@ export const ringItems: RingItem[] = [
     imagePath: '/ring/burden_of_the_follower.png',
     id: 'b76cdv',
     tags: ['Fire Rate', 'Mod Power'],
-    description: `Reduces Fire Rate by 15%. Increases Mod Power Generation by 50%.`,
+    description: `Reduces Fire Rate by 15%. Increases Mod Power Generation by 25%.`,
     wikiLinks: [`https://remnant.wiki/Burden_Of_The_Follower`],
   },
   {
@@ -312,7 +315,7 @@ export const ringItems: RingItem[] = [
     imagePath: '/ring/burden_of_the_gambler.png',
     id: 'ctv31c',
     tags: ['Weakspot Damage', 'Critical Chance'],
-    description: `Disables Weakspots. Increases Critical Chance by 10% and Critical Damage by 20%.`,
+    description: `Disables Weakspots. Increases Critical Chance by 10% and Critical Damage by 15%.`,
     wikiLinks: [`https://remnant.wiki/Burden_of_the_Gambler`],
   },
   {
@@ -321,7 +324,7 @@ export const ringItems: RingItem[] = [
     imagePath: '/ring/burden_of_the_mariner.png',
     id: 'k89bxv',
     tags: ['Mod Power'],
-    description: `Increases Skill Cooldowns by 25%. Generate 10% additional Mod Power for each Skill on Cooldown.`,
+    description: `Increases Skill Cooldowns by 15%. Generate 15% additional Mod Power for each Skill on Cooldown.`,
     wikiLinks: [`https://remnant.wiki/Burden_of_the_Mariner`],
   },
   {
@@ -340,7 +343,7 @@ export const ringItems: RingItem[] = [
     dlc: 'dlc1',
     id: '7xb5zr',
     tags: ['Mod Damage', 'Skill Damage', 'Ammo Reserves'],
-    description: `Reduces Ammo Reserves by 25%. Increases Mod and Skill Damage by 15%`,
+    description: `Reduces Ammo Reserves by 20%. Increases Mod and Skill Damage by 15%`,
     wikiLinks: [`https://remnant.wiki/Burden_of_the_Sciolist`],
   },
   {
@@ -376,7 +379,7 @@ export const ringItems: RingItem[] = [
     imagePath: '/ring/catalogers_jewel.png',
     id: 'e6da79',
     tags: ['Mod Power'],
-    description: `Automatically generates 8 Mod Power per second.`,
+    description: `Automatically generates 10 Mod Power per second.`,
     wikiLinks: [`https://remnant.wiki/Cataloger's_Jewel`],
   },
   {
@@ -385,7 +388,7 @@ export const ringItems: RingItem[] = [
     imagePath: '/ring/celerity_stone.png',
     id: 'kt5ag1',
     tags: ['Relic Use Speed'],
-    description: `Increases Consumable and Relic Use Speed by 20%.`,
+    description: `Increases Consumable and Relic Use Speed by 25%.`,
     wikiLinks: [`https://remnant.wiki/Celerity_Stone`],
   },
   {
@@ -394,7 +397,7 @@ export const ringItems: RingItem[] = [
     imagePath: '/ring/compulsion_loop.png',
     id: '6p71zo',
     tags: ['Fire Rate', 'Melee Attack Speed'],
-    description: `After killing an enemy, gain 5% Fire Rate and Melee Attack Speed for 7s. Stacks 3x.`,
+    description: `After killing an enemy, gain 5% Fire Rate and Melee Attack Speed for 10s. Stacks 3x.`,
     wikiLinks: [`https://remnant.wiki/Compulsion_Loop`],
   },
   {
@@ -403,7 +406,7 @@ export const ringItems: RingItem[] = [
     imagePath: '/ring/conservation_seal.png',
     id: 'fa7066',
     tags: ['Healing Effectivness'],
-    description: `For every 10% of Health missing (Max 50%) gain 5% chance to not consume Relic and 5% increased Relic Efficacy on next use.`,
+    description: `For every 10% of Health missing (Max 50%) gain 10% chance to not consume Relic and 5% increased Relic Efficacy on next use.`,
     wikiLinks: [`https://remnant.wiki/Conservation_Seal`],
   },
   {
@@ -422,7 +425,8 @@ export const ringItems: RingItem[] = [
     dlc: 'dlc1',
     id: 's916uj',
     tags: ['Critical Hit', 'Skill Damage'],
-    description: `Crit hits increase Skill Damage 1% for 10s. Max stack 15.`,
+    // TODO check description
+    description: `Crit hits increase Skill Damage 2% for 5s. Max stack 10. Stacks fall of one at a time.`,
     wikiLinks: [`https://remnant.wiki/Liquid_Escape`],
   },
   {
@@ -450,7 +454,7 @@ export const ringItems: RingItem[] = [
     imagePath: '/ring/deep_pocket_ring.png',
     id: '9bnfhm',
     tags: ['Ammo Reserves'],
-    description: `Increases Ammo Reserves by 25%.`,
+    description: `Increases Ammo Reserves by 35%.`,
     wikiLinks: [`https://remnant.wiki/Deep_Pocket_Ring`],
   },
   {
@@ -478,6 +482,7 @@ export const ringItems: RingItem[] = [
     saveFileSlug: 'devouringloop',
     id: 'l8a2e1',
     tags: ['Critical Hit', 'Reduce Skill Cooldown'],
+    // TODO check description
     description: `Critical Hits have 1% chance to reset Skill Cooldowns. Can only occur once every 10s. Increases all incoming damage by 10%.`,
     wikiLinks: [`https://remnant.wiki/Devoured_Loop`],
   },
@@ -488,7 +493,7 @@ export const ringItems: RingItem[] = [
     dlc: 'dlc1',
     id: 'v4yzc6',
     tags: ['Mod Damage'],
-    description: `Reloading increases Mod Damage by 10% for 5s.`,
+    description: `Reloading increases Mod Damage by 10% for 7s.`,
     wikiLinks: [`https://remnant.wiki/Digested_Hog_Lure`],
   },
   {
@@ -518,7 +523,7 @@ export const ringItems: RingItem[] = [
     imagePath: '/ring/dran_scavenger_ring.png',
     id: '5pwtei',
     tags: ['Heal', 'All Damage', 'Hardcore Reward'],
-    description: `Collecting Scrap, Iron, and Ammo pickups regenerates 15% of Max Health and increases all damage dealt by 8% for 30s.`,
+    description: `Collecting Scrap, Iron, and Ammo pickups regenerates 50% of Max Health and increases all damage dealt by 8% for 30s.`,
     wikiLinks: [`https://remnant.wiki/Dran_Scavenger_Sigil`],
   },
   {
@@ -536,7 +541,7 @@ export const ringItems: RingItem[] = [
     imagePath: '/ring/dried_clay_ring.png',
     id: 'ez6z8b',
     tags: ['Damage Reduction', 'All Damage'],
-    description: `Grants 1 stack of BULWARK. Increases All Damage by 60% of the total Damage Reduction granted by BULWARK stacks`,
+    description: `Grants 1 stack of BULWARK. Increases All Damage by 50% of the total Damage Reduction granted by BULWARK stacks`,
     wikiLinks: [`https://remnant.wiki/Dried_Clay_Ring`],
   },
   {
@@ -575,10 +580,10 @@ export const ringItems: RingItem[] = [
     dlc: 'dlc1',
     id: '5dipaq',
     tags: ['Encumbrance'],
-    description: `Increases Dodge Weight Threshold by 5. Reduces Encumbrance by 5`,
+    description: `Increases Dodge Weight Threshold by 10. Reduces Encumbrance by 10`,
     wikiLinks: [`https://remnant.wiki/Elevated_Ring`],
-    weight: -5,
-    weightThreshold: 5,
+    weight: -10,
+    weightThreshold: 10,
   },
   {
     category: 'ring',
@@ -587,7 +592,7 @@ export const ringItems: RingItem[] = [
     imagePath: '/ring/embrace_of_shahala.png',
     id: 'h2g5z3',
     tags: ['Damage Reduction', 'Status Effect'],
-    description: `Wearer gains 5% incoming damage reduction for each Negative Status Effect or Blight they are suffering from. Max 4 stacks.`,
+    description: `Wearer gains 7.5% incoming damage reduction for each Negative Status Effect or Blight they are suffering from. Max 2 stacks.`,
     wikiLinks: [`https://remnant.wiki/Embrace_of_Sha'Hala`],
   },
   {
@@ -606,7 +611,7 @@ export const ringItems: RingItem[] = [
     imagePath: '/ring/endairas_endless_loop.png',
     id: 'bx0ulq',
     tags: ['Heal'],
-    description: `After Sprinting for 2s, the wearer gains 1.5 Health Regeneration per second until they stop Sprinting.`,
+    description: `After Sprinting for 1s, the wearer gains 2 Health Regeneration per second until they stop Sprinting.`,
     wikiLinks: [`https://remnant.wiki/Endaira's_Endless_Loop`],
   },
   {
@@ -632,7 +637,7 @@ export const ringItems: RingItem[] = [
     imagePath: '/ring/fae_hunter_ring.png',
     id: 'i4wkw2',
     tags: ['Range'],
-    description: `Increases Range of Firearms by 30%.`,
+    description: `Increases Range of Firearms by 35%.`,
     wikiLinks: [`https://remnant.wiki/Fae_Hunter_Ring`],
   },
   {
@@ -671,7 +676,7 @@ export const ringItems: RingItem[] = [
     imagePath: '/ring/faelins_sigil.png',
     id: 'drjm15',
     tags: ['Melee Damage', 'Mod Power'],
-    description: `Melee Damage generates 10% additional Mod Power.`,
+    description: `Melee Damage generates 15% additional Mod Power.`,
     wikiLinks: [`https://remnant.wiki/Faelin's_Sigil`],
   },
   {
@@ -680,7 +685,7 @@ export const ringItems: RingItem[] = [
     imagePath: '/ring/faerins_sigil.png',
     id: '02wal9',
     tags: ['Critical Hit', 'Weakspot Damage', 'Mod Power'],
-    description: `Critical and Weakspot Hits generates 10% additional Mod Power.`,
+    description: `Critical and Weakspot Hits generates 12.5% additional Mod Power.`,
     wikiLinks: [`https://remnant.wiki/Faerin%27s_Sigil`],
   },
   {
@@ -706,7 +711,7 @@ export const ringItems: RingItem[] = [
     name: 'Fire Stone',
     imagePath: '/ring/fire_stone.png',
     id: 'go5hz8',
-    description: `Increases FIRE damage by 10% and FIRE Resistance by 15.`,
+    description: `Increases FIRE damage by 12% and FIRE Resistance by 15.`,
     wikiLinks: [`https://remnant.wiki/Fire_Stone`],
     fireResistance: 15,
   },
@@ -726,7 +731,7 @@ export const ringItems: RingItem[] = [
     imagePath: '/ring/focusing_shard.png',
     id: 'o7grsg',
     tags: ['Recoil', 'Spread'],
-    description: `Continuously Aiming Down Sights gradually reduces Spread by 30% over 3s.`,
+    description: `Continuously Aiming Down Sights gradually reduces Spread by 70% over 4s.`,
     wikiLinks: [`https://remnant.wiki/Focused_Jewel`],
   },
   {
@@ -735,7 +740,7 @@ export const ringItems: RingItem[] = [
     imagePath: '/ring/frivolous_band.png',
     id: '4j9wo9',
     tags: ['Perfect Dodge', 'Fire Rate', 'Melee Speed'],
-    description: `Increases Evade Speed by 10%. Perfect Evades increase Fire Rate by 10% and Melee Speed by 10% for 10s.`,
+    description: `Increases Evade Speed by 10%. Perfect Evades increase Fire Rate by 10% and Melee Speed by 10% for 7s.`,
     wikiLinks: [`https://remnant.wiki/Frivolous_Band`],
   },
   {
@@ -744,7 +749,7 @@ export const ringItems: RingItem[] = [
     imagePath: '/ring/galvanized_resupply_band.png',
     id: 'y23znz',
     tags: ['Ammo Reserves'],
-    description: `Increases Ammo Pickups by 50%.`,
+    description: `Increases Ammo Pickups by 100%.`,
     wikiLinks: [`https://remnant.wiki/Galvanized_Resupply_Band`],
   },
   {
@@ -770,7 +775,7 @@ export const ringItems: RingItem[] = [
     name: 'Grounding Stone',
     imagePath: '/ring/grounding_stone.png',
     id: 'o7vaf6',
-    description: `Increases SHOCK damage by 10% and SHOCK Resistance by 15.`,
+    description: `Increases SHOCK damage by 12% and SHOCK Resistance by 15.`,
     wikiLinks: [`https://remnant.wiki/Grounding_Stone`],
     shockResistance: 15,
   },
@@ -844,7 +849,7 @@ export const ringItems: RingItem[] = [
     dlc: 'dlc1',
     id: 'sosywj',
     tags: ['Mod Damage'],
-    description: `On Relic Use, increase Mod Damage by 15% for 10s`,
+    description: `On Relic Use, increase Mod Damage by 15% for 15s`,
     wikiLinks: [`https://remnant.wiki/Jewel_of_the_Beholden`],
   },
   {
@@ -863,7 +868,7 @@ export const ringItems: RingItem[] = [
     dlc: 'dlc1',
     id: 't8u4k1',
     tags: ['Mod Power', 'Status Effect'],
-    description: `Automatically generate 3 Mod Power per second for each entity within 10m suffering from a Negative Status Effect. Max 5 stacks.`,
+    description: `Automatically generate 4 Mod Power per second for each entity within 15m suffering from a Negative Status Effect. Max 5 stacks.`,
     wikiLinks: [`https://remnant.wiki/Lighthouse_Keeper's_Ring`],
   },
   {
@@ -908,7 +913,7 @@ export const ringItems: RingItem[] = [
     imagePath: '/ring/metal_driver.png',
     id: 'o7byap',
     tags: ['Reload Speed'],
-    description: `Killing Blows increase Reload Speed by 5% for 7s. Stacks 3x.`,
+    description: `Killing Blows increase Reload Speed by 10% for 15s. Stacks 3x.`,
     wikiLinks: [`https://remnant.wiki/Metal_Driver`],
   },
   {
@@ -936,7 +941,7 @@ export const ringItems: RingItem[] = [
     imagePath: '/ring/momentum_driver.png',
     id: 'la9qe1',
     tags: ['Movement Speed', 'Stagger'],
-    description: `After Sprinting for 2s, Movement Speed is increased by 15% and Stagger Level reduced by 1.`,
+    description: `After Sprinting for 1.5s, Movement Speed is increased by 15% and Stagger Level reduced by 1.`,
     wikiLinks: [`https://remnant.wiki/Momentum_Driver`],
   },
   {
@@ -954,7 +959,7 @@ export const ringItems: RingItem[] = [
     imagePath: '/ring/outcast_ring.png',
     id: 'b195vq',
     tags: ['Reload Speed'],
-    description: `Increases Reload Speed by 5% for 15s after reloading. Stacks 5x.`,
+    description: `Increases Reload Speed by 5% for 10s after reloading. Stacks 5x.`,
     wikiLinks: [`https://remnant.wiki/Outcast_Ring`],
   },
   {
@@ -962,8 +967,9 @@ export const ringItems: RingItem[] = [
     name: 'Painless Obsidian',
     imagePath: '/ring/painless_obsidian.png',
     id: '6y14c4',
-    tags: ['Grey Health'],
-    description: `When Grey Health is present, gain Haste.`,
+    tags: ['Grey Health', 'Damage Reduction'],
+    // TODO check description
+    description: `When Grey Health is present, gain HASTE and gain 1 Stack of BULWARK.`,
     wikiLinks: [`https://remnant.wiki/Painless_Obsidian`],
   },
   {
@@ -972,7 +978,7 @@ export const ringItems: RingItem[] = [
     imagePath: '/ring/point_focus_ring.png',
     id: 'gg6srx',
     tags: ['Recoil', 'Spread'],
-    description: `Reduces Initial Spread and Recoil by 25%.`,
+    description: `Reduces Initial Spread and Recoil by 30%.`,
     wikiLinks: [`https://remnant.wiki/Point_Focus_Ring`],
   },
   {
@@ -989,7 +995,7 @@ export const ringItems: RingItem[] = [
     name: 'Power Saver',
     imagePath: '/ring/power_saver.png',
     id: '7i0yzu',
-    description: `At Max Health, gain a 25% chance to not use a Relic charge.`,
+    description: `At Max Health, gain a 35% chance to not use a Relic charge.`,
     wikiLinks: [`https://remnant.wiki/Power_Saver`],
   },
   {
@@ -998,7 +1004,7 @@ export const ringItems: RingItem[] = [
     imagePath: '/ring/probability_cord.png',
     id: '0k8d0g',
     tags: ['Critical Hit'],
-    description: `Increases Crit Damage by 30%.`,
+    description: `Increases Crit Damage by 20%.`,
     wikiLinks: [`https://remnant.wiki/Probability_Cord`],
   },
   {
@@ -1025,7 +1031,7 @@ export const ringItems: RingItem[] = [
     imagePath: '/ring/reaping_stone.png',
     id: 'kqdoup',
     tags: ['Status Effect', 'Lifesteal'],
-    description: `After an Elemental Status Effect is removed from wearer, they become immune to all Elemental Status Effects and gain 3% of base damage dealt as Lifesteal for 10s.`,
+    description: `After an Elemental Status Effect is removed from wearer, they become immune to all Elemental Status Effects and gain 5% of base damage dealt as Lifesteal for 10s.`,
     wikiLinks: [`https://remnant.wiki/Reaping_Stone`],
   },
   {
@@ -1051,7 +1057,7 @@ export const ringItems: RingItem[] = [
     imagePath: '/ring/reserve_boosting_gem.png',
     id: 'ucm4yv',
     tags: ['Heal'],
-    description: `Increases Health Regeneration by 0.333 per second. 1s after going below 50% Health, increases regeneration value to 2 per second until 50% Health is reached.`,
+    description: `Increases Health Regeneration by 0.5 per second. 1s after going below 50% Health, increases regeneration value to 2.5 per second until 50% Health is reached.`,
     wikiLinks: [`https://remnant.wiki/Reserve_Boosting_Gem`],
   },
   {
@@ -1079,7 +1085,7 @@ export const ringItems: RingItem[] = [
     imagePath: '/ring/ring_of_deflection.png',
     id: 'ie648z',
     tags: ['Grey Health'],
-    description: `Direct Damage against wearer has a 35% Chance to be converted entirely to Grey Health.`,
+    description: `Direct Damage against wearer has a 50% Chance to be converted entirely to Grey Health.`,
     wikiLinks: [`https://remnant.wiki/Ring_Of_Deflection`],
   },
   {
@@ -1133,7 +1139,7 @@ export const ringItems: RingItem[] = [
     imagePath: '/ring/ring_of_restocking.png',
     id: '3aryrr',
     tags: ['Reload Speed', 'Critical Hit', 'Weakspot Damage'],
-    description: `Reloads within 1.5s of a Critical Hit or Weakspot Kill are 20% faster.`,
+    description: `Reloads within 5s of a Critical Hit or Weakspot Kill are 20% faster.`,
     wikiLinks: [`https://remnant.wiki/Ring_Of_Restocking`],
   },
   {
@@ -1142,7 +1148,7 @@ export const ringItems: RingItem[] = [
     imagePath: '/ring/ring_of_retribution.png',
     id: '8ejbuu',
     tags: ['Reload Speed', 'All Damage'],
-    description: `Incoming enemy damage increases Reload Speed and all outgoing damage by 10%. Lasts 15s.`,
+    description: `Incoming enemy damage increases Reload Speed and all outgoing damage by 15%. Lasts 15s.`,
     wikiLinks: [`https://remnant.wiki/Ring_Of_Retribution`],
   },
   {
@@ -1161,7 +1167,8 @@ export const ringItems: RingItem[] = [
     imagePath: '/ring/ring_of_the_damned.png',
     id: 'jbfxsb',
     tags: ['All Damage', 'Grey Health'],
-    description: `Increases all damage dealt by 10% while Grey Health is present.`,
+    // TODO check description
+    description: `Increases all damage dealt by 0.4 for Each 1% Grey Health present. Gain 5% Critical Chance when the wearer has 50% or more Grey Health.`,
     wikiLinks: [`https://remnant.wiki/Ring_of_the_Damned`],
   },
   {
@@ -1190,7 +1197,7 @@ export const ringItems: RingItem[] = [
     imagePath: '/ring/ring_of_the_vain.png',
     id: 'g61t33',
     tags: ['Movement Speed'],
-    description: `Reduces Invulnerability Window on Evade and Combat Slide by 50%. Increases Movement Speed while aiming by 35%`,
+    description: `Reduces Invulnerability Window on Evade and Combat Slide by 35%. Increases Movement Speed while aiming by 35%`,
     wikiLinks: [`https://remnant.wiki/Ring_of_the_Vain`],
   },
   {
@@ -1233,7 +1240,7 @@ export const ringItems: RingItem[] = [
     imagePath: '/ring/sapphire_dreamstone.png',
     id: 'v65mav',
     tags: ['Reduce Skill Cooldown', 'Critical Hit'],
-    description: `Critical Hits reduce Skill Cooldowns by 3%. Can only happen once every 2s.`,
+    description: `Critical Hits reduce Skill Cooldowns by 4%. Can only happen once every 2s.`,
     wikiLinks: [`https://remnant.wiki/Sapphire_Dreamstone`],
   },
   {
@@ -1263,7 +1270,7 @@ export const ringItems: RingItem[] = [
     dlc: 'dlc1',
     id: 'ylif78',
     tags: ['Skill Damage'],
-    description: `Increases Skill damage by 12%`,
+    description: `Increases Skill damage by 15%`,
     wikiLinks: [`https://remnant.wiki/Shaed_Stone`],
   },
   {
@@ -1281,7 +1288,7 @@ export const ringItems: RingItem[] = [
     imagePath: '/ring/shiny_hog_lure.png',
     id: '08cb3s',
     tags: ['Mod Power'],
-    description: `Reloading grants 25-30 Mod Power to both weapons based on percentage of Magazine reloaded.`,
+    description: `Reloading grants 25-50 Mod Power to both weapons based on percentage of Magazine reloaded.`,
     wikiLinks: [`https://remnant.wiki/Shiny_Hog_Lure`],
   },
   {
@@ -1290,7 +1297,7 @@ export const ringItems: RingItem[] = [
     imagePath: '/ring/singed_ring.png',
     id: 'cpxk1d',
     tags: ['All Damage'],
-    description: `Increases all damage dealt to BURNING enemies by 10% [MD].`,
+    description: `Increases all damage dealt to BURNING enemies by 12%.`,
     wikiLinks: [`https://remnant.wiki/Singed_Ring`],
   },
   {
@@ -1323,10 +1330,10 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Soul Shard',
-    imagePath: '/ring/soul_shard1.png',
+    imagePath: ' /ring/soul_shard1.png',
     id: 'uswo9w',
     tags: ['Summon', 'All Damage'],
-    description: `Increase all damage dealt by 4% for each summon. Max 12%`,
+    description: `Increase all damage dealt by 5% for each summon. Max 15%`,
     wikiLinks: [`https://remnant.wiki/Soul_Shard`],
   },
   {
@@ -1344,7 +1351,7 @@ export const ringItems: RingItem[] = [
     imagePath: '/ring/stockpile_charger.png',
     id: '0jnimt',
     tags: ['Ranged Damage'],
-    description: `After picking up ammo, increases the damage of that Ammo Type by 13% for 20s.`,
+    description: `After picking up ammo, increases the damage of that Ammo Type by 15% for 20s.`,
     wikiLinks: [`https://remnant.wiki/Stockpile_Charger`],
   },
   {
@@ -1362,7 +1369,7 @@ export const ringItems: RingItem[] = [
     imagePath: '/ring/stone_of_continuance.png',
     id: 'leuefm',
     tags: ['Skill Duration'],
-    description: `Increases Skill Duration by 25%.`,
+    description: `Increases Skill Duration by 15%.`,
     wikiLinks: [`https://remnant.wiki/Stone_of_Continuance`],
   },
   {
@@ -1371,7 +1378,7 @@ export const ringItems: RingItem[] = [
     imagePath: '/ring/stone_of_expanse.png',
     id: 'efdw51',
     tags: ['Ranged Damage'],
-    description: `Increases Ranged damage by 12%. Reduces all other damage dealt by 6%.`,
+    description: `Increases Ranged damage by 12%. Reduces all other damage dealt by 5%.`,
     wikiLinks: [`https://remnant.wiki/Stone_of_Expanse`],
   },
   {
@@ -1389,7 +1396,7 @@ export const ringItems: RingItem[] = [
     imagePath: '/ring/stream_coupler.png',
     id: 'jq4dje',
     tags: ['Heal'],
-    description: `Using a Skill regenerates 10% of Max Health over 5s.`,
+    description: `Using a Skill regenerates 25% of Max Health over 10s.`,
     wikiLinks: [`https://remnant.wiki/Stream_Coupler`],
   },
   {
@@ -1441,7 +1448,7 @@ export const ringItems: RingItem[] = [
     imagePath: '/ring/tempest_conduit.png',
     id: '4bb4gf',
     tags: ['Elemental Damage', 'All Damage'],
-    description: `After receiving Elemental Damage, increases all damage dealt by 10% and Resistance to the received Element by 20 for 20s.`,
+    description: `After receiving Elemental Damage, increases all damage dealt by 15% and Resistance to the received Element by 20 for 15s.`,
     wikiLinks: [`https://remnant.wiki/Tempest_Conduit`],
   },
   {
@@ -1467,7 +1474,7 @@ export const ringItems: RingItem[] = [
     imagePath: '/ring/tomb_dwellers_ring.png',
     id: '6mopou',
     tags: ['Movement Speed', 'Damage Reduction'],
-    description: `Increases Movement Speed by 10% for 7s after Vaulting, Climbing, Leaping, and entering Water, stacks 3x. Reduces Fall Damage by 25%.`,
+    description: `Increases Movement Speed by 10% for 15s after Vaulting, Climbing, Leaping, and entering Water, stacks 3x. Reduces Fall Damage by 50%.`,
     wikiLinks: [`https://remnant.wiki/Tomb_Dweller's_Ring`],
   },
   {
@@ -1484,7 +1491,7 @@ export const ringItems: RingItem[] = [
     imagePath: '/ring/vestige_of_power.png',
     id: 'e6zmo5',
     tags: ['Ranged Damage', 'Melee Damage'],
-    description: `After 7s of not being damaged, increases Ranged and Melee Damage by 10%.`,
+    description: `After 5s of not being damaged, increases Ranged and Melee Damage by 10%.`,
     wikiLinks: [`https://remnant.wiki/Vestige_of_Power`],
   },
   {
@@ -1541,7 +1548,7 @@ export const ringItems: RingItem[] = [
     imagePath: '/ring/worn_admirals_ring.png',
     id: '9kcrxa',
     tags: ['All Damage'],
-    description: `All damage received is increased by 200%. All damage dealt is increased by 10%.`,
+    description: `All damage received is increased by 200%. All damage dealt is increased by 15%.`,
     wikiLinks: [`https://remnant.wiki/Worn_Admiral's_Ring`],
   },
   {
@@ -1550,7 +1557,7 @@ export const ringItems: RingItem[] = [
     imagePath: '/ring/zanias_malice.png',
     id: 'ukufrn',
     tags: ['Weakspot Damage'],
-    description: `Dealing Weakspot Damage increases Weakspot Damage by 10% for 7s. Stacks 3x.`,
+    description: `Dealing Weakspot Damage increases Weakspot Damage by 5% for 5s. Stacks 4x.`,
     wikiLinks: [`https://remnant.wiki/Zania%27s_Malice`],
   },
   {
@@ -1559,7 +1566,7 @@ export const ringItems: RingItem[] = [
     imagePath: '/ring/zohees_ring.png',
     id: '9fe9kj',
     tags: ['Mod Duration'],
-    description: `Increases Mod Duration by 15%.`,
+    description: `Increases Mod Duration by 20%.`,
     wikiLinks: [`https://remnant.wiki/Zohee's_Ring`],
   },
 ]

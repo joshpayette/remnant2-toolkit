@@ -8,14 +8,15 @@ export const perkItems: PerkItem[] = [
     type: 'prime',
     id: 's8eytq',
     tags: ['Weakspot Damage'],
+    // TODO Check this; Ranged Weakspot Damage -> Ranged and Melee Weakspot Damage
     description: `
-    Dealing 65 Base Ranged Weakspot Damage extends the duration of active HUNTER Skills by 2.5s. Can extend timer beyond its initial duration
+    Dealing 65 Base Ranged and Melee Weakspot Damage extends the duration of active HUNTER Skills by 2.5s. Can extend timer beyond its initial duration
 
     Upgraded at Level 5
-    Dealing 60 Base Ranged Weakspot Damage extends the duration of active HUNTER Skills by 3s. Can extend timer beyond its initial duration
+    Dealing 60 Base Ranged and Melee Weakspot Damage extends the duration of active HUNTER Skills by 3s. Can extend timer beyond its initial duration
 
     Upgraded at level 10
-    Dealing 55 Base Ranged Weakspot Damage extends the duration of active HUNTER Skills by 3.5s. Can extend timer beyond its initial duration`,
+    Dealing 55 Base Ranged and Melee Weakspot Damage extends the duration of active HUNTER Skills by 3.5s. Can extend timer beyond its initial duration`,
     wikiLinks: [`https://remnant.wiki/Dead_to_Rights`],
     linkedItems: {
       archetype: {
@@ -141,7 +142,7 @@ Using a Relic extends the duration of any active HUNTER Skill by 10s. Effect deg
     id: '485uc9',
     tags: ['Ranged Damage', 'Skill Damage', 'Critical Chance'],
     description: `
-    Gain 3% Ranged, Melee, and Skill Damage while Companion is within 40m [R] of the HANDLER. Damage increases with HANDLER Level.
+    Gain 3% Ranged, Melee, and Skill Damage while Companion is within 40m [A] of the HANDLER. Damage increases with HANDLER Level.
     
     Upgrade Unlocked at level 5
     Gain 18% Ranged, Melee, and Skill Damage and 5% Ranged, Melee, and Skill Critical Chance while Companion is active and within 40m of the Handler. Damage increases with HANDLER level.
@@ -164,7 +165,7 @@ Using a Relic extends the duration of any active HUNTER Skill by 10s. Effect deg
     id: 'z3sz58',
     tags: ['Movement Speed', 'Stamina'],
     description: `
-    Increases Movement Speed by 10%. All allies within 10m [R] of the HANDLER gain the HANDLER's Movement Speed (if faster).
+    Increases Movement Speed by 10%. All allies within 10m [A] of the HANDLER gain the HANDLER's Movement Speed (if faster).
 
     Upgrade unlocked at level 7
     Increases Movement Speed by 10%. All allies within 10m of the HANDLER gain the HANDLER's Movement Speed (if faster). Reduces the Stamina Cost of actions for allies by 15%.`,
@@ -446,13 +447,14 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     type: 'damage',
     id: 'f4jx9k',
     tags: ['All Damage', 'Critical Chance'],
+    // TODO Check this; crit chance 10% -> 5%
     description: `
     Grants a 3.5% increase to All Damage to enemies within 10m. Damage bonus tapers off until 20m. Increases with CHALLENGER Level. 
     
     Upgrade Unlocked at level 5
-    Grants a 21% increase to All Damage to enemies within 10m. Damage bonus tapers off until 20m. Critical Chance is increased by up to 10%.
+    Grants a 21% increase to All Damage to enemies within 10m. Damage bonus tapers off until 20m. Critical Chance is increased by up to 5%.
           
-    (Level 10: Grants a 35% increase to All Damage to enemies within 10m. Damage bonus tapers off until 20m. Critical Chance is increased by up to 10%.)`,
+    (Level 10: Grants a 35% increase to All Damage to enemies within 10m. Damage bonus tapers off until 20m. Critical Chance is increased by up to 5%.)`,
     wikiLinks: [`https://remnant.wiki/Close_Quarters`],
     linkedItems: {
       archetype: {
@@ -471,7 +473,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     After activating a CHALLENGER Skill, enemies within 10m deal 10% less damage for 15s. 
 
     Upgrade unlocked at level 7
-    After activating a CHALLENGER Skill, enemies within 10m [R] deal 10% less damage for 15s, with an additional 2.5% damage reduction per enemy affected. (Max 10%)`,
+    After activating a CHALLENGER Skill, enemies within 10m [A] deal 10% less damage for 15s, with an additional 2.5% damage reduction per enemy affected. (Max 10%)`,
     wikiLinks: [`https://remnant.wiki/Intimidating_Presence`],
     linkedItems: {
       archetype: {
@@ -629,6 +631,9 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     type: 'prime',
     id: 'dh2wih',
     tags: ['Mod Power'],
+    // TODO Check this; `prime: removed mod generation percentage bonus` - not sure how this will be reflected in the description
+    // TODO Check this; `prime: increased the Max Level Base Mod Generation from 3/6 to 15/30`
+    // TODO Alexij got clarification, said Tragic included secsondary effect, so 2 * 150% and 3 * 200%
     description: `
     Automatically generate 2 Mod Power per second. Casting a Mod increases all Mod Generation by 50% for 6s
 
@@ -636,7 +641,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     Upgrade: Automatically generate 2.5 Mod Power per second. Casting a Mod increases all Mod Generation by 50% for 6s
 
     Upgraded at level 10
-    Upgrade: Automatically generate 3 Mod Power per second. Casting a Mod increases all Mod Generation by 100% for 10s.`,
+    Upgrade: Automatically generate 6 Mod Power per second. Casting a Mod increases all Mod Generation by 100% for 10s.`,
     wikiLinks: [`https://remnant.wiki/Tempest`],
     linkedItems: {
       archetype: {
@@ -692,6 +697,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     type: 'utility',
     id: '5fz7xr',
     tags: ['Mod Power'],
+    // TODO Check this; `removed reference to to Mod Power Refund over time` but I don't see it in the original description.
     description: `
     Reduces the Mod Power requirement for all Mods by 15%.
 
@@ -711,8 +717,9 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     type: 'relic',
     id: 'h42e2n',
     tags: ['Mod Power'],
+    // TODO Check this; 200 -> 100 mod power
     description: `
-    Using a Relic grants 200 Mod Power for both equipped Mods.
+    Using a Relic grants 100 Mod Power for both equipped Mods.
 
     Upgrade unlocked at level 9
     Upgrade: Grant an additional 100 Mod Power to the current mod.`,
@@ -757,16 +764,17 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     type: 'damage',
     id: '2hcif5',
     tags: ['Skill Damage', 'Critical Chance'],
+    // TODO Check this; ranged and skill crit chance 10% -> 5%
     description: `
     Increases Skill Damage by 5% and Ranged Damage by 2.5%.
     Heavy Weapons gain 5% Ammo Capacity, 2.5% Max Health, and 2.5% Weakspot Damage.
 
     Unlocked at level 5
-    Increases Skill Damage by 25% and Ranged Damage by 12.5%, and grants 10% Ranged and Skill Critical Chance
+    Increases Skill Damage by 25% and Ranged Damage by 12.5%, and grants 5% Ranged and Skill Critical Chance
     Heavy Weapons gain 25% Ammo Capacity, 12% Max Health, and 25% Weakspot Damage.
     
     Unlocked at level 10
-    Increases Skill Damage by 50% and Ranged Damage by 25%, and grants 10% Ranged and Skill Critical Chance.
+    Increases Skill Damage by 50% and Ranged Damage by 25%, and grants 5% Ranged and Skill Critical Chance.
     Heavy Weapons gain 50% Ammo Capacity, 25% Max Health, and 25% Weakspot Damage.
     `,
 
@@ -788,7 +796,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     Heavy Weapons grant 15% Damage Reduction to all allies within 2.5m.
     
     Upgrade unlocked at level 7
-    Heavy Weapons grant 15% Damage Reduction and gradually restore Ammo to allies within 2.5m. [R]`,
+    Heavy Weapons grant 15% Damage Reduction and gradually restore Ammo to allies within 2.5m. [A]`,
     wikiLinks: [`https://remnant.wiki/Magnetic_Field`],
     linkedItems: {
       archetype: {
@@ -1046,6 +1054,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     type: 'prime',
     id: 'tmc2tk',
     tags: ['Summon'],
+    // TODO Check this; description will be updated around minion explosive damage based on their remaining hp, undocumented previously.
     description: `
     When the SUMMONER deals damage to their Minion, it causes them to ENRAGE. Minions gain 10% Attack Speed along with 30% increased Damage and Movement Speed. Lasts 20s.
     
@@ -1153,6 +1162,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     type: 'prime',
     id: 'qewh6t',
     tags: ['Status Effect'],
+    // TODO Check this; `Eruption no longer requires line of sight to spread Vile` - not sure how this will be reflected in the description
     description: `
     Negative Status Effects applied by RITUALIST inflict Infected.
     Infected: Victim receives 5% more Status Effect damage, On death, spreads all statuses to nearby enemies within 5m. [A]
@@ -1178,13 +1188,16 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     type: 'damage',
     id: '6wc56t',
     tags: ['All Damage', 'Critical Chance', 'Status Effect'],
+    // TODO Check this; `enabled interaction with skill summon and mod summon damage` - not sure how this will be reflected in the description
+    // TODO Check this; `fixed an issue preventing skill/mod summons from getting Damage Bonus` - not sure how this will be reflected in the description
+    // TODO Check this; critical chance 10% -> 5%
     description: `
     Increases all damage to enemies affected by a Negative Status Effect by 2%. Damage increases with RITUALIST Level
     
     Upgrade Unlocked at level 5
-    Increases all damage to enemies affected by a Negative Status Effect by 12%. Increases all Critical Chance against enemies affected by a Negative Status Effect by 10%.
+    Increases all damage to enemies affected by a Negative Status Effect by 12%. Increases all Critical Chance against enemies affected by a Negative Status Effect by 5%.
          
-    (Level 10: Increases all damage to enemies affected by a Negative Status Effect by 20%. Increases all Critical Chance against enemies affected by a Negative Status Effect by 10%.)`,
+    (Level 10: Increases all damage to enemies affected by a Negative Status Effect by 20%. Increases all Critical Chance against enemies affected by a Negative Status Effect by 5%.)`,
     wikiLinks: [`https://remnant.wiki/Wrath`],
     linkedItems: {
       archetype: {

@@ -88,7 +88,8 @@ export const consumableItems: ConsumableItem[] = [
     imagePath: '/consumable/brightstone.png',
     id: '937h03',
     tags: ['Grenade'],
-    description: `When thrown, explodes in a 4m [A] radius dealing 250 damage and leaving a mysterious Mist which causes enemies to receive 10% additional damage. Debuff last 10s after enemies leave the Mist. Lasts 15s.`,
+    // TODO confirm base number
+    description: `When thrown, explodes in a 4m [A] radius dealing 50 damage and leaving a mysterious Mist which causes enemies to receive 10% additional damage. Debuff last 10s after enemies leave the Mist. Lasts 15s.`,
     wikiLinks: [`https://remnant.wiki/Brightstone`],
   },
   {
@@ -169,7 +170,7 @@ export const consumableItems: ConsumableItem[] = [
     imagePath: '/consumable/mystery_jerky1.png',
     id: '6aasor',
     tags: ['Grey Health'],
-    description: `Converts 1 Health into Grey Health per second. Lasts 60s.`,
+    description: `Converts 6.66 Health into Grey Health per second. Lasts 15s.`,
     wikiLinks: [`https://remnant.wiki/Mystery_Jerky`],
   },
   {
@@ -196,7 +197,7 @@ export const consumableItems: ConsumableItem[] = [
     imagePath: '/consumable/pipe_bomb.png',
     id: 'kfwizc',
     tags: ['Grenade'],
-    description: `When thrown, explodes in a 4m [A] radius dealing 450 damage [E] and applying BLEEDING, which deals an additional 1,350 BLEED damage over 30s.`,
+    description: `When thrown, explodes in a 4m [A] radius dealing 150 damage [E] and applying BLEEDING, which deals an additional 250 BLEED damage over 30s.`,
     wikiLinks: [`https://remnant.wiki/Pipe_Bomb`],
   },
   {

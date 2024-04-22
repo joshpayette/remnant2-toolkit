@@ -8,7 +8,7 @@ export const amuletItems: AmuletItem[] = [
     id: '6sqyf9',
     tags: ['Critical Chance'],
     description:
-      'When attacking a BLEEDING enemy, Crit Chance is increased by 15% and Crit Damage is increased by 30%.',
+      'When attacking a BLEEDING enemy, Crit Chance is increased by 15% and Crit Damage is increased by 15%.',
     wikiLinks: ['https://remnant.wiki/Abrasive_Whetstone'],
   },
   {
@@ -17,7 +17,8 @@ export const amuletItems: AmuletItem[] = [
     imagePath: '/amulet/ankh_of_power.png',
     id: 'ca8ada',
     tags: ['All Damage'],
-    description: `Grants a 15% increase to all damage. Consuming a Relic doubles the bonus for 15s.`,
+    // TODO check description
+    description: `Grants a 12.5% increase to all damage. Consuming a Relic doubles the bonus for 15s.`,
     wikiLinks: [`https://remnant.wiki/Ankh_of_Power`],
   },
   {
@@ -26,8 +27,9 @@ export const amuletItems: AmuletItem[] = [
     imagePath: '/amulet/birthright_of_the_lost.png',
     id: '41ookr',
     tags: ['Perfect Dodge'],
-    description: `On Perfect Dodge, apply EXPOSED on the attacker for 10s.
-EXPOSED: Target receives up to 24% additional damage from all sources. Expose amount is reduced for each human ally alive.`,
+    // TODO check description
+    description: `Grants 10% increase to All Damage. On Perfect Dodge, apply EXPOSED on the attacker for 15s .
+EXPOSED: Target receives up to 15% additional damage from all sources.`,
     wikiLinks: [`https://remnant.wiki/Birthright_of_the_Lost`],
   },
   {
@@ -54,7 +56,7 @@ EXPOSED: Target receives up to 24% additional damage from all sources. Expose am
     imagePath: '/amulet/butchers_fetish.png',
     id: '67s1pu',
     tags: ['Critical Chance', 'Charged Melee'],
-    description: `Increases Critical Chance by 15% and Critical Damage by 25% for 15s after striking enemy with a Charged Melee Attack.`,
+    description: `Increases Critical Chance by 15% and Critical Damage by 25% for 5s after striking enemy with a Charged Melee Attack.`,
     wikiLinks: [`https://remnant.wiki/Butcher%27s_Fetish`],
   },
   {
@@ -91,7 +93,7 @@ EXPOSED: Target receives up to 24% additional damage from all sources. Expose am
     dlc: 'dlc1',
     id: 'hug5mz',
     tags: ['All Damage', 'Damage Reduction'],
-    description: `Reduces Max Relic Charges to 1. Increases All Damage by 20% when wearer has 1 Relic Charge. Increases incoming damage by 20% when wearer has no Relic Charges and after 30s, regain 1 Relic Charge.`,
+    description: `Reduces Max Relic Charges to 1. Increases All Damage by 25% when wearer has 1 Relic Charge. Increases incoming damage by 25% when wearer has no Relic Charges and after 15s, regain 1 Relic Charge.`,
     wikiLinks: [`https://remnant.wiki/Cost_of_Betrayal`],
   },
   {
@@ -100,7 +102,8 @@ EXPOSED: Target receives up to 24% additional damage from all sources. Expose am
     imagePath: '/amulet/daredevils_charm.png',
     id: 'ik580i',
     tags: ['All Damage', 'Movement Speed', 'Hardcore Reward', 'Encumbrance'],
-    description: `Gain 7.5% to all damage dealt, 3% Movement Speed, and 5% all damage taken for each piece of unequipped armor.`,
+    // TODO check movement speed number in-game
+    description: `Gain 7.5% to all damage dealt, 3% Movement Speed for each piece of unequipped armor.`,
     wikiLinks: [`https://remnant.wiki/Daredevil's_Charm`],
   },
   {
@@ -110,7 +113,7 @@ EXPOSED: Target receives up to 24% additional damage from all sources. Expose am
     dlc: 'dlc1',
     id: 'ui1miz',
     tags: ['All Damage', 'Status Effect'],
-    description: `Increases All Damage by 5% for each entity within 20m suffering from a unique Negative Status Effect. Max 5 stacks.`,
+    description: `Increases All Damage by 6% for each entity within 20m suffering from a unique Negative Status Effect. Max 5 stacks.`,
     wikiLinks: [`https://remnant.wiki/Death_Soaked_Idol`],
   },
   {
@@ -119,7 +122,8 @@ EXPOSED: Target receives up to 24% additional damage from all sources. Expose am
     imagePath: '/amulet/deaths_embrace.png',
     id: 'i13ipm',
     tags: ['All Damage'],
-    description: `Gain 20% to all damage when Health is below 100%. Gain HASTE when below 50% Health.`,
+    // TODO check wording in-game
+    description: `Gain 15% to all damage when Health is below 100%. Gain bonus 10% All Damage and HASTE when below 50% Health.`,
     wikiLinks: [`https://remnant.wiki/Death's_Embrace`],
   },
   {
@@ -128,7 +132,7 @@ EXPOSED: Target receives up to 24% additional damage from all sources. Expose am
     imagePath: '/amulet/decayed_margin.png',
     id: 'dipf2o',
     tags: ['Lifesteal', 'Melee Damage'],
-    description: `Melee hits gain 1.5% base damage dealt as Lifesteal. For each 25% missing Health, gain 1.5% additional Melee Lifesteal. When Health is full, gain 25% Melee Damage.`,
+    description: `Melee hits gain 3% base damage dealt as Lifesteal. For each 25% missing Health, gain 1.5% additional Melee Lifesteal. When Health is full, gain 35% Melee Damage.`,
     wikiLinks: [`https://remnant.wiki/Decayed_Margin`],
   },
   {
@@ -145,7 +149,7 @@ EXPOSED: Target receives up to 24% additional damage from all sources. Expose am
     imagePath: '/amulet/difference_engine.png',
     id: '2zr6vu',
     tags: ['All Damage', 'Lifesteal'],
-    description: `While a SHIELD is active, gain 20% damage and 1.5% of base dealt as Lifesteal.`,
+    description: `While a SHIELD is active, gain 20% damage and 3% of base dealt as Lifesteal.`,
     wikiLinks: [`https://remnant.wiki/Difference_Engine`],
   },
   {
@@ -154,7 +158,8 @@ EXPOSED: Target receives up to 24% additional damage from all sources. Expose am
     imagePath: '/amulet/downward_spiral.png',
     id: '1k2x4r',
     tags: ['Fire Rate', 'Melee Attack Speed', 'Ranged Damage', 'Melee Damage'],
-    description: `Increase Fire Rate by 10% and Melee Attack Speed by 15%. For every missing 10% of Max Health, gain 3% Ranged Damage (Max 15%) and 4% Melee Damage (Max 20%).`,
+    // TODO check description
+    description: `Increase Fire Rate by 10% and Melee Attack Speed by 15%. For every missing 10% of Max Health, gain 4% Ranged Damage (Max 20%) and 5% Melee Damage (Max 25%).`,
     wikiLinks: [`https://remnant.wiki/Downward_Spiral`],
   },
   {
@@ -179,7 +184,7 @@ EXPOSED: Target receives up to 24% additional damage from all sources. Expose am
     name: 'Emergency Switch',
     imagePath: '/amulet/emergency_switch.png',
     id: '8dcefr',
-    description: `When below 50% health, chance to consume Relic on use is reduced by 35%. Final Relic Charge is not consumed on use, but effect cannot be triggered again for 60s.`,
+    description: `When below 50% health, chance to consume Relic on use is reduced by 50%. Final Relic Charge is not consumed on use, but effect cannot be triggered again for 30s.`,
     wikiLinks: [`https://remnant.wiki/Emergency_Switch`],
   },
   {
@@ -188,7 +193,8 @@ EXPOSED: Target receives up to 24% additional damage from all sources. Expose am
     imagePath: '/amulet/energized_neck_coil.png',
     id: 'c52jp0',
     tags: ['Status Effect'],
-    description: `Increases Status Effect damage by 25%. Applying a damaging Status Effect creates a 5m Explosion [E] for 20% of the Status Effect's full damage.`,
+    // TODO check description
+    description: `Increases Status Effect damage by 20%. Applying a damaging Status Effect creates a 5m [A] Explosion [E] for 20% of the Status Effect's full damage.`,
     wikiLinks: [`https://remnant.wiki/Energized_Neck_Coil`],
   },
   {
@@ -215,7 +221,7 @@ EXPOSED: Target receives up to 24% additional damage from all sources. Expose am
     imagePath: '/amulet/full_moon_circlet.png',
     id: '8xn7hh',
     tags: ['Lifesteal'],
-    description: `Ranged damage Lifesteals 3% of base damage dealt. At full health, Ranged damage is increased by 20%.`,
+    description: `Ranged damage Lifesteals 3% of base damage dealt. At full health, Ranged damage is increased by 25%.`,
     wikiLinks: [`https://remnant.wiki/Full_Moon_Circlet`],
   },
   {
@@ -225,7 +231,8 @@ EXPOSED: Target receives up to 24% additional damage from all sources. Expose am
     dlc: 'dlc1',
     id: '70ryol',
     tags: ['Stamina', 'Critical Chance'],
-    description: `Spending 25 Stamina grants 5% Critical Chance for 7s. Max 5 stacks.`,
+    // TODO check description
+    description: `Spending 20 Stamina grants 5% Critical Chance for 5s. Max 5 stacks. Stack fall off one at a time.`,
     wikiLinks: [`https://remnant.wiki/Gift_Of_Euphoria`],
   },
   {
@@ -244,7 +251,9 @@ EXPOSED: Target receives up to 24% additional damage from all sources. Expose am
     imagePath: '/amulet/gift_of_the_unbound.png',
     dlc: 'dlc1',
     id: 'u7am0w',
-    description: `Disables negative effects of Burden Rings. Restricts Maximum Health gained by 20% per effect disabled.`,
+    tags: ['Movement Speed'],
+    // TODO check in game
+    description: `Disables negative effects of Burden Rings. Grants 5% Movement Speed per Burden Lifted (Max 20%).`,
     wikiLinks: [`https://remnant.wiki/Gift_Of_The_Unbound`],
   },
   {
@@ -271,7 +280,7 @@ EXPOSED: Target receives up to 24% additional damage from all sources. Expose am
     imagePath: '/amulet/gunslingers_charm.png',
     id: 'qqg64h',
     tags: ['Fire Rate', 'Reload Speed'],
-    description: `Increases Fire Rate by 15% and Reload Speed by 20%.`,
+    description: `Increases Fire Rate by 15% and Reload Speed by 25%.`,
     wikiLinks: [`https://remnant.wiki/Gunslinger's_Charm`],
   },
   {
@@ -289,7 +298,7 @@ EXPOSED: Target receives up to 24% additional damage from all sources. Expose am
     imagePath: '/amulet/hyperconductor.png',
     id: 'c0z3fy',
     tags: ['Mod Power'],
-    description: `Gain double Skill Charges. Increases Skill Cooldowns by 50% and reduces Mod Power Generation by 15%. For Heavy Weapons, doubles Heavy Weapon Ammo instead.`,
+    description: `Gain double Skill Charges. Increases Skill Cooldowns by 25%. For Heavy Weapons, doubles Heavy Weapon Ammo instead.`,
     wikiLinks: [`https://remnant.wiki/Hyperconductor`],
   },
   {
@@ -308,7 +317,7 @@ EXPOSED: Target receives up to 24% additional damage from all sources. Expose am
     imagePath: '/amulet/indignant_fetish.png',
     id: 'dqhstq',
     tags: ['Damage Reduction', 'All Damage'],
-    description: `Taking damage from enemies increases all damage dealt by 25% and reduces all incoming damage by 10%. Lasts 20s.`,
+    description: `Taking damage increases all damage dealt by 20% and reduces all incoming damage by 10%. Lasts 15s.`,
     wikiLinks: [`https://remnant.wiki/Indignant_Fetish`],
   },
   {
@@ -317,7 +326,8 @@ EXPOSED: Target receives up to 24% additional damage from all sources. Expose am
     imagePath: '/amulet/inert_overcharger.png',
     id: 'k8d15f',
     tags: ['Fire Rate', 'Reload Speed', 'Recoil'],
-    description: `Standing still increases Fire Rate by 20%, Reload Speed by 15%, and reduces Recoil by 50%. Lasts 1.5s after moving.`,
+    // TODO check in game
+    description: `Standing still for 0.5s increases Fire Rate by 20%, Reload Speed by 15%, and reduces Recoil by 50%. Lasts 2s after moving.`,
     wikiLinks: [`https://remnant.wiki/Inert_Overcharger`],
   },
   {
@@ -335,7 +345,7 @@ EXPOSED: Target receives up to 24% additional damage from all sources. Expose am
     imagePath: '/amulet/jesters_bell.png',
     id: 'lpv0qq',
     tags: ['All Damage'],
-    description: `Increases Mod and Skill Cast Speed by 35%. Casting a Skill or Mod increases all damage by 20% for 15s.`,
+    description: `Increases Mod and Skill Cast Speed by 35%. Casting a Skill or Mod increases all damage by 15% for 15s.`,
     wikiLinks: [`https://remnant.wiki/Jester's_Bell`],
   },
   {
@@ -344,7 +354,7 @@ EXPOSED: Target receives up to 24% additional damage from all sources. Expose am
     imagePath: '/amulet/kinetic_shield_exchanger.png',
     id: 'femylz',
     tags: ['Mod Damage', 'Mod Power'],
-    description: `While a SHIELD is active, gain 25% Mod damage and generate 15% additional Mod power.`,
+    description: `While a SHIELD is active, gain 25% Mod damage and generate 20% additional Mod power.`,
     wikiLinks: [`https://remnant.wiki/Kinetic_Shield_Exchanger`],
   },
   {
@@ -362,7 +372,7 @@ EXPOSED: Target receives up to 24% additional damage from all sources. Expose am
     imagePath: '/amulet/laemir_censer.png',
     id: 'hwpkls',
     tags: ['Mod Cost', 'Mod Duration'],
-    description: `Increases Mod Duration by 50%. Increases Mod Cost by 15%.`,
+    description: `Increases Mod Duration by 50%. Increases Mod Cost by 10%.`,
     wikiLinks: [`https://remnant.wiki/Laemir_Censer`],
   },
   {
@@ -380,7 +390,7 @@ EXPOSED: Target receives up to 24% additional damage from all sources. Expose am
     imagePath: '/amulet/letos_amulet.png',
     id: 'rpxs8n',
     tags: ['Encumbrance', 'Stamina'],
-    description: `Reduces Encumbrance by 40% and Stamina Cost by 30%.`,
+    description: `Reduces Encumbrance by 40% and Stamina Cost by 35%.`,
     wikiLinks: [`https://remnant.wiki/Leto's_Amulet`],
     weightPercent: -0.4,
   },
@@ -429,7 +439,7 @@ EXPOSED: Target receives up to 24% additional damage from all sources. Expose am
     imagePath: '/amulet/necklace_of_supremacy.png',
     id: 'dm67y5',
     tags: ['All Damage'],
-    description: `After 7s of not being damaged, increases all damage dealt by 15%. Increases to 25% if Health is full.`,
+    description: `After 5s of not being damaged, increases all damage dealt by 15%. Increases to 30% if Health is full.`,
     wikiLinks: [`https://remnant.wiki/Necklace_of_Supremacy`],
   },
   {
@@ -447,7 +457,7 @@ EXPOSED: Target receives up to 24% additional damage from all sources. Expose am
     imagePath: '/amulet/nightweavers_grudge.png',
     id: '0aaso1',
     tags: ['Critical Chance', 'Status Effect'],
-    description: `Gain 20% Critical Chance and HASTE when within 15m [A] of an entity suffering from a Status Effect.`,
+    description: `Gain 15% Critical Chance and HASTE when within 20m [A] of an entity suffering from a Status Effect.`,
     wikiLinks: [`https://remnant.wiki/Nightweaver%27s_Grudge`],
   },
   {
@@ -474,7 +484,7 @@ EXPOSED: Target receives up to 24% additional damage from all sources. Expose am
     imagePath: '/amulet/one_eyed_joker_idol.png',
     id: 'yl1ah9',
     tags: ['Neutral Backdash', 'Critical Chance'],
-    description: `Neutral Backdash creates a Magic Card lasting 1s. If Card absorbs enemy damage gain 25% Critical Chance for 5s. Neutral Backdash cost 30% additional Stamina.`,
+    description: `Neutral Backdash creates a Magic Card lasting 1s. If Card absorbs enemy damage gain 25% Critical Chance for 5s. Neutral Backdash cost 15% additional Stamina.`,
     wikiLinks: [`https://remnant.wiki/One-Eyed_Joker_Idol`],
   },
   {
@@ -483,7 +493,7 @@ EXPOSED: Target receives up to 24% additional damage from all sources. Expose am
     imagePath: '/amulet/onyx_pendulum.png',
     id: 'ps6umu',
     tags: ['Ranged Damage'],
-    description: `Firearm damage adds stacks which increase the damage of stowed firearm by 2.5% for 15s. Stacks 10x.`, // No idea why. ConRaven checked it.
+    description: `Firearm damage adds stacks which increase the damage of stowed firearm by 2% [M] for 15s. Stacks 10x.`, // 100 damage
     wikiLinks: [`https://remnant.wiki/Onyx_Pendulum`],
   },
   {
@@ -542,7 +552,7 @@ EXPOSED: Target receives up to 24% additional damage from all sources. Expose am
     imagePath: '/amulet/samoflange.png',
     id: 'z7ivk2',
     tags: ['Damage Reduction'],
-    description: `Direct damage taken from enemies, and any additional damage within 2s, is reduced by 60%. Once the defensive buff expires, all incoming damage to wearer is increased by 15% for 10s.`,
+    description: `Direct damage taken from enemies, and any additional damage within 5s, is reduced by 60%. Once the defensive buff expires, all incoming damage to wearer is increased by 15% for 10s.`,
     wikiLinks: [`https://remnant.wiki/Samoflange`],
   },
   {
@@ -560,7 +570,7 @@ EXPOSED: Target receives up to 24% additional damage from all sources. Expose am
     imagePath: '/amulet/shaed_bloom_crystal.png',
     id: 'ib2as6',
     tags: ['All Damage', 'Elemental Damage'],
-    description: `Gain a 30% damage bonus. Every 5s, the bonus switches between Physical and Elemental Damage.`,
+    description: `Gain a 35% damage bonus. Every 5s, the bonus switches between Physical and Elemental Damage.`,
     wikiLinks: [`https://remnant.wiki/Shaed_Bloom_Crystal`],
   },
   {
@@ -595,7 +605,8 @@ EXPOSED: Target receives up to 24% additional damage from all sources. Expose am
     imagePath: '/amulet/soul_anchor.png',
     id: '6amich',
     tags: ['Summon', 'All Damage'],
-    description: `Summoning increases all damage dealt by 20% for 30s.`,
+    // TODO check description
+    description: `Gain 20% All Damage bonus if at least 1 Summon is active.`,
     wikiLinks: [`https://remnant.wiki/Soul_Anchor`],
   },
   {
@@ -613,7 +624,7 @@ EXPOSED: Target receives up to 24% additional damage from all sources. Expose am
     imagePath: '/amulet/stalkers_brand.png',
     id: 'rcyafk',
     tags: ['Ranged Damage', 'Melee Damage'],
-    description: `Gain 10% Ranged and 15% Melee damage. Bonus double versus enemies not targeting wearer.`,
+    description: `Gain 12.5% Ranged and 15% Melee damage. Bonus double versus enemies not targeting wearer.`,
     wikiLinks: [`https://remnant.wiki/Stalker's_Brand`],
   },
   {
@@ -638,7 +649,7 @@ EXPOSED: Target receives up to 24% additional damage from all sources. Expose am
     imagePath: '/amulet/twisted_idol.png',
     id: '776kn2',
     tags: ['Encumbrance', 'Damage Reduction'],
-    description: `Increases Armor Effectiveness by 35% and reduces Encumbrance by 15.`,
+    description: `Increases Armor Effectiveness by 35% and reduces Encumbrance by 20.`,
     wikiLinks: [`https://remnant.wiki/Twisted_Idol`],
     armorPercent: 0.35,
     weight: -15,
@@ -676,7 +687,7 @@ EXPOSED: Target receives up to 24% additional damage from all sources. Expose am
     imagePath: '/amulet/whispering_marble.png',
     id: '2e2hh5',
     tags: ['Damage Reduction', 'All Damage'],
-    description: `Gain 3 stacks of BULWARK. Increase damage by 3% per stack of BULWARK`,
+    description: `Gain 3 stacks of BULWARK. Increase damage by 2% per stack of BULWARK`,
     wikiLinks: [`https://remnant.wiki/Whispering_Marble`],
   },
 ]

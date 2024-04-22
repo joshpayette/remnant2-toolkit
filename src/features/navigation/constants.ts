@@ -25,10 +25,9 @@ import {
  */
 export const NAV_ITEMS = {
   ampVsRes: {
-    label: 'Amplitude vs Resonance',
-    description:
-      'A guide on what items are affected by Amplitude and Resonance.',
-    href: '/guides/amplitude-vs-resonance',
+    label: 'Amplitude Guide',
+    description: 'A guide on what items are affected by Amplitude',
+    href: '/guides/amplitude',
     icon: TableCellsIcon,
   },
   bossTracker: {

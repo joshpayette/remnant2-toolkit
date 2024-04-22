@@ -15,7 +15,8 @@ export const weaponItems: WeaponItem[] = [
         name: 'Beta Ray',
       },
     },
-    damage: 15,
+    // TODO Check this; 15 -> 14
+    damage: 14,
     rps: 7.2,
     magazine: 55,
     accuracy: 95,
@@ -99,7 +100,7 @@ export const weaponItems: WeaponItem[] = [
     imagePath: '/mainhand/chicago_typewriter.png',
     id: '59oddb',
     description: `A classic Tommy Gun with large ammo capacity and a slow reload. Poor initial accuracy which improves while holding down the trigger.`,
-    wikiLinks: [`https://remnant.wiki/Chicago_Typewriter`],
+    wikiLinks: [`hhttps://remnant.wiki/Chicago_Typewriter`],
     damage: 10,
     rps: 11,
     magazine: 80,
@@ -143,13 +144,17 @@ export const weaponItems: WeaponItem[] = [
         name: 'Micronova',
       },
     },
-    damage: 22,
-    rps: 2.2,
-    magazine: 6,
+    // TODO Check this; 21 -> 33
+    damage: 33,
+    // TODO Check this; 2.2 -> 1.45
+    rps: 1.45,
+    // TODO Check this; 6 -> 8
+    magazine: 8,
     accuracy: 95,
     ideal: 19,
     falloff: 60,
-    ammo: 48,
+    // TODO Check this; 48 -> 40
+    ammo: 40,
     crit: 5,
     weakspot: 100,
     stagger: -70,
@@ -168,7 +173,8 @@ export const weaponItems: WeaponItem[] = [
     accuracy: 95,
     ideal: 20,
     falloff: 70,
-    ammo: 48,
+    // TODO Check this; 48 -> 40
+    ammo: 40,
     crit: 5,
     weakspot: 100,
     stagger: 5,
@@ -224,7 +230,8 @@ export const weaponItems: WeaponItem[] = [
     falloff: 70,
     ammo: 36,
     crit: 5,
-    weakspot: 100,
+    // TODO Check this; 100 -> 105
+    weakspot: 105,
     stagger: 10,
   },
   {
@@ -243,11 +250,13 @@ export const weaponItems: WeaponItem[] = [
     },
     damage: 17,
     rps: 3,
-    magazine: 50,
+    // TODO Check this; 50 -> 40
+    magazine: 40,
     accuracy: 95,
     ideal: 20,
     falloff: 60,
-    ammo: 300,
+    // TODO Check this; 300 -> 200
+    ammo: 200,
     crit: 10,
     weakspot: 100,
     stagger: 0,
@@ -284,7 +293,8 @@ export const weaponItems: WeaponItem[] = [
     id: 'x94ze2',
     description: `An accurate and deadly single-shot crossbow with a low sound profile.`,
     wikiLinks: [`https://remnant.wiki/Crossbow`],
-    damage: 115,
+    // TODO Check this; increased damage from 115 -> 120
+    damage: 120,
     rps: 3.4,
     magazine: 1,
     accuracy: 100,
@@ -292,6 +302,7 @@ export const weaponItems: WeaponItem[] = [
     falloff: 70,
     ammo: 27,
     crit: 10,
+    // TODO Check this; I think this is the same thing as weakspot modifier? Notes say 110% -> 115%, but it was already 115%.
     weakspot: 115,
     stagger: 10,
   },
@@ -355,7 +366,8 @@ export const weaponItems: WeaponItem[] = [
     accuracy: 95,
     ideal: 27,
     falloff: 75,
-    ammo: 42,
+    // TODO Check this; reserves increased by 7, 42 -> 49
+    ammo: 49,
     crit: 5,
     weakspot: 110,
     stagger: 5,
@@ -423,13 +435,17 @@ export const weaponItems: WeaponItem[] = [
         name: 'Dreadwalker',
       },
     },
-    damage: 31,
-    rps: 4.3,
-    magazine: 10,
+    // TODO Check this; 31 -> 28
+    damage: 28,
+    // TODO Check this; 4.35 -> 5.25
+    rps: 5.25,
+    // TODO Check this; 10 -> 13
+    magazine: 13,
     accuracy: 95,
     ideal: 18,
     falloff: 50,
-    ammo: 90,
+    // TODO Check this; 90 -> 117
+    ammo: 117,
     crit: 5,
     weakspot: 105,
     stagger: 15,
@@ -453,9 +469,11 @@ export const weaponItems: WeaponItem[] = [
     accuracy: 95,
     ideal: 17,
     falloff: 30,
-    ammo: 400,
+    // TODO Check this; 400 -> 300
+    ammo: 300,
     crit: 5,
-    weakspot: 75,
+    // TODO Check this; 75 -> 80
+    weakspot: 80,
     stagger: -20,
   },
   {
@@ -511,7 +529,8 @@ export const weaponItems: WeaponItem[] = [
     description: `The Postulant grants these to those who can defeat him. None know why. Some suspect that the game is mere preamble-that perhaps the true game is what its players do next.`,
     wikiLinks: [`https://remnant.wiki/Royal_Hunting_Bow`],
     damage: 80,
-    rps: 4.3,
+    // TODO Check this; 4.3 -> 5.3
+    rps: 5.3,
     magazine: 1,
     accuracy: 100,
     ideal: 25,
@@ -581,13 +600,16 @@ export const weaponItems: WeaponItem[] = [
         name: 'Shatterstar',
       },
     },
-    damage: 72,
-    rps: 1.9,
+    // TODO Check this; 72 -> 50
+    damage: 50,
+    // TODO Check this; 1.9 -> 2.1
+    rps: 2.1,
     magazine: 6,
     accuracy: 95,
     ideal: 25,
     falloff: 75,
-    ammo: 42,
+    // TODO Check this; 42 -> 36
+    ammo: 36,
     crit: 10,
     weakspot: 115,
     stagger: 0,
@@ -603,7 +625,8 @@ export const weaponItems: WeaponItem[] = [
     description: `Fires incendiary shells that apply BURNING which deals 30 FIRE damage over 3.0 seconds.`,
     wikiLinks: [`https://remnant.wiki/Sparkfire_Shotgun`],
     damage: 100,
-    rps: 1.4,
+    // TODO Check this; 1.4 -> 1.3
+    rps: 1.3,
     magazine: 7,
     accuracy: 98,
     ideal: 12,
@@ -627,11 +650,13 @@ export const weaponItems: WeaponItem[] = [
       },
     },
     damage: 200,
-    rps: 1.55,
+    // TODO Check this; 1.55 -> 1.95
+    rps: 1.95,
     magazine: 1,
     accuracy: 95,
     ideal: 10,
-    falloff: 30,
+    // TODO Check this; 30 -> 25
+    falloff: 25,
     ammo: 21,
     crit: 5,
     weakspot: 100,
@@ -722,7 +747,8 @@ export const weaponItems: WeaponItem[] = [
     accuracy: 80,
     ideal: 25,
     falloff: 70,
-    ammo: 50,
+    // TODO Check this; reserves +10, 50 -> 60
+    ammo: 60,
     crit: 10,
     weakspot: 110,
     stagger: 0,
@@ -772,6 +798,8 @@ export const weaponItems: WeaponItem[] = [
     name: "Assassin's Dagger",
     imagePath: '/melee/assassins_dagger.png',
     id: 'bv9wps',
+    // TODO Check this; `always deals weakspot damage from behind the enemy` - not sure how this is represented in the description
+    // TODO Check this; `removed additional damage buff when attacking Bleeding targets` - not sure how this is represented in the description
     description: `Lightweight. Silent. Deadly. It's rumored that the blade is meant to bestow a slow, agonizing death.`,
     wikiLinks: [`https://remnant.wiki/Assassin%27s_Dagger`],
     linkedItems: {
@@ -779,7 +807,8 @@ export const weaponItems: WeaponItem[] = [
         name: 'Bloodthirst',
       },
     },
-    damage: 41,
+    // TODO: Check this; base damage 41 -> 35
+    damage: 35,
     crit: -3,
     weakspot: 110,
     stagger: -15,
@@ -816,9 +845,12 @@ export const weaponItems: WeaponItem[] = [
       },
     },
     damage: 100,
-    crit: 5,
-    weakspot: 90,
-    stagger: 6,
+    // TODO Check this; crit 5% -> 6%
+    crit: 6,
+    // TODO Check this; weakspot 90 -> 95
+    weakspot: 95,
+    // TODO Check this; stagger 6% -> 7%
+    stagger: 7,
   },
   // This weapon appears to be unobtainable
   // {
@@ -987,8 +1019,10 @@ export const weaponItems: WeaponItem[] = [
       },
     },
     damage: 189,
-    crit: 6,
-    weakspot: 100,
+    // TODO Check this; 6% -> 5%
+    crit: 5,
+    // TODO Check this; 100% -> 110%
+    weakspot: 110,
     stagger: -5,
   },
   {
@@ -1041,7 +1075,7 @@ export const weaponItems: WeaponItem[] = [
     name: 'Labyrinth Staff',
     imagePath: '/melee/labyrinth_staff.png',
     id: 'gts5dh',
-    description: `Basic Strikes generate 10% additional Mod Power. Charge Attacks perform an AOE which strikes all enemies within 2m [R], dealing 75 Damage. AOE Damage generates 50% additional Mod Power.`,
+    description: `Basic Strikes generate 10% additional Mod Power. Charge Attacks perform an AOE which strikes all enemies within 2m [A], dealing 75 Damage. AOE Damage generates 50% additional Mod Power.`,
     wikiLinks: [`https://remnant.wiki/Labyrinth_Staff`],
     damage: 64,
     crit: 8,
@@ -1211,6 +1245,23 @@ export const weaponItems: WeaponItem[] = [
     weakspot: 95,
     stagger: 8,
   },
+  // TODO Check this, update image, etc.
+  {
+    category: 'weapon',
+    type: 'melee',
+    name: 'Shovel',
+    // TODO change the path
+    imagePath: '/placeholder.jpg',
+    id: 'vpEWS5',
+    dlc: 'dlc2',
+    description: ``,
+    wikiLinks: [`https://remnant.wiki/Shovel`],
+    // TODO Check damage values
+    damage: -1,
+    crit: -1,
+    weakspot: -1,
+    stagger: -1,
+  },
   {
     category: 'weapon',
     type: 'melee',
@@ -1323,6 +1374,7 @@ export const weaponItems: WeaponItem[] = [
     name: 'Stonebreaker',
     imagePath: '/melee/stonebreaker.png',
     id: 'b4g4q0',
+    // TODO Check this; `removed Double Damage Stacking on Charge Attacks` - not sure how this is represented in the description
     description: `A massive Greatsword which contains the harnessed magic of a corrupted Guardian. Can summon small shockwaves.`,
     wikiLinks: [`https://remnant.wiki/Stonebreaker`],
     linkedItems: {
@@ -1333,7 +1385,8 @@ export const weaponItems: WeaponItem[] = [
     damage: 103,
     crit: 4,
     weakspot: 95,
-    stagger: 10,
+    // TODO Check this; `reduced Impact Scalar from 10% to 5%`
+    stagger: 5,
   },
   {
     category: 'weapon',
@@ -1354,8 +1407,8 @@ export const weaponItems: WeaponItem[] = [
     name: "World's Edge",
     imagePath: '/melee/worlds_edge1.png',
     id: 'gilcfn',
-    description: `A glowing Greatsword forged from shards of a shattered Worldstone. Charge
-    attacks cast waves.`,
+    // TODO Check this; `reduced base damage on Wave` - not sure how this is represented in the description
+    description: `A glowing Greatsword forged from shards of a shattered Worldstone. Charge attacks cast waves.`,
     wikiLinks: [`https://remnant.wiki/World%27s_Edge`],
     linkedItems: {
       mod: {
@@ -1363,8 +1416,10 @@ export const weaponItems: WeaponItem[] = [
       },
     },
     damage: 101,
-    crit: 6,
+    // TODO Check this; `reduced critical chance from 6% to 3%`
+    crit: 3,
     weakspot: 85,
+    // TODO Check this; `reduced abnormally high impact/stagger scalar`, no numbers though
     stagger: 80,
   },
   {
@@ -1400,17 +1455,20 @@ export const weaponItems: WeaponItem[] = [
         name: 'Loathe the Weak',
       },
     },
-    damage: 315,
+    // TODO Check this; 105 -> 92
+    damage: 92,
     rps: 1.7,
     magazine: 5,
     accuracy: 95,
-    ideal: 18,
+    // TODO Check this; 18 -> 16
+    ideal: 16,
     falloff: 30,
     ammo: 30,
     crit: 10,
     weakspot: 100,
     stagger: 0,
   },
+  // TODO Check this; `incrased fire rate from 3.5 to 3.65` - not sure how this is represented in the data
   {
     category: 'weapon',
     type: 'hand gun',
@@ -1443,7 +1501,8 @@ export const weaponItems: WeaponItem[] = [
     magazine: 99,
     accuracy: 95,
     ideal: 15,
-    falloff: 10,
+    // TODO Check this; 40 -> 35
+    falloff: 35,
     ammo: 105,
     crit: 0,
     weakspot: 0,
@@ -1515,7 +1574,8 @@ export const weaponItems: WeaponItem[] = [
         name: 'Death Brand',
       },
     },
-    damage: 16,
+    // TODO Check this; 16 -> 17
+    damage: 17,
     rps: 6.3,
     magazine: 25,
     accuracy: 95,
@@ -1541,7 +1601,8 @@ export const weaponItems: WeaponItem[] = [
     },
     wikiLinks: ['https://remnant.wiki/Corrupted_Sorrow'],
     damage: 42,
-    rps: 2.3,
+    // TODO Check this; 2.3 -> 2.6
+    rps: 2.6,
     magazine: 10,
     accuracy: 95,
     ideal: 17,
@@ -1576,6 +1637,7 @@ export const weaponItems: WeaponItem[] = [
     weakspot: 85,
     stagger: 0,
   },
+  // TODO Check this; `slightly reduced reload speed (~5%)` - not sure how this is represented in our data
   {
     category: 'weapon',
     type: 'hand gun',
@@ -1585,11 +1647,14 @@ export const weaponItems: WeaponItem[] = [
     id: 'ztz84h',
     description: `A double barrel shotgun which can deal massive damage at close range with back to back shots.`,
     wikiLinks: [`https://remnant.wiki/Double_Barrel`],
-    damage: 110,
-    rps: 2.3,
+    // TODO Check this; 110 -> 105
+    damage: 105,
+    // TODO Check this; 2.3 -> 2.25
+    rps: 2.25,
     magazine: 2,
     accuracy: 60,
-    ideal: 7,
+    // TODO Check this; maximum falloff 7m -> 8m
+    ideal: 8,
     falloff: 20,
     ammo: 24,
     crit: 5,
@@ -1683,7 +1748,8 @@ export const weaponItems: WeaponItem[] = [
     accuracy: 95,
     ideal: 17,
     falloff: 50,
-    ammo: 252,
+    // TODO Check this; `increased reserves by 42 (+1 Magazine)`
+    ammo: 294,
     crit: 10,
     weakspot: 100,
     stagger: 0,
@@ -1713,6 +1779,7 @@ export const weaponItems: WeaponItem[] = [
     weakspot: 0,
     stagger: -15,
   },
+  // TODO Check this; `fire rate from 7.5 to 8.1` - not sure how this is represented in our stats
   {
     category: 'weapon',
     type: 'hand gun',
@@ -1724,7 +1791,8 @@ export const weaponItems: WeaponItem[] = [
     wikiLinks: [`https://remnant.wiki/Repeater_Pistol`],
     damage: 15,
     rps: 7.5,
-    magazine: 15,
+    // TODO Check this; 15 -> 20
+    magazine: 20,
     accuracy: 95,
     ideal: 18,
     falloff: 52,
@@ -1747,7 +1815,8 @@ export const weaponItems: WeaponItem[] = [
         name: 'Soul Brand',
       },
     },
-    damage: 15,
+    // TODO Check this; 15 -> 16
+    damage: 16,
     rps: 6.6,
     magazine: 42,
     accuracy: 95,
@@ -1768,10 +1837,12 @@ export const weaponItems: WeaponItem[] = [
     wikiLinks: [`https://remnant.wiki/Rupture_Cannon`],
     location: { world: `N'Erud`, dungeon: [`Vault of the Formless`] },
     damage: 42,
-    rps: 3.1,
+    // TODO Check this; 3.1 -> 2.75
+    rps: 2.75,
     magazine: 12,
     accuracy: 90,
-    ideal: 13,
+    // TODO Check this; 13m -> 14m
+    ideal: 14,
     falloff: 35,
     ammo: 60,
     crit: 5,
@@ -1799,6 +1870,7 @@ export const weaponItems: WeaponItem[] = [
     weakspot: 100,
     stagger: -10,
   },
+  // TODO Check this; `increased reload speed` - not sure how this is represented in our data
   {
     category: 'weapon',
     type: 'hand gun',
@@ -1809,7 +1881,8 @@ export const weaponItems: WeaponItem[] = [
     wikiLinks: [`https://remnant.wiki/Service_Pistol`],
     damage: 24,
     rps: 6.5,
-    magazine: 9,
+    // TODO Check this; 9 -> 10
+    magazine: 10,
     accuracy: 85,
     ideal: 20,
     falloff: 50,
@@ -1829,11 +1902,13 @@ export const weaponItems: WeaponItem[] = [
     wikiLinks: [`https://remnant.wiki/Silverback_Model_500`],
     damage: 55,
     rps: 2.4,
-    magazine: 5,
+    // TODO Check this; `increased cylinder capacity from 5 to 6`
+    magazine: 6,
     accuracy: 95,
     ideal: 20,
     falloff: 60,
-    ammo: 40,
+    // TODO Check this; `incrased total ammo from 45 to 48`
+    ammo: 48,
     crit: 5,
     weakspot: 105,
     stagger: 20,
@@ -1887,6 +1962,8 @@ export const weaponItems: WeaponItem[] = [
     weakspot: 110,
     stagger: 10,
   },
+
+  // TODO Check this; `increased reload speed` - not sure how this is represented in our data
   {
     category: 'weapon',
     type: 'hand gun',
@@ -1896,17 +1973,20 @@ export const weaponItems: WeaponItem[] = [
     id: '50i9nj',
     description: `A high-caliber single-shot hunting pistol that inflicts heavy damage at mid to long range.`,
     wikiLinks: [`https://remnant.wiki/Sureshot`],
-    damage: 105,
+    // TODO Check this; 105 -> 110
+    damage: 110,
     rps: 3,
     magazine: 1,
     accuracy: 80,
     ideal: 22,
     falloff: 75,
-    ammo: 21,
+    // TODO Check this; 21 -> 24
+    ammo: 24,
     crit: 5,
     weakspot: 110,
     stagger: 10,
   },
+  // TODO Check this; `increased reload speed` - not sure how this is represented in our data
   {
     category: 'weapon',
     type: 'hand gun',
@@ -1921,11 +2001,13 @@ export const weaponItems: WeaponItem[] = [
     accuracy: 95,
     ideal: 15,
     falloff: 45,
-    ammo: 270,
+    // TODO Check this; `increased reserves by 60 (+2 Magazines)`
+    ammo: 330,
     crit: 10,
     weakspot: 100,
     stagger: -10,
   },
+  // TODO Check this; `increased reload speed` - not sure how this is represented in our data
   {
     category: 'weapon',
     type: 'hand gun',
@@ -1935,13 +2017,16 @@ export const weaponItems: WeaponItem[] = [
     id: 'hk5uls',
     description: `A classic six-shooter. Tough. Dependable.`,
     wikiLinks: [`https://remnant.wiki/Western_Classic`],
-    damage: 32,
-    rps: 5,
+    // TODO Check this; 32 -> 36
+    damage: 36,
+    // TODO Check this; 5 -> 5.8
+    rps: 5.8,
     magazine: 6,
     accuracy: 95,
     ideal: 18,
     falloff: 48,
-    ammo: 66,
+    // TODO Check this; reserves +6, 66 -> 72
+    ammo: 72,
     crit: 5,
     weakspot: 105,
     stagger: 5,

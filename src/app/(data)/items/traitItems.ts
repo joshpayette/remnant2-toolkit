@@ -9,7 +9,7 @@ export const traitItems: TraitItem[] = [
     imagePath: '/trait/affliction.png',
     id: 'dj8zx4',
     tags: ['Status Effect', 'Status Duration'],
-    description: `Increases STATUS EFFECT duration against enemies by 10%.`,
+    description: `Increases STATUS EFFECT duration against enemies`,
     maxLevelBonus: `At max level, Affliction Increases STATUS EFFECT duration against enemies by +100%
     However, it does NOT increase a Status Total Damage, effectively reducing Status Damage by 1/2.`,
     wikiLinks: [`https://remnant.wiki/Affliction`],
@@ -41,8 +41,8 @@ export const traitItems: TraitItem[] = [
     name: 'Amplitude',
     imagePath: '/trait/amplitude.png',
     id: 'pb5neu',
-    description: `Increases AOE Size`,
-    maxLevelBonus: `At max level, Amplitude Increases AOE Size by +50%`,
+    description: `Increases AOE and AURA Size by 5%.`,
+    maxLevelBonus: `At max level, Amplitude Increases AOE and AURA Size by +50%`,
     wikiLinks: [`https://remnant.wiki/Amplitude`],
     amount: DEFAULT_TRAIT_AMOUNT,
   },
@@ -96,8 +96,10 @@ export const traitItems: TraitItem[] = [
     imagePath: '/trait/dark_pact.png',
     id: 'mjkf4t',
     tags: ['Grey Health'],
+    // TODO: Check this; Grey Health regen -> Grey Health Conversion Rate
     description: `Reduces GREY HEALTH regen rate by 9%`,
-    maxLevelBonus: `At max level, Dark Pact Reduces GREY HEALTH regen rate by -90%`,
+    // TODO: Check this; Grey Health regen -> Grey Health Conversion Rate
+    maxLevelBonus: `At max level, Dark Pact Reduces GREY HEALTH conversion rate by -90%`,
     wikiLinks: [`https://remnant.wiki/Dark_Pact`],
     amount: DEFAULT_TRAIT_AMOUNT,
   },
@@ -186,7 +188,8 @@ export const traitItems: TraitItem[] = [
     id: 'cvsois',
     tags: ['Relic Use Speed'],
     description: `Increases the Use Speed of Consumables and Relics`,
-    maxLevelBonus: `At max level, Glutton Increases the Use Speed of Consumables and Relics by +30%`,
+    // TODO Check this; 30% -> 35%
+    maxLevelBonus: `At max level, Glutton Increases the Use Speed of Consumables and Relics by +35%`,
     wikiLinks: [`https://remnant.wiki/Glutton`],
     amount: DEFAULT_TRAIT_AMOUNT,
   },
@@ -197,7 +200,8 @@ export const traitItems: TraitItem[] = [
     id: '8baa52',
     tags: ['Spread', 'Recoil'],
     description: `Reduces Weapon Spread and Recoil`,
-    maxLevelBonus: `At max level, Handling Reduces Weapon Spread and Recoil by 40%`,
+    // TODO Check this; 40% -> 30%
+    maxLevelBonus: `At max level, Handling Reduces Weapon Spread and Recoil by 30%`,
     wikiLinks: [`https://remnant.wiki/Handling`],
     amount: DEFAULT_TRAIT_AMOUNT,
   },
@@ -283,16 +287,6 @@ export const traitItems: TraitItem[] = [
         name: 'Summoner',
       },
     },
-    amount: DEFAULT_TRAIT_AMOUNT,
-  },
-  {
-    category: 'trait',
-    name: 'Resonance',
-    imagePath: '/trait/resonance.png',
-    id: 'dmizlm',
-    description: `Increases Aura Size`,
-    maxLevelBonus: `At max level, Resonance Increases Aura Size by +50%`,
-    wikiLinks: [`https://remnant.wiki/Resonance`],
     amount: DEFAULT_TRAIT_AMOUNT,
   },
   {
@@ -385,8 +379,8 @@ export const traitItems: TraitItem[] = [
     imagePath: '/trait/swiftness.png',
     id: '3ochlm',
     tags: ['Movement Speed'],
-    description: `Increases movement`,
-    maxLevelBonus: `At max level, Swiftness Increases all Movement Speed by 15%`,
+    description: `Increases Movement Speed by 1.5% and greatly improves Environmental Traversal Speed.`,
+    maxLevelBonus: `At max level, Swiftness Increases Movement Speed by 15%`,
     wikiLinks: [`https://remnant.wiki/Swiftness`],
     linkedItems: {
       archetype: {
@@ -437,17 +431,6 @@ export const traitItems: TraitItem[] = [
     maxLevelBonus: `At max level, Vigor Increases Max Health by 30`,
     wikiLinks: [`https://remnant.wiki/Vigor`],
     healthStep: 3,
-    amount: DEFAULT_TRAIT_AMOUNT,
-  },
-  {
-    category: 'trait',
-    name: 'Wayfarer',
-    imagePath: '/trait/wayfarer.png',
-    id: 'b3rey4',
-    tags: ['Movement Speed'],
-    description: `Increases Environment Movement Speed (Vaulting, Ladders, Wading)`,
-    maxLevelBonus: `At max level, Wayfarer Increeses Traversal Movement by +50%`,
-    wikiLinks: [`https://remnant.wiki/Wayfarer`],
     amount: DEFAULT_TRAIT_AMOUNT,
   },
   {
