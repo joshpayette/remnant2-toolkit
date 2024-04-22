@@ -726,7 +726,7 @@ export const modItems: ModItem[] = [
     imagePath: '/mod/ring_of_spears.png',
     dlc: 'dlc1',
     id: '4rdl8r',
-    description: `Calls forth 7 phantom spears to encircle the wielder [A] for 25 seconds. This ring will deal up to 35 damage per second to nearby enemies, based on the number of spears remaining in the ring. While the mod is active, these spears can be thrown by tapping the mod button, dealing 100 damage to the first enemy hit. Spears will remain at their impact point for the duration of the mod or until recalled by holding the mod button. When recalled, spears will return to the wielder, dealing 50 damage to enemies along their path. When all recalled spears have reached the wielder, they cause an explosion dealing up to 350 damage based on the number of spears recalled.`,
+    description: `Calls forth 7 phantom spears to encircle the wielder [A] for 25 seconds. This ring will deal up to 35 damage per second to nearby enemies, based on the number of spears remaining in the ring. While the mod is active, these spears can be thrown by tapping the mod button, dealing 100 damage to the first enemy hit. Spears will remain at their impact point for the duration of the mod or until recalled by holding the mod button. When recalled, spears will return to the wielder, dealing 50 damage to enemies along their path. When all recalled spears have reached the wielder, they cause an explosion dealing up to 350 damage [E] based on the number of spears recalled.`,
     wikiLinks: [`https://remnant.wiki/Ring_of_Spears`],
   },
   {
