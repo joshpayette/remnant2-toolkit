@@ -10,6 +10,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Shovel weapon has been added.
 
+### Fixed
+
+- Fixed issue where Invoker items were not showing in the Item Tracker.
+
 ### Changed
 
 - Loads of values updated for all items, too many to enumerate.

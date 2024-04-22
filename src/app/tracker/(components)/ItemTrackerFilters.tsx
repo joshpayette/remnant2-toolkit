@@ -147,7 +147,7 @@ export function ItemTrackerFilters({
    * ------------------------------------
    */
 
-  const defaultReleaseKeys: ReleaseKey[] = ['base', 'dlc1']
+  const defaultReleaseKeys: ReleaseKey[] = ['base', 'dlc1', 'dlc2']
   const [includedDlcKeys, setIncludedDlcKeys] =
     useState<ReleaseKey[]>(defaultReleaseKeys)
 
