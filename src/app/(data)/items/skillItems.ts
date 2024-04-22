@@ -295,8 +295,9 @@ export const skillItems: SkillItem[] = [
     name: 'Reality Rune',
     imagePath: '/skill/reality_rune.png',
     id: 'i3ddi7',
+    tags: ['Status Effect', 'Damage Reduction'],
     // TODO Check this; `added automatic mod generation while inside Dome` - not sure how that is reflected in description
-    description: `Conjures a 7m [A] protective dome which applies SLOW to any enemy or enemy projectiles.  Allies inside gain 25% Damage Reduction. Lasts 15s.`,
+    description: `Conjures a 7m [A] protective dome which applies SLOW to any enemy or enemy projectiles. Allies inside gain 25% Damage Reduction. Lasts 15s.`,
     cooldown: 75,
     wikiLinks: [`https://remnant.wiki/Reality_Rune`],
     linkedItems: {

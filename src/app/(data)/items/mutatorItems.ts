@@ -537,7 +537,7 @@ export const mutatorItems: MutatorItem[] = [
     type: 'gun',
     imagePath: '/mutator/timewave.png',
     id: 'dynus4',
-    tags: ['Ranged Damage'],
+    tags: ['Ranged Damage', 'Status Effect'],
     // TODO Check this; slow application 7.5m -> 10m
     // TODO Check this; `reworked primary to increased ranged damage to slowed enemies`
     description: `Mod Use applies SLOW status on all enemies within 10m [A] for 5s.`,
