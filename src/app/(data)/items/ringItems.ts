@@ -156,7 +156,7 @@ export const ringItems: RingItem[] = [
     dlc: 'dlc1',
     id: 'eozlwb',
     tags: ['Grey Health'],
-    description: `Sets 1% of wearer's Max Health as Grey Health. COnverts 33.5% of Health to Grey Health on Skill use.`,
+    description: `Sets 1% of wearer's Max Health as Grey Health. Converts 33.5% of Health to Grey Health on Skill use.`,
     wikiLinks: [`https://remnant.wiki/Bitter_Memento`],
   },
   {

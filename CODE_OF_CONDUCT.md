@@ -35,6 +35,7 @@ Examples of unacceptable behavior include:
   without their explicit permission
 - Other conduct which could reasonably be considered inappropriate in a
   professional setting
+- Overusing discord's @ feature 
 - Gore or violence beyond the context of the game
 
 ## Foreign Language Policy
