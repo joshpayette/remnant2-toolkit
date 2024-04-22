@@ -11,7 +11,7 @@ import { Analytics } from '@vercel/analytics/react'
 import { Viewport } from 'next'
 import { ToastContainer } from 'react-toastify'
 
-import { BaseText, BaseTextLink } from '@/app/(components)/_base/text'
+import { BaseCode, BaseText, BaseTextLink } from '@/app/(components)/_base/text'
 import { GlobalActionButtons } from '@/app/(components)/buttons/global-action-buttons/global-action-buttons'
 import { NAV_ITEMS } from '@/features/navigation/constants'
 import { PreloadResources } from '@/features/ui/PreloadResources'
@@ -40,18 +40,16 @@ export default async function RootLayout({
         <PreloadResources />
         <SessionProvider>
           <GlobalActionButtons />
-          <div className="w-full bg-blue-950 p-1 text-center text-sm">
+          <div className="w-full bg-red-950 p-1 text-center text-sm">
             <BaseText>
               Item changes from the patch notes are now live! All builds are
               marked as patch affected - update your builds ASAP!
             </BaseText>
-            <hr className="my-1 w-full border border-blue-500/20" />
+          </div>
+          <div className="w-full bg-green-950 p-1 text-center text-sm">
             <BaseText>
-              Want to contribute to item discoveries? Join the{' '}
-              <BaseTextLink href={NAV_ITEMS.wiki.href} target="_blank">
-                Remnant.wiki Discord
-              </BaseTextLink>{' '}
-              to share your discoveries with the community!
+              Use the <BaseCode>Include Patch Affected Builds</BaseCode> filter
+              to see all patch affected builds!
             </BaseText>
           </div>
           <div className="flex h-full w-full max-w-7xl grow flex-col items-start justify-start">
