@@ -385,7 +385,7 @@ export const DESCRIPTION_TAGS = [
     token: 'SLOW',
     color: 'text-[#f1f1cf]',
     description:
-      'Reduces target speed. Ineffective against Bosses and Aberrations.',
+      'Reduces target speed. 99% reduced effect against Bosses and Aberrations.',
   },
   {
     type: 'Summoner',

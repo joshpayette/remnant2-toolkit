@@ -323,6 +323,7 @@ export const modItems: ModItem[] = [
     name: 'Dreamwave',
     imagePath: '/mod/dreamwave.png',
     id: 'dwmc70',
+    tags: ['Status Effect'],
     description: `After dealing 250 damage, Charge Attack will release a Dreamwave, flowing outwards 20m [A] and returning to caster. Dreamwave applies SLOW to all enemies for 10s and grants a Stack of REVERIE for each enemy affected. Each Stack grants +2% to All Damage and +2% Movement Speed, which lasts 15s.`,
     wikiLinks: [`https://remnant.wiki/Dreamwave`],
     linkedItems: {
@@ -752,6 +753,7 @@ export const modItems: ModItem[] = [
     name: 'Scrap Shot',
     imagePath: '/mod/scrap_shot.png',
     id: 'hcv400',
+    tags: ['Status Effect'],
     description: `Fires a caltrops grenade that explodes to cover an area of 6m. [A] Caltrops deal 20 damage per second and SLOW to enemies that walk over them. Lasts 10s.`,
     wikiLinks: [`https://remnant.wiki/Scrap_Shot`],
   },
@@ -797,6 +799,7 @@ export const modItems: ModItem[] = [
     name: 'Song of Eafir',
     imagePath: '/mod/song_of_eafir.png',
     id: 'edm644',
+    tags: ['Status Effect'],
     // TODO Check this; damage reduction 15% -> 10%
     description: `Fires a shot infused with the binding power of the Song of Eafir. Staggers most ground enemies within 10m [A] and deals 150 damage [E] to Flying enemies within the same range.
     The song continues for 15s, afflicting targets within 15m [A] with SLOW, and a 10% decrease to damage dealt.`,
@@ -836,7 +839,8 @@ export const modItems: ModItem[] = [
     name: 'Spore Shot',
     imagePath: '/mod/spore_shot1.png',
     id: '9fi67v',
-    description: `Fires a rotten spore that explodes dealing 125 damage [E] within 6m and leaves a deadly gas cloud that applies SLOW [A] while dealing 15 damage per second for 7s.`,
+    tags: ['Status Effect'],
+    description: `Fires a rotten spore that explodes dealing 125 damage [E] within 6m [A] and leaves a deadly gas cloud that applies SLOW while dealing 15 damage per second for 7s.`,
     wikiLinks: [`https://remnant.wiki/Spore_Shot`],
     linkedItems: {
       weapon: {
@@ -862,6 +866,7 @@ export const modItems: ModItem[] = [
     name: 'Stasis Beam',
     imagePath: '/mod/stasis_beam.png',
     id: 'rer73h',
+    tags: ['Status Effect'],
     description: `Fires a beam which deals 15 damage per second, and applies SLOW Debuff. After 2s of application to a target, SLOW becomes STASIS, freezing the target in place for 10s.`,
     wikiLinks: [`https://remnant.wiki/Stasis_Beam`],
   },
@@ -885,6 +890,7 @@ export const modItems: ModItem[] = [
     name: 'Time Lapse',
     imagePath: '/mod/time_lapse.png',
     id: 'nn1q6k',
+    tags: ['Status Effect'],
     description: `Creates a 6m [A] blast which freezes all standard enemies for 7s. 
     Dealing damage to frozen enemies immediately breaks the Time Lapse effect, applying SLOW for the remaining duration.`,
     wikiLinks: [`https://remnant.wiki/Time_Lapse`],

@@ -58,7 +58,7 @@ export const consumableItems: ConsumableItem[] = [
     name: 'Binding Orb',
     imagePath: '/consumable/binding_orb.png',
     id: 'edaeta',
-    tags: ['Grenade'],
+    tags: ['Grenade', 'Status Effect'],
     description: `When thrown, device becomes an anchor and applies SLOW to all enemies within 4m. [A] Lasts 20s.`,
     wikiLinks: [`https://remnant.wiki/Binding_Orb`],
   },
