@@ -1250,17 +1250,15 @@ export const weaponItems: WeaponItem[] = [
     category: 'weapon',
     type: 'melee',
     name: 'Shovel',
-    // TODO change the path
-    imagePath: '/placeholder.jpg',
+    imagePath: '/melee/shovel-placeholder.png',
     id: 'vpEWS5',
     dlc: 'dlc2',
-    description: ``,
+    description: `It's a shovel.`,
     wikiLinks: [`https://remnant.wiki/Shovel`],
-    // TODO Check damage values
-    damage: -1,
-    crit: -1,
-    weakspot: -1,
-    stagger: -1,
+    damage: 55,
+    crit: 15,
+    weakspot: 100,
+    stagger: 0,
   },
   {
     category: 'weapon',
@@ -1478,7 +1476,8 @@ export const weaponItems: WeaponItem[] = [
     description: `An ingenius Gul rifle designed to harness energy from Pan crystals. Charge to fire a 3-shot burst`,
     wikiLinks: [`https://remnant.wiki/Bolt_Driver`],
     damage: 26,
-    rps: 7.4,
+    // TODO Check this; 7.4 -> 7.63
+    rps: 7.63,
     magazine: 24,
     accuracy: 99,
     ideal: 17,
