@@ -10,6 +10,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Added many newly discovered items from the latest DLC.
 
+### Changed
+
+- Added an autosave mechanism when creating and editing builds. This should help preserve a build when the page reloads.
+
 ### Fixed
 
 - Updated incorrect Bulletweaver description.
