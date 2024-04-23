@@ -425,6 +425,33 @@ export const weaponItems: WeaponItem[] = [
   {
     category: 'weapon',
     type: 'long gun',
+    name: 'Monolith',
+    imagePath: '/mainhand/monolith.png',
+    dlc: 'dlc2',
+    id: 'WjE2nZ',
+    description: `Fires concentrated sand. Sustained primary fire and Sandstorm hits apply EXPOSED for 1s. Max 15s.
+
+    EXPOSED: Target receives 15% additional damage from all sources.`,
+    wikiLinks: [`https://remnant.wiki/Monolith`],
+    linkedItems: {
+      mod: {
+        name: 'Sandstorm',
+      },
+    },
+    damage: 11,
+    rps: 12,
+    magazine: 80,
+    accuracy: 95,
+    ideal: 17,
+    falloff: 30,
+    ammo: 320,
+    crit: 5,
+    weakspot: 85,
+    stagger: -20,
+  },
+  {
+    category: 'weapon',
+    type: 'long gun',
     name: 'Nightfall',
     imagePath: '/mainhand/nightfall.png',
     id: '2fdvrf',
@@ -1245,12 +1272,11 @@ export const weaponItems: WeaponItem[] = [
     weakspot: 95,
     stagger: 8,
   },
-  // TODO Check this, update image, etc.
   {
     category: 'weapon',
     type: 'melee',
     name: 'Shovel',
-    imagePath: '/melee/shovel-placeholder.png',
+    imagePath: '/melee/shovel.png',
     id: 'vpEWS5',
     dlc: 'dlc2',
     description: `It's a shovel.`,

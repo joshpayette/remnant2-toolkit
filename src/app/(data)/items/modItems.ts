@@ -750,6 +750,21 @@ export const modItems: ModItem[] = [
   },
   {
     category: 'mod',
+    name: 'Sandstorm',
+    imagePath: '/mod/sandstorm.png',
+    dlc: 'dlc2',
+    id: 'ozNPv9',
+    tags: [],
+    description: `Launch a sphere of loam. Impact creates a 5m swirling storm of sand which seeks to center itself on an enemy and deals x Elemental damage per second. When Sandstorm's focused target dies, it will seek a new enemy within 10m. Lasts 15s.`,
+    wikiLinks: [`https://remnant.wiki/Sandstorm`],
+    linkedItems: {
+      weapon: {
+        name: 'Monolith',
+      },
+    },
+  },
+  {
+    category: 'mod',
     name: 'Scrap Shot',
     imagePath: '/mod/scrap_shot.png',
     id: 'hcv400',

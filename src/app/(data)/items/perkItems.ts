@@ -1266,13 +1266,14 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
   {
     category: 'perk',
     name: 'Visionary',
-    imagePath: '/perk/visionary-placeholder1.png',
+    imagePath: '/perk/visionary.png',
     type: 'prime',
     id: 'hYsQ4M',
     dlc: 'dlc2',
     tags: ['Reduce Skill Cooldown'],
-    description:
-      'PRERELEASE Doubles Base Skill Charges for all Archetypes. Skill activation reduces all Skill Cooldowns by 10%. For Heavy Weapons, doubles Heavy Weapon Base Ammo instead.',
+    description: `Doubles Base Skill Charges for all Archetypes. Skill activation reduces all Skill Cooldowns by 10%.
+      
+    For Heavy Weapons, doubles Heavy Base Ammo instead.`,
     wikiLinks: ['https://remnant.wiki/Visionary'],
     linkedItems: {
       archetype: {
@@ -1283,13 +1284,14 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
   {
     category: 'perk',
     name: 'Entranced',
-    imagePath: '/perk/entranced-placeholder1.png',
+    imagePath: '/perk/entranced.png',
     type: 'damage',
     id: 'Y9Tj7F',
     dlc: 'dlc2',
     tags: [],
-    description:
-      'PRERELEASE Increases Skill Damage by 30%, Elemental Damage by 15%, and Skill and Elemental Critical Chance by 5%. Damage increases with Invoker level.',
+    description: `Increases Skill Damage by 30%, Elemental Damage by 15%, and Skill and Elemental Critical Chance by 5%.
+      
+      Damage increases with Invoker Level.`,
     wikiLinks: ['https://remnant.wiki/Entranced'],
     linkedItems: {
       archetype: {
@@ -1300,7 +1302,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
   {
     category: 'perk',
     name: 'Communion',
-    imagePath: '/perk/communion-placeholder1.png',
+    imagePath: '/perk/communion.png',
     type: 'team',
     id: 'GV9bDr',
     dlc: 'dlc2',
@@ -1317,13 +1319,12 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
   {
     category: 'perk',
     name: 'Mind and Body',
-    imagePath: '/perk/mind-and-body-placeholder1.png',
+    imagePath: '/perk/mind_and_body.png',
     type: 'utility',
     id: 'T2U4dZ',
     dlc: 'dlc2',
     tags: [],
-    description:
-      'PRERELEASE Increases Movement Speed by 5% and Damage Reduction by 5%w hile an Invoker Skill is active.',
+    description: `Increases Movement Speed by 5% and Damage Reduction by 5% while an Invoker Skill is active.`,
     wikiLinks: ['https://remnant.wiki/Mind_and_Body'],
     linkedItems: {
       archetype: {
@@ -1334,13 +1335,14 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
   {
     category: 'perk',
     name: 'Soothsayer',
-    imagePath: '/perk/soothsayer-placeholder1.png',
+    imagePath: '/perk/soothsayer.png',
     type: 'relic',
     id: 'j7e5Bb',
     dlc: 'dlc2',
     tags: [],
-    description:
-      'PRERELEASE On Relic use, extend the duration of active Invoker skills by 20% of the base duration. Cannot exceed base duration. Relic Use Speed increased by 25% while an Invoker Skill is active.',
+    description: `On Relic use, extend the duration of active Invoker skills by 20% of the base duration. Cannot exceed base duration.
+
+      Relic Use Speed increased by 25% while an Invoker Skill is active.`,
     wikiLinks: ['https://remnant.wiki/Soothsayer'],
     linkedItems: {
       archetype: {

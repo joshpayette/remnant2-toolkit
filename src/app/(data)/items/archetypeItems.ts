@@ -262,10 +262,11 @@ export const archetypeItems: ArchetypeItem[] = [
   {
     category: 'archetype',
     name: 'Invoker',
-    imagePath: '/archtype/invoker-placeholder1.png', // TODO
+    imagePath: '/archtype/invoker.png',
     id: 'Y2NhrX',
     dlc: 'dlc2',
-    description: 'NO DESCRIPTION YET', // TODO
+    description:
+      'The Invoker is an archetype added in The Forgotten Kingdom, harnessing the power of Yaesha to create powerful, nature-themed skills.',
     wikiLinks: ['https://remnant.wiki/Invoker'],
     linkedItems: {
       traits: [{ name: 'Gifted', amount: 10 }],

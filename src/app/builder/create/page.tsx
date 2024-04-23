@@ -23,12 +23,8 @@ import { PageHeader } from '@/features/ui/PageHeader'
 export default function Page() {
   const [detailedBuildDialogOpen, setDetailedBuildDialogOpen] = useState(false)
 
-  const {
-    dbBuildState,
-    usingLocalChanges,
-    setNewBuildState,
-    updateDBBuildState,
-  } = useDBBuildState(INITIAL_BUILD_STATE, 'create')
+  const { dbBuildState, setNewBuildState, updateDBBuildState } =
+    useDBBuildState(INITIAL_BUILD_STATE, 'create')
 
   const {
     isScreenshotMode,
@@ -96,7 +92,7 @@ export default function Page() {
         onUpdateBuildState={updateDBBuildState}
         showControls={showControls}
         showCreatedBy={false}
-        usingLocalChanges={usingLocalChanges}
+        usingLocalChanges={false}
         builderActions={
           <>
             <SaveBuildButton buildState={dbBuildState} editMode={false} />
