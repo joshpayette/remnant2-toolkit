@@ -737,6 +737,16 @@ export const ringItems: RingItem[] = [
   },
   {
     category: 'ring',
+    name: 'Floodlit Diamond',
+    imagePath: '/ring/floodlit_diamond.png',
+    id: 'z9YJih',
+    dlc: 'dlc2',
+    tags: [],
+    description: `Increases Weakspot Damage by 12%. Bonus is doubled against EXPOSED targets.`,
+    wikiLinks: ['https://remnant.wiki/Floodlit_Diamond'],
+  },
+  {
+    category: 'ring',
     name: "Flyweight's Sting",
     imagePath: '/ring/flyweights_sting.png',
     id: '1qg7a8',
