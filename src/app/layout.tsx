@@ -40,16 +40,11 @@ export default async function RootLayout({
         <PreloadResources />
         <SessionProvider>
           <GlobalActionButtons />
-          <div className="w-full bg-red-950 p-1 text-center text-sm">
-            <BaseText>
-              Item changes from the patch notes are now live! All builds are
-              marked as patch affected - update your builds ASAP!
-            </BaseText>
-          </div>
-          <div className="w-full bg-green-950 p-1 text-center text-sm">
+          <div className="w-full bg-blue-950 p-1 text-center text-sm">
             <BaseText>
               Use the <BaseCode>Include Patch Affected Builds</BaseCode> filter
-              to see all patch affected builds!
+              to see all patch affected builds! Update your pre-patch builds
+              now!
             </BaseText>
           </div>
           <div className="flex h-full w-full max-w-7xl grow flex-col items-start justify-start">
