@@ -11,9 +11,8 @@ import { Analytics } from '@vercel/analytics/react'
 import { Viewport } from 'next'
 import { ToastContainer } from 'react-toastify'
 
-import { BaseCode, BaseText, BaseTextLink } from '@/app/(components)/_base/text'
+import { BaseCode, BaseText } from '@/app/(components)/_base/text'
 import { GlobalActionButtons } from '@/app/(components)/buttons/global-action-buttons/global-action-buttons'
-import { NAV_ITEMS } from '@/features/navigation/constants'
 import { PreloadResources } from '@/features/ui/PreloadResources'
 
 import { SessionProvider } from '../features/auth/components/SessionProvider'

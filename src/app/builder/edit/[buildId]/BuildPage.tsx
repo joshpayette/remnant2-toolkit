@@ -2,6 +2,7 @@
 
 import { useSession } from 'next-auth/react'
 import { useRef, useState } from 'react'
+import { useIsClient } from 'usehooks-ts'
 
 import { ArmorCalculatorButton } from '@/app/(components)/buttons/builder-buttons/armor-calculator-button'
 import { DeleteBuildButton } from '@/app/(components)/buttons/builder-buttons/delete-build-button'
@@ -29,8 +30,12 @@ export function BuildPage({ build }: Props) {
 
   const [detailedBuildDialogOpen, setDetailedBuildDialogOpen] = useState(false)
 
-  const { dbBuildState, updateDBBuildState, setNewBuildState } =
-    useDBBuildState(cleanUpBuildState(dbBuildToBuildState(build)))
+  const {
+    dbBuildState,
+    usingLocalChanges,
+    updateDBBuildState,
+    setNewBuildState,
+  } = useDBBuildState(cleanUpBuildState(dbBuildToBuildState(build)), 'edit')
 
   const {
     isScreenshotMode,
@@ -49,6 +54,9 @@ export function BuildPage({ build }: Props) {
     setShowArmorCalculator(false)
     setShowItemTagSuggestions(false)
   }
+
+  const isClient = useIsClient()
+  if (!isClient) return
 
   return (
     <div className="flex w-full flex-col items-center">
@@ -89,6 +97,7 @@ export function BuildPage({ build }: Props) {
         isScreenshotMode={isScreenshotMode}
         showControls={showControls}
         onUpdateBuildState={updateDBBuildState}
+        usingLocalChanges={usingLocalChanges}
         builderActions={
           <>
             <SaveBuildButton buildState={dbBuildState} editMode={true} />
