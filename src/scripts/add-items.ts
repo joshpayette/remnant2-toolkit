@@ -4,13 +4,13 @@ import { Item } from '../features/items/types'
 const items = [
   {
     category: 'ring',
-    name: 'Floodlit Diamond',
-    imagePath: '/ring/floodlit_diamond.png',
-    id: 'z9YJih',
+    name: `Ravager's Bargain`,
+    imagePath: '/ring/ravagers_bargain.png',
+    id: 'm4Pz5i',
     dlc: 'dlc2',
     tags: [],
-    description: `Increases Weakspot Damage by 12%. Bonus is doubled against EXPOSED targets.`,
-    wikiLinks: ['https://remnant.wiki/Floodlit_Diamond'],
+    description: `Increases All Damage and All Critical Chance by 5% while BLEEDING.`,
+    wikiLinks: [`https://remnant.wiki/Ravager's_Bargain`],
   },
 ] as const satisfies Item[]
 

@@ -1087,6 +1087,16 @@ export const ringItems: RingItem[] = [
   },
   {
     category: 'ring',
+    name: `Ravager's Bargain`,
+    imagePath: '/ring/ravagers_bargain.png',
+    id: 'm4Pz5i',
+    dlc: 'dlc2',
+    tags: [],
+    description: `Increases All Damage and All Critical Chance by 5% while BLEEDING.`,
+    wikiLinks: [`https://remnant.wiki/Ravager's_Bargain`],
+  },
+  {
+    category: 'ring',
     name: 'Reaping Stone',
     imagePath: '/ring/reaping_stone.png',
     id: 'kqdoup',
