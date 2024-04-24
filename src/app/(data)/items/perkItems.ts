@@ -1272,7 +1272,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     dlc: 'dlc2',
     tags: ['Reduce Skill Cooldown'],
     description:
-      'PRERELEASE Doubles Base Skill Charges for all Archetypes. Skill activation reduces all Skill Cooldowns by 10%. For Heavy Weapons, doubles Heavy Weapon Base Ammo instead.',
+      'Doubles Base Skill Charges for all Archetypes. Skill activation reduces all Skill Cooldowns by 10%. For Heavy Weapons, doubles Heavy Weapon Base Ammo instead.',
     wikiLinks: ['https://remnant.wiki/Visionary'],
     linkedItems: {
       archetype: {
@@ -1289,7 +1289,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     dlc: 'dlc2',
     tags: [],
     description:
-      'PRERELEASE Increases Skill Damage by 30%, Elemental Damage by 15%, and Skill and Elemental Critical Chance by 5%. Damage increases with Invoker level.',
+      'Increases Skill Damage by 30%, Elemental Damage by 15%, and Skill and Elemental Critical Chance by 5%. Damage increases with Invoker level.',
     wikiLinks: ['https://remnant.wiki/Entranced'],
     linkedItems: {
       archetype: {
@@ -1306,7 +1306,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     dlc: 'dlc2',
     tags: [],
     description:
-      'PRERELEASE Reduces Skill Cooldowns by 1% and Heals 2% Max Health once every 3s for allies while an Invoker Skill is active.',
+      'Reduces Skill Cooldowns by 1% and Heals 2% Max Health once every 3s for allies while an Invoker Skill is active.',
     wikiLinks: ['https://remnant.wiki/Communion'],
     linkedItems: {
       archetype: {
@@ -1323,7 +1323,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     dlc: 'dlc2',
     tags: [],
     description:
-      'PRERELEASE Increases Movement Speed by 5% and Damage Reduction by 5%w hile an Invoker Skill is active.',
+      'Increases Movement Speed by 5% and Damage Reduction by 5%w hile an Invoker Skill is active.',
     wikiLinks: ['https://remnant.wiki/Mind_and_Body'],
     linkedItems: {
       archetype: {
@@ -1340,7 +1340,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     dlc: 'dlc2',
     tags: [],
     description:
-      'PRERELEASE On Relic use, extend the duration of active Invoker skills by 20% of the base duration. Cannot exceed base duration. Relic Use Speed increased by 25% while an Invoker Skill is active.',
+      'On Relic use, extend the duration of active Invoker skills by 20% of the base duration. Cannot exceed base duration. Relic Use Speed increased by 25% while an Invoker Skill is active.',
     wikiLinks: ['https://remnant.wiki/Soothsayer'],
     linkedItems: {
       archetype: {

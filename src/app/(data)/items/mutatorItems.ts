@@ -69,7 +69,7 @@ export const mutatorItems: MutatorItem[] = [
     description: `Increases Melee Damage by 10-[40]% for 10s when activating a Skill.`,
     // TODO Check this; `on kill to base damage dealt`, confirm the description
     // TODO Check this; removed L10 cooldown
-    maxLevelBonus: `PRERELEASE Base Damage Dealt reduces skill cooldowns by 5%.`,
+    maxLevelBonus: `Base Damage Dealt reduces skill cooldowns by 5%.`,
     wikiLinks: [`https://remnant.wiki/Dervish`],
   },
   {

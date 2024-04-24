@@ -440,9 +440,9 @@ export const traitItems: TraitItem[] = [
     id: 'c9af3B',
     dlc: 'dlc2',
     tags: [],
-    description: 'PRERELEASE Increases Skill Duration',
+    description: 'Increases Skill Duration',
     maxLevelBonus:
-      'PRERELEASE At max level, Gifted increases Skill Duration by +30%',
+      'At max level, Gifted increases Skill Duration by +30%',
     wikiLinks: ['https://remnant.wiki/Gifted'],
     amount: DEFAULT_TRAIT_AMOUNT,
     linkedItems: {

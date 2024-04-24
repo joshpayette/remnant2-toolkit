@@ -693,7 +693,7 @@ export const skillItems: SkillItem[] = [
     id: 'h4B9dD',
     dlc: 'dlc2',
     tags: [],
-    description: `PRERELEASE Invoke Kaeula to cast a Tidal Wave, dealing 150 Elemental damage and conjuring a 30m [A] Rainstorm for 15s. Allies inside Rainstorm gain HASTE. Enemies inside Rainstorm gain DRENCHED for 10s.
+    description: `Invoke Kaeula to cast a Tidal Wave, dealing 150 Elemental damage and conjuring a 30m [A] Rainstorm for 15s. Allies inside Rainstorm gain HASTE. Enemies inside Rainstorm gain DRENCHED for 10s.
     
     DRENCHED: Reduces Movement Speed by 10%. Every few seconds, lightning strikes enemies dealing 300 base SHOCK damage split among DRENCHED targets.`,
     cooldown: 112.8,
@@ -711,7 +711,7 @@ export const skillItems: SkillItem[] = [
     id: '7DnBmE',
     dlc: 'dlc2',
     tags: [],
-    description: `PRERELEASE Invoke Meidra to heal all allies for 20% Max Health over 1.5s and conjure a 20m [A] Forest Growth for 15s. After fully blooming, allies in the Forest Growth heal 2% Max Health per second and gain 3% of base damage dealt as Lifesteal. Enemies inside Forest Growth gain GLOOM for 10s.
+    description: `Invoke Meidra to heal all allies for 20% Max Health over 1.5s and conjure a 20m [A] Forest Growth for 15s. After fully blooming, allies in the Forest Growth heal 2% Max Health per second and gain 3% of base damage dealt as Lifesteal. Enemies inside Forest Growth gain GLOOM for 10s.
     
     GLOOM: Increases incoming Elemental damage by 15%.`,
     cooldown: 120,
@@ -729,7 +729,7 @@ export const skillItems: SkillItem[] = [
     id: 'T2xA6c',
     dlc: 'dlc2',
     tags: [],
-    description: `PRERELEASE Invoke Lydusa to infuse Ranged and Melee Damage with the power to apply BRITTLE, allowing the Invoker to generate Sand Devils through damage or kills. Lasts 15s.
+    description: `Invoke Lydusa to infuse Ranged and Melee Damage with the power to apply BRITTLE, allowing the Invoker to generate Sand Devils through damage or kills. Lasts 15s.
     
     Reactivating the skill consumes all Sand Devils generated and casts a 15m Sand Blast dealing 100 Elemental Damage per charge. Max 10 charges.
     
