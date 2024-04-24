@@ -468,7 +468,7 @@ export const ringItems: RingItem[] = [
     imagePath: '/ring/closed_loop.png',
     dlc: 'dlc2',
     id: 'Sm4o3R',
-    tags: [],
+    tags: ['Charged Shot'],
     description: `Gain 5% of Max Health as SHIELD for 10s after a Charged Shot. Accumulation resets after 10s of inaction. Max 25% SHIELD.`,
     wikiLinks: [`https://remnant.wiki/Closed_Loop`],
   },
