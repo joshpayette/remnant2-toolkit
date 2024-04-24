@@ -1035,7 +1035,7 @@ export const ringItems: RingItem[] = [
     imagePath: '/ring/matriarchs_ring.png',
     id: 'R3fM4y',
     dlc: 'dlc2',
-    tags: [],
+    tags: ['Perfect Dodge','Charged Melee','Stamina'],
     description: `Perfect Dodge reduces Charge Melee Stamina Cost by 100% for 5s.`,
     wikiLinks: [`https://remnant.wiki/Matriarch's_Ring`],
   },
