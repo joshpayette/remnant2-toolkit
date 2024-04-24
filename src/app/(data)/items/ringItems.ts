@@ -1119,7 +1119,7 @@ export const ringItems: RingItem[] = [
     imagePath: '/ring/pan_war_band.png',
     id: 'eBxG7w',
     dlc: 'dlc2',
-    tags: [],
+    tags: ['Movement Speed','Reload Speed','Fire Rate'],
     description: `Increases Movement Speed and Reload Speed by 3% and Fire Rate by 2% for each ally wearing this ring.`,
     wikiLinks: [`https://remnant.wiki/Pan_War_Band`],
   },
