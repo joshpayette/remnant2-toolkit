@@ -390,6 +390,7 @@ export const ringItems: RingItem[] = [
     wikiLinks: [`https://remnant.wiki/Tear_of_Lydusa`],
   },
   {
+    category: 'ring',
     name: 'Burden of the Mesmer',
     imagePath: '/ring/burden_of_the_mesmer.png',
     id: 'fGFm6B',
