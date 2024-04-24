@@ -265,7 +265,7 @@ export const archetypeItems: ArchetypeItem[] = [
     imagePath: '/archtype/invoker-placeholder1.png', // TODO
     id: 'Y2NhrX',
     dlc: 'dlc2',
-    description: 'NO DESCRIPTION YET', // TODO
+    description: 'The INVOKER specializes in Skill Effectivness and Buffs.',
     wikiLinks: ['https://remnant.wiki/Invoker'],
     linkedItems: {
       traits: [{ name: 'Gifted', amount: 10 }],
