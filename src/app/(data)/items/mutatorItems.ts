@@ -235,7 +235,7 @@ export const mutatorItems: MutatorItem[] = [
   {
     category: 'mutator',
     name: 'Searing Wounds',
-    type: 'melee',
+    type: 'gun',
     imagePath: '/placeholder.jpg',
     dlc: 'dlc2',
     id: '9htako',
