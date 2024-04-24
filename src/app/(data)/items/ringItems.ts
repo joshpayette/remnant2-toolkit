@@ -1328,7 +1328,7 @@ export const ringItems: RingItem[] = [
     dlc: 'dlc2',
     imagePath: '/ring/ring_of_spirits.png',
     id: 'ic39X7',
-    tags: [],
+    tags: ['Mod Power'],
     description: `Increases Mod Generation by 3% for each active consumable. Max 5 stacks.`,
     wikiLinks: [`https://remnant.wiki/Ring_of_Spirits`],
   },
