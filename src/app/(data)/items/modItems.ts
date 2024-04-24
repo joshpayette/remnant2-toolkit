@@ -3,6 +3,20 @@ import { ModItem } from './types/ModItem'
 export const modItems: ModItem[] = [
   {
     category: 'mod',
+    name: '77 79 68',
+    imagePath: '/mod/77_79_68.png',
+    dlc: 'dlc2',
+    id: '777968',
+    description: `84 79 71 71 76 69 32 67 79 77 66 65 84 32 70 73 82 73 78 71 32 77 79 68 69 83`,
+    wikiLinks: [`https://remnant.wiki/77_79_68`],
+    linkedItems: {
+      weapon: {
+        name: 'Polygun',
+      },
+    },
+  },
+  {
+    category: 'mod',
     name: 'Accelerator',
     imagePath: '/mod/accelerator.png',
     id: 'h9k5pl',
