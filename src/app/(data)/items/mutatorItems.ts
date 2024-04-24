@@ -335,7 +335,7 @@ export const mutatorItems: MutatorItem[] = [
     dlc: 'dlc2',
     imagePath: '/placeholder.jpg',
     id: '7Y9hfZ',
-    tags: [],
+    tags: ['Ranged Damage', 'Critical Chance'],
     description: `Increases Ranged Damage of this weapon by 10% to enemies within 7m.`,
     maxLevelBonus: `Level 10: Increases Ranged Critical Chance of this weapon by 10% to enemies within 7m.`,
     wikiLinks: [`https://remnant.wiki/Near-Sighted`],
