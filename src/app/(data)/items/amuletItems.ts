@@ -282,8 +282,7 @@ EXPOSED: Target receives up to 15% additional damage from all sources.`,
     dlc: 'dlc1',
     id: 'u7am0w',
     tags: ['Movement Speed'],
-    // TODO check in game
-    description: `Disables negative effects of Burden Rings. Grants 5% Movement Speed per Burden Lifted (Max 20%).`,
+    description: `Disables negative effects of Burden Rings. Increases Movement Speed by 5% per Burden Lifted (Max 20%).`,
     wikiLinks: [`https://remnant.wiki/Gift_Of_The_Unbound`],
   },
   {
