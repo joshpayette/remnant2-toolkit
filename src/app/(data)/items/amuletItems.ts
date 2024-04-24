@@ -264,7 +264,7 @@ EXPOSED: Target receives up to 15% additional damage from all sources.`,
     // TODO check description
     description: `Spending 20 Stamina grants 5% Critical Chance for 5s. Max 5 stacks. Stack fall off one at a time.`,
     wikiLinks: [`https://remnant.wiki/Gift_Of_Euphoria`],
-  },
+},
   {
     category: 'amulet',
     name: 'Gift of Melancholy',
