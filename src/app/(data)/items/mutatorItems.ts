@@ -19,7 +19,7 @@ export const mutatorItems: MutatorItem[] = [
     imagePath: '/placeholder.jpg',
     dlc: 'dlc2',
     id: 'y5hY8J',
-    tags: [],
+    tags: ['Mod Power','Melee Damage'],
     description: `Skill activation grants Mage Strike for 10s increasing Melee Mod Generation by 25%.`,
     maxLevelBonus: `Level 10: Mage Strike also increases Melee Damage by 15%.`,
     wikiLinks: [`https://remnant.wiki/Battle_Mage`],
