@@ -236,7 +236,7 @@ export const mutatorItems: MutatorItem[] = [
     category: 'mutator',
     name: 'Searing Wounds',
     type: 'melee',
-    imagePath: '/mutator/searing_wounds.png',
+    imagePath: '/placeholder.jpg',
     dlc: 'dlc2',
     id: '9htako',
     tags: ['Ranged Damage', 'Critical Hit', 'Status Effect'],
