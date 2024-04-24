@@ -373,8 +373,9 @@ export const mutatorItems: MutatorItem[] = [
     imagePath: '/placeholder.jpg',
     id: 'EV4ULr',
     dlc: 'dlc2',
+    tags:['Mod Damage','Ranged Damage', 'Stagger'],
     description: `Increases this weapon's Ranged and Mod Damage by 5% to enemies within 7m.`,
-    maxLevelBonus: `Level 10: Activating this weapon's Mod triggers a fixed 7m blast, dealing 50 Explosive Damage per 100 Mod Power spent in a single cast. Inflicts 1.5 Stagger Damage.`,
+    maxLevelBonus: `Level 10: Activating this weapon's Mod triggers a fixed 7m blast, dealing 50 [E] Explosive Damage per 100 Mod Power spent in a single cast. Inflicts 1.5 Stagger Damage.`,
     wikiLinks: [`https://remnant.wiki/Pressure_Point`],
   },
   {
