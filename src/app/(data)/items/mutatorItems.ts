@@ -501,7 +501,7 @@ export const mutatorItems: MutatorItem[] = [
     imagePath: '/placeholder.jpg',
     dlc: 'dlc2',
     id: '5Brz87',
-    tags: [],
+    tags: ['Mod Damage', 'Mod Power','Reduce Skill Cooldown'],
     description: `Increases this weapon's Mod Damage and Mod Generation by 15% for 10s when activating a Skill.`,
     maxLevelBonus: `Level 10: Activating this weapon's Mod reduces Skill Cooldowns by 1% for every 100 Mod Power spent.`,
     wikiLinks: [`https://remnant.wiki/Spellweaver`],
