@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Changed
 
 - Added an autosave mechanism when creating and editing builds. This should help preserve a build when the page reloads.
+- Removed `bum` from bad word list.
 
 ### Fixed
 
