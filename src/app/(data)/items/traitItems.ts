@@ -96,8 +96,8 @@ export const traitItems: TraitItem[] = [
     imagePath: '/trait/chakra.png',
     dlc: 'dlc2',
     id: 'k8sebP',
-    tags: [],
-    description: `Increases Mod Duration by 3%.`,
+    tags: ['Mod Duration'],
+    description: `Increases Mod Duration.`,
     maxLevelBonus: `At max level, Chakra Increases Mod Duration by 30%.`,
     wikiLinks: [`https://remnant.wiki/Chakra`],
     amount: DEFAULT_TRAIT_AMOUNT,
@@ -108,10 +108,8 @@ export const traitItems: TraitItem[] = [
     imagePath: '/trait/dark_pact.png',
     id: 'mjkf4t',
     tags: ['Grey Health'],
-    // TODO: Check this; Grey Health regen -> Grey Health Conversion Rate
-    description: `Reduces GREY HEALTH regen rate by 9%`,
-    // TODO: Check this; Grey Health regen -> Grey Health Conversion Rate
-    maxLevelBonus: `At max level, Dark Pact Reduces GREY HEALTH conversion rate by -90%`,
+    description: `Increases Grey Health Conversion Rate.`,
+    maxLevelBonus: `At max level, Dark Pact Increases Grey Health Conversion Rate by 30%`,
     wikiLinks: [`https://remnant.wiki/Dark_Pact`],
     amount: DEFAULT_TRAIT_AMOUNT,
   },
