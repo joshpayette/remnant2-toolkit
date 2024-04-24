@@ -32,18 +32,6 @@ export const relicItems: RelicItem[] = [
   },
   {
     category: 'relic',
-    name: 'Bloodless Heart',
-    imagePath: '/relic/blodless_heart.png',
-    dlc: 'dlc2',
-    id: 'm71h9s',
-    tags:['Relic Use Speed', 'Damage Reduction'],
-    description: `Innate 50% Use Speed bonus. One use, grants a SHIELD that prevents nearly all damage for 3s.
-
-    Cannot prevent certain death mechanics`,
-    wikiLinks: [`https://remnant.wiki/Bloodless_Heart`],
-  },
-  {
-    category: 'relic',
     name: 'Constrained Heart',
     imagePath: '/relic/constrained_heart1.png',
     id: 'rlezcg',
