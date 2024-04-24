@@ -1479,6 +1479,23 @@ export const ringItems: RingItem[] = [
   },
   {
     category: 'ring',
+    name: "Thalos Eyelet",
+    imagePath: '/ring/thalos_eyelet.png',
+    id: '6mopod',
+    tags: ['Stamina', 'Damage Reduction'],
+    description: `Grants 1 stack of BULWARK and 2 Stamina Regen per second for each BULWARK stack. Increases BULWARK maximum stacks to 6.`,
+    wikiLinks: [`https://remnant.wiki/Thalos_Eyelet`],
+  },
+  {
+    category: 'ring',
+    name: 'Token of Favor',
+    imagePath: '/ring/token_of_favor.png',
+    id: 'qv7e2gx',
+    description: `Increases All Damage by 5%. Gain 10% Critical Chance against EXPOSED targets`,
+    wikiLinks: [`https://remnant.wiki/Token_of_Favor`],
+  },
+  {
+    category: 'ring',
     name: 'Vacuum Seal',
     imagePath: '/ring/vacuum_seal.png',
     id: 'hnkpp0',
