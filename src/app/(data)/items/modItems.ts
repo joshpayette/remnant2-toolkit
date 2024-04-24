@@ -771,7 +771,7 @@ export const modItems: ModItem[] = [
     dlc: 'dlc2',
     id: 'ozNPv9',
     tags: [],
-    description: `Launch a sphere of loam. Impact creates a 5m swirling storm of sand which seeks to center itself on an enemy and deals x Elemental damage per second. When Sandstorm's focused target dies, it will seek a new enemy within 10m. Lasts 15s.`,
+    description: `Launch a sphere of loam. Impact creates a 5m [A] swirling storm of sand which seeks to center itself on an enemy and deals x Elemental damage per second. When Sandstorm's focused target dies, it will seek a new enemy within 10m [A]. Lasts 15s.`,
     wikiLinks: [`https://remnant.wiki/Sandstorm`],
     linkedItems: {
       weapon: {
