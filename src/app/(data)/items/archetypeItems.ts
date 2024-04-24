@@ -262,7 +262,7 @@ export const archetypeItems: ArchetypeItem[] = [
   {
     category: 'archetype',
     name: 'Invoker',
-    imagePath: '/archtype/invoker-placeholder1.png', // TODO
+    imagePath: '/archtype/invoker.png',
     id: 'Y2NhrX',
     dlc: 'dlc2',
     description: 'The INVOKER specializes in Skill Effectivness and Buffs.',

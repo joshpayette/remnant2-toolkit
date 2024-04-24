@@ -4,6 +4,21 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-04-23
+
+### Added
+
+- Added many newly discovered items from the latest DLC.
+
+### Changed
+
+- Added an autosave mechanism when creating and editing builds. This should help preserve a build when the page reloads.
+- Removed `bum` from bad word list.
+
+### Fixed
+
+- Updated incorrect Bulletweaver description.
+
 ## 2024-04-22
 
 ### Added

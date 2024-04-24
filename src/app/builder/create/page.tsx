@@ -1,6 +1,7 @@
 'use client'
 
 import { useRef, useState } from 'react'
+import { useIsClient } from 'usehooks-ts'
 
 import { ArmorCalculatorButton } from '@/app/(components)/buttons/builder-buttons/armor-calculator-button'
 import { DetailedViewButton } from '@/app/(components)/buttons/builder-buttons/detailed-view-button'
@@ -23,7 +24,7 @@ export default function Page() {
   const [detailedBuildDialogOpen, setDetailedBuildDialogOpen] = useState(false)
 
   const { dbBuildState, setNewBuildState, updateDBBuildState } =
-    useDBBuildState(INITIAL_BUILD_STATE)
+    useDBBuildState(INITIAL_BUILD_STATE, 'create')
 
   const {
     isScreenshotMode,
@@ -45,6 +46,9 @@ export default function Page() {
     setShowArmorCalculator(false)
     setShowItemSuggestions(false)
   }
+
+  const isClient = useIsClient()
+  if (!isClient) return
 
   return (
     <div className="flex w-full flex-col items-center">
@@ -88,6 +92,7 @@ export default function Page() {
         onUpdateBuildState={updateDBBuildState}
         showControls={showControls}
         showCreatedBy={false}
+        usingLocalChanges={false}
         builderActions={
           <>
             <SaveBuildButton buildState={dbBuildState} editMode={false} />

@@ -3,19 +3,15 @@ import { Item } from '../features/items/types'
 
 const items = [
   {
-    category: 'weapon',
-    type: 'melee',
-    name: 'Shovel',
-    imagePath: '/melee/shovel.png',
-    id: 'vpEWS5',
+    category: 'relic',
+    name: 'Bloodless Heart',
+    imagePath: '/relic/bloodless_heart.png',
+    id: 'LQho3X',
     dlc: 'dlc2',
-    description: ``,
-    wikiLinks: [`https://remnant.wiki/Shovel`],
-    // TODO Check damage values
-    damage: -1,
-    crit: -1,
-    weakspot: -1,
-    stagger: -1,
+    description: `Innate 50% Use Speed bonus. One use, grants a SHIELD that prevents nearly all damage for 3s.
+
+    Cannot prevent certain death mechanics`,
+    wikiLinks: [`https://remnant.wiki/Bloodless_Heart`],
   },
 ] as const satisfies Item[]
 

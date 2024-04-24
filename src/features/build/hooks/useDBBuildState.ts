@@ -1,5 +1,7 @@
 import { BuildTags } from '@prisma/client'
-import { useMemo, useState } from 'react'
+import isEqual from 'lodash.isequal'
+import { useEffect, useMemo, useState } from 'react'
+import { useLocalStorage } from 'usehooks-ts'
 
 import { AmuletItem } from '@/app/(data)/items/types/AmuletItem'
 import { ArchetypeItem } from '@/app/(data)/items/types/ArchetypeItem'
@@ -14,6 +16,7 @@ import { RingItem } from '@/app/(data)/items/types/RingItem'
 import { SkillItem } from '@/app/(data)/items/types/SkillItem'
 import { TraitItem } from '@/app/(data)/items/types/TraitItem'
 import { WeaponItem } from '@/app/(data)/items/types/WeaponItem'
+import { INITIAL_BUILD_STATE as DEFAULT_BUILD_STATE } from '@/features/build/constants'
 import { BuildState } from '@/features/build/types'
 import { Item } from '@/features/items/types'
 
@@ -21,9 +24,42 @@ import { buildStateToCsvData } from '../lib/buildStateToCsvData'
 import { buildStateToMasonryItems } from '../lib/buildStateToMasonryItems'
 import { cleanUpBuildState } from '../lib/cleanUpBuildState'
 
-export function useDBBuildState(INITIAL_BUILD_STATE: BuildState) {
-  const [dbBuildState, setDBBuildState] =
-    useState<BuildState>(INITIAL_BUILD_STATE)
+export function useDBBuildState(
+  INITIAL_BUILD_STATE: BuildState,
+  mode: 'create' | 'edit',
+) {
+  // Read the build-state from the localstorage
+  const [localBuildState, setLocalBuildState] = useLocalStorage<BuildState>(
+    mode === 'create' ? 'create-build-state' : 'edit-build-state',
+    INITIAL_BUILD_STATE,
+    { initializeWithValue: true },
+  )
+
+  // Initialize the build state with the local build state if it exists
+  // and is not equal to the initial build state
+  const [dbBuildState, setDBBuildState] = useState<BuildState>(
+    isEqual(localBuildState, INITIAL_BUILD_STATE)
+      ? INITIAL_BUILD_STATE
+      : localBuildState,
+  )
+
+  // If mode is edit and the localBuildState.buildId is not equal to the buildId
+  // in the initial build state, reset the local build state and the db build state
+  useEffect(() => {
+    if (mode === 'create') return
+    if (!localBuildState.buildId) return
+
+    if (localBuildState.buildId !== INITIAL_BUILD_STATE.buildId) {
+      setLocalBuildState(DEFAULT_BUILD_STATE)
+      setDBBuildState(INITIAL_BUILD_STATE)
+    }
+  }, [INITIAL_BUILD_STATE, localBuildState.buildId, mode, setLocalBuildState])
+
+  // Check if the user is using local changes
+  // Used to show an alert above the builder
+  const usingLocalChanges =
+    INITIAL_BUILD_STATE.buildId === localBuildState.buildId &&
+    !isEqual(INITIAL_BUILD_STATE, localBuildState)
 
   /**
    * Converts the build state to CSV data.
@@ -53,45 +89,57 @@ export function useDBBuildState(INITIAL_BUILD_STATE: BuildState) {
     // --------------------------
 
     if (category === 'name') {
-      setDBBuildState({
+      const newBuildState = {
         ...dbBuildState,
         name: value as string,
-      })
+      }
+      setDBBuildState(newBuildState)
+      setLocalBuildState(newBuildState)
       return
     }
     if (category === 'description') {
-      setDBBuildState({
+      const newBuildState = {
         ...dbBuildState,
         description: value as string,
-      })
+      }
+      setDBBuildState(newBuildState)
+      setLocalBuildState(newBuildState)
       return
     }
     if (category === 'isPublic') {
-      setDBBuildState({
+      const newBuildState = {
         ...dbBuildState,
         isPublic: value === 'true',
-      })
+      }
+      setDBBuildState(newBuildState)
+      setLocalBuildState(newBuildState)
       return
     }
     if (category === 'isPatchAffected') {
-      setDBBuildState({
+      const newBuildState = {
         ...dbBuildState,
         isPatchAffected: value === 'true',
-      })
+      }
+      setDBBuildState(newBuildState)
+      setLocalBuildState(newBuildState)
       return
     }
     if (category === 'buildLink') {
-      setDBBuildState({
+      const newBuildState = {
         ...dbBuildState,
         buildLink: value as string,
-      })
+      }
+      setDBBuildState(newBuildState)
+      setLocalBuildState(newBuildState)
       return
     }
     if (category === 'tags') {
-      setDBBuildState({
+      const newBuildState = {
         ...dbBuildState,
         buildTags: value as BuildTags[],
-      })
+      }
+      setDBBuildState(newBuildState)
+      setLocalBuildState(newBuildState)
       return
     }
 
@@ -120,6 +168,7 @@ export function useDBBuildState(INITIAL_BUILD_STATE: BuildState) {
         }
 
         setDBBuildState(newBuildState)
+        setLocalBuildState(newBuildState)
         return
       }
     }
@@ -141,6 +190,7 @@ export function useDBBuildState(INITIAL_BUILD_STATE: BuildState) {
         })
 
         setDBBuildState(cleanBuildState)
+        setLocalBuildState(cleanBuildState)
         return
       }
     } else {
@@ -154,6 +204,7 @@ export function useDBBuildState(INITIAL_BUILD_STATE: BuildState) {
         })
 
         setDBBuildState(cleanBuildState)
+        setLocalBuildState(cleanBuildState)
         return
       }
     }
@@ -227,17 +278,20 @@ export function useDBBuildState(INITIAL_BUILD_STATE: BuildState) {
 
     const cleanBuildState = cleanUpBuildState(newBuildState)
     setDBBuildState(cleanBuildState)
+    setLocalBuildState(cleanBuildState)
   }
 
   function setNewBuildState(buildState: BuildState) {
     const cleanBuildState = cleanUpBuildState(buildState)
     setDBBuildState(cleanBuildState)
+    setLocalBuildState(cleanBuildState)
   }
 
   return {
     csvItems,
     masonryItems,
     dbBuildState,
+    usingLocalChanges,
     setNewBuildState,
     updateDBBuildState,
   }

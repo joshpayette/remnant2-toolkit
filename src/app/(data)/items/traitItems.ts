@@ -92,6 +92,18 @@ export const traitItems: TraitItem[] = [
   },
   {
     category: 'trait',
+    name: 'Chakra',
+    imagePath: '/trait/chakra.png',
+    dlc: 'dlc2',
+    id: 'k8sebP',
+    tags: [],
+    description: `Increases Mod Duration by 3%.`,
+    maxLevelBonus: `At max level, Chakra Increases Mod Duration by 30%.`,
+    wikiLinks: [`https://remnant.wiki/Chakra`],
+    amount: DEFAULT_TRAIT_AMOUNT,
+  },
+  {
+    category: 'trait',
     name: 'Dark Pact',
     imagePath: '/trait/dark_pact.png',
     id: 'mjkf4t',
@@ -448,7 +460,7 @@ export const traitItems: TraitItem[] = [
   {
     category: 'trait',
     name: 'Gifted',
-    imagePath: '/trait/gifted-placeholder1.png',
+    imagePath: '/trait/gifted.png',
     id: 'c9af3B',
     dlc: 'dlc2',
     tags: [],
