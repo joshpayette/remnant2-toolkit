@@ -183,7 +183,7 @@ export const ringItems: RingItem[] = [
     imagePath: '/ring/black_spinel.png',
     id: 'sq8ZUN',
     dlc: 'dlc2',
-    tags: [],
+    tags: ['Status Effect','Heal'],
     description: `Applying a Negative Status Effect grants 2% Max Health per second for 3s. Applying or refreshing a Negative Status Effect while buff is active will increase the duration by 1.5s. Max 15s.`,
     wikiLinks: ['https://remnant.wiki/Black_Spinel'],
   },
@@ -193,8 +193,7 @@ export const ringItems: RingItem[] = [
     imagePath: '/ring/blackout_ring.png',
     id: '6pzq37',
     tags: ['Reload Speed'],
-    // TODO check in game
-    description: `Increases Reload Speed by 3% per 20% of missing magazine. Max 15%.`,
+    description: `Increases Reload Speed by 3% per 20% of missing magazine.`,
     wikiLinks: [`https://remnant.wiki/Blackout_Ring`],
   },
   {
