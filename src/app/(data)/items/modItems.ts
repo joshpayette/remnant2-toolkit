@@ -3,6 +3,20 @@ import { ModItem } from './types/ModItem'
 export const modItems: ModItem[] = [
   {
     category: 'mod',
+    name: '77 79 68',
+    imagePath: '/mod/77_79_68.png',
+    dlc: 'dlc2',
+    id: '777968',
+    description: `84 79 71 71 76 69 32 67 79 77 66 65 84 32 70 73 82 73 78 71 32 77 79 68 69 83`,
+    wikiLinks: [`https://remnant.wiki/77_79_68`],
+    linkedItems: {
+      weapon: {
+        name: 'Polygun',
+      },
+    },
+  },
+  {
+    category: 'mod',
     name: 'Accelerator',
     imagePath: '/mod/accelerator.png',
     id: 'h9k5pl',
@@ -705,9 +719,10 @@ export const modItems: ModItem[] = [
     imagePath: '/mod/power_stone.png',
     id: '2JimAt',
     dlc: 'dlc2',
-    description: `Charged Melee empowers the staff for 10s, causing Melee Attacks to launch an energy bolt that seeks enemies within 30m, dealing 50 SHOCK Damage and grants 1 stack of POWER STONE. Max 10 stacks.
+    tags:['Status Effect'],
+    description: `Charged Melee empowers the staff for 10s, causing Melee Attacks to launch an energy bolt that seeks enemies within 30m [A], dealing 50 SHOCK Damage and grants 1 stack of POWER STONE. Max 10 stacks.
     
-    While empowered, Charged Melee calls 9m shockwave dealing 75 SHOCK Damage and ends POWER STONE. For each POWER STONE stack built when ended, release 1 energy bolt that seeks a random enemy and applies OVERLOADED for 40s.`,
+    While empowered, Charged Melee calls 9m [A] shockwave dealing 75 SHOCK Damage and ends POWER STONE. For each POWER STONE stack built when ended, release 1 energy bolt that seeks a random enemy and applies OVERLOADED for 40s.`,
     wikiLinks: [`https://remnant.wiki/Power_Stone`],
     linkedItems: {
       weapon: {
@@ -771,7 +786,7 @@ export const modItems: ModItem[] = [
     dlc: 'dlc2',
     id: 'ozNPv9',
     tags: [],
-    description: `Launch a sphere of loam. Impact creates a 5m swirling storm of sand which seeks to center itself on an enemy and deals x Elemental damage per second. When Sandstorm's focused target dies, it will seek a new enemy within 10m. Lasts 15s.`,
+    description: `Launch a sphere of loam. Impact creates a 5m [A] swirling storm of sand which seeks to center itself on an enemy and deals x Elemental damage per second. When Sandstorm's focused target dies, it will seek a new enemy within 10m [A]. Lasts 15s.`,
     wikiLinks: [`https://remnant.wiki/Sandstorm`],
     linkedItems: {
       weapon: {
