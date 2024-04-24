@@ -718,6 +718,7 @@ export const weaponItems: WeaponItem[] = [
     saveFileSlug: '/weapon_trinitycrossbow',
     imagePath: '/mainhand/trinity_crossbow.png',
     id: '13hsq6',
+    dlc:'dlc2',
     description: `A powerful Pan crossbow designed for mid-range combat. Fires 3 bolts at a time.`,
     wikiLinks: [`https://remnant.wiki/Trinity_Crossbow`],
     damage: 42,
