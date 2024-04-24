@@ -378,6 +378,7 @@ export const traitItems: TraitItem[] = [
     name: 'Leech',
     imagePath: '/trait/leech.png',
     id: 'o6mx3t',
+    dlc: 'dlc2',
     tags: ['Lifesteal'],
     description: `Increases Lifesteal Efficacy`,
     maxLevelBonus: `At max level, Leeche Increases Lifesteal Efficacy by 50%.`,

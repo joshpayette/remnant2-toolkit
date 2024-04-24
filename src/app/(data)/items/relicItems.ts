@@ -108,6 +108,7 @@ export const relicItems: RelicItem[] = [
     name: 'Profane Heart',
     imagePath: '/relic/profane_heart.png',
     id: '4v7sf4',
+    dlc: 'dlc2',
     tags: ['Lifesteal'],
     description: `Innate 3% Lifesteal bonus. On use, increases all Lifesteal Efficacy by 50% for 15s.`,
     wikiLinks: [`https://remnant.wiki/Profane_Heart`],

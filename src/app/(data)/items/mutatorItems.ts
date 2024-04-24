@@ -225,6 +225,7 @@ export const mutatorItems: MutatorItem[] = [
     name: 'Searing Wounds',
     type: 'melee',
     imagePath: '/mutator/searing_wounds.png',
+    dlc: 'dlc2',
     id: '9htako',
     tags: ['Ranged Damage', 'Critical Hit', 'Status Effect'],
     description: `Increases Ranged Damage of this weapon by 1%-[10%] to BURNING targets.`,

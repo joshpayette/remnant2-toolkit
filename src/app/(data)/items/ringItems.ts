@@ -1481,6 +1481,7 @@ export const ringItems: RingItem[] = [
     category: 'ring',
     name: "Thalos Eyelet",
     imagePath: '/ring/thalos_eyelet.png',
+    dlc: 'dlc2',
     id: '6mopod',
     tags: ['Stamina', 'Damage Reduction'],
     description: `Grants 1 stack of BULWARK and 2 Stamina Regen per second for each BULWARK stack. Increases BULWARK maximum stacks to 6.`,
