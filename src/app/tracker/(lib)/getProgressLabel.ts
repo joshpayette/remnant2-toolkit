@@ -1,3 +1,4 @@
+import { getDiscoveredCount } from '@/app/(utils)/tracker/get-discovered-count'
 import { Item } from '@/features/items/types'
 
 export function getProgressLabel({
@@ -10,10 +11,7 @@ export function getProgressLabel({
   percentOnly?: boolean
 }) {
   const totalItems = items.length
-  const discoveredCount = items.reduce((acc, item) => {
-    if (discoveredItemIds.includes(item.id)) return acc + 1
-    return acc
-  }, 0)
+  const discoveredCount = getDiscoveredCount(discoveredItemIds)
   const discoveredPercent = parseFloat(
     ((discoveredCount / totalItems) * 100).toFixed(2),
   )

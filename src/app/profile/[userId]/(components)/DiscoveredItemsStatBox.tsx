@@ -4,10 +4,14 @@ import { toast } from 'react-toastify'
 import { useIsClient, useLocalStorage } from 'usehooks-ts'
 
 import { BaseButton } from '@/app/(components)/_base/button'
+import { getDiscoveredCount } from '@/app/(utils)/tracker/get-discovered-count'
 import { updateTotalDiscoveredItems } from '@/app/profile/[userId]/(actions)/updateTotalDiscoveredItems'
 import { StatBox } from '@/app/profile/[userId]/(components)/StatBox'
 import { LocalStorage } from '@/app/tracker/(lib)/types'
-import { TOTAL_TRACKABLE_ITEM_COUNT } from '@/app/tracker/constants'
+import {
+  allTrackerItems,
+  TOTAL_TRACKABLE_ITEM_COUNT,
+} from '@/app/tracker/constants'
 
 interface Props {
   stat: { name: string; value: number; unit?: string }
@@ -38,10 +42,12 @@ export function DiscoveredItemsStatBox({
    * Whether the total items in the user's local storage
    * match the total count in the DB.
    */
+  const discoveredCount = getDiscoveredCount(discoveredItemIds)
+
   const validItemCount =
-    discoveredItemIds.length > TOTAL_TRACKABLE_ITEM_COUNT
+    discoveredCount > TOTAL_TRACKABLE_ITEM_COUNT
       ? TOTAL_TRACKABLE_ITEM_COUNT
-      : discoveredItemIds.length
+      : discoveredCount
   const isItemCountSynced = validItemCount === stat.value
 
   if (!isClient || !isEditable || isItemCountSynced) {

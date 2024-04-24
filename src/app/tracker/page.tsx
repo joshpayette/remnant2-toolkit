@@ -7,7 +7,6 @@ import { toast } from 'react-toastify'
 import { useIsClient, useLocalStorage } from 'usehooks-ts'
 
 import { BaseButton } from '@/app/(components)/_base/button'
-import { allItems } from '@/app/(data)/items/allItems'
 import { MutatorItem } from '@/app/(data)/items/types/MutatorItem'
 import { WeaponItem } from '@/app/(data)/items/types/WeaponItem'
 import { ImportCSVDialog } from '@/app/tracker/(components)/ImportCSVDialog'
@@ -153,7 +152,7 @@ export default function Page() {
 
               if (!discovered) return
 
-              const item = allItems.find((item) => item.id === itemId)
+              const item = allTrackerItems.find((item) => item.id === itemId)
               if (!item) return
 
               if (skippedItemCategories.includes(item.category)) return
@@ -210,7 +209,7 @@ export default function Page() {
   // generate the build urls, but that's not a priority right now.
   const csvItems = useMemo(() => {
     return (
-      allItems
+      allTrackerItems
         .map((item) => ({
           ...item,
           discovered: discoveredItemIds.includes(item.id),

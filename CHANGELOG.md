@@ -11,6 +11,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Added many more newly discovered items from the latest DLC.
 - Added a new featured build!
 
+### Fixed
+
+- Fixed an issue where you couldn't sync your tracked items on your profile.
+
 ## 2024-04-23
 
 ### Added
