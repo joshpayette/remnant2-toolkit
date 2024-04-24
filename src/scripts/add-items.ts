@@ -3,25 +3,18 @@ import { Item } from '../features/items/types'
 
 const items = [
   {
-    category: 'weapon',
-    type: 'long gun',
-    name: 'Trinity Crossbow',
-    saveFileSlug: '/weapon_trinitycrossbow',
-    imagePath: '/mainhand/trinity_crossbow.png',
-    id: '13hsq6',
+    category: 'mod',
+    name: '77 79 68',
+    imagePath: '/mod/77_79_68.png',
     dlc: 'dlc2',
-    description: `A powerful Pan crossbow designed for mid-range combat. Fires 3 bolts at a time.`,
-    wikiLinks: [`https://remnant.wiki/Trinity_Crossbow`],
-    damage: 42,
-    rps: 0.63,
-    magazine: 18,
-    accuracy: 100,
-    ideal: 22,
-    falloff: 65,
-    ammo: 90,
-    crit: 10,
-    weakspot: 115,
-    stagger: -65,
+    id: '777968', // ! DO NOT CHANGE THIS ID
+    description: `84 79 71 71 76 69 32 67 79 77 66 65 84 32 70 73 82 73 78 71 32 77 79 68 69 83`,
+    wikiLinks: [`https://remnant.wiki/77_79_68`],
+    linkedItems: {
+      weapon: {
+        name: 'Polygun',
+      },
+    },
   },
 ] as const satisfies Item[]
 

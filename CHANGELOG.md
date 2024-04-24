@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Added
 
 - Added many more newly discovered items from the latest DLC.
+- Added a new featured build!
 
 ## 2024-04-23
 
