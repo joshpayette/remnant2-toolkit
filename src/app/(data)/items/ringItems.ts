@@ -1296,13 +1296,13 @@ export const ringItems: RingItem[] = [
   },
   {
     category: 'ring',
-    name: 'Ring of Ordinance',
-    imagePath: '/ring/ring_of_ordinance.png',
+    name: 'Ring Of Ordnance',
+    imagePath: '/ring/ring_of_ordnance.png', //TODO @Josh rename the picture
     id: 'RDi2ad',
     dlc: 'dlc2',
     tags: [],
     description: `Allows Heavy Weapon Ammo to gradually regenerate while in both Heavy Carry or Turret modes. Doubles the stowed Ammo Regeneration Rate of Heavy Weapons.`,
-    wikiLinks: [`https://remnant.wiki/Ring_of_Ordinance`],
+    wikiLinks: [`https://remnant.wiki/Ring_of_Ordnance`],
   },
   {
     category: 'ring',
