@@ -375,6 +375,17 @@ export const traitItems: TraitItem[] = [
   },
   {
     category: 'trait',
+    name: 'Leech',
+    imagePath: '/trait/leech.png',
+    id: 'o6mx3t',
+    tags: ['Lifesteal'],
+    description: `Increases Lifesteal Efficacy`,
+    maxLevelBonus: `At max level, Leeche Increases Lifesteal Efficacy by 50%.`,
+    wikiLinks: [`https://remnant.wiki/Leech`],
+        amount: DEFAULT_TRAIT_AMOUNT,
+  },
+  {
+    category: 'trait',
     name: 'Swiftness',
     imagePath: '/trait/swiftness.png',
     id: '3ochlm',

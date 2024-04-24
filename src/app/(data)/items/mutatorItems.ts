@@ -222,6 +222,17 @@ export const mutatorItems: MutatorItem[] = [
   },
   {
     category: 'mutator',
+    name: 'Searing Wounds',
+    type: 'melee',
+    imagePath: '/mutator/searing_wounds.png',
+    id: '9htako',
+    tags: ['Ranged Damage', 'Critical Hit', 'Status Effect'],
+    description: `Increases Ranged Damage of this weapon by 1% to BURNING targets.`,
+    maxLevelBonus: `This weapon's Ranged Weakspot and Ranged Critical Hits apply BURNING, dealing 50 FIRE damage over 5s.`,
+    wikiLinks: [`https://remnant.wiki/Dervish`],
+  },
+  {
+    category: 'mutator',
     name: 'Ingenuity',
     type: 'gun',
     imagePath: '/mutator/ingenuity.png',
