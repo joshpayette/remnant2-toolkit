@@ -261,6 +261,12 @@ export const DESCRIPTION_TAGS = [
     description: 'Counts as Explosive Damage.',
   },
   {
+    type: 'EXPOSED',
+    token: 'EXPOSED',
+    color: 'text-yellow-100',
+    description: 'Target receives up to 15% additional damage from all sources.',
+  },
+  {
     type: 'Fire',
     token: 'FIRE',
     color: 'text-[#cc5500]',
