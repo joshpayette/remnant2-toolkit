@@ -56,6 +56,16 @@ export const concoctionItems: ConcoctionItem[] = [
   },
   {
     category: 'concoction',
+    name: 'Egg Drink',
+    imagePath: '/concoction/egg_drink.png',
+    id: 'byi9d',
+    dlc: 'dlc2',
+    tags: ['Encumbrance'],
+    description: `Increases Dodge Weight Threshold by 10. Lasts 60m and will stay in effect after death. Only one concoction may be active at a time.`,
+    wikiLinks: [`https://remnant.wiki/Egg_Drink`],
+  },
+  {
+    category: 'concoction',
     name: 'Meat Shake',
     imagePath: '/concoction/meat_shake1.png',
     id: '4yzeco',

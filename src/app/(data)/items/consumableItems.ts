@@ -239,6 +239,16 @@ export const consumableItems: ConsumableItem[] = [
   },
   {
     category: 'consumable',
+    name: 'Sweet Leaf',
+    imagePath: '/consumable/sweet_leaf.png',
+    id: 'rlpblz',
+    dlc:'dlc2',
+    tags: ['Damage Reduction'],
+    description: `Grants 1 stack of BULWARK. Lasts 30s.`,
+    wikiLinks: [`https://remnant.wiki/Sweet_Leaf`],
+  },
+  {
+    category: 'consumable',
     name: 'Timeworn Unguent',
     imagePath: '/consumable/timeworn_unguent.png',
     id: 'li99wc',

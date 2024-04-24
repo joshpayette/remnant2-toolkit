@@ -387,6 +387,18 @@ export const traitItems: TraitItem[] = [
   },
   {
     category: 'trait',
+    name: 'Leech',
+    imagePath: '/trait/leech.png',
+    id: 'o6mx3t',
+    dlc: 'dlc2',
+    tags: ['Lifesteal'],
+    description: `Increases Lifesteal Efficacy`,
+    maxLevelBonus: `At max level, Leeche Increases Lifesteal Efficacy by 50%.`,
+    wikiLinks: [`https://remnant.wiki/Leech`],
+        amount: DEFAULT_TRAIT_AMOUNT,
+  },
+  {
+    category: 'trait',
     name: 'Swiftness',
     imagePath: '/trait/swiftness.png',
     id: '3ochlm',
@@ -453,7 +465,8 @@ export const traitItems: TraitItem[] = [
     dlc: 'dlc2',
     tags: [],
     description: 'Increases Skill Duration',
-    maxLevelBonus: 'At max level, Gifted increases Skill Duration by +30%',
+    maxLevelBonus:
+      'At max level, Gifted increases Skill Duration by +30%',
     wikiLinks: ['https://remnant.wiki/Gifted'],
     amount: DEFAULT_TRAIT_AMOUNT,
     linkedItems: {

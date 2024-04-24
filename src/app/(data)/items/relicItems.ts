@@ -32,6 +32,18 @@ export const relicItems: RelicItem[] = [
   },
   {
     category: 'relic',
+    name: 'Bloodless Heart',
+    imagePath: '/relic/blodless_heart.png',
+    dlc: 'dlc2',
+    id: 'm71h9s',
+    tags:['Relic Use Speed', 'Damage Reduction'],
+    description: `Innate 50% Use Speed bonus. One use, grants a SHIELD that prevents nearly all damage for 3s.
+
+    Cannot prevent certain death mechanics`,
+    wikiLinks: [`https://remnant.wiki/Bloodless_Heart`],
+  },
+  {
+    category: 'relic',
     name: 'Constrained Heart',
     imagePath: '/relic/constrained_heart1.png',
     id: 'rlezcg',
@@ -113,6 +125,16 @@ export const relicItems: RelicItem[] = [
     id: '4v7sf3',
     description: `Does not provide standard healing. On use, negates Stamina Drain and cause Evades to heal for 15 Health over 0.25s. Lasts 20s.`,
     wikiLinks: [`https://remnant.wiki/Quilted_Heart`],
+  },
+  {
+    category: 'relic',
+    name: 'Profane Heart',
+    imagePath: '/relic/profane_heart.png',
+    id: '4v7sf4',
+    dlc: 'dlc2',
+    tags: ['Lifesteal'],
+    description: `Innate 3% Lifesteal bonus. On use, increases all Lifesteal Efficacy by 50% for 15s.`,
+    wikiLinks: [`https://remnant.wiki/Profane_Heart`],
   },
   {
     category: 'relic',

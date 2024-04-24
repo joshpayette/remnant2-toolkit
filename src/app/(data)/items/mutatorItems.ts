@@ -81,7 +81,7 @@ export const mutatorItems: MutatorItem[] = [
     description: `Increases Melee Damage by 10-[40]% for 10s when activating a Skill.`,
     // TODO Check this; `on kill to base damage dealt`, confirm the description
     // TODO Check this; removed L10 cooldown
-    maxLevelBonus: `PRERELEASE Base Damage Dealt reduces skill cooldowns by 5%.`,
+    maxLevelBonus: `Base Damage Dealt reduces skill cooldowns by 5%.`,
     wikiLinks: [`https://remnant.wiki/Dervish`],
   },
   {
@@ -231,6 +231,18 @@ export const mutatorItems: MutatorItem[] = [
     description: `Increases Mod Damage by 10-[20]%.`,
     maxLevelBonus: `Generate 25% additional Mod Power for Stowed Weapon.`,
     wikiLinks: [`https://remnant.wiki/Harmonizer`],
+  },
+  {
+    category: 'mutator',
+    name: 'Searing Wounds',
+    type: 'melee',
+    imagePath: '/mutator/searing_wounds.png',
+    dlc: 'dlc2',
+    id: '9htako',
+    tags: ['Ranged Damage', 'Critical Hit', 'Status Effect'],
+    description: `Increases Ranged Damage of this weapon by 1%-[10%] to BURNING targets.`,
+    maxLevelBonus: `This weapon's Ranged Weakspot and Ranged Critical Hits apply BURNING, dealing 50 FIRE damage over 5s.`,
+    wikiLinks: [`https://remnant.wiki/Dervish`],
   },
   {
     category: 'mutator',
@@ -636,7 +648,7 @@ export const mutatorItems: MutatorItem[] = [
     imagePath: '/mutator/twisting_wounds.png',
     id: '7eodps',
     tags: ['Ranged Damage', 'Critical Hit', 'Weakspot Hit'],
-    description: `Increases Ranged damage of this weapon by 10-[20]% to BLEEDING targets.`,
+    description: `Increases Ranged damage of this weapon by 5-[10]% to BLEEDING targets.`,
     // TODO Check this; bleed damage 200 over 10s -> 200 over 20s
     maxLevelBonus: `This weapon's Ranged Weakspot and Ranged Critical Hits apply BLEEDING, dealing 200 BLEED damage over 20s.`,
     wikiLinks: [`https://remnant.wiki/Twisting_Wounds`],

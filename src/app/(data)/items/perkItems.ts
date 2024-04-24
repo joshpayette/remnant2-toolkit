@@ -1310,7 +1310,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     dlc: 'dlc2',
     tags: [],
     description:
-      'PRERELEASE Reduces Skill Cooldowns by 1% and Heals 2% Max Health once every 3s for allies while an Invoker Skill is active.',
+      'Reduces Skill Cooldowns by 1% and Heals 2% Max Health once every 3s for allies while an Invoker Skill is active.',
     wikiLinks: ['https://remnant.wiki/Communion'],
     linkedItems: {
       archetype: {
@@ -1341,7 +1341,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     type: 'relic',
     id: 'j7e5Bb',
     dlc: 'dlc2',
-    tags: [],
+    tags: ['Relic Use Speed'],
     description: `On Relic use, extend the duration of active Invoker skills by 20% of the base duration. Cannot exceed base duration.
 
       Relic Use Speed increased by 25% while an Invoker Skill is active.`,

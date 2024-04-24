@@ -711,9 +711,8 @@ export const skillItems: SkillItem[] = [
     id: '7DnBmE',
     dlc: 'dlc2',
     tags: [],
-    description: `Invoke Meidra to heal all allies for 20% Max Health over 1.5s and conjure a 20m Forest Growth for 15s. After fully blooming, allies in the Forest Growth heal 2% Max Health per second and gain 3% of base damage dealt as Lifesteal. Enemies inside Forest Growth gain GLOOM for 10s.
-
-    GLOOM: Increases incoming Elemental damage by 15%.`,
+    description: `Invoke Meidra to heal all allies for 20% Max Health over 1.5s and conjure a 20m [A] Forest Growth for 15s. After fully blooming, allies in the Forest Growth heal 2% Max Health per second and gain 3% of base damage dealt as Lifesteal. Enemies inside Forest Growth gain GLOOM for 10s.
+        GLOOM: Increases incoming Elemental damage by 15%.`,
     cooldown: 120,
     wikiLinks: ['https://remnant.wiki/Way_of_Meidra'],
     linkedItems: {
