@@ -705,9 +705,10 @@ export const modItems: ModItem[] = [
     imagePath: '/mod/power_stone.png',
     id: '2JimAt',
     dlc: 'dlc2',
-    description: `Charged Melee empowers the staff for 10s, causing Melee Attacks to launch an energy bolt that seeks enemies within 30m, dealing 50 SHOCK Damage and grants 1 stack of POWER STONE. Max 10 stacks.
+    tags:['Status Effect'],
+    description: `Charged Melee empowers the staff for 10s, causing Melee Attacks to launch an energy bolt that seeks enemies within 30m [A], dealing 50 SHOCK Damage and grants 1 stack of POWER STONE. Max 10 stacks.
     
-    While empowered, Charged Melee calls 9m shockwave dealing 75 SHOCK Damage and ends POWER STONE. For each POWER STONE stack built when ended, release 1 energy bolt that seeks a random enemy and applies OVERLOADED for 40s.`,
+    While empowered, Charged Melee calls 9m [A] shockwave dealing 75 SHOCK Damage and ends POWER STONE. For each POWER STONE stack built when ended, release 1 energy bolt that seeks a random enemy and applies OVERLOADED for 40s.`,
     wikiLinks: [`https://remnant.wiki/Power_Stone`],
     linkedItems: {
       weapon: {
