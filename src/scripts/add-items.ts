@@ -3,19 +3,15 @@ import { Item } from '../features/items/types'
 
 const items = [
   {
-    category: 'helm',
-    name: `Mudtooth's Hat`,
-    imagePath: '/helm/mudtooths_hat.png',
-    id: 'u7PqrJ',
+    category: 'relic',
+    name: 'Bloodless Heart',
+    imagePath: '/relic/bloodless_heart.png',
+    id: 'LQho3X',
     dlc: 'dlc2',
-    armor: 10.6,
-    weight: 4.4,
-    bleedResistance: 1,
-    fireResistance: 1,
-    shockResistance: 1,
-    blightResistance: 2,
-    toxinResistance: 1,
-    wikiLinks: [`https://remnant.wiki/Mudtooth's_Hat`],
+    description: `Innate 50% Use Speed bonus. One use, grants a SHIELD that prevents nearly all damage for 3s.
+
+    Cannot prevent certain death mechanics`,
+    wikiLinks: [`https://remnant.wiki/Bloodless_Heart`],
   },
 ] as const satisfies Item[]
 

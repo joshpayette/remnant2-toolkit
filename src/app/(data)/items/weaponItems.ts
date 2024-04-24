@@ -916,6 +916,24 @@ export const weaponItems: WeaponItem[] = [
   {
     category: 'weapon',
     type: 'melee',
+    name: 'Crystal Staff',
+    imagePath: '/melee/crystal_staff.png',
+    id: 'CMo9vJ',
+    dlc: 'dlc2',
+    description: `The staff hums with energy. A destructive power within yearns to be released.`,
+    damage: 58,
+    crit: 5,
+    weakspot: 95,
+    stagger: 3,
+    linkedItems: {
+      mod: {
+        name: 'Power Stone',
+      },
+    },
+  },
+  {
+    category: 'weapon',
+    type: 'melee',
     name: 'Decayed Claws',
     imagePath: '/melee/decayed_claws.png',
     id: 'y1a0bu',

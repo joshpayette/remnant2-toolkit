@@ -3,6 +3,17 @@ import { RelicItem } from './types/RelicItem'
 export const relicItems: RelicItem[] = [
   {
     category: 'relic',
+    name: 'Bloodless Heart',
+    imagePath: '/relic/bloodless_heart.png',
+    id: 'LQho3X',
+    dlc: 'dlc2',
+    description: `Innate 50% Use Speed bonus. One use, grants a SHIELD that prevents nearly all damage for 3s.
+
+    Cannot prevent certain death mechanics`,
+    wikiLinks: [`https://remnant.wiki/Bloodless_Heart`],
+  },
+  {
+    category: 'relic',
     name: 'Blooming Heart',
     imagePath: '/relic/blooming_heart.png',
     id: 'soyjpp',
