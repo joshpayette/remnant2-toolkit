@@ -600,7 +600,7 @@ export const mutatorItems: MutatorItem[] = [
     imagePath: '/mutator/twisting_wounds.png',
     id: '7eodps',
     tags: ['Ranged Damage', 'Critical Hit', 'Weakspot Hit'],
-    description: `Increases Ranged damage of this weapon by 10-[20]% to BLEEDING targets.`,
+    description: `Increases Ranged damage of this weapon by 5-[10]% to BLEEDING targets.`,
     // TODO Check this; bleed damage 200 over 10s -> 200 over 20s
     maxLevelBonus: `This weapon's Ranged Weakspot and Ranged Critical Hits apply BLEEDING, dealing 200 BLEED damage over 20s.`,
     wikiLinks: [`https://remnant.wiki/Twisting_Wounds`],
