@@ -702,7 +702,9 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     Reduces the Mod Power requirement for all Mods by 15%.
 
     Upgrade unlocked at level 8
-    Upgrade After casting a Mod instantly regain 15% of the Mod Power spent`,
+    all Mods by 15%.
+
+    Reduces the Mod Power requirement per charge by 15% and instantly refunds 15% of the Mod Power cost, split among active mods.`,
     wikiLinks: [`https://remnant.wiki/Spirit_Within`],
     linkedItems: {
       archetype: {

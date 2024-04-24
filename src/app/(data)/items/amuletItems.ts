@@ -23,6 +23,16 @@ export const amuletItems: AmuletItem[] = [
   },
   {
     category: 'amulet',
+    name: 'Beads of the Valorous',
+    imagePath: '/amulet/beads_of_the_valorous.png',
+    id: 'n8gqNY',
+    dlc: 'dlc2',
+    tags: [],
+    description: `Increases Damage Reduction and Movement Speed by 1% for every 5% of missing Max Health. Bonus is doubled at or below 50% Max Health. Max 10 stacks.`,
+    wikiLinks: ['https://remnant.wiki/Beads_of_the_Valorous'],
+  },
+  {
+    category: 'amulet',
     name: 'Birthright of the Lost',
     imagePath: '/amulet/birthright_of_the_lost.png',
     id: '41ookr',
