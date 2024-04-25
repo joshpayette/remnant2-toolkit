@@ -394,7 +394,7 @@ export const ringItems: RingItem[] = [
     imagePath: '/ring/burden_of_the_mesmer.png',
     id: 'fGFm6B',
     dlc: 'dlc2',
-    tags: [],
+    tags: ['Health', 'All Damage', 'Damage Reduction'],
     description: `Reduces Max Health by 25%. Increases All Damage by 1% for every 5% of the wearer's total Damage Reduction.`,
     wikiLinks: [`https://remnant.wiki/Burden_of_the_Mesmer`],
   },
