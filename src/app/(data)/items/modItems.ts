@@ -305,6 +305,21 @@ export const modItems: ModItem[] = [
   },
   {
     category: 'mod',
+    name: 'Deadwood',
+    imagePath: '/mod/deadwood.png',
+    id: 'k7z7rz',
+    description: `Disables automatic BLOWBACK, while increasing Thorn's Reload Speed by 25%, and Fire Rate by 15%.
+
+    Reactivating the Mod will trigger an EMPOWERED BLOWBACK, which detonates all needles at once for 100% additional damage. Lasts 20s.`,
+    wikiLinks: [`https://remnant.wiki/Deadwood`],
+    linkedItems: {
+      weapon: {
+        name: 'Thorn',
+      },
+    },
+  },
+  {
+    category: 'mod',
     name: 'Death Brand',
     imagePath: '/mod/death_brand1.png',
     id: 'd3q99g',
