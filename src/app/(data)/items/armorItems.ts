@@ -116,7 +116,7 @@ export const armorItems: ArmorItem[] = [
     shockResistance: 0,
     blightResistance: 5,
     toxinResistance: 0,
-    description: '',
+    description: 'Lovingly crafted by a skilled hatter who clearly takes great pride in their work. After being exposed to endless days of rain, the shell began to separate from the crown, so a woven cord was tied around the center to hold it in place—for now.',
     wikiLinks: ['https://remnant.wiki/Dandy_Topper'],
   },
   {
