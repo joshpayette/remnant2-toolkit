@@ -476,6 +476,23 @@ export const armorItems: ArmorItem[] = [
   },
   {
     category: 'helm',
+    name: 'True Crimson Crown',
+    saveFileSlug: 'armor_head_crimson', // TODO I dont know it
+    imagePath: '/helm/technician_helmet.png',
+    id: 'gsctud',
+    set: 'True Crimson Set',
+    armor: 16.6,
+    weight: 10,
+    bleedResistance: -6,
+    fireResistance: 35,
+    shockResistance: -6,
+    blightResistance: -6,
+    toxinResistance: -6,
+    description: `Inified at long last, this enigmatic mask and flaming diadem signify that its wearer is not only forever loyal to the Red King but stands as his most favoured equal.`,
+    wikiLinks: [`https://remnant.wiki/True_Crimson_Crown`],
+  },
+  {
+    category: 'helm',
     name: 'Void Skull',
     saveFileSlug: 'armor_head_void',
     imagePath: '/helm/void_skull.png',
