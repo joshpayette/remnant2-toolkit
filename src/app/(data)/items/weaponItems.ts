@@ -1173,7 +1173,7 @@ export const weaponItems: WeaponItem[] = [
   {
     category: 'weapon',
     type: 'melee',
-    name: 'Mirage,
+    name: 'Mirage',
     imagePath: '/melee/mirage.png',
     id: '6j7c6k',
     description: `The mace whirs as if living harmonics hold its shape. When swung, a breath of sand tethers to the rock crown for extended reach and lethal momentum.`,
