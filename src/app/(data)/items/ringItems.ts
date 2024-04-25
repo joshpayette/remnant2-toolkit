@@ -1172,8 +1172,8 @@ export const ringItems: RingItem[] = [
     imagePath: '/ring/rally_band.png',
     id: '7XdP4g',
     dlc: 'dlc2',
-    tags: [], // TODO Add tags
-    description: ``,
+    tags: ['Health', 'Grey Health', 'Melee Hit'],
+    description: `Melee Strikes convert Grey Health into Health. Each melee strike converts up to 10% of Max Health`,
     wikiLinks: [`https://remnant.wiki/Rally_Band`],
   },
   {
