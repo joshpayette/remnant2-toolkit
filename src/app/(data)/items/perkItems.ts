@@ -1046,7 +1046,6 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     type: 'prime',
     id: 'tmc2tk',
     tags: ['Summon'],
-    // TODO Check this; description will be updated around minion explosive damage based on their remaining hp, undocumented previously.
     description: `
     When the SUMMONER deals damage to their Minion, it causes them to ENRAGE. Minions gain 10% Attack Speed along with 30% increased Damage and Movement Speed. Lasts 20s.
     
@@ -1154,7 +1153,6 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     type: 'prime',
     id: 'qewh6t',
     tags: ['Status Effect'],
-    // TODO Check this; `Eruption no longer requires line of sight to spread Vile` - not sure how this will be reflected in the description
     description: `
     Negative Status Effects applied by RITUALIST inflict Infected.
     Infected: Victim receives 5% more Status Effect damage, On death, spreads all statuses to nearby enemies within 5m. [A]
