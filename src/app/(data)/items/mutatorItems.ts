@@ -636,8 +636,7 @@ export const mutatorItems: MutatorItem[] = [
     id: '0osd64',
     tags: ['Melee Damage', 'Mod Power', 'Ammo Reserves'],
     description: `Melee Hits generate 5% Ammo Reserves for both Firearms. Cooldown 10-[5]s.`,
-    // TODO Check this; `reworked l10 to increase Reload Speed by 50% after ammo transfer`
-    maxLevelBonus: `When a Firearm reserve is full, melee Strikes generate 25% additional Mod Power for that weapon.`,
+    maxLevelBonus: `After Ammo is Transferred, increase Reload Speed of this weapon by 50% for 5s.`,
     wikiLinks: [`https://remnant.wiki/Transference`],
   },
   {
