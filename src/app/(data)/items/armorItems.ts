@@ -337,6 +337,7 @@ export const armorItems: ArmorItem[] = [
     blightResistance: 2,
     toxinResistance: 1,
     wikiLinks: [`https://remnant.wiki/Mudtooth's_Hat`],
+    description: `A hat that once belonged to some kind of man in black. Or did it? Mudtooth went through some kind of crazy experience to get this thing, though the details are a little muddled. Either that, or he found it in a dumpster. You're going to choose to believe it's the former.`,
   },
   {
     category: 'helm',
