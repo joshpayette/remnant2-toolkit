@@ -631,17 +631,14 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     type: 'prime',
     id: 'dh2wih',
     tags: ['Mod Power'],
-    // TODO Check this; `prime: removed mod generation percentage bonus` - not sure how this will be reflected in the description
-    // TODO Check this; `prime: increased the Max Level Base Mod Generation from 3/6 to 15/30`
-    // TODO Alexij got clarification, said Tragic included secsondary effect, so 2 * 150% and 3 * 200%
     description: `
-    Automatically generate 2 Mod Power per second. Casting a Mod increases all Mod Generation by 50% for 6s
+    Automatically generate 15 Mod Power per second.
 
     Upgraded at Level 5
-    Upgrade: Automatically generate 2.5 Mod Power per second. Casting a Mod increases all Mod Generation by 50% for 6s
+    Upgrade: Automatically generate 22.5 Mod Power per second. 
 
     Upgraded at level 10
-    Upgrade: Automatically generate 6 Mod Power per second. Casting a Mod increases all Mod Generation by 100% for 10s.`,
+    Upgrade: Automatically generate 30 Mod Power per second.`,
     wikiLinks: [`https://remnant.wiki/Tempest`],
     linkedItems: {
       archetype: {
