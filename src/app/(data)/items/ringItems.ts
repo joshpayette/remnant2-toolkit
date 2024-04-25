@@ -219,7 +219,7 @@ export const ringItems: RingItem[] = [
     imagePath: '/ring/bloodless_kings_vow.png',
     id: 'WHgN93',
     dlc: 'dlc2',
-    tags: [],
+    tags: ['Ranged Damage', 'Lifesteal'],
     description: `Gain 4% of base Ranged Damage dealt as Lifesteal.`,
     wikiLinks: [`https://remnant.wiki/Bloodless_King's_Vow`],
   },
