@@ -201,7 +201,7 @@ export const ringItems: RingItem[] = [
     name: 'Blasting Cap Ring',
     imagePath: '/ring/blasting_cap_ring.png',
     id: 'ep14lr',
-    description: `Increases Explosive damage [E] by 15%.`,
+    description: `Increases Explosive damage [E] by 10%.`,
     wikiLinks: [`https://remnant.wiki/Blasting_Cap_Ring`],
   },
   {
@@ -1007,7 +1007,7 @@ export const ringItems: RingItem[] = [
     imagePath: '/ring/lodestone_ring.png',
     id: 'sye1ay',
     tags: ['All Damage'],
-    description: `Increases all damage dealt against illuminated enemies by 5% [MD].`,
+    description: `Increases all damage dealt against illuminated enemies by 5%.`,
     wikiLinks: [`https://remnant.wiki/Lodestone_Ring`],
   },
   {

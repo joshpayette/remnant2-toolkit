@@ -3,6 +3,14 @@ import { ModItem } from './types/ModItem'
 export const modItems: ModItem[] = [
   {
     category: 'mod',
+    name: 'Abrasive Rounds',
+    imagePath: '/mod/abrasive_rounds.png',
+    id: 'h9k5pd',
+    description: `Imbues ammunition with BLEED and increases Lifesteal by 5% for 20s. Shots also apply BLEEDING, dealing 200 damage over 10s.`,
+    wikiLinks: [`https://remnant.wiki/Abrasive_Rounds`],
+  },
+  {
+    category: 'mod',
     name: '77 79 68',
     imagePath: '/placeholder.jpg',
     dlc: 'dlc2',
@@ -271,6 +279,19 @@ export const modItems: ModItem[] = [
   },
   {
     category: 'mod',
+    name: 'Cyclone',
+    imagePath: '/mod/Cyclone.png',
+    id: '1bfadq',
+  description: `Maintaining an overhead Charged Melee forms a 5m sand cyclone, dealing 55 - 168 damage per second and pulls enemies towards the wielder. Each Cyclone hit applies EXPOSED for 3s. Max 15s.`,
+    wikiLinks: [`https://remnant.wiki/Cyclone`],
+    linkedItems: {
+      weapon: {
+        name: 'Mirage',
+      },
+    },
+  },
+  {
+    category: 'mod',
     name: 'Deadpoint',
     imagePath: '/mod/deadpoint.png',
     id: 'ysz4fw',
@@ -279,6 +300,21 @@ export const modItems: ModItem[] = [
     linkedItems: {
       weapon: {
         name: 'Corrupted Meridian',
+      },
+    },
+  },
+  {
+    category: 'mod',
+    name: 'Deadwood',
+    imagePath: '/mod/deadwood.png',
+    id: 'k7z7rz',
+    description: `Disables automatic BLOWBACK, while increasing Thorn's Reload Speed by 25%, and Fire Rate by 15%.
+
+    Reactivating the Mod will trigger an EMPOWERED BLOWBACK, which detonates all needles at once for 100% additional damage. Lasts 20s.`,
+    wikiLinks: [`https://remnant.wiki/Deadwood`],
+    linkedItems: {
+      weapon: {
+        name: 'Thorn',
       },
     },
   },

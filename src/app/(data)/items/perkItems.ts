@@ -8,15 +8,14 @@ export const perkItems: PerkItem[] = [
     type: 'prime',
     id: 's8eytq',
     tags: ['Weakspot Damage'],
-    // TODO Check this; Ranged Weakspot Damage -> Ranged and Melee Weakspot Damage
-    description: `
-    Dealing 65 Base Ranged and Melee Weakspot Damage extends the duration of active HUNTER Skills by 2.5s. Can extend timer beyond its initial duration
+     description: `
+    Dealing 65 Base Ranged or Melee Weakspot Damage extends the duration of active HUNTER Skills by 2.5s. Can extend timer beyond its initial duration
 
     Upgraded at Level 5
-    Dealing 60 Base Ranged and Melee Weakspot Damage extends the duration of active HUNTER Skills by 3s. Can extend timer beyond its initial duration
+    Dealing 60 Base Ranged or Melee Weakspot Damage extends the duration of active HUNTER Skills by 3s. Can extend timer beyond its initial duration
 
     Upgraded at level 10
-    Dealing 55 Base Ranged and Melee Weakspot Damage extends the duration of active HUNTER Skills by 3.5s. Can extend timer beyond its initial duration`,
+    Dealing 55 Base Ranged or Melee Weakspot Damage extends the duration of active HUNTER Skills by 3.5s. Can extend timer beyond its initial duration`,
     wikiLinks: [`https://remnant.wiki/Dead_to_Rights`],
     linkedItems: {
       archetype: {
@@ -447,7 +446,6 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     type: 'damage',
     id: 'f4jx9k',
     tags: ['All Damage', 'Critical Chance'],
-    // TODO Check this; crit chance 10% -> 5%
     description: `
     Grants a 3.5% increase to All Damage to enemies within 10m. Damage bonus tapers off until 20m. Increases with CHALLENGER Level. 
     
@@ -568,7 +566,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     imagePath: '/perk/panacea.png',
     type: 'team',
     id: '49i5jm',
-    tags: ['Damage Reduction'], // TODO Changed to Damage Reduction as that tag exists, assuming that is what was meant here
+    tags: ['Damage Reduction'],
     description: `
     Curative effects apply to all allies within 15m and grant 15 additional Resistance.
 
@@ -631,17 +629,14 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     type: 'prime',
     id: 'dh2wih',
     tags: ['Mod Power'],
-    // TODO Check this; `prime: removed mod generation percentage bonus` - not sure how this will be reflected in the description
-    // TODO Check this; `prime: increased the Max Level Base Mod Generation from 3/6 to 15/30`
-    // TODO Alexij got clarification, said Tragic included secsondary effect, so 2 * 150% and 3 * 200%
     description: `
-    Automatically generate 2 Mod Power per second. Casting a Mod increases all Mod Generation by 50% for 6s
+    Automatically generate 15 Mod Power per second.
 
     Upgraded at Level 5
-    Upgrade: Automatically generate 2.5 Mod Power per second. Casting a Mod increases all Mod Generation by 50% for 6s
+    Upgrade: Automatically generate 22.5 Mod Power per second. 
 
     Upgraded at level 10
-    Upgrade: Automatically generate 6 Mod Power per second. Casting a Mod increases all Mod Generation by 100% for 10s.`,
+    Upgrade: Automatically generate 30 Mod Power per second.`,
     wikiLinks: [`https://remnant.wiki/Tempest`],
     linkedItems: {
       archetype: {
@@ -697,14 +692,11 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     type: 'utility',
     id: '5fz7xr',
     tags: ['Mod Power'],
-    // TODO Check this; `removed reference to to Mod Power Refund over time` but I don't see it in the original description.
     description: `
-    Reduces the Mod Power requirement for all Mods by 15%.
+    Reduces the Mod Power requirement for all Mods by 5%.
 
     Upgrade unlocked at level 8
-    all Mods by 15%.
-
-    Reduces the Mod Power requirement per charge by 15% and instantly refunds 15% of the Mod Power cost, split among active mods.`,
+    Reduces the Mod Power requirement per charge by 10%`,
     wikiLinks: [`https://remnant.wiki/Spirit_Within`],
     linkedItems: {
       archetype: {
@@ -719,12 +711,11 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     type: 'relic',
     id: 'h42e2n',
     tags: ['Mod Power'],
-    // TODO Check this; 200 -> 100 mod power
     description: `
     Using a Relic grants 100 Mod Power for both equipped Mods.
 
     Upgrade unlocked at level 9
-    Upgrade: Grant an additional 100 Mod Power to the current mod.`,
+    Upgrade: Using a Relic grants 100 Mod Power for both equipped Mods, and an additional 100 to current Mod.`,
     wikiLinks: [`https://remnant.wiki/Power_Leak`],
     linkedItems: {
       archetype: {
@@ -766,7 +757,6 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     type: 'damage',
     id: '2hcif5',
     tags: ['Skill Damage', 'Critical Chance'],
-    // TODO Check this; ranged and skill crit chance 10% -> 5%
     description: `
     Increases Skill Damage by 5% and Ranged Damage by 2.5%.
     Heavy Weapons gain 5% Ammo Capacity, 2.5% Max Health, and 2.5% Weakspot Damage.
@@ -1056,7 +1046,6 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     type: 'prime',
     id: 'tmc2tk',
     tags: ['Summon'],
-    // TODO Check this; description will be updated around minion explosive damage based on their remaining hp, undocumented previously.
     description: `
     When the SUMMONER deals damage to their Minion, it causes them to ENRAGE. Minions gain 10% Attack Speed along with 30% increased Damage and Movement Speed. Lasts 20s.
     
@@ -1164,7 +1153,6 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     type: 'prime',
     id: 'qewh6t',
     tags: ['Status Effect'],
-    // TODO Check this; `Eruption no longer requires line of sight to spread Vile` - not sure how this will be reflected in the description
     description: `
     Negative Status Effects applied by RITUALIST inflict Infected.
     Infected: Victim receives 5% more Status Effect damage, On death, spreads all statuses to nearby enemies within 5m. [A]
@@ -1190,11 +1178,8 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     type: 'damage',
     id: '6wc56t',
     tags: ['All Damage', 'Critical Chance', 'Status Effect'],
-    // TODO Check this; `enabled interaction with skill summon and mod summon damage` - not sure how this will be reflected in the description
-    // TODO Check this; `fixed an issue preventing skill/mod summons from getting Damage Bonus` - not sure how this will be reflected in the description
-    // TODO Check this; critical chance 10% -> 5%
     description: `
-    Increases all damage to enemies affected by a Negative Status Effect by 2%. Damage increases with RITUALIST Level
+    Increases all damage to enemies affected by a Negative Status Effect by 2%. Damage increases with RITUALIST Level.
     
     Upgrade Unlocked at level 5
     Increases all damage to enemies affected by a Negative Status Effect by 12%. Increases all Critical Chance against enemies affected by a Negative Status Effect by 5%.
