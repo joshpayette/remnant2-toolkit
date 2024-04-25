@@ -634,6 +634,15 @@ EXPOSED: Target receives up to 15% additional damage from all sources.`,
   },
   {
     category: 'amulet',
+    name: 'Soul Stone',
+    imagePath: '/amulet/soulstone.png',
+    id: 'z7ivk3',
+    tags: ['Summon', 'Movement Speed'],
+    description: `Increases Summon Damage by 30% and Summon Movement Speed by 30%.`,
+    wikiLinks: [`https://remnant.wiki/Soul_Stone`],
+  }
+  {
+    category: 'amulet',
     name: 'Shock Device',
     imagePath: '/amulet/shock_device.png',
     id: '9z1g8f',
