@@ -718,7 +718,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     Using a Relic grants 100 Mod Power for both equipped Mods.
 
     Upgrade unlocked at level 9
-    Upgrade: Grant an additional 100 Mod Power to the current mod.`,
+    Upgrade: Using a Relic grants 100 Mod Power for both equipped Mods, and an additional 100 to current Mod.`,
     wikiLinks: [`https://remnant.wiki/Power_Leak`],
     linkedItems: {
       archetype: {
