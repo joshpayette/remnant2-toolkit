@@ -116,6 +116,8 @@ export const armorItems: ArmorItem[] = [
     shockResistance: 0,
     blightResistance: 5,
     toxinResistance: 0,
+    description: '',
+    wikiLinks: ['https://remnant.wiki/Dandy_Topper'],
   },
   {
     category: 'helm',

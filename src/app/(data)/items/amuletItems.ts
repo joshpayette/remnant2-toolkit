@@ -552,8 +552,8 @@ EXPOSED: Target receives up to 15% additional damage from all sources.`,
     imagePath: '/amulet/profane_soul_stone.png',
     id: 'YsS9NW',
     dlc: 'dlc2',
-    tags: ['Summon', 'Damage Reduction', 'Movement Speed'], // TODO Add tags
-    description: 'Increases Summon Damage by 30% and Summon Movement Speed by 15. Reduces total Damage Reduction by 10% per active Summon.`,
+    tags: ['Summon', 'Damage Reduction', 'Movement Speed'],
+    description: 'Increases Summon Damage by 30% and Summon Movement Speed by 15. Reduces total Damage Reduction by 10% per active Summon.',
     wikiLinks: [`https://remnant.wiki/Profane_Soul_Stone`],
   },
   {
@@ -640,7 +640,7 @@ EXPOSED: Target receives up to 15% additional damage from all sources.`,
     tags: ['Summon', 'Movement Speed'],
     description: `Increases Summon Damage by 30% and Summon Movement Speed by 30%.`,
     wikiLinks: [`https://remnant.wiki/Soul_Stone`],
-  }
+  },
   {
     category: 'amulet',
     name: 'Shock Device',
