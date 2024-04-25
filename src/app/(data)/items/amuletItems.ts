@@ -585,6 +585,16 @@ EXPOSED: Target receives up to 15% additional damage from all sources.`,
   },
   {
     category: 'amulet',
+    name: 'Reed of the Vaunnt',
+    imagePath: '/amulet/reed_of_the_vaunnt.png',
+    id: 'U2Vekv',
+    dlc: 'dlc2',
+    tags: [], // TODO Add tags
+    description: ``,
+    wikiLinks: [`https://remnant.wiki/Reed_of_the_Vaunnt`],
+  },
+  {
+    category: 'amulet',
     name: "Rusted Navigator's Pendant",
     imagePath: '/amulet/rusted_navigators_pendant.png',
     id: 'iq6zyc',

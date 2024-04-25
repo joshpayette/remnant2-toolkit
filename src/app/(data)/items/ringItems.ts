@@ -1168,6 +1168,16 @@ export const ringItems: RingItem[] = [
   },
   {
     category: 'ring',
+    name: 'Rally Band',
+    imagePath: '/ring/rally_band.png',
+    id: '7XdP4g',
+    dlc: 'dlc2',
+    tags: [], // TODO Add tags
+    description: ``,
+    wikiLinks: [`https://remnant.wiki/Rally_Band`],
+  },
+  {
+    category: 'ring',
     name: "Ravager's Bargain",
     imagePath: '/ring/ravagers_bargain.png',
     id: 'kqddup',
