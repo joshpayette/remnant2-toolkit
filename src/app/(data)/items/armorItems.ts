@@ -508,7 +508,7 @@ export const armorItems: ArmorItem[] = [
     shockResistance: -6,
     blightResistance: -6,
     toxinResistance: -6,
-    description: `Inified at long last, this enigmatic mask and flaming diadem signify that its wearer is not only forever loyal to the Red King but stands as his most favoured equal.`,
+    description: `Unified at long last, this enigmatic mask and flaming diadem signify that its wearer is not only forever loyal to the Red King but stands as his most favoured equal.`,
     wikiLinks: [`https://remnant.wiki/True_Crimson_Crown`],
   },
   {
