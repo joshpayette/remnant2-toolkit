@@ -28,38 +28,45 @@ export function useDBBuildState(
   INITIAL_BUILD_STATE: BuildState,
   mode: 'create' | 'edit',
 ) {
+  // TODO Rework this functionality
   // Read the build-state from the localstorage
-  const [localBuildState, setLocalBuildState] = useLocalStorage<BuildState>(
-    mode === 'create' ? 'create-build-state' : 'edit-build-state',
-    INITIAL_BUILD_STATE,
-    { initializeWithValue: true },
-  )
+  // const [localBuildState, setLocalBuildState] = useLocalStorage<BuildState>(
+  //   mode === 'create' ? 'create-build-state' : 'edit-build-state',
+  //   INITIAL_BUILD_STATE,
+  //   { initializeWithValue: true },
+  // )
 
+  // TODO
   // Initialize the build state with the local build state if it exists
   // and is not equal to the initial build state
-  const [dbBuildState, setDBBuildState] = useState<BuildState>(
-    isEqual(localBuildState, INITIAL_BUILD_STATE)
-      ? INITIAL_BUILD_STATE
-      : localBuildState,
-  )
+  // const [dbBuildState, setDBBuildState] = useState<BuildState>(
+  //   isEqual(localBuildState, INITIAL_BUILD_STATE)
+  //     ? INITIAL_BUILD_STATE
+  //     : localBuildState,
+  // )
+  const [dbBuildState, setDBBuildState] =
+    useState<BuildState>(INITIAL_BUILD_STATE)
 
   // If mode is edit and the localBuildState.buildId is not equal to the buildId
   // in the initial build state, reset the local build state and the db build state
-  useEffect(() => {
-    if (mode === 'create') return
-    if (!localBuildState.buildId) return
+  // useEffect(() => {
+  //   if (mode === 'create') return
+  //   if (!localBuildState.buildId) return
 
-    if (localBuildState.buildId !== INITIAL_BUILD_STATE.buildId) {
-      setLocalBuildState(DEFAULT_BUILD_STATE)
-      setDBBuildState(INITIAL_BUILD_STATE)
-    }
-  }, [INITIAL_BUILD_STATE, localBuildState.buildId, mode, setLocalBuildState])
+  //   if (localBuildState.buildId !== INITIAL_BUILD_STATE.buildId) {
+  //     setLocalBuildState(DEFAULT_BUILD_STATE)
+  //     setDBBuildState(INITIAL_BUILD_STATE)
+  //   }
+  // }, [INITIAL_BUILD_STATE, localBuildState.buildId, mode, setLocalBuildState])
 
+  // TODO
   // Check if the user is using local changes
   // Used to show an alert above the builder
-  const usingLocalChanges =
-    INITIAL_BUILD_STATE.buildId === localBuildState.buildId &&
-    !isEqual(INITIAL_BUILD_STATE, localBuildState)
+  // const usingLocalChanges =
+  //   INITIAL_BUILD_STATE.buildId === localBuildState.buildId &&
+  //   !isEqual(INITIAL_BUILD_STATE, localBuildState)
+
+  const usingLocalChanges = false
 
   /**
    * Converts the build state to CSV data.
@@ -94,7 +101,7 @@ export function useDBBuildState(
         name: value as string,
       }
       setDBBuildState(newBuildState)
-      setLocalBuildState(newBuildState)
+      //setLocalBuildState(newBuildState)
       return
     }
     if (category === 'description') {
@@ -103,7 +110,7 @@ export function useDBBuildState(
         description: value as string,
       }
       setDBBuildState(newBuildState)
-      setLocalBuildState(newBuildState)
+      //setLocalBuildState(newBuildState)
       return
     }
     if (category === 'isPublic') {
@@ -112,7 +119,7 @@ export function useDBBuildState(
         isPublic: value === 'true',
       }
       setDBBuildState(newBuildState)
-      setLocalBuildState(newBuildState)
+      //setLocalBuildState(newBuildState)
       return
     }
     if (category === 'isPatchAffected') {
@@ -121,7 +128,7 @@ export function useDBBuildState(
         isPatchAffected: value === 'true',
       }
       setDBBuildState(newBuildState)
-      setLocalBuildState(newBuildState)
+      //setLocalBuildState(newBuildState)
       return
     }
     if (category === 'buildLink') {
@@ -130,7 +137,7 @@ export function useDBBuildState(
         buildLink: value as string,
       }
       setDBBuildState(newBuildState)
-      setLocalBuildState(newBuildState)
+      //setLocalBuildState(newBuildState)
       return
     }
     if (category === 'tags') {
@@ -139,7 +146,7 @@ export function useDBBuildState(
         buildTags: value as BuildTags[],
       }
       setDBBuildState(newBuildState)
-      setLocalBuildState(newBuildState)
+      //setLocalBuildState(newBuildState)
       return
     }
 
@@ -168,7 +175,7 @@ export function useDBBuildState(
         }
 
         setDBBuildState(newBuildState)
-        setLocalBuildState(newBuildState)
+        //setLocalBuildState(newBuildState)
         return
       }
     }
@@ -190,7 +197,7 @@ export function useDBBuildState(
         })
 
         setDBBuildState(cleanBuildState)
-        setLocalBuildState(cleanBuildState)
+        //setLocalBuildState(cleanBuildState)
         return
       }
     } else {
@@ -204,7 +211,7 @@ export function useDBBuildState(
         })
 
         setDBBuildState(cleanBuildState)
-        setLocalBuildState(cleanBuildState)
+        //setLocalBuildState(cleanBuildState)
         return
       }
     }
@@ -278,13 +285,13 @@ export function useDBBuildState(
 
     const cleanBuildState = cleanUpBuildState(newBuildState)
     setDBBuildState(cleanBuildState)
-    setLocalBuildState(cleanBuildState)
+    //setLocalBuildState(cleanBuildState)
   }
 
   function setNewBuildState(buildState: BuildState) {
     const cleanBuildState = cleanUpBuildState(buildState)
     setDBBuildState(cleanBuildState)
-    setLocalBuildState(cleanBuildState)
+    //setLocalBuildState(cleanBuildState)
   }
 
   return {
