@@ -3,6 +3,14 @@ import { ModItem } from './types/ModItem'
 export const modItems: ModItem[] = [
   {
     category: 'mod',
+    name: 'Abrasive Rounds',
+    imagePath: '/mod/abrasive_rounds.png',
+    id: 'h9k5pd',
+    description: `Imbues ammunition with BLEED and increases Lifesteal by 5% for 20s. Shots also apply BLEEDING, dealing 200 damage over 10s.`,
+    wikiLinks: [`https://remnant.wiki/Abrasive_Rounds`],
+  },
+  {
+    category: 'mod',
     name: '77 79 68',
     imagePath: '/placeholder.jpg',
     dlc: 'dlc2',
