@@ -891,6 +891,16 @@ export const ringItems: RingItem[] = [
   },
   {
     category: 'ring',
+    name: 'Gul Signet',
+    imagePath: '/ring/gul_signet.png',
+    dlc: 'dlc2',
+    id: 'xG9CQJ',
+    tags: [], // TODO Check tags
+    description: `Increases Damage Reduction by 10%. Each Weight Class above LIGHT reduces Damage Reduction bonus by 2.5% (up to 3x).`,
+    wikiLinks: [`https://remnant.wiki/Gul_Signet`],
+  },
+  {
+    category: 'ring',
     name: `Gunslinger's Ring`,
     imagePath: '/ring/gunslingers_ring.png',
     id: '976r2x',
@@ -1018,6 +1028,16 @@ export const ringItems: RingItem[] = [
     tags: ['Heal'],
     description: `Killing an enemy regenerates 6% Max Health over 6s. Additional kills increase duration by 6s. Max 30s.`,
     wikiLinks: [`https://remnant.wiki/Low_Yield_Recovery_Ring`],
+  },
+  {
+    category: 'ring',
+    name: 'Mark of the Destroyer',
+    imagePath: '/ring/mark_of_the_destroyer.png',
+    id: 'E7fQdZ',
+    dlc: 'dlc2',
+    tags: [], // TODO Check tags
+    description: `Perfect Dodge triggers a 3m AOE blast that deals 310 Explosive Damage.`,
+    wikiLinks: [`https://remnant.wiki/Mark_of_the_Destroyer`],
   },
   {
     category: 'ring',
