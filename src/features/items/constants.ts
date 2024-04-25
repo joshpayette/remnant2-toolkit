@@ -319,7 +319,7 @@ export const DESCRIPTION_TAGS = [
     type: 'Lifesteal',
     token: 'Lifesteal',
     color: 'text-rose-500',
-    description: "Base Damage only. Doesn't work with Healing Effectiveness.",
+    description: "Unupgraded Base Damage only. Doesn't work with Healing Effectiveness.",
   },
   {
     type: 'Madness',
