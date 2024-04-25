@@ -271,6 +271,19 @@ export const modItems: ModItem[] = [
   },
   {
     category: 'mod',
+    name: 'Cyclone',
+    imagePath: '/mod/Cyclone.png',
+    id: '1bfadq',
+    description: `Maintaining an overhead Charged Melee forms a 5m sand cyclone, dealing 55 - 168 damage per second and pulls enemies towards the wielder. Each Cyclone hit applies EXPOSED for 3s. Max 15s.`,
+    wikiLinks: [`https://remnant.wiki/Cyclone`],
+    linkedItems: {
+      weapon: {
+        name: 'Mirage',
+      },
+    },
+  },
+  {
+    category: 'mod',
     name: 'Deadpoint',
     imagePath: '/mod/deadpoint.png',
     id: 'ysz4fw',
