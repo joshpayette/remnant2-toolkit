@@ -1173,6 +1173,24 @@ export const weaponItems: WeaponItem[] = [
   {
     category: 'weapon',
     type: 'melee',
+    name: 'Mirage,
+    imagePath: '/melee/mirage.png',
+    id: '6j7c6k',
+    description: `The mace whirs as if living harmonics hold its shape. When swung, a breath of sand tethers to the rock crown for extended reach and lethal momentum.`,
+    wikiLinks: [`https://remnant.wiki/Mirage`],
+    linkedItems: {
+      mod: {
+        name: 'Cyclone',
+      },
+    },
+    damage: 56,
+    crit: 3,
+    weakspot: 100,
+    stagger: -5,
+  },
+  {
+    category: 'weapon',
+    type: 'melee',
     name: 'Nightshade',
     imagePath: '/melee/nightshade.png',
     id: '6j7czk',
