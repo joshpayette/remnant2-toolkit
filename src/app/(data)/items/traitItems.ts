@@ -391,7 +391,7 @@ export const traitItems: TraitItem[] = [
     dlc: 'dlc2',
     tags: ['Lifesteal'],
     description: `Increases Lifesteal Efficacy`,
-    maxLevelBonus: `At max level, Leeche Increases Lifesteal Efficacy by 50%.`,
+    maxLevelBonus: `At max level, Leech Increases Lifesteal Efficacy by 50%.`,
     wikiLinks: [`https://remnant.wiki/Leech`],
         amount: DEFAULT_TRAIT_AMOUNT,
   },
