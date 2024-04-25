@@ -126,8 +126,7 @@ export const concoctionItems: ConcoctionItem[] = [
     imagePath: '/concoction/sanguine_vapor.png',
     id: 'kyulid',
     tags: ['Lifesteal', 'Consumable'],
-    // TODO check wording
-    description: `Increases Ranged and Melee Lifesteal by 2% of base damage. Increases damage taken by 10%. Lasts 60m and will stay in effect after death. Only one Concoction may be active at a time.`,
+    description: `Increases Lifesteal by 2% of base damage. Lasts 60m and will stay in effect after death. Only one Concoction may be active at a time.`,
     wikiLinks: [`https://remnant.wiki/Sanguine_Vapor`],
   },
   {
