@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2024-04-25
 
+### Added
+
+- Added many more items from the latest DLC.
+
 ### Changed
 
 - Removed build protection feature to prevent data loss on page refresh. This was creating bugs and needs to be tested more thoroughly.

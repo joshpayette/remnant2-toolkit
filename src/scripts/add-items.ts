@@ -3,14 +3,23 @@ import { Item } from '../features/items/types'
 
 const items = [
   {
-    category: 'amulet',
-    name: 'Soul Stone',
-    imagePath: '/amulet/soul_stone.png',
-    id: 'z7ivk3',
+    category: 'weapon',
+    type: 'melee',
+    name: 'Mirage',
+    imagePath: '/melee/mirage.png',
     dlc: 'dlc2',
-    tags: ['Summon', 'Movement Speed'],
-    description: `Increases Summon Damage by 30% and Summon Movement Speed by 30%.`,
-    wikiLinks: [`https://remnant.wiki/Soul_Stone`],
+    id: '6j7c6k',
+    description: `The mace whirs as if living harmonics hold its shape. When swung, a breath of sand tethers to the rock crown for extended reach and lethal momentum.`,
+    wikiLinks: [`https://remnant.wiki/Mirage`],
+    linkedItems: {
+      mod: {
+        name: 'Cyclone',
+      },
+    },
+    damage: 56,
+    crit: 3,
+    weakspot: 100,
+    stagger: -5,
   },
 ] as const satisfies Item[]
 
