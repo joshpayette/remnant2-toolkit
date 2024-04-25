@@ -694,14 +694,11 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     type: 'utility',
     id: '5fz7xr',
     tags: ['Mod Power'],
-    // TODO Check this; `removed reference to to Mod Power Refund over time` but I don't see it in the original description.
     description: `
-    Reduces the Mod Power requirement for all Mods by 15%.
+    Reduces the Mod Power requirement for all Mods by 5%.
 
     Upgrade unlocked at level 8
-    all Mods by 15%.
-
-    Reduces the Mod Power requirement per charge by 15% and instantly refunds 15% of the Mod Power cost, split among active mods.`,
+    Reduces the Mod Power requirement per charge by 10%`,
     wikiLinks: [`https://remnant.wiki/Spirit_Within`],
     linkedItems: {
       archetype: {
