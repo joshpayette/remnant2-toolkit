@@ -8,15 +8,14 @@ export const perkItems: PerkItem[] = [
     type: 'prime',
     id: 's8eytq',
     tags: ['Weakspot Damage'],
-    // TODO Check this; Ranged Weakspot Damage -> Ranged and Melee Weakspot Damage
-    description: `
-    Dealing 65 Base Ranged and Melee Weakspot Damage extends the duration of active HUNTER Skills by 2.5s. Can extend timer beyond its initial duration
+     description: `
+    Dealing 65 Base Ranged or Melee Weakspot Damage extends the duration of active HUNTER Skills by 2.5s. Can extend timer beyond its initial duration
 
     Upgraded at Level 5
-    Dealing 60 Base Ranged and Melee Weakspot Damage extends the duration of active HUNTER Skills by 3s. Can extend timer beyond its initial duration
+    Dealing 60 Base Ranged or Melee Weakspot Damage extends the duration of active HUNTER Skills by 3s. Can extend timer beyond its initial duration
 
     Upgraded at level 10
-    Dealing 55 Base Ranged and Melee Weakspot Damage extends the duration of active HUNTER Skills by 3.5s. Can extend timer beyond its initial duration`,
+    Dealing 55 Base Ranged or Melee Weakspot Damage extends the duration of active HUNTER Skills by 3.5s. Can extend timer beyond its initial duration`,
     wikiLinks: [`https://remnant.wiki/Dead_to_Rights`],
     linkedItems: {
       archetype: {
@@ -447,7 +446,6 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     type: 'damage',
     id: 'f4jx9k',
     tags: ['All Damage', 'Critical Chance'],
-    // TODO Check this; crit chance 10% -> 5%
     description: `
     Grants a 3.5% increase to All Damage to enemies within 10m. Damage bonus tapers off until 20m. Increases with CHALLENGER Level. 
     
@@ -568,7 +566,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     imagePath: '/perk/panacea.png',
     type: 'team',
     id: '49i5jm',
-    tags: ['Damage Reduction'], // TODO Changed to Damage Reduction as that tag exists, assuming that is what was meant here
+    tags: ['Damage Reduction'],
     description: `
     Curative effects apply to all allies within 15m and grant 15 additional Resistance.
 
@@ -1182,11 +1180,8 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     type: 'damage',
     id: '6wc56t',
     tags: ['All Damage', 'Critical Chance', 'Status Effect'],
-    // TODO Check this; `enabled interaction with skill summon and mod summon damage` - not sure how this will be reflected in the description
-    // TODO Check this; `fixed an issue preventing skill/mod summons from getting Damage Bonus` - not sure how this will be reflected in the description
-    // TODO Check this; critical chance 10% -> 5%
     description: `
-    Increases all damage to enemies affected by a Negative Status Effect by 2%. Damage increases with RITUALIST Level
+    Increases all damage to enemies affected by a Negative Status Effect by 2%. Damage increases with RITUALIST Level.
     
     Upgrade Unlocked at level 5
     Increases all damage to enemies affected by a Negative Status Effect by 12%. Increases all Critical Chance against enemies affected by a Negative Status Effect by 5%.
