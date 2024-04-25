@@ -1007,7 +1007,7 @@ export const ringItems: RingItem[] = [
     imagePath: '/ring/lodestone_ring.png',
     id: 'sye1ay',
     tags: ['All Damage'],
-    description: `Increases all damage dealt against illuminated enemies by 5% [MD].`,
+    description: `Increases all damage dealt against illuminated enemies by 5%.`,
     wikiLinks: [`https://remnant.wiki/Lodestone_Ring`],
   },
   {
