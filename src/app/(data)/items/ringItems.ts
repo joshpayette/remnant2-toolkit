@@ -1036,7 +1036,7 @@ export const ringItems: RingItem[] = [
     id: 'E7fQdZ',
     dlc: 'dlc2',
     tags: [], // TODO Check tags
-    description: `Perfect Dodge triggers a 3m AOE blast that deals 310 Explosive Damage.`,
+    description: `Perfect Dodge triggers a 3m [A] AOE blast that deals 310 Explosive Damage.`,
     wikiLinks: [`https://remnant.wiki/Mark_of_the_Destroyer`],
   },
   {
