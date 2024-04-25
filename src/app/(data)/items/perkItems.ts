@@ -713,7 +713,6 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     type: 'relic',
     id: 'h42e2n',
     tags: ['Mod Power'],
-    // TODO Check this; 200 -> 100 mod power
     description: `
     Using a Relic grants 100 Mod Power for both equipped Mods.
 
@@ -760,7 +759,6 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     type: 'damage',
     id: '2hcif5',
     tags: ['Skill Damage', 'Critical Chance'],
-    // TODO Check this; ranged and skill crit chance 10% -> 5%
     description: `
     Increases Skill Damage by 5% and Ranged Damage by 2.5%.
     Heavy Weapons gain 5% Ammo Capacity, 2.5% Max Health, and 2.5% Weakspot Damage.
