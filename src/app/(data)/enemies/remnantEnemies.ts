@@ -68,6 +68,14 @@ const aberrationEnemies = [
     id: '57h9GC',
   },
   {
+    id: 'Z7cMX3',
+    name: 'Charred Sentry',
+    dlc: 'dlc2',
+    category: 'aberration',
+    imagePath: '/enemies/aberration/charred_sentry.png',
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/Charred+Sentry`],
+  },
+  {
     id: 'htUq3D',
     name: 'C.E. Sigma',
     dlc: 'base',
@@ -541,6 +549,13 @@ const aberrationEnemies = [
     id: 'k5VEbQ',
   },
   {
+    id: 'gCm5Ry',
+    name: 'The Emissary',
+    category: 'aberration',
+    imagePath: '/enemies/aberration/the_emissary.png',
+    wikiLinks: [`https://remnant2.wiki.fextralife.com/The+Emissary`],
+  },
+  {
     id: '6o2WBN',
     name: 'The Executioner',
     dlc: 'base',
@@ -814,6 +829,14 @@ export const bossEnemies = [
     id: 'jEFi2h',
   },
   {
+    name: 'Cinderclad Monolith',
+    category: 'boss',
+    dlc: 'dlc2',
+    imagePath: '/enemies/boss/cinderclad_monolith.png',
+    wikiLinks: ['https://remnant2.wiki.fextralife.com/Cinderclad+Monolith'],
+    id: 'dA3qvW',
+  },
+  {
     id: '73ZNjb',
     name: 'Fae Knight Council',
     dlc: 'base',
@@ -974,6 +997,14 @@ export const bossEnemies = [
     bleedResistance: 10,
     fireResistance: 20,
     shockResistance: -10,
+  },
+  {
+    id: 'P2tk7e',
+    name: 'The Stonewarden',
+    category: 'boss',
+    dlc: 'dlc2',
+    imagePath: '/enemies/boss/the_stonewarden.png',
+    wikiLinks: ['https://remnant2.wiki.fextralife.com/The+Stonewarden'],
   },
   {
     id: 'S8mXCm',
@@ -1405,6 +1436,14 @@ export const worldBossEnemies = [
     bleedResistance: 25,
     fireResistance: 15,
     acidResistance: -15,
+  },
+  {
+    id: 'R4iYM2',
+    name: 'Lydusa',
+    dlc: 'dlc2',
+    category: 'world boss',
+    imagePath: '/enemies/worldboss/lydusa.png',
+    wikiLinks: ['https://remnant2.wiki.fextralife.com/Lydusa'],
   },
   {
     id: 'hZ7siN',

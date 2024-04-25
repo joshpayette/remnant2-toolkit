@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Added many more newly discovered items from the latest DLC.
 - Added a new featured build!
+- Added new bosses, world boss, and aberrations to Boss Tracker and profile avatars. (Thanks ConRaven!)
 
 ### Fixed
 
