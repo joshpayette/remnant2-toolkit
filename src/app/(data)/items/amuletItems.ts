@@ -589,8 +589,8 @@ EXPOSED: Target receives up to 15% additional damage from all sources.`,
     imagePath: '/amulet/reed_of_the_vaunnt.png',
     id: 'U2Vekv',
     dlc: 'dlc2',
-    tags: [], // TODO Add tags
-    description: ``,
+    tags: ['Mod Power'],
+    description: `Activating a Mod increases Mod Generation by 15% for 10s. Mod Charges have 20% chance not to be consumed on use.`,
     wikiLinks: [`https://remnant.wiki/Reed_of_the_Vaunnt`],
   },
   {
