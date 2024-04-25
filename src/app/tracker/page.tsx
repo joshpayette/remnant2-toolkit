@@ -287,6 +287,8 @@ export default function Page() {
     discoveredItemIds,
   })
 
+  // #region Render
+
   return (
     <>
       <ImportSaveDialog
@@ -403,7 +405,7 @@ export default function Page() {
                 {selectedCategory} Items
               </h2>
               <div className="mb-4 flex w-full items-center justify-center gap-x-4 text-lg font-semibold">
-                {selectedItemProgress}
+                {selectedItemProgress}%
               </div>
               <div className="flex w-full flex-wrap items-center justify-center gap-2">
                 {filteredItems.map((item) => (
