@@ -7,6 +7,7 @@ import { toast } from 'react-toastify'
 import { useIsClient, useLocalStorage } from 'usehooks-ts'
 
 import { BaseButton } from '@/app/(components)/_base/button'
+import { allItems } from '@/app/(data)/items/allItems'
 import { MutatorItem } from '@/app/(data)/items/types/MutatorItem'
 import { WeaponItem } from '@/app/(data)/items/types/WeaponItem'
 import { ImportCSVDialog } from '@/app/tracker/(components)/ImportCSVDialog'
@@ -24,6 +25,23 @@ import { PageHeader } from '@/features/ui/PageHeader'
 import { capitalize } from '@/lib/capitalize'
 
 import { parseSaveFile } from './(lib)/actions'
+
+function getCategoryProgressLabel({
+  filteredItems,
+  discoveredItemIds,
+}: {
+  filteredItems: Item[]
+  discoveredItemIds: string[]
+}) {
+  const discoveredCount = filteredItems.reduce((acc, item) => {
+    if (discoveredItemIds.includes(item.id)) return acc + 1
+    return acc
+  }, 0)
+  const selectedCategoryProgress = parseFloat(
+    ((discoveredCount / filteredItems.length) * 100).toFixed(2),
+  )
+  return selectedCategoryProgress
+}
 
 /**
  * ----------------------------------------------
@@ -152,7 +170,7 @@ export default function Page() {
 
               if (!discovered) return
 
-              const item = allTrackerItems.find((item) => item.id === itemId)
+              const item = allItems.find((item) => item.id === itemId)
               if (!item) return
 
               if (skippedItemCategories.includes(item.category)) return
@@ -209,7 +227,7 @@ export default function Page() {
   // generate the build urls, but that's not a priority right now.
   const csvItems = useMemo(() => {
     return (
-      allTrackerItems
+      allItems
         .map((item) => ({
           ...item,
           discovered: discoveredItemIds.includes(item.id),
@@ -264,8 +282,8 @@ export default function Page() {
 
   const selectedCategory = getSelectedCategory()
 
-  const selectedItemProgress = getProgressLabel({
-    items: filteredItems,
+  const selectedItemProgress = getCategoryProgressLabel({
+    filteredItems,
     discoveredItemIds,
   })
 
@@ -312,8 +330,8 @@ export default function Page() {
               !isClient
                 ? []
                 : itemCategories.map((category) => ({
-                    label: `${category as string} - ${getProgressLabel({
-                      items: allTrackerItems.filter((item) => {
+                    label: `${category as string} - ${getCategoryProgressLabel({
+                      filteredItems: allTrackerItems.filter((item) => {
                         if (category === 'Long Gun') {
                           return (
                             WeaponItem.isWeaponItem(item) &&
@@ -349,8 +367,7 @@ export default function Page() {
                         )
                       }),
                       discoveredItemIds,
-                      percentOnly: true,
-                    })}`,
+                    })}%`,
                     value: category.toLowerCase() as string,
                   }))
             }

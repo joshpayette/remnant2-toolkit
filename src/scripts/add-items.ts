@@ -3,14 +3,14 @@ import { Item } from '../features/items/types'
 
 const items = [
   {
-    category: 'ring',
-    name: 'Rally Band',
-    imagePath: '/ring/rally_band.png',
-    id: '7XdP4g',
+    category: 'amulet',
+    name: 'Soul Stone',
+    imagePath: '/amulet/soul_stone.png',
+    id: 'z7ivk3',
     dlc: 'dlc2',
-    tags: [], // TODO Add tags
-    description: ``,
-    wikiLinks: [`https://remnant.wiki/Rally_Band`],
+    tags: ['Summon', 'Movement Speed'],
+    description: `Increases Summon Damage by 30% and Summon Movement Speed by 30%.`,
+    wikiLinks: [`https://remnant.wiki/Soul_Stone`],
   },
 ] as const satisfies Item[]
 
