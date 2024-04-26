@@ -1689,7 +1689,7 @@ export const ringItems: RingItem[] = [
     name: "Timekeeper's Jewel",
     imagePath: '/ring/timekeepers_jewel.png',
     id: '3uggz9',
-    tags: ['Status Effect'],
+    tags: ['Status Effect', 'Status Duration'],
     description: `Increases the duration of all Status Effects applied by wearer. Durations varies per status.`,
     wikiLinks: [`https://remnant.wiki/Timekeeper%27s_Jewel`],
   },
