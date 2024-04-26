@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Added
 
 - Added final items from DLC2?
+- Added a new note to the World Save Archive warning that Cass progress could be lost, and possibly not recovered by a backup save restore.
 
 ### Fixed
 
