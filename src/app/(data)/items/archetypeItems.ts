@@ -265,7 +265,7 @@ export const archetypeItems: ArchetypeItem[] = [
     saveFileSlug: 'Engram_Invoker',
     id: 'Y2NhrX',
     dlc: 'dlc2',
-    description: 'The INVOKER specializes in Skill Effectivness and Buffs.',
+    description: 'The INVOKER specializes in Skill Effectiveness and Buffs.',
     wikiLinks: ['https://remnant.wiki/Invoker'],
     linkedItems: {
       traits: [

@@ -497,7 +497,7 @@ export const ITEM_TAGS: ItemTag[] = [
   'Grey Health',
   'Hardcore Reward',
   'Heal',
-  'Healing Effectivness',
+  'Healing Effectiveness',
   'Health',
   'Heat Generation',
   'Lifesteal',
