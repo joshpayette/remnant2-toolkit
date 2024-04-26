@@ -89,7 +89,7 @@ export const BUILD_REVALIDATE_PATHS = [
  * Referenced from https://www.reddit.com/r/remnantgame/comments/158vs4k/all_class_names/
  * by u/Arkavien
  */
-export const ARCHETYPE_BUILD_NAMES: Array<{
+export const ARCHETYPE_COMBO_NAMES: Array<{
   archetypes: Archetype[]
   name: string
 }> = [
@@ -150,7 +150,7 @@ export const ARCHETYPE_BUILD_NAMES: Array<{
   { archetypes: ['hunter', 'alchemist'], name: 'Isolator' },
   { archetypes: ['invader', 'alchemist'], name: 'Trickster' },
   { archetypes: ['archon', 'medic'], name: 'Virtuoso' },
-  { archetypes: ['archon', 'summoner'], name: 'Augur' },
+  { archetypes: ['archon', 'summoner'], name: 'Invoker' },
   { archetypes: ['archon', 'handler'], name: 'Harrier' },
   { archetypes: ['archon', 'engineer'], name: 'Luminary' },
   { archetypes: ['archon', 'explorer'], name: 'Trailblazer' },

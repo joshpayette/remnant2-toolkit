@@ -12,7 +12,7 @@ import { BaseButton } from '@/app/(components)/_base/button'
 import { Link } from '@/app/(components)/_base/link'
 import { dbBuildToBuildState } from '@/features/build/lib/dbBuildToBuildState'
 import { formatUpdatedAt } from '@/features/build/lib/formatUpdatedAt'
-import { getArchetypeBuildName } from '@/features/build/lib/getArchetypeBuildName'
+import { getArchetypeComboName } from '@/features/build/lib/getArchetypeComboName'
 import { isBuildNew } from '@/features/build/lib/isBuildNew'
 import { isBuildPopular } from '@/features/build/lib/isBuildPopular'
 import { DBBuild } from '@/features/build/types'
@@ -123,7 +123,7 @@ export function BuildCard({
               </div>
               <div className="mb-2 flex flex-row items-center justify-start gap-x-2">
                 <p className="text-left text-xs text-gray-300">
-                  {`${getArchetypeBuildName({
+                  {`${getArchetypeComboName({
                     archetype1:
                       (buildState.items.archetype[0]?.name.toLowerCase() as Archetype) ||
                       null,

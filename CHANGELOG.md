@@ -14,6 +14,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Fixed
 
 - Removed broken world save for The Red Prince - Spiteful, Vicious combo.
+- Changed Summoner/Archon combo name from `Augur` to `Invoker` to match the in-game name.
 
 ## 2024-04-25
 
