@@ -4,13 +4,13 @@ import { Item } from '../features/items/types'
 const items = [
   {
     category: 'ring',
-    name: 'Mark of the Destroyer',
-    imagePath: '/ring/mark_of_the_destroyer.png',
-    id: 'E7fQdZ',
+    name: 'Dark Sea Armada Crest',
+    imagePath: '/ring/dark_sea_armada_crest.png',
+    id: 'Zj9qF5',
     dlc: 'dlc2',
-    tags: [], // TODO Check tags
-    description: `Perfect Dodge triggers a 3m AOE blast that deals 387.5 Explosive Damage.`,
-    wikiLinks: [`https://remnant.wiki/Mark_of_the_Destroyer`],
+    tags: [], // TODO Add tags
+    description: `On Relic Use, increases All Elemental Damage dealt by 15% for 15s.`,
+    wikiLinks: [`https://remnant.wiki/Dark_Sea_Armada_Crest`],
   },
 ] as const satisfies Item[]
 

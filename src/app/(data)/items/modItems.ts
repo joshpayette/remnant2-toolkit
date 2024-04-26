@@ -513,6 +513,19 @@ export const modItems: ModItem[] = [
   },
   {
     category: 'mod',
+    name: 'Flying Bomb Trap',
+    imagePath: '/mod/flying_bomb_trap.png',
+    id: '2GWpcL',
+    dlc: 'dlc2',
+    description: `Fires a projectile that deploys up to 5 traps after contacting the ground.
+
+    Each trap can launch a flask of deadly liquid up to 15m when an enemy travels above and will rearm once every 1.5s. Flask detonations release a 7m shockwave which deals 50 Damage and splashes targets within 4m of the center for 100 ACID Damage, applying CORRODED for 100 damage over 10s.
+    
+    Lasts 20s or 10 total flask launches.`,
+    wikiLinks: [`https://remnant.wiki/Flying_Bomb_Trap`],
+  },
+  {
+    category: 'mod',
     name: 'Fracture',
     imagePath: '/mod/fracture.png',
     id: 'x8vmra',

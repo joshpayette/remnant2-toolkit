@@ -210,6 +210,18 @@ export const mutatorItems: MutatorItem[] = [
   },
   {
     category: 'mutator',
+    name: 'Gladiator',
+    type: 'melee',
+    imagePath: '/mutator/gladiator.png',
+    id: 'N4LpPR',
+    dlc: 'dlc2',
+    tags: [], // TODO Add tags
+    description: `While brandishing a Melee Weapon, receiving Enemy Damage increases Melee Damage by 25% for 5s.`,
+    maxLevelBonus: `Level 10: Receiving Enemy Damage while brandishing a Melee Weapon grants 1 stack of BULWARK for 5s.`,
+    wikiLinks: [`https://remnant.wiki/Gladiator`],
+  },
+  {
+    category: 'mutator',
     name: 'Guts',
     type: 'melee',
     imagePath: '/mutator/guts.png',

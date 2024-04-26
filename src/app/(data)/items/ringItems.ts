@@ -512,6 +512,16 @@ export const ringItems: RingItem[] = [
   },
   {
     category: 'ring',
+    name: 'Dark Sea Armada Crest',
+    imagePath: '/ring/dark_sea_armada_crest.png',
+    id: 'Zj9qF5',
+    dlc: 'dlc2',
+    tags: [], // TODO Add tags
+    description: `On Relic Use, increases All Elemental Damage dealt by 15% for 15s.`,
+    wikiLinks: [`https://remnant.wiki/Dark_Sea_Armada_Crest`],
+  },
+  {
+    category: 'ring',
     name: "Dead King's Memento",
     imagePath: '/ring/dead_kings_memento.png',
     id: 'vbxfcp',
