@@ -38,7 +38,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'helm',
     name: 'Battle Helmet',
-    saveFileSlug: 'armor_head_battle',
+    saveFileSlug: 'armor_head_army',
     imagePath: '/helm/battle_helmet.png',
     id: 'nathem',
     dlc: 'dlc2',
@@ -600,7 +600,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'torso',
     name: 'Battle Shirt',
-    saveFileSlug: 'armor_body_battle',
+    saveFileSlug: 'armor_body_army',
     imagePath: '/torso/battle_shirt.png',
     id: 'batshi',
     dlc: 'dlc2',
@@ -1046,7 +1046,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'legs',
     name: 'Battle Trousers',
-    saveFileSlug: 'armor_legs_battle',
+    saveFileSlug: 'armor_legs_army',
     imagePath: '/legs/battle_trousers.png',
     id: 'battra',
     dlc: 'dlc2',
@@ -1494,7 +1494,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'gloves',
     name: 'Battle Gloves',
-    saveFileSlug: 'armor_gloves_battle',
+    saveFileSlug: 'armor_gloves_army',
     imagePath: '/gloves/battle_gloves.png',
     id: 'batglo',
     dlc: 'dlc2',

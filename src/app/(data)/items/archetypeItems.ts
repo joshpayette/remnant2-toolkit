@@ -263,15 +263,16 @@ export const archetypeItems: ArchetypeItem[] = [
     category: 'archetype',
     name: 'Invoker',
     imagePath: '/archtype/invoker.png',
+    saveFileSlug: 'Engram_Invoker',
     id: 'Y2NhrX',
     dlc: 'dlc2',
     description: 'The INVOKER specializes in Skill Effectivness and Buffs.',
     wikiLinks: ['https://remnant.wiki/Invoker'],
     linkedItems: {
       traits: [
-      { name: 'Gifted', amount: 10 },
-      { name: 'Vigor', amount: 2 },
-      { name: 'Expertise', amount: 3 },
+        { name: 'Gifted', amount: 10 },
+        { name: 'Vigor', amount: 2 },
+        { name: 'Expertise', amount: 3 },
       ],
       skills: [
         { name: 'Way of Kaeula' },
