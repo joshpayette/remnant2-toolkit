@@ -1526,6 +1526,15 @@ export const ringItems: RingItem[] = [
   },
   {
     category: 'ring',
+    name: 'Soul Feast',
+    imagePath: '/ring/soul_feast.png',
+    id: '8kotd5',
+    tags: ['Summon', 'Reduce Skill Cooldown'],
+    description: `When a Human, Companion, or Minion is downed or killed, reduce Skill Cooldowns by 8%.`,
+    wikiLinks: [`https://remnant.wiki/Soul_Feast`],
+  },
+  {
+    category: 'ring',
     name: 'Soul Guard',
     imagePath: '/ring/soul_guard.png',
     id: '8kotg5',
