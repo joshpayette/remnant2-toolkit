@@ -96,8 +96,7 @@ export const archetypeItems: ArchetypeItem[] = [
       'The ENGINEER specializes in Heavy Weaponry which can be carried or placed in turret mode.',
     wikiLinks: [`https://remnant.wiki/Engineer`],
     linkedItems: {
-      // TODO Check this; Shifted -1 Expertise, +1 Endurance
-      traits: [
+    traits: [
         { name: 'Fortify', amount: 10 },
         { name: 'Vigor', amount: 2 },
         { name: 'Endurance', amount: 3 },
@@ -327,7 +326,6 @@ export const archetypeItems: ArchetypeItem[] = [
       'The RITUALIST is a powerful class focusing on status effects and AOE damage, that can make enemies infect their allies with whatever status they are suffering',
     wikiLinks: [`https://remnant.wiki/Ritualist`],
     linkedItems: {
-      // TODO Check this; -1 Endurance, +1 Spirit
       traits: [
         { name: 'Affliction', amount: 10 },
         { name: 'Spirit', amount: 3 },
