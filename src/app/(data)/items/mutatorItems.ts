@@ -174,7 +174,7 @@ export const mutatorItems: MutatorItem[] = [
     imagePath: '/mutator/far-sighted.png',
     id: 'lmkwhn',
     tags: ['Ranged Damage'],
-    description: `Increases Ranged Damage of this weapon by 1.25-[2.5]% for every 2.5m from the shooter to the target. Max 25%.`,
+    description: `Increases Ranged Damage of this weapon by 1.25% for every 2.5m from the shooter to the target. Max 25%.`,
     maxLevelBonus: `Level 10: Increases this weapon's Ideal, Falloff, and Max Range by 5m.`,
     wikiLinks: [`https://remnant.wiki/Far-Sighted`],
   },
