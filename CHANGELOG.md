@@ -4,6 +4,19 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-04-26
+
+### Added
+
+- Added final items from DLC2?
+- Added a new note to the World Save Archive warning that Cass progress could be lost, and possibly not recovered by a backup save restore.
+- Added note to README under FEATURED BUILDS about users needing to update the build as new content is released.
+
+### Fixed
+
+- Removed broken world save for The Red Prince - Spiteful, Vicious combo.
+- Changed Summoner/Archon combo name from `Augur` to `Invoker` to match the in-game name.
+
 ## 2024-04-25
 
 ### Added

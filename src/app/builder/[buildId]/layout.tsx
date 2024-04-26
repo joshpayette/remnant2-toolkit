@@ -2,7 +2,7 @@ import { Metadata, ResolvingMetadata } from 'next'
 
 import { getBuild } from '@/features/build/actions/getBuild'
 import { dbBuildToBuildState } from '@/features/build/lib/dbBuildToBuildState'
-import { getArchetypeBuildName } from '@/features/build/lib/getArchetypeBuildName'
+import { getArchetypeComboName } from '@/features/build/lib/getArchetypeComboName'
 import { isErrorResponse } from '@/features/error-handling/isErrorResponse'
 import { Archetype } from '@/features/items/types'
 import { PageHeader } from '@/features/ui/PageHeader'
@@ -70,7 +70,7 @@ export async function generateMetadata(
   const archetypes = buildState.items.archetype.map(
     (a) => a?.name.toLowerCase(),
   )
-  const buildLabel = getArchetypeBuildName({
+  const buildLabel = getArchetypeComboName({
     archetype1: (archetypes[0] as Archetype) ?? null,
     archetype2: (archetypes[1] as Archetype) ?? null,
   })

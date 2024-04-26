@@ -168,6 +168,18 @@ export const mutatorItems: MutatorItem[] = [
   },
   {
     category: 'mutator',
+    name: 'Far-Sighted',
+    type: 'gun',
+    imagePath: '/mutator/far-sighted.png',
+    id: 'QJdhx2',
+    dlc: 'dlc2',
+    tags: [], // TODO Add tags
+    description: `Increases Ranged Damage of this weapon by 1.25% - 2.5% for every 2.5m from the shooter to the target. Max 25%.`,
+    maxLevelBonus: `Increases Ranged Damage of this weapon by 1.25% - 2.5% for every 2.5m from the shooter to the target. Max 25%.`,
+    wikiLinks: [`https://remnant.wiki/Far-Sighted`],
+  },
+  {
+    category: 'mutator',
     name: 'Feedback',
     type: 'gun',
     imagePath: '/mutator/feedback.png',

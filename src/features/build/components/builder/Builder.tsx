@@ -14,7 +14,7 @@ import {
   MAX_BUILD_TAGS,
 } from '@/features/build/constants'
 import { formatUpdatedAt } from '@/features/build/lib/formatUpdatedAt'
-import { getArchetypeBuildName } from '@/features/build/lib/getArchetypeBuildName'
+import { getArchetypeComboName } from '@/features/build/lib/getArchetypeComboName'
 import { getArrayOfLength } from '@/features/build/lib/getArrayOfLength'
 import { getConcoctionSlotCount } from '@/features/build/lib/getConcoctionSlotCount'
 import { getItemListForSlot } from '@/features/build/lib/getItemListForSlot'
@@ -401,7 +401,7 @@ export function Builder({
           {showCreatedBy && (
             <div className="mb-2 flex items-center justify-center text-sm text-gray-400">
               <span>
-                {`${getArchetypeBuildName({
+                {`${getArchetypeComboName({
                   archetype1:
                     (buildState.items.archetype[0]?.name.toLowerCase() as Archetype) ||
                     null,

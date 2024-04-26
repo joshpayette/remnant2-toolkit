@@ -1,7 +1,7 @@
 import { archetypeItems } from '@/app/(data)/items/archetypeItems'
 import { Archetype } from '@/features/items/types'
 
-import { ARCHETYPE_BUILD_NAMES } from '../constants'
+import { ARCHETYPE_COMBO_NAMES } from '../constants'
 
 /**
  * Searches the archetype build names for a match
@@ -9,7 +9,7 @@ import { ARCHETYPE_BUILD_NAMES } from '../constants'
  * reverse order of the archetype build names, so we need to
  * check both orders.
  */
-export function getArchetypeBuildName({
+export function getArchetypeComboName({
   archetype1,
   archetype2,
 }: {
@@ -28,12 +28,12 @@ export function getArchetypeBuildName({
     return ''
   }
 
-  const archetypeBuildName = ARCHETYPE_BUILD_NAMES.find(
-    (buildName) =>
-      (buildName.archetypes[0] === archetype1 &&
-        buildName.archetypes[1] === archetype2) ||
-      (buildName.archetypes[0] === archetype2 &&
-        buildName.archetypes[1] === archetype1),
+  const archetypeBuildName = ARCHETYPE_COMBO_NAMES.find(
+    (comboName) =>
+      (comboName.archetypes[0] === archetype1 &&
+        comboName.archetypes[1] === archetype2) ||
+      (comboName.archetypes[0] === archetype2 &&
+        comboName.archetypes[1] === archetype1),
   )
 
   if (!archetypeBuildName) {

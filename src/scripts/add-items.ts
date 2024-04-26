@@ -4,15 +4,15 @@ import { Item } from '../features/items/types'
 const items = [
   {
     category: 'amulet',
-    name: 'Fragrant Thorn',
-    imagePath: '/amulet/fragrant_thorn.png',
-    id: 'Hx5iNF',
+    name: 'Cervine Keepsake',
+    imagePath: '/amulet/cervine_keepsake.png',
+    id: '5sfzsd',
     dlc: 'dlc2',
-    tags: [], // TODO Add tags
-    description: `Increases Status Effect Damage by 20%. Inflicting 4 or more unique Negative Status Effects on a target applies EXPOSED for 15s.
+    tags: ['Movement Speed'],
+    description: `On Relic Use, gain a stack of CALL OF THE DOE for 30s. Max 5 stacks.
 
-    EXPOSED: Target receives 15% additional damage from all sources.`,
-    wikiLinks: ['https://remnant.wiki/Fragrant_Thorn'],
+    CALL OF THE DOE: Increases Movement Speed by 4% per stack. When CALL OF THE DOE expires, regain 1 Relic Charge per stack.`,
+    wikiLinks: [`https://remnant.wiki/Cervine_Keepsake`],
   },
 ] as const satisfies Item[]
 
