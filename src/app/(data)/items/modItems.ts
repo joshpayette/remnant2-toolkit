@@ -947,7 +947,7 @@ export const modItems: ModItem[] = [
     imagePath: '/mod/spore_shot1.png',
     id: '9fi67v',
     tags: ['Status Effect'],
-    description: `Fires a rotten spore that explodes dealing 125 damage [E] within 6m [A] and leaves a deadly gas cloud that applies SLOW while dealing 15 damage per second for 7s.`,
+    description: `Fires a rotten spore that leaves a deadly gas cloud that applies SLOW to while dealing 15 - 45 damage per second for 7s to enemies, and gives allies HASTE.`,
     wikiLinks: [`https://remnant.wiki/Spore_Shot`],
     linkedItems: {
       weapon: {

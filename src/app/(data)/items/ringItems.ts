@@ -7,8 +7,7 @@ export const ringItems: RingItem[] = [
     imagePath: '/ring/ataerii_booster1.png',
     id: '27gn7b',
     tags: ['All Damage', 'Critical Chance'],
-    // TODO check in game
-    description: `Heavy Weapons gain 10% Ranged Damage and 10% Ranged Critical Chance.`,
+    description: `Heavy Weapons gain 10% additional damage and gain 10% additional Critical Chance in both Carry and Turret Mode.`,
     wikiLinks: [`https://remnant.wiki/A'Taerii_Booster`],
   },
   {
@@ -260,8 +259,7 @@ export const ringItems: RingItem[] = [
     imagePath: '/ring/braided_thorns.png',
     id: 'zdkh54',
     tags: ['Critical Chance'],
-    // TODO check description
-    description: `Gain 10% increased Critical Chance.`,
+    description: `Grants 10% Critical Chance.`,
     wikiLinks: [`https://remnant.wiki/Braided_Thorns`],
   },
   {
@@ -506,8 +504,7 @@ export const ringItems: RingItem[] = [
     dlc: 'dlc1',
     id: 's916uj',
     tags: ['Critical Hit', 'Skill Damage'],
-    // TODO check description
-    description: `Crit hits increase Skill Damage 2% for 5s. Max stack 10. Stacks fall of one at a time.`,
+    description: `Critical Hits increase Skill Damage by 2% for 5s. Max 10 stacks.`,
     wikiLinks: [`https://remnant.wiki/Liquid_Escape`],
   },
   {
@@ -516,7 +513,7 @@ export const ringItems: RingItem[] = [
     imagePath: '/ring/dark_sea_armada_crest.png',
     id: 'Zj9qF5',
     dlc: 'dlc2',
-    tags: [], // TODO Add tags
+    tags: ['Elemental Damage'],
     description: `On Relic Use, increases All Elemental Damage dealt by 15% for 15s.`,
     wikiLinks: [`https://remnant.wiki/Dark_Sea_Armada_Crest`],
   },
@@ -573,8 +570,7 @@ export const ringItems: RingItem[] = [
     saveFileSlug: 'devouringloop',
     id: 'l8a2e1',
     tags: ['Critical Hit', 'Reduce Skill Cooldown'],
-    // TODO check description
-    description: `Critical Hits have 1% chance to reset Skill Cooldowns. Can only occur once every 10s. Increases all incoming damage by 10%.`,
+    description: `Critical Hits have a 1% chance to reset Skill Cooldowns. Can only occur once every 10s. Increases all incoming damage by 10%`,
     wikiLinks: [`https://remnant.wiki/Devoured_Loop`],
   },
   {
@@ -905,7 +901,7 @@ export const ringItems: RingItem[] = [
     imagePath: '/ring/gul_signet.png',
     dlc: 'dlc2',
     id: 'xG9CQJ',
-    tags: [], // TODO Check tags
+    tags: ['Encumbrance', 'Damage Reduction'],
     description: `Increases Damage Reduction by 10%. Each Weight Class above LIGHT reduces Damage Reduction bonus by 2.5% (up to 3x).`,
     wikiLinks: [`https://remnant.wiki/Gul_Signet`],
   },
@@ -1045,8 +1041,8 @@ export const ringItems: RingItem[] = [
     imagePath: '/ring/mark_of_the_destroyer.png',
     id: 'E7fQdZ',
     dlc: 'dlc2',
-    tags: [], // TODO Check tags
-    description: `Perfect Dodge triggers a 3m [A] AOE blast that deals 310 Explosive Damage.`,
+    tags: ['Perfect Dodge'],
+    description: `Perfect Dodge triggers a 3m [A] AOE blast that deals 310 Explosive [E] Damage.`,
     wikiLinks: [`https://remnant.wiki/Mark_of_the_Destroyer`],
   },
   {
@@ -1129,8 +1125,7 @@ export const ringItems: RingItem[] = [
     imagePath: '/ring/painless_obsidian.png',
     id: '6y14c4',
     tags: ['Grey Health', 'Damage Reduction'],
-    // TODO check description
-    description: `When Grey Health is present, gain HASTE and gain 1 Stack of BULWARK.`,
+    description: `When Grey Health is present, gain HASTE and 1 Stack of BULWARK.`,
     wikiLinks: [`https://remnant.wiki/Painless_Obsidian`],
   },
   {
@@ -1377,9 +1372,8 @@ export const ringItems: RingItem[] = [
     saveFileSlug: 'ring_strongarmband',
     imagePath: '/ring/ring_of_the_damned.png',
     id: 'jbfxsb',
-    tags: ['All Damage', 'Grey Health'],
-    // TODO check description
-    description: `Increases all damage dealt by 0.4 for Each 1% Grey Health present. Gain 5% Critical Chance when the wearer has 50% or more Grey Health.`,
+    tags: ['All Damage', 'Grey Health', 'Critical Chance'],
+    description: `Grants 0.4% All Damage for each 1% Grey Health. When the wearer has 50% or more Grey Health, grants 5% Critical Chance.`,
     wikiLinks: [`https://remnant.wiki/Ring_of_the_Damned`],
   },
   {
