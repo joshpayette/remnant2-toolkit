@@ -194,6 +194,16 @@ EXPOSED: Target receives up to 15% additional damage from all sources.`,
   },
   {
     category: 'amulet',
+    name: 'Echo of the Forest',
+    imagePath: '/amulet/echo_of_the_forest.png',
+    id: '2VokuK',
+    dlc: 'dlc2',
+    tags: [], // TODO Add tags
+    description: `On Relic Use, gain GIFT OF THE FOREST for 15s. When Gift of the Forest expires, Relic effect is recast.`,
+    wikiLinks: ['https://remnant.wiki/Echo_of_the_Forest'],
+  },
+  {
+    category: 'amulet',
     name: 'Effigy Pendant',
     imagePath: '/amulet/effigy_pendant.png',
     id: 'vkcf4e',
@@ -244,6 +254,18 @@ EXPOSED: Target receives up to 15% additional damage from all sources.`,
     tags: ['All Damage'],
     description: `Increases all damage dealt by 2.5% for 10s after killing an enemy. Stacks 10x. Dealing damage refreshes the timer.`,
     wikiLinks: [`https://remnant.wiki/Escalation_Protocol`],
+  },
+  {
+    category: 'amulet',
+    name: 'Fragrant Thorn',
+    imagePath: '/amulet/fragrant_thorn.png',
+    id: 'Hx5iNF',
+    dlc: 'dlc2',
+    tags: [], // TODO Add tags
+    description: `Increases Status Effect Damage by 20%. Inflicting 4 or more unique Negative Status Effects on a target applies EXPOSED for 15s.
+
+    EXPOSED: Target receives 15% additional damage from all sources.`,
+    wikiLinks: ['https://remnant.wiki/Fragrant_Thorn'],
   },
   {
     category: 'amulet',

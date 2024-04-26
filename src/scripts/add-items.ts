@@ -3,14 +3,16 @@ import { Item } from '../features/items/types'
 
 const items = [
   {
-    category: 'ring',
-    name: 'Dark Sea Armada Crest',
-    imagePath: '/ring/dark_sea_armada_crest.png',
-    id: 'Zj9qF5',
+    category: 'amulet',
+    name: 'Fragrant Thorn',
+    imagePath: '/amulet/fragrant_thorn.png',
+    id: 'Hx5iNF',
     dlc: 'dlc2',
     tags: [], // TODO Add tags
-    description: `On Relic Use, increases All Elemental Damage dealt by 15% for 15s.`,
-    wikiLinks: [`https://remnant.wiki/Dark_Sea_Armada_Crest`],
+    description: `Increases Status Effect Damage by 20%. Inflicting 4 or more unique Negative Status Effects on a target applies EXPOSED for 15s.
+
+    EXPOSED: Target receives 15% additional damage from all sources.`,
+    wikiLinks: ['https://remnant.wiki/Fragrant_Thorn'],
   },
 ] as const satisfies Item[]
 
