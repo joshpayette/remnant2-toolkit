@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-04-26
+
+### Added
+
+- Added final items from DLC2?
+
 ## 2024-04-25
 
 ### Added

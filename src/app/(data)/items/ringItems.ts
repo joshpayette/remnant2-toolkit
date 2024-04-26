@@ -1528,6 +1528,7 @@ export const ringItems: RingItem[] = [
     category: 'ring',
     name: 'Soul Feast',
     imagePath: '/ring/soul_feast.png',
+    dlc: 'dlc2',
     id: '8kotd5',
     tags: ['Summon', 'Reduce Skill Cooldown'],
     description: `When a Human, Companion, or Minion is downed or killed, reduce Skill Cooldowns by 8%.`,

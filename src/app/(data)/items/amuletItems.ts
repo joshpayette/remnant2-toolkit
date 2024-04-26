@@ -74,6 +74,7 @@ export const amuletItems: AmuletItem[] = [
     name: 'Cervine Keepsake',
     imagePath: '/amulet/cervine_keepsake.png',
     id: '5sfzsd',
+    dlc: 'dlc2',
     tags: ['Movement Speed'],
     description: `On Relic Use, gain a stack of CALL OF THE DOE for 30s. Max 5 stacks.
 
