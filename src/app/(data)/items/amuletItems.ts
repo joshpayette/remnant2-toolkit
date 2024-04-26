@@ -179,8 +179,7 @@ export const amuletItems: AmuletItem[] = [
     imagePath: '/amulet/downward_spiral.png',
     id: '1k2x4r',
     tags: ['Fire Rate', 'Melee Attack Speed', 'Ranged Damage', 'Melee Damage'],
-    // TODO check description
-    description: `Increase Fire Rate by 10% and Melee Attack Speed by 15%. For every missing 10% of Max Health, gain 4% Ranged Damage (Max 20%) and 5% Melee Damage (Max 25%).`,
+    description: `Increase Fire Rate by 10% and Melee Attack Speed by 15%. For every missing 10% of Max Health, gain 4% Ranged Damage (Max 20%) and 5% Melee Damage (Max 25%)`,
     wikiLinks: [`https://remnant.wiki/Downward_Spiral`],
   },
   {
@@ -189,7 +188,7 @@ export const amuletItems: AmuletItem[] = [
     imagePath: '/amulet/echo_of_the_forest.png',
     id: '2VokuK',
     dlc: 'dlc2',
-    tags: [], // TODO Add tags
+    tags: [],
     description: `On Relic Use, gain GIFT OF THE FOREST for 15s. When Gift of the Forest expires, Relic effect is recast.`,
     wikiLinks: ['https://remnant.wiki/Echo_of_the_Forest'],
   },
