@@ -22,6 +22,7 @@ This is not an exhaustive or literal list that we follow, but some of the things
 - **Effectiveness**: Is the build effective on Apocalypse difficulty?
 - **Detailed Description**: Does the build have a detailed description of how to play it and why it's effective, to help players who want to try it?
 - **Video Guide or Gameplay**: Does the build have a video guide or gameplay footage to help players understand how it works?
+- **Likely to be updated**: Is the build submitted by a creator who is likely to update it as patches and additional content are released?
 
 ## Credits
 
