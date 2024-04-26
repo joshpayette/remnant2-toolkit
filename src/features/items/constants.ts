@@ -179,6 +179,12 @@ export const DESCRIPTION_TAGS = [
     description: undefined,
   },
   {
+    type: 'Call of the Doe',
+    token: 'CALL OF THE DOE',
+    color: 'text-[#fff1bc]',
+    description: undefined,
+  },
+  {
     type: 'Contamination',
     token: 'CONTAMINATION',
     color: 'text-[#800080]',
@@ -360,13 +366,6 @@ export const DESCRIPTION_TAGS = [
     description:
       'Deals elemental SHOCK area damage every 5 seconds. Damage increases by 10% for every overloaded enemy nerby. ', // TODO What's the range and what's the max damage increase for secondary effect?
   },
-/*  {
-    type: 'Resonance',
-    token: '[R]',
-    color: 'text-[#00ffcc]',
-    description: 'This effect benefits from Resonance trait.',
-  },
-  */
   {
     type: 'Ritualist',
     token: 'RITUALIST',
