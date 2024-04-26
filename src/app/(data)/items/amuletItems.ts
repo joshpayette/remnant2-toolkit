@@ -91,6 +91,17 @@ EXPOSED: Target receives up to 15% additional damage from all sources.`,
   },
   {
     category: 'amulet',
+    name: 'Cervine Keepsake',
+    imagePath: '/amulet/cervine_keepsake.png',
+    id: '5sfzsd',
+    tags: ['Movement Speed'],
+    description: `On Relic Use, gain a stack of CALL OF THE DOE for 30s. Max 5 stacks.
+
+    CALL OF THE DOE: Increases Movement Speed by 4% per stack. When CALL OF THE DOE expires, regain 1 Relic Charge per stack.`,
+    wikiLinks: [`https://remnant.wiki/Cervine_Keepsake`],
+  },
+  {
+    category: 'amulet',
     name: 'Chains of Amplification',
     imagePath: '/amulet/chains_of_amplification.png',
     id: '5sfzsx',
