@@ -17,8 +17,7 @@ export const amuletItems: AmuletItem[] = [
     imagePath: '/amulet/ankh_of_power.png',
     id: 'ca8ada',
     tags: ['All Damage'],
-    // TODO check description
-    description: `Grants a 12.5% increase to all damage. Consuming a Relic doubles the bonus for 15s.`,
+    description: `Grants 15% increase to all damage. Consuming a Relic increases the bonus to 25% for 15s.`,
     wikiLinks: [`https://remnant.wiki/Ankh_of_Power`],
   },
   {
@@ -124,8 +123,7 @@ export const amuletItems: AmuletItem[] = [
     imagePath: '/amulet/daredevils_charm.png',
     id: 'ik580i',
     tags: ['All Damage', 'Movement Speed', 'Hardcore Reward', 'Encumbrance'],
-    // TODO check movement speed number in-game
-    description: `Gain 7.5% to all damage dealt, 3% Movement Speed for each piece of unequipped armor.`,
+    description: `Gain 7.5% to all damage dealt, 3% Movement Speed, and 5% all damage taken for each piece of unequipped armor.`,
     wikiLinks: [`https://remnant.wiki/Daredevil's_Charm`],
   },
   {
@@ -144,8 +142,7 @@ export const amuletItems: AmuletItem[] = [
     imagePath: '/amulet/deaths_embrace.png',
     id: 'i13ipm',
     tags: ['All Damage'],
-    // TODO check wording in-game
-    description: `Gain 15% to all damage when Health is below 100%. Gain bonus 10% All Damage and HASTE when below 50% Health.`,
+    description: `Gain 15% to all damage when Health is below 100%. Gain 10% to all damage and HASTE when below 50% Health.`,
     wikiLinks: [`https://remnant.wiki/Death's_Embrace`],
   },
   {
@@ -224,8 +221,7 @@ export const amuletItems: AmuletItem[] = [
     imagePath: '/amulet/energized_neck_coil.png',
     id: 'c52jp0',
     tags: ['Status Effect'],
-    // TODO check description
-    description: `Increases Status Effect damage by 20%. Applying a damaging Status Effect creates a 5m [A] Explosion [E] for 20% of the Status Effect's full damage.`,
+    description: `Increases Status Effect damage by 20%. Applying a damaging Status Effect creates a 5m [A] Explosion [E] for 20% of the Status Effect's full damage. Each target can be affected once every 5s.`,
     wikiLinks: [`https://remnant.wiki/Energized_Neck_Coil`],
   },
   {
@@ -252,7 +248,7 @@ export const amuletItems: AmuletItem[] = [
     imagePath: '/amulet/fragrant_thorn.png',
     id: 'Hx5iNF',
     dlc: 'dlc2',
-    tags: [], // TODO Add tags
+    tags: ['Status Effect', 'All Damage'],
     description: `Increases Status Effect Damage by 20%. Inflicting 4 or more unique Negative Status Effects on a target applies EXPOSED for 15s.
 
     EXPOSED: Target receives 15% additional damage from all sources.`,
@@ -274,8 +270,7 @@ export const amuletItems: AmuletItem[] = [
     dlc: 'dlc1',
     id: '70ryol',
     tags: ['Stamina', 'Critical Chance'],
-    // TODO check description
-    description: `Spending 20 Stamina grants 5% Critical Chance for 5s. Max 5 stacks. Stack fall off one at a time.`,
+    description: `Spending 20 Stamina grants 5% Critical Chance for 5s. Max 5 stacks.`,
     wikiLinks: [`https://remnant.wiki/Gift_Of_Euphoria`],
   },
   {
@@ -368,7 +363,6 @@ export const amuletItems: AmuletItem[] = [
     imagePath: '/amulet/inert_overcharger.png',
     id: 'k8d15f',
     tags: ['Fire Rate', 'Reload Speed', 'Recoil'],
-    // TODO check in game
     description: `Standing still for 0.5s increases Fire Rate by 20%, Reload Speed by 15%, and reduces Recoil by 50%. Lasts 2s after moving.`,
     wikiLinks: [`https://remnant.wiki/Inert_Overcharger`],
   },
@@ -509,7 +503,7 @@ export const amuletItems: AmuletItem[] = [
     name: 'Nightmare Spiral',
     imagePath: '/amulet/nightmare_spiral.png',
     id: 'mewmtq',
-    tags: ['Lifesteal', 'Heal', 'Healing Effectivness'],
+    tags: ['Lifesteal', 'Heal', 'Healing Effectiveness'],
     description: `Gain 10% of base Ranged damage dealt as Lifesteal. Reduces Healing Effectiveness by 95%.`,
     wikiLinks: [`https://remnant.wiki/Nightmare_Spiral`],
   },
@@ -527,7 +521,7 @@ export const amuletItems: AmuletItem[] = [
     name: "Nimue's Ribbon",
     imagePath: '/amulet/nimues_ribbon.png',
     id: 'sqsdvj',
-    tags: ['Healing Effectivness'],
+    tags: ['Healing Effectiveness'],
     description: `Increase Relic Healing Effectiveness by 50% Activating a Relic grants HASTE for 25s.`,
     wikiLinks: [`https://remnant.wiki/Nimue's_Ribbon`],
   },
@@ -603,7 +597,7 @@ export const amuletItems: AmuletItem[] = [
     name: 'Red Doe Sigil',
     imagePath: '/amulet/red_doe_sigil.png',
     id: 'xxp0ri',
-    tags: ['Healing Effectivness'],
+    tags: ['Healing Effectiveness'],
     description: `Increases Relic Healing Effectiveness by 30% which doubles when the wearer's Health is below 50%.`,
     wikiLinks: [`https://remnant.wiki/Red_Doe_Sigil`],
   },
@@ -698,8 +692,7 @@ export const amuletItems: AmuletItem[] = [
     imagePath: '/amulet/soul_anchor.png',
     id: '6amich',
     tags: ['Summon', 'All Damage'],
-    // TODO check description
-    description: `Gain 20% All Damage bonus if at least 1 Summon is active.`,
+    description: `Increases All Damage by 20% while at least 1 Summon is active.`,
     wikiLinks: [`https://remnant.wiki/Soul_Anchor`],
   },
   {

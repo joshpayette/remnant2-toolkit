@@ -965,7 +965,6 @@ export const bossEnemies = [
     location: { world: `N'Erud`, dungeon: ['Spectrum Nexus'] },
     imagePath: '/enemies/boss/custodians_eye.jpg',
     wikiLinks: [`https://remnant2.wiki.fextralife.com/The+Custodian's+Eye`],
-    // TODO confirm these resistances, item was here twice with two different values
     bleedResistance: 25,
     fireResistance: 25,
     shockResistance: -15,

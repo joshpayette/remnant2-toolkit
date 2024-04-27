@@ -88,7 +88,6 @@ export const consumableItems: ConsumableItem[] = [
     imagePath: '/consumable/brightstone.png',
     id: '937h03',
     tags: ['Grenade'],
-    // TODO confirm base number
     description: `When thrown, explodes in a 4m [A] radius dealing 50 damage and leaving a mysterious Mist which causes enemies to receive 10% additional damage. Debuff last 10s after enemies leave the Mist. Lasts 15s.`,
     wikiLinks: [`https://remnant.wiki/Brightstone`],
   },

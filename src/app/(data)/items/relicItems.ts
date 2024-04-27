@@ -26,8 +26,7 @@ export const relicItems: RelicItem[] = [
     imagePath: '/relic/broken_heart.png',
     dlc: 'dlc1',
     id: 'm71h9m',
-    // TODO check wording
-    description: `Innate 50% Use Speed Bonus. On use, sets current Health to 50% of max Health over 0.25s. Innate -2.0 Health Regeneration if above 50% Health.`,
+    description: `Innate 50% Use Speed Bonus. On use, sets current Health to 50% of max Health over 0.25s. Passively reduces Health by 2 while above 50% Health.`,
     wikiLinks: [`https://remnant.wiki/Broken_Heart`],
   },
   {
@@ -84,8 +83,7 @@ export const relicItems: RelicItem[] = [
     name: 'Lifeless Heart',
     imagePath: '/relic/lifeless_heart.png',
     id: 'k1de0f',
-    // TODO check wording
-    description: `Innade 50% Use speed bonus. Relic capacity is doubled`,
+    description: `Innate 50% Use Speed Bonus. Does not provide healing. Relic capacity is doubled.`,
     wikiLinks: [`https://remnant.wiki/Lifeless_Heart`],
   },
   {
@@ -94,8 +92,9 @@ export const relicItems: RelicItem[] = [
     imagePath: '/relic/paper_heart.png',
     dlc: 'dlc1',
     id: 'n9fm2r',
-    // TODO check wording
-    description: `On use, heals for up to 100% of current health over 0.1s. Gain 10 Stack of "Paper Heart" for 10 seconds. Dealing 75 Base Damage of any Damage Type Removes 1 Stack of “Paper Health”. After 15s, remaining Stacks are converted to Grey Health (10% per Stack). `,
+    description: `On use, grants 10 Stacks and heals 100% of current Max Health over 0.1s. Dealing 75 Base Damage of any type removes 1 Stack.
+
+    After 10s, convert each remaining Stack into 10% Grey Health.`,
     wikiLinks: [`https://remnant.wiki/Paper_Heart`],
   },
   {

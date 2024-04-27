@@ -425,7 +425,7 @@ export const traitItems: TraitItem[] = [
     name: 'Triage',
     imagePath: '/trait/triage.png',
     id: 'pbak5a',
-    tags: ['Heal', 'Healing Effectivness'],
+    tags: ['Heal', 'Healing Effectiveness'],
     description: `Increases Healing done by all sources, including Relics, skills, equipment, and weapon mods. `,
     maxLevelBonus: `At max level, Triage Increases healing by 50%`,
     wikiLinks: [`https://remnant.wiki/Triage`],

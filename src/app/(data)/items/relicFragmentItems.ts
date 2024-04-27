@@ -120,7 +120,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     name: 'Healing Effectiveness',
     imagePath: '/relicfragment/healing_effectiveness.png',
     id: 'y52c32',
-    tags: ['Healing Effectivness'],
+    tags: ['Healing Effectiveness'],
     description: `+X% Healing Effectiveness (Mythic: Maximum of +20%)`,
     wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },

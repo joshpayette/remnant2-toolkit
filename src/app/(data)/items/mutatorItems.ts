@@ -311,8 +311,8 @@ export const mutatorItems: MutatorItem[] = [
     imagePath: '/mutator/lithely.png',
     id: 's2z9cc',
     tags: ['Reload Speed', 'Ranged Damage'],
-    description: `Increases this weapon's Reload Speed by 4-[7]% for each enemy killed between reloads. Lasts 15s Max 5 Stacks.`,
-    maxLevelBonus: `Reloading this weapon at Max Stacks increases Ranged Damage by 20% by 15s`,
+    description: `Dealing 50% of the attached Weapon's Magazine Base Damage increases reload speed by 3%. Lasts 7s. Max 5 Stacks.`,
+    maxLevelBonus: `Reloading at Max Stacks increases Ranged Damage by 20% for 15s.`,
     wikiLinks: [`https://remnant.wiki/Lithely`],
   },
   {

@@ -1097,7 +1097,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     imagePath: '/perk/residue.png',
     type: 'team',
     id: 'fzywc2',
-    tags: ['Heal', 'Healing Effectivness'],
+    tags: ['Heal', 'Healing Effectiveness'],
     description: `
     Minions that expire leave a 3m Aura which heals 2.5% Health per second. Lasts 10s.
     

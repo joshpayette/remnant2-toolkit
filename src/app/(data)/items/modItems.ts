@@ -437,9 +437,7 @@ export const modItems: ModItem[] = [
     name: 'Explosive Shot',
     imagePath: '/mod/explosive_shot.png',
     id: 'hpfdzp',
-    // TODO Check this; notes say `base damage increased from 155 -> 175`
-    // TODO Check this; notes say `increased fire dot from 100 damage over 5s to 250 damage over 10s`
-    description: `Fires an explosive round [E] that deals up to 465 FIRE damage within 9m [A] and applies BURNING, dealing 300 FIRE damage over 5s.`,
+    description: `Fires an explosive round [E] that deals up to 175 FIRE damage within 9m [A] and applies BURNING, dealing 250 FIRE damage over 5s.`,
     wikiLinks: [`https://remnant.wiki/Explosive_Shot`],
     linkedItems: {
       weapon: {
@@ -744,7 +742,7 @@ export const modItems: ModItem[] = [
     name: 'Nano Swarm',
     imagePath: '/mod/nano_swarm.png',
     id: '8ko9zz',
-    description: `Unleash a swarm of Nanomachines that seek after enemies within 20 meters and repeatedly attack dealing 6 ACID damage per hit and applying CORRODED dealing 100 ACID damage over 10s. Lasts 15 seconds`,
+    description: `Unleash a swarm of Nanomachines that seek after enemies within 20 meters and repeatedly attack dealing 6 ACID damage per hit. Lasts 15 seconds.`,
     wikiLinks: [`https://remnant.wiki/Nano_Swarm`],
     linkedItems: {
       weapon: {
@@ -752,13 +750,14 @@ export const modItems: ModItem[] = [
       },
     },
   },
-  // TODO Check this; description may be updated based on patch notes
   {
     category: 'mod',
     name: 'Ouroboros',
     imagePath: '/mod/ouroboros.png',
     id: 'czgb8w',
-    description: `Conjures 6 sword fragments that encircle the wielder for 20s. Performing a Melee Attacks lets loose a Fragment which taints the blood of targets, causing all attacks from Deceit to register as Weakspot hits for a short period of time. Charge Melee attack fires all remaining Fragments at once.`,
+    description: `Conjures 3 sword fragments that encircle the wielder for 30s. Performing a Melee Attack lets loose a Fragment which taints the blood of targets, causing all attacks from Deceit to register as Weakspot hits for a short period of time.
+
+    Charge Melee Attacks fire all remaining Fragments at once.`,
     wikiLinks: [`https://remnant.wiki/Ouroboros`],
     linkedItems: {
       weapon: {
@@ -835,9 +834,7 @@ export const modItems: ModItem[] = [
     name: 'Rotted Arrow',
     imagePath: '/mod/rotted_arrow.png',
     id: 'vgin4w',
-    // TODO Check this; damage 19.8 -> 75
-    // TODO Check this; `removed damage over time`
-    description: `Fires a rotten arrow that deals 75 damage and detonates for another 60 damage [E] within 4m. [A] A deadly gas cloud is left behind that deals 200.`,
+    description: `Fires a rotten arrow that deals 75 damage and detonates for another 100 damage [E] within 1.5m [A].`,
     wikiLinks: [`https://remnant.wiki/Rotted_Arrow`],
   },
   {
@@ -877,7 +874,6 @@ export const modItems: ModItem[] = [
       },
     },
   },
-  // TODO Check this; description may have changed based on patch notes
   {
     category: 'mod',
     name: 'Shatterstar',
@@ -885,7 +881,7 @@ export const modItems: ModItem[] = [
     id: 'z9e8qq',
     description: `Imbues shots with White hot FIRE. Hits apply BURNING, dealing 250 FIRE damage over 10 seconds. Lasts 20s.
 
-    Weakspot Hits and Kills cause shots to fragment, automatically targeting nearby enemies. Fragments strike for 30% of the initial damage dealt and apply BURNING.`,
+    Shots fragment, automatically targeting nearby enemies. Fragments strike for 30% of the initial damage dealt and apply BURNING.`,
     wikiLinks: [`https://remnant.wiki/Shatterstar`],
     linkedItems: {
       weapon: {
@@ -906,10 +902,9 @@ export const modItems: ModItem[] = [
     name: 'Song of Eafir',
     imagePath: '/mod/song_of_eafir.png',
     id: 'edm644',
-    tags: ['Status Effect'],
-    // TODO Check this; damage reduction 15% -> 10%
-    description: `Fires a shot infused with the binding power of the Song of Eafir. Staggers most ground enemies within 10m [A] and deals 150 damage [E] to Flying enemies within the same range.
-    The song continues for 15s, afflicting targets within 15m [A] with SLOW, and a 10% decrease to damage dealt.`,
+    tags: ['Status Effect', 'Damage Reduction'],
+        description: `Fires a shot infused with the binding power of the Song of Eafir. Staggers most ground enemies within 10m [A] and deals 150 damage [E] to Flying enemies within the same range.
+    The song continues for 15s, afflicting targets within 15m [A] with SLOW, and a 10% decrease to damage.`,
     wikiLinks: [`https://remnant.wiki/Song_of_Eafir`],
   },
   {
@@ -1045,13 +1040,14 @@ export const modItems: ModItem[] = [
       },
     },
   },
-  // TODO Check this; description may have changed based on the patch notes
   {
     category: 'mod',
     name: 'Windfall',
     imagePath: '/mod/windfall1.png',
     id: '82v8kz',
-    description: `Fires a ring of spinning blades which penetrates targets as it travels up to 20m before returning to the weapon. While traveling, activating Windfall again causes the projectile to spin in place for up to 3s. Activating it once more will recall it. Enemies struck by the Windfall obtain Tainted Blood for 3s causing all attacks from Deceit to trigger as Weakspot hits.`,
+    description: `Fires a ring of spinning blades which penetrates targets as it travels up to 20m before returning to the weapon. While traveling, activating Windfall again causes the projectile to spin in place for up to 3s. Activating it once more will recall it.
+
+    Enemies struck by the Windfall obtain Tainted Blood for 3s causing all attacks from Deceit to trigger as Weakspot hits.`,
     wikiLinks: [`https://remnant.wiki/Windfall`],
     linkedItems: {
       weapon: {
