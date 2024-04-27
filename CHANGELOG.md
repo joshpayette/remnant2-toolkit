@@ -49,6 +49,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Added
 
 - Added many newly discovered items from the latest DLC.
+- Added image for the Polygun mod.
 
 ### Changed
 
@@ -58,6 +59,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Fixed
 
 - Updated incorrect Bulletweaver description.
+- Fixed missing E in Healing Effectiveness tag.
 
 ## 2024-04-22
 

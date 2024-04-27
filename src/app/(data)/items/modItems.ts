@@ -13,7 +13,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: '77 79 68',
-    imagePath: '/placeholder.jpg',
+    imagePath: '/mod/polygun.png',
     dlc: 'dlc2',
     id: '777968',
     description: `84 79 71 71 76 69 32 67 79 77 66 65 84 32 70 73 82 73 78 71 32 77 79 68 69 83`,
@@ -903,7 +903,7 @@ export const modItems: ModItem[] = [
     imagePath: '/mod/song_of_eafir.png',
     id: 'edm644',
     tags: ['Status Effect', 'Damage Reduction'],
-        description: `Fires a shot infused with the binding power of the Song of Eafir. Staggers most ground enemies within 10m [A] and deals 150 damage [E] to Flying enemies within the same range.
+    description: `Fires a shot infused with the binding power of the Song of Eafir. Staggers most ground enemies within 10m [A] and deals 150 damage [E] to Flying enemies within the same range.
     The song continues for 15s, afflicting targets within 15m [A] with SLOW, and a 10% decrease to damage.`,
     wikiLinks: [`https://remnant.wiki/Song_of_Eafir`],
   },
