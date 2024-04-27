@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-04-27
+
+### Fixed
+
+- Updated Burden of the Mesmer to the correct in-game image.
+
 ## 2024-04-26
 
 ### Added
@@ -11,6 +17,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Added final items from DLC2?
 - Added a new note to the World Save Archive warning that Cass progress could be lost, and possibly not recovered by a backup save restore.
 - Added note to README under FEATURED BUILDS about users needing to update the build as new content is released.
+- Added image for the Polygun mod.
 
 ### Fixed
 
@@ -49,7 +56,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Added
 
 - Added many newly discovered items from the latest DLC.
-- Added image for the Polygun mod.
 
 ### Changed
 

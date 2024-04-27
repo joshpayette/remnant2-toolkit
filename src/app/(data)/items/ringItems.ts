@@ -389,7 +389,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Burden of the Mesmer',
-    imagePath: '/ring/burden_of_the_mesmer.png',
+    imagePath: '/ring/burden_of_the_mesmer1.png',
     id: 'fGFm6B',
     dlc: 'dlc2',
     tags: ['Health', 'All Damage', 'Damage Reduction'],
