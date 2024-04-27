@@ -96,7 +96,7 @@ export const archetypeItems: ArchetypeItem[] = [
       'The ENGINEER specializes in Heavy Weaponry which can be carried or placed in turret mode.',
     wikiLinks: [`https://remnant.wiki/Engineer`],
     linkedItems: {
-    traits: [
+      traits: [
         { name: 'Fortify', amount: 10 },
         { name: 'Vigor', amount: 2 },
         { name: 'Endurance', amount: 3 },
