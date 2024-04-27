@@ -17,6 +17,7 @@ import { LoadoutManagementButton } from '@/app/(components)/buttons/builder-butt
 import { ShareBuildButton } from '@/app/(components)/buttons/builder-buttons/share-build-button'
 import { ToCsvButton } from '@/app/(components)/buttons/to-csv-button'
 import { useBuildActions } from '@/app/(hooks)/use-build-actions'
+import { urlNoCache } from '@/app/(utils)/url-no-cache'
 import { BuilderContainer } from '@/features/build/components/builder/BuilderContainer'
 import { DetailedBuildDialog } from '@/features/build/components/dialogs/DetailedBuildDialog'
 import { ImageDownloadInfo } from '@/features/build/components/dialogs/ImageDownloadInfo'
@@ -152,14 +153,9 @@ export function BuildPage({ build }: Props) {
 
               <ShareBuildButton
                 onClick={() => {
-                  const url = window.location.href
-                  if (!url) {
-                    toast.error('Could not copy build url. Try again.')
-                    return
-                  }
-                  const message = 'Copied Build URL to clipboard.'
-                  copy(`${url}?t=${Date.now()}`)
-                  toast.success(message)
+                  const url = urlNoCache(window.location.href)
+                  copy(url)
+                  toast.success('Copied Build URL to clipboard.')
                 }}
               />
 

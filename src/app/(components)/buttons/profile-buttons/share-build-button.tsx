@@ -5,12 +5,13 @@ import copy from 'clipboard-copy'
 import { toast } from 'react-toastify'
 
 import { BaseButton } from '@/app/(components)/_base/button'
+import { urlNoCache } from '@/app/(utils)/url-no-cache'
 import { Tooltip } from '@/features/ui/Tooltip'
 
 export function ShareBuildButton({ buildId }: { buildId: string }) {
   function handleCopyBuild() {
-    const url = `${window.location.origin}/builder/${buildId}`
-    copy(`${url}?t=${Date.now()}`)
+    const url = urlNoCache(`${window.location.origin}/builder/${buildId}`)
+    copy(url)
     toast.success('Copied build URL to clipboard!')
   }
 

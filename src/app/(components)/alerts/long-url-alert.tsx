@@ -8,6 +8,7 @@ import {
   BaseAlertTitle,
 } from '@/app/(components)/_base/alert'
 import { BaseButton } from '@/app/(components)/_base/button'
+import { urlNoCache } from '@/app/(utils)/url-no-cache'
 
 interface Props {
   open: boolean
@@ -28,15 +29,12 @@ export function LongUrlAlert({ open, onClose }: Props) {
         </BaseButton>
         <BaseButton
           onClick={() => {
-            const url = window.location.href
+            const url = urlNoCache(window.location.href)
 
-            if (!url) {
-              toast.error('Could not copy build url. Try again.')
-              return
-            }
             const message =
               'Build url copied to clipboard. Sign in next time for a shorter URL!'
-            copy(`${url}?t=${Date.now()}`)
+            // need to add a query param to the current url
+            copy(url)
             toast.success(message)
             onClose()
           }}
