@@ -1045,7 +1045,7 @@ export const armorItems: ArmorItem[] = [
   },
   {
     category: 'legs',
-    name: 'Battle Trousers',
+    name: 'Battle Slacks',
     saveFileSlug: 'armor_legs_army',
     imagePath: '/legs/battle_trousers.png',
     id: 'battra',

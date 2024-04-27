@@ -11,6 +11,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Updated Burden of the Mesmer to the correct in-game image.
 - Fixed issue where items in the Item Tracker were not sorting alphabetically.
 - Fixed an issue where the `t` URL parameter was affecting the item name when sharing a build as an unauthenticated user.
+- Fixed issue where Battle Slacks were called Battle Trousers in the Toolkit.
 
 ## 2024-04-26
 

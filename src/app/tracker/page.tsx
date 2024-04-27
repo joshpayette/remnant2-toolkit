@@ -415,19 +415,25 @@ export default function Page() {
                 {selectedItemProgress}%
               </div>
               <div className="flex w-full flex-wrap items-center justify-center gap-2">
-                {filteredItems.map((item) => (
-                  <ItemButton
-                    key={item.id}
-                    item={item}
-                    isEditable={false}
-                    isToggled={item.discovered}
-                    onClick={() => handleItemClicked(item.id)}
-                    onItemInfoClick={() => handleShowItemInfo(item.id)}
-                    size="lg"
-                    tooltipDisabled={isShowItemInfoOpen}
-                    loadingType="lazy"
-                  />
-                ))}
+                {filteredItems
+                  .sort((a, b) => {
+                    if (a.name < b.name) return -1
+                    if (a.name > b.name) return 1
+                    return 0
+                  })
+                  .map((item) => (
+                    <ItemButton
+                      key={item.id}
+                      item={item}
+                      isEditable={false}
+                      isToggled={item.discovered}
+                      onClick={() => handleItemClicked(item.id)}
+                      onItemInfoClick={() => handleShowItemInfo(item.id)}
+                      size="lg"
+                      tooltipDisabled={isShowItemInfoOpen}
+                      loadingType="lazy"
+                    />
+                  ))}
               </div>
             </>
           )}
