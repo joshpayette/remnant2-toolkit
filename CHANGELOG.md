@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Fixed
 
 - Updated Burden of the Mesmer to the correct in-game image.
+- Fixed issue where items in the Item Tracker were not sorting alphabetically.
 
 ## 2024-04-26
 

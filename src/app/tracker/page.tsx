@@ -333,41 +333,48 @@ export default function Page() {
                 ? []
                 : itemCategories.map((category) => ({
                     label: `${category as string} - ${getCategoryProgressLabel({
-                      filteredItems: allTrackerItems.filter((item) => {
-                        if (category === 'Long Gun') {
+                      filteredItems: allTrackerItems
+                        .filter((item) => {
+                          if (category === 'Long Gun') {
+                            return (
+                              WeaponItem.isWeaponItem(item) &&
+                              item.type === 'long gun'
+                            )
+                          }
+                          if (category === 'Hand Gun') {
+                            return (
+                              WeaponItem.isWeaponItem(item) &&
+                              item.type === 'hand gun'
+                            )
+                          }
+                          if (category === 'Melee') {
+                            return (
+                              WeaponItem.isWeaponItem(item) &&
+                              item.type === 'melee'
+                            )
+                          }
+                          if (category === 'Mutator (Gun)') {
+                            return (
+                              MutatorItem.isMutatorItem(item) &&
+                              item.type === 'gun'
+                            )
+                          }
+                          if (category === 'Mutator (Melee)') {
+                            return (
+                              MutatorItem.isMutatorItem(item) &&
+                              item.type === 'melee'
+                            )
+                          }
                           return (
-                            WeaponItem.isWeaponItem(item) &&
-                            item.type === 'long gun'
+                            item.category.toLowerCase() ===
+                            category.toLowerCase()
                           )
-                        }
-                        if (category === 'Hand Gun') {
-                          return (
-                            WeaponItem.isWeaponItem(item) &&
-                            item.type === 'hand gun'
-                          )
-                        }
-                        if (category === 'Melee') {
-                          return (
-                            WeaponItem.isWeaponItem(item) &&
-                            item.type === 'melee'
-                          )
-                        }
-                        if (category === 'Mutator (Gun)') {
-                          return (
-                            MutatorItem.isMutatorItem(item) &&
-                            item.type === 'gun'
-                          )
-                        }
-                        if (category === 'Mutator (Melee)') {
-                          return (
-                            MutatorItem.isMutatorItem(item) &&
-                            item.type === 'melee'
-                          )
-                        }
-                        return (
-                          item.category.toLowerCase() === category.toLowerCase()
-                        )
-                      }),
+                        })
+                        .sort((a, b) => {
+                          if (a.name < b.name) return -1
+                          if (a.name > b.name) return 1
+                          return 0
+                        }),
                       discoveredItemIds,
                     })}%`,
                     value: category.toLowerCase() as string,
