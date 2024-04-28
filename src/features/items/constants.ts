@@ -360,6 +360,12 @@ export const DESCRIPTION_TAGS = [
       'Counts as a debuff making it multiplicative with different sources of damage.',
   },
   {
+    type: 'OPPORTUNITY',
+    token: 'OPPORTUNITY',
+    color: 'text-[#fff1bc]',
+    description: undefined,
+  },
+  {
     type: 'Overloaded',
     token: 'OVERLOADED',
     color: 'text-[#7676af]',
