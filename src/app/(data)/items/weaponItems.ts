@@ -144,20 +144,16 @@ export const weaponItems: WeaponItem[] = [
         name: 'Micronova',
       },
     },
-    // TODO Check this; 21 -> 33
     damage: 33,
-    // TODO Check this; 2.2 -> 1.45
     rps: 1.45,
-    // TODO Check this; 6 -> 8
     magazine: 8,
     accuracy: 95,
-    ideal: 19,
-    falloff: 60,
-    // TODO Check this; 48 -> 40
+    ideal: 15,
+    falloff: 40,
     ammo: 40,
     crit: 5,
     weakspot: 100,
-    stagger: -70,
+    stagger: 10,
   },
   {
     category: 'weapon',
@@ -731,7 +727,7 @@ export const weaponItems: WeaponItem[] = [
     accuracy: 95,
     ideal: 30,
     falloff: 80,
-    ammo: 35,
+    ammo: 40,
     crit: 5,
     weakspot: 110,
     stagger: 0,
@@ -1585,16 +1581,14 @@ export const weaponItems: WeaponItem[] = [
         name: 'Loathe the Weak',
       },
     },
-    // TODO Check this; 105 -> 92
     damage: 92,
     rps: 1.7,
     magazine: 5,
     accuracy: 95,
-    // TODO Check this; 18 -> 16
     ideal: 16,
-    falloff: 30,
-    ammo: 30,
-    crit: 10,
+    falloff: 35,
+    ammo: 35,
+    crit: 5,
     weakspot: 100,
     stagger: 0,
   },
@@ -1632,10 +1626,9 @@ export const weaponItems: WeaponItem[] = [
     magazine: 99,
     accuracy: 95,
     ideal: 15,
-    // TODO Check this; 40 -> 35
     falloff: 35,
     ammo: 105,
-    crit: 0,
+    crit: 5,
     weakspot: 0,
     stagger: 0,
     linkedItems: {
@@ -1761,8 +1754,8 @@ export const weaponItems: WeaponItem[] = [
     rps: 7.5,
     magazine: 5,
     accuracy: 90,
-    ideal: 18,
-    falloff: 52,
+    ideal: 20,
+    falloff: 50,
     ammo: 105,
     crit: 5,
     weakspot: 85,
@@ -2093,8 +2086,6 @@ export const weaponItems: WeaponItem[] = [
     weakspot: 110,
     stagger: 10,
   },
-
-  // TODO Check this; `increased reload speed` - not sure how this is represented in our data
   {
     category: 'weapon',
     type: 'hand gun',
@@ -2104,16 +2095,14 @@ export const weaponItems: WeaponItem[] = [
     id: '50i9nj',
     description: `A high-caliber single-shot hunting pistol that inflicts heavy damage at mid to long range.`,
     wikiLinks: [`https://remnant.wiki/Sureshot`],
-    // TODO Check this; 105 -> 110
     damage: 110,
     rps: 3,
     magazine: 1,
     accuracy: 80,
     ideal: 22,
     falloff: 75,
-    // TODO Check this; 21 -> 24
     ammo: 24,
-    crit: 5,
+    crit: 10,
     weakspot: 110,
     stagger: 10,
   },
@@ -2138,7 +2127,6 @@ export const weaponItems: WeaponItem[] = [
     weakspot: 100,
     stagger: -10,
   },
-  // TODO Check this; `increased reload speed` - not sure how this is represented in our data
   {
     category: 'weapon',
     type: 'hand gun',
@@ -2148,15 +2136,12 @@ export const weaponItems: WeaponItem[] = [
     id: 'hk5uls',
     description: `A classic six-shooter. Tough. Dependable.`,
     wikiLinks: [`https://remnant.wiki/Western_Classic`],
-    // TODO Check this; 32 -> 36
     damage: 36,
-    // TODO Check this; 5 -> 5.8
-    rps: 5.8,
+    rps: 5.75,
     magazine: 6,
     accuracy: 95,
     ideal: 18,
     falloff: 48,
-    // TODO Check this; reserves +6, 66 -> 72
     ammo: 72,
     crit: 5,
     weakspot: 105,
