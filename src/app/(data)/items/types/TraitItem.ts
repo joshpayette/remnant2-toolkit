@@ -3,8 +3,8 @@ import { BuildItems } from '@prisma/client'
 import { DEFAULT_TRAIT_AMOUNT } from '@/features/build/constants'
 
 import { Item } from '../../../../features/items/types'
-import { archetypeItems } from '../archetypeItems'
-import { traitItems } from '../traitItems'
+import { archetypeItems } from '../archetype-items'
+import { traitItems } from '../trait-items'
 import { BaseItem } from './BaseItem'
 
 const allItems = [...traitItems, ...archetypeItems]
@@ -98,6 +98,7 @@ export class TraitItem extends BaseItem implements BaseTraitItem {
             category: item.category,
             imagePath: item.imagePath,
             amount: validAmount,
+            dlc: item.dlc,
             description: item.description ?? '',
             maxLevelBonus: item.maxLevelBonus ?? '',
             wikiLinks: item.wikiLinks ?? [],

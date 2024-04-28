@@ -2,7 +2,7 @@ import { BuildItems } from '@prisma/client'
 
 import { Item } from '@/features/items/types'
 
-import { weaponItems } from '../weaponItems'
+import { weaponItems } from '../weapon-items'
 import { BaseItem } from './BaseItem'
 
 interface BaseWeaponItem extends BaseItem {

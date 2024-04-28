@@ -10,9 +10,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Added Opportunity tag to items.
 
+### Changed
+
+- Reworked all filters to use less space. Most of the changes involved replacing checkboxes with multi-select dropdown menus.
+- Reworked the Item Tracker page to let you see more than one category at a time.
+- Reworked the Item Lookup page to allow you to view all items with no filters.
+
 ### Fixed
 
 - Updated a number of item descriptions and stats that were not present in the patch notes.
+- Updated Strong Back weight thresholds to not round up.
 
 ## 2024-04-27
 

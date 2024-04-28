@@ -1,4 +1,4 @@
-import { archetypeItems } from '@/app/(data)/items/archetypeItems'
+import { archetypeItems } from '@/app/(data)/items/archetype-items'
 import { Archetype } from '@/features/items/types'
 
 import { ARCHETYPE_COMBO_NAMES } from '../constants'

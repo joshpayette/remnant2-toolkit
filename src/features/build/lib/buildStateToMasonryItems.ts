@@ -1,4 +1,4 @@
-import { perkItems } from '@/app/(data)/items/perkItems'
+import { perkItems } from '@/app/(data)/items/perk-items'
 import { ArchetypeItem } from '@/app/(data)/items/types/ArchetypeItem'
 import { MutatorItem } from '@/app/(data)/items/types/MutatorItem'
 import { RelicFragmentItem } from '@/app/(data)/items/types/RelicFragmentItem'

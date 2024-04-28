@@ -7,11 +7,8 @@ import { BaseButton } from '@/app/(components)/_base/button'
 import { getDiscoveredCount } from '@/app/(utils)/tracker/get-discovered-count'
 import { updateTotalDiscoveredItems } from '@/app/profile/[userId]/(actions)/updateTotalDiscoveredItems'
 import { StatBox } from '@/app/profile/[userId]/(components)/StatBox'
-import { LocalStorage } from '@/app/tracker/(lib)/types'
-import {
-  allTrackerItems,
-  TOTAL_TRACKABLE_ITEM_COUNT,
-} from '@/app/tracker/constants'
+import { TOTAL_TRACKABLE_ITEM_COUNT } from '@/app/tracker/constants'
+import { ItemTrackerLocalStorage } from '@/app/tracker/types'
 
 interface Props {
   stat: { name: string; value: number; unit?: string }
@@ -26,7 +23,7 @@ export function DiscoveredItemsStatBox({
   isEditable,
   userId,
 }: Props) {
-  const [tracker, setTracker] = useLocalStorage<LocalStorage>(
+  const [tracker, setTracker] = useLocalStorage<ItemTrackerLocalStorage>(
     'item-tracker',
     {
       discoveredItemIds: [],

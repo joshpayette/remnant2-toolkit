@@ -1,5 +1,6 @@
+import { ReleaseKey } from '@/app/(data)/releases/types'
 import { ItemLocation } from '@/app/(types)/locations'
-import { ItemTag, LinkedItems, ReleaseKey } from '@/features/items/types'
+import { ItemTag, LinkedItems } from '@/features/items/types'
 
 type ItemCategory =
   | 'helm'
@@ -25,7 +26,7 @@ export interface BaseItemProps {
   name: string
   category: ItemCategory
   tags?: ItemTag[]
-  dlc?: ReleaseKey
+  dlc: ReleaseKey
   imagePath: string
   saveFileSlug?: string
   description?: string
@@ -60,7 +61,7 @@ export abstract class BaseItem implements BaseItemProps {
   public name: BaseItemProps['name'] = ''
   public category: BaseItemProps['category'] = 'skill'
   public tags?: BaseItemProps['tags'] = []
-  public dlc?: BaseItemProps['dlc'] = 'base'
+  public dlc: BaseItemProps['dlc'] = 'base'
   public description?: BaseItemProps['description'] = ''
   public location?: BaseItemProps['location'] = {
     world: 'Losomn',

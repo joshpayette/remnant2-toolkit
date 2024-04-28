@@ -10,7 +10,6 @@ import {
   BaseAlertTitle,
 } from '@/app/(components)/_base/alert'
 import { BaseButton } from '@/app/(components)/_base/button'
-import { Input } from '@/app/(components)/_base/input'
 import { BaseTextarea } from '@/app/(components)/_base/textarea'
 
 interface Props {

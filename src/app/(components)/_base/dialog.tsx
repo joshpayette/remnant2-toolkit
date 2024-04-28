@@ -23,6 +23,8 @@ const sizes = {
   '3xl': 'sm:max-w-3xl',
   '4xl': 'sm:max-w-4xl',
   '5xl': 'sm:max-w-5xl',
+  '6xl': 'sm:max-w-6xl',
+  '7xl': 'sm:max-w-7xl',
 }
 
 export function BaseDialog({
@@ -48,11 +50,11 @@ export function BaseDialog({
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <div className="fixed inset-0 flex w-screen justify-center overflow-y-auto bg-zinc-950/25 px-2 py-2 focus:outline-0 sm:px-6 sm:py-8 lg:px-8 lg:py-16 dark:bg-zinc-950/50" />
+          <div className="fixed inset-0 flex w-screen justify-center overflow-y-auto bg-zinc-950/25 px-2 py-2 focus:outline-0 dark:bg-zinc-950/50 sm:px-6 sm:py-8 lg:px-8 lg:py-16" />
         </HeadlessTransitionChild>
 
         <HeadlessTransitionChild
-          className="fixed inset-0 w-screen overflow-y-auto pt-6 sm:pt-0"
+          className="fixed inset-0 z-[50] w-screen overflow-y-auto pt-6 sm:pt-0"
           enter="ease-out duration-100"
           enterFrom="opacity-0 translate-y-12 sm:translate-y-0"
           enterTo="opacity-100 translate-y-0"
@@ -66,7 +68,7 @@ export function BaseDialog({
               className={clsx(
                 className,
                 sizes[size],
-                'row-start-2 w-full min-w-0 rounded-t-3xl bg-white p-[--gutter] shadow-lg ring-1 ring-zinc-950/10 [--gutter:theme(spacing.8)] sm:mb-auto sm:rounded-2xl dark:bg-zinc-900 dark:ring-white/10 forced-colors:outline',
+                'row-start-2 w-full min-w-0 rounded-t-3xl bg-white p-[--gutter] shadow-lg ring-1 ring-zinc-950/10 [--gutter:theme(spacing.8)] dark:bg-zinc-900 dark:ring-white/10 sm:mb-auto sm:rounded-2xl forced-colors:outline',
               )}
               enter="ease-out duration-100"
               enterFrom="sm:scale-95"
@@ -93,7 +95,7 @@ export function BaseDialogTitle({
       {...props}
       className={clsx(
         className,
-        'text-balance text-lg/6 font-semibold text-zinc-950 sm:text-base/6 dark:text-white',
+        'text-balance text-lg/6 font-semibold text-zinc-950 dark:text-white sm:text-base/6',
       )}
     />
   )

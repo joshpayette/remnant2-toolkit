@@ -9,12 +9,12 @@ import { DeleteBuildButton } from '@/app/(components)/buttons/builder-buttons/de
 import { DetailedViewButton } from '@/app/(components)/buttons/builder-buttons/detailed-view-button'
 import { ItemSuggestionsButton } from '@/app/(components)/buttons/builder-buttons/item-suggestions-button'
 import { SaveBuildButton } from '@/app/(components)/buttons/builder-buttons/save-build-button'
+import { ArmorSuggestionDialog } from '@/app/(components)/dialogs/armor-suggestion-dialog'
+import { DetailedBuildDialog } from '@/app/(components)/dialogs/detailed-build-dialog'
+import { ImageDownloadInfoDialog } from '@/app/(components)/dialogs/image-download-info-dialog'
+import { ItemTagSuggestionDialog } from '@/app/(components)/dialogs/item-tag-suggestion-dialog'
 import { useBuildActions } from '@/app/(hooks)/use-build-actions'
 import { BuilderContainer } from '@/features/build/components/builder/BuilderContainer'
-import { ArmorSuggestionsDialog } from '@/features/build/components/dialogs/ArmorSuggestionsDialog'
-import { DetailedBuildDialog } from '@/features/build/components/dialogs/DetailedBuildDialog'
-import { ImageDownloadInfo } from '@/features/build/components/dialogs/ImageDownloadInfo'
-import { ItemTagSuggestionsDialog } from '@/features/build/components/dialogs/ItemTagSuggestionsDialog'
 import { useDBBuildState } from '@/features/build/hooks/useDBBuildState'
 import { cleanUpBuildState } from '@/features/build/lib/cleanUpBuildState'
 import { dbBuildToBuildState } from '@/features/build/lib/dbBuildToBuildState'
@@ -66,7 +66,7 @@ export function BuildPage({ build }: Props) {
         onClose={() => setDetailedBuildDialogOpen(false)}
       />
 
-      <ImageDownloadInfo
+      <ImageDownloadInfoDialog
         onClose={handleClearImageDownloadInfo}
         imageDownloadInfo={imageDownloadInfo}
       />
@@ -76,14 +76,14 @@ export function BuildPage({ build }: Props) {
         subtitle="Edit your builds and share them with your friends and the community."
       />
 
-      <ArmorSuggestionsDialog
+      <ArmorSuggestionDialog
         buildState={dbBuildState}
         open={showArmorCalculator}
         onClose={() => setShowArmorCalculator(false)}
         onApplySuggestions={handleSelectArmorSuggestion}
       />
 
-      <ItemTagSuggestionsDialog
+      <ItemTagSuggestionDialog
         buildState={dbBuildState}
         open={showItemTagSuggestions}
         onClose={() => setShowItemTagSuggestions(false)}

@@ -1,4 +1,4 @@
-import { allItems } from '@/app/(data)/items/allItems'
+import { allItems } from '@/app/(data)/items/all-items'
 import { ItemCategory } from '@/features/build/types'
 import { Item } from '@/features/items/types'
 
@@ -6,7 +6,7 @@ import { Item } from '@/features/items/types'
 export const skippedItemCategories: Array<ItemCategory> = ['skill', 'perk']
 
 /** All items that are trackable. */
-export const allTrackerItems = allItems
+export const ALL_TRACKABLE_ITEMS = allItems
   // We don't want to show the items that are in the skippedItemCategories
   .filter((item) => skippedItemCategories.includes(item.category) === false)
   // Remove mods that have linked guns
@@ -19,4 +19,4 @@ export const allTrackerItems = allItems
     discovered: false,
   })) satisfies Item[]
 
-export const TOTAL_TRACKABLE_ITEM_COUNT = allTrackerItems.length
+export const TOTAL_TRACKABLE_ITEM_COUNT = ALL_TRACKABLE_ITEMS.length

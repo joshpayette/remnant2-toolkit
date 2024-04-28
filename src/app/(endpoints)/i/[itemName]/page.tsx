@@ -3,7 +3,7 @@
 import { useState } from 'react'
 
 import { BaseButton } from '@/app/(components)/_base/button'
-import { ItemInfoDialog } from '@/features/items/components/ItemInfoDialog'
+import { ItemInfoDialog } from '@/app/(components)/dialogs/item-info-dialog'
 import { Item } from '@/features/items/types'
 
 export default function Page({ params: { item } }: { params: { item: Item } }) {

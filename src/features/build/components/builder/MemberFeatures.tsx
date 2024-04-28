@@ -6,7 +6,7 @@ import { useSession } from 'next-auth/react'
 import { useState } from 'react'
 
 import { BaseButton } from '@/app/(components)/_base/button'
-import { Input } from '@/app/(components)/_base/input'
+import { BaseInput } from '@/app/(components)/_base/input'
 import { BuildDescriptionTemplateAlert } from '@/app/(components)/alerts/build-description-template-alert'
 import { DescriptionWithTags } from '@/features/ui/DescriptionWithTags'
 import { Skeleton } from '@/features/ui/Skeleton'
@@ -140,7 +140,7 @@ Watch the build in action: [insert Youtube link here]
                 Build Reference Link
               </div>
               <div className="flex w-full items-center justify-start">
-                <Input
+                <BaseInput
                   value={buildLink ?? ''}
                   onChange={(e) => onChangeBuildLink(e.target.value)}
                   placeholder="The link must be relevant to the build or it will be removed."

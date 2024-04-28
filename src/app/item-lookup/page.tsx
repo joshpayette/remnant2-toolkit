@@ -4,11 +4,11 @@ import { Suspense } from 'react'
 import { useLocalStorage } from 'usehooks-ts'
 
 import { ToCsvButton } from '@/app/(components)/buttons/to-csv-button'
-import { allItems } from '@/app/(data)/items/allItems'
+import { ItemLookupFilters } from '@/app/(components)/filters/item-lookup/item-lookup-filters'
+import { allItems } from '@/app/(data)/items/all-items'
 import { MutatorItem } from '@/app/(data)/items/types/MutatorItem'
-import { ItemCompareList } from '@/app/item-lookup/(components)/ItemCompareList'
-import { ItemList } from '@/app/item-lookup/(components)/ItemList'
-import { ItemLookupFilters } from '@/app/item-lookup/(components)/ItemLookupFilters'
+import { ItemCompareList } from '@/app/item-lookup/item-compare'
+import { ItemList } from '@/app/item-lookup/item-list'
 import { getArrayOfLength } from '@/features/build/lib/getArrayOfLength'
 import { itemToCsvItem } from '@/features/items/lib/itemToCsvItem'
 import { PageHeader } from '@/features/ui/PageHeader'
@@ -81,7 +81,7 @@ export default function Page() {
             </Suspense>
           </div>
 
-          <div className="mt-2 flex w-full flex-col items-center justify-center">
+          <div className="mt-6 flex w-full flex-col items-center justify-center">
             <div className="max-w-[200px]">
               <hr className="mb-4 w-full border-t border-primary-500" />
               <ToCsvButton

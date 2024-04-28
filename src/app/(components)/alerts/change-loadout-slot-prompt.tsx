@@ -10,7 +10,7 @@ import {
   BaseAlertTitle,
 } from '@/app/(components)/_base/alert'
 import { BaseButton } from '@/app/(components)/_base/button'
-import { Input } from '@/app/(components)/_base/input'
+import { BaseInput } from '@/app/(components)/_base/input'
 
 interface Props {
   open: boolean
@@ -36,7 +36,7 @@ export function ChangeLoadoutSlotPrompt({
         loadout will be swapped with the loadout in that slot.
       </BaseAlertDescription>
       <BaseAlertBody>
-        <Input
+        <BaseInput
           autoFocus
           name="newSlot"
           type="number"

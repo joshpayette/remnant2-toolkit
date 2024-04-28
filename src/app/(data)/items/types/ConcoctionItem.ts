@@ -1,7 +1,7 @@
 import { BuildItems } from '@prisma/client'
 
 import { Item } from '../../../../features/items/types'
-import { concoctionItems } from '../concoctionItems'
+import { concoctionItems } from '../concoction-items'
 import { BaseItem } from './BaseItem'
 
 interface BaseConcoctionItem extends BaseItem {}

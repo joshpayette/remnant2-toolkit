@@ -1,6 +1,8 @@
 import Image from 'next/image'
 import { useState } from 'react'
 
+import { HealthBreakdownDialog } from '@/app/(components)/dialogs/health-breakdown-dialog'
+import { StaminaBreakdownDialog } from '@/app/(components)/dialogs/stamina-breakdown-dialog'
 import { getTotalArmor } from '@/features/build/lib/get-totals/getTotalArmor'
 import { getTotalHealth } from '@/features/build/lib/get-totals/getTotalHealth'
 import { getTotalResistances } from '@/features/build/lib/get-totals/getTotalResistances'
@@ -11,9 +13,6 @@ import { BuildState } from '@/features/build/types'
 import { buildToVashUrl } from '@/features/build/vash-integration/buildToVashUrl'
 import { Tooltip } from '@/features/ui/Tooltip'
 import { cn } from '@/lib/classnames'
-
-import { HealthBreakdownDialog } from './HealthBreakdown'
-import { StaminaBreakdownDialog } from './StaminaBreakdown'
 
 interface Props {
   buildState: BuildState

@@ -1,111 +1,11 @@
-'use client'
+import { Suspense } from 'react'
 
-import { useMemo, useState } from 'react'
-import { useIsClient, useLocalStorage } from 'usehooks-ts'
-
-import { remnantEnemies } from '@/app/(data)/enemies/remnantEnemies'
-import { BossCategory } from '@/app/(data)/enemies/types'
-import {
-  BossTrackerFilters,
-  DEFAULT_BOSS_TRACKER_FILTERS,
-} from '@/app/boss-tracker/BossTrackerFilters'
+import { BossTrackerFilters } from '@/app/(components)/filters/boss-tracker/boss-tracker-filters'
+import { BossList } from '@/app/boss-tracker/boss-list'
 import { PageHeader } from '@/features/ui/PageHeader'
-
-import { ListBosses } from './ListBosses'
-import { BossTrackerFilterFields, LocalStorage } from './types'
-
-const allBosses = remnantEnemies
-  .filter(
-    (enemy) =>
-      enemy.category === 'boss' ||
-      enemy.category === 'world boss' ||
-      enemy.category === 'aberration',
-  )
-  .filter((enemy) => enemy.showOnTracker !== false)
-  .map((boss) => ({
-    ...boss,
-    discovered: false,
-  }))
-  .sort((a, b) => a.name.localeCompare(b.name))
+import { Skeleton } from '@/features/ui/Skeleton'
 
 export default function Page() {
-  const isClient = useIsClient()
-
-  const [filters, setFilters] = useState<BossTrackerFilterFields>(
-    DEFAULT_BOSS_TRACKER_FILTERS,
-  )
-
-  const [tracker, setTracker] = useLocalStorage<LocalStorage>(
-    'boss-tracker',
-    {
-      discoveredBossIds: [],
-      collapsedBossCategories: [],
-    },
-    { initializeWithValue: false },
-  )
-  const { discoveredBossIds } = tracker
-
-  const filteredBosses = useMemo(() => {
-    let filteredBosses = allBosses.map((boss) => ({
-      ...boss,
-      discovered: discoveredBossIds.includes(boss.id),
-    }))
-
-    // Filter by search text
-    filteredBosses = filteredBosses.filter((boss) =>
-      boss.name.toLowerCase().includes(filters.searchText.toLowerCase()),
-    )
-
-    // Filter out the categories
-    filteredBosses = filteredBosses.filter((boss) => {
-      if (boss.category === undefined) {
-        return true
-      }
-
-      return filters.selectedBossCategories.includes(
-        boss.category as BossCategory,
-      )
-    })
-
-    return filteredBosses
-  }, [filters, discoveredBossIds])
-
-  const totalItems = filteredBosses.length
-
-  const handleListItemClicked = (bossId: string) => {
-    // If the boss is already discovered, undiscover it
-    if (discoveredBossIds.includes(bossId)) {
-      const newDiscoveredBossIds = discoveredBossIds.filter(
-        (id) => id !== bossId,
-      )
-      setTracker({ ...tracker, discoveredBossIds: newDiscoveredBossIds })
-      // We need to set the user item insert needed flag
-      // so that the next time they filter builds by collection,
-      // their items will be updated
-      return
-    }
-
-    const newDiscoveredBossIds = [...discoveredBossIds, bossId]
-    setTracker({ ...tracker, discoveredBossIds: newDiscoveredBossIds })
-    // We need to set the user item insert needed flag
-    // so that the next time they filter builds by collection,
-    // their items will be updated
-  }
-
-  // Provider the tracker progress
-  const discoveredCount = filteredBosses.reduce((acc, item) => {
-    if (discoveredBossIds.includes(item.id)) return acc + 1
-    return acc
-  }, 0)
-  const discoveredPercent = Math.round((discoveredCount / totalItems) * 100)
-  const progress = `${discoveredCount} / ${totalItems} (${
-    isNaN(discoveredPercent) ? '0' : discoveredPercent
-  }%)`
-
-  function handleUpdateFilters(newFilters: BossTrackerFilterFields) {
-    setFilters(newFilters)
-  }
-
   return (
     <>
       <div className="flex w-full items-start justify-start sm:items-center sm:justify-center">
@@ -117,22 +17,16 @@ export default function Page() {
       <div className="relative flex w-full flex-col items-center justify-center">
         <div className="flex w-full flex-col items-center">
           <div className="w-full max-w-xl">
-            <BossTrackerFilters onUpdateFilters={handleUpdateFilters} />
+            <Suspense fallback={<Skeleton className="h-[497px] w-full" />}>
+              <BossTrackerFilters />
+            </Suspense>
           </div>
         </div>
 
-        <div className="mb-2 flex flex-col items-center justify-center text-2xl font-bold text-primary-400">
-          <h2 className="text-2xl font-bold">Progress</h2>
-          <span
-            className="text-xl font-bold text-white"
-            suppressHydrationWarning
-          >
-            {isClient ? progress : 'Calculating...'}
-          </span>
-        </div>
-
-        <div className="w-full">
-          <ListBosses bosses={filteredBosses} onClick={handleListItemClicked} />
+        <div className="flex w-full items-center justify-center">
+          <Suspense fallback={<Skeleton className="h-[500px] w-full" />}>
+            <BossList />
+          </Suspense>
         </div>
       </div>
     </>

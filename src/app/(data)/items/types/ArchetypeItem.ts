@@ -1,7 +1,7 @@
 import { BuildItems } from '@prisma/client'
 
 import { Item } from '../../../../features/items/types'
-import { archetypeItems } from '../archetypeItems'
+import { archetypeItems } from '../archetype-items'
 import { BaseItem } from './BaseItem'
 
 interface BaseArchetypeItem extends BaseItem {}

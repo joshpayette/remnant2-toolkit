@@ -1,4 +1,4 @@
-import { perkItems } from '@/app/(data)/items/perkItems'
+import { perkItems } from '@/app/(data)/items/perk-items'
 import { TraitItem } from '@/app/(data)/items/types/TraitItem'
 import { BuildState } from '@/features/build/types'
 import { Item } from '@/features/items/types'

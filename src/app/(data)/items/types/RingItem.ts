@@ -1,7 +1,7 @@
 import { BuildItems } from '@prisma/client'
 
 import { Item } from '../../../../features/items/types'
-import { ringItems } from '../ringItems'
+import { ringItems } from '../ring-items'
 import { BaseItem } from './BaseItem'
 
 interface BaseRingItem extends BaseItem {}

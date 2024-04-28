@@ -1,6 +1,6 @@
-import { traitItems } from '@/app/(data)/items/traitItems'
+import { traitItems } from '@/app/(data)/items/trait-items'
 import { TraitItem } from '@/app/(data)/items/types/TraitItem'
-import { weaponItems } from '@/app/(data)/items/weaponItems'
+import { weaponItems } from '@/app/(data)/items/weapon-items'
 
 import { BuildState } from '../types'
 import { getConcoctionSlotCount } from './getConcoctionSlotCount'

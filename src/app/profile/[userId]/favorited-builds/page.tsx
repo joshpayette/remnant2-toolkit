@@ -1,6 +1,6 @@
+import { BuildFilters } from '@/app/(components)/filters/builds/build-filters'
 import { FavoritedBuilds } from '@/app/profile/[userId]/favorited-builds/FavoritedBuilds'
 import { getServerSession } from '@/features/auth/lib'
-import { BuildListFilters } from '@/features/build/filters/BuildListFilters'
 
 export default async function Page({
   params: { userId },
@@ -17,8 +17,8 @@ export default async function Page({
 
   return (
     <>
-      <div className="mb-8 flex w-full flex-col items-center justify-center">
-        <BuildListFilters key="user-favorited-builds-filters" />
+      <div className="flex w-full flex-col items-center justify-center sm:mb-6">
+        <BuildFilters key="user-favorited-builds-filters" />
       </div>
       <div className="mb-4 grid w-full grid-cols-1 gap-2">
         <FavoritedBuilds userId={userId} />

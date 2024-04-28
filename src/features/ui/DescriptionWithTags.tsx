@@ -7,7 +7,7 @@ import { stripUnicode } from '@/features/build/lib/stripUnicode'
 import { Tooltip } from '@/features/ui/Tooltip'
 import { cn } from '@/lib/classnames'
 
-import { allItems } from '../../app/(data)/items/allItems'
+import { allItems } from '../../app/(data)/items/all-items'
 import { DESCRIPTION_TAGS } from '../items/constants'
 
 function parseStringForToken(

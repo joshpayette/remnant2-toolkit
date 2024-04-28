@@ -1,6 +1,6 @@
 import { BuildItems } from '@prisma/client'
 
-import { relicItems } from '../relicItems'
+import { relicItems } from '../relic-items'
 import { BaseItem } from './BaseItem'
 
 interface BaseRelicItem extends BaseItem {}

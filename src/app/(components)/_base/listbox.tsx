@@ -17,6 +17,7 @@ export function BaseListbox<T>({
   className,
   placeholder,
   autoFocus,
+  multiple = false,
   'aria-label': ariaLabel,
   children: options,
   ...props
@@ -26,9 +27,9 @@ export function BaseListbox<T>({
   autoFocus?: boolean
   'aria-label'?: string
   children?: React.ReactNode
-} & Omit<HeadlessListboxProps<typeof Fragment, T>, 'multiple'>) {
+} & HeadlessListboxProps<typeof Fragment, T>) {
   return (
-    <HeadlessListbox {...props} multiple={false}>
+    <HeadlessListbox {...props} multiple={multiple}>
       <HeadlessListboxButton
         autoFocus={autoFocus}
         data-slot="control"
@@ -76,7 +77,7 @@ export function BaseListbox<T>({
             'pl-[calc(theme(spacing[3.5])-1px)] pr-[calc(theme(spacing.7)-1px)] sm:pl-[calc(theme(spacing.3)-1px)]',
 
             // Typography
-            'text-left text-base/6 text-zinc-950 placeholder:text-zinc-500 sm:text-sm/6 dark:text-white forced-colors:text-[CanvasText]',
+            'text-left text-base/6 text-zinc-950 placeholder:text-zinc-500 dark:text-white sm:text-sm/6 forced-colors:text-[CanvasText]',
 
             // Border
             'border border-zinc-950/10 group-data-[active]:border-zinc-950/20 group-data-[hover]:border-zinc-950/20 dark:border-white/10 dark:group-data-[active]:border-white/20 dark:group-data-[hover]:border-white/20',
@@ -93,7 +94,7 @@ export function BaseListbox<T>({
         />
         <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
           <svg
-            className="size-5 stroke-zinc-500 group-data-[disabled]:stroke-zinc-600 sm:size-4 dark:stroke-zinc-400 forced-colors:stroke-[CanvasText]"
+            className="size-5 stroke-zinc-500 group-data-[disabled]:stroke-zinc-600 dark:stroke-zinc-400 sm:size-4 forced-colors:stroke-[CanvasText]"
             viewBox="0 0 16 16"
             aria-hidden="true"
             fill="none"
@@ -185,7 +186,7 @@ export function BaseListboxOption<T>({
               'group/option grid cursor-default grid-cols-[theme(spacing.5),1fr] items-baseline gap-x-1.5 rounded-lg py-2.5 pl-2.5 pr-3.5 sm:grid-cols-[theme(spacing.4),1fr] sm:py-1.5 sm:pl-2 sm:pr-3',
 
               // Typography
-              'text-base/6 text-zinc-950 sm:text-sm/6 dark:text-white forced-colors:text-[CanvasText]',
+              'text-base/6 text-zinc-950 dark:text-white sm:text-sm/6 forced-colors:text-[CanvasText]',
 
               // Focus
               'outline-none data-[focus]:bg-blue-500 data-[focus]:text-white',

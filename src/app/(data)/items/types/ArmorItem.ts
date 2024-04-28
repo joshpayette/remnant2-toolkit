@@ -1,7 +1,7 @@
 import { BuildItems } from '@prisma/client'
 
 import { Item } from '../../../../features/items/types'
-import { armorItems } from '../armorItems'
+import { armorItems } from '../armor-items'
 import { BaseItem } from './BaseItem'
 
 interface BaseArmorItem extends BaseItem {

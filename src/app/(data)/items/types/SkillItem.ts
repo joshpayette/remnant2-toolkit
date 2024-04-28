@@ -1,7 +1,7 @@
 import { BuildItems } from '@prisma/client'
 
 import { Item } from '../../../../features/items/types'
-import { skillItems } from '../skillItems'
+import { skillItems } from '../skill-items'
 import { BaseItem } from './BaseItem'
 
 interface BaseSkillItem extends BaseItem {}

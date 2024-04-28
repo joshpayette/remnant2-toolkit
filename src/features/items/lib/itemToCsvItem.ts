@@ -1,4 +1,6 @@
-import { CsvItem, Item } from '../types'
+import { CsvItem } from '@/app/(types)/csv'
+
+import { Item } from '../types'
 
 /**
  * Converts an Item to a CSV item for export

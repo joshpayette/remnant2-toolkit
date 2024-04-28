@@ -1,11 +1,11 @@
 import { BossCategory } from '@/app/(data)/enemies/types'
 
-export interface LocalStorage {
+export interface BossTrackerLocalStorage {
   discoveredBossIds: string[]
   collapsedBossCategories: Array<BossCategory>
 }
 
-export interface BossTrackerFilterFields {
-  searchText: string
-  selectedBossCategories: BossCategory[]
+export interface BossTrackerCategory {
+  category: BossCategory
+  label: string
 }

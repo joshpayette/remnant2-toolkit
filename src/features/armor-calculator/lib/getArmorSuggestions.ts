@@ -1,4 +1,4 @@
-import { armorItems } from '@/app/(data)/items/armorItems'
+import { armorItems } from '@/app/(data)/items/armor-items'
 import { ArmorItem } from '@/app/(data)/items/types/ArmorItem'
 import { getTotalArmor } from '@/features/build/lib/get-totals/getTotalArmor'
 import { getTotalResistances } from '@/features/build/lib/get-totals/getTotalResistances'

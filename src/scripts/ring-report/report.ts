@@ -1,7 +1,7 @@
 import { writeFile } from 'fs'
 import path from 'path'
 
-import { ringItems } from '../../app/(data)/items/ringItems'
+import { ringItems } from '../../app/(data)/items/ring-items'
 import { prisma } from '../../features/db/index'
 
 async function main() {

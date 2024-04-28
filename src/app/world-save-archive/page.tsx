@@ -1,9 +1,9 @@
 import { Suspense } from 'react'
 
 import { Link } from '@/app/(components)/_base/link'
-import { SaveItemList } from '@/app/world-save-archive/(components)/SaveItemList'
-import { SaveLookupFilters } from '@/app/world-save-archive/(components)/SaveLookupFilters'
-import { worldSaves } from '@/app/world-save-archive/(data)/worldSaves'
+import { WorldSaveFilters } from '@/app/(components)/filters/world-saves/world-save-filters'
+import { worldSaves } from '@/app/(data)/world-saves/world-saves'
+import { WorldSaves } from '@/app/world-save-archive/world-saves'
 import { PageHeader } from '@/features/ui/PageHeader'
 import { Skeleton } from '@/features/ui/Skeleton'
 
@@ -37,13 +37,13 @@ export default function Page() {
       <div className="flex w-full flex-col items-center">
         <div className="w-full max-w-xl">
           <Suspense fallback={<Skeleton className="h-[497px] w-full" />}>
-            <SaveLookupFilters />
+            <WorldSaveFilters />
           </Suspense>
         </div>
 
         <div className="flex w-full items-center justify-center">
           <Suspense fallback={<Skeleton className="h-[500px] w-full" />}>
-            <SaveItemList />
+            <WorldSaves />
           </Suspense>
         </div>
       </div>

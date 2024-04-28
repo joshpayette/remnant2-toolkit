@@ -1,47 +1,33 @@
 'use client'
 
 import Papa from 'papaparse'
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { Suspense, useEffect, useMemo, useRef, useState } from 'react'
 import { useFormState } from 'react-dom'
 import { toast } from 'react-toastify'
 import { useIsClient, useLocalStorage } from 'usehooks-ts'
 
 import { BaseButton } from '@/app/(components)/_base/button'
-import { allItems } from '@/app/(data)/items/allItems'
+import { ImportCsvDialog } from '@/app/(components)/dialogs/import-csv-dialog'
+import { ImportSaveDialog } from '@/app/(components)/dialogs/import-save-dialog'
+import { ItemTrackerFilters } from '@/app/(components)/filters/item-tracker/item-tracker-filters'
+import { allItems } from '@/app/(data)/items/all-items'
 import { MutatorItem } from '@/app/(data)/items/types/MutatorItem'
-import { WeaponItem } from '@/app/(data)/items/types/WeaponItem'
-import { ImportCSVDialog } from '@/app/tracker/(components)/ImportCSVDialog'
-import { ImportSaveDialog } from '@/app/tracker/(components)/ImportSaveDialog'
-import { ItemTrackerFilters } from '@/app/tracker/(components)/ItemTrackerFilters'
-import { getProgressLabel } from '@/app/tracker/(lib)/getProgressLabel'
-import { ItemTrackerCategory, LocalStorage } from '@/app/tracker/(lib)/types'
-import { useFilteredItems } from '@/app/tracker/(lib)/useFilteredItems'
-import { allTrackerItems, skippedItemCategories } from '@/app/tracker/constants'
-import { ItemButton } from '@/features/items/components/ItemButton'
-import { ItemInfoDialog } from '@/features/items/components/ItemInfoDialog'
+import { getTrackerProgressLabel } from '@/app/(utils)/tracker/get-tracker-progress-label'
+import {
+  ALL_TRACKABLE_ITEMS,
+  skippedItemCategories,
+} from '@/app/tracker/constants'
+import { ItemList } from '@/app/tracker/item-list'
+import {
+  ItemTrackerCategory,
+  ItemTrackerLocalStorage,
+} from '@/app/tracker/types'
 import { itemToCsvItem } from '@/features/items/lib/itemToCsvItem'
-import { Item } from '@/features/items/types'
 import { PageHeader } from '@/features/ui/PageHeader'
+import { Skeleton } from '@/features/ui/Skeleton'
 import { capitalize } from '@/lib/capitalize'
 
-import { parseSaveFile } from './(lib)/actions'
-
-function getCategoryProgressLabel({
-  filteredItems,
-  discoveredItemIds,
-}: {
-  filteredItems: Item[]
-  discoveredItemIds: string[]
-}) {
-  const discoveredCount = filteredItems.reduce((acc, item) => {
-    if (discoveredItemIds.includes(item.id)) return acc + 1
-    return acc
-  }, 0)
-  const selectedCategoryProgress = parseFloat(
-    ((discoveredCount / filteredItems.length) * 100).toFixed(2),
-  )
-  return selectedCategoryProgress
-}
+import { parseSaveFile } from './actions'
 
 /**
  * ----------------------------------------------
@@ -56,7 +42,7 @@ const subCategories: ItemTrackerCategory[] = [
   'Mutator (Melee)',
 ]
 
-let itemCategories = allTrackerItems
+let itemCategories = ALL_TRACKABLE_ITEMS
   // Remove the categories that will be replaced by subcategories
   .reduce((acc, item) => {
     if (acc.includes(capitalize(item.category))) return acc
@@ -73,12 +59,7 @@ itemCategories = itemCategories.filter(
 export default function Page() {
   const isClient = useIsClient()
 
-  // Tracks the item the user wants info on
-  const [itemInfo, setItemInfo] = useState<Item | null>(null)
-  // If the item info is defined, the modal should be open
-  const isShowItemInfoOpen = Boolean(itemInfo)
-
-  const [tracker, setTracker] = useLocalStorage<LocalStorage>(
+  const [tracker, setTracker] = useLocalStorage<ItemTrackerLocalStorage>(
     'item-tracker',
     {
       discoveredItemIds: [],
@@ -87,8 +68,6 @@ export default function Page() {
     { initializeWithValue: false },
   )
   const { discoveredItemIds } = tracker
-
-  const { filteredItems, handleUpdateFilters } = useFilteredItems([])
 
   /**
    * ----------------------------------------------
@@ -122,7 +101,7 @@ export default function Page() {
     // Remove any items that are in the skipped categories
     const filteredDiscoveredItems = saveFileDiscoveredItemIds.filter(
       (itemId) => {
-        const item = allTrackerItems.find((item) => item.id === itemId)
+        const item = ALL_TRACKABLE_ITEMS.find((item) => item.id === itemId)
         if (!item) return false
         if (skippedItemCategories.includes(item.category)) return false
         return true
@@ -146,8 +125,8 @@ export default function Page() {
   const csvFileInputRef = useRef<HTMLInputElement | null>(null)
 
   // Provide the tracker progress
-  const totalProgress = getProgressLabel({
-    items: allTrackerItems,
+  const totalProgress = getTrackerProgressLabel({
+    items: ALL_TRACKABLE_ITEMS,
     discoveredItemIds,
   })
 
@@ -197,31 +176,6 @@ export default function Page() {
    * Other functions
    * ----------------------------------------------
    */
-  const handleShowItemInfo = (itemId: string) => {
-    const item = allTrackerItems.find((item) => item.id === itemId)
-    if (item) setItemInfo(item)
-  }
-
-  const handleItemClicked = (itemId: string) => {
-    // If the item is already discovered, undiscover it
-    if (discoveredItemIds.includes(itemId)) {
-      const newDiscoveredItemIds = discoveredItemIds.filter(
-        (id) => id !== itemId,
-      )
-      setTracker({ ...tracker, discoveredItemIds: newDiscoveredItemIds })
-      // We need to set the user item insert needed flag
-      // so that the next time they filter builds by collection,
-      // their items will be updated
-      return
-    }
-
-    const newDiscoveredItemIds = [...discoveredItemIds, itemId]
-    setTracker({ ...tracker, discoveredItemIds: newDiscoveredItemIds })
-    // We need to set the user item insert needed flag
-    // so that the next time they filter builds by collection,
-    // their items will be updated
-  }
-
   // We only provide the relevant item data, not the internal image paths, etc.
   // We could maybe provide the ids as well, in case users wanted to dynamically
   // generate the build urls, but that's not a priority right now.
@@ -262,31 +216,6 @@ export default function Page() {
     )
   }, [discoveredItemIds])
 
-  function getSelectedCategory() {
-    let item = filteredItems[0]
-    if (!item) return ''
-
-    if (WeaponItem.isWeaponItem(item)) {
-      if (item.type === 'long gun') return 'Long Gun'
-      if (item.type === 'hand gun') return 'Hand Gun'
-      if (item.type === 'melee') return 'Melee'
-    } else if (MutatorItem.isMutatorItem(item)) {
-      if (item.type === 'gun') return 'Mutator (Gun)'
-      if (item.type === 'melee') return 'Mutator (Melee)'
-    } else if (item.category === 'relicfragment') {
-      return 'Relic Fragment'
-    } else {
-      return capitalize(item.category)
-    }
-  }
-
-  const selectedCategory = getSelectedCategory()
-
-  const selectedItemProgress = getCategoryProgressLabel({
-    filteredItems,
-    discoveredItemIds,
-  })
-
   // #region Render
 
   return (
@@ -297,8 +226,8 @@ export default function Page() {
         onSubmit={saveFileFormAction}
         fileInputRef={saveFileInputRef}
       />
-      <ImportCSVDialog
-        csvItems={csvItems}
+      <ImportCsvDialog
+        items={csvItems}
         open={importCSVDialogOpen}
         onClose={() => setImportCSVDialogOpen(false)}
         onSubmit={handleCsvFileSubmit}
@@ -313,130 +242,48 @@ export default function Page() {
       </div>
 
       <div className="relative flex w-full flex-col items-center justify-center">
-        <ItemInfoDialog
-          item={itemInfo}
-          open={isShowItemInfoOpen}
-          onClose={() => setItemInfo(null)}
-        />
         <div className="mb-2 flex flex-col items-center justify-center text-2xl font-bold text-primary-400">
           <h2 className="text-2xl font-bold">Progress</h2>
-          <span className="text-xl font-bold text-white">
+          <div className="text-xl font-bold text-white">
             {isClient ? totalProgress : 'Calculating...'}
-          </span>
-        </div>
-
-        <div className="w-full max-w-3xl">
-          <ItemTrackerFilters
-            allItems={allTrackerItems}
-            itemCategoryOptions={
-              !isClient
-                ? []
-                : itemCategories.map((category) => ({
-                    label: `${category as string} - ${getCategoryProgressLabel({
-                      filteredItems: allTrackerItems
-                        .filter((item) => {
-                          if (category === 'Long Gun') {
-                            return (
-                              WeaponItem.isWeaponItem(item) &&
-                              item.type === 'long gun'
-                            )
-                          }
-                          if (category === 'Hand Gun') {
-                            return (
-                              WeaponItem.isWeaponItem(item) &&
-                              item.type === 'hand gun'
-                            )
-                          }
-                          if (category === 'Melee') {
-                            return (
-                              WeaponItem.isWeaponItem(item) &&
-                              item.type === 'melee'
-                            )
-                          }
-                          if (category === 'Mutator (Gun)') {
-                            return (
-                              MutatorItem.isMutatorItem(item) &&
-                              item.type === 'gun'
-                            )
-                          }
-                          if (category === 'Mutator (Melee)') {
-                            return (
-                              MutatorItem.isMutatorItem(item) &&
-                              item.type === 'melee'
-                            )
-                          }
-                          return (
-                            item.category.toLowerCase() ===
-                            category.toLowerCase()
-                          )
-                        })
-                        .sort((a, b) => {
-                          if (a.name < b.name) return -1
-                          if (a.name > b.name) return 1
-                          return 0
-                        }),
-                      discoveredItemIds,
-                    })}%`,
-                    value: category.toLowerCase() as string,
-                  }))
-            }
-            onUpdate={handleUpdateFilters}
-          />
-
-          <div className="mt-6 flex w-full items-center justify-center gap-x-4">
-            <BaseButton
-              color="cyan"
-              onClick={() => setImportSaveDialogOpen(true)}
-              aria-label="Import Save File"
-              className="w-[200px]"
-            >
-              Import Save File
-            </BaseButton>
-            <BaseButton
-              color="cyan"
-              onClick={() => setImportCSVDialogOpen(true)}
-              aria-label="Import/Export CSV File"
-              className="w-[250px]"
-            >
-              Import/Export CSV
-            </BaseButton>
+          </div>
+          <div className="w-full max-w-3xl">
+            <div className="mt-6 flex w-full items-center justify-center gap-x-4">
+              <BaseButton
+                color="cyan"
+                onClick={() => setImportSaveDialogOpen(true)}
+                aria-label="Import Save File"
+                className="w-[200px]"
+              >
+                Import Save File
+              </BaseButton>
+              <BaseButton
+                color="cyan"
+                onClick={() => setImportCSVDialogOpen(true)}
+                aria-label="Import/Export CSV File"
+                className="w-[250px]"
+              >
+                Import/Export CSV
+              </BaseButton>
+            </div>
+            <hr className="mt-4 w-full max-w-3xl border-gray-700" />
           </div>
         </div>
 
-        <hr className="mt-4 w-full max-w-3xl border-gray-700" />
+        <div className="relative flex w-full flex-col items-center justify-center">
+          <div className="mb-8 flex w-full flex-col items-center">
+            <div className="w-full max-w-xl">
+              <Suspense fallback={<Skeleton className="h-[497px] w-full" />}>
+                <ItemTrackerFilters />
+              </Suspense>
+            </div>
+          </div>
 
-        <div className="mt-4 min-h-[500px] w-full">
-          {filteredItems.length > 0 && (
-            <>
-              <h2 className="mb-2 text-center text-2xl font-bold text-primary-400">
-                {selectedCategory} Items
-              </h2>
-              <div className="mb-4 flex w-full items-center justify-center gap-x-4 text-lg font-semibold">
-                {selectedItemProgress}%
-              </div>
-              <div className="flex w-full flex-wrap items-center justify-center gap-2">
-                {filteredItems
-                  .sort((a, b) => {
-                    if (a.name < b.name) return -1
-                    if (a.name > b.name) return 1
-                    return 0
-                  })
-                  .map((item) => (
-                    <ItemButton
-                      key={item.id}
-                      item={item}
-                      isEditable={false}
-                      isToggled={item.discovered}
-                      onClick={() => handleItemClicked(item.id)}
-                      onItemInfoClick={() => handleShowItemInfo(item.id)}
-                      size="lg"
-                      tooltipDisabled={isShowItemInfoOpen}
-                      loadingType="lazy"
-                    />
-                  ))}
-              </div>
-            </>
-          )}
+          <div className="flex w-full items-center justify-center">
+            <Suspense fallback={<Skeleton className="h-[500px] w-full" />}>
+              <ItemList />
+            </Suspense>
+          </div>
         </div>
       </div>
     </>

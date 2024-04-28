@@ -1,7 +1,7 @@
 import Image from 'next/image'
 
+import { ItemButton } from '@/app/(components)/buttons/item-button'
 import { ArmorItem } from '@/app/(data)/items/types/ArmorItem'
-import { ItemButton } from '@/features/items/components/ItemButton'
 import { WEIGHT_CLASSES } from '@/features/items/constants'
 import { cn } from '@/lib/classnames'
 

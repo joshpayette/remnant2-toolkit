@@ -1,6 +1,6 @@
 import { Metadata, ResolvingMetadata } from 'next'
 
-import { allItems } from '@/app/(data)/items/allItems'
+import { allItems } from '@/app/(data)/items/all-items'
 import { ArmorItem } from '@/app/(data)/items/types/ArmorItem'
 import { MutatorItem } from '@/app/(data)/items/types/MutatorItem'
 import { TraitItem } from '@/app/(data)/items/types/TraitItem'

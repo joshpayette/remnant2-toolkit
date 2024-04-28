@@ -1,6 +1,6 @@
 import { Metadata, ResolvingMetadata } from 'next'
 
-import { allItems } from '@/app/(data)/items/allItems'
+import { allItems } from '@/app/(data)/items/all-items'
 import { DESCRIPTION_TAGS, ITEM_TAGS } from '@/features/items/constants'
 import { itemMatchesSearchText } from '@/features/items/lib/itemMatchesSearchText'
 import { Item } from '@/features/items/types'

@@ -1,4 +1,4 @@
-import { modItems } from '@/app/(data)/items/modItems'
+import { modItems } from '@/app/(data)/items/mod-items'
 import { ModItem } from '@/app/(data)/items/types/ModItem'
 
 import { BuildState } from '../types'

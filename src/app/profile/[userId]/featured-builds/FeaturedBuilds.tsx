@@ -3,14 +3,15 @@
 import { useSearchParams } from 'next/navigation'
 import { useEffect, useState } from 'react'
 
+import { BuildSecondaryFilters } from '@/app/(components)/filters/builds/secondary-filters'
+import { useOrderByFilter } from '@/app/(components)/filters/builds/secondary-filters/order-by-filter/use-order-by-filter'
+import { useTimeRangeFilter } from '@/app/(components)/filters/builds/secondary-filters/time-range-filter/use-time-range-filter'
+import { parseUrlFilters } from '@/app/(components)/filters/builds/utils'
 import { CreatedBuildCardActions } from '@/app/profile/[userId]/(components)/CreatedBuildCardActions'
 import { getCreatedBuilds } from '@/app/profile/[userId]/created-builds/getCreatedBuilds'
 import { BuildCard } from '@/features/build/components/build-card/BuildCard'
 import { CreateBuildCard } from '@/features/build/components/build-card/CreateBuildCard'
 import { BuildList } from '@/features/build/components/BuildList'
-import { BuildListSecondaryFilters } from '@/features/build/filters/BuildListSecondaryFilters'
-import { useBuildListSecondaryFilters } from '@/features/build/filters/hooks/useBuildListSecondaryFilters'
-import { parseBuildListFilters } from '@/features/build/filters/lib/parseBuildListFilters'
 import { useBuildListState } from '@/features/build/hooks/useBuildListState'
 import { usePagination } from '@/features/pagination/usePagination'
 
@@ -22,10 +23,10 @@ interface Props {
 export function FeaturedBuilds({ isEditable, userId }: Props) {
   const searchParams = useSearchParams()
   const [buildListFilters, setBuildListFilters] = useState(
-    parseBuildListFilters(searchParams),
+    parseUrlFilters(searchParams),
   )
   useEffect(() => {
-    setBuildListFilters(parseBuildListFilters(searchParams))
+    setBuildListFilters(parseUrlFilters(searchParams))
   }, [searchParams])
 
   const { buildListState, setBuildListState } = useBuildListState()
@@ -33,14 +34,8 @@ export function FeaturedBuilds({ isEditable, userId }: Props) {
 
   const itemsPerPage = isEditable ? 15 : 16
 
-  const {
-    orderBy,
-    orderByOptions,
-    timeRange,
-    timeRangeOptions,
-    handleOrderByChange,
-    handleTimeRangeChange,
-  } = useBuildListSecondaryFilters('newest')
+  const { orderBy, handleOrderByChange } = useOrderByFilter('newest')
+  const { timeRange, handleTimeRangeChange } = useTimeRangeFilter('all-time')
 
   const {
     currentPage,
@@ -68,7 +63,7 @@ export function FeaturedBuilds({ isEditable, userId }: Props) {
         timeRange,
         userId,
         isEditable,
-        buildVisibility: 'All',
+        buildVisibility: 'all',
       })
       setBuildListState((prevState) => ({
         ...prevState,
@@ -104,12 +99,10 @@ export function FeaturedBuilds({ isEditable, userId }: Props) {
         onNextPage={handleNextPageClick}
         onSpecificPage={handleSpecificPageClick}
         headerActions={
-          <BuildListSecondaryFilters
+          <BuildSecondaryFilters
             orderBy={orderBy}
-            orderByOptions={orderByOptions}
             onOrderByChange={handleOrderByChange}
             timeRange={timeRange}
-            timeRangeOptions={timeRangeOptions}
             onTimeRangeChange={handleTimeRangeChange}
           />
         }

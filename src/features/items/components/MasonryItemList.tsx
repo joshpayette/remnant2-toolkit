@@ -4,12 +4,12 @@ import { Masonry } from 'masonic'
 import { useState } from 'react'
 import { useIsClient } from 'usehooks-ts'
 
+import { ItemInfoDialog } from '@/app/(components)/dialogs/item-info-dialog'
 import { getArrayOfLength } from '@/features/build/lib/getArrayOfLength'
 import { Skeleton } from '@/features/ui/Skeleton'
 
+import { ItemCard } from '../../../app/(components)/cards/item-card'
 import { Item } from '../types'
-import { ItemCard } from './ItemCard'
-import { ItemInfoDialog } from './ItemInfoDialog'
 
 interface Props {
   allowItemCompare?: boolean

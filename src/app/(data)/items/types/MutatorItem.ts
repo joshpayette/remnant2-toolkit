@@ -1,7 +1,7 @@
 import { BuildItems } from '@prisma/client'
 
 import { Item } from '../../../../features/items/types'
-import { mutatorItems } from '../mutatorItems'
+import { mutatorItems } from '../mutator-items'
 import { BaseItem } from './BaseItem'
 
 interface BaseMutatorItem extends BaseItem {

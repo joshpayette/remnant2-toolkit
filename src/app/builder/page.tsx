@@ -10,10 +10,10 @@ import { GenerateBuildImageButton } from '@/app/(components)/buttons/builder-but
 import { SaveBuildButton } from '@/app/(components)/buttons/builder-buttons/save-build-button'
 import { ShareBuildButton } from '@/app/(components)/buttons/builder-buttons/share-build-button'
 import { ToCsvButton } from '@/app/(components)/buttons/to-csv-button'
+import { DetailedBuildDialog } from '@/app/(components)/dialogs/detailed-build-dialog'
+import { ImageDownloadInfoDialog } from '@/app/(components)/dialogs/image-download-info-dialog'
 import { useBuildActions } from '@/app/(hooks)/use-build-actions'
 import { BuilderContainer } from '@/features/build/components/builder/BuilderContainer'
-import { DetailedBuildDialog } from '@/features/build/components/dialogs/DetailedBuildDialog'
-import { ImageDownloadInfo } from '@/features/build/components/dialogs/ImageDownloadInfo'
 import { useUrlBuildState } from '@/features/build/hooks/useUrlBuildState'
 import { PageHeader } from '@/features/ui/PageHeader'
 import { Skeleton } from '@/features/ui/Skeleton'
@@ -45,7 +45,7 @@ export default function Page() {
         onClose={() => setDetailedBuildDialogOpen(false)}
       />
 
-      <ImageDownloadInfo
+      <ImageDownloadInfoDialog
         onClose={handleClearImageDownloadInfo}
         imageDownloadInfo={imageDownloadInfo}
       />

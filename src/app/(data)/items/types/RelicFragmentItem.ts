@@ -1,7 +1,7 @@
 import { BuildItems } from '@prisma/client'
 
 import { Item } from '../../../../features/items/types'
-import { relicFragmentItems } from '../relicFragmentItems'
+import { relicFragmentItems } from '../relic-fragment-items'
 import { BaseItem } from './BaseItem'
 
 interface BaseRelicFragmentItem extends BaseItem {}

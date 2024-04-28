@@ -1,7 +1,7 @@
 import { BuildItems } from '@prisma/client'
 
 import { Item } from '../../../../features/items/types'
-import { consumableItems } from '../consumableItems'
+import { consumableItems } from '../consumable-items'
 import { BaseItem } from './BaseItem'
 
 interface BaseConsumableItem extends BaseItem {}

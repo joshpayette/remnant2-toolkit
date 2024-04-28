@@ -108,12 +108,6 @@ export const WEIGHT_CLASSES = {
   },
 } as const
 
-export const RELEASE_TO_NAME = {
-  base: 'Base Game',
-  dlc1: 'The Awakened King',
-  dlc2: 'The Forgotten Kingdom',
-} as const
-
 export const DESCRIPTION_TAGS = [
   {
     type: 'Acid',

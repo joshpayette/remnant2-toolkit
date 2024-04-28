@@ -1,7 +1,7 @@
 /* eslint-env jest */
 
-import { remnantEnemies } from '@/app/(data)/enemies/remnantEnemies'
-import { allItems } from '@/app/(data)/items/allItems'
+import { remnantEnemies } from '@/app/(data)/enemies/remnant-enemies'
+import { allItems } from '@/app/(data)/items/all-items'
 import { additionalAvatars } from '@/app/profile/[userId]/(lib)/additionalAvatars'
 
 describe('Items', () => {

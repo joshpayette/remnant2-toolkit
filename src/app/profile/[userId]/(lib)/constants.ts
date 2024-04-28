@@ -1,8 +1,8 @@
 import { image } from 'html2canvas/dist/types/css/types/image'
 
-import { remnantEnemies } from '@/app/(data)/enemies/remnantEnemies'
-import { amuletItems } from '@/app/(data)/items/amuletItems'
-import { armorItems } from '@/app/(data)/items/armorItems'
+import { remnantEnemies } from '@/app/(data)/enemies/remnant-enemies'
+import { amuletItems } from '@/app/(data)/items/amulet-items'
+import { armorItems } from '@/app/(data)/items/armor-items'
 import { additionalAvatars } from '@/app/profile/[userId]/(lib)/additionalAvatars'
 
 const enemyImages = remnantEnemies

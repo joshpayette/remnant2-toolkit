@@ -3,12 +3,14 @@ import { BuildTags } from '@prisma/client'
 import { useCallback, useMemo, useState } from 'react'
 
 import { Link } from '@/app/(components)/_base/link'
-import { perkItems } from '@/app/(data)/items/perkItems'
+import { ItemButton } from '@/app/(components)/buttons/item-button'
+import { ItemInfoDialog } from '@/app/(components)/dialogs/item-info-dialog'
+import { ItemSelectDialog } from '@/app/(components)/dialogs/item-select-dialog'
+import { perkItems } from '@/app/(data)/items/perk-items'
 import { TraitItem } from '@/app/(data)/items/types/TraitItem'
 import { FeaturedBuildBadge } from '@/features/build/components/build-card/FeaturedBuildBadge'
 import { NewBuildBadge } from '@/features/build/components/build-card/NewBuildBadge'
 import { PopularBuildBadge } from '@/features/build/components/build-card/PopularBuildBadge'
-import { ItemSelect } from '@/features/build/components/dialogs/ItemSelect'
 import {
   DEFAULT_TRAIT_AMOUNT,
   MAX_BUILD_TAGS,
@@ -22,8 +24,6 @@ import { isBuildNew } from '@/features/build/lib/isBuildNew'
 import { isBuildPopular } from '@/features/build/lib/isBuildPopular'
 import { stripUnicode } from '@/features/build/lib/stripUnicode'
 import { BuildState, ItemCategory } from '@/features/build/types'
-import { ItemButton } from '@/features/items/components/ItemButton'
-import { ItemInfoDialog } from '@/features/items/components/ItemInfoDialog'
 import { Archetype, Item } from '@/features/items/types'
 import { Logo } from '@/features/ui/Logo'
 import { cn } from '@/lib/classnames'
@@ -333,7 +333,7 @@ export function Builder({
 
   return (
     <>
-      <ItemSelect
+      <ItemSelectDialog
         key={selectedItemSlot.category}
         open={isItemSelectModalOpen}
         onClose={() => setSelectedItemSlot({ category: null })}
