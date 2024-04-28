@@ -146,6 +146,7 @@ export const armorItems: ArmorItem[] = [
     category: 'helm',
     name: 'Dandy Topper',
     imagePath: '/helm/dandy_topper.png',
+    saveFileSlug: 'head_tophat',
     id: 'vZL5tu',
     dlc: 'dlc2',
     armor: 12.8,

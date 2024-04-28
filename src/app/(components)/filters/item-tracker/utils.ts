@@ -84,19 +84,19 @@ export function getFilteredItemsForCategory(
 ): Array<Item & { discovered: boolean }> {
   return items
     .filter((item) => {
-      if (itemCategory === 'Long Gun') {
+      if (itemCategory === 'long gun') {
         return WeaponItem.isWeaponItem(item) && item.type === 'long gun'
       }
-      if (itemCategory === 'Hand Gun') {
+      if (itemCategory === 'hand gun') {
         return WeaponItem.isWeaponItem(item) && item.type === 'hand gun'
       }
-      if (itemCategory === 'Melee') {
+      if (itemCategory === 'melee') {
         return WeaponItem.isWeaponItem(item) && item.type === 'melee'
       }
-      if (itemCategory === 'Mutator (Gun)') {
+      if (itemCategory === 'mutator (gun)') {
         return MutatorItem.isMutatorItem(item) && item.type === 'gun'
       }
-      if (itemCategory === 'Mutator (Melee)') {
+      if (itemCategory === 'mutator (melee)') {
         return MutatorItem.isMutatorItem(item) && item.type === 'melee'
       }
       return item.category.toLowerCase() === itemCategory.toLowerCase()

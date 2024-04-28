@@ -205,15 +205,15 @@ export function ItemList({}: Props) {
   )
   visibleItemCategories = visibleItemCategories.filter((category) => {
     let itemCategory: ItemCategory
-    if (category === 'Long Gun') {
+    if (category === 'long gun') {
       itemCategory = 'weapon'
-    } else if (category === 'Hand Gun') {
+    } else if (category === 'hand gun') {
       itemCategory = 'weapon'
-    } else if (category === 'Melee') {
+    } else if (category === 'melee') {
       itemCategory = 'weapon'
-    } else if (category === 'Mutator (Gun)') {
+    } else if (category === 'mutator (gun)') {
       itemCategory = 'mutator'
-    } else if (category === 'Mutator (Melee)') {
+    } else if (category === 'mutator (melee)') {
       itemCategory = 'mutator'
     } else {
       itemCategory = category as ItemCategory

@@ -763,7 +763,7 @@ export const weaponItems: WeaponItem[] = [
     category: 'weapon',
     type: 'long gun',
     name: 'Thorn',
-    saveFileSlug: '/weapon_Thorn',
+    saveFileSlug: '/weapon_thorn',
     dlc: 'dlc2',
     imagePath: '/mainhand/thorn.png',
     id: '13hsqd',

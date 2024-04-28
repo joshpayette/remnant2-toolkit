@@ -20,6 +20,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Updated a number of item descriptions and stats that were not present in the patch notes.
 - Updated Strong Back weight thresholds to not round up.
+- Fixed issue causing Invoker to not import correctly to the Item Tracker.
+- Fixed issue causing Dandy Topper to not import correctly to the Item Tracker.
+- Fixed issue causing Thorn to not import correctly to the Item Tracker.
+- Fixed issue causing Spirit Feeder to not import correctly to the Item Tracker.
 
 ## 2024-04-27
 

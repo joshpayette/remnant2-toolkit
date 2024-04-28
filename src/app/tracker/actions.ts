@@ -93,7 +93,7 @@ export async function parseSaveFile(
     // const convertedSavePath = path.join(
     //   process.cwd(),
     //   'public',
-    //   'convertedSave2.txt',
+    //   'convertedSave.txt',
     // )
     // fs.writeFileSync(convertedSavePath, convertedSave)
 
@@ -104,9 +104,9 @@ export async function parseSaveFile(
         const name = item.name.replace(/[^a-zA-Z]/g, '').toLowerCase()
         // If the item has a save file slug, use that, otherwise use the name
         if (item.saveFileSlug) {
-          return convertedSave?.includes(item.saveFileSlug)
+          return convertedSave?.includes(item.saveFileSlug.toLowerCase())
         } else {
-          return convertedSave?.includes(name)
+          return convertedSave?.includes(name.toLowerCase())
         }
       })
       // Get just the item ids

@@ -564,6 +564,7 @@ export const mutatorItems: MutatorItem[] = [
     category: 'mutator',
     name: 'Spirit Feeder',
     type: 'gun',
+    saveFileSlug: 'bottomfeeder',
     imagePath: '/mutator/bottom_feeder.png', // confirmed: Keeping the same image
     id: '90i71b',
     dlc: 'base',
