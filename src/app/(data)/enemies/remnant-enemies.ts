@@ -395,6 +395,13 @@ export const aberrationEnemies = [
     id: '2SpwWM',
   },
   {
+    name: 'Protector of the Grove',
+    category: 'aberration',
+    imagePath: '/enemies/aberration/protector_of_the_grove.png',
+    wikiLinks: [],
+    id: 'Xqp2j6',
+  },
+  {
     name: 'Restless Spirit',
     category: 'aberration',
     imagePath: '/enemies/aberration/restless_spirit.jpg',
@@ -542,11 +549,25 @@ export const aberrationEnemies = [
     id: 'cD4JJv',
   },
   {
+    name: 'Stonewing Lurker',
+    category: 'aberration',
+    imagePath: '/enemies/aberration/stonewing_lurker.png',
+    wikiLinks: [],
+    id: 'Xwrqi2',
+  },
+  {
     name: 'Talonscythe',
     category: 'aberration',
     imagePath: '/enemies/aberration/talonscythe.jpg',
     wikiLinks: [],
     id: 'k5VEbQ',
+  },
+  {
+    name: 'The Bloodless Heir',
+    category: 'aberration',
+    imagePath: '/enemies/aberration/the_bloodless_heir.png',
+    wikiLinks: [],
+    id: 'ox4KUX',
   },
   {
     id: 'gCm5Ry',
@@ -566,6 +587,13 @@ export const aberrationEnemies = [
     fireResistance: 5,
     shockResistance: 5,
     acidResistance: 5,
+  },
+  {
+    id: 'Cqqgq8',
+    name: 'The Fractured',
+    category: 'aberration',
+    imagePath: '/enemies/aberration/the_fractured.png',
+    wikiLinks: [],
   },
   {
     id: '5xJq5F',

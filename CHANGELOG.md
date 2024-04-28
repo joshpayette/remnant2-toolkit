@@ -9,6 +9,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Added
 
 - Added Opportunity tag to items.
+- Added The Fractured aberration to the Boss Tracker. (ConRaven)
+- Added Protector of the Grove aberration to the Boss Tracker. (ConRaven)
+- Added Stonewing Lurker aberration to the Boss Tracker. (ConRaven)
+- Added The Bloodless Heir aberration to the Boss Tracker. (ConRaven)
 
 ### Changed
 
