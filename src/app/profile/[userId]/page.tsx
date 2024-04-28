@@ -9,24 +9,46 @@ import { bigIntFix } from '@/lib/bigIntFix'
 async function getCreatedBuilds(userId: string) {
   const itemsToFetch = 4
 
-  const whereConditions = Prisma.sql`
+  const whereConditionsAllTime = Prisma.sql`
   WHERE Build.createdById = ${userId}
   AND Build.isPublic = true
   `
 
+  const whereConditionsCurrent = Prisma.sql`
+  WHERE Build.createdById = ${userId}
+  AND Build.isPublic = true
+  AND Build.isPatchAffected = false
+  `
+
   const orderBySegment = Prisma.sql`ORDER BY totalUpvotes DESC`
 
-  const builds = await communityBuildsQuery({
-    userId,
-    itemsPerPage: itemsToFetch,
-    pageNumber: 1,
-    orderBySegment,
-    whereConditions,
-    searchText: '',
-  })
+  const [topBuildsAllTime, topBuildsCurrent] = await prisma.$transaction([
+    communityBuildsQuery({
+      userId,
+      itemsPerPage: itemsToFetch,
+      pageNumber: 1,
+      orderBySegment,
+      whereConditions: whereConditionsAllTime,
+      searchText: '',
+    }),
+    communityBuildsQuery({
+      userId,
+      itemsPerPage: itemsToFetch,
+      pageNumber: 1,
+      orderBySegment,
+      whereConditions: whereConditionsCurrent,
+      searchText: '',
+    }),
+  ])
 
   // Then, for each Build, get the associated BuildItems
-  for (const build of builds) {
+  for (const build of topBuildsAllTime) {
+    const buildItems = await prisma.buildItems.findMany({
+      where: { buildId: build.id },
+    })
+    build.buildItems = buildItems
+  }
+  for (const build of topBuildsCurrent) {
     const buildItems = await prisma.buildItems.findMany({
       where: { buildId: build.id },
     })
@@ -34,14 +56,20 @@ async function getCreatedBuilds(userId: string) {
   }
 
   // Then, for each Build, get the associated BuildTags
-  for (const build of builds) {
+  for (const build of topBuildsAllTime) {
+    const buildTags = await prisma.buildTags.findMany({
+      where: { buildId: build.id },
+    })
+    build.buildTags = buildTags
+  }
+  for (const build of topBuildsCurrent) {
     const buildTags = await prisma.buildTags.findMany({
       where: { buildId: build.id },
     })
     build.buildTags = buildTags
   }
 
-  return bigIntFix(builds)
+  return bigIntFix({ topBuildsAllTime, topBuildsCurrent })
 }
 
 export default async function Page({
@@ -50,27 +78,47 @@ export default async function Page({
   params: { userId: string }
 }) {
   const session = await getServerSession()
-  const isEditable = session?.user?.id === userId
 
-  const builds = await getCreatedBuilds(userId)
+  const { topBuildsAllTime, topBuildsCurrent } = await getCreatedBuilds(userId)
 
   return (
     <>
-      <div className="mb-4 flex w-full flex-row items-center justify-center border-b border-b-primary-500 py-2">
-        <h2 className="flex w-full items-center justify-start text-2xl">
-          Top Created Builds
-        </h2>
+      {topBuildsCurrent.length > 0 && (
+        <div>
+          <div className="mb-4 flex w-full flex-row items-center justify-center border-b border-b-primary-500 py-2">
+            <h2 className="flex w-full items-center justify-start text-2xl">
+              Top Created Builds (Current)
+            </h2>
+          </div>
+          <ul
+            role="list"
+            className="mb-4 mt-8 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-2 lg:grid-cols-4"
+          >
+            {topBuildsCurrent.map((build) => (
+              <li key={build.id} className="h-full w-full">
+                <BuildCard build={build} isLoading={false} />
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+      <div>
+        <div className="mb-4 flex w-full flex-row items-center justify-center border-b border-b-primary-500 py-2">
+          <h2 className="flex w-full items-center justify-start text-2xl">
+            Top Created Builds (All Time)
+          </h2>
+        </div>
+        <ul
+          role="list"
+          className="mb-4 mt-8 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-2 lg:grid-cols-4"
+        >
+          {topBuildsAllTime.map((build) => (
+            <li key={build.id} className="h-full w-full">
+              <BuildCard build={build} isLoading={false} />
+            </li>
+          ))}
+        </ul>
       </div>
-      <ul
-        role="list"
-        className="mb-4 mt-8 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-2 lg:grid-cols-4"
-      >
-        {builds.map((build) => (
-          <li key={build.id} className="h-full w-full">
-            <BuildCard build={build} isLoading={false} />
-          </li>
-        ))}
-      </ul>
     </>
   )
 }

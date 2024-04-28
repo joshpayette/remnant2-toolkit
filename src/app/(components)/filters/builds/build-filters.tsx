@@ -421,7 +421,7 @@ export function BuildFilters({}: Props) {
                       onChange={handleBuildTagChange}
                     />
                   </div>
-                  <div className="col-span-full sm:col-span-1">
+                  <div className="col-span-full sm:col-span-1 md:col-span-2">
                     <BuildMiscFilter
                       value={[
                         unappliedFilters.patchAffected ? 'patchAffected' : '',

@@ -28,7 +28,7 @@ export function BuildMiscFilter({ value, onChange }: Props) {
 
   return (
     <BaseField>
-      <BaseLabel>Include</BaseLabel>
+      <BaseLabel>Include...</BaseLabel>
       <BaseListbox multiple name="misc" value={value} onChange={onChange}>
         {options.map(({ label, value }) => (
           <BaseListboxOption key={value} value={value}>

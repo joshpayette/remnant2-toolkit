@@ -17,6 +17,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Added Cinderclad Monolith, Spiteful/Vicious to the World Save Archive.
 - Added Lydusa to the World Save Archive.
 - Added The Stonewarden, Hearty/Thickskin to the World Save Archive.
+- Added a `Top Builds (Current)` and `Top Builds (All Time)` section to the user's Profile Overview page.
 
 ### Changed
 
