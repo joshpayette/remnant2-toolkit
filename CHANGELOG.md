@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-04-28
+
+### Added
+
+- Added Opportunity tag to items.
+
+### Fixed
+
+- Updated a number of item descriptions and stats that were not present in the patch notes.
+
 ## 2024-04-27
 
 ### Fixed
