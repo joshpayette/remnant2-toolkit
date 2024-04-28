@@ -152,6 +152,7 @@ const bossNames = [
   { name: 'Bloat King' },
   { name: 'Bruin, Blade of the King' },
   { name: 'Cancer' },
+  { name: 'Cinderclad Monolith' },
   { name: 'Corrupted Ravager' },
   { name: 'Corruptor' },
   { name: 'Faelin' },
@@ -162,6 +163,7 @@ const bossNames = [
   { name: 'Magister Dullain' },
   { name: 'Mother Mind' },
   { name: 'Legion' },
+  { name: 'Lydusa' },
   { name: 'Primogenitor' },
   { name: `Sha'Hala: Guardian of N'Erud` },
   { name: `Sha'Hala: Guardian of N'Erud (Phase 2)` },
@@ -177,6 +179,7 @@ const bossNames = [
   { name: 'The Nightweaver' },
   { name: 'The One True King' },
   { name: 'The Red Prince' },
+  { name: 'The Stonewarden' },
   { name: 'The Sunken Witch' },
   { name: 'Venom' },
 ] as const satisfies Array<{

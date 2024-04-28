@@ -13,6 +13,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Added Protector of the Grove aberration to the Boss Tracker. (ConRaven)
 - Added Stonewing Lurker aberration to the Boss Tracker. (ConRaven)
 - Added The Bloodless Heir aberration to the Boss Tracker. (ConRaven)
+- Added Cinderclad Monolith, Regenerator/Spiteful to the World Save Archive.
+- Added Cinderclad Monolith, Spiteful/Vicious to the World Save Archive.
+- Added Lydusa to the World Save Archive.
+- Added The Stonewarden, Hearty/Thickskin to the World Save Archive.
 
 ### Changed
 

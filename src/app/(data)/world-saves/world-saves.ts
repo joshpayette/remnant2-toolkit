@@ -57,6 +57,16 @@ export const worldSaves = [
     release: 'dlc1',
   },
   {
+    bossName: 'Cinderclad Monolith',
+    bossAffixes: ['Regenerator', 'Spiteful'],
+    release: 'dlc2',
+  },
+  {
+    bossName: 'Cinderclad Monolith',
+    bossAffixes: ['Spiteful', 'Vicious'],
+    release: 'dlc2',
+  },
+  {
     bossName: 'Corrupted Ravager',
     bossAffixes: ['Drain', 'Hearty'],
     release: 'dlc1',
@@ -266,6 +276,11 @@ export const worldSaves = [
     bossName: 'Legion',
     bossAffixes: ['Spiteful', 'Vicious'],
     release: 'dlc1',
+  },
+  {
+    bossName: 'Lydusa',
+    bossAffixes: [],
+    release: 'dlc2',
   },
   {
     bossName: 'Magister Dullain',
@@ -481,6 +496,11 @@ export const worldSaves = [
     bossName: 'The Red Prince',
     bossAffixes: ['Spiteful', 'Vicious'],
     release: 'dlc1',
+  },
+  {
+    bossName: 'The Stonewarden',
+    bossAffixes: ['Hearty', 'Thick Skin'],
+    release: 'dlc2',
   },
   {
     bossName: 'The Sunken Witch',
