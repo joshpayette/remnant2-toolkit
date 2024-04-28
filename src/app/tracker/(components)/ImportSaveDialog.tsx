@@ -22,6 +22,11 @@ export function ImportSaveDialog({
       maxWidthClass="max-w-2xl"
       onClose={onClose}
     >
+      <p className="text-red-500">
+        Note: This will overwrite any existing discovered items and then
+        reimport. Not all items from the DLC are being discovered properly yet.
+        We are working to get it resolved.
+      </p>
       <form action={onSubmit} className="bg-black">
         <div className="mt-8 flex w-full flex-col items-center justify-center gap-y-4">
           <input
