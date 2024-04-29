@@ -21,7 +21,7 @@ import { TraitItem } from '@/app/(data)/items/types/TraitItem'
 import { WeaponItem } from '@/app/(data)/items/types/WeaponItem'
 import { ArmorInfo } from '@/features/armor-calculator/ArmorInfo'
 import { WeaponInfo } from '@/features/items/components/WeaponInfo'
-import { cleanItemName } from '@/features/items/lib/cleanItemName'
+import { itemShareEndpoint } from '@/features/items/lib/cleanItemName'
 import { Item } from '@/features/items/types'
 import { DescriptionWithTags } from '@/features/ui/DescriptionWithTags'
 import { capitalize } from '@/lib/capitalize'
@@ -71,11 +71,7 @@ export function ItemInfoDialog({ open, item, onClose }: Props) {
             <BaseButton
               aria-label="Copy link to item"
               onClick={() => {
-                copy(
-                  `https://remnant2toolkit.com/endpoint/item/${cleanItemName(
-                    item,
-                  )}`,
-                )
+                copy(itemShareEndpoint(item))
                 toast.success('Copied link to clipboard')
               }}
             >
