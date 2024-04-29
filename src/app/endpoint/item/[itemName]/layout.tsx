@@ -7,6 +7,7 @@ import { TraitItem } from '@/app/(data)/items/types/TraitItem'
 import { WeaponItem } from '@/app/(data)/items/types/WeaponItem'
 
 import ItemPage from './page'
+import { itemEndpoint } from '@/features/items/lib/cleanItemName'
 
 function getItemFromParam(itemName: string) {
   // need to remove all punctuation and spaces from itemName
@@ -75,7 +76,7 @@ export async function generateMetadata(
       title,
       description,
       siteName: 'Remnant 2 Toolkit',
-      url: `https://remnant2toolkit.com/endpoint/item/${item.name}`,
+      url: itemEndpoint(item),
       images: [
         {
           url: `https://${process.env.NEXT_PUBLIC_IMAGE_URL}${item.imagePath}`,

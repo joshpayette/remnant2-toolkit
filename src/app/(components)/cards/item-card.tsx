@@ -22,7 +22,7 @@ import { WeaponItem } from '@/app/(data)/items/types/WeaponItem'
 import { ArmorInfo } from '@/features/armor-calculator/ArmorInfo'
 import { getArrayOfLength } from '@/features/build/lib/getArrayOfLength'
 import getItemBuildStats from '@/features/items/actions/getItemBuildStats'
-import { cleanItemName } from '@/features/items/lib/cleanItemName'
+import { itemShareEndpoint } from '@/features/items/lib/cleanItemName'
 import { DescriptionWithTags } from '@/features/ui/DescriptionWithTags'
 import { Tooltip } from '@/features/ui/Tooltip'
 import { cn } from '@/lib/classnames'
@@ -351,11 +351,7 @@ export function ItemCard({
             className="relative flex items-center justify-center"
             aria-label="Share Item Link"
             onClick={() => {
-              copy(
-                `https://remnant2toolkit.com/endpoint/item/${cleanItemName(
-                  item,
-                )}`,
-              )
+              copy(itemShareEndpoint(item))
               toast.success('Copied link to clipboard')
             }}
           >
