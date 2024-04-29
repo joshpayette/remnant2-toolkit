@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Sharing a link to an item will now use the shorter item endpoint, `/i/itemname`, rather than `/endpoint/item/itemname`. The latter address still works, but will be removed eventually.
 - Item Lookup filters: the categories now start unchecked by default, meaning less clicks to get item info to show.
+- The height of the item info dialog on mobile has been decreased to allow more space to close out of it.
 
 ### Fixed
 

@@ -57,8 +57,8 @@ export function CategoriesFilter({
           Uncheck All
         </BaseButton>
       </div>
-      <BaseCheckboxGroup className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5">
-        <BaseCheckboxGroup className="col-span-full sm:col-span-1">
+      <BaseCheckboxGroup className="grid grid-cols-2 gap-y-4 sm:grid-cols-3 md:grid-cols-5 md:gap-y-0">
+        <BaseCheckboxGroup className="col-span-1">
           <BaseCheckboxField key="helm">
             <BaseCheckbox
               name="helm"
@@ -96,7 +96,7 @@ export function CategoriesFilter({
             <BaseLabel>Gloves</BaseLabel>
           </BaseCheckboxField>
         </BaseCheckboxGroup>
-        <BaseCheckboxGroup className="col-span-full sm:col-span-1">
+        <BaseCheckboxGroup className="col-span-1">
           <BaseCheckboxField key="Amulet">
             <BaseCheckbox
               name="amulet"
@@ -134,7 +134,7 @@ export function CategoriesFilter({
             <BaseLabel>Relic Fragment</BaseLabel>
           </BaseCheckboxField>
         </BaseCheckboxGroup>
-        <BaseCheckboxGroup className="col-span-full sm:col-span-1">
+        <BaseCheckboxGroup className="col-span-1">
           <BaseCheckboxField key="Archetype">
             <BaseCheckbox
               name="archetype"
@@ -172,7 +172,7 @@ export function CategoriesFilter({
             <BaseLabel>Perk</BaseLabel>
           </BaseCheckboxField>
         </BaseCheckboxGroup>
-        <BaseCheckboxGroup className="col-span-full sm:col-span-1">
+        <BaseCheckboxGroup className="col-span-1">
           <BaseCheckboxField key="Long Gun">
             <BaseCheckbox
               name="longgun"
@@ -210,7 +210,7 @@ export function CategoriesFilter({
             <BaseLabel>Melee</BaseLabel>
           </BaseCheckboxField>
         </BaseCheckboxGroup>
-        <BaseCheckboxGroup className="col-span-full sm:col-span-1">
+        <BaseCheckboxGroup className="col-span-1">
           <BaseCheckboxField key="Mutator (Gun)">
             <BaseCheckbox
               name="mutatorgun"
