@@ -22,7 +22,7 @@ export function BaseFieldset({
       {...props}
       className={clsx(
         className,
-        '[&>*+[data-slot=control]]:mt-6 [&>[data-slot=text]]:mt-1',
+        '[&>*+[data-slot=control]]:mt-2 [&>[data-slot=text]]:mt-1',
       )}
     />
   )
@@ -35,7 +35,7 @@ export function BaseLegend({ ...props }: HeadlessLegendProps) {
       data-slot="legend"
       className={clsx(
         props.className,
-        'text-base/6 font-semibold text-zinc-950 data-[disabled]:opacity-50 sm:text-sm/6 dark:text-white',
+        'text-base/6 font-semibold text-zinc-950 data-[disabled]:opacity-50 dark:text-white sm:text-sm/6',
       )}
     />
   )
@@ -81,7 +81,7 @@ export function BaseLabel({
       data-slot="label"
       className={clsx(
         className,
-        'select-none text-base/6 text-zinc-950 data-[disabled]:opacity-50 sm:text-sm/6 dark:text-white',
+        'select-none text-base/6 text-zinc-950 data-[disabled]:opacity-50 dark:text-white sm:text-sm/6',
       )}
     />
   )
@@ -98,7 +98,7 @@ export function BaseDescription({
       data-slot="description"
       className={clsx(
         className,
-        'text-base/6 text-zinc-500 data-[disabled]:opacity-50 sm:text-sm/6 dark:text-zinc-400',
+        'text-base/6 text-zinc-500 data-[disabled]:opacity-50 dark:text-zinc-400 sm:text-sm/6',
       )}
     />
   )
@@ -115,7 +115,7 @@ export function BaseErrorMessage({
       data-slot="error"
       className={clsx(
         className,
-        'text-base/6 text-red-600 data-[disabled]:opacity-50 sm:text-sm/6 dark:text-red-500',
+        'text-base/6 text-red-600 data-[disabled]:opacity-50 dark:text-red-500 sm:text-sm/6',
       )}
     />
   )

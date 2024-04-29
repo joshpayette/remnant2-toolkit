@@ -27,7 +27,10 @@ import {
   MAX_RINGS,
 } from '@/app/(components)/filters/builds/types'
 import { parseUrlFilters } from '@/app/(components)/filters/builds/utils'
-import { ReleasesFilter } from '@/app/(components)/filters/releases-filter'
+import {
+  ReleasesFilter,
+  VALID_RELEASE_KEYS,
+} from '@/app/(components)/filters/releases-filter'
 import { DEFAULT_FILTER } from '@/app/(components)/filters/types'
 import { Input } from '@/app/(components)/form-fields/input'
 import { cn } from '@/lib/classnames'
@@ -39,7 +42,7 @@ const DEFAULT_FILTERS = {
   longGun: DEFAULT_FILTER,
   handGun: DEFAULT_FILTER,
   melee: DEFAULT_FILTER,
-  releases: [DEFAULT_FILTER],
+  releases: VALID_RELEASE_KEYS,
   rings: [DEFAULT_FILTER],
   searchText: '',
   patchAffected: false,
@@ -114,7 +117,7 @@ export function BuildFilters({}: Props) {
     }
 
     // Add the releases filters
-    if (!filtersToApply.releases.some((i) => i === DEFAULT_FILTER)) {
+    if (filtersToApply.releases.length !== VALID_RELEASE_KEYS.length) {
       url += `${BUILD_FILTER_KEYS.RELEASES}=${filtersToApply.releases.join(
         ',',
       )}&`
@@ -243,35 +246,21 @@ export function BuildFilters({}: Props) {
     setUnappliedFilters(newFilters)
   }
 
-  function handleReleaseChange(newReleases: string[]) {
-    // if the newReleases length is 0, set the rings to the default value
-    if (newReleases.length === 0) {
-      const newFilters = { ...unappliedFilters, releases: [DEFAULT_FILTER] }
-      setUnappliedFilters(newFilters)
-      return
-    }
-
-    // If the first item is the default value ("All"), apply the filters after removing the default value
-    if (newReleases[0] === DEFAULT_FILTER) {
+  function handleReleasesChange(newReleases: string, checked: boolean) {
+    // if the release is unchecked, remove it from the list
+    if (!checked) {
       const newFilters = {
         ...unappliedFilters,
-        releases: newReleases.filter((i) => i !== DEFAULT_FILTER),
+        releases: unappliedFilters.releases.filter((i) => i !== newReleases),
       }
       setUnappliedFilters(newFilters)
       return
     }
 
-    // If any of the filters contain the default value of "All", just apply the filters
-    if (newReleases.includes(DEFAULT_FILTER)) {
-      const newFilters = { ...unappliedFilters, releases: [DEFAULT_FILTER] }
-      setUnappliedFilters(newFilters)
-      return
-    }
-
-    // If we got here, remove the default value from the list
+    // if the release is not in the list, add it
     const newFilters = {
       ...unappliedFilters,
-      releases: newReleases.filter((release) => release !== DEFAULT_FILTER),
+      releases: [...unappliedFilters.releases, newReleases],
     }
     setUnappliedFilters(newFilters)
   }
@@ -409,10 +398,24 @@ export function BuildFilters({}: Props) {
                       onChange={handleHandGunChange}
                     />
                   </div>
-                  <div className="col-span-full sm:col-span-1">
+                  <div className="col-span-full sm:col-span-1 md:col-span-2">
                     <ReleasesFilter
-                      value={unappliedFilters.releases}
-                      onChange={handleReleaseChange}
+                      values={unappliedFilters.releases}
+                      onChange={handleReleasesChange}
+                      onCheckAll={() => {
+                        const newFilters = {
+                          ...unappliedFilters,
+                          releases: VALID_RELEASE_KEYS,
+                        }
+                        setUnappliedFilters(newFilters)
+                      }}
+                      onUncheckAll={() => {
+                        const newFilters = {
+                          ...unappliedFilters,
+                          releases: [],
+                        }
+                        setUnappliedFilters(newFilters)
+                      }}
                     />
                   </div>
                   <div className="col-span-full sm:col-span-1">

@@ -8,15 +8,24 @@ import { useMemo, useRef, useState } from 'react'
 
 import { BaseButton } from '@/app/(components)/_base/button'
 import { BaseFieldGroup, BaseFieldset } from '@/app/(components)/_base/fieldset'
-import { DiscoveredFilter } from '@/app/(components)/filters/discovered-filter'
-import { CategoriesFilter } from '@/app/(components)/filters/item-lookup/categories-filter'
+import {
+  DiscoveredFilter,
+  VALID_DISCOVERED_FILTERS,
+} from '@/app/(components)/filters/discovered-filter'
+import {
+  CategoriesFilter,
+  VALID_ITEM_CATEGORIES,
+} from '@/app/(components)/filters/item-lookup/categories-filter'
 import { ItemSearchText } from '@/app/(components)/filters/item-lookup/item-search-text'
 import {
   ITEM_FILTER_KEYS,
   ItemLookupFilters as Filters,
 } from '@/app/(components)/filters/item-lookup/types'
 import { parseUrlFilters } from '@/app/(components)/filters/item-lookup/utils'
-import { ReleasesFilter } from '@/app/(components)/filters/releases-filter'
+import {
+  ReleasesFilter,
+  VALID_RELEASE_KEYS,
+} from '@/app/(components)/filters/releases-filter'
 import { DEFAULT_FILTER } from '@/app/(components)/filters/types'
 import { allItems } from '@/app/(data)/items/all-items'
 import { ITEM_TAGS } from '@/features/items/constants'
@@ -49,9 +58,9 @@ function buildItemSearchTextItems() {
 }
 
 export const DEFAULT_ITEM_LOOKUP_FILTERS = {
-  categories: [DEFAULT_FILTER],
-  collections: [DEFAULT_FILTER],
-  releases: [DEFAULT_FILTER],
+  categories: VALID_ITEM_CATEGORIES,
+  collections: VALID_DISCOVERED_FILTERS,
+  releases: VALID_RELEASE_KEYS,
   searchText: '',
 } as const satisfies Filters
 
@@ -85,21 +94,21 @@ export function ItemLookupFilters({}: Props) {
     let url = `${pathname}?`
 
     // Add the categories filter
-    if (!filtersToApply.categories.some((i) => i === DEFAULT_FILTER)) {
+    if (filtersToApply.categories.length !== VALID_ITEM_CATEGORIES.length) {
       url += `${ITEM_FILTER_KEYS.CATEGORIES}=${filtersToApply.categories.join(
         ',',
       )}&`
     }
 
     // Add the collections filter
-    if (!filtersToApply.collections.some((i) => i === DEFAULT_FILTER)) {
+    if (filtersToApply.collections.length !== VALID_DISCOVERED_FILTERS.length) {
       url += `${ITEM_FILTER_KEYS.COLLECTIONS}=${filtersToApply.collections.join(
         ',',
       )}&`
     }
 
     // Add the releases filter
-    if (!filtersToApply.releases.some((i) => i === DEFAULT_FILTER)) {
+    if (filtersToApply.releases.length !== VALID_RELEASE_KEYS.length) {
       url += `${ITEM_FILTER_KEYS.RELEASES}=${filtersToApply.releases.join(
         ',',
       )}&`
@@ -124,112 +133,64 @@ export function ItemLookupFilters({}: Props) {
     setUnappliedFilters((prev) => ({ ...prev, searchText: newSearchText }))
   }
 
-  function handleCategoriesChange(newCategories: string[]) {
-    // if the newCategories length is 0, set to default
-    if (newCategories.length === 0) {
-      const newFilters = { ...unappliedFilters, categories: [DEFAULT_FILTER] }
-      setUnappliedFilters(newFilters)
-      applyUrlFilters(newFilters)
-      return
-    }
-
-    // if the first item is the default value ("All"), apply the filters after removing the default value
-    if (newCategories[0] === DEFAULT_FILTER) {
+  function handleCategoriesChange(category: string, checked: boolean) {
+    // if the category is unchecked, remove it from the list
+    if (!checked) {
       const newFilters = {
         ...unappliedFilters,
-        categories: newCategories.filter((i) => i !== DEFAULT_FILTER),
+        categories: unappliedFilters.categories.filter((i) => i !== category),
       }
       setUnappliedFilters(newFilters)
       applyUrlFilters(newFilters)
       return
     }
 
-    // if any of the filters contain the default value of "All", just apply the filters
-    if (newCategories.includes(DEFAULT_FILTER)) {
-      const newFilters = { ...unappliedFilters, categories: newCategories }
-      setUnappliedFilters(newFilters)
-      applyUrlFilters(newFilters)
-      return
-    }
-
-    // If we got here, remove the default value from the list
+    // if the category is not in the list, add it
     const newFilters = {
       ...unappliedFilters,
-      categories: newCategories.filter((i) => i !== DEFAULT_FILTER),
+      categories: [...unappliedFilters.categories, category],
     }
     setUnappliedFilters(newFilters)
     applyUrlFilters(newFilters)
   }
 
-  function handleCollectionsChange(newCollections: string[]) {
-    // if the newCollections length is 0, set to default
-    if (newCollections.length === 0) {
-      const newFilters = { ...unappliedFilters, collections: [DEFAULT_FILTER] }
-      setUnappliedFilters(newFilters)
-      applyUrlFilters(newFilters)
-      return
-    }
-
-    // if the first item is the default value ("All"), apply the filters after removing the default value
-    if (newCollections[0] === DEFAULT_FILTER) {
+  function handleCollectionsChange(value: string, checked: boolean) {
+    // if the collection is unchecked, remove it from the list
+    if (!checked) {
       const newFilters = {
         ...unappliedFilters,
-        collections: newCollections.filter((i) => i !== DEFAULT_FILTER),
+        collections: unappliedFilters.collections.filter((i) => i !== value),
       }
       setUnappliedFilters(newFilters)
       applyUrlFilters(newFilters)
       return
     }
 
-    // if any of the filters contain the default value of "All", just apply the filters
-    if (newCollections.includes(DEFAULT_FILTER)) {
-      const newFilters = { ...unappliedFilters, collections: [DEFAULT_FILTER] }
-      setUnappliedFilters(newFilters)
-      applyUrlFilters(newFilters)
-      return
-    }
-
-    // If we got here, remove the default value from the list
+    // if the collection is not in the list, add it
     const newFilters = {
       ...unappliedFilters,
-      collections: newCollections.filter((i) => i !== DEFAULT_FILTER),
+      collections: [...unappliedFilters.collections, value],
     }
     setUnappliedFilters(newFilters)
     applyUrlFilters(newFilters)
   }
 
-  function handleReleasesChange(newReleases: string[]) {
-    // if the newReleases length is 0, set to default value
-    if (newReleases.length === 0) {
-      const newFilters = { ...unappliedFilters, releases: [DEFAULT_FILTER] }
-      setUnappliedFilters(newFilters)
-      applyUrlFilters(newFilters)
-      return
-    }
-
-    // if the first item is the default value ("All"), apply the filters after removing the default value
-    if (newReleases[0] === DEFAULT_FILTER) {
+  function handleReleasesChange(newReleases: string, checked: boolean) {
+    // if the release is unchecked, remove it from the list
+    if (!checked) {
       const newFilters = {
         ...unappliedFilters,
-        releases: newReleases.filter((i) => i !== DEFAULT_FILTER),
+        releases: unappliedFilters.releases.filter((i) => i !== newReleases),
       }
       setUnappliedFilters(newFilters)
       applyUrlFilters(newFilters)
       return
     }
 
-    // if any of the filters contain the default value of "All", just apply the filters
-    if (newReleases.includes(DEFAULT_FILTER)) {
-      const newFilters = { ...unappliedFilters, releases: [DEFAULT_FILTER] }
-      setUnappliedFilters(newFilters)
-      applyUrlFilters(newFilters)
-      return
-    }
-
-    // If we got here, remove the default value from the list
+    // if the release is not in the list, add it
     const newFilters = {
       ...unappliedFilters,
-      releases: newReleases.filter((i) => i !== DEFAULT_FILTER),
+      releases: [...unappliedFilters.releases, newReleases],
     }
     setUnappliedFilters(newFilters)
     applyUrlFilters(newFilters)
@@ -289,22 +250,70 @@ export function ItemLookupFilters({}: Props) {
             <BaseFieldset>
               <BaseFieldGroup>
                 <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-4 md:grid-cols-4">
-                  <div className="col-span-full sm:col-span-1">
+                  <div className="col-span-full sm:col-span-2">
                     <ReleasesFilter
-                      value={unappliedFilters.releases}
+                      values={unappliedFilters.releases}
                       onChange={handleReleasesChange}
-                    />
-                  </div>
-                  <div className="col-span-full sm:col-span-1">
-                    <DiscoveredFilter
-                      value={unappliedFilters.collections}
-                      onChange={handleCollectionsChange}
+                      onCheckAll={() => {
+                        const newFilters = {
+                          ...unappliedFilters,
+                          releases: VALID_RELEASE_KEYS,
+                        }
+                        setUnappliedFilters(newFilters)
+                        applyUrlFilters(newFilters)
+                      }}
+                      onUncheckAll={() => {
+                        const newFilters = {
+                          ...unappliedFilters,
+                          releases: [DEFAULT_FILTER],
+                        }
+                        setUnappliedFilters(newFilters)
+                        applyUrlFilters(newFilters)
+                      }}
                     />
                   </div>
                   <div className="col-span-full sm:col-span-2">
+                    <DiscoveredFilter
+                      values={unappliedFilters.collections}
+                      onChange={handleCollectionsChange}
+                      onCheckAll={() => {
+                        const newFilters = {
+                          ...unappliedFilters,
+                          collections: VALID_ITEM_CATEGORIES,
+                        }
+                        setUnappliedFilters(newFilters)
+                        applyUrlFilters(newFilters)
+                      }}
+                      onUncheckAll={() => {
+                        const newFilters = {
+                          ...unappliedFilters,
+                          collections: [DEFAULT_FILTER],
+                        }
+                        setUnappliedFilters(newFilters)
+                        applyUrlFilters(newFilters)
+                      }}
+                    />
+                  </div>
+                  <div className="col-span-full sm:col-span-2 md:col-span-full">
                     <CategoriesFilter
-                      value={unappliedFilters.categories}
+                      values={unappliedFilters.categories}
                       onChange={handleCategoriesChange}
+                      onCheckAll={() => {
+                        const newFilters = {
+                          ...unappliedFilters,
+                          categories: VALID_ITEM_CATEGORIES,
+                        }
+                        setUnappliedFilters(newFilters)
+                        applyUrlFilters(newFilters)
+                      }}
+                      onUncheckAll={() => {
+                        const newFilters = {
+                          ...unappliedFilters,
+                          categories: [],
+                        }
+                        setUnappliedFilters(newFilters)
+                        applyUrlFilters(newFilters)
+                      }}
                     />
                   </div>
                 </div>

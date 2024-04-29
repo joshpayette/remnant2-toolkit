@@ -13,6 +13,7 @@ import { parseUrlFilters } from '@/app/(components)/filters/item-lookup/utils'
 import { DEFAULT_FILTER } from '@/app/(components)/filters/types'
 import { allItems } from '@/app/(data)/items/all-items'
 import { MutatorItem } from '@/app/(data)/items/types/MutatorItem'
+import { RelicFragmentItem } from '@/app/(data)/items/types/RelicFragmentItem'
 import { WeaponItem } from '@/app/(data)/items/types/WeaponItem'
 import { ItemTrackerLocalStorage } from '@/app/tracker/types'
 import { MasonryItemList } from '@/features/items/components/MasonryItemList'
@@ -65,6 +66,12 @@ function getFilteredItems(
           MutatorItem.isMutatorItem(item)
         ) {
           return item.category === 'mutator' && item.type === 'melee'
+        }
+        if (
+          itemCategory === 'Relic Fragment' &&
+          RelicFragmentItem.isRelicFragmentItem(item)
+        ) {
+          return item.category === 'relicfragment'
         }
 
         return capitalize(item.category) === itemCategory

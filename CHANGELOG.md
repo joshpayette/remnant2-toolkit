@@ -22,6 +22,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Changed
 
 - Reworked all filters to use less space. Most of the changes involved replacing checkboxes with multi-select dropdown menus.
+  - Just kidding lmao...checkboxes are back for Item Lookup. Will be reverting the other filters soon.
 - Reworked the Item Tracker page to let you see more than one category at a time.
 - Reworked the Item Lookup page to allow you to view all items with no filters.
 - Updated the featured build badge icon to a non-AI generated placeholder.
@@ -35,6 +36,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Fixed issue causing Dandy Topper to not import correctly to the Item Tracker.
 - Fixed issue causing Thorn to not import correctly to the Item Tracker.
 - Fixed issue causing Spirit Feeder to not import correctly to the Item Tracker.
+- Fixed issue with Item Lookup not showing relic fragments.
 
 ## 2024-04-27
 

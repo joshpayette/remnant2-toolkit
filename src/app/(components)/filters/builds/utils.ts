@@ -5,12 +5,12 @@ import {
   BuildListFilters,
   MAX_RINGS,
 } from '@/app/(components)/filters/builds/types'
+import { VALID_RELEASE_KEYS } from '@/app/(components)/filters/releases-filter'
 import { DEFAULT_FILTER, DefaultFilter } from '@/app/(components)/filters/types'
 import { amuletItems } from '@/app/(data)/items/amulet-items'
 import { archetypeItems } from '@/app/(data)/items/archetype-items'
 import { ringItems } from '@/app/(data)/items/ring-items'
 import { weaponItems } from '@/app/(data)/items/weapon-items'
-import { ALL_RELEASE_KEYS } from '@/app/(data)/releases/constants'
 
 export function parseUrlFilters(
   searchParams: ReadonlyURLSearchParams,
@@ -89,19 +89,19 @@ export function parseUrlFilters(
     melee = DEFAULT_FILTER
   }
 
-  // Validate the provided releases
-  let releases =
-    parsedParams.get(BUILD_FILTER_KEYS.RELEASES)?.split(',') ||
-    (DEFAULT_FILTER as string[] | DefaultFilter)
+  // validate the provided releases
+  let releases = parsedParams.get(BUILD_FILTER_KEYS.RELEASES)?.split(',') || []
   // If releases is the default, convert it to an array
   // Else ensure that the releases provided are valid
-  if (releases === DEFAULT_FILTER) {
-    releases = [DEFAULT_FILTER]
+  if (releases.length === 0) {
+    releases = VALID_RELEASE_KEYS
   } else {
-    releases = releases.filter((release) => ALL_RELEASE_KEYS.includes(release))
+    releases = releases.filter((release) =>
+      VALID_RELEASE_KEYS.includes(release),
+    )
     // If no releases, set to default
     if (releases.length === 0) {
-      releases = [DEFAULT_FILTER]
+      releases = VALID_RELEASE_KEYS
     }
   }
 

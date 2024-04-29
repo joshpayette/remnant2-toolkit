@@ -7,7 +7,6 @@ import {
   ItemLookupFilters,
 } from '@/app/(components)/filters/item-lookup/types'
 import { VALID_RELEASE_KEYS } from '@/app/(components)/filters/releases-filter'
-import { DEFAULT_FILTER } from '@/app/(components)/filters/types'
 import { allItems } from '@/app/(data)/items/all-items'
 import { ITEM_TAGS } from '@/features/items/constants'
 
@@ -51,14 +50,14 @@ export function parseUrlFilters(
   // If categories is the default, convert it to an array
   // Else ensure that the categories provided are valid
   if (categories.length === 0) {
-    categories = [DEFAULT_FILTER]
+    categories = VALID_ITEM_CATEGORIES
   } else {
     categories = categories.filter((category) =>
       VALID_ITEM_CATEGORIES.includes(category),
     )
     // If no categories, set to default
     if (categories.length === 0) {
-      categories = [DEFAULT_FILTER]
+      categories = VALID_ITEM_CATEGORIES
     }
   }
 
@@ -68,14 +67,14 @@ export function parseUrlFilters(
   // If collections is the default, convert it to an array
   // Else ensure that the collections provided are valid
   if (collections.length === 0) {
-    collections = [DEFAULT_FILTER]
+    collections = VALID_DISCOVERED_FILTERS
   } else {
     collections = collections.filter((collection) =>
       VALID_DISCOVERED_FILTERS.includes(collection),
     )
     // If no collections, set to default
     if (collections.length === 0) {
-      collections = [DEFAULT_FILTER]
+      collections = VALID_DISCOVERED_FILTERS
     }
   }
 
@@ -84,14 +83,14 @@ export function parseUrlFilters(
   // If releases is the default, convert it to an array
   // Else ensure that the releases provided are valid
   if (releases.length === 0) {
-    releases = [DEFAULT_FILTER]
+    releases = VALID_RELEASE_KEYS
   } else {
     releases = releases.filter((release) =>
       VALID_RELEASE_KEYS.includes(release),
     )
     // If no releases, set to default
     if (releases.length === 0) {
-      releases = [DEFAULT_FILTER]
+      releases = VALID_RELEASE_KEYS
     }
   }
 

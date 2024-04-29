@@ -1,10 +1,14 @@
-import { BaseField, BaseLabel } from '@/app/(components)/_base/fieldset'
+import { BaseButton } from '@/app/(components)/_base/button'
 import {
-  BaseListbox,
-  BaseListboxLabel,
-  BaseListboxOption,
-} from '@/app/(components)/_base/listbox'
-import { DEFAULT_FILTER } from '@/app/(components)/filters/types'
+  BaseCheckbox,
+  BaseCheckboxField,
+  BaseCheckboxGroup,
+} from '@/app/(components)/_base/checkbox'
+import {
+  BaseFieldset,
+  BaseLabel,
+  BaseLegend,
+} from '@/app/(components)/_base/fieldset'
 import {
   ALL_RELEASE_KEYS,
   RELEASE_TO_NAME,
@@ -14,27 +18,47 @@ import { ReleaseKey } from '@/app/(data)/releases/types'
 export const VALID_RELEASE_KEYS = ALL_RELEASE_KEYS
 
 interface Props {
-  value: string[]
-  onChange: (value: string[]) => void
+  values: string[]
+  onChange: (release: string, checked: boolean) => void
+  onCheckAll: () => void
+  onUncheckAll: () => void
 }
 
-export function ReleasesFilter({ value, onChange }: Props) {
+export function ReleasesFilter({
+  values,
+  onChange,
+  onCheckAll,
+  onUncheckAll,
+}: Props) {
   const options = VALID_RELEASE_KEYS.map((release) => ({
     label: RELEASE_TO_NAME[release as ReleaseKey] as string,
     value: release,
   }))
-  options.unshift({ label: DEFAULT_FILTER, value: DEFAULT_FILTER })
 
   return (
-    <BaseField>
-      <BaseLabel>Releases</BaseLabel>
-      <BaseListbox multiple name="releases" value={value} onChange={onChange}>
+    <BaseFieldset>
+      <BaseLegend>Releases</BaseLegend>
+      <div className="mt-2 flex flex-row gap-x-2">
+        <BaseButton outline onClick={onCheckAll}>
+          Check All
+        </BaseButton>
+        <BaseButton outline onClick={onUncheckAll}>
+          Uncheck All
+        </BaseButton>
+      </div>
+      <BaseCheckboxGroup className="grid grid-cols-1 sm:grid-cols-2">
         {options.map(({ label, value }) => (
-          <BaseListboxOption key={value} value={value}>
-            <BaseListboxLabel>{label}</BaseListboxLabel>
-          </BaseListboxOption>
+          <BaseCheckboxField key={value}>
+            <BaseCheckbox
+              name="releases"
+              value={value}
+              onChange={(checked) => onChange(value, checked)}
+              checked={values.includes(value)}
+            />
+            <BaseLabel>{label}</BaseLabel>
+          </BaseCheckboxField>
         ))}
-      </BaseListbox>
-    </BaseField>
+      </BaseCheckboxGroup>
+    </BaseFieldset>
   )
 }

@@ -1,5 +1,6 @@
 import { ReadonlyURLSearchParams } from 'next/navigation'
 
+import { VALID_RELEASE_KEYS } from '@/app/(components)/filters/releases-filter'
 import { DEFAULT_FILTER } from '@/app/(components)/filters/types'
 import {
   WORLD_SAVE_FILTER_KEYS,
@@ -36,19 +37,20 @@ export function parseUrlFilters(
     }
   }
 
-  // Validate the provided releases
+  // validate the provided releases
   let releases =
-    parsedParams.get(WORLD_SAVE_FILTER_KEYS.RELEASES)?.split(',') ||
-    DEFAULT_FILTER
-  // If release is the default, convert it to an array
-  // Else ensure that the release provided are valid
-  if (releases === DEFAULT_FILTER) {
-    releases = [DEFAULT_FILTER]
+    parsedParams.get(WORLD_SAVE_FILTER_KEYS.RELEASES)?.split(',') || []
+  // If releases is the default, convert it to an array
+  // Else ensure that the releases provided are valid
+  if (releases.length === 0) {
+    releases = VALID_RELEASE_KEYS
   } else {
-    releases = (releases as string[]).filter((r) => r.length > 0)
-    // If no release, set to default
+    releases = releases.filter((release) =>
+      VALID_RELEASE_KEYS.includes(release),
+    )
+    // If no releases, set to default
     if (releases.length === 0) {
-      releases = [DEFAULT_FILTER]
+      releases = VALID_RELEASE_KEYS
     }
   }
 

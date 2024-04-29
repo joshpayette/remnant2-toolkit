@@ -10,7 +10,10 @@ import { BaseButton } from '@/app/(components)/_base/button'
 import { BaseFieldGroup, BaseFieldset } from '@/app/(components)/_base/fieldset'
 import { BaseText, BaseTextLink } from '@/app/(components)/_base/text'
 import { BossNameFilter } from '@/app/(components)/filters/boss-name-filter'
-import { ReleasesFilter } from '@/app/(components)/filters/releases-filter'
+import {
+  ReleasesFilter,
+  VALID_RELEASE_KEYS,
+} from '@/app/(components)/filters/releases-filter'
 import { DEFAULT_FILTER } from '@/app/(components)/filters/types'
 import { BossAffixFilter } from '@/app/(components)/filters/world-saves/boss-affix-filter'
 import {
@@ -23,7 +26,7 @@ import { cn } from '@/lib/classnames'
 export const DEFAULT_WORLD_SAVE_FILTERS = {
   bossName: DEFAULT_FILTER,
   bossAffixes: [DEFAULT_FILTER],
-  releases: [DEFAULT_FILTER],
+  releases: VALID_RELEASE_KEYS,
 } as const satisfies Filters
 
 interface Props {}
@@ -124,38 +127,22 @@ export function WorldSaveFilters({}: Props) {
     applyUrlFilters(newFilters)
   }
 
-  function handleReleasesChange(newReleases: string[]) {
-    // if the newReleases length is 0, set to the default value
-    if (newReleases.length === 0) {
-      const newFilters = { ...unappliedFilters, releases: [DEFAULT_FILTER] }
-      setUnappliedFilters(newFilters)
-      applyUrlFilters(newFilters)
-      return
-    }
-
-    // if the first item is the default value ("All"), apply the filters after removing the default value
-    if (newReleases[0] === DEFAULT_FILTER) {
+  function handleReleasesChange(newReleases: string, checked: boolean) {
+    // if the release is unchecked, remove it from the list
+    if (!checked) {
       const newFilters = {
         ...unappliedFilters,
-        releases: newReleases.filter((i) => i !== DEFAULT_FILTER),
+        releases: unappliedFilters.releases.filter((i) => i !== newReleases),
       }
       setUnappliedFilters(newFilters)
       applyUrlFilters(newFilters)
       return
     }
 
-    // if any of the filters contain the default value of "All", just apply the filters
-    if (newReleases.includes(DEFAULT_FILTER)) {
-      const newFilters = { ...unappliedFilters, releases: [DEFAULT_FILTER] }
-      setUnappliedFilters(newFilters)
-      applyUrlFilters(newFilters)
-      return
-    }
-
-    // If we got here, remove the default value from the list
+    // if the release is not in the list, add it
     const newFilters = {
       ...unappliedFilters,
-      releases: newReleases.filter((i) => i !== DEFAULT_FILTER),
+      releases: [...unappliedFilters.releases, newReleases],
     }
     setUnappliedFilters(newFilters)
     applyUrlFilters(newFilters)
@@ -189,7 +176,7 @@ export function WorldSaveFilters({}: Props) {
             <BaseFieldset>
               <BaseFieldGroup>
                 <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-4 md:grid-cols-4">
-                  <div className="col-span-full sm:col-span-1 md:col-span-2">
+                  <div className="col-span-full">
                     <BossAffixFilter
                       value={unappliedFilters.bossAffixes}
                       onChange={handleBossAffixesChange}
@@ -204,10 +191,26 @@ export function WorldSaveFilters({}: Props) {
                       </BaseTextLink>
                     </BaseText>
                   </div>
-                  <div className="col-span-full sm:col-span-1 md:col-span-2">
+                  <div className="col-span-full">
                     <ReleasesFilter
-                      value={unappliedFilters.releases}
+                      values={unappliedFilters.releases}
                       onChange={handleReleasesChange}
+                      onCheckAll={() => {
+                        const newFilters = {
+                          ...unappliedFilters,
+                          releases: VALID_RELEASE_KEYS,
+                        }
+                        setUnappliedFilters(newFilters)
+                        applyUrlFilters(newFilters)
+                      }}
+                      onUncheckAll={() => {
+                        const newFilters = {
+                          ...unappliedFilters,
+                          releases: [],
+                        }
+                        setUnappliedFilters(newFilters)
+                        applyUrlFilters(newFilters)
+                      }}
                     />
                   </div>
                 </div>
