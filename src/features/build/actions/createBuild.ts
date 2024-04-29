@@ -124,7 +124,19 @@ export async function createBuild(data: string): Promise<BuildActionResponse> {
       })
 
       if (!res.ok) {
-        console.error('Error in sending build webhook to Discord!')
+        console.error('Error in sending build moderation webhook to Discord!')
+      }
+
+      const res2 = await fetch(`${process.env.WEBHOOK_NEW_BUILD_FEED}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(params),
+      })
+
+      if (!res2.ok) {
+        console.error('Error in sending new build webhook to Discord!')
       }
     }
 
