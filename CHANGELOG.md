@@ -24,6 +24,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Reworked all filters to use less space. Most of the changes involved replacing checkboxes with multi-select dropdown menus.
 - Reworked the Item Tracker page to let you see more than one category at a time.
 - Reworked the Item Lookup page to allow you to view all items with no filters.
+- Updated the featured build badge icon to a non-AI generated placeholder.
+- Updated the new build badge icon to a non-AI generated placeholder.
 
 ### Fixed
 

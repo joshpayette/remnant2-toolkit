@@ -15,7 +15,7 @@ export function FeaturedBuildBadge({
         plain
       >
         <Image
-          src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/badges/featured_build_badge.png`}
+          src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/badges/featured_build_badge1.png`}
           width={50}
           height={50}
           alt="Badge denoting the build is a featured build."

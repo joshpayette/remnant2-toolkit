@@ -15,7 +15,7 @@ export function NewBuildBadge({
         plain
       >
         <Image
-          src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/badges/new_build_badge.png`}
+          src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/badges/new_build_badge1.png`}
           width={50}
           height={50}
           alt="image denoting the build was created in the past 24 hours"
