@@ -19,9 +19,9 @@ import { PerkItem } from '@/app/(data)/items/types/PerkItem'
 import { SkillItem } from '@/app/(data)/items/types/SkillItem'
 import { TraitItem } from '@/app/(data)/items/types/TraitItem'
 import { WeaponItem } from '@/app/(data)/items/types/WeaponItem'
+import { itemShareEndpoint } from '@/app/(utils)/clean-item-name'
 import { ArmorInfo } from '@/features/armor-calculator/ArmorInfo'
 import { WeaponInfo } from '@/features/items/components/WeaponInfo'
-import { itemShareEndpoint } from '@/features/items/lib/cleanItemName'
 import { Item } from '@/features/items/types'
 import { DescriptionWithTags } from '@/features/ui/DescriptionWithTags'
 import { capitalize } from '@/lib/capitalize'
@@ -71,7 +71,7 @@ export function ItemInfoDialog({ open, item, onClose }: Props) {
             <BaseButton
               aria-label="Copy link to item"
               onClick={() => {
-                copy(itemShareEndpoint(item))
+                copy(itemShareEndpoint(item.name))
                 toast.success('Copied link to clipboard')
               }}
             >
