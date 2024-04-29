@@ -24,12 +24,6 @@ import {
  * The base pages for the site
  */
 export const NAV_ITEMS = {
-  ampVsRes: {
-    label: 'Amplitude Guide',
-    description: 'A guide on what items are affected by Amplitude',
-    href: '/guides/amplitude',
-    icon: TableCellsIcon,
-  },
   bossTracker: {
     label: 'Boss Tracker',
     description:

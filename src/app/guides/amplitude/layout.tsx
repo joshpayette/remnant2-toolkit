@@ -1,9 +1,6 @@
 import { Metadata, ResolvingMetadata } from 'next'
 
-export async function generateMetadata(
-  { params: { itemName } }: { params: { itemName: string } },
-  parent: ResolvingMetadata,
-): Promise<Metadata> {
+export async function generateMetadata(): Promise<Metadata> {
   const title = 'Amplitude vs Resonance Guide - Remnant2Toolkit'
   const description =
     'A guide on what items and abilities are affected by Amplitude and Resonance'
@@ -15,7 +12,7 @@ export async function generateMetadata(
       title,
       description,
       siteName: 'Remnant 2 Toolkit',
-      url: `https://remnant2toolkit.com/guides/hardcore-veteran`,
+      url: `https://remnant2toolkit.com/guides/amplitude`,
       images: [
         {
           url: 'https://d2sqltdcj8czo5.cloudfront.net/toolkit/og-image-sm.jpg',

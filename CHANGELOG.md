@@ -10,6 +10,17 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Sharing a link to an item will now use the shorter item endpoint, `/i/itemname`, rather than `/endpoint/item/itemname`. The latter address still works, but will be removed eventually.
 
+### Fixed
+
+- Updated incorrect stats on the Zealot's Set armor.
+- Updated incorrect stats on the Disciple's Mantle armor.
+- Updated wiki link for Index of the Scribe.
+- Fixed incorrect item description for Timewave mutator.
+
+### Removed
+
+- Removed the Amplitude (vs. Resonance) guide as it is no longer relevant.
+
 ## 2024-04-28
 
 ### Added

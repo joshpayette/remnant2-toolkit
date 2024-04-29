@@ -373,7 +373,7 @@ export const amuletItems: AmuletItem[] = [
     id: '3lzs0c',
     tags: ['Mod Damage', 'Weakspot Damage'],
     description: `Increases Mod and Skill Weakspot Damage by 35%.`,
-    wikiLinks: [`https://remnant.wiki/Index_Of_The_Scribe`],
+    wikiLinks: [`https://remnant.wiki/Index_of_the_Scribe`],
   },
   {
     category: 'amulet',

@@ -672,11 +672,8 @@ export const mutatorItems: MutatorItem[] = [
     id: 'dynus4',
     dlc: 'base',
     tags: ['Ranged Damage', 'Status Effect'],
-    // TODO Check this; slow application 7.5m -> 10m
-    // TODO Check this; `reworked primary to increased ranged damage to slowed enemies`
-    description: `Mod Use applies SLOW status on all enemies within 10m [A] for 5s.`,
-    // TODO Check this; `reworked L10 to apply SLOW on Mod Usage for 5s (10s CD)`
-    maxLevelBonus: `Increase this weapon's Ranged Damage by 15% to enemies inflicted with SLOW status.`,
+    description: `Increase this weapon's Ranged damage by 5% to enemies inflicted with SLOW status.`,
+    maxLevelBonus: `Mod Use applies SLOW status on all enemies within 10m [A] for 5s. Can only happen once every 10s.`,
     wikiLinks: [`https://remnant.wiki/Timewave`],
   },
   {

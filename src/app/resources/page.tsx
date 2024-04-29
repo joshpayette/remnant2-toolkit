@@ -41,16 +41,6 @@ export default async function Page() {
         />
 
         <LandingPageCard
-          {...NAV_ITEMS.ampVsRes}
-          icon={
-            <NAV_ITEMS.ampVsRes.icon
-              className="h-7 w-7 flex-none text-primary-500"
-              aria-hidden="true"
-            />
-          }
-        />
-
-        <LandingPageCard
           {...NAV_ITEMS.hardcoreVeteran}
           icon={
             <NAV_ITEMS.hardcoreVeteran.icon
