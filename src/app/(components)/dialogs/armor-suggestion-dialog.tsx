@@ -170,6 +170,8 @@ export function ArmorSuggestionDialog({
     )
   }
 
+  // #region Render
+
   return (
     <ArmorInfoContainer {...armorInfoProps}>
       <div className="flex w-full flex-row items-end justify-center gap-x-2 text-left">

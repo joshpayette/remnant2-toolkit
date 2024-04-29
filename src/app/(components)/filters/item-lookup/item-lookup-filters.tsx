@@ -58,7 +58,7 @@ function buildItemSearchTextItems() {
 }
 
 export const DEFAULT_ITEM_LOOKUP_FILTERS = {
-  categories: VALID_ITEM_CATEGORIES,
+  categories: [],
   collections: VALID_DISCOVERED_FILTERS,
   releases: VALID_RELEASE_KEYS,
   searchText: '',
@@ -94,7 +94,10 @@ export function ItemLookupFilters({}: Props) {
     let url = `${pathname}?`
 
     // Add the categories filter
-    if (filtersToApply.categories.length !== VALID_ITEM_CATEGORIES.length) {
+    if (
+      filtersToApply.categories.length !== VALID_ITEM_CATEGORIES.length &&
+      filtersToApply.categories.length > 0
+    ) {
       url += `${ITEM_FILTER_KEYS.CATEGORIES}=${filtersToApply.categories.join(
         ',',
       )}&`

@@ -129,7 +129,7 @@ export function BaseListbox<T>({
           }}
           className={clsx(
             // Anchor positioning
-            '[--anchor-offset:-1.625rem] [--anchor-padding:theme(spacing.4)] sm:[--anchor-offset:-1.375rem]',
+            'z-[5] [--anchor-offset:-1.625rem] [--anchor-padding:theme(spacing.4)] sm:[--anchor-offset:-1.375rem]',
 
             // Base styles
             'isolate w-max min-w-[calc(var(--button-width)+1.75rem)] select-none scroll-py-1 rounded-xl p-1',

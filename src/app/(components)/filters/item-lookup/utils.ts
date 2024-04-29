@@ -49,16 +49,10 @@ export function parseUrlFilters(
     parsedParams.get(ITEM_FILTER_KEYS.CATEGORIES)?.split(',') || []
   // If categories is the default, convert it to an array
   // Else ensure that the categories provided are valid
-  if (categories.length === 0) {
-    categories = VALID_ITEM_CATEGORIES
-  } else {
+  if (categories.length > 0) {
     categories = categories.filter((category) =>
       VALID_ITEM_CATEGORIES.includes(category),
     )
-    // If no categories, set to default
-    if (categories.length === 0) {
-      categories = VALID_ITEM_CATEGORIES
-    }
   }
 
   // validate the provided collections

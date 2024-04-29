@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Changed
 
 - Sharing a link to an item will now use the shorter item endpoint, `/i/itemname`, rather than `/endpoint/item/itemname`. The latter address still works, but will be removed eventually.
+- Item Lookup filters: the categories now start unchecked by default, meaning less clicks to get item info to show.
 
 ### Fixed
 
@@ -16,6 +17,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Updated incorrect stats on the Disciple's Mantle armor.
 - Updated wiki link for Index of the Scribe.
 - Fixed incorrect item description for Timewave mutator.
+- Fixed bug in Armor Calculator where the select box was displaying under the dialog.
 
 ### Removed
 
