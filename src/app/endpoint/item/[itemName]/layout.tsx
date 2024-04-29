@@ -1,5 +1,6 @@
 import { Metadata, ResolvingMetadata } from 'next'
 
+import { BaseText, BaseTextLink } from '@/app/(components)/_base/text'
 import { allItems } from '@/app/(data)/items/all-items'
 import { ArmorItem } from '@/app/(data)/items/types/ArmorItem'
 import { MutatorItem } from '@/app/(data)/items/types/MutatorItem'
@@ -112,5 +113,21 @@ export default async function Layout({
     throw new Error(`Item ${itemName} is not found.`)
   }
 
-  return <ItemPage params={{ item }} />
+  return (
+    <>
+      <div className="text-red mb-4 border-2 border-red-500 p-4 text-center">
+        <h2 className="text-2xl font-bold">
+          This endpoint is being deprecated, and will be removed soon.
+        </h2>
+        <BaseText>
+          Please update your bookmarks to{' '}
+          <BaseTextLink href={itemEndpoint(item.name)}>
+            the new endpoint
+          </BaseTextLink>
+          .
+        </BaseText>
+      </div>
+      <ItemPage params={{ item }} />
+    </>
+  )
 }

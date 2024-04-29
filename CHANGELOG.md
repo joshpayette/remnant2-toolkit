@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-04-29
+
+### Changed
+
+- Sharing a link to an item will now use the shorter item endpoint, `/i/itemname`, rather than `/endpoint/item/itemname`. The latter address still works, but will be removed eventually.
+
 ## 2024-04-28
 
 ### Added
