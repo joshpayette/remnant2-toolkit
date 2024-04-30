@@ -1,11 +1,13 @@
 'use client'
 
 import { useSearchParams } from 'next/navigation'
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 
+import { DEFAULT_BUILD_FILTERS } from '@/app/(components)/filters/builds/build-filters'
 import { BuildSecondaryFilters } from '@/app/(components)/filters/builds/secondary-filters'
 import { useOrderByFilter } from '@/app/(components)/filters/builds/secondary-filters/order-by-filter/use-order-by-filter'
 import { useTimeRangeFilter } from '@/app/(components)/filters/builds/secondary-filters/time-range-filter/use-time-range-filter'
+import { BuildListFilters } from '@/app/(components)/filters/builds/types'
 import { parseUrlFilters } from '@/app/(components)/filters/builds/utils'
 import { getFavoritedBuilds } from '@/app/profile/[userId]/favorited-builds/getFavoriteBuilds'
 import { BuildCard } from '@/features/build/components/build-card/BuildCard'
@@ -14,17 +16,23 @@ import { useBuildListState } from '@/features/build/hooks/useBuildListState'
 import { usePagination } from '@/features/pagination/usePagination'
 
 interface Props {
-  userId: string
+  buildFiltersOverrides?: Partial<BuildListFilters>
 }
 
-export function FavoritedBuilds({ userId }: Props) {
+export function FavoritedBuilds({ buildFiltersOverrides }: Props) {
+  const defaultFilters = useMemo(() => {
+    return buildFiltersOverrides
+      ? { ...DEFAULT_BUILD_FILTERS, ...buildFiltersOverrides }
+      : DEFAULT_BUILD_FILTERS
+  }, [buildFiltersOverrides])
+
   const searchParams = useSearchParams()
   const [buildListFilters, setBuildListFilters] = useState(
-    parseUrlFilters(searchParams),
+    parseUrlFilters(searchParams, defaultFilters),
   )
   useEffect(() => {
-    setBuildListFilters(parseUrlFilters(searchParams))
-  }, [searchParams])
+    setBuildListFilters(parseUrlFilters(searchParams, defaultFilters))
+  }, [searchParams, defaultFilters])
 
   const { buildListState, setBuildListState } = useBuildListState()
   const { builds, totalBuildCount, isLoading } = buildListState

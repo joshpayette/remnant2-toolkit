@@ -1,12 +1,13 @@
+import isEqual from 'lodash.isequal'
 import { ReadonlyURLSearchParams } from 'next/navigation'
 
+import { DEFAULT_BUILD_FILTERS } from '@/app/(components)/filters/builds/build-filters'
 import {
   BUILD_FILTER_KEYS,
   BuildListFilters,
   MAX_RINGS,
 } from '@/app/(components)/filters/builds/types'
 import { VALID_RELEASE_KEYS } from '@/app/(components)/filters/releases-filter'
-import { DEFAULT_FILTER, DefaultFilter } from '@/app/(components)/filters/types'
 import { amuletItems } from '@/app/(data)/items/amulet-items'
 import { archetypeItems } from '@/app/(data)/items/archetype-items'
 import { ringItems } from '@/app/(data)/items/ring-items'
@@ -14,128 +15,131 @@ import { weaponItems } from '@/app/(data)/items/weapon-items'
 
 export function parseUrlFilters(
   searchParams: ReadonlyURLSearchParams,
+  defaultFilters: BuildListFilters = DEFAULT_BUILD_FILTERS,
 ): BuildListFilters {
   const parsedParams = new URLSearchParams(searchParams)
 
   // Validate the provided amulet
-  let amulet = parsedParams.get(BUILD_FILTER_KEYS.AMULET) || DEFAULT_FILTER
+  let amulet =
+    parsedParams.get(BUILD_FILTER_KEYS.AMULET) || defaultFilters.amulet
   const amuletIsValid =
-    amulet === DEFAULT_FILTER ||
+    amulet === defaultFilters.amulet ||
     amuletItems.some((item) => item.name === amulet)
   if (!amuletIsValid) {
-    amulet = DEFAULT_FILTER
+    amulet = defaultFilters.amulet
   }
 
   // Validate the provided build tags
   let buildTags =
-    parsedParams.get(BUILD_FILTER_KEYS.BUILDTAGS)?.split(',') || DEFAULT_FILTER
-  // If build tags is the default, convert it to an array
-  // Else ensure that the build tags provided are valid
-  if (buildTags === DEFAULT_FILTER) {
-    buildTags = [DEFAULT_FILTER]
-  } else {
+    parsedParams.get(BUILD_FILTER_KEYS.BUILDTAGS)?.split(',') ||
+    defaultFilters.buildTags
+  if (!isEqual(buildTags, defaultFilters.buildTags)) {
     buildTags = (buildTags as string[]).filter((tag) => tag.length > 0)
     // If no build tags, set to default
     if (buildTags.length === 0) {
-      buildTags = [DEFAULT_FILTER]
+      buildTags = defaultFilters.buildTags
     }
   }
 
   // Validate the provided archetype
   let archetypes =
-    parsedParams.get(BUILD_FILTER_KEYS.ARCHETYPES)?.split(',') || DEFAULT_FILTER
-  // If archetypes is the default, convert it to an array
-  // Else ensure that the archetypes provided are valid
-  if (archetypes === DEFAULT_FILTER) {
-    archetypes = [DEFAULT_FILTER]
-  } else {
+    parsedParams.get(BUILD_FILTER_KEYS.ARCHETYPES)?.split(',') ||
+    defaultFilters.archetypes
+  if (!isEqual(archetypes, defaultFilters.archetypes)) {
     archetypes = (archetypes as string[]).filter((archetype) =>
       archetypeItems.some((item) => item.name === archetype),
     )
     // If no archetypes, set to default
     if (archetypes.length === 0) {
-      archetypes = [DEFAULT_FILTER]
+      archetypes = defaultFilters.archetypes
     }
   }
 
   // Validate the provided long gun
-  let longGun = parsedParams.get(BUILD_FILTER_KEYS.LONGGUN) || DEFAULT_FILTER
+  let longGun =
+    parsedParams.get(BUILD_FILTER_KEYS.LONGGUN) || defaultFilters.longGun
   const longGunIsValid =
-    longGun === DEFAULT_FILTER ||
+    longGun === defaultFilters.longGun ||
     weaponItems.some(
       (item) => item.name === longGun && item.type === 'long gun',
     )
   if (!longGunIsValid) {
-    longGun = DEFAULT_FILTER
+    longGun = defaultFilters.longGun
   }
 
   // validate the provided hand gun
-  let handGun = parsedParams.get(BUILD_FILTER_KEYS.HANDGUN) || DEFAULT_FILTER
+  let handGun =
+    parsedParams.get(BUILD_FILTER_KEYS.HANDGUN) || defaultFilters.handGun
   const handGunIsValid =
-    handGun === DEFAULT_FILTER ||
+    handGun === defaultFilters.handGun ||
     weaponItems.some(
       (item) => item.name === handGun && item.type === 'hand gun',
     )
   if (!handGunIsValid) {
-    handGun = DEFAULT_FILTER
+    handGun = defaultFilters.handGun
   }
 
   // validate the provided melee weapon
-  let melee = parsedParams.get(BUILD_FILTER_KEYS.MELEE) || DEFAULT_FILTER
+  let melee = parsedParams.get(BUILD_FILTER_KEYS.MELEE) || defaultFilters.melee
   const meleeIsValid =
-    melee === DEFAULT_FILTER ||
+    melee === defaultFilters.melee ||
     weaponItems.some((item) => item.name === melee && item.type === 'melee')
   if (!meleeIsValid) {
-    melee = DEFAULT_FILTER
+    melee = defaultFilters.melee
   }
 
   // validate the provided releases
-  let releases = parsedParams.get(BUILD_FILTER_KEYS.RELEASES)?.split(',') || []
-  // If releases is the default, convert it to an array
-  // Else ensure that the releases provided are valid
-  if (releases.length === 0) {
-    releases = VALID_RELEASE_KEYS
-  } else {
+  let releases =
+    parsedParams.get(BUILD_FILTER_KEYS.RELEASES)?.split(',') ||
+    defaultFilters.releases
+  if (!isEqual(releases, defaultFilters.releases)) {
     releases = releases.filter((release) =>
       VALID_RELEASE_KEYS.includes(release),
     )
     // If no releases, set to default
     if (releases.length === 0) {
-      releases = VALID_RELEASE_KEYS
+      releases = defaultFilters.releases
     }
   }
 
   // Validate the provided rings
   let rings =
     parsedParams.get(BUILD_FILTER_KEYS.RINGS)?.split(',') ||
-    (DEFAULT_FILTER as string[] | DefaultFilter)
-  // If rings is the default, convert it to an array
-  // Else ensure that the rings provided are valid
-  if (rings === DEFAULT_FILTER) {
-    rings = [DEFAULT_FILTER]
-  } else {
+    defaultFilters.rings
+  if (!isEqual(rings, defaultFilters.rings)) {
     // Ensure that the rings provided do not exceed the max allowed
     rings = rings.slice(0, MAX_RINGS)
     rings = rings.filter((ring) => ringItems.some((item) => item.name === ring))
     // If no rings, set to default
     if (rings.length === 0) {
-      rings = [DEFAULT_FILTER]
+      rings = defaultFilters.rings
     }
   }
 
   // Validate the provided search text
-  let searchText = parsedParams.get(BUILD_FILTER_KEYS.SEARCHTEXT) || ''
+  let searchText =
+    parsedParams.get(BUILD_FILTER_KEYS.SEARCHTEXT) || defaultFilters.searchText
 
   // Validate the patchAffected filter
-  const patchAffected =
-    parsedParams.has(BUILD_FILTER_KEYS.PATCHAFFECTED) || false
+  let patchAffected =
+    parsedParams.get(BUILD_FILTER_KEYS.PATCHAFFECTED) ||
+    defaultFilters.patchAffected
+  if (typeof patchAffected === 'string') {
+    patchAffected = patchAffected === 'true'
+  }
 
   // Validate the withVideo filter
-  const withVideo = parsedParams.has(BUILD_FILTER_KEYS.WITHVIDEO) || false
+  let withVideo = parsedParams.get(BUILD_FILTER_KEYS.WITHVIDEO) === 'true'
+  if (typeof withVideo === 'string') {
+    withVideo = withVideo === 'true'
+  }
 
   // Validate the withReference filter
-  const withReference =
-    parsedParams.has(BUILD_FILTER_KEYS.WITHREFERENCE) || false
+  let withReference =
+    parsedParams.get(BUILD_FILTER_KEYS.WITHREFERENCE) === 'true'
+  if (typeof withReference === 'string') {
+    withReference = withReference === 'true'
+  }
 
   return {
     amulet,

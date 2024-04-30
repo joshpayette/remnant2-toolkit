@@ -39,13 +39,13 @@ export default async function RootLayout({
         <PreloadResources />
         <SessionProvider>
           <GlobalActionButtons />
-          <div className="w-full bg-blue-950 p-1 text-center text-sm">
+          {/* <div className="w-full bg-blue-950 p-1 text-center text-sm">
             <BaseText>
               Use the <BaseCode>Include Patch Affected Builds</BaseCode> filter
               to see all patch affected builds! Update your pre-patch builds
               now!
             </BaseText>
-          </div>
+          </div> */}
           <div className="flex h-full w-full max-w-7xl grow flex-col items-start justify-start">
             <header className="w-full">
               <NavBar />

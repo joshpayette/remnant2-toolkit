@@ -69,7 +69,7 @@ export const NAV_ITEMS = {
   favoritedBuilds: {
     label: 'Favorited Builds',
     description: 'View and manage your favorited builds.',
-    href: '/profile/favorited-builds?includePatchAffectedBuilds=true',
+    href: '/profile/favorited-builds',
     icon: StarIcon,
   },
   featuredBuilds: {
@@ -116,7 +116,7 @@ export const NAV_ITEMS = {
   myBuilds: {
     label: 'My Builds',
     description: 'View and manage builds you created.',
-    href: '/profile/created-builds?includePatchAffectedBuilds=true',
+    href: '/profile/created-builds',
     icon: DocumentTextIcon,
   },
   profile: {

@@ -35,7 +35,7 @@ import { DEFAULT_FILTER } from '@/app/(components)/filters/types'
 import { Input } from '@/app/(components)/form-fields/input'
 import { cn } from '@/lib/classnames'
 
-const DEFAULT_FILTERS = {
+export const DEFAULT_BUILD_FILTERS = {
   archetypes: [DEFAULT_FILTER],
   amulet: DEFAULT_FILTER,
   buildTags: [DEFAULT_FILTER],
@@ -50,25 +50,35 @@ const DEFAULT_FILTERS = {
   withReference: false,
 } as const satisfies BuildListFilters
 
-interface Props {}
+interface Props {
+  buildFiltersOverrides?: Partial<BuildListFilters>
+}
 
 // #region Component
 
-export function BuildFilters({}: Props) {
+export function BuildFilters({ buildFiltersOverrides }: Props) {
+  const defaultFilters = useMemo(() => {
+    return buildFiltersOverrides
+      ? { ...DEFAULT_BUILD_FILTERS, ...buildFiltersOverrides }
+      : DEFAULT_BUILD_FILTERS
+  }, [buildFiltersOverrides])
+
   const searchParams = useSearchParams()
-  const filters = parseUrlFilters(searchParams)
+  const filters = useMemo(() => {
+    return parseUrlFilters(searchParams, defaultFilters)
+  }, [searchParams, defaultFilters])
 
   const [unappliedFilters, setUnappliedFilters] = useState(filters)
 
   function clearFilters() {
-    setUnappliedFilters(DEFAULT_FILTERS)
-    applyUrlFilters(DEFAULT_FILTERS)
+    setUnappliedFilters(defaultFilters)
+    applyUrlFilters(defaultFilters)
   }
 
   const areAnyFiltersActive = useMemo(() => {
-    if (isEqual(filters, DEFAULT_FILTERS)) return false
+    if (isEqual(filters, defaultFilters)) return false
     return true
-  }, [filters])
+  }, [filters, defaultFilters])
 
   const areFiltersApplied = useMemo(() => {
     if (isEqual(filters, unappliedFilters)) return true
@@ -83,65 +93,86 @@ export function BuildFilters({}: Props) {
     let url = `${pathname}?t=${Date.now()}&`
 
     // Add the amulet filter
-    if (filtersToApply.amulet !== DEFAULT_FILTER) {
+    if (filtersToApply.amulet !== defaultFilters.amulet) {
       url += `${BUILD_FILTER_KEYS.AMULET}=${filtersToApply.amulet}&`
     }
 
     // Add the archetype filter
-    if (!filtersToApply.archetypes.some((i) => i === DEFAULT_FILTER)) {
+    if (
+      !isEqual(filtersToApply, defaultFilters.archetypes) &&
+      !filtersToApply.archetypes.includes(DEFAULT_FILTER)
+    ) {
       url += `${BUILD_FILTER_KEYS.ARCHETYPES}=${filtersToApply.archetypes.join(
         ',',
       )}&`
     }
 
     // Add the build tag filters
-    if (!filtersToApply.buildTags.some((i) => i === DEFAULT_FILTER)) {
+    if (
+      !isEqual(filtersToApply.buildTags, defaultFilters.buildTags) &&
+      !filtersToApply.buildTags.includes(DEFAULT_FILTER)
+    ) {
       url += `${BUILD_FILTER_KEYS.BUILDTAGS}=${filtersToApply.buildTags.join(
         ',',
       )}&`
     }
 
     // Add the long gun filters
-    if (filtersToApply.longGun !== DEFAULT_FILTER) {
+    if (
+      filtersToApply.longGun !== defaultFilters.longGun &&
+      filtersToApply.longGun !== DEFAULT_FILTER
+    ) {
       url += `${BUILD_FILTER_KEYS.LONGGUN}=${filtersToApply.longGun}&`
     }
 
     // Add the hand gun filters
-    if (filtersToApply.handGun !== DEFAULT_FILTER) {
+    if (
+      filtersToApply.handGun !== defaultFilters.handGun &&
+      filtersToApply.handGun !== DEFAULT_FILTER
+    ) {
       url += `${BUILD_FILTER_KEYS.HANDGUN}=${filtersToApply.handGun}&`
     }
 
     // Add the melee filters
-    if (filtersToApply.melee !== DEFAULT_FILTER) {
+    if (
+      filtersToApply.melee !== defaultFilters.melee &&
+      filtersToApply.melee !== DEFAULT_FILTER
+    ) {
       url += `${BUILD_FILTER_KEYS.MELEE}=${filtersToApply.melee}&`
     }
 
     // Add the releases filters
-    if (filtersToApply.releases.length !== VALID_RELEASE_KEYS.length) {
+    if (
+      !isEqual(filtersToApply.releases, defaultFilters.releases) &&
+      !filtersToApply.releases.includes(DEFAULT_FILTER)
+    ) {
       url += `${BUILD_FILTER_KEYS.RELEASES}=${filtersToApply.releases.join(
         ',',
       )}&`
     }
 
     // Add the ring filters
-    if (filtersToApply.rings[0] !== DEFAULT_FILTER) {
+    if (
+      !isEqual(filtersToApply.rings, defaultFilters.rings) &&
+      !filtersToApply.rings.includes(DEFAULT_FILTER)
+    ) {
       url += `${BUILD_FILTER_KEYS.RINGS}=${filtersToApply.rings.join(',')}&`
     }
 
     // Add the search text
-    if (filtersToApply.searchText) {
+    if (filtersToApply.searchText !== defaultFilters.searchText) {
       url += `${BUILD_FILTER_KEYS.SEARCHTEXT}=${filtersToApply.searchText}&`
     }
 
     // Add the misc filters
-    if (filtersToApply.patchAffected) {
-      url += `${BUILD_FILTER_KEYS.PATCHAFFECTED}&`
+    if (filtersToApply.patchAffected !== defaultFilters.patchAffected) {
+      url += `${BUILD_FILTER_KEYS.PATCHAFFECTED}=${filtersToApply.patchAffected}&`
     }
-    if (filtersToApply.withVideo) {
-      url += `${BUILD_FILTER_KEYS.WITHVIDEO}&`
+    if (filtersToApply.withVideo !== defaultFilters.withVideo) {
+      url += `${BUILD_FILTER_KEYS.WITHVIDEO}=${filtersToApply.withVideo}&`
     }
-    if (filtersToApply.withReference) {
-      url += `${BUILD_FILTER_KEYS.WITHREFERENCE}&`
+    if (filtersToApply.withReference !== defaultFilters.withReference) {
+      url += `${BUILD_FILTER_KEYS.WITHREFERENCE}=${filtersToApply.withReference}&`
     }
 
     // trim the final &
