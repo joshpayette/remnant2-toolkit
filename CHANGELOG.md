@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-04-30
+
+### Changed
+
+- User's Created Builds, Featured Builds, and Favorited Builds on their profile now default to show all builds, including patch affected builds. Community Builds and Featured Builds continue to filter out patch affected builds by default.
+
 ## 2024-04-29
 
 ### Changed
