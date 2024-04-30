@@ -17,11 +17,11 @@ export function BuildMiscFilter({ value, onChange }: Props) {
       value: 'patchAffected',
     },
     {
-      label: 'Builds with Video',
+      label: 'Only Builds with Video',
       value: 'withVideo',
     },
     {
-      label: 'Builds with Reference Link',
+      label: 'Only Builds with Reference Link',
       value: 'withReference',
     },
   ]
