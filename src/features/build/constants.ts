@@ -150,7 +150,7 @@ export const ARCHETYPE_COMBO_NAMES: Array<{
   { archetypes: ['hunter', 'alchemist'], name: 'Isolator' },
   { archetypes: ['invader', 'alchemist'], name: 'Trickster' },
   { archetypes: ['archon', 'medic'], name: 'Virtuoso' },
-  { archetypes: ['archon', 'summoner'], name: 'Invoker' },
+  { archetypes: ['archon', 'summoner'], name: 'Invokers' },
   { archetypes: ['archon', 'handler'], name: 'Harrier' },
   { archetypes: ['archon', 'engineer'], name: 'Luminary' },
   { archetypes: ['archon', 'explorer'], name: 'Trailblazer' },
