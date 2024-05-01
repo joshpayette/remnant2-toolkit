@@ -61,8 +61,8 @@ export const ARCHTYPE_COLORS = {
     text: 'text-[#eaa8ee]',
   },
   INVOKER: {
-    bg: 'bg-[#2c1f21]', // TODO
-    text: 'text-[#d5b1b1]', // TODO
+    bg: 'bg-[#212628]',
+    text: 'text-[#b2cad4]', 
   },
   MEDIC: {
     bg: 'bg-[#0f3021]',
@@ -313,6 +313,12 @@ export const DESCRIPTION_TAGS = [
     type: 'Invader',
     token: 'INVADER',
     color: ARCHTYPE_COLORS.INVADER.text,
+    description: undefined,
+  },
+  {
+    type: 'Invoker',
+    token: 'INVOKER',
+    color: ARCHTYPE_COLORS.INVOKER.text,
     description: undefined,
   },
   {

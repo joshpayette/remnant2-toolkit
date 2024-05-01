@@ -503,7 +503,7 @@ export const traitItems: TraitItem[] = [
     imagePath: '/trait/gifted.png',
     id: 'c9af3B',
     dlc: 'dlc2',
-    tags: [],
+    tags: ['Skill Duration'],
     description: 'Increases Skill Duration.',
     maxLevelBonus: 'At max level, Gifted increases Skill Duration by 30%.',
     wikiLinks: ['https://remnant.wiki/Gifted'],
