@@ -10,13 +10,28 @@ import { relicItems } from '@/app/(data)/items/relic-items'
 import { ringItems } from '@/app/(data)/items/ring-items'
 import { skillItems } from '@/app/(data)/items/skill-items'
 import { traitItems } from '@/app/(data)/items/trait-items'
+import { AmuletItem } from '@/app/(data)/items/types/AmuletItem'
+import { ArchetypeItem } from '@/app/(data)/items/types/ArchetypeItem'
+import { ArmorItem } from '@/app/(data)/items/types/ArmorItem'
+import { ConcoctionItem } from '@/app/(data)/items/types/ConcoctionItem'
+import { ConsumableItem } from '@/app/(data)/items/types/ConsumableItem'
+import { ModItem } from '@/app/(data)/items/types/ModItem'
+import { MutatorItem } from '@/app/(data)/items/types/MutatorItem'
+import { RelicFragmentItem } from '@/app/(data)/items/types/RelicFragmentItem'
+import { RelicItem } from '@/app/(data)/items/types/RelicItem'
+import { RingItem } from '@/app/(data)/items/types/RingItem'
+import { SkillItem } from '@/app/(data)/items/types/SkillItem'
+import { TraitItem } from '@/app/(data)/items/types/TraitItem'
+import { WeaponItem } from '@/app/(data)/items/types/WeaponItem'
 import { weaponItems } from '@/app/(data)/items/weapon-items'
 
 import { INITIAL_BUILD_STATE } from '../constants'
-import { BuildState } from '../types'
 
-export function vashUrlToBuild(searchParams: URLSearchParams): BuildState {
+export function vashUrlToBuild(searchParams: URLSearchParams): string | null {
+  if (typeof window === 'undefined') return null
+
   const buildState = INITIAL_BUILD_STATE
+  let newBuildUrl = `${new URL(window.location.href.split('?')[0])}?`
 
   // Parse the traits
   const traitString = searchParams.get('trait')
@@ -367,5 +382,44 @@ export function vashUrlToBuild(searchParams: URLSearchParams): BuildState {
   buildState.isPublic = false
   buildState.description = `Imported from Vash Cowaii's Loadout Calculator.`
 
-  return buildState
+  newBuildUrl += `trait=${TraitItem.toParams(buildState.items.trait)}`
+  newBuildUrl += `&archetype=${ArchetypeItem.toParams(
+    buildState.items.archetype,
+  )}`
+  newBuildUrl += `&skill=${SkillItem.toParams(buildState.items.skill)}`
+  newBuildUrl += buildState.items.helm
+    ? `&helm=${ArmorItem.toParams(buildState.items.helm)}`
+    : ''
+  newBuildUrl += buildState.items.torso
+    ? `&torso=${ArmorItem.toParams(buildState.items.torso)}`
+    : ''
+  newBuildUrl += buildState.items.legs
+    ? `&legs=${ArmorItem.toParams(buildState.items.legs)}`
+    : ''
+  newBuildUrl += buildState.items.gloves
+    ? `&gloves=${ArmorItem.toParams(buildState.items.gloves)}`
+    : ''
+  newBuildUrl += buildState.items.relic
+    ? `&relic=${RelicItem.toParams(buildState.items.relic)}`
+    : ''
+  newBuildUrl += buildState.items.relicfragment
+    ? `&relicfragment=${RelicFragmentItem.toParams(
+        buildState.items.relicfragment,
+      )}`
+    : ''
+  newBuildUrl += `&weapon=${WeaponItem.toParams(buildState.items.weapon)}`
+  newBuildUrl += buildState.items.amulet
+    ? `&amulet=${AmuletItem.toParams(buildState.items.amulet)}`
+    : ''
+  newBuildUrl += `&ring=${RingItem.toParams(buildState.items.ring)}`
+  newBuildUrl += `&mod=${ModItem.toParams(buildState.items.mod)}`
+  newBuildUrl += `&mutator=${MutatorItem.toParams(buildState.items.mutator)}`
+  newBuildUrl += `&concoction=${ConcoctionItem.toParams(
+    buildState.items.concoction,
+  )}`
+  newBuildUrl += `&consumable=${ConsumableItem.toParams(
+    buildState.items.consumable,
+  )}`
+
+  return newBuildUrl
 }

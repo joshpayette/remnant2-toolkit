@@ -41,10 +41,14 @@ export function useUrlBuildState() {
   // Check if the vash search params exists
   const sourceParam = searchParams.get('source')
   const isVashBuild = sourceParam === 'vash'
+  if (isVashBuild) {
+    const convertedUrl = vashUrlToBuild(searchParams)
+    if (convertedUrl) {
+      window.location.href = convertedUrl
+    }
+  }
 
-  const parsedBuild = isVashBuild
-    ? vashUrlToBuild(searchParams)
-    : parseQueryString(searchParams)
+  const parsedBuild = parseQueryString(searchParams)
 
   const urlBuildState = cleanUpBuildState(parsedBuild)
 

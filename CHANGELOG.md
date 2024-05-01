@@ -10,6 +10,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - User's Created Builds, Featured Builds, and Favorited Builds on their profile now default to show all builds, including patch affected builds. Community Builds and Featured Builds continue to filter out patch affected builds by default.
 
+### Fixed
+
+- Fixed a bug where importing a build from Vash Cowaii's calculator would not allow you to make edits to the build. In some cases, this would cause a server error.
+
 ## 2024-04-29
 
 ### Changed
