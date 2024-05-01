@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Fixed
 
 - Fixed a bug where importing a build from Vash Cowaii's calculator would not allow you to make edits to the build. In some cases, this would cause a server error.
+- Fixed a bug in Mudtooth's Tonic still using the old value of 25 health instead of 20 health.
 
 ## 2024-04-29
 

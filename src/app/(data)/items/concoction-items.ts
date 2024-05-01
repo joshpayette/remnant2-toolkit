@@ -110,7 +110,7 @@ export const concoctionItems: ConcoctionItem[] = [
     tags: ['Health', 'Consumable'],
     description: `Increases Max Health by 20. Lasts 60m and will stay in effect after death. Only one Concoction may be active at a time.`,
     wikiLinks: [`https://remnant.wiki/Mudtooth%27s_Tonic`],
-    health: 25,
+    health: 20,
   },
   {
     category: 'concoction',
