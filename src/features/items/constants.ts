@@ -316,6 +316,12 @@ export const DESCRIPTION_TAGS = [
     description: undefined,
   },
   {
+    type: 'Invoker',
+    token: 'INVOKER',
+    color: ARCHTYPE_COLORS.INVOKER.text,
+    description: undefined,
+  },
+  {
     type: 'Lifesteal',
     token: 'Lifesteal',
     color: 'text-rose-500',
