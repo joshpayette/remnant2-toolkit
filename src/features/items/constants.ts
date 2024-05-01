@@ -61,7 +61,7 @@ export const ARCHTYPE_COLORS = {
     text: 'text-[#eaa8ee]',
   },
   INVOKER: {
-    bg: 'bg-[#2c1f21]', // TODO
+    bg: 'bg-[#212628]', // TODO
     text: 'text-[#d5b1b1]', // TODO
   },
   MEDIC: {
