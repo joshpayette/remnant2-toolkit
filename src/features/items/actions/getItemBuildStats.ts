@@ -14,6 +14,7 @@ export default async function getItemBuildStats(itemId: string): Promise<{
           where: {
             isFeaturedBuild: true,
             isPublic: true,
+            isPatchAffected: false,
             BuildItems: {
               some: {
                 itemId,
@@ -31,6 +32,7 @@ export default async function getItemBuildStats(itemId: string): Promise<{
           where: {
             isFeaturedBuild: false,
             isPublic: true,
+            isPatchAffected: false,
             BuildItems: {
               some: {
                 itemId,
