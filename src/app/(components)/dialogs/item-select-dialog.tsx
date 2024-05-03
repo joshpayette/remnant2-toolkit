@@ -91,9 +91,11 @@ export function ItemSelectDialog({
   })
 
   const getNewSortedItems = useCallback(() => {
-    const filteredItems = itemList.filter((item) =>
-      itemMatchesSearchText({ item, searchText: debouncedFilter }),
-    )
+    const filteredItems = itemList
+      .filter((item) =>
+        itemMatchesSearchText({ item, searchText: debouncedFilter }),
+      )
+      .sort((a, b) => a.name.localeCompare(b.name))
 
     const sortedItems =
       buildSlot === 'trait'

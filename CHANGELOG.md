@@ -20,6 +20,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Fixed issue where lengthy lines of text could exceed the width of the build description box.
 - Fixed Bottom Heavy mutator description.
 - Fixed Prophecy mutator description.
+- Added alphabetical sorting to Item Lookup dialog.
 
 ## 2024-05-01
 
