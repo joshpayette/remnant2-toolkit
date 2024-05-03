@@ -857,7 +857,7 @@ export const bossEnemies = [
     id: 'jEFi2h',
   },
   {
-    name: 'Cinderclad Monolith',
+    name: 'Cinderclad Forge',
     category: 'boss',
     dlc: 'dlc2',
     imagePath: '/enemies/boss/cinderclad_monolith.png',

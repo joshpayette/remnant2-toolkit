@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Changed
 
 - The # of builds an item is used in on the Item Lookup cards will now exclude builds marked as patch affected.
+- Updated name of Cinderclad Monolith to Cinderclad Forge.
 
 ### Fixed
 

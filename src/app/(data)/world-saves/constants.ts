@@ -152,7 +152,7 @@ const bossNames = [
   { name: 'Bloat King' },
   { name: 'Bruin, Blade of the King' },
   { name: 'Cancer' },
-  { name: 'Cinderclad Monolith' },
+  { name: 'Cinderclad Forge' },
   { name: 'Corrupted Ravager' },
   { name: 'Corruptor' },
   { name: 'Faelin' },

@@ -57,12 +57,12 @@ export const worldSaves = [
     release: 'dlc1',
   },
   {
-    bossName: 'Cinderclad Monolith',
+    bossName: 'Cinderclad Forge',
     bossAffixes: ['Regenerator', 'Spiteful'],
     release: 'dlc2',
   },
   {
-    bossName: 'Cinderclad Monolith',
+    bossName: 'Cinderclad Forge',
     bossAffixes: ['Spiteful', 'Vicious'],
     release: 'dlc2',
   },
