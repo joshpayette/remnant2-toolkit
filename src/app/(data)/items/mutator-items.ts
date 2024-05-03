@@ -45,10 +45,8 @@ export const mutatorItems: MutatorItem[] = [
     id: '8lg493',
     dlc: 'base',
     tags: ['Fire Rate', 'Reload Speed'],
-    // TODO Check this; base fire rate 7.5% -> 7%
-    description: `Increases Fire Rate by 7% and an additional 1% for every 10% of Magazine missing.`,
-    // TODO Check this; `changed L10 to 1.5% Reload Speed per 10% Magazine Missing (Max 30%)`
-    maxLevelBonus: `Reload Speed is increased by 20% when this weapon's magazine is empty.`,
+    description: `Grants 7% Fire Rate. Increases 1% - 2% for every 10% of Magazine missing.`,
+    maxLevelBonus: `Reload Speed is increased by 1.5% per 10% Magazine missing.`,
     wikiLinks: [`https://remnant.wiki/Bottom_Heavy`],
   },
   {
@@ -432,9 +430,8 @@ export const mutatorItems: MutatorItem[] = [
     dlc: 'dlc1',
     id: 'lo6uce',
     tags: ['Mod Power'],
-    description: `Using this weapon's mod increases Mod Power Generation by 3% for 10s. Max 5 stacks.`,
-    // TODO Check this; `changed level 10 bonus to movement speed per stack`, likely new text here
-    maxLevelBonus: `Reduces Mod Power requirement of this weapon's mod by 10%.`,
+    description: `Using this weapon's Mod increases Mod Power Generation by 3% - 6% for 10s. Max 5 stacks.`,
+    maxLevelBonus: `Increases Movement Speed by 3% per stack.`,
     wikiLinks: [`https://remnant.wiki/Prophecy`],
   },
   {
