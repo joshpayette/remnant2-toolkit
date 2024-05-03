@@ -73,7 +73,7 @@ export function MemberFeatures({
               </h3>
               <div
                 className={cn(
-                  'text-md whitespace-pre-wrap text-gray-200',
+                  'text-md overflow-x-auto overflow-y-auto whitespace-pre-wrap text-gray-200',
                   isScreenshotMode && 'max-h-none',
                 )}
               >

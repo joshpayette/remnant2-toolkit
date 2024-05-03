@@ -6,9 +6,17 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2024-05-02
 
+### Added
+
+- Featured even more fantastic builds, go check them out!
+
 ### Changed
 
 - The # of builds an item is used in on the Item Lookup cards will now exclude builds marked as patch affected.
+
+### Fixed
+
+- Fixed issue where lengthy lines of text could exceed the width of the build description box.
 
 ## 2024-05-01
 
