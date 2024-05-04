@@ -10,10 +10,9 @@ import {
 import { validateBuildState } from '@/app/(validators)/validate-build-state'
 import { getServerSession } from '@/features/auth/lib'
 import { checkBadWords, cleanBadWords } from '@/features/bad-word-filter'
+import { buildStateToBuildItems } from '@/features/build/lib/buildStateToBuildItems'
+import { BuildActionResponse } from '@/features/build/types'
 import { prisma } from '@/features/db'
-
-import { buildStateToBuildItems } from '../../../../features/build/lib/buildStateToBuildItems'
-import { BuildActionResponse } from '../../../../features/build/types'
 
 export async function createBuild(data: string): Promise<BuildActionResponse> {
   // session validation
@@ -30,6 +29,11 @@ export async function createBuild(data: string): Promise<BuildActionResponse> {
   unvalidatedData = {
     ...unvalidatedData,
     createdAt: new Date(unvalidatedData.createdAt),
+    buildTags: unvalidatedData.buildTags.map((tag: any) => ({
+      ...tag,
+      createdAt: tag.createdAt ? new Date(tag.createdAt) : new Date(),
+      updatedAt: tag.updatedat ? new Date(tag.updatedAt) : null,
+    })),
   }
 
   const validatedData = validateBuildState(unvalidatedData)

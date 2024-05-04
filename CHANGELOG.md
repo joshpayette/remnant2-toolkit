@@ -21,6 +21,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Fixed
 
 - Fixed issue where True Crimson Crown was not detected by the Item Tracker.
+- Fixed bug where items with build tags were not saving.
 - Fixed Sandstorm mod description.
 - Fixed Way of Kaeula skill description.
 - Fixed Way of Meidra skill description.

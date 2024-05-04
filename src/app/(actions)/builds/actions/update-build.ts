@@ -35,6 +35,11 @@ export async function updateBuild(data: string): Promise<BuildActionResponse> {
     ...unvalidatedData,
     createdAt: new Date(unvalidatedData.createdAt),
     updatedAt: new Date(unvalidatedData.updatedAt),
+    buildTags: unvalidatedData.buildTags.map((tag: any) => ({
+      ...tag,
+      createdAt: tag.createdAt ? new Date(tag.createdAt) : new Date(),
+      updatedAt: tag.updatedat ? new Date(tag.updatedAt) : null,
+    })),
   }
 
   const validatedData = validateBuildState(unvalidatedData)
