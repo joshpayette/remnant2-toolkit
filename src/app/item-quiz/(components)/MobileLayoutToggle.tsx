@@ -14,7 +14,7 @@ export function MobileLayoutToggle({
 }: Props) {
   return (
     <div className="hidden sm:mb-8 sm:flex sm:flex-col sm:items-center sm:justify-center">
-      <Squares2X2Icon className="h-12 w-12 text-primary-500" />
+      <Squares2X2Icon className="h-12 w-12 text-primary" />
       <Checkbox
         name="layoutPreference"
         label="Mobile layout?"

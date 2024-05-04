@@ -23,13 +23,13 @@ export const IdleDisplay = React.memo(
     <div className="flex flex-col items-center justify-center">
       {showTopScore ? (
         <div className="mb-4 flex flex-col items-center justify-center">
-          <h2 className="text-xl font-bold text-accent1-500">Top Score</h2>
-          <p className="mb-2 text-left text-4xl text-gray-200">{topScore}</p>
+          <h2 className="text-xl font-bold text-primary">Top Score</h2>
+          <p className="mb-2 text-left text-4xl text-on-surface">{topScore}</p>
         </div>
       ) : null}
       <div className="mb-12 text-center">
-        <h2 className="text-xl font-bold text-primary-500">Rules</h2>
-        <p className="text-md mb-2 text-left text-gray-200">
+        <h2 className="text-xl font-bold text-on-surface">Rules</h2>
+        <p className="text-md mb-2 text-left text-on-surface">
           You will be shown four items and an item name. You must select the
           item that matches the name. The game ends when the timer runs out or
           you get a question wrong. You can use the arrow keys, WASD keys, or
@@ -43,7 +43,7 @@ export const IdleDisplay = React.memo(
       <BaseButton color="cyan" onClick={onStartGame}>
         Start Game
       </BaseButton>
-      <p className="text-md mt-2 hidden italic text-gray-200 sm:block">
+      <p className="text-md mt-2 hidden italic text-on-surface sm:block">
         Press <span className="font-bold">Space</span> or{' '}
         <span className="font-bold">Enter</span> to start.
       </p>

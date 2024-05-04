@@ -242,9 +242,9 @@ export default function Page() {
       </div>
 
       <div className="relative flex w-full flex-col items-center justify-center">
-        <div className="mb-2 flex flex-col items-center justify-center text-2xl font-bold text-primary-400">
+        <div className="mb-2 flex flex-col items-center justify-center text-2xl font-bold text-primary">
           <h2 className="text-2xl font-bold">Progress</h2>
-          <div className="text-xl font-bold text-white">
+          <div className="text-xl font-bold text-on-surface">
             {isClient ? totalProgress : 'Calculating...'}
           </div>
           <div className="w-full max-w-3xl">
@@ -266,7 +266,7 @@ export default function Page() {
                 Import/Export CSV
               </BaseButton>
             </div>
-            <hr className="mt-4 w-full max-w-3xl border-gray-700" />
+            <hr className="mt-4 w-full max-w-3xl border-outline" />
           </div>
         </div>
 

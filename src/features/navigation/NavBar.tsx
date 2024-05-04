@@ -49,7 +49,7 @@ export function NavBar() {
         </div>
         <div className="hidden items-center justify-center lg:flex lg:flex-grow lg:gap-x-12">
           <Menu as="div" className="relative">
-            <Menu.Button className="text-md flex bg-background font-semibold text-white underline hover:text-primary-500">
+            <Menu.Button className="text-md flex bg-background font-semibold text-on-surface underline hover:text-primary">
               <span className="absolute -inset-1.5" />
               <span className="sr-only">Open Builds menu</span>
               Builds
@@ -63,7 +63,7 @@ export function NavBar() {
               leaveFrom="transform opacity-100 scale-100"
               leaveTo="transform opacity-0 scale-95"
             >
-              <Menu.Items className="absolute left-0 z-20 mt-2 w-[290px] origin-top-left rounded-md bg-black p-2 shadow-lg ring-1 ring-gray-800 ring-opacity-5 focus:outline-none">
+              <Menu.Items className="absolute left-0 z-20 mt-2 w-[290px] origin-top-left rounded-md bg-surface p-2 shadow-lg ring-1 ring-opacity-5 focus:outline-none">
                 <Menu.Item>
                   {({ active }) => (
                     <Link
@@ -73,16 +73,16 @@ export function NavBar() {
                           : '/builder'
                       }
                       className={cn(
-                        active ? 'bg-gray-800' : '',
-                        'flex w-full flex-row items-start justify-start p-2 text-sm font-semibold text-white',
+                        active ? 'bg-surface-container' : 'bg-surface',
+                        'flex w-full flex-row items-start justify-start p-2 text-sm font-semibold text-on-surface',
                       )}
                     >
                       <div className="mr-4 w-[20px]">
-                        <NAV_ITEMS.createBuild.icon className="h-5 w-5 text-primary-600" />
+                        <NAV_ITEMS.createBuild.icon className="h-5 w-5 text-primary" />
                       </div>
                       <div className="flex flex-col items-start justify-start gap-y-1">
                         {NAV_ITEMS.createBuild.label}
-                        <p className="text-xs font-normal text-gray-400">
+                        <p className="text-xs font-normal text-on-surface">
                           {NAV_ITEMS.createBuild.description}
                         </p>
                       </div>
@@ -94,16 +94,16 @@ export function NavBar() {
                     <Link
                       href={NAV_ITEMS.featuredBuilds.href}
                       className={cn(
-                        active ? 'bg-gray-800' : '',
-                        'flex w-full flex-row items-start justify-start p-2 text-sm font-semibold text-white',
+                        active ? 'bg-surface-container' : 'bg-surface',
+                        'flex w-full flex-row items-start justify-start p-2 text-sm font-semibold text-on-surface',
                       )}
                     >
                       <div className="mr-4 w-[20px]">
-                        <NAV_ITEMS.featuredBuilds.icon className="h-5 w-5 text-primary-600" />
+                        <NAV_ITEMS.featuredBuilds.icon className="h-5 w-5 text-primary" />
                       </div>
                       <div className="flex flex-col items-start justify-start gap-y-1">
                         {NAV_ITEMS.featuredBuilds.label}
-                        <p className="text-xs font-normal text-gray-400">
+                        <p className="text-xs font-normal text-on-surface-variant">
                           {NAV_ITEMS.featuredBuilds.description}
                         </p>
                       </div>
@@ -115,16 +115,16 @@ export function NavBar() {
                     <Link
                       href={NAV_ITEMS.communityBuilds.href}
                       className={cn(
-                        active ? 'bg-gray-800' : '',
-                        'flex w-full flex-row items-start justify-start p-2 text-sm font-semibold text-white',
+                        active ? 'bg-surface-container' : 'bg-surface',
+                        'flex w-full flex-row items-start justify-start p-2 text-sm font-semibold text-on-surface',
                       )}
                     >
                       <div className="mr-4 w-[20px]">
-                        <NAV_ITEMS.communityBuilds.icon className="h-5 w-5 text-primary-600" />
+                        <NAV_ITEMS.communityBuilds.icon className="h-5 w-5 text-primary" />
                       </div>
                       <div className="flex flex-col items-start justify-start gap-y-1">
                         {NAV_ITEMS.communityBuilds.label}
-                        <p className="text-xs font-normal text-gray-400">
+                        <p className="text-xs font-normal text-on-surface-variant">
                           {NAV_ITEMS.communityBuilds.description}
                         </p>
                       </div>
@@ -138,7 +138,7 @@ export function NavBar() {
           <Link
             href={NAV_ITEMS.itemLookup.href}
             className={cn(
-              'text-md flex flex-row items-center justify-start font-semibold text-white underline hover:text-primary-500',
+              'text-md flex flex-row items-center justify-start font-semibold underline text-on-surface hover:text-primary',
             )}
           >
             {NAV_ITEMS.itemLookup.label}
@@ -147,7 +147,7 @@ export function NavBar() {
           <Link
             href={NAV_ITEMS.itemTracker.href}
             className={cn(
-              'text-md flex flex-row items-center justify-start font-semibold text-white underline hover:text-primary-500',
+              'text-md flex flex-row items-center justify-start font-semibold underline text-on-surface hover:text-primary',
             )}
           >
             {NAV_ITEMS.itemTracker.label}
@@ -156,7 +156,7 @@ export function NavBar() {
           <Link
             href={NAV_ITEMS.itemQuiz.href}
             className={cn(
-              'text-md flex flex-row items-center justify-start font-semibold text-white underline hover:text-primary-500',
+              'text-md flex flex-row items-center justify-start font-semibold underline text-on-surface hover:text-primary',
             )}
           >
             {NAV_ITEMS.itemQuiz.label}
@@ -165,7 +165,7 @@ export function NavBar() {
           <Link
             href={NAV_ITEMS.resources.href}
             className={cn(
-              'text-md flex flex-row items-center justify-start font-semibold text-white underline hover:text-primary-500',
+              'text-md flex flex-row items-center justify-start font-semibold underline text-on-surface hover:text-primary',
             )}
           >
             {NAV_ITEMS.resources.label}
@@ -174,7 +174,7 @@ export function NavBar() {
           <Link
             href={NAV_ITEMS.supportR2TK.href}
             className={cn(
-              'text-md flex flex-row items-center justify-start font-semibold text-primary-500 underline hover:text-primary-300',
+              'text-md flex flex-row items-center justify-start font-semibold underline text-primary hover:text-inverse-primary',
             )}
           >
             {NAV_ITEMS.supportR2TK.label}
@@ -193,7 +193,7 @@ export function NavBar() {
         onClose={setMobileMenuOpen}
       >
         <div className="fixed inset-0 z-10" />
-        <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-surface px-6 py-6 text-white sm:max-w-sm sm:ring-1 sm:ring-secondary-900/10">
+        <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-surface px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-secondary/10">
           <div className="flex items-center justify-between">
             <Logo />
             <BaseButton
@@ -218,13 +218,13 @@ export function NavBar() {
                   className="flex flex-row items-center justify-start"
                 >
                   <NAV_ITEMS.createBuild.icon
-                    className="mr-2 h-7 w-5 flex-none text-primary-600"
+                    className="mr-2 h-7 w-5 flex-none text-primary"
                     aria-hidden="true"
                   />
                   <div className="flex flex-col items-start justify-start px-3 py-2">
                     {NAV_ITEMS.createBuild.label}
 
-                    <p className="text-xs text-gray-400">
+                    <p className="text-xs text-on-surface-variant">
                       {NAV_ITEMS.createBuild.description}
                     </p>
                   </div>
@@ -235,13 +235,13 @@ export function NavBar() {
                   className="flex flex-row items-center justify-start"
                 >
                   <NAV_ITEMS.featuredBuilds.icon
-                    className="mr-2 h-7 w-5 flex-none text-primary-600"
+                    className="mr-2 h-7 w-5 flex-none text-primary"
                     aria-hidden="true"
                   />
                   <div className="flex flex-col items-start justify-start px-3 py-2">
                     {NAV_ITEMS.featuredBuilds.label}
 
-                    <p className="text-xs text-gray-400">
+                    <p className="text-xs text-on-surface-variant">
                       {NAV_ITEMS.featuredBuilds.description}
                     </p>
                   </div>
@@ -252,32 +252,32 @@ export function NavBar() {
                   className="flex flex-row items-center justify-start"
                 >
                   <NAV_ITEMS.communityBuilds.icon
-                    className="mr-2 h-7 w-5 flex-none text-primary-600"
+                    className="mr-2 h-7 w-5 flex-none text-primary"
                     aria-hidden="true"
                   />
                   <div className="flex flex-col items-start justify-start px-3 py-2">
                     {NAV_ITEMS.communityBuilds.label}
 
-                    <p className="text-xs text-gray-400">
+                    <p className="text-xs text-on-surface-variant">
                       {NAV_ITEMS.communityBuilds.description}
                     </p>
                   </div>
                 </Link>
 
-                <hr className="border-secondary-900" />
+                <hr className="border-secondary" />
 
                 <Link
                   href={NAV_ITEMS.itemLookup.href}
                   className="flex flex-row items-center justify-start"
                 >
                   <NAV_ITEMS.itemLookup.icon
-                    className="mr-2 h-7 w-5 flex-none text-primary-600"
+                    className="mr-2 h-7 w-5 flex-none text-primary"
                     aria-hidden="true"
                   />
                   <div className="flex flex-col items-start justify-start px-3 py-2">
                     {NAV_ITEMS.itemLookup.label}
 
-                    <p className="text-xs text-gray-400">
+                    <p className="text-xs text-on-surface-variant">
                       {NAV_ITEMS.itemLookup.description}
                     </p>
                   </div>
@@ -288,13 +288,13 @@ export function NavBar() {
                   className="flex flex-row items-center justify-start"
                 >
                   <NAV_ITEMS.itemTracker.icon
-                    className="mr-2 h-7 w-5 flex-none text-primary-600"
+                    className="mr-2 h-7 w-5 flex-none text-primary"
                     aria-hidden="true"
                   />
                   <div className="flex flex-col items-start justify-start px-3 py-2">
                     {NAV_ITEMS.itemTracker.label}
 
-                    <p className="text-xs text-gray-400">
+                    <p className="text-xs text-on-surface-variant">
                       {NAV_ITEMS.itemTracker.description}
                     </p>
                   </div>
@@ -305,13 +305,13 @@ export function NavBar() {
                   className="flex flex-row items-center justify-start"
                 >
                   <NAV_ITEMS.itemQuiz.icon
-                    className="mr-2 h-7 w-5 flex-none text-primary-600"
+                    className="mr-2 h-7 w-5 flex-none text-primary"
                     aria-hidden="true"
                   />
                   <div className="flex flex-col items-start justify-start px-3 py-2">
                     {NAV_ITEMS.itemQuiz.label}
 
-                    <p className="text-xs text-gray-400">
+                    <p className="text-xs text-on-surface-variant">
                       {NAV_ITEMS.itemQuiz.description}
                     </p>
                   </div>
@@ -322,38 +322,38 @@ export function NavBar() {
                   className="flex flex-row items-center justify-start"
                 >
                   <NAV_ITEMS.resources.icon
-                    className="mr-2 h-7 w-5 flex-none text-primary-600"
+                    className="mr-2 h-7 w-5 flex-none text-primary"
                     aria-hidden="true"
                   />
                   <div className="flex flex-col items-start justify-start px-3 py-2">
                     {NAV_ITEMS.resources.label}
 
-                    <p className="text-xs text-gray-400">
+                    <p className="text-xs text-on-surface-variant">
                       {NAV_ITEMS.resources.description}
                     </p>
                   </div>
                 </Link>
 
-                <hr className="border-secondary-900" />
+                <hr className="border-secondary" />
 
                 <Link
                   href={NAV_ITEMS.supportR2TK.href}
                   className="flex flex-row items-center justify-start"
                 >
                   <NAV_ITEMS.supportR2TK.icon
-                    className="mr-2 h-7 w-5 flex-none text-primary-600"
+                    className="mr-2 h-7 w-5 flex-none text-primary"
                     aria-hidden="true"
                   />
                   <div className="flex flex-col items-start justify-start px-3 py-2">
                     {NAV_ITEMS.supportR2TK.label}
 
-                    <p className="text-xs text-gray-400">
+                    <p className="text-xs text-on-surface-variant">
                       {NAV_ITEMS.supportR2TK.description}
                     </p>
                   </div>
                 </Link>
 
-                <hr className="border-secondary-900" />
+                <hr className="border-secondary" />
 
                 <AuthButton.Mobile />
               </div>

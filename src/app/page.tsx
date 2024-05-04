@@ -17,13 +17,13 @@ export default async function Page() {
       title="Remnant 2 Toolkit"
       description={
         <>
-          <div className="mt-6 text-lg leading-8 text-gray-300">
+          <div className="mt-6 text-lg leading-8 text-on-surface-variant">
             <Link
               href="/community-builds"
-              className="underline hover:text-primary-500"
+              className="underline hover:text-surface/50"
             >
               Search the community&apos;s{' '}
-              <span className="text-2xl font-bold text-primary-500">
+              <span className="text-2xl font-bold">
                 {totalBuildCount}
               </span>{' '}
               submitted builds
@@ -31,23 +31,23 @@ export default async function Page() {
             ,{' '}
             <Link
               href={session?.user?.id ? '/builder/create' : '/builder'}
-              className="underline hover:text-primary-500"
+              className="underline hover:text-primary"
             >
               create your own builds
             </Link>
             ,{' '}
-            <Link href="/tracker" className="underline hover:text-primary-500">
+            <Link href="/tracker" className="underline hover:text-primary">
               track your collectibles
             </Link>
             , and more!
           </div>
-          <p className="mt-6 text-lg leading-8 text-gray-300">
-            <span className="font-bold text-primary-500">100% free</span> and{' '}
-            <span className="font-bold text-primary-500">open source</span>{' '}
+          <p className="mt-6 text-lg leading-8">
+            <span className="font-bold text-primary">100% free</span> and{' '}
+            <span className="font-bold text-primary">open source</span>{' '}
             toolkit for Remnant 2. No ads, no tracking, no BS.
           </p>
-          <p className="mt-6 text-lg leading-8 text-gray-300">
-            <span className="font-bold text-primary-500">
+          <p className="mt-6 text-lg leading-8">
+            <span className="font-bold text-primary">
               No login required
             </span>{' '}
             to start creating builds, searching community builds, tracking your
@@ -61,7 +61,7 @@ export default async function Page() {
           {...NAV_ITEMS.featuredBuilds}
           icon={
             <NAV_ITEMS.featuredBuilds.icon
-              className="h-7 w-7 flex-none text-primary-500"
+              className="h-7 w-7 flex-none text-primary"
               aria-hidden="true"
             />
           }
@@ -70,7 +70,7 @@ export default async function Page() {
           {...NAV_ITEMS.itemLookup}
           icon={
             <NAV_ITEMS.itemLookup.icon
-              className="h-7 w-7 flex-none text-primary-500"
+              className="h-7 w-7 flex-none text-primary"
               aria-hidden="true"
             />
           }
@@ -82,7 +82,7 @@ export default async function Page() {
             {...NAV_ITEMS.featuredBuilds}
             icon={
               <NAV_ITEMS.featuredBuilds.icon
-                className="h-7 w-7 flex-none text-primary-500"
+                className="h-7 w-7 flex-none text-primary"
                 aria-hidden="true"
               />
             }
@@ -92,7 +92,7 @@ export default async function Page() {
           {...NAV_ITEMS.communityBuilds}
           icon={
             <NAV_ITEMS.communityBuilds.icon
-              className="h-7 w-7 flex-none text-primary-500"
+              className="h-7 w-7 flex-none text-primary"
               aria-hidden="true"
             />
           }
@@ -102,7 +102,7 @@ export default async function Page() {
             {...NAV_ITEMS.itemLookup}
             icon={
               <NAV_ITEMS.itemLookup.icon
-                className="h-7 w-7 flex-none text-primary-500"
+                className="h-7 w-7 flex-none text-primary"
                 aria-hidden="true"
               />
             }
@@ -112,7 +112,7 @@ export default async function Page() {
           {...NAV_ITEMS.itemTracker}
           icon={
             <NAV_ITEMS.itemTracker.icon
-              className="h-7 w-7 flex-none text-primary-500"
+              className="h-7 w-7 flex-none text-primary"
               aria-hidden="true"
             />
           }
@@ -122,7 +122,7 @@ export default async function Page() {
           {...NAV_ITEMS.itemQuiz}
           icon={
             <NAV_ITEMS.itemQuiz.icon
-              className="h-7 w-7 flex-none text-primary-500"
+              className="h-7 w-7 flex-none text-primary"
               aria-hidden="true"
             />
           }
@@ -132,7 +132,7 @@ export default async function Page() {
           {...NAV_ITEMS.createBuild}
           icon={
             <NAV_ITEMS.createBuild.icon
-              className="h-7 w-7 flex-none text-primary-500"
+              className="h-7 w-7 flex-none text-primary"
               aria-hidden="true"
             />
           }
@@ -144,7 +144,7 @@ export default async function Page() {
             href={`/profile/${session?.user?.id}/loadouts?t=${Date.now()}`}
             icon={
               <NAV_ITEMS.loadouts.icon
-                className="h-7 w-7 flex-none text-primary-500"
+                className="h-7 w-7 flex-none text-primary"
                 aria-hidden="true"
               />
             }
@@ -155,7 +155,7 @@ export default async function Page() {
           {...NAV_ITEMS.worldSaveArchive}
           icon={
             <NAV_ITEMS.worldSaveArchive.icon
-              className="h-7 w-7 flex-none text-primary-500"
+              className="h-7 w-7 flex-none text-primary"
               aria-hidden="true"
             />
           }
@@ -165,7 +165,7 @@ export default async function Page() {
           {...NAV_ITEMS.bossTracker}
           icon={
             <NAV_ITEMS.bossTracker.icon
-              className="h-7 w-7 flex-none text-primary-500"
+              className="h-7 w-7 flex-none text-primary"
               aria-hidden="true"
             />
           }
@@ -192,7 +192,7 @@ export default async function Page() {
           {...NAV_ITEMS.supportR2TK}
           icon={
             <NAV_ITEMS.supportR2TK.icon
-              className="h-7 w-7 flex-none text-primary-500"
+              className="h-7 w-7 flex-none text-primary"
               aria-hidden="true"
             />
           }
@@ -206,7 +206,7 @@ export default async function Page() {
               width={20}
               height={20}
               alt={`${NAV_ITEMS.vashCalculator.label}, ${NAV_ITEMS.vashCalculator.description}`}
-              className="mr-2 h-7 w-7 flex-none text-primary-600"
+              className="mr-2 h-7 w-7 flex-none text-primary"
               aria-hidden="true"
             />
           }

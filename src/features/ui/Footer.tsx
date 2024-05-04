@@ -4,11 +4,11 @@ import { cn } from '@/lib/classnames'
 
 import { NAV_ITEMS } from '../navigation/constants'
 
-const aClass = 'text-slate-900 dark:text-gray-300 hover:text-primary-400 underline'
+const aClass = 'underline text-on-surface hover:text-primary'
 
 export function Footer() {
   return (
-    <footer className="border-secondary-900 mt-8 flex w-full items-center justify-center border-t bg-white dark:bg-black p-4 text-left text-sm text-slate-900 dark:text-gray-400">
+    <footer className="border-secondary bg-surface mt-8 flex w-full items-center justify-center border-t p-4 text-left text-sm text-on-surface-variant">
       <div className="max-w-2xl gap-2">
         <div className="flex w-full flex-row items-center justify-center gap-4 p-2">
           <a
@@ -90,7 +90,7 @@ export function Footer() {
           !
         </p>
 
-        <hr className="border-gray-900 pb-4" />
+        <hr className="border-secondary pb-4" />
         <p className="pb-4">
           These tools would not be possible without the{' '}
           <a href="https://remnant.wiki" target="_blank" className={cn(aClass)}>

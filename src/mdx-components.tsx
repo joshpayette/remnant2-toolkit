@@ -4,7 +4,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
     a: ({ children, href }) => (
       <a
-        className="text-md text-primary-500 hover:text-primary-300 hover:underline"
+        className="text-md text-primary hover:text-primary hover:underline"
         href={href}
         target="_blank"
         rel="noopener noreferrer"
@@ -13,17 +13,17 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       </a>
     ),
     blockquote: ({ children }) => (
-      <blockquote className="text-md border-secondary-500 mb-4 border p-4 text-left">
+      <blockquote className="text-md border-secondary mb-4 border p-4 text-left">
         {children}
       </blockquote>
     ),
     h1: ({ children }) => (
-      <h1 className="text-secondary-500 mx-8 mb-4 text-4xl font-bold">
+      <h1 className="text-secondary mx-8 mb-4 text-4xl font-bold">
         {children}
       </h1>
     ),
     h2: ({ children }) => (
-      <h2 className="text-primary-500 mx-8 mb-4 text-center text-2xl font-bold">
+      <h2 className="text-primary mx-8 mb-4 text-center text-2xl font-bold">
         {children}
       </h2>
     ),
