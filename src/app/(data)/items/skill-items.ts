@@ -728,9 +728,9 @@ export const skillItems: SkillItem[] = [
     id: 'h4B9dD',
     dlc: 'dlc2',
     tags: [],
-    description: `Invoke Kaeula to cast a Tidal Wave, dealing x Elemental damage and conjuring a 30m Rainstorm for 15s. Allies inside Rainstorm gain HASTE. Enemies inside Rainstorm gain DRENCHED for 10s.
+    description: `Invoke Kaeula to cast a Tidal Wave, dealing 450 Elemental damage and conjuring a 30m Rainstorm for 15s. Allies inside Rainstorm gain HASTE. Enemies inside Rainstorm gain DRENCHED for 10s.
 
-    DRENCHED: Reduces Movement Speed by 10%. Every few seconds, lightning strikes enemies dealing y base SHOCK damage split among DRENCHED targets.`,
+    DRENCHED: Reduces Movement Speed by 10%. Every few seconds, lightning strikes enemies dealing 900 base SHOCK damage split among DRENCHED targets.`,
     cooldown: 120,
     wikiLinks: ['https://remnant.wiki/Way_of_Kaeula'],
     linkedItems: {
