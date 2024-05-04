@@ -10,6 +10,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Added `Heal` and `Lifesteal` tokens to Way of Meidra skill.
 - Added `Critical Chance` and `Critical Damage` tokens to Way of Lydusa skill.
+- Added web scraper to pull item stats and descriptions from the wiki. This will allow for more accurate and up-to-date item information.
+  - Still incomplete, but got a few item categories done. Will continue to work on this in the coming days.
 
 ### Changed
 
@@ -26,6 +28,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Fixed Executor mutator description.
 - Fixed Extender mutator description.
 - Fixed all broken wiki links
+- Fixed all discrepancies in weapon item descriptions and stats from the wiki.
 
 ## 2024-05-03
 
