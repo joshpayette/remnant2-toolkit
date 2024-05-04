@@ -20,6 +20,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ### Fixed
 
+- Fixed issue where True Crimson Crown was not detected by the Item Tracker.
 - Fixed Sandstorm mod description.
 - Fixed Way of Kaeula skill description.
 - Fixed Way of Meidra skill description.
@@ -30,6 +31,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Fixed all broken wiki links
 - Fixed all discrepancies in weapon item descriptions and stats from the wiki.
 - Fixed all discrepancies in amulet item descriptions and stats from the wiki.
+- Fixed all discrepancies in armor item descriptions and stats from the wiki.
 
 ## 2024-05-03
 
