@@ -126,8 +126,8 @@ export const INLINE_TOKENS = [
   {
     type: 'Elemental Damage',
     token: 'Elemental Damage',
-    color: 'text-emerald-500',
-    description: `Acid, Corrosive, Fire, Shock.`,
+    color: 'text-emerald-400',
+    description: `Acid, Corrosive, Fire, Shock, certain skills and mods.`,
   },
   {
     type: 'Engineer',
