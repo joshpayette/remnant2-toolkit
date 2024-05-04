@@ -3,7 +3,7 @@ const colors = require('tailwindcss/colors')
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  darkMode: 'class',
+  darkMode: 'selector',
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
@@ -21,8 +21,8 @@ module.exports = {
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
       colors: {
-        background: '#11001c',
-        surface: '#000000',
+        surface: 'rgb(var(--color-foreground) / <alpha-value>)',
+        background: 'rgb(var(--color-background) / <alpha-value>)',
         primary: colors.cyan,
         secondary: colors.violet,
         accent1: colors.yellow,

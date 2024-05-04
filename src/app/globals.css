@@ -2,9 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  color: #ffffff;
-  background: #11001c;
+@layer base {
+  html[data-theme='default'] {
+    --color-foreground: #11001c;
+    --color-background: #f5fafc;
+  }
+
+  html[data-theme='dark'] {
+    --color-foreground: #f5fafc;
+    --color-background: #11001c;
+  }
 }
 
 /** Fixes the misalignment when exporting builds to images */
