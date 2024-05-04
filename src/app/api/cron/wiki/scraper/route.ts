@@ -1,7 +1,9 @@
 import { NextRequest } from 'next/server'
 
 import { validateEnv } from '@/app/(validators)/validate-env'
+import { handleAmuletItems } from '@/app/api/cron/wiki/scraper/amulets/handle-amulet-items'
 import { handleWeaponItems } from '@/app/api/cron/wiki/scraper/weapons/handle-weapon-items'
+
 export async function GET(request: NextRequest) {
   const envVars = validateEnv()
 
@@ -15,7 +17,8 @@ export async function GET(request: NextRequest) {
     })
   }
 
-  await handleWeaponItems()
+  await handleAmuletItems()
+  //await handleWeaponItems()
 
   console.info('Finished running wiki scraper script.')
 

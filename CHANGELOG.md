@@ -29,6 +29,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Fixed Extender mutator description.
 - Fixed all broken wiki links
 - Fixed all discrepancies in weapon item descriptions and stats from the wiki.
+- Fixed all discrepancies in amulet item descriptions and stats from the wiki.
 
 ## 2024-05-03
 
