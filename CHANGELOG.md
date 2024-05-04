@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-05-03
+
+### Changed
+
+- Converted some internal description tags to external tags that will be displayed below the description. This was necessary as a first step to automating item stats and information from the wiki.
+- Started referring to `tags` as `tokens` since that seems to be more commonly understood.
+
 ## 2024-05-02
 
 ### Added
