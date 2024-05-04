@@ -2,23 +2,22 @@
 
 import { revalidatePath } from 'next/cache'
 
+import {
+  BUILD_REVALIDATE_PATHS,
+  DEFAULT_BUILD_NAME,
+  MAX_BUILD_DESCRIPTION_LENGTH,
+} from '@/app/(data)/builds/constants'
+import { validateBuildState } from '@/app/(validators)/validate-build-state'
 import { getServerSession } from '@/features/auth/lib'
 import { checkBadWords, cleanBadWords } from '@/features/bad-word-filter'
+import { buildStateToBuildItems } from '@/features/build/lib/buildStateToBuildItems'
+import { BuildActionResponse, BuildState } from '@/features/build/types'
 import { prisma } from '@/features/db'
 import { getBuildDescriptionParams } from '@/features/moderation/build-feed/getBuildDescriptionParams'
 import { getBuildNameParams } from '@/features/moderation/build-feed/getBuildNameParams'
 import { getBuildPublicParams } from '@/features/moderation/build-feed/getBuildPublicParams'
 import { getBuildReferenceLinkParams } from '@/features/moderation/build-feed/getBuildReferenceLinkParams'
 import { sendBuildUpdateNotification } from '@/features/moderation/build-feed/sendBuildUpdateNotification'
-
-import {
-  BUILD_REVALIDATE_PATHS,
-  DEFAULT_BUILD_NAME,
-  MAX_BUILD_DESCRIPTION_LENGTH,
-} from '../../../app/(data)/builds/constants'
-import { buildStateSchema } from '../lib/buildStateSchema'
-import { buildStateToBuildItems } from '../lib/buildStateToBuildItems'
-import { BuildActionResponse, BuildState } from '../types'
 
 export async function updateBuild(data: string): Promise<BuildActionResponse> {
   // session validation
@@ -30,8 +29,15 @@ export async function updateBuild(data: string): Promise<BuildActionResponse> {
   }
 
   // build validation
-  const unvalidatedData = JSON.parse(data)
-  const validatedData = buildStateSchema.safeParse(unvalidatedData)
+  let unvalidatedData = JSON.parse(data)
+  // convert date strings to dates for validation
+  unvalidatedData = {
+    ...unvalidatedData,
+    createdAt: new Date(unvalidatedData.createdAt),
+    updatedAt: new Date(unvalidatedData.updatedAt),
+  }
+
+  const validatedData = validateBuildState(unvalidatedData)
   if (!validatedData.success) {
     console.error('Error in data!', validatedData.error.flatten().fieldErrors)
     return {
@@ -172,7 +178,6 @@ export async function updateBuild(data: string): Promise<BuildActionResponse> {
       await sendBuildUpdateNotification({ params, buildId: buildState.buildId })
     }
 
-    // Refresh the cache for the route
     // Refresh the cache for the route
     for (const path of BUILD_REVALIDATE_PATHS) {
       revalidatePath(path, 'page')

@@ -1,6 +1,6 @@
 import { z } from 'zod'
 
-export const parseEnv = () => {
+export function validateEnv() {
   const envSchema = z.object({
     PORT: z.string().default('3000'),
     NODE_ENV: z.string().default('development'),
@@ -20,6 +20,8 @@ export const parseEnv = () => {
     WEBHOOK_BUG_REPORT: z.string(),
     WEBHOOK_COMMUNITY_BUILDS: z.string(),
     WEBHOOK_CRON_LOGS: z.string(),
+    WEBHOOK_NEW_BUILD_FEED: z.string(),
+    WEBHOOK_WIKI_SCRAPER_FEED: z.string(),
   })
 
   return envSchema.parse(process.env)

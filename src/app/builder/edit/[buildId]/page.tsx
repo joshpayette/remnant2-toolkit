@@ -1,5 +1,5 @@
+import { getBuild } from '@/app/(actions)/builds/actions/get-build'
 import { BuildPage } from '@/app/builder/edit/[buildId]/BuildPage'
-import { getBuild } from '@/features/build/actions/getBuild'
 import { isErrorResponse } from '@/features/error-handling/isErrorResponse'
 
 export default async function Page({

@@ -3,12 +3,11 @@
 import { revalidatePath } from 'next/cache'
 import { z } from 'zod'
 
+import { BUILD_REVALIDATE_PATHS } from '@/app/(data)/builds/constants'
 import { getServerSession } from '@/features/auth/lib'
+import { BuildActionResponse } from '@/features/build/types'
 import { prisma } from '@/features/db'
 import { bigIntFix } from '@/lib/bigIntFix'
-
-import { BUILD_REVALIDATE_PATHS } from '../../../app/(data)/builds/constants'
-import { BuildActionResponse } from '../types'
 
 export async function removeVoteForBuild(
   data: string,

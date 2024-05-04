@@ -1,5 +1,5 @@
-import copy from 'clipboard-copy'
 import html2canvas from 'html2canvas'
+import cloneDeep from 'lodash.clonedeep'
 import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { toast } from 'react-toastify'
@@ -23,13 +23,13 @@ import { WeaponItem } from '@/app/(data)/items/types/WeaponItem'
 import { BuildState, ItemCategory } from '@/features/build/types'
 import { isErrorResponse } from '@/features/error-handling/isErrorResponse'
 
-import { addVoteForBuild } from '../../features/build/actions/addVoteForBuild'
-import { createBuild } from '../../features/build/actions/createBuild'
-import { deleteBuild } from '../../features/build/actions/deleteBuild'
-import { removeVoteForBuild } from '../../features/build/actions/removeVoteForBuild'
 import { getArrayOfLength } from '../../features/build/lib/getArrayOfLength'
 import { getConcoctionSlotCount } from '../../features/build/lib/getConcoctionSlotCount'
 import { getItemListForSlot } from '../../features/build/lib/getItemListForSlot'
+import { addVoteForBuild } from '../(actions)/builds/actions/add-vote-for-build'
+import { createBuild } from '../(actions)/builds/actions/create-build'
+import { deleteBuild } from '../(actions)/builds/actions/delete-build'
+import { removeVoteForBuild } from '../(actions)/builds/actions/remove-vote-for-build'
 import { INITIAL_BUILD_STATE } from '../(data)/builds/constants'
 
 function getRandomItem(
@@ -88,7 +88,7 @@ export function useBuildActions() {
   }
 
   async function handleDuplicateBuild(buildState: BuildState) {
-    const newBuildState = JSON.parse(JSON.stringify(buildState)) as BuildState
+    const newBuildState = cloneDeep(buildState)
     newBuildState.name = `${buildState.name} (copy)`
     newBuildState.isPublic = false
     const response = await createBuild(JSON.stringify(newBuildState))

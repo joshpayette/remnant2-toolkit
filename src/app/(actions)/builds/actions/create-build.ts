@@ -2,18 +2,18 @@
 
 import { revalidatePath } from 'next/cache'
 
-import { getServerSession } from '@/features/auth/lib'
-import { checkBadWords, cleanBadWords } from '@/features/bad-word-filter'
-import { prisma } from '@/features/db'
-
 import {
   BUILD_REVALIDATE_PATHS,
   DEFAULT_BUILD_NAME,
   MAX_BUILD_DESCRIPTION_LENGTH,
-} from '../../../app/(data)/builds/constants'
-import { buildStateSchema } from '../lib/buildStateSchema'
-import { buildStateToBuildItems } from '../lib/buildStateToBuildItems'
-import { BuildActionResponse, BuildState } from '../types'
+} from '@/app/(data)/builds/constants'
+import { validateBuildState } from '@/app/(validators)/validate-build-state'
+import { getServerSession } from '@/features/auth/lib'
+import { checkBadWords, cleanBadWords } from '@/features/bad-word-filter'
+import { prisma } from '@/features/db'
+
+import { buildStateToBuildItems } from '../../../../features/build/lib/buildStateToBuildItems'
+import { BuildActionResponse } from '../../../../features/build/types'
 
 export async function createBuild(data: string): Promise<BuildActionResponse> {
   // session validation
@@ -25,15 +25,21 @@ export async function createBuild(data: string): Promise<BuildActionResponse> {
   }
 
   // build validation
-  const unvalidatedData = JSON.parse(data)
-  const validatedData = buildStateSchema.safeParse(unvalidatedData)
+  let unvalidatedData = JSON.parse(data)
+  // convert date strings to dates for validation
+  unvalidatedData = {
+    ...unvalidatedData,
+    createdAt: new Date(unvalidatedData.createdAt),
+  }
+
+  const validatedData = validateBuildState(unvalidatedData)
   if (!validatedData.success) {
     console.error('Error in data!', validatedData.error.flatten().fieldErrors)
     return {
       errors: [validatedData.error.flatten().fieldErrors],
     }
   }
-  const buildState = validatedData.data as BuildState
+  const buildState = validatedData.data
   const buildItems = buildStateToBuildItems(buildState)
 
   if (

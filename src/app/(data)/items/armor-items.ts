@@ -17,7 +17,7 @@ export const armorItems: ArmorItem[] = [
     blightResistance: 2,
     toxinResistance: 3,
     description: `A soft and durable felt hat fashioned to stylize, not necessarily protect, the most important part of your body. `,
-    wikiLinks: [`https://remnant.wiki/Academic%27s_Hat`],
+    wikiLinks: [`https://remnant.wiki/Academic's_Hat`],
   },
   {
     category: 'helm',
@@ -35,7 +35,7 @@ export const armorItems: ArmorItem[] = [
     blightResistance: 3,
     toxinResistance: 3,
     description: `The helm of the bandit armor is a haunting symbol of the ruthless opportunism that arose after the cataclysmic destruction of Earth. Yet, for those who wear it, it also represents a means of survival in a world where mercy is a scarce commodity`,
-    wikiLinks: [`https://remnant.wiki/Bandit%27s_Mask`],
+    wikiLinks: [`https://remnant.wiki/Bandit's_Mask`],
   },
   {
     category: 'helm',
@@ -406,7 +406,7 @@ export const armorItems: ArmorItem[] = [
     blightResistance: -1,
     toxinResistance: 3,
     description: `It's hard to imagine someone piloting an entire world, but that's who this helm was for. The sockets allowed them to speak with N'Erud directly. N'Erud had dozens of pilots, all working in concert-both with each other and with the world itself. `,
-    wikiLinks: [`https://remnant.wiki/Navigator%27s_Helm`],
+    wikiLinks: [`https://remnant.wiki/Navigator's_Helm`],
   },
   {
     category: 'helm',
@@ -587,7 +587,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 2,
     description: `A large-brimmed hat that manages to strike fear in those who see it despite its simplistic and unintimidating design. Its main use is to cast its wearer's face in
     a shadow as dark as the deeds they seek to commit under black of night.`,
-    wikiLinks: [`https://remnant.wiki/Zealot%27s_Hat`],
+    wikiLinks: [`https://remnant.wiki/Zealot's_Hat`],
   },
   {
     category: 'torso',
@@ -605,7 +605,7 @@ export const armorItems: ArmorItem[] = [
     blightResistance: 3,
     toxinResistance: 6,
     description: `Donning this uniform makes you feel a touch smarter, and you can't help but straighten the necktie whenever it slips loose.`,
-    wikiLinks: [`https://remnant.wiki/Academic%27s_Overcoat`],
+    wikiLinks: [`https://remnant.wiki/Academic's_Overcoat`],
   },
   {
     category: 'torso',
@@ -1055,7 +1055,7 @@ export const armorItems: ArmorItem[] = [
     blightResistance: 3,
     toxinResistance: 3,
     description: `This long and tattered cloak is ideal for skulking about in the dead of night in pursuance of iniquitous aims. If you ever see the back of this cloak ahead of you, you would do well to run. If you ever see its wearer facing you, it is already too late.`,
-    wikiLinks: [`https://remnant.wiki/Zealot%27s_Overcoat`],
+    wikiLinks: [`https://remnant.wiki/Zealot's_Overcoat`],
   },
   {
     category: 'legs',
@@ -1073,7 +1073,7 @@ export const armorItems: ArmorItem[] = [
     blightResistance: 1,
     toxinResistance: 4,
     description: `Expensive-looking shoes fit for a lecture hall...that wouldn't last a week outside it.`,
-    wikiLinks: [`https://remnant.wiki/Academic%27s_Trousers`],
+    wikiLinks: [`https://remnant.wiki/Academic's_Trousers`],
   },
   {
     category: 'legs',
@@ -1525,7 +1525,7 @@ export const armorItems: ArmorItem[] = [
     blightResistance: 2,
     toxinResistance: 2,
     description: `Tall wading boots and toughened leather may protect your legs from the unruly waters of Losomn, but they will do nothing to guard against the treacherous creatures that lurk just beneath those sullied waves, thirsting for the blood of those who stray too far from shore.`,
-    wikiLinks: [`https://remnant.wiki/Zealot%27s_Seaboots`],
+    wikiLinks: [`https://remnant.wiki/Zealot's_Seaboots`],
   },
   {
     category: 'gloves',
@@ -1543,7 +1543,7 @@ export const armorItems: ArmorItem[] = [
     blightResistance: 1,
     toxinResistance: 2,
     description: `The initials of the Dran who once owned these - and misplaced them often - are embroidered on the wool-lined inside.`,
-    wikiLinks: [`https://remnant.wiki/Academic%27s_Gloves`],
+    wikiLinks: [`https://remnant.wiki/Academic's_Gloves`],
   },
   {
     category: 'gloves',
@@ -1995,6 +1995,6 @@ export const armorItems: ArmorItem[] = [
     blightResistance: 1,
     toxinResistance: 1,
     description: `Long gloves fit like a vice around your arms, the pressure quickening your pulse and increasing your awareness. Your hands are well protected with the exception of a few exposed fingertips, intentionally left unguarded in case a given ritual requires quick access to fresh blood.`,
-    wikiLinks: [`https://remnant.wiki/Zealot%27s_Wraps`],
+    wikiLinks: [`https://remnant.wiki/Zealot's_Wraps`],
   },
 ]

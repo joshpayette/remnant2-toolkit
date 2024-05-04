@@ -8,7 +8,10 @@ export const weaponItems: WeaponItem[] = [
     imagePath: '/mainhand/alpha_omega.png',
     id: '1ub6k9',
     dlc: 'base',
-    description: `After charging, fires an accurate high-damage rail which penetrates any target. Each successful hit reduces the charge time by 0.1s and increases damage by 10% for 1.5s. Stacks 5x.`,
+    description:
+      'Charge shot fires a burst of five energy bolts. Each hit reduces charge time by 0.1s and increases damage by 10% for 1.5s. Stacks 5x.\n' +
+      '\n' +
+      'Mod Power Requirement: 450',
     wikiLinks: [`https://remnant.wiki/Alpha_/_Omega`],
     location: { world: 'Root Earth', dungeon: ['Blackened Citadel'] },
     linkedItems: {
@@ -16,9 +19,8 @@ export const weaponItems: WeaponItem[] = [
         name: 'Beta Ray',
       },
     },
-    // TODO Check this; 15 -> 14
     damage: 14,
-    rps: 7.2,
+    rps: 6.89,
     magazine: 55,
     accuracy: 95,
     ideal: 24,
@@ -36,7 +38,7 @@ export const weaponItems: WeaponItem[] = [
     imagePath: '/mainhand/aphelion1.png',
     id: '3wprfw',
     dlc: 'base',
-    description: `Fires a hypercharged wide-arcing line that passes through targets.`,
+    description: `Fires a hypercharged wide-arching line that passes through targets.`,
     wikiLinks: [`https://remnant.wiki/Aphelion`],
     linkedItems: {
       mod: {
@@ -63,7 +65,7 @@ export const weaponItems: WeaponItem[] = [
     id: 'va7cfd',
     dlc: 'base',
     description: `A brutal drum-fed fully-automatic 10 gauge shotgun designed for close-quarters combat.`,
-    wikiLinks: [`https://remnant.wiki/AS-10_%22Bulldog%22`],
+    wikiLinks: [`https://remnant.wiki/AS-10_"Bulldog"`],
     damage: 60,
     rps: 2.5,
     magazine: 12,
@@ -144,7 +146,7 @@ export const weaponItems: WeaponItem[] = [
     imagePath: '/mainhand/corrupted_aphelion1.png',
     id: 'w85ya8',
     dlc: 'base',
-    description: `Fires a hypercharged wide-arcing line that passes through targets.`,
+    description: `A laser shotgun that fires three hypercharged arc lines that penetrate targets.`,
     wikiLinks: [`https://remnant.wiki/Corrupted_Aphelion`],
     linkedItems: {
       mod: {
@@ -177,11 +179,10 @@ export const weaponItems: WeaponItem[] = [
     accuracy: 95,
     ideal: 20,
     falloff: 70,
-    // TODO Check this; 48 -> 40
     ammo: 40,
     crit: 5,
     weakspot: 100,
-    stagger: 5,
+    stagger: 0,
     wikiLinks: ['https://remnant.wiki/Corrupted_Arbalest'],
     linkedItems: {
       mod: {
@@ -229,14 +230,13 @@ export const weaponItems: WeaponItem[] = [
       },
     },
     damage: 90,
-    rps: 1.3,
+    rps: 1.7,
     magazine: 3,
     accuracy: 90,
     ideal: 25,
     falloff: 70,
     ammo: 36,
     crit: 5,
-    // TODO Check this; 100 -> 105
     weakspot: 105,
     stagger: 10,
   },
@@ -248,7 +248,7 @@ export const weaponItems: WeaponItem[] = [
     id: 'W6n2mT',
     dlc: 'base',
     tags: ['Hardcore Reward'],
-    description: `Black crystal weapon which increases Fire Rate as mod power is generated. Mod power slowly drains after 2s of not dealing damage.`,
+    description: `A Black Crystal weapon which gains increased Fire Rate as Mod Power is generated. Mod power drains after 3s of not dealing damage.`,
     wikiLinks: ['https://remnant.wiki/Corrupted_Savior'],
     linkedItems: {
       mod: {
@@ -256,13 +256,11 @@ export const weaponItems: WeaponItem[] = [
       },
     },
     damage: 17,
-    rps: 3,
-    // TODO Check this; 50 -> 40
+    rps: 3.15,
     magazine: 40,
     accuracy: 95,
     ideal: 20,
     falloff: 60,
-    // TODO Check this; 300 -> 200
     ammo: 200,
     crit: 10,
     weakspot: 100,
@@ -275,14 +273,17 @@ export const weaponItems: WeaponItem[] = [
     imagePath: '/mainhand/crescent_moon.png',
     id: 'p7wc7k',
     dlc: 'base',
-    description: `An ethereal weapon that seems to resonate. Can be charged for more damage. Perfect release after Charge for maximum damage.`,
+    description:
+      'An ethereal weapon that seems to resonate.\n' +
+      '\n' +
+      'Can be charged for more damage. Perfect release after Charge for maximum damage.',
     wikiLinks: [`https://remnant.wiki/Crescent_Moon`],
     linkedItems: {
       mod: {
         name: 'Moonlight Barrage',
       },
     },
-    damage: 261,
+    damage: 87,
     rps: 4.1,
     magazine: 1,
     accuracy: 100,
@@ -302,17 +303,15 @@ export const weaponItems: WeaponItem[] = [
     dlc: 'base',
     description: `An accurate and deadly single-shot crossbow with a low sound profile.`,
     wikiLinks: [`https://remnant.wiki/Crossbow`],
-    // TODO Check this; increased damage from 115 -> 120
     damage: 120,
-    rps: 3.4,
+    rps: 2.5,
     magazine: 1,
     accuracy: 100,
     ideal: 23,
     falloff: 70,
     ammo: 27,
     crit: 10,
-    // TODO Check this; I think this is the same thing as weakspot modifier? Notes say 110% -> 115%, but it was already 115%.
-    weakspot: 115,
+    weakspot: 120,
     stagger: 10,
   },
   {
@@ -323,7 +322,7 @@ export const weaponItems: WeaponItem[] = [
     imagePath: '/mainhand/deceit.png',
     id: 'hlmpjl',
     dlc: 'base',
-    description: `A pinpoint accurate split-barreled rifle that fires two penetrating rails. High base damage, but cannot score Weakspot hits. Charge to fire`,
+    description: `A pinpoint accurate split-barreled rifle that fires two penetrating rails. High base damage, but cannot score Weakspot hits. Charge to fire.`,
     wikiLinks: [`https://remnant.wiki/Deceit`],
     linkedItems: {
       mod: {
@@ -350,7 +349,7 @@ export const weaponItems: WeaponItem[] = [
     id: '8n3e07',
     dlc: 'base',
     description: `An incredibly powerful 12 gauge shotgun with a wide spread. High damage, slow reload.`,
-    wikiLinks: [`https://remnant.wiki/Ford%27s_Scattergun`],
+    wikiLinks: [`https://remnant.wiki/Ford's_Scattergun`],
     damage: 130,
     rps: 1.1,
     magazine: 7,
@@ -370,7 +369,7 @@ export const weaponItems: WeaponItem[] = [
     imagePath: '/mainhand/huntmaster_m1.png',
     id: 'cda7lb',
     dlc: 'base',
-    description: `A powerful single-shot sniper rifle with excellent range and pinpoint accuracy. Comes with a 3x scope. Tap SCOPE to toggle.`,
+    description: `A high-powered long range bolt-action rifle with exceptional accuracy and a 2.5x magnification scope.`,
     wikiLinks: [`https://remnant.wiki/Huntmaster_M1`],
     damage: 70,
     rps: 1.5,
@@ -378,7 +377,6 @@ export const weaponItems: WeaponItem[] = [
     accuracy: 95,
     ideal: 27,
     falloff: 75,
-    // TODO Check this; reserves increased by 7, 42 -> 49
     ammo: 49,
     crit: 5,
     weakspot: 110,
@@ -392,7 +390,7 @@ export const weaponItems: WeaponItem[] = [
     imagePath: '/mainhand/merciless.png',
     id: 'g3esv1',
     dlc: 'base',
-    description: `Fires tooth-like flechettes. When weapon reticle is fully compressed, flechettes apply 250 BLEEDING Damage over 10s.`,
+    description: `Fires tooth-like flechettes. When weapon reticle is fully compressed, flechettes apply 200 - 600 BLEEDING damage over 10s.`,
     wikiLinks: [`https://remnant.wiki/Merciless`],
     linkedItems: {
       mod: {
@@ -408,7 +406,7 @@ export const weaponItems: WeaponItem[] = [
     ammo: 250,
     crit: 10,
     weakspot: 100,
-    stagger: 5,
+    stagger: 0,
   },
   {
     category: 'weapon',
@@ -442,9 +440,10 @@ export const weaponItems: WeaponItem[] = [
     imagePath: '/mainhand/monolith.png',
     dlc: 'dlc2',
     id: 'WjE2nZ',
-    description: `Fires concentrated sand. Sustained primary fire and Sandstorm hits apply EXPOSED for 1s. Max 15s.
-
-    EXPOSED: Target receives 15% additional damage from all sources.`,
+    description:
+      'Fires concentrated sand. Sustained primary fire and Sandstorm hits apply EXPOSED for 1s. Max 15s.\n' +
+      '\n' +
+      'EXPOSED: Target receives 15% additional damage from all sources.',
     wikiLinks: [`https://remnant.wiki/Monolith`],
     linkedItems: {
       mod: {
@@ -469,23 +468,19 @@ export const weaponItems: WeaponItem[] = [
     imagePath: '/mainhand/nightfall.png',
     id: '2fdvrf',
     dlc: 'base',
-    description: `A device forged of pure evil. Fires hardened bone shards at bonus stagger. Semi-automatic with a medium kick.`,
+    description: `A device forged of pure evil. Fires hardened bone shards at a brisk rate dealing bonus stagger. Semi-automatic with a medium kick.`,
     wikiLinks: [`https://remnant.wiki/Nightfall`],
     linkedItems: {
       mod: {
         name: 'Dreadwalker',
       },
     },
-    // TODO Check this; 31 -> 28
     damage: 28,
-    // TODO Check this; 4.35 -> 5.25
-    rps: 5.25,
-    // TODO Check this; 10 -> 13
+    rps: 4.95,
     magazine: 13,
     accuracy: 95,
     ideal: 18,
     falloff: 50,
-    // TODO Check this; 90 -> 117
     ammo: 117,
     crit: 5,
     weakspot: 105,
@@ -511,10 +506,8 @@ export const weaponItems: WeaponItem[] = [
     accuracy: 95,
     ideal: 17,
     falloff: 30,
-    // TODO Check this; 400 -> 300
     ammo: 300,
     crit: 5,
-    // TODO Check this; 75 -> 80
     weakspot: 80,
     stagger: -20,
   },
@@ -525,7 +518,7 @@ export const weaponItems: WeaponItem[] = [
     imagePath: '/mainhand/polygun.png',
     id: 'polgun',
     dlc: 'dlc2',
-    description: `ERROR: Unable to load description.`,
+    description: `ERROR: Unable to load description.ERROR: Unable to load description.`,
     wikiLinks: [`https://remnant.wiki/Polygun`],
     linkedItems: {
       mod: {
@@ -536,12 +529,12 @@ export const weaponItems: WeaponItem[] = [
     rps: 2.15,
     magazine: 99,
     accuracy: 95,
-    ideal: 26,
-    falloff: 70,
+    ideal: 15,
+    falloff: 30,
     ammo: 999,
-    crit: 10,
-    weakspot: 110,
-    stagger: 0,
+    crit: 5,
+    weakspot: 100,
+    stagger: 10,
   },
   {
     category: 'weapon',
@@ -596,10 +589,11 @@ export const weaponItems: WeaponItem[] = [
     imagePath: '/mainhand/royal_hunting_bow.png',
     id: '8ouocq',
     dlc: 'base',
-    description: `The Postulant grants these to those who can defeat him. None know why. Some suspect that the game is mere preamble-that perhaps the true game is what its players do next.`,
+    description:
+      'A lightweight, easy handling bow designed for hunting. High critical chance, bonus damage on Weakspot hits, and a low sound profile.\n' +
+      'Can be charged for more damage. Perfect release after Charge for maximum damage.',
     wikiLinks: [`https://remnant.wiki/Royal_Hunting_Bow`],
     damage: 80,
-    // TODO Check this; 4.3 -> 5.3
     rps: 5.3,
     magazine: 1,
     accuracy: 100,
@@ -639,7 +633,8 @@ export const weaponItems: WeaponItem[] = [
     imagePath: '/mainhand/sagittarius.png',
     id: 't0cb8d',
     dlc: 'base',
-    description: `A high-powered Bow which deals bonus damage to Weakspots. Can be charged for increased effect. Perfect release after Charge for maximum damage`,
+    description:
+      'A high-powered Bow which deals bonus damage to Weakspots. Can be charged for increased effect. Perfect release after Charge for maximum damage.',
     wikiLinks: [`https://remnant.wiki/Sagittarius`],
     linkedItems: {
       mod: {
@@ -666,22 +661,20 @@ export const weaponItems: WeaponItem[] = [
     id: '2jrbvl',
     dlc: 'base',
     tags: ['Hardcore Reward'],
-    description: `A old Fusion Rifle refactored to store and violently release energy in each shot. Can be charged for more damage. Perfect release after Charge for maximum damage.`,
+    description:
+      'An old Fusion Rifle refactored to store and violently release energy in each shot. Can be charged for more damage. Perfect release after Charge for maximum damage.',
     wikiLinks: [`https://remnant.wiki/Savior`],
     linkedItems: {
       mod: {
         name: 'Shatterstar',
       },
     },
-    // TODO Check this; 72 -> 50
     damage: 50,
-    // TODO Check this; 1.9 -> 2.1
     rps: 2.1,
     magazine: 6,
     accuracy: 95,
     ideal: 25,
     falloff: 75,
-    // TODO Check this; 42 -> 36
     ammo: 36,
     crit: 10,
     weakspot: 115,
@@ -695,7 +688,8 @@ export const weaponItems: WeaponItem[] = [
     saveFileSlug: 'weapon_sparkfire',
     imagePath: '/mainhand/sparkfire_shotgun.png',
     id: '3r9jm7',
-    description: `Fires incendiary shells that apply BURNING which deals 30 FIRE damage over 3.0 seconds.`,
+    description:
+      'Fires incendiary shells that apply BURNING which deals 30 - 90 FIRE damage over 3 seconds.',
     wikiLinks: [`https://remnant.wiki/Sparkfire_Shotgun`],
     damage: 100,
     rps: 1.3,
@@ -740,8 +734,8 @@ export const weaponItems: WeaponItem[] = [
     imagePath: '/mainhand/starkiller1.png',
     id: 'hzmyu1',
     dlc: 'base',
-    description: `Alien rifle that shoots high velocity beams which penetrate enemies. Equipped with
-    a 2.5x magnification scope. Double Tap AIM to Scope.`,
+    description:
+      'Alien rifle that shoots high velocity rails which penetrate enemies. Equipped with a 2.5x magnification scope. Double Tap AIM to Scope.',
     wikiLinks: [`https://remnant.wiki/Starkiller`],
     linkedItems: {
       mod: {
@@ -767,7 +761,8 @@ export const weaponItems: WeaponItem[] = [
     dlc: 'dlc2',
     imagePath: '/mainhand/thorn.png',
     id: '13hsqd',
-    description: `Fires homing needles which deal 5 Explosive Damage after sticking for 2s. When 5 needles are stuck in a target at once, BLOWBACK triggers, dealing 50 Explosive Damage instead.`,
+    description:
+      'Fires homing needles which deal 5 - 15 Explosive Damage after sticking for 2s. When 5  needles are stuck in a target at once, BLOWBACK triggers, dealing 50 - 150 Explosive Damage instead.',
     externalTokens: [`Explosive Damage`],
     wikiLinks: [`https://remnant.wiki/Thorn`],
     linkedItems: {
@@ -841,7 +836,8 @@ export const weaponItems: WeaponItem[] = [
     imagePath: '/mainhand/widowmaker.png',
     id: 'fqdvas',
     dlc: 'base',
-    description: `A powerful single-shot sniper rifle with excellent range and pinpoint accuracy. Comes with a 3x scope. Tap SCOPE to toggle.`,
+    description:
+      'A powerful single-shot sniper rifle with excellent range and pinpoint accuracy. Comes with a 3x scope. Tap SCOPE[sic] to toggle.',
     wikiLinks: [`https://remnant.wiki/Widowmaker`],
     damage: 125,
     rps: 2.4,
@@ -870,7 +866,6 @@ export const weaponItems: WeaponItem[] = [
     accuracy: 80,
     ideal: 25,
     falloff: 70,
-    // TODO Check this; reserves +10, 50 -> 60
     ammo: 60,
     crit: 10,
     weakspot: 110,
@@ -885,7 +880,7 @@ export const weaponItems: WeaponItem[] = [
     id: 'rbpz53',
     dlc: 'base',
     description: `An experimental infantry support weapon used for prolonged suppressive fire. High capacity, long reload, and prone to overheating. Becomes more accurate while holding down the trigger.`,
-    wikiLinks: [`https://remnant.wiki/XMG57_%22Bonesaw%22`],
+    wikiLinks: [`https://remnant.wiki/XMG57_"Bonesaw"`],
     damage: 12,
     rps: 9.5,
     magazine: 150,
@@ -923,16 +918,13 @@ export const weaponItems: WeaponItem[] = [
     imagePath: '/melee/assassins_dagger.png',
     id: 'bv9wps',
     dlc: 'base',
-    // TODO Check this; `always deals weakspot damage from behind the enemy` - not sure how this is represented in the description
-    // TODO Check this; `removed additional damage buff when attacking Bleeding targets` - not sure how this is represented in the description
     description: `Lightweight. Silent. Deadly. It's rumored that the blade is meant to bestow a slow, agonizing death.`,
-    wikiLinks: [`https://remnant.wiki/Assassin%27s_Dagger`],
+    wikiLinks: [`https://remnant.wiki/Assassin's_Dagger`],
     linkedItems: {
       mod: {
         name: 'Bloodthirst',
       },
     },
-    // TODO: Check this; base damage 41 -> 35
     damage: 35,
     crit: -3,
     weakspot: 110,
@@ -972,21 +964,10 @@ export const weaponItems: WeaponItem[] = [
       },
     },
     damage: 100,
-    // TODO Check this; crit 5% -> 6%
     crit: 6,
-    // TODO Check this; weakspot 90 -> 95
     weakspot: 95,
-    // TODO Check this; stagger 6% -> 7%
     stagger: 7,
   },
-  // This weapon appears to be unobtainable
-  // {
-  //   category: 'weapon',
-  //   type: 'melee',
-  //   name: 'Blade of Adventure',
-  //   imagePath: '/melee/blade_of_adventure.png',
-  //   id: '7ob842',
-  // },
   {
     category: 'weapon',
     type: 'melee',
@@ -994,7 +975,8 @@ export const weaponItems: WeaponItem[] = [
     imagePath: '/melee/blade_of_gul.png',
     id: 'nxfxlp',
     dlc: 'base',
-    description: `A short, but thick sword, used by Gul Warriors. It's compact design makes for swift yet hard-hitting blows. An excellent close-range option.`,
+    description:
+      'A short, but thick sword, used by Gul Warriors. Its compact design makes for swift yet hard-hitting blows. An excellent close-range option.',
     wikiLinks: [`https://remnant.wiki/Blade_of_Gul`],
     damage: 57,
     crit: 4,
@@ -1055,8 +1037,8 @@ export const weaponItems: WeaponItem[] = [
     imagePath: '/melee/dreamcatcher.png',
     id: '3sxr9y',
     dlc: 'base',
-    description: `There is an ethereal lightness to this weapon, as though it were made of paper or breath.
-    Though it strikes its foes forcibly enough.`,
+    description:
+      'A magical stave capable of harnessing the energy of nearby enemies.',
     wikiLinks: [`https://remnant.wiki/Dreamcatcher`],
     linkedItems: {
       mod: {
@@ -1090,7 +1072,8 @@ export const weaponItems: WeaponItem[] = [
     imagePath: '/melee/feral_judgement.png',
     id: 'umb305',
     dlc: 'base',
-    description: `A pair of gauntlets with sharp crystal blades that strike with vicious speed and velocity.`,
+    description:
+      'A pair of gauntlets with sharp bone blades that strike with vicious speed and velocity.',
     wikiLinks: [`https://remnant.wiki/Feral_Judgement`],
     linkedItems: {
       mod: {
@@ -1129,7 +1112,8 @@ export const weaponItems: WeaponItem[] = [
     imagePath: '/melee/godsplitter.png',
     id: 'a23oaa',
     dlc: 'base',
-    description: `An expertly balanced blade that is the product of advanced Fae metallurgy.`,
+    description:
+      'An expertly balanced blade that is the product of advanced Fae metallurgy. Cannot score Weakspot hits without its Mod behavior.',
     wikiLinks: [`https://remnant.wiki/Godsplitter`],
     linkedItems: {
       mod: {
@@ -1148,8 +1132,9 @@ export const weaponItems: WeaponItem[] = [
     imagePath: '/melee/heros_sword1.png',
     id: '5o3cq4',
     dlc: 'base',
-    description: `An ancient, quick, and versatile blade suited for many situations. Charge attacks cast a projectile for dealing melee damage at range.`,
-    wikiLinks: [`https://remnant.wiki/Hero%27s_Sword`],
+    description:
+      'An ancient, quick, and versatile blade suited for many situations. Contains a hidden power.',
+    wikiLinks: [`https://remnant.wiki/Hero's_Sword`],
     linkedItems: {
       mod: {
         name: 'Energy Wave',
@@ -1167,17 +1152,16 @@ export const weaponItems: WeaponItem[] = [
     imagePath: '/melee/huntress_spear.png',
     id: '0jefkc',
     dlc: 'base',
-    description: `A battle-worn spear worthy of the finest hunters. Charge Melee Attacks apply CORROSION dealing 600 ACID damage over 5s.`,
+    description:
+      'A battle-worn spear worthy of the finest hunters. Charge Melee Attacks apply CORROSION dealing 100 ACID damage over 5s.',
     wikiLinks: [`https://remnant.wiki/Huntress_Spear`],
     linkedItems: {
       mod: {
         name: 'Javelin',
       },
     },
-    damage: 189,
-    // TODO Check this; 6% -> 5%
+    damage: 63,
     crit: 5,
-    // TODO Check this; 100% -> 110%
     weakspot: 110,
     stagger: -5,
   },
@@ -1216,7 +1200,8 @@ export const weaponItems: WeaponItem[] = [
     imagePath: '/melee/krell_axe.png',
     id: '5gl3la',
     dlc: 'base',
-    description: `Infused with Krell Shock magic, can be thrown if the wielder has stamina. Axe will magically reappear in-hand. Charge to throw.`,
+    description:
+      'Infused with Krell Shock[sic] magic, can be thrown if the wielder has stamina. Axe will magically reappear in hand. Charge to throw.',
     wikiLinks: [`https://remnant.wiki/Krell_Axe`],
     linkedItems: {
       mod: {
@@ -1269,8 +1254,8 @@ export const weaponItems: WeaponItem[] = [
     imagePath: '/melee/nightshade.png',
     id: '6j7czk',
     dlc: 'base',
-    description: `Fast striking claws with a high Critical Hit Chance.
-    Neutral Dodge grants the power  of Lifesteal.`,
+    description:
+      'Fast striking claws with a high Critical Hit chance. Neutral Dodge grants the power of Lifesteal.',
     wikiLinks: [`https://remnant.wiki/Nightshade`],
     linkedItems: {
       mod: {
@@ -1303,7 +1288,8 @@ export const weaponItems: WeaponItem[] = [
     imagePath: '/melee/ornate_flail.png',
     id: 'pwuhho',
     dlc: 'base',
-    description: `An intricately-forged mace with uniquely designed airways. Allows smaller wielders to get the mace up to speed much quicker.`,
+    description:
+      'An intricately-forged flail with uniquely designed airways. Allows smaller wielders to get the weapon up to speed much quicker.',
     wikiLinks: [`https://remnant.wiki/Ornate_Flail`],
     damage: 63,
     crit: 11,
@@ -1350,7 +1336,8 @@ export const weaponItems: WeaponItem[] = [
     dlc: 'dlc1',
     imagePath: '/melee/ritualist_scythe.png',
     id: '7hoogs',
-    description: `An evil-fueled reaping tool that deals additional damage to suffering targets`,
+    description:
+      'An evil-fueled reaping tool that deals additional damage to suffering targets.',
     wikiLinks: [`https://remnant.wiki/Ritualist_Scythe`],
     linkedItems: {
       mod: {
@@ -1369,7 +1356,8 @@ export const weaponItems: WeaponItem[] = [
     imagePath: '/melee/royal_broadsword.png',
     id: 'wogdou',
     dlc: 'base',
-    description: `Standard issue Greatsword for the Empress's Royal Guards. Razor-sharp edges, extremely heavy, yet perfectly balanced.`,
+    description:
+      "Standard issue Greatsword for the Empress' Royal Guards. Razor-sharp edges, extremely heavy, yet perfectly balanced.",
     wikiLinks: [`https://remnant.wiki/Royal_Broadsword`],
     damage: 102,
     crit: 7,
@@ -1398,7 +1386,8 @@ export const weaponItems: WeaponItem[] = [
     imagePath: '/melee/scrap_hammer.png',
     id: 'a88cg7',
     dlc: 'base',
-    description: `A large, heavy warhammer cobbled together from engine components. It is a slow- but-devastating weapon meant to destroy anything it hits.`,
+    description:
+      'A large, heavy warhammer cobbled together from engine components. It is a slow-but-devastating weapon meant to destroy anything it hits.',
     wikiLinks: [`https://remnant.wiki/Scrap_Hammer`],
     damage: 83,
     crit: 8,
@@ -1482,7 +1471,7 @@ export const weaponItems: WeaponItem[] = [
         name: 'Whirlwind',
       },
     },
-    damage: 159,
+    damage: 53,
     crit: 8,
     weakspot: 105,
     stagger: -25,
@@ -1569,7 +1558,6 @@ export const weaponItems: WeaponItem[] = [
     imagePath: '/melee/stonebreaker.png',
     id: 'b4g4q0',
     dlc: 'base',
-    // TODO Check this; `removed Double Damage Stacking on Charge Attacks` - not sure how this is represented in the description
     description: `A massive Greatsword which contains the harnessed magic of a corrupted Guardian. Can summon small shockwaves.`,
     wikiLinks: [`https://remnant.wiki/Stonebreaker`],
     linkedItems: {
@@ -1580,7 +1568,6 @@ export const weaponItems: WeaponItem[] = [
     damage: 103,
     crit: 4,
     weakspot: 95,
-    // TODO Check this; `reduced Impact Scalar from 10% to 5%`
     stagger: 5,
   },
   {
@@ -1604,20 +1591,18 @@ export const weaponItems: WeaponItem[] = [
     imagePath: '/melee/worlds_edge1.png',
     id: 'gilcfn',
     dlc: 'base',
-    // TODO Check this; `reduced base damage on Wave` - not sure how this is represented in the description
-    description: `A glowing Greatsword forged from shards of a shattered Worldstone. Charge attacks cast waves.`,
-    wikiLinks: [`https://remnant.wiki/World%27s_Edge`],
+    description:
+      'A glowing Greatsword forged from shards of a shattered Worldstone[sic]. Charge attacks cast waves.',
+    wikiLinks: [`https://remnant.wiki/World's_Edge`],
     linkedItems: {
       mod: {
         name: 'Horizon Strike',
       },
     },
-    damage: 101,
-    // TODO Check this; `reduced critical chance from 6% to 3%`
+    damage: 96,
     crit: 3,
     weakspot: 85,
-    // TODO Check this; `reduced abnormally high impact/stagger scalar`, no numbers though
-    stagger: 80,
+    stagger: -20,
   },
   {
     category: 'weapon',
@@ -1664,7 +1649,6 @@ export const weaponItems: WeaponItem[] = [
     weakspot: 100,
     stagger: 0,
   },
-  // TODO Check this; `incrased fire rate from 3.5 to 3.65` - not sure how this is represented in the data
   {
     category: 'weapon',
     type: 'hand gun',
@@ -1672,10 +1656,10 @@ export const weaponItems: WeaponItem[] = [
     imagePath: '/offhand/bolt_driver.png',
     id: 'd388ma',
     dlc: 'base',
-    description: `An ingenius Gul rifle designed to harness energy from Pan crystals. Charge to fire a 3-shot burst`,
+    description:
+      'An ingenius Gul rifle designed to harness energy from Pan crystals. Charge to fire a 3-shot burst.',
     wikiLinks: [`https://remnant.wiki/Bolt_Driver`],
     damage: 26,
-    // TODO Check this; 7.4 -> 7.63
     rps: 7.63,
     magazine: 24,
     accuracy: 99,
@@ -1684,7 +1668,7 @@ export const weaponItems: WeaponItem[] = [
     ammo: 96,
     crit: 10,
     weakspot: 105,
-    stagger: 10,
+    stagger: -10,
   },
   {
     category: 'weapon',
@@ -1693,7 +1677,8 @@ export const weaponItems: WeaponItem[] = [
     imagePath: '/offhand/corrupted_cube_gun.png',
     id: 'mSSxW6',
     dlc: 'base',
-    description: `Fusion charged auto-cannon generates cubes which penetrate. Infininte ammo capacity. Can overheat. Cannot score weakspot hits.`,
+    description:
+      'Fusion charged auto-cannon generates cubes which penetrate. Infinite ammo capacity. Can overheat. Cannot score Weakspot hits.',
     wikiLinks: ['https://remnant.wiki/Corrupted_Cube_Gun'],
     damage: 66,
     rps: 2.2,
@@ -1718,7 +1703,8 @@ export const weaponItems: WeaponItem[] = [
     imagePath: '/offhand/corrupted_meridian1.png',
     id: 'yw1btj',
     dlc: 'base',
-    description: `Fires rocket that deals AOE damage within 2m. Charging the weapon can load additional rockets.  (Max 3). Cannot Weakspot`,
+    description:
+      'Fires rocket that deals AOE damage within 2m. Charging the weapon can load additional rockets. (Max 3). Cannot Weakspot.',
     externalTokens: [`Amplitude`, `Explosive Damage`],
     wikiLinks: [`https://remnant.wiki/Corrupted_Meridian`],
     linkedItems: {
@@ -1744,7 +1730,8 @@ export const weaponItems: WeaponItem[] = [
     imagePath: '/offhand/corrupted_nebula.png',
     id: '8u8j4G',
     dlc: 'base',
-    description: `Semi-automatic laser weapon. Weakspot hits and kills create a Nano-bot for 8s that seeks enemies within 20m and repeatedly attacks dealing 6-12 ACID damage per hit. Max 5 Nano-bots.`,
+    description:
+      'Semi-automatic laser weapon. Weakspot hits and kills create a Nano-bot for 8s that seeks enemies within 20m and repeatedly attacks dealing 6 - 18 ACID damage per hit. Max 5 Nano-bots.',
     wikiLinks: ['https://remnant.wiki/Corrupted_Nebula'],
     linkedItems: {
       mod: {
@@ -1776,7 +1763,6 @@ export const weaponItems: WeaponItem[] = [
         name: 'Death Brand',
       },
     },
-    // TODO Check this; 16 -> 17
     damage: 17,
     rps: 6.3,
     magazine: 25,
@@ -1804,14 +1790,13 @@ export const weaponItems: WeaponItem[] = [
     },
     wikiLinks: ['https://remnant.wiki/Corrupted_Sorrow'],
     damage: 42,
-    // TODO Check this; 2.3 -> 2.6
     rps: 2.6,
     magazine: 10,
     accuracy: 95,
     ideal: 17,
     falloff: 52,
     ammo: 60,
-    crit: 7.5,
+    crit: 7,
     weakspot: 105,
     stagger: 0,
   },
@@ -1823,7 +1808,8 @@ export const weaponItems: WeaponItem[] = [
     imagePath: '/offhand/cube_gun.png',
     id: 'zn3boo',
     dlc: 'base',
-    description: `Projectiles return on hit or after reaching max range. Reloading retrieves shot projectiles. Max 5 fired projectiles. Infinite Ammo. Can overheat.`,
+    description:
+      'Projectiles return on hit or after reaching max range. Reloading retrieves shot projectiles. Max 5 fired projectiles. Infinite ammo. Can overheat.',
     wikiLinks: [`https://remnant.wiki/Cube_Gun`],
     linkedItems: {
       mod: {
@@ -1841,7 +1827,6 @@ export const weaponItems: WeaponItem[] = [
     weakspot: 85,
     stagger: 0,
   },
-  // TODO Check this; `slightly reduced reload speed (~5%)` - not sure how this is represented in our data
   {
     category: 'weapon',
     type: 'hand gun',
@@ -1850,15 +1835,13 @@ export const weaponItems: WeaponItem[] = [
     imagePath: '/offhand/double_barrel.png',
     id: 'ztz84h',
     dlc: 'base',
-    description: `A double barrel shotgun which can deal massive damage at close range with back to back shots.`,
+    description:
+      'A double-barrel shotgun which can deal massive damage at close range with back to back shots.',
     wikiLinks: [`https://remnant.wiki/Double_Barrel`],
-    // TODO Check this; 110 -> 105
     damage: 105,
-    // TODO Check this; 2.3 -> 2.25
     rps: 2.25,
     magazine: 2,
     accuracy: 60,
-    // TODO Check this; maximum falloff 7m -> 8m
     ideal: 8,
     falloff: 20,
     ammo: 24,
@@ -1873,7 +1856,8 @@ export const weaponItems: WeaponItem[] = [
     imagePath: '/offhand/enigma.png',
     id: 'd06hjq',
     dlc: 'base',
-    description: `Fires an electrical stream that jumps to nearby targets within 7.5m, dealing 30% reduced damage per jump. Applies OVERLOADED, dealing 30 SHOCK damage every 5 seconds for 5.2s.`,
+    description:
+      'Fires an electrical stream that jumps to nerby targets within 7.5m, dealing 30% reduced damage per jump. Applies OVERLOADED.',
     externalTokens: [`Amplitude`],
     wikiLinks: [`https://remnant.wiki/Enigma`],
     linkedItems: {
@@ -1899,7 +1883,8 @@ export const weaponItems: WeaponItem[] = [
     imagePath: '/offhand/hellfire.png',
     id: '797iqq',
     dlc: 'base',
-    description: `Spews flames that apply BURNING which deals 300 FIRE damage over 10 seconds.`,
+    description:
+      'Spews flames that apply BURNING which deals 300 - 900 FIRE damage over 10 seconds.',
     wikiLinks: [`https://remnant.wiki/Hellfire`],
     linkedItems: {
       mod: {
@@ -1925,7 +1910,8 @@ export const weaponItems: WeaponItem[] = [
     imagePath: '/offhand/meridian.png',
     id: '1ziutf',
     dlc: 'base',
-    description: `Fires volatile grenades that explode on direct contact with enemies and deal AOE damage within 4m. Dormant grenades eventually explode and can also be shot to detonate early.`,
+    description:
+      'Fires grenades that explode on contact with enemies and deal AOE damage within 4m. Dormant grenades eventually explode and can be shot to detonate early. Cannot Weakspot.',
     externalTokens: [`Amplitude`, `Explosive Damage`],
     wikiLinks: [`https://remnant.wiki/Meridian`],
     linkedItems: {
@@ -1951,7 +1937,8 @@ export const weaponItems: WeaponItem[] = [
     imagePath: '/offhand/mp60_r.png',
     id: 'ty2gsi',
     dlc: 'base',
-    description: `A small-caliber submachine gun best suited for close range skirmishes.`,
+    description:
+      'A small-caliber sub-machine gun best suited for close range skirmishes.',
     wikiLinks: [`https://remnant.wiki/MP60-R`],
     damage: 9,
     rps: 14.2,
@@ -1959,7 +1946,6 @@ export const weaponItems: WeaponItem[] = [
     accuracy: 95,
     ideal: 17,
     falloff: 50,
-    // TODO Check this; `increased reserves by 42 (+1 Magazine)`
     ammo: 294,
     crit: 10,
     weakspot: 100,
@@ -1973,7 +1959,8 @@ export const weaponItems: WeaponItem[] = [
     imagePath: '/offhand/nebula.png',
     id: 'p7tsxr',
     dlc: 'base',
-    description: `Fires a stream of superhot ACID gas which applies the CORRODED effect, dealing 300 CORROSIVE Damage over 15s. Killing targets CORRODED by Nebula spawns a gas cloud which applies its on-hit effect. Gas clouds last 2s and can be refreshed.`,
+    description:
+      'Fires a stream of superhot ACID gas which applies CORRODED effect, dealing 300 - 900 CORROSIVE Damage over 15s. Killing targets CORRODED by Nebula spawns a gas cloud which applies its on-hit effect. Gas clouds lasts[sic] 2s and can be refreshed.',
     wikiLinks: [`https://remnant.wiki/Nebula`],
     linkedItems: {
       mod: {
@@ -1991,7 +1978,6 @@ export const weaponItems: WeaponItem[] = [
     weakspot: 0,
     stagger: -15,
   },
-  // TODO Check this; `fire rate from 7.5 to 8.1` - not sure how this is represented in our stats
   {
     category: 'weapon',
     type: 'hand gun',
@@ -2003,13 +1989,12 @@ export const weaponItems: WeaponItem[] = [
     description: `An accurate semi-automatic pistol that can rapidly fire small-caliber bullets.`,
     wikiLinks: [`https://remnant.wiki/Repeater_Pistol`],
     damage: 15,
-    rps: 7.5,
-    // TODO Check this; 15 -> 20
+    rps: 8.1,
     magazine: 20,
     accuracy: 95,
     ideal: 18,
     falloff: 52,
-    ammo: 150,
+    ammo: 160,
     crit: 5,
     weakspot: 105,
     stagger: -10,
@@ -2029,7 +2014,6 @@ export const weaponItems: WeaponItem[] = [
         name: 'Soul Brand',
       },
     },
-    // TODO Check this; 15 -> 16
     damage: 16,
     rps: 6.6,
     magazine: 42,
@@ -2048,15 +2032,14 @@ export const weaponItems: WeaponItem[] = [
     imagePath: '/offhand/rupture_cannon.png',
     id: 'xzlpao',
     dlc: 'base',
-    description: `A mid-range Pistol Shotgun with a brisk fire rate and medium recoil Slower reload.`,
+    description:
+      'A mid-range Pistol Shotgun with a brisk fire rate and medium recoil. Slower reload.',
     wikiLinks: [`https://remnant.wiki/Rupture_Cannon`],
     location: { world: `N'Erud`, dungeon: [`Vault of the Formless`] },
     damage: 42,
-    // TODO Check this; 3.1 -> 2.75
     rps: 2.75,
     magazine: 12,
     accuracy: 90,
-    // TODO Check this; 13m -> 14m
     ideal: 14,
     falloff: 35,
     ammo: 60,
@@ -2086,7 +2069,6 @@ export const weaponItems: WeaponItem[] = [
     weakspot: 100,
     stagger: -10,
   },
-  // TODO Check this; `increased reload speed` - not sure how this is represented in our data
   {
     category: 'weapon',
     type: 'hand gun',
@@ -2098,12 +2080,11 @@ export const weaponItems: WeaponItem[] = [
     wikiLinks: [`https://remnant.wiki/Service_Pistol`],
     damage: 24,
     rps: 6.5,
-    // TODO Check this; 9 -> 10
     magazine: 10,
     accuracy: 85,
     ideal: 20,
     falloff: 50,
-    ammo: 90,
+    ammo: 110,
     crit: 5,
     weakspot: 105,
     stagger: 0,
@@ -2120,12 +2101,10 @@ export const weaponItems: WeaponItem[] = [
     wikiLinks: [`https://remnant.wiki/Silverback_Model_500`],
     damage: 55,
     rps: 2.4,
-    // TODO Check this; `increased cylinder capacity from 5 to 6`
     magazine: 6,
     accuracy: 95,
     ideal: 20,
     falloff: 60,
-    // TODO Check this; `incrased total ammo from 45 to 48`
     ammo: 48,
     crit: 5,
     weakspot: 105,
@@ -2150,7 +2129,7 @@ export const weaponItems: WeaponItem[] = [
     rps: 2.6,
     magazine: 5,
     accuracy: 95,
-    ideal: 16,
+    ideal: 19,
     falloff: 52,
     ammo: 45,
     crit: 10,
@@ -2204,7 +2183,6 @@ export const weaponItems: WeaponItem[] = [
     weakspot: 110,
     stagger: 10,
   },
-  // TODO Check this; `increased reload speed` - not sure how this is represented in our data
   {
     category: 'weapon',
     type: 'hand gun',
@@ -2220,7 +2198,6 @@ export const weaponItems: WeaponItem[] = [
     accuracy: 95,
     ideal: 15,
     falloff: 45,
-    // TODO Check this; `increased reserves by 60 (+2 Magazines)`
     ammo: 330,
     crit: 10,
     weakspot: 100,

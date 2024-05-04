@@ -1,4 +1,4 @@
-import { getBuild } from '@/features/build/actions/getBuild'
+import { getBuild } from '@/app/(actions)/builds/actions/get-build'
 import { isErrorResponse } from '@/features/error-handling/isErrorResponse'
 import { PageHeader } from '@/features/ui/PageHeader'
 

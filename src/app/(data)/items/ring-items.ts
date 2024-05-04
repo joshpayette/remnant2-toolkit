@@ -80,7 +80,7 @@ export const ringItems: RingItem[] = [
     dlc: 'base',
     tags: ['Heal'],
     description: `When receiving healing effects, gain HASTE for 10s.`,
-    wikiLinks: [`https://remnant.wiki/Anastasija%27s_Inspiration`],
+    wikiLinks: [`https://remnant.wiki/Anastasija's_Inspiration`],
   },
   {
     category: 'ring',
@@ -90,7 +90,7 @@ export const ringItems: RingItem[] = [
     dlc: 'base',
     tags: ['Projectile Speed', 'Charged Shot'],
     description: `Increases Projectile Speed by 20% and Decreases Weapon Charge Time by 25%.`,
-    wikiLinks: [`https://remnant.wiki/Archer%27s_Crest`],
+    wikiLinks: [`https://remnant.wiki/Archer's_Crest`],
   },
   {
     category: 'ring',
@@ -314,7 +314,7 @@ export const ringItems: RingItem[] = [
     id: 't7sqw7',
     tags: ['Perfect Dodge', 'Damage Reduction', 'Melee Damage'],
     description: `Perfect Dodge increases Melee Damage by 20% for 10s. Perfect Evade Flop also gains 10% Damage Reduction for the duration.`,
-    wikiLinks: [`https://remnant.wiki/Bridge_Warden%27s_Crest`],
+    wikiLinks: [`https://remnant.wiki/Bridge_Warden's_Crest`],
   },
   {
     category: 'ring',
@@ -406,7 +406,7 @@ export const ringItems: RingItem[] = [
 
     Can only happen once every 10s after expiring.`,
     externalTokens: [`Amplitude`],
-    wikiLinks: [`https://remnant.wiki/Conjurer%27s_Circle`],
+    wikiLinks: [`https://remnant.wiki/Conjurer's_Circle`],
   },
   {
     category: 'ring',
@@ -565,7 +565,7 @@ export const ringItems: RingItem[] = [
     id: 'vbxfcp',
     tags: ['Health'],
     description: `Increases Health by 15.`,
-    wikiLinks: [`https://remnant.wiki/Dead_King%27s_Memento`],
+    wikiLinks: [`https://remnant.wiki/Dead_King's_Memento`],
     health: 15,
     dlc: 'base',
   },
@@ -848,7 +848,7 @@ export const ringItems: RingItem[] = [
     id: '02wal9',
     tags: ['Critical Hit', 'Weakspot Damage', 'Mod Power'],
     description: `Critical and Weakspot Hits generates 12.5% additional Mod Power.`,
-    wikiLinks: [`https://remnant.wiki/Faerin%27s_Sigil`],
+    wikiLinks: [`https://remnant.wiki/Faerin's_Sigil`],
     dlc: 'base',
   },
   {
@@ -1313,7 +1313,7 @@ export const ringItems: RingItem[] = [
     dlc: 'dlc2',
     tags: ['All Damage', 'Critical Chance', 'Status Effect'],
     description: `Increases All Damage and All Critical Chance by 5% while BLEEDING.`,
-    wikiLinks: [`https://remnant.wiki/Ravager%27s_Bargain`],
+    wikiLinks: [`https://remnant.wiki/Ravager's_Bargain`],
   },
   {
     category: 'ring',
@@ -1840,7 +1840,7 @@ export const ringItems: RingItem[] = [
     id: '3uggz9',
     tags: ['Status Effect', 'Status Duration'],
     description: `Increases the duration of all Status Effects applied by wearer. Durations varies per status.`,
-    wikiLinks: [`https://remnant.wiki/Timekeeper%27s_Jewel`],
+    wikiLinks: [`https://remnant.wiki/Timekeeper's_Jewel`],
     dlc: 'base',
   },
   {
@@ -1959,7 +1959,7 @@ export const ringItems: RingItem[] = [
     id: 'ukufrn',
     tags: ['Weakspot Damage'],
     description: `Dealing Weakspot Damage increases Weakspot Damage by 5% for 5s. Stacks 4x.`,
-    wikiLinks: [`https://remnant.wiki/Zania%27s_Malice`],
+    wikiLinks: [`https://remnant.wiki/Zania's_Malice`],
     dlc: 'base',
   },
   {

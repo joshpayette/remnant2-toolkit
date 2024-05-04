@@ -3,7 +3,7 @@
 import { Metadata } from 'next'
 import { Suspense } from 'react'
 
-import { getTotalBuildCount } from '@/features/build/actions/getTotalBuildCount'
+import { getTotalBuildCount } from '@/app/(actions)/builds/actions/get-total-build-count'
 import { NAV_ITEMS } from '@/features/navigation/constants'
 import { PageHeader } from '@/features/ui/PageHeader'
 

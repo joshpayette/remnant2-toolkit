@@ -177,7 +177,7 @@ export const skillItems: SkillItem[] = [
 
     MARK: Crit Chance against MARKED enemies is increased by 15% for all allies.`,
     cooldown: 70,
-    wikiLinks: [`https://remnant.wiki/Hunter%27s_Mark`],
+    wikiLinks: [`https://remnant.wiki/Hunter's_Mark`],
     linkedItems: {
       archetype: {
         name: 'Hunter',
@@ -240,7 +240,7 @@ export const skillItems: SkillItem[] = [
     
     MARK: Crit Chance against MARKED enemies is increased by 15% for all allies.`,
     cooldown: 90,
-    wikiLinks: [`https://remnant.wiki/Hunter%27s_Shroud`],
+    wikiLinks: [`https://remnant.wiki/Hunter's_Shroud`],
     linkedItems: {
       archetype: {
         name: 'Hunter',
@@ -708,7 +708,8 @@ export const skillItems: SkillItem[] = [
     name: 'Deathwish',
     imagePath: '/skill/death_wish.png',
     id: 'ux5f9v',
-    dlc: 'base',    tags: ['All Damage', 'Lifesteal'],
+    dlc: 'base',
+    tags: ['All Damage', 'Lifesteal'],
     description: `Negates all healing to self. Drain 300% Health over 20s. Increases all Damage by 50% and grants 10% Base Damage dealt as Lifesteal.`,
     cooldown: 90,
     wikiLinks: [`https://remnant.wiki/Death_Wish`],

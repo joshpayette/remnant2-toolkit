@@ -642,7 +642,7 @@ export const modItems: ModItem[] = [
     dlc: 'base',
     description: `Imbues the Arbalest with the power of Yaesha's corrupted guardian, increases Fire Rate by 20%, reduces Recoil and Sway by 25% and each disc impact with an enemy exlpodes over 3.5m for 69 damage Explosive Damage. Lasts 1.5s`,
     externalTokens: [`Amplitude`],
-    wikiLinks: [`https://remnant.wiki/Guardian%27s_Fury`],
+    wikiLinks: [`https://remnant.wiki/Guardian's_Fury`],
     linkedItems: {
       weapon: {
         name: 'Corrupted Arbalest',

@@ -6,7 +6,7 @@ import { prisma } from '@/features/db'
 import { ErrorResponse } from '@/features/error-handling/types'
 import { bigIntFix } from '@/lib/bigIntFix'
 
-import { DBBuild } from '../types'
+import { DBBuild } from '../../../../features/build/types'
 
 export async function getBuild(
   buildId: string,

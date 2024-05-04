@@ -52,7 +52,7 @@ export const amuletItems: AmuletItem[] = [
     dlc: 'base',
     tags: ['Damage Reduction'],
     description: `Increases active Concoction limit by 2 and reduces all incoming damage by 2% for each active Concoction`,
-    wikiLinks: [`https://remnant.wiki/Brewmaster%27s_Cork`],
+    wikiLinks: [`https://remnant.wiki/Brewmaster's_Cork`],
   },
   {
     category: 'amulet',
@@ -72,7 +72,7 @@ export const amuletItems: AmuletItem[] = [
     dlc: 'base',
     tags: ['Critical Chance', 'Charged Melee'],
     description: `Increases Critical Chance by 15% and Critical Damage by 25% for 5s after striking enemy with a Charged Melee Attack.`,
-    wikiLinks: [`https://remnant.wiki/Butcher%27s_Fetish`],
+    wikiLinks: [`https://remnant.wiki/Butcher's_Fetish`],
   },
   {
     category: 'amulet',
@@ -560,7 +560,7 @@ export const amuletItems: AmuletItem[] = [
     tags: ['Critical Chance', 'Status Effect'],
     description: `Gain 15% Critical Chance and HASTE when within 20m of an entity suffering from a Status Effect.`,
     externalTokens: [`Amplitude`],
-    wikiLinks: [`https://remnant.wiki/Nightweaver%27s_Grudge`],
+    wikiLinks: [`https://remnant.wiki/Nightweaver's_Grudge`],
   },
   {
     category: 'amulet',
@@ -644,7 +644,7 @@ export const amuletItems: AmuletItem[] = [
     dlc: 'base',
     tags: ['All Damage'],
     description: `Increases all damage dealt to BLEEDING targets by 20%. Bonus increases to 30% for targets with 50% or lower Health.`,
-    wikiLinks: [`https://remnant.wiki/Ravager%27s_Mark`],
+    wikiLinks: [`https://remnant.wiki/Ravager's_Mark`],
   },
   {
     category: 'amulet',
@@ -786,7 +786,7 @@ export const amuletItems: AmuletItem[] = [
     dlc: 'dlc2',
     tags: ['All Damage'],
     description: `After not using the primary fire of a weapon for 10s. All Damage is increased by 25%. Primary fire of a weapon instantly cancels the effect.`,
-    wikiLinks: [`https://remnant.wiki/Stoneshaper%27s_Chisel`],
+    wikiLinks: [`https://remnant.wiki/Stoneshaper's_Chisel`],
   },
   {
     category: 'amulet',
