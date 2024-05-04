@@ -4,6 +4,29 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-05-04
+
+### Added
+
+- Added `Heal` and `Lifesteal` tokens to Way of Meidra skill.
+- Added `Critical Chance` and `Critical Damage` tokens to Way of Lydusa skill.
+
+### Changed
+
+- Adjusted the colors and text of many tokens used in the item descriptions.
+- Adjusted the placeholder text for build descriptions to inform the user about using tokens.
+
+### Fixed
+
+- Fixed Sandstorm mod description.
+- Fixed Way of Kaeula skill description.
+- Fixed Way of Meidra skill description.
+- Fixed Dervish mutator description.
+- Fixed Disengage mutator description.
+- Fixed Executor mutator description.
+- Fixed Extender mutator description.
+- Fixed all broken wiki links
+
 ## 2024-05-03
 
 ### Added

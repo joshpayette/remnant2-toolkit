@@ -105,7 +105,7 @@ export const weaponItems: WeaponItem[] = [
     id: '59oddb',
     dlc: 'base',
     description: `A classic Tommy Gun with large ammo capacity and a slow reload. Poor initial accuracy which improves while holding down the trigger.`,
-    wikiLinks: [`hhttps://remnant.wiki/Chicago_Typewriter`],
+    wikiLinks: [`https://remnant.wiki/Chicago_Typewriter`],
     damage: 10,
     rps: 11,
     magazine: 80,
@@ -1027,6 +1027,7 @@ export const weaponItems: WeaponItem[] = [
     crit: 5,
     weakspot: 95,
     stagger: 3,
+    wikiLinks: [`https://remnant.wiki/Crystal_Staff`],
     linkedItems: {
       mod: {
         name: 'Power Stone',

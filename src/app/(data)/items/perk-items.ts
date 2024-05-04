@@ -629,7 +629,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     Upgrade unlocked at level 8
     Picking up Scrap or Metals also has a 15% chance to award Ammo to the ALCHEMIST
     `,
-    wikiLinks: [`https://remnant.wiki/Gold_to_Lead`],
+    wikiLinks: [`https://remnant.wiki/Gold_To_Lead`],
     linkedItems: {
       archetype: {
         name: 'Alchemist',
