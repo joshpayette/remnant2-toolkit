@@ -6,17 +6,21 @@ import { Link } from '@/app/(components)/_base/link'
 import { ItemButton } from '@/app/(components)/buttons/item-button'
 import { ItemInfoDialog } from '@/app/(components)/dialogs/item-info-dialog'
 import { ItemSelectDialog } from '@/app/(components)/dialogs/item-select-dialog'
+import {
+  DEFAULT_TRAIT_AMOUNT,
+  MAX_BUILD_TAGS,
+} from '@/app/(data)/builds/constants'
 import { perkItems } from '@/app/(data)/items/perk-items'
+import { Item } from '@/app/(data)/items/types'
 import { TraitItem } from '@/app/(data)/items/types/TraitItem'
 import { FeaturedBuildBadge } from '@/features/build/components/build-card/FeaturedBuildBadge'
 import { NewBuildBadge } from '@/features/build/components/build-card/NewBuildBadge'
 import { PopularBuildBadge } from '@/features/build/components/build-card/PopularBuildBadge'
-import {
-  DEFAULT_TRAIT_AMOUNT,
-  MAX_BUILD_TAGS,
-} from '@/features/build/constants'
 import { formatUpdatedAt } from '@/features/build/lib/formatUpdatedAt'
-import { getArchetypeComboName } from '@/features/build/lib/getArchetypeComboName'
+import {
+  ArchetypeName,
+  getArchetypeComboName,
+} from '@/features/build/lib/getArchetypeComboName'
 import { getArrayOfLength } from '@/features/build/lib/getArrayOfLength'
 import { getConcoctionSlotCount } from '@/features/build/lib/getConcoctionSlotCount'
 import { getItemListForSlot } from '@/features/build/lib/getItemListForSlot'
@@ -24,7 +28,6 @@ import { isBuildNew } from '@/features/build/lib/isBuildNew'
 import { isBuildPopular } from '@/features/build/lib/isBuildPopular'
 import { stripUnicode } from '@/features/build/lib/stripUnicode'
 import { BuildState, ItemCategory } from '@/features/build/types'
-import { Archetype, Item } from '@/features/items/types'
 import { Logo } from '@/features/ui/Logo'
 import { cn } from '@/lib/classnames'
 
@@ -403,10 +406,10 @@ export function Builder({
               <span>
                 {`${getArchetypeComboName({
                   archetype1:
-                    (buildState.items.archetype[0]?.name.toLowerCase() as Archetype) ||
+                    (buildState.items.archetype[0]?.name.toLowerCase() as ArchetypeName) ||
                     null,
                   archetype2:
-                    (buildState.items.archetype[1]?.name.toLowerCase() as Archetype) ||
+                    (buildState.items.archetype[1]?.name.toLowerCase() as ArchetypeName) ||
                     null,
                 })}`}{' '}
                 Build by{' '}

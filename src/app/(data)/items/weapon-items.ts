@@ -767,7 +767,8 @@ export const weaponItems: WeaponItem[] = [
     dlc: 'dlc2',
     imagePath: '/mainhand/thorn.png',
     id: '13hsqd',
-    description: `Fires homing needles which deal 5 Explosive [E] Damage after sticking for 2s. When 5 needles are stuck in a target at once, BLOWBACK triggers, dealing 50 Explosive [E] Damage instead.`,
+    description: `Fires homing needles which deal 5 Explosive Damage after sticking for 2s. When 5 needles are stuck in a target at once, BLOWBACK triggers, dealing 50 Explosive Damage instead.`,
+    externalTokens: [`Explosive Damage`],
     wikiLinks: [`https://remnant.wiki/Thorn`],
     linkedItems: {
       mod: {
@@ -1233,7 +1234,8 @@ export const weaponItems: WeaponItem[] = [
     imagePath: '/melee/labyrinth_staff.png',
     id: 'gts5dh',
     dlc: 'base',
-    description: `Basic Strikes generate 10% additional Mod Power. Charge Attacks perform an AOE which strikes all enemies within 2m [A], dealing 75 Damage. AOE Damage generates 50% additional Mod Power.`,
+    description: `Basic Strikes generate 10% additional Mod Power. Charge Attacks perform an AOE which strikes all enemies within 2m, dealing 75 Damage. AOE Damage generates 50% additional Mod Power.`,
+    externalTokens: [`Amplitude`],
     wikiLinks: [`https://remnant.wiki/Labyrinth_Staff`],
     damage: 64,
     crit: 8,
@@ -1642,7 +1644,8 @@ export const weaponItems: WeaponItem[] = [
     imagePath: '/offhand/anguish.png',
     dlc: 'dlc1',
     id: 'r2o474',
-    description: `Fires heated bits of molten slag. Can be charged to fire a single explosive rod [E] at the cost of causing damage to the wielder while charging.`,
+    description: `Fires heated bits of molten slag. Can be charged to fire a single explosive rod at the cost of causing damage to the wielder while charging.`,
+    externalTokens: [`Explosive Damage`],
     wikiLinks: [`https://remnant.wiki/Anguish`],
     linkedItems: {
       mod: {
@@ -1714,7 +1717,8 @@ export const weaponItems: WeaponItem[] = [
     imagePath: '/offhand/corrupted_meridian1.png',
     id: 'yw1btj',
     dlc: 'base',
-    description: `Fires rocket that deals AOE damage [E] within 2m. [A] Charging the weapon can load additional rockets.  (Max 3). Cannot Weakspot`,
+    description: `Fires rocket that deals AOE damage within 2m. Charging the weapon can load additional rockets.  (Max 3). Cannot Weakspot`,
+    externalTokens: [`Amplitude`, `Explosive Damage`],
     wikiLinks: [`https://remnant.wiki/Corrupted_Meridian`],
     linkedItems: {
       mod: {
@@ -1868,7 +1872,8 @@ export const weaponItems: WeaponItem[] = [
     imagePath: '/offhand/enigma.png',
     id: 'd06hjq',
     dlc: 'base',
-    description: `Fires an electrical stream that jumps to nearby targets within 7.5m [A], dealing 30% reduced damage per jump. Applies OVERLOADED, dealing 30 SHOCK damage every 5 seconds for 5.2s.`,
+    description: `Fires an electrical stream that jumps to nearby targets within 7.5m, dealing 30% reduced damage per jump. Applies OVERLOADED, dealing 30 SHOCK damage every 5 seconds for 5.2s.`,
+    externalTokens: [`Amplitude`],
     wikiLinks: [`https://remnant.wiki/Enigma`],
     linkedItems: {
       mod: {
@@ -1919,7 +1924,8 @@ export const weaponItems: WeaponItem[] = [
     imagePath: '/offhand/meridian.png',
     id: '1ziutf',
     dlc: 'base',
-    description: `Fires volatile grenades that explode [E] on direct contact with enemies and deal AOE damage within 4m. [A] Dormant grenades eventually explode and can also be shot to detonate early.`,
+    description: `Fires volatile grenades that explode on direct contact with enemies and deal AOE damage within 4m. Dormant grenades eventually explode and can also be shot to detonate early.`,
+    externalTokens: [`Amplitude`, `Explosive Damage`],
     wikiLinks: [`https://remnant.wiki/Meridian`],
     linkedItems: {
       mod: {
@@ -2157,7 +2163,8 @@ export const weaponItems: WeaponItem[] = [
     imagePath: '/offhand/star_shot.png',
     id: 'tldnuq',
     dlc: 'base',
-    description: `Fires a fast moving projectile which explodes [E] on contact. Explosion has no damage falloff. [A]`,
+    description: `Fires a fast moving projectile which explodes on contact. Explosion has no damage falloff.`,
+    externalTokens: [`Amplitude`, `Explosive Damage`],
     wikiLinks: [`https://remnant.wiki/Star_Shot`],
     linkedItems: {
       mod: {

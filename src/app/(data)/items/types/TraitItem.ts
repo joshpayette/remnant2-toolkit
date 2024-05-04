@@ -1,8 +1,8 @@
 import { BuildItems } from '@prisma/client'
 
-import { DEFAULT_TRAIT_AMOUNT } from '@/features/build/constants'
+import { DEFAULT_TRAIT_AMOUNT } from '@/app/(data)/builds/constants'
+import { Item } from '@/app/(data)/items/types'
 
-import { Item } from '../../../../features/items/types'
 import { archetypeItems } from '../archetype-items'
 import { traitItems } from '../trait-items'
 import { BaseItem } from './BaseItem'

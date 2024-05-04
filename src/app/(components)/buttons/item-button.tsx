@@ -3,14 +3,27 @@
 import Image from 'next/image'
 
 import { Enemy, isEnemy } from '@/app/(data)/enemies/types'
-import { Item } from '@/features/items/types'
+import { Item } from '@/app/(data)/items/types'
 import { Tooltip } from '@/features/ui/Tooltip'
 import { cn } from '@/lib/classnames'
 
-import {
-  MANUAL_ITEM_NAME_BREAKS,
-  MANUAL_ITEM_NAME_TEXT_TRANSFORMS,
-} from '../../../features/items/constants'
+/**
+ * Some words are too long to fit in the item label on the builder
+ * and need to be manually broken up
+ */
+const MANUAL_ITEM_NAME_BREAKS: Array<{ name: string; break: string }> = [
+  { name: 'Hyperconductor', break: 'Hyper-conductor' },
+  { name: 'Microcompressor', break: 'Micro-compressor' },
+]
+
+/**
+ * Some labels are too long to fit the label, but can't be broken up
+ * and need to be manually transformed to a smaller text size
+ */
+const MANUAL_ITEM_NAME_TEXT_TRANSFORMS: Array<{
+  name: string
+  transform: string
+}> = [{ name: "Nightweaver's Grudge", transform: 'text-[9px]' }]
 
 type Props = {
   isToggled?: boolean

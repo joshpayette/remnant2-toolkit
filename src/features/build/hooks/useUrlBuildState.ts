@@ -19,7 +19,7 @@ import { WeaponItem } from '@/app/(data)/items/types/WeaponItem'
 import { BuildState } from '@/features/build/types'
 import { itemCategories } from '@/features/items/lib/getItemCategories'
 
-import { INITIAL_BUILD_STATE } from '../constants'
+import { INITIAL_BUILD_STATE } from '../../../app/(data)/builds/constants'
 import { buildStateToCsvData } from '../lib/buildStateToCsvData'
 import { buildStateToMasonryItems } from '../lib/buildStateToMasonryItems'
 import { cleanUpBuildState } from '../lib/cleanUpBuildState'

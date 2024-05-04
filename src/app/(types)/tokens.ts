@@ -1,114 +1,6 @@
-import { ItemTag } from './types'
+import { ARCHTYPE_COLORS } from '@/app/(data)/items/constants'
 
-/**
- * The max size a profile.sav import can be (in kilobytes)
- */
-export const MAX_PROFILE_SAV_SIZE = 250
-
-/**
- * Some words are too long to fit in the item label on the builder
- * and need to be manually broken up
- */
-export const MANUAL_ITEM_NAME_BREAKS: Array<{ name: string; break: string }> = [
-  { name: 'Hyperconductor', break: 'Hyper-conductor' },
-  { name: 'Microcompressor', break: 'Micro-compressor' },
-]
-
-/**
- * Some labels are too long to fit the label, but can't be broken up
- * and need to be manually transformed to a smaller text size
- */
-export const MANUAL_ITEM_NAME_TEXT_TRANSFORMS: Array<{
-  name: string
-  transform: string
-}> = [{ name: "Nightweaver's Grudge", transform: 'text-[9px]' }]
-
-export const ARCHTYPE_COLORS = {
-  ALCHEMIST: {
-    bg: 'bg-[#102a22]',
-    text: 'text-[#10a880]',
-  },
-  ARCHON: {
-    bg: 'bg-[#102730]',
-    text: 'text-[#56a9c6]',
-  },
-  CHALLENGER: {
-    bg: 'bg-[#373029]',
-    text: 'text-[#af9c94]',
-  },
-  ENGINEER: {
-    bg: 'bg-[#26315a]',
-    text: 'text-[#b2bee9]',
-  },
-  EXPLORER: {
-    bg: 'bg-[#2f3c1f]',
-    text: 'text-[#67c47c]',
-  },
-  GUNSLINGER: {
-    bg: 'bg-[#3f1818]',
-    text: 'text-[#de6966]',
-  },
-  HANDLER: {
-    bg: 'bg-[#545520]',
-    text: 'text-[#fffc9f]',
-  },
-  HUNTER: {
-    bg: 'bg-[#392217]',
-    text: 'text-[#e17963]',
-  },
-  INVADER: {
-    bg: 'bg-[#362136]',
-    text: 'text-[#eaa8ee]',
-  },
-  INVOKER: {
-    bg: 'bg-[#212628]',
-    text: 'text-[#b2cad4]', 
-  },
-  MEDIC: {
-    bg: 'bg-[#0f3021]',
-    text: 'text-[#8bc0aa]',
-  },
-  SUMMONER: {
-    bg: 'bg-[#2c221a]',
-    text: 'text-[#ba9880]',
-  },
-  RITUALIST: {
-    bg: 'bg-[#251133]',
-    text: 'text-[#bb4fff]',
-  },
-}
-
-export const WEIGHT_CLASSES = {
-  LIGHT: {
-    challengerDescription: 'Fast Dodge. No Stamina Cost Penalty.',
-    description: 'Fast Dodge. No Stamina Cost Penalty.',
-    textColor: 'text-[#89CFF0]',
-    maxWeight: 25,
-  },
-  MEDIUM: {
-    challengerDescription:
-      'Normal Dodge. 12.5% Stamina Cost Penalty due to Powerlifter perk.',
-    description: 'Normal Dodge. 25% Stamina Cost Penalty.',
-    textColor: 'text-[#98FB98]',
-    maxWeight: 50,
-  },
-  HEAVY: {
-    challengerDescription:
-      'Slow Dodge. 25% Stamina Cost Penalty due to Powerlifter perk.',
-    description: 'Slow Dodge. 50% Stamina Cost Penalty.',
-    textColor: 'text-[#ffff00]',
-    maxWeight: 75,
-  },
-  ULTRA: {
-    challengerDescription:
-      'FLOP. 36% Stamina Cost Penalty due to Powerlifter perk.',
-    description: 'FLOP. 75% Stamina Cost Penalty.',
-    textColor: 'text-[#ff0000]',
-    maxWeight: -1,
-  },
-} as const
-
-export const DESCRIPTION_TAGS = [
+export const INLINE_TOKENS = [
   {
     type: 'Acid',
     token: 'ACID',
@@ -121,12 +13,7 @@ export const DESCRIPTION_TAGS = [
     color: ARCHTYPE_COLORS.ALCHEMIST.text,
     description: undefined,
   },
-  {
-    type: 'Amplitude',
-    token: '[A]',
-    color: 'text-[#66ffcc]',
-    description: 'This effect benefits from Amplitude trait.',
-  },
+
   {
     type: 'Archon',
     token: 'ARCHON',
@@ -255,16 +142,11 @@ export const DESCRIPTION_TAGS = [
     description: undefined,
   },
   {
-    type: 'Explosive Damage',
-    token: '[E]',
-    color: 'text-[#ff7575]',
-    description: 'Counts as Explosive Damage.',
-  },
-  {
     type: 'EXPOSED',
     token: 'EXPOSED',
     color: 'text-yellow-100',
-    description: 'Target receives up to 15% additional damage from all sources.',
+    description:
+      'Target receives up to 15% additional damage from all sources.',
   },
   {
     type: 'Fire',
@@ -325,7 +207,8 @@ export const DESCRIPTION_TAGS = [
     type: 'Lifesteal',
     token: 'Lifesteal',
     color: 'text-rose-500',
-    description: "Unupgraded Base Damage only. Doesn't work with Healing Effectiveness.",
+    description:
+      "Unupgraded Base Damage only. Doesn't work with Healing Effectiveness.",
   },
   {
     type: 'Madness',
@@ -345,19 +228,6 @@ export const DESCRIPTION_TAGS = [
     token: 'MEDIC',
     color: ARCHTYPE_COLORS.MEDIC.text,
     description: undefined,
-  },
-  {
-    type: 'Multiplicative',
-    token: '[M]',
-    color: 'text-orange-300',
-    description: 'Damage is multiplicative with different sources of damage.',
-  },
-  {
-    type: 'Multiplicative Debuffs',
-    token: '[MD]',
-    color: 'text-red-400',
-    description:
-      'Counts as a debuff making it multiplicative with different sources of damage.',
   },
   {
     type: 'OPPORTUNITY',
@@ -483,8 +353,38 @@ export const DESCRIPTION_TAGS = [
   color: string
   description: string | undefined
 }[]
+export type InlineToken = (typeof INLINE_TOKENS)[number]
 
-export const ITEM_TAGS: ItemTag[] = [
+export const EXTERNAL_TOKENS = [
+  {
+    token: 'Amplitude',
+    color: 'text-[#66ffcc]',
+    description: 'This effect benefits from Amplitude trait.',
+  },
+  {
+    token: 'Explosive Damage',
+    color: 'text-[#ff7575]',
+    description: 'Counts as Explosive Damage.',
+  },
+  {
+    token: 'Multiplicative',
+    color: 'text-orange-300',
+    description: 'Damage is multiplicative with different sources of damage.',
+  },
+  {
+    token: 'Multiplicative Debuffs',
+    color: 'text-red-400',
+    description:
+      'Counts as a debuff making it multiplicative with different sources of damage.',
+  },
+] as const satisfies {
+  token: string
+  color: string
+  description: string | undefined
+}[]
+export type ExternalToken = (typeof EXTERNAL_TOKENS)[number]
+
+export const ITEM_TOKENS = [
   'Ammo Reserves', // Only plural one due to wording in game
   'All Damage',
   'Armor Increase',
@@ -492,6 +392,7 @@ export const ITEM_TAGS: ItemTag[] = [
   'Charged Melee',
   'Charged Shot',
   'Concoction',
+  'Consumable',
   'Critical Chance',
   'Critical Damage',
   'Critical Hit',
@@ -500,6 +401,7 @@ export const ITEM_TAGS: ItemTag[] = [
   'Encumbrance',
   'Firearm Swap Speed',
   'Fire Rate',
+  'Grenade',
   'Grey Health',
   'Hardcore Reward',
   'Heal',
@@ -525,7 +427,7 @@ export const ITEM_TAGS: ItemTag[] = [
   'Mod Power',
   'Movement Speed',
   'Neutral Backdash',
-  'Neutral Dodge', // TODO Probably merge these 3 into one tag
+  'Neutral Dodge', // TODO Probably merge these 3 into one token
   'Perfect Dodge',
   'Perfect Neutral Evade',
   'Projectile Speed',
@@ -548,4 +450,5 @@ export const ITEM_TAGS: ItemTag[] = [
   'Weakspot Damage',
   'Weakspot Hit',
   'Weapon Damage',
-]
+] as const satisfies string[]
+export type ItemToken = (typeof ITEM_TOKENS)[number]

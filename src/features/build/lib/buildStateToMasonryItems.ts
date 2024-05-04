@@ -1,11 +1,11 @@
 import { perkItems } from '@/app/(data)/items/perk-items'
+import { Item } from '@/app/(data)/items/types'
 import { ArchetypeItem } from '@/app/(data)/items/types/ArchetypeItem'
 import { MutatorItem } from '@/app/(data)/items/types/MutatorItem'
 import { RelicFragmentItem } from '@/app/(data)/items/types/RelicFragmentItem'
 import { RingItem } from '@/app/(data)/items/types/RingItem'
 import { SkillItem } from '@/app/(data)/items/types/SkillItem'
 import { WeaponItem } from '@/app/(data)/items/types/WeaponItem'
-import { Item } from '@/features/items/types'
 
 import { BuildState } from '../types'
 import { getArrayOfLength } from './getArrayOfLength'

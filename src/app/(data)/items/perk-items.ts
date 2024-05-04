@@ -148,7 +148,7 @@ Using a Relic extends the duration of any active HUNTER Skill by 10s. Effect deg
     dlc: 'base',
     tags: ['Ranged Damage', 'Skill Damage', 'Critical Chance'],
     description: `
-    Gain 3% Ranged, Melee, and Skill Damage while Companion is within 40m [A] of the HANDLER. Damage increases with HANDLER Level.
+    Gain 3% Ranged, Melee, and Skill Damage while Companion is within 40m of the HANDLER. Damage increases with HANDLER Level.
     
     Upgrade Unlocked at level 5
     Gain 18% Ranged, Melee, and Skill Damage and 5% Ranged, Melee, and Skill Critical Chance while Companion is active and within 40m of the Handler. Damage increases with HANDLER level.
@@ -157,6 +157,7 @@ Using a Relic extends the duration of any active HUNTER Skill by 10s. Effect deg
     Gain 30% Ranged, Melee, and Skill Damage and 5% Ranged, Melee, and Skill Critical Chance while Companion is active and within 40m of the Handler. Damage increases with HANDLER level.
     `,
     wikiLinks: [`https://remnant.wiki/Pack_Hunter`],
+    externalTokens: [`Amplitude`],
     linkedItems: {
       archetype: {
         name: 'Handler',
@@ -172,11 +173,12 @@ Using a Relic extends the duration of any active HUNTER Skill by 10s. Effect deg
     dlc: 'base',
     tags: ['Movement Speed', 'Stamina'],
     description: `
-    Increases Movement Speed by 10%. All allies within 10m [A] of the HANDLER gain the HANDLER's Movement Speed (if faster).
+    Increases Movement Speed by 10%. All allies within 10m of the HANDLER gain the HANDLER's Movement Speed (if faster).
 
     Upgrade unlocked at level 7
     Increases Movement Speed by 10%. All allies within 10m of the HANDLER gain the HANDLER's Movement Speed (if faster). Reduces the Stamina Cost of actions for allies by 15%.`,
     wikiLinks: [`https://remnant.wiki/Spirit_of_the_Wolf`],
+    externalTokens: [`Amplitude`],
     linkedItems: {
       archetype: {
         name: 'Handler',
@@ -494,8 +496,9 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     After activating a CHALLENGER Skill, enemies within 10m deal 10% less damage for 15s. 
 
     Upgrade unlocked at level 7
-    After activating a CHALLENGER Skill, enemies within 10m [A] deal 10% less damage for 15s, with an additional 2.5% damage reduction per enemy affected. (Max 10%)`,
+    After activating a CHALLENGER Skill, enemies within 10m deal 10% less damage for 15s, with an additional 2.5% damage reduction per enemy affected. (Max 10%)`,
     wikiLinks: [`https://remnant.wiki/Intimidating_Presence`],
+    externalTokens: [`Amplitude`],
     linkedItems: {
       archetype: {
         name: 'Challenger',
@@ -826,7 +829,8 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     Heavy Weapons grant 15% Damage Reduction to all allies within 2.5m.
     
     Upgrade unlocked at level 7
-    Heavy Weapons grant 15% Damage Reduction and gradually restore Ammo to allies within 2.5m. [A]`,
+    Heavy Weapons grant 15% Damage Reduction and gradually restore Ammo to allies within 2.5m.`,
+    externalTokens: [`Amplitude`],
     wikiLinks: [`https://remnant.wiki/Magnetic_Field`],
     linkedItems: {
       archetype: {
@@ -1128,14 +1132,15 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
       'Melee Critical Chance',
     ],
     description: `
-    Grants a 3.5% increase to Mod, Skill, and Explosive Damage [E]. Damage increases with Summoner Level.
+    Grants a 3.5% increase to Mod, Skill, and Explosive Damage. Damage increases with Summoner Level.
     
     Upgrade Unlocked at level 5
-    Grants a 17.5% increase to Mod, Skill, and Explosive Damage [E], and 5% Mod, Skill, and Explosive Critical Chance. Damage increases with Summoner Level.  
+    Grants a 17.5% increase to Mod, Skill, and Explosive Damage, and 5% Mod, Skill, and Explosive Critical Chance. Damage increases with Summoner Level.  
       
     Upgrade Unlocked at level 10
-    Grants a 35% increase to Mod, Skill, and Explosive Damage [E], and 5% Mod, Skill, and Explosive Critical Chance. Damage increases with Summoner Level.
+    Grants a 35% increase to Mod, Skill, and Explosive Damage, and 5% Mod, Skill, and Explosive Critical Chance. Damage increases with Summoner Level.
     `,
+    externalTokens: [`Explosive Damage`],
     wikiLinks: [`https://remnant.wiki/Dominator`],
     linkedItems: {
       archetype: {
@@ -1211,7 +1216,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     tags: ['Status Effect'],
     description: `
     Negative Status Effects applied by RITUALIST inflict Infected.
-    Infected: Victim receives 5% more Status Effect damage, On death, spreads all statuses to nearby enemies within 5m. [A]
+    Infected: Victim receives 5% more Status Effect damage, On death, spreads all statuses to nearby enemies within 5m.
     
     Upgraded at Level 5
     Infected: Victim receives 10% more Status Effect damage. On death, spreads
@@ -1220,6 +1225,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     Upgraded at level 10
     Infected: Victim receives 15% more Status Effect damage. On death, spreads
     all statuses to nearby enemies within 15m.`,
+    externalTokens: [`Amplitude`],
     wikiLinks: [`https://remnant.wiki/Vile`],
     linkedItems: {
       archetype: {

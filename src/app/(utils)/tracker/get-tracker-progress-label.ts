@@ -1,5 +1,5 @@
+import { Item } from '@/app/(data)/items/types'
 import { getDiscoveredCount } from '@/app/(utils)/tracker/get-discovered-count'
-import { Item } from '@/features/items/types'
 
 export function getTrackerProgressLabel({
   discoveredItemIds,

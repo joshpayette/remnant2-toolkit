@@ -1,11 +1,11 @@
 import { armorItems } from '@/app/(data)/items/armor-items'
+import { WEIGHT_CLASSES } from '@/app/(data)/items/constants'
 import { ArmorItem } from '@/app/(data)/items/types/ArmorItem'
 import { getTotalArmor } from '@/features/build/lib/get-totals/getTotalArmor'
 import { getTotalResistances } from '@/features/build/lib/get-totals/getTotalResistances'
 import { getTotalWeight } from '@/features/build/lib/get-totals/getTotalWeight'
 import { getWeightThreshold } from '@/features/build/lib/get-totals/getWeightThreshold'
 import { BuildState } from '@/features/build/types'
-import { WEIGHT_CLASSES } from '@/features/items/constants'
 
 import { ArmorSuggestion } from '../types'
 

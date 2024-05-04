@@ -301,10 +301,11 @@ export const mutatorItems: MutatorItem[] = [
     imagePath: '/mutator/kill_switch.png',
     id: 'rzfptj',
     dlc: 'base',
-    description: `Switching to this weapon creates an Explosive Burst [E] which deals 50 Damage to all enemies within 7m. [A]
+    description: `Switching to this weapon creates an Explosive Burst which deals 50 Damage to all enemies within 7m.
     
     Can only happen once every 10s.`,
     maxLevelBonus: `This weapon's kills with any Explosive Damage reduce Kill Switch cooldown by 1s`,
+    externalTokens: [`Amplitude`, `Explosive Damage`],
     wikiLinks: [`https://remnant.wiki/Kill_Switch`],
   },
   {
@@ -403,11 +404,8 @@ export const mutatorItems: MutatorItem[] = [
     id: 'mjzb0f',
     dlc: 'base',
     tags: ['Melee Critical Hit', 'Critical Hit', 'Critical Chance'],
-    // TODO Check this; `reworked base effect to scale with level`
-    // TODO Check this; `changed duration of base effect to be static`
-    // TODO Check this; `removed critical damage from Base Effect`
-    description: `Melee Critical Hits increase Melee Critical Chance by 5% for 7.5s. stacking up to 5 times.`,
-    maxLevelBonus: `Melee Critical Strikes deal 20% additional damage.`,
+    description: `Melee Critical Hits increase Melee Critical Chance by 2% - 5% for 10s. stacking up to 5 times.`,
+    maxLevelBonus: `Melee Critical Strikes deal 25% additional damage.`,
     wikiLinks: [`https://remnant.wiki/Overdrive`],
   },
   {
@@ -419,7 +417,8 @@ export const mutatorItems: MutatorItem[] = [
     dlc: 'dlc2',
     tags: ['Mod Damage', 'Ranged Damage', 'Stagger'],
     description: `Increases this weapon's Ranged and Mod Damage by 5% to enemies within 7m.`,
-    maxLevelBonus: `Level 10: Activating this weapon's Mod triggers a fixed 7m blast, dealing 50 [E] Explosive Damage per 100 Mod Power spent in a single cast. Inflicts 1.5 Stagger Damage.`,
+    maxLevelBonus: `Level 10: Activating this weapon's Mod triggers a fixed 7m blast, dealing 50 Explosive Damage per 100 Mod Power spent in a single cast. Inflicts 1.5 Stagger Damage.`,
+    externalTokens: [`Explosive Damage`],
     wikiLinks: [`https://remnant.wiki/Pressure_Point`],
   },
   {
@@ -513,9 +512,9 @@ export const mutatorItems: MutatorItem[] = [
     id: '7js906',
     dlc: 'base',
     tags: ['Charged Melee'],
-    // TODO Check this; hit requirement 5 -> 3
-    description: `Empowers weapon after 3 hits. While empowered. the next Charged Melee hit strikes all enemies within 10m [A] with SHOCK Damage.`,
-    maxLevelBonus: `The SHOCK Damage now applies OVERLOADED dealing 125 damage over 5s over 25s.`,
+    description: `Empowers weapon after 3 hits. While empowered. the next Charged Melee Hit strikes all enemies within 7m with 50 - 100 SHOCK Damage.`,
+    maxLevelBonus: `The SHOCK Damage now applies OVERLOADED dealing 125 damage every 5s over 25s.`,
+    externalTokens: [`Amplitude`],
     wikiLinks: [`https://remnant.wiki/Shocker`],
   },
   {
@@ -670,7 +669,8 @@ export const mutatorItems: MutatorItem[] = [
     dlc: 'base',
     tags: ['Ranged Damage', 'Status Effect'],
     description: `Increase this weapon's Ranged damage by 5% to enemies inflicted with SLOW status.`,
-    maxLevelBonus: `Mod Use applies SLOW status on all enemies within 10m [A] for 5s. Can only happen once every 10s.`,
+    maxLevelBonus: `Mod Use applies SLOW status on all enemies within 10m for 5s. Can only happen once every 10s.`,
+    externalTokens: [`Amplitude`],
     wikiLinks: [`https://remnant.wiki/Timewave`],
   },
   {

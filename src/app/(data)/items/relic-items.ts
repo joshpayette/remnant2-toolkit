@@ -203,7 +203,8 @@ export const relicItems: RelicItem[] = [
     imagePath: '/relic/tormented_heart.png',
     id: 'rtmajx',
     dlc: 'base',
-    description: `Innate 25% Use Speed bonus. On use, deals 420 Explosive damage [E] to enemies within 10m [A] and Lifesteals 20% of damage dealt.`,
+    description: `Innate 25% Use Speed bonus. On use, deals 420 Explosive damage to enemies within 10m and Lifesteals 20% of damage dealt.`,
+    externalTokens: [`Amplitude`, `Explosive Damage`],
     wikiLinks: [`https://remnant.wiki/Tormented_Heart`],
   },
   {

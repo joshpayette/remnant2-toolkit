@@ -2,13 +2,12 @@ import { ReactNode } from 'react'
 import reactStringReplace from 'react-string-replace'
 import { v4 as uuidv4 } from 'uuid'
 
+import { allItems } from '@/app/(data)/items/all-items'
+import { EXTERNAL_TOKENS, INLINE_TOKENS } from '@/app/(types)/tokens'
 import { ALL_BUILD_TAGS } from '@/features/build/build-tags/constants'
 import { stripUnicode } from '@/features/build/lib/stripUnicode'
 import { Tooltip } from '@/features/ui/Tooltip'
 import { cn } from '@/lib/classnames'
-
-import { allItems } from '../../app/(data)/items/all-items'
-import { DESCRIPTION_TAGS } from '../items/constants'
 
 function parseStringForToken(
   input: string,
@@ -19,9 +18,12 @@ function parseStringForToken(
   const escapeRegExp = (string: string) =>
     string.replace(/[.*+\-?^${}()|[\]\\]/g, '\\$&') // $& means the whole matched string
 
-  // Start with all Description Tags, which are always included
+  // Start with all description tokens, which are always included
   const allDescriptionTokens: string[] = [
-    ...DESCRIPTION_TAGS.map((tag) => tag.token).sort(
+    ...INLINE_TOKENS.map((tag) => tag.token).sort(
+      (a, b) => b.length - a.length,
+    ), // Sort in descending order of length,
+    ...EXTERNAL_TOKENS.map((tag) => tag.token).sort(
       (a, b) => b.length - a.length,
     ), // Sort in descending order of length,
   ]
@@ -34,27 +36,47 @@ function parseStringForToken(
     input,
     allDescriptionTokensRegex,
     (match, i) => {
-      const tag = DESCRIPTION_TAGS.find((tag) => tag.token === match)
-      if (!tag) return match
+      const inlineToken = INLINE_TOKENS.find((tag) => tag.token === match)
+      const externalToken = EXTERNAL_TOKENS.find((tag) => tag.token === match)
+
       const key = uuidv4()
-      if (tag.description) {
-        return (
-          <Tooltip key={key} content={tag.description}>
-            {/** not changing this to new button */}
-            <button
-              className={cn('font-semibold', tag.color)}
-              aria-label={tag.description}
-            >
-              {tag.token}
-            </button>
-          </Tooltip>
-        )
+
+      if (inlineToken) {
+        if (inlineToken.description) {
+          return (
+            <Tooltip key={key} content={inlineToken.description}>
+              {/** not changing this to new button */}
+              <button
+                className={cn('font-semibold', inlineToken.color)}
+                aria-label={inlineToken.description}
+              >
+                {inlineToken.token}
+              </button>
+            </Tooltip>
+          )
+        } else {
+          return (
+            <span key={key} className={cn('font-semibold', inlineToken.color)}>
+              {inlineToken.token}
+            </span>
+          )
+        }
+      } else if (externalToken) {
+        if (externalToken.description) {
+          return (
+            <Tooltip key={key} content={externalToken.description}>
+              {/** not changing this to new button */}
+              <button
+                className={cn('font-semibold', externalToken.color)}
+                aria-label={externalToken.description}
+              >
+                {externalToken.token}
+              </button>
+            </Tooltip>
+          )
+        }
       } else {
-        return (
-          <span key={key} className={cn('font-semibold', tag.color)}>
-            {tag.token}
-          </span>
-        )
+        return match
       }
     },
   )
@@ -120,7 +142,7 @@ interface Props {
   highlightBuildTags: boolean
 }
 
-export function DescriptionWithTags({
+export function DescriptionWithTokens({
   description,
   highlightItems,
   highlightBuildTags,

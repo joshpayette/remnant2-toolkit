@@ -1,6 +1,7 @@
+import { LinkedItems } from '@/app/(data)/items/types'
 import { ReleaseKey } from '@/app/(data)/releases/types'
 import { ItemLocation } from '@/app/(types)/locations'
-import { ItemTag, LinkedItems } from '@/features/items/types'
+import { ExternalToken, ItemToken } from '@/app/(types)/tokens'
 
 type ItemCategory =
   | 'helm'
@@ -25,7 +26,7 @@ export interface BaseItemProps {
   id: string
   name: string
   category: ItemCategory
-  tags?: ItemTag[]
+  tags?: ItemToken[]
   dlc: ReleaseKey
   imagePath: string
   saveFileSlug?: string
@@ -33,6 +34,7 @@ export interface BaseItemProps {
   location?: ItemLocation
   cooldown?: number
   wikiLinks?: string[]
+  externalTokens?: Array<ExternalToken['token']>
   linkedItems?: LinkedItems
   health?: number
   healthPercent?: number
@@ -70,6 +72,7 @@ export abstract class BaseItem implements BaseItemProps {
   public cooldown?: BaseItemProps['cooldown'] = -1
   public imagePath: BaseItemProps['imagePath'] = ''
   public wikiLinks?: BaseItemProps['wikiLinks'] = []
+  public externalTokens?: BaseItemProps['externalTokens'] = []
   public linkedItems?: BaseItemProps['linkedItems'] = {}
   public saveFileSlug?: BaseItemProps['saveFileSlug'] = ''
   public health?: BaseItemProps['health'] = 0
@@ -102,6 +105,7 @@ export abstract class BaseItem implements BaseItemProps {
     this.cooldown = props.cooldown
     this.imagePath = props.imagePath
     this.wikiLinks = props.wikiLinks
+    this.externalTokens = props.externalTokens
     this.location = props.location
     this.linkedItems = props.linkedItems
     this.saveFileSlug = props.saveFileSlug

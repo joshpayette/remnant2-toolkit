@@ -1,6 +1,7 @@
 import { BuildItems } from '@prisma/client'
 
-import { Item } from '../../../../features/items/types'
+import { Item } from '@/app/(data)/items/types'
+
 import { relicFragmentItems } from '../relic-fragment-items'
 import { BaseItem } from './BaseItem'
 

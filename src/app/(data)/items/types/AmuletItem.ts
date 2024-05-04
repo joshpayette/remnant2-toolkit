@@ -1,7 +1,7 @@
 import { BuildItems } from '@prisma/client'
 
 import { amuletItems } from '@/app/(data)/items/amulet-items'
-import { Item } from '@/features/items/types'
+import { Item } from '@/app/(data)/items/types'
 
 import { BaseItem } from './BaseItem'
 

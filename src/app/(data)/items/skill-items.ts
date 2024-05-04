@@ -7,8 +7,9 @@ export const skillItems: SkillItem[] = [
     imagePath: '/skill/war_stomp.png',
     id: 'qnz5iw',
     dlc: 'base',
-    description: `Creates a high impact tremor that deals 150 damage [E] and additional stagger in a forward cone up to 7.5m. [A] Deals damage in all directions at point blank range. `,
+    description: `Creates a high impact tremor that deals 150 damage and additional stagger in a forward cone up to 7.5m. Deals damage in all directions at point blank range. `,
     cooldown: 50,
+    externalTokens: [`Amplitude`, `Explosive Damage`],
     wikiLinks: [`https://remnant.wiki/War_Stomp`],
     linkedItems: {
       archetype: {
@@ -62,8 +63,9 @@ export const skillItems: SkillItem[] = [
     
     DOUBLE TAP: Companion returns to the HANDLER and remains by their side. 
     
-    HOLD: Howl reduces damage by 15% to all allies within 20m [A] and the Companion generates additional Threat. Lasts 20s.`,
+    HOLD: Howl reduces damage by 15% to all allies within 20m and the Companion generates additional Threat. Lasts 20s.`,
     cooldown: 90,
+    externalTokens: [`Amplitude`],
     wikiLinks: [`https://remnant.wiki/Guard_Dog`],
     linkedItems: {
       archetype: {
@@ -83,8 +85,9 @@ export const skillItems: SkillItem[] = [
     
     DOUBLE TAP: Companion returns to the HANDLER and remains by their side.
     
-    HOLD: Howl grants 2% of Max Health per second and 25% increased Movement Speed to all allies within 20m [A]. Lasts 25s`,
+    HOLD: Howl grants 2% of Max Health per second and 25% increased Movement Speed to all allies within 20m. Lasts 25s`,
     cooldown: 90,
+    externalTokens: [`Amplitude`],
     wikiLinks: [`https://remnant.wiki/Support_Dog`],
     linkedItems: {
       archetype: {
@@ -104,8 +107,9 @@ export const skillItems: SkillItem[] = [
     
     DOUBLE TAP: Companion returns to the HANDLER and remains by their side. 
     
-    HOLD: Howl increases damage by 20% for all allies within 20m [A]. Lasts 20s.`,
+    HOLD: Howl increases damage by 20% for all allies within 20m. Lasts 20s.`,
     cooldown: 90,
+    externalTokens: [`Amplitude`],
     wikiLinks: [`https://remnant.wiki/Attack_Dog`],
     linkedItems: {
       archetype: {
@@ -119,8 +123,9 @@ export const skillItems: SkillItem[] = [
     imagePath: '/skill/wellspring.png',
     id: '7vtxrx',
     dlc: 'base',
-    description: `The MEDIC channels healing energy into their fist, punching a hole in the ground [E] to create a 3m [A] Healing Spring AOE which restores 10.5 Health per second and greatly increases Blight Decay Rate. Lasts 15s.`,
+    description: `The MEDIC channels healing energy into their fist, punching a hole in the ground to create a 3m Healing Spring AOE which restores 10.5 Health per second and greatly increases Blight Decay Rate. Lasts 15s.`,
     cooldown: 60,
+    externalTokens: [`Amplitude`, `Explosive Damage`],
     wikiLinks: [`https://remnant.wiki/Wellspring`],
     linkedItems: {
       archetype: {
@@ -134,8 +139,9 @@ export const skillItems: SkillItem[] = [
     imagePath: '/skill/healing_shield.png',
     id: '8pu6y2',
     dlc: 'base',
-    description: `The MEDIC Quickly expels healing energy to SHIELD all allies within 25m [A] for 100% of their Max Health for 10s. While shielded, allies regenerate 21% of their Max Health over the duration.`,
+    description: `The MEDIC Quickly expels healing energy to SHIELD all allies within 25m for 100% of their Max Health for 10s. While shielded, allies regenerate 21% of their Max Health over the duration.`,
     cooldown: 100,
+    externalTokens: [`Amplitude`],
     wikiLinks: [`https://remnant.wiki/Healing_Shield`],
     linkedItems: {
       archetype: {
@@ -149,9 +155,10 @@ export const skillItems: SkillItem[] = [
     imagePath: '/skill/redemption.png',
     id: 'zs77cb',
     dlc: 'base',
-    description: `The MEDIC unleashes a 30m [A] shockwave that revives downed allies and restores 52.5% Max Health over 10s. For each additional 1s holding the SKILL button, the heal gains an additional 52.5% (up to 210% max)
+    description: `The MEDIC unleashes a 30m shockwave that revives downed allies and restores 52.5% Max Health over 10s. For each additional 1s holding the SKILL button, the heal gains an additional 52.5% (up to 210% max)
     Revived allies will only receive 50% of the healing amount. If revived, allies cannot be revived again by Redemption for another 180s. Resets at Worldstone or on death.`,
     cooldown: 120,
+    externalTokens: [`Amplitude`],
     wikiLinks: [`https://remnant.wiki/Redemption`],
     linkedItems: {
       archetype: {
@@ -250,10 +257,11 @@ export const skillItems: SkillItem[] = [
 
     STONESKIN reduces incoming damage by 25%, reduces Stagger by 1, greatly increases Blight Buildup Decay Rate, and makes the target immune to STATUS Effects. Lasts 15s.
     
-    PRESS: Slam Vial on the ground, creating the effect at the ALCHEMIST's feet [A].
+    PRESS: Slam Vial on the ground, creating the effect at the ALCHEMIST's feet.
     
-    HOLD & RELEASE: Aim and throw the Vial causing the same effect where it lands [A].`,
+    HOLD & RELEASE: Aim and throw the Vial causing the same effect where it lands.`,
     cooldown: 75,
+    externalTokens: [`Amplitude`],
     wikiLinks: [`https://remnant.wiki/Vial:_Stone_Mist`],
     linkedItems: {
       archetype: {
@@ -271,10 +279,11 @@ export const skillItems: SkillItem[] = [
 
     FRENZIED increases Fire Rate, Reload Speed, and Melee Speed by 20%, and Movement Speed by 15%. Lasts 15s.
 
-    PRESS: Slam Vial on the ground, creating the effect at the ALCHEMIST's feet. [A]
+    PRESS: Slam Vial on the ground, creating the effect at the ALCHEMIST's feet.
     
-    HOLD & RELEASE: Aim and throw the Vial causing the same effect where it lands. [A]`,
+    HOLD & RELEASE: Aim and throw the Vial causing the same effect where it lands.`,
     cooldown: 75,
+    externalTokens: [`Amplitude`],
     wikiLinks: [`https://remnant.wiki/Vial:_Frenzy_Dust`],
     linkedItems: {
       archetype: {
@@ -294,10 +303,11 @@ export const skillItems: SkillItem[] = [
     
     Revived allies cannot be affected by Living Will for 180s. Resets at Worldstone or on death.
     
-    PRESS: Slam Vial on the ground, creating the effect at the ALCHEMIST's feet. [A]
+    PRESS: Slam Vial on the ground, creating the effect at the ALCHEMIST's feet.
     
-    HOLD & RELEASE: Aim and throw the Vial causing the same effect where it lands. [A]`,
+    HOLD & RELEASE: Aim and throw the Vial causing the same effect where it lands.`,
     cooldown: 90,
+    externalTokens: [`Amplitude`],
     wikiLinks: [`https://remnant.wiki/Vial:_Elixir_of_Life`],
     linkedItems: {
       archetype: {
@@ -312,9 +322,9 @@ export const skillItems: SkillItem[] = [
     id: 'i3ddi7',
     dlc: 'base',
     tags: ['Status Effect', 'Damage Reduction'],
-    // TODO Check this; `added automatic mod generation while inside Dome` - not sure how that is reflected in description
-    description: `Conjures a 7m [A] protective dome which applies SLOW to any enemy or enemy projectiles. Allies inside gain 25% Damage Reduction. Lasts 15s.`,
+    description: `Conjures a 7m protective dome which applies SLOW to any enemy or enemy projectile. Allies inside gain 25% Damage Reduction and automatically generate 50 Mod Power per second. Lasts 15s.`,
     cooldown: 75,
+    externalTokens: [`Amplitude`],
     wikiLinks: [`https://remnant.wiki/Reality_Rune`],
     linkedItems: {
       archetype: {
@@ -328,11 +338,13 @@ export const skillItems: SkillItem[] = [
     imagePath: '/skill/chaos_gate.png',
     id: '9w7c5j',
     dlc: 'base',
-    // TODO Check this; `damage dealt/taken debuff grants stacks (up to 50x)` - not sure how that is reflected in description
-    // TODO Check this; total damage buff 50% -> 35%
-    // TODO Check this; mod generation bonus 20% -> 5% (this was 25% in previous description, so not sure where the 20% is coming from)
-    description: `Conjures a 7m [A] unstable zone which grants allies a 35% increase to All Damage Dealt and 5% increased Mod Generation while standing inside. Increases allies' damage taken by 15% while inside and for 10s after leaving. Lasts 20s.`,
+    description: `Conjures a 7m unstable zone which grants stacks of UNBRIDLED CHAOS. Lasts 20s.
+    
+    UNBRIDLED CHAOS: Allies gain 0.7% to All Damage dealt and receive 0.3% damage taken. Stacks up to 50 times. Lasts 10s.
+    
+    Having any stacks grants 5% Mod Generation.`,
     cooldown: 85,
+    externalTokens: [`Amplitude`],
     wikiLinks: [`https://remnant.wiki/Chaos_Gate`],
     linkedItems: {
       archetype: {
@@ -346,22 +358,17 @@ export const skillItems: SkillItem[] = [
     imagePath: '/skill/havoc_form.png',
     id: 'y72au6',
     dlc: 'base',
-    // TODO Check this; `increased speed of entering/exiting` - not sure how that is reflected in description
-    // TODO Check this; `cancelling havoc form refunds some skill cooldown` - not sure how that is reflected in description
-    // TODO Check this; `reduced cost of blink` - not sure how that is reflected in description
-    // TODO Check this; `reduced cost of shield` - not sure how that is reflected in description
-    // TODO Check this; `increased base movement speed` - not sure how that is reflected in description
-    // TODO Check this; `increased firing movement speed` - not sure how that is reflected in description
-    // TODO Check this; `enabled momentum to continue during Havoc end` - not sure how that is reflected in description
-    // TODO Check this; `sped up recovery of havoc end (can move/act faster) - not sure how that is reflected in description
-    description: `Unleashes the powers of the  Labyrinth to empower the caster with new abilities. Lasts 30s. Duration is reduced when Havoc Form special abilities are used.
+    description: `Unleashes the power of the Labyrinth to empower the caster with new abilities. Lasts 30s.
 
-    FIRE: Blasts Lightning Tendrils from the ARCHON's hand, dealing 168 SHOCK Damage per second to targets within 15m.
+    Duration is reduced when Havoc Form special abilities are used.
     
-    AIM: Raises a 3m [A] Energy Shield which deals 35 SHOCK damage per second and reduces incoming damage to all allies by 50%. 
+    FIRE: Blasts Lightning Tendrils from the Archon's hand, dealing 160 SHOCK Damage per second to targets within 15m.
     
-    DODGE: Performs a Blink Evade that deals 150 SHOCK damage to enemies within 5m. [A]`,
+    AIM: Raises a 3m Energy Shield which reduces incoming damage to all allies by 50%.
+    
+    DODGE: Performs a Blink Evade that deals 150 SHOCK damage to enemies within 5m.`,
     cooldown: 90,
+    externalTokens: [`Amplitude`],
     wikiLinks: [`https://remnant.wiki/Havoc_Form`],
     linkedItems: {
       archetype: {
@@ -399,18 +406,14 @@ export const skillItems: SkillItem[] = [
     imagePath: '/skill/heavy_weapon_flamethrower.png',
     id: '6fk8ea',
     dlc: 'base',
-    // TODO Check this; `all turrets based critical damage` 110% -> 150% - not sure how that is reflected in description
-    // TODO Check this; `all turrets increased armor` to 50% DR - not sure how that is reflected in description
-    // TODO Check this; `reduced movement speed cap of heavy carry modeds` 200% -> 150% - not sure how that is reflected in description
-    // TODO Check this; `increased burn from 50 over 10s to 150 over 10s` - not sure how that is reflected in description
-    // TODO Check this; `increased ammo cost of turret mode from 10 -> 15` - not sure how that is reflected in description
-    description: `PRESS: Deploys a Flamethrower turret which lasts until its Ammo is exhausted. Turrets that can aim will prioritize targets that the player Aims at. Press SKILL again to enable autonomous targeting. [A]
+    description: `PRESS: Deploys a Flamethrower Turret which lasts until its Ammo is exhausted. Turrets that can aim will prioritize targets that the player Aims at. Press SKILL again to enable autonomous targeting.
 
-    HOLD: Deploys to Heavy Carry Mode. If ENGINEER Prime is available, will Overclock the weapon if already in hand or on the battlefield.
+    HOLD: Deploys to Heavy Carry Mode. If Engineer Prime is available, will Overclock the weapon if already in hand or on the battlefield.
     
-    DOUBLE PRESS: The weapon is reclaimed, returning 75% of its remaining ammo
+    DOUBLE PRESS: The weapon is reclaimed, returning 75% of its remaining Ammo.
     
-    Heavy weapon ammo is regenerated by 1.02% every second, and heavy weapons can only be deployed if at least 25% ammo is available.`,
+    Heavy Weapon Ammo is regenerated by 1.02% every second, and Heavy Weapons can only be deployed if at least 25% Ammo is available.`,
+    externalTokens: [`Amplitude`],
     wikiLinks: [`https://remnant.wiki/Heavy_Weapon:_Flamethrower`],
     linkedItems: {
       archetype: {
@@ -424,16 +427,14 @@ export const skillItems: SkillItem[] = [
     imagePath: '/skill/heavy_weapon_impact_cannon.png',
     id: 'ki92op',
     dlc: 'base',
-    // TODO Check this; `all turrets based critical damage` 110% -> 150% - not sure how that is reflected in description
-    // TODO Check this; `all turrets increased armor` to 50% DR - not sure how that is reflected in description
-    // TODO Check this; `reduced movement speed cap of heavy carry modeds` 200% -> 150% - not sure how that is reflected in description
-    description: `PRESS: Deploys a Impact Cannon Turret [E] which lasts until its Ammo is exhausted. Turrets that can aim will prioritze targets that the player Aims at. Press SKILL again to enable autonomous targeting. [A]
+    description: `PRESS: Deploys a Impact Cannon Turret which lasts until its Ammo is exhausted. Turrets that can aim will prioritize targets that the player Aims at. Press SKILL again to enable autonomous targeting.
 
-    HOLD: Deploys to Heavy Carry Mode. If ENGINEER Prime is available, will Overclock the weapon if already in hand or on the battlefield.
+    HOLD: Deploys to Heavy Carry Mode. If Engineer Prime is available, will Overclock the weapon if already in hand or on the battlefield.
     
-    DOUBLE PRESS: The weapon is reclaimed, returning 75% of its remaining ammo.
+    DOUBLE PRESS: The weapon is reclaimed, returning 75% of its remaining Ammo.
     
-    Heavy weapon ammo is regenerated by 1.02% every second, and heavy weapons can only be deployed if at least 25% ammo is available.`,
+    Heavy Weapon Ammo is regenerated by 1.02% every second, and Heavy Weapons can only be deployed if at least 25% Ammo is available.`,
+    externalTokens: [`Amplitude`],
     wikiLinks: [`https://remnant.wiki/Heavy_Weapon:_Impact_Cannon`],
     linkedItems: {
       archetype: {
@@ -462,10 +463,11 @@ export const skillItems: SkillItem[] = [
     imagePath: '/skill/gold_digger.png',
     id: 'a2cik2',
     dlc: 'base',
-    description: `Dig into the ground to spring a fountain which grants a random buff. Fountains last 45s and their buffs last 20s. [A]
+    description: `Dig into the ground to spring a fountain which grants a random buff. Fountains last 45s and their buff lasts 20s.
 
-    Fountains can grant either: 10% increased damage, 15% damage reduction, 2 Health Regeneration per second, or HASTE.`,
-    cooldown: 44.1,
+    Fountains can grant either: 10% increased All Damage dealt, 15% Damage Reduction, 2 Health Regeneration per second, or HASTE.`,
+    cooldown: 45,
+    externalTokens: [`Amplitude`],
     wikiLinks: [`https://remnant.wiki/Gold_Digger`],
     linkedItems: {
       archetype: {
@@ -615,8 +617,9 @@ export const skillItems: SkillItem[] = [
     // TODO Check this; 40% DR now applied to minion - not sure how that is reflected in description
     description: `PRESS: Summons a Root Hollow Minion to fight by your side. Costs 15% of Max Health to summon, but will not kil SUMMONER. Max (2)
 
-    HOLD: SACRIFICE Root Hollow Minion to explode, dealing 150 damage [E] within 5m. [A] Reduces Skill Cooldown by up to 50% based on remaining Health of each Minion Sacrificed.`,
+    HOLD: SACRIFICE Root Hollow Minion to explode, dealing 150 damage within 5m. Reduces Skill Cooldown by up to 50% based on remaining Health of each Minion Sacrificed.`,
     cooldown: 30,
+    externalTokens: [`Amplitude`, `Explosive Damage`],
     wikiLinks: [`https://remnant.wiki/Minion:_Hollow`],
     tags: ['Reduce Skill Cooldown', 'Summon'],
     linkedItems: {
@@ -631,15 +634,13 @@ export const skillItems: SkillItem[] = [
     imagePath: '/skill/minion_flyer.png',
     id: 'o7pvqx',
     dlc: 'base',
-    // TODO Check this; sacrifice projectiles Skill -> Skill + Explosive. We already tag this, but description may be changed.
-    // TODO Check this; flyer projectile speed reduced - not sure how that is reflected in description
-    // TODO Check this; 40% DR now applied to minion - not sure how that is reflected in description
     description: `Summons a Root Flyer Minion to fight by your side. Costs 10% of Max Health to summon, but will not kill Summoner. Max (2).
 
-    HOLD: SACRIFICE Root Flyer Minions, dealing 50 Damage [E] within 3m [A] and spawning 3 homing projectiles which explode on contact for 150 damage each.
+    HOLD: SACRIFICE Root Flyer Minions, dealing 50 Damage within 3m and spawning 3 homing projectiles which explode on contact for 150 damage each.
     
     Reduces Skill Cooldown by up to 50% based on remaining Health of each Minion Sacrificed.`,
     cooldown: 45,
+    externalTokens: [`Amplitude`, `Explosive Damage`],
     wikiLinks: [`https://remnant.wiki/Minion:_Flyer`],
     linkedItems: {
       archetype: {
@@ -653,13 +654,13 @@ export const skillItems: SkillItem[] = [
     imagePath: '/skill/minion_reaver.png',
     id: 'gs8zdv',
     dlc: 'base',
-    // TODO Check this; 50% DR now applied to minion - not sure how that is reflected in description
-    description: `PRESS: Summons a Root Reaver Minion to fight by your side. Costs 35% of Max Health to summon, but will not kill SUMMONER. Max (1).
+    description: `PRESS: Summons a Root Reaver Minion to fight by your side. Costs 35% of Max Health to summon, but will not kill Summoner. Max (1).
 
-    HOLD: SACRIFICE all Root Reaver Minion, dealing 200 damage [E] within 6m [A] and spawning Spore Bombs which bounce and explode on contact for 200 damage each.
+    HOLD: SACRIFICE Root Reaver Minion, dealing 200 Damage within 6m and spawning Spore Bombs which bounce and explode on contact for 200 damage each.
     
     Reduces Skill Cooldown by up to 50% based on remaining Health of Minion.`,
     cooldown: 120,
+    externalTokens: [`Amplitude`, `Explosive Damage`],
     tags: ['Reduce Skill Cooldown', 'Summon'],
     wikiLinks: [`https://remnant.wiki/Minion:_Reaver`],
     linkedItems: {
@@ -675,11 +676,9 @@ export const skillItems: SkillItem[] = [
     id: 'amqa83',
     dlc: 'base',
     tags: ['Status Effect'],
-    // TODO Check this; `added interaction with slow` - not sure how that is reflected in description
-    // TODO Check this; `no longer requires line of sight to spread Vile` - not sure how that is reflected in description
-    description: `Creates 15m explosion for 150 damage [E] on all enemies within 1m. Explosion Radius and Damage increases 100% for each unique Status Effect on the target. Refreshes all current Status Effects on the target. [A]`,
-    // TODO Check this; cooldown 30s -> 40s
+    description: `Creates 15m explosion for 150 damage on all enemies within 1m. Explosion Radius and Damage increases 100% for each unique Status Effect on the target. Refreshes all current Status Effects on the target.`,
     cooldown: 40,
+    externalTokens: [`Amplitude`, `Explosive Damage`],
     wikiLinks: [`https://remnant.wiki/Eruption`],
     linkedItems: {
       archetype: {
@@ -694,9 +693,9 @@ export const skillItems: SkillItem[] = [
     id: '3er3og',
     dlc: 'base',
     tags: ['Status Effect'],
-    // TODO Check this; base damage 500 -> 300
-    description: `Casts an AOE burst that applies BLEEDING, BURNING, OVERLOADED, and CORRODED to all enemies within 15m [A], and dealing a total of 300 base damage. Lasts 10s.`,
+    description: `Casts an AOE burst that applies BLEEDING, BURNING, OVERLOADED, and CORRODED to all enemies within 15m, and dealing a total 300 base damage. Lasts 10s.`,
     cooldown: 45,
+    externalTokens: [`Amplitude`],
     wikiLinks: [`https://remnant.wiki/Miasma`],
     linkedItems: {
       archetype: {
@@ -747,9 +746,10 @@ export const skillItems: SkillItem[] = [
     id: '7DnBmE',
     dlc: 'dlc2',
     tags: [],
-    description: `Invoke Meidra to heal all allies for 20% Max Health over 1.5s and conjure a 20m [A] Forest Growth for 15s. After fully blooming, allies in the Forest Growth heal 2% Max Health per second and gain 3% of base damage dealt as Lifesteal. Enemies inside Forest Growth gain GLOOM for 10s.
+    description: `Invoke Meidra to heal all allies for 20% Max Health over 1.5s and conjure a 20m Forest Growth for 15s. After fully blooming, allies in the Forest Growth heal 2% Max Health per second and gain 3% of base damage dealt as Lifesteal. Enemies inside Forest Growth gain GLOOM for 10s.
         GLOOM: Increases incoming Elemental damage by 15%.`,
     cooldown: 120,
+    externalTokens: ['Amplitude'],
     wikiLinks: ['https://remnant.wiki/Way_of_Meidra'],
     linkedItems: {
       archetype: {

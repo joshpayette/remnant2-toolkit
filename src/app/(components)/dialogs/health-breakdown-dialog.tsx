@@ -4,11 +4,11 @@ import {
   BaseDialogDescription,
   BaseDialogTitle,
 } from '@/app/(components)/_base/dialog'
+import { Item } from '@/app/(data)/items/types'
 import { TraitItem } from '@/app/(data)/items/types/TraitItem'
 import { ListItem } from '@/features/build/components/builder/stats/ListItem'
 import { Section } from '@/features/build/components/builder/stats/Section'
 import { BuildState } from '@/features/build/types'
-import { Item } from '@/features/items/types'
 
 function getHealthStepLabel(buildState: BuildState, item: TraitItem) {
   const amount =

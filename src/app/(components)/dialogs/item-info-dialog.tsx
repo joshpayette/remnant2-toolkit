@@ -11,6 +11,8 @@ import {
 } from '@/app/(components)/_base/dialog'
 import { Link } from '@/app/(components)/_base/link'
 import { BaseTextLink } from '@/app/(components)/_base/text'
+import { DescriptionWithTokens } from '@/app/(components)/description-with-tokens'
+import { Item } from '@/app/(data)/items/types'
 import { ArchetypeItem } from '@/app/(data)/items/types/ArchetypeItem'
 import { ArmorItem } from '@/app/(data)/items/types/ArmorItem'
 import { ModItem } from '@/app/(data)/items/types/ModItem'
@@ -22,8 +24,6 @@ import { WeaponItem } from '@/app/(data)/items/types/WeaponItem'
 import { itemShareEndpoint } from '@/app/(utils)/clean-item-name'
 import { ArmorInfo } from '@/features/armor-calculator/ArmorInfo'
 import { WeaponInfo } from '@/features/items/components/WeaponInfo'
-import { Item } from '@/features/items/types'
-import { DescriptionWithTags } from '@/features/ui/DescriptionWithTags'
 import { capitalize } from '@/lib/capitalize'
 
 interface Props {
@@ -95,7 +95,7 @@ export function ItemInfoDialog({ open, item, onClose }: Props) {
       <BaseDialogTitle>Description</BaseDialogTitle>
       <BaseDialogBody>
         <span>
-          <DescriptionWithTags
+          <DescriptionWithTokens
             description={item.description || 'No description available.'}
             highlightBuildTags={false}
             highlightItems={false}
@@ -106,7 +106,7 @@ export function ItemInfoDialog({ open, item, onClose }: Props) {
         <div className="flex flex-col items-start justify-start">
           <h4 className="mt-4 text-left text-sm text-white">At Max Level</h4>
           <span>
-            <DescriptionWithTags
+            <DescriptionWithTokens
               description={item.maxLevelBonus || 'No max level bonus found.'}
               highlightBuildTags={false}
               highlightItems={false}

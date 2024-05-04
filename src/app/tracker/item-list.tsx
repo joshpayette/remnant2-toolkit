@@ -18,6 +18,7 @@ import {
   parseUrlFilters,
 } from '@/app/(components)/filters/item-tracker/utils'
 import { DEFAULT_FILTER } from '@/app/(components)/filters/types'
+import { Item } from '@/app/(data)/items/types'
 import { MutatorItem } from '@/app/(data)/items/types/MutatorItem'
 import { WeaponItem } from '@/app/(data)/items/types/WeaponItem'
 import { ALL_TRACKABLE_ITEMS } from '@/app/tracker/constants'
@@ -26,7 +27,6 @@ import {
   ItemTrackerLocalStorage,
 } from '@/app/tracker/types'
 import { ItemCategory } from '@/features/build/types'
-import { Item } from '@/features/items/types'
 import { capitalize } from '@/lib/capitalize'
 import { cn } from '@/lib/classnames'
 

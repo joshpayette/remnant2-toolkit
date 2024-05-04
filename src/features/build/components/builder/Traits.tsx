@@ -2,13 +2,15 @@ import { XCircleIcon } from '@heroicons/react/24/solid'
 import Image from 'next/image'
 import { useState } from 'react'
 
+import {
+  DEFAULT_TRAIT_AMOUNT,
+  MAX_TRAIT_AMOUNT,
+} from '@/app/(data)/builds/constants'
+import { Item } from '@/app/(data)/items/types'
 import { TraitItem } from '@/app/(data)/items/types/TraitItem'
 import { BuildState } from '@/features/build/types'
-import { Item } from '@/features/items/types'
 import { Tooltip } from '@/features/ui/Tooltip'
 import { cn } from '@/lib/classnames'
-
-import { DEFAULT_TRAIT_AMOUNT, MAX_TRAIT_AMOUNT } from '../../constants'
 
 export function Traits({
   buildState,

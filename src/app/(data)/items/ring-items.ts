@@ -217,7 +217,8 @@ export const ringItems: RingItem[] = [
     name: 'Blasting Cap Ring',
     imagePath: '/ring/blasting_cap_ring.png',
     id: 'ep14lr',
-    description: `Increases Explosive damage [E] by 10%.`,
+    description: `Increases Explosive damage by 10%.`,
+    externalTokens: [`Explosive Damage`],
     wikiLinks: [`https://remnant.wiki/Blasting_Cap_Ring`],
     dlc: 'base',
   },
@@ -401,9 +402,10 @@ export const ringItems: RingItem[] = [
     id: 'k89bxd',
     dlc: 'dlc2',
     tags: ['Stagger', 'Grey Health', 'Summon'],
-    description: `When the wearer's Summon enters the battlefield, conjure a 5m [A] Summoning Circle. Allies in the Summoning Circle have their Stagger Level reduced by 1 and regenerates 5 Grey Health per second. Lasts 10s.
+    description: `When the wearer's Summon enters the battlefield, conjure a 5m Summoning Circle. Allies in the Summoning Circle have their Stagger Level reduced by 1 and regenerates 5 Grey Health per second. Lasts 10s.
 
     Can only happen once every 10s after expiring.`,
+    externalTokens: [`Amplitude`],
     wikiLinks: [`https://remnant.wiki/Conjurer%27s_Circle`],
   },
   {
@@ -865,7 +867,8 @@ export const ringItems: RingItem[] = [
     imagePath: '/ring/feedback_loop.png',
     id: 'j13xrf',
     tags: ['Perfect Dodge'],
-    description: `Perfect Dodge triggers a 3m [A] AOE blast that deal 130 SHOCK Damage and applies OVERLOADED.`,
+    description: `Perfect Dodge triggers a 3m AOE blast that deal 130 SHOCK Damage and applies OVERLOADED.`,
+    externalTokens: [`Amplitude`],
     wikiLinks: [`https://remnant.wiki/Feedback_Loop`],
     dlc: 'base',
   },
@@ -966,7 +969,8 @@ export const ringItems: RingItem[] = [
     imagePath: '/ring/guardians_ring.png',
     id: 'yvo3jd',
     tags: ['Damage Reduction'],
-    description: `Adds 1 Stack of BULWARK when within 15m [A] of an enemy. Increases to 2 Stacks for 10s after taking Melee damage.`,
+    description: `Adds 1 Stack of BULWARK when within 15m of an enemy. Increases to 2 Stacks for 10s after taking Melee damage.`,
+    externalTokens: [`Amplitude`],
     wikiLinks: [`https://remnant.wiki/Guardian's_Ring`],
     dlc: 'base',
   },
@@ -1127,7 +1131,8 @@ export const ringItems: RingItem[] = [
     id: 'E7fQdZ',
     dlc: 'dlc2',
     tags: ['Perfect Dodge'],
-    description: `Perfect Dodge triggers a 3m [A] AOE blast that deals 310 Explosive [E] Damage.`,
+    description: `Perfect Dodge triggers a 3m AOE blast that deals 310 Explosive Damage.`,
+    externalTokens: [`Amplitude`, `Explosive Damage`],
     wikiLinks: [`https://remnant.wiki/Mark_of_the_Destroyer`],
   },
   {

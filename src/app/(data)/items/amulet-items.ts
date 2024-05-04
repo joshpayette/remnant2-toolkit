@@ -103,7 +103,8 @@ export const amuletItems: AmuletItem[] = [
     id: 'nm7b6f',
     dlc: 'base',
     tags: ['Status Effect'],
-    description: `Reduces Duration of Elemental Status Effects against wearer by 50%. Relic use cleanses Elemental Status Effects and grants 25% of wearers Max Health to all allies within 20m [A] when cleansed.`,
+    description: `Reduces Duration of Elemental Status Effects against wearer by 50%. Relic use cleanses Elemental Status Effects and grants 25% of wearers Max Health to all allies within 20m when cleansed.`,
+    externalTokens: [`Amplitude`],
     wikiLinks: [`https://remnant.wiki/Cleansing_Stone`],
   },
   {
@@ -240,7 +241,8 @@ export const amuletItems: AmuletItem[] = [
     id: 'c52jp0',
     dlc: 'base',
     tags: ['Status Effect'],
-    description: `Increases Status Effect damage by 20%. Applying a damaging Status Effect creates a 5m [A] Explosion [E] for 20% of the Status Effect's full damage. Each target can be affected once every 5s.`,
+    description: `Increases Status Effect damage by 20%. Applying a damaging Status Effect creates a 5m Explosion for 20% of the Status Effect's full damage. Each target can be affected once every 5s.`,
+    externalTokens: [`Amplitude`, `Explosive Damage`],
     wikiLinks: [`https://remnant.wiki/Energized_Neck_Coil`],
   },
   {
@@ -556,7 +558,8 @@ export const amuletItems: AmuletItem[] = [
     id: '0aaso1',
     dlc: 'base',
     tags: ['Critical Chance', 'Status Effect'],
-    description: `Gain 15% Critical Chance and HASTE when within 20m [A] of an entity suffering from a Status Effect.`,
+    description: `Gain 15% Critical Chance and HASTE when within 20m of an entity suffering from a Status Effect.`,
+    externalTokens: [`Amplitude`],
     wikiLinks: [`https://remnant.wiki/Nightweaver%27s_Grudge`],
   },
   {
@@ -596,7 +599,8 @@ export const amuletItems: AmuletItem[] = [
     id: 'ps6umu',
     dlc: 'base',
     tags: ['Ranged Damage'],
-    description: `Firearm damage adds stacks which increase the damage of stowed firearm by 2% [M] for 15s. Stacks 10x.`, // 100 damage
+    description: `Firearm damage adds stacks which increase the damage of stowed firearm by 2% for 15s. Stacks 10x.`, // 100 damage
+    externalTokens: [`Multiplicative`],
     wikiLinks: [`https://remnant.wiki/Onyx_Pendulum`],
   },
   {
@@ -799,7 +803,8 @@ export const amuletItems: AmuletItem[] = [
     imagePath: '/amulet/toxic_release_valve.png',
     id: 'nevpy5',
     dlc: 'base',
-    description: `Swapping off a Firearm releases a Toxic Cloud, which deals 148.5 ACID damage to all enemies within 7m [A] and applies CORROSION. Can only happen once every 3s.`,
+    description: `Swapping off a Firearm releases a Toxic Cloud, which deals 148.5 ACID damage to all enemies within 7m and applies CORROSION. Can only happen once every 3s.`,
+    externalTokens: [`Amplitude`],
     wikiLinks: [`https://remnant.wiki/Toxic_Release_Valve`],
   },
   {

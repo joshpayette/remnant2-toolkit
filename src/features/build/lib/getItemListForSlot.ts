@@ -1,8 +1,8 @@
 import { allItems } from '@/app/(data)/items/all-items'
+import { Item } from '@/app/(data)/items/types'
 import { ArchetypeItem } from '@/app/(data)/items/types/ArchetypeItem'
 import { MutatorItem } from '@/app/(data)/items/types/MutatorItem'
 import { WeaponItem } from '@/app/(data)/items/types/WeaponItem'
-import { Item } from '@/features/items/types'
 
 import { BuildState, ItemCategory } from '../types'
 

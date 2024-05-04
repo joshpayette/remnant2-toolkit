@@ -1,6 +1,6 @@
+import { WEIGHT_CLASSES } from '@/app/(data)/items/constants'
+import { WeightClass } from '@/app/(data)/items/types'
 import { BuildState } from '@/features/build/types'
-import { WEIGHT_CLASSES } from '@/features/items/constants'
-import { WeightClass } from '@/features/items/types'
 
 import { getTotalWeight } from './getTotalWeight'
 import { getWeightThreshold } from './getWeightThreshold'

@@ -11,6 +11,8 @@ import { useLocalStorage } from 'usehooks-ts'
 
 import { BaseButton } from '@/app/(components)/_base/button'
 import { Link } from '@/app/(components)/_base/link'
+import { DescriptionWithTokens } from '@/app/(components)/description-with-tokens'
+import { Item } from '@/app/(data)/items/types'
 import { ArchetypeItem } from '@/app/(data)/items/types/ArchetypeItem'
 import { ArmorItem } from '@/app/(data)/items/types/ArmorItem'
 import { ModItem } from '@/app/(data)/items/types/ModItem'
@@ -22,10 +24,10 @@ import { WeaponItem } from '@/app/(data)/items/types/WeaponItem'
 import { itemShareEndpoint } from '@/app/(utils)/clean-item-name'
 import { ArmorInfo } from '@/features/armor-calculator/ArmorInfo'
 import { getArrayOfLength } from '@/features/build/lib/getArrayOfLength'
-import getItemBuildStats from '@/features/items/actions/getItemBuildStats'
+import getItemBuildStats, {
+  ItemBuildStats,
+} from '@/features/items/actions/getItemBuildStats'
 import { WeaponInfo } from '@/features/items/components/WeaponInfo'
-import { Item, ItemBuildStats } from '@/features/items/types'
-import { DescriptionWithTags } from '@/features/ui/DescriptionWithTags'
 import { Tooltip } from '@/features/ui/Tooltip'
 import { cn } from '@/lib/classnames'
 
@@ -182,12 +184,19 @@ export function ItemCard({
           {!ArmorItem.isArmorItem(item) && (
             <>
               <div className="sr-only">Description</div>
-              <div className="mt-3 whitespace-pre-line text-left text-xs text-gray-200">
-                <DescriptionWithTags
+              <div className="mt-3 flex flex-col gap-y-2 whitespace-pre-line text-left text-xs text-gray-200">
+                <DescriptionWithTokens
                   description={description ?? ''}
                   highlightBuildTags={false}
                   highlightItems={false}
                 />
+                {item.externalTokens && (
+                  <DescriptionWithTokens
+                    description={item.externalTokens.join(', ')}
+                    highlightBuildTags={false}
+                    highlightItems={false}
+                  />
+                )}
               </div>
             </>
           )}
@@ -195,7 +204,7 @@ export function ItemCard({
           {(MutatorItem.isMutatorItem(item) || TraitItem.isTraitItem(item)) && (
             <div className="mt-3 whitespace-pre-line text-left text-xs text-gray-200">
               <strong>At Max Level: </strong>
-              <DescriptionWithTags
+              <DescriptionWithTokens
                 description={item.maxLevelBonus || 'No max level bonus found.'}
                 highlightBuildTags={false}
                 highlightItems={false}

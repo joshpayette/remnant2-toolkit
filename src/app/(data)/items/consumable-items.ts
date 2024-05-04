@@ -65,7 +65,8 @@ export const consumableItems: ConsumableItem[] = [
     id: 'edaeta',
     dlc: 'base',
     tags: ['Grenade', 'Status Effect'],
-    description: `When thrown, device becomes an anchor and applies SLOW to all enemies within 4m. [A] Lasts 20s.`,
+    description: `When thrown, device becomes an anchor and applies SLOW to all enemies within 4m. Lasts 20s.`,
+    externalTokens: [`Amplitude`],
     wikiLinks: [`https://remnant.wiki/Binding_Orb`],
   },
   {
@@ -75,7 +76,7 @@ export const consumableItems: ConsumableItem[] = [
     tags: ['Grenade'],
     id: 'nrdcko',
     dlc: 'base',
-    description: `When thrown, explodes in a 4m radius dealing 30 damage [E] and creating a puddle lasting 15s which applies TARRED for 30s to creatures inside.
+    description: `When thrown, explodes in a 4m radius dealing 30 damage and creating a puddle lasting 15s which applies TARRED for 30s to creatures inside.
 
     Ranged damage and other FIRE sources ignite TARRED entities, dealing 250 BURNING damage over 10s.`,
     wikiLinks: [`https://remnant.wiki/Black_Tar`],
@@ -97,7 +98,8 @@ export const consumableItems: ConsumableItem[] = [
     id: '937h03',
     dlc: 'base',
     tags: ['Grenade'],
-    description: `When thrown, explodes in a 4m [A] radius dealing 50 damage and leaving a mysterious Mist which causes enemies to receive 10% additional damage. Debuff last 10s after enemies leave the Mist. Lasts 15s.`,
+    description: `When thrown, explodes in a 4m radius dealing 50 damage and leaving a mysterious Mist which causes enemies to receive 10% additional damage. Debuff last 10s after enemies leave the Mist. Lasts 15s.`,
+    externalTokens: [`Amplitude`],
     wikiLinks: [`https://remnant.wiki/Brightstone`],
   },
   {
@@ -215,7 +217,8 @@ export const consumableItems: ConsumableItem[] = [
     id: 'kfwizc',
     dlc: 'base',
     tags: ['Grenade'],
-    description: `When thrown, explodes in a 4m [A] radius dealing 150 damage [E] and applying BLEEDING, which deals an additional 250 BLEED damage over 30s.`,
+    description: `When thrown, explodes in a 4m radius dealing 150 damage and applying BLEEDING, which deals an additional 250 BLEED damage over 30s.`,
+    externalTokens: [`Amplitude`, `Explosive Damage`],
     wikiLinks: [`https://remnant.wiki/Pipe_Bomb`],
   },
   {

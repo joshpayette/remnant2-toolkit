@@ -1,4 +1,4 @@
-import { Item } from '@/features/items/types'
+import { Item } from '@/app/(data)/items/types'
 
 import { amuletItems } from './amulet-items'
 import { archetypeItems } from './archetype-items'
@@ -30,4 +30,4 @@ export const allItems = [
   ...skillItems,
   ...traitItems,
   ...weaponItems,
-] satisfies Item[]
+] as const satisfies Item[]

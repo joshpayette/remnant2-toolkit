@@ -7,7 +7,7 @@ import { getServerSession } from '@/features/auth/lib'
 import { prisma } from '@/features/db'
 import { bigIntFix } from '@/lib/bigIntFix'
 
-import { BUILD_REVALIDATE_PATHS } from '../constants'
+import { BUILD_REVALIDATE_PATHS } from '../../../app/(data)/builds/constants'
 import { BuildActionResponse } from '../types'
 
 export async function removeVoteForBuild(

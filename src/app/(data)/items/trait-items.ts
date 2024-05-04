@@ -1,4 +1,4 @@
-import { DEFAULT_TRAIT_AMOUNT } from '@/features/build/constants'
+import { DEFAULT_TRAIT_AMOUNT } from '@/app/(data)/builds/constants'
 
 import { TraitItem } from './types/TraitItem'
 

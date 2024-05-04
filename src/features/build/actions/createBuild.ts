@@ -10,7 +10,7 @@ import {
   BUILD_REVALIDATE_PATHS,
   DEFAULT_BUILD_NAME,
   MAX_BUILD_DESCRIPTION_LENGTH,
-} from '../constants'
+} from '../../../app/(data)/builds/constants'
 import { buildStateSchema } from '../lib/buildStateSchema'
 import { buildStateToBuildItems } from '../lib/buildStateToBuildItems'
 import { BuildActionResponse, BuildState } from '../types'

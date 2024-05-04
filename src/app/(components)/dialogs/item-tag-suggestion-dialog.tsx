@@ -12,25 +12,25 @@ import { ItemInfoDialog } from '@/app/(components)/dialogs/item-info-dialog'
 import { ItemTagSelect } from '@/app/(components)/filters/builds/item-tag-select'
 import { allItems } from '@/app/(data)/items/all-items'
 import { archetypeItems } from '@/app/(data)/items/archetype-items'
+import { Item } from '@/app/(data)/items/types'
 import { ConcoctionItem } from '@/app/(data)/items/types/ConcoctionItem'
 import { ConsumableItem } from '@/app/(data)/items/types/ConsumableItem'
 import { ModItem } from '@/app/(data)/items/types/ModItem'
 import { MutatorItem } from '@/app/(data)/items/types/MutatorItem'
 import { WeaponItem } from '@/app/(data)/items/types/WeaponItem'
+import { ITEM_TOKENS, ItemToken } from '@/app/(types)/tokens'
 import { cleanUpBuildState } from '@/features/build/lib/cleanUpBuildState'
 import { getConcoctionSlotCount } from '@/features/build/lib/getConcoctionSlotCount'
 import { BuildState } from '@/features/build/types'
-import { ITEM_TAGS } from '@/features/items/constants'
 import { itemMatchesSearchText } from '@/features/items/lib/itemMatchesSearchText'
-import { Item, ItemTag } from '@/features/items/types'
 
 /**
  * Combines the tags found in item.descriptions, as well as the item.tags
  * Returns a full list of all of them in alphabetical order
  */
 function buildTagOptions() {
-  const itemTagsOptions: Array<{ label: string; value: ItemTagWithDefault }> =
-    ITEM_TAGS.map((tag) => ({
+  const itemTagsOptions: Array<{ label: string; value: ItemTokenWithDefault }> =
+    ITEM_TOKENS.map((tag) => ({
       label: tag,
       value: tag,
     })).sort((a, b) => {
@@ -131,10 +131,10 @@ function getItemSuggestions(
   return suggestions
 }
 
-export type ItemTagWithDefault = ItemTag | 'Choose'
+export type ItemTokenWithDefault = ItemToken | 'Choose'
 const DEFAULT_TAG = { label: 'Choose', value: 'Choose' } satisfies {
   label: string
-  value: ItemTagWithDefault
+  value: ItemTokenWithDefault
 }
 
 const allTagOptions = buildTagOptions()

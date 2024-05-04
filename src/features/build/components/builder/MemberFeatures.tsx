@@ -8,14 +8,14 @@ import { useState } from 'react'
 import { BaseButton } from '@/app/(components)/_base/button'
 import { BaseInput } from '@/app/(components)/_base/input'
 import { BuildDescriptionTemplateAlert } from '@/app/(components)/alerts/build-description-template-alert'
-import { DescriptionWithTags } from '@/features/ui/DescriptionWithTags'
+import { DescriptionWithTokens } from '@/app/(components)/description-with-tokens'
+import { MAX_BUILD_DESCRIPTION_LENGTH } from '@/app/(data)/builds/constants'
 import { Skeleton } from '@/features/ui/Skeleton'
 import { Textarea } from '@/features/ui/Textarea'
 import { Toggle } from '@/features/ui/Toggle'
 import { cn } from '@/lib/classnames'
 
 import { BuildTagsDisplay } from '../../build-tags/BuildTagsDisplay'
-import { MAX_BUILD_DESCRIPTION_LENGTH } from '../../constants'
 
 type Props = {
   buildLink: string | null
@@ -77,7 +77,7 @@ export function MemberFeatures({
                   isScreenshotMode && 'max-h-none',
                 )}
               >
-                <DescriptionWithTags
+                <DescriptionWithTokens
                   description={description}
                   highlightBuildTags={true}
                   highlightItems={true}

@@ -1,7 +1,7 @@
-import { MutatorItem } from '../../../app/(data)/items/types/MutatorItem'
-import { TraitItem } from '../../../app/(data)/items/types/TraitItem'
-import { DESCRIPTION_TAGS } from '../constants'
-import { Item } from '../types'
+import { Item } from '@/app/(data)/items/types'
+import { MutatorItem } from '@/app/(data)/items/types/MutatorItem'
+import { TraitItem } from '@/app/(data)/items/types/TraitItem'
+import { EXTERNAL_TOKENS, INLINE_TOKENS } from '@/app/(types)/tokens'
 
 export function itemMatchesSearchText({
   item,
@@ -10,8 +10,11 @@ export function itemMatchesSearchText({
   item: Item
   searchText: string
 }) {
-  const tagItem = DESCRIPTION_TAGS.find((tag) =>
+  const inlineTokenItem = INLINE_TOKENS.find((tag) =>
     tag.type.toLowerCase().includes(searchText.toLowerCase()),
+  )
+  const externalTokenItem = EXTERNAL_TOKENS.find((tag) =>
+    tag.token.toLowerCase().includes(searchText.toLowerCase()),
   )
 
   const itemNameMatch = item.name
@@ -22,11 +25,19 @@ export function itemMatchesSearchText({
   let itemDescriptionMatch = item.description
     ?.toLowerCase()
     .includes(searchText.toLowerCase())
-  if (tagItem && itemDescriptionMatch === false) {
+
+  if (inlineTokenItem && itemDescriptionMatch === false) {
     itemDescriptionMatch = item.description
       ?.toLowerCase()
-      .includes(tagItem.token.toLowerCase())
+      .includes(inlineTokenItem.token.toLowerCase())
   }
+
+  if (externalTokenItem && itemDescriptionMatch === false) {
+    itemDescriptionMatch = item.externalTokens?.some((itemToken) =>
+      itemToken.toLowerCase().includes(externalTokenItem.token.toLowerCase()),
+    )
+  }
+
   if (itemDescriptionMatch) return true
 
   // Check the max level bonus if applicable for search text

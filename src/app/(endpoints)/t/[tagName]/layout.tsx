@@ -1,9 +1,9 @@
 import { Metadata, ResolvingMetadata } from 'next'
 
 import { allItems } from '@/app/(data)/items/all-items'
-import { DESCRIPTION_TAGS, ITEM_TAGS } from '@/features/items/constants'
+import { Item } from '@/app/(data)/items/types'
+import { INLINE_TOKENS, ITEM_TOKENS } from '@/app/(types)/tokens'
 import { itemMatchesSearchText } from '@/features/items/lib/itemMatchesSearchText'
-import { Item } from '@/features/items/types'
 
 import TagPage from './page'
 
@@ -11,14 +11,14 @@ function getItemsFromTagParam(tagName: string): Item[] {
   // need to remove all punctuation and spaces from tagName
   // and convert it to lowercase
   const cleanTagName = tagName.replace(/[^a-zA-Z0-9]/g, '').toLowerCase()
-  let tagToken = DESCRIPTION_TAGS.find(
+  let tagToken = INLINE_TOKENS.find(
     (tag) =>
       tag.type.replace(/[^a-zA-Z0-9]/g, '').toLowerCase() === cleanTagName ||
       tag.token.replace(/[^a-zA-Z0-9]/g, '').toLowerCase() === cleanTagName,
   )?.token as string
 
   if (!tagToken) {
-    const itemTag = ITEM_TAGS.find(
+    const itemTag = ITEM_TOKENS.find(
       (tag) => tag.replace(/[^a-zA-Z0-9]/g, '').toLowerCase() === cleanTagName,
     )
     if (itemTag) {

@@ -1,5 +1,4 @@
-import { Archetype } from '../items/types'
-import { BuildState } from './types'
+import { BuildState } from '../../../features/build/types'
 
 export const DEFAULT_BUILD_NAME = 'My Build'
 
@@ -90,7 +89,21 @@ export const BUILD_REVALIDATE_PATHS = [
  * by u/Arkavien
  */
 export const ARCHETYPE_COMBO_NAMES: Array<{
-  archetypes: Archetype[]
+  archetypes: Array<
+    | 'alchemist'
+    | 'archon'
+    | 'challenger'
+    | 'engineer'
+    | 'explorer'
+    | 'gunslinger'
+    | 'handler'
+    | 'hunter'
+    | 'invader'
+    | 'invoker'
+    | 'medic'
+    | 'ritualist'
+    | 'summoner'
+  >
   name: string
 }> = [
   { archetypes: ['invoker', 'summoner'], name: 'Spirit of Darkness' },
