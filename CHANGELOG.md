@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2024-05-03
 
+### Added
+
+- Added about 20 new saves to the World Save Archive.
+
 ### Changed
 
 - Converted some internal description tags to external tags that will be displayed below the description. This was necessary as a first step to automating item stats and information from the wiki.
