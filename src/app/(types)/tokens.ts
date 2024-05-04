@@ -28,11 +28,11 @@ export const INLINE_TOKENS = [
       'Deals Physical Damage per second. Reduces healing effectiveness by 50%.',
   },
   {
-    type: 'Bug',
-    token: '[BUG]',
-    color: 'text-[#ecff00]',
+    type: 'Bleeding',
+    token: 'BLEED',
+    color: 'text-[#f2350f]',
     description:
-      'This item is currently bugged and MAY not function as expected. Check remnant.wiki for more information.',
+      'Deals Physical Damage per second. Reduces healing effectiveness by 50%.',
   },
   {
     type: 'Brittle',
@@ -126,8 +126,8 @@ export const INLINE_TOKENS = [
   {
     type: 'Elemental Damage',
     token: 'Elemental Damage',
-    color: 'text-emerald-500',
-    description: `Acid, Corrosive, Fire, Shock.`,
+    color: 'text-emerald-400',
+    description: `Acid, Corrosive, Fire, Shock, certain skills and mods.`,
   },
   {
     type: 'Engineer',
@@ -146,7 +146,7 @@ export const INLINE_TOKENS = [
     token: 'EXPOSED',
     color: 'text-yellow-100',
     description:
-      'Target receives up to 15% additional damage from all sources.',
+      'Target receives 15% additional damage from all sources.',
   },
   {
     type: 'Fire',
@@ -159,7 +159,7 @@ export const INLINE_TOKENS = [
     token: 'FRENZIED',
     color: ARCHTYPE_COLORS.ALCHEMIST.text,
     description:
-      'Increases Fire Rate, Reload Speed, and Melee Speed by 20%, and Movement Speed by 15%. Lasts 15s.',
+      'Increases Fire Rate, Reload Speed, Melee Speed by 20%, and Movement Speed by 15%. Lasts 15s.',
   },
   {
     type: 'Gloom',
@@ -221,7 +221,7 @@ export const INLINE_TOKENS = [
     token: 'MARKED',
     color: ARCHTYPE_COLORS.GUNSLINGER.text,
     description:
-      'Crit Chance against MARKED enemies is increased by 15% for all allies.',
+      'Critical Chance against MARKED enemies is increased by 15% for all allies.',
   },
   {
     type: 'Medic',
@@ -240,7 +240,7 @@ export const INLINE_TOKENS = [
     token: 'OVERLOADED',
     color: 'text-[#7676af]',
     description:
-      'Deals elemental SHOCK area damage every 5 seconds. Damage increases by 10% for every overloaded enemy nerby. ', // TODO What's the range and what's the max damage increase for secondary effect?
+      'Deals elemental SHOCK area damage every 5 seconds. Damage increases by 10% for every OVERLOADED enemy nerby. ', // TODO What's the range and what's the max damage increase for secondary effect?
   },
   {
     type: 'Ritualist',
@@ -265,7 +265,7 @@ export const INLINE_TOKENS = [
     type: 'Shock',
     token: 'SHOCK',
     color: 'text-[#5c5cce]',
-    description: 'Elemental Damage.',
+    description: 'Elemental Damage. Deals double damage to shields.',
   },
   {
     type: 'Slow',
@@ -359,12 +359,12 @@ export const EXTERNAL_TOKENS = [
   {
     token: 'Amplitude',
     color: 'text-[#66ffcc]',
-    description: 'This effect benefits from Amplitude trait.',
+    description: "All, or part, of this item's effect benefits from Amplitude trait.",
   },
   {
     token: 'Explosive Damage',
     color: 'text-[#ff7575]',
-    description: 'Counts as Explosive Damage.',
+    description: "All, or part, of this item's effect deals Explosive Damage.",
   },
   {
     token: 'Multiplicative',
@@ -376,6 +376,12 @@ export const EXTERNAL_TOKENS = [
     color: 'text-red-400',
     description:
       'Counts as a debuff making it multiplicative with different sources of damage.',
+  },
+  {
+    token: 'Bug',
+    color: 'text-[#ecff00]',
+    description:
+      'This item is currently bugged and MAY not function as expected. Check remnant.wiki for more information.',
   },
 ] as const satisfies {
   token: string
