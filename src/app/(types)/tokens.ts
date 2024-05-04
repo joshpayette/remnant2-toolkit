@@ -41,6 +41,12 @@ export const INLINE_TOKENS = [
     description: undefined,
   },
   {
+    type: 'Blowback',
+    token: 'BLOWBACK',
+    color: 'text-[#fff1bc]',
+    description: undefined,
+  },
+  {
     type: 'Burning',
     token: 'BURNING',
     color: 'text-[#b65d30]',
@@ -232,6 +238,12 @@ export const INLINE_TOKENS = [
   {
     type: 'OPPORTUNITY',
     token: 'OPPORTUNITY',
+    color: 'text-[#fff1bc]',
+    description: undefined,
+  },
+  {
+    type: 'Power Stone',
+    token: 'POWER STONE',
     color: 'text-[#fff1bc]',
     description: undefined,
   },
