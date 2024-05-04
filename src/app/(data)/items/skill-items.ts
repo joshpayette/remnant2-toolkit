@@ -708,11 +708,8 @@ export const skillItems: SkillItem[] = [
     name: 'Deathwish',
     imagePath: '/skill/death_wish.png',
     id: 'ux5f9v',
-    dlc: 'base',
-    tags: ['All Damage', 'Lifesteal'],
-    // TODO Check this; base damage increase 35% -> 50%
-    // TODO Check this; `now affected by skill duration bonuses` - not sure how that is reflected in description
-    description: `Negates all healing to self. Drain Health 300% over 20s. Increases all Damage by 50% and grants 10% Base Damage dealt as Lifesteal.`,
+    dlc: 'base',    tags: ['All Damage', 'Lifesteal'],
+    description: `Negates all healing to self. Drain 300% Health over 20s. Increases all Damage by 50% and grants 10% Base Damage dealt as Lifesteal.`,
     cooldown: 90,
     wikiLinks: [`https://remnant.wiki/Death_Wish`],
     linkedItems: {
