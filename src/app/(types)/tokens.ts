@@ -35,13 +35,6 @@ export const INLINE_TOKENS = [
       'Deals Physical Damage per second. Reduces healing effectiveness by 50%.',
   },
   {
-    type: 'Bug',
-    token: '[BUG]',
-    color: 'text-[#ecff00]',
-    description:
-      'This item is currently bugged and MAY not function as expected. Check remnant.wiki for more information.',
-  },
-  {
     type: 'Brittle',
     token: 'BRITTLE',
     color: 'text-[#fff1bc]',
@@ -383,6 +376,12 @@ export const EXTERNAL_TOKENS = [
     color: 'text-red-400',
     description:
       'Counts as a debuff making it multiplicative with different sources of damage.',
+  },
+  {
+    token: 'Bug',
+    color: 'text-[#ecff00]',
+    description:
+      'This item is currently bugged and MAY not function as expected. Check remnant.wiki for more information.',
   },
 ] as const satisfies {
   token: string
