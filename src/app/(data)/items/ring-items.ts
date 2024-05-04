@@ -323,7 +323,7 @@ export const ringItems: RingItem[] = [
     id: 'k45qer',
     tags: ['Heal', 'Perfect Dodge'],
     description: `Decreases all healing by 50%. Perfect Dodges heal for 25% of Max Health.`,
-    wikiLinks: [`Burden of the Audacious`],
+    wikiLinks: [`https://remnant.wiki/Burden_of_the_Audacious`],
     dlc: 'base',
   },
   {
