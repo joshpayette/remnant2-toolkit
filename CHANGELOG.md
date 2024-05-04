@@ -14,13 +14,18 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Changed
 
 - Adjusted the colors and text of many tokens used in the item descriptions.
-- Adjusted the placeholder text for biuld descriptions to inform the user about using tokens.
+- Adjusted the placeholder text for build descriptions to inform the user about using tokens.
 
 ### Fixed
 
 - Fixed Sandstorm mod description.
 - Fixed Way of Kaeula skill description.
 - Fixed Way of Meidra skill description.
+- Fixed Dervish mutator description.
+- Fixed Wiki link for Disengage mutator.
+- Fixed Disengage mutator description.
+- Fixed Executor mutator description.
+- Fixed Extender mutator description.
 
 ## 2024-05-03
 

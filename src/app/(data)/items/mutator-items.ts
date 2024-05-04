@@ -69,8 +69,7 @@ export const mutatorItems: MutatorItem[] = [
     id: 'ssvo08',
     dlc: 'base',
     tags: ['Ranged Damage', 'Critical Chance'],
-    // TODO Check this; damage bonus 20% -> 25%
-    description: `Continuously Aiming increases Ranged Damage by up to 10-[25]% over 3s.`,
+    description: `Continuously Aiming increases Ranged Damage by up to 10% - 25% over 3s.`,
     maxLevelBonus: `Ranged Critical Hit Chance increased by 10%.`,
     wikiLinks: [`https://remnant.wiki/Deadly_Calm`],
   },
@@ -82,10 +81,8 @@ export const mutatorItems: MutatorItem[] = [
     id: '9htayl',
     dlc: 'base',
     tags: ['Reduce Skill Cooldown', 'Melee Damage'],
-    description: `Increases Melee Damage by 10-[40]% for 10s when activating a Skill.`,
-    // TODO Check this; `on kill to base damage dealt`, confirm the description
-    // TODO Check this; removed L10 cooldown
-    maxLevelBonus: `Base Damage Dealt reduces skill cooldowns by 5%.`,
+    description: `Increases Melee Damage by 20% - 40% for 10s when activating a Skill.`,
+    maxLevelBonus: `After dealing 350 base Melee damage, reduce Skill Cooldowns by 3%.`,
     wikiLinks: [`https://remnant.wiki/Dervish`],
   },
   {
@@ -96,11 +93,9 @@ export const mutatorItems: MutatorItem[] = [
     id: '3kadzw',
     dlc: 'base',
     tags: ['Neutral Dodge', 'Perfect Neutral Evade'],
-    // TODO Check this; `reduced strike requirement from 5 to 3` - not sure how this is reflected in the description
-    // TODO Check this; damage per stack 10% -> 15%
-    description: `Melee Strikes increase the damage of the next Backdash Evade Attack by 4-[15]%. Max 5 Stacks. Lasts 7.5s.`,
-    maxLevelBonus: `Perfect Neutral Evades grants 5 stacks`,
-    wikiLinks: [`https://remnant.wiki/Disengange`],
+    description: `Melee Strikes increase the damage of the next Backdash Evade Attack by 5% - 15%. Max 3 Stacks. Lasts 7.5s.`,
+    maxLevelBonus: `Perfect Neutral Evades grant 3 stacks`,
+    wikiLinks: [`https://remnant.wiki/Disengage`],
   },
   {
     category: 'mutator',
@@ -110,10 +105,7 @@ export const mutatorItems: MutatorItem[] = [
     dlc: 'dlc1',
     id: 'zcqbti',
     tags: ['Ranged Damage', 'Grey Health', 'Reload Speed'],
-    // TODO Check this; gray health requirement from 10% -> 5%
-    // TODO Check this; damage bonus 2%/4% -> 1%/2%
-    description: `Increases Ranged Damage by 1% for every 5% of total Health present as Grey Health. Max 20% increase.`,
-    // TODO Check this; reload speed bonus 15% -> 25%
+    description: `Increases Ranged Damage by 1% - 2% for every 5% of total Health present as Grey Health. Max 20% increase.`,
     maxLevelBonus: `Increases Reload Speed for this weapon by 25% while Grey Health is present.`,
     wikiLinks: [`https://remnant.wiki/Dreadful`],
   },
@@ -142,9 +134,8 @@ export const mutatorItems: MutatorItem[] = [
     dlc: 'dlc1',
     id: 'pynv5l',
     tags: ['Status Effect', 'Melee Charge Speed', 'Melee Attack Speed'],
-    description: `Increases the duration of Negative Status Effects on enemies by 10% of the original duration. Cannot exceed original max duration.`,
-    // TODO Check this; max range 10m -> 20m
-    maxLevelBonus: `Increases Melee Charge Speed and Melee Attack Speed by 5% per entity within 20m with a Negative Status Effect. Max 4 stacks.`, //No info on whether its A or R
+    description: `Charged Melee Attacks increase the duration of Negative Status Effects on enemies by 10% - 30% of the original duration. Cannot exceed original max duration.`,
+    maxLevelBonus: `Increases Melee Charge Speed and Melee Attack Speed by 5% per entity within 20m with a Negative Status Effect. Max 4 stacks.`,
     wikiLinks: [`https://remnant.wiki/Executor`],
   },
   {
@@ -155,10 +146,8 @@ export const mutatorItems: MutatorItem[] = [
     id: 'pszxmh',
     dlc: 'base',
     tags: ['Magazine Capacity', 'Reload Speed'],
-    // TODO Check this; capacity 40% -> 45%
     description: `Increases Magazine Capacity of this weapon by 20-[45]%.`,
-    // TODO Check this; reload speed bonus 15% -> 20%
-    maxLevelBonus: `Increases Reload Speed of this weapon by 20% when reloading from empty.`,
+    maxLevelBonus: `Increases Reload Speed of this weapon by 20%.`,
     wikiLinks: [`https://remnant.wiki/Extender`],
   },
   {
