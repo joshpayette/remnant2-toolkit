@@ -516,7 +516,7 @@ export const mutatorItems: MutatorItem[] = [
     tags: ['Ranged Damage', 'Reload Speed'],
     description: `Reloading increases the damage of this weapon's next shot by 10-[20]%. Last 3s.`,
     maxLevelBonus: `Increases Reload Speed by 15%.`,
-    wikiLinks: [`https://remnant.wiki/Slayer_(Mutator)`],
+    wikiLinks: [`https://remnant.wiki/Slayer`],
   },
   {
     category: 'mutator',

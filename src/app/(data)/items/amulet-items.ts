@@ -94,7 +94,7 @@ export const amuletItems: AmuletItem[] = [
     dlc: 'base',
     tags: ['Status Effect', 'All Damage'],
     description: `Increases all damage dealt to targets suffering from a Status Effect by 20%.`,
-    wikiLinks: [`https://remnant.wiki/Chains_Of_Amplification`],
+    wikiLinks: [`https://remnant.wiki/Chains_of_Amplification`],
   },
   {
     category: 'amulet',
@@ -145,7 +145,7 @@ export const amuletItems: AmuletItem[] = [
     id: 'ui1miz',
     tags: ['All Damage', 'Status Effect'],
     description: `Increases All Damage by 6% for each entity within 20m suffering from a unique Negative Status Effect. Max 5 stacks.`,
-    wikiLinks: [`https://remnant.wiki/Death_Soaked_Idol`],
+    wikiLinks: [`https://remnant.wiki/Death-Soaked_Idol`],
   },
   {
     category: 'amulet',
@@ -295,7 +295,7 @@ export const amuletItems: AmuletItem[] = [
     id: '70ryol',
     tags: ['Stamina', 'Critical Chance'],
     description: `Spending 20 Stamina grants 5% Critical Chance for 5s. Max 5 stacks.`,
-    wikiLinks: [`https://remnant.wiki/Gift_Of_Euphoria`],
+    wikiLinks: [`https://remnant.wiki/Gift_of_Euphoria`],
   },
   {
     category: 'amulet',

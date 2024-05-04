@@ -54,7 +54,7 @@ export const modItems: ModItem[] = [
     id: '29kz6t',
     dlc: 'base',
     description: `Charge attacks use 25 stamina to throw the spear, which returns to the wielder's hand.`,
-    wikiLinks: [`https://remnant.wiki/Athibar`],
+    wikiLinks: [`https://remnant.wiki/Javelin`],
     linkedItems: {
       weapon: {
         name: 'Huntress Spear',
@@ -311,7 +311,7 @@ export const modItems: ModItem[] = [
     id: '1bfadq',
     dlc: 'dlc2',
     description: `Maintaining an overhead Charged Melee forms a 5m sand cyclone, dealing 55 - 168 damage per second and pulls enemies towards the wielder. Each Cyclone hit applies EXPOSED for 3s. Max 15s.`,
-    wikiLinks: [`https://remnant.wiki/Cyclone`],
+    wikiLinks: [`https://remnant.wiki/Deadpoint`],
     linkedItems: {
       weapon: {
         name: 'Mirage',
@@ -594,6 +594,7 @@ export const modItems: ModItem[] = [
     id: 'D8obdv',
     dlc: 'base',
     description: `Funnels all current Mod Charges into a powerful penetrating beam. The beam deals 100 damage and increases damage dealt, recoil, and beam thickness per Charge consumed. Max 5 Charges.`,
+    wikiLinks: [`https://remnant.wiki/Fusion_Cannon`],
     linkedItems: {
       weapon: {
         name: 'Corrupted Savior',
@@ -641,6 +642,7 @@ export const modItems: ModItem[] = [
     dlc: 'base',
     description: `Imbues the Arbalest with the power of Yaesha's corrupted guardian, increases Fire Rate by 20%, reduces Recoil and Sway by 25% and each disc impact with an enemy exlpodes over 3.5m for 69 damage Explosive Damage. Lasts 1.5s`,
     externalTokens: [`Amplitude`],
+    wikiLinks: [`https://remnant.wiki/Guardian%27s_Fury`],
     linkedItems: {
       weapon: {
         name: 'Corrupted Arbalest',
@@ -801,6 +803,7 @@ export const modItems: ModItem[] = [
     dlc: 'base',
     description: `Detonate active Nano-bots, each dealing 100 ACID damage plus an additional 25 ACID damage per Nano-bot detonated to enemies within 2m and applies CORRODED, dealing 50 damage Explosive Damage over 10s per Nano-bot detonated.`,
     externalTokens: [`Amplitude`, `Explosive Damage`],
+    wikiLinks: [`https://remnant.wiki/Nano_Phase`],
     linkedItems: {
       weapon: {
         name: 'Corrupted Nebula',
@@ -1143,6 +1146,7 @@ export const modItems: ModItem[] = [
     id: '9jwTXR',
     dlc: 'base',
     description: `Launches a Wisp that uniquely seeks to one anchored primary fire bolt location. Bolts anchored to enemies deal 100 damage per Wisp. Bolts anchored to allies heal 10% Max Health per Wisp. Bolts are consumed when impacted by a Wisp.`,
+    wikiLinks: [`https://remnant.wiki/Will_of_the_Wisp`],
     linkedItems: {
       weapon: {
         name: 'Corrupted Sorrow',

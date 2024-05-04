@@ -1027,6 +1027,7 @@ export const weaponItems: WeaponItem[] = [
     crit: 5,
     weakspot: 95,
     stagger: 3,
+    wikiLinks: [`https://remnant.wiki/Crystal_Staff`],
     linkedItems: {
       mod: {
         name: 'Power Stone',

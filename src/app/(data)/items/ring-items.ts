@@ -314,7 +314,7 @@ export const ringItems: RingItem[] = [
     id: 't7sqw7',
     tags: ['Perfect Dodge', 'Damage Reduction', 'Melee Damage'],
     description: `Perfect Dodge increases Melee Damage by 20% for 10s. Perfect Evade Flop also gains 10% Damage Reduction for the duration.`,
-    wikiLinks: [`https://remnant.wiki/Bridge_Wardens_Crest`],
+    wikiLinks: [`https://remnant.wiki/Bridge_Warden%27s_Crest`],
   },
   {
     category: 'ring',
@@ -910,7 +910,7 @@ export const ringItems: RingItem[] = [
     id: 'o7grsg',
     tags: ['Recoil', 'Spread'],
     description: `Continuously Aiming Down Sights gradually reduces Spread by 70% over 4s.`,
-    wikiLinks: [`https://remnant.wiki/Focused_Jewel`],
+    wikiLinks: [`https://remnant.wiki/Focusing_Shard`],
     dlc: 'base',
   },
   {
@@ -1382,7 +1382,7 @@ export const ringItems: RingItem[] = [
     id: 'ie648z',
     tags: ['Grey Health'],
     description: `Direct Damage against wearer has a 50% Chance to be converted entirely to Grey Health.`,
-    wikiLinks: [`https://remnant.wiki/Ring_Of_Deflection`],
+    wikiLinks: [`https://remnant.wiki/Ring_of_Deflection`],
     dlc: 'base',
   },
   {
@@ -1451,7 +1451,7 @@ export const ringItems: RingItem[] = [
     id: '3aryrr',
     tags: ['Reload Speed', 'Critical Hit', 'Weakspot Damage'],
     description: `Reloads within 5s of a Critical Hit or Weakspot Kill are 20% faster.`,
-    wikiLinks: [`https://remnant.wiki/Ring_Of_Restocking`],
+    wikiLinks: [`https://remnant.wiki/Ring_of_Restocking`],
     dlc: 'base',
   },
   {
@@ -1461,7 +1461,7 @@ export const ringItems: RingItem[] = [
     id: '8ejbuu',
     tags: ['Reload Speed', 'All Damage'],
     description: `Incoming enemy damage increases Reload Speed and all outgoing damage by 15%. Lasts 15s.`,
-    wikiLinks: [`https://remnant.wiki/Ring_Of_Retribution`],
+    wikiLinks: [`https://remnant.wiki/Ring_of_Retribution`],
     dlc: 'base',
   },
   {
