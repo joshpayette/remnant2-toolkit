@@ -151,8 +151,7 @@ export const INLINE_TOKENS = [
     type: 'EXPOSED',
     token: 'EXPOSED',
     color: 'text-yellow-100',
-    description:
-      'Target receives 15% additional damage from all sources.',
+    description: 'Target receives 15% additional damage from all sources.',
   },
   {
     type: 'Fire',
@@ -371,7 +370,16 @@ export const EXTERNAL_TOKENS = [
   {
     token: 'Amplitude',
     color: 'text-[#66ffcc]',
-    description: "All, or part, of this item's effect benefits from Amplitude trait.",
+    description:
+      "All, or part, of this item's effect benefits from Amplitude trait.",
+  },
+  // * We keep this here as well as in the description tokens because of the need
+  // * to specify that the Handler skills apply bleed.
+  {
+    token: 'Bleed',
+    color: 'text-[#f2350f]',
+    description:
+      'Deals Physical Damage per second. Reduces healing effectiveness by 50%.',
   },
   {
     token: 'Explosive Damage',
