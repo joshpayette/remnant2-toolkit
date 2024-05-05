@@ -91,6 +91,13 @@ export function useBuildActions() {
     const newBuildState = cloneDeep(buildState)
     newBuildState.name = `${buildState.name} (copy)`
     newBuildState.isPublic = false
+    newBuildState.isMember = Boolean(newBuildState.isMember)
+    newBuildState.upvoted = Boolean(newBuildState.upvoted)
+    newBuildState.totalUpvotes =
+      typeof newBuildState.totalUpvotes === 'string'
+        ? 0
+        : newBuildState.totalUpvotes
+    newBuildState.reported = Boolean(newBuildState.reported)
     const response = await createBuild(JSON.stringify(newBuildState))
     if (isErrorResponse(response)) {
       console.error(response.errors)

@@ -29,6 +29,12 @@ export async function createBuild(data: string): Promise<BuildActionResponse> {
   unvalidatedData = {
     ...unvalidatedData,
     createdAt: new Date(unvalidatedData.createdAt),
+    dateFeatured: unvalidatedData.dateFeatured
+      ? new Date(unvalidatedData.dateFeatured)
+      : null,
+    updatedAt: unvalidatedData.updatedAt
+      ? new Date(unvalidatedData.updatedAt)
+      : null,
     buildTags: unvalidatedData.buildTags.map((tag: any) => ({
       ...tag,
       createdAt: tag.createdAt ? new Date(tag.createdAt) : new Date(),
