@@ -7,9 +7,10 @@ export const relicItems: RelicItem[] = [
     imagePath: '/relic/bloodless_heart.png',
     id: 'LQho3X',
     dlc: 'dlc2',
-    description: `Innate 50% Use Speed bonus. One use, grants a SHIELD that prevents nearly all damage for 3s.
-
-    Cannot prevent certain death mechanics`,
+    description:
+      'Innate 50% Use Speed bonus. One use, grants a SHIELD that prevents nearly all damage for 3s.\n' +
+      '\n' +
+      'Cannot prevent certain death mechanics.',
     wikiLinks: [`https://remnant.wiki/Bloodless_Heart`],
   },
   {
@@ -18,7 +19,8 @@ export const relicItems: RelicItem[] = [
     imagePath: '/relic/blooming_heart.png',
     id: 'soyjpp',
     dlc: 'base',
-    description: `On use, heals the user for 35% of caster's Max Health over 5s. Spawns 3 Healing Orbs which grant 35% of caster's Max Health over 5s. Orbs last 20s. Recasting removes previous Orbs`,
+    description:
+      "On use, heals for 35% of Max Health over 5s. Spawns 3 Healing Orbs which grant 35% of caster's Max Health over 5s. Orbs last 20s. Recasting removes previous Orbs.",
     wikiLinks: [`https://remnant.wiki/Blooming_Heart`],
   },
   {
@@ -27,7 +29,10 @@ export const relicItems: RelicItem[] = [
     imagePath: '/relic/broken_heart.png',
     dlc: 'dlc1',
     id: 'm71h9m',
-    description: `Innate 50% Use Speed Bonus. On use, sets current Health to 50% of max Health over 0.25s. Passively reduces Health by 2 while above 50% Health.`,
+    description:
+      'Innate 50% Use Speed Bonus. Passively grants or removes 2 Health per sec until Health reaches 50%. On use, sets Health to 50%.\n' +
+      '\n' +
+      'Not affected by other healing items or perks.',
     wikiLinks: [`https://remnant.wiki/Broken_Heart`],
   },
   {
@@ -36,7 +41,8 @@ export const relicItems: RelicItem[] = [
     imagePath: '/relic/constrained_heart1.png',
     id: 'rlezcg',
     dlc: 'base',
-    description: `On use regenerates 20 Health per second for 5s and grants 2 Stacks of BULWARK while heal is active.`,
+    description:
+      'On use, regenerates 20 Health per second for 5s and grants 2 Stacks of BULWARK while heal is active.',
     wikiLinks: [`https://remnant.wiki/Constrained_Heart`],
   },
   {
@@ -45,7 +51,8 @@ export const relicItems: RelicItem[] = [
     imagePath: '/relic/crystal_heart.png',
     id: '67tfbl',
     dlc: 'base',
-    description: `On use, regenerates 100% of Max Health over 10s, Movement Speed is reduced by 50%, and incoming damage is reduced by 25%. Lasts 10s.`,
+    description:
+      'On use, regenerates 100% of Max Health over 10s. Movement Speed is reduced by 50%, and incoming damage is reduced by 25%. Lasts 10s.',
     wikiLinks: [`https://remnant.wiki/Crystal_Heart`],
   },
   {
@@ -64,7 +71,8 @@ export const relicItems: RelicItem[] = [
     id: '96f26y',
     dlc: 'base',
     tags: ['Reduce Skill Cooldown'],
-    description: `On use, reduces Skill Cooldowns by 1s for sec. Lasts 15s.`,
+    description:
+      'Does not provide standard healing. On use, reduces Skill Cooldowns by 1s per second. Lasts 15s.',
     wikiLinks: [`https://remnant.wiki/Diverting_Heart`],
   },
   {
@@ -73,7 +81,7 @@ export const relicItems: RelicItem[] = [
     imagePath: '/relic/dragon_heart.png',
     id: 'f96bom',
     dlc: 'base',
-    description: `On use, heals 70 Health over 0.5s.`,
+    description: 'On use, Heals 70 Health over 0.5s.',
     wikiLinks: [`https://remnant.wiki/Dragon_Heart`],
   },
   {
@@ -82,7 +90,8 @@ export const relicItems: RelicItem[] = [
     imagePath: '/relic/enlarged_heart1.png',
     id: '4y2xb3',
     dlc: 'base',
-    description: `Innate double use speed. On use, heals 140 over 0.5s. Relic capacity is halved.`,
+    description:
+      'Innate Double Use Speed. On use, heals 140 Health over 0.5s. Relic capacity is halved.',
     wikiLinks: [`https://remnant.wiki/Enlarged_Heart`],
   },
   {
@@ -91,7 +100,8 @@ export const relicItems: RelicItem[] = [
     imagePath: '/relic/lifeless_heart.png',
     id: 'k1de0f',
     dlc: 'base',
-    description: `Innate 50% Use Speed Bonus. Does not provide healing. Relic capacity is doubled.`,
+    description:
+      'Innate 50% Use Speed Bonus, but provides no healing. Relic capacity is doubled.',
     wikiLinks: [`https://remnant.wiki/Lifeless_Heart`],
   },
   {
@@ -100,9 +110,10 @@ export const relicItems: RelicItem[] = [
     imagePath: '/relic/paper_heart.png',
     dlc: 'dlc1',
     id: 'n9fm2r',
-    description: `On use, grants 10 Stacks and heals 100% of current Max Health over 0.1s. Dealing 75 Base Damage of any type removes 1 Stack.
-
-    After 10s, convert each remaining Stack into 10% Grey Health.`,
+    description:
+      'On use, heals 100% Max Health and grants 10 Stacks of PAPER HEALTH. After 10s, each Stack is converted to 10% Grey Health.\n' +
+      '\n' +
+      'Dealing 75 Base Damage from any source removes 1 Stack of PAPER HEALTH.',
     wikiLinks: [`https://remnant.wiki/Paper_Heart`],
   },
   {
@@ -116,15 +127,6 @@ export const relicItems: RelicItem[] = [
   },
   {
     category: 'relic',
-    name: 'Quilted Heart',
-    imagePath: '/relic/quilted_heart.png',
-    id: '4v7sf3',
-    dlc: 'base',
-    description: `Does not provide standard healing. On use, negates Stamina Drain and cause Evades to heal for 15 Health over 0.25s. Lasts 20s.`,
-    wikiLinks: [`https://remnant.wiki/Quilted_Heart`],
-  },
-  {
-    category: 'relic',
     name: 'Profane Heart',
     imagePath: '/relic/profane_heart.png',
     id: '4v7sf4',
@@ -135,12 +137,22 @@ export const relicItems: RelicItem[] = [
   },
   {
     category: 'relic',
+    name: 'Quilted Heart',
+    imagePath: '/relic/quilted_heart.png',
+    id: '4v7sf3',
+    dlc: 'base',
+    description: `Does not provide standard healing. On use, negates Stamina Drain and cause Evades to heal for 15 Health over 0.25s. Lasts 20s.`,
+    wikiLinks: [`https://remnant.wiki/Quilted_Heart`],
+  },
+  {
+    category: 'relic',
     name: 'Reprocessed Heart',
     imagePath: '/relic/reprocessed_heart.png',
     id: '06pxhy',
     dlc: 'base',
     tags: ['Grey Health'],
-    description: `On use, converts 5 Health as Grey Health to 40 Mod Power per second for 25s for Both Weapons. Cannot die from conversion.`,
+    description:
+      'On use, converts 5 Health as Grey Health to 40 Mod Power per second for 25s for both weapons. Cannot die from conversion.',
     wikiLinks: [`https://remnant.wiki/Reprocessed_Heart`],
   },
   {
@@ -149,7 +161,8 @@ export const relicItems: RelicItem[] = [
     imagePath: '/relic/resonating_heart.png',
     id: '6ruk95',
     dlc: 'base',
-    description: `On use, regenerates 50% of Max Health over 5s. When heal ends, any overhealed Health is Doubled and awarded over the next 20s.`,
+    description:
+      'On use, regenerates 50% of Max Health over 5s. When heal ends, any overhealed Health to self is Doubled and awarded over the next 20s.',
     wikiLinks: [`https://remnant.wiki/Resonating_Heart`],
   },
   {
@@ -167,7 +180,8 @@ export const relicItems: RelicItem[] = [
     imagePath: '/relic/runed_heart.png',
     id: 'yb7v4c',
     dlc: 'base',
-    description: `On use, increases Health Regeneration by 5 and generates 500 Mod Power over 10s.`,
+    description:
+      'On use, increases Health Regeneration by 5 and generates 500 Mod Power over 10s for both weapons.',
     wikiLinks: [`https://remnant.wiki/Runed_Heart`],
   },
   {
@@ -176,7 +190,8 @@ export const relicItems: RelicItem[] = [
     imagePath: '/relic/salvaged_heart.png',
     id: '2rnl2d',
     dlc: 'base',
-    description: `Innate 25% Use Speed bonus. On use, heals 30 Health over 0.25s and restore 300% of current Grey Health.`,
+    description:
+      'Innate 25% Use Speed bonus. On use, heals 30 Health over 0.25s and restores 300% of current Grey Health.',
     wikiLinks: [`https://remnant.wiki/Salvaged_Heart`],
   },
   {
@@ -185,7 +200,8 @@ export const relicItems: RelicItem[] = [
     imagePath: '/relic/shielded_heart.png',
     id: 'sge99k',
     dlc: 'base',
-    description: `On use, grants a SHIELD for 100% of Current Health. Lasts 20s or until SHIELD is removed by damage`,
+    description:
+      'On use, grants a SHIELD for 100% of Max Health. Lasts 20s or until SHIELD is removed by damage.',
     wikiLinks: [`https://remnant.wiki/Shielded_Heart`],
   },
   {
@@ -203,7 +219,8 @@ export const relicItems: RelicItem[] = [
     imagePath: '/relic/tormented_heart.png',
     id: 'rtmajx',
     dlc: 'base',
-    description: `Innate 25% Use Speed bonus. On use, deals 420 Explosive damage to enemies within 10m and Lifesteals 20% of damage dealt.`,
+    description:
+      'Innate 25% Relic Use Speed bonus. On use, deals 150 - 450 Explosive Damage to enemies within 5m and Lifesteals 20% of damage dealt.',
     externalTokens: [`Amplitude`, `Explosive Damage`],
     wikiLinks: [`https://remnant.wiki/Tormented_Heart`],
   },

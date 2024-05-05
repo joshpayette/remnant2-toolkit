@@ -9,6 +9,7 @@ import { handleModItems } from '@/app/api/cron/wiki/scraper/mods/handle-mod-item
 import { handleMutatorItems } from '@/app/api/cron/wiki/scraper/mutators/handle-mutator-items'
 import { handlePerkItems } from '@/app/api/cron/wiki/scraper/perks/handle-perk-items'
 import { handleRelicFragmentItems } from '@/app/api/cron/wiki/scraper/relicfragments/handle-relicfragment-items'
+import { handleRelicItems } from '@/app/api/cron/wiki/scraper/relics/handle-relic-items'
 import { handleWeaponItems } from '@/app/api/cron/wiki/scraper/weapons/handle-weapon-items'
 
 export async function GET(request: NextRequest) {
@@ -33,7 +34,8 @@ export async function GET(request: NextRequest) {
   //await handleModItems()
   //await handleMutatorItems()
   //await handlePerkItems()
-  await handleRelicFragmentItems()
+  //await handleRelicFragmentItems()
+  await handleRelicItems()
   //await handleWeaponItems()
 
   console.info('Finished running wiki scraper script.')
