@@ -41,7 +41,7 @@ export function itemMatchesSearchText({
   if (itemDescriptionMatch) return true
 
   // Check the max level bonus if applicable for search text
-  if (MutatorItem.isMutatorItem(item) || TraitItem.isTraitItem(item)) {
+  if (MutatorItem.isMutatorItem(item)) {
     const maxLevelBonusMatch = item.maxLevelBonus
       ?.toLowerCase()
       .includes(searchText.toLowerCase())

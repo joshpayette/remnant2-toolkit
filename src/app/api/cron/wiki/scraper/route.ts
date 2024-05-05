@@ -11,6 +11,7 @@ import { handlePerkItems } from '@/app/api/cron/wiki/scraper/perks/handle-perk-i
 import { handleRelicFragmentItems } from '@/app/api/cron/wiki/scraper/relicfragments/handle-relicfragment-items'
 import { handleRelicItems } from '@/app/api/cron/wiki/scraper/relics/handle-relic-items'
 import { handleSkillItems } from '@/app/api/cron/wiki/scraper/skills/handle-skill-items'
+import { handleTraitItems } from '@/app/api/cron/wiki/scraper/traits/handle-trait-items'
 import { handleWeaponItems } from '@/app/api/cron/wiki/scraper/weapons/handle-weapon-items'
 
 export async function GET(request: NextRequest) {
@@ -37,7 +38,8 @@ export async function GET(request: NextRequest) {
   //await handlePerkItems()
   //await handleRelicFragmentItems()
   //await handleRelicItems()
-  await handleSkillItems()
+  //await handleSkillItems()
+  await handleTraitItems()
   //await handleWeaponItems()
 
   console.info('Finished running wiki scraper script.')

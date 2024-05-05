@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Fixed all discrepancies with the Relic Fragment item descriptions and stats from the wiki.
 - Fixed all discrepancies with the Relic item descriptions and stats from the wiki.
 - Fixed all discrepancies with the Skill item descriptions and stats from the wiki.
+- Fixed all discrepancies with the Trait item descriptions and stats from the wiki.
 
 ## 2024-05-04
 

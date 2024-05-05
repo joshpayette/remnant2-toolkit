@@ -201,7 +201,7 @@ export function ItemCard({
             </>
           )}
 
-          {(MutatorItem.isMutatorItem(item) || TraitItem.isTraitItem(item)) && (
+          {MutatorItem.isMutatorItem(item) && (
             <div className="mt-3 whitespace-pre-line text-left text-xs text-gray-200">
               <strong>At Max Level: </strong>
               <DescriptionWithTokens

@@ -102,7 +102,7 @@ export function ItemInfoDialog({ open, item, onClose }: Props) {
           />
         </span>
       </BaseDialogBody>
-      {(MutatorItem.isMutatorItem(item) || TraitItem.isTraitItem(item)) && (
+      {MutatorItem.isMutatorItem(item) && (
         <div className="flex flex-col items-start justify-start">
           <h4 className="mt-4 text-left text-sm text-white">At Max Level</h4>
           <span>
