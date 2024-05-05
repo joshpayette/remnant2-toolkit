@@ -45,7 +45,9 @@ export function ItemInfoDialog({ open, item, onClose }: Props) {
       ? 'Relic Fragment'
       : capitalize(item.category)
   if (PerkItem.isPerkItem(item)) {
-    subtitle += ` - ${capitalize(item.type)}`
+    subtitle = `${item.linkedItems?.archetype?.name} ${capitalize(
+      item.type,
+    )} Perk`
   }
 
   return (

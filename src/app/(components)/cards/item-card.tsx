@@ -18,6 +18,7 @@ import { ArmorItem } from '@/app/(data)/items/types/ArmorItem'
 import { ModItem } from '@/app/(data)/items/types/ModItem'
 import { MutatorItem } from '@/app/(data)/items/types/MutatorItem'
 import { PerkItem } from '@/app/(data)/items/types/PerkItem'
+import { RelicFragmentItem } from '@/app/(data)/items/types/RelicFragmentItem'
 import { SkillItem } from '@/app/(data)/items/types/SkillItem'
 import { TraitItem } from '@/app/(data)/items/types/TraitItem'
 import { WeaponItem } from '@/app/(data)/items/types/WeaponItem'
@@ -29,6 +30,7 @@ import getItemBuildStats, {
 } from '@/features/items/actions/getItemBuildStats'
 import { WeaponInfo } from '@/features/items/components/WeaponInfo'
 import { Tooltip } from '@/features/ui/Tooltip'
+import { capitalize } from '@/lib/capitalize'
 import { cn } from '@/lib/classnames'
 
 interface Props {
@@ -94,6 +96,18 @@ export function ItemCard({
     )
     setItemsToCompare(newItemsToCompare)
   }
+
+  let itemCategory: string = capitalize(category)
+  if (RelicFragmentItem.isRelicFragmentItem(item)) {
+    itemCategory = 'Relic Fragment'
+  }
+  if (PerkItem.isPerkItem(item)) {
+    itemCategory = `${item.linkedItems?.archetype?.name} ${capitalize(
+      item.type,
+    )} Perk`
+  }
+
+  // #region Render
 
   return (
     <div className="col-span-1 flex flex-col divide-y divide-primary-800 rounded-lg border border-primary-500 bg-black text-center shadow">
@@ -178,9 +192,7 @@ export function ItemCard({
         </BaseButton>
         <div className="mt-0 flex flex-grow flex-col justify-start text-xs">
           <div className="sr-only">Item Category</div>
-          <div className="text-xs text-gray-400">
-            {category === 'relicfragment' ? 'relic fragment' : category}
-          </div>
+          <div className="text-xs text-gray-400">{itemCategory}</div>
           {!ArmorItem.isArmorItem(item) && (
             <>
               <div className="sr-only">Description</div>
