@@ -11,6 +11,10 @@
     {
       "path": "/api/cron/wiki/validate-wiki-links",
       "schedule": "0 1 * * 0"
+    },
+    {
+      "path": "/api/cron/wiki/scraper",
+      "schedule": "0 9 * * 0"
     }
   ]
 }

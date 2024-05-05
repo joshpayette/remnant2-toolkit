@@ -30,19 +30,44 @@ export async function GET(request: NextRequest) {
 
   // no need for archetype items
 
-  //await handleAmuletItems()
-  //await handleArmorItems()
-  //await handleConcoctionItems()
-  //await handleConsumableItems()
-  //await handleModItems()
-  //await handleMutatorItems()
-  //await handlePerkItems()
-  //await handleRelicFragmentItems()
-  //await handleRelicItems()
+  await handleAmuletItems()
+  await handleArmorItems()
+  await handleConcoctionItems()
+  await handleConsumableItems()
+  await handleModItems()
+  await handleMutatorItems()
+  await handlePerkItems()
+  await handleRelicFragmentItems()
+  await handleRelicItems()
   await handleRingItems()
-  //await handleSkillItems()
-  //await handleTraitItems()
-  //await handleWeaponItems()
+  await handleSkillItems()
+  await handleTraitItems()
+  await handleWeaponItems()
+
+  // Send Discord message stating thte script has finished running
+  // Send the update notification to Discord
+  const params = {
+    embeds: [
+      {
+        title: `Wiki scraper script completed.`,
+        color: 0x00ff00,
+      },
+    ],
+  }
+
+  if (envVars.NODE_ENV === 'production') {
+    const res = await fetch(`${envVars.WEBHOOK_WIKI_SCRAPER_FEED}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(params),
+    })
+
+    if (!res.ok) {
+      console.error('Error in sending build webhook to Discord!')
+    }
+  }
 
   console.info('Finished running wiki scraper script.')
 

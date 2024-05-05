@@ -7,7 +7,10 @@ export const modItems: ModItem[] = [
     imagePath: '/mod/abrasive_rounds.png',
     id: 'h9k5pd',
     dlc: 'dlc2',
-    description: `Imbues ammunition with BLEED and increases Lifesteal by 5% for 20s. Shots also apply BLEEDING, dealing 200 damage over 10s.`,
+    description:
+      'Imbues ammunition with BLEED and increases Lifesteal by 5% for 20s. Shots also apply BLEEDING, dealing 200 damage over 10s.\n' +
+      '\n' +
+      'Mod Power Requirement: 1,250',
     wikiLinks: [`https://remnant.wiki/Abrasive_Rounds`],
   },
   {
@@ -16,8 +19,9 @@ export const modItems: ModItem[] = [
     imagePath: '/mod/polygun.png',
     dlc: 'dlc2',
     id: '777968',
-    description: `84 79 71 71 76 69 32 67 79 77 66 65 84 32 70 73 82 73 78 71 32 77 79 68 69 83`,
-    wikiLinks: [`https://remnant.wiki/77_79_68`],
+    description:
+      'ERROR: Unable to load description.ERROR: Unable to load description.',
+    wikiLinks: [`https://remnant.wiki/Polygun/Encrypted`],
     linkedItems: {
       weapon: {
         name: 'Polygun',
@@ -44,22 +48,11 @@ export const modItems: ModItem[] = [
     imagePath: '/mod/astral_burst.png',
     id: 'mqta6g',
     dlc: 'base',
-    description: `Fires a short range burst of 7 star fragments which deal 35 damage each. Fragments bounce off walls up to 3 times, dealing 35% additional damage per bounce. Weakspot hits deal reduced damage.`,
+    description:
+      'Fires a short range burst of 7 star fragments which deal 35 - 105 damage each. Fragments bounce off walls up to 3 times, dealing 35% additional damage per bounce. Weakspot hits deal reduced damage.\n' +
+      '\n' +
+      'Mod Power Requirement: 450',
     wikiLinks: [`https://remnant.wiki/Astral_Burst`],
-  },
-  {
-    category: 'mod',
-    name: 'Javelin',
-    imagePath: '/mod/athibar.png',
-    id: '29kz6t',
-    dlc: 'base',
-    description: `Charge attacks use 25 stamina to throw the spear, which returns to the wielder's hand.`,
-    wikiLinks: [`https://remnant.wiki/Javelin`],
-    linkedItems: {
-      weapon: {
-        name: 'Huntress Spear',
-      },
-    },
   },
   {
     category: 'mod',
@@ -833,6 +826,20 @@ export const modItems: ModItem[] = [
       '\n' +
       ' Mod Power Requirement: 1,250',
     wikiLinks: [`https://remnant.wiki/Hot_Shot`],
+  },
+  {
+    category: 'mod',
+    name: 'Javelin',
+    imagePath: '/mod/athibar.png',
+    id: '29kz6t',
+    dlc: 'base',
+    description: `Charge attacks use 25 stamina to throw the spear, which returns to the wielder's hand.`,
+    wikiLinks: [`https://remnant.wiki/Javelin`],
+    linkedItems: {
+      weapon: {
+        name: 'Huntress Spear',
+      },
+    },
   },
   {
     category: 'mod',
