@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Changed
 
 - Perks now display their type on the item cards and item info dialogs.
+- Add to Loadout button on the Builder will now show what Loadout slot the build is equipped to if it is already equipped.
 
 ### Fixed
 

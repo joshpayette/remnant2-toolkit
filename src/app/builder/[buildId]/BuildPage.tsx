@@ -161,6 +161,7 @@ export function BuildPage({ build }: Props) {
 
               {session?.user?.id && (
                 <LoadoutManagementButton
+                  buildId={buildState.buildId}
                   onClick={() => setLoadoutDialogOpen(true)}
                 />
               )}
