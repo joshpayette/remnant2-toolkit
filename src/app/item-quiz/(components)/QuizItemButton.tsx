@@ -14,7 +14,7 @@ interface Props {
 
 export function QuizItemButton({ item, itemIndex, onClick }: Props) {
   const wrapperClasses =
-    'flex h-[150px] max-h-[150px] w-[150px] max-w-[150px] md:h-[225px] md:max-h-[225px] md:w-[225px] md:max-w-[225px] flex-col items-center justify-center overflow-hidden border border-secondary-500 bg-secondary-900 p-2 text-lg hover:bg-secondary-700'
+    'flex h-[150px] max-h-[150px] w-[150px] max-w-[150px] md:h-[225px] md:max-h-[225px] md:w-[225px] md:max-w-[225px] flex-col items-center justify-center overflow-hidden border border-secondary bg-secondary-container p-2 text-lg hover:bg-secondary'
 
   if (!onClick) {
     return (
@@ -35,24 +35,24 @@ export function QuizItemButton({ item, itemIndex, onClick }: Props) {
 
   switch (arrowIndex) {
     case ARROW_TO_INDEX.ArrowUp:
-      arrowIcon = <ArrowUpIcon className="h-3 w-3 text-black md:h-4 md:w-4" />
+      arrowIcon = <ArrowUpIcon className="h-3 w-3 md:h-4 md:w-4" />
       numberLabel = '1'
       break
     case ARROW_TO_INDEX.ArrowRight:
       arrowIcon = (
-        <ArrowUpIcon className="h-3 w-3 rotate-90 transform text-black md:h-4 md:w-4" />
+        <ArrowUpIcon className="h-3 w-3 rotate-90 transform md:h-4 md:w-4" />
       )
       numberLabel = '3'
       break
     case ARROW_TO_INDEX.ArrowDown:
       arrowIcon = (
-        <ArrowUpIcon className="h-3 w-3 rotate-180 transform text-black md:h-4 md:w-4" />
+        <ArrowUpIcon className="h-3 w-3 rotate-180 transform md:h-4 md:w-4" />
       )
       numberLabel = '4'
       break
     case ARROW_TO_INDEX.ArrowLeft:
       arrowIcon = (
-        <ArrowUpIcon className="h-3 w-3 -rotate-90 transform text-black md:h-4 md:w-4" />
+        <ArrowUpIcon className="h-3 w-3 -rotate-90 transform md:h-4 md:w-4" />
       )
       numberLabel = '2'
       break
@@ -65,13 +65,13 @@ export function QuizItemButton({ item, itemIndex, onClick }: Props) {
       className={cn(wrapperClasses, 'sm:relative')}
       onClick={onClick}
       key={item.id}
-      plain
+      plain // TODO: All of these styles need a pass
     >
       <div className="absolute bottom-0 right-0 hidden sm:flex sm:gap-x-0.5">
-        <div className="md:text-md flex h-4 w-4 items-center justify-center bg-secondary-200 text-xs text-black md:h-6 md:w-6">
+        <div className="md:text-md flex h-4 w-4 items-center justify-center bg-on-secondary text-xs md:h-6 md:w-6">
           {numberLabel}
         </div>
-        <div className="md:text-md flex h-4 w-4 items-center justify-center bg-secondary-200 text-xs text-black md:h-6 md:w-6">
+        <div className="md:text-md flex h-4 w-4 items-center justify-center bg-on-secondary text-xs md:h-6 md:w-6">
           {arrowIcon}
         </div>
       </div>

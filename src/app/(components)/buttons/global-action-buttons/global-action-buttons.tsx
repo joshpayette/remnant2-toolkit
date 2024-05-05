@@ -1,6 +1,6 @@
 'use client'
 
-import { ArrowUpIcon, BugAntIcon, SunIcon } from '@heroicons/react/24/solid'
+import { ArrowUpIcon, BugAntIcon } from '@heroicons/react/24/solid'
 import { useState } from 'react'
 import { toast } from 'react-toastify'
 

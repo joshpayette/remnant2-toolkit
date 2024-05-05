@@ -104,7 +104,7 @@ export function WorldSaves({}: Props) {
     <div className="flex w-full flex-col items-center justify-center overflow-auto p-4">
       {!areFiltersApplied && (
         <div className="flex flex-col items-center justify-center gap-y-2">
-          <h2 className="text-center text-2xl font-bold text-primary-500">
+          <h2 className="text-center text-2xl font-bold text-primary">
             Apply a filter to search the {worldSaves.length} world saves, or...
           </h2>
 
@@ -114,13 +114,13 @@ export function WorldSaves({}: Props) {
         </div>
       )}
       {filteredSaves.length === 0 && (
-        <h2 className="text-center text-2xl font-bold text-primary-500">
+        <h2 className="text-center text-2xl font-bold text-primary">
           No items found
         </h2>
       )}
 
       {filteredSaves.length > 0 && areFiltersApplied && (
-        <h2 className="my-4 text-2xl font-bold text-primary-500">
+        <h2 className="my-4 text-2xl font-bold text-primary">
           World Saves ({filteredSaves.length} Results)
         </h2>
       )}

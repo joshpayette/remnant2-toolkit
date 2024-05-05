@@ -25,8 +25,8 @@ export const PlayingDisplay = React.memo(
         id="item-name-container"
         className="mb-8 flex flex-col items-center justify-center"
       >
-        <h3 className="text-xl font-bold text-primary-500">Item to Find:</h3>
-        <p className="text-lg text-gray-200">{correctItemName}</p>
+        <h3 className="text-xl font-bold">Item to Find:</h3>
+        <p className="text-lg text-on-surface">{correctItemName}</p>
       </div>
 
       {/** Mobile Grid */}

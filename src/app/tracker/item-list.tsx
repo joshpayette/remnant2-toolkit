@@ -288,7 +288,7 @@ export function ItemList({}: Props) {
       <div className="w-full">
         {!areFiltersApplied && (
           <div className="flex flex-col items-center justify-center gap-y-2">
-            <h2 className="mt-4 text-center text-2xl font-bold text-primary-400">
+            <h2 className="mt-4 text-center text-2xl font-bold text-primary">
               Apply a filter, or...
             </h2>
             <BaseButton onClick={() => setAreFiltersApplied(true)}>
@@ -297,7 +297,7 @@ export function ItemList({}: Props) {
           </div>
         )}
         {filteredItems.length > 0 && areFiltersApplied && (
-          <h2 className="my-4 w-full text-center text-2xl font-bold text-primary-400">
+          <h2 className="my-4 w-full text-center text-2xl font-bold text-primary">
             Filtered Items ({filteredItems.length} Results)
           </h2>
         )}
@@ -311,7 +311,7 @@ export function ItemList({}: Props) {
                 <>
                   <Disclosure.Button
                     onClick={() => handleCategoryToggle(itemCategory)}
-                    className="flex w-full justify-start border-b border-secondary-700 p-4 text-left hover:border-primary-400 hover:bg-black focus:outline-none focus-visible:ring focus-visible:ring-primary-500/75"
+                    className="flex w-full justify-start border-b border-secondary-700 p-4 text-left hover:border-primary hover:bg-surface focus:outline-none focus-visible:ring focus-visible:ring-primary/75"
                   >
                     <div className="w-full">
                       <h2 className="text-lg font-semibold">
@@ -328,7 +328,7 @@ export function ItemList({}: Props) {
                     </div>
                     <ChevronDownIcon
                       className={cn(
-                        'h-5 w-5 text-white',
+                        'h-5 w-5 text-on-surface',
                         open ? 'rotate-180 transform' : '',
                       )}
                     />

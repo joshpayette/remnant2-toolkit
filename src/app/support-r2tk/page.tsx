@@ -5,12 +5,12 @@ import { LandingPageContainer } from '@/features/ui/LandingPageContainer'
 export default async function Page() {
   return (
     <LandingPageContainer
-      bgClass="bg-black/60"
+      bgClass="bg-surface-container/30"
       image="support"
       title="Support the Toolkit"
       description={
-        <div className="mt-6 text-lg leading-8 text-gray-300">
-          <p className="mt-6 text-lg leading-8 text-gray-300">
+        <div className="mt-6 text-lg leading-8 text-on-surface">
+          <p className="mt-6 text-lg leading-8 text-on-surface">
             {NAV_ITEMS.supportR2TK.description}
           </p>
         </div>
@@ -24,7 +24,7 @@ export default async function Page() {
           target="_blank"
           icon={
             <NAV_ITEMS.supportR2TK.icon
-              className="h-7 w-7 flex-none text-primary-500"
+              className="h-7 w-7 flex-none text-primary"
               aria-hidden="true"
             />
           }
@@ -37,7 +37,7 @@ export default async function Page() {
           target="_blank"
           icon={
             <NAV_ITEMS.supportR2TK.icon
-              className="h-7 w-7 flex-none text-primary-500"
+              className="h-7 w-7 flex-none text-primary"
               aria-hidden="true"
             />
           }

@@ -94,13 +94,13 @@ export function ItemCard({
   }
 
   return (
-    <div className="col-span-1 flex flex-col divide-y divide-primary-800 rounded-lg border border-primary-500 bg-black text-center shadow">
+    <div className="col-span-1 flex flex-col divide-y divide-primary rounded-lg border border-primary bg-surface-container text-center shadow">
       <div className="flex flex-1 flex-col p-4">
         {allowItemCompare ? (
           <div className="flex w-full items-center justify-center">
             <div className="flex w-full items-center justify-start">
               {itemBuildStats ? (
-                <div className="flex items-center gap-1 text-[11px] text-gray-200">
+                <div className="flex items-center gap-1 text-[11px] text-on-surface-container">
                   <div className="flex flex-col items-center justify-start">
                     <span className="underline">Featured</span>
                     <span>
@@ -164,6 +164,7 @@ export function ItemCard({
               'mx-auto mb-2 h-[96px] w-[96px] flex-shrink-0 rounded-full',
               TraitItem.isTraitItem(item) && 'h-[96px] w-[48px]',
               WeaponItem.isWeaponItem(item) && 'h-[64px] w-[128px]',
+              ArchetypeItem.isArchetypeItem(item) && 'bg-black'
             )}
             width={sizes.width}
             height={sizes.height}
@@ -176,13 +177,13 @@ export function ItemCard({
         </BaseButton>
         <div className="mt-0 flex flex-grow flex-col justify-start text-xs">
           <div className="sr-only">Item Category</div>
-          <div className="text-xs text-gray-400">
+          <div className="text-xs text-on-surface">
             {category === 'relicfragment' ? 'relic fragment' : category}
           </div>
           {!ArmorItem.isArmorItem(item) && (
             <>
               <div className="sr-only">Description</div>
-              <div className="mt-3 whitespace-pre-line text-left text-xs text-gray-200">
+              <div className="mt-3 whitespace-pre-line text-left text-xs text-on-surface">
                 <DescriptionWithTags
                   description={description ?? ''}
                   highlightBuildTags={false}
@@ -193,7 +194,7 @@ export function ItemCard({
           )}
 
           {(MutatorItem.isMutatorItem(item) || TraitItem.isTraitItem(item)) && (
-            <div className="mt-3 whitespace-pre-line text-left text-xs text-gray-200">
+            <div className="mt-3 whitespace-pre-line text-left text-xs text-on-surface">
               <strong>At Max Level: </strong>
               <DescriptionWithTags
                 description={item.maxLevelBonus || 'No max level bonus found.'}
@@ -204,7 +205,7 @@ export function ItemCard({
           )}
 
           {item.cooldown && (
-            <div className="mt-3 whitespace-pre-line text-left text-xs text-gray-200">
+            <div className="mt-3 whitespace-pre-line text-left text-xs text-on-surface">
               <strong>Cooldown</strong>: {item.cooldown}s
             </div>
           )}
@@ -221,13 +222,13 @@ export function ItemCard({
         )}
         {PerkItem.isPerkItem(item) && item.linkedItems?.archetype && (
           <div className="mt-4">
-            <div className="grid w-full grid-cols-2 gap-2 border border-transparent   py-1 text-left text-sm text-gray-300">
+            <div className="grid w-full grid-cols-2 gap-2 border border-transparent py-1 text-left text-sm text-on-surface">
               <p className="flex items-center justify-start text-xs">
                 Archetype
               </p>
               <Link
                 href={`/item-lookup?categories=Trait,Archetype,Perk,Skill&searchText=${item.linkedItems.archetype.name}`}
-                className="flex items-center justify-end text-right text-xs font-bold text-secondary-500 underline"
+                className="flex items-center justify-end text-right text-xs font-bold text-secondary underline"
                 target="_blank"
               >
                 {item.linkedItems.archetype.name}
@@ -237,13 +238,13 @@ export function ItemCard({
         )}
         {SkillItem.isSkillItem(item) && item.linkedItems?.archetype && (
           <div className="mt-4">
-            <div className="grid w-full grid-cols-2 gap-2 border border-transparent   py-1 text-left text-sm text-gray-300">
+            <div className="grid w-full grid-cols-2 gap-2 border border-transparent py-1 text-left text-sm text-on-surface">
               <p className="flex items-center justify-start text-xs">
                 Archetype
               </p>
               <Link
                 href={`/item-lookup?categories=Trait,Archetype,Perk,Skill&searchText=${item.linkedItems.archetype.name}`}
-                className="flex items-center justify-end text-right text-xs font-bold text-secondary-500 underline"
+                className="flex items-center justify-end text-right text-xs font-bold text-secondary underline"
                 target="_blank"
               >
                 {item.linkedItems.archetype.name}
@@ -253,13 +254,13 @@ export function ItemCard({
         )}
         {TraitItem.isTraitItem(item) && item.linkedItems?.archetype && (
           <div className="mt-4">
-            <div className="grid w-full grid-cols-2 gap-2 border border-transparent   py-1 text-left text-sm text-gray-300">
+            <div className="grid w-full grid-cols-2 gap-2 border border-transparent py-1 text-left text-sm text-on-surface">
               <p className="flex items-center justify-start text-xs">
                 Archetype
               </p>
               <Link
                 href={`/item-lookup?categories=Trait,Archetype,Perk,Skill&searchText=${item.linkedItems.archetype.name}`}
-                className="flex items-center justify-end text-right text-xs font-bold text-secondary-500 underline"
+                className="flex items-center justify-end text-right text-xs font-bold text-secondary underline"
                 target="_blank"
               >
                 {item.linkedItems.archetype.name}
@@ -269,11 +270,11 @@ export function ItemCard({
         )}
         {ModItem.isModItem(item) && item.linkedItems?.weapon && (
           <div className="mt-4">
-            <div className="grid w-full grid-cols-2 gap-2 border border-transparent   py-1 text-left text-sm text-gray-300">
+            <div className="grid w-full grid-cols-2 gap-2 border border-transparent py-1 text-left text-sm text-on-surface">
               <p className="flex items-center justify-start text-xs">Weapon</p>
               <Link
                 href={`/item-lookup?searchText=${item.linkedItems.weapon.name}`}
-                className="flex items-center justify-end text-right text-xs font-bold text-secondary-500 underline"
+                className="flex items-center justify-end text-right text-xs font-bold text-secondary underline"
                 target="_blank"
               >
                 {item.linkedItems.weapon.name}
@@ -287,14 +288,14 @@ export function ItemCard({
             <div className={cn(index === 0 && 'mt-4')} key={perk.name}>
               <div
                 className={cn(
-                  'grid w-full grid-cols-2 gap-2 border border-transparent  py-1 text-left text-sm text-gray-300',
+                  'grid w-full grid-cols-2 gap-2 border border-transparent  py-1 text-left text-sm text-on-surface',
                   index === 0 && '',
                 )}
               >
                 <p className="flex items-center justify-start text-xs">Perk</p>
                 <Link
                   href={`/item-lookup?categories=Trait,Archetype,Perk,Skill&searchText=${perk.name}`}
-                  className="flex items-center justify-end text-right text-xs font-bold text-secondary-500 underline"
+                  className="flex items-center justify-end text-right text-xs font-bold text-secondary underline"
                   target="_blank"
                 >
                   {perk.name}
@@ -308,13 +309,13 @@ export function ItemCard({
             <div key={skill.name}>
               <div
                 className={cn(
-                  'grid w-full grid-cols-2 gap-2 border border-transparent  py-1 text-left text-sm text-gray-300',
+                  'grid w-full grid-cols-2 gap-2 border border-transparent py-1 text-left text-sm text-on-surface',
                 )}
               >
                 <p className="flex items-center justify-start text-xs">Skill</p>
                 <Link
                   href={`/item-lookup?categories=Trait,Archetype,Perk,Skill&searchText=${skill.name}`}
-                  className="flex items-center justify-end text-right text-xs font-bold text-secondary-500 underline"
+                  className="flex items-center justify-end text-right text-xs font-bold text-secondary underline"
                   target="_blank"
                 >
                   {skill.name}
@@ -328,13 +329,13 @@ export function ItemCard({
             <div key={trait.name}>
               <div
                 className={cn(
-                  'grid w-full grid-cols-2 gap-2 border border-transparent  py-1 text-left text-sm text-gray-300',
+                  'grid w-full grid-cols-2 gap-2 border border-transparent py-1 text-left text-sm text-on-surface',
                 )}
               >
                 <p className="flex items-center justify-start text-xs">Trait</p>
                 <Link
                   href={`/item-lookup?categories=Trait,Archetype,Perk,Skill&searchText=${trait.name}`}
-                  className="flex items-center justify-end text-right text-xs font-bold text-secondary-500 underline"
+                  className="flex items-center justify-end text-right text-xs font-bold text-secondary underline"
                   target="_blank"
                 >
                   {trait.name}
@@ -344,7 +345,7 @@ export function ItemCard({
           ))}
       </div>
       <div>
-        <div className="-mt-px grid grid-cols-2 divide-x divide-primary-800">
+        <div className="-mt-px grid grid-cols-2 divide-x divide-primary">
           <BaseButton
             plain
             className="relative flex items-center justify-center"

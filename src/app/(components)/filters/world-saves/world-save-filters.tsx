@@ -154,7 +154,7 @@ export function WorldSaveFilters({}: Props) {
     <Disclosure defaultOpen={true}>
       {({ open }) => (
         <div className="w-full">
-          <div className="flex w-full flex-row items-end justify-end border-b border-b-primary-500 py-2">
+          <div className="flex w-full flex-row items-end justify-end border-b border-b-primary py-2">
             <div className="w-full pr-4">
               <BossNameFilter
                 value={unappliedFilters.bossName}
@@ -168,9 +168,9 @@ export function WorldSaveFilters({}: Props) {
           </div>
           <Disclosure.Panel
             className={cn(
-              'mt-2 w-full border border-cyan-500 bg-gray-950 p-4',
+              'mt-2 w-full border border-primary bg-surface-container p-4',
               areAnyFiltersActive &&
-                'border-accent1-300 shadow-xl shadow-accent1-600',
+                'border-secondary shadow-xl shadow-secondary-container',
             )}
           >
             <BaseFieldset>

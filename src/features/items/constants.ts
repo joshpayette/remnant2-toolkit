@@ -77,12 +77,12 @@ export const ARCHTYPE_COLORS = {
     text: 'text-[#bb4fff]',
   },
 }
-
+// text-[] dark:text-[]
 export const WEIGHT_CLASSES = {
   LIGHT: {
     challengerDescription: 'Fast Dodge. No Stamina Cost Penalty.',
     description: 'Fast Dodge. No Stamina Cost Penalty.',
-    textColor: 'text-[#89CFF0]',
+    textColor: 'text-[#136682] dark:text-[#8bd0f0]',
     maxWeight: 25,
   },
   MEDIUM: {
@@ -150,13 +150,13 @@ export const DESCRIPTION_TAGS = [
   {
     type: 'Brittle',
     token: 'BRITTLE',
-    color: 'text-[#fff1bc]',
+    color: 'text-[#6c5e0f] dark:text-[#dac76f]',
     description: undefined,
   },
   {
     type: 'Burning',
     token: 'BURNING',
-    color: 'text-[#b65d30]',
+    color: 'text-[#8e4d2e] dark:text-[#ffb694]',
     description: 'Deals elemental FIRE damage. Can make enemies panic.',
   },
   {
@@ -175,7 +175,7 @@ export const DESCRIPTION_TAGS = [
   {
     type: 'Call of the Doe',
     token: 'CALL OF THE DOE',
-    color: 'text-[#fff1bc]',
+    color: 'text-highlight',
     description: undefined,
   },
   {
@@ -413,7 +413,7 @@ export const DESCRIPTION_TAGS = [
   {
     type: 'Suppression',
     token: 'SUPPRESSION',
-    color: 'text-[#444662]',
+    color: 'text-primary-container',
     description: 'Reduces Mod Power Generation by 50%.',
   },
   {
@@ -432,7 +432,7 @@ export const DESCRIPTION_TAGS = [
   {
     type: 'Negative Status Effects',
     token: 'Negative Status Effects',
-    color: 'text-purple-400',
+    color: 'text-secondary',
     description: `Bleeding, Burning, Corroded, Overloaded, Slow.`,
   },
   {
@@ -474,7 +474,7 @@ export const DESCRIPTION_TAGS = [
   {
     type: 'Status Effect',
     token: 'Status Effect',
-    color: 'text-purple-400',
+    color: 'text-secondary',
     description: `Bleeding, Burning, Corroded, Overloaded, Slow.`,
   },
 ] as const satisfies {
