@@ -4,6 +4,8 @@ import { validateEnv } from '@/app/(validators)/validate-env'
 import { handleAmuletItems } from '@/app/api/cron/wiki/scraper/amulets/handle-amulet-items'
 import { handleArmorItems } from '@/app/api/cron/wiki/scraper/armor/handle-armor-items'
 import { handleConcoctionItems } from '@/app/api/cron/wiki/scraper/concoctions/handle-concoction-items'
+import { handleConsumableItems } from '@/app/api/cron/wiki/scraper/consumables/handle-consumable-items'
+import { handleModItems } from '@/app/api/cron/wiki/scraper/mods/handle-mod-items'
 import { handleWeaponItems } from '@/app/api/cron/wiki/scraper/weapons/handle-weapon-items'
 
 export async function GET(request: NextRequest) {
@@ -23,7 +25,9 @@ export async function GET(request: NextRequest) {
 
   //await handleAmuletItems()
   //await handleArmorItems()
-  await handleConcoctionItems()
+  //await handleConcoctionItems()
+  //await handleConsumableItems()
+  await handleModItems()
   //await handleWeaponItems()
 
   console.info('Finished running wiki scraper script.')

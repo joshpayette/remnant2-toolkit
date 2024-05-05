@@ -34,6 +34,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Fixed all discrepancies in amulet item descriptions and stats from the wiki.
 - Fixed all discrepancies in armor item descriptions and stats from the wiki.
 - Fixed all discrepancies in concoction item descriptions and stats from the wiki.
+- Fixed all discrepancies in consumable item descriptions and stats from the wiki.
+- Fixed all discrepancies in mod item descriptions and stats from the wiki.
 
 ## 2024-05-03
 
