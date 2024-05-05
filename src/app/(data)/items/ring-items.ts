@@ -542,8 +542,8 @@ export const ringItems: RingItem[] = [
     id: 's916uj',
     tags: ['Critical Hit', 'Skill Damage'],
     description:
-      'When consumed, the hero[sic] will be returned to the last activated checkpoint.',
-    wikiLinks: [`https://remnant.wiki/Liquid_Escape`],
+      'Critical Hits increase Skill Damage by 2% for 5s. Max 10 stacks.',
+    wikiLinks: [`https://remnant.wiki/Crimson_Dreamstone`],
   },
   {
     category: 'ring',
