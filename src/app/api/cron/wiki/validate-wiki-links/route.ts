@@ -3,6 +3,8 @@ import { NextRequest } from 'next/server'
 import { allItems } from '@/app/(data)/items/all-items'
 import { validateEnv } from '@/app/(validators)/validate-env'
 
+export const maxDuration = 60
+
 /** The amount of time between each request to not flood the wiki */
 const REQUEST_DELAY = 100
 
