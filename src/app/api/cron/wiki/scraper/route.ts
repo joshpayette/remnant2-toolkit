@@ -6,6 +6,7 @@ import { handleArmorItems } from '@/app/api/cron/wiki/scraper/armor/handle-armor
 import { handleConcoctionItems } from '@/app/api/cron/wiki/scraper/concoctions/handle-concoction-items'
 import { handleConsumableItems } from '@/app/api/cron/wiki/scraper/consumables/handle-consumable-items'
 import { handleModItems } from '@/app/api/cron/wiki/scraper/mods/handle-mod-items'
+import { handleMutatorItems } from '@/app/api/cron/wiki/scraper/mutators/handle-mutator-items'
 import { handleWeaponItems } from '@/app/api/cron/wiki/scraper/weapons/handle-weapon-items'
 
 export async function GET(request: NextRequest) {
@@ -27,7 +28,8 @@ export async function GET(request: NextRequest) {
   //await handleArmorItems()
   //await handleConcoctionItems()
   //await handleConsumableItems()
-  await handleModItems()
+  //await handleModItems()
+  await handleMutatorItems()
   //await handleWeaponItems()
 
   console.info('Finished running wiki scraper script.')

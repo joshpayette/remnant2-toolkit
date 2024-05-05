@@ -9,9 +9,11 @@ export const mutatorItems: MutatorItem[] = [
     id: 'f9tqot',
     dlc: 'base',
     tags: ['Ammo Reserves', 'Fire Rate'],
-    description: `On hit, grants a 10-[30]% chance to return spent Ammo directly into the magazine of this weapon.`,
-    maxLevelBonus: `When Ammo is returned to this weapon, it gains 10% increased Fire Rate for 3s. Duration can increase up to 10s.`,
-    wikiLinks: [`https://remnant.wiki/Bandit`],
+    description:
+      'On hit, grants a 10% - 30% chance to return spent Ammo directly into the magazine of this weapon.',
+    maxLevelBonus:
+      'When Ammo is returned to this weapon, it gains 10% increased Fire Rate for 3s. Duration can increase up to 10s.On hit, grants a 10% - 30% chance to return spent Ammo back into the reserves of this weapon.',
+    wikiLinks: [`https://remnant.wiki/Bandit_(Mutator)`],
   },
   {
     category: 'mutator',
@@ -21,8 +23,9 @@ export const mutatorItems: MutatorItem[] = [
     dlc: 'dlc2',
     id: 'y5hY8J',
     tags: ['Mod Power', 'Melee Damage'],
-    description: `Skill activation grants Mage Strike for 10s increasing Melee Mod Generation by 25%.`,
-    maxLevelBonus: `Level 10: Mage Strike also increases Melee Damage by 15%.`,
+    description:
+      'Skill activation grants Mage Strike for 10s, increasing Melee Mod Generation by 25% - 50%.',
+    maxLevelBonus: 'Mage Strike also increases Melee Damage by 15%.',
     wikiLinks: [`https://remnant.wiki/Battle_Mage`],
   },
   {
@@ -33,7 +36,8 @@ export const mutatorItems: MutatorItem[] = [
     id: 'n5zhws',
     dlc: 'base',
     tags: ['Weakspot Damage'],
-    description: `Increases Weakspot Damage by 10% for every 400 Mod Power spent by the attached weapon's mod. Max 3 stacks. Lasts 10s.`,
+    description:
+      "Increases Weakspot Damage by 10% - 20% for every 400 Mod Power Spent by the attached weapon's mod[sic]. Max 3 stacks. Lasts 10s.",
     maxLevelBonus: `At Max Stacks, gain 10% Critical Chance on Weakspot Hits.`,
     wikiLinks: [`https://remnant.wiki/Battery`],
   },
@@ -57,8 +61,9 @@ export const mutatorItems: MutatorItem[] = [
     id: 'cr22cp',
     dlc: 'base',
     tags: ['Fire Rate', 'Mod Power'],
-    description: `Mod use increases Fire Rate of this weapon by 10-[20]% for 15s.`,
-    maxLevelBonus: `Increases Mod Generation of this weapon by 15%.`,
+    description:
+      'Mod use increases Fire Rate of this weapon by 10% - 20%  for 15s.',
+    maxLevelBonus: 'Increases Mod Generation for this weapon by 15%.',
     wikiLinks: [`https://remnant.wiki/Bulletweaver`],
   },
   {
@@ -94,7 +99,7 @@ export const mutatorItems: MutatorItem[] = [
     dlc: 'base',
     tags: ['Neutral Dodge', 'Perfect Neutral Evade'],
     description: `Melee Strikes increase the damage of the next Backdash Evade Attack by 5% - 15%. Max 3 Stacks. Lasts 7.5s.`,
-    maxLevelBonus: `Perfect Neutral Evades grant 3 stacks`,
+    maxLevelBonus: 'Perfect Neutral Evades grant 3 stacks.',
     wikiLinks: [`https://remnant.wiki/Disengage`],
   },
   {
@@ -122,7 +127,8 @@ export const mutatorItems: MutatorItem[] = [
       'Charged Melee',
       'Lifesteal',
     ],
-    description: `Increases Melee Charge Speed by 15% and Melee Attack Speed by 10%.`,
+    description:
+      'Increases Melee Charge Speed by 15% - 35% and Melee Attack Speed by 10%.',
     maxLevelBonus: `Gain 3% of based Charged Melee Damage dealt as Lifesteal.`,
     wikiLinks: [`https://remnant.wiki/Edgelord`],
   },
@@ -146,8 +152,9 @@ export const mutatorItems: MutatorItem[] = [
     id: 'pszxmh',
     dlc: 'base',
     tags: ['Magazine Capacity', 'Reload Speed'],
-    description: `Increases Magazine Capacity of this weapon by 20-[45]%.`,
-    maxLevelBonus: `Increases Reload Speed of this weapon by 20%.`,
+    description: 'Increases Magazine Capacity of this weapon by 20% - 45%.',
+    maxLevelBonus:
+      'Increases Reload Speed of this weapon by 20%.Increases Reserve Size of this weapon by 20% - 45%.',
     wikiLinks: [`https://remnant.wiki/Extender`],
   },
   {
@@ -158,8 +165,7 @@ export const mutatorItems: MutatorItem[] = [
     id: '0xx8tz',
     dlc: 'base',
     tags: ['Mod Damage'],
-    // TODO Check this; max mod damage 20% -> 25%
-    description: `Attached Mod deals 10-[25]% additional Mod Damage.`,
+    description: 'Attached Mod deals 10% - 25% additional Mod Damage.',
     maxLevelBonus: `Attached Mod use gains a 15% chance to not consume charge.`,
     wikiLinks: [`https://remnant.wiki/Failsafe`],
   },
@@ -171,8 +177,10 @@ export const mutatorItems: MutatorItem[] = [
     id: 'QJdhx2',
     dlc: 'dlc2',
     tags: ['Ranged Damage'],
-    description: `Increases Ranged Damage of this weapon by 1.25% for every 2.5m from the shooter to the target. Max 25%.`,
-    maxLevelBonus: `Level 10: Increases this weapon's Ideal, Falloff, and Max Range by 5m.`,
+    description:
+      'Increases Ranged Damage of this weapon by 1.25% - 2.5% for every 2.5m from the shooter to the target. Max 25%.',
+    maxLevelBonus:
+      "Increases this weapon's Ideal, Falloff, and Max Range by 5m.",
     wikiLinks: [`https://remnant.wiki/Far-Sighted`],
   },
   {
@@ -183,9 +191,10 @@ export const mutatorItems: MutatorItem[] = [
     id: '75qok3',
     dlc: 'base',
     tags: ['Mod Power', 'Mod Damage'],
-    description: `Using this weapon's Mod generates 10-[20]% of single charge value as passive Mod Power over 10s. Does not stack.`,
-    // TODO Check this; 10% -> 15%
-    maxLevelBonus: `Mod Damage generates 15% of damage dealt as Mod Power.`,
+    description:
+      "Using this weapon's Mod generates 10% - 20% of single charge value as passive Mod Power over 10s. Does not stack.",
+    maxLevelBonus:
+      'Mod Damage generates 15% of Base Damage dealt as Mod Power.',
     wikiLinks: [`https://remnant.wiki/Feedback`],
   },
   {
@@ -201,9 +210,8 @@ export const mutatorItems: MutatorItem[] = [
       'Weakspot Damage',
       'Critical Hit',
     ],
-    // TODO Check this; `added interaction with SLOW`
-    description: `Increases Critical Chance of this weapon by 3% per unique Negative Status Effect on the enemy. Max 15% increase.`,
-    // TODO Check this; 200 over 10s -> 75 over 10s
+    description:
+      'Increases Critical Chance of this weapon by 1% - 3% per unique Negative Status Effect on the enemy. Max 15% increase.',
     maxLevelBonus: `This weapon's Ranged Weakspot and Ranged Critical Hits apply CORRODED, dealing 75 CORROSIVE damage over 10s.`,
     wikiLinks: [`https://remnant.wiki/Fetid_Wounds`],
   },
@@ -215,8 +223,8 @@ export const mutatorItems: MutatorItem[] = [
     id: '85c7yj',
     dlc: 'base',
     tags: ['Weakspot Hit', 'Weakspot Damage', 'Weakspot Critical Chance'],
-    // TODO Check this; `weakspot hit requirement -1`, 3 -> 2
-    description: `After 2 consecutive Weakspot Hits, increase the damage of the next Weakspot Hit by 20-[40]%.`,
+    description:
+      'Every 3rd consecutive Weakspot Hits deals 20% - 40% additional damage.',
     maxLevelBonus: `Increases Weakspot Critical Chance by 15%.`,
     wikiLinks: [`https://remnant.wiki/Ghost_Shell`],
   },
@@ -228,8 +236,10 @@ export const mutatorItems: MutatorItem[] = [
     id: 'N4LpPR',
     dlc: 'dlc2',
     tags: [], // TODO Add tags
-    description: `While brandishing a Melee Weapon, receiving Enemy Damage increases Melee Damage by 25% for 5s.`,
-    maxLevelBonus: `Level 10: Receiving Enemy Damage while brandishing a Melee Weapon grants 1 stack of BULWARK for 5s.`,
+    description:
+      'While brandishing a Melee Weapon, receiving Enemy Damage increases Melee Damage by 25% - 50% for 5s.',
+    maxLevelBonus:
+      'Receiving Enemy Damage while brandishing a Melee Weapon grants 1 stack of BULWARK for 5s.',
     wikiLinks: [`https://remnant.wiki/Gladiator`],
   },
   {
@@ -240,8 +250,8 @@ export const mutatorItems: MutatorItem[] = [
     dlc: 'dlc1',
     id: '961d6v',
     tags: ['Melee Critical Chance', 'Grey Health'],
-    description: `Increases Melee Critical Chance by 5% when Grey Health is present.`,
-    // TODO Check this; melee crit 2.5% per 10% grey -> 0.5% per 1% grey
+    description:
+      'Increases Melee Critical Chance by 5% - 25% when Grey Health is present.',
     maxLevelBonus: `Increases Melee Critical Damage by 0.5% for every 1% of Grey Health.`,
     wikiLinks: [`https://remnant.wiki/Guts`],
   },
@@ -253,21 +263,9 @@ export const mutatorItems: MutatorItem[] = [
     id: 'jyl055',
     dlc: 'base',
     tags: ['Mod Damage', 'Mod Power'],
-    description: `Increases Mod Damage by 10-[20]%.`,
+    description: 'Attached Mod deals 10% - 20% additional Mod Damage.',
     maxLevelBonus: `Generate 25% additional Mod Power for Stowed Weapon.`,
     wikiLinks: [`https://remnant.wiki/Harmonizer`],
-  },
-  {
-    category: 'mutator',
-    name: 'Searing Wounds',
-    type: 'gun',
-    imagePath: '/mutator/searing_wounds.png',
-    dlc: 'dlc2',
-    id: '9htako',
-    tags: ['Ranged Damage', 'Critical Hit', 'Status Effect'],
-    description: `Increases Ranged Damage of this weapon by 1%-[10%] to BURNING targets.`,
-    maxLevelBonus: `This weapon's Ranged Weakspot and Ranged Critical Hits apply BURNING, dealing 50 FIRE damage over 5s.`,
-    wikiLinks: [`https://remnant.wiki/Searing_Wounds`],
   },
   {
     category: 'mutator',
@@ -277,9 +275,7 @@ export const mutatorItems: MutatorItem[] = [
     id: 'mkbquc',
     dlc: 'base',
     tags: ['Heat Generation', 'Reload Speed'],
-    // TODO Check this; max heat reduction 50% -> 30% - may affect base number?
-    description: `Reduces the Heat Generation of this weapon by 25%.`,
-    // TODO check this; max reload bonus speed 50% -> 55%
+    description: 'Reduces the Heat Generation of this weapon by 10% - 30%.',
     maxLevelBonus: `Reload Speed is increased up to 55% based on this weapon's Heat accumulation.`,
     wikiLinks: [`https://remnant.wiki/Ingenuity`],
   },
@@ -290,10 +286,13 @@ export const mutatorItems: MutatorItem[] = [
     imagePath: '/mutator/kill_switch.png',
     id: 'rzfptj',
     dlc: 'base',
-    description: `Switching to this weapon creates an Explosive Burst which deals 50 Damage to all enemies within 7m.
-    
-    Can only happen once every 10s.`,
-    maxLevelBonus: `This weapon's kills with any Explosive Damage reduce Kill Switch cooldown by 1s`,
+    description:
+      'Switching to this weapon creates an Explosive Burst which deals 50 - 250 Damage to all enemies within 7m.\n' +
+      '\n' +
+      '\n' +
+      'Can only happen once every 10s.',
+    maxLevelBonus:
+      "This weapon's kills with any Explosive Damage reduce Kill Switch cooldown by 1s.",
     externalTokens: [`Amplitude`, `Explosive Damage`],
     wikiLinks: [`https://remnant.wiki/Kill_Switch`],
   },
@@ -305,8 +304,10 @@ export const mutatorItems: MutatorItem[] = [
     id: 'nft2cp',
     dlc: 'base',
     tags: ['Melee Special Ability'],
-    description: `Melee Weapons with special abilities which become readied by dealing melee damage require 10% less damage to charge.`,
-    maxLevelBonus: `Increase the potency of readied Melee Special abilities by 25%.`,
+    description:
+      'Melee Weapons with special abilities which become readied by dealing Melee Damage require 10% - 35% less damage to charge.',
+    maxLevelBonus:
+      'Increases the power of readied Melee Special abilities by 25%.',
     wikiLinks: [`https://remnant.wiki/Latency`],
   },
   {
@@ -317,7 +318,8 @@ export const mutatorItems: MutatorItem[] = [
     id: 's2z9cc',
     dlc: 'base',
     tags: ['Reload Speed', 'Ranged Damage'],
-    description: `Dealing 50% of the attached Weapon's Magazine Base Damage increases reload speed by 3%. Lasts 7s. Max 5 Stacks.`,
+    description:
+      "Dealing 50% - 20% of the attached Weapon's Magazine Base Damage increases reload speed by 3%. Lasts 7s. Max 5 Stacks.",
     maxLevelBonus: `Reloading at Max Stacks increases Ranged Damage by 20% for 15s.`,
     wikiLinks: [`https://remnant.wiki/Lithely`],
   },
@@ -329,7 +331,8 @@ export const mutatorItems: MutatorItem[] = [
     dlc: 'dlc1',
     id: '4m2lg1',
     tags: ['Elemental Damage', 'Status Effect', 'Mod Power'],
-    description: `Increases this weapon's Elemental Damage by 5% for each unique Elemental Status Effect on the target.`,
+    description:
+      "Increases this weapon's Elemental Damage by 5% - 10% for each unique Elemental Status Effect on the target.",
     maxLevelBonus: `Increases Mod Power Generation of Elemental Damage and Elemental Status damage by 20%.`,
     wikiLinks: [`https://remnant.wiki/Maelstrom`],
   },
@@ -341,10 +344,9 @@ export const mutatorItems: MutatorItem[] = [
     id: 'imqrfz',
     dlc: 'base',
     tags: ['Melee Damage', 'Status Effect'],
-    // TODO Check this; max damage 5%/8% -> 6%/10%
-    description: `Increase Melee damage by 6-[10]% for each unique Negative Status the target is suffering from.`,
-    // TODO Check this; duration 2s -> 3s
-    maxLevelBonus: `Melee Attacks apply SLOW for 3s.`,
+    description:
+      'Increase Melee damage by 6% - 10%  for each unique Negative Status the target is suffering from.',
+    maxLevelBonus: 'Charge Melee Attacks apply SLOW for 3s.',
     wikiLinks: [`https://remnant.wiki/Misfortune`],
   },
   {
@@ -355,8 +357,8 @@ export const mutatorItems: MutatorItem[] = [
     id: 'cvbjvd',
     dlc: 'base',
     tags: ['Critical Hit', 'Critical Chance'],
-    // TODO Check this; `reduced critical bonus per stack from 3% to 2%.` - base maybe changed to accommodate that?
-    description: `When this weapon scores a Critical Hit, it increases Critical Chance and Critical Damage by 1.5% for 3s. Max 10 stacks.`,
+    description:
+      'When this weapon scores a Critical Hit, it increases Critical Chance and Critical Damage by 1% - 2% for 3s. Max 10[sic] stacks.',
     maxLevelBonus: `Critical Hits from this weapon add 2 stacks. Increases duration by 2s.`,
     wikiLinks: [`https://remnant.wiki/Momentum`],
   },
@@ -368,8 +370,10 @@ export const mutatorItems: MutatorItem[] = [
     imagePath: '/mutator/near-sighted.png',
     id: '7Y9hfZ',
     tags: ['Ranged Damage', 'Critical Chance'],
-    description: `Increases Ranged Damage of this weapon by 10% to enemies within 7m.`,
-    maxLevelBonus: `Level 10: Increases Ranged Critical Chance of this weapon by 10% to enemies within 7m.`,
+    description:
+      'Increases Ranged Damage of this weapon by 10% - 20% to enemies within 7m.',
+    maxLevelBonus:
+      'Increases Ranged Critical Chance of this weapon by 10% to enemies within 7m.',
     wikiLinks: [`https://remnant.wiki/Near-Sighted`],
   },
   {
@@ -380,9 +384,10 @@ export const mutatorItems: MutatorItem[] = [
     id: 'qca3zh',
     dlc: 'base',
     tags: ['Perfect Dodge', 'Melee Critical Chance'],
-    // TODO Check this; `critical buff now lasts for 2s instead of Next Melee Hit`
-    description: `Perfect Dodge activates OPPORTUNITY which increases Melee Critical Chance of the next Melee Attack by 50% for 2s.`,
-    maxLevelBonus: `While OPPORTUNITY is active, any dodge or combat slide refreshes the duration.`,
+    description:
+      'Perfect Dodge activates OPPORTUNITY which increases Melee Critical Chance by 50% - 100% for 2s.',
+    maxLevelBonus:
+      'While OPPORTUNITY is active, any Dodge or Combat Slide refreshes the duration.',
     wikiLinks: [`https://remnant.wiki/Opportunist`],
   },
   {
@@ -405,8 +410,10 @@ export const mutatorItems: MutatorItem[] = [
     id: 'EV4ULr',
     dlc: 'dlc2',
     tags: ['Mod Damage', 'Ranged Damage', 'Stagger'],
-    description: `Increases this weapon's Ranged and Mod Damage by 5% to enemies within 7m.`,
-    maxLevelBonus: `Level 10: Activating this weapon's Mod triggers a fixed 7m blast, dealing 50 Explosive Damage per 100 Mod Power spent in a single cast. Inflicts 1.5 Stagger Damage.`,
+    description:
+      "Increases this weapon's Ranged and Mod Damage by 5% - 15% to enemies within 7m.",
+    maxLevelBonus:
+      "Activating this weapon's Mod triggers a fixed 7m blast, dealing 50 Explosive Damage per 100 Mod Power spent in a single cast. Inflicts 1.5 Stagger Damage.",
     externalTokens: [`Explosive Damage`],
     wikiLinks: [`https://remnant.wiki/Pressure_Point`],
   },
@@ -430,9 +437,8 @@ export const mutatorItems: MutatorItem[] = [
     id: 'fcl7u2',
     dlc: 'base',
     tags: ['Ammo Reserves'],
-    // TODO Check this; max refund chance 35% -> 50%
-    description: `Shots from this weapon have a 20-[50]% chance to return Ammo to reserves.`,
-    // TODO Check this; bonus 50% -> 25%
+    description:
+      'Shots from this weapon have a 20% - 50% chance to return spent Ammo to reserves.',
     maxLevelBonus: `Refunded Ammo has a 25% chance to also be added to stowed weapon reserves.`,
     wikiLinks: [`https://remnant.wiki/Refunder`],
   },
@@ -444,8 +450,8 @@ export const mutatorItems: MutatorItem[] = [
     id: '5bfv3p',
     dlc: 'base',
     tags: ['Charged Melee', 'Melee Critical Chance'],
-    description: `Reduces the Stamina Cost of all Charged Melee Attacks by 25-[50]%.`,
-    // TODO Check this; melee charge bonus 15% -> 20%
+    description:
+      'Reduces the Stamina Cost of all Charged Melee Attacks by 25% - 50%.',
     maxLevelBonus: `Melee Charge Attacks gain 20% additional damage and 10% Critical Chance.`,
     wikiLinks: [`https://remnant.wiki/Reinvigorate`],
   },
@@ -457,11 +463,22 @@ export const mutatorItems: MutatorItem[] = [
     id: 'ha3amj',
     dlc: 'base',
     tags: ['Melee Damage', 'Grey Health', 'Stagger'],
-    // TODO Check this; minimum melee damage 10% -> 15%
-    // TODO Check this; maximum melee damage 30% -> 35%
-    description: `Gain 15-[35]% Melee Damage when Grey Health is present.`,
-    maxLevelBonus: `Reduces Stagger by 1 when using any Melee Attack`,
+    description: 'Gain 15% - 35% Melee Damage when Grey Health is present.',
+    maxLevelBonus: 'Reduces Stagger by 1 when using any Melee Attack.',
     wikiLinks: [`https://remnant.wiki/Resentment`],
+  },
+  {
+    category: 'mutator',
+    name: 'Searing Wounds',
+    type: 'gun',
+    imagePath: '/mutator/searing_wounds.png',
+    dlc: 'dlc2',
+    id: '9htako',
+    tags: ['Ranged Damage', 'Critical Hit', 'Status Effect'],
+    description:
+      'Increases Ranged Damage of this weapon by 1% - 10% to BURNING targets.',
+    maxLevelBonus: `This weapon's Ranged Weakspot and Ranged Critical Hits apply BURNING, dealing 50 FIRE damage over 5s.`,
+    wikiLinks: [`https://remnant.wiki/Searing_Wounds`],
   },
   {
     category: 'mutator',
@@ -471,10 +488,10 @@ export const mutatorItems: MutatorItem[] = [
     id: '23ztdj',
     dlc: 'base',
     tags: ['Charged Shot', 'Critical Chance'],
-    // TODO Check this; buff duration 3s -> 5s
-    // TODO Check this; total stacks 20 -> 15 - not sure if this will affect the description
-    description: `This weapon's Charged Shots decrease the Charge time of Subsequent Charge Shots by 10% for 5s.`,
-    maxLevelBonus: `While active, Charged Primary Shots grant 1% Ranged Critical Chance per round spent. Max 20%.`,
+    description:
+      "This weapon's Charged Shots decrease the Charge time of Subsequent Charge Shots by 10% - 35%  for 5s.",
+    maxLevelBonus:
+      'While active, Charged Primary Shots grant 1% Ranged Critical Chance per round spent. Max 15%.',
     wikiLinks: [`https://remnant.wiki/Sequenced_Shot`],
   },
   {
@@ -486,11 +503,10 @@ export const mutatorItems: MutatorItem[] = [
     id: 'bhov5r',
     dlc: 'base',
     tags: ['Charged Melee', 'Melee Damage'],
-    // TODO Check this; max melee per-strike shield bonus 4% -> 5%
-    // TODO Check this; total max shield 40% -> 50%
-    // TODO Check this; duration 10s -> 5s
-    description: `Melee Attacks grants a SHIELD for 2-5% of Max Health. Max 20-50%. Last 5s.`,
-    maxLevelBonus: `Charged Melee Attacks deal 25% additional Melee Damage based on current Shield amount.`,
+    description:
+      'Melee Attacks grant a Shield[sic] for 5% - 10% of Max Health. Max 25% - 50%. Lasts 5s.',
+    maxLevelBonus:
+      'Charged Melee Attacks deal 25% additional Melee Damage based on current Shield[sic] amount.',
     wikiLinks: [`https://remnant.wiki/Shielded_Strike`],
   },
   {
@@ -502,7 +518,8 @@ export const mutatorItems: MutatorItem[] = [
     dlc: 'base',
     tags: ['Charged Melee'],
     description: `Empowers weapon after 3 hits. While empowered. the next Charged Melee Hit strikes all enemies within 7m with 50 - 100 SHOCK Damage.`,
-    maxLevelBonus: `The SHOCK Damage now applies OVERLOADED dealing 125 damage every 5s over 25s.`,
+    maxLevelBonus:
+      'The SHOCK  Damage now applies OVERLOADED dealing 125 damage every 5s over 25s.',
     externalTokens: [`Amplitude`],
     wikiLinks: [`https://remnant.wiki/Shocker`],
   },
@@ -514,7 +531,8 @@ export const mutatorItems: MutatorItem[] = [
     id: 'h98e7b',
     dlc: 'base',
     tags: ['Ranged Damage', 'Reload Speed'],
-    description: `Reloading increases the damage of this weapon's next shot by 10-[20]%. Last 3s.`,
+    description:
+      "Reloading increases this damage of this weapon's next shot by 10% - 20%. Lasts 3s.",
     maxLevelBonus: `Increases Reload Speed by 15%.`,
     wikiLinks: [`https://remnant.wiki/Slayer`],
   },
@@ -526,10 +544,10 @@ export const mutatorItems: MutatorItem[] = [
     dlc: 'dlc1',
     id: 'xim1sx',
     tags: ['Critical Chance'],
-    // TODO Check this; stow time requirement 7s -> 5s
-    // TODO Check this; proc duration 3s/5s -> 5s/10s
-    description: `This weapon becomes EMPOWERED when stowed for 5 seconds, granting 20% Critical Chance for 5 seconds after it is drawn.`,
-    maxLevelBonus: `While EMPOWERED, increases Critical Damage of this weapon by 15%.`,
+    description:
+      "This weapon becomes EMPOWERED when stowed for 5 seconds, granting 25% Critical Chance for 5s - 10s  after it's drawn.",
+    maxLevelBonus:
+      'While EMPOWERED, increases Critical Damage of this weapon by 15%',
     wikiLinks: [`https://remnant.wiki/Sleeper`],
   },
   {
@@ -540,8 +558,10 @@ export const mutatorItems: MutatorItem[] = [
     dlc: 'dlc2',
     id: '5Brz87',
     tags: ['Mod Damage', 'Mod Power', 'Reduce Skill Cooldown'],
-    description: `Increases this weapon's Mod Damage and Mod Generation by 15% for 10s when activating a Skill.`,
-    maxLevelBonus: `Level 10: Activating this weapon's Mod reduces Skill Cooldowns by 1% for every 100 Mod Power spent.`,
+    description:
+      "Increases this weapon's Mod Damage and Mod Generation by 10% - 15% for 10s when activating a Skill.",
+    maxLevelBonus:
+      "Activating this weapon's Mod reduces Skill Cooldowns by 1% for every 100 Mod Power spent.",
     wikiLinks: [`https://remnant.wiki/Spellweaver`],
   },
   // `renamed from Bottom Feeder to Spirit Feeder
@@ -554,9 +574,10 @@ export const mutatorItems: MutatorItem[] = [
     id: '90i71b',
     dlc: 'base',
     tags: [], // TODO Check tags
-    description: `Reloading this weapon increases the damage of the Attached Mod by 10-[25%]. Lasts 5s.`, // Confirmed
-    maxLevelBonus: `Casting Attached Mod increases Reload Speed by 25%. Lasts 5s.`, // Confirmed
-    wikiLinks: [`https://remnant.wiki/Spirit_Feeder`], // Assuming wiki is updating the page url
+    description:
+      'Reloading this weapon increases the damage of the Attached Mod by 10% - 25%. Lasts 5s.',
+    maxLevelBonus: `Casting Attached Mod increases Reload Speed by 25%. Lasts 5s.`,
+    wikiLinks: [`https://remnant.wiki/Spirit_Feeder`],
   },
   {
     category: 'mutator',
@@ -566,11 +587,9 @@ export const mutatorItems: MutatorItem[] = [
     id: 'hk1k7k',
     dlc: 'base',
     tags: ['Mod Power', 'Heal'],
-    // TODO Check this; mod spend requirement 500/300 -> 150/50
-    // TODO Check this; healer per mod spend 5% -> 2%
-    // TODO Check this; mod duration 5s -> 10s
-    description: `Regenerate 2% Health over 10s for every 150 Mod Power spent.`,
-    maxLevelBonus: `Allies within 15m are healed for 50% of the primary effect.`, //TODO IN-GAME No info on whether it's A or R
+    description:
+      'Regenerate 2% Health over 10s for every 150 - 50 Mod Power spent.',
+    maxLevelBonus: `Allies within 15m are healed for 50% of the primary effect.`,
     wikiLinks: [`https://remnant.wiki/Spirit_Healer`],
   },
   {
@@ -581,9 +600,10 @@ export const mutatorItems: MutatorItem[] = [
     id: 'yibeww',
     dlc: 'base',
     tags: ['Charged Melee', 'Damage Reduction', 'Grey Health'],
-    // TODO Check this; damage reduction 10%/20% -> 5%/10%
-    description: `Charged Melee Attacks cannot be interrupted and gain 5-[10]% damage reduction from all sources.`,
-    maxLevelBonus: `All damage taken during Charged Melee Attack is covered to Grey Health.`,
+    description:
+      'Charged Melee Attacks cannot be interrupted and gain 5% - 10% Damage Reduction from all sources.',
+    maxLevelBonus:
+      'All Damage taken during a Charged Melee Attack is converted to Grey Health.',
     wikiLinks: [`https://remnant.wiki/Steadfast`],
   },
   {
@@ -594,8 +614,10 @@ export const mutatorItems: MutatorItem[] = [
     id: 'm87yf6',
     dlc: 'base',
     tags: ['Status Effect', 'Melee Damage', 'Charged Melee'],
-    description: `Increases the Status Effect Damage applied by Melee Attacks by 25%.`,
-    maxLevelBonus: `Charged Melee Attacks lower enemy's Resistance to All Status Damage by 10%. Lasts 10s.`,
+    description:
+      'Increases the Status Effect Damage applied by Melee Attacks by 25% - 50%.',
+    maxLevelBonus:
+      "Charged Melee Attacks lower enemy's Resistance to All Status damage by 10%. Lasts 10s.",
     wikiLinks: [`https://remnant.wiki/Stormbringer`],
   },
   {
@@ -606,7 +628,8 @@ export const mutatorItems: MutatorItem[] = [
     id: '27rynt',
     dlc: 'base',
     tags: ['Melee Damage', 'Movement Speed'],
-    description: `Melee Hits increase Melee Damage by 3-6% for 10s Max 5 Stacks.`,
+    description:
+      'Melee Hits increase Melee Damage by 3% - 6% for 5s. Max 5 Stacks.',
     maxLevelBonus: `Increases Movement Speed by 3% per stack.`,
     wikiLinks: [`https://remnant.wiki/Striker`],
   },
@@ -618,7 +641,8 @@ export const mutatorItems: MutatorItem[] = [
     id: 'omeu3c',
     dlc: 'base',
     tags: ['Charged Shot', 'Critical Chance'],
-    description: `Increases Charge Speed of Bows and Fusion Rifles by 10-[30]%.`,
+    description:
+      'Increases Charge Speed for Bows and Fusion Rifles by 10% - 30%.',
     maxLevelBonus: `Charged Primary Shots of Bows and Fusion Rifles gain 15% Critical Chance.`,
     wikiLinks: [`https://remnant.wiki/Supercharger`],
   },
@@ -630,11 +654,10 @@ export const mutatorItems: MutatorItem[] = [
     id: 'f32skd',
     dlc: 'base',
     tags: ['Melee Damage', 'Charged Melee'],
-    // TODO Check this; max damage bonus 10% -> 8%
-    description: `Increase Melee Damage by 5%-[8%] per stack of CORRODED on the target.`,
-    // TODO Check this; damage 500 -> 250
-    // TODO Check this; duration 20s -> 10s
-    maxLevelBonus: `Charged Melee Attacks apply CORRODED dealing 250 ACID damage over 10s.`,
+    description:
+      'Increases Melee Damage by 5% - 8% per stack of CORRODED on the target. Max 5 stacks.',
+    maxLevelBonus:
+      'Charged Melee Attacks apply CORRODED, dealing 250 ACID[sic] Damage over 10s.',
     wikiLinks: [`https://remnant.wiki/Tainted_Blade`],
   },
   {
@@ -645,8 +668,9 @@ export const mutatorItems: MutatorItem[] = [
     id: 'r8jxFF',
     dlc: 'dlc2',
     tags: ['Critical Chance', 'Critical Damage', 'Reload Speed'],
-    description: `Increases this weapon's Critical Chance and Critical Damage by 0.1% for each shot fired. Lasts 0.125s. Max 50 stacks.`,
-    maxLevelBonus: `Level 10: Increases this weapon's Reload Speed by 1% per stack.`,
+    description:
+      "Increases this weapon's Critical Chance and Critical Damage by 0.1% - 0.5% for each shot fired. Lasts 0.125s. Max 50 stacks.",
+    maxLevelBonus: "Increases this weapon's Reload Speed by 1% per stack.",
     wikiLinks: [`https://remnant.wiki/Thousand_Cuts`],
   },
   {
@@ -657,7 +681,8 @@ export const mutatorItems: MutatorItem[] = [
     id: 'dynus4',
     dlc: 'base',
     tags: ['Ranged Damage', 'Status Effect'],
-    description: `Increase this weapon's Ranged damage by 5% to enemies inflicted with SLOW status.`,
+    description:
+      "Increase this weapon's Ranged damage by 5% - 20% to enemies inflicted with SLOW status.",
     maxLevelBonus: `Mod Use applies SLOW status on all enemies within 10m for 5s. Can only happen once every 10s.`,
     externalTokens: [`Amplitude`],
     wikiLinks: [`https://remnant.wiki/Timewave`],
@@ -670,7 +695,8 @@ export const mutatorItems: MutatorItem[] = [
     id: 'fknx4t',
     dlc: 'base',
     tags: ['Ranged Damage', 'Weakspot Damage'],
-    description: `Increases this weapon's Ranged Damage by up to 7.5% based on how close the magazine capacity is to full.`,
+    description:
+      "Increases this weapon's Ranged Damage by up to 7.5% - 15% based on how close the magazine capacity is to full.",
     maxLevelBonus: `Increases this weapon's Weakspot Damage by up to 20% based on how close the magazine capacity is to full.`,
     wikiLinks: [`https://remnant.wiki/Top_Heavy`],
   },
@@ -682,7 +708,8 @@ export const mutatorItems: MutatorItem[] = [
     id: '0osd64',
     dlc: 'base',
     tags: ['Melee Damage', 'Mod Power', 'Ammo Reserves'],
-    description: `Melee Hits generate 5% Ammo Reserves for both Firearms. Cooldown 10-[5]s.`,
+    description:
+      'Melee Hits generate 5% of Max Ammo Capacity to the Reserves for both Firearms. Cooldown 10s- 5s.',
     maxLevelBonus: `After Ammo is Transferred, increase Reload Speed of this weapon by 50% for 5s.`,
     wikiLinks: [`https://remnant.wiki/Transference`],
   },
@@ -694,11 +721,9 @@ export const mutatorItems: MutatorItem[] = [
     id: '1cxn5s',
     dlc: 'base',
     tags: ['Ranged Damage', 'Ammo Reserves'],
-    // TODO Check this; ranged damage 20% -> 15%
-    // TODO Check this; duration 20s -> 15s
-    // TODO Check this; `Adjusted text to clarify that net Ammo Gain is what activates the trigger`
-    description: `Picking up Ammo increases Ranged damage by 10-[15]% for 15s.`,
-    maxLevelBonus: `Ammo pickups are added directly to into this weapon's magazine.`,
+    description: 'Gaining Ammo increases Ranged Damage by 5% - 15% for 15s.',
+    maxLevelBonus:
+      "New Ammo gains are added directly to into this weapon's magazine.Gaining Ammo increases Ranged Damage by 5% - 15% for 15s.",
     wikiLinks: [`https://remnant.wiki/Transpose`],
   },
   {
@@ -709,9 +734,10 @@ export const mutatorItems: MutatorItem[] = [
     id: '7eodps',
     dlc: 'base',
     tags: ['Ranged Damage', 'Critical Hit', 'Weakspot Hit'],
-    description: `Increases Ranged damage of this weapon by 5-[10]% to BLEEDING targets.`,
-    // TODO Check this; bleed damage 200 over 10s -> 200 over 20s
-    maxLevelBonus: `This weapon's Ranged Weakspot and Ranged Critical Hits apply BLEEDING, dealing 200 BLEED damage over 20s.`,
+    description:
+      'Increases Ranged damage of this weapon by 1% - 10% to BLEEDING targets.',
+    maxLevelBonus:
+      "This weapon's Ranged Weakspot and Ranged Critical Hits apply BLEEDING, dealing 150 BLEED damage over 20s.",
     wikiLinks: [`https://remnant.wiki/Twisting_Wounds`],
   },
   {
@@ -722,8 +748,8 @@ export const mutatorItems: MutatorItem[] = [
     id: 'dhwqt4',
     dlc: 'base',
     tags: ['Melee Damage', 'Lifesteal'],
-    // TODO Check this; max melee bonus 25% -> 30%
-    description: `Increases Melee Damage by 10-[30]% while within 10m of a BLEEDING entity.`, //No info whether its R or A
+    description:
+      'Increases Melee Damage by 10% - 30% while within 10m of a BLEEDING entity.', //No info whether its R or A
     maxLevelBonus: `Melee Hits vs BLEEDING targets will Lifesteal 3% of base damage dealt.`,
     wikiLinks: [`https://remnant.wiki/Vampire_Blade`],
   },
@@ -735,8 +761,8 @@ export const mutatorItems: MutatorItem[] = [
     id: '8h8a9w',
     dlc: 'base',
     tags: ['Melee Damage', 'Critical Chance'],
-    // TODO Check this; minimum damage 20% -> 25%
-    description: `Increases Melee damage by 25-[50]% when below 50% Max Health.`,
+    description:
+      'Increases Melee damage by 25% - 50% when below 50% Max Health.',
     maxLevelBonus: `Increases Melee Critical Chance by 15% when below 50% Max Health.`,
     wikiLinks: [`https://remnant.wiki/Vengeful_Strike`],
   },
@@ -748,10 +774,8 @@ export const mutatorItems: MutatorItem[] = [
     id: 'w6gpz2',
     dlc: 'base',
     tags: ['Melee Damage', 'Charged Melee', 'Critical Chance'],
-    // TODO Check this; `increased strike bonus from 10% -> 15% per stack` - we list it as a range though??
-    // TODO Check this; `reduced strike bonus duration from 7s -> 5s` - will this be reflected in description?
-    description: `Basic Melee Attacks increase the next Charge Attacks by 7%. Max 5 Stacks.`,
-    // TODO Check this; `Reduced strikes required for L10 crit from 5 -> 3` - will this be reflected in the description?
+    description:
+      'Basic Melee Attacks increase the next Charge Attack by 7% - 15%. Max 3 stacks.',
     maxLevelBonus: `At Max Stacks, the next Charge Attack gains 100% Critical Chance.`,
     wikiLinks: [`https://remnant.wiki/Weaponlord`],
   },
