@@ -54,6 +54,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Fixed all discrepancies in concoction item descriptions and stats from the wiki.
 - Fixed all discrepancies in consumable item descriptions and stats from the wiki.
 - Fixed all discrepancies in mod item descriptions and stats from the wiki.
+- Removed "heck" from the bad word list. Can't believe that was on there.
 
 ## 2024-05-03
 
