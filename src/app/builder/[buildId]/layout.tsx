@@ -1,6 +1,6 @@
 import { Metadata, ResolvingMetadata } from 'next'
 
-import { getBuild } from '@/app/(actions)/builds/actions/get-build'
+import { getBuild } from '@/app/(actions)/builds/get-build'
 import { dbBuildToBuildState } from '@/features/build/lib/dbBuildToBuildState'
 import {
   ArchetypeName,

@@ -1,6 +1,6 @@
 import Image from 'next/image'
 
-import { getTotalBuildCount } from '@/app/(actions)/builds/actions/get-total-build-count'
+import { getTotalBuildCount } from '@/app/(actions)/builds/get-total-build-count'
 import { Link } from '@/app/(components)/_base/link'
 import { getServerSession } from '@/features/auth/lib'
 import { NAV_ITEMS } from '@/features/navigation/constants'

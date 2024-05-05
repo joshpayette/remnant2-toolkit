@@ -36,13 +36,12 @@ import {
   weaponFiltersToIds,
 } from '@/app/(queries)/build-filters/segments/limit-by-weapons'
 import { getServerSession } from '@/features/auth/lib'
+import { DBBuild } from '@/features/build/types'
 import { prisma } from '@/features/db'
 import { PaginationResponse } from '@/features/pagination/usePagination'
 import { bigIntFix } from '@/lib/bigIntFix'
 
-import { DBBuild } from '../../../../features/build/types'
-
-export async function getCommunityBuilds({
+export async function getFeaturedBuilds({
   buildListFilters,
   itemsPerPage,
   orderBy,
@@ -76,19 +75,14 @@ export async function getCommunityBuilds({
   if (releases.length === 0) return { items: [], totalItemCount: 0 }
 
   const archetypeIds = archetypeFiltersToIds({ archetypes })
-  const weaponIds = weaponFiltersToIds({
-    longGun,
-    handGun,
-    melee,
-  })
-
+  const weaponIds = weaponFiltersToIds({ longGun, handGun, melee })
   const amuletId = amuletFilterToId({ amulet })
   const ringIds = ringsFilterToIds({ rings })
   const tagValues = buildTagsFilterToValues(buildTags)
-  const trimmedSearchText = searchText.trim()
 
   const whereConditions = Prisma.sql`
   WHERE Build.isPublic = true
+  AND Build.isFeaturedBuild = true
   ${limitByAmuletSegment(amuletId)}
   ${limitByArchetypesSegment(archetypeIds)}
   ${limitByBuildTagsSegment(tagValues)}
@@ -101,10 +95,11 @@ export async function getCommunityBuilds({
   ${limitByPatchAffected(patchAffected)}
   `
 
-  const orderBySegment = getOrderBySegment(orderBy)
+  const orderBySegment = getOrderBySegment(orderBy, true)
 
-  // First, get the Builds
-  const [builds, totalBuildsCountResponse] = await prisma.$transaction([
+  const trimmedSearchText = searchText.trim()
+
+  const [builds, totalBuildCountResponse] = await prisma.$transaction([
     communityBuildsQuery({
       userId,
       itemsPerPage,
@@ -119,7 +114,11 @@ export async function getCommunityBuilds({
     }),
   ])
 
-  // Then, for each Build, get the associated BuildItems
+  if (!builds) return { items: [], totalItemCount: 0 }
+
+  const totalBuilds = totalBuildCountResponse[0].totalBuildCount
+
+  // Find all build items for each build
   for (const build of builds) {
     const buildItems = await prisma.buildItems.findMany({
       where: { buildId: build.id },
@@ -135,10 +134,5 @@ export async function getCommunityBuilds({
     build.buildTags = buildTags
   }
 
-  const totalBuildCount = totalBuildsCountResponse[0].totalBuildCount
-
-  return bigIntFix({
-    items: builds,
-    totalItemCount: totalBuildCount,
-  })
+  return bigIntFix({ items: builds, totalItemCount: totalBuilds })
 }

@@ -4,7 +4,7 @@ import { EyeIcon } from '@heroicons/react/24/solid'
 import { useSearchParams } from 'next/navigation'
 import { useEffect, useState } from 'react'
 
-import { getFeaturedBuilds } from '@/app/(actions)/builds/actions/get-featured-builds'
+import { getFeaturedBuilds } from '@/app/(actions)/builds/get-featured-builds'
 import { Link } from '@/app/(components)/_base/link'
 import { BuildSecondaryFilters } from '@/app/(components)/filters/builds/secondary-filters'
 import { useOrderByFilter } from '@/app/(components)/filters/builds/secondary-filters/order-by-filter/use-order-by-filter'

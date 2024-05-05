@@ -2,11 +2,10 @@
 
 import { DEFAULT_DISPLAY_NAME } from '@/app/profile/[userId]/(lib)/constants'
 import { getServerSession } from '@/features/auth/lib'
+import { DBBuild } from '@/features/build/types'
 import { prisma } from '@/features/db'
 import { ErrorResponse } from '@/features/error-handling/types'
 import { bigIntFix } from '@/lib/bigIntFix'
-
-import { DBBuild } from '../../../../features/build/types'
 
 export async function getBuild(
   buildId: string,

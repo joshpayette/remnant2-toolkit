@@ -1,4 +1,4 @@
-import { getBuild } from '@/app/(actions)/builds/actions/get-build'
+import { getBuild } from '@/app/(actions)/builds/get-build'
 import { BuildPage } from '@/app/builder/edit/[buildId]/BuildPage'
 import { isErrorResponse } from '@/features/error-handling/isErrorResponse'
 
