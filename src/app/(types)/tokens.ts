@@ -358,6 +358,36 @@ export const INLINE_TOKENS = [
     color: 'text-purple-400',
     description: `Bleeding, Burning, Corroded, Overloaded, Slow.`,
   },
+  {
+    type: 'MARKED',
+    token: 'MARKED',
+    color: 'text-[#fff1bc]',
+    description: undefined,
+  },
+  {
+    type: 'MARK',
+    token: 'MARK',
+    color: 'text-[#fff1bc]',
+    description: undefined,
+  },
+  {
+    type: 'AMBUSH',
+    token: 'AMBUSH',
+    color: 'text-[#fff1bc]',
+    description: undefined,
+  },
+  {
+    type: 'FOCUSED',
+    token: 'FOCUSED',
+    color: 'text-[#fff1bc]',
+    description: undefined,
+  },
+  {
+    type: 'GIFT OF THE FOREST',
+    token: 'GIFT OF THE FOREST',
+    color: 'text-[#fff1bc]',
+    description: undefined,
+  },
 ] as const satisfies {
   type: string
   token: string
