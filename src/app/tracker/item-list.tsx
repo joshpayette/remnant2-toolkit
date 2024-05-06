@@ -37,14 +37,9 @@ function getCategoryProgressLabel({
   filteredItems: Item[]
   discoveredItemIds: string[]
 }) {
-  const discoveredCount = filteredItems.reduce((acc, item) => {
-    if (discoveredItemIds.includes(item.id)) return acc + 1
-    return acc
-  }, 0)
-  const selectedCategoryProgress = parseFloat(
-    ((discoveredCount / filteredItems.length) * 100).toFixed(2),
-  )
-  return selectedCategoryProgress
+  const undiscoveredCount = filteredItems.reduce((acc, item) => discoveredItemIds.includes(item.id) ? acc : acc + 1, 0);
+  const filteredItemsCount = filteredItems.length;
+  return `${(((filteredItemsCount - undiscoveredCount) / filteredItemsCount) * 100).toFixed(2)}% (${undiscoveredCount} undiscovered)`
 }
 
 function getFilteredItemList(
@@ -323,7 +318,6 @@ export function ItemList({}: Props) {
                           ),
                           discoveredItemIds,
                         })}
-                        %
                       </h2>
                     </div>
                     <ChevronDownIcon
