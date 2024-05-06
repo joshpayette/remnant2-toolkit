@@ -4,7 +4,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Abrasive Whetstone',
-    imagePath: '/items/samulet/abrasive_whetstone.png',
+    imagePath: '/amulet/abrasive_whetstone.png',
     id: '6sqyf9',
     dlc: 'base',
     tags: ['Critical Chance'],
