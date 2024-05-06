@@ -35,11 +35,13 @@ export async function createBuild(data: string): Promise<BuildActionResponse> {
     updatedAt: unvalidatedData.updatedAt
       ? new Date(unvalidatedData.updatedAt)
       : null,
-    buildTags: unvalidatedData.buildTags.map((tag: any) => ({
-      ...tag,
-      createdAt: tag.createdAt ? new Date(tag.createdAt) : new Date(),
-      updatedAt: tag.updatedat ? new Date(tag.updatedAt) : null,
-    })),
+    buildTags: unvalidatedData.buildTags
+      ? unvalidatedData.buildTags.map((tag: any) => ({
+          ...tag,
+          createdAt: tag.createdAt ? new Date(tag.createdAt) : new Date(),
+          updatedAt: tag.updatedat ? new Date(tag.updatedAt) : null,
+        }))
+      : null,
   }
 
   const validatedData = validateBuildState(unvalidatedData)
