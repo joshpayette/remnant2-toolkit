@@ -10,6 +10,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Item Tracker categories now display the # of items you're missing, along with the percentage. (Synder)
 
+### Fixed
+
+- Hunter Skill descriptions now include the MARK text.
+
 ## 2024-05-05
 
 ### Changed

@@ -182,7 +182,9 @@ export const skillItems: SkillItem[] = [
     dlc: 'base',
     tags: ['Critical Chance', 'Ranged Damage', 'Melee Damage'],
     description:
-      "Increases the Hunter's spatial awareness by casting an Aura that automatically applies MARK to all enemies within 35m. While senses are heightened, Hunter also gains 15% increased Ranged and Melee damage. Lasts 25s.",
+      "Increases the Hunter's spatial awareness by casting an Aura that automatically applies MARK to all enemies within 35m. While senses are heightened, Hunter also gains 15% increased Ranged and Melee damage. Lasts 25s.\n" +
+      '\n' +
+      'MARK: Crit Chance against MARKED enemies is increased by 10% for all allies.',
     cooldown: 70,
     wikiLinks: [`https://remnant.wiki/Hunter's_Mark`],
     linkedItems: {
@@ -211,7 +213,9 @@ export const skillItems: SkillItem[] = [
       '\n' +
       'While FOCUSED, Aiming at enemies will automatically apply MARK.\n' +
       '\n' +
-      'FOCUSED state can last up to 10s after the Skill duration expires.',
+      'FOCUSED state can last up to 10s after the Skill duration expires.\n' +
+      '\n' +
+      'MARK: Crit Chance against MARKED enemies is increased by 10% for all allies.',
     cooldown: 50,
     wikiLinks: [`https://remnant.wiki/Hunter's_Focus`],
     linkedItems: {
@@ -236,7 +240,9 @@ export const skillItems: SkillItem[] = [
       '\n' +
       'Hunter will automatically Shroud again after 1.15s if no offensive actions are performed.\n' +
       '\n' +
-      'Lasts 15s.',
+      'Lasts 15s.\n' +
+      '\n' +
+      'MARK: Crit Chance against MARKED enemies is increased by 10% for all allies.',
     cooldown: 90,
     wikiLinks: [`https://remnant.wiki/Hunter's_Shroud`],
     linkedItems: {
