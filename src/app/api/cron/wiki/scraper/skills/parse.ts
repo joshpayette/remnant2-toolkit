@@ -9,6 +9,7 @@ export function skillDataParse($: CheerioAPI): {
     .replaceWith('\n')
     .end()
     .text()
+    .replaceAll('[sic]', '')
 
   // Not every skill has a cooldown
   const hasCooldown = wholeDescription.includes('Cooldown:')

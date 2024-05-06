@@ -19,7 +19,13 @@ export function mutatorDataParse(
         .replaceWith('\n')
         .end()
         .text()
-    : $('div.infobox-description').find('br').replaceWith('\n').end().text()
+        .replaceAll('[sic]', '')
+    : $('div.infobox-description')
+        .find('br')
+        .replaceWith('\n')
+        .end()
+        .text()
+        .replaceAll('[sic]', '')
 
   // The description is everything before the two line breaks and the text Level 10
   const description = wholeDescription.split('Level 10:')[0].trim()

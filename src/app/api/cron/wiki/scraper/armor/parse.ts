@@ -14,10 +14,22 @@ export function armorDataParse($: CheerioAPI): {
   // The first li is the armor
   // the second li is the weight
   const armor = parseFloat(
-    mainstatsContainer.find('li').eq(0).find('span').eq(1).text(),
+    mainstatsContainer
+      .find('li')
+      .eq(0)
+      .find('span')
+      .eq(1)
+      .text()
+      .replaceAll('[sic]', ''),
   )
   const weight = parseFloat(
-    mainstatsContainer.find('li').eq(1).find('span').eq(1).text(),
+    mainstatsContainer
+      .find('li')
+      .eq(1)
+      .find('span')
+      .eq(1)
+      .text()
+      .replaceAll('[sic]', ''),
   )
 
   // Substats

@@ -8,6 +8,7 @@ export function traitDataParse($: CheerioAPI): {
     .replaceWith('\n')
     .end()
     .text()
+    .replaceAll('[sic]', '')
 
   // The description is everything before the two line breaks
   const description = wholeDescription.split('\n\n')[0].trim()

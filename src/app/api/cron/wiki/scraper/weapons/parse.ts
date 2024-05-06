@@ -23,6 +23,7 @@ export function weaponDataParse(
     .replaceWith('\n')
     .end()
     .text()
+    .replaceAll('[sic]', '')
 
   // Main stats
   const mainstatsContainer = $('ul.infobox-mainstats')
@@ -30,13 +31,31 @@ export function weaponDataParse(
   // the second li is the rps
   // the third li is the magazine
   const damage = parseInt(
-    mainstatsContainer.find('li').eq(0).find('span').eq(1).text(),
+    mainstatsContainer
+      .find('li')
+      .eq(0)
+      .find('span')
+      .eq(1)
+      .text()
+      .replaceAll('[sic]', ''),
   )
   const rps = parseFloat(
-    mainstatsContainer.find('li').eq(1).find('span').eq(1).text(),
+    mainstatsContainer
+      .find('li')
+      .eq(1)
+      .find('span')
+      .eq(1)
+      .text()
+      .replaceAll('[sic]', ''),
   )
   const magazine = parseInt(
-    mainstatsContainer.find('li').eq(2).find('span').eq(1).text(),
+    mainstatsContainer
+      .find('li')
+      .eq(2)
+      .find('span')
+      .eq(1)
+      .text()
+      .replaceAll('[sic]', ''),
   )
 
   // Substats

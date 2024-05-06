@@ -8,6 +8,7 @@ export function consumableDataParse($: CheerioAPI): {
     .replaceWith('\n')
     .end()
     .text()
+    .replaceAll('[sic]', '')
 
   return {
     description,

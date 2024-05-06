@@ -4,7 +4,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Abrasive Whetstone',
-    imagePath: '/amulet/abrasive_whetstone.png',
+    imagePath: '/items/samulet/abrasive_whetstone.png',
     id: '6sqyf9',
     dlc: 'base',
     tags: ['Critical Chance'],
@@ -655,7 +655,7 @@ export const amuletItems: AmuletItem[] = [
     dlc: 'dlc2',
     tags: ['Summon', 'Damage Reduction', 'Movement Speed'],
     description:
-      'Increases Summon Damage by 30% and Summon Movement Speed by 15.[sic] Reduces total Damage Reduction by 10% per active Summon.',
+      'Increases Summon Damage by 30% and Summon Movement Speed by 15. Reduces total Damage Reduction by 10% per active Summon.',
     wikiLinks: [`https://remnant.wiki/Profane_Soul_Stone`],
   },
   {

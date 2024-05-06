@@ -8,6 +8,7 @@ export function amuletDataParse($: CheerioAPI): {
     .replaceWith('\n')
     .end()
     .text()
+    .replaceAll('[sic]', '')
 
   return {
     description,

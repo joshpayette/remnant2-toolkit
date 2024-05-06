@@ -837,7 +837,7 @@ export const weaponItems: WeaponItem[] = [
     id: 'fqdvas',
     dlc: 'base',
     description:
-      'A powerful single-shot sniper rifle with excellent range and pinpoint accuracy. Comes with a 3x scope. Tap SCOPE[sic] to toggle.',
+      'A powerful single-shot sniper rifle with excellent range and pinpoint accuracy. Comes with a 3x scope. Tap SCOPE to toggle.',
     wikiLinks: [`https://remnant.wiki/Widowmaker`],
     damage: 125,
     rps: 2.4,
@@ -1201,7 +1201,7 @@ export const weaponItems: WeaponItem[] = [
     id: '5gl3la',
     dlc: 'base',
     description:
-      'Infused with Krell Shock[sic] magic, can be thrown if the wielder has stamina. Axe will magically reappear in hand. Charge to throw.',
+      'Infused with Krell Shock magic, can be thrown if the wielder has stamina. Axe will magically reappear in hand. Charge to throw.',
     wikiLinks: [`https://remnant.wiki/Krell_Axe`],
     linkedItems: {
       mod: {
@@ -1592,7 +1592,7 @@ export const weaponItems: WeaponItem[] = [
     id: 'gilcfn',
     dlc: 'base',
     description:
-      'A glowing Greatsword forged from shards of a shattered Worldstone[sic]. Charge attacks cast waves.',
+      'A glowing Greatsword forged from shards of a shattered Worldstone. Charge attacks cast waves.',
     wikiLinks: [`https://remnant.wiki/World's_Edge`],
     linkedItems: {
       mod: {
@@ -1960,7 +1960,7 @@ export const weaponItems: WeaponItem[] = [
     id: 'p7tsxr',
     dlc: 'base',
     description:
-      'Fires a stream of superhot ACID gas which applies CORRODED effect, dealing 300 - 900 CORROSIVE Damage over 15s. Killing targets CORRODED by Nebula spawns a gas cloud which applies its on-hit effect. Gas clouds lasts[sic] 2s and can be refreshed.',
+      'Fires a stream of superhot ACID gas which applies CORRODED effect, dealing 300 - 900 CORROSIVE Damage over 15s. Killing targets CORRODED by Nebula spawns a gas cloud which applies its on-hit effect. Gas clouds lasts 2s and can be refreshed.',
     wikiLinks: [`https://remnant.wiki/Nebula`],
     linkedItems: {
       mod: {

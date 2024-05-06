@@ -23,8 +23,16 @@ export function relicfragmentDataParse(
 
   for (let i = 0; i < $trItems.length; i++) {
     const $tr = $trItems.eq(i)
-    const itemName = $tr.find('td:nth-child(1)').text().trim()
-    const itemValue = $tr.find('td:nth-child(2)').text().trim()
+    const itemName = $tr
+      .find('td:nth-child(1)')
+      .text()
+      .trim()
+      .replaceAll('[sic]', '')
+    const itemValue = $tr
+      .find('td:nth-child(2)')
+      .text()
+      .trim()
+      .replaceAll('[sic]', '')
 
     if (!itemName || !itemValue) {
       console.error('Failed to parse relic fragment data')

@@ -111,7 +111,7 @@ export const ringItems: RingItem[] = [
     id: 'ez01nk',
     tags: ['Critical Chance', 'Grey Health'], // The damage it causes is grey health
     description:
-      'Self-inflicts BLEEDING Status upon the wearer, causing 1.1[sic] BLEED damage per second. Increases Critical Chance by 5%.',
+      'Self-inflicts BLEEDING Status upon the wearer, causing 1.1 BLEED damage per second. Increases Critical Chance by 5%.',
     wikiLinks: [`https://remnant.wiki/Atonement_Fold`],
   },
   {
@@ -142,7 +142,7 @@ export const ringItems: RingItem[] = [
     id: 'gv12gw',
     tags: ['Status Effect', 'Status Duration'],
     description:
-      'Increases Status Effect[sic] Damage by 25% and reduces Status Effect[sic] Duration by 65%.',
+      'Increases Status Effect Damage by 25% and reduces Status Effect Duration by 65%.',
     wikiLinks: [`https://remnant.wiki/Band_of_the_Fanatic`],
   },
   {
@@ -152,7 +152,7 @@ export const ringItems: RingItem[] = [
     id: 'pi2zf8',
     tags: ['Melee Charge Speed', 'Charged Melee', 'Stamina'],
     description:
-      'Increases Melee Charge Speed by 20%[sic] and reduces Melee Stamina Cost by 25%.',
+      'Increases Melee Charge Speed by 20% and reduces Melee Stamina Cost by 25%.',
     wikiLinks: [`https://remnant.wiki/Berserker's_Crest`],
     dlc: 'base',
   },
@@ -573,7 +573,7 @@ export const ringItems: RingItem[] = [
     id: '1dmpt8',
     tags: ['Movement Speed'],
     description:
-      'After performing a Slide[sic], gain 15% Evade Speed and 10% Movement Speed for 12s.',
+      'After performing a Slide, gain 15% Evade Speed and 10% Movement Speed for 12s.',
     wikiLinks: [`https://remnant.wiki/Deceiver's_Band`],
     dlc: 'base',
   },
@@ -1442,7 +1442,7 @@ export const ringItems: RingItem[] = [
     dlc: 'dlc1',
     id: '0yfahk',
     tags: ['Fire Rate'],
-    description: 'Increases fire rate by 8. [sic]',
+    description: 'Increases fire rate by 8. ',
     wikiLinks: [`https://remnant.wiki/Ring_of_Infinite_Damage`],
   },
   {

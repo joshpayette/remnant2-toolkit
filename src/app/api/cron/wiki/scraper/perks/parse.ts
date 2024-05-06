@@ -23,6 +23,7 @@ export function perkDataParse($: CheerioAPI): {
       .get()
       .join('\n')
       .trim()
+      .replaceAll('[sic]', '')
   } else {
     description = $('div.infobox-description')
       .find('br')
@@ -30,6 +31,7 @@ export function perkDataParse($: CheerioAPI): {
       .end()
       .text()
       .trim()
+      .replaceAll('[sic]', '')
   }
 
   return {

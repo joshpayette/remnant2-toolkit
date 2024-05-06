@@ -332,13 +332,13 @@ export const perkItems: PerkItem[] = [
     tags: ['Reload Speed', 'Ammo Reserves'],
     description:
       'Base:\n' +
-      'When activating any Gunslinger Skill, both weapons are instantly reloaded, and gain infinite reserve ammo on all weapons for 5s .[sic]\n' +
+      'When activating any Gunslinger Skill, both weapons are instantly reloaded, and gain infinite reserve ammo on all weapons for 5s .\n' +
       '\n' +
       'Level 5:\n' +
-      'When activating any Gunslinger Skill, both weapons are instantly reloaded, and gain infinite reserve ammo on all weapons for 6.5s .[sic]\n' +
+      'When activating any Gunslinger Skill, both weapons are instantly reloaded, and gain infinite reserve ammo on all weapons for 6.5s .\n' +
       '\n' +
       'Level 10:\n' +
-      'When activating any Gunslinger Skill, both weapons are instantly reloaded, and gain infinite reserve ammo on all weapons for 8s .[sic]',
+      'When activating any Gunslinger Skill, both weapons are instantly reloaded, and gain infinite reserve ammo on all weapons for 8s .',
     wikiLinks: [`https://remnant.wiki/Loaded`],
     linkedItems: {
       archetype: {
@@ -528,10 +528,10 @@ export const perkItems: PerkItem[] = [
     tags: ['Damage Reduction', 'All Damage'],
     description:
       'Level 4:\n' +
-      'Using a Relic within 10m of an enemy grants 2 stacks of Bulwark[sic] for 10s.\n' +
+      'Using a Relic within 10m of an enemy grants 2 stacks of Bulwark for 10s.\n' +
       '\n' +
       'Level 9:\n' +
-      'Using a Relic within 10m of an enemy grants 2 stacks of Bulwark[sic] and 10% Increased Damage for 10s.',
+      'Using a Relic within 10m of an enemy grants 2 stacks of Bulwark and 10% Increased Damage for 10s.',
     wikiLinks: [`https://remnant.wiki/Face_of_Danger`],
     linkedItems: {
       archetype: {

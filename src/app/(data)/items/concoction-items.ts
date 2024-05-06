@@ -84,7 +84,7 @@ export const concoctionItems: ConcoctionItem[] = [
     description:
       'Increases Dodge Weight Threshold by 10. Lasts 60m and will stay in effect after death.\n' +
       '\n' +
-      'Only one concoction[sic] may be active at a time.',
+      'Only one concoction may be active at a time.',
     wikiLinks: [`https://remnant.wiki/Egg_Drink`],
     weightThreshold: 10,
   },
@@ -98,7 +98,7 @@ export const concoctionItems: ConcoctionItem[] = [
     description:
       'Increases Damage Reduction by 6.5%. Lasts 60m and will stay in effect after death.\n' +
       '\n' +
-      'Only one concoction[sic] may be active at a time.',
+      'Only one concoction may be active at a time.',
     wikiLinks: [`https://remnant.wiki/Meat_Shake`],
   },
   {

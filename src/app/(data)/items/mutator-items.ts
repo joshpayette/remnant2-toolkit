@@ -37,7 +37,7 @@ export const mutatorItems: MutatorItem[] = [
     dlc: 'base',
     tags: ['Weakspot Damage'],
     description:
-      "Increases Weakspot Damage by 10% - 20% for every 400 Mod Power Spent by the attached weapon's mod[sic]. Max 3 stacks. Lasts 10s.",
+      "Increases Weakspot Damage by 10% - 20% for every 400 Mod Power Spent by the attached weapon's mod. Max 3 stacks. Lasts 10s.",
     maxLevelBonus: `At Max Stacks, gain 10% Critical Chance on Weakspot Hits.`,
     wikiLinks: [`https://remnant.wiki/Battery`],
   },
@@ -358,7 +358,7 @@ export const mutatorItems: MutatorItem[] = [
     dlc: 'base',
     tags: ['Critical Hit', 'Critical Chance'],
     description:
-      'When this weapon scores a Critical Hit, it increases Critical Chance and Critical Damage by 1% - 2% for 3s. Max 10[sic] stacks.',
+      'When this weapon scores a Critical Hit, it increases Critical Chance and Critical Damage by 1% - 2% for 3s. Max 10 stacks.',
     maxLevelBonus: `Critical Hits from this weapon add 2 stacks. Increases duration by 2s.`,
     wikiLinks: [`https://remnant.wiki/Momentum`],
   },
@@ -504,9 +504,9 @@ export const mutatorItems: MutatorItem[] = [
     dlc: 'base',
     tags: ['Charged Melee', 'Melee Damage'],
     description:
-      'Melee Attacks grant a Shield[sic] for 5% - 10% of Max Health. Max 25% - 50%. Lasts 5s.',
+      'Melee Attacks grant a Shield for 5% - 10% of Max Health. Max 25% - 50%. Lasts 5s.',
     maxLevelBonus:
-      'Charged Melee Attacks deal 25% additional Melee Damage based on current Shield[sic] amount.',
+      'Charged Melee Attacks deal 25% additional Melee Damage based on current Shield amount.',
     wikiLinks: [`https://remnant.wiki/Shielded_Strike`],
   },
   {
@@ -657,7 +657,7 @@ export const mutatorItems: MutatorItem[] = [
     description:
       'Increases Melee Damage by 5% - 8% per stack of CORRODED on the target. Max 5 stacks.',
     maxLevelBonus:
-      'Charged Melee Attacks apply CORRODED, dealing 250 ACID[sic] Damage over 10s.',
+      'Charged Melee Attacks apply CORRODED, dealing 250 ACID Damage over 10s.',
     wikiLinks: [`https://remnant.wiki/Tainted_Blade`],
   },
   {

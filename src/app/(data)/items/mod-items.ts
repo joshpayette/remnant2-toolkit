@@ -196,7 +196,7 @@ export const modItems: ModItem[] = [
     id: 'tw8tbh',
     dlc: 'base',
     description:
-      'While active, grants unlimited Reserve Ammo, increases Reload Speed by 50%, and shots appy[sic] 250 BLEEDING damage over 10s. If 3 shot[sic] hit a Weakspot reloading, Merciless will automatically perform a quick Reload. Lasts 13s.\n' +
+      'While active, grants unlimited Reserve Ammo, increases Reload Speed by 50%, and shots appy 250 BLEEDING damage over 10s. If 3 shot hit a Weakspot reloading, Merciless will automatically perform a quick Reload. Lasts 13s.\n' +
       '\n' +
       'Mod Power Requirement: 1,250',
     wikiLinks: [`https://remnant.wiki/Bloodshot`],
@@ -467,7 +467,7 @@ export const modItems: ModItem[] = [
     description:
       'After dealing 250 - 750 damage, Charge Attack will release a Dreamwave, floating outwards 20m and returning to caster.\n' +
       '\n' +
-      'Dreamwave applies SLOW[sic] to all enemies for 10s and grants a Stack of REVERIE for each enemy affected. Each Stack grants 2% to All Damage and 2% Movement Speed, which lasts 15s.',
+      'Dreamwave applies SLOW to all enemies for 10s and grants a Stack of REVERIE for each enemy affected. Each Stack grants 2% to All Damage and 2% Movement Speed, which lasts 15s.',
     externalTokens: [`Amplitude`],
     wikiLinks: [`https://remnant.wiki/Dreamwave`],
     linkedItems: {
@@ -1032,7 +1032,7 @@ export const modItems: ModItem[] = [
     id: 'vtcg3o',
     dlc: 'base',
     description:
-      'Fires a superheated beam which deals 25 Mod Damage[sic] per second. Sustaining the beam on a target causes an explosion which deals 150 Mod damage[sic] in a 3m AOE. \n' +
+      'Fires a superheated beam which deals 25 Mod Damage per second. Sustaining the beam on a target causes an explosion which deals 150 Mod damage in a 3m AOE. \n' +
       '\n' +
       'Mod Power Requirement: 500',
     externalTokens: [`Amplitude`, `Explosive Damage`],
@@ -1076,7 +1076,7 @@ export const modItems: ModItem[] = [
     id: 'nfw6ja',
     dlc: 'base',
     description:
-      "Launches a projectile which summons a Root Tentacle. Tentacles deal 30 - 90 damage and steal 1.5% of the hero's[sic] Max Health per hit. Lasts 20s. (Max 2)\n" +
+      "Launches a projectile which summons a Root Tentacle. Tentacles deal 30 - 90 damage and steal 1.5% of the hero's Max Health per hit. Lasts 20s. (Max 2)\n" +
       '\n' +
       'Mod Power Requirement: 450',
     wikiLinks: [`https://remnant.wiki/Rootlash`],
@@ -1230,7 +1230,7 @@ export const modItems: ModItem[] = [
     id: '4wd3gm',
     dlc: 'base',
     description:
-      'Launch an alien egg that bursts on impact, releasing 5 Space Crabs. Crabs follow the caster, leaping towards enemies within 4m,[sic] and exploding, dealing 60 - 180 damage each.\n' +
+      'Launch an alien egg that bursts on impact, releasing 5 Space Crabs. Crabs follow the caster, leaping towards enemies within 4m, and exploding, dealing 60 - 180 damage each.\n' +
       '\n' +
       'Mod Power Requirement: 450',
     wikiLinks: [`https://remnant.wiki/Space_Crabs`],
