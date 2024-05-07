@@ -28,21 +28,25 @@ Names were truncated and "error" was renamed to "highlight"
     --color-on-primary: 255 255 255;
     --color-primary-container: 42 194 224;
     --color-on-primary-container: 0 43 52;
+    --color-primary-inverse: 76 215 246;
     /* Secondary */
     --color-secondary: 94 39 200;
     --color-on-secondary: 255 255 255;
     --color-secondary-container: 132 85 239;
     --color-on-secondary-container: 255 255 255;
+    --color-secondary-inverse: 208 188 255;
     /* Tertiary */
     --color-tertiary: 0 110 47;
     --color-on-tertiary: 255 255 255;
     --color-tertiary-container: 53 209 104;
     --color-on-tertiary-container: 0 50 18;
+    --color-tertiary-inverse: 81 231 123;
     /* Highlight */
     --color-highlight: 120 90 0;
     --color-on-highlight: 255 255 255;
     --color-highlight-container: 243 187 25;
     --color-on-highlight-container: 67 49 0;
+    --color-highlight-inverse: 255 219 139;
     /* Background */
     --color-background: 245 250 252;
     --color-on-background: 23 29 30;
@@ -59,21 +63,25 @@ Names were truncated and "error" was renamed to "highlight"
     --color-on-primary: 0 54 64;
     --color-primary-container: 0 173 202;
     --color-on-primary-container: 0 20 25;
+    --color-primary-inverse: 0 104 122;
     /* Secondary */
     --color-secondary: 208 188 255;
     --color-on-secondary: 60 0 145;
     --color-secondary-container: 131 83 237;
     --color-on-secondary-container: 255 255 255;
+    --color-secondary-inverse: 94 39 200;
     /* Tertiary */
     --color-tertiary: 81 231 123;
     --color-on-tertiary: 0 57 21;
     --color-tertiary-container: 11 188 86;
     --color-on-tertiary-container: 0 30 8;
+    --color-tertiary-inverse: 0 110 47;
     /* Highlight */
     --color-highlight: 255 219 139;
     --color-on-highlight: 63 46 0;
     --color-highlight-container: 227 173 0;
     --color-on-highlight-container: 54 39 0;
+    --color-highlight-inverse: 120 90 0;
     /* Background */
     --color-background: 17 0 28;
     --color-on-background: 222 227 230;

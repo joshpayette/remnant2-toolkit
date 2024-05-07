@@ -26,21 +26,25 @@ module.exports = {
         'on-primary': 'rgb(var(--color-on-primary) / <alpha-value>)',
         'primary-container': 'rgb(var(--color-primary-container) / <alpha-value>)',
         'on-primary-container': 'rgb(var(--color-on-primary-container) / <alpha-value>)',
+        'primary-inverse': 'rgb(var(--color-primary-inverse) / <alpha-value>)',
         // --- Secondary ---
         'secondary': 'rgb(var(--color-secondary) / <alpha-value>)',
         'on-secondary': 'rgb(var(--color-on-secondary) / <alpha-value>)',
         'secondary-container': 'rgb(var(--color-secondary-container) / <alpha-value>)',
         'on-secondary-container': 'rgb(var(--color-on-secondary-container) / <alpha-value>)',
+        'secondary-inverse': 'rgb(var(--color-secondary-inverse) / <alpha-value>)',
         // --- Tertiary ---
         'tertiary': 'rgb(var(--color-tertiary) / <alpha-value>)',
         'on-tertiary': 'rgb(var(--color-on-tertiary) / <alpha-value>)',
         'tertiary-container': 'rgb(var(--color-tertiary-container) / <alpha-value>)',
         'on-tertiary-container': 'rgb(var(--color-on-tertiary-container) / <alpha-value>)',
+        'tertiary-inverse': 'rgb(var(--color-tertiary-inverse) / <alpha-value>)',
         // --- Highlight ---
         'highlight': 'rgb(var(--color-highlight) / <alpha-value>)',
         'on-highlight': 'rgb(var(--color-on-highlight) / <alpha-value>)',
         'highlight-container': 'rgb(var(--color-highlight-container) / <alpha-value>)',
         'on-highlight-container': 'rgb(var(--color-on-highlight-container) / <alpha-value>)',
+        'highlight-inverse': 'rgb(var(--color-highlight-inverse) / <alpha-value>)',
         // --- Background ---
         'background': 'rgb(var(--color-background) / <alpha-value>)',
         'on-background': 'rgb(var(--color-on-background) / <alpha-value>)',
