@@ -1,7 +1,7 @@
 import { traitItems } from '@/app/(data)/items/trait-items'
 import { TraitItem } from '@/app/(data)/items/types/TraitItem'
 
-import { DEFAULT_TRAIT_AMOUNT } from '../constants'
+import { DEFAULT_TRAIT_AMOUNT } from '../../../app/(data)/builds/constants'
 import { BuildState } from '../types'
 
 /**
@@ -78,7 +78,6 @@ export function linkArchetypesToTraits(buildState: BuildState) {
             category: linkedTraitItem.category,
             imagePath: linkedTraitItem.imagePath,
             description: linkedTraitItem.description ?? '',
-            maxLevelBonus: linkedTraitItem.maxLevelBonus ?? '',
             dlc: linkedTraitItem.dlc,
             wikiLinks: linkedTraitItem.wikiLinks ?? [],
             linkedItems: linkedTraitItem.linkedItems ?? {},

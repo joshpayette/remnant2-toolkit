@@ -10,10 +10,10 @@ interface Props {
 export const StartingDisplay = React.memo(
   ({ countdownTimer, onSkipCountdown }: Props) => (
     <div className="flex w-full flex-col items-center justify-center">
-      <h2 className="mb-2 text-2xl font-bold text-on-surface">
+      <h2 className="mb-2 text-2xl font-bold text-on-background">
         Game Starting
       </h2>
-      <p className="text-lg text-on-surface">
+      <p className="text-lg text-on-background">
         Get ready! The game will start in{' '}
         <span className="font-bold text-primary">{countdownTimer + 1}</span>{' '}
         seconds
@@ -25,7 +25,7 @@ export const StartingDisplay = React.memo(
       >
         Skip countdown
       </BaseButton>
-      <p className="mt-2 hidden text-lg italic text-on-surface sm:block">
+      <p className="mt-2 hidden text-lg italic text-on-background sm:block">
         Press <span className="font-bold">Space</span> or{' '}
         <span className="font-bold">Enter</span> to skip.
       </p>

@@ -4,12 +4,12 @@ import { EyeIcon } from '@heroicons/react/24/solid'
 import { useSearchParams } from 'next/navigation'
 import { useEffect, useState } from 'react'
 
+import { getFeaturedBuilds } from '@/app/(actions)/builds/get-featured-builds'
 import { Link } from '@/app/(components)/_base/link'
 import { BuildSecondaryFilters } from '@/app/(components)/filters/builds/secondary-filters'
 import { useOrderByFilter } from '@/app/(components)/filters/builds/secondary-filters/order-by-filter/use-order-by-filter'
 import { useTimeRangeFilter } from '@/app/(components)/filters/builds/secondary-filters/time-range-filter/use-time-range-filter'
 import { parseUrlFilters } from '@/app/(components)/filters/builds/utils'
-import { getFeaturedBuilds } from '@/features/build/actions/getFeaturedBuilds'
 import { BuildCard } from '@/features/build/components/build-card/BuildCard'
 import { BuildList } from '@/features/build/components/BuildList'
 import { useBuildListState } from '@/features/build/hooks/useBuildListState'
@@ -117,7 +117,7 @@ export function FeaturedBuilds({ itemsPerPage = 8 }: Props) {
                   <Tooltip content="View Build">
                     <Link
                       href={`/builder/${build.id}`}
-                      className="flex flex-col items-center gap-x-3 rounded-br-lg border border-transparent px-4 py-2 text-xs font-semibold text-primary-500 hover:text-primary-300 hover:underline"
+                      className="flex flex-col items-center gap-x-3 rounded-br-lg border border-transparent px-4 py-2 text-xs font-semibold text-primary hover:text-primary/50 hover:underline"
                     >
                       <EyeIcon className="h-4 w-4" /> View
                     </Link>

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { toast } from 'react-toastify'
 
+import { getLoadoutList } from '@/app/(actions)/loadouts/get-loadout-list'
 import { BaseButton } from '@/app/(components)/_base/button'
 import {
   BaseDialog,
@@ -11,7 +12,6 @@ import {
 import { getArrayOfLength } from '@/features/build/lib/getArrayOfLength'
 import { DBBuild } from '@/features/build/types'
 import { addBuildToLoadout } from '@/features/loadouts/actions/addBuildToLoadout'
-import { getLoadoutList } from '@/features/loadouts/actions/getLoadoutList'
 import { EmptyLoadoutCard } from '@/features/loadouts/components/EmptyLoadoutCard'
 import { LoadoutCard } from '@/features/loadouts/components/LoadoutCard'
 import { Skeleton } from '@/features/ui/Skeleton'

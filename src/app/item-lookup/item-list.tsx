@@ -12,13 +12,13 @@ import { ItemLookupFilters } from '@/app/(components)/filters/item-lookup/types'
 import { parseUrlFilters } from '@/app/(components)/filters/item-lookup/utils'
 import { DEFAULT_FILTER } from '@/app/(components)/filters/types'
 import { allItems } from '@/app/(data)/items/all-items'
+import { Item } from '@/app/(data)/items/types'
 import { MutatorItem } from '@/app/(data)/items/types/MutatorItem'
 import { RelicFragmentItem } from '@/app/(data)/items/types/RelicFragmentItem'
 import { WeaponItem } from '@/app/(data)/items/types/WeaponItem'
 import { ItemTrackerLocalStorage } from '@/app/tracker/types'
 import { MasonryItemList } from '@/features/items/components/MasonryItemList'
 import { itemMatchesSearchText } from '@/features/items/lib/itemMatchesSearchText'
-import { Item } from '@/features/items/types'
 import { capitalize } from '@/lib/capitalize'
 
 const allItemsWithDiscovered = allItems.map((item) => ({
@@ -179,7 +179,7 @@ export function ItemList({}: Props) {
 
   return !areFiltersApplied || !isClient ? (
     <div className="flex flex-col items-center justify-center gap-y-2">
-      <h2 className="mt-4 text-center text-2xl font-bold text-primary-500">
+      <h2 className="mt-4 text-center text-2xl font-bold text-primary">
         Apply a filter, or...
       </h2>
       <BaseButton onClick={() => setAreFiltersApplied(true)}>

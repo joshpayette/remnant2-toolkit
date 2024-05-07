@@ -8,7 +8,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     id: 'j1aele',
     dlc: 'base',
     tags: ['Ammo Reserves'],
-    description: `X% Ammo Pickups (Mythic: Maximum of +30%)`,
+    description: 'Ammo Pickups, +30% at max level.',
     wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
@@ -18,7 +18,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     id: '3aqiq5',
     dlc: 'base',
     tags: ['Ammo Reserves'],
-    description: `X% Ammo Reserves (Mythic: Maximum of +20%)`,
+    description: 'Ammo Reserves, +20% at max level.',
     wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
@@ -28,7 +28,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     id: '7u1bma',
     dlc: 'base',
     tags: ['Damage Reduction'],
-    description: `+X% Armor (Mythic: Maximum of +10%)`,
+    description: 'Armor Effectiveness, +10% at max level.',
     wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
     armorPercent: 0.1,
   },
@@ -39,7 +39,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     id: '8q8xe3',
     dlc: 'base',
     tags: ['Armor Increase', 'Damage Reduction'],
-    description: `+X% Blight Resistance (Mythic: Maximum of +30%)`,
+    description: 'Blight Resistance, +30% at max level.',
     wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
@@ -50,7 +50,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     id: '51y6ih',
     dlc: 'base',
     tags: ['Mod Cast Speed', 'Skill Cast Speed'],
-    description: `X% Mod & Skill Cast Speed (Mythic: Maximum of +20%)`,
+    description: 'Casting Speed, +20% at max level.',
     wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
@@ -60,7 +60,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     id: 'fuikyq',
     dlc: 'base',
     tags: ['Charged Melee', 'Stamina'],
-    description: `-X% Melee Charge Attack Stamina Cost (Mythic: Maximum of -30%)`,
+    description: 'Charge Melee Cost, -30% at max level.',
     wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
@@ -69,7 +69,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     imagePath: '/relicfragment/consumable_duration.png',
     id: 'xqklut',
     dlc: 'base',
-    description: `X% Consumable Duration (Mythic: Maximum of +20%)`,
+    description: 'Consumable Duration, +20% at max level.',
     wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
@@ -79,7 +79,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     id: 'omefk5',
     dlc: 'base',
     tags: ['Relic Use Speed'],
-    description: `X% Consumable Use Speed (Mythic: Maximum of +15%)`,
+    description: 'Consumable Speed, +15% at max level.',
     wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
@@ -89,7 +89,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     id: '1pddio',
     dlc: 'base',
     tags: ['Damage Reduction'],
-    description: `X% Damage Reduction (Mythic: Maximum of +5%)`,
+    description: 'Damage Reduction, +5% at max level.',
     wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
@@ -99,7 +99,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     id: 'erp2mp',
     dlc: 'base',
     tags: ['Status Effect'],
-    description: `X% Elemental Damage (Mythic: Maximum of +10%)`,
+    description: 'Elemental Damage, +10% at max level.',
     wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
@@ -109,7 +109,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     id: 'j7k57r',
     dlc: 'base',
     tags: ['Damage Reduction'],
-    description: `X% Elemental Damage Resistance (Mythic: Maximum of +10%)`,
+    description: 'Elemental Resistance, +10% at max level.',
     wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
     bleedResistance: 10,
     fireResistance: 10,
@@ -124,7 +124,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     id: 'aci99s',
     dlc: 'base',
     tags: ['Grey Health'],
-    description: `+X% Health (Mythic: Maximum of +20%)`,
+    description: 'Grey Health Rate, +20% at max level.',
     wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
@@ -134,7 +134,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     id: 'y52c32',
     dlc: 'base',
     tags: ['Healing Effectiveness'],
-    description: `+X% Healing Effectiveness (Mythic: Maximum of +20%)`,
+    description: 'Healing Effectiveness, +20% at max level.',
     wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
@@ -144,7 +144,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     id: 'j87rzn',
     dlc: 'base',
     tags: ['Health'],
-    description: `+X% Health (Mythic: Maximum of +15%)`,
+    description: 'Health, +15% (x1.15) at max level.',
     wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
     healthPercent: 0.15,
   },
@@ -155,7 +155,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     id: 't8jgpe',
     dlc: 'base',
     tags: ['Melee Attack Speed'],
-    description: `+X% Melee Attack Speed (Mythic: Maximum of +15%)`,
+    description: 'Melee Attack Speed, +15% at max level.',
     wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
@@ -166,7 +166,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     id: 'm16fn9',
     dlc: 'base',
     tags: ['Critical Chance', 'Melee Critical Chance'],
-    description: `+X% Melee Crit Chance (Mythic: Maximum of +7.5%)`,
+    description: 'Melee Critical Chance, +10% at max level.',
     wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
@@ -177,7 +177,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     id: '77ch7i',
     dlc: 'base',
     tags: ['Melee Critical Damage', 'Critical Damage'],
-    description: `+X% Melee Crit Damage (Mythic: Maximum of +15%)`,
+    description: 'Melee Critical Damage, +15% at max level.',
     wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
@@ -187,7 +187,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     id: 'yu7d57',
     dlc: 'base',
     tags: ['Melee Damage'],
-    description: `+X% Melee Damage (Mythic: Maximum of +15%)`,
+    description: 'Melee Damage, +15% at max level.',
     wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
@@ -197,7 +197,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     id: 's8pkj3',
     dlc: 'base',
     tags: ['Mod Cost'],
-    description: `-X% Mod Cost (Mythic: Maximum of -10%)`,
+    description: 'Mod Cost, -10% at max level.',
     wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
@@ -207,7 +207,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     id: 'zkr2us',
     dlc: 'base',
     tags: ['Mod Damage'],
-    description: `X% Mod Damage (Mythic: Maximum of +10%)`,
+    description: 'Mod Damage, +10% at max level.',
     wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
@@ -217,7 +217,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     id: 'c2t1p6',
     dlc: 'base',
     tags: ['Mod Duration'],
-    description: `+X% Mod Duration (Mythic: Maximum of +15%)`,
+    description: 'Mod Duration, +15% at max level.',
     wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
@@ -228,7 +228,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     id: 'dp184t',
     dlc: 'base',
     tags: ['Critical Chance'],
-    description: `+X% Ranged Crit Chance (Mythic: Maximum of +10%)`,
+    description: 'Ranged Critical Chance, +7.5% at max level.',
     wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
@@ -239,7 +239,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     id: 'w5jmys',
     dlc: 'base',
     tags: ['Critical Damage'],
-    description: `+X% Ranged Crit Damage (Mythic: Maximum of +15%)`,
+    description: 'Ranged Critical Damage, +15% at max level.',
     wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
@@ -249,7 +249,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     id: 'wlnbc1',
     dlc: 'base',
     tags: ['Ranged Damage'],
-    description: `+X% Ranged Damage (Mythic: Maximum of +10%)`,
+    description: 'Ranged Damage, +10% at max level.',
     wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
@@ -259,7 +259,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     id: 'w8ruyt',
     dlc: 'base',
     tags: ['Fire Rate'],
-    description: `+X% Fire Rate (Mythic: Maximum of +10%)`,
+    description: 'Ranged Fire Rate, +10% at max level.',
     wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
@@ -269,7 +269,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     id: 'ygdexg',
     dlc: 'base',
     tags: ['Recoil'],
-    description: `-X% Recoil (Mythic: Maximum of -30%)`,
+    description: 'Recoil, -30% at max level.',
     wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
@@ -278,7 +278,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     imagePath: '/relicfragment/revive_speed.png',
     id: '0jam5w',
     dlc: 'base',
-    description: `+X% Revive Speed (Mythic: Maximum of +25%)`,
+    description: 'Revive Speed, +25% at max level.',
     wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
@@ -287,7 +287,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     imagePath: '/relicfragment/shield_effectiveness.png',
     id: 'alp59n',
     dlc: 'base',
-    description: `+X% SHIELD Amount (Mythic: Maximum of +20%)`,
+    description: 'Shield Effectiveness, +20% at max level.',
     wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
@@ -297,7 +297,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     id: '2bqp66',
     dlc: 'base',
     tags: ['Reduce Skill Cooldown'],
-    description: `+X% Skill Cooldown (Mythic: Maximum of -10%)`,
+    description: 'Skill Cooldown, -10% at max level.',
     wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
@@ -307,7 +307,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     id: 'fuhykd',
     dlc: 'base',
     tags: ['Skill Damage'],
-    description: `X% Skill Damage (Mythic: Maximum of +10%)`,
+    description: 'Skill Damage, +10% at max level.',
     wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
@@ -317,7 +317,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     id: '7c8uka',
     dlc: 'base',
     tags: ['Skill Duration'],
-    description: `+X% Skill Duration (Mythic: Maximum of +10%)`,
+    description: 'Skill Duration, +10% at max level.',
     wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
@@ -327,7 +327,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     id: 'yk8dng',
     dlc: 'base',
     tags: ['Spread'],
-    description: `X% Reticle Spread Recovery (Mythic: Maximum of +30%)`,
+    description: 'Spread Recovery, +30% at max level.',
     wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
@@ -337,7 +337,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     id: '74x7jt',
     dlc: 'base',
     tags: ['Stagger'],
-    description: `+X% Stagger Damage (Mythic: Maximum of +20%)`,
+    description: 'Stagger Damage, +20% at max level.',
     wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
@@ -347,7 +347,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     id: 'qqmdc0',
     dlc: 'base',
     tags: ['Stamina'],
-    description: `+X% Stamina (Mythic: Maximum of +15%)`,
+    description: 'Stamina, +15% at max level.',
     wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
     staminaPercent: 0.15,
   },
@@ -358,7 +358,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     id: 'lbtjq3',
     dlc: 'base',
     tags: ['Stamina'],
-    description: `-X% Reduced Stamina Cost (Mythic: Maximum of -20%)`,
+    description: 'Stamina Cost, -20% at max level.',
     wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
@@ -368,7 +368,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     id: '0y36lm',
     dlc: 'base',
     tags: ['Stamina'],
-    description: `-X% Stamina Recovery Delay (Mythic: Maximum of -30%)`,
+    description: 'Stamina Recovery Delay, -30% at max level.',
     wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
@@ -378,7 +378,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     id: 'oszz4u',
     dlc: 'base',
     tags: ['Weakspot Damage'],
-    description: `+X% Weakspot Damage (Mythic: Maximum of +15%).`,
+    description: 'Weakspot Damage, +15% at max level.',
     wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
@@ -388,7 +388,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     id: 'oiiiu2',
     dlc: 'base',
     tags: ['Spread'],
-    description: `-X% Weapon Spread (Mythic: Maximum of -15%)`,
+    description: 'Weapon Spread, -15% at max level.',
     wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
@@ -397,7 +397,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     imagePath: '/relicfragment/weapon_swap.png',
     id: 'h9e463',
     dlc: 'base',
-    description: `+X% Weapon Swap Speed (Mythic: Maximum of +20%)`,
+    description: 'Weapon Swap, +20% at max level.',
     wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
 ]

@@ -7,7 +7,7 @@ export function CreateBuildCard() {
   return (
     <Link
       className={cn(
-        'col-span-1 flex h-full min-h-[362px] flex-col items-center justify-center rounded-lg border-4 border-primary-500 bg-black text-center shadow hover:scale-[1.05] hover:border-primary-300',
+        'col-span-1 flex h-full min-h-[362px] flex-col items-center justify-center rounded-lg border-4 border-primary bg-background text-center shadow hover:scale-[1.05] hover:border-primary-inverse',
       )}
       href="/builder/create"
     >
@@ -18,7 +18,7 @@ export function CreateBuildCard() {
         alt="Create a New Build"
         className="mb-4"
       />
-      <p className="text-2xl font-bold text-white">Create a New Build</p>
+      <p className="text-2xl font-bold text-on-background">Create a New Build</p>
     </Link>
   )
 }

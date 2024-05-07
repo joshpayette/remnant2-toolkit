@@ -1,8 +1,8 @@
 import { BuildTags } from '@prisma/client'
-import isEqual from 'lodash.isequal'
+import cloneDeep from 'lodash.clonedeep'
 import { useEffect, useMemo, useState } from 'react'
-import { useLocalStorage } from 'usehooks-ts'
 
+import { Item } from '@/app/(data)/items/types'
 import { AmuletItem } from '@/app/(data)/items/types/AmuletItem'
 import { ArchetypeItem } from '@/app/(data)/items/types/ArchetypeItem'
 import { ArmorItem } from '@/app/(data)/items/types/ArmorItem'
@@ -16,56 +16,19 @@ import { RingItem } from '@/app/(data)/items/types/RingItem'
 import { SkillItem } from '@/app/(data)/items/types/SkillItem'
 import { TraitItem } from '@/app/(data)/items/types/TraitItem'
 import { WeaponItem } from '@/app/(data)/items/types/WeaponItem'
-import { INITIAL_BUILD_STATE as DEFAULT_BUILD_STATE } from '@/features/build/constants'
 import { BuildState } from '@/features/build/types'
-import { Item } from '@/features/items/types'
 
 import { buildStateToCsvData } from '../lib/buildStateToCsvData'
 import { buildStateToMasonryItems } from '../lib/buildStateToMasonryItems'
 import { cleanUpBuildState } from '../lib/cleanUpBuildState'
 
-export function useDBBuildState(
-  INITIAL_BUILD_STATE: BuildState,
-  mode: 'create' | 'edit',
-) {
-  // TODO Rework this functionality
-  // Read the build-state from the localstorage
-  // const [localBuildState, setLocalBuildState] = useLocalStorage<BuildState>(
-  //   mode === 'create' ? 'create-build-state' : 'edit-build-state',
-  //   INITIAL_BUILD_STATE,
-  //   { initializeWithValue: true },
+export function useDBBuildState(initialBuildState: BuildState) {
   // )
+  const [dbBuildState, setDBBuildState] = useState<BuildState>(
+    cloneDeep(initialBuildState),
+  )
 
-  // TODO
-  // Initialize the build state with the local build state if it exists
-  // and is not equal to the initial build state
-  // const [dbBuildState, setDBBuildState] = useState<BuildState>(
-  //   isEqual(localBuildState, INITIAL_BUILD_STATE)
-  //     ? INITIAL_BUILD_STATE
-  //     : localBuildState,
-  // )
-  const [dbBuildState, setDBBuildState] =
-    useState<BuildState>(INITIAL_BUILD_STATE)
-
-  // If mode is edit and the localBuildState.buildId is not equal to the buildId
-  // in the initial build state, reset the local build state and the db build state
-  // useEffect(() => {
-  //   if (mode === 'create') return
-  //   if (!localBuildState.buildId) return
-
-  //   if (localBuildState.buildId !== INITIAL_BUILD_STATE.buildId) {
-  //     setLocalBuildState(DEFAULT_BUILD_STATE)
-  //     setDBBuildState(INITIAL_BUILD_STATE)
-  //   }
-  // }, [INITIAL_BUILD_STATE, localBuildState.buildId, mode, setLocalBuildState])
-
-  // TODO
-  // Check if the user is using local changes
-  // Used to show an alert above the builder
-  // const usingLocalChanges =
-  //   INITIAL_BUILD_STATE.buildId === localBuildState.buildId &&
-  //   !isEqual(INITIAL_BUILD_STATE, localBuildState)
-
+  /** Used for build state protection, currently does nothing. */
   const usingLocalChanges = false
 
   /**

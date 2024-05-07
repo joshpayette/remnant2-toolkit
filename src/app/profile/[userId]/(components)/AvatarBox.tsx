@@ -12,7 +12,7 @@ export function AvatarBox({
   showLabel = false,
 }: Props) {
   return (
-    <div className="rounded-md bg-secondary-400/10 p-1 text-xs font-medium ring-1 ring-inset ring-secondary-400/30">
+    <div className="rounded-md bg-secondary/10 p-1 text-xs font-medium ring-1 ring-inset ring-secondary/30">
       <Image
         id={id}
         src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}${imagePath}`}

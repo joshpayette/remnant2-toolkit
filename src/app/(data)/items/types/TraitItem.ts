@@ -1,8 +1,8 @@
 import { BuildItems } from '@prisma/client'
 
-import { DEFAULT_TRAIT_AMOUNT } from '@/features/build/constants'
+import { DEFAULT_TRAIT_AMOUNT } from '@/app/(data)/builds/constants'
+import { Item } from '@/app/(data)/items/types'
 
-import { Item } from '../../../../features/items/types'
 import { archetypeItems } from '../archetype-items'
 import { traitItems } from '../trait-items'
 import { BaseItem } from './BaseItem'
@@ -11,7 +11,6 @@ const allItems = [...traitItems, ...archetypeItems]
 
 interface BaseTraitItem extends BaseItem {
   amount: number
-  maxLevelBonus: string
   elementalResistanceStep?: number // The amount to increase the elemental resistance per level
   elementalResistanceStepPercent?: number // The percentage to increase the elemental resistance per level
   elementalResistanceThresholds?: number[] // The elemental resistance thresholds for the elemental resistance step
@@ -28,7 +27,6 @@ interface BaseTraitItem extends BaseItem {
 
 export class TraitItem extends BaseItem implements BaseTraitItem {
   public category: BaseTraitItem['category'] = 'trait'
-  public maxLevelBonus: BaseTraitItem['maxLevelBonus'] = ''
   public amount: BaseTraitItem['amount'] = DEFAULT_TRAIT_AMOUNT
   public elementalResistanceStep?: BaseTraitItem['elementalResistanceStep'] = 0
   public elementalResistanceStepPercent?: BaseTraitItem['elementalResistanceStepPercent'] = 0
@@ -47,7 +45,6 @@ export class TraitItem extends BaseItem implements BaseTraitItem {
   constructor(props: BaseTraitItem) {
     super(props)
     this.amount = props.amount
-    this.maxLevelBonus = props.maxLevelBonus
     this.elementalResistanceStep = props.elementalResistanceStep
     this.elementalResistanceStepPercent = props.elementalResistanceStepPercent
     this.elementalResistanceThresholds = props.elementalResistanceThresholds
@@ -100,7 +97,6 @@ export class TraitItem extends BaseItem implements BaseTraitItem {
             amount: validAmount,
             dlc: item.dlc,
             description: item.description ?? '',
-            maxLevelBonus: item.maxLevelBonus ?? '',
             wikiLinks: item.wikiLinks ?? [],
             linkedItems: item.linkedItems ?? {},
             saveFileSlug: item.saveFileSlug ?? '',

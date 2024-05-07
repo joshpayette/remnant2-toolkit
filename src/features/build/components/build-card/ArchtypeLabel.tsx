@@ -1,4 +1,4 @@
-import { ARCHTYPE_COLORS } from '@/features/items/constants'
+import { ARCHTYPE_COLORS } from '@/app/(data)/items/constants'
 import { cn } from '@/lib/classnames'
 
 export function ArchtypeLabel({ name }: { name: string }) {

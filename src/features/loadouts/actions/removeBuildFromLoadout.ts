@@ -23,6 +23,7 @@ export async function removeBuildFromLoadout(
   })
 
   revalidatePath(`/profile/${session.user.id}/loadouts`)
+  revalidatePath(`/builder/${buildId}`, 'page')
 
   return { success: true }
 }

@@ -3,7 +3,7 @@
 import { Metadata } from 'next'
 import { Suspense } from 'react'
 
-import { getTotalBuildCount } from '@/features/build/actions/getTotalBuildCount'
+import { getTotalBuildCount } from '@/app/(actions)/builds/get-total-build-count'
 import { NAV_ITEMS } from '@/features/navigation/constants'
 import { PageHeader } from '@/features/ui/PageHeader'
 
@@ -48,7 +48,7 @@ export default async function Layout({
           subtitle={
             <span>
               Search from{' '}
-              <span className="text-2xl font-bold text-primary-500">
+              <span className="text-2xl font-bold text-primary">
                 {await getTotalBuildCount()}
               </span>{' '}
               community submitted builds!

@@ -4,7 +4,7 @@ import { useState } from 'react'
 
 import { BaseButton } from '@/app/(components)/_base/button'
 import { ItemInfoDialog } from '@/app/(components)/dialogs/item-info-dialog'
-import { Item } from '@/features/items/types'
+import { Item } from '@/app/(data)/items/types'
 
 export default function Page({ params: { item } }: { params: { item: Item } }) {
   const [open, setOpen] = useState(true)

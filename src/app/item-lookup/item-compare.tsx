@@ -4,8 +4,8 @@ import { useLocalStorage } from 'usehooks-ts'
 import { ItemCard } from '@/app/(components)/cards/item-card'
 import { ItemInfoDialog } from '@/app/(components)/dialogs/item-info-dialog'
 import { allItems } from '@/app/(data)/items/all-items'
+import { Item } from '@/app/(data)/items/types'
 import { getArrayOfLength } from '@/features/build/lib/getArrayOfLength'
-import { Item } from '@/features/items/types'
 import { cn } from '@/lib/classnames'
 
 interface Props {}
@@ -32,7 +32,7 @@ export function ItemCompareList({}: Props) {
         onClose={() => setSelectedItem(null)}
       />
 
-      <h2 className="mt-4 text-center text-2xl font-bold text-primary-500">
+      <h2 className="mt-4 text-center text-2xl font-bold text-primary">
         Item Comparison
       </h2>
       <div className="grid w-full grid-cols-1 gap-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">

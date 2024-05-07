@@ -85,7 +85,7 @@ export default async function Page({
     <>
       {topBuildsCurrent.length > 0 && (
         <div>
-          <div className="mb-4 flex w-full flex-row items-center justify-center border-b border-b-primary-500 py-2">
+          <div className="mb-4 flex w-full flex-row items-center justify-center border-b border-b-primary py-2">
             <h2 className="flex w-full items-center justify-start text-2xl">
               Top Created Builds (Current)
             </h2>
@@ -103,7 +103,7 @@ export default async function Page({
         </div>
       )}
       <div>
-        <div className="mb-4 flex w-full flex-row items-center justify-center border-b border-b-primary-500 py-2">
+        <div className="mb-4 flex w-full flex-row items-center justify-center border-b border-b-primary py-2">
           <h2 className="flex w-full items-center justify-start text-2xl">
             Top Created Builds (All Time)
           </h2>

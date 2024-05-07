@@ -4,12 +4,11 @@ import { Masonry } from 'masonic'
 import { useState } from 'react'
 import { useIsClient } from 'usehooks-ts'
 
+import { ItemCard } from '@/app/(components)/cards/item-card'
 import { ItemInfoDialog } from '@/app/(components)/dialogs/item-info-dialog'
+import { Item } from '@/app/(data)/items/types'
 import { getArrayOfLength } from '@/features/build/lib/getArrayOfLength'
 import { Skeleton } from '@/features/ui/Skeleton'
-
-import { ItemCard } from '../../../app/(components)/cards/item-card'
-import { Item } from '../types'
 
 interface Props {
   allowItemCompare?: boolean
@@ -42,7 +41,7 @@ export function MasonryItemList({
       />
       <div className="flex w-full flex-col items-center justify-center overflow-auto p-4">
         {label && (
-          <h3 className="mb-4 text-2xl font-bold text-primary-500">{label}</h3>
+          <h3 className="mb-4 text-2xl font-bold text-primary">{label}</h3>
         )}
 
         <Masonry

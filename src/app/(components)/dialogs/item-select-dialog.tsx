@@ -11,15 +11,15 @@ import {
 import { ItemButton } from '@/app/(components)/buttons/item-button'
 import { ItemInfoDialog } from '@/app/(components)/dialogs/item-info-dialog'
 import { ItemSearchText } from '@/app/(components)/filters/item-lookup/item-search-text'
+import { Item } from '@/app/(data)/items/types'
+import { ITEM_TOKENS } from '@/app/(types)/tokens'
 import { ItemCategory } from '@/features/build/types'
-import { ITEM_TAGS } from '@/features/items/constants'
 import { itemMatchesSearchText } from '@/features/items/lib/itemMatchesSearchText'
-import { Item } from '@/features/items/types'
 import { capitalize } from '@/lib/capitalize'
 import { cn } from '@/lib/classnames'
 
 function buildSearchTextOptions(): Array<{ id: string; name: string }> {
-  let items = ITEM_TAGS.map((tag) => ({
+  let items = ITEM_TOKENS.map((tag) => ({
     id: tag as string,
     name: tag as string,
   }))
@@ -167,7 +167,7 @@ export function ItemSelectDialog({
           </div>
         </div>
 
-        <hr className="mb-8 mt-4 border-primary-500" />
+        <hr className="mb-8 mt-4 border-primary" />
 
         <ul
           role="list"

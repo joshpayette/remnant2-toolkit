@@ -56,7 +56,7 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
       <div className="flex w-full flex-grow flex-col justify-start">
         <div className="flex w-full flex-row items-center justify-start">
           <div className="flex w-full flex-col items-start justify-start sm:max-w-[275px]">
-            <div className="relative grid w-full grid-cols-2 gap-2 border border-transparent border-b-primary-500 text-left text-sm text-gray-300">
+            <div className="relative grid w-full grid-cols-2 gap-2 border border-transparent border-b-primary text-left text-sm text-on-background-variant">
               <p className="flex items-center justify-start">Health</p>
               {/** Not updating to new button component */}
               <button
@@ -78,7 +78,7 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
                 )}
               </button>
             </div>
-            <div className="relative grid w-full grid-cols-2 gap-2 border border-transparent border-b-primary-500 text-left text-sm text-gray-300">
+            <div className="relative grid w-full grid-cols-2 gap-2 border border-transparent border-b-primary text-left text-sm text-on-background-variant">
               <p className="flex items-center justify-start">Stamina</p>
               {/** Not updating to new button component */}
               <button
@@ -100,7 +100,7 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
                 )}
               </button>
             </div>
-            <div className="relative grid w-full grid-cols-2 gap-2 border border-transparent border-b-primary-500 text-left text-sm text-gray-300">
+            <div className="relative grid w-full grid-cols-2 gap-2 border border-transparent border-b-primary text-left text-sm text-on-background-variant">
               <p className="flex items-center justify-start">Armor</p>
               <Tooltip content="ArmorDR = Armor / (Armor+200)">
                 {/** Not updating to new button component */}
@@ -115,7 +115,7 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
                 </button>
               </Tooltip>
             </div>
-            <div className="relative grid w-full grid-cols-2 gap-2 border border-transparent border-b-primary-500 text-left text-sm text-gray-300">
+            <div className="relative grid w-full grid-cols-2 gap-2 border border-transparent border-b-primary text-left text-sm text-on-background-variant">
               <p className="flex items-center justify-start">Weight</p>
               <span
                 className={cn(
@@ -145,7 +145,7 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
               </span>
             </div>
             <div className="grid w-full grid-cols-2 gap-x-2">
-              <div className="relative grid w-full grid-cols-2 gap-2 border border-transparent border-b-primary-500 text-left text-sm text-gray-300">
+              <div className="relative grid w-full grid-cols-2 gap-2 border border-transparent border-b-primary text-left text-sm text-on-background-variant">
                 <Image
                   src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/status/bleed_resistance.png`}
                   alt="Bleed Resistance"
@@ -164,7 +164,7 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
                   {totalBleedResistance}
                 </span>
               </div>
-              <div className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-primary-500 text-left text-sm text-gray-300">
+              <div className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-primary text-left text-sm text-on-background-variant">
                 <Image
                   src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/status/fire_resistance.png`}
                   alt="Fire Resistance"
@@ -183,7 +183,7 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
                   {totalFireResistance}
                 </span>
               </div>
-              <div className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-primary-500 text-left text-sm text-gray-300">
+              <div className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-primary text-left text-sm text-on-background-variant">
                 <Image
                   src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/status/shock_resistance.png`}
                   alt="Shock Resistance"
@@ -202,7 +202,7 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
                   {totalShockResistance}
                 </span>
               </div>
-              <div className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-primary-500 text-left text-sm text-gray-300">
+              <div className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-primary text-left text-sm text-on-background-variant">
                 <Image
                   src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/status/toxin_resistance.png`}
                   alt="Toxin Resistance"
@@ -221,7 +221,7 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
                   {totalToxinResistance}
                 </span>
               </div>
-              <div className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-primary-500 text-left text-sm text-gray-300">
+              <div className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-primary text-left text-sm text-on-background-variant">
                 <Image
                   src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/status/blight_resistance.png`}
                   alt="Blight Resistance"
@@ -246,7 +246,7 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
                 <a
                   href={buildToVashUrl(buildState)}
                   target="_blank"
-                  className="flex items-center justify-center rounded-lg border border-gray-500 bg-gray-800 p-2 text-xs text-white hover:bg-gray-700"
+                  className="flex items-center justify-center rounded-lg border border-outline bg-primary-container/20 p-2 text-xs text-on-background hover:bg-outline-variant"
                 >
                   Export to Loadout Calculator
                   <Image

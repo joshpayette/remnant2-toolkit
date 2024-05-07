@@ -35,7 +35,7 @@ export function BuildPage({ build }: Props) {
     usingLocalChanges,
     updateDBBuildState,
     setNewBuildState,
-  } = useDBBuildState(cleanUpBuildState(dbBuildToBuildState(build)), 'edit')
+  } = useDBBuildState(cleanUpBuildState(dbBuildToBuildState(build)))
 
   const {
     isScreenshotMode,

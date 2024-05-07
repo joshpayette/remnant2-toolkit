@@ -8,10 +8,10 @@ import {
 } from '@/app/(components)/filters/item-tracker/types'
 import { VALID_RELEASE_KEYS } from '@/app/(components)/filters/releases-filter'
 import { DEFAULT_FILTER } from '@/app/(components)/filters/types'
+import { Item } from '@/app/(data)/items/types'
 import { MutatorItem } from '@/app/(data)/items/types/MutatorItem'
 import { WeaponItem } from '@/app/(data)/items/types/WeaponItem'
 import { ItemTrackerCategory } from '@/app/tracker/types'
-import { Item } from '@/features/items/types'
 
 export function parseUrlFilters(
   searchParams: ReadonlyURLSearchParams,

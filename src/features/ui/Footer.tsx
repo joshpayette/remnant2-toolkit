@@ -4,11 +4,11 @@ import { cn } from '@/lib/classnames'
 
 import { NAV_ITEMS } from '../navigation/constants'
 
-const aClass = 'underline text-on-surface hover:text-primary'
+const aClass = 'underline text-on-background hover:text-primary'
 
 export function Footer() {
   return (
-    <footer className="border-secondary bg-surface mt-8 flex w-full items-center justify-center border-t p-4 text-left text-sm text-on-surface-variant">
+    <footer className="border-secondary bg-background mt-8 flex w-full items-center justify-center border-t p-4 text-left text-sm text-on-background-variant">
       <div className="max-w-2xl gap-2">
         <div className="flex w-full flex-row items-center justify-center gap-4 p-2">
           <a

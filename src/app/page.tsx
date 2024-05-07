@@ -1,8 +1,8 @@
 import Image from 'next/image'
 
+import { getTotalBuildCount } from '@/app/(actions)/builds/get-total-build-count'
 import { Link } from '@/app/(components)/_base/link'
 import { getServerSession } from '@/features/auth/lib'
-import { getTotalBuildCount } from '@/features/build/actions/getTotalBuildCount'
 import { NAV_ITEMS } from '@/features/navigation/constants'
 import { LandingPageCard } from '@/features/ui/LandingPageCard'
 import { LandingPageContainer } from '@/features/ui/LandingPageContainer'
@@ -17,10 +17,10 @@ export default async function Page() {
       title="Remnant 2 Toolkit"
       description={
         <>
-          <div className="mt-6 text-lg leading-8 text-on-surface-variant">
+          <div className="mt-6 text-lg leading-8 text-on-background-variant">
             <Link
               href="/community-builds"
-              className="underline hover:text-surface/50"
+              className="underline hover:text-background/50"
             >
               Search the community&apos;s{' '}
               <span className="text-2xl font-bold">
@@ -220,7 +220,7 @@ export default async function Page() {
               width={11}
               height={20}
               alt={`${NAV_ITEMS.wiki.label}, ${NAV_ITEMS.wiki.description}`}
-              className="mr-2 h-7 w-5 flex-none text-primary-600"
+              className="mr-2 h-7 w-5 flex-none text-primary"
               aria-hidden="true"
             />
           }

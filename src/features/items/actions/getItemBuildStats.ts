@@ -1,7 +1,12 @@
 'use server'
 
 import { prisma } from '@/features/db'
-import { ItemBuildStats } from '@/features/items/types'
+
+/** Used to show the # of builds an item is used in */
+export type ItemBuildStats = {
+  featured: { usedIn: number; total: number }
+  community: { usedIn: number; total: number }
+}
 
 export default async function getItemBuildStats(itemId: string): Promise<{
   success: boolean

@@ -6,17 +6,21 @@ import { Link } from '@/app/(components)/_base/link'
 import { ItemButton } from '@/app/(components)/buttons/item-button'
 import { ItemInfoDialog } from '@/app/(components)/dialogs/item-info-dialog'
 import { ItemSelectDialog } from '@/app/(components)/dialogs/item-select-dialog'
+import {
+  DEFAULT_TRAIT_AMOUNT,
+  MAX_BUILD_TAGS,
+} from '@/app/(data)/builds/constants'
 import { perkItems } from '@/app/(data)/items/perk-items'
+import { Item } from '@/app/(data)/items/types'
 import { TraitItem } from '@/app/(data)/items/types/TraitItem'
 import { FeaturedBuildBadge } from '@/features/build/components/build-card/FeaturedBuildBadge'
 import { NewBuildBadge } from '@/features/build/components/build-card/NewBuildBadge'
 import { PopularBuildBadge } from '@/features/build/components/build-card/PopularBuildBadge'
-import {
-  DEFAULT_TRAIT_AMOUNT,
-  MAX_BUILD_TAGS,
-} from '@/features/build/constants'
 import { formatUpdatedAt } from '@/features/build/lib/formatUpdatedAt'
-import { getArchetypeComboName } from '@/features/build/lib/getArchetypeComboName'
+import {
+  ArchetypeName,
+  getArchetypeComboName,
+} from '@/features/build/lib/getArchetypeComboName'
 import { getArrayOfLength } from '@/features/build/lib/getArrayOfLength'
 import { getConcoctionSlotCount } from '@/features/build/lib/getConcoctionSlotCount'
 import { getItemListForSlot } from '@/features/build/lib/getItemListForSlot'
@@ -24,7 +28,6 @@ import { isBuildNew } from '@/features/build/lib/isBuildNew'
 import { isBuildPopular } from '@/features/build/lib/isBuildPopular'
 import { stripUnicode } from '@/features/build/lib/stripUnicode'
 import { BuildState, ItemCategory } from '@/features/build/types'
-import { Archetype, Item } from '@/features/items/types'
 import { Logo } from '@/features/ui/Logo'
 import { cn } from '@/lib/classnames'
 
@@ -357,19 +360,19 @@ export function Builder({
       <div
         id="build-container"
         className={cn(
-          'relative w-full grow rounded border-2 bg-black p-4',
-          !buildState.isMember && 'border-primary-500',
+          'relative w-full grow rounded border-2 bg-background-container p-4',
+          !buildState.isMember && 'border-primary',
           buildState.isMember &&
             !isScreenshotMode &&
-            'border-accent1-300 shadow-lg shadow-accent1-600',
-          buildState.isMember && isScreenshotMode && 'border-primary-500',
+            'border-secondary shadow-lg shadow-secondary-container',
+          buildState.isMember && isScreenshotMode && 'border-primary',
           isScreenshotMode && 'pb-[70px]',
         )}
       >
         <div
           id="build-header"
           className={cn(
-            'relative mb-4 border-b border-b-primary-900',
+            'relative mb-4 border-b border-b-primary',
             (isPopular || isNew || buildState.isFeaturedBuild) && 'mb-10 pb-6',
           )}
         >
@@ -379,7 +382,7 @@ export function Builder({
                 id="build-name"
                 type="text"
                 onChange={(e) => handleChangeBuildName(e.target.value)}
-                className="block w-full rounded-md border-2 border-secondary-500 bg-white/5 py-2 text-center text-2xl text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-secondary-500"
+                className="block w-full rounded-md border-2 border-secondary bg-on-background-variant/5 py-2 text-center text-2xl text-on-background shadow-sm ring-1 ring-inset ring-on-background/10 focus:ring-2 focus:ring-inset focus:ring-secondary"
                 placeholder="My Build"
                 value={buildState.name}
               />
@@ -389,7 +392,7 @@ export function Builder({
                 <h2
                   aria-hidden="true"
                   className={cn(
-                    'whitespace-normal text-center text-2xl font-bold text-white sm:text-4xl',
+                    'whitespace-normal text-center text-2xl font-bold text-on-background sm:text-4xl',
                     isScreenshotMode && 'text-4xl',
                   )}
                 >
@@ -399,21 +402,21 @@ export function Builder({
             )}
           </div>
           {showCreatedBy && (
-            <div className="mb-2 flex items-center justify-center text-sm text-gray-400">
+            <div className="mb-2 flex items-center justify-center text-sm text-on-background-variant">
               <span>
                 {`${getArchetypeComboName({
                   archetype1:
-                    (buildState.items.archetype[0]?.name.toLowerCase() as Archetype) ||
+                    (buildState.items.archetype[0]?.name.toLowerCase() as ArchetypeName) ||
                     null,
                   archetype2:
-                    (buildState.items.archetype[1]?.name.toLowerCase() as Archetype) ||
+                    (buildState.items.archetype[1]?.name.toLowerCase() as ArchetypeName) ||
                     null,
                 })}`}{' '}
                 Build by{' '}
               </span>
               <Link
                 href={`/profile/${buildState.createdById}/created-builds`}
-                className="ml-1 text-primary-500 underline"
+                className="ml-1 text-primary underline"
               >
                 {buildState.createdByDisplayName}
               </Link>
@@ -426,7 +429,7 @@ export function Builder({
                 />
                 <span
                   className={cn(
-                    'text-white',
+                    'text-on-background',
                     isScreenshotMode ? 'mb-[2px]' : 'mb-0.5',
                   )}
                 >
@@ -436,24 +439,24 @@ export function Builder({
             </div>
           )}
           {buildState.buildLink && (
-            <div className="mb-2 flex w-full items-center justify-center text-sm text-gray-300">
+            <div className="mb-2 flex w-full items-center justify-center text-sm text-on-background-variant">
               <span className="overflow-y-auto whitespace-pre-wrap text-center">
                 {buildState.buildLink}
               </span>
             </div>
           )}
           {buildState.updatedAt && (
-            <div className="mb-2 flex items-center justify-center text-sm text-gray-400">
-              <p className="text-left text-xs text-gray-400">
+            <div className="mb-2 flex items-center justify-center text-sm text-on-background-variant">
+              <p className="text-left text-xs text-on-background-variant">
                 Last Updated:{' '}
-                <span className="text-gray-300">
+                <span className="text-on-background-variant">
                   {formatUpdatedAt(buildState.updatedAt)}
                 </span>
               </p>
             </div>
           )}
           {buildState.isPatchAffected && (
-            <div className="mb-2 flex items-center justify-center text-sm text-gray-400">
+            <div className="mb-2 flex items-center justify-center text-sm text-on-background-variant">
               <p className="border border-red-500 p-2 text-left text-xs font-bold text-red-500">
                 This build might have been affected by a past update. If you
                 created this build, please update it and untoggle the

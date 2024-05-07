@@ -9,6 +9,7 @@ import {
 } from '@/app/(components)/_base/dialog'
 import { ItemInfoDialog } from '@/app/(components)/dialogs/item-info-dialog'
 import { WeightClassSelect } from '@/app/(components)/form-fields/selects/weight-class-select'
+import { Item } from '@/app/(data)/items/types'
 import { ArmorSuggestionCard } from '@/features/armor-calculator/components/ArmorSuggestionCard'
 import { getArmorSuggestions } from '@/features/armor-calculator/lib/getArmorSuggestions'
 import {
@@ -16,7 +17,6 @@ import {
   WeightClassKeysWithDefault,
 } from '@/features/armor-calculator/types'
 import { BuildState } from '@/features/build/types'
-import { Item } from '@/features/items/types'
 import { Pagination } from '@/features/pagination/Pagination'
 import { usePagination } from '@/features/pagination/usePagination'
 
@@ -50,7 +50,7 @@ function ArmorInfoContainer({
       </BaseDialogDescription>
       <BaseDialogBody>
         <div className="flex flex-col items-center justify-start sm:pr-4">
-          <h2 className="mb-4 text-2xl font-semibold text-secondary-500">
+          <h2 className="mb-4 text-2xl font-semibold text-secondary">
             Armor Suggestions
           </h2>
           {children}
@@ -229,7 +229,7 @@ export function ArmorSuggestionDialog({
                 .map((suggestion, index) => (
                   <div
                     key={index}
-                    className="flex w-full flex-col items-center justify-center rounded-md border-2 border-primary-700 bg-gray-900 p-4"
+                    className="flex w-full flex-col items-center justify-center rounded-md border-2 border-primary bg-gray-900 p-4"
                   >
                     <ArmorSuggestionCard
                       suggestion={suggestion}

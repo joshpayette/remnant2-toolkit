@@ -9,7 +9,7 @@ export const amuletItems: AmuletItem[] = [
     dlc: 'base',
     tags: ['Critical Chance'],
     description:
-      'When attacking a BLEEDING enemy, Crit Chance is increased by 15% and Crit Damage is increased by 15%.',
+      'When attacking a BLEEDING enemy, Critical Chance is increased by 15% and Critical Damage is increased by 15%.',
     wikiLinks: ['https://remnant.wiki/Abrasive_Whetstone'],
   },
   {
@@ -39,9 +39,10 @@ export const amuletItems: AmuletItem[] = [
     id: '41ookr',
     dlc: 'base',
     tags: ['Perfect Dodge'],
-    description: `Increases All Damage by 10%. On perfect dodge, apply EXPOSED on the attacker for 15s.
-
-    EXPOSED: Target receives up to 15% additional damage from all sources.`,
+    description:
+      'Increases All Damage by 10%. On Perfect Dodge, apply EXPOSED on the attacker for 15s.\n' +
+      '\n' +
+      'EXPOSED: Target receives 15% additional damage from all sources.',
     wikiLinks: [`https://remnant.wiki/Birthright_of_the_Lost`],
   },
   {
@@ -51,8 +52,9 @@ export const amuletItems: AmuletItem[] = [
     id: '6il3tm',
     dlc: 'base',
     tags: ['Damage Reduction'],
-    description: `Increases active Concoction limit by 2 and reduces all incoming damage by 2% for each active Concoction`,
-    wikiLinks: [`https://remnant.wiki/Brewmaster%27s_Cork`],
+    description:
+      'Increases active Concoction limit by 2 and reduces all incoming damage by 2% for each active Concoction.',
+    wikiLinks: [`https://remnant.wiki/Brewmaster's_Cork`],
   },
   {
     category: 'amulet',
@@ -61,7 +63,8 @@ export const amuletItems: AmuletItem[] = [
     id: 'sap1xm',
     dlc: 'base',
     tags: ['Stamina'],
-    description: `Increases Stamina Regeneration by 25 and reduces Stamina cost by 50%.`,
+    description:
+      'Increases Stamina Regeneration by 25 and reduces Stamina Cost by 50%.',
     wikiLinks: [`https://remnant.wiki/Broken_Pocket_Watch`],
   },
   {
@@ -71,8 +74,9 @@ export const amuletItems: AmuletItem[] = [
     id: '67s1pu',
     dlc: 'base',
     tags: ['Critical Chance', 'Charged Melee'],
-    description: `Increases Critical Chance by 15% and Critical Damage by 25% for 5s after striking enemy with a Charged Melee Attack.`,
-    wikiLinks: [`https://remnant.wiki/Butcher%27s_Fetish`],
+    description:
+      'Increases Critical Chance by 15% and Critical Damage by 25% for 5s after striking an enemy with a Charged Melee Attack.',
+    wikiLinks: [`https://remnant.wiki/Butcher's_Fetish`],
   },
   {
     category: 'amulet',
@@ -81,9 +85,10 @@ export const amuletItems: AmuletItem[] = [
     id: '5sfzsd',
     dlc: 'dlc2',
     tags: ['Movement Speed'],
-    description: `On Relic Use, gain a stack of CALL OF THE DOE for 30s. Max 5 stacks.
-
-    CALL OF THE DOE: Increases Movement Speed by 4% per stack. When CALL OF THE DOE expires, regain 1 Relic Charge per stack.`,
+    description:
+      'On Relic Use, gain a stack of CALL OF THE DOE for 30s. Max 5 stacks.\n' +
+      '\n' +
+      'CALL OF THE DOE: Increases Movement Speed by 4% per stack. When CALL OF THE DOE expires, regain 1 Relic Charge per stack.',
     wikiLinks: [`https://remnant.wiki/Cervine_Keepsake`],
   },
   {
@@ -94,7 +99,7 @@ export const amuletItems: AmuletItem[] = [
     dlc: 'base',
     tags: ['Status Effect', 'All Damage'],
     description: `Increases all damage dealt to targets suffering from a Status Effect by 20%.`,
-    wikiLinks: [`https://remnant.wiki/Chains_Of_Amplification`],
+    wikiLinks: [`https://remnant.wiki/Chains_of_Amplification`],
   },
   {
     category: 'amulet',
@@ -103,7 +108,9 @@ export const amuletItems: AmuletItem[] = [
     id: 'nm7b6f',
     dlc: 'base',
     tags: ['Status Effect'],
-    description: `Reduces Duration of Elemental Status Effects against wearer by 50%. Relic use cleanses Elemental Status Effects and grants 25% of wearers Max Health to all allies within 20m [A] when cleansed.`,
+    description:
+      'Reduces Duration of Elemental Status Effects against wearer by 50%. Relic use cleanses Elemental Status effects and grants 25% of wearers Max Health to all allies within 20m when cleansed.',
+    externalTokens: [`Amplitude`],
     wikiLinks: [`https://remnant.wiki/Cleansing_Stone`],
   },
   {
@@ -113,7 +120,8 @@ export const amuletItems: AmuletItem[] = [
     id: 'wb4ixr',
     dlc: 'base',
     tags: ['Weakspot Damage'],
-    description: `Increases Weakspot Damage by 50% for 10s after killing an enemy.`,
+    description:
+      'Increases Weakspot damage by 50% for 10s after killing an enemy.',
     wikiLinks: [`https://remnant.wiki/Core_Booster`],
   },
   {
@@ -123,7 +131,8 @@ export const amuletItems: AmuletItem[] = [
     dlc: 'dlc1',
     id: 'hug5mz',
     tags: ['All Damage', 'Damage Reduction'],
-    description: `Reduces Max Relic Charges to 1. Increases All Damage by 25% when wearer has 1 Relic Charge. Increases incoming damage by 25% when wearer has no Relic Charges and after 15s, regain 1 Relic Charge.`,
+    description:
+      'Reduces Relic Charges to 1. Increases All Damage by 25% when wearer has 1 Relic Charge. Increases incoming damage by 25% when wearer has no Relic Charge. After 15s of having no Relic Charges, regain 1 Relic Charge.',
     wikiLinks: [`https://remnant.wiki/Cost_of_Betrayal`],
   },
   {
@@ -133,7 +142,8 @@ export const amuletItems: AmuletItem[] = [
     id: 'ik580i',
     dlc: 'base',
     tags: ['All Damage', 'Movement Speed', 'Hardcore Reward', 'Encumbrance'],
-    description: `Gain 7.5% to all damage dealt, 3% Movement Speed, and 5% all damage taken for each piece of unequipped armor.`,
+    description:
+      'Gain 7.5% to all damage dealt and 3.75% Movement Speed for each empty Armor slot.',
     wikiLinks: [`https://remnant.wiki/Daredevil's_Charm`],
   },
   {
@@ -144,7 +154,7 @@ export const amuletItems: AmuletItem[] = [
     id: 'ui1miz',
     tags: ['All Damage', 'Status Effect'],
     description: `Increases All Damage by 6% for each entity within 20m suffering from a unique Negative Status Effect. Max 5 stacks.`,
-    wikiLinks: [`https://remnant.wiki/Death_Soaked_Idol`],
+    wikiLinks: [`https://remnant.wiki/Death-Soaked_Idol`],
   },
   {
     category: 'amulet',
@@ -153,7 +163,8 @@ export const amuletItems: AmuletItem[] = [
     id: 'i13ipm',
     dlc: 'base',
     tags: ['All Damage'],
-    description: `Gain 15% to all damage when Health is below 100%. Gain 10% to all damage and HASTE when below 50% Health.`,
+    description:
+      'Gain 15% to All Damage when Health is not completely full. When below 50% Health, gain an additional 10% bonus to All Damage and HASTE.',
     wikiLinks: [`https://remnant.wiki/Death's_Embrace`],
   },
   {
@@ -163,7 +174,8 @@ export const amuletItems: AmuletItem[] = [
     id: 'dipf2o',
     dlc: 'base',
     tags: ['Lifesteal', 'Melee Damage'],
-    description: `Melee hits gain 3% base damage dealt as Lifesteal. For each 25% missing Health, gain 1.5% additional Melee Lifesteal. When Health is full, gain 35% Melee Damage.`,
+    description:
+      'Melee hits gain 3% base damage dealt as Lifesteal. For each 25% missing Health, gain 3% additional Melee Lifesteal. When Health is full, gain 35% Melee Damage.',
     wikiLinks: [`https://remnant.wiki/Decayed_Margin`],
   },
   {
@@ -172,7 +184,8 @@ export const amuletItems: AmuletItem[] = [
     imagePath: '/amulet/detonation_trigger.png',
     id: '3zi80a',
     dlc: 'base',
-    description: `Increases Explosion damage by 25%. Explosions apply 210 BURNING damage over 5s.`,
+    description:
+      'Increases Explosion damage by 25%. Explosions apply 165-465 BURNING damage over 5s.',
     wikiLinks: [`https://remnant.wiki/Detonation_Trigger`],
   },
   {
@@ -182,7 +195,8 @@ export const amuletItems: AmuletItem[] = [
     id: '2zr6vu',
     dlc: 'base',
     tags: ['All Damage', 'Lifesteal'],
-    description: `While a SHIELD is active, gain 20% damage and 3% of base dealt as Lifesteal.`,
+    description:
+      'While a SHIELD is active, All Damage is increased by 20%, and 4.5% of Base Damage dealt is returned as Lifesteal.',
     wikiLinks: [`https://remnant.wiki/Difference_Engine`],
   },
   {
@@ -230,7 +244,8 @@ export const amuletItems: AmuletItem[] = [
     imagePath: '/amulet/emergency_switch.png',
     id: '8dcefr',
     dlc: 'base',
-    description: `When below 50% health, chance to consume Relic on use is reduced by 50%. Final Relic Charge is not consumed on use, but effect cannot be triggered again for 30s.`,
+    description:
+      'When below 50% Health, chance to consume Relic on use is reduced by 50%. Final Relic Charge is not consumed on use, but effect cannot be triggered again for 30s.',
     wikiLinks: [`https://remnant.wiki/Emergency_Switch`],
   },
   {
@@ -240,7 +255,11 @@ export const amuletItems: AmuletItem[] = [
     id: 'c52jp0',
     dlc: 'base',
     tags: ['Status Effect'],
-    description: `Increases Status Effect damage by 20%. Applying a damaging Status Effect creates a 5m [A] Explosion [E] for 20% of the Status Effect's full damage. Each target can be affected once every 5s.`,
+    description:
+      'Increases Status Effect damage by 20%. Directly applying a damaging Status Effect creates a 2m Explosion for 20% of its full damage.\n' +
+      '\n' +
+      'Each target can be affected once every 5s.',
+    externalTokens: [`Amplitude`, `Explosive Damage`],
     wikiLinks: [`https://remnant.wiki/Energized_Neck_Coil`],
   },
   {
@@ -250,7 +269,8 @@ export const amuletItems: AmuletItem[] = [
     id: 'evwgwk',
     dlc: 'base',
     tags: ['Critical Chance', 'All Damage'],
-    description: `While a SHIELD is active, gain 10% Critical Chance and 15% to all damage dealt.`,
+    description:
+      'While a SHIELD is active, gain 10% Critical Chance and 15% to All Damage dealt.',
     wikiLinks: [`https://remnant.wiki/Energy_Diverter`],
   },
   {
@@ -270,9 +290,10 @@ export const amuletItems: AmuletItem[] = [
     id: 'Hx5iNF',
     dlc: 'dlc2',
     tags: ['Status Effect', 'All Damage'],
-    description: `Increases Status Effect Damage by 20%. Inflicting 4 or more unique Negative Status Effects on a target applies EXPOSED for 15s.
-
-    EXPOSED: Target receives 15% additional damage from all sources.`,
+    description:
+      'Increases Status Effect Damage by 20%. Inflicting 4 or more unique Negative Status Effects on a target applies EXPOSED for 15s.\n' +
+      '\n' +
+      'EXPOSED: Target receives 15% additional damage from all sources.',
     wikiLinks: ['https://remnant.wiki/Fragrant_Thorn'],
   },
   {
@@ -282,7 +303,8 @@ export const amuletItems: AmuletItem[] = [
     id: '8xn7hh',
     dlc: 'base',
     tags: ['Lifesteal'],
-    description: `Ranged damage Lifesteals 3% of base damage dealt. At full health, Ranged damage is increased by 25%.`,
+    description:
+      'Ranged damage Lifesteals 3% Base Damage dealt. At full health, Ranged damage is increased by 25%.',
     wikiLinks: [`https://remnant.wiki/Full_Moon_Circlet`],
   },
   {
@@ -293,7 +315,7 @@ export const amuletItems: AmuletItem[] = [
     id: '70ryol',
     tags: ['Stamina', 'Critical Chance'],
     description: `Spending 20 Stamina grants 5% Critical Chance for 5s. Max 5 stacks.`,
-    wikiLinks: [`https://remnant.wiki/Gift_Of_Euphoria`],
+    wikiLinks: [`https://remnant.wiki/Gift_of_Euphoria`],
   },
   {
     category: 'amulet',
@@ -312,8 +334,8 @@ export const amuletItems: AmuletItem[] = [
     dlc: 'dlc1',
     id: 'u7am0w',
     tags: ['Movement Speed'],
-    description: `Disables negative effects of Burden Rings. Increases Movement Speed by 5% per Burden Lifted (Max 20%).`,
-    wikiLinks: [`https://remnant.wiki/Gift_Of_The_Unbound`],
+    description: `Disables negative effects of Burden Rings and increases Movement Speed by 5% for each Burden lifted. (Max 20%).`,
+    wikiLinks: [`https://remnant.wiki/Gift_of_the_Unbound`],
   },
   {
     category: 'amulet',
@@ -322,7 +344,8 @@ export const amuletItems: AmuletItem[] = [
     id: 'm0l0u5',
     dlc: 'base',
     tags: ['Mod Damage'],
-    description: `Increases Mod damage by 25%. Activating a MOD grants HASTE for 15s.`,
+    description:
+      'Increases Mod damage by 25%. Activating a Mod grants HASTE for 15s.',
     wikiLinks: [`https://remnant.wiki/Golden_Ribbon`],
   },
   {
@@ -352,7 +375,8 @@ export const amuletItems: AmuletItem[] = [
     id: 'pfew3v',
     dlc: 'base',
     tags: ['Melee Damage'],
-    description: `Spending at least 30% of Firearms magazine to deal damage increases Melee damage by 10% for 7s. Stacks 5x.`,
+    description:
+      "Spending at least 30% of a Firearm's magazine to deal damage increases Melee damage by 10% for 7s. Stacks 5x.",
     wikiLinks: [`https://remnant.wiki/Hallowed_Egg`],
   },
   {
@@ -362,7 +386,10 @@ export const amuletItems: AmuletItem[] = [
     id: 'c0z3fy',
     dlc: 'base',
     tags: ['Mod Power'],
-    description: `Gain double Skill Charges. Increases Skill Cooldowns by 25%. For Heavy Weapons, doubles Heavy Weapon Ammo instead.`,
+    description:
+      'Doubles Base Skill Charges but increases all Skill Cooldowns by 25%.\n' +
+      '\n' +
+      'For Heavy Weapons, doubles Heavy Weapon Base Ammo instead.',
     wikiLinks: [`https://remnant.wiki/Hyperconductor`],
   },
   {
@@ -382,7 +409,8 @@ export const amuletItems: AmuletItem[] = [
     id: 'dqhstq',
     dlc: 'base',
     tags: ['Damage Reduction', 'All Damage'],
-    description: `Taking damage increases all damage dealt by 20% and reduces all incoming damage by 10%. Lasts 15s.`,
+    description:
+      'Taking damage from any source increase All Damage dealt by 20% and reduces All Incoming Damage by 10%. Lasts 15s.',
     wikiLinks: [`https://remnant.wiki/Indignant_Fetish`],
   },
   {
@@ -392,7 +420,8 @@ export const amuletItems: AmuletItem[] = [
     id: 'k8d15f',
     dlc: 'base',
     tags: ['Fire Rate', 'Reload Speed', 'Recoil'],
-    description: `Standing still for 0.5s increases Fire Rate by 20%, Reload Speed by 15%, and reduces Recoil by 50%. Lasts 2s after moving.`,
+    description:
+      'Standing completely still for 0.5s increases Fire Rate by 20%, Reload Speed by 15%, and reduces Recoil by 50%. Lasts 2s after moving.',
     wikiLinks: [`https://remnant.wiki/Inert_Overcharger`],
   },
   {
@@ -442,7 +471,7 @@ export const amuletItems: AmuletItem[] = [
     id: 'hwpkls',
     dlc: 'base',
     tags: ['Mod Cost', 'Mod Duration'],
-    description: `Increases Mod Duration by 50%. Increases Mod Cost by 10%.`,
+    description: 'Increases Mod Duration by 50%. Increases Mod Cost by 10%',
     wikiLinks: [`https://remnant.wiki/Laemir_Censer`],
   },
   {
@@ -452,7 +481,8 @@ export const amuletItems: AmuletItem[] = [
     id: 'a7axvo',
     dlc: 'base',
     tags: ['Reduce Skill Cooldown', 'Skill Duration'],
-    description: `Reduces Skill Cooldowns by 20% and increases Skill Duration by 15%`,
+    description:
+      'Reduces Skill Cooldowns by 20% and increases Skill Duration by 15%.',
     wikiLinks: [`https://remnant.wiki/Legacy_Protocol`],
   },
   {
@@ -536,7 +566,8 @@ export const amuletItems: AmuletItem[] = [
     id: 'dm67y5',
     dlc: 'base',
     tags: ['All Damage'],
-    description: `After 5s of not being damaged, increases all damage dealt by 15%. Increases to 30% if Health is full.`,
+    description:
+      'After 5s of not being damaged, increases all damage dealt by 15%. If Health is full, damage bonus increases to 30%.',
     wikiLinks: [`https://remnant.wiki/Necklace_of_Supremacy`],
   },
   {
@@ -556,8 +587,9 @@ export const amuletItems: AmuletItem[] = [
     id: '0aaso1',
     dlc: 'base',
     tags: ['Critical Chance', 'Status Effect'],
-    description: `Gain 15% Critical Chance and HASTE when within 20m [A] of an entity suffering from a Status Effect.`,
-    wikiLinks: [`https://remnant.wiki/Nightweaver%27s_Grudge`],
+    description: `Gain 15% Critical Chance and HASTE when within 20m of an entity suffering from a Status Effect.`,
+    externalTokens: [`Amplitude`],
+    wikiLinks: [`https://remnant.wiki/Nightweaver's_Grudge`],
   },
   {
     category: 'amulet',
@@ -586,7 +618,8 @@ export const amuletItems: AmuletItem[] = [
     id: 'yl1ah9',
     dlc: 'base',
     tags: ['Neutral Backdash', 'Critical Chance'],
-    description: `Neutral Backdash creates a Magic Card lasting 1s. If Card absorbs enemy damage gain 25% Critical Chance for 5s. Neutral Backdash cost 15% additional Stamina.`,
+    description:
+      'Neutral Backdash creates a Magic Card lasting 1s. If Card absorbs enemy damage, gain 25% Critical Chance for 5s. Neutral Backdash costs 30% additional Stamina.',
     wikiLinks: [`https://remnant.wiki/One-Eyed_Joker_Idol`],
   },
   {
@@ -596,7 +629,9 @@ export const amuletItems: AmuletItem[] = [
     id: 'ps6umu',
     dlc: 'base',
     tags: ['Ranged Damage'],
-    description: `Firearm damage adds stacks which increase the damage of stowed firearm by 2% [M] for 15s. Stacks 10x.`, // 100 damage
+    description:
+      'Dealing 100 Base Firearm damage adds stacks which multiplies the damage of stowed firearm by 1.02x for 15s. Stacks 10x.',
+    externalTokens: [`Multiplicative`],
     wikiLinks: [`https://remnant.wiki/Onyx_Pendulum`],
   },
   {
@@ -606,7 +641,8 @@ export const amuletItems: AmuletItem[] = [
     id: '588hoi',
     dlc: 'base',
     tags: ['Health', 'Stamina', 'Movement Speed', 'Damage Reduction'],
-    description: `Increase Health by 10, Stamina by 10, Movement Speed by 10%, and Damage Reduction by 10%`,
+    description:
+      'Increase Health by 10, Stamina by 10, Movement Speed by 10%, and Damage Reduction by 10%.',
     wikiLinks: [`https://remnant.wiki/Participation_Medal`],
     health: 10,
     stamina: 10,
@@ -629,7 +665,8 @@ export const amuletItems: AmuletItem[] = [
     id: 't7x0op',
     dlc: 'base',
     tags: ['Ranged Damage', 'Weakspot Damage'],
-    description: `After killing an enemy, gain 10% Ranged damage and 2m Firearm Range. Stacks 3x Lasts 10s. ranged Weakspot Hits will refresh duration.`,
+    description:
+      'After killing an enemy, gain 10% Ranged damage and 2m Firearm Range. Stacks 3x Lasts 10s. Ranged Weakspot Hits will refresh duration.',
     wikiLinks: [`https://remnant.wiki/Range_Finder`],
   },
   {
@@ -640,7 +677,7 @@ export const amuletItems: AmuletItem[] = [
     dlc: 'base',
     tags: ['All Damage'],
     description: `Increases all damage dealt to BLEEDING targets by 20%. Bonus increases to 30% for targets with 50% or lower Health.`,
-    wikiLinks: [`https://remnant.wiki/Ravager%27s_Mark`],
+    wikiLinks: [`https://remnant.wiki/Ravager's_Mark`],
   },
   {
     category: 'amulet',
@@ -669,7 +706,7 @@ export const amuletItems: AmuletItem[] = [
     id: 'iq6zyc',
     dlc: 'base',
     tags: ['Health', 'Stamina', 'Encumbrance'],
-    description: `Grants 20 Health, 20 Stamina, and -15 Armor Encumbrance.`,
+    description: 'Grants 20 Health, 20 Stamina and -15 Armor Encumbrance',
     wikiLinks: [`https://remnant.wiki/Rusted_Navigator's_Pendant`],
     health: 20,
     stamina: 20,
@@ -682,7 +719,8 @@ export const amuletItems: AmuletItem[] = [
     id: 'z7ivk2',
     dlc: 'base',
     tags: ['Damage Reduction'],
-    description: `Direct damage taken from enemies, and any additional damage within 5s, is reduced by 60%. Once the defensive buff expires, all incoming damage to wearer is increased by 15% for 10s.`,
+    description:
+      'Direct damage taken from enemies, and any additional damage within 2s, is reduced by 60%. Once the defensive buff expires, all incoming damage to wearer is increased by 15% for 10s.',
     wikiLinks: [`https://remnant.wiki/Samoflange`],
   },
   {
@@ -691,7 +729,8 @@ export const amuletItems: AmuletItem[] = [
     imagePath: '/amulet/scavengers_bauble.png',
     id: 'j2jso0',
     dlc: 'base',
-    description: `Increases Scrap pickups by 50%, Automatically pick up any nearby crafting materials.`,
+    description:
+      'Increases Scrap pickups by 50%. Automatically pick up any nearby crafting materials.',
     wikiLinks: [`https://remnant.wiki/Scavenger's_Bauble`],
   },
   {
@@ -702,7 +741,8 @@ export const amuletItems: AmuletItem[] = [
     id: 'ib2as6',
     dlc: 'base',
     tags: ['All Damage', 'Elemental Damage'],
-    description: `Gain a 35% damage bonus. Every 5s, the bonus switches between Physical and Elemental Damage.`,
+    description:
+      'Gain a 35% damage bonus. Every 5s, the bonus switches between Physical and Elemental damage.',
     wikiLinks: [`https://remnant.wiki/Shaed_Bloom_Crystal`],
   },
   {
@@ -731,7 +771,8 @@ export const amuletItems: AmuletItem[] = [
     id: 'k8j2r3',
     dlc: 'base',
     tags: ['Skill Damage'],
-    description: `Increases Skill damage by 25%. Activating a SKILL grants HASTE for 15s.`,
+    description:
+      'Increases Skill damage by 25%. Activating a Skill grants HASTE for 15s.',
     wikiLinks: [`https://remnant.wiki/Silver_Ribbon`],
   },
   {
@@ -751,7 +792,8 @@ export const amuletItems: AmuletItem[] = [
     id: '6amich',
     dlc: 'base',
     tags: ['Summon', 'All Damage'],
-    description: `Increases All Damage by 20% while at least 1 Summon is active.`,
+    description:
+      'Increase All Damage by 20% while at least 1 Summon is active.',
     wikiLinks: [`https://remnant.wiki/Soul_Anchor`],
   },
   {
@@ -771,7 +813,8 @@ export const amuletItems: AmuletItem[] = [
     id: 'rcyafk',
     dlc: 'base',
     tags: ['Ranged Damage', 'Melee Damage'],
-    description: `Gain 12.5% Ranged and 15% Melee damage. Bonus double versus enemies not targeting wearer.`,
+    description:
+      'Gain 12.5% Ranged and 15% Melee damage. Bonus doubles versus enemies not targeting wearer.',
     wikiLinks: [`https://remnant.wiki/Stalker's_Brand`],
   },
   {
@@ -782,7 +825,7 @@ export const amuletItems: AmuletItem[] = [
     dlc: 'dlc2',
     tags: ['All Damage'],
     description: `After not using the primary fire of a weapon for 10s. All Damage is increased by 25%. Primary fire of a weapon instantly cancels the effect.`,
-    wikiLinks: [`https://remnant.wiki/Stoneshaper%27s_Chisel`],
+    wikiLinks: [`https://remnant.wiki/Stoneshaper's_Chisel`],
   },
   {
     category: 'amulet',
@@ -799,7 +842,11 @@ export const amuletItems: AmuletItem[] = [
     imagePath: '/amulet/toxic_release_valve.png',
     id: 'nevpy5',
     dlc: 'base',
-    description: `Swapping off a Firearm releases a Toxic Cloud, which deals 148.5 ACID damage to all enemies within 7m [A] and applies CORROSION. Can only happen once every 3s.`,
+    description:
+      'Swapping Firearms releases a Toxic Cloud, which deals 60.5-170.5 ACID Damage to all enemies within 7m and applies CORROSION dealing 280 ACID damage over 7s.\n' +
+      '\n' +
+      'Can only happen once every 3s.',
+    externalTokens: [`Amplitude`],
     wikiLinks: [`https://remnant.wiki/Toxic_Release_Valve`],
   },
   {
@@ -831,7 +878,8 @@ export const amuletItems: AmuletItem[] = [
     id: 'rctnex',
     dlc: 'base',
     tags: ['Reload Speed'],
-    description: `Increases Reload Speed by 20%. Reloads only require 50% of magazine from reserves to fully reload.`,
+    description:
+      'Increases Reload Speed by 30%. Reloads only require 50% of magazine from reserves to fully reload.',
     wikiLinks: [`https://remnant.wiki/Void_Idol`],
   },
   {
@@ -841,7 +889,8 @@ export const amuletItems: AmuletItem[] = [
     id: 'b9l389',
     dlc: 'base',
     tags: ['Movement Speed', 'Stamina', 'Encumbrance'],
-    description: `Increases Movement Speed by 0.75% and Reduces Stamina Costs of all actions by 0.75%  for every each 5 point of Armor Encumbrance.`,
+    description:
+      'Increases Movement Speed by 0.75% and reduces Stamina Cost of all actions by 0.75% for every 5 points of Armor Encumbrance.',
     wikiLinks: [`https://remnant.wiki/Weightless_Weight`],
   },
   {
@@ -851,7 +900,8 @@ export const amuletItems: AmuletItem[] = [
     id: '2e2hh5',
     dlc: 'base',
     tags: ['Damage Reduction', 'All Damage'],
-    description: `Gain 3 stacks of BULWARK. Increase damage by 2% per stack of BULWARK`,
+    description:
+      'Grants 3 stacks of BULWARK?. Increases All Damage by 2% per stack of BULWARK.',
     wikiLinks: [`https://remnant.wiki/Whispering_Marble`],
   },
   {

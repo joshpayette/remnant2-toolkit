@@ -10,14 +10,16 @@ import {
 
 import { BaseButton } from '@/app/(components)/_base/button'
 import { Link } from '@/app/(components)/_base/link'
+import { DescriptionWithTokens } from '@/app/(components)/description-with-tokens'
 import { dbBuildToBuildState } from '@/features/build/lib/dbBuildToBuildState'
 import { formatUpdatedAt } from '@/features/build/lib/formatUpdatedAt'
-import { getArchetypeComboName } from '@/features/build/lib/getArchetypeComboName'
+import {
+  ArchetypeName,
+  getArchetypeComboName,
+} from '@/features/build/lib/getArchetypeComboName'
 import { isBuildNew } from '@/features/build/lib/isBuildNew'
 import { isBuildPopular } from '@/features/build/lib/isBuildPopular'
 import { DBBuild } from '@/features/build/types'
-import { Archetype } from '@/features/items/types'
-import { DescriptionWithTags } from '@/features/ui/DescriptionWithTags'
 import { Skeleton } from '@/features/ui/Skeleton'
 import { Tooltip } from '@/features/ui/Tooltip'
 import { cn } from '@/lib/classnames'
@@ -58,10 +60,10 @@ export function BuildCard({
       ) : (
         <div
           className={cn(
-            'relative col-span-1 flex h-full flex-col rounded-lg border border-secondary-500 bg-black shadow',
+            'relative col-span-1 flex h-full flex-col rounded-lg border border-secondary bg-background shadow',
             buildState.isMember &&
               memberFrameEnabled &&
-              'border-2 border-accent1-300 shadow-lg shadow-accent1-600',
+              'border-2 border-secondary shadow-lg shadow-secondary-container',
           )}
         >
           {(isPopular || build.isFeaturedBuild || isNew) && (
@@ -77,7 +79,7 @@ export function BuildCard({
             <div className="flex w-full flex-col items-start justify-start">
               <Link
                 href={`/builder/${build.id}`}
-                className="w-full text-white hover:text-gray-200 hover:underline"
+                className="w-full text-on-background hover:text-on-background-variant hover:underline"
               >
                 <h3
                   className={cn(
@@ -90,11 +92,11 @@ export function BuildCard({
                 </h3>
               </Link>
               <div className="mb-1 grid w-full grid-cols-3 truncate text-sm">
-                <div className="col-span-2 truncate text-left text-gray-300">
+                <div className="col-span-2 truncate text-left text-on-background-variant">
                   by{' '}
                   <Link
                     href={`/profile/${build.createdById}/created-builds`}
-                    className="text-primary-500 underline hover:text-primary-300"
+                    className="text-primary underline hover:text-primary-inverse"
                   >
                     {build.createdByDisplayName ?? build.createdByName}
                   </Link>
@@ -103,7 +105,7 @@ export function BuildCard({
                   <Tooltip content="Total Favorites">
                     {/** Not changing this to the new button */}
                     <button
-                      className="flex items-center justify-end text-right text-yellow-500"
+                      className="flex items-center justify-end text-right text-highlight"
                       aria-label="Total build favorites"
                     >
                       <StarIcon className="mr-1 h-4 w-4" /> {build.totalUpvotes}
@@ -113,22 +115,22 @@ export function BuildCard({
               </div>
               <div className="mb-1 flex flex-row items-center justify-start gap-x-2">
                 {build.updatedAt && (
-                  <p className="text-left text-xs text-gray-400">
+                  <p className="text-left text-xs text-on-background-variant">
                     Last Updated:{' '}
-                    <span className="text-gray-400">
+                    <span className="text-on-background-variant">
                       {formatUpdatedAt(build.updatedAt)}
                     </span>
                   </p>
                 )}
               </div>
               <div className="mb-2 flex flex-row items-center justify-start gap-x-2">
-                <p className="text-left text-xs text-gray-300">
+                <p className="text-left text-xs text-on-background-variant">
                   {`${getArchetypeComboName({
                     archetype1:
-                      (buildState.items.archetype[0]?.name.toLowerCase() as Archetype) ||
+                      (buildState.items.archetype[0]?.name.toLowerCase() as ArchetypeName) ||
                       null,
                     archetype2:
-                      (buildState.items.archetype[1]?.name.toLowerCase() as Archetype) ||
+                      (buildState.items.archetype[1]?.name.toLowerCase() as ArchetypeName) ||
                       null,
                   })}`}{' '}
                   Build
@@ -150,8 +152,8 @@ export function BuildCard({
                 )}
               </div>
               {buildState.description && (
-                <div className="mt-2 h-auto max-h-[140px] w-full flex-row items-start justify-start gap-x-2 overflow-x-auto overflow-y-auto whitespace-pre-wrap text-xs text-gray-300">
-                  <DescriptionWithTags
+                <div className="mt-2 h-auto max-h-[140px] w-full flex-row items-start justify-start gap-x-2 overflow-x-auto overflow-y-auto whitespace-pre-wrap text-xs text-on-background-variant">
+                  <DescriptionWithTokens
                     description={buildState.description}
                     highlightItems={true}
                     highlightBuildTags={true}

@@ -168,9 +168,9 @@ export function WorldSaveFilters({}: Props) {
           </div>
           <Disclosure.Panel
             className={cn(
-              'mt-2 w-full border border-primary bg-surface-container p-4',
+              'mt-2 w-full border border-primary bg-background-container p-4',
               areAnyFiltersActive &&
-                'border-secondary shadow-xl shadow-secondary-container',
+                'border-highlight shadow-xl shadow-highlight-container',
             )}
           >
             <BaseFieldset>
@@ -212,6 +212,12 @@ export function WorldSaveFilters({}: Props) {
                         applyUrlFilters(newFilters)
                       }}
                     />
+                    <BaseText className="mt-2">
+                      <span className="text-sm italic text-gray-400">
+                        Releases refer to the game version the world save was
+                        created in. It is not related to the bosses or affixes.
+                      </span>
+                    </BaseText>
                   </div>
                 </div>
                 <div className="flex w-full items-center justify-end gap-x-4">

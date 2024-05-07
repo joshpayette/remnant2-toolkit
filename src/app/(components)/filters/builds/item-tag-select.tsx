@@ -3,12 +3,12 @@ import {
   BaseListboxLabel,
   BaseListboxOption,
 } from '@/app/(components)/_base/listbox'
-import { ItemTagWithDefault } from '@/app/(components)/dialogs/item-tag-suggestion-dialog'
+import { ItemTokenWithDefault } from '@/app/(components)/dialogs/item-tag-suggestion-dialog'
 
 interface Props {
-  value: ItemTagWithDefault
-  options: Array<{ label: string; value: ItemTagWithDefault }>
-  onChange: (value: ItemTagWithDefault) => void
+  value: ItemTokenWithDefault
+  options: Array<{ label: string; value: ItemTokenWithDefault }>
+  onChange: (value: ItemTokenWithDefault) => void
 }
 
 export function ItemTagSelect({ value, options, onChange }: Props) {
@@ -17,7 +17,7 @@ export function ItemTagSelect({ value, options, onChange }: Props) {
       key={value as string}
       name="tags"
       value={value}
-      onChange={(e) => onChange(e as ItemTagWithDefault)}
+      onChange={(e) => onChange(e as ItemTokenWithDefault)}
     >
       {options.map(({ label, value }) => (
         <BaseListboxOption key={value} value={value}>

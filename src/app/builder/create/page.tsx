@@ -13,9 +13,9 @@ import { ArmorSuggestionDialog } from '@/app/(components)/dialogs/armor-suggesti
 import { DetailedBuildDialog } from '@/app/(components)/dialogs/detailed-build-dialog'
 import { ImageDownloadInfoDialog } from '@/app/(components)/dialogs/image-download-info-dialog'
 import { ItemTagSuggestionDialog } from '@/app/(components)/dialogs/item-tag-suggestion-dialog'
+import { INITIAL_BUILD_STATE } from '@/app/(data)/builds/constants'
 import { useBuildActions } from '@/app/(hooks)/use-build-actions'
 import { BuilderContainer } from '@/features/build/components/builder/BuilderContainer'
-import { INITIAL_BUILD_STATE } from '@/features/build/constants'
 import { useDBBuildState } from '@/features/build/hooks/useDBBuildState'
 import { BuildState } from '@/features/build/types'
 import { PageHeader } from '@/features/ui/PageHeader'
@@ -24,7 +24,7 @@ export default function Page() {
   const [detailedBuildDialogOpen, setDetailedBuildDialogOpen] = useState(false)
 
   const { dbBuildState, setNewBuildState, updateDBBuildState } =
-    useDBBuildState(INITIAL_BUILD_STATE, 'create')
+    useDBBuildState(INITIAL_BUILD_STATE)
 
   const {
     isScreenshotMode,

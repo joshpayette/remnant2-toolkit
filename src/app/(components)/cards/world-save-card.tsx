@@ -22,9 +22,9 @@ export function WorldSaveCard({ saveItem }: Props) {
         width={200}
         height={200}
       />
-      <div className="flex h-full w-full flex-col items-center justify-between gap-y-2 bg-surface-container py-2">
+      <div className="flex h-full w-full flex-col items-center justify-between gap-y-2 bg-on-primary/50 py-2">
         <div className="px-2">
-          <h3 className="mb-2 text-center text-lg font-bold text-on-surface">
+          <h3 className="mb-2 text-center text-lg font-bold text-on-background">
             {saveItem.bossName}
           </h3>
           <div className="mb-2 flex items-center justify-center gap-x-2">
@@ -56,7 +56,7 @@ export function WorldSaveCard({ saveItem }: Props) {
             RELEASE_TO_NAME[saveItem.release]
           } DLC.`}
         >
-          <button className="rounded-sm px-1 py-0.5 text-xs text-on-surface-variant">
+          <button className="rounded-sm px-1 py-0.5 text-xs text-on-background-variant">
             Requires {RELEASE_TO_NAME[saveItem.release]}
           </button>
         </Tooltip>

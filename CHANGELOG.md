@@ -4,6 +4,81 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-05-06
+
+### Added
+
+- Item Tracker categories now display the # of items you're missing, along with the percentage. (Synder)
+
+### Fixed
+
+- Hunter Skill descriptions now include the MARK text.
+- Fixed issue where if you started creating a build, navigated to a different page, then navigated back, some traits were not resetting.
+- Fixed an issue where incomplete Trait descriptions were being pulled in from the Wiki.
+
+## 2024-05-05
+
+### Changed
+
+- Perks now display their type on the item cards and item info dialogs.
+- Add to Loadout button on the Builder will now show what Loadout slot the build is equipped to if it is already equipped.
+
+### Fixed
+
+- Fixed all discrepancies with Mutator item descriptions and stats from the wiki.
+- Fixed all discrepancies with Perk item descriptions and stats from the wiki.
+- Fixed all discrepancies with the Relic Fragment item descriptions and stats from the wiki.
+- Fixed all discrepancies with the Relic item descriptions and stats from the wiki.
+- Fixed all discrepancies with the Skill item descriptions and stats from the wiki.
+- Fixed all discrepancies with the Trait item descriptions and stats from the wiki.
+- Fixed all discrepancies with the Ring item descriptions and stats from the wiki.
+- Fixed incorrect description and wiki link for Crimson Dreamstone ring.
+- Removed "heck" from the bad word list. Can't believe that was on there.
+
+## 2024-05-04
+
+### Added
+
+- Added `Heal` and `Lifesteal` tokens to Way of Meidra skill.
+- Added `Critical Chance` and `Critical Damage` tokens to Way of Lydusa skill.
+- Added web scraper to pull item stats and descriptions from the wiki. This will allow for more accurate and up-to-date item information.
+  - Still incomplete, but got a few item categories done. Will continue to work on this in the coming days.
+
+### Changed
+
+- Adjusted the colors and text of many tokens used in the item descriptions.
+- Adjusted the placeholder text for build descriptions to inform the user about using tokens.
+
+### Fixed
+
+- Fixed issue where True Crimson Crown was not detected by the Item Tracker.
+- Fixed bug where items with build tags were not saving.
+- Fixed Sandstorm mod description.
+- Fixed Way of Kaeula skill description.
+- Fixed Way of Meidra skill description.
+- Fixed Dervish mutator description.
+- Fixed Disengage mutator description.
+- Fixed Executor mutator description.
+- Fixed Extender mutator description.
+- Fixed all broken wiki links
+- Fixed all discrepancies in weapon item descriptions and stats from the wiki.
+- Fixed all discrepancies in amulet item descriptions and stats from the wiki.
+- Fixed all discrepancies in armor item descriptions and stats from the wiki.
+- Fixed all discrepancies in concoction item descriptions and stats from the wiki.
+- Fixed all discrepancies in consumable item descriptions and stats from the wiki.
+- Fixed all discrepancies in mod item descriptions and stats from the wiki.
+
+## 2024-05-03
+
+### Added
+
+- Added about 20 new saves to the World Save Archive.
+
+### Changed
+
+- Converted some internal description tags to external tags that will be displayed below the description. This was necessary as a first step to automating item stats and information from the wiki.
+- Started referring to `tags` as `tokens` since that seems to be more commonly understood.
+
 ## 2024-05-02
 
 ### Added

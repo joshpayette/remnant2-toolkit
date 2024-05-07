@@ -77,7 +77,7 @@ export function BuilderContainer({
         <div
           ref={buildContainerRef}
           className={cn(
-            'w-full grow bg-black',
+            'w-full grow bg-background-container',
             isScreenshotMode && 'min-h-[731px] min-w-[994px]',
           )}
         >

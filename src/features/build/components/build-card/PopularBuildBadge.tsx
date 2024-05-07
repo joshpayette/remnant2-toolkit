@@ -4,7 +4,7 @@ import { BaseButton } from '@/app/(components)/_base/button'
 import {
   POPULAR_VOTE_THRESHOLD1,
   POPULAR_VOTE_THRESHOLD2,
-} from '@/features/build/constants'
+} from '@/app/(data)/builds/constants'
 import { Tooltip } from '@/features/ui/Tooltip'
 
 export function PopularBuildBadge({

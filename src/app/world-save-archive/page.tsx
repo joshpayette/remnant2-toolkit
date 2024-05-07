@@ -15,20 +15,20 @@ export default function Page() {
         subtitle={`A collection of ${worldSaves.length} curated world saves for apocalypse bosses with specific affixes.`}
       />
       <div className="flex max-w-xl flex-col items-start justify-center">
-        <p className="text-md mb-2 text-on-surface">
+        <p className="text-md mb-2 text-on-background">
           Before you start, it is important to understand how to back up your
           own world saves, and how to install the world saves provided by the
           Remnant 2 Toolkit.{' '}
         </p>
-        <p className="text-md mb-2 text-highlight">
+        <p className="text-md mb-2 text-red-500">
           It is possible to lose your Cass inventory and other progress. While
           restoring a backup save should fix this, at least one user stated it
           did not.
         </p>
-        <p className="text-md mb-4 font-bold text-on-surface">
+        <p className="text-md mb-4 font-bold text-on-background">
           <Link
             href="/world-save-archive/instructions"
-            className="text-primary underline hover:text-inverse-primary"
+            className="text-highlight-container underline hover:text-highlight"
           >
             Please click here for complete instructions.
           </Link>

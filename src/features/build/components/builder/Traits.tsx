@@ -2,13 +2,15 @@ import { XCircleIcon } from '@heroicons/react/24/solid'
 import Image from 'next/image'
 import { useState } from 'react'
 
+import {
+  DEFAULT_TRAIT_AMOUNT,
+  MAX_TRAIT_AMOUNT,
+} from '@/app/(data)/builds/constants'
+import { Item } from '@/app/(data)/items/types'
 import { TraitItem } from '@/app/(data)/items/types/TraitItem'
 import { BuildState } from '@/features/build/types'
-import { Item } from '@/features/items/types'
 import { Tooltip } from '@/features/ui/Tooltip'
 import { cn } from '@/lib/classnames'
-
-import { DEFAULT_TRAIT_AMOUNT, MAX_TRAIT_AMOUNT } from '../../constants'
 
 export function Traits({
   buildState,
@@ -143,7 +145,7 @@ export function Traits({
         )}
       >
         {!isScreenshotMode && (
-          <div className="col-span-full mx-auto mb-2 max-w-[300px] border border-secondary-800 p-2 text-center text-xs text-gray-300">
+          <div className="col-span-full mx-auto mb-2 max-w-[300px] border border-secondary p-2 text-center text-xs text-on-background-variant">
             <span
               className={cn(
                 'text-lg font-bold',
@@ -153,7 +155,7 @@ export function Traits({
               {totalTraitAmount}
             </span>
             /<span className="font-bold">{MAX_TRAIT_AMOUNT}</span> Trait Points
-            <p className="text-primary-500">
+            <p className="text-primary">
               5 Core + 20 Archetype + 85 Player Choice
             </p>
           </div>
@@ -163,12 +165,12 @@ export function Traits({
           <div
             key={traitItem.name}
             className={cn(
-              'flex items-center border border-transparent border-b-white text-sm',
-              isArchtypeTrait(traitItem) && 'border-b-yellow-500',
+              'flex items-center border border-transparent border-b-on-background text-sm',
+              isArchtypeTrait(traitItem) && 'border-b-highlight',
               isArchtypeTrait(traitItem) &&
                 !isArchtypeCoreTrait(traitItem) &&
                 isEditable &&
-                'border-b-purple-500',
+                'border-b-secondary',
             )}
           >
             <div className="mr-4 flex items-center text-lg font-bold ">
@@ -210,7 +212,7 @@ export function Traits({
                     setEditingTraitItem(null)
                   }}
                   autoFocus
-                  className="w-12 border border-primary-500 bg-transparent p-1 text-center"
+                  className="w-12 border border-primary bg-transparent p-1 text-center"
                 />
               ) : (
                 <button
@@ -220,7 +222,7 @@ export function Traits({
                     'min-w-[30px] text-left',
                     !isScreenshotMode &&
                       isEditable &&
-                      'border border-dashed border-gray-400 p-1',
+                      'border border-dashed border-on-background-variant p-1',
                   )}
                 >
                   {traitItem.amount ?? DEFAULT_TRAIT_AMOUNT}
@@ -266,7 +268,7 @@ export function Traits({
         <button
           onClick={onAddTrait}
           aria-label="Add Trait"
-          className="mx-auto mt-4 flex max-w-[250px] items-center justify-center rounded border border-secondary-700 px-4 py-2 text-xs font-bold text-white hover:border-secondary-400 hover:bg-secondary-500"
+          className="mx-auto mt-4 flex max-w-[250px] items-center justify-center rounded border border-secondary px-4 py-2 text-xs font-bold text-on-background hover:border-secondary-container hover:bg-secondary-container"
         >
           Add Trait
         </button>
