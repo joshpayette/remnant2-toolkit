@@ -73,7 +73,7 @@ export function NavBar() {
                           : '/builder'
                       }
                       className={cn(
-                        active ? 'bg-background-container' : 'bg-background',
+                        active ? 'bg-primary-container/20' : 'bg-background',
                         'flex w-full flex-row items-start justify-start p-2 text-sm font-semibold text-on-background',
                       )}
                     >
@@ -94,7 +94,7 @@ export function NavBar() {
                     <Link
                       href={NAV_ITEMS.featuredBuilds.href}
                       className={cn(
-                        active ? 'bg-background-container' : 'bg-background',
+                        active ? 'bg-primary-container/20' : 'bg-background',
                         'flex w-full flex-row items-start justify-start p-2 text-sm font-semibold text-on-background',
                       )}
                     >
@@ -115,7 +115,7 @@ export function NavBar() {
                     <Link
                       href={NAV_ITEMS.communityBuilds.href}
                       className={cn(
-                        active ? 'bg-background-container' : 'bg-background',
+                        active ? 'bg-primary-container/20' : 'bg-background',
                         'flex w-full flex-row items-start justify-start p-2 text-sm font-semibold text-on-background',
                       )}
                     >
