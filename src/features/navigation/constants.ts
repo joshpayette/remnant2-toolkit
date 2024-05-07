@@ -59,13 +59,6 @@ export const NAV_ITEMS = {
     href: '/builder/create',
     icon: PlusIcon,
   },
-  enemyResistances: {
-    label: 'Enemy Resistances',
-    description:
-      'The most comprehensive list of enemy resistances and weaknesses.',
-    href: 'https://docs.google.com/spreadsheets/d/1U2YVnjxdUOj3POG_OJrKHZL6lAE0JT78qTvWZq55z1k/edit?usp=drivesdk',
-    icon: TableCellsIcon,
-  },
   favoritedBuilds: {
     label: 'Favorited Builds',
     description: 'View and manage your favorited builds.',
