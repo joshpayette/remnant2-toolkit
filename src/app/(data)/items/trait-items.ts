@@ -11,7 +11,9 @@ export const traitItems: TraitItem[] = [
     dlc: 'base',
     tags: ['Status Effect', 'Status Duration'],
     description:
-      'Increases STATUS EFFECT duration against enemies by 10 - 100%.',
+      'Increases STATUS EFFECT duration against enemies by 10 - 100%.\n' +
+      '\n' +
+      'RITUALIST Archetype Trait',
     wikiLinks: [`https://remnant.wiki/Affliction`],
     linkedItems: {
       archetype: {
@@ -27,7 +29,8 @@ export const traitItems: TraitItem[] = [
     id: 'wu3w8t',
     dlc: 'base',
     tags: ['Ammo Reserves'],
-    description: 'Increases Ammo Reserves by 5% - 50%.',
+    description:
+      'Increases Ammo Reserves by 5% - 50%.\n\nGUNSLINGER Archetype Trait',
     wikiLinks: [`https://remnant.wiki/Ammo_Reserves`],
     linkedItems: {
       archetype: {
@@ -154,7 +157,10 @@ export const traitItems: TraitItem[] = [
     id: 'm6i4dl',
     dlc: 'base',
     tags: ['Mod Cast Speed', 'Skill Cast Speed'],
-    description: 'Increases Mod and Skill Casting Speed by 5 - 50%.',
+    description:
+      'Increases Mod and Skill Casting Speed by 5 - 50%.\n' +
+      '\n' +
+      'ARCHON Archetype Trait.',
     wikiLinks: [`https://remnant.wiki/Flash_Caster`],
     linkedItems: {
       archetype: {
@@ -181,7 +187,8 @@ export const traitItems: TraitItem[] = [
     id: 'osj7se',
     dlc: 'base',
     tags: ['Armor Increase', 'Damage Reduction'],
-    description: 'Increases Armor Effectiveness by 5% - 50%.',
+    description:
+      'Increases Armor Effectiveness by 5% - 50%.\n\nENGINEER Archetype Trait',
     wikiLinks: [`https://remnant.wiki/Fortify`],
     linkedItems: {
       archetype: {
@@ -198,7 +205,7 @@ export const traitItems: TraitItem[] = [
     id: 'c9af3B',
     dlc: 'dlc2',
     tags: ['Skill Duration'],
-    description: 'Increases Skill Duration by 30%.',
+    description: 'Increases Skill Duration by 30%.\n\nINVOKER Archetype Trait',
     wikiLinks: ['https://remnant.wiki/Gifted'],
     amount: DEFAULT_TRAIT_AMOUNT,
     linkedItems: {
@@ -237,7 +244,10 @@ export const traitItems: TraitItem[] = [
     id: 'vn3gsg',
     dlc: 'base',
     tags: ['Damage Reduction'],
-    description: 'Reduces Friendly Fire Damage Dealt and Received by 8% - 80%.',
+    description:
+      'Reduces Friendly Fire Damage Dealt and Received by 8% - 80%.\n' +
+      '\n' +
+      'HANDLER Archetype Trait.',
     wikiLinks: [`https://remnant.wiki/Kinship`],
     linkedItems: {
       archetype: {
@@ -264,7 +274,8 @@ export const traitItems: TraitItem[] = [
     id: '157qcj',
     dlc: 'base',
     tags: ['Range'],
-    description: 'Increases Weapon Ideal Range by 0.6m - 6m.',
+    description:
+      'Increases Weapon Ideal Range by 0.6m - 6m.\n\nHUNTER Archetype Trait',
     wikiLinks: [`https://remnant.wiki/Longshot`],
     linkedItems: {
       archetype: {
@@ -280,7 +291,8 @@ export const traitItems: TraitItem[] = [
     id: 'v1uiyd',
     dlc: 'base',
     tags: ['Concoction'],
-    description: 'Increases Consumable Duration by 10% - 100%.',
+    description:
+      'Increases Consumable Duration by 10% - 100%.\n\nALCHEMIST Archetype Trait.',
     wikiLinks: [`https://remnant.wiki/Potency`],
     linkedItems: {
       archetype: {
@@ -307,7 +319,10 @@ export const traitItems: TraitItem[] = [
     id: 'ysp1wu',
     dlc: 'base',
     tags: ['Health'],
-    description: 'Increases Health Regeneration by 0.15/s - 1.5/s.',
+    description:
+      'Increases Health Regeneration by 0.15/s - 1.5/s.\n' +
+      '\n' +
+      'SUMMONER Archetype Trait',
     wikiLinks: [`https://remnant.wiki/Regrowth`],
     linkedItems: {
       archetype: {
@@ -380,7 +395,7 @@ export const traitItems: TraitItem[] = [
     id: 'x9umnf',
     dlc: 'base',
     tags: ['Lifesteal'],
-    description: 'Grants 0.3 - 3.0% base damage as Lifesteal.',
+    description: 'Grants 0.3% - 3.0% base damage as Lifesteal.',
     wikiLinks: [`https://remnant.wiki/Siphoner`],
     amount: DEFAULT_TRAIT_AMOUNT,
   },
@@ -402,7 +417,10 @@ export const traitItems: TraitItem[] = [
     id: 'sd2hry',
     dlc: 'base',
     tags: ['Neutral Dodge', 'Perfect Dodge', 'Perfect Neutral Evade'],
-    description: 'Increases Dodge Weight Threshold by 1.5 - 15.',
+    description:
+      'Increases Dodge Weight Threshold by 1.5 - 15.\n' +
+      '\n' +
+      'CHALLENGER Archetype Trait',
     wikiLinks: [`https://remnant.wiki/Strong_Back`],
     linkedItems: {
       archetype: {
@@ -419,7 +437,14 @@ export const traitItems: TraitItem[] = [
     id: '3ochlm',
     dlc: 'base',
     tags: ['Movement Speed'],
-    description: 'Increases Movement Speed by 1 - 15%.',
+    description:
+      'Increases Movement Speed by 1% - 15%.\n' +
+      '\n' +
+      'Increases Environmental Movement Speed by 5% - 50%.\n' +
+      '\n' +
+      '(Vaulting, Ladders, Wading)\n' +
+      '\n' +
+      'EXPLORER Archetype Trait.',
     wikiLinks: [`https://remnant.wiki/Swiftness`],
     linkedItems: {
       archetype: {
@@ -435,7 +460,7 @@ export const traitItems: TraitItem[] = [
     id: 'pbak5a',
     dlc: 'base',
     tags: ['Heal', 'Healing Effectiveness'],
-    description: 'Increases Healing by 5% - 50%.',
+    description: 'Increases Healing by 5% - 50%.\n\nMEDIC Archetype Trait',
     wikiLinks: [`https://remnant.wiki/Triage`],
     linkedItems: {
       archetype: {
@@ -451,7 +476,8 @@ export const traitItems: TraitItem[] = [
     id: 'pkmmg6',
     dlc: 'base',
     tags: ['Neutral Dodge', 'Perfect Dodge', 'Perfect Neutral Evade'],
-    description: 'Increases Evade Window by 3% - 30%.',
+    description:
+      'Increases Evade Window by 3% - 30%.\n\nINVADER Archetype Trait',
     wikiLinks: [`https://remnant.wiki/Untouchable`],
     linkedItems: {
       archetype: {

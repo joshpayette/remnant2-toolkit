@@ -14,6 +14,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Hunter Skill descriptions now include the MARK text.
 - Fixed issue where if you started creating a build, navigated to a different page, then navigated back, some traits were not resetting.
+- Fixed an issue where incomplete Trait descriptions were being pulled in from the Wiki.
 
 ## 2024-05-05
 
