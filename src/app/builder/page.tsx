@@ -58,7 +58,7 @@ export default function Page() {
       {sessionStatus === 'loading' ? (
         <Skeleton />
       ) : session?.user ? (
-        <div className="my-4 max-w-lg rounded-md border border-red-500 px-2 py-1 text-left text-white">
+        <div className="my-4 max-w-lg rounded-md border border-red-500 px-2 py-1 text-left text-on-background">
           <h3 className="text-center text-2xl font-bold">
             Features limited on this page!
           </h3>
@@ -69,18 +69,18 @@ export default function Page() {
           </p>
           <p className="mt-2">
             To access{' '}
-            <strong className="text-accent1-500">all enhanced features</strong>,
+            <strong className="text-secondary">all enhanced features</strong>,
             you should either:
           </p>
           <ul className="mt-2 list-inside list-disc">
             <li>
-              Click the <strong className="text-accent1-500">Save Build</strong>{' '}
+              Click the <strong className="text-secondary">Save Build</strong>{' '}
               button to save it to the database, enabling the enhanced features.
             </li>
             <li>
               <Link
                 href="/builder/create"
-                className="font-bold text-accent1-500 underline hover:text-accent1-300"
+                className="font-bold text-secondary underline hover:text-secondary-inverse"
               >
                 Click here to visit the enhanced version of the Builder
                 directly.
@@ -89,7 +89,7 @@ export default function Page() {
           </ul>
         </div>
       ) : (
-        <div className="mb-2 rounded-md border border-red-500 px-2 py-1 text-left text-white">
+        <div className="mb-2 rounded-md border border-red-500 px-2 py-1 text-left text-on-background">
           <h3 className="text-center text-lg font-bold">
             You are not signed in, so your features are limited.
           </h3>

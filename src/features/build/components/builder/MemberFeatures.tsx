@@ -73,7 +73,7 @@ export function MemberFeatures({
               </h3>
               <div
                 className={cn(
-                  'text-md overflow-x-auto overflow-y-auto whitespace-pre-wrap text-gray-200',
+                  'text-md overflow-x-auto overflow-y-auto whitespace-pre-wrap text-on-background-variant',
                   isScreenshotMode && 'max-h-none',
                 )}
               >
@@ -125,7 +125,7 @@ Watch the build in action: [insert Youtube link here]
               className="my-1underline"
               onClick={() => setBuildDescriptionAlertOpen(true)}
             >
-              <ClipboardDocumentListIcon className="inline-block h-4 w-4 text-white" />{' '}
+              <ClipboardDocumentListIcon className="inline-block h-4 w-4 text-on-background" />{' '}
               Insert Description Template
             </BaseButton>
           </div>
@@ -186,7 +186,7 @@ Watch the build in action: [insert Youtube link here]
                 <div className="text-md my-2 font-bold text-primary">
                   Build Visibility
                 </div>
-                <div className="text-md text-gray-200">
+                <div className="text-md text-on-background-variant">
                   {isPublic ? 'Public' : 'Private'}
                 </div>
               </div>
@@ -194,7 +194,7 @@ Watch the build in action: [insert Youtube link here]
                 <div className="text-md my-2 font-bold text-primary">
                   Patch Affected?
                 </div>
-                <div className="text-md text-gray-200">
+                <div className="text-md text-on-background-variant">
                   {isPatchAffected ? 'Yes' : 'No'}
                 </div>
               </div>

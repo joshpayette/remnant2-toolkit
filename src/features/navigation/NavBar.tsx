@@ -174,7 +174,7 @@ export function NavBar() {
           <Link
             href={NAV_ITEMS.supportR2TK.href}
             className={cn(
-              'text-md flex flex-row items-center justify-start font-semibold underline text-primary hover:text-inverse-primary',
+              'text-md flex flex-row items-center justify-start font-semibold underline text-primary hover:text-primary-inverse',
             )}
           >
             {NAV_ITEMS.supportR2TK.label}

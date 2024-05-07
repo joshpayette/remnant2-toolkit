@@ -145,7 +145,7 @@ export function Traits({
         )}
       >
         {!isScreenshotMode && (
-          <div className="col-span-full mx-auto mb-2 max-w-[300px] border border-secondary p-2 text-center text-xs text-gray-300">
+          <div className="col-span-full mx-auto mb-2 max-w-[300px] border border-secondary p-2 text-center text-xs text-on-background-variant">
             <span
               className={cn(
                 'text-lg font-bold',
@@ -165,12 +165,12 @@ export function Traits({
           <div
             key={traitItem.name}
             className={cn(
-              'flex items-center border border-transparent border-b-white text-sm',
-              isArchtypeTrait(traitItem) && 'border-b-yellow-500',
+              'flex items-center border border-transparent border-b-on-background text-sm',
+              isArchtypeTrait(traitItem) && 'border-b-highlight',
               isArchtypeTrait(traitItem) &&
                 !isArchtypeCoreTrait(traitItem) &&
                 isEditable &&
-                'border-b-purple-500',
+                'border-b-secondary',
             )}
           >
             <div className="mr-4 flex items-center text-lg font-bold ">
@@ -222,7 +222,7 @@ export function Traits({
                     'min-w-[30px] text-left',
                     !isScreenshotMode &&
                       isEditable &&
-                      'border border-dashed border-gray-400 p-1',
+                      'border border-dashed border-on-background-variant p-1',
                   )}
                 >
                   {traitItem.amount ?? DEFAULT_TRAIT_AMOUNT}
@@ -268,7 +268,7 @@ export function Traits({
         <button
           onClick={onAddTrait}
           aria-label="Add Trait"
-          className="mx-auto mt-4 flex max-w-[250px] items-center justify-center rounded border border-secondary px-4 py-2 text-xs font-bold text-white hover:border-secondary hover:bg-secondary"
+          className="mx-auto mt-4 flex max-w-[250px] items-center justify-center rounded border border-secondary px-4 py-2 text-xs font-bold text-on-background hover:border-secondary-container hover:bg-secondary-container"
         >
           Add Trait
         </button>

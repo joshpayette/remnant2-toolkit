@@ -360,11 +360,11 @@ export function Builder({
       <div
         id="build-container"
         className={cn(
-          'relative w-full grow rounded border-2 bg-black p-4',
+          'relative w-full grow rounded border-2 bg-background-container p-4',
           !buildState.isMember && 'border-primary',
           buildState.isMember &&
             !isScreenshotMode &&
-            'border-accent1-300 shadow-lg shadow-accent1-600',
+            'border-secondary shadow-lg shadow-secondary-container',
           buildState.isMember && isScreenshotMode && 'border-primary',
           isScreenshotMode && 'pb-[70px]',
         )}
@@ -382,7 +382,7 @@ export function Builder({
                 id="build-name"
                 type="text"
                 onChange={(e) => handleChangeBuildName(e.target.value)}
-                className="block w-full rounded-md border-2 border-secondary bg-white/5 py-2 text-center text-2xl text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-secondary"
+                className="block w-full rounded-md border-2 border-secondary bg-on-background-variant/5 py-2 text-center text-2xl text-on-background shadow-sm ring-1 ring-inset ring-on-background/10 focus:ring-2 focus:ring-inset focus:ring-secondary"
                 placeholder="My Build"
                 value={buildState.name}
               />
@@ -392,7 +392,7 @@ export function Builder({
                 <h2
                   aria-hidden="true"
                   className={cn(
-                    'whitespace-normal text-center text-2xl font-bold text-white sm:text-4xl',
+                    'whitespace-normal text-center text-2xl font-bold text-on-background sm:text-4xl',
                     isScreenshotMode && 'text-4xl',
                   )}
                 >
@@ -402,7 +402,7 @@ export function Builder({
             )}
           </div>
           {showCreatedBy && (
-            <div className="mb-2 flex items-center justify-center text-sm text-gray-400">
+            <div className="mb-2 flex items-center justify-center text-sm text-on-background-variant">
               <span>
                 {`${getArchetypeComboName({
                   archetype1:
@@ -429,7 +429,7 @@ export function Builder({
                 />
                 <span
                   className={cn(
-                    'text-white',
+                    'text-on-background',
                     isScreenshotMode ? 'mb-[2px]' : 'mb-0.5',
                   )}
                 >
@@ -439,24 +439,24 @@ export function Builder({
             </div>
           )}
           {buildState.buildLink && (
-            <div className="mb-2 flex w-full items-center justify-center text-sm text-gray-300">
+            <div className="mb-2 flex w-full items-center justify-center text-sm text-on-background-variant">
               <span className="overflow-y-auto whitespace-pre-wrap text-center">
                 {buildState.buildLink}
               </span>
             </div>
           )}
           {buildState.updatedAt && (
-            <div className="mb-2 flex items-center justify-center text-sm text-gray-400">
-              <p className="text-left text-xs text-gray-400">
+            <div className="mb-2 flex items-center justify-center text-sm text-on-background-variant">
+              <p className="text-left text-xs text-on-background-variant">
                 Last Updated:{' '}
-                <span className="text-gray-300">
+                <span className="text-on-background-variant">
                   {formatUpdatedAt(buildState.updatedAt)}
                 </span>
               </p>
             </div>
           )}
           {buildState.isPatchAffected && (
-            <div className="mb-2 flex items-center justify-center text-sm text-gray-400">
+            <div className="mb-2 flex items-center justify-center text-sm text-on-background-variant">
               <p className="border border-red-500 p-2 text-left text-xs font-bold text-red-500">
                 This build might have been affected by a past update. If you
                 created this build, please update it and untoggle the
