@@ -306,7 +306,7 @@ export function ItemList({}: Props) {
                 <>
                   <Disclosure.Button
                     onClick={() => handleCategoryToggle(itemCategory)}
-                    className="flex w-full justify-start border-b border-secondary-700 p-4 text-left hover:border-primary hover:bg-background focus:outline-none focus-visible:ring focus-visible:ring-primary/75"
+                    className="flex w-full justify-start border-b border-secondary p-4 text-left hover:border-primary hover:bg-background focus:outline-none focus-visible:ring focus-visible:ring-primary/75"
                   >
                     <div className="w-full">
                       <h2 className="text-lg font-semibold">

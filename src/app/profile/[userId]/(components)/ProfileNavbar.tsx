@@ -90,8 +90,8 @@ export function ProfileNavbar({
               <Link
                 href={item.href}
                 className={cn(
-                  'flex items-center justify-center hover:text-primary-300 hover:underline',
-                  item.current ? 'text-primary-400' : '',
+                  'flex items-center justify-center hover:text-primary/50 hover:underline',
+                  item.current ? 'text-primary/60' : '',
                 )}
               >
                 {isEditable ? (

@@ -41,7 +41,7 @@ export function MasonryItemList({
       />
       <div className="flex w-full flex-col items-center justify-center overflow-auto p-4">
         {label && (
-          <h3 className="mb-4 text-2xl font-bold text-primary-500">{label}</h3>
+          <h3 className="mb-4 text-2xl font-bold text-primary">{label}</h3>
         )}
 
         <Masonry

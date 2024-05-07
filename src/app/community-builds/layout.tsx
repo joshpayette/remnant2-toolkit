@@ -48,7 +48,7 @@ export default async function Layout({
           subtitle={
             <span>
               Search from{' '}
-              <span className="text-2xl font-bold text-primary-500">
+              <span className="text-2xl font-bold text-primary">
                 {await getTotalBuildCount()}
               </span>{' '}
               community submitted builds!

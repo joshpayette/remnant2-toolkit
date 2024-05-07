@@ -28,7 +28,7 @@ export function ImageDownloadInfoDialog({ imageDownloadInfo, onClose }: Props) {
             Copy and paste the below image to share it, or save the image for
             later!
           </p>
-          <p className="text-primary-500">
+          <p className="text-primary">
             Note: This image link will expire in one hour.
           </p>
           {imageLink ? (

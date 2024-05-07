@@ -220,7 +220,7 @@ export default async function Page() {
               width={11}
               height={20}
               alt={`${NAV_ITEMS.wiki.label}, ${NAV_ITEMS.wiki.description}`}
-              className="mr-2 h-7 w-5 flex-none text-primary-600"
+              className="mr-2 h-7 w-5 flex-none text-primary"
               aria-hidden="true"
             />
           }

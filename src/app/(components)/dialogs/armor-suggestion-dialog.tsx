@@ -50,7 +50,7 @@ function ArmorInfoContainer({
       </BaseDialogDescription>
       <BaseDialogBody>
         <div className="flex flex-col items-center justify-start sm:pr-4">
-          <h2 className="mb-4 text-2xl font-semibold text-secondary-500">
+          <h2 className="mb-4 text-2xl font-semibold text-secondary">
             Armor Suggestions
           </h2>
           {children}
@@ -229,7 +229,7 @@ export function ArmorSuggestionDialog({
                 .map((suggestion, index) => (
                   <div
                     key={index}
-                    className="flex w-full flex-col items-center justify-center rounded-md border-2 border-primary-700 bg-gray-900 p-4"
+                    className="flex w-full flex-col items-center justify-center rounded-md border-2 border-primary bg-gray-900 p-4"
                   >
                     <ArmorSuggestionCard
                       suggestion={suggestion}

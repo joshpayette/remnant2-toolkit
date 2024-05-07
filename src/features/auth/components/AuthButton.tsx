@@ -225,7 +225,7 @@ function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
                     'flex flex-row items-center justify-start  px-4 py-2 text-sm text-outline',
                   )}
                 >
-                  <NAV_ITEMS.loadouts.icon className="mr-1 h-4 w-4 text-primary-600" />
+                  <NAV_ITEMS.loadouts.icon className="mr-1 h-4 w-4 text-primary" />
                   Loadouts
                 </Link>
               )}

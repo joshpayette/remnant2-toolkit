@@ -141,13 +141,13 @@ export function ItemButton({
         className={cn(
           'relative z-0 flex items-center justify-center overflow-hidden border-2 border-gray-700',
           `bg-[url('https://d2sqltdcj8czo5.cloudfront.net/card-body-bg.jpg')]`,
-          isEditable && 'border-gray-700 hover:border-secondary-500',
+          isEditable && 'border-gray-700 hover:border-secondary',
           size === 'sm' && 'h-[22px] w-[22px]',
           size === 'md' && 'h-[66px] w-[66px]',
           size === 'lg' && 'h-[99px] w-[99px]',
           size === 'xl' && 'h-[200px] w-[200px]',
           size === 'wide' && 'h-[99px] w-[149px]',
-          isToggled === true && 'border-primary-500',
+          isToggled === true && 'border-primary',
           isToggled === false && 'border-gray-700',
         )}
         aria-label="Remnant 2 Item Button"
@@ -169,7 +169,7 @@ export function ItemButton({
       {item?.name && (
         <div
           className={cn(
-            'flex items-center justify-center bg-secondary-900 px-1 py-0.5 text-center text-[10px] text-gray-100',
+            'flex items-center justify-center bg-secondary px-1 py-0.5 text-center text-[10px] text-gray-100',
             MANUAL_ITEM_NAME_TEXT_TRANSFORMS.some(
               (i) => i.name === item.name,
             ) && 'text-[9px]',

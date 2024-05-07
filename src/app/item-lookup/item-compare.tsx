@@ -32,7 +32,7 @@ export function ItemCompareList({}: Props) {
         onClose={() => setSelectedItem(null)}
       />
 
-      <h2 className="mt-4 text-center text-2xl font-bold text-primary-500">
+      <h2 className="mt-4 text-center text-2xl font-bold text-primary">
         Item Comparison
       </h2>
       <div className="grid w-full grid-cols-1 gap-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">

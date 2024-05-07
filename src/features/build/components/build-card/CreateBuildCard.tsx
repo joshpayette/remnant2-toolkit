@@ -7,7 +7,7 @@ export function CreateBuildCard() {
   return (
     <Link
       className={cn(
-        'col-span-1 flex h-full min-h-[362px] flex-col items-center justify-center rounded-lg border-4 border-primary-500 bg-black text-center shadow hover:scale-[1.05] hover:border-primary-300',
+        'col-span-1 flex h-full min-h-[362px] flex-col items-center justify-center rounded-lg border-4 border-primary bg-black text-center shadow hover:scale-[1.05] hover:border-primary/50',
       )}
       href="/builder/create"
     >

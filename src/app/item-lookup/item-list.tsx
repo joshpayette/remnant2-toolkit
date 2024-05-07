@@ -179,7 +179,7 @@ export function ItemList({}: Props) {
 
   return !areFiltersApplied || !isClient ? (
     <div className="flex flex-col items-center justify-center gap-y-2">
-      <h2 className="mt-4 text-center text-2xl font-bold text-primary-500">
+      <h2 className="mt-4 text-center text-2xl font-bold text-primary">
         Apply a filter, or...
       </h2>
       <BaseButton onClick={() => setAreFiltersApplied(true)}>

@@ -65,7 +65,7 @@ export const FinishedDisplay = React.memo(
       {/** List the history of correct answers */}
       {history.length > 0 ? (
         <>
-          <hr className="mb-8 w-full border border-primary-500" />
+          <hr className="mb-8 w-full border border-primary" />
           <div className="mb-8 flex w-full flex-col items-center justify-center">
             <h3 className="mb-2 text-xl font-bold">
               Correct Answers
@@ -81,7 +81,7 @@ export const FinishedDisplay = React.memo(
         </>
       ) : null}
 
-      <hr className="mb-8 w-full border border-primary-500" />
+      <hr className="mb-8 w-full border border-primary" />
       <div className="flex w-full flex-col items-center justify-center bg-background-container p-4">
         <MobileLayoutToggle
           layoutPreference={layoutPreference}

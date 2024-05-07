@@ -351,7 +351,7 @@ export function BuildFilters({ buildFiltersOverrides }: Props) {
     <Disclosure defaultOpen={true}>
       {({ open }) => (
         <div className="w-full">
-          <div className="flex w-full flex-row items-end justify-end border-b border-b-primary-500 py-2">
+          <div className="flex w-full flex-row items-end justify-end border-b border-b-primary py-2">
             <div className="w-full pr-4">
               <BaseField className="col-span-full sm:col-span-2">
                 <div className="w-full max-w-[600px]">

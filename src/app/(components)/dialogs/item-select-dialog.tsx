@@ -167,7 +167,7 @@ export function ItemSelectDialog({
           </div>
         </div>
 
-        <hr className="mb-8 mt-4 border-primary-500" />
+        <hr className="mb-8 mt-4 border-primary" />
 
         <ul
           role="list"

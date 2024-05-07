@@ -771,7 +771,7 @@ export function ItemTagSuggestionDialog({
       </BaseDialogDescription>
       <BaseDialogBody>
         <div className="flex flex-col items-center justify-start sm:pl-4">
-          <h2 className="mb-1 text-2xl font-semibold text-secondary-500">
+          <h2 className="mb-1 text-2xl font-semibold text-secondary">
             Item Suggestions
           </h2>
           <p className="mb-4 text-xs text-gray-400">
@@ -826,7 +826,7 @@ export function ItemTagSuggestionDialog({
                     />
                     {selectedItems.find((i) => i.id === suggestion.id)
                       ?.slot && (
-                      <span className="-mt-2 mb-2 w-full bg-secondary-800 p-1 text-[9px] text-white">
+                      <span className="-mt-2 mb-2 w-full bg-secondary p-1 text-[9px] text-white">
                         {
                           selectedItems.find((i) => i.id === suggestion.id)
                             ?.slot

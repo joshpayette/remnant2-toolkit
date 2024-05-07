@@ -145,7 +145,7 @@ export function Traits({
         )}
       >
         {!isScreenshotMode && (
-          <div className="col-span-full mx-auto mb-2 max-w-[300px] border border-secondary-800 p-2 text-center text-xs text-gray-300">
+          <div className="col-span-full mx-auto mb-2 max-w-[300px] border border-secondary p-2 text-center text-xs text-gray-300">
             <span
               className={cn(
                 'text-lg font-bold',
@@ -155,7 +155,7 @@ export function Traits({
               {totalTraitAmount}
             </span>
             /<span className="font-bold">{MAX_TRAIT_AMOUNT}</span> Trait Points
-            <p className="text-primary-500">
+            <p className="text-primary">
               5 Core + 20 Archetype + 85 Player Choice
             </p>
           </div>
@@ -212,7 +212,7 @@ export function Traits({
                     setEditingTraitItem(null)
                   }}
                   autoFocus
-                  className="w-12 border border-primary-500 bg-transparent p-1 text-center"
+                  className="w-12 border border-primary bg-transparent p-1 text-center"
                 />
               ) : (
                 <button
@@ -268,7 +268,7 @@ export function Traits({
         <button
           onClick={onAddTrait}
           aria-label="Add Trait"
-          className="mx-auto mt-4 flex max-w-[250px] items-center justify-center rounded border border-secondary-700 px-4 py-2 text-xs font-bold text-white hover:border-secondary-400 hover:bg-secondary-500"
+          className="mx-auto mt-4 flex max-w-[250px] items-center justify-center rounded border border-secondary px-4 py-2 text-xs font-bold text-white hover:border-secondary hover:bg-secondary"
         >
           Add Trait
         </button>

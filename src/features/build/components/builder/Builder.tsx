@@ -361,18 +361,18 @@ export function Builder({
         id="build-container"
         className={cn(
           'relative w-full grow rounded border-2 bg-black p-4',
-          !buildState.isMember && 'border-primary-500',
+          !buildState.isMember && 'border-primary',
           buildState.isMember &&
             !isScreenshotMode &&
             'border-accent1-300 shadow-lg shadow-accent1-600',
-          buildState.isMember && isScreenshotMode && 'border-primary-500',
+          buildState.isMember && isScreenshotMode && 'border-primary',
           isScreenshotMode && 'pb-[70px]',
         )}
       >
         <div
           id="build-header"
           className={cn(
-            'relative mb-4 border-b border-b-primary-900',
+            'relative mb-4 border-b border-b-primary',
             (isPopular || isNew || buildState.isFeaturedBuild) && 'mb-10 pb-6',
           )}
         >
@@ -382,7 +382,7 @@ export function Builder({
                 id="build-name"
                 type="text"
                 onChange={(e) => handleChangeBuildName(e.target.value)}
-                className="block w-full rounded-md border-2 border-secondary-500 bg-white/5 py-2 text-center text-2xl text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-secondary-500"
+                className="block w-full rounded-md border-2 border-secondary bg-white/5 py-2 text-center text-2xl text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-secondary"
                 placeholder="My Build"
                 value={buildState.name}
               />
@@ -416,7 +416,7 @@ export function Builder({
               </span>
               <Link
                 href={`/profile/${buildState.createdById}/created-builds`}
-                className="ml-1 text-primary-500 underline"
+                className="ml-1 text-primary underline"
               >
                 {buildState.createdByDisplayName}
               </Link>

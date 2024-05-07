@@ -68,7 +68,7 @@ export function MemberFeatures({
         <div className="flex flex-col">
           {description && description.length > 0 && (
             <>
-              <h3 className="text-md mb-2 font-bold text-primary-500">
+              <h3 className="text-md mb-2 font-bold text-primary">
                 Build Description
               </h3>
               <div
@@ -135,7 +135,7 @@ Watch the build in action: [insert Youtube link here]
       {isScreenshotMode ? null : (
         <>
           {isEditable && (
-            <div className="mb-8 flex w-full flex-col items-start justify-start text-sm text-primary-500 sm:flex-row sm:items-center">
+            <div className="mb-8 flex w-full flex-col items-start justify-start text-sm text-primary sm:flex-row sm:items-center">
               <div className="mb-2 mr-4 w-[200px] sm:mb-0">
                 Build Reference Link
               </div>
@@ -155,7 +155,7 @@ Watch the build in action: [insert Youtube link here]
         <>
           {isEditable ? (
             <div className="flex flex-col items-start justify-start gap-x-8 gap-y-2 sm:flex-row sm:items-center sm:justify-start">
-              <div className="flex flex-row items-center justify-start text-sm text-primary-500">
+              <div className="flex flex-row items-center justify-start text-sm text-primary">
                 <div className="mr-4">Public Build</div>
                 <div className="flex items-center justify-start">
                   <Toggle
@@ -165,13 +165,13 @@ Watch the build in action: [insert Youtube link here]
                   <a
                     href="https://github.com/joshpayette/remnant2-toolkit/blob/main/CODE_OF_CONDUCT.md"
                     target="_blank"
-                    className="ml-2 text-xs text-secondary-500 underline"
+                    className="ml-2 text-xs text-secondary underline"
                   >
                     Code of Conduct
                   </a>
                 </div>
               </div>
-              <div className="flex flex-row items-center justify-start text-sm text-primary-500">
+              <div className="flex flex-row items-center justify-start text-sm text-primary">
                 <div className="mr-4">Mark as Patch Affected?</div>
 
                 <Toggle
@@ -183,7 +183,7 @@ Watch the build in action: [insert Youtube link here]
           ) : (
             <div className="flex items-center justify-start gap-x-8 gap-y-2">
               <div className="flex flex-col">
-                <div className="text-md my-2 font-bold text-primary-500">
+                <div className="text-md my-2 font-bold text-primary">
                   Build Visibility
                 </div>
                 <div className="text-md text-gray-200">
@@ -191,7 +191,7 @@ Watch the build in action: [insert Youtube link here]
                 </div>
               </div>
               <div className="flex flex-col">
-                <div className="text-md my-2 font-bold text-primary-500">
+                <div className="text-md my-2 font-bold text-primary">
                   Patch Affected?
                 </div>
                 <div className="text-md text-gray-200">

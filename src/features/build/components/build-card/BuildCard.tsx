@@ -60,7 +60,7 @@ export function BuildCard({
       ) : (
         <div
           className={cn(
-            'relative col-span-1 flex h-full flex-col rounded-lg border border-secondary-500 bg-black shadow',
+            'relative col-span-1 flex h-full flex-col rounded-lg border border-secondary bg-black shadow',
             buildState.isMember &&
               memberFrameEnabled &&
               'border-2 border-accent1-300 shadow-lg shadow-accent1-600',
@@ -96,7 +96,7 @@ export function BuildCard({
                   by{' '}
                   <Link
                     href={`/profile/${build.createdById}/created-builds`}
-                    className="text-primary-500 underline hover:text-primary-300"
+                    className="text-primary underline hover:text-primary/50"
                   >
                     {build.createdByDisplayName ?? build.createdByName}
                   </Link>
