@@ -24,7 +24,7 @@ export default function Page() {
   const [detailedBuildDialogOpen, setDetailedBuildDialogOpen] = useState(false)
 
   const { dbBuildState, setNewBuildState, updateDBBuildState } =
-    useDBBuildState(INITIAL_BUILD_STATE, 'create')
+    useDBBuildState(INITIAL_BUILD_STATE)
 
   const {
     isScreenshotMode,
