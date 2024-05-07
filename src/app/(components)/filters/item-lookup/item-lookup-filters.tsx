@@ -245,7 +245,7 @@ export function ItemLookupFilters({}: Props) {
           </div>
           <Disclosure.Panel
             className={cn(
-              'mt-2 w-full border p-4 border-primary bg-surface-container',
+              'mt-2 w-full border p-4 border-primary bg-background-container',
               areAnyFiltersActive &&
                 'border-secondary shadow-xl shadow-secondary',
             )}

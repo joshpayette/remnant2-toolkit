@@ -22,11 +22,11 @@ export function Logo({
         unoptimized={unoptimized}
       />
       <div className="flex flex-col gap-0">
-        <span className="text-md mb-0 pb-0 font-semibold text-on-surface">
+        <span className="text-md mb-0 pb-0 font-semibold text-on-background">
           Remnant2Toolkit
         </span>
         {showUrl && (
-          <span className="text-xs text-on-surface-variant">remnant2toolkit.com</span>
+          <span className="text-xs text-on-background-variant">remnant2toolkit.com</span>
         )}
       </div>
     </Link>

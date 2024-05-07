@@ -19,114 +19,75 @@ Neutrals were left as-is
 Export as "Web (CSS)"
 Only the main light and dark files are used here
 Names were truncated and "error" was renamed to "highlight"
-
-For now most of these options remain unused, it's quite possible we should just drop a bunch of them
 */
 
 @layer base {
   :root {
+    /* Primary */
     --color-primary: 0 104 122;
-    --color-surface-tint: 0 104 122;
     --color-on-primary: 255 255 255;
     --color-primary-container: 42 194 224;
     --color-on-primary-container: 0 43 52;
+    /* Secondary */
     --color-secondary: 94 39 200;
     --color-on-secondary: 255 255 255;
     --color-secondary-container: 132 85 239;
     --color-on-secondary-container: 255 255 255;
+    /* Tertiary */
     --color-tertiary: 0 110 47;
     --color-on-tertiary: 255 255 255;
     --color-tertiary-container: 53 209 104;
     --color-on-tertiary-container: 0 50 18;
+    /* Highlight */
     --color-highlight: 120 90 0;
     --color-on-highlight: 255 255 255;
     --color-highlight-container: 243 187 25;
     --color-on-highlight-container: 67 49 0;
+    /* Background */
     --color-background: 245 250 252;
     --color-on-background: 23 29 30;
-    --color-surface: 245 250 252;
-    --color-on-surface: 23 29 30;
-    --color-surface-variant: 216 229 233;
-    --color-on-surface-variant: 61 73 76;
+    --color-background-variant: 216 229 233;
+    --color-on-background-variant: 61 73 76;
+    --color-background-container: 233 239 241;
     --color-outline: 109 121 125;
     --color-outline-variant: 188 201 205;
-    --color-shadow: 0 0 0;
-    --color-scrim: 0 0 0;
-    --color-inverse-surface: 43 49 51;
-    --color-inverse-on-surface: 236 242 244;
-    --color-inverse-primary: 76 215 246;
-    --color-primary-fixed: 172 237 255;
-    --color-on-primary-fixed: 0 31 38;
-    --color-primary-fixed-dim: 76 215 246;
-    --color-on-primary-fixed-variant: 0 78 92;
-    --color-secondary-fixed: 233 221 255;
-    --color-on-secondary-fixed: 35 0 92;
-    --color-secondary-fixed-dim: 208 188 255;
-    --color-on-secondary-fixed-variant: 85 22 190;
-    --color-tertiary-fixed: 107 255 143;
-    --color-on-tertiary-fixed: 0 33 9;
-    --color-tertiary-fixed-dim: 74 225 118;
-    --color-on-tertiary-fixed-variant: 0 83 33;
-    --color-surface-dim: 213 219 221;
-    --color-surface-bright: 245 250 252;
-    --color-surface-container-lowest: 255 255 255;
-    --color-surface-container-low: 239 244 247;
-    --color-surface-container: 233 239 241;
-    --color-surface-container-high: 227 233 235;
-    --color-surface-container-highest: 222 227 230;
   }
 
   .dark {
+    /* Primary */
     --color-primary: 76 215 246;
-    --color-surface-tint: 76 215 246;
     --color-on-primary: 0 54 64;
     --color-primary-container: 0 173 202;
     --color-on-primary-container: 0 20 25;
+    /* Secondary */
     --color-secondary: 208 188 255;
     --color-on-secondary: 60 0 145;
     --color-secondary-container: 131 83 237;
     --color-on-secondary-container: 255 255 255;
+    /* Tertiary */
     --color-tertiary: 81 231 123;
     --color-on-tertiary: 0 57 21;
     --color-tertiary-container: 11 188 86;
     --color-on-tertiary-container: 0 30 8;
+    /* Highlight */
     --color-highlight: 255 219 139;
     --color-on-highlight: 63 46 0;
     --color-highlight-container: 227 173 0;
     --color-on-highlight-container: 54 39 0;
-    --color-background: 14 20 22;
+    /* Background */
+    --color-background: 17 0 28;
     --color-on-background: 222 227 230;
-    --color-surface: 14 20 22;
-    --color-on-surface: 222 227 230;
-    --color-surface-variant: 61 73 76;
-    --color-on-surface-variant: 188 201 205;
+    --color-background-variant: 61 73 76;
+    --color-on-background-variant: 188 201 205;
+    --color-background-container: 14 20 21;
     --color-outline: 134 147 151;
     --color-outline-variant: 61 73 76;
-    --color-shadow: 0 0 0;
-    --color-scrim: 0 0 0;
-    --color-inverse-surface: 222 227 230;
-    --color-inverse-on-surface: 43 49 51;
-    --color-inverse-primary: 0 104 122;
-    --color-primary-fixed: 172 237 255;
-    --color-on-primary-fixed: 0 31 38;
-    --color-primary-fixed-dim: 76 215 246;
-    --color-on-primary-fixed-variant: 0 78 92;
-    --color-secondary-fixed: 233 221 255;
-    --color-on-secondary-fixed: 35 0 92;
-    --color-secondary-fixed-dim: 208 188 255;
-    --color-on-secondary-fixed-variant: 85 22 190;
-    --color-tertiary-fixed: 107 255 143;
-    --color-on-tertiary-fixed: 0 33 9;
-    --color-tertiary-fixed-dim: 74 225 118;
-    --color-on-tertiary-fixed-variant: 0 83 33;
-    --color-surface-dim: 14 20 22;
-    --color-surface-bright: 52 58 60;
-    --color-surface-container-lowest: 9 15 17;
-    --color-surface-container-low: 23 29 30;
-    --color-surface-container: 27 33 34;
-    --color-surface-container-high: 37 43 45;
-    --color-surface-container-highest: 48 54 56;
   }
+}
+
+body {
+  background: rgb(var(--color-background));
+  color: rgb(var(--color-on-background));
 }
 
 /** Fixes the misalignment when exporting builds to images */

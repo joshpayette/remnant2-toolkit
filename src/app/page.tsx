@@ -17,10 +17,10 @@ export default async function Page() {
       title="Remnant 2 Toolkit"
       description={
         <>
-          <div className="mt-6 text-lg leading-8 text-on-surface-variant">
+          <div className="mt-6 text-lg leading-8 text-on-background-variant">
             <Link
               href="/community-builds"
-              className="underline hover:text-surface/50"
+              className="underline hover:text-background/50"
             >
               Search the community&apos;s{' '}
               <span className="text-2xl font-bold">

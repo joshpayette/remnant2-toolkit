@@ -311,7 +311,7 @@ export function ItemList({}: Props) {
                 <>
                   <Disclosure.Button
                     onClick={() => handleCategoryToggle(itemCategory)}
-                    className="flex w-full justify-start border-b border-secondary-700 p-4 text-left hover:border-primary hover:bg-surface focus:outline-none focus-visible:ring focus-visible:ring-primary/75"
+                    className="flex w-full justify-start border-b border-secondary-700 p-4 text-left hover:border-primary hover:bg-background focus:outline-none focus-visible:ring focus-visible:ring-primary/75"
                   >
                     <div className="w-full">
                       <h2 className="text-lg font-semibold">
@@ -328,7 +328,7 @@ export function ItemList({}: Props) {
                     </div>
                     <ChevronDownIcon
                       className={cn(
-                        'h-5 w-5 text-on-surface',
+                        'h-5 w-5 text-on-background',
                         open ? 'rotate-180 transform' : '',
                       )}
                     />

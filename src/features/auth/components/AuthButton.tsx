@@ -42,7 +42,7 @@ function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
             <div className="flex flex-col items-start justify-start px-3 py-2">
               {NAV_ITEMS.profile.label}
 
-              <p className="mt-1 text-xs text-on-surface">
+              <p className="mt-1 text-xs text-on-background">
                 {NAV_ITEMS.profile.description}
               </p>
             </div>
@@ -62,7 +62,7 @@ function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
             <div className="flex flex-col items-start justify-start px-3 py-2">
               {NAV_ITEMS.myBuilds.label}
 
-              <p className="mt-1 text-xs text-on-surface">
+              <p className="mt-1 text-xs text-on-background">
                 {NAV_ITEMS.myBuilds.description}
               </p>
             </div>
@@ -82,7 +82,7 @@ function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
             <div className="flex flex-col items-start justify-start px-3 py-2">
               {NAV_ITEMS.favoritedBuilds.label}
 
-              <p className="mt-1 text-xs text-on-surface">
+              <p className="mt-1 text-xs text-on-background">
                 {NAV_ITEMS.favoritedBuilds.description}
               </p>
             </div>
@@ -101,7 +101,7 @@ function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
             <div className="flex flex-col items-start justify-start px-3 py-2">
               {NAV_ITEMS.loadouts.label}
 
-              <p className="mt-1 text-xs text-on-surface">
+              <p className="mt-1 text-xs text-on-background">
                 {NAV_ITEMS.loadouts.description}
               </p>
             </div>
@@ -143,14 +143,14 @@ function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
     <Link
       href={NAV_ITEMS.signin.href}
       className={cn(
-        'hidden flex-row items-center justify-start rounded-lg bg-secondary p-2 text-xs font-semibold text-surface hover:bg-secondary lg:flex',
+        'hidden flex-row items-center justify-start rounded-lg bg-secondary p-2 text-xs font-semibold text-background hover:bg-secondary lg:flex',
       )}
     >
       {NAV_ITEMS.signin.label}
     </Link>
   ) : (
     <Menu as="div" className="relative hidden lg:block">
-      <Menu.Button className="flex h-8 w-8 rounded-full bg-background text-sm focus:outline-none focus:ring-2 focus:ring-surface-container focus:ring-offset-2 focus:ring-offset-surface-container">
+      <Menu.Button className="flex h-8 w-8 rounded-full bg-background text-sm focus:outline-none focus:ring-2 focus:ring-background-container focus:ring-offset-2 focus:ring-offset-background-container">
         <span className="absolute -inset-1.5" />
         <span className="sr-only">Open user menu</span>
         {AvatarImage}
@@ -164,14 +164,14 @@ function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
         leaveFrom="transform opacity-100 scale-100"
         leaveTo="transform opacity-0 scale-95"
       >
-        <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-surface py-1 shadow-lg ring-1 ring-surface-container ring-opacity-5 focus:outline-none">
+        <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-background py-1 shadow-lg ring-1 ring-background-container ring-opacity-5 focus:outline-none">
           {session?.user?.id ? (
             <Menu.Item>
               {({ active }) => (
                 <Link
                   href={`/profile/${session?.user?.id}?t=${Date.now()}`}
                   className={cn(
-                    active ? 'bg-surface-container' : '',
+                    active ? 'bg-background-container' : '',
                     'flex flex-row items-center justify-start px-4 py-2 text-sm',
                   )}
                 >
@@ -187,7 +187,7 @@ function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
                 <Link
                   href={`/profile/${session?.user?.id}/created-builds`}
                   className={cn(
-                    active ? 'bg-surface-container' : '',
+                    active ? 'bg-background-container' : '',
                     'flex flex-row items-center justify-start px-4 py-2 text-sm',
                   )}
                 >
@@ -204,7 +204,7 @@ function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
                   href={`/profile/${session?.user
                     ?.id}/favorited-builds?t=${Date.now()}`}
                   className={cn(
-                    active ? 'bg-surface-container' : '',
+                    active ? 'bg-background-container' : '',
                     'flex flex-row items-center justify-start px-4 py-2 text-sm text-outline',
                   )}
                 >
@@ -221,7 +221,7 @@ function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
                   href={`/profile/${session?.user
                     ?.id}/loadouts?t=${Date.now()}`}
                   className={cn(
-                    active ? 'bg-surface-container' : '',
+                    active ? 'bg-background-container' : '',
                     'flex flex-row items-center justify-start  px-4 py-2 text-sm text-outline',
                   )}
                 >
@@ -236,7 +236,7 @@ function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
               <Link
                 href={NAV_ITEMS.signout.href}
                 className={cn(
-                  active ? 'bg-surface-container' : '',
+                  active ? 'bg-background-container' : '',
                   'flex flex-row items-center justify-start px-4 py-2 text-sm text-outline',
                 )}
               >

@@ -11,7 +11,7 @@ interface Props {
 }
 
 export function LandingPageContainer({
-  bgClass = 'bg-surface/30',
+  bgClass = 'bg-background/30',
   children,
   image,
   title,
@@ -64,7 +64,7 @@ export function LandingPageContainer({
       </div>
       <div className="mx-auto grid w-full grid-cols-3 px-6 lg:px-8">
         <div className="col-span-full mx-auto max-w-2xl sm:col-span-2 sm:mx-8 lg:mx-0">
-          <h1 className="text-4xl font-bold tracking-tight text-on-surface sm:text-6xl">
+          <h1 className="text-4xl font-bold tracking-tight text-on-background sm:text-6xl">
             {title}
           </h1>
           {description}

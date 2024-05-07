@@ -19,7 +19,7 @@ export function WeaponInfo({ item, includeMod = true }: Props) {
               item.type === 'melee' ? 'grid-cols-1' : 'grid-cols-3',
             )}
           >
-            <div className="flex w-full flex-col items-center justify-start text-on-surface">
+            <div className="flex w-full flex-col items-center justify-start text-on-background">
               <p className="flex items-center justify-center text-sm">Damage</p>
               <span className="text-md flex items-center justify-center text-center font-bold">
                 {item.damage}
@@ -27,7 +27,7 @@ export function WeaponInfo({ item, includeMod = true }: Props) {
             </div>
 
             {item.type !== 'melee' && (
-              <div className="flex w-full flex-col items-center justify-start text-on-surface">
+              <div className="flex w-full flex-col items-center justify-start text-on-background">
                 <p className="flex items-center justify-center text-sm">RPS</p>
                 <span className="text-md flex items-center justify-center text-center font-bold">
                   {item.rps || '-'}
@@ -36,7 +36,7 @@ export function WeaponInfo({ item, includeMod = true }: Props) {
             )}
 
             {item.type !== 'melee' && (
-              <div className="flex w-full flex-col items-center justify-start text-on-surface">
+              <div className="flex w-full flex-col items-center justify-start text-on-background">
                 <p className="flex items-center justify-center text-sm">
                   Magazine
                 </p>
@@ -47,7 +47,7 @@ export function WeaponInfo({ item, includeMod = true }: Props) {
             )}
           </div>
           {item.accuracy && item.accuracy >= 0 ? (
-            <div className="grid w-full grid-cols-2 gap-2 border border-transparent py-1 text-left text-sm text-on-surface">
+            <div className="grid w-full grid-cols-2 gap-2 border border-transparent py-1 text-left text-sm text-on-background">
               <p className="flex items-center justify-start text-xs">
                 Accuracy
               </p>
@@ -57,7 +57,7 @@ export function WeaponInfo({ item, includeMod = true }: Props) {
             </div>
           ) : null}
           {item.ideal && item.ideal >= 0 && (
-            <div className="grid w-full grid-cols-2 gap-2 border border-transparent py-1 text-left text-sm text-on-surface">
+            <div className="grid w-full grid-cols-2 gap-2 border border-transparent py-1 text-left text-sm text-on-background">
               <p className="flex items-center justify-start text-xs">
                 Ideal Range
               </p>
@@ -67,7 +67,7 @@ export function WeaponInfo({ item, includeMod = true }: Props) {
             </div>
           )}
           {item.falloff && item.falloff >= 0 ? (
-            <div className="grid w-full grid-cols-2 gap-2 border border-transparent py-1 text-left text-sm text-on-surface">
+            <div className="grid w-full grid-cols-2 gap-2 border border-transparent py-1 text-left text-sm text-on-background">
               <p className="flex items-center justify-start text-xs">
                 Falloff Range
               </p>
@@ -77,7 +77,7 @@ export function WeaponInfo({ item, includeMod = true }: Props) {
             </div>
           ) : null}
           {item.ammo && item.ammo >= 0 && (
-            <div className="grid w-full grid-cols-2 gap-2 border border-transparent  py-1 text-left text-sm text-on-surface">
+            <div className="grid w-full grid-cols-2 gap-2 border border-transparent  py-1 text-left text-sm text-on-background">
               <p className="flex items-center justify-start text-xs">
                 Max Ammo
               </p>
@@ -87,7 +87,7 @@ export function WeaponInfo({ item, includeMod = true }: Props) {
             </div>
           )}
           {item.crit >= 0 ? (
-            <div className="grid w-full grid-cols-2 gap-2 border border-transparent  py-1 text-left text-sm text-on-surface">
+            <div className="grid w-full grid-cols-2 gap-2 border border-transparent  py-1 text-left text-sm text-on-background">
               <p className="flex items-center justify-start text-xs">
                 Critical Hit Chance
               </p>
@@ -97,7 +97,7 @@ export function WeaponInfo({ item, includeMod = true }: Props) {
             </div>
           ) : null}
           {item.weakspot >= 0 ? (
-            <div className="grid w-full grid-cols-2 gap-2 border border-transparent  py-1 text-left text-sm text-on-surface">
+            <div className="grid w-full grid-cols-2 gap-2 border border-transparent  py-1 text-left text-sm text-on-background">
               <p className="flex items-center justify-start text-xs">
                 Weakspot Damage Bonus
               </p>
@@ -107,7 +107,7 @@ export function WeaponInfo({ item, includeMod = true }: Props) {
             </div>
           ) : null}
           {item.stagger >= 0 ? (
-            <div className="grid w-full grid-cols-2 gap-2 border border-transparent  py-1 text-left text-sm text-on-surface">
+            <div className="grid w-full grid-cols-2 gap-2 border border-transparent  py-1 text-left text-sm text-on-background">
               <p className="flex items-center justify-start text-xs">
                 Stagger Modifier
               </p>
@@ -117,7 +117,7 @@ export function WeaponInfo({ item, includeMod = true }: Props) {
             </div>
           ) : null}
           {item.linkedItems?.mod && includeMod && (
-            <div className="grid w-full grid-cols-2 gap-2 border border-transparent py-1 text-left text-sm text-on-surface">
+            <div className="grid w-full grid-cols-2 gap-2 border border-transparent py-1 text-left text-sm text-on-background">
               <p className="flex items-center justify-start text-xs">Mod</p>
               <Link
                 href={`/item-lookup?searchText=${item.linkedItems.mod.name}`}

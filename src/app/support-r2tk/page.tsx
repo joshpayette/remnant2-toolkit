@@ -5,12 +5,12 @@ import { LandingPageContainer } from '@/features/ui/LandingPageContainer'
 export default async function Page() {
   return (
     <LandingPageContainer
-      bgClass="bg-surface-container/30"
+      bgClass="bg-background-container/30"
       image="support"
       title="Support the Toolkit"
       description={
-        <div className="mt-6 text-lg leading-8 text-on-surface">
-          <p className="mt-6 text-lg leading-8 text-on-surface">
+        <div className="mt-6 text-lg leading-8 text-on-background">
+          <p className="mt-6 text-lg leading-8 text-on-background">
             {NAV_ITEMS.supportR2TK.description}
           </p>
         </div>

@@ -221,7 +221,7 @@ export function ItemTrackerFilters({}: Props) {
           </div>
           <Disclosure.Panel
             className={cn(
-              'mt-2 w-full border border-primary bg-surface-container p-4',
+              'mt-2 w-full border border-primary bg-background-container p-4',
               areAnyFiltersActive &&
                 'border-secondary shadow-xl shadow-secondary-container',
             )}

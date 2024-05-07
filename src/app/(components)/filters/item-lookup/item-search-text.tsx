@@ -77,7 +77,7 @@ export function ItemSearchText({
     >
       <Combobox.Label
         className={cn(
-          'block text-sm font-bold leading-6 text-on-surface',
+          'block text-sm font-bold leading-6 text-on-background',
           showLabel && 'sr-only',
         )}
       >
@@ -94,19 +94,19 @@ export function ItemSearchText({
         />
         <Combobox.Button className="absolute inset-y-0 right-0 flex items-center rounded-r-md px-2 focus:outline-none">
           <ChevronUpDownIcon
-            className="h-5 w-5 text-on-surface-variant"
+            className="h-5 w-5 text-on-background-variant"
             aria-hidden="true"
           />
         </Combobox.Button>
 
-        <Combobox.Options className="absolute z-20 mt-1 max-h-60 w-full overflow-auto rounded-md text-on-surface bg-background py-1 shadow-lg ring-1 ring-background ring-opacity-5 focus:outline-none sm:text-sm">
+        <Combobox.Options className="absolute z-20 mt-1 max-h-60 w-full overflow-auto rounded-md text-on-background bg-background py-1 shadow-lg ring-1 ring-background ring-opacity-5 focus:outline-none sm:text-sm">
           {value.length > 0 && (
             <Combobox.Option
               value={{ id: null, name: value }}
               className={({ active }) =>
                 cn(
                   'relative cursor-default select-none py-2 pl-3 pr-9',
-                  active ? 'bg-background text-on-background' : 'text-on-surface-variant',
+                  active ? 'bg-background text-on-background' : 'text-on-background-variant',
                 )
               }
             >
@@ -121,7 +121,7 @@ export function ItemSearchText({
               className={({ active }) =>
                 cn(
                   'relative cursor-default select-none py-2 pl-3 pr-9',
-                  active ? 'bg-secondary text-on-secondary' : 'text-on-surface-variant',
+                  active ? 'bg-secondary text-on-secondary' : 'text-on-background-variant',
                 )
               }
             >
@@ -140,7 +140,7 @@ export function ItemSearchText({
                     <span
                       className={cn(
                         'absolute inset-y-0 right-0 flex items-center pr-4',
-                        active ? 'text-on-surface' : 'text-on-surface-variant',
+                        active ? 'text-on-background' : 'text-on-background-variant',
                       )}
                     >
                       <CheckIcon className="h-5 w-5" aria-hidden="true" />
