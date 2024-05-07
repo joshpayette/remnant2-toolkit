@@ -22,7 +22,7 @@ export function WorldSaveCard({ saveItem }: Props) {
         width={200}
         height={200}
       />
-      <div className="flex h-full w-full flex-col items-center justify-between gap-y-2 bg-background-container py-2">
+      <div className="flex h-full w-full flex-col items-center justify-between gap-y-2 bg-on-primary/50 py-2">
         <div className="px-2">
           <h3 className="mb-2 text-center text-lg font-bold text-on-background">
             {saveItem.bossName}

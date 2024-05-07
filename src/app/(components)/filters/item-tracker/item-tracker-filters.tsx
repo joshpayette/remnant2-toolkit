@@ -223,7 +223,7 @@ export function ItemTrackerFilters({}: Props) {
             className={cn(
               'mt-2 w-full border border-primary bg-background-container p-4',
               areAnyFiltersActive &&
-                'border-secondary shadow-xl shadow-secondary-container',
+                'border-highlight shadow-xl shadow-highlight-container',
             )}
           >
             <BaseFieldset>

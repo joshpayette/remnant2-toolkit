@@ -247,7 +247,7 @@ export function ItemLookupFilters({}: Props) {
             className={cn(
               'mt-2 w-full border p-4 border-primary bg-background-container',
               areAnyFiltersActive &&
-                'border-secondary shadow-xl shadow-secondary',
+                'border-highlight shadow-xl shadow-highlight-container',
             )}
           >
             <BaseFieldset>

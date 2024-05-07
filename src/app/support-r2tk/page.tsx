@@ -5,7 +5,7 @@ import { LandingPageContainer } from '@/features/ui/LandingPageContainer'
 export default async function Page() {
   return (
     <LandingPageContainer
-      bgClass="bg-background-container/30"
+      bgClass="bg-background-container/60"
       image="support"
       title="Support the Toolkit"
       description={
