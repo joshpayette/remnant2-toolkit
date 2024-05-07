@@ -9,14 +9,15 @@ export const perkItems: PerkItem[] = [
     id: 's8eytq',
     dlc: 'base',
     tags: ['Weakspot Damage'],
-    description: `
-    Dealing 65 Base Ranged or Melee Weakspot Damage extends the duration of active HUNTER Skills by 2.5s. Can extend timer beyond its initial duration
-
-    Upgraded at Level 5
-    Dealing 60 Base Ranged or Melee Weakspot Damage extends the duration of active HUNTER Skills by 3s. Can extend timer beyond its initial duration
-
-    Upgraded at level 10
-    Dealing 55 Base Ranged or Melee Weakspot Damage extends the duration of active HUNTER Skills by 3.5s. Can extend timer beyond its initial duration`,
+    description:
+      'Level 1:\n' +
+      'Dealing 65 Base Ranged or Melee Weakspot Damage extends the duration of active Hunter Skills by 2.5s. Can extend timer beyond its initial duration.\n' +
+      '\n' +
+      'Level 5:\n' +
+      'Dealing 60 Base Ranged or Melee Weakspot Damage extends the duration of active Hunter Skills by 3s. Can extend timer beyond its initial duration.\n' +
+      '\n' +
+      'Level 10:\n' +
+      'Dealing 55 Base Ranged or Melee Weakspot Damage extends the duration of active Hunter Skills by 3.5s. Can extend timer beyond its initial duration.',
     wikiLinks: [`https://remnant.wiki/Dead_to_Rights`],
     linkedItems: {
       archetype: {
@@ -32,15 +33,10 @@ export const perkItems: PerkItem[] = [
     id: 'c4fx8u',
     dlc: 'base',
     tags: ['Ranged Damage', 'Weakspot Damage', 'Critical Chance'],
-    description: `
-    Unlocked at level 1
-    Gain 4% Ranged Damage and 1.5% Weakspot Damage. Damage increases with HUNTER Level
-
-  Upgrade Unlocked at level 5
-  Gain 24% Ranged Damage, 9% Weakspot Damage and 5% Ranged Critical Chance.
-
-  (Level 10: Gain 40% Ranged Damage and 15% Weakspot Damage)
-    `,
+    description:
+      'Gain 4% Ranged Damage and 1.5% Weakspot Damage.\n' +
+      '\n' +
+      'Increases with Hunter Level.',
     wikiLinks: [`https://remnant.wiki/Deadeye`],
     linkedItems: {
       archetype: {
@@ -56,13 +52,8 @@ export const perkItems: PerkItem[] = [
     id: 'oyjp3t',
     dlc: 'base',
     tags: ['Critical Hit', 'Weakspot Hit'],
-    description: `
-    Unlocked at level 2
-Kills due to Weakspot and Critical Hits increase Ammo drops by 25%
-
-Upgrade unlocked at level 7
-Kills due to Weakspot and Critical Hits increase Ammo drops by 50% and double the chance of Ammo drops.
-    `,
+    description:
+      'Kills due to Weakspot and Critical Hits increase Ammo drops by 25%.',
     wikiLinks: [`https://remnant.wiki/Return_to_Sender`],
     linkedItems: {
       archetype: {
@@ -78,13 +69,7 @@ Kills due to Weakspot and Critical Hits increase Ammo drops by 50% and double th
     id: '98yqyq',
     dlc: 'base',
     tags: ['Reload Speed', 'Movement Speed'],
-    description: `
-    Unlocked at level 3
-Firearms gain 15% Reload Speed after a Kill. Lasts 3s
-
-Upgrade unlocked at level 8
-Firearms gain 15% Reload Speed and 15% Increased Movement Speed after a Kill. Lasts 5s
-    `,
+    description: 'Firearms gain 15% Reload Speed after a Kill. Lasts 3s.',
     wikiLinks: [`https://remnant.wiki/Urgency`],
     linkedItems: {
       archetype: {
@@ -100,13 +85,8 @@ Firearms gain 15% Reload Speed and 15% Increased Movement Speed after a Kill. La
     dlc: 'base',
     type: 'relic',
     tags: ['Relic Use Speed'],
-    description: `
-    Unlocked at level 4
-Using a Relic extends the duration of any active HUNTER Skill by 5s. Effect degrades with each subsequent use.
-
-Upgrade unlocked at level 9
-Using a Relic extends the duration of any active HUNTER Skill by 10s. Effect degrades with each subsequent use. Weakspot Kills against MARKED enemies increase speed of next Relic Use within 15s by 5%. Stacks 10x.
-    `,
+    description:
+      'Using a Relic extends the duration of any active Hunter Skill by 5s. Effect degrades with each subsequent use.',
     wikiLinks: [`https://remnant.wiki/Intuition`],
     linkedItems: {
       archetype: {
@@ -121,17 +101,21 @@ Using a Relic extends the duration of any active HUNTER Skill by 10s. Effect deg
     id: 'd58t4k',
     dlc: 'base',
     type: 'prime',
-    description: `
-    When HANDLER is downed, their Companion will attempt to revive them at 50% Max Health. Can be used to revive allies with Command. Downed ally must have a Relic charge. 
-    Cooldown: 120s
-
-    Upgraded at Level 5
-    When HANDLER is downed, their Companion will attempt to revive them at 50% Max Health. Can be used to revive allies with Command. Downed ally must have a Relic charge.
-    Cooldown: 105s
-
-    Upgraded at level 10
-    When HANDLER is downed, their Companion will attempt to revive them at 50% Max Health. Can be used to revive allies with Command. Downed ally must have a Relic charge.
-    Cooldown: 90s`,
+    description:
+      'Base:\n' +
+      'When Handler is downed, Companion will attempt to revive them at 50% Max Health. Can be used to revive allies with Command. Downed ally must have a Relic charge.\n' +
+      '\n' +
+      'Cooldown: 120s.\n' +
+      '\n' +
+      'Level 5:\n' +
+      'When Handler is downed, Companion will attempt to revive them at 50% Max Health. Can be used to revive allies with Command. Downed ally must have a Relic charge.\n' +
+      '\n' +
+      'Cooldown: 105s.\n' +
+      '\n' +
+      'Level 10:\n' +
+      'When Handler is downed, Companion will attempt to revive them at 50% Max Health. Can be used to revive allies with Command. Downed ally must have a Relic charge.\n' +
+      '\n' +
+      'Cooldown: 90s.',
     wikiLinks: [`https://remnant.wiki/Bonded`],
     linkedItems: {
       archetype: {
@@ -147,16 +131,23 @@ Using a Relic extends the duration of any active HUNTER Skill by 10s. Effect deg
     id: '485uc9',
     dlc: 'base',
     tags: ['Ranged Damage', 'Skill Damage', 'Critical Chance'],
-    description: `
-    Gain 3% Ranged, Melee, and Skill Damage while Companion is within 40m [A] of the HANDLER. Damage increases with HANDLER Level.
-    
-    Upgrade Unlocked at level 5
-    Gain 18% Ranged, Melee, and Skill Damage and 5% Ranged, Melee, and Skill Critical Chance while Companion is active and within 40m of the Handler. Damage increases with HANDLER level.
-      
-    Upgrade Unlocked at level 10
-    Gain 30% Ranged, Melee, and Skill Damage and 5% Ranged, Melee, and Skill Critical Chance while Companion is active and within 40m of the Handler. Damage increases with HANDLER level.
-    `,
+    description:
+      'Level 1:\n' +
+      'Gain 3% Ranged, Melee, and Skill Damage while Companion is active and within 40m of the Handler.\n' +
+      '\n' +
+      'Damage increases with Handler Level.\n' +
+      '\n' +
+      'Level 6:\n' +
+      'Gain 18% Ranged, Melee, and Skill Damage and 5% Ranged, Melee, and Skill Critical Chance while Companion is active and within 40m of the Handler.\n' +
+      '\n' +
+      'Damage increases with Handler Level.\n' +
+      '\n' +
+      'Level 10:\n' +
+      'Gain 30% Ranged, Melee, and Skill Damage and 5% Ranged, Melee, and Skill Critical Chance while Companion is active and within 40m of the Handler.\n' +
+      '\n' +
+      'Damage increases with Handler Level.',
     wikiLinks: [`https://remnant.wiki/Pack_Hunter`],
+    externalTokens: [`Amplitude`],
     linkedItems: {
       archetype: {
         name: 'Handler',
@@ -171,12 +162,14 @@ Using a Relic extends the duration of any active HUNTER Skill by 10s. Effect deg
     id: 'z3sz58',
     dlc: 'base',
     tags: ['Movement Speed', 'Stamina'],
-    description: `
-    Increases Movement Speed by 10%. All allies within 10m [A] of the HANDLER gain the HANDLER's Movement Speed (if faster).
-
-    Upgrade unlocked at level 7
-    Increases Movement Speed by 10%. All allies within 10m of the HANDLER gain the HANDLER's Movement Speed (if faster). Reduces the Stamina Cost of actions for allies by 15%.`,
+    description:
+      'Level 2:\n' +
+      "Increases Movement Speed by 10%. All allies within 10m of the Handler gain the Handler's Movement Speed (if faster).\n" +
+      '\n' +
+      'Level 7:\n' +
+      "Increases Movement Speed by 10%. All allies within 10m of the Handler gain the Handler's Movement Speed (if faster). Reduces the Stamina Cost of actions for allies by 15%",
     wikiLinks: [`https://remnant.wiki/Spirit_of_the_Wolf`],
+    externalTokens: [`Amplitude`],
     linkedItems: {
       archetype: {
         name: 'Handler',
@@ -191,11 +184,12 @@ Using a Relic extends the duration of any active HUNTER Skill by 10s. Effect deg
     id: 'y36q6p',
     dlc: 'base',
     tags: ['Damage Reduction'],
-    description: `
-    HANDLER and Companion gain 15% increased Revive Speed.
-
-    Upgrade unlocked at level 8
-    HANDLER and Companion gain 30% increased Revive Speed. While HANDLER or Companion are reviving, they receive 50% less damage.`,
+    description:
+      'Level 3:\n' +
+      'Handler and Companion gain 15% increased Revive Speed.\n' +
+      '\n' +
+      'Level 8:\n' +
+      'Handler and Companion gain 15% increased Revive Speed. While Handler or Companion are reviving, they receive 50% less damage.',
     wikiLinks: [`https://remnant.wiki/Teamwork`],
     linkedItems: {
       archetype: {
@@ -211,11 +205,12 @@ Using a Relic extends the duration of any active HUNTER Skill by 10s. Effect deg
     id: '8vh7yq',
     dlc: 'base',
     tags: ['Damage Reduction', 'All Damage'],
-    description: `
-    Using a Relic fully restores the Companion's health.
-
-    Upgrade unlocked at level 9
-    Using a Relic fully restores the Companion's health and grants them 25% Damage and 35% Damage Resistance for 15s.`,
+    description:
+      'Level 4:\n' +
+      "Using a Relic fully restores the Companion's health.\n" +
+      '\n' +
+      'Level 9:\n' +
+      "Using a Relic fully restores the Companion's health and grants them 25% Damage and 35% Damage Resistance for 15s.",
     wikiLinks: [`https://remnant.wiki/Best_Friend`],
     linkedItems: {
       archetype: {
@@ -230,17 +225,21 @@ Using a Relic extends the duration of any active HUNTER Skill by 10s. Effect deg
     type: 'prime',
     id: 'io3m7t',
     dlc: 'base',
-    description: `
-    After restoring 350 Total Health to allies, regain a spent Relic charge. 
-    Resting or Respawning at a Worldstone resets healing accumulation. Each additional player increases the healing requirement by 50%.
-
-    Upgraded at Level 5
-    After restoring 300 Total Health to allies, regain a spent Relic charge.
-    Resting or Respawning at a Worldstone resets healing accumulation. Each additional player increases the healing requirement by 50%.
-
-    Upgraded at level 10
-    After restoring 250 Total Health to allies, regain a spent Relic charge.
-    Resting or Respawning at a Worldstone resets healing accumulation. Each additional player increases the healing requirement by 50%.`,
+    description:
+      'Base:\n' +
+      'After restoring 350 Total Health to allies, regain a spent Relic charge.\n' +
+      '\n' +
+      'Resting or Respawning at a Worldstone resets healing accumulation. Each additional player increases the healing requirement by 50%.\n' +
+      '\n' +
+      'Level 5:\n' +
+      'After restoring 300 Total Health to allies, regain a spent Relic charge.\n' +
+      '\n' +
+      'Resting or Respawning at a Worldstone resets healing accumulation. Each additional player increases the healing requirement by 50%.\n' +
+      '\n' +
+      'Level 10:\n' +
+      'After restoring 250 Total Health to allies, regain a spent Relic charge.\n' +
+      '\n' +
+      'Resting or Respawning at a Worldstone resets healing accumulation. Each additional player increases the healing requirement by 50%.',
     wikiLinks: [`https://remnant.wiki/Regenerator`],
     linkedItems: {
       archetype: {
@@ -256,13 +255,8 @@ Using a Relic extends the duration of any active HUNTER Skill by 10s. Effect deg
     id: 'errks7',
     dlc: 'base',
     tags: ['All Damage', 'Critical Chance'],
-    description: `
-    Grants a 2.5% increase to All Damage. Damage increases with MEDIC Level.
-
-    Upgrade Unlocked at level 5
-    Grants a 18% increase to All Damage and 5% Critical Chance
-    
-    (Level 10: Grants a 25% increase to All Damage and 5% Critical Chance)`,
+    description:
+      'Grants a 2.5% increase to All Damage.\n\nIncreases with Medic Level.',
     wikiLinks: [`https://remnant.wiki/Invigorated`],
     linkedItems: {
       archetype: {
@@ -277,11 +271,12 @@ Using a Relic extends the duration of any active HUNTER Skill by 10s. Effect deg
     type: 'team',
     id: 't2fc7j',
     dlc: 'base',
-    description: `
-    Increases Relic Efficacy by 15% and heals nearby allies for 30% of the total healing value.
-
-    Upgrade unlocked at level 7
-    Increases Relic Efficacy by 15% and heals nearby allies for 30% of the total healing value, increasing to 60% for any below 35% max health.`,
+    description:
+      'Level 2:\n' +
+      'Increases Relic Efficacy by 15% and heals nearby allies for 30% of the total healing value.\n' +
+      '\n' +
+      'Level 7:\n' +
+      'Increases Relic Efficacy by 15% and heals nearby allies for 30% of the total healing value, increasing to 60% for any ally below 35% max health.',
     wikiLinks: [`https://remnant.wiki/Benevolence`],
     linkedItems: {
       archetype: {
@@ -297,11 +292,8 @@ Using a Relic extends the duration of any active HUNTER Skill by 10s. Effect deg
     id: 'z2xo76',
     dlc: 'base',
     tags: ['Grey Health'],
-    description: `
-Increases the hits MEDIC can take before losing Grey Health by 1
-
-Upgrade unlocked at level 8
-Increases the hits MEDIC can take before losing Grey Health by 2`,
+    description:
+      'Increases the hits Medic can take before losing Grey Health by 1.',
     wikiLinks: [`https://remnant.wiki/Backbone`],
     linkedItems: {
       archetype: {
@@ -317,11 +309,12 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     id: 'bp9pr7',
     dlc: 'base',
     tags: ['Relic Use Speed', 'Stagger'],
-    description: `
-    Increases Relic Use Speed by 20%
-
-    Upgrade unlocked at level 9
-    Increases Relic Use Speed by 20%. Relic Use gains -1 Stagger.`,
+    description:
+      'Level 4:\n' +
+      'Increases Relic Use Speed by 20%.\n' +
+      '\n' +
+      'Level 9:\n' +
+      'Increases Relic Use Speed by 20%. Relic Use gains -1 Stagger.',
     wikiLinks: [`https://remnant.wiki/Benefactor`],
     linkedItems: {
       archetype: {
@@ -337,14 +330,15 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     id: 'm6pvhd',
     dlc: 'base',
     tags: ['Reload Speed', 'Ammo Reserves'],
-    description: `
-    When activating any GUNSLINGER Skill, both weapons are instantly reloaded, and gain infinite reserve ammo on all weapons for 5s.
-
-    Upgraded at Level 5
-    When activating any GUNSLINGER Skill, both weapons are instantly reloaded, and gain infinite reserve ammo on all weapons for 6.5s
-    
-    Upgraded at level 10
-    When activating any GUNSLINGER Skill, both weapons are instantly reloaded, and gain infinite reserve ammo on all weapons for 8s.`,
+    description:
+      'Base:\n' +
+      'When activating any Gunslinger Skill, both weapons are instantly reloaded, and gain infinite reserve ammo on all weapons for 5s .\n' +
+      '\n' +
+      'Level 5:\n' +
+      'When activating any Gunslinger Skill, both weapons are instantly reloaded, and gain infinite reserve ammo on all weapons for 6.5s .\n' +
+      '\n' +
+      'Level 10:\n' +
+      'When activating any Gunslinger Skill, both weapons are instantly reloaded, and gain infinite reserve ammo on all weapons for 8s .',
     wikiLinks: [`https://remnant.wiki/Loaded`],
     linkedItems: {
       archetype: {
@@ -360,13 +354,21 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     id: '7mbvc3',
     dlc: 'base',
     tags: ['Fire Rate', 'Ranged Damage', 'Critical Chance'],
-    description: `
-    Gain 1.5% Fire Rate and 2.5% Ranged Damage. Fire Rate and Damage increases with GUNSLINGER Level.
-    
-    Upgrade Unlocked at level 5
-    Gain 15% Fire Rate and 25% Ranged Damage and 5% Crit Chance for all firearms.
-  
-   (Level 10: Gain 15% Fire Rate, 25% Ranged Damage and 5% Crit Chance for all firearms.)`,
+    description:
+      'Base:\n' +
+      'Gain 1.5% Fire Rate and 2.5% Ranged Damage.\n' +
+      '\n' +
+      'Increases with Gunslinger Level.\n' +
+      '\n' +
+      'Level 6:\n' +
+      'Gain 9% Fire Rate, 15% Ranged Damage, and 5% Crit Chance for all firearms.\n' +
+      '\n' +
+      'Fire Rate and Damage increases with Gunslinger Level.\n' +
+      '\n' +
+      'Level 10:\n' +
+      'Gain 15% Fire Rate, 25% Ranged Damage, and 5% Crit Chance for all firearms.\n' +
+      '\n' +
+      'Fire Rate and Damage increases with Gunslinger Level.',
     wikiLinks: [`https://remnant.wiki/Swift_Shot`],
     linkedItems: {
       archetype: {
@@ -382,11 +384,8 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     id: 'ajobx6',
     dlc: 'base',
     tags: ['Ammo Reserves'],
-    description: `
-    Ammo pickups award 20% additional Ammo per player with the bonus split equally among teammates.
-
-    Upgrade unlocked at level 7
-    Ammo pickups award 30% additional Ammo per player with the bonus split equally among teammates. Causes Ammo Box to drop additional ammo on the ground.`,
+    description:
+      'Ammo pickups award 20% additional Ammo per player with the bonus split equally among teammates.',
     wikiLinks: [`https://remnant.wiki/Posse_Up`],
     linkedItems: {
       archetype: {
@@ -402,11 +401,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     id: '496x8y',
     dlc: 'base',
     tags: ['Reload Speed'],
-    description: `
-    Firearms gain 10% Reload Speed
-
-    Upgrade unlocked at level 8
-    Firearms gain 10% Reload Speed. Bonus is DOUBLED if magazine is empty`,
+    description: 'Firearms gain 10% Reload Speed.',
     wikiLinks: [`https://remnant.wiki/Quick_Hands`],
     linkedItems: {
       archetype: {
@@ -422,11 +417,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     id: 'fspt8u',
     dlc: 'base',
     tags: ['Reload Speed', 'Ranged Damage'],
-    description: `
-    Using a Relic reloads equipped Firearm.
-
-    Upgrade unlocked at level 9
-    Using a Relic reloads equipped Firearm and increases Ranged Damage by 15% for 10s.`,
+    description: 'Using a Relic reloads equipped Firearm.',
     wikiLinks: [`https://remnant.wiki/Sleight_of_Hand`],
     linkedItems: {
       archetype: {
@@ -442,17 +433,21 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     id: 'je27uv',
     dlc: 'base',
     tags: ['Heal'],
-    description: `
-    When receiving fatal damage, the CHALLENGER becomes invulnerable for 3s and regenerates 50% of Max Health.
-      While on cooldown, the Challenger gains 1 Stack of BULWARK. Can only happen once every 10 minutes. Resets at Wordstone or on death.
-
-    Upgraded at Level 5
-    When receiving fatal damage, the CHALLENGER becomes invulnerable for 2.5s and regenerates 75% of Max Health.
-    While on cooldown, the Challenger gains 1 Stack of BULWARK. Can only happen once every 10 minutes. Resets at Wordstone or on death.
-
-    Upgraded at level 10
-    When receiving fatal damage, the CHALLENGER becomes invulnerable for 3s and regenerates 100% of Max Health.
-    While on cooldown, the Challenger gains 1 Stack of BULWARK. Can only happen once every 10 minutes. Resets at Wordstone or on death.`,
+    description:
+      'Base:\n' +
+      'When receiving fatal damage, the Challenger becomes invulnerable for 3s and regenerates 50% of Max Health.\n' +
+      '\n' +
+      'While on cooldown, the Challenger gains 1 Stack of BULWARK. Can only happen once every 10 minutes. Resets at Worldstone or on death.\n' +
+      '\n' +
+      'Level 5:\n' +
+      'When receiving fatal damage, the Challenger becomes invulnerable for 3s and regenerates 75% of Max Health.\n' +
+      '\n' +
+      'While on cooldown, the Challenger gains 1 Stack of BULWARK. Can only happen once every 10 minutes. Resets at Worldstone or on death.\n' +
+      '\n' +
+      'Level 10:\n' +
+      'When receiving fatal damage, the Challenger becomes invulnerable for 3s and regenerates 100% of Max Health.\n' +
+      '\n' +
+      'While on cooldown, the Challenger gains 1 Stack of BULWARK. Can only happen once every 10 minutes. Resets at Worldstone or on death.',
     wikiLinks: [`https://remnant.wiki/Die_Hard`],
     linkedItems: {
       archetype: {
@@ -468,13 +463,19 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     id: 'f4jx9k',
     dlc: 'base',
     tags: ['All Damage', 'Critical Chance'],
-    description: `
-    Grants a 3.5% increase to All Damage to enemies within 10m. Damage bonus tapers off until 20m. Increases with CHALLENGER Level. 
-    
-    Upgrade Unlocked at level 5
-    Grants a 21% increase to All Damage to enemies within 10m. Damage bonus tapers off until 20m. Critical Chance is increased by up to 5%.
-          
-    (Level 10: Grants a 35% increase to All Damage to enemies within 10m. Damage bonus tapers off until 20m. Critical Chance is increased by up to 5%.)`,
+    description:
+      'Level 1:\n' +
+      'Grants a 3.5% increase to All Damage to enemies within 10m. Damage bonus tapers off until 20m.\n' +
+      '\n' +
+      'Increases with Challenger Level.\n' +
+      '\n' +
+      'Level 6:\n' +
+      'Grants a 21% increase to All Damage to enemies within 10m. Damage bonus tapers off until 20m. Critical Chance is increased by 5%.\n' +
+      '\n' +
+      'Damage increases with Challenger Level.\n' +
+      '\n' +
+      'Level 10:\n' +
+      'Grants a 35% increase to All Damage to enemies within 10m. Damage bonus tapers off until 20m. Critical Chance is increased by 5%.',
     wikiLinks: [`https://remnant.wiki/Close_Quarters`],
     linkedItems: {
       archetype: {
@@ -490,12 +491,10 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     id: 'c92847',
     dlc: 'base',
     tags: ['Damage Reduction'],
-    description: `
-    After activating a CHALLENGER Skill, enemies within 10m deal 10% less damage for 15s. 
-
-    Upgrade unlocked at level 7
-    After activating a CHALLENGER Skill, enemies within 10m [A] deal 10% less damage for 15s, with an additional 2.5% damage reduction per enemy affected. (Max 10%)`,
+    description:
+      'After activating a Challenger Skill, enemies within 15m deal 10% less damage for 15s.',
     wikiLinks: [`https://remnant.wiki/Intimidating_Presence`],
+    externalTokens: [`Amplitude`],
     linkedItems: {
       archetype: {
         name: 'Challenger',
@@ -510,11 +509,8 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     id: '8p55rw',
     dlc: 'base',
     tags: ['Stamina', 'Encumbrance'],
-    description: `
-    The Stamina Cost increases for each weight bracket is reduced by 50%.
-
-    Upgrade unlocked at level 8
-    Both the Stamina cost increase for each weight bracket and Stamina Regen Delay are reduced by 50%.`,
+    description:
+      'The Stamina Cost increase for each weight bracket is reduced by 50%.',
     wikiLinks: [`https://remnant.wiki/Powerlifter`],
     linkedItems: {
       archetype: {
@@ -530,11 +526,12 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     id: '7dvm5a',
     dlc: 'base',
     tags: ['Damage Reduction', 'All Damage'],
-    description: `
-    Using a Relic within 10m of an enemy grants 2 stacks of BULWARK for 10s.
-
-    Upgrade unlocked at level 9
-    Using a Relic within 10m of an enemy grants 2 stacks of BULWARK and 10% Increased Damage for 10s.`,
+    description:
+      'Level 4:\n' +
+      'Using a Relic within 10m of an enemy grants 2 stacks of Bulwark for 10s.\n' +
+      '\n' +
+      'Level 9:\n' +
+      'Using a Relic within 10m of an enemy grants 2 stacks of Bulwark and 10% Increased Damage for 10s.',
     wikiLinks: [`https://remnant.wiki/Face_of_Danger`],
     linkedItems: {
       archetype: {
@@ -550,14 +547,15 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     id: 'rx6e2w',
     dlc: 'base',
     tags: ['Concoction'],
-    description: `
-    ALCHEMIST can have 1 additional Concotion buff active.
-
-    Upgraded at Level 5
-    ALCHEMIST can have 2 additional Concotions buff active.
-
-    Upgraded at level 10
-    ALCHEMIST can have 3 additional Concoctions Buffs active.`,
+    description:
+      'Base:\n' +
+      'Alchemist can have 1 additional Concoction buff active.\n' +
+      '\n' +
+      'Level 5:\n' +
+      'Alchemist can have 2 additional Concoction buffs active.\n' +
+      '\n' +
+      'Level 10:\n' +
+      'Alchemist can have 3 additional Concoction buffs active.',
     wikiLinks: [`https://remnant.wiki/Spirited`],
     linkedItems: {
       archetype: {
@@ -573,13 +571,21 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     id: '5exhee',
     dlc: 'base',
     tags: ['All Damage', 'Critical Chance'],
-    description: `Unlocked at level 1
-    Gain 2.5%  increase to All Damage.
-  
-    Increases with ALCHEMIST Level.
-
-    Upgrade Unlocked at level 5
-    Grants a 25% increase to All Damage and 5% Critical Chance`,
+    description:
+      'Level 1:\n' +
+      'Grant a 2.5% increase to All Damage.\n' +
+      '\n' +
+      'Damage increasees with Alchemist Level.\n' +
+      '\n' +
+      'Level 6:\n' +
+      'Grant a 15% increase to All Damage and 5% Critical Chance.\n' +
+      '\n' +
+      'Damage increasees with Alchemist Level.\n' +
+      '\n' +
+      'Level 10:\n' +
+      'Grant a 25% increase to All Damage and 5% Critical Chance.\n' +
+      '\n' +
+      'Damage increasees with Alchemist Level.',
     wikiLinks: [`https://remnant.wiki/Liquid_Courage`],
     linkedItems: {
       archetype: {
@@ -595,11 +601,12 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     id: '49i5jm',
     dlc: 'base',
     tags: ['Damage Reduction'],
-    description: `
-    Curative effects apply to all allies within 15m and grant 15 additional Resistance.
-
-    Upgrade unlocked at level 7
-    Allies affected by Panacea gain +10% Status and Blight Resistance.`,
+    description:
+      'Level 2:\n' +
+      'Curative effects apply to all allies within 15m, and grant 15 additional Resistance.\n' +
+      '\n' +
+      'Level 7:\n' +
+      'Curative effects apply to all allies within 15m, and grant 15 additional Resistance. Allies affected by Panacea gain 10 Status and Blight Resistance.',
     wikiLinks: [`https://remnant.wiki/Panacea`],
     linkedItems: {
       archetype: {
@@ -620,13 +627,13 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     id: '3a9dd2',
     dlc: 'base',
     tags: ['Ammo Reserves'],
-    description: `
-    Picking up Scrap has a 15% chance to also award Ammo to the ALCHEMIST.
-
-    Upgrade unlocked at level 8
-    Picking up Scrap or Metals also has a 15% chance to award Ammo to the ALCHEMIST
-    `,
-    wikiLinks: [`https://remnant.wiki/Gold_to_Lead`],
+    description:
+      'Level 3:\n' +
+      'Picking up Scrap has a 15% chance to also award Ammo to the Alchemist.\n' +
+      '\n' +
+      'Level 8:\n' +
+      'Picking up Scrap or Metals has a 15% chance to award Ammo to the Alchemist.',
+    wikiLinks: [`https://remnant.wiki/Gold_To_Lead`],
     linkedItems: {
       archetype: {
         name: 'Alchemist',
@@ -640,11 +647,12 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     type: 'relic',
     id: 'cxnnz9',
     dlc: 'base',
-    description: `
-    Using a Relic applies a random buff on the ALCHEMIST for 30s. Cannot be overridden.                 
-
-    Upgrade unlocked at level 9
-    Using a Relic applies a random buff to the ALCHEMIST and allies within 20m for 60s. Cannot be overridden`,
+    description:
+      'Level 4:\n' +
+      'Using a Relic applies a random buff on the Alchemist for 30s. Cannot be overriden.\n' +
+      '\n' +
+      'Level 9:\n' +
+      'Using a Relic applies a random buff on the Alchemist and all allies within 20m for 60s. Cannot be overriden.',
     wikiLinks: [`https://remnant.wiki/Experimentalist`],
     linkedItems: {
       archetype: {
@@ -660,14 +668,15 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     id: 'dh2wih',
     dlc: 'base',
     tags: ['Mod Power'],
-    description: `
-    Automatically generate 15 Mod Power per second.
-
-    Upgraded at Level 5
-    Upgrade: Automatically generate 22.5 Mod Power per second. 
-
-    Upgraded at level 10
-    Upgrade: Automatically generate 30 Mod Power per second.`,
+    description:
+      'Base:\n' +
+      'Automatically generate 5 Mod Power per second. Casting a Mod doubles this value for 10s.\n' +
+      '\n' +
+      'Level 5:\n' +
+      'Automatically generate 10 Mod Power per second. Casting a Mod doubles this value for 10s.\n' +
+      '\n' +
+      'Level 10:\n' +
+      'Automatically generate 15 Mod Power per second. Casting a Mod doubles this value for 10s.',
     wikiLinks: [`https://remnant.wiki/Tempest`],
     linkedItems: {
       archetype: {
@@ -683,14 +692,21 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     id: 'yro37y',
     dlc: 'base',
     tags: ['Mod Damage', 'Critical Chance'],
-    description: `
-    Increases Mod Damage by +5%.
-    Increases with ARCHON Level.
-    
-    Upgrade Unlocked at level 5
-    Upgrade: Increases Mod Damage by +30% and grants +10% Mod Critical Chance.
-    
-    Damage increases with ARCHON Level.`,
+    description:
+      'Level 1:\n' +
+      'Increases Mod Damage by 5%.\n' +
+      '\n' +
+      'Increases with Archon Level.\n' +
+      '\n' +
+      'Level 5:\n' +
+      'Increases Mod Damage by 25% and grants 10% Mod Critical Chance.\n' +
+      '\n' +
+      'Increases with Archon Level.\n' +
+      '\n' +
+      'Level 10:\n' +
+      'Increases Mod Damage by 50% and grants 10% Mod Critical Chance.\n' +
+      '\n' +
+      'Increases with Archon Level.',
     wikiLinks: [`https://remnant.wiki/Amplify`],
     linkedItems: {
       archetype: {
@@ -706,11 +722,8 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     id: '7ay3kh',
     dlc: 'base',
     tags: ['Mod Power'],
-    description: `
-    After casting a Mod, 5% of the Mod Power spent will be regenerated by all allies over 10s. 
-
-    Upgrade unlocked at level 7
-    Upgrade: While Power Creep is active. allies will also gain 5% Mod Power Generation.`,
+    description:
+      'After casting a Mod, 5% of the Mod Power spent will be regenerated by all allies over 10s.',
     wikiLinks: [`https://remnant.wiki/Power_Creep`],
     linkedItems: {
       archetype: {
@@ -726,11 +739,12 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     id: '5fz7xr',
     dlc: 'base',
     tags: ['Mod Power'],
-    description: `
-    Reduces the Mod Power requirement for all Mods by 5%.
-
-    Upgrade unlocked at level 8
-    Reduces the Mod Power requirement per charge by 10%`,
+    description:
+      'Level 3:\n' +
+      'Reduces Mod Power requirement per charge by 5%\n' +
+      '\n' +
+      'Level 8:\n' +
+      'Reduces Mod Power requirement per charge by 10%.',
     wikiLinks: [`https://remnant.wiki/Spirit_Within`],
     linkedItems: {
       archetype: {
@@ -746,11 +760,12 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     id: 'h42e2n',
     dlc: 'base',
     tags: ['Mod Power'],
-    description: `
-    Using a Relic grants 100 Mod Power for both equipped Mods.
-
-    Upgrade unlocked at level 9
-    Upgrade: Using a Relic grants 100 Mod Power for both equipped Mods, and an additional 100 to current Mod.`,
+    description:
+      'Level 4:\n' +
+      'Using a Relic grants 100 Mod Power for both equipped Mods.\n' +
+      '\n' +
+      'Level 9:\n' +
+      'Using a Relic grants 100 Mod Power for both equipped Mods, and an additional 100 to current Mod.',
     wikiLinks: [`https://remnant.wiki/Power_Leak`],
     linkedItems: {
       archetype: {
@@ -765,20 +780,21 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     type: 'prime',
     id: '98qnpc',
     dlc: 'base',
-    description: `
-    Holding the SKILL button will Overclock a Carried or Deployed Heavy Weapon. Overclocking grants infinite Ammo, increased Fire Rate, and a 25% damage increase for 15s.
-    
-    Cooldown: 60s
-
-    Upgraded at Level 5
-    Holding the SKILL button will Overclock a Carried or Deployed Heavy Weapon. Overclocking grants infinite Ammo, increased Fire Rate, and a 25% damage increase for 20s.
-    
-    Cooldown: 60s
-
-    Upgraded at level 10
-    Holding the SKILL button will Overclock a Carried or Deployed Heavy Weapon. Overclocking grants infinite Ammo, increased Fire Rate, and a 25% damage increase for 25s
-    
-    Cooldown: 60s`,
+    description:
+      'Base:\n' +
+      'Holding the SKILL button will Overclock a Carried or Deployed Heavy Weapon. Overclocking grants Infinite Ammo, Increased Fire Rate, and a 25% Damage increase for 15s.\n' +
+      '\n' +
+      'Cooldown: 60s\n' +
+      '\n' +
+      'Level 5:\n' +
+      'Holding the SKILL button will Overclock a Carried or Deployed Heavy Weapon. Overclocking grants Infinite Ammo, Increased Fire Rate, and a 25% Damage increase for 20s.\n' +
+      '\n' +
+      'Cooldown: 60s\n' +
+      '\n' +
+      'Level 10:\n' +
+      'Holding the SKILL button will Overclock a Carried or Deployed Heavy Weapon. Overclocking grants Infinite Ammo, Increased Fire Rate, and a 25% Damage increase for 25s.\n' +
+      '\n' +
+      'Cooldown: 60s',
     wikiLinks: [`https://remnant.wiki/High_Tech`],
     linkedItems: {
       archetype: {
@@ -794,18 +810,21 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     id: '2hcif5',
     dlc: 'base',
     tags: ['Skill Damage', 'Critical Chance'],
-    description: `
-    Increases Skill Damage by 5% and Ranged Damage by 2.5%.
-    Heavy Weapons gain 5% Ammo Capacity, 2.5% Max Health, and 2.5% Weakspot Damage.
-
-    Unlocked at level 5
-    Increases Skill Damage by 25% and Ranged Damage by 12.5%, and grants 5% Ranged and Skill Critical Chance
-    Heavy Weapons gain 25% Ammo Capacity, 12% Max Health, and 25% Weakspot Damage.
-    
-    Unlocked at level 10
-    Increases Skill Damage by 50% and Ranged Damage by 25%, and grants 5% Ranged and Skill Critical Chance.
-    Heavy Weapons gain 50% Ammo Capacity, 25% Max Health, and 25% Weakspot Damage.
-    `,
+    description:
+      'Level 1:\n' +
+      'Increases Skill Damage by 5% and Ranged Damage by 2.5%.\n' +
+      '\n' +
+      'Heavy Weapons gain 5% Ammo Capacity, 2.5% Max Health, and 2.5% Weakspot Damage.\n' +
+      '\n' +
+      'Level 6:\n' +
+      'Increases Skill Damage by 25% and Ranged Damage by 12.5%, and grants 5% Skill and Ranged Critical Chance.\n' +
+      '\n' +
+      'Heavy Weapons gain 25% Ammo Capacity, 12.5% Max Health, and 12.5% Weakspot Damage.\n' +
+      '\n' +
+      'Level 10:\n' +
+      'Increases Skill Damage by 50% and Ranged Damage by 25%, and grants 5% Skill and Ranged Critical Chance.\n' +
+      '\n' +
+      'Heavy Weapons gain 50% Ammo Capacity, 25% Max Health, and 25% Weakspot Damage.',
 
     wikiLinks: [`https://remnant.wiki/Metalworker`],
     linkedItems: {
@@ -822,11 +841,13 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     id: 'w6v2o6',
     dlc: 'base',
     tags: ['Damage Reduction', 'Ammo Reserves'],
-    description: `
-    Heavy Weapons grant 15% Damage Reduction to all allies within 2.5m.
-    
-    Upgrade unlocked at level 7
-    Heavy Weapons grant 15% Damage Reduction and gradually restore Ammo to allies within 2.5m. [A]`,
+    description:
+      'Level 2:\n' +
+      'Heavy Weapons grant 15% Damage Reduction to all allies within 2.5m.\n' +
+      '\n' +
+      'Level 7:\n' +
+      'Heavy Weapons grant 15% Damage Reduction and gradually restore Ammo to all allies within 2.5m.',
+    externalTokens: [`Amplitude`],
     wikiLinks: [`https://remnant.wiki/Magnetic_Field`],
     linkedItems: {
       archetype: {
@@ -842,11 +863,12 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     id: 'htf7h4',
     dlc: 'base',
     tags: ['Movement Speed'],
-    description: `
-    Movement Speed while Carrying a Heavy Weapon is increased by 35%.
-
-    Upgrade unlocked at level 8
-    While Carrying a Heavy Weapon, Movement Speed is increased by 35% and both Evade Speed and Evade Distance are increased by 25%`,
+    description:
+      'Level 3:\n' +
+      'Movement Speed while Carrying a Heavy Weapon is increased by 35%.\n' +
+      '\n' +
+      'Level 8:\n' +
+      'While Carrying a Heavy Weapon, Movement Speed is increased by 35%, and both Evade Speed and Evade Distance are increased by 25%.',
     wikiLinks: [`https://remnant.wiki/Heavy_Mobility`],
     linkedItems: {
       archetype: {
@@ -861,11 +883,12 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     type: 'relic',
     id: '2k4yzk',
     dlc: 'base',
-    description: `
-    Using a Relic refills 15% of Heavy Weapon Ammo. Bonus is doubled when Heavy Weapon is stowed. If the Stowed Heavy Weapon is overfilled, the ENGINEER will drop additional Ammo based on the surplus.
-    
-    Upgrade unlocked at level 9
-    Using a Relic refills 15% of Heavy Weapon Ammo. Bonus is doubled when Heavy Weapon is stowed`,
+    description:
+      'Level 4:\n' +
+      'Using a Relic refills 15% of Heavy Weapon Ammo. Bonus is doubled when Heavy Weapon is stowed.\n' +
+      '\n' +
+      'Level 9:\n' +
+      'Using a Relic refills 15% of Heavy Weapon ammo. Bonus is doubled when Heavy Weapon is stowed. If the Stowed Heavy Weapon is overfilled, the Engineer will drop additional Ammo based on the surplus.',
     wikiLinks: [`https://remnant.wiki/Surplus`],
     linkedItems: {
       archetype: {
@@ -880,14 +903,8 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     type: 'prime',
     id: '82y94m',
     dlc: 'base',
-    description: `
-    Grants a 10% chance to spawn additional items and rarer drops when defeating stronger enemies.
-
-    Upgraded at Level 5
-    Grants a 20% chance to spawn additional items and rarer drops when defeating stronger enemies.
-
-    Upgraded at level 10
-    Grants a 35% chance to spawn additional items and rarer drops when defeating stronger enemies.`,
+    description:
+      'Grants a 10% chance to spawn additional items and rarer drops when defeating stronger enemies.',
     wikiLinks: [`https://remnant.wiki/Lucky`],
     linkedItems: {
       archetype: {
@@ -903,13 +920,10 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     id: 'y6x5dr',
     dlc: 'base',
     tags: ['All Damage', 'Critical Chance'],
-    description: `
-    Pickups increase All Damage Dealt by 0.5% per stack for 20s. Additional Stacks increase Duration, up to 60s. Max 5 Stacks. Damage increases with EXPLORER Level
-         
-    Upgraded at level 5
-    Scavenger also increase All Crit Chance by 5% while active.
-        
-    (Level 10: Pickups increase All Damage Dealt by 5% per stack for 20s. Scavenger also increase All Crit Chance by 5% while active. Additional Stacks increase Duration, up to 60s. Max 5 Stacks.)`,
+    description:
+      'Pickups increase All Damage dealt by 0.5% per stack for 20s. Additional Stacks increase Duration up to 60s. Max 5 stacks.\n' +
+      '\n' +
+      'Effect increase with Explorer level.',
     wikiLinks: [`https://remnant.wiki/Scavenger`],
     linkedItems: {
       archetype: {
@@ -924,11 +938,8 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     type: 'team',
     id: 'w838yg',
     dlc: 'base',
-    description: `
-    Increase Ammo, Currency, and Metal Drop Rate Chance for entire party by 10%.
-    
-    Upgrade unlocked at level 7
-    Prospector increases the chance of Consumables being rewarded from Chests`,
+    description:
+      'Increase Ammo, Currency, and Metal Drop Rate Chance for entire party by 10%.',
     wikiLinks: [`https://remnant.wiki/Metal_Detector`],
     linkedItems: {
       archetype: {
@@ -943,11 +954,8 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     type: 'utility',
     id: 'o5q3p9',
     dlc: 'base',
-    description: `
-    Relic Fragments discovered by EXPLORER drop at a higher quality.
-
-    Upgrade unlocked at level 8
-    Relic Fragments discovered by the Explorer drop at a higher quality. When picking up a Fragment, the Explorer has a 5% chance of picking up a second one of the same type & quality.`,
+    description:
+      'Relic Fragments discovered by the Explorer drop at a higher quality.',
     wikiLinks: [`https://remnant.wiki/Prospector`],
     linkedItems: {
       archetype: {
@@ -962,11 +970,8 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     type: 'relic',
     id: 'rvb63g',
     dlc: 'base',
-    description: `
-    Using a Relic instantly fills Scavenger Stacks and prevents Stack Decay for 15s.
-    
-    Upgrade unlocked at level 9
-    Using a Relic instantly fills Scavenger Stacks, grants +1 Stack, and prevents Stack Decay for 30s.`,
+    description:
+      'Using a Relic instantly fills Scavenger Stacks and prevents Stack Decay for 15s.',
     wikiLinks: [`https://remnant.wiki/Self_Discovery`],
     linkedItems: {
       archetype: {
@@ -982,14 +987,15 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     id: 'yg77rq',
     dlc: 'base',
     tags: ['All Damage'],
-    description: `
-    Casting an INVADER Skill leaves a Decoy for 3s which draws enemy fire. Deal +5% additional damage to enemies not targeting INVADER.
-
-    Upgraded at Level 5
-    Casting an INVADER Skill leaves a Decoy for 3s which draws enemy fire. Deal +10% additional damage to enemies not targeting INVADER.
-
-    Upgraded at level 10
-    Casting an INVADER Skill leaves a Decoy for 3s which draws enemy fire. Deal +15% additional damage to enemies not targeting INVADER.`,
+    description:
+      'Base:\n' +
+      'Casting an Invader Skill leaves a Decoy for 3s which draws enemy fire. Deal 5% additional damage to enemies not targeting Invader.\n' +
+      '\n' +
+      'Level 5:\n' +
+      'Casting an Invader Skill leaves a Decoy for 3s which draws enemy fire. Deal 10% additional damage to enemies not targeting Invader.\n' +
+      '\n' +
+      'Level 10:\n' +
+      'Casting an Invader Skill leaves a Decoy for 3s which draws enemy fire. Deal 15% additional damage to enemies not targeting Invader.',
     wikiLinks: [`https://remnant.wiki/Shadow`],
     linkedItems: {
       archetype: {
@@ -1010,14 +1016,21 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
       'Melee Critical Chance',
       'Critical Chance',
     ],
-    description: `
-    Sprinting for 1s or Evading adds 1 Stack of Momentum which increases Ranged and Melee damage by 0.7% for 10s. Max 5 Stacks. Damage increases with INVADER level.
-    
-    Upgrade Unlocked at level 5
-    Sprinting for 1s or Evading adds 1 Stack of Momentum which increases Ranged and Melee damage by 3.5% and Ranged and Melee Critical Chance by 1% for 10s. Max 5 Stacks. Damage increases with INVADER level.
-    
-    Unlocked at level 10
-    Sprinting for 1s or Evading adds 1 Stack of Momentum which increases Ranged and Melee damage by 7% and Ranged and Melee Critical Chance by 1% for 10s. Max 5 Stacks. Damage increases with INVADER level.`,
+    description:
+      'Base:\n' +
+      'Sprinting for 1s or Evading adds 1 Stack of Momentum which increases Ranged and Melee damage by 0.7% for 10s. Max 5 Stacks.\n' +
+      '\n' +
+      'Damage increases with Invader level.\n' +
+      '\n' +
+      'Level 5:\n' +
+      'Sprinting for 1s or Evading adds 1 Stack of Momentum which increases Ranged and Melee damage by 3.5% and Ranged and Melee Critical Chance by 1% for 10s. Max 5 Stacks.\n' +
+      '\n' +
+      'Damage increases with Invader level.\n' +
+      '\n' +
+      'Level 10:\n' +
+      'Sprinting for 1s or Evading adds 1 Stack of Momentum which increases Ranged and Melee damage by 7% and Ranged and Melee Critical Chance by 1% for 10s. Max 5 Stacks.\n' +
+      '\n' +
+      'Damage increases with Invader level.',
     wikiLinks: [`https://remnant.wiki/S.H.A.R.K.`],
     linkedItems: {
       archetype: {
@@ -1033,11 +1046,8 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     id: 'd5qedi',
     dlc: 'base',
     tags: ['Lifesteal'],
-    description: `
-    All ally Ranged and Melee damage against enemies distracted by the INVADER's Decoy grants 5% as Lifesteal
-
-    Upgrade unlocked at level 7
-    All ally Ranged and Melee damage against enemies distracted by the INVADER's Decoy grants 7.5% as Lifesteal`,
+    description:
+      "All ally Ranged and Melee damage against enemies distracted by the Invader's Decoy grants 5% base damage as Lifesteal.",
     wikiLinks: [`https://remnant.wiki/Loophole`],
     linkedItems: {
       archetype: {
@@ -1058,11 +1068,7 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
       'Perfect Dodge',
       'Stamina',
     ],
-    description: `
-    Reduce Cost of Evade and Combat Slide by 10%
-
-    Upgrade unlocked at level 8
-    Reduce Cost of Evade and Combat Slide by 15%. perfect Dodges gain an additional 15% reduction`,
+    description: 'Reduce Cost of Evade and Combat Slide by 10%.',
     wikiLinks: [`https://remnant.wiki/Circumvent`],
     linkedItems: {
       archetype: {
@@ -1077,11 +1083,8 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     type: 'relic',
     id: 'decoy8',
     dlc: 'base',
-    description: `
-    Using a Relic reduces Threat Generation by 25% for 10s. While Override is active, the next Evade leaves a Empowered Decoy which lasts 4s.
-    
-    Upgrade unlocked at level 9
-    Using a Relic reduces Threat Generation by 25% for 10s. While Override is active, the next Evade leaves a Empowered Decoy which lasts 5.5s.`,
+    description:
+      'Using a Relic reduces Threat Generation by 25% for 10s. While Override is active, the next Evade leaves an Empowered Decoy which lasts 4s.',
     wikiLinks: [`https://remnant.wiki/Override`],
     linkedItems: {
       archetype: {
@@ -1097,14 +1100,15 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     id: 'tmc2tk',
     dlc: 'base',
     tags: ['Summon'],
-    description: `
-    When the SUMMONER deals damage to their Minion, it causes them to ENRAGE. Minions gain 10% Attack Speed along with 30% increased Damage and Movement Speed. Lasts 20s.
-    
-    Upgraded at Level 5
-    When the SUMMONER deals damage to their Minion, it causes them to ENRAGE. Minions gain 15% Attack Speed along with 40% increased Damage and Movement Speed. Lasts 30s.
-    
-    Upgraded at level 10
-    When the SUMMONER deals damage to their Minion, it causes them to ENRAGE. Minions gain 20% Attack Speed along with 50% increased Damage and Movement Speed. Lasts 40s.`,
+    description:
+      'Base:\n' +
+      'When the Summoner deals damage to their Minion, it causes them to ENRAGE. Minions gain 10% Attack Speed along with 30% increased Damage and Movement Speed. Lasts 20s.\n' +
+      '\n' +
+      'Level 5:\n' +
+      'When the Summoner deals damage to their Minion, it causes them to ENRAGE. Minions gain 15% Attack Speed along with 40% increased Damage and Movement Speed. Lasts 30s.\n' +
+      '\n' +
+      'Level 10:\n' +
+      'When the Summoner deals damage to their Minion, it causes them to ENRAGE. Minions gain 20% Attack Speed along with 50% increased Damage and Movement Speed. Lasts 40s.',
     wikiLinks: [`https://remnant.wiki/Ruthless`],
     linkedItems: {
       archetype: {
@@ -1127,15 +1131,22 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
       'Critical Chance',
       'Melee Critical Chance',
     ],
-    description: `
-    Grants a 3.5% increase to Mod, Skill, and Explosive Damage [E]. Damage increases with Summoner Level.
-    
-    Upgrade Unlocked at level 5
-    Grants a 17.5% increase to Mod, Skill, and Explosive Damage [E], and 5% Mod, Skill, and Explosive Critical Chance. Damage increases with Summoner Level.  
-      
-    Upgrade Unlocked at level 10
-    Grants a 35% increase to Mod, Skill, and Explosive Damage [E], and 5% Mod, Skill, and Explosive Critical Chance. Damage increases with Summoner Level.
-    `,
+    description:
+      'Level 1:\n' +
+      'Grants a 3.5% increase to Mod, Skill, and Explosive Damage.\n' +
+      '\n' +
+      'Damage increases with Summoner Level.\n' +
+      '\n' +
+      'Level 5:\n' +
+      'Grants a 17.5% increase to Mod, Skill, and Explosive Damage, and 5% Mod, Skill, and Explosive Critical Chance.\n' +
+      '\n' +
+      'Damage increases with Summoner Level.\n' +
+      '\n' +
+      'Level 10:\n' +
+      'Grants a 35% increase to Mod, Skill, and Explosive Damage, and 5% Mod, Skill, and Explosive Critical Chance.\n' +
+      '\n' +
+      'Damage increases with Summoner Level.',
+    externalTokens: [`Explosive Damage`],
     wikiLinks: [`https://remnant.wiki/Dominator`],
     linkedItems: {
       archetype: {
@@ -1151,11 +1162,12 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     id: 'fzywc2',
     dlc: 'base',
     tags: ['Heal', 'Healing Effectiveness'],
-    description: `
-    Minions that expire leave a 3m Aura which heals 2.5% Health per second. Lasts 10s.
-    
-    Upgrade unlocked at level 7
-    Minions that expire leave a 3m Aura which heals 2.5% Health per second. and increases Healing by 20%. Lasts 10s.`,
+    description:
+      'Level 2:\n' +
+      'Minions that expire leave a 3m Aura which heals 2.5% Health per second. Lasts 10s.\n' +
+      '\n' +
+      'Level 7:\n' +
+      'Minions that expire leave a 3m Aura which heals 2.5% Health per second and increases Healing by 20%. Lasts 10s.',
     wikiLinks: [`https://remnant.wiki/Residue`],
     linkedItems: {
       archetype: {
@@ -1171,11 +1183,12 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     id: 't8bb9k',
     dlc: 'base',
     tags: ['Lifesteal', 'Movement Speed'],
-    description: `
-    Sacrifice grants 3% Lifesteal for each Minion Sacrificed. Lasts 10s.
-
-    Upgrade unlocked at level 8
-    Sacrifice grants 3% Lifesteal for each Minion Sacrificed, and increases Movement Speed by 15%. Lasts 10s.`,
+    description:
+      'Level 3:\n' +
+      'Sacrifice grants 3% Lifesteal for each Minion Sacrificed. Lasts 10s.\n' +
+      '\n' +
+      'Level 8:\n' +
+      'Sacrifice grants 3% Lifesteal for each Minion Sacrificed, and increases Movement Speed by 15%. Lasts 10s.',
     wikiLinks: [`https://remnant.wiki/Outrage`],
     linkedItems: {
       archetype: {
@@ -1190,10 +1203,12 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     type: 'relic',
     id: 'd82mwz',
     dlc: 'base',
-    description: `Using a Relic grants Minions 5% Max HP per second, and increases their damage dealt by 15%. Lasts 30s.
-
-    Upgrade unlocked at level 9
-    Using a Relic grants Minions 5% Max HP per second, and increases their damage dealt by 15% and Crit Chance by 15%. Lasts 30s.`,
+    description:
+      'Level 4:\n' +
+      'Using a Relic grants Minions 5% Max HP per second, and increases their damage dealt by 15%. Lasts 30s.\n' +
+      '\n' +
+      'Level 9:\n' +
+      'Using a Relic grants Minions 5% Max HP per second, and increases their damage dealt by 15% and Crit Chance by 15%. Lasts 30s.',
     wikiLinks: [`https://remnant.wiki/Incite`],
     linkedItems: {
       archetype: {
@@ -1209,17 +1224,22 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     id: 'qewh6t',
     dlc: 'base',
     tags: ['Status Effect'],
-    description: `
-    Negative Status Effects applied by RITUALIST inflict Infected.
-    Infected: Victim receives 5% more Status Effect damage, On death, spreads all statuses to nearby enemies within 5m. [A]
-    
-    Upgraded at Level 5
-    Infected: Victim receives 10% more Status Effect damage. On death, spreads
-    all statuses to nearby enemies within 10m.
-    
-    Upgraded at level 10
-    Infected: Victim receives 15% more Status Effect damage. On death, spreads
-    all statuses to nearby enemies within 15m.`,
+    description:
+      'Base:\n' +
+      'Negative Status Effects applied by Ritualist inflict Infected.\n' +
+      '\n' +
+      'Infected: Victim receives 5% more Status Effect damage. On death, spreads all statuses to nearby enemies within 5m.\n' +
+      '\n' +
+      'Level 5:\n' +
+      'Negative Status Effects applied by Ritualist inflict Infected.\n' +
+      '\n' +
+      'Infected: Victim receives 10% more Status Effect damage. On death, spreads all statuses to nearby enemies within 10m.\n' +
+      '\n' +
+      'Level 10:\n' +
+      'Negative Status Effects applied by Ritualist inflict Infected.\n' +
+      '\n' +
+      'Infected: Victim receives 15% more Status Effect damage. On death, spreads all statuses to nearby enemies within 15m.',
+    externalTokens: [`Amplitude`],
     wikiLinks: [`https://remnant.wiki/Vile`],
     linkedItems: {
       archetype: {
@@ -1235,13 +1255,21 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     id: '6wc56t',
     dlc: 'base',
     tags: ['All Damage', 'Critical Chance', 'Status Effect'],
-    description: `
-    Increases all damage to enemies affected by a Negative Status Effect by 2%. Damage increases with RITUALIST Level.
-    
-    Upgrade Unlocked at level 5
-    Increases all damage to enemies affected by a Negative Status Effect by 12%. Increases all Critical Chance against enemies affected by a Negative Status Effect by 5%.
-         
-    (Level 10: Increases all damage to enemies affected by a Negative Status Effect by 20%. Increases all Critical Chance against enemies affected by a Negative Status Effect by 5%.)`,
+    description:
+      'Level 1:\n' +
+      'Increases all damage to enemies affected by a Negative Status Effect by 2%.\n' +
+      '\n' +
+      'Damage increases with Ritualist Level\n' +
+      '\n' +
+      'Level 6:\n' +
+      'Increases all damage to enemies affected by a Negative Status Effect by 12%. Increases all Critical Chance against enemies affected by a Negative Status Effect by 5%.\n' +
+      '\n' +
+      'Damage increases with Ritualist Level\n' +
+      '\n' +
+      'Level 10:\n' +
+      'Increases all damage to enemies affected by a Negative Status Effect by 20%. Increases all Critical Chance against enemies affected by a Negative Status Effect by 5%.\n' +
+      '\n' +
+      'Damage increases with Ritualist Level',
     wikiLinks: [`https://remnant.wiki/Wrath`],
     linkedItems: {
       archetype: {
@@ -1257,11 +1285,16 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     id: 'h3ag53',
     dlc: 'base',
     tags: ['Damage Reduction', 'Ammo Reserves'],
-    description: `
-    Killing an entity applies TERRIFIED to all enemies within 5m of killed entity for 20s. TERRIFIED enemies deal 5% less damage.
-    
-    Upgrade unlocked at level 7
-    Killing an entity applies TERRIFIED to all enemies within 5m of killed entity for 20s. TERRIFIED enemies are more likely to drop additional ammo on death. TERRIFIED enemies deal 5% less damage`,
+    description:
+      'Level 2:\n' +
+      'Killing an entity applies TERRIFIED to all enemies within 5m of killed entity for 20s.\n' +
+      '\n' +
+      'TERRIFIED enemies deal 5% less damage.\n' +
+      '\n' +
+      'Level 7:\n' +
+      'Killing an entity applies TERRIFIED to all enemies within 5m of killed entity for 20s. TERRIFIED enemies are more likely to drop additional Ammo on death.\n' +
+      '\n' +
+      'TERRIFIED enemies deal 5% less damage.',
     wikiLinks: [`https://remnant.wiki/Terrify`],
     linkedItems: {
       archetype: {
@@ -1277,11 +1310,12 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     id: 'qqhkw9',
     dlc: 'base',
     tags: ['Damage Reduction'],
-    description: `
-    Reduces damage received from Negative Status Effects by 25%.
-
-    Upgrade unlocked at level 8
-    Reduces damage received from Negative Status Effects by 25%. Reduces Blight Buildup by 50%.`,
+    description:
+      'Level 3:\n' +
+      'Reduces damage received from Negative Status Effects by 25%.\n' +
+      '\n' +
+      'Level 8:\n' +
+      'Reduces damage received from Negative Status Effects by 25%. Reduces Blight Buildup by 50%.',
     wikiLinks: [`https://remnant.wiki/Dark_Blood`],
     linkedItems: {
       archetype: {
@@ -1298,11 +1332,12 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     id: 'tr5r38',
     dlc: 'base',
     tags: ['Status Effect'],
-    description: `
-    On Relic Use, cleanses all Negative Status Effects.
-    
-    Upgrade unlocked at level 9
-    On Relic Use, cleanses all Negative Status Effects. Negative Status Effects cleansed by Purge are applied to all enemies within 7.5m.`,
+    description:
+      'Level 4:\n' +
+      'On Relic Use, cleanses all Negative Status Effects.\n' +
+      '\n' +
+      'Level 9:\n' +
+      'On Relic Use, cleanses all Negative Status Effects. Negative Status Effects cleansed by Purge are applied to all enemies within 7.5m.',
     wikiLinks: [`https://remnant.wiki/Purge`],
     linkedItems: {
       archetype: {
@@ -1318,9 +1353,10 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     id: 'hYsQ4M',
     dlc: 'dlc2',
     tags: ['Reduce Skill Cooldown'],
-    description: `Doubles Base Skill Charges for all Archetypes. Skill activation reduces all Skill Cooldowns by 10%.
-      
-    For Heavy Weapons, doubles Heavy Base Ammo instead.`,
+    description:
+      'Doubles Base Skill Charges for all Archetypes. Skill activation reduces all Skill Cooldowns by 10%.\n' +
+      '\n' +
+      'For Heavy Weapons, doubles Heavy Base Ammo instead.',
     wikiLinks: ['https://remnant.wiki/Visionary'],
     linkedItems: {
       archetype: {
@@ -1336,9 +1372,10 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     id: 'Y9Tj7F',
     dlc: 'dlc2',
     tags: [],
-    description: `Increases Skill Damage by 30%, Elemental Damage by 15%, and Skill and Elemental Critical Chance by 5%.
-      
-      Damage increases with Invoker Level.`,
+    description:
+      'Increases Skill Damage by 30%, Elemental Damage by 15%, and Skill and Elemental Critical Chance by 5%.\n' +
+      '\n' +
+      'Damage increases with Invoker Level.',
     wikiLinks: ['https://remnant.wiki/Entranced'],
     linkedItems: {
       archetype: {
@@ -1387,9 +1424,10 @@ Increases the hits MEDIC can take before losing Grey Health by 2`,
     id: 'j7e5Bb',
     dlc: 'dlc2',
     tags: ['Relic Use Speed'],
-    description: `On Relic use, extend the duration of active Invoker skills by 20% of the base duration. Cannot exceed base duration.
-
-      Relic Use Speed increased by 25% while an Invoker Skill is active.`,
+    description:
+      'On Relic use, extend the duration of active Invoker skills by 20% of the base duration. Cannot exceed base duration.\n' +
+      '\n' +
+      'Relic Use Speed increased by 25% while an Invoker Skill is active.',
     wikiLinks: ['https://remnant.wiki/Soothsayer'],
     linkedItems: {
       archetype: {

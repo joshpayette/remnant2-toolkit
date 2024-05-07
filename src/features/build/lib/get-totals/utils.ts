@@ -1,7 +1,7 @@
 import { perkItems } from '@/app/(data)/items/perk-items'
+import { Item } from '@/app/(data)/items/types'
 import { TraitItem } from '@/app/(data)/items/types/TraitItem'
 import { BuildState } from '@/features/build/types'
-import { Item } from '@/features/items/types'
 
 const panaceaItem = perkItems.find((item) => item.name === 'Panacea')
 

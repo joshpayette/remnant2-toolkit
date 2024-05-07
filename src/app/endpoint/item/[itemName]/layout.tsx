@@ -41,7 +41,7 @@ export async function generateMetadata(
   })`
   let description = `${item.description}\r\n` ?? 'An item for Remnant 2.'
 
-  if (MutatorItem.isMutatorItem(item) || TraitItem.isTraitItem(item)) {
+  if (MutatorItem.isMutatorItem(item)) {
     description += ''
     description += `\r\nAt Max Level: ${item.maxLevelBonus}`
   }

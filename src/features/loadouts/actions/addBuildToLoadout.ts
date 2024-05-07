@@ -52,6 +52,7 @@ export async function addBuildToLoadout(
   })
 
   revalidatePath(`/profile/${session.user.id}/loadouts`)
+  revalidatePath(`/builder/${buildId}`, 'page')
 
   return { success: true }
 }

@@ -1,5 +1,5 @@
 import { ItemButton } from '@/app/(components)/buttons/item-button'
-import { Item } from '@/features/items/types'
+import { Item } from '@/app/(data)/items/types'
 
 interface Props {
   item: Item & { discovered: boolean }

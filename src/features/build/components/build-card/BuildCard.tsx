@@ -10,14 +10,16 @@ import {
 
 import { BaseButton } from '@/app/(components)/_base/button'
 import { Link } from '@/app/(components)/_base/link'
+import { DescriptionWithTokens } from '@/app/(components)/description-with-tokens'
 import { dbBuildToBuildState } from '@/features/build/lib/dbBuildToBuildState'
 import { formatUpdatedAt } from '@/features/build/lib/formatUpdatedAt'
-import { getArchetypeComboName } from '@/features/build/lib/getArchetypeComboName'
+import {
+  ArchetypeName,
+  getArchetypeComboName,
+} from '@/features/build/lib/getArchetypeComboName'
 import { isBuildNew } from '@/features/build/lib/isBuildNew'
 import { isBuildPopular } from '@/features/build/lib/isBuildPopular'
 import { DBBuild } from '@/features/build/types'
-import { Archetype } from '@/features/items/types'
-import { DescriptionWithTags } from '@/features/ui/DescriptionWithTags'
 import { Skeleton } from '@/features/ui/Skeleton'
 import { Tooltip } from '@/features/ui/Tooltip'
 import { cn } from '@/lib/classnames'
@@ -125,10 +127,10 @@ export function BuildCard({
                 <p className="text-left text-xs text-gray-300">
                   {`${getArchetypeComboName({
                     archetype1:
-                      (buildState.items.archetype[0]?.name.toLowerCase() as Archetype) ||
+                      (buildState.items.archetype[0]?.name.toLowerCase() as ArchetypeName) ||
                       null,
                     archetype2:
-                      (buildState.items.archetype[1]?.name.toLowerCase() as Archetype) ||
+                      (buildState.items.archetype[1]?.name.toLowerCase() as ArchetypeName) ||
                       null,
                   })}`}{' '}
                   Build
@@ -151,7 +153,7 @@ export function BuildCard({
               </div>
               {buildState.description && (
                 <div className="mt-2 h-auto max-h-[140px] w-full flex-row items-start justify-start gap-x-2 overflow-x-auto overflow-y-auto whitespace-pre-wrap text-xs text-gray-300">
-                  <DescriptionWithTags
+                  <DescriptionWithTokens
                     description={buildState.description}
                     highlightItems={true}
                     highlightBuildTags={true}

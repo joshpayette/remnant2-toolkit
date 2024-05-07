@@ -11,22 +11,26 @@ import { useLocalStorage } from 'usehooks-ts'
 
 import { BaseButton } from '@/app/(components)/_base/button'
 import { Link } from '@/app/(components)/_base/link'
+import { DescriptionWithTokens } from '@/app/(components)/description-with-tokens'
+import { Item } from '@/app/(data)/items/types'
 import { ArchetypeItem } from '@/app/(data)/items/types/ArchetypeItem'
 import { ArmorItem } from '@/app/(data)/items/types/ArmorItem'
 import { ModItem } from '@/app/(data)/items/types/ModItem'
 import { MutatorItem } from '@/app/(data)/items/types/MutatorItem'
 import { PerkItem } from '@/app/(data)/items/types/PerkItem'
+import { RelicFragmentItem } from '@/app/(data)/items/types/RelicFragmentItem'
 import { SkillItem } from '@/app/(data)/items/types/SkillItem'
 import { TraitItem } from '@/app/(data)/items/types/TraitItem'
 import { WeaponItem } from '@/app/(data)/items/types/WeaponItem'
 import { itemShareEndpoint } from '@/app/(utils)/clean-item-name'
 import { ArmorInfo } from '@/features/armor-calculator/ArmorInfo'
 import { getArrayOfLength } from '@/features/build/lib/getArrayOfLength'
-import getItemBuildStats from '@/features/items/actions/getItemBuildStats'
+import getItemBuildStats, {
+  ItemBuildStats,
+} from '@/features/items/actions/getItemBuildStats'
 import { WeaponInfo } from '@/features/items/components/WeaponInfo'
-import { Item, ItemBuildStats } from '@/features/items/types'
-import { DescriptionWithTags } from '@/features/ui/DescriptionWithTags'
 import { Tooltip } from '@/features/ui/Tooltip'
+import { capitalize } from '@/lib/capitalize'
 import { cn } from '@/lib/classnames'
 
 interface Props {
@@ -92,6 +96,18 @@ export function ItemCard({
     )
     setItemsToCompare(newItemsToCompare)
   }
+
+  let itemCategory: string = capitalize(category)
+  if (RelicFragmentItem.isRelicFragmentItem(item)) {
+    itemCategory = 'Relic Fragment'
+  }
+  if (PerkItem.isPerkItem(item)) {
+    itemCategory = `${item.linkedItems?.archetype?.name} ${capitalize(
+      item.type,
+    )} Perk`
+  }
+
+  // #region Render
 
   return (
     <div className="col-span-1 flex flex-col divide-y divide-primary rounded-lg border border-primary bg-background-container text-center shadow">
@@ -177,26 +193,31 @@ export function ItemCard({
         </BaseButton>
         <div className="mt-0 flex flex-grow flex-col justify-start text-xs">
           <div className="sr-only">Item Category</div>
-          <div className="text-xs text-on-background">
-            {category === 'relicfragment' ? 'relic fragment' : category}
-          </div>
+          <div className="text-xs text-on-background">{itemCategory}</div>
           {!ArmorItem.isArmorItem(item) && (
             <>
               <div className="sr-only">Description</div>
-              <div className="mt-3 whitespace-pre-line text-left text-xs text-on-background">
-                <DescriptionWithTags
+              <div className="mt-3 flex flex-col gap-y-2 whitespace-pre-line text-left text-xs text-on-background">
+                <DescriptionWithTokens
                   description={description ?? ''}
                   highlightBuildTags={false}
                   highlightItems={false}
                 />
+                {item.externalTokens && (
+                  <DescriptionWithTokens
+                    description={item.externalTokens.join(', ')}
+                    highlightBuildTags={false}
+                    highlightItems={false}
+                  />
+                )}
               </div>
             </>
           )}
 
-          {(MutatorItem.isMutatorItem(item) || TraitItem.isTraitItem(item)) && (
+          {MutatorItem.isMutatorItem(item) && (
             <div className="mt-3 whitespace-pre-line text-left text-xs text-on-background">
               <strong>At Max Level: </strong>
-              <DescriptionWithTags
+              <DescriptionWithTokens
                 description={item.maxLevelBonus || 'No max level bonus found.'}
                 highlightBuildTags={false}
                 highlightItems={false}

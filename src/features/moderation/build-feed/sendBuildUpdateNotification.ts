@@ -1,4 +1,5 @@
-import { parseEnv } from '../../env/parseEnv'
+import { validateEnv } from '@/app/(validators)/validate-env'
+
 import { DiscordWebhookParams } from './types'
 
 export async function sendBuildUpdateNotification({
@@ -8,7 +9,7 @@ export async function sendBuildUpdateNotification({
   params: DiscordWebhookParams
   buildId: string
 }) {
-  const { WEBHOOK_COMMUNITY_BUILDS } = parseEnv()
+  const { WEBHOOK_COMMUNITY_BUILDS } = validateEnv()
 
   if (process.env.NODE_ENV !== 'production') {
     return

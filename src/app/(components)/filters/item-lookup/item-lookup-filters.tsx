@@ -28,7 +28,7 @@ import {
 } from '@/app/(components)/filters/releases-filter'
 import { DEFAULT_FILTER } from '@/app/(components)/filters/types'
 import { allItems } from '@/app/(data)/items/all-items'
-import { ITEM_TAGS } from '@/features/items/constants'
+import { ITEM_TOKENS } from '@/app/(types)/tokens'
 import { cn } from '@/lib/classnames'
 
 function buildItemSearchTextItems() {
@@ -40,7 +40,7 @@ function buildItemSearchTextItems() {
         name: item.name,
       }))
 
-    items = ITEM_TAGS.map((tag) => ({
+    items = ITEM_TOKENS.map((tag) => ({
       id: tag as string,
       name: tag as string,
     })).concat(items)

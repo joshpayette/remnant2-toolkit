@@ -3,7 +3,7 @@ import { BuildTags } from '@prisma/client'
 import { BaseButton } from '@/app/(components)/_base/button'
 import { cn } from '@/lib/classnames'
 
-import { MAX_BUILD_TAGS } from '../constants'
+import { MAX_BUILD_TAGS } from '../../../app/(data)/builds/constants'
 import { BuildTagItem } from './BuildTagItem'
 import { ALL_BUILD_TAGS } from './constants'
 import { BuildTag } from './types'

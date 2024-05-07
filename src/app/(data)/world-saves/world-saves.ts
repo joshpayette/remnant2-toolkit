@@ -8,6 +8,11 @@ export const worldSaves = [
   },
   {
     bossName: 'Abomination',
+    bossAffixes: ['Drain', 'Skullcracker'],
+    release: 'dlc2',
+  },
+  {
+    bossName: 'Abomination',
     bossAffixes: ['Empathy', 'Vicious'],
     release: 'dlc1',
   },
@@ -30,6 +35,11 @@ export const worldSaves = [
     bossName: 'Bloat King',
     bossAffixes: ['Drain', 'Hearty'],
     release: 'dlc1',
+  },
+  {
+    bossName: 'Bloat King',
+    bossAffixes: ['Drain', 'Vicious'],
+    release: 'dlc2',
   },
   {
     bossName: 'Bloat King',
@@ -57,6 +67,11 @@ export const worldSaves = [
     release: 'dlc1',
   },
   {
+    bossName: 'Cancer',
+    bossAffixes: ['Spiteful', 'Vicious'],
+    release: 'dlc2',
+  },
+  {
     bossName: 'Cinderclad Forge',
     bossAffixes: ['Regenerator', 'Spiteful'],
     release: 'dlc2',
@@ -80,6 +95,11 @@ export const worldSaves = [
     bossName: 'Corrupted Ravager',
     bossAffixes: ['Drain', 'Thick Skin'],
     release: 'dlc1',
+  },
+  {
+    bossName: 'Corrupted Ravager',
+    bossAffixes: ['Drain', 'Vicious'],
+    release: 'dlc2',
   },
   {
     bossName: 'Corrupted Ravager',
@@ -164,6 +184,11 @@ export const worldSaves = [
   },
   {
     bossName: 'Corruptor',
+    bossAffixes: ['Skullcracker', 'Spiteful'],
+    release: 'dlc2',
+  },
+  {
+    bossName: 'Corruptor',
     bossAffixes: ['Spiteful', 'Vicious'],
     release: 'dlc1',
   },
@@ -174,8 +199,18 @@ export const worldSaves = [
   },
   {
     bossName: 'Faelin',
+    bossAffixes: ['Drain', 'Spiteful'],
+    release: 'dlc2',
+  },
+  {
+    bossName: 'Faelin',
     bossAffixes: ['Elemental Resist', 'Hearty'],
     release: 'dlc1',
+  },
+  {
+    bossName: 'Faerin',
+    bossAffixes: ['Drain', 'Spiteful'],
+    release: 'dlc2',
   },
   {
     bossName: 'Faerin',
@@ -189,8 +224,18 @@ export const worldSaves = [
   },
   {
     bossName: 'Gwendil: The Unburnt',
+    bossAffixes: ['Drain', 'Empathy'],
+    release: 'dlc2',
+  },
+  {
+    bossName: 'Gwendil: The Unburnt',
     bossAffixes: ['Elemental Resist', 'Regenerator'],
     release: 'dlc1',
+  },
+  {
+    bossName: 'Gwendil: The Unburnt',
+    bossAffixes: ['Hearty', 'Vicious'],
+    release: 'dlc2',
   },
   {
     bossName: `Kaeula's Shadow`,
@@ -214,6 +259,11 @@ export const worldSaves = [
   },
   {
     bossName: `Kaeula's Shadow`,
+    bossAffixes: ['Hearty', 'Empathy'],
+    release: 'dlc2',
+  },
+  {
+    bossName: `Kaeula's Shadow`,
     bossAffixes: ['Hearty', 'Regenerator'],
     release: 'dlc1',
   },
@@ -221,6 +271,11 @@ export const worldSaves = [
     bossName: `Kaeula's Shadow`,
     bossAffixes: ['Hearty', 'Vicious'],
     release: 'dlc1',
+  },
+  {
+    bossName: `Kaeula's Shadow`,
+    bossAffixes: ['Skullcracker', 'Vicious'],
+    release: 'dlc2',
   },
   {
     bossName: `Kaeula's Shadow`,
@@ -264,6 +319,11 @@ export const worldSaves = [
   },
   {
     bossName: 'Legion',
+    bossAffixes: ['Hearty', 'Regenerator'],
+    release: 'dlc2',
+  },
+  {
+    bossName: 'Legion',
     bossAffixes: ['Regenerator', 'Spiteful'],
     release: 'dlc1',
   },
@@ -291,6 +351,16 @@ export const worldSaves = [
     bossName: 'Magister Dullain',
     bossAffixes: ['Regenerator', 'Spiteful'],
     release: 'dlc1',
+  },
+  {
+    bossName: 'Magister Dullain',
+    bossAffixes: ['Skullcracker', 'Vicious'],
+    release: 'dlc2',
+  },
+  {
+    bossName: 'Mother Mind',
+    bossAffixes: ['Elemental Resist', 'Skullcracker'],
+    release: 'dlc2',
   },
   {
     bossName: 'Mother Mind',
@@ -324,6 +394,11 @@ export const worldSaves = [
   },
   {
     bossName: 'Primogenitor',
+    bossAffixes: ['Elemental Resist', 'Vicious'],
+    release: 'dlc2',
+  },
+  {
+    bossName: 'Primogenitor',
     bossAffixes: ['Spiteful', 'Vicious'],
     release: 'dlc1',
   },
@@ -333,9 +408,19 @@ export const worldSaves = [
     release: 'dlc1',
   },
   {
+    bossName: 'Primogenitor',
+    bossAffixes: ['Unstoppable', 'Vicious'],
+    release: 'dlc2',
+  },
+  {
     bossName: `Sha'Hala: Guardian of N'Erud`,
     bossAffixes: ['Drain', 'Spiteful'],
     release: 'dlc1',
+  },
+  {
+    bossName: `Sha'Hala: Guardian of N'Erud`,
+    bossAffixes: ['Drain', 'Vicious'],
+    release: 'dlc2',
   },
   {
     bossName: `Sha'Hala: Guardian of N'Erud`,
@@ -369,6 +454,11 @@ export const worldSaves = [
   },
   {
     bossName: 'Shrewd',
+    bossAffixes: ['Drain', 'Spiteful'],
+    release: 'dlc2',
+  },
+  {
+    bossName: 'Shrewd',
     bossAffixes: ['Elemental Resist', 'Skullcracker'],
     release: 'dlc1',
   },
@@ -376,6 +466,11 @@ export const worldSaves = [
     bossName: 'Shrewd',
     bossAffixes: ['Elemental Resist', 'Thick Skin'],
     release: 'dlc1',
+  },
+  {
+    bossName: 'Shrewd',
+    bossAffixes: ['Hearty', 'Drain'],
+    release: 'dlc2',
   },
   {
     bossName: 'Shrewd',
@@ -394,6 +489,11 @@ export const worldSaves = [
   },
   {
     bossName: `Tal'Ratha`,
+    bossAffixes: ['Drain', 'Skullcracker'],
+    release: 'dlc2',
+  },
+  {
+    bossName: `Tal'Ratha`,
     bossAffixes: ['Elemental Resist', 'Hearty'],
     release: 'dlc1',
   },
@@ -401,6 +501,11 @@ export const worldSaves = [
     bossName: `Tal'Ratha (Metaphysical)`,
     bossAffixes: ['Skullcracker', 'Thick Skin'],
     release: 'dlc1',
+  },
+  {
+    bossName: `Tal'Ratha (Metaphysical)`,
+    bossAffixes: ['Spiteful', 'Vicious'],
+    release: 'dlc2',
   },
   {
     bossName: 'The Astropath',
@@ -429,13 +534,28 @@ export const worldSaves = [
   },
   {
     bossName: `The Custodian's Eye`,
+    bossAffixes: ['Skullcracker', 'Spiteful'],
+    release: 'dlc2',
+  },
+  {
+    bossName: `The Custodian's Eye`,
     bossAffixes: ['Skullcracker', 'Thick Skin'],
     release: 'dlc1',
+  },
+  {
+    bossName: `The Custodian's Eye`,
+    bossAffixes: ['Thick Skin', 'Regenerator'],
+    release: 'dlc2',
   },
   {
     bossName: 'The Huntress',
     bossAffixes: ['Drain', 'Elemental Resist'],
     release: 'dlc1',
+  },
+  {
+    bossName: 'The Huntress',
+    bossAffixes: ['Hearty', 'Spiteful'],
+    release: 'dlc2',
   },
   {
     bossName: 'The Nightweaver',
@@ -446,6 +566,11 @@ export const worldSaves = [
     bossName: 'The Nightweaver',
     bossAffixes: ['Elemental Resist', 'Thick Skin'],
     release: 'dlc1',
+  },
+  {
+    bossName: 'The Nightweaver',
+    bossAffixes: ['Empathy', 'Skullcracker'],
+    release: 'dlc2',
   },
   {
     bossName: 'The Nightweaver',
@@ -484,8 +609,18 @@ export const worldSaves = [
   },
   {
     bossName: 'The Red Prince',
+    bossAffixes: ['Drain', 'Vicious'],
+    release: 'dlc2',
+  },
+  {
+    bossName: 'The Red Prince',
     bossAffixes: ['Elemental Resist', 'Spiteful'],
     release: 'dlc1',
+  },
+  {
+    bossName: 'The Red Prince',
+    bossAffixes: ['Hearty', 'Spiteful'],
+    release: 'dlc2',
   },
   {
     bossName: 'The Red Prince',
@@ -526,6 +661,11 @@ export const worldSaves = [
     bossName: 'Venom',
     bossAffixes: ['Drain', 'Vicious'],
     release: 'dlc1',
+  },
+  {
+    bossName: 'Venom',
+    bossAffixes: ['Empathy', 'Skullcracker'],
+    release: 'dlc2',
   },
   {
     bossName: 'Venom',

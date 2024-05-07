@@ -1,7 +1,21 @@
 import { archetypeItems } from '@/app/(data)/items/archetype-items'
-import { Archetype } from '@/features/items/types'
 
-import { ARCHETYPE_COMBO_NAMES } from '../constants'
+import { ARCHETYPE_COMBO_NAMES } from '../../../app/(data)/builds/constants'
+
+export type ArchetypeName =
+  | 'alchemist'
+  | 'archon'
+  | 'challenger'
+  | 'engineer'
+  | 'explorer'
+  | 'gunslinger'
+  | 'handler'
+  | 'hunter'
+  | 'invader'
+  | 'invoker'
+  | 'medic'
+  | 'ritualist'
+  | 'summoner'
 
 /**
  * Searches the archetype build names for a match
@@ -13,8 +27,8 @@ export function getArchetypeComboName({
   archetype1,
   archetype2,
 }: {
-  archetype1: Archetype | null
-  archetype2: Archetype | null
+  archetype1: ArchetypeName | null
+  archetype2: ArchetypeName | null
 }): string {
   if (!archetype1 || !archetype2) {
     return ''

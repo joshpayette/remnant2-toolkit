@@ -1,28 +1,29 @@
 import { Metadata, ResolvingMetadata } from 'next'
 
 import { allItems } from '@/app/(data)/items/all-items'
-import { DESCRIPTION_TAGS, ITEM_TAGS } from '@/features/items/constants'
+import { Item } from '@/app/(data)/items/types'
+import { INLINE_TOKENS, ITEM_TOKENS } from '@/app/(types)/tokens'
 import { itemMatchesSearchText } from '@/features/items/lib/itemMatchesSearchText'
-import { Item } from '@/features/items/types'
 
 import TagPage from './page'
 
-function getItemsFromTagParam(tagName: string): Item[] {
+function getItemsFromTokenParam(tagName: string): Item[] {
   // need to remove all punctuation and spaces from tagName
   // and convert it to lowercase
-  const cleanTagName = tagName.replace(/[^a-zA-Z0-9]/g, '').toLowerCase()
-  let tagToken = DESCRIPTION_TAGS.find(
+  const cleanTokenName = tagName.replace(/[^a-zA-Z0-9]/g, '').toLowerCase()
+  let tagToken = INLINE_TOKENS.find(
     (tag) =>
-      tag.type.replace(/[^a-zA-Z0-9]/g, '').toLowerCase() === cleanTagName ||
-      tag.token.replace(/[^a-zA-Z0-9]/g, '').toLowerCase() === cleanTagName,
+      tag.type.replace(/[^a-zA-Z0-9]/g, '').toLowerCase() === cleanTokenName ||
+      tag.token.replace(/[^a-zA-Z0-9]/g, '').toLowerCase() === cleanTokenName,
   )?.token as string
 
   if (!tagToken) {
-    const itemTag = ITEM_TAGS.find(
-      (tag) => tag.replace(/[^a-zA-Z0-9]/g, '').toLowerCase() === cleanTagName,
+    const itemTokens = ITEM_TOKENS.find(
+      (tag) =>
+        tag.replace(/[^a-zA-Z0-9]/g, '').toLowerCase() === cleanTokenName,
     )
-    if (itemTag) {
-      tagToken = itemTag as string
+    if (itemTokens) {
+      tagToken = itemTokens as string
     }
   }
 
@@ -54,7 +55,7 @@ export async function generateMetadata(
   { params: { tagName } }: { params: { tagName: string } },
   parent: ResolvingMetadata,
 ): Promise<Metadata> {
-  const items = getItemsFromTagParam(tagName)
+  const items = getItemsFromTokenParam(tagName)
 
   const title = `Items with the "${tagName}" tag`
   let description: string =
@@ -154,6 +155,6 @@ export default async function Layout({
 }: {
   params: { tagName: string }
 }) {
-  const items = getItemsFromTagParam(tagName)
+  const items = getItemsFromTokenParam(tagName)
   return <TagPage params={{ tagName, items }} />
 }

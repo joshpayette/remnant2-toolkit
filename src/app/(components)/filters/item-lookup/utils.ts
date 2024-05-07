@@ -8,7 +8,7 @@ import {
 } from '@/app/(components)/filters/item-lookup/types'
 import { VALID_RELEASE_KEYS } from '@/app/(components)/filters/releases-filter'
 import { allItems } from '@/app/(data)/items/all-items'
-import { ITEM_TAGS } from '@/features/items/constants'
+import { ITEM_TOKENS } from '@/app/(types)/tokens'
 
 export function buildAutoCompleteSuggestions(): Array<{
   id: string
@@ -23,7 +23,7 @@ export function buildAutoCompleteSuggestions(): Array<{
     }))
 
   // add item tags
-  items = ITEM_TAGS.map((tag) => ({
+  items = ITEM_TOKENS.map((tag) => ({
     id: tag as string,
     name: tag as string,
   })).concat(items)

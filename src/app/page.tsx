@@ -1,8 +1,8 @@
 import Image from 'next/image'
 
+import { getTotalBuildCount } from '@/app/(actions)/builds/get-total-build-count'
 import { Link } from '@/app/(components)/_base/link'
 import { getServerSession } from '@/features/auth/lib'
-import { getTotalBuildCount } from '@/features/build/actions/getTotalBuildCount'
 import { NAV_ITEMS } from '@/features/navigation/constants'
 import { LandingPageCard } from '@/features/ui/LandingPageCard'
 import { LandingPageContainer } from '@/features/ui/LandingPageContainer'

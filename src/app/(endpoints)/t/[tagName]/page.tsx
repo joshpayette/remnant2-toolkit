@@ -1,7 +1,7 @@
 'use client'
 
+import { Item } from '@/app/(data)/items/types'
 import { MasonryItemList } from '@/features/items/components/MasonryItemList'
-import { Item } from '@/features/items/types'
 import { PageHeader } from '@/features/ui/PageHeader'
 
 export default function Page({

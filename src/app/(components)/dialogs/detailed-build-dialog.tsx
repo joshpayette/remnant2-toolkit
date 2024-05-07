@@ -9,9 +9,9 @@ import {
 } from '@/app/(components)/_base/dialog'
 import { ItemCard } from '@/app/(components)/cards/item-card'
 import { ItemInfoDialog } from '@/app/(components)/dialogs/item-info-dialog'
+import { Item } from '@/app/(data)/items/types'
 import { buildStateToMasonryItems } from '@/features/build/lib/buildStateToMasonryItems'
 import { BuildState } from '@/features/build/types'
-import { Item } from '@/features/items/types'
 
 interface Props {
   open: boolean

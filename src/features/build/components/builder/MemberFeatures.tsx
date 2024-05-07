@@ -8,14 +8,14 @@ import { useState } from 'react'
 import { BaseButton } from '@/app/(components)/_base/button'
 import { BaseInput } from '@/app/(components)/_base/input'
 import { BuildDescriptionTemplateAlert } from '@/app/(components)/alerts/build-description-template-alert'
-import { DescriptionWithTags } from '@/features/ui/DescriptionWithTags'
+import { DescriptionWithTokens } from '@/app/(components)/description-with-tokens'
+import { MAX_BUILD_DESCRIPTION_LENGTH } from '@/app/(data)/builds/constants'
 import { Skeleton } from '@/features/ui/Skeleton'
 import { Textarea } from '@/features/ui/Textarea'
 import { Toggle } from '@/features/ui/Toggle'
 import { cn } from '@/lib/classnames'
 
 import { BuildTagsDisplay } from '../../build-tags/BuildTagsDisplay'
-import { MAX_BUILD_DESCRIPTION_LENGTH } from '../../constants'
 
 type Props = {
   buildLink: string | null
@@ -77,7 +77,7 @@ export function MemberFeatures({
                   isScreenshotMode && 'max-h-none',
                 )}
               >
-                <DescriptionWithTags
+                <DescriptionWithTokens
                   description={description}
                   highlightBuildTags={true}
                   highlightItems={true}
@@ -93,7 +93,7 @@ export function MemberFeatures({
               description?.length ?? 0
             }/${MAX_BUILD_DESCRIPTION_LENGTH})`}
             name="description"
-            placeholder="Consider adding a description about how the build works, possible item swaps, a link to a Youtube video demonstrating the build, and any other info that can help others understand your build better. Not sure what to write? Use the Item Description Template link below!"
+            placeholder="Consider adding a description about how the build works, possible item swaps, a link to a Youtube video demonstrating the build, and any other info that can help others understand your build better. All item names will show up in bold and keywords as tokens. Not sure what to write? Use the Item Description Template link below!"
             onChange={(e) => onChangeDescription(e.target.value)}
             value={description ?? ''}
             maxLength={MAX_BUILD_DESCRIPTION_LENGTH}

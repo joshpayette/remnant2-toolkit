@@ -1,5 +1,5 @@
+import { Item } from '../app/(data)/items/types'
 import { prisma } from '../features/db'
-import { Item } from '../features/items/types'
 
 const items = [
   {

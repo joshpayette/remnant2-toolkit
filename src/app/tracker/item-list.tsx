@@ -18,6 +18,7 @@ import {
   parseUrlFilters,
 } from '@/app/(components)/filters/item-tracker/utils'
 import { DEFAULT_FILTER } from '@/app/(components)/filters/types'
+import { Item } from '@/app/(data)/items/types'
 import { MutatorItem } from '@/app/(data)/items/types/MutatorItem'
 import { WeaponItem } from '@/app/(data)/items/types/WeaponItem'
 import { ALL_TRACKABLE_ITEMS } from '@/app/tracker/constants'
@@ -26,7 +27,6 @@ import {
   ItemTrackerLocalStorage,
 } from '@/app/tracker/types'
 import { ItemCategory } from '@/features/build/types'
-import { Item } from '@/features/items/types'
 import { capitalize } from '@/lib/capitalize'
 import { cn } from '@/lib/classnames'
 
@@ -37,14 +37,9 @@ function getCategoryProgressLabel({
   filteredItems: Item[]
   discoveredItemIds: string[]
 }) {
-  const discoveredCount = filteredItems.reduce((acc, item) => {
-    if (discoveredItemIds.includes(item.id)) return acc + 1
-    return acc
-  }, 0)
-  const selectedCategoryProgress = parseFloat(
-    ((discoveredCount / filteredItems.length) * 100).toFixed(2),
-  )
-  return selectedCategoryProgress
+  const undiscoveredCount = filteredItems.reduce((acc, item) => discoveredItemIds.includes(item.id) ? acc : acc + 1, 0);
+  const filteredItemsCount = filteredItems.length;
+  return `${(((filteredItemsCount - undiscoveredCount) / filteredItemsCount) * 100).toFixed(2)}% (${undiscoveredCount} undiscovered)`
 }
 
 function getFilteredItemList(
@@ -323,7 +318,6 @@ export function ItemList({}: Props) {
                           ),
                           discoveredItemIds,
                         })}
-                        %
                       </h2>
                     </div>
                     <ChevronDownIcon

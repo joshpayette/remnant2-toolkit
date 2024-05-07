@@ -212,6 +212,12 @@ export function WorldSaveFilters({}: Props) {
                         applyUrlFilters(newFilters)
                       }}
                     />
+                    <BaseText className="mt-2">
+                      <span className="text-sm italic text-gray-400">
+                        Releases refer to the game version the world save was
+                        created in. It is not related to the bosses or affixes.
+                      </span>
+                    </BaseText>
                   </div>
                 </div>
                 <div className="flex w-full items-center justify-end gap-x-4">

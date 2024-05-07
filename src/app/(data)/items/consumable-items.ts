@@ -45,7 +45,8 @@ export const consumableItems: ConsumableItem[] = [
     id: 'a34kjc',
     dlc: 'base',
     tags: ['Damage Reduction'],
-    description: `Removes CORRODED effect and increases ACID resistance by 15%. Lasts 10m.`,
+    description:
+      'Removes CORRODED effect and increases ACID resistance by 15. Lasts 10m.',
     wikiLinks: [`https://remnant.wiki/Antidote`],
   },
   {
@@ -65,7 +66,9 @@ export const consumableItems: ConsumableItem[] = [
     id: 'edaeta',
     dlc: 'base',
     tags: ['Grenade', 'Status Effect'],
-    description: `When thrown, device becomes an anchor and applies SLOW to all enemies within 4m. [A] Lasts 20s.`,
+    description:
+      'When thrown, Device becomes an anchor and applies SLOW to all enemies within 4m. Lasts 20s.',
+    externalTokens: [`Amplitude`],
     wikiLinks: [`https://remnant.wiki/Binding_Orb`],
   },
   {
@@ -75,9 +78,10 @@ export const consumableItems: ConsumableItem[] = [
     tags: ['Grenade'],
     id: 'nrdcko',
     dlc: 'base',
-    description: `When thrown, explodes in a 4m radius dealing 30 damage [E] and creating a puddle lasting 15s which applies TARRED for 30s to creatures inside.
-
-    Ranged damage and other FIRE sources ignite TARRED entities, dealing 250 BURNING damage over 10s.`,
+    description:
+      'When thrown, explodes in a 4m radius dealing 30 damage and creating a puddle lasting 15s which applies TARRED for 30s to creatures inside.\n' +
+      ' \n' +
+      ' Ranged damage and other FIRE sources ignite TARRED entities, dealing 250 BURNING damage over 10s.',
     wikiLinks: [`https://remnant.wiki/Black_Tar`],
   },
   {
@@ -97,7 +101,9 @@ export const consumableItems: ConsumableItem[] = [
     id: '937h03',
     dlc: 'base',
     tags: ['Grenade'],
-    description: `When thrown, explodes in a 4m [A] radius dealing 50 damage and leaving a mysterious Mist which causes enemies to receive 10% additional damage. Debuff last 10s after enemies leave the Mist. Lasts 15s.`,
+    description:
+      'When thrown, explodes in a 6m radius dealing 50 - 150 damage and leaving a mysterious Mist which causes enemies to receive 10% additional damage. Duration lasts 10s after enemies leave the Mist. Last 15s.',
+    externalTokens: [`Amplitude`],
     wikiLinks: [`https://remnant.wiki/Brightstone`],
   },
   {
@@ -127,7 +133,8 @@ export const consumableItems: ConsumableItem[] = [
     id: 'ffjbc9',
     dlc: 'base',
     tags: ['Damage Reduction'],
-    description: `Removes OVERLOADED effect and increases SHOCK resistance by 15%. Lasts 10m.`,
+    description:
+      'Removes OVERLOADED effect and increases SHOCK resistance by 15. Lasts 10m.',
     wikiLinks: [`https://remnant.wiki/Ethereal_Orb`],
   },
   {
@@ -186,7 +193,8 @@ export const consumableItems: ConsumableItem[] = [
     id: '6aasor',
     dlc: 'base',
     tags: ['Grey Health'],
-    description: `Converts 6.66 Health into Grey Health per second. Lasts 15s.`,
+    description:
+      'Converts  6.66 Health into Grey Health per second. Last  15s.',
     wikiLinks: [`https://remnant.wiki/Mystery_Jerky`],
   },
   {
@@ -196,18 +204,10 @@ export const consumableItems: ConsumableItem[] = [
     id: '0sec3n',
     dlc: 'base',
     tags: ['Damage Reduction'],
-    description: `Cures ROOT ROT Blight and increases Blight Resistance by 25%. Lasts 10m.`,
+    description:
+      'Cures ROOT ROT Blight and increases Blight Resistance by 25. Lasts 10m.',
     wikiLinks: [`https://remnant.wiki/Oilskin_Balm`],
   },
-  // * No longer useful in the builder
-  // {
-  //   category: 'consumable',
-  //   name: 'Orb of Undoing',
-  //   imagePath: '/consumable/orb_of_undoing.png',
-  //   id: 'g0s7fg',
-  //   description: `Resets all spent trait points. Can be used infinitely.`,
-  //   wikiLinks: [`https://remnant.wiki/Orb_of_Undoing`],
-  // },
   {
     category: 'consumable',
     name: 'Pipe Bomb',
@@ -215,7 +215,9 @@ export const consumableItems: ConsumableItem[] = [
     id: 'kfwizc',
     dlc: 'base',
     tags: ['Grenade'],
-    description: `When thrown, explodes in a 4m [A] radius dealing 150 damage [E] and applying BLEEDING, which deals an additional 250 BLEED damage over 30s.`,
+    description:
+      'When thrown, explodes in a 4m radius dealing 150 - 450 damage and applying BLEEDING, which deals an additional 250 - 750 BLEED damage over 30s.',
+    externalTokens: [`Amplitude`, `Explosive Damage`],
     wikiLinks: [`https://remnant.wiki/Pipe_Bomb`],
   },
   {
@@ -225,8 +227,8 @@ export const consumableItems: ConsumableItem[] = [
     saveFileSlug: 'poisonedspice',
     id: '6awni8',
     dlc: 'base',
-    description: `
-    Use to equip the capsule which can be thrown by pressing FIRE. The capsule will detonate after 2s or upon hitting an enemy, releasing a chemical agent which dampens the psionic abilities of long-term Ambit Ember users.`,
+    description:
+      'Use to equip the capsule which can be thrown by pressing FIRE. The capsule will detonate after 2s or upon hitting an enemy, releasing a chemical agent which dampens the psionic abilities of long-term Ambit Ember users.',
     wikiLinks: [`https://remnant.wiki/Poisoned_Ambit_Ember_Capsule`],
   },
   {
@@ -246,7 +248,8 @@ export const consumableItems: ConsumableItem[] = [
     id: 'wzi8il',
     dlc: 'base',
     tags: ['Damage Reduction'],
-    description: `Cures CURSE and increases Blight Resistance by 25%. Lasts 10m.`,
+    description:
+      'Cures CURSE and increases Blight Resistance by 25. Lasts 10m.',
     wikiLinks: [`https://remnant.wiki/Purified_Salve`],
   },
   {
@@ -276,16 +279,8 @@ export const consumableItems: ConsumableItem[] = [
     id: 'li99wc',
     dlc: 'base',
     tags: ['Damage Reduction'],
-    description: `Cures SUPPRESSION Blight and increases Blight Resistance by 25%. Lasts 10m.`,
+    description:
+      'Cures SUPPRESSION Blight and increases Blight Resistance by 25. Lasts 10m.',
     wikiLinks: [`https://remnant.wiki/Timeworn_Unguent`],
   },
-  // This item appears to not be in the game
-  // {
-  //   category: 'consumable',
-  //   name: 'Vigor Leaf',
-  //   imagePath: '/consumable/vigor_leaf.png',
-  //   id: 'jgp8cg',
-  //   description: `Decreases Stamina Recovery delay by 20% and Stamina Regen Penalty by 15%. Last 60s.`,
-  //     //   wikiLinks: [`https://remnant.wiki/Vigor_Leaf`],
-  // },
 ]

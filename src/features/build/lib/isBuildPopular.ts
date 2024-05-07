@@ -1,7 +1,7 @@
 import {
   POPULAR_VOTE_THRESHOLD1,
   POPULAR_VOTE_THRESHOLD2,
-} from '@/features/build/constants'
+} from '@/app/(data)/builds/constants'
 
 export function isBuildPopular(totalUpvotes: number): {
   isPopular: boolean

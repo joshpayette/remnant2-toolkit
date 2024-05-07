@@ -9,6 +9,7 @@ import {
 } from '@/app/(components)/_base/dialog'
 import { ItemInfoDialog } from '@/app/(components)/dialogs/item-info-dialog'
 import { WeightClassSelect } from '@/app/(components)/form-fields/selects/weight-class-select'
+import { Item } from '@/app/(data)/items/types'
 import { ArmorSuggestionCard } from '@/features/armor-calculator/components/ArmorSuggestionCard'
 import { getArmorSuggestions } from '@/features/armor-calculator/lib/getArmorSuggestions'
 import {
@@ -16,7 +17,6 @@ import {
   WeightClassKeysWithDefault,
 } from '@/features/armor-calculator/types'
 import { BuildState } from '@/features/build/types'
-import { Item } from '@/features/items/types'
 import { Pagination } from '@/features/pagination/Pagination'
 import { usePagination } from '@/features/pagination/usePagination'
 

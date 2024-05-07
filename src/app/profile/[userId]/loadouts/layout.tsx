@@ -1,9 +1,9 @@
 import { Metadata } from 'next'
 
+import { getLoadoutList } from '@/app/(actions)/loadouts/get-loadout-list'
 import { DEFAULT_BIO } from '@/app/profile/[userId]/(lib)/constants'
 import { getAvatarById } from '@/app/profile/[userId]/(lib)/getAvatarById'
 import { prisma } from '@/features/db'
-import { getLoadoutList } from '@/features/loadouts/actions/getLoadoutList'
 
 export async function generateMetadata({
   params: { userId },

@@ -1,5 +1,5 @@
-import { ArmorItem } from '../../app/(data)/items/types/ArmorItem'
-import { WEIGHT_CLASSES } from '../items/constants'
+import { WEIGHT_CLASSES } from '@/app/(data)/items/constants'
+import { ArmorItem } from '@/app/(data)/items/types/ArmorItem'
 
 export type ArmorSuggestion = {
   helm: ArmorItem

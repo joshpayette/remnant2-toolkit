@@ -1,11 +1,12 @@
-import copy from 'clipboard-copy'
 import html2canvas from 'html2canvas'
+import cloneDeep from 'lodash.clonedeep'
 import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { toast } from 'react-toastify'
 
 import { modItems } from '@/app/(data)/items/mod-items'
 import { traitItems } from '@/app/(data)/items/trait-items'
+import { Item } from '@/app/(data)/items/types'
 import { AmuletItem } from '@/app/(data)/items/types/AmuletItem'
 import { ArchetypeItem } from '@/app/(data)/items/types/ArchetypeItem'
 import { ArmorItem } from '@/app/(data)/items/types/ArmorItem'
@@ -21,16 +22,15 @@ import { TraitItem } from '@/app/(data)/items/types/TraitItem'
 import { WeaponItem } from '@/app/(data)/items/types/WeaponItem'
 import { BuildState, ItemCategory } from '@/features/build/types'
 import { isErrorResponse } from '@/features/error-handling/isErrorResponse'
-import { Item } from '@/features/items/types'
 
-import { addVoteForBuild } from '../../features/build/actions/addVoteForBuild'
-import { createBuild } from '../../features/build/actions/createBuild'
-import { deleteBuild } from '../../features/build/actions/deleteBuild'
-import { removeVoteForBuild } from '../../features/build/actions/removeVoteForBuild'
-import { INITIAL_BUILD_STATE } from '../../features/build/constants'
 import { getArrayOfLength } from '../../features/build/lib/getArrayOfLength'
 import { getConcoctionSlotCount } from '../../features/build/lib/getConcoctionSlotCount'
 import { getItemListForSlot } from '../../features/build/lib/getItemListForSlot'
+import { addVoteForBuild } from '../(actions)/builds/add-vote-for-build'
+import { createBuild } from '../(actions)/builds/create-build'
+import { deleteBuild } from '../(actions)/builds/delete-build'
+import { removeVoteForBuild } from '../(actions)/builds/remove-vote-for-build'
+import { INITIAL_BUILD_STATE } from '../(data)/builds/constants'
 
 function getRandomItem(
   buildState: BuildState,
@@ -88,9 +88,16 @@ export function useBuildActions() {
   }
 
   async function handleDuplicateBuild(buildState: BuildState) {
-    const newBuildState = JSON.parse(JSON.stringify(buildState)) as BuildState
+    const newBuildState = cloneDeep(buildState)
     newBuildState.name = `${buildState.name} (copy)`
     newBuildState.isPublic = false
+    newBuildState.isMember = Boolean(newBuildState.isMember)
+    newBuildState.upvoted = Boolean(newBuildState.upvoted)
+    newBuildState.totalUpvotes =
+      typeof newBuildState.totalUpvotes === 'string'
+        ? 0
+        : newBuildState.totalUpvotes
+    newBuildState.reported = Boolean(newBuildState.reported)
     const response = await createBuild(JSON.stringify(newBuildState))
     if (isErrorResponse(response)) {
       console.error(response.errors)
