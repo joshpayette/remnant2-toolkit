@@ -140,7 +140,7 @@ export function ItemButton({
         onClick={onClick}
         className={cn(
           'relative z-0 flex items-center justify-center overflow-hidden border-2 border-outline',
-          `bg-[url('https://d2sqltdcj8czo5.cloudfront.net/card-body-bg.jpg')]`,
+          `bg-background-container`,
           isEditable && 'border-outline hover:border-secondary',
           size === 'sm' && 'h-[22px] w-[22px]',
           size === 'md' && 'h-[66px] w-[66px]',
@@ -169,7 +169,7 @@ export function ItemButton({
       {item?.name && (
         <div
           className={cn(
-            'flex items-center justify-center bg-secondary px-1 py-0.5 text-center text-[10px] text-on-background',
+            'flex items-center justify-center bg-secondary px-1 py-0.5 text-center text-[10px] text-on-secondary',
             MANUAL_ITEM_NAME_TEXT_TRANSFORMS.some(
               (i) => i.name === item.name,
             ) && 'text-[9px]',

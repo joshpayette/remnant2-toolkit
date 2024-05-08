@@ -30,11 +30,11 @@ Names were truncated and "error" was renamed to "highlight"
     --color-on-primary-container: 0 43 52;
     --color-primary-inverse: 76 215 246;
     /* Secondary */
-    --color-secondary: 94 39 200;
+    --color-secondary: 56 0 124;
     --color-on-secondary: 255 255 255;
-    --color-secondary-container: 132 85 239;
-    --color-on-secondary-container: 255 255 255;
-    --color-secondary-inverse: 208 188 255;
+    --color-secondary-container: 91 48 165;
+    --color-on-secondary-container: 239 227 255;
+    --color-secondary-inverse: 211 187 255;
     /* Tertiary */
     --color-tertiary: 0 110 47;
     --color-on-tertiary: 255 255 255;
@@ -65,11 +65,11 @@ Names were truncated and "error" was renamed to "highlight"
     --color-on-primary-container: 0 20 25;
     --color-primary-inverse: 0 104 122;
     /* Secondary */
-    --color-secondary: 208 188 255;
-    --color-on-secondary: 60 0 145;
-    --color-secondary-container: 131 83 237;
-    --color-on-secondary-container: 255 255 255;
-    --color-secondary-inverse: 94 39 200;
+    --color-secondary: 76 29 149;
+    --color-on-secondary: 222 227 230;
+    --color-secondary-container: 67 14 140;
+    --color-on-secondary-container: 139 92 246;
+    --color-secondary-inverse: 56 0 124;
     /* Tertiary */
     --color-tertiary: 81 231 123;
     --color-on-tertiary: 0 57 21;

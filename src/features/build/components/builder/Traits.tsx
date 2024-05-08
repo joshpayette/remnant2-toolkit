@@ -268,7 +268,7 @@ export function Traits({
         <button
           onClick={onAddTrait}
           aria-label="Add Trait"
-          className="mx-auto mt-4 flex max-w-[250px] items-center justify-center rounded border border-secondary px-4 py-2 text-xs font-bold text-on-background hover:border-secondary-container hover:bg-secondary-container"
+          className="mx-auto mt-4 flex max-w-[250px] items-center justify-center rounded border border-secondary-container px-4 py-2 text-xs font-bold text-on-background hover:border-on-secondary-container hover:bg-on-secondary-container"
         >
           Add Trait
         </button>
