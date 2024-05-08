@@ -22,7 +22,7 @@ Names were truncated and "error" was renamed to "highlight"
 */
 
 @layer base {
-  :root {
+  :root, .light {
     /* Primary */
     --color-primary: 0 104 122;
     --color-on-primary: 255 255 255;

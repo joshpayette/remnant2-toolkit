@@ -38,7 +38,7 @@ export function LandingPageContainer({
         src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/toolkit/${imageName}`}
         alt="Home page background"
         fill
-        className="absolute inset-0 -z-10 h-full w-full object-cover object-right md:object-center"
+        className="absolute inset-0 -z-10 h-full w-full object-cover object-right md:object-center light:invert"
         loading="eager"
       />
       <div

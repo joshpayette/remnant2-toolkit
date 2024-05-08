@@ -23,7 +23,7 @@ export default async function Page() {
               className="underline hover:text-background/50"
             >
               Search the community&apos;s{' '}
-              <span className="text-2xl font-bold">
+              <span className="text-2xl font-bold text-primary">
                 {totalBuildCount}
               </span>{' '}
               submitted builds
