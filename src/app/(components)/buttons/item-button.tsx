@@ -162,6 +162,7 @@ export function ItemButton({
             height={imageSize.height}
             quality={74}
             unoptimized={unoptimized}
+            className='bg-on-background dark:bg-background-container '
           />
         )}
       </button>
