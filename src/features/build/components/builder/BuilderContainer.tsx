@@ -2,9 +2,9 @@ import { BuildTags } from '@prisma/client'
 import { ReactNode, RefObject } from 'react'
 
 import { BaseButton } from '@/app/(components)/_base/button'
+import { BuildState } from '@/app/(types)/builds'
 import { cn } from '@/lib/classnames'
 
-import { BuildState } from '../../types'
 import { Builder } from './Builder'
 
 type Props = {

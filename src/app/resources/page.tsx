@@ -49,17 +49,7 @@ export default async function Page() {
             />
           }
         />
-
-        <LandingPageCard
-          {...NAV_ITEMS.enemyResistances}
-          icon={
-            <NAV_ITEMS.enemyResistances.icon
-              className="h-7 w-7 flex-none text-primary"
-              aria-hidden="true"
-            />
-          }
-        />
-
+        
         <LandingPageCard
           {...NAV_ITEMS.vashCalculator}
           icon={

@@ -4,8 +4,8 @@ import { DocumentDuplicateIcon } from '@heroicons/react/24/solid'
 
 import { BaseButton } from '@/app/(components)/_base/button'
 import { useBuildActions } from '@/app/(hooks)/use-build-actions'
+import { DBBuild } from '@/app/(types)/builds'
 import { dbBuildToBuildState } from '@/features/build/lib/dbBuildToBuildState'
-import { DBBuild } from '@/features/build/types'
 import { Tooltip } from '@/features/ui/Tooltip'
 
 export function DuplicateBuildButton({ build }: { build: DBBuild }) {

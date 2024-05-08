@@ -18,10 +18,10 @@ import { ConsumableItem } from '@/app/(data)/items/types/ConsumableItem'
 import { ModItem } from '@/app/(data)/items/types/ModItem'
 import { MutatorItem } from '@/app/(data)/items/types/MutatorItem'
 import { WeaponItem } from '@/app/(data)/items/types/WeaponItem'
+import { BuildState } from '@/app/(types)/builds'
 import { ITEM_TOKENS, ItemToken } from '@/app/(types)/tokens'
 import { cleanUpBuildState } from '@/features/build/lib/cleanUpBuildState'
 import { getConcoctionSlotCount } from '@/features/build/lib/getConcoctionSlotCount'
-import { BuildState } from '@/features/build/types'
 import { itemMatchesSearchText } from '@/features/items/lib/itemMatchesSearchText'
 
 /**

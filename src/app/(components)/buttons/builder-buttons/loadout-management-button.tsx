@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 
 import { getLoadoutList } from '@/app/(actions)/loadouts/get-loadout-list'
 import { BaseButton } from '@/app/(components)/_base/button'
-import { DBBuild } from '@/features/build/types'
+import { DBBuild } from '@/app/(types)/builds'
 import { Skeleton } from '@/features/ui/Skeleton'
 
 interface Props {

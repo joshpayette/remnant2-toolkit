@@ -3,8 +3,7 @@ import { Item } from '@/app/(data)/items/types'
 import { ArchetypeItem } from '@/app/(data)/items/types/ArchetypeItem'
 import { MutatorItem } from '@/app/(data)/items/types/MutatorItem'
 import { WeaponItem } from '@/app/(data)/items/types/WeaponItem'
-
-import { BuildState, ItemCategory } from '../types'
+import { BuildState, ItemCategory } from '@/app/(types)/builds'
 
 /**
  * Returns a list of items that match the selected slot

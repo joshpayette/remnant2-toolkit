@@ -1,9 +1,8 @@
 import { Item } from '@/app/(data)/items/types'
 import { TraitItem } from '@/app/(data)/items/types/TraitItem'
+import { BuildState } from '@/app/(types)/builds'
 import { itemCategories } from '@/features/items/lib/getItemCategories'
 import { itemToCsvItem } from '@/features/items/lib/itemToCsvItem'
-
-import { BuildState } from '../types'
 
 /**
  * Converts the build state into a CSV file
@@ -14,6 +13,7 @@ export function buildStateToCsvData(buildState: BuildState) {
       const itemOrItems = buildState.items[category]
 
       const emptyItem = {
+        id: '',
         name: '',
         category,
         description: '',
@@ -26,7 +26,7 @@ export function buildStateToCsvData(buildState: BuildState) {
         // If the category is a trait, we need to add the trait amount to the name
         if (category === 'trait') {
           return itemOrItems.map((item) => {
-            if (!item) return emptyItem
+            if (!item || !item.id) return emptyItem
             if (!TraitItem.isTraitItem(item)) return itemToCsvItem(item)
             const { name, ...csvItem } = itemToCsvItem(item)
             return {
@@ -37,7 +37,7 @@ export function buildStateToCsvData(buildState: BuildState) {
         }
 
         return itemOrItems
-          .filter((item) => item !== null)
+          .filter((item) => item !== null && item?.id)
           .map((item) => itemToCsvItem(item as Item))
       }
 

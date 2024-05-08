@@ -1,4 +1,4 @@
-import { BuildState } from '../types'
+import { BuildState } from '@/app/(types)/builds'
 
 /**
  * Determines how many concoction slots the build has

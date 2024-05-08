@@ -3,7 +3,7 @@ import { Prisma } from '@prisma/client'
 import {
   CommunityBuildQueryResponse,
   CommunityBuildTotalCount,
-} from '@/features/build/types'
+} from '@/app/(types)/builds'
 import { prisma } from '@/features/db'
 
 function userReportedBuildSegment(userId: string | undefined) {

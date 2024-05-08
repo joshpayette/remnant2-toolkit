@@ -1,4 +1,4 @@
-import { BuildState } from '../../../features/build/types'
+import { BuildState } from '../../(types)/builds'
 
 export const DEFAULT_BUILD_NAME = 'My Build'
 
@@ -40,6 +40,7 @@ export const INITIAL_BUILD_STATE: BuildState = {
   isPublic: true,
   isMember: false,
   isFeaturedBuild: false,
+  isBeginnerBuild: false,
   dateFeatured: null,
   isPatchAffected: false,
   thumbnailUrl: null,

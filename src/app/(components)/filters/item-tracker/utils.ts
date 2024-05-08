@@ -100,6 +100,9 @@ export function getFilteredItemsForCategory(
       if (itemCategory === 'mutator (melee)') {
         return MutatorItem.isMutatorItem(item) && item.type === 'melee'
       }
+      if (itemCategory === 'relic fragment') {
+        return item.category.toLowerCase() === 'relicfragment'
+      }
       return item.category.toLowerCase() === itemCategory.toLowerCase()
     })
     .sort((a, b) => {

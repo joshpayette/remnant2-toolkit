@@ -12,8 +12,7 @@ import { RingItem } from '@/app/(data)/items/types/RingItem'
 import { SkillItem } from '@/app/(data)/items/types/SkillItem'
 import { TraitItem } from '@/app/(data)/items/types/TraitItem'
 import { WeaponItem } from '@/app/(data)/items/types/WeaponItem'
-
-import { BuildState, DBBuild } from '../types'
+import { BuildState, DBBuild } from '@/app/(types)/builds'
 
 export function dbBuildToBuildState(dbBuild: DBBuild): BuildState {
   const { buildItems } = dbBuild
@@ -29,6 +28,7 @@ export function dbBuildToBuildState(dbBuild: DBBuild): BuildState {
     isMember: dbBuild.isMember,
     isPublic: dbBuild.isPublic,
     isFeaturedBuild: Boolean(dbBuild.isFeaturedBuild),
+    isBeginnerBuild: Boolean(dbBuild.isBeginnerBuild),
     dateFeatured: dbBuild.dateFeatured,
     isPatchAffected: Boolean(dbBuild.isPatchAffected),
     thumbnailUrl: dbBuild.thumbnailUrl,

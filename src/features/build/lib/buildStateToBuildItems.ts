@@ -1,4 +1,4 @@
-import { BuildState, ItemCategory } from '../types'
+import { BuildState, ItemCategory } from '@/app/(types)/builds'
 
 export function buildStateToBuildItems(buildState: BuildState): Array<{
   itemId: string
