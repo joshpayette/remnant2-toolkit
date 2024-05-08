@@ -57,8 +57,8 @@ export function DiscoveredItemsStatBox({
       index={index}
       footer={
         <div className="flex flex-col items-center justify-center">
-          <hr className="my-1 w-full border-gray-700" />
-          <p className="mt-1 w-full text-left text-xs text-gray-400">
+          <hr className="my-1 w-full border-outline" />
+          <p className="mt-1 w-full text-left text-xs text-on-background-container">
             Your local tracked item total is not synced with the database.
           </p>
           <BaseButton
