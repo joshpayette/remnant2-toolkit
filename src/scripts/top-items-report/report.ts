@@ -219,7 +219,7 @@ async function runReportForCategory(category: ItemCategory | 'all') {
 async function main() {
   console.info(`Running all items reports...`)
 
-  await Promise.resolve([
+await Promise.resolve([
     runReportForCategory('all'),
     runReportForCategory('amulet'),
     runReportForCategory('archetype'),

@@ -90,6 +90,7 @@ export async function createBuild(data: string): Promise<BuildActionResponse> {
             : '',
         isPublic: Boolean(buildState.isPublic),
         isPatchAffected: Boolean(buildState.isPatchAffected),
+        buildLink: buildState.buildLink,
         createdBy: {
           connect: {
             id: session.user.id,

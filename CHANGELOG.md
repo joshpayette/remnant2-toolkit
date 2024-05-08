@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Fixed issue where some builds wouldn't save edits.
 - Fixed issue where line breaks were not formatting correctly in Item Info Dialogs.
+- Fixed a bug where build reference links wouldn't save when creating a build, only when editing a build.
 
 ## 2024-05-07
 

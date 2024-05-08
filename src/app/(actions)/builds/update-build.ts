@@ -54,7 +54,7 @@ export async function updateBuild(data: string): Promise<BuildActionResponse> {
       errors: [validatedData.error.flatten().fieldErrors],
     }
   }
-  const buildState = validatedData.data as BuildState
+  const buildState = validatedData.data
 
   if (buildState.createdById !== session.user.id) {
     return {
