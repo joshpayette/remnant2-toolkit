@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Fixed
 
 - Fixed issue where some builds wouldn't save edits.
+- Fixed issue where line breaks were not formatting correctly in Item Info Dialogs.
 
 ## 2024-05-07
 
