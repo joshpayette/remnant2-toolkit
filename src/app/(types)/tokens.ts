@@ -162,9 +162,26 @@ export const INLINE_TOKENS = [
   {
     type: 'Frenzied',
     token: 'FRENZIED',
-    color: ARCHTYPE_COLORS.ALCHEMIST.text,
-    description:
-      'Increases Fire Rate, Reload Speed, Melee Speed by 20%, and Movement Speed by 15%. Lasts 15s.',
+    color: 'text-yellow-100',
+    description:'undefined',
+  },
+  {
+    type: 'Living Will',
+    token: 'LIVING WILL',
+    color: 'text-yellow-100',
+    description:'undefined',
+  },
+  {
+    type: 'Stoneskin',
+    token: 'STONESKIN',
+    color: 'text-yellow-100',
+    description:'undefined',
+  },
+  {
+    type: 'Unbridled Chaos',
+    token: 'UNBRIDLED CHAOS',
+    color: 'text-yellow-100',
+    description:'undefined',
   },
   {
     type: 'Gloom',
