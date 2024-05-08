@@ -20,6 +20,7 @@ import {
 import { DEFAULT_FILTER } from '@/app/(components)/filters/types'
 import { Item } from '@/app/(data)/items/types'
 import { MutatorItem } from '@/app/(data)/items/types/MutatorItem'
+import { RelicFragmentItem } from '@/app/(data)/items/types/RelicFragmentItem'
 import { WeaponItem } from '@/app/(data)/items/types/WeaponItem'
 import { ALL_TRACKABLE_ITEMS } from '@/app/tracker/constants'
 import {
@@ -37,9 +38,15 @@ function getCategoryProgressLabel({
   filteredItems: Item[]
   discoveredItemIds: string[]
 }) {
-  const undiscoveredCount = filteredItems.reduce((acc, item) => discoveredItemIds.includes(item.id) ? acc : acc + 1, 0);
-  const filteredItemsCount = filteredItems.length;
-  return `${(((filteredItemsCount - undiscoveredCount) / filteredItemsCount) * 100).toFixed(2)}% (${undiscoveredCount} undiscovered)`
+  const undiscoveredCount = filteredItems.reduce(
+    (acc, item) => (discoveredItemIds.includes(item.id) ? acc : acc + 1),
+    0,
+  )
+  const filteredItemsCount = filteredItems.length
+  return `${(
+    ((filteredItemsCount - undiscoveredCount) / filteredItemsCount) *
+    100
+  ).toFixed(2)}% (${undiscoveredCount} undiscovered)`
 }
 
 function getFilteredItemList(
@@ -84,6 +91,12 @@ function getFilteredItemList(
           MutatorItem.isMutatorItem(item)
         ) {
           return item.category === 'mutator' && item.type === 'melee'
+        }
+        if (
+          itemCategory === 'Relic Fragment' &&
+          RelicFragmentItem.isRelicFragmentItem(item)
+        ) {
+          return item.category === 'relicfragment'
         }
 
         return capitalize(item.category) === itemCategory
@@ -210,6 +223,8 @@ export function ItemList({}: Props) {
       itemCategory = 'mutator'
     } else if (category === 'mutator (melee)') {
       itemCategory = 'mutator'
+    } else if (category === 'relic fragment') {
+      itemCategory = 'relicfragment'
     } else {
       itemCategory = category as ItemCategory
     }
