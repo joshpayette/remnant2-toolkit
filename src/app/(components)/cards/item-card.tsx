@@ -22,6 +22,10 @@ import { RelicFragmentItem } from '@/app/(data)/items/types/RelicFragmentItem'
 import { SkillItem } from '@/app/(data)/items/types/SkillItem'
 import { TraitItem } from '@/app/(data)/items/types/TraitItem'
 import { WeaponItem } from '@/app/(data)/items/types/WeaponItem'
+import {
+  DEFAULT_ITEM_COMPARE_LIST,
+  LOCALSTORAGE_KEY,
+} from '@/app/(types)/localstorage'
 import { itemShareEndpoint } from '@/app/(utils)/clean-item-name'
 import { ArmorInfo } from '@/features/armor-calculator/ArmorInfo'
 import { getArrayOfLength } from '@/features/build/lib/getArrayOfLength'
@@ -47,8 +51,8 @@ export function ItemCard({
   onMoreInfoClick,
 }: Props) {
   const [itemsToCompare, setItemsToCompare] = useLocalStorage<string[]>(
-    'item-lookup-compare',
-    getArrayOfLength(5).map(() => ''),
+    LOCALSTORAGE_KEY.ITEM_COMPARE,
+    DEFAULT_ITEM_COMPARE_LIST,
     { initializeWithValue: false },
   )
   const itemBeingCompared = itemsToCompare.includes(item.id)

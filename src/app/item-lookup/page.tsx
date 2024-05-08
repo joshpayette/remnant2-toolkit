@@ -7,6 +7,10 @@ import { ToCsvButton } from '@/app/(components)/buttons/to-csv-button'
 import { ItemLookupFilters } from '@/app/(components)/filters/item-lookup/item-lookup-filters'
 import { allItems } from '@/app/(data)/items/all-items'
 import { MutatorItem } from '@/app/(data)/items/types/MutatorItem'
+import {
+  DEFAULT_ITEM_COMPARE_LIST,
+  LOCALSTORAGE_KEY,
+} from '@/app/(types)/localstorage'
 import { ItemCompareList } from '@/app/item-lookup/item-compare'
 import { ItemList } from '@/app/item-lookup/item-list'
 import { getArrayOfLength } from '@/features/build/lib/getArrayOfLength'
@@ -43,8 +47,8 @@ const csvItems = allItems
   })
 export default function Page() {
   const [itemsToCompare, setItemsToCompare] = useLocalStorage<string[]>(
-    'item-lookup-compare',
-    getArrayOfLength(5).map(() => ''),
+    LOCALSTORAGE_KEY.ITEM_COMPARE,
+    DEFAULT_ITEM_COMPARE_LIST,
     { initializeWithValue: false },
   )
   const areAnyItemsBeingCompared = itemsToCompare.some(

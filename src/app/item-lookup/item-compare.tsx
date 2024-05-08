@@ -5,6 +5,10 @@ import { ItemCard } from '@/app/(components)/cards/item-card'
 import { ItemInfoDialog } from '@/app/(components)/dialogs/item-info-dialog'
 import { allItems } from '@/app/(data)/items/all-items'
 import { Item } from '@/app/(data)/items/types'
+import {
+  DEFAULT_ITEM_COMPARE_LIST,
+  LOCALSTORAGE_KEY,
+} from '@/app/(types)/localstorage'
 import { getArrayOfLength } from '@/features/build/lib/getArrayOfLength'
 import { cn } from '@/lib/classnames'
 
@@ -12,8 +16,8 @@ interface Props {}
 
 export function ItemCompareList({}: Props) {
   const [itemsToCompare, setItemsToCompare] = useLocalStorage<string[]>(
-    'item-lookup-compare',
-    getArrayOfLength(5).map(() => ''),
+    LOCALSTORAGE_KEY.ITEM_COMPARE,
+    DEFAULT_ITEM_COMPARE_LIST,
     { initializeWithValue: false },
   )
 

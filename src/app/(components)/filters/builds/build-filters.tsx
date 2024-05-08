@@ -11,7 +11,6 @@ import {
   BaseField,
   BaseFieldGroup,
   BaseFieldset,
-  BaseLabel,
 } from '@/app/(components)/_base/fieldset'
 import { AmuletFilter } from '@/app/(components)/filters/builds/amulet-filter'
 import { ArchetypeFilter } from '@/app/(components)/filters/builds/archetype-filter'
@@ -33,6 +32,7 @@ import {
 } from '@/app/(components)/filters/releases-filter'
 import { DEFAULT_FILTER } from '@/app/(components)/filters/types'
 import { Input } from '@/app/(components)/form-fields/input'
+import { LOCALSTORAGE_KEY } from '@/app/(types)/localstorage'
 import { cn } from '@/lib/classnames'
 
 export const DEFAULT_BUILD_FILTERS = {
