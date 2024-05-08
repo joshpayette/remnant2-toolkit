@@ -67,7 +67,7 @@ export const skillItems: SkillItem[] = [
       '\n' +
       'HOLD: Howl reduces damage by 15% to all allies within 20m and the Companion generates additional Threat. Lasts 20s.',
     cooldown: 90,
-    externalTokens: [`Amplitude`, `Bleed`],
+    externalTokens: [`Amplitude`, `Dog`],
     wikiLinks: [`https://remnant.wiki/Guard_Dog`],
     linkedItems: {
       archetype: {
@@ -90,7 +90,7 @@ export const skillItems: SkillItem[] = [
       '\n' +
       'HOLD: Howl grants 2% of Max Health per second and 25% increased Movement Speed to all allies within 20m. Lasts 25s.',
     cooldown: 90,
-    externalTokens: [`Amplitude`, `Bleed`],
+    externalTokens: [`Amplitude`, `Dog`],
     wikiLinks: [`https://remnant.wiki/Support_Dog`],
     linkedItems: {
       archetype: {
@@ -113,7 +113,7 @@ export const skillItems: SkillItem[] = [
       '\n' +
       'HOLD: Howl increases damage by 20% for all allies within 20m. Lasts 20s.',
     cooldown: 90,
-    externalTokens: [`Amplitude`, `Bleed`],
+    externalTokens: [`Amplitude`, `Dog`],
     wikiLinks: [`https://remnant.wiki/Attack_Dog`],
     linkedItems: {
       archetype: {

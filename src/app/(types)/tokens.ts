@@ -423,10 +423,10 @@ export const EXTERNAL_TOKENS = [
   // * We keep this here as well as in the description tokens because of the need
   // * to specify that the Handler skills apply bleed.
   {
-    token: 'Bleed',
+    token: 'Dog',
     color: 'text-[#f2350f]',
     description:
-      'Deals Physical Damage per second. Reduces healing effectiveness by 50%.',
+      'Dog applies BLEEDING to enemies.',
   },
   {
     token: 'Explosive Damage',
