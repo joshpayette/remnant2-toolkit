@@ -1,6 +1,6 @@
 import { allItems } from '@/app/(data)/items/all-items'
 import { Item } from '@/app/(data)/items/types'
-import { ItemCategory } from '@/features/build/types'
+import { ItemCategory } from '@/app/(types)/builds'
 
 /** We don't track these categories at all */
 export const skippedItemCategories: Array<ItemCategory> = ['skill', 'perk']

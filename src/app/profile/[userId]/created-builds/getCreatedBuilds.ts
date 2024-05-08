@@ -37,7 +37,7 @@ import {
   limitByWeaponsSegment,
   weaponFiltersToIds,
 } from '@/app/(queries)/build-filters/segments/limit-by-weapons'
-import { DBBuild } from '@/features/build/types'
+import { DBBuild } from '@/app/(types)/builds'
 import { prisma } from '@/features/db'
 import { PaginationResponse } from '@/features/pagination/usePagination'
 import { bigIntFix } from '@/lib/bigIntFix'

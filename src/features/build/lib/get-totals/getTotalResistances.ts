@@ -1,4 +1,5 @@
-import { BuildState } from '../../types'
+import { BuildState } from '@/app/(types)/builds'
+
 import { getItemsByKey, getTraitItemsByKey } from './utils'
 
 export function getTotalResistances(

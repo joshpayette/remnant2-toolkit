@@ -1,4 +1,4 @@
-import { ItemCategory } from '@/features/build/types'
+import { ItemCategory } from '@/app/(types)/builds'
 
 export const itemCategories: ItemCategory[] = [
   'amulet',

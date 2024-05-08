@@ -2,7 +2,7 @@ import { DeleteBuildButton } from '@/app/(components)/buttons/profile-buttons/de
 import { DuplicateBuildButton } from '@/app/(components)/buttons/profile-buttons/duplicate-build-button'
 import { EditBuildButton } from '@/app/(components)/buttons/profile-buttons/edit-build-button'
 import { ShareBuildButton } from '@/app/(components)/buttons/profile-buttons/share-build-button'
-import { DBBuild } from '@/features/build/types'
+import { DBBuild } from '@/app/(types)/builds'
 
 interface Props {
   build: DBBuild

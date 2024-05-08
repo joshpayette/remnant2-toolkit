@@ -4,11 +4,26 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-05-08
+
+### Fixed
+
+- Fixed issue where some builds wouldn't save edits.
+
 ## 2024-05-07
+
+### Added
+
+- Added new Beginner Builds section, a curated list of builds for new players to use as a starting point while farming gear.
+
+### Changed
+
+- Removed the Enemy Resistances resource link - it is now deprecated.
 
 ### Fixed
 
 - Fixed issue preventing some builds from being edited.
+- Fixed issue where I broke relic fragments on the Item Tracker for about the 40th time. (eSeFBeeSuite)
 
 ## 2024-05-06
 

@@ -6,8 +6,8 @@ import { RelicFragmentItem } from '@/app/(data)/items/types/RelicFragmentItem'
 import { RingItem } from '@/app/(data)/items/types/RingItem'
 import { SkillItem } from '@/app/(data)/items/types/SkillItem'
 import { WeaponItem } from '@/app/(data)/items/types/WeaponItem'
+import { BuildState } from '@/app/(types)/builds'
 
-import { BuildState } from '../types'
 import { getArrayOfLength } from './getArrayOfLength'
 
 export function buildStateToMasonryItems(build: BuildState): Item[] {

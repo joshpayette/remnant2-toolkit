@@ -1,9 +1,9 @@
 import { useState } from 'react'
 
+import { DBBuild } from '@/app/(types)/builds'
 import { DEFAULT_ITEMS_PER_PAGE } from '@/features/pagination/constants'
 
 import { getArrayOfLength } from '../lib/getArrayOfLength'
-import { DBBuild } from '../types'
 
 interface State {
   builds: DBBuild[]
@@ -19,6 +19,7 @@ const DEFAULT_STATE: State = {
     imageUrl: '',
     buildUrl: '',
     isFeaturedBuild: false,
+    isBeginnerBuild: false,
     dateFeatured: new Date(),
     isPatchAffected: false,
     isPublic: true,

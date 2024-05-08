@@ -15,9 +15,9 @@ import { ImageDownloadInfoDialog } from '@/app/(components)/dialogs/image-downlo
 import { ItemTagSuggestionDialog } from '@/app/(components)/dialogs/item-tag-suggestion-dialog'
 import { INITIAL_BUILD_STATE } from '@/app/(data)/builds/constants'
 import { useBuildActions } from '@/app/(hooks)/use-build-actions'
+import { BuildState } from '@/app/(types)/builds'
 import { BuilderContainer } from '@/features/build/components/builder/BuilderContainer'
 import { useDBBuildState } from '@/features/build/hooks/useDBBuildState'
-import { BuildState } from '@/features/build/types'
 import { PageHeader } from '@/features/ui/PageHeader'
 
 export default function Page() {

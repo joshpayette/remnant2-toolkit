@@ -15,7 +15,7 @@ import { SkillItem } from '@/app/(data)/items/types/SkillItem'
 import { TraitItem } from '@/app/(data)/items/types/TraitItem'
 import { WeaponItem } from '@/app/(data)/items/types/WeaponItem'
 
-import { ErrorResponse } from '../error-handling/types'
+import { ErrorResponse } from '../../features/error-handling/types'
 
 export type ItemCategory = keyof BuildState['items']
 
@@ -32,6 +32,7 @@ export interface BuildState {
   isMember: boolean
   isPublic: boolean
   isFeaturedBuild: boolean
+  isBeginnerBuild: boolean
   dateFeatured: Date | null
   isPatchAffected: boolean
   thumbnailUrl: string | null
@@ -73,6 +74,7 @@ export interface DBBuild {
   description: Build['description']
   isPublic: Build['isPublic']
   isFeaturedBuild: Build['isFeaturedBuild']
+  isBeginnerBuild: Build['isBeginnerBuild']
   dateFeatured: Build['dateFeatured']
   isPatchAffected: Build['isPatchAffected']
   isMember: boolean

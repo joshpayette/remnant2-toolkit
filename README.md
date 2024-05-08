@@ -24,6 +24,22 @@ This is not an exhaustive or literal list that we follow, but some of the things
 - **Video Guide or Gameplay**: Does the build have a video guide or gameplay footage to help players understand how it works?
 - **Likely to be updated**: Is the build submitted by a creator who is likely to update it as patches and additional content are released?
 
+## Beginner Builds
+
+Want to see your build listed on the beginner builds? [Join the Discord](https://discord.gg/kgVaU3zAQ7) and let us know. Alternatively, you can file an issue on this repo requesting it and we'll take a look.
+
+### How Beginner Builds Are Selected
+
+This is not an exhaustive or literal list we follow, but some of the things we consider are:
+
+- **Easy Playstyle**: Is the build easy to play for beginners?
+- **Basic or Easy to Obtain Items**: Can the build be made with items you can likely get within 1 - 2 campaign runs?
+- **Detailed Description**: Does the build have a detailed description of how to play it and why it's effective, to help players who want to try it?
+- **No Nightmare or HC rewards (with exceptions)**
+- **No or little DLC content (optional)**
+- **No or one corrupted weapon**
+- **No random aberration mutators (with exceptions)**
+
 ## Credits
 
 This project would not be possible without the following sources:

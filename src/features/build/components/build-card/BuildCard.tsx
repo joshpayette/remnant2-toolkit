@@ -11,6 +11,7 @@ import {
 import { BaseButton } from '@/app/(components)/_base/button'
 import { Link } from '@/app/(components)/_base/link'
 import { DescriptionWithTokens } from '@/app/(components)/description-with-tokens'
+import { DBBuild } from '@/app/(types)/builds'
 import { dbBuildToBuildState } from '@/features/build/lib/dbBuildToBuildState'
 import { formatUpdatedAt } from '@/features/build/lib/formatUpdatedAt'
 import {
@@ -19,7 +20,6 @@ import {
 } from '@/features/build/lib/getArchetypeComboName'
 import { isBuildNew } from '@/features/build/lib/isBuildNew'
 import { isBuildPopular } from '@/features/build/lib/isBuildPopular'
-import { DBBuild } from '@/features/build/types'
 import { Skeleton } from '@/features/ui/Skeleton'
 import { Tooltip } from '@/features/ui/Tooltip'
 import { cn } from '@/lib/classnames'
