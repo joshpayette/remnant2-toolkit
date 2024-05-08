@@ -156,9 +156,9 @@ export function BossTrackerFilters({}: Props) {
           </div>
           <Disclosure.Panel
             className={cn(
-              'mt-2 w-full border border-cyan-500 bg-gray-950 p-4',
+              'mt-2 w-full border border-primary bg-background-container p-4',
               areAnyFiltersActive &&
-                'border-accent1-300 shadow-xl shadow-accent1-600',
+                'border-highlight shadow-xl shadow-highlight-container',
             )}
           >
             <BaseFieldset>
