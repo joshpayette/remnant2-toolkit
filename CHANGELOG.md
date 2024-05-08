@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2024-05-07
 
+### Added
+
+- Added new Beginner Builds section, a curated list of builds for new players to use as a starting point while farming gear.
+
 ### Changed
 
 - Removed the Enemy Resistances resource link - it is now deprecated.
