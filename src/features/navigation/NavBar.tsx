@@ -115,16 +115,16 @@ export function NavBar() {
                     <Link
                       href={NAV_ITEMS.beginnerBuilds.href}
                       className={cn(
-                        active ? 'bg-gray-800' : '',
-                        'flex w-full flex-row items-start justify-start p-2 text-sm font-semibold text-white',
+                        active ? 'bg-primary-container/20' : 'bg-background',
+                        'flex w-full flex-row items-start justify-start p-2 text-sm font-semibold text-on-background',
                       )}
                     >
                       <div className="mr-4 w-[20px]">
-                        <NAV_ITEMS.beginnerBuilds.icon className="h-5 w-5 text-primary-600" />
+                        <NAV_ITEMS.beginnerBuilds.icon className="h-5 w-5 text-primary" />
                       </div>
                       <div className="flex flex-col items-start justify-start gap-y-1">
                         {NAV_ITEMS.beginnerBuilds.label}
-                        <p className="text-xs font-normal text-gray-400">
+                        <p className="text-xs font-normal text-on-background-variant">
                           {NAV_ITEMS.beginnerBuilds.description}
                         </p>
                       </div>
