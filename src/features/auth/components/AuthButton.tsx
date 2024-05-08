@@ -36,7 +36,7 @@ function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
             className="flex flex-row items-center justify-start"
           >
             <NAV_ITEMS.profile.icon
-              className="mr-2 h-7 w-5 flex-none text-primary-container"
+              className="mr-2 h-7 w-5 flex-none text-primary"
               aria-hidden="true"
             />
             <div className="flex flex-col items-start justify-start px-3 py-2">
@@ -56,7 +56,7 @@ function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
             className="flex flex-row items-center justify-start"
           >
             <NAV_ITEMS.myBuilds.icon
-              className="mr-2 h-7 w-5 flex-none"
+              className="mr-2 h-7 w-5 flex-none text-primary"
               aria-hidden="true"
             />
             <div className="flex flex-col items-start justify-start px-3 py-2">
@@ -76,7 +76,7 @@ function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
             className="flex flex-row items-center justify-start"
           >
             <NAV_ITEMS.favoritedBuilds.icon
-              className="mr-2 h-7 w-5 flex-none"
+              className="mr-2 h-7 w-5 flex-none text-primary"
               aria-hidden="true"
             />
             <div className="flex flex-col items-start justify-start px-3 py-2">
@@ -95,7 +95,7 @@ function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
             className="flex flex-row items-center justify-start"
           >
             <NAV_ITEMS.loadouts.icon
-              className="mr-2 h-7 w-5 flex-none"
+              className="mr-2 h-7 w-5 flex-none text-primary"
               aria-hidden="true"
             />
             <div className="flex flex-col items-start justify-start px-3 py-2">
@@ -114,7 +114,7 @@ function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
             className="flex flex-row items-center justify-start"
           >
             <NAV_ITEMS.signin.icon
-              className="mr-2 h-7 w-5 flex-none"
+              className="mr-2 h-7 w-5 flex-none text-primary"
               aria-hidden="true"
             />
             <div className="flex flex-col items-start justify-start px-3 py-2 text-sm">
@@ -127,7 +127,7 @@ function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
             className="flex flex-row items-center justify-start"
           >
             <NAV_ITEMS.signout.icon
-              className="mr-2 h-7 w-5 flex-none"
+              className="mr-2 h-7 w-5 flex-none text-primary"
               aria-hidden="true"
             />
             <div className="flex flex-col items-start justify-start px-3 py-2">
@@ -171,11 +171,11 @@ function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
                 <Link
                   href={`/profile/${session?.user?.id}?t=${Date.now()}`}
                   className={cn(
-                    active ? 'bg-background-container' : '',
-                    'flex flex-row items-center justify-start px-4 py-2 text-sm',
+                    active ? 'bg-primary-container/20' : 'bg-background',
+                    'flex flex-row items-center justify-start px-4 py-2 text-sm text-on-background',
                   )}
                 >
-                  <NAV_ITEMS.profile.icon className="mr-1 h-4 w-4" />
+                  <NAV_ITEMS.profile.icon className="mr-1 h-4 w-4 text-primary" />
                   {NAV_ITEMS.profile.label}
                 </Link>
               )}
@@ -187,11 +187,11 @@ function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
                 <Link
                   href={`/profile/${session?.user?.id}/created-builds`}
                   className={cn(
-                    active ? 'bg-background-container' : '',
-                    'flex flex-row items-center justify-start px-4 py-2 text-sm',
+                    active ? 'bg-primary-container/20' : 'bg-background',
+                    'flex flex-row items-center justify-start px-4 py-2 text-sm text-on-background',
                   )}
                 >
-                  <NAV_ITEMS.myBuilds.icon className="mr-1 h-4 w-4" />
+                  <NAV_ITEMS.myBuilds.icon className="mr-1 h-4 w-4 text-primary" />
                   {NAV_ITEMS.myBuilds.label}
                 </Link>
               )}
@@ -204,11 +204,11 @@ function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
                   href={`/profile/${session?.user
                     ?.id}/favorited-builds?t=${Date.now()}`}
                   className={cn(
-                    active ? 'bg-background-container' : '',
-                    'flex flex-row items-center justify-start px-4 py-2 text-sm text-outline',
+                    active ? 'bg-primary-container/20' : 'bg-background',
+                    'flex flex-row items-center justify-start px-4 py-2 text-sm text-on-background',
                   )}
                 >
-                  <NAV_ITEMS.favoritedBuilds.icon className="mr-1 h-4 w-4" />
+                  <NAV_ITEMS.favoritedBuilds.icon className="mr-1 h-4 w-4 text-primary" />
                   Favorited Builds
                 </Link>
               )}
@@ -221,8 +221,8 @@ function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
                   href={`/profile/${session?.user
                     ?.id}/loadouts?t=${Date.now()}`}
                   className={cn(
-                    active ? 'bg-background-container' : '',
-                    'flex flex-row items-center justify-start  px-4 py-2 text-sm text-outline',
+                    active ? 'bg-primary-container/20' : 'bg-background',
+                    'flex flex-row items-center justify-start  px-4 py-2 text-sm text-on-background',
                   )}
                 >
                   <NAV_ITEMS.loadouts.icon className="mr-1 h-4 w-4 text-primary" />
@@ -236,11 +236,11 @@ function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
               <Link
                 href={NAV_ITEMS.signout.href}
                 className={cn(
-                  active ? 'bg-background-container' : '',
-                  'flex flex-row items-center justify-start px-4 py-2 text-sm text-outline',
+                  active ? 'bg-primary-container/20' : 'bg-background',
+                  'flex flex-row items-center justify-start px-4 py-2 text-sm text-on-background',
                 )}
               >
-                <NAV_ITEMS.signout.icon className="mr-1 h-4 w-4" />
+                <NAV_ITEMS.signout.icon className="mr-1 h-4 w-4 text-primary" />
                 {NAV_ITEMS.signout.label}
               </Link>
             )}
