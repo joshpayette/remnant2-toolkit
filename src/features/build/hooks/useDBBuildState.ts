@@ -16,7 +16,7 @@ import { RingItem } from '@/app/(data)/items/types/RingItem'
 import { SkillItem } from '@/app/(data)/items/types/SkillItem'
 import { TraitItem } from '@/app/(data)/items/types/TraitItem'
 import { WeaponItem } from '@/app/(data)/items/types/WeaponItem'
-import { BuildState } from '@/features/build/types'
+import { BuildState } from '@/app/(types)/builds'
 
 import { buildStateToCsvData } from '../lib/buildStateToCsvData'
 import { buildStateToMasonryItems } from '../lib/buildStateToMasonryItems'

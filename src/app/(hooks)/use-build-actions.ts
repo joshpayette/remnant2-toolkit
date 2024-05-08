@@ -20,7 +20,7 @@ import { RingItem } from '@/app/(data)/items/types/RingItem'
 import { SkillItem } from '@/app/(data)/items/types/SkillItem'
 import { TraitItem } from '@/app/(data)/items/types/TraitItem'
 import { WeaponItem } from '@/app/(data)/items/types/WeaponItem'
-import { BuildState, ItemCategory } from '@/features/build/types'
+import { BuildState, ItemCategory } from '@/app/(types)/builds'
 import { isErrorResponse } from '@/features/error-handling/isErrorResponse'
 
 import { getArrayOfLength } from '../../features/build/lib/getArrayOfLength'

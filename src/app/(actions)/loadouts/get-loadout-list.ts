@@ -1,8 +1,8 @@
 'use server'
 
+import { DBBuild } from '@/app/(types)/builds'
 import { DEFAULT_DISPLAY_NAME } from '@/app/profile/[userId]/(lib)/constants'
 import { getServerSession } from '@/features/auth/lib'
-import { DBBuild } from '@/features/build/types'
 import { prisma } from '@/features/db'
 import { getIsLoadoutPublic } from '@/features/loadouts/actions/getIsLoadoutPublic'
 
@@ -56,6 +56,7 @@ export async function getLoadoutList(userId?: string) {
     isFeaturedBuild: loadout.build.isFeaturedBuild,
     dateFeatured: loadout.build.dateFeatured,
     isPatchAffected: loadout.build.isPatchAffected,
+    isBeginnerBuild: loadout.build.isBeginnerBuild,
     isMember: false,
     thumbnailUrl: loadout.build.thumbnailUrl,
     videoUrl: loadout.build.videoUrl,

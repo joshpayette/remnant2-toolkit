@@ -6,9 +6,9 @@ import {
 } from '@/app/(components)/_base/dialog'
 import { Item } from '@/app/(data)/items/types'
 import { TraitItem } from '@/app/(data)/items/types/TraitItem'
+import { BuildState } from '@/app/(types)/builds'
 import { ListItem } from '@/features/build/components/builder/stats/ListItem'
 import { Section } from '@/features/build/components/builder/stats/Section'
-import { BuildState } from '@/features/build/types'
 
 function getStaminaStepLabel(buildState: BuildState, item: TraitItem) {
   const amount =

@@ -170,6 +170,7 @@ model Build {
   createdBy         User              @relation(fields: [createdById], references: [id])
   createdById       String
   isFeaturedBuild   Boolean           @default(false)
+  isBeginnerBuild   Boolean           @default(false)
   isModeratorLocked Boolean           @default(false)
   isPatchAffected   Boolean           @default(false)
   isPublic          Boolean           @default(true)

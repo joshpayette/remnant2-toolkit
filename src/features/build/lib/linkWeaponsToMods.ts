@@ -1,7 +1,6 @@
 import { modItems } from '@/app/(data)/items/mod-items'
 import { ModItem } from '@/app/(data)/items/types/ModItem'
-
-import { BuildState } from '../types'
+import { BuildState } from '@/app/(types)/builds'
 
 /**
  * Checks the build weapons and equips any mods

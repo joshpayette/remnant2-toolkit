@@ -14,6 +14,7 @@ import {
   PuzzlePieceIcon,
   QueueListIcon,
   ShieldCheckIcon,
+  SparklesIcon,
   StarIcon,
   TableCellsIcon,
   UserIcon,
@@ -24,6 +25,13 @@ import {
  * The base pages for the site
  */
 export const NAV_ITEMS = {
+  beginnerBuilds: {
+    label: 'Beginner Builds',
+    description:
+      'A curated list of unique and high-quality builds catered to new players.',
+    href: '/beginner-builds',
+    icon: SparklesIcon,
+  },
   bossTracker: {
     label: 'Boss Tracker',
     description:

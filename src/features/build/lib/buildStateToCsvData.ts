@@ -1,9 +1,8 @@
 import { Item } from '@/app/(data)/items/types'
 import { TraitItem } from '@/app/(data)/items/types/TraitItem'
+import { BuildState } from '@/app/(types)/builds'
 import { itemCategories } from '@/features/items/lib/getItemCategories'
 import { itemToCsvItem } from '@/features/items/lib/itemToCsvItem'
-
-import { BuildState } from '../types'
 
 /**
  * Converts the build state into a CSV file

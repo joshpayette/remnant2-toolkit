@@ -11,7 +11,7 @@ import { updateBuild } from '@/app/(actions)/builds/update-build'
 import { BaseButton } from '@/app/(components)/_base/button'
 import { LoadingButton } from '@/app/(components)/buttons/builder-buttons/loading-button'
 import { INITIAL_BUILD_STATE } from '@/app/(data)/builds/constants'
-import { BuildActionResponse, BuildState } from '@/features/build/types'
+import { BuildActionResponse, BuildState } from '@/app/(types)/builds'
 import { isErrorResponse } from '@/features/error-handling/isErrorResponse'
 
 interface Props {

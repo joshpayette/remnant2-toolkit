@@ -1,8 +1,7 @@
+import { DEFAULT_TRAIT_AMOUNT } from '@/app/(data)/builds/constants'
 import { traitItems } from '@/app/(data)/items/trait-items'
 import { TraitItem } from '@/app/(data)/items/types/TraitItem'
-
-import { DEFAULT_TRAIT_AMOUNT } from '../../../app/(data)/builds/constants'
-import { BuildState } from '../types'
+import { BuildState } from '@/app/(types)/builds'
 
 /**
  * Checks the build archtypes and equips any traits

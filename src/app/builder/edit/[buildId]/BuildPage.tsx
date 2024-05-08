@@ -14,11 +14,11 @@ import { DetailedBuildDialog } from '@/app/(components)/dialogs/detailed-build-d
 import { ImageDownloadInfoDialog } from '@/app/(components)/dialogs/image-download-info-dialog'
 import { ItemTagSuggestionDialog } from '@/app/(components)/dialogs/item-tag-suggestion-dialog'
 import { useBuildActions } from '@/app/(hooks)/use-build-actions'
+import { BuildState, DBBuild } from '@/app/(types)/builds'
 import { BuilderContainer } from '@/features/build/components/builder/BuilderContainer'
 import { useDBBuildState } from '@/features/build/hooks/useDBBuildState'
 import { cleanUpBuildState } from '@/features/build/lib/cleanUpBuildState'
 import { dbBuildToBuildState } from '@/features/build/lib/dbBuildToBuildState'
-import { BuildState, DBBuild } from '@/features/build/types'
 import { PageHeader } from '@/features/ui/PageHeader'
 
 interface Props {
