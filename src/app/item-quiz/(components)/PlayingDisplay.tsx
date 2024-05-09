@@ -25,7 +25,7 @@ export const PlayingDisplay = React.memo(
         id="item-name-container"
         className="mb-8 flex flex-col items-center justify-center"
       >
-        <h3 className="text-xl font-bold">Item to Find:</h3>
+        <h3 className="text-xl text-primary font-bold">Item to Find:</h3>
         <p className="text-lg text-on-background">{correctItemName}</p>
       </div>
 

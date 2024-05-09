@@ -17,7 +17,7 @@ export default async function Page() {
       title="Remnant 2 Toolkit"
       description={
         <>
-          <div className="mt-6 text-lg leading-8 text-on-background-variant">
+          <div className="mt-6 text-lg leading-8 text-on-background/90">
             <Link
               href="/community-builds"
               className="underline hover:text-background/50"
@@ -41,12 +41,12 @@ export default async function Page() {
             </Link>
             , and more!
           </div>
-          <p className="mt-6 text-lg leading-8">
+          <p className="mt-6 text-lg leading-8 text-on-background/90">
             <span className="font-bold text-primary">100% free</span> and{' '}
             <span className="font-bold text-primary">open source</span>{' '}
             toolkit for Remnant 2. No ads, no tracking, no BS.
           </p>
-          <p className="mt-6 text-lg leading-8">
+          <p className="mt-6 text-lg leading-8 text-on-background/90">
             <span className="font-bold text-primary">
               No login required
             </span>{' '}

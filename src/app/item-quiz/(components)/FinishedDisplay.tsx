@@ -32,12 +32,12 @@ export const FinishedDisplay = React.memo(
       <div className="mb-8 flex flex-col items-center justify-center">
         <p className="mb-2 text-lg text-on-background">
           Your final score is{' '}
-          <span className="font-bold text-primary">{score}</span>
+          <span className="font-bold text-highlight">{score}</span>
         </p>
         {gameTimer >= 0 ? (
           <p className="text-lg text-on-background">
             The time remaining was{' '}
-            <span className="font-bold text-primary">{gameTimer}</span>{' '}
+            <span className="font-bold text-highlight">{gameTimer}</span>{' '}
             seconds
           </p>
         ) : null}
@@ -45,7 +45,7 @@ export const FinishedDisplay = React.memo(
       {gameTimer >= 0 ? (
         <>
           <hr className="mb-8 w-full border border-secondary" />
-          <h3 className="mb-2 text-xl font-bold">
+          <h3 className="mb-2 text-xl text-primary font-bold">
             The correct answer was:
           </h3>
           <p className="mb-2 text-lg font-bold text-on-background">
@@ -82,7 +82,7 @@ export const FinishedDisplay = React.memo(
       ) : null}
 
       <hr className="mb-8 w-full border border-primary" />
-      <div className="flex w-full flex-col items-center justify-center bg-background-container p-4">
+      <div className="flex w-full flex-col items-center justify-center bg-background-blend p-4">
         <MobileLayoutToggle
           layoutPreference={layoutPreference}
           onToggleLayoutPreference={onToggleLayoutPreference}

@@ -53,21 +53,22 @@ Names were truncated and "error" was renamed to "highlight"
     --color-background-variant: 216 229 233;
     --color-on-background-variant: 61 73 76;
     --color-background-container: 233 239 241;
+    --color-background-blend: 233 239 241;
     --color-outline: 109 121 125;
     --color-outline-variant: 188 201 205;
   }
 
   .dark {
     /* Primary */
-    --color-primary: 76 215 246;
+    --color-primary: 6 182 212;
     --color-on-primary: 0 54 64;
     --color-primary-container: 0 173 202;
     --color-on-primary-container: 0 20 25;
     --color-primary-inverse: 0 104 122;
     /* Secondary */
-    --color-secondary: 76 29 149;
+    --color-secondary: 139 92 246;
     --color-on-secondary: 222 227 230;
-    --color-secondary-container: 67 14 140;
+    --color-secondary-container: 76 29 149;
     --color-on-secondary-container: 139 92 246;
     --color-secondary-inverse: 56 0 124;
     /* Tertiary */
@@ -77,7 +78,7 @@ Names were truncated and "error" was renamed to "highlight"
     --color-on-tertiary-container: 0 30 8;
     --color-tertiary-inverse: 0 110 47;
     /* Highlight */
-    --color-highlight: 255 219 139;
+    --color-highlight: 234 179 8;
     --color-on-highlight: 63 46 0;
     --color-highlight-container: 227 173 0;
     --color-on-highlight-container: 54 39 0;
@@ -86,8 +87,9 @@ Names were truncated and "error" was renamed to "highlight"
     --color-background: 17 0 28;
     --color-on-background: 222 227 230;
     --color-background-variant: 61 73 76;
-    --color-on-background-variant: 188 201 205;
+    --color-on-background-variant: 156 163 175;
     --color-background-container: 14 20 21;
+    --color-background-blend: 17 24 39;
     --color-outline: 134 147 151;
     --color-outline-variant: 61 73 76;
   }

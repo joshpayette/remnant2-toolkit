@@ -68,10 +68,10 @@ export function QuizItemButton({ item, itemIndex, onClick }: Props) {
       plain // TODO: All of these styles need a pass
     >
       <div className="absolute bottom-0 right-0 hidden sm:flex sm:gap-x-0.5">
-        <div className="md:text-md flex h-4 w-4 items-center justify-center bg-on-secondary text-xs md:h-6 md:w-6">
+        <div className="md:text-md flex h-4 w-4 items-center justify-center bg-on-secondary text-xs text-background md:h-6 md:w-6">
           {numberLabel}
         </div>
-        <div className="md:text-md flex h-4 w-4 items-center justify-center bg-on-secondary text-xs md:h-6 md:w-6">
+        <div className="md:text-md flex h-4 w-4 items-center justify-center bg-on-secondary text-xs text-background md:h-6 md:w-6">
           {arrowIcon}
         </div>
       </div>

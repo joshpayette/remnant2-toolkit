@@ -120,7 +120,7 @@ export function ItemCard({
           <div className="flex w-full items-center justify-center">
             <div className="flex w-full items-center justify-start">
               {itemBuildStats ? (
-                <div className="flex items-center gap-1 text-[11px] text-on-background-container">
+                <div className="flex items-center gap-1 text-[11px] text-outline-container">
                   <div className="flex flex-col items-center justify-start">
                     <span className="underline">Featured</span>
                     <span>
@@ -197,7 +197,7 @@ export function ItemCard({
         </BaseButton>
         <div className="mt-0 flex flex-grow flex-col justify-start text-xs">
           <div className="sr-only">Item Category</div>
-          <div className="text-xs text-on-background">{itemCategory}</div>
+          <div className="text-xs text-outline">{itemCategory}</div>
           {!ArmorItem.isArmorItem(item) && (
             <>
               <div className="sr-only">Description</div>
@@ -219,7 +219,7 @@ export function ItemCard({
           )}
 
           {MutatorItem.isMutatorItem(item) && (
-            <div className="mt-3 whitespace-pre-line text-left text-xs text-on-background">
+            <div className="mt-3 whitespace-pre-line text-left text-xs text-outline">
               <strong>At Max Level: </strong>
               <DescriptionWithTokens
                 description={item.maxLevelBonus || 'No max level bonus found.'}
@@ -230,7 +230,7 @@ export function ItemCard({
           )}
 
           {item.cooldown && (
-            <div className="mt-3 whitespace-pre-line text-left text-xs text-on-background">
+            <div className="mt-3 whitespace-pre-line text-left text-xs text-outline">
               <strong>Cooldown</strong>: {item.cooldown}s
             </div>
           )}
@@ -247,7 +247,7 @@ export function ItemCard({
         )}
         {PerkItem.isPerkItem(item) && item.linkedItems?.archetype && (
           <div className="mt-4">
-            <div className="grid w-full grid-cols-2 gap-2 border border-transparent py-1 text-left text-sm text-on-background">
+            <div className="grid w-full grid-cols-2 gap-2 border border-transparent py-1 text-left text-sm text-outline">
               <p className="flex items-center justify-start text-xs">
                 Archetype
               </p>
@@ -263,7 +263,7 @@ export function ItemCard({
         )}
         {SkillItem.isSkillItem(item) && item.linkedItems?.archetype && (
           <div className="mt-4">
-            <div className="grid w-full grid-cols-2 gap-2 border border-transparent py-1 text-left text-sm text-on-background">
+            <div className="grid w-full grid-cols-2 gap-2 border border-transparent py-1 text-left text-sm text-outline">
               <p className="flex items-center justify-start text-xs">
                 Archetype
               </p>
@@ -279,7 +279,7 @@ export function ItemCard({
         )}
         {TraitItem.isTraitItem(item) && item.linkedItems?.archetype && (
           <div className="mt-4">
-            <div className="grid w-full grid-cols-2 gap-2 border border-transparent py-1 text-left text-sm text-on-background">
+            <div className="grid w-full grid-cols-2 gap-2 border border-transparent py-1 text-left text-sm text-outline">
               <p className="flex items-center justify-start text-xs">
                 Archetype
               </p>
