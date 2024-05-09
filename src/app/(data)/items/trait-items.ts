@@ -1,5 +1,4 @@
-import { DEFAULT_TRAIT_AMOUNT } from '@/app/(data)/builds/constants'
-
+import { DEFAULT_TRAIT_AMOUNT } from '../builds/constants'
 import { TraitItem } from './types/TraitItem'
 
 export const traitItems: TraitItem[] = [

@@ -23,11 +23,12 @@ import { MutatorItem } from '@/app/(data)/items/types/MutatorItem'
 import { RelicFragmentItem } from '@/app/(data)/items/types/RelicFragmentItem'
 import { WeaponItem } from '@/app/(data)/items/types/WeaponItem'
 import { ItemCategory } from '@/app/(types)/builds'
-import { ALL_TRACKABLE_ITEMS } from '@/app/tracker/constants'
 import {
-  ItemTrackerCategory,
   ItemTrackerLocalStorage,
-} from '@/app/tracker/types'
+  LOCALSTORAGE_KEY,
+} from '@/app/(types)/localstorage'
+import { ALL_TRACKABLE_ITEMS } from '@/app/tracker/constants'
+import { ItemTrackerCategory } from '@/app/tracker/types'
 import { capitalize } from '@/lib/capitalize'
 import { cn } from '@/lib/classnames'
 
@@ -191,7 +192,7 @@ export function ItemList({}: Props) {
   }, [filters])
 
   const [tracker, setTracker] = useLocalStorage<ItemTrackerLocalStorage>(
-    'item-tracker',
+    LOCALSTORAGE_KEY.ITEM_TRACKER,
     {
       discoveredItemIds: [],
       collapsedCategories: [],

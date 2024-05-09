@@ -96,7 +96,7 @@ export function ItemInfoDialog({ open, item, onClose }: Props) {
       </BaseDialogBody>
       <BaseDialogTitle>Description</BaseDialogTitle>
       <BaseDialogBody>
-        <span>
+        <span className="whitespace-pre-line">
           <DescriptionWithTokens
             description={item.description || 'No description available.'}
             highlightBuildTags={false}
@@ -105,23 +105,20 @@ export function ItemInfoDialog({ open, item, onClose }: Props) {
         </span>
       </BaseDialogBody>
       {MutatorItem.isMutatorItem(item) && (
-        <div className="flex flex-col items-start justify-start">
-          <h4 className="mt-4 text-left text-sm text-white">At Max Level</h4>
-          <span>
-            <DescriptionWithTokens
-              description={item.maxLevelBonus || 'No max level bonus found.'}
-              highlightBuildTags={false}
-              highlightItems={false}
-            />
-          </span>
-        </div>
+        <BaseDialogBody className="flex flex-row items-start justify-start gap-x-2">
+          <span className="w-[120px] font-bold">At Max Level:</span>{' '}
+          <DescriptionWithTokens
+            description={item.maxLevelBonus || 'No max level bonus found.'}
+            highlightBuildTags={false}
+            highlightItems={false}
+          />
+        </BaseDialogBody>
       )}
 
       {item.cooldown && (
-        <div className="flex flex-col items-start justify-start">
-          <h4 className="mt-4 text-left text-sm text-white">Cooldown</h4>
-          <span>{item.cooldown}s</span>
-        </div>
+        <BaseDialogBody className="flex flex-row items-start justify-start gap-x-2">
+          <span className="font-bold">Cooldown:</span> {item.cooldown}s
+        </BaseDialogBody>
       )}
 
       {item.linkedItems && (

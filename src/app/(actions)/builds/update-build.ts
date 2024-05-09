@@ -35,6 +35,9 @@ export async function updateBuild(data: string): Promise<BuildActionResponse> {
     ...unvalidatedData,
     createdAt: new Date(unvalidatedData.createdAt),
     updatedAt: new Date(unvalidatedData.updatedAt),
+    dateFeatured: unvalidatedData.dateFeatured
+      ? new Date(unvalidatedData.dateFeatured)
+      : null,
     buildTags: unvalidatedData.buildTags
       ? unvalidatedData.buildTags.map((tag: any) => ({
           ...tag,
@@ -51,7 +54,7 @@ export async function updateBuild(data: string): Promise<BuildActionResponse> {
       errors: [validatedData.error.flatten().fieldErrors],
     }
   }
-  const buildState = validatedData.data as BuildState
+  const buildState = validatedData.data
 
   if (buildState.createdById !== session.user.id) {
     return {

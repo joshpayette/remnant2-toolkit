@@ -13,6 +13,7 @@ import { ItemInfoDialog } from '@/app/(components)/dialogs/item-info-dialog'
 import { ItemSearchText } from '@/app/(components)/filters/item-lookup/item-search-text'
 import { Item } from '@/app/(data)/items/types'
 import { ItemCategory } from '@/app/(types)/builds'
+import { SortingPreference } from '@/app/(types)/localstorage'
 import { ITEM_TOKENS } from '@/app/(types)/tokens'
 import { itemMatchesSearchText } from '@/features/items/lib/itemMatchesSearchText'
 import { capitalize } from '@/lib/capitalize'
@@ -42,7 +43,7 @@ function sortByPreference({
 }: {
   items: Item[]
   buildSlot: ItemCategory | null
-  sortingPreference: 'alphabetical' | 'in-game'
+  sortingPreference: SortingPreference
 }) {
   if (buildSlot !== 'trait') return items
 
@@ -84,11 +85,10 @@ export function ItemSelectDialog({
   const [filter, setFilter] = useState('')
   const [debouncedFilter] = useDebounceValue(filter, 500)
 
-  const [sortingPreference, setSortingPreference] = useLocalStorage<
-    'alphabetical' | 'in-game'
-  >('sorting-preference', 'alphabetical', {
-    initializeWithValue: false,
-  })
+  const [sortingPreference, setSortingPreference] =
+    useLocalStorage<SortingPreference>('sorting-preference', 'alphabetical', {
+      initializeWithValue: false,
+    })
 
   const getNewSortedItems = useCallback(() => {
     const filteredItems = itemList

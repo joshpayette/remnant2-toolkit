@@ -11,12 +11,17 @@ import {
   BaseField,
   BaseFieldGroup,
   BaseFieldset,
-  BaseLabel,
 } from '@/app/(components)/_base/fieldset'
 import { AmuletFilter } from '@/app/(components)/filters/builds/amulet-filter'
-import { ArchetypeFilter } from '@/app/(components)/filters/builds/archetype-filter'
+import {
+  ArchetypeFilter,
+  VALID_ARCHETYPES,
+} from '@/app/(components)/filters/builds/archetype-filter'
 import { BuildMiscFilter } from '@/app/(components)/filters/builds/build-misc-filter'
-import { BuildTagFilter } from '@/app/(components)/filters/builds/build-tag-filter'
+import {
+  BuildTagFilter,
+  VALID_BUILD_TAGS,
+} from '@/app/(components)/filters/builds/build-tag-filter'
 import { HandGunFilter } from '@/app/(components)/filters/builds/hand-gun-filter'
 import { LongGunFilter } from '@/app/(components)/filters/builds/long-gun-filter'
 import { MeleeFilter } from '@/app/(components)/filters/builds/melee-filter'
@@ -36,9 +41,9 @@ import { Input } from '@/app/(components)/form-fields/input'
 import { cn } from '@/lib/classnames'
 
 export const DEFAULT_BUILD_FILTERS = {
-  archetypes: [DEFAULT_FILTER],
+  archetypes: VALID_ARCHETYPES,
   amulet: DEFAULT_FILTER,
-  buildTags: [DEFAULT_FILTER],
+  buildTags: [],
   longGun: DEFAULT_FILTER,
   handGun: DEFAULT_FILTER,
   melee: DEFAULT_FILTER,
@@ -100,7 +105,7 @@ export function BuildFilters({ buildFiltersOverrides }: Props) {
     // Add the archetype filter
     if (
       !isEqual(filtersToApply, defaultFilters.archetypes) &&
-      !filtersToApply.archetypes.includes(DEFAULT_FILTER)
+      filtersToApply.archetypes.length !== VALID_ARCHETYPES.length
     ) {
       url += `${BUILD_FILTER_KEYS.ARCHETYPES}=${filtersToApply.archetypes.join(
         ',',
@@ -110,7 +115,7 @@ export function BuildFilters({ buildFiltersOverrides }: Props) {
     // Add the build tag filters
     if (
       !isEqual(filtersToApply.buildTags, defaultFilters.buildTags) &&
-      !filtersToApply.buildTags.includes(DEFAULT_FILTER)
+      filtersToApply.buildTags.length !== VALID_BUILD_TAGS.length
     ) {
       url += `${BUILD_FILTER_KEYS.BUILDTAGS}=${filtersToApply.buildTags.join(
         ',',
@@ -144,7 +149,7 @@ export function BuildFilters({ buildFiltersOverrides }: Props) {
     // Add the releases filters
     if (
       !isEqual(filtersToApply.releases, defaultFilters.releases) &&
-      !filtersToApply.releases.includes(DEFAULT_FILTER)
+      filtersToApply.releases.length !== VALID_RELEASE_KEYS.length
     ) {
       url += `${BUILD_FILTER_KEYS.RELEASES}=${filtersToApply.releases.join(
         ',',
@@ -194,70 +199,42 @@ export function BuildFilters({ buildFiltersOverrides }: Props) {
     setUnappliedFilters(newFilters)
   }
 
-  function handleArchetypeChange(newArchetypes: string[]) {
-    // if the archetypes length is 0, set the archetypes to the default value
-    if (newArchetypes.length === 0) {
-      const newFilters = { ...unappliedFilters, archetypes: [DEFAULT_FILTER] }
-      setUnappliedFilters(newFilters)
-      return
-    }
-
-    // If the first item is the default value ("All"), apply the filters after removing the default value
-    if (newArchetypes[0] === DEFAULT_FILTER) {
+  function handleArchetypeChange(newArchetype: string, checked: boolean) {
+    // if the archetype is unchecked, remove it from the list
+    if (!checked) {
       const newFilters = {
         ...unappliedFilters,
-        archetypes: newArchetypes.filter((i) => i !== DEFAULT_FILTER),
+        archetypes: unappliedFilters.archetypes.filter(
+          (i) => i !== newArchetype,
+        ),
       }
       setUnappliedFilters(newFilters)
       return
     }
 
-    // If any of the filters contain the default value of "All", just apply the filters
-    if (newArchetypes.includes(DEFAULT_FILTER)) {
-      const newFilters = { ...unappliedFilters, archetypes: [DEFAULT_FILTER] }
-      setUnappliedFilters(newFilters)
-      return
-    }
-
-    // If we got here, remove the default value from the list
+    // if the archetype is not in the list, add it
     const newFilters = {
       ...unappliedFilters,
-      archetypes: newArchetypes.filter(
-        (archetype) => archetype !== DEFAULT_FILTER,
-      ),
+      archetypes: [...unappliedFilters.archetypes, newArchetype],
     }
     setUnappliedFilters(newFilters)
   }
 
-  function handleBuildTagChange(newBuildTags: string[]) {
-    // if the newBuildTags length is 0, set to the default value
-    if (newBuildTags.length === 0) {
-      const newFilters = { ...unappliedFilters, buildTags: [DEFAULT_FILTER] }
-      setUnappliedFilters(newFilters)
-      return
-    }
-
-    // If the first item is the default value ("All"), apply the filters after removing the default value
-    if (newBuildTags[0] === DEFAULT_FILTER) {
+  function handleBuildTagChange(newBuildTag: string, checked: boolean) {
+    // if the build tag is unchecked, remove it from the list
+    if (!checked) {
       const newFilters = {
         ...unappliedFilters,
-        buildTags: newBuildTags.filter((i) => i !== DEFAULT_FILTER),
+        buildTags: unappliedFilters.buildTags.filter((i) => i !== newBuildTag),
       }
       setUnappliedFilters(newFilters)
       return
     }
 
-    // If any of the filters contain the default value of "All", just apply the filters
-    if (newBuildTags.includes(DEFAULT_FILTER)) {
-      const newFilters = { ...unappliedFilters, buildTags: [DEFAULT_FILTER] }
-      setUnappliedFilters(newFilters)
-      return
-    }
-
-    // If we got here, remove the default value from the list
+    // if the build tag is not in the list, add it
     const newFilters = {
       ...unappliedFilters,
-      buildTags: newBuildTags.filter((buildTag) => buildTag !== DEFAULT_FILTER),
+      buildTags: [...unappliedFilters.buildTags, newBuildTag],
     }
     setUnappliedFilters(newFilters)
   }
@@ -277,12 +254,12 @@ export function BuildFilters({ buildFiltersOverrides }: Props) {
     setUnappliedFilters(newFilters)
   }
 
-  function handleReleasesChange(newReleases: string, checked: boolean) {
+  function handleReleasesChange(newRelease: string, checked: boolean) {
     // if the release is unchecked, remove it from the list
     if (!checked) {
       const newFilters = {
         ...unappliedFilters,
-        releases: unappliedFilters.releases.filter((i) => i !== newReleases),
+        releases: unappliedFilters.releases.filter((i) => i !== newRelease),
       }
       setUnappliedFilters(newFilters)
       return
@@ -291,7 +268,7 @@ export function BuildFilters({ buildFiltersOverrides }: Props) {
     // if the release is not in the list, add it
     const newFilters = {
       ...unappliedFilters,
-      releases: [...unappliedFilters.releases, newReleases],
+      releases: [...unappliedFilters.releases, newRelease],
     }
     setUnappliedFilters(newFilters)
   }
@@ -393,31 +370,41 @@ export function BuildFilters({ buildFiltersOverrides }: Props) {
             <BaseFieldset>
               <BaseFieldGroup>
                 <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-4 md:grid-cols-4 lg:grid-cols-6">
-                  <div className="col-span-full sm:col-span-1">
+                  <div className="col-span-full md:col-span-3">
+                    <ArchetypeFilter
+                      values={unappliedFilters.archetypes}
+                      onChange={handleArchetypeChange}
+                      onCheckAll={() => {
+                        const newFilters = {
+                          ...unappliedFilters,
+                          archetypes: VALID_ARCHETYPES,
+                        }
+                        setUnappliedFilters(newFilters)
+                      }}
+                      onUncheckAll={() => {
+                        const newFilters = {
+                          ...unappliedFilters,
+                          archetypes: [],
+                        }
+                        setUnappliedFilters(newFilters)
+                      }}
+                    />
+                  </div>
+                  <div className="col-span-full flex flex-col gap-y-8 sm:col-span-1 sm:gap-y-2">
                     <AmuletFilter
                       value={unappliedFilters.amulet}
                       onChange={handleAmuletChange}
                     />
-                  </div>
-                  <div className="col-span-full sm:col-span-1">
                     <RingFilter
                       value={unappliedFilters.rings}
                       onChange={handleRingChange}
                     />
                   </div>
-                  <div className="col-span-full sm:col-span-1">
-                    <ArchetypeFilter
-                      value={unappliedFilters.archetypes}
-                      onChange={handleArchetypeChange}
-                    />
-                  </div>
-                  <div className="col-span-full sm:col-span-1">
+                  <div className="col-span-full flex flex-col gap-y-8 sm:col-span-1 sm:gap-y-2">
                     <LongGunFilter
                       value={unappliedFilters.longGun}
                       onChange={handleLongGunChange}
                     />
-                  </div>
-                  <div className="col-span-full sm:col-span-1">
                     <MeleeFilter
                       value={unappliedFilters.melee}
                       onChange={handleMeleeChange}
@@ -449,10 +436,24 @@ export function BuildFilters({ buildFiltersOverrides }: Props) {
                       }}
                     />
                   </div>
-                  <div className="col-span-full sm:col-span-1">
+                  <div className="col-span-full md:col-span-2">
                     <BuildTagFilter
-                      value={unappliedFilters.buildTags}
+                      values={unappliedFilters.buildTags}
                       onChange={handleBuildTagChange}
+                      onCheckAll={() => {
+                        const newFilters = {
+                          ...unappliedFilters,
+                          buildTags: VALID_BUILD_TAGS,
+                        }
+                        setUnappliedFilters(newFilters)
+                      }}
+                      onUncheckAll={() => {
+                        const newFilters = {
+                          ...unappliedFilters,
+                          buildTags: [],
+                        }
+                        setUnappliedFilters(newFilters)
+                      }}
                     />
                   </div>
                   <div className="col-span-full sm:col-span-1 md:col-span-2">

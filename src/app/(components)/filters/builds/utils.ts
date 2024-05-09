@@ -1,7 +1,9 @@
 import isEqual from 'lodash.isequal'
 import { ReadonlyURLSearchParams } from 'next/navigation'
 
+import { VALID_ARCHETYPES } from '@/app/(components)/filters/builds/archetype-filter'
 import { DEFAULT_BUILD_FILTERS } from '@/app/(components)/filters/builds/build-filters'
+import { VALID_BUILD_TAGS } from '@/app/(components)/filters/builds/build-tag-filter'
 import {
   BUILD_FILTER_KEYS,
   BuildListFilters,
@@ -9,7 +11,6 @@ import {
 } from '@/app/(components)/filters/builds/types'
 import { VALID_RELEASE_KEYS } from '@/app/(components)/filters/releases-filter'
 import { amuletItems } from '@/app/(data)/items/amulet-items'
-import { archetypeItems } from '@/app/(data)/items/archetype-items'
 import { ringItems } from '@/app/(data)/items/ring-items'
 import { weaponItems } from '@/app/(data)/items/weapon-items'
 
@@ -34,7 +35,9 @@ export function parseUrlFilters(
     parsedParams.get(BUILD_FILTER_KEYS.BUILDTAGS)?.split(',') ||
     defaultFilters.buildTags
   if (!isEqual(buildTags, defaultFilters.buildTags)) {
-    buildTags = (buildTags as string[]).filter((tag) => tag.length > 0)
+    buildTags = buildTags.filter((tag) =>
+      VALID_BUILD_TAGS.some((item) => item === tag),
+    )
     // If no build tags, set to default
     if (buildTags.length === 0) {
       buildTags = defaultFilters.buildTags
@@ -46,8 +49,8 @@ export function parseUrlFilters(
     parsedParams.get(BUILD_FILTER_KEYS.ARCHETYPES)?.split(',') ||
     defaultFilters.archetypes
   if (!isEqual(archetypes, defaultFilters.archetypes)) {
-    archetypes = (archetypes as string[]).filter((archetype) =>
-      archetypeItems.some((item) => item.name === archetype),
+    archetypes = archetypes.filter((archetype) =>
+      VALID_ARCHETYPES.some((item) => item === archetype),
     )
     // If no archetypes, set to default
     if (archetypes.length === 0) {

@@ -12,16 +12,17 @@ import { ImportSaveDialog } from '@/app/(components)/dialogs/import-save-dialog'
 import { ItemTrackerFilters } from '@/app/(components)/filters/item-tracker/item-tracker-filters'
 import { allItems } from '@/app/(data)/items/all-items'
 import { MutatorItem } from '@/app/(data)/items/types/MutatorItem'
+import {
+  ItemTrackerLocalStorage,
+  LOCALSTORAGE_KEY,
+} from '@/app/(types)/localstorage'
 import { getTrackerProgressLabel } from '@/app/(utils)/tracker/get-tracker-progress-label'
 import {
   ALL_TRACKABLE_ITEMS,
   skippedItemCategories,
 } from '@/app/tracker/constants'
 import { ItemList } from '@/app/tracker/item-list'
-import {
-  ItemTrackerCategory,
-  ItemTrackerLocalStorage,
-} from '@/app/tracker/types'
+import { ItemTrackerCategory } from '@/app/tracker/types'
 import { itemToCsvItem } from '@/features/items/lib/itemToCsvItem'
 import { PageHeader } from '@/features/ui/PageHeader'
 import { Skeleton } from '@/features/ui/Skeleton'
@@ -60,7 +61,7 @@ export default function Page() {
   const isClient = useIsClient()
 
   const [tracker, setTracker] = useLocalStorage<ItemTrackerLocalStorage>(
-    'item-tracker',
+    LOCALSTORAGE_KEY.ITEM_TRACKER,
     {
       discoveredItemIds: [],
       collapsedCategories: [],
