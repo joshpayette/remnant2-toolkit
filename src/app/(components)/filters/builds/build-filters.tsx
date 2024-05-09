@@ -18,7 +18,10 @@ import {
   VALID_ARCHETYPES,
 } from '@/app/(components)/filters/builds/archetype-filter'
 import { BuildMiscFilter } from '@/app/(components)/filters/builds/build-misc-filter'
-import { BuildTagFilter } from '@/app/(components)/filters/builds/build-tag-filter'
+import {
+  BuildTagFilter,
+  VALID_BUILD_TAGS,
+} from '@/app/(components)/filters/builds/build-tag-filter'
 import { HandGunFilter } from '@/app/(components)/filters/builds/hand-gun-filter'
 import { LongGunFilter } from '@/app/(components)/filters/builds/long-gun-filter'
 import { MeleeFilter } from '@/app/(components)/filters/builds/melee-filter'
@@ -40,7 +43,7 @@ import { cn } from '@/lib/classnames'
 export const DEFAULT_BUILD_FILTERS = {
   archetypes: VALID_ARCHETYPES,
   amulet: DEFAULT_FILTER,
-  buildTags: [DEFAULT_FILTER],
+  buildTags: [],
   longGun: DEFAULT_FILTER,
   handGun: DEFAULT_FILTER,
   melee: DEFAULT_FILTER,
@@ -102,7 +105,7 @@ export function BuildFilters({ buildFiltersOverrides }: Props) {
     // Add the archetype filter
     if (
       !isEqual(filtersToApply, defaultFilters.archetypes) &&
-      !filtersToApply.archetypes.includes(DEFAULT_FILTER)
+      filtersToApply.archetypes.length !== VALID_ARCHETYPES.length
     ) {
       url += `${BUILD_FILTER_KEYS.ARCHETYPES}=${filtersToApply.archetypes.join(
         ',',
@@ -112,7 +115,7 @@ export function BuildFilters({ buildFiltersOverrides }: Props) {
     // Add the build tag filters
     if (
       !isEqual(filtersToApply.buildTags, defaultFilters.buildTags) &&
-      !filtersToApply.buildTags.includes(DEFAULT_FILTER)
+      filtersToApply.buildTags.length !== VALID_BUILD_TAGS.length
     ) {
       url += `${BUILD_FILTER_KEYS.BUILDTAGS}=${filtersToApply.buildTags.join(
         ',',
@@ -146,7 +149,7 @@ export function BuildFilters({ buildFiltersOverrides }: Props) {
     // Add the releases filters
     if (
       !isEqual(filtersToApply.releases, defaultFilters.releases) &&
-      !filtersToApply.releases.includes(DEFAULT_FILTER)
+      filtersToApply.releases.length !== VALID_RELEASE_KEYS.length
     ) {
       url += `${BUILD_FILTER_KEYS.RELEASES}=${filtersToApply.releases.join(
         ',',
@@ -201,7 +204,9 @@ export function BuildFilters({ buildFiltersOverrides }: Props) {
     if (!checked) {
       const newFilters = {
         ...unappliedFilters,
-        releases: unappliedFilters.releases.filter((i) => i !== newArchetype),
+        archetypes: unappliedFilters.archetypes.filter(
+          (i) => i !== newArchetype,
+        ),
       }
       setUnappliedFilters(newFilters)
       return
@@ -215,35 +220,21 @@ export function BuildFilters({ buildFiltersOverrides }: Props) {
     setUnappliedFilters(newFilters)
   }
 
-  function handleBuildTagChange(newBuildTags: string[]) {
-    // if the newBuildTags length is 0, set to the default value
-    if (newBuildTags.length === 0) {
-      const newFilters = { ...unappliedFilters, buildTags: [DEFAULT_FILTER] }
-      setUnappliedFilters(newFilters)
-      return
-    }
-
-    // If the first item is the default value ("All"), apply the filters after removing the default value
-    if (newBuildTags[0] === DEFAULT_FILTER) {
+  function handleBuildTagChange(newBuildTag: string, checked: boolean) {
+    // if the build tag is unchecked, remove it from the list
+    if (!checked) {
       const newFilters = {
         ...unappliedFilters,
-        buildTags: newBuildTags.filter((i) => i !== DEFAULT_FILTER),
+        buildTags: unappliedFilters.buildTags.filter((i) => i !== newBuildTag),
       }
       setUnappliedFilters(newFilters)
       return
     }
 
-    // If any of the filters contain the default value of "All", just apply the filters
-    if (newBuildTags.includes(DEFAULT_FILTER)) {
-      const newFilters = { ...unappliedFilters, buildTags: [DEFAULT_FILTER] }
-      setUnappliedFilters(newFilters)
-      return
-    }
-
-    // If we got here, remove the default value from the list
+    // if the build tag is not in the list, add it
     const newFilters = {
       ...unappliedFilters,
-      buildTags: newBuildTags.filter((buildTag) => buildTag !== DEFAULT_FILTER),
+      buildTags: [...unappliedFilters.buildTags, newBuildTag],
     }
     setUnappliedFilters(newFilters)
   }
@@ -445,10 +436,24 @@ export function BuildFilters({ buildFiltersOverrides }: Props) {
                       }}
                     />
                   </div>
-                  <div className="col-span-full sm:col-span-1">
+                  <div className="col-span-full md:col-span-2">
                     <BuildTagFilter
-                      value={unappliedFilters.buildTags}
+                      values={unappliedFilters.buildTags}
                       onChange={handleBuildTagChange}
+                      onCheckAll={() => {
+                        const newFilters = {
+                          ...unappliedFilters,
+                          buildTags: VALID_BUILD_TAGS,
+                        }
+                        setUnappliedFilters(newFilters)
+                      }}
+                      onUncheckAll={() => {
+                        const newFilters = {
+                          ...unappliedFilters,
+                          buildTags: [],
+                        }
+                        setUnappliedFilters(newFilters)
+                      }}
                     />
                   </div>
                   <div className="col-span-full sm:col-span-1 md:col-span-2">

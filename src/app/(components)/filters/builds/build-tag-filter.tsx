@@ -1,36 +1,60 @@
-import { BaseField, BaseLabel } from '@/app/(components)/_base/fieldset'
+import { BaseButton } from '@/app/(components)/_base/button'
 import {
-  BaseListbox,
-  BaseListboxLabel,
-  BaseListboxOption,
-} from '@/app/(components)/_base/listbox'
-import { DEFAULT_FILTER } from '@/app/(components)/filters/types'
+  BaseCheckbox,
+  BaseCheckboxField,
+  BaseCheckboxGroup,
+} from '@/app/(components)/_base/checkbox'
+import {
+  BaseFieldset,
+  BaseLabel,
+  BaseLegend,
+} from '@/app/(components)/_base/fieldset'
 import { ALL_BUILD_TAGS } from '@/features/build/build-tags/constants'
 
+export const VALID_BUILD_TAGS = ALL_BUILD_TAGS.map((item) => item.label)
+
 interface Props {
-  value: string[]
-  onChange: (value: string[]) => void
+  values: string[]
+  onChange: (newTag: string, checked: boolean) => void
+  onCheckAll: () => void
+  onUncheckAll: () => void
 }
 
-export function BuildTagFilter({ value, onChange }: Props) {
-  const allTags = ALL_BUILD_TAGS.map((item) => item.label)
-  allTags.unshift(DEFAULT_FILTER)
-
-  const options = allTags.map((tag) => ({
+export function BuildTagFilter({
+  values,
+  onChange,
+  onCheckAll,
+  onUncheckAll,
+}: Props) {
+  const options = VALID_BUILD_TAGS.map((tag) => ({
     label: tag,
     value: tag,
   }))
 
   return (
-    <BaseField>
-      <BaseLabel>Build Tags</BaseLabel>
-      <BaseListbox multiple name="build-tag" value={value} onChange={onChange}>
+    <BaseFieldset>
+      <BaseLegend>Build Tags</BaseLegend>
+      <div className="mt-2 flex flex-row gap-x-2">
+        <BaseButton outline onClick={onCheckAll}>
+          Check All
+        </BaseButton>
+        <BaseButton outline onClick={onUncheckAll}>
+          Uncheck All
+        </BaseButton>
+      </div>
+      <BaseCheckboxGroup className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4">
         {options.map(({ label, value }) => (
-          <BaseListboxOption key={value} value={value}>
-            <BaseListboxLabel>{label}</BaseListboxLabel>
-          </BaseListboxOption>
+          <BaseCheckboxField key={value}>
+            <BaseCheckbox
+              name="build-tags"
+              value={value}
+              onChange={(checked) => onChange(value, checked)}
+              checked={values.includes(value)}
+            />
+            <BaseLabel>{label}</BaseLabel>
+          </BaseCheckboxField>
         ))}
-      </BaseListbox>
-    </BaseField>
+      </BaseCheckboxGroup>
+    </BaseFieldset>
   )
 }
