@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 
-import { NAV_ITEMS } from '@/features/navigation/constants'
+import { NAV_ITEMS } from '@/app/(types)/navigation'
 
 export async function generateMetadata(): Promise<Metadata> {
   const title = 'Resources - Remnant 2 Toolkit'

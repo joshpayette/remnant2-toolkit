@@ -8,8 +8,8 @@ import { Fragment, useEffect, useState } from 'react'
 
 import { BaseButton } from '@/app/(components)/_base/button'
 import { Link } from '@/app/(components)/_base/link'
+import { NAV_ITEMS } from '@/app/(types)/navigation'
 import { AuthButton } from '@/features/auth/components/AuthButton'
-import { NAV_ITEMS } from '@/features/navigation/constants'
 import { Logo } from '@/features/ui/Logo'
 import { cn } from '@/lib/classnames'
 

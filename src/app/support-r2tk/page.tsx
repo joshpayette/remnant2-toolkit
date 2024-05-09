@@ -1,4 +1,4 @@
-import { NAV_ITEMS } from '@/features/navigation/constants'
+import { NAV_ITEMS } from '@/app/(types)/navigation'
 import { LandingPageCard } from '@/features/ui/LandingPageCard'
 import { LandingPageContainer } from '@/features/ui/LandingPageContainer'
 

@@ -1,6 +1,5 @@
 import { Inter } from 'next/font/google'
 
-import { NavBar } from '@/features/navigation/NavBar'
 import { Footer } from '@/features/ui/Footer'
 import { cn } from '@/lib/classnames'
 export { metadata } from './metadata'
@@ -11,8 +10,8 @@ import { Analytics } from '@vercel/analytics/react'
 import { Viewport } from 'next'
 import { ToastContainer } from 'react-toastify'
 
-import { BaseCode, BaseText } from '@/app/(components)/_base/text'
 import { GlobalActionButtons } from '@/app/(components)/buttons/global-action-buttons/global-action-buttons'
+import { NavBar } from '@/app/(components)/nav-bar'
 import { PreloadResources } from '@/features/ui/PreloadResources'
 
 import { SessionProvider } from '../features/auth/components/SessionProvider'
