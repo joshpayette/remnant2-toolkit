@@ -7,11 +7,11 @@ import {
   DEFAULT_BUILD_NAME,
   MAX_BUILD_DESCRIPTION_LENGTH,
 } from '@/app/(data)/builds/constants'
+import { BuildActionResponse, BuildState } from '@/app/(types)/builds'
 import { validateBuildState } from '@/app/(validators)/validate-build-state'
 import { getServerSession } from '@/features/auth/lib'
 import { checkBadWords, cleanBadWords } from '@/features/bad-word-filter'
 import { buildStateToBuildItems } from '@/features/build/lib/buildStateToBuildItems'
-import { BuildActionResponse, BuildState } from '@/features/build/types'
 import { prisma } from '@/features/db'
 import { getBuildDescriptionParams } from '@/features/moderation/build-feed/getBuildDescriptionParams'
 import { getBuildNameParams } from '@/features/moderation/build-feed/getBuildNameParams'
@@ -35,6 +35,9 @@ export async function updateBuild(data: string): Promise<BuildActionResponse> {
     ...unvalidatedData,
     createdAt: new Date(unvalidatedData.createdAt),
     updatedAt: new Date(unvalidatedData.updatedAt),
+    dateFeatured: unvalidatedData.dateFeatured
+      ? new Date(unvalidatedData.dateFeatured)
+      : null,
     buildTags: unvalidatedData.buildTags
       ? unvalidatedData.buildTags.map((tag: any) => ({
           ...tag,
@@ -51,7 +54,7 @@ export async function updateBuild(data: string): Promise<BuildActionResponse> {
       errors: [validatedData.error.flatten().fieldErrors],
     }
   }
-  const buildState = validatedData.data as BuildState
+  const buildState = validatedData.data
 
   if (buildState.createdById !== session.user.id) {
     return {

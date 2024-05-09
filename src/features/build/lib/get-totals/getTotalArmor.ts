@@ -1,4 +1,4 @@
-import { BuildState } from '@/features/build/types'
+import { BuildState } from '@/app/(types)/builds'
 
 import { getItemsByKey, getTraitItemsByKey } from './utils'
 

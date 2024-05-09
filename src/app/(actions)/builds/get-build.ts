@@ -1,8 +1,8 @@
 'use server'
 
+import { DBBuild } from '@/app/(types)/builds'
 import { DEFAULT_DISPLAY_NAME } from '@/app/profile/[userId]/(lib)/constants'
 import { getServerSession } from '@/features/auth/lib'
-import { DBBuild } from '@/features/build/types'
 import { prisma } from '@/features/db'
 import { ErrorResponse } from '@/features/error-handling/types'
 import { bigIntFix } from '@/lib/bigIntFix'
@@ -39,6 +39,7 @@ export async function getBuild(
     description: build.description ?? '',
     isMember: false,
     isFeaturedBuild: build.isFeaturedBuild,
+    isBeginnerBuild: build.isBeginnerBuild,
     dateFeatured: build.dateFeatured,
     isPatchAffected: build.isPatchAffected,
     isPublic: build.isPublic,

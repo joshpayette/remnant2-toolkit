@@ -22,7 +22,7 @@ export function LandingPageCard({
       href={href}
       key={label}
       target={target}
-      className="mb-4 flex min-h-[200px] flex-row gap-x-4 rounded-xl border border-transparent bg-background/75 p-6 ring-1 ring-inset ring-background hover:border-primary"
+      className="mb-4 flex min-h-[200px] flex-row gap-x-4 rounded-xl border border-transparent bg-background-container/60 p-6 ring-1 ring-inset ring-background-container hover:border-primary"
     >
       {icon}
       <div className="relative w-full">

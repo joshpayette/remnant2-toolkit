@@ -35,8 +35,8 @@ import {
   limitByWeaponsSegment,
   weaponFiltersToIds,
 } from '@/app/(queries)/build-filters/segments/limit-by-weapons'
+import { DBBuild } from '@/app/(types)/builds'
 import { getServerSession } from '@/features/auth/lib'
-import { DBBuild } from '@/features/build/types'
 import { prisma } from '@/features/db'
 import { PaginationResponse } from '@/features/pagination/usePagination'
 import { bigIntFix } from '@/lib/bigIntFix'
@@ -83,6 +83,7 @@ export async function getFeaturedBuilds({
   const whereConditions = Prisma.sql`
   WHERE Build.isPublic = true
   AND Build.isFeaturedBuild = true
+  AND Build.isBeginnerBuild = false
   ${limitByAmuletSegment(amuletId)}
   ${limitByArchetypesSegment(archetypeIds)}
   ${limitByBuildTagsSegment(tagValues)}

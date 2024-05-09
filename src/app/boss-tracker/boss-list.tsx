@@ -2,13 +2,11 @@
 
 import { Disclosure } from '@headlessui/react'
 import { ChevronDownIcon } from '@heroicons/react/24/solid'
-import isEqual from 'lodash.isequal'
 import { useSearchParams } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { useIsClient, useLocalStorage } from 'usehooks-ts'
 
 import { BossTrackerCard } from '@/app/(components)/cards/boss-tracker-card'
-import { DEFAULT_BOSS_TRACKER_FILTERS } from '@/app/(components)/filters/boss-tracker/boss-tracker-filters'
 import { BossTrackerFilters } from '@/app/(components)/filters/boss-tracker/types'
 import { parseUrlFilters } from '@/app/(components)/filters/boss-tracker/utils'
 import { DEFAULT_FILTER } from '@/app/(components)/filters/types'
@@ -19,9 +17,10 @@ import {
 } from '@/app/(data)/enemies/remnant-enemies'
 import { BossCategory, Enemy } from '@/app/(data)/enemies/types'
 import {
-  BossTrackerCategory,
   BossTrackerLocalStorage,
-} from '@/app/boss-tracker/types'
+  LOCALSTORAGE_KEY,
+} from '@/app/(types)/localstorage'
+import { BossTrackerCategory } from '@/app/boss-tracker/types'
 import { getTrackerProgress } from '@/app/boss-tracker/utils'
 import { cn } from '@/lib/classnames'
 
@@ -76,7 +75,7 @@ export function BossList({}: Props) {
   }, [searchParams])
 
   const [tracker, setTracker] = useLocalStorage<BossTrackerLocalStorage>(
-    'boss-tracker',
+    LOCALSTORAGE_KEY.BOSS_TRACKER,
     {
       discoveredBossIds: [],
       collapsedBossCategories: [],

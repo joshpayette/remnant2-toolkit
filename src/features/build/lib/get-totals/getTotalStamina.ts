@@ -1,7 +1,7 @@
 import { Item } from '@/app/(data)/items/types'
 import { TraitItem } from '@/app/(data)/items/types/TraitItem'
+import { BuildState } from '@/app/(types)/builds'
 
-import { BuildState } from '../../types'
 import { getItemsByKey, getTraitItemsByKey } from './utils'
 
 export function getTotalStamina(buildState: BuildState): {

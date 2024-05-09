@@ -16,7 +16,10 @@ import { Item } from '@/app/(data)/items/types'
 import { MutatorItem } from '@/app/(data)/items/types/MutatorItem'
 import { RelicFragmentItem } from '@/app/(data)/items/types/RelicFragmentItem'
 import { WeaponItem } from '@/app/(data)/items/types/WeaponItem'
-import { ItemTrackerLocalStorage } from '@/app/tracker/types'
+import {
+  ItemTrackerLocalStorage,
+  LOCALSTORAGE_KEY,
+} from '@/app/(types)/localstorage'
 import { MasonryItemList } from '@/features/items/components/MasonryItemList'
 import { itemMatchesSearchText } from '@/features/items/lib/itemMatchesSearchText'
 import { capitalize } from '@/lib/capitalize'
@@ -162,7 +165,7 @@ export function ItemList({}: Props) {
   }, [filters])
 
   const [tracker] = useLocalStorage<ItemTrackerLocalStorage>(
-    'item-tracker',
+    LOCALSTORAGE_KEY.ITEM_TRACKER,
     {
       discoveredItemIds: [],
       collapsedCategories: [],

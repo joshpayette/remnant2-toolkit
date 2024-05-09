@@ -23,12 +23,12 @@ export const IdleDisplay = React.memo(
     <div className="flex flex-col items-center justify-center">
       {showTopScore ? (
         <div className="mb-4 flex flex-col items-center justify-center">
-          <h2 className="text-xl font-bold text-primary">Top Score</h2>
+          <h2 className="text-xl font-bold text-highlight">Top Score</h2>
           <p className="mb-2 text-left text-4xl text-on-background">{topScore}</p>
         </div>
       ) : null}
       <div className="mb-12 text-center">
-        <h2 className="text-xl font-bold text-on-background">Rules</h2>
+        <h2 className="text-xl font-bold text-primary">Rules</h2>
         <p className="text-md mb-2 text-left text-on-background">
           You will be shown four items and an item name. You must select the
           item that matches the name. The game ends when the timer runs out or

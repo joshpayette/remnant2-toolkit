@@ -4,11 +4,14 @@ import { toast } from 'react-toastify'
 import { useIsClient, useLocalStorage } from 'usehooks-ts'
 
 import { BaseButton } from '@/app/(components)/_base/button'
+import {
+  ItemTrackerLocalStorage,
+  LOCALSTORAGE_KEY,
+} from '@/app/(types)/localstorage'
 import { getDiscoveredCount } from '@/app/(utils)/tracker/get-discovered-count'
 import { updateTotalDiscoveredItems } from '@/app/profile/[userId]/(actions)/updateTotalDiscoveredItems'
 import { StatBox } from '@/app/profile/[userId]/(components)/StatBox'
 import { TOTAL_TRACKABLE_ITEM_COUNT } from '@/app/tracker/constants'
-import { ItemTrackerLocalStorage } from '@/app/tracker/types'
 
 interface Props {
   stat: { name: string; value: number; unit?: string }
@@ -24,7 +27,7 @@ export function DiscoveredItemsStatBox({
   userId,
 }: Props) {
   const [tracker, setTracker] = useLocalStorage<ItemTrackerLocalStorage>(
-    'item-tracker',
+    LOCALSTORAGE_KEY.ITEM_TRACKER,
     {
       discoveredItemIds: [],
       collapsedCategories: [],
@@ -57,8 +60,8 @@ export function DiscoveredItemsStatBox({
       index={index}
       footer={
         <div className="flex flex-col items-center justify-center">
-          <hr className="my-1 w-full border-gray-700" />
-          <p className="mt-1 w-full text-left text-xs text-gray-400">
+          <hr className="my-1 w-full border-outline" />
+          <p className="mt-1 w-full text-left text-xs text-on-background-container">
             Your local tracked item total is not synced with the database.
           </p>
           <BaseButton

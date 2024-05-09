@@ -1,9 +1,4 @@
-import { ItemCategory } from '@/features/build/types'
-
-export interface ItemTrackerLocalStorage {
-  discoveredItemIds: string[]
-  collapsedCategories: Array<ItemTrackerCategory>
-}
+import { ItemCategory } from '@/app/(types)/builds'
 
 export type ItemTrackerCategory =
   | Omit<ItemCategory, 'weapon' | 'mutator'>

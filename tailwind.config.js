@@ -51,6 +51,7 @@ module.exports = {
         'background-variant': 'rgb(var(--color-background-variant) / <alpha-value>)',
         'on-background-variant': 'rgb(var(--color-on-background-variant) / <alpha-value>)',
         'background-container': 'rgb(var(--color-background-container) / <alpha-value>)',
+        'background-blend': 'rgb(var(--color-background-blend) / <alpha-value>)',
         'outline': 'rgb(var(--color-outline) / <alpha-value>)',
         'outline-variant': 'rgb(var(--color-outline-variant) / <alpha-value>)',
       },

@@ -139,9 +139,9 @@ export function ItemButton({
       <button
         onClick={onClick}
         className={cn(
-          'relative z-0 flex items-center justify-center overflow-hidden border-2 border-outline',
-          `bg-[url('https://d2sqltdcj8czo5.cloudfront.net/card-body-bg.jpg')]`,
-          isEditable && 'border-outline hover:border-secondary',
+          'relative z-0 flex items-center justify-center overflow-hidden border-2 border-outline-variant',
+          `bg-background-container`,
+          isEditable && 'border-outline-variant hover:border-secondary',
           size === 'sm' && 'h-[22px] w-[22px]',
           size === 'md' && 'h-[66px] w-[66px]',
           size === 'lg' && 'h-[99px] w-[99px]',
@@ -162,6 +162,7 @@ export function ItemButton({
             height={imageSize.height}
             quality={74}
             unoptimized={unoptimized}
+            className='bg-on-background dark:bg-background-container '
           />
         )}
       </button>
@@ -169,7 +170,7 @@ export function ItemButton({
       {item?.name && (
         <div
           className={cn(
-            'flex items-center justify-center bg-secondary px-1 py-0.5 text-center text-[10px] text-on-background',
+            'flex items-center justify-center bg-secondary-container px-1 py-0.5 text-center text-[10px] text-on-secondary',
             MANUAL_ITEM_NAME_TEXT_TRANSFORMS.some(
               (i) => i.name === item.name,
             ) && 'text-[9px]',

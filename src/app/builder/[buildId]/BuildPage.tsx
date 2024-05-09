@@ -20,12 +20,12 @@ import { DetailedBuildDialog } from '@/app/(components)/dialogs/detailed-build-d
 import { ImageDownloadInfoDialog } from '@/app/(components)/dialogs/image-download-info-dialog'
 import { LoadoutDialog } from '@/app/(components)/dialogs/loadout-dialog'
 import { useBuildActions } from '@/app/(hooks)/use-build-actions'
+import { DBBuild } from '@/app/(types)/builds'
 import { urlNoCache } from '@/app/(utils)/url-no-cache'
 import { BuilderContainer } from '@/features/build/components/builder/BuilderContainer'
 import { buildStateToCsvData } from '@/features/build/lib/buildStateToCsvData'
 import { cleanUpBuildState } from '@/features/build/lib/cleanUpBuildState'
 import { dbBuildToBuildState } from '@/features/build/lib/dbBuildToBuildState'
-import { DBBuild } from '@/features/build/types'
 
 function videoEmbedUrlToVideoId(videoEmbedUrl: string) {
   const url = new URL(videoEmbedUrl)

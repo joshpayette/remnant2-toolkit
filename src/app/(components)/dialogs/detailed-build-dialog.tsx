@@ -10,8 +10,8 @@ import {
 import { ItemCard } from '@/app/(components)/cards/item-card'
 import { ItemInfoDialog } from '@/app/(components)/dialogs/item-info-dialog'
 import { Item } from '@/app/(data)/items/types'
+import { BuildState } from '@/app/(types)/builds'
 import { buildStateToMasonryItems } from '@/features/build/lib/buildStateToMasonryItems'
-import { BuildState } from '@/features/build/types'
 
 interface Props {
   open: boolean

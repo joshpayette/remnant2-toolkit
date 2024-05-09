@@ -4,14 +4,12 @@ import { useRouter } from 'next/navigation'
 import { signIn, useSession } from 'next-auth/react'
 import { useState } from 'react'
 import { toast } from 'react-toastify'
-import { useLocalStorage } from 'usehooks-ts'
 
 import { createBuild } from '@/app/(actions)/builds/create-build'
 import { updateBuild } from '@/app/(actions)/builds/update-build'
 import { BaseButton } from '@/app/(components)/_base/button'
 import { LoadingButton } from '@/app/(components)/buttons/builder-buttons/loading-button'
-import { INITIAL_BUILD_STATE } from '@/app/(data)/builds/constants'
-import { BuildActionResponse, BuildState } from '@/features/build/types'
+import { BuildActionResponse, BuildState } from '@/app/(types)/builds'
 import { isErrorResponse } from '@/features/error-handling/isErrorResponse'
 
 interface Props {
@@ -25,12 +23,6 @@ export function SaveBuildButton({ buildState, editMode }: Props) {
   const [saveInProgress, setSaveInProgress] = useState(false)
 
   const { status } = useSession()
-
-  const [localBuildState, setLocalBuildState] = useLocalStorage<BuildState>(
-    'build-state',
-    INITIAL_BUILD_STATE,
-    { initializeWithValue: true },
-  )
 
   if (status === 'loading') return <LoadingButton />
   if (status === 'unauthenticated') {
@@ -53,7 +45,6 @@ export function SaveBuildButton({ buildState, editMode }: Props) {
       toast.error(`Error saving build. ${response.errors?.join(' ')}`)
       setSaveInProgress(false)
     } else {
-      setLocalBuildState(INITIAL_BUILD_STATE)
       toast.success(response.message)
       setSaveInProgress(false)
       router.push(`/builder/${response.buildId}`)

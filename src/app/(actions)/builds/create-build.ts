@@ -7,11 +7,11 @@ import {
   DEFAULT_BUILD_NAME,
   MAX_BUILD_DESCRIPTION_LENGTH,
 } from '@/app/(data)/builds/constants'
+import { BuildActionResponse } from '@/app/(types)/builds'
 import { validateBuildState } from '@/app/(validators)/validate-build-state'
 import { getServerSession } from '@/features/auth/lib'
 import { checkBadWords, cleanBadWords } from '@/features/bad-word-filter'
 import { buildStateToBuildItems } from '@/features/build/lib/buildStateToBuildItems'
-import { BuildActionResponse } from '@/features/build/types'
 import { prisma } from '@/features/db'
 
 export async function createBuild(data: string): Promise<BuildActionResponse> {
@@ -90,6 +90,7 @@ export async function createBuild(data: string): Promise<BuildActionResponse> {
             : '',
         isPublic: Boolean(buildState.isPublic),
         isPatchAffected: Boolean(buildState.isPatchAffected),
+        buildLink: buildState.buildLink,
         createdBy: {
           connect: {
             id: session.user.id,

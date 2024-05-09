@@ -2,8 +2,8 @@
 
 import { ChangeLoadoutSlotButton } from '@/app/(components)/buttons/loadout-buttons/change-loadout-slot-button'
 import { RemoveFromLoadoutButton } from '@/app/(components)/buttons/loadout-buttons/remove-from-loadout-button'
+import { DBBuild } from '@/app/(types)/builds'
 import { BuildCard } from '@/features/build/components/build-card/BuildCard'
-import { DBBuild } from '@/features/build/types'
 
 interface Props {
   build: DBBuild & { slot: number }

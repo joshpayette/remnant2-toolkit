@@ -4,6 +4,33 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-05-08
+
+### Changed
+
+- Archetype and Build Tag filters for builds are not checkboxes instead of multiselect dropdowns.
+
+### Fixed
+
+- Fixed issue where some builds wouldn't save edits.
+- Fixed issue where line breaks were not formatting correctly in Item Info Dialogs.
+- Fixed a bug where build reference links wouldn't save when creating a build, only when editing a build.
+
+## 2024-05-07
+
+### Added
+
+- Added new Beginner Builds section, a curated list of builds for new players to use as a starting point while farming gear.
+
+### Changed
+
+- Removed the Enemy Resistances resource link - it is now deprecated.
+
+### Fixed
+
+- Fixed issue preventing some builds from being edited.
+- Fixed issue where I broke relic fragments on the Item Tracker for about the 40th time. (eSeFBeeSuite)
+
 ## 2024-05-06
 
 ### Added

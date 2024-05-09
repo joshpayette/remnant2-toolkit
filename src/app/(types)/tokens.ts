@@ -37,7 +37,7 @@ export const INLINE_TOKENS = [
   {
     type: 'Brittle',
     token: 'BRITTLE',
-    color: 'text-[#6c5e0f] dark:text-[#dac76f]',
+    color: 'text-[#fff1bc]',
     description: undefined,
   },
   {
@@ -49,7 +49,7 @@ export const INLINE_TOKENS = [
   {
     type: 'Burning',
     token: 'BURNING',
-    color: 'text-[#8e4d2e] dark:text-[#ffb694]',
+    color: 'text-[#b65d30]',
     description: 'Deals elemental FIRE damage. Can make enemies panic.',
   },
   {
@@ -68,7 +68,7 @@ export const INLINE_TOKENS = [
   {
     type: 'Call of the Doe',
     token: 'CALL OF THE DOE',
-    color: 'text-highlight',
+    color: 'text-[#fff1bc]',
     description: undefined,
   },
   {
@@ -294,7 +294,7 @@ export const INLINE_TOKENS = [
   {
     type: 'Suppression',
     token: 'SUPPRESSION',
-    color: 'text-primary-container',
+    color: 'text-[#444662]',
     description: 'Reduces Mod Power Generation by 50%.',
   },
   {
@@ -319,13 +319,13 @@ export const INLINE_TOKENS = [
   {
     type: 'Negative Status Effect',
     token: 'Negative Status Effect',
-    color: 'text-purple-400',
+    color: 'text-secondary',
     description: `Bleeding, Burning, Corroded, Overloaded, Slow.`,
   },
   {
     type: 'Negative Status',
     token: 'Negative Status',
-    color: 'text-purple-400',
+    color: 'text-secondary',
     description: `Bleeding, Burning, Corroded, Overloaded, Slow.`,
   },
   {
@@ -349,7 +349,7 @@ export const INLINE_TOKENS = [
   {
     type: 'Status Effects',
     token: 'Status Effects',
-    color: 'text-purple-400',
+    color: 'text-secondary',
     description: `Bleeding, Burning, Corroded, Overloaded, Slow.`,
   },
   {

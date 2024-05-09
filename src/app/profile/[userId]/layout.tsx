@@ -162,7 +162,7 @@ export default async function Layout({
           userId={userId}
         />
 
-        <div className="flex flex-col items-start justify-start gap-x-8 gap-y-4 bg-gray-700/10 px-4 py-4 sm:flex-row sm:items-start sm:px-6 lg:px-8">
+        <div className="flex flex-col items-start justify-start gap-x-8 gap-y-4 bg-outline/10 px-4 py-4 sm:flex-row sm:items-start sm:px-6 lg:px-8">
           <ProfileHeader
             avatarId={profile.avatarId}
             bio={profile.bio}
@@ -174,7 +174,7 @@ export default async function Layout({
 
         <ProfileStats userId={userId} isEditable={isEditable} />
       </header>
-      <div className="border-t border-white/10 pt-4">{children}</div>
+      <div className="border-t border-on-background/10 pt-4">{children}</div>
     </div>
   )
 }

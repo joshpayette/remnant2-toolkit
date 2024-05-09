@@ -26,7 +26,7 @@ export function Logo({
           Remnant2Toolkit
         </span>
         {showUrl && (
-          <span className="text-xs text-on-background-variant">remnant2toolkit.com</span>
+          <span className="text-xs text-on-background">remnant2toolkit.com</span>
         )}
       </div>
     </Link>

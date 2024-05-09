@@ -20,13 +20,15 @@ import {
 import { DEFAULT_FILTER } from '@/app/(components)/filters/types'
 import { Item } from '@/app/(data)/items/types'
 import { MutatorItem } from '@/app/(data)/items/types/MutatorItem'
+import { RelicFragmentItem } from '@/app/(data)/items/types/RelicFragmentItem'
 import { WeaponItem } from '@/app/(data)/items/types/WeaponItem'
-import { ALL_TRACKABLE_ITEMS } from '@/app/tracker/constants'
+import { ItemCategory } from '@/app/(types)/builds'
 import {
-  ItemTrackerCategory,
   ItemTrackerLocalStorage,
-} from '@/app/tracker/types'
-import { ItemCategory } from '@/features/build/types'
+  LOCALSTORAGE_KEY,
+} from '@/app/(types)/localstorage'
+import { ALL_TRACKABLE_ITEMS } from '@/app/tracker/constants'
+import { ItemTrackerCategory } from '@/app/tracker/types'
 import { capitalize } from '@/lib/capitalize'
 import { cn } from '@/lib/classnames'
 
@@ -37,9 +39,15 @@ function getCategoryProgressLabel({
   filteredItems: Item[]
   discoveredItemIds: string[]
 }) {
-  const undiscoveredCount = filteredItems.reduce((acc, item) => discoveredItemIds.includes(item.id) ? acc : acc + 1, 0);
-  const filteredItemsCount = filteredItems.length;
-  return `${(((filteredItemsCount - undiscoveredCount) / filteredItemsCount) * 100).toFixed(2)}% (${undiscoveredCount} undiscovered)`
+  const undiscoveredCount = filteredItems.reduce(
+    (acc, item) => (discoveredItemIds.includes(item.id) ? acc : acc + 1),
+    0,
+  )
+  const filteredItemsCount = filteredItems.length
+  return `${(
+    ((filteredItemsCount - undiscoveredCount) / filteredItemsCount) *
+    100
+  ).toFixed(2)}% (${undiscoveredCount} undiscovered)`
 }
 
 function getFilteredItemList(
@@ -84,6 +92,12 @@ function getFilteredItemList(
           MutatorItem.isMutatorItem(item)
         ) {
           return item.category === 'mutator' && item.type === 'melee'
+        }
+        if (
+          itemCategory === 'Relic Fragment' &&
+          RelicFragmentItem.isRelicFragmentItem(item)
+        ) {
+          return item.category === 'relicfragment'
         }
 
         return capitalize(item.category) === itemCategory
@@ -178,7 +192,7 @@ export function ItemList({}: Props) {
   }, [filters])
 
   const [tracker, setTracker] = useLocalStorage<ItemTrackerLocalStorage>(
-    'item-tracker',
+    LOCALSTORAGE_KEY.ITEM_TRACKER,
     {
       discoveredItemIds: [],
       collapsedCategories: [],
@@ -210,6 +224,8 @@ export function ItemList({}: Props) {
       itemCategory = 'mutator'
     } else if (category === 'mutator (melee)') {
       itemCategory = 'mutator'
+    } else if (category === 'relic fragment') {
+      itemCategory = 'relicfragment'
     } else {
       itemCategory = category as ItemCategory
     }
@@ -306,7 +322,7 @@ export function ItemList({}: Props) {
                 <>
                   <Disclosure.Button
                     onClick={() => handleCategoryToggle(itemCategory)}
-                    className="flex w-full justify-start border-b border-secondary p-4 text-left hover:border-primary hover:bg-background focus:outline-none focus-visible:ring focus-visible:ring-primary/75"
+                    className="flex w-full justify-start border-b border-secondary p-4 text-left bg-background hover:border-primary hover:bg-background-container focus:outline-none focus-visible:ring focus-visible:ring-primary/75"
                   >
                     <div className="w-full">
                       <h2 className="text-lg font-semibold">

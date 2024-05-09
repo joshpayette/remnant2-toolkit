@@ -9,8 +9,8 @@ import {
   BaseDialogDescription,
   BaseDialogTitle,
 } from '@/app/(components)/_base/dialog'
+import { DBBuild } from '@/app/(types)/builds'
 import { getArrayOfLength } from '@/features/build/lib/getArrayOfLength'
-import { DBBuild } from '@/features/build/types'
 import { addBuildToLoadout } from '@/features/loadouts/actions/addBuildToLoadout'
 import { EmptyLoadoutCard } from '@/features/loadouts/components/EmptyLoadoutCard'
 import { LoadoutCard } from '@/features/loadouts/components/LoadoutCard'

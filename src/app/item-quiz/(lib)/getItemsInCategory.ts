@@ -1,8 +1,8 @@
 import { allItems } from '@/app/(data)/items/all-items'
 import { MutatorItem } from '@/app/(data)/items/types/MutatorItem'
 import { WeaponItem } from '@/app/(data)/items/types/WeaponItem'
+import { ItemCategory } from '@/app/(types)/builds'
 import { QuizItem, QuizItemCategory } from '@/app/item-quiz/types'
-import { ItemCategory } from '@/features/build/types'
 
 const excludedCategories: ItemCategory[] = ['relicfragment', 'mutator', 'trait']
 const excludedItemIds: string[] = [

@@ -63,7 +63,7 @@ export function NavBar() {
               leaveFrom="transform opacity-100 scale-100"
               leaveTo="transform opacity-0 scale-95"
             >
-              <Menu.Items className="absolute left-0 z-20 mt-2 w-[290px] origin-top-left rounded-md bg-background p-2 shadow-lg ring-1 ring-opacity-5 focus:outline-none">
+              <Menu.Items className="absolute left-0 z-20 mt-2 w-[290px] origin-top-left rounded-md bg-background p-2 shadow-lg ring-1 ring-background-blend ring-opacity-5 focus:outline-none">
                 <Menu.Item>
                   {({ active }) => (
                     <Link
@@ -105,6 +105,27 @@ export function NavBar() {
                         {NAV_ITEMS.featuredBuilds.label}
                         <p className="text-xs font-normal text-on-background-variant">
                           {NAV_ITEMS.featuredBuilds.description}
+                        </p>
+                      </div>
+                    </Link>
+                  )}
+                </Menu.Item>
+                <Menu.Item>
+                  {({ active }) => (
+                    <Link
+                      href={NAV_ITEMS.beginnerBuilds.href}
+                      className={cn(
+                        active ? 'bg-primary-container/20' : 'bg-background',
+                        'flex w-full flex-row items-start justify-start p-2 text-sm font-semibold text-on-background',
+                      )}
+                    >
+                      <div className="mr-4 w-[20px]">
+                        <NAV_ITEMS.beginnerBuilds.icon className="h-5 w-5 text-primary" />
+                      </div>
+                      <div className="flex flex-col items-start justify-start gap-y-1">
+                        {NAV_ITEMS.beginnerBuilds.label}
+                        <p className="text-xs font-normal text-on-background-variant">
+                          {NAV_ITEMS.beginnerBuilds.description}
                         </p>
                       </div>
                     </Link>
@@ -243,6 +264,23 @@ export function NavBar() {
 
                     <p className="text-xs text-on-background-variant">
                       {NAV_ITEMS.featuredBuilds.description}
+                    </p>
+                  </div>
+                </Link>
+
+                <Link
+                  href={NAV_ITEMS.beginnerBuilds.href}
+                  className="flex flex-row items-center justify-start"
+                >
+                  <NAV_ITEMS.beginnerBuilds.icon
+                    className="mr-2 h-7 w-5 flex-none text-primary-600"
+                    aria-hidden="true"
+                  />
+                  <div className="flex flex-col items-start justify-start px-3 py-2">
+                    {NAV_ITEMS.beginnerBuilds.label}
+
+                    <p className="text-xs text-gray-400">
+                      {NAV_ITEMS.beginnerBuilds.description}
                     </p>
                   </div>
                 </Link>
