@@ -162,9 +162,26 @@ export const INLINE_TOKENS = [
   {
     type: 'Frenzied',
     token: 'FRENZIED',
-    color: ARCHTYPE_COLORS.ALCHEMIST.text,
-    description:
-      'Increases Fire Rate, Reload Speed, Melee Speed by 20%, and Movement Speed by 15%. Lasts 15s.',
+    color: 'text-yellow-100',
+    description:'undefined',
+  },
+  {
+    type: 'Living Will',
+    token: 'LIVING WILL',
+    color: 'text-yellow-100',
+    description:'undefined',
+  },
+  {
+    type: 'Stoneskin',
+    token: 'STONESKIN',
+    color: 'text-yellow-100',
+    description:'undefined',
+  },
+  {
+    type: 'Unbridled Chaos',
+    token: 'UNBRIDLED CHAOS',
+    color: 'text-yellow-100',
+    description:'undefined',
   },
   {
     type: 'Gloom',
@@ -406,10 +423,10 @@ export const EXTERNAL_TOKENS = [
   // * We keep this here as well as in the description tokens because of the need
   // * to specify that the Handler skills apply bleed.
   {
-    token: 'Bleed',
+    token: 'Dog',
     color: 'text-[#f2350f]',
     description:
-      'Deals Physical Damage per second. Reduces healing effectiveness by 50%.',
+      'Dog applies BLEEDING to enemies.',
   },
   {
     token: 'Explosive Damage',
