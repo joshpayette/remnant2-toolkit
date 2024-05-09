@@ -13,7 +13,10 @@ import {
   BaseFieldset,
 } from '@/app/(components)/_base/fieldset'
 import { AmuletFilter } from '@/app/(components)/filters/builds/amulet-filter'
-import { ArchetypeFilter } from '@/app/(components)/filters/builds/archetype-filter'
+import {
+  ArchetypeFilter,
+  VALID_ARCHETYPES,
+} from '@/app/(components)/filters/builds/archetype-filter'
 import { BuildMiscFilter } from '@/app/(components)/filters/builds/build-misc-filter'
 import { BuildTagFilter } from '@/app/(components)/filters/builds/build-tag-filter'
 import { HandGunFilter } from '@/app/(components)/filters/builds/hand-gun-filter'
@@ -32,11 +35,10 @@ import {
 } from '@/app/(components)/filters/releases-filter'
 import { DEFAULT_FILTER } from '@/app/(components)/filters/types'
 import { Input } from '@/app/(components)/form-fields/input'
-import { LOCALSTORAGE_KEY } from '@/app/(types)/localstorage'
 import { cn } from '@/lib/classnames'
 
 export const DEFAULT_BUILD_FILTERS = {
-  archetypes: [DEFAULT_FILTER],
+  archetypes: VALID_ARCHETYPES,
   amulet: DEFAULT_FILTER,
   buildTags: [DEFAULT_FILTER],
   longGun: DEFAULT_FILTER,
@@ -194,37 +196,21 @@ export function BuildFilters({ buildFiltersOverrides }: Props) {
     setUnappliedFilters(newFilters)
   }
 
-  function handleArchetypeChange(newArchetypes: string[]) {
-    // if the archetypes length is 0, set the archetypes to the default value
-    if (newArchetypes.length === 0) {
-      const newFilters = { ...unappliedFilters, archetypes: [DEFAULT_FILTER] }
-      setUnappliedFilters(newFilters)
-      return
-    }
-
-    // If the first item is the default value ("All"), apply the filters after removing the default value
-    if (newArchetypes[0] === DEFAULT_FILTER) {
+  function handleArchetypeChange(newArchetype: string, checked: boolean) {
+    // if the archetype is unchecked, remove it from the list
+    if (!checked) {
       const newFilters = {
         ...unappliedFilters,
-        archetypes: newArchetypes.filter((i) => i !== DEFAULT_FILTER),
+        releases: unappliedFilters.releases.filter((i) => i !== newArchetype),
       }
       setUnappliedFilters(newFilters)
       return
     }
 
-    // If any of the filters contain the default value of "All", just apply the filters
-    if (newArchetypes.includes(DEFAULT_FILTER)) {
-      const newFilters = { ...unappliedFilters, archetypes: [DEFAULT_FILTER] }
-      setUnappliedFilters(newFilters)
-      return
-    }
-
-    // If we got here, remove the default value from the list
+    // if the archetype is not in the list, add it
     const newFilters = {
       ...unappliedFilters,
-      archetypes: newArchetypes.filter(
-        (archetype) => archetype !== DEFAULT_FILTER,
-      ),
+      archetypes: [...unappliedFilters.archetypes, newArchetype],
     }
     setUnappliedFilters(newFilters)
   }
@@ -277,12 +263,12 @@ export function BuildFilters({ buildFiltersOverrides }: Props) {
     setUnappliedFilters(newFilters)
   }
 
-  function handleReleasesChange(newReleases: string, checked: boolean) {
+  function handleReleasesChange(newRelease: string, checked: boolean) {
     // if the release is unchecked, remove it from the list
     if (!checked) {
       const newFilters = {
         ...unappliedFilters,
-        releases: unappliedFilters.releases.filter((i) => i !== newReleases),
+        releases: unappliedFilters.releases.filter((i) => i !== newRelease),
       }
       setUnappliedFilters(newFilters)
       return
@@ -291,7 +277,7 @@ export function BuildFilters({ buildFiltersOverrides }: Props) {
     // if the release is not in the list, add it
     const newFilters = {
       ...unappliedFilters,
-      releases: [...unappliedFilters.releases, newReleases],
+      releases: [...unappliedFilters.releases, newRelease],
     }
     setUnappliedFilters(newFilters)
   }
@@ -393,31 +379,41 @@ export function BuildFilters({ buildFiltersOverrides }: Props) {
             <BaseFieldset>
               <BaseFieldGroup>
                 <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-4 md:grid-cols-4 lg:grid-cols-6">
-                  <div className="col-span-full sm:col-span-1">
+                  <div className="col-span-full md:col-span-3">
+                    <ArchetypeFilter
+                      values={unappliedFilters.archetypes}
+                      onChange={handleArchetypeChange}
+                      onCheckAll={() => {
+                        const newFilters = {
+                          ...unappliedFilters,
+                          archetypes: VALID_ARCHETYPES,
+                        }
+                        setUnappliedFilters(newFilters)
+                      }}
+                      onUncheckAll={() => {
+                        const newFilters = {
+                          ...unappliedFilters,
+                          archetypes: [],
+                        }
+                        setUnappliedFilters(newFilters)
+                      }}
+                    />
+                  </div>
+                  <div className="col-span-full flex flex-col gap-y-8 sm:col-span-1 sm:gap-y-2">
                     <AmuletFilter
                       value={unappliedFilters.amulet}
                       onChange={handleAmuletChange}
                     />
-                  </div>
-                  <div className="col-span-full sm:col-span-1">
                     <RingFilter
                       value={unappliedFilters.rings}
                       onChange={handleRingChange}
                     />
                   </div>
-                  <div className="col-span-full sm:col-span-1">
-                    <ArchetypeFilter
-                      value={unappliedFilters.archetypes}
-                      onChange={handleArchetypeChange}
-                    />
-                  </div>
-                  <div className="col-span-full sm:col-span-1">
+                  <div className="col-span-full flex flex-col gap-y-8 sm:col-span-1 sm:gap-y-2">
                     <LongGunFilter
                       value={unappliedFilters.longGun}
                       onChange={handleLongGunChange}
                     />
-                  </div>
-                  <div className="col-span-full sm:col-span-1">
                     <MeleeFilter
                       value={unappliedFilters.melee}
                       onChange={handleMeleeChange}

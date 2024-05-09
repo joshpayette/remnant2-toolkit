@@ -1,6 +1,7 @@
 import isEqual from 'lodash.isequal'
 import { ReadonlyURLSearchParams } from 'next/navigation'
 
+import { VALID_ARCHETYPES } from '@/app/(components)/filters/builds/archetype-filter'
 import { DEFAULT_BUILD_FILTERS } from '@/app/(components)/filters/builds/build-filters'
 import {
   BUILD_FILTER_KEYS,
@@ -46,8 +47,8 @@ export function parseUrlFilters(
     parsedParams.get(BUILD_FILTER_KEYS.ARCHETYPES)?.split(',') ||
     defaultFilters.archetypes
   if (!isEqual(archetypes, defaultFilters.archetypes)) {
-    archetypes = (archetypes as string[]).filter((archetype) =>
-      archetypeItems.some((item) => item.name === archetype),
+    archetypes = archetypes.filter((archetype) =>
+      VALID_ARCHETYPES.some((item) => item === archetype),
     )
     // If no archetypes, set to default
     if (archetypes.length === 0) {
