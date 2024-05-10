@@ -9,9 +9,7 @@ export const weaponItems: WeaponItem[] = [
     id: '1ub6k9',
     dlc: 'base',
     description:
-      'Charge shot fires a burst of five energy bolts. Each hit reduces charge time by 0.1s and increases damage by 10% for 1.5s. Stacks 5x.\n' +
-      '\n' +
-      'Mod Power Requirement: 450',
+      'Charge shot fires a burst of five energy bolts. Each hit reduces charge time by 0.1s and increases damage by 10% for 1.5s. Stacks 5x.',
     wikiLinks: [`https://remnant.wiki/Alpha_/_Omega`],
     location: { world: 'Root Earth', dungeon: ['Blackened Citadel'] },
     linkedItems: {
@@ -817,7 +815,7 @@ export const weaponItems: WeaponItem[] = [
     dlc: 'dlc2',
     description: `A powerful Pan crossbow designed for mid-range combat. Fires 3 bolts at a time.`,
     wikiLinks: [`https://remnant.wiki/Trinity_Crossbow`],
-    damage: 42,
+    damage: 44,
     rps: 0.63,
     magazine: 18,
     accuracy: 100,
@@ -1060,7 +1058,7 @@ export const weaponItems: WeaponItem[] = [
     description: `An elegant, yet light blade, designed to bring beauty to bloodshed. Unstoppable in the hands of a master swordsman.`,
     wikiLinks: [`https://remnant.wiki/Edge_of_the_Forest`],
     damage: 59,
-    crit: 9,
+    crit: 11,
     weakspot: 105,
     stagger: -15,
   },
@@ -1502,7 +1500,7 @@ export const weaponItems: WeaponItem[] = [
     description: `An old piece of steel with serrations cut into one side. Pipe handle provides limited grip.`,
     wikiLinks: [`https://remnant.wiki/Steel_Katana`],
     damage: 56,
-    crit: 10,
+    crit: 13,
     weakspot: 105,
     stagger: -10,
   },

@@ -28,7 +28,7 @@ export const NAV_ITEMS = {
   beginnerBuilds: {
     label: 'Beginner Builds',
     description:
-      'A curated list of unique and high-quality builds catered to new players.',
+      'A curated list of builds, intended as an item checklist for farming in the earlier hours of gameplay.',
     href: '/beginner-builds',
     icon: SparklesIcon,
   },

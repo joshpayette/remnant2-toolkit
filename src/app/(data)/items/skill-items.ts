@@ -67,7 +67,7 @@ export const skillItems: SkillItem[] = [
       '\n' +
       'HOLD: Howl reduces damage by 15% to all allies within 20m and the Companion generates additional Threat. Lasts 20s.',
     cooldown: 90,
-    externalTokens: [`Amplitude`, `Bleed`],
+    externalTokens: [`Amplitude`, `Dog`],
     wikiLinks: [`https://remnant.wiki/Guard_Dog`],
     linkedItems: {
       archetype: {
@@ -90,7 +90,7 @@ export const skillItems: SkillItem[] = [
       '\n' +
       'HOLD: Howl grants 2% of Max Health per second and 25% increased Movement Speed to all allies within 20m. Lasts 25s.',
     cooldown: 90,
-    externalTokens: [`Amplitude`, `Bleed`],
+    externalTokens: [`Amplitude`, `Dog`],
     wikiLinks: [`https://remnant.wiki/Support_Dog`],
     linkedItems: {
       archetype: {
@@ -113,7 +113,7 @@ export const skillItems: SkillItem[] = [
       '\n' +
       'HOLD: Howl increases damage by 20% for all allies within 20m. Lasts 20s.',
     cooldown: 90,
-    externalTokens: [`Amplitude`, `Bleed`],
+    externalTokens: [`Amplitude`, `Dog`],
     wikiLinks: [`https://remnant.wiki/Attack_Dog`],
     linkedItems: {
       archetype: {
@@ -350,7 +350,7 @@ export const skillItems: SkillItem[] = [
       '\n' +
       'UNBRIDLED CHAOS: Allies gain 0.7% to All Damage dealt and receive 0.3% damage taken. Stacks up to 50 times. Lasts 10s.\n' +
       '\n' +
-      'Having any stacks grants 5% Mod Generation.',
+      'Having any stacks grants 10% Mod Generation.',
     cooldown: 85,
     externalTokens: [`Amplitude`],
     wikiLinks: [`https://remnant.wiki/Chaos_Gate`],
@@ -528,7 +528,7 @@ export const skillItems: SkillItem[] = [
     id: 'jn34u8',
     dlc: 'base',
     description:
-      'Calls upon the power of the Desert Sidewinder snake to increase ADS Movement Speed by 50% and Draw/Swap Speed by 35%. Cycling weapons will automatically reload incoming Firearms. When a Weapon Swap provides Ammo to an incoming weapon, Duration is reduced by 10s. Lasts 60s.',
+      'Calls upon the power of the Desert Sidewinder snake to increase ADS Movement Speed by 50% and Draw/Swap Speed by 35%. Cycling weapons will automatically reload incoming Firearms. When a Weapon Swap provides Ammo to an incoming weapon, Duration is reduced by 6s. Lasts 60s.',
     cooldown: 50,
     wikiLinks: [`https://remnant.wiki/Sidewinder`],
     linkedItems: {
@@ -776,13 +776,14 @@ export const skillItems: SkillItem[] = [
     imagePath: '/skill/way_of_lydusa.png',
     id: 'T2xA6c',
     dlc: 'dlc2',
-    tags: ['Critical Chance', 'Critical Damage'],
+    tags: ['Critical Chance', 'Critical Damage', 'Elemental Damage'],
+    externalTokens: ['Amplitude'],
     description:
       'Invoke Lydusa to infuse Ranged and Melee Damage with the power to apply BRITTLE, allowing the Invoker to generate Sand Devils through damage or kills. Lasts 15s\n' +
       '\n' +
       'Reactivating the skill consumes all Sand Devils generated and casts a 15m Sand Blast dealing 100 Elemental Damage per charge. Max 10 charges.\n' +
       '\n' +
-      'BRITTLE: Increases incoming Critical Chance by 5% and Critical Damage by 15%.',
+      'BRITTLE: Increases incoming Critical Chance by 10% and Critical Damage by 15%.',
     cooldown: 120,
     wikiLinks: ['https://remnant.wiki/Way_of_Lydusa'],
     linkedItems: {

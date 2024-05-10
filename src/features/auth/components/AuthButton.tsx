@@ -5,7 +5,7 @@ import { useSession } from 'next-auth/react'
 import { Fragment } from 'react'
 
 import { Link } from '@/app/(components)/_base/link'
-import { NAV_ITEMS } from '@/features/navigation/constants'
+import { NAV_ITEMS } from '@/app/(types)/navigation'
 import { PlaceHolderIcon } from '@/features/ui/PlaceholderIcon'
 import { cn } from '@/lib/classnames'
 

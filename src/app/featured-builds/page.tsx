@@ -1,8 +1,8 @@
 'use server'
 
 import { BuildFilters } from '@/app/(components)/filters/builds/build-filters'
+import { NAV_ITEMS } from '@/app/(types)/navigation'
 import { FeaturedBuilds } from '@/app/featured-builds/featured-builds'
-import { NAV_ITEMS } from '@/features/navigation/constants'
 import { DEFAULT_ITEMS_PER_PAGE } from '@/features/pagination/constants'
 import { PageHeader } from '@/features/ui/PageHeader'
 
