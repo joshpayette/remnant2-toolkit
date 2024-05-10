@@ -29,7 +29,8 @@ export const ringItems: RingItem[] = [
     id: 'azy0pj',
     dlc: 'base',
     tags: ['All Damage', 'Status Effect', 'Hardcore Reward'],
-    description: `Deal 4% additional damage for each Status Effect the target is suffering from.`,
+    description:
+      'Deal 5% additional damage for each Status Effect the target is suffering from.',
     wikiLinks: [`https://remnant.wiki/Ahanae_Crystal`],
   },
   {
@@ -142,7 +143,7 @@ export const ringItems: RingItem[] = [
     id: 'gv12gw',
     tags: ['Status Effect', 'Status Duration'],
     description:
-      'Increases Status Effect Damage by 25% and reduces Status Effect Duration by 65%.',
+      'Increases Status Effect Damage by 25% and reduces Status Effect Duration by 50%.',
     wikiLinks: [`https://remnant.wiki/Band_of_the_Fanatic`],
   },
   {
@@ -152,7 +153,7 @@ export const ringItems: RingItem[] = [
     id: 'pi2zf8',
     tags: ['Melee Charge Speed', 'Charged Melee', 'Stamina'],
     description:
-      'Increases Melee Charge Speed by 20% and reduces Melee Stamina Cost by 25%.',
+      'Increases Melee Charge Speed by 10% and reduces Melee Stamina Cost by 30%.',
     wikiLinks: [`https://remnant.wiki/Berserker's_Crest`],
     dlc: 'base',
   },
@@ -300,7 +301,8 @@ export const ringItems: RingItem[] = [
     imagePath: '/ring/brawlers_pride.png',
     id: '17ckov',
     tags: ['Melee Attack Speed'],
-    description: `Increases Melee Attack Speed by 15%.`,
+    description:
+      'Increases Melee Attack Speed by 15% and Melee Critical Chance by 5%.',
     wikiLinks: [`https://remnant.wiki/Brawler's_Pride`],
     dlc: 'base',
   },
@@ -362,7 +364,8 @@ export const ringItems: RingItem[] = [
     imagePath: '/ring/burden_of_the_follower.png',
     id: 'b76cdv',
     tags: ['Fire Rate', 'Mod Power'],
-    description: `Reduces Fire Rate by 15%. Increases Mod Power Generation by 25%.`,
+    description:
+      'Reduces Fire Rate by 15%. Increases Mod Power Generation by 30%.',
     wikiLinks: [`https://remnant.wiki/Burden_of_the_Follower`],
     dlc: 'base',
   },
@@ -403,7 +406,8 @@ export const ringItems: RingItem[] = [
     id: 'fGFm6B',
     dlc: 'dlc2',
     tags: ['Health', 'All Damage', 'Damage Reduction'],
-    description: `Reduces Max Health by 25%. Increases All Damage by 1% for every 5% of the wearer's total Damage Reduction.`,
+    description:
+      "Reduces Max Health by 20%. Increases All Damage by 1% for every 5% of the wearer's total Damage Reduction.",
     wikiLinks: [`https://remnant.wiki/Burden_of_the_Mesmer`],
   },
   {
@@ -1144,7 +1148,7 @@ export const ringItems: RingItem[] = [
     dlc: 'dlc2',
     tags: ['Perfect Dodge'],
     description:
-      'Perfect Dodge triggers a 3m AOE blast that deals 110-310 Explosive Damage.',
+      'Perfect Dodge triggers a 3m AOE blast that deals 110 - 310 Explosive Damage.',
     externalTokens: [`Amplitude`, `Explosive Damage`],
     wikiLinks: [`https://remnant.wiki/Mark_of_the_Destroyer`],
   },
@@ -1155,7 +1159,8 @@ export const ringItems: RingItem[] = [
     id: 'R3fM4y',
     dlc: 'dlc2',
     tags: ['Perfect Dodge', 'Charged Melee', 'Stamina'],
-    description: `Perfect Dodge reduces Charge Melee Stamina Cost by 100% for 5s.`,
+    description:
+      'Perfect Dodge reduces Charge Melee Stamina Cost by 100% for 7s.',
     wikiLinks: [`https://remnant.wiki/Matriarch's_Ring`],
   },
   {
@@ -1626,7 +1631,7 @@ export const ringItems: RingItem[] = [
     imagePath: '/ring/shadow_of_misery.png',
     id: '8bhhzo',
     tags: ['Status Effect'],
-    description: 'Increase Status Effect Damage by 15%.',
+    description: 'Increase Status Effect Damage by 20%.',
     wikiLinks: [`https://remnant.wiki/Shadow_of_Misery`],
     dlc: 'base',
   },

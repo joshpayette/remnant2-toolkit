@@ -4,7 +4,7 @@ import { Metadata } from 'next'
 import { Suspense } from 'react'
 
 import { getTotalBuildCount } from '@/app/(actions)/builds/get-total-build-count'
-import { NAV_ITEMS } from '@/features/navigation/constants'
+import { NAV_ITEMS } from '@/app/(types)/navigation'
 import { PageHeader } from '@/features/ui/PageHeader'
 
 export async function generateMetadata(): Promise<Metadata> {

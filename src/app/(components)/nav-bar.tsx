@@ -8,8 +8,8 @@ import { Fragment, useEffect, useState } from 'react'
 
 import { BaseButton } from '@/app/(components)/_base/button'
 import { Link } from '@/app/(components)/_base/link'
+import { NAV_ITEMS } from '@/app/(types)/navigation'
 import { AuthButton } from '@/features/auth/components/AuthButton'
-import { NAV_ITEMS } from '@/features/navigation/constants'
 import { Logo } from '@/features/ui/Logo'
 import { cn } from '@/lib/classnames'
 
@@ -82,7 +82,7 @@ export function NavBar() {
                       </div>
                       <div className="flex flex-col items-start justify-start gap-y-1">
                         {NAV_ITEMS.createBuild.label}
-                        <p className="text-xs font-normal text-on-background">
+                        <p className="text-xs font-normal text-on-background-variant">
                           {NAV_ITEMS.createBuild.description}
                         </p>
                       </div>

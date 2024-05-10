@@ -1,8 +1,6 @@
-import { ArrowRightIcon } from '@heroicons/react/24/solid'
 import Image from 'next/image'
-import Link from 'next/link'
 
-import { NAV_ITEMS } from '@/features/navigation/constants'
+import { NAV_ITEMS } from '@/app/(types)/navigation'
 import { LandingPageCard } from '@/features/ui/LandingPageCard'
 import { LandingPageContainer } from '@/features/ui/LandingPageContainer'
 
@@ -49,7 +47,7 @@ export default async function Page() {
             />
           }
         />
-        
+
         <LandingPageCard
           {...NAV_ITEMS.vashCalculator}
           icon={

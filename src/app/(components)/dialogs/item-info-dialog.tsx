@@ -105,8 +105,8 @@ export function ItemInfoDialog({ open, item, onClose }: Props) {
         </span>
       </BaseDialogBody>
       {MutatorItem.isMutatorItem(item) && (
-        <BaseDialogBody className="flex flex-row items-start justify-start gap-x-2">
-          <span className="w-[120px] font-bold">At Max Level:</span>{' '}
+        <BaseDialogBody className="flex flex-col items-start justify-start gap-x-2 gap-y-4">
+          <span className="w-[120px] font-bold">At Max Level</span>{' '}
           <DescriptionWithTokens
             description={item.maxLevelBonus || 'No max level bonus found.'}
             highlightBuildTags={false}
@@ -116,8 +116,8 @@ export function ItemInfoDialog({ open, item, onClose }: Props) {
       )}
 
       {item.cooldown && (
-        <BaseDialogBody className="flex flex-row items-start justify-start gap-x-2">
-          <span className="font-bold">Cooldown:</span> {item.cooldown}s
+        <BaseDialogBody className="flex flex-col items-start justify-start gap-x-2 gap-y-4">
+          <span className="font-bold">Cooldown</span> {item.cooldown}s
         </BaseDialogBody>
       )}
 

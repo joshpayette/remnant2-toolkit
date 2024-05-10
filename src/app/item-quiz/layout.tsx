@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 
-import { NAV_ITEMS } from '@/features/navigation/constants'
+import { NAV_ITEMS } from '@/app/(types)/navigation'
 import { PageHeader } from '@/features/ui/PageHeader'
 
 export async function generateMetadata(): Promise<Metadata> {

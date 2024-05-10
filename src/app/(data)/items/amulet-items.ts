@@ -40,7 +40,7 @@ export const amuletItems: AmuletItem[] = [
     dlc: 'base',
     tags: ['Perfect Dodge'],
     description:
-      'Increases All Damage by 10%. On Perfect Dodge, apply EXPOSED on the attacker for 15s.\n' +
+      'Increases All Damage by 10%. On Perfect Dodge, apply EXPOSED on the attacker and enemies with 3m of the wearer for 15s.\n' +
       '\n' +
       'EXPOSED: Target receives 15% additional damage from all sources.',
     wikiLinks: [`https://remnant.wiki/Birthright_of_the_Lost`],
@@ -235,7 +235,7 @@ export const amuletItems: AmuletItem[] = [
     imagePath: '/amulet/effluvium_enhancer.png',
     id: 'kah85t',
     dlc: 'base',
-    description: `Increases ACID damage by 20% and CORROSIVE damage by 50%.`,
+    description: 'Increases ACID damage by 25% and CORROSIVE damage by 50%.',
     wikiLinks: [`https://remnant.wiki/Effluvium_Enhancer`],
   },
   {
@@ -441,7 +441,8 @@ export const amuletItems: AmuletItem[] = [
     id: 'lpv0qq',
     dlc: 'base',
     tags: ['All Damage'],
-    description: `Increases Mod and Skill Cast Speed by 35%. Casting a Skill or Mod increases all damage by 15% for 15s.`,
+    description:
+      'Increases Mod and Skill Cast Speed by 35%. Casting a Skill or Mod increases all damage by 15% for 20s.',
     wikiLinks: [`https://remnant.wiki/Jester's_Bell`],
   },
   {
@@ -451,7 +452,8 @@ export const amuletItems: AmuletItem[] = [
     id: 'femylz',
     dlc: 'base',
     tags: ['Mod Damage', 'Mod Power'],
-    description: `While a SHIELD is active, gain 25% Mod damage and generate 20% additional Mod power.`,
+    description:
+      'While a SHIELD is active, gain 25% Mod damage and generate 30% additional Mod power.',
     wikiLinks: [`https://remnant.wiki/Kinetic_Shield_Exchanger`],
   },
   {
@@ -761,7 +763,7 @@ export const amuletItems: AmuletItem[] = [
     imagePath: '/amulet/shock_device.png',
     id: '9z1g8f',
     dlc: 'base',
-    description: `Increases SHOCK damage by 20% and OVERLOADED damage by 50%.`,
+    description: 'Increases SHOCK damage by 25% and OVERLOADED damage by 50%.',
     wikiLinks: [`https://remnant.wiki/Shock_Device`],
   },
   {
@@ -833,7 +835,7 @@ export const amuletItems: AmuletItem[] = [
     imagePath: '/amulet/talisman_of_the_sun.png',
     id: '8jy9hv',
     dlc: 'base',
-    description: `Increases FIRE damage by 20% and BURNING damage by 50%.`,
+    description: 'Increases FIRE damage by 25% and BURNING damage by 50%.',
     wikiLinks: [`https://remnant.wiki/Talisman_of_the_Sun`],
   },
   {
@@ -901,7 +903,7 @@ export const amuletItems: AmuletItem[] = [
     dlc: 'base',
     tags: ['Damage Reduction', 'All Damage'],
     description:
-      'Grants 3 stacks of BULWARK?. Increases All Damage by 2% per stack of BULWARK.',
+      'Grants 3 stacks of BULWARK. Increases All Damage by 2% per stack of BULWARK.',
     wikiLinks: [`https://remnant.wiki/Whispering_Marble`],
   },
   {

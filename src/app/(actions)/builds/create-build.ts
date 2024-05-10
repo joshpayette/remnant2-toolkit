@@ -8,6 +8,7 @@ import {
   MAX_BUILD_DESCRIPTION_LENGTH,
 } from '@/app/(data)/builds/constants'
 import { BuildActionResponse } from '@/app/(types)/builds'
+import { isPermittedBuilder } from '@/app/(utils)/permitted-builders'
 import { validateBuildState } from '@/app/(validators)/validate-build-state'
 import { getServerSession } from '@/features/auth/lib'
 import { checkBadWords, cleanBadWords } from '@/features/bad-word-filter'
@@ -127,7 +128,11 @@ export async function createBuild(data: string): Promise<BuildActionResponse> {
     })
 
     // Trigger webhook to send build to Discord
-    if (buildState.isPublic === true && process.env.NODE_ENV === 'production') {
+    if (
+      buildState.isPublic === true &&
+      process.env.NODE_ENV === 'production' &&
+      !isPermittedBuilder(session.user.id)
+    ) {
       const params = {
         content: `New build created! https://www.remnant2toolkit.com/builder/${
           dbResponse.id

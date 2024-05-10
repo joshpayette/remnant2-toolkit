@@ -1279,7 +1279,7 @@ export const modItems: ModItem[] = [
     dlc: 'base',
     tags: ['Status Effect'],
     description:
-      'Fires a beam which deals 15 damage per second, and applies SLOW Debuff. After 3s of application to a target, SLOW becomes STASIS, freezing the target in place for 10s.\n' +
+      'Fires a beam which deals 15 - 45 damage per second, and applies SLOW Debuff. After 2s of application to an enemy, SLOW becomes STASIS, freezing the target in place for 10s.\n' +
       '\n' +
       'Mod Power Requirement: 50 per pulse.',
     wikiLinks: [`https://remnant.wiki/Stasis_Beam`],

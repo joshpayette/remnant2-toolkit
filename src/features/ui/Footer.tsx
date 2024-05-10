@@ -2,7 +2,7 @@ import Image from 'next/image'
 
 import { cn } from '@/lib/classnames'
 
-import { NAV_ITEMS } from '../navigation/constants'
+import { NAV_ITEMS } from '../../app/(types)/navigation'
 
 const aClass = 'underline text-on-background hover:text-primary'
 
