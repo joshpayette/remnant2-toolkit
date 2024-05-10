@@ -18,6 +18,7 @@ export default async function getItemBuildStats(itemId: string): Promise<{
         prisma.build.count({
           where: {
             isFeaturedBuild: true,
+            isBeginnerBuild: false,
             isPublic: true,
             isPatchAffected: false,
             BuildItems: {
@@ -30,6 +31,7 @@ export default async function getItemBuildStats(itemId: string): Promise<{
         prisma.build.count({
           where: {
             isFeaturedBuild: true,
+            isBeginnerBuild: false,
             isPublic: true,
           },
         }),
