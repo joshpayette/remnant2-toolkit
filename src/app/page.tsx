@@ -20,7 +20,7 @@ export default async function Page() {
           <div className="mt-6 text-lg leading-8 text-on-background/90">
             <Link
               href="/community-builds"
-              className="underline hover:text-background/50"
+              className="underline hover:text-primary"
             >
               Search the community&apos;s{' '}
               <span className="text-2xl font-bold text-primary">

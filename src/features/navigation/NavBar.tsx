@@ -82,7 +82,7 @@ export function NavBar() {
                       </div>
                       <div className="flex flex-col items-start justify-start gap-y-1">
                         {NAV_ITEMS.createBuild.label}
-                        <p className="text-xs font-normal text-on-background">
+                        <p className="text-xs font-normal text-on-background-variant">
                           {NAV_ITEMS.createBuild.description}
                         </p>
                       </div>
