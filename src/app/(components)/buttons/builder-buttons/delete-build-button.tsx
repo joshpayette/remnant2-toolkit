@@ -1,5 +1,7 @@
 'use client'
 
+import { useRouter } from 'next/navigation'
+import { useSession } from 'next-auth/react'
 import { useState } from 'react'
 
 import { BaseButton } from '@/app/(components)/_base/button'
@@ -14,14 +16,20 @@ export function DeleteBuildButton({ buildId }: Props) {
   const [deleteAlertOpen, setDeleteAlertOpen] = useState(false)
   const { handleDeleteBuild } = useBuildActions()
 
+  const router = useRouter()
+  const { data: session } = useSession()
+
   return (
     <>
       <DeleteBuildAlert
         open={deleteAlertOpen}
         onClose={() => setDeleteAlertOpen(false)}
-        onDelete={() => {
+        onDelete={async () => {
           setDeleteAlertOpen(false)
-          handleDeleteBuild({ buildId })
+          await handleDeleteBuild({ buildId })
+          if (session?.user?.id) {
+            router.push(`/profile/${session.user.id}/created-builds`)
+          }
         }}
       />
       <BaseButton

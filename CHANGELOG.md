@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Changed
 
 - Removed a number of patch affected Featured Builds that have not and likely will not be updated.
+- When deleting a build you are viewing, you will now be redirected to your created builds upon successful deletion.
 
 ### Fixed
 
