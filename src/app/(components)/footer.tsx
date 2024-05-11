@@ -2,7 +2,7 @@ import Image from 'next/image'
 
 import { cn } from '@/app/(utils)/classnames'
 
-import { NAV_ITEMS } from '../(types)/navigation'
+import { DISCORD_INVITE_URL, NAV_ITEMS } from '../(types)/navigation'
 
 const aClass = 'text-gray-300 hover:text-primary-400 underline'
 
@@ -37,7 +37,7 @@ export function Footer() {
               loading="eager"
             />
           </a>
-          <a href="https://discord.gg/kgVaU3zAQ7" target="_blank">
+          <a href={DISCORD_INVITE_URL} target="_blank">
             <Image
               src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/toolkit/discord.png`}
               alt="Join the Remnant 2 Toolkit Discord"
@@ -80,11 +80,7 @@ export function Footer() {
           Got an issue or feature request? Want to be involved in giving
           feedback on the latest features? Want your build featured on the site?
           Join the{' '}
-          <a
-            href="https://discord.gg/kgVaU3zAQ7"
-            target="_blank"
-            className={cn(aClass)}
-          >
+          <a href={DISCORD_INVITE_URL} target="_blank" className={cn(aClass)}>
             Remnant 2 Toolkit Discord
           </a>
           !

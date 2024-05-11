@@ -21,6 +21,8 @@ import {
   UsersIcon,
 } from '@heroicons/react/24/solid'
 
+export const DISCORD_INVITE_URL = 'https://discord.gg/kgVaU3zAQ7'
+
 /**
  * The base pages for the site
  */

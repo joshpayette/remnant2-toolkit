@@ -4,7 +4,7 @@ import { getTotalBuildCount } from '@/app/(actions)/builds/get-total-build-count
 import { Link } from '@/app/(components)/_base/link'
 import { LandingPageCard } from '@/app/(components)/cards/landing-page-card'
 import { LandingPageContainer } from '@/app/(components)/landing-page-container'
-import { NAV_ITEMS } from '@/app/(types)/navigation'
+import { DISCORD_INVITE_URL, NAV_ITEMS } from '@/app/(types)/navigation'
 import { getServerSession } from '@/app/(utils)/auth'
 
 export default async function Page() {
@@ -172,7 +172,7 @@ export default async function Page() {
         />
 
         <LandingPageCard
-          href="https://discord.gg/kgVaU3zAQ7"
+          href={DISCORD_INVITE_URL}
           target="_blank"
           label="Join the Toolkit Discord!"
           description="Weigh in on new features, get help with builds, report bugs, or just hang out!"

@@ -9,11 +9,12 @@ import { Analytics } from '@vercel/analytics/react'
 import { Viewport } from 'next'
 import { ToastContainer } from 'react-toastify'
 
-import { BaseText } from '@/app/(components)/_base/text'
+import { BaseText, BaseTextLink } from '@/app/(components)/_base/text'
 import { GlobalActionButtons } from '@/app/(components)/buttons/global-action-buttons/global-action-buttons'
 import { Footer } from '@/app/(components)/footer'
 import { NavBar } from '@/app/(components)/nav-bar'
 import { PreloadResources } from '@/app/(components)/preload-resources'
+import { DISCORD_INVITE_URL } from '@/app/(types)/navigation'
 
 import { SessionProvider } from './(components)/session-provider'
 
@@ -45,11 +46,16 @@ export default async function RootLayout({
               Visit the Item Tracker page to trigger the migration of data to
               the database.
               <br />
-              <strong>IMPORTANT!</strong> If you have been tracking items across
-              multiple devices, the <strong>FIRST</strong> device you visit the
-              Item Tracker page on is the data that will be written to the
-              database. Be sure to visit the Item Tracker page the first time on
-              the device with the most up-to-date data.
+              <strong>IMPORTANT!!!</strong> If you have been tracking items
+              across multiple devices, the <strong>FIRST</strong> device you
+              visit the Item Tracker page on is the data that will be written to
+              the database. Be sure to visit the Item Tracker page for the first
+              time on the device with the most up-to-date data. If you have
+              issues, join the{' '}
+              <BaseTextLink href={DISCORD_INVITE_URL} target="_blank">
+                Toolkit Discord
+              </BaseTextLink>{' '}
+              for assistance.
             </BaseText>
           </div>
           <div className="flex h-full w-full max-w-7xl grow flex-col items-start justify-start">
