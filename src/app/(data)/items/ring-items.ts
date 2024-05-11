@@ -143,7 +143,7 @@ export const ringItems: RingItem[] = [
     id: 'gv12gw',
     tags: ['Status Effect', 'Status Duration'],
     description:
-      'Increases Status Effect Damage by 25% and reduces Status Effect Duration by 50%.',
+      'Increases Status Effect Damage by 30% and reduces Status Effect Duration by 50%.',
     wikiLinks: [`https://remnant.wiki/Band_of_the_Fanatic`],
   },
   {

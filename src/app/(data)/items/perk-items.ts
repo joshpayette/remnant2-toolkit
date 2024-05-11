@@ -1256,6 +1256,7 @@ export const perkItems: PerkItem[] = [
     dlc: 'base',
     tags: ['All Damage', 'Critical Chance', 'Status Effect'],
     description:
+      'Level 1:\n' +
       'Increases all damage to enemies affected by a Negative Status Effect by 2%.\n' +
       '\n' +
       'Damage increases with Ritualist Level\n' +
