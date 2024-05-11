@@ -4,7 +4,9 @@ import { Disclosure } from '@headlessui/react'
 import { ChevronDownIcon } from '@heroicons/react/24/solid'
 import isEqual from 'lodash.isequal'
 import { useSearchParams } from 'next/navigation'
+import { useSession } from 'next-auth/react'
 import { useEffect, useState } from 'react'
+import { toast } from 'react-toastify'
 import { useIsClient, useLocalStorage } from 'usehooks-ts'
 
 import { BaseButton } from '@/app/(components)/_base/button'
@@ -31,6 +33,7 @@ import { capitalize } from '@/app/(utils)/capitalize'
 import { cn } from '@/app/(utils)/classnames'
 import { ALL_TRACKABLE_ITEMS } from '@/app/tracker/constants'
 import { ItemTrackerCategory } from '@/app/tracker/types'
+import { useDiscoveredItems } from '@/app/tracker/use-discovered-items'
 
 function getCategoryProgressLabel({
   filteredItems,
@@ -169,11 +172,30 @@ function getFilteredItemList(
   return filteredItems
 }
 
-interface Props {}
+interface Props {
+  discoveredItemIds: string[]
+  handleSetDiscoveredItems: (discoveredItemIds: string[]) => void
+}
 
 // #region Component
 
-export function ItemList({}: Props) {
+export function ItemList({
+  discoveredItemIds,
+  handleSetDiscoveredItems,
+}: Props) {
+  // #region Data
+
+  const [tracker, setTracker] = useLocalStorage<ItemTrackerLocalStorage>(
+    LOCALSTORAGE_KEY.ITEM_TRACKER,
+    {
+      discoveredItemIds: [],
+      collapsedCategories: [],
+    },
+    { initializeWithValue: false },
+  )
+  const { collapsedCategories } = tracker
+
+  // #region Filters
   const searchParams = useSearchParams()
   const [filters, setFilters] = useState(parseUrlFilters(searchParams))
 
@@ -190,16 +212,6 @@ export function ItemList({}: Props) {
       setAreFiltersApplied(true)
     }
   }, [filters])
-
-  const [tracker, setTracker] = useLocalStorage<ItemTrackerLocalStorage>(
-    LOCALSTORAGE_KEY.ITEM_TRACKER,
-    {
-      discoveredItemIds: [],
-      collapsedCategories: [],
-    },
-    { initializeWithValue: false },
-  )
-  const { discoveredItemIds, collapsedCategories } = tracker
 
   const filteredItems = getFilteredItemList(filters, discoveredItemIds)
 
@@ -257,21 +269,17 @@ export function ItemList({}: Props) {
     })
   }
 
-  function handleListItemClicked(itemId: string) {
+  async function handleListItemClicked(itemId: string) {
+    let newDiscoveredItemIds: string[] = []
+
     // If the item is already discovered, undiscover it
     if (discoveredItemIds.includes(itemId)) {
-      const newDiscoveredItemIds = discoveredItemIds.filter(
-        (id) => id !== itemId,
-      )
-      setTracker({ ...tracker, discoveredItemIds: newDiscoveredItemIds })
-      // We need to set the user item insert needed flag
-      // so that the next time they filter builds by collection,
-      // their items will be updated
-      return
+      newDiscoveredItemIds = discoveredItemIds.filter((id) => id !== itemId)
+    } else {
+      newDiscoveredItemIds = [...discoveredItemIds, itemId]
     }
 
-    const newDiscoveredItemIds = [...discoveredItemIds, itemId]
-    setTracker({ ...tracker, discoveredItemIds: newDiscoveredItemIds })
+    handleSetDiscoveredItems(newDiscoveredItemIds)
   }
 
   // Tracks the item the user wants info on
@@ -284,10 +292,9 @@ export function ItemList({}: Props) {
     if (item) setItemInfo(item)
   }
 
+  // #region Render
   const isClient = useIsClient()
   if (!isClient) return null
-
-  // #region Render
 
   return (
     <>

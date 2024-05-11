@@ -1,5 +1,6 @@
 'use client'
 
+import { useSession } from 'next-auth/react'
 import Papa from 'papaparse'
 import { Suspense, useEffect, useMemo, useRef, useState } from 'react'
 import { useFormState } from 'react-dom'
@@ -21,14 +22,17 @@ import {
 import { capitalize } from '@/app/(utils)/capitalize'
 import { itemToCsvItem } from '@/app/(utils)/items/item-to-csv-item'
 import { getTrackerProgressLabel } from '@/app/(utils)/tracker/get-tracker-progress-label'
+import { getDiscoveredItems } from '@/app/tracker/actions/get-discovered-items'
+import { setDiscoveredItems } from '@/app/tracker/actions/set-discovered-items'
 import {
   ALL_TRACKABLE_ITEMS,
   skippedItemCategories,
 } from '@/app/tracker/constants'
 import { ItemList } from '@/app/tracker/item-list'
 import { ItemTrackerCategory } from '@/app/tracker/types'
+import { useDiscoveredItems } from '@/app/tracker/use-discovered-items'
 
-import { parseSaveFile } from './actions'
+import { parseSaveFile } from './actions/parse-save-file'
 
 /**
  * ----------------------------------------------
@@ -57,24 +61,15 @@ itemCategories = itemCategories.filter(
   (category) => category !== 'Weapon' && category !== 'Mutator',
 )
 
+// #region Component
 export default function Page() {
+  const { data: sessionData, status: sessionStatus } = useSession()
   const isClient = useIsClient()
 
-  const [tracker, setTracker] = useLocalStorage<ItemTrackerLocalStorage>(
-    LOCALSTORAGE_KEY.ITEM_TRACKER,
-    {
-      discoveredItemIds: [],
-      collapsedCategories: [],
-    },
-    { initializeWithValue: false },
-  )
-  const { discoveredItemIds } = tracker
+  const { discoveredItemIds, handleSetDiscoveredItems } = useDiscoveredItems()
 
-  /**
-   * ----------------------------------------------
-   * Save File Upload
-   * ----------------------------------------------
-   */
+  // #region Save File Upload
+
   const [uploadSaveFormResponse, saveFileFormAction] = useFormState(
     parseSaveFile,
     {
@@ -111,25 +106,16 @@ export default function Page() {
 
     saveFileInputRef.current = null
     // Update the discovered item ids
-    setTracker({ ...tracker, discoveredItemIds: filteredDiscoveredItems })
+    handleSetDiscoveredItems(filteredDiscoveredItems)
     setImportSaveDialogOpen(false)
     toast.success('Save file imported successfully!')
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [uploadSaveFormResponse])
 
-  /**
-   * ----------------------------------------------
-   * CSV File Upload
-   * ----------------------------------------------
-   */
+  // #region CSV File Upload
+
   const [importCSVDialogOpen, setImportCSVDialogOpen] = useState(false)
   const csvFileInputRef = useRef<HTMLInputElement | null>(null)
-
-  // Provide the tracker progress
-  const totalProgress = getTrackerProgressLabel({
-    items: ALL_TRACKABLE_ITEMS,
-    discoveredItemIds,
-  })
 
   function handleCsvFileSubmit() {
     if (!csvFileInputRef.current || !csvFileInputRef.current.files) {
@@ -160,7 +146,7 @@ export default function Page() {
           )
 
           csvFileInputRef.current = null
-          setTracker({ ...tracker, discoveredItemIds: newCsvItemIds })
+          handleSetDiscoveredItems(newCsvItemIds)
           setImportCSVDialogOpen(false)
           toast.success('CSV file imported successfully!')
         },
@@ -217,7 +203,15 @@ export default function Page() {
     )
   }, [discoveredItemIds])
 
+  // Provide the tracker progress
+  const totalProgress = getTrackerProgressLabel({
+    items: ALL_TRACKABLE_ITEMS,
+    discoveredItemIds,
+  })
+
   // #region Render
+
+  if (sessionStatus === 'loading') return null
 
   return (
     <>
@@ -282,7 +276,10 @@ export default function Page() {
 
           <div className="flex w-full items-center justify-center">
             <Suspense fallback={<Skeleton className="h-[500px] w-full" />}>
-              <ItemList />
+              <ItemList
+                discoveredItemIds={discoveredItemIds}
+                handleSetDiscoveredItems={handleSetDiscoveredItems}
+              />
             </Suspense>
           </div>
         </div>

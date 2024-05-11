@@ -77,6 +77,7 @@ model User {
   PaidUsers     PaidUsers[]
   UserProfile   UserProfile?
   UserLoadouts  UserLoadouts[]
+  UserItems     UserItems[]
 }
 
 model UserProfile {
@@ -147,6 +148,7 @@ model Item {
   dlc        ITEM_DLC     @default(base)
   isActive   Boolean      @default(true)
   BuildItems BuildItems[]
+  UserItems  UserItems[]
 }
 
 model UserLoadouts {
@@ -161,6 +163,20 @@ model UserLoadouts {
 
   @@index([userId])
   @@index([buildId])
+}
+
+model UserItems {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String
+  item      Item     @relation(fields: [itemId], references: [id], onDelete: Cascade)
+  itemId    String
+  itemLevel Int?     @default(0)
+
+  @@index([userId])
+  @@index([itemId])
 }
 
 model Build {
