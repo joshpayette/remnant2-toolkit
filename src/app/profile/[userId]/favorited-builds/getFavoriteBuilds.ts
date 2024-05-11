@@ -23,6 +23,7 @@ import {
   limitByBuildTagsSegment,
 } from '@/app/(queries)/build-filters/segments/limit-by-build-tags'
 import { limitByFavorited } from '@/app/(queries)/build-filters/segments/limit-by-favorited'
+import { limitToBuildsWithMinDescription } from '@/app/(queries)/build-filters/segments/limit-by-min-description'
 import { limitByPatchAffected } from '@/app/(queries)/build-filters/segments/limit-by-patch-affected'
 import { limitByReferenceLink } from '@/app/(queries)/build-filters/segments/limit-by-reference-link'
 import { limitByReleasesSegment } from '@/app/(queries)/build-filters/segments/limit-by-release'
@@ -69,6 +70,7 @@ export async function getFavoritedBuilds({
     searchText,
     releases,
     patchAffected,
+    withMinDescription,
     withVideo,
     withReference,
   } = buildListFilters
@@ -98,6 +100,7 @@ ${limitByWeaponsSegment(weaponIds)}
 ${limitByReferenceLink(withReference)}
 ${limitToBuildsWithVideo(withVideo)}
 ${limitByPatchAffected(patchAffected)}
+${limitToBuildsWithMinDescription(withMinDescription)}
 ${limitByFavorited(userId)}
 `
 

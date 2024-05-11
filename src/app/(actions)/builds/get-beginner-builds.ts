@@ -22,6 +22,7 @@ import {
   buildTagsFilterToValues,
   limitByBuildTagsSegment,
 } from '@/app/(queries)/build-filters/segments/limit-by-build-tags'
+import { limitToBuildsWithMinDescription } from '@/app/(queries)/build-filters/segments/limit-by-min-description'
 import { limitByPatchAffected } from '@/app/(queries)/build-filters/segments/limit-by-patch-affected'
 import { limitByReferenceLink } from '@/app/(queries)/build-filters/segments/limit-by-reference-link'
 import { limitByReleasesSegment } from '@/app/(queries)/build-filters/segments/limit-by-release'
@@ -70,6 +71,7 @@ export async function getBeginnerBuilds({
     patchAffected,
     withVideo,
     withReference,
+    withMinDescription,
   } = buildListFilters
 
   if (releases.length === 0) return { items: [], totalItemCount: 0 }
@@ -94,6 +96,7 @@ export async function getBeginnerBuilds({
   ${limitByReferenceLink(withReference)}
   ${limitToBuildsWithVideo(withVideo)}
   ${limitByPatchAffected(patchAffected)}
+  ${limitToBuildsWithMinDescription(withMinDescription)}
   `
 
   const orderBySegment = getOrderBySegment(orderBy, true)

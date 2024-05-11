@@ -144,6 +144,13 @@ export function parseUrlFilters(
     withReference = withReference === 'true'
   }
 
+  // Validate the withMinDescription filter
+  let withMinDescription =
+    parsedParams.get(BUILD_FILTER_KEYS.WITHMINDESCRIPTION) === 'true'
+  if (typeof withMinDescription === 'string') {
+    withMinDescription = withMinDescription === 'true'
+  }
+
   return {
     amulet,
     archetypes,
@@ -157,5 +164,6 @@ export function parseUrlFilters(
     patchAffected,
     withVideo,
     withReference,
+    withMinDescription,
   }
 }

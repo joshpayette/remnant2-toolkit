@@ -24,6 +24,7 @@ import {
   limitByBuildTagsSegment,
 } from '@/app/(queries)/build-filters/segments/limit-by-build-tags'
 import { limitByFeatured } from '@/app/(queries)/build-filters/segments/limit-by-featured'
+import { limitToBuildsWithMinDescription } from '@/app/(queries)/build-filters/segments/limit-by-min-description'
 import { limitByPatchAffected } from '@/app/(queries)/build-filters/segments/limit-by-patch-affected'
 import { limitByReferenceLink } from '@/app/(queries)/build-filters/segments/limit-by-reference-link'
 import { limitByReleasesSegment } from '@/app/(queries)/build-filters/segments/limit-by-release'
@@ -78,6 +79,7 @@ export async function getCreatedBuilds({
     patchAffected,
     withVideo,
     withReference,
+    withMinDescription,
   } = buildListFilters
 
   if (releases.length === 0) return { items: [], totalItemCount: 0 }
@@ -121,6 +123,7 @@ export async function getCreatedBuilds({
   ${limitByReferenceLink(withReference)}
   ${limitToBuildsWithVideo(withVideo)}
   ${limitByPatchAffected(patchAffected)}
+  ${limitToBuildsWithMinDescription(withMinDescription)}
   ${limitByFeatured(featuredBuildsOnly)}
   `
 

@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2024-05-11
 
+### Added
+
+- When searching Community Builds, a new filter has been added to find builds with descriptions of 100+ characters. You can find this under the `Include...` dropdown in the build filters. This should help users who want higher quality builds with good details about how to play the build, alternate item options, etc.
+
 ### Changed
 
 - Item Tracker data now stored in the database if the user is authenticated. This will allow for item tracking across devices for users that are signed in.

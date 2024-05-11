@@ -22,6 +22,7 @@ import {
   buildTagsFilterToValues,
   limitByBuildTagsSegment,
 } from '@/app/(queries)/build-filters/segments/limit-by-build-tags'
+import { limitToBuildsWithMinDescription } from '@/app/(queries)/build-filters/segments/limit-by-min-description'
 import { limitByPatchAffected } from '@/app/(queries)/build-filters/segments/limit-by-patch-affected'
 import { limitByReferenceLink } from '@/app/(queries)/build-filters/segments/limit-by-reference-link'
 import { limitByReleasesSegment } from '@/app/(queries)/build-filters/segments/limit-by-release'
@@ -68,6 +69,7 @@ export async function getCommunityBuilds({
     searchText,
     releases,
     patchAffected,
+    withMinDescription,
     withVideo,
     withReference,
   } = buildListFilters
@@ -97,6 +99,7 @@ export async function getCommunityBuilds({
   ${limitByWeaponsSegment(weaponIds)}
   ${limitByReferenceLink(withReference)}
   ${limitToBuildsWithVideo(withVideo)}
+  ${limitToBuildsWithMinDescription(withMinDescription)}
   ${limitByPatchAffected(patchAffected)}
   `
 

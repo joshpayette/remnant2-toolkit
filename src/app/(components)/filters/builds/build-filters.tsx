@@ -51,6 +51,7 @@ export const DEFAULT_BUILD_FILTERS = {
   rings: [DEFAULT_FILTER],
   searchText: '',
   patchAffected: false,
+  withMinDescription: false,
   withVideo: false,
   withReference: false,
 } as const satisfies BuildListFilters
@@ -178,6 +179,11 @@ export function BuildFilters({ buildFiltersOverrides }: Props) {
     }
     if (filtersToApply.withReference !== defaultFilters.withReference) {
       url += `${BUILD_FILTER_KEYS.WITHREFERENCE}=${filtersToApply.withReference}&`
+    }
+    if (
+      filtersToApply.withMinDescription !== defaultFilters.withMinDescription
+    ) {
+      url += `${BUILD_FILTER_KEYS.WITHMINDESCRIPTION}=${filtersToApply.withMinDescription}&`
     }
 
     // trim the final &
@@ -310,13 +316,17 @@ export function BuildFilters({ buildFiltersOverrides }: Props) {
   }
 
   function handleMiscFilterChange(newFilters: string[]) {
-    const patchAffected = newFilters.includes('patchAffected')
-    const withVideo = newFilters.includes('withVideo')
-    const withReference = newFilters.includes('withReference')
+    const patchAffected = newFilters.includes(BUILD_FILTER_KEYS.PATCHAFFECTED)
+    const withMinDescription = newFilters.includes(
+      BUILD_FILTER_KEYS.WITHMINDESCRIPTION,
+    )
+    const withVideo = newFilters.includes(BUILD_FILTER_KEYS.WITHVIDEO)
+    const withReference = newFilters.includes(BUILD_FILTER_KEYS.WITHREFERENCE)
 
     setUnappliedFilters((prev) => ({
       ...prev,
       patchAffected,
+      withMinDescription,
       withVideo,
       withReference,
     }))
@@ -459,9 +469,18 @@ export function BuildFilters({ buildFiltersOverrides }: Props) {
                   <div className="col-span-full sm:col-span-1 md:col-span-2">
                     <BuildMiscFilter
                       value={[
-                        unappliedFilters.patchAffected ? 'patchAffected' : '',
-                        unappliedFilters.withVideo ? 'withVideo' : '',
-                        unappliedFilters.withReference ? 'withReference' : '',
+                        unappliedFilters.patchAffected
+                          ? BUILD_FILTER_KEYS.PATCHAFFECTED
+                          : '',
+                        unappliedFilters.withMinDescription
+                          ? BUILD_FILTER_KEYS.WITHMINDESCRIPTION
+                          : '',
+                        unappliedFilters.withVideo
+                          ? BUILD_FILTER_KEYS.WITHVIDEO
+                          : '',
+                        unappliedFilters.withReference
+                          ? BUILD_FILTER_KEYS.WITHREFERENCE
+                          : '',
                       ]}
                       onChange={handleMiscFilterChange}
                     />

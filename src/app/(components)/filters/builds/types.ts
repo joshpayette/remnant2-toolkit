@@ -11,6 +11,7 @@ export interface BuildListFilters {
   releases: string[] | [DefaultFilter]
   searchText: string
   patchAffected: boolean
+  withMinDescription: boolean
   withVideo: boolean
   withReference: boolean
 }
@@ -27,6 +28,7 @@ export const BUILD_FILTER_KEYS = {
   RELEASES: 'releases',
   RINGS: 'rings',
   SEARCHTEXT: 'searchText',
+  WITHMINDESCRIPTION: 'withMinDescription',
   WITHVIDEO: 'withVideo',
   WITHREFERENCE: 'withReference',
 } as const satisfies Record<string, keyof BuildListFilters>

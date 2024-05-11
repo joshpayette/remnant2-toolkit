@@ -40,18 +40,11 @@ export default async function RootLayout({
         <PreloadResources />
         <SessionProvider>
           <GlobalActionButtons />
-          <div className="w-full bg-red-950 p-1 text-center text-sm">
-            <BaseText>
+          <div className="flex w-full flex-wrap items-center justify-center bg-blue-950 p-1 text-center text-sm">
+            <BaseText className="max-w-[800px]">
               Item Tracker data now saves to the database if you are logged in.
               Visit the Item Tracker page to trigger the migration of data to
-              the database.
-              <br />
-              <strong>IMPORTANT!!!</strong> If you have been tracking items
-              across multiple devices, the <strong>FIRST</strong> device you
-              visit the Item Tracker page on is the data that will be written to
-              the database. Be sure to visit the Item Tracker page for the first
-              time on the device with the most up-to-date data. If you have
-              issues, join the{' '}
+              the database. If you have issues, join the{' '}
               <BaseTextLink href={DISCORD_INVITE_URL} target="_blank">
                 Toolkit Discord
               </BaseTextLink>{' '}
