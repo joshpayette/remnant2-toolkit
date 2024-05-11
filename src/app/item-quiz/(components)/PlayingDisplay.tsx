@@ -1,10 +1,10 @@
 import React from 'react'
 
+import { cn } from '@/app/(utils)/classnames'
+import { getArrayOfLength } from '@/app/(utils)/get-array-of-length'
 import { QuizItemButton } from '@/app/item-quiz/(components)/QuizItemButton'
 import { TOTAL_CHOICES } from '@/app/item-quiz/constants'
 import { LayoutPreference, QuizItem } from '@/app/item-quiz/types'
-import { getArrayOfLength } from '@/features/build/lib/getArrayOfLength'
-import { cn } from '@/lib/classnames'
 
 interface Props {
   correctItemName: string

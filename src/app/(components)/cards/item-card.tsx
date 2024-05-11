@@ -9,9 +9,15 @@ import { useState } from 'react'
 import { toast } from 'react-toastify'
 import { useLocalStorage } from 'usehooks-ts'
 
+import getItemBuildStats, {
+  ItemBuildStats,
+} from '@/app/(actions)/items/get-item-build-stats'
 import { BaseButton } from '@/app/(components)/_base/button'
 import { Link } from '@/app/(components)/_base/link'
+import { ArmorInfo } from '@/app/(components)/armor-info'
 import { DescriptionWithTokens } from '@/app/(components)/description-with-tokens'
+import { Tooltip } from '@/app/(components)/tooltip'
+import { WeaponInfo } from '@/app/(components)/weapon-info'
 import { Item } from '@/app/(data)/items/types'
 import { ArchetypeItem } from '@/app/(data)/items/types/ArchetypeItem'
 import { ArmorItem } from '@/app/(data)/items/types/ArmorItem'
@@ -26,16 +32,9 @@ import {
   DEFAULT_ITEM_COMPARE_LIST,
   LOCALSTORAGE_KEY,
 } from '@/app/(types)/localstorage'
+import { capitalize } from '@/app/(utils)/capitalize'
+import { cn } from '@/app/(utils)/classnames'
 import { itemShareEndpoint } from '@/app/(utils)/clean-item-name'
-import { ArmorInfo } from '@/features/armor-calculator/ArmorInfo'
-import { getArrayOfLength } from '@/features/build/lib/getArrayOfLength'
-import getItemBuildStats, {
-  ItemBuildStats,
-} from '@/features/items/actions/getItemBuildStats'
-import { WeaponInfo } from '@/features/items/components/WeaponInfo'
-import { Tooltip } from '@/features/ui/Tooltip'
-import { capitalize } from '@/lib/capitalize'
-import { cn } from '@/lib/classnames'
 
 interface Props {
   allowItemCompare?: boolean

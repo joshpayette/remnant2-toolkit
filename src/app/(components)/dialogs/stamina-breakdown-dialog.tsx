@@ -4,11 +4,11 @@ import {
   BaseDialogDescription,
   BaseDialogTitle,
 } from '@/app/(components)/_base/dialog'
+import { ListItem } from '@/app/(components)/builder/stats/list-item'
+import { Section } from '@/app/(components)/builder/stats/section'
 import { Item } from '@/app/(data)/items/types'
 import { TraitItem } from '@/app/(data)/items/types/TraitItem'
 import { BuildState } from '@/app/(types)/builds'
-import { ListItem } from '@/features/build/components/builder/stats/ListItem'
-import { Section } from '@/features/build/components/builder/stats/Section'
 
 function getStaminaStepLabel(buildState: BuildState, item: TraitItem) {
   const amount =

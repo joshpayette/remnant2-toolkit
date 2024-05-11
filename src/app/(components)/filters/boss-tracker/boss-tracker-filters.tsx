@@ -20,7 +20,7 @@ import {
 import { parseUrlFilters } from '@/app/(components)/filters/boss-tracker/utils'
 import { DEFAULT_FILTER } from '@/app/(components)/filters/types'
 import { Input } from '@/app/(components)/form-fields/input'
-import { cn } from '@/lib/classnames'
+import { cn } from '@/app/(utils)/classnames'
 
 export const DEFAULT_BOSS_TRACKER_FILTERS = {
   categories: [DEFAULT_FILTER],

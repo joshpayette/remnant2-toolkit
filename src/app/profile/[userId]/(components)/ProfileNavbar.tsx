@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useIsClient } from 'usehooks-ts'
 
-import { cn } from '@/lib/classnames'
+import { cn } from '@/app/(utils)/classnames'
 
 interface Props {
   isEditable: boolean

@@ -3,7 +3,7 @@ import { Metadata, ResolvingMetadata } from 'next'
 import { allItems } from '@/app/(data)/items/all-items'
 import { Item } from '@/app/(data)/items/types'
 import { INLINE_TOKENS, ITEM_TOKENS } from '@/app/(types)/tokens'
-import { itemMatchesSearchText } from '@/features/items/lib/itemMatchesSearchText'
+import { itemMatchesSearchText } from '@/app/(utils)/items/item-matches-search-text'
 
 import TagPage from './page'
 

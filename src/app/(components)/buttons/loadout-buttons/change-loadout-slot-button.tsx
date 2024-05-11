@@ -4,10 +4,10 @@ import { ArrowPathRoundedSquareIcon } from '@heroicons/react/24/solid'
 import { useState } from 'react'
 import { toast } from 'react-toastify'
 
+import { changeLoadoutSlot } from '@/app/(actions)/loadouts/change-loadout-slot'
 import { BaseButton } from '@/app/(components)/_base/button'
 import { ChangeLoadoutSlotPrompt } from '@/app/(components)/alerts/change-loadout-slot-prompt'
-import { changeLoadoutSlot } from '@/features/loadouts/actions/changeLoadoutSlot'
-import { Tooltip } from '@/features/ui/Tooltip'
+import { Tooltip } from '@/app/(components)/tooltip'
 
 export function ChangeLoadoutSlotButton({
   buildId,

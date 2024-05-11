@@ -5,18 +5,17 @@ import { useLocalStorage } from 'usehooks-ts'
 
 import { ToCsvButton } from '@/app/(components)/buttons/to-csv-button'
 import { ItemLookupFilters } from '@/app/(components)/filters/item-lookup/item-lookup-filters'
+import { PageHeader } from '@/app/(components)/page-header'
+import { Skeleton } from '@/app/(components)/skeleton'
 import { allItems } from '@/app/(data)/items/all-items'
 import { MutatorItem } from '@/app/(data)/items/types/MutatorItem'
 import {
   DEFAULT_ITEM_COMPARE_LIST,
   LOCALSTORAGE_KEY,
 } from '@/app/(types)/localstorage'
+import { itemToCsvItem } from '@/app/(utils)/items/item-to-csv-item'
 import { ItemCompareList } from '@/app/item-lookup/item-compare'
 import { ItemList } from '@/app/item-lookup/item-list'
-import { getArrayOfLength } from '@/features/build/lib/getArrayOfLength'
-import { itemToCsvItem } from '@/features/items/lib/itemToCsvItem'
-import { PageHeader } from '@/features/ui/PageHeader'
-import { Skeleton } from '@/features/ui/Skeleton'
 
 const csvItems = allItems
   // Modify the data for use. Adds a discovered flag,

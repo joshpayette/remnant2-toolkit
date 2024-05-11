@@ -2,9 +2,9 @@
 
 import { revalidatePath } from 'next/cache'
 
+import { getServerSession } from '@/app/(utils)/auth'
+import { prisma } from '@/app/(utils)/db'
 import { TOTAL_TRACKABLE_ITEM_COUNT } from '@/app/tracker/constants'
-import { getServerSession } from '@/features/auth/lib'
-import { prisma } from '@/features/db'
 
 export async function updateTotalDiscoveredItems({
   userId,

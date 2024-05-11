@@ -4,6 +4,7 @@ import { useSession } from 'next-auth/react'
 import { useRef, useState } from 'react'
 import { useIsClient } from 'usehooks-ts'
 
+import { BuilderContainer } from '@/app/(components)/builder/builder-container'
 import { ArmorCalculatorButton } from '@/app/(components)/buttons/builder-buttons/armor-calculator-button'
 import { DeleteBuildButton } from '@/app/(components)/buttons/builder-buttons/delete-build-button'
 import { DetailedViewButton } from '@/app/(components)/buttons/builder-buttons/detailed-view-button'
@@ -13,13 +14,12 @@ import { ArmorSuggestionDialog } from '@/app/(components)/dialogs/armor-suggesti
 import { DetailedBuildDialog } from '@/app/(components)/dialogs/detailed-build-dialog'
 import { ImageDownloadInfoDialog } from '@/app/(components)/dialogs/image-download-info-dialog'
 import { ItemTagSuggestionDialog } from '@/app/(components)/dialogs/item-tag-suggestion-dialog'
+import { PageHeader } from '@/app/(components)/page-header'
 import { useBuildActions } from '@/app/(hooks)/use-build-actions'
 import { BuildState, DBBuild } from '@/app/(types)/builds'
-import { BuilderContainer } from '@/features/build/components/builder/BuilderContainer'
-import { useDBBuildState } from '@/features/build/hooks/useDBBuildState'
-import { cleanUpBuildState } from '@/features/build/lib/cleanUpBuildState'
-import { dbBuildToBuildState } from '@/features/build/lib/dbBuildToBuildState'
-import { PageHeader } from '@/features/ui/PageHeader'
+import { cleanUpBuildState } from '@/app/(utils)/builds/clean-up-build-state'
+import { dbBuildToBuildState } from '@/app/(utils)/builds/db-build-to-build-state'
+import { useDBBuildState } from '@/app/(utils)/builds/hooks/use-db-build-state'
 
 interface Props {
   build: DBBuild

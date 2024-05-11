@@ -1,13 +1,13 @@
 import { Metadata, ResolvingMetadata } from 'next'
 
 import { getBuild } from '@/app/(actions)/builds/get-build'
-import { dbBuildToBuildState } from '@/features/build/lib/dbBuildToBuildState'
+import { PageHeader } from '@/app/(components)/page-header'
+import { dbBuildToBuildState } from '@/app/(utils)/builds/db-build-to-build-state'
 import {
   ArchetypeName,
   getArchetypeComboName,
-} from '@/features/build/lib/getArchetypeComboName'
-import { isErrorResponse } from '@/features/error-handling/isErrorResponse'
-import { PageHeader } from '@/features/ui/PageHeader'
+} from '@/app/(utils)/builds/get-archetype-combo-name'
+import { isErrorResponse } from '@/app/(utils)/is-error-response'
 
 export async function generateMetadata(
   { params: { buildId } }: { params: { buildId: string } },

@@ -5,9 +5,9 @@ import { v4 as uuidv4 } from 'uuid'
 import { BaseButton } from '@/app/(components)/_base/button'
 import { FilteredWorldSave } from '@/app/(components)/filters/world-saves/types'
 import { getDownloadUrl } from '@/app/(components)/filters/world-saves/utils'
+import { Tooltip } from '@/app/(components)/tooltip'
 import { RELEASE_TO_NAME } from '@/app/(data)/releases/constants'
 import { ALL_BOSS_AFFIXES } from '@/app/(data)/world-saves/constants'
-import { Tooltip } from '@/features/ui/Tooltip'
 
 interface Props {
   saveItem: FilteredWorldSave

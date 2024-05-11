@@ -7,6 +7,7 @@ import { useSession } from 'next-auth/react'
 import { useRef, useState } from 'react'
 import { toast } from 'react-toastify'
 
+import { BuilderContainer } from '@/app/(components)/builder/builder-container'
 import { DeleteBuildButton } from '@/app/(components)/buttons/builder-buttons/delete-build-button'
 import { DetailedViewButton } from '@/app/(components)/buttons/builder-buttons/detailed-view-button'
 import { DuplicateBuildButton } from '@/app/(components)/buttons/builder-buttons/duplicate-build-button'
@@ -21,11 +22,10 @@ import { ImageDownloadInfoDialog } from '@/app/(components)/dialogs/image-downlo
 import { LoadoutDialog } from '@/app/(components)/dialogs/loadout-dialog'
 import { useBuildActions } from '@/app/(hooks)/use-build-actions'
 import { DBBuild } from '@/app/(types)/builds'
+import { buildStateToCsvData } from '@/app/(utils)/builds/build-state-to-csv-data'
+import { cleanUpBuildState } from '@/app/(utils)/builds/clean-up-build-state'
+import { dbBuildToBuildState } from '@/app/(utils)/builds/db-build-to-build-state'
 import { urlNoCache } from '@/app/(utils)/url-no-cache'
-import { BuilderContainer } from '@/features/build/components/builder/BuilderContainer'
-import { buildStateToCsvData } from '@/features/build/lib/buildStateToCsvData'
-import { cleanUpBuildState } from '@/features/build/lib/cleanUpBuildState'
-import { dbBuildToBuildState } from '@/features/build/lib/dbBuildToBuildState'
 
 function videoEmbedUrlToVideoId(videoEmbedUrl: string) {
   const url = new URL(videoEmbedUrl)

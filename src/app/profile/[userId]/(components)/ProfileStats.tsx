@@ -1,9 +1,9 @@
 'use server'
 
+import { prisma } from '@/app/(utils)/db'
 import { DiscoveredItemsStatBox } from '@/app/profile/[userId]/(components)/DiscoveredItemsStatBox'
 import { StatBox } from '@/app/profile/[userId]/(components)/StatBox'
 import { TOTAL_TRACKABLE_ITEM_COUNT } from '@/app/tracker/constants'
-import { prisma } from '@/features/db'
 
 interface Props {
   isEditable: boolean

@@ -20,9 +20,9 @@ import {
   BossTrackerLocalStorage,
   LOCALSTORAGE_KEY,
 } from '@/app/(types)/localstorage'
+import { cn } from '@/app/(utils)/classnames'
 import { BossTrackerCategory } from '@/app/boss-tracker/types'
 import { getTrackerProgress } from '@/app/boss-tracker/utils'
-import { cn } from '@/lib/classnames'
 
 const TRACKABLE_BOSSES = [
   ...bossEnemies,

@@ -21,7 +21,7 @@ import {
   WorldSaveFilters as Filters,
 } from '@/app/(components)/filters/world-saves/types'
 import { parseUrlFilters } from '@/app/(components)/filters/world-saves/utils'
-import { cn } from '@/lib/classnames'
+import { cn } from '@/app/(utils)/classnames'
 
 export const DEFAULT_WORLD_SAVE_FILTERS = {
   bossName: DEFAULT_FILTER,

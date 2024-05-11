@@ -1,4 +1,4 @@
-export const ARCHTYPE_COLORS = {
+export const ARCHETYPE_COLORS = {
   ALCHEMIST: {
     bg: 'bg-[#102a22]',
     text: 'text-[#10a880]',

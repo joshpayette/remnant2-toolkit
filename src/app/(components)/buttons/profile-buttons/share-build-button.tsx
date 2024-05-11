@@ -5,8 +5,8 @@ import copy from 'clipboard-copy'
 import { toast } from 'react-toastify'
 
 import { BaseButton } from '@/app/(components)/_base/button'
+import { Tooltip } from '@/app/(components)/tooltip'
 import { urlNoCache } from '@/app/(utils)/url-no-cache'
-import { Tooltip } from '@/features/ui/Tooltip'
 
 export function ShareBuildButton({ buildId }: { buildId: string }) {
   function handleCopyBuild() {

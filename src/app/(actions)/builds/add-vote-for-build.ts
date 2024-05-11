@@ -5,9 +5,9 @@ import { z } from 'zod'
 
 import { BUILD_REVALIDATE_PATHS } from '@/app/(data)/builds/constants'
 import { BuildActionResponse } from '@/app/(types)/builds'
-import { getServerSession } from '@/features/auth/lib'
-import { prisma } from '@/features/db'
-import { bigIntFix } from '@/lib/bigIntFix'
+import { getServerSession } from '@/app/(utils)/auth'
+import { bigIntFix } from '@/app/(utils)/big-int-fix'
+import { prisma } from '@/app/(utils)/db'
 
 export async function addVoteForBuild(
   data: string,

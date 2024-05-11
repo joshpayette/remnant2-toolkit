@@ -9,7 +9,7 @@ import {
   BaseLabel,
   BaseLegend,
 } from '@/app/(components)/_base/fieldset'
-import { ALL_BUILD_TAGS } from '@/features/build/build-tags/constants'
+import { ALL_BUILD_TAGS } from '@/app/(components)/builder/build-tags/constants'
 
 export const VALID_BUILD_TAGS = ALL_BUILD_TAGS.map((item) => item.label)
 

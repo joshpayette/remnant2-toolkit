@@ -14,8 +14,7 @@ import { RingItem } from '@/app/(data)/items/types/RingItem'
 import { SkillItem } from '@/app/(data)/items/types/SkillItem'
 import { TraitItem } from '@/app/(data)/items/types/TraitItem'
 import { WeaponItem } from '@/app/(data)/items/types/WeaponItem'
-
-import { ErrorResponse } from '../../features/error-handling/types'
+import { ErrorResponse } from '@/app/(types)/error-response'
 
 export type ItemCategory = keyof BuildState['items']
 

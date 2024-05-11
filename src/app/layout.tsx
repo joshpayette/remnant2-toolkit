@@ -1,7 +1,6 @@
 import { Inter } from 'next/font/google'
 
-import { Footer } from '@/features/ui/Footer'
-import { cn } from '@/lib/classnames'
+import { cn } from '@/app/(utils)/classnames'
 export { metadata } from './metadata'
 import './globals.css'
 import 'react-toastify/dist/ReactToastify.min.css'
@@ -11,10 +10,11 @@ import { Viewport } from 'next'
 import { ToastContainer } from 'react-toastify'
 
 import { GlobalActionButtons } from '@/app/(components)/buttons/global-action-buttons/global-action-buttons'
+import { Footer } from '@/app/(components)/footer'
 import { NavBar } from '@/app/(components)/nav-bar'
-import { PreloadResources } from '@/features/ui/PreloadResources'
+import { PreloadResources } from '@/app/(components)/preload-resources'
 
-import { SessionProvider } from '../features/auth/components/SessionProvider'
+import { SessionProvider } from './(components)/session-provider'
 
 const inter = Inter({ subsets: ['latin'] })
 

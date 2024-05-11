@@ -5,8 +5,8 @@ import { useState } from 'react'
 
 import { BaseButton } from '@/app/(components)/_base/button'
 import { DeleteBuildAlert } from '@/app/(components)/alerts/delete-build-alert'
+import { Tooltip } from '@/app/(components)/tooltip'
 import { useBuildActions } from '@/app/(hooks)/use-build-actions'
-import { Tooltip } from '@/features/ui/Tooltip'
 
 export function DeleteBuildButton({
   buildId,

@@ -1,5 +1,5 @@
 import { BaseButton } from '@/app/(components)/_base/button'
-import { cn } from '@/lib/classnames'
+import { cn } from '@/app/(utils)/classnames'
 
 interface Props<T> {
   areFiltersApplied: boolean

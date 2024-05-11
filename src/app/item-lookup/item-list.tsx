@@ -11,6 +11,7 @@ import { DEFAULT_ITEM_LOOKUP_FILTERS } from '@/app/(components)/filters/item-loo
 import { ItemLookupFilters } from '@/app/(components)/filters/item-lookup/types'
 import { parseUrlFilters } from '@/app/(components)/filters/item-lookup/utils'
 import { DEFAULT_FILTER } from '@/app/(components)/filters/types'
+import { MasonryItemList } from '@/app/(components)/masonry-item-list'
 import { allItems } from '@/app/(data)/items/all-items'
 import { Item } from '@/app/(data)/items/types'
 import { MutatorItem } from '@/app/(data)/items/types/MutatorItem'
@@ -20,9 +21,8 @@ import {
   ItemTrackerLocalStorage,
   LOCALSTORAGE_KEY,
 } from '@/app/(types)/localstorage'
-import { MasonryItemList } from '@/features/items/components/MasonryItemList'
-import { itemMatchesSearchText } from '@/features/items/lib/itemMatchesSearchText'
-import { capitalize } from '@/lib/capitalize'
+import { capitalize } from '@/app/(utils)/capitalize'
+import { itemMatchesSearchText } from '@/app/(utils)/items/item-matches-search-text'
 
 const allItemsWithDiscovered = allItems.map((item) => ({
   ...item,

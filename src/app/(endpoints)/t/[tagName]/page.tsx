@@ -1,8 +1,8 @@
 'use client'
 
+import { MasonryItemList } from '@/app/(components)/masonry-item-list'
+import { PageHeader } from '@/app/(components)/page-header'
 import { Item } from '@/app/(data)/items/types'
-import { MasonryItemList } from '@/features/items/components/MasonryItemList'
-import { PageHeader } from '@/features/ui/PageHeader'
 
 export default function Page({
   params: { items, tagName },

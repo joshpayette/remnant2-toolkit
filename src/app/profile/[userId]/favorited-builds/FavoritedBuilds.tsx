@@ -3,17 +3,17 @@
 import { useSearchParams } from 'next/navigation'
 import { useEffect, useMemo, useState } from 'react'
 
+import { BuildList } from '@/app/(components)/build-list'
+import { BuildCard } from '@/app/(components)/cards/build-card'
 import { DEFAULT_BUILD_FILTERS } from '@/app/(components)/filters/builds/build-filters'
 import { BuildSecondaryFilters } from '@/app/(components)/filters/builds/secondary-filters'
 import { useOrderByFilter } from '@/app/(components)/filters/builds/secondary-filters/order-by-filter/use-order-by-filter'
 import { useTimeRangeFilter } from '@/app/(components)/filters/builds/secondary-filters/time-range-filter/use-time-range-filter'
 import { BuildListFilters } from '@/app/(components)/filters/builds/types'
 import { parseUrlFilters } from '@/app/(components)/filters/builds/utils'
+import { useBuildListState } from '@/app/(utils)/builds/hooks/use-build-list-state'
+import { usePagination } from '@/app/(utils)/pagination/use-pagination'
 import { getFavoritedBuilds } from '@/app/profile/[userId]/favorited-builds/getFavoriteBuilds'
-import { BuildCard } from '@/features/build/components/build-card/BuildCard'
-import { BuildList } from '@/features/build/components/BuildList'
-import { useBuildListState } from '@/features/build/hooks/useBuildListState'
-import { usePagination } from '@/features/pagination/usePagination'
 
 interface Props {
   buildFiltersOverrides?: Partial<BuildListFilters>

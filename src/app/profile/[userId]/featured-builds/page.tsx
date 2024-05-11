@@ -1,7 +1,7 @@
 import { BuildFilters } from '@/app/(components)/filters/builds/build-filters'
 import { BuildListFilters } from '@/app/(components)/filters/builds/types'
+import { getServerSession } from '@/app/(utils)/auth'
 import { FeaturedBuilds } from '@/app/profile/[userId]/featured-builds/FeaturedBuilds'
-import { getServerSession } from '@/features/auth/lib'
 
 export default async function Page({
   params: { userId },

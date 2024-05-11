@@ -5,7 +5,7 @@ import React from 'react'
 
 import { Link } from '@/app/(components)/_base/link'
 import { NAV_ITEMS } from '@/app/(types)/navigation'
-import { getServerSession } from '@/features/auth/lib'
+import { getServerSession } from '@/app/(utils)/auth'
 
 export async function generateMetadata(): Promise<Metadata> {
   const title = `Build Creation Tool - Remnant 2 Toolkit`

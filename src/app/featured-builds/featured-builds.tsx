@@ -6,16 +6,16 @@ import { useEffect, useState } from 'react'
 
 import { getFeaturedBuilds } from '@/app/(actions)/builds/get-featured-builds'
 import { Link } from '@/app/(components)/_base/link'
+import { BuildList } from '@/app/(components)/build-list'
+import { BuildCard } from '@/app/(components)/cards/build-card'
 import { BuildSecondaryFilters } from '@/app/(components)/filters/builds/secondary-filters'
 import { useOrderByFilter } from '@/app/(components)/filters/builds/secondary-filters/order-by-filter/use-order-by-filter'
 import { useTimeRangeFilter } from '@/app/(components)/filters/builds/secondary-filters/time-range-filter/use-time-range-filter'
 import { parseUrlFilters } from '@/app/(components)/filters/builds/utils'
-import { BuildCard } from '@/features/build/components/build-card/BuildCard'
-import { BuildList } from '@/features/build/components/BuildList'
-import { useBuildListState } from '@/features/build/hooks/useBuildListState'
-import { usePagination } from '@/features/pagination/usePagination'
-import { Skeleton } from '@/features/ui/Skeleton'
-import { Tooltip } from '@/features/ui/Tooltip'
+import { Skeleton } from '@/app/(components)/skeleton'
+import { Tooltip } from '@/app/(components)/tooltip'
+import { useBuildListState } from '@/app/(utils)/builds/hooks/use-build-list-state'
+import { usePagination } from '@/app/(utils)/pagination/use-pagination'
 
 interface Props {
   itemsPerPage?: number

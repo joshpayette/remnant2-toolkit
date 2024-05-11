@@ -38,9 +38,9 @@ import {
   weaponFiltersToIds,
 } from '@/app/(queries)/build-filters/segments/limit-by-weapons'
 import { DBBuild } from '@/app/(types)/builds'
-import { prisma } from '@/features/db'
-import { PaginationResponse } from '@/features/pagination/usePagination'
-import { bigIntFix } from '@/lib/bigIntFix'
+import { bigIntFix } from '@/app/(utils)/big-int-fix'
+import { prisma } from '@/app/(utils)/db'
+import { PaginationResponse } from '@/app/(utils)/pagination/use-pagination'
 
 export type CreatedBuildsFilter = 'date created' | 'upvotes'
 

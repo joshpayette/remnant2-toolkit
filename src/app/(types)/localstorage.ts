@@ -1,6 +1,6 @@
 import { BossCategory } from '@/app/(data)/enemies/types'
+import { getArrayOfLength } from '@/app/(utils)/get-array-of-length'
 import { ItemTrackerCategory } from '@/app/tracker/types'
-import { getArrayOfLength } from '@/features/build/lib/getArrayOfLength'
 
 export const LOCALSTORAGE_KEY = {
   BOSS_TRACKER: 'boss-tracker',

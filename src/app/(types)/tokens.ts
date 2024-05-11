@@ -1,4 +1,4 @@
-import { ARCHTYPE_COLORS } from '@/app/(data)/items/constants'
+import { ARCHETYPE_COLORS } from '@/app/(data)/items/constants'
 
 export const INLINE_TOKENS = [
   {
@@ -10,14 +10,14 @@ export const INLINE_TOKENS = [
   {
     type: 'Alchemist',
     token: 'ALCHEMIST',
-    color: ARCHTYPE_COLORS.ALCHEMIST.text,
+    color: ARCHETYPE_COLORS.ALCHEMIST.text,
     description: undefined,
   },
 
   {
     type: 'Archon',
     token: 'ARCHON',
-    color: ARCHTYPE_COLORS.ARCHON.text,
+    color: ARCHETYPE_COLORS.ARCHON.text,
     description: undefined,
   },
   {
@@ -55,14 +55,14 @@ export const INLINE_TOKENS = [
   {
     type: 'Bulwark',
     token: 'BULWARK',
-    color: ARCHTYPE_COLORS.CHALLENGER.text,
+    color: ARCHETYPE_COLORS.CHALLENGER.text,
     description:
       'Increases flat Damage Reduction per stack up to maximum of 25% at 5 stacks.',
   },
   {
     type: 'Challenger',
     token: 'CHALLENGER',
-    color: ARCHTYPE_COLORS.CHALLENGER.text,
+    color: ARCHETYPE_COLORS.CHALLENGER.text,
     description: undefined,
   },
   {
@@ -138,13 +138,13 @@ export const INLINE_TOKENS = [
   {
     type: 'Engineer',
     token: 'ENGINEER',
-    color: ARCHTYPE_COLORS.ENGINEER.text,
+    color: ARCHETYPE_COLORS.ENGINEER.text,
     description: undefined,
   },
   {
     type: 'Explorer',
     token: 'EXPLORER',
-    color: ARCHTYPE_COLORS.EXPLORER.text,
+    color: ARCHETYPE_COLORS.EXPLORER.text,
     description: undefined,
   },
   {
@@ -163,25 +163,25 @@ export const INLINE_TOKENS = [
     type: 'Frenzied',
     token: 'FRENZIED',
     color: 'text-yellow-100',
-    description:'undefined',
+    description: 'undefined',
   },
   {
     type: 'Living Will',
     token: 'LIVING WILL',
     color: 'text-yellow-100',
-    description:'undefined',
+    description: 'undefined',
   },
   {
     type: 'Stoneskin',
     token: 'STONESKIN',
     color: 'text-yellow-100',
-    description:'undefined',
+    description: 'undefined',
   },
   {
     type: 'Unbridled Chaos',
     token: 'UNBRIDLED CHAOS',
     color: 'text-yellow-100',
-    description:'undefined',
+    description: 'undefined',
   },
   {
     type: 'Gloom',
@@ -192,13 +192,13 @@ export const INLINE_TOKENS = [
   {
     type: 'Gunslinger',
     token: 'GUNSLINGER',
-    color: ARCHTYPE_COLORS.GUNSLINGER.text,
+    color: ARCHETYPE_COLORS.GUNSLINGER.text,
     description: undefined,
   },
   {
     type: 'Handler',
     token: 'HANDLER',
-    color: ARCHTYPE_COLORS.HANDLER.text,
+    color: ARCHETYPE_COLORS.HANDLER.text,
     description: undefined,
   },
   {
@@ -210,19 +210,19 @@ export const INLINE_TOKENS = [
   {
     type: 'Hunter',
     token: 'HUNTER',
-    color: ARCHTYPE_COLORS.HUNTER.text,
+    color: ARCHETYPE_COLORS.HUNTER.text,
     description: undefined,
   },
   {
     type: 'Invader',
     token: 'INVADER',
-    color: ARCHTYPE_COLORS.INVADER.text,
+    color: ARCHETYPE_COLORS.INVADER.text,
     description: undefined,
   },
   {
     type: 'Invoker',
     token: 'INVOKER',
-    color: ARCHTYPE_COLORS.INVOKER.text,
+    color: ARCHETYPE_COLORS.INVOKER.text,
     description: undefined,
   },
   {
@@ -241,14 +241,14 @@ export const INLINE_TOKENS = [
   {
     type: 'Marked',
     token: 'MARKED',
-    color: ARCHTYPE_COLORS.GUNSLINGER.text,
+    color: ARCHETYPE_COLORS.GUNSLINGER.text,
     description:
       'Critical Chance against MARKED enemies is increased by 15% for all allies.',
   },
   {
     type: 'Medic',
     token: 'MEDIC',
-    color: ARCHTYPE_COLORS.MEDIC.text,
+    color: ARCHETYPE_COLORS.MEDIC.text,
     description: undefined,
   },
   {
@@ -273,7 +273,7 @@ export const INLINE_TOKENS = [
   {
     type: 'Ritualist',
     token: 'RITUALIST',
-    color: ARCHTYPE_COLORS.RITUALIST.text,
+    color: ARCHETYPE_COLORS.RITUALIST.text,
     description: undefined,
   },
   {
@@ -305,7 +305,7 @@ export const INLINE_TOKENS = [
   {
     type: 'Summoner',
     token: 'SUMMONER',
-    color: ARCHTYPE_COLORS.SUMMONER.text,
+    color: ARCHETYPE_COLORS.SUMMONER.text,
     description: undefined,
   },
   {
@@ -425,8 +425,7 @@ export const EXTERNAL_TOKENS = [
   {
     token: 'Dog',
     color: 'text-[#f2350f]',
-    description:
-      'Dog applies BLEEDING to enemies.',
+    description: 'Dog applies BLEEDING to enemies.',
   },
   {
     token: 'Explosive Damage',

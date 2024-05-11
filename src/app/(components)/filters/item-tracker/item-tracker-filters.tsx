@@ -28,7 +28,7 @@ import {
 } from '@/app/(components)/filters/releases-filter'
 import { DEFAULT_FILTER } from '@/app/(components)/filters/types'
 import { Input } from '@/app/(components)/form-fields/input'
-import { cn } from '@/lib/classnames'
+import { cn } from '@/app/(utils)/classnames'
 
 export const DEFAULT_ITEM_TRACKER_FILTERS = {
   categories: [DEFAULT_FILTER],

@@ -1,6 +1,10 @@
 import { Metadata, ResolvingMetadata } from 'next'
 import { revalidatePath } from 'next/cache'
 
+import { getIsLoadoutPublic } from '@/app/(actions)/loadouts/get-is-loadout-public'
+import { PageHeader } from '@/app/(components)/page-header'
+import { getServerSession } from '@/app/(utils)/auth'
+import { prisma } from '@/app/(utils)/db'
 import { ProfileHeader } from '@/app/profile/[userId]/(components)/ProfileHeader'
 import { ProfileNavbar } from '@/app/profile/[userId]/(components)/ProfileNavbar'
 import { ProfileStats } from '@/app/profile/[userId]/(components)/ProfileStats'
@@ -9,10 +13,6 @@ import {
   DEFAULT_DISPLAY_NAME,
 } from '@/app/profile/[userId]/(lib)/constants'
 import { getAvatarById } from '@/app/profile/[userId]/(lib)/getAvatarById'
-import { getServerSession } from '@/features/auth/lib'
-import { prisma } from '@/features/db'
-import { getIsLoadoutPublic } from '@/features/loadouts/actions/getIsLoadoutPublic'
-import { PageHeader } from '@/features/ui/PageHeader'
 
 export async function generateMetadata(
   { params: { userId } }: { params: { userId: string } },

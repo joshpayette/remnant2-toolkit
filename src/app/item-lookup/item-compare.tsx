@@ -9,8 +9,8 @@ import {
   DEFAULT_ITEM_COMPARE_LIST,
   LOCALSTORAGE_KEY,
 } from '@/app/(types)/localstorage'
-import { getArrayOfLength } from '@/features/build/lib/getArrayOfLength'
-import { cn } from '@/lib/classnames'
+import { cn } from '@/app/(utils)/classnames'
+import { getArrayOfLength } from '@/app/(utils)/get-array-of-length'
 
 interface Props {}
 

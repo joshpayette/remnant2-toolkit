@@ -8,17 +8,17 @@ import {
   MAX_BUILD_DESCRIPTION_LENGTH,
 } from '@/app/(data)/builds/constants'
 import { BuildActionResponse } from '@/app/(types)/builds'
-import { getBuildDescriptionParams } from '@/app/(utils)/moderation/build-feed/getBuildDescriptionParams'
-import { getBuildNameParams } from '@/app/(utils)/moderation/build-feed/getBuildNameParams'
-import { getBuildPublicParams } from '@/app/(utils)/moderation/build-feed/getBuildPublicParams'
-import { getBuildReferenceLinkParams } from '@/app/(utils)/moderation/build-feed/getBuildReferenceLinkParams'
-import { sendBuildUpdateNotification } from '@/app/(utils)/moderation/build-feed/sendBuildUpdateNotification'
-import { isPermittedBuilder } from '@/app/(utils)/permitted-builders'
+import { getServerSession } from '@/app/(utils)/auth'
+import { checkBadWords, cleanBadWords } from '@/app/(utils)/bad-word-filter'
+import { buildStateToBuildItems } from '@/app/(utils)/builds/build-state-to-build-items'
+import { isPermittedBuilder } from '@/app/(utils)/builds/permitted-builders'
+import { prisma } from '@/app/(utils)/db'
+import { getBuildDescriptionParams } from '@/app/(utils)/moderation/build-feed/get-build-description-params'
+import { getBuildNameParams } from '@/app/(utils)/moderation/build-feed/get-build-name-params'
+import { getBuildPublicParams } from '@/app/(utils)/moderation/build-feed/get-build-public-params'
+import { getBuildReferenceLinkParams } from '@/app/(utils)/moderation/build-feed/get-build-reference-link-params'
+import { sendBuildUpdateNotification } from '@/app/(utils)/moderation/build-feed/send-build-update-notification'
 import { validateBuildState } from '@/app/(validators)/validate-build-state'
-import { getServerSession } from '@/features/auth/lib'
-import { checkBadWords, cleanBadWords } from '@/features/bad-word-filter'
-import { buildStateToBuildItems } from '@/features/build/lib/buildStateToBuildItems'
-import { prisma } from '@/features/db'
 
 export async function updateBuild(data: string): Promise<BuildActionResponse> {
   // session validation

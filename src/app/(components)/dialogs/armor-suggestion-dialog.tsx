@@ -7,18 +7,18 @@ import {
   BaseDialogDescription,
   BaseDialogTitle,
 } from '@/app/(components)/_base/dialog'
+import { ArmorSuggestionCard } from '@/app/(components)/cards/armor-suggestion-card'
 import { ItemInfoDialog } from '@/app/(components)/dialogs/item-info-dialog'
 import { WeightClassSelect } from '@/app/(components)/form-fields/selects/weight-class-select'
+import { Pagination } from '@/app/(components)/pagination'
 import { Item } from '@/app/(data)/items/types'
-import { BuildState } from '@/app/(types)/builds'
-import { ArmorSuggestionCard } from '@/features/armor-calculator/components/ArmorSuggestionCard'
-import { getArmorSuggestions } from '@/features/armor-calculator/lib/getArmorSuggestions'
 import {
   ArmorSuggestion,
   WeightClassKeysWithDefault,
-} from '@/features/armor-calculator/types'
-import { Pagination } from '@/features/pagination/Pagination'
-import { usePagination } from '@/features/pagination/usePagination'
+} from '@/app/(types)/armor-calculator'
+import { BuildState } from '@/app/(types)/builds'
+import { getArmorSuggestions } from '@/app/(utils)/armor-calculator/get-armor-suggestions'
+import { usePagination } from '@/app/(utils)/pagination/use-pagination'
 
 const ITEMS_PER_PAGE = 8
 

@@ -2,7 +2,7 @@
 
 import { toast } from 'react-toastify'
 
-import { setIsLoadoutPublic } from '@/features/loadouts/actions/setIsLoadoutPublic'
+import { setIsLoadoutPublic } from '@/app/(actions)/loadouts/set-is-loadout-public'
 import { Checkbox } from '@/features/ui/Checkbox'
 
 interface Props {
