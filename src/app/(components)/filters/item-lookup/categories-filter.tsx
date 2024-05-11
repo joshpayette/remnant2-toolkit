@@ -57,8 +57,8 @@ export function CategoriesFilter({
           Uncheck All
         </BaseButton>
       </div>
-      <BaseCheckboxGroup className="grid grid-cols-2 gap-y-4 sm:grid-cols-3 sm:gap-x-2 md:grid-cols-5 md:gap-y-0">
-        <BaseCheckboxGroup className="col-span-1 border border-gray-800 p-2">
+      <BaseCheckboxGroup className="grid grid-cols-2 gap-x-2 gap-y-4 sm:grid-cols-3 md:grid-cols-5 md:gap-y-0">
+        <BaseCheckboxGroup className="col-span-1 mt-[4px] border border-gray-800 p-2">
           <BaseCheckboxField key="helm">
             <BaseCheckbox
               name="helm"
