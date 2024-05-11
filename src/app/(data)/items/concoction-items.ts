@@ -4,7 +4,7 @@ export const concoctionItems: ConcoctionItem[] = [
   {
     category: 'concoction',
     name: 'Bark Extract',
-    imagePath: '/concoction/bark_extract.png',
+    imagePath: '/items/consumables/barkextract.png',
     id: 'hqjxyn',
     dlc: 'base',
     tags: ['Armor Increase', 'Damage Reduction', 'Consumable'],
@@ -18,7 +18,7 @@ export const concoctionItems: ConcoctionItem[] = [
   {
     category: 'concoction',
     name: 'Bottled Shaedberry',
-    imagePath: '/concoction/bottled_shaedberry.png',
+    imagePath: '/items/consumables/bottledshaedberry.png',
     id: 'qj302c',
     dlc: 'base',
     tags: ['Mod Power', 'Consumable'],
@@ -31,7 +31,7 @@ export const concoctionItems: ConcoctionItem[] = [
   {
     category: 'concoction',
     name: 'Chilled Steam',
-    imagePath: '/concoction/chilled_steam.png',
+    imagePath: '/items/consumables/chilledsteam.png',
     id: 'fhm256',
     dlc: 'base',
     tags: ['Movement Speed', 'Consumable'],
@@ -44,7 +44,7 @@ export const concoctionItems: ConcoctionItem[] = [
   {
     category: 'concoction',
     name: 'Dark Cider',
-    imagePath: '/concoction/dark_cider.png',
+    imagePath: '/items/consumables/darkcider.png',
     id: '8p2sj3',
     dlc: 'base',
     tags: ['Health', 'Stamina', 'Movement Speed', 'Consumable'],
@@ -59,7 +59,7 @@ export const concoctionItems: ConcoctionItem[] = [
   {
     category: 'concoction',
     name: 'Dark Fluid',
-    imagePath: '/concoction/dark_fluid.png',
+    imagePath: '/items/consumables/darkfluid.png',
     id: 'byi9a5',
     dlc: 'base',
     tags: [
@@ -77,7 +77,7 @@ export const concoctionItems: ConcoctionItem[] = [
   {
     category: 'concoction',
     name: 'Egg Drink',
-    imagePath: '/concoction/egg_drink.png',
+    imagePath: '/items/consumables/eggdrink.png',
     id: 'byi9d',
     dlc: 'dlc2',
     tags: ['Encumbrance'],
@@ -91,7 +91,7 @@ export const concoctionItems: ConcoctionItem[] = [
   {
     category: 'concoction',
     name: 'Meat Shake',
-    imagePath: '/concoction/meat_shake1.png',
+    imagePath: '/items/consumables/meatshake.png',
     id: '4yzeco',
     dlc: 'base',
     tags: ['Damage Reduction', 'Consumable'],
@@ -104,7 +104,7 @@ export const concoctionItems: ConcoctionItem[] = [
   {
     category: 'concoction',
     name: "Mudtooth's Elixir",
-    imagePath: '/concoction/mudtooths_elixir.png',
+    imagePath: '/items/consumables/mudtoothselixir.png',
     tags: ['Consumable'],
     id: 'yduuj3',
     dlc: 'base',
@@ -117,7 +117,7 @@ export const concoctionItems: ConcoctionItem[] = [
   {
     category: 'concoction',
     name: "Mudtooth's Stew",
-    imagePath: '/concoction/mudtooths_stew.png',
+    imagePath: '/items/consumables/mudtoothsstew.png',
     id: '5yrxf1',
     dlc: 'base',
     tags: ['Stamina', 'Consumable'],
@@ -131,7 +131,7 @@ export const concoctionItems: ConcoctionItem[] = [
   {
     category: 'concoction',
     name: "Mudtooth's Tonic",
-    imagePath: '/concoction/mudtooths_tonic.png',
+    imagePath: '/items/consumables/mudtoothstonic.png',
     id: 'p0ru94',
     dlc: 'base',
     tags: ['Health', 'Consumable'],
@@ -144,7 +144,7 @@ export const concoctionItems: ConcoctionItem[] = [
   {
     category: 'concoction',
     name: 'Root Water',
-    imagePath: '/concoction/root_water.png',
+    imagePath: '/items/consumables/rootwater.png',
     id: '56vkqr',
     dlc: 'base',
     tags: ['Heal', 'Consumable'],
@@ -157,7 +157,7 @@ export const concoctionItems: ConcoctionItem[] = [
   {
     category: 'concoction',
     name: 'Sacred Lakewater',
-    imagePath: '/concoction/sacred_lakewater.png',
+    imagePath: '/items/consumables/sacredlakewater.png',
     id: 'dk9yg4',
     dlc: 'base',
     tags: ['Grey Health', 'Heal', 'Consumable'],
@@ -170,7 +170,7 @@ export const concoctionItems: ConcoctionItem[] = [
   {
     category: 'concoction',
     name: 'Sanguine Vapor',
-    imagePath: '/concoction/sanguine_vapor.png',
+    imagePath: '/items/consumables/sanguinevapor.png',
     id: 'kyulid',
     dlc: 'base',
     tags: ['Lifesteal', 'Consumable'],
@@ -183,7 +183,7 @@ export const concoctionItems: ConcoctionItem[] = [
   {
     category: 'concoction',
     name: 'Strong Drink',
-    imagePath: '/concoction/strong_drink.png',
+    imagePath: '/items/consumables/strongdrink.png',
     id: 'to2dcw',
     dlc: 'base',
     tags: ['Encumbrance', 'Consumable'],
@@ -197,7 +197,7 @@ export const concoctionItems: ConcoctionItem[] = [
   {
     category: 'concoction',
     name: 'Tranquility Font',
-    imagePath: '/concoction/tranquility_font.png',
+    imagePath: '/items/consumables/tranquilityfont.png',
     id: 'l7r9sm',
     dlc: 'base',
     tags: ['Spread', 'Recoil', 'Consumable'],
@@ -210,7 +210,7 @@ export const concoctionItems: ConcoctionItem[] = [
   {
     category: 'concoction',
     name: 'Verdant Tea',
-    imagePath: '/concoction/verdant_tea.png',
+    imagePath: '/items/consumables/verdanttea.png',
     id: 'qgare2',
     dlc: 'base',
     tags: ['Stamina', 'Consumable'],
@@ -223,7 +223,7 @@ export const concoctionItems: ConcoctionItem[] = [
   {
     category: 'concoction',
     name: 'Xenoplasm',
-    imagePath: '/concoction/xenoplasm.png',
+    imagePath: '/items/consumables/xenoplasm.png',
     id: '2jeq07',
     dlc: 'base',
     tags: ['Reduce Skill Cooldown', 'Consumable'],

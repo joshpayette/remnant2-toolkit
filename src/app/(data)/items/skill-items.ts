@@ -4,7 +4,7 @@ export const skillItems: SkillItem[] = [
   {
     category: 'skill',
     name: 'War Stomp',
-    imagePath: '/skill/war_stomp.png',
+    imagePath: '/items/skills/challenger_warstomp.png',
     id: 'qnz5iw',
     dlc: 'base',
     description:
@@ -21,7 +21,7 @@ export const skillItems: SkillItem[] = [
   {
     category: 'skill',
     name: 'Juggernaut',
-    imagePath: '/skill/juggernaut.png',
+    imagePath: '/items/skills/challenger_juggernaut.png',
     id: 'p7x9pq',
     dlc: 'base',
     description:
@@ -37,7 +37,7 @@ export const skillItems: SkillItem[] = [
   {
     category: 'skill',
     name: 'Rampage',
-    imagePath: '/skill/rampage.png',
+    imagePath: '/items/skills/challenger_rampage.png',
     id: 'wyw9r4',
     dlc: 'base',
     description:
@@ -55,7 +55,7 @@ export const skillItems: SkillItem[] = [
   {
     category: 'skill',
     name: 'Guard Dog',
-    imagePath: '/skill/guard_dog.png',
+    imagePath: '/items/skills/handler_guard.png',
     id: 'gpr2fw',
     dlc: 'base',
     description:
@@ -78,7 +78,7 @@ export const skillItems: SkillItem[] = [
   {
     category: 'skill',
     name: 'Support Dog',
-    imagePath: '/skill/support_dog.png',
+    imagePath: '/items/skills/handler_support.png',
     id: 'jz6x2w',
     dlc: 'base',
     description:
@@ -101,7 +101,7 @@ export const skillItems: SkillItem[] = [
   {
     category: 'skill',
     name: 'Attack Dog',
-    imagePath: '/skill/attack_dog.png',
+    imagePath: '/items/skills/handler_attack.png',
     id: '8trtzh',
     dlc: 'base',
     description:
@@ -124,7 +124,7 @@ export const skillItems: SkillItem[] = [
   {
     category: 'skill',
     name: 'Wellspring',
-    imagePath: '/skill/wellspring.png',
+    imagePath: '/items/skills/medic_wellspring.png',
     id: '7vtxrx',
     dlc: 'base',
     description:
@@ -141,7 +141,7 @@ export const skillItems: SkillItem[] = [
   {
     category: 'skill',
     name: 'Healing Shield',
-    imagePath: '/skill/healing_shield.png',
+    imagePath: '/items/skills/medic_healingshield.png',
     id: '8pu6y2',
     dlc: 'base',
     description:
@@ -158,7 +158,7 @@ export const skillItems: SkillItem[] = [
   {
     category: 'skill',
     name: 'Redemption',
-    imagePath: '/skill/redemption.png',
+    imagePath: '/items/skills/medic_redemption.png',
     id: 'zs77cb',
     dlc: 'base',
     description:
@@ -177,7 +177,7 @@ export const skillItems: SkillItem[] = [
   {
     category: 'skill',
     name: `Hunter's Mark`,
-    imagePath: '/skill/hunters_mark.png',
+    imagePath: '/items/skills/hunter_huntersmark.png',
     id: 'jg82hi',
     dlc: 'base',
     tags: ['Critical Chance', 'Ranged Damage', 'Melee Damage'],
@@ -196,7 +196,7 @@ export const skillItems: SkillItem[] = [
   {
     category: 'skill',
     name: `Hunter's Focus`,
-    imagePath: '/skill/hunters_focus.png',
+    imagePath: '/items/skills/hunter_focus.png',
     id: '5jh6qr',
     dlc: 'base',
     tags: [
@@ -227,7 +227,7 @@ export const skillItems: SkillItem[] = [
   {
     category: 'skill',
     name: `Hunter's Shroud`,
-    imagePath: '/skill/hunters_shroud.png',
+    imagePath: '/items/skills/hunter_huntersshroud.png',
     id: 'ufkx9q',
     dlc: 'base',
     tags: ['Ranged Damage', 'Melee Damage', 'Critical Chance', 'Melee Hit'],
@@ -254,7 +254,7 @@ export const skillItems: SkillItem[] = [
   {
     category: 'skill',
     name: 'Vial: Stone Mist',
-    imagePath: '/skill/vial_stone_mist.png',
+    imagePath: '/items/skills/alchemist_stonemist.png',
     id: 'y7ia9t',
     dlc: 'base',
     description:
@@ -277,7 +277,7 @@ export const skillItems: SkillItem[] = [
   {
     category: 'skill',
     name: 'Vial: Frenzy Dust',
-    imagePath: '/skill/vial_frenzy_dust.png',
+    imagePath: '/items/skills/alchemist_frenzydust.png',
     id: 'xsniv3',
     dlc: 'base',
     description:
@@ -300,7 +300,7 @@ export const skillItems: SkillItem[] = [
   {
     category: 'skill',
     name: 'Vial: Elixir of Life',
-    imagePath: '/skill/vial_elixir_of_life.png',
+    imagePath: '/items/skills/alchemist_elixiroflife.png',
     id: '76554i',
     dlc: 'base',
     description:
@@ -325,7 +325,7 @@ export const skillItems: SkillItem[] = [
   {
     category: 'skill',
     name: 'Reality Rune',
-    imagePath: '/skill/reality_rune.png',
+    imagePath: '/items/skills/archon_realityrune.png',
     id: 'i3ddi7',
     dlc: 'base',
     tags: ['Status Effect', 'Damage Reduction'],
@@ -342,7 +342,7 @@ export const skillItems: SkillItem[] = [
   {
     category: 'skill',
     name: 'Chaos Gate',
-    imagePath: '/skill/chaos_gate.png',
+    imagePath: '/items/skills/archon_chaosgate.png',
     id: '9w7c5j',
     dlc: 'base',
     description:
@@ -363,7 +363,7 @@ export const skillItems: SkillItem[] = [
   {
     category: 'skill',
     name: 'Havoc Form',
-    imagePath: '/skill/havoc_form.png',
+    imagePath: '/items/skills/archon_havocform.png',
     id: 'y72au6',
     dlc: 'base',
     description:
@@ -388,7 +388,7 @@ export const skillItems: SkillItem[] = [
   {
     category: 'skill',
     name: 'Heavy Weapon: Vulcan',
-    imagePath: '/skill/heavy_weapon_vulcan.png',
+    imagePath: '/items/skills/engineer_gatling.png',
     id: 'pgmn4v',
     dlc: 'base',
     description:
@@ -409,7 +409,7 @@ export const skillItems: SkillItem[] = [
   {
     category: 'skill',
     name: 'Heavy Weapon: Flamethrower',
-    imagePath: '/skill/heavy_weapon_flamethrower.png',
+    imagePath: '/items/skills/engineer_flamethrower.png',
     id: '6fk8ea',
     dlc: 'base',
     description:
@@ -431,7 +431,7 @@ export const skillItems: SkillItem[] = [
   {
     category: 'skill',
     name: 'Heavy Weapon: Impact Cannon',
-    imagePath: '/skill/heavy_weapon_impact_cannon.png',
+    imagePath: '/items/skills/engineer_impactcannon.png',
     id: 'ki92op',
     dlc: 'base',
     description:
@@ -453,7 +453,7 @@ export const skillItems: SkillItem[] = [
   {
     category: 'skill',
     name: 'Plainswalker',
-    imagePath: '/skill/plainswalker.png',
+    imagePath: '/items/skills/explorer_plainswalker.png',
     id: 'a585sp',
     dlc: 'base',
     description:
@@ -469,7 +469,7 @@ export const skillItems: SkillItem[] = [
   {
     category: 'skill',
     name: 'Gold Digger',
-    imagePath: '/skill/gold_digger.png',
+    imagePath: '/items/skills/explorer_golddigger.png',
     id: 'a2cik2',
     dlc: 'base',
     description:
@@ -488,7 +488,7 @@ export const skillItems: SkillItem[] = [
   {
     category: 'skill',
     name: 'Fortune Hunter',
-    imagePath: '/skill/fortune_hunter.png',
+    imagePath: '/items/skills/explorer_fortunehunter.png',
     id: 'dajt58',
     dlc: 'base',
     description:
@@ -504,7 +504,7 @@ export const skillItems: SkillItem[] = [
   {
     category: 'skill',
     name: 'Quick Draw',
-    imagePath: '/skill/quick_draw.png',
+    imagePath: '/items/skills/gunslinger_quickdraw.png',
     id: 'qdxjt7',
     dlc: 'base',
     description:
@@ -524,7 +524,7 @@ export const skillItems: SkillItem[] = [
   {
     category: 'skill',
     name: 'Sidewinder',
-    imagePath: '/skill/sidewinder.png',
+    imagePath: '/items/skills/gunslinger_sidewinder.png',
     id: 'jn34u8',
     dlc: 'base',
     description:
@@ -540,7 +540,7 @@ export const skillItems: SkillItem[] = [
   {
     category: 'skill',
     name: 'Bulletstorm',
-    imagePath: '/skill/bulletstorm.png',
+    imagePath: '/items/skills/gunslinger_bulletstorm.png',
     id: 'xpqq62',
     dlc: 'base',
     tags: ['Fire Rate', 'Reload Speed', 'Critical Chance', 'Projectile Speed'],
@@ -561,7 +561,7 @@ export const skillItems: SkillItem[] = [
   {
     category: 'skill',
     name: 'Void Cloak',
-    imagePath: '/skill/void_cloak.png',
+    imagePath: '/items/skills/invader_voidcloak.png',
     id: 'hvcxo8',
     dlc: 'base',
     description: `Automatically Perfect Dodge incoming direct damage for 60s. Each auto-evade reduces timer by 33% - 100% based on damage absorbed and spawns a Decoy for 3s.`,
@@ -576,7 +576,7 @@ export const skillItems: SkillItem[] = [
   {
     category: 'skill',
     name: 'Worm Hole',
-    imagePath: '/skill/worm_hole.png',
+    imagePath: '/items/skills/invader_wormhole.png',
     id: 'y9oqq6',
     dlc: 'base',
     description:
@@ -594,7 +594,7 @@ export const skillItems: SkillItem[] = [
   {
     category: 'skill',
     name: 'Reboot',
-    imagePath: '/skill/reboot.png',
+    imagePath: '/items/skills/invader_reboot.png',
     id: 'xx6sib',
     dlc: 'base',
     tags: [
@@ -621,7 +621,7 @@ export const skillItems: SkillItem[] = [
   {
     category: 'skill',
     name: 'Minion: Hollow',
-    imagePath: '/skill/minion_hollow.png',
+    imagePath: '/items/skills/summoner_hollow.png',
     id: 'kk4yre',
     dlc: 'base',
     description:
@@ -641,7 +641,7 @@ export const skillItems: SkillItem[] = [
   {
     category: 'skill',
     name: 'Minion: Flyer',
-    imagePath: '/skill/minion_flyer.png',
+    imagePath: '/items/skills/summoner_flyer.png',
     id: 'o7pvqx',
     dlc: 'base',
     description:
@@ -662,7 +662,7 @@ export const skillItems: SkillItem[] = [
   {
     category: 'skill',
     name: 'Minion: Reaver',
-    imagePath: '/skill/minion_reaver.png',
+    imagePath: '/items/skills/summoner_reaver.png',
     id: 'gs8zdv',
     dlc: 'base',
     description:
@@ -684,7 +684,7 @@ export const skillItems: SkillItem[] = [
   {
     category: 'skill',
     name: 'Eruption',
-    imagePath: '/skill/eruption.png',
+    imagePath: '/items/skills/ritualist_eruption.png',
     id: 'amqa83',
     dlc: 'base',
     tags: ['Status Effect'],
@@ -701,7 +701,7 @@ export const skillItems: SkillItem[] = [
   {
     category: 'skill',
     name: 'Miasma',
-    imagePath: '/skill/miasma.png',
+    imagePath: '/items/skills/ritualist_miasma.png',
     id: '3er3og',
     dlc: 'base',
     tags: ['Status Effect'],
@@ -718,7 +718,7 @@ export const skillItems: SkillItem[] = [
   {
     category: 'skill',
     name: 'Deathwish',
-    imagePath: '/skill/death_wish.png',
+    imagePath: '/items/skills/ritualist_deathwish.png',
     id: 'ux5f9v',
     dlc: 'base',
     tags: ['All Damage', 'Lifesteal'],
@@ -734,7 +734,7 @@ export const skillItems: SkillItem[] = [
   {
     category: 'skill',
     name: 'Way of Kaeula',
-    imagePath: '/skill/way_of_kaeula.png',
+    imagePath: '/items/skills/invoker_wayofkaeula.png',
     id: 'h4B9dD',
     dlc: 'dlc2',
     tags: [],
@@ -753,7 +753,7 @@ export const skillItems: SkillItem[] = [
   {
     category: 'skill',
     name: 'Way of Meidra',
-    imagePath: '/skill/way_of_meidra.png',
+    imagePath: '/items/skills/invoker_wayofmeidra.png',
     id: '7DnBmE',
     dlc: 'dlc2',
     tags: ['Heal', 'Lifesteal'],
@@ -773,7 +773,7 @@ export const skillItems: SkillItem[] = [
   {
     category: 'skill',
     name: 'Way of Lydusa',
-    imagePath: '/skill/way_of_lydusa.png',
+    imagePath: '/items/skills/invoker_wayoflydusa.png',
     id: 'T2xA6c',
     dlc: 'dlc2',
     tags: ['Critical Chance', 'Critical Damage', 'Elemental Damage'],

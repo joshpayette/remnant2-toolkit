@@ -4,7 +4,7 @@ export const consumableItems: ConsumableItem[] = [
   {
     category: 'consumable',
     name: 'All-Seeing Eye',
-    imagePath: '/consumable/all_seeing_eye.png',
+    imagePath: '/items/consumables/allseeingeye.png',
     id: 'rw5Q9E',
     dlc: 'base',
     tags: [
@@ -20,7 +20,7 @@ export const consumableItems: ConsumableItem[] = [
   {
     category: 'consumable',
     name: 'Ambit Ember',
-    imagePath: '/consumable/ambit_ember.png',
+    imagePath: '/items/consumables/ambitember.png',
     saveFileSlug: 'consumable_spice',
     id: '6lnae6',
     dlc: 'base',
@@ -31,7 +31,7 @@ export const consumableItems: ConsumableItem[] = [
   {
     category: 'consumable',
     name: 'Ammo Box',
-    imagePath: '/consumable/ammo_box.png',
+    imagePath: '/items/consumables/ammocrate.png',
     id: 'v2usqs',
     dlc: 'base',
     tags: ['Ammo Reserves'],
@@ -41,7 +41,7 @@ export const consumableItems: ConsumableItem[] = [
   {
     category: 'consumable',
     name: 'Antidote',
-    imagePath: '/consumable/antidote.png',
+    imagePath: '/items/consumables/antidotesyringe.png',
     id: 'a34kjc',
     dlc: 'base',
     tags: ['Damage Reduction'],
@@ -52,7 +52,7 @@ export const consumableItems: ConsumableItem[] = [
   {
     category: 'consumable',
     name: 'Bandage',
-    imagePath: '/consumable/bandage.png',
+    imagePath: '/items/consumables/bandage.png',
     id: 'elazod',
     dlc: 'base',
     tags: ['Grey Health', 'Heal'],
@@ -62,7 +62,7 @@ export const consumableItems: ConsumableItem[] = [
   {
     category: 'consumable',
     name: 'Binding Orb',
-    imagePath: '/consumable/binding_orb.png',
+    imagePath: '/items/consumables/bindingorb.png',
     id: 'edaeta',
     dlc: 'base',
     tags: ['Grenade', 'Status Effect'],
@@ -74,7 +74,7 @@ export const consumableItems: ConsumableItem[] = [
   {
     category: 'consumable',
     name: 'Black Tar',
-    imagePath: '/consumable/black_tar.png',
+    imagePath: '/items/consumables/blacktar.png',
     tags: ['Grenade'],
     id: 'nrdcko',
     dlc: 'base',
@@ -87,7 +87,7 @@ export const consumableItems: ConsumableItem[] = [
   {
     category: 'consumable',
     name: 'Blood Root',
-    imagePath: '/consumable/blood_root.png',
+    imagePath: '/items/consumables/bloodroot.png',
     id: 'bisl2l',
     dlc: 'base',
     tags: ['Heal'],
@@ -97,7 +97,7 @@ export const consumableItems: ConsumableItem[] = [
   {
     category: 'consumable',
     name: 'Brightstone',
-    imagePath: '/consumable/brightstone.png',
+    imagePath: '/items/consumables/brightstone.png',
     id: '937h03',
     dlc: 'base',
     tags: ['Grenade'],
@@ -109,7 +109,7 @@ export const consumableItems: ConsumableItem[] = [
   {
     category: 'consumable',
     name: 'Confidence Booster',
-    imagePath: '/consumable/confidence_booster.png',
+    imagePath: '/items/consumables/confidencebooster.png',
     id: 'al8yob',
     dlc: 'base',
     tags: ['Damage Reduction', 'Stagger'],
@@ -119,7 +119,7 @@ export const consumableItems: ConsumableItem[] = [
   {
     category: 'consumable',
     name: 'Dried Fruit',
-    imagePath: '/consumable/dried_fruit.png',
+    imagePath: '/items/consumables/driedfruit.png',
     id: 'Y8ey65',
     dlc: 'base',
     tags: ['Heal'],
@@ -129,7 +129,7 @@ export const consumableItems: ConsumableItem[] = [
   {
     category: 'consumable',
     name: 'Ethereal Orb',
-    imagePath: '/consumable/ethereal_orb.png',
+    imagePath: '/items/consumables/etherealorb.png',
     id: 'ffjbc9',
     dlc: 'base',
     tags: ['Damage Reduction'],
@@ -140,7 +140,7 @@ export const consumableItems: ConsumableItem[] = [
   {
     category: 'consumable',
     name: 'Faerie Needle',
-    imagePath: '/consumable/faerie_needle.png',
+    imagePath: '/items/consumables/faerieneedle.png',
     id: 'aqphr5',
     dlc: 'base',
     tags: ['Mod Power'],
@@ -150,7 +150,7 @@ export const consumableItems: ConsumableItem[] = [
   {
     category: 'consumable',
     name: 'Gul Serum',
-    imagePath: '/consumable/gul_serum.png',
+    imagePath: '/items/consumables/gulserum.png',
     id: 'm1gznf',
     dlc: 'base',
     tags: ['Stamina'],
@@ -160,7 +160,7 @@ export const consumableItems: ConsumableItem[] = [
   {
     category: 'consumable',
     name: 'Koara Pellet',
-    imagePath: '/consumable/koara_pellet.png',
+    imagePath: '/items/consumables/koarapellet.png',
     id: '1585ah',
     dlc: 'base',
     tags: ['Heal'],
@@ -171,7 +171,7 @@ export const consumableItems: ConsumableItem[] = [
   // {
   //   category: 'consumable',
   //   name: 'Liquid Escape',
-  //   imagePath: '/consumable/liquid_escape.png',
+  //   imagePath: '/items/consumables/liquid_escape.png',
   //   id: 'xgdk68',
   //   description: `When consumed, the hero will be returned to the last activated checkpoint.`,
   //   wikiLinks: [`https://remnant.wiki/Liquid_Escape`],
@@ -179,7 +179,7 @@ export const consumableItems: ConsumableItem[] = [
   {
     category: 'consumable',
     name: 'Mud Rub',
-    imagePath: '/consumable/mud_rub.png',
+    imagePath: '/items/consumables/mudrub.png',
     id: 'dvx5ib',
     dlc: 'base',
     tags: ['Damage Reduction'],
@@ -189,7 +189,7 @@ export const consumableItems: ConsumableItem[] = [
   {
     category: 'consumable',
     name: 'Mystery Jerky',
-    imagePath: '/consumable/mystery_jerky1.png',
+    imagePath: '/items/consumables/mysteryjerkey.png',
     id: '6aasor',
     dlc: 'base',
     tags: ['Grey Health'],
@@ -200,7 +200,7 @@ export const consumableItems: ConsumableItem[] = [
   {
     category: 'consumable',
     name: 'Oilskin Balm',
-    imagePath: '/consumable/oilskin_balm.png',
+    imagePath: '/items/consumables/oilskinbalm.png',
     id: '0sec3n',
     dlc: 'base',
     tags: ['Damage Reduction'],
@@ -211,7 +211,7 @@ export const consumableItems: ConsumableItem[] = [
   {
     category: 'consumable',
     name: 'Pipe Bomb',
-    imagePath: '/consumable/pipe_bomb.png',
+    imagePath: '/items/consumables/pipebomb.png',
     id: 'kfwizc',
     dlc: 'base',
     tags: ['Grenade'],
@@ -223,7 +223,7 @@ export const consumableItems: ConsumableItem[] = [
   {
     category: 'consumable',
     name: 'Poisoned Ambit Ember Capsule',
-    imagePath: '/consumable/poisoned_ambit_ember_capsule.png',
+    imagePath: '/items/consumables/poisonedambitembercapsule.png',
     saveFileSlug: 'poisonedspice',
     id: '6awni8',
     dlc: 'base',
@@ -234,7 +234,7 @@ export const consumableItems: ConsumableItem[] = [
   {
     category: 'consumable',
     name: 'Processed Koara',
-    imagePath: '/consumable/processed_koara.png',
+    imagePath: '/items/consumables/processedkoarapellet.png',
     id: '4lvdgg',
     dlc: 'base',
     tags: ['Stamina'],
@@ -244,7 +244,7 @@ export const consumableItems: ConsumableItem[] = [
   {
     category: 'consumable',
     name: 'Purified Salve',
-    imagePath: '/consumable/purified_salve.png',
+    imagePath: '/items/consumables/purifiedsalve.png',
     id: 'wzi8il',
     dlc: 'base',
     tags: ['Damage Reduction'],
@@ -255,7 +255,7 @@ export const consumableItems: ConsumableItem[] = [
   {
     category: 'consumable',
     name: 'Rocket Fuel',
-    imagePath: '/consumable/rocket_fuel.png',
+    imagePath: '/items/consumables/rocketfuel.png',
     id: 'rlpblq',
     dlc: 'base',
     tags: ['Fire Rate', 'Melee Attack Speed'],
@@ -265,7 +265,7 @@ export const consumableItems: ConsumableItem[] = [
   {
     category: 'consumable',
     name: 'Sweet Leaf',
-    imagePath: '/consumable/sweet_leaf.png',
+    imagePath: '/items/consumables/sweetleaf.png',
     id: 'rlpblz',
     dlc: 'dlc2',
     tags: ['Damage Reduction'],
@@ -275,7 +275,7 @@ export const consumableItems: ConsumableItem[] = [
   {
     category: 'consumable',
     name: 'Timeworn Unguent',
-    imagePath: '/consumable/timeworn_unguent.png',
+    imagePath: '/items/consumables/timewornunguent.png',
     id: 'li99wc',
     dlc: 'base',
     tags: ['Damage Reduction'],

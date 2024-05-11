@@ -5,7 +5,7 @@ export const traitItems: TraitItem[] = [
   {
     category: 'trait',
     name: 'Affliction',
-    imagePath: '/trait/affliction.png',
+    imagePath: '/items/traits/affliction.png',
     id: 'dj8zx4',
     dlc: 'base',
     tags: ['Status Effect', 'Status Duration'],
@@ -24,7 +24,7 @@ export const traitItems: TraitItem[] = [
   {
     category: 'trait',
     name: 'Ammo Reserves',
-    imagePath: '/trait/ammo_reserves.png',
+    imagePath: '/items/traits/ammoreserves.png',
     id: 'wu3w8t',
     dlc: 'base',
     tags: ['Ammo Reserves'],
@@ -41,7 +41,7 @@ export const traitItems: TraitItem[] = [
   {
     category: 'trait',
     name: 'Amplitude',
-    imagePath: '/trait/amplitude.png',
+    imagePath: '/items/traits/amplitude.png',
     id: 'pb5neu',
     dlc: 'base',
     description: 'Increases AOE and AURA Size by 5 - 50%.',
@@ -51,7 +51,7 @@ export const traitItems: TraitItem[] = [
   {
     category: 'trait',
     name: 'Arcane Strike',
-    imagePath: '/trait/arcane_strike.png',
+    imagePath: '/items/traits/arcanestrike.png',
     id: '6o5ckl',
     dlc: 'base',
     tags: ['Mod Power', 'Melee Damage'],
@@ -62,7 +62,7 @@ export const traitItems: TraitItem[] = [
   {
     category: 'trait',
     name: 'Barkskin',
-    imagePath: '/trait/barkskin.png',
+    imagePath: '/items/traits/barkskin.png',
     id: '2vgobq',
     dlc: 'base',
     tags: ['Damage Reduction'],
@@ -73,7 +73,7 @@ export const traitItems: TraitItem[] = [
   {
     category: 'trait',
     name: 'Blood Bond',
-    imagePath: '/trait/blood_bond.png',
+    imagePath: '/items/traits/bloodbond.png',
     id: '1ke6u2',
     dlc: 'base',
     tags: ['Summon', 'Damage Reduction'],
@@ -85,7 +85,7 @@ export const traitItems: TraitItem[] = [
   {
     category: 'trait',
     name: 'Bloodstream',
-    imagePath: '/trait/bloodstream.png',
+    imagePath: '/items/traits/bloodstream.png',
     id: 'yvttbq',
     dlc: 'base',
     tags: ['Grey Health'],
@@ -96,7 +96,7 @@ export const traitItems: TraitItem[] = [
   {
     category: 'trait',
     name: 'Chakra',
-    imagePath: '/trait/chakra.png',
+    imagePath: '/items/traits/chakra.png',
     dlc: 'dlc2',
     id: 'k8sebP',
     tags: ['Mod Duration'],
@@ -107,7 +107,7 @@ export const traitItems: TraitItem[] = [
   {
     category: 'trait',
     name: 'Dark Pact',
-    imagePath: '/trait/dark_pact.png',
+    imagePath: '/items/traits/darkpact.png',
     id: 'mjkf4t',
     dlc: 'base',
     tags: ['Grey Health'],
@@ -118,7 +118,7 @@ export const traitItems: TraitItem[] = [
   {
     category: 'trait',
     name: 'Endurance',
-    imagePath: '/trait/endurance.png',
+    imagePath: '/items/traits/endurance.png',
     id: 'wgzz0q',
     dlc: 'base',
     tags: ['Stamina'],
@@ -130,7 +130,7 @@ export const traitItems: TraitItem[] = [
   {
     category: 'trait',
     name: 'Expertise',
-    imagePath: '/trait/expertise.png',
+    imagePath: '/items/traits/expertise.png',
     id: '6kxk5x',
     dlc: 'base',
     tags: ['Reduce Skill Cooldown'],
@@ -141,7 +141,7 @@ export const traitItems: TraitItem[] = [
   {
     category: 'trait',
     name: 'Fitness',
-    imagePath: '/trait/fitness.png',
+    imagePath: '/items/traits/fitness.png',
     id: 'qcvmt0',
     dlc: 'base',
     tags: ['Neutral Dodge', 'Perfect Dodge', 'Perfect Neutral Evade'],
@@ -152,7 +152,7 @@ export const traitItems: TraitItem[] = [
   {
     category: 'trait',
     name: 'Flash Caster',
-    imagePath: '/trait/flash_caster.png',
+    imagePath: '/items/traits/flashcaster.png',
     id: 'm6i4dl',
     dlc: 'base',
     tags: ['Mod Cast Speed', 'Skill Cast Speed'],
@@ -171,7 +171,7 @@ export const traitItems: TraitItem[] = [
   {
     category: 'trait',
     name: 'Footwork',
-    imagePath: '/trait/footwork.png',
+    imagePath: '/items/traits/footwork.png',
     id: 'ay1dkh',
     dlc: 'base',
     tags: ['Movement Speed'],
@@ -182,7 +182,7 @@ export const traitItems: TraitItem[] = [
   {
     category: 'trait',
     name: 'Fortify',
-    imagePath: '/trait/fortify.png',
+    imagePath: '/items/traits/fortify.png',
     id: 'osj7se',
     dlc: 'base',
     tags: ['Armor Increase', 'Damage Reduction'],
@@ -200,7 +200,7 @@ export const traitItems: TraitItem[] = [
   {
     category: 'trait',
     name: 'Gifted',
-    imagePath: '/trait/gifted.png',
+    imagePath: '/items/traits/gifted.png',
     id: 'c9af3B',
     dlc: 'dlc2',
     tags: ['Skill Duration'],
@@ -216,7 +216,7 @@ export const traitItems: TraitItem[] = [
   {
     category: 'trait',
     name: 'Glutton',
-    imagePath: '/trait/glutton.png',
+    imagePath: '/items/traits/glutton.png',
     id: 'cvsois',
     dlc: 'base',
     tags: ['Relic Use Speed'],
@@ -228,7 +228,7 @@ export const traitItems: TraitItem[] = [
   {
     category: 'trait',
     name: 'Handling',
-    imagePath: '/trait/handling.png',
+    imagePath: '/items/traits/handling.png',
     id: '8baa52',
     dlc: 'base',
     tags: ['Spread', 'Recoil'],
@@ -239,7 +239,7 @@ export const traitItems: TraitItem[] = [
   {
     category: 'trait',
     name: 'Kinship',
-    imagePath: '/trait/kinship.png',
+    imagePath: '/items/traits/kinship.png',
     id: 'vn3gsg',
     dlc: 'base',
     tags: ['Damage Reduction'],
@@ -258,7 +258,7 @@ export const traitItems: TraitItem[] = [
   {
     category: 'trait',
     name: 'Leech',
-    imagePath: '/trait/leech.png',
+    imagePath: '/items/traits/leech.png',
     id: 'o6mx3t',
     dlc: 'dlc2',
     tags: ['Lifesteal'],
@@ -269,7 +269,7 @@ export const traitItems: TraitItem[] = [
   {
     category: 'trait',
     name: 'Longshot',
-    imagePath: '/trait/longshot.png',
+    imagePath: '/items/traits/longshot.png',
     id: '157qcj',
     dlc: 'base',
     tags: ['Range'],
@@ -286,7 +286,7 @@ export const traitItems: TraitItem[] = [
   {
     category: 'trait',
     name: 'Potency',
-    imagePath: '/trait/potency.png',
+    imagePath: '/items/traits/potency.png',
     id: 'v1uiyd',
     dlc: 'base',
     tags: ['Concoction'],
@@ -303,7 +303,7 @@ export const traitItems: TraitItem[] = [
   {
     category: 'trait',
     name: 'Recovery',
-    imagePath: '/trait/recovery.png',
+    imagePath: '/items/traits/recovery.png',
     id: '7z3ejv',
     dlc: 'base',
     tags: ['Stamina'],
@@ -314,7 +314,7 @@ export const traitItems: TraitItem[] = [
   {
     category: 'trait',
     name: 'Regrowth',
-    imagePath: '/trait/regrowth.png',
+    imagePath: '/items/traits/regrowth.png',
     id: 'ysp1wu',
     dlc: 'base',
     tags: ['Health'],
@@ -333,7 +333,7 @@ export const traitItems: TraitItem[] = [
   {
     category: 'trait',
     name: 'Resolute',
-    imagePath: '/trait/resolute.png',
+    imagePath: '/items/traits/resolute.png',
     id: '7z3ejd',
     dlc: 'base',
     tags: ['Stagger'],
@@ -344,7 +344,7 @@ export const traitItems: TraitItem[] = [
   {
     category: 'trait',
     name: 'Revivalist',
-    imagePath: '/trait/revivalist.png',
+    imagePath: '/items/traits/revivalist.png',
     id: 'a4idgl',
     dlc: 'base',
     description:
@@ -355,7 +355,7 @@ export const traitItems: TraitItem[] = [
   {
     category: 'trait',
     name: 'Rugged',
-    imagePath: '/trait/rugged.png',
+    imagePath: '/items/traits/rugged.png',
     id: 'ykxzf1',
     dlc: 'base',
     tags: ['Summon'],
@@ -366,7 +366,7 @@ export const traitItems: TraitItem[] = [
   {
     category: 'trait',
     name: 'Scholar',
-    imagePath: '/trait/scholar.png',
+    imagePath: '/items/traits/scholar.png',
     id: '6j7cn1',
     dlc: 'base',
     description: 'Increases Experience Gain by 1 - 15%.',
@@ -376,7 +376,7 @@ export const traitItems: TraitItem[] = [
   {
     category: 'trait',
     name: 'Shadeskin',
-    imagePath: '/trait/shadeskin.png',
+    imagePath: '/items/traits/shadeskin.png',
     id: 'jk0ot9',
     dlc: 'base',
     tags: ['Damage Reduction'],
@@ -390,7 +390,7 @@ export const traitItems: TraitItem[] = [
   {
     category: 'trait',
     name: 'Siphoner',
-    imagePath: '/trait/siphoner.png',
+    imagePath: '/items/traits/siphoner.png',
     id: 'x9umnf',
     dlc: 'base',
     tags: ['Lifesteal'],
@@ -401,7 +401,7 @@ export const traitItems: TraitItem[] = [
   {
     category: 'trait',
     name: 'Spirit',
-    imagePath: '/trait/spirit.png',
+    imagePath: '/items/traits/spirit.png',
     id: 'p4b2v6',
     dlc: 'base',
     tags: ['Mod Power'],
@@ -412,7 +412,7 @@ export const traitItems: TraitItem[] = [
   {
     category: 'trait',
     name: 'Strong Back',
-    imagePath: '/trait/strong_back.png',
+    imagePath: '/items/traits/strongback.png',
     id: 'sd2hry',
     dlc: 'base',
     tags: ['Neutral Dodge', 'Perfect Dodge', 'Perfect Neutral Evade'],
@@ -432,7 +432,7 @@ export const traitItems: TraitItem[] = [
   {
     category: 'trait',
     name: 'Swiftness',
-    imagePath: '/trait/swiftness.png',
+    imagePath: '/items/traits/swiftness.png',
     id: '3ochlm',
     dlc: 'base',
     tags: ['Movement Speed'],
@@ -455,7 +455,7 @@ export const traitItems: TraitItem[] = [
   {
     category: 'trait',
     name: 'Triage',
-    imagePath: '/trait/triage.png',
+    imagePath: '/items/traits/triage.png',
     id: 'pbak5a',
     dlc: 'base',
     tags: ['Heal', 'Healing Effectiveness'],
@@ -471,7 +471,7 @@ export const traitItems: TraitItem[] = [
   {
     category: 'trait',
     name: 'Untouchable',
-    imagePath: '/trait/untouchable.png',
+    imagePath: '/items/traits/untouchable.png',
     id: 'pkmmg6',
     dlc: 'base',
     tags: ['Neutral Dodge', 'Perfect Dodge', 'Perfect Neutral Evade'],
@@ -488,7 +488,7 @@ export const traitItems: TraitItem[] = [
   {
     category: 'trait',
     name: 'Vigor',
-    imagePath: '/trait/vigor.png',
+    imagePath: '/items/traits/vigor.png',
     id: 'o6mx2t',
     dlc: 'base',
     tags: ['Health'],

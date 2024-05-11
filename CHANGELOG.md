@@ -14,6 +14,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Item Tracker data now stored in the database if the user is authenticated. This will allow for item tracking across devices for users that are signed in.
 - Updated all amulet images to more consistent higher quality images.
+- Updated all archetype images to more consistent higher quality images.
+- Updated all consumable images to more consistent higher quality images.
+- Updated all concoction images to more consistent higher quality images.
+- Updated all perk images to more consistent higher quality images.
+- Updated all skill images to more consistent higher quality images.
+- Updated all trait images to more consistent higher quality images.
 
 ### Fixed
 

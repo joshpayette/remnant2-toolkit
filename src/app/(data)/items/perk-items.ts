@@ -4,7 +4,7 @@ export const perkItems: PerkItem[] = [
   {
     category: 'perk',
     name: 'Dead to Rights',
-    imagePath: '/perk/dead_to_rights.png',
+    imagePath: '/items/perks/hunter_deadtorights.png',
     type: 'prime',
     id: 's8eytq',
     dlc: 'base',
@@ -28,7 +28,7 @@ export const perkItems: PerkItem[] = [
   {
     category: 'perk',
     name: 'Deadeye',
-    imagePath: '/perk/deadeye.png',
+    imagePath: '/items/perks/hunter_deadeye.png',
     type: 'damage',
     id: 'c4fx8u',
     dlc: 'base',
@@ -47,7 +47,7 @@ export const perkItems: PerkItem[] = [
   {
     category: 'perk',
     name: 'Return to Sender',
-    imagePath: '/perk/return_to_sender.png',
+    imagePath: '/items/perks/hunter_returntosender.png',
     type: 'team',
     id: 'oyjp3t',
     dlc: 'base',
@@ -64,7 +64,7 @@ export const perkItems: PerkItem[] = [
   {
     category: 'perk',
     name: 'Urgency',
-    imagePath: '/perk/urgency.png',
+    imagePath: '/items/perks/hunter_urgency.png',
     type: 'utility',
     id: '98yqyq',
     dlc: 'base',
@@ -80,7 +80,7 @@ export const perkItems: PerkItem[] = [
   {
     category: 'perk',
     name: 'Intuition',
-    imagePath: '/perk/intuition.png',
+    imagePath: '/items/perks/hunter_intuition.png',
     id: '8d4diq',
     dlc: 'base',
     type: 'relic',
@@ -97,7 +97,7 @@ export const perkItems: PerkItem[] = [
   {
     category: 'perk',
     name: 'Bonded',
-    imagePath: '/perk/bonded.png',
+    imagePath: '/items/perks/handler_bonded.png',
     id: 'd58t4k',
     dlc: 'base',
     type: 'prime',
@@ -126,7 +126,7 @@ export const perkItems: PerkItem[] = [
   {
     category: 'perk',
     name: 'Pack Hunter',
-    imagePath: '/perk/pack_hunter.png',
+    imagePath: '/items/perks/handler_packhunter.png',
     type: 'damage',
     id: '485uc9',
     dlc: 'base',
@@ -157,7 +157,7 @@ export const perkItems: PerkItem[] = [
   {
     category: 'perk',
     name: 'Spirit of the Wolf',
-    imagePath: '/perk/spirit_of_the_wolf.png',
+    imagePath: '/items/perks/handler_spiritofthewolf.png',
     type: 'team',
     id: 'z3sz58',
     dlc: 'base',
@@ -179,7 +179,7 @@ export const perkItems: PerkItem[] = [
   {
     category: 'perk',
     name: 'Teamwork',
-    imagePath: '/perk/teamwork.png',
+    imagePath: '/items/perks/handler_teamwork.png',
     type: 'utility',
     id: 'y36q6p',
     dlc: 'base',
@@ -200,7 +200,7 @@ export const perkItems: PerkItem[] = [
   {
     category: 'perk',
     name: 'Best Friend',
-    imagePath: '/perk/best_friend.png',
+    imagePath: '/items/perks/handler_bestfriend.png',
     type: 'relic',
     id: '8vh7yq',
     dlc: 'base',
@@ -221,7 +221,7 @@ export const perkItems: PerkItem[] = [
   {
     category: 'perk',
     name: 'Regenerator',
-    imagePath: '/perk/regenerator.png',
+    imagePath: '/items/perks/medic_regenerator.png',
     type: 'prime',
     id: 'io3m7t',
     dlc: 'base',
@@ -250,7 +250,7 @@ export const perkItems: PerkItem[] = [
   {
     category: 'perk',
     name: 'Invigorated',
-    imagePath: '/perk/invigorated.png',
+    imagePath: '/items/perks/medic_invigorated.png',
     type: 'damage',
     id: 'errks7',
     dlc: 'base',
@@ -267,7 +267,7 @@ export const perkItems: PerkItem[] = [
   {
     category: 'perk',
     name: 'Benevolence',
-    imagePath: '/perk/benevolence.png',
+    imagePath: '/items/perks/medic_benevolence.png',
     type: 'team',
     id: 't2fc7j',
     dlc: 'base',
@@ -287,7 +287,7 @@ export const perkItems: PerkItem[] = [
   {
     category: 'perk',
     name: 'Backbone',
-    imagePath: '/perk/backbone.png',
+    imagePath: '/items/perks/medic_backbone.png',
     type: 'utility',
     id: 'z2xo76',
     dlc: 'base',
@@ -304,7 +304,7 @@ export const perkItems: PerkItem[] = [
   {
     category: 'perk',
     name: 'Benefactor',
-    imagePath: '/perk/benefactor.png',
+    imagePath: '/items/perks/medic_benefactor.png',
     type: 'relic',
     id: 'bp9pr7',
     dlc: 'base',
@@ -325,7 +325,7 @@ export const perkItems: PerkItem[] = [
   {
     category: 'perk',
     name: 'Loaded',
-    imagePath: '/perk/loaded.png',
+    imagePath: '/items/perks/gunslinger_loaded.png',
     type: 'prime',
     id: 'm6pvhd',
     dlc: 'base',
@@ -349,7 +349,7 @@ export const perkItems: PerkItem[] = [
   {
     category: 'perk',
     name: 'Swift Shot',
-    imagePath: '/perk/swift_shot.png',
+    imagePath: '/items/perks/gunslinger_swiftshot.png',
     type: 'damage',
     id: '7mbvc3',
     dlc: 'base',
@@ -379,7 +379,7 @@ export const perkItems: PerkItem[] = [
   {
     category: 'perk',
     name: 'Posse Up',
-    imagePath: '/perk/posse_up.png',
+    imagePath: '/items/perks/gunslinger_posseup.png',
     type: 'team',
     id: 'ajobx6',
     dlc: 'base',
@@ -396,7 +396,7 @@ export const perkItems: PerkItem[] = [
   {
     category: 'perk',
     name: 'Quick Hands',
-    imagePath: '/perk/quick_hands.png',
+    imagePath: '/items/perks/gunslinger_quickhands.png',
     type: 'utility',
     id: '496x8y',
     dlc: 'base',
@@ -412,7 +412,7 @@ export const perkItems: PerkItem[] = [
   {
     category: 'perk',
     name: 'Sleight of Hand',
-    imagePath: '/perk/sleight_of_hand.png',
+    imagePath: '/items/perks/gunslinger_sleightofhand.png',
     type: 'relic',
     id: 'fspt8u',
     dlc: 'base',
@@ -428,7 +428,7 @@ export const perkItems: PerkItem[] = [
   {
     category: 'perk',
     name: 'Die Hard',
-    imagePath: '/perk/die_hard.png',
+    imagePath: '/items/perks/challenger_diehard.png',
     type: 'prime',
     id: 'je27uv',
     dlc: 'base',
@@ -458,7 +458,7 @@ export const perkItems: PerkItem[] = [
   {
     category: 'perk',
     name: 'Close Quarters',
-    imagePath: '/perk/close_quarters.png',
+    imagePath: '/items/perks/challenger_closequarters.png',
     type: 'damage',
     id: 'f4jx9k',
     dlc: 'base',
@@ -486,7 +486,7 @@ export const perkItems: PerkItem[] = [
   {
     category: 'perk',
     name: 'Intimidating Presence',
-    imagePath: '/perk/intimidating_presence.png',
+    imagePath: '/items/perks/challenger_intimidatingpresence.png',
     type: 'team',
     id: 'c92847',
     dlc: 'base',
@@ -504,7 +504,7 @@ export const perkItems: PerkItem[] = [
   {
     category: 'perk',
     name: 'Powerlifter',
-    imagePath: '/perk/powerlifter.png',
+    imagePath: '/items/perks/challenger_powerlifter.png',
     type: 'utility',
     id: '8p55rw',
     dlc: 'base',
@@ -521,7 +521,7 @@ export const perkItems: PerkItem[] = [
   {
     category: 'perk',
     name: 'Face of Danger',
-    imagePath: '/perk/face_of_danger.png',
+    imagePath: '/items/perks/challenger_faceofdanger.png',
     type: 'relic',
     id: '7dvm5a',
     dlc: 'base',
@@ -542,7 +542,7 @@ export const perkItems: PerkItem[] = [
   {
     category: 'perk',
     name: 'Spirited',
-    imagePath: '/perk/spirited.png',
+    imagePath: '/items/perks/alchemist_spirited.png',
     type: 'prime',
     id: 'rx6e2w',
     dlc: 'base',
@@ -566,7 +566,7 @@ export const perkItems: PerkItem[] = [
   {
     category: 'perk',
     name: 'Liquid Courage',
-    imagePath: '/perk/liquid_courage.png',
+    imagePath: '/items/perks/alchemist_liquidcourage.png',
     type: 'damage',
     id: '5exhee',
     dlc: 'base',
@@ -596,7 +596,7 @@ export const perkItems: PerkItem[] = [
   {
     category: 'perk',
     name: 'Panacea',
-    imagePath: '/perk/panacea.png',
+    imagePath: '/items/perks/alchemist_panacea.png',
     type: 'team',
     id: '49i5jm',
     dlc: 'base',
@@ -622,7 +622,7 @@ export const perkItems: PerkItem[] = [
   {
     category: 'perk',
     name: 'Gold to Lead',
-    imagePath: '/perk/gold_to_lead.png',
+    imagePath: '/items/perks/alchemist_goldtolead.png',
     type: 'utility',
     id: '3a9dd2',
     dlc: 'base',
@@ -643,7 +643,7 @@ export const perkItems: PerkItem[] = [
   {
     category: 'perk',
     name: 'Experimentalist',
-    imagePath: '/perk/experimentalist.png',
+    imagePath: '/items/perks/alchemist_experimentalist.png',
     type: 'relic',
     id: 'cxnnz9',
     dlc: 'base',
@@ -663,7 +663,7 @@ export const perkItems: PerkItem[] = [
   {
     category: 'perk',
     name: 'Tempest',
-    imagePath: '/perk/tempest.png',
+    imagePath: '/items/perks/archon_tempest.png',
     type: 'prime',
     id: 'dh2wih',
     dlc: 'base',
@@ -687,7 +687,7 @@ export const perkItems: PerkItem[] = [
   {
     category: 'perk',
     name: 'Amplify',
-    imagePath: '/perk/amplify.png',
+    imagePath: '/items/perks/archon_amplify.png',
     type: 'damage',
     id: 'yro37y',
     dlc: 'base',
@@ -717,7 +717,7 @@ export const perkItems: PerkItem[] = [
   {
     category: 'perk',
     name: 'Power Creep',
-    imagePath: '/perk/power_creep.png',
+    imagePath: '/items/perks/archon_powercreep.png',
     type: 'team',
     id: '7ay3kh',
     dlc: 'base',
@@ -734,7 +734,7 @@ export const perkItems: PerkItem[] = [
   {
     category: 'perk',
     name: 'Spirit Within',
-    imagePath: '/perk/spirit_within.png',
+    imagePath: '/items/perks/archon_spiritwithin.png',
     type: 'utility',
     id: '5fz7xr',
     dlc: 'base',
@@ -755,7 +755,7 @@ export const perkItems: PerkItem[] = [
   {
     category: 'perk',
     name: 'Power Leak',
-    imagePath: '/perk/power_leak.png',
+    imagePath: '/items/perks/archon_powerleak.png',
     type: 'relic',
     id: 'h42e2n',
     dlc: 'base',
@@ -776,7 +776,7 @@ export const perkItems: PerkItem[] = [
   {
     category: 'perk',
     name: 'High Tech',
-    imagePath: '/perk/high_tech.png',
+    imagePath: '/items/perks/engineer_hightech.png',
     type: 'prime',
     id: '98qnpc',
     dlc: 'base',
@@ -805,7 +805,7 @@ export const perkItems: PerkItem[] = [
   {
     category: 'perk',
     name: 'Metalworker',
-    imagePath: '/perk/metalworker.png',
+    imagePath: '/items/perks/engineer_metalworker.png',
     type: 'damage',
     id: '2hcif5',
     dlc: 'base',
@@ -836,7 +836,7 @@ export const perkItems: PerkItem[] = [
   {
     category: 'perk',
     name: 'Magnetic Field',
-    imagePath: '/perk/magnetic_field.png',
+    imagePath: '/items/perks/engineer_magneticfield.png',
     type: 'team',
     id: 'w6v2o6',
     dlc: 'base',
@@ -858,7 +858,7 @@ export const perkItems: PerkItem[] = [
   {
     category: 'perk',
     name: 'Heavy Mobility',
-    imagePath: '/perk/heavy_mobility.png',
+    imagePath: '/items/perks/engineer_heavymobility.png',
     type: 'utility',
     id: 'htf7h4',
     dlc: 'base',
@@ -879,7 +879,7 @@ export const perkItems: PerkItem[] = [
   {
     category: 'perk',
     name: 'Surplus',
-    imagePath: '/perk/surplus.png',
+    imagePath: '/items/perks/engineer_surplus.png',
     type: 'relic',
     id: '2k4yzk',
     dlc: 'base',
@@ -899,7 +899,7 @@ export const perkItems: PerkItem[] = [
   {
     category: 'perk',
     name: 'Lucky',
-    imagePath: '/perk/lucky.png',
+    imagePath: '/items/perks/explorer_lucky.png',
     type: 'prime',
     id: '82y94m',
     dlc: 'base',
@@ -915,7 +915,7 @@ export const perkItems: PerkItem[] = [
   {
     category: 'perk',
     name: 'Scavenger',
-    imagePath: '/perk/scavenger.png',
+    imagePath: '/items/perks/explorer_scavenger.png',
     type: 'damage',
     id: 'y6x5dr',
     dlc: 'base',
@@ -934,7 +934,7 @@ export const perkItems: PerkItem[] = [
   {
     category: 'perk',
     name: 'Metal Detector',
-    imagePath: '/perk/metal_detector.png',
+    imagePath: '/items/perks/explorer_metaldetector.png',
     type: 'team',
     id: 'w838yg',
     dlc: 'base',
@@ -950,7 +950,7 @@ export const perkItems: PerkItem[] = [
   {
     category: 'perk',
     name: 'Prospector',
-    imagePath: '/perk/prospector.png',
+    imagePath: '/items/perks/explorer_prospector.png',
     type: 'utility',
     id: 'o5q3p9',
     dlc: 'base',
@@ -966,7 +966,7 @@ export const perkItems: PerkItem[] = [
   {
     category: 'perk',
     name: 'Self Discovery',
-    imagePath: '/perk/self_discovery.png',
+    imagePath: '/items/perks/explorer_selfdiscovery.png',
     type: 'relic',
     id: 'rvb63g',
     dlc: 'base',
@@ -982,7 +982,7 @@ export const perkItems: PerkItem[] = [
   {
     category: 'perk',
     name: 'Shadow',
-    imagePath: '/perk/shadow.png',
+    imagePath: '/items/perks/invader_shadow.png',
     type: 'prime',
     id: 'yg77rq',
     dlc: 'base',
@@ -1006,7 +1006,7 @@ export const perkItems: PerkItem[] = [
   {
     category: 'perk',
     name: 'S.H.A.R.K.',
-    imagePath: '/perk/shark.png',
+    imagePath: '/items/perks/invader_shark.png',
     type: 'damage',
     id: '59swqq',
     dlc: 'base',
@@ -1041,7 +1041,7 @@ export const perkItems: PerkItem[] = [
   {
     category: 'perk',
     name: 'Loophole',
-    imagePath: '/perk/loophole.png',
+    imagePath: '/items/perks/invader_loophole.png',
     type: 'team',
     id: 'd5qedi',
     dlc: 'base',
@@ -1058,7 +1058,7 @@ export const perkItems: PerkItem[] = [
   {
     category: 'perk',
     name: 'Circumvent',
-    imagePath: '/perk/circumvent.png',
+    imagePath: '/items/perks/invader_circumvent.png',
     type: 'utility',
     id: 'i9tjgk',
     dlc: 'base',
@@ -1079,7 +1079,7 @@ export const perkItems: PerkItem[] = [
   {
     category: 'perk',
     name: 'Override',
-    imagePath: '/perk/override.png',
+    imagePath: '/items/perks/invader_override.png',
     type: 'relic',
     id: 'decoy8',
     dlc: 'base',
@@ -1095,7 +1095,7 @@ export const perkItems: PerkItem[] = [
   {
     category: 'perk',
     name: 'Ruthless',
-    imagePath: '/perk/ruthless.png',
+    imagePath: '/items/perks/summoner_ruthless.png',
     type: 'prime',
     id: 'tmc2tk',
     dlc: 'base',
@@ -1119,7 +1119,7 @@ export const perkItems: PerkItem[] = [
   {
     category: 'perk',
     name: 'Dominator',
-    imagePath: '/perk/dominator.png',
+    imagePath: '/items/perks/summoner_dominator.png',
     type: 'damage',
     id: 'tu8pcp',
     dlc: 'base',
@@ -1157,7 +1157,7 @@ export const perkItems: PerkItem[] = [
   {
     category: 'perk',
     name: 'Residue',
-    imagePath: '/perk/residue.png',
+    imagePath: '/items/perks/summoner_residue.png',
     type: 'team',
     id: 'fzywc2',
     dlc: 'base',
@@ -1178,7 +1178,7 @@ export const perkItems: PerkItem[] = [
   {
     category: 'perk',
     name: 'Outrage',
-    imagePath: '/perk/outrage.png',
+    imagePath: '/items/perks/summoner_outrage.png',
     type: 'utility',
     id: 't8bb9k',
     dlc: 'base',
@@ -1199,7 +1199,7 @@ export const perkItems: PerkItem[] = [
   {
     category: 'perk',
     name: 'Incite',
-    imagePath: '/perk/incite.png',
+    imagePath: '/items/perks/summoner_incite.png',
     type: 'relic',
     id: 'd82mwz',
     dlc: 'base',
@@ -1219,7 +1219,7 @@ export const perkItems: PerkItem[] = [
   {
     category: 'perk',
     name: 'Vile',
-    imagePath: '/perk/vile.png',
+    imagePath: '/items/perks/ritualist_vile.png',
     type: 'prime',
     id: 'qewh6t',
     dlc: 'base',
@@ -1250,7 +1250,7 @@ export const perkItems: PerkItem[] = [
   {
     category: 'perk',
     name: 'Wrath',
-    imagePath: '/perk/wrath.png',
+    imagePath: '/items/perks/ritualist_wrath.png',
     type: 'damage',
     id: '6wc56t',
     dlc: 'base',
@@ -1280,7 +1280,7 @@ export const perkItems: PerkItem[] = [
   {
     category: 'perk',
     name: 'Terrify',
-    imagePath: '/perk/terrify.png',
+    imagePath: '/items/perks/ritualist_terrify.png',
     type: 'team',
     id: 'h3ag53',
     dlc: 'base',
@@ -1305,7 +1305,7 @@ export const perkItems: PerkItem[] = [
   {
     category: 'perk',
     name: 'Dark Blood',
-    imagePath: '/perk/dark_blood.png',
+    imagePath: '/items/perks/ritualist_darkblood.png',
     type: 'utility',
     id: 'qqhkw9',
     dlc: 'base',
@@ -1327,7 +1327,7 @@ export const perkItems: PerkItem[] = [
   {
     category: 'perk',
     name: 'Purge',
-    imagePath: '/perk/purge.png',
+    imagePath: '/items/perks/ritualist_purge.png',
     type: 'relic',
     id: 'tr5r38',
     dlc: 'base',
@@ -1348,7 +1348,7 @@ export const perkItems: PerkItem[] = [
   {
     category: 'perk',
     name: 'Visionary',
-    imagePath: '/perk/visionary.png',
+    imagePath: '/items/perks/invoker_visionary.png',
     type: 'prime',
     id: 'hYsQ4M',
     dlc: 'dlc2',
@@ -1367,7 +1367,7 @@ export const perkItems: PerkItem[] = [
   {
     category: 'perk',
     name: 'Entranced',
-    imagePath: '/perk/entranced.png',
+    imagePath: '/items/perks/invoker_entranced.png',
     type: 'damage',
     id: 'Y9Tj7F',
     dlc: 'dlc2',
@@ -1386,7 +1386,7 @@ export const perkItems: PerkItem[] = [
   {
     category: 'perk',
     name: 'Communion',
-    imagePath: '/perk/communion.png',
+    imagePath: '/items/perks/invoker_communion.png',
     type: 'team',
     id: 'GV9bDr',
     dlc: 'dlc2',
@@ -1403,7 +1403,7 @@ export const perkItems: PerkItem[] = [
   {
     category: 'perk',
     name: 'Mind and Body',
-    imagePath: '/perk/mind_and_body.png',
+    imagePath: '/items/perks/invoker_mindandbody.png',
     type: 'utility',
     id: 'T2U4dZ',
     dlc: 'dlc2',
@@ -1419,7 +1419,7 @@ export const perkItems: PerkItem[] = [
   {
     category: 'perk',
     name: 'Soothsayer',
-    imagePath: '/perk/soothsayer.png',
+    imagePath: '/items/perks/invoker_soothsayer.png',
     type: 'relic',
     id: 'j7e5Bb',
     dlc: 'dlc2',
