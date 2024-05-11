@@ -191,15 +191,6 @@ export function CategoriesFilter({
             />
             <BaseLabel>Hand Gun</BaseLabel>
           </BaseCheckboxField>
-          <BaseCheckboxField key="Mod">
-            <BaseCheckbox
-              name="mod"
-              value="Mod"
-              checked={values.includes('Mod')}
-              onChange={(checked) => onChange('Mod', checked)}
-            />
-            <BaseLabel>Mod</BaseLabel>
-          </BaseCheckboxField>
           <BaseCheckboxField key="Melee">
             <BaseCheckbox
               name="melee"
@@ -208,6 +199,15 @@ export function CategoriesFilter({
               onChange={(checked) => onChange('Melee', checked)}
             />
             <BaseLabel>Melee</BaseLabel>
+          </BaseCheckboxField>
+          <BaseCheckboxField key="Mod">
+            <BaseCheckbox
+              name="mod"
+              value="Mod"
+              checked={values.includes('Mod')}
+              onChange={(checked) => onChange('Mod', checked)}
+            />
+            <BaseLabel>Mod</BaseLabel>
           </BaseCheckboxField>
         </BaseCheckboxGroup>
         <BaseCheckboxGroup className="col-span-1 border border-gray-800 p-2">
