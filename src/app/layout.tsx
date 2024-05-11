@@ -9,6 +9,7 @@ import { Analytics } from '@vercel/analytics/react'
 import { Viewport } from 'next'
 import { ToastContainer } from 'react-toastify'
 
+import { BaseText } from '@/app/(components)/_base/text'
 import { GlobalActionButtons } from '@/app/(components)/buttons/global-action-buttons/global-action-buttons'
 import { Footer } from '@/app/(components)/footer'
 import { NavBar } from '@/app/(components)/nav-bar'
@@ -38,13 +39,19 @@ export default async function RootLayout({
         <PreloadResources />
         <SessionProvider>
           <GlobalActionButtons />
-          {/* <div className="w-full bg-blue-950 p-1 text-center text-sm">
+          <div className="w-full bg-red-950 p-1 text-center text-sm">
             <BaseText>
-              Use the <BaseCode>Include Patch Affected Builds</BaseCode> filter
-              to see all patch affected builds! Update your pre-patch builds
-              now!
+              Item Tracker data now saves to the database if you are logged in.
+              Visit the Item Tracker page to trigger the migration of data to
+              the database.
+              <br />
+              <strong>IMPORTANT!</strong> If you have been tracking items across
+              multiple devices, the <strong>FIRST</strong> device you visit the
+              Item Tracker page on is the data that will be written to the
+              database. Be sure to visit the Item Tracker page the first time on
+              the device with the most up-to-date data.
             </BaseText>
-          </div> */}
+          </div>
           <div className="flex h-full w-full max-w-7xl grow flex-col items-start justify-start">
             <header className="w-full">
               <NavBar />
