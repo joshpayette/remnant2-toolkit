@@ -1,8 +1,8 @@
 'use server'
 
 import { prisma } from '@/app/(utils)/db'
-import { DiscoveredItemsStatBox } from '@/app/profile/[userId]/(components)/DiscoveredItemsStatBox'
-import { StatBox } from '@/app/profile/[userId]/(components)/StatBox'
+import { DiscoveredItemsStatBox } from '@/app/profile/[userId]/(components)/discovered-items-stat-box'
+import { StatBox } from '@/app/profile/[userId]/(components)/stat-box'
 import { TOTAL_TRACKABLE_ITEM_COUNT } from '@/app/tracker/constants'
 
 interface Props {
@@ -18,6 +18,7 @@ export async function ProfileStats({ isEditable, userId }: Props) {
     loadoutCounts,
     featuredBuilds,
     userProfile,
+    discoveredItemIdCount,
   ] = await Promise.all([
     await prisma.build.count({
       where: { createdById: userId, isPublic: true },
@@ -49,6 +50,9 @@ export async function ProfileStats({ isEditable, userId }: Props) {
       where: { userId },
       select: { totalDiscoveredItems: true, topItemQuizScore: true },
     }),
+    await prisma.userItems.count({
+      where: { userId },
+    }),
   ])
 
   return (
@@ -72,12 +76,11 @@ export async function ProfileStats({ isEditable, userId }: Props) {
       <DiscoveredItemsStatBox
         stat={{
           name: 'Items Discovered',
-          value: userProfile?.totalDiscoveredItems ?? 0,
+          value: discoveredItemIdCount ?? 0,
           unit: `/ ${TOTAL_TRACKABLE_ITEM_COUNT}`,
         }}
         index={4}
         isEditable={isEditable}
-        userId={userId}
       />
       <StatBox
         stat={{

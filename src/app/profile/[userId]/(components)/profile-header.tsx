@@ -7,9 +7,9 @@ import { toast } from 'react-toastify'
 import { BaseButton } from '@/app/(components)/_base/button'
 import { BaseInput } from '@/app/(components)/_base/input'
 import { SelectAvatarDialog } from '@/app/(components)/dialogs/select-avatar-dialog'
-import { AvatarBox } from '@/app/profile/[userId]/(components)/AvatarBox'
+import { saveProfile } from '@/app/profile/[userId]/(actions)/save-profile'
+import { AvatarBox } from '@/app/profile/[userId]/(components)/avatar-box'
 import { getAvatarById } from '@/app/profile/[userId]/(lib)/getAvatarById'
-import { saveProfile } from '@/app/profile/[userId]/saveProfile'
 import { Textarea } from '@/features/ui/Textarea'
 
 interface Props {

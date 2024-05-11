@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2024-05-11
 
+### Changed
+
+- Item Tracker data now stored in the database if the user is authenticated. This will allow for item tracking across devices for users that are signed in.
+
 ### Fixed
 
 - Fixed Band of Fanatic description to match the wiki.

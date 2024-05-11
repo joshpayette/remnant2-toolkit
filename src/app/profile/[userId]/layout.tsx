@@ -5,9 +5,9 @@ import { getIsLoadoutPublic } from '@/app/(actions)/loadouts/get-is-loadout-publ
 import { PageHeader } from '@/app/(components)/page-header'
 import { getServerSession } from '@/app/(utils)/auth'
 import { prisma } from '@/app/(utils)/db'
-import { ProfileHeader } from '@/app/profile/[userId]/(components)/ProfileHeader'
-import { ProfileNavbar } from '@/app/profile/[userId]/(components)/ProfileNavbar'
-import { ProfileStats } from '@/app/profile/[userId]/(components)/ProfileStats'
+import { ProfileHeader } from '@/app/profile/[userId]/(components)/profile-header'
+import { ProfileNavbar } from '@/app/profile/[userId]/(components)/profile-navbar'
+import { ProfileStats } from '@/app/profile/[userId]/(components)/profile-stats'
 import {
   DEFAULT_BIO,
   DEFAULT_DISPLAY_NAME,

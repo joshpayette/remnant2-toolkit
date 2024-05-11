@@ -1,5 +1,7 @@
 'use server'
 
+import { revalidatePath } from 'next/cache'
+
 import { getServerSession } from '@/app/(utils)/auth'
 import { prisma } from '@/app/(utils)/db'
 
@@ -30,6 +32,8 @@ export async function setDiscoveredItems(
         })),
       }),
     ])
+
+    revalidatePath(`/profile/${userId}`)
 
     return {
       success: true,

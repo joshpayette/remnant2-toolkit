@@ -88,7 +88,7 @@ model UserProfile {
   user                 User     @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: NoAction)
   bio                  String   @db.Text
   avatarId             String   @default("2zr34P") // Gorge
-  totalDiscoveredItems Int      @default(0)
+  totalDiscoveredItems Int      @default(0) // TODO: Remove, deprecated
   topItemQuizScore     Int      @default(0)
   isLoadoutPublic      Boolean  @default(false)
   Build                Build[]
