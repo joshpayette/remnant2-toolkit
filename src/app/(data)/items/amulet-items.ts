@@ -4,7 +4,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Abrasive Whetstone',
-    imagePath: '/amulet/abrasive_whetstone.png',
+    imagePath: '/items/amulets/abrasivewhetstone.png',
     id: '6sqyf9',
     dlc: 'base',
     tags: ['Critical Chance'],
@@ -15,7 +15,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Ankh of Power',
-    imagePath: '/amulet/ankh_of_power.png',
+    imagePath: '/items/amulets/ankhofpower.png',
     id: 'ca8ada',
     dlc: 'base',
     tags: ['All Damage'],
@@ -25,7 +25,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Beads of the Valorous',
-    imagePath: '/amulet/beads_of_the_valorous.png',
+    imagePath: '/items/amulets/beadsofthevalorous.png',
     id: 'n8gqNY',
     dlc: 'dlc2',
     tags: ['Damage Reduction', 'Movement Speed', 'Health'],
@@ -35,7 +35,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Birthright of the Lost',
-    imagePath: '/amulet/birthright_of_the_lost.png',
+    imagePath: '/items/amulets/birthrightofthelost.png',
     id: '41ookr',
     dlc: 'base',
     tags: ['Perfect Dodge'],
@@ -48,7 +48,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: "Brewmaster's Cork",
-    imagePath: '/amulet/brewmasters_cork.png',
+    imagePath: '/items/amulets/brewmasterscork.png',
     id: '6il3tm',
     dlc: 'base',
     tags: ['Damage Reduction'],
@@ -59,7 +59,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Broken Pocket Watch',
-    imagePath: '/amulet/broken_pocket_watch.png',
+    imagePath: '/items/amulets/brokenpocketwatch.png',
     id: 'sap1xm',
     dlc: 'base',
     tags: ['Stamina'],
@@ -70,7 +70,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: "Butcher's Fetish",
-    imagePath: '/amulet/butchers_fetish.png',
+    imagePath: '/items/amulets/butchersfetish.png',
     id: '67s1pu',
     dlc: 'base',
     tags: ['Critical Chance', 'Charged Melee'],
@@ -81,7 +81,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Cervine Keepsake',
-    imagePath: '/amulet/cervine_keepsake.png',
+    imagePath: '/items/amulets/cervinekeepsake.png',
     id: '5sfzsd',
     dlc: 'dlc2',
     tags: ['Movement Speed'],
@@ -94,7 +94,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Chains of Amplification',
-    imagePath: '/amulet/chains_of_amplification.png',
+    imagePath: '/items/amulets/chainsofamplification.png',
     id: '5sfzsx',
     dlc: 'base',
     tags: ['Status Effect', 'All Damage'],
@@ -104,7 +104,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Cleansing Stone',
-    imagePath: '/amulet/cleansing_stone.png',
+    imagePath: '/items/amulets/cleansingstone.png',
     id: 'nm7b6f',
     dlc: 'base',
     tags: ['Status Effect'],
@@ -116,7 +116,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Core Booster',
-    imagePath: '/amulet/core_booster.png',
+    imagePath: '/items/amulets/corebooster.png',
     id: 'wb4ixr',
     dlc: 'base',
     tags: ['Weakspot Damage'],
@@ -127,7 +127,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Cost of Betrayal',
-    imagePath: '/amulet/cost_of_betrayal.png',
+    imagePath: '/items/amulets/costofbetrayal.png',
     dlc: 'dlc1',
     id: 'hug5mz',
     tags: ['All Damage', 'Damage Reduction'],
@@ -138,7 +138,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: "Daredevil's Charm",
-    imagePath: '/amulet/daredevils_charm.png',
+    imagePath: '/items/amulets/daredevilscharm.png',
     id: 'ik580i',
     dlc: 'base',
     tags: ['All Damage', 'Movement Speed', 'Hardcore Reward', 'Encumbrance'],
@@ -148,18 +148,8 @@ export const amuletItems: AmuletItem[] = [
   },
   {
     category: 'amulet',
-    name: 'Death-Soaked Idol',
-    imagePath: '/amulet/death_soaked_idol.png',
-    dlc: 'dlc1',
-    id: 'ui1miz',
-    tags: ['All Damage', 'Status Effect'],
-    description: `Increases All Damage by 6% for each entity within 20m suffering from a unique Negative Status Effect. Max 5 stacks.`,
-    wikiLinks: [`https://remnant.wiki/Death-Soaked_Idol`],
-  },
-  {
-    category: 'amulet',
     name: "Death's Embrace",
-    imagePath: '/amulet/deaths_embrace.png',
+    imagePath: '/items/amulets/deathembrace.png',
     id: 'i13ipm',
     dlc: 'base',
     tags: ['All Damage'],
@@ -169,8 +159,18 @@ export const amuletItems: AmuletItem[] = [
   },
   {
     category: 'amulet',
+    name: 'Death-Soaked Idol',
+    imagePath: '/items/amulets/deathsoakedidol.png',
+    dlc: 'dlc1',
+    id: 'ui1miz',
+    tags: ['All Damage', 'Status Effect'],
+    description: `Increases All Damage by 6% for each entity within 20m suffering from a unique Negative Status Effect. Max 5 stacks.`,
+    wikiLinks: [`https://remnant.wiki/Death-Soaked_Idol`],
+  },
+  {
+    category: 'amulet',
     name: 'Decayed Margin',
-    imagePath: '/amulet/decayed_margin.png',
+    imagePath: '/items/amulets/decayedmargin.png',
     id: 'dipf2o',
     dlc: 'base',
     tags: ['Lifesteal', 'Melee Damage'],
@@ -181,7 +181,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Detonation Trigger',
-    imagePath: '/amulet/detonation_trigger.png',
+    imagePath: '/items/amulets/detonationtrigger.png',
     id: '3zi80a',
     dlc: 'base',
     description:
@@ -191,7 +191,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Difference Engine',
-    imagePath: '/amulet/difference_engine.png',
+    imagePath: '/items/amulets/differenceengine.png',
     id: '2zr6vu',
     dlc: 'base',
     tags: ['All Damage', 'Lifesteal'],
@@ -202,7 +202,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Downward Spiral',
-    imagePath: '/amulet/downward_spiral.png',
+    imagePath: '/items/amulets/downwardspiral.png',
     id: '1k2x4r',
     dlc: 'base',
     tags: ['Fire Rate', 'Melee Attack Speed', 'Ranged Damage', 'Melee Damage'],
@@ -212,7 +212,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Echo of the Forest',
-    imagePath: '/amulet/echo_of_the_forest.png',
+    imagePath: '/items/amulets/echooftheforest.png',
     id: '2VokuK',
     dlc: 'dlc2',
     tags: [],
@@ -222,7 +222,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Effigy Pendant',
-    imagePath: '/amulet/effigy_pendant.png',
+    imagePath: '/items/amulets/effigypendant.png',
     id: 'vkcf4e',
     dlc: 'base',
     tags: ['Grey Health', 'All Damage', 'Damage Reduction'],
@@ -232,7 +232,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Effluvium Enhancer',
-    imagePath: '/amulet/effluvium_enhancer.png',
+    imagePath: '/items/amulets/effluviumenhancer.png',
     id: 'kah85t',
     dlc: 'base',
     description: 'Increases ACID damage by 25% and CORROSIVE damage by 50%.',
@@ -241,7 +241,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Emergency Switch',
-    imagePath: '/amulet/emergency_switch.png',
+    imagePath: '/items/amulets/emergencyswitch.png',
     id: '8dcefr',
     dlc: 'base',
     description:
@@ -251,7 +251,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Energized Neck Coil',
-    imagePath: '/amulet/energized_neck_coil.png',
+    imagePath: '/items/amulets/energizedneckcoil.png',
     id: 'c52jp0',
     dlc: 'base',
     tags: ['Status Effect'],
@@ -265,7 +265,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Energy Diverter',
-    imagePath: '/amulet/energy_diverter.png',
+    imagePath: '/items/amulets/energydiverter.png',
     id: 'evwgwk',
     dlc: 'base',
     tags: ['Critical Chance', 'All Damage'],
@@ -276,7 +276,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Escalation Protocol',
-    imagePath: '/amulet/escalation_protocol.png',
+    imagePath: '/items/amulets/escalationprotocol.png',
     id: 'vxcn9e',
     dlc: 'base',
     tags: ['All Damage'],
@@ -286,7 +286,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Fragrant Thorn',
-    imagePath: '/amulet/fragrant_thorn.png',
+    imagePath: '/items/amulets/fragrantthorn.png',
     id: 'Hx5iNF',
     dlc: 'dlc2',
     tags: ['Status Effect', 'All Damage'],
@@ -299,7 +299,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Full Moon Circlet',
-    imagePath: '/amulet/full_moon_circlet.png',
+    imagePath: '/items/amulets/fullmooncirclet.png',
     id: '8xn7hh',
     dlc: 'base',
     tags: ['Lifesteal'],
@@ -310,7 +310,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Gift of Euphoria',
-    imagePath: '/amulet/gift_of_euphoria.png',
+    imagePath: '/items/amulets/giftofeuphoria.png',
     dlc: 'dlc1',
     id: '70ryol',
     tags: ['Stamina', 'Critical Chance'],
@@ -320,7 +320,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Gift of Melancholy',
-    imagePath: '/amulet/gift_of_melancholy.png',
+    imagePath: '/items/amulets/giftofmelancholy.png',
     dlc: 'dlc1',
     id: '65851b',
     tags: ['All Damage', 'Stamina'],
@@ -330,7 +330,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Gift of the Unbound',
-    imagePath: '/amulet/gift_of_the_unbound.png',
+    imagePath: '/items/amulets/giftoftheunbound.png',
     dlc: 'dlc1',
     id: 'u7am0w',
     tags: ['Movement Speed'],
@@ -340,7 +340,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Golden Ribbon',
-    imagePath: '/amulet/golden_ribbon.png',
+    imagePath: '/items/amulets/goldribbon.png',
     id: 'm0l0u5',
     dlc: 'base',
     tags: ['Mod Damage'],
@@ -351,7 +351,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Gunfire Security Lanyard',
-    imagePath: '/amulet/gunfire_security_lanyard.png',
+    imagePath: '/items/amulets/gunfiresecuritylanyard.png',
     id: 'wbqua6',
     dlc: 'base',
     tags: ['Reload Speed'],
@@ -361,7 +361,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: "Gunslinger's Charm",
-    imagePath: '/amulet/gunslingers_charm.png',
+    imagePath: '/items/amulets/gunslingerscharm.png',
     id: 'qqg64h',
     dlc: 'base',
     tags: ['Fire Rate', 'Reload Speed'],
@@ -371,7 +371,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Hallowed Egg',
-    imagePath: '/amulet/hallowed_egg.png',
+    imagePath: '/items/amulets/hallowedegg.png',
     id: 'pfew3v',
     dlc: 'base',
     tags: ['Melee Damage'],
@@ -382,7 +382,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Hyperconductor',
-    imagePath: '/amulet/hyperconductor.png',
+    imagePath: '/items/amulets/hyperconductor.png',
     id: 'c0z3fy',
     dlc: 'base',
     tags: ['Mod Power'],
@@ -395,7 +395,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Index of the Scribe',
-    imagePath: '/amulet/index_of_the_scribe.png',
+    imagePath: '/items/amulets/indexofthescribe.png',
     dlc: 'dlc1',
     id: '3lzs0c',
     tags: ['Mod Damage', 'Weakspot Damage'],
@@ -405,7 +405,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Indignant Fetish',
-    imagePath: '/amulet/indignant_fetish.png',
+    imagePath: '/items/amulets/indignantfetish.png',
     id: 'dqhstq',
     dlc: 'base',
     tags: ['Damage Reduction', 'All Damage'],
@@ -416,7 +416,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Inert Overcharger',
-    imagePath: '/amulet/inert_overcharger.png',
+    imagePath: '/items/amulets/inertovercharger.png',
     id: 'k8d15f',
     dlc: 'base',
     tags: ['Fire Rate', 'Reload Speed', 'Recoil'],
@@ -427,7 +427,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Insulation Driver',
-    imagePath: '/amulet/insulation_driver.png',
+    imagePath: '/items/amulets/insulationdriver.png',
     id: 'k1oijc',
     dlc: 'base',
     tags: ['All Damage'],
@@ -437,7 +437,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: "Jester's Bell",
-    imagePath: '/amulet/jesters_bell.png',
+    imagePath: '/items/amulets/jestersbell.png',
     id: 'lpv0qq',
     dlc: 'base',
     tags: ['All Damage'],
@@ -448,7 +448,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Kinetic Shield Exchanger',
-    imagePath: '/amulet/kinetic_shield_exchanger.png',
+    imagePath: '/items/amulets/kineticshieldexchanger.png',
     id: 'femylz',
     dlc: 'base',
     tags: ['Mod Damage', 'Mod Power'],
@@ -459,7 +459,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Kuri Kuri Charm',
-    imagePath: '/amulet/kuri_kuri_charm.png',
+    imagePath: '/items/amulets/kurikuricharm.png',
     id: '04yl4w',
     dlc: 'base',
     tags: ['Relic Use Speed'],
@@ -469,7 +469,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Laemir Censer',
-    imagePath: '/amulet/laemir_censer.png',
+    imagePath: '/items/amulets/laemircenser.png',
     id: 'hwpkls',
     dlc: 'base',
     tags: ['Mod Cost', 'Mod Duration'],
@@ -479,7 +479,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Legacy Protocol',
-    imagePath: '/amulet/legacy_protocol1.png',
+    imagePath: '/items/amulets/legacyprotocol.png',
     id: 'a7axvo',
     dlc: 'base',
     tags: ['Reduce Skill Cooldown', 'Skill Duration'],
@@ -490,7 +490,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: "Leto's Amulet",
-    imagePath: '/amulet/letos_amulet.png',
+    imagePath: '/items/amulets/letosamulet.png',
     id: 'rpxs8n',
     dlc: 'base',
     tags: ['Encumbrance', 'Stamina'],
@@ -501,7 +501,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Magnifying Glass',
-    imagePath: '/amulet/magnifying_glass.png',
+    imagePath: '/items/amulets/magnifyingglass.png',
     id: 'zo9Dkk',
     dlc: 'dlc2',
     tags: ['Skill Duration', 'Mod Duration'],
@@ -511,7 +511,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: "Matriarch's Insignia",
-    imagePath: '/amulet/matriarchs_insignia.png',
+    imagePath: '/items/amulets/matriarchinsignia.png',
     id: 'jlch5h',
     dlc: 'base',
     tags: ['Melee Damage', 'Stamina'],
@@ -521,7 +521,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Moon Stone',
-    imagePath: '/amulet/moon_stone.png',
+    imagePath: '/items/amulets/moonstone.png',
     id: 'zo9Dkd',
     dlc: 'dlc2',
     tags: ['Reload Speed', 'Ranged Damage'],
@@ -531,7 +531,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: "Navigator's Pendant",
-    imagePath: '/amulet/navigators_pendant.png',
+    imagePath: '/items/amulets/navigatorpendant.png',
     id: 'pd4ez1',
     dlc: 'base',
     tags: ['Stamina', 'Encumbrance', 'Health'],
@@ -544,7 +544,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Neckbone Necklace',
-    imagePath: '/amulet/neckbone_necklace.png',
+    imagePath: '/items/amulets/neckbonenecklace.png',
     id: 'r11n5x',
     dlc: 'base',
     tags: ['Status Effect', 'All Damage'],
@@ -554,7 +554,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Necklace of Flowing Life',
-    imagePath: '/amulet/necklace_of_flowing_life.png',
+    imagePath: '/items/amulets/necklaceofflowinglife.png',
     id: '8q9cj1',
     dlc: 'base',
     tags: ['Grey Health', 'Mod Power'],
@@ -564,7 +564,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Necklace of Supremacy',
-    imagePath: '/amulet/necklace_of_supremacy.png',
+    imagePath: '/items/amulets/necklaceofsupremacy.png',
     id: 'dm67y5',
     dlc: 'base',
     tags: ['All Damage'],
@@ -575,7 +575,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Nightmare Spiral',
-    imagePath: '/amulet/nightmare_spiral.png',
+    imagePath: '/items/amulets/nightmarespiral.png',
     id: 'mewmtq',
     dlc: 'base',
     tags: ['Lifesteal', 'Heal', 'Healing Effectiveness'],
@@ -585,7 +585,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: "Nightweaver's Grudge",
-    imagePath: '/amulet/nightweavers_grudge.png',
+    imagePath: '/items/amulets/nightweavergrudge.png',
     id: '0aaso1',
     dlc: 'base',
     tags: ['Critical Chance', 'Status Effect'],
@@ -596,7 +596,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: "Nimue's Ribbon",
-    imagePath: '/amulet/nimues_ribbon.png',
+    imagePath: '/items/amulets/nimuesribbon.png',
     id: 'sqsdvj',
     dlc: 'base',
     tags: ['Healing Effectiveness'],
@@ -605,18 +605,8 @@ export const amuletItems: AmuletItem[] = [
   },
   {
     category: 'amulet',
-    name: 'One True King Sigil',
-    imagePath: '/amulet/one_true_king_sigil.png',
-    id: 'j5ew1m',
-    dlc: 'base',
-    tags: ['Mod Damage'],
-    description: `Increases Mod damage by 20%. Enhances the effect of Faerin's Sigil and Faelin's Sigil by 50% per Sigil equipped.`,
-    wikiLinks: [`https://remnant.wiki/One_True_King_Sigil`],
-  },
-  {
-    category: 'amulet',
     name: 'One-Eyed Joker Idol',
-    imagePath: '/amulet/one_eyed_joker_idol.png',
+    imagePath: '/items/amulets/oneeyedjokeridol.png',
     id: 'yl1ah9',
     dlc: 'base',
     tags: ['Neutral Backdash', 'Critical Chance'],
@@ -626,8 +616,18 @@ export const amuletItems: AmuletItem[] = [
   },
   {
     category: 'amulet',
+    name: 'One True King Sigil',
+    imagePath: '/items/amulets/onetruekingsigil.png',
+    id: 'j5ew1m',
+    dlc: 'base',
+    tags: ['Mod Damage'],
+    description: `Increases Mod damage by 20%. Enhances the effect of Faerin's Sigil and Faelin's Sigil by 50% per Sigil equipped.`,
+    wikiLinks: [`https://remnant.wiki/One_True_King_Sigil`],
+  },
+  {
+    category: 'amulet',
     name: 'Onyx Pendulum',
-    imagePath: '/amulet/onyx_pendulum.png',
+    imagePath: '/items/amulets/onyxpendulam.png',
     id: 'ps6umu',
     dlc: 'base',
     tags: ['Ranged Damage'],
@@ -639,7 +639,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Participation Medal',
-    imagePath: '/amulet/participation_medal1.png',
+    imagePath: '/items/amulets/participationmedal.png',
     id: '588hoi',
     dlc: 'base',
     tags: ['Health', 'Stamina', 'Movement Speed', 'Damage Reduction'],
@@ -652,7 +652,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Profane Soul Stone',
-    imagePath: '/amulet/profane_soul_stone.png',
+    imagePath: '/items/amulets/profanesoulstone.png',
     id: 'YsS9NW',
     dlc: 'dlc2',
     tags: ['Summon', 'Damage Reduction', 'Movement Speed'],
@@ -663,7 +663,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Range Finder',
-    imagePath: '/amulet/range_finder.png',
+    imagePath: '/items/amulets/rangefinder.png',
     id: 't7x0op',
     dlc: 'base',
     tags: ['Ranged Damage', 'Weakspot Damage'],
@@ -674,7 +674,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: "Ravager's Mark",
-    imagePath: '/amulet/ravagers_mark.png',
+    imagePath: '/items/amulets/ravagermark.png',
     id: 'gh0gk6',
     dlc: 'base',
     tags: ['All Damage'],
@@ -684,7 +684,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Red Doe Sigil',
-    imagePath: '/amulet/red_doe_sigil.png',
+    imagePath: '/items/amulets/reddoesigil.png',
     id: 'xxp0ri',
     dlc: 'base',
     tags: ['Healing Effectiveness'],
@@ -694,7 +694,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Reed of the Vaunnt',
-    imagePath: '/amulet/reed_of_the_vaunnt.png',
+    imagePath: '/items/amulets/reedofthevaunnt.png',
     id: 'U2Vekv',
     dlc: 'dlc2',
     tags: ['Mod Power'],
@@ -704,7 +704,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: "Rusted Navigator's Pendant",
-    imagePath: '/amulet/rusted_navigators_pendant.png',
+    imagePath: '/items/amulets/rustednavigatorpendant.png',
     id: 'iq6zyc',
     dlc: 'base',
     tags: ['Health', 'Stamina', 'Encumbrance'],
@@ -717,7 +717,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Samoflange',
-    imagePath: '/amulet/samoflange.png',
+    imagePath: '/items/amulets/samoflange.png',
     id: 'z7ivk2',
     dlc: 'base',
     tags: ['Damage Reduction'],
@@ -728,7 +728,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: "Scavenger's Bauble",
-    imagePath: '/amulet/scavengers_bauble.png',
+    imagePath: '/items/amulets/scavengerbauble.png',
     id: 'j2jso0',
     dlc: 'base',
     description:
@@ -739,7 +739,7 @@ export const amuletItems: AmuletItem[] = [
     category: 'amulet',
     name: 'Shaed Bloom Crystal',
     saveFileSlug: `shadebloomfloret`,
-    imagePath: '/amulet/shaed_bloom_crystal.png',
+    imagePath: '/items/amulets/shadebloomfloret.png',
     id: 'ib2as6',
     dlc: 'base',
     tags: ['All Damage', 'Elemental Damage'],
@@ -749,18 +749,8 @@ export const amuletItems: AmuletItem[] = [
   },
   {
     category: 'amulet',
-    name: 'Soul Stone',
-    imagePath: '/amulet/soul_stone.png',
-    id: 'z7ivk3',
-    dlc: 'dlc2',
-    tags: ['Summon', 'Movement Speed'],
-    description: `Increases Summon Damage by 30% and Summon Movement Speed by 30%.`,
-    wikiLinks: [`https://remnant.wiki/Soul_Stone`],
-  },
-  {
-    category: 'amulet',
     name: 'Shock Device',
-    imagePath: '/amulet/shock_device.png',
+    imagePath: '/items/amulets/shockdevice.png',
     id: '9z1g8f',
     dlc: 'base',
     description: 'Increases SHOCK damage by 25% and OVERLOADED damage by 50%.',
@@ -769,7 +759,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Silver Ribbon',
-    imagePath: '/amulet/silver_ribbon.png',
+    imagePath: '/items/amulets/silverribbon.png',
     id: 'k8j2r3',
     dlc: 'base',
     tags: ['Skill Damage'],
@@ -780,7 +770,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Sinister Totem',
-    imagePath: '/amulet/sinister_totem1.png',
+    imagePath: '/items/amulets/sinistertotem.png',
     id: 'qwguja',
     dlc: 'base',
     tags: ['Status Effect'],
@@ -790,7 +780,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Soul Anchor',
-    imagePath: '/amulet/soul_anchor.png',
+    imagePath: '/items/amulets/soulanchor.png',
     id: '6amich',
     dlc: 'base',
     tags: ['Summon', 'All Damage'],
@@ -800,8 +790,18 @@ export const amuletItems: AmuletItem[] = [
   },
   {
     category: 'amulet',
+    name: 'Soul Stone',
+    imagePath: '/items/amulets/soulstone.png',
+    id: 'z7ivk3',
+    dlc: 'dlc2',
+    tags: ['Summon', 'Movement Speed'],
+    description: `Increases Summon Damage by 30% and Summon Movement Speed by 30%.`,
+    wikiLinks: [`https://remnant.wiki/Soul_Stone`],
+  },
+  {
+    category: 'amulet',
     name: 'Spirit Wisp Amulet',
-    imagePath: '/amulet/spirit_wisp_amulet.png',
+    imagePath: '/items/amulets/spiritwispamulet.png',
     id: 'n1y24e',
     dlc: 'base',
     tags: ['Reduce Skill Cooldown', 'Mod Power'],
@@ -811,7 +811,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: "Stalker's Brand",
-    imagePath: '/amulet/stalkers_brand.png',
+    imagePath: '/items/amulets/stalkersbrand.png',
     id: 'rcyafk',
     dlc: 'base',
     tags: ['Ranged Damage', 'Melee Damage'],
@@ -822,7 +822,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: "Stoneshaper's Chisel",
-    imagePath: '/amulet/stoneshapers_chisel.png',
+    imagePath: '/items/amulets/stoneshaperchisel.png',
     id: '41ookg',
     dlc: 'dlc2',
     tags: ['All Damage'],
@@ -832,7 +832,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Talisman of the Sun',
-    imagePath: '/amulet/talisman_of_the_sun.png',
+    imagePath: '/items/amulets/talismanofthesun.png',
     id: '8jy9hv',
     dlc: 'base',
     description: 'Increases FIRE damage by 25% and BURNING damage by 50%.',
@@ -841,7 +841,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Toxic Release Valve',
-    imagePath: '/amulet/toxic_release_valve.png',
+    imagePath: '/items/amulets/toxicreleasevalve.png',
     id: 'nevpy5',
     dlc: 'base',
     description:
@@ -854,7 +854,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Twisted Idol',
-    imagePath: '/amulet/twisted_idol.png',
+    imagePath: '/items/amulets/twistedidol.png',
     id: '776kn2',
     dlc: 'base',
     tags: ['Encumbrance', 'Damage Reduction'],
@@ -866,7 +866,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Vengeance Idol',
-    imagePath: '/amulet/vengeance_idol.png',
+    imagePath: '/items/amulets/vengeanceidol.png',
     id: '1ucgis',
     dlc: 'base',
     tags: ['All Damage'],
@@ -876,7 +876,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Void Idol',
-    imagePath: '/amulet/void_idol.png',
+    imagePath: '/items/amulets/voididol.png',
     id: 'rctnex',
     dlc: 'base',
     tags: ['Reload Speed'],
@@ -887,7 +887,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Weightless Weight',
-    imagePath: '/amulet/weightless_weight.png',
+    imagePath: '/items/amulets/weightlessweight.png',
     id: 'b9l389',
     dlc: 'base',
     tags: ['Movement Speed', 'Stamina', 'Encumbrance'],
@@ -898,7 +898,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Whispering Marble',
-    imagePath: '/amulet/whispering_marble.png',
+    imagePath: '/items/amulets/whisperingmarble.png',
     id: '2e2hh5',
     dlc: 'base',
     tags: ['Damage Reduction', 'All Damage'],
@@ -909,7 +909,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Worn Dog Tags',
-    imagePath: '/amulet/worn_dog_tags.png',
+    imagePath: '/items/amulets/worndogtag.png',
     id: '69dogy',
     dlc: 'dlc2',
     tags: ['Fire Rate', 'Reload Speed', 'Charged Shot'],
@@ -919,7 +919,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Zero Divide',
-    imagePath: '/amulet/zero_divide.png',
+    imagePath: '/items/amulets/zerodivide.png',
     id: 'ryS67y',
     dlc: 'dlc2',
     tags: ['Ammo Reserves', 'Ranged Damage'],

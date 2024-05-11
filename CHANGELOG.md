@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Changed
 
 - Item Tracker data now stored in the database if the user is authenticated. This will allow for item tracking across devices for users that are signed in.
+- Updated all amulet images to more consistent higher quality images.
 
 ### Fixed
 
