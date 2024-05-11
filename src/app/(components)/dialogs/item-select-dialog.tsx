@@ -15,9 +15,9 @@ import { Item } from '@/app/(data)/items/types'
 import { ItemCategory } from '@/app/(types)/builds'
 import { SortingPreference } from '@/app/(types)/localstorage'
 import { ITEM_TOKENS } from '@/app/(types)/tokens'
-import { itemMatchesSearchText } from '@/features/items/lib/itemMatchesSearchText'
-import { capitalize } from '@/lib/capitalize'
-import { cn } from '@/lib/classnames'
+import { capitalize } from '@/app/(utils)/capitalize'
+import { cn } from '@/app/(utils)/classnames'
+import { itemMatchesSearchText } from '@/app/(utils)/items/item-matches-search-text'
 
 function buildSearchTextOptions(): Array<{ id: string; name: string }> {
   let items = ITEM_TOKENS.map((tag) => ({

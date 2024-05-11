@@ -1,10 +1,10 @@
 import { Prisma } from '@prisma/client'
 
+import { BuildCard } from '@/app/(components)/cards/build-card'
 import { communityBuildsQuery } from '@/app/(queries)/build-filters/community-builds'
-import { getServerSession } from '@/features/auth/lib'
-import { BuildCard } from '@/features/build/components/build-card/BuildCard'
-import { prisma } from '@/features/db'
-import { bigIntFix } from '@/lib/bigIntFix'
+import { getServerSession } from '@/app/(utils)/auth'
+import { bigIntFix } from '@/app/(utils)/big-int-fix'
+import { prisma } from '@/app/(utils)/db'
 
 async function getCreatedBuilds(userId: string) {
   const itemsToFetch = 4

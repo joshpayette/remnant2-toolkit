@@ -1,10 +1,10 @@
 'use server'
 
 import { BuildFilters } from '@/app/(components)/filters/builds/build-filters'
+import { PageHeader } from '@/app/(components)/page-header'
 import { NAV_ITEMS } from '@/app/(types)/navigation'
+import { DEFAULT_ITEMS_PER_PAGE } from '@/app/(utils)/pagination/constants'
 import { BeginnerBuilds } from '@/app/beginner-builds/beginner-builds'
-import { DEFAULT_ITEMS_PER_PAGE } from '@/features/pagination/constants'
-import { PageHeader } from '@/features/ui/PageHeader'
 
 export default async function Page() {
   return (

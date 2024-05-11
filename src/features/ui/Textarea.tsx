@@ -1,6 +1,6 @@
 import { DetailedHTMLProps, TextareaHTMLAttributes } from 'react'
 
-import { cn } from '@/lib/classnames'
+import { cn } from '@/app/(utils)/classnames'
 
 interface TextAreaProps
   extends DetailedHTMLProps<

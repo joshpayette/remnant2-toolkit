@@ -1,11 +1,11 @@
 'use server'
 
 import { DBBuild } from '@/app/(types)/builds'
+import { ErrorResponse } from '@/app/(types)/error-response'
+import { getServerSession } from '@/app/(utils)/auth'
+import { bigIntFix } from '@/app/(utils)/big-int-fix'
+import { prisma } from '@/app/(utils)/db'
 import { DEFAULT_DISPLAY_NAME } from '@/app/profile/[userId]/(lib)/constants'
-import { getServerSession } from '@/features/auth/lib'
-import { prisma } from '@/features/db'
-import { ErrorResponse } from '@/features/error-handling/types'
-import { bigIntFix } from '@/lib/bigIntFix'
 
 export async function getBuild(
   buildId: string,

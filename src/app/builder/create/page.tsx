@@ -3,6 +3,7 @@
 import { useRef, useState } from 'react'
 import { useIsClient } from 'usehooks-ts'
 
+import { BuilderContainer } from '@/app/(components)/builder/builder-container'
 import { ArmorCalculatorButton } from '@/app/(components)/buttons/builder-buttons/armor-calculator-button'
 import { DetailedViewButton } from '@/app/(components)/buttons/builder-buttons/detailed-view-button'
 import { GenerateBuildImageButton } from '@/app/(components)/buttons/builder-buttons/generate-build-image'
@@ -13,12 +14,11 @@ import { ArmorSuggestionDialog } from '@/app/(components)/dialogs/armor-suggesti
 import { DetailedBuildDialog } from '@/app/(components)/dialogs/detailed-build-dialog'
 import { ImageDownloadInfoDialog } from '@/app/(components)/dialogs/image-download-info-dialog'
 import { ItemTagSuggestionDialog } from '@/app/(components)/dialogs/item-tag-suggestion-dialog'
+import { PageHeader } from '@/app/(components)/page-header'
 import { INITIAL_BUILD_STATE } from '@/app/(data)/builds/constants'
 import { useBuildActions } from '@/app/(hooks)/use-build-actions'
 import { BuildState } from '@/app/(types)/builds'
-import { BuilderContainer } from '@/features/build/components/builder/BuilderContainer'
-import { useDBBuildState } from '@/features/build/hooks/useDBBuildState'
-import { PageHeader } from '@/features/ui/PageHeader'
+import { useDBBuildState } from '@/app/(utils)/builds/hooks/use-db-build-state'
 
 export default function Page() {
   const [detailedBuildDialogOpen, setDetailedBuildDialogOpen] = useState(false)

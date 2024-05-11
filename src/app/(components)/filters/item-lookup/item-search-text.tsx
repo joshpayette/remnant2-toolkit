@@ -6,8 +6,8 @@ import React, { useEffect, useState } from 'react'
 import { useIsClient, useMediaQuery } from 'usehooks-ts'
 
 import { BaseInput } from '@/app/(components)/_base/input'
-import { Skeleton } from '@/features/ui/Skeleton'
-import { cn } from '@/lib/classnames'
+import { Skeleton } from '@/app/(components)/skeleton'
+import { cn } from '@/app/(utils)/classnames'
 
 type Item = {
   id: string

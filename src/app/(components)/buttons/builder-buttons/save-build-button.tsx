@@ -10,7 +10,7 @@ import { updateBuild } from '@/app/(actions)/builds/update-build'
 import { BaseButton } from '@/app/(components)/_base/button'
 import { LoadingButton } from '@/app/(components)/buttons/builder-buttons/loading-button'
 import { BuildActionResponse, BuildState } from '@/app/(types)/builds'
-import { isErrorResponse } from '@/features/error-handling/isErrorResponse'
+import { isErrorResponse } from '@/app/(utils)/is-error-response'
 
 interface Props {
   buildState: BuildState

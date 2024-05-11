@@ -1,4 +1,4 @@
-import { cn } from '@/lib/classnames'
+import { cn } from '@/app/(utils)/classnames'
 
 interface Props {
   stat: { name: string; value: number; unit?: string }

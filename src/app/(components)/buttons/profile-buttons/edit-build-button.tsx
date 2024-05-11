@@ -4,7 +4,7 @@ import { PencilIcon } from '@heroicons/react/24/solid'
 import { useRouter } from 'next/navigation'
 
 import { BaseButton } from '@/app/(components)/_base/button'
-import { Tooltip } from '@/features/ui/Tooltip'
+import { Tooltip } from '@/app/(components)/tooltip'
 
 export function EditBuildButton({ buildId }: { buildId: string }) {
   const router = useRouter()

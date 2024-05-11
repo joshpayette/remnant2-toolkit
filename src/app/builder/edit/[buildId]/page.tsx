@@ -1,6 +1,6 @@
 import { getBuild } from '@/app/(actions)/builds/get-build'
+import { isErrorResponse } from '@/app/(utils)/is-error-response'
 import { BuildPage } from '@/app/builder/edit/[buildId]/BuildPage'
-import { isErrorResponse } from '@/features/error-handling/isErrorResponse'
 
 export default async function Page({
   params: { buildId },

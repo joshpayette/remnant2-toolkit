@@ -2,9 +2,9 @@ import { ArrowUpIcon } from '@heroicons/react/24/solid'
 import Image from 'next/image'
 
 import { BaseButton } from '@/app/(components)/_base/button'
+import { cn } from '@/app/(utils)/classnames'
 import { ARROW_TO_INDEX } from '@/app/item-quiz/constants'
 import { QuizItem } from '@/app/item-quiz/types'
-import { cn } from '@/lib/classnames'
 
 interface Props {
   item: QuizItem

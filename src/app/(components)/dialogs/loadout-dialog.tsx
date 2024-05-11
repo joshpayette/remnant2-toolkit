@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { toast } from 'react-toastify'
 
+import { addBuildToLoadout } from '@/app/(actions)/loadouts/add-build-to-loadout'
 import { getLoadoutList } from '@/app/(actions)/loadouts/get-loadout-list'
 import { BaseButton } from '@/app/(components)/_base/button'
 import {
@@ -9,12 +10,11 @@ import {
   BaseDialogDescription,
   BaseDialogTitle,
 } from '@/app/(components)/_base/dialog'
+import { EmptyLoadoutCard } from '@/app/(components)/cards/empty-loadout-card'
+import { LoadoutCard } from '@/app/(components)/cards/loadout-card'
+import { Skeleton } from '@/app/(components)/skeleton'
 import { DBBuild } from '@/app/(types)/builds'
-import { getArrayOfLength } from '@/features/build/lib/getArrayOfLength'
-import { addBuildToLoadout } from '@/features/loadouts/actions/addBuildToLoadout'
-import { EmptyLoadoutCard } from '@/features/loadouts/components/EmptyLoadoutCard'
-import { LoadoutCard } from '@/features/loadouts/components/LoadoutCard'
-import { Skeleton } from '@/features/ui/Skeleton'
+import { getArrayOfLength } from '@/app/(utils)/get-array-of-length'
 
 interface Props {
   open: boolean

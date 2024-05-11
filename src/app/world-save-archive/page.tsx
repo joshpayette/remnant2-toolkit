@@ -2,10 +2,10 @@ import { Suspense } from 'react'
 
 import { Link } from '@/app/(components)/_base/link'
 import { WorldSaveFilters } from '@/app/(components)/filters/world-saves/world-save-filters'
+import { PageHeader } from '@/app/(components)/page-header'
+import { Skeleton } from '@/app/(components)/skeleton'
 import { worldSaves } from '@/app/(data)/world-saves/world-saves'
 import { WorldSaves } from '@/app/world-save-archive/world-saves'
-import { PageHeader } from '@/features/ui/PageHeader'
-import { Skeleton } from '@/features/ui/Skeleton'
 
 export default function Page() {
   return (

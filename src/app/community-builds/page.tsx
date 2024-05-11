@@ -1,7 +1,7 @@
 'use server'
 
 import { BuildFilters } from '@/app/(components)/filters/builds/build-filters'
-import { DEFAULT_ITEMS_PER_PAGE } from '@/features/pagination/constants'
+import { DEFAULT_ITEMS_PER_PAGE } from '@/app/(utils)/pagination/constants'
 
 import { CommunityBuilds } from './community-builds'
 

@@ -3,7 +3,7 @@ import {
   BaseDialogBody,
   BaseDialogTitle,
 } from '@/app/(components)/_base/dialog'
-import { Skeleton } from '@/features/ui/Skeleton'
+import { Skeleton } from '@/app/(components)/skeleton'
 
 interface Props {
   imageDownloadInfo: { imageLink: string; imageName: string } | null

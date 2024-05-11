@@ -2,12 +2,12 @@ import { ReactNode } from 'react'
 import reactStringReplace from 'react-string-replace'
 import { v4 as uuidv4 } from 'uuid'
 
+import { ALL_BUILD_TAGS } from '@/app/(components)/builder/build-tags/constants'
+import { Tooltip } from '@/app/(components)/tooltip'
 import { allItems } from '@/app/(data)/items/all-items'
 import { EXTERNAL_TOKENS, INLINE_TOKENS } from '@/app/(types)/tokens'
-import { ALL_BUILD_TAGS } from '@/features/build/build-tags/constants'
-import { stripUnicode } from '@/features/build/lib/stripUnicode'
-import { Tooltip } from '@/features/ui/Tooltip'
-import { cn } from '@/lib/classnames'
+import { cn } from '@/app/(utils)/classnames'
+import { stripUnicode } from '@/app/(utils)/strip-unicode'
 
 function parseStringForToken(
   input: string,

@@ -1,6 +1,6 @@
 import { getBuild } from '@/app/(actions)/builds/get-build'
-import { isErrorResponse } from '@/features/error-handling/isErrorResponse'
-import { PageHeader } from '@/features/ui/PageHeader'
+import { PageHeader } from '@/app/(components)/page-header'
+import { isErrorResponse } from '@/app/(utils)/is-error-response'
 
 export default async function Layout({
   params: { buildId },

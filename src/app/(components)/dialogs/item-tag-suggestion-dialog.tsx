@@ -20,9 +20,9 @@ import { MutatorItem } from '@/app/(data)/items/types/MutatorItem'
 import { WeaponItem } from '@/app/(data)/items/types/WeaponItem'
 import { BuildState } from '@/app/(types)/builds'
 import { ITEM_TOKENS, ItemToken } from '@/app/(types)/tokens'
-import { cleanUpBuildState } from '@/features/build/lib/cleanUpBuildState'
-import { getConcoctionSlotCount } from '@/features/build/lib/getConcoctionSlotCount'
-import { itemMatchesSearchText } from '@/features/items/lib/itemMatchesSearchText'
+import { cleanUpBuildState } from '@/app/(utils)/builds/clean-up-build-state'
+import { getConcoctionSlotCount } from '@/app/(utils)/builds/get-concoction-slot-count'
+import { itemMatchesSearchText } from '@/app/(utils)/items/item-matches-search-text'
 
 /**
  * Combines the tags found in item.descriptions, as well as the item.tags

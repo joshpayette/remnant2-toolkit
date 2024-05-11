@@ -2,10 +2,10 @@ import { TrashIcon } from '@heroicons/react/24/solid'
 import { useState } from 'react'
 import { toast } from 'react-toastify'
 
+import { removeBuildFromLoadout } from '@/app/(actions)/loadouts/remove-build-from-loadout'
 import { BaseButton } from '@/app/(components)/_base/button'
 import { RemoveFromLoadoutAlert } from '@/app/(components)/alerts/remove-from-loadout-alert'
-import { removeBuildFromLoadout } from '@/features/loadouts/actions/removeBuildFromLoadout'
-import { Tooltip } from '@/features/ui/Tooltip'
+import { Tooltip } from '@/app/(components)/tooltip'
 
 export function RemoveFromLoadoutButton({
   buildId,

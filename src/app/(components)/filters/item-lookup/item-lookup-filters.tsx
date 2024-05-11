@@ -29,7 +29,7 @@ import {
 import { DEFAULT_FILTER } from '@/app/(components)/filters/types'
 import { allItems } from '@/app/(data)/items/all-items'
 import { ITEM_TOKENS } from '@/app/(types)/tokens'
-import { cn } from '@/lib/classnames'
+import { cn } from '@/app/(utils)/classnames'
 
 function buildItemSearchTextItems() {
   {

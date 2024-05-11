@@ -2,10 +2,10 @@
 
 import Image from 'next/image'
 
+import { Tooltip } from '@/app/(components)/tooltip'
 import { Enemy, isEnemy } from '@/app/(data)/enemies/types'
 import { Item } from '@/app/(data)/items/types'
-import { Tooltip } from '@/features/ui/Tooltip'
-import { cn } from '@/lib/classnames'
+import { cn } from '@/app/(utils)/classnames'
 
 /**
  * Some words are too long to fit in the item label on the builder

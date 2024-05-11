@@ -4,6 +4,17 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-05-10
+
+### Changed
+
+- Removed a number of patch affected Featured Builds that have not and likely will not be updated.
+- When deleting a build you are viewing, you will now be redirected to your created builds upon successful deletion.
+
+### Fixed
+
+- Featured Build totals on Item cards now exclude Beginner Builds from the total count for Featured Builds that the item is used in.
+
 ## 2024-05-09
 
 ### Changed

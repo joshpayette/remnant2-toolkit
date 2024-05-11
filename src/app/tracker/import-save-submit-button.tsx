@@ -3,7 +3,7 @@
 import { useFormStatus } from 'react-dom'
 
 import { BaseButton } from '@/app/(components)/_base/button'
-import { Skeleton } from '@/features/ui/Skeleton'
+import { Skeleton } from '@/app/(components)/skeleton'
 
 export function ImportSaveSubmitButton({
   className,

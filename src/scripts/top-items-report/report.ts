@@ -18,7 +18,7 @@ import { traitItems } from '../../app/(data)/items/trait-items'
 import { Item } from '../../app/(data)/items/types'
 import { weaponItems } from '../../app/(data)/items/weapon-items'
 import { ItemCategory } from '../../app/(types)/builds'
-import { prisma } from '../../features/db/index'
+import { prisma } from '../../app/(utils)/db/index'
 
 type Result = {
   id: string
@@ -219,7 +219,7 @@ async function runReportForCategory(category: ItemCategory | 'all') {
 async function main() {
   console.info(`Running all items reports...`)
 
-await Promise.resolve([
+  await Promise.resolve([
     runReportForCategory('all'),
     runReportForCategory('amulet'),
     runReportForCategory('archetype'),

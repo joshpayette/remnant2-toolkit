@@ -57,8 +57,8 @@ export function CategoriesFilter({
           Uncheck All
         </BaseButton>
       </div>
-      <BaseCheckboxGroup className="grid grid-cols-2 gap-y-4 sm:grid-cols-3 md:grid-cols-5 md:gap-y-0">
-        <BaseCheckboxGroup className="col-span-1">
+      <BaseCheckboxGroup className="grid grid-cols-2 gap-x-2 gap-y-4 sm:grid-cols-3 md:grid-cols-5 md:gap-y-0">
+        <BaseCheckboxGroup className="col-span-1 mt-[4px] border border-gray-800 p-2">
           <BaseCheckboxField key="helm">
             <BaseCheckbox
               name="helm"
@@ -96,7 +96,7 @@ export function CategoriesFilter({
             <BaseLabel>Gloves</BaseLabel>
           </BaseCheckboxField>
         </BaseCheckboxGroup>
-        <BaseCheckboxGroup className="col-span-1">
+        <BaseCheckboxGroup className="col-span-1 border border-gray-800 p-2">
           <BaseCheckboxField key="Amulet">
             <BaseCheckbox
               name="amulet"
@@ -134,7 +134,7 @@ export function CategoriesFilter({
             <BaseLabel>Relic Fragment</BaseLabel>
           </BaseCheckboxField>
         </BaseCheckboxGroup>
-        <BaseCheckboxGroup className="col-span-1">
+        <BaseCheckboxGroup className="col-span-1 border border-gray-800 p-2">
           <BaseCheckboxField key="Archetype">
             <BaseCheckbox
               name="archetype"
@@ -172,7 +172,7 @@ export function CategoriesFilter({
             <BaseLabel>Perk</BaseLabel>
           </BaseCheckboxField>
         </BaseCheckboxGroup>
-        <BaseCheckboxGroup className="col-span-1">
+        <BaseCheckboxGroup className="col-span-1 border border-gray-800 p-2">
           <BaseCheckboxField key="Long Gun">
             <BaseCheckbox
               name="longgun"
@@ -191,15 +191,6 @@ export function CategoriesFilter({
             />
             <BaseLabel>Hand Gun</BaseLabel>
           </BaseCheckboxField>
-          <BaseCheckboxField key="Mod">
-            <BaseCheckbox
-              name="mod"
-              value="Mod"
-              checked={values.includes('Mod')}
-              onChange={(checked) => onChange('Mod', checked)}
-            />
-            <BaseLabel>Mod</BaseLabel>
-          </BaseCheckboxField>
           <BaseCheckboxField key="Melee">
             <BaseCheckbox
               name="melee"
@@ -209,8 +200,17 @@ export function CategoriesFilter({
             />
             <BaseLabel>Melee</BaseLabel>
           </BaseCheckboxField>
+          <BaseCheckboxField key="Mod">
+            <BaseCheckbox
+              name="mod"
+              value="Mod"
+              checked={values.includes('Mod')}
+              onChange={(checked) => onChange('Mod', checked)}
+            />
+            <BaseLabel>Mod</BaseLabel>
+          </BaseCheckboxField>
         </BaseCheckboxGroup>
-        <BaseCheckboxGroup className="col-span-1">
+        <BaseCheckboxGroup className="col-span-1 border border-gray-800 p-2">
           <BaseCheckboxField key="Mutator (Gun)">
             <BaseCheckbox
               name="mutatorgun"

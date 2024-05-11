@@ -27,10 +27,10 @@ import {
   ItemTrackerLocalStorage,
   LOCALSTORAGE_KEY,
 } from '@/app/(types)/localstorage'
+import { capitalize } from '@/app/(utils)/capitalize'
+import { cn } from '@/app/(utils)/classnames'
 import { ALL_TRACKABLE_ITEMS } from '@/app/tracker/constants'
 import { ItemTrackerCategory } from '@/app/tracker/types'
-import { capitalize } from '@/lib/capitalize'
-import { cn } from '@/lib/classnames'
 
 function getCategoryProgressLabel({
   filteredItems,

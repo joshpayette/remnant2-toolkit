@@ -1,8 +1,8 @@
 'use server'
 
-import { getServerSession } from '@/features/auth/lib'
-import { cleanBadWords } from '@/features/bad-word-filter'
-import { prisma } from '@/features/db'
+import { getServerSession } from '@/app/(utils)/auth'
+import { cleanBadWords } from '@/app/(utils)/bad-word-filter'
+import { prisma } from '@/app/(utils)/db'
 
 export async function saveProfile({
   userId,

@@ -1,6 +1,6 @@
 import { permanentRedirect } from 'next/navigation'
 
-import { PageHeader } from '@/features/ui/PageHeader'
+import { PageHeader } from '@/app/(components)/page-header'
 
 export default async function Page() {
   // permanentRedirect('/community-builds')

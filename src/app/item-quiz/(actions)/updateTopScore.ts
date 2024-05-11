@@ -2,8 +2,8 @@
 
 import { revalidatePath } from 'next/cache'
 
-import { getServerSession } from '@/features/auth/lib'
-import { prisma } from '@/features/db'
+import { getServerSession } from '@/app/(utils)/auth'
+import { prisma } from '@/app/(utils)/db'
 
 export async function updateTopScore({
   userId,

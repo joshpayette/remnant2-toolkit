@@ -1,10 +1,10 @@
 'use server'
 
+import { getIsLoadoutPublic } from '@/app/(actions)/loadouts/get-is-loadout-public'
 import { DBBuild } from '@/app/(types)/builds'
+import { getServerSession } from '@/app/(utils)/auth'
+import { prisma } from '@/app/(utils)/db'
 import { DEFAULT_DISPLAY_NAME } from '@/app/profile/[userId]/(lib)/constants'
-import { getServerSession } from '@/features/auth/lib'
-import { prisma } from '@/features/db'
-import { getIsLoadoutPublic } from '@/features/loadouts/actions/getIsLoadoutPublic'
 
 export async function getLoadoutList(userId?: string) {
   const session = await getServerSession()

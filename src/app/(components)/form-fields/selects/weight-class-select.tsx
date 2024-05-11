@@ -3,7 +3,7 @@ import {
   BaseListboxLabel,
   BaseListboxOption,
 } from '@/app/(components)/_base/listbox'
-import { WeightClassKeysWithDefault } from '@/features/armor-calculator/types'
+import { WeightClassKeysWithDefault } from '@/app/(types)/armor-calculator'
 
 interface Props {
   value: WeightClassKeysWithDefault
