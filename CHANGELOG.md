@@ -19,6 +19,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Fixed Band of Fanatic description to match the wiki.
 - Fixed Wrath description to match the wiki.
 - Removed broken World Save link to Spiteful/Vicious Red Prince.
+- Removed "bloody" from bad word list.
 
 ## 2024-05-10
 
