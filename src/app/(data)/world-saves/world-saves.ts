@@ -628,11 +628,6 @@ export const worldSaves = [
     release: 'dlc1',
   },
   {
-    bossName: 'The Red Prince',
-    bossAffixes: ['Spiteful', 'Vicious'],
-    release: 'dlc1',
-  },
-  {
     bossName: 'The Stonewarden',
     bossAffixes: ['Hearty', 'Thick Skin'],
     release: 'dlc2',
