@@ -33,7 +33,6 @@ import { capitalize } from '@/app/(utils)/capitalize'
 import { cn } from '@/app/(utils)/classnames'
 import { ALL_TRACKABLE_ITEMS } from '@/app/tracker/constants'
 import { ItemTrackerCategory } from '@/app/tracker/types'
-import { useDiscoveredItems } from '@/app/tracker/use-discovered-items'
 
 function getCategoryProgressLabel({
   filteredItems,

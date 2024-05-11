@@ -1,11 +1,8 @@
 'use client'
 
 import { useSession } from 'next-auth/react'
-import Papa from 'papaparse'
-import { Suspense, useEffect, useMemo, useRef, useState } from 'react'
-import { useFormState } from 'react-dom'
-import { toast } from 'react-toastify'
-import { useIsClient, useLocalStorage } from 'usehooks-ts'
+import { Suspense } from 'react'
+import { useIsClient } from 'usehooks-ts'
 
 import { BaseButton } from '@/app/(components)/_base/button'
 import { ImportCsvDialog } from '@/app/(components)/dialogs/import-csv-dialog'
@@ -13,26 +10,14 @@ import { ImportSaveDialog } from '@/app/(components)/dialogs/import-save-dialog'
 import { ItemTrackerFilters } from '@/app/(components)/filters/item-tracker/item-tracker-filters'
 import { PageHeader } from '@/app/(components)/page-header'
 import { Skeleton } from '@/app/(components)/skeleton'
-import { allItems } from '@/app/(data)/items/all-items'
-import { MutatorItem } from '@/app/(data)/items/types/MutatorItem'
-import {
-  ItemTrackerLocalStorage,
-  LOCALSTORAGE_KEY,
-} from '@/app/(types)/localstorage'
 import { capitalize } from '@/app/(utils)/capitalize'
-import { itemToCsvItem } from '@/app/(utils)/items/item-to-csv-item'
 import { getTrackerProgressLabel } from '@/app/(utils)/tracker/get-tracker-progress-label'
-import { getDiscoveredItems } from '@/app/tracker/actions/get-discovered-items'
-import { setDiscoveredItems } from '@/app/tracker/actions/set-discovered-items'
-import {
-  ALL_TRACKABLE_ITEMS,
-  skippedItemCategories,
-} from '@/app/tracker/constants'
+import { ALL_TRACKABLE_ITEMS } from '@/app/tracker/constants'
+import { useCsvFileUpload } from '@/app/tracker/hooks/use-csv-file-upload'
+import { useDiscoveredItems } from '@/app/tracker/hooks/use-discovered-items'
+import { useSaveFileUpload } from '@/app/tracker/hooks/use-save-file-upload'
 import { ItemList } from '@/app/tracker/item-list'
 import { ItemTrackerCategory } from '@/app/tracker/types'
-import { useDiscoveredItems } from '@/app/tracker/use-discovered-items'
-
-import { parseSaveFile } from './actions/parse-save-file'
 
 /**
  * ----------------------------------------------
@@ -63,145 +48,31 @@ itemCategories = itemCategories.filter(
 
 // #region Component
 export default function Page() {
-  const { data: sessionData, status: sessionStatus } = useSession()
+  const { status: sessionStatus } = useSession()
+
   const isClient = useIsClient()
 
   const { discoveredItemIds, handleSetDiscoveredItems } = useDiscoveredItems()
 
-  // #region Save File Upload
+  const {
+    importSaveDialogOpen,
+    saveFileInputRef,
+    saveFileFormAction,
+    setImportSaveDialogOpen,
+  } = useSaveFileUpload({
+    handleSetDiscoveredItems,
+  })
 
-  const [uploadSaveFormResponse, saveFileFormAction] = useFormState(
-    parseSaveFile,
-    {
-      saveFileDiscoveredItemIds: null,
-    },
-  )
-  const [importSaveDialogOpen, setImportSaveDialogOpen] = useState(false)
-  const saveFileInputRef = useRef<HTMLInputElement | null>(null)
-
-  // If the upload save file form response changes, we need to set the save data
-  useEffect(() => {
-    if (!uploadSaveFormResponse) return
-
-    const { saveFileDiscoveredItemIds, error } = uploadSaveFormResponse
-
-    if (error) {
-      saveFileInputRef.current = null
-      setImportSaveDialogOpen(false)
-      toast.error(error)
-      return
-    }
-
-    if (!saveFileDiscoveredItemIds) return
-
-    // Remove any items that are in the skipped categories
-    const filteredDiscoveredItems = saveFileDiscoveredItemIds.filter(
-      (itemId) => {
-        const item = ALL_TRACKABLE_ITEMS.find((item) => item.id === itemId)
-        if (!item) return false
-        if (skippedItemCategories.includes(item.category)) return false
-        return true
-      },
-    )
-
-    saveFileInputRef.current = null
-    // Update the discovered item ids
-    handleSetDiscoveredItems(filteredDiscoveredItems)
-    setImportSaveDialogOpen(false)
-    toast.success('Save file imported successfully!')
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [uploadSaveFormResponse])
-
-  // #region CSV File Upload
-
-  const [importCSVDialogOpen, setImportCSVDialogOpen] = useState(false)
-  const csvFileInputRef = useRef<HTMLInputElement | null>(null)
-
-  function handleCsvFileSubmit() {
-    if (!csvFileInputRef.current || !csvFileInputRef.current.files) {
-      setImportCSVDialogOpen(false)
-      return
-    }
-
-    try {
-      Papa.parse(csvFileInputRef.current.files[0], {
-        complete: function (results) {
-          const newCsvItemIds: string[] = []
-
-          results.data.forEach(
-            (value: any, index: number, array: unknown[]) => {
-              const itemId = value[0]
-              const discovered =
-                value[value.length - 1].toLowerCase() === 'true'
-
-              if (!discovered) return
-
-              const item = allItems.find((item) => item.id === itemId)
-              if (!item) return
-
-              if (skippedItemCategories.includes(item.category)) return
-
-              newCsvItemIds.push(item.id)
-            },
-          )
-
-          csvFileInputRef.current = null
-          handleSetDiscoveredItems(newCsvItemIds)
-          setImportCSVDialogOpen(false)
-          toast.success('CSV file imported successfully!')
-        },
-      })
-    } catch (error) {
-      csvFileInputRef.current = null
-      setImportCSVDialogOpen(false)
-      toast.error('There was an error importing the CSV file.')
-    }
-  }
-
-  /**
-   * ----------------------------------------------
-   * Other functions
-   * ----------------------------------------------
-   */
-  // We only provide the relevant item data, not the internal image paths, etc.
-  // We could maybe provide the ids as well, in case users wanted to dynamically
-  // generate the build urls, but that's not a priority right now.
-  const csvItems = useMemo(() => {
-    return (
-      allItems
-        .map((item) => ({
-          ...item,
-          discovered: discoveredItemIds.includes(item.id),
-        }))
-        .map((item) => {
-          let csvItem = itemToCsvItem(item)
-
-          // For mutators, we need to combine the description
-          // and the max level bonus
-          if (MutatorItem.isMutatorItem(item)) {
-            const description = item.description
-            const maxLevelBonus = item.maxLevelBonus
-            csvItem = itemToCsvItem({
-              ...item,
-              description: `${description}. At Max Level: ${maxLevelBonus}`,
-            })
-          }
-
-          return {
-            ...csvItem,
-            discovered: item.discovered,
-          }
-        })
-        // sort items by category then name alphabetically
-        .sort((a, b) => {
-          if (a.category < b.category) return -1
-          if (a.category > b.category) return 1
-          if (a.name < b.name) return -1
-          if (a.name > b.name) return 1
-          return 0
-        })
-    )
-  }, [discoveredItemIds])
+  const {
+    csvFileInputRef,
+    csvItems,
+    importCsvDialogOpen,
+    handleCsvFileSubmit,
+    setImportCsvDialogOpen,
+  } = useCsvFileUpload({
+    discoveredItemIds,
+    handleSetDiscoveredItems,
+  })
 
   // Provide the tracker progress
   const totalProgress = getTrackerProgressLabel({
@@ -223,8 +94,8 @@ export default function Page() {
       />
       <ImportCsvDialog
         items={csvItems}
-        open={importCSVDialogOpen}
-        onClose={() => setImportCSVDialogOpen(false)}
+        open={importCsvDialogOpen}
+        onClose={() => setImportCsvDialogOpen(false)}
         onSubmit={handleCsvFileSubmit}
         fileInputRef={csvFileInputRef}
       />
@@ -254,7 +125,7 @@ export default function Page() {
               </BaseButton>
               <BaseButton
                 color="cyan"
-                onClick={() => setImportCSVDialogOpen(true)}
+                onClick={() => setImportCsvDialogOpen(true)}
                 aria-label="Import/Export CSV File"
                 className="w-[250px]"
               >
