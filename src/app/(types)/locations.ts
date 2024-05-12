@@ -5,6 +5,14 @@ export type WorldLocation =
   | 'Labyrinth'
   | 'Root Earth'
 
+export const WORLD_LOCATIONS = [
+  'Losomn',
+  `N'Erud`,
+  'Yaesha',
+  'Labyrinth',
+  'Root Earth',
+] as const satisfies WorldLocation[]
+
 export type LosomnDungeon =
   | 'Morrow Parish'
   | 'Forsaken Quarter'
@@ -41,6 +49,43 @@ export type LosomnDungeon =
   | `Walk of Rememberance`
   | `Luminous Vale`
 
+export const LOSOMN_DUNGEONS = [
+  'Morrow Parish',
+  'Forsaken Quarter',
+  'Tormented Asylum',
+  'Beatific Palace',
+  'Ironborough',
+  'Brocwithe Quarter',
+  'Malefic Palace',
+  'Beatific Gallery',
+  'Malefic Gallery',
+  `Nimue's Retreat`,
+  `Cotton's Kiln`,
+  `The Great Sewers`,
+  `Gilded Chambers`,
+  'Shattered Gallery',
+  `Butcher's Quarter`,
+  'Council Chamber',
+  'The Great Hall',
+  `Harvester's Reach`,
+  `Postulant's Parlor`,
+  `Tiller's Rest`,
+  `Briella's Garden`,
+  `Hewdas Clock`,
+  'Lemark District',
+  `Oracle's Refuge`,
+  `Forlorn Coast`,
+  `Palace of the One True King`,
+  `Chamber of the Faithless`,
+  `Glistering Cloister`,
+  `Sunken Haunt`,
+  `Derelict Lighthouse`,
+  `The Forgotten Commune`,
+  `Pathway of the Fallen`,
+  `Walk of Rememberance`,
+  `Luminous Vale`,
+] as const satisfies LosomnDungeon[]
+
 export type NErudDungeon =
   | `Seeker's Rest`
   | 'Phantom Wasteland'
@@ -63,6 +108,30 @@ export type NErudDungeon =
   | `Extraction Hub`
   | `Titan's Reach`
   | `Alepsis-Taura`
+
+export const NERUD_DUNGEONS = [
+  `Seeker's Rest`,
+  'Phantom Wasteland',
+  'Timeless Horizon',
+  `Sentinel's Keep`,
+  `Forgotten Prison`,
+  `Abyssyal Rift`,
+  `The Eon Vault`,
+  `Tal'Ratha's Refuge`,
+  `Astropath's Respite`,
+  `The Hatchery`,
+  `The Putrid Domain`,
+  `Spectrum Nexus`,
+  `The Dark Conduit`,
+  `Dormant N'Erudian Facility`,
+  `Terminus Station`,
+  `Tower of the Unseen`,
+  `Vault of the Formless`,
+  `Void Vessel Facility`,
+  `Extraction Hub`,
+  `Titan's Reach`,
+  `Alepsis-Taura`,
+] as const satisfies NErudDungeon[]
 
 export type YaeshaDungeon =
   | `The Red Throne`
@@ -96,15 +165,56 @@ export type YaeshaDungeon =
   | `Bloodless Throne`
   | `Glittering Grotto`
 
+export const YAESHA_DUNGEONS = [
+  `The Red Throne`,
+  `Withering Weald`,
+  `The Far Woods`,
+  `The Widow's Court`,
+  `The Great Bole`,
+  `The Forbidden Grove`,
+  `Faithless Thicket`,
+  `Ravager's Lair`,
+  `The Expanding Glade`,
+  `Kaeula's Rest`,
+  `The Nameless Nest`,
+  `The Twisted Chantry`,
+  `Cathedral of Omens`,
+  `The Chimney`,
+  `Endaira's End`,
+  `Forgotten Field`,
+  `Imperial Gardens`,
+  `The Lament`,
+  `Dappled Glade`,
+  `Kaora Kuri Nest`,
+  `Root Nexus`,
+  `The Forgotten Grove`,
+  'Floating Forests',
+  'Infested Abyss',
+  'Ancient Canopy',
+  'Proving Grounds',
+  `Goddess's Rest`,
+  `Deserted Atelier`,
+  `Bloodless Throne`,
+  `Glittering Grotto`,
+] as const satisfies YaeshaDungeon[]
+
 export type RootEarthDungeon =
   | 'Ashen Wasteland'
   | 'Corrupted Harbor'
   | 'Blackened Citadel'
   | 'Twilight Vale'
 
-const BIOMES = [
+export const ROOT_EARTH_DUNGEONS = [
+  'Ashen Wasteland',
+  'Corrupted Harbor',
+  'Blackened Citadel',
+  'Twilight Vale',
+] as const satisfies RootEarthDungeon[]
+
+export const BIOMES = [
   {
     name: 'Burning City',
+    world: 'Losomn',
     dungeons: [
       `Cotton's Kiln`,
       `Butcher's Quarter`,
@@ -116,6 +226,7 @@ const BIOMES = [
   },
   {
     name: 'Fae Palace',
+    world: 'Losomn',
     dungeons: [
       `Beatific Palace`,
       `Beatific Gallery`,
@@ -134,6 +245,7 @@ const BIOMES = [
   },
   {
     name: 'Floating Forests',
+    world: 'Yaesha',
     dungeons: [
       `The Nameless Nest`,
       `The Expanding Glade`,
@@ -147,6 +259,7 @@ const BIOMES = [
   },
   {
     name: 'Jungles of Yaesha',
+    world: 'Yaesha',
     dungeons: [
       `Withering Weald`,
       `The Forbidden Grove`,
@@ -157,6 +270,7 @@ const BIOMES = [
   },
   {
     name: 'Losomn Sewers',
+    world: 'Losomn',
     dungeons: [
       `The Great Sewers`,
       `Harvester's Reach`,
@@ -167,6 +281,7 @@ const BIOMES = [
   },
   {
     name: `N'Erud Underworld`,
+    world: `N'Erud`,
     dungeons: [
       `The Putrid Domain`,
       `Vault of the Formless`,
@@ -186,6 +301,7 @@ const BIOMES = [
   },
   {
     name: `N'Erud Wasteland`,
+    world: `N'Erud`,
     dungeons: [
       `Phantom Wasteland`,
       `Abyssyal Rift`,
@@ -196,6 +312,7 @@ const BIOMES = [
   },
   {
     name: 'Streets of Losomn',
+    world: `Losomn`,
     dungeons: [
       `Morrow Parish`,
       `Brocwithe Quarter`,
@@ -207,6 +324,7 @@ const BIOMES = [
   },
   {
     name: `Towers of N'Erud`,
+    world: `N'Erud`,
     dungeons: [
       `Astropath's Respite`,
       `Spectrum Nexus`,
@@ -219,26 +337,66 @@ const BIOMES = [
   },
   {
     name: `Undead Tombs`,
+    world: 'Yaesha',
     dungeons: [`The Twisted Chantry`, `The Chimney`, `The Lament`],
     injectables: [`Living Stone`, `Sarcophagus`, `Hidden Crypt`],
   },
   {
     name: `Ziggurats`,
+    world: 'Yaesha',
     dungeons: [`Kaeula's Rest`, `Endaira's End`, `Cathedral of Omens`],
     injectables: [`Hidden Chamber`, `Wind Hollow`, `Library`, `Moon's Path`],
   },
-] as const satisfies Array<{
-  name: string
-  dungeons:
-    | LosomnDungeon[]
-    | NErudDungeon[]
-    | YaeshaDungeon[]
-    | RootEarthDungeon[]
-    | 'Labyrinth'
-  injectables: string[]
-}>
-export type Biome = (typeof BIOMES)[number]['name']
-export type Injectable = (typeof BIOMES)[number]['injectables'][number]
+] as const satisfies Array<
+  | {
+      name: string
+      world: 'Losomn'
+      dungeons: LosomnDungeon[]
+      injectables: string[]
+    }
+  | {
+      name: string
+      world: `N'Erud`
+      dungeons: NErudDungeon[]
+      injectables: string[]
+    }
+  | {
+      name: string
+      world: 'Yaesha'
+      dungeons: YaeshaDungeon[]
+      injectables: string[]
+    }
+>
+type Biome = (typeof BIOMES)[number]['name']
+type Injectable = (typeof BIOMES)[number]['injectables'][number]
+
+type LosemnBiome = Extract<(typeof BIOMES)[number], { world: 'Losomn' }>
+type LosemnBiomeName = Extract<
+  (typeof BIOMES)[number],
+  { world: 'Losomn' }
+>['name']
+
+type NErudBiome = Extract<(typeof BIOMES)[number], { world: `N'Erud` }>
+type NErudBiomeName = Extract<
+  (typeof BIOMES)[number],
+  { world: `N'Erud` }
+>['name']
+
+type YaeshaBiome = Extract<(typeof BIOMES)[number], { world: 'Yaesha' }>
+type YaeshaBiomeName = Extract<
+  (typeof BIOMES)[number],
+  { world: 'Yaesha' }
+>['name']
+
+export const LOSEMN_BIOMES = BIOMES.filter(
+  (biome) => biome.world === 'Losomn',
+) as LosemnBiome[]
+export const NERUD_BIOMES = BIOMES.filter(
+  (biome) => biome.world === `N'Erud`,
+) as NErudBiome[]
+export const YAESHA_BIOMES = BIOMES.filter(
+  (biome) => biome.world === 'Yaesha',
+) as YaeshaBiome[]
 
 type OtherLocation =
   | 'World Drop'
@@ -254,21 +412,36 @@ export type ItemLocation =
       biome?: never
       injectable?: Injectable
     }
-  | { world: 'Losomn'; dungeon?: never; biome: Biome; injectable?: Injectable }
+  | {
+      world: 'Losomn'
+      dungeon?: never
+      biome: LosemnBiomeName
+      injectable?: Injectable
+    }
   | {
       world: `N'Erud`
       dungeon: NErudDungeon[] | OtherLocation
       biome?: never
       injectable?: Injectable
     }
-  | { world: `N'Erud`; dungeon?: never; biome: Biome; injectable?: Injectable }
+  | {
+      world: `N'Erud`
+      dungeon?: never
+      biome: NErudBiomeName
+      injectable?: Injectable
+    }
   | {
       world: 'Yaesha'
       dungeon: YaeshaDungeon[] | OtherLocation
       biome?: never
       injectable?: Injectable
     }
-  | { world: 'Yaesha'; dungeon?: never; biome: Biome; injectable?: Injectable }
+  | {
+      world: 'Yaesha'
+      dungeon?: never
+      biome: YaeshaBiomeName
+      injectable?: Injectable
+    }
   | {
       world: 'Root Earth'
       dungeon: RootEarthDungeon[] | OtherLocation
@@ -276,21 +449,9 @@ export type ItemLocation =
       injectable?: Injectable
     }
   | {
-      world: 'Root Earth'
-      dungeon?: never
-      biome: Biome
-      injectable?: Injectable
-    }
-  | {
       world: 'Labyrinth'
       dungeon: 'Labyrinth' | OtherLocation
       biome?: never
-      injectable?: Injectable
-    }
-  | {
-      world: 'Labyrinth'
-      dungeon?: never
-      biome: Biome
       injectable?: Injectable
     }
   | { world: 'Ward 13'; dungeon: 'Ward 13' | OtherLocation }
