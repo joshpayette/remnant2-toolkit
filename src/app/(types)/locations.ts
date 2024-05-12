@@ -50,7 +50,6 @@ export type NErudDungeon =
   | `Abyssyal Rift`
   | `The Eon Vault`
   | `Tal'Ratha's Refuge`
-  | `Ascension Spire`
   | `Astropath's Respite`
   | `The Hatchery`
   | `The Putrid Domain`
