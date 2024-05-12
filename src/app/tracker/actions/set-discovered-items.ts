@@ -26,10 +26,13 @@ export async function setDiscoveredItems(
         },
       }),
       prisma.userItems.createMany({
-        data: discoveredItemIds.map((itemId) => ({
-          itemId,
-          userId,
-        })),
+        data: discoveredItemIds
+          // remove duplicates
+          .filter((value, index, self) => self.indexOf(value) === index)
+          .map((itemId) => ({
+            itemId,
+            userId,
+          })),
       }),
     ])
 
