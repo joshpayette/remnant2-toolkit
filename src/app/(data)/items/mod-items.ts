@@ -4,7 +4,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Abrasive Rounds',
-    imagePath: '/mod/abrasive_rounds.png',
+    imagePath: '/items/mods/abrasiverounds.png',
     id: 'h9k5pd',
     dlc: 'dlc2',
     description:
@@ -16,7 +16,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: '77 79 68',
-    imagePath: '/mod/polygun.png',
+    imagePath: '/items/mods/polygun.png',
     dlc: 'dlc2',
     id: '777968',
     description:
@@ -31,7 +31,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Accelerator',
-    imagePath: '/mod/accelerator.png',
+    imagePath: '/items/mods/atomsmasher.png',
     id: 'h9k5pl',
     dlc: 'base',
     description: `Charge Melee Attacks increase the speed of all Melee Attacks by 10% for 5s.`,
@@ -45,7 +45,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Astral Burst',
-    imagePath: '/mod/astral_burst.png',
+    imagePath: '/items/mods/astralburst.png',
     id: 'mqta6g',
     dlc: 'base',
     description:
@@ -57,7 +57,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Awakening',
-    imagePath: '/mod/awakening.png',
+    imagePath: '/items/mods/awakening.png',
     dlc: 'dlc1',
     id: 'wszjeu',
     description: `Incoming damage grants Awakening which increases Melee Damage by 5% per stack for 10s. Max 10 stacks.`,
@@ -71,7 +71,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Banish',
-    imagePath: '/mod/banish1.png',
+    imagePath: '/items/mods/banish.png',
     id: 'k7z7r2',
     dlc: 'base',
     description:
@@ -91,7 +91,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Beta Ray',
-    imagePath: '/mod/beta_ray.png',
+    imagePath: '/items/mods/betaray.png',
     id: '5ke493',
     dlc: 'base',
     description:
@@ -111,7 +111,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Beyond the Veil',
-    imagePath: '/mod/beyond_the_veil.png',
+    imagePath: '/items/mods/beyondtheveil.png',
     id: 'puif17',
     dlc: 'base',
     description: `Neutral Evade turns to mist, granting Nightshade 5% base damage as Lifesteal for 5s. Perfect Dodge doubles duration.`,
@@ -125,7 +125,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Big Bang',
-    imagePath: '/mod/big_bang.png',
+    imagePath: '/items/mods/bigbang.png',
     id: 's7ozpe',
     dlc: 'base',
     description:
@@ -145,7 +145,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Blaze',
-    imagePath: '/mod/blaze1.png',
+    imagePath: '/items/mods/blaze.png',
     id: 'gdY2uZ',
     dlc: 'base',
     description:
@@ -160,7 +160,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Blood Draw',
-    imagePath: '/mod/blood_draw.png',
+    imagePath: '/items/mods/blooddraw.png',
     id: 'ss7zwt',
     dlc: 'base',
     description:
@@ -173,7 +173,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Bloodline',
-    imagePath: '/mod/bloodline.png',
+    imagePath: '/items/mods/bloodline.png',
     id: 'yxxajn',
     dlc: 'base',
     description:
@@ -192,7 +192,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Bloodshot',
-    imagePath: '/mod/bloodshot1.png',
+    imagePath: '/items/mods/bloodshot.png',
     id: 'tw8tbh',
     dlc: 'base',
     description:
@@ -209,7 +209,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Bloodthirst',
-    imagePath: '/mod/bloodthirst.png',
+    imagePath: '/items/mods/bloodthirst.png',
     id: '1rw0kk',
     dlc: 'base',
     description: `Damage increases by +25% against BLEEDING enemies, and +25% when attacking from behind. Charge Attacks deal 100 BLEEDING damage over 10s`,
@@ -223,7 +223,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Bore',
-    imagePath: '/mod/bore.png',
+    imagePath: '/items/mods/bore.png',
     id: 'iq4wjy',
     dlc: 'base',
     tags: ['Critical Chance', 'Weakspot Damage'],
@@ -237,7 +237,7 @@ export const modItems: ModItem[] = [
     category: 'mod',
     name: 'Chain of Command',
     dlc: 'dlc1',
-    imagePath: '/mod/chain_of_command.png',
+    imagePath: '/items/mods/chainofcommand.png',
     id: 'lxt1j0',
     description:
       'Harpoon Mode: Fire Harpoon to mark target causing primary fire to become Homing Rounds dealing 15% reduced damage. Enemies hit by Homing Rounds build Influence. Recasting exits Mode.\n' +
@@ -253,7 +253,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Chaos Driver',
-    imagePath: '/mod/chaos_driver.png',
+    imagePath: '/items/mods/chaosdriver.png',
     id: 'dxnd9s',
     dlc: 'base',
     description:
@@ -273,7 +273,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Concussive Shot',
-    imagePath: '/mod/concussive_shot.png',
+    imagePath: '/items/mods/concussiveshot.png',
     id: 'an140h',
     dlc: 'base',
     description:
@@ -286,7 +286,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Corrosive Rounds',
-    imagePath: '/mod/corrosive_rounds.png',
+    imagePath: '/items/mods/corrosiverounds.png',
     id: 'hr3g7o',
     dlc: 'base',
     tags: ['Critical Chance'],
@@ -299,7 +299,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Creeping Mist',
-    imagePath: '/mod/creeping_mist.png',
+    imagePath: '/items/mods/creepingmist.png',
     dlc: 'dlc1',
     id: 'a3ctlf',
     description:
@@ -314,7 +314,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Cube Room',
-    imagePath: '/mod/cube_room.png',
+    imagePath: '/items/mods/cuberoom.png',
     id: '2nMTRG',
     dlc: 'base',
     description:
@@ -332,7 +332,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Cube Shield',
-    imagePath: '/mod/cube_shield.png',
+    imagePath: '/items/mods/cubeshield.png',
     id: '1bfanq',
     dlc: 'base',
     description: `Generates a shield which absorbs up to 500 damage from incoming enemy projectiles. Lasts 15s.
@@ -347,11 +347,11 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Cyclone',
-    imagePath: '/mod/cyclone.png',
+    imagePath: '/items/mods/cyclone.png',
     id: '1bfadq',
     dlc: 'dlc2',
     description: `Maintaining an overhead Charged Melee forms a 5m sand cyclone, dealing 55 - 168 damage per second and pulls enemies towards the wielder. Each Cyclone hit applies EXPOSED for 3s. Max 15s.`,
-    wikiLinks: [`https://remnant.wiki/Deadpoint`],
+    wikiLinks: [`https://remnant.wiki/Cyclone`],
     linkedItems: {
       weapon: {
         name: 'Mirage',
@@ -361,7 +361,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Deadpoint',
-    imagePath: '/mod/deadpoint.png',
+    imagePath: '/items/mods/corrupted_deadpoint.png',
     id: 'ysz4fw',
     dlc: 'base',
     description: `Fires a cluster bomb which detonates on impact across 2.5m. each cluster deals up to 150 damage per explosion within 3.5m.`,
@@ -376,7 +376,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Deadwood',
-    imagePath: '/mod/deadwood.png',
+    imagePath: '/items/mods/deadwood.png',
     id: 'k7z7rz',
     dlc: 'dlc2',
     description:
@@ -396,7 +396,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Death Brand',
-    imagePath: '/mod/death_brand1.png',
+    imagePath: '/items/mods/corrupted_deathbrand.png',
     id: 'd3q99g',
     dlc: 'base',
     description: `Applies Death Brand to all enemies within 25m, increasing incoming damage by 10%. Enemies killed while bearing the Death Brand leave behind an Echo which lasts 10s before returning to the Nightmare Realm. Echoes are drawn to any survivor who walks within 3m. increasing Weakspot Damage dealt by 10% for 10s.`,
@@ -411,7 +411,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Death Sentence',
-    imagePath: '/mod/death_sentence.png',
+    imagePath: '/items/mods/feraljudgement.png',
     id: 'wilhsl',
     dlc: 'base',
     description: `Dealing Melee Damage 6 times over 10s empowers Feral Judgement. When empowered, Neutral Backdash Charge Attacks apply Death Sentence. After 1.5s of being sentenced, the enemy will suffer 10 Phantom Strikes, dealing X25Damage each. Deals 25% additional damage to BLEEDING enemies.`,
@@ -425,7 +425,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Defrag',
-    imagePath: '/mod/defrag.png',
+    imagePath: '/items/mods/defrag.png',
     id: '3hqdob',
     dlc: 'base',
     description:
@@ -441,7 +441,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Dreadwalker',
-    imagePath: '/mod/dreadwalker.png',
+    imagePath: '/items/mods/dreadwalker.png',
     id: 'ybej3w',
     dlc: 'base',
     description:
@@ -460,7 +460,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Dreamwave',
-    imagePath: '/mod/dreamwave.png',
+    imagePath: '/items/mods/dreamwave.png',
     id: 'dwmc70',
     dlc: 'base',
     tags: ['Status Effect'],
@@ -479,7 +479,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Dying Breath',
-    imagePath: '/mod/dying_breath.png',
+    imagePath: '/items/mods/dyingbreath.png',
     id: '22nk8x',
     dlc: 'base',
     description: `When infused, Neural Backdash Charge Attack explodes in a 3m. AOE and leaves an ACID Cloud which last for 15s.`,
@@ -494,7 +494,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Energy Wall',
-    imagePath: '/mod/energy_wall.png',
+    imagePath: '/items/mods/energywall.png',
     id: '8uluwc',
     dlc: 'base',
     description:
@@ -506,7 +506,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Energy Wave',
-    imagePath: '/mod/energy_wave.png',
+    imagePath: '/items/mods/energywave.png',
     id: '7ztoh8',
     dlc: 'base',
     description: `Charge attacks use 35 stamina to release an energy wave projectile allowing the wielder to strike enemies from much farther away.`,
@@ -520,7 +520,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Eulogy',
-    imagePath: '/mod/eulogy.png',
+    imagePath: '/items/mods/eulogy.png',
     id: '3xf7i2',
     dlc: 'base',
     description:
@@ -540,7 +540,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Explosive Shot',
-    imagePath: '/mod/explosive_shot.png',
+    imagePath: '/items/mods/explosiveshot.png',
     id: 'hpfdzp',
     dlc: 'base',
     description:
@@ -558,7 +558,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Familiar',
-    imagePath: '/mod/familiar.png',
+    imagePath: '/items/mods/familiar.png',
     id: 'sccdmt',
     dlc: 'base',
     description:
@@ -571,7 +571,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Fargazer',
-    imagePath: '/mod/fargazer.png',
+    imagePath: '/items/mods/fargazer.png',
     id: 'yedqs6',
     dlc: 'base',
     description:
@@ -583,7 +583,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Fathomless Deep',
-    imagePath: '/mod/fathomless_deep.png',
+    imagePath: '/items/mods/fathomlessdeep.png',
     dlc: 'dlc1',
     id: 'o1zwol',
     description:
@@ -598,7 +598,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Faultline',
-    imagePath: '/mod/faultline.png',
+    imagePath: '/items/mods/faultline.png',
     id: '5mlisj',
     dlc: 'base',
     description:
@@ -613,7 +613,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Firestorm',
-    imagePath: '/mod/firestorm.png',
+    imagePath: '/items/mods/firestorm.png',
     id: 'snlx8w',
     dlc: 'base',
     description:
@@ -626,7 +626,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Fission Strike',
-    imagePath: '/mod/fission_strike.png',
+    imagePath: '/items/mods/fissionstrike.png',
     id: 'd490vt',
     dlc: 'base',
     description:
@@ -643,7 +643,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Flying Bomb Trap',
-    imagePath: '/mod/flying_bomb_trap.png',
+    imagePath: '/items/mods/flyingbombtrap.png',
     id: '2GWpcL',
     dlc: 'dlc2',
     description:
@@ -659,7 +659,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Fracture',
-    imagePath: '/mod/fracture.png',
+    imagePath: '/items/mods/fracture.png',
     id: 'x8vmra',
     dlc: 'base',
     description: `Charge Attacks taint the blood of targets, causing all attacks from Godsplitter to register as Weakspot hits for 3s seconds. Duration increases with additional fragments. Max 35s.`,
@@ -673,7 +673,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Fusion Cannon',
-    imagePath: '/mod/fusion_cannon.png',
+    imagePath: '/items/mods/fusioncannon.png',
     id: 'D8obdv',
     dlc: 'base',
     description:
@@ -692,7 +692,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Gravity Core',
-    imagePath: '/mod/gravity_core1.png',
+    imagePath: '/items/mods/gravitycore.png',
     id: 'kep3kb',
     dlc: 'base',
     description:
@@ -712,7 +712,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: "Guardian's Call",
-    imagePath: '/mod/guardians_call.png',
+    imagePath: '/items/mods/guardianscall.png',
     id: 'anhbhf',
     dlc: 'base',
     description:
@@ -732,7 +732,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: `Guardian's Fury`,
-    imagePath: '/mod/guardians_fury.png',
+    imagePath: '/items/mods/guardiansfury.png',
     id: 'WzXG4x',
     dlc: 'base',
     description:
@@ -750,7 +750,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Heatwave',
-    imagePath: '/mod/heatwave.png',
+    imagePath: '/items/mods/heatwave.png',
     dlc: 'dlc2',
     id: 'vc3s1n',
     description:
@@ -762,7 +762,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Healing Shot',
-    imagePath: '/mod/healing_shot.png',
+    imagePath: '/items/mods/healingshot.png',
     id: 'vc361n',
     dlc: 'base',
     description:
@@ -774,7 +774,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Heat Sink',
-    imagePath: '/mod/heat_sink.png',
+    imagePath: '/items/mods/heatsink.png',
     id: 's49h0c',
     dlc: 'base',
     description:
@@ -791,7 +791,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Helix',
-    imagePath: '/mod/helix.png',
+    imagePath: '/items/mods/helix.png',
     id: '1mtqkk',
     dlc: 'base',
     description:
@@ -803,7 +803,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Horizon Strike',
-    imagePath: '/mod/horizon_strike1.png',
+    imagePath: '/items/mods/horizonstrike.png',
     id: '2fjw9q',
     dlc: 'base',
     description:
@@ -818,7 +818,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Hot Shot',
-    imagePath: '/mod/hot_shot.png',
+    imagePath: '/items/mods/hotshot.png',
     id: '9vzb9r',
     dlc: 'base',
     description:
@@ -830,7 +830,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Javelin',
-    imagePath: '/mod/athibar.png',
+    imagePath: '/items/mods/athibar.png',
     id: '29kz6t',
     dlc: 'base',
     description: `Charge attacks use 25 stamina to throw the spear, which returns to the wielder's hand.`,
@@ -844,7 +844,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Knight Guard',
-    imagePath: '/mod/knight_guard.png',
+    imagePath: '/items/mods/knightguard.png',
     dlc: 'dlc1',
     id: 'e4n1w4',
     description:
@@ -856,7 +856,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Krell Edge',
-    imagePath: '/mod/krell_edge.png',
+    imagePath: '/items/mods/krelledge.png',
     id: '38rncx',
     dlc: 'base',
     description:
@@ -871,7 +871,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Lifeline',
-    imagePath: '/mod/lifeline.png',
+    imagePath: '/items/mods/lifeline.png',
     id: '4zqfhu',
     dlc: 'base',
     description:
@@ -886,7 +886,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Loathe the Weak',
-    imagePath: '/mod/loath_the_weak.png',
+    imagePath: '/items/mods/loaththeweak.png',
     dlc: 'dlc1',
     id: 'aobtw7',
     description:
@@ -903,7 +903,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Micronova',
-    imagePath: '/mod/micronova1.png',
+    imagePath: '/items/mods/corrupted_micronova.png',
     id: '8izb2g',
     dlc: 'base',
     description:
@@ -925,7 +925,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Moonlight Barrage',
-    imagePath: '/mod/moonlight_barrage.png',
+    imagePath: '/items/mods/moonlightbarrage.png',
     id: 'wfak3h',
     dlc: 'base',
     description:
@@ -944,7 +944,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Nano Phase',
-    imagePath: '/mod/nano_phase.png',
+    imagePath: '/items/mods/nanophase.png',
     id: 'WARGv3',
     dlc: 'base',
     description:
@@ -962,7 +962,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Nano Swarm',
-    imagePath: '/mod/nano_swarm.png',
+    imagePath: '/items/mods/nanoswarm.png',
     id: '8ko9zz',
     dlc: 'base',
     description:
@@ -979,7 +979,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Ouroboros',
-    imagePath: '/mod/ouroboros.png',
+    imagePath: '/items/mods/ouroboros.png',
     id: 'czgb8w',
     dlc: 'base',
     description:
@@ -998,7 +998,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Overflow',
-    imagePath: '/mod/overflow.png',
+    imagePath: '/items/mods/overflow.png',
     id: 'tya9an',
     dlc: 'base',
     description:
@@ -1010,7 +1010,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Power Stone',
-    imagePath: '/mod/power_stone.png',
+    imagePath: '/items/mods/powerstone.png',
     id: '2JimAt',
     dlc: 'dlc2',
     tags: ['Status Effect'],
@@ -1028,7 +1028,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Prismatic Driver',
-    imagePath: '/mod/prismatic_driver.png',
+    imagePath: '/items/mods/prismaticdriver.png',
     id: 'vtcg3o',
     dlc: 'base',
     description:
@@ -1041,7 +1041,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Reaver',
-    imagePath: '/mod/reaver1.png',
+    imagePath: '/items/mods/reaver.png',
     dlc: 'dlc1',
     id: 'geb8ho',
     description: `Increases Melee Damage by 10% if the target is suffering from a Negative Status Effect.`,
@@ -1055,7 +1055,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Ring of Spears',
-    imagePath: '/mod/ring_of_spears.png',
+    imagePath: '/items/mods/ringofspears.png',
     dlc: 'dlc1',
     id: '4rdl8r',
     description:
@@ -1072,7 +1072,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Rootlash',
-    imagePath: '/mod/rootlash.png',
+    imagePath: '/items/mods/rootlash.png',
     id: 'nfw6ja',
     dlc: 'base',
     description:
@@ -1084,7 +1084,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Rotted Arrow',
-    imagePath: '/mod/rotted_arrow.png',
+    imagePath: '/items/mods/rottedarrow.png',
     id: 'vgin4w',
     dlc: 'base',
     description:
@@ -1097,7 +1097,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Sandstorm',
-    imagePath: '/mod/sandstorm.png',
+    imagePath: '/items/mods/sandstorm.png',
     dlc: 'dlc2',
     id: 'ozNPv9',
     tags: [],
@@ -1116,7 +1116,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Scrap Shot',
-    imagePath: '/mod/scrap_shot.png',
+    imagePath: '/items/mods/scrapshot.png',
     id: 'hcv400',
     dlc: 'base',
     tags: ['Status Effect'],
@@ -1130,7 +1130,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Screamer',
-    imagePath: '/mod/screamer.png',
+    imagePath: '/items/mods/screamer.png',
     id: '4aeebu',
     dlc: 'base',
     description: `Fire a high-powered rocket that deals up to 200 damage within 2.5m.`,
@@ -1145,7 +1145,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Shatterstar',
-    imagePath: '/mod/shatterstar1.png',
+    imagePath: '/items/mods/shatterstar.png',
     id: 'z9e8qq',
     dlc: 'base',
     description:
@@ -1164,7 +1164,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Skewer 2.0',
-    imagePath: '/mod/skewer.png',
+    imagePath: '/items/mods/skewer.png',
     id: 'cpvech',
     dlc: 'base',
     description:
@@ -1177,7 +1177,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Song of Eafir',
-    imagePath: '/mod/song_of_eafir.png',
+    imagePath: '/items/mods/songofeafir.png',
     id: 'edm644',
     dlc: 'base',
     tags: ['Status Effect', 'Damage Reduction'],
@@ -1193,7 +1193,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Soul Brand',
-    imagePath: '/mod/soul_brand.png',
+    imagePath: '/items/mods/soulbrand.png',
     id: 'imk8xh',
     dlc: 'base',
     description:
@@ -1213,7 +1213,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Soulbinder',
-    imagePath: '/mod/soulbinder.png',
+    imagePath: '/items/mods/soulbinder.png',
     id: '5bb0mv',
     dlc: 'base',
     description:
@@ -1226,7 +1226,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Space Crabs',
-    imagePath: '/mod/space_crabs.png',
+    imagePath: '/items/mods/spacecrabs.png',
     id: '4wd3gm',
     dlc: 'base',
     description:
@@ -1238,7 +1238,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Spore Shot',
-    imagePath: '/mod/spore_shot1.png',
+    imagePath: '/items/mods/sporeshot.png',
     id: '9fi67v',
     dlc: 'base',
     tags: ['Status Effect'],
@@ -1256,7 +1256,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Starfall',
-    imagePath: '/mod/starfall.png',
+    imagePath: '/items/mods/starfall.png',
     id: 'j9wkb3',
     dlc: 'base',
     description:
@@ -1274,7 +1274,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Stasis Beam',
-    imagePath: '/mod/stasis_beam.png',
+    imagePath: '/items/mods/stasisbeam.png',
     id: 'rer73h',
     dlc: 'base',
     tags: ['Status Effect'],
@@ -1287,7 +1287,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Supernova',
-    imagePath: '/mod/supernova.png',
+    imagePath: '/items/mods/supernova.png',
     id: '9rxk65',
     dlc: 'base',
     tags: ['Status Effect'],
@@ -1310,7 +1310,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Time Lapse',
-    imagePath: '/mod/time_lapse.png',
+    imagePath: '/items/mods/timelapse.png',
     id: 'nn1q6k',
     dlc: 'base',
     tags: ['Status Effect'],
@@ -1325,7 +1325,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Tremor',
-    imagePath: '/mod/tremor.png',
+    imagePath: '/items/mods/tremor.png',
     id: 'g6glpj',
     dlc: 'base',
     description:
@@ -1338,7 +1338,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Voltaic Rondure',
-    imagePath: '/mod/voltaic_rondure.png',
+    imagePath: '/items/mods/voltaicrondure.png',
     id: 'wjopwy',
     dlc: 'base',
     tags: ['Status Effect'],
@@ -1352,7 +1352,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Whirlwind',
-    imagePath: '/mod/whirlwind.png',
+    imagePath: '/items/mods/whirlwind.png',
     id: '2y6xm7',
     dlc: 'base',
     description:
@@ -1367,7 +1367,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Will of the Wisp',
-    imagePath: '/mod/will_of_the_wisp.png',
+    imagePath: '/items/mods/willofthewisp.png',
     id: '9jwTXR',
     dlc: 'base',
     description:
@@ -1384,7 +1384,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Windfall',
-    imagePath: '/mod/windfall1.png',
+    imagePath: '/items/mods/corrupted_windfall.png',
     id: '82v8kz',
     dlc: 'base',
     description:
@@ -1403,7 +1403,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Witchfire',
-    imagePath: '/mod/witchfire.png',
+    imagePath: '/items/mods/witchfire.png',
     id: 'ggf5qe',
     dlc: 'base',
     description:
