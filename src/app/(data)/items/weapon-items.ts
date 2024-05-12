@@ -74,6 +74,7 @@ export const weaponItems: WeaponItem[] = [
     crit: 5,
     weakspot: 100,
     stagger: 10,
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
   {
     category: 'weapon',
@@ -85,6 +86,7 @@ export const weaponItems: WeaponItem[] = [
     dlc: 'base',
     description: `A fully automatic rifle with a medium capacity. Highly effective with controlled bursts.`,
     wikiLinks: [`https://remnant.wiki/Blackmaw_AR-47`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
     damage: 17,
     rps: 7.3,
     magazine: 38,
@@ -106,6 +108,7 @@ export const weaponItems: WeaponItem[] = [
     dlc: 'base',
     description: `A classic Tommy Gun with large ammo capacity and a slow reload. Poor initial accuracy which improves while holding down the trigger.`,
     wikiLinks: [`https://remnant.wiki/Chicago_Typewriter`],
+    location: { world: 'Labyrinth', dungeon: 'Labyrinth' },
     damage: 10,
     rps: 11,
     magazine: 80,
@@ -126,6 +129,7 @@ export const weaponItems: WeaponItem[] = [
     dlc: 'base',
     description: `A double-barrel over/under shotgun modified to fire powerful slugs. High damage with a decent fire rate, but very low magazine capacity.`,
     wikiLinks: [`https://remnant.wiki/Coach_Gun`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
     damage: 115,
     rps: 2.3,
     magazine: 2,
@@ -146,6 +150,7 @@ export const weaponItems: WeaponItem[] = [
     dlc: 'base',
     description: `A laser shotgun that fires three hypercharged arc lines that penetrate targets.`,
     wikiLinks: [`https://remnant.wiki/Corrupted_Aphelion`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
     linkedItems: {
       mod: {
         name: 'Micronova',
@@ -187,6 +192,7 @@ export const weaponItems: WeaponItem[] = [
         name: `Guardian's Fury`,
       },
     },
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
   {
     category: 'weapon',
@@ -202,6 +208,7 @@ export const weaponItems: WeaponItem[] = [
         name: 'Windfall',
       },
     },
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
     damage: 66,
     rps: 3,
     magazine: 12,
@@ -227,6 +234,7 @@ export const weaponItems: WeaponItem[] = [
         name: 'Bloodshot',
       },
     },
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
     damage: 90,
     rps: 1.7,
     magazine: 3,
@@ -253,6 +261,7 @@ export const weaponItems: WeaponItem[] = [
         name: 'Fusion Cannon',
       },
     },
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
     damage: 17,
     rps: 3.15,
     magazine: 40,
@@ -281,6 +290,7 @@ export const weaponItems: WeaponItem[] = [
         name: 'Moonlight Barrage',
       },
     },
+    location: { world: 'Losomn', dungeon: ["Nimue's Retreat"] },
     damage: 87,
     rps: 4.1,
     magazine: 1,
@@ -301,6 +311,7 @@ export const weaponItems: WeaponItem[] = [
     dlc: 'base',
     description: `An accurate and deadly single-shot crossbow with a low sound profile.`,
     wikiLinks: [`https://remnant.wiki/Crossbow`],
+    location: { world: 'Yaesha', dungeon: ['Imperial Gardens'] },
     damage: 120,
     rps: 2.5,
     magazine: 1,
@@ -322,6 +333,7 @@ export const weaponItems: WeaponItem[] = [
     dlc: 'base',
     description: `A pinpoint accurate split-barreled rifle that fires two penetrating rails. High base damage, but cannot score Weakspot hits. Charge to fire.`,
     wikiLinks: [`https://remnant.wiki/Deceit`],
+    location: { world: 'Losomn', dungeon: ['Beatific Gallery'] },
     linkedItems: {
       mod: {
         name: 'Ouroboros',
@@ -348,6 +360,7 @@ export const weaponItems: WeaponItem[] = [
     dlc: 'base',
     description: `An incredibly powerful 12 gauge shotgun with a wide spread. High damage, slow reload.`,
     wikiLinks: [`https://remnant.wiki/Ford's_Scattergun`],
+    location: { world: 'Yaesha', dungeon: ['The Red Throne'] },
     damage: 130,
     rps: 1.1,
     magazine: 7,
@@ -369,6 +382,7 @@ export const weaponItems: WeaponItem[] = [
     dlc: 'base',
     description: `A high-powered long range bolt-action rifle with exceptional accuracy and a 2.5x magnification scope.`,
     wikiLinks: [`https://remnant.wiki/Huntmaster_M1`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
     damage: 70,
     rps: 1.5,
     magazine: 7,
@@ -390,6 +404,7 @@ export const weaponItems: WeaponItem[] = [
     dlc: 'base',
     description: `Fires tooth-like flechettes. When weapon reticle is fully compressed, flechettes apply 200 - 600 BLEEDING damage over 10s.`,
     wikiLinks: [`https://remnant.wiki/Merciless`],
+    location: { world: 'Yaesha', dungeon: ["Ravager's Lair"] },
     linkedItems: {
       mod: {
         name: 'Bloodline',
@@ -415,6 +430,7 @@ export const weaponItems: WeaponItem[] = [
     id: '76622z',
     description: `An once-beautiful weapon, rumored to corrupt its wielder with absolute power.`,
     wikiLinks: [`https://remnant.wiki/Monarch`],
+    location: { world: 'Losomn', dungeon: ['Chamber of the Faithless'] },
     linkedItems: {
       mod: {
         name: 'Chain of Command',
@@ -443,6 +459,7 @@ export const weaponItems: WeaponItem[] = [
       '\n' +
       'EXPOSED: Target receives 15% additional damage from all sources.',
     wikiLinks: [`https://remnant.wiki/Monolith`],
+    location: { world: 'Yaesha', dungeon: ['Bloodless Throne'] },
     linkedItems: {
       mod: {
         name: 'Sandstorm',
@@ -468,6 +485,7 @@ export const weaponItems: WeaponItem[] = [
     dlc: 'base',
     description: `A device forged of pure evil. Fires hardened bone shards at a brisk rate dealing bonus stagger. Semi-automatic with a medium kick.`,
     wikiLinks: [`https://remnant.wiki/Nightfall`],
+    location: { world: 'Losomn', dungeon: ['Tormented Asylum'] },
     linkedItems: {
       mod: {
         name: 'Dreadwalker',
@@ -493,6 +511,7 @@ export const weaponItems: WeaponItem[] = [
     dlc: 'base',
     description: `An energy-based cutting tool that increases damage when focused on a target. Can overheat.`,
     wikiLinks: [`https://remnant.wiki/Plasma_Cutter`],
+    location: { world: `N'Erud`, dungeon: [`Titan's Reach`] },
     linkedItems: {
       mod: {
         name: 'Heat Sink',
@@ -518,6 +537,10 @@ export const weaponItems: WeaponItem[] = [
     dlc: 'dlc2',
     description: `ERROR: Unable to load description.ERROR: Unable to load description.`,
     wikiLinks: [`https://remnant.wiki/Polygun`],
+    location: {
+      world: 'Labyrinth',
+      dungeon: 'Labyrinth',
+    },
     linkedItems: {
       mod: {
         name: '77 79 68',
@@ -543,6 +566,11 @@ export const weaponItems: WeaponItem[] = [
     dlc: 'base',
     description: `An extremely accurate, high-tech pulse rifle which shoots quick three-round bursts.`,
     wikiLinks: [`https://remnant.wiki/Pulse_Rifle`],
+    location: {
+      world: `N'Erud`,
+      biome: `N'Erud Underworld`,
+      injectable: 'Ascension Spire',
+    },
     damage: 16,
     rps: 7.8,
     magazine: 30,
@@ -563,6 +591,7 @@ export const weaponItems: WeaponItem[] = [
     dlc: 'base',
     description: `Converted from experimental Dreamer tech, ideal for mid-range combat. Weapon becomes more accurate the longer AIM is held.`,
     wikiLinks: [`https://remnant.wiki/Repulsor`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
     linkedItems: {
       mod: {
         name: 'Banish',
@@ -591,6 +620,7 @@ export const weaponItems: WeaponItem[] = [
       'A lightweight, easy handling bow designed for hunting. High critical chance, bonus damage on Weakspot hits, and a low sound profile.\n' +
       'Can be charged for more damage. Perfect release after Charge for maximum damage.',
     wikiLinks: [`https://remnant.wiki/Royal_Hunting_Bow`],
+    location: { world: 'Losomn', dungeon: [`Postulant's Parlor`] },
     damage: 80,
     rps: 5.3,
     magazine: 1,
@@ -613,6 +643,7 @@ export const weaponItems: WeaponItem[] = [
     dlc: 'base',
     description: `A well-worn lever-action rifle.`,
     wikiLinks: [`https://remnant.wiki/Rusty_Lever_Action`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
     damage: 55,
     rps: 1.8,
     magazine: 10,
@@ -634,6 +665,7 @@ export const weaponItems: WeaponItem[] = [
     description:
       'A high-powered Bow which deals bonus damage to Weakspots. Can be charged for increased effect. Perfect release after Charge for maximum damage.',
     wikiLinks: [`https://remnant.wiki/Sagittarius`],
+    location: { world: 'Yaesha', dungeon: [`Cathedral of Omens`] },
     linkedItems: {
       mod: {
         name: 'Starfall',
@@ -667,6 +699,7 @@ export const weaponItems: WeaponItem[] = [
         name: 'Shatterstar',
       },
     },
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
     damage: 50,
     rps: 2.1,
     magazine: 6,
@@ -689,6 +722,7 @@ export const weaponItems: WeaponItem[] = [
     description:
       'Fires incendiary shells that apply BURNING which deals 30 - 90 FIRE damage over 3 seconds.',
     wikiLinks: [`https://remnant.wiki/Sparkfire_Shotgun`],
+    location: { world: 'Losomn', dungeon: ['Derelict Lighthouse'] },
     damage: 100,
     rps: 1.3,
     magazine: 7,
@@ -709,6 +743,7 @@ export const weaponItems: WeaponItem[] = [
     dlc: 'base',
     description: `An exceptionally powerful single-shot weapon that deals bonus stagger damage. Must reload after each round fired.`,
     wikiLinks: [`https://remnant.wiki/Sporebloom`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
     linkedItems: {
       mod: {
         name: 'Spore Shot',
@@ -735,6 +770,7 @@ export const weaponItems: WeaponItem[] = [
     description:
       'Alien rifle that shoots high velocity rails which penetrate enemies. Equipped with a 2.5x magnification scope. Double Tap AIM to Scope.',
     wikiLinks: [`https://remnant.wiki/Starkiller`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
     linkedItems: {
       mod: {
         name: 'Gravity Core',
@@ -763,6 +799,7 @@ export const weaponItems: WeaponItem[] = [
       'Fires homing needles which deal 5 - 15 Explosive Damage after sticking for 2s. When 5  needles are stuck in a target at once, BLOWBACK triggers, dealing 50 - 150 Explosive Damage instead.',
     externalTokens: [`Explosive Damage`],
     wikiLinks: [`https://remnant.wiki/Thorn`],
+    location: { world: 'Yaesha', dungeon: ['Glittering Grotto'] },
     linkedItems: {
       mod: {
         name: 'Deadwood',
@@ -789,6 +826,7 @@ export const weaponItems: WeaponItem[] = [
     dlc: 'base',
     description: `A strange device which fires a bouncing Energy Disc that can hit up to 5 enemies in close proximity. Damage is reduced with each bounce.`,
     wikiLinks: [`https://remnant.wiki/Twisted_Arbalest`],
+    location: { world: 'Yaesha', dungeon: ['The Great Bole'] },
     linkedItems: {
       mod: {
         name: "Guardian's Call",
@@ -815,6 +853,7 @@ export const weaponItems: WeaponItem[] = [
     dlc: 'dlc2',
     description: `A powerful Pan crossbow designed for mid-range combat. Fires 3 bolts at a time.`,
     wikiLinks: [`https://remnant.wiki/Trinity_Crossbow`],
+    location: { world: 'Yaesha', dungeon: ['Ancient Canopy'] },
     damage: 44,
     rps: 0.63,
     magazine: 18,
@@ -837,6 +876,7 @@ export const weaponItems: WeaponItem[] = [
     description:
       'A powerful single-shot sniper rifle with excellent range and pinpoint accuracy. Comes with a 3x scope. Tap SCOPE to toggle.',
     wikiLinks: [`https://remnant.wiki/Widowmaker`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
     damage: 125,
     rps: 2.4,
     magazine: 1,
@@ -858,6 +898,7 @@ export const weaponItems: WeaponItem[] = [
     dlc: 'base',
     description: `A well-rounded lever-action rifle effective at most ranges, hampered only by a slow reload.`,
     wikiLinks: [`https://remnant.wiki/Wrangler_1860`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
     damage: 55,
     rps: 2.1,
     magazine: 10,
@@ -879,6 +920,7 @@ export const weaponItems: WeaponItem[] = [
     dlc: 'base',
     description: `An experimental infantry support weapon used for prolonged suppressive fire. High capacity, long reload, and prone to overheating. Becomes more accurate while holding down the trigger.`,
     wikiLinks: [`https://remnant.wiki/XMG57_"Bonesaw"`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
     damage: 12,
     rps: 9.5,
     magazine: 150,
@@ -899,6 +941,7 @@ export const weaponItems: WeaponItem[] = [
     id: 'sd4nzf',
     description: `A hammer-like anchor that swings with an exceptionally irregular ferocity.`,
     wikiLinks: [`https://remnant.wiki/Abyssal_Hook`],
+    location: { world: 'Losomn', dungeon: ['Forlorn Coast'] },
     linkedItems: {
       mod: {
         name: 'Fathomless Deep',
@@ -918,6 +961,7 @@ export const weaponItems: WeaponItem[] = [
     dlc: 'base',
     description: `Lightweight. Silent. Deadly. It's rumored that the blade is meant to bestow a slow, agonizing death.`,
     wikiLinks: [`https://remnant.wiki/Assassin's_Dagger`],
+    location: { world: 'Losomn', dungeon: ['Council Chamber'] },
     linkedItems: {
       mod: {
         name: 'Bloodthirst',
@@ -937,6 +981,7 @@ export const weaponItems: WeaponItem[] = [
     dlc: 'base',
     description: `A powerful crushing device that harnesses rocket technology to increase smashing force.`,
     wikiLinks: [`https://remnant.wiki/Atom_Smasher`],
+    location: { world: `N'Erud`, dungeon: [`Terminus Station`] },
     linkedItems: {
       mod: {
         name: 'Accelerator',
@@ -956,6 +1001,11 @@ export const weaponItems: WeaponItem[] = [
     dlc: 'base',
     description: `A giant tool for splitting heavy rocks.`,
     wikiLinks: [`https://remnant.wiki/Atom_Splitter`],
+    location: {
+      world: `N'Erud`,
+      biome: `N'Erud Underworld`,
+      injectable: `The Claw`,
+    },
     linkedItems: {
       mod: {
         name: 'Fission Strike',
@@ -976,6 +1026,7 @@ export const weaponItems: WeaponItem[] = [
     description:
       'A short, but thick sword, used by Gul Warriors. Its compact design makes for swift yet hard-hitting blows. An excellent close-range option.',
     wikiLinks: [`https://remnant.wiki/Blade_of_Gul`],
+    location: { world: 'Yaesha', dungeon: 'Vendor' },
     damage: 57,
     crit: 4,
     weakspot: 100,
@@ -990,6 +1041,7 @@ export const weaponItems: WeaponItem[] = [
     dlc: 'base',
     description: `A razor-sharp hand axe. Excellent for separating flesh from bone. Charge for double attacks.`,
     wikiLinks: [`https://remnant.wiki/Bone_Chopper`],
+    location: { world: 'Losomn', dungeon: ['The Great Hall'] },
     damage: 58,
     crit: 7,
     weakspot: 105,
@@ -1008,6 +1060,7 @@ export const weaponItems: WeaponItem[] = [
     weakspot: 95,
     stagger: 3,
     wikiLinks: [`https://remnant.wiki/Crystal_Staff`],
+    location: { world: 'Yaesha', dungeon: ['Infested Abyss'] },
     linkedItems: {
       mod: {
         name: 'Power Stone',
@@ -1023,6 +1076,7 @@ export const weaponItems: WeaponItem[] = [
     dlc: 'base',
     description: `Makeshift claws fashioned from decayed root and rusted metal.`,
     wikiLinks: [`https://remnant.wiki/Decayed_Claws`],
+    location: { world: 'Root Earth', dungeon: ['Corrupted Harbor'] },
     damage: 49,
     crit: 16,
     weakspot: 110,
@@ -1038,6 +1092,7 @@ export const weaponItems: WeaponItem[] = [
     description:
       'A magical stave capable of harnessing the energy of nearby enemies.',
     wikiLinks: [`https://remnant.wiki/Dreamcatcher`],
+    location: { world: 'Losomn', dungeon: ['Tormented Asylum'] },
     linkedItems: {
       mod: {
         name: 'Dreamwave',
@@ -1057,6 +1112,7 @@ export const weaponItems: WeaponItem[] = [
     dlc: 'base',
     description: `An elegant, yet light blade, designed to bring beauty to bloodshed. Unstoppable in the hands of a master swordsman.`,
     wikiLinks: [`https://remnant.wiki/Edge_of_the_Forest`],
+    location: { world: 'Yaesha', dungeon: ['Imperial Gardens'] },
     damage: 59,
     crit: 11,
     weakspot: 105,
@@ -1078,6 +1134,7 @@ export const weaponItems: WeaponItem[] = [
         name: 'Death Sentence',
       },
     },
+    location: { world: 'Yaesha', dungeon: [`Ravager's Lair`] },
     damage: 53,
     crit: 13,
     weakspot: 110,
@@ -1093,6 +1150,7 @@ export const weaponItems: WeaponItem[] = [
     dlc: 'base',
     description: `Dealing damage unleashes the dormant Toxic Gas within the head. When infused, Basic Attacks apply CORRODED for 5s.`,
     wikiLinks: [`https://remnant.wiki/Gas_Giant`],
+    location: { world: `N'Erud`, dungeon: [`Forgotten Prison`] },
     linkedItems: {
       mod: {
         name: 'Dying Breath',
@@ -1113,6 +1171,7 @@ export const weaponItems: WeaponItem[] = [
     description:
       'An expertly balanced blade that is the product of advanced Fae metallurgy. Cannot score Weakspot hits without its Mod behavior.',
     wikiLinks: [`https://remnant.wiki/Godsplitter`],
+    location: { world: 'Losomn', dungeon: ['Malefic Gallery'] },
     linkedItems: {
       mod: {
         name: 'Fracture',
@@ -1133,6 +1192,7 @@ export const weaponItems: WeaponItem[] = [
     description:
       'An ancient, quick, and versatile blade suited for many situations. Contains a hidden power.',
     wikiLinks: [`https://remnant.wiki/Hero's_Sword`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
     linkedItems: {
       mod: {
         name: 'Energy Wave',
@@ -1153,6 +1213,7 @@ export const weaponItems: WeaponItem[] = [
     description:
       'A battle-worn spear worthy of the finest hunters. Charge Melee Attacks apply CORROSION dealing 100 ACID damage over 5s.',
     wikiLinks: [`https://remnant.wiki/Huntress_Spear`],
+    location: { world: 'Losomn', dungeon: [`Briella's Garden`] },
     linkedItems: {
       mod: {
         name: 'Javelin',
@@ -1172,6 +1233,7 @@ export const weaponItems: WeaponItem[] = [
     dlc: 'base',
     description: `A giant broadsword made from flattened railroad tracks. Dozens of ridges cut in the side for causing irreparable damage.`,
     wikiLinks: [`https://remnant.wiki/Iron_Greatsword`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
     damage: 105,
     crit: 5,
     weakspot: 95,
@@ -1186,6 +1248,8 @@ export const weaponItems: WeaponItem[] = [
     dlc: 'base',
     description: `Steel knuckles with rusty sawblade tips, designed to boost Unarmed damage.`,
     wikiLinks: [`https://remnant.wiki/Knuckle_Dusters`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
+
     damage: 43,
     crit: 5,
     weakspot: 110,
@@ -1201,6 +1265,7 @@ export const weaponItems: WeaponItem[] = [
     description:
       'Infused with Krell Shock magic, can be thrown if the wielder has stamina. Axe will magically reappear in hand. Charge to throw.',
     wikiLinks: [`https://remnant.wiki/Krell_Axe`],
+    location: { world: 'Yaesha', dungeon: [`Endaira's End`] },
     linkedItems: {
       mod: {
         name: 'Krell Edge',
@@ -1220,6 +1285,7 @@ export const weaponItems: WeaponItem[] = [
     dlc: 'base',
     description: `Basic Strikes generate 10% additional Mod Power. Charge Attacks perform an AOE which strikes all enemies within 2m, dealing 75 Damage. AOE Damage generates 50% additional Mod Power.`,
     externalTokens: [`Amplitude`],
+    location: { world: 'Labyrinth', dungeon: 'Labyrinth' },
     wikiLinks: [`https://remnant.wiki/Labyrinth_Staff`],
     damage: 64,
     crit: 8,
@@ -1235,6 +1301,7 @@ export const weaponItems: WeaponItem[] = [
     id: '6j7c6k',
     description: `The mace whirs as if living harmonics hold its shape. When swung, a breath of sand tethers to the rock crown for extended reach and lethal momentum.`,
     wikiLinks: [`https://remnant.wiki/Mirage`],
+    location: { world: 'Yaesha', dungeon: [`Goddess's Rest`] },
     linkedItems: {
       mod: {
         name: 'Cyclone',
@@ -1255,6 +1322,7 @@ export const weaponItems: WeaponItem[] = [
     description:
       'Fast striking claws with a high Critical Hit chance. Neutral Dodge grants the power of Lifesteal.',
     wikiLinks: [`https://remnant.wiki/Nightshade`],
+    location: { world: 'Losomn', dungeon: [`Tormented Asylum`] },
     linkedItems: {
       mod: {
         name: 'Beyond the Veil',
@@ -1274,6 +1342,7 @@ export const weaponItems: WeaponItem[] = [
     dlc: 'base',
     description: `An intricately-forged elongated sword. Designed to keep stronger enemies at bay, while remaining light enough for agile maneuvers.`,
     wikiLinks: [`https://remnant.wiki/Ornate_Blade`],
+    location: { world: 'Losomn', dungeon: ['Council Chamber'] },
     damage: 52,
     crit: 11,
     weakspot: 105,
@@ -1289,6 +1358,15 @@ export const weaponItems: WeaponItem[] = [
     description:
       'An intricately-forged flail with uniquely designed airways. Allows smaller wielders to get the weapon up to speed much quicker.',
     wikiLinks: [`https://remnant.wiki/Ornate_Flail`],
+    location: {
+      world: 'Losomn',
+      dungeon: [
+        'Council Chamber',
+        'Gilded Chambers',
+        'The Great Hall',
+        'Shattered Gallery',
+      ],
+    },
     damage: 63,
     crit: 11,
     weakspot: 100,
@@ -1303,6 +1381,7 @@ export const weaponItems: WeaponItem[] = [
     dlc: 'base',
     description: `A spear perfect for staying at a distance. Has excellent range, great recovery, and focused direct damage for one on one combat.`,
     wikiLinks: [`https://remnant.wiki/Rebellion_Spear`],
+    location: { world: 'Yaesha', dungeon: [`Ravager's Lair`] },
     damage: 60,
     crit: 13,
     weakspot: 110,
@@ -1317,6 +1396,7 @@ export const weaponItems: WeaponItem[] = [
     dlc: 'base',
     description: `A magical stave rumored to contain a healing spirit within. Strikes with wide swings.`,
     wikiLinks: [`https://remnant.wiki/Red_Doe_Staff`],
+    location: { world: 'Yaesha', dungeon: [`Ravager's Lair`] },
     linkedItems: {
       mod: {
         name: 'Lifeline',
@@ -1337,6 +1417,7 @@ export const weaponItems: WeaponItem[] = [
     description:
       'An evil-fueled reaping tool that deals additional damage to suffering targets.',
     wikiLinks: [`https://remnant.wiki/Ritualist_Scythe`],
+    location: { world: 'Losomn', dungeon: ['The Forgotten Commune'] },
     linkedItems: {
       mod: {
         name: 'Reaver',
@@ -1357,6 +1438,7 @@ export const weaponItems: WeaponItem[] = [
     description:
       "Standard issue Greatsword for the Empress' Royal Guards. Razor-sharp edges, extremely heavy, yet perfectly balanced.",
     wikiLinks: [`https://remnant.wiki/Royal_Broadsword`],
+    location: { world: 'Yaesha', dungeon: ['The Red Throne'] },
     damage: 102,
     crit: 7,
     weakspot: 95,
@@ -1371,6 +1453,7 @@ export const weaponItems: WeaponItem[] = [
     dlc: 'base',
     description: `A pair of old-canine training bracers converted into deadly claws. Used for slashing and ripping.`,
     wikiLinks: [`https://remnant.wiki/Rusted_Claws`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
     damage: 51,
     crit: 14,
     weakspot: 110,
@@ -1382,6 +1465,7 @@ export const weaponItems: WeaponItem[] = [
     name: 'Scrap Hammer',
     saveFileSlug: 'weapon_hammer',
     imagePath: '/items/weapons/hammer.png',
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
     id: 'a88cg7',
     dlc: 'base',
     description:
@@ -1398,6 +1482,7 @@ export const weaponItems: WeaponItem[] = [
     name: 'Scrap Hatchet',
     saveFileSlug: 'weapon_hatchet',
     imagePath: '/items/weapons/hatchet.png',
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
     id: 'wtj6mq',
     dlc: 'base',
     description: `A common chopping tool that has been repurposed for combat. Rapidly cycles attacks from right to left. Charge attacks strike twice.`,
@@ -1417,6 +1502,7 @@ export const weaponItems: WeaponItem[] = [
     dlc: 'base',
     description: `A staff made from old plumbing parts used for controlling wide swaths in front of the wielder.`,
     wikiLinks: [`https://remnant.wiki/Scrap_Staff`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
     damage: 65,
     crit: 6,
     weakspot: 95,
@@ -1431,6 +1517,7 @@ export const weaponItems: WeaponItem[] = [
     dlc: 'dlc2',
     description: `It's a shovel.`,
     wikiLinks: [`https://remnant.wiki/Shovel`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
     damage: 55,
     crit: 15,
     weakspot: 100,
@@ -1445,6 +1532,7 @@ export const weaponItems: WeaponItem[] = [
     dlc: 'base',
     description: `A scorched blade imbued with FIRE.`,
     wikiLinks: [`https://remnant.wiki/Smolder`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
     linkedItems: {
       mod: {
         name: 'Blaze',
@@ -1464,6 +1552,7 @@ export const weaponItems: WeaponItem[] = [
     dlc: 'base',
     description: `A super-heated laser sword with an infinitely sharp edge. Perfect for cutting... anything.`,
     wikiLinks: [`https://remnant.wiki/Spectral_Blade`],
+    location: { world: `N'Erud`, dungeon: [`Sentinel's Keep`] },
     linkedItems: {
       mod: {
         name: 'Whirlwind',
@@ -1484,6 +1573,7 @@ export const weaponItems: WeaponItem[] = [
     dlc: 'base',
     description: `An unorthodox weapon meant to convert momentum into destruction. Some attacks can continuously chain overhead swings.`,
     wikiLinks: [`https://remnant.wiki/Steel_Flail`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
     damage: 69,
     crit: 4,
     weakspot: 100,
@@ -1499,6 +1589,7 @@ export const weaponItems: WeaponItem[] = [
     dlc: 'base',
     description: `An old piece of steel with serrations cut into one side. Pipe handle provides limited grip.`,
     wikiLinks: [`https://remnant.wiki/Steel_Katana`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
     damage: 56,
     crit: 13,
     weakspot: 105,
@@ -1514,6 +1605,7 @@ export const weaponItems: WeaponItem[] = [
     dlc: 'base',
     description: `A ruthless threshing device.`,
     wikiLinks: [`https://remnant.wiki/Steel_Scythe`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
     damage: 55,
     crit: 10,
     weakspot: 100,
@@ -1529,6 +1621,7 @@ export const weaponItems: WeaponItem[] = [
     dlc: 'base',
     description: `A spear perfect for staying at range with quick, focused attacks. High, single-target damage.`,
     wikiLinks: [`https://remnant.wiki/Steel_Spear`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
     damage: 61,
     crit: 9,
     weakspot: 110,
@@ -1544,6 +1637,7 @@ export const weaponItems: WeaponItem[] = [
     dlc: 'base',
     description: `A long, sharp blade hammered out of vehicle leaf springs. Well-rounded for most situations.`,
     wikiLinks: [`https://remnant.wiki/Steel_Sword`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
     damage: 56,
     crit: 7,
     weakspot: 100,
@@ -1558,6 +1652,7 @@ export const weaponItems: WeaponItem[] = [
     dlc: 'base',
     description: `A massive Greatsword which contains the harnessed magic of a corrupted Guardian. Can summon small shockwaves.`,
     wikiLinks: [`https://remnant.wiki/Stonebreaker`],
+    location: { world: `Yaesha`, dungeon: ['The Great Bole'] },
     linkedItems: {
       mod: {
         name: 'Faultline',
@@ -1577,6 +1672,11 @@ export const weaponItems: WeaponItem[] = [
     dlc: 'base',
     description: `A N'Erudian tool converted into a ruthless ripping device. High raw damage.`,
     wikiLinks: [`https://remnant.wiki/Vice_Grips`],
+    location: {
+      world: `N'Erud`,
+      biome: `N'Erud Underworld`,
+      injectable: `Ascension Spire`,
+    },
     damage: 55,
     crit: 6,
     weakspot: 110,
@@ -1592,6 +1692,7 @@ export const weaponItems: WeaponItem[] = [
     description:
       'A glowing Greatsword forged from shards of a shattered Worldstone. Charge attacks cast waves.',
     wikiLinks: [`https://remnant.wiki/World's_Edge`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
     linkedItems: {
       mod: {
         name: 'Horizon Strike',
@@ -1611,6 +1712,7 @@ export const weaponItems: WeaponItem[] = [
     id: 'mq5fnr',
     description: `A massive hammer infused with the souls of deceased Dran. Its dormant power can be awakened by taking damage.`,
     wikiLinks: [`https://remnant.wiki/Wrathbringer`],
+    location: { world: 'Losomn', dungeon: ['Chamber of the Faithless'] },
     linkedItems: {
       mod: {
         name: 'Awakening',
@@ -1631,6 +1733,7 @@ export const weaponItems: WeaponItem[] = [
     description: `Fires heated bits of molten slag. Can be charged to fire a single explosive rod at the cost of causing damage to the wielder while charging.`,
     externalTokens: [`Explosive Damage`],
     wikiLinks: [`https://remnant.wiki/Anguish`],
+    location: { world: 'Losomn', dungeon: ['Tormented Asylum'] },
     linkedItems: {
       mod: {
         name: 'Loathe the Weak',
@@ -1657,6 +1760,7 @@ export const weaponItems: WeaponItem[] = [
     description:
       'An ingenius Gul rifle designed to harness energy from Pan crystals. Charge to fire a 3-shot burst.',
     wikiLinks: [`https://remnant.wiki/Bolt_Driver`],
+    location: { world: 'Yaesha', dungeon: ['The Forbidden Grove'] },
     damage: 26,
     rps: 7.63,
     magazine: 24,
@@ -1678,6 +1782,7 @@ export const weaponItems: WeaponItem[] = [
     description:
       'Fusion charged auto-cannon generates cubes which penetrate. Infinite ammo capacity. Can overheat. Cannot score Weakspot hits.',
     wikiLinks: ['https://remnant.wiki/Corrupted_Cube_Gun'],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
     damage: 66,
     rps: 2.2,
     magazine: 99,
@@ -1705,6 +1810,7 @@ export const weaponItems: WeaponItem[] = [
       'Fires rocket that deals AOE damage within 2m. Charging the weapon can load additional rockets. (Max 3). Cannot Weakspot.',
     externalTokens: [`Amplitude`, `Explosive Damage`],
     wikiLinks: [`https://remnant.wiki/Corrupted_Meridian`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
     linkedItems: {
       mod: {
         name: 'Deadpoint',
@@ -1731,6 +1837,7 @@ export const weaponItems: WeaponItem[] = [
     description:
       'Semi-automatic laser weapon. Weakspot hits and kills create a Nano-bot for 8s that seeks enemies within 20m and repeatedly attacks dealing 6 - 18 ACID damage per hit. Max 5 Nano-bots.',
     wikiLinks: ['https://remnant.wiki/Corrupted_Nebula'],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
     linkedItems: {
       mod: {
         name: 'Nano Phase',
@@ -1756,6 +1863,7 @@ export const weaponItems: WeaponItem[] = [
     dlc: 'base',
     description: `A pistol infused with erroneous properties. Fires energy, allowing the trigger to be held for continuous fire.`,
     wikiLinks: [`https://remnant.wiki/Corrupted_Rune_Pistol`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
     linkedItems: {
       mod: {
         name: 'Death Brand',
@@ -1787,6 +1895,7 @@ export const weaponItems: WeaponItem[] = [
       },
     },
     wikiLinks: ['https://remnant.wiki/Corrupted_Sorrow'],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
     damage: 42,
     rps: 2.6,
     magazine: 10,
@@ -1809,6 +1918,7 @@ export const weaponItems: WeaponItem[] = [
     description:
       'Projectiles return on hit or after reaching max range. Reloading retrieves shot projectiles. Max 5 fired projectiles. Infinite ammo. Can overheat.',
     wikiLinks: [`https://remnant.wiki/Cube_Gun`],
+    location: { world: 'Labyrinth', dungeon: 'Labyrinth' },
     linkedItems: {
       mod: {
         name: 'Cube Shield',
@@ -1836,6 +1946,7 @@ export const weaponItems: WeaponItem[] = [
     description:
       'A double-barrel shotgun which can deal massive damage at close range with back to back shots.',
     wikiLinks: [`https://remnant.wiki/Double_Barrel`],
+    location: { world: 'Losomn', dungeon: ['Morrow Parish'] },
     damage: 105,
     rps: 2.25,
     magazine: 2,
@@ -1858,6 +1969,7 @@ export const weaponItems: WeaponItem[] = [
       'Fires an electrical stream that jumps to nerby targets within 7.5m, dealing 30% reduced damage per jump. Applies OVERLOADED.',
     externalTokens: [`Amplitude`],
     wikiLinks: [`https://remnant.wiki/Enigma`],
+    location: { world: 'Labyrinth', dungeon: 'Labyrinth' },
     linkedItems: {
       mod: {
         name: 'Chaos Driver',
@@ -1884,6 +1996,7 @@ export const weaponItems: WeaponItem[] = [
     description:
       'Spews flames that apply BURNING which deals 300 - 900 FIRE damage over 10 seconds.',
     wikiLinks: [`https://remnant.wiki/Hellfire`],
+    location: { world: 'Root Earth', dungeon: ['Ashen Wasteland'] },
     linkedItems: {
       mod: {
         name: 'Explosive Shot',
@@ -1912,6 +2025,11 @@ export const weaponItems: WeaponItem[] = [
       'Fires grenades that explode on contact with enemies and deal AOE damage within 4m. Dormant grenades eventually explode and can be shot to detonate early. Cannot Weakspot.',
     externalTokens: [`Amplitude`, `Explosive Damage`],
     wikiLinks: [`https://remnant.wiki/Meridian`],
+    location: {
+      world: 'Losomn',
+      biome: 'Losomn Sewers',
+      injectable: 'Rising Tides',
+    },
     linkedItems: {
       mod: {
         name: 'Screamer',
@@ -1938,6 +2056,7 @@ export const weaponItems: WeaponItem[] = [
     description:
       'A small-caliber sub-machine gun best suited for close range skirmishes.',
     wikiLinks: [`https://remnant.wiki/MP60-R`],
+    location: { world: 'Ward 13', dungeon: 'Ward 13' },
     damage: 9,
     rps: 14.2,
     magazine: 42,
@@ -1960,6 +2079,7 @@ export const weaponItems: WeaponItem[] = [
     description:
       'Fires a stream of superhot ACID gas which applies CORRODED effect, dealing 300 - 900 CORROSIVE Damage over 15s. Killing targets CORRODED by Nebula spawns a gas cloud which applies its on-hit effect. Gas clouds lasts 2s and can be refreshed.',
     wikiLinks: [`https://remnant.wiki/Nebula`],
+    location: { world: `N'Erud`, dungeon: [`Forgotten Prison`] },
     linkedItems: {
       mod: {
         name: 'Nano Swarm',
@@ -1986,6 +2106,7 @@ export const weaponItems: WeaponItem[] = [
     dlc: 'base',
     description: `An accurate semi-automatic pistol that can rapidly fire small-caliber bullets.`,
     wikiLinks: [`https://remnant.wiki/Repeater_Pistol`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
     damage: 15,
     rps: 8.1,
     magazine: 20,
@@ -2007,6 +2128,7 @@ export const weaponItems: WeaponItem[] = [
     dlc: 'base',
     description: `A pistol infused with mysterious Fae magic. Rapidly fires 3-round bursts of energy. Trigger can be held to continuously fire.`,
     wikiLinks: [`https://remnant.wiki/Rune_Pistol`],
+    location: { world: 'Losomn', dungeon: ['The Great Hall'] },
     linkedItems: {
       mod: {
         name: 'Soul Brand',
@@ -2056,6 +2178,7 @@ export const weaponItems: WeaponItem[] = [
     dlc: 'base',
     description: `An old antique pistol.`,
     wikiLinks: [`https://remnant.wiki/Rusty_Repeater`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
     damage: 15,
     rps: 7.2,
     magazine: 15,
@@ -2076,6 +2199,7 @@ export const weaponItems: WeaponItem[] = [
     dlc: 'base',
     description: `A standard issue military spec sidearm known for its reliability and accuracy.`,
     wikiLinks: [`https://remnant.wiki/Service_Pistol`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
     damage: 24,
     rps: 6.5,
     magazine: 10,
@@ -2097,6 +2221,7 @@ export const weaponItems: WeaponItem[] = [
     dlc: 'base',
     description: `A powerful hand cannon with a low capacity cylinder. High damage and a heavy kick.`,
     wikiLinks: [`https://remnant.wiki/Silverback_Model_500`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
     damage: 55,
     rps: 2.4,
     magazine: 6,
@@ -2118,6 +2243,7 @@ export const weaponItems: WeaponItem[] = [
     dlc: 'base',
     description: `The last vestiges of a fallen sister, this mystical crossbow pistol has the ability to recall its bolts to heal the wielder.`,
     wikiLinks: [`https://remnant.wiki/Sorrow`],
+    location: { world: 'Yaesha', dungeon: ['Dappled Glade'] },
     linkedItems: {
       mod: {
         name: 'Eulogy',
@@ -2144,6 +2270,7 @@ export const weaponItems: WeaponItem[] = [
     description: `Fires a fast moving projectile which explodes on contact. Explosion has no damage falloff.`,
     externalTokens: [`Amplitude`, `Explosive Damage`],
     wikiLinks: [`https://remnant.wiki/Star_Shot`],
+    location: { world: `N'Erud`, dungeon: [`The Dark Conduit`] },
     linkedItems: {
       mod: {
         name: 'Big Bang',
@@ -2170,6 +2297,7 @@ export const weaponItems: WeaponItem[] = [
     dlc: 'base',
     description: `A high-caliber single-shot hunting pistol that inflicts heavy damage at mid to long range.`,
     wikiLinks: [`https://remnant.wiki/Sureshot`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
     damage: 110,
     rps: 3,
     magazine: 1,
@@ -2190,6 +2318,7 @@ export const weaponItems: WeaponItem[] = [
     dlc: 'base',
     description: `A suppressed small-caliber automatic pistol with medium magazine capacity and a high fire rate.`,
     wikiLinks: [`https://remnant.wiki/Tech_22`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
     damage: 8,
     rps: 16,
     magazine: 30,
@@ -2211,6 +2340,7 @@ export const weaponItems: WeaponItem[] = [
     dlc: 'base',
     description: `A classic six-shooter. Tough. Dependable.`,
     wikiLinks: [`https://remnant.wiki/Western_Classic`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
     damage: 36,
     rps: 5.75,
     magazine: 6,

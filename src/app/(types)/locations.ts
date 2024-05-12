@@ -93,6 +93,8 @@ export type YaeshaDungeon =
   | 'Proving Grounds'
   | `Goddess's Rest`
   | `Deserted Atelier`
+  | `Bloodless Throne`
+  | `Glittering Grotto`
 
 export type RootEarthDungeon =
   | 'Ashen Wasteland'
