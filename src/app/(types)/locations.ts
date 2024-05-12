@@ -62,6 +62,7 @@ export type NErudDungeon =
   | `Void Vessel Facility`
   | `Extraction Hub`
   | `Titan's Reach`
+  | `Alepsis-Taura`
 
 export type YaeshaDungeon =
   | `The Red Throne`
