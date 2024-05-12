@@ -12,6 +12,7 @@ export const modItems: ModItem[] = [
       '\n' +
       'Mod Power Requirement: 1,250',
     wikiLinks: [`https://remnant.wiki/Abrasive_Rounds`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
   {
     category: 'mod',
@@ -27,6 +28,7 @@ export const modItems: ModItem[] = [
         name: 'Polygun',
       },
     },
+    location: { world: 'Labyrinth', dungeon: 'Labyrinth' },
   },
   {
     category: 'mod',
@@ -41,6 +43,7 @@ export const modItems: ModItem[] = [
         name: 'Atom Smasher',
       },
     },
+    location: { world: 'Any', dungeon: 'Linked Weapon' },
   },
   {
     category: 'mod',
@@ -53,6 +56,7 @@ export const modItems: ModItem[] = [
       '\n' +
       'Mod Power Requirement: 450',
     wikiLinks: [`https://remnant.wiki/Astral_Burst`],
+    location: { world: 'Yaesha', dungeon: ['Cathedral of Omens'] },
   },
   {
     category: 'mod',
@@ -67,6 +71,7 @@ export const modItems: ModItem[] = [
         name: 'Wrathbringer',
       },
     },
+    location: { world: 'Any', dungeon: 'Linked Weapon' },
   },
   {
     category: 'mod',
@@ -87,6 +92,7 @@ export const modItems: ModItem[] = [
         name: 'Repulsor',
       },
     },
+    location: { world: 'Any', dungeon: 'Linked Weapon' },
   },
   {
     category: 'mod',
@@ -107,6 +113,7 @@ export const modItems: ModItem[] = [
         name: 'Alpha-Omega',
       },
     },
+    location: { world: 'Any', dungeon: 'Linked Weapon' },
   },
   {
     category: 'mod',
@@ -121,6 +128,7 @@ export const modItems: ModItem[] = [
         name: 'Nightshade',
       },
     },
+    location: { world: 'Any', dungeon: 'Linked Weapon' },
   },
   {
     category: 'mod',
@@ -141,6 +149,7 @@ export const modItems: ModItem[] = [
         name: 'Star Shot',
       },
     },
+    location: { world: 'Any', dungeon: 'Linked Weapon' },
   },
   {
     category: 'mod',
@@ -156,6 +165,7 @@ export const modItems: ModItem[] = [
         name: 'Smolder',
       },
     },
+    location: { world: 'Any', dungeon: 'Linked Weapon' },
   },
   {
     category: 'mod',
@@ -169,6 +179,7 @@ export const modItems: ModItem[] = [
       'Mod Power Requirement: 450',
     externalTokens: [`Explosive Damage`],
     wikiLinks: [`https://remnant.wiki/Blood_Draw`],
+    location: { world: 'Losomn', dungeon: ['Gilded Chambers'] },
   },
   {
     category: 'mod',
@@ -188,6 +199,7 @@ export const modItems: ModItem[] = [
         name: 'Merciless',
       },
     },
+    location: { world: 'Any', dungeon: 'Linked Weapon' },
   },
   {
     category: 'mod',
@@ -205,6 +217,7 @@ export const modItems: ModItem[] = [
         name: 'Corrupted Merciless',
       },
     },
+    location: { world: 'Any', dungeon: 'Linked Weapon' },
   },
   {
     category: 'mod',
@@ -219,6 +232,7 @@ export const modItems: ModItem[] = [
         name: `Assassin's Dagger`,
       },
     },
+    location: { world: 'Any', dungeon: 'Linked Weapon' },
   },
   {
     category: 'mod',
@@ -232,6 +246,7 @@ export const modItems: ModItem[] = [
       '\n' +
       'Mod Power Requirement: 750',
     wikiLinks: [`https://remnant.wiki/Bore`],
+    location: { world: `N'Erud`, dungeon: [`The Dark Conduit`] },
   },
   {
     category: 'mod',
@@ -249,6 +264,7 @@ export const modItems: ModItem[] = [
         name: 'Monarch',
       },
     },
+    location: { world: 'Any', dungeon: 'Linked Weapon' },
   },
   {
     category: 'mod',
@@ -269,6 +285,7 @@ export const modItems: ModItem[] = [
         name: 'Enigma',
       },
     },
+    location: { world: 'Any', dungeon: 'Linked Weapon' },
   },
   {
     category: 'mod',
@@ -282,6 +299,7 @@ export const modItems: ModItem[] = [
       ' Mod Power Requirement: 450',
     externalTokens: [`Amplitude`],
     wikiLinks: [`https://remnant.wiki/Concussive_Shot`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
   {
     category: 'mod',
@@ -295,6 +313,7 @@ export const modItems: ModItem[] = [
       '\n' +
       'Mod Power Requirement: 1,250',
     wikiLinks: [`https://remnant.wiki/Corrosive_Rounds`],
+    location: { world: 'Losomn', dungeon: ['Shattered Gallery'] },
   },
   {
     category: 'mod',
@@ -310,6 +329,7 @@ export const modItems: ModItem[] = [
       'Mod Power Requirement: 1,000',
     externalTokens: [`Amplitude`],
     wikiLinks: [`https://remnant.wiki/Creeping_Mist`],
+    location: { world: 'Losomn', dungeon: ['Sunken Haunt'] },
   },
   {
     category: 'mod',
@@ -328,6 +348,7 @@ export const modItems: ModItem[] = [
         name: 'Corrupted Cube Gun',
       },
     },
+    location: { world: 'Any', dungeon: 'Linked Weapon' },
   },
   {
     category: 'mod',
@@ -343,6 +364,7 @@ export const modItems: ModItem[] = [
         name: 'Cube Gun',
       },
     },
+    location: { world: 'Any', dungeon: 'Linked Weapon' },
   },
   {
     category: 'mod',
@@ -357,6 +379,7 @@ export const modItems: ModItem[] = [
         name: 'Mirage',
       },
     },
+    location: { world: 'Any', dungeon: 'Linked Weapon' },
   },
   {
     category: 'mod',
@@ -372,6 +395,7 @@ export const modItems: ModItem[] = [
         name: 'Corrupted Meridian',
       },
     },
+    location: { world: 'Any', dungeon: 'Linked Weapon' },
   },
   {
     category: 'mod',
@@ -392,6 +416,7 @@ export const modItems: ModItem[] = [
         name: 'Thorn',
       },
     },
+    location: { world: 'Any', dungeon: 'Linked Weapon' },
   },
   {
     category: 'mod',
@@ -407,6 +432,7 @@ export const modItems: ModItem[] = [
         name: 'Corrupted Rune Pistol',
       },
     },
+    location: { world: 'Any', dungeon: 'Linked Weapon' },
   },
   {
     category: 'mod',
@@ -421,6 +447,7 @@ export const modItems: ModItem[] = [
         name: 'Feral Judgement',
       },
     },
+    location: { world: 'Any', dungeon: 'Linked Weapon' },
   },
   {
     category: 'mod',
@@ -437,6 +464,7 @@ export const modItems: ModItem[] = [
       'Mod Power Requirement: 1500',
     externalTokens: [`Amplitude`],
     wikiLinks: [`https://remnant.wiki/Defrag`],
+    location: { world: 'Root Earth', dungeon: ['Ashen Wasteland'] },
   },
   {
     category: 'mod',
@@ -456,6 +484,7 @@ export const modItems: ModItem[] = [
         name: ' Nightfall',
       },
     },
+    location: { world: 'Any', dungeon: 'Linked Weapon' },
   },
   {
     category: 'mod',
@@ -475,6 +504,7 @@ export const modItems: ModItem[] = [
         name: 'Dreamcatcher',
       },
     },
+    location: { world: 'Any', dungeon: 'Linked Weapon' },
   },
   {
     category: 'mod',
@@ -490,6 +520,7 @@ export const modItems: ModItem[] = [
         name: 'Gas Giant',
       },
     },
+    location: { world: 'Any', dungeon: 'Linked Weapon' },
   },
   {
     category: 'mod',
@@ -502,6 +533,7 @@ export const modItems: ModItem[] = [
       '\n' +
       'Mod Power Requirement: 500',
     wikiLinks: [`https://remnant.wiki/Energy_Wall`],
+    location: { world: `N'Erud`, dungeon: ['Timeless Horizon'] },
   },
   {
     category: 'mod',
@@ -516,6 +548,7 @@ export const modItems: ModItem[] = [
         name: "Hero's Sword",
       },
     },
+    location: { world: 'Any', dungeon: 'Linked Weapon' },
   },
   {
     category: 'mod',
@@ -536,6 +569,7 @@ export const modItems: ModItem[] = [
         name: 'Sorrow',
       },
     },
+    location: { world: 'Any', dungeon: 'Linked Weapon' },
   },
   {
     category: 'mod',
@@ -554,6 +588,7 @@ export const modItems: ModItem[] = [
         name: 'Hellfire',
       },
     },
+    location: { world: 'Any', dungeon: 'Linked Weapon' },
   },
   {
     category: 'mod',
@@ -567,6 +602,7 @@ export const modItems: ModItem[] = [
       'Mod Power Requirement: 1000',
     externalTokens: [`Amplitude`],
     wikiLinks: [`https://remnant.wiki/Familiar`],
+    location: { world: 'Losomn', dungeon: [`Briella's Garden`] },
   },
   {
     category: 'mod',
@@ -579,6 +615,7 @@ export const modItems: ModItem[] = [
       '\n' +
       'Mod Power Requirement: 1,250',
     wikiLinks: [`https://remnant.wiki/Fargazer`],
+    location: { world: 'Yaesha', dungeon: ['The Twisted Chantry'] },
   },
   {
     category: 'mod',
@@ -594,6 +631,7 @@ export const modItems: ModItem[] = [
         name: 'Abyssal Hook',
       },
     },
+    location: { world: 'Any', dungeon: 'Linked Weapon' },
   },
   {
     category: 'mod',
@@ -609,6 +647,7 @@ export const modItems: ModItem[] = [
         name: 'Stonebreaker',
       },
     },
+    location: { world: 'Any', dungeon: 'Linked Weapon' },
   },
   {
     category: 'mod',
@@ -622,6 +661,7 @@ export const modItems: ModItem[] = [
       'Mod Power Requirement: 1,250',
     externalTokens: [`Amplitude`],
     wikiLinks: [`https://remnant.wiki/Firestorm`],
+    location: { world: 'Losomn', dungeon: ['Gilded Chambers'] },
   },
   {
     category: 'mod',
@@ -639,6 +679,7 @@ export const modItems: ModItem[] = [
         name: 'Atom Splitter',
       },
     },
+    location: { world: 'Any', dungeon: 'Linked Weapon' },
   },
   {
     category: 'mod',
@@ -655,6 +696,7 @@ export const modItems: ModItem[] = [
       '\n' +
       'Mod Power Requirement: 750',
     wikiLinks: [`https://remnant.wiki/Flying_Bomb_Trap`],
+    location: { world: 'Yaesha', dungeon: ['Proving Grounds'] },
   },
   {
     category: 'mod',
@@ -669,6 +711,7 @@ export const modItems: ModItem[] = [
         name: 'Godsplitter',
       },
     },
+    location: { world: 'Any', dungeon: 'Linked Weapon' },
   },
   {
     category: 'mod',
@@ -688,6 +731,7 @@ export const modItems: ModItem[] = [
         name: 'Corrupted Savior',
       },
     },
+    location: { world: 'Any', dungeon: 'Linked Weapon' },
   },
   {
     category: 'mod',
@@ -708,6 +752,7 @@ export const modItems: ModItem[] = [
         name: 'Starkiller',
       },
     },
+    location: { world: 'Any', dungeon: 'Linked Weapon' },
   },
   {
     category: 'mod',
@@ -728,6 +773,7 @@ export const modItems: ModItem[] = [
         name: 'Twisted Arbalest',
       },
     },
+    location: { world: 'Any', dungeon: 'Linked Weapon' },
   },
   {
     category: 'mod',
@@ -746,6 +792,7 @@ export const modItems: ModItem[] = [
         name: 'Corrupted Arbalest',
       },
     },
+    location: { world: 'Any', dungeon: 'Linked Weapon' },
   },
   {
     category: 'mod',
@@ -758,6 +805,7 @@ export const modItems: ModItem[] = [
       '\n' +
       'Mod Power Requirement: 700',
     wikiLinks: [`https://remnant.wiki/Heatwave`],
+    location: { world: 'Yaesha', dungeon: ['Deserted Atelier'] },
   },
   {
     category: 'mod',
@@ -770,6 +818,7 @@ export const modItems: ModItem[] = [
       '\n' +
       ' Mod Power Requirement: 600',
     wikiLinks: [`https://remnant.wiki/Healing_Shot`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
   {
     category: 'mod',
@@ -787,6 +836,7 @@ export const modItems: ModItem[] = [
         name: 'Plasma Cutter',
       },
     },
+    location: { world: 'Any', dungeon: 'Linked Weapon' },
   },
   {
     category: 'mod',
@@ -799,6 +849,7 @@ export const modItems: ModItem[] = [
       '\n' +
       'Mod Power Requirement: 850',
     wikiLinks: [`https://remnant.wiki/Helix`],
+    location: { world: `N'Erud`, dungeon: [`Astropath's Respite`] },
   },
   {
     category: 'mod',
@@ -814,6 +865,7 @@ export const modItems: ModItem[] = [
         name: "World's Edge",
       },
     },
+    location: { world: 'Any', dungeon: 'Linked Weapon' },
   },
   {
     category: 'mod',
@@ -826,6 +878,7 @@ export const modItems: ModItem[] = [
       '\n' +
       ' Mod Power Requirement: 1,250',
     wikiLinks: [`https://remnant.wiki/Hot_Shot`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
   {
     category: 'mod',
@@ -840,6 +893,7 @@ export const modItems: ModItem[] = [
         name: 'Huntress Spear',
       },
     },
+    location: { world: 'Any', dungeon: 'Linked Weapon' },
   },
   {
     category: 'mod',
@@ -852,6 +906,7 @@ export const modItems: ModItem[] = [
       '\n' +
       'Mod Power Requirement: 450',
     wikiLinks: [`https://remnant.wiki/Knight_Guard`],
+    location: { world: 'Losomn', dungeon: ['Walk of Rememberance'] },
   },
   {
     category: 'mod',
@@ -867,6 +922,7 @@ export const modItems: ModItem[] = [
         name: 'Krell Axe',
       },
     },
+    location: { world: 'Any', dungeon: 'Linked Weapon' },
   },
   {
     category: 'mod',
@@ -882,6 +938,7 @@ export const modItems: ModItem[] = [
         name: 'Red Doe Staff',
       },
     },
+    location: { world: 'Any', dungeon: 'Linked Weapon' },
   },
   {
     category: 'mod',
@@ -899,6 +956,7 @@ export const modItems: ModItem[] = [
         name: 'Anguish',
       },
     },
+    location: { world: 'Any', dungeon: 'Linked Weapon' },
   },
   {
     category: 'mod',
@@ -921,6 +979,7 @@ export const modItems: ModItem[] = [
         name: 'Corrupted Aphelion',
       },
     },
+    location: { world: 'Any', dungeon: 'Linked Weapon' },
   },
   {
     category: 'mod',
@@ -940,6 +999,7 @@ export const modItems: ModItem[] = [
         name: 'Crescent Moon',
       },
     },
+    location: { world: 'Any', dungeon: 'Linked Weapon' },
   },
   {
     category: 'mod',
@@ -958,6 +1018,7 @@ export const modItems: ModItem[] = [
         name: 'Corrupted Nebula',
       },
     },
+    location: { world: 'Any', dungeon: 'Linked Weapon' },
   },
   {
     category: 'mod',
@@ -975,6 +1036,7 @@ export const modItems: ModItem[] = [
         name: 'Nebula',
       },
     },
+    location: { world: 'Any', dungeon: 'Linked Weapon' },
   },
   {
     category: 'mod',
@@ -994,6 +1056,7 @@ export const modItems: ModItem[] = [
         name: 'Deceit',
       },
     },
+    location: { world: 'Any', dungeon: 'Linked Weapon' },
   },
   {
     category: 'mod',
@@ -1006,6 +1069,11 @@ export const modItems: ModItem[] = [
       '\n' +
       'Mod Power Requirement: 1,250',
     wikiLinks: [`https://remnant.wiki/Overflow`],
+    location: {
+      world: `N'Erud`,
+      biome: `N'Erud Underworld`,
+      injectable: 'Ascension Spire',
+    },
   },
   {
     category: 'mod',
@@ -1024,6 +1092,7 @@ export const modItems: ModItem[] = [
         name: 'Crystal Staff',
       },
     },
+    location: { world: 'Any', dungeon: 'Linked Weapon' },
   },
   {
     category: 'mod',
@@ -1037,6 +1106,7 @@ export const modItems: ModItem[] = [
       'Mod Power Requirement: 500',
     externalTokens: [`Amplitude`, `Explosive Damage`],
     wikiLinks: [`https://remnant.wiki/Prismatic_Driver`],
+    location: { world: `N'Erud`, dungeon: [`Spectrum Nexus`] },
   },
   {
     category: 'mod',
@@ -1051,6 +1121,7 @@ export const modItems: ModItem[] = [
         name: 'Ritualist Scythe',
       },
     },
+    location: { world: 'Any', dungeon: 'Linked Weapon' },
   },
   {
     category: 'mod',
@@ -1068,6 +1139,7 @@ export const modItems: ModItem[] = [
       'Mod Power Requirement: 1,250',
     externalTokens: [`Amplitude`],
     wikiLinks: [`https://remnant.wiki/Ring_of_Spears`],
+    location: { world: 'Losomn', dungeon: ['Glistering Cloister'] },
   },
   {
     category: 'mod',
@@ -1080,6 +1152,7 @@ export const modItems: ModItem[] = [
       '\n' +
       'Mod Power Requirement: 450',
     wikiLinks: [`https://remnant.wiki/Rootlash`],
+    location: { world: 'Yaesha', dungeon: [`Kaeula's Rest`] },
   },
   {
     category: 'mod',
@@ -1093,6 +1166,7 @@ export const modItems: ModItem[] = [
       'Mod Power Requirement: 400',
     externalTokens: [`Amplitude`, `Explosive Damage`],
     wikiLinks: [`https://remnant.wiki/Rotted_Arrow`],
+    location: { world: 'Yaesha', dungeon: ['The Expanding Glade'] },
   },
   {
     category: 'mod',
@@ -1112,6 +1186,7 @@ export const modItems: ModItem[] = [
         name: 'Monolith',
       },
     },
+    location: { world: 'Any', dungeon: 'Linked Weapon' },
   },
   {
     category: 'mod',
@@ -1126,6 +1201,7 @@ export const modItems: ModItem[] = [
       ' Mod Power Requirement: 750',
     externalTokens: [`Amplitude`],
     wikiLinks: [`https://remnant.wiki/Scrap_Shot`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
   {
     category: 'mod',
@@ -1141,6 +1217,7 @@ export const modItems: ModItem[] = [
         name: 'Meridian',
       },
     },
+    location: { world: 'Any', dungeon: 'Linked Weapon' },
   },
   {
     category: 'mod',
@@ -1160,6 +1237,7 @@ export const modItems: ModItem[] = [
         name: 'Savior',
       },
     },
+    location: { world: 'Any', dungeon: 'Linked Weapon' },
   },
   {
     category: 'mod',
@@ -1173,6 +1251,7 @@ export const modItems: ModItem[] = [
       'Mod Power Requirement: 850',
     externalTokens: ['Amplitude'],
     wikiLinks: [`https://remnant.wiki/Skewer_2.0`],
+    location: { world: 'Root Earth', dungeon: ['Corrupted Harbor'] },
   },
   {
     category: 'mod',
@@ -1189,6 +1268,7 @@ export const modItems: ModItem[] = [
       'Mod Power Requirement: 1,000',
     externalTokens: [`Amplitude`, `Explosive Damage`],
     wikiLinks: [`https://remnant.wiki/Song_of_Eafir`],
+    location: { world: 'Yaesha', dungeon: 'Quest' },
   },
   {
     category: 'mod',
@@ -1209,6 +1289,7 @@ export const modItems: ModItem[] = [
         name: 'Rune Pistol',
       },
     },
+    location: { world: 'Any', dungeon: 'Linked Weapon' },
   },
   {
     category: 'mod',
@@ -1222,6 +1303,7 @@ export const modItems: ModItem[] = [
       'Mod Power Requirement: 650',
     externalTokens: [`Amplitude`],
     wikiLinks: [`https://remnant.wiki/Soulbinder`],
+    location: { world: 'Yaesha', dungeon: ['The Chimney'] },
   },
   {
     category: 'mod',
@@ -1234,6 +1316,7 @@ export const modItems: ModItem[] = [
       '\n' +
       'Mod Power Requirement: 450',
     wikiLinks: [`https://remnant.wiki/Space_Crabs`],
+    location: { world: `N'Erud`, dungeon: [`The Hatchery`] },
   },
   {
     category: 'mod',
@@ -1252,6 +1335,7 @@ export const modItems: ModItem[] = [
         name: 'Sporebloom',
       },
     },
+    location: { world: 'Any', dungeon: 'Linked Weapon' },
   },
   {
     category: 'mod',
@@ -1270,6 +1354,7 @@ export const modItems: ModItem[] = [
         name: 'Sagittarius',
       },
     },
+    location: { world: 'Any', dungeon: 'Linked Weapon' },
   },
   {
     category: 'mod',
@@ -1283,6 +1368,7 @@ export const modItems: ModItem[] = [
       '\n' +
       'Mod Power Requirement: 50 per pulse.',
     wikiLinks: [`https://remnant.wiki/Stasis_Beam`],
+    location: { world: `N'Erud`, dungeon: 'World Drop' },
   },
   {
     category: 'mod',
@@ -1306,6 +1392,7 @@ export const modItems: ModItem[] = [
         name: 'Aphelion',
       },
     },
+    location: { world: 'Any', dungeon: 'Linked Weapon' },
   },
   {
     category: 'mod',
@@ -1321,6 +1408,7 @@ export const modItems: ModItem[] = [
       'Mod Power Requirement: 1,000',
     externalTokens: [`Amplitude`],
     wikiLinks: [`https://remnant.wiki/Time_Lapse`],
+    location: { world: 'Losomn', dungeon: ['Hewdas Clock'] },
   },
   {
     category: 'mod',
@@ -1334,6 +1422,7 @@ export const modItems: ModItem[] = [
       'Mod Power Requirement: 900',
     externalTokens: [`Amplitude`, `Explosive Damage`],
     wikiLinks: [`https://remnant.wiki/Tremor`],
+    location: { world: 'Yaesha', dungeon: ['The Nameless Nest'] },
   },
   {
     category: 'mod',
@@ -1348,6 +1437,7 @@ export const modItems: ModItem[] = [
       'Mod Power Requirement: 850',
     externalTokens: [`Amplitude`],
     wikiLinks: [`https://remnant.wiki/Voltaic_Rondure`],
+    location: { world: 'Losomn', dungeon: ['The Great Sewers'] },
   },
   {
     category: 'mod',
@@ -1363,6 +1453,7 @@ export const modItems: ModItem[] = [
         name: 'Spectral Blade',
       },
     },
+    location: { world: 'Any', dungeon: 'Linked Weapon' },
   },
   {
     category: 'mod',
@@ -1380,6 +1471,7 @@ export const modItems: ModItem[] = [
         name: 'Corrupted Sorrow',
       },
     },
+    location: { world: 'Any', dungeon: 'Linked Weapon' },
   },
   {
     category: 'mod',
@@ -1399,6 +1491,7 @@ export const modItems: ModItem[] = [
         name: 'Corrupted Deceit',
       },
     },
+    location: { world: 'Any', dungeon: 'Linked Weapon' },
   },
   {
     category: 'mod',
@@ -1412,5 +1505,6 @@ export const modItems: ModItem[] = [
       'Mod Power Requirement: 750',
     externalTokens: [`Amplitude`],
     wikiLinks: [`https://remnant.wiki/Witchfire`],
+    location: { world: 'Losomn', dungeon: [`Cotton's Kiln`] },
   },
 ]

@@ -91,6 +91,7 @@ export type YaeshaDungeon =
   | 'Ancient Canopy'
   | 'Proving Grounds'
   | `Goddess's Rest`
+  | `Deserted Atelier`
 
 export type RootEarthDungeon =
   | 'Ashen Wasteland'
@@ -284,4 +285,4 @@ export type ItemLocation =
     }
   | { world: 'Ward 13'; dungeon: 'Ward 13' | 'Vendor' | 'Quest' }
   | { world: 'The Backrooms'; dungeon: 'The Backrooms' }
-  | { world: 'Any'; dungeon: 'Quest' }
+  | { world: 'Any'; dungeon: 'Quest' | 'Linked Weapon' }
