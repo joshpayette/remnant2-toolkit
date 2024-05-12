@@ -11,6 +11,7 @@ export const archetypeItems: ArchetypeItem[] = [
     description:
       'The ALCHEMIST specializes in powerful buffing Vials and consumable potency.',
     wikiLinks: [`https://remnant.wiki/Alchemist`],
+    location: { world: 'Losomn', dungeon: 'World Drop' },
     linkedItems: {
       traits: [
         { name: 'Potency', amount: 10 },
@@ -42,6 +43,7 @@ export const archetypeItems: ArchetypeItem[] = [
     description:
       'The ARCHON is the master of Weapon Mods and Mod Power generation.',
     wikiLinks: [`https://remnant.wiki/Archon`],
+    location: { world: 'The Backrooms', dungeon: 'The Backrooms' },
     linkedItems: {
       traits: [
         { name: 'Flash Caster', amount: 10 },
@@ -73,6 +75,7 @@ export const archetypeItems: ArchetypeItem[] = [
     description:
       'The CHALLENGER specializes in close range combat and heightened survivability.',
     wikiLinks: [`https://remnant.wiki/Challenger`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
     linkedItems: {
       traits: [
         { name: 'Strong Back', amount: 10 },
@@ -103,6 +106,7 @@ export const archetypeItems: ArchetypeItem[] = [
     description:
       'The ENGINEER specializes in Heavy Weaponry which can be carried or placed in turret mode.',
     wikiLinks: [`https://remnant.wiki/Engineer`],
+    location: { world: `N'Erud`, dungeon: 'World Drop' },
     linkedItems: {
       traits: [
         { name: 'Fortify', amount: 10 },
@@ -133,6 +137,7 @@ export const archetypeItems: ArchetypeItem[] = [
     description:
       'The EXPLORER specializes in finding valuable items and overall team utility.',
     wikiLinks: [`https://remnant.wiki/Explorer`],
+    location: { world: 'Any', dungeon: 'Quest' },
     linkedItems: {
       traits: [
         { name: 'Swiftness', amount: 10 },
@@ -164,6 +169,7 @@ export const archetypeItems: ArchetypeItem[] = [
     description:
       'The GUNSLINGER specializes in raw damage, firearm handling, and ammo conservation.',
     wikiLinks: [`https://remnant.wiki/Gunslinger`],
+    location: { world: 'Ward 13', dungeon: 'Quest' },
     linkedItems: {
       traits: [
         { name: 'Ammo Reserves', amount: 10 },
@@ -195,6 +201,7 @@ export const archetypeItems: ArchetypeItem[] = [
     description:
       'The HANDLER specializes in teamwork in both solo and cooperative scenarios.',
     wikiLinks: [`https://remnant.wiki/Handler`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
     linkedItems: {
       traits: [
         { name: 'Kinship', amount: 10 },
@@ -226,6 +233,7 @@ export const archetypeItems: ArchetypeItem[] = [
     description:
       'The HUNTER specializes in ranged damage, precision shots and marking enemies.',
     wikiLinks: [`https://remnant.wiki/Hunter`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
     linkedItems: {
       traits: [
         { name: 'Longshot', amount: 10 },
@@ -256,6 +264,7 @@ export const archetypeItems: ArchetypeItem[] = [
     dlc: 'base',
     description: `The INVADER specializes elusiveness and misdirecting the enemy's focus.`,
     wikiLinks: [`https://remnant.wiki/Invader`],
+    location: { world: 'Losomn', dungeon: 'Quest' },
     linkedItems: {
       traits: [
         { name: 'Untouchable', amount: 10 },
@@ -285,6 +294,7 @@ export const archetypeItems: ArchetypeItem[] = [
     dlc: 'dlc2',
     description: 'The INVOKER specializes in Skill Effectiveness and Buffs.',
     wikiLinks: ['https://remnant.wiki/Invoker'],
+    location: { world: 'Yaesha', dungeon: 'Quest' },
     linkedItems: {
       traits: [
         { name: 'Gifted', amount: 10 },
@@ -315,6 +325,7 @@ export const archetypeItems: ArchetypeItem[] = [
     description:
       'The MEDIC specializes in survivability with enhanced healing and Relic effectiveness.',
     wikiLinks: [`https://remnant.wiki/Medic`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
     linkedItems: {
       traits: [
         { name: 'Triage', amount: 10 },
@@ -346,6 +357,7 @@ export const archetypeItems: ArchetypeItem[] = [
     description:
       'The RITUALIST is a powerful class focusing on status effects and AOE damage, that can make enemies infect their allies with whatever status they are suffering',
     wikiLinks: [`https://remnant.wiki/Ritualist`],
+    location: { world: 'Losomn', dungeon: 'Quest' },
     linkedItems: {
       traits: [
         { name: 'Affliction', amount: 10 },
@@ -372,6 +384,7 @@ export const archetypeItems: ArchetypeItem[] = [
     description:
       'The SUMMONER specializes in using Minions to do their bidding and sacrificing them.',
     wikiLinks: [`https://remnant.wiki/Summoner`],
+    location: { world: `Yaesha`, dungeon: 'Vendor' },
     linkedItems: {
       traits: [
         { name: 'Regrowth', amount: 10 },

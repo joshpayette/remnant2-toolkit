@@ -39,6 +39,7 @@ export type LosomnDungeon =
   | `The Forgotten Commune`
   | `Pathway of the Fallen`
   | `Walk of Rememberance`
+  | `Luminous Vale`
 
 export type NErudDungeon =
   | `Seeker's Rest`
@@ -87,6 +88,10 @@ export type YaeshaDungeon =
   | `Root Nexus`
   | `The Forgotten Grove`
   | 'Floating Forests'
+  | 'Infested Abyss'
+  | 'Ancient Canopy'
+  | 'Proving Grounds'
+  | `Goddess's Rest`
 
 export type RootEarthDungeon =
   | 'Ashen Wasteland'
@@ -135,7 +140,7 @@ const BIOMES = [
       `The Widow's Court`,
       `The Great Bole`,
     ],
-    injectables: [`Broken Tomb`, `Tower`, `Island Jump`],
+    injectables: [`Broken Tomb`, `Tower`, `Island Jump`, `Shrine of the Doe`],
   },
   {
     name: 'Jungles of Yaesha',
@@ -217,7 +222,7 @@ const BIOMES = [
   {
     name: `Ziggurats`,
     dungeons: [`Kaeula's Rest`, `Endaira's End`, `Cathedral of Omens`],
-    injectables: [`Hidden Chamber`, `Wind Hollow`, `Library`],
+    injectables: [`Hidden Chamber`, `Wind Hollow`, `Library`, `Moon's Path`],
   },
 ] as const satisfies Array<{
   name: string
@@ -235,28 +240,28 @@ export type Injectable = (typeof BIOMES)[number]['injectables'][number]
 export type ItemLocation =
   | {
       world: 'Losomn'
-      dungeon: LosomnDungeon[] | 'World Drop'
+      dungeon: LosomnDungeon[] | 'World Drop' | 'Vendor' | 'Quest'
       biome?: never
       injectable?: Injectable
     }
   | { world: 'Losomn'; dungeon?: never; biome: Biome; injectable?: Injectable }
   | {
       world: `N'Erud`
-      dungeon: NErudDungeon[] | 'World Drop'
+      dungeon: NErudDungeon[] | 'World Drop' | 'Vendor' | 'Quest'
       biome?: never
       injectable?: Injectable
     }
-  | { world: `N'Erud`; dungeon?: never; biome: Biome }
+  | { world: `N'Erud`; dungeon?: never; biome: Biome; injectable?: Injectable }
   | {
       world: 'Yaesha'
-      dungeon: YaeshaDungeon[] | 'World Drop'
+      dungeon: YaeshaDungeon[] | 'World Drop' | 'Vendor' | 'Quest'
       biome?: never
       injectable?: Injectable
     }
   | { world: 'Yaesha'; dungeon?: never; biome: Biome; injectable?: Injectable }
   | {
       world: 'Root Earth'
-      dungeon: RootEarthDungeon[] | 'World Drop'
+      dungeon: RootEarthDungeon[] | 'World Drop' | 'Vendor' | 'Quest'
       biome?: never
       injectable?: Injectable
     }
@@ -268,7 +273,7 @@ export type ItemLocation =
     }
   | {
       world: 'Labyrinth'
-      dungeon: 'Labyrinth' | 'World Drop'
+      dungeon: 'Labyrinth' | 'World Drop' | 'Vendor' | 'Quest'
       biome?: never
       injectable?: Injectable
     }
@@ -278,4 +283,6 @@ export type ItemLocation =
       biome: Biome
       injectable?: Injectable
     }
-  | { world: 'Ward 13'; dungeon: 'Ward 13' }
+  | { world: 'Ward 13'; dungeon: 'Ward 13' | 'Vendor' | 'Quest' }
+  | { world: 'The Backrooms'; dungeon: 'The Backrooms' }
+  | { world: 'Any'; dungeon: 'Quest' }
