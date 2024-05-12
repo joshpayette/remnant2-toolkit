@@ -23,6 +23,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Updated all relic images to more consistent higher quality images.
 - Updated all skill images to more consistent higher quality images.
 - Updated all trait images to more consistent higher quality images.
+- Updated all weapon images to more consistent higher quality images.
 
 ### Fixed
 
