@@ -43,7 +43,7 @@ export const modItems: ModItem[] = [
         name: 'Atom Smasher',
       },
     },
-    location: { world: 'Any', dungeon: 'Linked Weapon' },
+    location: { world: 'Any', dungeon: 'Linked Item' },
   },
   {
     category: 'mod',
@@ -71,7 +71,7 @@ export const modItems: ModItem[] = [
         name: 'Wrathbringer',
       },
     },
-    location: { world: 'Any', dungeon: 'Linked Weapon' },
+    location: { world: 'Any', dungeon: 'Linked Item' },
   },
   {
     category: 'mod',
@@ -92,7 +92,7 @@ export const modItems: ModItem[] = [
         name: 'Repulsor',
       },
     },
-    location: { world: 'Any', dungeon: 'Linked Weapon' },
+    location: { world: 'Any', dungeon: 'Linked Item' },
   },
   {
     category: 'mod',
@@ -113,7 +113,7 @@ export const modItems: ModItem[] = [
         name: 'Alpha-Omega',
       },
     },
-    location: { world: 'Any', dungeon: 'Linked Weapon' },
+    location: { world: 'Any', dungeon: 'Linked Item' },
   },
   {
     category: 'mod',
@@ -128,7 +128,7 @@ export const modItems: ModItem[] = [
         name: 'Nightshade',
       },
     },
-    location: { world: 'Any', dungeon: 'Linked Weapon' },
+    location: { world: 'Any', dungeon: 'Linked Item' },
   },
   {
     category: 'mod',
@@ -149,7 +149,7 @@ export const modItems: ModItem[] = [
         name: 'Star Shot',
       },
     },
-    location: { world: 'Any', dungeon: 'Linked Weapon' },
+    location: { world: 'Any', dungeon: 'Linked Item' },
   },
   {
     category: 'mod',
@@ -165,7 +165,7 @@ export const modItems: ModItem[] = [
         name: 'Smolder',
       },
     },
-    location: { world: 'Any', dungeon: 'Linked Weapon' },
+    location: { world: 'Any', dungeon: 'Linked Item' },
   },
   {
     category: 'mod',
@@ -199,7 +199,7 @@ export const modItems: ModItem[] = [
         name: 'Merciless',
       },
     },
-    location: { world: 'Any', dungeon: 'Linked Weapon' },
+    location: { world: 'Any', dungeon: 'Linked Item' },
   },
   {
     category: 'mod',
@@ -217,7 +217,7 @@ export const modItems: ModItem[] = [
         name: 'Corrupted Merciless',
       },
     },
-    location: { world: 'Any', dungeon: 'Linked Weapon' },
+    location: { world: 'Any', dungeon: 'Linked Item' },
   },
   {
     category: 'mod',
@@ -232,7 +232,7 @@ export const modItems: ModItem[] = [
         name: `Assassin's Dagger`,
       },
     },
-    location: { world: 'Any', dungeon: 'Linked Weapon' },
+    location: { world: 'Any', dungeon: 'Linked Item' },
   },
   {
     category: 'mod',
@@ -264,7 +264,7 @@ export const modItems: ModItem[] = [
         name: 'Monarch',
       },
     },
-    location: { world: 'Any', dungeon: 'Linked Weapon' },
+    location: { world: 'Any', dungeon: 'Linked Item' },
   },
   {
     category: 'mod',
@@ -285,7 +285,7 @@ export const modItems: ModItem[] = [
         name: 'Enigma',
       },
     },
-    location: { world: 'Any', dungeon: 'Linked Weapon' },
+    location: { world: 'Any', dungeon: 'Linked Item' },
   },
   {
     category: 'mod',
@@ -348,7 +348,7 @@ export const modItems: ModItem[] = [
         name: 'Corrupted Cube Gun',
       },
     },
-    location: { world: 'Any', dungeon: 'Linked Weapon' },
+    location: { world: 'Any', dungeon: 'Linked Item' },
   },
   {
     category: 'mod',
@@ -364,7 +364,7 @@ export const modItems: ModItem[] = [
         name: 'Cube Gun',
       },
     },
-    location: { world: 'Any', dungeon: 'Linked Weapon' },
+    location: { world: 'Any', dungeon: 'Linked Item' },
   },
   {
     category: 'mod',
@@ -379,7 +379,7 @@ export const modItems: ModItem[] = [
         name: 'Mirage',
       },
     },
-    location: { world: 'Any', dungeon: 'Linked Weapon' },
+    location: { world: 'Any', dungeon: 'Linked Item' },
   },
   {
     category: 'mod',
@@ -395,7 +395,7 @@ export const modItems: ModItem[] = [
         name: 'Corrupted Meridian',
       },
     },
-    location: { world: 'Any', dungeon: 'Linked Weapon' },
+    location: { world: 'Any', dungeon: 'Linked Item' },
   },
   {
     category: 'mod',
@@ -416,7 +416,7 @@ export const modItems: ModItem[] = [
         name: 'Thorn',
       },
     },
-    location: { world: 'Any', dungeon: 'Linked Weapon' },
+    location: { world: 'Any', dungeon: 'Linked Item' },
   },
   {
     category: 'mod',
@@ -432,7 +432,7 @@ export const modItems: ModItem[] = [
         name: 'Corrupted Rune Pistol',
       },
     },
-    location: { world: 'Any', dungeon: 'Linked Weapon' },
+    location: { world: 'Any', dungeon: 'Linked Item' },
   },
   {
     category: 'mod',
@@ -447,7 +447,7 @@ export const modItems: ModItem[] = [
         name: 'Feral Judgement',
       },
     },
-    location: { world: 'Any', dungeon: 'Linked Weapon' },
+    location: { world: 'Any', dungeon: 'Linked Item' },
   },
   {
     category: 'mod',
@@ -484,7 +484,7 @@ export const modItems: ModItem[] = [
         name: ' Nightfall',
       },
     },
-    location: { world: 'Any', dungeon: 'Linked Weapon' },
+    location: { world: 'Any', dungeon: 'Linked Item' },
   },
   {
     category: 'mod',
@@ -504,7 +504,7 @@ export const modItems: ModItem[] = [
         name: 'Dreamcatcher',
       },
     },
-    location: { world: 'Any', dungeon: 'Linked Weapon' },
+    location: { world: 'Any', dungeon: 'Linked Item' },
   },
   {
     category: 'mod',
@@ -520,7 +520,7 @@ export const modItems: ModItem[] = [
         name: 'Gas Giant',
       },
     },
-    location: { world: 'Any', dungeon: 'Linked Weapon' },
+    location: { world: 'Any', dungeon: 'Linked Item' },
   },
   {
     category: 'mod',
@@ -548,7 +548,7 @@ export const modItems: ModItem[] = [
         name: "Hero's Sword",
       },
     },
-    location: { world: 'Any', dungeon: 'Linked Weapon' },
+    location: { world: 'Any', dungeon: 'Linked Item' },
   },
   {
     category: 'mod',
@@ -569,7 +569,7 @@ export const modItems: ModItem[] = [
         name: 'Sorrow',
       },
     },
-    location: { world: 'Any', dungeon: 'Linked Weapon' },
+    location: { world: 'Any', dungeon: 'Linked Item' },
   },
   {
     category: 'mod',
@@ -588,7 +588,7 @@ export const modItems: ModItem[] = [
         name: 'Hellfire',
       },
     },
-    location: { world: 'Any', dungeon: 'Linked Weapon' },
+    location: { world: 'Any', dungeon: 'Linked Item' },
   },
   {
     category: 'mod',
@@ -631,7 +631,7 @@ export const modItems: ModItem[] = [
         name: 'Abyssal Hook',
       },
     },
-    location: { world: 'Any', dungeon: 'Linked Weapon' },
+    location: { world: 'Any', dungeon: 'Linked Item' },
   },
   {
     category: 'mod',
@@ -647,7 +647,7 @@ export const modItems: ModItem[] = [
         name: 'Stonebreaker',
       },
     },
-    location: { world: 'Any', dungeon: 'Linked Weapon' },
+    location: { world: 'Any', dungeon: 'Linked Item' },
   },
   {
     category: 'mod',
@@ -679,7 +679,7 @@ export const modItems: ModItem[] = [
         name: 'Atom Splitter',
       },
     },
-    location: { world: 'Any', dungeon: 'Linked Weapon' },
+    location: { world: 'Any', dungeon: 'Linked Item' },
   },
   {
     category: 'mod',
@@ -711,7 +711,7 @@ export const modItems: ModItem[] = [
         name: 'Godsplitter',
       },
     },
-    location: { world: 'Any', dungeon: 'Linked Weapon' },
+    location: { world: 'Any', dungeon: 'Linked Item' },
   },
   {
     category: 'mod',
@@ -731,7 +731,7 @@ export const modItems: ModItem[] = [
         name: 'Corrupted Savior',
       },
     },
-    location: { world: 'Any', dungeon: 'Linked Weapon' },
+    location: { world: 'Any', dungeon: 'Linked Item' },
   },
   {
     category: 'mod',
@@ -752,7 +752,7 @@ export const modItems: ModItem[] = [
         name: 'Starkiller',
       },
     },
-    location: { world: 'Any', dungeon: 'Linked Weapon' },
+    location: { world: 'Any', dungeon: 'Linked Item' },
   },
   {
     category: 'mod',
@@ -773,7 +773,7 @@ export const modItems: ModItem[] = [
         name: 'Twisted Arbalest',
       },
     },
-    location: { world: 'Any', dungeon: 'Linked Weapon' },
+    location: { world: 'Any', dungeon: 'Linked Item' },
   },
   {
     category: 'mod',
@@ -792,7 +792,7 @@ export const modItems: ModItem[] = [
         name: 'Corrupted Arbalest',
       },
     },
-    location: { world: 'Any', dungeon: 'Linked Weapon' },
+    location: { world: 'Any', dungeon: 'Linked Item' },
   },
   {
     category: 'mod',
@@ -836,7 +836,7 @@ export const modItems: ModItem[] = [
         name: 'Plasma Cutter',
       },
     },
-    location: { world: 'Any', dungeon: 'Linked Weapon' },
+    location: { world: 'Any', dungeon: 'Linked Item' },
   },
   {
     category: 'mod',
@@ -865,7 +865,7 @@ export const modItems: ModItem[] = [
         name: "World's Edge",
       },
     },
-    location: { world: 'Any', dungeon: 'Linked Weapon' },
+    location: { world: 'Any', dungeon: 'Linked Item' },
   },
   {
     category: 'mod',
@@ -893,7 +893,7 @@ export const modItems: ModItem[] = [
         name: 'Huntress Spear',
       },
     },
-    location: { world: 'Any', dungeon: 'Linked Weapon' },
+    location: { world: 'Any', dungeon: 'Linked Item' },
   },
   {
     category: 'mod',
@@ -922,7 +922,7 @@ export const modItems: ModItem[] = [
         name: 'Krell Axe',
       },
     },
-    location: { world: 'Any', dungeon: 'Linked Weapon' },
+    location: { world: 'Any', dungeon: 'Linked Item' },
   },
   {
     category: 'mod',
@@ -938,7 +938,7 @@ export const modItems: ModItem[] = [
         name: 'Red Doe Staff',
       },
     },
-    location: { world: 'Any', dungeon: 'Linked Weapon' },
+    location: { world: 'Any', dungeon: 'Linked Item' },
   },
   {
     category: 'mod',
@@ -956,7 +956,7 @@ export const modItems: ModItem[] = [
         name: 'Anguish',
       },
     },
-    location: { world: 'Any', dungeon: 'Linked Weapon' },
+    location: { world: 'Any', dungeon: 'Linked Item' },
   },
   {
     category: 'mod',
@@ -979,7 +979,7 @@ export const modItems: ModItem[] = [
         name: 'Corrupted Aphelion',
       },
     },
-    location: { world: 'Any', dungeon: 'Linked Weapon' },
+    location: { world: 'Any', dungeon: 'Linked Item' },
   },
   {
     category: 'mod',
@@ -999,7 +999,7 @@ export const modItems: ModItem[] = [
         name: 'Crescent Moon',
       },
     },
-    location: { world: 'Any', dungeon: 'Linked Weapon' },
+    location: { world: 'Any', dungeon: 'Linked Item' },
   },
   {
     category: 'mod',
@@ -1018,7 +1018,7 @@ export const modItems: ModItem[] = [
         name: 'Corrupted Nebula',
       },
     },
-    location: { world: 'Any', dungeon: 'Linked Weapon' },
+    location: { world: 'Any', dungeon: 'Linked Item' },
   },
   {
     category: 'mod',
@@ -1036,7 +1036,7 @@ export const modItems: ModItem[] = [
         name: 'Nebula',
       },
     },
-    location: { world: 'Any', dungeon: 'Linked Weapon' },
+    location: { world: 'Any', dungeon: 'Linked Item' },
   },
   {
     category: 'mod',
@@ -1056,7 +1056,7 @@ export const modItems: ModItem[] = [
         name: 'Deceit',
       },
     },
-    location: { world: 'Any', dungeon: 'Linked Weapon' },
+    location: { world: 'Any', dungeon: 'Linked Item' },
   },
   {
     category: 'mod',
@@ -1092,7 +1092,7 @@ export const modItems: ModItem[] = [
         name: 'Crystal Staff',
       },
     },
-    location: { world: 'Any', dungeon: 'Linked Weapon' },
+    location: { world: 'Any', dungeon: 'Linked Item' },
   },
   {
     category: 'mod',
@@ -1121,7 +1121,7 @@ export const modItems: ModItem[] = [
         name: 'Ritualist Scythe',
       },
     },
-    location: { world: 'Any', dungeon: 'Linked Weapon' },
+    location: { world: 'Any', dungeon: 'Linked Item' },
   },
   {
     category: 'mod',
@@ -1186,7 +1186,7 @@ export const modItems: ModItem[] = [
         name: 'Monolith',
       },
     },
-    location: { world: 'Any', dungeon: 'Linked Weapon' },
+    location: { world: 'Any', dungeon: 'Linked Item' },
   },
   {
     category: 'mod',
@@ -1217,7 +1217,7 @@ export const modItems: ModItem[] = [
         name: 'Meridian',
       },
     },
-    location: { world: 'Any', dungeon: 'Linked Weapon' },
+    location: { world: 'Any', dungeon: 'Linked Item' },
   },
   {
     category: 'mod',
@@ -1237,7 +1237,7 @@ export const modItems: ModItem[] = [
         name: 'Savior',
       },
     },
-    location: { world: 'Any', dungeon: 'Linked Weapon' },
+    location: { world: 'Any', dungeon: 'Linked Item' },
   },
   {
     category: 'mod',
@@ -1289,7 +1289,7 @@ export const modItems: ModItem[] = [
         name: 'Rune Pistol',
       },
     },
-    location: { world: 'Any', dungeon: 'Linked Weapon' },
+    location: { world: 'Any', dungeon: 'Linked Item' },
   },
   {
     category: 'mod',
@@ -1335,7 +1335,7 @@ export const modItems: ModItem[] = [
         name: 'Sporebloom',
       },
     },
-    location: { world: 'Any', dungeon: 'Linked Weapon' },
+    location: { world: 'Any', dungeon: 'Linked Item' },
   },
   {
     category: 'mod',
@@ -1354,7 +1354,7 @@ export const modItems: ModItem[] = [
         name: 'Sagittarius',
       },
     },
-    location: { world: 'Any', dungeon: 'Linked Weapon' },
+    location: { world: 'Any', dungeon: 'Linked Item' },
   },
   {
     category: 'mod',
@@ -1392,7 +1392,7 @@ export const modItems: ModItem[] = [
         name: 'Aphelion',
       },
     },
-    location: { world: 'Any', dungeon: 'Linked Weapon' },
+    location: { world: 'Any', dungeon: 'Linked Item' },
   },
   {
     category: 'mod',
@@ -1453,7 +1453,7 @@ export const modItems: ModItem[] = [
         name: 'Spectral Blade',
       },
     },
-    location: { world: 'Any', dungeon: 'Linked Weapon' },
+    location: { world: 'Any', dungeon: 'Linked Item' },
   },
   {
     category: 'mod',
@@ -1471,7 +1471,7 @@ export const modItems: ModItem[] = [
         name: 'Corrupted Sorrow',
       },
     },
-    location: { world: 'Any', dungeon: 'Linked Weapon' },
+    location: { world: 'Any', dungeon: 'Linked Item' },
   },
   {
     category: 'mod',
@@ -1491,7 +1491,7 @@ export const modItems: ModItem[] = [
         name: 'Corrupted Deceit',
       },
     },
-    location: { world: 'Any', dungeon: 'Linked Weapon' },
+    location: { world: 'Any', dungeon: 'Linked Item' },
   },
   {
     category: 'mod',

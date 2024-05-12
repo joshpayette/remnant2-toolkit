@@ -243,7 +243,7 @@ type OtherLocation =
   | 'Vendor'
   | 'Quest'
   | 'Aberration'
-  | 'Linked Weapon'
+  | 'Linked Item'
 
 export type ItemLocation =
   | {

@@ -20,6 +20,7 @@ export const traitItems: TraitItem[] = [
       },
     },
     amount: DEFAULT_TRAIT_AMOUNT,
+    location: { world: 'Any', dungeon: 'Linked Item' },
   },
   {
     category: 'trait',
@@ -31,6 +32,7 @@ export const traitItems: TraitItem[] = [
     description:
       'Increases Ammo Reserves by 5% - 50%.\n\nGUNSLINGER Archetype Trait',
     wikiLinks: [`https://remnant.wiki/Ammo_Reserves`],
+    location: { world: 'Any', dungeon: 'Linked Item' },
     linkedItems: {
       archetype: {
         name: 'Gunslinger',
@@ -46,6 +48,7 @@ export const traitItems: TraitItem[] = [
     dlc: 'base',
     description: 'Increases AOE and AURA Size by 5 - 50%.',
     wikiLinks: [`https://remnant.wiki/Amplitude`],
+    location: { world: 'Labyrinth', dungeon: 'Labyrinth' },
     amount: DEFAULT_TRAIT_AMOUNT,
   },
   {
@@ -57,6 +60,7 @@ export const traitItems: TraitItem[] = [
     tags: ['Mod Power', 'Melee Damage'],
     description: 'Increases Mod Power Generation from Melee Damage by 5 - 50%.',
     wikiLinks: [`https://remnant.wiki/Arcane_Strike`],
+    location: { world: 'Losomn', dungeon: [`Harvester's Reach`] },
     amount: DEFAULT_TRAIT_AMOUNT,
   },
   {
@@ -69,6 +73,7 @@ export const traitItems: TraitItem[] = [
     description: 'Reduces all incoming damage by 1 - 10%.',
     wikiLinks: [`https://remnant.wiki/Barkskin`],
     amount: DEFAULT_TRAIT_AMOUNT,
+    location: { world: 'Yaesha', dungeon: ['Dappled Glade'] },
   },
   {
     category: 'trait',
@@ -81,6 +86,7 @@ export const traitItems: TraitItem[] = [
       'Summoner Minions absorb 1 - 10% of damage taken by the caster.',
     wikiLinks: [`https://remnant.wiki/Blood_Bond`],
     amount: DEFAULT_TRAIT_AMOUNT,
+    location: { world: 'Yaesha', dungeon: ['Root Nexus'] },
   },
   {
     category: 'trait',
@@ -92,6 +98,7 @@ export const traitItems: TraitItem[] = [
     description: 'Increases Grey Health Regeneration by 0.3/s - 3.',
     wikiLinks: [`https://remnant.wiki/Bloodstream`],
     amount: DEFAULT_TRAIT_AMOUNT,
+    location: { world: 'Yaesha', dungeon: ['Dappled Glade'] },
   },
   {
     category: 'trait',
@@ -103,6 +110,7 @@ export const traitItems: TraitItem[] = [
     description: 'Increases Mod Duration by 3 - 30%.',
     wikiLinks: [`https://remnant.wiki/Chakra`],
     amount: DEFAULT_TRAIT_AMOUNT,
+    location: { world: 'Root Earth', dungeon: ['Corrupted Harbor'] },
   },
   {
     category: 'trait',
@@ -114,6 +122,7 @@ export const traitItems: TraitItem[] = [
     description: 'Increases Grey Health Conversion Rate by 3 - 30%.',
     wikiLinks: [`https://remnant.wiki/Dark_Pact`],
     amount: DEFAULT_TRAIT_AMOUNT,
+    location: { world: 'Losomn', dungeon: ['Forlorn Coast'] },
   },
   {
     category: 'trait',
@@ -126,6 +135,7 @@ export const traitItems: TraitItem[] = [
     wikiLinks: [`https://remnant.wiki/Endurance`],
     amount: DEFAULT_TRAIT_AMOUNT,
     staminaStep: 3,
+    location: { world: 'Any', dungeon: 'Linked Item' },
   },
   {
     category: 'trait',
@@ -137,6 +147,7 @@ export const traitItems: TraitItem[] = [
     description: 'Reduces Skill Cooldowns by 2% - 20%.',
     wikiLinks: [`https://remnant.wiki/Expertise`],
     amount: DEFAULT_TRAIT_AMOUNT,
+    location: { world: 'Any', dungeon: 'Linked Item' },
   },
   {
     category: 'trait',
@@ -148,6 +159,7 @@ export const traitItems: TraitItem[] = [
     description: 'Increases Evade Distance by 3 - 30%.',
     wikiLinks: [`https://remnant.wiki/Fitness`],
     amount: DEFAULT_TRAIT_AMOUNT,
+    location: { world: `N'Erud`, dungeon: ['Vault of the Formless'] },
   },
   {
     category: 'trait',
@@ -166,6 +178,7 @@ export const traitItems: TraitItem[] = [
         name: 'Archon',
       },
     },
+    location: { world: 'Any', dungeon: 'Linked Item' },
     amount: DEFAULT_TRAIT_AMOUNT,
   },
   {
@@ -178,6 +191,7 @@ export const traitItems: TraitItem[] = [
     description: 'Increases Movement Speed while Aiming by 5 - 50%.',
     wikiLinks: [`https://remnant.wiki/Footwork`],
     amount: DEFAULT_TRAIT_AMOUNT,
+    location: { world: `N'Erud`, dungeon: [`Terminus Station`] },
   },
   {
     category: 'trait',
@@ -194,6 +208,7 @@ export const traitItems: TraitItem[] = [
         name: 'Engineer',
       },
     },
+    location: { world: 'Any', dungeon: 'Linked Item' },
     armorStepPercent: 0.05,
     amount: DEFAULT_TRAIT_AMOUNT,
   },
@@ -212,6 +227,7 @@ export const traitItems: TraitItem[] = [
         name: 'Invoker',
       },
     },
+    location: { world: 'Any', dungeon: 'Linked Item' },
   },
   {
     category: 'trait',
@@ -224,6 +240,7 @@ export const traitItems: TraitItem[] = [
       'Increases the Use Speed of Consumables and Relics by 3.5% - 35%.',
     wikiLinks: [`https://remnant.wiki/Glutton`],
     amount: DEFAULT_TRAIT_AMOUNT,
+    location: { world: 'Losomn', dungeon: ['The Great Hall'] },
   },
   {
     category: 'trait',
@@ -235,6 +252,7 @@ export const traitItems: TraitItem[] = [
     description: 'Reduces Weapon Spread and Recoil by 3% - 30%.',
     wikiLinks: [`https://remnant.wiki/Handling`],
     amount: DEFAULT_TRAIT_AMOUNT,
+    location: { world: 'Root Earth', dungeon: ['Ashen Wasteland'] },
   },
   {
     category: 'trait',
@@ -253,6 +271,7 @@ export const traitItems: TraitItem[] = [
         name: 'Handler',
       },
     },
+    location: { world: 'Any', dungeon: 'Linked Item' },
     amount: DEFAULT_TRAIT_AMOUNT,
   },
   {
@@ -265,6 +284,7 @@ export const traitItems: TraitItem[] = [
     description: 'Increases Lifesteal Efficacy by 5 - 50%.',
     wikiLinks: [`https://remnant.wiki/Leech`],
     amount: DEFAULT_TRAIT_AMOUNT,
+    location: { world: `N'Erud`, dungeon: [`Dormant N'Erudian Facility`] },
   },
   {
     category: 'trait',
@@ -281,6 +301,7 @@ export const traitItems: TraitItem[] = [
         name: 'Hunter',
       },
     },
+    location: { world: 'Any', dungeon: 'Linked Item' },
     amount: DEFAULT_TRAIT_AMOUNT,
   },
   {
@@ -298,6 +319,7 @@ export const traitItems: TraitItem[] = [
         name: 'Alchemist',
       },
     },
+    location: { world: 'Any', dungeon: 'Linked Item' },
     amount: DEFAULT_TRAIT_AMOUNT,
   },
   {
@@ -310,6 +332,7 @@ export const traitItems: TraitItem[] = [
     description: 'Increases Stamina Regen by 3 - 30/s.',
     wikiLinks: [`https://remnant.wiki/Recovery`],
     amount: DEFAULT_TRAIT_AMOUNT,
+    location: { world: 'Losomn', dungeon: [`Oracle's Refuge`] },
   },
   {
     category: 'trait',
@@ -328,6 +351,7 @@ export const traitItems: TraitItem[] = [
         name: 'Summoner',
       },
     },
+    location: { world: 'Any', dungeon: 'Linked Item' },
     amount: DEFAULT_TRAIT_AMOUNT,
   },
   {
@@ -340,6 +364,7 @@ export const traitItems: TraitItem[] = [
     description: 'Reduces Hit Reaction Time by 2.5% - 25%.',
     wikiLinks: [`https://remnant.wiki/Resolute`],
     amount: DEFAULT_TRAIT_AMOUNT,
+    location: { world: 'Yaesha', dungeon: 'Quest' },
   },
   {
     category: 'trait',
@@ -351,6 +376,7 @@ export const traitItems: TraitItem[] = [
       'Increases the speed of Reviving and being Revived by 5 - 50%.',
     wikiLinks: [`https://remnant.wiki/Revivalist`],
     amount: DEFAULT_TRAIT_AMOUNT,
+    location: { world: 'Any', dungeon: 'Quest' },
   },
   {
     category: 'trait',
@@ -362,6 +388,7 @@ export const traitItems: TraitItem[] = [
     description: 'Increases the Health of Archetype Summons by a 10% - 100% .',
     wikiLinks: [`https://remnant.wiki/Rugged`],
     amount: DEFAULT_TRAIT_AMOUNT,
+    location: { world: 'Yaesha', dungeon: ['Forgotten Field'] },
   },
   {
     category: 'trait',
@@ -372,6 +399,7 @@ export const traitItems: TraitItem[] = [
     description: 'Increases Experience Gain by 1 - 15%.',
     wikiLinks: [`https://remnant.wiki/Scholar`],
     amount: DEFAULT_TRAIT_AMOUNT,
+    location: { world: 'Root Earth', dungeon: ['Blackened Citadel'] },
   },
   {
     category: 'trait',
@@ -386,6 +414,7 @@ export const traitItems: TraitItem[] = [
     // we add the percentage
     elementalResistanceStep: 2,
     amount: DEFAULT_TRAIT_AMOUNT,
+    location: { world: 'Losomn', dungeon: [`Butcher's Quarter`] },
   },
   {
     category: 'trait',
@@ -397,6 +426,7 @@ export const traitItems: TraitItem[] = [
     description: 'Grants 0.3% - 3.0% base damage as Lifesteal.',
     wikiLinks: [`https://remnant.wiki/Siphoner`],
     amount: DEFAULT_TRAIT_AMOUNT,
+    location: { world: `N'Erud`, dungeon: [`Dormant N'Erudian Facility`] },
   },
   {
     category: 'trait',
@@ -408,6 +438,7 @@ export const traitItems: TraitItem[] = [
     description: 'Increases Mod Power Generation by 2% - 20%.',
     wikiLinks: [`https://remnant.wiki/Spirit`],
     amount: DEFAULT_TRAIT_AMOUNT,
+    location: { world: 'Any', dungeon: 'Linked Item' },
   },
   {
     category: 'trait',
@@ -426,6 +457,7 @@ export const traitItems: TraitItem[] = [
         name: 'Challenger',
       },
     },
+    location: { world: 'Any', dungeon: 'Linked Item' },
     weightThresholds: [1.5, 3, 4.5, 6, 7.5, 9, 10.5, 12, 13.5, 15],
     amount: DEFAULT_TRAIT_AMOUNT,
   },
@@ -450,6 +482,7 @@ export const traitItems: TraitItem[] = [
         name: 'Explorer',
       },
     },
+    location: { world: 'Any', dungeon: 'Linked Item' },
     amount: DEFAULT_TRAIT_AMOUNT,
   },
   {
@@ -466,6 +499,7 @@ export const traitItems: TraitItem[] = [
         name: 'Medic',
       },
     },
+    location: { world: 'Any', dungeon: 'Linked Item' },
     amount: DEFAULT_TRAIT_AMOUNT,
   },
   {
@@ -483,6 +517,7 @@ export const traitItems: TraitItem[] = [
         name: 'Invader',
       },
     },
+    location: { world: 'Any', dungeon: 'Linked Item' },
     amount: DEFAULT_TRAIT_AMOUNT,
   },
   {
@@ -496,5 +531,6 @@ export const traitItems: TraitItem[] = [
     wikiLinks: [`https://remnant.wiki/Vigor`],
     healthStep: 3,
     amount: DEFAULT_TRAIT_AMOUNT,
+    location: { world: 'Any', dungeon: 'Linked Item' },
   },
 ]
