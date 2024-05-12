@@ -27,6 +27,10 @@ import {
   VALID_RELEASE_KEYS,
 } from '@/app/(components)/filters/releases-filter'
 import { DEFAULT_FILTER } from '@/app/(components)/filters/types'
+import {
+  VALID_WORLDS,
+  WorldsFilter,
+} from '@/app/(components)/filters/worlds-filter'
 import { allItems } from '@/app/(data)/items/all-items'
 import { ITEM_TOKENS } from '@/app/(types)/tokens'
 import { cn } from '@/app/(utils)/classnames'
@@ -62,6 +66,7 @@ export const DEFAULT_ITEM_LOOKUP_FILTERS = {
   collections: VALID_DISCOVERED_FILTERS,
   releases: VALID_RELEASE_KEYS,
   searchText: '',
+  worlds: VALID_WORLDS as string[],
 } as const satisfies Filters
 
 interface Props {}
@@ -120,6 +125,14 @@ export function ItemLookupFilters({}: Props) {
     // Add the search text filter
     if (filtersToApply.searchText.length > 0) {
       url += `${ITEM_FILTER_KEYS.SEARCHTEXT}=${filtersToApply.searchText}&`
+    }
+
+    // Add the worlds filter
+    if (
+      !filtersToApply.worlds.some((i) => i === DEFAULT_FILTER) &&
+      filtersToApply.worlds.length !== VALID_WORLDS.length
+    ) {
+      url += `${ITEM_FILTER_KEYS.WORLDS}=${filtersToApply.worlds.join(',')}&`
     }
 
     // trim the final &
@@ -194,6 +207,43 @@ export function ItemLookupFilters({}: Props) {
     const newFilters = {
       ...unappliedFilters,
       releases: [...unappliedFilters.releases, newReleases],
+    }
+    setUnappliedFilters(newFilters)
+    applyUrlFilters(newFilters)
+  }
+
+  function handleWorldsChange(newWorlds: string[]) {
+    // if the newWorlds length is 0, set to default
+    if (newWorlds.length === 0) {
+      const newFilters = { ...unappliedFilters, worlds: [DEFAULT_FILTER] }
+      setUnappliedFilters(newFilters)
+      applyUrlFilters(newFilters)
+      return
+    }
+
+    // if the first item is the default value ("All"), apply the filters after removing the default value
+    if (newWorlds[0] === DEFAULT_FILTER) {
+      const newFilters = {
+        ...unappliedFilters,
+        worlds: newWorlds.filter((i) => i !== DEFAULT_FILTER),
+      }
+      setUnappliedFilters(newFilters)
+      applyUrlFilters(newFilters)
+      return
+    }
+
+    // if any of the filters contain the default value of "All", just apply the filters
+    if (newWorlds.includes(DEFAULT_FILTER)) {
+      const newFilters = { ...unappliedFilters, worlds: [DEFAULT_FILTER] }
+      setUnappliedFilters(newFilters)
+      applyUrlFilters(newFilters)
+      return
+    }
+
+    // If we got here, remove the default value from the list
+    const newFilters = {
+      ...unappliedFilters,
+      worlds: newWorlds.filter((i) => i !== DEFAULT_FILTER),
     }
     setUnappliedFilters(newFilters)
     applyUrlFilters(newFilters)
@@ -317,6 +367,12 @@ export function ItemLookupFilters({}: Props) {
                         setUnappliedFilters(newFilters)
                         applyUrlFilters(newFilters)
                       }}
+                    />
+                  </div>
+                  <div className="col-span-full sm:col-span-1">
+                    <WorldsFilter
+                      value={unappliedFilters.worlds}
+                      onChange={handleWorldsChange}
                     />
                   </div>
                 </div>

@@ -367,7 +367,6 @@ export const BIOMES = [
       injectables: string[]
     }
 >
-type Biome = (typeof BIOMES)[number]['name']
 type Injectable = (typeof BIOMES)[number]['injectables'][number]
 
 type LosemnBiome = Extract<(typeof BIOMES)[number], { world: 'Losomn' }>

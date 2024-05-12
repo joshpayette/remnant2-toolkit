@@ -23,8 +23,28 @@ import { PerkItem } from '@/app/(data)/items/types/PerkItem'
 import { SkillItem } from '@/app/(data)/items/types/SkillItem'
 import { TraitItem } from '@/app/(data)/items/types/TraitItem'
 import { WeaponItem } from '@/app/(data)/items/types/WeaponItem'
+import { ItemLocation } from '@/app/(types)/locations'
 import { capitalize } from '@/app/(utils)/capitalize'
 import { itemShareEndpoint } from '@/app/(utils)/clean-item-name'
+
+function generateFoundInLabel(location: ItemLocation) {
+  let label = location.world
+
+  if (location.dungeon) {
+    if (Array.isArray(location.dungeon)) {
+      label += `, ${location.dungeon.join(', ')}`
+    } else {
+      label += `, ${location.dungeon}`
+    }
+  } else if (location.biome) {
+    label += `, ${location.biome} biome`
+    if (location.injectable) {
+      label += `, ${location.injectable} injectable`
+    }
+  }
+
+  return label
+}
 
 interface Props {
   open: boolean
@@ -55,7 +75,15 @@ export function ItemInfoDialog({ open, item, onClose }: Props) {
       <BaseDialogTitle>
         {item.name}
         <br />
-        <span>{subtitle}</span>
+        <span className="text-sm font-normal">{subtitle}</span>
+        {item.location && (
+          <>
+            <br />
+            <span className="text-xs font-normal">
+              {generateFoundInLabel(item.location)}
+            </span>
+          </>
+        )}
       </BaseDialogTitle>
       <BaseDialogDescription>
         <span className="flex w-full flex-col items-center justify-center gap-x-2">

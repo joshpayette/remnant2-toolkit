@@ -16,8 +16,6 @@ import { TraitItem } from '@/app/(data)/items/types/TraitItem'
 import { WeaponItem } from '@/app/(data)/items/types/WeaponItem'
 import { ErrorResponse } from '@/app/(types)/error-response'
 
-export type ItemCategory = keyof BuildState['items']
-
 /**
  * The build tool UI state
  */
@@ -62,6 +60,8 @@ export interface BuildState {
     perk: Array<PerkItem | null>
   }
 }
+
+export type ItemCategory = keyof BuildState['items']
 
 /**
  * The shape of the build returned from the DB, along with
