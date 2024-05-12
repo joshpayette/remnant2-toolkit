@@ -237,31 +237,38 @@ const BIOMES = [
 export type Biome = (typeof BIOMES)[number]['name']
 export type Injectable = (typeof BIOMES)[number]['injectables'][number]
 
+type OtherLocation =
+  | 'World Drop'
+  | 'Vendor'
+  | 'Quest'
+  | 'Aberration'
+  | 'Linked Weapon'
+
 export type ItemLocation =
   | {
       world: 'Losomn'
-      dungeon: LosomnDungeon[] | 'World Drop' | 'Vendor' | 'Quest'
+      dungeon: LosomnDungeon[] | OtherLocation
       biome?: never
       injectable?: Injectable
     }
   | { world: 'Losomn'; dungeon?: never; biome: Biome; injectable?: Injectable }
   | {
       world: `N'Erud`
-      dungeon: NErudDungeon[] | 'World Drop' | 'Vendor' | 'Quest'
+      dungeon: NErudDungeon[] | OtherLocation
       biome?: never
       injectable?: Injectable
     }
   | { world: `N'Erud`; dungeon?: never; biome: Biome; injectable?: Injectable }
   | {
       world: 'Yaesha'
-      dungeon: YaeshaDungeon[] | 'World Drop' | 'Vendor' | 'Quest'
+      dungeon: YaeshaDungeon[] | OtherLocation
       biome?: never
       injectable?: Injectable
     }
   | { world: 'Yaesha'; dungeon?: never; biome: Biome; injectable?: Injectable }
   | {
       world: 'Root Earth'
-      dungeon: RootEarthDungeon[] | 'World Drop' | 'Vendor' | 'Quest'
+      dungeon: RootEarthDungeon[] | OtherLocation
       biome?: never
       injectable?: Injectable
     }
@@ -273,7 +280,7 @@ export type ItemLocation =
     }
   | {
       world: 'Labyrinth'
-      dungeon: 'Labyrinth' | 'World Drop' | 'Vendor' | 'Quest'
+      dungeon: 'Labyrinth' | OtherLocation
       biome?: never
       injectable?: Injectable
     }
@@ -283,6 +290,6 @@ export type ItemLocation =
       biome: Biome
       injectable?: Injectable
     }
-  | { world: 'Ward 13'; dungeon: 'Ward 13' | 'Vendor' | 'Quest' }
+  | { world: 'Ward 13'; dungeon: 'Ward 13' | OtherLocation }
   | { world: 'The Backrooms'; dungeon: 'The Backrooms' }
-  | { world: 'Any'; dungeon: 'Quest' | 'Linked Weapon' }
+  | { world: 'Any'; dungeon: OtherLocation }
