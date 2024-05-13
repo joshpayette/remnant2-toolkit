@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-05-12
+
+### Added
+
+- Added item location information for almost all items. Will have a way to search for items by location soon!
+
+### Fixed
+
+- Fixed issue where duplicate items were saved to the database.
+
 ## 2024-05-11
 
 ### Added
