@@ -194,7 +194,7 @@ export function ItemTrackerFilters({}: Props) {
                   <Input
                     type="text"
                     value={unappliedFilters.searchText}
-                    placeholder="Item name or description..."
+                    placeholder="Item name..."
                     onClear={() => {
                       const newFilters = {
                         ...unappliedFilters,
