@@ -23,24 +23,22 @@ import { PerkItem } from '@/app/(data)/items/types/PerkItem'
 import { SkillItem } from '@/app/(data)/items/types/SkillItem'
 import { TraitItem } from '@/app/(data)/items/types/TraitItem'
 import { WeaponItem } from '@/app/(data)/items/types/WeaponItem'
-import { ItemLocation } from '@/app/(types)/locations'
+import { BIOMES, ItemLocation } from '@/app/(types)/locations'
 import { capitalize } from '@/app/(utils)/capitalize'
 import { itemShareEndpoint } from '@/app/(utils)/clean-item-name'
 
-function generateFoundInLabel(location: ItemLocation) {
-  let label = location.world
+function generateDungeonLabel(location: ItemLocation) {
+  let label = `${location.world} - `
 
   if (location.dungeon) {
     if (Array.isArray(location.dungeon)) {
-      label += `, ${location.dungeon.join(', ')}`
+      label += `${location.dungeon.join(', ')}`
     } else {
-      label += `, ${location.dungeon}`
+      label += `${location.dungeon}`
     }
   } else if (location.biome) {
-    label += `, ${location.biome} biome`
-    if (location.injectable) {
-      label += `, ${location.injectable} injectable`
-    }
+    const biome = BIOMES.find((b) => b.name === location.biome)
+    label += `${biome?.dungeons.join(', ')}`
   }
 
   return label
@@ -75,14 +73,18 @@ export function ItemInfoDialog({ open, item, onClose }: Props) {
       <BaseDialogTitle>
         {item.name}
         <br />
-        <span className="text-sm font-normal">{subtitle}</span>
+        <span className="text-md font-normal">{subtitle}</span>
         {item.location && (
-          <>
-            <br />
+          <div className="mt-2 flex flex-col items-start justify-start gap-y-1">
             <span className="text-xs font-normal">
-              {generateFoundInLabel(item.location)}
+              {generateDungeonLabel(item.location)}
             </span>
-          </>
+            {!item.location.dungeon && item.location.injectable && (
+              <span className="text-xs font-normal italic">
+                {item.location?.injectable} injectable
+              </span>
+            )}
+          </div>
         )}
       </BaseDialogTitle>
       <BaseDialogDescription>
