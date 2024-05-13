@@ -4,6 +4,7 @@ import { revalidatePath } from 'next/cache'
 
 import { getServerSession } from '@/app/(utils)/auth'
 import { prisma } from '@/app/(utils)/db'
+import { ALL_TRACKABLE_ITEMS } from '@/app/tracker/constants'
 
 export async function setDiscoveredItems(
   discoveredItemIds: string[],
@@ -18,6 +19,11 @@ export async function setDiscoveredItems(
 
   const userId = session.user.id
 
+  // remove duplicate and invalid ids
+  const cleanDiscoveredItemIds = Array.from(new Set(discoveredItemIds)).filter(
+    (item) => ALL_TRACKABLE_ITEMS.some((i) => i.id === item),
+  )
+
   try {
     await prisma.$transaction([
       prisma.userItems.deleteMany({
@@ -26,13 +32,10 @@ export async function setDiscoveredItems(
         },
       }),
       prisma.userItems.createMany({
-        data: discoveredItemIds
-          // remove duplicates
-          .filter((value, index, self) => self.indexOf(value) === index)
-          .map((itemId) => ({
-            itemId,
-            userId,
-          })),
+        data: cleanDiscoveredItemIds.map((itemId) => ({
+          itemId,
+          userId,
+        })),
       }),
     ])
 
