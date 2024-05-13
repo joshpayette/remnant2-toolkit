@@ -1,5 +1,5 @@
 import { useSession } from 'next-auth/react'
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { toast } from 'react-toastify'
 import { useLocalStorage } from 'usehooks-ts'
 
@@ -9,6 +9,7 @@ import {
 } from '@/app/(types)/localstorage'
 import { getDiscoveredItems } from '@/app/tracker/actions/get-discovered-items'
 import { setDiscoveredItems } from '@/app/tracker/actions/set-discovered-items'
+import { ALL_TRACKABLE_ITEMS } from '@/app/tracker/constants'
 
 export function useDiscoveredItems() {
   const { data: sessionData, status: sessionStatus } = useSession()
@@ -23,6 +24,12 @@ export function useDiscoveredItems() {
   )
   const { discoveredItemIds: localDiscoveredItemIds } = tracker
 
+  const validLocalDiscoveredItemIds = useMemo(() => {
+    return Array.from(new Set(localDiscoveredItemIds)).filter((item) =>
+      ALL_TRACKABLE_ITEMS.some((i) => i.id === item),
+    )
+  }, [localDiscoveredItemIds])
+
   const [discoveredItemIds, setDiscoveredItemIds] = useState<string[]>([])
 
   // Check for database discovered items and use those if present
@@ -32,9 +39,10 @@ export function useDiscoveredItems() {
       if (sessionStatus === 'loading') return
 
       if (sessionStatus === 'unauthenticated') {
-        setDiscoveredItemIds(localDiscoveredItemIds)
+        setDiscoveredItemIds(validLocalDiscoveredItemIds)
         return
       }
+
       const response = await getDiscoveredItems()
       if (!response.success) {
         toast.error('Failed to get discovered items from the database.')
@@ -46,18 +54,21 @@ export function useDiscoveredItems() {
       if (
         response.success &&
         response.discoveredItemIds.length === 0 &&
-        localDiscoveredItemIds.length > 0
+        validLocalDiscoveredItemIds.length > 0
       ) {
-        const { success } = await setDiscoveredItems(localDiscoveredItemIds)
+        const { success } = await setDiscoveredItems(
+          validLocalDiscoveredItemIds,
+        )
         if (!success) {
           toast.error('Failed to write local discovered items to the database.')
         }
-        setDiscoveredItemIds(localDiscoveredItemIds)
+
+        setDiscoveredItemIds(validLocalDiscoveredItemIds)
         return
       }
     }
     fetchDiscoveredItems()
-  }, [localDiscoveredItemIds, sessionData?.user, sessionStatus])
+  }, [validLocalDiscoveredItemIds, sessionData?.user, sessionStatus])
 
   async function handleSetDiscoveredItems(newDiscoveredItemIds: string[]) {
     // If authenticated, update the database

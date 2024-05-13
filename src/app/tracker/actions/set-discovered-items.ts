@@ -20,6 +20,8 @@ export async function setDiscoveredItems(
   const userId = session.user.id
 
   // remove duplicate and invalid ids
+  // TODO Remove this in about a week or so once the changes on the frontend have been
+  // TODO in effect for a while - 05/13/2024
   const cleanDiscoveredItemIds = Array.from(new Set(discoveredItemIds)).filter(
     (item) => ALL_TRACKABLE_ITEMS.some((i) => i.id === item),
   )
