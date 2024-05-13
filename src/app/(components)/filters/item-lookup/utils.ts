@@ -8,7 +8,6 @@ import {
 } from '@/app/(components)/filters/item-lookup/types'
 import { VALID_RELEASE_KEYS } from '@/app/(components)/filters/releases-filter'
 import { DEFAULT_FILTER } from '@/app/(components)/filters/types'
-import { VALID_WORLDS } from '@/app/(components)/filters/worlds-filter'
 import { allItems } from '@/app/(data)/items/all-items'
 import { ITEM_TOKENS } from '@/app/(types)/tokens'
 
@@ -90,20 +89,7 @@ export function parseUrlFilters(
     }
   }
 
-  let worlds = parsedParams.get(ITEM_FILTER_KEYS.WORLDS)?.split(',') || []
-  // If worlds is the default, convert it to an array
-  // Else ensure that the worlds provided are valid
-  if (worlds.length === 0) {
-    worlds = [DEFAULT_FILTER]
-  } else {
-    worlds = worlds.filter((world) =>
-      (VALID_WORLDS as string[]).includes(world),
-    )
-    // If no worlds, set to default
-    if (worlds.length === 0) {
-      worlds = [DEFAULT_FILTER]
-    }
-  }
+  const world = parsedParams.get(ITEM_FILTER_KEYS.WORLD) || DEFAULT_FILTER
 
   // validate the provided searchText
   const searchText = parsedParams.get(ITEM_FILTER_KEYS.SEARCHTEXT) || ''
@@ -113,6 +99,6 @@ export function parseUrlFilters(
     collections,
     releases,
     searchText,
-    worlds,
+    world,
   }
 }

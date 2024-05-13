@@ -10,11 +10,11 @@ import { WORLD_LOCATIONS } from '@/app/(types)/locations'
 export const VALID_WORLDS = WORLD_LOCATIONS
 
 interface Props {
-  value: string[]
-  onChange: (value: string[]) => void
+  value: string
+  onChange: (value: string) => void
 }
 
-export function WorldsFilter({ value, onChange }: Props) {
+export function WorldFilter({ value, onChange }: Props) {
   const options = VALID_WORLDS.map((world) => ({
     label: world as string,
     value: world as string,
@@ -23,8 +23,8 @@ export function WorldsFilter({ value, onChange }: Props) {
 
   return (
     <BaseField>
-      <BaseLabel>Worlds</BaseLabel>
-      <BaseListbox multiple name="worlds" value={value} onChange={onChange}>
+      <BaseLabel>World</BaseLabel>
+      <BaseListbox name="world" value={value} onChange={onChange}>
         {options.map(({ label, value }) => (
           <BaseListboxOption key={value} value={value}>
             <BaseListboxLabel>{label}</BaseListboxLabel>

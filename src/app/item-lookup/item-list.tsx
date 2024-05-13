@@ -127,17 +127,10 @@ function getFilteredItems(
     )
   }
 
-  // filter by worlds
-  if (
-    filters.worlds.length > 0 &&
-    !filters.worlds.some((w) => w === DEFAULT_FILTER)
-  ) {
+  // filter by world
+  if (filters.world !== DEFAULT_FILTER) {
     filteredItems = filteredItems.filter(
-      (item) =>
-        item.location &&
-        filters.worlds
-          .filter((world) => world !== DEFAULT_FILTER)
-          .includes(item.location.world),
+      (item) => item.location?.world === filters.world,
     )
   }
 
