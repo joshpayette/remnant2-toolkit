@@ -47,7 +47,6 @@ export type LosomnDungeon =
   | `The Forgotten Commune`
   | `Pathway of the Fallen`
   | `Walk of Rememberance`
-  | `Luminous Vale`
 
 export const LOSOMN_DUNGEONS = [
   'Morrow Parish',
@@ -83,7 +82,7 @@ export const LOSOMN_DUNGEONS = [
   `The Forgotten Commune`,
   `Pathway of the Fallen`,
   `Walk of Rememberance`,
-  `Luminous Vale`,
+  
 ] as const satisfies LosomnDungeon[]
 
 export type NErudDungeon =
@@ -164,6 +163,7 @@ export type YaeshaDungeon =
   | `Deserted Atelier`
   | `Bloodless Throne`
   | `Glittering Grotto`
+  | `Luminous Vale`
 
 export const YAESHA_DUNGEONS = [
   `The Red Throne`,
@@ -196,6 +196,7 @@ export const YAESHA_DUNGEONS = [
   `Deserted Atelier`,
   `Bloodless Throne`,
   `Glittering Grotto`,
+  `Luminous Vale`,
 ] as const satisfies YaeshaDungeon[]
 
 export type RootEarthDungeon =
