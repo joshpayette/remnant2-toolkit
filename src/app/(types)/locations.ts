@@ -47,7 +47,6 @@ export type LosomnDungeon =
   | `The Forgotten Commune`
   | `Pathway of the Fallen`
   | `Walk of Rememberance`
-  | `Luminous Vale`
 
 export const LOSOMN_DUNGEONS = [
   'Morrow Parish',
@@ -83,7 +82,7 @@ export const LOSOMN_DUNGEONS = [
   `The Forgotten Commune`,
   `Pathway of the Fallen`,
   `Walk of Rememberance`,
-  `Luminous Vale`,
+  
 ] as const satisfies LosomnDungeon[]
 
 export type NErudDungeon =
