@@ -12,6 +12,7 @@ export const relicItems: RelicItem[] = [
       '\n' +
       'Cannot prevent certain death mechanics.',
     wikiLinks: [`https://remnant.wiki/Bloodless_Heart`],
+    location: { world: 'Yaesha', dungeon: [`Goddess's Rest`] },
   },
   {
     category: 'relic',
@@ -22,6 +23,7 @@ export const relicItems: RelicItem[] = [
     description:
       "On use, heals for 35% of Max Health over 5s. Spawns 3 Healing Orbs which grant 35% of caster's Max Health over 5s. Orbs last 20s. Recasting removes previous Orbs.",
     wikiLinks: [`https://remnant.wiki/Blooming_Heart`],
+    location: { world: 'Yaesha', biome: 'Floating Forests' },
   },
   {
     category: 'relic',
@@ -34,6 +36,7 @@ export const relicItems: RelicItem[] = [
       '\n' +
       'Not affected by other healing items or perks.',
     wikiLinks: [`https://remnant.wiki/Broken_Heart`],
+    location: { world: 'Losomn', dungeon: 'Quest' },
   },
   {
     category: 'relic',
@@ -44,6 +47,7 @@ export const relicItems: RelicItem[] = [
     description:
       'On use, regenerates 20 Health per second for 5s and grants 2 Stacks of BULWARK while heal is active.',
     wikiLinks: [`https://remnant.wiki/Constrained_Heart`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
   {
     category: 'relic',
@@ -54,6 +58,7 @@ export const relicItems: RelicItem[] = [
     description:
       'On use, regenerates 100% of Max Health over 10s. Movement Speed is reduced by 50%, and incoming damage is reduced by 25%. Lasts 10s.',
     wikiLinks: [`https://remnant.wiki/Crystal_Heart`],
+    location: { world: `N'Erud`, dungeon: [`The Dark Conduit`] },
   },
   {
     category: 'relic',
@@ -63,6 +68,7 @@ export const relicItems: RelicItem[] = [
     dlc: 'base',
     description: `On use, causes the next 3 instances of enemy damage taken to trigger 40 Health regeneration over 3s. Lasts 30s.`,
     wikiLinks: [`https://remnant.wiki/Decayed_Heart`],
+    location: { world: 'Root Earth', dungeon: ['Corrupted Harbor'] },
   },
   {
     category: 'relic',
@@ -74,6 +80,7 @@ export const relicItems: RelicItem[] = [
     description:
       'Does not provide standard healing. On use, reduces Skill Cooldowns by 1s per second. Lasts 15s.',
     wikiLinks: [`https://remnant.wiki/Diverting_Heart`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
   {
     category: 'relic',
@@ -83,6 +90,7 @@ export const relicItems: RelicItem[] = [
     dlc: 'base',
     description: 'On use, Heals 70 Health over 0.5s.',
     wikiLinks: [`https://remnant.wiki/Dragon_Heart`],
+    location: { world: 'Ward 13', dungeon: 'Quest' },
   },
   {
     category: 'relic',
@@ -93,6 +101,7 @@ export const relicItems: RelicItem[] = [
     description:
       'Innate Double Use Speed. On use, heals 140 Health over 0.5s. Relic capacity is halved.',
     wikiLinks: [`https://remnant.wiki/Enlarged_Heart`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
   {
     category: 'relic',
@@ -103,6 +112,7 @@ export const relicItems: RelicItem[] = [
     description:
       'Innate 50% Use Speed Bonus, but provides no healing. Relic capacity is doubled.',
     wikiLinks: [`https://remnant.wiki/Lifeless_Heart`],
+    location: { world: 'Yaesha', dungeon: 'Quest' },
   },
   {
     category: 'relic',
@@ -115,6 +125,7 @@ export const relicItems: RelicItem[] = [
       '\n' +
       'Dealing 75 Base Damage from any source removes 1 Stack of PAPER HEALTH.',
     wikiLinks: [`https://remnant.wiki/Paper_Heart`],
+    location: { world: 'Losomn', dungeon: ['Chamber of the Faithless'] },
   },
   {
     category: 'relic',
@@ -125,6 +136,7 @@ export const relicItems: RelicItem[] = [
     tags: ['Lifesteal'],
     description: `Innate 3% Lifesteal bonus. On use, increases all Lifesteal Efficacy by 50% for 15s.`,
     wikiLinks: [`https://remnant.wiki/Profane_Heart`],
+    location: { world: 'Yaesha', dungeon: ['Infested Abyss'] },
   },
   {
     category: 'relic',
@@ -134,6 +146,7 @@ export const relicItems: RelicItem[] = [
     dlc: 'base',
     description: `On use, pulses every 3s, healing allies within 7m for 20 Health over 0.5s per pulse. Lasts 15s.`,
     wikiLinks: [`https://remnant.wiki/Pulsing_Heart`],
+    location: { world: 'Yaesha', dungeon: [`Endaira's End`] },
   },
   {
     category: 'relic',
@@ -143,6 +156,10 @@ export const relicItems: RelicItem[] = [
     dlc: 'base',
     description: `Does not provide standard healing. On use, negates Stamina Drain and cause Evades to heal for 15 Health over 0.25s. Lasts 20s.`,
     wikiLinks: [`https://remnant.wiki/Quilted_Heart`],
+    location: {
+      world: 'Losomn',
+      dungeon: [`Brocwithe Quarter`, `Morrow Parish`, `Forsaken Quarter`],
+    },
   },
   {
     category: 'relic',
@@ -154,6 +171,7 @@ export const relicItems: RelicItem[] = [
     description:
       'On use, converts 5 Health as Grey Health to 40 Mod Power per second for 25s for both weapons. Cannot die from conversion.',
     wikiLinks: [`https://remnant.wiki/Reprocessed_Heart`],
+    location: { world: 'Labyrinth', dungeon: ['Labyrinth'] },
   },
   {
     category: 'relic',
@@ -164,6 +182,7 @@ export const relicItems: RelicItem[] = [
     description:
       'On use, regenerates 50% of Max Health over 5s. When heal ends, any overhealed Health to self is Doubled and awarded over the next 20s.',
     wikiLinks: [`https://remnant.wiki/Resonating_Heart`],
+    location: { world: 'Root Earth', dungeon: ['Ashen Wasteland'] },
   },
   {
     category: 'relic',
@@ -173,6 +192,7 @@ export const relicItems: RelicItem[] = [
     dlc: 'base',
     description: `On use, heals 35 Health over 0.5s and an additional 70 over 5s.`,
     wikiLinks: [`https://remnant.wiki/Ripened_Heart`],
+    location: { world: 'Yaesha', dungeon: [`The Widow's Court`] },
   },
   {
     category: 'relic',
@@ -183,6 +203,7 @@ export const relicItems: RelicItem[] = [
     description:
       'On use, increases Health Regeneration by 5 and generates 500 Mod Power over 10s for both weapons.',
     wikiLinks: [`https://remnant.wiki/Runed_Heart`],
+    location: { world: 'Labyrinth', dungeon: ['Labyrinth'] },
   },
   {
     category: 'relic',
@@ -193,6 +214,11 @@ export const relicItems: RelicItem[] = [
     description:
       'Innate 25% Use Speed bonus. On use, heals 30 Health over 0.25s and restores 300% of current Grey Health.',
     wikiLinks: [`https://remnant.wiki/Salvaged_Heart`],
+    location: {
+      world: `N'Erud`,
+      biome: `N'Erud Underworld`,
+      injectable: `Ascension Spire`,
+    },
   },
   {
     category: 'relic',
@@ -203,6 +229,7 @@ export const relicItems: RelicItem[] = [
     description:
       'On use, grants a SHIELD for 100% of Max Health. Lasts 20s or until SHIELD is removed by damage.',
     wikiLinks: [`https://remnant.wiki/Shielded_Heart`],
+    location: { world: `N'Erud`, dungeon: ['Tower of the Unseen'] },
   },
   {
     category: 'relic',
@@ -212,6 +239,10 @@ export const relicItems: RelicItem[] = [
     dlc: 'base',
     description: `On use, grants 10% of base damage dealt as Lifesteal for 15s.`,
     wikiLinks: [`https://remnant.wiki/Siphon_Heart`],
+    location: {
+      world: `N'Erud`,
+      dungeon: ['Ascension Spire'],
+    },
   },
   {
     category: 'relic',
@@ -223,6 +254,7 @@ export const relicItems: RelicItem[] = [
       'Innate 25% Relic Use Speed bonus. On use, deals 150 - 450 Explosive Damage to enemies within 5m and Lifesteals 20% of damage dealt.',
     externalTokens: [`Amplitude`, `Explosive Damage`],
     wikiLinks: [`https://remnant.wiki/Tormented_Heart`],
+    location: { world: 'Losomn', dungeon: ['Tormented Asylum'] },
   },
   {
     category: 'relic',
@@ -232,6 +264,7 @@ export const relicItems: RelicItem[] = [
     dlc: 'base',
     description: `Passively grants 2 Health Regeneration per second. On use, doubles All Health Regeneration for 15s.`,
     wikiLinks: [`https://remnant.wiki/Tranquil_Heart`],
+    location: { world: 'Losomn', dungeon: [`Nimue's Retreat`] },
   },
   {
     category: 'relic',
@@ -241,6 +274,7 @@ export const relicItems: RelicItem[] = [
     dlc: 'base',
     description: `On use, heals for 100% of Current Health over 0.5s.`,
     wikiLinks: [`https://remnant.wiki/Unsullied_Heart`],
+    location: { world: 'Losomn', dungeon: ['Beatific Palace'] },
   },
   {
     category: 'relic',
@@ -250,5 +284,6 @@ export const relicItems: RelicItem[] = [
     dlc: 'base',
     description: `On use, reduces incoming damage by 50% for 4s. When buff ends, heals 100% of missing Health over 0.75s.`,
     wikiLinks: [`https://remnant.wiki/Void_Heart`],
+    location: { world: `N'Erud`, dungeon: ['Alepsis-Taura'] },
   },
 ]

@@ -11,6 +11,13 @@ import { DEFAULT_FILTER } from '@/app/(components)/filters/types'
 import { Item } from '@/app/(data)/items/types'
 import { MutatorItem } from '@/app/(data)/items/types/MutatorItem'
 import { WeaponItem } from '@/app/(data)/items/types/WeaponItem'
+import {
+  LABYRINTH_DUNGEONS,
+  LOSOMN_DUNGEONS,
+  NERUD_DUNGEONS,
+  ROOT_EARTH_DUNGEONS,
+  YAESHA_DUNGEONS,
+} from '@/app/(types)/locations'
 import { ItemTrackerCategory } from '@/app/tracker/types'
 
 export function parseUrlFilters(
@@ -20,19 +27,14 @@ export function parseUrlFilters(
 
   // validate the provided categories
   let categories =
-    parsedParams.get(ITEM_TRACKER_KEYS.CATEGORIES)?.split(',') || []
+    parsedParams.get(ITEM_TRACKER_KEYS.CATEGORIES)?.split(',') ||
+    VALID_ITEM_CATEGORIES
   // If categories is the default, convert it to an array
   // Else ensure that the categories provided are valid
-  if (categories.length === 0) {
-    categories = [DEFAULT_FILTER]
-  } else {
+  if (categories.length > 0) {
     categories = categories.filter((category) =>
       VALID_ITEM_CATEGORIES.includes(category),
     )
-    // If no categories, set to default
-    if (categories.length === 0) {
-      categories = [DEFAULT_FILTER]
-    }
   }
 
   // validate the provided collections
@@ -68,6 +70,43 @@ export function parseUrlFilters(
     }
   }
 
+  const world = parsedParams.get(ITEM_TRACKER_KEYS.WORLD) || DEFAULT_FILTER
+  let dungeon = parsedParams.get(ITEM_TRACKER_KEYS.DUNGEON) || DEFAULT_FILTER
+
+  // if the dungeon doesn't match the world, set it to default
+  if (dungeon !== DEFAULT_FILTER && dungeon !== 'World Drop') {
+    switch (world) {
+      case 'Losomn':
+        if (!(LOSOMN_DUNGEONS as string[]).includes(dungeon)) {
+          dungeon = DEFAULT_FILTER
+        }
+        break
+      case `N'Erud`:
+        if (!(NERUD_DUNGEONS as string[]).includes(dungeon)) {
+          dungeon = DEFAULT_FILTER
+        }
+        break
+      case 'Yaesha':
+        if (!(YAESHA_DUNGEONS as string[]).includes(dungeon)) {
+          dungeon = DEFAULT_FILTER
+        }
+        break
+      case 'Root Earth':
+        if (!(ROOT_EARTH_DUNGEONS as string[]).includes(dungeon)) {
+          dungeon = DEFAULT_FILTER
+        }
+        break
+      case 'Labyrinth':
+        if (!(LABYRINTH_DUNGEONS as string[]).includes(dungeon)) {
+          dungeon = DEFAULT_FILTER
+        }
+        break
+      default:
+        dungeon = DEFAULT_FILTER
+        break
+    }
+  }
+
   // validate the provided searchText
   const searchText = parsedParams.get(ITEM_TRACKER_KEYS.SEARCHTEXT) || ''
 
@@ -76,6 +115,8 @@ export function parseUrlFilters(
     collections,
     releases,
     searchText,
+    world,
+    dungeon,
   }
 }
 

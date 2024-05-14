@@ -18,6 +18,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 3,
     description: `A soft and durable felt hat fashioned to stylize, not necessarily protect, the most important part of your body. `,
     wikiLinks: [`https://remnant.wiki/Academic's_Hat`],
+    location: { world: 'Losomn', biome: 'Losomn Sewers' },
   },
   {
     category: 'helm',
@@ -36,6 +37,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 3,
     description: `The helm of the bandit armor is a haunting symbol of the ruthless opportunism that arose after the cataclysmic destruction of Earth. Yet, for those who wear it, it also represents a means of survival in a world where mercy is a scarce commodity`,
     wikiLinks: [`https://remnant.wiki/Bandit's_Mask`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
   {
     category: 'helm',
@@ -54,6 +56,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 0,
     description: `This helmet looks heavier than it is, which isn't all that surprising, considering it isn't bulletproof. Still, it's useful for protecting against falling debris, and if the angle's just right, it may get lucky and deflect a stray bullet or two. I wouldn't count on it, though.`,
     wikiLinks: [`https://remnant.wiki/Battle_Helmet`],
+    location: { world: 'Yaesha', dungeon: [`Proving Grounds`] },
   },
   {
     category: 'helm',
@@ -70,6 +73,7 @@ export const armorItems: ArmorItem[] = [
     blightResistance: -3,
     description: `The weight of this crown is heavy, so much heavier than you might have guessed. Though aged, the shining metal has been carefully preserved, and the crown jewel radiates with a passionate fury you can scarcely comprehend.`,
     wikiLinks: ['https://remnant.wiki/Bloodless_Crown'],
+    location: { world: 'Yaesha', dungeon: [`Goddess's Rest`] },
   },
   {
     category: 'helm',
@@ -88,6 +92,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 1,
     description: `The visibility in this helmet leaves much to be desired, but that's not really the point. It goes a long way in keeping your head on your shoulders.`,
     wikiLinks: [`https://remnant.wiki/Bruiser_Helmet`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
   {
     category: 'helm',
@@ -106,6 +111,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 0,
     description: `The hooded mask wreathes you in a vicious, fiery visage that evokes both fear and admiration. The incandescent eye slits color your vision with the hues of hellfire.`,
     wikiLinks: [`https://remnant.wiki/Crimson_Guard_Shroud`],
+    location: { world: 'Losomn', dungeon: 'Quest' },
   },
   {
     category: 'helm',
@@ -123,6 +129,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: -6,
     description: `A flashy, flame-hot diadem that demands respect and attention in equal measure...were there any subjects left to offer such sentiments. `,
     wikiLinks: [`https://remnant.wiki/Crown_of_the_Red_Prince`],
+    location: { world: 'Losomn', dungeon: ['Gilded Chambers'] },
   },
   {
     category: 'helm',
@@ -141,6 +148,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 1,
     description: `A simple and unassuming headpiece that belies its storied past. Once worn by members of a secretive and enigmatic cult. It now serves as a symbol of redemption for those who have turned their backs on the group's teachings.`,
     wikiLinks: [`https://remnant.wiki/Cultist_Hat`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
   {
     category: 'helm',
@@ -159,6 +167,7 @@ export const armorItems: ArmorItem[] = [
     description:
       'Lovingly crafted by a skilled hatter who clearly takes great pride in their work. After being exposed to endless days of rain, the shell began to separate from the crown, so a woven cord was tied around the center to hold it in place—for now.',
     wikiLinks: ['https://remnant.wiki/Dandy_Topper'],
+    location: { world: 'Losomn', dungeon: ['Forlorn Coast'] },
   },
   {
     category: 'helm',
@@ -177,6 +186,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 2,
     description: `It's like putting your head inside the monsters you've been killing all this time. It's comfortable enough though, so long as you don't think about where it's been. `,
     wikiLinks: [`https://remnant.wiki/Dendroid_Mask`],
+    location: { world: 'Root Earth', dungeon: ['Ashen Wasteland'] },
   },
   {
     category: 'helm',
@@ -195,6 +205,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 1,
     description: `The unwavering visage of Lydusa carves the shape of this mask. Though her sisters wandered far and wide, Lydusa seldom traveled at all, for stone by its nature is unmoving and lonely.`,
     wikiLinks: [`https://remnant.wiki/Disciple_Headpiece`],
+    location: { world: 'Yaesha', dungeon: ['Ancient Canopy'] },
   },
   {
     category: 'helm',
@@ -215,6 +226,7 @@ export const armorItems: ArmorItem[] = [
     featureless. design is both eerie and elegant, painted a stark white and adorned
     with luxuriant fur and imposing horns.`,
     wikiLinks: [`https://remnant.wiki/Elder_Headdress`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
   {
     category: 'helm',
@@ -233,6 +245,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 0,
     description: `It feels like you're not wearing any helmet at all - you'd swear you could even feel the wind in your hair. Yet it turns an arrow as effectively as any steel. `,
     wikiLinks: [`https://remnant.wiki/Fae_Royal_Headcover`],
+    location: { world: 'Losomn', dungeon: [`Postulant's Parlor`] },
   },
   {
     category: 'helm',
@@ -250,6 +263,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 1,
     description: `While it may shield your eyes from the sun, it's not particularly protective against the dangers of the Root. `,
     wikiLinks: [`https://remnant.wiki/Field_Medic_Hat`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
   {
     category: 'helm',
@@ -268,6 +282,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 1,
     description: `This face covering protects you from contagions without obstructing your sight. You feel like a creature from another world in this thing. Perhaps that's fitting. `,
     wikiLinks: [`https://remnant.wiki/Field_Medic_Mask`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
   {
     category: 'helm',
@@ -286,6 +301,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 1,
     description: `Something about this hat just feels right. Paired with a bandana, it keeps the sun and elements from hindering your all-important aim. `,
     wikiLinks: [`https://remnant.wiki/High_Noon_Hat`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
   {
     category: 'helm',
@@ -304,6 +320,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 2,
     description: `A hauntingly familiar visage, convincing enough to still be alive. To truly know your enemy, you must get inside its head. Literally. `,
     wikiLinks: [`https://remnant.wiki/Knotted_Helm`],
+    location: { world: 'Yaesha', dungeon: 'Vendor' },
   },
   {
     category: 'helm',
@@ -322,6 +339,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 0,
     description: `This helmet is reminiscent of a statue from a time long, long before. `,
     wikiLinks: [`https://remnant.wiki/Labyrinth_Headplate`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
   {
     category: 'helm',
@@ -340,6 +358,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 4,
     description: `Reinforced and designed to completely enclose the head, providing maximum protection against the dangers of the Root`,
     wikiLinks: [`https://remnant.wiki/Leto_Mark_1_Helmet`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
   {
     category: 'helm',
@@ -358,6 +377,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 2,
     description: `While this ironclad helmet is somewhat difficult to breathe in, you feel secure knowing even the heaviest weapon would have little chance of cracking into your skull. `,
     wikiLinks: [`https://remnant.wiki/Leto_Mark_II_Helmet`],
+    location: { world: 'Labyrinth', dungeon: 'World Drop' },
   },
   {
     category: 'helm',
@@ -374,6 +394,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 0,
     description: `This crown was worn by King Kolket himself. It could be heresy for a paxultek to wear such an artifact, but there are few left among the Pan who would even recognize it as their own.`,
     wikiLinks: [`https://remnant.wiki/Lodestone_Crown`],
+    location: { world: 'Yaesha', dungeon: ['The Lament'] },
   },
   {
     category: 'helm',
@@ -389,6 +410,7 @@ export const armorItems: ArmorItem[] = [
     blightResistance: 2,
     toxinResistance: 1,
     wikiLinks: [`https://remnant.wiki/Mudtooth's_Hat`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
     description: `A hat that once belonged to some kind of man in black. Or did it? Mudtooth went through some kind of crazy experience to get this thing, though the details are a little muddled. Either that, or he found it in a dumpster. You're going to choose to believe it's the former.`,
   },
   {
@@ -407,6 +429,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 3,
     description: `It's hard to imagine someone piloting an entire world, but that's who this helm was for. The sockets allowed them to speak with N'Erud directly. N'Erud had dozens of pilots, all working in concert-both with each other and with the world itself. `,
     wikiLinks: [`https://remnant.wiki/Navigator's_Helm`],
+    location: { world: `N'Erud`, dungeon: ['Extraction Hub'] },
   },
   {
     category: 'helm',
@@ -425,6 +448,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 0,
     description: `A hunting mask with advanced respirator capabilities. It purifies yet does nothing to mask the stench of death that permeates the air. `,
     wikiLinks: [`https://remnant.wiki/Nightstalker_Shroud`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
   {
     category: 'helm',
@@ -443,6 +467,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 0,
     description: `The cowl is a striking blue, which contrasts with the large, featureless golden mask that covers the face of the wearer. This armor was highly coveted and only granted to those few who were recognized as the "Radiant Ones." `,
     wikiLinks: [`https://remnant.wiki/Radiant_Visage`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
   {
     category: 'helm',
@@ -461,6 +486,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 0,
     description: `This hat once belonged to Founder Ford. He was only a captain then-a much younger Ford, from a long time and many lives ago. `,
     wikiLinks: [`https://remnant.wiki/Realmwalker_Beret`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
   {
     category: 'helm',
@@ -479,6 +505,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 0,
     description: `The horns of this helmet are ornamental, designed to be displayed in addition to the Pan wearer's own horns-which themselves protrude from additional openings in the armor-to create a truly frightening visage. `,
     wikiLinks: [`https://remnant.wiki/Red_Widow_Headdress`],
+    location: { world: 'Yaesha', dungeon: ['The Lament'] },
   },
   {
     category: 'helm',
@@ -497,6 +524,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 2,
     description: `People (Mudtooth mostly) tell stories of how, before the Root, humans could fly into space. It's probably not true, but if it were, they'd need something like this to keep them alive out there. `,
     wikiLinks: [`https://remnant.wiki/Space_Worker_Mask`],
+    location: { world: `N'Erud`, dungeon: [`Void Vessel Facility`] },
   },
   {
     category: 'helm',
@@ -515,6 +543,10 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 2,
     description: `An overwhelming amount of information shines within the helmet's display, the vast majority of it incomprehensible. Whether that's because it's a foreign language or the helmet has been damaged by whatever destroyed this place is anybody's guess. `,
     wikiLinks: [`https://remnant.wiki/Technician_Helmet`],
+    location: {
+      world: `N'Erud`,
+      dungeon: [`The Eon Vault`, `Timeless Horizon`],
+    },
   },
   {
     category: 'helm',
@@ -533,6 +565,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 1,
     description: `For some reason, your head feels naked without this simple baseball cap with a fox logo. That aside, it keeps the sun out of your eyes, and that's all you ask of it.`,
     wikiLinks: [`https://remnant.wiki/Trainer_Cap`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
   {
     category: 'helm',
@@ -551,6 +584,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: -6,
     description: `Unified at long last, this enigmatic mask and flaming diadem signify that its wearer is not only forever loyal to the Red King but stands as his most favoured equal.`,
     wikiLinks: [`https://remnant.wiki/True_Crimson_Crown`],
+    location: { world: 'Losomn', dungeon: [`Nimue's Retreat`] },
   },
   {
     category: 'helm',
@@ -569,6 +603,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 1,
     description: `The skull-like helm hails from the inhospitable world of Rhom, where survival demands more than just strength and cunning. Fashioned from a mysterious material, its surface glimmers with an otherworldly sheen that seems to shift and change with the light. Its sleek and angular lines, reminiscent of some alien technology, evoke a sense of unease in those who gaze upon it. `,
     wikiLinks: [`https://remnant.wiki/Void_Skull`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
   {
     category: 'helm',
@@ -588,6 +623,7 @@ export const armorItems: ArmorItem[] = [
     description: `A large-brimmed hat that manages to strike fear in those who see it despite its simplistic and unintimidating design. Its main use is to cast its wearer's face in
     a shadow as dark as the deeds they seek to commit under black of night.`,
     wikiLinks: [`https://remnant.wiki/Zealot's_Hat`],
+    location: { world: 'Losomn', dungeon: ['Forlorn Coast'] },
   },
   {
     category: 'torso',
@@ -606,6 +642,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 6,
     description: `Donning this uniform makes you feel a touch smarter, and you can't help but straighten the necktie whenever it slips loose.`,
     wikiLinks: [`https://remnant.wiki/Academic's_Overcoat`],
+    location: { world: 'Losomn', biome: 'Losomn Sewers' },
   },
   {
     category: 'torso',
@@ -624,6 +661,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 2,
     description: `Little more than a coat, stitched together from scraps of leather and whatever else could be scavenged from the wasteland. While it may provide a small degree of protection against the elements, it's hardly suitable for combat and is more of a fashion statement than anything else.`,
     wikiLinks: [`https://remnant.wiki/Bandit_Jacket`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
   {
     category: 'torso',
@@ -642,6 +680,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 2,
     description: `A simple, standard-issue army shirt made from a durable canvas composite. It's seen a lot of action but was clearly carefully maintained. There appears to be some kind of tag above the pocket, but whatever it once said, time washed it away long ago.`,
     wikiLinks: [`https://remnant.wiki/Battle_Shirt`],
+    location: { world: 'Yaesha', dungeon: [`Proving Grounds`] },
   },
   {
     category: 'torso',
@@ -660,6 +699,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 2,
     description: `This thing is difficult to put on or take off and makes you feel like a walking tank. In the thick of battle, that's exactly what you're looking for.`,
     wikiLinks: [`https://remnant.wiki/Bruiser_Bodyplate`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
   {
     category: 'torso',
@@ -696,6 +736,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 3,
     description: `More symbolic than functional, it's adorned with trinkets and ornaments instead of providing significant protection. The coat's drab color blends in with the bleak, post-apocalyptic landscape, serving as a visible sign of the wearer's allegiance to the Root`,
     wikiLinks: [`https://remnant.wiki/Cultist_Duster`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
   {
     category: 'torso',
@@ -714,6 +755,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 5,
     description: `Fibrous tentacles wrap themselves around your chest. Up until now, you've resolutely avoided this situation.`,
     wikiLinks: [`https://remnant.wiki/Dendroid_Chest`],
+    location: { world: 'Root Earth', dungeon: ['Ashen Wasteland'] },
   },
   {
     category: 'torso',
@@ -732,6 +774,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 2,
     description: `The pauldrons bear the mirrored faces of Meidra and Kaeula, who always journeyed together in their ethereal wanderings, for Meidra's flowers could not bloom so lovely without Kaeula's rains.`,
     wikiLinks: [`https://remnant.wiki/Disciple_Mantle`],
+    location: { world: 'Yaesha', dungeon: ['Ancient Canopy'] },
   },
   {
     category: 'torso',
@@ -750,6 +793,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 2,
     description: `A distinctive piece of protective gear originating from Yaesha. Its vibrant red color and fur adornments make it stand out, serving as a symbol of the wearer's status and skill. While it may not provide as much protection as some other types of armor, its lightweight construction and flexible design allow for exceptional mobility and ease of movement in combat.`,
     wikiLinks: [`https://remnant.wiki/Elder_Raiment`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
   {
     category: 'torso',
@@ -768,6 +812,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 0,
     description: `The royal guard do not wear insignias on their chests nor crests on their shield. It is assumed their identify is clear from their grab and the confidence with which they carry themselves.`,
     wikiLinks: [`https://remnant.wiki/Fae_Royal_Bodyplate`],
+    location: { world: 'Losomn', dungeon: [`Postulant's Parlor`] },
   },
   {
     category: 'torso',
@@ -786,6 +831,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 0,
     description: `A long coat over a plate of armor. The metal could be thicker, sure, but your primary concern is safe and speedy travel to the wounded.`,
     wikiLinks: [`https://remnant.wiki/Field_Medic_Overcoat`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
   {
     category: 'torso',
@@ -804,6 +850,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 2,
     description: `A rugged amalgamation of canvas, denim, leather, and steel. These different materials all serve the same purpose of keeping you covered without inhibiting aiming mobility.`,
     wikiLinks: [`https://remnant.wiki/High_Noon_Duds`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
   {
     category: 'torso',
@@ -822,6 +869,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 7,
     description: `Tightly coiled bark shrouds you like a second ribcage. Its embrace is surprisingly-and frighteningly-comforting.`,
     wikiLinks: [`https://remnant.wiki/Knotted_Cage`],
+    location: { world: 'Yaesha', dungeon: 'Vendor' },
   },
   {
     category: 'torso',
@@ -840,6 +888,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 0,
     description: `Though the cloth and tassels possess a seemingly primitive design, the pure energy wracking down your spine reminds you otherwise.`,
     wikiLinks: [`https://remnant.wiki/Labyrinth_Mantle`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
   {
     category: 'torso',
@@ -858,6 +907,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 5,
     description: `An impressive prototype engineered to safeguard against any danger from the Root, but its cutting-edge technology sacrifices agility and mobility in exchange for unparalleled protection `,
     wikiLinks: [`https://remnant.wiki/Leto_Mark_1_Armor`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
   {
     category: 'torso',
@@ -876,6 +926,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 3,
     description: `A masterpiece of impenetrability. Even though quick maneuvering is near impossible in this metal behemoth, you can't help but be impressed by the ingenuity of the design and the inspired craftsmanship.`,
     wikiLinks: [`https://remnant.wiki/Leto_Mark_II_Armor`],
+    location: { world: 'Labyrinth', dungeon: 'World Drop' },
   },
   {
     category: 'torso',
@@ -894,6 +945,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 0,
     description: `This old coat is shabby, but who's really looking? The wealth of interior ammunition pockets more than makes up for it.`,
     wikiLinks: [`https://remnant.wiki/Nightstalker_Garb`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
   {
     category: 'torso',
@@ -912,6 +964,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 0,
     description: `A dazzling sight, its golden surface featuring a stunning sun burst pattern etched into the chest. Adorned with blue gems embedded in the shoulders this armor is fit for only the most esteemed members of the Laemir`,
     wikiLinks: [`https://remnant.wiki/Radiant_Protector`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
   {
     category: 'torso',
@@ -930,6 +983,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 0,
     description: `It's not even frayed. How is that possible? Unless the World Stones did the same thing to Ford's clothes as they did to Ford himself.`,
     wikiLinks: [`https://remnant.wiki/Realmwalker_Tunic`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
   {
     category: 'torso',
@@ -948,6 +1002,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 1,
     description: `This chest piece must be hundreds -thousands- of years old, yet it shows no signis of rust or decay. One can only imagine a Pan king or queen wearing such  majestic regalia.`,
     wikiLinks: [`https://remnant.wiki/Red_Widow_Raiment`],
+    location: { world: 'Yaesha', dungeon: ['The Lament'] },
   },
   {
     category: 'torso',
@@ -966,6 +1021,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 2,
     description: `It's made of some material you don't recognize - thick but highly pliable, did the Drzyr expect to get struck by out there?`,
     wikiLinks: [`https://remnant.wiki/Space_Worker_Body`],
+    location: { world: `N'Erud`, dungeon: [`Void Vessel Facility`] },
   },
   {
     category: 'torso',
@@ -1002,6 +1058,10 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 2,
     description: `The Xul were engineers and builders, but this armor was made to withstand a grenade blast. Was this built for safety or something else?`,
     wikiLinks: [`https://remnant.wiki/Technician_Bodyplate`],
+    location: {
+      world: `N'Erud`,
+      dungeon: [`The Eon Vault`, `Timeless Horizon`],
+    },
   },
   {
     category: 'torso',
@@ -1020,6 +1080,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 3,
     description: `This isn't just any denim jacket, it's your denim jacket. It's not especial pale. 7 ready, but it's comfortable, and in it you feel ready for anything.`,
     wikiLinks: [`https://remnant.wiki/Trainer_Clothes`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
   {
     category: 'torso',
@@ -1038,6 +1099,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 4,
     description: `Crafted from the same mysterious material as the Void gloves, helm, and greaves, the chest armor completes the set's unsettling aesthetic. Its angular design is both practical and intimidating, providing unparalleled protection against the deadly environments and creatures of Rhom.`,
     wikiLinks: [`https://remnant.wiki/Void_Carapace`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
   {
     category: 'torso',
@@ -1056,6 +1118,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 3,
     description: `This long and tattered cloak is ideal for skulking about in the dead of night in pursuance of iniquitous aims. If you ever see the back of this cloak ahead of you, you would do well to run. If you ever see its wearer facing you, it is already too late.`,
     wikiLinks: [`https://remnant.wiki/Zealot's_Overcoat`],
+    location: { world: 'Losomn', dungeon: ['Forlorn Coast'] },
   },
   {
     category: 'legs',
@@ -1074,6 +1137,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 4,
     description: `Expensive-looking shoes fit for a lecture hall...that wouldn't last a week outside it.`,
     wikiLinks: [`https://remnant.wiki/Academic's_Trousers`],
+    location: { world: 'Losomn', biome: 'Losomn Sewers' },
   },
   {
     category: 'legs',
@@ -1092,6 +1156,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 2,
     description: `Consists of a pair of basic slacks and sturdy boots. While it may not offer much in terms of protection, it allows for easy movement and agility in the dangerous terrain of the ruined cityscapes. The simplicity of the design is a testament to the practicality of the bandits, who prioritize functionality over aesthetics.`,
     wikiLinks: [`https://remnant.wiki/Bandit_Trousers`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
   {
     category: 'legs',
@@ -1110,6 +1175,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 1,
     description: `A rugged pair of army pants complete with a functional, nondescript belt, a belt buckle, and a set of worn leather boots. They're designed to withstand whatver the mission demands of a soldier.`,
     wikiLinks: [`https://remnant.wiki/Battle_Slacks`],
+    location: { world: 'Yaesha', dungeon: [`Proving Grounds`] },
   },
   {
     category: 'legs',
@@ -1128,6 +1194,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 2,
     description: `While they're not exactly aesthetic, you're more comfortable in twice-temper steel and repurposed tire tread than you care to admit.`,
     wikiLinks: [`https://remnant.wiki/Bruiser_Boots`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
   {
     category: 'legs',
@@ -1164,6 +1231,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 2,
     description: `Simple slacks and boots made of cloth and wrapped in rope. Cultists rely on their unwavering devotion to the Root for their safety instead.`,
     wikiLinks: [`https://remnant.wiki/Cultist_Britches`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
   {
     category: 'legs',
@@ -1182,6 +1250,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 2,
     description: `The deadwood boots are surprisingly snug. You're not sure what you expected shodding your feet inside the bloodthirsty branches of the Root, but it wasn't this cushioned comfort.`,
     wikiLinks: [`https://remnant.wiki/Dendroid_Leggings`],
+    location: { world: 'Root Earth', dungeon: ['Ashen Wasteland'] },
   },
   {
     category: 'legs',
@@ -1200,6 +1269,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 1,
     description: `You can feel all of Yaesha beneath the soles of these heavy greaves: the soft loam of the soil, the plush of green clovers, and the cold chill of a gurgling stream. You walk with the ease of those who were born of the forest.`,
     wikiLinks: [`https://remnant.wiki/Disciple_Greaves`],
+    location: { world: 'Yaesha', dungeon: ['Ancient Canopy'] },
   },
   {
     category: 'legs',
@@ -1218,6 +1288,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 1,
     description: `Designed for both form and function. Made from durable yet lightweight materials, they allow for a full range of movement and flexibility in combat.`,
     wikiLinks: [`https://remnant.wiki/Elder_Leggings`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
   {
     category: 'legs',
@@ -1238,6 +1309,7 @@ export const armorItems: ArmorItem[] = [
 
     No... you feel lighter when wearing them.`,
     wikiLinks: [`https://remnant.wiki/Fae_Royal_Greaves`],
+    location: { world: 'Losomn', dungeon: [`Postulant's Parlor`] },
   },
   {
     category: 'legs',
@@ -1256,6 +1328,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 0,
     description: `With an assortment of pockets, pouches, and loops for your various concoctions you're essentially a walking apothecary.`,
     wikiLinks: [`https://remnant.wiki/Field_Medic_Trousers`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
   {
     category: 'legs',
@@ -1274,6 +1347,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 2,
     description: `Durable pants with spurred boots and a strip of leather for a belt. The only accent is an imposing skull on the belt buckle, a constant reminder that death is always lurking in the shadows.`,
     wikiLinks: [`https://remnant.wiki/High_Noon_Soles`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
   {
     category: 'legs',
@@ -1292,6 +1366,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 4,
     description: `These boots are surprisingly light and agile, carrying you through foliage and bramble with ease. They seem to know where to go before you even lift you foot.`,
     wikiLinks: [`https://remnant.wiki/Knotted_Greaves`],
+    location: { world: 'Yaesha', dungeon: 'Vendor' },
   },
   {
     category: 'legs',
@@ -1310,6 +1385,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 0,
     description: `The grime of a thousand different worlds mars the side of boots that walk in one place where all paths converge.`,
     wikiLinks: [`https://remnant.wiki/Labyrinth_Treads`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
   {
     category: 'legs',
@@ -1328,6 +1404,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 3,
     description: `Offering unparalleled protection at the cost of speed and agility. Although it hinders movement, the armor's strength allows its wearer to withstand even the most vicious attacks without fear of serious injury.`,
     wikiLinks: [`https://remnant.wiki/Leto_Mark_1_Leggings`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
   {
     category: 'legs',
@@ -1346,6 +1423,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 2,
     description: `Strong yet streamlined. Practical yet aesthetic. Although you can't expect to make a quick getaway in these, they're just what you need to stand strong against the looming threat of destruction. The care and attention to detail t| went into them is something to behold.`,
     wikiLinks: [`https://remnant.wiki/Leto_Mark_II_Leggings`],
+    location: { world: 'Labyrinth', dungeon: 'World Drop' },
   },
   {
     category: 'legs',
@@ -1364,6 +1442,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 0,
     description: `Thin shoes that fit perfectly and feel like they practically disappear on your feet. They're ideal for stealthy maneuvering while stalking your prey.`,
     wikiLinks: [`https://remnant.wiki/Nightstalker_Pants`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
   {
     category: 'legs',
@@ -1382,6 +1461,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 0,
     description: `Gleaming golden plates overlap and protect the wearer's feet and shins. Originally designed to be worn by the Pan, it's impressive how the armor can be adapted to fit human proportions without sacrificing its durability or protective properties.`,
     wikiLinks: [`https://remnant.wiki/Radiant_Greaves`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
   {
     category: 'legs',
@@ -1400,6 +1480,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 0,
     description: `There is hardly a world where these boots haven't tread.`,
     wikiLinks: [`https://remnant.wiki/Realmwalker_Pantaloons`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
   {
     category: 'legs',
@@ -1418,6 +1499,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 1,
     description: `Even though this armor was designed to be worn by a Pan warrior, you are still able wear it and benefit from its protection.`,
     wikiLinks: [`https://remnant.wiki/Red_Widow_Leggings`],
+    location: { world: 'Yaesha', dungeon: ['The Lament'] },
   },
   {
     category: 'legs',
@@ -1436,6 +1518,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 2,
     description: `The magnets in the boots are far stronger than those in the gloves. It's unclear how they know when to activate, but they do so on their own. Massive as N'Erud is, it must not provide enough gravity to ensure its workers remain attached to...`,
     wikiLinks: [`https://remnant.wiki/Space_Worker_Legs`],
+    location: { world: `N'Erud`, dungeon: [`Void Vessel Facility`] },
   },
   {
     category: 'legs',
@@ -1472,6 +1555,10 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 2,
     description: `Designed for stability rather than speed. Plant your weight in these things, and you'd be very difficult to move.`,
     wikiLinks: [`https://remnant.wiki/Technician_Greaves`],
+    location: {
+      world: `N'Erud`,
+      dungeon: [`The Eon Vault`, `Timeless Horizon`],
+    },
   },
   {
     category: 'legs',
@@ -1490,6 +1577,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 2,
     description: `Durable pants that are used to handling more than a little dirt and fur. The canteen is for your companion, while the flask is all yours.`,
     wikiLinks: [`https://remnant.wiki/Trainer_Workboots`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
   {
     category: 'legs',
@@ -1508,6 +1596,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 3,
     description: `A sturdy pair of footwear, expertly crafted from the same unknown material the other Void armor pieces. Their angular design and jagged edges give their wearer an intimidating and fearsome look. But these boots are more than fashion statement-they provided unparalleled protection and stability in the treacherous environments of Rhom.`,
     wikiLinks: [`https://remnant.wiki/Void_Greaves`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
   {
     category: 'legs',
@@ -1526,6 +1615,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 2,
     description: `Tall wading boots and toughened leather may protect your legs from the unruly waters of Losomn, but they will do nothing to guard against the treacherous creatures that lurk just beneath those sullied waves, thirsting for the blood of those who stray too far from shore.`,
     wikiLinks: [`https://remnant.wiki/Zealot's_Seaboots`],
+    location: { world: 'Losomn', dungeon: ['Forlorn Coast'] },
   },
   {
     category: 'gloves',
@@ -1544,6 +1634,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 2,
     description: `The initials of the Dran who once owned these - and misplaced them often - are embroidered on the wool-lined inside.`,
     wikiLinks: [`https://remnant.wiki/Academic's_Gloves`],
+    location: { world: 'Losomn', biome: 'Losomn Sewers' },
   },
   {
     category: 'gloves',
@@ -1562,6 +1653,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 2,
     description: `The bandit gloves are rough, patched together from scraps of leather and cloth, a testament to their owner's resourcefulness, and willingness to do whatever it takes to survive. Despite their rough and worn appearance, the gloves provide unexpected durability and protection amidst the unforgiving ruins of the city.`,
     wikiLinks: [`https://remnant.wiki/Bandit_Gloves`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
   {
     category: 'gloves',
@@ -1580,6 +1672,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 1,
     description: `This pair of leather army gloves couldn't be more to the point. They help guard against knicks and cuts and will help you keep a strong grip even in extreme conditions. It's not the most effective gear you've ever seen, but it's better than nothing.`,
     wikiLinks: [`https://remnant.wiki/Battle_Gloves`],
+    location: { world: 'Yaesha', dungeon: [`Proving Grounds`] },
   },
   {
     category: 'gloves',
@@ -1598,6 +1691,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 1,
     description: `These gauntlets are as tough as steel, as hard as stone, and up for whatever dangers or challenges come their way. They suit you well.`,
     wikiLinks: [`https://remnant.wiki/Bruiser_Gloves`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
   {
     category: 'gloves',
@@ -1634,6 +1728,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 1,
     description: `An unusual piece of attire that consist of leather and rope wrappings that encircle the wearer's wrists. These unconventional gloves were favored by the members of a mysterious cult that valued secrecy and esoteric knowledge above all else`,
     wikiLinks: [`https://remnant.wiki/Cultist_Gloves`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
   {
     category: 'gloves',
@@ -1654,6 +1749,7 @@ export const armorItems: ArmorItem[] = [
 
     Seems like that should bother you more.`,
     wikiLinks: [`https://remnant.wiki/Dendroid_Grips`],
+    location: { world: 'Root Earth', dungeon: ['Ashen Wasteland'] },
   },
   {
     category: 'gloves',
@@ -1672,6 +1768,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 0,
     description: `The gauntlets taper to sharp points, reminding one that everything in Yaesha is deadly, even those who seem too beautiful to be so.`,
     wikiLinks: [`https://remnant.wiki/Disciple_Vambraces`],
+    location: { world: 'Yaesha', dungeon: ['Ancient Canopy'] },
   },
   {
     category: 'gloves',
@@ -1690,6 +1787,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 1,
     description: `Features striking loops of gold that add an ornate touch to the otherwise plain design. Curiously, these embellishments are only present on the left-hand glove, making it stand out from its counterpart on the right.`,
     wikiLinks: [`https://remnant.wiki/Elder_Gloves`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
   {
     category: 'gloves',
@@ -1708,6 +1806,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 0,
     description: `Suitable for archery or swordplay - for killing of any sort really.`,
     wikiLinks: [`https://remnant.wiki/Fae_Royal_Vambraces`],
+    location: { world: 'Losomn', dungeon: [`Postulant's Parlor`] },
   },
   {
     category: 'gloves',
@@ -1726,6 +1825,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 1,
     description: `At a glance it's clear that these fingerless gloves won't keep you warm or offer much protection. Even still, you wear them because they provide improved grip without impacting precision.`,
     wikiLinks: [`https://remnant.wiki/Field_Medic_Gloves`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
   {
     category: 'gloves',
@@ -1744,6 +1844,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 1,
     description: `Metal arm guards paired with well-worn gloves that are more comfortable gripping a warm gun than reaching for a handshake. They're tasked with protecting your greatest asset - your trigger finger.`,
     wikiLinks: [`https://remnant.wiki/High_Noon_Armguards`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
   {
     category: 'gloves',
@@ -1762,6 +1863,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 2,
     description: `The deadwood claws fit you almost too snug, making it difficult to remember where bark ends and your own flesh begins.`,
     wikiLinks: [`https://remnant.wiki/Knotted_Gloves`],
+    location: { world: 'Yaesha', dungeon: 'Vendor' },
   },
   {
     category: 'gloves',
@@ -1780,6 +1882,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 0,
     description: `Craggy, uneven stone melds tightly to your hands and forearms, as if the skin of something that once was has at last found new purchase.`,
     wikiLinks: [`https://remnant.wiki/Labyrinth_Gauntlets`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
   {
     category: 'gloves',
@@ -1798,6 +1901,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 3,
     description: `Offering unparalleled protection against the unpredictable dangers of The Root, but the trade-off, is that they can be cumbersome and restrict dexterity, making it difficult to perform intricate tasks.`,
     wikiLinks: [`https://remnant.wiki/Leto_Mark_1_Gloves`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
   {
     category: 'gloves',
@@ -1816,6 +1920,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 3,
     description: `These gauntlets are sturdy enough to hold up even against the Root: They're tough and intimidating while providing the bare-minimum level of dexterity for,a steady grip on your weapon of choice. Just don't plan on completing any tasks that require subtlety when wearing these.`,
     wikiLinks: [`https://remnant.wiki/Leto_Mark_II_Gloves`],
+    location: { world: 'Labyrinth', dungeon: 'World Drop' },
   },
   {
     category: 'gloves',
@@ -1834,6 +1939,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 0,
     description: `A single glove and arm wrap are all you need or want for arm protection. The only defense you can truly rely on is a loaded gun and a clear shot.`,
     wikiLinks: [`https://remnant.wiki/Nightstalker_Gloves`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
   {
     category: 'gloves',
@@ -1852,6 +1958,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 0,
     description: `The fingerless leather gloves provide exceptional dexterity to the wearer, while the vambraces are adorned with a blue gem that gives the wearer access to the volatile energy stored within.`,
     wikiLinks: [`https://remnant.wiki/Radiant_Bracers`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
   {
     category: 'gloves',
@@ -1870,6 +1977,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 0,
     description: `Ford's gloves were designed for warmth and dexterity. The soldier who wore these was not swinging blades or forging metal. He was pulling triggers and throwing grenades`,
     wikiLinks: [`https://remnant.wiki/Realmwalker_Gloves`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
   {
     category: 'gloves',
@@ -1888,6 +1996,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 0,
     description: `These gloves are light, with openings for the fingers to allow the wearer maximum dexterity - a neccesary consideration for traditional Pan weaponry.`,
     wikiLinks: [`https://remnant.wiki/Red_Widow_Bracers`],
+    location: { world: 'Yaesha', dungeon: ['The Lament'] },
   },
   {
     category: 'gloves',
@@ -1906,6 +2015,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 1,
     description: `Electromagnets are worked into the grip, activating automatically when the hand closes. Seems like a useful feature, so long as everything/you work with is metal.`,
     wikiLinks: [`https://remnant.wiki/Space_Worker_Gloves`],
+    location: { world: `N'Erud`, dungeon: [`Void Vessel Facility`] },
   },
   {
     category: 'gloves',
@@ -1942,6 +2052,10 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 1,
     description: `A tingle runs across your palm within these gloves - like bugs skittering over your hand.`,
     wikiLinks: [`https://remnant.wiki/Technician_Gloves`],
+    location: {
+      world: `N'Erud`,
+      dungeon: [`The Eon Vault`, `Timeless Horizon`],
+    },
   },
   {
     category: 'gloves',
@@ -1960,6 +2074,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 1,
     description: `An arm guard that also functions as a bite sleeve for training on the subtle nuances of when and who to bite.`,
     wikiLinks: [`https://remnant.wiki/Trainer_Bracer`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
   {
     category: 'gloves',
@@ -1978,6 +2093,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 1,
     description: `Crafted from an enigmatic substance that resembles hardened bone in appearance. These gloves are a powerful tool in the hands of those who would wield the void, drawing energy from the emptiness between worlds to unleash devastating attacks. But with great power comes great cost, and those who dare to wear these gloves must be prepared to pay the price.`,
     wikiLinks: [`https://remnant.wiki/Void_Wraps`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
   {
     category: 'gloves',
@@ -1996,5 +2112,6 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 1,
     description: `Long gloves fit like a vice around your arms, the pressure quickening your pulse and increasing your awareness. Your hands are well protected with the exception of a few exposed fingertips, intentionally left unguarded in case a given ritual requires quick access to fresh blood.`,
     wikiLinks: [`https://remnant.wiki/Zealot's_Wraps`],
+    location: { world: 'Losomn', dungeon: ['Forlorn Coast'] },
   },
 ]

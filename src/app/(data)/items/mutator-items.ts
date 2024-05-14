@@ -14,6 +14,7 @@ export const mutatorItems: MutatorItem[] = [
     maxLevelBonus:
       'When Ammo is returned to this weapon, it gains 10% increased Fire Rate for 3s. Duration can increase up to 10s.On hit, grants a 10% - 30% chance to return spent Ammo back into the reserves of this weapon.',
     wikiLinks: [`https://remnant.wiki/Bandit_(Mutator)`],
+    location: { world: 'Yaesha', dungeon: 'Aberration' },
   },
   {
     category: 'mutator',
@@ -27,6 +28,7 @@ export const mutatorItems: MutatorItem[] = [
       'Skill activation grants Mage Strike for 10s, increasing Melee Mod Generation by 25% - 50%.',
     maxLevelBonus: 'Mage Strike also increases Melee Damage by 15%.',
     wikiLinks: [`https://remnant.wiki/Battle_Mage`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
   {
     category: 'mutator',
@@ -40,6 +42,7 @@ export const mutatorItems: MutatorItem[] = [
       "Increases Weakspot Damage by 10% - 20% for every 400 Mod Power Spent by the attached weapon's mod. Max 3 stacks. Lasts 10s.",
     maxLevelBonus: `At Max Stacks, gain 10% Critical Chance on Weakspot Hits.`,
     wikiLinks: [`https://remnant.wiki/Battery`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
   {
     category: 'mutator',
@@ -52,6 +55,7 @@ export const mutatorItems: MutatorItem[] = [
     description: `Grants 7% Fire Rate. Increases 1% - 2% for every 10% of Magazine missing.`,
     maxLevelBonus: `Reload Speed is increased by 1.5% per 10% Magazine missing.`,
     wikiLinks: [`https://remnant.wiki/Bottom_Heavy`],
+    location: { world: 'Any', dungeon: 'Aberration' },
   },
   {
     category: 'mutator',
@@ -65,6 +69,7 @@ export const mutatorItems: MutatorItem[] = [
       'Mod use increases Fire Rate of this weapon by 10% - 20%  for 15s.',
     maxLevelBonus: 'Increases Mod Generation for this weapon by 15%.',
     wikiLinks: [`https://remnant.wiki/Bulletweaver`],
+    location: { world: 'Yaesha', biome: 'Ziggurats', injectable: 'Library' },
   },
   {
     category: 'mutator',
@@ -77,6 +82,7 @@ export const mutatorItems: MutatorItem[] = [
     description: `Continuously Aiming increases Ranged Damage by up to 10% - 25% over 3s.`,
     maxLevelBonus: `Ranged Critical Hit Chance increased by 10%.`,
     wikiLinks: [`https://remnant.wiki/Deadly_Calm`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
   {
     category: 'mutator',
@@ -89,6 +95,7 @@ export const mutatorItems: MutatorItem[] = [
     description: `Increases Melee Damage by 20% - 40% for 10s when activating a Skill.`,
     maxLevelBonus: `After dealing 350 base Melee damage, reduce Skill Cooldowns by 3%.`,
     wikiLinks: [`https://remnant.wiki/Dervish`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
   {
     category: 'mutator',
@@ -101,6 +108,11 @@ export const mutatorItems: MutatorItem[] = [
     description: `Melee Strikes increase the damage of the next Backdash Evade Attack by 5% - 15%. Max 3 Stacks. Lasts 7.5s.`,
     maxLevelBonus: 'Perfect Neutral Evades grant 3 stacks.',
     wikiLinks: [`https://remnant.wiki/Disengage`],
+    location: {
+      world: `N'Erud`,
+      biome: `N'Erud Underworld`,
+      injectable: 'Store Room',
+    },
   },
   {
     category: 'mutator',
@@ -113,6 +125,7 @@ export const mutatorItems: MutatorItem[] = [
     description: `Increases Ranged Damage by 1% - 2% for every 5% of total Health present as Grey Health. Max 20% increase.`,
     maxLevelBonus: `Increases Reload Speed for this weapon by 25% while Grey Health is present.`,
     wikiLinks: [`https://remnant.wiki/Dreadful`],
+    location: { world: 'Losomn', dungeon: ['Forlorn Coast'] },
   },
   {
     category: 'mutator',
@@ -131,6 +144,7 @@ export const mutatorItems: MutatorItem[] = [
       'Increases Melee Charge Speed by 15% - 35% and Melee Attack Speed by 10%.',
     maxLevelBonus: `Gain 3% of based Charged Melee Damage dealt as Lifesteal.`,
     wikiLinks: [`https://remnant.wiki/Edgelord`],
+    location: { world: 'Any', dungeon: 'Aberration' },
   },
   {
     category: 'mutator',
@@ -143,6 +157,7 @@ export const mutatorItems: MutatorItem[] = [
     description: `Charged Melee Attacks increase the duration of Negative Status Effects on enemies by 10% - 30% of the original duration. Cannot exceed original max duration.`,
     maxLevelBonus: `Increases Melee Charge Speed and Melee Attack Speed by 5% per entity within 20m with a Negative Status Effect. Max 4 stacks.`,
     wikiLinks: [`https://remnant.wiki/Executor`],
+    location: { world: 'Losomn', dungeon: ['Forlorn Coast'] },
   },
   {
     category: 'mutator',
@@ -156,6 +171,11 @@ export const mutatorItems: MutatorItem[] = [
     maxLevelBonus:
       'Increases Reload Speed of this weapon by 20%.Increases Reserve Size of this weapon by 20% - 45%.',
     wikiLinks: [`https://remnant.wiki/Extender`],
+    location: {
+      world: 'Yaesha',
+      biome: 'Undead Tombs',
+      injectable: 'Sarcophagus',
+    },
   },
   {
     category: 'mutator',
@@ -168,6 +188,7 @@ export const mutatorItems: MutatorItem[] = [
     description: 'Attached Mod deals 10% - 25% additional Mod Damage.',
     maxLevelBonus: `Attached Mod use gains a 15% chance to not consume charge.`,
     wikiLinks: [`https://remnant.wiki/Failsafe`],
+    location: { world: `N'Erud`, dungeon: [`Dormant N'Erudian Facility`] },
   },
   {
     category: 'mutator',
@@ -182,6 +203,7 @@ export const mutatorItems: MutatorItem[] = [
     maxLevelBonus:
       "Increases this weapon's Ideal, Falloff, and Max Range by 5m.",
     wikiLinks: [`https://remnant.wiki/Far-Sighted`],
+    location: { world: 'Yaesha', dungeon: 'Aberration' },
   },
   {
     category: 'mutator',
@@ -196,6 +218,7 @@ export const mutatorItems: MutatorItem[] = [
     maxLevelBonus:
       'Mod Damage generates 15% of Base Damage dealt as Mod Power.',
     wikiLinks: [`https://remnant.wiki/Feedback`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
   {
     category: 'mutator',
@@ -214,6 +237,7 @@ export const mutatorItems: MutatorItem[] = [
       'Increases Critical Chance of this weapon by 1% - 3% per unique Negative Status Effect on the enemy. Max 15% increase.',
     maxLevelBonus: `This weapon's Ranged Weakspot and Ranged Critical Hits apply CORRODED, dealing 75 CORROSIVE damage over 10s.`,
     wikiLinks: [`https://remnant.wiki/Fetid_Wounds`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
   {
     category: 'mutator',
@@ -227,6 +251,7 @@ export const mutatorItems: MutatorItem[] = [
       'Every 3rd consecutive Weakspot Hits deals 20% - 40% additional damage.',
     maxLevelBonus: `Increases Weakspot Critical Chance by 15%.`,
     wikiLinks: [`https://remnant.wiki/Ghost_Shell`],
+    location: { world: 'Yaesha', dungeon: 'Quest' },
   },
   {
     category: 'mutator',
@@ -241,6 +266,7 @@ export const mutatorItems: MutatorItem[] = [
     maxLevelBonus:
       'Receiving Enemy Damage while brandishing a Melee Weapon grants 1 stack of BULWARK for 5s.',
     wikiLinks: [`https://remnant.wiki/Gladiator`],
+    location: { world: 'Yaesha', dungeon: ['Proving Grounds'] },
   },
   {
     category: 'mutator',
@@ -254,6 +280,7 @@ export const mutatorItems: MutatorItem[] = [
       'Increases Melee Critical Chance by 5% - 25% when Grey Health is present.',
     maxLevelBonus: `Increases Melee Critical Damage by 0.5% for every 1% of Grey Health.`,
     wikiLinks: [`https://remnant.wiki/Guts`],
+    location: { world: 'Losomn', dungeon: ['The Forgotten Commune'] },
   },
   {
     category: 'mutator',
@@ -266,6 +293,7 @@ export const mutatorItems: MutatorItem[] = [
     description: 'Attached Mod deals 10% - 20% additional Mod Damage.',
     maxLevelBonus: `Generate 25% additional Mod Power for Stowed Weapon.`,
     wikiLinks: [`https://remnant.wiki/Harmonizer`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
   {
     category: 'mutator',
@@ -278,6 +306,7 @@ export const mutatorItems: MutatorItem[] = [
     description: 'Reduces the Heat Generation of this weapon by 10% - 30%.',
     maxLevelBonus: `Reload Speed is increased up to 55% based on this weapon's Heat accumulation.`,
     wikiLinks: [`https://remnant.wiki/Ingenuity`],
+    location: { world: 'Any', dungeon: 'Aberration' },
   },
   {
     category: 'mutator',
@@ -295,6 +324,7 @@ export const mutatorItems: MutatorItem[] = [
       "This weapon's kills with any Explosive Damage reduce Kill Switch cooldown by 1s.",
     externalTokens: [`Amplitude`, `Explosive Damage`],
     wikiLinks: [`https://remnant.wiki/Kill_Switch`],
+    location: { world: 'Any', dungeon: 'Aberration' },
   },
   {
     category: 'mutator',
@@ -309,6 +339,7 @@ export const mutatorItems: MutatorItem[] = [
     maxLevelBonus:
       'Increases the power of readied Melee Special abilities by 25%.',
     wikiLinks: [`https://remnant.wiki/Latency`],
+    location: { world: 'Any', dungeon: 'Aberration' },
   },
   {
     category: 'mutator',
@@ -322,6 +353,7 @@ export const mutatorItems: MutatorItem[] = [
       "Dealing 50% - 20% of the attached Weapon's Magazine Base Damage increases reload speed by 3%. Lasts 7s. Max 5 Stacks.",
     maxLevelBonus: `Reloading at Max Stacks increases Ranged Damage by 20% for 15s.`,
     wikiLinks: [`https://remnant.wiki/Lithely`],
+    location: { world: 'Losomn', dungeon: [`Harvester's Reach`] },
   },
   {
     category: 'mutator',
@@ -335,6 +367,7 @@ export const mutatorItems: MutatorItem[] = [
       "Increases this weapon's Elemental Damage by 5% - 10% for each unique Elemental Status Effect on the target.",
     maxLevelBonus: `Increases Mod Power Generation of Elemental Damage and Elemental Status damage by 20%.`,
     wikiLinks: [`https://remnant.wiki/Maelstrom`],
+    location: { world: 'Losomn', dungeon: ['Forlorn Coast'] },
   },
   {
     category: 'mutator',
@@ -348,6 +381,7 @@ export const mutatorItems: MutatorItem[] = [
       'Increase Melee damage by 6% - 10%  for each unique Negative Status the target is suffering from.',
     maxLevelBonus: 'Charge Melee Attacks apply SLOW for 3s.',
     wikiLinks: [`https://remnant.wiki/Misfortune`],
+    location: { world: 'Losomn', dungeon: ['Malefic Palace'] },
   },
   {
     category: 'mutator',
@@ -361,6 +395,7 @@ export const mutatorItems: MutatorItem[] = [
       'When this weapon scores a Critical Hit, it increases Critical Chance and Critical Damage by 1% - 2% for 3s. Max 10 stacks.',
     maxLevelBonus: `Critical Hits from this weapon add 2 stacks. Increases duration by 2s.`,
     wikiLinks: [`https://remnant.wiki/Momentum`],
+    location: { world: 'Yaesha', dungeon: ['Imperial Gardens'] },
   },
   {
     category: 'mutator',
@@ -375,6 +410,7 @@ export const mutatorItems: MutatorItem[] = [
     maxLevelBonus:
       'Increases Ranged Critical Chance of this weapon by 10% to enemies within 7m.',
     wikiLinks: [`https://remnant.wiki/Near-Sighted`],
+    location: { world: 'Yaesha', dungeon: ['Infested Abyss'] },
   },
   {
     category: 'mutator',
@@ -389,6 +425,7 @@ export const mutatorItems: MutatorItem[] = [
     maxLevelBonus:
       'While OPPORTUNITY is active, any Dodge or Combat Slide refreshes the duration.',
     wikiLinks: [`https://remnant.wiki/Opportunist`],
+    location: { world: 'Any', dungeon: 'Aberration' },
   },
   {
     category: 'mutator',
@@ -401,6 +438,7 @@ export const mutatorItems: MutatorItem[] = [
     description: `Melee Critical Hits increase Melee Critical Chance by 2% - 5% for 10s. stacking up to 5 times.`,
     maxLevelBonus: `Melee Critical Strikes deal 25% additional damage.`,
     wikiLinks: [`https://remnant.wiki/Overdrive`],
+    location: { world: 'Yaesha', dungeon: ['The Lament'] },
   },
   {
     category: 'mutator',
@@ -416,6 +454,7 @@ export const mutatorItems: MutatorItem[] = [
       "Activating this weapon's Mod triggers a fixed 7m blast, dealing 50 Explosive Damage per 100 Mod Power spent in a single cast. Inflicts 1.5 Stagger Damage.",
     externalTokens: [`Explosive Damage`],
     wikiLinks: [`https://remnant.wiki/Pressure_Point`],
+    location: { world: 'Yaesha', dungeon: ['Ancient Canopy'] },
   },
   {
     category: 'mutator',
@@ -428,6 +467,7 @@ export const mutatorItems: MutatorItem[] = [
     description: `Using this weapon's Mod increases Mod Power Generation by 3% - 6% for 10s. Max 5 stacks.`,
     maxLevelBonus: `Increases Movement Speed by 3% per stack.`,
     wikiLinks: [`https://remnant.wiki/Prophecy`],
+    location: { world: 'Losomn', dungeon: ['Pathway of the Fallen'] },
   },
   {
     category: 'mutator',
@@ -441,6 +481,7 @@ export const mutatorItems: MutatorItem[] = [
       'Shots from this weapon have a 20% - 50% chance to return spent Ammo to reserves.',
     maxLevelBonus: `Refunded Ammo has a 25% chance to also be added to stowed weapon reserves.`,
     wikiLinks: [`https://remnant.wiki/Refunder`],
+    location: { world: `N'Erud`, dungeon: ['Tower of the Unseen'] },
   },
   {
     category: 'mutator',
@@ -454,6 +495,7 @@ export const mutatorItems: MutatorItem[] = [
       'Reduces the Stamina Cost of all Charged Melee Attacks by 25% - 50%.',
     maxLevelBonus: `Melee Charge Attacks gain 20% additional damage and 10% Critical Chance.`,
     wikiLinks: [`https://remnant.wiki/Reinvigorate`],
+    location: { world: 'Yaesha', dungeon: ['Forgotten Field'] },
   },
   {
     category: 'mutator',
@@ -466,6 +508,7 @@ export const mutatorItems: MutatorItem[] = [
     description: 'Gain 15% - 35% Melee Damage when Grey Health is present.',
     maxLevelBonus: 'Reduces Stagger by 1 when using any Melee Attack.',
     wikiLinks: [`https://remnant.wiki/Resentment`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
   {
     category: 'mutator',
@@ -479,6 +522,7 @@ export const mutatorItems: MutatorItem[] = [
       'Increases Ranged Damage of this weapon by 1% - 10% to BURNING targets.',
     maxLevelBonus: `This weapon's Ranged Weakspot and Ranged Critical Hits apply BURNING, dealing 50 FIRE damage over 5s.`,
     wikiLinks: [`https://remnant.wiki/Searing_Wounds`],
+    location: { world: 'Yaesha', dungeon: [`Goddess's Rest`] },
   },
   {
     category: 'mutator',
@@ -493,6 +537,7 @@ export const mutatorItems: MutatorItem[] = [
     maxLevelBonus:
       'While active, Charged Primary Shots grant 1% Ranged Critical Chance per round spent. Max 15%.',
     wikiLinks: [`https://remnant.wiki/Sequenced_Shot`],
+    location: { world: 'Any', dungeon: 'Aberration' },
   },
   {
     category: 'mutator',
@@ -508,6 +553,7 @@ export const mutatorItems: MutatorItem[] = [
     maxLevelBonus:
       'Charged Melee Attacks deal 25% additional Melee Damage based on current Shield amount.',
     wikiLinks: [`https://remnant.wiki/Shielded_Strike`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
   {
     category: 'mutator',
@@ -522,6 +568,7 @@ export const mutatorItems: MutatorItem[] = [
       'The SHOCK  Damage now applies OVERLOADED dealing 125 damage every 5s over 25s.',
     externalTokens: [`Amplitude`],
     wikiLinks: [`https://remnant.wiki/Shocker`],
+    location: { world: 'Any', dungeon: 'Aberration' },
   },
   {
     category: 'mutator',
@@ -535,6 +582,7 @@ export const mutatorItems: MutatorItem[] = [
       "Reloading increases this damage of this weapon's next shot by 10% - 25%. Lasts 3s.",
     maxLevelBonus: `Increases Reload Speed by 15%.`,
     wikiLinks: [`https://remnant.wiki/Slayer`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
   {
     category: 'mutator',
@@ -549,6 +597,7 @@ export const mutatorItems: MutatorItem[] = [
     maxLevelBonus:
       'While EMPOWERED, increases Critical Damage of this weapon by 15%',
     wikiLinks: [`https://remnant.wiki/Sleeper`],
+    location: { world: 'Losomn', dungeon: ['Derelict Lighthouse'] },
   },
   {
     category: 'mutator',
@@ -563,8 +612,8 @@ export const mutatorItems: MutatorItem[] = [
     maxLevelBonus:
       "Activating this weapon's Mod reduces Skill Cooldowns by 1% for every 100 Mod Power spent.",
     wikiLinks: [`https://remnant.wiki/Spellweaver`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
-  // `renamed from Bottom Feeder to Spirit Feeder
   {
     category: 'mutator',
     name: 'Spirit Feeder',
@@ -578,6 +627,7 @@ export const mutatorItems: MutatorItem[] = [
       'Reloading this weapon increases the damage of the Attached Mod by 10% - 25%. Lasts 5s.',
     maxLevelBonus: `Casting Attached Mod increases Reload Speed by 25%. Lasts 5s.`,
     wikiLinks: [`https://remnant.wiki/Spirit_Feeder`],
+    location: { world: 'Any', dungeon: 'Aberration' },
   },
   {
     category: 'mutator',
@@ -591,6 +641,7 @@ export const mutatorItems: MutatorItem[] = [
       'Regenerate 2% Health over 10s for every 150 - 50 Mod Power spent.',
     maxLevelBonus: `Allies within 15m are healed for 50% of the primary effect.`,
     wikiLinks: [`https://remnant.wiki/Spirit_Healer`],
+    location: { world: 'Any', dungeon: 'Aberration' },
   },
   {
     category: 'mutator',
@@ -605,6 +656,15 @@ export const mutatorItems: MutatorItem[] = [
     maxLevelBonus:
       'All Damage taken during a Charged Melee Attack is converted to Grey Health.',
     wikiLinks: [`https://remnant.wiki/Steadfast`],
+    location: {
+      world: 'Losomn',
+      dungeon: [
+        'Council Chamber',
+        'Gilded Chambers',
+        'The Great Hall',
+        'Shattered Gallery',
+      ],
+    },
   },
   {
     category: 'mutator',
@@ -619,6 +679,7 @@ export const mutatorItems: MutatorItem[] = [
     maxLevelBonus:
       "Charged Melee Attacks lower enemy's Resistance to All Status damage by 10%. Lasts 10s.",
     wikiLinks: [`https://remnant.wiki/Stormbringer`],
+    location: { world: 'Any', dungeon: 'Aberration' },
   },
   {
     category: 'mutator',
@@ -632,6 +693,7 @@ export const mutatorItems: MutatorItem[] = [
       'Melee Hits increase Melee Damage by 3% - 6% for 5s. Max 5 Stacks.',
     maxLevelBonus: `Increases Movement Speed by 3% per stack.`,
     wikiLinks: [`https://remnant.wiki/Striker`],
+    location: { world: 'Losomn', dungeon: ['Morrow Parish'] },
   },
   {
     category: 'mutator',
@@ -645,6 +707,7 @@ export const mutatorItems: MutatorItem[] = [
       'Increases Charge Speed for Bows and Fusion Rifles by 10% - 30%.',
     maxLevelBonus: `Charged Primary Shots of Bows and Fusion Rifles gain 15% Critical Chance.`,
     wikiLinks: [`https://remnant.wiki/Supercharger`],
+    location: { world: 'Root Earth', dungeon: ['Twilight Vale'] },
   },
   {
     category: 'mutator',
@@ -659,6 +722,7 @@ export const mutatorItems: MutatorItem[] = [
     maxLevelBonus:
       'Charged Melee Attacks apply CORRODED, dealing 250 ACID Damage over 10s.',
     wikiLinks: [`https://remnant.wiki/Tainted_Blade`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
   {
     category: 'mutator',
@@ -672,6 +736,11 @@ export const mutatorItems: MutatorItem[] = [
       "Increases this weapon's Critical Chance and Critical Damage by 0.1% - 0.5% for each shot fired. Lasts 0.125s. Max 50 stacks.",
     maxLevelBonus: "Increases this weapon's Reload Speed by 1% per stack.",
     wikiLinks: [`https://remnant.wiki/Thousand_Cuts`],
+    location: {
+      world: 'Yaesha',
+      biome: 'Floating Forests',
+      injectable: 'Shrine of the Doe',
+    },
   },
   {
     category: 'mutator',
@@ -686,6 +755,11 @@ export const mutatorItems: MutatorItem[] = [
     maxLevelBonus: `Mod Use applies SLOW status on all enemies within 10m for 5s. Can only happen once every 10s.`,
     externalTokens: [`Amplitude`],
     wikiLinks: [`https://remnant.wiki/Timewave`],
+    location: {
+      world: `N'Erud`,
+      biome: `Towers of N'Erud`,
+      injectable: `Remains Below`,
+    },
   },
   {
     category: 'mutator',
@@ -699,6 +773,7 @@ export const mutatorItems: MutatorItem[] = [
       "Increases this weapon's Ranged Damage by up to 7.5% - 15% based on how close the magazine capacity is to full.",
     maxLevelBonus: `Increases this weapon's Weakspot Damage by up to 20% based on how close the magazine capacity is to full.`,
     wikiLinks: [`https://remnant.wiki/Top_Heavy`],
+    location: { world: 'Any', dungeon: 'Aberration' },
   },
   {
     category: 'mutator',
@@ -712,6 +787,7 @@ export const mutatorItems: MutatorItem[] = [
       'Melee Hits generate 5% of Max Ammo Capacity to the Reserves for both Firearms. Cooldown 10s- 5s.',
     maxLevelBonus: `After Ammo is Transferred, increase Reload Speed of this weapon by 50% for 5s.`,
     wikiLinks: [`https://remnant.wiki/Transference`],
+    location: { world: `N'Erud`, dungeon: ['Void Vessel Facility'] },
   },
   {
     category: 'mutator',
@@ -725,6 +801,11 @@ export const mutatorItems: MutatorItem[] = [
     maxLevelBonus:
       "New Ammo gains are added directly to into this weapon's magazine.Gaining Ammo increases Ranged Damage by 5% - 15% for 15s.",
     wikiLinks: [`https://remnant.wiki/Transpose`],
+    location: {
+      world: `N'Erud`,
+      biome: `N'Erud Underworld`,
+      injectable: `Robot Hangar`,
+    },
   },
   {
     category: 'mutator',
@@ -739,6 +820,15 @@ export const mutatorItems: MutatorItem[] = [
     maxLevelBonus:
       "This weapon's Ranged Weakspot and Ranged Critical Hits apply BLEEDING, dealing 150 BLEED damage over 20s.",
     wikiLinks: [`https://remnant.wiki/Twisting_Wounds`],
+    location: {
+      world: 'Losomn',
+      dungeon: [
+        `Cotton's Kiln`,
+        `Butcher's Quarter`,
+        `Derelict Lighthouse`,
+        `Sunken Haunt`,
+      ],
+    },
   },
   {
     category: 'mutator',
@@ -752,6 +842,7 @@ export const mutatorItems: MutatorItem[] = [
       'Increases Melee Damage by 10% - 30% while within 10m of a BLEEDING entity.', //No info whether its R or A
     maxLevelBonus: `Melee Hits vs BLEEDING targets will Lifesteal 3% of base damage dealt.`,
     wikiLinks: [`https://remnant.wiki/Vampire_Blade`],
+    location: { world: 'Yaesha', dungeon: [`Endaira's End`] },
   },
   {
     category: 'mutator',
@@ -765,6 +856,7 @@ export const mutatorItems: MutatorItem[] = [
       'Increases Melee damage by 25% - 50% when below 50% Max Health.',
     maxLevelBonus: `Increases Melee Critical Chance by 15% when below 50% Max Health.`,
     wikiLinks: [`https://remnant.wiki/Vengeful_Strike`],
+    location: { world: 'Labyrinth', dungeon: ['Labyrinth'] },
   },
   {
     category: 'mutator',
@@ -778,5 +870,6 @@ export const mutatorItems: MutatorItem[] = [
       'Basic Melee Attacks increase the next Charge Attack by 7% - 15%. Max 3 stacks.',
     maxLevelBonus: `At Max Stacks, the next Charge Attack gains 100% Critical Chance.`,
     wikiLinks: [`https://remnant.wiki/Weaponlord`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
 ]

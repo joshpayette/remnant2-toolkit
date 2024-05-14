@@ -5,6 +5,8 @@ export interface ItemTrackerFilters {
   collections: string[] | [DefaultFilter]
   releases: string[] | [DefaultFilter]
   searchText: string | ''
+  world: string | DefaultFilter
+  dungeon: string | DefaultFilter
 }
 
 export const ITEM_TRACKER_KEYS = {
@@ -12,4 +14,6 @@ export const ITEM_TRACKER_KEYS = {
   COLLECTIONS: 'collections',
   RELEASES: 'releases',
   SEARCHTEXT: 'searchText',
+  WORLD: 'world',
+  DUNGEON: 'dungeon',
 } as const satisfies Record<string, keyof ItemTrackerFilters>

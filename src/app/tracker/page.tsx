@@ -138,7 +138,7 @@ export default function Page() {
 
         <div className="relative flex w-full flex-col items-center justify-center">
           <div className="mb-8 flex w-full flex-col items-center">
-            <div className="w-full max-w-xl">
+            <div className="w-full max-w-4xl">
               <Suspense fallback={<Skeleton className="h-[497px] w-full" />}>
                 <ItemTrackerFilters />
               </Suspense>

@@ -13,6 +13,7 @@ export const concoctionItems: ConcoctionItem[] = [
       '\n' +
       'Only one Concoction may be active at a time.',
     wikiLinks: [`https://remnant.wiki/Bark_Extract`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
     armor: 30,
   },
   {
@@ -27,6 +28,7 @@ export const concoctionItems: ConcoctionItem[] = [
       '\n' +
       'Only one Concoction may be active at a time.',
     wikiLinks: [`https://remnant.wiki/Bottled_Shaedberry`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
   {
     category: 'concoction',
@@ -40,6 +42,7 @@ export const concoctionItems: ConcoctionItem[] = [
       '\n' +
       'Only one Concoction may be active at a time.',
     wikiLinks: [`https://remnant.wiki/Chilled_Steam`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
   {
     category: 'concoction',
@@ -53,6 +56,7 @@ export const concoctionItems: ConcoctionItem[] = [
       '\n' +
       'Only one Concoction may be active at a time.',
     wikiLinks: [`https://remnant.wiki/Dark_Cider`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
     healthPercent: 0.0666,
     staminaPercent: 0.0666,
   },
@@ -73,6 +77,7 @@ export const concoctionItems: ConcoctionItem[] = [
       '\n' +
       'Only one Concoction may be active at a time.',
     wikiLinks: [`https://remnant.wiki/Dark_Fluid`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
   {
     category: 'concoction',
@@ -86,6 +91,7 @@ export const concoctionItems: ConcoctionItem[] = [
       '\n' +
       'Only one concoction may be active at a time.',
     wikiLinks: [`https://remnant.wiki/Egg_Drink`],
+    location: { world: 'Ward 13', dungeon: 'Quest' },
     weightThreshold: 10,
   },
   {
@@ -100,6 +106,7 @@ export const concoctionItems: ConcoctionItem[] = [
       '\n' +
       'Only one concoction may be active at a time.',
     wikiLinks: [`https://remnant.wiki/Meat_Shake`],
+    location: { world: `Ward 13`, dungeon: 'Quest' },
   },
   {
     category: 'concoction',
@@ -113,6 +120,7 @@ export const concoctionItems: ConcoctionItem[] = [
       '\n' +
       'Only one Concoction may be active at a time.',
     wikiLinks: [`https://remnant.wiki/Mudtooth's_Elixir`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
   {
     category: 'concoction',
@@ -126,6 +134,7 @@ export const concoctionItems: ConcoctionItem[] = [
       '\n' +
       'Only one Concoction may be active at a time.',
     wikiLinks: [`https://remnant.wiki/Mudtooth's_Stew`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
     stamina: 25,
   },
   {
@@ -139,6 +148,7 @@ export const concoctionItems: ConcoctionItem[] = [
       'Increases Max Health by 20. Lasts 60m and will stay in effect after death.\n' +
       'Only one Concoction may be active at a time.',
     wikiLinks: [`https://remnant.wiki/Mudtooth's_Tonic`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
     health: 20,
   },
   {
@@ -153,6 +163,7 @@ export const concoctionItems: ConcoctionItem[] = [
       '\n' +
       'Only one Concoction may be active at a time.',
     wikiLinks: [`https://remnant.wiki/Root_Water`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
   {
     category: 'concoction',
@@ -166,6 +177,7 @@ export const concoctionItems: ConcoctionItem[] = [
       '\n' +
       'Only one Concoction may be active at a time.',
     wikiLinks: [`https://remnant.wiki/Sacred_Lakewater`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
   {
     category: 'concoction',
@@ -179,6 +191,10 @@ export const concoctionItems: ConcoctionItem[] = [
       '\n' +
       'Only one Concoction may be active at a time.',
     wikiLinks: [`https://remnant.wiki/Sanguine_Vapor`],
+    location: {
+      world: `N'Erud`,
+      dungeon: ['Ascension Spire'],
+    },
   },
   {
     category: 'concoction',
@@ -192,6 +208,7 @@ export const concoctionItems: ConcoctionItem[] = [
       '\n' +
       'Only one Concoction may be active at a time.',
     wikiLinks: [`https://remnant.wiki/Strong_Drink`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
     weight: -10,
   },
   {
@@ -206,6 +223,7 @@ export const concoctionItems: ConcoctionItem[] = [
       '\n' +
       'Only one Concoction may be active at a time.',
     wikiLinks: [`https://remnant.wiki/Tranquility_Font`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
   {
     category: 'concoction',
@@ -219,6 +237,7 @@ export const concoctionItems: ConcoctionItem[] = [
       '\n' +
       'Only one Concoction may be active at a time.',
     wikiLinks: [`https://remnant.wiki/Verdant_Tea`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
   {
     category: 'concoction',
@@ -232,5 +251,6 @@ export const concoctionItems: ConcoctionItem[] = [
       '\n' +
       'Only one Concoction may be active at a time.',
     wikiLinks: [`https://remnant.wiki/Xenoplasm`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
 ]

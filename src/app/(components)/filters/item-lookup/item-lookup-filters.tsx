@@ -27,6 +27,7 @@ import {
   VALID_RELEASE_KEYS,
 } from '@/app/(components)/filters/releases-filter'
 import { DEFAULT_FILTER } from '@/app/(components)/filters/types'
+import { WorldFilter } from '@/app/(components)/filters/world-filter'
 import { allItems } from '@/app/(data)/items/all-items'
 import { ITEM_TOKENS } from '@/app/(types)/tokens'
 import { cn } from '@/app/(utils)/classnames'
@@ -62,6 +63,8 @@ export const DEFAULT_ITEM_LOOKUP_FILTERS = {
   collections: VALID_DISCOVERED_FILTERS,
   releases: VALID_RELEASE_KEYS,
   searchText: '',
+  world: DEFAULT_FILTER,
+  dungeon: DEFAULT_FILTER,
 } as const satisfies Filters
 
 interface Props {}
@@ -120,6 +123,16 @@ export function ItemLookupFilters({}: Props) {
     // Add the search text filter
     if (filtersToApply.searchText.length > 0) {
       url += `${ITEM_FILTER_KEYS.SEARCHTEXT}=${filtersToApply.searchText}&`
+    }
+
+    // Add the world filter
+    if (filtersToApply.world !== DEFAULT_FILTER) {
+      url += `${ITEM_FILTER_KEYS.WORLD}=${filtersToApply.world}&`
+    }
+
+    // Add the dungeon filter
+    if (filtersToApply.dungeon !== DEFAULT_FILTER) {
+      url += `${ITEM_FILTER_KEYS.DUNGEON}=${filtersToApply.dungeon}&`
     }
 
     // trim the final &
@@ -194,6 +207,48 @@ export function ItemLookupFilters({}: Props) {
     const newFilters = {
       ...unappliedFilters,
       releases: [...unappliedFilters.releases, newReleases],
+    }
+    setUnappliedFilters(newFilters)
+    applyUrlFilters(newFilters)
+  }
+
+  function handleWorldChange(newWorld: string) {
+    if (newWorld === DEFAULT_FILTER) {
+      const newFilters = {
+        ...unappliedFilters,
+        world: DEFAULT_FILTER,
+        dungeon: DEFAULT_FILTER,
+      }
+      setUnappliedFilters(newFilters)
+      applyUrlFilters(newFilters)
+      return
+    }
+
+    // if the world is not in the list, add it
+    const newFilters = {
+      ...unappliedFilters,
+      world: newWorld,
+      dungeon: DEFAULT_FILTER,
+    }
+    setUnappliedFilters(newFilters)
+    applyUrlFilters(newFilters)
+  }
+
+  function handleDungeonChange(newDungeon: string) {
+    if (newDungeon === DEFAULT_FILTER) {
+      const newFilters = {
+        ...unappliedFilters,
+        dungeon: DEFAULT_FILTER,
+      }
+      setUnappliedFilters(newFilters)
+      applyUrlFilters(newFilters)
+      return
+    }
+
+    // if the dungeon is not in the list, add it
+    const newFilters = {
+      ...unappliedFilters,
+      dungeon: newDungeon,
     }
     setUnappliedFilters(newFilters)
     applyUrlFilters(newFilters)
@@ -317,6 +372,14 @@ export function ItemLookupFilters({}: Props) {
                         setUnappliedFilters(newFilters)
                         applyUrlFilters(newFilters)
                       }}
+                    />
+                  </div>
+                  <div className="col-span-full sm:col-span-2">
+                    <WorldFilter
+                      worldValue={unappliedFilters.world}
+                      onChangeWorld={handleWorldChange}
+                      dungeonValue={unappliedFilters.dungeon}
+                      onChangeDungeon={handleDungeonChange}
                     />
                   </div>
                 </div>

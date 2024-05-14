@@ -23,8 +23,26 @@ import { PerkItem } from '@/app/(data)/items/types/PerkItem'
 import { SkillItem } from '@/app/(data)/items/types/SkillItem'
 import { TraitItem } from '@/app/(data)/items/types/TraitItem'
 import { WeaponItem } from '@/app/(data)/items/types/WeaponItem'
+import { BIOMES, ItemLocation } from '@/app/(types)/locations'
 import { capitalize } from '@/app/(utils)/capitalize'
 import { itemShareEndpoint } from '@/app/(utils)/clean-item-name'
+
+function generateDungeonLabel(location: ItemLocation) {
+  let label = `${location.world} - `
+
+  if (location.dungeon) {
+    if (Array.isArray(location.dungeon)) {
+      label += `${location.dungeon.join(', ')}`
+    } else {
+      label += `${location.dungeon}`
+    }
+  } else if (location.biome) {
+    const biome = BIOMES.find((b) => b.name === location.biome)
+    label += `${biome?.dungeons.join(', ')}`
+  }
+
+  return label
+}
 
 interface Props {
   open: boolean
@@ -55,7 +73,19 @@ export function ItemInfoDialog({ open, item, onClose }: Props) {
       <BaseDialogTitle>
         {item.name}
         <br />
-        <span>{subtitle}</span>
+        <span className="text-md font-normal">{subtitle}</span>
+        {item.location && (
+          <div className="mt-2 flex flex-col items-start justify-start gap-y-1">
+            <span className="text-xs font-normal">
+              {generateDungeonLabel(item.location)}
+            </span>
+            {!item.location.dungeon && item.location.injectable && (
+              <span className="text-xs font-normal italic">
+                {item.location?.injectable} injectable
+              </span>
+            )}
+          </div>
+        )}
       </BaseDialogTitle>
       <BaseDialogDescription>
         <span className="flex w-full flex-col items-center justify-center gap-x-2">

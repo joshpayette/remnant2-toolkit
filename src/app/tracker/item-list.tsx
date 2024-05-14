@@ -4,9 +4,7 @@ import { Disclosure } from '@headlessui/react'
 import { ChevronDownIcon } from '@heroicons/react/24/solid'
 import isEqual from 'lodash.isequal'
 import { useSearchParams } from 'next/navigation'
-import { useSession } from 'next-auth/react'
 import { useEffect, useState } from 'react'
-import { toast } from 'react-toastify'
 import { useIsClient, useLocalStorage } from 'usehooks-ts'
 
 import { BaseButton } from '@/app/(components)/_base/button'
@@ -29,6 +27,7 @@ import {
   ItemTrackerLocalStorage,
   LOCALSTORAGE_KEY,
 } from '@/app/(types)/localstorage'
+import { BIOMES } from '@/app/(types)/locations'
 import { capitalize } from '@/app/(utils)/capitalize'
 import { cn } from '@/app/(utils)/classnames'
 import { ALL_TRACKABLE_ITEMS } from '@/app/tracker/constants'
@@ -152,6 +151,38 @@ function getFilteredItemList(
     )
   }
 
+  // filter by world
+  if (filters.world !== DEFAULT_FILTER) {
+    filteredItems = filteredItems.filter(
+      (item) => item.location?.world === filters.world,
+    )
+  }
+
+  // filter by dungeon
+  if (filters.dungeon !== DEFAULT_FILTER) {
+    if (filters.dungeon === 'World Drop') {
+      filteredItems = filteredItems.filter(
+        (item) => item.location?.dungeon === 'World Drop',
+      )
+    } else {
+      filteredItems = filteredItems.filter((item) => {
+        if (!item.location) return false
+
+        if (item.location.dungeon) {
+          if (!Array.isArray(item.location.dungeon)) {
+            return false
+          }
+
+          return item.location.dungeon.some((d) => d === filters.dungeon)
+        } else {
+          const itemBiome = item.location.biome
+          const biome = BIOMES.find((biome) => biome.name === itemBiome)
+          return biome?.dungeons.some((dungeon) => dungeon === filters.dungeon)
+        }
+      })
+    }
+  }
+
   // if search text is not empty, filter by search text
   if (filters.searchText.length > 0) {
     filteredItems = filteredItems.filter((i) =>
@@ -225,6 +256,7 @@ export function ItemList({
   )
   visibleItemCategories = visibleItemCategories.filter((category) => {
     let itemCategory: ItemCategory
+
     if (category === 'long gun') {
       itemCategory = 'weapon'
     } else if (category === 'hand gun') {
@@ -240,6 +272,7 @@ export function ItemList({
     } else {
       itemCategory = category as ItemCategory
     }
+
     return filteredItemCategories.includes(itemCategory)
   })
 
