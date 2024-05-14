@@ -103,7 +103,7 @@ export function BuildPage({ build }: Props) {
         imageDownloadInfo={imageDownloadInfo}
       />
       <div className="height-full flex w-full flex-col items-center justify-center">
-        {buildState.isFeaturedBuild && buildState.videoUrl && (
+        {buildState.videoUrl && (
           <div className="mb-12 max-h-[270px] text-center sm:mb-8 sm:max-h-[430px] sm:max-w-[560px]">
             <a
               href={`${videoEmbedUrlToWatchUrl(buildState.videoUrl)}`}
