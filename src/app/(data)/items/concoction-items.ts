@@ -193,8 +193,7 @@ export const concoctionItems: ConcoctionItem[] = [
     wikiLinks: [`https://remnant.wiki/Sanguine_Vapor`],
     location: {
       world: `N'Erud`,
-      biome: `N'Erud Underworld`,
-      injectable: 'Ascension Spire',
+      dungeon: ['Ascension Spire'],
     },
   },
   {

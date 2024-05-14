@@ -241,8 +241,7 @@ export const relicItems: RelicItem[] = [
     wikiLinks: [`https://remnant.wiki/Siphon_Heart`],
     location: {
       world: `N'Erud`,
-      biome: `N'Erud Underworld`,
-      injectable: 'Ascension Spire',
+      dungeon: ['Ascension Spire'],
     },
   },
   {

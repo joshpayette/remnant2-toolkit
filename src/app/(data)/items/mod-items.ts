@@ -1071,8 +1071,7 @@ export const modItems: ModItem[] = [
     wikiLinks: [`https://remnant.wiki/Overflow`],
     location: {
       world: `N'Erud`,
-      biome: `N'Erud Underworld`,
-      injectable: 'Ascension Spire',
+      dungeon: ['Ascension Spire'],
     },
   },
   {

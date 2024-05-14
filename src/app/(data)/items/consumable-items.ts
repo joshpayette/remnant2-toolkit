@@ -77,8 +77,7 @@ export const consumableItems: ConsumableItem[] = [
     wikiLinks: [`https://remnant.wiki/Binding_Orb`],
     location: {
       world: `N'Erud`,
-      biome: `N'Erud Underworld`,
-      injectable: 'Ascension Spire',
+      dungeon: ['Ascension Spire'],
     },
   },
   {
@@ -255,8 +254,7 @@ export const consumableItems: ConsumableItem[] = [
     wikiLinks: [`https://remnant.wiki/Poisoned_Ambit_Ember_Capsule`],
     location: {
       world: `N'Erud`,
-      biome: `N'Erud Underworld`,
-      injectable: 'Ascension Spire',
+      dungeon: ['Ascension Spire'],
     },
   },
   {
@@ -316,8 +314,7 @@ export const consumableItems: ConsumableItem[] = [
     wikiLinks: [`https://remnant.wiki/Timeworn_Unguent`],
     location: {
       world: `N'Erud`,
-      biome: `N'Erud Underworld`,
-      injectable: 'Ascension Spire',
+      dungeon: ['Ascension Spire'],
     },
   },
 ]

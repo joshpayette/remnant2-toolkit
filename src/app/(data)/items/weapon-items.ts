@@ -568,8 +568,7 @@ export const weaponItems: WeaponItem[] = [
     wikiLinks: [`https://remnant.wiki/Pulse_Rifle`],
     location: {
       world: `N'Erud`,
-      biome: `N'Erud Underworld`,
-      injectable: 'Ascension Spire',
+      dungeon: ['Ascension Spire'],
     },
     damage: 16,
     rps: 7.8,

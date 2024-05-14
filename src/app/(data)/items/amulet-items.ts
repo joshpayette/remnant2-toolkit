@@ -139,8 +139,7 @@ export const amuletItems: AmuletItem[] = [
     wikiLinks: [`https://remnant.wiki/Core_Booster`],
     location: {
       world: `N'Erud`,
-      biome: `N'Erud Wasteland`,
-      injectable: 'Ascension Spire',
+      dungeon: ['Ascension Spire'],
     },
   },
   {
@@ -278,8 +277,7 @@ export const amuletItems: AmuletItem[] = [
     wikiLinks: [`https://remnant.wiki/Effluvium_Enhancer`],
     location: {
       world: `N'Erud`,
-      biome: `N'Erud Wasteland`,
-      injectable: 'Ascension Spire',
+      dungeon: ['Ascension Spire'],
     },
   },
   {
@@ -320,8 +318,7 @@ export const amuletItems: AmuletItem[] = [
     wikiLinks: [`https://remnant.wiki/Energy_Diverter`],
     location: {
       world: `N'Erud`,
-      biome: `N'Erud Wasteland`,
-      injectable: 'Ascension Spire',
+      dungeon: ['Ascension Spire'],
     },
   },
   {
@@ -782,8 +779,7 @@ export const amuletItems: AmuletItem[] = [
     wikiLinks: [`https://remnant.wiki/Range_Finder`],
     location: {
       world: `N'Erud`,
-      biome: `N'Erud Wasteland`,
-      injectable: 'Ascension Spire',
+      dungeon: ['Ascension Spire'],
     },
   },
   {
@@ -1026,8 +1022,7 @@ export const amuletItems: AmuletItem[] = [
     wikiLinks: [`https://remnant.wiki/Void_Idol`],
     location: {
       world: `N'Erud`,
-      biome: `N'Erud Underworld`,
-      injectable: 'Ascension Spire',
+      dungeon: ['Ascension Spire'],
     },
   },
   {
