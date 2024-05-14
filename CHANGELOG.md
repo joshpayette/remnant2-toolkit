@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-05-13
+
+### Added
+
+- Added item locations to almost all item info dialogs.
+- Added filters to Item Lookup and Item Tracker that allow searching for items by World and Dungeon. You can now easily check if you are missing any items in a particular dungeon based on your Item Tracker data.
+
 ## 2024-05-12
 
 ### Added
