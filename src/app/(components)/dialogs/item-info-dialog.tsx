@@ -130,7 +130,7 @@ export function ItemInfoDialog({ open, item, onClose }: Props) {
                 TraitItem.isTraitItem(item) ||
                 PerkItem.isPerkItem(item)) &&
                 item.linkedItems?.archetype && (
-                  <li className="col-span-full text-left text-sm text-white">
+                  <li className="col-span-full text-left text-sm text-surface-solid">
                     <strong>Archetype</strong>:{' '}
                     <Link
                       href={`/item-lookup?categories=Trait,Archetype,Perk,Skill&searchText=${item.linkedItems.archetype.name}`}
@@ -143,13 +143,13 @@ export function ItemInfoDialog({ open, item, onClose }: Props) {
                 )}
               {ArchetypeItem.isArchetypeItem(item) &&
                 item.linkedItems.perks && (
-                  <li className="text-left text-sm text-white">
+                  <li className="text-left text-sm text-surface-solid">
                     <strong>Perks</strong>
                     <ul className="mb-4 grid  grid-cols-2 sm:grid-cols-3">
                       {item.linkedItems.perks?.map((perk) => (
                         <li
                           key={perk.name}
-                          className="text-left text-sm text-white"
+                          className="text-left text-sm text-surface-solid"
                         >
                           <Link
                             href={`/item-lookup?categories=Trait,Archetype,Perk,Skill&searchText=${perk.name}`}
@@ -166,13 +166,13 @@ export function ItemInfoDialog({ open, item, onClose }: Props) {
 
               {ArchetypeItem.isArchetypeItem(item) &&
                 item.linkedItems.skills && (
-                  <li className="text-left text-sm text-white">
+                  <li className="text-left text-sm text-surface-solid">
                     <strong>Skills</strong>
                     <ul className="mb-4 grid  grid-cols-2 sm:grid-cols-3">
                       {item.linkedItems.skills?.map((skill) => (
                         <li
                           key={skill.name}
-                          className="text-left text-sm text-white"
+                          className="text-left text-sm text-surface-solid"
                         >
                           <Link
                             href={`/item-lookup?categories=Trait,Archetype,Perk,Skill&searchText=${skill.name}`}
@@ -189,13 +189,13 @@ export function ItemInfoDialog({ open, item, onClose }: Props) {
 
               {ArchetypeItem.isArchetypeItem(item) &&
                 item.linkedItems.traits && (
-                  <li className="text-left text-sm text-white">
+                  <li className="text-left text-sm text-surface-solid">
                     <strong>Traits</strong>
                     <ul className="grid grid-cols-2 sm:grid-cols-3">
                       {item.linkedItems.traits?.map((trait) => (
                         <li
                           key={trait.name}
-                          className="text-left text-sm text-white"
+                          className="text-left text-sm text-surface-solid"
                         >
                           <Link
                             href={`/item-lookup?categories=Trait,Archetype,Perk,Skill&searchText=${trait.name}`}
@@ -210,7 +210,7 @@ export function ItemInfoDialog({ open, item, onClose }: Props) {
                   </li>
                 )}
               {WeaponItem.isWeaponItem(item) && item.linkedItems?.mod && (
-                <li className="col-span-full text-left text-sm text-white">
+                <li className="col-span-full text-left text-sm text-surface-solid">
                   <strong>Mod</strong>:{' '}
                   <Link
                     href={`/item-lookup?searchText=${item.linkedItems.mod.name}`}
@@ -222,7 +222,7 @@ export function ItemInfoDialog({ open, item, onClose }: Props) {
                 </li>
               )}
               {ModItem.isModItem(item) && item.linkedItems?.weapon && (
-                <li className="col-span-full text-left text-sm text-white">
+                <li className="col-span-full text-left text-sm text-surface-solid">
                   <strong>Weapon</strong>:{' '}
                   <Link
                     href={`/item-lookup?searchText=${item.linkedItems.weapon.name}`}

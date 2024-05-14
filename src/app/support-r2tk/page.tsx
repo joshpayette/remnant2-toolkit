@@ -5,7 +5,7 @@ import { NAV_ITEMS } from '@/app/(types)/navigation'
 export default async function Page() {
   return (
     <LandingPageContainer
-      bgClass="bg-black/60"
+      bgClass="bg-background-solid/60"
       image="support"
       title="Support the Toolkit"
       description={

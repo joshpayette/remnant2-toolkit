@@ -33,13 +33,13 @@ export function Pagination({
   onSpecificPage,
 }: Props) {
   return (
-    <div className="flex w-full items-center justify-between bg-black bg-opacity-40 px-4 py-4 sm:px-6">
+    <div className="flex w-full items-center justify-between bg-background-solid bg-opacity-40 px-4 py-4 sm:px-6">
       {/** Mobile */}
       <div className="flex flex-1 items-center justify-between gap-x-1 sm:hidden">
         <button
           onClick={onPreviousPage}
           aria-label="Previous page"
-          className="relative inline-flex items-center rounded-md border border-primary-300 bg-primary-500 px-4 py-2 text-sm font-medium text-white hover:bg-primary-300"
+          className="relative inline-flex items-center rounded-md border border-primary-300 bg-primary-500 px-4 py-2 text-sm font-medium text-surface-solid hover:bg-primary-300"
         >
           Previous
         </button>
@@ -63,7 +63,7 @@ export function Pagination({
         <button
           onClick={onNextPage}
           aria-label="Next page"
-          className="relative ml-3 inline-flex items-center rounded-md border border-primary-300 bg-primary-500 px-4 py-2 text-sm font-medium text-white hover:bg-primary-300"
+          className="relative ml-3 inline-flex items-center rounded-md border border-primary-300 bg-primary-500 px-4 py-2 text-sm font-medium text-surface-solid hover:bg-primary-300"
         >
           Next
         </button>
@@ -118,7 +118,7 @@ export function Pagination({
                   className={cn(
                     'relative inline-flex w-[45px] items-center justify-center px-4 py-2 text-sm font-semibold text-gray-200 ring-1 ring-inset ring-primary-500 hover:bg-primary-50 hover:text-gray-800 focus:z-20 focus:outline-offset-0',
                     currentPage === pageNumber &&
-                      'relative z-10 inline-flex bg-primary-600 px-4 py-2 text-sm font-semibold text-white focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600',
+                      'relative z-10 inline-flex bg-primary-600 px-4 py-2 text-sm font-semibold text-surface-solid focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600',
                   )}
                   onClick={() => onSpecificPage(pageNumber)}
                 >

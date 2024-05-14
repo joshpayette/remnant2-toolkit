@@ -16,12 +16,12 @@ export function StatBox({ stat, index, footer }: Props) {
           : index === 2 || index === 4
             ? 'sm:border-l'
             : '',
-        'flex flex-col items-center justify-between border-t border-white/5 px-4 py-6 sm:px-6',
+        'flex flex-col items-center justify-between border-t border-surface-solid/5 px-4 py-6 sm:px-6',
       )}
     >
       <p className="text-sm font-medium leading-6 text-gray-400">{stat.name}</p>
       <p className="mt-2 flex items-baseline justify-center gap-x-2">
-        <span className="text-4xl font-semibold tracking-tight text-white">
+        <span className="text-4xl font-semibold tracking-tight text-surface-solid">
           {stat.value}
         </span>
         {stat.unit ? (

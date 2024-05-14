@@ -125,7 +125,7 @@ Watch the build in action: [insert Youtube link here]
               className="my-1underline"
               onClick={() => setBuildDescriptionAlertOpen(true)}
             >
-              <ClipboardDocumentListIcon className="inline-block h-4 w-4 text-white" />{' '}
+              <ClipboardDocumentListIcon className="inline-block h-4 w-4 text-surface-solid" />{' '}
               Insert Description Template
             </BaseButton>
           </div>

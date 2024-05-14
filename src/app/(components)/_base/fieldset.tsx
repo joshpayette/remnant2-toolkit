@@ -35,7 +35,7 @@ export function BaseLegend({ ...props }: HeadlessLegendProps) {
       data-slot="legend"
       className={clsx(
         props.className,
-        'text-base/6 font-semibold text-zinc-950 data-[disabled]:opacity-50 dark:text-white sm:text-sm/6',
+        'text-base/6 font-semibold text-surface-solid data-[disabled]:opacity-50 sm:text-sm/6',
       )}
     />
   )
@@ -81,7 +81,7 @@ export function BaseLabel({
       data-slot="label"
       className={clsx(
         className,
-        'select-none text-base/6 text-zinc-950 data-[disabled]:opacity-50 dark:text-white sm:text-sm/6',
+        'select-none text-base/6 text-surface-solid data-[disabled]:opacity-50 sm:text-sm/6',
       )}
     />
   )
@@ -98,7 +98,7 @@ export function BaseDescription({
       data-slot="description"
       className={clsx(
         className,
-        'text-base/6 text-zinc-500 data-[disabled]:opacity-50 dark:text-zinc-400 sm:text-sm/6',
+        'text-base/6 text-zinc-400 data-[disabled]:opacity-50 sm:text-sm/6',
       )}
     />
   )
@@ -115,7 +115,7 @@ export function BaseErrorMessage({
       data-slot="error"
       className={clsx(
         className,
-        'text-base/6 text-red-600 data-[disabled]:opacity-50 dark:text-red-500 sm:text-sm/6',
+        'text-base/6 text-red-500 data-[disabled]:opacity-50 sm:text-sm/6',
       )}
     />
   )

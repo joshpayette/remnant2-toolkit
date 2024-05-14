@@ -41,10 +41,10 @@ export function BaseListbox<T>({
           'group relative block w-full',
 
           // Background color + shadow applied to inset pseudo element, so shadow blends with border in light mode
-          'before:absolute before:inset-px before:rounded-[calc(theme(borderRadius.lg)-1px)] before:bg-white before:shadow',
+          'before:absolute before:inset-px before:rounded-[calc(theme(borderRadius.lg)-1px)] before:bg-surface-solid before:shadow',
 
           // Background color is moved to control and shadow is removed in dark mode so hide `before` pseudo
-          'dark:before:hidden',
+          'before:hidden',
 
           // Hide default focus styles
           'focus:outline-none',
@@ -77,24 +77,24 @@ export function BaseListbox<T>({
             'pl-[calc(theme(spacing[3.5])-1px)] pr-[calc(theme(spacing.7)-1px)] sm:pl-[calc(theme(spacing.3)-1px)]',
 
             // Typography
-            'text-left text-base/6 text-zinc-950 placeholder:text-zinc-500 dark:text-white sm:text-sm/6 forced-colors:text-[CanvasText]',
+            'text-left text-base/6 text-surface-solid placeholder:text-zinc-500 sm:text-sm/6 forced-colors:text-[CanvasText]',
 
             // Border
-            'border border-zinc-950/10 group-data-[active]:border-zinc-950/20 group-data-[hover]:border-zinc-950/20 dark:border-white/10 dark:group-data-[active]:border-white/20 dark:group-data-[hover]:border-white/20',
+            'border border-surface-solid/10 group-data-[active]:border-surface-solid/20 group-data-[hover]:surface-solid/20',
 
             // Background color
-            'bg-transparent dark:bg-white/5',
+            'bg-surface-solid/5',
 
             // Invalid state
-            'group-data-[invalid]:border-red-500 group-data-[invalid]:group-data-[hover]:border-red-500 group-data-[invalid]:dark:border-red-600 group-data-[invalid]:data-[hover]:dark:border-red-600',
+            'group-data-[invalid]:border-red-600 group-data-[invalid]:group-data-[hover]:border-red-600',
 
             // Disabled state
-            'group-data-[disabled]:border-zinc-950/20 group-data-[disabled]:opacity-100 group-data-[disabled]:dark:border-white/15 group-data-[disabled]:dark:bg-white/[2.5%] dark:data-[hover]:group-data-[disabled]:border-white/15',
+            'group-data-[disabled]:border-surface-solid/15 group-data-[disabled]:bg-surface-solid/[2.5%] data-[hover]:group-data-[disabled]:border-surface-solid/15 group-data-[disabled]:opacity-100',
           ])}
         />
         <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
           <svg
-            className="size-5 stroke-zinc-500 group-data-[disabled]:stroke-zinc-600 dark:stroke-zinc-400 sm:size-4 forced-colors:stroke-[CanvasText]"
+            className="size-5 stroke-zinc-400 group-data-[disabled]:stroke-zinc-600 sm:size-4 forced-colors:stroke-[CanvasText]"
             viewBox="0 0 16 16"
             aria-hidden="true"
             fill="none"
@@ -141,10 +141,10 @@ export function BaseListbox<T>({
             'overflow-y-scroll overscroll-contain',
 
             // Popover background
-            'bg-white/75 backdrop-blur-xl dark:bg-zinc-800/75',
+            'bg-zinc-800/75 backdrop-blur-xl',
 
             // Shadows
-            'shadow-lg ring-1 ring-zinc-950/10 dark:ring-inset dark:ring-white/10',
+            'shadow-lg ring-1 ring-surface-solid/10 ring-inset',
           )}
         >
           {options}
@@ -164,7 +164,7 @@ export function BaseListboxOption<T>({
     'flex min-w-0 items-center',
 
     // Icons
-    '[&>[data-slot=icon]]:size-5 [&>[data-slot=icon]]:shrink-0 [&>[data-slot=icon]]:text-zinc-500 [&>[data-slot=icon]]:group-data-[focus]/option:text-white sm:[&>[data-slot=icon]]:size-4 forced-colors:[&>[data-slot=icon]]:text-[CanvasText] forced-colors:[&>[data-slot=icon]]:group-data-[focus]/option:text-[Canvas]',
+    '[&>[data-slot=icon]]:size-5 [&>[data-slot=icon]]:shrink-0 [&>[data-slot=icon]]:text-zinc-500 [&>[data-slot=icon]]:group-data-[focus]/option:text-surface-solid sm:[&>[data-slot=icon]]:size-4 forced-colors:[&>[data-slot=icon]]:text-[CanvasText] forced-colors:[&>[data-slot=icon]]:group-data-[focus]/option:text-[Canvas]',
 
     // Avatars
     '[&>[data-slot=avatar]]:size-6 sm:[&>[data-slot=avatar]]:size-5',
@@ -186,10 +186,10 @@ export function BaseListboxOption<T>({
               'group/option grid cursor-default grid-cols-[theme(spacing.5),1fr] items-baseline gap-x-1.5 rounded-lg py-2.5 pl-2.5 pr-3.5 sm:grid-cols-[theme(spacing.4),1fr] sm:py-1.5 sm:pl-2 sm:pr-3',
 
               // Typography
-              'text-base/6 text-zinc-950 dark:text-white sm:text-sm/6 forced-colors:text-[CanvasText]',
+              'text-base/6 text-surface-solid sm:text-sm/6 forced-colors:text-[CanvasText]',
 
               // Focus
-              'outline-none data-[focus]:bg-blue-500 data-[focus]:text-white',
+              'outline-none data-[focus]:bg-blue-500 data-[focus]:text-surface-solid',
 
               // Forced colors mode
               'forced-color-adjust-none forced-colors:data-[focus]:bg-[Highlight] forced-colors:data-[focus]:text-[HighlightText]',
@@ -245,7 +245,7 @@ export function BaseListboxDescription({
     <span
       className={clsx(
         className,
-        'flex flex-1 overflow-hidden text-zinc-500 before:w-2 before:min-w-0 before:shrink group-data-[focus]/option:text-white dark:text-zinc-400',
+        'flex flex-1 overflow-hidden text-zinc-400 before:w-2 before:min-w-0 before:shrink group-data-[focus]/option:text-surface-solid',
       )}
       {...props}
     >

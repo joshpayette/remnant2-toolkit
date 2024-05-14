@@ -79,7 +79,7 @@ export function ProfileNavbar({
   }
 
   return (
-    <nav className="flex border-b border-white/10 py-4">
+    <nav className="flex border-b border-surface-solid/10 py-4">
       <ul
         role="list"
         className="flex min-w-full flex-wrap items-center justify-center gap-x-6 gap-y-2 px-4 text-sm font-semibold leading-6 text-gray-400 sm:px-6 md:items-start md:justify-start md:gap-y-0 lg:px-8"

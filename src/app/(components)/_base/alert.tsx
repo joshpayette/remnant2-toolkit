@@ -48,7 +48,7 @@ export function BaseAlert({
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <div className="fixed inset-0 flex w-screen justify-center overflow-y-auto bg-zinc-950/15 px-2 py-2 focus:outline-0 sm:px-6 sm:py-8 lg:px-8 lg:py-16 dark:bg-zinc-950/50" />
+          <div className="fixed inset-0 flex w-screen justify-center overflow-y-auto bg-zinc-950/50 px-2 py-2 focus:outline-0 sm:px-6 sm:py-8 lg:px-8 lg:py-16" />
         </HeadlessTransitionChild>
 
         <HeadlessTransitionChild
@@ -66,7 +66,7 @@ export function BaseAlert({
               className={clsx(
                 className,
                 sizes[size],
-                'row-start-2 w-full rounded-2xl bg-white p-8 shadow-lg ring-1 ring-zinc-950/10 sm:rounded-2xl sm:p-6 dark:bg-zinc-900 dark:ring-white/10 forced-colors:outline',
+                'row-start-2 w-full rounded-2xl bg-zinc-900 p-8 shadow-lg ring-1 ring-surface-solid/10 sm:rounded-2xl sm:p-6 forced-colors:outline',
               )}
               enter="ease-out duration-100"
               enterFrom="scale-95"
@@ -93,7 +93,7 @@ export function BaseAlertTitle({
       {...props}
       className={clsx(
         className,
-        'text-balance text-center text-base/6 font-semibold text-zinc-950 sm:text-wrap sm:text-left sm:text-sm/6 dark:text-white',
+        'text-balance text-center text-base/6 font-semibold text-surface-solid sm:text-wrap sm:text-left sm:text-sm/6',
       )}
     />
   )

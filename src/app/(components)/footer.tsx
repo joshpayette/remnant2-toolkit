@@ -8,7 +8,7 @@ const aClass = 'text-gray-300 hover:text-primary-400 underline'
 
 export function Footer() {
   return (
-    <footer className="mt-8 flex w-full items-center justify-center border-t border-secondary-900 bg-black p-4 text-left text-sm text-gray-400">
+    <footer className="mt-8 flex w-full items-center justify-center border-t border-secondary-900 bg-background-solid p-4 text-left text-sm text-gray-400">
       <div className="max-w-2xl gap-2">
         <div className="flex w-full flex-row items-center justify-center gap-4 p-2">
           <a
@@ -20,7 +20,7 @@ export function Footer() {
               alt="Remnant 2 Toolkit on GitHub"
               width={32}
               height={32}
-              className="h-8 w-8"
+              className="h-8 w-8 invert dark:invert-0"
               loading="eager"
             />
           </a>
@@ -33,7 +33,7 @@ export function Footer() {
               alt="Support on Patreon"
               width={32}
               height={32}
-              className="h-6 w-6"
+              className="h-6 w-6 invert dark:invert-0"
               loading="eager"
             />
           </a>
@@ -43,7 +43,7 @@ export function Footer() {
               alt="Join the Remnant 2 Toolkit Discord"
               width={32}
               height={32}
-              className="h-6 w-6"
+              className="h-6 w-6 invert dark:invert-0"
               loading="eager"
             />
           </a>
@@ -53,7 +53,7 @@ export function Footer() {
               alt="Remnant 2 Toolkit on Twitter"
               width={32}
               height={32}
-              className="h-6 w-6"
+              className="h-6 w-6 invert dark:invert-0"
               loading="eager"
             />
           </a>
@@ -128,7 +128,7 @@ export function Footer() {
           </a>
           .
         </p>
-        <div className="h-[50px] w-full bg-black sm:hidden">
+        <div className="h-[50px] w-full bg-background-solid sm:hidden">
           {/* Spacer for the back to top button on mobile */}
           &nbsp;
         </div>

@@ -113,7 +113,7 @@ export function ItemCard({
   // #region Render
 
   return (
-    <div className="col-span-1 flex flex-col divide-y divide-primary-800 rounded-lg border border-primary-500 bg-black text-center shadow">
+    <div className="col-span-1 flex flex-col divide-y divide-primary-800 rounded-lg border border-primary-500 bg-background-solid text-center shadow">
       <div className="flex flex-1 flex-col p-4">
         {allowItemCompare ? (
           <div className="flex w-full items-center justify-center">
@@ -183,6 +183,7 @@ export function ItemCard({
               'mx-auto mb-2 h-[96px] w-[96px] flex-shrink-0 rounded-full',
               TraitItem.isTraitItem(item) && 'h-[96px] w-[48px]',
               WeaponItem.isWeaponItem(item) && 'h-[64px] w-[128px]',
+              ArchetypeItem.isArchetypeItem(item) && 'bg-black',
             )}
             width={sizes.width}
             height={sizes.height}
