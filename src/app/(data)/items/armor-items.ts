@@ -584,7 +584,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: -6,
     description: `Unified at long last, this enigmatic mask and flaming diadem signify that its wearer is not only forever loyal to the Red King but stands as his most favoured equal.`,
     wikiLinks: [`https://remnant.wiki/True_Crimson_Crown`],
-    location: { world: 'Losomn', dungeon: 'Vendor' },
+    location: { world: 'Losomn', dungeon: [`Nimue's Retreat`] },
   },
   {
     category: 'helm',

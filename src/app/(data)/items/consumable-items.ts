@@ -116,7 +116,7 @@ export const consumableItems: ConsumableItem[] = [
       'When thrown, explodes in a 6m radius dealing 50 - 150 damage and leaving a mysterious Mist which causes enemies to receive 10% additional damage. Duration lasts 10s after enemies leave the Mist. Last 15s.',
     externalTokens: [`Amplitude`],
     wikiLinks: [`https://remnant.wiki/Brightstone`],
-    location: { world: 'Yaesha', dungeon: 'Vendor' },
+    location: { world: 'Yaesha', dungeon: ['The Forgotten Grove'] },
   },
   {
     category: 'consumable',
@@ -227,7 +227,7 @@ export const consumableItems: ConsumableItem[] = [
     description:
       'Cures ROOT ROT Blight and increases Blight Resistance by 25. Lasts 10m.',
     wikiLinks: [`https://remnant.wiki/Oilskin_Balm`],
-    location: { world: 'Yaesha', dungeon: 'Vendor' },
+    location: { world: 'Yaesha', dungeon: ['The Forgotten Grove'] },
   },
   {
     category: 'consumable',

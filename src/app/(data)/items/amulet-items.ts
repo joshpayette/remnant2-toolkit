@@ -176,7 +176,7 @@ export const amuletItems: AmuletItem[] = [
     description:
       'Gain 15% to All Damage when Health is not completely full. When below 50% Health, gain an additional 10% bonus to All Damage and HASTE.',
     wikiLinks: [`https://remnant.wiki/Death's_Embrace`],
-    location: { world: 'Yaesha', dungeon: 'Vendor' },
+    location: { world: 'Yaesha', dungeon: ['Ancient Canopy', 'Luminous Vale'] },
   },
   {
     category: 'amulet',
@@ -467,7 +467,7 @@ export const amuletItems: AmuletItem[] = [
     tags: ['Mod Damage', 'Weakspot Damage'],
     description: `Increases Mod and Skill Weakspot Damage by 35%.`,
     wikiLinks: [`https://remnant.wiki/Index_of_the_Scribe`],
-    location: { world: 'Losomn', dungeon: 'Vendor' },
+    location: { world: 'Losomn', dungeon: ['Forlorn Coast'] },
   },
   {
     category: 'amulet',
@@ -703,7 +703,7 @@ export const amuletItems: AmuletItem[] = [
     tags: ['Healing Effectiveness'],
     description: `Increase Relic Healing Effectiveness by 50% Activating a Relic grants HASTE for 25s.`,
     wikiLinks: [`https://remnant.wiki/Nimue's_Ribbon`],
-    location: { world: 'Losomn', dungeon: 'Vendor' },
+    location: { world: 'Losomn', dungeon: [`Nimue's Retreat`] },
   },
   {
     category: 'amulet',
@@ -726,7 +726,7 @@ export const amuletItems: AmuletItem[] = [
     tags: ['Mod Damage'],
     description: `Increases Mod damage by 20%. Enhances the effect of Faerin's Sigil and Faelin's Sigil by 50% per Sigil equipped.`,
     wikiLinks: [`https://remnant.wiki/One_True_King_Sigil`],
-    location: { world: 'Losomn', dungeon: 'Vendor' },
+    location: { world: 'Losomn', dungeon: [`Nimue's Retreat`] },
   },
   {
     category: 'amulet',

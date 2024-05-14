@@ -166,6 +166,7 @@ export type YaeshaDungeon =
   | `Deserted Atelier`
   | `Bloodless Throne`
   | `Glittering Grotto`
+  | 'Luminous Vale'
 
 export const YAESHA_DUNGEONS = [
   `The Red Throne`,
@@ -198,6 +199,7 @@ export const YAESHA_DUNGEONS = [
   `Deserted Atelier`,
   `Bloodless Throne`,
   `Glittering Grotto`,
+  'Luminous Vale',
 ] as const satisfies YaeshaDungeon[]
 
 export type RootEarthDungeon =
@@ -348,7 +350,7 @@ export const BIOMES = [
     name: `Undead Tombs`,
     world: 'Yaesha',
     dungeons: [`The Twisted Chantry`, `The Chimney`, `The Lament`],
-    injectables: [`Living Stone`, `Sarcophagus`, `Hidden Crypt`],
+    injectables: [`Living Stone`, `Sarcophagus`, `Hidden Crypt`, `Pillar Hall`],
   },
   {
     name: `Ziggurats`,

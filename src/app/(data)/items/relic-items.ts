@@ -80,7 +80,7 @@ export const relicItems: RelicItem[] = [
     description:
       'Does not provide standard healing. On use, reduces Skill Cooldowns by 1s per second. Lasts 15s.',
     wikiLinks: [`https://remnant.wiki/Diverting_Heart`],
-    location: { world: 'Root Earth', dungeon: 'Vendor' },
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
   {
     category: 'relic',
@@ -264,7 +264,7 @@ export const relicItems: RelicItem[] = [
     dlc: 'base',
     description: `Passively grants 2 Health Regeneration per second. On use, doubles All Health Regeneration for 15s.`,
     wikiLinks: [`https://remnant.wiki/Tranquil_Heart`],
-    location: { world: 'Losomn', dungeon: 'Vendor' },
+    location: { world: 'Losomn', dungeon: [`Nimue's Retreat`] },
   },
   {
     category: 'relic',

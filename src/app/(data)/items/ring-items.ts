@@ -1261,6 +1261,11 @@ export const ringItems: RingItem[] = [
     tags: ['Movement Speed', 'Reload Speed', 'Fire Rate'],
     description: `Increases Movement Speed and Reload Speed by 3% and Fire Rate by 2% for each ally wearing this ring.`,
     wikiLinks: [`https://remnant.wiki/Pan_War_Band`],
+    location: {
+      world: `Yaesha`,
+      biome: `Undead Tombs`,
+      injectable: 'Pillar Hall',
+    },
   },
   {
     category: 'ring',
@@ -1331,6 +1336,7 @@ export const ringItems: RingItem[] = [
     tags: ['Health', 'Grey Health', 'Melee Hit'],
     description: `Melee Strikes convert Grey Health into Health. Each melee strike converts up to 10% of Max Health`,
     wikiLinks: [`https://remnant.wiki/Rally_Band`],
+    location: { world: 'Yaesha', dungeon: ['Luminous Vale'] },
   },
   {
     category: 'ring',
@@ -1341,6 +1347,7 @@ export const ringItems: RingItem[] = [
     tags: ['All Damage', 'Critical Chance', 'Status Effect'],
     description: `Increases All Damage and All Critical Chance by 5% while BLEEDING.`,
     wikiLinks: [`https://remnant.wiki/Ravager's_Bargain`],
+    location: { world: 'Yaesha', dungeon: [`Ancient Canopy`, `Luminous Vale`] },
   },
   {
     category: 'ring',
@@ -1351,6 +1358,7 @@ export const ringItems: RingItem[] = [
     description: `After an Elemental Status Effect is removed from wearer, they become immune to all Elemental Status Effects and gain 5% of base damage dealt as Lifesteal for 10s.`,
     wikiLinks: [`https://remnant.wiki/Reaping_Stone`],
     dlc: 'base',
+    location: { world: 'Root Earth', dungeon: 'World Drop' },
   },
   {
     category: 'ring',
@@ -1362,6 +1370,7 @@ export const ringItems: RingItem[] = [
       'Duplicates the last damaging Negative Status applied to the target. Reduces outgoing Status Effect Damage by 10%.',
     wikiLinks: [`https://remnant.wiki/Red_Ring_of_Death`],
     dlc: 'base',
+    location: { world: 'Losomn', dungeon: 'World Drop' },
   },
   {
     category: 'ring',
@@ -1371,6 +1380,11 @@ export const ringItems: RingItem[] = [
     description: `Gain 5% of Max Health as a SHIELD for 5s after spending 20 Stamina. Accumulation resets after 5s of inaction. Max 50% SHIELD.`,
     wikiLinks: [`https://remnant.wiki/Rerouting_Cable`],
     dlc: 'base',
+    location: {
+      world: `N'Erud`,
+      biome: `N'Erud Underworld`,
+      injectable: 'Shockwire',
+    },
   },
   {
     category: 'ring',
@@ -1381,6 +1395,7 @@ export const ringItems: RingItem[] = [
     description: `Increases Health Regeneration by 0.5 per second. 1s after going below 50% Health, increases regeneration value to 2.5 per second until 50% Health is reached.`,
     wikiLinks: [`https://remnant.wiki/Reserve_Boosting_Gem`],
     dlc: 'base',
+    location: { world: `N'Erud`, dungeon: 'World Drop' },
   },
   {
     category: 'ring',
@@ -1392,6 +1407,7 @@ export const ringItems: RingItem[] = [
     wikiLinks: [`https://remnant.wiki/Restriction_Cord`],
     healthCap: 0.5,
     dlc: 'base',
+    location: { world: 'Yaesha', dungeon: ['The Forgotten Grove'] },
   },
   {
     category: 'ring',
@@ -1403,6 +1419,11 @@ export const ringItems: RingItem[] = [
       "When wearer's Health drops below 25%, gain a Shield for 25% of Max Health. Lasts 10s.",
     wikiLinks: [`https://remnant.wiki/Ring_of_Crisis`],
     dlc: 'base',
+    location: {
+      world: `N'Erud`,
+      biome: `N'Erud Underworld`,
+      injectable: `Store Room`,
+    },
   },
   {
     category: 'ring',
@@ -1414,6 +1435,11 @@ export const ringItems: RingItem[] = [
       'Direct damage against wearer has a 50% chance to be converted entirely to Grey Health.',
     wikiLinks: [`https://remnant.wiki/Ring_of_Deflection`],
     dlc: 'base',
+    location: {
+      world: `N'Erud`,
+      biome: `N'Erud Underworld`,
+      injectable: `Black Hole`,
+    },
   },
   {
     category: 'ring',
@@ -1423,6 +1449,7 @@ export const ringItems: RingItem[] = [
     description: `Increases invulnerability window while evading and sliding.`,
     wikiLinks: [`https://remnant.wiki/Ring_of_Diversion`],
     dlc: 'base',
+    location: { world: 'Yaesha', dungeon: ['The Lament'] },
   },
   {
     category: 'ring',
@@ -1434,6 +1461,7 @@ export const ringItems: RingItem[] = [
       'Ranged Weakspot damage is increased by 25%. Ranged damage is reduced by 15% when failing to hit a Weakspot.',
     wikiLinks: [`https://remnant.wiki/Ring_of_Flawed_Beauty`],
     dlc: 'base',
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
   {
     category: 'ring',
@@ -1444,6 +1472,7 @@ export const ringItems: RingItem[] = [
     description: `Taking enemy damage causes 15% of Maximum Health to regenerate over 10s.`,
     wikiLinks: [`https://remnant.wiki/Ring_of_Grace`],
     dlc: 'base',
+    location: { world: 'Losomn', dungeon: [`Harvester's Reach`] },
   },
   {
     category: 'ring',
@@ -1454,6 +1483,7 @@ export const ringItems: RingItem[] = [
     tags: ['Fire Rate'],
     description: 'Increases fire rate by 8. ',
     wikiLinks: [`https://remnant.wiki/Ring_of_Infinite_Damage`],
+    location: { world: 'Losomn', dungeon: ['Forlorn Coast'] },
   },
   {
     category: 'ring',
@@ -1464,6 +1494,7 @@ export const ringItems: RingItem[] = [
     description: `Evades cost 15% Max Health as Grey Health instead of Stamina.`,
     wikiLinks: [`https://remnant.wiki/Ring_of_Omens`],
     dlc: 'base',
+    location: { world: 'Yaesha', dungeon: ['Cathedral of Omens'] },
   },
   {
     category: 'ring',
@@ -1474,6 +1505,7 @@ export const ringItems: RingItem[] = [
     tags: [],
     description: `Allows Heavy Weapon Ammo to gradually regenerate while in both Heavy Carry or Turret modes. Doubles the stowed Ammo Regeneration Rate of Heavy Weapons.`,
     wikiLinks: [`https://remnant.wiki/Ring_Of_Ordnance`],
+    location: { world: `N'Erud`, dungeon: 'World Drop' },
   },
   {
     category: 'ring',
@@ -1485,6 +1517,7 @@ export const ringItems: RingItem[] = [
       'Reloads within 5s of a Critical Kill or Weakspot Kill are 20% faster.',
     wikiLinks: [`https://remnant.wiki/Ring_of_Restocking`],
     dlc: 'base',
+    location: { world: `N'Erud`, dungeon: 'World Drop' },
   },
   {
     category: 'ring',
@@ -1495,6 +1528,7 @@ export const ringItems: RingItem[] = [
     description: `Incoming enemy damage increases Reload Speed and all outgoing damage by 15%. Lasts 15s.`,
     wikiLinks: [`https://remnant.wiki/Ring_of_Retribution`],
     dlc: 'base',
+    location: { world: 'Losomn', dungeon: [`Harvester's Reach`] },
   },
   {
     category: 'ring',
@@ -1505,6 +1539,11 @@ export const ringItems: RingItem[] = [
     tags: ['Mod Power'],
     description: `Increases Mod Generation by 3% for each active consumable. Max 5 stacks.`,
     wikiLinks: [`https://remnant.wiki/Ring_of_Spirits`],
+    location: {
+      world: 'Yaesha',
+      biome: 'Undead Tombs',
+      injectable: 'Pillar Hall',
+    },
   },
   {
     category: 'ring',
@@ -1514,6 +1553,11 @@ export const ringItems: RingItem[] = [
     id: 'aqo8pe',
     description: 'Increases base Consumable Duration by 50%.',
     wikiLinks: [`https://remnant.wiki/Ring_of_the_Castaway`],
+    location: {
+      world: 'Losomn',
+      biome: 'Losomn Sewers',
+      injectable: 'Corpse Drop',
+    },
   },
   {
     category: 'ring',
@@ -1526,6 +1570,7 @@ export const ringItems: RingItem[] = [
       'Increases All Damage by 0.4% for each 1% of Grey Health. Increase Critical Chance by 5% if at least 50% of Max Health is Grey.',
     wikiLinks: [`https://remnant.wiki/Ring_of_the_Damned`],
     dlc: 'base',
+    location: { world: 'Losomn', dungeon: ['The Great Sewers'] },
   },
   {
     category: 'ring',
@@ -1536,6 +1581,7 @@ export const ringItems: RingItem[] = [
     description: `Relic Healing Effectiveness is increased by 15%.`,
     wikiLinks: [`https://remnant.wiki/Ring_of_the_Forest_Spirit`],
     dlc: 'base',
+    location: { world: 'Yaesha', dungeon: 'World Drop' },
   },
   {
     category: 'ring',
@@ -1548,6 +1594,7 @@ export const ringItems: RingItem[] = [
     health: 10,
     armor: 20,
     dlc: 'base',
+    location: { world: 'Losomn', dungeon: 'World Drop' },
   },
   {
     category: 'ring',
@@ -1559,6 +1606,7 @@ export const ringItems: RingItem[] = [
       'Reduces Invulnerability Window on Evade and Combat Slide by 35%. Increases Movement Speed while aiming by 35%.',
     wikiLinks: [`https://remnant.wiki/Ring_of_the_Vain`],
     dlc: 'base',
+    location: { world: 'Losomn', dungeon: 'World Drop' },
   },
   {
     category: 'ring',
@@ -1569,6 +1617,7 @@ export const ringItems: RingItem[] = [
     description: `Gain 5% Movement Speed and 7.5% Reload Speed for every 25% of Max Health missing.`,
     wikiLinks: [`https://remnant.wiki/Rock_of_Anguish`],
     dlc: 'base',
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
   {
     category: 'ring',
@@ -1578,6 +1627,7 @@ export const ringItems: RingItem[] = [
     description: `Prevents ROOT ROT Blight.`,
     wikiLinks: [`https://remnant.wiki/Rotward`],
     dlc: 'base',
+    location: { world: 'Yaesha', dungeon: ['The Forbidden Grove'] },
   },
   {
     category: 'ring',
@@ -1588,6 +1638,11 @@ export const ringItems: RingItem[] = [
     description: `Grants 2 Stacks of BULWARK below 50% Max HP.`,
     wikiLinks: [`https://remnant.wiki/Rusted_Heirloom`],
     dlc: 'base',
+    location: {
+      world: 'Losomn',
+      biome: 'Losomn Sewers',
+      injectable: 'Dran Safe',
+    },
   },
   {
     category: 'ring',
@@ -1597,6 +1652,7 @@ export const ringItems: RingItem[] = [
     description: `Increases earned Experience by 10%.`,
     wikiLinks: [`https://remnant.wiki/Sagestone`],
     dlc: 'base',
+    location: { world: 'Yaesha', dungeon: 'World Drop' },
   },
   {
     category: 'ring',
@@ -1607,6 +1663,15 @@ export const ringItems: RingItem[] = [
     description: `Critical Hits reduce Skill Cooldowns by 4%. Can only happen once every 2s.`,
     wikiLinks: [`https://remnant.wiki/Sapphire_Dreamstone`],
     dlc: 'base',
+    location: {
+      world: 'Losomn',
+      dungeon: [
+        'Council Chamber',
+        'Gilded Chambers',
+        'The Great Hall',
+        'Shattered Gallery',
+      ],
+    },
   },
   {
     category: 'ring',
@@ -1617,6 +1682,7 @@ export const ringItems: RingItem[] = [
     tags: [],
     description: `Melee Attacks can be cancelled mid action by Dodging.`,
     wikiLinks: [`https://remnant.wiki/Sealed_Resin_Loop`],
+    location: { world: 'Yaesha', dungeon: 'World Drop' },
   },
   {
     category: 'ring',
@@ -1629,6 +1695,7 @@ export const ringItems: RingItem[] = [
     health: 20,
     stamina: -5,
     dlc: 'base',
+    location: { world: 'Yaesha', dungeon: ['The Red Throne'] },
   },
   {
     category: 'ring',
@@ -1639,6 +1706,7 @@ export const ringItems: RingItem[] = [
     description: 'Increase Status Effect Damage by 20%.',
     wikiLinks: [`https://remnant.wiki/Shadow_of_Misery`],
     dlc: 'base',
+    location: { world: 'Losomn', dungeon: 'World Drop' },
   },
   {
     category: 'ring',
@@ -1649,6 +1717,15 @@ export const ringItems: RingItem[] = [
     tags: ['Skill Damage'],
     description: 'Increase Skill Damage by 15%.',
     wikiLinks: [`https://remnant.wiki/Shaed_Stone`],
+    location: {
+      world: 'Losomn',
+      dungeon: [
+        'Glistering Cloister',
+        `Gilded Chambers`,
+        `Pathway of the Fallen`,
+        `Shattered Gallery`,
+      ],
+    },
   },
   {
     category: 'ring',
