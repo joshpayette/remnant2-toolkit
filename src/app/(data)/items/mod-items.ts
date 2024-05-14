@@ -225,7 +225,7 @@ export const modItems: ModItem[] = [
     imagePath: '/items/mods/bloodthirst.png',
     id: '1rw0kk',
     dlc: 'base',
-    description: `Damage increases by +25% against BLEEDING enemies, and +25% when attacking from behind. Charge Attacks deal 100 BLEEDING damage over 10s`,
+    description: `Attacks from behind enemies always count as Weakspots. Charge Attacks deal 200 - 600 BLEEDING damage over 10s.`,
     wikiLinks: [`https://remnant.wiki/Bloodthirst`],
     linkedItems: {
       weapon: {
