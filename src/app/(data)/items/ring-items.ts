@@ -175,7 +175,7 @@ export const ringItems: RingItem[] = [
     id: 'pi2zf8',
     tags: ['Melee Charge Speed', 'Charged Melee', 'Stamina'],
     description:
-      'Increases Melee Charge Speed by 10% and reduces Melee Stamina Cost by 30%.',
+      'Increases Melee Speed by 10% and reduces Melee Stamina Cost by 30%.',
     wikiLinks: [`https://remnant.wiki/Berserker's_Crest`],
     dlc: 'base',
     location: {
