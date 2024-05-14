@@ -171,7 +171,7 @@ export const relicItems: RelicItem[] = [
     description:
       'On use, converts 5 Health as Grey Health to 40 Mod Power per second for 25s for both weapons. Cannot die from conversion.',
     wikiLinks: [`https://remnant.wiki/Reprocessed_Heart`],
-    location: { world: 'Labyrinth', dungeon: 'Labyrinth' },
+    location: { world: 'Labyrinth', dungeon: ['Labyrinth'] },
   },
   {
     category: 'relic',
@@ -203,7 +203,7 @@ export const relicItems: RelicItem[] = [
     description:
       'On use, increases Health Regeneration by 5 and generates 500 Mod Power over 10s for both weapons.',
     wikiLinks: [`https://remnant.wiki/Runed_Heart`],
-    location: { world: 'Labyrinth', dungeon: 'Labyrinth' },
+    location: { world: 'Labyrinth', dungeon: ['Labyrinth'] },
   },
   {
     category: 'relic',

@@ -6,6 +6,7 @@ import {
 } from '@/app/(components)/_base/listbox'
 import { DEFAULT_FILTER } from '@/app/(components)/filters/types'
 import {
+  LABYRINTH_DUNGEONS,
   LOSOMN_DUNGEONS,
   NERUD_DUNGEONS,
   ROOT_EARTH_DUNGEONS,
@@ -38,7 +39,8 @@ export function WorldFilter({
     worldValue === 'Losomn' ||
     worldValue === `N'Erud` ||
     worldValue === 'Yaesha' ||
-    worldValue === 'Root Earth'
+    worldValue === 'Root Earth' ||
+    worldValue === 'Labyrinth'
 
   let dungeonOptions = [
     { label: DEFAULT_FILTER, value: DEFAULT_FILTER },
@@ -72,6 +74,16 @@ export function WorldFilter({
     case 'Root Earth':
       dungeonOptions = dungeonOptions.concat(
         ROOT_EARTH_DUNGEONS.sort((a, b) => a.localeCompare(b)).map(
+          (dungeon) => ({
+            label: dungeon as string,
+            value: dungeon as string,
+          }),
+        ),
+      )
+      break
+    case 'Labyrinth':
+      dungeonOptions = dungeonOptions.concat(
+        LABYRINTH_DUNGEONS.sort((a, b) => a.localeCompare(b)).map(
           (dungeon) => ({
             label: dungeon as string,
             value: dungeon as string,

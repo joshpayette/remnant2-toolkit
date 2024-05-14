@@ -10,6 +10,7 @@ import { VALID_RELEASE_KEYS } from '@/app/(components)/filters/releases-filter'
 import { DEFAULT_FILTER } from '@/app/(components)/filters/types'
 import { allItems } from '@/app/(data)/items/all-items'
 import {
+  LABYRINTH_DUNGEONS,
   LOSOMN_DUNGEONS,
   NERUD_DUNGEONS,
   ROOT_EARTH_DUNGEONS,
@@ -118,6 +119,11 @@ export function parseUrlFilters(
         break
       case 'Root Earth':
         if (!(ROOT_EARTH_DUNGEONS as string[]).includes(dungeon)) {
+          dungeon = DEFAULT_FILTER
+        }
+        break
+      case 'Labyrinth':
+        if (!(LABYRINTH_DUNGEONS as string[]).includes(dungeon)) {
           dungeon = DEFAULT_FILTER
         }
         break

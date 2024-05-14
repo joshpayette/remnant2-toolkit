@@ -198,6 +198,11 @@ export const ringItems: RingItem[] = [
     description: `Reduces Cooldowns of Skills by 10%.`,
     wikiLinks: [`https://remnant.wiki/Black_Pawn_Stamp`],
     dlc: 'base',
+    location: {
+      world: 'Losomn',
+      biome: 'Fae Palace',
+      injectable: 'The Flames Event',
+    },
   },
   {
     category: 'ring',
@@ -1654,6 +1659,7 @@ export const ringItems: RingItem[] = [
     description: 'Increases Mod damage by 12%',
     wikiLinks: [`https://remnant.wiki/Shard_Banded_Ring`],
     dlc: 'base',
+    location: { world: 'Labyrinth', dungeon: ['Fractured Ingress'] },
   },
   {
     category: 'ring',
@@ -1664,6 +1670,15 @@ export const ringItems: RingItem[] = [
     description: `Reloading grants 25-50 Mod Power to both weapons based on percentage of Magazine reloaded.`,
     wikiLinks: [`https://remnant.wiki/Shiny_Hog_Lure`],
     dlc: 'base',
+    location: {
+      world: 'Losomn',
+      dungeon: [
+        `Butcher's Quarter`,
+        `Cotton's Kiln`,
+        `Derelict Lighthouse`,
+        `Sunken Haunt`,
+      ],
+    },
   },
   {
     category: 'ring',
@@ -1674,6 +1689,7 @@ export const ringItems: RingItem[] = [
     description: `Increases all damage dealt to BURNING enemies by 12%.`,
     wikiLinks: [`https://remnant.wiki/Singed_Ring`],
     dlc: 'base',
+    location: { world: 'Losomn', dungeon: [`Butcher's Quarter`] },
   },
   {
     category: 'ring',
@@ -1685,6 +1701,10 @@ export const ringItems: RingItem[] = [
       'Increases Melee damage by 25% when attacking enemies from behind.',
     wikiLinks: [`https://remnant.wiki/Slayer's_Crest`],
     dlc: 'base',
+    location: {
+      world: 'Yaesha',
+      dungeon: ['The Nameless Nest', 'The Expanding Glade', 'Forgotten Field'],
+    },
   },
   {
     category: 'ring',
@@ -1695,6 +1715,7 @@ export const ringItems: RingItem[] = [
     tags: ['Summon', 'Reduce Skill Cooldown'],
     description: `When a Human, Companion, or Minion is downed or killed, reduce Skill Cooldowns by 8%.`,
     wikiLinks: [`https://remnant.wiki/Soul_Feast`],
+    location: { world: 'Yaesha', dungeon: 'World Drop' },
   },
   {
     category: 'ring',
@@ -1705,6 +1726,7 @@ export const ringItems: RingItem[] = [
     description: `Gain a stack of BULWARK for each active Summon.`,
     wikiLinks: [`https://remnant.wiki/Soul_Guard`],
     dlc: 'base',
+    location: { world: 'Yaesha', dungeon: 'Vendor' },
   },
   {
     category: 'ring',
@@ -1715,6 +1737,7 @@ export const ringItems: RingItem[] = [
     description: `Summons Lifesteal 5% of base damage dealt which returns to the wearer as Health.`,
     wikiLinks: [`https://remnant.wiki/Soul_Link`],
     dlc: 'base',
+    location: { world: 'Yaesha', dungeon: 'World Drop' },
   },
   {
     category: 'ring',
@@ -1726,6 +1749,7 @@ export const ringItems: RingItem[] = [
       'Increases All Damage dealt by 5% for each active Summon. Max 15%.',
     wikiLinks: [`https://remnant.wiki/Soul_Shard`],
     dlc: 'base',
+    location: { world: 'Yaesha', dungeon: 'World Drop' },
   },
   {
     category: 'ring',
@@ -1736,6 +1760,7 @@ export const ringItems: RingItem[] = [
     description: `Increases Mod Power generation by 10%.`,
     wikiLinks: [`https://remnant.wiki/Spirit_Stone`],
     dlc: 'base',
+    location: { world: 'Yaesha', dungeon: 'World Drop' },
   },
   {
     category: 'ring',
@@ -1746,6 +1771,7 @@ export const ringItems: RingItem[] = [
     description: `After picking up ammo, increases the damage of that Ammo Type by 15% for 20s.`,
     wikiLinks: [`https://remnant.wiki/Stockpile_Charger`],
     dlc: 'base',
+    location: { world: 'Losomn', dungeon: [`Tiller's Rest`] },
   },
   {
     category: 'ring',
@@ -1756,6 +1782,7 @@ export const ringItems: RingItem[] = [
     description: `Increases all damage by 7%.`,
     wikiLinks: [`https://remnant.wiki/Stone_of_Balance`],
     dlc: 'base',
+    location: { world: 'Yaesha', dungeon: 'World Drop' },
   },
   {
     category: 'ring',
@@ -1766,6 +1793,7 @@ export const ringItems: RingItem[] = [
     description: `Increases Skill Duration by 15%.`,
     wikiLinks: [`https://remnant.wiki/Stone_of_Continuance`],
     dlc: 'base',
+    location: { world: `N'Erud`, dungeon: ['Tower of the Unseen'] },
   },
   {
     category: 'ring',
@@ -1776,6 +1804,7 @@ export const ringItems: RingItem[] = [
     description: `Increases Ranged damage by 12%. Reduces all other damage dealt by 5%.`,
     wikiLinks: [`https://remnant.wiki/Stone_of_Expanse`],
     dlc: 'base',
+    location: { world: `N'Erud`, dungeon: `World Drop` },
   },
   {
     category: 'ring',
@@ -1786,6 +1815,7 @@ export const ringItems: RingItem[] = [
     description: 'Elemental damage generates 15% additional Mod Power.',
     wikiLinks: [`https://remnant.wiki/Stone_Of_Malevolence`],
     dlc: 'base',
+    location: { world: 'Losomn', dungeon: 'World Drop' },
   },
   {
     category: 'ring',
@@ -1796,6 +1826,7 @@ export const ringItems: RingItem[] = [
     description: `Using a Skill regenerates 25% of Max Health over 10s.`,
     wikiLinks: [`https://remnant.wiki/Stream_Coupler`],
     dlc: 'base',
+    location: { world: 'Losomn', dungeon: 'World Drop' },
   },
   {
     category: 'ring',
@@ -1806,6 +1837,11 @@ export const ringItems: RingItem[] = [
     description: `After killing an enemy, increases the Cast Speed of the next Mod or Skill Cast by 35%. Lasts 15s or until consumed.`,
     wikiLinks: [`https://remnant.wiki/Subterfuge_Link`],
     dlc: 'base',
+    location: {
+      world: `N'Erud`,
+      biome: `N'Erud Underworld`,
+      injectable: `Sewage Facility`,
+    },
   },
   {
     category: 'ring',
@@ -1815,6 +1851,7 @@ export const ringItems: RingItem[] = [
     description: `Prevents SUPPRESSION Blight.`,
     wikiLinks: [`https://remnant.wiki/Suppression_Ward`],
     dlc: 'base',
+    location: { world: `N'Erud`, dungeon: ['Ascension Spire'] },
   },
   {
     category: 'ring',
@@ -1825,6 +1862,7 @@ export const ringItems: RingItem[] = [
     description: `Increases Range on all Firearms by 4m. Reduces Spread by 15%.`,
     wikiLinks: [`https://remnant.wiki/Targeting_Jewel`],
     dlc: 'base',
+    location: { world: `N'Erud`, dungeon: 'World Drop' },
   },
   {
     category: 'ring',
@@ -1835,6 +1873,7 @@ export const ringItems: RingItem[] = [
     description: `Increases damage of Unarmed Attacks by 30%.`,
     wikiLinks: [`https://remnant.wiki/Tarnished_Ring`],
     dlc: 'base',
+    location: { world: 'Ward 13', dungeon: 'Quest' },
   },
   {
     category: 'ring',
@@ -1844,6 +1883,7 @@ export const ringItems: RingItem[] = [
     description: 'Increases Relic capacity by 2 while equipped.',
     wikiLinks: [`https://remnant.wiki/Tear_of_Kaeula`],
     dlc: 'base',
+    location: { world: 'Yaesha', dungeon: [`Kaeula's Rest`] },
   },
   {
     category: 'ring',
@@ -1854,6 +1894,7 @@ export const ringItems: RingItem[] = [
     tags: ['Lifesteal', 'Healing Effectiveness', 'Heal'],
     description: `Increases Healing and Lifesteal Efficacy by 20%. Reduces Healing Efficacy bonus by 1.5% for each 10% of missing Relic Capacity.`,
     wikiLinks: [`https://remnant.wiki/Tear_of_Lydusa`],
+    location: { world: 'Yaesha', dungeon: ['Bloodless Throne'] },
   },
   {
     category: 'ring',
@@ -1864,6 +1905,7 @@ export const ringItems: RingItem[] = [
     description: `After receiving Elemental Damage, increases all damage dealt by 15% and Resistance to the received Element by 20 for 15s.`,
     wikiLinks: [`https://remnant.wiki/Tempest_Conduit`],
     dlc: 'base',
+    location: { world: 'Yaesha', dungeon: [`Endaira's End`] },
   },
   {
     category: 'ring',
@@ -1874,6 +1916,7 @@ export const ringItems: RingItem[] = [
     tags: ['Stamina', 'Damage Reduction'],
     description: `Grants 1 stack of BULWARK and 2 Stamina Regen per second for each BULWARK stack. Increases BULWARK maximum stacks to 6.`,
     wikiLinks: [`https://remnant.wiki/Thalos_Eyelet`],
+    location: { world: 'Yaesha', dungeon: 'World Drop' },
   },
   {
     category: 'ring',
@@ -1883,6 +1926,7 @@ export const ringItems: RingItem[] = [
     description: `When spending 75% or more of current magazine, gain a SHIELD for 15% of Max Health for 5s. Does not stack with itself.`,
     wikiLinks: [`https://remnant.wiki/Tightly_Wound_Coil`],
     dlc: 'base',
+    location: { world: `N'Erud`, dungeon: ['Void Vessel Facility'] },
   },
   {
     category: 'ring',
@@ -1894,6 +1938,7 @@ export const ringItems: RingItem[] = [
       'Increases the duration of all Status Effects applied by the wearer. Duration varies per Status.',
     wikiLinks: [`https://remnant.wiki/Timekeeper's_Jewel`],
     dlc: 'base',
+    location: { world: 'Losomn', dungeon: ['Hewdas Clock'] },
   },
   {
     category: 'ring',
@@ -1904,6 +1949,11 @@ export const ringItems: RingItem[] = [
     description:
       'Increases All Damage by 5%. Gain 10% Critical Chance against EXPOSED targets.',
     wikiLinks: [`https://remnant.wiki/Token_of_Favor`],
+    location: {
+      world: 'Yaesha',
+      biome: 'Floating Forests',
+      injectable: 'Shrine of the Doe',
+    },
   },
   {
     category: 'ring',
@@ -1914,6 +1964,11 @@ export const ringItems: RingItem[] = [
     description: `Increases Movement Speed by 10% for 15s after Vaulting, Climbing, Leaping, and entering Water, stacks 3x. Reduces Fall Damage by 50%.`,
     wikiLinks: [`https://remnant.wiki/Tomb_Dweller's_Ring`],
     dlc: 'base',
+    location: {
+      world: 'Yaesha',
+      biome: 'Undead Tombs',
+      injectable: 'Hidden Crypt',
+    },
   },
   {
     category: 'ring',
@@ -1924,6 +1979,7 @@ export const ringItems: RingItem[] = [
       'Increases Automatic Pickup Range for Scrap by 150%. Picking up Scrap, Iron, or Ammo grants a SHIELD for 15% of Max Health for 15s. Does not stack.',
     wikiLinks: [`https://remnant.wiki/Vacuum_Seal`],
     dlc: 'base',
+    location: { world: `N'Erud`, dungeon: 'World Drop' },
   },
   {
     category: 'ring',
@@ -1934,6 +1990,7 @@ export const ringItems: RingItem[] = [
     description: `After 5s of not being damaged, increases Ranged and Melee Damage by 10%.`,
     wikiLinks: [`https://remnant.wiki/Vestige_of_Power`],
     dlc: 'base',
+    location: { world: 'Yaesha', dungeon: 'World Drop' },
   },
   {
     category: 'ring',
@@ -1945,6 +2002,7 @@ export const ringItems: RingItem[] = [
       'Killing blows increase Ranged and Melee Damage by 4% for 15s. Stacks 3x',
     wikiLinks: [`https://remnant.wiki/Wax_Sealed_Ring`],
     dlc: 'base',
+    location: { world: 'Yaesha', dungeon: 'World Drop' },
   },
   {
     category: 'ring',
@@ -1956,6 +2014,7 @@ export const ringItems: RingItem[] = [
     description:
       'Perfect Dodge applies a SHIELD for 15% of Max Health. Lasts 10s. Cannot stack with itself.',
     wikiLinks: [`https://remnant.wiki/White_Glass_Bead`],
+    location: { world: 'Losomn', dungeon: 'Quest' },
   },
   {
     category: 'ring',
@@ -1966,6 +2025,11 @@ export const ringItems: RingItem[] = [
     description: `Reduces Mod Power Requirement by 10%.`,
     wikiLinks: [`https://remnant.wiki/White_Pawn_Stamp`],
     dlc: 'base',
+    location: {
+      world: 'Losomn',
+      biome: 'Fae Palace',
+      injectable: 'The Flames Event',
+    },
   },
   {
     category: 'ring',
@@ -1976,6 +2040,11 @@ export const ringItems: RingItem[] = [
     description: `Increases Reload Speed by 12%.`,
     wikiLinks: [`https://remnant.wiki/Wind_Hollow_Circlet`],
     dlc: 'base',
+    location: {
+      world: 'Yaesha',
+      biome: 'Ziggurats',
+      injectable: 'Wind Hollow',
+    },
   },
   {
     category: 'ring',
@@ -1986,6 +2055,7 @@ export const ringItems: RingItem[] = [
     tags: ['Stagger'],
     description: 'Increases Stagger Damage by 15%.',
     wikiLinks: [`https://remnant.wiki/Wood_Ring`],
+    location: { world: 'Losomn', dungeon: 'World Drop' },
   },
   {
     category: 'ring',
@@ -1997,6 +2067,7 @@ export const ringItems: RingItem[] = [
     description: `All damage received is increased by 200%. All damage dealt is increased by 15%.`,
     wikiLinks: [`https://remnant.wiki/Worn_Admiral's_Ring`],
     dlc: 'base',
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
   {
     category: 'ring',
@@ -2008,6 +2079,7 @@ export const ringItems: RingItem[] = [
       'Dealing Weakspot damage increases Weakspot damage by 5% for 5s. Stacks 4x',
     wikiLinks: [`https://remnant.wiki/Zania's_Malice`],
     dlc: 'base',
+    location: { world: 'Root Earth', dungeon: ['Ashen Wasteland'] },
   },
   {
     category: 'ring',
@@ -2018,5 +2090,6 @@ export const ringItems: RingItem[] = [
     description: `Increases Mod Duration by 20%.`,
     wikiLinks: [`https://remnant.wiki/Zohee's_Ring`],
     dlc: 'base',
+    location: { world: 'Yaesha', dungeon: ['The Red Throne'] },
   },
 ]

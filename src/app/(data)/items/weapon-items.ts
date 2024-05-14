@@ -108,7 +108,7 @@ export const weaponItems: WeaponItem[] = [
     dlc: 'base',
     description: `A classic Tommy Gun with large ammo capacity and a slow reload. Poor initial accuracy which improves while holding down the trigger.`,
     wikiLinks: [`https://remnant.wiki/Chicago_Typewriter`],
-    location: { world: 'Labyrinth', dungeon: 'Labyrinth' },
+    location: { world: 'Labyrinth', dungeon: ['Labyrinth'] },
     damage: 10,
     rps: 11,
     magazine: 80,
@@ -539,7 +539,7 @@ export const weaponItems: WeaponItem[] = [
     wikiLinks: [`https://remnant.wiki/Polygun`],
     location: {
       world: 'Labyrinth',
-      dungeon: 'Labyrinth',
+      dungeon: ['Labyrinth'],
     },
     linkedItems: {
       mod: {
@@ -1284,7 +1284,7 @@ export const weaponItems: WeaponItem[] = [
     dlc: 'base',
     description: `Basic Strikes generate 10% additional Mod Power. Charge Attacks perform an AOE which strikes all enemies within 2m, dealing 75 Damage. AOE Damage generates 50% additional Mod Power.`,
     externalTokens: [`Amplitude`],
-    location: { world: 'Labyrinth', dungeon: 'Labyrinth' },
+    location: { world: 'Labyrinth', dungeon: ['Labyrinth'] },
     wikiLinks: [`https://remnant.wiki/Labyrinth_Staff`],
     damage: 64,
     crit: 8,
@@ -1918,7 +1918,7 @@ export const weaponItems: WeaponItem[] = [
     description:
       'Projectiles return on hit or after reaching max range. Reloading retrieves shot projectiles. Max 5 fired projectiles. Infinite ammo. Can overheat.',
     wikiLinks: [`https://remnant.wiki/Cube_Gun`],
-    location: { world: 'Labyrinth', dungeon: 'Labyrinth' },
+    location: { world: 'Labyrinth', dungeon: ['Labyrinth'] },
     linkedItems: {
       mod: {
         name: 'Cube Shield',
@@ -1969,7 +1969,7 @@ export const weaponItems: WeaponItem[] = [
       'Fires an electrical stream that jumps to nerby targets within 7.5m, dealing 30% reduced damage per jump. Applies OVERLOADED.',
     externalTokens: [`Amplitude`],
     wikiLinks: [`https://remnant.wiki/Enigma`],
-    location: { world: 'Labyrinth', dungeon: 'Labyrinth' },
+    location: { world: 'Labyrinth', dungeon: ['Labyrinth'] },
     linkedItems: {
       mod: {
         name: 'Chaos Driver',

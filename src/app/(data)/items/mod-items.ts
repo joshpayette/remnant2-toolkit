@@ -28,7 +28,7 @@ export const modItems: ModItem[] = [
         name: 'Polygun',
       },
     },
-    location: { world: 'Labyrinth', dungeon: 'Labyrinth' },
+    location: { world: 'Labyrinth', dungeon: ['Labyrinth'] },
   },
   {
     category: 'mod',

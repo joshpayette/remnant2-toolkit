@@ -48,7 +48,7 @@ export const traitItems: TraitItem[] = [
     dlc: 'base',
     description: 'Increases AOE and AURA Size by 5 - 50%.',
     wikiLinks: [`https://remnant.wiki/Amplitude`],
-    location: { world: 'Labyrinth', dungeon: 'Labyrinth' },
+    location: { world: 'Labyrinth', dungeon: ['Labyrinth'] },
     amount: DEFAULT_TRAIT_AMOUNT,
   },
   {

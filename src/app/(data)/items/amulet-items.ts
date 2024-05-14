@@ -304,7 +304,7 @@ export const amuletItems: AmuletItem[] = [
       'Each target can be affected once every 5s.',
     externalTokens: [`Amplitude`, `Explosive Damage`],
     wikiLinks: [`https://remnant.wiki/Energized_Neck_Coil`],
-    location: { world: 'Labyrinth', dungeon: 'Labyrinth' },
+    location: { world: 'Labyrinth', dungeon: ['Labyrinth'] },
   },
   {
     category: 'amulet',

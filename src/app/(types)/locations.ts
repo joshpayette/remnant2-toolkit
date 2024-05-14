@@ -213,6 +213,12 @@ export const ROOT_EARTH_DUNGEONS = [
   'Twilight Vale',
 ] as const satisfies RootEarthDungeon[]
 
+export type LabyrinthDungeon = 'Labyrinth' | 'Fractured Ingress'
+export const LABYRINTH_DUNGEONS = [
+  'Labyrinth',
+  'Fractured Ingress',
+] as const satisfies LabyrinthDungeon[]
+
 export const BIOMES = [
   {
     name: 'Burning City',
@@ -243,6 +249,7 @@ export const BIOMES = [
       `Black and White`,
       `Silver and Gold`,
       `Reflection`,
+      `The Flames Event`,
     ],
   },
   {
@@ -451,7 +458,7 @@ export type ItemLocation =
     }
   | {
       world: 'Labyrinth'
-      dungeon: 'Labyrinth' | OtherLocation
+      dungeon: LabyrinthDungeon[] | OtherLocation
       biome?: never
       injectable?: Injectable
     }

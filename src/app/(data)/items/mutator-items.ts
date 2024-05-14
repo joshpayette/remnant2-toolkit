@@ -856,7 +856,7 @@ export const mutatorItems: MutatorItem[] = [
       'Increases Melee damage by 25% - 50% when below 50% Max Health.',
     maxLevelBonus: `Increases Melee Critical Chance by 15% when below 50% Max Health.`,
     wikiLinks: [`https://remnant.wiki/Vengeful_Strike`],
-    location: { world: 'Labyrinth', dungeon: 'Labyrinth' },
+    location: { world: 'Labyrinth', dungeon: ['Labyrinth'] },
   },
   {
     category: 'mutator',

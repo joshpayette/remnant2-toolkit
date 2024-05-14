@@ -12,6 +12,7 @@ import { Item } from '@/app/(data)/items/types'
 import { MutatorItem } from '@/app/(data)/items/types/MutatorItem'
 import { WeaponItem } from '@/app/(data)/items/types/WeaponItem'
 import {
+  LABYRINTH_DUNGEONS,
   LOSOMN_DUNGEONS,
   NERUD_DUNGEONS,
   ROOT_EARTH_DUNGEONS,
@@ -92,6 +93,11 @@ export function parseUrlFilters(
         break
       case 'Root Earth':
         if (!(ROOT_EARTH_DUNGEONS as string[]).includes(dungeon)) {
+          dungeon = DEFAULT_FILTER
+        }
+        break
+      case 'Labyrinth':
+        if (!(LABYRINTH_DUNGEONS as string[]).includes(dungeon)) {
           dungeon = DEFAULT_FILTER
         }
         break
