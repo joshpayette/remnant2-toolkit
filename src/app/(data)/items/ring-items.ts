@@ -56,7 +56,7 @@ export const ringItems: RingItem[] = [
     tags: ['Lifesteal', 'Status Effect'],
     description: `Increases base Lifesteal by 6% while suffering from a negative STATUS or BLIGHT Effect.`,
     wikiLinks: [`https://remnant.wiki/Alchemy_Stone`],
-    location: { world: 'Losomn', dungeon: `World Drop` } , 
+    location: { world: 'Losomn', dungeon: `World Drop` },
   },
   {
     category: 'ring',
@@ -102,7 +102,7 @@ export const ringItems: RingItem[] = [
     description: `Increases Projectile Speed by 20% and Decreases Weapon Charge Time by 25%.`,
     wikiLinks: [`https://remnant.wiki/Archer's_Crest`],
     location: {
-      world: 'Yaesha', 
+      world: 'Yaesha',
       biome: 'Ziggurats',
       injectable: 'Hidden Chamber',
     },
@@ -193,7 +193,7 @@ export const ringItems: RingItem[] = [
     description:
       'Gain Infinite Stamina. All damage received is increased by 15%',
     wikiLinks: [`https://remnant.wiki/Bisected_Ring`],
-    location: { world: 'Labyrinth', dungeon: 'Labyrinth' },
+    location: { world: 'Labyrinth', dungeon: ['Labyrinth'] },
     dlc: 'base',
   },
   {
@@ -227,7 +227,6 @@ export const ringItems: RingItem[] = [
     tags: ['Reduce Skill Cooldown'],
     description: `Reduces Cooldowns of Skills by 10%.`,
     wikiLinks: [`https://remnant.wiki/Black_Pawn_Stamp`],
-    location: { world: 'Losomn', dungeon: 'Quest' }, 
     dlc: 'base',
     location: {
       world: 'Losomn',
@@ -258,7 +257,7 @@ export const ringItems: RingItem[] = [
     location: {
       world: `N'Erud`,
       biome: `N'Erud Underworld`,
-      injectable: 'Shockwire', 
+      injectable: 'Shockwire',
     },
     dlc: 'base',
   },
@@ -270,7 +269,10 @@ export const ringItems: RingItem[] = [
     description: 'Increases Explosive damage by 15%.',
     externalTokens: [`Explosive Damage`],
     wikiLinks: [`https://remnant.wiki/Blasting_Cap_Ring`],
-    location: { world: `N'Erud`, dungeon: ['The Eon Vault', 'Timeless Horizon'] }, 
+    location: {
+      world: `N'Erud`,
+      dungeon: ['The Eon Vault', 'Timeless Horizon'],
+    },
     dlc: 'base',
   },
   {
@@ -281,7 +283,7 @@ export const ringItems: RingItem[] = [
     tags: ['Damage Reduction'],
     description: `After receiving a benefit from a Relic, gain 2 Stacks of BULWARK for 30s.`,
     wikiLinks: [`https://remnant.wiki/Blessed_Ring`],
-    location: { world: 'Ward 13', dungeon: 'Vendor' }, 
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
     dlc: 'base',
   },
   {
@@ -304,7 +306,7 @@ export const ringItems: RingItem[] = [
     description:
       'Charged Melee Attacks apply BLEEDING, dealing 520 BLEED damage over 20s.',
     wikiLinks: [`https://remnant.wiki/Blood_Jewel`],
-    location:  { world: 'Yaesha', dungeon: ['The Forbidden Grove'] }, 
+    location: { world: 'Yaesha', dungeon: ['The Forbidden Grove'] },
     dlc: 'base',
   },
   {
@@ -315,7 +317,7 @@ export const ringItems: RingItem[] = [
     tags: ['Heal'],
     description: `Gain 2 Health Regeneration per second when within 25m of a BLEEDING entity.`,
     wikiLinks: [`https://remnant.wiki/Blood_Tinged_Ring`],
-    location: { world: 'Yaesha', dungeon: ['The Lament'] }, 
+    location: { world: 'Yaesha', dungeon: ['The Lament'] },
     dlc: 'base',
   },
   {
@@ -325,7 +327,7 @@ export const ringItems: RingItem[] = [
     id: 'sdkwq2',
     description: `Increases all Status Resistances by 25.`,
     wikiLinks: [`https://remnant.wiki/Booster_Ring`],
-    location: { world: 'Losomn', dungeon: 'World Drop' }, 
+    location: { world: 'Losomn', dungeon: 'World Drop' },
     bleedResistance: 25,
     fireResistance: 25,
     shockResistance: 25,
@@ -353,7 +355,7 @@ export const ringItems: RingItem[] = [
     description:
       'Increases Melee Attack Speed by 15% and Melee Critical Chance by 5%.',
     wikiLinks: [`https://remnant.wiki/Brawler's_Pride`],
-    location: { world: 'Yaesha', dungeon: 'World Drop' }, 
+    location: { world: 'Yaesha', dungeon: 'World Drop' },
     dlc: 'base',
   },
   {
@@ -365,7 +367,7 @@ export const ringItems: RingItem[] = [
     tags: ['Perfect Dodge', 'Damage Reduction', 'Melee Damage'],
     description: `Perfect Dodge increases Melee Damage by 20% for 10s. Perfect Evade Flop also gains 10% Damage Reduction for the duration.`,
     wikiLinks: [`https://remnant.wiki/Bridge_Warden's_Crest`],
-    location: { world: 'Losomn', dungeon: ['Forlorn Coast'] }, 
+    location: { world: 'Losomn', dungeon: ['Forlorn Coast'] },
   },
   {
     category: 'ring',
@@ -375,7 +377,7 @@ export const ringItems: RingItem[] = [
     tags: ['Heal', 'Perfect Dodge'],
     description: `Decreases all healing by 50%. Perfect Dodges heal for 25% of Max Health.`,
     wikiLinks: [`https://remnant.wiki/Burden_of_the_Audacious`],
-    location: { world: 'Ward 13', dungeon: 'Vendor' }, 
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
     dlc: 'base',
   },
   {
@@ -399,7 +401,7 @@ export const ringItems: RingItem[] = [
     description:
       'Decreases Range of all Firearms by 35%. Increases all damage dealt by 15%.',
     wikiLinks: [`https://remnant.wiki/Burden_of_the_Destroyer`],
-    location: { world: 'Ward 13', dungeon: 'Vendor' }, 
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
     dlc: 'base',
   },
   {
@@ -410,8 +412,8 @@ export const ringItems: RingItem[] = [
     description:
       'All damage dealt by the wearer is reduced by 15%. 30% of self healing applies to allies.',
     wikiLinks: [`https://remnant.wiki/Burden_of_the_Divine`],
-    location: { 
-      world: 'Losomn', 
+    location: {
+      world: 'Losomn',
       biome: 'Losomn Sewers',
       injectable: 'Rising Tides',
     },
@@ -514,7 +516,15 @@ export const ringItems: RingItem[] = [
     tags: ['Reduce Skill Cooldown'],
     description: `Reduces Skill Cooldowns by 15%. Activating a Skill costs 15% Health.`,
     wikiLinks: [`https://remnant.wiki/Burden_of_the_Stargazer`],
-    location: { world: `N'Erud`, dungeon: [`Astropath's Respite`, 'Spectrum Nexus', 'Terminus Station', 'Tower of the Unseen'] },
+    location: {
+      world: `N'Erud`,
+      dungeon: [
+        `Astropath's Respite`,
+        'Spectrum Nexus',
+        'Terminus Station',
+        'Tower of the Unseen',
+      ],
+    },
     dlc: 'base',
   },
   {
@@ -527,9 +537,9 @@ export const ringItems: RingItem[] = [
       'Reduces Mod Power Requirement by 15%. Activating a Mod costs 15% Health as Grey Health. Conversion cannot kill wearer.',
     wikiLinks: [`https://remnant.wiki/Burden_of_the_Warlock`],
     location: {
-      world: 'Losomn', 
+      world: 'Losomn',
       biome: 'Burning City',
-      injectable: 'Fiery Graveyard', 
+      injectable: 'Fiery Graveyard',
     },
     dlc: 'base',
   },
@@ -552,7 +562,10 @@ export const ringItems: RingItem[] = [
     tags: ['Mod Power'],
     description: `Automatically generates 10 Mod Power per second.`,
     wikiLinks: [`https://remnant.wiki/Cataloger's_Jewel`],
-    location: { world: 'Losomn', dungeon: ['Malefic Palace', 'Beatific Palace'] },
+    location: {
+      world: 'Losomn',
+      dungeon: ['Malefic Palace', 'Beatific Palace'],
+    },
     dlc: 'base',
   },
   {
@@ -575,7 +588,7 @@ export const ringItems: RingItem[] = [
     tags: ['Charged Shot'],
     description: `Gain 5% of Max Health as SHIELD for 10s after a Charged Shot. Accumulation resets after 10s of inaction. Max 25% SHIELD.`,
     wikiLinks: [`https://remnant.wiki/Closed_Loop`],
-    location: { world: `N'Erud`, dungeon: 'World Drop' }, 
+    location: { world: `N'Erud`, dungeon: 'World Drop' },
   },
   {
     category: 'ring',
@@ -585,7 +598,7 @@ export const ringItems: RingItem[] = [
     tags: ['Fire Rate', 'Melee Attack Speed'],
     description: `After killing an enemy, gain 5% Fire Rate and Melee Attack Speed for 10s. Stacks 3x.`,
     wikiLinks: [`https://remnant.wiki/Compulsion_Loop`],
-    location: { world: 'Ward 13', dungeon: 'Vendor' }, 
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
     dlc: 'base',
   },
   {
@@ -601,7 +614,7 @@ export const ringItems: RingItem[] = [
       'Can only happen once every 10s after expiring.',
     externalTokens: [`Amplitude`],
     wikiLinks: [`https://remnant.wiki/Conjurer's_Circle`],
-    location: { world: 'Yaesha', dungeon: ['Infested Abyss'] }, 
+    location: { world: 'Yaesha', dungeon: ['Infested Abyss'] },
   },
   {
     category: 'ring',
@@ -612,7 +625,7 @@ export const ringItems: RingItem[] = [
     description:
       'For every 10% of Health missing [Max 50%], gain 10% chance to not consume Relic and 5% increased Relic Efficacy on next use.',
     wikiLinks: [`https://remnant.wiki/Conservation_Seal`],
-    location: { world: `N\'Erud`, dungeon: 'World Drop' }, 
+    location: { world: `N\'Erud`, dungeon: 'World Drop' },
     dlc: 'base',
   },
   {
@@ -623,7 +636,7 @@ export const ringItems: RingItem[] = [
     tags: ['Ranged Damage', 'Heat Generation'],
     description: `Increases Ranged damage up to 20% based on current Weapon's Overheat value.`,
     wikiLinks: [`https://remnant.wiki/Constant_Variable_Ring`],
-    location: { 
+    location: {
       world: `N'Erud`,
       biome: `Towers of N'Erud`,
       injectable: `Remains Below`,
@@ -643,7 +656,7 @@ export const ringItems: RingItem[] = [
     location: {
       world: 'Losomn',
       biome: 'Burning City',
-      injectable: 'Ethereal Manor', 
+      injectable: 'Ethereal Manor',
     },
   },
   {
@@ -665,7 +678,7 @@ export const ringItems: RingItem[] = [
     tags: ['Health'],
     description: `Increases Health by 15.`,
     wikiLinks: [`https://remnant.wiki/Dead_King's_Memento`],
-    location: { world: 'Ward 13', dungeon: 'Vendor' }, 
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
     health: 15,
     dlc: 'base',
   },
@@ -689,7 +702,7 @@ export const ringItems: RingItem[] = [
     tags: ['Ammo Reserves'],
     description: `Increases Ammo Reserves by 35%.`,
     wikiLinks: [`https://remnant.wiki/Deep_Pocket_Ring`],
-    location: { world: `N'Erud`, dungeon: 'World Drop' }, 
+    location: { world: `N'Erud`, dungeon: 'World Drop' },
     dlc: 'base',
   },
   {
@@ -711,7 +724,7 @@ export const ringItems: RingItem[] = [
     tags: ['Mod Power'],
     description: `Gain 200% of Health Regenerated as Mod Power.`,
     wikiLinks: [`https://remnant.wiki/Dense_Silicon_Ring`],
-    location: { world: 'Labyrinth', dungeon: 'Labyrinth' },
+    location: { world: 'Labyrinth', dungeon: ['Labyrinth'] },
     dlc: 'base',
   },
   {
@@ -723,7 +736,7 @@ export const ringItems: RingItem[] = [
     tags: ['Critical Hit', 'Reduce Skill Cooldown'],
     description: `Critical Hits have a 1% chance to reset Skill Cooldowns. Can only occur once every 10s. Increases all incoming damage by 10%`,
     wikiLinks: [`https://remnant.wiki/Devoured_Loop`],
-    location: { world: 'Ward 13', dungeon: 'Vendor' }, 
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
     dlc: 'base',
   },
   {
@@ -745,7 +758,10 @@ export const ringItems: RingItem[] = [
     tags: ['Stamina', 'Melee Damage'],
     description: `Enables Stamina Regeneration during Melee Attacks at 20% of the normal rate.`,
     wikiLinks: [`https://remnant.wiki/Drakestone_Pearl`],
-    location: { world: 'Losomn', dungeon: ['The Great Sewers', `Tiller's Rest`] },
+    location: {
+      world: 'Losomn',
+      dungeon: ['The Great Sewers', `Tiller's Rest`],
+    },
     dlc: 'base',
   },
   {
@@ -861,7 +877,7 @@ export const ringItems: RingItem[] = [
       world: `N'Erud`,
       biome: `N'Erud Wasteland`,
       injectable: `Ascension Spire`,
-    },  
+    },
     dlc: 'base',
   },
   {
@@ -874,7 +890,7 @@ export const ringItems: RingItem[] = [
     description:
       'Using a Mod regenerates 20% of Max Health over 10s. Can stack up to 30s.',
     wikiLinks: [`https://remnant.wiki/Encrypted_Ring`],
-    location: { world: 'Labyrinth', dungeon: 'Labyrinth' },
+    location: { world: 'Labyrinth', dungeon: ['Labyrinth'] },
     dlc: 'base',
   },
   {
@@ -970,7 +986,10 @@ export const ringItems: RingItem[] = [
     tags: ['Melee Damage', 'Mod Power'],
     description: `Melee Damage generates 15% additional Mod Power.`,
     wikiLinks: [`https://remnant.wiki/Faelin's_Sigil`],
-    location: { world: 'Losomn', dungeon: ['Malefic Gallery', 'Beatific Gallery'] },
+    location: {
+      world: 'Losomn',
+      dungeon: ['Malefic Gallery', 'Beatific Gallery'],
+    },
     dlc: 'base',
   },
   {
@@ -982,7 +1001,10 @@ export const ringItems: RingItem[] = [
     description:
       'Critical and Weakspot Hits generate 12.5% additional Mod Power.',
     wikiLinks: [`https://remnant.wiki/Faerin's_Sigil`],
-    location: { world: 'Losomn', dungeon: ['Beatific Gallery', 'Malefic Gallery'] },
+    location: {
+      world: 'Losomn',
+      dungeon: ['Beatific Gallery', 'Malefic Gallery'],
+    },
     dlc: 'base',
   },
   {
@@ -1062,8 +1084,8 @@ export const ringItems: RingItem[] = [
     tags: ['Recoil', 'Spread'],
     description: 'Aiming Down Sights gradually reduces Spread by 70% over 4s.',
     wikiLinks: [`https://remnant.wiki/Focusing_Shard`],
-    location: { 
-      world: `N'Erud`, 
+    location: {
+      world: `N'Erud`,
       biome: `N'Erud Underworld`,
       injectable: `Black Hole`,
     },
@@ -1099,7 +1121,7 @@ export const ringItems: RingItem[] = [
     tags: ['Heal', 'Damage Reduction'],
     description: `Reduces all healing by 50%. Splits all damage and remaining healing evenly among all allies wearing this ring.`,
     wikiLinks: [`https://remnant.wiki/Game_Master's_Pride`],
-    location: { world: 'Losomn', dungeon: [`Postulant's Parlor`] }, 
+    location: { world: 'Losomn', dungeon: [`Postulant's Parlor`] },
     dlc: 'base',
   },
   {
@@ -1172,7 +1194,10 @@ export const ringItems: RingItem[] = [
     description:
       'Taking damage adds 1 stack of BULWARK which individually falls off after 10s. Max 5 stacks.',
     wikiLinks: [`https://remnant.wiki/Hardcore_Metal_Band`],
-    location: { world: `N'Erud`, dungeon: ['The Eon Vault', 'Timeless Horizon'] },
+    location: {
+      world: `N'Erud`,
+      dungeon: ['The Eon Vault', 'Timeless Horizon'],
+    },
     dlc: 'base',
   },
   {
@@ -1184,10 +1209,10 @@ export const ringItems: RingItem[] = [
     description:
       'Reduces all incoming damage by 3% for each 10% of missing Health. Max 15% reduction.',
     wikiLinks: [`https://remnant.wiki/Hardened_Coil`],
-    location: { 
-      world: 'Yaesha', 
+    location: {
+      world: 'Yaesha',
       biome: 'Floating Forests',
-      injectable: 'Broken Tomb',    
+      injectable: 'Broken Tomb',
     },
     dlc: 'base',
   },
@@ -1211,7 +1236,7 @@ export const ringItems: RingItem[] = [
     tags: ['Stamina', 'Movement Speed'],
     description: `Increases Max Stamina by 25 and Movement Speed by 10%.`,
     wikiLinks: [`https://remnant.wiki/Heart_Of_The_Wolf`],
-    location: { world: 'Yaesha', dungeon: 'World Drop' }, 
+    location: { world: 'Yaesha', dungeon: 'World Drop' },
     stamina: 25,
     dlc: 'base',
   },
@@ -1244,7 +1269,7 @@ export const ringItems: RingItem[] = [
     tags: ['Mod Cast Speed', 'Skill Cast Speed'],
     description: `Increases Mod and Skill Cast Speed by 20%.`,
     wikiLinks: [`https://remnant.wiki/Kinetic_Cycle_Stone`],
-    location: { world: 'Root Earth', dungeon: ['Corrupted Harbor'] }, 
+    location: { world: 'Root Earth', dungeon: ['Corrupted Harbor'] },
     dlc: 'base',
   },
   {
@@ -1381,10 +1406,10 @@ export const ringItems: RingItem[] = [
     tags: ['Encumbrance'],
     description: `Increases Encumbrance by 50. Increases Unarmed damage by 50%.`,
     wikiLinks: [`https://remnant.wiki/Meteorite_Shard_Ring`],
-    location: { 
-      world: `N'Erud`, 
-      biome: `N'Erud Wasteland`, 
-      injectable: 'Ascension Spire', 
+    location: {
+      world: `N'Erud`,
+      biome: `N'Erud Wasteland`,
+      injectable: 'Ascension Spire',
     },
     weight: 50,
     dlc: 'base',
@@ -1398,10 +1423,10 @@ export const ringItems: RingItem[] = [
     description:
       'Reduces Heat Generation per round when firing Weapons that Overheat by 30%. Increases Heat decay Rate by 30%.',
     wikiLinks: [`https://remnant.wiki/Microcompressor`],
-    location: { 
-      world: `N'Erud`, 
-      biome: `N'Erud Wasteland`, 
-      injectable: 'Ascension Spire', 
+    location: {
+      world: `N'Erud`,
+      biome: `N'Erud Wasteland`,
+      injectable: 'Ascension Spire',
     },
     dlc: 'base',
   },
@@ -1413,7 +1438,16 @@ export const ringItems: RingItem[] = [
     tags: ['Movement Speed', 'Stagger'],
     description: `After Sprinting for 1.5s, Movement Speed is increased by 15% and Stagger Level reduced by 1.`,
     wikiLinks: [`https://remnant.wiki/Momentum_Driver`],
-    location: { world: `N'Erud`, dungeon: ['The Putrid Domain', 'Vault of the Formless', 'Void Vessel Facility', 'The Hatchery', 'The Dark Conduit'] }, 
+    location: {
+      world: `N'Erud`,
+      dungeon: [
+        'The Putrid Domain',
+        'Vault of the Formless',
+        'Void Vessel Facility',
+        'The Hatchery',
+        'The Dark Conduit',
+      ],
+    },
     dlc: 'base',
   },
   {
@@ -1447,7 +1481,7 @@ export const ringItems: RingItem[] = [
     description:
       'When Grey Health is present gain HASTE and 1 stack of BULWARK.',
     wikiLinks: [`https://remnant.wiki/Painless_Obsidian`],
-    location: { world: 'Losomn', dungeon: 'World Drop' }, 
+    location: { world: 'Losomn', dungeon: 'World Drop' },
     dlc: 'base',
   },
   {
@@ -1517,10 +1551,10 @@ export const ringItems: RingItem[] = [
     tags: ['Movement Speed', 'Relic Use Speed'],
     description: `After killing an enemy, increases Movement Speed by 5% and Consumable Use Speed by 10% for 10s. Stacks 3x.`,
     wikiLinks: [`https://remnant.wiki/Propulsion_Loop`],
-    location: { 
+    location: {
       world: `N'Erud`,
       biome: `Towers of N'Erud`,
-      injectable: `Elevator Shaft`,      
+      injectable: `Elevator Shaft`,
     },
     dlc: 'base',
   },

@@ -1058,7 +1058,7 @@ export const amuletItems: AmuletItem[] = [
     tags: ['Fire Rate', 'Reload Speed', 'Charged Shot'],
     description: `Increases Fire Rate and Reload Speed by 15% and Decreases Weapon Charge Time by 15%.`,
     wikiLinks: [`https://remnant.wiki/Worn_Dog_Tags`],
-    location: { world: 'Losomn', dungeon: ['Luminous Vale'] },
+    location: { world: 'Yaesha', dungeon: ['Luminous Vale'] },
   },
   {
     category: 'amulet',
