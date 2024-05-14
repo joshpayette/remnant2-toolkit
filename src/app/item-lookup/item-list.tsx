@@ -146,7 +146,11 @@ function getFilteredItems(
         if (!item.location) return false
 
         if (item.location.dungeon) {
-          return item.location.dungeon === filters.dungeon
+          if (!Array.isArray(item.location.dungeon)) {
+            return false
+          }
+
+          return item.location.dungeon.some((d) => d === filters.dungeon)
         } else {
           const itemBiome = item.location.biome
           const biome = BIOMES.find((biome) => biome.name === itemBiome)

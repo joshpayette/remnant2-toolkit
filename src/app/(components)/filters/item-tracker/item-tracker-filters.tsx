@@ -16,6 +16,7 @@ import {
   DiscoveredFilter,
   VALID_DISCOVERED_FILTERS,
 } from '@/app/(components)/filters/discovered-filter'
+import { VALID_ITEM_CATEGORIES } from '@/app/(components)/filters/item-tracker/categories-filter'
 import { CategoriesFilter } from '@/app/(components)/filters/item-tracker/categories-filter'
 import {
   ITEM_TRACKER_KEYS,
@@ -27,14 +28,17 @@ import {
   VALID_RELEASE_KEYS,
 } from '@/app/(components)/filters/releases-filter'
 import { DEFAULT_FILTER } from '@/app/(components)/filters/types'
+import { WorldFilter } from '@/app/(components)/filters/world-filter'
 import { Input } from '@/app/(components)/form-fields/input'
 import { cn } from '@/app/(utils)/classnames'
 
 export const DEFAULT_ITEM_TRACKER_FILTERS = {
-  categories: [DEFAULT_FILTER],
+  categories: VALID_ITEM_CATEGORIES,
   collections: VALID_DISCOVERED_FILTERS,
   releases: VALID_RELEASE_KEYS,
   searchText: '',
+  world: DEFAULT_FILTER,
+  dungeon: DEFAULT_FILTER,
 } as const satisfies Filters
 
 interface Props {}
@@ -64,7 +68,10 @@ export function ItemTrackerFilters({}: Props) {
     let url = `${pathname}?`
 
     // Add the categories filter
-    if (!filtersToApply.categories.some((i) => i === DEFAULT_FILTER)) {
+    if (
+      filtersToApply.categories.length !== VALID_ITEM_CATEGORIES.length &&
+      filtersToApply.categories.length > 0
+    ) {
       url += `${ITEM_TRACKER_KEYS.CATEGORIES}=${filtersToApply.categories.join(
         ',',
       )}&`
@@ -82,6 +89,16 @@ export function ItemTrackerFilters({}: Props) {
       url += `${ITEM_TRACKER_KEYS.RELEASES}=${filtersToApply.releases.join(
         ',',
       )}&`
+    }
+
+    // Add the world filter
+    if (filtersToApply.world !== DEFAULT_FILTER) {
+      url += `${ITEM_TRACKER_KEYS.WORLD}=${filtersToApply.world}&`
+    }
+
+    // Add the dungeon filter
+    if (filtersToApply.dungeon !== DEFAULT_FILTER) {
+      url += `${ITEM_TRACKER_KEYS.DUNGEON}=${filtersToApply.dungeon}&`
     }
 
     // Add the search text filter
@@ -103,38 +120,22 @@ export function ItemTrackerFilters({}: Props) {
     setUnappliedFilters((prev) => ({ ...prev, searchText: newSearchText }))
   }
 
-  function handleCategoriesChange(newCategories: string[]) {
-    // if the newCategories length is 0, set to default
-    if (newCategories.length === 0) {
-      const newFilters = { ...unappliedFilters, categories: [DEFAULT_FILTER] }
-      setUnappliedFilters(newFilters)
-      applyUrlFilters(newFilters)
-      return
-    }
-
-    // if the first item is the default value ("All"), apply the filters after removing the default value
-    if (newCategories[0] === DEFAULT_FILTER) {
+  function handleCategoriesChange(category: string, checked: boolean) {
+    // if the category is unchecked, remove it from the list
+    if (!checked) {
       const newFilters = {
         ...unappliedFilters,
-        categories: newCategories.filter((i) => i !== DEFAULT_FILTER),
+        categories: unappliedFilters.categories.filter((i) => i !== category),
       }
       setUnappliedFilters(newFilters)
       applyUrlFilters(newFilters)
       return
     }
 
-    // if any of the filters contain the default value of "All", just apply the filters
-    if (newCategories.includes(DEFAULT_FILTER)) {
-      const newFilters = { ...unappliedFilters, categories: newCategories }
-      setUnappliedFilters(newFilters)
-      applyUrlFilters(newFilters)
-      return
-    }
-
-    // If we got here, remove the default value from the list
+    // if the category is not in the list, add it
     const newFilters = {
       ...unappliedFilters,
-      categories: newCategories.filter((i) => i !== DEFAULT_FILTER),
+      categories: [...unappliedFilters.categories, category],
     }
     setUnappliedFilters(newFilters)
     applyUrlFilters(newFilters)
@@ -177,6 +178,48 @@ export function ItemTrackerFilters({}: Props) {
     const newFilters = {
       ...unappliedFilters,
       releases: [...unappliedFilters.releases, newReleases],
+    }
+    setUnappliedFilters(newFilters)
+    applyUrlFilters(newFilters)
+  }
+
+  function handleWorldChange(newWorld: string) {
+    if (newWorld === DEFAULT_FILTER) {
+      const newFilters = {
+        ...unappliedFilters,
+        world: DEFAULT_FILTER,
+        dungeon: DEFAULT_FILTER,
+      }
+      setUnappliedFilters(newFilters)
+      applyUrlFilters(newFilters)
+      return
+    }
+
+    // if the world is not in the list, add it
+    const newFilters = {
+      ...unappliedFilters,
+      world: newWorld,
+      dungeon: DEFAULT_FILTER,
+    }
+    setUnappliedFilters(newFilters)
+    applyUrlFilters(newFilters)
+  }
+
+  function handleDungeonChange(newDungeon: string) {
+    if (newDungeon === DEFAULT_FILTER) {
+      const newFilters = {
+        ...unappliedFilters,
+        dungeon: DEFAULT_FILTER,
+      }
+      setUnappliedFilters(newFilters)
+      applyUrlFilters(newFilters)
+      return
+    }
+
+    // if the dungeon is not in the list, add it
+    const newFilters = {
+      ...unappliedFilters,
+      dungeon: newDungeon,
     }
     setUnappliedFilters(newFilters)
     applyUrlFilters(newFilters)
@@ -229,7 +272,7 @@ export function ItemTrackerFilters({}: Props) {
             <BaseFieldset>
               <BaseFieldGroup>
                 <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-4 md:grid-cols-4">
-                  <div className="col-span-full">
+                  <div className="col-span-full sm:col-span-1 md:col-span-2">
                     <ReleasesFilter
                       values={unappliedFilters.releases}
                       onChange={handleReleasesChange}
@@ -251,7 +294,7 @@ export function ItemTrackerFilters({}: Props) {
                       }}
                     />
                   </div>
-                  <div className="col-span-full">
+                  <div className="col-span-full sm:col-span-1 md:col-span-2">
                     <DiscoveredFilter
                       values={unappliedFilters.collections}
                       onChange={handleCollectionsChange}
@@ -275,11 +318,36 @@ export function ItemTrackerFilters({}: Props) {
                   </div>
                   <div className="col-span-full">
                     <CategoriesFilter
-                      value={unappliedFilters.categories}
+                      values={unappliedFilters.categories}
                       onChange={handleCategoriesChange}
+                      onCheckAll={() => {
+                        const newFilters = {
+                          ...unappliedFilters,
+                          categories: VALID_ITEM_CATEGORIES,
+                        }
+                        setUnappliedFilters(newFilters)
+                        applyUrlFilters(newFilters)
+                      }}
+                      onUncheckAll={() => {
+                        const newFilters = {
+                          ...unappliedFilters,
+                          categories: [],
+                        }
+                        setUnappliedFilters(newFilters)
+                        applyUrlFilters(newFilters)
+                      }}
+                    />
+                  </div>
+                  <div className="col-span-full md:col-span-2">
+                    <WorldFilter
+                      worldValue={unappliedFilters.world}
+                      dungeonValue={unappliedFilters.dungeon}
+                      onChangeWorld={handleWorldChange}
+                      onChangeDungeon={handleDungeonChange}
                     />
                   </div>
                 </div>
+
                 <div className="flex w-full items-center justify-end gap-x-4">
                   <BaseButton color="red" onClick={clearFilters}>
                     Clear Filters

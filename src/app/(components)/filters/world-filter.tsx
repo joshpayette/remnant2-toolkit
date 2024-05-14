@@ -84,7 +84,7 @@ export function WorldFilter({
   }
 
   return (
-    <div className="grid grid-cols-1 gap-x-2 sm:grid-cols-2">
+    <div className="grid grid-cols-1 gap-x-2 gap-y-6 sm:grid-cols-2 sm:gap-y-0">
       <BaseField>
         <BaseLabel>World</BaseLabel>
         <BaseListbox name="world" value={worldValue} onChange={onChangeWorld}>
