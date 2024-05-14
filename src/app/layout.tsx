@@ -40,7 +40,7 @@ export default async function RootLayout({
         <PreloadResources />
         <SessionProvider>
           <GlobalActionButtons />
-          <div className="flex w-full flex-wrap items-center justify-center bg-blue-950 p-1 text-center text-sm">
+          {/* <div className="flex w-full flex-wrap items-center justify-center bg-blue-950 p-1 text-center text-sm">
             <BaseText className="max-w-[800px]">
               Item Tracker data now saves to the database if you are logged in.
               Visit the Item Tracker page to trigger the migration of data to
@@ -50,7 +50,7 @@ export default async function RootLayout({
               </BaseTextLink>{' '}
               for assistance.
             </BaseText>
-          </div>
+          </div> */}
           <div className="flex h-full w-full max-w-7xl grow flex-col items-start justify-start">
             <header className="w-full">
               <NavBar />
