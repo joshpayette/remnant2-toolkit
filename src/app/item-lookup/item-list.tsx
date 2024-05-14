@@ -21,6 +21,7 @@ import {
   ItemTrackerLocalStorage,
   LOCALSTORAGE_KEY,
 } from '@/app/(types)/localstorage'
+import { BIOMES } from '@/app/(types)/locations'
 import { capitalize } from '@/app/(utils)/capitalize'
 import { itemMatchesSearchText } from '@/app/(utils)/items/item-matches-search-text'
 
@@ -132,6 +133,27 @@ function getFilteredItems(
     filteredItems = filteredItems.filter(
       (item) => item.location?.world === filters.world,
     )
+  }
+
+  // filter by dungeon
+  if (filters.dungeon !== DEFAULT_FILTER) {
+    if (filters.dungeon === 'World Drop') {
+      filteredItems = filteredItems.filter(
+        (item) => item.location?.dungeon === 'World Drop',
+      )
+    } else {
+      filteredItems = filteredItems.filter((item) => {
+        if (!item.location) return false
+
+        if (item.location.dungeon) {
+          return item.location.dungeon === filters.dungeon
+        } else {
+          const itemBiome = item.location.biome
+          const biome = BIOMES.find((biome) => biome.name === itemBiome)
+          return biome?.dungeons.some((dungeon) => dungeon === filters.dungeon)
+        }
+      })
+    }
   }
 
   // Filter by search text

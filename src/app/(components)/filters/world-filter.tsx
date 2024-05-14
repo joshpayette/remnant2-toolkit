@@ -5,32 +5,112 @@ import {
   BaseListboxOption,
 } from '@/app/(components)/_base/listbox'
 import { DEFAULT_FILTER } from '@/app/(components)/filters/types'
-import { WORLD_LOCATIONS } from '@/app/(types)/locations'
+import {
+  LOSOMN_DUNGEONS,
+  NERUD_DUNGEONS,
+  ROOT_EARTH_DUNGEONS,
+  WORLD_LOCATIONS,
+  YAESHA_DUNGEONS,
+} from '@/app/(types)/locations'
 
 export const VALID_WORLDS = WORLD_LOCATIONS
 
 interface Props {
-  value: string
-  onChange: (value: string) => void
+  worldValue: string
+  dungeonValue: string
+  onChangeWorld: (value: string) => void
+  onChangeDungeon: (value: string) => void
 }
 
-export function WorldFilter({ value, onChange }: Props) {
-  const options = VALID_WORLDS.map((world) => ({
+export function WorldFilter({
+  dungeonValue,
+  worldValue,
+  onChangeDungeon,
+  onChangeWorld,
+}: Props) {
+  const worldOptions = VALID_WORLDS.map((world) => ({
     label: world as string,
     value: world as string,
   }))
-  options.unshift({ label: DEFAULT_FILTER, value: DEFAULT_FILTER })
+  worldOptions.unshift({ label: DEFAULT_FILTER, value: DEFAULT_FILTER })
+
+  const showDungeons =
+    worldValue === 'Losomn' ||
+    worldValue === `N'Erud` ||
+    worldValue === 'Yaesha' ||
+    worldValue === 'Root Earth'
+
+  let dungeonOptions = [
+    { label: DEFAULT_FILTER, value: DEFAULT_FILTER },
+    { label: 'World Drop', value: 'World Drop' },
+  ]
+  switch (worldValue) {
+    case 'Losomn':
+      dungeonOptions = dungeonOptions.concat(
+        LOSOMN_DUNGEONS.sort((a, b) => a.localeCompare(b)).map((dungeon) => ({
+          label: dungeon as string,
+          value: dungeon as string,
+        })),
+      )
+      break
+    case `N'Erud`:
+      dungeonOptions = dungeonOptions.concat(
+        NERUD_DUNGEONS.sort((a, b) => a.localeCompare(b)).map((dungeon) => ({
+          label: dungeon as string,
+          value: dungeon as string,
+        })),
+      )
+      break
+    case 'Yaesha':
+      dungeonOptions = dungeonOptions.concat(
+        YAESHA_DUNGEONS.sort((a, b) => a.localeCompare(b)).map((dungeon) => ({
+          label: dungeon as string,
+          value: dungeon as string,
+        })),
+      )
+      break
+    case 'Root Earth':
+      dungeonOptions = dungeonOptions.concat(
+        ROOT_EARTH_DUNGEONS.sort((a, b) => a.localeCompare(b)).map(
+          (dungeon) => ({
+            label: dungeon as string,
+            value: dungeon as string,
+          }),
+        ),
+      )
+      break
+    default:
+      break
+  }
 
   return (
-    <BaseField>
-      <BaseLabel>World</BaseLabel>
-      <BaseListbox name="world" value={value} onChange={onChange}>
-        {options.map(({ label, value }) => (
-          <BaseListboxOption key={value} value={value}>
-            <BaseListboxLabel>{label}</BaseListboxLabel>
-          </BaseListboxOption>
-        ))}
-      </BaseListbox>
-    </BaseField>
+    <div className="grid grid-cols-1 gap-x-2 sm:grid-cols-2">
+      <BaseField>
+        <BaseLabel>World</BaseLabel>
+        <BaseListbox name="world" value={worldValue} onChange={onChangeWorld}>
+          {worldOptions.map(({ label, value }) => (
+            <BaseListboxOption key={value} value={value}>
+              <BaseListboxLabel>{label}</BaseListboxLabel>
+            </BaseListboxOption>
+          ))}
+        </BaseListbox>
+      </BaseField>
+      {showDungeons && (
+        <BaseField>
+          <BaseLabel>Dungeon</BaseLabel>
+          <BaseListbox
+            name="dungeon"
+            value={dungeonValue}
+            onChange={onChangeDungeon}
+          >
+            {dungeonOptions.map(({ label, value }) => (
+              <BaseListboxOption key={value} value={value}>
+                <BaseListboxLabel>{label}</BaseListboxLabel>
+              </BaseListboxOption>
+            ))}
+          </BaseListbox>
+        </BaseField>
+      )}
+    </div>
   )
 }

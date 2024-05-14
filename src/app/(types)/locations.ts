@@ -369,8 +369,8 @@ export const BIOMES = [
 >
 type Injectable = (typeof BIOMES)[number]['injectables'][number]
 
-type LosemnBiome = Extract<(typeof BIOMES)[number], { world: 'Losomn' }>
-type LosemnBiomeName = Extract<
+type LosomnBiome = Extract<(typeof BIOMES)[number], { world: 'Losomn' }>
+type LosomnBiomeName = Extract<
   (typeof BIOMES)[number],
   { world: 'Losomn' }
 >['name']
@@ -387,9 +387,9 @@ type YaeshaBiomeName = Extract<
   { world: 'Yaesha' }
 >['name']
 
-export const LOSEMN_BIOMES = BIOMES.filter(
+export const LOSOMN_BIOMES = BIOMES.filter(
   (biome) => biome.world === 'Losomn',
-) as LosemnBiome[]
+) as LosomnBiome[]
 export const NERUD_BIOMES = BIOMES.filter(
   (biome) => biome.world === `N'Erud`,
 ) as NErudBiome[]
@@ -414,7 +414,7 @@ export type ItemLocation =
   | {
       world: 'Losomn'
       dungeon?: never
-      biome: LosemnBiomeName
+      biome: LosomnBiomeName
       injectable?: Injectable
     }
   | {

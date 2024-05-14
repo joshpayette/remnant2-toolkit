@@ -6,6 +6,7 @@ export interface ItemLookupFilters {
   releases: string[] | [DefaultFilter]
   searchText: string
   world: string | DefaultFilter
+  dungeon: string | DefaultFilter
 }
 
 /** The keys used in the URL for the filters */
@@ -15,4 +16,5 @@ export const ITEM_FILTER_KEYS = {
   RELEASES: 'releases',
   SEARCHTEXT: 'searchText',
   WORLD: 'world',
+  DUNGEON: 'dungeon',
 } as const satisfies Record<string, keyof ItemLookupFilters>

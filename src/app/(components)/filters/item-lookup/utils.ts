@@ -9,6 +9,12 @@ import {
 import { VALID_RELEASE_KEYS } from '@/app/(components)/filters/releases-filter'
 import { DEFAULT_FILTER } from '@/app/(components)/filters/types'
 import { allItems } from '@/app/(data)/items/all-items'
+import {
+  LOSOMN_DUNGEONS,
+  NERUD_DUNGEONS,
+  ROOT_EARTH_DUNGEONS,
+  YAESHA_DUNGEONS,
+} from '@/app/(types)/locations'
 import { ITEM_TOKENS } from '@/app/(types)/tokens'
 
 export function buildAutoCompleteSuggestions(): Array<{
@@ -90,6 +96,36 @@ export function parseUrlFilters(
   }
 
   const world = parsedParams.get(ITEM_FILTER_KEYS.WORLD) || DEFAULT_FILTER
+  let dungeon = parsedParams.get(ITEM_FILTER_KEYS.DUNGEON) || DEFAULT_FILTER
+
+  // if the dungeon doesn't match the world, set it to default
+  if (dungeon !== DEFAULT_FILTER && dungeon !== 'World Drop') {
+    switch (world) {
+      case 'Losomn':
+        if (!(LOSOMN_DUNGEONS as string[]).includes(dungeon)) {
+          dungeon = DEFAULT_FILTER
+        }
+        break
+      case `N'Erud`:
+        if (!(NERUD_DUNGEONS as string[]).includes(dungeon)) {
+          dungeon = DEFAULT_FILTER
+        }
+        break
+      case 'Yaesha':
+        if (!(YAESHA_DUNGEONS as string[]).includes(dungeon)) {
+          dungeon = DEFAULT_FILTER
+        }
+        break
+      case 'Root Earth':
+        if (!(ROOT_EARTH_DUNGEONS as string[]).includes(dungeon)) {
+          dungeon = DEFAULT_FILTER
+        }
+        break
+      default:
+        dungeon = DEFAULT_FILTER
+        break
+    }
+  }
 
   // validate the provided searchText
   const searchText = parsedParams.get(ITEM_FILTER_KEYS.SEARCHTEXT) || ''
@@ -100,5 +136,6 @@ export function parseUrlFilters(
     releases,
     searchText,
     world,
+    dungeon,
   }
 }
