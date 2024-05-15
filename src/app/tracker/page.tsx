@@ -37,7 +37,7 @@ let itemCategories = ALL_TRACKABLE_ITEMS
   .reduce((acc, item) => {
     if (acc.includes(capitalize(item.category))) return acc
     return [...acc, capitalize(item.category)]
-  }, [] as ItemTrackerCategory[])
+  }, [] as string[])
 // Add the subcategories
 itemCategories.push(...subCategories)
 // Sort alphabetically

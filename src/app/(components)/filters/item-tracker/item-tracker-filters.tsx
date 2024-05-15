@@ -279,7 +279,7 @@ export function ItemTrackerFilters({}: Props) {
                       onCheckAll={() => {
                         const newFilters = {
                           ...unappliedFilters,
-                          releases: ['All'],
+                          releases: VALID_RELEASE_KEYS,
                         }
                         setUnappliedFilters(newFilters)
                         applyUrlFilters(newFilters)
@@ -301,7 +301,7 @@ export function ItemTrackerFilters({}: Props) {
                       onCheckAll={() => {
                         const newFilters = {
                           ...unappliedFilters,
-                          collections: ['All'],
+                          collections: VALID_DISCOVERED_FILTERS,
                         }
                         setUnappliedFilters(newFilters)
                         applyUrlFilters(newFilters)

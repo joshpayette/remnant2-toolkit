@@ -10,6 +10,7 @@ import {
   BaseLegend,
 } from '@/app/(components)/_base/fieldset'
 import { DEFAULT_FILTER } from '@/app/(components)/filters/types'
+import { ItemTrackerCategory } from '@/app/tracker/types'
 
 export const VALID_ITEM_CATEGORIES = [
   'Amulet',
@@ -30,7 +31,7 @@ export const VALID_ITEM_CATEGORIES = [
   'Ring',
   'Torso',
   'Trait',
-]
+] as const satisfies ItemTrackerCategory[]
 
 interface Props {
   values: string[]
@@ -47,7 +48,7 @@ export function CategoriesFilter({
 }: Props) {
   const options = VALID_ITEM_CATEGORIES.map((category) => ({
     label: category as string,
-    value: category,
+    value: category as string,
   }))
   options.unshift({ label: DEFAULT_FILTER, value: DEFAULT_FILTER })
 

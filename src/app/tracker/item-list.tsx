@@ -10,197 +10,23 @@ import { useIsClient, useLocalStorage } from 'usehooks-ts'
 import { BaseButton } from '@/app/(components)/_base/button'
 import { ItemTrackerCard } from '@/app/(components)/cards/item-tracker-card'
 import { ItemInfoDialog } from '@/app/(components)/dialogs/item-info-dialog'
-import { VALID_ITEM_CATEGORIES } from '@/app/(components)/filters/item-tracker/categories-filter'
 import { DEFAULT_ITEM_TRACKER_FILTERS } from '@/app/(components)/filters/item-tracker/item-tracker-filters'
-import { ItemTrackerFilters } from '@/app/(components)/filters/item-tracker/types'
 import {
+  getCategoryProgressLabel,
+  getFilteredItemCategories,
+  getFilteredItemList,
   getFilteredItemsForCategory,
   parseUrlFilters,
 } from '@/app/(components)/filters/item-tracker/utils'
-import { DEFAULT_FILTER } from '@/app/(components)/filters/types'
 import { Item } from '@/app/(data)/items/types'
-import { MutatorItem } from '@/app/(data)/items/types/MutatorItem'
-import { RelicFragmentItem } from '@/app/(data)/items/types/RelicFragmentItem'
-import { WeaponItem } from '@/app/(data)/items/types/WeaponItem'
-import { ItemCategory } from '@/app/(types)/builds'
 import {
   ItemTrackerLocalStorage,
   LOCALSTORAGE_KEY,
 } from '@/app/(types)/localstorage'
-import { BIOMES } from '@/app/(types)/locations'
 import { capitalize } from '@/app/(utils)/capitalize'
 import { cn } from '@/app/(utils)/classnames'
 import { ALL_TRACKABLE_ITEMS } from '@/app/tracker/constants'
 import { ItemTrackerCategory } from '@/app/tracker/types'
-
-function getCategoryProgressLabel({
-  filteredItems,
-  discoveredItemIds,
-}: {
-  filteredItems: Item[]
-  discoveredItemIds: string[]
-}) {
-  const undiscoveredCount = filteredItems.reduce(
-    (acc, item) => (discoveredItemIds.includes(item.id) ? acc : acc + 1),
-    0,
-  )
-  const filteredItemsCount = filteredItems.length
-  return `${(
-    ((filteredItemsCount - undiscoveredCount) / filteredItemsCount) *
-    100
-  ).toFixed(2)}% (${undiscoveredCount} undiscovered)`
-}
-
-function getFilteredItemList(
-  filters: ItemTrackerFilters,
-  discoveredItemIds: string[],
-): Array<Item & { discovered: boolean }> {
-  let filteredItems = ALL_TRACKABLE_ITEMS.map((i) => {
-    return {
-      ...i,
-      discovered: discoveredItemIds.includes(i.id),
-    }
-  })
-
-  // if categories are not default, filter by categories
-  if (
-    filters.categories.length > 0 &&
-    !filters.categories.some((c) => c === DEFAULT_FILTER)
-  ) {
-    filteredItems = filteredItems.filter((item) => {
-      if (item.category === undefined) {
-        return true
-      }
-
-      return filters.categories.some((itemCategory) => {
-        if (itemCategory === 'Long Gun' && WeaponItem.isWeaponItem(item)) {
-          return item.category === 'weapon' && item.type === 'long gun'
-        }
-        if (itemCategory === 'Hand Gun' && WeaponItem.isWeaponItem(item)) {
-          return item.category === 'weapon' && item.type === 'hand gun'
-        }
-        if (itemCategory === 'Melee' && WeaponItem.isWeaponItem(item)) {
-          return item.category === 'weapon' && item.type === 'melee'
-        }
-        if (
-          itemCategory === 'Mutator (Gun)' &&
-          MutatorItem.isMutatorItem(item)
-        ) {
-          return item.category === 'mutator' && item.type === 'gun'
-        }
-        if (
-          itemCategory === 'Mutator (Melee)' &&
-          MutatorItem.isMutatorItem(item)
-        ) {
-          return item.category === 'mutator' && item.type === 'melee'
-        }
-        if (
-          itemCategory === 'Relic Fragment' &&
-          RelicFragmentItem.isRelicFragmentItem(item)
-        ) {
-          return item.category === 'relicfragment'
-        }
-
-        return capitalize(item.category) === itemCategory
-      })
-    })
-  }
-
-  // if collections are not default, filter by collections
-  if (
-    filters.collections.length > 0 &&
-    !filters.collections.some((c) => c === DEFAULT_FILTER)
-  ) {
-    filteredItems = filteredItems.filter((item) => {
-      if (
-        filters.collections
-          .filter((i) => i !== DEFAULT_FILTER)
-          .includes('Discovered') &&
-        filters.collections
-          .filter((i) => i !== DEFAULT_FILTER)
-          .includes('Undiscovered')
-      ) {
-        return true
-      } else if (
-        filters.collections
-          .filter((i) => i !== DEFAULT_FILTER)
-          .includes('Undiscovered')
-      ) {
-        return item.discovered === false
-      } else if (
-        filters.collections
-          .filter((i) => i !== DEFAULT_FILTER)
-          .includes('Discovered')
-      ) {
-        return item.discovered === true
-      } else {
-        return false
-      }
-    })
-  }
-
-  // if releases are not default, filter by releases
-  if (
-    filters.releases.length > 0 &&
-    !filters.releases.some((r) => r === DEFAULT_FILTER)
-  ) {
-    filteredItems = filteredItems.filter((item) =>
-      filters.releases
-        .filter((release) => release !== DEFAULT_FILTER)
-        .includes(item.dlc),
-    )
-  }
-
-  // filter by world
-  if (filters.world !== DEFAULT_FILTER) {
-    filteredItems = filteredItems.filter(
-      (item) => item.location?.world === filters.world,
-    )
-  }
-
-  // filter by dungeon
-  if (filters.dungeon !== DEFAULT_FILTER) {
-    if (filters.dungeon === 'World Drop') {
-      filteredItems = filteredItems.filter(
-        (item) => item.location?.dungeon === 'World Drop',
-      )
-    } else {
-      filteredItems = filteredItems.filter((item) => {
-        if (!item.location) return false
-
-        if (item.location.dungeon) {
-          if (!Array.isArray(item.location.dungeon)) {
-            return false
-          }
-
-          return item.location.dungeon.some((d) => d === filters.dungeon)
-        } else {
-          const itemBiome = item.location.biome
-          const biome = BIOMES.find((biome) => biome.name === itemBiome)
-          return biome?.dungeons.some((dungeon) => dungeon === filters.dungeon)
-        }
-      })
-    }
-  }
-
-  // if search text is not empty, filter by search text
-  if (filters.searchText.length > 0) {
-    filteredItems = filteredItems.filter((i) =>
-      i.name.toLowerCase().includes(filters.searchText.toLowerCase()),
-    )
-  }
-
-  // Sort alphabetically by item.category and item.name
-  filteredItems = filteredItems.sort((a, b) => {
-    if (a.category < b.category) return -1
-    if (a.category > b.category) return 1
-    if (a.name < b.name) return -1
-    if (a.name > b.name) return 1
-    return 0
-  })
-
-  return filteredItems
-}
 
 interface Props {
   discoveredItemIds: string[]
@@ -244,47 +70,8 @@ export function ItemList({
   }, [filters])
 
   const filteredItems = getFilteredItemList(filters, discoveredItemIds)
-
-  // Limit to only the visible categories
-  let visibleItemCategories: ItemTrackerCategory[] = VALID_ITEM_CATEGORIES.map(
-    (i) => i.toLowerCase(),
-  )
-
   // Remove the categories not found in the filtered items
-  const filteredItemCategories = Array.from(
-    new Set(filteredItems.map((i) => i.category)),
-  )
-  visibleItemCategories = visibleItemCategories.filter((category) => {
-    let itemCategory: ItemCategory
-
-    if (category === 'long gun') {
-      itemCategory = 'weapon'
-    } else if (category === 'hand gun') {
-      itemCategory = 'weapon'
-    } else if (category === 'melee') {
-      itemCategory = 'weapon'
-    } else if (category === 'mutator (gun)') {
-      itemCategory = 'mutator'
-    } else if (category === 'mutator (melee)') {
-      itemCategory = 'mutator'
-    } else if (category === 'relic fragment') {
-      itemCategory = 'relicfragment'
-    } else {
-      itemCategory = category as ItemCategory
-    }
-
-    return filteredItemCategories.includes(itemCategory)
-  })
-
-  // Remove the categories not filtered for
-  if (!filters.categories.includes(DEFAULT_FILTER)) {
-    visibleItemCategories = visibleItemCategories.filter((category) =>
-      filters.categories
-        .filter((i) => i !== DEFAULT_FILTER)
-        .map((i) => i.toLowerCase())
-        .includes(category.toLowerCase()),
-    )
-  }
+  const visibleItemCategories = getFilteredItemCategories(filteredItems)
 
   // #region Handlers
 
