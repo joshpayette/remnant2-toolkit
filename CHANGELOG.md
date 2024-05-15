@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2024-05-14
 
+### Changed
+
+- Updated all Ring images to more consistent higher quality images.
+
 ### Fixed
 
 - Bloodthirst mod description updated to match in-game text (ConRaven)
