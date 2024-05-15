@@ -22,7 +22,7 @@ export function Logo({
         unoptimized={unoptimized}
       />
       <div className="flex flex-col gap-0">
-        <span className="text-md mb-0 pb-0 font-semibold text-white">
+        <span className="text-md mb-0 pb-0 font-semibold text-surface-solid">
           Remnant2Toolkit
         </span>
         {showUrl && (

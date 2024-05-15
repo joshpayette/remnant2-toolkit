@@ -76,7 +76,7 @@ export function ProfileHeader({
             />
           ) : (
             <h1 className="flex gap-x-3 text-2xl leading-7">
-              <span className="font-semibold text-white">{newDisplayName}</span>
+              <span className="font-semibold text-surface-solid">{newDisplayName}</span>
             </h1>
           )}
         </div>

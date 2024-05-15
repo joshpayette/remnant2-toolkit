@@ -48,14 +48,14 @@ export default async function Layout({
         <div className="relative flex w-full flex-col items-center">
           <div
             id="disabled-overlay"
-            className="absolute inset-0 z-10 h-full bg-black/90"
+            className="absolute inset-0 z-10 h-full bg-background-solid/90"
           />
           <div className="absolute z-10 mb-2 flex h-full w-full flex-col items-center justify-start p-2 text-2xl font-bold text-red-500">
             <p className="w-full text-center">
               This enhanced build tool requires you to be logged in to use it,
               as it saves your builds to the database. If you prefer not to sign
               in, you can still use the <br />
-              <Link href="/builder" className="text-white underline">
+              <Link href="/builder" className="text-surface-solid underline">
                 non-database builder by clicking here!
               </Link>
             </p>

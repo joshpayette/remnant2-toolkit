@@ -148,7 +148,7 @@ export function BossList({}: Props) {
             <>
               <Disclosure.Button
                 onClick={() => handleCategoryToggle(bossCategory.category)}
-                className="flex w-full justify-start border-b border-secondary-700 p-4 text-left hover:border-primary-400 hover:bg-black focus:outline-none focus-visible:ring focus-visible:ring-primary-500/75"
+                className="flex w-full justify-start border-b border-secondary-700 p-4 text-left hover:border-primary-400 hover:bg-background-solid focus:outline-none focus-visible:ring focus-visible:ring-primary-500/75"
               >
                 <div className="w-full">
                   <h2 className="text-lg font-semibold">
@@ -167,7 +167,7 @@ export function BossList({}: Props) {
                 </div>
                 <ChevronDownIcon
                   className={cn(
-                    'h-5 w-5 text-white',
+                    'h-5 w-5 text-surface-solid',
                     open ? 'rotate-180 transform' : '',
                   )}
                 />

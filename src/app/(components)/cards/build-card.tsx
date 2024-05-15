@@ -60,7 +60,7 @@ export function BuildCard({
       ) : (
         <div
           className={cn(
-            'relative col-span-1 flex h-full flex-col rounded-lg border border-secondary-500 bg-black shadow',
+            'relative col-span-1 flex h-full flex-col rounded-lg border border-secondary-500 bg-background-solid shadow',
             buildState.isMember &&
               memberFrameEnabled &&
               'border-2 border-accent1-300 shadow-lg shadow-accent1-600',
@@ -79,7 +79,7 @@ export function BuildCard({
             <div className="flex w-full flex-col items-start justify-start">
               <Link
                 href={`/builder/${build.id}`}
-                className="w-full text-white hover:text-gray-200 hover:underline"
+                className="w-full text-surface-solid hover:text-gray-200 hover:underline"
               >
                 <h3
                   className={cn(

@@ -826,7 +826,7 @@ export function ItemTagSuggestionDialog({
                     />
                     {selectedItems.find((i) => i.id === suggestion.id)
                       ?.slot && (
-                      <span className="-mt-2 mb-2 w-full bg-secondary-800 p-1 text-[9px] text-white">
+                      <span className="-mt-2 mb-2 w-full bg-secondary-800 p-1 text-[9px] text-surface-solid">
                         {
                           selectedItems.find((i) => i.id === suggestion.id)
                             ?.slot

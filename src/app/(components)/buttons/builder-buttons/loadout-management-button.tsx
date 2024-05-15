@@ -29,7 +29,7 @@ export function LoadoutManagementButton({ buildId, onClick }: Props) {
 
   if (loading) {
     return (
-      <Skeleton className="col-span-1 flex h-full min-h-[36px] w-[150px] flex-col items-center justify-start rounded-lg border-4 border-dashed border-gray-500 bg-black text-center shadow" />
+      <Skeleton className="col-span-1 flex h-full min-h-[36px] w-[150px] flex-col items-center justify-start rounded-lg border-4 border-dashed border-gray-500 bg-background-solid text-center shadow" />
     )
   }
 

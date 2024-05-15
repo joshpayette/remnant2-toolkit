@@ -16,7 +16,7 @@ function getStaminaStepLabel(buildState: BuildState, item: TraitItem) {
 
   return (
     <>
-      <span className="font-bold text-white">{item.name}</span>{' '}
+      <span className="font-bold text-surface-solid">{item.name}</span>{' '}
       <span className="text-gray-300">
         {`(${amount * (item.staminaStep ?? 0)})`}
       </span>
@@ -27,7 +27,7 @@ function getStaminaStepLabel(buildState: BuildState, item: TraitItem) {
 function getStaminaIncreaseLabel(item: Item) {
   return (
     <>
-      <span className="font-bold text-white">{item.name}</span>{' '}
+      <span className="font-bold text-surface-solid">{item.name}</span>{' '}
       <span className="text-gray-300">({item.stamina})</span>
     </>
   )
@@ -36,7 +36,7 @@ function getStaminaIncreaseLabel(item: Item) {
 function getStaminaPercentLabel(item: Item) {
   return (
     <>
-      <span className="font-bold text-white">
+      <span className="font-bold text-surface-solid">
         {item.name}{' '}
         {item.category === 'relicfragment' && 'Mythic Relic Fragment'}
       </span>{' '}
@@ -50,7 +50,7 @@ function getStaminaPercentLabel(item: Item) {
 function getStaminaPercentStepLabel(item: TraitItem) {
   return (
     <>
-      <span className="font-bold text-white">{item.name}</span>{' '}
+      <span className="font-bold text-surface-solid">{item.name}</span>{' '}
       <span className="text-gray-300">
         ({item.staminaStepPercent} stamina per point)
       </span>
@@ -88,9 +88,9 @@ export function StaminaBreakdownDialog({
       </BaseDialogDescription>
       <BaseDialogBody>
         <div className="text-left text-sm">
-          <h3 className="text-md col-span-full my-2 font-semibold text-white">
+          <h3 className="text-md col-span-full my-2 font-semibold text-surface-solid">
             Base Health{' '}
-            <span className="text-md font-bold text-white">100</span>
+            <span className="text-md font-bold text-surface-solid">100</span>
           </h3>
           {(breakdown.equippedStaminaIncreaseItems.length > 0 ||
             breakdown.equippedStaminaStepItems.length > 0) && (

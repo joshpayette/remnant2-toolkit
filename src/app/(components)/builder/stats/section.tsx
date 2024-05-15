@@ -13,9 +13,9 @@ export function Section({
   return (
     <>
       <ul className="ml-8 list-disc">{listItems}</ul>
-      <h3 className="text-md col-span-full my-2 font-semibold text-white">
+      <h3 className="text-md col-span-full my-2 font-semibold text-surface-solid">
         Total:{' '}
-        <span className="text-md font-bold text-white">
+        <span className="text-md font-bold text-surface-solid">
           {total.toFixed(2)}
           {isPercent && '%'}
         </span>

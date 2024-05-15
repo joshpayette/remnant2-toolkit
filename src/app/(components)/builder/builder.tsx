@@ -364,7 +364,7 @@ export function Builder({
       <div
         id="build-container"
         className={cn(
-          'relative w-full grow rounded border-2 bg-black p-4',
+          'relative w-full grow rounded border-2 bg-background-solid p-4',
           !buildState.isMember && 'border-primary-500',
           buildState.isMember &&
             !isScreenshotMode &&
@@ -386,7 +386,7 @@ export function Builder({
                 id="build-name"
                 type="text"
                 onChange={(e) => handleChangeBuildName(e.target.value)}
-                className="block w-full rounded-md border-2 border-secondary-500 bg-white/5 py-2 text-center text-2xl text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-secondary-500"
+                className="block w-full rounded-md border-2 border-secondary-500 bg-surface-solid/5 py-2 text-center text-2xl text-surface-solid shadow-sm ring-1 ring-inset ring-surface-solid/10 focus:ring-2 focus:ring-inset focus:ring-secondary-500"
                 placeholder="My Build"
                 value={buildState.name}
               />
@@ -396,7 +396,7 @@ export function Builder({
                 <h2
                   aria-hidden="true"
                   className={cn(
-                    'whitespace-normal text-center text-2xl font-bold text-white sm:text-4xl',
+                    'whitespace-normal text-center text-2xl font-bold text-surface-solid sm:text-4xl',
                     isScreenshotMode && 'text-4xl',
                   )}
                 >
@@ -433,7 +433,7 @@ export function Builder({
                 />
                 <span
                   className={cn(
-                    'text-white',
+                    'text-surface-solid',
                     isScreenshotMode ? 'mb-[2px]' : 'mb-0.5',
                   )}
                 >

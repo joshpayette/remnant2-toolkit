@@ -28,7 +28,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       </h2>
     ),
     h3: ({ children }) => (
-      <h3 className="mx-8 mb-4 text-lg font-bold text-white">{children}</h3>
+      <h3 className="mx-8 mb-4 text-lg font-bold text-surface-solid">{children}</h3>
     ),
     img: ({ src, alt }) =>
       !src || !alt ? null : (

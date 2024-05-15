@@ -62,7 +62,7 @@ export function BaseAvatar({
       {src && <img src={src} alt={alt} />}
       {/* Add an inset border that sits on top of the image */}
       <span
-        className="ring-1 ring-inset ring-black/5 dark:ring-white/5 forced-colors:outline"
+        className="ring-1 ring-inset ring-surface-solid/5 forced-colors:outline"
         aria-hidden="true"
       />
     </span>

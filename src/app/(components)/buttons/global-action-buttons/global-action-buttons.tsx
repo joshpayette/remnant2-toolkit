@@ -8,10 +8,12 @@ import { BaseButton } from '@/app/(components)/_base/button'
 import { BugReportPrompt } from '@/app/(components)/alerts/bug-report-prompt'
 import { ReportBug } from '@/app/(components)/buttons/global-action-buttons/actions'
 import { NAV_ITEMS } from '@/app/(types)/navigation'
+import { ToggleThemeButton } from '@/app/(utils)/theme-utils'
 
 export function GlobalActionButtons() {
   return (
     <div className="fixed bottom-[8px] right-[8px] z-20 flex items-center justify-center gap-x-1">
+      <ToggleThemeButton />
       <ReportBugButton />
       <ChangeLogButton />
       <BackToTopButton />

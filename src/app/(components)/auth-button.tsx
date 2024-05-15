@@ -143,14 +143,14 @@ function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
     <Link
       href={NAV_ITEMS.signin.href}
       className={cn(
-        'hidden flex-row items-center justify-start rounded-lg bg-secondary-700 p-2 text-xs font-semibold text-white hover:bg-secondary-500 lg:flex',
+        'hidden flex-row items-center justify-start rounded-lg bg-secondary-700 p-2 text-xs font-semibold text-surface-solid hover:bg-secondary-500 lg:flex',
       )}
     >
       {NAV_ITEMS.signin.label}
     </Link>
   ) : (
     <Menu as="div" className="relative hidden lg:block">
-      <Menu.Button className="flex h-8 w-8 rounded-full bg-background text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+      <Menu.Button className="flex h-8 w-8 rounded-full bg-background text-sm focus:outline-none focus:ring-2 focus:ring-surface-solid focus:ring-offset-2 focus:ring-offset-gray-800">
         <span className="absolute -inset-1.5" />
         <span className="sr-only">Open user menu</span>
         {AvatarImage}
@@ -164,7 +164,7 @@ function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
         leaveFrom="transform opacity-100 scale-100"
         leaveTo="transform opacity-0 scale-95"
       >
-        <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-black py-1 shadow-lg ring-1 ring-gray-800 ring-opacity-5 focus:outline-none">
+        <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-background-solid py-1 shadow-lg ring-1 ring-gray-800 ring-opacity-5 focus:outline-none">
           {session?.user?.id ? (
             <Menu.Item>
               {({ active }) => (

@@ -119,7 +119,7 @@ export function BuildPage({ build }: Props) {
                 alt={`${buildState.name} video thumbnail`}
                 unoptimized={true}
               />
-              <span className="mb-4 text-sm text-white underline">
+              <span className="mb-4 text-sm text-surface-solid underline">
                 See build description and breakdown on YouTube
               </span>
             </a>

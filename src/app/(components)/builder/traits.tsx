@@ -165,7 +165,7 @@ export function Traits({
           <div
             key={traitItem.name}
             className={cn(
-              'flex items-center border border-transparent border-b-white text-sm',
+              'flex items-center border border-transparent border-b-surface-solid text-sm',
               isArchtypeTrait(traitItem) && 'border-b-yellow-500',
               isArchtypeTrait(traitItem) &&
                 !isArchtypeCoreTrait(traitItem) &&
@@ -268,7 +268,7 @@ export function Traits({
         <button
           onClick={onAddTrait}
           aria-label="Add Trait"
-          className="mx-auto mt-4 flex max-w-[250px] items-center justify-center rounded border border-secondary-700 px-4 py-2 text-xs font-bold text-white hover:border-secondary-400 hover:bg-secondary-500"
+          className="mx-auto mt-4 flex max-w-[250px] items-center justify-center rounded border border-secondary-700 px-4 py-2 text-xs font-bold text-surface-solid hover:border-secondary-400 hover:bg-secondary-500"
         >
           Add Trait
         </button>

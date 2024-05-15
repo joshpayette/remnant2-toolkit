@@ -67,7 +67,7 @@ function EmptyItemCard() {
   return (
     <div
       className={cn(
-        'col-span-1 flex h-full min-h-[300px] flex-col items-center justify-start rounded-lg border-4 border-dashed border-gray-500 bg-black text-center shadow',
+        'col-span-1 flex h-full min-h-[300px] flex-col items-center justify-start rounded-lg border-4 border-dashed border-gray-500 bg-background-solid text-center shadow',
       )}
     >
       <p className="mt-8 p-4 text-2xl font-semibold text-gray-700">
