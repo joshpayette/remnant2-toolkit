@@ -4,7 +4,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: "A'Taerii Booster",
-    imagePath: '/ring/ataerii_booster1.png',
+    imagePath: '/items/rings/ataeriibooster.png',
     id: '27gn7b',
     dlc: 'base',
     tags: ['All Damage', 'Critical Chance'],
@@ -15,7 +15,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Acid Stone',
-    imagePath: '/ring/acid_stone.png',
+    imagePath: '/items/rings/acidstone.png',
     id: 'q3qca2',
     dlc: 'base',
     description: `Increases ACID damage by 12% and ACID Resistance by 15%.`,
@@ -27,7 +27,7 @@ export const ringItems: RingItem[] = [
     category: 'ring',
     name: 'Ahanae Crystal',
     saveFileSlug: 'ring_panmagesigil',
-    imagePath: '/ring/ahanae_crystal.png',
+    imagePath: '/items/rings/ahanaecrystal.png',
     id: 'azy0pj',
     dlc: 'base',
     tags: ['All Damage', 'Status Effect', 'Hardcore Reward'],
@@ -39,7 +39,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Akari War Band',
-    imagePath: '/ring/akari_war_band.png',
+    imagePath: '/items/rings/akariwarband.png',
     id: '9siz0d',
     dlc: 'base',
     tags: ['Perfect Dodge', 'Critical Chance'],
@@ -50,7 +50,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Alchemy Stone',
-    imagePath: '/ring/alchemy_stone.png',
+    imagePath: '/items/rings/alchemystone.png',
     id: 'dgh4g8',
     dlc: 'base',
     tags: ['Lifesteal', 'Status Effect'],
@@ -61,7 +61,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Alumni Ring',
-    imagePath: '/ring/alumni_ring.png',
+    imagePath: '/items/rings/alumniring.png',
     id: 'll1vsx',
     dlc: 'base',
     tags: ['Elemental Damage'],
@@ -72,7 +72,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Amber Moonstone',
-    imagePath: '/ring/amber_moonstone.png',
+    imagePath: '/items/rings/ambermoonstone.png',
     id: 'pqez3b',
     dlc: 'base',
     tags: ['Damage Reduction', 'Status Effect'],
@@ -84,7 +84,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: "Anastasija's Inspiration",
-    imagePath: '/ring/anastasijas_inspiration.png',
+    imagePath: '/items/rings/anastasijasinspiration.png',
     id: '7fmi47',
     dlc: 'base',
     tags: ['Heal'],
@@ -95,7 +95,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: "Archer's Crest",
-    imagePath: '/ring/archers_crest.png',
+    imagePath: '/items/rings/archerscrest.png',
     id: '6bqghl',
     dlc: 'base',
     tags: ['Projectile Speed', 'Charged Shot'],
@@ -110,7 +110,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: "Assassin's Seal",
-    imagePath: '/ring/assassins_seal.png',
+    imagePath: '/items/rings/assassinsseal.png',
     id: '8kyyav',
     dlc: 'base',
     tags: ['All Damage'],
@@ -121,7 +121,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Atonement Fold',
-    imagePath: '/ring/atonement_fold.png',
+    imagePath: '/items/rings/atonementfold.png',
     dlc: 'dlc1',
     id: 'ez01nk',
     tags: ['Critical Chance', 'Grey Health'], // The damage it causes is grey health
@@ -133,7 +133,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Band Band',
-    imagePath: '/ring/band_band.png',
+    imagePath: '/items/rings/bandband.png',
     id: 'mm6dj8',
     tags: ['Movement Speed', 'Health'],
     description: `Increases Speed of Revive and being Revived by 35%. Increases Downed Health and Downed Movement Speed by 100%.`,
@@ -148,7 +148,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Band of Accord',
-    imagePath: '/ring/band_of_accord.png',
+    imagePath: '/items/rings/bandofaccord.png',
     id: 'id6lly',
     tags: ['Ammo Reserves'],
     description: `Ammo acquired on pickup is increased by 50% per ally also wearing this ring and is shared with other allies.`,
@@ -159,7 +159,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Band of the Fanatic',
-    imagePath: '/ring/band_of_the_fanatic.png',
+    imagePath: '/items/rings/bandofthefanatic.png',
     dlc: 'dlc1',
     id: 'gv12gw',
     tags: ['Status Effect', 'Status Duration'],
@@ -171,7 +171,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: "Berserker's Crest",
-    imagePath: '/ring/berserkers_crest.png',
+    imagePath: '/items/rings/berserkerscrest.png',
     id: 'pi2zf8',
     tags: ['Melee Charge Speed', 'Charged Melee', 'Stamina'],
     description:
@@ -187,7 +187,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Bisected Ring',
-    imagePath: '/ring/bisected_ring.png',
+    imagePath: '/items/rings/bisectedring.png',
     id: '7usn4n',
     tags: ['Stamina'],
     description:
@@ -199,7 +199,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Bitter Memento',
-    imagePath: '/ring/bitter_memento.png',
+    imagePath: '/items/rings/bittermemento.png',
     dlc: 'dlc1',
     id: 'eozlwb',
     tags: ['Grey Health'],
@@ -211,7 +211,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Black Cat Band',
-    imagePath: '/ring/black_cat_band.png',
+    imagePath: '/items/rings/blackcatband.png',
     id: 'ac27lx',
     tags: ['Movement Speed'],
     description: `When taking fatal damage, instead of dying, the wearer's Health will drop to 1, and Movement Speed will increase by 25% for 10s. 2m cooldown.`,
@@ -222,7 +222,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Black Pawn Stamp',
-    imagePath: '/ring/black_pawn_stamp.png',
+    imagePath: '/items/rings/blackpawnstamp.png',
     id: '7kbu25',
     tags: ['Reduce Skill Cooldown'],
     description: `Reduces Cooldowns of Skills by 10%.`,
@@ -237,7 +237,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Black Spinel',
-    imagePath: '/ring/black_spinel.png',
+    imagePath: '/items/rings/blackspinel.png',
     id: 'sq8ZUN',
     dlc: 'dlc2',
     tags: ['Status Effect', 'Heal'],
@@ -248,7 +248,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Blackout Ring',
-    imagePath: '/ring/blackout_ring.png',
+    imagePath: '/items/rings/blackoutring.png',
     id: '6pzq37',
     tags: ['Reload Speed'],
     description:
@@ -264,7 +264,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Blasting Cap Ring',
-    imagePath: '/ring/blasting_cap_ring.png',
+    imagePath: '/items/rings/blastingcap.png',
     id: 'ep14lr',
     description: 'Increases Explosive damage by 15%.',
     externalTokens: [`Explosive Damage`],
@@ -278,7 +278,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Blessed Ring',
-    imagePath: '/ring/blessed_ring.png',
+    imagePath: '/items/rings/blessedring.png',
     id: 'empffm',
     tags: ['Damage Reduction'],
     description: `After receiving a benefit from a Relic, gain 2 Stacks of BULWARK for 30s.`,
@@ -289,7 +289,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: `Bloodless King's Vow`,
-    imagePath: '/ring/bloodless_kings_vow.png',
+    imagePath: '/items/rings/bloodlesskingsvow.png',
     id: 'WHgN93',
     dlc: 'dlc2',
     tags: ['Ranged Damage', 'Lifesteal'],
@@ -300,7 +300,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Blood Jewel',
-    imagePath: '/ring/blood_jewel.png',
+    imagePath: '/items/rings/bloodjewel.png',
     id: 'rw8rn0',
     tags: ['Charged Melee'],
     description:
@@ -312,7 +312,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Blood Tinged Ring',
-    imagePath: '/ring/blood_tinged_ring.png',
+    imagePath: '/items/rings/bloodtingedring.png',
     id: 'pj7i9a',
     tags: ['Heal'],
     description: `Gain 2 Health Regeneration per second when within 25m of a BLEEDING entity.`,
@@ -323,7 +323,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Booster Ring',
-    imagePath: '/ring/booster_ring.png',
+    imagePath: '/items/rings/boosterring.png',
     id: 'sdkwq2',
     description: `Increases all Status Resistances by 25.`,
     wikiLinks: [`https://remnant.wiki/Booster_Ring`],
@@ -338,7 +338,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Braided Thorns',
-    imagePath: '/ring/braided_thorns.png',
+    imagePath: '/items/rings/braidedthorns.png',
     id: 'zdkh54',
     tags: ['Critical Chance'],
     description: 'Increases Critical Chance by 10%.',
@@ -349,7 +349,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: "Brawler's Pride",
-    imagePath: '/ring/brawlers_pride.png',
+    imagePath: '/items/rings/brawlerspride.png',
     id: '17ckov',
     tags: ['Melee Attack Speed'],
     description:
@@ -361,7 +361,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: `Bridge Warden's Crest`,
-    imagePath: '/ring/bridge_wardens_crest.png',
+    imagePath: '/items/rings/bridgewardenscrest.png',
     dlc: 'dlc1',
     id: 't7sqw7',
     tags: ['Perfect Dodge', 'Damage Reduction', 'Melee Damage'],
@@ -372,7 +372,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Burden of the Audacious',
-    imagePath: '/ring/burden_of_the_audacious.png',
+    imagePath: '/items/rings/burdenoftheaudacious.png',
     id: 'k45qer',
     tags: ['Heal', 'Perfect Dodge'],
     description: `Decreases all healing by 50%. Perfect Dodges heal for 25% of Max Health.`,
@@ -383,7 +383,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Burden of the Departed',
-    imagePath: '/ring/burden_of_the_departed.png',
+    imagePath: '/items/rings/burdenofthedeparted.png',
     dlc: 'dlc1',
     id: 'syutk7',
     tags: ['All Damage'],
@@ -395,7 +395,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Burden of the Destroyer',
-    imagePath: '/ring/burden_of_the_destroyer.png',
+    imagePath: '/items/rings/burdenofthedestroyer.png',
     id: 'dgb0s9',
     tags: ['All Damage', 'Range'],
     description:
@@ -407,7 +407,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Burden of the Divine',
-    imagePath: '/ring/burden_of_the_divine.png',
+    imagePath: '/items/rings/burdenofthedivine.png',
     id: 'tvfpo7',
     description:
       'All damage dealt by the wearer is reduced by 15%. 30% of self healing applies to allies.',
@@ -422,7 +422,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Burden of the Follower',
-    imagePath: '/ring/burden_of_the_follower.png',
+    imagePath: '/items/rings/burdenofthefollower.png',
     id: 'b76cdv',
     tags: ['Fire Rate', 'Mod Power'],
     description:
@@ -438,7 +438,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Burden of the Gambler',
-    imagePath: '/ring/burden_of_the_gambler.png',
+    imagePath: '/items/rings/burdenofthegambler.png',
     id: 'ctv31c',
     tags: ['Weakspot Damage', 'Critical Chance'],
     description: `Disables Weakspots. Increases Critical Chance by 10% and Critical Damage by 15%.`,
@@ -449,7 +449,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Burden of the Mariner',
-    imagePath: '/ring/burden_of_the_mariner.png',
+    imagePath: '/items/rings/burdenofthemariner.png',
     id: 'k89bxv',
     tags: ['Mod Power'],
     description: `Increases Skill Cooldowns by 15%. Generate 15% additional Mod Power for each Skill on Cooldown.`,
@@ -464,7 +464,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Burden of the Mason',
-    imagePath: '/ring/burden_of_the_mason.png',
+    imagePath: '/items/rings/burdenofthemason.png',
     id: 'k89bxz',
     dlc: 'dlc2',
     tags: ['Encumbrance', 'Melee Damage', 'Damage Reduction'],
@@ -475,7 +475,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Burden of the Mesmer',
-    imagePath: '/ring/burden_of_the_mesmer1.png',
+    imagePath: '/items/rings/burdenofthemesmer.png',
     id: 'fGFm6B',
     dlc: 'dlc2',
     tags: ['Health', 'All Damage', 'Damage Reduction'],
@@ -487,7 +487,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Burden of the Rebel',
-    imagePath: '/ring/burden_of_the_rebel.png',
+    imagePath: '/items/rings/burdenoftherebel.png',
     id: 'z169p0',
     tags: ['Reduce Skill Cooldown', 'Relic Use Speed'],
     description:
@@ -499,7 +499,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Burden of the Sciolist',
-    imagePath: '/ring/burden_of_the_sciolist.png',
+    imagePath: '/items/rings/burdenofthesciolist.png',
     dlc: 'dlc1',
     id: '7xb5zr',
     tags: ['Mod Damage', 'Skill Damage', 'Ammo Reserves'],
@@ -511,7 +511,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Burden of the Stargazer',
-    imagePath: '/ring/burden_of_the_stargazer.png',
+    imagePath: '/items/rings/burdenofthestargazer.png',
     id: 'kj85yo',
     tags: ['Reduce Skill Cooldown'],
     description: `Reduces Skill Cooldowns by 15%. Activating a Skill costs 15% Health.`,
@@ -530,7 +530,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Burden of the Warlock',
-    imagePath: '/ring/burden_of_the_warlock.png',
+    imagePath: '/items/rings/burdenofthewarlock.png',
     id: 'mdu1f6',
     tags: ['Mod Power', 'Grey Health'],
     description:
@@ -546,7 +546,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: "Captain's Insignia",
-    imagePath: '/ring/captains_insignia.png',
+    imagePath: '/items/rings/captaininsignia.png',
     id: 'cu0w65',
     tags: ['Relic Use Speed'],
     description: `Increases Revive Speed and Relic Consume Speed by 25% per downed or dead ally. Max 2 stacks.`,
@@ -557,7 +557,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: "Cataloger's Jewel",
-    imagePath: '/ring/catalogers_jewel.png',
+    imagePath: '/items/rings/catalogerjewel.png',
     id: 'e6da79',
     tags: ['Mod Power'],
     description: `Automatically generates 10 Mod Power per second.`,
@@ -571,7 +571,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Celerity Stone',
-    imagePath: '/ring/celerity_stone.png',
+    imagePath: '/items/rings/celeritystone.png',
     id: 'kt5ag1',
     tags: ['Relic Use Speed'],
     description: `Increases Consumable and Relic Use Speed by 25%.`,
@@ -582,7 +582,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Closed Loop',
-    imagePath: '/ring/closed_loop.png',
+    imagePath: '/items/rings/closedloop.png',
     dlc: 'dlc2',
     id: 'Sm4o3R',
     tags: ['Charged Shot'],
@@ -593,7 +593,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Compulsion Loop',
-    imagePath: '/ring/compulsion_loop.png',
+    imagePath: '/items/rings/compulsionloop.png',
     id: '6p71zo',
     tags: ['Fire Rate', 'Melee Attack Speed'],
     description: `After killing an enemy, gain 5% Fire Rate and Melee Attack Speed for 10s. Stacks 3x.`,
@@ -604,7 +604,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: "Conjurer's Circle",
-    imagePath: '/ring/conjurers_circle.png',
+    imagePath: '/items/rings/conjurerscircle.png',
     id: 'k89bxd',
     dlc: 'dlc2',
     tags: ['Stagger', 'Grey Health', 'Summon'],
@@ -619,7 +619,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Conservation Seal',
-    imagePath: '/ring/conservation_seal.png',
+    imagePath: '/items/rings/conservationseal.png',
     id: 'fa7066',
     tags: ['Healing Effectiveness'],
     description:
@@ -631,7 +631,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Constant Variable Ring',
-    imagePath: '/ring/constant_variable_ring.png',
+    imagePath: '/items/rings/constantvariable.png',
     id: 'dyr6ej',
     tags: ['Ranged Damage', 'Heat Generation'],
     description: `Increases Ranged damage up to 20% based on current Weapon's Overheat value.`,
@@ -646,7 +646,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Crimson Dreamstone',
-    imagePath: '/ring/crimson_dreamstone.png',
+    imagePath: '/items/rings/crimsondreamstone.png',
     dlc: 'dlc1',
     id: 's916uj',
     tags: ['Critical Hit', 'Skill Damage'],
@@ -662,7 +662,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Dark Sea Armada Crest',
-    imagePath: '/ring/dark_sea_armada_crest.png',
+    imagePath: '/items/rings/darkseaarmadacrest.png',
     id: 'Zj9qF5',
     dlc: 'dlc2',
     tags: ['Elemental Damage'],
@@ -673,7 +673,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: "Dead King's Memento",
-    imagePath: '/ring/dead_kings_memento.png',
+    imagePath: '/items/rings/deadkingsmemento.png',
     id: 'vbxfcp',
     tags: ['Health'],
     description: `Increases Health by 15.`,
@@ -685,7 +685,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: "Deceiver's Band",
-    imagePath: '/ring/deceivers_band.png',
+    imagePath: '/items/rings/deceiversband.png',
     id: '1dmpt8',
     tags: ['Movement Speed'],
     description:
@@ -697,7 +697,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Deep Pocket Ring',
-    imagePath: '/ring/deep_pocket_ring.png',
+    imagePath: '/items/rings/deeppocketring.png',
     id: '9bnfhm',
     tags: ['Ammo Reserves'],
     description: `Increases Ammo Reserves by 35%.`,
@@ -708,7 +708,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Defensive Action Loop',
-    imagePath: '/ring/defensive_action_loop.png',
+    imagePath: '/items/rings/defensiveactionloop.png',
     id: '3krgp4',
     tags: ['Damage Reduction'],
     description: `While reloading, and for 3s after reload completes, incoming damage is reduced by 10%.`,
@@ -719,7 +719,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Dense Silicon Ring',
-    imagePath: '/ring/dense_silicon_ring.png',
+    imagePath: '/items/rings/densesilicon.png',
     id: 'b91hx9',
     tags: ['Mod Power'],
     description: `Gain 200% of Health Regenerated as Mod Power.`,
@@ -730,7 +730,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Devoured Loop',
-    imagePath: '/ring/devoured_loop.png',
+    imagePath: '/items/rings/devouredloop.png',
     saveFileSlug: 'devouringloop',
     id: 'l8a2e1',
     tags: ['Critical Hit', 'Reduce Skill Cooldown'],
@@ -742,7 +742,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Digested Hog Lure',
-    imagePath: '/ring/digested_hog_lure.png',
+    imagePath: '/items/rings/digestedhoglure.png',
     dlc: 'dlc1',
     id: 'v4yzc6',
     tags: ['Mod Damage'],
@@ -753,7 +753,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Drakestone Pearl',
-    imagePath: '/ring/drakestone_pearl.png',
+    imagePath: '/items/rings/drakestonepearl.png',
     id: 'r1dqm9',
     tags: ['Stamina', 'Melee Damage'],
     description: `Enables Stamina Regeneration during Melee Attacks at 20% of the normal rate.`,
@@ -767,7 +767,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Dran Memento',
-    imagePath: '/ring/dran_memento.png',
+    imagePath: '/items/rings/dranmemento.png',
     id: 'fojjag',
     tags: ['Stamina', 'Encumbrance'],
     description: `Increases Max Stamina by 20 and reduces Encumbrance by 5.`,
@@ -781,7 +781,7 @@ export const ringItems: RingItem[] = [
     category: 'ring',
     name: 'Dran Scavenger Ring',
     saveFileSlug: 'dranscavengersigil',
-    imagePath: '/ring/dran_scavenger_ring.png',
+    imagePath: '/items/rings/dranscavengersigil.png',
     id: '5pwtei',
     tags: ['Heal', 'All Damage', 'Hardcore Reward'],
     description:
@@ -793,7 +793,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Dread Font',
-    imagePath: '/ring/dread_font.png',
+    imagePath: '/items/rings/dreadfont.png',
     id: '5k6zdd',
     tags: ['Grey Health', 'Heal'],
     description: `Increases Grey Health Regeneration rate by 2 per second.`,
@@ -804,7 +804,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Dried Clay Ring',
-    imagePath: '/ring/dried_clay_ring.png',
+    imagePath: '/items/rings/driedclayring.png',
     id: 'ez6z8b',
     tags: ['Damage Reduction', 'All Damage'],
     description:
@@ -816,7 +816,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Drzyr Sniper Sigil',
-    imagePath: '/ring/drzyr_sniper_sigil.png',
+    imagePath: '/items/rings/drzyrsnipersigil.png',
     id: 'gtli7e',
     tags: ['Hardcore Reward'],
     description:
@@ -829,7 +829,7 @@ export const ringItems: RingItem[] = [
     category: 'ring',
     name: 'Dull Steel Ring',
     saveFileSlug: 'brightsteelring',
-    imagePath: '/ring/dull_steel_ring1.png',
+    imagePath: '/items/rings/dullsteelring.png',
     id: 's76ytc',
     tags: ['Encumbrance'],
     description: 'Improves Dodges by 1 Weight Class.',
@@ -841,7 +841,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Dying Ember',
-    imagePath: '/ring/dying_ember.png',
+    imagePath: '/items/rings/dyingember.png',
     id: 'mv9b18',
     tags: ['Melee Damage', 'Lifesteal'],
     description: `Gain 6% of base Melee damage dealt as Lifesteal.`,
@@ -852,7 +852,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Elevated Ring',
-    imagePath: '/ring/elevated_ring.png',
+    imagePath: '/items/rings/elevatedring.png',
     dlc: 'dlc1',
     id: '5dipaq',
     tags: ['Encumbrance'],
@@ -867,7 +867,7 @@ export const ringItems: RingItem[] = [
     category: 'ring',
     name: "Embrace of Sha'Hala",
     saveFileSlug: 'ring_downgradedring',
-    imagePath: '/ring/embrace_of_shahala.png',
+    imagePath: '/items/rings/embraceofshahala.png',
     id: 'h2g5z3',
     tags: ['Damage Reduction', 'Status Effect'],
     description:
@@ -884,7 +884,7 @@ export const ringItems: RingItem[] = [
     category: 'ring',
     name: 'Encrypted Ring',
     saveFileSlug: 'ring_encryptedloop',
-    imagePath: '/ring/encrypted_ring.png',
+    imagePath: '/items/rings/encryptedring.png',
     id: 'g1u6gi',
     tags: ['Heal'],
     description:
@@ -896,7 +896,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: "Endaira's Endless Loop",
-    imagePath: '/ring/endairas_endless_loop.png',
+    imagePath: '/items/rings/endairasendlessloop.png',
     id: 'bx0ulq',
     tags: ['Heal'],
     description: `After Sprinting for 1s, the wearer gains 2 Health Regeneration per second until they stop Sprinting.`,
@@ -907,7 +907,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Excess Coil',
-    imagePath: '/ring/excess_coil.png',
+    imagePath: '/items/rings/excesscoil.png',
     id: 'l5gfd1',
     description: `Activating a Skill grants a SHIELD for 25% of Max Health. Cannot stack with itself. Lasts 15s.`,
     wikiLinks: [`https://remnant.wiki/Excess_Coil`],
@@ -921,7 +921,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Fae Bruiser Ring',
-    imagePath: '/ring/fae_bruiser_ring.png',
+    imagePath: '/items/rings/faebruiserring.png',
     id: 't2ct6r',
     tags: ['Melee Damage', 'Damage Reduction'],
     description:
@@ -933,7 +933,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Fae Hunter Ring',
-    imagePath: '/ring/fae_hunter_ring.png',
+    imagePath: '/items/rings/faehunterring.png',
     id: 'i4wkw2',
     tags: ['Range'],
     description: `Increases Range of Firearms by 35%.`,
@@ -944,7 +944,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Fae Protector Signet',
-    imagePath: '/ring/fae_protector_signet.png',
+    imagePath: '/items/rings/faeprotectorsignet.png',
     id: 'f2j9er',
     tags: ['Health', 'Stamina', 'Encumbrance'],
     description: `Increases Max Health and Stamina by 10 and Reduces Encumbrance by 5.`,
@@ -958,7 +958,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Fae Shaman Ring',
-    imagePath: '/ring/fae_shaman_ring.png',
+    imagePath: '/items/rings/faeshamanring.png',
     id: '7okl48',
     tags: ['Heal', 'Relic Use Speed'],
     description:
@@ -970,7 +970,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Fae Warrior Ring',
-    imagePath: '/ring/fae_warrior_ring.png',
+    imagePath: '/items/rings/faewarriorring.png',
     id: '6ypnyx',
     tags: ['Melee Damage'],
     description: `Increases Melee Damage by 15%.`,
@@ -981,7 +981,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: "Faelin's Sigil",
-    imagePath: '/ring/faelins_sigil.png',
+    imagePath: '/items/rings/faelinsigil.png',
     id: 'drjm15',
     tags: ['Melee Damage', 'Mod Power'],
     description: `Melee Damage generates 15% additional Mod Power.`,
@@ -995,7 +995,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: "Faerin's Sigil",
-    imagePath: '/ring/faerins_sigil.png',
+    imagePath: '/items/rings/faerinsigil.png',
     id: '02wal9',
     tags: ['Critical Hit', 'Weakspot Damage', 'Mod Power'],
     description:
@@ -1010,7 +1010,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: "Feastmaster's Signet",
-    imagePath: '/ring/feastmasters_signet.png',
+    imagePath: '/items/rings/feastmastersignet.png',
     id: '5q53ke',
     tags: ['Concoction'],
     description: `Increases active Concoction Limit by 1.`,
@@ -1021,7 +1021,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Feathery Binding',
-    imagePath: '/ring/feathery_binding.png',
+    imagePath: '/items/rings/featherybinding.png',
     id: 'zXq2H7',
     dlc: 'dlc2',
     tags: ['Charged Shot', 'Projectile Speed'],
@@ -1032,7 +1032,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Feedback Loop',
-    imagePath: '/ring/feedback_loop.png',
+    imagePath: '/items/rings/feedbackloop.png',
     id: 'j13xrf',
     tags: ['Perfect Dodge'],
     description:
@@ -1045,7 +1045,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Fire Stone',
-    imagePath: '/ring/fire_stone.png',
+    imagePath: '/items/rings/firestone.png',
     id: 'go5hz8',
     description: `Increases FIRE damage by 12% and FIRE Resistance by 15.`,
     wikiLinks: [`https://remnant.wiki/Fire_Stone`],
@@ -1056,7 +1056,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Floodlit Diamond',
-    imagePath: '/ring/floodlit_diamond.png',
+    imagePath: '/items/rings/floodlitdiamond.png',
     id: 'z9YJih',
     dlc: 'dlc2',
     tags: [],
@@ -1067,7 +1067,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: "Flyweight's Sting",
-    imagePath: '/ring/flyweights_sting.png',
+    imagePath: '/items/rings/flyweightsting.png',
     id: '1qg7a8',
     tags: ['Melee Damage', 'Encumbrance'],
     description: `Increases Melee damage while Armor Encumbrance is below 50. Damage bonus increases with lower Encumbrance, up to 25% at 0 Weight.`,
@@ -1079,7 +1079,7 @@ export const ringItems: RingItem[] = [
     category: 'ring',
     name: 'Focusing Shard',
     saveFileSlug: 'ring_focusedjewel',
-    imagePath: '/ring/focusing_shard.png',
+    imagePath: '/items/rings/focusedjewel.png',
     id: 'o7grsg',
     tags: ['Recoil', 'Spread'],
     description: 'Aiming Down Sights gradually reduces Spread by 70% over 4s.',
@@ -1094,7 +1094,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Frivolous Band',
-    imagePath: '/ring/frivolous_band.png',
+    imagePath: '/items/rings/frivolousband.png',
     id: '4j9wo9',
     tags: ['Perfect Dodge', 'Fire Rate', 'Melee Speed'],
     description: `Increases Evade Speed by 10%. Perfect Evades increase Fire Rate by 10% and Melee Speed by 10% for 7s.`,
@@ -1105,7 +1105,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Galvanized Resupply Band',
-    imagePath: '/ring/galvanized_resupply_band.png',
+    imagePath: '/items/rings/galvanizedresupplyband.png',
     id: 'y23znz',
     tags: ['Ammo Reserves'],
     description: `Increases Ammo Pickups by 100%.`,
@@ -1116,7 +1116,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: `Game Master's Pride`,
-    imagePath: '/ring/game_masters_pride.png',
+    imagePath: '/items/rings/gamemasterspride.png',
     id: '4dstmt',
     tags: ['Heal', 'Damage Reduction'],
     description: `Reduces all healing by 50%. Splits all damage and remaining healing evenly among all allies wearing this ring.`,
@@ -1127,7 +1127,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Generating Band',
-    imagePath: '/ring/generating_band.png',
+    imagePath: '/items/rings/generatingband.png',
     id: 'fg8su2',
     tags: ['Heal'],
     description: `Regenerate 3% of Max Health per second while a SHIELD is active.`,
@@ -1142,7 +1142,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Grounding Stone',
-    imagePath: '/ring/grounding_stone.png',
+    imagePath: '/items/rings/groundingstone.png',
     id: 'o7vaf6',
     description: `Increases SHOCK damage by 12% and SHOCK Resistance by 15.`,
     wikiLinks: [`https://remnant.wiki/Grounding_Stone`],
@@ -1153,7 +1153,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: `Guardian's Ring`,
-    imagePath: '/ring/guardians_ring.png',
+    imagePath: '/items/rings/guardiansring.png',
     id: 'yvo3jd',
     tags: ['Damage Reduction'],
     description:
@@ -1166,7 +1166,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Gul Signet',
-    imagePath: '/ring/gul_signet.png',
+    imagePath: '/items/rings/gulsignet.png',
     dlc: 'dlc2',
     id: 'xG9CQJ',
     tags: ['Encumbrance', 'Damage Reduction'],
@@ -1177,7 +1177,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: `Gunslinger's Ring`,
-    imagePath: '/ring/gunslingers_ring.png',
+    imagePath: '/items/rings/gunslingersring.png',
     id: '976r2x',
     tags: ['Reload Speed', 'Firearm Swap Speed'],
     description: `Increases Firearm Swap Speed by 30% and Reload Speed by 10%.`,
@@ -1188,7 +1188,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Hardcore Metal Band',
-    imagePath: '/ring/hardcore_metal_band.png',
+    imagePath: '/items/rings/hardcoremetalband.png',
     id: 'f2ooga',
     tags: ['Damage Reduction'],
     description:
@@ -1203,7 +1203,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Hardened Coil',
-    imagePath: '/ring/hardened_coil.png',
+    imagePath: '/items/rings/hardenedcoil.png',
     id: 'pvwud6',
     tags: ['Damage Reduction'],
     description:
@@ -1219,7 +1219,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: `Haymaker's Ring`,
-    imagePath: '/ring/haymakers_ring.png',
+    imagePath: '/items/rings/haymakersring.png',
     id: '8azdr4',
     tags: ['Melee Damage', 'Encumbrance'],
     description:
@@ -1231,7 +1231,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Heart of the Wolf',
-    imagePath: '/ring/heart_of_the_wolf.png',
+    imagePath: '/items/rings/heartofthewolf.png',
     id: 'x74y2q',
     tags: ['Stamina', 'Movement Speed'],
     description: `Increases Max Stamina by 25 and Movement Speed by 10%.`,
@@ -1243,7 +1243,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Hex Ward',
-    imagePath: '/ring/hex_ward.png',
+    imagePath: '/items/rings/hexward.png',
     id: 'y45ad6',
     description: 'Prevents CURSE.',
     wikiLinks: [`https://remnant.wiki/Hex_Ward`],
@@ -1253,7 +1253,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Jewel of the Beholden',
-    imagePath: '/ring/jewel_of_the_beholden.png',
+    imagePath: '/items/rings/jewelofthebeholden.png',
     dlc: 'dlc1',
     id: 'sosywj',
     tags: ['Mod Damage'],
@@ -1264,7 +1264,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Kinetic Cycle Stone',
-    imagePath: '/ring/kinetic_cycle_stone.png',
+    imagePath: '/items/rings/kineticcyclestone.png',
     id: 'kpxowa',
     tags: ['Mod Cast Speed', 'Skill Cast Speed'],
     description: `Increases Mod and Skill Cast Speed by 20%.`,
@@ -1275,7 +1275,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Kolket Eyelet',
-    imagePath: '/ring/kolket_eyelet.png',
+    imagePath: '/items/rings/kolketeyelet.png',
     id: 'dp4w2B',
     dlc: 'dlc2',
     tags: [],
@@ -1286,7 +1286,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Leaking Gemstone',
-    imagePath: '/ring/leaking_gemstone.png',
+    imagePath: '/items/rings/leakinggemstone.png',
     id: 't5dv6X',
     dlc: 'dlc2',
     tags: [],
@@ -1297,7 +1297,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: "Lighthouse Keeper's Ring",
-    imagePath: '/ring/lighthouse_keepers_ring.png',
+    imagePath: '/items/rings/lighthousekeepersring.png',
     dlc: 'dlc1',
     id: 't8u4k1',
     tags: ['Mod Power', 'Status Effect'],
@@ -1308,7 +1308,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Lithic Signet',
-    imagePath: '/ring/lithic_signet.png',
+    imagePath: '/items/rings/lithicsignet.png',
     id: 'hs5tok',
     tags: ['Damage Reduction'],
     description: `Reduces all incoming damage by 7%.`,
@@ -1323,7 +1323,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Lodestone Ring',
-    imagePath: '/ring/lodestone_ring.png',
+    imagePath: '/items/rings/lodestonering.png',
     id: 'sye1ay',
     tags: ['All Damage'],
     description: `Increases all damage dealt against illuminated enemies by 5%.`,
@@ -1334,7 +1334,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Low Yield Recovery Ring',
-    imagePath: '/ring/low_yield_recovery_ring.png',
+    imagePath: '/items/rings/lowyieldrecovery.png',
     id: 'l2dwy4',
     tags: ['Heal'],
     description: `Killing an enemy regenerates 6% Max Health over 6s. Additional kills increase duration by 6s. Max 30s.`,
@@ -1349,7 +1349,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Mark of the Destroyer',
-    imagePath: '/ring/mark_of_the_destroyer.png',
+    imagePath: '/items/rings/markofthedestroyer.png',
     id: 'E7fQdZ',
     dlc: 'dlc2',
     tags: ['Perfect Dodge'],
@@ -1366,7 +1366,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: `Matriarch's Ring`,
-    imagePath: '/ring/matriarchs_ring.png',
+    imagePath: '/items/rings/matriarchsring.png',
     id: 'R3fM4y',
     dlc: 'dlc2',
     tags: ['Perfect Dodge', 'Charged Melee', 'Stamina'],
@@ -1378,7 +1378,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: "Mechanic's Cog",
-    imagePath: '/ring/mechanics_cog.png',
+    imagePath: '/items/rings/mechaniccog.png',
     id: 'ngue5b',
     tags: ['Movement Speed', 'Damage Reduction'],
     description:
@@ -1390,7 +1390,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Metal Driver',
-    imagePath: '/ring/metal_driver.png',
+    imagePath: '/items/rings/metaldriver.png',
     id: 'o7byap',
     tags: ['Reload Speed'],
     description: `Killing Blows increase Reload Speed by 10% for 15s. Stacks 3x.`,
@@ -1401,7 +1401,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Meteorite Shard Ring',
-    imagePath: '/ring/meteorite_shard_ring.png',
+    imagePath: '/items/rings/meteoriteshardring.png',
     id: 'ayje99',
     tags: ['Encumbrance'],
     description: `Increases Encumbrance by 50. Increases Unarmed damage by 50%.`,
@@ -1417,7 +1417,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Microcompressor',
-    imagePath: '/ring/microcompressor.png',
+    imagePath: '/items/rings/microcompressor.png',
     id: 'rtfwr5',
     tags: ['Heat Generation'],
     description:
@@ -1433,7 +1433,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Momentum Driver',
-    imagePath: '/ring/momentum_driver.png',
+    imagePath: '/items/rings/momentumdriver.png',
     id: 'la9qe1',
     tags: ['Movement Speed', 'Stagger'],
     description: `After Sprinting for 1.5s, Movement Speed is increased by 15% and Stagger Level reduced by 1.`,
@@ -1453,7 +1453,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Offering Stone',
-    imagePath: '/ring/offering_stone.png',
+    imagePath: '/items/rings/offeringstone.png',
     id: 'p71mik',
     tags: ['Ranged Damage', 'All Damage'],
     description: `Dealing Ranged Damage increases all Damage by 1% for 1s. Stacks 15x. After killing an enemy, extends the duration to 10s.`,
@@ -1464,7 +1464,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Outcast Ring',
-    imagePath: '/ring/outcast_ring.png',
+    imagePath: '/items/rings/outcastring.png',
     id: 'b195vq',
     tags: ['Reload Speed'],
     description: `Increases Reload Speed by 5% for 10s after reloading. Stacks 5x.`,
@@ -1475,7 +1475,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Painless Obsidian',
-    imagePath: '/ring/painless_obsidian.png',
+    imagePath: '/items/rings/painlessobsidian.png',
     id: '6y14c4',
     tags: ['Grey Health', 'Damage Reduction'],
     description:
@@ -1487,7 +1487,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Pan War Band',
-    imagePath: '/ring/pan_war_band.png',
+    imagePath: '/items/rings/panwarband.png',
     id: 'eBxG7w',
     dlc: 'dlc2',
     tags: ['Movement Speed', 'Reload Speed', 'Fire Rate'],
@@ -1502,7 +1502,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Point Focus Ring',
-    imagePath: '/ring/point_focus_ring.png',
+    imagePath: '/items/rings/pointfocusring.png',
     id: 'gg6srx',
     tags: ['Recoil', 'Spread'],
     description: 'Reduces Weapon Spread and Recoil by 30%.',
@@ -1513,7 +1513,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Power Complex',
-    imagePath: '/ring/power_complex.png',
+    imagePath: '/items/rings/powercomplex.png',
     id: 'oavdxw',
     tags: ['All Damage'],
     description:
@@ -1525,7 +1525,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Power Saver',
-    imagePath: '/ring/power_saver.png',
+    imagePath: '/items/rings/powersaver.png',
     id: '7i0yzu',
     description: `At Max Health, gain a 35% chance to not use a Relic charge.`,
     wikiLinks: [`https://remnant.wiki/Power_Saver`],
@@ -1535,7 +1535,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Probability Cord',
-    imagePath: '/ring/probability_cord.png',
+    imagePath: '/items/rings/probabilitycord.png',
     id: '0k8d0g',
     tags: ['Critical Hit'],
     description: `Increases Crit Damage by 20%.`,
@@ -1546,7 +1546,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Propulsion Loop',
-    imagePath: '/ring/propulsion_loop.png',
+    imagePath: '/items/rings/propulsionloop.png',
     id: 'uydz9a',
     tags: ['Movement Speed', 'Relic Use Speed'],
     description: `After killing an enemy, increases Movement Speed by 5% and Consumable Use Speed by 10% for 10s. Stacks 3x.`,
@@ -1561,7 +1561,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Provisioner Ring',
-    imagePath: '/ring/provisioner_ring.png',
+    imagePath: '/items/rings/provisionerring.png',
     id: '8i7o4p',
     tags: ['Reload Speed', 'Hardcore Reward'],
     description: `Firearms reload over time while stowed.`,
@@ -1572,7 +1572,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Rally Band',
-    imagePath: '/ring/rally_band.png',
+    imagePath: '/items/rings/rallyband.png',
     id: '7XdP4g',
     dlc: 'dlc2',
     tags: ['Health', 'Grey Health', 'Melee Hit'],
@@ -1583,7 +1583,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: "Ravager's Bargain",
-    imagePath: '/ring/ravagers_bargain.png',
+    imagePath: '/items/rings/ravagersbargain.png',
     id: 'kqddup',
     dlc: 'dlc2',
     tags: ['All Damage', 'Critical Chance', 'Status Effect'],
@@ -1594,7 +1594,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Reaping Stone',
-    imagePath: '/ring/reaping_stone.png',
+    imagePath: '/items/rings/reapingstone.png',
     id: 'kqdoup',
     tags: ['Status Effect', 'Lifesteal'],
     description: `After an Elemental Status Effect is removed from wearer, they become immune to all Elemental Status Effects and gain 5% of base damage dealt as Lifesteal for 10s.`,
@@ -1605,7 +1605,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Red Ring of Death',
-    imagePath: '/ring/red_ring_of_death.png',
+    imagePath: '/items/rings/redringofdeath.png',
     id: '9ng83z',
     tags: ['Status Effect'],
     description:
@@ -1617,7 +1617,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Rerouting Cable',
-    imagePath: '/ring/rerouting_cable.png',
+    imagePath: '/items/rings/reroutingcable.png',
     id: '48r4bl',
     description: `Gain 5% of Max Health as a SHIELD for 5s after spending 20 Stamina. Accumulation resets after 5s of inaction. Max 50% SHIELD.`,
     wikiLinks: [`https://remnant.wiki/Rerouting_Cable`],
@@ -1631,7 +1631,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Reserve Boosting Gem',
-    imagePath: '/ring/reserve_boosting_gem.png',
+    imagePath: '/items/rings/reserveboostinggem.png',
     id: 'ucm4yv',
     tags: ['Heal'],
     description: `Increases Health Regeneration by 0.5 per second. 1s after going below 50% Health, increases regeneration value to 2.5 per second until 50% Health is reached.`,
@@ -1642,7 +1642,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Restriction Cord',
-    imagePath: '/ring/restriction_cord.png',
+    imagePath: '/items/rings/restrictioncord.png',
     id: 'eznhcv',
     tags: ['Damage Reduction', 'Health'],
     description: `Restricts the wearer from Healing above 50% of their Max Health and reduces all incoming damage by 15%.`,
@@ -1654,7 +1654,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Ring of Crisis',
-    imagePath: '/ring/ring_of_crisis.png',
+    imagePath: '/items/rings/ringofcrisis.png',
     id: '378qz0',
     tags: ['Health'],
     description:
@@ -1670,7 +1670,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Ring of Deflection',
-    imagePath: '/ring/ring_of_deflection.png',
+    imagePath: '/items/rings/ringofdeflection.png',
     id: 'ie648z',
     tags: ['Grey Health'],
     description:
@@ -1686,7 +1686,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Ring of Diversion',
-    imagePath: '/ring/ring_of_diversion.png',
+    imagePath: '/items/rings/ringofdiversion.png',
     id: 'ubqgie',
     description: `Increases invulnerability window while evading and sliding.`,
     wikiLinks: [`https://remnant.wiki/Ring_of_Diversion`],
@@ -1696,7 +1696,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Ring of Flawed Beauty',
-    imagePath: '/ring/ring_of_flawed_beauty.png',
+    imagePath: '/items/rings/flawedbeauty.png',
     id: 'lx6all',
     tags: ['Weakspot Damage', 'Ranged Damage'],
     description:
@@ -1708,7 +1708,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Ring of Grace',
-    imagePath: '/ring/ring_of_grace.png',
+    imagePath: '/items/rings/ringofgrace.png',
     id: 'ne83ro',
     tags: ['Heal'],
     description: `Taking enemy damage causes 15% of Maximum Health to regenerate over 10s.`,
@@ -1719,7 +1719,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Ring of Infinite Damage',
-    imagePath: '/ring/ring_of_infinite_damage.png',
+    imagePath: '/items/rings/ringofinfinitedamage.png',
     dlc: 'dlc1',
     id: '0yfahk',
     tags: ['Fire Rate'],
@@ -1730,7 +1730,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Ring of Omens',
-    imagePath: '/ring/ring_of_omens.png',
+    imagePath: '/items/rings/ringofomens.png',
     id: '1gnt2c',
     tags: ['Grey Health', 'Stamina'],
     description: `Evades cost 15% Max Health as Grey Health instead of Stamina.`,
@@ -1741,7 +1741,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Ring Of Ordnance',
-    imagePath: '/ring/ring_of_ordnance.png',
+    imagePath: '/items/rings/ringofordnance.png',
     id: 'RDi2ad',
     dlc: 'dlc2',
     tags: [],
@@ -1752,7 +1752,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Ring of Restocking',
-    imagePath: '/ring/ring_of_restocking.png',
+    imagePath: '/items/rings/ringofrestocking.png',
     id: '3aryrr',
     tags: ['Reload Speed', 'Critical Hit', 'Weakspot Damage'],
     description:
@@ -1764,7 +1764,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Ring of Retribution',
-    imagePath: '/ring/ring_of_retribution.png',
+    imagePath: '/items/rings/ringofretribution.png',
     id: '8ejbuu',
     tags: ['Reload Speed', 'All Damage'],
     description: `Incoming enemy damage increases Reload Speed and all outgoing damage by 15%. Lasts 15s.`,
@@ -1776,7 +1776,7 @@ export const ringItems: RingItem[] = [
     category: 'ring',
     name: 'Ring of Spirits',
     dlc: 'dlc2',
-    imagePath: '/ring/ring_of_spirits.png',
+    imagePath: '/items/rings/ringofspirits.png',
     id: 'ic39X7',
     tags: ['Mod Power'],
     description: `Increases Mod Generation by 3% for each active consumable. Max 5 stacks.`,
@@ -1790,7 +1790,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Ring of the Castaway',
-    imagePath: '/ring/ring_of_the_castaway.png',
+    imagePath: '/items/rings/ringofthecastaway.png',
     dlc: 'dlc1',
     id: 'aqo8pe',
     description: 'Increases base Consumable Duration by 50%.',
@@ -1805,7 +1805,7 @@ export const ringItems: RingItem[] = [
     category: 'ring',
     name: 'Ring of the Damned',
     saveFileSlug: 'ring_strongarmband',
-    imagePath: '/ring/ring_of_the_damned.png',
+    imagePath: '/items/rings/ringofthedamned.png',
     id: 'jbfxsb',
     tags: ['All Damage', 'Grey Health', 'Critical Chance'],
     description:
@@ -1817,7 +1817,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Ring of the Forest Spirit',
-    imagePath: '/ring/ring_of_the_forest_spirit.png',
+    imagePath: '/items/rings/ringoftheforestspirit.png',
     id: 'wvtzrn',
     tags: ['Healing Effectiveness'],
     description: `Relic Healing Effectiveness is increased by 15%.`,
@@ -1828,7 +1828,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Ring of the Robust',
-    imagePath: '/ring/ring_of_the_robust.png',
+    imagePath: '/items/rings/ringoftherobust.png',
     id: 'qdxm42',
     tags: ['Health'],
     description: 'Increases Max Health by 10 and Armor by 20.',
@@ -1841,7 +1841,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Ring of the Vain',
-    imagePath: '/ring/ring_of_the_vain.png',
+    imagePath: '/items/rings/ringofthevain.png',
     id: 'g61t33',
     tags: ['Movement Speed'],
     description:
@@ -1853,7 +1853,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Rock of Anguish',
-    imagePath: '/ring/rock_of_anguish.png',
+    imagePath: '/items/rings/rockofanguish.png',
     id: 'lr4wxu',
     tags: ['Movement Speed', 'Reload Speed'],
     description: `Gain 5% Movement Speed and 7.5% Reload Speed for every 25% of Max Health missing.`,
@@ -1864,7 +1864,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Rotward',
-    imagePath: '/ring/rotward.png',
+    imagePath: '/items/rings/rotward.png',
     id: 'hvhbv9',
     description: `Prevents ROOT ROT Blight.`,
     wikiLinks: [`https://remnant.wiki/Rotward`],
@@ -1874,7 +1874,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Rusted Heirloom',
-    imagePath: '/ring/rusted_heirloom.png',
+    imagePath: '/items/rings/rustedheirloom.png',
     id: 'i544v3',
     tags: ['Damage Reduction'],
     description: `Grants 2 Stacks of BULWARK below 50% Max HP.`,
@@ -1889,7 +1889,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Sagestone',
-    imagePath: '/ring/sagestone.png',
+    imagePath: '/items/rings/sagestone.png',
     id: 'pl1g6b',
     description: `Increases earned Experience by 10%.`,
     wikiLinks: [`https://remnant.wiki/Sagestone`],
@@ -1899,7 +1899,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Sapphire Dreamstone',
-    imagePath: '/ring/sapphire_dreamstone.png',
+    imagePath: '/items/rings/sapphiredreamstone.png',
     id: 'v65mav',
     tags: ['Reduce Skill Cooldown', 'Critical Hit'],
     description: `Critical Hits reduce Skill Cooldowns by 4%. Can only happen once every 2s.`,
@@ -1918,7 +1918,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Sealed Resin Loop',
-    imagePath: '/ring/sealed_resin_loop.png',
+    imagePath: '/items/rings/sealedresinloop.png',
     id: 'RA6NZn',
     dlc: 'dlc2',
     tags: [],
@@ -1929,7 +1929,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Seal of the Empress',
-    imagePath: '/ring/seal_of_the_empress.png',
+    imagePath: '/items/rings/sealoftheempress.png',
     id: 'pqd4vp',
     tags: ['Health', 'Stamina'],
     description: `Increases Max Health by 20. Reduces Max Stamina by 5.`,
@@ -1942,7 +1942,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Shadow of Misery',
-    imagePath: '/ring/shadow_of_misery.png',
+    imagePath: '/items/rings/shadowofmisery.png',
     id: '8bhhzo',
     tags: ['Status Effect'],
     description: 'Increase Status Effect Damage by 20%.',
@@ -1953,7 +1953,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Shaed Stone',
-    imagePath: '/ring/shaed_stone.png',
+    imagePath: '/items/rings/shaedstone.png',
     dlc: 'dlc1',
     id: 'ylif78',
     tags: ['Skill Damage'],
@@ -1972,7 +1972,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Shard Banded Ring',
-    imagePath: '/ring/shard_banded_ring.png',
+    imagePath: '/items/rings/shardbandedring.png',
     id: '13vsn5',
     tags: ['Mod Damage'],
     description: 'Increases Mod damage by 12%',
@@ -1983,7 +1983,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Shiny Hog Lure',
-    imagePath: '/ring/shiny_hog_lure.png',
+    imagePath: '/items/rings/shinyhoglure.png',
     id: '08cb3s',
     tags: ['Mod Power'],
     description: `Reloading grants 25-50 Mod Power to both weapons based on percentage of Magazine reloaded.`,
@@ -2002,7 +2002,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Singed Ring',
-    imagePath: '/ring/singed_ring.png',
+    imagePath: '/items/rings/singedring.png',
     id: 'cpxk1d',
     tags: ['All Damage'],
     description: `Increases all damage dealt to BURNING enemies by 12%.`,
@@ -2013,7 +2013,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: "Slayer's Crest",
-    imagePath: '/ring/slayers_crest.png',
+    imagePath: '/items/rings/slayerscrest.png',
     id: '0e7ll0',
     tags: ['Melee Damage'],
     description:
@@ -2028,7 +2028,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Soul Feast',
-    imagePath: '/ring/soul_feast.png',
+    imagePath: '/items/rings/soulfeast.png',
     dlc: 'dlc2',
     id: '8kotd5',
     tags: ['Summon', 'Reduce Skill Cooldown'],
@@ -2039,7 +2039,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Soul Guard',
-    imagePath: '/ring/soul_guard.png',
+    imagePath: '/items/rings/soulguard.png',
     id: '8kotg5',
     tags: ['Damage Reduction', 'Summon'],
     description: `Gain a stack of BULWARK for each active Summon.`,
@@ -2050,7 +2050,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Soul Link',
-    imagePath: '/ring/soul_link.png',
+    imagePath: '/items/rings/soullink.png',
     id: 'ohlt19',
     tags: ['Summon', 'Lifesteal'],
     description: `Summons Lifesteal 5% of base damage dealt which returns to the wearer as Health.`,
@@ -2061,7 +2061,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Soul Shard',
-    imagePath: '/ring/soul_shard1.png',
+    imagePath: '/items/rings/soulshard.png',
     id: 'uswo9w',
     tags: ['Summon', 'All Damage'],
     description:
@@ -2073,7 +2073,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Spirit Stone',
-    imagePath: '/ring/spirit_stone.png',
+    imagePath: '/items/rings/spiritstone.png',
     id: '58hv43',
     tags: ['Mod Power'],
     description: `Increases Mod Power generation by 10%.`,
@@ -2084,7 +2084,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Stockpile Charger',
-    imagePath: '/ring/stockpile_charger.png',
+    imagePath: '/items/rings/stockpilecharger.png',
     id: '0jnimt',
     tags: ['Ranged Damage'],
     description: `After picking up ammo, increases the damage of that Ammo Type by 15% for 20s.`,
@@ -2095,7 +2095,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Stone of Balance',
-    imagePath: '/ring/stone_of_balance.png',
+    imagePath: '/items/rings/stoneofbalance.png',
     id: 'c20p9b',
     tags: ['All Damage'],
     description: `Increases all damage by 7%.`,
@@ -2106,7 +2106,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Stone of Continuance',
-    imagePath: '/ring/stone_of_continuance.png',
+    imagePath: '/items/rings/stoneofcontinuance.png',
     id: 'leuefm',
     tags: ['Skill Duration'],
     description: `Increases Skill Duration by 15%.`,
@@ -2117,7 +2117,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Stone of Expanse',
-    imagePath: '/ring/stone_of_expanse.png',
+    imagePath: '/items/rings/stoneofexpanse.png',
     id: 'efdw51',
     tags: ['Ranged Damage'],
     description: `Increases Ranged damage by 12%. Reduces all other damage dealt by 5%.`,
@@ -2128,7 +2128,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Stone of Malevolence',
-    imagePath: '/ring/stone_of_malevolence.png',
+    imagePath: '/items/rings/stoneofmalevolence.png',
     id: 'kx65km',
     tags: ['Status Effect', 'Mod Power'],
     description: 'Elemental damage generates 15% additional Mod Power.',
@@ -2139,7 +2139,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Stream Coupler',
-    imagePath: '/ring/stream_coupler.png',
+    imagePath: '/items/rings/streamcoupler.png',
     id: 'jq4dje',
     tags: ['Heal'],
     description: `Using a Skill regenerates 25% of Max Health over 10s.`,
@@ -2150,7 +2150,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Subterfuge Link',
-    imagePath: '/ring/subterfuge_link.png',
+    imagePath: '/items/rings/subterfugelink.png',
     id: 'al5vs8',
     tags: ['Skill Cast Speed', 'Mod Cast Speed'],
     description: `After killing an enemy, increases the Cast Speed of the next Mod or Skill Cast by 35%. Lasts 15s or until consumed.`,
@@ -2165,7 +2165,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Suppression Ward',
-    imagePath: '/ring/suppression_ward.png',
+    imagePath: '/items/rings/suppressionward.png',
     id: '44my16',
     description: `Prevents SUPPRESSION Blight.`,
     wikiLinks: [`https://remnant.wiki/Suppression_Ward`],
@@ -2175,7 +2175,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Targeting Jewel',
-    imagePath: '/ring/targeting_jewel.png',
+    imagePath: '/items/rings/targetingjewel.png',
     id: 'm2uqsh',
     tags: ['Range', 'Spread'],
     description: `Increases Range on all Firearms by 4m. Reduces Spread by 15%.`,
@@ -2186,7 +2186,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Tarnished Ring',
-    imagePath: '/ring/tarnished_ring.png',
+    imagePath: '/items/rings/tarnishedring.png',
     id: 'w4xzfq',
     tags: ['Melee Damage'],
     description: `Increases damage of Unarmed Attacks by 30%.`,
@@ -2197,7 +2197,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Tear of Kaeula',
-    imagePath: '/ring/tear_of_kaeula.png',
+    imagePath: '/items/rings/tearofkaeula.png',
     id: 'qv7e2g',
     description: 'Increases Relic capacity by 2 while equipped.',
     wikiLinks: [`https://remnant.wiki/Tear_of_Kaeula`],
@@ -2207,7 +2207,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Tear of Lydusa',
-    imagePath: '/ring/tear_of_lydusa.png',
+    imagePath: '/items/rings/tearoflydusa.png',
     id: 'k90sex',
     dlc: 'dlc2',
     tags: ['Lifesteal', 'Healing Effectiveness', 'Heal'],
@@ -2218,7 +2218,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Tempest Conduit',
-    imagePath: '/ring/tempest_conduit.png',
+    imagePath: '/items/rings/tempestconduit.png',
     id: '4bb4gf',
     tags: ['Elemental Damage', 'All Damage'],
     description: `After receiving Elemental Damage, increases all damage dealt by 15% and Resistance to the received Element by 20 for 15s.`,
@@ -2229,7 +2229,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Thalos Eyelet',
-    imagePath: '/ring/thalos_eyelet.png',
+    imagePath: '/items/rings/thaloseyelet.png',
     dlc: 'dlc2',
     id: '6mopod',
     tags: ['Stamina', 'Damage Reduction'],
@@ -2240,7 +2240,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Tightly Wound Coil',
-    imagePath: '/ring/tightly_wound_coil.png',
+    imagePath: '/items/rings/tightlywoundcoil.png',
     id: '3pe83i',
     description: `When spending 75% or more of current magazine, gain a SHIELD for 15% of Max Health for 5s. Does not stack with itself.`,
     wikiLinks: [`https://remnant.wiki/Tightly_Wound_Coil`],
@@ -2250,7 +2250,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: "Timekeeper's Jewel",
-    imagePath: '/ring/timekeepers_jewel.png',
+    imagePath: '/items/rings/timekeepersjewel.png',
     id: '3uggz9',
     tags: ['Status Effect', 'Status Duration'],
     description:
@@ -2262,7 +2262,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Token of Favor',
-    imagePath: '/ring/token_of_favor.png',
+    imagePath: '/items/rings/tokenoffavor.png',
     dlc: 'dlc2',
     id: 'qv7e2gx',
     description:
@@ -2277,7 +2277,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: "Tomb Dweller's Ring",
-    imagePath: '/ring/tomb_dwellers_ring.png',
+    imagePath: '/items/rings/tombdwellersring.png',
     id: '6mopou',
     tags: ['Movement Speed', 'Damage Reduction'],
     description: `Increases Movement Speed by 10% for 15s after Vaulting, Climbing, Leaping, and entering Water, stacks 3x. Reduces Fall Damage by 50%.`,
@@ -2292,7 +2292,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Vacuum Seal',
-    imagePath: '/ring/vacuum_seal.png',
+    imagePath: '/items/rings/vacuumseal.png',
     id: 'hnkpp0',
     description:
       'Increases Automatic Pickup Range for Scrap by 150%. Picking up Scrap, Iron, or Ammo grants a SHIELD for 15% of Max Health for 15s. Does not stack.',
@@ -2303,7 +2303,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Vestige of Power',
-    imagePath: '/ring/vestige_of_power.png',
+    imagePath: '/items/rings/vestigeofpower.png',
     id: 'e6zmo5',
     tags: ['Ranged Damage', 'Melee Damage'],
     description: `After 5s of not being damaged, increases Ranged and Melee Damage by 10%.`,
@@ -2314,7 +2314,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Wax Sealed Ring',
-    imagePath: '/ring/wax_sealed_ring.png',
+    imagePath: '/items/rings/waxsealedring.png',
     id: 'ekm1hx',
     tags: ['Ranged Damage', 'Melee Damage'],
     description:
@@ -2326,7 +2326,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'White Glass Bead',
-    imagePath: '/ring/white_glass_bead.png',
+    imagePath: '/items/rings/whiteglassbead.png',
     dlc: 'dlc1',
     id: 'etgc4h',
     tags: ['Perfect Dodge'],
@@ -2338,7 +2338,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'White Pawn Stamp',
-    imagePath: '/ring/white_pawn_stamp.png',
+    imagePath: '/items/rings/whitepawnstamp.png',
     id: 'irhphl',
     tags: ['Mod Power'],
     description: `Reduces Mod Power Requirement by 10%.`,
@@ -2353,7 +2353,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Wind Hollow Circlet',
-    imagePath: '/ring/wind_hollow_circlet.png',
+    imagePath: '/items/rings/windhollowcirclet.png',
     id: 'tx475e',
     tags: ['Reload Speed'],
     description: `Increases Reload Speed by 12%.`,
@@ -2368,7 +2368,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Wood Ring',
-    imagePath: '/ring/wood_ring.png',
+    imagePath: '/items/rings/woodring.png',
     dlc: 'dlc1',
     id: 'uwq264',
     tags: ['Stagger'],
@@ -2380,7 +2380,7 @@ export const ringItems: RingItem[] = [
     category: 'ring',
     name: "Worn Admiral's Ring",
     saveFileSlug: 'ringoftheadmiral',
-    imagePath: '/ring/worn_admirals_ring.png',
+    imagePath: '/items/rings/wornadmiralsring.png',
     id: '9kcrxa',
     tags: ['All Damage'],
     description: `All damage received is increased by 200%. All damage dealt is increased by 15%.`,
@@ -2391,7 +2391,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: "Zania's Malice",
-    imagePath: '/ring/zanias_malice.png',
+    imagePath: '/items/rings/zaniasmalice.png',
     id: 'ukufrn',
     tags: ['Weakspot Damage'],
     description:
@@ -2403,7 +2403,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: "Zohee's Ring",
-    imagePath: '/ring/zohees_ring.png',
+    imagePath: '/items/rings/zoheesring.png',
     id: '9fe9kj',
     tags: ['Mod Duration'],
     description: `Increases Mod Duration by 20%.`,
