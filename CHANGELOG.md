@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Bloodthirst mod description updated to match in-game text (ConRaven)
 - Berserker's Crest ring description updated to match in-game text (SenorCerveza)
+- Fixed Item Tracker categories showing when they shouldn't based on filters.
 
 ## 2024-05-13
 
