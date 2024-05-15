@@ -14,6 +14,7 @@ import { DEFAULT_FILTER } from '@/app/(components)/filters/types'
 import { MasonryItemList } from '@/app/(components)/masonry-item-list'
 import { allItems } from '@/app/(data)/items/all-items'
 import { Item } from '@/app/(data)/items/types'
+import { ArchetypeItem } from '@/app/(data)/items/types/ArchetypeItem'
 import { MutatorItem } from '@/app/(data)/items/types/MutatorItem'
 import { RelicFragmentItem } from '@/app/(data)/items/types/RelicFragmentItem'
 import { WeaponItem } from '@/app/(data)/items/types/WeaponItem'
@@ -89,6 +90,9 @@ function getFilteredItems(
     !filters.collections.some((c) => c === DEFAULT_FILTER)
   ) {
     filteredItems = filteredItems.filter((item) => {
+      // If both filters are set, just return everything
+      // if the undiscovered filter is set, show only undiscovered items
+      // if the discovered filter is set, show only discovered items
       if (
         filters.collections
           .filter((i) => i !== DEFAULT_FILTER)
@@ -103,13 +107,42 @@ function getFilteredItems(
           .filter((i) => i !== DEFAULT_FILTER)
           .includes('Undiscovered')
       ) {
-        return item.discovered === false
+        // If the item is a mod, we want to show if the linked weapon is undiscovered
+        // If the item is a skill or perk, we want to show if the linked archetype is undiscovered
+        if (item.category === 'mod') {
+          const linkedWeapon = filteredItems.find(
+            (i) => i.name === item.linkedItems?.weapon?.name,
+          )
+          return linkedWeapon?.discovered === false
+        } else if (item.category === 'skill' || item.category === 'perk') {
+          const linkedArchetype = filteredItems.find(
+            (i) => i.name === item.linkedItems?.archetype?.name,
+          )
+          return linkedArchetype?.discovered === false
+        } else {
+          return item.discovered === false
+        }
       } else if (
         filters.collections
           .filter((i) => i !== DEFAULT_FILTER)
           .includes('Discovered')
       ) {
-        return item.discovered === true
+        // If the item is a mod, we want to show if the linked weapon is discovered
+        // If the item is a skill or perk, we want to show if the linked archetype is discovered
+        if (item.category === 'mod') {
+          const linkedWeapon = filteredItems.find(
+            (i) => i.name === item.linkedItems?.weapon?.name,
+          )
+          return linkedWeapon?.discovered === true
+        } else if (item.category === 'skill' || item.category === 'perk') {
+          const linkedArchetype = filteredItems.find(
+            (i) => i.name === item.linkedItems?.archetype?.name,
+          )
+
+          return linkedArchetype?.discovered === true
+        } else {
+          return item.discovered === true
+        }
       } else {
         return false
       }

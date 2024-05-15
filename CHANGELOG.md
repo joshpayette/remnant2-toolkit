@@ -11,6 +11,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Bloodthirst mod description updated to match in-game text (ConRaven)
 - Berserker's Crest ring description updated to match in-game text (SenorCerveza)
 - Fixed Item Tracker categories showing when they shouldn't based on filters.
+- Item Lookup discovered/undiscovered filter now correctly shows/hides mods, skills, and perks if their linked item is discovered or not.
 
 ## 2024-05-13
 
