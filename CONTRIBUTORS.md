@@ -8,6 +8,8 @@ This project exists and thrives thanks to all the people who contribute.
 - [Vash Cowaii](https://cowaii.io)
 - Spoon
 - Amalie
+- Synder
+- Antipastox
 
 ## Testing & Datamine
 
@@ -34,7 +36,9 @@ This project exists and thrives thanks to all the people who contribute.
 - BrotherFromHood
 - darkdragn
 - DoTs Я Us
+- eSeFBee
 - Joelexion
 - Newby
 - tehgreg
+- Savvra
 - Sk0oMa
