@@ -9,7 +9,7 @@ This project exists and thrives thanks to all the people who contribute.
 - Spoon
 - Amalie
 - Synder
-- Antipastox
+- Antipastox2
 
 ## Testing & Datamine
 
@@ -17,12 +17,22 @@ This project exists and thrives thanks to all the people who contribute.
 - [ConRaven](https://www.youtube.com/c/ConstantineRavens)
 - [Spiked](https://www.youtube.com/@newspiked7385)
 - kbsfnk
+- Hiccup
 - Schattenzeichner
 - Thatguylegit
 
 ## Content Creators
 
 - [Mr. Nacho [\*] ](https://www.youtube.com/@Mr-Nacho420)
+
+## Build Reviewers
+
+- Alexij
+- Apexzilla
+- Hiccup
+- Marshy
+- Mick1135
+- Roy
 
 ## World Save Contributors
 
@@ -38,6 +48,7 @@ This project exists and thrives thanks to all the people who contribute.
 - DoTs Я Us
 - eSeFBee
 - Joelexion
+- [Mr. Nacho [\*] ](https://www.youtube.com/@Mr-Nacho420)
 - Newby
 - tehgreg
 - Savvra
