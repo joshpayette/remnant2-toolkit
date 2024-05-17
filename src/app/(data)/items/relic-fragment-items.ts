@@ -150,7 +150,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
   },
   {
     category: 'relicfragment',
-    name: 'Melee Attack Speed',
+    name: 'Melee Speed',
     imagePath: '/items/relicfragments/melee_attack_speed.png',
     id: 't8jgpe',
     dlc: 'base',
