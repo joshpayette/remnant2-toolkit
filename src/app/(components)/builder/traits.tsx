@@ -1,6 +1,7 @@
 import { XCircleIcon } from '@heroicons/react/24/solid'
 import Image from 'next/image'
 import { useState } from 'react'
+import { IoInformationCircleSharp } from 'react-icons/io5'
 
 import { Tooltip } from '@/app/(components)/tooltip'
 import {
@@ -242,13 +243,9 @@ export function Traits({
                   interactive={false}
                   disabled={tooltipDisabled}
                 >
-                  <Image
-                    src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/toolkit/info-yellow.png`}
-                    alt="Info icon"
-                    width={20}
-                    height={20}
-                    className="h-5 w-5"
-                  />
+                  <span>
+                    <IoInformationCircleSharp className="h-5 w-5 text-accent1-500" />
+                  </span>
                 </Tooltip>
               )}
             </button>

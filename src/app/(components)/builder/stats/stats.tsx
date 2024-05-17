@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import { useState } from 'react'
+import { IoInformationCircleSharp } from 'react-icons/io5'
 
 import { HealthBreakdownDialog } from '@/app/(components)/dialogs/health-breakdown-dialog'
 import { StaminaBreakdownDialog } from '@/app/(components)/dialogs/stamina-breakdown-dialog'
@@ -68,13 +69,7 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
               >
                 {totalHealth}
                 {!isScreenshotMode && (
-                  <Image
-                    src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/toolkit/info-yellow.png`}
-                    alt="Info icon"
-                    width={16}
-                    height={16}
-                    className="ml-1 h-4 w-4"
-                  />
+                  <IoInformationCircleSharp className="h-5 w-5 text-accent1-500" />
                 )}
               </button>
             </div>
@@ -90,13 +85,7 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
               >
                 {totalStamina}
                 {!isScreenshotMode && (
-                  <Image
-                    src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/toolkit/info-yellow.png`}
-                    alt="Info icon"
-                    width={16}
-                    height={16}
-                    className="ml-1 h-4 w-4"
-                  />
+                  <IoInformationCircleSharp className="h-5 w-5 text-accent1-500" />
                 )}
               </button>
             </div>
