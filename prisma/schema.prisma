@@ -217,6 +217,7 @@ model BuildItems {
   category String?
   index    Int?
   amount   Int?
+  optional Boolean @default(false)
 
   @@index([buildId])
   @@index([itemId])

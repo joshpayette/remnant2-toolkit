@@ -70,6 +70,7 @@ const baseItemShape = {
   saveFileSlug: z.string().optional(),
   description: z.string().optional(),
   cooldown: z.number().optional(),
+  optional: z.boolean().optional(),
   wikiLinks: z.array(z.string()).optional(),
   health: z.number().optional(),
   healthPercent: z.number().optional(),

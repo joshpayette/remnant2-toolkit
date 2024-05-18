@@ -16,10 +16,15 @@ export function linkWeaponsToMods(buildState: BuildState) {
     const linkedMod = weapon?.linkedItems?.mod
     if (!linkedMod) return
 
-    const modItem = modItems.find((mod) => mod.name === linkedMod.name)
-    if (!modItem) return
+    const linkedModItem = modItems.find((mod) => mod.name === linkedMod.name)
+    if (!linkedModItem) return
 
-    newBuildState.items.mod[index] = modItem as ModItem
+    // If mod is already equipped, skip
+    if (newBuildState.items.mod[index]?.id === linkedModItem.id) {
+      return
+    }
+
+    newBuildState.items.mod[index] = linkedModItem as ModItem
   })
 
   // Return the build with linked items

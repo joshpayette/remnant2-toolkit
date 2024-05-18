@@ -1,5 +1,6 @@
 import { BuildItems } from '@prisma/client'
 
+import { OPTIONAL_ITEM_SYMBOL } from '@/app/(data)/items/constants'
 import { Item } from '@/app/(data)/items/types'
 
 import { perkItems } from '../perk-items'
@@ -24,7 +25,10 @@ export class PerkItem extends BaseItem implements BasePerkItem {
   }
 
   static toParams(items: Array<PerkItem | null>): string[] {
-    return items.map((i) => `${i?.id ?? ''}`)
+    return items.map((i) => {
+      if (!i || !i.id) return ''
+      return i.optional ? `${i.id}${OPTIONAL_ITEM_SYMBOL}` : i.id
+    })
   }
 
   static fromParams(params: string): PerkItem[] | null {
@@ -33,9 +37,12 @@ export class PerkItem extends BaseItem implements BasePerkItem {
 
     const items: PerkItem[] = []
     itemIds.forEach((itemId, index) => {
+      const optional = itemId.includes(OPTIONAL_ITEM_SYMBOL)
+      itemId = itemId.replace(OPTIONAL_ITEM_SYMBOL, '')
+
       const item = perkItems.find((i) => i.id === itemId)
       if (!item) return
-      items[index] = item
+      items[index] = optional ? { ...item, optional } : item
     })
 
     if (items.length === 0) return null
@@ -52,8 +59,14 @@ export class PerkItem extends BaseItem implements BasePerkItem {
       if (!item) continue
       if (item.category !== 'perk') continue
       buildItem.index
-        ? (perkValues[buildItem.index] = item)
-        : perkValues.push(item)
+        ? (perkValues[buildItem.index] = {
+            ...item,
+            optional: buildItem.optional,
+          })
+        : perkValues.push({
+            ...item,
+            optional: buildItem.optional,
+          })
     }
     return perkValues
   }

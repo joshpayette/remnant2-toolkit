@@ -1,6 +1,8 @@
 'use client'
 
 import Image from 'next/image'
+import { IoInformationCircleSharp } from 'react-icons/io5'
+import { TbHttpOptions } from 'react-icons/tb'
 
 import { Tooltip } from '@/app/(components)/tooltip'
 import { Enemy, isEnemy } from '@/app/(data)/enemies/types'
@@ -37,6 +39,7 @@ type Props = {
   unoptimized?: boolean
   onClick?: () => void
   onItemInfoClick?: (item: Item) => void
+  onToggleOptional?: (selectedItem: Item, optional: boolean) => void
 }
 
 export function ItemButton({
@@ -51,6 +54,7 @@ export function ItemButton({
   unoptimized = false,
   onClick,
   onItemInfoClick,
+  onToggleOptional,
 }: Props) {
   let tooltipDescription = item && !isEnemy(item) ? item.description : null
   // Truncate text at 150 characters
@@ -118,7 +122,7 @@ export function ItemButton({
         >
           <button
             className={cn(
-              'absolute right-0 top-0 z-[1]',
+              'absolute right-0 top-0 z-[1] rounded-full border-transparent bg-black',
               size === 'sm' && 'right-[-20px]',
             )}
             onClick={() =>
@@ -126,22 +130,49 @@ export function ItemButton({
             }
             aria-label="Item Information"
           >
-            <Image
-              src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/toolkit/info-yellow.png`}
-              alt="Info icon"
-              width={20}
-              height={20}
-              className="h-5 w-5"
+            <IoInformationCircleSharp
+              className={cn(
+                'h-4 w-4 text-accent1-500',
+                (size === 'lg' || size === 'xl') && 'h-5 w-5',
+              )}
             />
           </button>
         </Tooltip>
       )}
+      {item &&
+        !isEnemy(item) &&
+        !isScreenshotMode &&
+        isEditable &&
+        onToggleOptional &&
+        onClick && (
+          <Tooltip
+            content={`Toggle item as optional`}
+            trigger="mouseenter"
+            interactive={false}
+            disabled={tooltipDisabled}
+          >
+            <button
+              className={cn(
+                'absolute left-0 top-0 z-[1] rounded-full border-transparent bg-black',
+                size === 'sm' && 'sm:left-auto sm:right-[-40px]',
+              )}
+              onClick={() => onToggleOptional(item, !item.optional)}
+              aria-label="Toggle item as optional"
+            >
+              <TbHttpOptions className="h-4 w-4 text-accent1-500" />
+            </button>
+          </Tooltip>
+        )}
       <button
         onClick={onClick}
         className={cn(
           'relative z-0 flex items-center justify-center overflow-hidden border-2 border-gray-700',
           `bg-background-solid`,
           isEditable && 'border-gray-700 hover:border-secondary-500',
+          item &&
+            !isEnemy(item) &&
+            item.optional &&
+            'border-dashed border-gray-300',
           size === 'sm' && 'h-[22px] w-[22px]',
           size === 'md' && 'h-[66px] w-[66px]',
           size === 'lg' && 'h-[99px] w-[99px]',

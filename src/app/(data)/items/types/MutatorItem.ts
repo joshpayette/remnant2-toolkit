@@ -1,5 +1,6 @@
 import { BuildItems } from '@prisma/client'
 
+import { OPTIONAL_ITEM_SYMBOL } from '@/app/(data)/items/constants'
 import { Item } from '@/app/(data)/items/types'
 
 import { mutatorItems } from '../mutator-items'
@@ -27,7 +28,10 @@ export class MutatorItem extends BaseItem implements BaseMutatorItem {
   }
 
   static toParams(items: Array<MutatorItem | null>): string[] {
-    return items.map((i) => `${i?.id ?? ''}`)
+    return items.map((i) => {
+      if (!i || !i.id) return ''
+      return i.optional ? `${i.id}${OPTIONAL_ITEM_SYMBOL}` : i.id
+    })
   }
 
   static fromParams(params: string): MutatorItem[] | null {
@@ -36,9 +40,12 @@ export class MutatorItem extends BaseItem implements BaseMutatorItem {
 
     const items: MutatorItem[] = []
     itemIds.forEach((itemId, index) => {
+      const optional = itemId.includes(OPTIONAL_ITEM_SYMBOL)
+      itemId = itemId.replace(OPTIONAL_ITEM_SYMBOL, '')
+
       const item = mutatorItems.find((i) => i.id === itemId)
       if (!item) return
-      items[index] = item
+      items[index] = optional ? { ...item, optional } : item
     })
 
     if (items.length === 0) return null
@@ -54,8 +61,14 @@ export class MutatorItem extends BaseItem implements BaseMutatorItem {
       const item = mutatorItems.find((i) => i.id === buildItem.itemId)
       if (!item) continue
       buildItem.index
-        ? (mutatorValues[buildItem.index] = item)
-        : mutatorValues.push(item)
+        ? (mutatorValues[buildItem.index] = {
+            ...item,
+            optional: buildItem.optional,
+          })
+        : mutatorValues.push({
+            ...item,
+            optional: buildItem.optional,
+          })
     }
     return mutatorValues
   }

@@ -62,14 +62,14 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
               {/** Not updating to new button component */}
               <button
                 className={cn(
-                  'text-md flex items-center justify-end text-right font-bold sm:text-lg',
+                  'text-md flex items-center justify-end rounded-full border-transparent bg-black text-right font-bold sm:text-lg',
                   isScreenshotMode && 'text-lg',
                 )}
                 onClick={() => setHealthInfoOpen(true)}
               >
                 {totalHealth}
                 {!isScreenshotMode && (
-                  <IoInformationCircleSharp className="h-5 w-5 text-accent1-500" />
+                  <IoInformationCircleSharp className="h-4 w-4 text-accent1-500" />
                 )}
               </button>
             </div>
@@ -78,14 +78,14 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
               {/** Not updating to new button component */}
               <button
                 className={cn(
-                  'text-md flex items-center justify-end text-right font-bold sm:text-lg',
+                  'text-md flex items-center justify-end rounded-full border-transparent bg-black text-right font-bold sm:text-lg',
                   isScreenshotMode && 'text-lg',
                 )}
                 onClick={() => setStaminaInfoOpen(true)}
               >
                 {totalStamina}
                 {!isScreenshotMode && (
-                  <IoInformationCircleSharp className="h-5 w-5 text-accent1-500" />
+                  <IoInformationCircleSharp className="h-4 w-4 text-accent1-500" />
                 )}
               </button>
             </div>

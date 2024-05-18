@@ -3,6 +3,7 @@ import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import { useCallback, useEffect } from 'react'
 
 import { INITIAL_BUILD_STATE } from '@/app/(data)/builds/constants'
+import { OPTIONAL_ITEM_SYMBOL } from '@/app/(data)/items/constants'
 import { AmuletItem } from '@/app/(data)/items/types/AmuletItem'
 import { ArchetypeItem } from '@/app/(data)/items/types/ArchetypeItem'
 import { ArmorItem } from '@/app/(data)/items/types/ArmorItem'
@@ -78,12 +79,12 @@ export function useUrlBuildState() {
    * Creates a new query string by adding or updating a parameter.
    */
   const createQueryString = useCallback(
-    (name: string, value: string | null) => {
+    (name: string, value: string | null, optional: boolean = false) => {
       const params = new URLSearchParams(searchParams)
       if (value === null) {
         params.delete(name)
       } else {
-        params.set(name, value)
+        params.set(name, optional ? `${value}${OPTIONAL_ITEM_SYMBOL}` : value)
       }
 
       return params.toString()
@@ -98,21 +99,27 @@ export function useUrlBuildState() {
     category,
     value,
     scroll = false,
+    optional = false,
   }: {
     category: string
     value: string | Array<string | undefined> | BuildTags[]
     scroll?: boolean
+    optional?: boolean
   }): void {
     // Remove empty items
     if (Array.isArray(value)) {
       const allItemsEmpty = value.every((item) => item === '')
       if (allItemsEmpty) {
-        router.push(`${pathname}?${createQueryString(category, null)}`)
+        router.push(
+          `${pathname}?${createQueryString(category, null, optional)}`,
+        )
         return
       }
     } else {
       if (value === '') {
-        router.push(`${pathname}?${createQueryString(category, null)}`)
+        router.push(
+          `${pathname}?${createQueryString(category, null, optional)}`,
+        )
         return
       }
     }
@@ -121,7 +128,7 @@ export function useUrlBuildState() {
       value = value.join(',')
     }
 
-    router.push(`${pathname}?${createQueryString(category, value)}`, {
+    router.push(`${pathname}?${createQueryString(category, value, optional)}`, {
       scroll,
     })
   }

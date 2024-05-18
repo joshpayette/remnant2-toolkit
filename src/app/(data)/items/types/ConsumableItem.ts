@@ -1,5 +1,6 @@
 import { BuildItems } from '@prisma/client'
 
+import { OPTIONAL_ITEM_SYMBOL } from '@/app/(data)/items/constants'
 import { Item } from '@/app/(data)/items/types'
 
 import { consumableItems } from '../consumable-items'
@@ -20,7 +21,10 @@ export class ConsumableItem extends BaseItem implements BaseConsumableItem {
   }
 
   static toParams(items: Array<ConsumableItem | null>): string[] {
-    return items.map((i) => `${i?.id ?? ''}`)
+    return items.map((i) => {
+      if (!i || !i.id) return ''
+      return i.optional ? `${i.id}${OPTIONAL_ITEM_SYMBOL}` : i.id
+    })
   }
 
   static fromParams(params: string): ConsumableItem[] | null {
@@ -29,9 +33,12 @@ export class ConsumableItem extends BaseItem implements BaseConsumableItem {
 
     const items: ConsumableItem[] = []
     itemIds.forEach((itemId, index) => {
+      const optional = itemId.includes(OPTIONAL_ITEM_SYMBOL)
+      itemId = itemId.replace(OPTIONAL_ITEM_SYMBOL, '')
+
       const item = consumableItems.find((i) => i.id === itemId)
       if (!item) return
-      items[index] = item
+      items[index] = optional ? { ...item, optional } : item
     })
 
     if (items.length === 0) return null
@@ -48,8 +55,14 @@ export class ConsumableItem extends BaseItem implements BaseConsumableItem {
       if (!item) continue
       if (item.category !== 'consumable') continue
       buildItem.index
-        ? (consumableValues[buildItem.index] = item)
-        : consumableValues.push(item)
+        ? (consumableValues[buildItem.index] = {
+            ...item,
+            optional: buildItem.optional,
+          })
+        : consumableValues.push({
+            ...item,
+            optional: buildItem.optional,
+          })
     }
     return consumableValues
   }

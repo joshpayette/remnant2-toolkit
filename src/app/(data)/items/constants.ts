@@ -1,3 +1,5 @@
+export const OPTIONAL_ITEM_SYMBOL = '*' as const
+
 export const ARCHETYPE_COLORS = {
   ALCHEMIST: {
     bg: 'bg-[#102a22]',

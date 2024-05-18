@@ -21,6 +21,13 @@ export function linkSkillsToArchetypes(buildState: BuildState) {
     )
     if (!linkedArchetypeItem) return
 
+    // If archetype is already equipped, skip
+    if (
+      newBuildState.items.archetype[skillIndex]?.id === linkedArchetypeItem.id
+    ) {
+      return
+    }
+
     newBuildState.items.archetype[skillIndex] = linkedArchetypeItem
   })
 

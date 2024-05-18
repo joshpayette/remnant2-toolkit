@@ -244,7 +244,7 @@ export function Traits({
                   disabled={tooltipDisabled}
                 >
                   <span>
-                    <IoInformationCircleSharp className="h-5 w-5 text-accent1-500" />
+                    <IoInformationCircleSharp className="h-4 w-4 rounded-full border-transparent bg-black text-accent1-500" />
                   </span>
                 </Tooltip>
               )}

@@ -12,8 +12,15 @@ module.exports = {
   ],
   theme: {
     extend: {
+      keyframes: {
+        slideIn: {
+          '0%': { transform: 'translateY(-100%)', opacity: '0' },
+          '100%': { transform: 'translateY(0)', opacity: '1' },
+        },
+      },
       animation: {
         'ping-slow': 'ping 5s cubic-bezier(0, 0, 0.2, 1) 2',
+        slideIn: 'slideIn 0.5s ease-in-out',
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
@@ -23,11 +30,11 @@ module.exports = {
       colors: {
         background: {
           DEFAULT: 'rgb(var(--color-background) / <alpha-value>)',
-          solid: 'rgb(var(--color-background-solid) / <alpha-value>)'
+          solid: 'rgb(var(--color-background-solid) / <alpha-value>)',
         },
         surface: {
           DEFAULT: 'rgb(var(--color-surface) / <alpha-value>)',
-          solid: 'rgb(var(--color-surface-solid) / <alpha-value>)'
+          solid: 'rgb(var(--color-surface-solid) / <alpha-value>)',
         },
         gray: {
           50: 'rgb(var(--color-gray-50) / <alpha-value>)',
@@ -93,7 +100,7 @@ module.exports = {
           800: 'rgb(var(--color-yellow-800) / <alpha-value>)',
           900: 'rgb(var(--color-yellow-900) / <alpha-value>)',
           950: 'rgb(var(--color-yellow-950) / <alpha-value>)',
-        }
+        },
       },
       fontFamily: {
         sans: ['Inter', ...defaultTheme.fontFamily.sans],

@@ -14,6 +14,7 @@ import {
   DEFAULT_TRAIT_AMOUNT,
   MAX_BUILD_TAGS,
 } from '@/app/(data)/builds/constants'
+import { OPTIONAL_ITEM_SYMBOL } from '@/app/(data)/items/constants'
 import { perkItems } from '@/app/(data)/items/perk-items'
 import { Item } from '@/app/(data)/items/types'
 import { TraitItem } from '@/app/(data)/items/types/TraitItem'
@@ -140,7 +141,10 @@ export function Builder({
             value: newItemIds,
           })
         } else {
-          onUpdateBuildState({ category: selectedItemSlot.category, value: '' })
+          onUpdateBuildState({
+            category: selectedItemSlot.category,
+            value: '',
+          })
         }
 
         setSelectedItemSlot({ category: null })
@@ -181,7 +185,9 @@ export function Builder({
         }
 
         // If we got here, add the item to the build
-        const newItemIds = newBuildItems.map((i) => i?.id)
+        const newItemIds = newBuildItems.map((i) =>
+          i?.optional ? `${i?.id}${OPTIONAL_ITEM_SYMBOL}` : i?.id,
+        )
         onUpdateBuildState({
           category: selectedItem.category,
           value: newItemIds,
@@ -204,6 +210,41 @@ export function Builder({
     },
     [buildState.items, selectedItemSlot, onUpdateBuildState],
   )
+
+  function handleToggleOptional(selectedItem: Item, optional: boolean) {
+    if (!isEditable) return
+    if (!onUpdateBuildState) return
+
+    const categoryItemOrItems = buildState.items[selectedItem.category]
+    if (!categoryItemOrItems) return
+
+    if (Array.isArray(categoryItemOrItems)) {
+      const newBuildItems = (categoryItemOrItems as Item[]).map((item) => {
+        if (item?.id === selectedItem?.id) {
+          return { ...item, optional }
+        }
+        return item
+      })
+
+      const newItemIds = newBuildItems.map((i) =>
+        i.optional ? `${i?.id}${OPTIONAL_ITEM_SYMBOL}` : i?.id,
+      )
+
+      onUpdateBuildState({
+        category: selectedItem.category,
+        value: newItemIds,
+      })
+      return
+    }
+
+    const newBuildItem = { ...categoryItemOrItems, optional }
+    onUpdateBuildState({
+      category: selectedItem.category,
+      value: newBuildItem.optional
+        ? `${newBuildItem.id}${OPTIONAL_ITEM_SYMBOL}`
+        : newBuildItem.id,
+    })
+  }
 
   function handleChangeBuildLink(newBuildLink: string) {
     if (!isEditable) return
@@ -291,13 +332,15 @@ export function Builder({
       // the default should be the linked amount
       let defaultAmount = DEFAULT_TRAIT_AMOUNT
 
+      const primaryArchetype = buildState.items.archetype[0]
+      const secondaryArchetype = buildState.items.archetype[1]
+
       // if this is the linked trait for the primary archetype,
       // make sure the amount is not less than the minimum allowed
-      if (buildState.items.archetype[0]?.name) {
-        const linkedTrait =
-          buildState.items.archetype[0]?.linkedItems?.traits?.find(
-            (linkedTrait) => linkedTrait.name === traitItem.name,
-          )
+      if (primaryArchetype?.name) {
+        const linkedTrait = primaryArchetype?.linkedItems?.traits?.find(
+          (linkedTrait) => linkedTrait.name === traitItem.name,
+        )
         if (linkedTrait && traitItem.name === linkedTrait.name) {
           if (validAmount < linkedTrait.amount) {
             validAmount = linkedTrait.amount
@@ -307,12 +350,11 @@ export function Builder({
       }
       // if this is the linked trait for the secondary archetype
       // make sure the amount is not less than the minimum allowed
-      if (buildState.items.archetype[1]?.name) {
-        const linkedTrait =
-          buildState.items.archetype[1]?.linkedItems?.traits?.find(
-            (linkedTrait) =>
-              linkedTrait.name === traitItem.name && linkedTrait.amount === 10,
-          )
+      if (secondaryArchetype?.name) {
+        const linkedTrait = secondaryArchetype?.linkedItems?.traits?.find(
+          (linkedTrait) =>
+            linkedTrait.name === traitItem.name && linkedTrait.amount === 10,
+        )
         if (linkedTrait && traitItem.name === linkedTrait.name) {
           if (validAmount < linkedTrait.amount) {
             validAmount = linkedTrait.amount
@@ -521,6 +563,7 @@ export function Builder({
                     isScreenshotMode={isScreenshotMode}
                     tooltipDisabled={itemInfoOpen}
                     unoptimized={isScreenshotMode}
+                    onToggleOptional={handleToggleOptional}
                   />
                   <ItemButton
                     item={buildState.items.skill[archetypeIndex]}
@@ -531,6 +574,7 @@ export function Builder({
                     onItemInfoClick={handleShowInfo}
                     tooltipDisabled={itemInfoOpen}
                     unoptimized={isScreenshotMode}
+                    onToggleOptional={handleToggleOptional}
                   />
                 </div>
               ))}
@@ -547,6 +591,7 @@ export function Builder({
                     manualWordBreaks={true}
                     tooltipDisabled={itemInfoOpen}
                     unoptimized={isScreenshotMode}
+                    onToggleOptional={handleToggleOptional}
                   />
                 </div>
               )}
@@ -567,6 +612,7 @@ export function Builder({
                   manualWordBreaks={true}
                   tooltipDisabled={itemInfoOpen}
                   unoptimized={isScreenshotMode}
+                  onToggleOptional={handleToggleOptional}
                 />
                 <ItemButton
                   item={buildState.items.torso}
@@ -577,6 +623,7 @@ export function Builder({
                   manualWordBreaks={true}
                   tooltipDisabled={itemInfoOpen}
                   unoptimized={isScreenshotMode}
+                  onToggleOptional={handleToggleOptional}
                 />
                 <ItemButton
                   item={buildState.items.legs}
@@ -587,6 +634,7 @@ export function Builder({
                   manualWordBreaks={true}
                   tooltipDisabled={itemInfoOpen}
                   unoptimized={isScreenshotMode}
+                  onToggleOptional={handleToggleOptional}
                 />
                 <ItemButton
                   item={buildState.items.gloves}
@@ -597,6 +645,7 @@ export function Builder({
                   manualWordBreaks={true}
                   tooltipDisabled={itemInfoOpen}
                   unoptimized={isScreenshotMode}
+                  onToggleOptional={handleToggleOptional}
                 />
                 <div
                   id="relic-container"
@@ -611,6 +660,7 @@ export function Builder({
                     manualWordBreaks={true}
                     tooltipDisabled={itemInfoOpen}
                     unoptimized={isScreenshotMode}
+                    onToggleOptional={handleToggleOptional}
                   />
                   <div
                     id="relic-fragment-container"
@@ -626,6 +676,7 @@ export function Builder({
                       manualWordBreaks={true}
                       tooltipDisabled={itemInfoOpen}
                       unoptimized={isScreenshotMode}
+                      onToggleOptional={handleToggleOptional}
                     />
                     <ItemButton
                       item={buildState.items.relicfragment[1]}
@@ -637,6 +688,7 @@ export function Builder({
                       manualWordBreaks={true}
                       tooltipDisabled={itemInfoOpen}
                       unoptimized={isScreenshotMode}
+                      onToggleOptional={handleToggleOptional}
                     />
                     <ItemButton
                       item={buildState.items.relicfragment[2]}
@@ -648,6 +700,7 @@ export function Builder({
                       manualWordBreaks={true}
                       tooltipDisabled={itemInfoOpen}
                       unoptimized={isScreenshotMode}
+                      onToggleOptional={handleToggleOptional}
                     />
                   </div>
                 </div>
@@ -671,6 +724,7 @@ export function Builder({
                   manualWordBreaks={true}
                   tooltipDisabled={itemInfoOpen}
                   unoptimized={isScreenshotMode}
+                  onToggleOptional={handleToggleOptional}
                 />
                 {getArrayOfLength(4).map((ringIndex) => (
                   <ItemButton
@@ -683,6 +737,7 @@ export function Builder({
                     manualWordBreaks={true}
                     tooltipDisabled={itemInfoOpen}
                     unoptimized={isScreenshotMode}
+                    onToggleOptional={handleToggleOptional}
                   />
                 ))}
               </div>
@@ -718,6 +773,7 @@ export function Builder({
                     manualWordBreaks={true}
                     tooltipDisabled={itemInfoOpen}
                     unoptimized={isScreenshotMode}
+                    onToggleOptional={handleToggleOptional}
                   />
                   <div className="flex w-full grow items-start justify-around gap-4">
                     {(weaponIndex === 1 &&
@@ -730,6 +786,12 @@ export function Builder({
                         size="md"
                         isEditable={isEditable}
                         onClick={
+                          // if mod is linked to the weapon, don't allow editing
+                          (buildState.items.weapon[weaponIndex]?.linkedItems
+                            ?.mod?.name &&
+                            buildState.items.weapon[weaponIndex]?.linkedItems
+                              ?.mod?.name ===
+                              buildState.items.mod[weaponIndex]?.name) ||
                           weaponIndex === 1
                             ? undefined
                             : () => handleItemSlotClick('mod', weaponIndex)
@@ -739,6 +801,7 @@ export function Builder({
                         manualWordBreaks={true}
                         tooltipDisabled={itemInfoOpen}
                         unoptimized={isScreenshotMode}
+                        onToggleOptional={handleToggleOptional}
                       />
                     )}
 
@@ -754,6 +817,7 @@ export function Builder({
                       manualWordBreaks={true}
                       tooltipDisabled={itemInfoOpen}
                       unoptimized={isScreenshotMode}
+                      onToggleOptional={handleToggleOptional}
                     />
                   </div>
                 </div>
@@ -795,6 +859,7 @@ export function Builder({
                     manualWordBreaks={true}
                     tooltipDisabled={itemInfoOpen}
                     unoptimized={isScreenshotMode}
+                    onToggleOptional={handleToggleOptional}
                   />
                   {getArrayOfLength(concoctionSlotCount).map((index) => {
                     // Add 1 to the index because we already rendered the first slot
@@ -812,6 +877,7 @@ export function Builder({
                         manualWordBreaks={true}
                         tooltipDisabled={itemInfoOpen}
                         unoptimized={isScreenshotMode}
+                        onToggleOptional={handleToggleOptional}
                       />
                     )
                   })}
@@ -840,6 +906,7 @@ export function Builder({
                       manualWordBreaks={true}
                       tooltipDisabled={itemInfoOpen}
                       unoptimized={isScreenshotMode}
+                      onToggleOptional={handleToggleOptional}
                     />
                   ))}
                 </div>

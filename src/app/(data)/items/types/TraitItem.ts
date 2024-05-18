@@ -67,7 +67,12 @@ export class TraitItem extends BaseItem implements BaseTraitItem {
   static toParams(
     items: Array<{ id: BaseTraitItem['id']; amount: number }>,
   ): string[] {
-    return items.map((i) => (i.id ? `${i.id};${i.amount}` : ''))
+    return items.map((i) => {
+      if (!i || !i.id) return ''
+      return `${i.id};${i.amount}`
+    })
+
+    // return items.map((i) => (i.id ? `${i.id};${i.amount}` : ''))
   }
 
   static fromParams(params: string): TraitItem[] {
@@ -132,8 +137,14 @@ export class TraitItem extends BaseItem implements BaseTraitItem {
       if (item.category === 'archetype') {
         // insert the archtype at the index
         buildItem.index
-          ? archtypeValues.splice(buildItem.index, 0, item)
-          : archtypeValues.push(item)
+          ? archtypeValues.splice(buildItem.index, 0, {
+              ...item,
+              optional: buildItem.optional,
+            })
+          : archtypeValues.push({
+              ...item,
+              optional: buildItem.optional,
+            })
         continue
       }
       const traitItem = {
@@ -141,8 +152,14 @@ export class TraitItem extends BaseItem implements BaseTraitItem {
         amount: buildItem.amount,
       } as TraitItem
       buildItem.index
-        ? (traitValues[buildItem.index] = traitItem)
-        : traitValues.push(traitItem)
+        ? (traitValues[buildItem.index] = {
+            ...traitItem,
+            optional: buildItem.optional,
+          })
+        : traitValues.push({
+            ...traitItem,
+            optional: buildItem.optional,
+          })
     }
 
     const newTraitItems: TraitItem[] = []

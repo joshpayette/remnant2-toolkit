@@ -33,6 +33,7 @@ export interface BaseItemProps {
   description?: string
   location?: ItemLocation
   cooldown?: number
+  optional?: boolean
   wikiLinks?: string[]
   externalTokens?: Array<ExternalToken['token']>
   linkedItems?: LinkedItems
@@ -75,6 +76,7 @@ export abstract class BaseItem implements BaseItemProps {
   public externalTokens?: BaseItemProps['externalTokens'] = []
   public linkedItems?: BaseItemProps['linkedItems'] = {}
   public saveFileSlug?: BaseItemProps['saveFileSlug'] = ''
+  public optional?: BaseItemProps['optional'] = false
   public health?: BaseItemProps['health'] = 0
   public healthPercent?: BaseItemProps['healthPercent'] = 0
   public healthCap?: BaseItemProps['healthCap'] = 1 // no cap
@@ -109,6 +111,7 @@ export abstract class BaseItem implements BaseItemProps {
     this.location = props.location
     this.linkedItems = props.linkedItems
     this.saveFileSlug = props.saveFileSlug
+    this.optional = props.optional || false
     this.health = props.health
     this.healthPercent = props.healthPercent
     this.healthCap = props.healthCap

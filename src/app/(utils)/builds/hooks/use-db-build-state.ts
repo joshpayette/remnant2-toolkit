@@ -49,9 +49,11 @@ export function useDBBuildState(initialBuildState: BuildState) {
   function updateDBBuildState({
     category,
     value,
+    scroll = false,
   }: {
     category: string
     value: string | Array<string | undefined> | BuildTags[]
+    scroll?: boolean
   }) {
     // --------------------------
     // Non-items
@@ -137,7 +139,6 @@ export function useDBBuildState(initialBuildState: BuildState) {
         }
 
         setDBBuildState(newBuildState)
-        //setLocalBuildState(newBuildState)
         return
       }
     }
@@ -252,6 +253,7 @@ export function useDBBuildState(initialBuildState: BuildState) {
 
   function setNewBuildState(buildState: BuildState) {
     const cleanBuildState = cleanUpBuildState(buildState)
+    console.info('cleanBuildState', cleanBuildState)
     setDBBuildState(cleanBuildState)
     //setLocalBuildState(cleanBuildState)
   }

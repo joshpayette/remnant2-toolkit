@@ -1,5 +1,6 @@
 import { BuildItems } from '@prisma/client'
 
+import { OPTIONAL_ITEM_SYMBOL } from '@/app/(data)/items/constants'
 import { Item } from '@/app/(data)/items/types'
 
 import { ringItems } from '../ring-items'
@@ -20,7 +21,10 @@ export class RingItem extends BaseItem implements BaseRingItem {
   }
 
   static toParams(items: Array<RingItem | null>): string[] {
-    return items.map((i) => `${i?.id ?? ''}`)
+    return items.map((i) => {
+      if (!i || !i.id) return ''
+      return i.optional ? `${i.id}${OPTIONAL_ITEM_SYMBOL}` : i.id
+    })
   }
 
   static fromParams(params: string): RingItem[] | null {
@@ -29,9 +33,12 @@ export class RingItem extends BaseItem implements BaseRingItem {
 
     const items: RingItem[] = []
     itemIds.forEach((itemId, index) => {
+      const optional = itemId.includes(OPTIONAL_ITEM_SYMBOL)
+      itemId = itemId.replace(OPTIONAL_ITEM_SYMBOL, '')
+
       const item = ringItems.find((i) => i.id === itemId)
       if (!item) return
-      items[index] = item
+      items[index] = optional ? { ...item, optional } : item
     })
 
     if (items.length === 0) return null
@@ -47,8 +54,14 @@ export class RingItem extends BaseItem implements BaseRingItem {
       const item = ringItems.find((i) => i.id === buildItem.itemId)
       if (!item) continue
       buildItem.index
-        ? (ringValues[buildItem.index] = item)
-        : ringValues.push(item)
+        ? (ringValues[buildItem.index] = {
+            ...item,
+            optional: buildItem.optional,
+          })
+        : ringValues.push({
+            ...item,
+            optional: buildItem.optional,
+          })
     }
     return ringValues
   }

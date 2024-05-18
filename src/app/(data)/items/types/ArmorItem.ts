@@ -1,5 +1,6 @@
 import { BuildItems } from '@prisma/client'
 
+import { OPTIONAL_ITEM_SYMBOL } from '@/app/(data)/items/constants'
 import { Item } from '@/app/(data)/items/types'
 
 import { armorItems } from '../armor-items'
@@ -38,21 +39,34 @@ export class ArmorItem extends BaseItem implements BaseArmorItem {
       const item = armorItems.find((i) => i.id === buildItem.itemId)
       if (!item) continue
       if (item.category !== category) continue
-      armorItem = item
+      armorItem = {
+        ...item,
+        optional: buildItem.optional,
+      }
     }
     return armorItem
   }
 
   static toParams(item: ArmorItem): string {
-    return `${item?.id ?? ''}`
+    if (!item) return ''
+  
+    const validItem = armorItems.find((ri) => ri.id === item.id)
+    if (!validItem) return ''
+
+    if (item.optional) return `${item.id}${OPTIONAL_ITEM_SYMBOL}`
+    return `${item.id}`
   }
 
   static fromParams(params: string): ArmorItem | null {
     const itemIds = params.split(',')
     if (!itemIds) return null
 
-    const item = armorItems.find((i) => i.id === itemIds[0])
+    const optional = itemIds[0].includes(OPTIONAL_ITEM_SYMBOL)
+    const itemId = itemIds[0].replace(OPTIONAL_ITEM_SYMBOL, '')
+
+    const item = armorItems.find((i) => i.id === itemId)
     if (!item) return null
-    return item
+
+    return optional ? { ...item, optional } : item
   }
 }

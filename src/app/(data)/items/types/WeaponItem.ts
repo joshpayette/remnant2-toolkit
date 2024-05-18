@@ -1,5 +1,6 @@
 import { BuildItems } from '@prisma/client'
 
+import { OPTIONAL_ITEM_SYMBOL } from '@/app/(data)/items/constants'
 import { Item } from '@/app/(data)/items/types'
 
 import { weaponItems } from '../weapon-items'
@@ -57,7 +58,10 @@ export class WeaponItem extends BaseItem implements BaseWeaponItem {
   }
 
   static toParams(items: Array<WeaponItem | null>): string[] {
-    return items.map((i) => `${i?.id ?? ''}`)
+    return items.map((i) => {
+      if (!i || !i.id) return ''
+      return i.optional ? `${i.id}${OPTIONAL_ITEM_SYMBOL}` : i.id
+    })
   }
 
   static fromParams(params: string): WeaponItem[] | null {
@@ -66,9 +70,12 @@ export class WeaponItem extends BaseItem implements BaseWeaponItem {
 
     const items: WeaponItem[] = []
     itemIds.forEach((itemId, index) => {
+      const optional = itemId.includes(OPTIONAL_ITEM_SYMBOL)
+      itemId = itemId.replace(OPTIONAL_ITEM_SYMBOL, '')
+
       const item = weaponItems.find((i) => i.id === itemId)
       if (!item) return
-      items[index] = item
+      items[index] = optional ? { ...item, optional } : item
     })
 
     if (items.length === 0) return null
@@ -84,8 +91,14 @@ export class WeaponItem extends BaseItem implements BaseWeaponItem {
       const item = weaponItems.find((i) => i.id === buildItem.itemId)
       if (!item) continue
       buildItem.index
-        ? (weaponValues[buildItem.index] = item)
-        : weaponValues.push(item)
+        ? (weaponValues[buildItem.index] = {
+            ...item,
+            optional: buildItem.optional,
+          })
+        : weaponValues.push({
+            ...item,
+            optional: buildItem.optional,
+          })
     }
     return weaponValues
   }

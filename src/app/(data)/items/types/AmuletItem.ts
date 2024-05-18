@@ -1,6 +1,7 @@
 import { BuildItems } from '@prisma/client'
 
 import { amuletItems } from '@/app/(data)/items/amulet-items'
+import { OPTIONAL_ITEM_SYMBOL } from '@/app/(data)/items/constants'
 import { Item } from '@/app/(data)/items/types'
 
 import { BaseItem } from './BaseItem'
@@ -23,6 +24,8 @@ export class AmuletItem extends BaseItem implements BaseAmuletItem {
     if (!item) return ''
     const validItem = amuletItems.find((ri) => ri.id === item.id)
     if (!validItem) return ''
+
+    if (item.optional) return `${item.id}${OPTIONAL_ITEM_SYMBOL}`
     return `${item.id}`
   }
 
@@ -30,10 +33,13 @@ export class AmuletItem extends BaseItem implements BaseAmuletItem {
     const itemIds = params.split(',')
     if (!itemIds) return null
 
-    const item = amuletItems.find((i) => i.id === itemIds[0])
+    const optional = itemIds[0].includes(OPTIONAL_ITEM_SYMBOL)
+    const itemId = itemIds[0].replace(OPTIONAL_ITEM_SYMBOL, '')
+
+    const item = amuletItems.find((i) => i.id === itemId)
     if (!item) return null
 
-    return item
+    return optional ? { ...item, optional } : item
   }
 
   static fromDBValue(buildItems: BuildItems[]): AmuletItem | null {
@@ -43,7 +49,10 @@ export class AmuletItem extends BaseItem implements BaseAmuletItem {
     for (const buildItem of buildItems) {
       const item = amuletItems.find((i) => i.id === buildItem.itemId)
       if (!item) continue
-      amuletItem = item
+      amuletItem = {
+        ...item,
+        optional: buildItem.optional,
+      }
     }
     return amuletItem
   }
