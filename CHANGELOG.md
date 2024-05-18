@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2024-05-18
 
+### Added
+
+- Builds can now have items toggled as optional. This should allow builders to better clarify which items are core to the build.
+
 ### Fixed
 
 - Fixed issue where Melee Speed relic fragment wasn't parsing correctly from the save file in the Item Tracker.
