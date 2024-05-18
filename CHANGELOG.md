@@ -10,6 +10,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Builds can now have items toggled as optional. This should allow builders to better clarify which items are core to the build.
 
+### Changed
+
+- Updated almost all items to include a `saveFileSlug` property to better assist with parsing save files on the Item Tracker. For items missing a save file slug, the importer will remove all spaces and characters and lowercase the item name, which works for a large quantity. However, where I was able to find save file slugs, i.e. how the item is referenced in the save file, I use it to try and minimize the mistakes.
+
 ### Fixed
 
 - Fixed issue where Melee Speed relic fragment wasn't parsing correctly from the save file in the Item Tracker.

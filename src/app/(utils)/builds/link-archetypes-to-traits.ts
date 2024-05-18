@@ -75,6 +75,7 @@ export function linkArchetypesToTraits(buildState: BuildState) {
             id: linkedTraitItem.id,
             name: linkedTraitItem.name,
             category: linkedTraitItem.category,
+            type: linkedTraitItem.type,
             imagePath: linkedTraitItem.imagePath,
             description: linkedTraitItem.description ?? '',
             dlc: linkedTraitItem.dlc,

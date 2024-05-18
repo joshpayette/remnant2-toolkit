@@ -4,7 +4,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'helm',
     name: "Academic's Hat",
-    saveFileSlug: 'armor_head_alchemist',
+    saveFileSlug: 'Armor_Head_Alchemist_C',
     imagePath: '/items/armors/academicshat.png',
     id: '9qo2gg',
     dlc: 'base',
@@ -23,7 +23,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'helm',
     name: "Bandit's Mask",
-    saveFileSlug: 'armor_head_bandit',
+    saveFileSlug: 'Armor_Body_Bandit_C',
     imagePath: '/items/armors/banditsmask.png',
     id: 'v66pgu',
     dlc: 'base',
@@ -42,7 +42,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'helm',
     name: 'Battle Helmet',
-    saveFileSlug: 'armor_head_army',
+    saveFileSlug: 'Armor_Head_Army_C',
     imagePath: '/items/armors/battlehelmet.png',
     id: 'nathem',
     dlc: 'dlc2',
@@ -62,6 +62,7 @@ export const armorItems: ArmorItem[] = [
     category: 'helm',
     name: 'Bloodless Crown',
     imagePath: '/items/armors/bloodlesscrown.png',
+    saveFileSlug: 'Armor_Head_BloodlessCrown_C',
     id: 'o5fNZw',
     dlc: 'dlc2',
     armor: 6.6,
@@ -78,7 +79,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'helm',
     name: 'Bruiser Helmet',
-    saveFileSlug: 'armor_head_challenger',
+    saveFileSlug: 'Armor_Head_Challenger_C',
     imagePath: '/items/armors/bruiserhelmet.png',
     id: 'bd4pam',
     dlc: 'base',
@@ -97,7 +98,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'helm',
     name: 'Crimson Guard Shroud',
-    saveFileSlug: 'armor_head_crimsonguard',
+    saveFileSlug: 'Armor_Head_CrimsonGuard_C',
     dlc: 'dlc1',
     imagePath: '/items/armors/crimsonguardshroud.png',
     id: 'ce8izt',
@@ -116,7 +117,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'helm',
     name: 'Crown of the Red Prince',
-    saveFileSlug: 'armor_head_redprince',
+    saveFileSlug: 'Armor_Head_RedPrince_C',
     imagePath: '/items/armors/crownoftheredprince.png',
     id: 'pu3duv',
     dlc: 'base',
@@ -134,7 +135,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'helm',
     name: 'Cultist Hat',
-    saveFileSlug: 'armor_head_cultist',
+    saveFileSlug: 'Armor_Head_Cultist_C',
     imagePath: '/items/armors/cultisthat.png',
     id: 'x9jrx1',
     dlc: 'base',
@@ -154,7 +155,7 @@ export const armorItems: ArmorItem[] = [
     category: 'helm',
     name: 'Dandy Topper',
     imagePath: '/items/armors/dandytopper.png',
-    saveFileSlug: 'head_tophat',
+    saveFileSlug: 'Armor_Head_TopHat_C',
     id: 'vZL5tu',
     dlc: 'dlc2',
     armor: 12.8,
@@ -172,7 +173,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'helm',
     name: 'Dendroid Mask',
-    saveFileSlug: 'armor_head_invader',
+    saveFileSlug: 'Armor_Head_Invader_C',
     imagePath: '/items/armors/dendroidmask.png',
     id: 'y7fa8n',
     dlc: 'base',
@@ -191,7 +192,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'helm',
     name: 'Disciple Headpiece',
-    saveFileSlug: 'armor_head_invoker',
+    saveFileSlug: 'Armor_Head_Invoker_C',
     imagePath: '/items/armors/discipleheadpiece.png',
     id: 'y7fa8d',
     dlc: 'dlc2',
@@ -210,7 +211,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'helm',
     name: 'Elder Headdress',
-    saveFileSlug: 'armor_head_elder',
+    saveFileSlug: 'Armor_Head_Elder_C',
     imagePath: '/items/armors/elderheaddress.png',
     id: 'fek1ml',
     dlc: 'base',
@@ -231,7 +232,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'helm',
     name: 'Fae Royal Headcover',
-    saveFileSlug: 'armor_head_faeroyalguard',
+    saveFileSlug: 'Armor_Head_FaeRoyalGuard_C',
     imagePath: '/items/armors/faeroyalheadcover.png',
     id: '88kdl6',
     dlc: 'base',
@@ -250,7 +251,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'helm',
     name: 'Field Medic Hat',
-    saveFileSlug: 'armor_head_fieldcap',
+    saveFileSlug: 'Armor_Head_FieldCap_C',
     imagePath: '/items/armors/fieldmedichat.png',
     id: '48nh1x',
     dlc: 'base',
@@ -268,7 +269,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'helm',
     name: 'Field Medic Mask',
-    saveFileSlug: 'armor_head_medic',
+    saveFileSlug: 'Armor_Head_Medic_C',
     imagePath: '/items/armors/fieldmedicmask.png',
     id: 'e1waki',
     dlc: 'base',
@@ -287,7 +288,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'helm',
     name: 'High Noon Hat',
-    saveFileSlug: 'armor_head_gunslinger',
+    saveFileSlug: 'Armor_Head_Gunslinger_C',
     imagePath: '/items/armors/highnoonhat.png',
     id: '94xkn1',
     dlc: 'base',
@@ -306,7 +307,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'helm',
     name: 'Knotted Helm',
-    saveFileSlug: 'armor_head_summoner',
+    saveFileSlug: 'Armor_Head_summoner_C',
     imagePath: '/items/armors/knottedhelm.png',
     id: 'oab1w0',
     dlc: 'base',
@@ -325,7 +326,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'helm',
     name: 'Labyrinth Headplate',
-    saveFileSlug: 'armor_head_archon',
+    saveFileSlug: 'Armor_Head_Archon_C',
     imagePath: '/items/armors/labyrinthheadplate.png',
     id: 'im7fm2',
     dlc: 'base',
@@ -344,7 +345,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'helm',
     name: 'Leto Mark 1 Helmet',
-    saveFileSlug: 'armor_head_leto1',
+    saveFileSlug: 'Armor_Head_Leto1_C',
     imagePath: '/items/armors/letomark1helmet.png',
     id: 'kc4dc0',
     dlc: 'base',
@@ -363,7 +364,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'helm',
     name: 'Leto Mark II Helmet',
-    saveFileSlug: 'armor_head_leto2',
+    saveFileSlug: 'Armor_Head_Leto2_C',
     imagePath: '/items/armors/letomark2helmet.png',
     id: 'sdsybp',
     dlc: 'base',
@@ -384,6 +385,7 @@ export const armorItems: ArmorItem[] = [
     name: 'Lodestone Crown',
     imagePath: '/items/armors/lodestonecrown.png',
     id: 'pjt7nj',
+    saveFileSlug: 'Armor_Head_LodestoneCrown_C',
     dlc: 'base',
     armor: 6.5,
     weight: 2.6,
@@ -400,6 +402,7 @@ export const armorItems: ArmorItem[] = [
     category: 'helm',
     name: `Mudtooth's Hat`,
     imagePath: '/items/armors/mudtoothshat.png',
+    saveFileSlug: 'Armor_Head_MudtoothsHat_C',
     id: 'u7PqrJ',
     dlc: 'dlc2',
     armor: 10.6,
@@ -416,7 +419,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'helm',
     name: "Navigator's Helm",
-    saveFileSlug: 'armor_head_pilotshelm',
+    saveFileSlug: 'Armor_Head_PilotsHelm_C',
     imagePath: '/items/armors/navigatorshelm.png',
     id: 'ovnzhv',
     dlc: 'base',
@@ -434,7 +437,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'helm',
     name: 'Nightstalker Shroud',
-    saveFileSlug: 'armor_head_hunter',
+    saveFileSlug: 'Armor_Head_Hunter_C',
     imagePath: '/items/armors/nightstalkershroud.png',
     id: 'zy1ce3',
     dlc: 'base',
@@ -453,7 +456,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'helm',
     name: 'Radiant Visage',
-    saveFileSlug: 'armor_head_radiant',
+    saveFileSlug: 'Armor_Head_Radiant_C',
     imagePath: '/items/armors/radiantvisage.png',
     id: 'hv4oqq',
     dlc: 'base',
@@ -472,7 +475,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'helm',
     name: 'Realmwalker Beret',
-    saveFileSlug: 'armor_head_explorer',
+    saveFileSlug: 'Armor_Head_Explorer_C',
     imagePath: '/items/armors/realmwalkerberet.png',
     id: 'abhqna',
     dlc: 'base',
@@ -491,7 +494,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'helm',
     name: 'Red Widow Headdress',
-    saveFileSlug: 'armor_head_redwidow',
+    saveFileSlug: 'Armor_Head_RedWidow_C',
     imagePath: '/items/armors/redwidowheaddress.png',
     id: 'k6zlwn',
     dlc: 'base',
@@ -510,7 +513,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'helm',
     name: 'Space Worker Mask',
-    saveFileSlug: 'armor_head_spaceworker',
+    saveFileSlug: 'Armor_Head_SpaceWorker_C',
     imagePath: '/items/armors/spaceworkermask.png',
     id: 'n3vlkq',
     dlc: 'base',
@@ -529,7 +532,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'helm',
     name: 'Technician Helmet',
-    saveFileSlug: 'armor_head_engineer',
+    saveFileSlug: 'Armor_Head_Engineer_C',
     imagePath: '/items/armors/technicianhelmet.png',
     id: 'gsctum',
     dlc: 'base',
@@ -551,7 +554,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'helm',
     name: 'Trainer Cap',
-    saveFileSlug: 'armor_head_handler',
+    saveFileSlug: 'Armor_Head_Handler_C',
     imagePath: '/items/armors/trainercap.png',
     id: 'm8wgy9',
     dlc: 'base',
@@ -570,7 +573,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'helm',
     name: 'True Crimson Crown',
-    saveFileSlug: 'armor_head_truecrimsoncrown',
+    saveFileSlug: 'Armor_Head_TrueCrimsonCrown_C',
     imagePath: '/items/armors/truecrimsoncrown.png',
     id: 'gsctud',
     dlc: 'dlc2',
@@ -589,7 +592,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'helm',
     name: 'Void Skull',
-    saveFileSlug: 'armor_head_void',
+    saveFileSlug: 'Armor_Head_Void_C',
     imagePath: '/items/armors/voidskull.png',
     id: 's7tvfn',
     dlc: 'base',
@@ -608,7 +611,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'helm',
     name: "Zealot's Hat",
-    saveFileSlug: 'armor_head_ritualist',
+    saveFileSlug: 'Armor_Head_Ritualist_C',
     dlc: 'dlc1',
     imagePath: '/items/armors/zealotshat.png',
     id: 'ts1v89',
@@ -628,7 +631,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'torso',
     name: "Academic's Overcoat",
-    saveFileSlug: 'armor_body_alchemist',
+    saveFileSlug: 'Armor_Body_Alchemist_C',
     imagePath: '/items/armors/academicsovercoat.png',
     id: 'zk8f7a',
     dlc: 'base',
@@ -647,7 +650,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'torso',
     name: 'Bandit Jacket',
-    saveFileSlug: 'armor_body_bandit',
+    saveFileSlug: 'Armor_Body_Bandit_C',
     imagePath: '/items/armors/banditjacket.png',
     id: 'h04d6v',
     dlc: 'base',
@@ -666,7 +669,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'torso',
     name: 'Battle Shirt',
-    saveFileSlug: 'armor_body_army',
+    saveFileSlug: 'Armor_Body_Army_C',
     imagePath: '/items/armors/battleshirt.png',
     id: 'batshi',
     dlc: 'dlc2',
@@ -685,7 +688,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'torso',
     name: 'Bruiser Bodyplate',
-    saveFileSlug: 'armor_body_challenger',
+    saveFileSlug: 'Armor_Body_Challenger_C',
     imagePath: '/items/armors/bruiserbodyplate.png',
     id: 'trz2cm',
     dlc: 'base',
@@ -704,7 +707,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'torso',
     name: 'Crimson Guard Plate',
-    saveFileSlug: 'armor_body_crimsonguard',
+    saveFileSlug: 'Armor_Body_CrimsonGuard_C',
     dlc: 'dlc1',
     imagePath: '/items/armors/crimsonguardplate.png',
     id: 'hz7ddb',
@@ -722,7 +725,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'torso',
     name: 'Cultist Duster',
-    saveFileSlug: 'armor_body_cultist',
+    saveFileSlug: 'Armor_Body_Cultist_C',
     imagePath: '/items/armors/cultistduster.png',
     id: 'w4emjx',
     dlc: 'base',
@@ -741,7 +744,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'torso',
     name: 'Dendroid Chest',
-    saveFileSlug: 'armor_body_invader',
+    saveFileSlug: 'Armor_Body_Invader_C',
     imagePath: '/items/armors/dendroidchest.png',
     id: 'uoddub',
     dlc: 'base',
@@ -760,7 +763,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'torso',
     name: 'Disciple Mantle',
-    saveFileSlug: 'armor_body_invoker',
+    saveFileSlug: 'Armor_Body_Invoker_C',
     imagePath: '/items/armors/disciplemantle.png',
     id: 'ddddub',
     dlc: 'dlc2',
@@ -779,7 +782,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'torso',
     name: 'Elder Raiment',
-    saveFileSlug: 'armor_body_elder',
+    saveFileSlug: 'Armor_Body_Elder_C',
     imagePath: '/items/armors/elderraiment.png',
     id: 'zu64t4',
     dlc: 'base',
@@ -798,7 +801,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'torso',
     name: 'Fae Royal Bodyplate',
-    saveFileSlug: 'armor_body_faeroyalguard',
+    saveFileSlug: 'Armor_Body_FaeRoyalGuard_C',
     imagePath: '/items/armors/faeroyalbodyplate.png',
     id: '0sm6sn',
     dlc: 'base',
@@ -817,7 +820,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'torso',
     name: 'Field Medic Overcoat',
-    saveFileSlug: 'armor_body_medic',
+    saveFileSlug: 'Armor_Body_Medic_C',
     imagePath: '/items/armors/fieldmedicovercoat.png',
     id: 'm07a0z',
     dlc: 'base',
@@ -836,7 +839,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'torso',
     name: 'High Noon Duds',
-    saveFileSlug: 'armor_body_gunslinger',
+    saveFileSlug: 'Armor_Body_Gunslinger_C',
     imagePath: '/items/armors/highnoonduds.png',
     id: 'uszg5g',
     dlc: 'base',
@@ -855,7 +858,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'torso',
     name: 'Knotted Cage',
-    saveFileSlug: 'armor_body_summoner',
+    saveFileSlug: 'Armor_Body_summoner_C',
     imagePath: '/items/armors/knottedcage.png',
     id: 'n92z22',
     dlc: 'base',
@@ -874,7 +877,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'torso',
     name: 'Labyrinth Mantle',
-    saveFileSlug: 'armor_body_archon',
+    saveFileSlug: 'Armor_Body_Archon_C',
     imagePath: '/items/armors/labyrinthmantle.png',
     id: 'ivwkr5',
     dlc: 'base',
@@ -893,7 +896,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'torso',
     name: 'Leto Mark 1 Armor',
-    saveFileSlug: 'armor_body_leto1',
+    saveFileSlug: 'Armor_Body_Leto1_C',
     imagePath: '/items/armors/letomark1armor.png',
     id: 'y1xt79',
     dlc: 'base',
@@ -912,7 +915,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'torso',
     name: 'Leto Mark II Armor',
-    saveFileSlug: 'armor_body_leto2',
+    saveFileSlug: 'Armor_Body_Leto2_C',
     imagePath: '/items/armors/letomark2armor.png',
     id: 'ioksvz',
     dlc: 'base',
@@ -931,7 +934,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'torso',
     name: 'Nightstalker Garb',
-    saveFileSlug: 'armor_body_hunter',
+    saveFileSlug: 'Armor_Body_Hunter_C',
     imagePath: '/items/armors/nightstalkergarb.png',
     id: 'lqrdx5',
     dlc: 'base',
@@ -950,7 +953,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'torso',
     name: 'Radiant Protector',
-    saveFileSlug: 'armor_body_radiant',
+    saveFileSlug: 'Armor_Body_Radiant_C',
     imagePath: '/items/armors/radiantprotector.png',
     id: 'dd5s6k',
     dlc: 'base',
@@ -969,7 +972,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'torso',
     name: 'Realmwalker Tunic',
-    saveFileSlug: 'armor_body_explorer',
+    saveFileSlug: 'Armor_Body_Explorer_C',
     imagePath: '/items/armors/realmwalkertunic.png',
     id: '2h9xgj',
     dlc: 'base',
@@ -988,7 +991,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'torso',
     name: 'Red Widow Raiment',
-    saveFileSlug: 'armor_body_redwidow',
+    saveFileSlug: 'Armor_Body_RedWidow_C',
     imagePath: '/items/armors/redwidowraiment.png',
     id: 'lude4p',
     dlc: 'base',
@@ -1007,7 +1010,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'torso',
     name: 'Space Worker Body',
-    saveFileSlug: 'armor_body_spaceworker',
+    saveFileSlug: 'Armor_Body_SpaceWorker_C',
     imagePath: '/items/armors/spaceworkerbody.png',
     id: 'jwanjw',
     dlc: 'base',
@@ -1026,7 +1029,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'torso',
     name: 'Survivor Overcoat',
-    saveFileSlug: 'armor_body_survivor',
+    saveFileSlug: 'Armor_Body_Survivor_C',
     imagePath: '/items/armors/survivorovercoat.png',
     id: 'jr8r1l',
     dlc: 'base',
@@ -1044,7 +1047,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'torso',
     name: 'Technician Bodyplate',
-    saveFileSlug: 'armor_body_engineer',
+    saveFileSlug: 'Armor_Body_Engineer_C',
     imagePath: '/items/armors/technicianbodyplate.png',
     id: '0c35xs',
     dlc: 'base',
@@ -1066,7 +1069,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'torso',
     name: 'Trainer Clothes',
-    saveFileSlug: 'armor_body_handler',
+    saveFileSlug: 'Armor_Body_Handler_C',
     imagePath: '/items/armors/trainerclothes.png',
     id: 'ldli1k',
     dlc: 'base',
@@ -1085,7 +1088,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'torso',
     name: 'Void Carapace',
-    saveFileSlug: 'armor_body_void',
+    saveFileSlug: 'Armor_Body_Void_C',
     imagePath: '/items/armors/voidcarapace.png',
     id: 'rmq9je',
     dlc: 'base',
@@ -1104,7 +1107,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'torso',
     name: "Zealot's Overcoat",
-    saveFileSlug: 'armor_body_ritualist',
+    saveFileSlug: 'Armor_Body_Ritualist_C',
     dlc: 'dlc1',
     imagePath: '/items/armors/zealotsovercoat.png',
     id: 'ym0mau',
@@ -1123,7 +1126,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'legs',
     name: "Academic's Trousers",
-    saveFileSlug: 'armor_legs_alchemist',
+    saveFileSlug: 'Armor_Legs_Alchemist_C',
     imagePath: '/items/armors/academicstrousers.png',
     id: '9b43cb',
     dlc: 'base',
@@ -1142,7 +1145,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'legs',
     name: 'Bandit Trousers',
-    saveFileSlug: 'armor_legs_bandit',
+    saveFileSlug: 'Armor_Legs_Bandit_C',
     imagePath: '/items/armors/bandittrousers.png',
     id: 'zdv44y',
     dlc: 'base',
@@ -1161,7 +1164,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'legs',
     name: 'Battle Slacks',
-    saveFileSlug: 'armor_legs_army',
+    saveFileSlug: 'Armor_Legs_Army_C',
     imagePath: '/items/armors/battleslacks.png',
     id: 'battra',
     dlc: 'dlc2',
@@ -1180,7 +1183,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'legs',
     name: 'Bruiser Boots',
-    saveFileSlug: 'armor_legs_challenger',
+    saveFileSlug: 'Armor_Legs_Challenger_C',
     imagePath: '/items/armors/bruiserboots.png',
     id: 'pof5ii',
     dlc: 'base',
@@ -1199,7 +1202,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'legs',
     name: 'Crimson Guard Sabatons',
-    saveFileSlug: 'armor_legs_crimsonguard',
+    saveFileSlug: 'Armor_Legs_CrimsonGuard_C',
     dlc: 'dlc1',
     imagePath: '/items/armors/crimsonguardsabatons.png',
     id: 'zk58sf',
@@ -1217,7 +1220,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'legs',
     name: 'Cultist Britches',
-    saveFileSlug: 'armor_legs_cultist',
+    saveFileSlug: 'Armor_Legs_Cultist_C',
     imagePath: '/items/armors/cultistbritches.png',
     id: 'mr4hn3',
     dlc: 'base',
@@ -1236,7 +1239,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'legs',
     name: 'Dendroid Leggings',
-    saveFileSlug: 'armor_legs_invader',
+    saveFileSlug: 'Armor_Legs_Invader_C',
     imagePath: '/items/armors/dendroidleggings.png',
     id: 'zwh3mb',
     dlc: 'base',
@@ -1255,7 +1258,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'legs',
     name: 'Disciple Greaves',
-    saveFileSlug: 'armor_body_invoker',
+    saveFileSlug: 'Armor_Legs_Invoker_C',
     imagePath: '/items/armors/disciplegreaves.png',
     id: 'udddub',
     dlc: 'dlc2',
@@ -1274,7 +1277,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'legs',
     name: 'Elder Leggings',
-    saveFileSlug: 'armor_legs_elder',
+    saveFileSlug: 'Armor_Legs_Elder_C',
     imagePath: '/items/armors/elderleggings.png',
     id: 'tfvyyg',
     dlc: 'base',
@@ -1293,7 +1296,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'legs',
     name: 'Fae Royal Greaves',
-    saveFileSlug: 'armor_legs_faeroyalguard',
+    saveFileSlug: 'Armor_Legs_FaeRoyalGuard_C',
     imagePath: '/items/armors/faeroyalgreaves.png',
     id: 'pi4h8k',
     dlc: 'base',
@@ -1314,7 +1317,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'legs',
     name: 'Field Medic Trousers',
-    saveFileSlug: 'armor_legs_medic',
+    saveFileSlug: 'Armor_Legs_Medic_C',
     imagePath: '/items/armors/fieldmedictrousers.png',
     id: 'eqcfyt',
     dlc: 'base',
@@ -1333,7 +1336,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'legs',
     name: 'High Noon Soles',
-    saveFileSlug: 'armor_legs_gunslinger',
+    saveFileSlug: 'Armor_Legs_Gunslinger_C',
     imagePath: '/items/armors/highnoonsoles.png',
     id: 'yccols',
     dlc: 'base',
@@ -1352,7 +1355,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'legs',
     name: 'Knotted Greaves',
-    saveFileSlug: 'armor_legs_summoner',
+    saveFileSlug: 'Armor_Legs_summoner_C',
     imagePath: '/items/armors/knottedgreaves.png',
     id: 'b48zw1',
     dlc: 'base',
@@ -1371,7 +1374,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'legs',
     name: 'Labyrinth Treads',
-    saveFileSlug: 'armor_legs_archon',
+    saveFileSlug: 'Armor_Legs_Archon_C',
     imagePath: '/items/armors/labyrinthtreads.png',
     id: 'td29nk',
     dlc: 'base',
@@ -1390,7 +1393,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'legs',
     name: 'Leto Mark 1 Leggings',
-    saveFileSlug: 'armor_legs_leto1',
+    saveFileSlug: 'Armor_Legs_Leto1_C',
     imagePath: '/items/armors/letomark1leggings.png',
     id: '59uhgg',
     dlc: 'base',
@@ -1409,7 +1412,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'legs',
     name: 'Leto Mark II Leggings',
-    saveFileSlug: 'armor_legs_leto2',
+    saveFileSlug: 'Armor_Legs_Leto2_C',
     imagePath: '/items/armors/letomark2leggings.png',
     id: 't8auqk',
     dlc: 'base',
@@ -1428,7 +1431,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'legs',
     name: 'Nightstalker Pants',
-    saveFileSlug: 'armor_legs_hunter',
+    saveFileSlug: 'Armor_Legs_Hunter_C',
     imagePath: '/items/armors/nightstalkerpants.png',
     id: 'l6utx1',
     dlc: 'base',
@@ -1447,7 +1450,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'legs',
     name: 'Radiant Greaves',
-    saveFileSlug: 'armor_legs_radiant',
+    saveFileSlug: 'Armor_Legs_Radiant_C',
     imagePath: '/items/armors/radiantgreaves.png',
     id: 'vsg3ue',
     dlc: 'base',
@@ -1466,7 +1469,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'legs',
     name: 'Realmwalker Pantaloons',
-    saveFileSlug: 'armor_legs_explorer',
+    saveFileSlug: 'Armor_Legs_Explorer_C',
     imagePath: '/items/armors/realmwalkerpantaloons.png',
     id: '4sy6z9',
     dlc: 'base',
@@ -1485,7 +1488,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'legs',
     name: 'Red Widow Leggings',
-    saveFileSlug: 'armor_legs_redwidow',
+    saveFileSlug: 'Armor_Legs_RedWidow_C',
     imagePath: '/items/armors/redwidowleggings.png',
     id: 'e4fbbu',
     dlc: 'base',
@@ -1504,7 +1507,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'legs',
     name: 'Space Worker Legs',
-    saveFileSlug: 'armor_legs_spaceworker',
+    saveFileSlug: 'Armor_Legs_SpaceWorker_C',
     imagePath: '/items/armors/spaceworkerleggings.png',
     id: 'rsyilr',
     dlc: 'base',
@@ -1523,7 +1526,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'legs',
     name: 'Survivor Leggings',
-    saveFileSlug: 'armor_legs_survivor',
+    saveFileSlug: 'Armor_Legs_Survivor_C',
     imagePath: '/items/armors/survivorleggings.png',
     id: 'gv2eqj',
     dlc: 'base',
@@ -1541,7 +1544,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'legs',
     name: 'Technician Greaves',
-    saveFileSlug: 'armor_legs_engineer',
+    saveFileSlug: 'Armor_Legs_Engineer_C',
     imagePath: '/items/armors/techniciangreaves.png',
     id: 'm16oqd',
     dlc: 'base',
@@ -1563,7 +1566,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'legs',
     name: 'Trainer Workboots',
-    saveFileSlug: 'armor_legs_handler',
+    saveFileSlug: 'Armor_Legs_Handler_C',
     imagePath: '/items/armors/trainerworkboots.png',
     id: 'olwicb',
     dlc: 'base',
@@ -1582,7 +1585,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'legs',
     name: 'Void Greaves',
-    saveFileSlug: 'armor_legs_void',
+    saveFileSlug: 'Armor_Legs_Void_C',
     imagePath: '/items/armors/voidgreaves.png',
     id: '73lqjk',
     dlc: 'base',
@@ -1601,7 +1604,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'legs',
     name: "Zealot's Seaboots",
-    saveFileSlug: 'armor_legs_ritualist',
+    saveFileSlug: 'Armor_Legs_Ritualist_C',
     dlc: 'dlc1',
     imagePath: '/items/armors/zealotsseaboots.png',
     id: 'sem0s8',
@@ -1620,7 +1623,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'gloves',
     name: "Academic's Gloves",
-    saveFileSlug: 'armor_gloves_alchemist',
+    saveFileSlug: 'Armor_Gloves_Alchemist_C',
     set: "Academic's Set",
     imagePath: '/items/armors/academicsgloves.png',
     id: 'f4tb3k',
@@ -1639,7 +1642,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'gloves',
     name: 'Bandit Gloves',
-    saveFileSlug: 'armor_gloves_bandit',
+    saveFileSlug: 'Armor_Gloves_Bandit_C',
     imagePath: '/items/armors/banditgloves.png',
     id: 'b7j8ys',
     dlc: 'base',
@@ -1658,7 +1661,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'gloves',
     name: 'Battle Gloves',
-    saveFileSlug: 'armor_gloves_army',
+    saveFileSlug: 'Armor_Gloves_Army_C',
     imagePath: '/items/armors/battlegloves.png',
     id: 'batglo',
     dlc: 'dlc2',
@@ -1677,7 +1680,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'gloves',
     name: 'Bruiser Gloves',
-    saveFileSlug: 'armor_gloves_challenger',
+    saveFileSlug: 'Armor_Gloves_Challenger_C',
     imagePath: '/items/armors/bruisergloves.png',
     id: '80xuqr',
     dlc: 'base',
@@ -1696,7 +1699,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'gloves',
     name: 'Crimson Guard Gauntlets',
-    saveFileSlug: 'armor_gloves_crimsonguard',
+    saveFileSlug: 'Armor_Gloves_CrimsonGuard_C',
     dlc: 'dlc1',
     imagePath: '/items/armors/crimsonguardgauntlets.png',
     id: 'ms9geh',
@@ -1714,7 +1717,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'gloves',
     name: 'Cultist Gloves',
-    saveFileSlug: 'armor_gloves_cultist',
+    saveFileSlug: 'Armor_Gloves_Cultist_C',
     imagePath: '/items/armors/cultistgloves.png',
     id: '6jrywg',
     dlc: 'base',
@@ -1733,7 +1736,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'gloves',
     name: 'Dendroid Grips',
-    saveFileSlug: 'armor_gloves_invader',
+    saveFileSlug: 'Armor_Gloves_Invader_C',
     imagePath: '/items/armors/dendroidgrips.png',
     id: '6oy3xp',
     dlc: 'base',
@@ -1754,7 +1757,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'gloves',
     name: 'Disciple Vambraces',
-    saveFileSlug: 'armor_gloves_invoker',
+    saveFileSlug: 'Armor_Gloves_Invoker_C',
     imagePath: '/items/armors/disciplevambraces.png',
     id: '6dy3xp',
     dlc: 'dlc2',
@@ -1773,7 +1776,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'gloves',
     name: 'Elder Gloves',
-    saveFileSlug: 'armor_gloves_elder',
+    saveFileSlug: 'Armor_Gloves_Elder_C',
     imagePath: '/items/armors/eldergloves.png',
     id: '1ijl54',
     dlc: 'base',
@@ -1792,7 +1795,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'gloves',
     name: 'Fae Royal Vambraces',
-    saveFileSlug: 'armor_gloves_faeroyalguard',
+    saveFileSlug: 'Armor_Gloves_FaeRoyalGuard_C',
     imagePath: '/items/armors/faeroyalvambraces.png',
     id: '6005lk',
     dlc: 'base',
@@ -1811,7 +1814,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'gloves',
     name: 'Field Medic Gloves',
-    saveFileSlug: 'armor_gloves_medic',
+    saveFileSlug: 'Armor_Gloves_Medic_C',
     imagePath: '/items/armors/fieldmedicgloves.png',
     id: '7ic3gp',
     dlc: 'base',
@@ -1830,7 +1833,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'gloves',
     name: 'High Noon Armguards',
-    saveFileSlug: 'armor_gloves_gunslinger',
+    saveFileSlug: 'Armor_Gloves_Gunslinger_C',
     imagePath: '/items/armors/highnoonarmguards.png',
     id: 'afu61j',
     dlc: 'base',
@@ -1849,7 +1852,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'gloves',
     name: 'Knotted Gloves',
-    saveFileSlug: 'armor_gloves_summoner',
+    saveFileSlug: 'Armor_Gloves_summoner_C',
     imagePath: '/items/armors/knottedgloves.png',
     id: '07mqqe',
     dlc: 'base',
@@ -1868,7 +1871,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'gloves',
     name: 'Labyrinth Gauntlets',
-    saveFileSlug: 'armor_gloves_archon',
+    saveFileSlug: 'Armor_Gloves_Archon_C',
     imagePath: '/items/armors/labyrinthgauntlets.png',
     id: 'bhw19m',
     dlc: 'base',
@@ -1887,7 +1890,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'gloves',
     name: 'Leto Mark 1 Gloves',
-    saveFileSlug: 'armor_gloves_leto1',
+    saveFileSlug: 'Armor_Gloves_Leto1_C',
     imagePath: '/items/armors/letomark1gloves.png',
     id: '2lqg9t',
     dlc: 'base',
@@ -1906,7 +1909,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'gloves',
     name: 'Leto Mark II Gloves',
-    saveFileSlug: 'armor_gloves_leto2',
+    saveFileSlug: 'Armor_Gloves_Leto2_C',
     imagePath: '/items/armors/letomark2gloves.png',
     id: 'nfxk7i',
     dlc: 'base',
@@ -1925,7 +1928,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'gloves',
     name: 'Nightstalker Gloves',
-    saveFileSlug: 'armor_gloves_hunter',
+    saveFileSlug: 'Armor_Gloves_Hunter_C',
     imagePath: '/items/armors/nightstalkergloves.png',
     id: 'xl7dm2',
     dlc: 'base',
@@ -1944,7 +1947,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'gloves',
     name: 'Radiant Bracers',
-    saveFileSlug: 'armor_gloves_radiant',
+    saveFileSlug: 'Armor_Gloves_Radiant_C',
     imagePath: '/items/armors/radiantbracers.png',
     id: 'rjm014',
     dlc: 'base',
@@ -1963,7 +1966,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'gloves',
     name: 'Realmwalker Gloves',
-    saveFileSlug: 'armor_gloves_explorer',
+    saveFileSlug: 'Armor_Gloves_Explorer_C',
     imagePath: '/items/armors/realmwalkergloves.png',
     id: '47ak51',
     dlc: 'base',
@@ -1982,7 +1985,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'gloves',
     name: 'Red Widow Bracers',
-    saveFileSlug: 'armor_gloves_redwidow',
+    saveFileSlug: 'Armor_Gloves_RedWidow_C',
     imagePath: '/items/armors/redwidowbracers.png',
     id: '7uqilq',
     dlc: 'base',
@@ -2001,7 +2004,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'gloves',
     name: 'Space Worker Gloves',
-    saveFileSlug: 'armor_gloves_spaceworker',
+    saveFileSlug: 'Armor_Gloves_SpaceWorker_C',
     imagePath: '/items/armors/spaceworkergloves.png',
     id: '6clcha',
     dlc: 'base',
@@ -2020,7 +2023,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'gloves',
     name: 'Survivor Gloves',
-    saveFileSlug: 'armor_gloves_survivor',
+    saveFileSlug: 'Armor_Gloves_Survivor_C',
     imagePath: '/items/armors/survivorgloves.png',
     id: 'ws5jah',
     dlc: 'base',
@@ -2038,7 +2041,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'gloves',
     name: 'Technician Gloves',
-    saveFileSlug: 'armor_gloves_engineer',
+    saveFileSlug: 'Armor_Gloves_Engineer_C',
     imagePath: '/items/armors/techniciangloves.png',
     id: '11wear',
     dlc: 'base',
@@ -2060,7 +2063,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'gloves',
     name: 'Trainer Bracer',
-    saveFileSlug: 'armor_gloves_handler',
+    saveFileSlug: 'Armor_Gloves_Handler_C',
     imagePath: '/items/armors/trainerbracer.png',
     id: 'tgd095',
     dlc: 'base',
@@ -2079,7 +2082,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'gloves',
     name: 'Void Wraps',
-    saveFileSlug: 'armor_gloves_void',
+    saveFileSlug: 'Armor_Gloves_Void_C',
     imagePath: '/items/armors/voidwraps.png',
     id: 'a527cd',
     dlc: 'base',
@@ -2098,7 +2101,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'gloves',
     name: "Zealot's Wraps",
-    saveFileSlug: 'armor_gloves_ritualist',
+    saveFileSlug: 'Armor_Gloves_Ritualist_C',
     dlc: 'dlc1',
     imagePath: '/items/armors/zealotswraps.png',
     id: 'irt51q',

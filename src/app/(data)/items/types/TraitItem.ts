@@ -11,6 +11,7 @@ const allItems = [...traitItems, ...archetypeItems]
 
 interface BaseTraitItem extends BaseItem {
   amount: number
+  type: 'archetype' | 'core' | 'trait'
   elementalResistanceStep?: number // The amount to increase the elemental resistance per level
   elementalResistanceStepPercent?: number // The percentage to increase the elemental resistance per level
   elementalResistanceThresholds?: number[] // The elemental resistance thresholds for the elemental resistance step
@@ -27,6 +28,7 @@ interface BaseTraitItem extends BaseItem {
 
 export class TraitItem extends BaseItem implements BaseTraitItem {
   public category: BaseTraitItem['category'] = 'trait'
+  public type: BaseTraitItem['type'] = 'trait'
   public amount: BaseTraitItem['amount'] = DEFAULT_TRAIT_AMOUNT
   public elementalResistanceStep?: BaseTraitItem['elementalResistanceStep'] = 0
   public elementalResistanceStepPercent?: BaseTraitItem['elementalResistanceStepPercent'] = 0
@@ -45,6 +47,7 @@ export class TraitItem extends BaseItem implements BaseTraitItem {
   constructor(props: BaseTraitItem) {
     super(props)
     this.amount = props.amount
+    this.type = props.type
     this.elementalResistanceStep = props.elementalResistanceStep
     this.elementalResistanceStepPercent = props.elementalResistanceStepPercent
     this.elementalResistanceThresholds = props.elementalResistanceThresholds
@@ -98,6 +101,7 @@ export class TraitItem extends BaseItem implements BaseTraitItem {
             id: item.id,
             name: item.name,
             category: item.category,
+            type: item.type,
             imagePath: item.imagePath,
             amount: validAmount,
             dlc: item.dlc,
