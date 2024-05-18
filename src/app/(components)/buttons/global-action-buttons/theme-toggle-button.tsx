@@ -1,7 +1,7 @@
 import { MoonIcon, SunIcon } from '@heroicons/react/24/solid'
 import { useTheme } from 'next-themes'
 
-import { BaseButton } from '../../_base/button'
+import { BaseButton } from '@/app/(components)/_base/button'
 
 // WARNING: This component is not hydration-safe
 // https://github.com/pacocoursey/next-themes#avoid-hydration-mismatch
