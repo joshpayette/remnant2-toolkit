@@ -11,9 +11,12 @@ import { ReportBug } from '@/app/(components)/buttons/global-action-buttons/acti
 import { NAV_ITEMS } from '@/app/(types)/navigation'
 
 // Lazy-load the theme toggle, since it relies on client context
-const ToggleThemeButton = dynamic(() => import('./theme-toggle-button'), {
-  ssr: false,
-})
+const ToggleThemeButton = dynamic(
+  () => import('./theme-toggle-button.client'),
+  {
+    ssr: false,
+  },
+)
 
 export function GlobalActionButtons() {
   return (

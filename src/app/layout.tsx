@@ -17,7 +17,6 @@ import { NavBar } from '@/app/(components)/nav-bar'
 import { PreloadResources } from '@/app/(components)/preload-resources'
 
 import { SessionProvider } from './(components)/session-provider'
-import { ThemeSelection } from './(utils)/theme-utils'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -25,6 +24,13 @@ export const viewport: Viewport = {}
 
 const AlertBanner = dynamic(
   () => import('@/app/(components)/alerts/alert-banner.client'),
+  {
+    ssr: false,
+  },
+)
+
+const ThemeSelection = dynamic(
+  () => import('@/app/(components)/theme-selection.client'),
   {
     ssr: false,
   },

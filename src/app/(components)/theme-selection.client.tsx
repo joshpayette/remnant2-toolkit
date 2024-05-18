@@ -3,7 +3,7 @@
 import { ThemeProvider } from 'next-themes'
 import { useLocalStorage } from 'usehooks-ts'
 
-export function ThemeSelection({ children }: { children: React.ReactNode }) {
+export default function ThemeSelection({ children }: { children: React.ReactNode }) {
   const [localValue] = useLocalStorage<boolean>('r2tk-theme-toggle', false)
   return (
     <ThemeProvider
