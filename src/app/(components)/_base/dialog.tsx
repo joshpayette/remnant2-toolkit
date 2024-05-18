@@ -54,7 +54,7 @@ export function BaseDialog({
         </HeadlessTransitionChild>
 
         <HeadlessTransitionChild
-          className="fixed inset-0 z-[5] w-screen overflow-y-auto pt-24 sm:pt-0"
+          className="fixed inset-0 z-[5] w-screen overflow-y-auto pt-24 sm:p-8"
           enter="ease-out duration-100"
           enterFrom="opacity-0 translate-y-12 sm:translate-y-0"
           enterTo="opacity-100 translate-y-0"

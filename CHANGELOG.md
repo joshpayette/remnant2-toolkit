@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Fixed
 
 - Melee Attack Speed relic fragment renamed to Melic Speed to match in-game text.
+- Detailed Build View dialog now has more space around it to make it easier to exit out of.
 
 ## 2024-05-16
 
