@@ -10,6 +10,7 @@ export function getTotalResistances(
     buildState,
     `${resistance}Resistance`,
   )
+
   const itemsWithResistancePercent = getItemsByKey(
     buildState,
     `${resistance}ResistancePercent`,
@@ -23,6 +24,7 @@ export function getTotalResistances(
     (acc, item) => acc + (item?.[`${resistance}Resistance`] ?? 0),
     0,
   )
+
   const totalItemResistancePercent = itemsWithResistancePercent.reduce(
     (acc, item) => acc + (item?.[`${resistance}ResistancePercent`] ?? 0),
     0,

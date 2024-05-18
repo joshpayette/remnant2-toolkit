@@ -41,6 +41,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     tags: ['Armor Increase', 'Damage Reduction'],
     description: 'Blight Resistance, +30% at max level.',
     wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
+    blightResistance: 30,
   },
   {
     category: 'relicfragment',
