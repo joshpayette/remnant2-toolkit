@@ -2,8 +2,65 @@
 @tailwind components;
 @tailwind utilities;
 
+/* 
+Light mode colors scale dark -> light rather than the default light -> dark 
+
+For grayscale overrides, the default Tailwind palettes are used
+https://tailwindcss.com/docs/customizing-colors
+
+For themed colors, the 500 variant of the dark mode (Tailwind) equivalent is plugged into
+https://tailtools.app/palette-generator
+Broadly speaking this results in a darker pallete, which contrasts better in light mode
+*/
 @layer base {
-  :root, .light {
+  
+  :root {
+    /* 
+    Variables (and default values are sourced from:
+    https://fkhadra.github.io/react-toastify/how-to-style/ 
+    
+    Original colors:
+        --toastify-color-info: #3498db;
+        --toastify-color-success: #07bc0c;
+        --toastify-color-warning: #f1c40f;
+        --toastify-color-error: #e74c3c;
+    */ 
+    --toastify-color-info: rgb(var(--color-cyan-500) / 1.0);
+    --toastify-color-success: #07bc0c;
+    --toastify-color-warning: rgb(var(--color-yellow-500) / 1.0);
+    --toastify-color-error: #e74c3c;
+    --toastify-color-transparent: rgba(255, 255, 255, 0.7);
+
+    --toastify-icon-color-info: var(--toastify-color-info);
+    --toastify-icon-color-success: var(--toastify-color-success);
+    --toastify-icon-color-warning: var(--toastify-color-warning);
+    --toastify-icon-color-error: var(--toastify-color-error);
+
+    /* 
+    We are always using the "dark" theme 
+    "colored" = solid colored background (e.g. success is white-on-green)
+    */
+    --toastify-color-dark: rgb(var(--color-background) / 1.0);
+    --toastify-text-color-dark: rgb(var(--color-surface-solid) / 1.0);
+
+    --toastify-toast-width: 320px;
+    --toastify-toast-background: #fff;
+    --toastify-toast-min-height: 64px;
+    --toastify-toast-max-height: 800px;
+    --toastify-font-family: sans-serif;
+    --toastify-z-index: 9999;
+
+    --toastify-color-progress-info: var(--toastify-color-info);
+    --toastify-color-progress-success: var(--toastify-color-success);
+    --toastify-color-progress-warning: var(--toastify-color-warning);
+    --toastify-color-progress-error: var(--toastify-color-error);
+
+    --toastify-color-progress-bgo: .2;
+  }
+  
+  .light {
+    --color-theme: "light";
+
     --color-background: 245 250 252;
     --color-background-solid: 255 255 255;
     --color-surface: 23 29 30;
@@ -33,44 +90,46 @@
     --color-zinc-900: 244 244 245;
     --color-zinc-950: 250 250 250;
 
-    --color-cyan-50: 8 51 68;
-    --color-cyan-100: 22 78 99;
-    --color-cyan-200: 21 94 117;
-    --color-cyan-300: 14 116 144;
-    --color-cyan-400: 8 145 178;
-    --color-cyan-500: 6 182 212;
-    --color-cyan-600: 34 211 238;
-    --color-cyan-700: 103 232 249;
-    --color-cyan-800: 165 243 252;
-    --color-cyan-900: 207 250 254;
-    --color-cyan-950: 236 254 255;
+    --color-cyan-50: 1 42 49;
+    --color-cyan-100: 2 64 74;
+    --color-cyan-200: 3 86 100;
+    --color-cyan-300: 4 107 125;
+    --color-cyan-400: 4 129 151;
+    --color-cyan-500: 5 151 176;
+    --color-cyan-600: 6 173 201;
+    --color-cyan-700: 56 197 221;
+    --color-cyan-800: 118 215 231;
+    --color-cyan-900: 180 233 242;
+    --color-cyan-950: 243 251 253;
     
-    --color-violet-50: 46 16 101;
-    --color-violet-100: 76 29 149;
-    --color-violet-200: 91 33 182;
-    --color-violet-300: 109 40 217;
-    --color-violet-400: 124 58 237;
-    --color-violet-500: 139 92 246;
-    --color-violet-600: 167 139 250;
-    --color-violet-700: 196 181 253;
-    --color-violet-800: 221 214 254;
-    --color-violet-900: 237 233 254;
-    --color-violet-950: 245 243 255;
+    --color-violet-50: 32 21 57;
+    --color-violet-100: 49 32 86;
+    --color-violet-200: 65 43 116;
+    --color-violet-300: 82 54 145;
+    --color-violet-400: 99 65 175;
+    --color-violet-500: 115 76 204;
+    --color-violet-600: 132 87 234;
+    --color-violet-700: 162 125 248;
+    --color-violet-800: 191 165 250;
+    --color-violet-900: 220 206 252;
+    --color-violet-950: 249 247 255;
     
-    --color-yellow-50: 66 32 6;
-    --color-yellow-100: 113 63 18;
-    --color-yellow-200: 133 77 14;
-    --color-yellow-300: 161 98 7;
-    --color-yellow-400: 202 138 4;
-    --color-yellow-500: 234 179 8;
-    --color-yellow-600: 250 204 21;
-    --color-yellow-700: 253 224 71;
-    --color-yellow-800: 254 240 138;
-    --color-yellow-900: 254 249 195;
-    --color-yellow-950: 254 252 232;
+    --color-yellow-50: 54 41 2;
+    --color-yellow-100: 82 63 3;
+    --color-yellow-200: 110 84 4;
+    --color-yellow-300: 138 106 5;
+    --color-yellow-400: 166 127 6;
+    --color-yellow-500: 194 149 7;
+    --color-yellow-600: 222 170 8;
+    --color-yellow-700: 238 194 57;
+    --color-yellow-800: 243 213 119;
+    --color-yellow-900: 249 232 181;
+    --color-yellow-950: 254 251 243;
   }
 
   .dark {
+    --color-theme: "dark";
+
     --color-background: 17 0 28;
     --color-background-solid: 0 0 0;
     --color-surface: 245 250 252;
@@ -149,23 +208,23 @@ body > div:last-child > span + img {
 }
 
 .tippy-box[data-theme~='r2tk'] {
-  background-color: rgb(22 78 99);
-  color: #fff;
+  background-color: rgb(var(--color-cyan-900));
+  color: rgb(var(--color-surface-solid));
   border-width: 1px;
-  border-color: rgb(34 211 238);
+  border-color: rgb(var(--color-cyan-400));
   font-size: 0.75rem/* 12px */;
   line-height: 1rem/* 16px */;
 }
 
 .tippy-box[data-theme~='r2tk'][data-placement^='top'] > .tippy-arrow::before {
-  border-top-color: rgb(22 78 99);
+  border-top-color: rgb(var(--color-cyan-900));
 }
 .tippy-box[data-theme~='r2tk'][data-placement^='bottom'] > .tippy-arrow::before {
-  border-bottom-color: rgb(22 78 99);
+  border-bottom-color: rgb(var(--color-cyan-900));
 }
 .tippy-box[data-theme~='r2tk'][data-placement^='left'] > .tippy-arrow::before {
-  border-left-color: rgb(22 78 99);
+  border-left-color: rgb(var(--color-cyan-900));
 }
 .tippy-box[data-theme~='r2tk'][data-placement^='right'] > .tippy-arrow::before {
-  border-right-color: rgb(22 78 99);
+  border-right-color: rgb(var(--color-cyan-900));
 }

@@ -23,7 +23,7 @@ export default function ToggleThemeButton() {
     )
   } else {
     return (
-      <BaseButton onClick={() => setTheme('dark')} color="dark">
+      <BaseButton onClick={() => setTheme('dark')} color="white">
         <MoonIcon className="h-5 w-5" />
       </BaseButton>
     )

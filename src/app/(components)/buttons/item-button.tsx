@@ -8,6 +8,7 @@ import { Tooltip } from '@/app/(components)/tooltip'
 import { Enemy, isEnemy } from '@/app/(data)/enemies/types'
 import { Item } from '@/app/(data)/items/types'
 import { cn } from '@/app/(utils)/classnames'
+import { ArchetypeItem } from '@/app/(data)/items/types/ArchetypeItem'
 
 /**
  * Some words are too long to fit in the item label on the builder
@@ -173,6 +174,10 @@ export function ItemButton({
             !isEnemy(item) &&
             item.optional &&
             'border-dashed border-gray-300',
+          item &&
+            !isEnemy(item) &&
+            ArchetypeItem.isArchetypeItem(item) && 
+            'bg-black',
           size === 'sm' && 'h-[22px] w-[22px]',
           size === 'md' && 'h-[66px] w-[66px]',
           size === 'lg' && 'h-[99px] w-[99px]',
