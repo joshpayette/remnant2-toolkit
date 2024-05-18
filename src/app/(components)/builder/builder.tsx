@@ -227,7 +227,7 @@ export function Builder({
       })
 
       const newItemIds = newBuildItems.map((i) =>
-        i.optional ? `${i?.id}${OPTIONAL_ITEM_SYMBOL}` : i?.id,
+        i?.optional ? `${i?.id}${OPTIONAL_ITEM_SYMBOL}` : i?.id,
       )
 
       onUpdateBuildState({
