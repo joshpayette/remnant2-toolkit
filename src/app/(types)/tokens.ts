@@ -4,7 +4,7 @@ export const INLINE_TOKENS = [
   {
     type: 'Acid',
     token: 'ACID',
-    color: 'text-[#589961]',
+    color: 'text-[#497F51] dark:text-[#589961]',
     description: 'Elemental Damage.',
   },
   {
@@ -23,33 +23,33 @@ export const INLINE_TOKENS = [
   {
     type: 'Bleeding',
     token: 'BLEEDING',
-    color: 'text-[#f2350f]',
+    color: 'text-[#C92C0C] dark:text-[#f2350f]',
     description:
       'Deals Physical Damage per second. Reduces healing effectiveness by 50%.',
   },
   {
     type: 'Bleeding',
     token: 'BLEED',
-    color: 'text-[#f2350f]',
+    color: 'text-[#C92C0C] dark:text-[#f2350f]',
     description:
       'Deals Physical Damage per second. Reduces healing effectiveness by 50%.',
   },
   {
     type: 'Brittle',
     token: 'BRITTLE',
-    color: 'text-[#fff1bc]',
+    color: 'text-[#B5AB85] dark:text-[#fff1bc]',
     description: undefined,
   },
   {
     type: 'Blowback',
     token: 'BLOWBACK',
-    color: 'text-[#fff1bc]',
+    color: 'text-[#B5AB85] dark:text-[#fff1bc]',
     description: undefined,
   },
   {
     type: 'Burning',
     token: 'BURNING',
-    color: 'text-[#b65d30]',
+    color: 'text-[#974D28] dark:text-[#b65d30]',
     description: 'Deals elemental FIRE damage. Can make enemies panic.',
   },
   {
@@ -68,46 +68,46 @@ export const INLINE_TOKENS = [
   {
     type: 'Call of the Doe',
     token: 'CALL OF THE DOE',
-    color: 'text-[#fff1bc]',
+    color: 'text-[#B5AB85] dark:text-[#fff1bc]',
     description: undefined,
   },
   {
     type: 'Contamination',
     token: 'CONTAMINATION',
-    color: 'text-[#800080]',
+    color: 'text-[#6A006A] dark:text-[#800080]',
     description:
       'Inflicts a burst of damage after which it resets allowing another build-up.',
   },
   {
     type: 'Corroded',
     token: 'CORRODED',
-    color: 'text-[#0fa82b]',
+    color: 'text-[#0C8B24] dark:text-[#0fa82b]',
     description: 'Increases damage taken by 10%.',
   },
   {
     type: 'Corrosive',
     token: 'CORROSIVE',
-    color: 'text-[#589961]',
+    color: 'text-[#497F51] dark:text-[#589961]',
     description: 'Elemental Damage.',
   },
   {
     type: 'Critical Damage',
     token: 'Crit Damage',
-    color: 'text-red-500',
+    color: 'text-[#C63838] dark:text-[#ef4444]',
     description:
       'Base 50%. Critical Damage is multiplicative with different sources of damage.',
   },
   {
     type: 'Critical Damage',
     token: 'Critical Damage',
-    color: 'text-red-500',
+    color: 'text-[#C63838] dark:text-[#ef4444]',
     description:
       'Base 50%. Critical Damage is multiplicative with different sources of damage.',
   },
   {
     type: 'Curse',
     token: 'CURSE',
-    color: 'text-[#7d219e]',
+    color: 'text-[#681B83] dark:text-[#7d219e]',
     description: 'Reduces maximum Health by 10% per stack. Maximum 5 stacks.',
   },
   {
@@ -120,19 +120,19 @@ export const INLINE_TOKENS = [
   {
     type: 'Defrag',
     token: 'DEFRAG',
-    color: 'text-[#ede6e6]',
+    color: 'text-[#C5BFBF] dark:text-[#ede6e6]',
     description: 'Physical Damage.',
   },
   {
     type: 'Drenched',
     token: 'DRENCHED',
-    color: 'text-[#fff1bc]',
+    color: 'text-[#B5AB85] dark:text-[#fff1bc]',
     description: undefined,
   },
   {
     type: 'Elemental Damage',
     token: 'Elemental Damage',
-    color: 'text-emerald-400',
+    color: 'text-[#0D9A6B] dark:text-[#10B981]',
     description: `Acid, Corrosive, Fire, Shock, certain skills and mods.`,
   },
   {
@@ -150,43 +150,43 @@ export const INLINE_TOKENS = [
   {
     type: 'EXPOSED',
     token: 'EXPOSED',
-    color: 'text-yellow-100',
+    color: 'text-[#B4B18A] dark:text-[#fef9c3]',
     description: 'Target receives 15% additional damage from all sources.',
   },
   {
     type: 'Fire',
     token: 'FIRE',
-    color: 'text-[#cc5500]',
+    color: 'text-[#A94700] dark:text-[#cc5500]',
     description: 'Elemental Damage.',
   },
   {
     type: 'Frenzied',
     token: 'FRENZIED',
-    color: 'text-yellow-100',
+    color: 'text-[#B4B18A] dark:text-[#fef9c3]',
     description: 'undefined',
   },
   {
     type: 'Living Will',
     token: 'LIVING WILL',
-    color: 'text-yellow-100',
+    color: 'text-[#B4B18A] dark:text-[#fef9c3]',
     description: 'undefined',
   },
   {
     type: 'Stoneskin',
     token: 'STONESKIN',
-    color: 'text-yellow-100',
+    color: 'text-[#B4B18A] dark:text-[#fef9c3]',
     description: 'undefined',
   },
   {
     type: 'Unbridled Chaos',
     token: 'UNBRIDLED CHAOS',
-    color: 'text-yellow-100',
+    color: 'text-[#B4B18A] dark:text-[#fef9c3]',
     description: 'undefined',
   },
   {
     type: 'Gloom',
     token: 'GLOOM',
-    color: 'text-[#fff1bc]',
+    color: 'text-[#B5AB85] dark:text-[#fff1bc]',
     description: undefined,
   },
   {
@@ -204,7 +204,7 @@ export const INLINE_TOKENS = [
   {
     type: 'Haste',
     token: 'HASTE',
-    color: 'text-[#f1f1cf]',
+    color: 'text-[#C8C8AC] dark:text-[#f1f1cf]',
     description: `Increases the speed of player's actions by 7%.`,
   },
   {
@@ -228,14 +228,14 @@ export const INLINE_TOKENS = [
   {
     type: 'Lifesteal',
     token: 'Lifesteal',
-    color: 'text-rose-500',
+    color: 'text-[#CB344E] dark:text-[#F43F5E]',
     description:
       "Unupgraded Base Damage only. Doesn't work with Healing Effectiveness.",
   },
   {
     type: 'Madness',
     token: 'MADNESS',
-    color: 'text-[#ede6e6]',
+    color: 'text-[#C5BFBF] dark:text-[#ede6e6]',
     description: 'Physical Damage.',
   },
   {
@@ -254,19 +254,19 @@ export const INLINE_TOKENS = [
   {
     type: 'OPPORTUNITY',
     token: 'OPPORTUNITY',
-    color: 'text-[#fff1bc]',
+    color: 'text-[#B5AB85] dark:text-[#fff1bc]',
     description: undefined,
   },
   {
     type: 'Power Stone',
     token: 'POWER STONE',
-    color: 'text-[#fff1bc]',
+    color: 'text-[#B5AB85] dark:text-[#fff1bc]',
     description: undefined,
   },
   {
     type: 'Overloaded',
     token: 'OVERLOADED',
-    color: 'text-[#7676af]',
+    color: 'text-[#626291] dark:text-[#7676af]',
     description:
       'Deals elemental SHOCK area damage every 5 seconds. Damage increases by 10% for every OVERLOADED enemy nerby. ', // TODO What's the range and what's the max damage increase for secondary effect?
   },
@@ -279,26 +279,26 @@ export const INLINE_TOKENS = [
   {
     type: 'Root Rot',
     token: 'ROOT ROT',
-    color: 'text-[#c66806]',
+    color: 'text-[#A45605] dark:text-[#c66806]',
     description:
       'Reduces maximum Stamina by 33%. Forces coughing animation at random intervals.',
   },
   {
     type: 'Shield',
     token: 'SHIELD',
-    color: 'text-[#80e0e1]',
+    color: 'text-[#6ABABB] dark:text-[#80e0e1]',
     description: `Provides a shield on top of your health. Shields from different sources stack.`,
   },
   {
     type: 'Shock',
     token: 'SHOCK',
-    color: 'text-[#5c5cce]',
+    color: 'text-[#4C4CAB] dark:text-[#5c5cce]',
     description: 'Elemental Damage. Deals double damage to shields.',
   },
   {
     type: 'Slow',
     token: 'SLOW',
-    color: 'text-[#f1f1cf]',
+    color: 'text-[#C8C8AC] dark:text-[#f1f1cf]',
     description:
       'Reduces target speed. 99% reduced effect against Bosses and Aberrations.',
   },
@@ -311,98 +311,98 @@ export const INLINE_TOKENS = [
   {
     type: 'Suppression',
     token: 'SUPPRESSION',
-    color: 'text-[#444662]',
+    color: 'text-[#383A51] dark:text-[#444662]',
     description: 'Reduces Mod Power Generation by 50%.',
   },
   {
     type: 'PRERELEASE',
     token: 'PRERELEASE',
-    color: 'text-[#ecfc00]',
+    color: 'text-[#C4D100] dark:text-[#ecfc00]',
     description: `This is prerelease content. Information might not be accurate or change. Numbers aren't final.`,
   },
   {
     type: 'Weakspot Damage',
     token: 'Weakspot Damage',
-    color: 'text-red-500',
+    color: 'text-[#C63838] dark:text-[#ef4444]',
     description:
       'Weakspot Damage is multiplicative with different sources of damage.',
   },
   {
     type: 'Negative Status Effects',
     token: 'Negative Status Effects',
-    color: 'text-purple-400',
+    color: 'text-[#885EB3] dark:text-[#C084FC]',
     description: `Bleeding, Burning, Corroded, Overloaded, Slow.`,
   },
   {
     type: 'Negative Status Effect',
     token: 'Negative Status Effect',
-    color: 'text-purple-400',
+    color: 'text-[#885EB3] dark:text-[#C084FC]',
     description: `Bleeding, Burning, Corroded, Overloaded, Slow.`,
   },
   {
     type: 'Negative Status',
     token: 'Negative Status',
-    color: 'text-purple-400',
+    color: 'text-[#885EB3] dark:text-[#C084FC]',
     description: `Bleeding, Burning, Corroded, Overloaded, Slow.`,
   },
   {
     type: 'Elemental Status Effects',
     token: 'Elemental Status Effects',
-    color: 'text-[#05baf9]',
+    color: 'text-[#049ACF] dark:text-[#05baf9]',
     description: `Burning, Corroded, Overloaded.`,
   },
   {
     type: 'Elemental Status Effect',
     token: 'Elemental Status Effect',
-    color: 'text-[#05baf9]',
+    color: 'text-[#049ACF] dark:text-[#05baf9]',
     description: `Burning, Corroded, Overloaded.`,
   },
   {
     type: 'Elemental Status',
     token: 'Elemental Status',
-    color: 'text-[#05baf9]',
+    color: 'text-[#049ACF] dark:text-[#05baf9]',
     description: `Burning, Corroded, Overloaded.`,
   },
   {
     type: 'Status Effects',
     token: 'Status Effects',
-    color: 'text-purple-400',
+    color: 'text-[#885EB3] dark:text-[#C084FC]',
     description: `Bleeding, Burning, Corroded, Overloaded, Slow.`,
   },
   {
     type: 'Status Effect',
     token: 'Status Effect',
-    color: 'text-purple-400',
+    color: 'text-[#885EB3] dark:text-[#C084FC]',
     description: `Bleeding, Burning, Corroded, Overloaded, Slow.`,
   },
   {
     type: 'MARKED',
     token: 'MARKED',
-    color: 'text-[#fff1bc]',
+    color: 'text-[#B5AB85] dark:text-[#fff1bc]',
     description: undefined,
   },
   {
     type: 'MARK',
     token: 'MARK',
-    color: 'text-[#fff1bc]',
+    color: 'text-[#B5AB85] dark:text-[#fff1bc]',
     description: undefined,
   },
   {
     type: 'AMBUSH',
     token: 'AMBUSH',
-    color: 'text-[#fff1bc]',
+    color: 'text-[#B5AB85] dark:text-[#fff1bc]',
     description: undefined,
   },
   {
     type: 'FOCUSED',
     token: 'FOCUSED',
-    color: 'text-[#fff1bc]',
+    color: 'text-[#B5AB85] dark:text-[#fff1bc]',
     description: undefined,
   },
   {
     type: 'GIFT OF THE FOREST',
     token: 'GIFT OF THE FOREST',
-    color: 'text-[#fff1bc]',
+    color: 'text-[#B5AB85] dark:text-[#fff1bc]',
     description: undefined,
   },
 ] as const satisfies {
@@ -416,7 +416,7 @@ export type InlineToken = (typeof INLINE_TOKENS)[number]
 export const EXTERNAL_TOKENS = [
   {
     token: 'Amplitude',
-    color: 'text-[#66ffcc]',
+    color: 'text-[#55D4A9] dark:text-[#66ffcc]',
     description:
       "All, or part, of this item's effect benefits from Amplitude trait.",
   },
@@ -424,38 +424,38 @@ export const EXTERNAL_TOKENS = [
   // * to specify that the Handler skills apply bleed.
   {
     token: 'Attack Dog',
-    color: 'text-[#f2350f]',
+    color: 'text-[#C92C0C] dark:text-[#589961]',
     description: 'Dog applies BLEEDING to enemies.',
   },
   {
     token: 'Guard Dog',
-    color: 'text-[#f2350f]',
+    color: 'text-[#C92C0C] dark:text-[#589961]',
     description: 'Dog applies BLEEDING to enemies.',
   },
   {
     token: 'Support Dog',
-    color: 'text-[#f2350f]',
+    color: 'text-[#C92C0C] dark:text-[#589961]',
     description: 'Dog applies BLEEDING to enemies.',
   },
   {
     token: 'Explosive Damage',
-    color: 'text-[#ff7575]',
+    color: 'text-[#D46161] dark:text-[#ff7575]',
     description: "All, or part, of this item's effect deals Explosive Damage.",
   },
   {
     token: 'Multiplicative',
-    color: 'text-orange-300',
+    color: 'text-[#956E44] dark:text-[#FDBA74]',
     description: 'Damage is multiplicative with different sources of damage.',
   },
   {
     token: 'Multiplicative Debuffs',
-    color: 'text-red-400',
+    color: 'text-[#B05050] dark:text-[#F87171]',
     description:
       'Counts as a debuff making it multiplicative with different sources of damage.',
   },
   {
     token: 'Bug',
-    color: 'text-[#ecff00]',
+    color: 'text-[#C4D400] dark:text-[#ecff00]',
     description:
       'This item is currently bugged and MAY not function as expected. Check remnant.wiki for more information.',
   },
