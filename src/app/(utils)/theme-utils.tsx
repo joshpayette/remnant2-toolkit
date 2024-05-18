@@ -1,10 +1,7 @@
 'use client'
 
-import { MoonIcon, SunIcon } from '@heroicons/react/24/solid'
-import { ThemeProvider, useTheme } from 'next-themes'
+import { ThemeProvider } from 'next-themes'
 import { useLocalStorage } from 'usehooks-ts'
-
-import { BaseButton } from '../(components)/_base/button'
 
 export function ThemeSelection({ children }: { children: React.ReactNode }) {
   const [localValue] = useLocalStorage<boolean>('r2tk-theme-toggle', false)
@@ -21,29 +18,4 @@ export function ThemeSelection({ children }: { children: React.ReactNode }) {
       {children}
     </ThemeProvider>
   )
-}
-
-export function ToggleThemeButton() {
-  const { setTheme, forcedTheme, resolvedTheme } = useTheme()
-
-  // Temporary feature gate
-  if (forcedTheme) {
-    // If a theme is being forced, there is no alternate theme to toggle to
-    // Disable the toggle option in this case
-    return
-  }
-
-  if (resolvedTheme === 'dark') {
-    return (
-      <BaseButton onClick={() => setTheme('light')} color="white">
-        <SunIcon className="h-5 w-5" />
-      </BaseButton>
-    )
-  } else {
-    return (
-      <BaseButton onClick={() => setTheme('dark')} color="dark">
-        <MoonIcon className="h-5 w-5" />
-      </BaseButton>
-    )
-  }
 }

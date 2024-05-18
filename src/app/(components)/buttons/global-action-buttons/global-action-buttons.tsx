@@ -8,7 +8,10 @@ import { BaseButton } from '@/app/(components)/_base/button'
 import { BugReportPrompt } from '@/app/(components)/alerts/bug-report-prompt'
 import { ReportBug } from '@/app/(components)/buttons/global-action-buttons/actions'
 import { NAV_ITEMS } from '@/app/(types)/navigation'
-import { ToggleThemeButton } from '@/app/(utils)/theme-utils'
+import dynamic from 'next/dynamic'
+
+// Lazy-load the theme toggle, since it relies on client context
+const ToggleThemeButton = dynamic(() => import('./theme-toggle-button'), { ssr: false })
 
 export function GlobalActionButtons() {
   return (
