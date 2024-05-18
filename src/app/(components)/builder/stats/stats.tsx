@@ -62,7 +62,7 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
               {/** Not updating to new button component */}
               <button
                 className={cn(
-                  'text-md flex items-center justify-end rounded-full border-transparent bg-black text-right font-bold sm:text-lg',
+                  'text-md flex items-center justify-end rounded-full border-transparent bg-background-solid text-right font-bold sm:text-lg',
                   isScreenshotMode && 'text-lg',
                 )}
                 onClick={() => setHealthInfoOpen(true)}
@@ -78,7 +78,7 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
               {/** Not updating to new button component */}
               <button
                 className={cn(
-                  'text-md flex items-center justify-end rounded-full border-transparent bg-black text-right font-bold sm:text-lg',
+                  'text-md flex items-center justify-end rounded-full border-transparent bg-background-solid text-right font-bold sm:text-lg',
                   isScreenshotMode && 'text-lg',
                 )}
                 onClick={() => setStaminaInfoOpen(true)}
