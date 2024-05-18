@@ -14,6 +14,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Fixed issue where Melee Speed relic fragment wasn't parsing correctly from the save file in the Item Tracker.
 - Fixed issue where Blight Resistance relic fragment was not adding to the total blight resistance in a build's stats.
+- Removed "crap" from bad word list.
 
 ## 2024-05-17
 

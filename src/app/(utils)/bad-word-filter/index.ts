@@ -33,6 +33,7 @@ filter.removeWords(
   'screwing',
   'damn',
   'schmuck',
+  'crap',
 )
 
 export function cleanBadWords(text: string) {
