@@ -155,7 +155,7 @@ export function ItemButton({
             <button
               className={cn(
                 'absolute left-0 top-0 z-[1] rounded-full border-transparent bg-black',
-                size === 'sm' && 'sm:left-auto sm:right-[-40px]',
+                size === 'sm' && 'left-auto right-[-40px]',
               )}
               onClick={() => onToggleOptional(item, !item.optional)}
               aria-label="Toggle item as optional"
