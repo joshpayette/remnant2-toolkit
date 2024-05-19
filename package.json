@@ -21,7 +21,7 @@
     "@mdx-js/react": "3.0.0",
     "@next/mdx": "14.0.4",
     "@popperjs/core": "2.11.8",
-    "@prisma/client": "5.8.0",
+    "@prisma/client": "5.14.0",
     "@reduxjs/toolkit": "2.2.2",
     "@tippyjs/react": "4.2.6",
     "@vercel/analytics": "1.1.1",

@@ -195,6 +195,7 @@ model Build {
   name              String
   description       String?           @db.Text
   videoUrl          String?
+  videoUrlUpdatedAt DateTime?
   thumbnailUrl      String?
   buildLink         String?
   BuildVotes        BuildVoteCounts[]
