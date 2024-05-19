@@ -124,7 +124,7 @@ export function parseUrlFilters(
   }
 }
 
-export function getCategoryProgressLabel({
+export function getCategoryProgressStats({
   filteredItems,
   discoveredItemIds,
 }: {
@@ -136,8 +136,25 @@ export function getCategoryProgressLabel({
     0,
   )
   const filteredItemsCount = filteredItems.length
+  const discoveredCount = filteredItemsCount - undiscoveredCount
+
+  return {
+    discoveredCount,
+    undiscoveredCount,
+    filteredItemsCount,
+  }
+}
+
+export function getCategoryProgressLabel({
+  filteredItems,
+  discoveredItemIds,
+}: {
+  filteredItems: Item[]
+  discoveredItemIds: string[]
+}) {
+  const {discoveredCount, undiscoveredCount, filteredItemsCount} = getCategoryProgressStats({filteredItems, discoveredItemIds})
   return `${(
-    ((filteredItemsCount - undiscoveredCount) / filteredItemsCount) *
+    (discoveredCount / filteredItemsCount) *
     100
   ).toFixed(2)}% (${undiscoveredCount} undiscovered)`
 }
