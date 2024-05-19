@@ -92,16 +92,18 @@ export function BuildPage({ build }: Props) {
 
   const twelveHoursAgo = new Date(new Date().getTime() - 1000 * 60 * 60 * 12)
 
-  const canShowVideoEmbed =
-    // If the video is a featured build, show it
-    (buildState.videoUrl &&
-      isEmbedUrl(buildState.videoUrl) &&
-      buildState.isFeaturedBuild) ||
-    // if the video is not a featured build, show it if it was updated over 12 hours ago
-    (buildState.buildLink &&
-      buildState.buildLinkUpdatedAt &&
-      isEmbedUrl(buildState.buildLink) &&
-      buildState.buildLinkUpdatedAt < twelveHoursAgo)
+  // If the video is a featured build, show it
+  const canShowFeaturedVideo =
+    buildState.videoUrl &&
+    isEmbedUrl(buildState.videoUrl) &&
+    buildState.isFeaturedBuild
+
+  // if the video is not a featured build, show it if it was updated over 12 hours ago
+  const canShowBuildLinkVideo =
+    buildState.buildLink &&
+    buildState.buildLinkUpdatedAt &&
+    isEmbedUrl(buildState.buildLink) &&
+    buildState.buildLinkUpdatedAt < twelveHoursAgo
 
   return (
     <div className="flex w-full flex-col items-center">
@@ -122,7 +124,7 @@ export function BuildPage({ build }: Props) {
         imageDownloadInfo={imageDownloadInfo}
       />
       <div className="height-full flex w-full flex-col items-center justify-center">
-        {buildState.videoUrl && canShowVideoEmbed && (
+        {canShowFeaturedVideo && buildState.videoUrl && (
           <div className="mb-12 max-h-[270px] text-center sm:mb-8 sm:max-h-[430px] sm:max-w-[560px]">
             <a
               href={`${videoEmbedUrlToWatchUrl(buildState.videoUrl)}`}
@@ -144,28 +146,30 @@ export function BuildPage({ build }: Props) {
             </a>
           </div>
         )}
-        {!buildState.videoUrl && buildState.buildLink && canShowVideoEmbed && (
-          <div className="mb-12 max-h-[270px] text-center sm:mb-8 sm:max-h-[430px] sm:max-w-[560px]">
-            <a
-              href={`${videoEmbedUrlToWatchUrl(buildState.buildLink)}`}
-              target="_blank"
-            >
-              <Image
-                width={560}
-                height={315}
-                src={`https://i.ytimg.com/vi/${videoEmbedUrlToVideoId(
-                  buildState.buildLink,
-                )}/sddefault.jpg`}
-                loading="eager"
-                alt={`${buildState.name} video thumbnail`}
-                unoptimized={true}
-              />
-              <span className="mb-4 text-sm text-surface-solid underline">
-                See build description and breakdown on YouTube
-              </span>
-            </a>
-          </div>
-        )}
+        {buildState.buildLink &&
+          canShowBuildLinkVideo &&
+          !canShowFeaturedVideo && (
+            <div className="mb-12 max-h-[270px] text-center sm:mb-8 sm:max-h-[430px] sm:max-w-[560px]">
+              <a
+                href={`${videoEmbedUrlToWatchUrl(buildState.buildLink)}`}
+                target="_blank"
+              >
+                <Image
+                  width={560}
+                  height={315}
+                  src={`https://i.ytimg.com/vi/${videoEmbedUrlToVideoId(
+                    buildState.buildLink,
+                  )}/sddefault.jpg`}
+                  loading="eager"
+                  alt={`${buildState.name} video thumbnail`}
+                  unoptimized={true}
+                />
+                <span className="mb-4 text-sm text-surface-solid underline">
+                  See build description and breakdown on YouTube
+                </span>
+              </a>
+            </div>
+          )}
         <BuilderContainer
           buildContainerRef={buildContainerRef}
           buildState={buildState}
