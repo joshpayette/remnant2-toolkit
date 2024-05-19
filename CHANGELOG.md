@@ -10,6 +10,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Corrected shock resistance on Bloodless Crown (-3 => 3)
 - Fixed issue with Tal'Ratha (Metaphysical) world save download links being broken.
+- Fixed incorrect values on Acid Stone ring.
+- Fixed incorrect values on Fire Stone ring.
+- Fixed incorrect values on Grounding Stone ring.
 
 ## 2024-05-18
 
