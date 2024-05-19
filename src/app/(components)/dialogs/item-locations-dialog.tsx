@@ -20,6 +20,16 @@ export function ItemLocationsDialog({
     filteredItems,
     (item) => `${item.location?.world}`,
   )
+  const undefinedItems = categoryItemsByLocation.undefined
+  if (undefinedItems) {
+      if (categoryItemsByLocation.Any) {
+          categoryItemsByLocation.Any.concat(undefinedItems)
+      } else {
+          categoryItemsByLocation.Any = undefinedItems
+      }
+  }
+  delete categoryItemsByLocation.undefined
+
   let total = 0
   const categoryStats = Object.entries(categoryItemsByLocation).map(
     ([locationName, items]) => {
