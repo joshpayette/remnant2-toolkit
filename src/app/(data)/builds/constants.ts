@@ -1,4 +1,4 @@
-import { BuildState } from '../../(types)/builds'
+import { BuildState } from '@/app/(types)/builds'
 
 export const DEFAULT_BUILD_NAME = 'My Build'
 
