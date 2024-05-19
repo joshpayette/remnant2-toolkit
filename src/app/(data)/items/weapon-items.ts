@@ -2024,7 +2024,7 @@ export const weaponItems: WeaponItem[] = [
     id: 'd06hjq',
     dlc: 'base',
     description:
-      'Fires an electrical stream that jumps to nerby targets within 7.5m, dealing 30% reduced damage per jump. Applies OVERLOADED.',
+      'Fires an electrical stream that jumps to nearby targets within 7.5m, dealing 30% reduced damage per jump. Applies OVERLOADED.',
     externalTokens: [`Amplitude`],
     wikiLinks: [`https://remnant.wiki/Enigma`],
     location: { world: 'Labyrinth', dungeon: ['Labyrinth'] },

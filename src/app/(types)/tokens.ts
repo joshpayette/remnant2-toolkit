@@ -268,7 +268,7 @@ export const INLINE_TOKENS = [
     token: 'OVERLOADED',
     color: 'text-[#626291] dark:text-[#7676af]',
     description:
-      'Deals elemental SHOCK area damage every 5 seconds. Damage increases by 10% for every OVERLOADED enemy nerby. ', // TODO What's the range and what's the max damage increase for secondary effect?
+      'Deals elemental SHOCK area damage every 5 seconds. Damage increases by 10% for every OVERLOADED enemy nearby. ', // TODO What's the range and what's the max damage increase for secondary effect?
   },
   {
     type: 'Ritualist',

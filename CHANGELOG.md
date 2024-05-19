@@ -13,6 +13,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Fixed incorrect values on Acid Stone ring.
 - Fixed incorrect values on Fire Stone ring.
 - Fixed incorrect values on Grounding Stone ring.
+- Fixed Enigma description typo, nerby -> nearby.
+- Fixed Overload build token typo, nerby -> nearby.
 
 ## 2024-05-18
 
