@@ -5,6 +5,7 @@ import { ChevronDownIcon } from '@heroicons/react/24/solid'
 import isEqual from 'lodash.isequal'
 import { useSearchParams } from 'next/navigation'
 import { useEffect, useState } from 'react'
+import { IoInformationCircleSharp } from 'react-icons/io5'
 import { useIsClient, useLocalStorage } from 'usehooks-ts'
 
 import { BaseButton } from '@/app/(components)/_base/button'
@@ -27,8 +28,8 @@ import { capitalize } from '@/app/(utils)/capitalize'
 import { cn } from '@/app/(utils)/classnames'
 import { ALL_TRACKABLE_ITEMS } from '@/app/tracker/constants'
 import { ItemTrackerCategory } from '@/app/tracker/types'
+
 import { ItemLocationsDialog } from '../(components)/dialogs/item-locations-dialog'
-import { IoInformationCircleSharp } from 'react-icons/io5'
 
 interface Props {
   discoveredItemIds: string[]
@@ -127,11 +128,11 @@ export function ItemList({
         open={isShowItemInfoOpen}
         onClose={() => setItemInfo(null)}
       />
-      <ItemLocationsDialog 
+      <ItemLocationsDialog
         open={itemLocationsDialogOpen}
         onClose={() => setItemLocationsDialogOpen(false)}
         filteredItems={currentFilteredItems}
-        discoveredItemIds={discoveredItemIds} 
+        discoveredItemIds={discoveredItemIds}
       />
       <div className="w-full">
         {!areFiltersApplied && (
@@ -157,16 +158,18 @@ export function ItemList({
             >
               {({ open }) => (
                 <>
-                  <div className='flex w-full'>
+                  <div className="flex w-full">
                     <button
                       className={cn(
                         'text-md flex items-center justify-center rounded-full border-transparent bg-background text-center font-bold sm:text-lg',
                       )}
                       onClick={() => {
-                        setCurrentFilteredItems(getFilteredItemsForCategory(
-                          ALL_TRACKABLE_ITEMS,
-                          itemCategory,
-                        ))
+                        setCurrentFilteredItems(
+                          getFilteredItemsForCategory(
+                            ALL_TRACKABLE_ITEMS,
+                            itemCategory,
+                          ),
+                        )
                         setItemLocationsDialogOpen(true)
                       }}
                     >
