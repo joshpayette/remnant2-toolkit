@@ -21,6 +21,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Fixed incorrect values on Grounding Stone ring.
 - Fixed Enigma description typo, nerby -> nearby.
 - Fixed Overload build token typo, nerby -> nearby.
+- Added `Skill Duration` item token to Soothsayer perk.
 
 ## 2024-05-18
 

@@ -1423,7 +1423,7 @@ export const perkItems: PerkItem[] = [
     type: 'relic',
     id: 'j7e5Bb',
     dlc: 'dlc2',
-    tags: ['Relic Use Speed'],
+    tags: ['Relic Use Speed', 'Skill Duration'],
     description:
       'On Relic use, extend the duration of active Invoker skills by 20% of the base duration. Cannot exceed base duration.\n' +
       '\n' +
