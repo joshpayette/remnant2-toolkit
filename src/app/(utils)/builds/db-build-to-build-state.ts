@@ -33,6 +33,7 @@ export function dbBuildToBuildState(dbBuild: DBBuild): BuildState {
     isPatchAffected: Boolean(dbBuild.isPatchAffected),
     thumbnailUrl: dbBuild.thumbnailUrl,
     videoUrl: dbBuild.videoUrl,
+    buildLinkUpdatedAt: dbBuild.buildLinkUpdatedAt,
     buildLink: dbBuild.buildLink,
     buildTags: dbBuild.buildTags,
     upvoted: dbBuild.upvoted,

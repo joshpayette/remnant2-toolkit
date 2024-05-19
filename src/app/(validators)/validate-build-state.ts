@@ -148,6 +148,7 @@ export function validateBuildState(buildState: any) {
     upvoted: z.boolean(),
     thumbnailUrl: z.string().nullable(),
     videoUrl: z.string().nullable(),
+    buildLinkUpdatedAt: z.date().nullable(),
     totalUpvotes: z.number(),
     reported: z.boolean(),
     items: z.object({

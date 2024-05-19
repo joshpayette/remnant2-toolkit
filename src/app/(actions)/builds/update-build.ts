@@ -39,6 +39,9 @@ export async function updateBuild(data: string): Promise<BuildActionResponse> {
     dateFeatured: unvalidatedData.dateFeatured
       ? new Date(unvalidatedData.dateFeatured)
       : null,
+    buildLinkUpdatedAt: unvalidatedData.buildLinkUpdatedAt
+      ? new Date(unvalidatedData.buildLinkUpdatedAt)
+      : new Date(),
     buildTags: unvalidatedData.buildTags
       ? unvalidatedData.buildTags.map((tag: any) => ({
           ...tag,
@@ -101,6 +104,15 @@ export async function updateBuild(data: string): Promise<BuildActionResponse> {
     },
   })
 
+  // If the new buildLink doesn't match the existing buildLink, update the buildLinkUpdatedAt
+  if (
+    buildState.buildLink &&
+    existingBuild?.buildLink !== buildState.buildLink &&
+    buildState.buildLink?.trim().length > 0
+  ) {
+    buildState.buildLinkUpdatedAt = new Date()
+  }
+
   try {
     const updatedBuild = await prisma.build.update({
       where: {
@@ -121,6 +133,7 @@ export async function updateBuild(data: string): Promise<BuildActionResponse> {
         isPublic: Boolean(buildState.isPublic),
         isPatchAffected: Boolean(buildState.isPatchAffected),
         buildLink: buildState.buildLink,
+        buildLinkUpdatedAt: buildState.buildLinkUpdatedAt,
         BuildItems: {
           deleteMany: {}, // removes all items before creating them again
           create: updatedBuildItems,

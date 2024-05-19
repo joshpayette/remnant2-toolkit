@@ -6,9 +6,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2024-05-19
 
+### Added
+
+- Users can now embed links to YouTube videos above builds, in the same way only Featured Builds could previously.
+  - After you add a YouTube embed URL to the `Build Reference Link` field, there will be a 12-hour delay before the video is visible on the build page. This is to allow for moderation of the content.
+  - Existing builds with YouTube Embed URLs will need to be edited and saved to trigger the initial 12-hour delay.
+
 ### Fixed
 
-- Corrected shock resistance on Bloodless Crown (-3 => 3)
+- Corrected shock resistance on` Bloodless Crown (-3 => 3)
 - Fixed issue with Tal'Ratha (Metaphysical) world save download links being broken.
 - Fixed incorrect values on Acid Stone ring.
 - Fixed incorrect values on Fire Stone ring.

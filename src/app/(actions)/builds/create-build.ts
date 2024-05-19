@@ -36,6 +36,9 @@ export async function createBuild(data: string): Promise<BuildActionResponse> {
     updatedAt: unvalidatedData.updatedAt
       ? new Date(unvalidatedData.updatedAt)
       : null,
+    buildLinkUpdatedAt: unvalidatedData.buildLinkUpdatedAt
+      ? new Date(unvalidatedData.buildLinkUpdatedAt)
+      : null,
     buildTags: unvalidatedData.buildTags
       ? unvalidatedData.buildTags.map((tag: any) => ({
           ...tag,
@@ -78,6 +81,11 @@ export async function createBuild(data: string): Promise<BuildActionResponse> {
     }
   }
 
+  // If there is a buildLink, set the buildLinkUpdatedAt to now
+  if (buildState.buildLink) {
+    buildState.buildLinkUpdatedAt = new Date()
+  }
+
   try {
     const dbResponse = await prisma.build.create({
       data: {
@@ -92,6 +100,7 @@ export async function createBuild(data: string): Promise<BuildActionResponse> {
         isPublic: Boolean(buildState.isPublic),
         isPatchAffected: Boolean(buildState.isPatchAffected),
         buildLink: buildState.buildLink,
+        buildLinkUpdatedAt: buildState.buildLinkUpdatedAt,
         createdBy: {
           connect: {
             id: session.user.id,

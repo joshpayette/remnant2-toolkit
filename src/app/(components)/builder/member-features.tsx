@@ -4,12 +4,14 @@ import { ClipboardDocumentListIcon } from '@heroicons/react/24/solid'
 import { BuildTags } from '@prisma/client'
 import { useSession } from 'next-auth/react'
 import { useState } from 'react'
+import { IoInformationCircleSharp } from 'react-icons/io5'
 
 import { BaseButton } from '@/app/(components)/_base/button'
 import { BaseInput } from '@/app/(components)/_base/input'
 import { BuildDescriptionTemplateAlert } from '@/app/(components)/alerts/build-description-template-alert'
 import { DescriptionWithTokens } from '@/app/(components)/description-with-tokens'
 import { Skeleton } from '@/app/(components)/skeleton'
+import { Tooltip } from '@/app/(components)/tooltip'
 import { MAX_BUILD_DESCRIPTION_LENGTH } from '@/app/(data)/builds/constants'
 import { cn } from '@/app/(utils)/classnames'
 import { Textarea } from '@/features/ui/Textarea'
@@ -135,16 +137,27 @@ Watch the build in action: [insert Youtube link here]
       {isScreenshotMode ? null : (
         <>
           {isEditable && (
-            <div className="mb-8 flex w-full flex-col items-start justify-start text-sm text-primary-500 sm:flex-row sm:items-center">
-              <div className="mb-2 mr-4 w-[200px] sm:mb-0">
-                Build Reference Link
+            <div className="mb-8">
+              <div className="mb-2 flex w-full flex-col items-start justify-start text-sm text-primary-500 sm:flex-row sm:items-center">
+                <div className="mb-2 mr-4 w-[200px] sm:mb-0">
+                  Build Reference Link
+                </div>
+                <div className="flex w-full items-center justify-start">
+                  <BaseInput
+                    value={buildLink ?? ''}
+                    onChange={(e) => onChangeBuildLink(e.target.value)}
+                    placeholder="The link must be relevant to the build or it will be removed."
+                  />
+                </div>
               </div>
-              <div className="flex w-full items-center justify-start">
-                <BaseInput
-                  value={buildLink ?? ''}
-                  onChange={(e) => onChangeBuildLink(e.target.value)}
-                  placeholder="The link must be relevant to the build or it will be removed."
-                />
+              <div className="flex w-full items-center justify-start text-xs text-gray-300">
+                If you add a YouTube Embed link, it will be embedded above the
+                build after 12 hours.{' '}
+                <Tooltip content="URL should start with `https://www.youtube.com/embed/`. You can find the URL by clicking Share -> Embed under the YT video, then copying the `src` value.">
+                  <BaseButton plain>
+                    <IoInformationCircleSharp className="h-4 w-4 text-accent1-500" />
+                  </BaseButton>
+                </Tooltip>
               </div>
             </div>
           )}

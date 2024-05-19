@@ -26,6 +26,7 @@ const DEFAULT_STATE: State = {
     thumbnailUrl: '',
     buildTags: [],
     videoUrl: '',
+    buildLinkUpdatedAt: new Date(),
     buildLink: '',
     createdById: '',
     createdByName: '',

@@ -60,6 +60,7 @@ export async function getLoadoutList(userId?: string) {
     isMember: false,
     thumbnailUrl: loadout.build.thumbnailUrl,
     videoUrl: loadout.build.videoUrl,
+    buildLinkUpdatedAt: loadout.build.buildLinkUpdatedAt,
     buildTags: loadout.build.BuildTags,
     buildLink: loadout.build.buildLink,
     createdById: loadout.build.createdById,

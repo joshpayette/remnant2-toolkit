@@ -34,6 +34,7 @@ export interface BuildState {
   isPatchAffected: boolean
   thumbnailUrl: string | null
   videoUrl: string | null
+  buildLinkUpdatedAt: Date | null
   buildTags: BuildTags[] | null
   buildLink: string | null
   description: string | null
@@ -79,6 +80,7 @@ export interface DBBuild {
   isMember: boolean
   thumbnailUrl: Build['thumbnailUrl']
   videoUrl: Build['videoUrl']
+  buildLinkUpdatedAt: Build['buildLinkUpdatedAt']
   buildLink: Build['buildLink']
   createdById: Build['createdById']
   createdByName: string

@@ -45,6 +45,7 @@ export async function getBuild(
     isPublic: build.isPublic,
     thumbnailUrl: build.thumbnailUrl ?? '',
     videoUrl: build.videoUrl ?? '',
+    buildLinkUpdatedAt: build.buildLinkUpdatedAt,
     buildTags: build.BuildTags,
     buildLink: build.buildLink ?? '',
     createdAt: build.createdAt,

@@ -181,31 +181,31 @@ model UserItems {
 }
 
 model Build {
-  id                String            @id @default(cuid())
-  createdAt         DateTime          @default(now())
-  updatedAt         DateTime?         @updatedAt
-  createdBy         User              @relation(fields: [createdById], references: [id])
-  createdById       String
-  isFeaturedBuild   Boolean           @default(false)
-  isBeginnerBuild   Boolean           @default(false)
-  isModeratorLocked Boolean           @default(false)
-  isPatchAffected   Boolean           @default(false)
-  isPublic          Boolean           @default(true)
-  dateFeatured      DateTime?
-  name              String
-  description       String?           @db.Text
-  videoUrl          String?
-  videoUrlUpdatedAt DateTime?
-  thumbnailUrl      String?
-  buildLink         String?
-  BuildVotes        BuildVoteCounts[]
-  BuildReports      BuildReports[]
-  BuildItems        BuildItems[]
-  UserProfile       UserProfile?      @relation(fields: [userProfileId], references: [id])
-  userProfileId     String?
-  UserLoadouts      UserLoadouts[]
-  BuildTags         BuildTags[]
-  LinkedBuildItem   LinkedBuildItem[]
+  id                 String            @id @default(cuid())
+  createdAt          DateTime          @default(now())
+  updatedAt          DateTime?         @updatedAt
+  createdBy          User              @relation(fields: [createdById], references: [id])
+  createdById        String
+  isFeaturedBuild    Boolean           @default(false)
+  isBeginnerBuild    Boolean           @default(false)
+  isModeratorLocked  Boolean           @default(false)
+  isPatchAffected    Boolean           @default(false)
+  isPublic           Boolean           @default(true)
+  dateFeatured       DateTime?
+  name               String
+  description        String?           @db.Text
+  videoUrl           String?
+  thumbnailUrl       String?
+  buildLink          String?
+  buildLinkUpdatedAt DateTime?
+  BuildVotes         BuildVoteCounts[]
+  BuildReports       BuildReports[]
+  BuildItems         BuildItems[]
+  UserProfile        UserProfile?      @relation(fields: [userProfileId], references: [id])
+  userProfileId      String?
+  UserLoadouts       UserLoadouts[]
+  BuildTags          BuildTags[]
+  LinkedBuildItem    LinkedBuildItem[]
 
   @@index([createdById])
   @@index([userProfileId])
