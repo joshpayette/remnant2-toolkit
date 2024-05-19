@@ -41,9 +41,12 @@ export function ItemLocationsDialog({
       <BaseDialogTitle>Missing Item Locations</BaseDialogTitle>
       <BaseDialogBody>
         <div className="text-left text-sm">
-          <ol className="col-auto ml-8 grid grid-cols-2">
+          <ol>
             {categoryStats.map((entry) => (
-              <div key={entry.locationName}>
+              <div
+                key={entry.locationName}
+                className="col-auto ml-8 grid grid-cols-2"
+              >
                 <li className="list-disc text-gray-300">
                   {entry.locationName}
                 </li>

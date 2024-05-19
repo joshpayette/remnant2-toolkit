@@ -11,6 +11,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Users can now embed links to YouTube videos above builds, in the same way only Featured Builds could previously.
   - After you add a YouTube embed URL to the `Build Reference Link` field, there will be a 12-hour delay before the video is visible on the build page. This is to allow for moderation of the content.
   - Existing builds with YouTube Embed URLs will need to be edited and saved to trigger the initial 12-hour delay.
+- Item Tracker now shows the locations of missing items for each category - just click the info icon to the left of each category header. Great submission by Synder!
 
 ### Fixed
 
