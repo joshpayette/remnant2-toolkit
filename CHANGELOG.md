@@ -13,6 +13,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
   - Existing builds with YouTube Embed URLs will need to be edited and saved to trigger the initial 12-hour delay.
 - Item Tracker now shows the locations of missing items for each category - just click the info icon to the left of each category header. Great submission by Synder!
 
+### Changed
+
+- Build Description cap raised to 3000 characters, up from 2000 characters.
+
 ### Fixed
 
 - Corrected shock resistance on` Bloodless Crown (-3 => 3)

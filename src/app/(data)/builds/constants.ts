@@ -5,7 +5,7 @@ export const DEFAULT_BUILD_NAME = 'My Build'
 /**
  * The maximum characters allowed in a build description
  */
-export const MAX_BUILD_DESCRIPTION_LENGTH = 2000
+export const MAX_BUILD_DESCRIPTION_LENGTH = 3000
 
 /**
  * The value of each new trait added

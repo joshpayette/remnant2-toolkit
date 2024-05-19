@@ -11,7 +11,6 @@ import { BuildActionResponse } from '@/app/(types)/builds'
 import { getServerSession } from '@/app/(utils)/auth'
 import { checkBadWords, cleanBadWords } from '@/app/(utils)/bad-word-filter'
 import { buildStateToBuildItems } from '@/app/(utils)/builds/build-state-to-build-items'
-import { isPermittedBuilder } from '@/app/(utils)/builds/permitted-builders'
 import { prisma } from '@/app/(utils)/db'
 import { validateBuildState } from '@/app/(validators)/validate-build-state'
 
