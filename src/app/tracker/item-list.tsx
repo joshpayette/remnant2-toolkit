@@ -27,6 +27,8 @@ import { capitalize } from '@/app/(utils)/capitalize'
 import { cn } from '@/app/(utils)/classnames'
 import { ALL_TRACKABLE_ITEMS } from '@/app/tracker/constants'
 import { ItemTrackerCategory } from '@/app/tracker/types'
+import { ItemLocationsDialog } from '../(components)/dialogs/item-locations-dialog'
+import { IoInformationCircleSharp } from 'react-icons/io5'
 
 interface Props {
   discoveredItemIds: string[]
@@ -72,6 +74,9 @@ export function ItemList({
   const filteredItems = getFilteredItemList(filters, discoveredItemIds)
   // Remove the categories not found in the filtered items
   const visibleItemCategories = getFilteredItemCategories(filteredItems)
+
+  const [itemLocationsDialogOpen, setItemLocationsDialogOpen] = useState(false)
+  const [currentFilteredItems, setCurrentFilteredItems] = useState<Item[]>([])
 
   // #region Handlers
 
@@ -122,6 +127,12 @@ export function ItemList({
         open={isShowItemInfoOpen}
         onClose={() => setItemInfo(null)}
       />
+      <ItemLocationsDialog 
+        open={itemLocationsDialogOpen}
+        onClose={() => setItemLocationsDialogOpen(false)}
+        filteredItems={currentFilteredItems}
+        discoveredItemIds={discoveredItemIds} 
+      />
       <div className="w-full">
         {!areFiltersApplied && (
           <div className="flex flex-col items-center justify-center gap-y-2">
@@ -146,29 +157,45 @@ export function ItemList({
             >
               {({ open }) => (
                 <>
-                  <Disclosure.Button
-                    onClick={() => handleCategoryToggle(itemCategory)}
-                    className="flex w-full justify-start border-b border-secondary-700 p-4 text-left hover:border-primary-400 hover:bg-background-solid focus:outline-none focus-visible:ring focus-visible:ring-primary-500/75"
-                  >
-                    <div className="w-full">
-                      <h2 className="text-lg font-semibold">
-                        {capitalize(itemCategory as string)} -{' '}
-                        {getCategoryProgressLabel({
-                          filteredItems: getFilteredItemsForCategory(
-                            ALL_TRACKABLE_ITEMS,
-                            itemCategory,
-                          ),
-                          discoveredItemIds,
-                        })}
-                      </h2>
-                    </div>
-                    <ChevronDownIcon
+                  <div className='flex w-full'>
+                    <button
                       className={cn(
-                        'h-5 w-5 text-surface-solid',
-                        open ? 'rotate-180 transform' : '',
+                        'text-md flex items-center justify-center rounded-full border-transparent bg-background text-center font-bold sm:text-lg',
                       )}
-                    />
-                  </Disclosure.Button>
+                      onClick={() => {
+                        setCurrentFilteredItems(getFilteredItemsForCategory(
+                          ALL_TRACKABLE_ITEMS,
+                          itemCategory,
+                        ))
+                        setItemLocationsDialogOpen(true)
+                      }}
+                    >
+                      <IoInformationCircleSharp className="h-4 w-4 text-accent1-500" />
+                    </button>
+                    <Disclosure.Button
+                      onClick={() => handleCategoryToggle(itemCategory)}
+                      className="flex w-full justify-start border-b border-secondary-700 p-4 text-left hover:border-primary-400 hover:bg-background-solid focus:outline-none focus-visible:ring focus-visible:ring-primary-500/75"
+                    >
+                      <div className="w-full">
+                        <h2 className="text-lg font-semibold">
+                          {capitalize(itemCategory as string)} -{' '}
+                          {getCategoryProgressLabel({
+                            filteredItems: getFilteredItemsForCategory(
+                              ALL_TRACKABLE_ITEMS,
+                              itemCategory,
+                            ),
+                            discoveredItemIds,
+                          })}
+                        </h2>
+                      </div>
+                      <ChevronDownIcon
+                        className={cn(
+                          'h-5 w-5 text-surface-solid',
+                          open ? 'rotate-180 transform' : '',
+                        )}
+                      />
+                    </Disclosure.Button>
+                  </div>
                   <Disclosure.Panel className="grid w-full grid-cols-3 gap-4 py-4 sm:grid-cols-5 md:grid-cols-8 lg:grid-cols-9 xl:grid-cols-10">
                     {getFilteredItemsForCategory(
                       filteredItems,
