@@ -78,6 +78,7 @@ model User {
   UserProfile   UserProfile?
   UserLoadouts  UserLoadouts[]
   UserItems     UserItems[]
+  LinkedBuilds  LinkedBuilds[]
 }
 
 model UserProfile {
@@ -203,6 +204,7 @@ model Build {
   userProfileId     String?
   UserLoadouts      UserLoadouts[]
   BuildTags         BuildTags[]
+  LinkedBuildItem   LinkedBuildItem[]
 
   @@index([createdById])
   @@index([userProfileId])
@@ -221,6 +223,32 @@ model BuildItems {
 
   @@index([buildId])
   @@index([itemId])
+}
+
+model LinkedBuilds {
+  id              String            @id @default(cuid())
+  createdBy       User              @relation(fields: [createdById], references: [id])
+  createdById     String
+  createdAt       DateTime          @default(now())
+  updatedAt       DateTime          @updatedAt
+  LinkedBuildItem LinkedBuildItem[]
+  label           String
+
+  @@index([createdById])
+}
+
+model LinkedBuildItem {
+  id            String       @id @default(cuid())
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
+  linkedBuild   LinkedBuilds @relation(fields: [linkedBuildId], references: [id], onDelete: Cascade)
+  linkedBuildId String
+  Build         Build        @relation(fields: [buildId], references: [id], onDelete: Cascade)
+  buildId       String
+  label         String
+
+  @@index([linkedBuildId])
+  @@index([buildId])
 }
 
 model BuildVoteCounts {
