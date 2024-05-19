@@ -20,7 +20,7 @@ export const ringItems: RingItem[] = [
     saveFileSlug: 'Ring_AcidStone_C',
     id: 'q3qca2',
     dlc: 'base',
-    description: `Increases ACID damage by 15% and ACID Resistance by 20.`,
+    description: `Increases ACID damage by 15% and ACID Resistance by 20%.`,
     wikiLinks: [`https://remnant.wiki/Acid_Stone`],
     location: { world: `Ward 13`, dungeon: 'Vendor' },
     toxinResistance: 15,
