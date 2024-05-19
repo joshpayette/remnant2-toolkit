@@ -69,7 +69,7 @@ export const armorItems: ArmorItem[] = [
     weight: 2.7,
     bleedResistance: 15,
     fireResistance: -3,
-    shockResistance: -3,
+    shockResistance: 3,
     toxinResistance: -3,
     blightResistance: -3,
     description: `The weight of this crown is heavy, so much heavier than you might have guessed. Though aged, the shining metal has been carefully preserved, and the crown jewel radiates with a passionate fury you can scarcely comprehend.`,

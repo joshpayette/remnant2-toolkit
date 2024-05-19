@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-05-19
+
+### Fixed
+
+- Corrected shock resistance on Bloodless Crown (-3 => 3)
+- Fixed issue with Tal'Ratha (Metaphysical) world save download links being broken.
+
 ## 2024-05-18
 
 ### Added
