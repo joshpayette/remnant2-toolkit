@@ -161,7 +161,7 @@ export function ItemList({
                   <div className="flex w-full">
                     <button
                       className={cn(
-                        'text-md flex items-center justify-center rounded-full border-transparent bg-background text-center font-bold sm:text-lg',
+                        'text-md text-center font-bold sm:text-lg flex items-center justify-center bg-background hover:bg-background-solid border-b border-secondary-700 hover:border-primary-400',
                       )}
                       onClick={() => {
                         setCurrentFilteredItems(
