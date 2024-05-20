@@ -1,19 +1,30 @@
-import { ReactNode } from 'react'
+'use client'
+
+import { ReactNode, useState } from 'react'
 import reactStringReplace from 'react-string-replace'
 import { v4 as uuidv4 } from 'uuid'
 
+import { BaseButton } from '@/app/(components)/_base/button'
 import { ALL_BUILD_TAGS } from '@/app/(components)/builder/build-tags/constants'
+import { ItemInfoDialog } from '@/app/(components)/dialogs/item-info-dialog'
 import { Tooltip } from '@/app/(components)/tooltip'
 import { allItems } from '@/app/(data)/items/all-items'
+import { Item } from '@/app/(data)/items/types'
 import { EXTERNAL_TOKENS, INLINE_TOKENS } from '@/app/(types)/tokens'
 import { cn } from '@/app/(utils)/classnames'
 import { stripUnicode } from '@/app/(utils)/strip-unicode'
 
-function parseStringForToken(
-  input: string,
-  highlightItems: boolean,
-  highlightBuildTags: boolean,
-): ReactNode[] {
+function parseStringForToken({
+  description,
+  highlightBuildTags,
+  highlightItems,
+  handleShowItemInfo,
+}: {
+  description: string
+  highlightItems: boolean
+  highlightBuildTags: boolean
+  handleShowItemInfo: (itemName: string | undefined) => void
+}): ReactNode[] {
   // Escape special characters in the tokens
   const escapeRegExp = (string: string) =>
     string.replace(/[.*+\-?^${}()|[\]\\]/g, '\\$&') // $& means the whole matched string
@@ -33,7 +44,7 @@ function parseStringForToken(
   )
 
   let replacedText = reactStringReplace(
-    input,
+    description,
     allDescriptionTokensRegex,
     (match, i) => {
       const inlineToken = INLINE_TOKENS.find((tag) => tag.token === match)
@@ -101,9 +112,13 @@ function parseStringForToken(
         )
 
         return (
-          <span key={uuidv4()} className="font-bold">
+          <button
+            key={uuidv4()}
+            className="p-0 font-bold"
+            onClick={() => handleShowItemInfo(itemName)}
+          >
             {itemName}
-          </span>
+          </button>
         )
       },
     )
@@ -147,11 +162,31 @@ export function DescriptionWithTokens({
   highlightItems,
   highlightBuildTags,
 }: Props) {
+  const [item, setItem] = useState<Item | null>(null)
+  const isItemInfoOpen = Boolean(item)
+
+  function handleShowItemInfo(itemName: string | undefined) {
+    if (!itemName) return
+    const item = allItems.find((item) => item.name === itemName)
+    if (!item) return
+    setItem(item)
+  }
+
   return (
     <>
+      <ItemInfoDialog
+        item={item}
+        open={isItemInfoOpen}
+        onClose={() => setItem(null)}
+      />
       <span className="sr-only">{stripUnicode(description)}</span>
       <div className="" aria-hidden="true">
-        {parseStringForToken(description, highlightItems, highlightBuildTags)}
+        {parseStringForToken({
+          description,
+          highlightItems,
+          highlightBuildTags,
+          handleShowItemInfo,
+        })}
       </div>
     </>
   )

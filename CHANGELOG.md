@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-05-20
+
+### Added
+
+- Bolded item names in Build descriptions are now clickable links to the item info dialog.
+
 ## 2024-05-19
 
 ### Added
