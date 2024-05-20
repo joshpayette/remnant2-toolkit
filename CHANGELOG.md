@@ -18,6 +18,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Added external tokens to Item Info dialog. These were on the Item Cards, but not in the dialog as they should have been.
 - Fixed description for Power Stone.
+- Fixed the Sacred Lakewater description to match in-game.
+- Fixed the Root Water description to match in-game.
 
 ## 2024-05-19
 
