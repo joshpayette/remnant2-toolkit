@@ -10,9 +10,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Bolded item names in Build descriptions are now clickable links to the item info dialog.
 
+### Changed
+
+- Changed Overload item token.
+
 ### Fixed
 
 - Added external tokens to Item Info dialog. These were on the Item Cards, but not in the dialog as they should have been.
+- Fixed description for Power Stone.
 
 ## 2024-05-19
 
