@@ -107,7 +107,7 @@ export function ArmorSuggestionCard({
           {suggestion.totalBlightResistance}
         </div>
       </div>
-      <div className="flex flex-row items-center justify-around gap-x-2">
+      <div className="flex flex-row items-center justify-around gap-x-1">
         <ItemButton
           item={suggestion.helm}
           isEditable={false}
