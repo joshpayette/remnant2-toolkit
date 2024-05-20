@@ -126,13 +126,20 @@ export function ItemInfoDialog({ open, item, onClose }: Props) {
       </BaseDialogBody>
       <BaseDialogTitle>Description</BaseDialogTitle>
       <BaseDialogBody>
-        <span className="whitespace-pre-line">
+        <div className="mt-3 flex flex-col gap-y-2 whitespace-pre-line text-left text-xs text-gray-200">
           <DescriptionWithTokens
-            description={item.description || 'No description available.'}
+            description={item.description ?? ''}
             highlightBuildTags={false}
             highlightItems={false}
           />
-        </span>
+          {item.externalTokens && (
+            <DescriptionWithTokens
+              description={item.externalTokens.join(', ')}
+              highlightBuildTags={false}
+              highlightItems={false}
+            />
+          )}
+        </div>
       </BaseDialogBody>
       {MutatorItem.isMutatorItem(item) && (
         <BaseDialogBody className="flex flex-col items-start justify-start gap-x-2 gap-y-4">
