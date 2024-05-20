@@ -27,6 +27,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Fixed Enigma description typo, nerby -> nearby.
 - Fixed Overload build token typo, nerby -> nearby.
 - Added `Skill Duration` item token to Soothsayer perk.
+- Removed `bestial` from bad words list.
 
 ## 2024-05-18
 

@@ -34,6 +34,7 @@ filter.removeWords(
   'damn',
   'schmuck',
   'crap',
+  'bestial',
 )
 
 export function cleanBadWords(text: string) {
