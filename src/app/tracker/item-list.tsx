@@ -5,6 +5,7 @@ import { ChevronDownIcon } from '@heroicons/react/24/solid'
 import isEqual from 'lodash.isequal'
 import { useSearchParams } from 'next/navigation'
 import { useEffect, useState } from 'react'
+import { IoInformationCircleSharp } from 'react-icons/io5'
 import { useIsClient, useLocalStorage } from 'usehooks-ts'
 
 import { BaseButton } from '@/app/(components)/_base/button'
@@ -27,6 +28,8 @@ import { capitalize } from '@/app/(utils)/capitalize'
 import { cn } from '@/app/(utils)/classnames'
 import { ALL_TRACKABLE_ITEMS } from '@/app/tracker/constants'
 import { ItemTrackerCategory } from '@/app/tracker/types'
+
+import { ItemLocationsDialog } from '../(components)/dialogs/item-locations-dialog'
 
 interface Props {
   discoveredItemIds: string[]
@@ -125,12 +128,12 @@ export function ItemList({
         open={isShowItemInfoOpen}
         onClose={() => setItemInfo(null)}
       />
-      {/* <ItemLocationsDialog
+      <ItemLocationsDialog
         open={itemLocationsDialogOpen}
         onClose={() => setItemLocationsDialogOpen(false)}
         filteredItems={currentFilteredItems}
         discoveredItemIds={discoveredItemIds}
-      /> */}
+      />
       <div className="w-full">
         {!areFiltersApplied && (
           <div className="flex flex-col items-center justify-center gap-y-2">
@@ -156,7 +159,7 @@ export function ItemList({
               {({ open }) => (
                 <>
                   <div className="flex w-full">
-                    {/* <button
+                    <button
                       className={cn(
                         'text-md text-center font-bold sm:text-lg flex items-center justify-center bg-background hover:bg-background-solid border-b border-secondary-700 hover:border-primary-400',
                       )}
@@ -171,7 +174,7 @@ export function ItemList({
                       }}
                     >
                       <IoInformationCircleSharp className="h-4 w-4 text-accent1-500" />
-                    </button> */}
+                    </button>
                     <Disclosure.Button
                       onClick={() => handleCategoryToggle(itemCategory)}
                       className="flex w-full justify-start border-b border-secondary-700 p-4 text-left hover:border-primary-400 hover:bg-background-solid focus:outline-none focus-visible:ring focus-visible:ring-primary-500/75"
