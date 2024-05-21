@@ -167,22 +167,29 @@ export function ItemButton({
       <button
         onClick={onClick}
         className={cn(
-          'relative z-0 flex items-center justify-center overflow-hidden border-2 border-gray-700',
+          'relative z-0 flex items-center justify-center overflow-hidden border-2 border-secondary-900',
           `bg-background-solid`,
-          isEditable && 'border-gray-700 hover:border-secondary-500',
+          isEditable && 'border-secondary-900 hover:border-secondary-500',
+          !item && size !== 'sm' && 'rounded-b-lg',
+          !item && size === 'sm' && 'rounded-md',
           item &&
             !isEnemy(item) &&
             item.optional &&
-            'border-dashed border-gray-300',
+            'border-b-0 border-dashed border-secondary-400',
+          item &&
+            !isEnemy(item) &&
+            item.optional &&
+            size === 'sm' &&
+            'border-b-2 border-r-0',
           item &&
             !isEnemy(item) &&
             ArchetypeItem.isArchetypeItem(item) &&
             'bg-black',
-          size === 'sm' && 'h-[22px] w-[22px]',
-          size === 'md' && 'h-[66px] w-[66px]',
-          size === 'lg' && 'h-[99px] w-[99px]',
-          size === 'xl' && 'h-[200px] w-[200px]',
-          size === 'wide' && 'h-[99px] w-[149px]',
+          size === 'sm' && 'h-[22px] w-[22px] rounded-l-md',
+          size === 'md' && 'h-[66px] w-[66px] rounded-t-lg',
+          size === 'lg' && 'h-[99px] w-[99px] rounded-t-lg',
+          size === 'xl' && 'h-[200px] w-[200px] rounded-t-lg',
+          size === 'wide' && 'h-[99px] w-[149px] rounded-t-lg',
           isToggled === true && 'border-primary-500',
           isToggled === false && 'border-gray-700',
         )}
@@ -205,16 +212,15 @@ export function ItemButton({
       {item?.name && (
         <div
           className={cn(
-            'flex items-center justify-center bg-secondary-900 px-1 py-0.5 text-center text-[10px] text-gray-100',
+            'flex items-center justify-center border-2 border-secondary-900 bg-secondary-900 px-1 py-0.5 text-center text-[10px] text-gray-100',
             MANUAL_ITEM_NAME_TEXT_TRANSFORMS.some(
               (i) => i.name === item.name,
             ) && 'text-[9px]',
-            size === 'sm' &&
-              'min-h-[22px] min-w-[22px] border border-background-solid text-left',
-            size === 'md' && 'min-h-[49px] w-[66px]',
-            size === 'lg' && 'min-h-[40px] w-[99px]',
-            size === 'xl' && 'text-md min-h-[40px] w-[200px]',
-            size === 'wide' && 'min-h-[22px] w-[149px]',
+            size === 'sm' && 'min-h-[22px] min-w-[22px] rounded-r-lg text-left',
+            size === 'md' && 'min-h-[49px] w-[66px] rounded-b-lg',
+            size === 'lg' && 'min-h-[40px] w-[99px] rounded-b-lg',
+            size === 'xl' && 'text-md min-h-[40px] w-[200px] rounded-b-lg',
+            size === 'wide' && 'min-h-[22px] w-[149px] rounded-b-lg',
           )}
         >
           {manualWordBreaks

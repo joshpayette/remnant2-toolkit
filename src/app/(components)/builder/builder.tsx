@@ -428,7 +428,7 @@ export function Builder({
                 id="build-name"
                 type="text"
                 onChange={(e) => handleChangeBuildName(e.target.value)}
-                className="block w-full rounded-md border-2 border-secondary-500 bg-surface-solid/5 py-2 text-center text-2xl text-surface-solid shadow-sm ring-1 ring-inset ring-surface-solid/10 focus:ring-2 focus:ring-inset focus:ring-secondary-500"
+                className="block w-full rounded-md border-2 border-secondary-900 bg-surface-solid/5 py-2 text-center text-2xl text-surface-solid shadow-sm ring-1 ring-inset ring-surface-solid/10 focus:ring-2 focus:ring-inset focus:ring-secondary-500"
                 placeholder="My Build"
                 value={buildState.name}
               />
