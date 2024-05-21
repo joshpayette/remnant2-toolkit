@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Changed
 
 - Changed Overload item token.
+- Temporarily disabled Item Tracker feature to show missing items by location next to each category header until we can work out a bug with older browsers.
 
 ### Fixed
 
