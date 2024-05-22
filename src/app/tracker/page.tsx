@@ -114,7 +114,7 @@ export default function Page() {
             {isClient ? totalProgress : 'Calculating...'}
           </div>
           <div className="w-full max-w-3xl">
-            <div className="mt-6 flex w-full items-center justify-center gap-x-4">
+            <div className="mt-6 flex w-full flex-col items-center justify-center gap-x-4 gap-y-4 sm:flex-row sm:gap-y-0">
               <BaseButton
                 color="cyan"
                 onClick={() => setImportSaveDialogOpen(true)}

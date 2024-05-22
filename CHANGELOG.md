@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2024-05-21
 
+### Added
+
+- Added the missing item dialog back to the Item Tracker. This was removed previously due to a bug causing the page to not load for some browsers.
+
 ### Changed
 
 - YouTube URLs as reference links will now display the video thumbnail and link above the build. It no longer needs to specifically be a YouTube embed URL to work.
@@ -13,6 +17,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Fixed
 
 - Added separate Gun and Bow description text to Bandit, Transpose, and Extender mutators.
+- Fixed button overflow issue on Item Tracker page on mobile.
 
 ## 2024-05-20
 
