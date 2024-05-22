@@ -1,5 +1,6 @@
 import { Item } from '@/app/(data)/items/types'
 import { groupBy } from '@/app/(utils)/object-utils'
+
 import { BaseDialog, BaseDialogBody, BaseDialogTitle } from '../_base/dialog'
 import { getCategoryProgressStats } from '../filters/item-tracker/utils'
 
@@ -22,11 +23,11 @@ export function ItemLocationsDialog({
   )
   const undefinedItems = categoryItemsByLocation.undefined
   if (undefinedItems) {
-      if (categoryItemsByLocation.Any) {
-          categoryItemsByLocation.Any.concat(undefinedItems)
-      } else {
-          categoryItemsByLocation.Any = undefinedItems
-      }
+    if (categoryItemsByLocation.Any) {
+      categoryItemsByLocation.Any.concat(undefinedItems)
+    } else {
+      categoryItemsByLocation.Any = undefinedItems
+    }
   }
   delete categoryItemsByLocation.undefined
 
