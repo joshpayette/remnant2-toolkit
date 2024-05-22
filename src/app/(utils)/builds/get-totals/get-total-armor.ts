@@ -1,8 +1,22 @@
+import { Item } from '@/app/(data)/items/types'
+import { TraitItem } from '@/app/(data)/items/types/TraitItem'
 import { BuildState } from '@/app/(types)/builds'
 
 import { getItemsByKey, getTraitItemsByKey } from './utils'
 
-export function getTotalArmor(buildState: BuildState) {
+export function getTotalArmor(buildState: BuildState): {
+  totalArmor: string
+  breakdown: {
+    equippedArmorIncreaseItems: Item[]
+    equippedArmorPercentItems: Item[]
+    equippedArmorStepItems: TraitItem[]
+    equippedArmorStepPercentItems: TraitItem[]
+    totalArmorIncrease: number
+    totalArmorPercent: number
+    totalArmorStep: number
+    totalArmorStepPercent: number
+  }
+} {
   // all equipped items that increase armor
   const equippedArmorIncreaseItems = getItemsByKey(buildState, 'armor')
   // all equipped items that increase armor by a percentage
@@ -37,5 +51,17 @@ export function getTotalArmor(buildState: BuildState) {
     totalArmorIncrease * (1 + totalArmorPercent + totalArmorStepPercent) +
     totalArmorStep
 
-  return totalArmor.toFixed(2)
+  return {
+  totalArmor: totalArmor.toFixed(2),
+  breakdown: {
+    equippedArmorIncreaseItems,
+    equippedArmorPercentItems,
+    equippedArmorStepItems,
+    equippedArmorStepPercentItems,
+    totalArmorIncrease,
+    totalArmorPercent,
+    totalArmorStep,
+    totalArmorStepPercent,
+   },
+  }
 }
