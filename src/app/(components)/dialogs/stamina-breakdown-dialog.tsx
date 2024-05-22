@@ -89,7 +89,7 @@ export function StaminaBreakdownDialog({
       <BaseDialogBody>
         <div className="text-left text-sm">
           <h3 className="text-md col-span-full my-2 font-semibold text-surface-solid">
-            Base Health{' '}
+            Base Stamina{' '}
             <span className="text-md font-bold text-surface-solid">100</span>
           </h3>
           {(breakdown.equippedStaminaIncreaseItems.length > 0 ||

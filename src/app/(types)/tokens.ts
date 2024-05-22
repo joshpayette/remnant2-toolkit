@@ -37,13 +37,13 @@ export const INLINE_TOKENS = [
   {
     type: 'Brittle',
     token: 'BRITTLE',
-    color: 'text-[#B5AB85] dark:text-[#fff1bc]',
+    color: 'text-slate-900 dark:text-[#fff1bc]',
     description: undefined,
   },
   {
     type: 'Blowback',
     token: 'BLOWBACK',
-    color: 'text-[#B5AB85] dark:text-[#fff1bc]',
+    color: 'text-slate-900 dark:text-[#fff1bc]',
     description: undefined,
   },
   {
@@ -68,7 +68,7 @@ export const INLINE_TOKENS = [
   {
     type: 'Call of the Doe',
     token: 'CALL OF THE DOE',
-    color: 'text-[#B5AB85] dark:text-[#fff1bc]',
+    color: 'text-slate-900 dark:text-[#fff1bc]',
     description: undefined,
   },
   {
@@ -126,7 +126,7 @@ export const INLINE_TOKENS = [
   {
     type: 'Drenched',
     token: 'DRENCHED',
-    color: 'text-[#B5AB85] dark:text-[#fff1bc]',
+    color: 'text-slate-900 dark:text-[#fff1bc]',
     description: undefined,
   },
   {
@@ -186,7 +186,7 @@ export const INLINE_TOKENS = [
   {
     type: 'Gloom',
     token: 'GLOOM',
-    color: 'text-[#B5AB85] dark:text-[#fff1bc]',
+    color: 'text-slate-900 dark:text-[#fff1bc]',
     description: undefined,
   },
   {
@@ -254,13 +254,13 @@ export const INLINE_TOKENS = [
   {
     type: 'OPPORTUNITY',
     token: 'OPPORTUNITY',
-    color: 'text-[#B5AB85] dark:text-[#fff1bc]',
+    color: 'text-slate-900 dark:text-[#fff1bc]',
     description: undefined,
   },
   {
     type: 'Power Stone',
     token: 'POWER STONE',
-    color: 'text-[#B5AB85] dark:text-[#fff1bc]',
+    color: 'text-slate-900 dark:text-[#fff1bc]',
     description: undefined,
   },
   {
@@ -378,31 +378,31 @@ export const INLINE_TOKENS = [
   {
     type: 'MARKED',
     token: 'MARKED',
-    color: 'text-[#B5AB85] dark:text-[#fff1bc]',
+    color: 'text-slate-900 dark:text-[#fff1bc]',
     description: undefined,
   },
   {
     type: 'MARK',
     token: 'MARK',
-    color: 'text-[#B5AB85] dark:text-[#fff1bc]',
+    color: 'text-slate-900 dark:text-[#fff1bc]',
     description: undefined,
   },
   {
     type: 'AMBUSH',
     token: 'AMBUSH',
-    color: 'text-[#B5AB85] dark:text-[#fff1bc]',
+    color: 'text-slate-900 dark:text-[#fff1bc]',
     description: undefined,
   },
   {
     type: 'FOCUSED',
     token: 'FOCUSED',
-    color: 'text-[#B5AB85] dark:text-[#fff1bc]',
+    color: 'text-slate-900 dark:text-[#fff1bc]',
     description: undefined,
   },
   {
     type: 'GIFT OF THE FOREST',
     token: 'GIFT OF THE FOREST',
-    color: 'text-[#B5AB85] dark:text-[#fff1bc]',
+    color: 'text-slate-900 dark:text-[#fff1bc]',
     description: undefined,
   },
 ] as const satisfies {
