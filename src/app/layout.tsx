@@ -54,10 +54,10 @@ export default async function RootLayout({
         <SessionProvider>
           <ThemeSelection>
             <GlobalActionButtons />
-            <AlertBanner localStorageKey="optional-item-notification">
+            <AlertBanner localStorageKey="build-description-items">
               <BaseText>
-                Builds can now have optional items! This is a big change, so
-                please report any bugs you find!
+                Item names in build descriptions can now be clicked to show item
+                info! This works automatically.
               </BaseText>
             </AlertBanner>
             <div className="flex h-full w-full max-w-7xl grow flex-col items-start justify-start">

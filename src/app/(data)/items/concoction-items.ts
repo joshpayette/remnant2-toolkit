@@ -170,7 +170,7 @@ export const concoctionItems: ConcoctionItem[] = [
     dlc: 'base',
     tags: ['Heal', 'Consumable'],
     description:
-      'Regenerates 0.75 Health per second. Lasts 60m and will stay in effect after death.\n' +
+      'Regenerates 1 Health per second. Lasts 60m and will stay in effect after death.\n' +
       '\n' +
       'Only one Concoction may be active at a time.',
     wikiLinks: [`https://remnant.wiki/Root_Water`],
@@ -185,7 +185,7 @@ export const concoctionItems: ConcoctionItem[] = [
     dlc: 'base',
     tags: ['Grey Health', 'Heal', 'Consumable'],
     description:
-      'Increases Grey Health Conversion by 30% and Grey Health Regen by 2 per second. Lasts 60m and will stay in effect after death.\n' +
+      'Increases Grey Health Conversion by 20% and Grey Health Regen by 2 per second. Lasts 60m and will stay in effect after death.\n' +
       '\n' +
       'Only one Concoction may be active at a time.',
     wikiLinks: [`https://remnant.wiki/Sacred_Lakewater`],

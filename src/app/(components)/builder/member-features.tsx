@@ -151,13 +151,8 @@ Watch the build in action: [insert Youtube link here]
                 </div>
               </div>
               <div className="flex w-full items-center justify-start text-xs text-gray-300">
-                If you add a YouTube Embed link, it will be embedded above the
+                If you add a YouTube video URL, it will be embedded above the
                 build after 12 hours.{' '}
-                <Tooltip content="URL should start with `https://www.youtube.com/embed/`. You can find the URL by clicking Share -> Embed under the YT video, then copying the `src` value.">
-                  <BaseButton plain>
-                    <IoInformationCircleSharp className="h-4 w-4 text-accent1-500" />
-                  </BaseButton>
-                </Tooltip>
               </div>
             </div>
           )}

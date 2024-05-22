@@ -4,6 +4,39 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-05-21
+
+### Added
+
+- Added the missing item dialog back to the Item Tracker. This was removed previously due to a bug causing the page to not load for some browsers.
+
+### Changed
+
+- YouTube URLs as reference links will now display the video thumbnail and link above the build. It no longer needs to specifically be a YouTube embed URL to work.
+
+### Fixed
+
+- Added separate Gun and Bow description text to Bandit, Transpose, and Extender mutators.
+- Fixed button overflow issue on Item Tracker page on mobile.
+
+## 2024-05-20
+
+### Added
+
+- Bolded item names in Build descriptions are now clickable links to the item info dialog.
+
+### Changed
+
+- Changed Overload item token.
+- Temporarily disabled Item Tracker feature to show missing items by location next to each category header until we can work out a bug with older browsers.
+
+### Fixed
+
+- Added external tokens to Item Info dialog. These were on the Item Cards, but not in the dialog as they should have been.
+- Fixed description for Power Stone.
+- Fixed the Sacred Lakewater description to match in-game.
+- Fixed the Root Water description to match in-game.
+
 ## 2024-05-19
 
 ### Added

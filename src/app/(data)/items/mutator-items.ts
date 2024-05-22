@@ -10,10 +10,11 @@ export const mutatorItems: MutatorItem[] = [
     id: 'f9tqot',
     dlc: 'base',
     tags: ['Ammo Reserves', 'Fire Rate'],
-    description:
-      'On hit, grants a 10% - 30% chance to return spent Ammo directly into the magazine of this weapon.',
+    description: `Guns: On hit, grants a 10% - 30% chance to return spent Ammo directly into the magazine of this weapon.
+    
+      Bow: On hit, grants a 10% - 30% chance to return spent Ammo back into the reserves of this weapon. `,
     maxLevelBonus:
-      'When Ammo is returned to this weapon, it gains 10% increased Fire Rate for 3s. Duration can increase up to 10s.On hit, grants a 10% - 30% chance to return spent Ammo back into the reserves of this weapon.',
+      'When Ammo is returned to this weapon, it gains 10% increased Fire Rate for 3s. Duration can increase up to 10s.',
     wikiLinks: [`https://remnant.wiki/Bandit_(Mutator)`],
     location: { world: 'Yaesha', dungeon: 'Aberration' },
   },
@@ -179,9 +180,10 @@ export const mutatorItems: MutatorItem[] = [
     id: 'pszxmh',
     dlc: 'base',
     tags: ['Magazine Capacity', 'Reload Speed'],
-    description: 'Increases Magazine Capacity of this weapon by 20% - 45%.',
-    maxLevelBonus:
-      'Increases Reload Speed of this weapon by 20%.Increases Reserve Size of this weapon by 20% - 45%.',
+    description: `Guns: Increases Magazine Capacity of this weapon by 20% - 45%.
+
+      Bows: Increases Reserve Size of this weapon by 20% - 45%.`,
+    maxLevelBonus: 'Increases Reload Speed of this weapon by 20%.',
     wikiLinks: [`https://remnant.wiki/Extender`],
     location: {
       world: 'Yaesha',
@@ -850,8 +852,9 @@ export const mutatorItems: MutatorItem[] = [
     dlc: 'base',
     tags: ['Ranged Damage', 'Ammo Reserves'],
     description: 'Gaining Ammo increases Ranged Damage by 5% - 15% for 15s.',
-    maxLevelBonus:
-      "New Ammo gains are added directly to into this weapon's magazine.Gaining Ammo increases Ranged Damage by 5% - 15% for 15s.",
+    maxLevelBonus: `Guns: New Ammo gains are added directly to into this weapon's magazine.
+
+      Bows: New Ammo gains grants this weapon Infinite Reserves for 15s.`,
     wikiLinks: [`https://remnant.wiki/Transpose`],
     location: {
       world: `N'Erud`,

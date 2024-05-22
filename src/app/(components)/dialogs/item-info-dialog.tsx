@@ -25,6 +25,7 @@ import { TraitItem } from '@/app/(data)/items/types/TraitItem'
 import { WeaponItem } from '@/app/(data)/items/types/WeaponItem'
 import { BIOMES, ItemLocation } from '@/app/(types)/locations'
 import { capitalize } from '@/app/(utils)/capitalize'
+import { cn } from '@/app/(utils)/classnames'
 import { itemShareEndpoint } from '@/app/(utils)/clean-item-name'
 
 function generateDungeonLabel(location: ItemLocation) {
@@ -119,20 +120,30 @@ export function ItemInfoDialog({ open, item, onClose }: Props) {
             width={imageSize.width}
             height={imageSize.height}
             alt={item.name}
-            className="h-auto max-h-full w-full max-w-[200px]"
+            className={cn(
+              "h-auto max-h-full w-full max-w-[200px]",
+              ArchetypeItem.isArchetypeItem(item) && 'bg-black',
+            )}
             loading="eager"
           />
         </span>
       </BaseDialogBody>
       <BaseDialogTitle>Description</BaseDialogTitle>
       <BaseDialogBody>
-        <span className="whitespace-pre-line">
+        <div className="mt-3 flex flex-col gap-y-2 whitespace-pre-line text-left text-xs text-gray-200">
           <DescriptionWithTokens
-            description={item.description || 'No description available.'}
+            description={item.description ?? ''}
             highlightBuildTags={false}
             highlightItems={false}
           />
-        </span>
+          {item.externalTokens && (
+            <DescriptionWithTokens
+              description={item.externalTokens.join(', ')}
+              highlightBuildTags={false}
+              highlightItems={false}
+            />
+          )}
+        </div>
       </BaseDialogBody>
       {MutatorItem.isMutatorItem(item) && (
         <BaseDialogBody className="flex flex-col items-start justify-start gap-x-2 gap-y-4">
