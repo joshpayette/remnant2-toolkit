@@ -1,6 +1,6 @@
 import { getBuild } from '@/app/(actions)/builds/get-build'
 import { isErrorResponse } from '@/app/(utils)/is-error-response'
-import { BuildPage } from '@/app/builder/edit/[buildId]/BuildPage'
+import { PageClient } from '@/app/builder/edit/[buildId]/page.client'
 
 export default async function Page({
   params: { buildId },
@@ -18,5 +18,5 @@ export default async function Page({
   }
   const { build } = buildData
 
-  return <BuildPage build={build} />
+  return <PageClient build={build} />
 }

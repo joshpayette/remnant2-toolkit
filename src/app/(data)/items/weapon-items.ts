@@ -1342,10 +1342,10 @@ export const weaponItems: WeaponItem[] = [
         name: 'Cyclone',
       },
     },
-    damage: 56,
+    damage: 48,
     crit: 3,
     weakspot: 100,
-    stagger: -5,
+    stagger: -10,
   },
   {
     category: 'weapon',

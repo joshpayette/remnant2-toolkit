@@ -25,7 +25,7 @@ interface Props {
   build: DBBuild
 }
 
-export function BuildPage({ build }: Props) {
+export function PageClient({ build }: Props) {
   const { data: session } = useSession()
 
   const [detailedBuildDialogOpen, setDetailedBuildDialogOpen] = useState(false)

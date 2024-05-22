@@ -18,6 +18,7 @@ import { LoadoutManagementButton } from '@/app/(components)/buttons/builder-butt
 import { ShareBuildButton } from '@/app/(components)/buttons/builder-buttons/share-build-button'
 import { ToCsvButton } from '@/app/(components)/buttons/to-csv-button'
 import { DetailedBuildDialog } from '@/app/(components)/dialogs/detailed-build-dialog'
+import GenericDialog from '@/app/(components)/dialogs/generic-dialog'
 import { ImageDownloadInfoDialog } from '@/app/(components)/dialogs/image-download-info-dialog'
 import { LoadoutDialog } from '@/app/(components)/dialogs/loadout-dialog'
 import { useBuildActions } from '@/app/(hooks)/use-build-actions'
@@ -36,7 +37,7 @@ interface Props {
   build: DBBuild
 }
 
-export function BuildPage({ build }: Props) {
+export function PageClient({ build }: Props) {
   const buildState = cleanUpBuildState(dbBuildToBuildState(build))
 
   const [detailedBuildDialogOpen, setDetailedBuildDialogOpen] = useState(false)
@@ -44,6 +45,9 @@ export function BuildPage({ build }: Props) {
 
   const router = useRouter()
   const { data: session } = useSession()
+
+  const [signInRequiredDialogOpen, setSignInRequiredDialogOpen] =
+    useState(false)
 
   const {
     isScreenshotMode,
@@ -100,6 +104,18 @@ export function BuildPage({ build }: Props) {
         onClose={handleClearImageDownloadInfo}
         imageDownloadInfo={imageDownloadInfo}
       />
+      <GenericDialog
+        open={signInRequiredDialogOpen}
+        onClose={() => setSignInRequiredDialogOpen(false)}
+        title="Sign In Required"
+      >
+        <p>
+          You must be signed in to favorite builds. Favorited builds will always
+          be available in your profile, can be used in your loadouts, and will
+          support the creator by increasing the build&apos;s visibility.
+        </p>
+        <p>Sign in or create an account to favorite this build.</p>
+      </GenericDialog>
       <div className="height-full flex w-full flex-col items-center justify-center">
         {canShowFeaturedVideo && buildState.videoUrl && (
           <div className="mb-12 max-h-[270px] text-center sm:mb-8 sm:max-h-[430px] sm:max-w-[560px]">
@@ -181,15 +197,19 @@ export function BuildPage({ build }: Props) {
                 />
               )}
 
-              {session?.user?.id &&
-                buildState.createdById !== session.user.id && (
-                  <FavoriteBuildButton
-                    upvoted={buildState.upvoted}
-                    onClick={() =>
-                      handleFavoriteBuild(buildState, session?.user?.id)
+              {buildState.createdById !== session?.user?.id && (
+                <FavoriteBuildButton
+                  upvoted={buildState.upvoted}
+                  onClick={() => {
+                    // if user is not signed in, let them know signin is required
+                    if (!session?.user?.id) {
+                      setSignInRequiredDialogOpen(true)
+                      return
                     }
-                  />
-                )}
+                    handleFavoriteBuild(buildState, session?.user?.id)
+                  }}
+                />
+              )}
 
               {session &&
                 session.user?.id === buildState.createdById &&
