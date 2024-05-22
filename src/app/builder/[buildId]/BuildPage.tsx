@@ -26,34 +26,11 @@ import { buildStateToCsvData } from '@/app/(utils)/builds/build-state-to-csv-dat
 import { cleanUpBuildState } from '@/app/(utils)/builds/clean-up-build-state'
 import { dbBuildToBuildState } from '@/app/(utils)/builds/db-build-to-build-state'
 import { urlNoCache } from '@/app/(utils)/url-no-cache'
-
-function videoEmbedUrlToVideoId(videoEmbedUrl: string) {
-  const url = new URL(videoEmbedUrl)
-  // need to get the video id segment
-  return url.pathname.split('/')[2].split('?')[0]
-}
-
-/**
- * Converts a youtube embed url to a watch url
- * @example
- * videoEmbedUrlToWatchUrl('https://www.youtube.com/embed/3QKpQjvtqE8?controls=0')
- *  => 'https://www.youtube.com/watch?v=3QKpQjvtqE8'
- */
-function videoEmbedUrlToWatchUrl(videoEmbedUrl: string) {
-  // if start=XXX is in the url, grab it for the &t=XXX part of the watch url
-  const startValue = videoEmbedUrl.match(/start=(\d+)/)?.[1]
-
-  const videoId = videoEmbedUrlToVideoId(videoEmbedUrl)
-  return `https://www.youtube.com/watch?v=${videoId}${
-    startValue ? `&t=${startValue}` : ''
-  }`
-}
-
-// Function to pattern match the url to ensure it is a youtube embed url
-// The beginning of the url should include https://www.youtube.com/embed/
-function isEmbedUrl(url: string) {
-  return url.startsWith('https://www.youtube.com/embed/')
-}
+import {
+  isValidYoutubeUrl,
+  videoUrlToThumbnailUrl,
+  videoUrlToWatchUrl,
+} from '@/app/(utils)/youtube'
 
 interface Props {
   build: DBBuild
@@ -95,14 +72,14 @@ export function BuildPage({ build }: Props) {
   // If the video is a featured build, show it
   const canShowFeaturedVideo =
     buildState.videoUrl &&
-    isEmbedUrl(buildState.videoUrl) &&
+    isValidYoutubeUrl(buildState.videoUrl) &&
     buildState.isFeaturedBuild
 
   // if the video is not a featured build, show it if it was updated over 12 hours ago
   const canShowBuildLinkVideo =
     buildState.buildLink &&
     buildState.buildLinkUpdatedAt &&
-    isEmbedUrl(buildState.buildLink) &&
+    isValidYoutubeUrl(buildState.buildLink) &&
     buildState.buildLinkUpdatedAt < twelveHoursAgo
 
   return (
@@ -126,16 +103,11 @@ export function BuildPage({ build }: Props) {
       <div className="height-full flex w-full flex-col items-center justify-center">
         {canShowFeaturedVideo && buildState.videoUrl && (
           <div className="mb-12 max-h-[270px] text-center sm:mb-8 sm:max-h-[430px] sm:max-w-[560px]">
-            <a
-              href={`${videoEmbedUrlToWatchUrl(buildState.videoUrl)}`}
-              target="_blank"
-            >
+            <a href={videoUrlToWatchUrl(buildState.videoUrl)} target="_blank">
               <Image
                 width={560}
                 height={315}
-                src={`https://i.ytimg.com/vi/${videoEmbedUrlToVideoId(
-                  buildState.videoUrl,
-                )}/sddefault.jpg`}
+                src={videoUrlToThumbnailUrl(buildState.videoUrl)}
                 loading="eager"
                 alt={`${buildState.name} video thumbnail`}
                 unoptimized={true}
@@ -151,15 +123,13 @@ export function BuildPage({ build }: Props) {
           !canShowFeaturedVideo && (
             <div className="mb-12 max-h-[270px] text-center sm:mb-8 sm:max-h-[430px] sm:max-w-[560px]">
               <a
-                href={`${videoEmbedUrlToWatchUrl(buildState.buildLink)}`}
+                href={videoUrlToWatchUrl(buildState.buildLink)}
                 target="_blank"
               >
                 <Image
                   width={560}
                   height={315}
-                  src={`https://i.ytimg.com/vi/${videoEmbedUrlToVideoId(
-                    buildState.buildLink,
-                  )}/sddefault.jpg`}
+                  src={videoUrlToThumbnailUrl(buildState.buildLink)}
                   loading="eager"
                   alt={`${buildState.name} video thumbnail`}
                   unoptimized={true}

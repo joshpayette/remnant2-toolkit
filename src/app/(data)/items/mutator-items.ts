@@ -851,7 +851,7 @@ export const mutatorItems: MutatorItem[] = [
     tags: ['Ranged Damage', 'Ammo Reserves'],
     description: 'Gaining Ammo increases Ranged Damage by 5% - 15% for 15s.',
     maxLevelBonus:
-      "New Ammo gains are added directly to into this weapon's magazine.Gaining Ammo increases Ranged Damage by 5% - 15% for 15s.",
+      "New Ammo gains are added directly to into this weapon's magazine.",
     wikiLinks: [`https://remnant.wiki/Transpose`],
     location: {
       world: `N'Erud`,
