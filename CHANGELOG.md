@@ -12,7 +12,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ### Fixed
 
-- Fixed typo in Transpose mutator description.
+- Added separate Gun and Bow description text to Bandit, Transpose, and Extender mutators.
 
 ## 2024-05-20
 
