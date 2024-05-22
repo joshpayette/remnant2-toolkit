@@ -4,7 +4,6 @@ import { ReactNode, useState } from 'react'
 import reactStringReplace from 'react-string-replace'
 import { v4 as uuidv4 } from 'uuid'
 
-import { BaseButton } from '@/app/(components)/_base/button'
 import { ALL_BUILD_TAGS } from '@/app/(components)/builder/build-tags/constants'
 import { ItemInfoDialog } from '@/app/(components)/dialogs/item-info-dialog'
 import { Tooltip } from '@/app/(components)/tooltip'
@@ -13,6 +12,11 @@ import { Item } from '@/app/(data)/items/types'
 import { EXTERNAL_TOKENS, INLINE_TOKENS } from '@/app/(types)/tokens'
 import { cn } from '@/app/(utils)/classnames'
 import { stripUnicode } from '@/app/(utils)/strip-unicode'
+import { ItemCategory } from '../(types)/builds'
+
+const tooltipSupportedCategories: ItemCategory[] = [
+  'amulet', 'concoction', 'consumable', 'ring', 'relic', 'trait'
+]
 
 function parseStringForToken({
   description,
@@ -110,8 +114,8 @@ function parseStringForToken({
         const itemName = allItemNames.find(
           (itemName) => itemName.toLowerCase() === match.toLowerCase(),
         )
-
-        return (
+        const item = allItems.find((item) => item.name === itemName)
+        const itemNameButton = (
           <button
             key={uuidv4()}
             className="p-0 font-bold"
@@ -120,6 +124,12 @@ function parseStringForToken({
             {itemName}
           </button>
         )
+
+        return item && item.description && tooltipSupportedCategories.includes(item.category)
+          ? <Tooltip key={uuidv4()} content={item.description}>
+              {itemNameButton}
+            </Tooltip>
+          : itemNameButton
       },
     )
   }
