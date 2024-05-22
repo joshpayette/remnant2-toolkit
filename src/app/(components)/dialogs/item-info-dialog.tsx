@@ -25,6 +25,7 @@ import { TraitItem } from '@/app/(data)/items/types/TraitItem'
 import { WeaponItem } from '@/app/(data)/items/types/WeaponItem'
 import { BIOMES, ItemLocation } from '@/app/(types)/locations'
 import { capitalize } from '@/app/(utils)/capitalize'
+import { cn } from '@/app/(utils)/classnames'
 import { itemShareEndpoint } from '@/app/(utils)/clean-item-name'
 
 function generateDungeonLabel(location: ItemLocation) {
@@ -119,7 +120,10 @@ export function ItemInfoDialog({ open, item, onClose }: Props) {
             width={imageSize.width}
             height={imageSize.height}
             alt={item.name}
-            className="h-auto max-h-full w-full max-w-[200px]"
+            className={cn(
+              "h-auto max-h-full w-full max-w-[200px]",
+              ArchetypeItem.isArchetypeItem(item) && 'bg-black',
+            )}
             loading="eager"
           />
         </span>
