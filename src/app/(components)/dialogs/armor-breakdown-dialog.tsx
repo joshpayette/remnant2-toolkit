@@ -52,7 +52,7 @@ function getArmorPercentStepLabel(item: TraitItem) {
     <>
       <span className="font-bold text-surface-solid">{item.name}</span>{' '}
       <span className="text-gray-300">
-        ({item.armorStepPercent}% per point)
+      ({((item.armorStepPercent ?? 0) * 100).toFixed(2)}% per point)
       </span>
     </>
   )
