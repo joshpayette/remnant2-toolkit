@@ -121,7 +121,7 @@ export function ItemInfoDialog({ open, item, onClose }: Props) {
             height={imageSize.height}
             alt={item.name}
             className={cn(
-              "h-auto max-h-full w-full max-w-[200px]",
+              'h-auto max-h-full w-full max-w-[200px]',
               ArchetypeItem.isArchetypeItem(item) && 'bg-black',
             )}
             loading="eager"
@@ -130,7 +130,7 @@ export function ItemInfoDialog({ open, item, onClose }: Props) {
       </BaseDialogBody>
       <BaseDialogTitle>Description</BaseDialogTitle>
       <BaseDialogBody>
-        <div className="mt-3 flex flex-col gap-y-2 whitespace-pre-line text-left text-xs text-gray-200">
+        <div className="mt-3 flex flex-col gap-y-2 whitespace-pre-line text-left text-gray-200">
           <DescriptionWithTokens
             description={item.description ?? ''}
             highlightBuildTags={false}
