@@ -13,6 +13,7 @@ const PERMITTED_BUILDERS = [
   'clugdu1t30000o61r2vxac32d', // cash vowaii
   'clqvha5xy0007tfs2miqtj50q', // dots_Я_us
   'clru44rg60000jwnmkoufy3yz', // mick1135
+  'clrz8vpta0006potkn61amnmv', // bo}|{omar
 ]
 
 export function isPermittedBuilder(userId: string): boolean {
