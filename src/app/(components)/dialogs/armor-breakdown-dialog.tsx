@@ -10,33 +10,33 @@ import { Item } from '@/app/(data)/items/types'
 import { TraitItem } from '@/app/(data)/items/types/TraitItem'
 import { BuildState } from '@/app/(types)/builds'
 
-function getStaminaStepLabel(
+function getArmorStepLabel(
   item: TraitItem,
-  equippedStaminaStepItems: TraitItem[],
+  equippedArmorStepItems: TraitItem[],
 ) {
   const traitAmount =
-    equippedStaminaStepItems.find((t) => t.name === item.name)?.amount ?? 0
+    equippedArmorStepItems.find((t) => t.name === item.name)?.amount ?? 0
 
   return (
     <>
       <span className="font-bold text-surface-solid">{item.name}</span>{' '}
       <span className="text-gray-300">
-        {`(${traitAmount * (item.staminaStep ?? 0)})`}
+        {`(${traitAmount * (item.armorStep ?? 0)})`}
       </span>
     </>
   )
 }
 
-function getStaminaIncreaseLabel(item: Item) {
+function getArmorIncreaseLabel(item: Item) {
   return (
     <>
       <span className="font-bold text-surface-solid">{item.name}</span>{' '}
-      <span className="text-gray-300">({item.stamina})</span>
+      <span className="text-gray-300">({item.armor})</span>
     </>
   )
 }
 
-function getStaminaPercentLabel(item: Item) {
+function getArmorPercentLabel(item: Item) {
   return (
     <>
       <span className="font-bold text-surface-solid">
@@ -44,18 +44,24 @@ function getStaminaPercentLabel(item: Item) {
         {item.category === 'relicfragment' && 'Mythic Relic Fragment'}
       </span>{' '}
       <span className="text-gray-300">
-        ({((item.staminaPercent ?? 0) * 100).toFixed(2)}%)
+        ({((item.armorPercent ?? 0) * 100).toFixed(2)}%)
       </span>
     </>
   )
 }
 
-function getStaminaStepPercentLabel(item: TraitItem) {
+function getArmorStepPercentLabel(
+  item: TraitItem,
+  equippedArmorStepPercentItems: TraitItem[],
+) {
+  const traitAmount =
+    equippedArmorStepPercentItems.find((t) => t.name === item.name)?.amount ?? 0
+
   return (
     <>
       <span className="font-bold text-surface-solid">{item.name}</span>{' '}
       <span className="text-gray-300">
-        ({item.staminaStepPercent} stamina per point)
+        {`(${traitAmount * (item.armorStepPercent ?? 0) * 100})`}
       </span>
     </>
   )
@@ -66,18 +72,18 @@ interface Props {
   open: boolean
   onClose: () => void
   breakdown: {
-    equippedStaminaIncreaseItems: Item[]
-    equippedStaminaPercentItems: Item[]
-    equippedStaminaStepItems: TraitItem[]
-    equippedStaminaStepPercentItems: TraitItem[]
-    totalStaminaIncrease: number
-    totalStaminaPercent: number
-    totalStaminaStep: number
-    totalStaminaStepPercent: number
+    equippedArmorIncreaseItems: Item[]
+    equippedArmorPercentItems: Item[]
+    equippedArmorStepItems: TraitItem[]
+    equippedArmorStepPercentItems: TraitItem[]
+    totalArmorIncrease: number
+    totalArmorPercent: number
+    totalArmorStep: number
+    totalArmorStepPercent: number
   }
 }
 
-export function StaminaBreakdownDialog({
+export function ArmorBreakdownDialog({
   open,
   buildState,
   breakdown,
@@ -85,34 +91,29 @@ export function StaminaBreakdownDialog({
 }: Props) {
   return (
     <BaseDialog open={open} onClose={onClose} size="sm">
-      <BaseDialogTitle>Stamina Breakdown</BaseDialogTitle>
+      <BaseDialogTitle>Armor Breakdown</BaseDialogTitle>
       <BaseDialogDescription>
-        View a breakdown of items contributing to this stamina total.
+        View a breakdown of items contributing to this armor total.<br></br>
+        ArmorDR = Armor / (Armor+200)
       </BaseDialogDescription>
       <BaseDialogBody>
         <div className="text-left text-sm">
-          <h3 className="text-md col-span-full my-2 font-semibold text-surface-solid">
-            Base Stamina{' '}
-            <span className="text-md font-bold text-surface-solid">100</span>
-          </h3>
-          {(breakdown.equippedStaminaIncreaseItems.length > 0 ||
-            breakdown.equippedStaminaStepItems.length > 0) && (
+          {(breakdown.equippedArmorIncreaseItems.length > 0 ||
+            breakdown.equippedArmorStepItems.length > 0) && (
             <Section
-              total={
-                breakdown.totalStaminaIncrease + breakdown.totalStaminaStep
-              }
+              total={breakdown.totalArmorIncrease + breakdown.totalArmorStep}
               listItems={
                 <>
-                  {breakdown.equippedStaminaIncreaseItems.map((item) => (
+                  {breakdown.equippedArmorIncreaseItems.map((item) => (
                     <ListItem key={item.id}>
-                      {getStaminaIncreaseLabel(item)}
+                      {getArmorIncreaseLabel(item)}
                     </ListItem>
                   ))}
-                  {breakdown.equippedStaminaStepItems.map((item) => (
+                  {breakdown.equippedArmorStepItems.map((item) => (
                     <ListItem key={item.id}>
-                      {getStaminaStepLabel(
+                      {getArmorStepLabel(
                         item,
-                        breakdown.equippedStaminaStepItems,
+                        breakdown.equippedArmorStepItems,
                       )}
                     </ListItem>
                   ))}
@@ -121,25 +122,28 @@ export function StaminaBreakdownDialog({
             />
           )}
 
-          {(breakdown.equippedStaminaPercentItems.length > 0 ||
-            breakdown.equippedStaminaStepPercentItems.length > 0) && (
+          {(breakdown.equippedArmorPercentItems.length > 0 ||
+            breakdown.equippedArmorStepPercentItems.length > 0) && (
             <Section
               isPercent={true}
               total={
-                (breakdown.totalStaminaPercent +
-                  breakdown.totalStaminaStepPercent) *
+                (breakdown.totalArmorPercent +
+                  breakdown.totalArmorStepPercent) *
                 100
               }
               listItems={
                 <>
-                  {breakdown.equippedStaminaPercentItems.map((item) => (
+                  {breakdown.equippedArmorPercentItems.map((item) => (
                     <ListItem key={item.id}>
-                      {getStaminaPercentLabel(item)}
+                      {getArmorPercentLabel(item)}
                     </ListItem>
                   ))}
-                  {breakdown.equippedStaminaStepPercentItems.map((item) => (
+                  {breakdown.equippedArmorStepPercentItems.map((item) => (
                     <ListItem key={item.id}>
-                      {getStaminaStepPercentLabel(item)}
+                      {getArmorStepPercentLabel(
+                        item,
+                        breakdown.equippedArmorStepPercentItems,
+                      )}
                     </ListItem>
                   ))}
                 </>

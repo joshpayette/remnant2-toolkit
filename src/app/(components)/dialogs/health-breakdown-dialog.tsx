@@ -10,15 +10,18 @@ import { Item } from '@/app/(data)/items/types'
 import { TraitItem } from '@/app/(data)/items/types/TraitItem'
 import { BuildState } from '@/app/(types)/builds'
 
-function getHealthStepLabel(buildState: BuildState, item: TraitItem) {
-  const amount =
-    buildState.items.trait.find((t) => t.name === item.name)?.amount ?? 0
+function getHealthStepLabel(
+  item: TraitItem,
+  equippedHealthStepItems: TraitItem[],
+) {
+  const traitAmount =
+    equippedHealthStepItems.find((t) => t.name === item.name)?.amount ?? 0
 
   return (
     <>
       <span className="font-bold text-surface-solid">{item.name}</span>{' '}
       <span className="text-gray-300">{`(${
-        amount * (item.healthStep ?? 0)
+        traitAmount * (item.healthStep ?? 0)
       })`}</span>
     </>
   )
@@ -48,7 +51,7 @@ function getHealthPercentLabel(item: Item) {
   )
 }
 
-function getHealthPercentStepLabel(item: TraitItem) {
+function ggetHealthStepPercentLabel(item: TraitItem) {
   return (
     <>
       <span className="font-bold text-surface-solid">{item.name}</span>{' '}
@@ -119,7 +122,10 @@ export function HealthBreakdownDialog({
                   ))}
                   {breakdown.equippedHealthStepItems.map((item) => (
                     <ListItem key={item.id}>
-                      {getHealthStepLabel(buildState, item)}
+                      {getHealthStepLabel(
+                        item,
+                        breakdown.equippedHealthStepItems,
+                      )}
                     </ListItem>
                   ))}
                 </>
@@ -145,7 +151,7 @@ export function HealthBreakdownDialog({
                   ))}
                   {breakdown.equippedHealthStepPercentItems.map((item) => (
                     <ListItem key={item.id}>
-                      {getHealthPercentStepLabel(item)}
+                      {ggetHealthStepPercentLabel(item)}
                     </ListItem>
                   ))}
                 </>

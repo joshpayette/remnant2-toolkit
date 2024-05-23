@@ -2,6 +2,7 @@ import Image from 'next/image'
 import { useState } from 'react'
 import { IoInformationCircleSharp } from 'react-icons/io5'
 
+import { ArmorBreakdownDialog } from '@/app/(components)/dialogs/armor-breakdown-dialog'
 import { HealthBreakdownDialog } from '@/app/(components)/dialogs/health-breakdown-dialog'
 import { StaminaBreakdownDialog } from '@/app/(components)/dialogs/stamina-breakdown-dialog'
 import { Tooltip } from '@/app/(components)/tooltip'
@@ -23,8 +24,9 @@ interface Props {
 export function Stats({ buildState, isScreenshotMode }: Props) {
   const [healthInfoOpen, setHealthInfoOpen] = useState(false)
   const [staminaInfoOpen, setStaminaInfoOpen] = useState(false)
+  const [armorInfoOpen, setArmorInfoOpen] = useState(false)
 
-  const totalArmor = getTotalArmor(buildState)
+  const { totalArmor, breakdown: armorBreakdown } = getTotalArmor(buildState)
   const totalWeight = getTotalWeight(buildState)
   const { totalHealth, breakdown: healthBreakdown } = getTotalHealth(buildState)
   const { totalStamina, breakdown: staminaBreakdown } =
@@ -53,6 +55,12 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
         breakdown={staminaBreakdown}
         open={staminaInfoOpen}
         onClose={() => setStaminaInfoOpen(false)}
+      />
+      <ArmorBreakdownDialog
+        buildState={buildState}
+        breakdown={armorBreakdown}
+        open={armorInfoOpen}
+        onClose={() => setArmorInfoOpen(false)}
       />
       <div className="flex w-full flex-grow flex-col justify-start">
         <div className="flex w-full flex-row items-center justify-start">
@@ -91,18 +99,19 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
             </div>
             <div className="relative grid w-full grid-cols-2 gap-2 border border-transparent border-b-primary-500 text-left text-sm text-gray-300">
               <p className="flex items-center justify-start">Armor</p>
-              <Tooltip content="ArmorDR = Armor / (Armor+200)">
-                {/** Not updating to new button component */}
-                <button
-                  className={cn(
-                    'text-md flex items-center justify-end text-right font-bold sm:text-lg',
-                    isScreenshotMode && 'text-lg',
-                  )}
-                  aria-label={`Armor Damage Reduction: ${totalArmor} / (${totalArmor} + 200)`}
-                >
-                  {totalArmor}
-                </button>
-              </Tooltip>
+              {/** Not updating to new button component */}
+              <button
+                className={cn(
+                  'text-md flex items-center justify-end rounded-full border-transparent bg-background-solid text-right font-bold sm:text-lg',
+                  isScreenshotMode && 'text-lg',
+                )}
+                onClick={() => setArmorInfoOpen(true)}
+              >
+                {totalArmor}
+                {!isScreenshotMode && (
+                  <IoInformationCircleSharp className="h-4 w-4 text-accent1-500" />
+                )}
+              </button>
             </div>
             <div className="relative grid w-full grid-cols-2 gap-2 border border-transparent border-b-primary-500 text-left text-sm text-gray-300">
               <p className="flex items-center justify-start">Weight</p>
