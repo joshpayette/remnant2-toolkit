@@ -220,11 +220,11 @@ body > div:last-child > span + img {
   border-top-color: rgb(var(--color-yellow-500));
 }
 .tippy-box[data-theme~='r2tk'][data-placement^='bottom'] > .tippy-arrow::before {
-  border-bottom-color: rgb(var(--color-cyan-900));
+  border-bottom-color: rgb(var(--color-yellow-500));
 }
 .tippy-box[data-theme~='r2tk'][data-placement^='left'] > .tippy-arrow::before {
-  border-left-color: rgb(var(--color-cyan-900));
+  border-left-color: rgb(var(--color-yellow-500));
 }
 .tippy-box[data-theme~='r2tk'][data-placement^='right'] > .tippy-arrow::before {
-  border-right-color: rgb(var(--color-cyan-900));
+  border-right-color: rgb(var(--color-yellow-500));
 }
