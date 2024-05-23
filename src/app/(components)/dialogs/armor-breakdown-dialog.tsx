@@ -61,14 +61,13 @@ function getArmorStepPercentLabel(
     <>
       <span className="font-bold text-surface-solid">{item.name}</span>{' '}
       <span className="text-gray-300">
-        {`(${traitAmount * (item.armorStepPercent ?? 0) * 100})`}
+        {`(${traitAmount * (item.armorStepPercent ?? 0) * 100}%)`}
       </span>
     </>
   )
 }
 
 interface Props {
-  buildState: BuildState
   open: boolean
   onClose: () => void
   breakdown: {
@@ -83,12 +82,7 @@ interface Props {
   }
 }
 
-export function ArmorBreakdownDialog({
-  open,
-  buildState,
-  breakdown,
-  onClose,
-}: Props) {
+export function ArmorBreakdownDialog({ open, breakdown, onClose }: Props) {
   return (
     <BaseDialog open={open} onClose={onClose} size="sm">
       <BaseDialogTitle>Armor Breakdown</BaseDialogTitle>

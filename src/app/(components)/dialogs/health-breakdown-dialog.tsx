@@ -51,12 +51,19 @@ function getHealthPercentLabel(item: Item) {
   )
 }
 
-function ggetHealthStepPercentLabel(item: TraitItem) {
+function ggetHealthStepPercentLabel(
+  item: TraitItem,
+  equippedHealthStepPercentItems: TraitItem[],
+) {
+  const traitAmount =
+    equippedHealthStepPercentItems.find((t) => t.name === item.name)?.amount ??
+    0
+
   return (
     <>
       <span className="font-bold text-surface-solid">{item.name}</span>{' '}
       <span className="text-gray-300">
-        ({item.healthStepPercent} health per point)
+        {`(${traitAmount * (item.healthStepPercent ?? 0) * 100}%)`}
       </span>
     </>
   )
@@ -73,7 +80,6 @@ function getHealthCapLabel(item: Item) {
 
 interface Props {
   open: boolean
-  buildState: BuildState
   breakdown: {
     equippedHealthIncreaseItems: Item[]
     equippedHealthPercentItems: Item[]
@@ -89,12 +95,7 @@ interface Props {
   onClose: () => void
 }
 
-export function HealthBreakdownDialog({
-  open,
-  buildState,
-  breakdown,
-  onClose,
-}: Props) {
+export function HealthBreakdownDialog({ open, breakdown, onClose }: Props) {
   return (
     <BaseDialog open={open} onClose={onClose} size="sm">
       <BaseDialogTitle>Health Breakdown</BaseDialogTitle>
@@ -151,7 +152,10 @@ export function HealthBreakdownDialog({
                   ))}
                   {breakdown.equippedHealthStepPercentItems.map((item) => (
                     <ListItem key={item.id}>
-                      {ggetHealthStepPercentLabel(item)}
+                      {ggetHealthStepPercentLabel(
+                        item,
+                        breakdown.equippedHealthStepPercentItems,
+                      )}
                     </ListItem>
                   ))}
                 </>

@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2024-05-22
 
+### Added
+
+- Builder stats now show an armor breakdown info icon for more details about the armor calculations.
+
 ### Changed
 
 - Favorite Build button will now show up whether the user is signed in or not - previously would only show if you are signed in. If an unauthenticated user clicks the button, they will be prompted to sign-in to favorite the build.

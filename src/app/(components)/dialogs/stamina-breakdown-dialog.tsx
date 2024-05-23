@@ -50,19 +50,25 @@ function getStaminaPercentLabel(item: Item) {
   )
 }
 
-function getStaminaStepPercentLabel(item: TraitItem) {
+function getStaminaStepPercentLabel(
+  item: TraitItem,
+  equippedStaminaStepPercentItems: TraitItem[],
+) {
+  const traitAmount =
+    equippedStaminaStepPercentItems.find((t) => t.name === item.name)?.amount ??
+    0
+
   return (
     <>
       <span className="font-bold text-surface-solid">{item.name}</span>{' '}
       <span className="text-gray-300">
-        ({item.staminaStepPercent} stamina per point)
+        {`(${traitAmount * (item.staminaStepPercent ?? 0) * 100}%)`}
       </span>
     </>
   )
 }
 
 interface Props {
-  buildState: BuildState
   open: boolean
   onClose: () => void
   breakdown: {
@@ -77,12 +83,7 @@ interface Props {
   }
 }
 
-export function StaminaBreakdownDialog({
-  open,
-  buildState,
-  breakdown,
-  onClose,
-}: Props) {
+export function StaminaBreakdownDialog({ open, breakdown, onClose }: Props) {
   return (
     <BaseDialog open={open} onClose={onClose} size="sm">
       <BaseDialogTitle>Stamina Breakdown</BaseDialogTitle>
@@ -139,7 +140,10 @@ export function StaminaBreakdownDialog({
                   ))}
                   {breakdown.equippedStaminaStepPercentItems.map((item) => (
                     <ListItem key={item.id}>
-                      {getStaminaStepPercentLabel(item)}
+                      {getStaminaStepPercentLabel(
+                        item,
+                        breakdown.equippedStaminaStepPercentItems,
+                      )}
                     </ListItem>
                   ))}
                 </>

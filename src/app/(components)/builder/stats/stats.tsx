@@ -45,19 +45,16 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
   return (
     <>
       <HealthBreakdownDialog
-        buildState={buildState}
         breakdown={healthBreakdown}
         open={healthInfoOpen}
         onClose={() => setHealthInfoOpen(false)}
       />
       <StaminaBreakdownDialog
-        buildState={buildState}
         breakdown={staminaBreakdown}
         open={staminaInfoOpen}
         onClose={() => setStaminaInfoOpen(false)}
       />
       <ArmorBreakdownDialog
-        buildState={buildState}
         breakdown={armorBreakdown}
         open={armorInfoOpen}
         onClose={() => setArmorInfoOpen(false)}
