@@ -113,7 +113,7 @@ export const NAV_ITEMS = {
   linkedBuilds: {
     label: 'Linked Builds',
     description:
-      'Link multiple builds together to create alternate versions of the same build.',
+      'Link multiple builds together to share them as a single link. Great for alternate versions of the same build, coop builds meant to be played together, or budget alterantives!',
     href: '/profile/linked-builds',
     icon: LinkIcon,
   },
