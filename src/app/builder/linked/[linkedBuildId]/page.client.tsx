@@ -239,6 +239,9 @@ export function PageClient({ linkedBuild }: Props) {
                       build: {
                         ...currentLinkedBuild.build,
                         upvoted: !currentLinkedBuild.build.upvoted,
+                        totalUpvotes: currentLinkedBuild.build.upvoted
+                          ? currentLinkedBuild.build.totalUpvotes - 1
+                          : currentLinkedBuild.build.totalUpvotes + 1,
                       },
                     })
                   }}
