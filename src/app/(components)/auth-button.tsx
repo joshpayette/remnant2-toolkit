@@ -110,7 +110,7 @@ function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
 
         {session?.user?.id ? (
           <Link
-            href={`/profile/${session?.user?.id}/linkedBuilds?t=${Date.now()}`}
+            href={`/profile/${session?.user?.id}/linked-builds?t=${Date.now()}`}
             className="flex flex-row items-center justify-start"
           >
             <NAV_ITEMS.linkedBuilds.icon
