@@ -3,7 +3,7 @@ import 'tippy.js/dist/tippy.css'
 import Tippy, { TippyProps } from '@tippyjs/react'
 
 export function Tooltip({
-  arrow = false,
+  arrow = true,
   interactive = true,
   content,
   children,
