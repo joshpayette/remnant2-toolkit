@@ -10,6 +10,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Added the brand new Linked Build feature. This feature will allow you to link up to three builds together in a single shareable URL. This will be helpful to link coop builds together for easy access, or variants of the same build (boss,mobbing,budget), alternate versions, etc. To get started, view any of your existing created builds, then click the `New Linked Build` button to get started.
 
+### Changed
+
+- Tooltip styling has been updated for a better look and feel. (Alexij)
+
 ## 2024-05-22
 
 ### Added
