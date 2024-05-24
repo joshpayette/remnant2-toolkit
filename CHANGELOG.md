@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-05-24
+
+### Fixed
+
+- Fixed issue where armor calculator was returning `NaN` for armor totals.
+- Fixed issue where Lodestone Ring was not being detected by the Item Tracker import due to typo.
+
 ## 2024-05-23
 
 ### Added

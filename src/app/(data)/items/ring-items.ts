@@ -1423,7 +1423,7 @@ export const ringItems: RingItem[] = [
     category: 'ring',
     name: 'Lodestone Ring',
     imagePath: '/items/rings/lodestonering.png',
-    saveFileSlug: 'Ring_LodestoneRing_Cs',
+    saveFileSlug: 'Ring_LodestoneRing_C',
     id: 'sye1ay',
     tags: ['All Damage'],
     description: `Increases all damage dealt against illuminated enemies by 5%.`,

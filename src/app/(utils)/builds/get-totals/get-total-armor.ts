@@ -52,16 +52,16 @@ export function getTotalArmor(buildState: BuildState): {
     totalArmorStep
 
   return {
-  totalArmor: totalArmor.toFixed(2),
-  breakdown: {
-    equippedArmorIncreaseItems,
-    equippedArmorPercentItems,
-    equippedArmorStepItems,
-    equippedArmorStepPercentItems,
-    totalArmorIncrease,
-    totalArmorPercent,
-    totalArmorStep,
-    totalArmorStepPercent,
-   },
+    totalArmor: totalArmor.toFixed(2),
+    breakdown: {
+      equippedArmorIncreaseItems,
+      equippedArmorPercentItems,
+      equippedArmorStepItems,
+      equippedArmorStepPercentItems,
+      totalArmorIncrease,
+      totalArmorPercent,
+      totalArmorStep,
+      totalArmorStepPercent,
+    },
   }
 }

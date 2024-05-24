@@ -57,7 +57,17 @@ export function getArmorSuggestions({
             },
           }
 
-          const totalArmor = Number(getTotalArmor(newBuildState))
+          const totalArmor = Number(getTotalArmor(newBuildState).totalArmor)
+          // if (isNaN(totalArmor)) {
+          //   console.info(
+          //     'totalArmor',
+          //     totalArmor,
+          //     helmItem,
+          //     torsoItem,
+          //     legItem,
+          //     gloveItem,
+          //   )
+          // }
           const totalWeight = Number(getTotalWeight(newBuildState))
           const totalFireResistance = getTotalResistances(newBuildState, 'fire')
           const totalBleedResistance = getTotalResistances(
