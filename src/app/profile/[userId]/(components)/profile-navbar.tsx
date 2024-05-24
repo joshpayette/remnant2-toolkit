@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useIsClient } from 'usehooks-ts'
 
+import { NAV_ITEMS } from '@/app/(types)/navigation'
 import { cn } from '@/app/(utils)/classnames'
 
 interface Props {
@@ -33,7 +34,7 @@ export function ProfileNavbar({
       current: pathname === `/profile/${userId}`,
     },
     {
-      name: 'Created Builds',
+      name: NAV_ITEMS.myBuilds.label,
       href: {
         pathname: `/profile/${userId}/created-builds`,
         query: {
@@ -43,7 +44,7 @@ export function ProfileNavbar({
       current: pathname === `/profile/${userId}/created-builds`,
     },
     {
-      name: 'Featured Builds',
+      name: NAV_ITEMS.featuredBuilds.label,
       href: {
         pathname: `/profile/${userId}/featured-builds`,
         query: {
@@ -53,7 +54,16 @@ export function ProfileNavbar({
       current: pathname === `/profile/${userId}/featured-builds`,
     },
     {
-      name: 'Favorited Builds',
+      name: NAV_ITEMS.linkedBuilds.label,
+      href: {
+        pathname: `/profile/${userId}/linked-builds`,
+        query: { t: Date.now() },
+      },
+      current: pathname === `/profile/${userId}/linked-builds`,
+      private: true,
+    },
+    {
+      name: NAV_ITEMS.favoritedBuilds.label,
       href: {
         pathname: `/profile/${userId}/favorited-builds`,
         query: {
@@ -64,7 +74,7 @@ export function ProfileNavbar({
       private: true,
     },
     {
-      name: 'Loadouts',
+      name: NAV_ITEMS.loadouts.label,
       href: {
         pathname: `/profile/${userId}/loadouts`,
         query: { t: Date.now() },

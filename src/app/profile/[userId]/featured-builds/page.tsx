@@ -1,7 +1,7 @@
 import { BuildFilters } from '@/app/(components)/filters/builds/build-filters'
 import { BuildListFilters } from '@/app/(components)/filters/builds/types'
 import { getServerSession } from '@/app/(utils)/auth'
-import { FeaturedBuilds } from '@/app/profile/[userId]/featured-builds/FeaturedBuilds'
+import { PageClient } from '@/app/profile/[userId]/featured-builds/page.client'
 
 export default async function Page({
   params: { userId },
@@ -24,7 +24,7 @@ export default async function Page({
         />
       </div>
       <div className="mb-4 grid w-full grid-cols-1 gap-2">
-        <FeaturedBuilds
+        <PageClient
           isEditable={isEditable}
           userId={userId}
           buildFiltersOverrides={buildFilters}

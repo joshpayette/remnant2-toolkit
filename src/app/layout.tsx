@@ -54,10 +54,11 @@ export default async function RootLayout({
         <SessionProvider>
           <ThemeSelection>
             <GlobalActionButtons />
-            <AlertBanner localStorageKey="build-description-items">
+            <AlertBanner localStorageKey="linked-builds-alert">
               <BaseText>
-                Item names in build descriptions can now be clicked to show item
-                info! This works automatically.
+                Link up to 3 builds together in a single link! Open one of your
+                builds and click the <strong>{'New Linked Build'}</strong>{' '}
+                button to get started.
               </BaseText>
             </AlertBanner>
             <div className="flex h-full w-full max-w-7xl grow flex-col items-start justify-start">

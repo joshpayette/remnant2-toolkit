@@ -1,7 +1,7 @@
 import { getIsLoadoutPublic } from '@/app/(actions)/loadouts/get-is-loadout-public'
 import { getServerSession } from '@/app/(utils)/auth'
 import { LoadoutGrid } from '@/app/profile/[userId]/loadouts/loadout-grid'
-import { LoadoutPublicCheckbox } from '@/app/profile/[userId]/loadouts/LoadoutPublicCheckbox'
+import { LoadoutPublicCheckbox } from '@/app/profile/[userId]/loadouts/loadout-public-checkbox'
 
 export default async function Page({
   params: { userId },

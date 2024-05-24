@@ -108,6 +108,25 @@ function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
           </Link>
         ) : null}
 
+        {session?.user?.id ? (
+          <Link
+            href={`/profile/${session?.user?.id}/linkedBuilds?t=${Date.now()}`}
+            className="flex flex-row items-center justify-start"
+          >
+            <NAV_ITEMS.linkedBuilds.icon
+              className="mr-2 h-7 w-5 flex-none text-primary-500"
+              aria-hidden="true"
+            />
+            <div className="flex flex-col items-start justify-start px-3 py-2">
+              {NAV_ITEMS.linkedBuilds.label}
+
+              <p className="mt-1 text-xs text-gray-400">
+                {NAV_ITEMS.linkedBuilds.description}
+              </p>
+            </div>
+          </Link>
+        ) : null}
+
         {status !== 'authenticated' || !session?.user ? (
           <Link
             href={NAV_ITEMS.signin.href}
@@ -202,6 +221,23 @@ function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
               {({ active }) => (
                 <Link
                   href={`/profile/${session?.user
+                    ?.id}/linked-builds?t=${Date.now()}`}
+                  className={cn(
+                    active ? 'bg-gray-800' : '',
+                    'flex flex-row items-center justify-start  px-4 py-2 text-sm text-gray-300',
+                  )}
+                >
+                  <NAV_ITEMS.linkedBuilds.icon className="mr-1 h-4 w-4 text-primary-600" />
+                  {NAV_ITEMS.linkedBuilds.label}
+                </Link>
+              )}
+            </Menu.Item>
+          ) : null}
+          {session?.user?.id ? (
+            <Menu.Item>
+              {({ active }) => (
+                <Link
+                  href={`/profile/${session?.user
                     ?.id}/favorited-builds?t=${Date.now()}`}
                   className={cn(
                     active ? 'bg-gray-800' : '',
@@ -209,7 +245,7 @@ function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
                   )}
                 >
                   <NAV_ITEMS.favoritedBuilds.icon className="mr-1 h-4 w-4 text-primary-600" />
-                  Favorited Builds
+                  {NAV_ITEMS.favoritedBuilds.label}
                 </Link>
               )}
             </Menu.Item>
@@ -226,7 +262,7 @@ function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
                   )}
                 >
                   <NAV_ITEMS.loadouts.icon className="mr-1 h-4 w-4 text-primary-600" />
-                  Loadouts
+                  {NAV_ITEMS.loadouts.label}
                 </Link>
               )}
             </Menu.Item>

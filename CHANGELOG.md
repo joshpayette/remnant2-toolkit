@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Added
 
 - Builder stats now show an armor breakdown info icon for more details about the armor calculations.
+- Added the Linked Build feature. This feature will allow you to link up to three builds together in a single shareable URL. To get started, view any of your existing created builds, then click the `New Linked Build` button to get started.
 
 ### Changed
 

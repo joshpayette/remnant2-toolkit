@@ -23,7 +23,7 @@ interface Props {
   buildFiltersOverrides?: Partial<BuildListFilters>
 }
 
-export function FeaturedBuilds({
+export function PageClient({
   buildFiltersOverrides,
   isEditable,
   userId,

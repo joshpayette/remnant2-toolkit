@@ -13,13 +13,13 @@ import { BuildListFilters } from '@/app/(components)/filters/builds/types'
 import { parseUrlFilters } from '@/app/(components)/filters/builds/utils'
 import { useBuildListState } from '@/app/(utils)/builds/hooks/use-build-list-state'
 import { usePagination } from '@/app/(utils)/pagination/use-pagination'
-import { getFavoritedBuilds } from '@/app/profile/[userId]/favorited-builds/getFavoriteBuilds'
+import { getFavoritedBuilds } from '@/app/profile/[userId]/favorited-builds/actions/get-favorite-builds'
 
 interface Props {
   buildFiltersOverrides?: Partial<BuildListFilters>
 }
 
-export function FavoritedBuilds({ buildFiltersOverrides }: Props) {
+export function PageClient({ buildFiltersOverrides }: Props) {
   const defaultFilters = useMemo(() => {
     return buildFiltersOverrides
       ? { ...DEFAULT_BUILD_FILTERS, ...buildFiltersOverrides }

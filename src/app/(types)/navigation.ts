@@ -8,6 +8,7 @@ import {
   DocumentCheckIcon,
   DocumentTextIcon,
   HeartIcon,
+  LinkIcon,
   ListBulletIcon,
   MagnifyingGlassIcon,
   PlusIcon,
@@ -108,6 +109,13 @@ export const NAV_ITEMS = {
       'Track your discovered and undiscovered items. Supports save file importing!',
     href: '/tracker',
     icon: DocumentCheckIcon,
+  },
+  linkedBuilds: {
+    label: 'Linked Builds',
+    description:
+      'Link multiple builds together to create alternate versions of the same build.',
+    href: '/profile/linked-builds',
+    icon: LinkIcon,
   },
   loadouts: {
     label: 'Loadouts',
