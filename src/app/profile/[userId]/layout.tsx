@@ -12,7 +12,7 @@ import {
   DEFAULT_BIO,
   DEFAULT_DISPLAY_NAME,
 } from '@/app/profile/[userId]/(lib)/constants'
-import { getAvatarById } from '@/app/profile/[userId]/(lib)/getAvatarById'
+import { getAvatarById } from '@/app/profile/[userId]/(lib)/get-avatar-by-id'
 
 export async function generateMetadata(
   { params: { userId } }: { params: { userId: string } },

@@ -30,12 +30,8 @@ export function PageClient({ build }: Props) {
 
   const [detailedBuildDialogOpen, setDetailedBuildDialogOpen] = useState(false)
 
-  const {
-    dbBuildState,
-    usingLocalChanges,
-    updateDBBuildState,
-    setNewBuildState,
-  } = useDBBuildState(cleanUpBuildState(dbBuildToBuildState(build)))
+  const { dbBuildState, updateDBBuildState, setNewBuildState } =
+    useDBBuildState(cleanUpBuildState(dbBuildToBuildState(build)))
 
   const {
     isScreenshotMode,
@@ -97,7 +93,6 @@ export function PageClient({ build }: Props) {
         isScreenshotMode={isScreenshotMode}
         showControls={showControls}
         onUpdateBuildState={updateDBBuildState}
-        usingLocalChanges={usingLocalChanges}
         builderActions={
           <>
             <SaveBuildButton buildState={dbBuildState} editMode={true} />

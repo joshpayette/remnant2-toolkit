@@ -3,7 +3,7 @@ import { Metadata } from 'next'
 import { getLoadoutList } from '@/app/(actions)/loadouts/get-loadout-list'
 import { prisma } from '@/app/(utils)/db'
 import { DEFAULT_BIO } from '@/app/profile/[userId]/(lib)/constants'
-import { getAvatarById } from '@/app/profile/[userId]/(lib)/getAvatarById'
+import { getAvatarById } from '@/app/profile/[userId]/(lib)/get-avatar-by-id'
 
 export async function generateMetadata({
   params: { userId },

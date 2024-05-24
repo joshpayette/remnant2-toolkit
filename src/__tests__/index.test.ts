@@ -2,7 +2,7 @@
 
 import { remnantEnemies } from '@/app/(data)/enemies/remnant-enemies'
 import { allItems } from '@/app/(data)/items/all-items'
-import { additionalAvatars } from '@/app/profile/[userId]/(lib)/additionalAvatars'
+import { ADDITIONAL_AVATARS } from '@/app/profile/[userId]/(lib)/constants'
 
 describe('Items', () => {
   it('all should have unique ids', () => {
@@ -38,15 +38,15 @@ describe('Enemies', () => {
 
 describe('Avatars', () => {
   it('all should have unique ids', () => {
-    const ids = additionalAvatars.map((avatar) => avatar.id)
+    const ids = ADDITIONAL_AVATARS.map((avatar) => avatar.id)
     const uniqueIds = new Set(ids)
     expect(uniqueIds.size).toBe(ids.length)
 
     // Insert a new avatar with the same id as the first avatar
     // and check that the ids are no longer unique
-    const newAvatar = { ...additionalAvatars[0] }
-    additionalAvatars.push(newAvatar)
-    const newIds = additionalAvatars.map((avatar) => avatar.id)
+    const newAvatar = { ...ADDITIONAL_AVATARS[0] }
+    ADDITIONAL_AVATARS.push(newAvatar)
+    const newIds = ADDITIONAL_AVATARS.map((avatar) => avatar.id)
     const newUniqueIds = new Set(newIds)
     expect(newUniqueIds.size).not.toBe(newIds.length)
   })

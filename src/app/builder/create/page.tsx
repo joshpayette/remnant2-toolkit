@@ -92,7 +92,6 @@ export default function Page() {
         onUpdateBuildState={updateDBBuildState}
         showControls={showControls}
         showCreatedBy={false}
-        usingLocalChanges={false}
         builderActions={
           <>
             <SaveBuildButton buildState={dbBuildState} editMode={false} />

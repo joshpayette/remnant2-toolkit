@@ -1,18 +1,23 @@
 'use client'
 
 import copy from 'clipboard-copy'
-import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import { useSession } from 'next-auth/react'
 import { useRef, useState } from 'react'
 import { toast } from 'react-toastify'
 
+import {
+  BaseListbox,
+  BaseListboxLabel,
+  BaseListboxOption,
+} from '@/app/(components)/_base/listbox'
 import { BuilderContainer } from '@/app/(components)/builder/builder-container'
 import VideoThumbnail from '@/app/(components)/builder/video-thumbnail'
 import { DeleteBuildButton } from '@/app/(components)/buttons/builder-buttons/delete-build-button'
 import { DetailedViewButton } from '@/app/(components)/buttons/builder-buttons/detailed-view-button'
 import { DuplicateBuildButton } from '@/app/(components)/buttons/builder-buttons/duplicate-build-button'
 import { EditBuildButton } from '@/app/(components)/buttons/builder-buttons/edit-build-button'
+import { EditLinkedBuildButton } from '@/app/(components)/buttons/builder-buttons/edit-linked-build-button'
 import { FavoriteBuildButton } from '@/app/(components)/buttons/builder-buttons/favorite-build-button'
 import { GenerateBuildImageButton } from '@/app/(components)/buttons/builder-buttons/generate-build-image'
 import { LoadoutManagementButton } from '@/app/(components)/buttons/builder-buttons/loadout-management-button'
@@ -28,19 +33,27 @@ import { DBBuild } from '@/app/(types)/builds'
 import { buildStateToCsvData } from '@/app/(utils)/builds/build-state-to-csv-data'
 import { cleanUpBuildState } from '@/app/(utils)/builds/clean-up-build-state'
 import { dbBuildToBuildState } from '@/app/(utils)/builds/db-build-to-build-state'
+import { cn } from '@/app/(utils)/classnames'
 import { urlNoCache } from '@/app/(utils)/url-no-cache'
-import {
-  isValidYoutubeUrl,
-  videoUrlToThumbnailUrl,
-  videoUrlToWatchUrl,
-} from '@/app/(utils)/youtube'
 
 interface Props {
-  build: DBBuild
+  linkedBuild: {
+    id: string
+    label: string
+    linkedBuilds: {
+      label: string
+      build: DBBuild
+    }[]
+  }
 }
 
-export function PageClient({ build }: Props) {
-  const buildState = cleanUpBuildState(dbBuildToBuildState(build))
+export function PageClient({ linkedBuild }: Props) {
+  const { linkedBuilds } = linkedBuild
+  const [currentLinkedBuild, setCurrentLinkedBuild] = useState(linkedBuilds[0])
+
+  const buildState = cleanUpBuildState(
+    dbBuildToBuildState(currentLinkedBuild.build),
+  )
 
   const [detailedBuildDialogOpen, setDetailedBuildDialogOpen] = useState(false)
   const [loadoutDialogOpen, setLoadoutDialogOpen] = useState(false)
@@ -96,6 +109,71 @@ export function PageClient({ build }: Props) {
         onClose={() => setSignInRequiredDialogOpen(false)}
       />
       <div className="height-full flex w-full flex-col items-center justify-center">
+        <div className="mb-8 w-full max-w-lg">
+          <h2 className="mb-2 border-b border-b-primary-500 pb-2 text-center text-2xl font-bold">
+            {linkedBuild.label}
+          </h2>
+          <div className="sm:hidden">
+            <BaseListbox
+              name="linkedBuilds"
+              defaultValue={
+                linkedBuilds.find(
+                  (linkedBuild) =>
+                    linkedBuild.build.id === currentLinkedBuild.build.id,
+                )?.label
+              }
+              onChange={(value) => {
+                const linkedBuild = linkedBuilds.find(
+                  (linkedBuild) => linkedBuild.label === value,
+                )
+                if (linkedBuild) {
+                  setCurrentLinkedBuild(linkedBuild)
+                }
+              }}
+            >
+              {linkedBuilds.map((linkedBuild) => (
+                <BaseListboxOption
+                  key={linkedBuild.build.id}
+                  value={linkedBuild.label}
+                >
+                  <BaseListboxLabel>{linkedBuild.label}</BaseListboxLabel>
+                </BaseListboxOption>
+              ))}
+            </BaseListbox>
+          </div>
+          <div className="hidden sm:block">
+            <nav
+              className="isolate flex divide-x divide-gray-700 rounded-lg shadow"
+              aria-label="Tabs"
+            >
+              {linkedBuilds.map((linkedBuild, tabIdx) => (
+                <button
+                  key={linkedBuild.build.id}
+                  onClick={() => setCurrentLinkedBuild(linkedBuild)}
+                  className={cn(
+                    linkedBuild.build.id === currentLinkedBuild.build.id
+                      ? 'text-gray-300'
+                      : 'text-gray-400 hover:text-gray-300',
+                    tabIdx === 0 ? 'rounded-l-lg' : '',
+                    tabIdx === linkedBuilds.length - 1 ? 'rounded-r-lg' : '',
+                    'group relative min-w-0 flex-1 overflow-hidden bg-gray-900 px-4 py-4 text-center text-sm font-medium hover:bg-gray-800 focus:z-10',
+                  )}
+                >
+                  <span>{linkedBuild.label}</span>
+                  <span
+                    aria-hidden="true"
+                    className={cn(
+                      linkedBuild.build.id === currentLinkedBuild.build.id
+                        ? 'bg-purple-500'
+                        : 'bg-transparent',
+                      'absolute inset-x-0 bottom-0 h-0.5',
+                    )}
+                  />
+                </button>
+              ))}
+            </nav>
+          </div>
+        </div>
         <VideoThumbnail buildState={buildState} />
         <BuilderContainer
           buildContainerRef={buildContainerRef}
@@ -114,9 +192,9 @@ export function PageClient({ build }: Props) {
               )}
 
               {session && session.user?.id === buildState.createdById && (
-                <NewLinkedBuildButton
+                <EditLinkedBuildButton
                   onClick={() =>
-                    router.push(`/builder/linked/create/${buildState.buildId}`)
+                    router.push(`/builder/linked/edit/${linkedBuild.id}`)
                   }
                 />
               )}

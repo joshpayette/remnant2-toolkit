@@ -9,7 +9,7 @@ import { BaseInput } from '@/app/(components)/_base/input'
 import { SelectAvatarDialog } from '@/app/(components)/dialogs/select-avatar-dialog'
 import { saveProfile } from '@/app/profile/[userId]/(actions)/save-profile'
 import { AvatarBox } from '@/app/profile/[userId]/(components)/avatar-box'
-import { getAvatarById } from '@/app/profile/[userId]/(lib)/getAvatarById'
+import { getAvatarById } from '@/app/profile/[userId]/(lib)/get-avatar-by-id'
 import { Textarea } from '@/features/ui/Textarea'
 
 interface Props {
@@ -76,7 +76,9 @@ export function ProfileHeader({
             />
           ) : (
             <h1 className="flex gap-x-3 text-2xl leading-7">
-              <span className="font-semibold text-surface-solid">{newDisplayName}</span>
+              <span className="font-semibold text-surface-solid">
+                {newDisplayName}
+              </span>
             </h1>
           )}
         </div>

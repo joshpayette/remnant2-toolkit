@@ -15,7 +15,6 @@ type Props = {
   showControls: boolean
   showCreatedBy?: boolean
   showMemberFeatures?: boolean
-  usingLocalChanges?: boolean
 } & (
   | { isEditable: false; onUpdateBuildState?: never }
   | {
@@ -41,32 +40,10 @@ export function BuilderContainer({
   showControls,
   showCreatedBy = true,
   showMemberFeatures = true,
-  usingLocalChanges = false,
   onUpdateBuildState,
 }: Props) {
   return (
     <>
-      {usingLocalChanges && (
-        <div className="mb-2 flex w-full max-w-[500px] flex-col items-start justify-start border-2 border-red-500 p-2">
-          <p>
-            You are using locally stored changes to prevent data loss if the
-            page is refreshed. Either save your changes, or click below to clear
-            the local changes.
-          </p>
-          <div className="mt-1 flex w-full items-center justify-center">
-            <BaseButton
-              onClick={() => {
-                if (!window.localStorage) return
-                window.localStorage.removeItem('edit-build-state')
-                window.localStorage.removeItem('create-build-state')
-                window.location.reload()
-              }}
-            >
-              Clear Local Changes
-            </BaseButton>
-          </div>
-        </div>
-      )}
       <div className="flex w-full max-w-lg flex-col-reverse items-start justify-center gap-2 sm:max-w-4xl lg:max-w-6xl lg:flex-row-reverse">
         <div
           id="actions"

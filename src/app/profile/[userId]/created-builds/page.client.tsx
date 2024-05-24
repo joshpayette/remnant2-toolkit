@@ -18,7 +18,7 @@ import { parseUrlFilters } from '@/app/(components)/filters/builds/utils'
 import { useBuildListState } from '@/app/(utils)/builds/hooks/use-build-list-state'
 import { usePagination } from '@/app/(utils)/pagination/use-pagination'
 import { CreatedBuildCardActions } from '@/app/profile/[userId]/(components)/created-build-card-actions'
-import { getCreatedBuilds } from '@/app/profile/[userId]/created-builds/getCreatedBuilds'
+import { getCreatedBuilds } from '@/app/profile/[userId]/created-builds/actions/get-created-builds'
 
 interface Props {
   isEditable: boolean
@@ -26,7 +26,7 @@ interface Props {
   buildFiltersOverrides?: Partial<BuildListFilters>
 }
 
-export function CreatedBuilds({
+export function PageClient({
   buildFiltersOverrides,
   isEditable,
   userId,

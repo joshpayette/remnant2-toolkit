@@ -2,47 +2,6 @@ import { z } from 'zod'
 
 import { BuildState } from '@/app/(types)/builds'
 
-// Leaving this here in case we need to revert
-// TODO remove maybe?
-
-// export const oldBuildStateSchema = z.object({
-//   name: z.string(),
-//   description: z.string().nullable(),
-//   isPatchAffected: z.boolean().nullable(),
-//   isPublic: z.boolean().nullable(),
-//   buildLink: z.string().nullable(),
-//   buildTags: z
-//     .array(
-//       z.object({
-//         tag: z.string(),
-//       }),
-//     )
-//     .nullable(),
-//   buildId: z.string().nullable(),
-//   isFeaturedBuild: z.boolean().nullable(),
-//   createdById: z.string().nullable(),
-//   upvoted: z.boolean().nullable(),
-//   items: z.object({
-//     helm: z.any(),
-//     torso: z.any(),
-//     legs: z.any(),
-//     gloves: z.any(),
-//     relic: z.any(),
-//     amulet: z.any(),
-//     weapon: z.array(z.any()),
-//     ring: z.array(z.any()),
-//     archetype: z.array(z.any()),
-//     skill: z.array(z.any()),
-//     concoction: z.array(z.any()),
-//     consumable: z.array(z.any()),
-//     mod: z.array(z.any()),
-//     mutator: z.array(z.any()),
-//     relicfragment: z.array(z.any()),
-//     trait: z.array(z.any()),
-//     perk: z.array(z.any()),
-//   }),
-// })
-
 const baseItemShape = {
   id: z.string(),
   name: z.string(),
@@ -110,7 +69,7 @@ const amuletItemSchema = z.object({
   category: z.enum(['amulet']),
 })
 
-export function validateBuildState(buildState: any) {
+export function validateBuildState(buildState: unknown) {
   const buildStateSchema: z.ZodType<BuildState> = z.object({
     name: z.string(),
     description: z.string().nullable(),
