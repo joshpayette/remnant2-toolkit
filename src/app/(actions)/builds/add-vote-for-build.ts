@@ -74,7 +74,9 @@ export async function addVoteForBuild(
     for (const path of BUILD_REVALIDATE_PATHS) {
       revalidatePath(path, 'page')
     }
+
     revalidatePath(`/builder/[buildId]`, 'page')
+    revalidatePath(`/builder/linked/[linkedBuildId]`, 'page')
 
     return bigIntFix({
       message: 'Vote saved!',

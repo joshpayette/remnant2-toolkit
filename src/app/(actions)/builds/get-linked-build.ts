@@ -1,6 +1,7 @@
 'use server'
 
 import { DBBuild } from '@/app/(types)/builds'
+import { getServerSession } from '@/app/(utils)/auth'
 import { prisma } from '@/app/(utils)/db'
 import { DEFAULT_DISPLAY_NAME } from '@/app/profile/[userId]/(lib)/constants'
 
@@ -18,6 +19,9 @@ export default async function getLinkedBuild(linkedBuildId: string): Promise<{
   }
   createdByDisplayName?: string
 }> {
+  const session = await getServerSession()
+  const userId = session?.user?.id
+
   try {
     const linkedBuild = await prisma.linkedBuilds.findUnique({
       where: {
@@ -50,6 +54,23 @@ export default async function getLinkedBuild(linkedBuildId: string): Promise<{
 
     const createdByDisplayName =
       linkedBuild?.createdBy?.displayName ?? DEFAULT_DISPLAY_NAME
+
+    // Find out whether the user has upvoted the build
+    const upvotes: Array<{ buildId: string; upvoted: boolean }> = []
+    if (userId) {
+      for (const linkedBuildItem of linkedBuild.LinkedBuildItem) {
+        const build = await prisma.buildVoteCounts.findFirst({
+          where: {
+            buildId: linkedBuildItem.buildId,
+            userId: userId,
+          },
+        })
+
+        if (build) {
+          upvotes.push({ buildId: linkedBuildItem.buildId, upvoted: true })
+        }
+      }
+    }
 
     return {
       status: 'success',
@@ -87,7 +108,9 @@ export default async function getLinkedBuild(linkedBuildId: string): Promise<{
                 build.createdBy.displayName ||
                 build.createdBy.name ||
                 DEFAULT_DISPLAY_NAME,
-              upvoted: false,
+              upvoted: upvotes.some(
+                (upvote) => upvote.buildId === build.id && upvote.upvoted,
+              ),
               totalUpvotes: build.BuildVotes.length,
               reported: false,
               buildItems: build.BuildItems,

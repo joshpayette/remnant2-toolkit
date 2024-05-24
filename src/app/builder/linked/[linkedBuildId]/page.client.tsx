@@ -234,6 +234,13 @@ export function PageClient({ linkedBuild }: Props) {
                       return
                     }
                     handleFavoriteBuild(buildState, session?.user?.id)
+                    setCurrentLinkedBuild({
+                      ...currentLinkedBuild,
+                      build: {
+                        ...currentLinkedBuild.build,
+                        upvoted: !currentLinkedBuild.build.upvoted,
+                      },
+                    })
                   }}
                 />
               )}
