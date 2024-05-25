@@ -3,6 +3,7 @@
 import { LinkedBuild } from '@prisma/client'
 import { revalidatePath } from 'next/cache'
 
+import { MAX_LINKED_BUILD_DESCRIPTION_LENGTH } from '@/app/(data)/builds/constants'
 import { getServerSession } from '@/app/(utils)/auth'
 import { cleanBadWords } from '@/app/(utils)/bad-word-filter'
 import { prisma } from '@/app/(utils)/db'
@@ -43,6 +44,18 @@ export default async function updatedLinkedBuild(linkedBuild: Props): Promise<{
     return { status: 'error', message: 'Invalid linked build.' }
   }
 
+  // if the description is longer than allowed, truncate it
+  if (
+    linkedBuild.description &&
+    linkedBuild.description.length > MAX_LINKED_BUILD_DESCRIPTION_LENGTH
+  ) {
+    linkedBuild.description =
+      linkedBuild.description.slice(
+        0,
+        MAX_LINKED_BUILD_DESCRIPTION_LENGTH - 3,
+      ) + '...'
+  }
+
   try {
     // delete all linked build items
     await prisma.linkedBuildItems.deleteMany({
@@ -68,12 +81,35 @@ export default async function updatedLinkedBuild(linkedBuild: Props): Promise<{
         LinkedBuildItems: {
           create: linkedBuild.linkedBuildItems.map((linkedBuildItem) => ({
             createdAt: new Date(),
-            label: linkedBuildItem.label,
+            label: cleanBadWords(linkedBuildItem.label),
             buildId: linkedBuildItem.buildId,
           })),
         },
       },
     })
+
+    // Trigger webhook to send build to Discord
+    if (process.env.NODE_ENV === 'production') {
+      const params = {
+        content: `Linked build updated! https://www.remnant2toolkit.com/builder/linked/${
+          updatedLinkedBuild.id
+        }?t=${Date.now()}`,
+      }
+
+      const res = await fetch(`${process.env.WEBHOOK_COMMUNITY_BUILDS}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(params),
+      })
+
+      if (!res.ok) {
+        console.error(
+          'Error in sending linked build moderation webhook to Discord!',
+        )
+      }
+    }
 
     revalidatePath(`/builder/linked/edit/${linkedBuild.id}`)
 
