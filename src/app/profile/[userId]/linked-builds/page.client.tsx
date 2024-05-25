@@ -58,7 +58,7 @@ export function PageClient({ linkedBuilds }: Props) {
                 </BaseTextLink>
               </BaseTableCell>
             </BaseTableRow>
-          ))}
+        ))}
         </BaseTableBody>
       </BaseTable>
     </>

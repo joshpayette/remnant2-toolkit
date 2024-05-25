@@ -12,6 +12,7 @@ export default async function getLinkedBuild(linkedBuildId: string): Promise<{
     id: string
     createdById: string
     name: string
+    description: string
     linkedBuilds: Array<{
       label: string
       build: DBBuild
@@ -79,6 +80,7 @@ export default async function getLinkedBuild(linkedBuildId: string): Promise<{
         id: linkedBuild.id,
         createdById: linkedBuild.createdById,
         name: linkedBuild.name,
+        description: linkedBuild.description ?? '',
         linkedBuilds: linkedBuild.LinkedBuildItems.filter(
           (linkedBuildItem) => linkedBuildItem.Build.isPublic,
         ).map((linkedBuildItem) => {

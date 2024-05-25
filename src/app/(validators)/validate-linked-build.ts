@@ -3,6 +3,7 @@ import { z } from 'zod'
 export function validateLinkedBuild(linkedBuild: unknown) {
   const linkedBuildSchema = z.object({
     name: z.string(),
+    description: z.string().nullable(),
     linkedBuildItems: z
       .array(
         z.object({

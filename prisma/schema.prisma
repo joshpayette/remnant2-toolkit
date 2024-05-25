@@ -232,6 +232,7 @@ model LinkedBuild {
   createdAt        DateTime           @default(now())
   updatedAt        DateTime           @updatedAt
   name             String
+  description      String?            @db.Text
   LinkedBuildItems LinkedBuildItems[]
 
   @@index([createdById])

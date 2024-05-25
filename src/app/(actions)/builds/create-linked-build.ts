@@ -3,11 +3,13 @@
 import { LinkedBuild } from '@prisma/client'
 
 import { getServerSession } from '@/app/(utils)/auth'
+import { cleanBadWords } from '@/app/(utils)/bad-word-filter'
 import { prisma } from '@/app/(utils)/db'
 import { validateLinkedBuild } from '@/app/(validators)/validate-linked-build'
 
 type Props = {
   name: string
+  description: string
   linkedBuildItems: Array<{
     label: string
     buildId: string
@@ -36,7 +38,14 @@ export default async function createLinkedBuild(linkedBuild: Props): Promise<{
       data: {
         createdBy: { connect: { id: userId } },
         createdAt: new Date(),
-        name: linkedBuild.name,
+        name:
+          linkedBuild.name && linkedBuild.name !== ''
+            ? cleanBadWords(linkedBuild.name)
+            : '',
+        description:
+          linkedBuild.description && linkedBuild.description !== ''
+            ? cleanBadWords(linkedBuild.description)
+            : '',
         LinkedBuildItems: {
           create: linkedBuild.linkedBuildItems.map((linkedBuildItem) => ({
             createdAt: new Date(),

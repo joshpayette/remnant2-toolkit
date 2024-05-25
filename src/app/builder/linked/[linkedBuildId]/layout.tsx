@@ -68,7 +68,10 @@ export async function generateMetadata(
   }
 
   const title = `${linkedBuild.name} by ${createdByDisplayName}`
-  const description = NAV_ITEMS.linkedBuilds.description
+  const description =
+    linkedBuild.description && linkedBuild.description !== ''
+      ? linkedBuild.description
+      : NAV_ITEMS.linkedBuilds.description
 
   return {
     title,

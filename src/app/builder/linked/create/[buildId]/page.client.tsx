@@ -18,6 +18,7 @@ import { useOrderByFilter } from '@/app/(components)/filters/builds/secondary-fi
 import { TimeRangeFilter } from '@/app/(components)/filters/builds/secondary-filters/time-range-filter'
 import { useTimeRangeFilter } from '@/app/(components)/filters/builds/secondary-filters/time-range-filter/use-time-range-filter'
 import { Tooltip } from '@/app/(components)/tooltip'
+import { MAX_LINKED_BUILD_DESCRIPTION_LENGTH } from '@/app/(data)/builds/constants'
 import { DBBuild } from '@/app/(types)/builds'
 import { useBuildListState } from '@/app/(utils)/builds/hooks/use-build-list-state'
 import { usePagination } from '@/app/(utils)/pagination/use-pagination'
@@ -26,6 +27,7 @@ import {
   MAX_LINKED_BUILD_LABEL_LENGTH,
 } from '@/app/builder/linked/constants'
 import { LinkedBuildItem } from '@/app/builder/linked/create/[buildId]/type'
+import { Textarea } from '@/features/ui/Textarea'
 
 interface Props {
   initialBuild: DBBuild
@@ -36,6 +38,7 @@ export default function PageClient({ initialBuild, userId }: Props) {
   const router = useRouter()
 
   const [name, setName] = useState('My Linked Build')
+  const [description, setDescription] = useState<string>('')
 
   const [linkedBuildItems, setLinkedBuildItems] = useState<LinkedBuildItem[]>([
     { label: 'Variation #1', build: initialBuild },
@@ -123,6 +126,7 @@ export default function PageClient({ initialBuild, userId }: Props) {
   async function handleSaveLinkedBuild() {
     const response = await createLinkedBuild({
       name,
+      description,
       linkedBuildItems: linkedBuildItems.map((linkedBuildItem) => ({
         label: linkedBuildItem.label,
         buildId: linkedBuildItem.build.id,
@@ -144,13 +148,27 @@ export default function PageClient({ initialBuild, userId }: Props) {
   return (
     <div className="flex w-full flex-col gap-y-8">
       <BaseField className="max-w-[500px]">
-        <BaseLabel>Linked Build Name</BaseLabel>
+        <BaseLabel>
+          <span className="text-primary-500">Linked Build Name</span>
+        </BaseLabel>
         <BaseInput
           name="linked-build-name"
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
       </BaseField>
+      <Textarea
+        label={`Build Description (${
+          description?.length ?? 0
+        }/${MAX_LINKED_BUILD_DESCRIPTION_LENGTH})`}
+        name="description"
+        placeholder="Say a little bit about these linked builds, such as the purpose or theme of the variations."
+        onChange={(e) => setDescription(e.target.value)}
+        value={description ?? ''}
+        maxLength={MAX_LINKED_BUILD_DESCRIPTION_LENGTH}
+        className="h-[175px] w-full max-w-[500px]"
+      />
+
       <div className="flex w-full flex-col items-start justify-start border-b border-b-primary-500 py-2">
         <ul
           role="list"

@@ -24,6 +24,7 @@ import { LoadoutManagementButton } from '@/app/(components)/buttons/builder-butt
 import { NewLinkedBuildButton } from '@/app/(components)/buttons/builder-buttons/new-linked-build-button'
 import { ShareBuildButton } from '@/app/(components)/buttons/builder-buttons/share-build-button'
 import { ToCsvButton } from '@/app/(components)/buttons/to-csv-button'
+import { DescriptionWithTokens } from '@/app/(components)/description-with-tokens'
 import { DetailedBuildDialog } from '@/app/(components)/dialogs/detailed-build-dialog'
 import FavoriteBuildDialog from '@/app/(components)/dialogs/favorite-build-dialog'
 import { ImageDownloadInfoDialog } from '@/app/(components)/dialogs/image-download-info-dialog'
@@ -40,6 +41,7 @@ interface Props {
   linkedBuild: {
     id: string
     name: string
+    description: string
     linkedBuilds: {
       label: string
       build: DBBuild
@@ -113,6 +115,22 @@ export function PageClient({ linkedBuild }: Props) {
           <h2 className="mb-2 border-b border-b-primary-500 pb-2 text-center text-2xl font-bold">
             {linkedBuild.name}
           </h2>
+          <div className="mb-2 flex flex-col">
+            {linkedBuild.description && linkedBuild.description.length > 0 && (
+              <div
+                className={cn(
+                  'text-md overflow-x-auto overflow-y-auto whitespace-pre-wrap text-gray-200',
+                  isScreenshotMode && 'max-h-none',
+                )}
+              >
+                <DescriptionWithTokens
+                  description={linkedBuild.description}
+                  highlightBuildTags={true}
+                  highlightItems={true}
+                />
+              </div>
+            )}
+          </div>
           <div className="sm:hidden">
             <BaseListbox
               name="linkedBuilds"

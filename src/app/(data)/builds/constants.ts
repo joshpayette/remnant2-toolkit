@@ -7,6 +7,8 @@ export const DEFAULT_BUILD_NAME = 'My Build'
  */
 export const MAX_BUILD_DESCRIPTION_LENGTH = 3000
 
+export const MAX_LINKED_BUILD_DESCRIPTION_LENGTH = 500
+
 /**
  * The value of each new trait added
  * to the builder.
