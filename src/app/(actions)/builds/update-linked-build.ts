@@ -1,6 +1,6 @@
 'use server'
 
-import { LinkedBuilds } from '@prisma/client'
+import { LinkedBuild } from '@prisma/client'
 import { revalidatePath } from 'next/cache'
 
 import { getServerSession } from '@/app/(utils)/auth'
@@ -20,7 +20,7 @@ type Props = {
 export default async function updatedLinkedBuild(linkedBuild: Props): Promise<{
   status: 'error' | 'success'
   message: string
-  linkedBuild?: LinkedBuilds
+  linkedBuild?: LinkedBuild
 }> {
   const session = await getServerSession()
   if (!session || !session.user) {
@@ -50,7 +50,7 @@ export default async function updatedLinkedBuild(linkedBuild: Props): Promise<{
     })
 
     // Create the linked build
-    const updatedLinkedBuild = await prisma.linkedBuilds.update({
+    const updatedLinkedBuild = await prisma.linkedBuild.update({
       where: {
         id: linkedBuild.id,
       },

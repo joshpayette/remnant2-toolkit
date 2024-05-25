@@ -78,6 +78,7 @@ model User {
   UserProfile   UserProfile?
   UserLoadouts  UserLoadouts[]
   UserItems     UserItems[]
+  LinkedBuild   LinkedBuild[]
   LinkedBuilds  LinkedBuilds[]
 }
 
@@ -238,17 +239,32 @@ model LinkedBuilds {
   @@index([createdById])
 }
 
+model LinkedBuild {
+  id              String            @id @default(cuid())
+  createdBy       User              @relation(fields: [createdById], references: [id])
+  createdById     String
+  createdAt       DateTime          @default(now())
+  updatedAt       DateTime          @updatedAt
+  LinkedBuildItem LinkedBuildItem[]
+  label           String
+
+  @@index([createdById])
+}
+
 model LinkedBuildItem {
-  id            String       @id @default(cuid())
-  createdAt     DateTime     @default(now())
-  updatedAt     DateTime     @updatedAt
-  linkedBuild   LinkedBuilds @relation(fields: [linkedBuildId], references: [id], onDelete: Cascade)
-  linkedBuildId String
-  Build         Build        @relation(fields: [buildId], references: [id], onDelete: Cascade)
-  buildId       String
-  label         String
+  id             String        @id @default(cuid())
+  createdAt      DateTime      @default(now())
+  updatedAt      DateTime      @updatedAt
+  linkedBuild    LinkedBuild   @relation(fields: [linkedBuildId], references: [id], onDelete: Cascade)
+  linkedBuildId  String
+  Build          Build         @relation(fields: [buildId], references: [id], onDelete: Cascade)
+  buildId        String
+  label          String
+  LinkedBuilds   LinkedBuilds? @relation(fields: [linkedBuildsId], references: [id])
+  linkedBuildsId String?
 
   @@index([linkedBuildId])
+  @@index([linkedBuildsId])
   @@index([buildId])
 }
 

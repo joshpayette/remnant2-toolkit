@@ -23,7 +23,7 @@ export default async function getLinkedBuild(linkedBuildId: string): Promise<{
   const userId = session?.user?.id
 
   try {
-    const linkedBuild = await prisma.linkedBuilds.findUnique({
+    const linkedBuild = await prisma.linkedBuild.findUnique({
       where: {
         id: linkedBuildId,
       },

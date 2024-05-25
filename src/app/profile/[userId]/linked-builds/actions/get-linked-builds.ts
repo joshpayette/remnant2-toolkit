@@ -12,7 +12,7 @@ export default async function getLinkedBuilds() {
     }
   }
 
-  const linkedBuilds = await prisma.linkedBuilds.findMany({
+  const linkedBuilds = await prisma.linkedBuild.findMany({
     where: { createdById: session.user.id },
     include: {
       LinkedBuildItem: true,
