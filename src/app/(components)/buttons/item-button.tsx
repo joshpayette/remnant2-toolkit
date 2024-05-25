@@ -109,7 +109,13 @@ export function ItemButton({
     onClick
 
   let buttonClickAction = onClick
-  if (!isEditable && item && onItemInfoClick && !isEnemy(item)) {
+  if (
+    !isEditable &&
+    item &&
+    onItemInfoClick &&
+    !isEnemy(item) &&
+    isToggled === undefined
+  ) {
     buttonClickAction = () => onItemInfoClick(item)
   }
 
