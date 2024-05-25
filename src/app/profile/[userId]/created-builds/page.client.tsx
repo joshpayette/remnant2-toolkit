@@ -146,7 +146,7 @@ export function PageClient({
           {isEditable ? <CreateBuildCard /> : null}
 
           {builds.map((build) => (
-            <div key={build.id} className="h-full w-full">
+            <div key={build.id} className="w-full">
               <BuildCard
                 build={build}
                 isLoading={isLoading}
