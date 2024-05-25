@@ -1,48 +1,19 @@
-import Image from 'next/image'
-
 import { cn } from '@/app/(utils)/classnames'
 
 interface Props {
-  bgClass?: string
   children: React.ReactNode
-  image: 'home' | 'resources' | 'support'
   title: string
   description: React.ReactNode
 }
 
-export function LandingPageContainer({
-  bgClass = 'bg-background-solid/30',
-  children,
-  image,
-  title,
-  description,
-}: Props) {
-  let imageName = ''
-  switch (image) {
-    case 'home':
-      imageName = 'home-bg1.jpg'
-      break
-    case 'resources':
-      imageName = 'resources-bg2.jpg'
-      break
-    case 'support':
-      imageName = 'support-r2tk-bg.jpg'
-      break
-    default:
-      imageName = 'home-bg1.jpg'
-  }
-
+export function LandingPageContainer({ children, title, description }: Props) {
   return (
     <div className="relative isolate w-full max-w-7xl overflow-hidden py-24">
-      <Image
-        src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/toolkit/${imageName}`}
-        alt="Home page background"
-        fill
-        className="absolute inset-0 -z-10 h-full w-full object-cover object-right md:object-center"
-        loading="eager"
-      />
       <div
-        className={cn('absolute left-0 top-0 -z-[5] h-full w-full', bgClass)}
+        className={cn(
+          'absolute left-0 top-0 -z-[5] h-full w-full',
+          'bg-gradient-to-br from-gray-900 to-violet-900',
+        )}
       />
       <div className="sm:transform-g1 hidden w-full sm:absolute sm:-top-10 sm:right-1/2 sm:-z-10 sm:mr-10 sm:block sm:blur-3xl">
         <div

@@ -7,7 +7,6 @@ import { NAV_ITEMS } from '@/app/(types)/navigation'
 export default async function Page() {
   return (
     <LandingPageContainer
-      image="resources"
       title="Toolkit Resources"
       description={
         <div className="mt-6 text-lg leading-8 text-gray-300">

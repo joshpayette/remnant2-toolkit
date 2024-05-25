@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2024-05-25
 
+### Changed
+
+- Removed landing page image for home page, resources page, and support r2tk page. It was causing unnecessary load times and performance hits.
+
 ### Fixed
 
 - Fixed bug preventing items and bosses from being tracked.
