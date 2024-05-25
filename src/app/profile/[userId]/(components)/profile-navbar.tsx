@@ -60,7 +60,7 @@ export function ProfileNavbar({
         query: { t: Date.now() },
       },
       current: pathname === `/profile/${userId}/linked-builds`,
-      private: true,
+      private: false,
     },
     {
       name: NAV_ITEMS.favoritedBuilds.label,

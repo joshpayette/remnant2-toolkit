@@ -8,14 +8,9 @@ export default async function Page({
   params: { userId: string }
 }) {
   const session = await getServerSession()
+  const isEditable = session?.user?.id === userId
 
-  if (session?.user?.id !== userId) {
-    return (
-      <p className="text-red-500">You are not authorized to view this page.</p>
-    )
-  }
-
-  const response = await getLinkedBuilds()
+  const response = await getLinkedBuilds({ userId })
   if (response.status !== 200) {
     return <p className="text-red-500">Failed to load linked builds.</p>
   }
@@ -28,7 +23,7 @@ export default async function Page({
 
   return (
     <div className="mb-4 grid w-full grid-cols-1 gap-2">
-      <PageClient linkedBuilds={linkedBuilds} />
+      <PageClient linkedBuilds={linkedBuilds} isEditable={isEditable} />
     </div>
   )
 }

@@ -6,10 +6,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2024-05-24
 
+### Added
+
+- Added description field to Linked Builds.
+
 ### Changed
 
 - When viewing a build, you can now click anywhere on the item button to view the item info. Previously this would only happen if you clicked the info icon.
-- Added description field to Linked Builds.
 
 ### Fixed
 
