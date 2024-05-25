@@ -12,10 +12,16 @@ import { Item } from '@/app/(data)/items/types'
 import { EXTERNAL_TOKENS, INLINE_TOKENS } from '@/app/(types)/tokens'
 import { cn } from '@/app/(utils)/classnames'
 import { stripUnicode } from '@/app/(utils)/strip-unicode'
+
 import { ItemCategory } from '../(types)/builds'
 
 const tooltipSupportedCategories: ItemCategory[] = [
-  'amulet', 'concoction', 'consumable', 'ring', 'relic', 'trait'
+  'amulet',
+  'concoction',
+  'consumable',
+  'ring',
+  'relic',
+  'trait',
 ]
 
 function parseStringForToken({
@@ -125,11 +131,15 @@ function parseStringForToken({
           </button>
         )
 
-        return item && item.description && tooltipSupportedCategories.includes(item.category)
-          ? <Tooltip key={uuidv4()} content={item.description}>
-              {itemNameButton}
-            </Tooltip>
-          : itemNameButton
+        return item &&
+          item.description &&
+          tooltipSupportedCategories.includes(item.category) ? (
+          <Tooltip key={uuidv4()} content={item.description}>
+            {itemNameButton}
+          </Tooltip>
+        ) : (
+          itemNameButton
+        )
       },
     )
   }
