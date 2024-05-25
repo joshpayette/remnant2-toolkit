@@ -90,6 +90,18 @@ export default async function createLinkedBuild(linkedBuild: Props): Promise<{
           'Error in sending linked build moderation webhook to Discord!',
         )
       }
+
+      const res2 = await fetch(`${process.env.WEBHOOK_NEW_BUILD_FEED}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(params),
+      })
+
+      if (!res2.ok) {
+        console.error('Error in sending linked build webhook to Discord!')
+      }
     }
 
     return {
