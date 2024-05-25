@@ -100,6 +100,19 @@ export function ItemButton({
       break
   }
 
+  const showOptionalToggle =
+    item &&
+    !isEnemy(item) &&
+    !isScreenshotMode &&
+    isEditable &&
+    onToggleOptional &&
+    onClick
+
+  let buttonClickAction = onClick
+  if (!isEditable && item && onItemInfoClick && !isEnemy(item)) {
+    buttonClickAction = () => onItemInfoClick(item)
+  }
+
   return (
     <div
       className={cn(
@@ -140,47 +153,47 @@ export function ItemButton({
           </button>
         </Tooltip>
       )}
-      {item &&
-        !isEnemy(item) &&
-        !isScreenshotMode &&
-        isEditable &&
-        onToggleOptional &&
-        onClick && (
-          <Tooltip
-            content={`Toggle item as optional`}
-            trigger="mouseenter"
-            interactive={false}
-            disabled={tooltipDisabled}
+      {showOptionalToggle && (
+        <Tooltip
+          content={`Toggle item as optional`}
+          trigger="mouseenter"
+          interactive={false}
+          disabled={tooltipDisabled}
+        >
+          <button
+            className={cn(
+              'absolute left-0 top-0 z-[1] rounded-full border-transparent bg-black',
+              size === 'sm' && 'left-auto right-[-40px]',
+            )}
+            onClick={() => onToggleOptional(item, !item.optional)}
+            aria-label="Toggle item as optional"
           >
-            <button
-              className={cn(
-                'absolute left-0 top-0 z-[1] rounded-full border-transparent bg-black',
-                size === 'sm' && 'left-auto right-[-40px]',
-              )}
-              onClick={() => onToggleOptional(item, !item.optional)}
-              aria-label="Toggle item as optional"
-            >
-              <TbHttpOptions className="h-4 w-4 text-accent1-500" />
-            </button>
-          </Tooltip>
-        )}
+            <TbHttpOptions className="h-4 w-4 text-accent1-500" />
+          </button>
+        </Tooltip>
+      )}
       <button
-        onClick={onClick}
+        onClick={buttonClickAction}
         className={cn(
           'relative z-0 flex items-center justify-center overflow-hidden border-2 border-secondary-900',
           `bg-background-solid`,
+          // if the button is editable, give it a hover effect
           isEditable && 'border-secondary-900 hover:border-secondary-500',
+          // if no item is present, give the button a rounded bordoer
           !item && size !== 'sm' && 'rounded-b-lg',
           !item && size === 'sm' && 'rounded-md',
+          // if the item is optional, give it a dashed border
           item &&
             !isEnemy(item) &&
             item.optional &&
             'border-b-0 border-dashed border-secondary-400',
+          // if the item is optional and the size is small, remove the right border and add a bottom border
           item &&
             !isEnemy(item) &&
             item.optional &&
             size === 'sm' &&
             'border-b-2 border-r-0',
+          // If the item is an archetype item, give it a black background
           item &&
             !isEnemy(item) &&
             ArchetypeItem.isArchetypeItem(item) &&
@@ -190,6 +203,7 @@ export function ItemButton({
           size === 'lg' && 'h-[99px] w-[99px] rounded-t-lg',
           size === 'xl' && 'h-[200px] w-[200px] rounded-t-lg',
           size === 'wide' && 'h-[99px] w-[149px] rounded-t-lg',
+          // If the item is toggled, give it a primary border
           isToggled === true && 'border-primary-500',
           isToggled === false && 'border-gray-700',
         )}
