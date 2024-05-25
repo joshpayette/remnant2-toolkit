@@ -17,7 +17,7 @@ interface Props {
     createdAt: Date
     updatedAt: Date
     label: string
-    LinkedBuildItem: Array<{
+    LinkedBuildItems: Array<{
       id: string
       createdAt: Date
       updatedAt: Date
@@ -48,7 +48,9 @@ export function PageClient({ linkedBuilds }: Props) {
                 </BaseTextLink>
               </BaseTableCell>
               <BaseTableCell>
-                {linkedBuild.LinkedBuildItem.map((lbi) => lbi.label).join(', ')}
+                {linkedBuild.LinkedBuildItems.map((lbi) => lbi.label).join(
+                  ', ',
+                )}
               </BaseTableCell>
               <BaseTableCell className="text-zinc-500">
                 <BaseTextLink href={`/builder/linked/edit/${linkedBuild.id}`}>

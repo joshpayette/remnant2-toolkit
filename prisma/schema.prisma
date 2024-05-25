@@ -181,19 +181,19 @@ model UserItems {
 }
 
 model Build {
-  id                 String            @id @default(cuid())
-  createdAt          DateTime          @default(now())
-  updatedAt          DateTime?         @updatedAt
-  createdBy          User              @relation(fields: [createdById], references: [id])
+  id                 String             @id @default(cuid())
+  createdAt          DateTime           @default(now())
+  updatedAt          DateTime?          @updatedAt
+  createdBy          User               @relation(fields: [createdById], references: [id])
   createdById        String
-  isFeaturedBuild    Boolean           @default(false)
-  isBeginnerBuild    Boolean           @default(false)
-  isModeratorLocked  Boolean           @default(false)
-  isPatchAffected    Boolean           @default(false)
-  isPublic           Boolean           @default(true)
+  isFeaturedBuild    Boolean            @default(false)
+  isBeginnerBuild    Boolean            @default(false)
+  isModeratorLocked  Boolean            @default(false)
+  isPatchAffected    Boolean            @default(false)
+  isPublic           Boolean            @default(true)
   dateFeatured       DateTime?
   name               String
-  description        String?           @db.Text
+  description        String?            @db.Text
   videoUrl           String?
   thumbnailUrl       String?
   buildLink          String?
@@ -201,11 +201,11 @@ model Build {
   BuildVotes         BuildVoteCounts[]
   BuildReports       BuildReports[]
   BuildItems         BuildItems[]
-  UserProfile        UserProfile?      @relation(fields: [userProfileId], references: [id])
+  UserProfile        UserProfile?       @relation(fields: [userProfileId], references: [id])
   userProfileId      String?
   UserLoadouts       UserLoadouts[]
   BuildTags          BuildTags[]
-  LinkedBuildItem    LinkedBuildItem[]
+  LinkedBuildItems   LinkedBuildItems[]
 
   @@index([createdById])
   @@index([userProfileId])
@@ -227,18 +227,18 @@ model BuildItems {
 }
 
 model LinkedBuild {
-  id              String            @id @default(cuid())
-  createdBy       User              @relation(fields: [createdById], references: [id])
-  createdById     String
-  createdAt       DateTime          @default(now())
-  updatedAt       DateTime          @updatedAt
-  LinkedBuildItem LinkedBuildItem[]
-  label           String
+  id               String             @id @default(cuid())
+  createdBy        User               @relation(fields: [createdById], references: [id])
+  createdById      String
+  createdAt        DateTime           @default(now())
+  updatedAt        DateTime           @updatedAt
+  label            String
+  LinkedBuildItems LinkedBuildItems[]
 
   @@index([createdById])
 }
 
-model LinkedBuildItem {
+model LinkedBuildItems {
   id            String      @id @default(cuid())
   createdAt     DateTime    @default(now())
   updatedAt     DateTime    @updatedAt

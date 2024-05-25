@@ -37,7 +37,7 @@ export default async function createLinkedBuild(linkedBuild: Props): Promise<{
         createdBy: { connect: { id: userId } },
         createdAt: new Date(),
         label: linkedBuild.label,
-        LinkedBuildItem: {
+        LinkedBuildItems: {
           create: linkedBuild.linkedBuildItems.map((linkedBuildItem) => ({
             createdAt: new Date(),
             label: linkedBuildItem.label,

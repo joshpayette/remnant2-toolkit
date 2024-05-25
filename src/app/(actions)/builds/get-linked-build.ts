@@ -28,7 +28,7 @@ export default async function getLinkedBuild(linkedBuildId: string): Promise<{
         id: linkedBuildId,
       },
       include: {
-        LinkedBuildItem: {
+        LinkedBuildItems: {
           include: {
             Build: {
               include: {
@@ -58,7 +58,7 @@ export default async function getLinkedBuild(linkedBuildId: string): Promise<{
     // Find out whether the user has upvoted the build
     const upvotes: Array<{ buildId: string; upvoted: boolean }> = []
     if (userId) {
-      for (const linkedBuildItem of linkedBuild.LinkedBuildItem) {
+      for (const linkedBuildItem of linkedBuild.LinkedBuildItems) {
         const build = await prisma.buildVoteCounts.findFirst({
           where: {
             buildId: linkedBuildItem.buildId,
@@ -79,7 +79,7 @@ export default async function getLinkedBuild(linkedBuildId: string): Promise<{
         id: linkedBuild.id,
         createdById: linkedBuild.createdById,
         label: linkedBuild.label,
-        linkedBuilds: linkedBuild.LinkedBuildItem.filter(
+        linkedBuilds: linkedBuild.LinkedBuildItems.filter(
           (linkedBuildItem) => linkedBuildItem.Build.isPublic,
         ).map((linkedBuildItem) => {
           const build = linkedBuildItem.Build

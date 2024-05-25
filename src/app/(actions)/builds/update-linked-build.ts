@@ -43,7 +43,7 @@ export default async function updatedLinkedBuild(linkedBuild: Props): Promise<{
 
   try {
     // delete all linked build items
-    await prisma.linkedBuildItem.deleteMany({
+    await prisma.linkedBuildItems.deleteMany({
       where: {
         linkedBuildId: linkedBuild.id,
       },
@@ -56,7 +56,7 @@ export default async function updatedLinkedBuild(linkedBuild: Props): Promise<{
       },
       data: {
         label: linkedBuild.label,
-        LinkedBuildItem: {
+        LinkedBuildItems: {
           create: linkedBuild.linkedBuildItems.map((linkedBuildItem) => ({
             createdAt: new Date(),
             label: linkedBuildItem.label,
