@@ -48,7 +48,7 @@ export async function ProfileStats({ isEditable, userId }: Props) {
     }),
     await prisma.userProfile.findFirst({
       where: { userId },
-      select: { totalDiscoveredItems: true, topItemQuizScore: true },
+      select: { topItemQuizScore: true },
     }),
     await prisma.userItems.count({
       where: { userId },

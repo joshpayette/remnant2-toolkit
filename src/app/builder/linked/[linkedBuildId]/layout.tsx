@@ -67,7 +67,7 @@ export async function generateMetadata(
     }
   }
 
-  const title = `${linkedBuild.label} by ${createdByDisplayName}`
+  const title = `${linkedBuild.name} by ${createdByDisplayName}`
   const description = NAV_ITEMS.linkedBuilds.description
 
   return {

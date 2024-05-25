@@ -16,7 +16,7 @@ interface Props {
     createdById: string
     createdAt: Date
     updatedAt: Date
-    label: string
+    name: string
     LinkedBuildItems: Array<{
       id: string
       createdAt: Date
@@ -44,7 +44,7 @@ export function PageClient({ linkedBuilds }: Props) {
             <BaseTableRow key={linkedBuild.id}>
               <BaseTableCell className="font-medium">
                 <BaseTextLink href={`/builder/linked/${linkedBuild.id}`}>
-                  {linkedBuild.label}
+                  {linkedBuild.name}
                 </BaseTextLink>
               </BaseTableCell>
               <BaseTableCell>

@@ -39,7 +39,7 @@ import { urlNoCache } from '@/app/(utils)/url-no-cache'
 interface Props {
   linkedBuild: {
     id: string
-    label: string
+    name: string
     linkedBuilds: {
       label: string
       build: DBBuild
@@ -111,7 +111,7 @@ export function PageClient({ linkedBuild }: Props) {
       <div className="height-full flex w-full flex-col items-center justify-center">
         <div className="mb-8 w-full max-w-lg">
           <h2 className="mb-2 border-b border-b-primary-500 pb-2 text-center text-2xl font-bold">
-            {linkedBuild.label}
+            {linkedBuild.name}
           </h2>
           <div className="sm:hidden">
             <BaseListbox

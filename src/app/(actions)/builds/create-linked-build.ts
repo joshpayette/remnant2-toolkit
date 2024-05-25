@@ -7,7 +7,7 @@ import { prisma } from '@/app/(utils)/db'
 import { validateLinkedBuild } from '@/app/(validators)/validate-linked-build'
 
 type Props = {
-  label: string
+  name: string
   linkedBuildItems: Array<{
     label: string
     buildId: string
@@ -36,7 +36,7 @@ export default async function createLinkedBuild(linkedBuild: Props): Promise<{
       data: {
         createdBy: { connect: { id: userId } },
         createdAt: new Date(),
-        label: linkedBuild.label,
+        name: linkedBuild.name,
         LinkedBuildItems: {
           create: linkedBuild.linkedBuildItems.map((linkedBuildItem) => ({
             createdAt: new Date(),

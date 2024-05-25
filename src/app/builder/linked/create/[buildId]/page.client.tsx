@@ -35,7 +35,7 @@ interface Props {
 export default function PageClient({ initialBuild, userId }: Props) {
   const router = useRouter()
 
-  const [label, setLabel] = useState('My Linked Build')
+  const [name, setName] = useState('My Linked Build')
 
   const [linkedBuildItems, setLinkedBuildItems] = useState<LinkedBuildItem[]>([
     { label: 'Variation #1', build: initialBuild },
@@ -122,7 +122,7 @@ export default function PageClient({ initialBuild, userId }: Props) {
 
   async function handleSaveLinkedBuild() {
     const response = await createLinkedBuild({
-      label,
+      name,
       linkedBuildItems: linkedBuildItems.map((linkedBuildItem) => ({
         label: linkedBuildItem.label,
         buildId: linkedBuildItem.build.id,
@@ -147,8 +147,8 @@ export default function PageClient({ initialBuild, userId }: Props) {
         <BaseLabel>Linked Build Name</BaseLabel>
         <BaseInput
           name="linked-build-name"
-          value={label}
-          onChange={(e) => setLabel(e.target.value)}
+          value={name}
+          onChange={(e) => setName(e.target.value)}
         />
       </BaseField>
       <div className="flex w-full flex-col items-start justify-start border-b border-b-primary-500 py-2">

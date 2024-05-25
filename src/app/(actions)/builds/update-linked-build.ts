@@ -10,7 +10,7 @@ import { validateLinkedBuild } from '@/app/(validators)/validate-linked-build'
 type Props = {
   id: string
   createdById: string
-  label: string
+  name: string
   linkedBuildItems: Array<{
     label: string
     buildId: string
@@ -55,7 +55,7 @@ export default async function updatedLinkedBuild(linkedBuild: Props): Promise<{
         id: linkedBuild.id,
       },
       data: {
-        label: linkedBuild.label,
+        name: linkedBuild.name,
         LinkedBuildItems: {
           create: linkedBuild.linkedBuildItems.map((linkedBuildItem) => ({
             createdAt: new Date(),
