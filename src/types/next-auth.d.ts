@@ -1,4 +1,4 @@
-import { type DefaultSession, type Profile as DefaultProfile } from 'next-auth'
+import { DefaultSession, Profile as DefaultProfile } from 'next-auth'
 import { AdapterUser } from 'next-auth/adapters'
 
 declare module 'next-auth' {
