@@ -115,7 +115,7 @@ export default async function updatedLinkedBuild(linkedBuild: Props): Promise<{
 
     return {
       status: 'success',
-      message: 'Linked build created.',
+      message: 'Linked build updated successfully.',
       linkedBuild: updatedLinkedBuild,
     }
   } catch (e) {

@@ -6,9 +6,8 @@ import { FaUnlink } from 'react-icons/fa'
 import { FaLink } from 'react-icons/fa6'
 import { toast } from 'react-toastify'
 
-import createLinkedBuild from '@/app/(actions)/builds/create-linked-build'
 import { getCreatedBuilds } from '@/app/(actions)/builds/get-created-builds'
-import updatedLinkedBuild from '@/app/(actions)/builds/update-linked-build'
+import updateLinkedBuild from '@/app/(actions)/builds/update-linked-build'
 import { BaseButton } from '@/app/(components)/_base/button'
 import { BaseField, BaseLabel } from '@/app/(components)/_base/fieldset'
 import { BaseInput } from '@/app/(components)/_base/input'
@@ -134,7 +133,7 @@ export default function PageClient({ currentLinkedBuild, userId }: Props) {
   }
 
   async function handleSaveLinkedBuild() {
-    const response = await updatedLinkedBuild({
+    const response = await updateLinkedBuild({
       name,
       description,
       id: currentLinkedBuild.id,
@@ -150,7 +149,7 @@ export default function PageClient({ currentLinkedBuild, userId }: Props) {
       return
     }
     if (!response.linkedBuild) {
-      toast.error('An error occurred while creating the linked build.')
+      toast.error('An error occurred while updating the linked build.')
       return
     }
     toast.success(response.message)

@@ -13,7 +13,6 @@ https://tailtools.app/palette-generator
 Broadly speaking this results in a darker pallete, which contrasts better in light mode
 */
 @layer base {
-  
   :root {
     /* 
     Variables (and default values are sourced from:
@@ -24,10 +23,10 @@ Broadly speaking this results in a darker pallete, which contrasts better in lig
         --toastify-color-success: #07bc0c;
         --toastify-color-warning: #f1c40f;
         --toastify-color-error: #e74c3c;
-    */ 
-    --toastify-color-info: rgb(var(--color-cyan-500) / 1.0);
+    */
+    --toastify-color-info: rgb(var(--color-cyan-500) / 1);
     --toastify-color-success: #07bc0c;
-    --toastify-color-warning: rgb(var(--color-yellow-500) / 1.0);
+    --toastify-color-warning: rgb(var(--color-yellow-500) / 1);
     --toastify-color-error: #e74c3c;
     --toastify-color-transparent: rgba(255, 255, 255, 0.7);
 
@@ -40,8 +39,8 @@ Broadly speaking this results in a darker pallete, which contrasts better in lig
     We are always using the "dark" theme 
     "colored" = solid colored background (e.g. success is white-on-green)
     */
-    --toastify-color-dark: rgb(var(--color-background) / 1.0);
-    --toastify-text-color-dark: rgb(var(--color-surface-solid) / 1.0);
+    --toastify-color-dark: rgb(var(--color-gray-900) / 1);
+    --toastify-text-color-dark: rgb(var(--color-surface-solid) / 1);
 
     --toastify-toast-width: 320px;
     --toastify-toast-background: #fff;
@@ -55,11 +54,11 @@ Broadly speaking this results in a darker pallete, which contrasts better in lig
     --toastify-color-progress-warning: var(--toastify-color-warning);
     --toastify-color-progress-error: var(--toastify-color-error);
 
-    --toastify-color-progress-bgo: .2;
+    --toastify-color-progress-bgo: 0.2;
   }
-  
+
   .light {
-    --color-theme: "light";
+    --color-theme: 'light';
 
     --color-background: 245 250 252;
     --color-background-solid: 255 255 255;
@@ -77,7 +76,7 @@ Broadly speaking this results in a darker pallete, which contrasts better in lig
     --color-gray-800: 229 231 235;
     --color-gray-900: 243 244 246;
     --color-gray-950: 249 250 251;
-    
+
     --color-zinc-50: 9 9 11;
     --color-zinc-100: 24 24 27;
     --color-zinc-200: 39 39 42;
@@ -101,7 +100,7 @@ Broadly speaking this results in a darker pallete, which contrasts better in lig
     --color-cyan-800: 118 215 231;
     --color-cyan-900: 180 233 242;
     --color-cyan-950: 243 251 253;
-    
+
     --color-violet-50: 32 21 57;
     --color-violet-100: 49 32 86;
     --color-violet-200: 65 43 116;
@@ -113,7 +112,7 @@ Broadly speaking this results in a darker pallete, which contrasts better in lig
     --color-violet-800: 191 165 250;
     --color-violet-900: 220 206 252;
     --color-violet-950: 249 247 255;
-    
+
     --color-yellow-50: 54 41 2;
     --color-yellow-100: 82 63 3;
     --color-yellow-200: 110 84 4;
@@ -128,7 +127,7 @@ Broadly speaking this results in a darker pallete, which contrasts better in lig
   }
 
   .dark {
-    --color-theme: "dark";
+    --color-theme: 'dark';
 
     --color-background: 17 0 28;
     --color-background-solid: 0 0 0;
@@ -170,7 +169,7 @@ Broadly speaking this results in a darker pallete, which contrasts better in lig
     --color-cyan-800: 21 94 117;
     --color-cyan-900: 22 78 99;
     --color-cyan-950: 8 51 68;
-    
+
     --color-violet-50: 245 243 255;
     --color-violet-100: 237 233 254;
     --color-violet-200: 221 214 254;
@@ -182,7 +181,7 @@ Broadly speaking this results in a darker pallete, which contrasts better in lig
     --color-violet-800: 91 33 182;
     --color-violet-900: 76 29 149;
     --color-violet-950: 46 16 101;
-    
+
     --color-yellow-50: 254 252 232;
     --color-yellow-100: 254 249 195;
     --color-yellow-200: 254 240 138;
@@ -212,14 +211,15 @@ body > div:last-child > span + img {
   color: rgb(var(--color-surface-solid));
   border-width: 1px;
   border-color: rgb(var(--color-yellow-500));
-  font-size: 0.75rem/* 12px */;
-  line-height: 1rem/* 16px */;
+  font-size: 0.75rem /* 12px */;
+  line-height: 1rem /* 16px */;
 }
 
 .tippy-box[data-theme~='r2tk'][data-placement^='top'] > .tippy-arrow::before {
   border-top-color: rgb(var(--color-yellow-500));
 }
-.tippy-box[data-theme~='r2tk'][data-placement^='bottom'] > .tippy-arrow::before {
+.tippy-box[data-theme~='r2tk'][data-placement^='bottom']
+  > .tippy-arrow::before {
   border-bottom-color: rgb(var(--color-yellow-500));
 }
 .tippy-box[data-theme~='r2tk'][data-placement^='left'] > .tippy-arrow::before {

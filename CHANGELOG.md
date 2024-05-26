@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Fixed
 
 - Fixed issue where deleting a linked build would delete the wrong one `:(`
+- Fixed color issue with tooltips matching the background color of the site.
 
 ## 2024-05-25
 
