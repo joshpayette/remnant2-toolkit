@@ -18,7 +18,6 @@ import {
 } from '@/app/(components)/_base/table'
 import { BaseTextLink } from '@/app/(components)/_base/text'
 import { DeleteBuildAlert } from '@/app/(components)/alerts/delete-build-alert'
-import { DescriptionWithTokens } from '@/app/(components)/description-with-tokens'
 import { Tooltip } from '@/app/(components)/tooltip'
 import { urlNoCache } from '@/app/(utils)/url-no-cache'
 
@@ -45,14 +44,20 @@ interface Props {
 export function PageClient({ isEditable, linkedBuilds }: Props) {
   const router = useRouter()
 
-  const [deleteAlertOpen, setDeleteAlertOpen] = useState(false)
+  const [linkedBuildToDelete, setLinkedBuildToDelete] = useState<string | null>(
+    null,
+  )
+  const isDeleteAlertOpen = linkedBuildToDelete !== null
 
-  async function handleDeleteBuild(linkedBuildId: string) {
-    const response = await deleteLinkedBuild(linkedBuildId)
+  async function handleDeleteBuild() {
+    if (!linkedBuildToDelete) return
+
+    const response = await deleteLinkedBuild(linkedBuildToDelete)
     if (response.errors) {
       toast.error(response.errors[0])
       return
     }
+    setLinkedBuildToDelete(null)
     toast.success(response.message)
     router.refresh()
   }
@@ -104,18 +109,15 @@ export function PageClient({ isEditable, linkedBuilds }: Props) {
                     </Tooltip>
 
                     <DeleteBuildAlert
-                      open={deleteAlertOpen}
-                      onClose={() => setDeleteAlertOpen(false)}
-                      onDelete={() => {
-                        setDeleteAlertOpen(false)
-                        handleDeleteBuild(linkedBuild.id)
-                      }}
+                      open={isDeleteAlertOpen}
+                      onClose={() => setLinkedBuildToDelete(linkedBuild.id)}
+                      onDelete={handleDeleteBuild}
                     />
                     <Tooltip content="Delete Build">
                       <BaseButton
                         color="red"
                         aria-label="Delete Build"
-                        onClick={() => setDeleteAlertOpen(true)}
+                        onClick={() => setLinkedBuildToDelete(linkedBuild.id)}
                       >
                         <TrashIcon className="h-4 w-4" />
                       </BaseButton>
