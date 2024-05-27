@@ -87,17 +87,22 @@ export function PageClient({
   ])
 
   const [isDeleteAlertOpen, setIsDeletePromptOpen] = useState(false)
+  const [linkedBuildToDelete, setLinkedBuildToDelete] = useState<string | null>(
+    null,
+  )
 
-  async function handleDeleteBuild(linkedBuildId: string) {
-    const response = await deleteLinkedBuild(linkedBuildId)
+  async function handleDeleteBuild() {
+    if (!linkedBuildToDelete) return
+    const response = await deleteLinkedBuild(linkedBuildToDelete)
     if (response.errors) {
       toast.error(response.errors[0])
       return
     }
-    setIsDeletePromptOpen(false)
     setLinkedBuilds((prev) =>
-      prev.filter((linkedBuild) => linkedBuild.id !== linkedBuildId),
+      prev.filter((linkedBuild) => linkedBuild.id !== linkedBuildToDelete),
     )
+    setIsDeletePromptOpen(false)
+    setLinkedBuildToDelete(null)
     toast.success(response.message)
   }
 
@@ -202,15 +207,16 @@ export function PageClient({
                           <DeleteBuildAlert
                             open={isDeleteAlertOpen}
                             onClose={() => setIsDeletePromptOpen(false)}
-                            onDelete={() =>
-                              handleDeleteBuild(linkedBuildState.id)
-                            }
+                            onDelete={() => handleDeleteBuild()}
                           />
                           <Tooltip content="Delete Build">
                             <BaseButton
                               color="red"
                               aria-label="Delete Build"
-                              onClick={() => setIsDeletePromptOpen(true)}
+                              onClick={() => {
+                                setLinkedBuildToDelete(linkedBuildState.id)
+                                setIsDeletePromptOpen(true)
+                              }}
                             >
                               <TrashIcon className="h-4 w-4" />
                             </BaseButton>
