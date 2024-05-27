@@ -166,6 +166,12 @@ export async function createBuild(data: string): Promise<BuildActionResponse> {
               color: 0x00ff00,
               fields: [
                 {
+                  name: 'Build Link',
+                  value: `https://www.remnant2toolkit.com/builder/${
+                    dbResponse.id
+                  }?t=${Date.now()}`,
+                },
+                {
                   name: 'Reference Link',
                   value: `${buildState.buildLink}`,
                 },
