@@ -1,5 +1,4 @@
 import { XCircleIcon } from '@heroicons/react/24/solid'
-import Image from 'next/image'
 import { useState } from 'react'
 import { IoInformationCircleSharp } from 'react-icons/io5'
 

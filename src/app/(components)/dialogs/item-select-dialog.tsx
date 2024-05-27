@@ -12,6 +12,7 @@ import { ItemButton } from '@/app/(components)/buttons/item-button'
 import { ItemInfoDialog } from '@/app/(components)/dialogs/item-info-dialog'
 import { ItemSearchText } from '@/app/(components)/filters/item-lookup/item-search-text'
 import { Item } from '@/app/(data)/items/types'
+import { TraitItem } from '@/app/(data)/items/types/TraitItem'
 import { ItemCategory } from '@/app/(types)/builds'
 import { SortingPreference } from '@/app/(types)/localstorage'
 import { ITEM_TOKENS } from '@/app/(types)/tokens'
@@ -50,15 +51,9 @@ function sortByPreference({
   if (sortingPreference === 'alphabetical') {
     return [...items].sort((a, b) => a.name.localeCompare(b.name))
   } else {
-    const archetypeTraits = items
-      .filter((item) => item.linkedItems?.archetype)
-      .sort((a, b) => a.name.localeCompare(b.name))
-
-    const nonArchtypeTraits = items
-      .filter((item) => !item.linkedItems?.archetype)
-      .sort((a, b) => a.name.localeCompare(b.name))
-
-    return [...archetypeTraits, ...nonArchtypeTraits]
+    return ([...items] as TraitItem[]).sort(
+      (a, b) => a.inGameOrder - b.inGameOrder,
+    )
   }
 }
 

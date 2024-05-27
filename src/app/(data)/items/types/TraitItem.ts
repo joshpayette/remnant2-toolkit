@@ -12,6 +12,7 @@ const allItems = [...traitItems, ...archetypeItems]
 interface BaseTraitItem extends BaseItem {
   amount: number
   type: 'archetype' | 'core' | 'trait'
+  inGameOrder: number // the positioning of the trait in the game
   elementalResistanceStep?: number // The amount to increase the elemental resistance per level
   elementalResistanceStepPercent?: number // The percentage to increase the elemental resistance per level
   elementalResistanceThresholds?: number[] // The elemental resistance thresholds for the elemental resistance step
@@ -29,6 +30,7 @@ interface BaseTraitItem extends BaseItem {
 export class TraitItem extends BaseItem implements BaseTraitItem {
   public category: BaseTraitItem['category'] = 'trait'
   public type: BaseTraitItem['type'] = 'trait'
+  public inGameOrder: BaseTraitItem['inGameOrder'] = 0
   public amount: BaseTraitItem['amount'] = DEFAULT_TRAIT_AMOUNT
   public elementalResistanceStep?: BaseTraitItem['elementalResistanceStep'] = 0
   public elementalResistanceStepPercent?: BaseTraitItem['elementalResistanceStepPercent'] = 0
@@ -48,6 +50,7 @@ export class TraitItem extends BaseItem implements BaseTraitItem {
     super(props)
     this.amount = props.amount
     this.type = props.type
+    this.inGameOrder = props.inGameOrder
     this.elementalResistanceStep = props.elementalResistanceStep
     this.elementalResistanceStepPercent = props.elementalResistanceStepPercent
     this.elementalResistanceThresholds = props.elementalResistanceThresholds
@@ -102,6 +105,7 @@ export class TraitItem extends BaseItem implements BaseTraitItem {
             name: item.name,
             category: item.category,
             type: item.type,
+            inGameOrder: item.inGameOrder,
             imagePath: item.imagePath,
             amount: validAmount,
             dlc: item.dlc,
@@ -195,51 +199,29 @@ export class TraitItem extends BaseItem implements BaseTraitItem {
       }
     }
 
-    // alphabetize the newTraitItems by name
     const sortedTraitItems = [...newTraitItems]
-    sortedTraitItems.sort((a, b) => {
-      if (a.name < b.name) return -1
-      if (a.name === b.name) return 0
-      return 1
-    })
 
-    // Alphabetize the primary traits by name, Desc so that they are at the front of the array
-    // alphabetical
-    const sortedPrimaryTraits = [...primaryTraits]
-    sortedPrimaryTraits.sort((a, b) => {
-      if (a.name < b.name) return 1
-      if (a.name === b.name) return 0
-      return -1
-    })
-
-    // move the primary traits to the front of the array
-    for (const primaryTrait of sortedPrimaryTraits) {
-      const index = sortedTraitItems.findIndex(
-        (i) => i.name === primaryTrait.name,
-      )
-      if (index > 0) {
-        sortedTraitItems.splice(index, 1)
-        sortedTraitItems.unshift(primaryTrait)
-      }
-    }
-
-    // All non-archtype linked traits
+    // All non-archetype linked traits
     const remainingTraits = traitValues.filter(
       (i) => !newTraitItems.find((j) => j.name === i.name),
     )
-    // sort the remaining traits alphabetically
-    const sortedRemainingTraits = [...remainingTraits]
-    sortedRemainingTraits.sort((a, b) => {
-      if (a.name < b.name) return -1
-      if (a.name === b.name) return 0
-      return 1
-    })
 
     // Add the remaining traits to the end of the array
-    for (const remainingTrait of sortedRemainingTraits) {
+    for (const remainingTrait of remainingTraits) {
       sortedTraitItems.push(remainingTrait)
     }
 
-    return sortedTraitItems
+    // Alphabetize the traits by inGameOrder
+    sortedTraitItems.sort((a, b) => a.inGameOrder - b.inGameOrder)
+
+    // Traits should be ordered by type:
+    // 1. Archetype
+    // 2. Core
+    // 3. Trait
+    return [
+      ...sortedTraitItems.filter((i) => i.type === 'archetype'),
+      ...sortedTraitItems.filter((i) => i.type === 'core'),
+      ...sortedTraitItems.filter((i) => i.type === 'trait'),
+    ]
   }
 }

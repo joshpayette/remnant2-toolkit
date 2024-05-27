@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2024-05-26
 
+### Changed
+
+- Improved the order of traits in the builder to directly match in-game order. Not sure why I didn't do this sooner.
+
 ### Fixed
 
 - Fixed issue where deleting a linked build would delete the wrong one `:(`
