@@ -24,7 +24,8 @@ export default function VideoThumbnail({ buildState }: Props) {
     buildState.buildLink &&
     buildState.buildLinkUpdatedAt &&
     isValidYoutubeUrl(buildState.buildLink) &&
-    buildState.buildLinkUpdatedAt < twelveHoursAgo
+    (buildState.buildLinkUpdatedAt < twelveHoursAgo ||
+      buildState.isModeratorApproved)
 
   return (
     <>

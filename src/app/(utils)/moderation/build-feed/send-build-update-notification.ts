@@ -9,7 +9,7 @@ export async function sendBuildUpdateNotification({
   params: DiscordWebhookParams
   buildId: string
 }) {
-  const { WEBHOOK_COMMUNITY_BUILDS } = validateEnv()
+  const { WEBHOOK_MOD_QUEUE } = validateEnv()
 
   if (process.env.NODE_ENV !== 'production') {
     return
@@ -26,7 +26,7 @@ export async function sendBuildUpdateNotification({
     value: buildLink,
   })
 
-  const res = await fetch(WEBHOOK_COMMUNITY_BUILDS, {
+  const res = await fetch(WEBHOOK_MOD_QUEUE, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

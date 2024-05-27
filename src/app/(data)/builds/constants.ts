@@ -45,6 +45,8 @@ export const INITIAL_BUILD_STATE: BuildState = {
   isBeginnerBuild: false,
   dateFeatured: null,
   isPatchAffected: false,
+  isModeratorApproved: false,
+  isModeratorLocked: false,
   thumbnailUrl: null,
   videoUrl: null,
   buildLinkUpdatedAt: null,

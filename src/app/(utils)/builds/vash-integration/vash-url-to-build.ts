@@ -1,3 +1,4 @@
+import { INITIAL_BUILD_STATE } from '@/app/(data)/builds/constants'
 import { amuletItems } from '@/app/(data)/items/amulet-items'
 import { archetypeItems } from '@/app/(data)/items/archetype-items'
 import { armorItems } from '@/app/(data)/items/armor-items'
@@ -24,8 +25,6 @@ import { SkillItem } from '@/app/(data)/items/types/SkillItem'
 import { TraitItem } from '@/app/(data)/items/types/TraitItem'
 import { WeaponItem } from '@/app/(data)/items/types/WeaponItem'
 import { weaponItems } from '@/app/(data)/items/weapon-items'
-
-import { INITIAL_BUILD_STATE } from '../../../(data)/builds/constants'
 
 export function vashUrlToBuild(searchParams: URLSearchParams): string | null {
   if (typeof window === 'undefined') return null

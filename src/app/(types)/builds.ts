@@ -30,6 +30,8 @@ export interface BuildState {
   isPublic: boolean
   isFeaturedBuild: boolean
   isBeginnerBuild: boolean
+  isModeratorApproved: boolean
+  isModeratorLocked: boolean
   dateFeatured: Date | null
   isPatchAffected: boolean
   thumbnailUrl: string | null
@@ -78,6 +80,8 @@ export interface DBBuild {
   dateFeatured: Build['dateFeatured']
   isPatchAffected: Build['isPatchAffected']
   isMember: boolean
+  isModeratorApproved: Build['isModeratorApproved']
+  isModeratorLocked: Build['isModeratorLocked']
   thumbnailUrl: Build['thumbnailUrl']
   videoUrl: Build['videoUrl']
   buildLinkUpdatedAt: Build['buildLinkUpdatedAt']

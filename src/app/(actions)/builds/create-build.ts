@@ -98,6 +98,7 @@ export async function createBuild(data: string): Promise<BuildActionResponse> {
             : '',
         isPublic: Boolean(buildState.isPublic),
         isPatchAffected: Boolean(buildState.isPatchAffected),
+        isModeratorApproved: false,
         buildLink: buildState.buildLink,
         buildLinkUpdatedAt: buildState.buildLinkUpdatedAt,
         createdBy: {
@@ -144,7 +145,7 @@ export async function createBuild(data: string): Promise<BuildActionResponse> {
       }
 
       // Send new build notification to the mod-queue
-      const res = await fetch(`${process.env.WEBHOOK_COMMUNITY_BUILDS}`, {
+      const res = await fetch(`${process.env.WEBHOOK_MOD_QUEUE}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -173,7 +174,7 @@ export async function createBuild(data: string): Promise<BuildActionResponse> {
           ],
         }
 
-        const res2 = await fetch(`${process.env.WEBHOOK_COMMUNITY_BUILDS}`, {
+        const res2 = await fetch(`${process.env.WEBHOOK_MOD_QUEUE}`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

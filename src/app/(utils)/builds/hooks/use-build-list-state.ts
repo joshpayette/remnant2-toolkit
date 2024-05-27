@@ -23,6 +23,8 @@ const DEFAULT_STATE: State = {
     isPatchAffected: false,
     isPublic: true,
     isMember: false,
+    isModeratorApproved: false,
+    isModeratorLocked: false,
     thumbnailUrl: '',
     buildTags: [],
     videoUrl: '',

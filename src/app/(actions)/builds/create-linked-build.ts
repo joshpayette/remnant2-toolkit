@@ -77,7 +77,7 @@ export default async function createLinkedBuild(linkedBuild: Props): Promise<{
         }?t=${Date.now()}`,
       }
 
-      const res = await fetch(`${process.env.WEBHOOK_COMMUNITY_BUILDS}`, {
+      const res = await fetch(`${process.env.WEBHOOK_MOD_QUEUE}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -58,6 +58,8 @@ export async function getLoadoutList(userId?: string) {
     isPatchAffected: loadout.build.isPatchAffected,
     isBeginnerBuild: loadout.build.isBeginnerBuild,
     isMember: false,
+    isModeratorApproved: loadout.build.isModeratorApproved,
+    isModeratorLocked: loadout.build.isModeratorLocked,
     thumbnailUrl: loadout.build.thumbnailUrl,
     videoUrl: loadout.build.videoUrl,
     buildLinkUpdatedAt: loadout.build.buildLinkUpdatedAt,

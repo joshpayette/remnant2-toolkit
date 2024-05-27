@@ -1,7 +1,6 @@
 'use client'
 
 import copy from 'clipboard-copy'
-import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import { useSession } from 'next-auth/react'
 import { useRef, useState } from 'react'
@@ -16,6 +15,7 @@ import { EditBuildButton } from '@/app/(components)/buttons/builder-buttons/edit
 import { FavoriteBuildButton } from '@/app/(components)/buttons/builder-buttons/favorite-build-button'
 import { GenerateBuildImageButton } from '@/app/(components)/buttons/builder-buttons/generate-build-image'
 import { LoadoutManagementButton } from '@/app/(components)/buttons/builder-buttons/loadout-management-button'
+import { ModeratorToolsButton } from '@/app/(components)/buttons/builder-buttons/moderator-tools-button'
 import { NewLinkedBuildButton } from '@/app/(components)/buttons/builder-buttons/new-linked-build-button'
 import { ShareBuildButton } from '@/app/(components)/buttons/builder-buttons/share-build-button'
 import { ViewLinkedBuildButton } from '@/app/(components)/buttons/builder-buttons/view-linked-builds'
@@ -24,17 +24,13 @@ import { DetailedBuildDialog } from '@/app/(components)/dialogs/detailed-build-d
 import FavoriteBuildDialog from '@/app/(components)/dialogs/favorite-build-dialog'
 import { ImageDownloadInfoDialog } from '@/app/(components)/dialogs/image-download-info-dialog'
 import { LoadoutDialog } from '@/app/(components)/dialogs/loadout-dialog'
+import { ModeratorToolsDialog } from '@/app/(components)/dialogs/moderator-tools-dialog'
 import { useBuildActions } from '@/app/(hooks)/use-build-actions'
 import { DBBuild } from '@/app/(types)/builds'
 import { buildStateToCsvData } from '@/app/(utils)/builds/build-state-to-csv-data'
 import { cleanUpBuildState } from '@/app/(utils)/builds/clean-up-build-state'
 import { dbBuildToBuildState } from '@/app/(utils)/builds/db-build-to-build-state'
 import { urlNoCache } from '@/app/(utils)/url-no-cache'
-import {
-  isValidYoutubeUrl,
-  videoUrlToThumbnailUrl,
-  videoUrlToWatchUrl,
-} from '@/app/(utils)/youtube'
 
 interface Props {
   build: DBBuild
@@ -42,6 +38,8 @@ interface Props {
 
 export function PageClient({ build }: Props) {
   const buildState = cleanUpBuildState(dbBuildToBuildState(build))
+
+  const [showModeratorTooling, setShowModeratorTooling] = useState(false)
 
   const [detailedBuildDialogOpen, setDetailedBuildDialogOpen] = useState(false)
   const [loadoutDialogOpen, setLoadoutDialogOpen] = useState(false)
@@ -106,6 +104,20 @@ export function PageClient({ build }: Props) {
           showControls={showControls}
           builderActions={
             <>
+              {session &&
+                session.user?.id !== buildState.createdById &&
+                session.user?.role === 'admin' && (
+                  <>
+                    <ModeratorToolsDialog
+                      open={showModeratorTooling}
+                      onClose={() => setShowModeratorTooling(false)}
+                      buildToModerate={buildState}
+                    />
+                    <ModeratorToolsButton
+                      onClick={() => setShowModeratorTooling(true)}
+                    />
+                  </>
+                )}
               {session && session.user?.id === buildState.createdById && (
                 <EditBuildButton
                   onClick={() =>

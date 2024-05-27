@@ -100,6 +100,8 @@ export function validateBuildState(buildState: unknown) {
     isBeginnerBuild: z.boolean(),
     dateFeatured: z.date().nullable(),
     isMember: z.boolean(),
+    isModeratorApproved: z.boolean(),
+    isModeratorLocked: z.boolean(),
     createdAt: z.date(),
     updatedAt: z.date().nullable(),
     createdById: z.string().nullable(),

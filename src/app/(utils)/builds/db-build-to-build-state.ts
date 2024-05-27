@@ -27,6 +27,8 @@ export function dbBuildToBuildState(dbBuild: DBBuild): BuildState {
     createdByDisplayName: dbBuild.createdByDisplayName,
     isMember: dbBuild.isMember,
     isPublic: dbBuild.isPublic,
+    isModeratorApproved: Boolean(dbBuild.isModeratorApproved),
+    isModeratorLocked: Boolean(dbBuild.isModeratorLocked),
     isFeaturedBuild: Boolean(dbBuild.isFeaturedBuild),
     isBeginnerBuild: Boolean(dbBuild.isBeginnerBuild),
     dateFeatured: dbBuild.dateFeatured,

@@ -60,15 +60,15 @@ export async function updateBuild(data: string): Promise<BuildActionResponse> {
   }
   const buildState = validatedData.data
 
-  if (buildState.createdById !== session.user.id) {
-    return {
-      errors: ['You must be logged in as the build creator to edit a build.'],
-    }
-  }
-
   if (!buildState.buildId) {
     return {
       errors: ['No buildId provided!'],
+    }
+  }
+
+  if (buildState.createdById !== session.user.id) {
+    return {
+      errors: ['You must be logged in as the build creator to edit a build.'],
     }
   }
 
@@ -76,6 +76,13 @@ export async function updateBuild(data: string): Promise<BuildActionResponse> {
   if (!buildState.items.archetype || buildState.items.archetype.length === 0) {
     return {
       errors: ['You must select at least one archetype.'],
+    }
+  }
+
+  // If build is moderator locked, do not allow editing
+  if (buildState.isModeratorLocked) {
+    return {
+      errors: ['This build is locked by a moderator.'],
     }
   }
 
@@ -134,6 +141,7 @@ export async function updateBuild(data: string): Promise<BuildActionResponse> {
         isPatchAffected: Boolean(buildState.isPatchAffected),
         buildLink: buildState.buildLink,
         buildLinkUpdatedAt: buildState.buildLinkUpdatedAt,
+        isModeratorApproved: false,
         BuildItems: {
           deleteMany: {}, // removes all items before creating them again
           create: updatedBuildItems,
