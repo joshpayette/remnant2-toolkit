@@ -185,10 +185,10 @@ export default function PageClient({ initialBuild, userId }: Props) {
                 showBuildVisibility={false}
                 footerActions={
                   <div className="flex w-full items-center justify-center gap-6 p-2 text-sm">
-                    <Tooltip content="Copy Build URL">
+                    <Tooltip content="Remove Build">
                       <BaseButton
                         color="red"
-                        aria-label="Copy build URL to clipboard"
+                        aria-label="Remove Build"
                         onClick={() =>
                           handleRemoveLinkedBuildItem(linkedBuild.build)
                         }
@@ -264,10 +264,10 @@ export default function PageClient({ initialBuild, userId }: Props) {
                 showBuildVisibility={false}
                 footerActions={
                   <div className="flex w-full items-center justify-center gap-6 p-2 text-sm">
-                    <Tooltip content="Copy Build URL">
+                    <Tooltip content="Add Build">
                       <BaseButton
                         color="green"
-                        aria-label="Copy build URL to clipboard"
+                        aria-label="Add Build"
                         onClick={() => handleAddLinkedBuildItem(build)}
                       >
                         <FaLink className="h-4 w-4" />

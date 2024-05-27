@@ -38,9 +38,9 @@ export async function generateMetadata(
     }
   }
 
-  const { linkedBuild, createdByDisplayName } = buildData
+  const { linkedBuildState } = buildData
 
-  if (!linkedBuild) {
+  if (!linkedBuildState) {
     return {
       title: 'Error loading build',
       description:
@@ -67,10 +67,10 @@ export async function generateMetadata(
     }
   }
 
-  const title = `${linkedBuild.name} by ${createdByDisplayName}`
+  const title = `${linkedBuildState.name} by ${linkedBuildState.createdByDisplayName}`
   const description =
-    linkedBuild.description && linkedBuild.description !== ''
-      ? linkedBuild.description
+    linkedBuildState.description && linkedBuildState.description !== ''
+      ? linkedBuildState.description
       : NAV_ITEMS.linkedBuilds.description
 
   return {
@@ -80,7 +80,7 @@ export async function generateMetadata(
       title,
       description: description,
       siteName: 'Remnant 2 Toolkit',
-      url: `https://remnant2toolkit.com/builder/linked/${linkedBuild.id}`,
+      url: `https://remnant2toolkit.com/builder/linked/${linkedBuildState.id}`,
       images: [
         {
           url: 'https://d2sqltdcj8czo5.cloudfront.net/toolkit/og-image-sm.jpg',

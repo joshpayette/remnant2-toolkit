@@ -20,6 +20,7 @@ import { useTimeRangeFilter } from '@/app/(components)/filters/builds/secondary-
 import { Tooltip } from '@/app/(components)/tooltip'
 import { MAX_LINKED_BUILD_DESCRIPTION_LENGTH } from '@/app/(data)/builds/constants'
 import { DBBuild } from '@/app/(types)/builds'
+import type { LinkedBuildState } from '@/app/(types)/linked-builds'
 import { useBuildListState } from '@/app/(utils)/builds/hooks/use-build-list-state'
 import { usePagination } from '@/app/(utils)/pagination/use-pagination'
 import {
@@ -30,27 +31,22 @@ import { LinkedBuildItem } from '@/app/builder/linked/create/[buildId]/type'
 import { Textarea } from '@/features/ui/Textarea'
 
 interface Props {
-  currentLinkedBuild: {
-    id: string
-    createdById: string
-    name: string
-    description: string
-    linkedBuilds: Array<{
-      label: string
-      build: DBBuild
-    }>
-  }
+  currentLinkedBuildState: LinkedBuildState
   userId: string
 }
 
-export default function PageClient({ currentLinkedBuild, userId }: Props) {
+export default function PageClient({ currentLinkedBuildState, userId }: Props) {
   const router = useRouter()
 
-  const [name, setName] = useState(currentLinkedBuild.name)
-  const [description, setDescription] = useState(currentLinkedBuild.description)
+  const [name, setName] = useState(currentLinkedBuildState.name)
+  const [description, setDescription] = useState(
+    currentLinkedBuildState.description,
+  )
 
   const [linkedBuildItems, setLinkedBuildItems] = useState<LinkedBuildItem[]>(
-    currentLinkedBuild.linkedBuilds.map((linkedBuildItem) => linkedBuildItem),
+    currentLinkedBuildState.linkedBuildItems.map(
+      (linkedBuildItem) => linkedBuildItem,
+    ),
   )
 
   const { buildListState, setBuildListState } = useBuildListState()
@@ -135,8 +131,8 @@ export default function PageClient({ currentLinkedBuild, userId }: Props) {
   async function handleSaveLinkedBuild() {
     const response = await updateLinkedBuild({
       name,
-      description,
-      id: currentLinkedBuild.id,
+      description: description ?? '',
+      id: currentLinkedBuildState.id,
       createdById: userId,
       linkedBuildItems: linkedBuildItems.map((linkedBuildItem) => ({
         label: linkedBuildItem.label,
@@ -193,10 +189,10 @@ export default function PageClient({ currentLinkedBuild, userId }: Props) {
                 showBuildVisibility={false}
                 footerActions={
                   <div className="flex w-full items-center justify-center gap-6 p-2 text-sm">
-                    <Tooltip content="Copy Build URL">
+                    <Tooltip content="Remove Build">
                       <BaseButton
                         color="red"
-                        aria-label="Copy build URL to clipboard"
+                        aria-label="Remove Build"
                         onClick={() =>
                           handleRemoveLinkedBuildItem(linkedBuild.build)
                         }
@@ -272,10 +268,10 @@ export default function PageClient({ currentLinkedBuild, userId }: Props) {
                 showBuildVisibility={false}
                 footerActions={
                   <div className="flex w-full items-center justify-center gap-6 p-2 text-sm">
-                    <Tooltip content="Copy Build URL">
+                    <Tooltip content="Add Build">
                       <BaseButton
                         color="green"
-                        aria-label="Copy build URL to clipboard"
+                        aria-label="Add Build"
                         onClick={() => handleAddLinkedBuildItem(build)}
                       >
                         <FaLink className="h-4 w-4" />

@@ -7,7 +7,7 @@ import {
   DEFAULT_BUILD_NAME,
   MAX_BUILD_DESCRIPTION_LENGTH,
 } from '@/app/(data)/builds/constants'
-import { BuildActionResponse } from '@/app/(types)/builds'
+import type { BuildActionResponse } from '@/app/(types)/builds'
 import { getServerSession } from '@/app/(utils)/auth'
 import { checkBadWords, cleanBadWords } from '@/app/(utils)/bad-word-filter'
 import { buildStateToBuildItems } from '@/app/(utils)/builds/build-state-to-build-items'

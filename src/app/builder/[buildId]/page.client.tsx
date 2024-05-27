@@ -18,6 +18,7 @@ import { GenerateBuildImageButton } from '@/app/(components)/buttons/builder-but
 import { LoadoutManagementButton } from '@/app/(components)/buttons/builder-buttons/loadout-management-button'
 import { NewLinkedBuildButton } from '@/app/(components)/buttons/builder-buttons/new-linked-build-button'
 import { ShareBuildButton } from '@/app/(components)/buttons/builder-buttons/share-build-button'
+import { ViewLinkedBuildButton } from '@/app/(components)/buttons/builder-buttons/view-linked-builds'
 import { ToCsvButton } from '@/app/(components)/buttons/to-csv-button'
 import { DetailedBuildDialog } from '@/app/(components)/dialogs/detailed-build-dialog'
 import FavoriteBuildDialog from '@/app/(components)/dialogs/favorite-build-dialog'
@@ -168,6 +169,14 @@ export function PageClient({ build }: Props) {
 
               <DetailedViewButton
                 onClick={() => setDetailedBuildDialogOpen(true)}
+              />
+
+              <ViewLinkedBuildButton
+                onClick={() =>
+                  router.push(
+                    `/profile/${buildState.createdById}/linked-builds/${buildState.buildId}`,
+                  )
+                }
               />
 
               <DuplicateBuildButton

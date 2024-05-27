@@ -73,8 +73,8 @@ export default async function Layout({
   }
 
   // if the build is not public, show error message
-  const { linkedBuild } = buildData
-  if (!linkedBuild) {
+  const { linkedBuildState } = buildData
+  if (!linkedBuildState) {
     return (
       <div className="flex max-w-lg flex-col">
         <PageHeader
@@ -86,7 +86,7 @@ export default async function Layout({
   }
 
   // if the user is not the creator of the build, show error message
-  if (session.user?.id !== linkedBuild.createdById) {
+  if (session.user?.id !== linkedBuildState.createdById) {
     return (
       <div className="flex max-w-lg flex-col">
         <PageHeader

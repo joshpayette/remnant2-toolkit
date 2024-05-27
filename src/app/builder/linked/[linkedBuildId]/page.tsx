@@ -16,9 +16,9 @@ export default async function Page({
       </p>
     )
   }
-  const { linkedBuild } = buildData
+  const { linkedBuildState } = buildData
 
-  if (!linkedBuild) {
+  if (!linkedBuildState) {
     return (
       <p className="text-red text-center">
         There was an error loading this linked build. It may have been removed.
@@ -27,5 +27,5 @@ export default async function Page({
   }
 
   // return <PageClient build={build} />
-  return <PageClient linkedBuild={linkedBuild} />
+  return <PageClient linkedBuildState={linkedBuildState} />
 }

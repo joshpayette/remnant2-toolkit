@@ -21,7 +21,6 @@ import { EditLinkedBuildButton } from '@/app/(components)/buttons/builder-button
 import { FavoriteBuildButton } from '@/app/(components)/buttons/builder-buttons/favorite-build-button'
 import { GenerateBuildImageButton } from '@/app/(components)/buttons/builder-buttons/generate-build-image'
 import { LoadoutManagementButton } from '@/app/(components)/buttons/builder-buttons/loadout-management-button'
-import { NewLinkedBuildButton } from '@/app/(components)/buttons/builder-buttons/new-linked-build-button'
 import { ShareBuildButton } from '@/app/(components)/buttons/builder-buttons/share-build-button'
 import { ToCsvButton } from '@/app/(components)/buttons/to-csv-button'
 import { DescriptionWithTokens } from '@/app/(components)/description-with-tokens'
@@ -30,7 +29,7 @@ import FavoriteBuildDialog from '@/app/(components)/dialogs/favorite-build-dialo
 import { ImageDownloadInfoDialog } from '@/app/(components)/dialogs/image-download-info-dialog'
 import { LoadoutDialog } from '@/app/(components)/dialogs/loadout-dialog'
 import { useBuildActions } from '@/app/(hooks)/use-build-actions'
-import { DBBuild } from '@/app/(types)/builds'
+import type { LinkedBuildState } from '@/app/(types)/linked-builds'
 import { buildStateToCsvData } from '@/app/(utils)/builds/build-state-to-csv-data'
 import { cleanUpBuildState } from '@/app/(utils)/builds/clean-up-build-state'
 import { dbBuildToBuildState } from '@/app/(utils)/builds/db-build-to-build-state'
@@ -38,20 +37,14 @@ import { cn } from '@/app/(utils)/classnames'
 import { urlNoCache } from '@/app/(utils)/url-no-cache'
 
 interface Props {
-  linkedBuild: {
-    id: string
-    name: string
-    description: string
-    linkedBuilds: {
-      label: string
-      build: DBBuild
-    }[]
-  }
+  linkedBuildState: LinkedBuildState
 }
 
-export function PageClient({ linkedBuild }: Props) {
-  const { linkedBuilds } = linkedBuild
-  const [currentLinkedBuild, setCurrentLinkedBuild] = useState(linkedBuilds[0])
+export function PageClient({ linkedBuildState }: Props) {
+  const { linkedBuildItems } = linkedBuildState
+  const [currentLinkedBuild, setCurrentLinkedBuild] = useState(
+    linkedBuildItems[0],
+  )
 
   const buildState = cleanUpBuildState(
     dbBuildToBuildState(currentLinkedBuild.build),
@@ -113,48 +106,49 @@ export function PageClient({ linkedBuild }: Props) {
       <div className="height-full flex w-full flex-col items-center justify-center">
         <div className="mb-8 w-full max-w-lg">
           <h2 className="mb-2 border-b border-b-primary-500 pb-2 text-center text-2xl font-bold">
-            {linkedBuild.name}
+            {linkedBuildState.name}
           </h2>
           <div className="mb-2 flex flex-col">
-            {linkedBuild.description && linkedBuild.description.length > 0 && (
-              <div
-                className={cn(
-                  'text-md overflow-x-auto overflow-y-auto whitespace-pre-wrap text-gray-200',
-                  isScreenshotMode && 'max-h-none',
-                )}
-              >
-                <DescriptionWithTokens
-                  description={linkedBuild.description}
-                  highlightBuildTags={true}
-                  highlightItems={true}
-                />
-              </div>
-            )}
+            {linkedBuildState.description &&
+              linkedBuildState.description.length > 0 && (
+                <div
+                  className={cn(
+                    'text-md overflow-x-auto overflow-y-auto whitespace-pre-wrap text-gray-200',
+                    isScreenshotMode && 'max-h-none',
+                  )}
+                >
+                  <DescriptionWithTokens
+                    description={linkedBuildState.description}
+                    highlightBuildTags={true}
+                    highlightItems={true}
+                  />
+                </div>
+              )}
           </div>
           <div className="sm:hidden">
             <BaseListbox
               name="linkedBuilds"
               defaultValue={
-                linkedBuilds.find(
-                  (linkedBuild) =>
-                    linkedBuild.build.id === currentLinkedBuild.build.id,
+                linkedBuildItems.find(
+                  (linkedBuildItem) =>
+                    linkedBuildItem.build.id === currentLinkedBuild.build.id,
                 )?.label
               }
               onChange={(value) => {
-                const linkedBuild = linkedBuilds.find(
-                  (linkedBuild) => linkedBuild.label === value,
+                const linkedBuild = linkedBuildItems.find(
+                  (linkedBuildItem) => linkedBuildItem.label === value,
                 )
                 if (linkedBuild) {
                   setCurrentLinkedBuild(linkedBuild)
                 }
               }}
             >
-              {linkedBuilds.map((linkedBuild) => (
+              {linkedBuildItems.map((linkedBuildItem) => (
                 <BaseListboxOption
-                  key={linkedBuild.build.id}
-                  value={linkedBuild.label}
+                  key={linkedBuildItem.id}
+                  value={linkedBuildItem.label}
                 >
-                  <BaseListboxLabel>{linkedBuild.label}</BaseListboxLabel>
+                  <BaseListboxLabel>{linkedBuildItem.label}</BaseListboxLabel>
                 </BaseListboxOption>
               ))}
             </BaseListbox>
@@ -164,24 +158,26 @@ export function PageClient({ linkedBuild }: Props) {
               className="isolate flex divide-x divide-gray-700 rounded-lg shadow"
               aria-label="Tabs"
             >
-              {linkedBuilds.map((linkedBuild, tabIdx) => (
+              {linkedBuildItems.map((linkedBuildItem, tabIdx) => (
                 <button
-                  key={linkedBuild.build.id}
-                  onClick={() => setCurrentLinkedBuild(linkedBuild)}
+                  key={linkedBuildItem.build.id}
+                  onClick={() => setCurrentLinkedBuild(linkedBuildItem)}
                   className={cn(
-                    linkedBuild.build.id === currentLinkedBuild.build.id
+                    linkedBuildItem.build.id === currentLinkedBuild.build.id
                       ? 'text-gray-300'
                       : 'text-gray-400 hover:text-gray-300',
                     tabIdx === 0 ? 'rounded-l-lg' : '',
-                    tabIdx === linkedBuilds.length - 1 ? 'rounded-r-lg' : '',
+                    tabIdx === linkedBuildItems.length - 1
+                      ? 'rounded-r-lg'
+                      : '',
                     'group relative min-w-0 flex-1 overflow-hidden bg-gray-900 px-4 py-4 text-center text-sm font-medium hover:bg-gray-800 focus:z-10',
                   )}
                 >
-                  <span>{linkedBuild.label}</span>
+                  <span>{linkedBuildItem.label}</span>
                   <span
                     aria-hidden="true"
                     className={cn(
-                      linkedBuild.build.id === currentLinkedBuild.build.id
+                      linkedBuildItem.build.id === currentLinkedBuild.build.id
                         ? 'bg-purple-500'
                         : 'bg-transparent',
                       'absolute inset-x-0 bottom-0 h-0.5',
@@ -212,7 +208,7 @@ export function PageClient({ linkedBuild }: Props) {
               {session && session.user?.id === buildState.createdById && (
                 <EditLinkedBuildButton
                   onClick={() =>
-                    router.push(`/builder/linked/edit/${linkedBuild.id}`)
+                    router.push(`/builder/linked/edit/${linkedBuildState.id}`)
                   }
                 />
               )}
@@ -229,7 +225,9 @@ export function PageClient({ linkedBuild }: Props) {
 
               <ShareBuildButton
                 onClick={() => {
-                  const url = urlNoCache(window.location.href)
+                  const url = urlNoCache(
+                    `https://remnant2toolkit.com/builder/${currentLinkedBuild.build.id}`,
+                  )
                   copy(url)
                   toast.success('Copied Build URL to clipboard.')
                 }}

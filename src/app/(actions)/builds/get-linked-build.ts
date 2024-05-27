@@ -1,6 +1,6 @@
 'use server'
 
-import { DBBuild } from '@/app/(types)/builds'
+import type { LinkedBuildState } from '@/app/(types)/linked-builds'
 import { getServerSession } from '@/app/(utils)/auth'
 import { prisma } from '@/app/(utils)/db'
 import { DEFAULT_DISPLAY_NAME } from '@/app/profile/[userId]/(lib)/constants'
@@ -8,22 +8,24 @@ import { DEFAULT_DISPLAY_NAME } from '@/app/profile/[userId]/(lib)/constants'
 export default async function getLinkedBuild(linkedBuildId: string): Promise<{
   status: 'success' | 'error'
   message: string
-  linkedBuild?: {
-    id: string
-    createdById: string
-    name: string
-    description: string
-    linkedBuilds: Array<{
-      label: string
-      build: DBBuild
-    }>
-  }
-  createdByDisplayName?: string
+  linkedBuildState?: LinkedBuildState
 }> {
   const session = await getServerSession()
   const userId = session?.user?.id
 
   try {
+    // delete all linkedBuildItems that are not public
+    await prisma.linkedBuildItems.deleteMany({
+      where: {
+        linkedBuildId,
+        NOT: {
+          Build: {
+            isPublic: true,
+          },
+        },
+      },
+    })
+
     const linkedBuild = await prisma.linkedBuild.findUnique({
       where: {
         id: linkedBuildId,
@@ -76,20 +78,24 @@ export default async function getLinkedBuild(linkedBuildId: string): Promise<{
     return {
       status: 'success',
       message: 'Linked build found.',
-      linkedBuild: {
+      linkedBuildState: {
         id: linkedBuild.id,
         createdById: linkedBuild.createdById,
+        createdByDisplayName,
+        createdAt: linkedBuild.createdAt,
         name: linkedBuild.name,
         description: linkedBuild.description ?? '',
-        linkedBuilds: linkedBuild.LinkedBuildItems.filter(
+        linkedBuildItems: linkedBuild.LinkedBuildItems.filter(
           (linkedBuildItem) => linkedBuildItem.Build.isPublic,
         ).map((linkedBuildItem) => {
           const build = linkedBuildItem.Build
           return {
+            id: linkedBuildItem.id,
             label: linkedBuildItem.label,
             build: {
               id: build.id,
               name: build.name,
+              createdByDisplayName,
               description: build.description ?? '',
               isMember: false,
               isFeaturedBuild: build.isFeaturedBuild,
@@ -106,10 +112,6 @@ export default async function getLinkedBuild(linkedBuildId: string): Promise<{
               updatedAt: build.updatedAt,
               createdById: build.createdById,
               createdByName: build.createdBy.name ?? '',
-              createdByDisplayName:
-                build.createdBy.displayName ||
-                build.createdBy.name ||
-                DEFAULT_DISPLAY_NAME,
               upvoted: upvotes.some(
                 (upvote) => upvote.buildId === build.id && upvote.upvoted,
               ),
@@ -120,7 +122,6 @@ export default async function getLinkedBuild(linkedBuildId: string): Promise<{
           }
         }),
       },
-      createdByDisplayName,
     }
   } catch (e) {
     console.error(e)

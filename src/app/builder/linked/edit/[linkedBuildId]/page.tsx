@@ -37,9 +37,9 @@ export default async function Page({
   }
 
   const userId = session.user.id
-  const { linkedBuild } = buildData
+  const { linkedBuildState } = buildData
 
-  if (!linkedBuild) {
+  if (!linkedBuildState) {
     return (
       <p className="text-red text-center">
         This linked build could not be found.
@@ -47,7 +47,7 @@ export default async function Page({
     )
   }
 
-  if (session.user?.id !== linkedBuild.createdById) {
+  if (session.user?.id !== linkedBuildState.createdById) {
     return (
       <p className="text-red text-center">
         You must be the creator of the build to link it to other builds.
@@ -61,7 +61,7 @@ export default async function Page({
         title="Link Builds"
         subtitle="Link multiple variations of a build together in one convenient URL."
       />
-      <PageClient currentLinkedBuild={linkedBuild} userId={userId} />
+      <PageClient currentLinkedBuildState={linkedBuildState} userId={userId} />
     </>
   )
 }
