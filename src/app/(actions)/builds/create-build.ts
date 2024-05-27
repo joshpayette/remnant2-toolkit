@@ -143,6 +143,7 @@ export async function createBuild(data: string): Promise<BuildActionResponse> {
         }?t=${Date.now()}`,
       }
 
+      // Send new build notification to the mod-queue
       const res = await fetch(`${process.env.WEBHOOK_COMMUNITY_BUILDS}`, {
         method: 'POST',
         headers: {
@@ -155,7 +156,38 @@ export async function createBuild(data: string): Promise<BuildActionResponse> {
         console.error('Error in sending build moderation webhook to Discord!')
       }
 
-      const res2 = await fetch(`${process.env.WEBHOOK_NEW_BUILD_FEED}`, {
+      // if the build has a reference link, send that to the mod queue
+      if (buildState.buildLink) {
+        const params2 = {
+          embeds: [
+            {
+              title: `New Build Reference Link`,
+              color: 0x00ff00,
+              fields: [
+                {
+                  name: 'Reference Link',
+                  value: `${buildState.buildLink}`,
+                },
+              ],
+            },
+          ],
+        }
+
+        const res2 = await fetch(`${process.env.WEBHOOK_COMMUNITY_BUILDS}`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(params2),
+        })
+
+        if (!res2.ok) {
+          console.error('Error in sending build link webhook to Discord!')
+        }
+      }
+
+      // send the new build to the new-build-feed
+      const res3 = await fetch(`${process.env.WEBHOOK_NEW_BUILD_FEED}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -163,7 +195,7 @@ export async function createBuild(data: string): Promise<BuildActionResponse> {
         body: JSON.stringify(params),
       })
 
-      if (!res2.ok) {
+      if (!res3.ok) {
         console.error('Error in sending new build webhook to Discord!')
       }
     }
