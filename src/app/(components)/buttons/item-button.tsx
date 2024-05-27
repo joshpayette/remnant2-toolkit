@@ -115,10 +115,7 @@ export function ItemButton({
     !isEnemy(item) &&
     isToggled === undefined
 
-  let buttonClickAction = onClick
-  if (clickShowsInfo) {
-    buttonClickAction = () => onItemInfoClick(item)
-  }
+  let buttonClickAction = clickShowsInfo ? () => onItemInfoClick(item) : onClick
 
   return (
     <div
