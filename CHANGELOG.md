@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-05-27
+
+### Changed
+
+- Linked Builds on the profile page are no longer displayed as a table. They are now displayed as cards, similar to build lists elsewhere on the site.
+- When viewing a build, there is a new `View Linked Builds` button where users can find linked builds that include it.
+
 ## 2024-05-26
 
 ### Changed
