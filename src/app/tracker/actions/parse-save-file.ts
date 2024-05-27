@@ -6,6 +6,8 @@
 
 'use server'
 
+import fs from 'fs'
+import path from 'path'
 import zlib from 'zlib'
 
 import { allItems } from '@/app/(data)/items/all-items'
@@ -110,12 +112,6 @@ export async function parseSaveFile(
       })
       // Get just the item ids
       .map((item) => item.id)
-
-    // const responseSize = Buffer.byteLength(
-    //   JSON.stringify(saveFileDiscoveredItemIds),
-    //   'utf-8',
-    // )
-    // console.info('FINAL Response', responseSize)
 
     return {
       saveFileDiscoveredItemIds,
