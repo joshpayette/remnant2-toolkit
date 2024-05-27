@@ -108,14 +108,15 @@ export function ItemButton({
     onToggleOptional &&
     onClick
 
-  let buttonClickAction = onClick
-  if (
+  const clickShowsInfo =
     !isEditable &&
     item &&
     onItemInfoClick &&
     !isEnemy(item) &&
     isToggled === undefined
-  ) {
+
+  let buttonClickAction = onClick
+  if (clickShowsInfo) {
     buttonClickAction = () => onItemInfoClick(item)
   }
 
