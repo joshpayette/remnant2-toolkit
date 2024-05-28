@@ -47,6 +47,8 @@ export default function PageClient({ initialBuild, userId }: Props) {
   const { buildListState, setBuildListState } = useBuildListState()
   const { builds, totalBuildCount, isLoading } = buildListState
 
+  const [saveInProgress, setSaveInProgress] = useState(false)
+
   const itemsPerPage = 16
 
   const { orderBy, handleOrderByChange } = useOrderByFilter('newest')
@@ -124,6 +126,8 @@ export default function PageClient({ initialBuild, userId }: Props) {
   }
 
   async function handleSaveLinkedBuild() {
+    setSaveInProgress(true)
+
     const response = await createLinkedBuild({
       name,
       description,
@@ -135,9 +139,11 @@ export default function PageClient({ initialBuild, userId }: Props) {
 
     if (response.status === 'error') {
       toast.error(response.message)
+      setSaveInProgress(false)
       return
     }
     if (!response.linkedBuild) {
+      setSaveInProgress(false)
       toast.error('An error occurred while creating the linked build.')
       return
     }
@@ -221,7 +227,11 @@ export default function PageClient({ initialBuild, userId }: Props) {
           ))}
         </ul>
         <div className="flex w-full items-center justify-end">
-          <BaseButton color="green" onClick={handleSaveLinkedBuild}>
+          <BaseButton
+            color="green"
+            onClick={handleSaveLinkedBuild}
+            disabled={saveInProgress}
+          >
             Save Linked Build
           </BaseButton>
         </div>

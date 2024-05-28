@@ -52,6 +52,8 @@ export default function PageClient({ currentLinkedBuildState, userId }: Props) {
   const { buildListState, setBuildListState } = useBuildListState()
   const { builds, totalBuildCount, isLoading } = buildListState
 
+  const [saveInProgress, setSaveInProgress] = useState(false)
+
   const itemsPerPage = 16
 
   const { orderBy, handleOrderByChange } = useOrderByFilter('newest')
@@ -129,6 +131,8 @@ export default function PageClient({ currentLinkedBuildState, userId }: Props) {
   }
 
   async function handleSaveLinkedBuild() {
+    setSaveInProgress(true)
+
     const response = await updateLinkedBuild({
       name,
       description: description ?? '',
@@ -141,10 +145,12 @@ export default function PageClient({ currentLinkedBuildState, userId }: Props) {
     })
 
     if (response.status === 'error') {
+      setSaveInProgress(false)
       toast.error(response.message)
       return
     }
     if (!response.linkedBuild) {
+      setSaveInProgress(false)
       toast.error('An error occurred while updating the linked build.')
       return
     }
@@ -225,7 +231,11 @@ export default function PageClient({ currentLinkedBuildState, userId }: Props) {
           ))}
         </ul>
         <div className="flex w-full items-center justify-end">
-          <BaseButton color="green" onClick={handleSaveLinkedBuild}>
+          <BaseButton
+            color="green"
+            onClick={handleSaveLinkedBuild}
+            disabled={saveInProgress}
+          >
             Save Linked Build
           </BaseButton>
         </div>
