@@ -15,17 +15,11 @@ export default function ToggleThemeButton() {
     return
   }
 
-  if (resolvedTheme === 'dark') {
-    return (
-      <BaseButton onClick={() => setTheme('light')} color="white">
-        <SunIcon className="h-5 w-5" />
-      </BaseButton>
-    )
-  } else {
-    return (
-      <BaseButton onClick={() => setTheme('dark')} color="white">
-        <MoonIcon className="h-5 w-5" />
-      </BaseButton>
-    )
-  }
+  const isDark = resolvedTheme === 'dark'
+  const ButtonIcon = isDark ? SunIcon : MoonIcon
+  return (
+    <BaseButton onClick={() => setTheme(isDark ? 'light' : 'dark')} color="dark/white">
+      <ButtonIcon className="h-5 w-5" />
+    </BaseButton>
+  )
 }
