@@ -202,7 +202,7 @@ export function ItemButton({
             !isEnemy(item) &&
             ArchetypeItem.isArchetypeItem(item) &&
             'bg-black',
-          size === 'sm' && 'h-[22px] w-[22px] rounded-l-md',
+          size === 'sm' && 'h-[23px] w-[22px] rounded-l-md',
           size === 'md' && 'h-[66px] w-[66px] rounded-t-lg',
           size === 'lg' && 'h-[99px] w-[99px] rounded-t-lg',
           size === 'xl' && 'h-[200px] w-[200px] rounded-t-lg',
