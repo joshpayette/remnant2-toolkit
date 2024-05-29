@@ -112,15 +112,66 @@ export async function updateBuild(data: string): Promise<BuildActionResponse> {
   })
 
   // If the new buildLink doesn't match the existing buildLink, update the buildLinkUpdatedAt
+  // If the user is a permitted builder, immediately validate the link by setting buildLinkUpdatedAt to yesterday
   if (
     buildState.buildLink &&
     existingBuild?.buildLink !== buildState.buildLink &&
     buildState.buildLink?.trim().length > 0
   ) {
-    buildState.buildLinkUpdatedAt = new Date()
+    buildState.buildLinkUpdatedAt = isPermittedBuilder(session.user.id)
+      ? new Date(Date.now() - 60 * 60 * 24 * 1000)
+      : new Date()
   }
 
   try {
+    // get the build creator user record
+    const buildCreator = await prisma.user.findUnique({
+      where: {
+        id: session.user.id,
+      },
+      include: {
+        UserProfile: true,
+      },
+    })
+
+    if (!buildCreator) {
+      return {
+        errors: ['Error finding build creator.'],
+      }
+    }
+
+    // Ensure the build creator's name is not against code of conduct
+    if (
+      buildCreator.displayName &&
+      buildCreator.displayName !== '' &&
+      checkBadWords(buildCreator.displayName)
+    ) {
+      await prisma.user.update({
+        where: {
+          id: session.user.id,
+        },
+        data: {
+          displayName: cleanBadWords(buildCreator.displayName),
+        },
+      })
+    }
+    // Ensure the user's bio is not against the code of conduct
+    if (
+      buildCreator.UserProfile?.bio &&
+      buildCreator.UserProfile.bio !== '' &&
+      checkBadWords(buildCreator.UserProfile.bio)
+    ) {
+      await prisma.userProfile.update({
+        where: {
+          userId: session.user.id,
+        },
+        data: {
+          bio: cleanBadWords(buildCreator.UserProfile.bio),
+        },
+      })
+    }
+
+    // Save changes to the build
     const updatedBuild = await prisma.build.update({
       where: {
         id: buildState.buildId,
