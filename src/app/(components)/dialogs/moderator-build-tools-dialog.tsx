@@ -30,7 +30,7 @@ interface Props {
   buildToModerate: BuildState
 }
 
-export function ModeratorToolsDialog({
+export function ModeratorBuildToolsDialog({
   buildToModerate,
   open,
   onClose,
@@ -50,6 +50,11 @@ export function ModeratorToolsDialog({
   if (sessionData?.user?.role !== 'admin') {
     return null
   }
+
+  const saveButtonDisabled =
+    buildName === buildToModerate.name &&
+    buildDescription === buildToModerate.description &&
+    buildReferenceLink === buildToModerate.buildLink
 
   return (
     <BaseDialog open={open} onClose={onClose}>
@@ -106,8 +111,9 @@ export function ModeratorToolsDialog({
             })
             toast.success(response.message)
           }}
+          disabled={saveButtonDisabled}
         >
-          Save
+          Save Changes
         </BaseButton>
       </BaseDialogActions>
       <BaseDivider className="my-4" />

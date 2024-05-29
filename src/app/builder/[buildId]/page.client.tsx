@@ -24,7 +24,7 @@ import { DetailedBuildDialog } from '@/app/(components)/dialogs/detailed-build-d
 import FavoriteBuildDialog from '@/app/(components)/dialogs/favorite-build-dialog'
 import { ImageDownloadInfoDialog } from '@/app/(components)/dialogs/image-download-info-dialog'
 import { LoadoutDialog } from '@/app/(components)/dialogs/loadout-dialog'
-import { ModeratorToolsDialog } from '@/app/(components)/dialogs/moderator-tools-dialog'
+import { ModeratorBuildToolsDialog } from '@/app/(components)/dialogs/moderator-build-tools-dialog'
 import { useBuildActions } from '@/app/(hooks)/use-build-actions'
 import { DBBuild } from '@/app/(types)/builds'
 import { buildStateToCsvData } from '@/app/(utils)/builds/build-state-to-csv-data'
@@ -108,7 +108,7 @@ export function PageClient({ build }: Props) {
                 session.user?.id !== buildState.createdById &&
                 session.user?.role === 'admin' && (
                   <>
-                    <ModeratorToolsDialog
+                    <ModeratorBuildToolsDialog
                       open={showModeratorTooling}
                       onClose={() => setShowModeratorTooling(false)}
                       buildToModerate={buildState}
