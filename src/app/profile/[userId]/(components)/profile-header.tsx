@@ -119,6 +119,8 @@ export function ProfileHeader({
                   toast.error(response.message)
                 } else {
                   toast.success(response.message)
+                  setNewDisplayName(newDisplayName)
+                  setNewBio(newBio)
                   setIsEditing(false)
                 }
               }}
