@@ -1,5 +1,3 @@
-import { image } from 'html2canvas/dist/types/css/types/image'
-
 import { remnantEnemies } from '@/app/(data)/enemies/remnant-enemies'
 import { amuletItems } from '@/app/(data)/items/amulet-items'
 import { armorItems } from '@/app/(data)/items/armor-items'
