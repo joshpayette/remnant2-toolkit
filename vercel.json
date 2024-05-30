@@ -6,7 +6,7 @@
     },
     {
       "path": "/api/cron/imagekit/cleanup",
-      "schedule": "0 */1 * * *"
+      "schedule": "0 */2 * * *"
     },
     {
       "path": "/api/cron/wiki/validate-wiki-links",

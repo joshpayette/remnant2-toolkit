@@ -61,33 +61,34 @@ export async function saveProfile({
   }
 
   const bioBadWordCheck = badWordFilter.isProfane(newBio)
-  // Send webhook to #action-log
-  await sendBadWordNotification({
-    params: {
-      embeds: [
-        {
-          title: `Bad Word Filter Tripped`,
-          color: 0xff0000,
-          fields: [
-            {
-              name: 'Action',
-              value: 'Update Profile, Bio',
-            },
-            {
-              name: 'User',
-              value: session.user.displayName,
-            },
-            {
-              name: 'Bad Words',
-              value: bioBadWordCheck.badWords.join(', '),
-            },
-          ],
-        },
-      ],
-    },
-  })
 
   if (bioBadWordCheck.isProfane) {
+    // Send webhook to #action-log
+    await sendBadWordNotification({
+      params: {
+        embeds: [
+          {
+            title: `Bad Word Filter Tripped`,
+            color: 0xff0000,
+            fields: [
+              {
+                name: 'Action',
+                value: 'Update Profile, Bio',
+              },
+              {
+                name: 'User',
+                value: session.user.displayName,
+              },
+              {
+                name: 'Bad Words',
+                value: bioBadWordCheck.badWords.join(', '),
+              },
+            ],
+          },
+        ],
+      },
+    })
+
     return {
       message: `Could not save profile with profanity: ${bioBadWordCheck.badWords.join(
         ', ',
