@@ -4,6 +4,17 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-05-29
+
+### Changed
+
+- User display names and bios are not properly cleaned of any bad language prohibited by the code of conduct.
+- When builds trip the bad language filter, users now get a notification informing them of the issue and what words are causing the problem.
+
+### Fixed
+
+- Minor UI fixes.
+
 ## 2024-05-28
 
 ### Changed

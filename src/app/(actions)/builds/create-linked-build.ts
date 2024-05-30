@@ -4,8 +4,9 @@ import { LinkedBuild } from '@prisma/client'
 
 import { MAX_LINKED_BUILD_DESCRIPTION_LENGTH } from '@/app/(data)/builds/constants'
 import { getServerSession } from '@/app/(utils)/auth'
-import { cleanBadWords } from '@/app/(utils)/bad-word-filter'
+import { badWordFilter } from '@/app/(utils)/bad-word-filter'
 import { prisma } from '@/app/(utils)/db'
+import { sendBadWordNotification } from '@/app/(utils)/moderation/bad-word-filter/send-bad-word-notification'
 import { validateLinkedBuild } from '@/app/(validators)/validate-linked-build'
 
 type Props = {
@@ -45,6 +46,122 @@ export default async function createLinkedBuild(linkedBuild: Props): Promise<{
       ) + '...'
   }
 
+  const nameBadWordCheck = badWordFilter.isProfane(linkedBuild.name)
+  if (nameBadWordCheck.isProfane) {
+    // Send webhook to #action-log
+    await sendBadWordNotification({
+      params: {
+        embeds: [
+          {
+            title: `Bad Word Filter Tripped`,
+            color: 0xff0000,
+            fields: [
+              {
+                name: 'Action',
+                value: 'Create Linked Build, Build Name',
+              },
+              {
+                name: 'User',
+                value: session.user.displayName,
+              },
+              {
+                name: 'Bad Words',
+                value: nameBadWordCheck.badWords.join(', '),
+              },
+            ],
+          },
+        ],
+      },
+    })
+
+    return {
+      status: 'error',
+      message: `Could not save build with profanity: ${nameBadWordCheck.badWords.join(
+        ', ',
+      )}`,
+    }
+  }
+
+  const descriptionBadWordCheck = badWordFilter.isProfane(
+    linkedBuild.description,
+  )
+  if (descriptionBadWordCheck.isProfane) {
+    // Send webhook to #action-log
+    // Send webhook to #action-log
+    await sendBadWordNotification({
+      params: {
+        embeds: [
+          {
+            title: `Bad Word Filter Tripped`,
+            color: 0xff0000,
+            fields: [
+              {
+                name: 'Action',
+                value: 'Create Linked Build, Build Description',
+              },
+              {
+                name: 'User',
+                value: session.user.displayName,
+              },
+              {
+                name: 'Bad Words',
+                value: descriptionBadWordCheck.badWords.join(', '),
+              },
+            ],
+          },
+        ],
+      },
+    })
+
+    return {
+      status: 'error',
+      message: `Could not save build with profanity: ${descriptionBadWordCheck.badWords.join(
+        ', ',
+      )}`,
+    }
+  }
+
+  const linkedBuildItemBadWordCheck = linkedBuild.linkedBuildItems.map(
+    (linkedBuildItem) => badWordFilter.isProfane(linkedBuildItem.label),
+  )
+  const badWordCheck = linkedBuildItemBadWordCheck.find(
+    (check) => check.isProfane,
+  )
+  if (badWordCheck) {
+    // Send webhook to #action-log
+    await sendBadWordNotification({
+      params: {
+        embeds: [
+          {
+            title: `Bad Word Filter Tripped`,
+            color: 0xff0000,
+            fields: [
+              {
+                name: 'Action',
+                value: 'Create Linked Build, Build Label',
+              },
+              {
+                name: 'User',
+                value: session.user.displayName,
+              },
+              {
+                name: 'Bad Words',
+                value: badWordCheck.badWords.join(', '),
+              },
+            ],
+          },
+        ],
+      },
+    })
+
+    return {
+      status: 'error',
+      message: `Could not save build with profanity: ${badWordCheck.badWords.join(
+        ', ',
+      )}`,
+    }
+  }
+
   try {
     // Create the linked build
     const newLinkedBuild = await prisma.linkedBuild.create({
@@ -53,16 +170,16 @@ export default async function createLinkedBuild(linkedBuild: Props): Promise<{
         createdAt: new Date(),
         name:
           linkedBuild.name && linkedBuild.name !== ''
-            ? cleanBadWords(linkedBuild.name)
+            ? badWordFilter.clean(linkedBuild.name)
             : '',
         description:
           linkedBuild.description && linkedBuild.description !== ''
-            ? cleanBadWords(linkedBuild.description)
+            ? badWordFilter.clean(linkedBuild.description)
             : '',
         LinkedBuildItems: {
           create: linkedBuild.linkedBuildItems.map((linkedBuildItem) => ({
             createdAt: new Date(),
-            label: cleanBadWords(linkedBuildItem.label),
+            label: badWordFilter.clean(linkedBuildItem.label),
             buildId: linkedBuildItem.buildId,
           })),
         },

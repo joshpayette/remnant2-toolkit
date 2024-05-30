@@ -105,7 +105,14 @@ export function ProfileHeader({
         {isEditable && isEditing && (
           <div className="mt-4 flex items-center justify-start gap-x-2">
             <BaseButton
-              plain
+              color="red"
+              className="flex items-center justify-center"
+              onClick={resetForm}
+            >
+              Cancel
+            </BaseButton>
+            <BaseButton
+              color="green"
               className="flex items-center justify-center"
               onClick={async () => {
                 const response = await saveProfile({
@@ -126,13 +133,6 @@ export function ProfileHeader({
               }}
             >
               Save Changes
-            </BaseButton>
-            <BaseButton
-              color="red"
-              className="flex items-center justify-center"
-              onClick={resetForm}
-            >
-              Cancel
             </BaseButton>
           </div>
         )}

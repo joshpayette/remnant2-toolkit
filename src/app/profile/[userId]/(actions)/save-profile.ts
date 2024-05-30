@@ -1,8 +1,9 @@
 'use server'
 
 import { getServerSession } from '@/app/(utils)/auth'
-import { cleanBadWords } from '@/app/(utils)/bad-word-filter'
+import { badWordFilter } from '@/app/(utils)/bad-word-filter'
 import { prisma } from '@/app/(utils)/db'
+import { sendBadWordNotification } from '@/app/(utils)/moderation/bad-word-filter/send-bad-word-notification'
 
 export async function saveProfile({
   userId,
@@ -23,8 +24,80 @@ export async function saveProfile({
     throw new Error('You can only save your own profile.')
   }
 
-  const cleanDisplayName = cleanBadWords(newDisplayName)
-  const cleanBio = cleanBadWords(newBio)
+  const displayNameBadWordCheck = badWordFilter.isProfane(newDisplayName)
+  if (displayNameBadWordCheck.isProfane) {
+    // Send webhook to #action-log
+    await sendBadWordNotification({
+      params: {
+        embeds: [
+          {
+            title: `Bad Word Filter Tripped`,
+            color: 0xff0000,
+            fields: [
+              {
+                name: 'Action',
+                value: 'Update Profile, Display Name',
+              },
+              {
+                name: 'User',
+                value: session.user.displayName,
+              },
+              {
+                name: 'Bad Words',
+                value: displayNameBadWordCheck.badWords.join(', '),
+              },
+            ],
+          },
+        ],
+      },
+    })
+
+    return {
+      message: `Could not save profile with profanity: ${displayNameBadWordCheck.badWords.join(
+        ', ',
+      )}`,
+      success: false,
+    }
+  }
+
+  const bioBadWordCheck = badWordFilter.isProfane(newBio)
+  // Send webhook to #action-log
+  await sendBadWordNotification({
+    params: {
+      embeds: [
+        {
+          title: `Bad Word Filter Tripped`,
+          color: 0xff0000,
+          fields: [
+            {
+              name: 'Action',
+              value: 'Update Profile, Bio',
+            },
+            {
+              name: 'User',
+              value: session.user.displayName,
+            },
+            {
+              name: 'Bad Words',
+              value: bioBadWordCheck.badWords.join(', '),
+            },
+          ],
+        },
+      ],
+    },
+  })
+
+  if (bioBadWordCheck.isProfane) {
+    return {
+      message: `Could not save profile with profanity: ${bioBadWordCheck.badWords.join(
+        ', ',
+      )}`,
+      success: false,
+    }
+  }
+
+  const cleanDisplayName = badWordFilter.clean(newDisplayName)
+  const cleanBio = badWordFilter.clean(newBio)
 
   const response = await prisma.$transaction([
     prisma.userProfile.upsert({

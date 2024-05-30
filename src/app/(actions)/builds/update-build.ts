@@ -9,10 +9,11 @@ import {
 } from '@/app/(data)/builds/constants'
 import type { BuildActionResponse } from '@/app/(types)/builds'
 import { getServerSession } from '@/app/(utils)/auth'
-import { checkBadWords, cleanBadWords } from '@/app/(utils)/bad-word-filter'
+import { badWordFilter } from '@/app/(utils)/bad-word-filter'
 import { buildStateToBuildItems } from '@/app/(utils)/builds/build-state-to-build-items'
 import { isPermittedBuilder } from '@/app/(utils)/builds/permitted-builders'
 import { prisma } from '@/app/(utils)/db'
+import { sendBadWordNotification } from '@/app/(utils)/moderation/bad-word-filter/send-bad-word-notification'
 import { getBuildDescriptionParams } from '@/app/(utils)/moderation/build-feed/get-build-description-params'
 import { getBuildNameParams } from '@/app/(utils)/moderation/build-feed/get-build-name-params'
 import { getBuildPublicParams } from '@/app/(utils)/moderation/build-feed/get-build-public-params'
@@ -88,11 +89,86 @@ export async function updateBuild(data: string): Promise<BuildActionResponse> {
 
   const updatedBuildItems = buildStateToBuildItems(buildState)
 
-  if (
-    checkBadWords(buildState.name) ||
-    checkBadWords(buildState.description ?? '')
-  ) {
+  const nameBadWordCheck = badWordFilter.isProfane(buildState.name)
+  const descriptionBadWordCheck = badWordFilter.isProfane(
+    buildState.description ?? '',
+  )
+
+  if (nameBadWordCheck.isProfane) {
     buildState.isPublic = false
+
+    // Send webhook to #action-log
+    // Send webhook to #action-log
+    await sendBadWordNotification({
+      params: {
+        embeds: [
+          {
+            title: `Bad Word Filter Tripped`,
+            color: 0xff0000,
+            fields: [
+              {
+                name: 'Action',
+                value: 'Update Build, Build Name',
+              },
+              {
+                name: 'User',
+                value: session.user.displayName,
+              },
+              {
+                name: 'Bad Words',
+                value: nameBadWordCheck.badWords.join(', '),
+              },
+            ],
+          },
+        ],
+      },
+    })
+
+    return {
+      errors: [
+        `Build name contains profanity: ${nameBadWordCheck.badWords.join(
+          ', ',
+        )}`,
+      ],
+    }
+  }
+  if (descriptionBadWordCheck.isProfane) {
+    buildState.isPublic = false
+
+    // Send webhook to #action-log
+    // Send webhook to #action-log
+    await sendBadWordNotification({
+      params: {
+        embeds: [
+          {
+            title: `Bad Word Filter Tripped`,
+            color: 0xff0000,
+            fields: [
+              {
+                name: 'Action',
+                value: 'Update Build, Build Description',
+              },
+              {
+                name: 'User',
+                value: session.user.displayName,
+              },
+              {
+                name: 'Bad Words',
+                value: descriptionBadWordCheck.badWords.join(', '),
+              },
+            ],
+          },
+        ],
+      },
+    })
+
+    return {
+      errors: [
+        `Build description contains profanity: ${descriptionBadWordCheck.badWords.join(
+          ', ',
+        )}`,
+      ],
+    }
   }
 
   // if the description is longer than allowed, truncate it
@@ -141,32 +217,38 @@ export async function updateBuild(data: string): Promise<BuildActionResponse> {
     }
 
     // Ensure the build creator's name is not against code of conduct
+    const displayNameBadWordCheck = badWordFilter.isProfane(
+      buildCreator.displayName ?? '',
+    )
     if (
       buildCreator.displayName &&
       buildCreator.displayName !== '' &&
-      checkBadWords(buildCreator.displayName)
+      displayNameBadWordCheck.isProfane
     ) {
       await prisma.user.update({
         where: {
           id: session.user.id,
         },
         data: {
-          displayName: cleanBadWords(buildCreator.displayName),
+          displayName: badWordFilter.clean(buildCreator.displayName),
         },
       })
     }
     // Ensure the user's bio is not against the code of conduct
+    const bioBadWordCheck = badWordFilter.isProfane(
+      buildCreator.UserProfile?.bio ?? '',
+    )
     if (
       buildCreator.UserProfile?.bio &&
       buildCreator.UserProfile.bio !== '' &&
-      checkBadWords(buildCreator.UserProfile.bio)
+      bioBadWordCheck.isProfane
     ) {
       await prisma.userProfile.update({
         where: {
           userId: session.user.id,
         },
         data: {
-          bio: cleanBadWords(buildCreator.UserProfile.bio),
+          bio: badWordFilter.clean(buildCreator.UserProfile.bio),
         },
       })
     }
@@ -182,11 +264,11 @@ export async function updateBuild(data: string): Promise<BuildActionResponse> {
       data: {
         name:
           buildState.name && buildState.name !== ''
-            ? cleanBadWords(buildState.name)
+            ? badWordFilter.clean(buildState.name)
             : DEFAULT_BUILD_NAME,
         description:
           buildState.description && buildState.description !== ''
-            ? cleanBadWords(buildState.description)
+            ? badWordFilter.clean(buildState.description)
             : '',
         isPublic: Boolean(buildState.isPublic),
         isPatchAffected: Boolean(buildState.isPatchAffected),
