@@ -44,14 +44,22 @@ export class BadWordFilter {
     if (typeof text !== 'string') return { isProfane: false, badWords: [] }
 
     const badWords = this.badWordList.filter((word) => {
-      // Replace * with .* to treat it as a wildcard
-      const sanitizedWord = word.replace(/\*/g, '.*').replace(/(\W)/g, '\\$1')
-      const wordExp = new RegExp(`${sanitizedWord}`, 'gi')
+      let sanitizedWord
+      let wordExp
+      if (word.includes('*')) {
+        // Escape all non-word characters, then replace * with .* to treat it as a wildcard
+        sanitizedWord = word.replace(/(\W)/g, '\\$1').replace(/\\\*/g, '.*')
+        wordExp = new RegExp(`${sanitizedWord}`, 'gi')
+      } else {
+        // Add word boundaries to the start and end of the regular expression
+        sanitizedWord = word.replace(/(\W)/g, '\\$1')
+        wordExp = new RegExp(`\\b${sanitizedWord}\\b`, 'gi')
+      }
       return wordExp.test(text)
     })
     return {
       isProfane: badWords.length > 0,
-      badWords,
+      badWords: badWords.map((word) => word.replaceAll('*', '')),
     }
   }
 

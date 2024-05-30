@@ -512,7 +512,7 @@ export const modItems: ModItem[] = [
     imagePath: '/items/mods/dyingbreath.png',
     id: '22nk8x',
     dlc: 'base',
-    description: `When infused, Neural Backdash Charge Attack explodes in a 3m. AOE and leaves an ACID Cloud which last for 15s.`,
+    description: `WWhen Infused, Neutral Backdash Charge Attack explodes in a 3m AOE and leaves an ACID Cloud which lasts for 15s.`,
     externalTokens: [`Amplitude`],
     wikiLinks: [`https://remnant.wiki/Dying_Breath`],
     linkedItems: {

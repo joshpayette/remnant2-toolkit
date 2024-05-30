@@ -1,24 +1,6 @@
-/**
- * * IMPORTANT NOTE
- * * You can make a word match midstring by including asterisks in the word
- * * If you do this, you will still need to include the actual word without asterisks
- * * For example, if you want to match `fuck` as a standalone word or midword,
- * * you would add both `*fuck*` and `fuck`.
- */
-
 export const badWords = [
-  '***',
-  '@$$',
   '*dyke',
   '*fuck*',
-  'fuck',
-  '*shit*',
-  '4r5e',
-  '5h1t',
-  '5hit',
-  'a_s_s',
-  'a55',
-  'ahole',
   'amcik',
   'anal',
   'andskota',
@@ -382,8 +364,6 @@ export const badWords = [
   'Lezzian',
   'Lipshits',
   'Lipshitz',
-  'lust',
-  'lusting',
   'm0f0',
   'm0fo',
   'm45terbate',
