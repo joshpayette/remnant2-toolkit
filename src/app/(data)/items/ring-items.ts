@@ -521,6 +521,7 @@ export const ringItems: RingItem[] = [
       "Reduces Max Health by 20%. Increases All Damage by 1% for every 5% of the wearer's total Damage Reduction.",
     wikiLinks: [`https://remnant.wiki/Burden_of_the_Mesmer`],
     location: { world: 'Yaesha', dungeon: ['Ancient Canopy', 'Luminous Vale'] },
+    healthCap: 0.2,
   },
   {
     category: 'ring',

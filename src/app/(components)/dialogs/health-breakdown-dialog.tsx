@@ -73,7 +73,9 @@ function getHealthCapLabel(item: Item) {
   return (
     <>
       <span className="font-bold text-surface-solid">{item.name}</span>{' '}
-      <span className="text-gray-300">({(item.healthCap ?? 0) * 100}%)</span>
+      <span className="text-gray-300">
+        ({(item.healthCap ?? 0) * 100 * -1}%)
+      </span>
     </>
   )
 }
@@ -104,10 +106,10 @@ export function HealthBreakdownDialog({ open, breakdown, onClose }: Props) {
       </BaseDialogDescription>
 
       <BaseDialogBody>
-        <div className="text-left text-sm">
-          <h3 className="text-md col-span-full my-2 font-semibold text-surface-solid">
+        <div className="text-sm text-left">
+          <h3 className="my-2 font-semibold text-md col-span-full text-surface-solid">
             Base Health{' '}
-            <span className="text-md font-bold text-surface-solid">100</span>
+            <span className="font-bold text-md text-surface-solid">100</span>
           </h3>
 
           {(breakdown.equippedHealthIncreaseItems.length > 0 ||

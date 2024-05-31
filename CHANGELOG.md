@@ -4,6 +4,17 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-05-31
+
+### Changed
+
+- Many icons throughout the site converted from static images to svgs (thank you, Synder and kbsfnk)
+
+### Fixed
+
+- Fixed Burden of the Mesmer not correctly reducing max health.
+- Fixed health cap reduction formula to work correctly now that there are multiple items that reduce your max health.
+
 ## 2024-05-30
 
 ### Changed
