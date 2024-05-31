@@ -1773,7 +1773,7 @@ export const ringItems: RingItem[] = [
     tags: ['Damage Reduction', 'Health'],
     description: `Restricts the wearer from Healing above 50% of their Max Health and reduces all incoming damage by 15%.`,
     wikiLinks: [`https://remnant.wiki/Restriction_Cord`],
-    healthCap: 0.5,
+    // healthCap: 0.5,
     dlc: 'base',
     location: { world: 'Yaesha', dungeon: ['The Forgotten Grove'] },
   },
