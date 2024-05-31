@@ -215,7 +215,7 @@ export default async function Page() {
           {...NAV_ITEMS.wiki}
           icon={
             <Image
-              src={NAV_ITEMS.wiki.icon}
+              src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}${NAV_ITEMS.wiki.icon}`}
               width={11}
               height={20}
               alt={`${NAV_ITEMS.wiki.label}, ${NAV_ITEMS.wiki.description}`}

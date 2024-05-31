@@ -15,6 +15,7 @@ type Props = {
   createdById: string
   name: string
   description: string
+  isModeratorLocked: boolean
   linkedBuildItems: Array<{
     label: string
     buildId: string
@@ -37,6 +38,14 @@ export default async function updatedLinkedBuild(linkedBuild: Props): Promise<{
     return {
       status: 'error',
       message: 'You must be the creator of the build to update it.',
+    }
+  }
+
+  // If build is moderator locked, do not allow editing
+  if (linkedBuild.isModeratorLocked) {
+    return {
+      status: 'error',
+      message: 'This build is moderator locked and cannot be edited.',
     }
   }
 

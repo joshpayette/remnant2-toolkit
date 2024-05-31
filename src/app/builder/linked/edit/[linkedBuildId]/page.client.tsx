@@ -114,6 +114,7 @@ export default function PageClient({ currentLinkedBuildState, userId }: Props) {
       ...linkedBuildItems,
       { label: `Variation #${linkedBuildItems.length + 1}`, build: buildToAdd },
     ]
+    toast.success('Build added.')
     setLinkedBuildItems(newLinkedBuildItems)
   }
 
@@ -127,6 +128,7 @@ export default function PageClient({ currentLinkedBuildState, userId }: Props) {
     const newLinkedBuildItems = linkedBuildItems.filter(
       (linkedBuildItem) => linkedBuildItem.build.id !== buildToRemove.id,
     )
+    toast.success('Build removed.')
     setLinkedBuildItems(newLinkedBuildItems)
   }
 
@@ -138,6 +140,7 @@ export default function PageClient({ currentLinkedBuildState, userId }: Props) {
       description: description ?? '',
       id: currentLinkedBuildState.id,
       createdById: userId,
+      isModeratorLocked: currentLinkedBuildState.isModeratorLocked,
       linkedBuildItems: linkedBuildItems.map((linkedBuildItem) => ({
         label: linkedBuildItem.label,
         buildId: linkedBuildItem.build.id,

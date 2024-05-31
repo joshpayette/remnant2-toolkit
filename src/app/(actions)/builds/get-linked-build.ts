@@ -85,6 +85,7 @@ export default async function getLinkedBuild(linkedBuildId: string): Promise<{
         createdAt: linkedBuild.createdAt,
         name: linkedBuild.name,
         description: linkedBuild.description ?? '',
+        isModeratorLocked: linkedBuild.isModeratorLocked,
         linkedBuildItems: linkedBuild.LinkedBuildItems.filter(
           (linkedBuildItem) => linkedBuildItem.Build.isPublic,
         ).map((linkedBuildItem) => {

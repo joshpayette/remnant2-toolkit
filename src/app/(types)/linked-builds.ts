@@ -7,6 +7,7 @@ export interface LinkedBuildState {
   createdAt: Date
   name: string
   description: string | null
+  isModeratorLocked: boolean
   linkedBuildItems: Array<{
     id: string
     label: string

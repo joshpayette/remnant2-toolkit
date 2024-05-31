@@ -109,6 +109,7 @@ export default function PageClient({ initialBuild, userId }: Props) {
       ...linkedBuildItems,
       { label: `Variation #${linkedBuildItems.length + 1}`, build: buildToAdd },
     ]
+    toast.success('Build added.')
     setLinkedBuildItems(newLinkedBuildItems)
   }
 
@@ -122,6 +123,7 @@ export default function PageClient({ initialBuild, userId }: Props) {
     const newLinkedBuildItems = linkedBuildItems.filter(
       (linkedBuildItem) => linkedBuildItem.build.id !== buildToRemove.id,
     )
+    toast.success('Build removed.')
     setLinkedBuildItems(newLinkedBuildItems)
   }
 

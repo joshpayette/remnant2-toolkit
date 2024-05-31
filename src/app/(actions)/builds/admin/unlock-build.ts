@@ -5,6 +5,7 @@ import { revalidatePath } from 'next/cache'
 import type { AdminToolResponse } from '@/app/(actions)/builds/admin/types'
 import { getServerSession } from '@/app/(utils)/auth'
 import { prisma } from '@/app/(utils)/db'
+import { sendWebhook } from '@/app/(utils)/moderation/send-webhook'
 
 export default async function unlockBuild(
   buildId: string | null,
@@ -43,39 +44,31 @@ export default async function unlockBuild(
     })
 
     // Send to webhook
-    const params = {
-      embeds: [
-        {
-          title: `Audit Log Update`,
-          color: 0x00ff00,
-          fields: [
-            {
-              name: 'Audit Action',
-              value: `UNLOCK_BUILD`,
-            },
-            {
-              name: 'Moderator',
-              value: session.user.displayName,
-            },
-            {
-              name: 'Build Link',
-              value: `https://remnant2toolkit.com/builder/${build.id}`,
-            },
-          ],
-        },
-      ],
-    }
-    const res = await fetch(`${process.env.WEBHOOK_AUDIT_LOG}`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
+    await sendWebhook({
+      webhook: 'auditLog',
+      params: {
+        embeds: [
+          {
+            title: `Audit Log Update`,
+            color: 0x00ff00,
+            fields: [
+              {
+                name: 'Audit Action',
+                value: `UNLOCK_BUILD`,
+              },
+              {
+                name: 'Moderator',
+                value: session.user.displayName,
+              },
+              {
+                name: 'Build Link',
+                value: `https://remnant2toolkit.com/builder/${build.id}`,
+              },
+            ],
+          },
+        ],
       },
-      body: JSON.stringify(params),
     })
-
-    if (!res.ok) {
-      console.error('Error in sending build link webhook to Discord!')
-    }
 
     revalidatePath('/builder/[buildId]', 'page')
 

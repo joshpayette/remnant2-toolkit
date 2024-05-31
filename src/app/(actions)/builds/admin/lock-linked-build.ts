@@ -7,7 +7,7 @@ import { getServerSession } from '@/app/(utils)/auth'
 import { prisma } from '@/app/(utils)/db'
 import { sendWebhook } from '@/app/(utils)/moderation/send-webhook'
 
-export default async function approveVideo(
+export default async function lockLinkedBuild(
   buildId: string | null,
 ): Promise<AdminToolResponse> {
   if (!buildId) return { status: 'error', message: 'No buildId provided!' }
@@ -23,14 +23,14 @@ export default async function approveVideo(
   if (session.user.role !== 'admin') {
     return {
       status: 'error',
-      message: 'You must be an admin to approve videos.',
+      message: 'You must be an admin to lock builds.',
     }
   }
 
   try {
-    const build = await prisma.build.update({
+    const build = await prisma.linkedBuild.update({
       where: { id: buildId },
-      data: { isModeratorApproved: true },
+      data: { isModeratorLocked: true },
     })
 
     // write to the audit log
@@ -38,7 +38,7 @@ export default async function approveVideo(
       data: {
         userId: build.createdById,
         moderatorId: session.user.id,
-        action: 'APPROVE_VIDEO',
+        action: 'LOCK_LINKED_BUILD',
         details: '',
       },
     })
@@ -54,7 +54,7 @@ export default async function approveVideo(
             fields: [
               {
                 name: 'Audit Action',
-                value: `APPROVE_VIDEO`,
+                value: `LOCK_LINKED_BUILD`,
               },
               {
                 name: 'Moderator',
@@ -62,7 +62,7 @@ export default async function approveVideo(
               },
               {
                 name: 'Build Link',
-                value: `https://remnant2toolkit.com/builder/${build.id}`,
+                value: `https://remnant2toolkit.com/builder/linked/${build.id}`,
               },
             ],
           },
@@ -70,17 +70,17 @@ export default async function approveVideo(
       },
     })
 
-    revalidatePath('/builder/[buildId]', 'page')
+    revalidatePath('/builder/linked/[linkedBuildId]', 'page')
 
     return {
       status: 'success',
-      message: 'Build video approved.',
+      message: 'Build locked.',
     }
   } catch (e) {
     console.error(e)
     return {
       status: 'error',
-      message: 'Failed to approve build video.',
+      message: 'Failed to lock build.',
     }
   }
 }

@@ -3,17 +3,17 @@
 import { revalidatePath } from 'next/cache'
 
 import type { AdminToolResponse } from '@/app/(actions)/builds/admin/types'
+import { MAX_LINKED_BUILD_DESCRIPTION_LENGTH } from '@/app/(data)/builds/constants'
+import type { LinkedBuildState } from '@/app/(types)/linked-builds'
 import { getServerSession } from '@/app/(utils)/auth'
 import { prisma } from '@/app/(utils)/db'
 import { sendWebhook } from '@/app/(utils)/moderation/send-webhook'
 
-export default async function updateBuild(
-  buildId: string | null,
-  buildName: string,
-  buildDescription: string,
-  buildReferenceLink: string,
+export default async function updateLinkedBuild(
+  linkedBuild: LinkedBuildState,
 ): Promise<AdminToolResponse> {
-  if (!buildId) return { status: 'error', message: 'No buildId provided!' }
+  if (!linkedBuild.id)
+    return { status: 'error', message: 'No linked build id provided!' }
 
   const session = await getServerSession()
   if (!session || !session.user) {
@@ -30,13 +30,38 @@ export default async function updateBuild(
     }
   }
 
+  // if the description is longer than allowed, truncate it
+  if (
+    linkedBuild.description &&
+    linkedBuild.description.length > MAX_LINKED_BUILD_DESCRIPTION_LENGTH
+  ) {
+    linkedBuild.description =
+      linkedBuild.description.slice(
+        0,
+        MAX_LINKED_BUILD_DESCRIPTION_LENGTH - 3,
+      ) + '...'
+  }
+
   try {
-    const build = await prisma.build.update({
-      where: { id: buildId },
+    // delete all linked build items
+    await prisma.linkedBuildItems.deleteMany({
+      where: {
+        linkedBuildId: linkedBuild.id,
+      },
+    })
+
+    const build = await prisma.linkedBuild.update({
+      where: { id: linkedBuild.id },
       data: {
-        name: buildName,
-        description: buildDescription,
-        buildLink: buildReferenceLink,
+        name: linkedBuild.name,
+        description: linkedBuild.description,
+        LinkedBuildItems: {
+          create: linkedBuild.linkedBuildItems.map((item) => ({
+            createdAt: new Date(),
+            label: item.label,
+            buildId: item.build.id,
+          })),
+        },
       },
     })
 
@@ -45,7 +70,7 @@ export default async function updateBuild(
       data: {
         userId: build.createdById,
         moderatorId: session.user.id,
-        action: 'UPDATE_BUILD',
+        action: 'UPDATE_LINKED_BUILD',
         details: '',
       },
     })
@@ -61,7 +86,7 @@ export default async function updateBuild(
             fields: [
               {
                 name: 'Audit Action',
-                value: `UPDATE_BUILD`,
+                value: `UPDATE_LINKED_BUILD`,
               },
               {
                 name: 'Moderator',
@@ -69,7 +94,7 @@ export default async function updateBuild(
               },
               {
                 name: 'Build Link',
-                value: `https://remnant2toolkit.com/builder/${build.id}`,
+                value: `https://remnant2toolkit.com/builder/linked/${build.id}`,
               },
             ],
           },

@@ -175,6 +175,7 @@ export default async function getLinkedBuilds({
         createdAt: linkedBuild.createdAt,
         name: linkedBuild.name,
         description: linkedBuild.description ?? '',
+        isModeratorLocked: linkedBuild.isModeratorLocked,
         linkedBuildItems: linkedBuild.LinkedBuildItems.filter(
           (linkedBuildItem) => linkedBuildItem.Build.isPublic,
         ).map((linkedBuildItem) => {

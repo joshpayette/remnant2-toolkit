@@ -21,6 +21,7 @@ import { EditLinkedBuildButton } from '@/app/(components)/buttons/builder-button
 import { FavoriteBuildButton } from '@/app/(components)/buttons/builder-buttons/favorite-build-button'
 import { GenerateBuildImageButton } from '@/app/(components)/buttons/builder-buttons/generate-build-image'
 import { LoadoutManagementButton } from '@/app/(components)/buttons/builder-buttons/loadout-management-button'
+import { ModeratorToolsButton } from '@/app/(components)/buttons/builder-buttons/moderator-tools-button'
 import { ShareBuildButton } from '@/app/(components)/buttons/builder-buttons/share-build-button'
 import { ToCsvButton } from '@/app/(components)/buttons/to-csv-button'
 import { DescriptionWithTokens } from '@/app/(components)/description-with-tokens'
@@ -28,6 +29,7 @@ import { DetailedBuildDialog } from '@/app/(components)/dialogs/detailed-build-d
 import FavoriteBuildDialog from '@/app/(components)/dialogs/favorite-build-dialog'
 import { ImageDownloadInfoDialog } from '@/app/(components)/dialogs/image-download-info-dialog'
 import { LoadoutDialog } from '@/app/(components)/dialogs/loadout-dialog'
+import { ModeratorLinkedBuildToolsDialog } from '@/app/(components)/dialogs/moderator-linkedbuild-tools-dialog'
 import { useBuildActions } from '@/app/(hooks)/use-build-actions'
 import type { LinkedBuildState } from '@/app/(types)/linked-builds'
 import { buildStateToCsvData } from '@/app/(utils)/builds/build-state-to-csv-data'
@@ -49,6 +51,8 @@ export function PageClient({ linkedBuildState }: Props) {
   const buildState = cleanUpBuildState(
     dbBuildToBuildState(currentLinkedBuild.build),
   )
+
+  const [showModeratorTooling, setShowModeratorTooling] = useState(false)
 
   const [detailedBuildDialogOpen, setDetailedBuildDialogOpen] = useState(false)
   const [loadoutDialogOpen, setLoadoutDialogOpen] = useState(false)
@@ -197,6 +201,20 @@ export function PageClient({ linkedBuildState }: Props) {
           showControls={showControls}
           builderActions={
             <>
+              {session &&
+                session.user?.id !== buildState.createdById &&
+                session.user?.role === 'admin' && (
+                  <>
+                    <ModeratorLinkedBuildToolsDialog
+                      open={showModeratorTooling}
+                      onClose={() => setShowModeratorTooling(false)}
+                      buildToModerate={linkedBuildState}
+                    />
+                    <ModeratorToolsButton
+                      onClick={() => setShowModeratorTooling(true)}
+                    />
+                  </>
+                )}
               {session && session.user?.id === buildState.createdById && (
                 <EditBuildButton
                   onClick={() =>
