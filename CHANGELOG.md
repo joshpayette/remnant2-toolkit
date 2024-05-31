@@ -13,7 +13,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Fixed
 
 - Fixed Burden of the Mesmer not correctly reducing max health.
-- Fixed health cap reduction formula to work correctly now that there are multiple items that reduce your max health.
+- Fixed health cap reduction formula to work correctly. Previous formula worked because there was only a single item that could cap your health.
 
 ## 2024-05-30
 

@@ -21,6 +21,7 @@ import {
   UserIcon,
   UsersIcon,
 } from '@heroicons/react/24/solid'
+
 import DiscordIcon from '../(components)/images/discord-icon'
 import VashIcon from '../(components)/images/vash-icon'
 import WikiIcon from '../(components)/images/wiki-icon'
