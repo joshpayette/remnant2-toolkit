@@ -13,12 +13,9 @@ import { badWordFilter } from '@/app/(utils)/bad-word-filter'
 import { buildStateToBuildItems } from '@/app/(utils)/builds/build-state-to-build-items'
 import { isPermittedBuilder } from '@/app/(utils)/builds/permitted-builders'
 import { prisma } from '@/app/(utils)/db'
-import { sendBadWordNotification } from '@/app/(utils)/moderation/bad-word-filter/send-bad-word-notification'
-import { getBuildDescriptionParams } from '@/app/(utils)/moderation/build-feed/get-build-description-params'
-import { getBuildNameParams } from '@/app/(utils)/moderation/build-feed/get-build-name-params'
-import { getBuildPublicParams } from '@/app/(utils)/moderation/build-feed/get-build-public-params'
-import { getBuildReferenceLinkParams } from '@/app/(utils)/moderation/build-feed/get-build-reference-link-params'
-import { sendBuildUpdateNotification } from '@/app/(utils)/moderation/build-feed/send-build-update-notification'
+import { getBuildDescriptionParams } from '@/app/(utils)/moderation/get-build-description-params'
+import { sendWebhook } from '@/app/(utils)/moderation/send-webhook'
+import { urlNoCache } from '@/app/(utils)/url-no-cache'
 import { validateBuildState } from '@/app/(validators)/validate-build-state'
 
 export async function updateBuild(data: string): Promise<BuildActionResponse> {
@@ -99,7 +96,8 @@ export async function updateBuild(data: string): Promise<BuildActionResponse> {
 
     // Send webhook to #action-log
     // Send webhook to #action-log
-    await sendBadWordNotification({
+    await sendWebhook({
+      webhook: 'auditLog',
       params: {
         embeds: [
           {
@@ -136,8 +134,8 @@ export async function updateBuild(data: string): Promise<BuildActionResponse> {
     buildState.isPublic = false
 
     // Send webhook to #action-log
-    // Send webhook to #action-log
-    await sendBadWordNotification({
+    await sendWebhook({
+      webhook: 'auditLog',
       params: {
         embeds: [
           {
@@ -298,14 +296,37 @@ export async function updateBuild(data: string): Promise<BuildActionResponse> {
       }
     }
 
+    const buildLink = urlNoCache(
+      `https://remnant2toolkit.com/builder/${buildState.buildId}`,
+    )
+
     // If the build name has updated, send the build info to Discord
     if (
       existingBuild?.name !== buildState.name &&
       buildState.isPublic === true &&
       !isPermittedBuilder(session.user.id)
     ) {
-      const params = getBuildNameParams({ newBuildName: buildState.name })
-      await sendBuildUpdateNotification({ params, buildId: buildState.buildId })
+      await sendWebhook({
+        webhook: 'modQueue',
+        params: {
+          embeds: [
+            {
+              title: `Build Name Changed`,
+              color: 0x00ff00,
+              fields: [
+                {
+                  name: 'Changes',
+                  value: `New Build Name: ${buildState.name}`,
+                },
+                {
+                  name: 'Build Link',
+                  value: buildLink,
+                },
+              ],
+            },
+          ],
+        },
+      })
     }
 
     // If the build was private but is now public, send the build info to Discord
@@ -314,8 +335,27 @@ export async function updateBuild(data: string): Promise<BuildActionResponse> {
       buildState.isPublic === true &&
       !isPermittedBuilder(session.user.id)
     ) {
-      const params = getBuildPublicParams()
-      await sendBuildUpdateNotification({ params, buildId: buildState.buildId })
+      await sendWebhook({
+        webhook: 'modQueue',
+        params: {
+          embeds: [
+            {
+              title: `Build Changed to Public`,
+              color: 0x00ff00,
+              fields: [
+                {
+                  name: 'Changes',
+                  value: `Build changed from private to public.`,
+                },
+                {
+                  name: 'Build Link',
+                  value: buildLink,
+                },
+              ],
+            },
+          ],
+        },
+      })
     }
 
     // If the build description has updated, send the build info to Discord
@@ -328,12 +368,14 @@ export async function updateBuild(data: string): Promise<BuildActionResponse> {
       buildState.isPublic &&
       !isPermittedBuilder(session.user.id)
     ) {
-      const params = getBuildDescriptionParams({
-        buildId: buildState.buildId,
-        newDescription: buildState.description.trim(),
-        oldDescription: existingBuild.description.trim(),
+      await sendWebhook({
+        webhook: 'modQueue',
+        params: getBuildDescriptionParams({
+          buildId: buildState.buildId,
+          newDescription: buildState.description.trim(),
+          oldDescription: existingBuild.description.trim(),
+        }),
       })
-      await sendBuildUpdateNotification({ params, buildId: buildState.buildId })
     }
 
     // If the build link has updated, send the build info to Discord
@@ -344,10 +386,23 @@ export async function updateBuild(data: string): Promise<BuildActionResponse> {
       buildState.isPublic === true &&
       !isPermittedBuilder(session.user.id)
     ) {
-      const params = getBuildReferenceLinkParams({
-        referenceLink: buildState.buildLink,
+      await sendWebhook({
+        webhook: 'modQueue',
+        params: {
+          embeds: [
+            {
+              title: `Build Reference Link Changed`,
+              color: 0x00ff00,
+              fields: [
+                {
+                  name: 'Changes',
+                  value: `New Reference Link: ${buildState.buildLink}`,
+                },
+              ],
+            },
+          ],
+        },
       })
-      await sendBuildUpdateNotification({ params, buildId: buildState.buildId })
     }
 
     // Refresh the cache for the route

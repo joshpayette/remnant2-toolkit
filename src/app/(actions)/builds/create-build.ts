@@ -13,7 +13,7 @@ import { badWordFilter } from '@/app/(utils)/bad-word-filter'
 import { buildStateToBuildItems } from '@/app/(utils)/builds/build-state-to-build-items'
 import { isPermittedBuilder } from '@/app/(utils)/builds/permitted-builders'
 import { prisma } from '@/app/(utils)/db'
-import { sendBadWordNotification } from '@/app/(utils)/moderation/bad-word-filter/send-bad-word-notification'
+import { sendWebhook } from '@/app/(utils)/moderation/send-webhook'
 import { validateBuildState } from '@/app/(validators)/validate-build-state'
 
 export async function createBuild(data: string): Promise<BuildActionResponse> {
@@ -68,7 +68,8 @@ export async function createBuild(data: string): Promise<BuildActionResponse> {
     buildState.isPublic = false
 
     // Send webhook to #action-log
-    await sendBadWordNotification({
+    await sendWebhook({
+      webhook: 'auditLog',
       params: {
         embeds: [
           {
@@ -105,7 +106,8 @@ export async function createBuild(data: string): Promise<BuildActionResponse> {
     buildState.isPublic = false
 
     // Send webhook to #action-log
-    await sendBadWordNotification({
+    await sendWebhook({
+      webhook: 'auditLog',
       params: {
         embeds: [
           {

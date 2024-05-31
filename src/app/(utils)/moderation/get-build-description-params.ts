@@ -20,9 +20,6 @@ export function getBuildDescriptionParams({
       if (part.added) {
         return `${part.value.replace(/\n/g, '')}`.trim()
       }
-      // if (part.removed) {
-      //   return `(-) ${part.value.replace(/\n/g, '')}`.trim()
-      // }
     })
     .join('\n')
 

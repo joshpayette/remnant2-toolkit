@@ -3,7 +3,7 @@
 import { getServerSession } from '@/app/(utils)/auth'
 import { badWordFilter } from '@/app/(utils)/bad-word-filter'
 import { prisma } from '@/app/(utils)/db'
-import { sendBadWordNotification } from '@/app/(utils)/moderation/bad-word-filter/send-bad-word-notification'
+import { sendWebhook } from '@/app/(utils)/moderation/send-webhook'
 
 export async function saveProfile({
   userId,
@@ -27,7 +27,8 @@ export async function saveProfile({
   const displayNameBadWordCheck = badWordFilter.isProfane(newDisplayName)
   if (displayNameBadWordCheck.isProfane) {
     // Send webhook to #action-log
-    await sendBadWordNotification({
+    await sendWebhook({
+      webhook: 'auditLog',
       params: {
         embeds: [
           {
@@ -64,7 +65,8 @@ export async function saveProfile({
 
   if (bioBadWordCheck.isProfane) {
     // Send webhook to #action-log
-    await sendBadWordNotification({
+    await sendWebhook({
+      webhook: 'auditLog',
       params: {
         embeds: [
           {
@@ -100,40 +102,114 @@ export async function saveProfile({
   const cleanDisplayName = badWordFilter.clean(newDisplayName)
   const cleanBio = badWordFilter.clean(newBio)
 
-  const response = await prisma.$transaction([
-    prisma.userProfile.upsert({
-      where: {
-        userId,
-      },
-      create: {
-        userId,
-        bio: cleanBio,
-        avatarId: newAvatarId,
-      },
-      update: {
-        bio: cleanBio,
-        avatarId: newAvatarId,
-      },
-    }),
-    prisma.user.update({
-      where: {
-        id: userId,
-      },
-      data: {
-        displayName: cleanDisplayName,
-      },
-    }),
-  ])
+  try {
+    const [currentUserProfile, currentUser] = await prisma.$transaction([
+      prisma.userProfile.findUnique({
+        where: {
+          userId,
+        },
+      }),
+      prisma.user.findUnique({
+        where: {
+          id: userId,
+        },
+      }),
+    ])
 
-  if (!response) {
+    const [newUserProfile, newUser] = await prisma.$transaction([
+      prisma.userProfile.upsert({
+        where: {
+          userId,
+        },
+        create: {
+          userId,
+          bio: cleanBio,
+          avatarId: newAvatarId,
+        },
+        update: {
+          bio: cleanBio,
+          avatarId: newAvatarId,
+        },
+      }),
+      prisma.user.update({
+        where: {
+          id: userId,
+        },
+        data: {
+          displayName: cleanDisplayName,
+        },
+      }),
+    ])
+
+    if (
+      currentUser?.displayName !== cleanDisplayName &&
+      cleanDisplayName !== '' &&
+      currentUser?.displayName !== ''
+    ) {
+      sendWebhook({
+        webhook: 'modQueue',
+        params: {
+          embeds: [
+            {
+              title: `User display name updated`,
+              color: 0x00ff00,
+              fields: [
+                {
+                  name: 'New Display Name',
+                  value: newUser.displayName || 'No display name',
+                },
+                {
+                  name: 'Profile Link',
+                  value: `https://remnant2toolkit.com/profile/${userId}`,
+                },
+              ],
+            },
+          ],
+        },
+      })
+    }
+
+    if (
+      currentUserProfile?.bio !== cleanBio &&
+      currentUserProfile?.bio !== '' &&
+      cleanBio !== ''
+    ) {
+      sendWebhook({
+        webhook: 'modQueue',
+        params: {
+          embeds: [
+            {
+              title: `User bio updated`,
+              color: 0x00ff00,
+              fields: [
+                {
+                  name: 'User',
+                  value: session.user.displayName,
+                },
+                {
+                  name: 'New Bio',
+                  value: newUserProfile.bio,
+                },
+                {
+                  name: 'Profile Link',
+                  value: `https://remnant2toolkit.com/profile/${userId}`,
+                },
+              ],
+            },
+          ],
+        },
+      })
+    }
+
     return {
-      message: 'Failed to save profile',
+      message: 'Profile saved successfully',
+      success: true,
+    }
+  } catch (error) {
+    console.error(error)
+    return {
+      message: 'Failed to save profile.',
       success: false,
     }
-  }
-
-  return {
-    message: 'Profile saved successfully',
-    success: true,
   }
 }

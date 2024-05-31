@@ -7,7 +7,7 @@ import { MAX_LINKED_BUILD_DESCRIPTION_LENGTH } from '@/app/(data)/builds/constan
 import { getServerSession } from '@/app/(utils)/auth'
 import { badWordFilter } from '@/app/(utils)/bad-word-filter'
 import { prisma } from '@/app/(utils)/db'
-import { sendBadWordNotification } from '@/app/(utils)/moderation/bad-word-filter/send-bad-word-notification'
+import { sendWebhook } from '@/app/(utils)/moderation/send-webhook'
 import { validateLinkedBuild } from '@/app/(validators)/validate-linked-build'
 
 type Props = {
@@ -60,7 +60,8 @@ export default async function updatedLinkedBuild(linkedBuild: Props): Promise<{
   const nameBadWordCheck = badWordFilter.isProfane(linkedBuild.name)
   if (nameBadWordCheck.isProfane) {
     // Send webhook to #action-log
-    await sendBadWordNotification({
+    await sendWebhook({
+      webhook: 'auditLog',
       params: {
         embeds: [
           {
@@ -98,7 +99,8 @@ export default async function updatedLinkedBuild(linkedBuild: Props): Promise<{
   )
   if (descriptionBadWordCheck.isProfane) {
     // Send webhook to #action-log
-    await sendBadWordNotification({
+    await sendWebhook({
+      webhook: 'auditLog',
       params: {
         embeds: [
           {
@@ -139,7 +141,8 @@ export default async function updatedLinkedBuild(linkedBuild: Props): Promise<{
   )
   if (badWordCheck) {
     // Send webhook to #action-log
-    await sendBadWordNotification({
+    await sendWebhook({
+      webhook: 'auditLog',
       params: {
         embeds: [
           {
