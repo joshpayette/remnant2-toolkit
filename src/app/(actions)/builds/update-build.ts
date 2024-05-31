@@ -16,6 +16,7 @@ import { prisma } from '@/app/(utils)/db'
 import { getBuildDescriptionParams } from '@/app/(utils)/moderation/get-build-description-params'
 import { sendWebhook } from '@/app/(utils)/moderation/send-webhook'
 import { urlNoCache } from '@/app/(utils)/url-no-cache'
+import { isValidYoutubeUrl } from '@/app/(utils)/youtube'
 import { validateBuildState } from '@/app/(validators)/validate-build-state'
 
 export async function updateBuild(data: string): Promise<BuildActionResponse> {
@@ -197,6 +198,11 @@ export async function updateBuild(data: string): Promise<BuildActionResponse> {
       : new Date()
   }
 
+  // If the buildLink is a valid youtube url, also save it to the videoUrl field
+  if (buildState.buildLink && isValidYoutubeUrl(buildState.buildLink)) {
+    buildState.videoUrl = buildState.buildLink
+  }
+
   try {
     // get the build creator user record
     const buildCreator = await prisma.user.findUnique({
@@ -270,6 +276,7 @@ export async function updateBuild(data: string): Promise<BuildActionResponse> {
             : '',
         isPublic: Boolean(buildState.isPublic),
         isPatchAffected: Boolean(buildState.isPatchAffected),
+        videoUrl: buildState.videoUrl,
         buildLink: buildState.buildLink,
         buildLinkUpdatedAt: buildState.buildLinkUpdatedAt,
         isModeratorApproved: false,

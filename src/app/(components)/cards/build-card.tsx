@@ -24,6 +24,7 @@ import {
 import { isBuildNew } from '@/app/(utils)/builds/is-build-new'
 import { isBuildPopular } from '@/app/(utils)/builds/is-build-popular'
 import { cn } from '@/app/(utils)/classnames'
+import { isValidYoutubeUrl } from '@/app/(utils)/youtube'
 
 import { FeaturedBuildBadge } from '../builder/badges/featured-build-badge'
 import { NewBuildBadge } from '../builder/badges/new-build-badge'
@@ -194,7 +195,9 @@ export function BuildCard({
                     </BaseButton>
                   </Tooltip>
                 ) : null}
-                {buildState.videoUrl ? (
+                {buildState.videoUrl ||
+                (buildState.buildLink &&
+                  isValidYoutubeUrl(buildState.buildLink)) ? (
                   <Tooltip content="Build includes a video">
                     <BaseButton outline>
                       <VideoCameraIcon className="h-4 w-4" />
