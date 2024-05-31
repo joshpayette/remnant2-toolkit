@@ -4,7 +4,7 @@ import { getTotalBuildCount } from '@/app/(actions)/builds/get-total-build-count
 import { Link } from '@/app/(components)/_base/link'
 import { LandingPageCard } from '@/app/(components)/cards/landing-page-card'
 import { LandingPageContainer } from '@/app/(components)/landing-page-container'
-import { DISCORD_INVITE_URL, NAV_ITEMS } from '@/app/(types)/navigation'
+import { NAV_ITEMS } from '@/app/(types)/navigation'
 import { getServerSession } from '@/app/(utils)/auth'
 
 export default async function Page() {
@@ -171,18 +171,12 @@ export default async function Page() {
         />
 
         <LandingPageCard
-          href={DISCORD_INVITE_URL}
+          {...NAV_ITEMS.discordInvite}
           target="_blank"
-          label="Join the Toolkit Discord!"
-          description="Weigh in on new features, get help with builds, report bugs, or just hang out!"
           icon={
-            <Image
-              src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/toolkit/discord-cyan.png`}
-              alt="Join the Remnant 2 Toolkit Discord"
-              width={32}
-              height={32}
-              className="h-6 w-6"
-              loading="eager"
+            <NAV_ITEMS.discordInvite.icon
+              className="h-7 w-7 flex-none text-primary-500"
+              aria-hidden="true"
             />
           }
         />
@@ -200,12 +194,8 @@ export default async function Page() {
         <LandingPageCard
           {...NAV_ITEMS.vashCalculator}
           icon={
-            <Image
-              src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}${NAV_ITEMS.vashCalculator.icon}`}
-              width={20}
-              height={20}
-              alt={`${NAV_ITEMS.vashCalculator.label}, ${NAV_ITEMS.vashCalculator.description}`}
-              className="mr-2 h-7 w-7 flex-none text-primary-600"
+            <NAV_ITEMS.vashCalculator.icon 
+              className="h-7 w-7 flex-none text-primary-500"
               aria-hidden="true"
             />
           }
@@ -214,12 +204,8 @@ export default async function Page() {
         <LandingPageCard
           {...NAV_ITEMS.wiki}
           icon={
-            <Image
-              src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}${NAV_ITEMS.wiki.icon}`}
-              width={11}
-              height={20}
-              alt={`${NAV_ITEMS.wiki.label}, ${NAV_ITEMS.wiki.description}`}
-              className="mr-2 h-7 w-5 flex-none text-primary-600"
+            <NAV_ITEMS.wiki.icon 
+              className="h-7 w-7 flex-none text-primary-500"
               aria-hidden="true"
             />
           }

@@ -21,6 +21,9 @@ import {
   UserIcon,
   UsersIcon,
 } from '@heroicons/react/24/solid'
+import DiscordIcon from '../(components)/images/discord-icon'
+import VashIcon from '../(components)/images/vash-icon'
+import WikiIcon from '../(components)/images/wiki-icon'
 
 export const DISCORD_INVITE_URL = 'https://discord.gg/kgVaU3zAQ7'
 
@@ -69,6 +72,13 @@ export const NAV_ITEMS = {
       'Create and share your favorite builds with your friends and the community.',
     href: '/builder/create',
     icon: PlusIcon,
+  },
+  discordInvite: {
+    label: 'Join the Toolkit Discord!',
+    description:
+      'Weigh in on new features, get help with builds, report bugs, or just hang out!',
+    href: DISCORD_INVITE_URL,
+    icon: DiscordIcon,
   },
   favoritedBuilds: {
     label: 'Favorited Builds',
@@ -175,14 +185,14 @@ export const NAV_ITEMS = {
     description:
       'An incredible tool for advanced build stats and calculations.',
     href: 'https://cowaii.io/index.html?s=s',
-    icon: '/toolkit/vash-icon.png',
+    icon: VashIcon,
   },
   wiki: {
     label: 'Wiki',
     description:
       'Definitive wiki for Remnant 2. Community driven, no ads or stream embeds.',
     href: 'https://remnant.wiki/',
-    icon: '/toolkit/wiki-icon.png',
+    icon: WikiIcon,
   },
   worldSaveArchive: {
     label: 'World Save Archive',

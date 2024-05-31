@@ -1,5 +1,3 @@
-import Image from 'next/image'
-
 import { LandingPageCard } from '@/app/(components)/cards/landing-page-card'
 import { LandingPageContainer } from '@/app/(components)/landing-page-container'
 import { NAV_ITEMS } from '@/app/(types)/navigation'
@@ -50,12 +48,8 @@ export default async function Page() {
         <LandingPageCard
           {...NAV_ITEMS.vashCalculator}
           icon={
-            <Image
-              src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}${NAV_ITEMS.vashCalculator.icon}`}
-              width={20}
-              height={20}
-              alt={`${NAV_ITEMS.vashCalculator.label}, ${NAV_ITEMS.vashCalculator.description}`}
-              className="mr-2 h-7 w-7 flex-none text-primary-600"
+            <NAV_ITEMS.vashCalculator.icon 
+              className="h-7 w-7 flex-none text-primary-500"
               aria-hidden="true"
             />
           }
@@ -64,12 +58,8 @@ export default async function Page() {
         <LandingPageCard
           {...NAV_ITEMS.wiki}
           icon={
-            <Image
-              src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}${NAV_ITEMS.wiki.icon}`}
-              width={11}
-              height={20}
-              alt={`${NAV_ITEMS.wiki.label}, ${NAV_ITEMS.wiki.description}`}
-              className="mr-2 h-7 w-5 flex-none text-primary-600"
+            <NAV_ITEMS.wiki.icon 
+              className="h-7 w-7 flex-none text-primary-500"
               aria-hidden="true"
             />
           }
