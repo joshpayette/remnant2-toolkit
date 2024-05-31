@@ -83,11 +83,11 @@ export function isValidYoutubeUrl(videoUrl: string) {
  * Converts a Youtube video url to a thumbnail url
  * @example
  * videoUrlToThumbnailUrl('https://www.youtube.com/watch?v=4kIQKHxZGS8')
- *  => 'https://i.ytimg.com/vi/4kIQKHxZGS8/sddefault.jpg'
+ *  => 'https://i.ytimg.com/vi/4kIQKHxZGS8/0.jpg'
  */
 export function videoUrlToThumbnailUrl(videoUrl: string) {
   const videoId = videoUrlToVideoId(videoUrl)
-  return `https://i.ytimg.com/vi/${videoId}/sddefault.jpg`
+  return `https://i.ytimg.com/vi/${videoId}/0.jpg`
 }
 
 /**

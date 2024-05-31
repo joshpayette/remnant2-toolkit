@@ -15,6 +15,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Fixed Burden of the Mesmer not correctly reducing max health.
 - Fixed health cap reduction formula to work correctly. Previous formula worked because there was only a single item that could cap your health.
 - Fixed Restriction Cord reducing the total health calculation. It doesn't allow you to heal above 50%, but it does not affect total health calculation stats in-game.
+- Fixed issue preventing some YouTube thumbnails from embedding.
 
 ## 2024-05-30
 
