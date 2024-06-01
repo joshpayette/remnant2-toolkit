@@ -1,5 +1,7 @@
 import { diffTrimmedLines } from 'diff'
 
+import { urlNoCache } from '@/app/(utils)/url-no-cache'
+
 import { DiscordWebhookParams } from './types'
 
 export function getBuildDescriptionParams({
@@ -23,6 +25,8 @@ export function getBuildDescriptionParams({
     })
     .join('\n')
 
+  const buildLink = urlNoCache(`https://remnant2toolkit.com/builder/${buildId}`)
+
   return {
     embeds: [
       {
@@ -32,6 +36,10 @@ export function getBuildDescriptionParams({
           {
             name: 'Description Changes',
             value: content,
+          },
+          {
+            name: 'Build Link',
+            value: buildLink,
           },
         ],
       },
