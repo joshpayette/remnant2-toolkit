@@ -8,13 +8,13 @@ import { useState } from 'react'
 import { BaseButton } from '@/app/(components)/_base/button'
 import { BaseField, BaseLabel } from '@/app/(components)/_base/fieldset'
 import { BaseInput } from '@/app/(components)/_base/input'
+import { BaseSwitch } from '@/app/(components)/_base/switch'
 import { BaseTextarea } from '@/app/(components)/_base/textarea'
 import { BuildDescriptionTemplateAlert } from '@/app/(components)/alerts/build-description-template-alert'
 import { DescriptionWithTokens } from '@/app/(components)/description-with-tokens'
 import { Skeleton } from '@/app/(components)/skeleton'
 import { MAX_BUILD_DESCRIPTION_LENGTH } from '@/app/(data)/builds/constants'
 import { cn } from '@/app/(utils)/classnames'
-import { Toggle } from '@/features/ui/Toggle'
 
 import { BuildTagsDisplay } from './build-tags/build-tags-display'
 
@@ -165,28 +165,32 @@ Watch the build in action: [insert Youtube link here]
           {isEditable ? (
             <div className="flex flex-col items-start justify-start gap-x-8 gap-y-2 sm:flex-row sm:items-center sm:justify-start">
               <div className="flex flex-row items-center justify-start text-sm text-primary-500">
-                <div className="mr-4">Public Build</div>
-                <div className="flex items-center justify-start">
-                  <Toggle
-                    enabled={Boolean(isPublic)}
-                    setEnabled={onChangeIsPublic}
+                <BaseField className="flex flex-row items-end">
+                  <BaseLabel className="mr-2">Public Build?</BaseLabel>
+                  <BaseSwitch
+                    checked={Boolean(isPublic)}
+                    onChange={onChangeIsPublic}
                   />
                   <a
                     href="https://github.com/joshpayette/remnant2-toolkit/blob/main/CODE_OF_CONDUCT.md"
                     target="_blank"
-                    className="ml-2 text-xs text-secondary-500 underline"
+                    className="mb-1 ml-2 text-xs text-secondary-500 underline"
                   >
                     Code of Conduct
                   </a>
-                </div>
+                </BaseField>
               </div>
-              <div className="flex flex-row items-center justify-start text-sm text-primary-500">
-                <div className="mr-4">Mark as Patch Affected?</div>
 
-                <Toggle
-                  enabled={Boolean(isPatchAffected)}
-                  setEnabled={onChangeIsPatchAffected}
-                />
+              <div className="flex flex-row items-center justify-start text-sm text-primary-500">
+                <BaseField className="flex flex-row items-end">
+                  <BaseLabel className="mr-2">
+                    Mark as Patch Affected?
+                  </BaseLabel>
+                  <BaseSwitch
+                    checked={Boolean(isPatchAffected)}
+                    onChange={onChangeIsPatchAffected}
+                  />
+                </BaseField>
               </div>
             </div>
           ) : (
