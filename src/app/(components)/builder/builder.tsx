@@ -367,7 +367,10 @@ export function Builder({
       if (validAmount < 1) validAmount = defaultAmount
       if (validAmount > 10) validAmount = defaultAmount
 
-      return { ...traitItem, amount: validAmount }
+      return {
+        ...traitItem,
+        amount: validAmount,
+      }
     })
 
     const newTraitItemParams = TraitItem.toParams(validatedTraitItems)

@@ -1,6 +1,7 @@
 import { XCircleIcon } from '@heroicons/react/24/solid'
 import { useState } from 'react'
 import { IoInformationCircleSharp } from 'react-icons/io5'
+import { TbHttpOptions } from 'react-icons/tb'
 
 import { Tooltip } from '@/app/(components)/tooltip'
 import {
@@ -45,27 +46,25 @@ export function Traits({
   )
 
   function shouldAllowEdit(traitItem: TraitItem) {
-    // if the trait being edited is the linked archtype with an amount of 10,
-    // it should not be editable
     const primaryArchetype = archetypeItems[0]
-    if (
+    const isLinkedPrimaryArchetypeTraitMaxed =
       primaryArchetype?.linkedItems?.traits?.some(
         (linkedTraitItem) =>
           linkedTraitItem.name === traitItem.name &&
           linkedTraitItem.amount === 10,
       )
-    ) {
+    if (isLinkedPrimaryArchetypeTraitMaxed) {
       return false
     }
 
     const secondaryArchetype = archetypeItems[1]
-    if (
+    const isLinkedSecondaryArchetypeTraitMaxed =
       secondaryArchetype?.linkedItems?.traits?.some(
         (linkedTraitItem) =>
           linkedTraitItem.name === traitItem.name &&
           linkedTraitItem.amount === 10,
       )
-    ) {
+    if (isLinkedSecondaryArchetypeTraitMaxed) {
       return false
     }
 
@@ -77,14 +76,14 @@ export function Traits({
     let shouldAllowDelete = isEditable && showControls
 
     // If the trait is linked to an archtype, it should not be deletable
-    if (isArchtypeTrait(traitItem)) {
+    if (isArchetypeTrait(traitItem)) {
       shouldAllowDelete = false
     }
 
     return shouldAllowDelete
   }
 
-  function isArchtypeTrait(traitItem: TraitItem) {
+  function isArchetypeTrait(traitItem: TraitItem) {
     // If the trait is linked to an archtype, it should not be deletable
     const primaryArchtype = archetypeItems[0]
     if (
@@ -109,7 +108,7 @@ export function Traits({
     }
   }
 
-  function isArchtypeCoreTrait(traitItem: TraitItem) {
+  function isArchetypeCoreTrait(traitItem: TraitItem) {
     // If the trait is linked to an archtype, it should not be deletable
     const primaryArchtype = archetypeItems[0]
     if (
@@ -165,12 +164,21 @@ export function Traits({
           <div
             key={traitItem.name}
             className={cn(
-              'flex items-center border border-transparent border-b-surface-solid text-sm',
-              isArchtypeTrait(traitItem) && 'border-b-yellow-500',
-              isArchtypeTrait(traitItem) &&
-                !isArchtypeCoreTrait(traitItem) &&
-                isEditable &&
-                'border-b-purple-500',
+              'flex items-center border text-sm',
+              traitItem.optional
+                ? 'border-dashed'
+                : 'border-transparent border-b-surface-solid',
+              isArchetypeTrait(traitItem) && 'border-b-yellow-500',
+              isArchetypeTrait(traitItem) &&
+                traitItem.optional &&
+                'border-yellow-500',
+              isArchetypeTrait(traitItem) &&
+                !isArchetypeCoreTrait(traitItem) &&
+                'border-b-secondary-500',
+              isArchetypeTrait(traitItem) &&
+                !isArchetypeCoreTrait(traitItem) &&
+                traitItem.optional &&
+                'border-secondary-500',
             )}
           >
             <div className="mr-4 flex items-center text-lg font-bold ">
@@ -248,6 +256,32 @@ export function Traits({
                 </Tooltip>
               )}
             </button>
+            {!isScreenshotMode &&
+              isEditable &&
+              showControls &&
+              shouldAllowEdit(traitItem) && (
+                <Tooltip
+                  content={`Toggle item as optional`}
+                  trigger="mouseenter"
+                  interactive={false}
+                  disabled={tooltipDisabled}
+                >
+                  <button
+                    className={cn(
+                      'z-[1] ml-2 rounded-full border-transparent bg-black',
+                    )}
+                    onClick={() =>
+                      onUpdateAmount({
+                        ...traitItem,
+                        optional: !traitItem.optional,
+                      })
+                    }
+                    aria-label="Toggle item as optional"
+                  >
+                    <TbHttpOptions className="h-4 w-4 text-accent1-500" />
+                  </button>
+                </Tooltip>
+              )}
             {shouldAllowDelete(traitItem) && (
               <button
                 onClick={() => onRemoveTrait(traitItem)}

@@ -1,6 +1,7 @@
 import { BuildItems } from '@prisma/client'
 
 import { DEFAULT_TRAIT_AMOUNT } from '@/app/(data)/builds/constants'
+import { OPTIONAL_ITEM_SYMBOL } from '@/app/(data)/items/constants'
 import { Item } from '@/app/(data)/items/types'
 
 import { archetypeItems } from '../archetype-items'
@@ -71,14 +72,18 @@ export class TraitItem extends BaseItem implements BaseTraitItem {
   }
 
   static toParams(
-    items: Array<{ id: BaseTraitItem['id']; amount: number }>,
+    items: Array<{
+      id: BaseTraitItem['id']
+      amount: number
+      optional?: boolean
+    }>,
   ): string[] {
     return items.map((i) => {
       if (!i || !i.id) return ''
-      return `${i.id};${i.amount}`
+      return i.optional
+        ? `${i.id}${OPTIONAL_ITEM_SYMBOL};${i.amount}`
+        : `${i.id};${i.amount}`
     })
-
-    // return items.map((i) => (i.id ? `${i.id};${i.amount}` : ''))
   }
 
   static fromParams(params: string): TraitItem[] {
@@ -86,11 +91,14 @@ export class TraitItem extends BaseItem implements BaseTraitItem {
     if (!itemIds) return []
 
     const items: TraitItem[] = []
-    itemIds.forEach((itemId) => {
+    itemIds.forEach((itemId, index) => {
       // We need to split the trait id at the ; to get the amount
-      const [traitId, amount] = itemId.split(';')
+      let [traitId, amount] = itemId.split(';')
 
-      const item = allItems.find((i) => i.id === traitId)
+      const optional = traitId.includes(OPTIONAL_ITEM_SYMBOL)
+      traitId = traitId.replace(OPTIONAL_ITEM_SYMBOL, '')
+
+      const item = traitItems.find((i) => i.id === traitId)
       if (!item) return []
 
       let validAmount = amount ? Number(amount) : DEFAULT_TRAIT_AMOUNT
@@ -105,6 +113,7 @@ export class TraitItem extends BaseItem implements BaseTraitItem {
             name: item.name,
             category: item.category,
             type: item.type,
+            optional,
             inGameOrder: item.inGameOrder,
             imagePath: item.imagePath,
             amount: validAmount,
