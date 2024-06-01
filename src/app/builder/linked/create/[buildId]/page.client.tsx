@@ -11,6 +11,7 @@ import { getCreatedBuilds } from '@/app/(actions)/builds/get-created-builds'
 import { BaseButton } from '@/app/(components)/_base/button'
 import { BaseField, BaseLabel } from '@/app/(components)/_base/fieldset'
 import { BaseInput } from '@/app/(components)/_base/input'
+import { BaseTextarea } from '@/app/(components)/_base/textarea'
 import { BuildList } from '@/app/(components)/build-list'
 import { BuildCard } from '@/app/(components)/cards/build-card'
 import { OrderByFilter } from '@/app/(components)/filters/builds/secondary-filters/order-by-filter'
@@ -27,7 +28,6 @@ import {
   MAX_LINKED_BUILD_LABEL_LENGTH,
 } from '@/app/builder/linked/constants'
 import { LinkedBuildItem } from '@/app/builder/linked/create/[buildId]/type'
-import { Textarea } from '@/features/ui/Textarea'
 
 interface Props {
   initialBuild: DBBuild
@@ -165,18 +165,19 @@ export default function PageClient({ initialBuild, userId }: Props) {
           onChange={(e) => setName(e.target.value)}
         />
       </BaseField>
-      <Textarea
-        label={`Build Description (${
+      <BaseField>
+        <BaseLabel>{`Build Description (${
           description?.length ?? 0
-        }/${MAX_LINKED_BUILD_DESCRIPTION_LENGTH})`}
-        name="description"
-        placeholder="Say a little bit about these linked builds, such as the purpose or theme of the variations."
-        onChange={(e) => setDescription(e.target.value)}
-        value={description ?? ''}
-        maxLength={MAX_LINKED_BUILD_DESCRIPTION_LENGTH}
-        className="h-[175px] w-full max-w-[500px]"
-      />
-
+        }/${MAX_LINKED_BUILD_DESCRIPTION_LENGTH})`}</BaseLabel>
+        <BaseTextarea
+          name="description"
+          placeholder="Say a little bit about these linked builds, such as the purpose or theme of the variations."
+          onChange={(e) => setDescription(e.target.value)}
+          value={description ?? ''}
+          maxLength={MAX_LINKED_BUILD_DESCRIPTION_LENGTH}
+          className="h-[175px] w-full max-w-[500px]"
+        />
+      </BaseField>
       <div className="flex w-full flex-col items-start justify-start border-b border-b-primary-500 py-2">
         <ul
           role="list"

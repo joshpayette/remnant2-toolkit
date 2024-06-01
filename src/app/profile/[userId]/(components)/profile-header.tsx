@@ -5,12 +5,13 @@ import { useState } from 'react'
 import { toast } from 'react-toastify'
 
 import { BaseButton } from '@/app/(components)/_base/button'
+import { BaseField } from '@/app/(components)/_base/fieldset'
 import { BaseInput } from '@/app/(components)/_base/input'
+import { BaseTextarea } from '@/app/(components)/_base/textarea'
 import { SelectAvatarDialog } from '@/app/(components)/dialogs/select-avatar-dialog'
 import { saveProfile } from '@/app/profile/[userId]/(actions)/save-profile'
 import { AvatarBox } from '@/app/profile/[userId]/(components)/avatar-box'
 import { getAvatarById } from '@/app/profile/[userId]/(lib)/get-avatar-by-id'
-import { Textarea } from '@/features/ui/Textarea'
 
 interface Props {
   avatarId: string
@@ -83,11 +84,13 @@ export function ProfileHeader({
           )}
         </div>
         {isEditable && isEditing ? (
-          <Textarea
-            value={newBio}
-            onChange={(e) => setNewBio(e.target.value)}
-            className="h-[150px] w-full"
-          />
+          <BaseField>
+            <BaseTextarea
+              value={newBio}
+              onChange={(e) => setNewBio(e.target.value)}
+              className="h-[150px] w-full"
+            />
+          </BaseField>
         ) : (
           <p className="mt-2 max-w-4xl text-sm leading-6 text-gray-400">
             {newBio}

@@ -14,10 +14,11 @@ import {
   BaseDialogTitle,
 } from '@/app/(components)/_base/dialog'
 import { BaseDivider } from '@/app/(components)/_base/divider'
+import { BaseField, BaseLabel } from '@/app/(components)/_base/fieldset'
 import { BaseInput } from '@/app/(components)/_base/input'
+import { BaseTextarea } from '@/app/(components)/_base/textarea'
 import { MAX_BUILD_DESCRIPTION_LENGTH } from '@/app/(data)/builds/constants'
 import type { LinkedBuildState } from '@/app/(types)/linked-builds'
-import { Textarea } from '@/features/ui/Textarea'
 
 interface Props {
   open: boolean
@@ -70,16 +71,18 @@ export function ModeratorLinkedBuildToolsDialog({
         />
         <BaseDivider className="my-4" />
         <BaseDialogTitle>Build Description</BaseDialogTitle>
-        <Textarea
-          label={`(${
+        <BaseField>
+          <BaseLabel>{`(${
             buildDescription?.length ?? 0
-          }/${MAX_BUILD_DESCRIPTION_LENGTH})`}
-          name="description"
-          onChange={(e) => setBuildDescription(e.target.value)}
-          value={buildDescription ?? ''}
-          maxLength={MAX_BUILD_DESCRIPTION_LENGTH}
-          className="h-[215px] w-full"
-        />
+          }/${MAX_BUILD_DESCRIPTION_LENGTH})`}</BaseLabel>
+          <BaseTextarea
+            name="description"
+            onChange={(e) => setBuildDescription(e.target.value)}
+            value={buildDescription ?? ''}
+            maxLength={MAX_BUILD_DESCRIPTION_LENGTH}
+            className="h-[215px] w-full"
+          />
+        </BaseField>
         <BaseDivider className="my-4" />
         <BaseDialogTitle>Build Items</BaseDialogTitle>
         {buildItems.map((item, index) => (

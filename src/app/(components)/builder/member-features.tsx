@@ -6,13 +6,14 @@ import { useSession } from 'next-auth/react'
 import { useState } from 'react'
 
 import { BaseButton } from '@/app/(components)/_base/button'
+import { BaseField, BaseLabel } from '@/app/(components)/_base/fieldset'
 import { BaseInput } from '@/app/(components)/_base/input'
+import { BaseTextarea } from '@/app/(components)/_base/textarea'
 import { BuildDescriptionTemplateAlert } from '@/app/(components)/alerts/build-description-template-alert'
 import { DescriptionWithTokens } from '@/app/(components)/description-with-tokens'
 import { Skeleton } from '@/app/(components)/skeleton'
 import { MAX_BUILD_DESCRIPTION_LENGTH } from '@/app/(data)/builds/constants'
 import { cn } from '@/app/(utils)/classnames'
-import { Textarea } from '@/features/ui/Textarea'
 import { Toggle } from '@/features/ui/Toggle'
 
 import { BuildTagsDisplay } from './build-tags/build-tags-display'
@@ -88,17 +89,19 @@ export function MemberFeatures({
         </div>
       ) : (
         <div className="mb-8 w-full">
-          <Textarea
-            label={`Build Description (${
+          <BaseField>
+            <BaseLabel>{`Build Description (${
               description?.length ?? 0
-            }/${MAX_BUILD_DESCRIPTION_LENGTH})`}
-            name="description"
-            placeholder="Consider adding a description about how the build works, possible item swaps, a link to a Youtube video demonstrating the build, and any other info that can help others understand your build better. All item names will show up in bold and keywords as tokens. Not sure what to write? Use the Item Description Template link below!"
-            onChange={(e) => onChangeDescription(e.target.value)}
-            value={description ?? ''}
-            maxLength={MAX_BUILD_DESCRIPTION_LENGTH}
-            className="h-[215px] w-full"
-          />
+            }/${MAX_BUILD_DESCRIPTION_LENGTH})`}</BaseLabel>
+            <BaseTextarea
+              name="description"
+              placeholder="Consider adding a description about how the build works, possible item swaps, a link to a Youtube video demonstrating the build, and any other info that can help others understand your build better. All item names will show up in bold and keywords as tokens. Not sure what to write? Use the Item Description Template link below!"
+              onChange={(e) => onChangeDescription(e.target.value)}
+              value={description ?? ''}
+              maxLength={MAX_BUILD_DESCRIPTION_LENGTH}
+              className="h-[215px] w-full"
+            />
+          </BaseField>
           <div className="flex w-full items-center justify-end">
             <BuildDescriptionTemplateAlert
               open={buildDescriptionAlertOpen}
