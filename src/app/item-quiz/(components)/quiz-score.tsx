@@ -4,7 +4,7 @@ interface Props {
   score: number
 }
 
-export const Score = React.memo(({ score }: Props) => (
+export const QuizScore = React.memo(({ score }: Props) => (
   <div
     id="score-container"
     className="mb-8 flex h-[75px] w-[75px] flex-col items-center justify-start border border-secondary-500 bg-secondary-900"
@@ -18,4 +18,4 @@ export const Score = React.memo(({ score }: Props) => (
   </div>
 ))
 
-Score.displayName = 'Score'
+QuizScore.displayName = 'QuizScore'

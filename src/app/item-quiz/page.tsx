@@ -14,12 +14,12 @@ import { toast } from 'react-toastify'
 
 import { getTopScore } from '@/app/item-quiz/(actions)/getTopScore'
 import { updateTopScore } from '@/app/item-quiz/(actions)/updateTopScore'
-import { FinishedDisplay } from '@/app/item-quiz/(components)/FinishedDisplay'
-import { IdleDisplay } from '@/app/item-quiz/(components)/IdleDisplay'
-import { PlayingDisplay } from '@/app/item-quiz/(components)/PlayingDisplay'
-import { Score } from '@/app/item-quiz/(components)/Score'
-import { StartingDisplay } from '@/app/item-quiz/(components)/StartingDisplay'
-import { Timer } from '@/app/item-quiz/(components)/Timer'
+import { FinishedDisplay } from '@/app/item-quiz/(components)/finished-display'
+import { IdleDisplay } from '@/app/item-quiz/(components)/idle-display'
+import { PlayingDisplay } from '@/app/item-quiz/(components)/playing-display'
+import { QuizScore } from '@/app/item-quiz/(components)/quiz-score'
+import { QuizTimer } from '@/app/item-quiz/(components)/quiz-timer'
+import { StartingDisplay } from '@/app/item-quiz/(components)/starting-display'
 import { getQuestion } from '@/app/item-quiz/(lib)/getQuestion'
 import {
   ARROW_TO_INDEX,
@@ -346,11 +346,11 @@ export default function Page() {
           className="flex flex-col items-center justify-center"
         >
           <div id="top-container" className="flex items-center justify-between">
-            <Timer
+            <QuizTimer
               isPlaying={state.status === 'playing'}
               gameTimer={state.gameTimer}
             />
-            <Score score={state.score} />
+            <QuizScore score={state.score} />
           </div>
           <PlayingDisplay
             correctItemName={state.currentQuestion?.correctItem.name || ''}

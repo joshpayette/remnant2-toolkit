@@ -5,7 +5,7 @@ interface Props {
   isPlaying: boolean
 }
 
-export const Timer = React.memo(({ isPlaying, gameTimer }: Props) => (
+export const QuizTimer = React.memo(({ isPlaying, gameTimer }: Props) => (
   <div
     id="timer-container"
     className="mb-8 flex h-[75px] w-[75px] flex-col items-center justify-start border border-secondary-500 bg-secondary-900"
@@ -19,4 +19,4 @@ export const Timer = React.memo(({ isPlaying, gameTimer }: Props) => (
   </div>
 ))
 
-Timer.displayName = 'Timer'
+QuizTimer.displayName = 'QuizTimer'

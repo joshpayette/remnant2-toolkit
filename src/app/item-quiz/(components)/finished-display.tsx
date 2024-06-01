@@ -1,8 +1,8 @@
 import React from 'react'
 
 import { BaseButton } from '@/app/(components)/_base/button'
-import { MobileLayoutToggle } from '@/app/item-quiz/(components)/MobileLayoutToggle'
-import { QuizItemButton } from '@/app/item-quiz/(components)/QuizItemButton'
+import { MobileLayoutToggle } from '@/app/item-quiz/(components)/mobile-layout-toggle'
+import { QuizItemButton } from '@/app/item-quiz/(components)/quiz-item-button'
 import { LayoutPreference, QuizItem, QuizQuestion } from '@/app/item-quiz/types'
 
 interface Props {

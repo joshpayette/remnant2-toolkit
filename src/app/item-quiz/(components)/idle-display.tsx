@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { BaseButton } from '@/app/(components)/_base/button'
-import { MobileLayoutToggle } from '@/app/item-quiz/(components)/MobileLayoutToggle'
+import { MobileLayoutToggle } from '@/app/item-quiz/(components)/mobile-layout-toggle'
 import { LayoutPreference } from '@/app/item-quiz/types'
 
 interface Props {
