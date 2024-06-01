@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2024-05-31
 
+### Added
+
+- Build traits can now be marked as optional, just like other build items.
+
 ### Changed
 
 - Many icons throughout the site converted from static images to svgs (thank you, Synder and kbsfnk)
