@@ -7,7 +7,7 @@ export const ALL_BUILD_TAGS: BuildTag[] = [
     colors: {
       bg: 'bg-yellow-400/10',
       hover: 'hover:bg-yellow-400/20',
-      text: 'text-yellow-500',
+      text: 'text-yellow-700 dark:text-yellow-500',
     },
   },
   {
@@ -16,7 +16,7 @@ export const ALL_BUILD_TAGS: BuildTag[] = [
     colors: {
       bg: 'bg-green-400/10',
       hover: 'hover:bg-green-400/20',
-      text: 'text-green-500',
+      text: 'text-green-700 dark:text-green-500',
     },
   },
   {
@@ -25,7 +25,7 @@ export const ALL_BUILD_TAGS: BuildTag[] = [
     colors: {
       bg: 'bg-blue-400/10',
       hover: 'hover:bg-blue-400/20',
-      text: 'text-blue-500',
+      text: 'text-blue-600 dark:text-blue-500',
     },
   },
   {
@@ -34,7 +34,7 @@ export const ALL_BUILD_TAGS: BuildTag[] = [
     colors: {
       bg: 'bg-indigo-400/10',
       hover: 'hover:bg-indigo-400/20',
-      text: 'text-indigo-500',
+      text: 'text-indigo-600 dark:text-indigo-500',
     },
   },
   {
@@ -43,7 +43,7 @@ export const ALL_BUILD_TAGS: BuildTag[] = [
     colors: {
       bg: 'bg-purple-400/10',
       hover: 'hover:bg-purple-400/20',
-      text: 'text-purple-400',
+      text: 'text-purple-600 dark:text-purple-400',
     },
   },
   {
@@ -52,7 +52,7 @@ export const ALL_BUILD_TAGS: BuildTag[] = [
     colors: {
       bg: 'bg-pink-400/10',
       hover: 'hover:bg-pink-400/20',
-      text: 'text-pink-500',
+      text: 'text-pink-700 dark:text-pink-500',
     },
   },
   {
@@ -61,7 +61,7 @@ export const ALL_BUILD_TAGS: BuildTag[] = [
     colors: {
       bg: 'bg-red-400/10',
       hover: 'hover:bg-red-400/20',
-      text: 'text-red-500',
+      text: 'text-red-700 dark:text-red-500',
     },
   },
 ]
