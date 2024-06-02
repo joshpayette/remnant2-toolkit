@@ -37,13 +37,13 @@ export const INLINE_TOKENS = [
   {
     type: 'Brittle',
     token: 'BRITTLE',
-    color: 'text-slate-900 dark:text-[#fff1bc]',
+    color: 'text-[#6d6650] dark:text-[#fff1bc]',
     description: undefined,
   },
   {
     type: 'Blowback',
     token: 'BLOWBACK',
-    color: 'text-slate-900 dark:text-[#fff1bc]',
+    color: 'text-[#6d6650] dark:text-[#fff1bc]',
     description: undefined,
   },
   {
@@ -68,7 +68,7 @@ export const INLINE_TOKENS = [
   {
     type: 'Call of the Doe',
     token: 'CALL OF THE DOE',
-    color: 'text-slate-900 dark:text-[#fff1bc]',
+    color: 'text-[#6d6650] dark:text-[#fff1bc]',
     description: undefined,
   },
   {
@@ -81,7 +81,7 @@ export const INLINE_TOKENS = [
   {
     type: 'Corroded',
     token: 'CORRODED',
-    color: 'text-[#0C8B24] dark:text-[#0fa82b]',
+    color: 'text-[#0a751e] dark:text-[#0fa82b]',
     description: 'Increases damage taken by 10%.',
   },
   {
@@ -120,19 +120,19 @@ export const INLINE_TOKENS = [
   {
     type: 'Defrag',
     token: 'DEFRAG',
-    color: 'text-[#C5BFBF] dark:text-[#ede6e6]',
+    color: 'text-[#6b6161] dark:text-[#ede6e6]',
     description: 'Physical Damage.',
   },
   {
     type: 'Drenched',
     token: 'DRENCHED',
-    color: 'text-slate-900 dark:text-[#fff1bc]',
+    color: 'text-[#6d6650] dark:text-[#fff1bc]',
     description: undefined,
   },
   {
     type: 'Elemental Damage',
     token: 'Elemental Damage',
-    color: 'text-[#0D9A6B] dark:text-[#10B981]',
+    color: 'text-[#0a7552] dark:text-[#10B981]',
     description: `Acid, Corrosive, Fire, Shock, certain skills and mods.`,
   },
   {
@@ -150,7 +150,7 @@ export const INLINE_TOKENS = [
   {
     type: 'EXPOSED',
     token: 'EXPOSED',
-    color: 'text-[#B4B18A] dark:text-[#fef9c3]',
+    color: 'text-[#6d6a46] dark:text-[#fef9c3]',
     description: 'Target receives 15% additional damage from all sources.',
   },
   {
@@ -162,31 +162,31 @@ export const INLINE_TOKENS = [
   {
     type: 'Frenzied',
     token: 'FRENZIED',
-    color: 'text-[#B4B18A] dark:text-[#fef9c3]',
+    color: 'text-[#6d6a46] dark:text-[#fef9c3]',
     description: undefined,
   },
   {
     type: 'Living Will',
     token: 'LIVING WILL',
-    color: 'text-[#B4B18A] dark:text-[#fef9c3]',
+    color: 'text-[#6d6a46] dark:text-[#fef9c3]',
     description: undefined,
   },
   {
     type: 'Stoneskin',
     token: 'STONESKIN',
-    color: 'text-[#B4B18A] dark:text-[#fef9c3]',
+    color: 'text-[#6d6a46] dark:text-[#fef9c3]',
     description: undefined,
   },
   {
     type: 'Unbridled Chaos',
     token: 'UNBRIDLED CHAOS',
-    color: 'text-[#B4B18A] dark:text-[#fef9c3]',
+    color: 'text-[#6d6a46] dark:text-[#fef9c3]',
     description: undefined,
   },
   {
     type: 'Gloom',
     token: 'GLOOM',
-    color: 'text-slate-900 dark:text-[#fff1bc]',
+    color: 'text-[#6d6650] dark:text-[#fff1bc]',
     description: undefined,
   },
   {
@@ -204,7 +204,7 @@ export const INLINE_TOKENS = [
   {
     type: 'Haste',
     token: 'HASTE',
-    color: 'text-[#C8C8AC] dark:text-[#f1f1cf]',
+    color: 'text-[#6b6b47] dark:text-[#f1f1cf]',
     description: `Increases the speed of player's actions by 7%.`,
   },
   {
@@ -235,7 +235,7 @@ export const INLINE_TOKENS = [
   {
     type: 'Madness',
     token: 'MADNESS',
-    color: 'text-[#C5BFBF] dark:text-[#ede6e6]',
+    color: 'text-[#6b6161] dark:text-[#ede6e6]',
     description: 'Physical Damage.',
   },
   {
@@ -254,13 +254,13 @@ export const INLINE_TOKENS = [
   {
     type: 'OPPORTUNITY',
     token: 'OPPORTUNITY',
-    color: 'text-slate-900 dark:text-[#fff1bc]',
+    color: 'text-[#6d6650] dark:text-[#fff1bc]',
     description: undefined,
   },
   {
     type: 'Power Stone',
     token: 'POWER STONE',
-    color: 'text-slate-900 dark:text-[#fff1bc]',
+    color: 'text-[#6d6650] dark:text-[#fff1bc]',
     description: undefined,
   },
   {
@@ -286,7 +286,7 @@ export const INLINE_TOKENS = [
   {
     type: 'Shield',
     token: 'SHIELD',
-    color: 'text-[#6ABABB] dark:text-[#80e0e1]',
+    color: 'text-[#357273] dark:text-[#80e0e1]',
     description: `Provides a shield on top of your health. Shields from different sources stack.`,
   },
   {
@@ -298,7 +298,7 @@ export const INLINE_TOKENS = [
   {
     type: 'Slow',
     token: 'SLOW',
-    color: 'text-[#C8C8AC] dark:text-[#f1f1cf]',
+    color: 'text-[#6b6b47] dark:text-[#f1f1cf]',
     description:
       'Reduces target speed. 99% reduced effect against Bosses and Aberrations.',
   },
@@ -317,7 +317,7 @@ export const INLINE_TOKENS = [
   {
     type: 'PRERELEASE',
     token: 'PRERELEASE',
-    color: 'text-[#C4D100] dark:text-[#ecfc00]',
+    color: 'text-[#646b00] dark:text-[#ecfc00]',
     description: `This is prerelease content. Information might not be accurate or change. Numbers aren't final.`,
   },
   {
@@ -348,19 +348,19 @@ export const INLINE_TOKENS = [
   {
     type: 'Elemental Status Effects',
     token: 'Elemental Status Effects',
-    color: 'text-[#049ACF] dark:text-[#05baf9]',
+    color: 'text-[#036f96] dark:text-[#05baf9]',
     description: `Burning, Corroded, Overloaded.`,
   },
   {
     type: 'Elemental Status Effect',
     token: 'Elemental Status Effect',
-    color: 'text-[#049ACF] dark:text-[#05baf9]',
+    color: 'text-[#036f96] dark:text-[#05baf9]',
     description: `Burning, Corroded, Overloaded.`,
   },
   {
     type: 'Elemental Status',
     token: 'Elemental Status',
-    color: 'text-[#049ACF] dark:text-[#05baf9]',
+    color: 'text-[#036f96] dark:text-[#05baf9]',
     description: `Burning, Corroded, Overloaded.`,
   },
   {
@@ -378,31 +378,31 @@ export const INLINE_TOKENS = [
   {
     type: 'MARKED',
     token: 'MARKED',
-    color: 'text-slate-900 dark:text-[#fff1bc]',
+    color: 'text-[#6d6650] dark:text-[#fff1bc]',
     description: undefined,
   },
   {
     type: 'MARK',
     token: 'MARK',
-    color: 'text-slate-900 dark:text-[#fff1bc]',
+    color: 'text-[#6d6650] dark:text-[#fff1bc]',
     description: undefined,
   },
   {
     type: 'AMBUSH',
     token: 'AMBUSH',
-    color: 'text-slate-900 dark:text-[#fff1bc]',
+    color: 'text-[#6d6650] dark:text-[#fff1bc]',
     description: undefined,
   },
   {
     type: 'FOCUSED',
     token: 'FOCUSED',
-    color: 'text-slate-900 dark:text-[#fff1bc]',
+    color: 'text-[#6d6650] dark:text-[#fff1bc]',
     description: undefined,
   },
   {
     type: 'GIFT OF THE FOREST',
     token: 'GIFT OF THE FOREST',
-    color: 'text-slate-900 dark:text-[#fff1bc]',
+    color: 'text-[#6d6650] dark:text-[#fff1bc]',
     description: undefined,
   },
 ] as const satisfies {
@@ -416,7 +416,7 @@ export type InlineToken = (typeof INLINE_TOKENS)[number]
 export const EXTERNAL_TOKENS = [
   {
     token: 'Amplitude',
-    color: 'text-[#55D4A9] dark:text-[#66ffcc]',
+    color: 'text-[#1f7a5c] dark:text-[#66ffcc]',
     description:
       "All, or part, of this item's effect benefits from Amplitude trait.",
   },
@@ -439,7 +439,7 @@ export const EXTERNAL_TOKENS = [
   },
   {
     token: 'Explosive Damage',
-    color: 'text-[#D46161] dark:text-[#ff7575]',
+    color: 'text-[#c83737] dark:text-[#ff7575]',
     description: "All, or part, of this item's effect deals Explosive Damage.",
   },
   {
@@ -455,7 +455,7 @@ export const EXTERNAL_TOKENS = [
   },
   {
     token: 'Bug',
-    color: 'text-[#C4D400] dark:text-[#ecff00]',
+    color: 'text-[#5e6600] dark:text-[#ecff00]',
     description:
       'This item is currently bugged and MAY not function as expected. Check remnant.wiki for more information.',
   },
