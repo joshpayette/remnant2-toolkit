@@ -22,7 +22,7 @@ export const modItems: ModItem[] = [
     id: '777968',
     description:
       'ERROR: Unable to load description.ERROR: Unable to load description.',
-    wikiLinks: [`https://remnant.wiki/Polygun/Encrypted`],
+    wikiLinks: [`https://remnant.wiki/Polygun`],
     linkedItems: {
       weapon: {
         name: 'Polygun',
@@ -37,7 +37,7 @@ export const modItems: ModItem[] = [
     id: 'h9k5pl',
     dlc: 'base',
     description: `Charge Melee Attacks increase the speed of all Melee Attacks by 10% for 5s.`,
-    wikiLinks: [`https://remnant.wiki/Accelerator`],
+    wikiLinks: [`https://remnant.wiki/Atom_Smasher`],
     linkedItems: {
       weapon: {
         name: 'Atom Smasher',
@@ -65,7 +65,7 @@ export const modItems: ModItem[] = [
     dlc: 'dlc1',
     id: 'wszjeu',
     description: `Incoming damage grants Awakening which increases Melee Damage by 5% per stack for 10s. Max 10 stacks.`,
-    wikiLinks: [`https://remnant.wiki/Awakening`],
+    wikiLinks: [`https://remnant.wiki/Wrathbringer`],
     linkedItems: {
       weapon: {
         name: 'Wrathbringer',
@@ -86,7 +86,7 @@ export const modItems: ModItem[] = [
       '\n' +
       'Mod Power Requirement: 250',
     externalTokens: [`Multiplicative Debuffs`],
-    wikiLinks: [`https://remnant.wiki/Banish`],
+    wikiLinks: [`https://remnant.wiki/Repulsor`],
     linkedItems: {
       weapon: {
         name: 'Repulsor',
@@ -107,7 +107,7 @@ export const modItems: ModItem[] = [
       '\n' +
       'Mod Power Requirement: 450',
     externalTokens: [`Explosive Damage`],
-    wikiLinks: [`https://remnant.wiki/Beta_Ray`],
+    wikiLinks: [`https://remnant.wiki/Alpha_/_Omega`],
     linkedItems: {
       weapon: {
         name: 'Alpha-Omega',
@@ -122,7 +122,7 @@ export const modItems: ModItem[] = [
     id: 'puif17',
     dlc: 'base',
     description: `Neutral Evade turns to mist, granting Nightshade 5% base damage as Lifesteal for 5s. Perfect Dodge doubles duration.`,
-    wikiLinks: [`https://remnant.wiki/Beyond_The_Veil`],
+    wikiLinks: [`https://remnant.wiki/Nightshade`],
     linkedItems: {
       weapon: {
         name: 'Nightshade',
@@ -143,7 +143,7 @@ export const modItems: ModItem[] = [
       '\n' +
       'Mod Power Requirement: 420',
     externalTokens: [`Explosive Damage`, `Amplitude`],
-    wikiLinks: [`https://remnant.wiki/Big_Bang`],
+    wikiLinks: [`https://remnant.wiki/Star_Shot`],
     linkedItems: {
       weapon: {
         name: 'Star Shot',
@@ -159,7 +159,7 @@ export const modItems: ModItem[] = [
     dlc: 'base',
     description:
       'Charge Melee Attacks apply BURNING which deals 200 - 600 FIRE damage over 5s.',
-    wikiLinks: [`https://remnant.wiki/Blaze`],
+    wikiLinks: [`https://remnant.wiki/Smolder`],
     linkedItems: {
       weapon: {
         name: 'Smolder',
@@ -193,7 +193,7 @@ export const modItems: ModItem[] = [
       'Bloodline damage increases by 50% for each enemy penetrated.\n' +
       '\n' +
       'Mod Power Requirement: 500',
-    wikiLinks: [`https://remnant.wiki/Bloodline`],
+    wikiLinks: [`https://remnant.wiki/Merciless`],
     linkedItems: {
       weapon: {
         name: 'Merciless',
@@ -211,7 +211,7 @@ export const modItems: ModItem[] = [
       'While active, grants unlimited Reserve Ammo, increases Reload Speed by 50%, and shots appy 250 BLEEDING damage over 10s. If 3 shot hit a Weakspot reloading, Merciless will automatically perform a quick Reload. Lasts 13s.\n' +
       '\n' +
       'Mod Power Requirement: 1,250',
-    wikiLinks: [`https://remnant.wiki/Bloodshot`],
+    wikiLinks: [`https://remnant.wiki/Corrupted_Merciless`],
     linkedItems: {
       weapon: {
         name: 'Corrupted Merciless',
@@ -226,7 +226,7 @@ export const modItems: ModItem[] = [
     id: '1rw0kk',
     dlc: 'base',
     description: `Attacks from behind enemies always count as Weakspots. Charge Attacks deal 200 - 600 BLEEDING damage over 10s.`,
-    wikiLinks: [`https://remnant.wiki/Bloodthirst`],
+    wikiLinks: [`https://remnant.wiki/Assassin's_Dagger`],
     linkedItems: {
       weapon: {
         name: `Assassin's Dagger`,
@@ -258,7 +258,7 @@ export const modItems: ModItem[] = [
       'Harpoon Mode: Fire Harpoon to mark target causing primary fire to become Homing Rounds dealing 15% reduced damage. Enemies hit by Homing Rounds build Influence. Recasting exits Mode.\n' +
       '\n' +
       'When Influence fills, Monarch automatically reloads, creates a shockwave, and gains 20% Increased Damage and Infinite Reserves. Lasts 20s.',
-    wikiLinks: [`https://remnant.wiki/Chain_of_Command`],
+    wikiLinks: [`https://remnant.wiki/Monarch`],
     linkedItems: {
       weapon: {
         name: 'Monarch',
@@ -279,7 +279,7 @@ export const modItems: ModItem[] = [
       '\n' +
       ' Mod Power Requirement: 450',
     externalTokens: [`Amplitude`],
-    wikiLinks: [`https://remnant.wiki/Chaos_Driver`],
+    wikiLinks: [`https://remnant.wiki/Enigma`],
     linkedItems: {
       weapon: {
         name: 'Enigma',
@@ -342,7 +342,7 @@ export const modItems: ModItem[] = [
       '\n' +
       'Mod Power Requirement: 1,000',
     externalTokens: [`Amplitude`],
-    wikiLinks: [`https://remnant.wiki/Cube_Room`],
+    wikiLinks: [`https://remnant.wiki/Corrupted_Cube_Gun`],
     linkedItems: {
       weapon: {
         name: 'Corrupted Cube Gun',
@@ -358,7 +358,7 @@ export const modItems: ModItem[] = [
     dlc: 'base',
     description: `Generates a shield which absorbs up to 500 damage from incoming enemy projectiles. Lasts 15s.
     Reactivating fires the Cube Shield damage enemies as is travels. Damage is increased if the Cube Shield has absorbed enemy projectile damage before firing.`,
-    wikiLinks: [`https://remnant.wiki/Cube_Shield`],
+    wikiLinks: [`https://remnant.wiki/Cube_Gun`],
     linkedItems: {
       weapon: {
         name: 'Cube Gun',
@@ -373,7 +373,7 @@ export const modItems: ModItem[] = [
     id: '1bfadq',
     dlc: 'dlc2',
     description: `Maintaining an overhead Charged Melee forms a 5m sand cyclone, dealing 35 damage per second and pulls enemies towards the wielder. Each Cyclone hit applies EXPOSED for 3s. Max 15s.`,
-    wikiLinks: [`https://remnant.wiki/Cyclone`],
+    wikiLinks: [`https://remnant.wiki/Mirage`],
     linkedItems: {
       weapon: {
         name: 'Mirage',
@@ -389,7 +389,7 @@ export const modItems: ModItem[] = [
     dlc: 'base',
     description: `Fires a cluster bomb which detonates on impact across 2.5m. each cluster deals up to 150 damage per explosion within 3.5m.`,
     externalTokens: [`Amplitude`, `Explosive Damage`],
-    wikiLinks: [`https://remnant.wiki/Deadpoint`],
+    wikiLinks: [`https://remnant.wiki/Corrupted_Meridian`],
     linkedItems: {
       weapon: {
         name: 'Corrupted Meridian',
@@ -410,7 +410,7 @@ export const modItems: ModItem[] = [
       '\n' +
       'Mod Power Requirement: 1,000\n' +
       'cats=The Forgotten Kingdom',
-    wikiLinks: [`https://remnant.wiki/Deadwood`],
+    wikiLinks: [`https://remnant.wiki/Thorn`],
     linkedItems: {
       weapon: {
         name: 'Thorn',
@@ -426,7 +426,7 @@ export const modItems: ModItem[] = [
     dlc: 'base',
     description: `Applies Death Brand to all enemies within 25m, increasing incoming damage by 10%. Enemies killed while bearing the Death Brand leave behind an Echo which lasts 10s before returning to the Nightmare Realm. Echoes are drawn to any survivor who walks within 3m. increasing Weakspot Damage dealt by 10% for 10s.`,
     externalTokens: [`Amplitude`],
-    wikiLinks: [`https://remnant.wiki/Death_Brand`],
+    wikiLinks: [`https://remnant.wiki/Corrupted_Rune_Pistol`],
     linkedItems: {
       weapon: {
         name: 'Corrupted Rune Pistol',
@@ -441,7 +441,7 @@ export const modItems: ModItem[] = [
     id: 'wilhsl',
     dlc: 'base',
     description: `Dealing Melee Damage 6 times over 10s empowers Feral Judgement. When empowered, Neutral Backdash Charge Attacks apply Death Sentence. After 1.5s of being sentenced, the enemy will suffer 10 Phantom Strikes, dealing X25Damage each. Deals 25% additional damage to BLEEDING enemies.`,
-    wikiLinks: [`https://remnant.wiki/Death_Sentence`],
+    wikiLinks: [`https://remnant.wiki/Feral_Judgement`],
     linkedItems: {
       weapon: {
         name: 'Feral Judgement',
@@ -478,7 +478,7 @@ export const modItems: ModItem[] = [
       'Disables other weapons and Skills for the duration, or until Dreadwalker is deactivated. Lasts 10s.\n' +
       '\n' +
       'Mod Power Requirement: 1,250',
-    wikiLinks: [`https://remnant.wiki/Dreadwalker`],
+    wikiLinks: [`https://remnant.wiki/Nightfall`],
     linkedItems: {
       weapon: {
         name: ' Nightfall',
@@ -498,7 +498,7 @@ export const modItems: ModItem[] = [
       '\n' +
       'Dreamwave applies SLOW to all enemies for 10s and grants a Stack of REVERIE for each enemy affected. Each Stack grants 2% to All Damage and 2% Movement Speed, which lasts 15s.',
     externalTokens: [`Amplitude`],
-    wikiLinks: [`https://remnant.wiki/Dreamwave`],
+    wikiLinks: [`https://remnant.wiki/Dreamcatcher`],
     linkedItems: {
       weapon: {
         name: 'Dreamcatcher',
@@ -514,7 +514,7 @@ export const modItems: ModItem[] = [
     dlc: 'base',
     description: `When Infused, Neutral Backdash Charge Attack explodes in a 3m AOE and leaves an ACID Cloud which lasts for 15s.`,
     externalTokens: [`Amplitude`],
-    wikiLinks: [`https://remnant.wiki/Dying_Breath`],
+    wikiLinks: [`https://remnant.wiki/Gas_Giant`],
     linkedItems: {
       weapon: {
         name: 'Gas Giant',
@@ -542,7 +542,7 @@ export const modItems: ModItem[] = [
     id: '7ztoh8',
     dlc: 'base',
     description: `Charge attacks use 35 stamina to release an energy wave projectile allowing the wielder to strike enemies from much farther away.`,
-    wikiLinks: [`https://remnant.wiki/Energy_Wave`],
+    wikiLinks: [`https://remnant.wiki/Hero's_Sword`],
     linkedItems: {
       weapon: {
         name: "Hero's Sword",
@@ -563,7 +563,7 @@ export const modItems: ModItem[] = [
       '\n' +
       'Mod Power Requirement: 600',
     externalTokens: [`Explosive Damage`],
-    wikiLinks: [`https://remnant.wiki/Eulogy`],
+    wikiLinks: [`https://remnant.wiki/Sorrow`],
     linkedItems: {
       weapon: {
         name: 'Sorrow',
@@ -582,7 +582,7 @@ export const modItems: ModItem[] = [
       '\n' +
       ' Mod Power Requirement: 650',
     externalTokens: [`Amplitude`, `Explosive Damage`],
-    wikiLinks: [`https://remnant.wiki/Explosive_Shot`],
+    wikiLinks: [`https://remnant.wiki/Hellfire`],
     linkedItems: {
       weapon: {
         name: 'Hellfire',
@@ -625,7 +625,7 @@ export const modItems: ModItem[] = [
     id: 'o1zwol',
     description:
       'Charged Melee Hits grant Fathomless Deep which increases Melee Stagger by 10% per stack for 5s. Max 3 stacks.',
-    wikiLinks: [`https://remnant.wiki/Fathomless_Deep`],
+    wikiLinks: [`https://remnant.wiki/Abyssal_Hook`],
     linkedItems: {
       weapon: {
         name: 'Abyssal Hook',
@@ -641,7 +641,7 @@ export const modItems: ModItem[] = [
     dlc: 'base',
     description:
       'Melee Charge attacks fire off ground-based shockwaves which deal 115 - 345 damage.',
-    wikiLinks: [`https://remnant.wiki/Faultline`],
+    wikiLinks: [`https://remnant.wiki/Stonebreaker`],
     linkedItems: {
       weapon: {
         name: 'Stonebreaker',
@@ -673,7 +673,7 @@ export const modItems: ModItem[] = [
       'On Neutral Evade Attacks Atom Splitter achieves Nuclear Fission, releashing a wave of charged particles which deals 150 - 450 damage to targets within 20m.\n' +
       '\n' +
       'Charged Neutral Evade Attacks increase range by 3x and damage by 25%.',
-    wikiLinks: [`https://remnant.wiki/Fission_Strike`],
+    wikiLinks: [`https://remnant.wiki/Atom_Splitter`],
     linkedItems: {
       weapon: {
         name: 'Atom Splitter',
@@ -705,7 +705,7 @@ export const modItems: ModItem[] = [
     id: 'x8vmra',
     dlc: 'base',
     description: `Charge Attacks taint the blood of targets, causing all attacks from Godsplitter to register as Weakspot hits for 3s seconds. Duration increases with additional fragments. Max 35s.`,
-    wikiLinks: [`https://remnant.wiki/Fracture`],
+    wikiLinks: [`https://remnant.wiki/Godsplitter`],
     linkedItems: {
       weapon: {
         name: 'Godsplitter',
@@ -725,7 +725,7 @@ export const modItems: ModItem[] = [
       'Consuming a Charge refills 20% of the Primary Magazine.\n' +
       '\n' +
       'Mod Power Requirement: 340',
-    wikiLinks: [`https://remnant.wiki/Fusion_Cannon`],
+    wikiLinks: [`https://remnant.wiki/Corrupted_Savior`],
     linkedItems: {
       weapon: {
         name: 'Corrupted Savior',
@@ -746,7 +746,7 @@ export const modItems: ModItem[] = [
       '\n' +
       'Mod Power Requirement: 1,500',
     externalTokens: [`Amplitude`, `Explosive Damage`],
-    wikiLinks: [`https://remnant.wiki/Gravity_Core`],
+    wikiLinks: [`https://remnant.wiki/Starkiller`],
     linkedItems: {
       weapon: {
         name: 'Starkiller',
@@ -767,7 +767,7 @@ export const modItems: ModItem[] = [
       '\n' +
       'Mod Power Requirement: 750',
     externalTokens: [`Amplitude`, `Explosive Damage`],
-    wikiLinks: [`https://remnant.wiki/Guardian's_Call`],
+    wikiLinks: [`https://remnant.wiki/Twisted_Arbalest`],
     linkedItems: {
       weapon: {
         name: 'Twisted Arbalest',
@@ -786,7 +786,7 @@ export const modItems: ModItem[] = [
       '\n' +
       'Mod Power Requirement: 1,250',
     externalTokens: [`Amplitude`],
-    wikiLinks: [`https://remnant.wiki/Guardian's_Fury`],
+    wikiLinks: [`https://remnant.wiki/Corrupted_Arbalest`],
     linkedItems: {
       weapon: {
         name: 'Corrupted Arbalest',
@@ -830,7 +830,7 @@ export const modItems: ModItem[] = [
       "Forces open Plasma Cutter's heat vents dispersing all heat. While active, Plasma Cutter generates 50% less heat, and ramping damage cap is increased to 3x Damage. Overheats automatically when deactivated. Lasts 20s.\n" +
       '\n' +
       'Mod Power Requirement: 850',
-    wikiLinks: [`https://remnant.wiki/Heat_Sink`],
+    wikiLinks: [`https://remnant.wiki/Plasma_Cutter`],
     linkedItems: {
       weapon: {
         name: 'Plasma Cutter',
@@ -859,7 +859,7 @@ export const modItems: ModItem[] = [
     dlc: 'base',
     description:
       'Charge Attacks release a wide horizontal projectile that penetrates through multiple enemies dealing 101 - 302 damage.',
-    wikiLinks: [`https://remnant.wiki/Horizon_Strike`],
+    wikiLinks: [`https://remnant.wiki/World's_Edge`],
     linkedItems: {
       weapon: {
         name: "World's Edge",
@@ -887,7 +887,7 @@ export const modItems: ModItem[] = [
     id: '29kz6t',
     dlc: 'base',
     description: `Charge attacks use 25 stamina to throw the spear, which returns to the wielder's hand.`,
-    wikiLinks: [`https://remnant.wiki/Javelin`],
+    wikiLinks: [`https://remnant.wiki/Huntress_Spear`],
     linkedItems: {
       weapon: {
         name: 'Huntress Spear',
@@ -916,7 +916,7 @@ export const modItems: ModItem[] = [
     dlc: 'base',
     description:
       'Charge to throw the Krell Axe which applies OVERLOADED on hit, dealing 50- 150 SHOCK damage every 5s for 10s. Shortly after throwing, another will appear in the wielders hand. Cost 25 Stamina.',
-    wikiLinks: [`https://remnant.wiki/Krell_Edge`],
+    wikiLinks: [`https://remnant.wiki/Krell_Axe`],
     linkedItems: {
       weapon: {
         name: 'Krell Axe',
@@ -932,7 +932,7 @@ export const modItems: ModItem[] = [
     dlc: 'base',
     description:
       'After dealing 250 - 750 damage, the next Charge Attack causes the Spirit of the Red Doe to stampede forward, dealing 160  - 480 damage to enemies and regenerating 10% Health to allies.',
-    wikiLinks: [`https://remnant.wiki/Lifeline`],
+    wikiLinks: [`https://remnant.wiki/Red_Doe_Staff`],
     linkedItems: {
       weapon: {
         name: 'Red Doe Staff',
@@ -950,7 +950,7 @@ export const modItems: ModItem[] = [
       'Rapidly fires volatile needles that explode after 1.5s dealing 30 - 90 explosive damage. Deals additional damage to targets with lower health. Lasts 10s.\n' +
       '\n' +
       'Mod Power Requirement: 915',
-    wikiLinks: [`https://remnant.wiki/Loathe_The_Weak`],
+    wikiLinks: [`https://remnant.wiki/Anguish`],
     linkedItems: {
       weapon: {
         name: 'Anguish',
@@ -973,7 +973,7 @@ export const modItems: ModItem[] = [
       '\n' +
       'Mod Power Requirement: 1,000',
     externalTokens: [`Amplitude`, `Explosive Damage`],
-    wikiLinks: [`https://remnant.wiki/Micronova`],
+    wikiLinks: [`https://remnant.wiki/Corrupted_Aphelion`],
     linkedItems: {
       weapon: {
         name: 'Corrupted Aphelion',
@@ -993,7 +993,7 @@ export const modItems: ModItem[] = [
       'Basic Shots automatically become Charged Shots. Perfect Shots fire two arrows.\n' +
       '\n' +
       'Mod Power Requirement: 1,250',
-    wikiLinks: [`https://remnant.wiki/Moonlight_Barrage`],
+    wikiLinks: [`https://remnant.wiki/Crescent_Moon`],
     linkedItems: {
       weapon: {
         name: 'Crescent Moon',
@@ -1012,7 +1012,7 @@ export const modItems: ModItem[] = [
       '\n' +
       'Mod Power Requirement: 600',
     externalTokens: [`Amplitude`, `Explosive Damage`],
-    wikiLinks: [`https://remnant.wiki/Nano_Phase`],
+    wikiLinks: [`https://remnant.wiki/Corrupted_Nebula`],
     linkedItems: {
       weapon: {
         name: 'Corrupted Nebula',
@@ -1030,7 +1030,7 @@ export const modItems: ModItem[] = [
       'Unleash a swarm of Nanomachines that seek after enemies within 20 meters and repeatedly attack dealing 6 ACID damage per hit and applying CORRODED dealing 100 ACID damage over 10s. Lasts 15 seconds.\n' +
       '\n' +
       ' Mod Power Requirment: 750',
-    wikiLinks: [`https://remnant.wiki/Nano_Swarm`],
+    wikiLinks: [`https://remnant.wiki/Nebula`],
     linkedItems: {
       weapon: {
         name: 'Nebula',
@@ -1050,7 +1050,7 @@ export const modItems: ModItem[] = [
       'Charge Melee Attacks fire all remaining Fragments at once but they taint blood for a shorter duration for each thrown.\n' +
       '\n' +
       'Mod Power Requirement: 1,440',
-    wikiLinks: [`https://remnant.wiki/Ouroboros`],
+    wikiLinks: [`https://remnant.wiki/Deceit`],
     linkedItems: {
       weapon: {
         name: 'Deceit',
@@ -1086,7 +1086,7 @@ export const modItems: ModItem[] = [
       '\n' +
       'While empowered, Charged Melee calls a 6m shockwave dealing 75 - 225 SHOCK Damage and ends POWER STONE. For each POWER STONE stack built when ended, release 1 energy bolt that seeks a random enemy and applies OVERLOADED to 10s.',
     externalTokens: [`Amplitude`],
-    wikiLinks: [`https://remnant.wiki/Power_Stone`],
+    wikiLinks: [`https://remnant.wiki/Crystal_Staff`],
     linkedItems: {
       weapon: {
         name: 'Crystal Staff',
@@ -1115,7 +1115,7 @@ export const modItems: ModItem[] = [
     dlc: 'dlc1',
     id: 'geb8ho',
     description: `Increases Melee Damage by 10% if the target is suffering from a Negative Status Effect.`,
-    wikiLinks: [`https://remnant.wiki/Reaver`],
+    wikiLinks: [`https://remnant.wiki/Ritualist_Scythe`],
     linkedItems: {
       weapon: {
         name: 'Ritualist Scythe',
@@ -1180,7 +1180,7 @@ export const modItems: ModItem[] = [
       '\n' +
       'Mod Power Requirement: 1,000',
     externalTokens: [`Amplitude`],
-    wikiLinks: [`https://remnant.wiki/Sandstorm`],
+    wikiLinks: [`https://remnant.wiki/Monolith`],
     linkedItems: {
       weapon: {
         name: 'Monolith',
@@ -1211,7 +1211,7 @@ export const modItems: ModItem[] = [
     dlc: 'base',
     description: `Fire a high-powered rocket that deals up to 200 damage within 2.5m.`,
     externalTokens: [`Amplitude`, `Explosive Damage`],
-    wikiLinks: [`https://remnant.wiki/Screamer`],
+    wikiLinks: [`https://remnant.wiki/Meridian`],
     linkedItems: {
       weapon: {
         name: 'Meridian',
@@ -1231,7 +1231,7 @@ export const modItems: ModItem[] = [
       'Hitting an enemy causes the shot to fragment, striking enemies within 7m for 30% of the initial damage dealt and also apply BURNING. Lasts 20s.\n' +
       '\n' +
       'Mod Power Requirement: 1,250',
-    wikiLinks: [`https://remnant.wiki/Shatterstar`],
+    wikiLinks: [`https://remnant.wiki/Savior`],
     linkedItems: {
       weapon: {
         name: 'Savior',
@@ -1283,7 +1283,7 @@ export const modItems: ModItem[] = [
       '\n' +
       'Mod Power Requirement: 850',
     externalTokens: [`Amplitude`],
-    wikiLinks: [`https://remnant.wiki/Soul_Brand`],
+    wikiLinks: [`https://remnant.wiki/Rune_Pistol`],
     linkedItems: {
       weapon: {
         name: 'Rune Pistol',
@@ -1329,7 +1329,7 @@ export const modItems: ModItem[] = [
       'Fires a rotten spore that releases a specialized gas cloud over 6m. Applies SLOW to enemies while dealing 15 - 45 damage per second for 7s. Grants HASTE to allies, which lasts 5s after leaving the cloud.\n' +
       '\n' +
       'Mod Power Requirement: 350',
-    wikiLinks: [`https://remnant.wiki/Spore_Shot`],
+    wikiLinks: [`https://remnant.wiki/Sporebloom`],
     linkedItems: {
       weapon: {
         name: 'Sporebloom',
@@ -1348,7 +1348,7 @@ export const modItems: ModItem[] = [
       '\n' +
       'Mod Power Requirement: 750',
     externalTokens: [`Amplitude`, `Explosive Damage`],
-    wikiLinks: [`https://remnant.wiki/Starfall`],
+    wikiLinks: [`https://remnant.wiki/Sagittarius`],
     linkedItems: {
       weapon: {
         name: 'Sagittarius',
@@ -1386,7 +1386,7 @@ export const modItems: ModItem[] = [
       '\n' +
       'Mod Power Requirement: 1,000',
     externalTokens: [`Amplitude`],
-    wikiLinks: [`https://remnant.wiki/Supernova`],
+    wikiLinks: [`https://remnant.wiki/Aphelion`],
     linkedItems: {
       weapon: {
         name: 'Aphelion',
@@ -1447,7 +1447,7 @@ export const modItems: ModItem[] = [
     dlc: 'base',
     description:
       'Performing a Charge Melee Attack during a Neutral Backdash creates a Whirlwind of slashes which strike all enemies within 8m for 91 - 273 damage.',
-    wikiLinks: [`https://remnant.wiki/Whirlwind`],
+    wikiLinks: [`https://remnant.wiki/Spectral_Blade`],
     linkedItems: {
       weapon: {
         name: 'Spectral Blade',
@@ -1485,7 +1485,7 @@ export const modItems: ModItem[] = [
       'Enemies struck by the Windfall obtain Tainted Blood for 3s causing all attacks from Deceit to trigger as Weakspot hits.\n' +
       '\n' +
       'Mod Power Requirement: 720',
-    wikiLinks: [`https://remnant.wiki/Windfall`],
+    wikiLinks: [`https://remnant.wiki/Corrupted_Deceit`],
     linkedItems: {
       weapon: {
         name: 'Corrupted Deceit',

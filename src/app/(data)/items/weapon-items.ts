@@ -1281,7 +1281,6 @@ export const weaponItems: WeaponItem[] = [
     description: `Steel knuckles with rusty sawblade tips, designed to boost Unarmed damage.`,
     wikiLinks: [`https://remnant.wiki/Knuckle_Dusters`],
     location: { world: 'Ward 13', dungeon: 'Vendor' },
-
     damage: 43,
     crit: 5,
     weakspot: 110,
