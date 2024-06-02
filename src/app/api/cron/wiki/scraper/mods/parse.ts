@@ -6,12 +6,8 @@ export function modDataParse(
 ): {
   description: string
 } {
-  // Sporebloom workaround
-  if (isLinkedMod) {
-    $('.infobox div.infobox-attachment-description')
-      .find('.rw-tooltip')
-      .remove()
-  }
+  // Haste tooltip messes up the description
+  $('.infobox').find('.rw-tooltip').replaceWith('HASTE')
 
   const description = isLinkedMod
     ? $('.infobox div.infobox-attachment-description')

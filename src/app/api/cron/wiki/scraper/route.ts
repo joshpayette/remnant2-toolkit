@@ -31,12 +31,12 @@ export async function GET(request: NextRequest) {
   // no need for archetype items
 
   // await handleAmuletItems()
-  // await handleArmorItems()
+  await handleArmorItems()
   // await handleConcoctionItems()
   // await handleConsumableItems()
   // await handleModItems()
   // await handleMutatorItems()
-  await handlePerkItems()
+  // await handlePerkItems()
   // await handleRelicFragmentItems()
   // await handleRelicItems()
   // await handleRingItems()
