@@ -20,6 +20,7 @@ const allowListUserIds: string[] = [
   'clr5hr7bu000091ttvgj8l5hz', // mrnacho
   'clrle2v5s0000ydtr0a15wt61', // alexij
   'clqsdi836000aqhqitf2m49mi', // thatguylegit69
+  'clvki57920000132727ovfegx', // synder
 ]
 
 /**
