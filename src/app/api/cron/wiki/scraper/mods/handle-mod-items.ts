@@ -36,11 +36,13 @@ export async function handleModItems() {
         throw new Error('Failed to fetch wiki page')
       }
 
+      const isLinkedMod = Boolean(item.linkedItems?.weapon?.name)
+
       console.info(`Fetching ${item.name} data...`)
 
       const json = await req.json()
       const text = json.parse.text['*']
-      const newData = modDataParse(cheerio.load(text))
+      const newData = modDataParse(cheerio.load(text), isLinkedMod)
       const dataComparison = modDataCompare(newData, item)
 
       if (dataComparison.dataDiffers) {
