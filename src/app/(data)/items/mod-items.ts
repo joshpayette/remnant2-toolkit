@@ -1346,7 +1346,7 @@ export const modItems: ModItem[] = [
     dlc: 'base',
     tags: ['Status Effect'],
     description:
-      'Fires a rotten spore that releases a specialized gas cloud over 6m. Applies SLOW to enemies while dealing 15 - 45 damage per second for 7s. Grants  to allies, which lasts 5s after leaving the cloud.\n' +
+      'Fires a rotten spore that releases a specialized gas cloud over 6m. Applies SLOW to enemies while dealing 15 - 45 damage per second for 7s. Grants HASTE to allies, which lasts 5s after leaving the cloud.\n' +
       '\n' +
       'Mod Power Requirement: 350',
     wikiLinks: [`https://remnant.wiki/Sporebloom`],
@@ -1482,7 +1482,7 @@ export const modItems: ModItem[] = [
     id: '9jwTXR',
     dlc: 'base',
     description:
-      'Launches a Wisp that uniquely seeks to one anchored primary fire bolt location. Bolts anchored to enemies deal 100 - 300 damage per Wisp. Bolts anchored to allies heal 10% Max Health per Wisp. Bolts are consumed when impacted by a Wisp.\n' +
+      'Launches a Wisp that uniquely seeks to one anchored primary fire bolt location. Bolts anchored to enemies deal 100 - 300 damage per Wisp. Bolds anchored to allies heal 10% Max Health per Wisp. Bolts are consumed when impacted by a Wisp.\n' +
       '\n' +
       'Mod Power Requirement: 500',
     wikiLinks: [`https://remnant.wiki/Corrupted_Sorrow`],

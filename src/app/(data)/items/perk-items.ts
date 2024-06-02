@@ -34,9 +34,14 @@ export const perkItems: PerkItem[] = [
     dlc: 'base',
     tags: ['Ranged Damage', 'Weakspot Damage', 'Critical Chance'],
     description:
-      'Gain 4% Ranged Damage and 1.5% Weakspot Damage.\n' +
+      'Level 1:\n' +
+      'Gain 4% Ranged Damage and 1.5% Weakspot Damage.Increases with Hunter Level.\n' +
       '\n' +
-      'Increases with Hunter Level.',
+      'Level 6:\n' +
+      'Gain 24% Ranged Damage and 9% Weakspot Damage and 5% Ranged Critical Chance.Damage increases with Hunter Level.\n' +
+      '\n' +
+      'Level 10:\n' +
+      'Gain 40% Ranged Damage and 15% Weakspot Damage and 5% Ranged Critical Chance.',
     wikiLinks: [`https://remnant.wiki/Deadeye`],
     linkedItems: {
       archetype: {
@@ -53,7 +58,11 @@ export const perkItems: PerkItem[] = [
     dlc: 'base',
     tags: ['Critical Hit', 'Weakspot Hit'],
     description:
-      'Kills due to Weakspot and Critical Hits increase Ammo drops by 25%.',
+      'Level 2:\n' +
+      'Kills due to Weakspot and Critical Hits increase Ammo drops by 25%.\n' +
+      '\n' +
+      'Level 7:\n' +
+      'Kills due to Weakspot and Critical Hits increase Ammo drops by 50% and double the chance of Ammo drops.',
     wikiLinks: [`https://remnant.wiki/Return_to_Sender`],
     linkedItems: {
       archetype: {
@@ -69,7 +78,12 @@ export const perkItems: PerkItem[] = [
     id: '98yqyq',
     dlc: 'base',
     tags: ['Reload Speed', 'Movement Speed'],
-    description: 'Firearms gain 15% Reload Speed after a Kill. Lasts 3s.',
+    description:
+      'Level 3:\n' +
+      'Kills increase Reload Speed by 15%. Lasts 3s.\n' +
+      '\n' +
+      'Level 8:\n' +
+      'Kills increase Reload Speed by 15% and Movement Speed by 15%. Lasts 5s.',
     wikiLinks: [`https://remnant.wiki/Urgency`],
     linkedItems: {
       archetype: {
@@ -86,7 +100,11 @@ export const perkItems: PerkItem[] = [
     type: 'relic',
     tags: ['Relic Use Speed'],
     description:
-      'Using a Relic extends the duration of any active Hunter Skill by 5s. Effect degrades with each subsequent use.',
+      'Level 4:\n' +
+      'Using a Relic extends the duration of any active Hunter Skill by 5s. Effect degrades with each subsequent use.\n' +
+      '\n' +
+      'Level 9:\n' +
+      'Using a Relic extends the duration of any active Hunter Skill by 10s. Effect degrades with each subsequent use. Weakspot kills against MARKED enemies increase speed of next relic use within 15s by 5%. Stacks 10x.',
     wikiLinks: [`https://remnant.wiki/Intuition`],
     linkedItems: {
       archetype: {
@@ -105,17 +123,17 @@ export const perkItems: PerkItem[] = [
       'Base:\n' +
       'When Handler is downed, Companion will attempt to revive them at 50% Max Health. Can be used to revive allies with Command. Downed ally must have a Relic charge.\n' +
       '\n' +
-      'Cooldown: 120s.\n' +
+      'Cooldown: 120s\n' +
       '\n' +
       'Level 5:\n' +
       'When Handler is downed, Companion will attempt to revive them at 50% Max Health. Can be used to revive allies with Command. Downed ally must have a Relic charge.\n' +
       '\n' +
-      'Cooldown: 105s.\n' +
+      'Cooldown: 105s\n' +
       '\n' +
       'Level 10:\n' +
       'When Handler is downed, Companion will attempt to revive them at 50% Max Health. Can be used to revive allies with Command. Downed ally must have a Relic charge.\n' +
       '\n' +
-      'Cooldown: 90s.',
+      'Cooldown: 90s',
     wikiLinks: [`https://remnant.wiki/Bonded`],
     linkedItems: {
       archetype: {
@@ -133,19 +151,13 @@ export const perkItems: PerkItem[] = [
     tags: ['Ranged Damage', 'Skill Damage', 'Critical Chance'],
     description:
       'Level 1:\n' +
-      'Gain 3% Ranged, Melee, and Skill Damage while Companion is active and within 40m of the Handler.\n' +
-      '\n' +
-      'Damage increases with Handler Level.\n' +
+      'Gain 3% Ranged, Melee, and Skill Damage while Companion is active and within 40m of the Handler.Increases with Handler Level.\n' +
       '\n' +
       'Level 6:\n' +
-      'Gain 18% Ranged, Melee, and Skill Damage and 5% Ranged, Melee, and Skill Critical Chance while Companion is active and within 40m of the Handler.\n' +
-      '\n' +
-      'Damage increases with Handler Level.\n' +
+      'Gain 18% Ranged, Melee, and Skill Damage and 5% Ranged, Melee, and Skill Critical Chance while Companion is active and within 40m of the Handler.Damage increases with Handler Level.\n' +
       '\n' +
       'Level 10:\n' +
-      'Gain 30% Ranged, Melee, and Skill Damage and 5% Ranged, Melee, and Skill Critical Chance while Companion is active and within 40m of the Handler.\n' +
-      '\n' +
-      'Damage increases with Handler Level.',
+      'Gain 30% Ranged, Melee, and Skill Damage and 5% Ranged, Melee, and Skill Critical Chance while Companion is active and within 40m of the Handler.',
     wikiLinks: [`https://remnant.wiki/Pack_Hunter`],
     externalTokens: [`Amplitude`],
     linkedItems: {
@@ -167,7 +179,7 @@ export const perkItems: PerkItem[] = [
       "Increases Movement Speed by 10%. All allies within 10m of the Handler gain the Handler's Movement Speed (if faster).\n" +
       '\n' +
       'Level 7:\n' +
-      "Increases Movement Speed by 10%. All allies within 10m of the Handler gain the Handler's Movement Speed (if faster). Reduces the Stamina Cost of actions for allies by 15%",
+      "Increases Movement Speed by 10%. All allies within 10m of the Handler gain the Handler's Movement Speed (if faster). Reduces the Stamina Cost of actions for allies by 15%.",
     wikiLinks: [`https://remnant.wiki/Spirit_of_the_Wolf`],
     externalTokens: [`Amplitude`],
     linkedItems: {
@@ -227,19 +239,13 @@ export const perkItems: PerkItem[] = [
     dlc: 'base',
     description:
       'Base:\n' +
-      'After restoring 350 Total Health to allies, regain a spent Relic charge.\n' +
-      '\n' +
-      'Resting or Respawning at a Worldstone resets healing accumulation. Each additional player increases the healing requirement by 50%.\n' +
+      'After restoring 350 Total Health to allies, regain a spent Relic charge.Resting or Respawning at a Worldstone resets healing accumulation. Each additional player increases the healing requirement by 50%.\n' +
       '\n' +
       'Level 5:\n' +
-      'After restoring 300 Total Health to allies, regain a spent Relic charge.\n' +
-      '\n' +
-      'Resting or Respawning at a Worldstone resets healing accumulation. Each additional player increases the healing requirement by 50%.\n' +
+      'After restoring 300 Total Health to allies, regain a spent Relic charge.Resting or Respawning at a Worldstone resets healing accumulation. Each additional player increases the healing requirement by 50%.\n' +
       '\n' +
       'Level 10:\n' +
-      'After restoring 250 Total Health to allies, regain a spent Relic charge.\n' +
-      '\n' +
-      'Resting or Respawning at a Worldstone resets healing accumulation. Each additional player increases the healing requirement by 50%.',
+      'After restoring 250 Total Health to allies, regain a spent Relic charge.Resting or Respawning at a Worldstone resets healing accumulation. Each additional player increases the healing requirement by 50%.',
     wikiLinks: [`https://remnant.wiki/Regenerator`],
     linkedItems: {
       archetype: {
@@ -256,7 +262,14 @@ export const perkItems: PerkItem[] = [
     dlc: 'base',
     tags: ['All Damage', 'Critical Chance'],
     description:
-      'Grants a 2.5% increase to All Damage.\n\nIncreases with Medic Level.',
+      'Base:\n' +
+      'Grants a 2.5% increase to All Damage.Increases with Medic Level.\n' +
+      '\n' +
+      'Level 6:\n' +
+      'Grants a 15% increase to All Damage and 5% Critical Chance.Damage increases with Medic Level.\n' +
+      '\n' +
+      'Level 10:\n' +
+      'Grants a 25% increase to All Damage and 5% Critical Chance.',
     wikiLinks: [`https://remnant.wiki/Invigorated`],
     linkedItems: {
       archetype: {
@@ -293,7 +306,11 @@ export const perkItems: PerkItem[] = [
     dlc: 'base',
     tags: ['Grey Health'],
     description:
-      'Increases the hits Medic can take before losing Grey Health by 1.',
+      'Level 3:\n' +
+      'Increases the hits Medic can take before losing Grey Health by 1.\n' +
+      '\n' +
+      'Level 8:\n' +
+      'Increases the hits Medic can take before losing Grey Health by 2.',
     wikiLinks: [`https://remnant.wiki/Backbone`],
     linkedItems: {
       archetype: {
@@ -332,13 +349,13 @@ export const perkItems: PerkItem[] = [
     tags: ['Reload Speed', 'Ammo Reserves'],
     description:
       'Base:\n' +
-      'When activating any Gunslinger Skill, both weapons are instantly reloaded, and gain infinite reserve ammo on all weapons for 5s .\n' +
+      'When activating any Gunslinger Skill, both weapons are instantly reloaded, and gain infinite reserve ammo on all weapons for 5s .[sic]\n' +
       '\n' +
       'Level 5:\n' +
-      'When activating any Gunslinger Skill, both weapons are instantly reloaded, and gain infinite reserve ammo on all weapons for 6.5s .\n' +
+      'When activating any Gunslinger Skill, both weapons are instantly reloaded, and gain infinite reserve ammo on all weapons for 6.5s .[sic]\n' +
       '\n' +
       'Level 10:\n' +
-      'When activating any Gunslinger Skill, both weapons are instantly reloaded, and gain infinite reserve ammo on all weapons for 8s .',
+      'When activating any Gunslinger Skill, both weapons are instantly reloaded, and gain infinite reserve ammo on all weapons for 8s .[sic]',
     wikiLinks: [`https://remnant.wiki/Loaded`],
     linkedItems: {
       archetype: {
@@ -355,20 +372,14 @@ export const perkItems: PerkItem[] = [
     dlc: 'base',
     tags: ['Fire Rate', 'Ranged Damage', 'Critical Chance'],
     description:
-      'Base:\n' +
-      'Gain 1.5% Fire Rate and 2.5% Ranged Damage.\n' +
-      '\n' +
-      'Increases with Gunslinger Level.\n' +
+      'Level 1:\n' +
+      'Gain 1.5% Fire Rate and 2.5% Ranged Damage.Increases with Gunslinger Level.\n' +
       '\n' +
       'Level 6:\n' +
-      'Gain 9% Fire Rate, 15% Ranged Damage, and 5% Crit Chance for all firearms.\n' +
-      '\n' +
-      'Fire Rate and Damage increases with Gunslinger Level.\n' +
+      'Gain 9% Fire Rate, 15% Ranged Damage, and 5% Crit Chance for all firearms.Fire Rate and Damage increases with Gunslinger Level.\n' +
       '\n' +
       'Level 10:\n' +
-      'Gain 15% Fire Rate, 25% Ranged Damage, and 5% Crit Chance for all firearms.\n' +
-      '\n' +
-      'Fire Rate and Damage increases with Gunslinger Level.',
+      'Gain 15% Fire Rate, 25% Ranged Damage, and 5% Crit Chance for all firearms.',
     wikiLinks: [`https://remnant.wiki/Swift_Shot`],
     linkedItems: {
       archetype: {
@@ -385,7 +396,11 @@ export const perkItems: PerkItem[] = [
     dlc: 'base',
     tags: ['Ammo Reserves'],
     description:
-      'Ammo pickups award 20% additional Ammo per player with the bonus split equally among teammates.',
+      'Level 2:\n' +
+      'Ammo pickups award 20% additional Ammo per player with the bonus split equally among teammates.\n' +
+      '\n' +
+      'Level 7:\n' +
+      'Ammo pickups award 30% additional Ammo per player with the bonus split equally among teammates. Causes Ammo Box to drop additional ammo on the ground.',
     wikiLinks: [`https://remnant.wiki/Posse_Up`],
     linkedItems: {
       archetype: {
@@ -401,7 +416,12 @@ export const perkItems: PerkItem[] = [
     id: '496x8y',
     dlc: 'base',
     tags: ['Reload Speed'],
-    description: 'Firearms gain 10% Reload Speed.',
+    description:
+      'Level 3:\n' +
+      'Firearms gain 10% Reload Speed.\n' +
+      '\n' +
+      'Level 8:\n' +
+      'Firearms gain 10% Reload Speed. Bonus is DOUBLED if magazine is empty.',
     wikiLinks: [`https://remnant.wiki/Quick_Hands`],
     linkedItems: {
       archetype: {
@@ -417,7 +437,12 @@ export const perkItems: PerkItem[] = [
     id: 'fspt8u',
     dlc: 'base',
     tags: ['Reload Speed', 'Ranged Damage'],
-    description: 'Using a Relic reloads equipped Firearm.',
+    description:
+      'Level 4:\n' +
+      'Using a Relic reloads equipped Firearm.\n' +
+      '\n' +
+      'Level 9:\n' +
+      'Using a Relic reloads equipped Firearm and increases Ranged Damage by 15% for 10s.',
     wikiLinks: [`https://remnant.wiki/Sleight_of_Hand`],
     linkedItems: {
       archetype: {
@@ -435,19 +460,13 @@ export const perkItems: PerkItem[] = [
     tags: ['Heal'],
     description:
       'Base:\n' +
-      'When receiving fatal damage, the Challenger becomes invulnerable for 3s and regenerates 50% of Max Health.\n' +
-      '\n' +
-      'While on cooldown, the Challenger gains 1 Stack of BULWARK. Can only happen once every 10 minutes. Resets at Worldstone or on death.\n' +
+      'When receiving fatal damage, the Challenger becomes invulnerable for 2s and regenerates 50% of Max Health.While on cooldown, the Challenger gains 1 Stack of BULWARK. Can only happen once every 10 minutes. Resets at Worldstone or on death.\n' +
       '\n' +
       'Level 5:\n' +
-      'When receiving fatal damage, the Challenger becomes invulnerable for 3s and regenerates 75% of Max Health.\n' +
-      '\n' +
-      'While on cooldown, the Challenger gains 1 Stack of BULWARK. Can only happen once every 10 minutes. Resets at Worldstone or on death.\n' +
+      'When receiving fatal damage, the Challenger becomes invulnerable for 2.5s and regenerates 75% of Max Health.While on cooldown, the Challenger gains 1 Stack of BULWARK. Can only happen once every 10 minutes. Resets at Worldstone or on death.\n' +
       '\n' +
       'Level 10:\n' +
-      'When receiving fatal damage, the Challenger becomes invulnerable for 3s and regenerates 100% of Max Health.\n' +
-      '\n' +
-      'While on cooldown, the Challenger gains 1 Stack of BULWARK. Can only happen once every 10 minutes. Resets at Worldstone or on death.',
+      'When receiving fatal damage, the Challenger becomes invulnerable for 3s and regenerates 100% of Max Health.While on cooldown, the Challenger gains 1 Stack of BULWARK. Can only happen once every 10 minutes. Resets at Worldstone or on death.',
     wikiLinks: [`https://remnant.wiki/Die_Hard`],
     linkedItems: {
       archetype: {
@@ -465,14 +484,10 @@ export const perkItems: PerkItem[] = [
     tags: ['All Damage', 'Critical Chance'],
     description:
       'Level 1:\n' +
-      'Grants a 3.5% increase to All Damage to enemies within 10m. Damage bonus tapers off until 20m.\n' +
-      '\n' +
-      'Increases with Challenger Level.\n' +
+      'Grants a 3.5% increase to All Damage to enemies within 10m. Damage bonus tapers off until 20m.Increases with Challenger Level.\n' +
       '\n' +
       'Level 6:\n' +
-      'Grants a 21% increase to All Damage to enemies within 10m. Damage bonus tapers off until 20m. Critical Chance is increased by 5%.\n' +
-      '\n' +
-      'Damage increases with Challenger Level.\n' +
+      'Grants a 21% increase to All Damage to enemies within 10m. Damage bonus tapers off until 20m. Critical Chance is increased by 5%.Damage increases with Challenger Level.\n' +
       '\n' +
       'Level 10:\n' +
       'Grants a 35% increase to All Damage to enemies within 10m. Damage bonus tapers off until 20m. Critical Chance is increased by 5%.',
@@ -492,7 +507,11 @@ export const perkItems: PerkItem[] = [
     dlc: 'base',
     tags: ['Damage Reduction'],
     description:
-      'After activating a Challenger Skill, enemies within 15m deal 10% less damage for 15s.',
+      'Level 2:\n' +
+      'After activating a Challenger Skill, enemies within 15m deal 10% less damage for 15s.\n' +
+      '\n' +
+      'Level 7:\n' +
+      'After activating a Challenger Skill, enemies within 15m deal 10% less damage for 15s, with an additional 2.5% damage reduction per enemy affected. (Max 10%).',
     wikiLinks: [`https://remnant.wiki/Intimidating_Presence`],
     externalTokens: [`Amplitude`],
     linkedItems: {
@@ -510,7 +529,11 @@ export const perkItems: PerkItem[] = [
     dlc: 'base',
     tags: ['Stamina', 'Encumbrance'],
     description:
-      'The Stamina Cost increase for each weight bracket is reduced by 50%.',
+      'Level 3:\n' +
+      'The Stamina Cost increase for each weight bracket is reduced by 50%.\n' +
+      '\n' +
+      'Level 8:\n' +
+      'Both the Stamina cost increase for each weight bracket and Stamina Regen Delay are reduced by 50%.',
     wikiLinks: [`https://remnant.wiki/Powerlifter`],
     linkedItems: {
       archetype: {
@@ -528,10 +551,10 @@ export const perkItems: PerkItem[] = [
     tags: ['Damage Reduction', 'All Damage'],
     description:
       'Level 4:\n' +
-      'Using a Relic within 10m of an enemy grants 2 stacks of Bulwark for 10s.\n' +
+      'Using a Relic within 10m of an enemy grants 2 stacks of BULWARK for 10s.\n' +
       '\n' +
       'Level 9:\n' +
-      'Using a Relic within 10m of an enemy grants 2 stacks of Bulwark and 10% Increased Damage for 10s.',
+      'Using a Relic within 10m of an enemy grants 2 stacks of BULWARK and 10% Increased Damage for 10s.',
     wikiLinks: [`https://remnant.wiki/Face_of_Danger`],
     linkedItems: {
       archetype: {
@@ -573,19 +596,13 @@ export const perkItems: PerkItem[] = [
     tags: ['All Damage', 'Critical Chance'],
     description:
       'Level 1:\n' +
-      'Grant a 2.5% increase to All Damage.\n' +
-      '\n' +
-      'Damage increasees with Alchemist Level.\n' +
+      'Grant a 2.5% increase to All Damage.Increases with Alchemist Level.\n' +
       '\n' +
       'Level 6:\n' +
-      'Grant a 15% increase to All Damage and 5% Critical Chance.\n' +
-      '\n' +
-      'Damage increasees with Alchemist Level.\n' +
+      'Grant a 15% increase to All Damage and 5% Critical Chance.Damage increasees with Alchemist Level.\n' +
       '\n' +
       'Level 10:\n' +
-      'Grant a 25% increase to All Damage and 5% Critical Chance.\n' +
-      '\n' +
-      'Damage increasees with Alchemist Level.',
+      'Grant a 25% increase to All Damage and 5% Critical Chance.',
     wikiLinks: [`https://remnant.wiki/Liquid_Courage`],
     linkedItems: {
       archetype: {
@@ -694,19 +711,13 @@ export const perkItems: PerkItem[] = [
     tags: ['Mod Damage', 'Critical Chance'],
     description:
       'Level 1:\n' +
-      'Increases Mod Damage by 5%.\n' +
-      '\n' +
-      'Increases with Archon Level.\n' +
+      'Increases Mod Damage by 5%.Increases with Archon Level.\n' +
       '\n' +
       'Level 5:\n' +
-      'Increases Mod Damage by 25% and grants 10% Mod Critical Chance.\n' +
-      '\n' +
-      'Increases with Archon Level.\n' +
+      'Increases Mod Damage by 25% and grants 10% Mod Critical Chance.Increases with Archon Level.\n' +
       '\n' +
       'Level 10:\n' +
-      'Increases Mod Damage by 50% and grants 10% Mod Critical Chance.\n' +
-      '\n' +
-      'Increases with Archon Level.',
+      'Increases Mod Damage by 50% and grants 10% Mod Critical Chance.Increases with Archon Level.',
     wikiLinks: [`https://remnant.wiki/Amplify`],
     linkedItems: {
       archetype: {
@@ -723,7 +734,11 @@ export const perkItems: PerkItem[] = [
     dlc: 'base',
     tags: ['Mod Power'],
     description:
-      'After casting a Mod, 10% of the Mod Power spent will be regenerated by all allies over 10s.',
+      'Level 1:\n' +
+      'After casting a Mod, 10% of the Mod Power spent will be regenerated by all allies over 10s.\n' +
+      '\n' +
+      'Level 7:\n' +
+      'After casting a Mod, 10% of the Mod Power spent will be regenerated by all allies over 10s. While Power Creep is active, allies will also gain 10% Mod Power Generation.',
     wikiLinks: [`https://remnant.wiki/Power_Creep`],
     linkedItems: {
       archetype: {
@@ -812,20 +827,13 @@ export const perkItems: PerkItem[] = [
     tags: ['Skill Damage', 'Critical Chance'],
     description:
       'Level 1:\n' +
-      'Increases Skill Damage by 5% and Ranged Damage by 2.5%.\n' +
-      '\n' +
-      'Heavy Weapons gain 5% Ammo Capacity, 2.5% Max Health, and 2.5% Weakspot Damage.\n' +
+      'Increases Skill Damage by 5% and Ranged Damage by 2.5%.Heavy Weapons gain 5% Ammo Capacity and 2.5% Max Health.\n' +
       '\n' +
       'Level 6:\n' +
-      'Increases Skill Damage by 25% and Ranged Damage by 12.5%, and grants 5% Skill and Ranged Critical Chance.\n' +
-      '\n' +
-      'Heavy Weapons gain 25% Ammo Capacity, 12.5% Max Health, and 12.5% Weakspot Damage.\n' +
+      'Increases Skill Damage by 25% and Ranged Damage by 12.5%, and grants 5% Skill and Ranged Critical Chance.Heavy Weapons gain 25% Ammo Capacity, 12.5% Max Health, and 25% Weakspot Damage.\n' +
       '\n' +
       'Level 10:\n' +
-      'Increases Skill Damage by 50% and Ranged Damage by 25%, and grants 5% Skill and Ranged Critical Chance.\n' +
-      '\n' +
-      'Heavy Weapons gain 50% Ammo Capacity, 25% Max Health, and 25% Weakspot Damage.',
-
+      'Increases Skill Damage by 50% and Ranged Damage by 25%, and grants 5% Skill and Ranged Critical Chance.Heavy Weapons gain 50% Ammo Capacity, 25% Max Health, and 25% Weakspot Damage.',
     wikiLinks: [`https://remnant.wiki/Metalworker`],
     linkedItems: {
       archetype: {
@@ -904,7 +912,14 @@ export const perkItems: PerkItem[] = [
     id: '82y94m',
     dlc: 'base',
     description:
-      'Grants a 10% chance to spawn additional items and rarer drops when defeating stronger enemies.',
+      'Base:\n' +
+      'Grants a 10% chance to spawn additional items and rarer drops when defeating stronger enemies.\n' +
+      '\n' +
+      'Level 5:\n' +
+      'Grants a 20% chance to spawn additional items and rarer drops when defeating stronger enemies.\n' +
+      '\n' +
+      'Level 10:\n' +
+      'Grants a 35% chance to spawn additional items and rarer drops when defeating stronger enemies.',
     wikiLinks: [`https://remnant.wiki/Lucky`],
     linkedItems: {
       archetype: {
@@ -921,9 +936,14 @@ export const perkItems: PerkItem[] = [
     dlc: 'base',
     tags: ['All Damage', 'Critical Chance'],
     description:
-      'Pickups increase All Damage dealt by 0.5% per stack for 20s. Additional Stacks increase Duration up to 60s. Max 5 stacks.\n' +
+      'Level 1:\n' +
+      'Pickups increase All Damage dealt by 0.5% per stack for 20s. Additional Stacks increase Duration up to 60s. Max 5 stacks.Effect increase with Explorer level.\n' +
       '\n' +
-      'Effect increase with Explorer level.',
+      'Level 6:\n' +
+      'Pickups increase All Damage dealt by 3% per stack for 20s and All Crit Chance by 5%. Additional Stacks increase Duration up to 60s. Max 5 stacks.Damage increases with Explorer level.\n' +
+      '\n' +
+      'Level 10:\n' +
+      'Pickups increase All Damage dealt by 5% per stack for 20s and All Crit Chance by 5%. Additional Stacks increase Duration up to 60s. Max 5 stacks.',
     wikiLinks: [`https://remnant.wiki/Scavenger`],
     linkedItems: {
       archetype: {
@@ -939,7 +959,11 @@ export const perkItems: PerkItem[] = [
     id: 'w838yg',
     dlc: 'base',
     description:
-      'Increase Ammo, Currency, and Metal Drop Rate Chance for entire party by 10%.',
+      'Level 2:\n' +
+      'Increase Ammo, Currency, and Metal Drop Rate Chance for entire party by 10%.\n' +
+      '\n' +
+      'Level 7:\n' +
+      'Increase Ammo, Currency, and Metal Drop Rate Chance for entire party by 10% and increases the chance of Consumables being rewarded from Chests.',
     wikiLinks: [`https://remnant.wiki/Metal_Detector`],
     linkedItems: {
       archetype: {
@@ -955,7 +979,11 @@ export const perkItems: PerkItem[] = [
     id: 'o5q3p9',
     dlc: 'base',
     description:
-      'Relic Fragments discovered by the Explorer drop at a higher quality.',
+      'Level 3:\n' +
+      'Relic Fragments discovered by the Explorer drop at a higher quality.\n' +
+      '\n' +
+      'Level 8:\n' +
+      'Relic Fragments discovered by the Explorer drop at a higher quality. When picking up a Fragment, the Explorer has a 5% chance of picking up a second one of the same type & quality.',
     wikiLinks: [`https://remnant.wiki/Prospector`],
     linkedItems: {
       archetype: {
@@ -971,7 +999,11 @@ export const perkItems: PerkItem[] = [
     id: 'rvb63g',
     dlc: 'base',
     description:
-      'Using a Relic instantly fills Scavenger Stacks and prevents Stack Decay for 15s.',
+      'Level 4:\n' +
+      'Using a Relic instantly fills Scavenger Stacks and prevents Stack Decay for 15s.\n' +
+      '\n' +
+      'Level 9:\n' +
+      'Using a Relic instantly fills Scavenger Stacks, grants +1 Stack, and prevents Stack Decay for 30s.',
     wikiLinks: [`https://remnant.wiki/Self_Discovery`],
     linkedItems: {
       archetype: {
@@ -1018,19 +1050,13 @@ export const perkItems: PerkItem[] = [
     ],
     description:
       'Base:\n' +
-      'Sprinting for 1s or Evading adds 1 Stack of Momentum which increases Ranged and Melee damage by 0.7% for 10s. Max 5 Stacks.\n' +
+      'Sprinting for 1s or Evading adds 1 Stack of Momentum which increases Ranged and Melee damage by 0.7% for 10s. Max 5 Stacks.Perfect Dodges instantly add 5 Stacks.Damage increases with Invader level.\n' +
       '\n' +
-      'Damage increases with Invader level.\n' +
-      '\n' +
-      'Level 5:\n' +
-      'Sprinting for 1s or Evading adds 1 Stack of Momentum which increases Ranged and Melee damage by 3.5% and Ranged and Melee Critical Chance by 1% for 10s. Max 5 Stacks.\n' +
-      '\n' +
-      'Damage increases with Invader level.\n' +
+      'Level 6:\n' +
+      'Sprinting for 1s or Evading adds 1 Stack of Momentum which increases Ranged and Melee damage by 3.5% and Ranged and Melee Critical Chance by 1% for 10s. Max 5 Stacks.Perfect Dodges instantly add 5 Stacks.Damage increases with Invader level.\n' +
       '\n' +
       'Level 10:\n' +
-      'Sprinting for 1s or Evading adds 1 Stack of Momentum which increases Ranged and Melee damage by 7% and Ranged and Melee Critical Chance by 1% for 10s. Max 5 Stacks.\n' +
-      '\n' +
-      'Damage increases with Invader level.',
+      'Sprinting for 1s or Evading adds 1 Stack of Momentum which increases Ranged and Melee damage by 7% and Ranged and Melee Critical Chance by 1% for 10s. Max 5 Stacks.Perfect Dodges instantly add 5 Stacks.Damage increases with Invader level.',
     wikiLinks: [`https://remnant.wiki/S.H.A.R.K.`],
     linkedItems: {
       archetype: {
@@ -1047,7 +1073,11 @@ export const perkItems: PerkItem[] = [
     dlc: 'base',
     tags: ['Lifesteal'],
     description:
-      "All ally Ranged and Melee damage against enemies distracted by the Invader's Decoy grants 5% base damage as Lifesteal.",
+      'Level 2:\n' +
+      "All ally Ranged and Melee damage against enemies distracted by the Invader's Decoy grants 5% base damage as Lifesteal.\n" +
+      '\n' +
+      'Level 7:\n' +
+      "All ally Ranged and Melee damage against enemies distracted by the Invader's Decoy grants 7.5% base damage as Lifesteal.",
     wikiLinks: [`https://remnant.wiki/Loophole`],
     linkedItems: {
       archetype: {
@@ -1068,7 +1098,12 @@ export const perkItems: PerkItem[] = [
       'Perfect Dodge',
       'Stamina',
     ],
-    description: 'Reduce Cost of Evade and Combat Slide by 10%.',
+    description:
+      'Level 3:\n' +
+      'Reduce Cost of Evade and Combat Slide by 10%.\n' +
+      '\n' +
+      'Level 8:\n' +
+      'Reduce Cost of Evade and Combat Slide by 15% Perfect Dodges gain an additional 15% reduction.',
     wikiLinks: [`https://remnant.wiki/Circumvent`],
     linkedItems: {
       archetype: {
@@ -1084,7 +1119,11 @@ export const perkItems: PerkItem[] = [
     id: 'decoy8',
     dlc: 'base',
     description:
-      'Using a Relic reduces Threat Generation by 25% for 10s. While Override is active, the next Evade leaves an Empowered Decoy which lasts 4s.',
+      'Level 4:\n' +
+      'Using a Relic reduces Threat Generation by 25% for 10s. While Override is active, the next Evade leaves an Empowered Decoy which lasts 4s.\n' +
+      '\n' +
+      'Level 9:\n' +
+      'Using a Relic reduces Threat Generation by 25% for 10s. While Override is active, the next Evade leaves an Empowered Decoy which lasts 5.5s.',
     wikiLinks: [`https://remnant.wiki/Override`],
     linkedItems: {
       archetype: {
@@ -1102,13 +1141,13 @@ export const perkItems: PerkItem[] = [
     tags: ['Summon'],
     description:
       'Base:\n' +
-      'When the Summoner deals damage to their Minion, it causes them to ENRAGE. Minions gain 10% Attack Speed along with 30% increased Damage and Movement Speed. Lasts 20s.\n' +
+      'When the Summoner deals damage to their Minion, it causes them to ENRAGE. While ENRAGED, Minions gain 10% Attack Speed along with 30% increased Damage and Movement Speed. Lasts 20s.\n' +
       '\n' +
       'Level 5:\n' +
-      'When the Summoner deals damage to their Minion, it causes them to ENRAGE. Minions gain 15% Attack Speed along with 40% increased Damage and Movement Speed. Lasts 30s.\n' +
+      'When the Summoner deals damage to their Minion, it causes them to ENRAGE. While ENRAGED, Minions gain 15% Attack Speed along with 40% increased Damage and Movement Speed. Lasts 30s.\n' +
       '\n' +
       'Level 10:\n' +
-      'When the Summoner deals damage to their Minion, it causes them to ENRAGE. Minions gain 20% Attack Speed along with 50% increased Damage and Movement Speed. Lasts 40s.',
+      'When the Summoner deals damage to their Minion, it causes them to ENRAGE. While ENRAGED, Minions gain 20% Attack Speed along with 50% increased Damage and Movement Speed. Lasts 40s.',
     wikiLinks: [`https://remnant.wiki/Ruthless`],
     linkedItems: {
       archetype: {
@@ -1133,19 +1172,13 @@ export const perkItems: PerkItem[] = [
     ],
     description:
       'Level 1:\n' +
-      'Grants a 3.5% increase to Mod, Skill, and Explosive Damage.\n' +
-      '\n' +
-      'Damage increases with Summoner Level.\n' +
+      'Grants a 3.5% increase to Mod, Skill, and Explosive Damage.Increases with Summoner Level.\n' +
       '\n' +
       'Level 5:\n' +
-      'Grants a 17.5% increase to Mod, Skill, and Explosive Damage, and 5% Mod, Skill, and Explosive Critical Chance.\n' +
-      '\n' +
-      'Damage increases with Summoner Level.\n' +
+      'Grants a 17.5% increase to Mod, Skill, and Explosive Damage, and 5% Mod, Skill, and Explosive Critical Chance.Damage increases with Summoner Level.\n' +
       '\n' +
       'Level 10:\n' +
-      'Grants a 35% increase to Mod, Skill, and Explosive Damage, and 5% Mod, Skill, and Explosive Critical Chance.\n' +
-      '\n' +
-      'Damage increases with Summoner Level.',
+      'Grants a 35% increase to Mod, Skill, and Explosive Damage, and 5% Mod, Skill, and Explosive Critical Chance.',
     externalTokens: [`Explosive Damage`],
     wikiLinks: [`https://remnant.wiki/Dominator`],
     linkedItems: {
@@ -1226,19 +1259,13 @@ export const perkItems: PerkItem[] = [
     tags: ['Status Effect'],
     description:
       'Base:\n' +
-      'Negative Status Effects applied by Ritualist inflict Infected.\n' +
-      '\n' +
-      'Infected: Victim receives 5% more Status Effect damage. On death, spreads all statuses to nearby enemies within 5m.\n' +
+      'Negative Status Effects applied by Ritualist inflict INFECTED.INFECTED: Victim receives 5% more Status Effect damage. On death, spreads all statuses to nearby enemies within 5m.\n' +
       '\n' +
       'Level 5:\n' +
-      'Negative Status Effects applied by Ritualist inflict Infected.\n' +
-      '\n' +
-      'Infected: Victim receives 10% more Status Effect damage. On death, spreads all statuses to nearby enemies within 10m.\n' +
+      'Negative Status Effects applied by Ritualist inflict INFECTED.INFECTED: Victim receives 10% more Status Effect damage. On death, spreads all statuses to nearby enemies within 10m.\n' +
       '\n' +
       'Level 10:\n' +
-      'Negative Status Effects applied by Ritualist inflict Infected.\n' +
-      '\n' +
-      'Infected: Victim receives 15% more Status Effect damage. On death, spreads all statuses to nearby enemies within 15m.',
+      'Negative Status Effects applied by Ritualist inflict INFECTED.INFECTED: Victim receives 15% more Status Effect damage. On death, spreads all statuses to nearby enemies within 15m.',
     externalTokens: [`Amplitude`],
     wikiLinks: [`https://remnant.wiki/Vile`],
     linkedItems: {
@@ -1257,19 +1284,13 @@ export const perkItems: PerkItem[] = [
     tags: ['All Damage', 'Critical Chance', 'Status Effect'],
     description:
       'Level 1:\n' +
-      'Increases all damage to enemies affected by a Negative Status Effect by 2%.\n' +
-      '\n' +
-      'Damage increases with Ritualist Level\n' +
+      'Increases all damage to enemies affected by a Negative Status Effect by 2.5%.Increases with Ritualist Level.\n' +
       '\n' +
       'Level 6:\n' +
-      'Increases all damage to enemies affected by a Negative Status Effect by 12%. Increases all Critical Chance against enemies affected by a Negative Status Effect by 5%.\n' +
-      '\n' +
-      'Damage increases with Ritualist Level\n' +
+      'Increases all damage to enemies affected by a Negative Status Effect by 15%. Increases all Critical Chance against enemies affected by a Negative Status Effect by 5%.Damage increases with Ritualist Level.\n' +
       '\n' +
       'Level 10:\n' +
-      'Increases all damage to enemies affected by a Negative Status Effect by 25%. Increases all Critical Chance against enemies affected by a Negative Status Effect by 5%.\n' +
-      '\n' +
-      'Damage increases with Ritualist Level',
+      'Increases all damage to enemies affected by a Negative Status Effect by 25%. Increases all Critical Chance against enemies affected by a Negative Status Effect by 5%.',
     wikiLinks: [`https://remnant.wiki/Wrath`],
     linkedItems: {
       archetype: {
@@ -1287,14 +1308,10 @@ export const perkItems: PerkItem[] = [
     tags: ['Damage Reduction', 'Ammo Reserves'],
     description:
       'Level 2:\n' +
-      'Killing an entity applies TERRIFIED to all enemies within 5m of killed entity for 20s.\n' +
-      '\n' +
-      'TERRIFIED enemies deal 5% less damage.\n' +
+      'Killing an entity applies TERRIFIED to all enemies within 5m of killed entity for 20s.TERRIFIED: Victim deals 5% less damage.\n' +
       '\n' +
       'Level 7:\n' +
-      'Killing an entity applies TERRIFIED to all enemies within 5m of killed entity for 20s. TERRIFIED enemies are more likely to drop additional Ammo on death.\n' +
-      '\n' +
-      'TERRIFIED enemies deal 5% less damage.',
+      'Killing an entity applies TERRIFIED to all enemies within 5m of killed entity for 20s. TERRIFIED enemies are more likely to drop additional Ammo on death.TERRIFIED: Victim deals 5% less damage.',
     wikiLinks: [`https://remnant.wiki/Terrify`],
     linkedItems: {
       archetype: {
@@ -1354,9 +1371,14 @@ export const perkItems: PerkItem[] = [
     dlc: 'dlc2',
     tags: ['Reduce Skill Cooldown'],
     description:
-      'Doubles Base Skill Charges for all Archetypes. Skill activation reduces all Skill Cooldowns by 10%.\n' +
+      'Base:\n' +
+      'Doubles Base Skill Charges for all Archetypes. Skill activation reduces all Skill Cooldowns by 3%.For Heavy Weapons, doubles Heavy Base Ammo instead.\n' +
       '\n' +
-      'For Heavy Weapons, doubles Heavy Base Ammo instead.',
+      'Level 5:\n' +
+      'Doubles Base Skill Charges for all Archetypes. Skill activation reduces all Skill Cooldowns by 6%.For Heavy Weapons, doubles Heavy Base Ammo instead.\n' +
+      '\n' +
+      'Level 10:\n' +
+      'Doubles Base Skill Charges for all Archetypes. Skill activation reduces all Skill Cooldowns by 10%.For Heavy Weapons, doubles Heavy Base Ammo instead.',
     wikiLinks: ['https://remnant.wiki/Visionary'],
     linkedItems: {
       archetype: {
@@ -1373,9 +1395,14 @@ export const perkItems: PerkItem[] = [
     dlc: 'dlc2',
     tags: [],
     description:
-      'Increases Skill Damage by 30%, Elemental Damage by 15%, and Skill and Elemental Critical Chance by 5%.\n' +
+      'Level 1:\n' +
+      'Increases Skill Damage by 3%, Elemental Damage by 1.5%.Increases with Invoker Level.\n' +
       '\n' +
-      'Damage increases with Invoker Level.',
+      'Level 6:\n' +
+      'Increases Skill Damage by 16%, Elemental Damage by 9%, and Skill and Elemental Critical Chance by 5%.Damage increases with Invoker Level.\n' +
+      '\n' +
+      'Level 10:\n' +
+      'Increases Skill Damage by 30%, Elemental Damage by 15%, and Skill and Elemental Critical Chance by 5%.',
     wikiLinks: ['https://remnant.wiki/Entranced'],
     linkedItems: {
       archetype: {
@@ -1392,6 +1419,10 @@ export const perkItems: PerkItem[] = [
     dlc: 'dlc2',
     tags: [],
     description:
+      'Level 2:\n' +
+      'Reduces Skill Cooldowns by 1% once every 3s for allies while an Invoker Skill is active.\n' +
+      '\n' +
+      'Level 7:\n' +
       'Reduces Skill Cooldowns by 1% and Heals 2% Max Health once every 3s for allies while an Invoker Skill is active.',
     wikiLinks: ['https://remnant.wiki/Communion'],
     linkedItems: {
@@ -1408,7 +1439,12 @@ export const perkItems: PerkItem[] = [
     id: 'T2U4dZ',
     dlc: 'dlc2',
     tags: [],
-    description: `Increases Movement Speed by 5% and Damage Reduction by 5% while an Invoker Skill is active.`,
+    description:
+      'Level 3:\n' +
+      'Increases Movement Speed by 5% while an Invoker Skill is active.\n' +
+      '\n' +
+      'Level 8:\n' +
+      'Increases Movement Speed by 5% and Damage Reduction by 5% while an Invoker Skill is active.',
     wikiLinks: ['https://remnant.wiki/Mind_and_Body'],
     linkedItems: {
       archetype: {
@@ -1425,9 +1461,11 @@ export const perkItems: PerkItem[] = [
     dlc: 'dlc2',
     tags: ['Relic Use Speed', 'Skill Duration'],
     description:
+      'Level 4:\n' +
       'On Relic use, extend the duration of active Invoker skills by 20% of the base duration. Cannot exceed base duration.\n' +
       '\n' +
-      'Relic Use Speed increased by 25% while an Invoker Skill is active.',
+      'Level 9:\n' +
+      'On Relic use, extend the duration of active Invoker skills by 20% of the base duration. Cannot exceed base duration.Relic Use Speed increased by 25% while an Invoker Skill is active.',
     wikiLinks: ['https://remnant.wiki/Soothsayer'],
     linkedItems: {
       archetype: {

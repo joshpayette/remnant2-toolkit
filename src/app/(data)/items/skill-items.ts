@@ -258,7 +258,7 @@ export const skillItems: SkillItem[] = [
     id: 'y7ia9t',
     dlc: 'base',
     description:
-      'Creates a mysterious vapor cloud which lasts  and applies STONESKIN.\n' +
+      'Creates a mysterious vapor cloud which lasts 10s and applies STONESKIN.\n' +
       '\n' +
       'STONESKIN reduces incoming damage by 25%, reduces Stagger by 1, greatly increases Blight Buildup Decay Rate, and makes the target immune to STATUS Effects. Lasts 15s.\n' +
       '\n' +
@@ -371,7 +371,7 @@ export const skillItems: SkillItem[] = [
       '\n' +
       'Duration is reduced when Havoc Form special abilities are used.\n' +
       '\n' +
-      "FIRE: Blasts Lightning Tendrils from the Archon's hand, dealing 160 SHOCK Damage per second to targets within 15m.\n" +
+      "FIRE: Blasts Lightning Tendrils from the Archon's hand, dealing 48 SHOCK Damage every 0.35s second to targets within 15m.\n" +
       '\n' +
       'AIM: Raises a 3m Energy Shield which reduces incoming damage to all allies by 50%.\n' +
       '\n' +
@@ -580,7 +580,7 @@ export const skillItems: SkillItem[] = [
     id: 'y9oqq6',
     dlc: 'base',
     description:
-      'Warps the caster forward through space-time. The next Melee or Ranged attack within 5s will deal 300% damage. Counts as a Perfect Dodge.\n' +
+      'Warps the caster forward through space-time. The next Melee or Ranged attack within 5s will deal 300% increased damage. Counts as a Perfect Dodge.\n' +
       '\n' +
       'Holding the Skill button will show the targeting device. If an enemy is directly targeted, the caster will emerge behind them.',
     cooldown: 35,
@@ -688,7 +688,8 @@ export const skillItems: SkillItem[] = [
     id: 'amqa83',
     dlc: 'base',
     tags: ['Status Effect'],
-    description: `Creates 15m explosion for 150 damage on all enemies within 1m. Explosion Radius and Damage increases 100% for each unique Status Effect on the target. Refreshes all current Status Effects on the target.`,
+    description:
+      'Creates 1m explosion for 50 damage on all enemies within 15m. Explosion Radius and Damage increases 100% for each unique Status Effect on the target. Refreshes all current Status Effects on the target.',
     cooldown: 40,
     externalTokens: [`Amplitude`, `Explosive Damage`],
     wikiLinks: [`https://remnant.wiki/Eruption`],
@@ -739,9 +740,9 @@ export const skillItems: SkillItem[] = [
     dlc: 'dlc2',
     tags: [],
     description:
-      'Invoke Kaeula to cast a Tidal Wave, dealing 150 - 450 Elemental damage and conjuring a 30m Rainstorm for 15s. Allies inside Rainstorm gain HASTE. Enemies inside Rainstorm gain DRENCHED for 10s.\n' +
+      'Invoke Kaeula to cast a Tidal Wave, dealing 150 Elemental damage and conjuring a 30m Rainstorm for 15s. Allies inside Rainstorm gain HASTE. Enemies inside Rainstorm gain DRENCHED for 10s.\n' +
       '\n' +
-      'DRENCHED: Reduces Movement Speed by 10%. Every few seconds, lightning strikes enemies dealing 300 - 900 base SHOCK damage split among DRENCHED targets.',
+      'DRENCHED: Reduces Movement Speed by 10%. Every few seconds, lightning strikes enemies dealing 300 base SHOCK damage split among DRENCHED targets.',
     cooldown: 120,
     wikiLinks: ['https://remnant.wiki/Way_of_Kaeula'],
     linkedItems: {
@@ -760,7 +761,9 @@ export const skillItems: SkillItem[] = [
     description:
       'Invoke Meidra to heal all allies for 20% Max Health over 1.5s and conjure a 20m Forest Growth for 15s. After fully blooming, allies in the Forest Growth heal 2% Max Health per second and gain 3% of base damage dealt as Lifesteal. Enemies inside Forest Growth gain GLOOM for 10s.\n' +
       '\n' +
-      'GLOOM: Increases incoming Elemental damage by 15%.',
+      'GLOOM: Increases incoming Elemental damage by 15%.\n' +
+      '\n' +
+      'Cooldown: 120s.',
     cooldown: 120,
     externalTokens: ['Amplitude'],
     wikiLinks: ['https://remnant.wiki/Way_of_Meidra'],

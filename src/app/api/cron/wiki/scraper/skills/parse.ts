@@ -1,11 +1,14 @@
 import { CheerioAPI } from 'cheerio'
 
-// TODO Check a hunter skill
+import { removeTooltips } from '@/app/api/cron/wiki/scraper/utils'
 
 export function skillDataParse($: CheerioAPI): {
   description: string
   cooldown: number
 } {
+  // Remove tooltips
+  removeTooltips($, '[data-source="description"]')
+
   const $descriptionEl = $('.portable-infobox [data-source="description"] div')
 
   const description = $descriptionEl
@@ -13,6 +16,7 @@ export function skillDataParse($: CheerioAPI): {
     .replaceWith('\n')
     .end()
     .text()
+    .trim()
     .replaceAll('[sic]', '')
     .replaceAll('\t', '')
 

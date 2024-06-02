@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-06-02
+
+### Fixed
+
+- Updated the wiki scraper to work better with the new formatting they have been building out on their side.
+- Fixed a number of item descriptions to match the data in the wiki.
+
 ## 2024-06-01
 
 ### Changed

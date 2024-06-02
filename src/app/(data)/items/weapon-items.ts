@@ -1079,7 +1079,7 @@ export const weaponItems: WeaponItem[] = [
     id: 'CMo9vJ',
     dlc: 'dlc2',
     description: `The staff hums with energy. A destructive power within yearns to be released.`,
-    damage: 58,
+    damage: 42,
     crit: 5,
     weakspot: 95,
     stagger: 3,

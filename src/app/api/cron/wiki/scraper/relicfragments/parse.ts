@@ -1,6 +1,7 @@
 import { CheerioAPI } from 'cheerio'
 
 import { RelicFragmentItem } from '@/app/(data)/items/types/RelicFragmentItem'
+import { removeTooltips } from '@/app/api/cron/wiki/scraper/utils'
 
 /**
  * Relic Fragments are a single table on a page

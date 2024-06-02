@@ -170,7 +170,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     id: 't8jgpe',
     dlc: 'base',
     tags: ['Melee Attack Speed'],
-    description: 'Melee Attack Speed, +15% at max level.',
+    description: 'Melee Speed, +15% at max level.',
     wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {

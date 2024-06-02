@@ -1,6 +1,7 @@
 import { CheerioAPI } from 'cheerio'
 
 import { WeaponItem } from '@/app/(data)/items/types/WeaponItem'
+import { removeTooltips } from '@/app/api/cron/wiki/scraper/utils'
 
 export function weaponDataParse(
   $: CheerioAPI,
@@ -18,6 +19,8 @@ export function weaponDataParse(
   weakspot: number
   stagger: number
 } {
+  removeTooltips($)
+
   const description = $('div.infobox-description')
     .find('br')
     .replaceWith('\n')

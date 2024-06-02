@@ -30,19 +30,19 @@ export async function GET(request: NextRequest) {
 
   // no need for archetype items
 
-  // await handleAmuletItems()
+  await handleAmuletItems()
   await handleArmorItems()
-  // await handleConcoctionItems()
-  // await handleConsumableItems()
-  // await handleModItems()
-  // await handleMutatorItems()
-  // await handlePerkItems()
-  // await handleRelicFragmentItems()
-  // await handleRelicItems()
-  // await handleRingItems()
-  // await handleSkillItems()
-  // await handleTraitItems()
-  // await handleWeaponItems()
+  await handleConcoctionItems()
+  await handleConsumableItems()
+  await handleModItems()
+  await handleMutatorItems()
+  await handlePerkItems()
+  await handleRelicFragmentItems()
+  await handleRelicItems()
+  await handleRingItems()
+  await handleSkillItems()
+  await handleTraitItems()
+  await handleWeaponItems()
 
   // Send Discord message stating thte script has finished running
   // Send the update notification to Discord

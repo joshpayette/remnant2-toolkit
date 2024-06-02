@@ -1,6 +1,7 @@
 import { CheerioAPI } from 'cheerio'
 
 import { MutatorItem } from '@/app/(data)/items/types/MutatorItem'
+import { removeTooltips } from '@/app/api/cron/wiki/scraper/utils'
 
 const mutatorsWithBowDescriptions = ['Bandit', 'Extender', 'Transpose']
 
@@ -11,6 +12,8 @@ export function mutatorDataParse(
   description: string
   maxLevelBonus: string
 } {
+  removeTooltips($)
+
   const mutatorHasBowDescription = mutatorsWithBowDescriptions.some(
     (i) => i.toLowerCase() === item.name.toLowerCase(),
   )

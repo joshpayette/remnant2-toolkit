@@ -1,13 +1,14 @@
 import { CheerioAPI } from 'cheerio'
 
+import { removeTooltips } from '@/app/api/cron/wiki/scraper/utils'
+
 export function modDataParse(
   $: CheerioAPI,
   isLinkedMod: boolean,
 ): {
   description: string
 } {
-  // Haste tooltip messes up the description
-  $('.infobox').find('.rw-tooltip').replaceWith('HASTE')
+  removeTooltips($)
 
   const description = isLinkedMod
     ? $('.infobox div.infobox-attachment-description')
