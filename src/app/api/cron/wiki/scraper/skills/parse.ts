@@ -6,9 +6,9 @@ export function skillDataParse($: CheerioAPI): {
   description: string
   cooldown: number
 } {
-  const descriptionEl = $('.portable-infobox [data-source="description"] div')
+  const $descriptionEl = $('.portable-infobox [data-source="description"] div')
 
-  const description = descriptionEl
+  const description = $descriptionEl
     .find('br')
     .replaceWith('\n')
     .end()
@@ -17,8 +17,8 @@ export function skillDataParse($: CheerioAPI): {
     .replaceAll('\t', '')
 
   // Not every skill has a cooldown
-  const cooldownEl = $('.portable-infobox [data-source="cooldown"] div')
-  const cooldown = cooldownEl.length ? cooldownEl.text() : '0'
+  const $cooldownEl = $('.portable-infobox [data-source="cooldown"] div')
+  const cooldown = $cooldownEl.length ? $cooldownEl.text() : '0'
 
   return {
     description,

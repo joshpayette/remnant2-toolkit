@@ -36,11 +36,11 @@ export async function GET(request: NextRequest) {
   // await handleConsumableItems()
   // await handleModItems()
   // await handleMutatorItems()
-  // await handlePerkItems()
+  await handlePerkItems()
   // await handleRelicFragmentItems()
   // await handleRelicItems()
   // await handleRingItems()
-  await handleSkillItems()
+  // await handleSkillItems()
   // await handleTraitItems()
   // await handleWeaponItems()
 

@@ -8,31 +8,38 @@ import { CheerioAPI } from 'cheerio'
 export function perkDataParse($: CheerioAPI): {
   description: string
 } {
-  const $mutatorUsesTabber = $('div.infobox-description article.tabber__panel')
+  const $container = $('[data-item-name="info"]')
 
-  let description = ''
-  if ($mutatorUsesTabber.length > 0) {
-    // Loop through each article.tabber__panel, grab the data-title value and the text
-    description = $mutatorUsesTabber
-      .map((_, el) => {
-        const title = $(el).attr('data-title')
-        const text = $(el).find('br').replaceWith('\n').end().text().trim()
+  const firstLevelLabel = $container
+    .find('.pi-section-navigation [data-ref="0"]')
+    .text()
+    .replaceAll('\t', '')
+    .replaceAll('\n', '')
+  const secondLevelLabel = $container
+    .find('.pi-section-navigation [data-ref="1"]')
+    .text()
+    .replaceAll('\t', '')
+    .replaceAll('\n', '')
+  const thirdLevelLabel = $container
+    .find('.pi-section-navigation [data-ref="2"]')
+    .text()
+    .replaceAll('\t', '')
+    .replaceAll('\n', '')
 
-        return `${title}:\n${text}\n`
-      })
-      .get()
-      .join('\n')
-      .trim()
-      .replaceAll('[sic]', '')
-  } else {
-    description = $('div.infobox-description')
-      .find('br')
-      .replaceWith('\n')
-      .end()
-      .text()
-      .trim()
-      .replaceAll('[sic]', '')
-  }
+  const firstLevelDescription = $container
+    .find('.pi-section-contents [data-ref="0"] div div')
+    .text()
+    .replaceAll('\t', '')
+  const secondLevelDescription = $container
+    .find('.pi-section-contents [data-ref="1"] div div')
+    .text()
+    .replaceAll('\t', '')
+  const thirdLevelDescription = $container
+    .find('.pi-section-contents [data-ref="2"] div div')
+    .text()
+    .replaceAll('\t', '')
+
+  const description = `${firstLevelLabel}:\n${firstLevelDescription}\n\n${secondLevelLabel}:\n${secondLevelDescription}\n\n${thirdLevelLabel}:\n${thirdLevelDescription}`
 
   return {
     description,
