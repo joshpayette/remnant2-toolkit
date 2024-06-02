@@ -34,7 +34,7 @@ export function ProfileNavbar({
       current: pathname === `/profile/${userId}`,
     },
     {
-      name: NAV_ITEMS.myBuilds.label,
+      name: showPrivateLinks ? NAV_ITEMS.myBuilds.label : 'Created Builds',
       href: {
         pathname: `/profile/${userId}/created-builds`,
         query: {
