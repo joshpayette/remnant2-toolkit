@@ -13,7 +13,7 @@ interface Props {
 }
 
 export default function AlertBanner({
-  bgColor = 'bg-primary-950 dark:bg-blue-950',
+  bgColor = 'bg-blue-950 text-white dark:bg-blue-950',
   localStorageKey,
   children,
 }: Props) {
@@ -23,7 +23,7 @@ export default function AlertBanner({
 
   return (
     <div
-      className={cn('animate-slideIn fixed z-[50] w-full p-1 text-sm', bgColor)}
+      className={cn('fixed z-[50] w-full animate-slideIn p-1 text-sm', bgColor)}
     >
       <div className="absolute right-0 top-0">
         <BaseButton onClick={() => setShowBanner(false)} plain>

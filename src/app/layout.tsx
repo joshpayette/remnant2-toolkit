@@ -55,7 +55,7 @@ export default async function RootLayout({
           <ThemeSelection>
             <GlobalActionButtons />
             <AlertBanner localStorageKey="light-mode-alert">
-              <BaseText>
+              <BaseText className="text-inherit">
                 Light mode is now available! Click the sun icon at the bottom
                 right to switch themes. Huge thanks to <strong>Synder</strong>{' '}
                 for all the work it took to make this possible!
