@@ -10,10 +10,7 @@ export function BaseText({
     <p
       {...props}
       data-slot="text"
-      className={clsx(
-        className,
-        'text-base/6 text-zinc-300 sm:text-sm/6',
-      )}
+      className={clsx(className, 'text-base/6 text-white sm:text-sm/6')}
     />
   )
 }
@@ -54,7 +51,7 @@ export function BaseCode({
       {...props}
       className={clsx(
         className,
-        'rounded border border-surface-solid/20 bg-surface-solid/5 text-surface-solid px-0.5 text-sm font-medium sm:text-[0.8125rem]',
+        'rounded border border-surface-solid/20 bg-surface-solid/5 px-0.5 text-sm font-medium text-surface-solid sm:text-[0.8125rem]',
       )}
     />
   )
