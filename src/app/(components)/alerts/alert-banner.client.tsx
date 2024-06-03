@@ -14,7 +14,7 @@ interface Props {
 }
 
 export default function AlertBanner({
-  bgColor = 'bg-blue-950 dark:bg-blue-950',
+  bgColor = 'bg-primary-900',
   localStorageKey,
   children,
 }: Props) {
@@ -33,7 +33,7 @@ export default function AlertBanner({
       </div>
       <div className="flex w-full items-center justify-center text-center">
         <div className="max-w-[80%] md:max-w-[800px]">
-          <BaseText className="text-[#fff]">{children}</BaseText>
+          <BaseText>{children}</BaseText>
         </div>
       </div>
     </div>

@@ -10,7 +10,7 @@ export function BaseText({
     <p
       {...props}
       data-slot="text"
-      className={clsx(className, 'text-base/6 text-white sm:text-sm/6')}
+      className={clsx(className, 'text-base/6 text-surface-solid sm:text-sm/6')}
     />
   )
 }
