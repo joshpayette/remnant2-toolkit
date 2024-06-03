@@ -43,7 +43,7 @@ Broadly speaking this results in a darker pallete, which contrasts better in lig
     --toastify-text-color-dark: rgb(var(--color-surface-solid) / 1);
 
     --toastify-toast-width: 320px;
-    --toastify-toast-background: #fff;
+    --toastify-toast-background: var(--color-surface-solid);
     --toastify-toast-min-height: 64px;
     --toastify-toast-max-height: 800px;
     --toastify-font-family: sans-serif;
@@ -55,6 +55,11 @@ Broadly speaking this results in a darker pallete, which contrasts better in lig
     --toastify-color-progress-error: var(--toastify-color-error);
 
     --toastify-color-progress-bgo: 0.2;
+
+    /* No var for this :( */
+    .Toastify__close-button {
+      color: rgb(var(--color-surface-solid))
+    }
   }
 
   .light {
