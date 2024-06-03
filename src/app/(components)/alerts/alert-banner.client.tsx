@@ -4,6 +4,7 @@ import { XMarkIcon } from '@heroicons/react/24/solid'
 import { useLocalStorage } from 'usehooks-ts'
 
 import { BaseButton } from '@/app/(components)/_base/button'
+import { BaseText } from '@/app/(components)/_base/text'
 import { cn } from '@/app/(utils)/classnames'
 
 interface Props {
@@ -13,7 +14,7 @@ interface Props {
 }
 
 export default function AlertBanner({
-  bgColor = 'bg-blue-950 text-white dark:bg-blue-950',
+  bgColor = 'bg-blue-950 dark:bg-blue-950',
   localStorageKey,
   children,
 }: Props) {
@@ -31,7 +32,9 @@ export default function AlertBanner({
         </BaseButton>
       </div>
       <div className="flex w-full items-center justify-center text-center">
-        <div className="max-w-[80%] md:max-w-[800px]">{children}</div>
+        <div className="max-w-[80%] md:max-w-[800px]">
+          <BaseText className="text-[#fff]">{children}</BaseText>
+        </div>
       </div>
     </div>
   )

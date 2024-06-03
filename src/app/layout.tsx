@@ -55,11 +55,9 @@ export default async function RootLayout({
           <ThemeSelection>
             <GlobalActionButtons />
             <AlertBanner localStorageKey="light-mode-alert">
-              <BaseText className="text-inherit">
-                Light mode is now available! Click the sun icon at the bottom
-                right to switch themes. Huge thanks to <strong>Synder</strong>{' '}
-                for all the work it took to make this possible!
-              </BaseText>
+              Light mode is now available! Click the sun icon at the bottom
+              right to switch themes. Huge thanks to <strong>Synder</strong> for
+              all the work it took to make this possible!
             </AlertBanner>
             <div className="flex h-full w-full max-w-7xl grow flex-col items-start justify-start">
               <header className="w-full">
