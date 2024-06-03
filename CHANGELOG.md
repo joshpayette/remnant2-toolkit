@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2024-06-02
 
+### Added
+
+- Light mode is now live! Click the Sun icon at the lower right to toggle between light and dark mode. A huge thanks to Synder for the work on this feature to make it possible! I cannot overstate the amount of effort they put into making this happen.
+
 ### Fixed
 
 - Updated the wiki scraper to work better with the new formatting they have been building out on their side.

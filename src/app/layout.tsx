@@ -54,11 +54,11 @@ export default async function RootLayout({
         <SessionProvider>
           <ThemeSelection>
             <GlobalActionButtons />
-            <AlertBanner localStorageKey="linked-builds-alert">
+            <AlertBanner localStorageKey="light-mode-alert">
               <BaseText>
-                Link up to 3 builds together in a single link! Open one of your
-                builds and click the <strong>{'New Linked Build'}</strong>{' '}
-                button to get started.
+                Light mode is now available! Click the sun icon at the bottom
+                right to switch themes. Huge thanks to <strong>Synder</strong>{' '}
+                for all the work it took to make this possible!
               </BaseText>
             </AlertBanner>
             <div className="flex h-full w-full max-w-7xl grow flex-col items-start justify-start">
