@@ -1,15 +1,6 @@
 'use client'
 
-import {
-  Listbox as HeadlessListbox,
-  ListboxButton as HeadlessListboxButton,
-  ListboxOption as HeadlessListboxOption,
-  type ListboxOptionProps as HeadlessListboxOptionProps,
-  ListboxOptions as HeadlessListboxOptions,
-  type ListboxProps as HeadlessListboxProps,
-  ListboxSelectedOption as HeadlessListboxSelectedOption,
-  Transition as HeadlessTransition,
-} from '@headlessui/react'
+import * as Headless from '@headlessui/react'
 import clsx from 'clsx'
 import { Fragment } from 'react'
 
@@ -27,10 +18,10 @@ export function BaseListbox<T>({
   autoFocus?: boolean
   'aria-label'?: string
   children?: React.ReactNode
-} & HeadlessListboxProps<typeof Fragment, T>) {
+} & Headless.ListboxProps<typeof Fragment, T>) {
   return (
-    <HeadlessListbox {...props} multiple={multiple}>
-      <HeadlessListboxButton
+    <Headless.Listbox {...props} multiple={multiple}>
+      <Headless.ListboxButton
         autoFocus={autoFocus}
         data-slot="control"
         aria-label={ariaLabel}
@@ -56,7 +47,7 @@ export function BaseListbox<T>({
           'data-[disabled]:opacity-50 before:data-[disabled]:bg-zinc-950/5 before:data-[disabled]:shadow-none',
         ])}
       >
-        <HeadlessListboxSelectedOption
+        <Headless.ListboxSelectedOption
           as="span"
           options={options}
           placeholder={
@@ -113,23 +104,24 @@ export function BaseListbox<T>({
             />
           </svg>
         </span>
-      </HeadlessListboxButton>
       <HeadlessTransition
+      </Headless.ListboxButton>
         as={Fragment}
         leave="transition-opacity duration-100 ease-in pointer-events-none"
         leaveFrom="opacity-100"
         leaveTo="opacity-0"
       >
         <HeadlessListboxOptions
-          as="div"
+        <Headless.ListboxOptions
           anchor={{
             to: 'selection start',
-            offset: 'var(--anchor-offset)',
-            padding: 'var(--anchor-padding)',
           }}
           className={clsx(
+            // positioning
+            'absolute z-30',
+
             // Anchor positioning
-            'z-[5] [--anchor-offset:-1.625rem] [--anchor-padding:theme(spacing.4)] sm:[--anchor-offset:-1.375rem]',
+            '[--anchor-offset:-1.625rem] [--anchor-padding:theme(spacing.4)] sm:[--anchor-offset:-1.375rem]',
 
             // Base styles
             'isolate w-max min-w-[calc(var(--button-width)+1.75rem)] select-none scroll-py-1 rounded-xl p-1',
@@ -148,9 +140,9 @@ export function BaseListbox<T>({
           )}
         >
           {options}
-        </HeadlessListboxOptions>
-      </HeadlessTransition>
-    </HeadlessListbox>
+        </Headless.ListboxOptions>
+      </Headless.Transition>
+    </Headless.Listbox>
   )
 }
 
@@ -158,7 +150,7 @@ export function BaseListboxOption<T>({
   children,
   className,
   ...props
-}: { children?: React.ReactNode } & HeadlessListboxOptionProps<'div', T>) {
+}: { children?: React.ReactNode } & Headless.ListboxOptionProps<'div', T>) {
   const sharedClasses = clsx(
     // Base
     'flex min-w-0 items-center',
@@ -171,7 +163,7 @@ export function BaseListboxOption<T>({
   )
 
   return (
-    <HeadlessListboxOption as={Fragment} {...props}>
+    <Headless.ListboxOption as={Fragment} {...props}>
       {({ selectedOption }) => {
         if (selectedOption) {
           return (
@@ -217,7 +209,7 @@ export function BaseListboxOption<T>({
           </div>
         )
       }}
-    </HeadlessListboxOption>
+    </Headless.ListboxOption>
   )
 }
 

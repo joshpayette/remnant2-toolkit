@@ -4,7 +4,13 @@ import { useState } from 'react'
 import { useReadLocalStorage } from 'usehooks-ts'
 
 import { BaseButton } from '@/app/(components)/_base/button'
-import { BaseDialog } from '@/app/(components)/_base/dialog'
+import {
+  BaseDialog,
+  BaseDialogBody,
+  BaseDialogTitle,
+} from '@/app/(components)/_base/dialog'
+import { BaseDivider } from '@/app/(components)/_base/divider'
+import { BaseField, BaseLabel } from '@/app/(components)/_base/fieldset'
 import {
   BaseListbox,
   BaseListboxLabel,
@@ -39,28 +45,40 @@ export default function ThemeSelectButton() {
         <PaintBrushIcon className="h-5 w-5" />
       </BaseButton>
       <BaseDialog open={isDialogOpen} onClose={() => setDialogOpen(false)}>
-        <BaseListbox name="colorMode" value={mode} onChange={setMode}>
-          {Modes.map((selectedMode) => (
-            <BaseListboxOption key={selectedMode} value={selectedMode}>
-              <BaseListboxLabel>{selectedMode}</BaseListboxLabel>
-            </BaseListboxOption>
-          ))}
-        </BaseListbox>
-        <BaseListbox
-          name="colorTheme"
-          value={theme}
-          onChange={setTheme}
-          placeholder={'Select a new theme'}
-        >
-          {availableThemes.map((selectedTheme) => (
-            <BaseListboxOption
-              key={selectedTheme.key}
-              value={selectedTheme.key}
+        <BaseDialogTitle>Select Color Theme</BaseDialogTitle>
+        <BaseDialogBody className="flex flex-col gap-y-4">
+          <BaseField>
+            <BaseLabel>Category</BaseLabel>
+            <BaseListbox name="colorMode" value={mode} onChange={setMode}>
+              {Modes.map((selectedMode) => (
+                <BaseListboxOption key={selectedMode} value={selectedMode}>
+                  <BaseListboxLabel>{selectedMode}</BaseListboxLabel>
+                </BaseListboxOption>
+              ))}
+            </BaseListbox>
+          </BaseField>
+
+          <BaseField>
+            <BaseLabel>Theme</BaseLabel>
+            <BaseListbox
+              name="colorTheme"
+              value={theme}
+              onChange={setTheme}
+              placeholder={'Select a new theme'}
             >
-              <BaseListboxLabel>{selectedTheme.displayName}</BaseListboxLabel>
-            </BaseListboxOption>
-          ))}
-        </BaseListbox>
+              {availableThemes.map((selectedTheme) => (
+                <BaseListboxOption
+                  key={selectedTheme.key}
+                  value={selectedTheme.key}
+                >
+                  <BaseListboxLabel>
+                    {selectedTheme.displayName}
+                  </BaseListboxLabel>
+                </BaseListboxOption>
+              ))}
+            </BaseListbox>
+          </BaseField>
+        </BaseDialogBody>
       </BaseDialog>
     </>
   )
