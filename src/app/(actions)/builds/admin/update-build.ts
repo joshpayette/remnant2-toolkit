@@ -31,6 +31,27 @@ export default async function updateBuild(
   }
 
   try {
+    const currentBuild = await prisma.build.findUnique({
+      where: { id: buildId },
+    })
+    if (!currentBuild) {
+      return {
+        status: 'error',
+        message: 'Build not found.',
+      }
+    }
+
+    let auditDetails = ''
+    if (currentBuild.name !== buildName) {
+      auditDetails += `Name: ${currentBuild.name} -> ${buildName}\n`
+    }
+    if (currentBuild.description !== buildDescription) {
+      auditDetails += `Updated build description.\n`
+    }
+    if (currentBuild.buildLink !== buildReferenceLink) {
+      auditDetails += `Updated build reference link.\n`
+    }
+
     const build = await prisma.build.update({
       where: { id: buildId },
       data: {
@@ -46,7 +67,7 @@ export default async function updateBuild(
         userId: build.createdById,
         moderatorId: session.user.id,
         action: 'UPDATE_BUILD',
-        details: '',
+        details: auditDetails,
       },
     })
 
@@ -62,6 +83,10 @@ export default async function updateBuild(
               {
                 name: 'Audit Action',
                 value: `UPDATE_BUILD`,
+              },
+              {
+                name: 'Details',
+                value: auditDetails,
               },
               {
                 name: 'Moderator',
