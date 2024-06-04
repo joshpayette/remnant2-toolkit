@@ -1,6 +1,7 @@
 'use client'
 
-import { ArrowUpIcon, BugAntIcon } from '@heroicons/react/24/solid'
+import { BugAntIcon, Cog6ToothIcon } from '@heroicons/react/24/solid'
+import { AnimatePresence, motion } from 'framer-motion'
 import dynamic from 'next/dynamic'
 import { useState } from 'react'
 import { toast } from 'react-toastify'
@@ -19,27 +20,59 @@ const ThemeSelectButton = dynamic(
 )
 
 export function GlobalActionButtons() {
+  const [open, setOpen] = useState(false)
+
   return (
     <div className="fixed bottom-[8px] right-[8px] z-20 flex items-center justify-center gap-x-1">
-      <ThemeSelectButton />
-      <ReportBugButton />
-      <ChangeLogButton />
-      <BackToTopButton />
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            className="isolate inline-flex w-[152px] gap-x-1 rounded-md bg-secondary-900 shadow-sm"
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: 50 }}
+            transition={{ duration: 0.5 }}
+          >
+            <div>
+              <span className="sr-only">Theme Select</span>
+              <ThemeSelectButton />
+            </div>
+            <div>
+              <span className="sr-only">Report Bug</span>
+              <ReportBugButton />
+            </div>
+            <div>
+              <span className="sr-only">Change Log</span>
+              <ChangeLogButton />
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      <SettingsButton onToggle={() => setOpen((prev) => !prev)} />
     </div>
   )
 }
 
-function BackToTopButton() {
-  function handleBackToTopClick() {
-    window.scrollTo({ top: 0, behavior: 'smooth' })
-  }
-
+function SettingsButton({ onToggle }: { onToggle: () => void }) {
   return (
-    <BaseButton onClick={handleBackToTopClick} color="yellow">
-      <ArrowUpIcon className="h-5 w-5" />
+    <BaseButton color="yellow" onClick={onToggle}>
+      <Cog6ToothIcon className="h-5 w-5" />
     </BaseButton>
   )
 }
+
+// function BackToTopButton() {
+//   function handleBackToTopClick() {
+//     window.scrollTo({ top: 0, behavior: 'smooth' })
+//   }
+
+//   return (
+//     <BaseButton onClick={handleBackToTopClick} color="yellow">
+//       <ArrowUpIcon className="h-5 w-5" />
+//     </BaseButton>
+//   )
+// }
 
 function ChangeLogButton() {
   return (

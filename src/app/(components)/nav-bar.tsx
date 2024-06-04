@@ -1,7 +1,11 @@
 'use client'
 
 import { Dialog, Menu, Transition } from '@headlessui/react'
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid'
+import {
+  Bars3Icon,
+  ChevronDownIcon,
+  XMarkIcon,
+} from '@heroicons/react/24/solid'
 import { usePathname } from 'next/navigation'
 import { useSession } from 'next-auth/react'
 import { Fragment, useEffect, useState } from 'react'
@@ -29,7 +33,7 @@ export function NavBar() {
     <>
       {/* DESKTOP */}
       <nav
-        className="z-40 mx-auto flex w-full items-center justify-between bg-background px-4 py-6"
+        className="fixed z-40 mx-auto flex w-full max-w-7xl items-center justify-between bg-background px-4 py-6"
         aria-label="Global"
       >
         <div className="flex min-w-[250px]">
@@ -47,12 +51,19 @@ export function NavBar() {
             <Bars3Icon className="h-6 w-6" aria-hidden="true" />
           </BaseButton>
         </div>
-        <div className="hidden items-center justify-center lg:flex lg:flex-grow lg:gap-x-12">
+        <div className="hidden items-center justify-between lg:flex lg:flex-grow lg:gap-x-12">
           <Menu as="div" className="relative">
-            <Menu.Button className="text-md flex bg-background font-semibold text-surface-solid underline hover:text-primary-500">
-              <span className="absolute -inset-1.5" />
-              <span className="sr-only">Open Builds menu</span>
-              Builds
+            <Menu.Button className="text-md flex bg-background font-semibold text-surface-solid hover:text-primary-500">
+              {({ active }) => (
+                <div className="flex items-center justify-center gap-1">
+                  <span className="absolute -inset-1.5" />
+                  <span className="sr-only">Open Builds menu</span>
+                  Builds
+                  <ChevronDownIcon
+                    className={cn('h-4 w-4', active && 'rotate-180 transform')}
+                  />
+                </div>
+              )}
             </Menu.Button>
             <Transition
               as={Fragment}
@@ -159,7 +170,7 @@ export function NavBar() {
           <Link
             href={NAV_ITEMS.itemLookup.href}
             className={cn(
-              'text-md flex flex-row items-center justify-start font-semibold text-surface-solid underline hover:text-primary-500',
+              'text-md flex flex-row items-center justify-start font-semibold text-surface-solid hover:text-primary-500',
             )}
           >
             {NAV_ITEMS.itemLookup.label}
@@ -168,7 +179,7 @@ export function NavBar() {
           <Link
             href={NAV_ITEMS.itemTracker.href}
             className={cn(
-              'text-md flex flex-row items-center justify-start font-semibold text-surface-solid underline hover:text-primary-500',
+              'text-md flex flex-row items-center justify-start font-semibold text-surface-solid hover:text-primary-500',
             )}
           >
             {NAV_ITEMS.itemTracker.label}
@@ -177,7 +188,7 @@ export function NavBar() {
           <Link
             href={NAV_ITEMS.itemQuiz.href}
             className={cn(
-              'text-md flex flex-row items-center justify-start font-semibold text-surface-solid underline hover:text-primary-500',
+              'text-md flex flex-row items-center justify-start font-semibold text-surface-solid hover:text-primary-500',
             )}
           >
             {NAV_ITEMS.itemQuiz.label}
@@ -186,7 +197,7 @@ export function NavBar() {
           <Link
             href={NAV_ITEMS.resources.href}
             className={cn(
-              'text-md flex flex-row items-center justify-start font-semibold text-surface-solid underline hover:text-primary-500',
+              'text-md flex flex-row items-center justify-start font-semibold text-surface-solid hover:text-primary-500',
             )}
           >
             {NAV_ITEMS.resources.label}
@@ -195,7 +206,7 @@ export function NavBar() {
           <Link
             href={NAV_ITEMS.supportR2TK.href}
             className={cn(
-              'text-md flex flex-row items-center justify-start font-semibold text-primary-500 underline hover:text-primary-300',
+              'text-md flex flex-row items-center justify-start font-semibold text-primary-500 hover:text-primary-300',
             )}
           >
             {NAV_ITEMS.supportR2TK.label}
