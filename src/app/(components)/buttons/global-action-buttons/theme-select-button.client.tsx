@@ -9,7 +9,6 @@ import {
   BaseDialogBody,
   BaseDialogTitle,
 } from '@/app/(components)/_base/dialog'
-import { BaseDivider } from '@/app/(components)/_base/divider'
 import { BaseField, BaseLabel } from '@/app/(components)/_base/fieldset'
 import {
   BaseListbox,

@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Fixed
 
 - YouTube thumbnail calculation now correctly removes all video query parameters to ensure the correct thumbnail is displayed.
+- Default theme on the site is now always the classic theme, regardless of system preference. I'm so sorry to all who were flashbanged.
 
 ## 2024-06-02
 
