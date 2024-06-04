@@ -106,7 +106,7 @@ export function BuildCard({
                   <Tooltip content="Total Favorites">
                     {/** Not changing this to the new button */}
                     <button
-                      className="flex items-center justify-end text-right text-yellow-500"
+                      className="flex items-center justify-end text-right text-accent1-500"
                       aria-label="Total build favorites"
                     >
                       <StarIcon className="mr-1 h-4 w-4" /> {build.totalUpvotes}

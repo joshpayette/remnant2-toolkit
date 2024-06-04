@@ -300,7 +300,7 @@ export function ItemLookupFilters({}: Props) {
           </div>
           <Disclosure.Panel
             className={cn(
-              'mt-2 w-full border border-cyan-500 bg-gray-950 p-4',
+              'mt-2 w-full border border-primary-500 bg-gray-950 p-4',
               areAnyFiltersActive &&
                 'border-accent1-300 shadow-xl shadow-accent1-600',
             )}

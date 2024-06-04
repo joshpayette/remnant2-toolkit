@@ -59,7 +59,7 @@ export function ModeratorLinkedBuildToolsDialog({
       <BaseDialogTitle>Moderator Tools</BaseDialogTitle>
       <BaseDialogDescription>
         Moderation tools for build:{' '}
-        <strong className="text-cyan-500">{localBuild.name}</strong>
+        <strong className="text-primary-500">{localBuild.name}</strong>
       </BaseDialogDescription>
       <BaseDialogBody>
         <BaseDialogTitle>Build Name</BaseDialogTitle>
