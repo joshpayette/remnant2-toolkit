@@ -104,14 +104,13 @@ export function BaseListbox<T>({
             />
           </svg>
         </span>
-      <HeadlessTransition
       </Headless.ListboxButton>
+      <Headless.Transition
         as={Fragment}
         leave="transition-opacity duration-100 ease-in pointer-events-none"
         leaveFrom="opacity-100"
         leaveTo="opacity-0"
       >
-        <HeadlessListboxOptions
         <Headless.ListboxOptions
           anchor={{
             to: 'selection start',
