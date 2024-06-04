@@ -168,10 +168,10 @@ export function Traits({
               traitItem.optional
                 ? 'border-dashed'
                 : 'border-transparent border-b-surface-solid',
-              isArchetypeTrait(traitItem) && 'border-b-yellow-500',
+              isArchetypeTrait(traitItem) && 'border-b-accent1-500',
               isArchetypeTrait(traitItem) &&
                 traitItem.optional &&
-                'border-yellow-500',
+                'border-accent1-500',
               isArchetypeTrait(traitItem) &&
                 !isArchetypeCoreTrait(traitItem) &&
                 'border-b-secondary-500',

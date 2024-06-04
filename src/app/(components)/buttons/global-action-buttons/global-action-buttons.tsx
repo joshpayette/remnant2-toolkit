@@ -11,8 +11,8 @@ import { ReportBug } from '@/app/(components)/buttons/global-action-buttons/acti
 import { NAV_ITEMS } from '@/app/(types)/navigation'
 
 // Lazy-load the theme toggle, since it relies on client context
-const ToggleThemeButton = dynamic(
-  () => import('./theme-toggle-button.client'),
+const ThemeSelectButton = dynamic(
+  () => import('./theme-select-button.client'),
   {
     ssr: false,
   },
@@ -21,7 +21,7 @@ const ToggleThemeButton = dynamic(
 export function GlobalActionButtons() {
   return (
     <div className="fixed bottom-[8px] right-[8px] z-20 flex items-center justify-center gap-x-1">
-      <ToggleThemeButton />
+      <ThemeSelectButton />
       <ReportBugButton />
       <ChangeLogButton />
       <BackToTopButton />

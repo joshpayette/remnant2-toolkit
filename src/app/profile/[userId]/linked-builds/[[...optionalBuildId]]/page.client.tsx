@@ -127,7 +127,7 @@ export function PageClient({
               Linked Builds for{' '}
               <Link
                 href={`/builder/${buildId}`}
-                className="text-cyan-500 hover:underline"
+                className="text-primary-500 hover:underline"
               >
                 {requestedBuildName}
               </Link>

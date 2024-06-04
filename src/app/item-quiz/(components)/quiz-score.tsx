@@ -12,7 +12,7 @@ export const QuizScore = React.memo(({ score }: Props) => (
     <div className="w-full bg-purple-700 text-center text-sm font-bold">
       Score
     </div>
-    <div className="flex h-full w-full items-center justify-center text-2xl font-bold text-cyan-400">
+    <div className="flex h-full w-full items-center justify-center text-2xl font-bold text-primary-400">
       {score}
     </div>
   </div>

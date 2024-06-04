@@ -162,11 +162,7 @@ export function useBuildActions() {
         useCORS: true,
         allowTaint: true,
         logging: false,
-        onclone: (clonedDoc) => {
-          const htmlClasses = clonedDoc.documentElement.classList
-          htmlClasses.remove('light')
-          htmlClasses.add('dark')
-        }
+        onclone: (clonedDoc) => clonedDoc.documentElement.dataset.theme = "dark"
       })
 
       const base64Image = canvas.toDataURL('image/png', 1.0).split(',')[1]
