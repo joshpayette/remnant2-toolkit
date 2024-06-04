@@ -10,7 +10,6 @@ import { Viewport } from 'next'
 import dynamic from 'next/dynamic'
 import { ToastContainer } from 'react-toastify'
 
-import { BaseText } from '@/app/(components)/_base/text'
 import { GlobalActionButtons } from '@/app/(components)/buttons/global-action-buttons/global-action-buttons'
 import { Footer } from '@/app/(components)/footer'
 import { NavBar } from '@/app/(components)/nav-bar'

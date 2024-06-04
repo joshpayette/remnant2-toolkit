@@ -80,7 +80,7 @@ export function BaseListbox<T>({
             'text-left text-base/6 text-surface-solid placeholder:text-zinc-500 sm:text-sm/6 forced-colors:text-[CanvasText]',
 
             // Border
-            'border border-surface-solid/10 group-data-[active]:border-surface-solid/20 group-data-[hover]:surface-solid/20',
+            'group-data-[hover]:surface-solid/20 border border-surface-solid/10 group-data-[active]:border-surface-solid/20',
 
             // Background color
             'bg-surface-solid/5',
@@ -89,7 +89,7 @@ export function BaseListbox<T>({
             'group-data-[invalid]:border-red-600 group-data-[invalid]:group-data-[hover]:border-red-600',
 
             // Disabled state
-            'group-data-[disabled]:border-surface-solid/15 group-data-[disabled]:bg-surface-solid/[2.5%] data-[hover]:group-data-[disabled]:border-surface-solid/15 group-data-[disabled]:opacity-100',
+            'group-data-[disabled]:border-surface-solid/15 group-data-[disabled]:bg-surface-solid/[2.5%] group-data-[disabled]:opacity-100 data-[hover]:group-data-[disabled]:border-surface-solid/15',
           ])}
         />
         <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
@@ -144,7 +144,7 @@ export function BaseListbox<T>({
             'bg-zinc-800/75 backdrop-blur-xl',
 
             // Shadows
-            'shadow-lg ring-1 ring-surface-solid/10 ring-inset',
+            'shadow-lg ring-1 ring-inset ring-surface-solid/10',
           )}
         >
           {options}
