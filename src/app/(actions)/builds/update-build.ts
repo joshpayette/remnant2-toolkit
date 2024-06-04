@@ -405,6 +405,10 @@ export async function updateBuild(data: string): Promise<BuildActionResponse> {
                   name: 'Changes',
                   value: `New Reference Link: ${buildState.buildLink}`,
                 },
+                {
+                  name: 'Build Link',
+                  value: buildLink,
+                },
               ],
             },
           ],
