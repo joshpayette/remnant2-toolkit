@@ -36,16 +36,21 @@ function videoUrlToVideoId(videoUrl: string): string | undefined {
   const videoUrlType = getVideoUrlType(videoUrl)
 
   // Remove ?si=XXXX from the url
-  const videoUrlWithoutSi = videoUrl.split('?si=')[0]
+  // remove the ?t=XXX part of the url
+  const videoUrlWithoutParams = videoUrl
+    .split('?si=')[0]
+    .split('&si=')[0]
+    .split('?t=')[0]
+    .split('&t=')[0]
 
   if (videoUrlType === 'watch') {
-    return videoUrlWithoutSi.split('v=')[1]
+    return videoUrlWithoutParams.split('v=')[1]
   }
   if (videoUrlType === 'embed') {
-    return videoUrlWithoutSi.split('embed/')[1]
+    return videoUrlWithoutParams.split('embed/')[1]
   }
   if (videoUrlType === 'share') {
-    return videoUrlWithoutSi.split('youtu.be/')[1]
+    return videoUrlWithoutParams.split('youtu.be/')[1]
   }
 }
 
