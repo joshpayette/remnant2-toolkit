@@ -43,7 +43,7 @@ export const NAV_ITEMS = {
   bossTracker: {
     label: 'Boss Tracker',
     description:
-      'Helps you keep track of the bosses you have defeated and the ones you still need to defeat.',
+      'A Remnant 2 boss tracker to track which bosses you have defeated, and the ones you still need to defeat.',
     href: '/boss-tracker',
     icon: ShieldCheckIcon,
   },
@@ -64,14 +64,14 @@ export const NAV_ITEMS = {
   communityBuilds: {
     label: 'Community Builds',
     description:
-      'Search a collection of builds submitted and ranked by the community.',
+      'Search a collection of Remnant 2 builds, submitted and ranked by the community.',
     href: '/community-builds',
     icon: ListBulletIcon,
   },
   createBuild: {
     label: 'Create a Build',
     description:
-      'Create and share your favorite builds with your friends and the community.',
+      'Create and share your favorite Remnant 2 builds with your friends and the community.',
     href: '/builder/create',
     icon: PlusIcon,
   },
@@ -91,7 +91,7 @@ export const NAV_ITEMS = {
   featuredBuilds: {
     label: 'Featured Builds',
     description:
-      'A curated list of unique and high-quality community submitted builds.',
+      'A curated list of unique and high-quality community submitted builds for Remnant 2.',
     href: '/featured-builds',
     icon: StarIcon,
   },
@@ -104,35 +104,36 @@ export const NAV_ITEMS = {
   },
   itemLookup: {
     label: 'Item Lookup',
-    description: 'Get detailed information and interactions for items.',
+    description:
+      'A Remnant 2 item lookup tool to search for detailed item information, tags, and locations.',
     href: '/item-lookup',
     icon: MagnifyingGlassIcon,
   },
   itemQuiz: {
     label: 'Item Quiz',
     description:
-      'Test your ability to recognize items by only their icons! How many can you get in 60 seconds?',
+      'Test your ability to recognize items from Remnant 2 by only their icons! How many can you get in 60 seconds?',
     href: '/item-quiz',
     icon: PuzzlePieceIcon,
   },
   itemTracker: {
     label: 'Item Tracker',
     description:
-      'Track your discovered and undiscovered items. Supports save file importing!',
+      'A Remnant 2 item tracker to track which items you have collected, and the ones you still need to find.',
     href: '/tracker',
     icon: DocumentCheckIcon,
   },
   linkedBuilds: {
     label: 'Linked Builds',
     description:
-      'Link multiple builds together to share them as a single link. Great for alternate versions of the same build, coop builds meant to be played together, or budget alternatives!',
+      'Link multiple Remnant 2 builds together to share them as a single link. Great for alternate versions of the same build, coop builds meant to be played together, or budget alternatives!',
     href: '/profile/linked-builds',
     icon: LinkIcon,
   },
   loadouts: {
     label: 'Loadouts',
     description:
-      'Keep your in-game loadouts and their toolkit build counterparts in sync.',
+      'Keep your Remnant 2 in-game loadouts and their toolkit build counterparts in sync.',
     href: '/profile/loadout-builds',
     icon: ArchiveBoxIcon,
   },
@@ -198,7 +199,7 @@ export const NAV_ITEMS = {
   },
   worldSaveArchive: {
     label: 'World Save Archive',
-    description: `A collection of curated world saves for apocalypse bosses with specific affixes.`,
+    description: `A collection of curated Remnant 2 world saves for apocalypse bosses with specific affixes.`,
     href: '/world-save-archive',
     icon: ArchiveBoxArrowDownIcon,
   },
