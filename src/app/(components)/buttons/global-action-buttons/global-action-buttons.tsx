@@ -1,6 +1,7 @@
 'use client'
 
 import {
+  ArrowUpIcon,
   BugAntIcon,
   Cog6ToothIcon,
   PaintBrushIcon,
@@ -36,7 +37,7 @@ export function GlobalActionButtons() {
       <AnimatePresence>
         {open && (
           <motion.div
-            className="isolate inline-flex min-w-[140px] gap-x-1 rounded-md bg-secondary-900 shadow-sm"
+            className="isolate inline-flex min-w-[140px] gap-x-1 rounded-md bg-black shadow-sm"
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: 50 }}
@@ -53,6 +54,10 @@ export function GlobalActionButtons() {
             <div>
               <span className="sr-only">Change Log</span>
               <ChangeLogButton />
+            </div>
+            <div>
+              <span className="sr-only">Back to Top</span>
+              <BackToTopButton />
             </div>
           </motion.div>
         )}
@@ -71,17 +76,17 @@ function SettingsButton({ onToggle }: { onToggle: () => void }) {
   )
 }
 
-// function BackToTopButton() {
-//   function handleBackToTopClick() {
-//     window.scrollTo({ top: 0, behavior: 'smooth' })
-//   }
+function BackToTopButton() {
+  function handleBackToTopClick() {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
 
-//   return (
-//     <BaseButton onClick={handleBackToTopClick} color="yellow">
-//       <ArrowUpIcon className="h-5 w-5" />
-//     </BaseButton>
-//   )
-// }
+  return (
+    <BaseButton onClick={handleBackToTopClick} color="cyan">
+      <ArrowUpIcon className="h-5 w-5" />
+    </BaseButton>
+  )
+}
 
 function ChangeLogButton() {
   return (
