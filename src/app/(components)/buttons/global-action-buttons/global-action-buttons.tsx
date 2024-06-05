@@ -27,7 +27,7 @@ export function GlobalActionButtons() {
       <AnimatePresence>
         {open && (
           <motion.div
-            className="isolate inline-flex w-[152px] gap-x-1 rounded-md bg-secondary-900 shadow-sm"
+            className="isolate inline-flex min-w-[140px] gap-x-1 rounded-md bg-secondary-900 shadow-sm"
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: 50 }}
