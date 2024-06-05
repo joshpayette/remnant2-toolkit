@@ -6,14 +6,20 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2024-06-04
 
+### Added
+
+- Builder descriptions now has a button to show all tokens that you can use in the build.
+
 ### Changed
 
 - Some minor UI adjustments to the navbar and the bottom buttons.
+- Site avatar now users your profile picture rather than your social media avatar.
 
 ### Fixed
 
 - YouTube thumbnail calculation now correctly removes all video query parameters to ensure the correct thumbnail is displayed.
 - Default theme on the site is now always the classic theme, regardless of system preference. I'm so sorry to all who were flashbanged.
+- Fixed issue where Amplify text in a build description was not showing the info for Amplify trait.
 
 ## 2024-06-02
 

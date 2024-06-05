@@ -2,22 +2,42 @@
 
 import { Menu, Transition } from '@headlessui/react'
 import { useSession } from 'next-auth/react'
-import { Fragment } from 'react'
+import { Fragment, useEffect, useState } from 'react'
 
+import getAvatarId from '@/app/(actions)/profile/get-avatar-id'
 import { Link } from '@/app/(components)/_base/link'
 import { PlaceHolderIcon } from '@/app/(components)/placeholder-icon'
 import { NAV_ITEMS } from '@/app/(types)/navigation'
 import { cn } from '@/app/(utils)/classnames'
+import { getAvatarById } from '@/app/profile/[userId]/(lib)/get-avatar-by-id'
 
 function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
   const { data: session, status } = useSession()
+
+  const [profileImage, setProfileImage] = useState<string | undefined>(
+    session?.user?.image ?? undefined,
+  )
+
+  useEffect(() => {
+    async function getAvatarIdAsync() {
+      const response = await getAvatarId()
+      if (response.avatarId) {
+        const avatar = getAvatarById(response.avatarId)
+        console.info('avatar', avatar)
+        setProfileImage(
+          `https://${process.env.NEXT_PUBLIC_IMAGE_URL}${avatar.imagePath}`,
+        )
+      }
+    }
+    getAvatarIdAsync()
+  }, [])
 
   const iconClasses =
     'h-8 w-8 overflow-hidden rounded-full border border-secondary-700 p-1'
 
   const AvatarImage = session?.user?.image ? (
     <img
-      src={session?.user.image}
+      src={profileImage}
       className={cn(iconClasses)}
       alt={`${session?.user.name} Avatar`}
     />

@@ -15,6 +15,14 @@ import { stripUnicode } from '@/app/(utils)/strip-unicode'
 
 import { ItemCategory } from '../(types)/builds'
 
+// Start with all description tokens, which are always included
+export const ALL_DESCRIPTION_TOKENS: string[] = [
+  ...INLINE_TOKENS.map((tag) => tag.token).sort((a, b) => b.length - a.length), // Sort in descending order of length,
+  ...EXTERNAL_TOKENS.filter((token) => token.token !== 'Amplitude')
+    .map((tag) => tag.token)
+    .sort((a, b) => b.length - a.length), // Sort in descending order of length,
+]
+
 const tooltipSupportedCategories: ItemCategory[] = [
   'amulet',
   'concoction',
@@ -39,17 +47,8 @@ function parseStringForToken({
   const escapeRegExp = (string: string) =>
     string.replace(/[.*+\-?^${}()|[\]\\]/g, '\\$&') // $& means the whole matched string
 
-  // Start with all description tokens, which are always included
-  const allDescriptionTokens: string[] = [
-    ...INLINE_TOKENS.map((tag) => tag.token).sort(
-      (a, b) => b.length - a.length,
-    ), // Sort in descending order of length,
-    ...EXTERNAL_TOKENS.map((tag) => tag.token).sort(
-      (a, b) => b.length - a.length,
-    ), // Sort in descending order of length,
-  ]
   const allDescriptionTokensRegex = new RegExp(
-    `(${allDescriptionTokens.map((token) => escapeRegExp(token)).join('|')})`,
+    `(${ALL_DESCRIPTION_TOKENS.map((token) => escapeRegExp(token)).join('|')})`,
     'g',
   )
 

@@ -74,8 +74,6 @@ ColorThemes.forEach(
     (colorThemes[key] = [baseTheme, ...customThemes].join(' ')),
 )
 
-console.info('colorThemes', colorThemes)
-
 export default function ThemeSelection({
   children,
 }: {

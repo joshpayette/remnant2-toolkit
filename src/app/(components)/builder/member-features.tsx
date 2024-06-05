@@ -12,6 +12,7 @@ import { BaseSwitch } from '@/app/(components)/_base/switch'
 import { BaseTextarea } from '@/app/(components)/_base/textarea'
 import { BuildDescriptionTemplateAlert } from '@/app/(components)/alerts/build-description-template-alert'
 import { DescriptionWithTokens } from '@/app/(components)/description-with-tokens'
+import DescriptionTokenDialog from '@/app/(components)/dialogs/description-token-dialog'
 import { Skeleton } from '@/app/(components)/skeleton'
 import { MAX_BUILD_DESCRIPTION_LENGTH } from '@/app/(data)/builds/constants'
 import { cn } from '@/app/(utils)/classnames'
@@ -50,6 +51,8 @@ export function MemberFeatures({
   const { status } = useSession()
   const [buildDescriptionAlertOpen, setBuildDescriptionAlertOpen] =
     useState(false)
+
+  const [buildTagsDialogOpen, setBuildTagsDialogOpen] = useState(false)
 
   if (status === 'loading') return <Loading />
 
@@ -102,7 +105,7 @@ export function MemberFeatures({
               className="h-[215px] w-full"
             />
           </BaseField>
-          <div className="flex w-full items-center justify-end">
+          <div className="flex w-full items-center justify-between">
             <BuildDescriptionTemplateAlert
               open={buildDescriptionAlertOpen}
               onClose={() => setBuildDescriptionAlertOpen(false)}
@@ -122,6 +125,19 @@ Watch the build in action: [insert Youtube link here]
                 )
               }}
             />
+
+            <DescriptionTokenDialog
+              open={buildTagsDialogOpen}
+              onClose={() => setBuildTagsDialogOpen(false)}
+            />
+
+            <BaseButton
+              plain
+              className="my-1underline"
+              onClick={() => setBuildTagsDialogOpen(true)}
+            >
+              Show Description Tokens
+            </BaseButton>
 
             <BaseButton
               plain
