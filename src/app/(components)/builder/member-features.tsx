@@ -83,7 +83,8 @@ export function MemberFeatures({
               >
                 <DescriptionWithTokens
                   description={description}
-                  highlightBuildTags={true}
+                  highlightBuildTokens={true}
+                  highlightExternalTokens={false}
                   highlightItems={true}
                 />
               </div>

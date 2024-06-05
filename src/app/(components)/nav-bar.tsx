@@ -33,7 +33,7 @@ export function NavBar() {
     <>
       {/* DESKTOP */}
       <nav
-        className="fixed z-40 mx-auto flex w-full max-w-7xl items-center justify-between bg-background px-4 py-6"
+        className="z-40 mx-auto flex w-full max-w-7xl items-center justify-between bg-background px-4 py-6"
         aria-label="Global"
       >
         <div className="flex min-w-[250px]">

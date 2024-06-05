@@ -123,7 +123,8 @@ export function PageClient({ linkedBuildState }: Props) {
                 >
                   <DescriptionWithTokens
                     description={linkedBuildState.description}
-                    highlightBuildTags={true}
+                    highlightBuildTokens={true}
+                    highlightExternalTokens={false}
                     highlightItems={true}
                   />
                 </div>

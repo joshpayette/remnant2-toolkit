@@ -18,9 +18,9 @@ import { ItemCategory } from '../(types)/builds'
 // Start with all description tokens, which are always included
 export const ALL_DESCRIPTION_TOKENS: string[] = [
   ...INLINE_TOKENS.map((tag) => tag.token).sort((a, b) => b.length - a.length), // Sort in descending order of length,
-  ...EXTERNAL_TOKENS.filter((token) => token.token !== 'Amplitude')
-    .map((tag) => tag.token)
-    .sort((a, b) => b.length - a.length), // Sort in descending order of length,
+  ...EXTERNAL_TOKENS.map((tag) => tag.token).sort(
+    (a, b) => b.length - a.length,
+  ), // Sort in descending order of length,
 ]
 
 const tooltipSupportedCategories: ItemCategory[] = [
@@ -34,13 +34,15 @@ const tooltipSupportedCategories: ItemCategory[] = [
 
 function parseStringForToken({
   description,
-  highlightBuildTags,
+  highlightBuildTokens,
+  highlightExternalTokens,
   highlightItems,
   handleShowItemInfo,
 }: {
   description: string
   highlightItems: boolean
-  highlightBuildTags: boolean
+  highlightBuildTokens: boolean
+  highlightExternalTokens: boolean
   handleShowItemInfo: (itemName: string | undefined) => void
 }): ReactNode[] {
   // Escape special characters in the tokens
@@ -82,6 +84,7 @@ function parseStringForToken({
           )
         }
       } else if (externalToken) {
+        if (!highlightExternalTokens) return match
         if (externalToken.description) {
           return (
             <Tooltip key={key} content={externalToken.description}>
@@ -143,7 +146,7 @@ function parseStringForToken({
     )
   }
 
-  if (highlightBuildTags) {
+  if (highlightBuildTokens) {
     const allBuildTags = ALL_BUILD_TAGS.map((tag) => tag.label).sort(
       (a, b) => b.length - a.length,
     ) // Sort in descending order of length
@@ -173,13 +176,15 @@ function parseStringForToken({
 interface Props {
   description: string
   highlightItems: boolean
-  highlightBuildTags: boolean
+  highlightBuildTokens: boolean
+  highlightExternalTokens: boolean
 }
 
 export function DescriptionWithTokens({
   description,
   highlightItems,
-  highlightBuildTags,
+  highlightBuildTokens,
+  highlightExternalTokens,
 }: Props) {
   const [item, setItem] = useState<Item | null>(null)
   const isItemInfoOpen = Boolean(item)
@@ -203,7 +208,8 @@ export function DescriptionWithTokens({
         {parseStringForToken({
           description,
           highlightItems,
-          highlightBuildTags,
+          highlightBuildTokens,
+          highlightExternalTokens,
           handleShowItemInfo,
         })}
       </div>

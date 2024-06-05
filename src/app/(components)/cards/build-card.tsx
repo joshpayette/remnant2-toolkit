@@ -157,7 +157,8 @@ export function BuildCard({
                   <DescriptionWithTokens
                     description={buildState.description}
                     highlightItems={true}
-                    highlightBuildTags={true}
+                    highlightBuildTokens={true}
+                    highlightExternalTokens={false}
                   />
                 </div>
               )}

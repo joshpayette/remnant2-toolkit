@@ -203,13 +203,15 @@ export function ItemCard({
               <div className="mt-3 flex flex-col gap-y-2 whitespace-pre-line text-left text-xs text-gray-200">
                 <DescriptionWithTokens
                   description={description ?? ''}
-                  highlightBuildTags={false}
+                  highlightBuildTokens={false}
+                  highlightExternalTokens={true}
                   highlightItems={false}
                 />
                 {item.externalTokens && (
                   <DescriptionWithTokens
                     description={item.externalTokens.join(', ')}
-                    highlightBuildTags={false}
+                    highlightBuildTokens={false}
+                    highlightExternalTokens={true}
                     highlightItems={false}
                   />
                 )}
@@ -222,7 +224,8 @@ export function ItemCard({
               <strong>At Max Level: </strong>
               <DescriptionWithTokens
                 description={item.maxLevelBonus || 'No max level bonus found.'}
-                highlightBuildTags={false}
+                highlightBuildTokens={false}
+                highlightExternalTokens={true}
                 highlightItems={false}
               />
             </div>

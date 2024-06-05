@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-06-05
+
+### Fixed
+
+- Small fix to bottom bar icons to account for lazy loading of theme select button.
+- Fixed issue where Amplitude was not highlighting correctly on item cards.
+- Removed fixed positioning on nav bar due to conflict with dialogs. Will revisit this behavior.
+
 ## 2024-06-04
 
 ### Added

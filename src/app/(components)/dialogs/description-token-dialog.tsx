@@ -23,7 +23,8 @@ export default function DescriptionTokenDialog({ open, onClose }: Props) {
         <div className="flex w-full flex-col items-start justify-center gap-y-4 text-left text-sm">
           <DescriptionWithTokens
             description={ALL_DESCRIPTION_TOKENS.join(' ')}
-            highlightBuildTags={true}
+            highlightBuildTokens={true}
+            highlightExternalTokens={false}
             highlightItems={true}
           />
         </div>

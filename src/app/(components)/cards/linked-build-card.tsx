@@ -67,7 +67,8 @@ export function LinkedBuildCard({
                   <DescriptionWithTokens
                     description={linkedBuildState.description}
                     highlightItems={true}
-                    highlightBuildTags={true}
+                    highlightBuildTokens={true}
+                    highlightExternalTokens={false}
                   />
                 </div>
               )}

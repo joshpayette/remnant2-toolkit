@@ -133,13 +133,15 @@ export function ItemInfoDialog({ open, item, onClose }: Props) {
         <div className="mt-3 flex flex-col gap-y-2 whitespace-pre-line text-left text-gray-200">
           <DescriptionWithTokens
             description={item.description ?? ''}
-            highlightBuildTags={false}
+            highlightBuildTokens={false}
+            highlightExternalTokens={true}
             highlightItems={false}
           />
           {item.externalTokens && (
             <DescriptionWithTokens
               description={item.externalTokens.join(', ')}
-              highlightBuildTags={false}
+              highlightBuildTokens={false}
+              highlightExternalTokens={true}
               highlightItems={false}
             />
           )}
@@ -150,7 +152,8 @@ export function ItemInfoDialog({ open, item, onClose }: Props) {
           <span className="w-[120px] font-bold">At Max Level</span>{' '}
           <DescriptionWithTokens
             description={item.maxLevelBonus || 'No max level bonus found.'}
-            highlightBuildTags={false}
+            highlightBuildTokens={false}
+            highlightExternalTokens={true}
             highlightItems={false}
           />
         </BaseDialogBody>
