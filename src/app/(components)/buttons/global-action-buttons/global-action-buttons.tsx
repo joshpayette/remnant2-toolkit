@@ -1,6 +1,10 @@
 'use client'
 
-import { BugAntIcon, Cog6ToothIcon } from '@heroicons/react/24/solid'
+import {
+  BugAntIcon,
+  Cog6ToothIcon,
+  PaintBrushIcon,
+} from '@heroicons/react/24/solid'
 import { AnimatePresence, motion } from 'framer-motion'
 import dynamic from 'next/dynamic'
 import { useState } from 'react'
@@ -16,6 +20,11 @@ const ThemeSelectButton = dynamic(
   () => import('./theme-select-button.client'),
   {
     ssr: false,
+    loading: () => (
+      <BaseButton color="dark/white">
+        <PaintBrushIcon className="h-5 w-5" />
+      </BaseButton>
+    ),
   },
 )
 
