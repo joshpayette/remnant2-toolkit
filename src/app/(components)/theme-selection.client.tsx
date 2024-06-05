@@ -15,14 +15,13 @@ export interface ColorThemeProps {
  * the order in which they are listed in the selection dialog
  */
 export const ColorThemes: ColorThemeProps[] = [
-  // TODO: Currently has some buggy coloring associated with it
-  // {
-  //   displayName: 'Follow System Preference',
-  //   key: 'system',
-  //   baseTheme: 'system',
-  //   customThemes: [],
-  //   isLive: true,
-  // },
+  {
+    displayName: 'Follow System Preference',
+    key: 'system',
+    baseTheme: 'system',
+    customThemes: [],
+    isLive: true,
+  },
   {
     displayName: 'Default Dark',
     key: 'dark',
@@ -87,7 +86,6 @@ export default function ThemeSelection({
       themes={Object.keys(colorThemes)}
       value={colorThemes}
       defaultTheme={defaultTheme}
-      enableSystem={false}
     >
       {children}
     </ThemeProvider>
