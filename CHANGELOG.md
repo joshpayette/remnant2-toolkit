@@ -12,7 +12,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ### Changed
 
-- Some minor UI adjustments to the navbar and the bottom buttons.
+- Some minor UI adjustments to the navbar style.
+- Bottom icons on the site now have a show/hide functionality to save space.
 - Site avatar now users your profile picture rather than your social media avatar.
 
 ### Fixed

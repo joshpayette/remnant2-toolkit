@@ -13,10 +13,15 @@ export default async function getAvatarId(): Promise<{
     return { avatarId: null }
   }
 
-  const profile = await prisma.userProfile.findUnique({
-    where: { userId },
-    select: { avatarId: true },
-  })
-
-  return { avatarId: profile?.avatarId ?? null }
+  try {
+    const profile = await prisma.userProfile.findUnique({
+      where: { userId },
+      select: { avatarId: true },
+    })
+  
+    return { avatarId: profile?.avatarId ?? null }
+  } catch(e) {
+    console.error(e)
+    return { avatarId: null }
+  }
 }
