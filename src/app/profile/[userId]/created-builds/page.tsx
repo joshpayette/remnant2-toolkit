@@ -3,6 +3,8 @@ import { BuildListFilters } from '@/app/(components)/filters/builds/types'
 import { getServerSession } from '@/app/(utils)/auth'
 import { PageClient } from '@/app/profile/[userId]/created-builds/page.client'
 
+export const maxDuration = 60
+
 export default async function Page({
   params: { userId },
 }: {
