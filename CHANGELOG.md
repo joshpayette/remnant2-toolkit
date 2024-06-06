@@ -11,6 +11,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Updated logo and profile image in navbar to be larger.
 - Navbar has a fixed position again after resolving the dialog overflow issue.
 
+## Fixed
+
+- Fixed small issue in Description Token dialog where external tokens were listed.
+
 ## 2024-06-05
 
 ### Added

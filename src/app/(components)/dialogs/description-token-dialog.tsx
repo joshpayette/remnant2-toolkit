@@ -4,15 +4,18 @@ import {
   BaseDialogDescription,
   BaseDialogTitle,
 } from '@/app/(components)/_base/dialog'
-import {
-  ALL_DESCRIPTION_TOKENS,
-  DescriptionWithTokens,
-} from '@/app/(components)/description-with-tokens'
+import { DescriptionWithTokens } from '@/app/(components)/description-with-tokens'
+import { INLINE_TOKENS } from '@/app/(types)/tokens'
 
 interface Props {
   open: boolean
   onClose: () => void
 }
+
+// Start with all description tokens, which are always included
+export const allDescriptionTokens: string[] = [
+  ...INLINE_TOKENS.map((tag) => tag.token).sort((a, b) => b.length - a.length), // Sort in descending order of length,
+]
 
 export default function DescriptionTokenDialog({ open, onClose }: Props) {
   return (
@@ -22,7 +25,7 @@ export default function DescriptionTokenDialog({ open, onClose }: Props) {
       <BaseDialogBody>
         <div className="flex w-full flex-col items-start justify-center gap-y-4 text-left text-sm">
           <DescriptionWithTokens
-            description={ALL_DESCRIPTION_TOKENS.join(' ')}
+            description={allDescriptionTokens.join(' ')}
             highlightBuildTokens={true}
             highlightExternalTokens={false}
             highlightItems={true}
