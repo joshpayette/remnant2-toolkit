@@ -47,6 +47,8 @@ import { bigIntFix } from '@/app/(utils)/big-int-fix'
 import { prisma } from '@/app/(utils)/db'
 import { PaginationResponse } from '@/app/(utils)/pagination/use-pagination'
 
+export const maxDuration = 60
+
 export type CreatedBuildsFilter = 'date created' | 'upvotes'
 
 export async function getCreatedBuilds({
