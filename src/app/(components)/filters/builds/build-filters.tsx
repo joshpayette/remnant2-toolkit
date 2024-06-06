@@ -12,6 +12,7 @@ import {
   BaseFieldGroup,
   BaseFieldset,
 } from '@/app/(components)/_base/fieldset'
+import QualityBuildDialog from '@/app/(components)/dialogs/quality-build-dialog'
 import { AmuletFilter } from '@/app/(components)/filters/builds/amulet-filter'
 import {
   ArchetypeFilter,
@@ -25,6 +26,7 @@ import {
 import { HandGunFilter } from '@/app/(components)/filters/builds/hand-gun-filter'
 import { LongGunFilter } from '@/app/(components)/filters/builds/long-gun-filter'
 import { MeleeFilter } from '@/app/(components)/filters/builds/melee-filter'
+import { RelicFilter } from '@/app/(components)/filters/builds/relic-filter'
 import { RingFilter } from '@/app/(components)/filters/builds/ring-filter'
 import {
   BUILD_FILTER_KEYS,
@@ -48,10 +50,11 @@ export const DEFAULT_BUILD_FILTERS = {
   handGun: DEFAULT_FILTER,
   melee: DEFAULT_FILTER,
   releases: VALID_RELEASE_KEYS,
+  relic: DEFAULT_FILTER,
   rings: [DEFAULT_FILTER],
   searchText: '',
   patchAffected: false,
-  withMinDescription: false,
+  withQuality: false,
   withVideo: false,
   withReference: false,
 } as const satisfies BuildListFilters
@@ -63,6 +66,8 @@ interface Props {
 // #region Component
 
 export function BuildFilters({ buildFiltersOverrides }: Props) {
+  const [qualityBuildDialogOpen, setQualityBuildDialogOpen] = useState(false)
+
   const defaultFilters = useMemo(() => {
     return buildFiltersOverrides
       ? { ...DEFAULT_BUILD_FILTERS, ...buildFiltersOverrides }
@@ -157,6 +162,11 @@ export function BuildFilters({ buildFiltersOverrides }: Props) {
       )}&`
     }
 
+    // Add the relic filter
+    if (filtersToApply.relic !== defaultFilters.relic) {
+      url += `${BUILD_FILTER_KEYS.RELIC}=${filtersToApply.relic}&`
+    }
+
     // Add the ring filters
     if (
       !isEqual(filtersToApply.rings, defaultFilters.rings) &&
@@ -180,10 +190,8 @@ export function BuildFilters({ buildFiltersOverrides }: Props) {
     if (filtersToApply.withReference !== defaultFilters.withReference) {
       url += `${BUILD_FILTER_KEYS.WITHREFERENCE}=${filtersToApply.withReference}&`
     }
-    if (
-      filtersToApply.withMinDescription !== defaultFilters.withMinDescription
-    ) {
-      url += `${BUILD_FILTER_KEYS.WITHMINDESCRIPTION}=${filtersToApply.withMinDescription}&`
+    if (filtersToApply.withQuality !== defaultFilters.withQuality) {
+      url += `${BUILD_FILTER_KEYS.WITHQUALITY}=${filtersToApply.withQuality}&`
     }
 
     // trim the final &
@@ -279,6 +287,11 @@ export function BuildFilters({ buildFiltersOverrides }: Props) {
     setUnappliedFilters(newFilters)
   }
 
+  function handleRelicChange(newRelic: string) {
+    const newFilters = { ...unappliedFilters, relic: newRelic }
+    setUnappliedFilters(newFilters)
+  }
+
   function handleRingChange(newRings: string[]) {
     // if the newRings length is 0, set the rings to the default value
     if (newRings.length === 0) {
@@ -317,16 +330,14 @@ export function BuildFilters({ buildFiltersOverrides }: Props) {
 
   function handleMiscFilterChange(newFilters: string[]) {
     const patchAffected = newFilters.includes(BUILD_FILTER_KEYS.PATCHAFFECTED)
-    const withMinDescription = newFilters.includes(
-      BUILD_FILTER_KEYS.WITHMINDESCRIPTION,
-    )
+    const withQuality = newFilters.includes(BUILD_FILTER_KEYS.WITHQUALITY)
     const withVideo = newFilters.includes(BUILD_FILTER_KEYS.WITHVIDEO)
     const withReference = newFilters.includes(BUILD_FILTER_KEYS.WITHREFERENCE)
 
     setUnappliedFilters((prev) => ({
       ...prev,
       patchAffected,
-      withMinDescription,
+      withQuality,
       withVideo,
       withReference,
     }))
@@ -409,6 +420,10 @@ export function BuildFilters({ buildFiltersOverrides }: Props) {
                       value={unappliedFilters.rings}
                       onChange={handleRingChange}
                     />
+                    <RelicFilter
+                      value={unappliedFilters.relic}
+                      onChange={handleRelicChange}
+                    />
                   </div>
                   <div className="col-span-full flex flex-col gap-y-8 sm:col-span-1 sm:gap-y-2">
                     <LongGunFilter
@@ -467,13 +482,17 @@ export function BuildFilters({ buildFiltersOverrides }: Props) {
                     />
                   </div>
                   <div className="col-span-full sm:col-span-1 md:col-span-2">
+                    <QualityBuildDialog
+                      open={qualityBuildDialogOpen}
+                      onClose={() => setQualityBuildDialogOpen(false)}
+                    />
                     <BuildMiscFilter
                       value={[
                         unappliedFilters.patchAffected
                           ? BUILD_FILTER_KEYS.PATCHAFFECTED
                           : '',
-                        unappliedFilters.withMinDescription
-                          ? BUILD_FILTER_KEYS.WITHMINDESCRIPTION
+                        unappliedFilters.withQuality
+                          ? BUILD_FILTER_KEYS.WITHQUALITY
                           : '',
                         unappliedFilters.withVideo
                           ? BUILD_FILTER_KEYS.WITHVIDEO
@@ -484,6 +503,14 @@ export function BuildFilters({ buildFiltersOverrides }: Props) {
                       ]}
                       onChange={handleMiscFilterChange}
                     />
+                    <div className="flex items-center justify-end">
+                      <BaseButton
+                        plain
+                        onClick={() => setQualityBuildDialogOpen(true)}
+                      >
+                        What makes a Quality Build?
+                      </BaseButton>
+                    </div>
                   </div>
                 </div>
                 <div className="flex w-full items-center justify-end gap-x-4">

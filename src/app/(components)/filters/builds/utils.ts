@@ -11,6 +11,7 @@ import {
 } from '@/app/(components)/filters/builds/types'
 import { VALID_RELEASE_KEYS } from '@/app/(components)/filters/releases-filter'
 import { amuletItems } from '@/app/(data)/items/amulet-items'
+import { relicItems } from '@/app/(data)/items/relic-items'
 import { ringItems } from '@/app/(data)/items/ring-items'
 import { weaponItems } from '@/app/(data)/items/weapon-items'
 
@@ -105,6 +106,15 @@ export function parseUrlFilters(
     }
   }
 
+  // Validate the provided relic
+  let relic = parsedParams.get(BUILD_FILTER_KEYS.RELIC) || defaultFilters.relic
+  const relicIsValid =
+    relic === defaultFilters.relic ||
+    relicItems.some((item) => item.name === relic)
+  if (!relicIsValid) {
+    relic = defaultFilters.relic
+  }
+
   // Validate the provided rings
   let rings =
     parsedParams.get(BUILD_FILTER_KEYS.RINGS)?.split(',') ||
@@ -144,11 +154,10 @@ export function parseUrlFilters(
     withReference = withReference === 'true'
   }
 
-  // Validate the withMinDescription filter
-  let withMinDescription =
-    parsedParams.get(BUILD_FILTER_KEYS.WITHMINDESCRIPTION) === 'true'
-  if (typeof withMinDescription === 'string') {
-    withMinDescription = withMinDescription === 'true'
+  // Validate the withQuality filter
+  let withQuality = parsedParams.get(BUILD_FILTER_KEYS.WITHQUALITY) === 'true'
+  if (typeof withQuality === 'string') {
+    withQuality = withQuality === 'true'
   }
 
   return {
@@ -159,11 +168,12 @@ export function parseUrlFilters(
     handGun,
     melee,
     releases,
+    relic,
     rings,
     searchText,
     patchAffected,
     withVideo,
     withReference,
-    withMinDescription,
+    withQuality,
   }
 }

@@ -22,10 +22,14 @@ import {
   buildTagsFilterToValues,
   limitByBuildTagsSegment,
 } from '@/app/(queries)/build-filters/segments/limit-by-build-tags'
-import { limitToBuildsWithMinDescription } from '@/app/(queries)/build-filters/segments/limit-by-min-description'
 import { limitByPatchAffected } from '@/app/(queries)/build-filters/segments/limit-by-patch-affected'
+import { limitToQualityBuilds } from '@/app/(queries)/build-filters/segments/limit-by-quality'
 import { limitByReferenceLink } from '@/app/(queries)/build-filters/segments/limit-by-reference-link'
 import { limitByReleasesSegment } from '@/app/(queries)/build-filters/segments/limit-by-release'
+import {
+  limitByRelicSegment,
+  relicFilterToId,
+} from '@/app/(queries)/build-filters/segments/limit-by-relic'
 import {
   limitByRingsSegment,
   ringsFilterToIds,
@@ -68,8 +72,9 @@ export async function getCommunityBuilds({
     rings,
     searchText,
     releases,
+    relic,
     patchAffected,
-    withMinDescription,
+    withQuality,
     withVideo,
     withReference,
   } = buildListFilters
@@ -84,6 +89,7 @@ export async function getCommunityBuilds({
   })
 
   const amuletId = amuletFilterToId({ amulet })
+  const relicId = relicFilterToId({ relic })
   const ringIds = ringsFilterToIds({ rings })
   const tagValues = buildTagsFilterToValues(buildTags)
   const trimmedSearchText = searchText.trim()
@@ -94,12 +100,13 @@ export async function getCommunityBuilds({
   ${limitByArchetypesSegment(archetypeIds)}
   ${limitByBuildTagsSegment(tagValues)}
   ${limitByReleasesSegment(releases)}
+  ${limitByRelicSegment(relicId)}
   ${limitByRingsSegment(ringIds)}
   ${limitByTimeConditionSegment(timeRange)}
   ${limitByWeaponsSegment(weaponIds)}
   ${limitByReferenceLink(withReference)}
   ${limitToBuildsWithVideo(withVideo)}
-  ${limitToBuildsWithMinDescription(withMinDescription)}
+  ${limitToQualityBuilds(withQuality)}
   ${limitByPatchAffected(patchAffected)}
   `
 

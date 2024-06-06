@@ -23,10 +23,14 @@ import {
   limitByBuildTagsSegment,
 } from '@/app/(queries)/build-filters/segments/limit-by-build-tags'
 import { limitByFavorited } from '@/app/(queries)/build-filters/segments/limit-by-favorited'
-import { limitToBuildsWithMinDescription } from '@/app/(queries)/build-filters/segments/limit-by-min-description'
 import { limitByPatchAffected } from '@/app/(queries)/build-filters/segments/limit-by-patch-affected'
+import { limitToQualityBuilds } from '@/app/(queries)/build-filters/segments/limit-by-quality'
 import { limitByReferenceLink } from '@/app/(queries)/build-filters/segments/limit-by-reference-link'
 import { limitByReleasesSegment } from '@/app/(queries)/build-filters/segments/limit-by-release'
+import {
+  limitByRelicSegment,
+  relicFilterToId,
+} from '@/app/(queries)/build-filters/segments/limit-by-relic'
 import {
   limitByRingsSegment,
   ringsFilterToIds,
@@ -66,13 +70,14 @@ export async function getFavoritedBuilds({
     handGun,
     longGun,
     melee,
+    relic,
     rings,
     searchText,
     releases,
     patchAffected,
     withVideo,
     withReference,
-    withMinDescription,
+    withQuality,
   } = buildListFilters
 
   if (releases.length === 0) return { items: [], totalItemCount: 0 }
@@ -85,6 +90,7 @@ export async function getFavoritedBuilds({
   })
   const tagValues = buildTagsFilterToValues(buildTags)
   const amuletId = amuletFilterToId({ amulet })
+  const relicId = relicFilterToId({ relic })
   const ringIds = ringsFilterToIds({ rings })
 
   const whereConditions = Prisma.sql`
@@ -94,13 +100,14 @@ ${limitByAmuletSegment(amuletId)}
 ${limitByArchetypesSegment(archetypeIds)}
 ${limitByBuildTagsSegment(tagValues)}
 ${limitByReleasesSegment(releases)}
+${limitByRelicSegment(relicId)}
 ${limitByRingsSegment(ringIds)}
 ${limitByTimeConditionSegment(timeRange)}
 ${limitByWeaponsSegment(weaponIds)}
 ${limitByReferenceLink(withReference)}
 ${limitToBuildsWithVideo(withVideo)}
 ${limitByPatchAffected(patchAffected)}
-${limitToBuildsWithMinDescription(withMinDescription)}
+${limitToQualityBuilds(withQuality)}
 ${limitByFavorited(userId)}
 `
 

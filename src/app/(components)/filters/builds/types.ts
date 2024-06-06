@@ -7,11 +7,12 @@ export interface BuildListFilters {
   handGun: string | DefaultFilter
   longGun: string | DefaultFilter
   melee: string | DefaultFilter
+  relic: string | DefaultFilter
   rings: string[] | [DefaultFilter]
   releases: string[] | [DefaultFilter]
   searchText: string
   patchAffected: boolean
-  withMinDescription: boolean
+  withQuality: boolean
   withVideo: boolean
   withReference: boolean
 }
@@ -26,9 +27,10 @@ export const BUILD_FILTER_KEYS = {
   MELEE: 'melee',
   PATCHAFFECTED: 'patchAffected',
   RELEASES: 'releases',
+  RELIC: 'relic',
   RINGS: 'rings',
   SEARCHTEXT: 'searchText',
-  WITHMINDESCRIPTION: 'withMinDescription',
+  WITHQUALITY: 'withQuality',
   WITHVIDEO: 'withVideo',
   WITHREFERENCE: 'withReference',
 } as const satisfies Record<string, keyof BuildListFilters>

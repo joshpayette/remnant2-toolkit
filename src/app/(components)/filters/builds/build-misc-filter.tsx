@@ -16,8 +16,8 @@ export const MINIMUM_DESCRIPTION_LENGTH = 100
 export function BuildMiscFilter({ value, onChange }: Props) {
   const options = [
     {
-      label: `Only Builds w/ ${MINIMUM_DESCRIPTION_LENGTH}+ description length`,
-      value: BUILD_FILTER_KEYS.WITHMINDESCRIPTION,
+      label: `Only Quality Builds`,
+      value: BUILD_FILTER_KEYS.WITHQUALITY,
     },
     {
       label: 'Only Builds w/ Video',

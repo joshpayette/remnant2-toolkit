@@ -22,10 +22,14 @@ import {
   buildTagsFilterToValues,
   limitByBuildTagsSegment,
 } from '@/app/(queries)/build-filters/segments/limit-by-build-tags'
-import { limitToBuildsWithMinDescription } from '@/app/(queries)/build-filters/segments/limit-by-min-description'
 import { limitByPatchAffected } from '@/app/(queries)/build-filters/segments/limit-by-patch-affected'
+import { limitToQualityBuilds } from '@/app/(queries)/build-filters/segments/limit-by-quality'
 import { limitByReferenceLink } from '@/app/(queries)/build-filters/segments/limit-by-reference-link'
 import { limitByReleasesSegment } from '@/app/(queries)/build-filters/segments/limit-by-release'
+import {
+  limitByRelicSegment,
+  relicFilterToId,
+} from '@/app/(queries)/build-filters/segments/limit-by-relic'
 import {
   limitByRingsSegment,
   ringsFilterToIds,
@@ -68,10 +72,11 @@ export async function getBeginnerBuilds({
     rings,
     searchText,
     releases,
+    relic,
     patchAffected,
     withVideo,
     withReference,
-    withMinDescription,
+    withQuality,
   } = buildListFilters
 
   if (releases.length === 0) return { items: [], totalItemCount: 0 }
@@ -79,6 +84,7 @@ export async function getBeginnerBuilds({
   const archetypeIds = archetypeFiltersToIds({ archetypes })
   const weaponIds = weaponFiltersToIds({ longGun, handGun, melee })
   const amuletId = amuletFilterToId({ amulet })
+  const relicId = relicFilterToId({ relic })
   const ringIds = ringsFilterToIds({ rings })
   const tagValues = buildTagsFilterToValues(buildTags)
 
@@ -90,13 +96,14 @@ export async function getBeginnerBuilds({
   ${limitByArchetypesSegment(archetypeIds)}
   ${limitByBuildTagsSegment(tagValues)}
   ${limitByReleasesSegment(releases)}
+  ${limitByRelicSegment(relicId)}
   ${limitByRingsSegment(ringIds)}
   ${limitByTimeConditionSegment(timeRange)}
   ${limitByWeaponsSegment(weaponIds)}
   ${limitByReferenceLink(withReference)}
   ${limitToBuildsWithVideo(withVideo)}
   ${limitByPatchAffected(patchAffected)}
-  ${limitToBuildsWithMinDescription(withMinDescription)}
+  ${limitToQualityBuilds(withQuality)}
   `
 
   const orderBySegment = getOrderBySegment(orderBy, true)

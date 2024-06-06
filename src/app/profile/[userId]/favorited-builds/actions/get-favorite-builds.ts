@@ -23,10 +23,11 @@ import {
   limitByBuildTagsSegment,
 } from '@/app/(queries)/build-filters/segments/limit-by-build-tags'
 import { limitByFavorited } from '@/app/(queries)/build-filters/segments/limit-by-favorited'
-import { limitToBuildsWithMinDescription } from '@/app/(queries)/build-filters/segments/limit-by-min-description'
 import { limitByPatchAffected } from '@/app/(queries)/build-filters/segments/limit-by-patch-affected'
+import { limitToQualityBuilds } from '@/app/(queries)/build-filters/segments/limit-by-quality'
 import { limitByReferenceLink } from '@/app/(queries)/build-filters/segments/limit-by-reference-link'
 import { limitByReleasesSegment } from '@/app/(queries)/build-filters/segments/limit-by-release'
+import { limitByRelicSegment } from '@/app/(queries)/build-filters/segments/limit-by-relic'
 import {
   limitByRingsSegment,
   ringsFilterToIds,
@@ -66,11 +67,12 @@ export async function getFavoritedBuilds({
     handGun,
     longGun,
     melee,
+    relic,
     rings,
     searchText,
     releases,
     patchAffected,
-    withMinDescription,
+    withQuality,
     withVideo,
     withReference,
   } = buildListFilters
@@ -94,13 +96,14 @@ ${limitByAmuletSegment(amuletId)}
 ${limitByArchetypesSegment(archetypeIds)}
 ${limitByBuildTagsSegment(tagValues)}
 ${limitByReleasesSegment(releases)}
+${limitByRelicSegment(relic)}
 ${limitByRingsSegment(ringIds)}
 ${limitByTimeConditionSegment(timeRange)}
 ${limitByWeaponsSegment(weaponIds)}
 ${limitByReferenceLink(withReference)}
 ${limitToBuildsWithVideo(withVideo)}
 ${limitByPatchAffected(patchAffected)}
-${limitToBuildsWithMinDescription(withMinDescription)}
+${limitToQualityBuilds(withQuality)}
 ${limitByFavorited(userId)}
 `
 

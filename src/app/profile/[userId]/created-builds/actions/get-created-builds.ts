@@ -24,10 +24,14 @@ import {
   limitByBuildTagsSegment,
 } from '@/app/(queries)/build-filters/segments/limit-by-build-tags'
 import { limitByFeatured } from '@/app/(queries)/build-filters/segments/limit-by-featured'
-import { limitToBuildsWithMinDescription } from '@/app/(queries)/build-filters/segments/limit-by-min-description'
 import { limitByPatchAffected } from '@/app/(queries)/build-filters/segments/limit-by-patch-affected'
+import { limitToQualityBuilds } from '@/app/(queries)/build-filters/segments/limit-by-quality'
 import { limitByReferenceLink } from '@/app/(queries)/build-filters/segments/limit-by-reference-link'
 import { limitByReleasesSegment } from '@/app/(queries)/build-filters/segments/limit-by-release'
+import {
+  limitByRelicSegment,
+  relicFilterToId,
+} from '@/app/(queries)/build-filters/segments/limit-by-relic'
 import {
   limitByRingsSegment,
   ringsFilterToIds,
@@ -73,13 +77,14 @@ export async function getCreatedBuilds({
     handGun,
     longGun,
     melee,
+    relic,
     rings,
     searchText,
     releases,
     patchAffected,
     withVideo,
     withReference,
-    withMinDescription,
+    withQuality,
   } = buildListFilters
 
   if (releases.length === 0) return { items: [], totalItemCount: 0 }
@@ -92,6 +97,7 @@ export async function getCreatedBuilds({
   })
   const tagValues = buildTagsFilterToValues(buildTags)
   const amuletId = amuletFilterToId({ amulet })
+  const relicId = relicFilterToId({ relic })
   const ringIds = ringsFilterToIds({ rings })
 
   let isPublicSegment: Prisma.Sql = Prisma.empty
@@ -117,13 +123,14 @@ export async function getCreatedBuilds({
   ${limitByArchetypesSegment(archetypeIds)}
   ${limitByBuildTagsSegment(tagValues)}
   ${limitByReleasesSegment(releases)}
+  ${limitByRelicSegment(relicId)}
   ${limitByRingsSegment(ringIds)}
   ${limitByTimeConditionSegment(timeRange)}
   ${limitByWeaponsSegment(weaponIds)}
   ${limitByReferenceLink(withReference)}
   ${limitToBuildsWithVideo(withVideo)}
   ${limitByPatchAffected(patchAffected)}
-  ${limitToBuildsWithMinDescription(withMinDescription)}
+  ${limitToQualityBuilds(withQuality)}
   ${limitByFeatured(featuredBuildsOnly)}
   `
 
