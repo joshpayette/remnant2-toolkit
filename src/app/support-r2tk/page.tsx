@@ -40,6 +40,19 @@ export default async function Page() {
             />
           }
         />
+
+        <LandingPageCard
+          label="PayPal"
+          description="Making a donation to the Toolkit on PayPal"
+          href="https://www.paypal.com/donate/?hosted_button_id=YGFSAQRH3CZGN"
+          target="_blank"
+          icon={
+            <NAV_ITEMS.supportR2TK.icon
+              className="h-7 w-7 flex-none text-primary-500"
+              aria-hidden="true"
+            />
+          }
+        />
       </div>
     </LandingPageContainer>
   )

@@ -11,6 +11,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - You can now filter builds by a specific Relic.
 - You can now filter builds to only show "Quality" builds. A quality build has 100+ character descriptions, at least one build tag, and all item slots full (except consumables).
   - Updated this to a 200+ character description.
+- Added PayPal donation link for those who wish to support the R2TK monthly costs.
 
 ### Changed
 
