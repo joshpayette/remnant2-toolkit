@@ -5,6 +5,7 @@ import { useLocalStorage } from 'usehooks-ts'
 
 import { BaseButton } from '@/app/(components)/_base/button'
 import { BaseText } from '@/app/(components)/_base/text'
+import { ZINDEXES } from '@/app/(components)/z-indexes'
 import { cn } from '@/app/(utils)/classnames'
 
 interface Props {
@@ -24,7 +25,11 @@ export default function AlertBanner({
 
   return (
     <div
-      className={cn('fixed z-[50] w-full animate-slideIn p-1 text-sm', bgColor)}
+      className={cn(
+        'fixed w-full animate-slideIn p-1 text-sm',
+        bgColor,
+        ZINDEXES.ALERT_BANNER,
+      )}
     >
       <div className="absolute right-0 top-0">
         <BaseButton onClick={() => setShowBanner(false)} plain>

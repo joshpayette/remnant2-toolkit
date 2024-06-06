@@ -6,6 +6,7 @@ import { ArmorBreakdownDialog } from '@/app/(components)/dialogs/armor-breakdown
 import { HealthBreakdownDialog } from '@/app/(components)/dialogs/health-breakdown-dialog'
 import { StaminaBreakdownDialog } from '@/app/(components)/dialogs/stamina-breakdown-dialog'
 import { Tooltip } from '@/app/(components)/tooltip'
+import { ZINDEXES } from '@/app/(components)/z-indexes'
 import { BuildState } from '@/app/(types)/builds'
 import { getTotalArmor } from '@/app/(utils)/builds/get-totals/get-total-armor'
 import { getTotalHealth } from '@/app/(utils)/builds/get-totals/get-total-health'
@@ -237,7 +238,12 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
               </div>
             </div>
             {!isScreenshotMode && (
-              <div className="z-0 mt-2 flex w-full items-center justify-center">
+              <div
+                className={cn(
+                  'mt-2 flex w-full items-center justify-center',
+                  ZINDEXES.VASH_BUTTON,
+                )}
+              >
                 <a
                   href={buildToVashUrl(buildState)}
                   target="_blank"

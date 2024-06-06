@@ -4,8 +4,10 @@ import { Metadata } from 'next'
 import React from 'react'
 
 import { Link } from '@/app/(components)/_base/link'
+import { ZINDEXES } from '@/app/(components)/z-indexes'
 import { NAV_ITEMS } from '@/app/(types)/navigation'
 import { getServerSession } from '@/app/(utils)/auth'
+import { cn } from '@/app/(utils)/classnames'
 
 export async function generateMetadata(): Promise<Metadata> {
   const title = `Build Creation Tool - Remnant 2 Toolkit`
@@ -48,9 +50,17 @@ export default async function Layout({
         <div className="relative flex w-full flex-col items-center">
           <div
             id="disabled-overlay"
-            className="absolute inset-0 z-10 h-full bg-background-solid/90"
+            className={cn(
+              'absolute inset-0 h-full bg-background-solid/90',
+              ZINDEXES.BUILD_FEATURES_DISABLED,
+            )}
           />
-          <div className="absolute z-10 mb-2 flex h-full w-full flex-col items-center justify-start p-2 text-2xl font-bold text-red-500">
+          <div
+            className={cn(
+              'absolute mb-2 flex h-full w-full flex-col items-center justify-start p-2 text-2xl font-bold text-red-500',
+              ZINDEXES.BUILD_FEATURES_DISABLED,
+            )}
+          >
             <p className="w-full text-center">
               This enhanced build tool requires you to be logged in to use it,
               as it saves your builds to the database. If you prefer not to sign

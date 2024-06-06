@@ -14,6 +14,7 @@ import { BaseButton } from '@/app/(components)/_base/button'
 import { Link } from '@/app/(components)/_base/link'
 import { AuthButton } from '@/app/(components)/auth-button'
 import { Logo } from '@/app/(components)/logo'
+import { ZINDEXES } from '@/app/(components)/z-indexes'
 import { NAV_ITEMS } from '@/app/(types)/navigation'
 import { cn } from '@/app/(utils)/classnames'
 
@@ -33,7 +34,10 @@ export function NavBar() {
     <>
       {/* DESKTOP */}
       <nav
-        className="z-40 mx-auto flex w-full max-w-7xl items-center justify-between bg-background px-4 py-6"
+        className={cn(
+          'fixed mx-auto flex max-h-[80px] w-full max-w-7xl items-center justify-between bg-background px-4 py-6',
+          ZINDEXES.NAVBAR,
+        )}
         aria-label="Global"
       >
         <div className="flex min-w-[250px]">
@@ -74,7 +78,12 @@ export function NavBar() {
               leaveFrom="transform opacity-100 scale-100"
               leaveTo="transform opacity-0 scale-95"
             >
-              <Menu.Items className="absolute left-0 z-20 mt-2 w-[290px] origin-top-left rounded-md bg-background-solid p-2 shadow-lg ring-1 ring-gray-800 ring-opacity-5 focus:outline-none">
+              <Menu.Items
+                className={cn(
+                  'absolute left-0 mt-2 w-[290px] origin-top-left rounded-md bg-background-solid p-2 shadow-lg ring-1 ring-gray-800 ring-opacity-5 focus:outline-none',
+                  ZINDEXES.NAVBAR_MENU_ITEMS,
+                )}
+              >
                 <Menu.Item>
                   {({ active }) => (
                     <Link
@@ -224,8 +233,13 @@ export function NavBar() {
         open={mobileMenuOpen}
         onClose={setMobileMenuOpen}
       >
-        <div className="fixed inset-0 z-10" />
-        <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-background-solid px-6 py-6 text-surface-solid sm:max-w-sm sm:ring-1 sm:ring-secondary-900/10">
+        <div className={cn('fixed inset-0', ZINDEXES.DIALOG_BACKDROP)} />
+        <Dialog.Panel
+          className={cn(
+            'fixed inset-y-0 right-0 w-full overflow-y-auto bg-background-solid px-6 py-6 text-surface-solid sm:max-w-sm sm:ring-1 sm:ring-secondary-900/10',
+            ZINDEXES.DIALOG,
+          )}
+        >
           <div className="flex items-center justify-between">
             <Logo />
             <BaseButton

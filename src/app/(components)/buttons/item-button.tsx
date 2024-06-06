@@ -5,6 +5,7 @@ import { IoInformationCircleSharp } from 'react-icons/io5'
 import { TbHttpOptions } from 'react-icons/tb'
 
 import { Tooltip } from '@/app/(components)/tooltip'
+import { ZINDEXES } from '@/app/(components)/z-indexes'
 import { Enemy, isEnemy } from '@/app/(data)/enemies/types'
 import { Item } from '@/app/(data)/items/types'
 import { ArchetypeItem } from '@/app/(data)/items/types/ArchetypeItem'
@@ -140,7 +141,8 @@ export function ItemButton({
         >
           <button
             className={cn(
-              'absolute right-0 top-0 z-[1] rounded-full border-transparent bg-black',
+              'absolute right-0 top-0 rounded-full border-transparent bg-black',
+              ZINDEXES.ITEM_BUTTON,
               size === 'sm' && 'right-[-20px]',
             )}
             onClick={() =>
@@ -166,7 +168,8 @@ export function ItemButton({
         >
           <button
             className={cn(
-              'absolute left-0 top-0 z-[1] rounded-full border-transparent bg-black',
+              'absolute left-0 top-0 rounded-full border-transparent bg-black',
+              ZINDEXES.ITEM_BUTTON,
               size === 'sm' && 'left-auto right-[-40px]',
             )}
             onClick={() => onToggleOptional(item, !item.optional)}

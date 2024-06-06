@@ -7,6 +7,7 @@ import { Fragment, useEffect, useState } from 'react'
 import getAvatarId from '@/app/(actions)/profile/get-avatar-id'
 import { Link } from '@/app/(components)/_base/link'
 import { PlaceHolderIcon } from '@/app/(components)/placeholder-icon'
+import { ZINDEXES } from '@/app/(components)/z-indexes'
 import { NAV_ITEMS } from '@/app/(types)/navigation'
 import { cn } from '@/app/(utils)/classnames'
 import { getAvatarById } from '@/app/profile/[userId]/(lib)/get-avatar-by-id'
@@ -23,7 +24,6 @@ function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
       const response = await getAvatarId()
       if (response.avatarId) {
         const avatar = getAvatarById(response.avatarId)
-        console.info('avatar', avatar)
         setProfileImage(
           `https://${process.env.NEXT_PUBLIC_IMAGE_URL}${avatar.imagePath}`,
         )
@@ -31,21 +31,6 @@ function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
     }
     getAvatarIdAsync()
   }, [])
-
-  const iconClasses =
-    'h-8 w-8 overflow-hidden rounded-full border border-secondary-700 p-1'
-
-  const AvatarImage = session?.user?.image ? (
-    <img
-      src={profileImage}
-      className={cn(iconClasses)}
-      alt={`${session?.user.name} Avatar`}
-    />
-  ) : (
-    <span className={cn(iconClasses, 'bg-gray-100')}>
-      <PlaceHolderIcon />
-    </span>
-  )
 
   if (variant === 'mobile')
     return (
@@ -189,10 +174,20 @@ function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
     </Link>
   ) : (
     <Menu as="div" className="relative hidden lg:block">
-      <Menu.Button className="flex h-8 w-8 rounded-full bg-background text-sm focus:outline-none focus:ring-2 focus:ring-surface-solid focus:ring-offset-2 focus:ring-offset-gray-800">
+      <Menu.Button className="flex h-[56px] w-[56px] rounded-full bg-background text-sm focus:outline-none focus:ring-2 focus:ring-surface-solid focus:ring-offset-2 focus:ring-offset-gray-800">
         <span className="absolute -inset-1.5" />
         <span className="sr-only">Open user menu</span>
-        {AvatarImage}
+        {session?.user?.image ? (
+          <img
+            src={profileImage}
+            className="h-[56px] w-[56px] overflow-hidden rounded-full border border-secondary-700 p-1"
+            alt={`${session?.user.name} Avatar`}
+          />
+        ) : (
+          <span className="h-[56px] w-[56px] overflow-hidden rounded-full border border-secondary-700 bg-gray-100 p-1">
+            <PlaceHolderIcon />
+          </span>
+        )}
       </Menu.Button>
       <Transition
         as={Fragment}
@@ -203,7 +198,11 @@ function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
         leaveFrom="transform opacity-100 scale-100"
         leaveTo="transform opacity-0 scale-95"
       >
-        <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-background-solid py-1 shadow-lg ring-1 ring-gray-800 ring-opacity-5 focus:outline-none">
+        <Menu.Items
+          className={cn(
+            'absolute right-0 mt-2 w-48 origin-top-right rounded-md bg-background-solid py-1 shadow-lg ring-1 ring-gray-800 ring-opacity-5 focus:outline-none',
+          )}
+        >
           {session?.user?.id ? (
             <Menu.Item>
               {({ active }) => (

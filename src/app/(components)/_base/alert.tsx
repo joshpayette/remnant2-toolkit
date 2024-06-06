@@ -11,6 +11,9 @@ import clsx from 'clsx'
 import type React from 'react'
 import { Fragment } from 'react'
 
+import { ZINDEXES } from '@/app/(components)/z-indexes'
+import { cn } from '@/app/(utils)/classnames'
+
 import { BaseText } from './text'
 
 const sizes = {
@@ -52,7 +55,10 @@ export function BaseAlert({
         </HeadlessTransitionChild>
 
         <HeadlessTransitionChild
-          className="fixed inset-0 z-[50] w-screen overflow-y-auto pt-6 sm:pt-0"
+          className={cn(
+            'fixed inset-0 w-screen overflow-y-auto pt-6 sm:pt-0',
+            ZINDEXES.ALERT,
+          )}
           enter="ease-out duration-100"
           enterFrom="opacity-0"
           enterTo="opacity-100"

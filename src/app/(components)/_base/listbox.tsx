@@ -4,6 +4,8 @@ import * as Headless from '@headlessui/react'
 import clsx from 'clsx'
 import { Fragment } from 'react'
 
+import { ZINDEXES } from '@/app/(components)/z-indexes'
+
 export function BaseListbox<T>({
   className,
   placeholder,
@@ -117,7 +119,9 @@ export function BaseListbox<T>({
           }}
           className={clsx(
             // positioning
-            'absolute z-30',
+            'absolute',
+
+            ZINDEXES.LISTBOX_OPTIONS,
 
             // Anchor positioning
             '[--anchor-offset:-1.625rem] [--anchor-padding:theme(spacing.4)] sm:[--anchor-offset:-1.375rem]',

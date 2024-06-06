@@ -12,11 +12,11 @@ export function Logo({
   return (
     <Link href="/" className="-m-1.5 flex items-center justify-start p-1.5">
       <Image
-        className="mr-2 h-[24px] w-[35px]"
-        src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/toolkit/toolkit-logo-sm.png`}
+        className="mr-2 h-[36px] w-[52px]"
+        src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/toolkit/toolkit-logo.png`}
         alt="Remnant 2 Toolkit logo, a purple and yellow toolbox."
-        width={35}
-        height={24}
+        width={52}
+        height={36}
         loading="eager"
         priority
         unoptimized={unoptimized}

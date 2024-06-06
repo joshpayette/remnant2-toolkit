@@ -14,7 +14,9 @@ import { toast } from 'react-toastify'
 import { BaseButton } from '@/app/(components)/_base/button'
 import { BugReportPrompt } from '@/app/(components)/alerts/bug-report-prompt'
 import { ReportBug } from '@/app/(components)/buttons/global-action-buttons/actions'
+import { ZINDEXES } from '@/app/(components)/z-indexes'
 import { NAV_ITEMS } from '@/app/(types)/navigation'
+import { cn } from '@/app/(utils)/classnames'
 
 // Lazy-load the theme toggle, since it relies on client context
 const ThemeSelectButton = dynamic(
@@ -33,7 +35,12 @@ export function GlobalActionButtons() {
   const [open, setOpen] = useState(false)
 
   return (
-    <div className="fixed bottom-[8px] right-[8px] z-20 flex items-center justify-center gap-x-1">
+    <div
+      className={cn(
+        'fixed bottom-[8px] right-[8px] flex items-center justify-center gap-x-1',
+        ZINDEXES.GLOBAL_ACTION_BUTTONS,
+      )}
+    >
       <AnimatePresence>
         {open && (
           <motion.div

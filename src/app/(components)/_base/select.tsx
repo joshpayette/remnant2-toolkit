@@ -52,7 +52,7 @@ export const BaseSelect = forwardRef<HTMLSelectElement, HeadlessSelectProps>(
             'border border-surface-solid/10 data-[hover]:border-surface-solid/20',
 
             // Background color
-            'bg-transparent bg-surface-solid/5 *:bg-zinc-800',
+            'bg-surface-solid/5 *:bg-zinc-800',
 
             // Hide default focus styles
             'focus:outline-none',
@@ -61,7 +61,7 @@ export const BaseSelect = forwardRef<HTMLSelectElement, HeadlessSelectProps>(
             'data-[invalid]:border-red-600 data-[invalid]:data-[hover]:border-red-600',
 
             // Disabled state
-            'data-[disabled]:border-surface-solid/15 data-[disabled]:opacity-100 data-[disabled]:bg-surface-solid/[2.5%]',
+            'data-[disabled]:border-surface-solid/15 data-[disabled]:bg-surface-solid/[2.5%] data-[disabled]:opacity-100',
           ])}
         />
         {!multiple && (

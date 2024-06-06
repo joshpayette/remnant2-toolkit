@@ -4,6 +4,7 @@ import { IoInformationCircleSharp } from 'react-icons/io5'
 import { TbHttpOptions } from 'react-icons/tb'
 
 import { Tooltip } from '@/app/(components)/tooltip'
+import { ZINDEXES } from '@/app/(components)/z-indexes'
 import {
   DEFAULT_TRAIT_AMOUNT,
   MAX_TRAIT_AMOUNT,
@@ -268,7 +269,8 @@ export function Traits({
                 >
                   <button
                     className={cn(
-                      'z-[1] ml-2 rounded-full border-transparent bg-black',
+                      'ml-2 rounded-full border-transparent bg-black',
+                      ZINDEXES.ITEM_BUTTON,
                     )}
                     onClick={() =>
                       onUpdateAmount({
