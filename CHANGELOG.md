@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-06-06
+
+### Changed
+
+- Updated logo and profile image in navbar to be larger.
+- Navbar has a fixed position again after resolving the dialog overflow issue.
+
 ## 2024-06-05
 
 ### Added
