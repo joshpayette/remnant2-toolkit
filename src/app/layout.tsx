@@ -10,6 +10,7 @@ import { Viewport } from 'next'
 import dynamic from 'next/dynamic'
 import { ToastContainer } from 'react-toastify'
 
+import { BaseTextLink } from '@/app/(components)/_base/text'
 import { GlobalActionButtons } from '@/app/(components)/buttons/global-action-buttons/global-action-buttons'
 import { Footer } from '@/app/(components)/footer'
 import { NavBar } from '@/app/(components)/nav-bar'
@@ -53,10 +54,10 @@ export default async function RootLayout({
         <SessionProvider>
           <ThemeSelection>
             <GlobalActionButtons />
-            <AlertBanner localStorageKey="light-mode-alert">
-              Light mode is now available! Click the sun icon at the bottom
-              right to switch themes. Huge thanks to <strong>Synder</strong> for
-              all the work it took to make this possible!
+            <AlertBanner localStorageKey="support-r2tk-alert">
+              If you enjoy using R2TK, please consider supporting the site{' '}
+              <BaseTextLink href="/support-r2tk">here</BaseTextLink>. The
+              majority of monthly costs are paid out of pocket.
             </AlertBanner>
             <div className="flex h-full w-full max-w-7xl grow flex-col items-start justify-start">
               <header className="w-full">

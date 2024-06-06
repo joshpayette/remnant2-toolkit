@@ -3,7 +3,7 @@ import {
   BaseDialogBody,
   BaseDialogTitle,
 } from '@/app/(components)/_base/dialog'
-import { MINIMUM_DESCRIPTION_LENGTH } from '@/app/(components)/filters/builds/build-misc-filter'
+import { MINIMUM_QUALITY_DESCRIPTION_LENGTH } from '@/app/(components)/filters/builds/build-misc-filter'
 
 interface Props {
   open: boolean
@@ -19,7 +19,7 @@ export default function QualityBuildDialog({ open, onClose }: Props) {
         conditions:
         <ul className="text-md mt-4 list-disc">
           <li className="mb-1 ml-4">
-            Minimum {MINIMUM_DESCRIPTION_LENGTH} character description.
+            Minimum {MINIMUM_QUALITY_DESCRIPTION_LENGTH} character description.
           </li>
           <li className="mb-1 ml-4">At least one build tag.</li>
           <li className="mb-1 ml-4">

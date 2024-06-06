@@ -1,12 +1,12 @@
 import { Prisma } from '@prisma/client'
 
-import { MINIMUM_DESCRIPTION_LENGTH } from '@/app/(components)/filters/builds/build-misc-filter'
+import { MINIMUM_QUALITY_DESCRIPTION_LENGTH } from '@/app/(components)/filters/builds/build-misc-filter'
 import { MAX_TRAIT_AMOUNT } from '@/app/(data)/builds/constants'
 
 export function limitToQualityBuilds(limitToQualityBuilds: boolean) {
   if (!limitToQualityBuilds) return Prisma.empty
   return Prisma.sql`
-  AND CHAR_LENGTH(Build.description) >= ${MINIMUM_DESCRIPTION_LENGTH}
+  AND CHAR_LENGTH(Build.description) >= ${MINIMUM_QUALITY_DESCRIPTION_LENGTH}
   AND EXISTS (SELECT 1 FROM BuildTags WHERE BuildTags.BuildId = Build.Id)
   AND (ItemCounts.archtypeCount = 2)
   AND (ItemCounts.skillCount = 2)

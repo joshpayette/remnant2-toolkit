@@ -11,7 +11,7 @@ interface Props {
   onChange: (value: string[]) => void
 }
 
-export const MINIMUM_DESCRIPTION_LENGTH = 100
+export const MINIMUM_QUALITY_DESCRIPTION_LENGTH = 200
 
 export function BuildMiscFilter({ value, onChange }: Props) {
   const options = [
