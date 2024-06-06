@@ -1,5 +1,3 @@
-'use server'
-
 import { BuildFilters } from '@/app/(components)/filters/builds/build-filters'
 import { PageHeader } from '@/app/(components)/page-header'
 import { NAV_ITEMS } from '@/app/(types)/navigation'
