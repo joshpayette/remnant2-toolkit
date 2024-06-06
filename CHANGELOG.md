@@ -21,6 +21,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ## Fixed
 
 - Fixed small issue in Description Token dialog where external tokens were listed.
+- Fixed bug preventing favorited builds from showing up in the profile page.
 
 ## 2024-06-05
 

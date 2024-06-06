@@ -27,7 +27,10 @@ import { limitByPatchAffected } from '@/app/(queries)/build-filters/segments/lim
 import { limitToQualityBuilds } from '@/app/(queries)/build-filters/segments/limit-by-quality'
 import { limitByReferenceLink } from '@/app/(queries)/build-filters/segments/limit-by-reference-link'
 import { limitByReleasesSegment } from '@/app/(queries)/build-filters/segments/limit-by-release'
-import { limitByRelicSegment } from '@/app/(queries)/build-filters/segments/limit-by-relic'
+import {
+  limitByRelicSegment,
+  relicFilterToId,
+} from '@/app/(queries)/build-filters/segments/limit-by-relic'
 import {
   limitByRingsSegment,
   ringsFilterToIds,
@@ -87,6 +90,7 @@ export async function getFavoritedBuilds({
   })
   const tagValues = buildTagsFilterToValues(buildTags)
   const amuletId = amuletFilterToId({ amulet })
+  const relicId = relicFilterToId({ relic })
   const ringIds = ringsFilterToIds({ rings })
 
   const whereConditions = Prisma.sql`
@@ -96,15 +100,15 @@ ${limitByAmuletSegment(amuletId)}
 ${limitByArchetypesSegment(archetypeIds)}
 ${limitByBuildTagsSegment(tagValues)}
 ${limitByReleasesSegment(releases)}
-${limitByRelicSegment(relic)}
+${limitByRelicSegment(relicId)}
 ${limitByRingsSegment(ringIds)}
 ${limitByTimeConditionSegment(timeRange)}
 ${limitByWeaponsSegment(weaponIds)}
 ${limitByReferenceLink(withReference)}
 ${limitToBuildsWithVideo(withVideo)}
 ${limitByPatchAffected(patchAffected)}
-${limitToQualityBuilds(withQuality)}
 ${limitByFavorited(userId)}
+${limitToQualityBuilds(withQuality)}
 `
 
   const orderBySegment = getOrderBySegment(orderBy)
@@ -126,6 +130,8 @@ ${limitByFavorited(userId)}
       searchText: trimmedSearchText,
     }),
   ])
+
+  console.info('builds', builds.length)
 
   // Then, for each Build, get the associated BuildItems
   for (const build of builds) {
