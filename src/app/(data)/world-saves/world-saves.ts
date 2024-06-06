@@ -682,4 +682,9 @@ export const worldSaves = [
     bossAffixes: ['Spiteful', 'Thick Skin'],
     release: 'dlc1',
   },
+  {
+    bossName: 'Venom',
+    bossAffixes: ['Spiteful', 'Vicious'],
+    release: 'dlc2',
+  }
 ] as const satisfies WorldSave[]

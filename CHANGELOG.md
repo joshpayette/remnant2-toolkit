@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2024-06-05
 
+### Added
+
+- Added world save for Spiteful/Vicious Venom.
+
 ### Fixed
 
 - Small fix to bottom bar icons to account for lazy loading of theme select button.
