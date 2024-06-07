@@ -1,3 +1,5 @@
+import type React from 'react'
+
 import { BaseButton } from '@/app/(components)/_base/button'
 import {
   BaseDialog,
@@ -13,6 +15,7 @@ import { ImportSaveSubmitButton } from '@/app/tracker/import-save-submit-button'
 
 interface Props {
   open: boolean
+  description: React.ReactNode
   fileInputRef: React.RefObject<HTMLInputElement>
   onClose: () => void
   onSubmit: (payload: FormData) => void
@@ -20,6 +23,7 @@ interface Props {
 
 export function ImportSaveDialog({
   open,
+  description,
   fileInputRef,
   onClose,
   onSubmit,
@@ -28,20 +32,10 @@ export function ImportSaveDialog({
     <BaseDialog open={open} onClose={onClose}>
       <form action={onSubmit}>
         <BaseDialogTitle>Import Save</BaseDialogTitle>
-        <BaseDialogDescription>
-          Automatically import discovered items from your{' '}
-          <BaseCode>profile.sav</BaseCode>
-        </BaseDialogDescription>
-        <BaseDialogDescription>
-          <span className="text-red-500">
-            Note: This will overwrite any existing discovered items and then
-            reimport. Not all items from the DLC are being imported properly
-            yet. We are working to get it resolved.
-          </span>
-        </BaseDialogDescription>
+        {description}
         <BaseDialogBody>
           <BaseField>
-            <BaseLabel>Select CSV File</BaseLabel>
+            <BaseLabel>Select Save File</BaseLabel>
             <BaseInput name="saveFile" type="file" ref={fileInputRef} />
           </BaseField>
         </BaseDialogBody>

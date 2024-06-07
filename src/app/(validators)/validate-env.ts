@@ -10,6 +10,8 @@ export function validateEnv() {
     DISCORD_CLIENT_SECRET: z.string(),
     IMAGEKIT_CLIENT_ID: z.string(),
     IMAGEKIT_CLIENT_SECRET: z.string(),
+    LOADOUT_PARSER_URL: z.string(),
+    LOADOUT_AUTH_TOKEN: z.string(),
     NEXTAUTH_SECRET: z.string(),
     NEXTAUTH_URL: z.string(),
     NEXT_PUBLIC_IMAGE_URL: z.string(),

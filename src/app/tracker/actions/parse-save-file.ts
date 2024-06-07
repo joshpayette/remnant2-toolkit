@@ -11,8 +11,7 @@ import path from 'path'
 import zlib from 'zlib'
 
 import { allItems } from '@/app/(data)/items/all-items'
-
-const MAX_PROFILE_SAV_SIZE = 250
+import { MAX_PROFILE_SAV_SIZE } from '@/app/(types)/sav-file'
 
 /**
  * Helper function for parsing save file

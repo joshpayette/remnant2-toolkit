@@ -5,6 +5,8 @@ import { Suspense } from 'react'
 import { useIsClient } from 'usehooks-ts'
 
 import { BaseButton } from '@/app/(components)/_base/button'
+import { BaseDialogDescription } from '@/app/(components)/_base/dialog'
+import { BaseCode } from '@/app/(components)/_base/text'
 import { ImportCsvDialog } from '@/app/(components)/dialogs/import-csv-dialog'
 import { ImportSaveDialog } from '@/app/(components)/dialogs/import-save-dialog'
 import { ItemTrackerFilters } from '@/app/(components)/filters/item-tracker/item-tracker-filters'
@@ -88,6 +90,20 @@ export default function Page() {
     <>
       <ImportSaveDialog
         open={importSaveDialogOpen}
+        description={
+          <>
+            <BaseDialogDescription>
+              Automatically import discovered items from your{' '}
+              <BaseCode>profile.sav</BaseCode>
+            </BaseDialogDescription>
+            <BaseDialogDescription>
+              <span className="text-red-500">
+                Note: This will overwrite any existing discovered items and then
+                reimport.
+              </span>
+            </BaseDialogDescription>
+          </>
+        }
         onClose={() => setImportSaveDialogOpen(false)}
         onSubmit={saveFileFormAction}
         fileInputRef={saveFileInputRef}

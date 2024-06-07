@@ -1,5 +1,10 @@
 import { getIsLoadoutPublic } from '@/app/(actions)/loadouts/get-is-loadout-public'
+import { BaseButton } from '@/app/(components)/_base/button'
+import { BaseDialogDescription } from '@/app/(components)/_base/dialog'
+import { BaseCode } from '@/app/(components)/_base/text'
+import { ImportSaveDialog } from '@/app/(components)/dialogs/import-save-dialog'
 import { getServerSession } from '@/app/(utils)/auth'
+import ImportLoadouts from '@/app/profile/[userId]/loadouts/import-loadouts'
 import { LoadoutGrid } from '@/app/profile/[userId]/loadouts/loadout-grid'
 import { LoadoutPublicCheckbox } from '@/app/profile/[userId]/loadouts/loadout-public-checkbox'
 
@@ -30,6 +35,7 @@ export default async function Page({
           ) : null}
         </div>
       </div>
+      <ImportLoadouts />
       <div className="mb-4 grid w-full grid-cols-1 gap-2">
         <LoadoutGrid isEditable={isEditable} userId={userId} />
       </div>
