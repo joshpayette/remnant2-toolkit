@@ -5,12 +5,15 @@ import { useFormState } from 'react-dom'
 import { toast } from 'react-toastify'
 
 import { BaseButton } from '@/app/(components)/_base/button'
-import { BaseDialogDescription } from '@/app/(components)/_base/dialog'
-import { BaseCode } from '@/app/(components)/_base/text'
-import { ImportSaveDialog } from '@/app/(components)/dialogs/import-save-dialog'
+import { ImportLoadoutsDialog } from '@/app/(components)/dialogs/import-loadouts-dialog'
+import type { DBBuild } from '@/app/(types)/builds'
 import { parseSaveFile } from '@/app/profile/[userId]/loadouts/actions/parse-save-file'
 
-export default function ImportLoadouts() {
+interface Props {
+  existingLoadouts: Array<DBBuild & { slot: number }>
+}
+
+export default function ImportLoadouts({ existingLoadouts }: Props) {
   const [importSaveDialogOpen, setImportSaveDialogOpen] = useState(false)
   const saveFileInputRef = useRef<HTMLInputElement | null>(null)
 
@@ -48,22 +51,9 @@ export default function ImportLoadouts() {
 
   return (
     <div className="mb-4 grid w-full grid-cols-1 gap-2">
-      <ImportSaveDialog
+      <ImportLoadoutsDialog
         open={importSaveDialogOpen}
-        description={
-          <>
-            <BaseDialogDescription>
-              Automatically import your in-game loadouts from your{' '}
-              <BaseCode>profile.sav</BaseCode>
-            </BaseDialogDescription>
-            <BaseDialogDescription>
-              <span className="text-red-500">
-                Note: This will overwrite any existing loadouts and then
-                reimport.
-              </span>
-            </BaseDialogDescription>
-          </>
-        }
+        existingLoadouts={existingLoadouts}
         onClose={() => setImportSaveDialogOpen(false)}
         onSubmit={saveFileFormAction}
         fileInputRef={saveFileInputRef}

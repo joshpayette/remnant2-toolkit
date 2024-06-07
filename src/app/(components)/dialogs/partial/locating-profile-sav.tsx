@@ -1,54 +1,12 @@
-import type React from 'react'
-
-import { BaseButton } from '@/app/(components)/_base/button'
 import {
-  BaseDialog,
-  BaseDialogActions,
   BaseDialogBody,
-  BaseDialogDescription,
   BaseDialogTitle,
 } from '@/app/(components)/_base/dialog'
-import { BaseField, BaseLabel } from '@/app/(components)/_base/fieldset'
-import { BaseInput } from '@/app/(components)/_base/input'
 import { BaseCode, BaseText, BaseTextLink } from '@/app/(components)/_base/text'
-import { ImportSaveSubmitButton } from '@/app/tracker/import-save-submit-button'
 
-interface Props {
-  open: boolean
-  description: React.ReactNode
-  fileInputRef: React.RefObject<HTMLInputElement>
-  onClose: () => void
-  onSubmit: (payload: FormData) => void
-}
-
-export function ImportSaveDialog({
-  open,
-  description,
-  fileInputRef,
-  onClose,
-  onSubmit,
-}: Props) {
+export default function LocatingProfileSav() {
   return (
-    <BaseDialog open={open} onClose={onClose}>
-      <form action={onSubmit}>
-        <BaseDialogTitle>Import Save</BaseDialogTitle>
-        {description}
-        <BaseDialogBody>
-          <BaseField>
-            <BaseLabel>Select Save File</BaseLabel>
-            <BaseInput name="saveFile" type="file" ref={fileInputRef} />
-          </BaseField>
-        </BaseDialogBody>
-        <BaseDialogActions>
-          <BaseButton plain onClick={onClose}>
-            Cancel
-          </BaseButton>
-          <ImportSaveSubmitButton
-            label="Import profile.sav"
-            className="w-[200px]"
-          />
-        </BaseDialogActions>
-      </form>
+    <div className="mt-2 bg-background p-4">
       <BaseDialogTitle>Locating Your Save</BaseDialogTitle>
       <BaseDialogBody>
         Steam
@@ -94,6 +52,6 @@ export function ImportSaveDialog({
           get in touch.
         </BaseText>
       </BaseDialogBody>
-    </BaseDialog>
+    </div>
   )
 }

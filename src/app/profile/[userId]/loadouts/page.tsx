@@ -1,8 +1,5 @@
 import { getIsLoadoutPublic } from '@/app/(actions)/loadouts/get-is-loadout-public'
-import { BaseButton } from '@/app/(components)/_base/button'
-import { BaseDialogDescription } from '@/app/(components)/_base/dialog'
-import { BaseCode } from '@/app/(components)/_base/text'
-import { ImportSaveDialog } from '@/app/(components)/dialogs/import-save-dialog'
+import { getLoadoutList } from '@/app/(actions)/loadouts/get-loadout-list'
 import { getServerSession } from '@/app/(utils)/auth'
 import ImportLoadouts from '@/app/profile/[userId]/loadouts/import-loadouts'
 import { LoadoutGrid } from '@/app/profile/[userId]/loadouts/loadout-grid'
@@ -15,6 +12,7 @@ export default async function Page({
 }) {
   const session = await getServerSession()
   const isLoadoutPublic = await getIsLoadoutPublic(userId)
+  const existingLoadouts = await getLoadoutList(userId)
   const isEditable = session?.user?.id === userId
 
   if (session?.user?.id !== userId && !isLoadoutPublic) {
@@ -35,7 +33,7 @@ export default async function Page({
           ) : null}
         </div>
       </div>
-      <ImportLoadouts />
+      <ImportLoadouts existingLoadouts={existingLoadouts} />
       <div className="mb-4 grid w-full grid-cols-1 gap-2">
         <LoadoutGrid isEditable={isEditable} userId={userId} />
       </div>

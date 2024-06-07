@@ -17,6 +17,8 @@ export async function parseSaveFile(
   prevState: any,
   formData: FormData,
 ): Promise<{ loadouts: ParsedLoadoutResponse[] | null; error?: string }> {
+  console.info('formData', formData)
+
   const saveFile = formData.get('saveFile') as File | null
   if (!saveFile) {
     throw new Error('No file provided')
