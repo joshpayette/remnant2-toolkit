@@ -42,9 +42,10 @@ export async function parseSaveFile(
   }
 
   try {
-    // Send the file the loadout parser
+    formData.append('authToken', env.LOADOUT_AUTH_TOKEN)
 
-    const response = await fetch(`http://loadouts-api.remnant2toolkit.com/ExportLoadout`, {
+    // Send the file the loadout parser
+    const response = await fetch(`${env.LOADOUT_PARSER_URL}/ExportLoadout`, {
       method: 'POST',
       // headers
       headers: {
