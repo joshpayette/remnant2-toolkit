@@ -135,7 +135,7 @@ export const consumableItems: ConsumableItem[] = [
     dlc: 'base',
     description: `An ancient fruit that was harvested at its highest form. After consuming, upon death the hero will be revived with 50% Health, and be immune to STATUS effects for 30s%.
 Cooldown: 60m.`,
-    wikiLinks: [`https://remnant.wiki/Thaen_Fruit#Celestial_Thaen_Fruit-0`],
+    wikiLinks: [`https://remnant.wiki/Thaen_Fruit`],
     location: { world: 'Yaesha', dungeon: 'Quest' },
   },
   {
@@ -182,7 +182,7 @@ Cooldown: 60m.`,
     dlc: 'base',
     description: `An ancient fruit that was harvested at amn older age. After consuming, upon death the hero will be revived with 40% Health, and be immune to STATUS Effects for 30s.
 Cooldown: 60m.`,
-    wikiLinks: [`https://remnant.wiki/Thaen_Fruit#Elder_Thaen_Fruit-0`],
+    wikiLinks: [`https://remnant.wiki/Thaen_Fruit`],
     location: { world: 'Yaesha', dungeon: 'Quest' },
   },
   {
@@ -263,7 +263,7 @@ Cooldown: 60m.`,
     dlc: 'base',
     description: `An ancient fruit that was harvested at a mid-life age. After consuming, upon death the hero will be revived with 30% Health, and be immune to STATUS Effects for 30s.
 Cooldown: 60m.`,
-    wikiLinks: [`https://remnant.wiki/Thaen_Fruit#Mature_Thaen_Fruit-0`],
+    wikiLinks: [`https://remnant.wiki/Thaen_Fruit`],
     location: { world: 'Yaesha', dungeon: 'Quest' },
   },
   {
