@@ -3,16 +3,15 @@ import { prisma } from '../app/(utils)/db'
 
 const items = [
   {
-    category: 'amulet',
-    name: 'Cervine Keepsake',
-    imagePath: '/amulet/cervine_keepsake.png',
-    id: '5sfzsd',
-    dlc: 'dlc2',
-    tags: ['Movement Speed'],
-    description: `On Relic Use, gain a stack of CALL OF THE DOE for 30s. Max 5 stacks.
-
-    CALL OF THE DOE: Increases Movement Speed by 4% per stack. When CALL OF THE DOE expires, regain 1 Relic Charge per stack.`,
-    wikiLinks: [`https://remnant.wiki/Cervine_Keepsake`],
+    category: 'consumable',
+    name: `Walker's Dream`,
+    imagePath: '/items/consumables/walkersdream.png',
+    saveFileSlug: 'Consumable_WalkersDream_C',
+    id: '5dUhG6',
+    dlc: 'base',
+    description: ``,
+    wikiLinks: [`https://remnant.wiki/Walker%27s_Dream`],
+    location: { world: 'Root Earth', dungeon: ['Corrupted Harbor'] },
   },
 ] as const satisfies Item[]
 

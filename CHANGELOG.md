@@ -12,6 +12,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - You can now filter builds to only show "Quality" builds. A quality build has 100+ character descriptions, at least one build tag, and all item slots full (except consumables).
   - Updated this to a 200+ character description.
 - Added PayPal donation link for those who wish to support the R2TK monthly costs.
+- Added Liquid Escape item to the Item Tracker.
+- Added Orb of Undoinng item to the Item Tracker.
+- Added Mature Thaen Fruit item to the Item Tracker.
+- Added Elder Thaen Fruit item to the Item Tracker.
+- Added Celestial Thaen Fruit item to the Item Tracker.
+- Added Nimue's Dream item to the Item Tracker.
+- Added Walker's Dream item to the Item Tracker.
+- Added Huntress's Dream item to the Item Tracker.
+- Added Dran's Dream item to the Item Tracker.
 
 ### Changed
 
