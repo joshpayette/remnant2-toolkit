@@ -4,8 +4,6 @@ import { NAV_ITEMS } from '@/app/(types)/navigation'
 import { DEFAULT_ITEMS_PER_PAGE } from '@/app/(utils)/pagination/constants'
 import { BeginnerBuilds } from '@/app/beginner-builds/beginner-builds'
 
-export const maxDuration = 60
-
 export default async function Page() {
   return (
     <>

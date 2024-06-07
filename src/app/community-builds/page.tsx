@@ -3,8 +3,6 @@ import { DEFAULT_ITEMS_PER_PAGE } from '@/app/(utils)/pagination/constants'
 
 import { CommunityBuilds } from './community-builds'
 
-export const maxDuration = 60
-
 export default async function Page() {
   return (
     <>
