@@ -10,6 +10,7 @@ import { Enemy, isEnemy } from '@/app/(data)/enemies/types'
 import { Item } from '@/app/(data)/items/types'
 import { ArchetypeItem } from '@/app/(data)/items/types/ArchetypeItem'
 import { cn } from '@/app/(utils)/classnames'
+import { getImageUrl } from '@/app/(utils)/get-image-url'
 
 /**
  * Some words are too long to fit in the item label on the builder
@@ -219,7 +220,7 @@ export function ItemButton({
       >
         {item && (
           <Image
-            src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}${item.imagePath}`}
+            src={getImageUrl(item.imagePath ?? '')}
             alt={`${item.name} icon`}
             loading={loadingType}
             width={imageSize.width}

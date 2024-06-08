@@ -1,6 +1,7 @@
 import * as cheerio from 'cheerio'
 
 import { concoctionItems } from '@/app/(data)/items/concoction-items'
+import { getImageUrl } from '@/app/(utils)/get-image-url'
 import { validateEnv } from '@/app/(validators)/validate-env'
 import { concoctionDataCompare } from '@/app/api/cron/wiki/scraper/concoctions/compare'
 import { concoctionDataParse } from '@/app/api/cron/wiki/scraper/concoctions/parse'
@@ -60,7 +61,7 @@ export async function handleConcoctionItems() {
               color: 0xff0000,
               fields: diffEmbedFields,
               thumbnail: {
-                url: `https://${envVars.NEXT_PUBLIC_IMAGE_URL}${item.imagePath}`,
+                url: getImageUrl(item.imagePath),
               },
             },
           ],

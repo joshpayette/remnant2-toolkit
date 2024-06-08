@@ -27,6 +27,7 @@ import { BIOMES, ItemLocation } from '@/app/(types)/locations'
 import { capitalize } from '@/app/(utils)/capitalize'
 import { cn } from '@/app/(utils)/classnames'
 import { itemShareEndpoint } from '@/app/(utils)/clean-item-name'
+import { getImageUrl } from '@/app/(utils)/get-image-url'
 
 function generateDungeonLabel(location: ItemLocation) {
   let label = `${location.world} - `
@@ -116,7 +117,7 @@ export function ItemInfoDialog({ open, item, onClose }: Props) {
       <BaseDialogBody>
         <span className="flex w-full items-center justify-center">
           <Image
-            src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}${item.imagePath}`}
+            src={getImageUrl(item.imagePath)}
             width={imageSize.width}
             height={imageSize.height}
             alt={item.name}

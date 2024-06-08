@@ -1,6 +1,7 @@
 import * as cheerio from 'cheerio'
 
 import { amuletItems } from '@/app/(data)/items/amulet-items'
+import { getImageUrl } from '@/app/(utils)/get-image-url'
 import { validateEnv } from '@/app/(validators)/validate-env'
 import { amuletDataCompare } from '@/app/api/cron/wiki/scraper/amulets/compare'
 import { amuletDataParse } from '@/app/api/cron/wiki/scraper/amulets/parse'
@@ -60,7 +61,7 @@ export async function handleAmuletItems() {
               color: 0xff0000,
               fields: diffEmbedFields,
               thumbnail: {
-                url: `https://${envVars.NEXT_PUBLIC_IMAGE_URL}${item.imagePath}`,
+                url: getImageUrl(item.imagePath),
               },
             },
           ],

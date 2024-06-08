@@ -35,6 +35,7 @@ import {
 import { capitalize } from '@/app/(utils)/capitalize'
 import { cn } from '@/app/(utils)/classnames'
 import { itemShareEndpoint } from '@/app/(utils)/clean-item-name'
+import { getImageUrl } from '@/app/(utils)/get-image-url'
 
 interface Props {
   allowItemCompare?: boolean
@@ -187,7 +188,7 @@ export function ItemCard({
             )}
             width={sizes.width}
             height={sizes.height}
-            src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}${imagePath}`}
+            src={getImageUrl(imagePath)}
             alt={`${name} icon`}
             loading="lazy"
           />

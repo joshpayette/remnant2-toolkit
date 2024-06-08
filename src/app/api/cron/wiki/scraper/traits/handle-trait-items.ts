@@ -1,6 +1,7 @@
 import * as cheerio from 'cheerio'
 
 import { traitItems } from '@/app/(data)/items/trait-items'
+import { getImageUrl } from '@/app/(utils)/get-image-url'
 import { validateEnv } from '@/app/(validators)/validate-env'
 import { REQUEST_DELAY } from '@/app/api/cron/wiki/scraper/constants'
 import { traitDataCompare } from '@/app/api/cron/wiki/scraper/traits/compare'
@@ -60,7 +61,7 @@ export async function handleTraitItems() {
               color: 0xff0000,
               fields: diffEmbedFields,
               thumbnail: {
-                url: `https://${envVars.NEXT_PUBLIC_IMAGE_URL}${item.imagePath}`,
+                url: getImageUrl(item.imagePath),
               },
             },
           ],

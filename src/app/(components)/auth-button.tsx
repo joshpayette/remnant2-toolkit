@@ -10,6 +10,7 @@ import { PlaceHolderIcon } from '@/app/(components)/placeholder-icon'
 import { ZINDEXES } from '@/app/(components)/z-indexes'
 import { NAV_ITEMS } from '@/app/(types)/navigation'
 import { cn } from '@/app/(utils)/classnames'
+import { getImageUrl } from '@/app/(utils)/get-image-url'
 import { getAvatarById } from '@/app/profile/[userId]/(lib)/get-avatar-by-id'
 
 function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
@@ -24,9 +25,7 @@ function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
       const response = await getAvatarId()
       if (response.avatarId) {
         const avatar = getAvatarById(response.avatarId)
-        setProfileImage(
-          `https://${process.env.NEXT_PUBLIC_IMAGE_URL}${avatar.imagePath}`,
-        )
+        setProfileImage(getImageUrl(avatar.imagePath))
       }
     }
     getAvatarIdAsync()

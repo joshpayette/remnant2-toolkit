@@ -7,6 +7,7 @@ import {
   WorldSaveFilters,
 } from '@/app/(components)/filters/world-saves/types'
 import { ALL_BOSSES } from '@/app/(data)/world-saves/constants'
+import { getImageUrl } from '@/app/(utils)/get-image-url'
 
 export function parseUrlFilters(
   searchParams: ReadonlyURLSearchParams,
@@ -62,7 +63,7 @@ export function parseUrlFilters(
 }
 
 export function getDownloadUrl(bossName: string, bossAffixes: string[]) {
-  let url = `https://${process.env.NEXT_PUBLIC_IMAGE_URL}/world-save-archive/`
+  let url = getImageUrl(`/world-save-archive/`)
 
   const cleanBossName = bossName
     // replace apostrophes with empty string

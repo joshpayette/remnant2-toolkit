@@ -1,6 +1,7 @@
 import Image from 'next/image'
 
 import { cn } from '@/app/(utils)/classnames'
+import { getImageUrl } from '@/app/(utils)/get-image-url'
 
 import { DISCORD_INVITE_URL, NAV_ITEMS } from '../(types)/navigation'
 
@@ -16,7 +17,7 @@ export function Footer() {
             target="_blank"
           >
             <Image
-              src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/toolkit/github.png`}
+              src={getImageUrl(`/toolkit/github.png`)}
               alt="Remnant 2 Toolkit on GitHub"
               width={32}
               height={32}
@@ -29,7 +30,7 @@ export function Footer() {
             target="_blank"
           >
             <Image
-              src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/toolkit/patreon.png`}
+              src={getImageUrl(`/toolkit/patreon.png`)}
               alt="Support on Patreon"
               width={32}
               height={32}
@@ -39,7 +40,7 @@ export function Footer() {
           </a>
           <a href={DISCORD_INVITE_URL} target="_blank">
             <Image
-              src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/toolkit/discord.png`}
+              src={getImageUrl(`/toolkit/discord.png`)}
               alt="Join the Remnant 2 Toolkit Discord"
               width={32}
               height={32}
@@ -49,7 +50,7 @@ export function Footer() {
           </a>
           <a href="https://twitter.com/Remnant2Toolkit" target="_blank">
             <Image
-              src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/toolkit/twitter.png`}
+              src={getImageUrl(`/toolkit/twitter.png`)}
               alt="Remnant 2 Toolkit on Twitter"
               width={32}
               height={32}

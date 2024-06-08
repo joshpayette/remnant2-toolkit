@@ -7,6 +7,7 @@ import { MutatorItem } from '@/app/(data)/items/types/MutatorItem'
 import { TraitItem } from '@/app/(data)/items/types/TraitItem'
 import { WeaponItem } from '@/app/(data)/items/types/WeaponItem'
 import { cleanItemName, itemEndpoint } from '@/app/(utils)/clean-item-name'
+import { getImageUrl } from '@/app/(utils)/get-image-url'
 
 import ItemPage from './page'
 
@@ -80,7 +81,7 @@ export async function generateMetadata(
       url: itemEndpoint(item.name),
       images: [
         {
-          url: `https://${process.env.NEXT_PUBLIC_IMAGE_URL}${item.imagePath}`,
+          url: getImageUrl(item.imagePath),
           width: 100,
           height: 100,
         },
@@ -93,7 +94,7 @@ export async function generateMetadata(
       card: 'summary',
       images: [
         {
-          url: `https://${process.env.NEXT_PUBLIC_IMAGE_URL}${item.imagePath}`,
+          url: getImageUrl(item.imagePath),
           width: 100,
           height: 100,
         },

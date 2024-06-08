@@ -1,6 +1,7 @@
 import * as cheerio from 'cheerio'
 
 import { weaponItems } from '@/app/(data)/items/weapon-items'
+import { getImageUrl } from '@/app/(utils)/get-image-url'
 import { validateEnv } from '@/app/(validators)/validate-env'
 import { REQUEST_DELAY } from '@/app/api/cron/wiki/scraper/constants'
 import { weaponDataCompare } from '@/app/api/cron/wiki/scraper/weapons/compare'
@@ -120,7 +121,7 @@ export async function handleWeaponItems() {
               color: 0xff0000,
               fields: diffEmbedFields,
               thumbnail: {
-                url: `https://${envVars.NEXT_PUBLIC_IMAGE_URL}${item.imagePath}`,
+                url: getImageUrl(item.imagePath),
               },
             },
           ],

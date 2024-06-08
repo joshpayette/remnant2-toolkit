@@ -1,6 +1,7 @@
 import * as cheerio from 'cheerio'
 
 import { relicFragmentItems } from '@/app/(data)/items/relic-fragment-items'
+import { getImageUrl } from '@/app/(utils)/get-image-url'
 import { validateEnv } from '@/app/(validators)/validate-env'
 import { REQUEST_DELAY } from '@/app/api/cron/wiki/scraper/constants'
 import { relicfragmentDataCompare } from '@/app/api/cron/wiki/scraper/relicfragments/compare'
@@ -60,7 +61,7 @@ export async function handleRelicFragmentItems() {
               color: 0xff0000,
               fields: diffEmbedFields,
               thumbnail: {
-                url: `https://${envVars.NEXT_PUBLIC_IMAGE_URL}${item.imagePath}`,
+                url: getImageUrl(item.imagePath),
               },
             },
           ],

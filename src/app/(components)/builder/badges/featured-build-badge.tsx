@@ -2,6 +2,7 @@ import Image from 'next/image'
 
 import { BaseButton } from '@/app/(components)/_base/button'
 import { Tooltip } from '@/app/(components)/tooltip'
+import { getImageUrl } from '@/app/(utils)/get-image-url'
 
 export function FeaturedBuildBadge({
   unoptimized = false,
@@ -15,7 +16,7 @@ export function FeaturedBuildBadge({
         plain
       >
         <Image
-          src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/badges/featured_build_badge1.png`}
+          src={getImageUrl(`/badges/featured_build_badge1.png`)}
           width={50}
           height={50}
           alt="Badge denoting the build is a featured build."
