@@ -248,6 +248,7 @@ Cooldown: 60m.`,
   {
     category: 'consumable',
     name: 'Liquid Escape',
+    saveFileSlug: 'Consumable_LiquidEscape_C',
     imagePath: '/items/consumables/liquidescape.png',
     id: 'xgdk68',
     description: `When consumed, the hero will be returned to the last activated checkpoint.`,
