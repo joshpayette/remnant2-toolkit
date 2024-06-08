@@ -17,8 +17,6 @@ export async function parseSaveFile(
   prevState: any,
   formData: FormData,
 ): Promise<{ loadouts: ParsedLoadoutResponse[] | null; error?: string }> {
-  console.info('formData', formData)
-
   const saveFile = formData.get('saveFile') as File | null
   if (!saveFile) {
     throw new Error('No file provided')
@@ -30,6 +28,11 @@ export async function parseSaveFile(
       loadouts: null,
       error: message,
     }
+  }
+
+  // if characterSlot is missing from form data, add it
+  if (!formData.has('characterSlot')) {
+    formData.append('characterSlot', '1')
   }
 
   const fileSizeInBytes = saveFile.size
@@ -66,10 +69,11 @@ export async function parseSaveFile(
 
     const data = await response.json()
     if (!data[0]?.loadouts) {
-      console.error('Error in parseSaveFile, response data malformed', data)
       return {
         loadouts: null,
-        error: `Error parsing save file`,
+        error: `No loadouts found in save file for character slot ${formData.get(
+          'characterSlot',
+        )}`,
       }
     }
 
