@@ -4,6 +4,7 @@ export const skillItems: SkillItem[] = [
   {
     category: 'skill',
     name: 'War Stomp',
+    saveFileSlug: 'Skill_WarStomp_C',
     imagePath: '/items/skills/challenger_warstomp.png',
     id: 'qnz5iw',
     dlc: 'base',
@@ -21,6 +22,7 @@ export const skillItems: SkillItem[] = [
   {
     category: 'skill',
     name: 'Juggernaut',
+    saveFileSlug: 'Skill_Battlecry_Juggernaut_C',
     imagePath: '/items/skills/challenger_juggernaut.png',
     id: 'p7x9pq',
     dlc: 'base',
@@ -37,6 +39,7 @@ export const skillItems: SkillItem[] = [
   {
     category: 'skill',
     name: 'Rampage',
+    saveFileSlug: 'Skill_Rampage_C',
     imagePath: '/items/skills/challenger_rampage.png',
     id: 'wyw9r4',
     dlc: 'base',
@@ -55,6 +58,7 @@ export const skillItems: SkillItem[] = [
   {
     category: 'skill',
     name: 'Guard Dog',
+    saveFileSlug: 'Skill_GuardDog_C',
     imagePath: '/items/skills/handler_guard.png',
     id: 'gpr2fw',
     dlc: 'base',
@@ -78,6 +82,7 @@ export const skillItems: SkillItem[] = [
   {
     category: 'skill',
     name: 'Support Dog',
+    saveFileSlug: 'Skill_SupportDog_Command_C',
     imagePath: '/items/skills/handler_support.png',
     id: 'jz6x2w',
     dlc: 'base',
@@ -101,6 +106,7 @@ export const skillItems: SkillItem[] = [
   {
     category: 'skill',
     name: 'Attack Dog',
+    saveFileSlug: 'Skill_AttackDog_C',
     imagePath: '/items/skills/handler_attack.png',
     id: '8trtzh',
     dlc: 'base',
@@ -124,6 +130,7 @@ export const skillItems: SkillItem[] = [
   {
     category: 'skill',
     name: 'Wellspring',
+    saveFileSlug: 'Skill_Wellspring_C',
     imagePath: '/items/skills/medic_wellspring.png',
     id: '7vtxrx',
     dlc: 'base',
@@ -141,6 +148,7 @@ export const skillItems: SkillItem[] = [
   {
     category: 'skill',
     name: 'Healing Shield',
+    saveFileSlug: 'Skill_HealingSurge_C',
     imagePath: '/items/skills/medic_healingshield.png',
     id: '8pu6y2',
     dlc: 'base',
@@ -158,6 +166,7 @@ export const skillItems: SkillItem[] = [
   {
     category: 'skill',
     name: 'Redemption',
+    saveFileSlug: 'Skill_Redemption_C',
     imagePath: '/items/skills/medic_redemption.png',
     id: 'zs77cb',
     dlc: 'base',
@@ -177,6 +186,7 @@ export const skillItems: SkillItem[] = [
   {
     category: 'skill',
     name: `Hunter's Mark`,
+    saveFileSlug: 'Skill_HuntersMark_C',
     imagePath: '/items/skills/hunter_huntersmark.png',
     id: 'jg82hi',
     dlc: 'base',
@@ -196,6 +206,7 @@ export const skillItems: SkillItem[] = [
   {
     category: 'skill',
     name: `Hunter's Focus`,
+    saveFileSlug: 'Skill_HuntersFocus_C',
     imagePath: '/items/skills/hunter_focus.png',
     id: '5jh6qr',
     dlc: 'base',
@@ -227,6 +238,7 @@ export const skillItems: SkillItem[] = [
   {
     category: 'skill',
     name: `Hunter's Shroud`,
+    saveFileSlug: 'Skill_HuntersShroud_C',
     imagePath: '/items/skills/hunter_huntersshroud.png',
     id: 'ufkx9q',
     dlc: 'base',
@@ -254,6 +266,7 @@ export const skillItems: SkillItem[] = [
   {
     category: 'skill',
     name: 'Vial: Stone Mist',
+    saveFileSlug: 'Skill_AlchemistVial_StoneMist_C',
     imagePath: '/items/skills/alchemist_stonemist.png',
     id: 'y7ia9t',
     dlc: 'base',
@@ -277,6 +290,7 @@ export const skillItems: SkillItem[] = [
   {
     category: 'skill',
     name: 'Vial: Frenzy Dust',
+    saveFileSlug: 'Skill_AlchemistVial_FrenzyDust_C',
     imagePath: '/items/skills/alchemist_frenzydust.png',
     id: 'xsniv3',
     dlc: 'base',
@@ -300,6 +314,7 @@ export const skillItems: SkillItem[] = [
   {
     category: 'skill',
     name: 'Vial: Elixir of Life',
+    saveFileSlug: 'Skill_AlchemistVial_ElixirOfLife_C',
     imagePath: '/items/skills/alchemist_elixiroflife.png',
     id: '76554i',
     dlc: 'base',
@@ -325,6 +340,7 @@ export const skillItems: SkillItem[] = [
   {
     category: 'skill',
     name: 'Reality Rune',
+    saveFileSlug: 'Skill_RealityRune_C',
     imagePath: '/items/skills/archon_realityrune.png',
     id: 'i3ddi7',
     dlc: 'base',
@@ -342,6 +358,7 @@ export const skillItems: SkillItem[] = [
   {
     category: 'skill',
     name: 'Chaos Gate',
+    saveFileSlug: 'Skill_ChaosGate_C',
     imagePath: '/items/skills/archon_chaosgate.png',
     id: '9w7c5j',
     dlc: 'base',
@@ -363,6 +380,7 @@ export const skillItems: SkillItem[] = [
   {
     category: 'skill',
     name: 'Havoc Form',
+    saveFileSlug: 'Skill_HavocForm_C',
     imagePath: '/items/skills/archon_havocform.png',
     id: 'y72au6',
     dlc: 'base',
@@ -388,6 +406,7 @@ export const skillItems: SkillItem[] = [
   {
     category: 'skill',
     name: 'Heavy Weapon: Vulcan',
+    saveFileSlug: 'Skill_Deployable_Gatling_C',
     imagePath: '/items/skills/engineer_gatling.png',
     id: 'pgmn4v',
     dlc: 'base',
@@ -409,6 +428,7 @@ export const skillItems: SkillItem[] = [
   {
     category: 'skill',
     name: 'Heavy Weapon: Flamethrower',
+    saveFileSlug: 'Skill_Deployable_FlameThrower_C',
     imagePath: '/items/skills/engineer_flamethrower.png',
     id: '6fk8ea',
     dlc: 'base',
@@ -431,6 +451,7 @@ export const skillItems: SkillItem[] = [
   {
     category: 'skill',
     name: 'Heavy Weapon: Impact Cannon',
+    saveFileSlug: 'Skill_Deployable_ImpactCannon_C',
     imagePath: '/items/skills/engineer_impactcannon.png',
     id: 'ki92op',
     dlc: 'base',
@@ -453,6 +474,7 @@ export const skillItems: SkillItem[] = [
   {
     category: 'skill',
     name: 'Plainswalker',
+    saveFileSlug: 'Skill_Plainswalker_C',
     imagePath: '/items/skills/explorer_plainswalker.png',
     id: 'a585sp',
     dlc: 'base',
@@ -469,6 +491,7 @@ export const skillItems: SkillItem[] = [
   {
     category: 'skill',
     name: 'Gold Digger',
+    saveFileSlug: 'Skill_GoldDigger_C',
     imagePath: '/items/skills/explorer_golddigger.png',
     id: 'a2cik2',
     dlc: 'base',
@@ -488,6 +511,7 @@ export const skillItems: SkillItem[] = [
   {
     category: 'skill',
     name: 'Fortune Hunter',
+    saveFileSlug: 'Skill_FortuneHunter_C',
     imagePath: '/items/skills/explorer_fortunehunter.png',
     id: 'dajt58',
     dlc: 'base',
@@ -504,6 +528,7 @@ export const skillItems: SkillItem[] = [
   {
     category: 'skill',
     name: 'Quick Draw',
+    saveFileSlug: 'Skill_Aimable_QuickDraw_C',
     imagePath: '/items/skills/gunslinger_quickdraw.png',
     id: 'qdxjt7',
     dlc: 'base',
@@ -524,6 +549,7 @@ export const skillItems: SkillItem[] = [
   {
     category: 'skill',
     name: 'Sidewinder',
+    saveFileSlug: 'Skill_Sidewinder_C',
     imagePath: '/items/skills/gunslinger_sidewinder.png',
     id: 'jn34u8',
     dlc: 'base',
@@ -540,6 +566,7 @@ export const skillItems: SkillItem[] = [
   {
     category: 'skill',
     name: 'Bulletstorm',
+    saveFileSlug: 'Skill_Bulletstorm_C',
     imagePath: '/items/skills/gunslinger_bulletstorm.png',
     id: 'xpqq62',
     dlc: 'base',
@@ -561,6 +588,7 @@ export const skillItems: SkillItem[] = [
   {
     category: 'skill',
     name: 'Void Cloak',
+    saveFileSlug: 'Skill_VoidCloak_C',
     imagePath: '/items/skills/invader_voidcloak.png',
     id: 'hvcxo8',
     dlc: 'base',
@@ -576,6 +604,7 @@ export const skillItems: SkillItem[] = [
   {
     category: 'skill',
     name: 'Worm Hole',
+    saveFileSlug: 'Skill_WormHole_C',
     imagePath: '/items/skills/invader_wormhole.png',
     id: 'y9oqq6',
     dlc: 'base',
@@ -594,6 +623,7 @@ export const skillItems: SkillItem[] = [
   {
     category: 'skill',
     name: 'Reboot',
+    saveFileSlug: 'Skill_Reboot_C',
     imagePath: '/items/skills/invader_reboot.png',
     id: 'xx6sib',
     dlc: 'base',
@@ -621,6 +651,7 @@ export const skillItems: SkillItem[] = [
   {
     category: 'skill',
     name: 'Minion: Hollow',
+    saveFileSlug: 'Skill_SummonHollowMinion_C',
     imagePath: '/items/skills/summoner_hollow.png',
     id: 'kk4yre',
     dlc: 'base',
@@ -641,6 +672,7 @@ export const skillItems: SkillItem[] = [
   {
     category: 'skill',
     name: 'Minion: Flyer',
+    saveFileSlug: 'Skill_SummonBruteMinion_C',
     imagePath: '/items/skills/summoner_flyer.png',
     id: 'o7pvqx',
     dlc: 'base',
@@ -662,6 +694,7 @@ export const skillItems: SkillItem[] = [
   {
     category: 'skill',
     name: 'Minion: Reaver',
+    saveFileSlug: 'Skill_SummonBruteMinion_C',
     imagePath: '/items/skills/summoner_reaver.png',
     id: 'gs8zdv',
     dlc: 'base',
@@ -684,6 +717,7 @@ export const skillItems: SkillItem[] = [
   {
     category: 'skill',
     name: 'Eruption',
+    saveFileSlug: 'Skill_Eruption_C',
     imagePath: '/items/skills/ritualist_eruption.png',
     id: 'amqa83',
     dlc: 'base',
@@ -702,6 +736,7 @@ export const skillItems: SkillItem[] = [
   {
     category: 'skill',
     name: 'Miasma',
+    saveFileSlug: 'Skill_Miasma_C',
     imagePath: '/items/skills/ritualist_miasma.png',
     id: '3er3og',
     dlc: 'base',
@@ -719,6 +754,7 @@ export const skillItems: SkillItem[] = [
   {
     category: 'skill',
     name: 'Deathwish',
+    saveFileSlug: 'Skill_Deathwish_C',
     imagePath: '/items/skills/ritualist_deathwish.png',
     id: 'ux5f9v',
     dlc: 'base',
@@ -735,6 +771,7 @@ export const skillItems: SkillItem[] = [
   {
     category: 'skill',
     name: 'Way of Kaeula',
+    saveFileSlug: 'Skill_WayOfWater_C',
     imagePath: '/items/skills/invoker_wayofkaeula.png',
     id: 'h4B9dD',
     dlc: 'dlc2',
@@ -754,6 +791,7 @@ export const skillItems: SkillItem[] = [
   {
     category: 'skill',
     name: 'Way of Meidra',
+    saveFileSlug: 'Skill_WayOfForest_C',
     imagePath: '/items/skills/invoker_wayofmeidra.png',
     id: '7DnBmE',
     dlc: 'dlc2',
@@ -776,6 +814,7 @@ export const skillItems: SkillItem[] = [
   {
     category: 'skill',
     name: 'Way of Lydusa',
+    saveFileSlug: 'Skill_WayOfSand_C',
     imagePath: '/items/skills/invoker_wayoflydusa.png',
     id: 'T2xA6c',
     dlc: 'dlc2',
