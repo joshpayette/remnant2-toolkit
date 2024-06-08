@@ -58,7 +58,7 @@ Broadly speaking this results in a darker pallete, which contrasts better in lig
 
     /* No var for this :( */
     .Toastify__close-button {
-      color: rgb(var(--color-surface-solid))
+      color: rgb(var(--color-surface-solid));
     }
   }
 
@@ -196,7 +196,6 @@ Broadly speaking this results in a darker pallete, which contrasts better in lig
     --color-accent1-950: 66 32 6;
   }
 
-  
   /* 
   Accent tones are sampled from the Frost palette
   https://www.nordtheme.com/docs/colors-and-palettes 
@@ -357,7 +356,7 @@ Broadly speaking this results in a darker pallete, which contrasts better in lig
     --color-secondary-800: 51 53 92;
     --color-secondary-900: 38 40 69;
     --color-secondary-950: 25 26 45;
-    
+
     --color-accent1-50: 251 249 242;
     --color-accent1-100: 233 220 179;
     --color-accent1-200: 214 190 115;
@@ -370,6 +369,11 @@ Broadly speaking this results in a darker pallete, which contrasts better in lig
     --color-accent1-900: 63 48 0;
     --color-accent1-950: 42 32 0;
   }
+}
+
+html,
+body {
+  padding: 0 !important;
 }
 
 body {

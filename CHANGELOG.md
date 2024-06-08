@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Fixed
 
 - Fixed bug where avatar names were overflowing the labels on the avatar select dialog.
+- Fixed bug where clicking a dropdown menu on the build filters caused the entire box to shrink on Chrome Mobile.
 
 ## 2024-06-07
 
