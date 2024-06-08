@@ -98,8 +98,6 @@ export function useCsvFileUpload({
     )
   }, [discoveredItemIds])
 
-  console.info('csvItems', csvItems)
-
   return {
     csvFileInputRef,
     csvItems,
