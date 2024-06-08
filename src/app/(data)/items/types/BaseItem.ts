@@ -29,7 +29,7 @@ export interface BaseItemProps {
   tags?: ItemToken[]
   dlc: ReleaseKey
   imagePath: string
-  saveFileSlug?: string
+  saveFileSlug: string | undefined
   description?: string
   location?: ItemLocation
   cooldown?: number
@@ -75,7 +75,7 @@ export abstract class BaseItem implements BaseItemProps {
   public wikiLinks?: BaseItemProps['wikiLinks'] = []
   public externalTokens?: BaseItemProps['externalTokens'] = []
   public linkedItems?: BaseItemProps['linkedItems'] = {}
-  public saveFileSlug?: BaseItemProps['saveFileSlug'] = ''
+  public saveFileSlug: BaseItemProps['saveFileSlug'] = ''
   public optional?: BaseItemProps['optional'] = false
   public health?: BaseItemProps['health'] = 0
   public healthPercent?: BaseItemProps['healthPercent'] = 0
