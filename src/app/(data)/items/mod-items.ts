@@ -34,6 +34,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Accelerator',
+    saveFileSlug: undefined,
     imagePath: '/items/mods/atomsmasher.png',
     id: 'h9k5pl',
     dlc: 'base',
@@ -63,6 +64,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Awakening',
+    saveFileSlug: undefined,
     imagePath: '/items/mods/awakening.png',
     dlc: 'dlc1',
     id: 'wszjeu',
@@ -122,6 +124,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Beyond the Veil',
+    saveFileSlug: undefined,
     imagePath: '/items/mods/beyondtheveil.png',
     id: 'puif17',
     dlc: 'base',
@@ -159,6 +162,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Blaze',
+    saveFileSlug: undefined,
     imagePath: '/items/mods/blaze.png',
     id: 'gdY2uZ',
     dlc: 'base',
@@ -230,6 +234,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Bloodthirst',
+    saveFileSlug: undefined,
     imagePath: '/items/mods/bloodthirst.png',
     id: '1rw0kk',
     dlc: 'base',
@@ -260,6 +265,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Chain of Command',
+    saveFileSlug: undefined,
     dlc: 'dlc1',
     imagePath: '/items/mods/chainofcommand.png',
     id: 'lxt1j0',
@@ -388,6 +394,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Cyclone',
+    saveFileSlug: undefined,
     imagePath: '/items/mods/cyclone.png',
     id: '1bfadq',
     dlc: 'dlc2',
@@ -466,6 +473,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Death Sentence',
+    saveFileSlug: undefined,
     imagePath: '/items/mods/feraljudgement.png',
     id: 'wilhsl',
     dlc: 'base',
@@ -523,6 +531,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Dreamwave',
+    saveFileSlug: undefined,
     imagePath: '/items/mods/dreamwave.png',
     id: 'dwmc70',
     dlc: 'base',
@@ -543,6 +552,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Dying Breath',
+    saveFileSlug: undefined,
     imagePath: '/items/mods/dyingbreath.png',
     id: '22nk8x',
     dlc: 'base',
@@ -573,6 +583,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Energy Wave',
+    saveFileSlug: undefined,
     imagePath: '/items/mods/energywave.png',
     id: '7ztoh8',
     dlc: 'base',
@@ -660,6 +671,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Fathomless Deep',
+    saveFileSlug: undefined,
     imagePath: '/items/mods/fathomlessdeep.png',
     dlc: 'dlc1',
     id: 'o1zwol',
@@ -676,6 +688,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Faultline',
+    saveFileSlug: undefined,
     imagePath: '/items/mods/faultline.png',
     id: '5mlisj',
     dlc: 'base',
@@ -707,6 +720,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Fission Strike',
+    saveFileSlug: undefined,
     imagePath: '/items/mods/fissionstrike.png',
     id: 'd490vt',
     dlc: 'base',
@@ -743,6 +757,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Fracture',
+    saveFileSlug: undefined,
     imagePath: '/items/mods/fracture.png',
     id: 'x8vmra',
     dlc: 'base',
@@ -905,6 +920,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Horizon Strike',
+    saveFileSlug: undefined,
     imagePath: '/items/mods/horizonstrike.png',
     id: '2fjw9q',
     dlc: 'base',
@@ -935,6 +951,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Javelin',
+    saveFileSlug: undefined,
     imagePath: '/items/mods/athibar.png',
     id: '29kz6t',
     dlc: 'base',
@@ -964,6 +981,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Krell Edge',
+    saveFileSlug: undefined,
     imagePath: '/items/mods/krelledge.png',
     id: '38rncx',
     dlc: 'base',
@@ -982,6 +1000,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Lifeline',
+    saveFileSlug: undefined,
     imagePath: '/items/mods/lifeline.png',
     id: '4zqfhu',
     dlc: 'base',
@@ -1139,6 +1158,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Power Stone',
+    saveFileSlug: undefined,
     imagePath: '/items/mods/powerstone.png',
     id: '2JimAt',
     dlc: 'dlc2',
@@ -1174,6 +1194,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Reaver',
+    saveFileSlug: undefined,
     imagePath: '/items/mods/reaver.png',
     dlc: 'dlc1',
     id: 'geb8ho',
@@ -1527,6 +1548,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Whirlwind',
+    saveFileSlug: undefined,
     imagePath: '/items/mods/whirlwind.png',
     id: '2y6xm7',
     dlc: 'base',
