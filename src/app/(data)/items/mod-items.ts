@@ -4,6 +4,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Abrasive Rounds',
+    saveFileSlug: 'Mod_AbrasiveRounds_C',
     imagePath: '/items/mods/abrasiverounds.png',
     id: 'h9k5pd',
     dlc: 'dlc2',
@@ -17,6 +18,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: '77 79 68',
+    saveFileSlug: 'Mod_Polyactuator_C',
     imagePath: '/items/mods/polygun.png',
     dlc: 'dlc2',
     id: '777968',
@@ -47,6 +49,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Astral Burst',
+    saveFileSlug: 'Mod_AstralBurst_C',
     imagePath: '/items/mods/astralburst.png',
     id: 'mqta6g',
     dlc: 'base',
@@ -75,6 +78,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Banish',
+    saveFileSlug: 'Mod_Banish_C',
     imagePath: '/items/mods/banish.png',
     id: 'k7z7r2',
     dlc: 'base',
@@ -97,6 +101,7 @@ export const modItems: ModItem[] = [
     category: 'mod',
     name: 'Beta Ray',
     imagePath: '/items/mods/betaray.png',
+    saveFileSlug: 'Mod_BetaRay_C',
     id: '5ke493',
     dlc: 'base',
     description:
@@ -132,6 +137,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Big Bang',
+    saveFileSlug: 'Mod_BigBang_C',
     imagePath: '/items/mods/bigbang.png',
     id: 's7ozpe',
     dlc: 'base',
@@ -169,6 +175,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Blood Draw',
+    saveFileSlug: 'Mod_BloodDraw_C',
     imagePath: '/items/mods/blooddraw.png',
     id: 'ss7zwt',
     dlc: 'base',
@@ -183,6 +190,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Bloodline',
+    saveFileSlug: 'Mod_Bloodline_C',
     imagePath: '/items/mods/bloodline.png',
     id: 'yxxajn',
     dlc: 'base',
@@ -203,6 +211,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Bloodshot',
+    saveFileSlug: 'Mod_Bloodshot_C',
     imagePath: '/items/mods/bloodshot.png',
     id: 'tw8tbh',
     dlc: 'base',
@@ -236,6 +245,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Bore',
+    saveFileSlug: 'Mod_Bore_C',
     imagePath: '/items/mods/bore.png',
     id: 'iq4wjy',
     dlc: 'base',
@@ -268,6 +278,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Chaos Driver',
+    saveFileSlug: 'Mod_ChaosDriver_C',
     imagePath: '/items/mods/chaosdriver.png',
     id: 'dxnd9s',
     dlc: 'base',
@@ -289,6 +300,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Concussive Shot',
+    saveFileSlug: 'Mod_ConcussiveShot_C',
     imagePath: '/items/mods/concussiveshot.png',
     id: 'an140h',
     dlc: 'base',
@@ -303,6 +315,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Corrosive Rounds',
+    saveFileSlug: 'Mod_CorrosiveRounds_C',
     imagePath: '/items/mods/corrosiverounds.png',
     id: 'hr3g7o',
     dlc: 'base',
@@ -317,6 +330,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Creeping Mist',
+    saveFileSlug: 'Mod_CreepingMist_C',
     imagePath: '/items/mods/creepingmist.png',
     dlc: 'dlc1',
     id: 'a3ctlf',
@@ -333,6 +347,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Cube Room',
+    saveFileSlug: 'Mod_CubeRoom_C',
     imagePath: '/items/mods/cuberoom.png',
     id: '2nMTRG',
     dlc: 'base',
@@ -352,6 +367,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Cube Shield',
+    saveFileSlug: 'Mod_CubeShield_C', // todo test this on loadout import
     imagePath: '/items/mods/cubeshield.png',
     id: '1bfanq',
     dlc: 'base',
@@ -387,6 +403,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Deadpoint',
+    saveFileSlug: 'Mod_Mortar_C',
     imagePath: '/items/mods/corrupted_deadpoint.png',
     id: 'ysz4fw',
     dlc: 'base',
@@ -406,6 +423,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Deadwood',
+    saveFileSlug: 'Mod_Deadwood_C',
     imagePath: '/items/mods/deadwood.png',
     id: 'k7z7rz',
     dlc: 'dlc2',
@@ -426,6 +444,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Death Brand',
+    saveFileSlug: 'Mod_DeathBrand_C',
     imagePath: '/items/mods/corrupted_deathbrand.png',
     id: 'd3q99g',
     dlc: 'base',
@@ -465,6 +484,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Defrag',
+    saveFileSlug: 'Mod_Defrag_C',
     imagePath: '/items/mods/defrag.png',
     id: '3hqdob',
     dlc: 'base',
@@ -482,6 +502,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Dreadwalker',
+    saveFileSlug: 'Mod_Dreadwalker_C',
     imagePath: '/items/mods/dreadwalker.png',
     id: 'ybej3w',
     dlc: 'base',
@@ -539,6 +560,7 @@ export const modItems: ModItem[] = [
     category: 'mod',
     name: 'Energy Wall',
     imagePath: '/items/mods/energywall.png',
+    saveFileSlug: 'Mod_EnergyWall_C', // todo test this on loadout import
     id: '8uluwc',
     dlc: 'base',
     description:
@@ -567,6 +589,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Eulogy',
+    saveFileSlug: 'Mod_Eulogy_C',
     imagePath: '/items/mods/eulogy.png',
     id: '3xf7i2',
     dlc: 'base',
@@ -588,6 +611,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Explosive Shot',
+    saveFileSlug: 'Mod_ExplosiveShot_C',
     imagePath: '/items/mods/explosiveshot.png',
     id: 'hpfdzp',
     dlc: 'base',
@@ -607,6 +631,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Familiar',
+    saveFileSlug: 'Mod_Familiar_C',
     imagePath: '/items/mods/familiar.png',
     id: 'sccdmt',
     dlc: 'base',
@@ -621,6 +646,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Fargazer',
+    saveFileSlug: 'Mod_Fargazer_C',
     imagePath: '/items/mods/fargazer.png',
     id: 'yedqs6',
     dlc: 'base',
@@ -666,6 +692,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Firestorm',
+    saveFileSlug: 'Mod_Firestorm_C',
     imagePath: '/items/mods/firestorm.png',
     id: 'snlx8w',
     dlc: 'base',
@@ -698,6 +725,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Flying Bomb Trap',
+    saveFileSlug: 'Mod_FlyingBombTrap_C',
     imagePath: '/items/mods/flyingbombtrap.png',
     id: '2GWpcL',
     dlc: 'dlc2',
@@ -731,6 +759,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Fusion Cannon',
+    saveFileSlug: 'Mod_FusionCannon_C',
     imagePath: '/items/mods/fusioncannon.png',
     id: 'D8obdv',
     dlc: 'base',
@@ -751,6 +780,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Gravity Core',
+    saveFileSlug: 'Mod_GravityCore_C',
     imagePath: '/items/mods/gravitycore.png',
     id: 'kep3kb',
     dlc: 'base',
@@ -772,6 +802,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: "Guardian's Call",
+    saveFileSlug: 'Mod_GuardiansCall_C',
     imagePath: '/items/mods/guardianscall.png',
     id: 'anhbhf',
     dlc: 'base',
@@ -793,6 +824,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: `Guardian's Fury`,
+    saveFileSlug: 'Mod_GuardiansVigil_C',
     imagePath: '/items/mods/guardiansfury.png',
     id: 'WzXG4x',
     dlc: 'base',
@@ -812,6 +844,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Heatwave',
+    saveFileSlug: 'Mod_Heatwave_C',
     imagePath: '/items/mods/heatwave.png',
     dlc: 'dlc2',
     id: 'vc3s1n',
@@ -825,6 +858,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Healing Shot',
+    saveFileSlug: 'Mod_HealingShot_C',
     imagePath: '/items/mods/healingshot.png',
     id: 'vc361n',
     dlc: 'base',
@@ -838,6 +872,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Heat Sink',
+    saveFileSlug: 'Mod_HeatSink_C',
     imagePath: '/items/mods/heatsink.png',
     id: 's49h0c',
     dlc: 'base',
@@ -856,6 +891,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Helix',
+    saveFileSlug: 'Mod_Helix_C',
     imagePath: '/items/mods/helix.png',
     id: '1mtqkk',
     dlc: 'base',
@@ -885,6 +921,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Hot Shot',
+    saveFileSlug: 'Mod_Hotshot_C',
     imagePath: '/items/mods/hotshot.png',
     id: '9vzb9r',
     dlc: 'base',
@@ -913,6 +950,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Knight Guard',
+    saveFileSlug: 'Mod_KnightGuard_C',
     imagePath: '/items/mods/knightguard.png',
     dlc: 'dlc1',
     id: 'e4n1w4',
@@ -960,6 +998,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Loathe the Weak',
+    saveFileSlug: 'Mod_LoathTheWeak_C',
     imagePath: '/items/mods/loaththeweak.png',
     dlc: 'dlc1',
     id: 'aobtw7',
@@ -978,6 +1017,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Micronova',
+    saveFileSlug: 'Mod_Micronova_C',
     imagePath: '/items/mods/corrupted_micronova.png',
     id: '8izb2g',
     dlc: 'base',
@@ -1001,6 +1041,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Moonlight Barrage',
+    saveFileSlug: 'Mod_MoonlightBarrage_C',
     imagePath: '/items/mods/moonlightbarrage.png',
     id: 'wfak3h',
     dlc: 'base',
@@ -1021,6 +1062,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Nano Phase',
+    saveFileSlug: 'Mod_NanoPhase_C',
     imagePath: '/items/mods/nanophase.png',
     id: 'WARGv3',
     dlc: 'base',
@@ -1040,6 +1082,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Nano Swarm',
+    saveFileSlug: 'Mod_NanoSwarm_C',
     imagePath: '/items/mods/nanoswarm.png',
     id: '8ko9zz',
     dlc: 'base',
@@ -1058,6 +1101,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Ouroboros',
+    saveFileSlug: 'Mod_Ouroboros_C',
     imagePath: '/items/mods/ouroboros.png',
     id: 'czgb8w',
     dlc: 'base',
@@ -1078,6 +1122,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Overflow',
+    saveFileSlug: 'Mod_Overflow_C',
     imagePath: '/items/mods/overflow.png',
     id: 'tya9an',
     dlc: 'base',
@@ -1114,6 +1159,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Prismatic Driver',
+    saveFileSlug: 'Mod_PrismaticDriver_C', // todo test this on loadout import
     imagePath: '/items/mods/prismaticdriver.png',
     id: 'vtcg3o',
     dlc: 'base',
@@ -1143,6 +1189,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Ring of Spears',
+    saveFileSlug: 'Mod_RingOfSpears_C',
     imagePath: '/items/mods/ringofspears.png',
     dlc: 'dlc1',
     id: '4rdl8r',
@@ -1161,6 +1208,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Rootlash',
+    saveFileSlug: 'Mod_Rootlash_C',
     imagePath: '/items/mods/rootlash.png',
     id: 'nfw6ja',
     dlc: 'base',
@@ -1174,6 +1222,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Rotted Arrow',
+    saveFileSlug: 'Mod_RottedArrow_C',
     imagePath: '/items/mods/rottedarrow.png',
     id: 'vgin4w',
     dlc: 'base',
@@ -1188,6 +1237,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Sandstorm',
+    saveFileSlug: 'Mod_Sandstorm_C',
     imagePath: '/items/mods/sandstorm.png',
     dlc: 'dlc2',
     id: 'ozNPv9',
@@ -1208,6 +1258,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Scrap Shot',
+    saveFileSlug: 'Mod_ScrapShot_C',
     imagePath: '/items/mods/scrapshot.png',
     id: 'hcv400',
     dlc: 'base',
@@ -1223,6 +1274,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Screamer',
+    saveFileSlug: 'Mod_Screamer_C',
     imagePath: '/items/mods/screamer.png',
     id: '4aeebu',
     dlc: 'base',
@@ -1242,6 +1294,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Shatterstar',
+    saveFileSlug: 'Mod_Shatterstar_C',
     imagePath: '/items/mods/shatterstar.png',
     id: 'z9e8qq',
     dlc: 'base',
@@ -1262,6 +1315,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Skewer 2.0',
+    saveFileSlug: 'Mod_Skewer_C',
     imagePath: '/items/mods/skewer.png',
     id: 'cpvech',
     dlc: 'base',
@@ -1276,6 +1330,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Song of Eafir',
+    saveFileSlug: 'Mod_SongOfEafir_C',
     imagePath: '/items/mods/songofeafir.png',
     id: 'edm644',
     dlc: 'base',
@@ -1293,6 +1348,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Soul Brand',
+    saveFileSlug: 'Mod_Soulbrand_C',
     imagePath: '/items/mods/soulbrand.png',
     id: 'imk8xh',
     dlc: 'base',
@@ -1314,6 +1370,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Soulbinder',
+    saveFileSlug: 'Mod_Soulbinder_C',
     imagePath: '/items/mods/soulbinder.png',
     id: '5bb0mv',
     dlc: 'base',
@@ -1328,6 +1385,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Space Crabs',
+    saveFileSlug: 'Mod_SpaceCrabs_C',
     imagePath: '/items/mods/spacecrabs.png',
     id: '4wd3gm',
     dlc: 'base',
@@ -1341,6 +1399,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Spore Shot',
+    saveFileSlug: 'Mod_SporeShot_C',
     imagePath: '/items/mods/sporeshot.png',
     id: '9fi67v',
     dlc: 'base',
@@ -1360,6 +1419,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Starfall',
+    saveFileSlug: 'Mod_Starfall_C',
     imagePath: '/items/mods/starfall.png',
     id: 'j9wkb3',
     dlc: 'base',
@@ -1379,6 +1439,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Stasis Beam',
+    saveFileSlug: 'Mod_StasisBeam_C',
     imagePath: '/items/mods/stasisbeam.png',
     id: 'rer73h',
     dlc: 'base',
@@ -1393,6 +1454,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Supernova',
+    saveFileSlug: 'Mod_Supernova_C',
     imagePath: '/items/mods/supernova.png',
     id: '9rxk65',
     dlc: 'base',
@@ -1417,6 +1479,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Time Lapse',
+    saveFileSlug: 'Mod_TimeLapse_C',
     imagePath: '/items/mods/timelapse.png',
     id: 'nn1q6k',
     dlc: 'base',
@@ -1433,6 +1496,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Tremor',
+    saveFileSlug: 'Mod_Tremor_C',
     imagePath: '/items/mods/tremor.png',
     id: 'g6glpj',
     dlc: 'base',
@@ -1447,6 +1511,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Voltaic Rondure',
+    saveFileSlug: 'Mod_VoltaicRondure_C',
     imagePath: '/items/mods/voltaicrondure.png',
     id: 'wjopwy',
     dlc: 'base',
@@ -1478,6 +1543,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Will of the Wisp',
+    saveFileSlug: 'Mod_WillOfTheWisp_C',
     imagePath: '/items/mods/willofthewisp.png',
     id: '9jwTXR',
     dlc: 'base',
@@ -1496,6 +1562,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Windfall',
+    saveFileSlug: 'Mod_Windfall_C',
     imagePath: '/items/mods/corrupted_windfall.png',
     id: '82v8kz',
     dlc: 'base',
@@ -1516,6 +1583,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Witchfire',
+    saveFileSlug: 'Mod_Witchfire_C',
     imagePath: '/items/mods/witchfire.png',
     id: 'ggf5qe',
     dlc: 'base',
