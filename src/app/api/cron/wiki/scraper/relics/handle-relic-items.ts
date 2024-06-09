@@ -1,6 +1,7 @@
 import * as cheerio from 'cheerio'
 
 import { relicItems } from '@/app/(data)/items/relic-items'
+import { getImageUrl } from '@/app/(utils)/get-image-url'
 import { validateEnv } from '@/app/(validators)/validate-env'
 import { REQUEST_DELAY } from '@/app/api/cron/wiki/scraper/constants'
 import { relicDataCompare } from '@/app/api/cron/wiki/scraper/relics/compare'
@@ -60,7 +61,7 @@ export async function handleRelicItems() {
               color: 0xff0000,
               fields: diffEmbedFields,
               thumbnail: {
-                url: `https://${envVars.NEXT_PUBLIC_IMAGE_URL}${item.imagePath}`,
+                url: getImageUrl(item.imagePath),
               },
             },
           ],

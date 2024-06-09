@@ -14,7 +14,7 @@ interface Props {
   onSelect: (avatarId: string) => void
 }
 
-export function SelectAvatarDialog({ open, onClose, onSelect }: Props) {
+export function AvatarSelectDialog({ open, onClose, onSelect }: Props) {
   return (
     <BaseDialog open={open} onClose={onClose} size="4xl">
       <BaseDialogTitle>Select Avatar</BaseDialogTitle>
@@ -22,16 +22,17 @@ export function SelectAvatarDialog({ open, onClose, onSelect }: Props) {
         Select a new avatar to display on your public profile.
       </BaseDialogDescription>
       <BaseDialogBody>
-        {AVATARS.map((avatar) => (
-          <BaseButton
-            plain
-            key={avatar.id}
-            className="flex items-center justify-center"
-            onClick={() => onSelect(avatar.id)}
-          >
-            <AvatarBox key={avatar.id} avatar={avatar} showLabel={true} />
-          </BaseButton>
-        ))}
+        <div className="flex w-full flex-wrap items-center justify-center">
+          {AVATARS.map((avatar) => (
+            <BaseButton
+              plain
+              key={avatar.id}
+              onClick={() => onSelect(avatar.id)}
+            >
+              <AvatarBox key={avatar.id} avatar={avatar} showLabel={true} />
+            </BaseButton>
+          ))}
+        </div>
       </BaseDialogBody>
     </BaseDialog>
   )

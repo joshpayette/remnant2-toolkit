@@ -1,6 +1,7 @@
 import { BuildTags } from '@prisma/client'
 
 import { BaseButton } from '@/app/(components)/_base/button'
+import { BaseFieldset, BaseLabel } from '@/app/(components)/_base/fieldset'
 import { MAX_BUILD_TAGS } from '@/app/(data)/builds/constants'
 import { cn } from '@/app/(utils)/classnames'
 
@@ -52,12 +53,12 @@ export function BuildTagsDisplay({
   }
 
   return (
-    <div className="flex w-full max-w-full flex-col items-center justify-start gap-y-2">
+    <BaseFieldset className="flex w-full max-w-full flex-col items-center justify-start gap-y-2">
       {showLabel && (
-        <h3 className="text-md mb-2 w-full font-bold text-primary-500">
+        <BaseLabel className="mb-2 w-full">
           Build Tags{' '}
           {!isScreenshotMode && isEditable && `(Limit ${MAX_BUILD_TAGS})`}
-        </h3>
+        </BaseLabel>
       )}
       <div
         className={cn(
@@ -94,6 +95,6 @@ export function BuildTagsDisplay({
           )
         })}
       </div>
-    </div>
+    </BaseFieldset>
   )
 }

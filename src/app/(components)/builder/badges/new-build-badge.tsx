@@ -2,6 +2,7 @@ import Image from 'next/image'
 
 import { BaseButton } from '@/app/(components)/_base/button'
 import { Tooltip } from '@/app/(components)/tooltip'
+import { getImageUrl } from '@/app/(utils)/get-image-url'
 
 export function NewBuildBadge({
   unoptimized = false,
@@ -15,7 +16,7 @@ export function NewBuildBadge({
         plain
       >
         <Image
-          src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/badges/new_build_badge1.png`}
+          src={getImageUrl(`/badges/new_build_badge1.png`)}
           width={50}
           height={50}
           alt="image denoting the build was created in the past 24 hours"

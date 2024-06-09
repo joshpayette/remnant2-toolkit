@@ -8,6 +8,7 @@ import { getDownloadUrl } from '@/app/(components)/filters/world-saves/utils'
 import { Tooltip } from '@/app/(components)/tooltip'
 import { RELEASE_TO_NAME } from '@/app/(data)/releases/constants'
 import { ALL_BOSS_AFFIXES } from '@/app/(data)/world-saves/constants'
+import { getImageUrl } from '@/app/(utils)/get-image-url'
 
 interface Props {
   saveItem: FilteredWorldSave
@@ -17,7 +18,7 @@ export function WorldSaveCard({ saveItem }: Props) {
   return (
     <div className="flex w-[200px] max-w-[200px] flex-col items-center justify-center border-2 border-primary-700">
       <Image
-        src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}${saveItem.imagePath}`}
+        src={getImageUrl(saveItem.imagePath)}
         alt={saveItem.bossName}
         width={200}
         height={200}

@@ -1,6 +1,7 @@
 import * as cheerio from 'cheerio'
 
 import { mutatorItems } from '@/app/(data)/items/mutator-items'
+import { getImageUrl } from '@/app/(utils)/get-image-url'
 import { validateEnv } from '@/app/(validators)/validate-env'
 import { REQUEST_DELAY } from '@/app/api/cron/wiki/scraper/constants'
 import { mutatorDataCompare } from '@/app/api/cron/wiki/scraper/mutators/compare'
@@ -66,7 +67,7 @@ export async function handleMutatorItems() {
               color: 0xff0000,
               fields: diffEmbedFields,
               thumbnail: {
-                url: `https://${envVars.NEXT_PUBLIC_IMAGE_URL}${item.imagePath}`,
+                url: getImageUrl(item.imagePath),
               },
             },
           ],

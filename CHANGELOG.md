@@ -4,6 +4,19 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-06-09
+
+### Fixed
+
+- Fixed UI when creating/editing a build. Placeholder text was improperly used to convey info on build descriptions and build links. The info has been moved to standalone text.
+
+## 2024-06-08
+
+### Fixed
+
+- Fixed bug where avatar names were overflowing the labels on the avatar select dialog.
+- Fixed bug where clicking a dropdown menu on the build filters caused the entire box to shrink on Chrome Mobile.
+
 ## 2024-06-07
 
 ### Fixed

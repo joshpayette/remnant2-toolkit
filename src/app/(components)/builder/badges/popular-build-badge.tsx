@@ -6,6 +6,7 @@ import {
   POPULAR_VOTE_THRESHOLD1,
   POPULAR_VOTE_THRESHOLD2,
 } from '@/app/(data)/builds/constants'
+import { getImageUrl } from '@/app/(utils)/get-image-url'
 
 export function PopularBuildBadge({
   level,
@@ -18,15 +19,15 @@ export function PopularBuildBadge({
   let voteThreshold = 0
   switch (level) {
     case 1:
-      src = `https://${process.env.NEXT_PUBLIC_IMAGE_URL}/badges/popular_badge_tier1.png`
+      src = getImageUrl(`/badges/popular_badge_tier1.png`)
       voteThreshold = POPULAR_VOTE_THRESHOLD1
       break
     case 2:
-      src = `https://${process.env.NEXT_PUBLIC_IMAGE_URL}/badges/popular_badge_tier2.png`
+      src = getImageUrl(`/badges/popular_badge_tier2.png`)
       voteThreshold = POPULAR_VOTE_THRESHOLD2
       break
     default:
-      src = '/popular_badge1.webp'
+      src = getImageUrl(`/badges/popular_badge_tier1.png`)
       voteThreshold = POPULAR_VOTE_THRESHOLD1
   }
 

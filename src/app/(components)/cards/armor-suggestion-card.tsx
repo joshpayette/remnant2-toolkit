@@ -4,6 +4,7 @@ import { ItemButton } from '@/app/(components)/buttons/item-button'
 import { WEIGHT_CLASSES } from '@/app/(data)/items/constants'
 import { ArmorItem } from '@/app/(data)/items/types/ArmorItem'
 import { cn } from '@/app/(utils)/classnames'
+import { getImageUrl } from '@/app/(utils)/get-image-url'
 
 import {
   ArmorSuggestion,
@@ -48,7 +49,7 @@ export function ArmorSuggestionCard({
       <div className="mb-4 flex flex-row items-center justify-center gap-x-4">
         <div className="flex items-center justify-center gap-x-0.5">
           <Image
-            src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/status/bleed_resistance.png`}
+            src={getImageUrl(`/status/bleed_resistance.png`)}
             alt="Bleed Resistance"
             width={32}
             height={32}
@@ -60,7 +61,7 @@ export function ArmorSuggestionCard({
         </div>
         <div className="flex items-center justify-center gap-x-0.5">
           <Image
-            src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/status/fire_resistance.png`}
+            src={getImageUrl(`/status/fire_resistance.png`)}
             alt="Fire Resistance"
             width={32}
             height={32}
@@ -72,7 +73,7 @@ export function ArmorSuggestionCard({
         </div>
         <div className="flex items-center justify-center gap-x-0.5">
           <Image
-            src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/status/shock_resistance.png`}
+            src={getImageUrl(`/status/shock_resistance.png`)}
             alt="Shock Resistance"
             width={32}
             height={32}
@@ -84,7 +85,7 @@ export function ArmorSuggestionCard({
         </div>
         <div className="flex items-center justify-center gap-x-0.5">
           <Image
-            src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/status/toxin_resistance.png`}
+            src={getImageUrl(`/status/toxin_resistance.png`)}
             alt="Toxin Resistance"
             width={32}
             height={32}
@@ -96,7 +97,7 @@ export function ArmorSuggestionCard({
         </div>
         <div className="flex items-center justify-center gap-x-0.5">
           <Image
-            src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/status/blight_resistance.png`}
+            src={getImageUrl(`/status/blight_resistance.png`)}
             alt="Blight Resistance"
             width={32}
             height={32}

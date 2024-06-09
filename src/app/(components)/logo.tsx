@@ -1,6 +1,7 @@
 import Image from 'next/image'
 
 import { Link } from '@/app/(components)/_base/link'
+import { getImageUrl } from '@/app/(utils)/get-image-url'
 
 export function Logo({
   showUrl = false,
@@ -13,7 +14,7 @@ export function Logo({
     <Link href="/" className="-m-1.5 flex items-center justify-start p-1.5">
       <Image
         className="mr-2 h-[36px] w-[52px]"
-        src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}/toolkit/toolkit-logo.png`}
+        src={getImageUrl(`/toolkit/toolkit-logo.png`)}
         alt="Remnant 2 Toolkit logo, a purple and yellow toolbox."
         width={52}
         height={36}

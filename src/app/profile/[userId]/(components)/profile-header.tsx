@@ -8,7 +8,7 @@ import { BaseButton } from '@/app/(components)/_base/button'
 import { BaseField } from '@/app/(components)/_base/fieldset'
 import { BaseInput } from '@/app/(components)/_base/input'
 import { BaseTextarea } from '@/app/(components)/_base/textarea'
-import { SelectAvatarDialog } from '@/app/(components)/dialogs/select-avatar-dialog'
+import { AvatarSelectDialog } from '@/app/(components)/dialogs/avatar-select-dialog'
 import { saveProfile } from '@/app/profile/[userId]/(actions)/save-profile'
 import { AvatarBox } from '@/app/profile/[userId]/(components)/avatar-box'
 import { getAvatarById } from '@/app/profile/[userId]/(lib)/get-avatar-by-id'
@@ -47,7 +47,7 @@ export function ProfileHeader({
 
   return (
     <>
-      <SelectAvatarDialog
+      <AvatarSelectDialog
         open={isAvatarSelectDialogOpen}
         onClose={() => setIsAvatarSelectDialogOpen(false)}
         onSelect={(avatarId) => {

@@ -3,6 +3,7 @@ import Image from 'next/image'
 
 import { BaseButton } from '@/app/(components)/_base/button'
 import { cn } from '@/app/(utils)/classnames'
+import { getImageUrl } from '@/app/(utils)/get-image-url'
 import { ARROW_TO_INDEX } from '@/app/item-quiz/constants'
 import { QuizItem } from '@/app/item-quiz/types'
 
@@ -20,7 +21,7 @@ export function QuizItemButton({ item, itemIndex, onClick }: Props) {
     return (
       <div className={wrapperClasses} key={item.id}>
         <Image
-          src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}${item.imagePath}`}
+          src={getImageUrl(item.imagePath)}
           width={200}
           height={200}
           alt={`Image of the correct item, ${item.name}`}
@@ -35,7 +36,9 @@ export function QuizItemButton({ item, itemIndex, onClick }: Props) {
 
   switch (arrowIndex) {
     case ARROW_TO_INDEX.ArrowUp:
-      arrowIcon = <ArrowUpIcon className="h-3 w-3 text-background-solid md:h-4 md:w-4" />
+      arrowIcon = (
+        <ArrowUpIcon className="h-3 w-3 text-background-solid md:h-4 md:w-4" />
+      )
       numberLabel = '1'
       break
     case ARROW_TO_INDEX.ArrowRight:
@@ -76,7 +79,7 @@ export function QuizItemButton({ item, itemIndex, onClick }: Props) {
         </div>
       </div>
       <Image
-        src={`https://${process.env.NEXT_PUBLIC_IMAGE_URL}${item.imagePath}`}
+        src={getImageUrl(item.imagePath)}
         width={200}
         height={200}
         alt={`Item Selection #${itemIndex + 1}`}
