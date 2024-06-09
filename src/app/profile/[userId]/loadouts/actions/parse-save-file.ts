@@ -1,9 +1,17 @@
 'use server'
 
+import { revalidatePath } from 'next/cache'
+
+import { createBuild } from '@/app/(actions)/builds/create-build'
+import { addBuildToLoadout } from '@/app/(actions)/loadouts/add-build-to-loadout'
+import type { BuildState, SuccessResponse } from '@/app/(types)/builds'
 import {
   MAX_PROFILE_SAV_SIZE,
   type ParsedLoadoutItem,
 } from '@/app/(types)/sav-file'
+import { getServerSession } from '@/app/(utils)/auth'
+import { importedLoadoutToBuildState } from '@/app/(utils)/builds/imported-loadout-to-build-state'
+import { isErrorResponse } from '@/app/(utils)/is-error-response'
 import { validateEnv } from '@/app/(validators)/validate-env'
 
 const env = validateEnv()
@@ -16,7 +24,16 @@ type ParsedLoadoutResponse = Array<ParsedLoadoutItem>
 export async function parseSaveFile(
   prevState: any,
   formData: FormData,
-): Promise<{ loadouts: ParsedLoadoutResponse[] | null; error?: string }> {
+): Promise<{ status: 'success' | 'error'; message: string }> {
+  const session = await getServerSession()
+
+  if (!session || !session.user?.id) {
+    return {
+      status: 'error',
+      message: 'User not authenticated',
+    }
+  }
+
   const saveFile = formData.get('saveFile') as File | null
   if (!saveFile) {
     throw new Error('No file provided')
@@ -25,8 +42,8 @@ export async function parseSaveFile(
     const message = 'Invalid file name, should be profile.sav'
     console.error(message)
     return {
-      loadouts: null,
-      error: message,
+      status: 'error',
+      message,
     }
   }
 
@@ -35,14 +52,29 @@ export async function parseSaveFile(
     formData.append('characterSlot', '1')
   }
 
+  let loadoutsToReplace: number[] = []
+  for (let [key, value] of formData.entries()) {
+    if (key.startsWith('loadoutsToReplace')) {
+      loadoutsToReplace.push(parseInt(value.toString()))
+    }
+  }
+
+  // If no loadouts to replace are provided, error
+  if (loadoutsToReplace.length === 0) {
+    return {
+      status: 'error',
+      message: 'No loadouts to replace provided.',
+    }
+  }
+
   const fileSizeInBytes = saveFile.size
   const fileSizeInKilobytes = fileSizeInBytes / 1000.0
 
   if (fileSizeInKilobytes > MAX_PROFILE_SAV_SIZE) {
     console.error('File too large', fileSizeInKilobytes)
     return {
-      loadouts: null,
-      error: `File too large (${fileSizeInKilobytes} KB), please use a smaller file. If you think this is in error, please use the bug report icon in the bottom right to let me know.`,
+      status: 'error',
+      message: `File too large (${fileSizeInKilobytes} KB), please use a smaller file. If you think this is in error, please use the bug report icon in the bottom right to let me know.`,
     }
   }
 
@@ -62,16 +94,16 @@ export async function parseSaveFile(
     if (!response.ok) {
       console.error('Error in parseSaveFile', response)
       return {
-        loadouts: null,
-        error: `Error parsing save file`,
+        status: 'error',
+        message: `Error parsing save file`,
       }
     }
 
     const data = await response.json()
     if (!data[0]?.loadouts) {
       return {
-        loadouts: null,
-        error: `No loadouts found in save file for character slot ${formData.get(
+        status: 'error',
+        message: `No loadouts found in save file for character slot ${formData.get(
           'characterSlot',
         )}`,
       }
@@ -81,14 +113,52 @@ export async function parseSaveFile(
       (loadout) => loadout !== null && loadout.length > 0,
     )
 
+    const buildsToCreate: BuildState[] = []
+    for (const loadoutIndex of loadoutsToReplace) {
+      const buildState = importedLoadoutToBuildState({
+        loadout: loadouts[loadoutIndex - 1],
+      })
+      buildsToCreate.push({
+        ...buildState,
+        name: `Imported Loadout ${loadoutIndex}`,
+        description: `Imported from profile.sav by ${session.user.displayName}`,
+      })
+    }
+
+    // Save the builds to the database
+    const createdBuildResponse = await Promise.all([
+      ...buildsToCreate.map((build) => createBuild(JSON.stringify(build))),
+    ])
+    const buildIds = createdBuildResponse
+      .filter((build) => !isErrorResponse(build))
+      .map((build) => (build as SuccessResponse).buildId as string)
+
+    // Update the loadouts with the new build IDs
+    const loadoutsToUpdate: Array<{ buildId: string; slot: number }> = []
+    for (let i = 0; i < createdBuildResponse.length; i++) {
+      loadoutsToUpdate.push({
+        buildId: buildIds[i],
+        slot: loadoutsToReplace[i],
+      })
+    }
+
+    const updatedLoadoutsResponse = await Promise.all([
+      ...loadoutsToUpdate.map((loadout) =>
+        addBuildToLoadout(loadout.buildId, loadout.slot),
+      ),
+    ])
+
+    revalidatePath(`/api/profile/[userId]/loadouts`)
+
     return {
-      loadouts,
+      status: 'success',
+      message: 'Loadouts imported successfully',
     }
   } catch (e) {
     console.error('Error in parseSaveFile', e)
     return {
-      loadouts: null,
-      error: `Unknown error parsing save file`,
+      status: 'error',
+      message: `Unknown error parsing save file`,
     }
   }
 }

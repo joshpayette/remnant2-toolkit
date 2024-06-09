@@ -44,11 +44,6 @@ export function ImportLoadoutsDialog({
           Automatically import your in-game loadouts from your{' '}
           <BaseCode>profile.sav</BaseCode>
         </BaseDialogDescription>
-        <BaseDialogDescription>
-          <span className="text-red-500">
-            Note: This will overwrite any existing loadouts and then reimport.
-          </span>
-        </BaseDialogDescription>
         <BaseDialogBody>
           <BaseField className="mb-2">
             <BaseLabel>Character Slot (1-5)</BaseLabel>
@@ -62,7 +57,11 @@ export function ImportLoadoutsDialog({
           </BaseField>
           <BaseField className="mb-2">
             <BaseLabel>Loadouts to Replace</BaseLabel>
-            <BaseListbox name="loadoutsToReplace" multiple>
+            <p className="mb-2 text-sm text-zinc-400">
+              This will replace the loadouts in the selected slots with the new
+              loadouts.
+            </p>
+            <BaseListbox name="loadoutsToReplace" multiple defaultValue={[1]}>
               {getArrayOfLength(8).map((_, index) => {
                 const loadout = existingLoadouts.find(
                   (loadout) => loadout.slot === index + 1,

@@ -59,20 +59,16 @@ function getLoadoutSlot(str: string) {
 
 export function importedLoadoutToBuildState({
   loadout,
-  userId,
-  userDisplayName,
 }: {
   loadout: ParsedLoadoutItem[]
-  userId: string
-  userDisplayName: string
 }): BuildState {
   let buildState: BuildState = {
     buildId: null,
-    name: 'Imported Loadout',
+    name: 'Placeholder',
     createdAt: new Date(),
     updatedAt: null,
-    createdById: userId,
-    createdByDisplayName: userDisplayName,
+    createdById: null,
+    createdByDisplayName: null,
     isMember: false,
     isPublic: false,
     isFeaturedBuild: false,
@@ -86,7 +82,7 @@ export function importedLoadoutToBuildState({
     buildLinkUpdatedAt: null,
     buildTags: null,
     buildLink: null,
-    description: `Imported loadout from profile.sav`,
+    description: `Placeholder`,
     upvoted: false,
     totalUpvotes: 0,
     reported: false,

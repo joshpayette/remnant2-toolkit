@@ -21,7 +21,8 @@ export default function ImportLoadouts({ existingLoadouts }: Props) {
   const [uploadSaveFormResponse, saveFileFormAction] = useFormState(
     parseSaveFile,
     {
-      loadouts: null,
+      status: 'error',
+      message: 'Error importing save file',
     },
   )
 
@@ -29,33 +30,15 @@ export default function ImportLoadouts({ existingLoadouts }: Props) {
   useEffect(() => {
     if (!uploadSaveFormResponse) return
 
-    const { loadouts, error } = uploadSaveFormResponse
-
-    if (error) {
-      saveFileInputRef.current = null
-      setImportSaveDialogOpen(false)
-      toast.error(error)
-      return
-    }
-
-    if (!loadouts) return
-
-    // TODO - Impelement the logic for adding the layouts to the page
-    console.info('loadouts', loadouts)
-
-    // Test the parsing
-    console.info(
-      'buildState',
-      importedLoadoutToBuildState({
-        loadout: loadouts[0],
-        userId: '',
-        userDisplayName: '',
-      }),
-    )
-
-    saveFileInputRef.current = null
+    const { status, message } = uploadSaveFormResponse
 
     setImportSaveDialogOpen(false)
+    saveFileInputRef.current = null
+
+    if (status === 'error') {
+      toast.error(message)
+      return
+    }
     toast.success('Save file imported successfully!')
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [uploadSaveFormResponse])
