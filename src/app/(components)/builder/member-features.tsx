@@ -1,14 +1,20 @@
 'use client'
 
-import { ClipboardDocumentListIcon } from '@heroicons/react/24/solid'
 import { BuildTags } from '@prisma/client'
 import { useSession } from 'next-auth/react'
 import { useState } from 'react'
+import { IoDocumentTextSharp } from 'react-icons/io5'
+import { MdOutlineGeneratingTokens } from 'react-icons/md'
 
 import { BaseButton } from '@/app/(components)/_base/button'
-import { BaseField, BaseLabel } from '@/app/(components)/_base/fieldset'
+import {
+  BaseField,
+  BaseFieldset,
+  BaseLabel,
+} from '@/app/(components)/_base/fieldset'
 import { BaseInput } from '@/app/(components)/_base/input'
 import { BaseSwitch } from '@/app/(components)/_base/switch'
+import { BaseText } from '@/app/(components)/_base/text'
 import { BaseTextarea } from '@/app/(components)/_base/textarea'
 import { BuildDescriptionTemplateAlert } from '@/app/(components)/alerts/build-description-template-alert'
 import { DescriptionWithTokens } from '@/app/(components)/description-with-tokens'
@@ -97,9 +103,15 @@ export function MemberFeatures({
             <BaseLabel>{`Build Description (${
               description?.length ?? 0
             }/${MAX_BUILD_DESCRIPTION_LENGTH})`}</BaseLabel>
+            <p className="mb-2 text-xs text-zinc-400">
+              Consider adding a description about how the build works, possible
+              item swaps, a link to a Youtube video demonstrating the build, and
+              any other info that can help others understand your build better.
+              All item names will show up in bold and keywords as tokens. Not
+              sure what to write? Use the Item Description Template link below!
+            </p>
             <BaseTextarea
               name="description"
-              placeholder="Consider adding a description about how the build works, possible item swaps, a link to a Youtube video demonstrating the build, and any other info that can help others understand your build better. All item names will show up in bold and keywords as tokens. Not sure what to write? Use the Item Description Template link below!"
               onChange={(e) => onChangeDescription(e.target.value)}
               value={description ?? ''}
               maxLength={MAX_BUILD_DESCRIPTION_LENGTH}
@@ -132,22 +144,25 @@ Watch the build in action: [insert Youtube link here]
               onClose={() => setBuildTagsDialogOpen(false)}
             />
 
-            <BaseButton
-              plain
-              className="my-1underline"
-              onClick={() => setBuildTagsDialogOpen(true)}
-            >
-              Show Description Tokens
-            </BaseButton>
+            <div className="flex w-full items-start justify-between">
+              <BaseButton
+                plain
+                className="flex flex-col items-center justify-start text-sm underline sm:flex-row"
+                onClick={() => setBuildTagsDialogOpen(true)}
+              >
+                <MdOutlineGeneratingTokens className="h-4 w-4 text-surface-solid" />
+                Description Tokens
+              </BaseButton>
 
-            <BaseButton
-              plain
-              className="my-1underline"
-              onClick={() => setBuildDescriptionAlertOpen(true)}
-            >
-              <ClipboardDocumentListIcon className="inline-block h-4 w-4 text-surface-solid" />{' '}
-              Insert Description Template
-            </BaseButton>
+              <BaseButton
+                plain
+                className="flex flex-col items-center justify-start text-sm underline sm:flex-row"
+                onClick={() => setBuildDescriptionAlertOpen(true)}
+              >
+                <IoDocumentTextSharp className="h-4 w-4 text-surface-solid" />{' '}
+                Description Template
+              </BaseButton>
+            </div>
           </div>
         </div>
       )}
@@ -156,22 +171,27 @@ Watch the build in action: [insert Youtube link here]
         <>
           {isEditable && (
             <div className="mb-8">
-              <div className="mb-2 flex w-full flex-col items-start justify-start text-sm text-primary-500 sm:flex-row sm:items-center">
-                <div className="mb-2 mr-4 w-[200px] sm:mb-0">
+              <BaseFieldset className="mb-2 w-full">
+                <BaseLabel className="mr-4 w-[200px] sm:mb-0">
                   Build Reference Link
-                </div>
+                </BaseLabel>
+                <ul className="mb-2 list-disc text-xs text-zinc-400">
+                  <li className="ml-4">
+                    The link must be relevant to the build or it will be
+                    removed.
+                  </li>
+                  <li className="ml-4">
+                    If you add a YouTube video URL, it will be embedded above
+                    the build after 12 hours.{' '}
+                  </li>
+                </ul>
                 <div className="flex w-full items-center justify-start">
                   <BaseInput
                     value={buildLink ?? ''}
                     onChange={(e) => onChangeBuildLink(e.target.value)}
-                    placeholder="The link must be relevant to the build or it will be removed."
                   />
                 </div>
-              </div>
-              <div className="flex w-full items-center justify-start text-xs text-gray-300">
-                If you add a YouTube video URL, it will be embedded above the
-                build after 12 hours.{' '}
-              </div>
+              </BaseFieldset>
             </div>
           )}
         </>
