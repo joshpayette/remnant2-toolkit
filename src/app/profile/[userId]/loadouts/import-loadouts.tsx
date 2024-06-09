@@ -7,6 +7,7 @@ import { toast } from 'react-toastify'
 import { BaseButton } from '@/app/(components)/_base/button'
 import { ImportLoadoutsDialog } from '@/app/(components)/dialogs/import-loadouts-dialog'
 import type { DBBuild } from '@/app/(types)/builds'
+import { importedLoadoutToBuildState } from '@/app/(utils)/builds/imported-loadout-to-build-state'
 import { parseSaveFile } from '@/app/profile/[userId]/loadouts/actions/parse-save-file'
 
 interface Props {
@@ -41,6 +42,16 @@ export default function ImportLoadouts({ existingLoadouts }: Props) {
 
     // TODO - Impelement the logic for adding the layouts to the page
     console.info('loadouts', loadouts)
+
+    // Test the parsing
+    console.info(
+      'buildState',
+      importedLoadoutToBuildState({
+        loadout: loadouts[0],
+        userId: '',
+        userDisplayName: '',
+      }),
+    )
 
     saveFileInputRef.current = null
 

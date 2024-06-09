@@ -2,6 +2,7 @@ import { traitItems } from '@/app/(data)/items/trait-items'
 import { TraitItem } from '@/app/(data)/items/types/TraitItem'
 import { weaponItems } from '@/app/(data)/items/weapon-items'
 import { BuildState } from '@/app/(types)/builds'
+import { linkArchetypesToPerks } from '@/app/(utils)/builds/link-archetypes-to-perks'
 
 import { getConcoctionSlotCount } from './get-concoction-slot-count'
 import { linkArchetypesToTraits } from './link-archetypes-to-traits'
@@ -91,6 +92,8 @@ export function cleanUpBuildState(buildState: BuildState): BuildState {
   buildState = linkWeaponsToMods(buildState)
   // link skills to archetypes
   buildState = linkSkillsToArchetypes(buildState)
+  // link perks to archetypes
+  buildState = linkArchetypesToPerks(buildState)
   // link archetypes to traits
   buildState = linkArchetypesToTraits(buildState)
 

@@ -52,7 +52,13 @@ export function ImportLoadoutsDialog({
         <BaseDialogBody>
           <BaseField className="mb-2">
             <BaseLabel>Character Slot (1-5)</BaseLabel>
-            <BaseInput type="number" min="1" max="5" name="characterSlot" />
+            <BaseInput
+              type="number"
+              min="1"
+              max="5"
+              name="characterSlot"
+              defaultValue="1"
+            />
           </BaseField>
           <BaseField className="mb-2">
             <BaseLabel>Loadouts to Replace</BaseLabel>

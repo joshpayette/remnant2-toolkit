@@ -5,7 +5,7 @@ export const archetypeItems: ArchetypeItem[] = [
     category: 'archetype',
     name: 'Alchemist',
     imagePath: '/items/archetypes/alchemist.png',
-    saveFileSlug: 'engram_alchemist',
+    saveFileSlug: 'Engram_Alchemist_C',
     id: '67pme7',
     dlc: 'base',
     description:
@@ -37,7 +37,7 @@ export const archetypeItems: ArchetypeItem[] = [
     category: 'archetype',
     name: 'Archon',
     imagePath: '/items/archetypes/archon.png',
-    saveFileSlug: 'engram_archon',
+    saveFileSlug: 'Engram_Archon_C',
     id: 'og1fvq',
     dlc: 'base',
     description:
@@ -69,7 +69,7 @@ export const archetypeItems: ArchetypeItem[] = [
     category: 'archetype',
     name: 'Challenger',
     imagePath: '/items/archetypes/challenger.png',
-    saveFileSlug: 'engram_challenger',
+    saveFileSlug: 'Engram_Challenger_C',
     id: 'wm2xsy',
     dlc: 'base',
     description:
@@ -100,7 +100,7 @@ export const archetypeItems: ArchetypeItem[] = [
     category: 'archetype',
     name: 'Engineer',
     imagePath: '/items/archetypes/engineer.png',
-    saveFileSlug: 'engram_engineer',
+    saveFileSlug: 'Engram_Engineer_C',
     id: '98i1ka',
     dlc: 'base',
     description:
@@ -131,7 +131,7 @@ export const archetypeItems: ArchetypeItem[] = [
     category: 'archetype',
     name: 'Explorer',
     imagePath: '/items/archetypes/explorer.png',
-    saveFileSlug: 'engram_explorer',
+    saveFileSlug: 'Engram_Explorer_C',
     id: 'la3vvu',
     dlc: 'base',
     description:
@@ -163,7 +163,7 @@ export const archetypeItems: ArchetypeItem[] = [
     category: 'archetype',
     name: 'Gunslinger',
     imagePath: '/items/archetypes/gunslinger.png',
-    saveFileSlug: 'engram_gunslinger',
+    saveFileSlug: 'Engram_Gunslinger_C',
     id: 'd2qga5',
     dlc: 'base',
     description:
@@ -195,7 +195,7 @@ export const archetypeItems: ArchetypeItem[] = [
     category: 'archetype',
     name: 'Handler',
     imagePath: '/items/archetypes/handler.png',
-    saveFileSlug: 'engram_handler',
+    saveFileSlug: 'Engram_Handler_C',
     id: 'aazlxe',
     dlc: 'base',
     description:
@@ -227,7 +227,7 @@ export const archetypeItems: ArchetypeItem[] = [
     category: 'archetype',
     name: 'Hunter',
     imagePath: '/items/archetypes/hunter.png',
-    saveFileSlug: 'engram_hunter',
+    saveFileSlug: 'Engram_Hunter_C',
     id: '5tkqdz',
     dlc: 'base',
     description:
@@ -259,7 +259,7 @@ export const archetypeItems: ArchetypeItem[] = [
     category: 'archetype',
     name: 'Invader',
     imagePath: '/items/archetypes/invader.png',
-    saveFileSlug: 'engram_invader',
+    saveFileSlug: 'Engram_Invader_C',
     id: '0ipjpk',
     dlc: 'base',
     description: `The INVADER specializes elusiveness and misdirecting the enemy's focus.`,
@@ -289,7 +289,7 @@ export const archetypeItems: ArchetypeItem[] = [
     category: 'archetype',
     name: 'Invoker',
     imagePath: '/items/archetypes/invoker.png',
-    saveFileSlug: 'engram_invoker',
+    saveFileSlug: 'Engram_Invoker_C',
     id: 'Y2NhrX',
     dlc: 'dlc2',
     description: 'The INVOKER specializes in Skill Effectiveness and Buffs.',
@@ -319,7 +319,7 @@ export const archetypeItems: ArchetypeItem[] = [
     category: 'archetype',
     name: 'Medic',
     imagePath: '/items/archetypes/medic.png',
-    saveFileSlug: 'engram_medic',
+    saveFileSlug: 'Engram_Medic_C',
     id: 'd6fvmc',
     dlc: 'base',
     description:
@@ -351,7 +351,7 @@ export const archetypeItems: ArchetypeItem[] = [
     category: 'archetype',
     name: 'Ritualist',
     imagePath: '/items/archetypes/ritualist.png',
-    saveFileSlug: 'engram_ritualist',
+    saveFileSlug: 'Engram_Ritualist_C',
     id: '1q7z9d',
     dlc: 'dlc1',
     description:
@@ -378,7 +378,7 @@ export const archetypeItems: ArchetypeItem[] = [
     category: 'archetype',
     name: 'Summoner',
     imagePath: '/items/archetypes/summoner.png',
-    saveFileSlug: 'engram_summoner',
+    saveFileSlug: 'Engram_Summoner_C',
     id: 'og0bwx',
     dlc: 'base',
     description:

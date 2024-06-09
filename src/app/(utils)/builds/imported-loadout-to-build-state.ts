@@ -1,0 +1,324 @@
+import { allItems } from '@/app/(data)/items/all-items'
+import { traitItems } from '@/app/(data)/items/trait-items'
+import { AmuletItem } from '@/app/(data)/items/types/AmuletItem'
+import { ArchetypeItem } from '@/app/(data)/items/types/ArchetypeItem'
+import { ArmorItem } from '@/app/(data)/items/types/ArmorItem'
+import { ModItem } from '@/app/(data)/items/types/ModItem'
+import { MutatorItem } from '@/app/(data)/items/types/MutatorItem'
+import { RelicFragmentItem } from '@/app/(data)/items/types/RelicFragmentItem'
+import { RelicItem } from '@/app/(data)/items/types/RelicItem'
+import { RingItem } from '@/app/(data)/items/types/RingItem'
+import { SkillItem } from '@/app/(data)/items/types/SkillItem'
+import { TraitItem } from '@/app/(data)/items/types/TraitItem'
+import { WeaponItem } from '@/app/(data)/items/types/WeaponItem'
+import type { BuildState } from '@/app/(types)/builds'
+import type { ParsedLoadoutItem } from '@/app/(types)/sav-file'
+import { cleanUpBuildState } from '@/app/(utils)/builds/clean-up-build-state'
+
+const USABLE_ITEMS = allItems.filter((item) => item.saveFileSlug !== undefined)
+
+const LOADOUT_SLOT_MAP = {
+  Amulet: '12',
+  Archetype1: '2',
+  Archetype2: '3',
+  Gloves: '15',
+  Helm: '13',
+  Legs: '16',
+  Mainhand: '0',
+  Offhand: '1',
+  Melee: '7',
+  Relic: '4',
+  Ring1: '8',
+  Ring2: '9',
+  Ring3: '10',
+  Ring4: '11',
+  Skill1: '5',
+  Skill2: '6',
+  Torso: '14',
+}
+
+const ARCHETYPE_TRAIT_MAP = {
+  Archetype_Alchemist_C: 'Trait_Potency_C',
+  Archetype_Archon_C: 'Trait_FlashCaster_C',
+  Archetype_Challenger_C: 'Trait_StrongBack_C',
+  Archetype_Engineer_C: 'Trait_Fortify_C',
+  Archetype_Explorer_C: 'Trait_Swiftness_C',
+  Archetype_Gunslinger_C: 'Trait_AmmoReserves_C',
+  Archetype_Handler_C: 'Trait_Kinship_C',
+  Archetype_Hunter_C: 'Trait_Longshot_C',
+  Archetype_Invader_C: 'Trait_Untouchable_C',
+  Archetype_Invoker_C: 'Trait_Gifted_C',
+  Archetype_Medic_C: 'Trait_Triage_C',
+  Archetype_Ritualist_C: 'Trait_Affliction_C',
+  Archetype_Summoner_C: 'Trait_Regrowth_C',
+} as const
+
+function getLoadoutSlot(str: string) {
+  return str.split(':LoadoutEquipmentSlot_')[1]
+}
+
+export function importedLoadoutToBuildState({
+  loadout,
+  userId,
+  userDisplayName,
+}: {
+  loadout: ParsedLoadoutItem[]
+  userId: string
+  userDisplayName: string
+}): BuildState {
+  let buildState: BuildState = {
+    buildId: null,
+    name: 'Imported Loadout',
+    createdAt: new Date(),
+    updatedAt: null,
+    createdById: userId,
+    createdByDisplayName: userDisplayName,
+    isMember: false,
+    isPublic: false,
+    isFeaturedBuild: false,
+    isBeginnerBuild: false,
+    isModeratorApproved: false,
+    isModeratorLocked: false,
+    dateFeatured: null,
+    isPatchAffected: false,
+    thumbnailUrl: null,
+    videoUrl: null,
+    buildLinkUpdatedAt: null,
+    buildTags: null,
+    buildLink: null,
+    description: `Imported loadout from profile.sav`,
+    upvoted: false,
+    totalUpvotes: 0,
+    reported: false,
+    items: {
+      helm: null,
+      torso: null,
+      legs: null,
+      gloves: null,
+      relic: null,
+      amulet: null,
+      weapon: [null, null, null],
+      ring: [null, null, null, null],
+      archetype: [null, null],
+      skill: [null, null],
+      concoction: [],
+      consumable: [],
+      mod: [null, null, null],
+      mutator: [null, null, null],
+      relicfragment: [], // cannot determine fragment order if missing fragments
+      trait: [],
+      perk: [],
+    },
+  }
+
+  for (const loadoutItem of loadout) {
+    let item = USABLE_ITEMS.find((item) =>
+      loadoutItem.id
+        .toLowerCase()
+        .includes(item.saveFileSlug?.toLowerCase() as string),
+    )
+
+    // If item not found, it may be an archetype trait
+    // For some reason, the game uses a different slug for the traits
+    // provided by the equipped archetype versus if you used the trait itself
+    // i.e. if Handler is equipped, it is `Archetype_Handler_C`, but if you
+    // used the trait itself, it is `Trait_Kinship_C`
+    if (!item) {
+      const loadoutTrait = loadoutItem.id.split('.')[1]
+      if (loadoutTrait) {
+        const traitSlug =
+          ARCHETYPE_TRAIT_MAP[loadoutTrait as keyof typeof ARCHETYPE_TRAIT_MAP]
+        if (traitSlug) {
+          item = traitItems.find((item) => item.saveFileSlug === traitSlug)
+        }
+      }
+
+      // If still no item, error
+      if (!item) {
+        console.error(`Item not found for loadout item ${loadoutItem.id}`)
+        continue
+      }
+    }
+
+    switch (item.category) {
+      case 'helm': {
+        if (!ArmorItem.isArmorItem(item)) break
+        buildState.items.helm = item
+        break
+      }
+      case 'torso': {
+        if (!ArmorItem.isArmorItem(item)) break
+        buildState.items.torso = item
+        break
+      }
+      case 'legs': {
+        if (!ArmorItem.isArmorItem(item)) break
+        buildState.items.legs = item
+        break
+      }
+      case 'gloves': {
+        if (!ArmorItem.isArmorItem(item)) break
+        buildState.items.gloves = item
+        break
+      }
+      case 'relic': {
+        if (!RelicItem.isRelicItem(item)) break
+        buildState.items.relic = item
+        break
+      }
+      case 'amulet': {
+        if (!AmuletItem.isAmuletItem(item)) break
+        buildState.items.amulet = item
+        break
+      }
+      case 'weapon': {
+        if (!WeaponItem.isWeaponItem(item)) break
+        // Which slot in the buildstate to add the weapon at
+        let inventorySlot = 0
+
+        const loadoutSlot = getLoadoutSlot(loadoutItem.type)
+        if (!loadoutSlot) break
+        switch (loadoutSlot) {
+          case LOADOUT_SLOT_MAP.Mainhand:
+            inventorySlot = 0
+            break
+          case LOADOUT_SLOT_MAP.Offhand:
+            inventorySlot = 1
+            break
+          case LOADOUT_SLOT_MAP.Melee:
+            inventorySlot = 2
+            break
+        }
+
+        buildState.items.weapon[inventorySlot] = item
+      }
+      case 'mod': {
+        if (!ModItem.isModItem(item)) break
+        // Which slot in the buildstate to add the mod at
+        let inventorySlot = 0
+
+        const loadoutSlot = getLoadoutSlot(loadoutItem.type)
+        if (!loadoutSlot) break
+        switch (loadoutSlot) {
+          case LOADOUT_SLOT_MAP.Mainhand:
+            inventorySlot = 0
+            break
+          case LOADOUT_SLOT_MAP.Offhand:
+            inventorySlot = 1
+            break
+          case LOADOUT_SLOT_MAP.Melee:
+            inventorySlot = 2
+            break
+        }
+
+        buildState.items.mod[inventorySlot] = item
+      }
+      case 'mutator': {
+        if (!MutatorItem.isMutatorItem(item)) break
+        // Which slot in the buildstate to add the mutator at
+        let inventorySlot = 0
+
+        const loadoutSlot = getLoadoutSlot(loadoutItem.type)
+        if (!loadoutSlot) break
+        switch (loadoutSlot) {
+          case LOADOUT_SLOT_MAP.Mainhand:
+            inventorySlot = 0
+            break
+          case LOADOUT_SLOT_MAP.Offhand:
+            inventorySlot = 1
+            break
+          case LOADOUT_SLOT_MAP.Melee:
+            inventorySlot = 2
+            break
+        }
+
+        buildState.items.mutator[inventorySlot] = item
+      }
+      case 'ring': {
+        if (!RingItem.isRingItem(item)) break
+        // Which slot in the buildstate to add the ring at
+        let inventorySlot = 0
+
+        const loadoutSlot = getLoadoutSlot(loadoutItem.type)
+        if (!loadoutSlot) break
+
+        switch (loadoutSlot) {
+          case LOADOUT_SLOT_MAP.Ring1:
+            inventorySlot = 0
+            break
+          case LOADOUT_SLOT_MAP.Ring2:
+            inventorySlot = 1
+            break
+          case LOADOUT_SLOT_MAP.Ring3:
+            inventorySlot = 2
+            break
+          case LOADOUT_SLOT_MAP.Ring4:
+            inventorySlot = 3
+            break
+        }
+
+        buildState.items.ring[inventorySlot] = item
+      }
+      case 'archetype': {
+        if (!ArchetypeItem.isArchetypeItem(item)) break
+        // Which slot in the buildstate to add the archetype at
+        let inventorySlot = 0
+
+        const loadoutSlot = getLoadoutSlot(loadoutItem.type)
+        if (!loadoutSlot) break
+
+        switch (loadoutSlot) {
+          case LOADOUT_SLOT_MAP.Archetype1:
+            inventorySlot = 0
+            break
+          case LOADOUT_SLOT_MAP.Archetype2:
+            inventorySlot = 1
+            break
+        }
+
+        buildState.items.archetype[inventorySlot] = item
+      }
+      case 'skill': {
+        if (!SkillItem.isSkillItem(item)) break
+        // Which slot in the buildstate to add the skill at
+        let inventorySlot = 0
+
+        const loadoutSlot = getLoadoutSlot(loadoutItem.type)
+        if (!loadoutSlot) break
+
+        switch (loadoutSlot) {
+          case LOADOUT_SLOT_MAP.Skill1:
+            inventorySlot = 0
+            break
+          case LOADOUT_SLOT_MAP.Skill2:
+            inventorySlot = 1
+            break
+        }
+
+        buildState.items.skill[inventorySlot] = item
+      }
+      case 'relicfragment': {
+        if (!RelicFragmentItem.isRelicFragmentItem(item)) break
+        buildState.items.relicfragment.push(item)
+      }
+      case 'trait': {
+        // TODO Check the trait point totals and what is missing
+        // current loadout only shows 105
+
+        if (!TraitItem.isTraitItem(item)) break
+        buildState.items.trait.push({
+          ...item,
+          amount: parseInt(loadoutItem.level),
+        })
+      }
+    }
+  }
+
+  // output total trait points
+  console.info(
+    'total trait points',
+    buildState.items.trait.reduce((acc, trait) => acc + trait.amount, 0),
+  )
+
+  return cleanUpBuildState(buildState)
+}
