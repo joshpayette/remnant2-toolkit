@@ -24,7 +24,7 @@ export function useSaveFileUpload({ handleSetDiscoveredItems }: Props) {
 
   // If the upload save file form response changes, we need to set the save data
   useEffect(() => {
-    if (!uploadSaveFormResponse) return
+    if (!uploadSaveFormResponse.saveFileDiscoveredItemIds) return
 
     const { saveFileDiscoveredItemIds, error } = uploadSaveFormResponse
 

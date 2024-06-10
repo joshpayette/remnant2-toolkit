@@ -179,10 +179,10 @@ export function importedLoadoutToBuildState({
             inventorySlot = 0
             break
           case LOADOUT_SLOT_MAP.Offhand:
-            inventorySlot = 1
+            inventorySlot = 2
             break
           case LOADOUT_SLOT_MAP.Melee:
-            inventorySlot = 2
+            inventorySlot = 1
             break
         }
 
@@ -200,10 +200,10 @@ export function importedLoadoutToBuildState({
             inventorySlot = 0
             break
           case LOADOUT_SLOT_MAP.Offhand:
-            inventorySlot = 1
+            inventorySlot = 2
             break
           case LOADOUT_SLOT_MAP.Melee:
-            inventorySlot = 2
+            inventorySlot = 1
             break
         }
 
@@ -221,10 +221,10 @@ export function importedLoadoutToBuildState({
             inventorySlot = 0
             break
           case LOADOUT_SLOT_MAP.Offhand:
-            inventorySlot = 1
+            inventorySlot = 2
             break
           case LOADOUT_SLOT_MAP.Melee:
-            inventorySlot = 2
+            inventorySlot = 1
             break
         }
 
@@ -302,6 +302,7 @@ export function importedLoadoutToBuildState({
         // current loadout only shows 105
 
         if (!TraitItem.isTraitItem(item)) break
+
         buildState.items.trait.push({
           ...item,
           amount: parseInt(loadoutItem.level),
@@ -310,11 +311,34 @@ export function importedLoadoutToBuildState({
     }
   }
 
-  // output total trait points
-  console.info(
-    'total trait points',
-    buildState.items.trait.reduce((acc, trait) => acc + trait.amount, 0),
-  )
+  // Add the core trait points
+  const coreTraitPoints =
+    buildState.items.archetype[0]?.linkedItems?.traits?.filter(
+      (t) => t.amount !== 10,
+    )
+
+  if (coreTraitPoints) {
+    for (const coreTraitPoint of coreTraitPoints) {
+      const existingTraitIndex = buildState.items.trait.findIndex(
+        (t) => t.name === coreTraitPoint.name,
+      )
+
+      // If trait is not in the build, add it
+      // Otherwise add the points
+      if (existingTraitIndex === -1) {
+        const traitItem = traitItems.find(
+          (item) => item.name === coreTraitPoint.name,
+        ) as TraitItem
+        buildState.items.trait.push({
+          ...traitItem,
+          amount: coreTraitPoint.amount,
+        })
+      } else {
+        buildState.items.trait[existingTraitIndex].amount +=
+          coreTraitPoint.amount
+      }
+    }
+  }
 
   return cleanUpBuildState(buildState)
 }

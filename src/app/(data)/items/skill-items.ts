@@ -672,7 +672,7 @@ export const skillItems: SkillItem[] = [
   {
     category: 'skill',
     name: 'Minion: Flyer',
-    saveFileSlug: 'Skill_SummonBruteMinion_C',
+    saveFileSlug: 'Skill_SummonFlyerMinion_C',
     imagePath: '/items/skills/summoner_flyer.png',
     id: 'o7pvqx',
     dlc: 'base',

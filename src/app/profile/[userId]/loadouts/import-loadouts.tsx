@@ -22,13 +22,13 @@ export default function ImportLoadouts({ existingLoadouts }: Props) {
     parseSaveFile,
     {
       status: 'error',
-      message: 'Error importing save file',
+      message: '',
     },
   )
 
   // If the upload save file form response changes, we need to set the save data
   useEffect(() => {
-    if (!uploadSaveFormResponse) return
+    if (uploadSaveFormResponse.message === '') return
 
     const { status, message } = uploadSaveFormResponse
 

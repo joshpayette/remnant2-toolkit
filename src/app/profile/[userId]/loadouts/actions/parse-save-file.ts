@@ -148,7 +148,7 @@ export async function parseSaveFile(
       ),
     ])
 
-    revalidatePath(`/api/profile/[userId]/loadouts`)
+    revalidatePath(`/api/profile/[userId]/loadouts`, 'page')
 
     return {
       status: 'success',
