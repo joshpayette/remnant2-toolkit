@@ -1,4 +1,5 @@
 import { traitItems } from '@/app/(data)/items/trait-items'
+import type { ArchetypeItem } from '@/app/(data)/items/types/ArchetypeItem'
 import { TraitItem } from '@/app/(data)/items/types/TraitItem'
 import { weaponItems } from '@/app/(data)/items/weapon-items'
 import { BuildState } from '@/app/(types)/builds'
@@ -14,6 +15,7 @@ import { linkWeaponsToMods } from './link-weapons-to-mods'
  *   - Cleans up unequipped mods that may still be in the state
  *   - Cleans up excess concotions that may still be equipped
  *   - Ensures the minimum required trait points are equipped
+ *   - Ensures that the prime archetype trait has 10 points
  */
 export function cleanUpBuildState(buildState: BuildState): BuildState {
   // Look at each mod and if it is linked to the wrong weapon, remove it
@@ -47,44 +49,13 @@ export function cleanUpBuildState(buildState: BuildState): BuildState {
   // Update the trait points to match the minimum for the selected primary archetype
   const primaryArchetype = buildState.items.archetype[0]
   if (primaryArchetype) {
-    const archetypeTraits = primaryArchetype.linkedItems?.traits
-    if (!archetypeTraits) return buildState
+    setArchetypePrimeTraitPoints(primaryArchetype, buildState)
+  }
 
-    const archetypeTraitItems = traitItems.filter(
-      (item) =>
-        archetypeTraits.some((trait) => trait.name === item.name) &&
-        item.category === 'trait',
-    ) as TraitItem[]
-
-    for (const archetypeTrait of archetypeTraits) {
-      const traitItem = archetypeTraitItems.find(
-        (item) => item.name === archetypeTrait.name,
-      )
-      if (!traitItem) continue
-
-      const currentTraitAmount = buildState.items.trait.find(
-        (trait) => trait?.id === traitItem.id,
-      )?.amount
-
-      if (!currentTraitAmount) {
-        buildState.items.trait.push({
-          ...traitItem,
-          amount: archetypeTrait.amount,
-        })
-      }
-
-      if (currentTraitAmount && currentTraitAmount < archetypeTrait.amount) {
-        buildState.items.trait = buildState.items.trait.map((trait) => {
-          if (trait?.id === traitItem.id) {
-            return {
-              ...trait,
-              amount: archetypeTrait.amount,
-            }
-          }
-          return trait
-        })
-      }
-    }
+  // Update the trait points to match the minimum for the selected secondary archetype
+  const secondaryArchetype = buildState.items.archetype[1]
+  if (secondaryArchetype) {
+    setArchetypePrimeTraitPoints(secondaryArchetype, buildState)
   }
 
   // link weapons to mods
@@ -95,4 +66,52 @@ export function cleanUpBuildState(buildState: BuildState): BuildState {
   buildState = linkArchetypesToTraits(buildState)
 
   return buildState
+}
+
+/**
+ * Ensures that the provided archetype's primary trait has the correct
+ * amount of trait points equipped.
+ */
+function setArchetypePrimeTraitPoints(
+  archetype: ArchetypeItem,
+  buildState: BuildState,
+) {
+  const archetypeTraits = archetype.linkedItems?.traits
+  if (!archetypeTraits) return buildState
+
+  const archetypeTraitItems = traitItems.filter(
+    (item) =>
+      archetypeTraits.some((trait) => trait.name === item.name) &&
+      item.category === 'trait',
+  ) as TraitItem[]
+
+  for (const archetypeTrait of archetypeTraits) {
+    const traitItem = archetypeTraitItems.find(
+      (item) => item.name === archetypeTrait.name,
+    )
+    if (!traitItem) continue
+
+    const currentTraitAmount = buildState.items.trait.find(
+      (trait) => trait?.id === traitItem.id,
+    )?.amount
+
+    if (!currentTraitAmount) {
+      buildState.items.trait.push({
+        ...traitItem,
+        amount: archetypeTrait.amount,
+      })
+    }
+
+    if (currentTraitAmount && currentTraitAmount < archetypeTrait.amount) {
+      buildState.items.trait = buildState.items.trait.map((trait) => {
+        if (trait?.id === traitItem.id) {
+          return {
+            ...trait,
+            amount: archetypeTrait.amount,
+          }
+        }
+        return trait
+      })
+    }
+  }
 }
