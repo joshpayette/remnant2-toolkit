@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Fixed
 
 - Added correct save file slugs for Thaen Fruits and the various Dream items.
+- Fixed trait point calculation error caused by trait point fix yesterday.
 
 ## 2024-06-10
 

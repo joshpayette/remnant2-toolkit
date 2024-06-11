@@ -49,13 +49,13 @@ export function cleanUpBuildState(buildState: BuildState): BuildState {
   // Update the trait points to match the minimum for the selected primary archetype
   const primaryArchetype = buildState.items.archetype[0]
   if (primaryArchetype) {
-    setArchetypePrimeTraitPoints(primaryArchetype, buildState)
+    setArchetypePrimeTraitPoints(primaryArchetype, buildState, 'primary')
   }
 
   // Update the trait points to match the minimum for the selected secondary archetype
   const secondaryArchetype = buildState.items.archetype[1]
   if (secondaryArchetype) {
-    setArchetypePrimeTraitPoints(secondaryArchetype, buildState)
+    setArchetypePrimeTraitPoints(secondaryArchetype, buildState, 'secondary')
   }
 
   // link weapons to mods
@@ -75,15 +75,25 @@ export function cleanUpBuildState(buildState: BuildState): BuildState {
 function setArchetypePrimeTraitPoints(
   archetype: ArchetypeItem,
   buildState: BuildState,
+  type: 'primary' | 'secondary',
 ) {
   const archetypeTraits = archetype.linkedItems?.traits
   if (!archetypeTraits) return buildState
 
-  const archetypeTraitItems = traitItems.filter(
+  let archetypeTraitItems = traitItems.filter(
     (item) =>
       archetypeTraits.some((trait) => trait.name === item.name) &&
       item.category === 'trait',
   ) as TraitItem[]
+
+  // if secondary, we only need the 10 point trait
+  if (type === 'secondary') {
+    archetypeTraitItems = archetypeTraitItems.filter(
+      (trait) => trait.type === 'archetype',
+    )
+  }
+
+  console.info('archetype trait items', archetypeTraitItems)
 
   for (const archetypeTrait of archetypeTraits) {
     const traitItem = archetypeTraitItems.find(
