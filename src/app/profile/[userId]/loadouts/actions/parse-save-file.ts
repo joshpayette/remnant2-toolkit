@@ -109,14 +109,17 @@ export async function parseSaveFile(
       }
     }
 
-    const loadouts = (data[0]?.loadouts as ParsedLoadoutResponse[]).filter(
-      (loadout) => loadout !== null && loadout.length > 0,
-    )
+    const loadouts = data[0]?.loadouts as ParsedLoadoutResponse[]
 
     const buildsToCreate: BuildState[] = []
     for (const loadoutIndex of loadoutsToReplace) {
+      const loadout = loadouts[loadoutIndex - 1]
+      // don't create empty loadouts
+      if (!loadout || loadout.length === 0) {
+        continue
+      }
       const buildState = importedLoadoutToBuildState({
-        loadout: loadouts[loadoutIndex - 1],
+        loadout,
       })
       buildsToCreate.push({
         ...buildState,
@@ -135,10 +138,18 @@ export async function parseSaveFile(
 
     // Update the loadouts with the new build IDs
     const loadoutsToUpdate: Array<{ buildId: string; slot: number }> = []
-    for (let i = 0; i < createdBuildResponse.length; i++) {
+    for (const loadoutIndex of loadoutsToReplace) {
+      const loadout = loadouts[loadoutIndex - 1]
+      if (!loadout || loadout.length === 0) {
+        continue
+      }
+      const buildId = buildIds.shift()
+      if (!buildId) {
+        continue
+      }
       loadoutsToUpdate.push({
-        buildId: buildIds[i],
-        slot: loadoutsToReplace[i],
+        buildId,
+        slot: loadoutIndex,
       })
     }
 

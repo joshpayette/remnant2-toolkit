@@ -44,6 +44,13 @@ export function ImportLoadoutsDialog({
           Automatically import your in-game loadouts from your{' '}
           <BaseCode>profile.sav</BaseCode>
         </BaseDialogDescription>
+        <BaseDialogDescription>
+          <span className="font-bold text-red-500 underline">
+            This feature is in beta and may have bugs. Please report any issues
+            you find in the Discord, or by clicking the Cog then Bug icon at the
+            lower right of the site.
+          </span>
+        </BaseDialogDescription>
         <BaseDialogBody>
           <BaseField className="mb-2">
             <BaseLabel>Character Slot (1-5)</BaseLabel>
@@ -61,7 +68,11 @@ export function ImportLoadoutsDialog({
               This will replace the loadouts in the selected slots with the new
               loadouts.
             </p>
-            <BaseListbox name="loadoutsToReplace" multiple defaultValue={[1]}>
+            <BaseListbox
+              name="loadoutsToReplace"
+              multiple
+              defaultValue={[1, 2, 3, 4, 5, 6, 7, 8]}
+            >
               {getArrayOfLength(8).map((_, index) => {
                 const loadout = existingLoadouts.find(
                   (loadout) => loadout.slot === index + 1,

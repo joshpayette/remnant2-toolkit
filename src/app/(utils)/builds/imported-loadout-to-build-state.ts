@@ -298,9 +298,6 @@ export function importedLoadoutToBuildState({
         buildState.items.relicfragment.push(item)
       }
       case 'trait': {
-        // TODO Check the trait point totals and what is missing
-        // current loadout only shows 105
-
         if (!TraitItem.isTraitItem(item)) break
 
         buildState.items.trait.push({

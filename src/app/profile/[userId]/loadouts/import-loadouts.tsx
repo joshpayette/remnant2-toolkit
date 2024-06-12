@@ -44,7 +44,7 @@ export default function ImportLoadouts({ existingLoadouts }: Props) {
   }, [uploadSaveFormResponse])
 
   return (
-    <div className="mb-4 grid w-full grid-cols-1 gap-2">
+    <>
       <ImportLoadoutsDialog
         open={importSaveDialogOpen}
         existingLoadouts={existingLoadouts}
@@ -59,6 +59,6 @@ export default function ImportLoadouts({ existingLoadouts }: Props) {
       >
         Import Loadouts
       </BaseButton>
-    </div>
+    </>
   )
 }

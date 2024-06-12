@@ -96,8 +96,6 @@ function setArchetypePrimeTraitPoints(
     )
   }
 
-  console.info('archetype trait items', archetypeTraitItems)
-
   for (const archetypeTrait of archetypeTraits) {
     const traitItem = archetypeTraitItems.find(
       (item) => item.name === archetypeTrait.name,
