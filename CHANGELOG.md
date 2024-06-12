@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2024-06-11
 
+### Added
+
+- You can now import your in-game loadouts into the Toolkit. Go to your Profile -> Loadouts to import the loadouts from your profile.sav. This is a beta feature that still may have bugs. If you encounter any, please report it.
+
 ### Fixed
 
 - Added correct save file slugs for Thaen Fruits and the various Dream items.
