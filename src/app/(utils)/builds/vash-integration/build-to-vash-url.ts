@@ -4,7 +4,7 @@ import { getArrayOfLength } from '@/app/(utils)/get-array-of-length'
 export function buildToVashUrl(buildState: BuildState) {
   const { items } = buildState
 
-  let vashUrl = 'https://cowaii.io/index.html?'
+  let vashUrl = 'https://cowaii.io/Remnant2/Calculator?'
 
   // traits
   const traitParams = items.trait.map(
