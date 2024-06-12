@@ -33,9 +33,9 @@ export default async function Page({
           ) : null}
         </div>
       </div>
-      <div className="mb-8 flex w-full items-center justify-end">
+      {/* <div className="mb-8 flex w-full items-center justify-end">
         <ImportLoadouts existingLoadouts={existingLoadouts} />
-      </div>
+      </div> */}
       <div className="mb-4 grid w-full grid-cols-1 gap-2">
         <LoadoutGrid isEditable={isEditable} userId={userId} />
       </div>
