@@ -16,6 +16,8 @@ The images are stored, cached, and optimized via [Cloudfront](https://aws.amazon
 
 User accounts are managed via [NextAuth.js](https://next-auth.js.org/) with support for Discord and Reddit logins. The user and session data are persisted to the database for use in the site.
 
+There is also a separate server for handling loadout imports from the game's save files. This server is hosted on AWS via Elastic Beanstalk. The reason for this is that it is written in C# based on the hard work of Andrew Savinykh, and it cannot be hosted on Vercel.
+
 ## Database Schema
 
 _See [schema.prisma](./prisma/schema.prisma) for the latest schema._

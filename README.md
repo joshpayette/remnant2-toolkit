@@ -48,6 +48,7 @@ This project would not be possible without the following sources:
 - [All of the contributors from the community](CONTRIBUTORS.md)
 - [Vash Cowaii's Excel Stat Calculator](https://docs.google.com/spreadsheets/d/1I7vkh50KWJZSxNy4FqxvniFWBstJQEMtpwtxQ3ByoPw/edit?pli=1). Support him on [YouTube](https://www.youtube.com/@VashCowaii)
 - Andrew Savinykh's help with parsing loadouts from profile.sav files.
+  - You can find the repo for parsing loadouts here: [Remnant2-Toolkit-Loadouts](https://github.com/joshpayette/remnant2-toolkit-loadouts/tree/main)
 - [Robin Kuiper's Remnant Tools](https://remnant.rkuiper.nl/)
 
 ## License
