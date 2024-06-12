@@ -4,6 +4,19 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-06-11
+
+### Fixed
+
+- Added correct save file slugs for Thaen Fruits and the various Dream items.
+- Fixed trait point calculation error caused by trait point fix yesterday.
+
+## 2024-06-10
+
+### Fixed
+
+- Fixed bug in the builder where core trait points would be uneditable and non-maxed when swapping archetypes.
+
 ## 2024-06-09
 
 ### Fixed
