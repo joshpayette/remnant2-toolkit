@@ -45,6 +45,10 @@ export function ImportLoadoutsDialog({
           <BaseCode>profile.sav</BaseCode>
         </BaseDialogDescription>
         <BaseDialogDescription>
+          A big thanks to Andrew Savinykh for the help with parsing loadouts
+          from profile.sav files.
+        </BaseDialogDescription>
+        <BaseDialogDescription>
           <span className="font-bold text-red-500 underline">
             This feature is in beta and may have bugs. Please report any issues
             you find in the Discord, or by clicking the Cog then Bug icon at the

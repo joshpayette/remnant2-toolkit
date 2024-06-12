@@ -8,7 +8,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ### Added
 
-- You can now import your in-game loadouts into the Toolkit. Go to your Profile -> Loadouts to import the loadouts from your profile.sav. This is a beta feature that still may have bugs. If you encounter any, please report it.
+- You can now import your in-game loadouts into the Toolkit. Go to your Profile -> Loadouts to import the loadouts from your profile.sav. This is a beta feature that still may have bugs. If you encounter any, please report it. A huge thanks to Andrew Savinykh for the help with parsing loadouts from profile.sav files.
 
 ### Fixed
 

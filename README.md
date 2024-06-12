@@ -47,6 +47,7 @@ This project would not be possible without the following sources:
 - [Remnant 2 Community Wiki](https://remnant.wiki)
 - [All of the contributors from the community](CONTRIBUTORS.md)
 - [Vash Cowaii's Excel Stat Calculator](https://docs.google.com/spreadsheets/d/1I7vkh50KWJZSxNy4FqxvniFWBstJQEMtpwtxQ3ByoPw/edit?pli=1). Support him on [YouTube](https://www.youtube.com/@VashCowaii)
+- Andrew Savinykh's help with parsing loadouts from profile.sav files.
 - [Robin Kuiper's Remnant Tools](https://remnant.rkuiper.nl/)
 
 ## License
