@@ -12,6 +12,7 @@ model LinkedBuild {
   @@index([createdById])
 }
 
+// TODO Make this non-plural
 model LinkedBuildItems {
   id            String      @id @default(cuid())
   createdAt     DateTime    @default(now())

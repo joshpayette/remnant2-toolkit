@@ -12,6 +12,7 @@ model UserProfile {
   Build             Build[]
 }
 
+// TODO Make this non-plural
 model UserItems {
   id        String   @id @default(cuid())
   createdAt DateTime @default(now())
@@ -26,6 +27,7 @@ model UserItems {
   @@index([itemId])
 }
 
+// TODO Make this non-plural
 model UserLoadouts {
   id        String    @id @default(cuid())
   createdAt DateTime  @default(now())

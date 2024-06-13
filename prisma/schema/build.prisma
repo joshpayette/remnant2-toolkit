@@ -30,6 +30,7 @@ model Build {
   @@index([userProfileId])
 }
 
+// TODO Make this non-plural
 model BuildItems {
   id       String  @id @default(cuid())
   build    Build   @relation(fields: [buildId], references: [id], onDelete: Cascade)
@@ -45,6 +46,7 @@ model BuildItems {
   @@index([itemId])
 }
 
+// TODO Make this non-plural
 model BuildVoteCounts {
   id        String    @id @default(cuid())
   createdAt DateTime  @default(now())
@@ -58,6 +60,7 @@ model BuildVoteCounts {
   @@index([userId])
 }
 
+// TODO Make this non-plural
 model BuildReports {
   id        String   @id @default(cuid())
   createdAt DateTime @default(now())
@@ -82,6 +85,7 @@ enum BUILD_TAG {
   Support
 }
 
+// TODO Make this non-plural
 model BuildTags {
   id        String    @id @default(cuid())
   createdAt DateTime  @default(now())

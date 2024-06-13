@@ -88,6 +88,7 @@ model VerificationRequest {
   @@unique([identifier, token])
 }
 
+// TODO Make this non-plural
 model BannedUsers {
   id        String   @id @default(cuid())
   createdAt DateTime @default(now())
@@ -98,6 +99,7 @@ model BannedUsers {
   @@index([userId])
 }
 
+// TODO Make this non-plural
 model PaidUsers {
   id        String   @id @default(cuid())
   createdAt DateTime @default(now())
