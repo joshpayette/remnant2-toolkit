@@ -48,37 +48,71 @@ export async function getLoadoutList(userId?: string) {
     ),
   )
 
-  const userLoadoutBuilds = userLoadoutBuildsResponse.map((loadout) => ({
-    id: loadout.build.id,
-    name: loadout.build.name,
-    description: loadout.build.description,
-    isPublic: loadout.build.isPublic,
-    isFeaturedBuild: loadout.build.isFeaturedBuild,
-    dateFeatured: loadout.build.dateFeatured,
-    isPatchAffected: loadout.build.isPatchAffected,
-    isBeginnerBuild: loadout.build.isBeginnerBuild,
-    isMember: false,
-    isModeratorApproved: loadout.build.isModeratorApproved,
-    isModeratorLocked: loadout.build.isModeratorLocked,
-    thumbnailUrl: loadout.build.thumbnailUrl,
-    videoUrl: loadout.build.videoUrl,
-    buildLinkUpdatedAt: loadout.build.buildLinkUpdatedAt,
-    buildTags: loadout.build.BuildTags,
-    buildLink: loadout.build.buildLink,
-    createdById: loadout.build.createdById,
-    createdByName: loadout.build.createdBy.name || DEFAULT_DISPLAY_NAME,
-    createdByDisplayName:
-      loadout.build.createdBy.displayName ||
-      loadout.build.createdBy.name ||
-      DEFAULT_DISPLAY_NAME,
-    createdAt: loadout.build.createdAt,
-    updatedAt: loadout.build.updatedAt,
-    reported: false,
-    upvoted: true,
-    totalUpvotes: buildVotesCounts.shift() || 0,
-    buildItems: loadout.build.BuildItems,
-    slot: loadout.slot,
-  })) satisfies Array<DBBuild & { slot: number }>
+  const userLoadoutBuilds = userLoadoutBuildsResponse.map((loadout) =>
+    loadout.build.isPublic || loadout.userId === session?.user?.id
+      ? {
+          id: loadout.build.id,
+          name: loadout.build.name,
+          description: loadout.build.description,
+          isPublic: loadout.build.isPublic,
+          isFeaturedBuild: loadout.build.isFeaturedBuild,
+          dateFeatured: loadout.build.dateFeatured,
+          isPatchAffected: loadout.build.isPatchAffected,
+          isBeginnerBuild: loadout.build.isBeginnerBuild,
+          isMember: false,
+          isModeratorApproved: loadout.build.isModeratorApproved,
+          isModeratorLocked: loadout.build.isModeratorLocked,
+          thumbnailUrl: loadout.build.thumbnailUrl,
+          videoUrl: loadout.build.videoUrl,
+          buildLinkUpdatedAt: loadout.build.buildLinkUpdatedAt,
+          buildTags: loadout.build.BuildTags,
+          buildLink: loadout.build.buildLink,
+          createdById: loadout.build.createdById,
+          createdByName: loadout.build.createdBy.name || DEFAULT_DISPLAY_NAME,
+          createdByDisplayName:
+            loadout.build.createdBy.displayName ||
+            loadout.build.createdBy.name ||
+            DEFAULT_DISPLAY_NAME,
+          createdAt: loadout.build.createdAt,
+          updatedAt: loadout.build.updatedAt,
+          reported: false,
+          upvoted: true,
+          totalUpvotes: buildVotesCounts.shift() || 0,
+          buildItems: loadout.build.BuildItems,
+          slot: loadout.slot,
+        }
+      : {
+          id: loadout.build.id,
+          name: 'Private Build',
+          description: 'This build is marked private by the build creator.',
+          isPublic: loadout.build.isPublic,
+          isFeaturedBuild: false,
+          dateFeatured: loadout.build.dateFeatured,
+          isPatchAffected: loadout.build.isPatchAffected,
+          isBeginnerBuild: false,
+          isMember: false,
+          isModeratorApproved: loadout.build.isModeratorApproved,
+          isModeratorLocked: loadout.build.isModeratorLocked,
+          thumbnailUrl: '',
+          videoUrl: '',
+          buildLinkUpdatedAt: loadout.build.buildLinkUpdatedAt,
+          buildTags: [],
+          buildLink: '',
+          createdById: loadout.build.createdById,
+          createdByName: loadout.build.createdBy.name || DEFAULT_DISPLAY_NAME,
+          createdByDisplayName:
+            loadout.build.createdBy.displayName ||
+            loadout.build.createdBy.name ||
+            DEFAULT_DISPLAY_NAME,
+          createdAt: loadout.build.createdAt,
+          updatedAt: loadout.build.updatedAt,
+          reported: false,
+          upvoted: true,
+          totalUpvotes: 0,
+          buildItems: [],
+          slot: loadout.slot,
+        },
+  ) satisfies Array<DBBuild & { slot: number }>
 
   return userLoadoutBuilds
 }
