@@ -1,0 +1,33 @@
+enum ITEM_CATEGORY {
+  helm
+  torso
+  legs
+  gloves
+  relic
+  amulet
+  weapon
+  archtype
+  concoction
+  consumable
+  mod
+  mutator
+  relicfragment
+  ring
+  skill
+  trait
+}
+
+enum ITEM_DLC {
+  base
+  dlc1
+  dlc2
+}
+
+model Item {
+  id         String       @id @default(cuid())
+  itemId     String       @unique
+  dlc        ITEM_DLC     @default(base)
+  isActive   Boolean      @default(true)
+  BuildItems BuildItems[]
+  UserItems  UserItems[]
+}

@@ -1,0 +1,94 @@
+model Build {
+  id                  String             @id @default(cuid())
+  createdAt           DateTime           @default(now())
+  updatedAt           DateTime?          @updatedAt
+  createdBy           User               @relation(fields: [createdById], references: [id])
+  createdById         String
+  isFeaturedBuild     Boolean            @default(false)
+  isBeginnerBuild     Boolean            @default(false)
+  isModeratorApproved Boolean            @default(false)
+  isModeratorLocked   Boolean            @default(false)
+  isPatchAffected     Boolean            @default(false)
+  isPublic            Boolean            @default(true)
+  dateFeatured        DateTime?
+  name                String
+  description         String?            @db.Text
+  videoUrl            String?
+  thumbnailUrl        String?
+  buildLink           String?
+  buildLinkUpdatedAt  DateTime?
+  BuildVotes          BuildVoteCounts[]
+  BuildReports        BuildReports[]
+  BuildItems          BuildItems[]
+  UserProfile         UserProfile?       @relation(fields: [userProfileId], references: [id])
+  userProfileId       String?
+  UserLoadouts        UserLoadouts[]
+  BuildTags           BuildTags[]
+  LinkedBuildItems    LinkedBuildItems[]
+
+  @@index([createdById])
+  @@index([userProfileId])
+}
+
+model BuildItems {
+  id       String  @id @default(cuid())
+  build    Build   @relation(fields: [buildId], references: [id], onDelete: Cascade)
+  buildId  String
+  item     Item    @relation(fields: [itemId], references: [id], onDelete: Cascade)
+  itemId   String
+  category String?
+  index    Int?
+  amount   Int?
+  optional Boolean @default(false)
+
+  @@index([buildId])
+  @@index([itemId])
+}
+
+model BuildVoteCounts {
+  id        String    @id @default(cuid())
+  createdAt DateTime  @default(now())
+  updatedAt DateTime? @updatedAt
+  build     Build     @relation(fields: [buildId], references: [id], onDelete: Cascade)
+  buildId   String
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String
+
+  @@index([buildId])
+  @@index([userId])
+}
+
+model BuildReports {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  build     Build    @relation(fields: [buildId], references: [id], onDelete: Cascade)
+  buildId   String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String
+  reason    String
+
+  @@index([buildId])
+  @@index([userId])
+}
+
+enum BUILD_TAG {
+  Melee
+  Ranged
+  Mods
+  Skills
+  StatusEffects
+  Tank
+  Support
+}
+
+model BuildTags {
+  id        String    @id @default(cuid())
+  createdAt DateTime  @default(now())
+  updatedAt DateTime? @updatedAt
+  build     Build     @relation(fields: [buildId], references: [id], onDelete: Cascade)
+  buildId   String
+  tag       BUILD_TAG
+
+  @@index([buildId])
+}

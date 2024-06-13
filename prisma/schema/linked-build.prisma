@@ -1,0 +1,27 @@
+model LinkedBuild {
+  id                String             @id @default(cuid())
+  createdBy         User               @relation(fields: [createdById], references: [id])
+  createdById       String
+  createdAt         DateTime           @default(now())
+  updatedAt         DateTime           @updatedAt
+  name              String
+  description       String?            @db.Text
+  isModeratorLocked Boolean            @default(false)
+  LinkedBuildItems  LinkedBuildItems[]
+
+  @@index([createdById])
+}
+
+model LinkedBuildItems {
+  id            String      @id @default(cuid())
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+  linkedBuild   LinkedBuild @relation(fields: [linkedBuildId], references: [id], onDelete: Cascade)
+  linkedBuildId String
+  Build         Build       @relation(fields: [buildId], references: [id], onDelete: Cascade)
+  buildId       String
+  label         String
+
+  @@index([linkedBuildId])
+  @@index([buildId])
+}
