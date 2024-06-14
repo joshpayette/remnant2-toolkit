@@ -6,9 +6,18 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2024-06-14
 
+### Added
+
+- Added World Save for Faelin Hearty/Thick Skin. (Vash)
+- Added World Save for Faerin Drain/Hearty. (Vash)
+
 ### Changed
 
 - Updated the Hardcore Veteran guide with some new information after the latest DLC.
+
+### Fixed
+
+- Renamed World Save for Faelin Elemental Resist/Hearty to Elemental Resist/Vicious.
 
 ## 2024-06-13
 

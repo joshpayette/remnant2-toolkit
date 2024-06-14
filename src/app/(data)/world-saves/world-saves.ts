@@ -204,8 +204,18 @@ export const worldSaves = [
   },
   {
     bossName: 'Faelin',
-    bossAffixes: ['Elemental Resist', 'Hearty'],
+    bossAffixes: ['Elemental Resist', 'Vicious'],
     release: 'dlc1',
+  },
+  {
+    bossName: 'Faelin',
+    bossAffixes: ['Hearty', 'Thick Skin'],
+    release: 'base',
+  },
+  {
+    bossName: 'Faerin',
+    bossAffixes: ['Drain', 'Hearty'],
+    release: 'base',
   },
   {
     bossName: 'Faerin',
@@ -686,5 +696,5 @@ export const worldSaves = [
     bossName: 'Venom',
     bossAffixes: ['Spiteful', 'Vicious'],
     release: 'dlc2',
-  }
+  },
 ] as const satisfies WorldSave[]
