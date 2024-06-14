@@ -112,28 +112,24 @@ export function ArmorSuggestionCard({
         <ItemButton
           item={suggestion.helm}
           isEditable={false}
-          size="md"
           onItemInfoClick={() => onItemInfoOpen(suggestion.helm)}
           tooltipDisabled={isItemInfoOpen}
         />
         <ItemButton
           item={suggestion.torso}
           isEditable={false}
-          size="md"
           onItemInfoClick={() => onItemInfoOpen(suggestion.torso)}
           tooltipDisabled={isItemInfoOpen}
         />
         <ItemButton
           item={suggestion.legs}
           isEditable={false}
-          size="md"
           onItemInfoClick={() => onItemInfoOpen(suggestion.legs)}
           tooltipDisabled={isItemInfoOpen}
         />
         <ItemButton
           item={suggestion.gloves}
           isEditable={false}
-          size="md"
           onItemInfoClick={() => onItemInfoOpen(suggestion.gloves)}
           tooltipDisabled={isItemInfoOpen}
         />

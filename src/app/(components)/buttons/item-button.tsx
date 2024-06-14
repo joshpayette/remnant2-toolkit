@@ -31,30 +31,38 @@ const MANUAL_ITEM_NAME_TEXT_TRANSFORMS: Array<{
 }> = [{ name: "Nightweaver's Grudge", transform: 'text-[9px]' }]
 
 type Props = {
-  isToggled?: boolean
+  // Whether the button is in edit mode or not
+  // Controls buttons and controls that are shown
   isEditable?: boolean
+  // Used to control the look of buttons during image export
   isScreenshotMode?: boolean
+  // Used for item tracker and boss tracker to toggle grayscale
+  isToggled?: boolean
   item: Item | Enemy | null
+  // Used to toggle off lazy loading so that image export doesn't break on Safari
   loadingType?: 'lazy' | 'eager'
-  manualWordBreaks?: boolean // If true, will use the manual word breaks for item names from MANUAL_ITEM_NAME_BREAKS constant
-  size?: 'sm' | 'md' | 'lg' | 'xl' | 'wide'
+  // If true, will use the manual word breaks for item names from MANUAL_ITEM_NAME_BREAKS constant
+  manualWordBreaks?: boolean
+  // If true, will disable the image info tooltip on the button
   tooltipDisabled?: boolean
+  // Used to toggle off image optimization so that image export doesn't break on Safari
   unoptimized?: boolean
+  variant?: 'default' | 'large' | 'boss-tracker' | 'relic-fragment' | 'weapon'
   onClick?: () => void
   onItemInfoClick?: (item: Item) => void
   onToggleOptional?: (selectedItem: Item, optional: boolean) => void
 }
 
 export function ItemButton({
+  item,
   isEditable = true,
   isScreenshotMode = false,
   isToggled,
-  item,
   loadingType = 'eager',
   manualWordBreaks = false,
-  size = 'md',
   tooltipDisabled = true,
   unoptimized = false,
+  variant = 'default',
   onClick,
   onItemInfoClick,
   onToggleOptional,
@@ -65,37 +73,37 @@ export function ItemButton({
     tooltipDescription = `${tooltipDescription.substring(0, 150)}...`
   }
 
-  let imageSize = {
+  let imageDimensions = {
     height: 50,
     width: 50,
   }
-  switch (size) {
-    case 'sm':
-      imageSize = {
-        height: 22,
-        width: 22,
-      }
-      break
-    case 'md':
-      imageSize = {
+  switch (variant) {
+    case 'default':
+      imageDimensions = {
         height: 66,
         width: 66,
       }
       break
-    case 'lg':
-      imageSize = {
+    case 'large':
+      imageDimensions = {
         height: 99,
         width: 99,
       }
       break
-    case 'xl':
-      imageSize = {
+    case 'boss-tracker':
+      imageDimensions = {
         height: 200,
         width: 200,
       }
       break
-    case 'wide':
-      imageSize = {
+    case 'relic-fragment':
+      imageDimensions = {
+        height: 22,
+        width: 22,
+      }
+      break
+    case 'weapon':
+      imageDimensions = {
         height: 66,
         width: 149,
       }
@@ -123,11 +131,11 @@ export function ItemButton({
     <div
       className={cn(
         'relative flex items-start justify-center',
-        size === 'sm' && 'mb-0 flex-row justify-start',
-        size === 'md' && 'mb-2 w-[66px] flex-col',
-        size === 'lg' && 'mb-2 w-[99px] flex-col',
-        size === 'xl' && 'mb-2 w-[200px] flex-col',
-        size === 'wide' && 'mb-2 w-[149px] flex-col',
+        variant === 'default' && 'mb-2 w-[66px] flex-col',
+        variant === 'large' && 'mb-2 w-[99px] flex-col',
+        variant === 'boss-tracker' && 'mb-2 w-[200px] flex-col',
+        variant === 'relic-fragment' && 'mb-0 flex-row justify-start',
+        variant === 'weapon' && 'mb-2 w-[149px] flex-col',
         isToggled === true && 'grayscale-0',
         isToggled === false && 'grayscale',
       )}
@@ -144,7 +152,7 @@ export function ItemButton({
             className={cn(
               'absolute right-0 top-0 rounded-full border-transparent bg-black',
               ZINDEXES.ITEM_BUTTON,
-              size === 'sm' && 'right-[-20px]',
+              variant === 'relic-fragment' && 'right-[-20px]',
             )}
             onClick={() =>
               onItemInfoClick && !isEnemy(item) && onItemInfoClick(item)
@@ -154,7 +162,8 @@ export function ItemButton({
             <IoInformationCircleSharp
               className={cn(
                 'h-4 w-4 text-accent1-500',
-                (size === 'lg' || size === 'xl') && 'h-5 w-5',
+                (variant === 'large' || variant === 'boss-tracker') &&
+                  'h-5 w-5',
               )}
             />
           </button>
@@ -171,7 +180,7 @@ export function ItemButton({
             className={cn(
               'absolute left-0 top-0 rounded-full border-transparent bg-black',
               ZINDEXES.ITEM_BUTTON,
-              size === 'sm' && 'left-auto right-[-40px]',
+              variant === 'relic-fragment' && 'left-auto right-[-40px]',
             )}
             onClick={() => onToggleOptional(item, !item.optional)}
             aria-label="Toggle item as optional"
@@ -188,8 +197,8 @@ export function ItemButton({
           // if the button is editable, give it a hover effect
           isEditable && 'border-secondary-900 hover:border-secondary-500',
           // if no item is present, give the button a rounded bordoer
-          !item && size !== 'sm' && 'rounded-b-lg',
-          !item && size === 'sm' && 'rounded-md',
+          !item && variant !== 'relic-fragment' && 'rounded-b-lg',
+          !item && variant === 'relic-fragment' && 'rounded-md',
           // if the item is optional, give it a dashed border
           item &&
             !isEnemy(item) &&
@@ -199,18 +208,18 @@ export function ItemButton({
           item &&
             !isEnemy(item) &&
             item.optional &&
-            size === 'sm' &&
+            variant === 'relic-fragment' &&
             'border-b-2 border-r-0',
           // If the item is an archetype item, give it a black background
           item &&
             !isEnemy(item) &&
             ArchetypeItem.isArchetypeItem(item) &&
             'bg-black',
-          size === 'sm' && 'h-[23px] w-[22px] rounded-l-md',
-          size === 'md' && 'h-[66px] w-[66px] rounded-t-lg',
-          size === 'lg' && 'h-[99px] w-[99px] rounded-t-lg',
-          size === 'xl' && 'h-[200px] w-[200px] rounded-t-lg',
-          size === 'wide' && 'h-[99px] w-[149px] rounded-t-lg',
+          variant === 'default' && 'h-[66px] w-[66px] rounded-t-lg',
+          variant === 'large' && 'h-[99px] w-[99px] rounded-t-lg',
+          variant === 'boss-tracker' && 'h-[200px] w-[200px] rounded-t-lg',
+          variant === 'relic-fragment' && 'h-[23px] w-[22px] rounded-l-md',
+          variant === 'weapon' && 'h-[99px] w-[149px] rounded-t-lg',
           // If the item is toggled, give it a primary border
           isToggled === true && 'border-primary-500',
           isToggled === false && 'border-gray-700',
@@ -223,8 +232,8 @@ export function ItemButton({
             src={getImageUrl(item.imagePath ?? '')}
             alt={`${item.name} icon`}
             loading={loadingType}
-            width={imageSize.width}
-            height={imageSize.height}
+            width={imageDimensions.width}
+            height={imageDimensions.height}
             quality={74}
             unoptimized={unoptimized}
           />
@@ -238,11 +247,13 @@ export function ItemButton({
             MANUAL_ITEM_NAME_TEXT_TRANSFORMS.some(
               (i) => i.name === item.name,
             ) && 'text-[9px]',
-            size === 'sm' && 'min-h-[22px] min-w-[22px] rounded-r-lg text-left',
-            size === 'md' && 'min-h-[49px] w-[66px] rounded-b-lg',
-            size === 'lg' && 'min-h-[40px] w-[99px] rounded-b-lg',
-            size === 'xl' && 'text-md min-h-[40px] w-[200px] rounded-b-lg',
-            size === 'wide' && 'min-h-[22px] w-[149px] rounded-b-lg',
+            variant === 'default' && 'min-h-[49px] w-[66px] rounded-b-lg',
+            variant === 'large' && 'min-h-[40px] w-[99px] rounded-b-lg',
+            variant === 'boss-tracker' &&
+              'text-md min-h-[40px] w-[200px] rounded-b-lg',
+            variant === 'relic-fragment' &&
+              'min-h-[22px] min-w-[22px] rounded-r-lg text-left',
+            variant === 'weapon' && 'min-h-[22px] w-[149px] rounded-b-lg',
           )}
         >
           {manualWordBreaks

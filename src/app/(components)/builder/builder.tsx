@@ -557,16 +557,16 @@ export function Builder({
                 >
                   <ItemButton
                     item={buildState.items.archetype[archetypeIndex]}
+                    isEditable={isEditable}
+                    isScreenshotMode={isScreenshotMode}
                     manualWordBreaks={true}
                     onClick={() =>
                       handleItemSlotClick('archetype', archetypeIndex)
                     }
                     onItemInfoClick={handleShowInfo}
-                    isEditable={isEditable}
-                    isScreenshotMode={isScreenshotMode}
+                    onToggleOptional={handleToggleOptional}
                     tooltipDisabled={itemInfoOpen}
                     unoptimized={isScreenshotMode}
-                    onToggleOptional={handleToggleOptional}
                   />
                   <ItemButton
                     item={buildState.items.skill[archetypeIndex]}
@@ -575,9 +575,9 @@ export function Builder({
                     manualWordBreaks={true}
                     onClick={() => handleItemSlotClick('skill', archetypeIndex)}
                     onItemInfoClick={handleShowInfo}
+                    onToggleOptional={handleToggleOptional}
                     tooltipDisabled={itemInfoOpen}
                     unoptimized={isScreenshotMode}
-                    onToggleOptional={handleToggleOptional}
                   />
                 </div>
               ))}
@@ -588,13 +588,13 @@ export function Builder({
                   <ItemButton
                     item={primePerk}
                     isEditable={isEditable}
-                    onClick={undefined}
-                    onItemInfoClick={handleShowInfo}
                     isScreenshotMode={isScreenshotMode}
                     manualWordBreaks={true}
+                    onClick={undefined}
+                    onItemInfoClick={handleShowInfo}
+                    onToggleOptional={handleToggleOptional}
                     tooltipDisabled={itemInfoOpen}
                     unoptimized={isScreenshotMode}
-                    onToggleOptional={handleToggleOptional}
                   />
                 </div>
               )}
@@ -609,46 +609,46 @@ export function Builder({
                 <ItemButton
                   item={buildState.items.helm}
                   isEditable={isEditable}
-                  onClick={() => handleItemSlotClick('helm')}
-                  onItemInfoClick={handleShowInfo}
                   isScreenshotMode={isScreenshotMode}
                   manualWordBreaks={true}
+                  onClick={() => handleItemSlotClick('helm')}
+                  onItemInfoClick={handleShowInfo}
+                  onToggleOptional={handleToggleOptional}
                   tooltipDisabled={itemInfoOpen}
                   unoptimized={isScreenshotMode}
-                  onToggleOptional={handleToggleOptional}
                 />
                 <ItemButton
                   item={buildState.items.torso}
                   isEditable={isEditable}
-                  onClick={() => handleItemSlotClick('torso')}
-                  onItemInfoClick={handleShowInfo}
                   isScreenshotMode={isScreenshotMode}
                   manualWordBreaks={true}
+                  onClick={() => handleItemSlotClick('torso')}
+                  onItemInfoClick={handleShowInfo}
+                  onToggleOptional={handleToggleOptional}
                   tooltipDisabled={itemInfoOpen}
                   unoptimized={isScreenshotMode}
-                  onToggleOptional={handleToggleOptional}
                 />
                 <ItemButton
                   item={buildState.items.legs}
                   isEditable={isEditable}
-                  onClick={() => handleItemSlotClick('legs')}
-                  onItemInfoClick={handleShowInfo}
                   isScreenshotMode={isScreenshotMode}
                   manualWordBreaks={true}
+                  onClick={() => handleItemSlotClick('legs')}
+                  onItemInfoClick={handleShowInfo}
+                  onToggleOptional={handleToggleOptional}
                   tooltipDisabled={itemInfoOpen}
                   unoptimized={isScreenshotMode}
-                  onToggleOptional={handleToggleOptional}
                 />
                 <ItemButton
                   item={buildState.items.gloves}
                   isEditable={isEditable}
-                  onClick={() => handleItemSlotClick('gloves')}
-                  onItemInfoClick={handleShowInfo}
                   isScreenshotMode={isScreenshotMode}
                   manualWordBreaks={true}
+                  onClick={() => handleItemSlotClick('gloves')}
+                  onItemInfoClick={handleShowInfo}
+                  onToggleOptional={handleToggleOptional}
                   tooltipDisabled={itemInfoOpen}
                   unoptimized={isScreenshotMode}
-                  onToggleOptional={handleToggleOptional}
                 />
                 <div
                   id="relic-container"
@@ -657,53 +657,53 @@ export function Builder({
                   <ItemButton
                     item={buildState.items.relic}
                     isEditable={isEditable}
-                    onClick={() => handleItemSlotClick('relic')}
-                    onItemInfoClick={handleShowInfo}
                     isScreenshotMode={isScreenshotMode}
                     manualWordBreaks={true}
+                    onClick={() => handleItemSlotClick('relic')}
+                    onItemInfoClick={handleShowInfo}
+                    onToggleOptional={handleToggleOptional}
                     tooltipDisabled={itemInfoOpen}
                     unoptimized={isScreenshotMode}
-                    onToggleOptional={handleToggleOptional}
                   />
                   <div
                     id="relic-fragment-container"
                     className="absolute left-[66px] top-0 flex w-[160px] flex-col items-start justify-start"
                   >
                     <ItemButton
-                      isEditable={isEditable}
-                      size="sm"
                       item={buildState.items.relicfragment[0]}
-                      onClick={() => handleItemSlotClick('relicfragment', 0)}
-                      onItemInfoClick={handleShowInfo}
+                      isEditable={isEditable}
                       isScreenshotMode={isScreenshotMode}
                       manualWordBreaks={true}
+                      onClick={() => handleItemSlotClick('relicfragment', 0)}
+                      onItemInfoClick={handleShowInfo}
+                      onToggleOptional={handleToggleOptional}
                       tooltipDisabled={itemInfoOpen}
                       unoptimized={isScreenshotMode}
-                      onToggleOptional={handleToggleOptional}
+                      variant="relic-fragment"
                     />
                     <ItemButton
                       item={buildState.items.relicfragment[1]}
                       isEditable={isEditable}
-                      size="sm"
-                      onClick={() => handleItemSlotClick('relicfragment', 1)}
-                      onItemInfoClick={handleShowInfo}
                       isScreenshotMode={isScreenshotMode}
                       manualWordBreaks={true}
+                      onClick={() => handleItemSlotClick('relicfragment', 1)}
+                      onItemInfoClick={handleShowInfo}
+                      onToggleOptional={handleToggleOptional}
                       tooltipDisabled={itemInfoOpen}
                       unoptimized={isScreenshotMode}
-                      onToggleOptional={handleToggleOptional}
+                      variant="relic-fragment"
                     />
                     <ItemButton
                       item={buildState.items.relicfragment[2]}
                       isEditable={isEditable}
-                      size="sm"
-                      onClick={() => handleItemSlotClick('relicfragment', 2)}
-                      onItemInfoClick={handleShowInfo}
                       isScreenshotMode={isScreenshotMode}
                       manualWordBreaks={true}
+                      onClick={() => handleItemSlotClick('relicfragment', 2)}
+                      onItemInfoClick={handleShowInfo}
+                      onToggleOptional={handleToggleOptional}
                       tooltipDisabled={itemInfoOpen}
                       unoptimized={isScreenshotMode}
-                      onToggleOptional={handleToggleOptional}
+                      variant="relic-fragment"
                     />
                   </div>
                 </div>
@@ -721,26 +721,26 @@ export function Builder({
                 <ItemButton
                   item={buildState.items.amulet}
                   isEditable={isEditable}
-                  onClick={() => handleItemSlotClick('amulet')}
-                  onItemInfoClick={handleShowInfo}
                   isScreenshotMode={isScreenshotMode}
                   manualWordBreaks={true}
+                  onClick={() => handleItemSlotClick('amulet')}
+                  onItemInfoClick={handleShowInfo}
+                  onToggleOptional={handleToggleOptional}
                   tooltipDisabled={itemInfoOpen}
                   unoptimized={isScreenshotMode}
-                  onToggleOptional={handleToggleOptional}
                 />
                 {getArrayOfLength(4).map((ringIndex) => (
                   <ItemButton
                     key={`ring-${ringIndex}`}
                     item={buildState.items.ring[ringIndex]}
                     isEditable={isEditable}
-                    onClick={() => handleItemSlotClick('ring', ringIndex)}
-                    onItemInfoClick={handleShowInfo}
                     isScreenshotMode={isScreenshotMode}
                     manualWordBreaks={true}
+                    onClick={() => handleItemSlotClick('ring', ringIndex)}
+                    onItemInfoClick={handleShowInfo}
+                    onToggleOptional={handleToggleOptional}
                     tooltipDisabled={itemInfoOpen}
                     unoptimized={isScreenshotMode}
-                    onToggleOptional={handleToggleOptional}
                   />
                 ))}
               </div>
@@ -768,15 +768,15 @@ export function Builder({
                 >
                   <ItemButton
                     item={buildState.items.weapon[weaponIndex]}
-                    size="wide"
                     isEditable={isEditable}
-                    onClick={() => handleItemSlotClick('weapon', weaponIndex)}
-                    onItemInfoClick={handleShowInfo}
                     isScreenshotMode={isScreenshotMode}
                     manualWordBreaks={true}
+                    onClick={() => handleItemSlotClick('weapon', weaponIndex)}
+                    onItemInfoClick={handleShowInfo}
+                    onToggleOptional={handleToggleOptional}
                     tooltipDisabled={itemInfoOpen}
                     unoptimized={isScreenshotMode}
-                    onToggleOptional={handleToggleOptional}
+                    variant="weapon"
                   />
                   <div className="flex w-full grow items-start justify-around gap-4">
                     {(weaponIndex === 1 &&
@@ -786,8 +786,9 @@ export function Builder({
                     ) : (
                       <ItemButton
                         item={buildState.items.mod[weaponIndex]}
-                        size="md"
                         isEditable={isEditable}
+                        isScreenshotMode={isScreenshotMode}
+                        manualWordBreaks={true}
                         onClick={
                           // if mod is linked to the weapon, don't allow editing
                           (buildState.items.weapon[weaponIndex]?.linkedItems
@@ -800,27 +801,24 @@ export function Builder({
                             : () => handleItemSlotClick('mod', weaponIndex)
                         }
                         onItemInfoClick={handleShowInfo}
-                        isScreenshotMode={isScreenshotMode}
-                        manualWordBreaks={true}
+                        onToggleOptional={handleToggleOptional}
                         tooltipDisabled={itemInfoOpen}
                         unoptimized={isScreenshotMode}
-                        onToggleOptional={handleToggleOptional}
                       />
                     )}
 
                     <ItemButton
                       item={buildState.items.mutator[weaponIndex]}
-                      size="md"
                       isEditable={isEditable}
+                      isScreenshotMode={isScreenshotMode}
+                      manualWordBreaks={true}
                       onClick={() =>
                         handleItemSlotClick('mutator', weaponIndex)
                       }
                       onItemInfoClick={handleShowInfo}
-                      isScreenshotMode={isScreenshotMode}
-                      manualWordBreaks={true}
+                      onToggleOptional={handleToggleOptional}
                       tooltipDisabled={itemInfoOpen}
                       unoptimized={isScreenshotMode}
-                      onToggleOptional={handleToggleOptional}
                     />
                   </div>
                 </div>
@@ -856,13 +854,13 @@ export function Builder({
                   <ItemButton
                     item={buildState.items.concoction[0]}
                     isEditable={isEditable}
-                    onClick={() => handleItemSlotClick('concoction', 0)}
-                    onItemInfoClick={handleShowInfo}
                     isScreenshotMode={isScreenshotMode}
                     manualWordBreaks={true}
+                    onClick={() => handleItemSlotClick('concoction', 0)}
+                    onItemInfoClick={handleShowInfo}
+                    onToggleOptional={handleToggleOptional}
                     tooltipDisabled={itemInfoOpen}
                     unoptimized={isScreenshotMode}
-                    onToggleOptional={handleToggleOptional}
                   />
                   {getArrayOfLength(concoctionSlotCount).map((index) => {
                     // Add 1 to the index because we already rendered the first slot
@@ -872,15 +870,15 @@ export function Builder({
                         key={`concoction-${concoctionIndex}`}
                         item={buildState.items.concoction[concoctionIndex]}
                         isEditable={isEditable}
+                        isScreenshotMode={isScreenshotMode}
+                        manualWordBreaks={true}
                         onClick={() =>
                           handleItemSlotClick('concoction', concoctionIndex)
                         }
                         onItemInfoClick={handleShowInfo}
-                        isScreenshotMode={isScreenshotMode}
-                        manualWordBreaks={true}
+                        onToggleOptional={handleToggleOptional}
                         tooltipDisabled={itemInfoOpen}
                         unoptimized={isScreenshotMode}
-                        onToggleOptional={handleToggleOptional}
                       />
                     )
                   })}
@@ -901,15 +899,15 @@ export function Builder({
                       key={`consumable-${consumableIndex}`}
                       item={buildState.items.consumable[consumableIndex]}
                       isEditable={isEditable}
+                      isScreenshotMode={isScreenshotMode}
+                      manualWordBreaks={true}
                       onClick={() =>
                         handleItemSlotClick('consumable', consumableIndex)
                       }
                       onItemInfoClick={handleShowInfo}
-                      isScreenshotMode={isScreenshotMode}
-                      manualWordBreaks={true}
+                      onToggleOptional={handleToggleOptional}
                       tooltipDisabled={itemInfoOpen}
                       unoptimized={isScreenshotMode}
-                      onToggleOptional={handleToggleOptional}
                     />
                   ))}
                 </div>

@@ -179,9 +179,9 @@ export function ItemSelectDialog({
                     id: '',
                   } as Item
                 }
-                size="lg"
                 onClick={() => onSelectItem(null)}
                 tooltipDisabled={isItemInfoOpen}
+                variant="large"
               />
             </li>
           )}
@@ -189,10 +189,10 @@ export function ItemSelectDialog({
             <li key={item.name} className="min-h-[70px] w-[100px]">
               <ItemButton
                 item={item}
-                size="lg"
                 onClick={() => onSelectItem(item)}
                 onItemInfoClick={() => setInfoItem(item)}
                 tooltipDisabled={isItemInfoOpen}
+                variant="large"
               />
             </li>
           ))}

@@ -816,7 +816,6 @@ export function ItemTagSuggestionDialog({
                     <ItemButton
                       item={suggestion}
                       isEditable={false}
-                      size="md"
                       isToggled={selectedItems.some(
                         (item) => item.id === suggestion.id,
                       )}

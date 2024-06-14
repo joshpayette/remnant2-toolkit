@@ -13,9 +13,9 @@ export function BossTrackerCard({ boss, onClick }: Props) {
         item={boss}
         isEditable={false}
         isToggled={boss.discovered}
-        onClick={() => onClick(boss.id)}
-        size="xl"
         loadingType="lazy"
+        onClick={() => onClick(boss.id)}
+        variant="boss-tracker"
       />
     </div>
   )

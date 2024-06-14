@@ -19,11 +19,11 @@ export function ItemTrackerCard({
       item={item}
       isEditable={false}
       isToggled={item.discovered}
+      loadingType="lazy"
       onClick={() => onClick(item.id)}
       onItemInfoClick={() => onShowItemInfo(item.id)}
-      size="lg"
       tooltipDisabled={tooltipDisabled}
-      loadingType="lazy"
+      variant="large"
     />
   )
 }
