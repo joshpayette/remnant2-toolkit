@@ -40,7 +40,6 @@ export async function parseSaveFile(
   }
   if (saveFile.name.toLowerCase() !== 'profile.sav') {
     const message = 'Invalid file name, should be profile.sav'
-    console.error(message)
     return {
       status: 'error',
       message,
