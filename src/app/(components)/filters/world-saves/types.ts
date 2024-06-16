@@ -27,6 +27,7 @@ export interface WorldSave {
   bossName: BossName
   bossAffixes: BossAffixName[]
   release: ReleaseKey
+  isCursed: boolean | undefined
 }
 
 export type FilteredWorldSave = WorldSave & { imagePath: string }
