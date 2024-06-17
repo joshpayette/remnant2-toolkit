@@ -568,12 +568,6 @@ export const worldSaves = [
   },
   {
     bossName: 'Shrewd',
-    bossAffixes: ['Elemental Resist', 'Thick Skin'],
-    release: 'dlc1',
-    isCursed: undefined,
-  },
-  {
-    bossName: 'Shrewd',
     bossAffixes: ['Hearty', 'Drain'],
     release: 'dlc2',
     isCursed: undefined,
