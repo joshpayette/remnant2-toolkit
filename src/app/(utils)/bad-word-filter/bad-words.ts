@@ -235,7 +235,6 @@ export const badWords = [
   'fistfucking',
   'fistfuckings',
   'fistfucks',
-  'fitt*',
   'flange',
   'Flikker',
   'flipping the bird',

@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-06-19
+
+### Fixed
+
+- Removed `fitt` from bad word list. Not even sure why it was on there honestly.
+- Fixed typo in world save archive instructions.
+
 ## 2024-06-16
 
 ### Fixed
