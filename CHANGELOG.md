@@ -6,6 +6,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2024-06-19
 
+### Changed
+
+- Made improvements to icon sizes and spacing when creating and editing builds.
+  - It is now also less likely for you to accidentally delete a trait due to poorly constructed spacing on my part.
+
 ### Fixed
 
 - Removed `fitt` from bad word list. Not even sure why it was on there honestly.

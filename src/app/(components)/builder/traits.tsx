@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { IoInformationCircleSharp } from 'react-icons/io5'
 import { TbHttpOptions } from 'react-icons/tb'
 
+import { BaseButton } from '@/app/(components)/_base/button'
 import { Tooltip } from '@/app/(components)/tooltip'
 import { ZINDEXES } from '@/app/(components)/z-indexes'
 import {
@@ -182,7 +183,7 @@ export function Traits({
                 'border-secondary-500',
             )}
           >
-            <div className="mr-4 flex items-center text-lg font-bold ">
+            <div className="flex items-center text-lg font-bold ">
               {traitItem.name === editingTraitItem?.name &&
               isEditable &&
               shouldAllowEdit(editingTraitItem) ? (
@@ -224,39 +225,35 @@ export function Traits({
                   className="w-12 border border-primary-500 bg-transparent p-1 text-center"
                 />
               ) : (
-                <button
+                <BaseButton
+                  outline
                   onClick={() => setEditingTraitItem(traitItem)}
                   aria-label="Edit Trait Amount"
                   className={cn(
-                    'min-w-[30px] text-left',
+                    'min-w-[47px] text-left',
                     !isScreenshotMode &&
                       isEditable &&
-                      'border border-dashed border-gray-400 p-1',
+                      'border-dashed border-zinc-500',
                   )}
                 >
                   {traitItem.amount ?? DEFAULT_TRAIT_AMOUNT}
-                </button>
+                </BaseButton>
               )}
             </div>
-            <button
-              className="relative flex items-center justify-start gap-x-2 text-sm"
-              aria-label="Trait Information"
-              onClick={() => onItemInfoClick && onItemInfoClick(traitItem)}
+            <Tooltip
+              content={traitItem.description}
+              trigger="mouseenter"
+              interactive={false}
+              disabled={tooltipDisabled}
             >
-              <div>{traitItem.name}</div>
-              {!isScreenshotMode && onItemInfoClick && (
-                <Tooltip
-                  content={traitItem.description}
-                  trigger="mouseenter"
-                  interactive={false}
-                  disabled={tooltipDisabled}
-                >
-                  <span>
-                    <IoInformationCircleSharp className="h-4 w-4 rounded-full border-transparent bg-black text-accent1-500" />
-                  </span>
-                </Tooltip>
-              )}
-            </button>
+              <button
+                className="relative ml-2 flex min-w-[100px] items-center justify-start text-sm"
+                aria-label="Trait Information"
+                onClick={() => onItemInfoClick && onItemInfoClick(traitItem)}
+              >
+                {traitItem.name}
+              </button>
+            </Tooltip>
             {!isScreenshotMode &&
               isEditable &&
               showControls &&
@@ -267,11 +264,9 @@ export function Traits({
                   interactive={false}
                   disabled={tooltipDisabled}
                 >
-                  <button
-                    className={cn(
-                      'ml-2 rounded-full border-transparent bg-black',
-                      ZINDEXES.ITEM_BUTTON,
-                    )}
+                  <BaseButton
+                    plain
+                    className={cn(ZINDEXES.ITEM_BUTTON)}
                     onClick={() =>
                       onUpdateAmount({
                         ...traitItem,
@@ -280,18 +275,23 @@ export function Traits({
                     }
                     aria-label="Toggle item as optional"
                   >
-                    <TbHttpOptions className="h-4 w-4 text-accent1-500" />
-                  </button>
+                    <TbHttpOptions className="h-5 w-5 text-accent1-500" />
+                  </BaseButton>
                 </Tooltip>
               )}
             {shouldAllowDelete(traitItem) && (
-              <button
-                onClick={() => onRemoveTrait(traitItem)}
-                aria-label="Remove Trait"
-                className="flex grow items-end justify-end text-red-500"
-              >
-                <XCircleIcon className="h-5 w-5" aria-hidden="true" />
-              </button>
+              <div className="flex grow items-end justify-end">
+                <BaseButton
+                  plain
+                  onClick={() => onRemoveTrait(traitItem)}
+                  aria-label="Remove Trait"
+                >
+                  <XCircleIcon
+                    className="h-5 w-5 text-red-500"
+                    aria-hidden="true"
+                  />
+                </BaseButton>
+              </div>
             )}
           </div>
         ))}
